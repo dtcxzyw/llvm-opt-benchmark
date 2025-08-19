@@ -394,8 +394,8 @@ define dso_local i32 @nfs4_handle_exception(ptr noundef %0, i32 noundef %1, ptr 
   store volatile i32 8450, ptr %31, align 8
   %50 = load i64, ptr %24, align 8
   %51 = icmp slt i64 %50, 1
-  %spec.select9 = tail call i64 @llvm.umin.i64(i64 %50, i64 15000)
-  %52 = select i1 %51, i64 100, i64 %spec.select9
+  %spec.select12 = tail call i64 @llvm.umin.i64(i64 %50, i64 15000)
+  %52 = select i1 %51, i64 100, i64 %spec.select12
   %53 = shl nuw nsw i64 %52, 1
   store i64 %53, ptr %24, align 8
   %54 = tail call i64 @schedule_timeout(i64 noundef %52) #22
@@ -1396,7 +1396,7 @@ select.unfold:                                    ; preds = %66
 
 119:                                              ; preds = %116, %112
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  switch i32 %14, label %default.unreachable5 [
+  switch i32 %14, label %default.unreachable8 [
     i32 1, label %120
     i32 2, label %121
     i32 3, label %122
@@ -1415,7 +1415,7 @@ select.unfold:                                    ; preds = %66
   call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %30, i32 32, ptr nonnull elementtype(i8) %30) #22, !srcloc !25
   br label %123
 
-default.unreachable5:                             ; preds = %171, %119
+default.unreachable8:                             ; preds = %171, %119
   unreachable
 
 123:                                              ; preds = %119, %122, %121, %120
@@ -1503,7 +1503,7 @@ default.unreachable5:                             ; preds = %171, %119
   br i1 %170, label %188, label %171
 
 171:                                              ; preds = %168
-  switch i32 %14, label %default.unreachable5 [
+  switch i32 %14, label %default.unreachable8 [
     i32 2, label %172
     i32 1, label %176
     i32 3, label %180
@@ -1716,7 +1716,7 @@ define internal fastcc i32 @nfs4_open_recover_helper(ptr noundef %0, i32 noundef
   %10 = load i32, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 888
   %12 = load ptr, ptr %11, align 8
-  switch i32 %1, label %default.unreachable6 [
+  switch i32 %1, label %default.unreachable8 [
     i32 3, label %15
     i32 2, label %13
     i32 1, label %14
@@ -1728,7 +1728,7 @@ define internal fastcc i32 @nfs4_open_recover_helper(ptr noundef %0, i32 noundef
 14:                                               ; preds = %2
   br label %15
 
-default.unreachable6:                             ; preds = %2
+default.unreachable8:                             ; preds = %2
   unreachable
 
 15:                                               ; preds = %2, %14, %13
@@ -2402,9 +2402,9 @@ define dso_local i32 @nfs4_server_capabilities(ptr noundef %0, ptr noundef %1) #
   br i1 %.not, label %128, label %124
 
 124:                                              ; preds = %119
-  %.not12 = icmp eq i32 %121, 0
+  %.not13 = icmp eq i32 %121, 0
   %125 = or i32 %120, 128
-  %126 = select i1 %.not12, i32 %120, i32 %125
+  %126 = select i1 %.not13, i32 %120, i32 %125
   %127 = shl nuw nsw i32 %122, 6
   %simplifycfg.merge = or i32 %126, %127
   store i32 %simplifycfg.merge, ptr %18, align 4
@@ -2423,43 +2423,43 @@ define dso_local i32 @nfs4_server_capabilities(ptr noundef %0, ptr noundef %1) #
   %133 = phi i32 [ 33715839, %131 ], [ 33717887, %128 ]
   %134 = load i32, ptr %29, align 4
   %135 = and i32 %134, 3186746
-  %.not27 = icmp eq i32 %135, 3186746
-  br i1 %.not27, label %155, label %136
+  %.not28 = icmp eq i32 %135, 3186746
+  br i1 %.not28, label %155, label %136
 
 136:                                              ; preds = %132
   %137 = and i32 %134, 2097152
-  %.not26 = icmp eq i32 %137, 0
+  %.not27 = icmp eq i32 %137, 0
   %138 = and i32 %134, 1048576
-  %.not24 = icmp eq i32 %138, 0
+  %.not25 = icmp eq i32 %138, 0
   %139 = and i32 %134, 32768
-  %.not22 = icmp eq i32 %139, 0
+  %.not23 = icmp eq i32 %139, 0
   %140 = and i32 %134, 8192
-  %.not20 = icmp eq i32 %140, 0
+  %.not21 = icmp eq i32 %140, 0
   %141 = and i32 %134, 32
-  %.not18 = icmp eq i32 %141, 0
+  %.not19 = icmp eq i32 %141, 0
   %142 = and i32 %134, 16
-  %.not16 = icmp eq i32 %142, 0
+  %.not17 = icmp eq i32 %142, 0
   %143 = and i32 %134, 8
-  %.not14 = icmp eq i32 %143, 0
+  %.not15 = icmp eq i32 %143, 0
   %144 = and i32 %134, 2
-  %.not13 = icmp eq i32 %144, 0
+  %.not14 = icmp eq i32 %144, 0
   %145 = and i32 %133, 33717885
-  %146 = select i1 %.not13, i32 %145, i32 %133
+  %146 = select i1 %.not14, i32 %145, i32 %133
   %147 = and i32 %146, 33717883
-  %148 = select i1 %.not14, i32 %147, i32 %146
+  %148 = select i1 %.not15, i32 %147, i32 %146
   %149 = and i32 %148, 33717879
-  %spec.select = select i1 %.not16, i32 %149, i32 %148
+  %spec.select = select i1 %.not17, i32 %149, i32 %148
   %150 = and i32 %spec.select, 33717871
-  %spec.select5 = select i1 %.not18, i32 %150, i32 %spec.select
-  %151 = and i32 %spec.select5, -513
-  %spec.select6 = select i1 %.not20, i32 %151, i32 %spec.select5
-  %152 = and i32 %spec.select6, -4097
-  %spec.select7 = select i1 %.not22, i32 %152, i32 %spec.select6
-  %153 = and i32 %spec.select7, -16385
-  %spec.select8 = select i1 %.not24, i32 %153, i32 %spec.select7
-  %154 = and i32 %spec.select8, -8193
-  %spec.select10 = select i1 %.not26, i32 %154, i32 %spec.select8
-  store i32 %spec.select10, ptr %32, align 8
+  %spec.select6 = select i1 %.not19, i32 %150, i32 %spec.select
+  %151 = and i32 %spec.select6, -513
+  %spec.select7 = select i1 %.not21, i32 %151, i32 %spec.select6
+  %152 = and i32 %spec.select7, -4097
+  %spec.select8 = select i1 %.not23, i32 %152, i32 %spec.select7
+  %153 = and i32 %spec.select8, -16385
+  %spec.select9 = select i1 %.not25, i32 %153, i32 %spec.select8
+  %154 = and i32 %spec.select9, -8193
+  %spec.select11 = select i1 %.not27, i32 %154, i32 %spec.select9
+  store i32 %spec.select11, ptr %32, align 8
   br label %155
 
 155:                                              ; preds = %132, %136
@@ -2498,12 +2498,12 @@ define dso_local i32 @nfs4_server_capabilities(ptr noundef %0, ptr noundef %1) #
   br label %.split
 
 .split:                                           ; preds = %76, %.split2
-  %.sink11 = phi i32 [ 0, %.split2 ], [ %77, %76 ]
+  %.sink12 = phi i32 [ 0, %.split2 ], [ %77, %76 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %173 = call i32 @nfs4_handle_exception(ptr noundef %0, i32 noundef %.sink11, ptr noundef nonnull %9)
+  %173 = call i32 @nfs4_handle_exception(ptr noundef %0, i32 noundef %.sink12, ptr noundef nonnull %9)
   %174 = load i8, ptr %48, align 2
   %175 = and i8 %174, 8
   %176 = icmp eq i8 %175, 0
@@ -3019,18 +3019,18 @@ define dso_local i32 @nfs4_proc_getattr(ptr noundef %0, ptr noundef %1, ptr noun
 
 condstore.split:                                  ; preds = %56, %53
   %59 = and i64 %45, 135168
-  %.not4 = icmp eq i64 %59, 135168
-  br i1 %.not4, label %66, label %60
+  %.not6 = icmp eq i64 %59, 135168
+  br i1 %.not6, label %66, label %60
 
 60:                                               ; preds = %condstore.split
   %61 = and i64 %45, 4096
-  %.not3 = icmp eq i64 %61, 0
+  %.not5 = icmp eq i64 %61, 0
   %62 = and i64 %45, 131072
   %.not = icmp eq i64 %62, 0
   %63 = and i32 %46, -515
   %64 = select i1 %.not, i32 %63, i32 %47
   %65 = and i32 %64, -561
-  %simplifycfg.merge = select i1 %.not3, i32 %65, i32 %64
+  %simplifycfg.merge = select i1 %.not5, i32 %65, i32 %64
   store i32 %simplifycfg.merge, ptr %24, align 4
   br label %66
 
@@ -3214,7 +3214,7 @@ define internal fastcc i32 @nfs4_proc_lookup_common(ptr noundef captures(none) %
   br label %.outer
 
 .outer:                                           ; preds = %162, %5
-  %.ph37 = phi ptr [ %150, %162 ], [ %13, %5 ]
+  %.ph46 = phi ptr [ %150, %162 ], [ %13, %5 ]
   br label %38
 
 38:                                               ; preds = %.outer, %155
@@ -3283,7 +3283,7 @@ define internal fastcc i32 @nfs4_proc_lookup_common(ptr noundef captures(none) %
   store ptr %9, ptr %30, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %7, i8 0, i64 72, i1 false)
-  store ptr %.ph37, ptr %31, align 8
+  store ptr %.ph46, ptr %31, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %32, i8 0, i64 16, i1 false)
   store ptr %10, ptr %33, align 8
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 664
@@ -3377,7 +3377,7 @@ define internal fastcc i32 @nfs4_proc_lookup_common(ptr noundef captures(none) %
 
 109:                                              ; preds = %106
   store ptr %4, ptr %107, align 4096
-  %110 = call i32 @nfs4_proc_fs_locations(ptr noundef %.ph37, ptr noundef %1, ptr noundef nonnull %14, ptr noundef nonnull %107, ptr noundef nonnull %104)
+  %110 = call i32 @nfs4_proc_fs_locations(ptr noundef %.ph46, ptr noundef %1, ptr noundef nonnull %14, ptr noundef nonnull %107, ptr noundef nonnull %104)
   %111 = icmp eq i32 %110, 0
   br i1 %111, label %112, label %139
 
@@ -3438,11 +3438,11 @@ define internal fastcc i32 @nfs4_proc_lookup_common(ptr noundef captures(none) %
 
 146:                                              ; preds = %102
   %147 = load ptr, ptr %0, align 8
-  %148 = icmp eq ptr %.ph37, %147
+  %148 = icmp eq ptr %.ph46, %147
   br i1 %148, label %149, label %.thread21
 
 149:                                              ; preds = %146
-  %150 = call ptr @nfs4_negotiate_security(ptr noundef %.ph37, ptr noundef %1, ptr noundef nonnull %14) #22
+  %150 = call ptr @nfs4_negotiate_security(ptr noundef %.ph46, ptr noundef %1, ptr noundef nonnull %14) #22
   %151 = icmp ugt ptr %150, inttoptr (i64 -4096 to ptr)
   br i1 %151, label %152, label %162
 
@@ -3473,17 +3473,17 @@ define internal fastcc i32 @nfs4_proc_lookup_common(ptr noundef captures(none) %
   br i1 %166, label %167, label %.thread21
 
 167:                                              ; preds = %.loopexit
-  store ptr %.ph37, ptr %0, align 8
+  store ptr %.ph46, ptr %0, align 8
   br label %172
 
 .thread21:                                        ; preds = %146, %102, %.thread18, %.loopexit
   %168 = phi i32 [ %165, %.loopexit ], [ -12, %.thread18 ], [ -2, %102 ], [ -1, %146 ]
   %169 = load ptr, ptr %0, align 8
-  %170 = icmp eq ptr %.ph37, %169
+  %170 = icmp eq ptr %.ph46, %169
   br i1 %170, label %172, label %171
 
 171:                                              ; preds = %.thread21
-  call void @rpc_shutdown_client(ptr noundef %.ph37) #22
+  call void @rpc_shutdown_client(ptr noundef %.ph46) #22
   br label %172
 
 172:                                              ; preds = %171, %.thread21, %167, %152
@@ -6625,18 +6625,18 @@ define internal i32 @nfs4_proc_link(ptr noundef %0, ptr noundef %1, ptr noundef 
 
 condstore.split:                                  ; preds = %58, %52
   %61 = and i64 %53, 135168
-  %.not7 = icmp eq i64 %61, 135168
-  br i1 %.not7, label %68, label %62
+  %.not10 = icmp eq i64 %61, 135168
+  br i1 %.not10, label %68, label %62
 
 62:                                               ; preds = %condstore.split
   %63 = and i64 %53, 4096
-  %.not6 = icmp eq i64 %63, 0
+  %.not9 = icmp eq i64 %63, 0
   %64 = and i64 %53, 131072
   %.not = icmp eq i64 %64, 0
   %65 = and i32 %54, -515
   %66 = select i1 %.not, i32 %65, i32 %55
   %67 = and i32 %66, -561
-  %simplifycfg.merge = select i1 %.not6, i32 %67, i32 %66
+  %simplifycfg.merge = select i1 %.not9, i32 %67, i32 %66
   store i32 %simplifycfg.merge, ptr %26, align 4
   br label %68
 
@@ -9582,7 +9582,7 @@ define internal void @nfs4_open_prepare(ptr noundef %0, ptr noundef %1) #0 align
 
 26:                                               ; preds = %25
   %27 = and i32 %20, 3
-  switch i32 %27, label %default.unreachable5 [
+  switch i32 %27, label %default.unreachable8 [
     i32 1, label %28
     i32 2, label %33
     i32 3, label %38
@@ -9617,7 +9617,7 @@ define internal void @nfs4_open_prepare(ptr noundef %0, ptr noundef %1) #0 align
   %47 = icmp eq i32 %46, 0
   br i1 %47, label %48, label %122
 
-default.unreachable5:                             ; preds = %26
+default.unreachable8:                             ; preds = %26
   unreachable
 
 48:                                               ; preds = %26, %43, %38, %33, %28, %25, %25, %18
@@ -10268,7 +10268,7 @@ define internal fastcc ptr @nfs4_try_open_cached(ptr noundef readonly captures(n
   ]
 
 27:                                               ; preds = %26
-  switch i32 %14, label %default.unreachable4 [
+  switch i32 %14, label %default.unreachable7 [
     i32 1, label %28
     i32 2, label %32
     i32 3, label %36
@@ -10334,7 +10334,7 @@ define internal fastcc ptr @nfs4_try_open_cached(ptr noundef readonly captures(n
   call void @_raw_spin_unlock(ptr noundef nonnull %59) #22
   br label %.loopexit
 
-default.unreachable4:                             ; preds = %27
+default.unreachable7:                             ; preds = %27
   unreachable
 
 60:                                               ; preds = %27, %40, %36, %32, %28, %26, %26, %23
@@ -11052,7 +11052,7 @@ define internal void @nfs4_close_done(ptr noundef %0, ptr noundef %1) #0 align 1
 110:                                              ; preds = %105
   call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andb ${1:b},$0", "=*m,iq,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %101, i32 -33, ptr nonnull elementtype(i8) %101) #22, !srcloc !29
   %111 = and i32 %96, 3
-  switch i32 %111, label %default.unreachable5 [
+  switch i32 %111, label %default.unreachable9 [
     i32 2, label %112
     i32 1, label %113
     i32 0, label %114
@@ -11073,7 +11073,7 @@ define internal void @nfs4_close_done(ptr noundef %0, ptr noundef %1) #0 align 1
   call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andb ${1:b},$0", "=*m,iq,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %101, i32 -5, ptr nonnull elementtype(i8) %101) #22, !srcloc !29
   br label %115
 
-default.unreachable5:                             ; preds = %110
+default.unreachable9:                             ; preds = %110
   unreachable
 
 115:                                              ; preds = %110, %114, %113, %112
@@ -11106,7 +11106,7 @@ default.unreachable5:                             ; preds = %110
   %134 = getelementptr inbounds nuw i8, ptr %6, i64 124
   %135 = load i32, ptr %134, align 4
   %136 = icmp eq i32 %135, 0
-  br i1 %136, label %137, label %.thread6
+  br i1 %136, label %137, label %.thread10
 
 137:                                              ; preds = %133
   %138 = getelementptr inbounds nuw i8, ptr %6, i64 132
@@ -11119,13 +11119,13 @@ default.unreachable5:                             ; preds = %110
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %6, i64 124
   %.pre4 = load i32, ptr %.phi.trans.insert, align 4
   %142 = icmp eq i32 %.pre4, 0
-  br i1 %142, label %.thread, label %.thread6
+  br i1 %142, label %.thread, label %.thread10
 
-.thread6:                                         ; preds = %133, %141
+.thread10:                                        ; preds = %133, %141
   call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %101, i32 8, ptr nonnull elementtype(i8) %101) #22, !srcloc !25
   br label %.thread
 
-.thread:                                          ; preds = %137, %.thread6, %141
+.thread:                                          ; preds = %137, %.thread10, %141
   %143 = getelementptr inbounds nuw i8, ptr %6, i64 132
   %144 = load i32, ptr %143, align 4
   %145 = icmp eq i32 %144, 0
@@ -14596,18 +14596,18 @@ define internal fastcc i32 @nfs4_do_setattr(ptr noundef %0, ptr noundef %1, ptr 
 
 condstore.split:                                  ; preds = %80, %73
   %83 = and i64 %75, 135168
-  %.not12 = icmp eq i64 %83, 135168
-  br i1 %.not12, label %90, label %84
+  %.not22 = icmp eq i64 %83, 135168
+  br i1 %.not22, label %90, label %84
 
 84:                                               ; preds = %condstore.split
   %85 = and i64 %75, 4096
-  %.not11 = icmp eq i64 %85, 0
+  %.not21 = icmp eq i64 %85, 0
   %86 = and i64 %75, 131072
   %.not = icmp eq i64 %86, 0
   %87 = and i32 %76, -515
   %88 = select i1 %.not, i32 %87, i32 %77
   %89 = and i32 %88, -561
-  %simplifycfg.merge = select i1 %.not11, i32 %89, i32 %88
+  %simplifycfg.merge = select i1 %.not21, i32 %89, i32 %88
   store i32 %simplifycfg.merge, ptr %50, align 4
   br label %90
 
@@ -15090,7 +15090,7 @@ define internal fastcc ptr @nfs4_do_open(ptr noundef readonly captures(none) %0,
 127:                                              ; preds = %121
   %128 = and i32 %124, 128
   %129 = icmp eq i32 %128, 0
-  br i1 %129, label %130, label %.thread30
+  br i1 %129, label %130, label %.thread46
 
 130:                                              ; preds = %127
   %131 = getelementptr inbounds nuw i8, ptr %70, i64 360
@@ -15098,9 +15098,9 @@ define internal fastcc ptr @nfs4_do_open(ptr noundef readonly captures(none) %0,
   %133 = getelementptr inbounds nuw i8, ptr %70, i64 368
   %134 = load i64, ptr %133, align 8
   %135 = icmp eq i64 %132, %134
-  br i1 %135, label %137, label %.thread30
+  br i1 %135, label %137, label %.thread46
 
-.thread30:                                        ; preds = %127, %130
+.thread46:                                        ; preds = %127, %130
   %136 = getelementptr inbounds nuw i8, ptr %70, i64 993
   store i8 1, ptr %136, align 1
   br label %145
@@ -15119,7 +15119,7 @@ define internal fastcc ptr @nfs4_do_open(ptr noundef readonly captures(none) %0,
   %144 = icmp eq i64 %141, %143
   br i1 %144, label %152, label %145
 
-145:                                              ; preds = %.thread30, %139, %137
+145:                                              ; preds = %.thread46, %139, %137
   %146 = getelementptr inbounds nuw i8, ptr %70, i64 352
   %147 = getelementptr inbounds nuw i8, ptr %70, i64 384
   %148 = load ptr, ptr %147, align 8
@@ -15624,7 +15624,7 @@ select.unfold:                                    ; preds = %283, %259
 
 432:                                              ; preds = %429, %425, %412, %409
   switch i32 %410, label %450 [
-    i32 0, label %.split.loop.exit31
+    i32 0, label %.split.loop.exit47
     i32 -10026, label %433
     i32 -10025, label %.backedge.sink.split
     i32 -10011, label %444
@@ -15682,9 +15682,9 @@ select.unfold:                                    ; preds = %283, %259
 .split.loop.exit:                                 ; preds = %450
   %458 = sext i32 %451 to i64
   %459 = inttoptr i64 %458 to ptr
-  br label %.split.loop.exit31
+  br label %.split.loop.exit47
 
-.split.loop.exit31:                               ; preds = %432, %.split.loop.exit
+.split.loop.exit47:                               ; preds = %432, %.split.loop.exit
   %460 = phi ptr [ %459, %.split.loop.exit ], [ %411, %432 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -16463,8 +16463,8 @@ define internal fastcc i32 @nfs4_retry_setlk(ptr noundef nonnull %0, i32 noundef
   store volatile i32 8450, ptr %16, align 8
   %100 = load i64, ptr %21, align 8
   %101 = icmp slt i64 %100, 1
-  %spec.select9.i = tail call i64 @llvm.umin.i64(i64 %100, i64 15000)
-  %102 = select i1 %101, i64 100, i64 %spec.select9.i
+  %spec.select12.i = tail call i64 @llvm.umin.i64(i64 %100, i64 15000)
+  %102 = select i1 %101, i64 100, i64 %spec.select12.i
   %103 = shl nuw nsw i64 %102, 1
   store i64 %103, ptr %21, align 8
   %104 = tail call i64 @schedule_timeout(i64 noundef %102) #22

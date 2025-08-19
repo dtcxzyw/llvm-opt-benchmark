@@ -7673,7 +7673,7 @@ define hidden noundef zeroext i1 @"_ZN65_$LT$serde_json..value..Value$u20$as$u20
   br i1 %5, label %6, label %"_ZN62_$LT$serde_json..number..N$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc30b391a0237dc7dE.exit"
 
 6:                                                ; preds = %2
-  switch i8 %3, label %default.unreachable5 [
+  switch i8 %3, label %default.unreachable6 [
     i8 1, label %7
     i8 2, label %13
     i8 3, label %33
@@ -7686,7 +7686,7 @@ define hidden noundef zeroext i1 @"_ZN65_$LT$serde_json..value..Value$u20$as$u20
   %.sroa.0.0.shrunk = phi i1 [ %12, %7 ], [ %49, %40 ], [ %53, %50 ], [ false, %2 ], [ true, %6 ], [ %24, %21 ], [ %28, %25 ], [ %32, %29 ], [ false, %13 ], [ %39, %36 ], [ false, %33 ]
   ret i1 %.sroa.0.0.shrunk
 
-default.unreachable5:                             ; preds = %18, %6
+default.unreachable6:                             ; preds = %18, %6
   unreachable
 
 7:                                                ; preds = %6
@@ -7710,7 +7710,7 @@ default.unreachable5:                             ; preds = %18, %6
 18:                                               ; preds = %13
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  switch i64 %16, label %default.unreachable5 [
+  switch i64 %16, label %default.unreachable6 [
     i64 0, label %21
     i64 1, label %25
     i64 2, label %29

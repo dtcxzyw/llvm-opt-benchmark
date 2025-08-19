@@ -274,7 +274,7 @@ define dso_local zeroext i1 @drm_edid_block_valid(ptr noundef %0, i32 noundef %1
   br label %.thread13
 
 8:                                                ; preds = %4
-  br i1 %5, label %.preheader14, label %.preheader27
+  br i1 %5, label %.preheader14, label %.preheader30
 
 .preheader14:                                     ; preds = %8, %.preheader14
   %9 = phi i64 [ %18, %.preheader14 ], [ 0, %8 ]
@@ -305,14 +305,14 @@ define dso_local zeroext i1 @drm_edid_block_valid(ptr noundef %0, i32 noundef %1
 
 28:                                               ; preds = %20
   %29 = icmp samesign ugt i32 %17, 7
-  br i1 %29, label %.preheader27, label %53
+  br i1 %29, label %.preheader30, label %53
 
-.preheader27:                                     ; preds = %28, %8
+.preheader30:                                     ; preds = %28, %8
   br label %30
 
-30:                                               ; preds = %.preheader27, %30
-  %31 = phi i64 [ %36, %30 ], [ 0, %.preheader27 ]
-  %32 = phi i8 [ %35, %30 ], [ 0, %.preheader27 ]
+30:                                               ; preds = %.preheader30, %30
+  %31 = phi i64 [ %36, %30 ], [ 0, %.preheader30 ]
+  %32 = phi i8 [ %35, %30 ], [ 0, %.preheader30 ]
   %33 = getelementptr i8, ptr %0, i64 %31
   %34 = load i8, ptr %33, align 1
   %35 = add i8 %34, %32
@@ -796,7 +796,7 @@ define dso_local noundef zeroext i1 @drm_edid_valid(ptr noundef readonly capture
   br i1 %87, label %.thread12, label %88
 
 88:                                               ; preds = %84
-  br i1 %86, label %.preheader.i, label %.preheader32
+  br i1 %86, label %.preheader.i, label %.preheader38
 
 .preheader.i:                                     ; preds = %88, %.preheader.i
   %89 = phi i64 [ %98, %.preheader.i ], [ 0, %88 ]
@@ -825,14 +825,14 @@ define dso_local noundef zeroext i1 @drm_edid_valid(ptr noundef readonly capture
 
 106:                                              ; preds = %100
   %107 = icmp samesign ugt i32 %97, 7
-  br i1 %107, label %.preheader32, label %.thread12
+  br i1 %107, label %.preheader38, label %.thread12
 
-.preheader32:                                     ; preds = %106, %88
+.preheader38:                                     ; preds = %106, %88
   br label %108
 
-108:                                              ; preds = %.preheader32, %108
-  %109 = phi i64 [ %114, %108 ], [ 0, %.preheader32 ]
-  %110 = phi i8 [ %113, %108 ], [ 0, %.preheader32 ]
+108:                                              ; preds = %.preheader38, %108
+  %109 = phi i64 [ %114, %108 ], [ 0, %.preheader38 ]
+  %110 = phi i8 [ %113, %108 ], [ 0, %.preheader38 ]
   %111 = getelementptr i8, ptr %85, i64 %109
   %112 = load i8, ptr %111, align 1
   %113 = add i8 %112, %110
@@ -1856,9 +1856,9 @@ select.unfold53:                                  ; preds = %95, %.thread20, %59
   br label %select.unfold46
 
 .sink.split:                                      ; preds = %98, %62
-  %.sink138 = phi i32 [ 0, %62 ], [ 6, %98 ]
+  %.sink155 = phi i32 [ 0, %62 ], [ 6, %98 ]
   %.sink = phi i8 [ 0, %62 ], [ 1, %98 ]
-  tail call fastcc void @edid_block_status_print(i32 noundef %.sink138, ptr noundef nonnull %17, i32 noundef 0)
+  tail call fastcc void @edid_block_status_print(i32 noundef %.sink155, ptr noundef nonnull %17, i32 noundef 0)
   %157 = getelementptr inbounds nuw i8, ptr %0, i64 1888
   store i8 %.sink, ptr %157, align 8
   br label %158
@@ -3411,7 +3411,7 @@ define dso_local noundef ptr @drm_find_edid_extension(ptr noundef readonly captu
   %11 = add nuw nsw i32 %10, 1
   %12 = load i64, ptr %0, align 8
   %13 = icmp ult i64 %12, 256
-  br i1 %13, label %.thread124, label %14
+  br i1 %13, label %.thread143, label %14
 
 14:                                               ; preds = %5
   %15 = icmp eq i8 %9, 0
@@ -3472,11 +3472,11 @@ define dso_local noundef ptr @drm_find_edid_extension(ptr noundef readonly captu
   %52 = icmp eq i32 %51, 1
   br i1 %52, label %226, label %.split
 
-.thread124:                                       ; preds = %5
+.thread143:                                       ; preds = %5
   %.cmp = icmp ugt i64 %12, 127
-  br i1 %.cmp, label %226, label %.thread125
+  br i1 %.cmp, label %226, label %.thread144
 
-.thread125:                                       ; preds = %.thread124
+.thread144:                                       ; preds = %.thread143
   %53 = load i32, ptr %2, align 4
   %54 = icmp eq i8 %9, 0
   %55 = getelementptr i8, ptr %7, i64 128
@@ -3488,7 +3488,7 @@ define dso_local noundef ptr @drm_find_edid_extension(ptr noundef readonly captu
   %61 = icmp slt i32 %53, -1
   br i1 %61, label %.lr.ph69.preheader, label %.split18.us.thread
 
-.lr.ph69.preheader:                               ; preds = %.thread125
+.lr.ph69.preheader:                               ; preds = %.thread144
   %62 = sext i32 %53 to i64
   br label %.lr.ph69
 
@@ -3653,20 +3653,20 @@ define dso_local noundef ptr @drm_find_edid_extension(ptr noundef readonly captu
   %144 = add nsw i32 %143, -1
   %145 = sext i32 %144 to i64
   %146 = icmp slt i32 %63, %144
-  br i1 %146, label %.lr.ph206, label %.split18.us
+  br i1 %146, label %.lr.ph225, label %.split18.us
 
-.thread9.us23.us40:                               ; preds = %.lr.ph206
+.thread9.us23.us40:                               ; preds = %.lr.ph225
   %147 = icmp slt i64 %149, %145
-  br i1 %147, label %.lr.ph206, label %.split18.us, !llvm.loop !47
+  br i1 %147, label %.lr.ph225, label %.split18.us, !llvm.loop !47
 
-.lr.ph206:                                        ; preds = %.split.split.split.us.split.split.split.split.us, %.thread9.us23.us40
+.lr.ph225:                                        ; preds = %.split.split.split.us.split.split.split.split.us, %.thread9.us23.us40
   %148 = phi i64 [ %149, %.thread9.us23.us40 ], [ %70, %.split.split.split.us.split.split.split.split.us ]
   %149 = add nsw i64 %148, 1
   %150 = getelementptr %struct.edid, ptr %7, i64 %149
   %151 = load i8, ptr %150, align 1
   %152 = zext i8 %151 to i32
   %153 = icmp eq i32 %1, %152
-  br i1 %153, label %..split18.us.loopexit175_crit_edge, label %.thread9.us23.us40, !llvm.loop !47
+  br i1 %153, label %..split18.us.loopexit194_crit_edge, label %.thread9.us23.us40, !llvm.loop !47
 
 .split.split.split.us.split.split.split.split:    ; preds = %.split.split.split.us.split.split.split
   %154 = tail call i32 @llvm.smin.i32(i32 %11, i32 %50)
@@ -3714,20 +3714,20 @@ define dso_local noundef ptr @drm_find_edid_extension(ptr noundef readonly captu
 ..split18.split.split_crit_edge:                  ; preds = %.lr.ph
   br label %.split18.us, !llvm.loop !47
 
-..split18.us.loopexit175_crit_edge:               ; preds = %.lr.ph206
+..split18.us.loopexit194_crit_edge:               ; preds = %.lr.ph225
   br label %.split18.us, !llvm.loop !47
 
-.split18.us:                                      ; preds = %.thread9, %.thread9.us23, %.thread9.us23.us40, %.thread9.us23.us36, %.thread9.us23.us32, %.thread9.us23.us, %.thread9.us, %72, %.split.split.split.us.split.split.split.split.us, %..split18.us.loopexit175_crit_edge, %..split18.split.us_crit_edge, %..split18.split.split_crit_edge, %..split18.split.split.us.split.us_crit_edge, %..split18.split.split.us.split.split.split.us_crit_edge, %..split18.split.split.us.split.split.split.split_crit_edge, %..split18.split.split.us.split.split.us_crit_edge, %..split18.us_crit_edge
-  %176 = phi ptr [ %60, %..split18.us_crit_edge ], [ %69, %..split18.split.us_crit_edge ], [ %69, %..split18.split.split.us.split.us_crit_edge ], [ %69, %..split18.split.split.us.split.split.us_crit_edge ], [ %69, %..split18.split.split.us.split.split.split.us_crit_edge ], [ %69, %..split18.split.split.us.split.split.split.split_crit_edge ], [ %69, %..split18.split.split_crit_edge ], [ %69, %..split18.us.loopexit175_crit_edge ], [ %69, %.split.split.split.us.split.split.split.split.us ], [ %60, %72 ], [ %69, %.thread9.us ], [ %69, %.thread9.us23.us ], [ %69, %.thread9.us23.us32 ], [ %69, %.thread9.us23.us36 ], [ %69, %.thread9.us23.us40 ], [ %69, %.thread9.us23 ], [ %69, %.thread9 ]
-  %177 = phi ptr [ %59, %..split18.us_crit_edge ], [ %68, %..split18.split.us_crit_edge ], [ %68, %..split18.split.split.us.split.us_crit_edge ], [ %68, %..split18.split.split.us.split.split.us_crit_edge ], [ %68, %..split18.split.split.us.split.split.split.us_crit_edge ], [ %68, %..split18.split.split.us.split.split.split.split_crit_edge ], [ %68, %..split18.split.split_crit_edge ], [ %68, %..split18.us.loopexit175_crit_edge ], [ %68, %.split.split.split.us.split.split.split.split.us ], [ %59, %72 ], [ %68, %.thread9.us ], [ %68, %.thread9.us23.us ], [ %68, %.thread9.us23.us32 ], [ %68, %.thread9.us23.us36 ], [ %68, %.thread9.us23.us40 ], [ %68, %.thread9.us23 ], [ %68, %.thread9 ]
-  %178 = phi ptr [ %58, %..split18.us_crit_edge ], [ %67, %..split18.split.us_crit_edge ], [ %67, %..split18.split.split.us.split.us_crit_edge ], [ %67, %..split18.split.split.us.split.split.us_crit_edge ], [ %67, %..split18.split.split.us.split.split.split.us_crit_edge ], [ %67, %..split18.split.split.us.split.split.split.split_crit_edge ], [ %67, %..split18.split.split_crit_edge ], [ %67, %..split18.us.loopexit175_crit_edge ], [ %67, %.split.split.split.us.split.split.split.split.us ], [ %58, %72 ], [ %67, %.thread9.us ], [ %67, %.thread9.us23.us ], [ %67, %.thread9.us23.us32 ], [ %67, %.thread9.us23.us36 ], [ %67, %.thread9.us23.us40 ], [ %67, %.thread9.us23 ], [ %67, %.thread9 ]
-  %179 = phi ptr [ %57, %..split18.us_crit_edge ], [ %66, %..split18.split.us_crit_edge ], [ %66, %..split18.split.split.us.split.us_crit_edge ], [ %66, %..split18.split.split.us.split.split.us_crit_edge ], [ %66, %..split18.split.split.us.split.split.split.us_crit_edge ], [ %66, %..split18.split.split.us.split.split.split.split_crit_edge ], [ %66, %..split18.split.split_crit_edge ], [ %66, %..split18.us.loopexit175_crit_edge ], [ %66, %.split.split.split.us.split.split.split.split.us ], [ %57, %72 ], [ %66, %.thread9.us ], [ %66, %.thread9.us23.us ], [ %66, %.thread9.us23.us32 ], [ %66, %.thread9.us23.us36 ], [ %66, %.thread9.us23.us40 ], [ %66, %.thread9.us23 ], [ %66, %.thread9 ]
-  %180 = phi ptr [ %56, %..split18.us_crit_edge ], [ %65, %..split18.split.us_crit_edge ], [ %65, %..split18.split.split.us.split.us_crit_edge ], [ %65, %..split18.split.split.us.split.split.us_crit_edge ], [ %65, %..split18.split.split.us.split.split.split.us_crit_edge ], [ %65, %..split18.split.split.us.split.split.split.split_crit_edge ], [ %65, %..split18.split.split_crit_edge ], [ %65, %..split18.us.loopexit175_crit_edge ], [ %65, %.split.split.split.us.split.split.split.split.us ], [ %56, %72 ], [ %65, %.thread9.us ], [ %65, %.thread9.us23.us ], [ %65, %.thread9.us23.us32 ], [ %65, %.thread9.us23.us36 ], [ %65, %.thread9.us23.us40 ], [ %65, %.thread9.us23 ], [ %65, %.thread9 ]
-  %181 = phi ptr [ %55, %..split18.us_crit_edge ], [ %64, %..split18.split.us_crit_edge ], [ %64, %..split18.split.split.us.split.us_crit_edge ], [ %64, %..split18.split.split.us.split.split.us_crit_edge ], [ %64, %..split18.split.split.us.split.split.split.us_crit_edge ], [ %64, %..split18.split.split.us.split.split.split.split_crit_edge ], [ %64, %..split18.split.split_crit_edge ], [ %64, %..split18.us.loopexit175_crit_edge ], [ %64, %.split.split.split.us.split.split.split.split.us ], [ %55, %72 ], [ %64, %.thread9.us ], [ %64, %.thread9.us23.us ], [ %64, %.thread9.us23.us32 ], [ %64, %.thread9.us23.us36 ], [ %64, %.thread9.us23.us40 ], [ %64, %.thread9.us23 ], [ %64, %.thread9 ]
-  %182 = phi i1 [ %54, %..split18.us_crit_edge ], [ true, %..split18.split.us_crit_edge ], [ false, %..split18.split.split.us.split.us_crit_edge ], [ false, %..split18.split.split.us.split.split.us_crit_edge ], [ false, %..split18.split.split.us.split.split.split.us_crit_edge ], [ false, %..split18.split.split.us.split.split.split.split_crit_edge ], [ false, %..split18.split.split_crit_edge ], [ false, %..split18.us.loopexit175_crit_edge ], [ false, %.split.split.split.us.split.split.split.split.us ], [ %54, %72 ], [ true, %.thread9.us ], [ false, %.thread9.us23.us ], [ false, %.thread9.us23.us32 ], [ false, %.thread9.us23.us36 ], [ false, %.thread9.us23.us40 ], [ false, %.thread9.us23 ], [ false, %.thread9 ]
-  %183 = phi i32 [ 0, %..split18.us_crit_edge ], [ %50, %..split18.split.us_crit_edge ], [ %50, %..split18.split.split.us.split.us_crit_edge ], [ %50, %..split18.split.split.us.split.split.us_crit_edge ], [ %50, %..split18.split.split.us.split.split.split.us_crit_edge ], [ %50, %..split18.split.split.us.split.split.split.split_crit_edge ], [ %50, %..split18.split.split_crit_edge ], [ %50, %..split18.us.loopexit175_crit_edge ], [ %50, %.split.split.split.us.split.split.split.split.us ], [ 0, %72 ], [ %50, %.thread9.us ], [ %50, %.thread9.us23.us ], [ %50, %.thread9.us23.us32 ], [ %50, %.thread9.us23.us36 ], [ %50, %.thread9.us23.us40 ], [ %50, %.thread9.us23 ], [ %50, %.thread9 ]
-  %.us-phi = phi i64 [ %74, %..split18.us_crit_edge ], [ %85, %..split18.split.us_crit_edge ], [ %100, %..split18.split.split.us.split.us_crit_edge ], [ %113, %..split18.split.split.us.split.split.us_crit_edge ], [ %129, %..split18.split.split.us.split.split.split.us_crit_edge ], [ %159, %..split18.split.split.us.split.split.split.split_crit_edge ], [ %170, %..split18.split.split_crit_edge ], [ %148, %..split18.us.loopexit175_crit_edge ], [ %70, %.split.split.split.us.split.split.split.split.us ], [ -1, %72 ], [ %82, %.thread9.us ], [ %97, %.thread9.us23.us ], [ %110, %.thread9.us23.us32 ], [ %126, %.thread9.us23.us36 ], [ %149, %.thread9.us23.us40 ], [ %156, %.thread9.us23 ], [ %167, %.thread9 ]
-  %.us-phi19 = phi ptr [ %76, %..split18.us_crit_edge ], [ %87, %..split18.split.us_crit_edge ], [ %102, %..split18.split.split.us.split.us_crit_edge ], [ %115, %..split18.split.split.us.split.split.us_crit_edge ], [ %131, %..split18.split.split.us.split.split.split.us_crit_edge ], [ %161, %..split18.split.split.us.split.split.split.split_crit_edge ], [ %172, %..split18.split.split_crit_edge ], [ %150, %..split18.us.loopexit175_crit_edge ], [ null, %.split.split.split.us.split.split.split.split.us ], [ %76, %72 ], [ %87, %.thread9.us ], [ %102, %.thread9.us23.us ], [ %115, %.thread9.us23.us32 ], [ %131, %.thread9.us23.us36 ], [ %150, %.thread9.us23.us40 ], [ %161, %.thread9.us23 ], [ %172, %.thread9 ]
+.split18.us:                                      ; preds = %.thread9, %.thread9.us23, %.thread9.us23.us40, %.thread9.us23.us36, %.thread9.us23.us32, %.thread9.us23.us, %.thread9.us, %72, %.split.split.split.us.split.split.split.split.us, %..split18.us.loopexit194_crit_edge, %..split18.split.us_crit_edge, %..split18.split.split_crit_edge, %..split18.split.split.us.split.us_crit_edge, %..split18.split.split.us.split.split.split.us_crit_edge, %..split18.split.split.us.split.split.split.split_crit_edge, %..split18.split.split.us.split.split.us_crit_edge, %..split18.us_crit_edge
+  %176 = phi ptr [ %60, %..split18.us_crit_edge ], [ %69, %..split18.split.us_crit_edge ], [ %69, %..split18.split.split.us.split.us_crit_edge ], [ %69, %..split18.split.split.us.split.split.us_crit_edge ], [ %69, %..split18.split.split.us.split.split.split.us_crit_edge ], [ %69, %..split18.split.split.us.split.split.split.split_crit_edge ], [ %69, %..split18.split.split_crit_edge ], [ %69, %..split18.us.loopexit194_crit_edge ], [ %69, %.split.split.split.us.split.split.split.split.us ], [ %60, %72 ], [ %69, %.thread9.us ], [ %69, %.thread9.us23.us ], [ %69, %.thread9.us23.us32 ], [ %69, %.thread9.us23.us36 ], [ %69, %.thread9.us23.us40 ], [ %69, %.thread9.us23 ], [ %69, %.thread9 ]
+  %177 = phi ptr [ %59, %..split18.us_crit_edge ], [ %68, %..split18.split.us_crit_edge ], [ %68, %..split18.split.split.us.split.us_crit_edge ], [ %68, %..split18.split.split.us.split.split.us_crit_edge ], [ %68, %..split18.split.split.us.split.split.split.us_crit_edge ], [ %68, %..split18.split.split.us.split.split.split.split_crit_edge ], [ %68, %..split18.split.split_crit_edge ], [ %68, %..split18.us.loopexit194_crit_edge ], [ %68, %.split.split.split.us.split.split.split.split.us ], [ %59, %72 ], [ %68, %.thread9.us ], [ %68, %.thread9.us23.us ], [ %68, %.thread9.us23.us32 ], [ %68, %.thread9.us23.us36 ], [ %68, %.thread9.us23.us40 ], [ %68, %.thread9.us23 ], [ %68, %.thread9 ]
+  %178 = phi ptr [ %58, %..split18.us_crit_edge ], [ %67, %..split18.split.us_crit_edge ], [ %67, %..split18.split.split.us.split.us_crit_edge ], [ %67, %..split18.split.split.us.split.split.us_crit_edge ], [ %67, %..split18.split.split.us.split.split.split.us_crit_edge ], [ %67, %..split18.split.split.us.split.split.split.split_crit_edge ], [ %67, %..split18.split.split_crit_edge ], [ %67, %..split18.us.loopexit194_crit_edge ], [ %67, %.split.split.split.us.split.split.split.split.us ], [ %58, %72 ], [ %67, %.thread9.us ], [ %67, %.thread9.us23.us ], [ %67, %.thread9.us23.us32 ], [ %67, %.thread9.us23.us36 ], [ %67, %.thread9.us23.us40 ], [ %67, %.thread9.us23 ], [ %67, %.thread9 ]
+  %179 = phi ptr [ %57, %..split18.us_crit_edge ], [ %66, %..split18.split.us_crit_edge ], [ %66, %..split18.split.split.us.split.us_crit_edge ], [ %66, %..split18.split.split.us.split.split.us_crit_edge ], [ %66, %..split18.split.split.us.split.split.split.us_crit_edge ], [ %66, %..split18.split.split.us.split.split.split.split_crit_edge ], [ %66, %..split18.split.split_crit_edge ], [ %66, %..split18.us.loopexit194_crit_edge ], [ %66, %.split.split.split.us.split.split.split.split.us ], [ %57, %72 ], [ %66, %.thread9.us ], [ %66, %.thread9.us23.us ], [ %66, %.thread9.us23.us32 ], [ %66, %.thread9.us23.us36 ], [ %66, %.thread9.us23.us40 ], [ %66, %.thread9.us23 ], [ %66, %.thread9 ]
+  %180 = phi ptr [ %56, %..split18.us_crit_edge ], [ %65, %..split18.split.us_crit_edge ], [ %65, %..split18.split.split.us.split.us_crit_edge ], [ %65, %..split18.split.split.us.split.split.us_crit_edge ], [ %65, %..split18.split.split.us.split.split.split.us_crit_edge ], [ %65, %..split18.split.split.us.split.split.split.split_crit_edge ], [ %65, %..split18.split.split_crit_edge ], [ %65, %..split18.us.loopexit194_crit_edge ], [ %65, %.split.split.split.us.split.split.split.split.us ], [ %56, %72 ], [ %65, %.thread9.us ], [ %65, %.thread9.us23.us ], [ %65, %.thread9.us23.us32 ], [ %65, %.thread9.us23.us36 ], [ %65, %.thread9.us23.us40 ], [ %65, %.thread9.us23 ], [ %65, %.thread9 ]
+  %181 = phi ptr [ %55, %..split18.us_crit_edge ], [ %64, %..split18.split.us_crit_edge ], [ %64, %..split18.split.split.us.split.us_crit_edge ], [ %64, %..split18.split.split.us.split.split.us_crit_edge ], [ %64, %..split18.split.split.us.split.split.split.us_crit_edge ], [ %64, %..split18.split.split.us.split.split.split.split_crit_edge ], [ %64, %..split18.split.split_crit_edge ], [ %64, %..split18.us.loopexit194_crit_edge ], [ %64, %.split.split.split.us.split.split.split.split.us ], [ %55, %72 ], [ %64, %.thread9.us ], [ %64, %.thread9.us23.us ], [ %64, %.thread9.us23.us32 ], [ %64, %.thread9.us23.us36 ], [ %64, %.thread9.us23.us40 ], [ %64, %.thread9.us23 ], [ %64, %.thread9 ]
+  %182 = phi i1 [ %54, %..split18.us_crit_edge ], [ true, %..split18.split.us_crit_edge ], [ false, %..split18.split.split.us.split.us_crit_edge ], [ false, %..split18.split.split.us.split.split.us_crit_edge ], [ false, %..split18.split.split.us.split.split.split.us_crit_edge ], [ false, %..split18.split.split.us.split.split.split.split_crit_edge ], [ false, %..split18.split.split_crit_edge ], [ false, %..split18.us.loopexit194_crit_edge ], [ false, %.split.split.split.us.split.split.split.split.us ], [ %54, %72 ], [ true, %.thread9.us ], [ false, %.thread9.us23.us ], [ false, %.thread9.us23.us32 ], [ false, %.thread9.us23.us36 ], [ false, %.thread9.us23.us40 ], [ false, %.thread9.us23 ], [ false, %.thread9 ]
+  %183 = phi i32 [ 0, %..split18.us_crit_edge ], [ %50, %..split18.split.us_crit_edge ], [ %50, %..split18.split.split.us.split.us_crit_edge ], [ %50, %..split18.split.split.us.split.split.us_crit_edge ], [ %50, %..split18.split.split.us.split.split.split.us_crit_edge ], [ %50, %..split18.split.split.us.split.split.split.split_crit_edge ], [ %50, %..split18.split.split_crit_edge ], [ %50, %..split18.us.loopexit194_crit_edge ], [ %50, %.split.split.split.us.split.split.split.split.us ], [ 0, %72 ], [ %50, %.thread9.us ], [ %50, %.thread9.us23.us ], [ %50, %.thread9.us23.us32 ], [ %50, %.thread9.us23.us36 ], [ %50, %.thread9.us23.us40 ], [ %50, %.thread9.us23 ], [ %50, %.thread9 ]
+  %.us-phi = phi i64 [ %74, %..split18.us_crit_edge ], [ %85, %..split18.split.us_crit_edge ], [ %100, %..split18.split.split.us.split.us_crit_edge ], [ %113, %..split18.split.split.us.split.split.us_crit_edge ], [ %129, %..split18.split.split.us.split.split.split.us_crit_edge ], [ %159, %..split18.split.split.us.split.split.split.split_crit_edge ], [ %170, %..split18.split.split_crit_edge ], [ %148, %..split18.us.loopexit194_crit_edge ], [ %70, %.split.split.split.us.split.split.split.split.us ], [ -1, %72 ], [ %82, %.thread9.us ], [ %97, %.thread9.us23.us ], [ %110, %.thread9.us23.us32 ], [ %126, %.thread9.us23.us36 ], [ %149, %.thread9.us23.us40 ], [ %156, %.thread9.us23 ], [ %167, %.thread9 ]
+  %.us-phi19 = phi ptr [ %76, %..split18.us_crit_edge ], [ %87, %..split18.split.us_crit_edge ], [ %102, %..split18.split.split.us.split.us_crit_edge ], [ %115, %..split18.split.split.us.split.split.us_crit_edge ], [ %131, %..split18.split.split.us.split.split.split.us_crit_edge ], [ %161, %..split18.split.split.us.split.split.split.split_crit_edge ], [ %172, %..split18.split.split_crit_edge ], [ %150, %..split18.us.loopexit194_crit_edge ], [ null, %.split.split.split.us.split.split.split.split.us ], [ %76, %72 ], [ %87, %.thread9.us ], [ %102, %.thread9.us23.us ], [ %115, %.thread9.us23.us32 ], [ %131, %.thread9.us23.us36 ], [ %150, %.thread9.us23.us40 ], [ %161, %.thread9.us23 ], [ %172, %.thread9 ]
   %184 = trunc nsw i64 %.us-phi to i32
   br i1 %13, label %.split18.us.thread, label %185
 
@@ -3742,7 +3742,7 @@ define dso_local noundef ptr @drm_find_edid_extension(ptr noundef readonly captu
   %190 = phi ptr [ %180, %185 ], [ %65, %.split.split.split ], [ %65, %.split.split.split.us.split.us ], [ %65, %.split.split.split.us.split.split.split.us ], [ %65, %.split.split.split.us.split.split.split.split ], [ %65, %.split.split.split.us.split.split.us ]
   %191 = phi ptr [ %181, %185 ], [ %64, %.split.split.split ], [ %64, %.split.split.split.us.split.us ], [ %64, %.split.split.split.us.split.split.split.us ], [ %64, %.split.split.split.us.split.split.split.split ], [ %64, %.split.split.split.us.split.split.us ]
   %192 = phi i32 [ %183, %185 ], [ %50, %.split.split.split ], [ %50, %.split.split.split.us.split.us ], [ %50, %.split.split.split.us.split.split.split.us ], [ %50, %.split.split.split.us.split.split.split.split ], [ %50, %.split.split.split.us.split.split.us ]
-  %.us-phi19128133 = phi ptr [ %.us-phi19, %185 ], [ null, %.split.split.split ], [ null, %.split.split.split.us.split.us ], [ null, %.split.split.split.us.split.split.split.us ], [ null, %.split.split.split.us.split.split.split.split ], [ null, %.split.split.split.us.split.split.us ]
+  %.us-phi19147152 = phi ptr [ %.us-phi19, %185 ], [ null, %.split.split.split ], [ null, %.split.split.split.us.split.us ], [ null, %.split.split.split.us.split.split.split.us ], [ null, %.split.split.split.us.split.split.split.split ], [ null, %.split.split.split.us.split.split.us ]
   %193 = phi i32 [ %184, %185 ], [ %63, %.split.split.split ], [ %63, %.split.split.split.us.split.us ], [ %63, %.split.split.split.us.split.split.split.us ], [ %63, %.split.split.split.us.split.split.split.split ], [ %63, %.split.split.split.us.split.split.us ]
   %194 = load i8, ptr %191, align 1
   %195 = icmp eq i8 %194, 2
@@ -3779,14 +3779,14 @@ define dso_local noundef ptr @drm_find_edid_extension(ptr noundef readonly captu
   %215 = zext i8 %.fr16 to i32
   %216 = icmp eq i8 %.fr16, 0
   %217 = add nuw nsw i32 %215, 1
-  %spec.select170 = select i1 %216, i32 %11, i32 %217
+  %spec.select189 = select i1 %216, i32 %11, i32 %217
   br label %.split18.us.thread
 
-.split18.us.thread:                               ; preds = %.thread125, %213, %.split.split.us, %185, %196, %.split18.us.thread.thread, %199, %208, %202, %.split18.us
-  %218 = phi i32 [ %184, %.split18.us ], [ %193, %202 ], [ %193, %208 ], [ %193, %199 ], [ %193, %.split18.us.thread.thread ], [ %193, %196 ], [ %184, %185 ], [ %63, %.split.split.us ], [ %193, %213 ], [ %53, %.thread125 ]
-  %.us-phi19129 = phi ptr [ %.us-phi19, %.split18.us ], [ %.us-phi19128133, %202 ], [ %.us-phi19128133, %208 ], [ %.us-phi19128133, %199 ], [ %.us-phi19128133, %.split18.us.thread.thread ], [ %.us-phi19128133, %196 ], [ %.us-phi19, %185 ], [ null, %.split.split.us ], [ %.us-phi19128133, %213 ], [ null, %.thread125 ]
-  %219 = phi i32 [ %183, %.split18.us ], [ %192, %202 ], [ %192, %208 ], [ %192, %199 ], [ %192, %.split18.us.thread.thread ], [ %192, %196 ], [ %183, %185 ], [ %50, %.split.split.us ], [ %192, %213 ], [ 0, %.thread125 ]
-  %220 = phi i32 [ %11, %.split18.us ], [ %11, %202 ], [ %11, %208 ], [ %11, %199 ], [ %11, %.split18.us.thread.thread ], [ %11, %196 ], [ %11, %185 ], [ %11, %.split.split.us ], [ %spec.select170, %213 ], [ %11, %.thread125 ]
+.split18.us.thread:                               ; preds = %.thread144, %213, %.split.split.us, %185, %196, %.split18.us.thread.thread, %199, %208, %202, %.split18.us
+  %218 = phi i32 [ %184, %.split18.us ], [ %193, %202 ], [ %193, %208 ], [ %193, %199 ], [ %193, %.split18.us.thread.thread ], [ %193, %196 ], [ %184, %185 ], [ %63, %.split.split.us ], [ %193, %213 ], [ %53, %.thread144 ]
+  %.us-phi19148 = phi ptr [ %.us-phi19, %.split18.us ], [ %.us-phi19147152, %202 ], [ %.us-phi19147152, %208 ], [ %.us-phi19147152, %199 ], [ %.us-phi19147152, %.split18.us.thread.thread ], [ %.us-phi19147152, %196 ], [ %.us-phi19, %185 ], [ null, %.split.split.us ], [ %.us-phi19147152, %213 ], [ null, %.thread144 ]
+  %219 = phi i32 [ %183, %.split18.us ], [ %192, %202 ], [ %192, %208 ], [ %192, %199 ], [ %192, %.split18.us.thread.thread ], [ %192, %196 ], [ %183, %185 ], [ %50, %.split.split.us ], [ %192, %213 ], [ 0, %.thread144 ]
+  %220 = phi i32 [ %11, %.split18.us ], [ %11, %202 ], [ %11, %208 ], [ %11, %199 ], [ %11, %.split18.us.thread.thread ], [ %11, %196 ], [ %11, %185 ], [ %11, %.split.split.us ], [ %spec.select189, %213 ], [ %11, %.thread144 ]
   %221 = tail call i32 @llvm.smin.i32(i32 %220, i32 %219)
   %222 = add nsw i32 %221, -1
   %223 = icmp sgt i32 %222, %218
@@ -3797,8 +3797,8 @@ define dso_local noundef ptr @drm_find_edid_extension(ptr noundef readonly captu
   store i32 %225, ptr %2, align 4
   br label %226
 
-226:                                              ; preds = %.thread124, %224, %.split18.us.thread, %47, %3
-  %227 = phi ptr [ %.us-phi19129, %224 ], [ null, %47 ], [ null, %3 ], [ null, %.split18.us.thread ], [ null, %.thread124 ]
+226:                                              ; preds = %.thread143, %224, %.split18.us.thread, %47, %3
+  %227 = phi ptr [ %.us-phi19148, %224 ], [ null, %47 ], [ null, %3 ], [ null, %.split18.us.thread ], [ null, %.thread143 ]
   ret ptr %227
 }
 
@@ -4639,11 +4639,11 @@ define dso_local noundef zeroext i1 @drm_detect_monitor_audio(ptr noundef %0) #2
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false), !annotation !13
   %4 = icmp eq ptr %0, null
-  br i1 %4, label %.thread59, label %.split27
+  br i1 %4, label %.thread69, label %.split27
 
-.thread59:                                        ; preds = %1
+.thread69:                                        ; preds = %1
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  br label %.loopexit62
+  br label %.loopexit72
 
 .split27:                                         ; preds = %1
   %.sroa.gep = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -4683,12 +4683,12 @@ define dso_local noundef zeroext i1 @drm_detect_monitor_audio(ptr noundef %0) #2
 26:                                               ; preds = %30, %.split.us
   %indvars.iv50 = phi i64 [ %indvars.iv.next51, %30 ], [ %25, %.split.us ]
   %exitcond55.not = icmp eq i64 %indvars.iv50, %wide.trip.count54
-  br i1 %exitcond55.not, label %.loopexit62, label %27
+  br i1 %exitcond55.not, label %.loopexit72, label %27
 
 27:                                               ; preds = %26
   %28 = getelementptr %struct.edid, ptr %10, i64 %indvars.iv50
   %29 = icmp eq ptr %28, null
-  br i1 %29, label %.loopexit62, label %30
+  br i1 %29, label %.loopexit72, label %30
 
 30:                                               ; preds = %27
   %indvars.iv.next51 = add nsw i64 %indvars.iv50, 1
@@ -4718,12 +4718,12 @@ define dso_local noundef zeroext i1 @drm_detect_monitor_audio(ptr noundef %0) #2
 .thread.us.us:                                    ; preds = %44, %.split.us29
   %indvars.iv47 = phi i64 [ %indvars.iv.next48, %44 ], [ %40, %.split.us29 ]
   %exitcond.not = icmp eq i64 %indvars.iv47, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit62, label %41
+  br i1 %exitcond.not, label %.loopexit72, label %41
 
 41:                                               ; preds = %.thread.us.us
   %42 = getelementptr %struct.edid, ptr %10, i64 %indvars.iv47
   %43 = icmp eq ptr %42, null
-  br i1 %43, label %.loopexit62, label %44
+  br i1 %43, label %.loopexit72, label %44
 
 44:                                               ; preds = %41
   %indvars.iv.next48 = add nsw i64 %indvars.iv47, 1
@@ -4795,12 +4795,12 @@ define dso_local noundef zeroext i1 @drm_detect_monitor_audio(ptr noundef %0) #2
   %.pre-phi58 = phi i32 [ %.pre57, %._crit_edge ], [ %23, %63 ], [ %23, %69 ], [ %23, %60 ], [ %23, %56 ], [ %23, %57 ], [ %23, %74 ]
   %77 = sext i32 %.pre-phi58 to i64
   %78 = icmp slt i64 %indvars.iv, %77
-  br i1 %78, label %79, label %.loopexit62
+  br i1 %78, label %79, label %.loopexit72
 
 79:                                               ; preds = %.thread
   %80 = getelementptr %struct.edid, ptr %10, i64 %indvars.iv
   %81 = icmp eq ptr %80, null
-  br i1 %81, label %.loopexit62, label %82
+  br i1 %81, label %.loopexit72, label %82
 
 82:                                               ; preds = %79
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
@@ -4819,8 +4819,8 @@ define dso_local noundef zeroext i1 @drm_detect_monitor_audio(ptr noundef %0) #2
   tail call void (ptr, i32, ptr, ...) @___drm_dbg(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.27) #21
   br label %112
 
-.loopexit62:                                      ; preds = %.thread, %79, %41, %.thread.us.us, %26, %27, %.thread59
-  %.ph = phi ptr [ null, %.thread59 ], [ %3, %27 ], [ %3, %26 ], [ %3, %.thread.us.us ], [ %3, %41 ], [ %3, %79 ], [ %3, %.thread ]
+.loopexit72:                                      ; preds = %.thread, %79, %41, %.thread.us.us, %26, %27, %.thread69
+  %.ph = phi ptr [ null, %.thread69 ], [ %3, %27 ], [ %3, %26 ], [ %3, %.thread.us.us ], [ %3, %41 ], [ %3, %79 ], [ %3, %.thread ]
   %89 = getelementptr inbounds nuw i8, ptr %2, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %89, i8 0, i64 56, i1 false)
   store ptr %.ph, ptr %2, align 8
@@ -4828,7 +4828,7 @@ define dso_local noundef zeroext i1 @drm_detect_monitor_audio(ptr noundef %0) #2
   call void @displayid_iter_edid_begin(ptr noundef %.ph, ptr noundef nonnull %90) #21
   br label %91
 
-91:                                               ; preds = %93, %.loopexit62
+91:                                               ; preds = %93, %.loopexit72
   %92 = call fastcc ptr @__cea_db_iter_next(ptr noundef nonnull %2)
   %.not.not.not = icmp ne ptr %92, null
   br i1 %.not.not.not, label %93, label %.loopexit
@@ -5455,9 +5455,9 @@ drm_for_each_detailed_block.exit:                 ; preds = %157
   %371 = icmp eq i8 %370, 0
   %372 = getelementptr i8, ptr %361, i64 1
   %373 = load i8, ptr %372, align 1
-  br i1 %371, label %.thread119, label %374
+  br i1 %371, label %.thread189, label %374
 
-.thread119:                                       ; preds = %369
+.thread189:                                       ; preds = %369
   store i8 %373, ptr %312, align 1
   br label %388
 
@@ -5484,7 +5484,7 @@ drm_for_each_detailed_block.exit:                 ; preds = %157
   tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %383, i32 noundef 2, ptr noundef nonnull @.str.35, i32 noundef %384, ptr noundef %385, i32 noundef %386, i32 noundef %387) #21
   br label %388
 
-388:                                              ; preds = %.thread119, %382, %374
+388:                                              ; preds = %.thread189, %382, %374
   store i32 1, ptr %10, align 4
   %389 = getelementptr i8, ptr %361, i64 3
   %390 = load i8, ptr %389, align 1
@@ -5691,19 +5691,19 @@ drm_for_each_detailed_block.exit:                 ; preds = %157
   store i8 %526, ptr %438, align 1
   %527 = load ptr, ptr %0, align 8
   %528 = icmp eq ptr %527, null
-  br i1 %528, label %.thread120, label %529
+  br i1 %528, label %.thread190, label %529
 
 529:                                              ; preds = %524
   %530 = getelementptr inbounds nuw i8, ptr %527, i64 8
   %531 = load ptr, ptr %530, align 8
-  br label %.thread120
+  br label %.thread190
 
 532:                                              ; preds = %519
   %533 = and i8 %520, 64
   %534 = icmp eq i8 %533, 0
   br i1 %534, label %555, label %542
 
-.thread120:                                       ; preds = %524, %529
+.thread190:                                       ; preds = %524, %529
   %535 = phi ptr [ %531, %529 ], [ null, %524 ]
   %536 = load i32, ptr %313, align 8
   %537 = load ptr, ptr %314, align 8
@@ -5711,14 +5711,14 @@ drm_for_each_detailed_block.exit:                 ; preds = %157
   %.pre110 = load i8, ptr %503, align 1
   %538 = and i8 %.pre110, 64
   %539 = icmp eq i8 %538, 0
-  br i1 %539, label %.thread121, label %542
+  br i1 %539, label %.thread191, label %542
 
-.thread121:                                       ; preds = %.thread120
+.thread191:                                       ; preds = %.thread190
   %540 = load ptr, ptr %0, align 8
   %541 = icmp eq ptr %540, null
   br i1 %541, label %572, label %567
 
-542:                                              ; preds = %.thread120, %532
+542:                                              ; preds = %.thread190, %532
   %543 = load i8, ptr %438, align 1
   %544 = or i8 %543, 64
   store i8 %544, ptr %438, align 1
@@ -5763,16 +5763,16 @@ drm_for_each_detailed_block.exit:                 ; preds = %157
 566:                                              ; preds = %555
   br i1 %557, label %572, label %567
 
-567:                                              ; preds = %.thread121, %.thread76, %566
-  %568 = phi i32 [ 16, %.thread76 ], [ %521, %566 ], [ 12, %.thread121 ]
-  %569 = phi ptr [ %553, %.thread76 ], [ %556, %566 ], [ %540, %.thread121 ]
+567:                                              ; preds = %.thread191, %.thread76, %566
+  %568 = phi i32 [ 16, %.thread76 ], [ %521, %566 ], [ 12, %.thread191 ]
+  %569 = phi ptr [ %553, %.thread76 ], [ %556, %566 ], [ %540, %.thread191 ]
   %570 = getelementptr inbounds nuw i8, ptr %569, i64 8
   %571 = load ptr, ptr %570, align 8
   br label %572
 
-572:                                              ; preds = %.thread121, %.thread76, %567, %566
-  %573 = phi i32 [ %568, %567 ], [ %521, %566 ], [ 16, %.thread76 ], [ 12, %.thread121 ]
-  %574 = phi ptr [ %571, %567 ], [ null, %566 ], [ null, %.thread76 ], [ null, %.thread121 ]
+572:                                              ; preds = %.thread191, %.thread76, %567, %566
+  %573 = phi i32 [ %568, %567 ], [ %521, %566 ], [ 16, %.thread76 ], [ 12, %.thread191 ]
+  %574 = phi ptr [ %571, %567 ], [ null, %566 ], [ null, %.thread76 ], [ null, %.thread191 ]
   %575 = load i32, ptr %313, align 8
   %576 = load ptr, ptr %314, align 8
   call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %574, i32 noundef 2, ptr noundef nonnull @.str.41, i32 noundef %575, ptr noundef %576, i32 noundef %573) #21
@@ -6705,14 +6705,14 @@ thread-pre-split:                                 ; preds = %1002, %987
   %1094 = load i8, ptr %1093, align 1
   %1095 = lshr i8 %1094, 5
   %1096 = and i8 %1095, 3
-  switch i8 %1096, label %default.unreachable118 [
+  switch i8 %1096, label %default.unreachable188 [
     i8 0, label %1108
     i8 1, label %.critedge
     i8 2, label %1107
     i8 3, label %1097
   ]
 
-default.unreachable118:                           ; preds = %1092
+default.unreachable188:                           ; preds = %1092
   unreachable
 
 1097:                                             ; preds = %1092
@@ -10934,7 +10934,7 @@ thread-pre-split:                                 ; preds = %355, %355, %355, %3
 375:                                              ; preds = %374
   %376 = add nsw i8 %313, 63
   %377 = icmp ult i8 %376, 27
-  br i1 %377, label %.thread39, label %.thread28
+  br i1 %377, label %.thread60, label %.thread28
 
 378:                                              ; preds = %374
   %379 = add nsw i32 %314, -1
@@ -10943,12 +10943,12 @@ thread-pre-split:                                 ; preds = %355, %355, %355, %3
   %382 = icmp eq ptr %381, null
   br i1 %382, label %.thread28, label %387
 
-.thread39:                                        ; preds = %375
+.thread60:                                        ; preds = %375
   %383 = add nsw i32 %314, -193
   %384 = zext nneg i32 %383 to i64
   %385 = getelementptr [27 x %struct.drm_display_mode], ptr @edid_cea_modes_193, i64 0, i64 %384
   %386 = icmp eq ptr %385, null
-  br i1 %386, label %.thread28, label %.thread41
+  br i1 %386, label %.thread28, label %.thread62
 
 387:                                              ; preds = %378
   %388 = add nsw i32 %314, -1
@@ -10956,14 +10956,14 @@ thread-pre-split:                                 ; preds = %355, %355, %355, %3
   %390 = getelementptr [127 x %struct.drm_display_mode], ptr @edid_cea_modes_1, i64 0, i64 %389
   br label %394
 
-.thread41:                                        ; preds = %.thread39
+.thread62:                                        ; preds = %.thread60
   %391 = add nsw i32 %314, -193
   %392 = zext nneg i32 %391 to i64
   %393 = getelementptr [27 x %struct.drm_display_mode], ptr @edid_cea_modes_193, i64 0, i64 %392
   br label %394
 
-394:                                              ; preds = %.thread41, %387
-  %395 = phi ptr [ %390, %387 ], [ %393, %.thread41 ]
+394:                                              ; preds = %.thread62, %387
+  %395 = phi ptr [ %390, %387 ], [ %393, %.thread62 ]
   %396 = load i32, ptr %395, align 8
   %397 = call i32 @drm_mode_vrefresh(ptr noundef %395) #21
   %398 = srem i32 %397, 6
@@ -10990,7 +10990,7 @@ thread-pre-split:                                 ; preds = %355, %355, %355, %3
   %410 = udiv i32 %409, 1001
   br label %470
 
-.thread28:                                        ; preds = %369, %.thread39, %375, %378
+.thread28:                                        ; preds = %369, %.thread60, %375, %378
   %.pr32 = load i32, ptr %249, align 8
   %411 = icmp eq i32 %.pr32, 0
   br i1 %411, label %.thread31, label %412
@@ -11192,14 +11192,14 @@ define internal void @do_cvt_mode(ptr noundef readonly captures(none) %0, ptr no
   %34 = add nuw nsw i32 %33, 2
   %35 = lshr i32 %29, 2
   %36 = and i32 %35, 3
-  switch i32 %36, label %default.unreachable5 [
+  switch i32 %36, label %default.unreachable7 [
     i32 0, label %37
     i32 1, label %39
     i32 2, label %42
     i32 3, label %45
   ]
 
-default.unreachable5:                             ; preds = %24
+default.unreachable7:                             ; preds = %24
   unreachable
 
 37:                                               ; preds = %24
@@ -12445,14 +12445,14 @@ define internal fastcc ptr @drm_gtf2_mode(ptr noundef %0, ptr noundef readonly c
   %204 = phi ptr [ %185, %194 ], [ %185, %190 ], [ %185, %184 ], [ %202, %198 ]
   %205 = add nuw nsw i64 %186, 1
   %206 = icmp eq i64 %205, 4
-  br i1 %206, label %.preheader138, label %184, !llvm.loop !50
+  br i1 %206, label %.preheader176, label %184, !llvm.loop !50
 
-.preheader138:                                    ; preds = %203, %.loopexit77
+.preheader176:                                    ; preds = %203, %.loopexit77
   %207 = phi ptr [ %317, %.loopexit77 ], [ %204, %203 ]
   %208 = phi i32 [ %240, %.loopexit77 ], [ 0, %203 ]
   br i1 %54, label %233, label %209
 
-209:                                              ; preds = %.preheader138
+209:                                              ; preds = %.preheader176
   br i1 %57, label %.thread45, label %210
 
 210:                                              ; preds = %209
@@ -12494,8 +12494,8 @@ define internal fastcc ptr @drm_gtf2_mode(ptr noundef %0, ptr noundef readonly c
 .thread45:                                        ; preds = %219, %225, %216, %210, %213, %209, %230
   br label %233
 
-233:                                              ; preds = %.thread45, %230, %.preheader138
-  %.in69.in = phi i8 [ %52, %.preheader138 ], [ %52, %.thread45 ], [ %.fr68, %230 ]
+233:                                              ; preds = %.thread45, %230, %.preheader176
+  %.in69.in = phi i8 [ %52, %.preheader176 ], [ %52, %.thread45 ], [ %.fr68, %230 ]
   %.in69 = zext i8 %.in69.in to i32
   %234 = add nuw nsw i32 %.in69, 1
   %235 = tail call i32 @llvm.smin.i32(i32 %234, i32 %56)
@@ -12619,7 +12619,7 @@ define internal fastcc ptr @drm_gtf2_mode(ptr noundef %0, ptr noundef readonly c
 
 .loopexit77:                                      ; preds = %313, %277, %281, %251, %245, %243
   %317 = phi ptr [ %207, %243 ], [ %207, %281 ], [ %207, %245 ], [ %207, %251 ], [ %278, %277 ], [ %314, %313 ]
-  br label %.preheader138, !llvm.loop !53
+  br label %.preheader176, !llvm.loop !53
 
 318:                                              ; preds = %233
   %319 = icmp eq ptr %207, null
@@ -12666,14 +12666,14 @@ define internal fastcc ptr @drm_gtf2_mode(ptr noundef %0, ptr noundef readonly c
   %346 = phi ptr [ %327, %336 ], [ %327, %332 ], [ %327, %326 ], [ %344, %340 ]
   %347 = add nuw nsw i64 %328, 1
   %348 = icmp eq i64 %347, 4
-  br i1 %348, label %.preheader136, label %326, !llvm.loop !50
+  br i1 %348, label %.preheader174, label %326, !llvm.loop !50
 
-.preheader136:                                    ; preds = %345, %.loopexit75
+.preheader174:                                    ; preds = %345, %.loopexit75
   %349 = phi ptr [ %459, %.loopexit75 ], [ %346, %345 ]
   %350 = phi i32 [ %382, %.loopexit75 ], [ 0, %345 ]
   br i1 %54, label %375, label %351
 
-351:                                              ; preds = %.preheader136
+351:                                              ; preds = %.preheader174
   br i1 %57, label %.thread52, label %352
 
 352:                                              ; preds = %351
@@ -12715,8 +12715,8 @@ define internal fastcc ptr @drm_gtf2_mode(ptr noundef %0, ptr noundef readonly c
 .thread52:                                        ; preds = %361, %367, %358, %352, %355, %351, %372
   br label %375
 
-375:                                              ; preds = %.thread52, %372, %.preheader136
-  %.in71.in = phi i8 [ %52, %.preheader136 ], [ %52, %.thread52 ], [ %.fr70, %372 ]
+375:                                              ; preds = %.thread52, %372, %.preheader174
+  %.in71.in = phi i8 [ %52, %.preheader174 ], [ %52, %.thread52 ], [ %.fr70, %372 ]
   %.in71 = zext i8 %.in71.in to i32
   %376 = add nuw nsw i32 %.in71, 1
   %377 = tail call i32 @llvm.smin.i32(i32 %376, i32 %56)
@@ -12840,7 +12840,7 @@ define internal fastcc ptr @drm_gtf2_mode(ptr noundef %0, ptr noundef readonly c
 
 .loopexit75:                                      ; preds = %455, %419, %423, %393, %387, %385
   %459 = phi ptr [ %349, %385 ], [ %349, %423 ], [ %349, %387 ], [ %349, %393 ], [ %420, %419 ], [ %456, %455 ]
-  br label %.preheader136, !llvm.loop !53
+  br label %.preheader174, !llvm.loop !53
 
 460:                                              ; preds = %375
   %461 = icmp eq ptr %349, null
@@ -13803,7 +13803,7 @@ define internal void @do_inferred_modes(ptr noundef readonly captures(none) %0, 
   %130 = getelementptr i8, ptr %122, i64 -50
   %131 = load i16, ptr %130, align 2
   %132 = icmp eq i16 %129, %131
-  br i1 %132, label %133, label %.thread64
+  br i1 %132, label %133, label %.thread94
 
 133:                                              ; preds = %128
   %134 = tail call i32 @drm_mode_vrefresh(ptr noundef nonnull %96) #21
@@ -13820,9 +13820,9 @@ define internal void @do_inferred_modes(ptr noundef readonly captures(none) %0, 
   %138 = phi i16 [ %.pre63, %._crit_edge61 ], [ %126, %120 ]
   %139 = phi i16 [ %.pre62, %._crit_edge61 ], [ %121, %120 ]
   %140 = icmp ugt i16 %139, %138
-  br i1 %140, label %147, label %.thread64
+  br i1 %140, label %147, label %.thread94
 
-.thread64:                                        ; preds = %128, %137
+.thread94:                                        ; preds = %128, %137
   %141 = phi i16 [ %139, %137 ], [ %121, %128 ]
   %142 = load i16, ptr %119, align 2
   %143 = getelementptr i8, ptr %122, i64 -50
@@ -13831,9 +13831,9 @@ define internal void @do_inferred_modes(ptr noundef readonly captures(none) %0, 
   %146 = select i1 %145, i8 %123, i8 1
   br label %147
 
-147:                                              ; preds = %.thread64, %137
-  %148 = phi i16 [ %139, %137 ], [ %141, %.thread64 ]
-  %149 = phi i8 [ %123, %137 ], [ %146, %.thread64 ]
+147:                                              ; preds = %.thread94, %137
+  %148 = phi i16 [ %139, %137 ], [ %141, %.thread94 ]
+  %149 = phi i8 [ %123, %137 ], [ %146, %.thread94 ]
   %150 = load ptr, ptr %122, align 8
   %151 = icmp eq ptr %150, %86
   br i1 %151, label %152, label %120, !llvm.loop !119
@@ -13930,7 +13930,7 @@ define internal void @do_inferred_modes(ptr noundef readonly captures(none) %0, 
   %206 = getelementptr i8, ptr %198, i64 -50
   %207 = load i16, ptr %206, align 2
   %208 = icmp eq i16 %205, %207
-  br i1 %208, label %209, label %.thread65
+  br i1 %208, label %209, label %.thread95
 
 209:                                              ; preds = %204
   %210 = tail call i32 @drm_mode_vrefresh(ptr noundef nonnull %172) #21
@@ -13947,9 +13947,9 @@ define internal void @do_inferred_modes(ptr noundef readonly captures(none) %0, 
   %214 = phi i16 [ %.pre59, %._crit_edge57 ], [ %202, %196 ]
   %215 = phi i16 [ %.pre58, %._crit_edge57 ], [ %197, %196 ]
   %216 = icmp ugt i16 %215, %214
-  br i1 %216, label %223, label %.thread65
+  br i1 %216, label %223, label %.thread95
 
-.thread65:                                        ; preds = %204, %213
+.thread95:                                        ; preds = %204, %213
   %217 = phi i16 [ %215, %213 ], [ %197, %204 ]
   %218 = load i16, ptr %195, align 2
   %219 = getelementptr i8, ptr %198, i64 -50
@@ -13958,9 +13958,9 @@ define internal void @do_inferred_modes(ptr noundef readonly captures(none) %0, 
   %222 = select i1 %221, i8 %199, i8 1
   br label %223
 
-223:                                              ; preds = %.thread65, %213
-  %224 = phi i16 [ %215, %213 ], [ %217, %.thread65 ]
-  %225 = phi i8 [ %199, %213 ], [ %222, %.thread65 ]
+223:                                              ; preds = %.thread95, %213
+  %224 = phi i16 [ %215, %213 ], [ %217, %.thread95 ]
+  %225 = phi i8 [ %199, %213 ], [ %222, %.thread95 ]
   %226 = load ptr, ptr %198, align 8
   %227 = icmp eq ptr %226, %162
   br i1 %227, label %228, label %196, !llvm.loop !119
@@ -14067,7 +14067,7 @@ define internal void @do_inferred_modes(ptr noundef readonly captures(none) %0, 
   %286 = getelementptr i8, ptr %278, i64 -50
   %287 = load i16, ptr %286, align 2
   %288 = icmp eq i16 %285, %287
-  br i1 %288, label %289, label %.thread66
+  br i1 %288, label %289, label %.thread96
 
 289:                                              ; preds = %284
   %290 = call i32 @drm_mode_vrefresh(ptr noundef nonnull %252) #21
@@ -14084,9 +14084,9 @@ define internal void @do_inferred_modes(ptr noundef readonly captures(none) %0, 
   %294 = phi i16 [ %.pre55, %._crit_edge53 ], [ %282, %276 ]
   %295 = phi i16 [ %.pre54, %._crit_edge53 ], [ %277, %276 ]
   %296 = icmp ugt i16 %295, %294
-  br i1 %296, label %303, label %.thread66
+  br i1 %296, label %303, label %.thread96
 
-.thread66:                                        ; preds = %284, %293
+.thread96:                                        ; preds = %284, %293
   %297 = phi i16 [ %295, %293 ], [ %277, %284 ]
   %298 = load i16, ptr %275, align 2
   %299 = getelementptr i8, ptr %278, i64 -50
@@ -14095,9 +14095,9 @@ define internal void @do_inferred_modes(ptr noundef readonly captures(none) %0, 
   %302 = select i1 %301, i8 %279, i8 1
   br label %303
 
-303:                                              ; preds = %.thread66, %293
-  %304 = phi i16 [ %295, %293 ], [ %297, %.thread66 ]
-  %305 = phi i8 [ %279, %293 ], [ %302, %.thread66 ]
+303:                                              ; preds = %.thread96, %293
+  %304 = phi i16 [ %295, %293 ], [ %297, %.thread96 ]
+  %305 = phi i8 [ %279, %293 ], [ %302, %.thread96 ]
   %306 = load ptr, ptr %278, align 8
   %307 = icmp eq ptr %306, %242
   br i1 %307, label %308, label %276, !llvm.loop !119

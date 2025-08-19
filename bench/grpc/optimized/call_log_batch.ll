@@ -906,8 +906,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit130.i: ; preds = %
   br label %.body.i
 
 .invoke.i:                                        ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit109.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit127.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
-  %.in231.i = getelementptr inbounds nuw i8, ptr %83, i64 16
-  %298 = load i64, ptr %.in231.i, align 8, !tbaa !20, !noalias !7
+  %.in332.i = getelementptr inbounds nuw i8, ptr %83, i64 16
+  %298 = load i64, ptr %.in332.i, align 8, !tbaa !20, !noalias !7
   %.in.i = getelementptr inbounds nuw i8, ptr %83, i64 24
   %299 = load ptr, ptr %.in.i, align 8, !tbaa !20, !noalias !7
   %300 = icmp eq ptr %299, null

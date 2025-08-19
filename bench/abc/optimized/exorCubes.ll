@@ -80,8 +80,8 @@ define i32 @AllocateCover(i32 noundef %0, i32 noundef %1, i32 noundef %2) local_
   br i1 %exitcond59.not, label %._crit_edge, label %.lr.ph53, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %.lr.ph53, %16
-  %.pre6063 = phi ptr [ %calloc, %16 ], [ %.pre60.pre, %.lr.ph53 ]
-  store ptr %.pre6063, ptr @s_CubesFree, align 8, !tbaa !3
+  %.pre6065 = phi ptr [ %calloc, %16 ], [ %.pre60.pre, %.lr.ph53 ]
+  store ptr %.pre6065, ptr @s_CubesFree, align 8, !tbaa !3
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @g_CoverInfo, i64 24), align 8, !tbaa !17
   store i32 %0, ptr getelementptr inbounds nuw (i8, ptr @g_CoverInfo, i64 28), align 4, !tbaa !21
   store ptr %10, ptr @s_pCoverMemory, align 8, !tbaa !22

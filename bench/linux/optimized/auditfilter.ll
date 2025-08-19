@@ -911,11 +911,11 @@ define dso_local i32 @audit_rule_change(i32 noundef %0, i32 noundef %1, ptr noun
 64:                                               ; preds = %.loopexit16
   tail call void @mutex_unlock(ptr noundef nonnull @audit_filter_mutex) #14
   %65 = icmp eq ptr %17, null
-  br i1 %65, label %.thread28, label %66
+  br i1 %65, label %.thread45, label %66
 
 66:                                               ; preds = %64
   tail call void @audit_put_tree(ptr noundef nonnull %17) #14
-  br label %.thread28
+  br label %.thread45
 
 .thread:                                          ; preds = %45, %54, %.loopexit16
   %67 = icmp eq ptr %15, null
@@ -929,11 +929,11 @@ define dso_local i32 @audit_rule_change(i32 noundef %0, i32 noundef %1, ptr noun
 71:                                               ; preds = %68
   call void @mutex_unlock(ptr noundef nonnull @audit_filter_mutex) #14
   %72 = icmp eq ptr %17, null
-  br i1 %72, label %.thread28, label %73
+  br i1 %72, label %.thread45, label %73
 
 73:                                               ; preds = %71
   call void @audit_put_tree(ptr noundef nonnull %17) #14
-  br label %.thread28
+  br label %.thread45
 
 74:                                               ; preds = %68, %.thread
   %75 = icmp eq ptr %17, null
@@ -946,7 +946,7 @@ define dso_local i32 @audit_rule_change(i32 noundef %0, i32 noundef %1, ptr noun
 
 79:                                               ; preds = %76
   call void @mutex_unlock(ptr noundef nonnull @audit_filter_mutex) #14
-  br label %.thread28
+  br label %.thread45
 
 80:                                               ; preds = %76, %74
   %81 = getelementptr inbounds nuw i8, ptr %7, i64 400
@@ -1068,7 +1068,7 @@ define dso_local i32 @audit_rule_change(i32 noundef %0, i32 noundef %1, ptr noun
   tail call void asm sideeffect "682: nop\0A\09.pushsection .discard.instr_end\0A\09.long 682b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 682) #14, !srcloc !22
   br label %174
 
-.thread28:                                        ; preds = %79, %66, %64, %73, %71
+.thread45:                                        ; preds = %79, %66, %64, %73, %71
   %.ph = phi i32 [ %69, %71 ], [ %69, %73 ], [ -17, %64 ], [ -17, %66 ], [ %77, %79 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call fastcc void @audit_log_rule_change(ptr noundef nonnull @.str, ptr noundef nonnull %13, i32 noundef 0)
@@ -1080,9 +1080,9 @@ define dso_local i32 @audit_rule_change(i32 noundef %0, i32 noundef %1, ptr noun
   call fastcc void @audit_log_rule_change(ptr noundef nonnull @.str, ptr noundef nonnull %13, i32 noundef 1)
   br label %174
 
-136:                                              ; preds = %.thread28, %.thread15
-  %137 = phi i32 [ %130, %.thread15 ], [ %.ph, %.thread28 ]
-  %138 = phi ptr [ %125, %.thread15 ], [ %7, %.thread28 ]
+136:                                              ; preds = %.thread45, %.thread15
+  %137 = phi i32 [ %130, %.thread15 ], [ %.ph, %.thread45 ]
+  %138 = phi ptr [ %125, %.thread15 ], [ %7, %.thread45 ]
   %139 = getelementptr inbounds nuw i8, ptr %138, i64 360
   %140 = load ptr, ptr %139, align 8
   %141 = icmp eq ptr %140, null

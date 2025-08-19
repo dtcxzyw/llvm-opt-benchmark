@@ -1540,7 +1540,7 @@ define dso_local void @mtrr_generic_set_state() local_unnamed_addr #1 align 16 {
   %98 = load i8, ptr @boot_cpu_data, align 8
   %99 = icmp ugt i8 %98, 14
   %100 = select i1 %97, i1 %99, i1 false
-  br i1 %100, label %101, label %.preheader28
+  br i1 %100, label %101, label %.preheader34
 
 101:                                              ; preds = %95
   %102 = tail call { i64, i64 } asm sideeffect "1: rdmsr\0A2:\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A .long 9 \0A .popsection\0A", "={ax},={dx},{cx},~{dirflag},~{fpsr},~{flags}"(i32 -1073676272) #17, !srcloc !22
@@ -1559,7 +1559,7 @@ define dso_local void @mtrr_generic_set_state() local_unnamed_addr #1 align 16 {
   %109 = trunc i64 %103 to i32
   %110 = and i32 %109, 524288
   %111 = icmp eq i32 %110, 0
-  br i1 %111, label %.preheader28, label %112
+  br i1 %111, label %.preheader34, label %112
 
 112:                                              ; preds = %108
   %113 = lshr i64 %106, 32
@@ -1578,14 +1578,14 @@ define dso_local void @mtrr_generic_set_state() local_unnamed_addr #1 align 16 {
 
 121:                                              ; preds = %119, %112
   %122 = icmp slt i32 %118, 0
-  br i1 %122, label %123, label %.preheader28
+  br i1 %122, label %123, label %.preheader34
 
 123:                                              ; preds = %121
   %124 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #20, !srcloc !26
   %125 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.10, i32 noundef %124, i32 noundef -1073676272, i32 noundef %117, i32 noundef %114) #18
-  br label %.preheader28
+  br label %.preheader34
 
-.preheader28:                                     ; preds = %123, %121, %108, %95
+.preheader34:                                     ; preds = %123, %121, %108, %95
   br label %133
 
 .loopexit:                                        ; preds = %177, %133
@@ -1598,12 +1598,12 @@ define dso_local void @mtrr_generic_set_state() local_unnamed_addr #1 align 16 {
   %132 = icmp eq i64 %128, 3
   br i1 %132, label %181, label %133, !llvm.loop !35
 
-133:                                              ; preds = %.preheader28, %.loopexit
-  %134 = phi i64 [ %128, %.loopexit ], [ 0, %.preheader28 ]
-  %135 = phi i32 [ %131, %.loopexit ], [ 1, %.preheader28 ]
-  %136 = phi ptr [ %129, %.loopexit ], [ @fixed_range_blocks, %.preheader28 ]
-  %137 = phi ptr [ %127, %.loopexit ], [ getelementptr inbounds nuw (i8, ptr @mtrr_state, i64 4096), %.preheader28 ]
-  %138 = phi i8 [ %126, %.loopexit ], [ 0, %.preheader28 ]
+133:                                              ; preds = %.preheader34, %.loopexit
+  %134 = phi i64 [ %128, %.loopexit ], [ 0, %.preheader34 ]
+  %135 = phi i32 [ %131, %.loopexit ], [ 1, %.preheader34 ]
+  %136 = phi ptr [ %129, %.loopexit ], [ @fixed_range_blocks, %.preheader34 ]
+  %137 = phi ptr [ %127, %.loopexit ], [ getelementptr inbounds nuw (i8, ptr @mtrr_state, i64 4096), %.preheader34 ]
+  %138 = phi i8 [ %126, %.loopexit ], [ 0, %.preheader34 ]
   %139 = icmp sgt i32 %135, 0
   br i1 %139, label %140, label %.loopexit
 
@@ -1701,7 +1701,7 @@ define dso_local void @mtrr_generic_set_state() local_unnamed_addr #1 align 16 {
   %193 = and i32 %192, 3
   %194 = zext i8 %.pre18 to i32
   %195 = icmp eq i32 %193, %194
-  br i1 %195, label %.preheader27, label %196
+  br i1 %195, label %.preheader33, label %196
 
 196:                                              ; preds = %._crit_edge19, %191
   %.pre-phi = phi i32 [ %.pre20, %._crit_edge19 ], [ %194, %191 ]
@@ -1712,15 +1712,15 @@ define dso_local void @mtrr_generic_set_state() local_unnamed_addr #1 align 16 {
   %201 = or i32 %199, %200
   store i32 %201, ptr @deftype_lo, align 4
   %202 = or i64 %186, 4
-  br label %.preheader27
+  br label %.preheader33
 
-.preheader27:                                     ; preds = %196, %191
+.preheader33:                                     ; preds = %196, %191
   %.ph = phi i64 [ %186, %191 ], [ %202, %196 ]
   br label %203
 
-203:                                              ; preds = %.preheader27, %209
-  %204 = phi i64 [ %211, %209 ], [ 0, %.preheader27 ]
-  %205 = phi i64 [ %210, %209 ], [ %.ph, %.preheader27 ]
+203:                                              ; preds = %.preheader33, %209
+  %204 = phi i64 [ %211, %209 ], [ 0, %.preheader33 ]
+  %205 = phi i64 [ %210, %209 ], [ %.ph, %.preheader33 ]
   %206 = and i64 %205, 1
   %207 = icmp eq i64 %206, 0
   br i1 %207, label %209, label %208

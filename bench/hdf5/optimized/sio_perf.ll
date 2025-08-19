@@ -345,9 +345,9 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
   unreachable
 
 84:                                               ; preds = %79, %.critedge2.i
-  %.sink347.i = phi i64 [ 4, %.critedge2.i ], [ 1, %79 ]
+  %.sink352.i = phi i64 [ 4, %.critedge2.i ], [ 1, %79 ]
   %85 = load i64, ptr %12, align 8, !tbaa !32
-  %86 = or i64 %85, %.sink347.i
+  %86 = or i64 %85, %.sink352.i
   store i64 %86, ptr %12, align 8, !tbaa !32
   %87 = load i8, ptr %.1245.i, align 1, !tbaa !26
   %88 = icmp eq i8 %87, 0
@@ -1034,8 +1034,8 @@ parse_command_line.exit.thread:                   ; preds = %.lr.ph.i
   %spec.store.select.i = select i1 %.not268.i, i64 5, i64 %335
   store i64 %spec.store.select.i, ptr %12, align 8
   %336 = load i32, ptr %14, align 8, !tbaa !9
-  %spec.store.select348.i = call i32 @llvm.smax.i32(i32 %336, i32 1)
-  store i32 %spec.store.select348.i, ptr %14, align 8
+  %spec.store.select353.i = call i32 @llvm.smax.i32(i32 %336, i32 1)
+  store i32 %spec.store.select353.i, ptr %14, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %337 = load ptr, ptr %30, align 8, !tbaa !41
   %.not11 = icmp eq ptr %337, null
@@ -1721,11 +1721,11 @@ print_indent.exit89:                              ; preds = %.lr.ph.i87
   br label %.critedge
 
 .critedge:                                        ; preds = %78, %103
-  %.sink126 = phi ptr [ %.064, %103 ], [ %14, %78 ]
-  %.sink125 = phi ptr [ %.063, %103 ], [ %15, %78 ]
+  %.sink127 = phi ptr [ %.064, %103 ], [ %14, %78 ]
+  %.sink126 = phi ptr [ %.063, %103 ], [ %15, %78 ]
   %.sink = phi ptr [ %.0, %103 ], [ %16, %78 ]
+  call void @free(ptr noundef %.sink127) #19
   call void @free(ptr noundef %.sink126) #19
-  call void @free(ptr noundef %.sink125) #19
   call void @free(ptr noundef %.sink) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void

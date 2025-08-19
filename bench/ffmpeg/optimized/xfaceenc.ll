@@ -300,8 +300,8 @@ all_white.exit:                                   ; preds = %10, %17
   br i1 %20, label %pq_push.exit, label %21
 
 21:                                               ; preds = %all_white.exit
-  %sext73 = shl i64 %indvars.iv, 32
-  %22 = ashr exact i64 %sext73, 32
+  %sext76 = shl i64 %indvars.iv, 32
+  %22 = ashr exact i64 %sext76, 32
   %23 = getelementptr inbounds [4 x [3 x %struct.ProbRange]], ptr @ff_xface_probranges_per_level, i64 0, i64 %22, i64 2
   %24 = add nsw i32 %19, 1
   store i32 %24, ptr %6, align 4, !tbaa !35

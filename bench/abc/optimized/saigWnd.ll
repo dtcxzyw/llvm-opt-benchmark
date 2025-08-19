@@ -154,9 +154,9 @@ Saig_ObjIsLo.exit:                                ; preds = %Saig_ObjIsPi.exit
   br label %67
 
 67:                                               ; preds = %64, %58
-  %.sink187 = phi i32 [ %66, %64 ], [ %63, %58 ]
+  %.sink190 = phi i32 [ %66, %64 ], [ %63, %58 ]
   %.val113.sink = load ptr, ptr %54, align 8, !tbaa !33
-  %68 = sext i32 %.sink187 to i64
+  %68 = sext i32 %.sink190 to i64
   %69 = getelementptr inbounds i32, ptr %.val113.sink, i64 %68
   %70 = load i32, ptr %69, align 4, !tbaa !10
   %.val115 = load ptr, ptr %55, align 8, !tbaa !34
@@ -226,9 +226,9 @@ Saig_ObjIsLo.exit.thread:                         ; preds = %39
   br label %106
 
 106:                                              ; preds = %103, %97
-  %.sink188 = phi i32 [ %105, %103 ], [ %102, %97 ]
+  %.sink191 = phi i32 [ %105, %103 ], [ %102, %97 ]
   %.val114.sink = load ptr, ptr %94, align 8, !tbaa !33
-  %107 = sext i32 %.sink188 to i64
+  %107 = sext i32 %.sink191 to i64
   %108 = getelementptr inbounds i32, ptr %.val114.sink, i64 %107
   %109 = load i32, ptr %108, align 4, !tbaa !10
   %.val116 = load ptr, ptr %95, align 8, !tbaa !34
@@ -806,25 +806,25 @@ Vec_PtrGrow.exit.i70:                             ; preds = %145, %143
   br label %.sink.split
 
 .sink.split:                                      ; preds = %157, %Vec_PtrGrow.exit.i70, %.Vec_PtrGrow.exit11_crit_edge.i65, %82, %Vec_PtrGrow.exit.i56, %.Vec_PtrGrow.exit11_crit_edge.i51, %44, %Vec_PtrGrow.exit.i, %.Vec_PtrGrow.exit11_crit_edge.i
-  %.sink91 = phi i32 [ %19, %.Vec_PtrGrow.exit11_crit_edge.i ], [ %19, %Vec_PtrGrow.exit.i ], [ %19, %44 ], [ %19, %.Vec_PtrGrow.exit11_crit_edge.i51 ], [ %19, %Vec_PtrGrow.exit.i56 ], [ %19, %82 ], [ %127, %.Vec_PtrGrow.exit11_crit_edge.i65 ], [ %127, %Vec_PtrGrow.exit.i70 ], [ %127, %157 ]
-  %.sink87 = phi ptr [ %.pre.i, %.Vec_PtrGrow.exit11_crit_edge.i ], [ %34, %Vec_PtrGrow.exit.i ], [ %45, %44 ], [ %.pre.i53, %.Vec_PtrGrow.exit11_crit_edge.i51 ], [ %72, %Vec_PtrGrow.exit.i56 ], [ %83, %82 ], [ %.pre.i67, %.Vec_PtrGrow.exit11_crit_edge.i65 ], [ %147, %Vec_PtrGrow.exit.i70 ], [ %158, %157 ]
+  %.sink105 = phi i32 [ %19, %.Vec_PtrGrow.exit11_crit_edge.i ], [ %19, %Vec_PtrGrow.exit.i ], [ %19, %44 ], [ %19, %.Vec_PtrGrow.exit11_crit_edge.i51 ], [ %19, %Vec_PtrGrow.exit.i56 ], [ %19, %82 ], [ %127, %.Vec_PtrGrow.exit11_crit_edge.i65 ], [ %127, %Vec_PtrGrow.exit.i70 ], [ %127, %157 ]
+  %.sink101 = phi ptr [ %.pre.i, %.Vec_PtrGrow.exit11_crit_edge.i ], [ %34, %Vec_PtrGrow.exit.i ], [ %45, %44 ], [ %.pre.i53, %.Vec_PtrGrow.exit11_crit_edge.i51 ], [ %72, %Vec_PtrGrow.exit.i56 ], [ %83, %82 ], [ %.pre.i67, %.Vec_PtrGrow.exit11_crit_edge.i65 ], [ %147, %Vec_PtrGrow.exit.i70 ], [ %158, %157 ]
   %.sink = phi ptr [ %21, %.Vec_PtrGrow.exit11_crit_edge.i ], [ %21, %Vec_PtrGrow.exit.i ], [ %21, %44 ], [ %56, %.Vec_PtrGrow.exit11_crit_edge.i51 ], [ %56, %Vec_PtrGrow.exit.i56 ], [ %56, %82 ], [ %131, %.Vec_PtrGrow.exit11_crit_edge.i65 ], [ %131, %Vec_PtrGrow.exit.i70 ], [ %131, %157 ]
   %.ph = phi i32 [ %15, %.Vec_PtrGrow.exit11_crit_edge.i ], [ 16, %Vec_PtrGrow.exit.i ], [ %36, %44 ], [ %15, %.Vec_PtrGrow.exit11_crit_edge.i51 ], [ 16, %Vec_PtrGrow.exit.i56 ], [ %74, %82 ], [ %123, %.Vec_PtrGrow.exit11_crit_edge.i65 ], [ 16, %Vec_PtrGrow.exit.i70 ], [ %149, %157 ]
-  %.ph82 = phi i32 [ %15, %.Vec_PtrGrow.exit11_crit_edge.i ], [ 16, %Vec_PtrGrow.exit.i ], [ %36, %44 ], [ %16, %.Vec_PtrGrow.exit11_crit_edge.i51 ], [ 16, %Vec_PtrGrow.exit.i56 ], [ %74, %82 ], [ %124, %.Vec_PtrGrow.exit11_crit_edge.i65 ], [ 16, %Vec_PtrGrow.exit.i70 ], [ %149, %157 ]
-  %.ph83 = phi i32 [ %15, %.Vec_PtrGrow.exit11_crit_edge.i ], [ 16, %Vec_PtrGrow.exit.i ], [ %36, %44 ], [ %17, %.Vec_PtrGrow.exit11_crit_edge.i51 ], [ 16, %Vec_PtrGrow.exit.i56 ], [ %74, %82 ], [ %124, %.Vec_PtrGrow.exit11_crit_edge.i65 ], [ 16, %Vec_PtrGrow.exit.i70 ], [ %149, %157 ]
-  %.ph84 = phi i32 [ %15, %.Vec_PtrGrow.exit11_crit_edge.i ], [ 16, %Vec_PtrGrow.exit.i ], [ %36, %44 ], [ %18, %.Vec_PtrGrow.exit11_crit_edge.i51 ], [ 16, %Vec_PtrGrow.exit.i56 ], [ %74, %82 ], [ %124, %.Vec_PtrGrow.exit11_crit_edge.i65 ], [ 16, %Vec_PtrGrow.exit.i70 ], [ %149, %157 ]
-  %159 = add nsw i32 %.sink91, 1
+  %.ph96 = phi i32 [ %15, %.Vec_PtrGrow.exit11_crit_edge.i ], [ 16, %Vec_PtrGrow.exit.i ], [ %36, %44 ], [ %16, %.Vec_PtrGrow.exit11_crit_edge.i51 ], [ 16, %Vec_PtrGrow.exit.i56 ], [ %74, %82 ], [ %124, %.Vec_PtrGrow.exit11_crit_edge.i65 ], [ 16, %Vec_PtrGrow.exit.i70 ], [ %149, %157 ]
+  %.ph97 = phi i32 [ %15, %.Vec_PtrGrow.exit11_crit_edge.i ], [ 16, %Vec_PtrGrow.exit.i ], [ %36, %44 ], [ %17, %.Vec_PtrGrow.exit11_crit_edge.i51 ], [ 16, %Vec_PtrGrow.exit.i56 ], [ %74, %82 ], [ %124, %.Vec_PtrGrow.exit11_crit_edge.i65 ], [ 16, %Vec_PtrGrow.exit.i70 ], [ %149, %157 ]
+  %.ph98 = phi i32 [ %15, %.Vec_PtrGrow.exit11_crit_edge.i ], [ 16, %Vec_PtrGrow.exit.i ], [ %36, %44 ], [ %18, %.Vec_PtrGrow.exit11_crit_edge.i51 ], [ 16, %Vec_PtrGrow.exit.i56 ], [ %74, %82 ], [ %124, %.Vec_PtrGrow.exit11_crit_edge.i65 ], [ 16, %Vec_PtrGrow.exit.i70 ], [ %149, %157 ]
+  %159 = add nsw i32 %.sink105, 1
   store i32 %159, ptr %4, align 4, !tbaa !39
-  %160 = sext i32 %.sink91 to i64
-  %161 = getelementptr inbounds ptr, ptr %.sink87, i64 %160
+  %160 = sext i32 %.sink105 to i64
+  %161 = getelementptr inbounds ptr, ptr %.sink101, i64 %160
   store ptr %.sink, ptr %161, align 8, !tbaa !30
   br label %162
 
 162:                                              ; preds = %.sink.split, %122, %133, %Saig_ObjIsLo.exit, %58
   %163 = phi i32 [ %123, %122 ], [ %123, %133 ], [ %15, %Saig_ObjIsLo.exit ], [ %15, %58 ], [ %.ph, %.sink.split ]
-  %164 = phi i32 [ %124, %122 ], [ %124, %133 ], [ %16, %Saig_ObjIsLo.exit ], [ %16, %58 ], [ %.ph82, %.sink.split ]
-  %165 = phi i32 [ %125, %122 ], [ %125, %133 ], [ %17, %Saig_ObjIsLo.exit ], [ %17, %58 ], [ %.ph83, %.sink.split ]
-  %166 = phi i32 [ %126, %122 ], [ %126, %133 ], [ %18, %Saig_ObjIsLo.exit ], [ %18, %58 ], [ %.ph84, %.sink.split ]
+  %164 = phi i32 [ %124, %122 ], [ %124, %133 ], [ %16, %Saig_ObjIsLo.exit ], [ %16, %58 ], [ %.ph96, %.sink.split ]
+  %165 = phi i32 [ %125, %122 ], [ %125, %133 ], [ %17, %Saig_ObjIsLo.exit ], [ %17, %58 ], [ %.ph97, %.sink.split ]
+  %166 = phi i32 [ %126, %122 ], [ %126, %133 ], [ %18, %Saig_ObjIsLo.exit ], [ %18, %58 ], [ %.ph98, %.sink.split ]
   %167 = phi i32 [ %127, %122 ], [ %127, %133 ], [ %19, %Saig_ObjIsLo.exit ], [ %19, %58 ], [ %159, %.sink.split ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.val45 = load i32, ptr %7, align 4, !tbaa !39
@@ -2098,8 +2098,8 @@ define ptr @Saig_ManFindPivot(ptr noundef readonly captures(none) %0) local_unna
 
 .critedge.sink.split:                             ; preds = %16, %.critedge.loopexit.split.loop.exit
   %.sink = phi i32 [ %34, %.critedge.loopexit.split.loop.exit ], [ %.val33, %16 ]
-  %.sink60 = load ptr, ptr %13, align 8, !tbaa !26
-  %35 = getelementptr i8, ptr %.sink60, i64 8
+  %.sink61 = load ptr, ptr %13, align 8, !tbaa !26
+  %35 = getelementptr i8, ptr %.sink61, i64 8
   %.val29.le = load ptr, ptr %35, align 8, !tbaa !28
   %36 = sext i32 %.sink to i64
   %37 = getelementptr inbounds ptr, ptr %.val29.le, i64 %36
@@ -2185,10 +2185,10 @@ Vec_PtrFree.exit30:                               ; preds = %15, %18
   br i1 %.not.i31, label %Vec_PtrFree.exit, label %Vec_PtrFree.exit.sink.split
 
 Vec_PtrFree.exit.sink.split:                      ; preds = %Vec_PtrFree.exit30, %12
-  %.sink33 = phi ptr [ %14, %12 ], [ %22, %Vec_PtrFree.exit30 ]
+  %.sink36 = phi ptr [ %14, %12 ], [ %22, %Vec_PtrFree.exit30 ]
   %.sink.ph = phi ptr [ %5, %12 ], [ %19, %Vec_PtrFree.exit30 ]
   %.0.ph = phi ptr [ null, %12 ], [ %20, %Vec_PtrFree.exit30 ]
-  tail call void @free(ptr noundef nonnull %.sink33) #18
+  tail call void @free(ptr noundef nonnull %.sink36) #18
   br label %Vec_PtrFree.exit
 
 Vec_PtrFree.exit:                                 ; preds = %Vec_PtrFree.exit.sink.split, %Vec_PtrFree.exit30, %12
@@ -2280,8 +2280,8 @@ define ptr @Saig_ManWindowTest(ptr noundef %0) local_unnamed_addr #0 {
 
 .critedge.sink.split.i:                           ; preds = %.critedge.loopexit.split.loop.exit.i, %16
   %.sink.i = phi i32 [ %34, %.critedge.loopexit.split.loop.exit.i ], [ %.val33.i, %16 ]
-  %.sink60.i = load ptr, ptr %13, align 8, !tbaa !26
-  %35 = getelementptr i8, ptr %.sink60.i, i64 8
+  %.sink61.i = load ptr, ptr %13, align 8, !tbaa !26
+  %35 = getelementptr i8, ptr %.sink61.i, i64 8
   %.val29.le.i = load ptr, ptr %35, align 8, !tbaa !28
   %36 = sext i32 %.sink.i to i64
   %37 = getelementptr inbounds ptr, ptr %.val29.le.i, i64 %36

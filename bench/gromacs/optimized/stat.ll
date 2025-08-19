@@ -135,14 +135,14 @@ define void @_Z11global_statRK15gmx_global_statPK9t_commrecP14gmx_enerdata_tPA3_
   %indvars.iv370 = phi i64 [ %indvars.iv.next371, %49 ], [ 0, %.split.split.us.i ]
   %.02126.us31.us.i = phi i32 [ %.223.us35.us.i, %49 ], [ 0, %.split.split.us.i ]
   %43 = trunc nuw nsw i64 %indvars.iv370 to i32
-  switch i32 %43, label %.sink.split95.i [
+  switch i32 %43, label %.sink.split96.i [
     i32 82, label %49
     i32 81, label %49
     i32 85, label %49
     i32 86, label %49
   ]
 
-.sink.split95.i:                                  ; preds = %.split.split.us.split.us.i
+.sink.split96.i:                                  ; preds = %.split.split.us.split.us.i
   %44 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv370
   %45 = load float, ptr %44, align 4, !tbaa !108
   %46 = add nsw i32 %.02126.us31.us.i, 1
@@ -151,8 +151,8 @@ define void @_Z11global_statRK15gmx_global_statPK9t_commrecP14gmx_enerdata_tPA3_
   store float %45, ptr %48, align 4, !tbaa !108
   br label %49
 
-49:                                               ; preds = %.sink.split95.i, %.split.split.us.split.us.i, %.split.split.us.split.us.i, %.split.split.us.split.us.i, %.split.split.us.split.us.i
-  %.223.us35.us.i = phi i32 [ %.02126.us31.us.i, %.split.split.us.split.us.i ], [ %.02126.us31.us.i, %.split.split.us.split.us.i ], [ %.02126.us31.us.i, %.split.split.us.split.us.i ], [ %.02126.us31.us.i, %.split.split.us.split.us.i ], [ %46, %.sink.split95.i ]
+49:                                               ; preds = %.sink.split96.i, %.split.split.us.split.us.i, %.split.split.us.split.us.i, %.split.split.us.split.us.i, %.split.split.us.split.us.i
+  %.223.us35.us.i = phi i32 [ %.02126.us31.us.i, %.split.split.us.split.us.i ], [ %.02126.us31.us.i, %.split.split.us.split.us.i ], [ %.02126.us31.us.i, %.split.split.us.split.us.i ], [ %.02126.us31.us.i, %.split.split.us.split.us.i ], [ %46, %.sink.split96.i ]
   %indvars.iv.next371 = add nuw nsw i64 %indvars.iv370, 1
   %exitcond85.not.i = icmp eq i64 %indvars.iv.next371, 95
   br i1 %exitcond85.not.i, label %_ZL16filter_enerdtermPKfbPfbbb.exit, label %.split.split.us.split.us.i, !llvm.loop !109
@@ -274,8 +274,8 @@ _ZL16filter_enerdtermPKfbPfbbb.exit:              ; preds = %42, %65, %49, %57, 
   br label %.sink.split
 
 .sink.split:                                      ; preds = %87, %83
-  %.sink397 = phi ptr [ %85, %83 ], [ %89, %87 ]
-  %90 = tail call noundef i32 @_Z8add_binrP5t_biniPKf(ptr noundef %29, i32 noundef 9, ptr noundef nonnull %.sink397)
+  %.sink407 = phi ptr [ %85, %83 ], [ %89, %87 ]
+  %90 = tail call noundef i32 @_Z8add_binrP5t_biniPKf(ptr noundef %29, i32 noundef 9, ptr noundef nonnull %.sink407)
   %91 = getelementptr inbounds nuw i32, ptr %33, i64 %indvars.iv373
   store i32 %90, ptr %91, align 4, !tbaa !114
   br label %92
@@ -327,26 +327,26 @@ _ZL16filter_enerdtermPKfbPfbbb.exit:              ; preds = %42, %65, %49, %57, 
 114:                                              ; preds = %113
   %115 = load ptr, ptr %107, align 8, !tbaa !138
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 64
-  br label %.sink.split398
+  br label %.sink.split408
 
 117:                                              ; preds = %113
   br i1 %28, label %121, label %118
 
 118:                                              ; preds = %117
   %119 = load ptr, ptr %107, align 8, !tbaa !138
-  br label %.sink.split398
+  br label %.sink.split408
 
-.sink.split398:                                   ; preds = %118, %114
+.sink.split408:                                   ; preds = %118, %114
   %.sink = phi ptr [ %116, %114 ], [ %119, %118 ]
   %120 = tail call noundef i32 @_Z8add_bindP5t_biniPKd(ptr noundef %29, i32 noundef 4, ptr noundef %.sink)
   br label %121
 
-121:                                              ; preds = %.sink.split398, %117, %106, %68
-  %.0261 = phi i32 [ 0, %106 ], [ 0, %68 ], [ 0, %117 ], [ %120, %.sink.split398 ]
-  %.0259 = phi i32 [ 0, %106 ], [ 0, %68 ], [ %.1260, %117 ], [ %.1260, %.sink.split398 ]
-  %.0257 = phi i32 [ %.1258, %106 ], [ 0, %68 ], [ %.1258, %117 ], [ %.1258, %.sink.split398 ]
-  %.0249 = phi i32 [ %.1, %106 ], [ 0, %68 ], [ %.1, %117 ], [ %.1, %.sink.split398 ]
-  %.0248 = phi i32 [ %75, %106 ], [ 0, %68 ], [ %75, %117 ], [ %75, %.sink.split398 ]
+121:                                              ; preds = %.sink.split408, %117, %106, %68
+  %.0261 = phi i32 [ 0, %106 ], [ 0, %68 ], [ 0, %117 ], [ %120, %.sink.split408 ]
+  %.0259 = phi i32 [ 0, %106 ], [ 0, %68 ], [ %.1260, %117 ], [ %.1260, %.sink.split408 ]
+  %.0257 = phi i32 [ %.1258, %106 ], [ 0, %68 ], [ %.1258, %117 ], [ %.1258, %.sink.split408 ]
+  %.0249 = phi i32 [ %.1, %106 ], [ 0, %68 ], [ %.1, %117 ], [ %.1, %.sink.split408 ]
+  %.0248 = phi i32 [ %75, %106 ], [ 0, %68 ], [ %75, %117 ], [ %75, %.sink.split408 ]
   br i1 %24, label %124, label %122
 
 122:                                              ; preds = %121
@@ -589,21 +589,21 @@ _ZL16filter_enerdtermPKfbPfbbb.exit:              ; preds = %42, %65, %49, %57, 
 253:                                              ; preds = %252
   %254 = load ptr, ptr %247, align 8, !tbaa !138
   %255 = getelementptr inbounds nuw i8, ptr %254, i64 64
-  br label %.sink.split399
+  br label %.sink.split409
 
 256:                                              ; preds = %252
   br i1 %28, label %259, label %257
 
 257:                                              ; preds = %256
   %258 = load ptr, ptr %247, align 8, !tbaa !138
-  br label %.sink.split399
+  br label %.sink.split409
 
-.sink.split399:                                   ; preds = %257, %253
-  %.sink400 = phi ptr [ %255, %253 ], [ %258, %257 ]
-  call void @_Z12extract_bindP5t_biniiPd(ptr noundef %29, i32 noundef %.0261, i32 noundef 4, ptr noundef %.sink400)
+.sink.split409:                                   ; preds = %257, %253
+  %.sink410 = phi ptr [ %255, %253 ], [ %258, %257 ]
+  call void @_Z12extract_bindP5t_biniiPd(ptr noundef %29, i32 noundef %.0261, i32 noundef 4, ptr noundef %.sink410)
   br label %259
 
-259:                                              ; preds = %.sink.split399, %256, %246, %210
+259:                                              ; preds = %.sink.split409, %256, %246, %210
   br i1 %24, label %261, label %260
 
 260:                                              ; preds = %259
@@ -700,14 +700,14 @@ _ZL16filter_enerdtermPKfbPfbbb.exit:              ; preds = %42, %65, %49, %57, 
   %indvars.iv388 = phi i64 [ %indvars.iv.next389, %305 ], [ 0, %.split.i289 ]
   %.027.us30.us.i295 = phi i32 [ %.2.us36.us.i299, %305 ], [ 0, %.split.i289 ]
   %299 = trunc nuw nsw i64 %indvars.iv388 to i32
-  switch i32 %299, label %.sink.split95.i301 [
+  switch i32 %299, label %.sink.split96.i301 [
     i32 82, label %305
     i32 81, label %305
     i32 85, label %305
     i32 86, label %305
   ]
 
-.sink.split95.i301:                               ; preds = %.split.split.us.split.us.i294
+.sink.split96.i301:                               ; preds = %.split.split.us.split.us.i294
   %300 = add nsw i32 %.027.us30.us.i295, 1
   %301 = sext i32 %.027.us30.us.i295 to i64
   %302 = getelementptr inbounds float, ptr %14, i64 %301
@@ -716,8 +716,8 @@ _ZL16filter_enerdtermPKfbPfbbb.exit:              ; preds = %42, %65, %49, %57, 
   store float %303, ptr %304, align 4, !tbaa !108
   br label %305
 
-305:                                              ; preds = %.sink.split95.i301, %.split.split.us.split.us.i294, %.split.split.us.split.us.i294, %.split.split.us.split.us.i294, %.split.split.us.split.us.i294
-  %.2.us36.us.i299 = phi i32 [ %.027.us30.us.i295, %.split.split.us.split.us.i294 ], [ %.027.us30.us.i295, %.split.split.us.split.us.i294 ], [ %.027.us30.us.i295, %.split.split.us.split.us.i294 ], [ %.027.us30.us.i295, %.split.split.us.split.us.i294 ], [ %300, %.sink.split95.i301 ]
+305:                                              ; preds = %.sink.split96.i301, %.split.split.us.split.us.i294, %.split.split.us.split.us.i294, %.split.split.us.split.us.i294, %.split.split.us.split.us.i294
+  %.2.us36.us.i299 = phi i32 [ %.027.us30.us.i295, %.split.split.us.split.us.i294 ], [ %.027.us30.us.i295, %.split.split.us.split.us.i294 ], [ %.027.us30.us.i295, %.split.split.us.split.us.i294 ], [ %.027.us30.us.i295, %.split.split.us.split.us.i294 ], [ %300, %.sink.split96.i301 ]
   %indvars.iv.next389 = add nuw nsw i64 %indvars.iv388, 1
   %exitcond85.not.i300 = icmp eq i64 %indvars.iv.next389, 95
   br i1 %exitcond85.not.i300, label %_ZL16filter_enerdtermPKfbPfbbb.exit310, label %.split.split.us.split.us.i294, !llvm.loop !109

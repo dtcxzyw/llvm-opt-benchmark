@@ -938,8 +938,8 @@ _ZNK4llvm11GlobalValue8isTaggedEv.exit.thread:    ; preds = %_ZNK4llvm11GlobalVa
   br i1 %.not11.i, label %"_ZZNK4llvm11GlobalValue24canBenefitFromLocalAliasEvENK3$_0clEPKNS_6ComdatE.exit", label %_ZNK4llvm11GlobalValue9getComdatEv.exit
 
 _ZNK4llvm11GlobalValue9getComdatEv.exit:          ; preds = %15, %17, %22, %27
-  %.sink14.i = phi ptr [ %30, %27 ], [ %0, %22 ], [ %0, %17 ], [ %0, %15 ]
-  %36 = getelementptr inbounds nuw i8, ptr %.sink14.i, i64 48
+  %.sink15.i = phi ptr [ %30, %27 ], [ %0, %22 ], [ %0, %17 ], [ %0, %15 ]
+  %36 = getelementptr inbounds nuw i8, ptr %.sink15.i, i64 48
   %37 = load ptr, ptr %36, align 8, !tbaa !42
   %.not.i3 = icmp eq ptr %37, null
   br i1 %.not.i3, label %"_ZZNK4llvm11GlobalValue24canBenefitFromLocalAliasEvENK3$_0clEPKNS_6ComdatE.exit", label %38
@@ -1014,8 +1014,8 @@ define dso_local noundef ptr @_ZNK4llvm11GlobalValue9getComdatEv(ptr noundef non
   br i1 %.not11, label %15, label %.sink.split
 
 .sink.split:                                      ; preds = %1, %4
-  %.sink14 = phi ptr [ %7, %4 ], [ %0, %1 ]
-  %13 = getelementptr inbounds nuw i8, ptr %.sink14, i64 48
+  %.sink15 = phi ptr [ %7, %4 ], [ %0, %1 ]
+  %13 = getelementptr inbounds nuw i8, ptr %.sink15, i64 48
   %14 = load ptr, ptr %13, align 8, !tbaa !42
   br label %15
 
@@ -1867,8 +1867,8 @@ _ZNK4llvm11GlobalValue22isDeclarationForLinkerEv.exit.thread.i: ; preds = %17, %
   %switch.maskindex = trunc nsw i32 %switch.tableidx to i16
   %switch.shifted = lshr i16 399, %switch.maskindex
   %switch.lobit = trunc i16 %switch.shifted to i1
-  %or.cond32 = select i1 %22, i1 %switch.lobit, i1 false
-  br i1 %or.cond32, label %_ZNK4llvm11GlobalValue27isStrongDefinitionForLinkerEv.exit.thread, label %_ZNK4llvm11GlobalValue27isStrongDefinitionForLinkerEv.exit
+  %or.cond39 = select i1 %22, i1 %switch.lobit, i1 false
+  br i1 %or.cond39, label %_ZNK4llvm11GlobalValue27isStrongDefinitionForLinkerEv.exit.thread, label %_ZNK4llvm11GlobalValue27isStrongDefinitionForLinkerEv.exit
 
 _ZNK4llvm11GlobalValue27isStrongDefinitionForLinkerEv.exit: ; preds = %_ZNK4llvm11GlobalValue22isDeclarationForLinkerEv.exit.thread.i
   %23 = and i32 %7, 67108864
@@ -4229,13 +4229,13 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_11GlobalAliasENS_6detail13DenseSetEmpty
   br label %.loopexit
 
 .loopexit:                                        ; preds = %27, %10, %59
-  %.sink28 = phi i32 [ %62, %59 ], [ %8, %10 ], [ %8, %27 ]
-  %.sink26 = phi ptr [ %61, %59 ], [ %6, %10 ], [ %6, %27 ]
-  %.sink25 = phi ptr [ %50, %59 ], [ %19, %10 ], [ %33, %27 ]
+  %.sink32 = phi i32 [ %62, %59 ], [ %8, %10 ], [ %8, %27 ]
+  %.sink30 = phi ptr [ %61, %59 ], [ %6, %10 ], [ %6, %27 ]
+  %.sink29 = phi ptr [ %50, %59 ], [ %19, %10 ], [ %33, %27 ]
   %.sink = phi i8 [ 1, %59 ], [ 0, %10 ], [ 0, %27 ]
-  %63 = zext i32 %.sink28 to i64
-  %64 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair", ptr %.sink26, i64 %63
-  store ptr %.sink25, ptr %0, align 8
+  %63 = zext i32 %.sink32 to i64
+  %64 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair", ptr %.sink30, i64 %63
+  store ptr %.sink29, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %64, ptr %.sroa.4.0..sroa_idx, align 8
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 16

@@ -466,9 +466,9 @@ proto_item_set_generated.exit.i:                  ; preds = %147, %144, %141
   br i1 %156, label %.sink.split.i, label %dissect_nvme_mi_mi.exit
 
 .sink.split.i:                                    ; preds = %proto_item_set_generated.exit.i, %133
-  %.sink24.i = phi i32 [ 12, %133 ], [ 4, %proto_item_set_generated.exit.i ]
+  %.sink25.i = phi i32 [ 12, %133 ], [ 4, %proto_item_set_generated.exit.i ]
   %157 = load i32, ptr @hf_nvme_mi_mi_data, align 4
-  %158 = call ptr @proto_tree_add_item(ptr noundef %130, i32 noundef %157, ptr noundef %122, i32 noundef %.sink24.i, i32 noundef -1, i32 noundef 0)
+  %158 = call ptr @proto_tree_add_item(ptr noundef %130, i32 noundef %157, ptr noundef %122, i32 noundef %.sink25.i, i32 noundef -1, i32 noundef 0)
   br label %dissect_nvme_mi_mi.exit
 
 159:                                              ; preds = %121
@@ -566,9 +566,9 @@ proto_item_set_generated.exit.i92:                ; preds = %175, %172, %169
   br i1 %231, label %.sink.split.i89, label %dissect_nvme_mi_mi.exit
 
 .sink.split.i89:                                  ; preds = %193, %190
-  %.sink61.i = phi i32 [ 16, %190 ], [ 64, %193 ]
+  %.sink62.i = phi i32 [ 16, %190 ], [ 64, %193 ]
   %232 = load i32, ptr @hf_nvme_mi_admin_data, align 4
-  %233 = call ptr @proto_tree_add_item(ptr noundef %165, i32 noundef %232, ptr noundef %122, i32 noundef %.sink61.i, i32 noundef -1, i32 noundef 0)
+  %233 = call ptr @proto_tree_add_item(ptr noundef %165, i32 noundef %232, ptr noundef %122, i32 noundef %.sink62.i, i32 noundef -1, i32 noundef 0)
   br label %dissect_nvme_mi_mi.exit
 
 dissect_nvme_mi_mi.exit:                          ; preds = %.sink.split.i89, %193, %190, %.sink.split.i, %proto_item_set_generated.exit.i, %133, %121

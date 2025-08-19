@@ -160,8 +160,8 @@ define internal range(i32 -1094995529, 1) i32 @film_read_header(ptr noundef %0) 
   br i1 %55, label %.loopexit, label %.thread174
 
 64:                                               ; preds = %57, %61
-  %.sink192 = phi i32 [ 13, %61 ], [ 43, %57 ]
-  store i32 %.sink192, ptr %60, align 8, !tbaa !36
+  %.sink195 = phi i32 [ 13, %61 ], [ 43, %57 ]
+  store i32 %.sink195, ptr %60, align 8, !tbaa !36
   %65 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %66 = call ptr @avformat_new_stream(ptr noundef nonnull %0, ptr noundef null) #5
   %.not161 = icmp eq ptr %66, null

@@ -2597,9 +2597,9 @@ define void @_ZNK5arrow12ChunkedArray5SliceEll(ptr dead_on_unwind noalias writab
   br i1 %or.cond, label %45, label %.preheader
 
 .preheader:                                       ; preds = %.critedge.thread, %.critedge
-  %.0.lcssa86 = phi i64 [ %2, %.critedge.thread ], [ %.0.lcssa, %.critedge ]
-  %storemerge.lcssa85 = phi i32 [ 0, %.critedge.thread ], [ %storemerge.lcssa, %.critedge ]
-  %38 = icmp slt i32 %storemerge.lcssa85, %24
+  %.0.lcssa102 = phi i64 [ %2, %.critedge.thread ], [ %.0.lcssa, %.critedge ]
+  %storemerge.lcssa101 = phi i32 [ 0, %.critedge.thread ], [ %storemerge.lcssa, %.critedge ]
+  %38 = icmp slt i32 %storemerge.lcssa101, %24
   %39 = icmp sgt i64 %3, 0
   %40 = and i1 %38, %39
   br i1 %40, label %.lr.ph76, label %.loopexit
@@ -2608,7 +2608,7 @@ define void @_ZNK5arrow12ChunkedArray5SliceEll(ptr dead_on_unwind noalias writab
   %41 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %42 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %43 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %44 = zext i32 %storemerge.lcssa85 to i64
+  %44 = zext i32 %storemerge.lcssa101 to i64
   br label %92
 
 45:                                               ; preds = %.critedge
@@ -2725,7 +2725,7 @@ _ZNSt12__shared_ptrIN5arrow5ArrayELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; pre
 92:                                               ; preds = %.lr.ph76, %_ZNSt12__shared_ptrIN5arrow5ArrayELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit46
   %indvars.iv78 = phi i64 [ %44, %.lr.ph76 ], [ %indvars.iv.next79, %_ZNSt12__shared_ptrIN5arrow5ArrayELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit46 ]
   %93 = phi ptr [ %19, %.lr.ph76 ], [ %127, %_ZNSt12__shared_ptrIN5arrow5ArrayELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit46 ]
-  %.175 = phi i64 [ %.0.lcssa86, %.lr.ph76 ], [ 0, %_ZNSt12__shared_ptrIN5arrow5ArrayELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit46 ]
+  %.175 = phi i64 [ %.0.lcssa102, %.lr.ph76 ], [ 0, %_ZNSt12__shared_ptrIN5arrow5ArrayELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit46 ]
   %.02674 = phi i64 [ %3, %.lr.ph76 ], [ %134, %_ZNSt12__shared_ptrIN5arrow5ArrayELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit46 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %94 = getelementptr inbounds nuw %"class.std::shared_ptr.12", ptr %93, i64 %indvars.iv78
@@ -3546,26 +3546,26 @@ _ZNSt6vectorISt10shared_ptrIN5arrow5ArrayEESaIS3_EE9push_backERKS3_.exit: ; pred
   unreachable
 
 _ZNSt6vectorISt10shared_ptrIN5arrow12ChunkedArrayEESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i: ; preds = %.critedge.thread, %.critedge
-  %sext123.pre-phi181 = phi i64 [ %sext, %.critedge.thread ], [ %.pre171, %.critedge ]
-  %.pre-phi173180 = phi i64 [ %66, %.critedge.thread ], [ %.pre172, %.critedge ]
-  %.not.i.i.i.i62 = icmp ult i64 %sext123.pre-phi181, 4294967296
+  %sext123.pre-phi201 = phi i64 [ %sext, %.critedge.thread ], [ %.pre171, %.critedge ]
+  %.pre-phi173200 = phi i64 [ %66, %.critedge.thread ], [ %.pre172, %.critedge ]
+  %.not.i.i.i.i62 = icmp ult i64 %sext123.pre-phi201, 4294967296
   br i1 %.not.i.i.i.i62, label %_ZSt8_DestroyIPSt10shared_ptrIN5arrow12ChunkedArrayEES3_EvT_S5_RSaIT0_E.exit.i80, label %.lr.ph.preheader.i.i.i.i.i63
 
 .lr.ph.preheader.i.i.i.i.i63:                     ; preds = %_ZNSt6vectorISt10shared_ptrIN5arrow12ChunkedArrayEESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i
-  %200 = shl nuw nsw i64 %.pre-phi173180, 4
+  %200 = shl nuw nsw i64 %.pre-phi173200, 4
   %201 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %200) #22
           to label %202 unwind label %211
 
 202:                                              ; preds = %.lr.ph.preheader.i.i.i.i.i63
   store ptr %201, ptr %8, align 8, !tbaa !185
-  %203 = getelementptr inbounds nuw %"class.std::shared_ptr.29", ptr %201, i64 %.pre-phi173180
+  %203 = getelementptr inbounds nuw %"class.std::shared_ptr.29", ptr %201, i64 %.pre-phi173200
   call void @llvm.memset.p0.i64(ptr nonnull align 8 %201, i8 0, i64 %200, i1 false)
   %scevgep.i.i.i.i.i64 = getelementptr i8, ptr %201, i64 %200
   %204 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %205 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %203, ptr %205, align 8, !tbaa !189
   store ptr %scevgep.i.i.i.i.i64, ptr %204, align 8, !tbaa !188
-  %.not151 = icmp eq i64 %.pre-phi173180, 0
+  %.not151 = icmp eq i64 %.pre-phi173200, 0
   br i1 %.not151, label %_ZSt8_DestroyIPSt10shared_ptrIN5arrow12ChunkedArrayEES3_EvT_S5_RSaIT0_E.exit.i80, label %.lr.ph147
 
 .lr.ph147:                                        ; preds = %202
@@ -4288,8 +4288,8 @@ _ZNSt12_Vector_baseISt10shared_ptrIN5arrow5ArrayEESaIS3_EEC2EmRKS4_.exit.thread.
   %26 = ptrtoint ptr %24 to i64
   %27 = ptrtoint ptr %25 to i64
   %28 = sub i64 %26, %27
-  %sext45 = shl i64 %28, 28
-  %29 = ashr i64 %sext45, 32
+  %sext53 = shl i64 %28, 28
+  %29 = ashr i64 %sext53, 32
   %.not = icmp slt i64 %indvars.iv.next, %29
   br i1 %.not, label %30, label %.critedge, !llvm.loop !215
 

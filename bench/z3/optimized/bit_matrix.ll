@@ -981,17 +981,17 @@ _ZN6vectorIjLb0EjE3endEv.exit:                    ; preds = %_ZN6vectorIjLb0EjE7
 _ZNK6vectorIjLb0EjE4sizeEv.exit.i31.preheader:    ; preds = %88, %_ZN6vectorIjLb0EjE3endEv.exit, %_ZN6vectorIjLb0EjE7reverseEv.exit
   %62 = getelementptr inbounds nuw i8, ptr %37, i64 4
   %63 = load i32, ptr %62, align 4, !tbaa !33
-  %.not50 = icmp eq i32 %63, 0
-  br i1 %.not50, label %_ZN6vectorIjLb0EjE6appendERKS0_.exit, label %.lr.ph49
+  %.not58 = icmp eq i32 %63, 0
+  br i1 %.not58, label %_ZN6vectorIjLb0EjE6appendERKS0_.exit, label %.lr.ph57
 
-.lr.ph49:                                         ; preds = %_ZNK6vectorIjLb0EjE4sizeEv.exit.i31.preheader, %_ZN6vectorIjLb0EjE9push_backERKj.exit.i
-  %indvars.iv.i3248 = phi i64 [ %indvars.iv.next.i33, %_ZN6vectorIjLb0EjE9push_backERKj.exit.i ], [ 0, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i31.preheader ]
+.lr.ph57:                                         ; preds = %_ZNK6vectorIjLb0EjE4sizeEv.exit.i31.preheader, %_ZN6vectorIjLb0EjE9push_backERKj.exit.i
+  %indvars.iv.i3256 = phi i64 [ %indvars.iv.next.i33, %_ZN6vectorIjLb0EjE9push_backERKj.exit.i ], [ 0, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i31.preheader ]
   %64 = phi ptr [ %74, %_ZN6vectorIjLb0EjE9push_backERKj.exit.i ], [ %40, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i31.preheader ]
-  %65 = getelementptr inbounds nuw i32, ptr %39, i64 %indvars.iv.i3248
+  %65 = getelementptr inbounds nuw i32, ptr %39, i64 %indvars.iv.i3256
   %66 = icmp eq ptr %64, null
   br i1 %66, label %73, label %67
 
-67:                                               ; preds = %.lr.ph49
+67:                                               ; preds = %.lr.ph57
   %68 = getelementptr inbounds i8, ptr %64, i64 -4
   %69 = load i32, ptr %68, align 4, !tbaa !33
   %70 = getelementptr inbounds i8, ptr %64, i64 -8
@@ -999,7 +999,7 @@ _ZNK6vectorIjLb0EjE4sizeEv.exit.i31.preheader:    ; preds = %88, %_ZN6vectorIjLb
   %72 = icmp eq i32 %69, %71
   br i1 %72, label %73, label %_ZN6vectorIjLb0EjE9push_backERKj.exit.i
 
-73:                                               ; preds = %67, %.lr.ph49
+73:                                               ; preds = %67, %.lr.ph57
   invoke void @_ZN6vectorIjLb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %0)
           to label %.noexc35 unwind label %86
 
@@ -1019,11 +1019,11 @@ _ZN6vectorIjLb0EjE9push_backERKj.exit.i:          ; preds = %.noexc35, %67
   store i32 %79, ptr %78, align 4, !tbaa !33
   %80 = add i32 %75, 1
   store i32 %80, ptr %76, align 4, !tbaa !33
-  %indvars.iv.next.i33 = add nuw nsw i64 %indvars.iv.i3248, 1
+  %indvars.iv.next.i33 = add nuw nsw i64 %indvars.iv.i3256, 1
   %81 = load i32, ptr %62, align 4, !tbaa !33
   %82 = zext i32 %81 to i64
   %83 = icmp samesign ult i64 %indvars.iv.next.i33, %82
-  br i1 %83, label %.lr.ph49, label %_ZN6vectorIjLb0EjE6appendERKS0_.exit, !llvm.loop !81
+  br i1 %83, label %.lr.ph57, label %_ZN6vectorIjLb0EjE6appendERKS0_.exit, !llvm.loop !81
 
 84:                                               ; preds = %_ZNK6vectorIjLb0EjE8capacityEv.exit.i.i.i
   %85 = landingpad { ptr, i32 }

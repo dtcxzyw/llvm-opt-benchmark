@@ -732,8 +732,8 @@ define internal void @filter_plane_8(ptr noundef readonly captures(none) %0, ptr
   %98 = lshr i8 %97, 4
   %99 = zext nneg i8 %98 to i64
   %100 = shl i64 %indvars.iv326, 4
-  %.masked365 = and i64 %100, 4294967280
-  %101 = getelementptr inbounds nuw i16, ptr %20, i64 %.masked365
+  %.masked381 = and i64 %100, 4294967280
+  %101 = getelementptr inbounds nuw i16, ptr %20, i64 %.masked381
   %102 = getelementptr inbounds nuw i16, ptr %101, i64 %99
   %103 = load i16, ptr %102, align 2, !tbaa !76
   %104 = add i16 %103, 1
@@ -794,8 +794,8 @@ define internal void @filter_plane_8(ptr noundef readonly captures(none) %0, ptr
 
 .lr.ph290.preheader:                              ; preds = %.lr.ph287
   %128 = add nsw i32 %.0237314, %28
-  %.368 = call i32 @llvm.smin.i32(i32 %109, i32 %128)
-  %129 = mul nsw i32 %.368, %2
+  %.384 = call i32 @llvm.smin.i32(i32 %109, i32 %128)
+  %129 = mul nsw i32 %.384, %2
   %130 = sext i32 %129 to i64
   %131 = getelementptr inbounds i8, ptr %1, i64 %130
   br label %.lr.ph290
@@ -821,8 +821,8 @@ define internal void @filter_plane_8(ptr noundef readonly captures(none) %0, ptr
   %147 = lshr i8 %146, 4
   %148 = zext nneg i8 %147 to i64
   %149 = shl i64 %indvars.iv332, 4
-  %.masked366 = and i64 %149, 4294967280
-  %150 = getelementptr inbounds nuw i16, ptr %20, i64 %.masked366
+  %.masked382 = and i64 %149, 4294967280
+  %150 = getelementptr inbounds nuw i16, ptr %20, i64 %.masked382
   %151 = getelementptr inbounds nuw i16, ptr %150, i64 %148
   %152 = load i16, ptr %151, align 2, !tbaa !76
   %153 = add i16 %152, -1
@@ -860,8 +860,8 @@ define internal void @filter_plane_8(ptr noundef readonly captures(none) %0, ptr
   %170 = lshr i8 %169, 4
   %171 = zext nneg i8 %170 to i64
   %172 = shl i64 %indvars.iv337, 4
-  %.masked367 = and i64 %172, 4294967280
-  %173 = getelementptr inbounds nuw i16, ptr %20, i64 %.masked367
+  %.masked383 = and i64 %172, 4294967280
+  %173 = getelementptr inbounds nuw i16, ptr %20, i64 %.masked383
   %174 = getelementptr inbounds nuw i16, ptr %173, i64 %171
   %175 = load i16, ptr %174, align 2, !tbaa !76
   %176 = add i16 %175, 1
@@ -1270,8 +1270,8 @@ define internal void @filter_plane_9(ptr noundef readonly captures(none) %0, ptr
 
 .lr.ph290.preheader:                              ; preds = %.lr.ph287
   %132 = add nsw i32 %.0237314, %28
-  %.365 = call i32 @llvm.smin.i32(i32 %112, i32 %132)
-  %133 = mul nsw i32 %.365, %31
+  %.381 = call i32 @llvm.smin.i32(i32 %112, i32 %132)
+  %133 = mul nsw i32 %.381, %31
   %134 = sext i32 %133 to i64
   %135 = getelementptr inbounds i16, ptr %1, i64 %134
   br label %.lr.ph290
@@ -1746,8 +1746,8 @@ define internal void @filter_plane_10(ptr noundef readonly captures(none) %0, pt
 
 .lr.ph290.preheader:                              ; preds = %.lr.ph287
   %132 = add nsw i32 %.0237314, %28
-  %.365 = call i32 @llvm.smin.i32(i32 %112, i32 %132)
-  %133 = mul nsw i32 %.365, %31
+  %.381 = call i32 @llvm.smin.i32(i32 %112, i32 %132)
+  %133 = mul nsw i32 %.381, %31
   %134 = sext i32 %133 to i64
   %135 = getelementptr inbounds i16, ptr %1, i64 %134
   br label %.lr.ph290
@@ -2222,8 +2222,8 @@ define internal void @filter_plane_12(ptr noundef readonly captures(none) %0, pt
 
 .lr.ph290.preheader:                              ; preds = %.lr.ph287
   %132 = add nsw i32 %.0237314, %28
-  %.365 = call i32 @llvm.smin.i32(i32 %112, i32 %132)
-  %133 = mul nsw i32 %.365, %31
+  %.381 = call i32 @llvm.smin.i32(i32 %112, i32 %132)
+  %133 = mul nsw i32 %.381, %31
   %134 = sext i32 %133 to i64
   %135 = getelementptr inbounds i16, ptr %1, i64 %134
   br label %.lr.ph290
@@ -2698,8 +2698,8 @@ define internal void @filter_plane_14(ptr noundef readonly captures(none) %0, pt
 
 .lr.ph290.preheader:                              ; preds = %.lr.ph287
   %132 = add nsw i32 %.0237314, %28
-  %.365 = call i32 @llvm.smin.i32(i32 %112, i32 %132)
-  %133 = mul nsw i32 %.365, %31
+  %.381 = call i32 @llvm.smin.i32(i32 %112, i32 %132)
+  %133 = mul nsw i32 %.381, %31
   %134 = sext i32 %133 to i64
   %135 = getelementptr inbounds i16, ptr %1, i64 %134
   br label %.lr.ph290
@@ -3111,8 +3111,8 @@ define internal void @filter_plane_16(ptr noundef readonly captures(none) %0, pt
   %99 = lshr i16 %98, 8
   %100 = zext nneg i16 %99 to i64
   %101 = shl i64 %indvars.iv326, 8
-  %.masked365 = and i64 %101, 4294967040
-  %102 = getelementptr inbounds nuw i16, ptr %20, i64 %.masked365
+  %.masked381 = and i64 %101, 4294967040
+  %102 = getelementptr inbounds nuw i16, ptr %20, i64 %.masked381
   %103 = getelementptr inbounds nuw i16, ptr %102, i64 %100
   %104 = load i16, ptr %103, align 2, !tbaa !76
   %105 = add i16 %104, 1
@@ -3174,8 +3174,8 @@ define internal void @filter_plane_16(ptr noundef readonly captures(none) %0, pt
 
 .lr.ph290.preheader:                              ; preds = %.lr.ph287
   %130 = add nsw i32 %.0237314, %28
-  %.368 = call i32 @llvm.smin.i32(i32 %110, i32 %130)
-  %131 = mul nsw i32 %.368, %31
+  %.384 = call i32 @llvm.smin.i32(i32 %110, i32 %130)
+  %131 = mul nsw i32 %.384, %31
   %132 = sext i32 %131 to i64
   %133 = getelementptr inbounds i16, ptr %1, i64 %132
   br label %.lr.ph290
@@ -3201,8 +3201,8 @@ define internal void @filter_plane_16(ptr noundef readonly captures(none) %0, pt
   %149 = lshr i16 %148, 8
   %150 = zext nneg i16 %149 to i64
   %151 = shl i64 %indvars.iv332, 8
-  %.masked366 = and i64 %151, 4294967040
-  %152 = getelementptr inbounds nuw i16, ptr %20, i64 %.masked366
+  %.masked382 = and i64 %151, 4294967040
+  %152 = getelementptr inbounds nuw i16, ptr %20, i64 %.masked382
   %153 = getelementptr inbounds nuw i16, ptr %152, i64 %150
   %154 = load i16, ptr %153, align 2, !tbaa !76
   %155 = add i16 %154, -1
@@ -3240,8 +3240,8 @@ define internal void @filter_plane_16(ptr noundef readonly captures(none) %0, pt
   %172 = lshr i16 %171, 8
   %173 = zext nneg i16 %172 to i64
   %174 = shl i64 %indvars.iv337, 8
-  %.masked367 = and i64 %174, 4294967040
-  %175 = getelementptr inbounds nuw i16, ptr %20, i64 %.masked367
+  %.masked383 = and i64 %174, 4294967040
+  %175 = getelementptr inbounds nuw i16, ptr %20, i64 %.masked383
   %176 = getelementptr inbounds nuw i16, ptr %175, i64 %173
   %177 = load i16, ptr %176, align 2, !tbaa !76
   %178 = add i16 %177, 1

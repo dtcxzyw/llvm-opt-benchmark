@@ -319,9 +319,9 @@ yy_get_previous_state.exit94:                     ; preds = %yy_get_previous_sta
     i32 0, label %113
     i32 1, label %.loopexit
     i32 2, label %.loopexit315
-    i32 3, label %.loopexit536
-    i32 4, label %.loopexit671
-    i32 5, label %.loopexit871
+    i32 3, label %.loopexit563
+    i32 4, label %.loopexit698
+    i32 5, label %.loopexit898
     i32 6, label %509
     i32 7, label %117
     i32 8, label %118
@@ -1035,7 +1035,7 @@ yy_get_next_buffer.exit:                          ; preds = %._crit_edge61.i, %3
   %409 = getelementptr inbounds nuw i8, ptr %408, i64 8
   %410 = load ptr, ptr %409, align 8, !tbaa !19
   store ptr %410, ptr @H5LTyytext, align 8, !tbaa !3
-  switch i32 %.036.i, label %default.unreachable517 [
+  switch i32 %.036.i, label %default.unreachable544 [
     i32 1, label %yy_get_previous_state.exit94.backedge
     i32 0, label %411
     i32 2, label %yy_get_next_buffer.exit.thread112
@@ -1051,8 +1051,8 @@ yy_get_previous_state.exit94.backedge:            ; preds = %yy_get_next_buffer.
   %414 = sub i64 %412, %413
   %415 = trunc i64 %414 to i32
   %416 = shl i64 %414, 32
-  %sext670 = add i64 %416, -4294967296
-  %417 = ashr exact i64 %sext670, 32
+  %sext697 = add i64 %416, -4294967296
+  %417 = ashr exact i64 %sext697, 32
   %418 = getelementptr inbounds i8, ptr %410, i64 %417
   store ptr %418, ptr @yy_c_buf_p, align 8, !tbaa !3
   %.b.i79 = load i1, ptr @yy_start, align 4
@@ -1225,7 +1225,7 @@ yy_get_next_buffer.exit.thread112:                ; preds = %315, %yy_get_next_b
   %exitcond.not.i109 = icmp eq ptr %507, %464
   br i1 %exitcond.not.i109, label %.preheader.outer.backedge, label %.lr.ph25.i97, !llvm.loop !33
 
-default.unreachable517:                           ; preds = %yy_get_next_buffer.exit
+default.unreachable544:                           ; preds = %yy_get_next_buffer.exit
   unreachable
 
 508:                                              ; preds = %yy_get_previous_state.exit94
@@ -1238,17 +1238,17 @@ default.unreachable517:                           ; preds = %yy_get_next_buffer.
 .loopexit315:                                     ; preds = %yy_get_previous_state.exit94
   br label %509
 
-.loopexit536:                                     ; preds = %yy_get_previous_state.exit94
+.loopexit563:                                     ; preds = %yy_get_previous_state.exit94
   br label %509
 
-.loopexit671:                                     ; preds = %yy_get_previous_state.exit94
+.loopexit698:                                     ; preds = %yy_get_previous_state.exit94
   br label %509
 
-.loopexit871:                                     ; preds = %yy_get_previous_state.exit94
+.loopexit898:                                     ; preds = %yy_get_previous_state.exit94
   br label %509
 
-509:                                              ; preds = %yy_get_previous_state.exit94, %.loopexit871, %.loopexit671, %.loopexit536, %.loopexit315, %.loopexit, %201, %194, %193, %192, %191, %190, %189, %182, %178, %177, %176, %175, %174, %173, %172, %171, %170, %169, %168, %167, %166, %165, %164, %163, %162, %161, %160, %159, %158, %157, %156, %155, %154, %153, %152, %151, %150, %149, %148, %147, %146, %145, %144, %143, %142, %141, %140, %139, %138, %137, %136, %135, %134, %133, %132, %131, %130, %129, %128, %127, %126, %125, %124, %123, %122, %121, %120, %119, %118, %117
-  %.0 = phi i32 [ 264, %117 ], [ 265, %118 ], [ 266, %119 ], [ 267, %120 ], [ 268, %121 ], [ 269, %122 ], [ 270, %123 ], [ 271, %124 ], [ 272, %125 ], [ 273, %126 ], [ 274, %127 ], [ 275, %128 ], [ 276, %129 ], [ 277, %130 ], [ 278, %131 ], [ 279, %132 ], [ 280, %133 ], [ 281, %134 ], [ 282, %135 ], [ 283, %136 ], [ 284, %137 ], [ 285, %138 ], [ 286, %139 ], [ 287, %140 ], [ 288, %141 ], [ 289, %142 ], [ 290, %143 ], [ 291, %144 ], [ 292, %145 ], [ 293, %146 ], [ 294, %147 ], [ 295, %148 ], [ 296, %149 ], [ 297, %150 ], [ 298, %151 ], [ 299, %152 ], [ 300, %153 ], [ 301, %154 ], [ 302, %155 ], [ 303, %156 ], [ 304, %157 ], [ 305, %158 ], [ 306, %159 ], [ 307, %160 ], [ 308, %161 ], [ 310, %162 ], [ 311, %163 ], [ 312, %164 ], [ 313, %165 ], [ 314, %166 ], [ 315, %167 ], [ 316, %168 ], [ 309, %169 ], [ 320, %170 ], [ 321, %171 ], [ 322, %172 ], [ 323, %173 ], [ 324, %174 ], [ 317, %175 ], [ 318, %176 ], [ 319, %177 ], [ 326, %178 ], [ 325, %182 ], [ 123, %189 ], [ 125, %190 ], [ 91, %191 ], [ 93, %192 ], [ 58, %193 ], [ 59, %194 ], [ 0, %201 ], [ 258, %.loopexit ], [ 259, %.loopexit315 ], [ 260, %.loopexit536 ], [ 261, %.loopexit671 ], [ 262, %.loopexit871 ], [ 263, %yy_get_previous_state.exit94 ]
+509:                                              ; preds = %yy_get_previous_state.exit94, %.loopexit898, %.loopexit698, %.loopexit563, %.loopexit315, %.loopexit, %201, %194, %193, %192, %191, %190, %189, %182, %178, %177, %176, %175, %174, %173, %172, %171, %170, %169, %168, %167, %166, %165, %164, %163, %162, %161, %160, %159, %158, %157, %156, %155, %154, %153, %152, %151, %150, %149, %148, %147, %146, %145, %144, %143, %142, %141, %140, %139, %138, %137, %136, %135, %134, %133, %132, %131, %130, %129, %128, %127, %126, %125, %124, %123, %122, %121, %120, %119, %118, %117
+  %.0 = phi i32 [ 264, %117 ], [ 265, %118 ], [ 266, %119 ], [ 267, %120 ], [ 268, %121 ], [ 269, %122 ], [ 270, %123 ], [ 271, %124 ], [ 272, %125 ], [ 273, %126 ], [ 274, %127 ], [ 275, %128 ], [ 276, %129 ], [ 277, %130 ], [ 278, %131 ], [ 279, %132 ], [ 280, %133 ], [ 281, %134 ], [ 282, %135 ], [ 283, %136 ], [ 284, %137 ], [ 285, %138 ], [ 286, %139 ], [ 287, %140 ], [ 288, %141 ], [ 289, %142 ], [ 290, %143 ], [ 291, %144 ], [ 292, %145 ], [ 293, %146 ], [ 294, %147 ], [ 295, %148 ], [ 296, %149 ], [ 297, %150 ], [ 298, %151 ], [ 299, %152 ], [ 300, %153 ], [ 301, %154 ], [ 302, %155 ], [ 303, %156 ], [ 304, %157 ], [ 305, %158 ], [ 306, %159 ], [ 307, %160 ], [ 308, %161 ], [ 310, %162 ], [ 311, %163 ], [ 312, %164 ], [ 313, %165 ], [ 314, %166 ], [ 315, %167 ], [ 316, %168 ], [ 309, %169 ], [ 320, %170 ], [ 321, %171 ], [ 322, %172 ], [ 323, %173 ], [ 324, %174 ], [ 317, %175 ], [ 318, %176 ], [ 319, %177 ], [ 326, %178 ], [ 325, %182 ], [ 123, %189 ], [ 125, %190 ], [ 91, %191 ], [ 93, %192 ], [ 58, %193 ], [ 59, %194 ], [ 0, %201 ], [ 258, %.loopexit ], [ 259, %.loopexit315 ], [ 260, %.loopexit563 ], [ 261, %.loopexit698 ], [ 262, %.loopexit898 ], [ 263, %yy_get_previous_state.exit94 ]
   ret i32 %.0
 }
 
@@ -1445,7 +1445,7 @@ H5LTyy_flush_buffer.exit.thread:                  ; preds = %5
   %18 = getelementptr inbounds nuw ptr, ptr %.pr.pre, i64 %17
   %19 = load ptr, ptr %18, align 8, !tbaa !14
   %20 = icmp eq ptr %0, %19
-  br i1 %20, label %21, label %H5LTyy_flush_buffer.exit.thread15
+  br i1 %20, label %21, label %H5LTyy_flush_buffer.exit.thread17
 
 21:                                               ; preds = %16
   %22 = getelementptr inbounds nuw i8, ptr %19, i64 28
@@ -1459,9 +1459,9 @@ H5LTyy_flush_buffer.exit.thread:                  ; preds = %5
   store ptr %26, ptr @H5LTyyin, align 8, !tbaa !8
   %27 = load i8, ptr %25, align 1, !tbaa !25
   store i8 %27, ptr @yy_hold_char, align 1, !tbaa !25
-  br label %H5LTyy_flush_buffer.exit.thread15
+  br label %H5LTyy_flush_buffer.exit.thread17
 
-H5LTyy_flush_buffer.exit.thread15:                ; preds = %16, %21
+H5LTyy_flush_buffer.exit.thread17:                ; preds = %16, %21
   store ptr %1, ptr %0, align 8, !tbaa !24
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 52
   store i32 1, ptr %28, align 4, !tbaa !35
@@ -1474,7 +1474,7 @@ H5LTyy_flush_buffer.exit:                         ; preds = %2
   %.not = icmp eq ptr %.pr.pre, null
   br i1 %.not, label %.critedge, label %30
 
-30:                                               ; preds = %H5LTyy_flush_buffer.exit.thread15, %H5LTyy_flush_buffer.exit
+30:                                               ; preds = %H5LTyy_flush_buffer.exit.thread17, %H5LTyy_flush_buffer.exit
   %31 = load i64, ptr @yy_buffer_stack_top, align 8, !tbaa !12
   %32 = getelementptr inbounds nuw ptr, ptr %.pr.pre, i64 %31
   %33 = load ptr, ptr %32, align 8, !tbaa !14

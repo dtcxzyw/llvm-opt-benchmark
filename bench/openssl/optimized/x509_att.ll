@@ -953,12 +953,12 @@ define range(i32 0, 2) i32 @X509_ATTRIBUTE_set1_data(ptr noundef readonly captur
   br i1 %.not41, label %38, label %39
 
 38:                                               ; preds = %34, %31, %26, %18, %21
-  %.sink46 = phi i32 [ 366, %21 ], [ 366, %18 ], [ 381, %26 ], [ 386, %31 ], [ 394, %34 ]
+  %.sink51 = phi i32 [ 366, %21 ], [ 366, %18 ], [ 381, %26 ], [ 386, %31 ], [ 394, %34 ]
   %.sink = phi i32 [ 524301, %21 ], [ 524301, %18 ], [ 524301, %26 ], [ 524301, %31 ], [ 524303, %34 ]
   %.029 = phi ptr [ null, %21 ], [ null, %18 ], [ null, %26 ], [ %27, %31 ], [ %27, %34 ]
   %.1 = phi ptr [ %19, %21 ], [ %19, %18 ], [ %.02844, %26 ], [ %.02844, %31 ], [ %.2, %34 ]
   tail call void @ERR_new() #4
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink46, ptr noundef nonnull @__func__.X509_ATTRIBUTE_set1_data) #4
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink51, ptr noundef nonnull @__func__.X509_ATTRIBUTE_set1_data) #4
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 11, i32 noundef %.sink, ptr noundef null) #4
   tail call void @ASN1_TYPE_free(ptr noundef %.029) #4
   tail call void @ASN1_STRING_free(ptr noundef %.1) #4

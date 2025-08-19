@@ -1247,14 +1247,14 @@ if.end.i.i.i.i.i:                                 ; preds = %for.body.i.i.i.i.i
   %11 = load i8, ptr %incdec.ptr.i.i.i.i.i.i, align 1
   %12 = add i8 %11, -58
   %isdigit.i.i9.i.i.i.i.i = icmp ult i8 %12, -10
-  br i1 %isdigit.i.i9.i.i.i.i.i, label %invoke.cont.i.loopexit.split.loop.exit240, label %if.end10.i.i.i.i.i
+  br i1 %isdigit.i.i9.i.i.i.i.i, label %invoke.cont.i.loopexit.split.loop.exit259, label %if.end10.i.i.i.i.i
 
 if.end10.i.i.i.i.i:                               ; preds = %if.end.i.i.i.i.i
   %incdec.ptr.i10.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.sroa.0.044.i.i.i.i.i, i64 2
   %13 = load i8, ptr %incdec.ptr.i10.i.i.i.i.i, align 1
   %14 = add i8 %13, -58
   %isdigit.i.i11.i.i.i.i.i = icmp ult i8 %14, -10
-  br i1 %isdigit.i.i11.i.i.i.i.i, label %invoke.cont.i.loopexit.split.loop.exit238, label %if.end16.i.i.i.i.i
+  br i1 %isdigit.i.i11.i.i.i.i.i, label %invoke.cont.i.loopexit.split.loop.exit257, label %if.end16.i.i.i.i.i
 
 if.end16.i.i.i.i.i:                               ; preds = %if.end10.i.i.i.i.i
   %incdec.ptr.i12.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.sroa.0.044.i.i.i.i.i, i64 3
@@ -1316,16 +1316,16 @@ invoke.cont.i.loopexit.split.loop.exit:           ; preds = %if.end16.i.i.i.i.i
   %incdec.ptr.i12.i.i.i.i.i.le = getelementptr inbounds nuw i8, ptr %__first.sroa.0.044.i.i.i.i.i, i64 3
   br label %invoke.cont.i
 
-invoke.cont.i.loopexit.split.loop.exit238:        ; preds = %if.end10.i.i.i.i.i
+invoke.cont.i.loopexit.split.loop.exit257:        ; preds = %if.end10.i.i.i.i.i
   %incdec.ptr.i10.i.i.i.i.i.le = getelementptr inbounds nuw i8, ptr %__first.sroa.0.044.i.i.i.i.i, i64 2
   br label %invoke.cont.i
 
-invoke.cont.i.loopexit.split.loop.exit240:        ; preds = %if.end.i.i.i.i.i
+invoke.cont.i.loopexit.split.loop.exit259:        ; preds = %if.end.i.i.i.i.i
   %incdec.ptr.i.i.i.i.i.i.le = getelementptr inbounds nuw i8, ptr %__first.sroa.0.044.i.i.i.i.i, i64 1
   br label %invoke.cont.i
 
-invoke.cont.i:                                    ; preds = %for.body.i.i.i.i.i, %invoke.cont.i.loopexit.split.loop.exit, %invoke.cont.i.loopexit.split.loop.exit238, %invoke.cont.i.loopexit.split.loop.exit240, %sw.bb38.i.i.i.i.i, %sw.bb31.i.i.i.i.i, %sw.bb.i.i.i.i.i, %for.end.i.i.i.i.i
-  %retval.sroa.0.0.in.sroa.speculated.i.i.i.i.i = phi ptr [ %__first.sroa.0.0.lcssa.i.i.i.i.i, %sw.bb.i.i.i.i.i ], [ %__first.sroa.0.1.i.i.i.i.i, %sw.bb31.i.i.i.i.i ], [ %call3.i.i, %for.end.i.i.i.i.i ], [ %spec.select.i.i.i.i.i, %sw.bb38.i.i.i.i.i ], [ %incdec.ptr.i12.i.i.i.i.i.le, %invoke.cont.i.loopexit.split.loop.exit ], [ %incdec.ptr.i10.i.i.i.i.i.le, %invoke.cont.i.loopexit.split.loop.exit238 ], [ %incdec.ptr.i.i.i.i.i.i.le, %invoke.cont.i.loopexit.split.loop.exit240 ], [ %__first.sroa.0.044.i.i.i.i.i, %for.body.i.i.i.i.i ]
+invoke.cont.i:                                    ; preds = %for.body.i.i.i.i.i, %invoke.cont.i.loopexit.split.loop.exit, %invoke.cont.i.loopexit.split.loop.exit257, %invoke.cont.i.loopexit.split.loop.exit259, %sw.bb38.i.i.i.i.i, %sw.bb31.i.i.i.i.i, %sw.bb.i.i.i.i.i, %for.end.i.i.i.i.i
+  %retval.sroa.0.0.in.sroa.speculated.i.i.i.i.i = phi ptr [ %__first.sroa.0.0.lcssa.i.i.i.i.i, %sw.bb.i.i.i.i.i ], [ %__first.sroa.0.1.i.i.i.i.i, %sw.bb31.i.i.i.i.i ], [ %call3.i.i, %for.end.i.i.i.i.i ], [ %spec.select.i.i.i.i.i, %sw.bb38.i.i.i.i.i ], [ %incdec.ptr.i12.i.i.i.i.i.le, %invoke.cont.i.loopexit.split.loop.exit ], [ %incdec.ptr.i10.i.i.i.i.i.le, %invoke.cont.i.loopexit.split.loop.exit257 ], [ %incdec.ptr.i.i.i.i.i.i.le, %invoke.cont.i.loopexit.split.loop.exit259 ], [ %__first.sroa.0.044.i.i.i.i.i, %for.body.i.i.i.i.i ]
   %call11.i.i = call ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE3endEv(ptr noundef nonnull align 8 dereferenceable(32) %variable.i) #24
   %cmp.i.i.i = icmp eq ptr %retval.sroa.0.0.in.sroa.speculated.i.i.i.i.i, %call11.i.i
   br i1 %cmp.i.i.i, label %if.then.i, label %if.end.i

@@ -128,7 +128,7 @@ define internal fastcc void @dm_hash_remove_all(i1 noundef zeroext %0, i1 nounde
 
 .split.us.us:                                     ; preds = %.preheader, %.split.us.us.backedge
   %10 = phi i32 [ %.be, %.split.us.us.backedge ], [ 0, %.preheader ]
-  %11 = phi ptr [ %.be29, %.split.us.us.backedge ], [ %4, %.preheader ]
+  %11 = phi ptr [ %.be35, %.split.us.us.backedge ], [ %4, %.preheader ]
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 72
   %13 = load ptr, ptr %12, align 8
   tail call void @dm_get(ptr noundef %13) #21
@@ -145,7 +145,7 @@ define internal fastcc void @dm_hash_remove_all(i1 noundef zeroext %0, i1 nounde
 
 .split.us.us.backedge:                            ; preds = %16, %7
   %.be = phi i32 [ %17, %16 ], [ 0, %7 ]
-  %.be29 = phi ptr [ %18, %16 ], [ %8, %7 ]
+  %.be35 = phi ptr [ %18, %16 ], [ %8, %7 ]
   br label %.split.us.us, !llvm.loop !6
 
 .split8.us.us:                                    ; preds = %.split.us.us
@@ -3384,10 +3384,10 @@ define internal noundef range(i32 -22, 1) i32 @get_target_version(ptr readnone c
   br label %.thread.i
 
 .thread.i:                                        ; preds = %7, %35, %24
-  %.sink3 = phi i32 [ 0, %35 ], [ 256, %24 ], [ 256, %7 ]
+  %.sink4 = phi i32 [ 0, %35 ], [ 256, %24 ], [ 256, %7 ]
   %47 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %48 = load i32, ptr %47, align 4
-  %49 = or i32 %48, %.sink3
+  %49 = or i32 %48, %.sink4
   store i32 %49, ptr %47, align 4
   tail call void @dm_put_target_type(ptr noundef nonnull %5) #21
   br label %__list_versions.exit

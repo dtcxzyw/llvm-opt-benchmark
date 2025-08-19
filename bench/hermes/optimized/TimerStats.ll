@@ -2668,7 +2668,7 @@ entry:
   br i1 %tobool.not.i.i.not.i, label %_ZNSt8functionIFN8facebook3jsi5ValueERNS1_7RuntimeERKS2_PS5_mEEC2EOS9_.exit.thread.i, label %_ZN8facebook3jsi21DecoratedHostFunctionC2ERNS0_7RuntimeESt8functionIFNS0_5ValueES3_RKS5_PS6_mEE.exit.i
 
 _ZNSt8functionIFN8facebook3jsi5ValueERNS1_7RuntimeERKS2_PS5_mEEC2EOS9_.exit.thread.i: ; preds = %entry
-  %_M_manager.i.i.i.i40 = getelementptr inbounds nuw i8, ptr %agg.tmp2, i64 16
+  %_M_manager.i.i.i.i50 = getelementptr inbounds nuw i8, ptr %agg.tmp2, i64 16
   %plainHF_.i7.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %plainHF_.i7.i, i8 0, i64 24, i1 false)
   br label %_ZN8facebook6hermes12_GLOBAL__N_117TimedHostFunctionC2ERNS_3jsi7RuntimeESt8functionIFNS3_5ValueES5_RKS7_PS8_mEERNS1_12RuntimeStatsE.exit
@@ -2685,13 +2685,13 @@ _ZN8facebook3jsi21DecoratedHostFunctionC2ERNS0_7RuntimeESt8functionIFNS0_5ValueE
   br label %_ZN8facebook6hermes12_GLOBAL__N_117TimedHostFunctionC2ERNS_3jsi7RuntimeESt8functionIFNS3_5ValueES5_RKS7_PS8_mEERNS1_12RuntimeStatsE.exit
 
 _ZN8facebook6hermes12_GLOBAL__N_117TimedHostFunctionC2ERNS_3jsi7RuntimeESt8functionIFNS3_5ValueES5_RKS7_PS8_mEERNS1_12RuntimeStatsE.exit: ; preds = %_ZNSt8functionIFN8facebook3jsi5ValueERNS1_7RuntimeERKS2_PS5_mEEC2EOS9_.exit.thread.i, %_ZN8facebook3jsi21DecoratedHostFunctionC2ERNS0_7RuntimeESt8functionIFNS0_5ValueES3_RKS5_PS6_mEE.exit.i
-  %_M_manager.i.i.i.i44 = phi ptr [ %_M_manager.i.i.i.i40, %_ZNSt8functionIFN8facebook3jsi5ValueERNS1_7RuntimeERKS2_PS5_mEEC2EOS9_.exit.thread.i ], [ %_M_manager.i.i.i.i, %_ZN8facebook3jsi21DecoratedHostFunctionC2ERNS0_7RuntimeESt8functionIFNS0_5ValueES3_RKS5_PS6_mEE.exit.i ]
-  %rts_42 = getelementptr inbounds nuw i8, ptr %this, i64 24
+  %_M_manager.i.i.i.i54 = phi ptr [ %_M_manager.i.i.i.i50, %_ZNSt8functionIFN8facebook3jsi5ValueERNS1_7RuntimeERKS2_PS5_mEEC2EOS9_.exit.thread.i ], [ %_M_manager.i.i.i.i, %_ZN8facebook3jsi21DecoratedHostFunctionC2ERNS0_7RuntimeESt8functionIFNS0_5ValueES3_RKS5_PS6_mEE.exit.i ]
+  %rts_52 = getelementptr inbounds nuw i8, ptr %this, i64 24
   store ptr %this, ptr %ref.tmp, align 8
   %3 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 32
   store ptr %1, ptr %3, align 8
   %rts_.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 40
-  store ptr %rts_42, ptr %rts_.i, align 8
+  store ptr %rts_52, ptr %rts_.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, i8 0, i64 32, i1 false)
   %call.i.i2.i4 = invoke noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #20
           to label %call.i.i2.i.noexc unwind label %lpad3
@@ -2717,7 +2717,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %call.i.i2.i.noexc
 _ZNSt8functionIFN8facebook3jsi5ValueERNS1_7RuntimeERKS2_PS5_mEEC2EOS9_.exit.i: ; preds = %if.then.i.i.i.i.i.i, %call.i.i2.i.noexc
   %_M_manager.i.i3 = getelementptr inbounds nuw i8, ptr %agg.tmp, i64 16
   %rts_.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i2.i4, i64 40
-  store ptr %rts_42, ptr %rts_.i.i.i.i, align 8
+  store ptr %rts_52, ptr %rts_.i.i.i.i, align 8
   store ptr %call.i.i2.i4, ptr %agg.tmp, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp.i)
   %_M_invoker.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp.i, i64 24
@@ -2805,7 +2805,7 @@ terminate.lpad.i.i.i.i:                           ; preds = %if.then.i.i.i.i
   unreachable
 
 _ZN8facebook6hermes12_GLOBAL__N_117TimedHostFunctionD2Ev.exit: ; preds = %_ZNSt8functionIFN8facebook3jsi5ValueERNS1_7RuntimeERKS2_PS5_mEED2Ev.exit, %if.then.i.i.i.i
-  %17 = load ptr, ptr %_M_manager.i.i.i.i44, align 8
+  %17 = load ptr, ptr %_M_manager.i.i.i.i54, align 8
   %tobool.not.i.i14 = icmp eq ptr %17, null
   br i1 %tobool.not.i.i14, label %_ZNSt8functionIFN8facebook3jsi5ValueERNS1_7RuntimeERKS2_PS5_mEED2Ev.exit18, label %if.then.i.i15
 
@@ -2864,7 +2864,7 @@ terminate.lpad.i.i.i.i30:                         ; preds = %if.then.i.i.i.i27
   unreachable
 
 _ZN8facebook6hermes12_GLOBAL__N_117TimedHostFunctionD2Ev.exit31: ; preds = %ehcleanup, %if.then.i.i.i.i27
-  %26 = load ptr, ptr %_M_manager.i.i.i.i44, align 8
+  %26 = load ptr, ptr %_M_manager.i.i.i.i54, align 8
   %tobool.not.i.i33 = icmp eq ptr %26, null
   br i1 %tobool.not.i.i33, label %_ZNSt8functionIFN8facebook3jsi5ValueERNS1_7RuntimeERKS2_PS5_mEED2Ev.exit37, label %if.then.i.i34
 

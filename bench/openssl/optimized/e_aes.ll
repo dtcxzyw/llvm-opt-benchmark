@@ -467,10 +467,10 @@ define internal range(i32 0, 2) i32 @aesni_init_key(ptr noundef %0, ptr noundef 
   br i1 %30, label %.sink.split, label %31
 
 .sink.split:                                      ; preds = %29, %4
-  %.sink29 = phi i32 [ 152, %4 ], [ 174, %29 ]
+  %.sink30 = phi i32 [ 152, %4 ], [ 174, %29 ]
   %.sink = phi i32 [ 130, %4 ], [ 143, %29 ]
   tail call void @ERR_new() #8
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink29, ptr noundef nonnull @__func__.aesni_init_key) #8
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink30, ptr noundef nonnull @__func__.aesni_init_key) #8
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef %.sink, ptr noundef null) #8
   br label %31
 

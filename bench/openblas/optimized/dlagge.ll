@@ -54,9 +54,9 @@ define void @dlagge_(ptr noundef readonly captures(none) %0, ptr noundef readonl
 
 .thread:                                          ; preds = %29, %27, %25, %22, %10
   %.sink = phi i32 [ -1, %10 ], [ -2, %22 ], [ -3, %25 ], [ -4, %27 ], [ -7, %29 ]
-  %.neg721 = phi i32 [ 1, %10 ], [ 2, %22 ], [ 3, %25 ], [ 4, %27 ], [ 7, %29 ]
+  %.neg730 = phi i32 [ 1, %10 ], [ 2, %22 ], [ 3, %25 ], [ 4, %27 ], [ 7, %29 ]
   store i32 %.sink, ptr %9, align 4, !tbaa !3
-  store i32 %.neg721, ptr %11, align 4, !tbaa !3
+  store i32 %.neg730, ptr %11, align 4, !tbaa !3
   %32 = call i32 @xerbla_(ptr noundef nonnull @.str, ptr noundef nonnull %11, i32 noundef 6) #5
   br label %.loopexit620
 
@@ -105,8 +105,8 @@ define void @dlagge_(ptr noundef readonly captures(none) %0, ptr noundef readonl
 
 ._crit_edge632:                                   ; preds = %46
   %53 = or i32 %26, %28
-  %or.cond722 = icmp eq i32 %53, 0
-  br i1 %or.cond722, label %.loopexit620, label %.lr.ph637
+  %or.cond731 = icmp eq i32 %53, 0
+  br i1 %or.cond731, label %.loopexit620, label %.lr.ph637
 
 .lr.ph637:                                        ; preds = %._crit_edge632
   %54 = getelementptr inbounds nuw i8, ptr %8, i64 8

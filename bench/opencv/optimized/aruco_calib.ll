@@ -915,7 +915,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   br i1 %.not28.i, label %67, label %_ZSt27__uninitialized_default_n_aIPSt6vectorIN2cv7Point3_IfEESaIS3_EEmS5_ET_S7_T0_RSaIT1_E.exit.i
 
 _ZSt27__uninitialized_default_n_aIPSt6vectorIN2cv7Point3_IfEESaIS3_EEmS5_ET_S7_T0_RSaIT1_E.exit.i: ; preds = %56
-  %66 = mul nuw i64 %57, 24
+  %66 = mul nuw nsw i64 %57, 24
   tail call void @llvm.memset.p0.i64(ptr align 8 %49, i8 0, i64 %66, i1 false)
   %scevgep.i.i.i.i = getelementptr i8, ptr %49, i64 %66
   store ptr %scevgep.i.i.i.i, ptr %48, align 8, !tbaa !59

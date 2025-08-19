@@ -1145,7 +1145,7 @@ declare i32 @Kit_TruthIsop2(ptr noundef, ptr noundef, i32 noundef, ptr noundef, 
 ; Function Attrs: nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define range(i32 -2147483646, -2147483648) i32 @Kit_GraphLeafDepth_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #9 {
   %4 = icmp eq ptr %1, %2
-  br i1 %4, label %common.ret27, label %5
+  br i1 %4, label %common.ret28, label %5
 
 5:                                                ; preds = %3
   %6 = getelementptr i8, ptr %0, i64 4
@@ -1158,11 +1158,11 @@ define range(i32 -2147483646, -2147483648) i32 @Kit_GraphLeafDepth_rec(ptr nound
   %11 = sdiv exact i64 %10, 24
   %12 = trunc i64 %11 to i32
   %.not = icmp sgt i32 %.val, %12
-  br i1 %.not, label %common.ret27, label %Kit_GraphNodeFanin1.exit
+  br i1 %.not, label %common.ret28, label %Kit_GraphNodeFanin1.exit
 
-common.ret27:                                     ; preds = %5, %3, %Kit_GraphNodeFanin1.exit
-  %common.ret27.op = phi i32 [ %29, %Kit_GraphNodeFanin1.exit ], [ 0, %3 ], [ -100, %5 ]
-  ret i32 %common.ret27.op
+common.ret28:                                     ; preds = %5, %3, %Kit_GraphNodeFanin1.exit
+  %common.ret28.op = phi i32 [ %29, %Kit_GraphNodeFanin1.exit ], [ 0, %3 ], [ -100, %5 ]
+  ret i32 %common.ret28.op
 
 Kit_GraphNodeFanin1.exit:                         ; preds = %5
   %13 = load i32, ptr %1, align 8
@@ -1182,7 +1182,7 @@ Kit_GraphNodeFanin1.exit:                         ; preds = %5
   %27 = icmp eq i32 %26, -100
   %28 = add nsw i32 %26, 1
   %29 = select i1 %27, i32 -100, i32 %28
-  br label %common.ret27
+  br label %common.ret28
 }
 
 ; Function Attrs: nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable

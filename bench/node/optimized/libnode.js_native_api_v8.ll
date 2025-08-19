@@ -1929,8 +1929,8 @@ do.end48:                                         ; preds = %if.end38
   %7 = add i64 %length, -2147483648
   %or.cond = icmp ult i64 %7, -2147483649
   %cmp59.not = icmp eq ptr %utf8name, null
-  %or.cond106 = or i1 %or.cond, %cmp59.not
-  br i1 %or.cond106, label %cleanup298.sink.split, label %do.end64
+  %or.cond111 = or i1 %or.cond, %cmp59.not
+  br i1 %or.cond111, label %cleanup298.sink.split, label %do.end64
 
 do.end64:                                         ; preds = %do.end48
   %8 = load ptr, ptr %isolate.i, align 8

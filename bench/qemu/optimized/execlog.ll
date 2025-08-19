@@ -358,9 +358,9 @@ glib_autoptr_cleanup_GPatternSpec.exit.i:         ; preds = %73, %72
 .loopexit.thread.i:                               ; preds = %._crit_edge.i, %.lr.ph33.i, %18
   %79 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %80 = load i32, ptr %79, align 8
-  %.not1338.i.not = icmp eq i32 %80, 0
+  %.not1345.i.not = icmp eq i32 %80, 0
   tail call void @g_array_unref(ptr noundef nonnull %16) #7
-  br i1 %.not1338.i.not, label %84, label %registers_init.exit
+  br i1 %.not1345.i.not, label %84, label %registers_init.exit
 
 .loopexit.i:                                      ; preds = %9
   %81 = getelementptr inbounds nuw i8, ptr %15, i64 8
@@ -924,8 +924,8 @@ define internal fastcc void @insn_check_regs(ptr noundef readonly captures(none)
   %39 = zext i8 %38 to i32
   tail call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef %34, ptr noundef nonnull @.str.14, i32 noundef %39) #7
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %.not38 = icmp eq i64 %indvars.iv, 0
-  br i1 %.not38, label %._crit_edge, label %.lr.ph, !llvm.loop !17
+  %.not39 = icmp eq i64 %indvars.iv, 0
+  br i1 %.not39, label %._crit_edge, label %.lr.ph, !llvm.loop !17
 
 40:                                               ; preds = %._crit_edge, %22
   %41 = add nuw i32 %.02732, 1

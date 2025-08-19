@@ -213,9 +213,9 @@ define internal i32 @dissect_fp_hint(ptr noundef %0, ptr noundef %1, ptr noundef
   %42 = getelementptr inbounds nuw i8, ptr %.0.i, i64 748
   %switch.selectcmp.i = icmp eq i8 %9, 1
   %switch.select.i = select i1 %switch.selectcmp.i, i32 2, i32 0
-  %switch.selectcmp72.i = icmp eq i8 %9, 0
-  %switch.select73.i = select i1 %switch.selectcmp72.i, i32 1, i32 %switch.select.i
-  store i32 %switch.select73.i, ptr %42, align 4
+  %switch.selectcmp81.i = icmp eq i8 %9, 0
+  %switch.select82.i = select i1 %switch.selectcmp81.i, i32 1, i32 %switch.select.i
+  store i32 %switch.select82.i, ptr %42, align 4
   store i32 0, ptr %.0.i, align 8
   %43 = getelementptr inbounds nuw i8, ptr %.0.i, i64 4
   store i32 1, ptr %43, align 4
@@ -240,8 +240,8 @@ define internal i32 @dissect_fp_hint(ptr noundef %0, ptr noundef %1, ptr noundef
   %52 = getelementptr i8, ptr %46, i64 3
   %53 = load i8, ptr %52, align 1
   %54 = and i8 %53, 1
-  %.not61.not = icmp eq i8 %54, 0
-  br i1 %.not61.not, label %switch.lookup, label %assign_fph_pch.exit.i
+  %.not70.not = icmp eq i8 %54, 0
+  br i1 %.not70.not, label %switch.lookup, label %assign_fph_pch.exit.i
 
 switch.lookup:                                    ; preds = %44
   %55 = lshr i8 %51, 6

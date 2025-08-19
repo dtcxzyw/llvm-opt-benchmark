@@ -347,7 +347,7 @@ define i32 @BN_mod_exp_mont_word(ptr noundef %0, i64 noundef %1, ptr noundef %2,
   %.1179 = phi ptr [ %.1180, %.thread ], [ %.0204, %55 ]
   %.1109177 = phi ptr [ %.1109178, %.thread ], [ %.0108203, %55 ]
   %.0114175 = phi i64 [ %.0114176, %.thread ], [ %mul.val, %55 ]
-  %.1119173 = phi i32 [ 0, %.thread ], [ %.0118201, %55 ]
+  %.1119173 = phi i32 [ 0, %.thread ], [ 1, %55 ]
   %58 = tail call i32 @BN_is_bit_set(ptr noundef %2, i32 noundef %.0128200) #6
   %.not158 = icmp eq i32 %58, 0
   br i1 %.not158, label %69, label %59
@@ -396,21 +396,21 @@ define i32 @BN_mod_exp_mont_word(ptr noundef %0, i64 noundef %1, ptr noundef %2,
   br i1 %.not141, label %81, label %73
 
 ._crit_edge.thread:                               ; preds = %43
-  %.not141212 = icmp eq i64 %.0131, 1
-  br i1 %.not141212, label %.thread226, label %.thread219
+  %.not141215 = icmp eq i64 %.0131, 1
+  br i1 %.not141215, label %.thread229, label %.thread222
 
 73:                                               ; preds = %._crit_edge
-  br i1 %72, label %77, label %.thread219
+  br i1 %72, label %77, label %.thread222
 
-.thread219:                                       ; preds = %._crit_edge.thread, %73
-  %.0116.lcssa215225 = phi i64 [ %.1117, %73 ], [ %.0131, %._crit_edge.thread ]
-  %.0108.lcssa217224 = phi ptr [ %.5113, %73 ], [ %34, %._crit_edge.thread ]
-  %74 = tail call i32 @BN_set_word(ptr noundef %.0108.lcssa217224, i64 noundef %.0116.lcssa215225) #6
+.thread222:                                       ; preds = %._crit_edge.thread, %73
+  %.0116.lcssa218228 = phi i64 [ %.1117, %73 ], [ %.0131, %._crit_edge.thread ]
+  %.0108.lcssa220227 = phi ptr [ %.5113, %73 ], [ %34, %._crit_edge.thread ]
+  %74 = tail call i32 @BN_set_word(ptr noundef %.0108.lcssa220227, i64 noundef %.0116.lcssa218228) #6
   %.not145 = icmp eq i32 %74, 0
   br i1 %.not145, label %.loopexit, label %75
 
-75:                                               ; preds = %.thread219
-  %76 = tail call i32 @BN_to_montgomery(ptr noundef %.0108.lcssa217224, ptr noundef %.0108.lcssa217224, ptr noundef nonnull %.1130, ptr noundef %4) #6
+75:                                               ; preds = %.thread222
+  %76 = tail call i32 @BN_to_montgomery(ptr noundef %.0108.lcssa220227, ptr noundef %.0108.lcssa220227, ptr noundef nonnull %.1130, ptr noundef %4) #6
   %.not146 = icmp eq i32 %76, 0
   br i1 %.not146, label %.loopexit, label %.thread184
 
@@ -425,25 +425,25 @@ define i32 @BN_mod_exp_mont_word(ptr noundef %0, i64 noundef %1, ptr noundef %2,
   br i1 %.not144, label %.loopexit, label %.thread184
 
 81:                                               ; preds = %._crit_edge
-  br i1 %72, label %.thread184, label %.thread226
+  br i1 %72, label %.thread184, label %.thread229
 
-.thread226:                                       ; preds = %._crit_edge.thread, %81
+.thread229:                                       ; preds = %._crit_edge.thread, %81
   %82 = tail call i32 @BN_set_word(ptr noundef %0, i64 noundef 1) #6
   %.not149 = icmp eq i32 %82, 0
   br i1 %.not149, label %.loopexit, label %84
 
 .thread184:                                       ; preds = %79, %75, %81
-  %.6188 = phi ptr [ %.5113, %81 ], [ %.5, %79 ], [ %.0108.lcssa217224, %75 ]
+  %.6188 = phi ptr [ %.5113, %81 ], [ %.5, %79 ], [ %.0108.lcssa220227, %75 ]
   %83 = tail call i32 @BN_from_montgomery(ptr noundef %0, ptr noundef %.6188, ptr noundef nonnull %.1130, ptr noundef %4) #6
   %.not148 = icmp eq i32 %83, 0
   br i1 %.not148, label %.loopexit, label %84
 
-84:                                               ; preds = %.thread184, %.thread226
+84:                                               ; preds = %.thread184, %.thread229
   br label %.loopexit
 
-.loopexit:                                        ; preds = %65, %67, %61, %63, %.thread, %51, %53, %47, %49, %.thread184, %.thread226, %77, %79, %.thread219, %75, %33, %84
-  %.0129 = phi ptr [ null, %33 ], [ %.1130, %84 ], [ %.1130, %.thread226 ], [ %.1130, %.thread184 ], [ %.1130, %75 ], [ %.1130, %.thread219 ], [ %.1130, %79 ], [ %.1130, %77 ], [ %.1130, %49 ], [ %.1130, %47 ], [ %.1130, %53 ], [ %.1130, %51 ], [ %.1130, %.thread ], [ %.1130, %63 ], [ %.1130, %61 ], [ %.1130, %67 ], [ %.1130, %65 ]
-  %.1126 = phi i32 [ 0, %33 ], [ 1, %84 ], [ 0, %.thread226 ], [ 0, %.thread184 ], [ 0, %75 ], [ 0, %.thread219 ], [ 0, %79 ], [ 0, %77 ], [ 0, %49 ], [ 0, %47 ], [ 0, %53 ], [ 0, %51 ], [ 0, %.thread ], [ 0, %63 ], [ 0, %61 ], [ 0, %67 ], [ 0, %65 ]
+.loopexit:                                        ; preds = %65, %67, %61, %63, %.thread, %51, %53, %47, %49, %.thread184, %.thread229, %77, %79, %.thread222, %75, %33, %84
+  %.0129 = phi ptr [ null, %33 ], [ %.1130, %84 ], [ %.1130, %.thread229 ], [ %.1130, %.thread184 ], [ %.1130, %75 ], [ %.1130, %.thread222 ], [ %.1130, %79 ], [ %.1130, %77 ], [ %.1130, %49 ], [ %.1130, %47 ], [ %.1130, %53 ], [ %.1130, %51 ], [ %.1130, %.thread ], [ %.1130, %63 ], [ %.1130, %61 ], [ %.1130, %67 ], [ %.1130, %65 ]
+  %.1126 = phi i32 [ 0, %33 ], [ 1, %84 ], [ 0, %.thread229 ], [ 0, %.thread184 ], [ 0, %75 ], [ 0, %.thread222 ], [ 0, %79 ], [ 0, %77 ], [ 0, %49 ], [ 0, %47 ], [ 0, %53 ], [ 0, %51 ], [ 0, %.thread ], [ 0, %63 ], [ 0, %61 ], [ 0, %67 ], [ 0, %65 ]
   %85 = icmp eq ptr %5, null
   br i1 %85, label %.thread190, label %86
 
@@ -1961,9 +1961,9 @@ define internal fastcc range(i32 0, 2) i32 @MOD_EXP_CTIME_COPY_FROM_PREBUF(ptr n
 .preheader82.us:                                  ; preds = %.preheader82.us.preheader, %.split.us.us.split.split.split
   %indvars.iv273 = phi i64 [ 0, %.preheader82.us.preheader ], [ %indvars.iv.next274, %.split.us.us.split.split.split ]
   %.16898.us = phi ptr [ %2, %.preheader82.us.preheader ], [ %50, %.split.us.us.split.split.split ]
-  %invariant.gep390 = getelementptr inbounds nuw i64, ptr %.16898.us, i64 %36
-  %invariant.gep392 = getelementptr inbounds nuw i64, ptr %.16898.us, i64 %37
-  %invariant.gep394 = getelementptr inbounds nuw i64, ptr %.16898.us, i64 %38
+  %invariant.gep392 = getelementptr inbounds nuw i64, ptr %.16898.us, i64 %36
+  %invariant.gep394 = getelementptr inbounds nuw i64, ptr %.16898.us, i64 %37
+  %invariant.gep396 = getelementptr inbounds nuw i64, ptr %.16898.us, i64 %38
   br label %40
 
 40:                                               ; preds = %40, %.preheader82.us
@@ -1971,12 +1971,12 @@ define internal fastcc range(i32 0, 2) i32 @MOD_EXP_CTIME_COPY_FROM_PREBUF(ptr n
   %.085.us.us = phi i64 [ %48, %40 ], [ 0, %.preheader82.us ]
   %41 = getelementptr inbounds nuw i64, ptr %.16898.us, i64 %indvars.iv267
   %42 = load volatile i64, ptr %41, align 8, !tbaa !14
-  %gep391 = getelementptr inbounds nuw i64, ptr %invariant.gep390, i64 %indvars.iv267
-  %43 = load volatile i64, ptr %gep391, align 8, !tbaa !14
   %gep393 = getelementptr inbounds nuw i64, ptr %invariant.gep392, i64 %indvars.iv267
-  %44 = load volatile i64, ptr %gep393, align 8, !tbaa !14
+  %43 = load volatile i64, ptr %gep393, align 8, !tbaa !14
   %gep395 = getelementptr inbounds nuw i64, ptr %invariant.gep394, i64 %indvars.iv267
-  %45 = load volatile i64, ptr %gep395, align 8, !tbaa !14
+  %44 = load volatile i64, ptr %gep395, align 8, !tbaa !14
+  %gep397 = getelementptr inbounds nuw i64, ptr %invariant.gep396, i64 %indvars.iv267
+  %45 = load volatile i64, ptr %gep397, align 8, !tbaa !14
   %46 = icmp eq i64 %indvars.iv267, %39
   %47 = select i1 %46, i64 %42, i64 0
   %48 = or i64 %47, %.085.us.us
@@ -2002,9 +2002,9 @@ define internal fastcc range(i32 0, 2) i32 @MOD_EXP_CTIME_COPY_FROM_PREBUF(ptr n
 .preheader82.us102:                               ; preds = %.preheader82.us102.preheader, %.split.split.us.us.split.split
   %indvars.iv229 = phi i64 [ 0, %.preheader82.us102.preheader ], [ %indvars.iv.next230, %.split.split.us.us.split.split ]
   %.16898.us104 = phi ptr [ %2, %.preheader82.us102.preheader ], [ %65, %.split.split.us.us.split.split ]
-  %invariant.gep384 = getelementptr inbounds nuw i64, ptr %.16898.us104, i64 %51
-  %invariant.gep386 = getelementptr inbounds nuw i64, ptr %.16898.us104, i64 %52
-  %invariant.gep388 = getelementptr inbounds nuw i64, ptr %.16898.us104, i64 %53
+  %invariant.gep386 = getelementptr inbounds nuw i64, ptr %.16898.us104, i64 %51
+  %invariant.gep388 = getelementptr inbounds nuw i64, ptr %.16898.us104, i64 %52
+  %invariant.gep390 = getelementptr inbounds nuw i64, ptr %.16898.us104, i64 %53
   br label %55
 
 55:                                               ; preds = %55, %.preheader82.us102
@@ -2012,12 +2012,12 @@ define internal fastcc range(i32 0, 2) i32 @MOD_EXP_CTIME_COPY_FROM_PREBUF(ptr n
   %.085.us86.us = phi i64 [ %63, %55 ], [ 0, %.preheader82.us102 ]
   %56 = getelementptr inbounds nuw i64, ptr %.16898.us104, i64 %indvars.iv223
   %57 = load volatile i64, ptr %56, align 8, !tbaa !14
-  %gep385 = getelementptr inbounds nuw i64, ptr %invariant.gep384, i64 %indvars.iv223
-  %58 = load volatile i64, ptr %gep385, align 8, !tbaa !14
   %gep387 = getelementptr inbounds nuw i64, ptr %invariant.gep386, i64 %indvars.iv223
-  %59 = load volatile i64, ptr %gep387, align 8, !tbaa !14
+  %58 = load volatile i64, ptr %gep387, align 8, !tbaa !14
   %gep389 = getelementptr inbounds nuw i64, ptr %invariant.gep388, i64 %indvars.iv223
-  %60 = load volatile i64, ptr %gep389, align 8, !tbaa !14
+  %59 = load volatile i64, ptr %gep389, align 8, !tbaa !14
+  %gep391 = getelementptr inbounds nuw i64, ptr %invariant.gep390, i64 %indvars.iv223
+  %60 = load volatile i64, ptr %gep391, align 8, !tbaa !14
   %61 = icmp eq i64 %indvars.iv223, %54
   %62 = select i1 %61, i64 %58, i64 0
   %63 = or i64 %62, %.085.us86.us
@@ -2050,9 +2050,9 @@ define internal fastcc range(i32 0, 2) i32 @MOD_EXP_CTIME_COPY_FROM_PREBUF(ptr n
 .preheader82.us105:                               ; preds = %.preheader82.us105.preheader, %.split.split.split.us.us.split
   %indvars.iv207 = phi i64 [ 0, %.preheader82.us105.preheader ], [ %indvars.iv.next208, %.split.split.split.us.us.split ]
   %.16898.us107 = phi ptr [ %2, %.preheader82.us105.preheader ], [ %84, %.split.split.split.us.us.split ]
-  %invariant.gep378 = getelementptr inbounds nuw i64, ptr %.16898.us107, i64 %70
-  %invariant.gep380 = getelementptr inbounds nuw i64, ptr %.16898.us107, i64 %71
-  %invariant.gep382 = getelementptr inbounds nuw i64, ptr %.16898.us107, i64 %72
+  %invariant.gep380 = getelementptr inbounds nuw i64, ptr %.16898.us107, i64 %70
+  %invariant.gep382 = getelementptr inbounds nuw i64, ptr %.16898.us107, i64 %71
+  %invariant.gep384 = getelementptr inbounds nuw i64, ptr %.16898.us107, i64 %72
   br label %74
 
 74:                                               ; preds = %74, %.preheader82.us105
@@ -2060,12 +2060,12 @@ define internal fastcc range(i32 0, 2) i32 @MOD_EXP_CTIME_COPY_FROM_PREBUF(ptr n
   %.085.us92.us = phi i64 [ %82, %74 ], [ 0, %.preheader82.us105 ]
   %75 = getelementptr inbounds nuw i64, ptr %.16898.us107, i64 %indvars.iv201
   %76 = load volatile i64, ptr %75, align 8, !tbaa !14
-  %gep379 = getelementptr inbounds nuw i64, ptr %invariant.gep378, i64 %indvars.iv201
-  %77 = load volatile i64, ptr %gep379, align 8, !tbaa !14
   %gep381 = getelementptr inbounds nuw i64, ptr %invariant.gep380, i64 %indvars.iv201
-  %78 = load volatile i64, ptr %gep381, align 8, !tbaa !14
+  %77 = load volatile i64, ptr %gep381, align 8, !tbaa !14
   %gep383 = getelementptr inbounds nuw i64, ptr %invariant.gep382, i64 %indvars.iv201
-  %79 = load volatile i64, ptr %gep383, align 8, !tbaa !14
+  %78 = load volatile i64, ptr %gep383, align 8, !tbaa !14
+  %gep385 = getelementptr inbounds nuw i64, ptr %invariant.gep384, i64 %indvars.iv201
+  %79 = load volatile i64, ptr %gep385, align 8, !tbaa !14
   %80 = icmp eq i64 %indvars.iv201, %73
   %81 = select i1 %80, i64 %78, i64 0
   %82 = or i64 %81, %.085.us92.us
@@ -2085,8 +2085,8 @@ define internal fastcc range(i32 0, 2) i32 @MOD_EXP_CTIME_COPY_FROM_PREBUF(ptr n
   %indvars.iv196 = phi i64 [ 0, %.preheader82.preheader ], [ %indvars.iv.next197, %.split.split.split ]
   %.16898 = phi ptr [ %2, %.preheader82.preheader ], [ %96, %.split.split.split ]
   %invariant.gep = getelementptr inbounds nuw i64, ptr %.16898, i64 %67
-  %invariant.gep374 = getelementptr inbounds nuw i64, ptr %.16898, i64 %68
-  %invariant.gep376 = getelementptr inbounds nuw i64, ptr %.16898, i64 %69
+  %invariant.gep376 = getelementptr inbounds nuw i64, ptr %.16898, i64 %68
+  %invariant.gep378 = getelementptr inbounds nuw i64, ptr %.16898, i64 %69
   br label %85
 
 85:                                               ; preds = %.preheader82, %85
@@ -2096,10 +2096,10 @@ define internal fastcc range(i32 0, 2) i32 @MOD_EXP_CTIME_COPY_FROM_PREBUF(ptr n
   %87 = load volatile i64, ptr %86, align 8, !tbaa !14
   %gep = getelementptr inbounds nuw i64, ptr %invariant.gep, i64 %indvars.iv
   %88 = load volatile i64, ptr %gep, align 8, !tbaa !14
-  %gep375 = getelementptr inbounds nuw i64, ptr %invariant.gep374, i64 %indvars.iv
-  %89 = load volatile i64, ptr %gep375, align 8, !tbaa !14
   %gep377 = getelementptr inbounds nuw i64, ptr %invariant.gep376, i64 %indvars.iv
-  %90 = load volatile i64, ptr %gep377, align 8, !tbaa !14
+  %89 = load volatile i64, ptr %gep377, align 8, !tbaa !14
+  %gep379 = getelementptr inbounds nuw i64, ptr %invariant.gep378, i64 %indvars.iv
+  %90 = load volatile i64, ptr %gep379, align 8, !tbaa !14
   %91 = icmp eq i64 %indvars.iv, %66
   %92 = and i1 %91, %30
   %93 = select i1 %92, i64 %90, i64 0

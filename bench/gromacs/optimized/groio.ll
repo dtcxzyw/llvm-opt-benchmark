@@ -1008,7 +1008,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit236: ; preds = %_Z
   %.3153291 = phi ptr [ %278, %276 ], [ %.2152298, %.preheader250 ]
   %275 = load i8, ptr %.3153291, align 1, !tbaa !14
   %.not195 = icmp eq i8 %275, 0
-  br i1 %.not195, label %.critedge2.loopexit.split.loop.exit392, label %276
+  br i1 %.not195, label %.critedge2.loopexit.split.loop.exit420, label %276
 
 276:                                              ; preds = %.lr.ph
   %277 = getelementptr inbounds nuw [256 x i8], ptr %15, i64 0, i64 %indvars.iv338
@@ -1018,13 +1018,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit236: ; preds = %_Z
   %exitcond342.not = icmp eq i64 %indvars.iv.next339, %wide.trip.count341
   br i1 %exitcond342.not, label %.critedge2.loopexit, label %.lr.ph, !llvm.loop !47
 
-.critedge2.loopexit.split.loop.exit392:           ; preds = %.lr.ph
+.critedge2.loopexit.split.loop.exit420:           ; preds = %.lr.ph
   %279 = trunc nuw nsw i64 %indvars.iv338 to i32
   br label %.critedge2.loopexit
 
-.critedge2.loopexit:                              ; preds = %276, %.critedge2.loopexit.split.loop.exit392
-  %.1172.lcssa.ph = phi i32 [ %279, %.critedge2.loopexit.split.loop.exit392 ], [ %.1174, %276 ]
-  %.3153.lcssa.ph = phi ptr [ %.3153291, %.critedge2.loopexit.split.loop.exit392 ], [ %278, %276 ]
+.critedge2.loopexit:                              ; preds = %276, %.critedge2.loopexit.split.loop.exit420
+  %.1172.lcssa.ph = phi i32 [ %279, %.critedge2.loopexit.split.loop.exit420 ], [ %.1174, %276 ]
+  %.3153.lcssa.ph = phi ptr [ %.3153291, %.critedge2.loopexit.split.loop.exit420 ], [ %278, %276 ]
   %280 = zext nneg i32 %.1172.lcssa.ph to i64
   br label %.critedge2
 
@@ -1533,10 +1533,10 @@ _ZL14gmx_sfree_implIPPcEvPKcS3_iPT_.exit:         ; preds = %_ZL14gmx_sfree_impl
   %56 = icmp eq i32 %55, 1
   %57 = load double, ptr %7, align 8
   %58 = fptrunc double %57 to float
-  %.sink46 = select i1 %56, float %58, float 0.000000e+00
+  %.sink51 = select i1 %56, float %58, float 0.000000e+00
   %.sink = zext i1 %56 to i8
   %59 = getelementptr inbounds nuw i8, ptr %1, i64 28
-  store float %.sink46, ptr %59, align 4, !tbaa !82
+  store float %.sink51, ptr %59, align 4, !tbaa !82
   %60 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i8 %.sink, ptr %60, align 8, !tbaa !83
   br label %61

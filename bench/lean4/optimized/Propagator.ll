@@ -1501,17 +1501,17 @@ lean_inc.exit258:                                 ; preds = %495, %494, %492, %l
   unreachable
 
 lean_alloc_ctor.exit:                             ; preds = %lean_inc.exit258, %lean_inc.exit254, %lean_dec.exit263, %lean_dec.exit259
-  %.sink426 = phi ptr [ %36, %lean_dec.exit259 ], [ %86, %lean_dec.exit263 ], [ %428, %lean_inc.exit254 ], [ %500, %lean_inc.exit258 ]
-  %.sink423 = phi i32 [ 16908312, %lean_dec.exit259 ], [ 16908312, %lean_dec.exit263 ], [ 131096, %lean_inc.exit254 ], [ 131096, %lean_inc.exit258 ]
+  %.sink455 = phi ptr [ %36, %lean_dec.exit259 ], [ %86, %lean_dec.exit263 ], [ %428, %lean_inc.exit254 ], [ %500, %lean_inc.exit258 ]
+  %.sink452 = phi i32 [ 16908312, %lean_dec.exit259 ], [ 16908312, %lean_dec.exit263 ], [ 131096, %lean_inc.exit254 ], [ 131096, %lean_inc.exit258 ]
   %.sink = phi ptr [ inttoptr (i64 3 to ptr), %lean_dec.exit259 ], [ inttoptr (i64 3 to ptr), %lean_dec.exit263 ], [ %427, %lean_inc.exit254 ], [ %499, %lean_inc.exit258 ]
-  %503 = getelementptr inbounds nuw i8, ptr %.sink426, i64 4
-  store i32 1, ptr %.sink426, align 4, !tbaa !8
-  store i32 %.sink423, ptr %503, align 4
-  %504 = getelementptr inbounds nuw i8, ptr %.sink426, i64 8
+  %503 = getelementptr inbounds nuw i8, ptr %.sink455, i64 4
+  store i32 1, ptr %.sink455, align 4, !tbaa !8
+  store i32 %.sink452, ptr %503, align 4
+  %504 = getelementptr inbounds nuw i8, ptr %.sink455, i64 8
   store ptr %.sink, ptr %504, align 8, !tbaa !4
-  %505 = getelementptr inbounds nuw i8, ptr %.sink426, i64 16
+  %505 = getelementptr inbounds nuw i8, ptr %.sink455, i64 16
   store ptr %4, ptr %505, align 8, !tbaa !4
-  ret ptr %.sink426
+  ret ptr %.sink455
 }
 
 declare ptr @l_Lean_Syntax_getArg(ptr noundef, ptr noundef) local_unnamed_addr #1
@@ -3026,18 +3026,18 @@ _init_l_Lean_Parser_grindPropagatorBuiltinAttr___closed__7.exit: ; preds = %_ini
   unreachable
 
 .sink.split:                                      ; preds = %_init_l_Lean_Parser_grindPropagatorBuiltinAttr___closed__7.exit, %3
-  %.sink9 = phi ptr [ %4, %3 ], [ %423, %_init_l_Lean_Parser_grindPropagatorBuiltinAttr___closed__7.exit ]
-  %426 = getelementptr inbounds nuw i8, ptr %.sink9, i64 4
-  store i32 1, ptr %.sink9, align 4, !tbaa !8
+  %.sink42 = phi ptr [ %4, %3 ], [ %423, %_init_l_Lean_Parser_grindPropagatorBuiltinAttr___closed__7.exit ]
+  %426 = getelementptr inbounds nuw i8, ptr %.sink42, i64 4
+  store i32 1, ptr %.sink42, align 4, !tbaa !8
   store i32 131096, ptr %426, align 4
-  %427 = getelementptr inbounds nuw i8, ptr %.sink9, i64 8
+  %427 = getelementptr inbounds nuw i8, ptr %.sink42, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %427, align 8, !tbaa !4
-  %428 = getelementptr inbounds nuw i8, ptr %.sink9, i64 16
+  %428 = getelementptr inbounds nuw i8, ptr %.sink42, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %428, align 8, !tbaa !4
   br label %429
 
 429:                                              ; preds = %.sink.split, %7
-  %.0 = phi ptr [ %8, %7 ], [ %.sink9, %.sink.split ]
+  %.0 = phi ptr [ %8, %7 ], [ %.sink42, %.sink.split ]
   ret ptr %.0
 }
 

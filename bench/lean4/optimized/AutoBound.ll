@@ -867,8 +867,8 @@ lean_dec.exit27:                                  ; preds = %lean_alloc_ctor.exi
   br label %lean_dec.exit25
 
 lean_dec.exit25:                                  ; preds = %lean_dec.exit27, %36, %38, %39
-  %.0.i43 = phi ptr [ %33, %36 ], [ %33, %38 ], [ %33, %39 ], [ %20, %lean_dec.exit27 ]
-  %40 = tail call zeroext i8 @l_String_anyAux___at___private_Lean_Elab_AutoBound_0__Lean_Elab_isValidAutoBoundSuffix___spec__1(ptr noundef nonnull %0, ptr noundef nonnull %4, ptr noundef %.0.i43)
+  %.0.i48 = phi ptr [ %33, %36 ], [ %33, %38 ], [ %33, %39 ], [ %20, %lean_dec.exit27 ]
+  %40 = tail call zeroext i8 @l_String_anyAux___at___private_Lean_Elab_AutoBound_0__Lean_Elab_isValidAutoBoundSuffix___spec__1(ptr noundef nonnull %0, ptr noundef nonnull %4, ptr noundef %.0.i48)
   br i1 %.not, label %41, label %lean_dec.exit
 
 41:                                               ; preds = %lean_dec.exit25
@@ -1744,18 +1744,18 @@ lean_dec_ref.exit18:                              ; preds = %84, %83, %81, %_ini
   unreachable
 
 .sink.split:                                      ; preds = %lean_dec_ref.exit18, %3
-  %.sink29 = phi ptr [ %4, %3 ], [ %85, %lean_dec_ref.exit18 ]
-  %88 = getelementptr inbounds nuw i8, ptr %.sink29, i64 4
-  store i32 1, ptr %.sink29, align 4, !tbaa !10
+  %.sink38 = phi ptr [ %4, %3 ], [ %85, %lean_dec_ref.exit18 ]
+  %88 = getelementptr inbounds nuw i8, ptr %.sink38, i64 4
+  store i32 1, ptr %.sink38, align 4, !tbaa !10
   store i32 131096, ptr %88, align 4
-  %89 = getelementptr inbounds nuw i8, ptr %.sink29, i64 8
+  %89 = getelementptr inbounds nuw i8, ptr %.sink38, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %89, align 8, !tbaa !4
-  %90 = getelementptr inbounds nuw i8, ptr %.sink29, i64 16
+  %90 = getelementptr inbounds nuw i8, ptr %.sink38, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %90, align 8, !tbaa !4
   br label %91
 
 91:                                               ; preds = %.sink.split, %70, %38, %7
-  %.0 = phi ptr [ %8, %7 ], [ %42, %38 ], [ %74, %70 ], [ %.sink29, %.sink.split ]
+  %.0 = phi ptr [ %8, %7 ], [ %42, %38 ], [ %74, %70 ], [ %.sink38, %.sink.split ]
   ret ptr %.0
 }
 

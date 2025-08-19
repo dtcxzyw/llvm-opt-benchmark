@@ -655,7 +655,7 @@ fill_vaapi_pic.exit:                              ; preds = %4, %297, %303
 
 .preheader.i:                                     ; preds = %fill_vaapi_pic.exit.i, %fill_vaapi_pic.exit
   %indvars.iv43.i = phi i64 [ 0, %fill_vaapi_pic.exit ], [ %indvars.iv.next44.i, %fill_vaapi_pic.exit.i ]
-  %.02337.i = phi i32 [ 0, %fill_vaapi_pic.exit ], [ %.124.lcssa49.i, %fill_vaapi_pic.exit.i ]
+  %.02337.i = phi i32 [ 0, %fill_vaapi_pic.exit ], [ %.124.lcssa51.i, %fill_vaapi_pic.exit.i ]
   %312 = icmp ult i32 %.02337.i, 32
   br i1 %312, label %.lr.ph.preheader.i, label %._crit_edge.thread.i
 
@@ -853,7 +853,7 @@ find_frame_rps_type.exit.i:                       ; preds = %343, %354, %363, %3
   br label %fill_vaapi_pic.exit.i
 
 fill_vaapi_pic.exit.i:                            ; preds = %398, %392, %386, %._crit_edge.i, %._crit_edge.thread.i
-  %.124.lcssa49.i = phi i32 [ %.02337.i, %._crit_edge.thread.i ], [ %329, %398 ], [ %329, %392 ], [ %329, %386 ], [ %329, %._crit_edge.i ]
+  %.124.lcssa51.i = phi i32 [ %.02337.i, %._crit_edge.thread.i ], [ %329, %398 ], [ %329, %392 ], [ %329, %386 ], [ %329, %._crit_edge.i ]
   %indvars.iv.next44.i = add nuw nsw i64 %indvars.iv43.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next44.i, 15
   br i1 %exitcond.not.i, label %fill_vaapi_reference_frames.exit, label %.preheader.i, !llvm.loop !235
@@ -1376,7 +1376,7 @@ define internal i32 @vaapi_hevc_decode_slice(ptr noundef %0, ptr noundef %1, i32
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 10460
   %13 = load i32, ptr %12, align 4, !tbaa !289
   %14 = icmp eq i32 %13, 0
-  %.not195 = icmp eq i32 %13, 2
+  %.not198 = icmp eq i32 %13, 2
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 10472
   %16 = load i8, ptr %15, align 8, !tbaa !290
   %.not = icmp eq i8 %16, 0
@@ -1556,7 +1556,7 @@ define internal i32 @vaapi_hevc_decode_slice(ptr noundef %0, ptr noundef %1, i32
   %.sroa.36.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 1655
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(17) %.sroa.36.0..sroa_idx, i8 0, i64 17, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(30) %.sroa.5.0..sroa_idx, i8 -1, i64 30, i1 false)
-  br i1 %.not195, label %._crit_edge172, label %.lr.ph171.preheader
+  br i1 %.not198, label %._crit_edge172, label %.lr.ph171.preheader
 
 .lr.ph171.preheader:                              ; preds = %129
   %umax = select i1 %14, i64 2, i64 1
@@ -1613,19 +1613,19 @@ define internal i32 @vaapi_hevc_decode_slice(ptr noundef %0, ptr noundef %1, i32
 157:                                              ; preds = %151
   %158 = load i32, ptr %144, align 4, !tbaa !218
   %159 = icmp eq i32 %150, %158
-  br i1 %159, label %.loopexit.loopexit.split.loop.exit6.i, label %160
+  br i1 %159, label %.loopexit.loopexit.split.loop.exit8.i, label %160
 
 160:                                              ; preds = %157, %151, %146
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 15
   br i1 %exitcond.not.i, label %get_ref_pic_index.exit, label %146, !llvm.loop !311
 
-.loopexit.loopexit.split.loop.exit6.i:            ; preds = %157
+.loopexit.loopexit.split.loop.exit8.i:            ; preds = %157
   %161 = trunc nuw nsw i64 %indvars.iv.i to i8
   br label %get_ref_pic_index.exit
 
-get_ref_pic_index.exit:                           ; preds = %160, %140, %.loopexit.loopexit.split.loop.exit6.i
-  %.0.i = phi i8 [ -1, %140 ], [ %161, %.loopexit.loopexit.split.loop.exit6.i ], [ -1, %160 ]
+get_ref_pic_index.exit:                           ; preds = %160, %140, %.loopexit.loopexit.split.loop.exit8.i
+  %.0.i = phi i8 [ -1, %140 ], [ %161, %.loopexit.loopexit.split.loop.exit8.i ], [ -1, %160 ]
   %162 = getelementptr inbounds nuw [15 x i8], ptr %139, i64 0, i64 %indvars.iv
   store i8 %.0.i, ptr %162, align 1, !tbaa !136
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

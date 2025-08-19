@@ -908,8 +908,8 @@ define hidden i64 @BN_div_word(ptr noundef %0, i64 noundef %1) local_unnamed_add
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %13, %35, %28, %._crit_edge
-  %.029.lcssa38 = phi i64 [ %23, %35 ], [ %23, %28 ], [ %23, %._crit_edge ], [ 0, %13 ]
-  %37 = lshr i64 %.029.lcssa38, %10
+  %.029.lcssa41 = phi i64 [ %23, %35 ], [ %23, %28 ], [ %23, %._crit_edge ], [ 0, %13 ]
+  %37 = lshr i64 %.029.lcssa41, %10
   br label %38
 
 38:                                               ; preds = %7, %3, %2, %._crit_edge.thread

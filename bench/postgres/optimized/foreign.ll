@@ -784,8 +784,8 @@ define dso_local noundef zeroext i1 @IsImportableForeignTable(ptr noundef readon
   %.not36.not = icmp ne i32 %32, 0
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp ne i64 %indvars.iv.next, %wide.trip.count
-  %or.cond88.not = select i1 %.not36.not, i1 %exitcond.not, i1 false
-  br i1 %or.cond88.not, label %27, label %.thread47
+  %or.cond92.not = select i1 %.not36.not, i1 %exitcond.not, i1 false
+  br i1 %or.cond92.not, label %27, label %.thread47
 
 33:                                               ; preds = %2
   br label %.thread47
@@ -851,9 +851,9 @@ define dso_local noundef i64 @pg_options_to_table(ptr noundef %0) local_unnamed_
   br label %31
 
 31:                                               ; preds = %.lr.ph21, %26
-  %storemerge23 = phi i64 [ %30, %26 ], [ 0, %.lr.ph21 ]
+  %storemerge24 = phi i64 [ %30, %26 ], [ 0, %.lr.ph21 ]
   %storemerge = phi i8 [ 0, %26 ], [ 1, %.lr.ph21 ]
-  store i64 %storemerge23, ptr %11, align 8
+  store i64 %storemerge24, ptr %11, align 8
   store i8 %storemerge, ptr %12, align 1
   %32 = load ptr, ptr %13, align 8
   %33 = load ptr, ptr %14, align 8

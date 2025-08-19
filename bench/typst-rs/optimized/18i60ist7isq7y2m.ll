@@ -54,7 +54,7 @@ define internal fastcc void @_ZN10ttf_parser6tables4glyf12outline_impl17hcff694a
 
 16:                                               ; preds = %8
   store i16 2, ptr %0, align 2
-  br label %832
+  br label %831
 
 17:                                               ; preds = %14
   %.val.i.i.i = load i16, ptr %4, align 1, !alias.scope !4
@@ -64,7 +64,7 @@ define internal fastcc void @_ZN10ttf_parser6tables4glyf12outline_impl17hcff694a
 
 .thread:                                          ; preds = %14
   store i16 2, ptr %0, align 2
-  br label %832
+  br label %831
 
 20:                                               ; preds = %17
   %21 = icmp slt i16 %18, 0
@@ -120,7 +120,7 @@ define internal fastcc void @_ZN10ttf_parser6tables4glyf12outline_impl17hcff694a
 
 47:                                               ; preds = %22
   store i16 2, ptr %0, align 2
-  br label %832
+  br label %831
 
 48:                                               ; preds = %.lr.ph, %_ZN10ttf_parser6tables4loca5Table11glyph_range17h82d2e1de729dc633E.exit.thread
   %49 = phi i64 [ 2, %.lr.ph ], [ %219, %_ZN10ttf_parser6tables4loca5Table11glyph_range17h82d2e1de729dc633E.exit.thread ]
@@ -415,7 +415,7 @@ define internal fastcc void @_ZN10ttf_parser6tables4glyf12outline_impl17hcff694a
   %217 = load float, ptr %216, align 4
   %218 = fcmp oeq float %217, 0xC7EFFFFFE0000000
   %or.cond78 = select i1 %or.cond5, i1 %218, i1 false
-  br i1 %or.cond78, label %831, label %.critedge
+  br i1 %or.cond78, label %830, label %.critedge
 
 _ZN10ttf_parser6tables4loca5Table11glyph_range17h82d2e1de729dc633E.exit.thread: ; preds = %164, %166, %178, %184, %161, %128, %171, %173, %195, %200, %193, %255
   %219 = add i64 %spec.select, 2
@@ -496,13 +496,13 @@ _ZN10ttf_parser9Transform10is_default17h310561374b706d35E.exit: ; preds = %193
 256:                                              ; preds = %_ZN10ttf_parser9Transform10is_default17h310561374b706d35E.exit
   store i16 2, ptr %0, align 2
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  br label %832
+  br label %831
 
 257:                                              ; preds = %17
   %258 = icmp ult i64 %5, 10
   %259 = add i64 %5, -10
   %260 = getelementptr inbounds nuw i8, ptr %4, i64 10
-  br i1 %258, label %833, label %261
+  br i1 %258, label %832, label %261
 
 261:                                              ; preds = %257
   tail call void @llvm.experimental.noalias.scope.decl(metadata !155)
@@ -634,16 +634,16 @@ _ZN10ttf_parser9Transform10is_default17h310561374b706d35E.exit: ; preds = %193
 
 334:                                              ; preds = %261, %278, %281, %293, %302, %306, %270, %267
   call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !158
-  br label %833
+  br label %832
 
 335:                                              ; preds = %.lr.ph231, %_ZN10ttf_parser6tables4glyf7Builder10push_point17h0443de101b9e669cE.exit
   %.sroa.13.0 = phi i64 [ 0, %.lr.ph231 ], [ %.sroa.13.2, %_ZN10ttf_parser6tables4glyf7Builder10push_point17h0443de101b9e669cE.exit ]
   %.sroa.17.0 = phi i8 [ 0, %.lr.ph231 ], [ %.sroa.17.2, %_ZN10ttf_parser6tables4glyf7Builder10push_point17h0443de101b9e669cE.exit ]
   %.sroa.21.0 = phi i8 [ 0, %.lr.ph231 ], [ %.sroa.21.2, %_ZN10ttf_parser6tables4glyf7Builder10push_point17h0443de101b9e669cE.exit ]
   %.sroa.28.0 = phi i64 [ 0, %.lr.ph231 ], [ %.sroa.28.2, %_ZN10ttf_parser6tables4glyf7Builder10push_point17h0443de101b9e669cE.exit ]
-  %336 = phi i16 [ 0, %.lr.ph231 ], [ %430, %_ZN10ttf_parser6tables4glyf7Builder10push_point17h0443de101b9e669cE.exit ]
-  %337 = phi i64 [ 0, %.lr.ph231 ], [ %428, %_ZN10ttf_parser6tables4glyf7Builder10push_point17h0443de101b9e669cE.exit ]
-  %338 = phi i64 [ 0, %.lr.ph231 ], [ %429, %_ZN10ttf_parser6tables4glyf7Builder10push_point17h0443de101b9e669cE.exit ]
+  %336 = phi i16 [ 0, %.lr.ph231 ], [ %429, %_ZN10ttf_parser6tables4glyf7Builder10push_point17h0443de101b9e669cE.exit ]
+  %337 = phi i64 [ 0, %.lr.ph231 ], [ %427, %_ZN10ttf_parser6tables4glyf7Builder10push_point17h0443de101b9e669cE.exit ]
+  %338 = phi i64 [ 0, %.lr.ph231 ], [ %428, %_ZN10ttf_parser6tables4glyf7Builder10push_point17h0443de101b9e669cE.exit ]
   %339 = phi i16 [ 0, %.lr.ph231 ], [ %407, %_ZN10ttf_parser6tables4glyf7Builder10push_point17h0443de101b9e669cE.exit ]
   %340 = phi i16 [ %.sroa.16.0, %.lr.ph231 ], [ %373, %_ZN10ttf_parser6tables4glyf7Builder10push_point17h0443de101b9e669cE.exit ]
   %341 = phi i16 [ %.sroa.18.0, %.lr.ph231 ], [ %374, %_ZN10ttf_parser6tables4glyf7Builder10push_point17h0443de101b9e669cE.exit ]
@@ -657,7 +657,7 @@ _ZN10ttf_parser9Transform10is_default17h310561374b706d35E.exit: ; preds = %193
   br i1 %346, label %347, label %"_ZN10ttf_parser6parser20LazyArray16$LT$T$GT$3get17he38c370f54efd628E.exit.thread.i.i"
 
 347:                                              ; preds = %345
-  %348 = zext i16 %340 to i64
+  %348 = zext nneg i16 %340 to i64
   %349 = shl nuw nsw i64 %348, 1
   %350 = add nuw nsw i64 %349, 2
   %351 = icmp samesign ugt i64 %350, %.val12.i.i
@@ -671,12 +671,12 @@ _ZN10ttf_parser9Transform10is_default17h310561374b706d35E.exit: ; preds = %193
   %355 = getelementptr inbounds nuw i8, ptr %.val11.i.i, i64 %349
   %.val.i.i.i.i.i.i97 = load i16, ptr %355, align 1, !alias.scope !187, !noalias !194
   %356 = call i16 @llvm.bswap.i16(i16 %.val.i.i.i.i.i.i97)
-  %357 = add i16 %340, -1
+  %357 = add nsw i16 %340, -1
   %358 = icmp ult i16 %357, %333
   br i1 %358, label %359, label %"_ZN10ttf_parser6parser20LazyArray16$LT$T$GT$3get17he38c370f54efd628E.exit17.thread.i.i"
 
 359:                                              ; preds = %354
-  %360 = zext i16 %357 to i64
+  %360 = zext nneg i16 %357 to i64
   %361 = shl nuw nsw i64 %360, 1
   %362 = add nuw nsw i64 %361, 2
   %363 = icmp samesign ugt i64 %362, %.val12.i.i
@@ -687,7 +687,7 @@ _ZN10ttf_parser9Transform10is_default17h310561374b706d35E.exit: ; preds = %193
   %365 = call { i16, i1 } @llvm.uadd.with.overflow.i16(i16 %340, i16 1)
   %366 = extractvalue { i16, i1 } %365, 1
   %367 = extractvalue { i16, i1 } %365, 0
-  %spec.select237 = select i1 %366, i16 -1, i16 %367
+  %spec.select289 = select i1 %366, i16 -1, i16 %367
   br label %_ZN10ttf_parser6tables4glyf13EndpointsIter4next17h343f1c5693c9cc59E.exit.i
 
 368:                                              ; preds = %359
@@ -703,7 +703,7 @@ _ZN10ttf_parser9Transform10is_default17h310561374b706d35E.exit: ; preds = %193
   br label %"_ZN10ttf_parser6parser20LazyArray16$LT$T$GT$3get17he38c370f54efd628E.exit.thread.i.i"
 
 _ZN10ttf_parser6tables4glyf13EndpointsIter4next17h343f1c5693c9cc59E.exit.i: ; preds = %"_ZN10ttf_parser6parser20LazyArray16$LT$T$GT$3get17he38c370f54efd628E.exit.thread.i.i", %352
-  %373 = phi i16 [ %340, %352 ], [ %spec.select237, %"_ZN10ttf_parser6parser20LazyArray16$LT$T$GT$3get17he38c370f54efd628E.exit.thread.i.i" ]
+  %373 = phi i16 [ %340, %352 ], [ %spec.select289, %"_ZN10ttf_parser6parser20LazyArray16$LT$T$GT$3get17he38c370f54efd628E.exit.thread.i.i" ]
   %374 = phi i16 [ %353, %352 ], [ %364, %"_ZN10ttf_parser6parser20LazyArray16$LT$T$GT$3get17he38c370f54efd628E.exit.thread.i.i" ]
   %375 = icmp eq i8 %.sroa.17.0, 0
   br i1 %375, label %376, label %377
@@ -799,706 +799,704 @@ _ZN10ttf_parser6tables4glyf10CoordsIter4next17h20496966498cbd79E.exit.i: ; preds
 
 411:                                              ; preds = %_ZN10ttf_parser6tables4glyf10CoordsIter4next17h20496966498cbd79E.exit.i
   %or.cond.i.i.not.i11.i = icmp ult i64 %338, %312
-  br i1 %or.cond.i.i.not.i11.i, label %419, label %.thread27.i12.i
+  br i1 %or.cond.i.i.not.i11.i, label %418, label %.thread27.i12.i
 
 412:                                              ; preds = %410
-  %413 = add i64 %337, 2
-  %414 = icmp ugt i64 %337, -3
-  %415 = icmp ugt i64 %413, %312
-  %or.cond.i.i17.i8.i = or i1 %414, %415
-  br i1 %or.cond.i.i17.i8.i, label %"_ZN100_$LT$ttf_parser..tables..glyf..GlyphPointsIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h18d35d620f4f3ae6E.exit", label %416
+  %413 = add nuw nsw i64 %337, 2
+  %414 = icmp ugt i64 %413, %312
+  br i1 %414, label %"_ZN100_$LT$ttf_parser..tables..glyf..GlyphPointsIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h18d35d620f4f3ae6E.exit", label %415
 
-416:                                              ; preds = %412
-  %417 = getelementptr inbounds i8, ptr %313, i64 %337
-  %.val.i.i.i.i9.i = load i16, ptr %417, align 1, !alias.scope !234, !noalias !241
-  %418 = call i16 @llvm.bswap.i16(i16 %.val.i.i.i.i9.i)
+415:                                              ; preds = %412
+  %416 = getelementptr inbounds nuw i8, ptr %313, i64 %337
+  %.val.i.i.i.i9.i = load i16, ptr %416, align 1, !alias.scope !234, !noalias !241
+  %417 = call i16 @llvm.bswap.i16(i16 %.val.i.i.i.i9.i)
   br label %"_ZN100_$LT$ttf_parser..tables..glyf..GlyphPointsIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h18d35d620f4f3ae6E.exit"
 
-419:                                              ; preds = %411
-  %420 = add nuw i64 %338, 1
-  %421 = getelementptr inbounds i8, ptr %313, i64 %338
-  %422 = load i8, ptr %421, align 1, !alias.scope !244, !noalias !241, !noundef !37
-  %423 = zext i8 %422 to i16
+418:                                              ; preds = %411
+  %419 = add nuw nsw i64 %338, 1
+  %420 = getelementptr inbounds nuw i8, ptr %313, i64 %338
+  %421 = load i8, ptr %420, align 1, !alias.scope !244, !noalias !241, !noundef !37
+  %422 = zext i8 %421 to i16
   br label %.thread27.i12.i
 
-.thread27.i12.i:                                  ; preds = %419, %411
-  %424 = phi i64 [ %420, %419 ], [ %337, %411 ]
-  %425 = phi i64 [ %420, %419 ], [ %338, %411 ]
-  %426 = phi i16 [ %423, %419 ], [ 0, %411 ]
-  %427 = sub nsw i16 0, %426
-  %spec.select.i13.i = select i1 %.not18.i, i16 %427, i16 %426
+.thread27.i12.i:                                  ; preds = %418, %411
+  %423 = phi i64 [ %419, %418 ], [ %337, %411 ]
+  %424 = phi i64 [ %419, %418 ], [ %338, %411 ]
+  %425 = phi i16 [ %422, %418 ], [ 0, %411 ]
+  %426 = sub nsw i16 0, %425
+  %spec.select.i13.i = select i1 %.not18.i, i16 %426, i16 %425
   br label %"_ZN100_$LT$ttf_parser..tables..glyf..GlyphPointsIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h18d35d620f4f3ae6E.exit"
 
-"_ZN100_$LT$ttf_parser..tables..glyf..GlyphPointsIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h18d35d620f4f3ae6E.exit": ; preds = %410, %412, %416, %.thread27.i12.i
-  %428 = phi i64 [ %337, %410 ], [ %424, %.thread27.i12.i ], [ %413, %416 ], [ %337, %412 ]
-  %429 = phi i64 [ %338, %410 ], [ %425, %.thread27.i12.i ], [ %413, %416 ], [ %337, %412 ]
-  %.0.i10.i = phi i16 [ 0, %410 ], [ %spec.select.i13.i, %.thread27.i12.i ], [ %418, %416 ], [ 0, %412 ]
-  %430 = add i16 %336, %.0.i10.i
-  %431 = and i8 %.sroa.21.2, 1
-  %.not.not.not = icmp eq i8 %431, 0
-  %432 = sitofp i16 %407 to float
-  %433 = sitofp i16 %430 to float
-  %434 = load i32, ptr %315, align 8, !range !175, !alias.scope !249, !noundef !37
-  %.not.i98 = icmp eq i32 %434, 0
-  br i1 %.not.i98, label %436, label %435
+"_ZN100_$LT$ttf_parser..tables..glyf..GlyphPointsIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h18d35d620f4f3ae6E.exit": ; preds = %410, %412, %415, %.thread27.i12.i
+  %427 = phi i64 [ %337, %410 ], [ %423, %.thread27.i12.i ], [ %413, %415 ], [ %337, %412 ]
+  %428 = phi i64 [ %338, %410 ], [ %424, %.thread27.i12.i ], [ %413, %415 ], [ %337, %412 ]
+  %.0.i10.i = phi i16 [ 0, %410 ], [ %spec.select.i13.i, %.thread27.i12.i ], [ %417, %415 ], [ 0, %412 ]
+  %429 = add i16 %336, %.0.i10.i
+  %430 = and i8 %.sroa.21.2, 1
+  %.not.not.not = icmp eq i8 %430, 0
+  %431 = sitofp i16 %407 to float
+  %432 = sitofp i16 %429 to float
+  %433 = load i32, ptr %315, align 8, !range !175, !alias.scope !249, !noundef !37
+  %.not.i98 = icmp eq i32 %433, 0
+  br i1 %.not.i98, label %435, label %434
 
-435:                                              ; preds = %"_ZN100_$LT$ttf_parser..tables..glyf..GlyphPointsIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h18d35d620f4f3ae6E.exit"
+434:                                              ; preds = %"_ZN100_$LT$ttf_parser..tables..glyf..GlyphPointsIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h18d35d620f4f3ae6E.exit"
   %.sroa.020.0.copyload.i = load i32, ptr %316, align 8, !alias.scope !249
   %.sroa.221.0.copyload.i = load float, ptr %.sroa.221.0..sroa_idx.i, align 4, !alias.scope !249
   %.sroa.423.0.copyload.i = load float, ptr %.sroa.423.0..sroa_idx.i, align 8, !alias.scope !249
   %switch.i = icmp eq i32 %.sroa.020.0.copyload.i, 0
-  br i1 %switch.i, label %437, label %438
+  br i1 %switch.i, label %436, label %437
 
-436:                                              ; preds = %"_ZN100_$LT$ttf_parser..tables..glyf..GlyphPointsIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h18d35d620f4f3ae6E.exit"
-  br i1 %.not.not.not, label %561, label %563
+435:                                              ; preds = %"_ZN100_$LT$ttf_parser..tables..glyf..GlyphPointsIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h18d35d620f4f3ae6E.exit"
+  br i1 %.not.not.not, label %560, label %562
 
-437:                                              ; preds = %435
-  br i1 %.not.not.not, label %439, label %440
+436:                                              ; preds = %434
+  br i1 %.not.not.not, label %438, label %439
 
-438:                                              ; preds = %435
-  br i1 %.not.not.not, label %471, label %519
+437:                                              ; preds = %434
+  br i1 %.not.not.not, label %470, label %518
 
-439:                                              ; preds = %437
+438:                                              ; preds = %436
   store i32 1, ptr %316, align 8, !alias.scope !249
-  store float %432, ptr %.sroa.221.0..sroa_idx.i, align 4, !alias.scope !249
-  store float %433, ptr %.sroa.423.0..sroa_idx.i, align 8, !alias.scope !249
-  br label %470
+  store float %431, ptr %.sroa.221.0..sroa_idx.i, align 4, !alias.scope !249
+  store float %432, ptr %.sroa.423.0..sroa_idx.i, align 8, !alias.scope !249
+  br label %469
 
-440:                                              ; preds = %437
+439:                                              ; preds = %436
   call void @llvm.experimental.noalias.scope.decl(metadata !252)
-  %441 = load i8, ptr %317, align 4, !range !255, !alias.scope !256, !noundef !37
-  %442 = trunc nuw i8 %441 to i1
-  br i1 %442, label %_ZN10ttf_parser6tables4glyf7Builder7line_to17hf177cf9b7bc3de75E.exit.i, label %443
+  %440 = load i8, ptr %317, align 4, !range !255, !alias.scope !256, !noundef !37
+  %441 = trunc nuw i8 %440 to i1
+  br i1 %441, label %_ZN10ttf_parser6tables4glyf7Builder7line_to17hf177cf9b7bc3de75E.exit.i, label %442
 
-443:                                              ; preds = %440
-  %444 = load float, ptr %318, align 8, !alias.scope !256, !noundef !37
-  %445 = fmul float %444, %432
-  %446 = load float, ptr %319, align 8, !alias.scope !256, !noundef !37
-  %447 = fmul float %446, %433
-  %448 = fadd float %445, %447
-  %449 = load float, ptr %320, align 8, !alias.scope !256, !noundef !37
-  %450 = fadd float %449, %448
-  %451 = load float, ptr %321, align 4, !alias.scope !256, !noundef !37
-  %452 = fmul float %451, %432
-  %453 = load float, ptr %322, align 4, !alias.scope !256, !noundef !37
-  %454 = fmul float %453, %433
-  %455 = fadd float %452, %454
-  %456 = load float, ptr %323, align 4, !alias.scope !256, !noundef !37
-  %457 = fadd float %456, %455
+442:                                              ; preds = %439
+  %443 = load float, ptr %318, align 8, !alias.scope !256, !noundef !37
+  %444 = fmul float %443, %431
+  %445 = load float, ptr %319, align 8, !alias.scope !256, !noundef !37
+  %446 = fmul float %445, %432
+  %447 = fadd float %444, %446
+  %448 = load float, ptr %320, align 8, !alias.scope !256, !noundef !37
+  %449 = fadd float %448, %447
+  %450 = load float, ptr %321, align 4, !alias.scope !256, !noundef !37
+  %451 = fmul float %450, %431
+  %452 = load float, ptr %322, align 4, !alias.scope !256, !noundef !37
+  %453 = fmul float %452, %432
+  %454 = fadd float %451, %453
+  %455 = load float, ptr %323, align 4, !alias.scope !256, !noundef !37
+  %456 = fadd float %455, %454
   br label %_ZN10ttf_parser6tables4glyf7Builder7line_to17hf177cf9b7bc3de75E.exit.i
 
-_ZN10ttf_parser6tables4glyf7Builder7line_to17hf177cf9b7bc3de75E.exit.i: ; preds = %443, %440
-  %.010.i.i = phi float [ %433, %440 ], [ %457, %443 ]
-  %.0.i.i100 = phi float [ %432, %440 ], [ %450, %443 ]
-  %458 = load float, ptr %7, align 8, !alias.scope !256, !noundef !37
-  %459 = call float @llvm.minnum.f32(float %458, float %.0.i.i100)
-  store float %459, ptr %7, align 8, !alias.scope !256
-  %460 = load float, ptr %324, align 4, !alias.scope !256, !noundef !37
-  %461 = call float @llvm.minnum.f32(float %460, float %.010.i.i)
-  store float %461, ptr %324, align 4, !alias.scope !256
-  %462 = load float, ptr %325, align 8, !alias.scope !256, !noundef !37
-  %463 = call float @llvm.maxnum.f32(float %462, float %.0.i.i100)
-  store float %463, ptr %325, align 8, !alias.scope !256
-  %464 = load float, ptr %326, align 4, !alias.scope !256, !noundef !37
-  %465 = call float @llvm.maxnum.f32(float %464, float %.010.i.i)
-  store float %465, ptr %326, align 4, !alias.scope !256
-  %466 = load ptr, ptr %327, align 8, !alias.scope !256, !nonnull !37, !align !152, !noundef !37
-  %467 = load ptr, ptr %328, align 8, !alias.scope !256, !nonnull !37, !align !153, !noundef !37
-  %468 = getelementptr inbounds nuw i8, ptr %467, i64 32
-  %469 = load ptr, ptr %468, align 8, !invariant.load !37, !noalias !252, !nonnull !37
-  call void %469(ptr noundef nonnull align 1 %466, float noundef %.0.i.i100, float noundef %.010.i.i), !noalias !252
-  br label %470
+_ZN10ttf_parser6tables4glyf7Builder7line_to17hf177cf9b7bc3de75E.exit.i: ; preds = %442, %439
+  %.010.i.i = phi float [ %432, %439 ], [ %456, %442 ]
+  %.0.i.i100 = phi float [ %431, %439 ], [ %449, %442 ]
+  %457 = load float, ptr %7, align 8, !alias.scope !256, !noundef !37
+  %458 = call float @llvm.minnum.f32(float %457, float %.0.i.i100)
+  store float %458, ptr %7, align 8, !alias.scope !256
+  %459 = load float, ptr %324, align 4, !alias.scope !256, !noundef !37
+  %460 = call float @llvm.minnum.f32(float %459, float %.010.i.i)
+  store float %460, ptr %324, align 4, !alias.scope !256
+  %461 = load float, ptr %325, align 8, !alias.scope !256, !noundef !37
+  %462 = call float @llvm.maxnum.f32(float %461, float %.0.i.i100)
+  store float %462, ptr %325, align 8, !alias.scope !256
+  %463 = load float, ptr %326, align 4, !alias.scope !256, !noundef !37
+  %464 = call float @llvm.maxnum.f32(float %463, float %.010.i.i)
+  store float %464, ptr %326, align 4, !alias.scope !256
+  %465 = load ptr, ptr %327, align 8, !alias.scope !256, !nonnull !37, !align !152, !noundef !37
+  %466 = load ptr, ptr %328, align 8, !alias.scope !256, !nonnull !37, !align !153, !noundef !37
+  %467 = getelementptr inbounds nuw i8, ptr %466, i64 32
+  %468 = load ptr, ptr %467, align 8, !invariant.load !37, !noalias !252, !nonnull !37
+  call void %468(ptr noundef nonnull align 1 %465, float noundef %.0.i.i100, float noundef %.010.i.i), !noalias !252
+  br label %469
 
-470:                                              ; preds = %631, %_ZN10ttf_parser6tables4glyf7Builder7move_to17h8db3ef8d018d6f8cE.exit44.i, %_ZN10ttf_parser6tables4glyf7Builder7move_to17h8db3ef8d018d6f8cE.exit.i, %_ZN10ttf_parser6tables4glyf7Builder7quad_to17hb45035b56319fc46E.exit39.i, %_ZN10ttf_parser6tables4glyf7Builder7quad_to17hb45035b56319fc46E.exit.i, %_ZN10ttf_parser6tables4glyf7Builder7line_to17hf177cf9b7bc3de75E.exit.i, %439
-  br i1 %344, label %632, label %_ZN10ttf_parser6tables4glyf7Builder10push_point17h0443de101b9e669cE.exit
+469:                                              ; preds = %630, %_ZN10ttf_parser6tables4glyf7Builder7move_to17h8db3ef8d018d6f8cE.exit44.i, %_ZN10ttf_parser6tables4glyf7Builder7move_to17h8db3ef8d018d6f8cE.exit.i, %_ZN10ttf_parser6tables4glyf7Builder7quad_to17hb45035b56319fc46E.exit39.i, %_ZN10ttf_parser6tables4glyf7Builder7quad_to17hb45035b56319fc46E.exit.i, %_ZN10ttf_parser6tables4glyf7Builder7line_to17hf177cf9b7bc3de75E.exit.i, %438
+  br i1 %344, label %631, label %_ZN10ttf_parser6tables4glyf7Builder10push_point17h0443de101b9e669cE.exit
 
-471:                                              ; preds = %438
+470:                                              ; preds = %437
   store i32 1, ptr %316, align 8, !alias.scope !249
-  store float %432, ptr %.sroa.221.0..sroa_idx.i, align 4, !alias.scope !249
-  store float %433, ptr %.sroa.423.0..sroa_idx.i, align 8, !alias.scope !249
-  %472 = fsub float %432, %.sroa.221.0.copyload.i
-  %473 = fmul float %472, 5.000000e-01
-  %474 = fadd float %.sroa.221.0.copyload.i, %473
-  %475 = fsub float %433, %.sroa.423.0.copyload.i
-  %476 = fmul float %475, 5.000000e-01
-  %477 = fadd float %.sroa.423.0.copyload.i, %476
+  store float %431, ptr %.sroa.221.0..sroa_idx.i, align 4, !alias.scope !249
+  store float %432, ptr %.sroa.423.0..sroa_idx.i, align 8, !alias.scope !249
+  %471 = fsub float %431, %.sroa.221.0.copyload.i
+  %472 = fmul float %471, 5.000000e-01
+  %473 = fadd float %.sroa.221.0.copyload.i, %472
+  %474 = fsub float %432, %.sroa.423.0.copyload.i
+  %475 = fmul float %474, 5.000000e-01
+  %476 = fadd float %.sroa.423.0.copyload.i, %475
   call void @llvm.experimental.noalias.scope.decl(metadata !257)
-  %478 = load i8, ptr %317, align 4, !range !255, !alias.scope !260, !noundef !37
-  %479 = trunc nuw i8 %478 to i1
-  br i1 %479, label %_ZN10ttf_parser6tables4glyf7Builder7quad_to17hb45035b56319fc46E.exit.i, label %480
+  %477 = load i8, ptr %317, align 4, !range !255, !alias.scope !260, !noundef !37
+  %478 = trunc nuw i8 %477 to i1
+  br i1 %478, label %_ZN10ttf_parser6tables4glyf7Builder7quad_to17hb45035b56319fc46E.exit.i, label %479
 
-480:                                              ; preds = %471
-  %481 = load float, ptr %318, align 8, !alias.scope !260, !noundef !37
-  %482 = fmul float %.sroa.221.0.copyload.i, %481
-  %483 = load float, ptr %319, align 8, !alias.scope !260, !noundef !37
-  %484 = fmul float %.sroa.423.0.copyload.i, %483
-  %485 = fadd float %482, %484
-  %486 = load float, ptr %320, align 8, !alias.scope !260, !noundef !37
-  %487 = fadd float %486, %485
-  %488 = load float, ptr %321, align 4, !alias.scope !260, !noundef !37
-  %489 = fmul float %.sroa.221.0.copyload.i, %488
-  %490 = load float, ptr %322, align 4, !alias.scope !260, !noundef !37
-  %491 = fmul float %.sroa.423.0.copyload.i, %490
-  %492 = fadd float %489, %491
-  %493 = load float, ptr %323, align 4, !alias.scope !260, !noundef !37
-  %494 = fadd float %493, %492
-  %495 = fmul float %474, %481
-  %496 = fmul float %477, %483
-  %497 = fadd float %495, %496
-  %498 = fadd float %486, %497
-  %499 = fmul float %474, %488
-  %500 = fmul float %477, %490
-  %501 = fadd float %499, %500
-  %502 = fadd float %493, %501
+479:                                              ; preds = %470
+  %480 = load float, ptr %318, align 8, !alias.scope !260, !noundef !37
+  %481 = fmul float %.sroa.221.0.copyload.i, %480
+  %482 = load float, ptr %319, align 8, !alias.scope !260, !noundef !37
+  %483 = fmul float %.sroa.423.0.copyload.i, %482
+  %484 = fadd float %481, %483
+  %485 = load float, ptr %320, align 8, !alias.scope !260, !noundef !37
+  %486 = fadd float %485, %484
+  %487 = load float, ptr %321, align 4, !alias.scope !260, !noundef !37
+  %488 = fmul float %.sroa.221.0.copyload.i, %487
+  %489 = load float, ptr %322, align 4, !alias.scope !260, !noundef !37
+  %490 = fmul float %.sroa.423.0.copyload.i, %489
+  %491 = fadd float %488, %490
+  %492 = load float, ptr %323, align 4, !alias.scope !260, !noundef !37
+  %493 = fadd float %492, %491
+  %494 = fmul float %473, %480
+  %495 = fmul float %476, %482
+  %496 = fadd float %494, %495
+  %497 = fadd float %485, %496
+  %498 = fmul float %473, %487
+  %499 = fmul float %476, %489
+  %500 = fadd float %498, %499
+  %501 = fadd float %492, %500
   br label %_ZN10ttf_parser6tables4glyf7Builder7quad_to17hb45035b56319fc46E.exit.i
 
-_ZN10ttf_parser6tables4glyf7Builder7quad_to17hb45035b56319fc46E.exit.i: ; preds = %480, %471
-  %.022.i.i = phi float [ %477, %471 ], [ %502, %480 ]
-  %.021.i.i = phi float [ %474, %471 ], [ %498, %480 ]
-  %.020.i.i = phi float [ %.sroa.423.0.copyload.i, %471 ], [ %494, %480 ]
-  %.0.i34.i = phi float [ %.sroa.221.0.copyload.i, %471 ], [ %487, %480 ]
-  %503 = load float, ptr %7, align 8, !alias.scope !260, !noundef !37
-  %504 = call float @llvm.minnum.f32(float %503, float %.0.i34.i)
-  %505 = load float, ptr %324, align 4, !alias.scope !260, !noundef !37
-  %506 = call float @llvm.minnum.f32(float %505, float %.020.i.i)
-  %507 = load float, ptr %325, align 8, !alias.scope !260, !noundef !37
-  %508 = call float @llvm.maxnum.f32(float %507, float %.0.i34.i)
-  %509 = load float, ptr %326, align 4, !alias.scope !260, !noundef !37
-  %510 = call float @llvm.maxnum.f32(float %509, float %.020.i.i)
-  %511 = call float @llvm.minnum.f32(float %504, float %.021.i.i)
-  store float %511, ptr %7, align 8, !alias.scope !260
-  %512 = call float @llvm.minnum.f32(float %506, float %.022.i.i)
-  store float %512, ptr %324, align 4, !alias.scope !260
-  %513 = call float @llvm.maxnum.f32(float %508, float %.021.i.i)
-  store float %513, ptr %325, align 8, !alias.scope !260
-  %514 = call float @llvm.maxnum.f32(float %510, float %.022.i.i)
-  store float %514, ptr %326, align 4, !alias.scope !260
-  %515 = load ptr, ptr %327, align 8, !alias.scope !260, !nonnull !37, !align !152, !noundef !37
-  %516 = load ptr, ptr %328, align 8, !alias.scope !260, !nonnull !37, !align !153, !noundef !37
-  %517 = getelementptr inbounds nuw i8, ptr %516, i64 40
-  %518 = load ptr, ptr %517, align 8, !invariant.load !37, !noalias !257, !nonnull !37
-  call void %518(ptr noundef nonnull align 1 %515, float noundef %.0.i34.i, float noundef %.020.i.i, float noundef %.021.i.i, float noundef %.022.i.i), !noalias !257
-  br label %470
+_ZN10ttf_parser6tables4glyf7Builder7quad_to17hb45035b56319fc46E.exit.i: ; preds = %479, %470
+  %.022.i.i = phi float [ %476, %470 ], [ %501, %479 ]
+  %.021.i.i = phi float [ %473, %470 ], [ %497, %479 ]
+  %.020.i.i = phi float [ %.sroa.423.0.copyload.i, %470 ], [ %493, %479 ]
+  %.0.i34.i = phi float [ %.sroa.221.0.copyload.i, %470 ], [ %486, %479 ]
+  %502 = load float, ptr %7, align 8, !alias.scope !260, !noundef !37
+  %503 = call float @llvm.minnum.f32(float %502, float %.0.i34.i)
+  %504 = load float, ptr %324, align 4, !alias.scope !260, !noundef !37
+  %505 = call float @llvm.minnum.f32(float %504, float %.020.i.i)
+  %506 = load float, ptr %325, align 8, !alias.scope !260, !noundef !37
+  %507 = call float @llvm.maxnum.f32(float %506, float %.0.i34.i)
+  %508 = load float, ptr %326, align 4, !alias.scope !260, !noundef !37
+  %509 = call float @llvm.maxnum.f32(float %508, float %.020.i.i)
+  %510 = call float @llvm.minnum.f32(float %503, float %.021.i.i)
+  store float %510, ptr %7, align 8, !alias.scope !260
+  %511 = call float @llvm.minnum.f32(float %505, float %.022.i.i)
+  store float %511, ptr %324, align 4, !alias.scope !260
+  %512 = call float @llvm.maxnum.f32(float %507, float %.021.i.i)
+  store float %512, ptr %325, align 8, !alias.scope !260
+  %513 = call float @llvm.maxnum.f32(float %509, float %.022.i.i)
+  store float %513, ptr %326, align 4, !alias.scope !260
+  %514 = load ptr, ptr %327, align 8, !alias.scope !260, !nonnull !37, !align !152, !noundef !37
+  %515 = load ptr, ptr %328, align 8, !alias.scope !260, !nonnull !37, !align !153, !noundef !37
+  %516 = getelementptr inbounds nuw i8, ptr %515, i64 40
+  %517 = load ptr, ptr %516, align 8, !invariant.load !37, !noalias !257, !nonnull !37
+  call void %517(ptr noundef nonnull align 1 %514, float noundef %.0.i34.i, float noundef %.020.i.i, float noundef %.021.i.i, float noundef %.022.i.i), !noalias !257
+  br label %469
 
-519:                                              ; preds = %438
+518:                                              ; preds = %437
   store i32 0, ptr %316, align 8, !alias.scope !249
   call void @llvm.experimental.noalias.scope.decl(metadata !261)
-  %520 = load i8, ptr %317, align 4, !range !255, !alias.scope !264, !noundef !37
-  %521 = trunc nuw i8 %520 to i1
-  br i1 %521, label %_ZN10ttf_parser6tables4glyf7Builder7quad_to17hb45035b56319fc46E.exit39.i, label %522
+  %519 = load i8, ptr %317, align 4, !range !255, !alias.scope !264, !noundef !37
+  %520 = trunc nuw i8 %519 to i1
+  br i1 %520, label %_ZN10ttf_parser6tables4glyf7Builder7quad_to17hb45035b56319fc46E.exit39.i, label %521
 
-522:                                              ; preds = %519
-  %523 = load float, ptr %318, align 8, !alias.scope !264, !noundef !37
-  %524 = fmul float %.sroa.221.0.copyload.i, %523
-  %525 = load float, ptr %319, align 8, !alias.scope !264, !noundef !37
-  %526 = fmul float %.sroa.423.0.copyload.i, %525
-  %527 = fadd float %524, %526
-  %528 = load float, ptr %320, align 8, !alias.scope !264, !noundef !37
-  %529 = fadd float %528, %527
-  %530 = load float, ptr %321, align 4, !alias.scope !264, !noundef !37
-  %531 = fmul float %.sroa.221.0.copyload.i, %530
-  %532 = load float, ptr %322, align 4, !alias.scope !264, !noundef !37
-  %533 = fmul float %.sroa.423.0.copyload.i, %532
-  %534 = fadd float %531, %533
-  %535 = load float, ptr %323, align 4, !alias.scope !264, !noundef !37
-  %536 = fadd float %535, %534
-  %537 = fmul float %523, %432
-  %538 = fmul float %525, %433
-  %539 = fadd float %537, %538
-  %540 = fadd float %528, %539
-  %541 = fmul float %530, %432
-  %542 = fmul float %532, %433
-  %543 = fadd float %541, %542
-  %544 = fadd float %535, %543
+521:                                              ; preds = %518
+  %522 = load float, ptr %318, align 8, !alias.scope !264, !noundef !37
+  %523 = fmul float %.sroa.221.0.copyload.i, %522
+  %524 = load float, ptr %319, align 8, !alias.scope !264, !noundef !37
+  %525 = fmul float %.sroa.423.0.copyload.i, %524
+  %526 = fadd float %523, %525
+  %527 = load float, ptr %320, align 8, !alias.scope !264, !noundef !37
+  %528 = fadd float %527, %526
+  %529 = load float, ptr %321, align 4, !alias.scope !264, !noundef !37
+  %530 = fmul float %.sroa.221.0.copyload.i, %529
+  %531 = load float, ptr %322, align 4, !alias.scope !264, !noundef !37
+  %532 = fmul float %.sroa.423.0.copyload.i, %531
+  %533 = fadd float %530, %532
+  %534 = load float, ptr %323, align 4, !alias.scope !264, !noundef !37
+  %535 = fadd float %534, %533
+  %536 = fmul float %522, %431
+  %537 = fmul float %524, %432
+  %538 = fadd float %536, %537
+  %539 = fadd float %527, %538
+  %540 = fmul float %529, %431
+  %541 = fmul float %531, %432
+  %542 = fadd float %540, %541
+  %543 = fadd float %534, %542
   br label %_ZN10ttf_parser6tables4glyf7Builder7quad_to17hb45035b56319fc46E.exit39.i
 
-_ZN10ttf_parser6tables4glyf7Builder7quad_to17hb45035b56319fc46E.exit39.i: ; preds = %522, %519
-  %.022.i35.i = phi float [ %433, %519 ], [ %544, %522 ]
-  %.021.i36.i = phi float [ %432, %519 ], [ %540, %522 ]
-  %.020.i37.i = phi float [ %.sroa.423.0.copyload.i, %519 ], [ %536, %522 ]
-  %.0.i38.i = phi float [ %.sroa.221.0.copyload.i, %519 ], [ %529, %522 ]
-  %545 = load float, ptr %7, align 8, !alias.scope !264, !noundef !37
-  %546 = call float @llvm.minnum.f32(float %545, float %.0.i38.i)
-  %547 = load float, ptr %324, align 4, !alias.scope !264, !noundef !37
-  %548 = call float @llvm.minnum.f32(float %547, float %.020.i37.i)
-  %549 = load float, ptr %325, align 8, !alias.scope !264, !noundef !37
-  %550 = call float @llvm.maxnum.f32(float %549, float %.0.i38.i)
-  %551 = load float, ptr %326, align 4, !alias.scope !264, !noundef !37
-  %552 = call float @llvm.maxnum.f32(float %551, float %.020.i37.i)
-  %553 = call float @llvm.minnum.f32(float %546, float %.021.i36.i)
-  store float %553, ptr %7, align 8, !alias.scope !264
-  %554 = call float @llvm.minnum.f32(float %548, float %.022.i35.i)
-  store float %554, ptr %324, align 4, !alias.scope !264
-  %555 = call float @llvm.maxnum.f32(float %550, float %.021.i36.i)
-  store float %555, ptr %325, align 8, !alias.scope !264
-  %556 = call float @llvm.maxnum.f32(float %552, float %.022.i35.i)
-  store float %556, ptr %326, align 4, !alias.scope !264
-  %557 = load ptr, ptr %327, align 8, !alias.scope !264, !nonnull !37, !align !152, !noundef !37
-  %558 = load ptr, ptr %328, align 8, !alias.scope !264, !nonnull !37, !align !153, !noundef !37
-  %559 = getelementptr inbounds nuw i8, ptr %558, i64 40
-  %560 = load ptr, ptr %559, align 8, !invariant.load !37, !noalias !261, !nonnull !37
-  call void %560(ptr noundef nonnull align 1 %557, float noundef %.0.i38.i, float noundef %.020.i37.i, float noundef %.021.i36.i, float noundef %.022.i35.i), !noalias !261
-  br label %470
+_ZN10ttf_parser6tables4glyf7Builder7quad_to17hb45035b56319fc46E.exit39.i: ; preds = %521, %518
+  %.022.i35.i = phi float [ %432, %518 ], [ %543, %521 ]
+  %.021.i36.i = phi float [ %431, %518 ], [ %539, %521 ]
+  %.020.i37.i = phi float [ %.sroa.423.0.copyload.i, %518 ], [ %535, %521 ]
+  %.0.i38.i = phi float [ %.sroa.221.0.copyload.i, %518 ], [ %528, %521 ]
+  %544 = load float, ptr %7, align 8, !alias.scope !264, !noundef !37
+  %545 = call float @llvm.minnum.f32(float %544, float %.0.i38.i)
+  %546 = load float, ptr %324, align 4, !alias.scope !264, !noundef !37
+  %547 = call float @llvm.minnum.f32(float %546, float %.020.i37.i)
+  %548 = load float, ptr %325, align 8, !alias.scope !264, !noundef !37
+  %549 = call float @llvm.maxnum.f32(float %548, float %.0.i38.i)
+  %550 = load float, ptr %326, align 4, !alias.scope !264, !noundef !37
+  %551 = call float @llvm.maxnum.f32(float %550, float %.020.i37.i)
+  %552 = call float @llvm.minnum.f32(float %545, float %.021.i36.i)
+  store float %552, ptr %7, align 8, !alias.scope !264
+  %553 = call float @llvm.minnum.f32(float %547, float %.022.i35.i)
+  store float %553, ptr %324, align 4, !alias.scope !264
+  %554 = call float @llvm.maxnum.f32(float %549, float %.021.i36.i)
+  store float %554, ptr %325, align 8, !alias.scope !264
+  %555 = call float @llvm.maxnum.f32(float %551, float %.022.i35.i)
+  store float %555, ptr %326, align 4, !alias.scope !264
+  %556 = load ptr, ptr %327, align 8, !alias.scope !264, !nonnull !37, !align !152, !noundef !37
+  %557 = load ptr, ptr %328, align 8, !alias.scope !264, !nonnull !37, !align !153, !noundef !37
+  %558 = getelementptr inbounds nuw i8, ptr %557, i64 40
+  %559 = load ptr, ptr %558, align 8, !invariant.load !37, !noalias !261, !nonnull !37
+  call void %559(ptr noundef nonnull align 1 %556, float noundef %.0.i38.i, float noundef %.020.i37.i, float noundef %.021.i36.i, float noundef %.022.i35.i), !noalias !261
+  br label %469
 
-561:                                              ; preds = %436
-  %562 = load i32, ptr %329, align 4, !range !175, !alias.scope !249, !noundef !37
-  %.not33.i = icmp eq i32 %562, 0
-  br i1 %.not33.i, label %631, label %593
+560:                                              ; preds = %435
+  %561 = load i32, ptr %329, align 4, !range !175, !alias.scope !249, !noundef !37
+  %.not33.i = icmp eq i32 %561, 0
+  br i1 %.not33.i, label %630, label %592
 
-563:                                              ; preds = %436
+562:                                              ; preds = %435
   store i32 1, ptr %315, align 8, !alias.scope !249
-  store float %432, ptr %.sroa.4.0..sroa_idx.i101, align 4, !alias.scope !249
-  store float %433, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !249
+  store float %431, ptr %.sroa.4.0..sroa_idx.i101, align 4, !alias.scope !249
+  store float %432, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !249
   call void @llvm.experimental.noalias.scope.decl(metadata !265)
-  %564 = load i8, ptr %317, align 4, !range !255, !alias.scope !268, !noundef !37
-  %565 = trunc nuw i8 %564 to i1
-  br i1 %565, label %_ZN10ttf_parser6tables4glyf7Builder7move_to17h8db3ef8d018d6f8cE.exit.i, label %566
+  %563 = load i8, ptr %317, align 4, !range !255, !alias.scope !268, !noundef !37
+  %564 = trunc nuw i8 %563 to i1
+  br i1 %564, label %_ZN10ttf_parser6tables4glyf7Builder7move_to17h8db3ef8d018d6f8cE.exit.i, label %565
 
-566:                                              ; preds = %563
-  %567 = load float, ptr %318, align 8, !alias.scope !268, !noundef !37
-  %568 = fmul float %567, %432
-  %569 = load float, ptr %319, align 8, !alias.scope !268, !noundef !37
-  %570 = fmul float %569, %433
-  %571 = fadd float %568, %570
-  %572 = load float, ptr %320, align 8, !alias.scope !268, !noundef !37
-  %573 = fadd float %572, %571
-  %574 = load float, ptr %321, align 4, !alias.scope !268, !noundef !37
-  %575 = fmul float %574, %432
-  %576 = load float, ptr %322, align 4, !alias.scope !268, !noundef !37
-  %577 = fmul float %576, %433
-  %578 = fadd float %575, %577
-  %579 = load float, ptr %323, align 4, !alias.scope !268, !noundef !37
-  %580 = fadd float %579, %578
+565:                                              ; preds = %562
+  %566 = load float, ptr %318, align 8, !alias.scope !268, !noundef !37
+  %567 = fmul float %566, %431
+  %568 = load float, ptr %319, align 8, !alias.scope !268, !noundef !37
+  %569 = fmul float %568, %432
+  %570 = fadd float %567, %569
+  %571 = load float, ptr %320, align 8, !alias.scope !268, !noundef !37
+  %572 = fadd float %571, %570
+  %573 = load float, ptr %321, align 4, !alias.scope !268, !noundef !37
+  %574 = fmul float %573, %431
+  %575 = load float, ptr %322, align 4, !alias.scope !268, !noundef !37
+  %576 = fmul float %575, %432
+  %577 = fadd float %574, %576
+  %578 = load float, ptr %323, align 4, !alias.scope !268, !noundef !37
+  %579 = fadd float %578, %577
   br label %_ZN10ttf_parser6tables4glyf7Builder7move_to17h8db3ef8d018d6f8cE.exit.i
 
-_ZN10ttf_parser6tables4glyf7Builder7move_to17h8db3ef8d018d6f8cE.exit.i: ; preds = %566, %563
-  %.010.i40.i = phi float [ %433, %563 ], [ %580, %566 ]
-  %.0.i41.i = phi float [ %432, %563 ], [ %573, %566 ]
-  %581 = load float, ptr %7, align 8, !alias.scope !268, !noundef !37
-  %582 = call float @llvm.minnum.f32(float %581, float %.0.i41.i)
-  store float %582, ptr %7, align 8, !alias.scope !268
-  %583 = load float, ptr %324, align 4, !alias.scope !268, !noundef !37
-  %584 = call float @llvm.minnum.f32(float %583, float %.010.i40.i)
-  store float %584, ptr %324, align 4, !alias.scope !268
-  %585 = load float, ptr %325, align 8, !alias.scope !268, !noundef !37
-  %586 = call float @llvm.maxnum.f32(float %585, float %.0.i41.i)
-  store float %586, ptr %325, align 8, !alias.scope !268
-  %587 = load float, ptr %326, align 4, !alias.scope !268, !noundef !37
-  %588 = call float @llvm.maxnum.f32(float %587, float %.010.i40.i)
-  store float %588, ptr %326, align 4, !alias.scope !268
-  %589 = load ptr, ptr %327, align 8, !alias.scope !268, !nonnull !37, !align !152, !noundef !37
-  %590 = load ptr, ptr %328, align 8, !alias.scope !268, !nonnull !37, !align !153, !noundef !37
-  %591 = getelementptr inbounds nuw i8, ptr %590, i64 24
-  %592 = load ptr, ptr %591, align 8, !invariant.load !37, !noalias !265, !nonnull !37
-  call void %592(ptr noundef nonnull align 1 %589, float noundef %.0.i41.i, float noundef %.010.i40.i), !noalias !265
-  br label %470
+_ZN10ttf_parser6tables4glyf7Builder7move_to17h8db3ef8d018d6f8cE.exit.i: ; preds = %565, %562
+  %.010.i40.i = phi float [ %432, %562 ], [ %579, %565 ]
+  %.0.i41.i = phi float [ %431, %562 ], [ %572, %565 ]
+  %580 = load float, ptr %7, align 8, !alias.scope !268, !noundef !37
+  %581 = call float @llvm.minnum.f32(float %580, float %.0.i41.i)
+  store float %581, ptr %7, align 8, !alias.scope !268
+  %582 = load float, ptr %324, align 4, !alias.scope !268, !noundef !37
+  %583 = call float @llvm.minnum.f32(float %582, float %.010.i40.i)
+  store float %583, ptr %324, align 4, !alias.scope !268
+  %584 = load float, ptr %325, align 8, !alias.scope !268, !noundef !37
+  %585 = call float @llvm.maxnum.f32(float %584, float %.0.i41.i)
+  store float %585, ptr %325, align 8, !alias.scope !268
+  %586 = load float, ptr %326, align 4, !alias.scope !268, !noundef !37
+  %587 = call float @llvm.maxnum.f32(float %586, float %.010.i40.i)
+  store float %587, ptr %326, align 4, !alias.scope !268
+  %588 = load ptr, ptr %327, align 8, !alias.scope !268, !nonnull !37, !align !152, !noundef !37
+  %589 = load ptr, ptr %328, align 8, !alias.scope !268, !nonnull !37, !align !153, !noundef !37
+  %590 = getelementptr inbounds nuw i8, ptr %589, i64 24
+  %591 = load ptr, ptr %590, align 8, !invariant.load !37, !noalias !265, !nonnull !37
+  call void %591(ptr noundef nonnull align 1 %588, float noundef %.0.i41.i, float noundef %.010.i40.i), !noalias !265
+  br label %469
 
-593:                                              ; preds = %561
-  %594 = load float, ptr %330, align 8, !alias.scope !249, !noundef !37
-  %595 = load float, ptr %331, align 4, !alias.scope !249, !noundef !37
-  %596 = fsub float %432, %594
-  %597 = fmul float %596, 5.000000e-01
-  %598 = fadd float %594, %597
-  %599 = fsub float %433, %595
-  %600 = fmul float %599, 5.000000e-01
-  %601 = fadd float %595, %600
+592:                                              ; preds = %560
+  %593 = load float, ptr %330, align 8, !alias.scope !249, !noundef !37
+  %594 = load float, ptr %331, align 4, !alias.scope !249, !noundef !37
+  %595 = fsub float %431, %593
+  %596 = fmul float %595, 5.000000e-01
+  %597 = fadd float %593, %596
+  %598 = fsub float %432, %594
+  %599 = fmul float %598, 5.000000e-01
+  %600 = fadd float %594, %599
   store i32 1, ptr %315, align 8, !alias.scope !249
-  store float %598, ptr %.sroa.4.0..sroa_idx.i101, align 4, !alias.scope !249
-  store float %601, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !249
+  store float %597, ptr %.sroa.4.0..sroa_idx.i101, align 4, !alias.scope !249
+  store float %600, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !249
   store i32 1, ptr %316, align 8, !alias.scope !249
-  store float %432, ptr %.sroa.221.0..sroa_idx.i, align 4, !alias.scope !249
-  store float %433, ptr %.sroa.423.0..sroa_idx.i, align 8, !alias.scope !249
+  store float %431, ptr %.sroa.221.0..sroa_idx.i, align 4, !alias.scope !249
+  store float %432, ptr %.sroa.423.0..sroa_idx.i, align 8, !alias.scope !249
   call void @llvm.experimental.noalias.scope.decl(metadata !269)
-  %602 = load i8, ptr %317, align 4, !range !255, !alias.scope !272, !noundef !37
-  %603 = trunc nuw i8 %602 to i1
-  br i1 %603, label %_ZN10ttf_parser6tables4glyf7Builder7move_to17h8db3ef8d018d6f8cE.exit44.i, label %604
+  %601 = load i8, ptr %317, align 4, !range !255, !alias.scope !272, !noundef !37
+  %602 = trunc nuw i8 %601 to i1
+  br i1 %602, label %_ZN10ttf_parser6tables4glyf7Builder7move_to17h8db3ef8d018d6f8cE.exit44.i, label %603
 
-604:                                              ; preds = %593
-  %605 = load float, ptr %318, align 8, !alias.scope !272, !noundef !37
-  %606 = fmul float %598, %605
-  %607 = load float, ptr %319, align 8, !alias.scope !272, !noundef !37
-  %608 = fmul float %601, %607
-  %609 = fadd float %606, %608
-  %610 = load float, ptr %320, align 8, !alias.scope !272, !noundef !37
-  %611 = fadd float %610, %609
-  %612 = load float, ptr %321, align 4, !alias.scope !272, !noundef !37
-  %613 = fmul float %598, %612
-  %614 = load float, ptr %322, align 4, !alias.scope !272, !noundef !37
-  %615 = fmul float %601, %614
-  %616 = fadd float %613, %615
-  %617 = load float, ptr %323, align 4, !alias.scope !272, !noundef !37
-  %618 = fadd float %617, %616
+603:                                              ; preds = %592
+  %604 = load float, ptr %318, align 8, !alias.scope !272, !noundef !37
+  %605 = fmul float %597, %604
+  %606 = load float, ptr %319, align 8, !alias.scope !272, !noundef !37
+  %607 = fmul float %600, %606
+  %608 = fadd float %605, %607
+  %609 = load float, ptr %320, align 8, !alias.scope !272, !noundef !37
+  %610 = fadd float %609, %608
+  %611 = load float, ptr %321, align 4, !alias.scope !272, !noundef !37
+  %612 = fmul float %597, %611
+  %613 = load float, ptr %322, align 4, !alias.scope !272, !noundef !37
+  %614 = fmul float %600, %613
+  %615 = fadd float %612, %614
+  %616 = load float, ptr %323, align 4, !alias.scope !272, !noundef !37
+  %617 = fadd float %616, %615
   br label %_ZN10ttf_parser6tables4glyf7Builder7move_to17h8db3ef8d018d6f8cE.exit44.i
 
-_ZN10ttf_parser6tables4glyf7Builder7move_to17h8db3ef8d018d6f8cE.exit44.i: ; preds = %604, %593
-  %.010.i42.i = phi float [ %601, %593 ], [ %618, %604 ]
-  %.0.i43.i = phi float [ %598, %593 ], [ %611, %604 ]
-  %619 = load float, ptr %7, align 8, !alias.scope !272, !noundef !37
-  %620 = call float @llvm.minnum.f32(float %619, float %.0.i43.i)
-  store float %620, ptr %7, align 8, !alias.scope !272
-  %621 = load float, ptr %324, align 4, !alias.scope !272, !noundef !37
-  %622 = call float @llvm.minnum.f32(float %621, float %.010.i42.i)
-  store float %622, ptr %324, align 4, !alias.scope !272
-  %623 = load float, ptr %325, align 8, !alias.scope !272, !noundef !37
-  %624 = call float @llvm.maxnum.f32(float %623, float %.0.i43.i)
-  store float %624, ptr %325, align 8, !alias.scope !272
-  %625 = load float, ptr %326, align 4, !alias.scope !272, !noundef !37
-  %626 = call float @llvm.maxnum.f32(float %625, float %.010.i42.i)
-  store float %626, ptr %326, align 4, !alias.scope !272
-  %627 = load ptr, ptr %327, align 8, !alias.scope !272, !nonnull !37, !align !152, !noundef !37
-  %628 = load ptr, ptr %328, align 8, !alias.scope !272, !nonnull !37, !align !153, !noundef !37
-  %629 = getelementptr inbounds nuw i8, ptr %628, i64 24
-  %630 = load ptr, ptr %629, align 8, !invariant.load !37, !noalias !269, !nonnull !37
-  call void %630(ptr noundef nonnull align 1 %627, float noundef %.0.i43.i, float noundef %.010.i42.i), !noalias !269
-  br label %470
+_ZN10ttf_parser6tables4glyf7Builder7move_to17h8db3ef8d018d6f8cE.exit44.i: ; preds = %603, %592
+  %.010.i42.i = phi float [ %600, %592 ], [ %617, %603 ]
+  %.0.i43.i = phi float [ %597, %592 ], [ %610, %603 ]
+  %618 = load float, ptr %7, align 8, !alias.scope !272, !noundef !37
+  %619 = call float @llvm.minnum.f32(float %618, float %.0.i43.i)
+  store float %619, ptr %7, align 8, !alias.scope !272
+  %620 = load float, ptr %324, align 4, !alias.scope !272, !noundef !37
+  %621 = call float @llvm.minnum.f32(float %620, float %.010.i42.i)
+  store float %621, ptr %324, align 4, !alias.scope !272
+  %622 = load float, ptr %325, align 8, !alias.scope !272, !noundef !37
+  %623 = call float @llvm.maxnum.f32(float %622, float %.0.i43.i)
+  store float %623, ptr %325, align 8, !alias.scope !272
+  %624 = load float, ptr %326, align 4, !alias.scope !272, !noundef !37
+  %625 = call float @llvm.maxnum.f32(float %624, float %.010.i42.i)
+  store float %625, ptr %326, align 4, !alias.scope !272
+  %626 = load ptr, ptr %327, align 8, !alias.scope !272, !nonnull !37, !align !152, !noundef !37
+  %627 = load ptr, ptr %328, align 8, !alias.scope !272, !nonnull !37, !align !153, !noundef !37
+  %628 = getelementptr inbounds nuw i8, ptr %627, i64 24
+  %629 = load ptr, ptr %628, align 8, !invariant.load !37, !noalias !269, !nonnull !37
+  call void %629(ptr noundef nonnull align 1 %626, float noundef %.0.i43.i, float noundef %.010.i42.i), !noalias !269
+  br label %469
 
-631:                                              ; preds = %561
+630:                                              ; preds = %560
   store i32 1, ptr %329, align 4, !alias.scope !249
-  store float %432, ptr %330, align 8, !alias.scope !249
-  store float %433, ptr %331, align 4, !alias.scope !249
-  br label %470
+  store float %431, ptr %330, align 8, !alias.scope !249
+  store float %432, ptr %331, align 4, !alias.scope !249
+  br label %469
 
-632:                                              ; preds = %470
+631:                                              ; preds = %469
   %.sroa.0.0.copyload.i.i = load i32, ptr %329, align 4, !alias.scope !273
   %.sroa.09.0.copyload.i.i = load i32, ptr %316, align 8, !alias.scope !273
-  %633 = icmp eq i32 %.sroa.0.0.copyload.i.i, 1
-  %634 = icmp eq i32 %.sroa.09.0.copyload.i.i, 1
-  %or.cond.i.i99 = select i1 %633, i1 %634, i1 false
-  br i1 %or.cond.i.i99, label %638, label %635
+  %632 = icmp eq i32 %.sroa.0.0.copyload.i.i, 1
+  %633 = icmp eq i32 %.sroa.09.0.copyload.i.i, 1
+  %or.cond.i.i99 = select i1 %632, i1 %633, i1 false
+  br i1 %or.cond.i.i99, label %637, label %634
 
-635:                                              ; preds = %_ZN10ttf_parser6tables4glyf7Builder7quad_to17hb45035b56319fc46E.exit.i.i, %632
-  %.sroa.016.0.copyload.i.i = phi i32 [ %.sroa.016.0.copyload.pre.i.i, %_ZN10ttf_parser6tables4glyf7Builder7quad_to17hb45035b56319fc46E.exit.i.i ], [ %.sroa.0.0.copyload.i.i, %632 ]
+634:                                              ; preds = %_ZN10ttf_parser6tables4glyf7Builder7quad_to17hb45035b56319fc46E.exit.i.i, %631
+  %.sroa.016.0.copyload.i.i = phi i32 [ %.sroa.016.0.copyload.pre.i.i, %_ZN10ttf_parser6tables4glyf7Builder7quad_to17hb45035b56319fc46E.exit.i.i ], [ %.sroa.0.0.copyload.i.i, %631 ]
   %.sroa.013.0.copyload.i.i = load i32, ptr %315, align 8, !alias.scope !273
   %.sroa.214.0.copyload.i.i = load float, ptr %.sroa.4.0..sroa_idx.i101, align 4, !alias.scope !273
   %.sroa.315.0.copyload.i.i = load float, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !273
-  %636 = icmp eq i32 %.sroa.013.0.copyload.i.i, 1
-  %637 = icmp eq i32 %.sroa.016.0.copyload.i.i, 1
-  %or.cond5.i.i = select i1 %636, i1 %637, i1 false
-  br i1 %or.cond5.i.i, label %688, label %686
+  %635 = icmp eq i32 %.sroa.013.0.copyload.i.i, 1
+  %636 = icmp eq i32 %.sroa.016.0.copyload.i.i, 1
+  %or.cond5.i.i = select i1 %635, i1 %636, i1 false
+  br i1 %or.cond5.i.i, label %687, label %685
 
-638:                                              ; preds = %632
+637:                                              ; preds = %631
   %.sroa.311.0.copyload.i.i = load float, ptr %.sroa.423.0..sroa_idx.i, align 8, !alias.scope !273
   %.sroa.210.0.copyload.i.i = load float, ptr %.sroa.221.0..sroa_idx.i, align 4, !alias.scope !273
   %.sroa.3.0.copyload.i.i = load float, ptr %331, align 4, !alias.scope !273
   %.sroa.2.0.copyload.i.i = load float, ptr %330, align 8, !alias.scope !273
   store i32 0, ptr %316, align 8, !alias.scope !273
-  %639 = fsub float %.sroa.2.0.copyload.i.i, %.sroa.210.0.copyload.i.i
-  %640 = fmul float %639, 5.000000e-01
-  %641 = fadd float %.sroa.210.0.copyload.i.i, %640
-  %642 = fsub float %.sroa.3.0.copyload.i.i, %.sroa.311.0.copyload.i.i
-  %643 = fmul float %642, 5.000000e-01
-  %644 = fadd float %.sroa.311.0.copyload.i.i, %643
+  %638 = fsub float %.sroa.2.0.copyload.i.i, %.sroa.210.0.copyload.i.i
+  %639 = fmul float %638, 5.000000e-01
+  %640 = fadd float %.sroa.210.0.copyload.i.i, %639
+  %641 = fsub float %.sroa.3.0.copyload.i.i, %.sroa.311.0.copyload.i.i
+  %642 = fmul float %641, 5.000000e-01
+  %643 = fadd float %.sroa.311.0.copyload.i.i, %642
   call void @llvm.experimental.noalias.scope.decl(metadata !276)
-  %645 = load i8, ptr %317, align 4, !range !255, !alias.scope !279, !noundef !37
-  %646 = trunc nuw i8 %645 to i1
-  br i1 %646, label %_ZN10ttf_parser6tables4glyf7Builder7quad_to17hb45035b56319fc46E.exit.i.i, label %647
+  %644 = load i8, ptr %317, align 4, !range !255, !alias.scope !279, !noundef !37
+  %645 = trunc nuw i8 %644 to i1
+  br i1 %645, label %_ZN10ttf_parser6tables4glyf7Builder7quad_to17hb45035b56319fc46E.exit.i.i, label %646
 
-647:                                              ; preds = %638
-  %648 = load float, ptr %318, align 8, !alias.scope !279, !noundef !37
-  %649 = fmul float %.sroa.210.0.copyload.i.i, %648
-  %650 = load float, ptr %319, align 8, !alias.scope !279, !noundef !37
-  %651 = fmul float %.sroa.311.0.copyload.i.i, %650
-  %652 = fadd float %649, %651
-  %653 = load float, ptr %320, align 8, !alias.scope !279, !noundef !37
-  %654 = fadd float %653, %652
-  %655 = load float, ptr %321, align 4, !alias.scope !279, !noundef !37
-  %656 = fmul float %.sroa.210.0.copyload.i.i, %655
-  %657 = load float, ptr %322, align 4, !alias.scope !279, !noundef !37
-  %658 = fmul float %.sroa.311.0.copyload.i.i, %657
-  %659 = fadd float %656, %658
-  %660 = load float, ptr %323, align 4, !alias.scope !279, !noundef !37
-  %661 = fadd float %660, %659
-  %662 = fmul float %641, %648
-  %663 = fmul float %644, %650
-  %664 = fadd float %662, %663
-  %665 = fadd float %653, %664
-  %666 = fmul float %641, %655
-  %667 = fmul float %644, %657
-  %668 = fadd float %666, %667
-  %669 = fadd float %660, %668
+646:                                              ; preds = %637
+  %647 = load float, ptr %318, align 8, !alias.scope !279, !noundef !37
+  %648 = fmul float %.sroa.210.0.copyload.i.i, %647
+  %649 = load float, ptr %319, align 8, !alias.scope !279, !noundef !37
+  %650 = fmul float %.sroa.311.0.copyload.i.i, %649
+  %651 = fadd float %648, %650
+  %652 = load float, ptr %320, align 8, !alias.scope !279, !noundef !37
+  %653 = fadd float %652, %651
+  %654 = load float, ptr %321, align 4, !alias.scope !279, !noundef !37
+  %655 = fmul float %.sroa.210.0.copyload.i.i, %654
+  %656 = load float, ptr %322, align 4, !alias.scope !279, !noundef !37
+  %657 = fmul float %.sroa.311.0.copyload.i.i, %656
+  %658 = fadd float %655, %657
+  %659 = load float, ptr %323, align 4, !alias.scope !279, !noundef !37
+  %660 = fadd float %659, %658
+  %661 = fmul float %640, %647
+  %662 = fmul float %643, %649
+  %663 = fadd float %661, %662
+  %664 = fadd float %652, %663
+  %665 = fmul float %640, %654
+  %666 = fmul float %643, %656
+  %667 = fadd float %665, %666
+  %668 = fadd float %659, %667
   br label %_ZN10ttf_parser6tables4glyf7Builder7quad_to17hb45035b56319fc46E.exit.i.i
 
-_ZN10ttf_parser6tables4glyf7Builder7quad_to17hb45035b56319fc46E.exit.i.i: ; preds = %647, %638
-  %.022.i.i.i = phi float [ %644, %638 ], [ %669, %647 ]
-  %.021.i.i.i = phi float [ %641, %638 ], [ %665, %647 ]
-  %.020.i.i.i = phi float [ %.sroa.311.0.copyload.i.i, %638 ], [ %661, %647 ]
-  %.0.i.i.i = phi float [ %.sroa.210.0.copyload.i.i, %638 ], [ %654, %647 ]
-  %670 = load float, ptr %7, align 8, !alias.scope !279, !noundef !37
-  %671 = call float @llvm.minnum.f32(float %670, float %.0.i.i.i)
-  %672 = load float, ptr %324, align 4, !alias.scope !279, !noundef !37
-  %673 = call float @llvm.minnum.f32(float %672, float %.020.i.i.i)
-  %674 = load float, ptr %325, align 8, !alias.scope !279, !noundef !37
-  %675 = call float @llvm.maxnum.f32(float %674, float %.0.i.i.i)
-  %676 = load float, ptr %326, align 4, !alias.scope !279, !noundef !37
-  %677 = call float @llvm.maxnum.f32(float %676, float %.020.i.i.i)
-  %678 = call float @llvm.minnum.f32(float %671, float %.021.i.i.i)
-  store float %678, ptr %7, align 8, !alias.scope !279
-  %679 = call float @llvm.minnum.f32(float %673, float %.022.i.i.i)
-  store float %679, ptr %324, align 4, !alias.scope !279
-  %680 = call float @llvm.maxnum.f32(float %675, float %.021.i.i.i)
-  store float %680, ptr %325, align 8, !alias.scope !279
-  %681 = call float @llvm.maxnum.f32(float %677, float %.022.i.i.i)
-  store float %681, ptr %326, align 4, !alias.scope !279
-  %682 = load ptr, ptr %327, align 8, !alias.scope !279, !nonnull !37, !align !152, !noundef !37
-  %683 = load ptr, ptr %328, align 8, !alias.scope !279, !nonnull !37, !align !153, !noundef !37
-  %684 = getelementptr inbounds nuw i8, ptr %683, i64 40
-  %685 = load ptr, ptr %684, align 8, !invariant.load !37, !noalias !276, !nonnull !37
-  call void %685(ptr noundef nonnull align 1 %682, float noundef %.0.i.i.i, float noundef %.020.i.i.i, float noundef %.021.i.i.i, float noundef %.022.i.i.i), !noalias !276
+_ZN10ttf_parser6tables4glyf7Builder7quad_to17hb45035b56319fc46E.exit.i.i: ; preds = %646, %637
+  %.022.i.i.i = phi float [ %643, %637 ], [ %668, %646 ]
+  %.021.i.i.i = phi float [ %640, %637 ], [ %664, %646 ]
+  %.020.i.i.i = phi float [ %.sroa.311.0.copyload.i.i, %637 ], [ %660, %646 ]
+  %.0.i.i.i = phi float [ %.sroa.210.0.copyload.i.i, %637 ], [ %653, %646 ]
+  %669 = load float, ptr %7, align 8, !alias.scope !279, !noundef !37
+  %670 = call float @llvm.minnum.f32(float %669, float %.0.i.i.i)
+  %671 = load float, ptr %324, align 4, !alias.scope !279, !noundef !37
+  %672 = call float @llvm.minnum.f32(float %671, float %.020.i.i.i)
+  %673 = load float, ptr %325, align 8, !alias.scope !279, !noundef !37
+  %674 = call float @llvm.maxnum.f32(float %673, float %.0.i.i.i)
+  %675 = load float, ptr %326, align 4, !alias.scope !279, !noundef !37
+  %676 = call float @llvm.maxnum.f32(float %675, float %.020.i.i.i)
+  %677 = call float @llvm.minnum.f32(float %670, float %.021.i.i.i)
+  store float %677, ptr %7, align 8, !alias.scope !279
+  %678 = call float @llvm.minnum.f32(float %672, float %.022.i.i.i)
+  store float %678, ptr %324, align 4, !alias.scope !279
+  %679 = call float @llvm.maxnum.f32(float %674, float %.021.i.i.i)
+  store float %679, ptr %325, align 8, !alias.scope !279
+  %680 = call float @llvm.maxnum.f32(float %676, float %.022.i.i.i)
+  store float %680, ptr %326, align 4, !alias.scope !279
+  %681 = load ptr, ptr %327, align 8, !alias.scope !279, !nonnull !37, !align !152, !noundef !37
+  %682 = load ptr, ptr %328, align 8, !alias.scope !279, !nonnull !37, !align !153, !noundef !37
+  %683 = getelementptr inbounds nuw i8, ptr %682, i64 40
+  %684 = load ptr, ptr %683, align 8, !invariant.load !37, !noalias !276, !nonnull !37
+  call void %684(ptr noundef nonnull align 1 %681, float noundef %.0.i.i.i, float noundef %.020.i.i.i, float noundef %.021.i.i.i, float noundef %.022.i.i.i), !noalias !276
   %.sroa.016.0.copyload.pre.i.i = load i32, ptr %329, align 4, !alias.scope !273
-  br label %635
+  br label %634
 
-686:                                              ; preds = %635
+685:                                              ; preds = %634
   %.sroa.022.0.copyload.i.i = load i32, ptr %316, align 8, !alias.scope !273
-  %687 = icmp eq i32 %.sroa.022.0.copyload.i.i, 1
-  %or.cond8.i.i = select i1 %636, i1 %687, i1 false
-  br i1 %or.cond8.i.i, label %731, label %730
+  %686 = icmp eq i32 %.sroa.022.0.copyload.i.i, 1
+  %or.cond8.i.i = select i1 %635, i1 %686, i1 false
+  br i1 %or.cond8.i.i, label %730, label %729
 
-688:                                              ; preds = %635
+687:                                              ; preds = %634
   %.sroa.318.0.copyload.i.i = load float, ptr %331, align 4, !alias.scope !273
   %.sroa.217.0.copyload.i.i = load float, ptr %330, align 8, !alias.scope !273
   call void @llvm.experimental.noalias.scope.decl(metadata !280)
-  %689 = load i8, ptr %317, align 4, !range !255, !alias.scope !283, !noundef !37
-  %690 = trunc nuw i8 %689 to i1
-  br i1 %690, label %_ZN10ttf_parser6tables4glyf7Builder7quad_to17hb45035b56319fc46E.exit37.i.i, label %691
+  %688 = load i8, ptr %317, align 4, !range !255, !alias.scope !283, !noundef !37
+  %689 = trunc nuw i8 %688 to i1
+  br i1 %689, label %_ZN10ttf_parser6tables4glyf7Builder7quad_to17hb45035b56319fc46E.exit37.i.i, label %690
 
-691:                                              ; preds = %688
-  %692 = load float, ptr %318, align 8, !alias.scope !283, !noundef !37
-  %693 = fmul float %.sroa.217.0.copyload.i.i, %692
-  %694 = load float, ptr %319, align 8, !alias.scope !283, !noundef !37
-  %695 = fmul float %.sroa.318.0.copyload.i.i, %694
-  %696 = fadd float %693, %695
-  %697 = load float, ptr %320, align 8, !alias.scope !283, !noundef !37
-  %698 = fadd float %697, %696
-  %699 = load float, ptr %321, align 4, !alias.scope !283, !noundef !37
-  %700 = fmul float %.sroa.217.0.copyload.i.i, %699
-  %701 = load float, ptr %322, align 4, !alias.scope !283, !noundef !37
-  %702 = fmul float %.sroa.318.0.copyload.i.i, %701
-  %703 = fadd float %700, %702
-  %704 = load float, ptr %323, align 4, !alias.scope !283, !noundef !37
-  %705 = fadd float %704, %703
-  %706 = fmul float %.sroa.214.0.copyload.i.i, %692
-  %707 = fmul float %.sroa.315.0.copyload.i.i, %694
-  %708 = fadd float %706, %707
-  %709 = fadd float %697, %708
-  %710 = fmul float %.sroa.214.0.copyload.i.i, %699
-  %711 = fmul float %.sroa.315.0.copyload.i.i, %701
-  %712 = fadd float %710, %711
-  %713 = fadd float %704, %712
+690:                                              ; preds = %687
+  %691 = load float, ptr %318, align 8, !alias.scope !283, !noundef !37
+  %692 = fmul float %.sroa.217.0.copyload.i.i, %691
+  %693 = load float, ptr %319, align 8, !alias.scope !283, !noundef !37
+  %694 = fmul float %.sroa.318.0.copyload.i.i, %693
+  %695 = fadd float %692, %694
+  %696 = load float, ptr %320, align 8, !alias.scope !283, !noundef !37
+  %697 = fadd float %696, %695
+  %698 = load float, ptr %321, align 4, !alias.scope !283, !noundef !37
+  %699 = fmul float %.sroa.217.0.copyload.i.i, %698
+  %700 = load float, ptr %322, align 4, !alias.scope !283, !noundef !37
+  %701 = fmul float %.sroa.318.0.copyload.i.i, %700
+  %702 = fadd float %699, %701
+  %703 = load float, ptr %323, align 4, !alias.scope !283, !noundef !37
+  %704 = fadd float %703, %702
+  %705 = fmul float %.sroa.214.0.copyload.i.i, %691
+  %706 = fmul float %.sroa.315.0.copyload.i.i, %693
+  %707 = fadd float %705, %706
+  %708 = fadd float %696, %707
+  %709 = fmul float %.sroa.214.0.copyload.i.i, %698
+  %710 = fmul float %.sroa.315.0.copyload.i.i, %700
+  %711 = fadd float %709, %710
+  %712 = fadd float %703, %711
   br label %_ZN10ttf_parser6tables4glyf7Builder7quad_to17hb45035b56319fc46E.exit37.i.i
 
-_ZN10ttf_parser6tables4glyf7Builder7quad_to17hb45035b56319fc46E.exit37.i.i: ; preds = %691, %688
-  %.022.i33.i.i = phi float [ %.sroa.315.0.copyload.i.i, %688 ], [ %713, %691 ]
-  %.021.i34.i.i = phi float [ %.sroa.214.0.copyload.i.i, %688 ], [ %709, %691 ]
-  %.020.i35.i.i = phi float [ %.sroa.318.0.copyload.i.i, %688 ], [ %705, %691 ]
-  %.0.i36.i.i = phi float [ %.sroa.217.0.copyload.i.i, %688 ], [ %698, %691 ]
-  %714 = load float, ptr %7, align 8, !alias.scope !283, !noundef !37
-  %715 = call float @llvm.minnum.f32(float %714, float %.0.i36.i.i)
-  %716 = load float, ptr %324, align 4, !alias.scope !283, !noundef !37
-  %717 = call float @llvm.minnum.f32(float %716, float %.020.i35.i.i)
-  %718 = load float, ptr %325, align 8, !alias.scope !283, !noundef !37
-  %719 = call float @llvm.maxnum.f32(float %718, float %.0.i36.i.i)
-  %720 = load float, ptr %326, align 4, !alias.scope !283, !noundef !37
-  %721 = call float @llvm.maxnum.f32(float %720, float %.020.i35.i.i)
-  %722 = call float @llvm.minnum.f32(float %715, float %.021.i34.i.i)
-  store float %722, ptr %7, align 8, !alias.scope !283
-  %723 = call float @llvm.minnum.f32(float %717, float %.022.i33.i.i)
-  store float %723, ptr %324, align 4, !alias.scope !283
-  %724 = call float @llvm.maxnum.f32(float %719, float %.021.i34.i.i)
-  store float %724, ptr %325, align 8, !alias.scope !283
-  %725 = call float @llvm.maxnum.f32(float %721, float %.022.i33.i.i)
-  store float %725, ptr %326, align 4, !alias.scope !283
-  %726 = load ptr, ptr %327, align 8, !alias.scope !283, !nonnull !37, !align !152, !noundef !37
-  %727 = load ptr, ptr %328, align 8, !alias.scope !283, !nonnull !37, !align !153, !noundef !37
-  %728 = getelementptr inbounds nuw i8, ptr %727, i64 40
-  %729 = load ptr, ptr %728, align 8, !invariant.load !37, !noalias !280, !nonnull !37
-  call void %729(ptr noundef nonnull align 1 %726, float noundef %.0.i36.i.i, float noundef %.020.i35.i.i, float noundef %.021.i34.i.i, float noundef %.022.i33.i.i), !noalias !280
+_ZN10ttf_parser6tables4glyf7Builder7quad_to17hb45035b56319fc46E.exit37.i.i: ; preds = %690, %687
+  %.022.i33.i.i = phi float [ %.sroa.315.0.copyload.i.i, %687 ], [ %712, %690 ]
+  %.021.i34.i.i = phi float [ %.sroa.214.0.copyload.i.i, %687 ], [ %708, %690 ]
+  %.020.i35.i.i = phi float [ %.sroa.318.0.copyload.i.i, %687 ], [ %704, %690 ]
+  %.0.i36.i.i = phi float [ %.sroa.217.0.copyload.i.i, %687 ], [ %697, %690 ]
+  %713 = load float, ptr %7, align 8, !alias.scope !283, !noundef !37
+  %714 = call float @llvm.minnum.f32(float %713, float %.0.i36.i.i)
+  %715 = load float, ptr %324, align 4, !alias.scope !283, !noundef !37
+  %716 = call float @llvm.minnum.f32(float %715, float %.020.i35.i.i)
+  %717 = load float, ptr %325, align 8, !alias.scope !283, !noundef !37
+  %718 = call float @llvm.maxnum.f32(float %717, float %.0.i36.i.i)
+  %719 = load float, ptr %326, align 4, !alias.scope !283, !noundef !37
+  %720 = call float @llvm.maxnum.f32(float %719, float %.020.i35.i.i)
+  %721 = call float @llvm.minnum.f32(float %714, float %.021.i34.i.i)
+  store float %721, ptr %7, align 8, !alias.scope !283
+  %722 = call float @llvm.minnum.f32(float %716, float %.022.i33.i.i)
+  store float %722, ptr %324, align 4, !alias.scope !283
+  %723 = call float @llvm.maxnum.f32(float %718, float %.021.i34.i.i)
+  store float %723, ptr %325, align 8, !alias.scope !283
+  %724 = call float @llvm.maxnum.f32(float %720, float %.022.i33.i.i)
+  store float %724, ptr %326, align 4, !alias.scope !283
+  %725 = load ptr, ptr %327, align 8, !alias.scope !283, !nonnull !37, !align !152, !noundef !37
+  %726 = load ptr, ptr %328, align 8, !alias.scope !283, !nonnull !37, !align !153, !noundef !37
+  %727 = getelementptr inbounds nuw i8, ptr %726, i64 40
+  %728 = load ptr, ptr %727, align 8, !invariant.load !37, !noalias !280, !nonnull !37
+  call void %728(ptr noundef nonnull align 1 %725, float noundef %.0.i36.i.i, float noundef %.020.i35.i.i, float noundef %.021.i34.i.i, float noundef %.022.i33.i.i), !noalias !280
   br label %_ZN10ttf_parser6tables4glyf7Builder14finish_contour17ha08100daaabb72b0E.exit.i
 
-730:                                              ; preds = %686
-  br i1 %636, label %773, label %_ZN10ttf_parser6tables4glyf7Builder14finish_contour17ha08100daaabb72b0E.exit.i
+729:                                              ; preds = %685
+  br i1 %635, label %772, label %_ZN10ttf_parser6tables4glyf7Builder14finish_contour17ha08100daaabb72b0E.exit.i
 
-731:                                              ; preds = %686
+730:                                              ; preds = %685
   %.sroa.324.0.copyload.i.i = load float, ptr %.sroa.423.0..sroa_idx.i, align 8, !alias.scope !273
   %.sroa.223.0.copyload.i.i = load float, ptr %.sroa.221.0..sroa_idx.i, align 4, !alias.scope !273
   call void @llvm.experimental.noalias.scope.decl(metadata !284)
-  %732 = load i8, ptr %317, align 4, !range !255, !alias.scope !287, !noundef !37
-  %733 = trunc nuw i8 %732 to i1
-  br i1 %733, label %_ZN10ttf_parser6tables4glyf7Builder7quad_to17hb45035b56319fc46E.exit42.i.i, label %734
+  %731 = load i8, ptr %317, align 4, !range !255, !alias.scope !287, !noundef !37
+  %732 = trunc nuw i8 %731 to i1
+  br i1 %732, label %_ZN10ttf_parser6tables4glyf7Builder7quad_to17hb45035b56319fc46E.exit42.i.i, label %733
 
-734:                                              ; preds = %731
-  %735 = load float, ptr %318, align 8, !alias.scope !287, !noundef !37
-  %736 = fmul float %.sroa.223.0.copyload.i.i, %735
-  %737 = load float, ptr %319, align 8, !alias.scope !287, !noundef !37
-  %738 = fmul float %.sroa.324.0.copyload.i.i, %737
-  %739 = fadd float %736, %738
-  %740 = load float, ptr %320, align 8, !alias.scope !287, !noundef !37
-  %741 = fadd float %740, %739
-  %742 = load float, ptr %321, align 4, !alias.scope !287, !noundef !37
-  %743 = fmul float %.sroa.223.0.copyload.i.i, %742
-  %744 = load float, ptr %322, align 4, !alias.scope !287, !noundef !37
-  %745 = fmul float %.sroa.324.0.copyload.i.i, %744
-  %746 = fadd float %743, %745
-  %747 = load float, ptr %323, align 4, !alias.scope !287, !noundef !37
-  %748 = fadd float %747, %746
-  %749 = fmul float %.sroa.214.0.copyload.i.i, %735
-  %750 = fmul float %.sroa.315.0.copyload.i.i, %737
-  %751 = fadd float %749, %750
-  %752 = fadd float %740, %751
-  %753 = fmul float %.sroa.214.0.copyload.i.i, %742
-  %754 = fmul float %.sroa.315.0.copyload.i.i, %744
-  %755 = fadd float %753, %754
-  %756 = fadd float %747, %755
+733:                                              ; preds = %730
+  %734 = load float, ptr %318, align 8, !alias.scope !287, !noundef !37
+  %735 = fmul float %.sroa.223.0.copyload.i.i, %734
+  %736 = load float, ptr %319, align 8, !alias.scope !287, !noundef !37
+  %737 = fmul float %.sroa.324.0.copyload.i.i, %736
+  %738 = fadd float %735, %737
+  %739 = load float, ptr %320, align 8, !alias.scope !287, !noundef !37
+  %740 = fadd float %739, %738
+  %741 = load float, ptr %321, align 4, !alias.scope !287, !noundef !37
+  %742 = fmul float %.sroa.223.0.copyload.i.i, %741
+  %743 = load float, ptr %322, align 4, !alias.scope !287, !noundef !37
+  %744 = fmul float %.sroa.324.0.copyload.i.i, %743
+  %745 = fadd float %742, %744
+  %746 = load float, ptr %323, align 4, !alias.scope !287, !noundef !37
+  %747 = fadd float %746, %745
+  %748 = fmul float %.sroa.214.0.copyload.i.i, %734
+  %749 = fmul float %.sroa.315.0.copyload.i.i, %736
+  %750 = fadd float %748, %749
+  %751 = fadd float %739, %750
+  %752 = fmul float %.sroa.214.0.copyload.i.i, %741
+  %753 = fmul float %.sroa.315.0.copyload.i.i, %743
+  %754 = fadd float %752, %753
+  %755 = fadd float %746, %754
   br label %_ZN10ttf_parser6tables4glyf7Builder7quad_to17hb45035b56319fc46E.exit42.i.i
 
-_ZN10ttf_parser6tables4glyf7Builder7quad_to17hb45035b56319fc46E.exit42.i.i: ; preds = %734, %731
-  %.022.i38.i.i = phi float [ %.sroa.315.0.copyload.i.i, %731 ], [ %756, %734 ]
-  %.021.i39.i.i = phi float [ %.sroa.214.0.copyload.i.i, %731 ], [ %752, %734 ]
-  %.020.i40.i.i = phi float [ %.sroa.324.0.copyload.i.i, %731 ], [ %748, %734 ]
-  %.0.i41.i.i = phi float [ %.sroa.223.0.copyload.i.i, %731 ], [ %741, %734 ]
-  %757 = load float, ptr %7, align 8, !alias.scope !287, !noundef !37
-  %758 = call float @llvm.minnum.f32(float %757, float %.0.i41.i.i)
-  %759 = load float, ptr %324, align 4, !alias.scope !287, !noundef !37
-  %760 = call float @llvm.minnum.f32(float %759, float %.020.i40.i.i)
-  %761 = load float, ptr %325, align 8, !alias.scope !287, !noundef !37
-  %762 = call float @llvm.maxnum.f32(float %761, float %.0.i41.i.i)
-  %763 = load float, ptr %326, align 4, !alias.scope !287, !noundef !37
-  %764 = call float @llvm.maxnum.f32(float %763, float %.020.i40.i.i)
-  %765 = call float @llvm.minnum.f32(float %758, float %.021.i39.i.i)
-  store float %765, ptr %7, align 8, !alias.scope !287
-  %766 = call float @llvm.minnum.f32(float %760, float %.022.i38.i.i)
-  store float %766, ptr %324, align 4, !alias.scope !287
-  %767 = call float @llvm.maxnum.f32(float %762, float %.021.i39.i.i)
-  store float %767, ptr %325, align 8, !alias.scope !287
-  %768 = call float @llvm.maxnum.f32(float %764, float %.022.i38.i.i)
-  store float %768, ptr %326, align 4, !alias.scope !287
-  %769 = load ptr, ptr %327, align 8, !alias.scope !287, !nonnull !37, !align !152, !noundef !37
-  %770 = load ptr, ptr %328, align 8, !alias.scope !287, !nonnull !37, !align !153, !noundef !37
-  %771 = getelementptr inbounds nuw i8, ptr %770, i64 40
-  %772 = load ptr, ptr %771, align 8, !invariant.load !37, !noalias !284, !nonnull !37
-  call void %772(ptr noundef nonnull align 1 %769, float noundef %.0.i41.i.i, float noundef %.020.i40.i.i, float noundef %.021.i39.i.i, float noundef %.022.i38.i.i), !noalias !284
+_ZN10ttf_parser6tables4glyf7Builder7quad_to17hb45035b56319fc46E.exit42.i.i: ; preds = %733, %730
+  %.022.i38.i.i = phi float [ %.sroa.315.0.copyload.i.i, %730 ], [ %755, %733 ]
+  %.021.i39.i.i = phi float [ %.sroa.214.0.copyload.i.i, %730 ], [ %751, %733 ]
+  %.020.i40.i.i = phi float [ %.sroa.324.0.copyload.i.i, %730 ], [ %747, %733 ]
+  %.0.i41.i.i = phi float [ %.sroa.223.0.copyload.i.i, %730 ], [ %740, %733 ]
+  %756 = load float, ptr %7, align 8, !alias.scope !287, !noundef !37
+  %757 = call float @llvm.minnum.f32(float %756, float %.0.i41.i.i)
+  %758 = load float, ptr %324, align 4, !alias.scope !287, !noundef !37
+  %759 = call float @llvm.minnum.f32(float %758, float %.020.i40.i.i)
+  %760 = load float, ptr %325, align 8, !alias.scope !287, !noundef !37
+  %761 = call float @llvm.maxnum.f32(float %760, float %.0.i41.i.i)
+  %762 = load float, ptr %326, align 4, !alias.scope !287, !noundef !37
+  %763 = call float @llvm.maxnum.f32(float %762, float %.020.i40.i.i)
+  %764 = call float @llvm.minnum.f32(float %757, float %.021.i39.i.i)
+  store float %764, ptr %7, align 8, !alias.scope !287
+  %765 = call float @llvm.minnum.f32(float %759, float %.022.i38.i.i)
+  store float %765, ptr %324, align 4, !alias.scope !287
+  %766 = call float @llvm.maxnum.f32(float %761, float %.021.i39.i.i)
+  store float %766, ptr %325, align 8, !alias.scope !287
+  %767 = call float @llvm.maxnum.f32(float %763, float %.022.i38.i.i)
+  store float %767, ptr %326, align 4, !alias.scope !287
+  %768 = load ptr, ptr %327, align 8, !alias.scope !287, !nonnull !37, !align !152, !noundef !37
+  %769 = load ptr, ptr %328, align 8, !alias.scope !287, !nonnull !37, !align !153, !noundef !37
+  %770 = getelementptr inbounds nuw i8, ptr %769, i64 40
+  %771 = load ptr, ptr %770, align 8, !invariant.load !37, !noalias !284, !nonnull !37
+  call void %771(ptr noundef nonnull align 1 %768, float noundef %.0.i41.i.i, float noundef %.020.i40.i.i, float noundef %.021.i39.i.i, float noundef %.022.i38.i.i), !noalias !284
   br label %_ZN10ttf_parser6tables4glyf7Builder14finish_contour17ha08100daaabb72b0E.exit.i
 
-773:                                              ; preds = %730
+772:                                              ; preds = %729
   call void @llvm.experimental.noalias.scope.decl(metadata !288)
-  %774 = load i8, ptr %317, align 4, !range !255, !alias.scope !291, !noundef !37
-  %775 = trunc nuw i8 %774 to i1
-  br i1 %775, label %_ZN10ttf_parser6tables4glyf7Builder7line_to17hf177cf9b7bc3de75E.exit.i.i, label %776
+  %773 = load i8, ptr %317, align 4, !range !255, !alias.scope !291, !noundef !37
+  %774 = trunc nuw i8 %773 to i1
+  br i1 %774, label %_ZN10ttf_parser6tables4glyf7Builder7line_to17hf177cf9b7bc3de75E.exit.i.i, label %775
 
-776:                                              ; preds = %773
-  %777 = load float, ptr %318, align 8, !alias.scope !291, !noundef !37
-  %778 = fmul float %.sroa.214.0.copyload.i.i, %777
-  %779 = load float, ptr %319, align 8, !alias.scope !291, !noundef !37
-  %780 = fmul float %.sroa.315.0.copyload.i.i, %779
-  %781 = fadd float %778, %780
-  %782 = load float, ptr %320, align 8, !alias.scope !291, !noundef !37
-  %783 = fadd float %782, %781
-  %784 = load float, ptr %321, align 4, !alias.scope !291, !noundef !37
-  %785 = fmul float %.sroa.214.0.copyload.i.i, %784
-  %786 = load float, ptr %322, align 4, !alias.scope !291, !noundef !37
-  %787 = fmul float %.sroa.315.0.copyload.i.i, %786
-  %788 = fadd float %785, %787
-  %789 = load float, ptr %323, align 4, !alias.scope !291, !noundef !37
-  %790 = fadd float %789, %788
+775:                                              ; preds = %772
+  %776 = load float, ptr %318, align 8, !alias.scope !291, !noundef !37
+  %777 = fmul float %.sroa.214.0.copyload.i.i, %776
+  %778 = load float, ptr %319, align 8, !alias.scope !291, !noundef !37
+  %779 = fmul float %.sroa.315.0.copyload.i.i, %778
+  %780 = fadd float %777, %779
+  %781 = load float, ptr %320, align 8, !alias.scope !291, !noundef !37
+  %782 = fadd float %781, %780
+  %783 = load float, ptr %321, align 4, !alias.scope !291, !noundef !37
+  %784 = fmul float %.sroa.214.0.copyload.i.i, %783
+  %785 = load float, ptr %322, align 4, !alias.scope !291, !noundef !37
+  %786 = fmul float %.sroa.315.0.copyload.i.i, %785
+  %787 = fadd float %784, %786
+  %788 = load float, ptr %323, align 4, !alias.scope !291, !noundef !37
+  %789 = fadd float %788, %787
   br label %_ZN10ttf_parser6tables4glyf7Builder7line_to17hf177cf9b7bc3de75E.exit.i.i
 
-_ZN10ttf_parser6tables4glyf7Builder7line_to17hf177cf9b7bc3de75E.exit.i.i: ; preds = %776, %773
-  %.010.i.i.i = phi float [ %.sroa.315.0.copyload.i.i, %773 ], [ %790, %776 ]
-  %.0.i43.i.i = phi float [ %.sroa.214.0.copyload.i.i, %773 ], [ %783, %776 ]
-  %791 = load float, ptr %7, align 8, !alias.scope !291, !noundef !37
-  %792 = call float @llvm.minnum.f32(float %791, float %.0.i43.i.i)
-  store float %792, ptr %7, align 8, !alias.scope !291
-  %793 = load float, ptr %324, align 4, !alias.scope !291, !noundef !37
-  %794 = call float @llvm.minnum.f32(float %793, float %.010.i.i.i)
-  store float %794, ptr %324, align 4, !alias.scope !291
-  %795 = load float, ptr %325, align 8, !alias.scope !291, !noundef !37
-  %796 = call float @llvm.maxnum.f32(float %795, float %.0.i43.i.i)
-  store float %796, ptr %325, align 8, !alias.scope !291
-  %797 = load float, ptr %326, align 4, !alias.scope !291, !noundef !37
-  %798 = call float @llvm.maxnum.f32(float %797, float %.010.i.i.i)
-  store float %798, ptr %326, align 4, !alias.scope !291
-  %799 = load ptr, ptr %327, align 8, !alias.scope !291, !nonnull !37, !align !152, !noundef !37
-  %800 = load ptr, ptr %328, align 8, !alias.scope !291, !nonnull !37, !align !153, !noundef !37
-  %801 = getelementptr inbounds nuw i8, ptr %800, i64 32
-  %802 = load ptr, ptr %801, align 8, !invariant.load !37, !noalias !288, !nonnull !37
-  call void %802(ptr noundef nonnull align 1 %799, float noundef %.0.i43.i.i, float noundef %.010.i.i.i), !noalias !288
+_ZN10ttf_parser6tables4glyf7Builder7line_to17hf177cf9b7bc3de75E.exit.i.i: ; preds = %775, %772
+  %.010.i.i.i = phi float [ %.sroa.315.0.copyload.i.i, %772 ], [ %789, %775 ]
+  %.0.i43.i.i = phi float [ %.sroa.214.0.copyload.i.i, %772 ], [ %782, %775 ]
+  %790 = load float, ptr %7, align 8, !alias.scope !291, !noundef !37
+  %791 = call float @llvm.minnum.f32(float %790, float %.0.i43.i.i)
+  store float %791, ptr %7, align 8, !alias.scope !291
+  %792 = load float, ptr %324, align 4, !alias.scope !291, !noundef !37
+  %793 = call float @llvm.minnum.f32(float %792, float %.010.i.i.i)
+  store float %793, ptr %324, align 4, !alias.scope !291
+  %794 = load float, ptr %325, align 8, !alias.scope !291, !noundef !37
+  %795 = call float @llvm.maxnum.f32(float %794, float %.0.i43.i.i)
+  store float %795, ptr %325, align 8, !alias.scope !291
+  %796 = load float, ptr %326, align 4, !alias.scope !291, !noundef !37
+  %797 = call float @llvm.maxnum.f32(float %796, float %.010.i.i.i)
+  store float %797, ptr %326, align 4, !alias.scope !291
+  %798 = load ptr, ptr %327, align 8, !alias.scope !291, !nonnull !37, !align !152, !noundef !37
+  %799 = load ptr, ptr %328, align 8, !alias.scope !291, !nonnull !37, !align !153, !noundef !37
+  %800 = getelementptr inbounds nuw i8, ptr %799, i64 32
+  %801 = load ptr, ptr %800, align 8, !invariant.load !37, !noalias !288, !nonnull !37
+  call void %801(ptr noundef nonnull align 1 %798, float noundef %.0.i43.i.i, float noundef %.010.i.i.i), !noalias !288
   br label %_ZN10ttf_parser6tables4glyf7Builder14finish_contour17ha08100daaabb72b0E.exit.i
 
-_ZN10ttf_parser6tables4glyf7Builder14finish_contour17ha08100daaabb72b0E.exit.i: ; preds = %_ZN10ttf_parser6tables4glyf7Builder7line_to17hf177cf9b7bc3de75E.exit.i.i, %_ZN10ttf_parser6tables4glyf7Builder7quad_to17hb45035b56319fc46E.exit42.i.i, %730, %_ZN10ttf_parser6tables4glyf7Builder7quad_to17hb45035b56319fc46E.exit37.i.i
+_ZN10ttf_parser6tables4glyf7Builder14finish_contour17ha08100daaabb72b0E.exit.i: ; preds = %_ZN10ttf_parser6tables4glyf7Builder7line_to17hf177cf9b7bc3de75E.exit.i.i, %_ZN10ttf_parser6tables4glyf7Builder7quad_to17hb45035b56319fc46E.exit42.i.i, %729, %_ZN10ttf_parser6tables4glyf7Builder7quad_to17hb45035b56319fc46E.exit37.i.i
   store i32 0, ptr %315, align 8, !alias.scope !273
   store i32 0, ptr %329, align 4, !alias.scope !273
   store i32 0, ptr %316, align 8, !alias.scope !273
-  %803 = load ptr, ptr %327, align 8, !alias.scope !273, !nonnull !37, !align !152, !noundef !37
-  %804 = load ptr, ptr %328, align 8, !alias.scope !273, !nonnull !37, !align !153, !noundef !37
-  %805 = getelementptr inbounds nuw i8, ptr %804, i64 56
-  %806 = load ptr, ptr %805, align 8, !invariant.load !37, !nonnull !37
-  call void %806(ptr noundef nonnull align 1 %803)
+  %802 = load ptr, ptr %327, align 8, !alias.scope !273, !nonnull !37, !align !152, !noundef !37
+  %803 = load ptr, ptr %328, align 8, !alias.scope !273, !nonnull !37, !align !153, !noundef !37
+  %804 = getelementptr inbounds nuw i8, ptr %803, i64 56
+  %805 = load ptr, ptr %804, align 8, !invariant.load !37, !nonnull !37
+  call void %805(ptr noundef nonnull align 1 %802)
   br label %_ZN10ttf_parser6tables4glyf7Builder10push_point17h0443de101b9e669cE.exit
 
-_ZN10ttf_parser6tables4glyf7Builder10push_point17h0443de101b9e669cE.exit: ; preds = %470, %_ZN10ttf_parser6tables4glyf7Builder14finish_contour17ha08100daaabb72b0E.exit.i
+_ZN10ttf_parser6tables4glyf7Builder10push_point17h0443de101b9e669cE.exit: ; preds = %469, %_ZN10ttf_parser6tables4glyf7Builder14finish_contour17ha08100daaabb72b0E.exit.i
   %.not.i93 = icmp eq i16 %343, 0
   br i1 %.not.i93, label %.loopexit, label %335
 
 .critedge:                                        ; preds = %.loopexit
-  %807 = fcmp ult float %208, 0xC1E0000000000000
-  %808 = fcmp uge float %208, 0x41E0000000000000
-  %or.cond.not.i.i = or i1 %807, %808
+  %806 = fcmp ult float %208, 0xC1E0000000000000
+  %807 = fcmp uge float %208, 0x41E0000000000000
+  %or.cond.not.i.i = or i1 %806, %807
   br i1 %or.cond.not.i.i, label %_ZN10ttf_parser4BBox7to_rect17hddea1a4bd65e0122E.exit, label %"_ZN65_$LT$i16$u20$as$u20$ttf_parser..parser..TryNumFrom$LT$f32$GT$$GT$12try_num_from17hd68aaed527df058fE.exit.i"
 
 "_ZN65_$LT$i16$u20$as$u20$ttf_parser..parser..TryNumFrom$LT$f32$GT$$GT$12try_num_from17hd68aaed527df058fE.exit.i": ; preds = %.critedge
-  %809 = call i32 @llvm.fptosi.sat.i32.f32(float %208)
-  %810 = add i32 %809, 32768
-  %or.cond1.i.i = icmp ult i32 %810, 65536
-  %811 = trunc nsw i32 %809 to i16
-  br i1 %or.cond1.i.i, label %812, label %_ZN10ttf_parser4BBox7to_rect17hddea1a4bd65e0122E.exit
+  %808 = call i32 @llvm.fptosi.sat.i32.f32(float %208)
+  %809 = add i32 %808, 32768
+  %or.cond1.i.i = icmp ult i32 %809, 65536
+  %810 = trunc nsw i32 %808 to i16
+  br i1 %or.cond1.i.i, label %811, label %_ZN10ttf_parser4BBox7to_rect17hddea1a4bd65e0122E.exit
 
-812:                                              ; preds = %"_ZN65_$LT$i16$u20$as$u20$ttf_parser..parser..TryNumFrom$LT$f32$GT$$GT$12try_num_from17hd68aaed527df058fE.exit.i"
-  %813 = fcmp ult float %211, 0xC1E0000000000000
-  %814 = fcmp uge float %211, 0x41E0000000000000
-  %or.cond.not.i21.i = or i1 %813, %814
+811:                                              ; preds = %"_ZN65_$LT$i16$u20$as$u20$ttf_parser..parser..TryNumFrom$LT$f32$GT$$GT$12try_num_from17hd68aaed527df058fE.exit.i"
+  %812 = fcmp ult float %211, 0xC1E0000000000000
+  %813 = fcmp uge float %211, 0x41E0000000000000
+  %or.cond.not.i21.i = or i1 %812, %813
   br i1 %or.cond.not.i21.i, label %_ZN10ttf_parser4BBox7to_rect17hddea1a4bd65e0122E.exit, label %"_ZN65_$LT$i16$u20$as$u20$ttf_parser..parser..TryNumFrom$LT$f32$GT$$GT$12try_num_from17hd68aaed527df058fE.exit27.i"
 
-"_ZN65_$LT$i16$u20$as$u20$ttf_parser..parser..TryNumFrom$LT$f32$GT$$GT$12try_num_from17hd68aaed527df058fE.exit27.i": ; preds = %812
-  %815 = call i32 @llvm.fptosi.sat.i32.f32(float %211)
-  %816 = add i32 %815, 32768
-  %or.cond1.i22.i = icmp ult i32 %816, 65536
-  %817 = trunc nsw i32 %815 to i16
-  br i1 %or.cond1.i22.i, label %818, label %_ZN10ttf_parser4BBox7to_rect17hddea1a4bd65e0122E.exit
+"_ZN65_$LT$i16$u20$as$u20$ttf_parser..parser..TryNumFrom$LT$f32$GT$$GT$12try_num_from17hd68aaed527df058fE.exit27.i": ; preds = %811
+  %814 = call i32 @llvm.fptosi.sat.i32.f32(float %211)
+  %815 = add i32 %814, 32768
+  %or.cond1.i22.i = icmp ult i32 %815, 65536
+  %816 = trunc nsw i32 %814 to i16
+  br i1 %or.cond1.i22.i, label %817, label %_ZN10ttf_parser4BBox7to_rect17hddea1a4bd65e0122E.exit
 
-818:                                              ; preds = %"_ZN65_$LT$i16$u20$as$u20$ttf_parser..parser..TryNumFrom$LT$f32$GT$$GT$12try_num_from17hd68aaed527df058fE.exit27.i"
-  %819 = fcmp ult float %214, 0xC1E0000000000000
-  %820 = fcmp uge float %214, 0x41E0000000000000
-  %or.cond.not.i28.i = or i1 %819, %820
+817:                                              ; preds = %"_ZN65_$LT$i16$u20$as$u20$ttf_parser..parser..TryNumFrom$LT$f32$GT$$GT$12try_num_from17hd68aaed527df058fE.exit27.i"
+  %818 = fcmp ult float %214, 0xC1E0000000000000
+  %819 = fcmp uge float %214, 0x41E0000000000000
+  %or.cond.not.i28.i = or i1 %818, %819
   br i1 %or.cond.not.i28.i, label %_ZN10ttf_parser4BBox7to_rect17hddea1a4bd65e0122E.exit, label %"_ZN65_$LT$i16$u20$as$u20$ttf_parser..parser..TryNumFrom$LT$f32$GT$$GT$12try_num_from17hd68aaed527df058fE.exit34.i"
 
-"_ZN65_$LT$i16$u20$as$u20$ttf_parser..parser..TryNumFrom$LT$f32$GT$$GT$12try_num_from17hd68aaed527df058fE.exit34.i": ; preds = %818
-  %821 = call i32 @llvm.fptosi.sat.i32.f32(float %214)
-  %822 = add i32 %821, 32768
-  %or.cond1.i29.i = icmp ult i32 %822, 65536
-  %823 = trunc nsw i32 %821 to i16
-  br i1 %or.cond1.i29.i, label %824, label %_ZN10ttf_parser4BBox7to_rect17hddea1a4bd65e0122E.exit
+"_ZN65_$LT$i16$u20$as$u20$ttf_parser..parser..TryNumFrom$LT$f32$GT$$GT$12try_num_from17hd68aaed527df058fE.exit34.i": ; preds = %817
+  %820 = call i32 @llvm.fptosi.sat.i32.f32(float %214)
+  %821 = add i32 %820, 32768
+  %or.cond1.i29.i = icmp ult i32 %821, 65536
+  %822 = trunc nsw i32 %820 to i16
+  br i1 %or.cond1.i29.i, label %823, label %_ZN10ttf_parser4BBox7to_rect17hddea1a4bd65e0122E.exit
 
-824:                                              ; preds = %"_ZN65_$LT$i16$u20$as$u20$ttf_parser..parser..TryNumFrom$LT$f32$GT$$GT$12try_num_from17hd68aaed527df058fE.exit34.i"
-  %825 = fcmp ult float %217, 0xC1E0000000000000
-  %826 = fcmp uge float %217, 0x41E0000000000000
-  %or.cond.not.i35.i = or i1 %825, %826
+823:                                              ; preds = %"_ZN65_$LT$i16$u20$as$u20$ttf_parser..parser..TryNumFrom$LT$f32$GT$$GT$12try_num_from17hd68aaed527df058fE.exit34.i"
+  %824 = fcmp ult float %217, 0xC1E0000000000000
+  %825 = fcmp uge float %217, 0x41E0000000000000
+  %or.cond.not.i35.i = or i1 %824, %825
   br i1 %or.cond.not.i35.i, label %_ZN10ttf_parser4BBox7to_rect17hddea1a4bd65e0122E.exit, label %"_ZN65_$LT$i16$u20$as$u20$ttf_parser..parser..TryNumFrom$LT$f32$GT$$GT$12try_num_from17hd68aaed527df058fE.exit41.i"
 
-"_ZN65_$LT$i16$u20$as$u20$ttf_parser..parser..TryNumFrom$LT$f32$GT$$GT$12try_num_from17hd68aaed527df058fE.exit41.i": ; preds = %824
-  %827 = call i32 @llvm.fptosi.sat.i32.f32(float %217)
-  %828 = add i32 %827, 32768
-  %or.cond1.i36.i = icmp ult i32 %828, 65536
-  br i1 %or.cond1.i36.i, label %829, label %_ZN10ttf_parser4BBox7to_rect17hddea1a4bd65e0122E.exit
+"_ZN65_$LT$i16$u20$as$u20$ttf_parser..parser..TryNumFrom$LT$f32$GT$$GT$12try_num_from17hd68aaed527df058fE.exit41.i": ; preds = %823
+  %826 = call i32 @llvm.fptosi.sat.i32.f32(float %217)
+  %827 = add i32 %826, 32768
+  %or.cond1.i36.i = icmp ult i32 %827, 65536
+  br i1 %or.cond1.i36.i, label %828, label %_ZN10ttf_parser4BBox7to_rect17hddea1a4bd65e0122E.exit
 
-829:                                              ; preds = %"_ZN65_$LT$i16$u20$as$u20$ttf_parser..parser..TryNumFrom$LT$f32$GT$$GT$12try_num_from17hd68aaed527df058fE.exit41.i"
-  %830 = trunc nsw i32 %827 to i16
+828:                                              ; preds = %"_ZN65_$LT$i16$u20$as$u20$ttf_parser..parser..TryNumFrom$LT$f32$GT$$GT$12try_num_from17hd68aaed527df058fE.exit41.i"
+  %829 = trunc nsw i32 %826 to i16
   br label %_ZN10ttf_parser4BBox7to_rect17hddea1a4bd65e0122E.exit
 
-_ZN10ttf_parser4BBox7to_rect17hddea1a4bd65e0122E.exit: ; preds = %.critedge, %"_ZN65_$LT$i16$u20$as$u20$ttf_parser..parser..TryNumFrom$LT$f32$GT$$GT$12try_num_from17hd68aaed527df058fE.exit.i", %812, %"_ZN65_$LT$i16$u20$as$u20$ttf_parser..parser..TryNumFrom$LT$f32$GT$$GT$12try_num_from17hd68aaed527df058fE.exit27.i", %818, %"_ZN65_$LT$i16$u20$as$u20$ttf_parser..parser..TryNumFrom$LT$f32$GT$$GT$12try_num_from17hd68aaed527df058fE.exit34.i", %824, %"_ZN65_$LT$i16$u20$as$u20$ttf_parser..parser..TryNumFrom$LT$f32$GT$$GT$12try_num_from17hd68aaed527df058fE.exit41.i", %829
-  %.sroa.4139.0 = phi i16 [ undef, %.critedge ], [ undef, %812 ], [ undef, %818 ], [ undef, %824 ], [ %811, %829 ], [ undef, %"_ZN65_$LT$i16$u20$as$u20$ttf_parser..parser..TryNumFrom$LT$f32$GT$$GT$12try_num_from17hd68aaed527df058fE.exit41.i" ], [ undef, %"_ZN65_$LT$i16$u20$as$u20$ttf_parser..parser..TryNumFrom$LT$f32$GT$$GT$12try_num_from17hd68aaed527df058fE.exit34.i" ], [ undef, %"_ZN65_$LT$i16$u20$as$u20$ttf_parser..parser..TryNumFrom$LT$f32$GT$$GT$12try_num_from17hd68aaed527df058fE.exit27.i" ], [ undef, %"_ZN65_$LT$i16$u20$as$u20$ttf_parser..parser..TryNumFrom$LT$f32$GT$$GT$12try_num_from17hd68aaed527df058fE.exit.i" ]
-  %.sroa.5140.0 = phi i16 [ undef, %.critedge ], [ undef, %812 ], [ undef, %818 ], [ undef, %824 ], [ %817, %829 ], [ undef, %"_ZN65_$LT$i16$u20$as$u20$ttf_parser..parser..TryNumFrom$LT$f32$GT$$GT$12try_num_from17hd68aaed527df058fE.exit41.i" ], [ undef, %"_ZN65_$LT$i16$u20$as$u20$ttf_parser..parser..TryNumFrom$LT$f32$GT$$GT$12try_num_from17hd68aaed527df058fE.exit34.i" ], [ undef, %"_ZN65_$LT$i16$u20$as$u20$ttf_parser..parser..TryNumFrom$LT$f32$GT$$GT$12try_num_from17hd68aaed527df058fE.exit27.i" ], [ undef, %"_ZN65_$LT$i16$u20$as$u20$ttf_parser..parser..TryNumFrom$LT$f32$GT$$GT$12try_num_from17hd68aaed527df058fE.exit.i" ]
-  %.sroa.6141.0 = phi i16 [ undef, %.critedge ], [ undef, %812 ], [ undef, %818 ], [ undef, %824 ], [ %823, %829 ], [ undef, %"_ZN65_$LT$i16$u20$as$u20$ttf_parser..parser..TryNumFrom$LT$f32$GT$$GT$12try_num_from17hd68aaed527df058fE.exit41.i" ], [ undef, %"_ZN65_$LT$i16$u20$as$u20$ttf_parser..parser..TryNumFrom$LT$f32$GT$$GT$12try_num_from17hd68aaed527df058fE.exit34.i" ], [ undef, %"_ZN65_$LT$i16$u20$as$u20$ttf_parser..parser..TryNumFrom$LT$f32$GT$$GT$12try_num_from17hd68aaed527df058fE.exit27.i" ], [ undef, %"_ZN65_$LT$i16$u20$as$u20$ttf_parser..parser..TryNumFrom$LT$f32$GT$$GT$12try_num_from17hd68aaed527df058fE.exit.i" ]
-  %.sroa.7142.0 = phi i16 [ undef, %.critedge ], [ undef, %812 ], [ undef, %818 ], [ undef, %824 ], [ %830, %829 ], [ undef, %"_ZN65_$LT$i16$u20$as$u20$ttf_parser..parser..TryNumFrom$LT$f32$GT$$GT$12try_num_from17hd68aaed527df058fE.exit41.i" ], [ undef, %"_ZN65_$LT$i16$u20$as$u20$ttf_parser..parser..TryNumFrom$LT$f32$GT$$GT$12try_num_from17hd68aaed527df058fE.exit34.i" ], [ undef, %"_ZN65_$LT$i16$u20$as$u20$ttf_parser..parser..TryNumFrom$LT$f32$GT$$GT$12try_num_from17hd68aaed527df058fE.exit27.i" ], [ undef, %"_ZN65_$LT$i16$u20$as$u20$ttf_parser..parser..TryNumFrom$LT$f32$GT$$GT$12try_num_from17hd68aaed527df058fE.exit.i" ]
-  %storemerge.i = phi i16 [ 0, %.critedge ], [ 0, %812 ], [ 0, %818 ], [ 0, %824 ], [ 1, %829 ], [ 0, %"_ZN65_$LT$i16$u20$as$u20$ttf_parser..parser..TryNumFrom$LT$f32$GT$$GT$12try_num_from17hd68aaed527df058fE.exit41.i" ], [ 0, %"_ZN65_$LT$i16$u20$as$u20$ttf_parser..parser..TryNumFrom$LT$f32$GT$$GT$12try_num_from17hd68aaed527df058fE.exit34.i" ], [ 0, %"_ZN65_$LT$i16$u20$as$u20$ttf_parser..parser..TryNumFrom$LT$f32$GT$$GT$12try_num_from17hd68aaed527df058fE.exit27.i" ], [ 0, %"_ZN65_$LT$i16$u20$as$u20$ttf_parser..parser..TryNumFrom$LT$f32$GT$$GT$12try_num_from17hd68aaed527df058fE.exit.i" ]
+_ZN10ttf_parser4BBox7to_rect17hddea1a4bd65e0122E.exit: ; preds = %.critedge, %"_ZN65_$LT$i16$u20$as$u20$ttf_parser..parser..TryNumFrom$LT$f32$GT$$GT$12try_num_from17hd68aaed527df058fE.exit.i", %811, %"_ZN65_$LT$i16$u20$as$u20$ttf_parser..parser..TryNumFrom$LT$f32$GT$$GT$12try_num_from17hd68aaed527df058fE.exit27.i", %817, %"_ZN65_$LT$i16$u20$as$u20$ttf_parser..parser..TryNumFrom$LT$f32$GT$$GT$12try_num_from17hd68aaed527df058fE.exit34.i", %823, %"_ZN65_$LT$i16$u20$as$u20$ttf_parser..parser..TryNumFrom$LT$f32$GT$$GT$12try_num_from17hd68aaed527df058fE.exit41.i", %828
+  %.sroa.4139.0 = phi i16 [ undef, %.critedge ], [ undef, %811 ], [ undef, %817 ], [ undef, %823 ], [ %810, %828 ], [ undef, %"_ZN65_$LT$i16$u20$as$u20$ttf_parser..parser..TryNumFrom$LT$f32$GT$$GT$12try_num_from17hd68aaed527df058fE.exit41.i" ], [ undef, %"_ZN65_$LT$i16$u20$as$u20$ttf_parser..parser..TryNumFrom$LT$f32$GT$$GT$12try_num_from17hd68aaed527df058fE.exit34.i" ], [ undef, %"_ZN65_$LT$i16$u20$as$u20$ttf_parser..parser..TryNumFrom$LT$f32$GT$$GT$12try_num_from17hd68aaed527df058fE.exit27.i" ], [ undef, %"_ZN65_$LT$i16$u20$as$u20$ttf_parser..parser..TryNumFrom$LT$f32$GT$$GT$12try_num_from17hd68aaed527df058fE.exit.i" ]
+  %.sroa.5140.0 = phi i16 [ undef, %.critedge ], [ undef, %811 ], [ undef, %817 ], [ undef, %823 ], [ %816, %828 ], [ undef, %"_ZN65_$LT$i16$u20$as$u20$ttf_parser..parser..TryNumFrom$LT$f32$GT$$GT$12try_num_from17hd68aaed527df058fE.exit41.i" ], [ undef, %"_ZN65_$LT$i16$u20$as$u20$ttf_parser..parser..TryNumFrom$LT$f32$GT$$GT$12try_num_from17hd68aaed527df058fE.exit34.i" ], [ undef, %"_ZN65_$LT$i16$u20$as$u20$ttf_parser..parser..TryNumFrom$LT$f32$GT$$GT$12try_num_from17hd68aaed527df058fE.exit27.i" ], [ undef, %"_ZN65_$LT$i16$u20$as$u20$ttf_parser..parser..TryNumFrom$LT$f32$GT$$GT$12try_num_from17hd68aaed527df058fE.exit.i" ]
+  %.sroa.6141.0 = phi i16 [ undef, %.critedge ], [ undef, %811 ], [ undef, %817 ], [ undef, %823 ], [ %822, %828 ], [ undef, %"_ZN65_$LT$i16$u20$as$u20$ttf_parser..parser..TryNumFrom$LT$f32$GT$$GT$12try_num_from17hd68aaed527df058fE.exit41.i" ], [ undef, %"_ZN65_$LT$i16$u20$as$u20$ttf_parser..parser..TryNumFrom$LT$f32$GT$$GT$12try_num_from17hd68aaed527df058fE.exit34.i" ], [ undef, %"_ZN65_$LT$i16$u20$as$u20$ttf_parser..parser..TryNumFrom$LT$f32$GT$$GT$12try_num_from17hd68aaed527df058fE.exit27.i" ], [ undef, %"_ZN65_$LT$i16$u20$as$u20$ttf_parser..parser..TryNumFrom$LT$f32$GT$$GT$12try_num_from17hd68aaed527df058fE.exit.i" ]
+  %.sroa.7142.0 = phi i16 [ undef, %.critedge ], [ undef, %811 ], [ undef, %817 ], [ undef, %823 ], [ %829, %828 ], [ undef, %"_ZN65_$LT$i16$u20$as$u20$ttf_parser..parser..TryNumFrom$LT$f32$GT$$GT$12try_num_from17hd68aaed527df058fE.exit41.i" ], [ undef, %"_ZN65_$LT$i16$u20$as$u20$ttf_parser..parser..TryNumFrom$LT$f32$GT$$GT$12try_num_from17hd68aaed527df058fE.exit34.i" ], [ undef, %"_ZN65_$LT$i16$u20$as$u20$ttf_parser..parser..TryNumFrom$LT$f32$GT$$GT$12try_num_from17hd68aaed527df058fE.exit27.i" ], [ undef, %"_ZN65_$LT$i16$u20$as$u20$ttf_parser..parser..TryNumFrom$LT$f32$GT$$GT$12try_num_from17hd68aaed527df058fE.exit.i" ]
+  %storemerge.i = phi i16 [ 0, %.critedge ], [ 0, %811 ], [ 0, %817 ], [ 0, %823 ], [ 1, %828 ], [ 0, %"_ZN65_$LT$i16$u20$as$u20$ttf_parser..parser..TryNumFrom$LT$f32$GT$$GT$12try_num_from17hd68aaed527df058fE.exit41.i" ], [ 0, %"_ZN65_$LT$i16$u20$as$u20$ttf_parser..parser..TryNumFrom$LT$f32$GT$$GT$12try_num_from17hd68aaed527df058fE.exit34.i" ], [ 0, %"_ZN65_$LT$i16$u20$as$u20$ttf_parser..parser..TryNumFrom$LT$f32$GT$$GT$12try_num_from17hd68aaed527df058fE.exit27.i" ], [ 0, %"_ZN65_$LT$i16$u20$as$u20$ttf_parser..parser..TryNumFrom$LT$f32$GT$$GT$12try_num_from17hd68aaed527df058fE.exit.i" ]
   store i16 %storemerge.i, ptr %0, align 2
   %.sroa.4139.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 2
   store i16 %.sroa.4139.0, ptr %.sroa.4139.0..sroa_idx, align 2
@@ -1508,18 +1506,18 @@ _ZN10ttf_parser4BBox7to_rect17hddea1a4bd65e0122E.exit: ; preds = %.critedge, %"_
   store i16 %.sroa.6141.0, ptr %.sroa.6141.0..sroa_idx, align 2
   %.sroa.7142.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i16 %.sroa.7142.0, ptr %.sroa.7142.0..sroa_idx, align 2
-  br label %832
+  br label %831
 
-831:                                              ; preds = %.loopexit
+830:                                              ; preds = %.loopexit
   store i16 0, ptr %0, align 2
-  br label %832
+  br label %831
 
-832:                                              ; preds = %.thread, %831, %833, %256, %47, %_ZN10ttf_parser4BBox7to_rect17hddea1a4bd65e0122E.exit, %16
+831:                                              ; preds = %.thread, %830, %832, %256, %47, %_ZN10ttf_parser4BBox7to_rect17hddea1a4bd65e0122E.exit, %16
   ret void
 
-833:                                              ; preds = %257, %334
+832:                                              ; preds = %257, %334
   store i16 2, ptr %0, align 2
-  br label %832
+  br label %831
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -2542,7 +2540,7 @@ define internal fastcc void @_ZN12typst_render12render_frame17hab59d22ef132e31cE
   %.sroa.10.0..sroa_idx91 = getelementptr inbounds nuw i8, ptr %18, i64 72
   br label %178
 
-default.unreachable101:                           ; preds = %178
+default.unreachable107:                           ; preds = %178
   unreachable
 
 ._crit_edge:                                      ; preds = %505, %3
@@ -2553,7 +2551,7 @@ default.unreachable101:                           ; preds = %178
   %179 = getelementptr inbounds nuw i8, ptr %.sroa.0.072, i64 192
   %180 = getelementptr inbounds nuw i8, ptr %.sroa.0.072, i64 16
   %181 = load i64, ptr %180, align 16, !range !460, !noundef !37
-  switch i64 %181, label %default.unreachable101 [
+  switch i64 %181, label %default.unreachable107 [
     i64 0, label %182
     i64 1, label %328
     i64 2, label %474
@@ -3196,8 +3194,8 @@ _ZN12typst_render12render_group17h1189fe8a8ad27cdcE.exit: ; preds = %319, %"_ZN4
   br label %_ZN10ttf_parser4Face18glyph_raster_image17h19868b91ab403362E.exit.i.i.i
 
 _ZN10ttf_parser4Face18glyph_raster_image17h19868b91ab403362E.exit.i.i.i: ; preds = %398, %394, %390, %388
-  %.pr102 = load i8, ptr %91, align 2, !noalias !622
-  %399 = icmp eq i8 %.pr102, 9
+  %.pr108 = load i8, ptr %91, align 2, !noalias !622
+  %399 = icmp eq i8 %.pr108, 9
   br i1 %399, label %.thread.i.i.i, label %400
 
 .thread.i.i.i:                                    ; preds = %395, %_ZN10ttf_parser4Face18glyph_raster_image17h19868b91ab403362E.exit.i.i.i
@@ -3212,7 +3210,7 @@ _ZN10ttf_parser4Face18glyph_raster_image17h19868b91ab403362E.exit.i.i.i: ; preds
   %401 = sitofp i16 %.sroa.520.0.copyload.i.i.i to float
   %402 = sitofp i16 %.sroa.621.0.copyload.i.i.i to float
   call void @llvm.lifetime.end.p0(ptr nonnull %16), !noalias !622
-  %cond.i.i.i = icmp eq i8 %.pr102, 0
+  %cond.i.i.i = icmp eq i8 %.pr108, 0
   br i1 %cond.i.i.i, label %403, label %"_ZN4core6option15Option$LT$T$GT$7or_else17h759dbe955c9a1b93E.exit.thread67"
 
 403:                                              ; preds = %400
@@ -4486,14 +4484,14 @@ define internal fastcc void @_ZN12typst_render20render_outline_glyph17h807788619
   %72 = icmp eq ptr %71, null
   br i1 %72, label %"_ZN4core3ptr61drop_in_place$LT$alloc..sync..Arc$LT$pixglyph..Bitmap$GT$$GT$17h74dec548167544c1E.exit84", label %73
 
-default.unreachable161:                           ; preds = %73
+default.unreachable180:                           ; preds = %73
   unreachable
 
 73:                                               ; preds = %65
   store ptr %71, ptr %25, align 8
   %74 = getelementptr inbounds nuw i8, ptr %2, i64 104
   %75 = load i32, ptr %74, align 8, !range !847, !noundef !37
-  switch i32 %75, label %default.unreachable161 [
+  switch i32 %75, label %default.unreachable180 [
     i32 0, label %76
     i32 1, label %80
     i32 2, label %82
@@ -6718,13 +6716,13 @@ define internal fastcc void @_ZN12typst_render11to_sk_paint17ha2304611818b8021E(
   %34 = getelementptr inbounds nuw i8, ptr %31, i64 89
   store i8 0, ptr %34, align 1
   %35 = load i32, ptr %1, align 8, !range !847, !noundef !37
-  switch i32 %35, label %default.unreachable60 [
+  switch i32 %35, label %default.unreachable62 [
     i32 0, label %36
     i32 1, label %47
     i32 2, label %50
   ]
 
-default.unreachable60:                            ; preds = %9
+default.unreachable62:                            ; preds = %9
   unreachable
 
 36:                                               ; preds = %9

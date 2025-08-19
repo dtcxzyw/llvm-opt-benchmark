@@ -2730,15 +2730,15 @@ _ZN7Compile13node_notes_atEi.exit.thread:         ; preds = %219, %.thread.i, %2
   br label %.sink.split
 
 .sink.split:                                      ; preds = %281, %276
-  %.sink173 = phi ptr [ %285, %281 ], [ %277, %276 ]
-  %.sink172 = phi i32 [ %286, %281 ], [ %280, %276 ]
-  %287 = getelementptr inbounds nuw i8, ptr %.sink173, i64 16
+  %.sink189 = phi ptr [ %285, %281 ], [ %277, %276 ]
+  %.sink188 = phi i32 [ %286, %281 ], [ %280, %276 ]
+  %287 = getelementptr inbounds nuw i8, ptr %.sink189, i64 16
   %288 = load i32, ptr %287, align 8
-  %289 = add i32 %288, %.sink172
-  %.sink169.in = getelementptr inbounds nuw i8, ptr %274, i64 8
-  %.sink169 = load ptr, ptr %.sink169.in, align 8
+  %289 = add i32 %288, %.sink188
+  %.sink185.in = getelementptr inbounds nuw i8, ptr %274, i64 8
+  %.sink185 = load ptr, ptr %.sink185.in, align 8
   %290 = zext i32 %289 to i64
-  %291 = getelementptr inbounds nuw ptr, ptr %.sink169, i64 %290
+  %291 = getelementptr inbounds nuw ptr, ptr %.sink185, i64 %290
   %292 = load ptr, ptr %291, align 8
   br label %293
 
@@ -5712,10 +5712,10 @@ _ZN14MergeMemStream14next_non_emptyEv.exit:       ; preds = %_ZN14MergeMemStream
   %639 = load ptr, ptr %638, align 8
   br label %.lr.ph211.outer
 
-.lr.ph211.outer:                                  ; preds = %.thread243, %.lr.ph211.preheader
-  %indvars.iv234.ph = phi i64 [ %indvars.iv.next235247, %.thread243 ], [ 1, %.lr.ph211.preheader ]
-  %.0114208.ph = phi i1 [ true, %.thread243 ], [ false, %.lr.ph211.preheader ]
-  %.0116207.ph = phi ptr [ %666, %.thread243 ], [ %639, %.lr.ph211.preheader ]
+.lr.ph211.outer:                                  ; preds = %.thread305, %.lr.ph211.preheader
+  %indvars.iv234.ph = phi i64 [ %indvars.iv.next235309, %.thread305 ], [ 1, %.lr.ph211.preheader ]
+  %.0114208.ph = phi i1 [ true, %.thread305 ], [ false, %.lr.ph211.preheader ]
+  %.0116207.ph = phi ptr [ %666, %.thread305 ], [ %639, %.lr.ph211.preheader ]
   br label %.lr.ph211
 
 .lr.ph211:                                        ; preds = %.lr.ph211.outer, %652
@@ -5735,7 +5735,7 @@ _ZN14MergeMemStream14next_non_emptyEv.exit:       ; preds = %_ZN14MergeMemStream
   %650 = getelementptr inbounds nuw ptr, ptr %649, i64 %629
   %651 = load ptr, ptr %650, align 8
   %.not132 = icmp eq ptr %651, %631
-  br i1 %.not132, label %652, label %.thread243
+  br i1 %.not132, label %652, label %.thread305
 
 652:                                              ; preds = %647, %.lr.ph211
   %.0109 = phi ptr [ %651, %647 ], [ null, %.lr.ph211 ]
@@ -5745,7 +5745,7 @@ _ZN14MergeMemStream14next_non_emptyEv.exit:       ; preds = %_ZN14MergeMemStream
   %exitcond237.not = icmp eq i64 %indvars.iv.next235, %wide.trip.count236
   br i1 %exitcond237.not, label %._crit_edge212, label %.lr.ph211, !llvm.loop !21
 
-.thread243:                                       ; preds = %647
+.thread305:                                       ; preds = %647
   %654 = load ptr, ptr %617, align 8
   %655 = getelementptr inbounds nuw i8, ptr %651, i64 40
   %656 = load i32, ptr %655, align 8
@@ -5761,16 +5761,16 @@ _ZN14MergeMemStream14next_non_emptyEv.exit:       ; preds = %_ZN14MergeMemStream
   %666 = call noundef ptr %665(ptr noundef nonnull align 8 dereferenceable(20) %662) #8
   %667 = getelementptr inbounds nuw ptr, ptr %604, i64 %indvars.iv234
   store ptr %651, ptr %667, align 8
-  %indvars.iv.next235247 = add nuw nsw i64 %indvars.iv234, 1
-  %exitcond237.not248 = icmp eq i64 %indvars.iv.next235247, %wide.trip.count236
-  br i1 %exitcond237.not248, label %.lr.ph217, label %.lr.ph211.outer, !llvm.loop !21
+  %indvars.iv.next235309 = add nuw nsw i64 %indvars.iv234, 1
+  %exitcond237.not310 = icmp eq i64 %indvars.iv.next235309, %wide.trip.count236
+  br i1 %exitcond237.not310, label %.lr.ph217, label %.lr.ph211.outer, !llvm.loop !21
 
 ._crit_edge212:                                   ; preds = %652
   br i1 %.0114208.ph, label %.lr.ph217, label %_ZN4Node7set_reqEjPS_.exit181
 
-.lr.ph217:                                        ; preds = %.thread243, %._crit_edge212
-  %.1117249253 = phi ptr [ %.0116207.ph, %._crit_edge212 ], [ %666, %.thread243 ]
-  %668 = call noundef ptr @_ZN7PhiNode4makeEP4NodeS1_PK4TypePK7TypePtr(ptr noundef %.0.i.i.i143, ptr noundef %631, ptr noundef %.1117249253, ptr noundef null) #8
+.lr.ph217:                                        ; preds = %.thread305, %._crit_edge212
+  %.1117311315 = phi ptr [ %.0116207.ph, %._crit_edge212 ], [ %666, %.thread305 ]
+  %668 = call noundef ptr @_ZN7PhiNode4makeEP4NodeS1_PK4TypePK7TypePtr(ptr noundef %.0.i.i.i143, ptr noundef %631, ptr noundef %.1117311315, ptr noundef null) #8
   %669 = getelementptr inbounds nuw i8, ptr %668, i64 8
   br label %670
 
@@ -5928,7 +5928,7 @@ _ZN4Node7del_outEPS_.exit.i177:                   ; preds = %728, %716, %._crit_
   br label %_ZN4Node7set_reqEjPS_.exit181
 
 _ZN4Node7set_reqEjPS_.exit181:                    ; preds = %627, %744, %733, %_ZN4Node7del_outEPS_.exit.i177, %._crit_edge212
-  %750 = add i32 %.1120, 1
+  %750 = add nuw i32 %.1120, 1
   %751 = icmp ult i32 %750, %614
   br i1 %751, label %619, label %._crit_edge221, !llvm.loop !23
 

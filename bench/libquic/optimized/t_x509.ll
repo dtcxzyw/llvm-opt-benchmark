@@ -728,12 +728,12 @@ define hidden range(i32 0, 2) i32 @ASN1_STRING_print(ptr noundef %0, ptr noundef
 switch.early.test:                                ; preds = %14
   %switch.selectcmp = icmp eq i8 %.fr, 10
   %switch.select = select i1 %switch.selectcmp, i8 10, i8 46
-  %switch.selectcmp39 = icmp eq i8 %.fr, 13
-  %switch.select40 = select i1 %switch.selectcmp39, i8 13, i8 %switch.select
+  %switch.selectcmp41 = icmp eq i8 %.fr, 13
+  %switch.select42 = select i1 %switch.selectcmp41, i8 13, i8 %switch.select
   br label %16
 
 16:                                               ; preds = %14, %.lr.ph, %switch.early.test
-  %.fr.sink = phi i8 [ %switch.select40, %switch.early.test ], [ 46, %.lr.ph ], [ %.fr, %14 ]
+  %.fr.sink = phi i8 [ %switch.select42, %switch.early.test ], [ 46, %.lr.ph ], [ %.fr, %14 ]
   %17 = sext i32 %.02434 to i64
   %18 = getelementptr inbounds [80 x i8], ptr %3, i64 0, i64 %17
   store i8 %.fr.sink, ptr %18, align 1, !tbaa !35
@@ -1038,21 +1038,21 @@ define hidden range(i32 0, 2) i32 @ASN1_GENERALIZEDTIME_print(ptr noundef %0, pt
   %94 = load i8, ptr %93, align 1, !tbaa !35
   %95 = add i8 %94, -48
   %or.cond73 = icmp ult i8 %95, 10
-  br i1 %or.cond73, label %96, label %.critedge.loopexit.split.loop.exit84
+  br i1 %or.cond73, label %96, label %.critedge.loopexit.split.loop.exit86
 
 96:                                               ; preds = %.lr.ph
   %indvars.iv.next81 = add nuw nsw i64 %indvars.iv80, 1
   %exitcond83.not = icmp eq i64 %indvars.iv.next81, %wide.trip.count
   br i1 %exitcond83.not, label %.critedge, label %.lr.ph, !llvm.loop !66
 
-.critedge.loopexit.split.loop.exit84:             ; preds = %.lr.ph
+.critedge.loopexit.split.loop.exit86:             ; preds = %.lr.ph
   %97 = trunc nuw nsw i64 %indvars.iv80 to i32
   br label %.critedge
 
-.critedge:                                        ; preds = %96, %.critedge.loopexit.split.loop.exit84, %.preheader, %82, %87, %78, %74, %45
-  %.057 = phi i32 [ %86, %87 ], [ %86, %82 ], [ 0, %78 ], [ 0, %74 ], [ 0, %45 ], [ %86, %.preheader ], [ %86, %.critedge.loopexit.split.loop.exit84 ], [ %86, %96 ]
-  %.056 = phi ptr [ null, %87 ], [ null, %82 ], [ null, %78 ], [ null, %74 ], [ null, %45 ], [ %88, %.preheader ], [ %88, %.critedge.loopexit.split.loop.exit84 ], [ %88, %96 ]
-  %.055 = phi i32 [ 0, %87 ], [ 0, %82 ], [ 0, %78 ], [ 0, %74 ], [ 0, %45 ], [ 1, %.preheader ], [ %97, %.critedge.loopexit.split.loop.exit84 ], [ %92, %96 ]
+.critedge:                                        ; preds = %96, %.critedge.loopexit.split.loop.exit86, %.preheader, %82, %87, %78, %74, %45
+  %.057 = phi i32 [ %86, %87 ], [ %86, %82 ], [ 0, %78 ], [ 0, %74 ], [ 0, %45 ], [ %86, %.preheader ], [ %86, %.critedge.loopexit.split.loop.exit86 ], [ %86, %96 ]
+  %.056 = phi ptr [ null, %87 ], [ null, %82 ], [ null, %78 ], [ null, %74 ], [ null, %45 ], [ %88, %.preheader ], [ %88, %.critedge.loopexit.split.loop.exit86 ], [ %88, %96 ]
+  %.055 = phi i32 [ 0, %87 ], [ 0, %82 ], [ 0, %78 ], [ 0, %74 ], [ 0, %45 ], [ 1, %.preheader ], [ %97, %.critedge.loopexit.split.loop.exit86 ], [ %92, %96 ]
   %98 = add nsw i32 %43, -529
   %99 = zext nneg i32 %98 to i64
   %100 = getelementptr inbounds nuw [12 x ptr], ptr @mon, i64 0, i64 %99
@@ -1088,7 +1088,7 @@ define hidden range(i32 0, 2) i32 @X509_NAME_print(ptr noundef %0, ptr noundef %
   br label %9
 
 9:                                                ; preds = %thread-pre-split.thread, %7
-  %.033 = phi ptr [ %8, %7 ], [ %.13446, %thread-pre-split.thread ]
+  %.033 = phi ptr [ %8, %7 ], [ %.13448, %thread-pre-split.thread ]
   %.032 = phi ptr [ %8, %7 ], [ %37, %thread-pre-split.thread ]
   %10 = load i8, ptr %.032, align 1, !tbaa !35
   switch i8 %10, label %thread-pre-split.thread [
@@ -1146,7 +1146,7 @@ thread-pre-split:                                 ; preds = %34
   br i1 %36, label %.sink.split, label %thread-pre-split.thread
 
 thread-pre-split.thread:                          ; preds = %11, %19, %21, %9, %thread-pre-split
-  %.13446 = phi ptr [ %32, %thread-pre-split ], [ %.033, %9 ], [ %.033, %21 ], [ %.033, %19 ], [ %.033, %11 ]
+  %.13448 = phi ptr [ %32, %thread-pre-split ], [ %.033, %9 ], [ %.033, %21 ], [ %.033, %19 ], [ %.033, %11 ]
   %37 = getelementptr inbounds nuw i8, ptr %.032, i64 1
   br label %9
 

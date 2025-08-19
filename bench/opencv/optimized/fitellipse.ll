@@ -2563,8 +2563,8 @@ define linkonce_odr hidden void @_ZN6canvas7stretchEN2cv6Point_IfEES2_(ptr nound
   br i1 %71, label %.sink.split, label %76
 
 .sink.split:                                      ; preds = %68, %52
-  %.sink35 = phi i32 [ %66, %52 ], [ %70, %68 ]
-  %72 = sitofp i32 %.sink35 to double
+  %.sink41 = phi i32 [ %66, %52 ], [ %70, %68 ]
+  %72 = sitofp i32 %.sink41 to double
   %73 = fmul double %58, %72
   %74 = sitofp i32 %64 to double
   %75 = fdiv double %73, %74
@@ -2580,25 +2580,25 @@ define linkonce_odr hidden void @_ZN6canvas7stretchEN2cv6Point_IfEES2_(ptr nound
   %82 = fmul double %77, %81
   %83 = fptosi double %82 to i32
   %84 = icmp sgt i32 %66, %83
-  br i1 %84, label %.sink.split36, label %85
+  br i1 %84, label %.sink.split42, label %85
 
 85:                                               ; preds = %76
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %87 = load i32, ptr %86, align 8, !tbaa !75
   %88 = icmp slt i32 %87, %83
-  br i1 %88, label %.sink.split36, label %93
+  br i1 %88, label %.sink.split42, label %93
 
-.sink.split36:                                    ; preds = %85, %76
-  %.sink39 = phi i32 [ %66, %76 ], [ %87, %85 ]
-  %89 = sitofp i32 %.sink39 to double
+.sink.split42:                                    ; preds = %85, %76
+  %.sink45 = phi i32 [ %66, %76 ], [ %87, %85 ]
+  %89 = sitofp i32 %.sink45 to double
   %90 = fmul double %77, %89
   %91 = sitofp i32 %83 to double
   %92 = fdiv double %90, %91
   store double %92, ptr %57, align 8, !tbaa !76
   br label %93
 
-93:                                               ; preds = %.sink.split36, %85
-  %94 = phi double [ %77, %85 ], [ %92, %.sink.split36 ]
+93:                                               ; preds = %.sink.split42, %85
+  %94 = phi double [ %77, %85 ], [ %92, %.sink.split42 ]
   %95 = fmul double %62, %94
   %96 = fptosi double %95 to i32
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 44

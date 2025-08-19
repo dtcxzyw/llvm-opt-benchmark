@@ -204,9 +204,9 @@ switch.lookup:                                    ; preds = %.fold.split.i
 
 48:                                               ; preds = %43
   %.not.i21 = icmp eq i64 %3, 0
-  br i1 %.not.i21, label %._crit_edge.thread.i, label %.thread96.i
+  br i1 %.not.i21, label %._crit_edge.thread.i, label %.thread102.i
 
-.thread96.i:                                      ; preds = %48
+.thread102.i:                                     ; preds = %48
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %7, ptr align 1 %2, i64 %3, i1 false)
   br label %.lr.ph.preheader.i
 
@@ -215,8 +215,8 @@ switch.lookup:                                    ; preds = %.fold.split.i
   %.not90.i = icmp eq i64 %.pre.i, 0
   br i1 %.not90.i, label %._crit_edge.thread.i, label %.lr.ph.preheader.i
 
-.lr.ph.preheader.i:                               ; preds = %49, %.thread96.i
-  %50 = phi i64 [ %3, %.thread96.i ], [ %.pre.i, %49 ]
+.lr.ph.preheader.i:                               ; preds = %49, %.thread102.i
+  %50 = phi i64 [ %3, %.thread102.i ], [ %.pre.i, %49 ]
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i

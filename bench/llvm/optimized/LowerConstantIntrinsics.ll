@@ -512,9 +512,9 @@ _ZN4llvm15SmallVectorImplINS_6WeakVHEE7reserveEm.exit.i.i.i: ; preds = %_ZL24low
   br i1 %.not9.i.i.i.i.i.i.i, label %_ZN4llvm11SmallVectorINS_6WeakVHELj8EEC2IPKPNS_11InstructionEvEET_S8_.exit.i, label %.lr.ph.i.i.i.i.preheader.i.i.i
 
 .lr.ph.i.i.i.i.preheader.i.i.i:                   ; preds = %_ZN4llvm15SmallVectorImplINS_6WeakVHEE7reserveEm.exit.i.i.i, %_ZN4llvm15SmallVectorImplINS_6WeakVHEE7reserveEm.exit.i.i.thread.i
-  %.pre-phi.i.i71.i = phi i64 [ %.pre9.i.i.i, %_ZN4llvm15SmallVectorImplINS_6WeakVHEE7reserveEm.exit.i.i.thread.i ], [ 0, %_ZN4llvm15SmallVectorImplINS_6WeakVHEE7reserveEm.exit.i.i.i ]
-  %.pre6370.i = phi ptr [ %.pre63.pre.i, %_ZN4llvm15SmallVectorImplINS_6WeakVHEE7reserveEm.exit.i.i.thread.i ], [ %56, %_ZN4llvm15SmallVectorImplINS_6WeakVHEE7reserveEm.exit.i.i.i ]
-  %169 = getelementptr inbounds nuw %"class.llvm::WeakVH", ptr %.pre6370.i, i64 %.pre-phi.i.i71.i
+  %.pre-phi.i.i89.i = phi i64 [ %.pre9.i.i.i, %_ZN4llvm15SmallVectorImplINS_6WeakVHEE7reserveEm.exit.i.i.thread.i ], [ 0, %_ZN4llvm15SmallVectorImplINS_6WeakVHEE7reserveEm.exit.i.i.i ]
+  %.pre6388.i = phi ptr [ %.pre63.pre.i, %_ZN4llvm15SmallVectorImplINS_6WeakVHEE7reserveEm.exit.i.i.thread.i ], [ %56, %_ZN4llvm15SmallVectorImplINS_6WeakVHEE7reserveEm.exit.i.i.i ]
+  %169 = getelementptr inbounds nuw %"class.llvm::WeakVH", ptr %.pre6388.i, i64 %.pre-phi.i.i89.i
   br label %.lr.ph.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %_ZSt10_ConstructIN4llvm6WeakVHEJRKPNS0_11InstructionEEEvPT_DpOT0_.exit.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.preheader.i.i.i
@@ -596,7 +596,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_6WeakVHELb0EE13destroy_rangeEPS1_S3_.exit.l
   br label %_ZN4llvm23SmallVectorTemplateBaseINS_6WeakVHELb0EE13destroy_rangeEPS1_S3_.exit.i.i
 
 _ZN4llvm23SmallVectorTemplateBaseINS_6WeakVHELb0EE13destroy_rangeEPS1_S3_.exit.i.i: ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_6WeakVHELb0EE13destroy_rangeEPS1_S3_.exit.loopexit.i.i, %._crit_edge.i, %_ZN4llvm11SmallVectorINS_6WeakVHELj8EEC2IPKPNS_11InstructionEvEET_S8_.exit.i
-  %.0.lcssa74.i = phi i1 [ %.1.i56, %_ZN4llvm23SmallVectorTemplateBaseINS_6WeakVHELb0EE13destroy_rangeEPS1_S3_.exit.loopexit.i.i ], [ %.1.i56, %._crit_edge.i ], [ false, %_ZN4llvm11SmallVectorINS_6WeakVHELj8EEC2IPKPNS_11InstructionEvEET_S8_.exit.i ]
+  %.0.lcssa92.i = phi i1 [ %.1.i56, %_ZN4llvm23SmallVectorTemplateBaseINS_6WeakVHELb0EE13destroy_rangeEPS1_S3_.exit.loopexit.i.i ], [ %.1.i56, %._crit_edge.i ], [ false, %_ZN4llvm11SmallVectorINS_6WeakVHELj8EEC2IPKPNS_11InstructionEvEET_S8_.exit.i ]
   %187 = phi ptr [ %.pre.i.i, %_ZN4llvm23SmallVectorTemplateBaseINS_6WeakVHELb0EE13destroy_rangeEPS1_S3_.exit.loopexit.i.i ], [ %.pre64.i, %._crit_edge.i ], [ %176, %_ZN4llvm11SmallVectorINS_6WeakVHELj8EEC2IPKPNS_11InstructionEvEET_S8_.exit.i ]
   %188 = icmp eq ptr %187, %56
   br i1 %188, label %_ZN4llvm11SmallVectorINS_6WeakVHELj8EED2Ev.exit.i, label %189
@@ -819,7 +819,7 @@ _ZL36replaceConditionalBranchesOnConstantPN4llvm11InstructionEPNS_5ValueEPNS_14D
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  %272 = or i1 %.03787, %.0.lcssa74.i
+  %272 = or i1 %.03787, %.0.lcssa92.i
   br label %_ZN4llvm8dyn_castINS_13IntrinsicInstENS_5ValueEEEDcPT0_.exit.thread
 
 _ZN4llvm8dyn_castINS_13IntrinsicInstENS_5ValueEEEDcPT0_.exit.thread: ; preds = %_ZN4llvm14CastIsPossibleINS_13IntrinsicInstEPNS_5ValueEvE10isPossibleERKS3_.exit.i.i, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i.i.i.i.i.i.i.i52, %123, %126, %120, %_ZN4llvm8dyn_castINS_13IntrinsicInstENS_5ValueEEEDcPT0_.exit, %_ZL36replaceConditionalBranchesOnConstantPN4llvm11InstructionEPNS_5ValueEPNS_14DomTreeUpdaterE.exit, %117

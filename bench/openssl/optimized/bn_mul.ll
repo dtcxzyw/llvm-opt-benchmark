@@ -629,7 +629,7 @@ define void @bn_mul_part_recursive(ptr noundef %0, ptr noundef %1, ptr noundef %
 
 .preheader275:                                    ; preds = %90, %99
   %.0258 = phi i32 [ %95, %99 ], [ %64, %90 ]
-  %95 = lshr i32 %.0258, 1
+  %95 = sdiv i32 %.0258, 2
   %or.cond270 = icmp slt i32 %95, %.
   br i1 %or.cond270, label %96, label %99
 

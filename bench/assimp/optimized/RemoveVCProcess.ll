@@ -440,7 +440,7 @@ _Z11ArrayDeleteI6aiMeshEvRPPT_Rj.exit:            ; preds = %._crit_edge.i69, %1
   br i1 %.not44, label %.loopexit.thread, label %162
 
 .loopexit.thread:                                 ; preds = %.preheader, %_Z11ArrayDeleteI6aiMeshEvRPPT_Rj.exit, %151, %.loopexit
-  %.588 = phi i1 [ %spec.select, %151 ], [ %spec.select, %.loopexit ], [ %.4, %.preheader ], [ true, %_Z11ArrayDeleteI6aiMeshEvRPPT_Rj.exit ]
+  %.5105 = phi i1 [ %spec.select, %151 ], [ %spec.select, %.loopexit ], [ %.4, %.preheader ], [ true, %_Z11ArrayDeleteI6aiMeshEvRPPT_Rj.exit ]
   %154 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %155 = load i32, ptr %1, align 8
   %156 = or i32 %155, 1
@@ -455,11 +455,11 @@ _Z11ArrayDeleteI6aiMeshEvRPPT_Rj.exit:            ; preds = %._crit_edge.i69, %1
   %160 = load i32, ptr %1, align 8
   %161 = and i32 %160, -9
   store i32 %161, ptr %1, align 8
-  br i1 %.588, label %163, label %165
+  br i1 %.5105, label %163, label %165
 
 162:                                              ; preds = %.loopexit.thread, %151
-  %.587 = phi i1 [ %.588, %.loopexit.thread ], [ %spec.select, %151 ]
-  br i1 %.587, label %163, label %165
+  %.5104 = phi i1 [ %.5105, %.loopexit.thread ], [ %spec.select, %151 ]
+  br i1 %.5104, label %163, label %165
 
 163:                                              ; preds = %159, %162
   %164 = call noundef ptr @_ZN6Assimp13DefaultLogger3getEv()

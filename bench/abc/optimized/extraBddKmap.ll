@@ -48,7 +48,7 @@ define void @Extra_PrintKMap(ptr noundef captures(none) %0, ptr noundef %1, ptr 
 23:                                               ; preds = %15
   %24 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2)
   %25 = icmp eq i32 %4, 1
-  br i1 %25, label %.thread557, label %.preheader432.lr.ph
+  br i1 %25, label %.thread577, label %.preheader432.lr.ph
 
 .preheader432.lr.ph:                              ; preds = %23
   %26 = add nsw i32 %4, -2
@@ -115,17 +115,17 @@ define void @Extra_PrintKMap(ptr noundef captures(none) %0, ptr noundef %1, ptr 
   %55 = icmp eq ptr %5, null
   br i1 %55, label %58, label %.lr.ph.preheader
 
-.thread557:                                       ; preds = %23
+.thread577:                                       ; preds = %23
   %56 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.4)
   %putchar418 = tail call i32 @putchar(i32 10)
   %57 = icmp eq ptr %5, null
   br i1 %57, label %58, label %.lr.ph.preheader
 
-.lr.ph.preheader:                                 ; preds = %54, %.thread557
+.lr.ph.preheader:                                 ; preds = %54, %.thread577
   %wide.trip.count = zext nneg i32 %4 to i64
   br label %.lr.ph
 
-58:                                               ; preds = %.thread557, %54
+58:                                               ; preds = %.thread577, %54
   switch i32 %6, label %69 [
     i32 0, label %.lr.ph440.preheader
     i32 1, label %.lr.ph438
@@ -299,7 +299,7 @@ define void @Extra_PrintKMap(ptr noundef captures(none) %0, ptr noundef %1, ptr 
   br label %.preheader423
 
 .preheader425.lr.ph:                              ; preds = %.lr.ph452.split, %.lr.ph452.split.us
-  %fputc340558 = tail call i32 @fputc(i32 10, ptr %0)
+  %fputc340578 = tail call i32 @fputc(i32 10, ptr %0)
   %112 = icmp sgt i32 %.0, -6
   %.not496 = icmp eq i32 %91, 31
   %113 = tail call i32 @llvm.smax.i32(i32 %90, i32 -2)
@@ -470,8 +470,8 @@ define void @Extra_PrintKMap(ptr noundef captures(none) %0, ptr noundef %1, ptr 
   br i1 %or.cond417, label %.sink.split, label %163
 
 .sink.split:                                      ; preds = %162, %161, %158, %.lr.ph473
-  %.sink563 = phi i32 [ 49, %.lr.ph473 ], [ 32, %158 ], [ 45, %161 ], [ 63, %162 ]
-  %fputc387 = tail call i32 @fputc(i32 %.sink563, ptr %0)
+  %.sink583 = phi i32 [ 49, %.lr.ph473 ], [ 32, %158 ], [ 45, %161 ], [ 63, %162 ]
+  %fputc387 = tail call i32 @fputc(i32 %.sink583, ptr %0)
   br label %163
 
 163:                                              ; preds = %.sink.split, %162
@@ -706,7 +706,7 @@ define void @Extra_PrintKMapRelation(ptr noundef captures(none) %0, ptr noundef 
   br label %.preheader320
 
 .preheader322.lr.ph:                              ; preds = %.lr.ph326
-  %fputc241400 = tail call i32 @fputc(i32 10, ptr %0)
+  %fputc241414 = tail call i32 @fputc(i32 10, ptr %0)
   %41 = icmp sgt i32 %4, -3
   %.not370 = icmp eq i32 %5, 31
   %42 = add i32 %4, 2
@@ -874,8 +874,8 @@ define void @Extra_PrintKMapRelation(ptr noundef captures(none) %0, ptr noundef 
   br i1 %or.cond317, label %.sink.split, label %87
 
 .sink.split:                                      ; preds = %86, %85, %82, %.lr.ph347
-  %.sink401 = phi i32 [ 49, %.lr.ph347 ], [ 32, %82 ], [ 45, %85 ], [ 63, %86 ]
-  %fputc288 = tail call i32 @fputc(i32 %.sink401, ptr %0)
+  %.sink415 = phi i32 [ 49, %.lr.ph347 ], [ 32, %82 ], [ 45, %85 ], [ 63, %86 ]
+  %fputc288 = tail call i32 @fputc(i32 %.sink415, ptr %0)
   br label %87
 
 87:                                               ; preds = %.sink.split, %86

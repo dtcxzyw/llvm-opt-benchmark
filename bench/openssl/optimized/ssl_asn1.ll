@@ -720,9 +720,9 @@ define ptr @d2i_SSL_SESSION_ex(ptr noundef captures(address_is_null) %0, ptr nou
   br label %171
 
 171:                                              ; preds = %161, %166
-  %.sink181 = phi i32 [ %170, %166 ], [ 0, %161 ]
+  %.sink198 = phi i32 [ %170, %166 ], [ 0, %161 ]
   %172 = getelementptr inbounds nuw i8, ptr %.1, i64 752
-  store i32 %.sink181, ptr %172, align 8, !tbaa !39
+  store i32 %.sink198, ptr %172, align 8, !tbaa !39
   %173 = getelementptr inbounds nuw i8, ptr %.1, i64 864
   %174 = getelementptr inbounds nuw i8, ptr %9, i64 136
   %175 = load ptr, ptr %174, align 8, !tbaa !83
@@ -807,11 +807,11 @@ define ptr @d2i_SSL_SESSION_ex(ptr noundef captures(address_is_null) %0, ptr nou
   br label %221
 
 ssl_session_memcpy.exit161.sink.split:            ; preds = %164, %26, %25, %19
-  %.sink184 = phi i32 [ 286, %19 ], [ 293, %25 ], [ 302, %26 ], [ 382, %164 ]
-  %.sink183 = phi i32 [ 254, %19 ], [ 259, %25 ], [ 137, %26 ], [ 271, %164 ]
+  %.sink201 = phi i32 [ 286, %19 ], [ 293, %25 ], [ 302, %26 ], [ 382, %164 ]
+  %.sink200 = phi i32 [ 254, %19 ], [ 259, %25 ], [ 137, %26 ], [ 271, %164 ]
   call void @ERR_new() #6
-  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink184, ptr noundef nonnull @__func__.d2i_SSL_SESSION_ex) #6
-  call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef %.sink183, ptr noundef null) #6
+  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink201, ptr noundef nonnull @__func__.d2i_SSL_SESSION_ex) #6
+  call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef %.sink200, ptr noundef null) #6
   br label %ssl_session_memcpy.exit161
 
 ssl_session_memcpy.exit161:                       ; preds = %ssl_session_memcpy.exit161.sink.split, %118, %58, %73, %102, %171, %139, %134, %125, %33, %16, %5

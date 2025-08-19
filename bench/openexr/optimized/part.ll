@@ -279,8 +279,8 @@ switch.lookup:                                    ; preds = %.loopexit
   %switch.gep = getelementptr inbounds nuw [4 x i32], ptr @switch.table.exr_add_part, i64 0, i64 %69
   %switch.load = load i32, ptr %switch.gep, align 4
   %70 = zext nneg i32 %2 to i64
-  %switch.gep155 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table.exr_add_part.1, i64 0, i64 %70
-  %switch.load156 = load ptr, ptr %switch.gep155, align 8
+  %switch.gep166 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table.exr_add_part.1, i64 0, i64 %70
+  %switch.load167 = load ptr, ptr %switch.gep166, align 8
   %71 = getelementptr inbounds nuw i8, ptr %61, i64 8
   %72 = getelementptr inbounds nuw i8, ptr %61, i64 112
   %73 = call i32 @exr_attr_list_add_static_name(ptr noundef nonnull %0, ptr noundef nonnull %71, ptr noundef nonnull @.str.10, i32 noundef 19, i32 noundef 0, ptr noundef null, ptr noundef nonnull %72) #6
@@ -298,7 +298,7 @@ switch.lookup:                                    ; preds = %.loopexit
   %79 = load ptr, ptr %78, align 8, !tbaa !34
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 24
   %81 = load ptr, ptr %80, align 8, !tbaa !30
-  %82 = call i32 @exr_attr_string_init_static_with_length(ptr noundef nonnull %0, ptr noundef %81, ptr noundef nonnull %switch.load156, i32 noundef %switch.load) #6
+  %82 = call i32 @exr_attr_string_init_static_with_length(ptr noundef nonnull %0, ptr noundef %81, ptr noundef nonnull %switch.load167, i32 noundef %switch.load) #6
   %.not123 = icmp eq i32 %82, 0
   br i1 %.not123, label %85, label %83
 

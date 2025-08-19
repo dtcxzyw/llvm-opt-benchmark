@@ -344,9 +344,9 @@ HIDAPI_DriverLg4ff_SetAutoCenter.exit:            ; preds = %24, %30
   br label %41
 
 41:                                               ; preds = %37, %40
-  %.sink22 = phi i8 [ 0, %40 ], [ 1, %37 ]
+  %.sink23 = phi i8 [ 0, %40 ], [ 1, %37 ]
   %42 = getelementptr inbounds nuw i8, ptr %3, i64 33
-  store i8 %.sink22, ptr %42, align 1
+  store i8 %.sink23, ptr %42, align 1
   %43 = getelementptr inbounds nuw i8, ptr %3, i64 34
   store i16 900, ptr %43, align 2
   %44 = call zeroext i1 @HIDAPI_JoystickConnected(ptr noundef nonnull %0, ptr noundef null) #8
@@ -595,10 +595,10 @@ HIDAPI_DriverLg4ff_GetNumberOfButtons.exit.i:     ; preds = %61, %60, %59, %58, 
   %.3212.i = phi i1 [ %.4.i, %120 ], [ %.1.i, %.thread208.i ]
   %.0165211.i = phi i32 [ %121, %120 ], [ 0, %.thread208.i ]
   %103 = add nuw nsw i32 %.0165211.i, %.0162210.i
-  %.udiv214.i = lshr i32 %103, 3
+  %.udiv233.i = lshr i32 %103, 3
   %104 = and i32 %103, 7
   %105 = shl nuw nsw i32 1, %104
-  %106 = zext nneg i32 %.udiv214.i to i64
+  %106 = zext nneg i32 %.udiv233.i to i64
   %107 = getelementptr inbounds nuw i8, ptr %4, i64 %106
   %108 = load i8, ptr %107, align 1
   %109 = zext i8 %108 to i32
@@ -922,9 +922,9 @@ lg4ff_adjust_dfp_x_axis.exit.i:                   ; preds = %249, %247, %240, %2
   br label %HIDAPI_DriverLg4ff_HandleState.exit.thread
 
 HIDAPI_DriverLg4ff_HandleState.exit.thread:       ; preds = %144, %184, %216, %262, %294
-  %.sink218.i = phi i8 [ %295, %294 ], [ %145, %144 ], [ %185, %184 ], [ %217, %216 ], [ %263, %262 ]
+  %.sink237.i = phi i8 [ %295, %294 ], [ %145, %144 ], [ %185, %184 ], [ %217, %216 ], [ %263, %262 ]
   %.sink.i = phi i8 [ 3, %294 ], [ 1, %144 ], [ 1, %184 ], [ 2, %216 ], [ 2, %262 ]
-  %296 = zext i8 %.sink218.i to i16
+  %296 = zext i8 %.sink237.i to i16
   %297 = mul nuw i16 %296, 257
   %298 = xor i16 %297, -32768
   call void @SDL_SendJoystickAxis(i64 noundef %62, ptr noundef nonnull %14, i8 noundef zeroext %.sink.i, i16 noundef signext %298) #8

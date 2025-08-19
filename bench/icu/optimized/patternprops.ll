@@ -235,12 +235,12 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit:         ; preds = %_ZNK6icu_7713Unicod
 29:                                               ; preds = %_ZNK6icu_7713UnicodeString6charAtEi.exit
   %30 = add i16 %21, -8206
   %or.cond.i = icmp ult i16 %30, 28
-  br i1 %or.cond.i, label %_ZN6icu_7712PatternProps12isWhiteSpaceEi.exit, label %.critedge.loopexit.split.loop.exit17
+  br i1 %or.cond.i, label %_ZN6icu_7712PatternProps12isWhiteSpaceEi.exit, label %.critedge.loopexit.split.loop.exit19
 
 _ZN6icu_7712PatternProps12isWhiteSpaceEi.exit:    ; preds = %29
   %31 = add nsw i16 %21, -8208
   %32 = icmp ult i16 %31, 24
-  br i1 %32, label %.critedge.loopexit.split.loop.exit21, label %33
+  br i1 %32, label %.critedge.loopexit.split.loop.exit23, label %33
 
 33:                                               ; preds = %23, %_ZN6icu_7712PatternProps12isWhiteSpaceEi.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -254,16 +254,16 @@ _ZN6icu_7712PatternProps12isWhiteSpaceEi.exit:    ; preds = %29
   %37 = trunc nsw i64 %indvars.iv to i32
   br label %.critedge
 
-.critedge.loopexit.split.loop.exit17:             ; preds = %29
+.critedge.loopexit.split.loop.exit19:             ; preds = %29
   %38 = trunc nsw i64 %indvars.iv to i32
   br label %.critedge
 
-.critedge.loopexit.split.loop.exit21:             ; preds = %_ZN6icu_7712PatternProps12isWhiteSpaceEi.exit
+.critedge.loopexit.split.loop.exit23:             ; preds = %_ZN6icu_7712PatternProps12isWhiteSpaceEi.exit
   %39 = trunc nsw i64 %indvars.iv to i32
   br label %.critedge
 
-.critedge:                                        ; preds = %33, %.critedge.loopexit.split.loop.exit, %.critedge.loopexit.split.loop.exit17, %.critedge.loopexit.split.loop.exit21, %2
-  %.0.lcssa = phi i32 [ %1, %2 ], [ %37, %.critedge.loopexit.split.loop.exit ], [ %38, %.critedge.loopexit.split.loop.exit17 ], [ %39, %.critedge.loopexit.split.loop.exit21 ], [ %10, %33 ]
+.critedge:                                        ; preds = %33, %.critedge.loopexit.split.loop.exit, %.critedge.loopexit.split.loop.exit19, %.critedge.loopexit.split.loop.exit23, %2
+  %.0.lcssa = phi i32 [ %1, %2 ], [ %37, %.critedge.loopexit.split.loop.exit ], [ %38, %.critedge.loopexit.split.loop.exit19 ], [ %39, %.critedge.loopexit.split.loop.exit23 ], [ %10, %33 ]
   ret i32 %.0.lcssa
 }
 
@@ -315,8 +315,8 @@ _ZN6icu_7712PatternProps12isWhiteSpaceEi.exit.thread: ; preds = %8, %14
   %or.cond.i29 = icmp ult i16 %30, -28
   %31 = add nsw i16 %21, -8208
   %32 = icmp ult i16 %31, 24
-  %or.cond61 = select i1 %or.cond.i29, i1 true, i1 %32
-  br i1 %or.cond61, label %_ZN6icu_7712PatternProps12isWhiteSpaceEi.exit31.thread, label %.lr.ph.preheader
+  %or.cond69 = select i1 %or.cond.i29, i1 true, i1 %32
+  br i1 %or.cond69, label %_ZN6icu_7712PatternProps12isWhiteSpaceEi.exit31.thread, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %29, %14, %8, %23
   %33 = zext nneg i32 %3 to i64
@@ -342,8 +342,8 @@ _ZN6icu_7712PatternProps12isWhiteSpaceEi.exit.thread: ; preds = %8, %14
   %or.cond.i32 = icmp ult i16 %44, -28
   %45 = add nsw i16 %35, -8208
   %46 = icmp ult i16 %45, 24
-  %or.cond63 = select i1 %or.cond.i32, i1 true, i1 %46
-  br i1 %or.cond63, label %.critedge, label %47
+  %or.cond71 = select i1 %or.cond.i32, i1 true, i1 %46
+  br i1 %or.cond71, label %.critedge, label %47
 
 47:                                               ; preds = %43, %37
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -376,8 +376,8 @@ _ZN6icu_7712PatternProps12isWhiteSpaceEi.exit.thread: ; preds = %8, %14
   %or.cond.i35 = icmp ult i16 %62, -28
   %63 = add nsw i16 %53, -8208
   %64 = icmp ult i16 %63, 24
-  %or.cond65 = select i1 %or.cond.i35, i1 true, i1 %64
-  br i1 %or.cond65, label %.critedge28.loopexit, label %65
+  %or.cond73 = select i1 %or.cond.i35, i1 true, i1 %64
+  br i1 %or.cond73, label %.critedge28.loopexit, label %65
 
 65:                                               ; preds = %61, %55
   %indvars.iv.next54 = add nsw i64 %indvars.iv53, -1

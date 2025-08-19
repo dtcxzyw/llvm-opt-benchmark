@@ -665,13 +665,13 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev24RangeScaleMinMaxRendererELN9__gnu_cx
   br label %102
 
 61:                                               ; preds = %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev24RangeScaleMinMaxRendererELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev19RangeMinMaxRendererELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev16RangeMinRendererELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev16RangeMaxRendererELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
-  %.sink56 = phi ptr [ %56, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev24RangeScaleMinMaxRendererELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %50, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev19RangeMinMaxRendererELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %41, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev16RangeMinRendererELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %32, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev16RangeMaxRendererELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ]
-  %.sink34 = phi ptr [ getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev24RangeScaleMinMaxRendererE, i64 16), %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev24RangeScaleMinMaxRendererELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev19RangeMinMaxRendererE, i64 16), %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev19RangeMinMaxRendererELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev16RangeMinRendererE, i64 16), %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev16RangeMinRendererELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev16RangeMaxRendererE, i64 16), %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev16RangeMaxRendererELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ]
-  %62 = getelementptr inbounds nuw i8, ptr %.sink56, i64 16
-  %63 = getelementptr inbounds nuw i8, ptr %.sink56, i64 24
-  %64 = getelementptr inbounds nuw i8, ptr %.sink56, i64 28
-  %65 = getelementptr inbounds nuw i8, ptr %.sink56, i64 32
-  %66 = getelementptr inbounds nuw i8, ptr %.sink56, i64 36
+  %.sink57 = phi ptr [ %56, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev24RangeScaleMinMaxRendererELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %50, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev19RangeMinMaxRendererELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %41, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev16RangeMinRendererELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ %32, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev16RangeMaxRendererELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ]
+  %.sink35 = phi ptr [ getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev24RangeScaleMinMaxRendererE, i64 16), %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev24RangeScaleMinMaxRendererELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev19RangeMinMaxRendererE, i64 16), %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev19RangeMinMaxRendererELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev16RangeMinRendererE, i64 16), %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev16RangeMinRendererELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev16RangeMaxRendererE, i64 16), %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev16RangeMaxRendererELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ]
+  %62 = getelementptr inbounds nuw i8, ptr %.sink57, i64 16
+  %63 = getelementptr inbounds nuw i8, ptr %.sink57, i64 24
+  %64 = getelementptr inbounds nuw i8, ptr %.sink57, i64 28
+  %65 = getelementptr inbounds nuw i8, ptr %.sink57, i64 32
+  %66 = getelementptr inbounds nuw i8, ptr %.sink57, i64 36
   %67 = getelementptr inbounds nuw i8, ptr %28, i64 200
   %68 = load double, ptr %67, align 8, !tbaa !13, !noalias !73
   %69 = fptrunc double %68 to float
@@ -688,10 +688,10 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev24RangeScaleMinMaxRendererELN9__gnu_cx
   %77 = load double, ptr %76, align 8, !tbaa !45, !noalias !73
   %78 = fptrunc double %77 to float
   store float %78, ptr %66, align 4, !tbaa !46, !noalias !73
-  store ptr %.sink34, ptr %62, align 8, !tbaa !3, !noalias !73
+  store ptr %.sink35, ptr %62, align 8, !tbaa !3, !noalias !73
   store ptr %62, ptr %0, align 8, !tbaa !74
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sink56, ptr %79, align 8, !tbaa !53
+  store ptr %.sink57, ptr %79, align 8, !tbaa !53
   %80 = load ptr, ptr %5, align 8, !tbaa !53
   %.not.i.i18 = icmp eq ptr %80, null
   br i1 %.not.i.i18, label %_ZNSt12__shared_ptrIKN19OpenColorIO_v2_5dev11RangeOpDataELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %81

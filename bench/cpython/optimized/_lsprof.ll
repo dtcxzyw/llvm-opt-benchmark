@@ -1803,10 +1803,10 @@ define internal fastcc void @Stop(ptr noundef captures(none) %0, ptr noundef non
   store i64 %20, ptr %18, align 8, !tbaa !93
   %21 = icmp eq i64 %20, 0
   %. = select i1 %21, i64 32, i64 56
-  %.42 = select i1 %21, i64 %6, i64 1
+  %.43 = select i1 %21, i64 %6, i64 1
   %22 = getelementptr inbounds nuw i8, ptr %2, i64 %.
   %23 = load i64, ptr %22, align 8, !tbaa !94
-  %24 = add i64 %23, %.42
+  %24 = add i64 %23, %.43
   store i64 %24, ptr %22, align 8, !tbaa !94
   %25 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %26 = load i64, ptr %25, align 8, !tbaa !84
@@ -1837,11 +1837,11 @@ define internal fastcc void @Stop(ptr noundef captures(none) %0, ptr noundef non
   %42 = add i64 %41, -1
   store i64 %42, ptr %40, align 8, !tbaa !95
   %43 = icmp eq i64 %42, 0
-  %.43 = select i1 %43, i64 24, i64 48
-  %.44 = select i1 %43, i64 %6, i64 1
-  %44 = getelementptr inbounds nuw i8, ptr %38, i64 %.43
+  %.44 = select i1 %43, i64 24, i64 48
+  %.45 = select i1 %43, i64 %6, i64 1
+  %44 = getelementptr inbounds nuw i8, ptr %38, i64 %.44
   %45 = load i64, ptr %44, align 8, !tbaa !94
-  %46 = add i64 %45, %.44
+  %46 = add i64 %45, %.45
   store i64 %46, ptr %44, align 8, !tbaa !94
   %47 = getelementptr inbounds nuw i8, ptr %38, i64 32
   %48 = load i64, ptr %47, align 8, !tbaa !90

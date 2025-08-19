@@ -33,23 +33,23 @@ define hidden void @SDL_qsort_r_REAL(ptr noundef %0, i64 noundef %1, i64 noundef
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 %18
   %21 = mul i64 %2, 40
   %22 = sub i64 0, %2
-  br label %.outer220
+  br label %.outer235
 
-.outer220:                                        ; preds = %.outer220.backedge, %19
-  %.0241.i.ph = phi ptr [ %20, %19 ], [ %.0241.i.ph.be, %.outer220.backedge ]
-  %.0236.i.ph = phi ptr [ %0, %19 ], [ %.0236.i.ph.be, %.outer220.backedge ]
-  %.0221.i.ph = phi i32 [ 0, %19 ], [ %.0221.i.ph.be, %.outer220.backedge ]
+.outer235:                                        ; preds = %.outer235.backedge, %19
+  %.0241.i.ph = phi ptr [ %20, %19 ], [ %.0241.i.ph.be, %.outer235.backedge ]
+  %.0236.i.ph = phi ptr [ %0, %19 ], [ %.0236.i.ph.be, %.outer235.backedge ]
+  %.0221.i.ph = phi i32 [ 0, %19 ], [ %.0221.i.ph.be, %.outer235.backedge ]
   %23 = ptrtoint ptr %.0241.i.ph to i64
   %24 = getelementptr inbounds i8, ptr %.0241.i.ph, i64 %22
-  br label %.outer221
+  br label %.outer236
 
-.outer221:                                        ; preds = %.outer220, %123
-  %.0236.i.ph222 = phi ptr [ %.0236.i.ph, %.outer220 ], [ %.4.i, %123 ]
-  %.0221.i.ph223 = phi i32 [ %.0221.i.ph, %.outer220 ], [ %126, %123 ]
+.outer236:                                        ; preds = %.outer235, %123
+  %.0236.i.ph237 = phi ptr [ %.0236.i.ph, %.outer235 ], [ %.4.i, %123 ]
+  %.0221.i.ph238 = phi i32 [ %.0221.i.ph, %.outer235 ], [ %126, %123 ]
   br label %25
 
-25:                                               ; preds = %.outer221, %106
-  %.0236.i = phi ptr [ %.4.i, %106 ], [ %.0236.i.ph222, %.outer221 ]
+25:                                               ; preds = %.outer236, %106
+  %.0236.i = phi ptr [ %.4.i, %106 ], [ %.0236.i.ph237, %.outer236 ]
   %26 = ptrtoint ptr %.0236.i to i64
   %27 = sub i64 %23, %26
   %28 = udiv i64 %27, %2
@@ -248,49 +248,49 @@ define hidden void @SDL_qsort_r_REAL(ptr noundef %0, i64 noundef %1, i64 noundef
   br i1 %.not275.i, label %107, label %25
 
 107:                                              ; preds = %106
-  %108 = icmp slt i32 %.0221.i.ph223, 1
+  %108 = icmp slt i32 %.0221.i.ph238, 1
   br i1 %108, label %.thread.i, label %109
 
 109:                                              ; preds = %107
-  %110 = add nsw i32 %.0221.i.ph223, -1
+  %110 = add nsw i32 %.0221.i.ph238, -1
   %111 = zext nneg i32 %110 to i64
   %112 = getelementptr inbounds nuw [64 x %struct.stack_entry], ptr %8, i64 0, i64 %111
   %113 = load ptr, ptr %112, align 16
   %114 = getelementptr inbounds nuw i8, ptr %112, i64 8
   %115 = load ptr, ptr %114, align 8
-  br label %.outer220.backedge
+  br label %.outer235.backedge
 
-.outer220.backedge:                               ; preds = %122, %109, %117
+.outer235.backedge:                               ; preds = %122, %109, %117
   %.0241.i.ph.be = phi ptr [ %.4232.i, %117 ], [ %115, %109 ], [ %.4232.i, %122 ]
   %.0236.i.ph.be = phi ptr [ %.0236.i, %117 ], [ %113, %109 ], [ %.0236.i, %122 ]
-  %.0221.i.ph.be = phi i32 [ %120, %117 ], [ %110, %109 ], [ %.0221.i.ph223, %122 ]
-  br label %.outer220
+  %.0221.i.ph.be = phi i32 [ %120, %117 ], [ %110, %109 ], [ %.0221.i.ph238, %122 ]
+  br label %.outer235
 
 116:                                              ; preds = %.loopexit291.i
   %.not273.i = icmp ugt i64 %102, %104
   br i1 %.not273.i, label %122, label %117
 
 117:                                              ; preds = %116
-  %118 = sext i32 %.0221.i.ph223 to i64
+  %118 = sext i32 %.0221.i.ph238 to i64
   %119 = getelementptr inbounds [64 x %struct.stack_entry], ptr %8, i64 0, i64 %118
   store ptr %.4.i, ptr %119, align 16
-  %120 = add nsw i32 %.0221.i.ph223, 1
+  %120 = add nsw i32 %.0221.i.ph238, 1
   %121 = getelementptr inbounds nuw i8, ptr %119, i64 8
   store ptr %.0241.i.ph, ptr %121, align 8
-  br label %.outer220.backedge
+  br label %.outer235.backedge
 
 122:                                              ; preds = %116
   %.not274.i = icmp ult i64 %104, %16
-  br i1 %.not274.i, label %.outer220.backedge, label %123
+  br i1 %.not274.i, label %.outer235.backedge, label %123
 
 123:                                              ; preds = %122
-  %124 = sext i32 %.0221.i.ph223 to i64
+  %124 = sext i32 %.0221.i.ph238 to i64
   %125 = getelementptr inbounds [64 x %struct.stack_entry], ptr %8, i64 0, i64 %124
   store ptr %.0236.i, ptr %125, align 16
-  %126 = add nsw i32 %.0221.i.ph223, 1
+  %126 = add nsw i32 %.0221.i.ph238, 1
   %127 = getelementptr inbounds nuw i8, ptr %125, i64 8
   store ptr %.4232.i, ptr %127, align 8
-  br label %.outer221
+  br label %.outer236
 
 .thread.i:                                        ; preds = %107, %14
   %128 = tail call i64 @llvm.umin.i64(i64 range(i64 2, 0) %1, i64 12)
@@ -398,23 +398,23 @@ qsort_r_nonaligned.exit:                          ; preds = %._crit_edge315.thre
   %163 = getelementptr inbounds nuw i8, ptr %0, i64 %161
   %164 = mul i64 %2, 40
   %165 = sub i64 0, %2
-  br label %.outer197
+  br label %.outer212
 
-.outer197:                                        ; preds = %.outer197.backedge, %162
-  %.0241.i20.ph = phi ptr [ %163, %162 ], [ %.0241.i20.ph.be, %.outer197.backedge ]
-  %.0236.i21.ph = phi ptr [ %0, %162 ], [ %.0236.i21.ph.be, %.outer197.backedge ]
-  %.0221.i22.ph = phi i32 [ 0, %162 ], [ %.0221.i22.ph.be, %.outer197.backedge ]
+.outer212:                                        ; preds = %.outer212.backedge, %162
+  %.0241.i20.ph = phi ptr [ %163, %162 ], [ %.0241.i20.ph.be, %.outer212.backedge ]
+  %.0236.i21.ph = phi ptr [ %0, %162 ], [ %.0236.i21.ph.be, %.outer212.backedge ]
+  %.0221.i22.ph = phi i32 [ 0, %162 ], [ %.0221.i22.ph.be, %.outer212.backedge ]
   %166 = ptrtoint ptr %.0241.i20.ph to i64
   %167 = getelementptr inbounds i8, ptr %.0241.i20.ph, i64 %165
-  br label %.outer198
+  br label %.outer213
 
-.outer198:                                        ; preds = %.outer197, %266
-  %.0236.i21.ph199 = phi ptr [ %.0236.i21.ph, %.outer197 ], [ %.4.i43, %266 ]
-  %.0221.i22.ph200 = phi i32 [ %.0221.i22.ph, %.outer197 ], [ %269, %266 ]
+.outer213:                                        ; preds = %.outer212, %266
+  %.0236.i21.ph214 = phi ptr [ %.0236.i21.ph, %.outer212 ], [ %.4.i43, %266 ]
+  %.0221.i22.ph215 = phi i32 [ %.0221.i22.ph, %.outer212 ], [ %269, %266 ]
   br label %168
 
-168:                                              ; preds = %.outer198, %249
-  %.0236.i21 = phi ptr [ %.4.i43, %249 ], [ %.0236.i21.ph199, %.outer198 ]
+168:                                              ; preds = %.outer213, %249
+  %.0236.i21 = phi ptr [ %.4.i43, %249 ], [ %.0236.i21.ph214, %.outer213 ]
   %169 = ptrtoint ptr %.0236.i21 to i64
   %170 = sub i64 %166, %169
   %171 = udiv i64 %170, %2
@@ -613,49 +613,49 @@ qsort_r_nonaligned.exit:                          ; preds = %._crit_edge315.thre
   br i1 %.not275.i49, label %250, label %168
 
 250:                                              ; preds = %249
-  %251 = icmp slt i32 %.0221.i22.ph200, 1
+  %251 = icmp slt i32 %.0221.i22.ph215, 1
   br i1 %251, label %.thread.i50, label %252
 
 252:                                              ; preds = %250
-  %253 = add nsw i32 %.0221.i22.ph200, -1
+  %253 = add nsw i32 %.0221.i22.ph215, -1
   %254 = zext nneg i32 %253 to i64
   %255 = getelementptr inbounds nuw [64 x %struct.stack_entry], ptr %7, i64 0, i64 %254
   %256 = load ptr, ptr %255, align 16
   %257 = getelementptr inbounds nuw i8, ptr %255, i64 8
   %258 = load ptr, ptr %257, align 8
-  br label %.outer197.backedge
+  br label %.outer212.backedge
 
-.outer197.backedge:                               ; preds = %265, %252, %260
+.outer212.backedge:                               ; preds = %265, %252, %260
   %.0241.i20.ph.be = phi ptr [ %.4232.i42, %260 ], [ %258, %252 ], [ %.4232.i42, %265 ]
   %.0236.i21.ph.be = phi ptr [ %.0236.i21, %260 ], [ %256, %252 ], [ %.0236.i21, %265 ]
-  %.0221.i22.ph.be = phi i32 [ %263, %260 ], [ %253, %252 ], [ %.0221.i22.ph200, %265 ]
-  br label %.outer197
+  %.0221.i22.ph.be = phi i32 [ %263, %260 ], [ %253, %252 ], [ %.0221.i22.ph215, %265 ]
+  br label %.outer212
 
 259:                                              ; preds = %.loopexit291.i41
   %.not273.i44 = icmp ugt i64 %245, %247
   br i1 %.not273.i44, label %265, label %260
 
 260:                                              ; preds = %259
-  %261 = sext i32 %.0221.i22.ph200 to i64
+  %261 = sext i32 %.0221.i22.ph215 to i64
   %262 = getelementptr inbounds [64 x %struct.stack_entry], ptr %7, i64 0, i64 %261
   store ptr %.4.i43, ptr %262, align 16
-  %263 = add nsw i32 %.0221.i22.ph200, 1
+  %263 = add nsw i32 %.0221.i22.ph215, 1
   %264 = getelementptr inbounds nuw i8, ptr %262, i64 8
   store ptr %.0241.i20.ph, ptr %264, align 8
-  br label %.outer197.backedge
+  br label %.outer212.backedge
 
 265:                                              ; preds = %259
   %.not274.i48 = icmp ult i64 %247, %159
-  br i1 %.not274.i48, label %.outer197.backedge, label %266
+  br i1 %.not274.i48, label %.outer212.backedge, label %266
 
 266:                                              ; preds = %265
-  %267 = sext i32 %.0221.i22.ph200 to i64
+  %267 = sext i32 %.0221.i22.ph215 to i64
   %268 = getelementptr inbounds [64 x %struct.stack_entry], ptr %7, i64 0, i64 %267
   store ptr %.0236.i21, ptr %268, align 16
-  %269 = add nsw i32 %.0221.i22.ph200, 1
+  %269 = add nsw i32 %.0221.i22.ph215, 1
   %270 = getelementptr inbounds nuw i8, ptr %268, i64 8
   store ptr %.4232.i42, ptr %270, align 8
-  br label %.outer198
+  br label %.outer213
 
 .thread.i50:                                      ; preds = %250, %157
   %271 = tail call i64 @llvm.umin.i64(i64 range(i64 2, 0) %1, i64 12)
@@ -765,15 +765,15 @@ qsort_r_aligned.exit:                             ; preds = %._crit_edge315.thre
   %.0162.i.ph = phi i32 [ 0, %304 ], [ %.0162.i.ph.be, %.outer.backedge ]
   %307 = ptrtoint ptr %.0176.i.ph to i64
   %308 = getelementptr inbounds i8, ptr %.0176.i.ph, i64 -4
-  br label %.outer178
+  br label %.outer193
 
-.outer178:                                        ; preds = %.outer, %387
-  %.0174.i.ph179 = phi ptr [ %.0174.i.ph, %.outer ], [ %.4.i114, %387 ]
-  %.0162.i.ph180 = phi i32 [ %.0162.i.ph, %.outer ], [ %390, %387 ]
+.outer193:                                        ; preds = %.outer, %387
+  %.0174.i.ph194 = phi ptr [ %.0174.i.ph, %.outer ], [ %.4.i114, %387 ]
+  %.0162.i.ph195 = phi i32 [ %.0162.i.ph, %.outer ], [ %390, %387 ]
   br label %309
 
-309:                                              ; preds = %.outer178, %368
-  %.0174.i = phi ptr [ %.4.i114, %368 ], [ %.0174.i.ph179, %.outer178 ]
+309:                                              ; preds = %.outer193, %368
+  %.0174.i = phi ptr [ %.4.i114, %368 ], [ %.0174.i.ph194, %.outer193 ]
   %310 = ptrtoint ptr %.0174.i to i64
   %311 = sub i64 %307, %310
   %312 = lshr i64 %311, 1
@@ -904,11 +904,11 @@ qsort_r_aligned.exit:                             ; preds = %._crit_edge315.thre
   br i1 %369, label %309, label %370
 
 370:                                              ; preds = %368
-  %371 = icmp slt i32 %.0162.i.ph180, 1
+  %371 = icmp slt i32 %.0162.i.ph195, 1
   br i1 %371, label %.lr.ph.preheader.i, label %372
 
 372:                                              ; preds = %370
-  %373 = add nsw i32 %.0162.i.ph180, -1
+  %373 = add nsw i32 %.0162.i.ph195, -1
   %374 = zext nneg i32 %373 to i64
   %375 = getelementptr inbounds nuw [64 x %struct.stack_entry], ptr %6, i64 0, i64 %374
   %376 = load ptr, ptr %375, align 16
@@ -919,7 +919,7 @@ qsort_r_aligned.exit:                             ; preds = %._crit_edge315.thre
 .outer.backedge:                                  ; preds = %385, %372, %380
   %.0176.i.ph.be = phi ptr [ %.4170.i, %380 ], [ %378, %372 ], [ %.4170.i, %385 ]
   %.0174.i.ph.be = phi ptr [ %.0174.i, %380 ], [ %376, %372 ], [ %.0174.i, %385 ]
-  %.0162.i.ph.be = phi i32 [ %383, %380 ], [ %373, %372 ], [ %.0162.i.ph180, %385 ]
+  %.0162.i.ph.be = phi i32 [ %383, %380 ], [ %373, %372 ], [ %.0162.i.ph195, %385 ]
   br label %.outer
 
 379:                                              ; preds = %.loopexit.i113
@@ -927,10 +927,10 @@ qsort_r_aligned.exit:                             ; preds = %._crit_edge315.thre
   br i1 %.not184.i, label %385, label %380
 
 380:                                              ; preds = %379
-  %381 = sext i32 %.0162.i.ph180 to i64
+  %381 = sext i32 %.0162.i.ph195 to i64
   %382 = getelementptr inbounds [64 x %struct.stack_entry], ptr %6, i64 0, i64 %381
   store ptr %.4.i114, ptr %382, align 16
-  %383 = add nsw i32 %.0162.i.ph180, 1
+  %383 = add nsw i32 %.0162.i.ph195, 1
   %384 = getelementptr inbounds nuw i8, ptr %382, i64 8
   store ptr %.0176.i.ph, ptr %384, align 8
   br label %.outer.backedge
@@ -940,13 +940,13 @@ qsort_r_aligned.exit:                             ; preds = %._crit_edge315.thre
   br i1 %386, label %387, label %.outer.backedge
 
 387:                                              ; preds = %385
-  %388 = sext i32 %.0162.i.ph180 to i64
+  %388 = sext i32 %.0162.i.ph195 to i64
   %389 = getelementptr inbounds [64 x %struct.stack_entry], ptr %6, i64 0, i64 %388
   store ptr %.0174.i, ptr %389, align 16
-  %390 = add nsw i32 %.0162.i.ph180, 1
+  %390 = add nsw i32 %.0162.i.ph195, 1
   %391 = getelementptr inbounds nuw i8, ptr %389, i64 8
   store ptr %.4170.i, ptr %391, align 8
-  br label %.outer178
+  br label %.outer193
 
 .lr.ph.preheader.i:                               ; preds = %370, %299
   %392 = tail call i64 @llvm.umin.i64(i64 range(i64 2, 0) %1, i64 12)
@@ -1061,23 +1061,23 @@ define hidden void @SDL_qsort_REAL(ptr noundef %0, i64 noundef %1, i64 noundef %
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 %17
   %20 = mul i64 %2, 40
   %21 = sub i64 0, %2
-  br label %.outer125
+  br label %.outer141
 
-.outer125:                                        ; preds = %.outer125.backedge, %18
-  %.0241.i.i.ph = phi ptr [ %19, %18 ], [ %.0241.i.i.ph.be, %.outer125.backedge ]
-  %.0236.i.i.ph = phi ptr [ %0, %18 ], [ %.0236.i.i.ph.be, %.outer125.backedge ]
-  %.0221.i.i.ph = phi i32 [ 0, %18 ], [ %.0221.i.i.ph.be, %.outer125.backedge ]
+.outer141:                                        ; preds = %.outer141.backedge, %18
+  %.0241.i.i.ph = phi ptr [ %19, %18 ], [ %.0241.i.i.ph.be, %.outer141.backedge ]
+  %.0236.i.i.ph = phi ptr [ %0, %18 ], [ %.0236.i.i.ph.be, %.outer141.backedge ]
+  %.0221.i.i.ph = phi i32 [ 0, %18 ], [ %.0221.i.i.ph.be, %.outer141.backedge ]
   %22 = ptrtoint ptr %.0241.i.i.ph to i64
   %23 = getelementptr inbounds i8, ptr %.0241.i.i.ph, i64 %21
-  br label %.outer126
+  br label %.outer142
 
-.outer126:                                        ; preds = %.outer125, %181
-  %.0236.i.i.ph127 = phi ptr [ %.0236.i.i.ph, %.outer125 ], [ %.4.i.i, %181 ]
-  %.0221.i.i.ph128 = phi i32 [ %.0221.i.i.ph, %.outer125 ], [ %184, %181 ]
+.outer142:                                        ; preds = %.outer141, %181
+  %.0236.i.i.ph143 = phi ptr [ %.0236.i.i.ph, %.outer141 ], [ %.4.i.i, %181 ]
+  %.0221.i.i.ph144 = phi i32 [ %.0221.i.i.ph, %.outer141 ], [ %184, %181 ]
   br label %24
 
-24:                                               ; preds = %.outer126, %164
-  %.0236.i.i = phi ptr [ %.4.i.i, %164 ], [ %.0236.i.i.ph127, %.outer126 ]
+24:                                               ; preds = %.outer142, %164
+  %.0236.i.i = phi ptr [ %.4.i.i, %164 ], [ %.0236.i.i.ph143, %.outer142 ]
   %25 = ptrtoint ptr %.0236.i.i to i64
   %26 = sub i64 %22, %25
   %27 = udiv i64 %26, %2
@@ -1374,49 +1374,49 @@ pivot_big.exit20:                                 ; preds = %.sink.split134.i18,
   br i1 %.not275.i.i, label %165, label %24
 
 165:                                              ; preds = %164
-  %166 = icmp slt i32 %.0221.i.i.ph128, 1
+  %166 = icmp slt i32 %.0221.i.i.ph144, 1
   br i1 %166, label %.thread.i.i, label %167
 
 167:                                              ; preds = %165
-  %168 = add nsw i32 %.0221.i.i.ph128, -1
+  %168 = add nsw i32 %.0221.i.i.ph144, -1
   %169 = zext nneg i32 %168 to i64
   %170 = getelementptr inbounds nuw [64 x %struct.stack_entry], ptr %7, i64 0, i64 %169
   %171 = load ptr, ptr %170, align 16
   %172 = getelementptr inbounds nuw i8, ptr %170, i64 8
   %173 = load ptr, ptr %172, align 8
-  br label %.outer125.backedge
+  br label %.outer141.backedge
 
-.outer125.backedge:                               ; preds = %180, %167, %175
+.outer141.backedge:                               ; preds = %180, %167, %175
   %.0241.i.i.ph.be = phi ptr [ %.4232.i.i, %175 ], [ %173, %167 ], [ %.4232.i.i, %180 ]
   %.0236.i.i.ph.be = phi ptr [ %.0236.i.i, %175 ], [ %171, %167 ], [ %.0236.i.i, %180 ]
-  %.0221.i.i.ph.be = phi i32 [ %178, %175 ], [ %168, %167 ], [ %.0221.i.i.ph128, %180 ]
-  br label %.outer125
+  %.0221.i.i.ph.be = phi i32 [ %178, %175 ], [ %168, %167 ], [ %.0221.i.i.ph144, %180 ]
+  br label %.outer141
 
 174:                                              ; preds = %.loopexit291.i.i
   %.not273.i.i = icmp ugt i64 %160, %162
   br i1 %.not273.i.i, label %180, label %175
 
 175:                                              ; preds = %174
-  %176 = sext i32 %.0221.i.i.ph128 to i64
+  %176 = sext i32 %.0221.i.i.ph144 to i64
   %177 = getelementptr inbounds [64 x %struct.stack_entry], ptr %7, i64 0, i64 %176
   store ptr %.4.i.i, ptr %177, align 16
-  %178 = add nsw i32 %.0221.i.i.ph128, 1
+  %178 = add nsw i32 %.0221.i.i.ph144, 1
   %179 = getelementptr inbounds nuw i8, ptr %177, i64 8
   store ptr %.0241.i.i.ph, ptr %179, align 8
-  br label %.outer125.backedge
+  br label %.outer141.backedge
 
 180:                                              ; preds = %174
   %.not274.i.i = icmp ult i64 %162, %15
-  br i1 %.not274.i.i, label %.outer125.backedge, label %181
+  br i1 %.not274.i.i, label %.outer141.backedge, label %181
 
 181:                                              ; preds = %180
-  %182 = sext i32 %.0221.i.i.ph128 to i64
+  %182 = sext i32 %.0221.i.i.ph144 to i64
   %183 = getelementptr inbounds [64 x %struct.stack_entry], ptr %7, i64 0, i64 %182
   store ptr %.0236.i.i, ptr %183, align 16
-  %184 = add nsw i32 %.0221.i.i.ph128, 1
+  %184 = add nsw i32 %.0221.i.i.ph144, 1
   %185 = getelementptr inbounds nuw i8, ptr %183, i64 8
   store ptr %.4232.i.i, ptr %185, align 8
-  br label %.outer126
+  br label %.outer142
 
 .thread.i.i:                                      ; preds = %165, %13
   %186 = tail call i64 @llvm.umin.i64(i64 range(i64 2, 0) %1, i64 12)
@@ -1524,23 +1524,23 @@ qsort_r_nonaligned.exit.i:                        ; preds = %._crit_edge315.thre
   %221 = getelementptr inbounds nuw i8, ptr %0, i64 %219
   %222 = mul i64 %2, 40
   %223 = sub i64 0, %2
-  br label %.outer102
+  br label %.outer118
 
-.outer102:                                        ; preds = %.outer102.backedge, %220
-  %.0241.i20.i.ph = phi ptr [ %221, %220 ], [ %.0241.i20.i.ph.be, %.outer102.backedge ]
-  %.0236.i21.i.ph = phi ptr [ %0, %220 ], [ %.0236.i21.i.ph.be, %.outer102.backedge ]
-  %.0221.i22.i.ph = phi i32 [ 0, %220 ], [ %.0221.i22.i.ph.be, %.outer102.backedge ]
+.outer118:                                        ; preds = %.outer118.backedge, %220
+  %.0241.i20.i.ph = phi ptr [ %221, %220 ], [ %.0241.i20.i.ph.be, %.outer118.backedge ]
+  %.0236.i21.i.ph = phi ptr [ %0, %220 ], [ %.0236.i21.i.ph.be, %.outer118.backedge ]
+  %.0221.i22.i.ph = phi i32 [ 0, %220 ], [ %.0221.i22.i.ph.be, %.outer118.backedge ]
   %224 = ptrtoint ptr %.0241.i20.i.ph to i64
   %225 = getelementptr inbounds i8, ptr %.0241.i20.i.ph, i64 %223
-  br label %.outer103
+  br label %.outer119
 
-.outer103:                                        ; preds = %.outer102, %383
-  %.0236.i21.i.ph104 = phi ptr [ %.0236.i21.i.ph, %.outer102 ], [ %.4.i43.i, %383 ]
-  %.0221.i22.i.ph105 = phi i32 [ %.0221.i22.i.ph, %.outer102 ], [ %386, %383 ]
+.outer119:                                        ; preds = %.outer118, %383
+  %.0236.i21.i.ph120 = phi ptr [ %.0236.i21.i.ph, %.outer118 ], [ %.4.i43.i, %383 ]
+  %.0221.i22.i.ph121 = phi i32 [ %.0221.i22.i.ph, %.outer118 ], [ %386, %383 ]
   br label %226
 
-226:                                              ; preds = %.outer103, %366
-  %.0236.i21.i = phi ptr [ %.4.i43.i, %366 ], [ %.0236.i21.i.ph104, %.outer103 ]
+226:                                              ; preds = %.outer119, %366
+  %.0236.i21.i = phi ptr [ %.4.i43.i, %366 ], [ %.0236.i21.i.ph120, %.outer119 ]
   %227 = ptrtoint ptr %.0236.i21.i to i64
   %228 = sub i64 %224, %227
   %229 = udiv i64 %228, %2
@@ -1837,49 +1837,49 @@ pivot_big.exit11:                                 ; preds = %.sink.split134.i9, 
   br i1 %.not275.i49.i, label %367, label %226
 
 367:                                              ; preds = %366
-  %368 = icmp slt i32 %.0221.i22.i.ph105, 1
+  %368 = icmp slt i32 %.0221.i22.i.ph121, 1
   br i1 %368, label %.thread.i50.i, label %369
 
 369:                                              ; preds = %367
-  %370 = add nsw i32 %.0221.i22.i.ph105, -1
+  %370 = add nsw i32 %.0221.i22.i.ph121, -1
   %371 = zext nneg i32 %370 to i64
   %372 = getelementptr inbounds nuw [64 x %struct.stack_entry], ptr %6, i64 0, i64 %371
   %373 = load ptr, ptr %372, align 16
   %374 = getelementptr inbounds nuw i8, ptr %372, i64 8
   %375 = load ptr, ptr %374, align 8
-  br label %.outer102.backedge
+  br label %.outer118.backedge
 
-.outer102.backedge:                               ; preds = %382, %369, %377
+.outer118.backedge:                               ; preds = %382, %369, %377
   %.0241.i20.i.ph.be = phi ptr [ %.4232.i42.i, %377 ], [ %375, %369 ], [ %.4232.i42.i, %382 ]
   %.0236.i21.i.ph.be = phi ptr [ %.0236.i21.i, %377 ], [ %373, %369 ], [ %.0236.i21.i, %382 ]
-  %.0221.i22.i.ph.be = phi i32 [ %380, %377 ], [ %370, %369 ], [ %.0221.i22.i.ph105, %382 ]
-  br label %.outer102
+  %.0221.i22.i.ph.be = phi i32 [ %380, %377 ], [ %370, %369 ], [ %.0221.i22.i.ph121, %382 ]
+  br label %.outer118
 
 376:                                              ; preds = %.loopexit291.i41.i
   %.not273.i44.i = icmp ugt i64 %362, %364
   br i1 %.not273.i44.i, label %382, label %377
 
 377:                                              ; preds = %376
-  %378 = sext i32 %.0221.i22.i.ph105 to i64
+  %378 = sext i32 %.0221.i22.i.ph121 to i64
   %379 = getelementptr inbounds [64 x %struct.stack_entry], ptr %6, i64 0, i64 %378
   store ptr %.4.i43.i, ptr %379, align 16
-  %380 = add nsw i32 %.0221.i22.i.ph105, 1
+  %380 = add nsw i32 %.0221.i22.i.ph121, 1
   %381 = getelementptr inbounds nuw i8, ptr %379, i64 8
   store ptr %.0241.i20.i.ph, ptr %381, align 8
-  br label %.outer102.backedge
+  br label %.outer118.backedge
 
 382:                                              ; preds = %376
   %.not274.i48.i = icmp ult i64 %364, %217
-  br i1 %.not274.i48.i, label %.outer102.backedge, label %383
+  br i1 %.not274.i48.i, label %.outer118.backedge, label %383
 
 383:                                              ; preds = %382
-  %384 = sext i32 %.0221.i22.i.ph105 to i64
+  %384 = sext i32 %.0221.i22.i.ph121 to i64
   %385 = getelementptr inbounds [64 x %struct.stack_entry], ptr %6, i64 0, i64 %384
   store ptr %.0236.i21.i, ptr %385, align 16
-  %386 = add nsw i32 %.0221.i22.i.ph105, 1
+  %386 = add nsw i32 %.0221.i22.i.ph121, 1
   %387 = getelementptr inbounds nuw i8, ptr %385, i64 8
   store ptr %.4232.i42.i, ptr %387, align 8
-  br label %.outer103
+  br label %.outer119
 
 .thread.i50.i:                                    ; preds = %367, %215
   %388 = tail call i64 @llvm.umin.i64(i64 range(i64 2, 0) %1, i64 12)
@@ -1989,15 +1989,15 @@ qsort_r_aligned.exit.i:                           ; preds = %._crit_edge315.thre
   %.0162.i.i.ph = phi i32 [ 0, %421 ], [ %.0162.i.i.ph.be, %.outer.backedge ]
   %424 = ptrtoint ptr %.0176.i.i.ph to i64
   %425 = getelementptr inbounds i8, ptr %.0176.i.i.ph, i64 -4
-  br label %.outer83
+  br label %.outer99
 
-.outer83:                                         ; preds = %.outer, %563
-  %.0174.i.i.ph84 = phi ptr [ %.0174.i.i.ph, %.outer ], [ %.4.i114.i, %563 ]
-  %.0162.i.i.ph85 = phi i32 [ %.0162.i.i.ph, %.outer ], [ %566, %563 ]
+.outer99:                                         ; preds = %.outer, %563
+  %.0174.i.i.ph100 = phi ptr [ %.0174.i.i.ph, %.outer ], [ %.4.i114.i, %563 ]
+  %.0162.i.i.ph101 = phi i32 [ %.0162.i.i.ph, %.outer ], [ %566, %563 ]
   br label %426
 
-426:                                              ; preds = %.outer83, %544
-  %.0174.i.i = phi ptr [ %.4.i114.i, %544 ], [ %.0174.i.i.ph84, %.outer83 ]
+426:                                              ; preds = %.outer99, %544
+  %.0174.i.i = phi ptr [ %.4.i114.i, %544 ], [ %.0174.i.i.ph100, %.outer99 ]
   %427 = ptrtoint ptr %.0174.i.i to i64
   %428 = sub i64 %424, %427
   %429 = lshr i64 %428, 1
@@ -2226,11 +2226,11 @@ pivot_big.exit:                                   ; preds = %.sink.split134.i, %
   br i1 %545, label %426, label %546
 
 546:                                              ; preds = %544
-  %547 = icmp slt i32 %.0162.i.i.ph85, 1
+  %547 = icmp slt i32 %.0162.i.i.ph101, 1
   br i1 %547, label %.lr.ph.preheader.i.i, label %548
 
 548:                                              ; preds = %546
-  %549 = add nsw i32 %.0162.i.i.ph85, -1
+  %549 = add nsw i32 %.0162.i.i.ph101, -1
   %550 = zext nneg i32 %549 to i64
   %551 = getelementptr inbounds nuw [64 x %struct.stack_entry], ptr %5, i64 0, i64 %550
   %552 = load ptr, ptr %551, align 16
@@ -2241,7 +2241,7 @@ pivot_big.exit:                                   ; preds = %.sink.split134.i, %
 .outer.backedge:                                  ; preds = %561, %548, %556
   %.0176.i.i.ph.be = phi ptr [ %.4170.i.i, %556 ], [ %554, %548 ], [ %.4170.i.i, %561 ]
   %.0174.i.i.ph.be = phi ptr [ %.0174.i.i, %556 ], [ %552, %548 ], [ %.0174.i.i, %561 ]
-  %.0162.i.i.ph.be = phi i32 [ %559, %556 ], [ %549, %548 ], [ %.0162.i.i.ph85, %561 ]
+  %.0162.i.i.ph.be = phi i32 [ %559, %556 ], [ %549, %548 ], [ %.0162.i.i.ph101, %561 ]
   br label %.outer
 
 555:                                              ; preds = %.loopexit.i113.i
@@ -2249,10 +2249,10 @@ pivot_big.exit:                                   ; preds = %.sink.split134.i, %
   br i1 %.not184.i.i, label %561, label %556
 
 556:                                              ; preds = %555
-  %557 = sext i32 %.0162.i.i.ph85 to i64
+  %557 = sext i32 %.0162.i.i.ph101 to i64
   %558 = getelementptr inbounds [64 x %struct.stack_entry], ptr %5, i64 0, i64 %557
   store ptr %.4.i114.i, ptr %558, align 16
-  %559 = add nsw i32 %.0162.i.i.ph85, 1
+  %559 = add nsw i32 %.0162.i.i.ph101, 1
   %560 = getelementptr inbounds nuw i8, ptr %558, i64 8
   store ptr %.0176.i.i.ph, ptr %560, align 8
   br label %.outer.backedge
@@ -2262,13 +2262,13 @@ pivot_big.exit:                                   ; preds = %.sink.split134.i, %
   br i1 %562, label %563, label %.outer.backedge
 
 563:                                              ; preds = %561
-  %564 = sext i32 %.0162.i.i.ph85 to i64
+  %564 = sext i32 %.0162.i.i.ph101 to i64
   %565 = getelementptr inbounds [64 x %struct.stack_entry], ptr %5, i64 0, i64 %564
   store ptr %.0174.i.i, ptr %565, align 16
-  %566 = add nsw i32 %.0162.i.i.ph85, 1
+  %566 = add nsw i32 %.0162.i.i.ph101, 1
   %567 = getelementptr inbounds nuw i8, ptr %565, i64 8
   store ptr %.4170.i.i, ptr %567, align 8
-  br label %.outer83
+  br label %.outer99
 
 .lr.ph.preheader.i.i:                             ; preds = %546, %416
   %568 = tail call i64 @llvm.umin.i64(i64 range(i64 2, 0) %1, i64 12)

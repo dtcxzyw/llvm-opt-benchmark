@@ -1163,7 +1163,7 @@ define void @_ZNK6icu_7722UnescapeTransliterator19handleTransliterateERNS_11Repl
 
 .preheader:                                       ; preds = %.thread140
   %.not206 = icmp eq i16 %19, 0
-  br i1 %.not206, label %.loopexit231, label %.lr.ph188
+  br i1 %.not206, label %.loopexit239, label %.lr.ph188
 
 .lr.ph188:                                        ; preds = %.preheader
   %64 = add nsw i32 %27, %17
@@ -1178,7 +1178,7 @@ define void @_ZNK6icu_7722UnescapeTransliterator19handleTransliterateERNS_11Repl
   %68 = add nsw i32 %.5104186, 1
   %indvars.iv.next219 = add nuw nsw i64 %indvars.iv218, 1
   %exitcond224.not = icmp eq i64 %indvars.iv.next219, %wide.trip.count223
-  br i1 %exitcond224.not, label %.loopexit231, label %69, !llvm.loop !36
+  br i1 %exitcond224.not, label %.loopexit239, label %69, !llvm.loop !36
 
 69:                                               ; preds = %.lr.ph188, %67
   %indvars.iv218 = phi i64 [ 0, %.lr.ph188 ], [ %indvars.iv.next219, %67 ]
@@ -1201,7 +1201,7 @@ define void @_ZNK6icu_7722UnescapeTransliterator19handleTransliterateERNS_11Repl
   %.not133.not = icmp eq i16 %75, %79
   br i1 %.not133.not, label %67, label %.thread
 
-.loopexit231:                                     ; preds = %.preheader, %67
+.loopexit239:                                     ; preds = %.preheader, %67
   %.6105.ph = phi i32 [ %68, %67 ], [ %.3102, %.preheader ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @_ZN6icu_7713UnicodeStringC1Ei(ptr noundef nonnull align 8 dereferenceable(64) %5, i32 noundef %.1110)
@@ -1211,7 +1211,7 @@ define void @_ZNK6icu_7722UnescapeTransliterator19handleTransliterateERNS_11Repl
   invoke void %82(ptr noundef nonnull align 8 dereferenceable(8) %1, i32 noundef %.0199, i32 noundef %.6105.ph, ptr noundef nonnull align 8 dereferenceable(64) %5)
           to label %.thread160 unwind label %91
 
-.thread160:                                       ; preds = %.loopexit231
+.thread160:                                       ; preds = %.loopexit239
   %83 = load i16, ptr %12, align 8, !tbaa !37
   %84 = icmp slt i16 %83, 0
   %85 = ashr i16 %83, 5
@@ -1225,7 +1225,7 @@ define void @_ZNK6icu_7722UnescapeTransliterator19handleTransliterateERNS_11Repl
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.loopexit
 
-91:                                               ; preds = %.loopexit231
+91:                                               ; preds = %.loopexit239
   %92 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %5) #13

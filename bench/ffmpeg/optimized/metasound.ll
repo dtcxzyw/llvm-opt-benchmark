@@ -698,7 +698,7 @@ read_cb_data.exit:                                ; preds = %72, %64
   br i1 %exitcond266.not, label %.lr.ph211, label %175, !llvm.loop !73
 
 .lr.ph211:                                        ; preds = %._crit_edge, %164
-  %.sroa.20.8299 = phi i32 [ %172, %164 ], [ %.sroa.20.10.lcssa, %._crit_edge ]
+  %.sroa.20.8303 = phi i32 [ %172, %164 ], [ %.sroa.20.10.lcssa, %._crit_edge ]
   %200 = getelementptr inbounds nuw i8, ptr %39, i64 1296
   %201 = getelementptr inbounds nuw i8, ptr %39, i64 1286
   %202 = getelementptr inbounds nuw i8, ptr %39, i64 1288
@@ -706,7 +706,7 @@ read_cb_data.exit:                                ; preds = %72, %64
 
 203:                                              ; preds = %.lr.ph211, %._crit_edge206
   %indvars.iv275 = phi i64 [ 0, %.lr.ph211 ], [ %indvars.iv.next276, %._crit_edge206 ]
-  %.sroa.20.11208 = phi i32 [ %.sroa.20.8299, %.lr.ph211 ], [ %.sroa.20.12.lcssa, %._crit_edge206 ]
+  %.sroa.20.11208 = phi i32 [ %.sroa.20.8303, %.lr.ph211 ], [ %.sroa.20.12.lcssa, %._crit_edge206 ]
   %204 = load i8, ptr %27, align 8, !tbaa !74
   %205 = zext i8 %204 to i32
   %206 = lshr i32 %.sroa.20.11208, 3
@@ -784,7 +784,7 @@ read_cb_data.exit:                                ; preds = %72, %64
   br i1 %255, label %._crit_edge212.thread, label %.loopexit
 
 ._crit_edge212.thread:                            ; preds = %.preheader166, %._crit_edge212
-  %.sroa.20.11.lcssa301 = phi i32 [ %.sroa.20.12.lcssa, %._crit_edge212 ], [ %.sroa.20.5.lcssa, %.preheader166 ]
+  %.sroa.20.11.lcssa305 = phi i32 [ %.sroa.20.12.lcssa, %._crit_edge212 ], [ %.sroa.20.5.lcssa, %.preheader166 ]
   %256 = load i32, ptr %31, align 4, !tbaa !58
   %257 = icmp sgt i32 %256, 0
   br i1 %257, label %.lr.ph.i109, label %read_cb_data.exit112
@@ -794,7 +794,7 @@ read_cb_data.exit:                                ; preds = %72, %64
   br label %259
 
 259:                                              ; preds = %259, %.lr.ph.i109
-  %.sroa.20.18 = phi i32 [ %.sroa.20.11.lcssa301, %.lr.ph.i109 ], [ %292, %259 ]
+  %.sroa.20.18 = phi i32 [ %.sroa.20.11.lcssa305, %.lr.ph.i109 ], [ %292, %259 ]
   %.018.i110 = phi ptr [ %258, %.lr.ph.i109 ], [ %294, %259 ]
   %.01617.i111 = phi i32 [ 0, %.lr.ph.i109 ], [ %295, %259 ]
   %260 = load i32, ptr %32, align 4, !tbaa !58
@@ -840,7 +840,7 @@ read_cb_data.exit:                                ; preds = %72, %64
   br i1 %297, label %259, label %read_cb_data.exit112, !llvm.loop !62
 
 read_cb_data.exit112:                             ; preds = %259, %._crit_edge212.thread
-  %.sroa.20.19 = phi i32 [ %.sroa.20.11.lcssa301, %._crit_edge212.thread ], [ %292, %259 ]
+  %.sroa.20.19 = phi i32 [ %.sroa.20.11.lcssa305, %._crit_edge212.thread ], [ %292, %259 ]
   br i1 %26, label %.lr.ph216, label %.loopexit
 
 .lr.ph216:                                        ; preds = %read_cb_data.exit112
@@ -965,8 +965,8 @@ define internal void @dec_bark_env(ptr noundef captures(none) %0, ptr noundef re
   %.05269.us.us = phi ptr [ %61, %.split.us.us.split.us.us ], [ %4, %.preheader.lr.ph.split.us ]
   %.05468.us.us = phi i32 [ %62, %.split.us.us.split.us.us ], [ 0, %.preheader.lr.ph.split.us ]
   %.05567.us.us = phi i64 [ %indvars.iv.next95, %.split.us.us.split.us.us ], [ 0, %.preheader.lr.ph.split.us ]
-  %sext105 = shl i64 %.05567.us.us, 32
-  %37 = ashr exact i64 %sext105, 32
+  %sext107 = shl i64 %.05567.us.us, 32
+  %37 = ashr exact i64 %sext107, 32
   br label %38
 
 38:                                               ; preds = %twinvq_memset_float.exit.us.us.us.us, %.preheader.us.us
@@ -1026,8 +1026,8 @@ twinvq_memset_float.exit.us.us.us.us:             ; preds = %.lr.ph.i.us.us.us.u
   %.05269.us = phi ptr [ %90, %.split.us.us.split ], [ %4, %.preheader.lr.ph.split.us ]
   %.05468.us = phi i32 [ %91, %.split.us.us.split ], [ 0, %.preheader.lr.ph.split.us ]
   %.05567.us = phi i64 [ %indvars.iv.next85, %.split.us.us.split ], [ 0, %.preheader.lr.ph.split.us ]
-  %sext104 = shl i64 %.05567.us, 32
-  %64 = ashr exact i64 %sext104, 32
+  %sext106 = shl i64 %.05567.us, 32
+  %64 = ashr exact i64 %sext106, 32
   br label %65
 
 65:                                               ; preds = %twinvq_memset_float.exit.us.us, %.preheader.us
@@ -1412,7 +1412,7 @@ define internal void @decode_ppc(ptr noundef readonly captures(none) %0, i32 nou
   %156 = sext i32 %126 to i64
   %157 = sext i32 %155 to i64
   %158 = sext i32 %128 to i64
-  %invariant.gep81.i = getelementptr float, ptr %4, i64 %157
+  %invariant.gep86.i = getelementptr float, ptr %4, i64 %157
   br label %.lr.ph61.i
 
 .lr.ph61.i:                                       ; preds = %.lr.ph61.i, %.lr.ph61.preheader.i
@@ -1420,10 +1420,10 @@ define internal void @decode_ppc(ptr noundef readonly captures(none) %0, i32 nou
   %.360.i = phi ptr [ %.1.lcssa.i, %.lr.ph61.preheader.i ], [ %159, %.lr.ph61.i ]
   %159 = getelementptr inbounds nuw i8, ptr %.360.i, i64 4
   %160 = load float, ptr %.360.i, align 4, !tbaa !84
-  %gep82.i = getelementptr float, ptr %invariant.gep81.i, i64 %indvars.iv73.i
-  %161 = load float, ptr %gep82.i, align 4, !tbaa !84
+  %gep87.i = getelementptr float, ptr %invariant.gep86.i, i64 %indvars.iv73.i
+  %161 = load float, ptr %gep87.i, align 4, !tbaa !84
   %162 = tail call nsz float @llvm.fmuladd.f32(float %116, float %160, float %161)
-  store float %162, ptr %gep82.i, align 4, !tbaa !84
+  store float %162, ptr %gep87.i, align 4, !tbaa !84
   %indvars.iv.next74.i = add nsw i64 %indvars.iv73.i, 1
   %163 = icmp slt i64 %indvars.iv.next74.i, %158
   %164 = icmp ult ptr %159, %119

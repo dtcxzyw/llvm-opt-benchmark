@@ -180,28 +180,28 @@ fmap_readn.exit.thread:                           ; preds = %29, %1, %fmap_readn
   %.4..4..4..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 4
   %.4..4..4.410 = load i16, ptr %.4..4..4..sroa_idx, align 4, !tbaa !31
   %rev = tail call i16 @llvm.bswap.i16(i16 %.4..4..4.410)
-  %.4..4..4..sroa_idx1191 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  store i16 %rev, ptr %.4..4..4..sroa_idx1191, align 4, !tbaa !31
+  %.4..4..4..sroa_idx1232 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  store i16 %rev, ptr %.4..4..4..sroa_idx1232, align 4, !tbaa !31
   %.6..6..6..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 6
   %.6..6..6. = load i16, ptr %.6..6..6..sroa_idx, align 2, !tbaa !32
   %rev318 = tail call i16 @llvm.bswap.i16(i16 %.6..6..6.)
-  %.6..6..6..sroa_idx1193 = getelementptr inbounds nuw i8, ptr %3, i64 6
-  store i16 %rev318, ptr %.6..6..6..sroa_idx1193, align 2, !tbaa !32
+  %.6..6..6..sroa_idx1234 = getelementptr inbounds nuw i8, ptr %3, i64 6
+  store i16 %rev318, ptr %.6..6..6..sroa_idx1234, align 2, !tbaa !32
   %.8..8..8..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.8..8..8.422 = load i64, ptr %.8..8..8..sroa_idx, align 8, !tbaa !33
   %37 = tail call i64 @llvm.bswap.i64(i64 %.8..8..8.422)
-  %.8..8..8..sroa_idx1194 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i64 %37, ptr %.8..8..8..sroa_idx1194, align 8, !tbaa !33
+  %.8..8..8..sroa_idx1235 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store i64 %37, ptr %.8..8..8..sroa_idx1235, align 8, !tbaa !33
   %.16..16..16..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 16
   %.16..16..16.438 = load i64, ptr %.16..16..16..sroa_idx, align 8, !tbaa !34
   %38 = tail call i64 @llvm.bswap.i64(i64 %.16..16..16.438)
-  %.16..16..16..sroa_idx1196 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store i64 %38, ptr %.16..16..16..sroa_idx1196, align 8, !tbaa !34
+  %.16..16..16..sroa_idx1237 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  store i64 %38, ptr %.16..16..16..sroa_idx1237, align 8, !tbaa !34
   %.24..24..24..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 24
   %.24..24..24. = load i32, ptr %.24..24..24..sroa_idx, align 8, !tbaa !35
   %39 = tail call i32 @llvm.bswap.i32(i32 %.24..24..24.)
-  %.24..24..24..sroa_idx1198 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store i32 %39, ptr %.24..24..24..sroa_idx1198, align 8, !tbaa !35
+  %.24..24..24..sroa_idx1239 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  store i32 %39, ptr %.24..24..24..sroa_idx1239, align 8, !tbaa !35
   %40 = load ptr, ptr %25, align 8, !tbaa !7
   %41 = zext i16 %rev to i64
   %42 = getelementptr inbounds nuw i8, ptr %40, i64 104
@@ -278,8 +278,8 @@ fmap_readn.exit.thread:                           ; preds = %29, %1, %fmap_readn
   %73 = getelementptr inbounds nuw i8, ptr %52, i64 %72
   store i8 0, ptr %73, align 1, !tbaa !40
   %74 = load i64, ptr %69, align 8, !tbaa !43
-  %.16..16..16..sroa_idx1197 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store i64 %74, ptr %.16..16..16..sroa_idx1197, align 8, !tbaa !34
+  %.16..16..16..sroa_idx1238 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  store i64 %74, ptr %.16..16..16..sroa_idx1238, align 8, !tbaa !34
   br label %75
 
 75:                                               ; preds = %71, %68
@@ -363,8 +363,8 @@ fmap_readn.exit.thread:                           ; preds = %29, %1, %fmap_readn
   %114 = getelementptr inbounds nuw i8, ptr %21, i64 192
   %115 = getelementptr inbounds nuw i8, ptr %26, i64 40
   %116 = getelementptr inbounds nuw i8, ptr %8, i64 48
-  %.8..8..8..sroa_idx1195 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %.4..4..4..sroa_idx1192 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  %.8..8..8..sroa_idx1236 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %.4..4..4..sroa_idx1233 = getelementptr inbounds nuw i8, ptr %3, i64 4
   br label %117
 
 117:                                              ; preds = %.lr.ph684, %365
@@ -389,9 +389,9 @@ fmap_readn.exit.thread:                           ; preds = %29, %1, %fmap_readn
 
 124:                                              ; preds = %122, %117
   %125 = load i64, ptr %5, align 8, !tbaa !65
-  %.8..8..8.415 = load i64, ptr %.8..8..8..sroa_idx1195, align 8, !tbaa !33
+  %.8..8..8.415 = load i64, ptr %.8..8..8..sroa_idx1236, align 8, !tbaa !33
   %126 = add i64 %.8..8..8.415, %125
-  %.4..4..4.405 = load i16, ptr %.4..4..4..sroa_idx1192, align 4, !tbaa !31
+  %.4..4..4.405 = load i16, ptr %.4..4..4..sroa_idx1233, align 4, !tbaa !31
   %127 = zext i16 %.4..4..4.405 to i64
   %128 = add i64 %126, %127
   %129 = load ptr, ptr %110, align 8, !tbaa !64
@@ -523,7 +523,7 @@ xar_hash_update.exit.us:                          ; preds = %.split.us, %.split.
   %.not353.us = icmp ne i32 %174, 0
   %175 = icmp eq i32 %163, 1
   %or.cond558.us = or i1 %175, %.not353.us
-  br i1 %or.cond558.us, label %.loopexit.thread819, label %176
+  br i1 %or.cond558.us, label %.loopexit.thread860, label %176
 
 176:                                              ; preds = %170
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
@@ -581,7 +581,7 @@ xar_hash_update.exit:                             ; preds = %185, %184, %184, %1
   %.not353 = icmp ne i32 %196, 0
   %197 = icmp eq i32 %179, 1
   %or.cond558 = or i1 %197, %.not353
-  br i1 %or.cond558, label %.loopexit.thread819, label %198
+  br i1 %or.cond558, label %.loopexit.thread860, label %198
 
 198:                                              ; preds = %192
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
@@ -589,7 +589,7 @@ xar_hash_update.exit:                             ; preds = %185, %184, %184, %1
   %200 = icmp eq i32 %199, 0
   br i1 %200, label %.split, label %.loopexit.thread
 
-.loopexit.thread819:                              ; preds = %192, %170
+.loopexit.thread860:                              ; preds = %192, %170
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   br label %.loopexit.thread
 
@@ -603,7 +603,7 @@ xar_hash_update.exit:                             ; preds = %185, %184, %184, %1
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   br label %.critedge
 
-.loopexit.thread:                                 ; preds = %198, %176, %.loopexit.thread819
+.loopexit.thread:                                 ; preds = %198, %176, %.loopexit.thread860
   br i1 %.not356, label %xar_hash_update.exit385, label %204
 
 204:                                              ; preds = %.loopexit.thread
@@ -878,7 +878,7 @@ xar_hash_update.exit392:                          ; preds = %302, %301, %301, %3
   %304 = load i32, ptr %2, align 4, !tbaa !3
   %305 = call i64 @cli_writen(i32 noundef %304, ptr noundef nonnull %295, i64 noundef %.0) #10
   %306 = icmp eq i64 %305, -1
-  br i1 %306, label %307, label %.thread823
+  br i1 %306, label %307, label %.thread864
 
 307:                                              ; preds = %xar_hash_update.exit392
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.32, i64 noundef %.0, i64 noundef %128) #10
@@ -890,14 +890,14 @@ xar_hash_update.exit392:                          ; preds = %302, %301, %301, %3
   %.not360 = icmp eq ptr %.0.i377, null
   br i1 %.not360, label %316, label %._crit_edge
 
-.thread823:                                       ; preds = %xar_hash_update.exit392
-  %.not360826 = icmp eq ptr %.0.i377, null
-  br i1 %.not360826, label %xar_hash_final.exit.thread835, label %._crit_edge
+.thread864:                                       ; preds = %xar_hash_update.exit392
+  %.not360867 = icmp eq ptr %.0.i377, null
+  br i1 %.not360867, label %xar_hash_final.exit.thread876, label %._crit_edge
 
-._crit_edge:                                      ; preds = %.thread823, %308
-  %.4829 = phi i32 [ 0, %.thread823 ], [ %.4, %308 ]
-  %.4226827 = phi i32 [ %.2224678, %.thread823 ], [ %.4226, %308 ]
-  %309 = phi i1 [ false, %.thread823 ], [ true, %308 ]
+._crit_edge:                                      ; preds = %.thread864, %308
+  %.4870 = phi i32 [ 0, %.thread864 ], [ %.4, %308 ]
+  %.4226868 = phi i32 [ %.2224678, %.thread864 ], [ %.4226, %308 ]
+  %309 = phi i1 [ false, %.thread864 ], [ true, %308 ]
   %.pre = load i32, ptr %10, align 4, !tbaa !3
   br label %311
 
@@ -909,8 +909,8 @@ xar_hash_update.exit392:                          ; preds = %302, %301, %301, %3
 
 311:                                              ; preds = %._crit_edge, %.thread488
   %312 = phi i32 [ %136, %.thread488 ], [ %.pre, %._crit_edge ]
-  %.4496 = phi i32 [ 26, %.thread488 ], [ %.4829, %._crit_edge ]
-  %.4226493 = phi i32 [ %310, %.thread488 ], [ %.4226827, %._crit_edge ]
+  %.4496 = phi i32 [ 26, %.thread488 ], [ %.4870, %._crit_edge ]
+  %.4226493 = phi i32 [ %310, %.thread488 ], [ %.4226868, %._crit_edge ]
   %313 = phi i1 [ true, %.thread488 ], [ %309, %._crit_edge ]
   switch i32 %312, label %314 [
     i32 3, label %xar_hash_final.exit
@@ -923,7 +923,7 @@ xar_hash_update.exit392:                          ; preds = %302, %301, %301, %3
 
 316:                                              ; preds = %308
   %317 = icmp eq i32 %.4, 0
-  br i1 %317, label %xar_hash_final.exit.thread835, label %xar_hash_final.exit
+  br i1 %317, label %xar_hash_final.exit.thread876, label %xar_hash_final.exit
 
 xar_hash_final.exit:                              ; preds = %314, %311, %311, %316
   %.4495 = phi i32 [ %.4, %316 ], [ %.4496, %311 ], [ %.4496, %311 ], [ %.4496, %314 ]
@@ -932,21 +932,21 @@ xar_hash_final.exit:                              ; preds = %314, %311, %311, %3
   %.not361 = icmp eq ptr %.0.i381, null
   br i1 %.not361, label %328, label %xar_hash_final.exit._crit_edge
 
-xar_hash_final.exit.thread835:                    ; preds = %316, %.thread823
-  %319 = phi i1 [ true, %316 ], [ false, %.thread823 ]
-  %.4226828834 = phi i32 [ %.4226, %316 ], [ %.2224678, %.thread823 ]
+xar_hash_final.exit.thread876:                    ; preds = %316, %.thread864
+  %319 = phi i1 [ true, %316 ], [ false, %.thread864 ]
+  %.4226869875 = phi i32 [ %.4226, %316 ], [ %.2224678, %.thread864 ]
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.33) #10
   %320 = add i32 %.2212679, 1
-  %.not361839 = icmp eq ptr %.0.i381, null
-  br i1 %.not361839, label %xar_hash_final.exit393.thread521, label %xar_hash_final.exit._crit_edge
+  %.not361880 = icmp eq ptr %.0.i381, null
+  br i1 %.not361880, label %xar_hash_final.exit393.thread521, label %xar_hash_final.exit._crit_edge
 
-xar_hash_final.exit._crit_edge:                   ; preds = %xar_hash_final.exit.thread835, %xar_hash_final.exit
-  %.4214844 = phi i32 [ %320, %xar_hash_final.exit.thread835 ], [ %.2212679, %xar_hash_final.exit ]
-  %321 = phi i1 [ %319, %xar_hash_final.exit.thread835 ], [ %318, %xar_hash_final.exit ]
-  %.4226492842 = phi i32 [ %.4226828834, %xar_hash_final.exit.thread835 ], [ %.4226492, %xar_hash_final.exit ]
-  %.4495841 = phi i32 [ 0, %xar_hash_final.exit.thread835 ], [ %.4495, %xar_hash_final.exit ]
+xar_hash_final.exit._crit_edge:                   ; preds = %xar_hash_final.exit.thread876, %xar_hash_final.exit
+  %.4214885 = phi i32 [ %320, %xar_hash_final.exit.thread876 ], [ %.2212679, %xar_hash_final.exit ]
+  %321 = phi i1 [ %319, %xar_hash_final.exit.thread876 ], [ %318, %xar_hash_final.exit ]
+  %.4226492883 = phi i32 [ %.4226869875, %xar_hash_final.exit.thread876 ], [ %.4226492, %xar_hash_final.exit ]
+  %.4495882 = phi i32 [ 0, %xar_hash_final.exit.thread876 ], [ %.4495, %xar_hash_final.exit ]
   %.pre812 = load i32, ptr %11, align 4, !tbaa !3
-  %322 = icmp eq i32 %.4495841, 0
+  %322 = icmp eq i32 %.4495882, 0
   br label %323
 
 xar_hash_final.exit.thread:                       ; preds = %.thread488
@@ -955,9 +955,9 @@ xar_hash_final.exit.thread:                       ; preds = %.thread488
 
 323:                                              ; preds = %xar_hash_final.exit._crit_edge, %xar_hash_final.exit.thread
   %324 = phi i32 [ %139, %xar_hash_final.exit.thread ], [ %.pre812, %xar_hash_final.exit._crit_edge ]
-  %.4214512 = phi i32 [ %.2212679, %xar_hash_final.exit.thread ], [ %.4214844, %xar_hash_final.exit._crit_edge ]
+  %.4214512 = phi i32 [ %.2212679, %xar_hash_final.exit.thread ], [ %.4214885, %xar_hash_final.exit._crit_edge ]
   %325 = phi i1 [ true, %xar_hash_final.exit.thread ], [ %321, %xar_hash_final.exit._crit_edge ]
-  %.4226492509 = phi i32 [ %310, %xar_hash_final.exit.thread ], [ %.4226492842, %xar_hash_final.exit._crit_edge ]
+  %.4226492509 = phi i32 [ %310, %xar_hash_final.exit.thread ], [ %.4226492883, %xar_hash_final.exit._crit_edge ]
   %.4495506 = phi i1 [ false, %xar_hash_final.exit.thread ], [ %322, %xar_hash_final.exit._crit_edge ]
   switch i32 %324, label %326 [
     i32 3, label %xar_hash_final.exit393
@@ -972,12 +972,12 @@ xar_hash_final.exit.thread:                       ; preds = %.thread488
   %329 = icmp eq i32 %.4495, 0
   br i1 %329, label %xar_hash_final.exit393.thread521, label %xar_hash_final.exit393.thread
 
-xar_hash_final.exit393.thread521:                 ; preds = %xar_hash_final.exit.thread835, %328
-  %.4226492843851 = phi i32 [ %.4226492, %328 ], [ %.4226828834, %xar_hash_final.exit.thread835 ]
-  %330 = phi i1 [ %318, %328 ], [ %319, %xar_hash_final.exit.thread835 ]
-  %.4214845850 = phi i32 [ %.2212679, %328 ], [ %320, %xar_hash_final.exit.thread835 ]
+xar_hash_final.exit393.thread521:                 ; preds = %xar_hash_final.exit.thread876, %328
+  %.4226492884892 = phi i32 [ %.4226492, %328 ], [ %.4226869875, %xar_hash_final.exit.thread876 ]
+  %330 = phi i1 [ %318, %328 ], [ %319, %xar_hash_final.exit.thread876 ]
+  %.4214886891 = phi i32 [ %.2212679, %328 ], [ %320, %xar_hash_final.exit.thread876 ]
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.34) #10
-  %331 = add i32 %.4214845850, 1
+  %331 = add i32 %.4214886891, 1
   br label %332
 
 xar_hash_final.exit393:                           ; preds = %326, %323, %323
@@ -985,7 +985,7 @@ xar_hash_final.exit393:                           ; preds = %326, %323, %323
 
 332:                                              ; preds = %xar_hash_final.exit393.thread521, %xar_hash_final.exit393
   %.5215526 = phi i32 [ %331, %xar_hash_final.exit393.thread521 ], [ %.4214512, %xar_hash_final.exit393 ]
-  %.4226492508525 = phi i32 [ %.4226492843851, %xar_hash_final.exit393.thread521 ], [ %.4226492509, %xar_hash_final.exit393 ]
+  %.4226492508525 = phi i32 [ %.4226492884892, %xar_hash_final.exit393.thread521 ], [ %.4226492509, %xar_hash_final.exit393 ]
   %333 = phi i1 [ %330, %xar_hash_final.exit393.thread521 ], [ %325, %xar_hash_final.exit393 ]
   %334 = load ptr, ptr %12, align 8, !tbaa !24
   %.not362 = icmp eq ptr %334, null

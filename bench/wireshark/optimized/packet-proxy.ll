@@ -518,7 +518,7 @@ proxy_v1_get_token_length.exit139.i:              ; preds = %144, %proxy_v1_get_
   br label %169
 
 162:                                              ; preds = %57, %50
-  %163 = add nsw i32 %40, 1
+  %163 = add nuw nsw i32 %40, 1
   %164 = load i32, ptr @hf_proxy1_unknown, align 4
   %165 = add i32 %30, -2
   %.neg170.i = xor i32 %40, -1
@@ -528,13 +528,13 @@ proxy_v1_get_token_length.exit139.i:              ; preds = %144, %proxy_v1_get_
   br label %dissect_proxy_v1_header.exit
 
 169:                                              ; preds = %159, %107
-  %.sink174.i = phi i32 [ 3, %159 ], [ 2, %107 ]
-  %.sink172.i = phi i32 [ 16, %159 ], [ 4, %107 ]
+  %.sink187.i = phi i32 [ 3, %159 ], [ 2, %107 ]
+  %.sink185.i = phi i32 [ 16, %159 ], [ 4, %107 ]
   %.sink.i = phi ptr [ %13, %159 ], [ %11, %107 ]
   %.0127.in.i = phi i32 [ %141, %159 ], [ %89, %107 ]
-  store i32 %.sink174.i, ptr %15, align 8
+  store i32 %.sink187.i, ptr %15, align 8
   %170 = getelementptr inbounds nuw i8, ptr %15, i64 4
-  store i32 %.sink172.i, ptr %170, align 4
+  store i32 %.sink185.i, ptr %170, align 4
   %171 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store ptr %.sink.i, ptr %171, align 8
   %172 = getelementptr inbounds nuw i8, ptr %15, i64 16

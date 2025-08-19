@@ -3515,8 +3515,8 @@ define internal fastcc void @_ZN5alloc6string6String4push17h1a3e9179dd826612E(pt
   %12 = trunc i32 %1 to i8
   %13 = and i8 %12, 63
   %14 = or disjoint i8 %13, -128
-  %.sroa.0.1..sroa_idx12 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 1
-  store i8 %14, ptr %.sroa.0.1..sroa_idx12, align 1, !alias.scope !257
+  %.sroa.0.1..sroa_idx15 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 1
+  store i8 %14, ptr %.sroa.0.1..sroa_idx15, align 1, !alias.scope !257
   br label %_ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit
 
 15:                                               ; preds = %6
@@ -3528,13 +3528,13 @@ define internal fastcc void @_ZN5alloc6string6String4push17h1a3e9179dd826612E(pt
   %20 = trunc i32 %19 to i8
   %21 = and i8 %20, 63
   %22 = or disjoint i8 %21, -128
-  %.sroa.0.1..sroa_idx11 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 1
-  store i8 %22, ptr %.sroa.0.1..sroa_idx11, align 1, !alias.scope !257
+  %.sroa.0.1..sroa_idx14 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 1
+  store i8 %22, ptr %.sroa.0.1..sroa_idx14, align 1, !alias.scope !257
   %23 = trunc i32 %1 to i8
   %24 = and i8 %23, 63
   %25 = or disjoint i8 %24, -128
-  %.sroa.0.2..sroa_idx13 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 2
-  store i8 %25, ptr %.sroa.0.2..sroa_idx13, align 2, !alias.scope !257
+  %.sroa.0.2..sroa_idx16 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 2
+  store i8 %25, ptr %.sroa.0.2..sroa_idx16, align 2, !alias.scope !257
   br label %_ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit
 
 26:                                               ; preds = %6
@@ -3660,7 +3660,7 @@ define hidden noundef zeroext i1 @"_ZN65_$LT$ide_db..defs..Definition$u20$as$u20
   br i1 %5, label %6, label %"_ZN56_$LT$hir..TupleField$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0fe4165aa30def89E.exit"
 
 6:                                                ; preds = %2
-  switch i8 %3, label %default.unreachable41 [
+  switch i8 %3, label %default.unreachable43 [
     i8 0, label %7
     i8 1, label %14
     i8 2, label %21
@@ -3688,7 +3688,7 @@ define hidden noundef zeroext i1 @"_ZN65_$LT$ide_db..defs..Definition$u20$as$u20
   %.0.shrunk = phi i1 [ %spec.select.i, %7 ], [ %303, %298 ], [ %67, %62 ], [ %spec.select.i32, %68 ], [ %80, %75 ], [ %86, %81 ], [ %92, %87 ], [ %98, %93 ], [ %104, %99 ], [ %110, %105 ], [ %129, %124 ], [ %309, %304 ], [ %315, %310 ], [ %321, %316 ], [ %297, %292 ], [ false, %2 ], [ false, %14 ], [ false, %231 ], [ false, %238 ], [ false, %245 ], [ %39, %34 ], [ false, %28 ], [ false, %21 ], [ %61, %56 ], [ false, %40 ], [ false, %54 ], [ false, %52 ], [ false, %111 ], [ true, %117 ], [ %119, %118 ], [ %121, %120 ], [ %123, %122 ], [ %.0.i.i, %"_ZN61_$LT$hir_def..TypeParamId$u20$as$u20$core..cmp..PartialEq$GT$2eq17h35ba72042c4f67e6E.exit.i" ], [ %.0.i10.i, %"_ZN62_$LT$hir_def..ConstParamId$u20$as$u20$core..cmp..PartialEq$GT$2eq17h91b49e9fd9fdac97E.exit.i" ], [ %.0.i19.i, %"_ZN59_$LT$hir..LifetimeParam$u20$as$u20$core..cmp..PartialEq$GT$2eq17h6c5007205496c33aE.exit.i" ], [ false, %130 ], [ %271, %266 ], [ false, %259 ], [ false, %260 ], [ false, %257 ], [ %291, %286 ], [ false, %279 ], [ false, %280 ], [ false, %277 ]
   ret i1 %.0.shrunk
 
-default.unreachable41:                            ; preds = %136, %6
+default.unreachable43:                            ; preds = %136, %6
   unreachable
 
 7:                                                ; preds = %6
@@ -3909,7 +3909,7 @@ default.unreachable41:                            ; preds = %136, %6
   %138 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %139 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %140 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  switch i32 %133, label %default.unreachable41 [
+  switch i32 %133, label %default.unreachable43 [
     i32 0, label %141
     i32 1, label %171
     i32 2, label %201
@@ -7706,10 +7706,10 @@ switch.lookup:                                    ; preds = %288, %286
   %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN7ide_ssr9replacing19ReplacementRenderer12render_token17h94d86d58e312eb03E, i64 0, i64 %292
   %switch.load = load ptr, ptr %switch.gep, align 8
   %293 = zext nneg i8 %290 to i64
-  %switch.gep112 = getelementptr inbounds nuw [3 x i64], ptr @switch.table._ZN7ide_ssr9replacing19ReplacementRenderer12render_token17h94d86d58e312eb03E.64, i64 0, i64 %293
-  %switch.load113 = load i64, ptr %switch.gep112, align 8
+  %switch.gep142 = getelementptr inbounds nuw [3 x i64], ptr @switch.table._ZN7ide_ssr9replacing19ReplacementRenderer12render_token17h94d86d58e312eb03E.64, i64 0, i64 %293
+  %switch.load143 = load i64, ptr %switch.gep142, align 8
   store ptr %switch.load, ptr %21, align 8
-  store i64 %switch.load113, ptr %291, align 8
+  store i64 %switch.load143, ptr %291, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.04)
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
   call void @llvm.lifetime.start.p0(ptr nonnull %19)

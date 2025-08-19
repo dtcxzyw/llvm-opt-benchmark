@@ -549,10 +549,10 @@ _ZN13ConstraintSet14add_constraintEP16LoaderConstraint.exit: ; preds = %71, %78
 
 89:                                               ; preds = %_ZN13ConstraintSet14add_constraintEP16LoaderConstraint.exit, %_ZN13ConstraintSet10initializeEP16LoaderConstraint.exit
   %.sink = phi i32 [ %86, %_ZN13ConstraintSet14add_constraintEP16LoaderConstraint.exit ], [ %69, %_ZN13ConstraintSet10initializeEP16LoaderConstraint.exit ]
-  %.sink24.in = phi ptr [ %88, %_ZN13ConstraintSet14add_constraintEP16LoaderConstraint.exit ], [ %56, %_ZN13ConstraintSet10initializeEP16LoaderConstraint.exit ]
-  %.sink24 = load ptr, ptr %.sink24.in, align 8
+  %.sink31.in = phi ptr [ %88, %_ZN13ConstraintSet14add_constraintEP16LoaderConstraint.exit ], [ %56, %_ZN13ConstraintSet10initializeEP16LoaderConstraint.exit ]
+  %.sink31 = load ptr, ptr %.sink31.in, align 8
   %90 = sext i32 %.sink to i64
-  %91 = getelementptr inbounds ptr, ptr %.sink24, i64 %90
+  %91 = getelementptr inbounds ptr, ptr %.sink31, i64 %90
   store ptr %5, ptr %91, align 8
   ret void
 }
@@ -822,7 +822,7 @@ define hidden noundef zeroext i1 @_ZN21LoaderConstraintTable9add_entryEP6SymbolP
   %13 = select i1 %7, ptr %1, ptr %3
   %14 = tail call noundef ptr @_ZN21LoaderConstraintTable22find_loader_constraintEP6SymbolP15ClassLoaderData(ptr noundef %0, ptr noundef %2)
   %.not = icmp eq ptr %14, null
-  br i1 %.not, label %.thread89, label %15
+  br i1 %.not, label %.thread97, label %15
 
 15:                                               ; preds = %12
   %16 = load ptr, ptr %14, align 8
@@ -847,37 +847,37 @@ define hidden noundef zeroext i1 @_ZN21LoaderConstraintTable9add_entryEP6SymbolP
   %.not77 = icmp eq ptr %21, null
   br i1 %.not77, label %.thread.thread, label %23
 
-.thread89:                                        ; preds = %12
+.thread97:                                        ; preds = %12
   %22 = tail call noundef ptr @_ZN21LoaderConstraintTable22find_loader_constraintEP6SymbolP15ClassLoaderData(ptr noundef %0, ptr noundef %4)
-  %.not7791 = icmp eq ptr %22, null
-  br i1 %.not7791, label %.thread97, label %23
+  %.not7799 = icmp eq ptr %22, null
+  br i1 %.not7799, label %.thread105, label %23
 
-23:                                               ; preds = %.thread89, %20
-  %24 = phi ptr [ %22, %.thread89 ], [ %21, %20 ]
-  %.06692 = phi ptr [ %13, %.thread89 ], [ %.066, %20 ]
+23:                                               ; preds = %.thread97, %20
+  %24 = phi ptr [ %22, %.thread97 ], [ %21, %20 ]
+  %.066100 = phi ptr [ %13, %.thread97 ], [ %.066, %20 ]
   %25 = load ptr, ptr %24, align 8
   %.not78 = icmp eq ptr %25, null
   br i1 %.not78, label %.thread, label %26
 
 26:                                               ; preds = %23
-  %.not79 = icmp eq ptr %.06692, null
+  %.not79 = icmp eq ptr %.066100, null
   br i1 %.not79, label %.thread, label %27
 
 27:                                               ; preds = %26
-  %.not80 = icmp eq ptr %.06692, %25
+  %.not80 = icmp eq ptr %.066100, %25
   br i1 %.not80, label %.thread, label %28
 
 28:                                               ; preds = %27
   tail call fastcc void @_ZL22log_ldr_constraint_msgP6SymbolPKcP15ClassLoaderDataS4_(ptr noundef %0, ptr noundef nonnull @.str.8, ptr noundef %2, ptr noundef %4)
   br label %_ZN12ResourceMarkD2Ev.exit
 
-.thread97:                                        ; preds = %.thread89
+.thread105:                                       ; preds = %.thread97
   tail call void @_ZN21LoaderConstraintTable21add_loader_constraintEP6SymbolP13InstanceKlassP15ClassLoaderDataS5_(ptr noundef %0, ptr noundef %13, ptr noundef %2, ptr noundef %4)
   %29 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE16ELS1_75ELS1_24ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
   %.not88 = icmp eq ptr %29, null
   br i1 %.not88, label %_ZN12ResourceMarkD2Ev.exit, label %30
 
-30:                                               ; preds = %.thread97
+30:                                               ; preds = %.thread105
   %31 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %32 = load ptr, ptr %31, align 8
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 800
@@ -915,7 +915,7 @@ define hidden noundef zeroext i1 @_ZN21LoaderConstraintTable9add_entryEP6SymbolP
   br label %_ZN12ResourceMarkD2Ev.exit
 
 .thread:                                          ; preds = %23, %27, %26
-  %.186 = phi ptr [ %25, %26 ], [ %.06692, %23 ], [ %.06692, %27 ]
+  %.186 = phi ptr [ %25, %26 ], [ %.066100, %23 ], [ %.066100, %27 ]
   %51 = icmp eq ptr %14, %24
   br i1 %51, label %52, label %76
 
@@ -973,8 +973,8 @@ define hidden noundef zeroext i1 @_ZN21LoaderConstraintTable9add_entryEP6SymbolP
   tail call void @_ZN21LoaderConstraintTable24merge_loader_constraintsEP6SymbolP16LoaderConstraintS3_P13InstanceKlass(ptr noundef %0, ptr noundef nonnull %14, ptr noundef nonnull %24, ptr noundef %.186)
   br label %_ZN12ResourceMarkD2Ev.exit
 
-_ZN12ResourceMarkD2Ev.exit:                       ; preds = %50, %48, %.thread97, %77, %78, %.thread.thread, %57, %55, %52, %9, %28, %19, %11
-  %.0 = phi i1 [ false, %11 ], [ false, %19 ], [ false, %28 ], [ true, %9 ], [ true, %52 ], [ true, %55 ], [ true, %57 ], [ true, %.thread.thread ], [ true, %78 ], [ true, %77 ], [ true, %.thread97 ], [ true, %48 ], [ true, %50 ]
+_ZN12ResourceMarkD2Ev.exit:                       ; preds = %50, %48, %.thread105, %77, %78, %.thread.thread, %57, %55, %52, %9, %28, %19, %11
+  %.0 = phi i1 [ false, %11 ], [ false, %19 ], [ false, %28 ], [ true, %9 ], [ true, %52 ], [ true, %55 ], [ true, %57 ], [ true, %.thread.thread ], [ true, %78 ], [ true, %77 ], [ true, %.thread105 ], [ true, %48 ], [ true, %50 ]
   ret i1 %.0
 }
 
@@ -2234,7 +2234,7 @@ define linkonce_odr hidden void @_ZN26GrowableArrayWithAllocatorIP15ClassLoaderD
   br i1 %.not, label %_ZN13GrowableArrayIP15ClassLoaderDataE10deallocateEPS1_.exit, label %.loopexit.thread
 
 .loopexit.thread:                                 ; preds = %.lr.ph, %.loopexit
-  %.01827 = phi ptr [ null, %.loopexit ], [ %.0.i, %.lr.ph ]
+  %.01829 = phi ptr [ null, %.loopexit ], [ %.0.i, %.lr.ph ]
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %29 = load i64, ptr %28, align 8
   %30 = and i64 %29, 1
@@ -2246,8 +2246,8 @@ define linkonce_odr hidden void @_ZN26GrowableArrayWithAllocatorIP15ClassLoaderD
   br label %_ZN13GrowableArrayIP15ClassLoaderDataE10deallocateEPS1_.exit
 
 _ZN13GrowableArrayIP15ClassLoaderDataE10deallocateEPS1_.exit: ; preds = %31, %.loopexit.thread, %.loopexit
-  %.01828 = phi ptr [ %.01827, %31 ], [ %.01827, %.loopexit.thread ], [ null, %.loopexit ]
-  store ptr %.01828, ptr %7, align 8
+  %.01830 = phi ptr [ %.01829, %31 ], [ %.01829, %.loopexit.thread ], [ null, %.loopexit ]
+  store ptr %.01830, ptr %7, align 8
   br label %32
 
 32:                                               ; preds = %1, %_ZN13GrowableArrayIP15ClassLoaderDataE10deallocateEPS1_.exit

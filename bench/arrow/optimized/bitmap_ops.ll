@@ -432,8 +432,8 @@ _ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit: ; preds = %37, %38, %40
   br i1 %.not37101, label %.preheader, label %.lr.ph
 
 _ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread: ; preds = %_ZN5arrow8internal16BitmapWordReaderImLb1EEC2EPKhll.exit
-  %.not37101130 = icmp eq i64 %spec.select.i, 0
-  br i1 %.not37101130, label %.preheader, label %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us
+  %.not37101136 = icmp eq i64 %spec.select.i, 0
+  br i1 %.not37101136, label %.preheader, label %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us
 
 .lr.ph:                                           ; preds = %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit
   %41 = sub nsw i64 64, %29
@@ -528,8 +528,8 @@ _ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit: ; preds = %.lr.
   %.sroa.9.022.i = phi i8 [ %.sroa.9.2.i, %_ZN5arrow8internal12BitmapReader4NextEv.exit.i ], [ %71, %.lr.ph.preheader.i ]
   %72 = lshr i8 %.027.i, 1
   %73 = zext i8 %.sroa.9.022.i to i32
-  %74 = trunc i64 %.sroa.16.025.i to i32
-  %75 = shl nuw i32 1, %74
+  %74 = trunc nsw i64 %.sroa.16.025.i to i32
+  %75 = shl nuw nsw i32 1, %74
   %76 = and i32 %75, %73
   %.not21.i = icmp eq i32 %76, 0
   %77 = or disjoint i8 %72, -128
@@ -574,7 +574,7 @@ _ZN5arrow8internal16BitmapWordReaderImLb1EE16NextTrailingByteERi.exit.thread: ; 
 
 _ZN5arrow8internal16BitmapWordReaderImLb1EE16NextTrailingByteERi.exit: ; preds = %_ZN5arrow8internal12BitmapReader4NextEv.exit.i
   %96 = zext i8 %spec.select.i45 to i32
-  %97 = sub nsw i32 8, %.sroa.15.0116
+  %97 = sub nuw nsw i32 8, %.sroa.15.0116
   %98 = lshr i32 %96, %97
   %99 = trunc nuw i32 %98 to i8
   %100 = icmp eq i32 %.sroa.15.0116, 8
@@ -793,8 +793,8 @@ _ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit: ; preds = %37, %38, %40
   br i1 %.not43106, label %.preheader, label %.lr.ph
 
 _ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread: ; preds = %_ZN5arrow8internal16BitmapWordReaderImLb1EEC2EPKhll.exit
-  %.not43106138 = icmp eq i64 %spec.select.i, 0
-  br i1 %.not43106138, label %.preheader, label %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us
+  %.not43106144 = icmp eq i64 %spec.select.i, 0
+  br i1 %.not43106144, label %.preheader, label %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us
 
 .lr.ph:                                           ; preds = %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit
   %41 = sub nsw i64 64, %29
@@ -891,8 +891,8 @@ _ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit: ; preds = %.lr.
   %.sroa.9.022.i = phi i8 [ %.sroa.9.2.i, %_ZN5arrow8internal12BitmapReader4NextEv.exit.i ], [ %73, %.lr.ph.preheader.i ]
   %74 = lshr i8 %.027.i, 1
   %75 = zext i8 %.sroa.9.022.i to i32
-  %76 = trunc i64 %.sroa.16.025.i to i32
-  %77 = shl nuw i32 1, %76
+  %76 = trunc nsw i64 %.sroa.16.025.i to i32
+  %77 = shl nuw nsw i32 1, %76
   %78 = and i32 %77, %75
   %.not21.i = icmp eq i32 %78, 0
   %79 = or disjoint i8 %74, -128
@@ -938,7 +938,7 @@ _ZN5arrow8internal16BitmapWordReaderImLb1EE16NextTrailingByteERi.exit.thread: ; 
 
 _ZN5arrow8internal16BitmapWordReaderImLb1EE16NextTrailingByteERi.exit: ; preds = %_ZN5arrow8internal12BitmapReader4NextEv.exit.i
   %99 = zext i8 %spec.select.i51 to i32
-  %100 = sub nsw i32 8, %.sroa.15.0121
+  %100 = sub nuw nsw i32 8, %.sroa.15.0121
   %101 = lshr i32 %99, %100
   %102 = trunc nuw i32 %101 to i8
   %103 = xor i8 %102, -1
@@ -1589,7 +1589,7 @@ define void @_ZN5arrow8internal13ReverseBitmapEPNS_10MemoryPoolEPKhll(ptr dead_o
 49:                                               ; preds = %46
   %50 = trunc nuw nsw i64 %47 to i32
   %51 = sub nuw nsw i32 8, %50
-  %52 = lshr i32 254, %51
+  %52 = lshr i32 255, %51
   %53 = and i32 %52, %44
   br label %54
 
@@ -2015,8 +2015,8 @@ define noundef zeroext i1 @_ZN5arrow8internal12BitmapEqualsEPKhlS2_ll(ptr nounde
   %37 = xor i1 %26, %36
   %38 = add i64 %.030105, 1
   %exitcond.not = icmp eq i64 %38, %4
-  %or.cond126 = or i1 %37, %exitcond.not
-  br i1 %or.cond126, label %.loopexit.loopexit, label %.lr.ph, !llvm.loop !91
+  %or.cond133 = or i1 %37, %exitcond.not
+  br i1 %or.cond133, label %.loopexit.loopexit, label %.lr.ph, !llvm.loop !91
 
 39:                                               ; preds = %5
   %40 = srem i64 %1, 8
@@ -2067,7 +2067,7 @@ define noundef zeroext i1 @_ZN5arrow8internal12BitmapEqualsEPKhlS2_ll(ptr nounde
 _ZN5arrow8internal16BitmapWordReaderImLb1EEC2EPKhll.exit44: ; preds = %61, %58, %64
   %67 = phi ptr [ %60, %58 ], [ %66, %64 ], [ %63, %61 ]
   %68 = phi i64 [ %59, %58 ], [ %65, %64 ], [ %62, %61 ]
-  %.sroa.23.2117 = phi i64 [ %.0.copyload.i.i.i, %58 ], [ %.sroa.23.40.insert.ext, %64 ], [ undef, %61 ]
+  %.sroa.23.2124 = phi i64 [ %.0.copyload.i.i.i, %58 ], [ %.sroa.23.40.insert.ext, %64 ], [ undef, %61 ]
   %.sroa.21.2 = phi i64 [ %.0.copyload.i.i.i43, %58 ], [ %.sroa.21.40.insert.ext, %64 ], [ undef, %61 ]
   %69 = srem i64 %3, 8
   %70 = shl nsw i64 %spec.select.i, 3
@@ -2081,7 +2081,7 @@ _ZN5arrow8internal16BitmapWordReaderImLb1EEC2EPKhll.exit44: ; preds = %61, %58, 
   %.sroa.686.0 = phi ptr [ %42, %_ZN5arrow8internal16BitmapWordReaderImLb1EEC2EPKhll.exit44 ], [ %80, %78 ]
   %.sroa.21.0 = phi i64 [ %.sroa.21.2, %_ZN5arrow8internal16BitmapWordReaderImLb1EEC2EPKhll.exit44 ], [ %83, %78 ]
   %.sroa.6.0 = phi ptr [ %67, %_ZN5arrow8internal16BitmapWordReaderImLb1EEC2EPKhll.exit44 ], [ %82, %78 ]
-  %.sroa.23.0 = phi i64 [ %.sroa.23.2117, %_ZN5arrow8internal16BitmapWordReaderImLb1EEC2EPKhll.exit44 ], [ %81, %78 ]
+  %.sroa.23.0 = phi i64 [ %.sroa.23.2124, %_ZN5arrow8internal16BitmapWordReaderImLb1EEC2EPKhll.exit44 ], [ %81, %78 ]
   %.029 = phi i64 [ %spec.select.i, %_ZN5arrow8internal16BitmapWordReaderImLb1EEC2EPKhll.exit44 ], [ %79, %78 ]
   %.not = icmp eq i64 %.029, 0
   br i1 %.not, label %.preheader, label %78
@@ -2153,8 +2153,8 @@ _ZN5arrow8internal16BitmapWordReaderImLb1EEC2EPKhll.exit44: ; preds = %61, %58, 
   %.sroa.9.022.i = phi i8 [ %.sroa.9.2.i, %_ZN5arrow8internal12BitmapReader4NextEv.exit.i ], [ %91, %.lr.ph.preheader.i ]
   %96 = lshr i8 %.027.i, 1
   %97 = zext i8 %.sroa.9.022.i to i32
-  %98 = trunc i64 %.sroa.16.025.i to i32
-  %99 = shl nuw i32 1, %98
+  %98 = trunc nsw i64 %.sroa.16.025.i to i32
+  %99 = shl nuw nsw i32 1, %98
   %100 = and i32 %99, %97
   %.not21.i = icmp eq i32 %100, 0
   %101 = or disjoint i8 %96, -128
@@ -2234,8 +2234,8 @@ _ZN5arrow8internal16BitmapWordReaderImLb1EE16NextTrailingByteERi.exit: ; preds =
   %.sroa.9.022.i63 = phi i8 [ %.sroa.9.2.i67, %_ZN5arrow8internal12BitmapReader4NextEv.exit.i66 ], [ %125, %.lr.ph.preheader.i56 ]
   %130 = lshr i8 %.027.i59, 1
   %131 = zext i8 %.sroa.9.022.i63 to i32
-  %132 = trunc i64 %.sroa.16.025.i60 to i32
-  %133 = shl nuw i32 1, %132
+  %132 = trunc nsw i64 %.sroa.16.025.i60 to i32
+  %133 = shl nuw nsw i32 1, %132
   %134 = and i32 %133, %131
   %.not21.i64 = icmp eq i32 %134, 0
   %135 = or disjoint i8 %130, -128
@@ -2603,7 +2603,7 @@ define internal fastcc void @_ZN5arrow8internal12_GLOBAL__N_18BitmapOpISt7bit_an
 
 _ZN5arrow8internal16BitmapWordReaderImLb1EEC2EPKhll.exit16.i: ; preds = %60, %57, %54
   %62 = phi ptr [ %56, %54 ], [ %61, %60 ], [ %59, %57 ]
-  %.sroa.23.2151.i = phi i64 [ %.0.copyload.i.i.i.i, %54 ], [ %.sroa.23.40.insert.ext.i, %60 ], [ undef, %57 ]
+  %.sroa.23.2159.i = phi i64 [ %.0.copyload.i.i.i.i, %54 ], [ %.sroa.23.40.insert.ext.i, %60 ], [ undef, %57 ]
   %.sroa.21.2.i = phi i64 [ %.0.copyload.i.i.i15.i, %54 ], [ %.sroa.21.40.insert.ext.i, %60 ], [ undef, %57 ]
   %63 = getelementptr inbounds i8, ptr %6, i64 %9
   %64 = trunc nsw i64 %8 to i32
@@ -2636,8 +2636,8 @@ _ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.i: ; preds = %72, %70, %
   br i1 %.not108.i, label %.preheader.i, label %.lr.ph.i18
 
 _ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i: ; preds = %_ZN5arrow8internal16BitmapWordReaderImLb1EEC2EPKhll.exit16.i
-  %.not108156.i = icmp eq i64 %spec.select.i.i, 0
-  br i1 %.not108156.i, label %.preheader.i, label %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us.i
+  %.not108164.i = icmp eq i64 %spec.select.i.i, 0
+  br i1 %.not108164.i, label %.preheader.i, label %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us.i
 
 .lr.ph.i18:                                       ; preds = %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.i
   %73 = sub nsw i64 64, %8
@@ -2646,7 +2646,7 @@ _ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i: ; preds = %_ZN
 
 _ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us.i: ; preds = %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us.i
   %.010115.us.i = phi i64 [ %75, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us.i ], [ %spec.select.i.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ]
-  %.sroa.23.0114.us.i = phi i64 [ %77, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us.i ], [ %.sroa.23.2151.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ]
+  %.sroa.23.0114.us.i = phi i64 [ %77, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us.i ], [ %.sroa.23.2159.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ]
   %.sroa.693.0113.us.i = phi ptr [ %76, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us.i ], [ %38, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ]
   %.sroa.21.0112.us.i = phi i64 [ %79, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us.i ], [ %.sroa.21.2.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ]
   %.sroa.6.0111.us.i = phi ptr [ %81, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us.i ], [ %63, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ]
@@ -2672,7 +2672,7 @@ _ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us.i: ; preds = 
   %.sroa.6.0.lcssa.i = phi ptr [ %63, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.i ], [ %63, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ], [ %81, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us.i ], [ %98, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.i ]
   %.sroa.21.0.lcssa.i = phi i64 [ %.sroa.21.2.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.i ], [ %.sroa.21.2.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ], [ %79, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us.i ], [ %93, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.i ]
   %.sroa.693.0.lcssa.i = phi ptr [ %38, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.i ], [ %38, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ], [ %76, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us.i ], [ %90, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.i ]
-  %.sroa.23.0.lcssa.i = phi i64 [ %.sroa.23.2151.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.i ], [ %.sroa.23.2151.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ], [ %77, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us.i ], [ %91, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.i ]
+  %.sroa.23.0.lcssa.i = phi i64 [ %.sroa.23.2159.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.i ], [ %.sroa.23.2159.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ], [ %77, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us.i ], [ %91, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.i ]
   %.not11126.i = icmp eq i64 %49, 0
   br i1 %.not11126.i, label %_ZN5arrow8internal12_GLOBAL__N_115AlignedBitmapOpISt7bit_andEEvPKhlS5_lPhll.exit, label %.lr.ph138.i
 
@@ -2690,7 +2690,7 @@ _ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us.i: ; preds = 
 
 _ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.i: ; preds = %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.i, %.lr.ph.i18
   %.010115.i = phi i64 [ %89, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.i ], [ %spec.select.i.i, %.lr.ph.i18 ]
-  %.sroa.23.0114.i = phi i64 [ %91, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.i ], [ %.sroa.23.2151.i, %.lr.ph.i18 ]
+  %.sroa.23.0114.i = phi i64 [ %91, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.i ], [ %.sroa.23.2159.i, %.lr.ph.i18 ]
   %.sroa.693.0113.i = phi ptr [ %90, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.i ], [ %38, %.lr.ph.i18 ]
   %.sroa.21.0112.i = phi i64 [ %93, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.i ], [ %.sroa.21.2.i, %.lr.ph.i18 ]
   %.sroa.6.0111.i = phi ptr [ %98, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.i ], [ %63, %.lr.ph.i18 ]
@@ -2765,8 +2765,8 @@ _ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.i: ; preds = %_Z
   %.sroa.9.022.i.i = phi i8 [ %.sroa.9.2.i.i, %_ZN5arrow8internal12BitmapReader4NextEv.exit.i.i ], [ %111, %.lr.ph.preheader.i.i ]
   %116 = lshr i8 %.027.i.i, 1
   %117 = zext i8 %.sroa.9.022.i.i to i32
-  %118 = trunc i64 %.sroa.16.025.i.i to i32
-  %119 = shl nuw i32 1, %118
+  %118 = trunc nsw i64 %.sroa.16.025.i.i to i32
+  %119 = shl nuw nsw i32 1, %118
   %120 = and i32 %119, %117
   %.not21.i.i = icmp eq i32 %120, 0
   %121 = or disjoint i8 %116, -128
@@ -2847,8 +2847,8 @@ _ZN5arrow8internal16BitmapWordReaderImLb1EE16NextTrailingByteERi.exit.i: ; preds
   %.sroa.9.022.i39.i = phi i8 [ %.sroa.9.2.i43.i, %_ZN5arrow8internal12BitmapReader4NextEv.exit.i42.i ], [ %145, %.lr.ph.preheader.i32.i ]
   %150 = lshr i8 %.027.i35.i, 1
   %151 = zext i8 %.sroa.9.022.i39.i to i32
-  %152 = trunc i64 %.sroa.16.025.i36.i to i32
-  %153 = shl nuw i32 1, %152
+  %152 = trunc nsw i64 %.sroa.16.025.i36.i to i32
+  %153 = shl nuw nsw i32 1, %152
   %154 = and i32 %153, %151
   %.not21.i40.i = icmp eq i32 %154, 0
   %155 = or disjoint i8 %150, -128
@@ -3205,7 +3205,7 @@ define internal fastcc void @_ZN5arrow8internal12_GLOBAL__N_18BitmapOpISt6bit_or
 
 _ZN5arrow8internal16BitmapWordReaderImLb1EEC2EPKhll.exit16.i: ; preds = %60, %57, %54
   %62 = phi ptr [ %56, %54 ], [ %61, %60 ], [ %59, %57 ]
-  %.sroa.23.2151.i = phi i64 [ %.0.copyload.i.i.i.i, %54 ], [ %.sroa.23.40.insert.ext.i, %60 ], [ undef, %57 ]
+  %.sroa.23.2159.i = phi i64 [ %.0.copyload.i.i.i.i, %54 ], [ %.sroa.23.40.insert.ext.i, %60 ], [ undef, %57 ]
   %.sroa.21.2.i = phi i64 [ %.0.copyload.i.i.i15.i, %54 ], [ %.sroa.21.40.insert.ext.i, %60 ], [ undef, %57 ]
   %63 = getelementptr inbounds i8, ptr %6, i64 %9
   %64 = trunc nsw i64 %8 to i32
@@ -3238,8 +3238,8 @@ _ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.i: ; preds = %72, %70, %
   br i1 %.not108.i, label %.preheader.i, label %.lr.ph.i18
 
 _ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i: ; preds = %_ZN5arrow8internal16BitmapWordReaderImLb1EEC2EPKhll.exit16.i
-  %.not108156.i = icmp eq i64 %spec.select.i.i, 0
-  br i1 %.not108156.i, label %.preheader.i, label %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us.i
+  %.not108164.i = icmp eq i64 %spec.select.i.i, 0
+  br i1 %.not108164.i, label %.preheader.i, label %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us.i
 
 .lr.ph.i18:                                       ; preds = %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.i
   %73 = sub nsw i64 64, %8
@@ -3248,7 +3248,7 @@ _ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i: ; preds = %_ZN
 
 _ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us.i: ; preds = %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us.i
   %.010115.us.i = phi i64 [ %75, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us.i ], [ %spec.select.i.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ]
-  %.sroa.23.0114.us.i = phi i64 [ %77, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us.i ], [ %.sroa.23.2151.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ]
+  %.sroa.23.0114.us.i = phi i64 [ %77, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us.i ], [ %.sroa.23.2159.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ]
   %.sroa.693.0113.us.i = phi ptr [ %76, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us.i ], [ %38, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ]
   %.sroa.21.0112.us.i = phi i64 [ %79, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us.i ], [ %.sroa.21.2.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ]
   %.sroa.6.0111.us.i = phi ptr [ %81, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us.i ], [ %63, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ]
@@ -3274,7 +3274,7 @@ _ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us.i: ; preds = 
   %.sroa.6.0.lcssa.i = phi ptr [ %63, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.i ], [ %63, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ], [ %81, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us.i ], [ %98, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.i ]
   %.sroa.21.0.lcssa.i = phi i64 [ %.sroa.21.2.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.i ], [ %.sroa.21.2.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ], [ %79, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us.i ], [ %93, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.i ]
   %.sroa.693.0.lcssa.i = phi ptr [ %38, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.i ], [ %38, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ], [ %76, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us.i ], [ %90, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.i ]
-  %.sroa.23.0.lcssa.i = phi i64 [ %.sroa.23.2151.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.i ], [ %.sroa.23.2151.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ], [ %77, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us.i ], [ %91, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.i ]
+  %.sroa.23.0.lcssa.i = phi i64 [ %.sroa.23.2159.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.i ], [ %.sroa.23.2159.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ], [ %77, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us.i ], [ %91, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.i ]
   %.not11126.i = icmp eq i64 %49, 0
   br i1 %.not11126.i, label %_ZN5arrow8internal12_GLOBAL__N_115AlignedBitmapOpISt6bit_orEEvPKhlS5_lPhll.exit, label %.lr.ph138.i
 
@@ -3292,7 +3292,7 @@ _ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us.i: ; preds = 
 
 _ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.i: ; preds = %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.i, %.lr.ph.i18
   %.010115.i = phi i64 [ %89, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.i ], [ %spec.select.i.i, %.lr.ph.i18 ]
-  %.sroa.23.0114.i = phi i64 [ %91, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.i ], [ %.sroa.23.2151.i, %.lr.ph.i18 ]
+  %.sroa.23.0114.i = phi i64 [ %91, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.i ], [ %.sroa.23.2159.i, %.lr.ph.i18 ]
   %.sroa.693.0113.i = phi ptr [ %90, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.i ], [ %38, %.lr.ph.i18 ]
   %.sroa.21.0112.i = phi i64 [ %93, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.i ], [ %.sroa.21.2.i, %.lr.ph.i18 ]
   %.sroa.6.0111.i = phi ptr [ %98, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.i ], [ %63, %.lr.ph.i18 ]
@@ -3367,8 +3367,8 @@ _ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.i: ; preds = %_Z
   %.sroa.9.022.i.i = phi i8 [ %.sroa.9.2.i.i, %_ZN5arrow8internal12BitmapReader4NextEv.exit.i.i ], [ %111, %.lr.ph.preheader.i.i ]
   %116 = lshr i8 %.027.i.i, 1
   %117 = zext i8 %.sroa.9.022.i.i to i32
-  %118 = trunc i64 %.sroa.16.025.i.i to i32
-  %119 = shl nuw i32 1, %118
+  %118 = trunc nsw i64 %.sroa.16.025.i.i to i32
+  %119 = shl nuw nsw i32 1, %118
   %120 = and i32 %119, %117
   %.not21.i.i = icmp eq i32 %120, 0
   %121 = or disjoint i8 %116, -128
@@ -3449,8 +3449,8 @@ _ZN5arrow8internal16BitmapWordReaderImLb1EE16NextTrailingByteERi.exit.i: ; preds
   %.sroa.9.022.i39.i = phi i8 [ %.sroa.9.2.i43.i, %_ZN5arrow8internal12BitmapReader4NextEv.exit.i42.i ], [ %145, %.lr.ph.preheader.i32.i ]
   %150 = lshr i8 %.027.i35.i, 1
   %151 = zext i8 %.sroa.9.022.i39.i to i32
-  %152 = trunc i64 %.sroa.16.025.i36.i to i32
-  %153 = shl nuw i32 1, %152
+  %152 = trunc nsw i64 %.sroa.16.025.i36.i to i32
+  %153 = shl nuw nsw i32 1, %152
   %154 = and i32 %153, %151
   %.not21.i40.i = icmp eq i32 %154, 0
   %155 = or disjoint i8 %150, -128
@@ -3807,7 +3807,7 @@ define internal fastcc void @_ZN5arrow8internal12_GLOBAL__N_18BitmapOpISt7bit_xo
 
 _ZN5arrow8internal16BitmapWordReaderImLb1EEC2EPKhll.exit16.i: ; preds = %60, %57, %54
   %62 = phi ptr [ %56, %54 ], [ %61, %60 ], [ %59, %57 ]
-  %.sroa.23.2151.i = phi i64 [ %.0.copyload.i.i.i.i, %54 ], [ %.sroa.23.40.insert.ext.i, %60 ], [ undef, %57 ]
+  %.sroa.23.2159.i = phi i64 [ %.0.copyload.i.i.i.i, %54 ], [ %.sroa.23.40.insert.ext.i, %60 ], [ undef, %57 ]
   %.sroa.21.2.i = phi i64 [ %.0.copyload.i.i.i15.i, %54 ], [ %.sroa.21.40.insert.ext.i, %60 ], [ undef, %57 ]
   %63 = getelementptr inbounds i8, ptr %6, i64 %9
   %64 = trunc nsw i64 %8 to i32
@@ -3840,8 +3840,8 @@ _ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.i: ; preds = %72, %70, %
   br i1 %.not108.i, label %.preheader.i, label %.lr.ph.i18
 
 _ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i: ; preds = %_ZN5arrow8internal16BitmapWordReaderImLb1EEC2EPKhll.exit16.i
-  %.not108156.i = icmp eq i64 %spec.select.i.i, 0
-  br i1 %.not108156.i, label %.preheader.i, label %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us.i
+  %.not108164.i = icmp eq i64 %spec.select.i.i, 0
+  br i1 %.not108164.i, label %.preheader.i, label %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us.i
 
 .lr.ph.i18:                                       ; preds = %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.i
   %73 = sub nsw i64 64, %8
@@ -3850,7 +3850,7 @@ _ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i: ; preds = %_ZN
 
 _ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us.i: ; preds = %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us.i
   %.010115.us.i = phi i64 [ %75, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us.i ], [ %spec.select.i.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ]
-  %.sroa.23.0114.us.i = phi i64 [ %77, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us.i ], [ %.sroa.23.2151.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ]
+  %.sroa.23.0114.us.i = phi i64 [ %77, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us.i ], [ %.sroa.23.2159.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ]
   %.sroa.693.0113.us.i = phi ptr [ %76, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us.i ], [ %38, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ]
   %.sroa.21.0112.us.i = phi i64 [ %79, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us.i ], [ %.sroa.21.2.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ]
   %.sroa.6.0111.us.i = phi ptr [ %81, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us.i ], [ %63, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ]
@@ -3876,7 +3876,7 @@ _ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us.i: ; preds = 
   %.sroa.6.0.lcssa.i = phi ptr [ %63, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.i ], [ %63, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ], [ %81, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us.i ], [ %98, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.i ]
   %.sroa.21.0.lcssa.i = phi i64 [ %.sroa.21.2.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.i ], [ %.sroa.21.2.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ], [ %79, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us.i ], [ %93, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.i ]
   %.sroa.693.0.lcssa.i = phi ptr [ %38, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.i ], [ %38, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ], [ %76, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us.i ], [ %90, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.i ]
-  %.sroa.23.0.lcssa.i = phi i64 [ %.sroa.23.2151.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.i ], [ %.sroa.23.2151.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ], [ %77, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us.i ], [ %91, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.i ]
+  %.sroa.23.0.lcssa.i = phi i64 [ %.sroa.23.2159.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.i ], [ %.sroa.23.2159.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ], [ %77, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us.i ], [ %91, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.i ]
   %.not11126.i = icmp eq i64 %49, 0
   br i1 %.not11126.i, label %_ZN5arrow8internal12_GLOBAL__N_115AlignedBitmapOpISt7bit_xorEEvPKhlS5_lPhll.exit, label %.lr.ph138.i
 
@@ -3894,7 +3894,7 @@ _ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us.i: ; preds = 
 
 _ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.i: ; preds = %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.i, %.lr.ph.i18
   %.010115.i = phi i64 [ %89, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.i ], [ %spec.select.i.i, %.lr.ph.i18 ]
-  %.sroa.23.0114.i = phi i64 [ %91, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.i ], [ %.sroa.23.2151.i, %.lr.ph.i18 ]
+  %.sroa.23.0114.i = phi i64 [ %91, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.i ], [ %.sroa.23.2159.i, %.lr.ph.i18 ]
   %.sroa.693.0113.i = phi ptr [ %90, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.i ], [ %38, %.lr.ph.i18 ]
   %.sroa.21.0112.i = phi i64 [ %93, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.i ], [ %.sroa.21.2.i, %.lr.ph.i18 ]
   %.sroa.6.0111.i = phi ptr [ %98, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.i ], [ %63, %.lr.ph.i18 ]
@@ -3969,8 +3969,8 @@ _ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.i: ; preds = %_Z
   %.sroa.9.022.i.i = phi i8 [ %.sroa.9.2.i.i, %_ZN5arrow8internal12BitmapReader4NextEv.exit.i.i ], [ %111, %.lr.ph.preheader.i.i ]
   %116 = lshr i8 %.027.i.i, 1
   %117 = zext i8 %.sroa.9.022.i.i to i32
-  %118 = trunc i64 %.sroa.16.025.i.i to i32
-  %119 = shl nuw i32 1, %118
+  %118 = trunc nsw i64 %.sroa.16.025.i.i to i32
+  %119 = shl nuw nsw i32 1, %118
   %120 = and i32 %119, %117
   %.not21.i.i = icmp eq i32 %120, 0
   %121 = or disjoint i8 %116, -128
@@ -4051,8 +4051,8 @@ _ZN5arrow8internal16BitmapWordReaderImLb1EE16NextTrailingByteERi.exit.i: ; preds
   %.sroa.9.022.i39.i = phi i8 [ %.sroa.9.2.i43.i, %_ZN5arrow8internal12BitmapReader4NextEv.exit.i42.i ], [ %145, %.lr.ph.preheader.i32.i ]
   %150 = lshr i8 %.027.i35.i, 1
   %151 = zext i8 %.sroa.9.022.i39.i to i32
-  %152 = trunc i64 %.sroa.16.025.i36.i to i32
-  %153 = shl nuw i32 1, %152
+  %152 = trunc nsw i64 %.sroa.16.025.i36.i to i32
+  %153 = shl nuw nsw i32 1, %152
   %154 = and i32 %153, %151
   %.not21.i40.i = icmp eq i32 %154, 0
   %155 = or disjoint i8 %150, -128
@@ -4410,7 +4410,7 @@ define internal fastcc void @_ZN5arrow8internal12_GLOBAL__N_18BitmapOpINS0_8AndN
 
 _ZN5arrow8internal16BitmapWordReaderImLb1EEC2EPKhll.exit16.i: ; preds = %61, %58, %55
   %63 = phi ptr [ %57, %55 ], [ %62, %61 ], [ %60, %58 ]
-  %.sroa.23.2151.i = phi i64 [ %.0.copyload.i.i.i.i, %55 ], [ %.sroa.23.40.insert.ext.i, %61 ], [ undef, %58 ]
+  %.sroa.23.2159.i = phi i64 [ %.0.copyload.i.i.i.i, %55 ], [ %.sroa.23.40.insert.ext.i, %61 ], [ undef, %58 ]
   %.sroa.21.2.i = phi i64 [ %.0.copyload.i.i.i15.i, %55 ], [ %.sroa.21.40.insert.ext.i, %61 ], [ undef, %58 ]
   %64 = getelementptr inbounds i8, ptr %6, i64 %9
   %65 = trunc nsw i64 %8 to i32
@@ -4443,8 +4443,8 @@ _ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.i: ; preds = %73, %71, %
   br i1 %.not108.i, label %.preheader.i, label %.lr.ph.i18
 
 _ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i: ; preds = %_ZN5arrow8internal16BitmapWordReaderImLb1EEC2EPKhll.exit16.i
-  %.not108156.i = icmp eq i64 %spec.select.i.i, 0
-  br i1 %.not108156.i, label %.preheader.i, label %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us.i
+  %.not108164.i = icmp eq i64 %spec.select.i.i, 0
+  br i1 %.not108164.i, label %.preheader.i, label %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us.i
 
 .lr.ph.i18:                                       ; preds = %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.i
   %74 = sub nsw i64 64, %8
@@ -4453,7 +4453,7 @@ _ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i: ; preds = %_ZN
 
 _ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us.i: ; preds = %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us.i
   %.010115.us.i = phi i64 [ %76, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us.i ], [ %spec.select.i.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ]
-  %.sroa.23.0114.us.i = phi i64 [ %78, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us.i ], [ %.sroa.23.2151.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ]
+  %.sroa.23.0114.us.i = phi i64 [ %78, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us.i ], [ %.sroa.23.2159.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ]
   %.sroa.693.0113.us.i = phi ptr [ %77, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us.i ], [ %39, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ]
   %.sroa.21.0112.us.i = phi i64 [ %80, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us.i ], [ %.sroa.21.2.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ]
   %.sroa.6.0111.us.i = phi ptr [ %83, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us.i ], [ %64, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ]
@@ -4480,7 +4480,7 @@ _ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us.i: ; preds = 
   %.sroa.6.0.lcssa.i = phi ptr [ %64, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.i ], [ %64, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ], [ %83, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us.i ], [ %101, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.i ]
   %.sroa.21.0.lcssa.i = phi i64 [ %.sroa.21.2.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.i ], [ %.sroa.21.2.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ], [ %80, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us.i ], [ %95, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.i ]
   %.sroa.693.0.lcssa.i = phi ptr [ %39, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.i ], [ %39, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ], [ %77, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us.i ], [ %92, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.i ]
-  %.sroa.23.0.lcssa.i = phi i64 [ %.sroa.23.2151.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.i ], [ %.sroa.23.2151.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ], [ %78, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us.i ], [ %93, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.i ]
+  %.sroa.23.0.lcssa.i = phi i64 [ %.sroa.23.2159.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.i ], [ %.sroa.23.2159.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ], [ %78, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us.i ], [ %93, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.i ]
   %.not11126.i = icmp eq i64 %50, 0
   br i1 %.not11126.i, label %_ZN5arrow8internal12_GLOBAL__N_115AlignedBitmapOpINS0_8AndNotOpEEEvPKhlS5_lPhll.exit, label %.lr.ph138.i
 
@@ -4498,7 +4498,7 @@ _ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us.i: ; preds = 
 
 _ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.i: ; preds = %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.i, %.lr.ph.i18
   %.010115.i = phi i64 [ %91, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.i ], [ %spec.select.i.i, %.lr.ph.i18 ]
-  %.sroa.23.0114.i = phi i64 [ %93, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.i ], [ %.sroa.23.2151.i, %.lr.ph.i18 ]
+  %.sroa.23.0114.i = phi i64 [ %93, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.i ], [ %.sroa.23.2159.i, %.lr.ph.i18 ]
   %.sroa.693.0113.i = phi ptr [ %92, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.i ], [ %39, %.lr.ph.i18 ]
   %.sroa.21.0112.i = phi i64 [ %95, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.i ], [ %.sroa.21.2.i, %.lr.ph.i18 ]
   %.sroa.6.0111.i = phi ptr [ %101, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.i ], [ %64, %.lr.ph.i18 ]
@@ -4574,8 +4574,8 @@ _ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.i: ; preds = %_Z
   %.sroa.9.022.i.i = phi i8 [ %.sroa.9.2.i.i, %_ZN5arrow8internal12BitmapReader4NextEv.exit.i.i ], [ %114, %.lr.ph.preheader.i.i ]
   %119 = lshr i8 %.027.i.i, 1
   %120 = zext i8 %.sroa.9.022.i.i to i32
-  %121 = trunc i64 %.sroa.16.025.i.i to i32
-  %122 = shl nuw i32 1, %121
+  %121 = trunc nsw i64 %.sroa.16.025.i.i to i32
+  %122 = shl nuw nsw i32 1, %121
   %123 = and i32 %122, %120
   %.not21.i.i = icmp eq i32 %123, 0
   %124 = or disjoint i8 %119, -128
@@ -4656,8 +4656,8 @@ _ZN5arrow8internal16BitmapWordReaderImLb1EE16NextTrailingByteERi.exit.i: ; preds
   %.sroa.9.022.i39.i = phi i8 [ %.sroa.9.2.i43.i, %_ZN5arrow8internal12BitmapReader4NextEv.exit.i42.i ], [ %148, %.lr.ph.preheader.i32.i ]
   %153 = lshr i8 %.027.i35.i, 1
   %154 = zext i8 %.sroa.9.022.i39.i to i32
-  %155 = trunc i64 %.sroa.16.025.i36.i to i32
-  %156 = shl nuw i32 1, %155
+  %155 = trunc nsw i64 %.sroa.16.025.i36.i to i32
+  %156 = shl nuw nsw i32 1, %155
   %157 = and i32 %156, %154
   %.not21.i40.i = icmp eq i32 %157, 0
   %158 = or disjoint i8 %153, -128
@@ -5016,7 +5016,7 @@ define internal fastcc void @_ZN5arrow8internal12_GLOBAL__N_18BitmapOpINS0_7OrNo
 
 _ZN5arrow8internal16BitmapWordReaderImLb1EEC2EPKhll.exit16.i: ; preds = %61, %58, %55
   %63 = phi ptr [ %57, %55 ], [ %62, %61 ], [ %60, %58 ]
-  %.sroa.23.2151.i = phi i64 [ %.0.copyload.i.i.i.i, %55 ], [ %.sroa.23.40.insert.ext.i, %61 ], [ undef, %58 ]
+  %.sroa.23.2159.i = phi i64 [ %.0.copyload.i.i.i.i, %55 ], [ %.sroa.23.40.insert.ext.i, %61 ], [ undef, %58 ]
   %.sroa.21.2.i = phi i64 [ %.0.copyload.i.i.i15.i, %55 ], [ %.sroa.21.40.insert.ext.i, %61 ], [ undef, %58 ]
   %64 = getelementptr inbounds i8, ptr %6, i64 %9
   %65 = trunc nsw i64 %8 to i32
@@ -5049,8 +5049,8 @@ _ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.i: ; preds = %73, %71, %
   br i1 %.not108.i, label %.preheader.i, label %.lr.ph.i18
 
 _ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i: ; preds = %_ZN5arrow8internal16BitmapWordReaderImLb1EEC2EPKhll.exit16.i
-  %.not108156.i = icmp eq i64 %spec.select.i.i, 0
-  br i1 %.not108156.i, label %.preheader.i, label %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us.i
+  %.not108164.i = icmp eq i64 %spec.select.i.i, 0
+  br i1 %.not108164.i, label %.preheader.i, label %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us.i
 
 .lr.ph.i18:                                       ; preds = %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.i
   %74 = sub nsw i64 64, %8
@@ -5059,7 +5059,7 @@ _ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i: ; preds = %_ZN
 
 _ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us.i: ; preds = %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us.i
   %.010115.us.i = phi i64 [ %76, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us.i ], [ %spec.select.i.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ]
-  %.sroa.23.0114.us.i = phi i64 [ %78, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us.i ], [ %.sroa.23.2151.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ]
+  %.sroa.23.0114.us.i = phi i64 [ %78, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us.i ], [ %.sroa.23.2159.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ]
   %.sroa.693.0113.us.i = phi ptr [ %77, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us.i ], [ %39, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ]
   %.sroa.21.0112.us.i = phi i64 [ %80, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us.i ], [ %.sroa.21.2.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ]
   %.sroa.6.0111.us.i = phi ptr [ %83, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us.i ], [ %64, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ]
@@ -5086,7 +5086,7 @@ _ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us.i: ; preds = 
   %.sroa.6.0.lcssa.i = phi ptr [ %64, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.i ], [ %64, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ], [ %83, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us.i ], [ %101, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.i ]
   %.sroa.21.0.lcssa.i = phi i64 [ %.sroa.21.2.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.i ], [ %.sroa.21.2.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ], [ %80, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us.i ], [ %95, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.i ]
   %.sroa.693.0.lcssa.i = phi ptr [ %39, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.i ], [ %39, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ], [ %77, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us.i ], [ %92, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.i ]
-  %.sroa.23.0.lcssa.i = phi i64 [ %.sroa.23.2151.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.i ], [ %.sroa.23.2151.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ], [ %78, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us.i ], [ %93, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.i ]
+  %.sroa.23.0.lcssa.i = phi i64 [ %.sroa.23.2159.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.i ], [ %.sroa.23.2159.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ], [ %78, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us.i ], [ %93, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.i ]
   %.not11126.i = icmp eq i64 %50, 0
   br i1 %.not11126.i, label %_ZN5arrow8internal12_GLOBAL__N_115AlignedBitmapOpINS0_7OrNotOpEEEvPKhlS5_lPhll.exit, label %.lr.ph138.i
 
@@ -5104,7 +5104,7 @@ _ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us.i: ; preds = 
 
 _ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.i: ; preds = %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.i, %.lr.ph.i18
   %.010115.i = phi i64 [ %91, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.i ], [ %spec.select.i.i, %.lr.ph.i18 ]
-  %.sroa.23.0114.i = phi i64 [ %93, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.i ], [ %.sroa.23.2151.i, %.lr.ph.i18 ]
+  %.sroa.23.0114.i = phi i64 [ %93, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.i ], [ %.sroa.23.2159.i, %.lr.ph.i18 ]
   %.sroa.693.0113.i = phi ptr [ %92, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.i ], [ %39, %.lr.ph.i18 ]
   %.sroa.21.0112.i = phi i64 [ %95, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.i ], [ %.sroa.21.2.i, %.lr.ph.i18 ]
   %.sroa.6.0111.i = phi ptr [ %101, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.i ], [ %64, %.lr.ph.i18 ]
@@ -5180,8 +5180,8 @@ _ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.i: ; preds = %_Z
   %.sroa.9.022.i.i = phi i8 [ %.sroa.9.2.i.i, %_ZN5arrow8internal12BitmapReader4NextEv.exit.i.i ], [ %114, %.lr.ph.preheader.i.i ]
   %119 = lshr i8 %.027.i.i, 1
   %120 = zext i8 %.sroa.9.022.i.i to i32
-  %121 = trunc i64 %.sroa.16.025.i.i to i32
-  %122 = shl nuw i32 1, %121
+  %121 = trunc nsw i64 %.sroa.16.025.i.i to i32
+  %122 = shl nuw nsw i32 1, %121
   %123 = and i32 %122, %120
   %.not21.i.i = icmp eq i32 %123, 0
   %124 = or disjoint i8 %119, -128
@@ -5262,8 +5262,8 @@ _ZN5arrow8internal16BitmapWordReaderImLb1EE16NextTrailingByteERi.exit.i: ; preds
   %.sroa.9.022.i39.i = phi i8 [ %.sroa.9.2.i43.i, %_ZN5arrow8internal12BitmapReader4NextEv.exit.i42.i ], [ %148, %.lr.ph.preheader.i32.i ]
   %153 = lshr i8 %.027.i35.i, 1
   %154 = zext i8 %.sroa.9.022.i39.i to i32
-  %155 = trunc i64 %.sroa.16.025.i36.i to i32
-  %156 = shl nuw i32 1, %155
+  %155 = trunc nsw i64 %.sroa.16.025.i36.i to i32
+  %156 = shl nuw nsw i32 1, %155
   %157 = and i32 %156, %154
   %.not21.i40.i = icmp eq i32 %157, 0
   %158 = or disjoint i8 %153, -128

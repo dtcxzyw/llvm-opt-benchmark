@@ -1882,9 +1882,9 @@ define internal i32 @dissect_usb_audio_control(ptr noundef %0, ptr noundef %1, p
   br label %58
 
 58:                                               ; preds = %54, %45, %49
-  %.sink47 = phi ptr [ @.str.816, %49 ], [ @.str.817, %45 ], [ %spec.select, %54 ]
+  %.sink50 = phi ptr [ @.str.816, %49 ], [ @.str.817, %45 ], [ %spec.select, %54 ]
   %59 = load ptr, ptr %22, align 8
-  tail call void @col_append_str(ptr noundef %59, i32 noundef 25, ptr noundef nonnull %.sink47)
+  tail call void @col_append_str(ptr noundef %59, i32 noundef 25, ptr noundef nonnull %.sink50)
   %60 = icmp slt i32 %.041, %29
   br i1 %60, label %61, label %64
 

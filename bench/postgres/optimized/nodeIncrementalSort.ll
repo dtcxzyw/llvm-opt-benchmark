@@ -504,9 +504,9 @@ instrumentSortedGroup.exit194:                    ; preds = %212, %219, %228, %2
   tail call void @tuplesort_puttupleslot(ptr noundef %.1162, ptr noundef nonnull %161) #8
   %247 = add nsw i64 %.2, 1
   %248 = icmp eq i64 %247, %.0159
-  br i1 %248, label %.thread225, label %292
+  br i1 %248, label %.thread246, label %292
 
-.thread225:                                       ; preds = %246
+.thread246:                                       ; preds = %246
   %249 = load ptr, ptr %140, align 8
   %250 = getelementptr inbounds nuw i8, ptr %249, i64 8
   %251 = load ptr, ptr %250, align 8
@@ -515,8 +515,8 @@ instrumentSortedGroup.exit194:                    ; preds = %212, %219, %228, %2
   tail call void %253(ptr noundef %249, ptr noundef nonnull %161) #8
   br label %.backedge
 
-.backedge:                                        ; preds = %.thread225, %294, %292
-  %.2.be = phi i64 [ %.0159, %.thread225 ], [ %.3, %294 ], [ %.3, %292 ]
+.backedge:                                        ; preds = %.thread246, %294, %292
+  %.2.be = phi i64 [ %.0159, %.thread246 ], [ %.3, %294 ], [ %.3, %292 ]
   br label %157
 
 254:                                              ; preds = %244
@@ -630,19 +630,19 @@ instrumentSortedGroup.exit194:                    ; preds = %212, %219, %228, %2
   %313 = load i32, ptr @ParallelWorkerNumber, align 4
   %314 = sext i32 %313 to i64
   %315 = getelementptr inbounds [0 x %struct.IncrementalSortInfo], ptr %312, i64 0, i64 %314
-  br label %.sink.split240
+  br label %.sink.split261
 
 316:                                              ; preds = %307, %304
   %317 = getelementptr inbounds nuw i8, ptr %0, i64 296
-  br label %.sink.split240
+  br label %.sink.split261
 
-.sink.split240:                                   ; preds = %316, %311
-  %.sink241 = phi ptr [ %315, %311 ], [ %317, %316 ]
+.sink.split261:                                   ; preds = %316, %311
+  %.sink262 = phi ptr [ %315, %311 ], [ %317, %316 ]
   %318 = load ptr, ptr %15, align 8
-  tail call fastcc void @instrumentSortedGroup(ptr noundef nonnull %.sink241, ptr noundef %318)
+  tail call fastcc void @instrumentSortedGroup(ptr noundef nonnull %.sink262, ptr noundef %318)
   br label %319
 
-319:                                              ; preds = %.sink.split240, %296
+319:                                              ; preds = %.sink.split261, %296
   %320 = load ptr, ptr %15, align 8
   %321 = tail call zeroext i1 @tuplesort_used_bound(ptr noundef %320) #8
   br i1 %321, label %322, label %329

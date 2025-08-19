@@ -762,8 +762,8 @@ if.end.i211:                                      ; preds = %if.end.i220
   br i1 %6, label %_ZN4llvh12StringSwitchINS_6Triple15EnvironmentTypeES2_E7DefaultES2_.exit, label %_ZN4llvh12StringSwitchINS_6Triple15EnvironmentTypeES2_E10StartsWithENS_13StringLiteralES2_.exit128
 
 if.end.i211.thread:                               ; preds = %_ZN4llvh12StringSwitchINS_6Triple15EnvironmentTypeES2_E10StartsWithENS_13StringLiteralES2_.exit141
-  %bcmp26143 = call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %agg.tmp37.sroa.0.0.copyload, ptr noundef nonnull dereferenceable(6) @.str.12, i64 6)
-  %7 = icmp eq i32 %bcmp26143, 0
+  %bcmp26144 = call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %agg.tmp37.sroa.0.0.copyload, ptr noundef nonnull dereferenceable(6) @.str.12, i64 6)
+  %7 = icmp eq i32 %bcmp26144, 0
   br i1 %7, label %_ZN4llvh12StringSwitchINS_6Triple15EnvironmentTypeES2_E7DefaultES2_.exit, label %if.end.i.i.i
 
 _ZN4llvh12StringSwitchINS_6Triple15EnvironmentTypeES2_E10StartsWithENS_13StringLiteralES2_.exit128: ; preds = %if.end.i211
@@ -2247,12 +2247,12 @@ _ZN4llvhplERKNS_5TwineES2_.exit:                  ; preds = %entry
   br label %if.then.i.i35
 
 lor.lhs.false.i.i12:                              ; preds = %if.then4.i.i, %if.end8.i.i
-  %.sink114 = phi i8 [ 8, %if.then4.i.i ], [ %spec.select.i.i, %if.end8.i.i ]
+  %.sink117 = phi i8 [ 8, %if.then4.i.i ], [ %spec.select.i.i, %if.end8.i.i ]
   %.sink = phi i8 [ 1, %if.then4.i.i ], [ 8, %if.end8.i.i ]
   %NewLHS.sroa.0.0.copyload.i.i22.ph = phi ptr [ inttoptr (i64 45 to ptr), %if.then4.i.i ], [ %spec.select20.i.i, %if.end8.i.i ]
   %cmp.i13.i.i21.ph = phi i1 [ true, %if.then4.i.i ], [ false, %if.end8.i.i ]
   %ref.tmp5.sroa.3100.0.ref.tmp4.sroa_idx = getelementptr inbounds nuw i8, ptr %ref.tmp4, i64 16
-  store i8 %.sink114, ptr %ref.tmp5.sroa.3100.0.ref.tmp4.sroa_idx, align 8
+  store i8 %.sink117, ptr %ref.tmp5.sroa.3100.0.ref.tmp4.sroa_idx, align 8
   %ref.tmp5.sroa.4.0.ref.tmp4.sroa_idx = getelementptr inbounds nuw i8, ptr %ref.tmp4, i64 17
   store i8 %.sink, ptr %ref.tmp5.sroa.4.0.ref.tmp4.sroa_idx, align 1
   %LHSKind.i.i7.i.i13 = getelementptr inbounds nuw i8, ptr %VendorStr, i64 16
@@ -2274,7 +2274,7 @@ if.then7.i.i33:                                   ; preds = %lor.lhs.false.i.i12
   br label %_ZN4llvhplERKNS_5TwineES2_.exit38
 
 if.end8.i.i19:                                    ; preds = %lor.lhs.false.i.i12
-  %spec.select.i.i23 = select i1 %cmp.i13.i.i21.ph, i8 %.sink114, i8 2
+  %spec.select.i.i23 = select i1 %cmp.i13.i.i21.ph, i8 %.sink117, i8 2
   %spec.select20.i.i24 = select i1 %cmp.i13.i.i21.ph, ptr %NewLHS.sroa.0.0.copyload.i.i22.ph, ptr %ref.tmp4
   %RHSKind.i.i15.i.i25 = getelementptr inbounds nuw i8, ptr %VendorStr, i64 17
   %3 = load i8, ptr %RHSKind.i.i15.i.i25, align 1, !noalias !17
@@ -2327,14 +2327,14 @@ _ZN4llvhplERKNS_5TwineES2_.exit69:                ; preds = %_ZN4llvhplERKNS_5Tw
   br label %if.then.i.i95
 
 lor.lhs.false.i.i72:                              ; preds = %if.then4.i.i65, %if.end8.i.i50
-  %.sink116 = phi i8 [ 8, %if.then4.i.i65 ], [ %spec.select.i.i54, %if.end8.i.i50 ]
-  %.sink115 = phi i8 [ 1, %if.then4.i.i65 ], [ 8, %if.end8.i.i50 ]
+  %.sink119 = phi i8 [ 8, %if.then4.i.i65 ], [ %spec.select.i.i54, %if.end8.i.i50 ]
+  %.sink118 = phi i8 [ 1, %if.then4.i.i65 ], [ 8, %if.end8.i.i50 ]
   %NewLHS.sroa.0.0.copyload.i.i82.ph = phi ptr [ inttoptr (i64 45 to ptr), %if.then4.i.i65 ], [ %spec.select20.i.i55, %if.end8.i.i50 ]
   %cmp.i13.i.i81.ph = phi i1 [ true, %if.then4.i.i65 ], [ false, %if.end8.i.i50 ]
   %ref.tmp6.sroa.399.0.ref.tmp2.sroa_idx = getelementptr inbounds nuw i8, ptr %ref.tmp2, i64 16
-  store i8 %.sink116, ptr %ref.tmp6.sroa.399.0.ref.tmp2.sroa_idx, align 8
+  store i8 %.sink119, ptr %ref.tmp6.sroa.399.0.ref.tmp2.sroa_idx, align 8
   %ref.tmp6.sroa.4.0.ref.tmp2.sroa_idx = getelementptr inbounds nuw i8, ptr %ref.tmp2, i64 17
-  store i8 %.sink115, ptr %ref.tmp6.sroa.4.0.ref.tmp2.sroa_idx, align 1
+  store i8 %.sink118, ptr %ref.tmp6.sroa.4.0.ref.tmp2.sroa_idx, align 1
   %LHSKind.i.i7.i.i73 = getelementptr inbounds nuw i8, ptr %OSStr, i64 16
   %6 = load i8, ptr %LHSKind.i.i7.i.i73, align 8, !noalias !31
   switch i8 %6, label %if.end8.i.i79 [
@@ -2354,7 +2354,7 @@ if.then7.i.i93:                                   ; preds = %lor.lhs.false.i.i72
   br label %_ZN4llvhplERKNS_5TwineES2_.exit98
 
 if.end8.i.i79:                                    ; preds = %lor.lhs.false.i.i72
-  %spec.select.i.i83 = select i1 %cmp.i13.i.i81.ph, i8 %.sink116, i8 2
+  %spec.select.i.i83 = select i1 %cmp.i13.i.i81.ph, i8 %.sink119, i8 2
   %spec.select20.i.i84 = select i1 %cmp.i13.i.i81.ph, ptr %NewLHS.sroa.0.0.copyload.i.i82.ph, ptr %ref.tmp2
   %RHSKind.i.i15.i.i85 = getelementptr inbounds nuw i8, ptr %OSStr, i64 17
   %7 = load i8, ptr %RHSKind.i.i15.i.i85, align 1, !noalias !31
@@ -2463,12 +2463,12 @@ _ZN4llvhplERKNS_5TwineES2_.exit:                  ; preds = %entry
   br label %if.then.i.i39
 
 lor.lhs.false.i.i16:                              ; preds = %if.then4.i.i, %if.end8.i.i
-  %.sink186 = phi i8 [ 8, %if.then4.i.i ], [ %spec.select.i.i, %if.end8.i.i ]
+  %.sink191 = phi i8 [ 8, %if.then4.i.i ], [ %spec.select.i.i, %if.end8.i.i ]
   %.sink = phi i8 [ 1, %if.then4.i.i ], [ 8, %if.end8.i.i ]
   %NewLHS.sroa.0.0.copyload.i.i26.ph = phi ptr [ inttoptr (i64 45 to ptr), %if.then4.i.i ], [ %spec.select20.i.i, %if.end8.i.i ]
   %cmp.i13.i.i25.ph = phi i1 [ true, %if.then4.i.i ], [ false, %if.end8.i.i ]
   %ref.tmp7.sroa.3165.0.ref.tmp6.sroa_idx = getelementptr inbounds nuw i8, ptr %ref.tmp6, i64 16
-  store i8 %.sink186, ptr %ref.tmp7.sroa.3165.0.ref.tmp6.sroa_idx, align 8
+  store i8 %.sink191, ptr %ref.tmp7.sroa.3165.0.ref.tmp6.sroa_idx, align 8
   %ref.tmp7.sroa.4.0.ref.tmp6.sroa_idx = getelementptr inbounds nuw i8, ptr %ref.tmp6, i64 17
   store i8 %.sink, ptr %ref.tmp7.sroa.4.0.ref.tmp6.sroa_idx, align 1
   %LHSKind.i.i7.i.i17 = getelementptr inbounds nuw i8, ptr %VendorStr, i64 16
@@ -2490,7 +2490,7 @@ if.then7.i.i37:                                   ; preds = %lor.lhs.false.i.i16
   br label %_ZN4llvhplERKNS_5TwineES2_.exit42
 
 if.end8.i.i23:                                    ; preds = %lor.lhs.false.i.i16
-  %spec.select.i.i27 = select i1 %cmp.i13.i.i25.ph, i8 %.sink186, i8 2
+  %spec.select.i.i27 = select i1 %cmp.i13.i.i25.ph, i8 %.sink191, i8 2
   %spec.select20.i.i28 = select i1 %cmp.i13.i.i25.ph, ptr %NewLHS.sroa.0.0.copyload.i.i26.ph, ptr %ref.tmp6
   %RHSKind.i.i15.i.i29 = getelementptr inbounds nuw i8, ptr %VendorStr, i64 17
   %3 = load i8, ptr %RHSKind.i.i15.i.i29, align 1, !noalias !45
@@ -2543,14 +2543,14 @@ _ZN4llvhplERKNS_5TwineES2_.exit73:                ; preds = %_ZN4llvhplERKNS_5Tw
   br label %if.then.i.i99
 
 lor.lhs.false.i.i76:                              ; preds = %if.then4.i.i69, %if.end8.i.i54
-  %.sink188 = phi i8 [ 8, %if.then4.i.i69 ], [ %spec.select.i.i58, %if.end8.i.i54 ]
-  %.sink187 = phi i8 [ 1, %if.then4.i.i69 ], [ 8, %if.end8.i.i54 ]
+  %.sink193 = phi i8 [ 8, %if.then4.i.i69 ], [ %spec.select.i.i58, %if.end8.i.i54 ]
+  %.sink192 = phi i8 [ 1, %if.then4.i.i69 ], [ 8, %if.end8.i.i54 ]
   %NewLHS.sroa.0.0.copyload.i.i86.ph = phi ptr [ inttoptr (i64 45 to ptr), %if.then4.i.i69 ], [ %spec.select20.i.i59, %if.end8.i.i54 ]
   %cmp.i13.i.i85.ph = phi i1 [ true, %if.then4.i.i69 ], [ false, %if.end8.i.i54 ]
   %ref.tmp8.sroa.3164.0.ref.tmp4.sroa_idx = getelementptr inbounds nuw i8, ptr %ref.tmp4, i64 16
-  store i8 %.sink188, ptr %ref.tmp8.sroa.3164.0.ref.tmp4.sroa_idx, align 8
+  store i8 %.sink193, ptr %ref.tmp8.sroa.3164.0.ref.tmp4.sroa_idx, align 8
   %ref.tmp8.sroa.4.0.ref.tmp4.sroa_idx = getelementptr inbounds nuw i8, ptr %ref.tmp4, i64 17
-  store i8 %.sink187, ptr %ref.tmp8.sroa.4.0.ref.tmp4.sroa_idx, align 1
+  store i8 %.sink192, ptr %ref.tmp8.sroa.4.0.ref.tmp4.sroa_idx, align 1
   %LHSKind.i.i7.i.i77 = getelementptr inbounds nuw i8, ptr %OSStr, i64 16
   %6 = load i8, ptr %LHSKind.i.i7.i.i77, align 8, !noalias !59
   switch i8 %6, label %if.end8.i.i83 [
@@ -2570,7 +2570,7 @@ if.then7.i.i97:                                   ; preds = %lor.lhs.false.i.i76
   br label %_ZN4llvhplERKNS_5TwineES2_.exit102
 
 if.end8.i.i83:                                    ; preds = %lor.lhs.false.i.i76
-  %spec.select.i.i87 = select i1 %cmp.i13.i.i85.ph, i8 %.sink188, i8 2
+  %spec.select.i.i87 = select i1 %cmp.i13.i.i85.ph, i8 %.sink193, i8 2
   %spec.select20.i.i88 = select i1 %cmp.i13.i.i85.ph, ptr %NewLHS.sroa.0.0.copyload.i.i86.ph, ptr %ref.tmp4
   %RHSKind.i.i15.i.i89 = getelementptr inbounds nuw i8, ptr %OSStr, i64 17
   %7 = load i8, ptr %RHSKind.i.i15.i.i89, align 1, !noalias !59
@@ -2623,14 +2623,14 @@ _ZN4llvhplERKNS_5TwineES2_.exit133:               ; preds = %_ZN4llvhplERKNS_5Tw
   br label %if.then.i.i159
 
 lor.lhs.false.i.i136:                             ; preds = %if.then4.i.i129, %if.end8.i.i114
-  %.sink190 = phi i8 [ 8, %if.then4.i.i129 ], [ %spec.select.i.i118, %if.end8.i.i114 ]
-  %.sink189 = phi i8 [ 1, %if.then4.i.i129 ], [ 8, %if.end8.i.i114 ]
+  %.sink195 = phi i8 [ 8, %if.then4.i.i129 ], [ %spec.select.i.i118, %if.end8.i.i114 ]
+  %.sink194 = phi i8 [ 1, %if.then4.i.i129 ], [ 8, %if.end8.i.i114 ]
   %NewLHS.sroa.0.0.copyload.i.i146.ph = phi ptr [ inttoptr (i64 45 to ptr), %if.then4.i.i129 ], [ %spec.select20.i.i119, %if.end8.i.i114 ]
   %cmp.i13.i.i145.ph = phi i1 [ true, %if.then4.i.i129 ], [ false, %if.end8.i.i114 ]
   %ref.tmp9.sroa.3163.0.ref.tmp2.sroa_idx = getelementptr inbounds nuw i8, ptr %ref.tmp2, i64 16
-  store i8 %.sink190, ptr %ref.tmp9.sroa.3163.0.ref.tmp2.sroa_idx, align 8
+  store i8 %.sink195, ptr %ref.tmp9.sroa.3163.0.ref.tmp2.sroa_idx, align 8
   %ref.tmp9.sroa.4.0.ref.tmp2.sroa_idx = getelementptr inbounds nuw i8, ptr %ref.tmp2, i64 17
-  store i8 %.sink189, ptr %ref.tmp9.sroa.4.0.ref.tmp2.sroa_idx, align 1
+  store i8 %.sink194, ptr %ref.tmp9.sroa.4.0.ref.tmp2.sroa_idx, align 1
   %LHSKind.i.i7.i.i137 = getelementptr inbounds nuw i8, ptr %EnvironmentStr, i64 16
   %10 = load i8, ptr %LHSKind.i.i7.i.i137, align 8, !noalias !73
   switch i8 %10, label %if.end8.i.i143 [
@@ -2650,7 +2650,7 @@ if.then7.i.i157:                                  ; preds = %lor.lhs.false.i.i13
   br label %_ZN4llvhplERKNS_5TwineES2_.exit162
 
 if.end8.i.i143:                                   ; preds = %lor.lhs.false.i.i136
-  %spec.select.i.i147 = select i1 %cmp.i13.i.i145.ph, i8 %.sink190, i8 2
+  %spec.select.i.i147 = select i1 %cmp.i13.i.i145.ph, i8 %.sink195, i8 2
   %spec.select20.i.i148 = select i1 %cmp.i13.i.i145.ph, ptr %NewLHS.sroa.0.0.copyload.i.i146.ph, ptr %ref.tmp2
   %RHSKind.i.i15.i.i149 = getelementptr inbounds nuw i8, ptr %EnvironmentStr, i64 17
   %11 = load i8, ptr %RHSKind.i.i15.i.i149, align 1, !noalias !73
@@ -2820,15 +2820,15 @@ if.then33:                                        ; preds = %if.end30
   br label %if.end37
 
 if.end37:                                         ; preds = %entry, %if.end, %if.end9, %if.end23, %if.then33, %if.end30
-  %Arch.0404.shrunk = phi i1 [ %3, %if.then33 ], [ %3, %if.end30 ], [ %3, %if.end23 ], [ %3, %if.end9 ], [ %3, %if.end ], [ false, %entry ]
+  %Arch.0418.shrunk = phi i1 [ %3, %if.then33 ], [ %3, %if.end30 ], [ %3, %if.end23 ], [ %3, %if.end9 ], [ %3, %if.end ], [ false, %entry ]
   %Environment.0274 = phi i32 [ %call29, %if.then33 ], [ %call29, %if.end30 ], [ 0, %if.end23 ], [ 0, %if.end9 ], [ 0, %if.end ], [ 0, %entry ]
   %Vendor.0251260273 = phi i32 [ %call8, %if.then33 ], [ %call8, %if.end30 ], [ %call8, %if.end23 ], [ %call8, %if.end9 ], [ 0, %if.end ], [ 0, %entry ]
   %OS.0261272 = phi i32 [ %call15, %if.then33 ], [ %call15, %if.end30 ], [ %call15, %if.end23 ], [ 0, %if.end9 ], [ 0, %if.end ], [ 0, %entry ]
   %IsCygwin.0262271 = phi i8 [ %IsCygwin.0, %if.then33 ], [ %IsCygwin.0, %if.end30 ], [ %IsCygwin.0, %if.end23 ], [ 0, %if.end9 ], [ 0, %if.end ], [ 0, %entry ]
   %IsMinGW32.0263270 = phi i8 [ %IsMinGW32.0, %if.then33 ], [ %IsMinGW32.0, %if.end30 ], [ %IsMinGW32.0, %if.end23 ], [ 0, %if.end9 ], [ 0, %if.end ], [ 0, %entry ]
   %ObjectFormat.0 = phi i32 [ %call36, %if.then33 ], [ 0, %if.end30 ], [ 0, %if.end23 ], [ 0, %if.end9 ], [ 0, %if.end ], [ 0, %entry ]
-  %Arch.0404 = zext i1 %Arch.0404.shrunk to i8
-  store i8 %Arch.0404, ptr %Found, align 1
+  %Arch.0418 = zext i1 %Arch.0418.shrunk to i8
+  store i8 %Arch.0418, ptr %Found, align 1
   %cmp40 = icmp ne i32 %Vendor.0251260273, 0
   %arrayidx41 = getelementptr inbounds nuw i8, ptr %Found, i64 1
   %frombool42 = zext i1 %cmp40 to i8
@@ -2997,20 +2997,20 @@ land.rhs:                                         ; preds = %land.rhs.preheader,
   %arrayidx117 = getelementptr inbounds nuw [4 x i8], ptr %Found, i64 0, i64 %indvars.iv
   %27 = load i8, ptr %arrayidx117, align 1
   %tobool118 = trunc i8 %27 to i1
-  br i1 %tobool118, label %while.body, label %while.end.loopexit.split.loop.exit430
+  br i1 %tobool118, label %while.body, label %while.end.loopexit.split.loop.exit444
 
 while.body:                                       ; preds = %land.rhs
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond387.not = icmp eq i64 %indvars.iv.next, 4
   br i1 %exitcond387.not, label %while.end, label %land.rhs, !llvm.loop !74
 
-while.end.loopexit.split.loop.exit430:            ; preds = %land.rhs
+while.end.loopexit.split.loop.exit444:            ; preds = %land.rhs
   %28 = trunc nuw nsw i64 %indvars.iv to i32
   br label %while.end
 
-while.end:                                        ; preds = %while.body, %while.end.loopexit.split.loop.exit430, %while.cond.preheader
-  %i.1.lcssa = phi i32 [ %i.0362, %while.cond.preheader ], [ %28, %while.end.loopexit.split.loop.exit430 ], [ 4, %while.body ]
-  %conv113.lcssa = phi i64 [ %conv113351, %while.cond.preheader ], [ %indvars.iv, %while.end.loopexit.split.loop.exit430 ], [ %26, %while.body ]
+while.end:                                        ; preds = %while.body, %while.end.loopexit.split.loop.exit444, %while.cond.preheader
+  %i.1.lcssa = phi i32 [ %i.0362, %while.cond.preheader ], [ %28, %while.end.loopexit.split.loop.exit444 ], [ 4, %while.body ]
+  %conv113.lcssa = phi i64 [ %conv113351, %while.cond.preheader ], [ %indvars.iv, %while.end.loopexit.split.loop.exit444 ], [ %26, %while.body ]
   %29 = load ptr, ptr %Components, align 8
   %arrayidx.i530 = getelementptr inbounds nuw %"class.llvh::StringRef", ptr %29, i64 %conv113.lcssa
   %CurrentComponent.sroa.0.0.copyload241 = load ptr, ptr %arrayidx.i530, align 8
@@ -3272,9 +3272,9 @@ if.end.i141:                                      ; preds = %if.then6.i
   br i1 %cmp13.not20.i, label %if.end15.sink.split.i, label %for.body.preheader.i
 
 for.body.preheader.i:                             ; preds = %if.then6.i, %if.end.i141
-  %conv.i17.pre-phi.i.in410 = phi i32 [ %.pre.i144, %if.end.i141 ], [ %53, %if.then6.i ]
+  %conv.i17.pre-phi.i.in424 = phi i32 [ %.pre.i144, %if.end.i141 ], [ %53, %if.then6.i ]
   %55 = load ptr, ptr %Components, align 8
-  %conv.i17.pre-phi.i = zext i32 %conv.i17.pre-phi.i.in410 to i64
+  %conv.i17.pre-phi.i = zext i32 %conv.i17.pre-phi.i.in424 to i64
   %add.ptr.i.i142.idx = shl nuw nsw i64 %conv.i17.pre-phi.i, 4
   %scevgep395 = getelementptr i8, ptr %55, i64 %add.ptr.i.i142.idx
   %56 = sub nsw i64 64, %add.ptr.i.i142.idx
@@ -3306,7 +3306,7 @@ if.end252.thread:                                 ; preds = %if.then223
   br label %if.end269
 
 if.else230:                                       ; preds = %if.then223
-  switch i32 %ObjectFormat.2, label %sw.epilog.i [
+  switch i32 %ObjectFormat.2, label %default.unreachable [
     i32 4, label %_ZN4llvh9StringRefC2EPKc.exit44.i
     i32 3, label %_ZN4llvh9StringRefC2EPKc.exit34.i
     i32 2, label %if.end252.sink.split
@@ -3318,7 +3318,7 @@ _ZN4llvh9StringRefC2EPKc.exit34.i:                ; preds = %if.else230
 _ZN4llvh9StringRefC2EPKc.exit44.i:                ; preds = %if.else230
   br label %if.end252.sink.split
 
-sw.epilog.i:                                      ; preds = %if.else230
+default.unreachable:                              ; preds = %if.else230
   unreachable
 
 if.else236:                                       ; preds = %if.end217
@@ -3346,9 +3346,9 @@ if.end.i154:                                      ; preds = %if.then6.i150
   br i1 %cmp13.not20.i157, label %if.end15.sink.split.i164, label %for.body.preheader.i158
 
 for.body.preheader.i158:                          ; preds = %if.then6.i150, %if.end.i154
-  %conv.i17.pre-phi.i155.in413 = phi i32 [ %.pre.i167, %if.end.i154 ], [ %58, %if.then6.i150 ]
+  %conv.i17.pre-phi.i155.in427 = phi i32 [ %.pre.i167, %if.end.i154 ], [ %58, %if.then6.i150 ]
   %60 = load ptr, ptr %Components, align 8
-  %conv.i17.pre-phi.i155 = zext i32 %conv.i17.pre-phi.i155.in413 to i64
+  %conv.i17.pre-phi.i155 = zext i32 %conv.i17.pre-phi.i155.in427 to i64
   %add.ptr.i.i159.idx = shl nuw nsw i64 %conv.i17.pre-phi.i155, 4
   %scevgep394 = getelementptr i8, ptr %60, i64 %add.ptr.i.i159.idx
   %61 = sub nsw i64 64, %add.ptr.i.i159.idx
@@ -3392,9 +3392,9 @@ if.end.i179:                                      ; preds = %if.then6.i175
   br i1 %cmp13.not20.i182, label %if.end15.sink.split.i189, label %for.body.preheader.i183
 
 for.body.preheader.i183:                          ; preds = %if.then6.i175, %if.end.i179
-  %conv.i17.pre-phi.i180.in416 = phi i32 [ %.pre.i192, %if.end.i179 ], [ %63, %if.then6.i175 ]
+  %conv.i17.pre-phi.i180.in430 = phi i32 [ %.pre.i192, %if.end.i179 ], [ %63, %if.then6.i175 ]
   %65 = load ptr, ptr %Components, align 8
-  %conv.i17.pre-phi.i180 = zext i32 %conv.i17.pre-phi.i180.in416 to i64
+  %conv.i17.pre-phi.i180 = zext i32 %conv.i17.pre-phi.i180.in430 to i64
   %add.ptr.i.i184.idx = shl nuw nsw i64 %conv.i17.pre-phi.i180, 4
   %scevgep = getelementptr i8, ptr %65, i64 %add.ptr.i.i184.idx
   %66 = sub nsw i64 64, %add.ptr.i.i184.idx
@@ -3414,12 +3414,12 @@ _ZN4llvh15SmallVectorImplINS_9StringRefEE6resizeEm.exit194: ; preds = %if.else.i
   br label %if.end252.sink.split
 
 if.end252.sink.split:                             ; preds = %_ZN4llvh9StringRefC2EPKc.exit44.i, %_ZN4llvh9StringRefC2EPKc.exit34.i, %if.else230, %_ZN4llvh15SmallVectorImplINS_9StringRefEE6resizeEm.exit194, %_ZN4llvh15SmallVectorImplINS_9StringRefEE6resizeEm.exit169
-  %.sink434 = phi ptr [ %62, %_ZN4llvh15SmallVectorImplINS_9StringRefEE6resizeEm.exit169 ], [ %67, %_ZN4llvh15SmallVectorImplINS_9StringRefEE6resizeEm.exit194 ], [ %57, %if.else230 ], [ %57, %_ZN4llvh9StringRefC2EPKc.exit34.i ], [ %57, %_ZN4llvh9StringRefC2EPKc.exit44.i ]
+  %.sink448 = phi ptr [ %62, %_ZN4llvh15SmallVectorImplINS_9StringRefEE6resizeEm.exit169 ], [ %67, %_ZN4llvh15SmallVectorImplINS_9StringRefEE6resizeEm.exit194 ], [ %57, %if.else230 ], [ %57, %_ZN4llvh9StringRefC2EPKc.exit34.i ], [ %57, %_ZN4llvh9StringRefC2EPKc.exit44.i ]
   %.str.106.sink = phi ptr [ @.str.106, %_ZN4llvh15SmallVectorImplINS_9StringRefEE6resizeEm.exit169 ], [ @.str.121, %_ZN4llvh15SmallVectorImplINS_9StringRefEE6resizeEm.exit194 ], [ @.str.187, %if.else230 ], [ @.str.188, %_ZN4llvh9StringRefC2EPKc.exit34.i ], [ @.str.56, %_ZN4llvh9StringRefC2EPKc.exit44.i ]
   %.sink = phi i64 [ 3, %_ZN4llvh15SmallVectorImplINS_9StringRefEE6resizeEm.exit169 ], [ 6, %_ZN4llvh15SmallVectorImplINS_9StringRefEE6resizeEm.exit194 ], [ 3, %if.else230 ], [ 5, %_ZN4llvh9StringRefC2EPKc.exit34.i ], [ 4, %_ZN4llvh9StringRefC2EPKc.exit44.i ]
-  %arrayidx.i465 = getelementptr inbounds nuw i8, ptr %.sink434, i64 48
+  %arrayidx.i465 = getelementptr inbounds nuw i8, ptr %.sink448, i64 48
   store ptr %.str.106.sink, ptr %arrayidx.i465, align 8
-  %ref.tmp241.sroa.2.0.arrayidx.i465.sroa_idx = getelementptr inbounds nuw i8, ptr %.sink434, i64 56
+  %ref.tmp241.sroa.2.0.arrayidx.i465.sroa_idx = getelementptr inbounds nuw i8, ptr %.sink448, i64 56
   store i64 %.sink, ptr %ref.tmp241.sroa.2.0.arrayidx.i465.sroa_idx, align 8
   br label %if.end252
 
@@ -3455,9 +3455,9 @@ if.end.i204:                                      ; preds = %if.then6.i200
   br i1 %cmp13.not20.i207, label %if.end15.sink.split.i214, label %for.body.preheader.i208
 
 for.body.preheader.i208:                          ; preds = %if.then6.i200, %if.end.i204
-  %conv.i17.pre-phi.i205.in419 = phi i32 [ %.pre.i217, %if.end.i204 ], [ %68, %if.then6.i200 ]
+  %conv.i17.pre-phi.i205.in433 = phi i32 [ %.pre.i217, %if.end.i204 ], [ %68, %if.then6.i200 ]
   %70 = load ptr, ptr %Components, align 8
-  %conv.i17.pre-phi.i205 = zext i32 %conv.i17.pre-phi.i205.in419 to i64
+  %conv.i17.pre-phi.i205 = zext i32 %conv.i17.pre-phi.i205.in433 to i64
   %add.ptr.i.i209.idx = shl nuw nsw i64 %conv.i17.pre-phi.i205, 4
   %scevgep396 = getelementptr i8, ptr %70, i64 %add.ptr.i.i209.idx
   %71 = sub nsw i64 80, %add.ptr.i.i209.idx
@@ -3474,11 +3474,11 @@ _ZN4llvh15SmallVectorImplINS_9StringRefEE6resizeEm.exit219: ; preds = %if.else.i
   %switch.gep = getelementptr inbounds nuw [3 x i64], ptr @switch.table._ZN4llvh6Triple9normalizeB5cxx11ENS_9StringRefE, i64 0, i64 %72
   %switch.load = load i64, ptr %switch.gep, align 8
   %73 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep444 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN4llvh6Triple9normalizeB5cxx11ENS_9StringRefE.8, i64 0, i64 %73
-  %switch.load445 = load ptr, ptr %switch.gep444, align 8
+  %switch.gep458 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN4llvh6Triple9normalizeB5cxx11ENS_9StringRefE.8, i64 0, i64 %73
+  %switch.load459 = load ptr, ptr %switch.gep458, align 8
   %74 = load ptr, ptr %Components, align 8
   %arrayidx.i450 = getelementptr inbounds nuw i8, ptr %74, i64 64
-  store ptr %switch.load445, ptr %arrayidx.i450, align 8
+  store ptr %switch.load459, ptr %arrayidx.i450, align 8
   %ref.tmp265.sroa.2.0.arrayidx.i450.sroa_idx = getelementptr inbounds nuw i8, ptr %74, i64 72
   store i64 %switch.load, ptr %ref.tmp265.sroa.2.0.arrayidx.i450.sroa_idx, align 8
   br label %if.end269

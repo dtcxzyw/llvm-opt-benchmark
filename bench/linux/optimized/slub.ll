@@ -610,34 +610,34 @@ define internal noundef i32 @setup_slub_debug(ptr noundef %0) #1 section ".init.
   %47 = icmp ne i8 %21, 0
   %48 = icmp eq i8 %19, 44
   %49 = getelementptr i8, ptr %20, i64 1
-  %spec.select49 = select i1 %48, ptr %49, ptr %20
+  %spec.select52 = select i1 %48, ptr %49, ptr %20
   br label %50
 
 50:                                               ; preds = %.loopexit, %.loopexit.thread
   %51 = phi ptr [ %16, %.loopexit.thread ], [ %49, %.loopexit ]
   %52 = phi i1 [ false, %.loopexit.thread ], [ %47, %.loopexit ]
   %53 = phi i1 [ true, %.loopexit.thread ], [ %48, %.loopexit ]
-  %.035 = phi i32 [ 68864, %.loopexit.thread ], [ %.1, %.loopexit ]
-  %54 = phi ptr [ %16, %.loopexit.thread ], [ %spec.select49, %.loopexit ]
+  %.038 = phi i32 [ 68864, %.loopexit.thread ], [ %.1, %.loopexit ]
+  %54 = phi ptr [ %16, %.loopexit.thread ], [ %spec.select52, %.loopexit ]
   br label %55
 
 55:                                               ; preds = %58, %50
   %56 = phi ptr [ %54, %50 ], [ %59, %58 ]
   %57 = load i8, ptr %56, align 1
   switch i8 %57, label %58 [
-    i8 0, label %.preheader62
-    i8 59, label %.preheader62
+    i8 0, label %.preheader65
+    i8 59, label %.preheader65
   ]
 
-.preheader62:                                     ; preds = %55, %55
+.preheader65:                                     ; preds = %55, %55
   br label %60
 
 58:                                               ; preds = %55
   %59 = getelementptr i8, ptr %56, i64 1
   br label %55, !llvm.loop !11
 
-60:                                               ; preds = %.preheader62, %60
-  %61 = phi ptr [ %64, %60 ], [ %56, %.preheader62 ]
+60:                                               ; preds = %.preheader65, %60
+  %61 = phi ptr [ %64, %60 ], [ %56, %.preheader65 ]
   %62 = load i8, ptr %61, align 1
   %63 = icmp eq i8 %62, 59
   %64 = getelementptr i8, ptr %61, i64 1
@@ -657,7 +657,7 @@ parse_slub_debug_flags.exit:                      ; preds = %65, %66
   br i1 %.not8, label %69, label %73
 
 69:                                               ; preds = %parse_slub_debug_flags.exit
-  %70 = and i32 %.035, 65536
+  %70 = and i32 %.038, 65536
   %71 = icmp eq i32 %70, 0
   br i1 %71, label %73, label %72
 
@@ -668,7 +668,7 @@ parse_slub_debug_flags.exit:                      ; preds = %65, %66
 73:                                               ; preds = %72, %69, %parse_slub_debug_flags.exit
   %74 = phi i8 [ 1, %72 ], [ 1, %69 ], [ %12, %parse_slub_debug_flags.exit ]
   %75 = phi i8 [ %11, %72 ], [ %11, %69 ], [ 1, %parse_slub_debug_flags.exit ]
-  %76 = phi i32 [ %10, %72 ], [ %10, %69 ], [ %.035, %parse_slub_debug_flags.exit ]
+  %76 = phi i32 [ %10, %72 ], [ %10, %69 ], [ %.038, %parse_slub_debug_flags.exit ]
   %77 = icmp eq ptr %61, null
   %78 = or i1 %77, %67
   br i1 %78, label %79, label %.preheader9, !llvm.loop !13
@@ -833,33 +833,33 @@ define dso_local i32 @kmem_cache_flags(i32 %0, i32 noundef %1, ptr noundef reado
 .loopexit:                                        ; preds = %.preheader, %.preheader, %.preheader
   %43 = icmp eq i8 %21, 44
   %44 = getelementptr i8, ptr %22, i64 1
-  %spec.select45 = select i1 %43, ptr %44, ptr %22
+  %spec.select48 = select i1 %43, ptr %44, ptr %22
   br label %45
 
 45:                                               ; preds = %.loopexit, %.loopexit.thread
   %46 = phi ptr [ %18, %.loopexit.thread ], [ %44, %.loopexit ]
   %47 = phi i1 [ true, %.loopexit.thread ], [ %43, %.loopexit ]
-  %.033 = phi i32 [ 68864, %.loopexit.thread ], [ %.1, %.loopexit ]
-  %48 = phi ptr [ %18, %.loopexit.thread ], [ %spec.select45, %.loopexit ]
+  %.036 = phi i32 [ 68864, %.loopexit.thread ], [ %.1, %.loopexit ]
+  %48 = phi ptr [ %18, %.loopexit.thread ], [ %spec.select48, %.loopexit ]
   br label %49
 
 49:                                               ; preds = %52, %45
   %50 = phi ptr [ %48, %45 ], [ %53, %52 ]
   %51 = load i8, ptr %50, align 1
   switch i8 %51, label %52 [
-    i8 0, label %.preheader56
-    i8 59, label %.preheader56
+    i8 0, label %.preheader59
+    i8 59, label %.preheader59
   ]
 
-.preheader56:                                     ; preds = %49, %49
+.preheader59:                                     ; preds = %49, %49
   br label %54
 
 52:                                               ; preds = %49
   %53 = getelementptr i8, ptr %50, i64 1
   br label %49, !llvm.loop !11
 
-54:                                               ; preds = %.preheader56, %54
-  %55 = phi ptr [ %58, %54 ], [ %50, %.preheader56 ]
+54:                                               ; preds = %.preheader59, %54
+  %55 = phi ptr [ %58, %54 ], [ %50, %.preheader59 ]
   %56 = load i8, ptr %55, align 1
   %57 = icmp eq i8 %56, 59
   %58 = getelementptr i8, ptr %55, i64 1
@@ -919,7 +919,7 @@ parse_slub_debug_flags.exit:                      ; preds = %54
   br label %93
 
 91:                                               ; preds = %.lr.ph
-  %92 = or i32 %.033, %1
+  %92 = or i32 %.036, %1
   br label %93
 
 93:                                               ; preds = %91, %89, %3
@@ -7447,18 +7447,18 @@ define internal fastcc ptr @___slab_alloc(ptr noundef nonnull %0, i32 noundef %1
   %88 = icmp ult i8 %87, 2
   call void @llvm.assume(i1 %88)
   %89 = icmp eq i8 %87, 0
-  br i1 %89, label %.preheader196, label %90, !prof !24
+  br i1 %89, label %.preheader215, label %90, !prof !24
 
 90:                                               ; preds = %.preheader28
   %91 = call i64 @llvm.read_register.i64(metadata !0)
   %92 = call i64 asm sideeffect "call __SCT__preempt_schedule", "={rsp},{rsp},~{dirflag},~{fpsr},~{flags}"(i64 %91) #27, !srcloc !159
   call void @llvm.write_register.i64(metadata !0, i64 %92)
-  br label %.preheader196
+  br label %.preheader215
 
-.preheader196:                                    ; preds = %90, %.preheader28
+.preheader215:                                    ; preds = %90, %.preheader28
   br label %93
 
-93:                                               ; preds = %.preheader196, %93
+93:                                               ; preds = %.preheader215, %93
   call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !160
   %94 = load volatile i64, ptr %18, align 8
   %95 = and i64 %94, 1
@@ -8294,9 +8294,9 @@ define internal fastcc void @deactivate_slab(ptr noundef readonly captures(none)
   br label %.lr.ph
 
 .split.split.us.preheader:                        ; preds = %.split
-  br i1 %47, label %.loopexit, label %.lr.ph88
+  br i1 %47, label %.loopexit, label %.lr.ph92
 
-.lr.ph88:                                         ; preds = %.split.split.us.preheader, %.split.split.us
+.lr.ph92:                                         ; preds = %.split.split.us.preheader, %.split.split.us
   %51 = phi i64 [ %74, %.split.split.us ], [ %46, %.split.split.us.preheader ]
   %52 = phi ptr [ %55, %.split.split.us ], [ %2, %.split.split.us.preheader ]
   %53 = phi ptr [ %52, %.split.split.us ], [ null, %.split.split.us.preheader ]
@@ -8305,7 +8305,7 @@ define internal fastcc void @deactivate_slab(ptr noundef readonly captures(none)
   %56 = icmp ult i64 %51, %30
   br i1 %56, label %.split13.us, label %57
 
-57:                                               ; preds = %.lr.ph88
+57:                                               ; preds = %.lr.ph92
   %58 = load i32, ptr %19, align 8
   %59 = lshr i32 %58, 16
   %60 = and i32 %59, 32767
@@ -8329,7 +8329,7 @@ define internal fastcc void @deactivate_slab(ptr noundef readonly captures(none)
   %73 = inttoptr i64 %72 to ptr
   %74 = load i64, ptr %73, align 8
   %75 = icmp eq i64 %74, 0
-  br i1 %75, label %.split.split.us..loopexit.loopexit29_crit_edge, label %.lr.ph88, !llvm.loop !192
+  br i1 %75, label %.split.split.us..loopexit.loopexit29_crit_edge, label %.lr.ph92, !llvm.loop !192
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.split.split
   %.in = phi i64 [ %100, %.split.split ], [ %46, %.lr.ph.preheader ]
@@ -8360,10 +8360,10 @@ define internal fastcc void @deactivate_slab(ptr noundef readonly captures(none)
   %96 = icmp eq i64 %95, 0
   br i1 %96, label %.split.split, label %.split13.us
 
-.split13.us:                                      ; preds = %91, %82, %.lr.ph, %.lr.ph88, %57, %66
-  %.us-phi14 = phi i32 [ %54, %66 ], [ %54, %57 ], [ %54, %.lr.ph88 ], [ %78, %.lr.ph ], [ %78, %82 ], [ %78, %91 ]
-  %.us-phi15 = phi ptr [ %53, %66 ], [ %53, %57 ], [ %53, %.lr.ph88 ], [ %77, %.lr.ph ], [ %77, %82 ], [ %77, %91 ]
-  %.us-phi16 = phi ptr [ %52, %66 ], [ %52, %57 ], [ %52, %.lr.ph88 ], [ %76, %.lr.ph ], [ %76, %82 ], [ %76, %91 ]
+.split13.us:                                      ; preds = %91, %82, %.lr.ph, %.lr.ph92, %57, %66
+  %.us-phi14 = phi i32 [ %54, %66 ], [ %54, %57 ], [ %54, %.lr.ph92 ], [ %78, %.lr.ph ], [ %78, %82 ], [ %78, %91 ]
+  %.us-phi15 = phi ptr [ %53, %66 ], [ %53, %57 ], [ %53, %.lr.ph92 ], [ %77, %.lr.ph ], [ %77, %82 ], [ %77, %91 ]
+  %.us-phi16 = phi ptr [ %52, %66 ], [ %52, %57 ], [ %52, %.lr.ph92 ], [ %76, %.lr.ph ], [ %76, %82 ], [ %76, %91 ]
   tail call void (ptr, ptr, ...) @slab_bug(ptr noundef %0, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.15)
   tail call fastcc void @print_trailer(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %.us-phi16)
   tail call void @add_taint(i32 noundef 5, i32 noundef 1) #27

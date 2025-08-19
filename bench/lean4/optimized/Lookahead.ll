@@ -1507,7 +1507,7 @@ lean_dec.exit942:                                 ; preds = %256, %255, %253, %l
   br label %lean_dec.exit940
 
 275:                                              ; preds = %267
-  %276 = tail call ptr @lean_big_usize_to_nat(i64 noundef range(i64 0, -1) %269) #4
+  %276 = tail call ptr @lean_big_usize_to_nat(i64 noundef range(i64 0, -1) -9223372036854775808) #4
   br label %lean_dec.exit940
 
 277:                                              ; preds = %266

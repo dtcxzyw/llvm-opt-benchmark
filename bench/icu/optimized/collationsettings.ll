@@ -622,9 +622,9 @@ define void @_ZN6icu_7717CollationSettings13setReorderingERKNS_13CollationDataEP
   br i1 %44, label %.lr.ph69.preheader, label %._crit_edge70
 
 .lr.ph69.preheader:                               ; preds = %34, %.preheader
-  %.048.lcssa84 = phi i32 [ %.1, %.preheader ], [ -1, %34 ]
-  %.049.lcssa82 = phi i32 [ %.2, %.preheader ], [ 0, %34 ]
-  %45 = zext nneg i32 %.049.lcssa82 to i64
+  %.048.lcssa88 = phi i32 [ %.1, %.preheader ], [ -1, %34 ]
+  %.049.lcssa86 = phi i32 [ %.2, %.preheader ], [ 0, %34 ]
+  %45 = zext nneg i32 %.049.lcssa86 to i64
   br label %.lr.ph69
 
 .lr.ph65:                                         ; preds = %.lr.ph65.preheader, %62
@@ -687,11 +687,11 @@ define void @_ZN6icu_7717CollationSettings13setReorderingERKNS_13CollationDataEP
   br i1 %66, label %.lr.ph69, label %._crit_edge70, !llvm.loop !41
 
 ._crit_edge70:                                    ; preds = %.lr.ph69, %.preheader
-  %.048.lcssa83 = phi i32 [ %.1, %.preheader ], [ %.048.lcssa84, %.lr.ph69 ]
-  %67 = icmp slt i32 %.048.lcssa83, 0
-  %68 = sub nsw i32 %27, %.048.lcssa83
+  %.048.lcssa87 = phi i32 [ %.1, %.preheader ], [ %.048.lcssa88, %.lr.ph69 ]
+  %67 = icmp slt i32 %.048.lcssa87, 0
+  %68 = sub nsw i32 %27, %.048.lcssa87
   %.052 = select i1 %67, i32 0, i32 %68
-  %narrow = call i32 @llvm.smax.i32(i32 %.048.lcssa83, i32 0)
+  %narrow = call i32 @llvm.smax.i32(i32 %.048.lcssa87, i32 0)
   %.051.idx = zext nneg i32 %narrow to i64
   %.051 = getelementptr inbounds nuw i32, ptr %36, i64 %.051.idx
   %69 = add nsw i32 %.052, %3

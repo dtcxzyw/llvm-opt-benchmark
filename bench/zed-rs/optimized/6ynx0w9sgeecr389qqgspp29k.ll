@@ -5041,9 +5041,9 @@ _ZN4core3ops8function6FnOnce9call_once17h7d21d7a6a6b50868E.llvm.1437403529064598
 "_ZN118_$LT$async_task..runnable..Builder$LT$M$GT$..spawn_local..Checked$LT$F$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h7ff4e88478352f0cE.exit": ; preds = %60
   %98 = load i64, ptr %9, align 8, !range !721, !noundef !11
   %trunc = trunc nuw i64 %98 to i1
-  br i1 %trunc, label %thread-pre-split.thread278, label %thread-pre-split
+  br i1 %trunc, label %thread-pre-split.thread288, label %thread-pre-split
 
-thread-pre-split.thread278:                       ; preds = %"_ZN118_$LT$async_task..runnable..Builder$LT$M$GT$..spawn_local..Checked$LT$F$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h7ff4e88478352f0cE.exit"
+thread-pre-split.thread288:                       ; preds = %"_ZN118_$LT$async_task..runnable..Builder$LT$M$GT$..spawn_local..Checked$LT$F$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h7ff4e88478352f0cE.exit"
   store i64 2, ptr %10, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %.preheader.preheader
@@ -5106,7 +5106,7 @@ thread-pre-split.thread:                          ; preds = %103
   store i64 2, ptr %10, align 8
   br label %.preheader.preheader
 
-.preheader.preheader:                             ; preds = %thread-pre-split.thread278, %.critedge
+.preheader.preheader:                             ; preds = %thread-pre-split.thread288, %.critedge
   br label %.preheader
 
 106:                                              ; preds = %thread-pre-split, %thread-pre-split.thread, %.thread233
@@ -5355,8 +5355,8 @@ _ZN10async_task5utils14abort_on_panic17h973be06ed4214926E.exit: ; preds = %187, 
 "_ZN4core3ptr60drop_in_place$LT$async_task..utils..abort_on_panic..Bomb$GT$17h3de05bc415ff6677E.exit.i117": ; preds = %294, %298, %256, %236, %203, %207, %.body153
   %.pn90 = phi { ptr, i32 } [ %288, %.body153 ], [ %208, %207 ], [ %204, %203 ], [ %237, %236 ], [ %257, %256 ], [ %288, %298 ], [ %295, %294 ]
   %198 = load i64, ptr %10, align 8, !range !771, !noundef !11
-  %.not282 = icmp eq i64 %198, 2
-  br i1 %.not282, label %common.resume, label %301
+  %.not292 = icmp eq i64 %198, 2
+  br i1 %.not292, label %common.resume, label %301
 
 199:                                              ; preds = %107
   invoke fastcc void @"_ZN4core3ptr413drop_in_place$LT$core..result..Result$LT$core..result..Result$LT$language_model..rate_limiter..RateLimitGuard$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$futures_core..stream..Stream$u2b$Item$u20$$u3d$$u20$core..result..Result$LT$alloc..string..String$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$$C$anyhow..Error$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17h09d3e6c23d7b9447E"(ptr noalias noundef align 8 dereferenceable(32) %8) #35
@@ -5916,9 +5916,9 @@ _ZN10async_task5utils14abort_on_panic17hed9ad6fdeeaaf3a4E.exit: ; preds = %29, %
 "_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hcb97248f1e39c01cE.exit": ; preds = %53
   %72 = load i64, ptr %5, align 8, !range !1399, !noundef !11
   %73 = icmp eq i64 %72, 3
-  br i1 %73, label %thread-pre-split.thread286, label %thread-pre-split
+  br i1 %73, label %thread-pre-split.thread302, label %thread-pre-split
 
-thread-pre-split.thread286:                       ; preds = %"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hcb97248f1e39c01cE.exit"
+thread-pre-split.thread302:                       ; preds = %"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hcb97248f1e39c01cE.exit"
   store i64 4, ptr %6, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.preheader.preheader
@@ -5979,7 +5979,7 @@ thread-pre-split.thread:                          ; preds = %78
   store i64 4, ptr %6, align 8
   br label %.preheader.preheader
 
-.preheader.preheader:                             ; preds = %thread-pre-split.thread286, %thread-pre-split, %.critedge
+.preheader.preheader:                             ; preds = %thread-pre-split.thread302, %thread-pre-split, %.critedge
   br label %.preheader
 
 81:                                               ; preds = %thread-pre-split.thread, %.thread238, %thread-pre-split
@@ -6282,8 +6282,8 @@ _ZN10async_task5utils14abort_on_panic17hb5a233c3d95797f8E.exit: ; preds = %184, 
 "_ZN4core3ptr60drop_in_place$LT$async_task..utils..abort_on_panic..Bomb$GT$17h3de05bc415ff6677E.exit.i124": ; preds = %311, %315, %273, %251, %.body.i140, %221, %.body164
   %.pn97 = phi { ptr, i32 } [ %305, %.body164 ], [ %222, %221 ], [ %212, %.body.i140 ], [ %252, %251 ], [ %274, %273 ], [ %305, %315 ], [ %312, %311 ]
   %195 = load i64, ptr %6, align 8, !range !1495, !noundef !11
-  %.not291 = icmp eq i64 %195, 4
-  br i1 %.not291, label %common.resume, label %318
+  %.not307 = icmp eq i64 %195, 4
+  br i1 %.not307, label %common.resume, label %318
 
 196:                                              ; preds = %.body.i115
   invoke fastcc void @"_ZN4core3ptr193drop_in_place$LT$core..result..Result$LT$core..option..Option$LT$language_model..request..LanguageModelImage$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17hf0292678804b2813E"(ptr noalias noundef align 8 dereferenceable(32) %4) #35
@@ -8457,9 +8457,9 @@ _ZN10async_task5utils14abort_on_panic17hfd4196d8a6b5b667E.exit: ; preds = %24
 44:                                               ; preds = %36
   %45 = load i64, ptr %5, align 8, !range !721, !noundef !11
   %trunc = trunc nuw i64 %45 to i1
-  br i1 %trunc, label %thread-pre-split.thread272, label %thread-pre-split
+  br i1 %trunc, label %thread-pre-split.thread278, label %thread-pre-split
 
-thread-pre-split.thread272:                       ; preds = %44
+thread-pre-split.thread278:                       ; preds = %44
   store i64 2, ptr %6, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.preheader.preheader
@@ -8522,7 +8522,7 @@ thread-pre-split.thread:                          ; preds = %50
   store i64 2, ptr %6, align 8
   br label %.preheader.preheader
 
-.preheader.preheader:                             ; preds = %thread-pre-split.thread272, %.critedge
+.preheader.preheader:                             ; preds = %thread-pre-split.thread278, %.critedge
   br label %.preheader
 
 53:                                               ; preds = %thread-pre-split, %thread-pre-split.thread, %.thread227
@@ -8774,8 +8774,8 @@ _ZN10async_task5utils14abort_on_panic17h1f293a01efd3a135E.exit: ; preds = %134, 
 "_ZN4core3ptr60drop_in_place$LT$async_task..utils..abort_on_panic..Bomb$GT$17h3de05bc415ff6677E.exit.i115": ; preds = %241, %245, %203, %183, %.body.i128, %153, %.body151
   %.pn90 = phi { ptr, i32 } [ %235, %.body151 ], [ %154, %153 ], [ %150, %.body.i128 ], [ %184, %183 ], [ %204, %203 ], [ %235, %245 ], [ %242, %241 ]
   %145 = load i64, ptr %6, align 8, !range !771, !noundef !11
-  %.not276 = icmp eq i64 %145, 2
-  br i1 %.not276, label %common.resume, label %248
+  %.not282 = icmp eq i64 %145, 2
+  br i1 %.not282, label %common.resume, label %248
 
 146:                                              ; preds = %.body.i107
   invoke fastcc void @"_ZN4core3ptr413drop_in_place$LT$core..result..Result$LT$core..result..Result$LT$language_model..rate_limiter..RateLimitGuard$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$futures_core..stream..Stream$u2b$Item$u20$$u3d$$u20$core..result..Result$LT$alloc..string..String$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$$C$anyhow..Error$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17h09d3e6c23d7b9447E"(ptr noalias noundef align 8 dereferenceable(32) %4) #35
@@ -9310,10 +9310,10 @@ _ZN10async_task5utils14abort_on_panic17h15bee1fe133ed87cE.exit: ; preds = %22
   br label %55
 
 55:                                               ; preds = %53, %49, %45
-  %.sink250 = phi ptr [ null, %53 ], [ %50, %49 ], [ null, %45 ]
+  %.sink257 = phi ptr [ null, %53 ], [ %50, %49 ], [ null, %45 ]
   %.sink = phi ptr [ %54, %53 ], [ %51, %49 ], [ %46, %45 ]
   %56 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr %.sink250, ptr %56, align 8
+  store ptr %.sink257, ptr %56, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %.sink, ptr %.sroa.4.0..sroa_idx, align 8
   store i64 0, ptr %4, align 8
@@ -11043,9 +11043,9 @@ _ZN10async_task5utils14abort_on_panic17h95d2247019facd5eE.exit: ; preds = %28, %
 "_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hc21c650b47451821E.exit": ; preds = %52
   %68 = load i64, ptr %5, align 8, !range !1399, !noundef !11
   %69 = icmp eq i64 %68, 3
-  br i1 %69, label %thread-pre-split.thread286, label %thread-pre-split
+  br i1 %69, label %thread-pre-split.thread302, label %thread-pre-split
 
-thread-pre-split.thread286:                       ; preds = %"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hc21c650b47451821E.exit"
+thread-pre-split.thread302:                       ; preds = %"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hc21c650b47451821E.exit"
   store i64 4, ptr %6, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.preheader
@@ -11106,7 +11106,7 @@ thread-pre-split.thread:                          ; preds = %74
   store i64 4, ptr %6, align 8
   br label %.preheader
 
-.preheader:                                       ; preds = %thread-pre-split.thread286, %thread-pre-split, %.critedge
+.preheader:                                       ; preds = %thread-pre-split.thread302, %thread-pre-split, %.critedge
   %77 = getelementptr i8, ptr %0, i64 72
   br label %192
 
@@ -11404,8 +11404,8 @@ _ZN10async_task5utils14abort_on_panic17h74cf5da1f06dc0f6E.exit: ; preds = %179, 
 "_ZN4core3ptr60drop_in_place$LT$async_task..utils..abort_on_panic..Bomb$GT$17h3de05bc415ff6677E.exit.i126": ; preds = %304, %308, %266, %244, %.body.i142, %215, %.body166
   %.pn97 = phi { ptr, i32 } [ %298, %.body166 ], [ %216, %215 ], [ %206, %.body.i142 ], [ %245, %244 ], [ %267, %266 ], [ %298, %308 ], [ %305, %304 ]
   %190 = load i64, ptr %6, align 8, !range !1495, !noundef !11
-  %.not290 = icmp eq i64 %190, 4
-  br i1 %.not290, label %common.resume, label %311
+  %.not306 = icmp eq i64 %190, 4
+  br i1 %.not306, label %common.resume, label %311
 
 191:                                              ; preds = %.body.i117
   invoke fastcc void @"_ZN4core3ptr193drop_in_place$LT$core..result..Result$LT$core..option..Option$LT$language_model..request..LanguageModelImage$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17hf0292678804b2813E"(ptr noalias noundef align 8 dereferenceable(32) %4) #35
@@ -12980,10 +12980,10 @@ _ZN4core3ops8function6FnOnce9call_once17h7d21d7a6a6b50868E.llvm.1437403529064598
   br label %108
 
 108:                                              ; preds = %106, %102, %98
-  %.sink256 = phi ptr [ null, %106 ], [ %103, %102 ], [ null, %98 ]
+  %.sink267 = phi ptr [ null, %106 ], [ %103, %102 ], [ null, %98 ]
   %.sink = phi ptr [ %107, %106 ], [ %104, %102 ], [ %99, %98 ]
   %109 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store ptr %.sink256, ptr %109, align 8
+  store ptr %.sink267, ptr %109, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %.sink, ptr %.sroa.4.0..sroa_idx, align 8
   store i64 0, ptr %8, align 8
@@ -42873,16 +42873,16 @@ define internal fastcc noundef range(i8 0, 3) i8 @"_ZN4http6header3map18HeaderMa
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  br label %.outer173
+  br label %.outer184
 
-.outer173:                                        ; preds = %"_ZN71_$LT$http..header..name..HeaderName$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc816068f1e86db0cE.exit.thread", %23
+.outer184:                                        ; preds = %"_ZN71_$LT$http..header..name..HeaderName$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc816068f1e86db0cE.exit.thread", %23
   %.sroa.018.0.ph = phi i64 [ %54, %"_ZN71_$LT$http..header..name..HeaderName$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc816068f1e86db0cE.exit.thread" ], [ %27, %23 ]
   %.sroa.012.0.ph = phi i64 [ %53, %"_ZN71_$LT$http..header..name..HeaderName$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc816068f1e86db0cE.exit.thread" ], [ 0, %23 ]
   %33 = load i64, ptr %29, align 8, !noundef !11
   br label %34
 
-34:                                               ; preds = %.outer173, %34
-  %.sroa.018.0 = phi i64 [ 0, %34 ], [ %.sroa.018.0.ph, %.outer173 ]
+34:                                               ; preds = %.outer184, %34
+  %.sroa.018.0 = phi i64 [ 0, %34 ], [ %.sroa.018.0.ph, %.outer184 ]
   %35 = icmp ult i64 %.sroa.018.0, %33
   br i1 %35, label %36, label %34
 
@@ -42913,7 +42913,7 @@ define internal fastcc noundef range(i8 0, 3) i8 @"_ZN4http6header3map18HeaderMa
 "_ZN71_$LT$http..header..name..HeaderName$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc816068f1e86db0cE.exit.thread": ; preds = %58, %67, %"_ZN71_$LT$http..header..name..HeaderName$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc816068f1e86db0cE.exit", %51
   %53 = add nuw nsw i64 %.sroa.012.0.ph, 1
   %54 = add nuw i64 %.sroa.018.0, 1
-  br label %.outer173
+  br label %.outer184
 
 55:                                               ; preds = %51
   %56 = load i64, ptr %31, align 8, !noundef !11
@@ -47670,7 +47670,7 @@ define hidden { i64, ptr } @"_ZN84_$LT$async_task..task..Task$LT$T$C$M$GT$$u20$a
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef align 8 dereferenceable(80) ptr @"_ZN84_$LT$gpui..app..entity_map..Lease$LT$T$GT$$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17h0bf72999ce29563cE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #2 {
+define hidden noundef nonnull align 8 dereferenceable(80) ptr @"_ZN84_$LT$gpui..app..entity_map..Lease$LT$T$GT$$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17h0bf72999ce29563cE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !noundef !11
   %4 = icmp eq ptr %3, null
@@ -47703,7 +47703,7 @@ define hidden noundef align 8 dereferenceable(80) ptr @"_ZN84_$LT$gpui..app..ent
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef align 8 dereferenceable(96) ptr @"_ZN84_$LT$gpui..app..entity_map..Lease$LT$T$GT$$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17h2e0ae7dfc289b9daE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @"_ZN84_$LT$gpui..app..entity_map..Lease$LT$T$GT$$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17h2e0ae7dfc289b9daE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !noundef !11
   %4 = icmp eq ptr %3, null
@@ -47736,7 +47736,7 @@ define hidden noundef align 8 dereferenceable(96) ptr @"_ZN84_$LT$gpui..app..ent
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef align 8 dereferenceable(80) ptr @"_ZN84_$LT$gpui..app..entity_map..Lease$LT$T$GT$$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17h2e16884ccf99e82cE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #2 {
+define hidden noundef nonnull align 8 dereferenceable(80) ptr @"_ZN84_$LT$gpui..app..entity_map..Lease$LT$T$GT$$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17h2e16884ccf99e82cE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !noundef !11
   %4 = icmp eq ptr %3, null
@@ -47769,7 +47769,7 @@ define hidden noundef align 8 dereferenceable(80) ptr @"_ZN84_$LT$gpui..app..ent
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef align 8 dereferenceable(104) ptr @"_ZN84_$LT$gpui..app..entity_map..Lease$LT$T$GT$$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17h2fc1eb96cef4e80eE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #2 {
+define hidden noundef nonnull align 8 dereferenceable(104) ptr @"_ZN84_$LT$gpui..app..entity_map..Lease$LT$T$GT$$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17h2fc1eb96cef4e80eE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !noundef !11
   %4 = icmp eq ptr %3, null
@@ -47802,7 +47802,7 @@ define hidden noundef align 8 dereferenceable(104) ptr @"_ZN84_$LT$gpui..app..en
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef align 8 dereferenceable(80) ptr @"_ZN84_$LT$gpui..app..entity_map..Lease$LT$T$GT$$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17h3036808411076371E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #2 {
+define hidden noundef nonnull align 8 dereferenceable(80) ptr @"_ZN84_$LT$gpui..app..entity_map..Lease$LT$T$GT$$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17h3036808411076371E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !noundef !11
   %4 = icmp eq ptr %3, null
@@ -47835,7 +47835,7 @@ define hidden noundef align 8 dereferenceable(80) ptr @"_ZN84_$LT$gpui..app..ent
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef align 8 dereferenceable(56) ptr @"_ZN84_$LT$gpui..app..entity_map..Lease$LT$T$GT$$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17h772b9e0f6834852aE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #2 {
+define hidden noundef nonnull align 8 dereferenceable(56) ptr @"_ZN84_$LT$gpui..app..entity_map..Lease$LT$T$GT$$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17h772b9e0f6834852aE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !noundef !11
   %4 = icmp eq ptr %3, null
@@ -47868,7 +47868,7 @@ define hidden noundef align 8 dereferenceable(56) ptr @"_ZN84_$LT$gpui..app..ent
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef align 8 dereferenceable(80) ptr @"_ZN84_$LT$gpui..app..entity_map..Lease$LT$T$GT$$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17h79731b3806db892eE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #2 {
+define hidden noundef nonnull align 8 dereferenceable(80) ptr @"_ZN84_$LT$gpui..app..entity_map..Lease$LT$T$GT$$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17h79731b3806db892eE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !noundef !11
   %4 = icmp eq ptr %3, null
@@ -47901,7 +47901,7 @@ define hidden noundef align 8 dereferenceable(80) ptr @"_ZN84_$LT$gpui..app..ent
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef align 8 dereferenceable(80) ptr @"_ZN84_$LT$gpui..app..entity_map..Lease$LT$T$GT$$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17h875407ca31d23b85E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #2 {
+define hidden noundef nonnull align 8 dereferenceable(80) ptr @"_ZN84_$LT$gpui..app..entity_map..Lease$LT$T$GT$$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17h875407ca31d23b85E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !noundef !11
   %4 = icmp eq ptr %3, null
@@ -47934,7 +47934,7 @@ define hidden noundef align 8 dereferenceable(80) ptr @"_ZN84_$LT$gpui..app..ent
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef align 8 dereferenceable(48) ptr @"_ZN84_$LT$gpui..app..entity_map..Lease$LT$T$GT$$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17h9f3e923c3c3c183cE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #2 {
+define hidden noundef nonnull align 8 dereferenceable(48) ptr @"_ZN84_$LT$gpui..app..entity_map..Lease$LT$T$GT$$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17h9f3e923c3c3c183cE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !noundef !11
   %4 = icmp eq ptr %3, null
@@ -47967,7 +47967,7 @@ define hidden noundef align 8 dereferenceable(48) ptr @"_ZN84_$LT$gpui..app..ent
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef align 8 dereferenceable(32) ptr @"_ZN84_$LT$gpui..app..entity_map..Lease$LT$T$GT$$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17ha00928c39782f240E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #2 {
+define hidden noundef nonnull align 8 dereferenceable(32) ptr @"_ZN84_$LT$gpui..app..entity_map..Lease$LT$T$GT$$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17ha00928c39782f240E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !noundef !11
   %4 = icmp eq ptr %3, null
@@ -48000,7 +48000,7 @@ define hidden noundef align 8 dereferenceable(32) ptr @"_ZN84_$LT$gpui..app..ent
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef align 8 dereferenceable(48) ptr @"_ZN84_$LT$gpui..app..entity_map..Lease$LT$T$GT$$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17ha3ddfdfacf6fae47E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #2 {
+define hidden noundef nonnull align 8 dereferenceable(48) ptr @"_ZN84_$LT$gpui..app..entity_map..Lease$LT$T$GT$$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17ha3ddfdfacf6fae47E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !noundef !11
   %4 = icmp eq ptr %3, null
@@ -48033,7 +48033,7 @@ define hidden noundef align 8 dereferenceable(48) ptr @"_ZN84_$LT$gpui..app..ent
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef align 8 dereferenceable(5472) ptr @"_ZN84_$LT$gpui..app..entity_map..Lease$LT$T$GT$$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17ha784c24066254565E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #2 {
+define hidden noundef nonnull align 8 dereferenceable(5472) ptr @"_ZN84_$LT$gpui..app..entity_map..Lease$LT$T$GT$$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17ha784c24066254565E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !noundef !11
   %4 = icmp eq ptr %3, null
@@ -48066,7 +48066,7 @@ define hidden noundef align 8 dereferenceable(5472) ptr @"_ZN84_$LT$gpui..app..e
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef align 8 dereferenceable(344) ptr @"_ZN84_$LT$gpui..app..entity_map..Lease$LT$T$GT$$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17hc2fd869fb945ad8eE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #2 {
+define hidden noundef nonnull align 8 dereferenceable(344) ptr @"_ZN84_$LT$gpui..app..entity_map..Lease$LT$T$GT$$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17hc2fd869fb945ad8eE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !noundef !11
   %4 = icmp eq ptr %3, null
@@ -48099,7 +48099,7 @@ define hidden noundef align 8 dereferenceable(344) ptr @"_ZN84_$LT$gpui..app..en
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef align 8 dereferenceable(1056) ptr @"_ZN84_$LT$gpui..app..entity_map..Lease$LT$T$GT$$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17hc5cd2c8ba92600ffE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #2 {
+define hidden noundef nonnull align 8 dereferenceable(1056) ptr @"_ZN84_$LT$gpui..app..entity_map..Lease$LT$T$GT$$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17hc5cd2c8ba92600ffE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !noundef !11
   %4 = icmp eq ptr %3, null
@@ -48132,7 +48132,7 @@ define hidden noundef align 8 dereferenceable(1056) ptr @"_ZN84_$LT$gpui..app..e
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef align 8 dereferenceable(48) ptr @"_ZN84_$LT$gpui..app..entity_map..Lease$LT$T$GT$$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17hce3aea987322886bE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #2 {
+define hidden noundef nonnull align 8 dereferenceable(48) ptr @"_ZN84_$LT$gpui..app..entity_map..Lease$LT$T$GT$$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17hce3aea987322886bE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !noundef !11
   %4 = icmp eq ptr %3, null
@@ -48165,7 +48165,7 @@ define hidden noundef align 8 dereferenceable(48) ptr @"_ZN84_$LT$gpui..app..ent
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef align 8 dereferenceable(40) ptr @"_ZN84_$LT$gpui..app..entity_map..Lease$LT$T$GT$$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17hd413d3a36e21e490E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #2 {
+define hidden noundef nonnull align 8 dereferenceable(40) ptr @"_ZN84_$LT$gpui..app..entity_map..Lease$LT$T$GT$$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17hd413d3a36e21e490E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !noundef !11
   %4 = icmp eq ptr %3, null
@@ -48198,7 +48198,7 @@ define hidden noundef align 8 dereferenceable(40) ptr @"_ZN84_$LT$gpui..app..ent
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef align 8 dereferenceable(248) ptr @"_ZN84_$LT$gpui..app..entity_map..Lease$LT$T$GT$$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17he70f645411fdefc3E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #2 {
+define hidden noundef nonnull align 8 dereferenceable(248) ptr @"_ZN84_$LT$gpui..app..entity_map..Lease$LT$T$GT$$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17he70f645411fdefc3E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !noundef !11
   %4 = icmp eq ptr %3, null
@@ -48231,7 +48231,7 @@ define hidden noundef align 8 dereferenceable(248) ptr @"_ZN84_$LT$gpui..app..en
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef align 8 dereferenceable(48) ptr @"_ZN84_$LT$gpui..app..entity_map..Lease$LT$T$GT$$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17he78b34b5bb78a366E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #2 {
+define hidden noundef nonnull align 8 dereferenceable(48) ptr @"_ZN84_$LT$gpui..app..entity_map..Lease$LT$T$GT$$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17he78b34b5bb78a366E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !noundef !11
   %4 = icmp eq ptr %3, null

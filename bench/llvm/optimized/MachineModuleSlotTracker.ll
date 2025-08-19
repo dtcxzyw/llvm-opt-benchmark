@@ -51,11 +51,11 @@ define dso_local void @_ZN4llvm24MachineModuleSlotTracker30processMachineFunctio
 12:                                               ; preds = %.lr.ph50
   %13 = and i64 %10, 7
   switch i64 %13, label %._crit_edge [
-    i64 0, label %_ZNK4llvm12MachineInstr11memoperandsEv.exit.thread61
+    i64 0, label %_ZNK4llvm12MachineInstr11memoperandsEv.exit.thread64
     i64 3, label %_ZNK4llvm12MachineInstr11memoperandsEv.exit
   ]
 
-_ZNK4llvm12MachineInstr11memoperandsEv.exit.thread61: ; preds = %12
+_ZNK4llvm12MachineInstr11memoperandsEv.exit.thread64: ; preds = %12
   %14 = inttoptr i64 %10 to ptr
   store ptr %14, ptr %9, align 8, !tbaa !14
   %15 = getelementptr inbounds nuw i8, ptr %.sroa.033.048, i64 56
@@ -72,9 +72,9 @@ _ZNK4llvm12MachineInstr11memoperandsEv.exit:      ; preds = %12
   %.not44 = icmp eq i32 %19, 0
   br i1 %.not44, label %._crit_edge, label %.lr.ph.preheader
 
-.lr.ph.preheader:                                 ; preds = %_ZNK4llvm12MachineInstr11memoperandsEv.exit.thread61, %_ZNK4llvm12MachineInstr11memoperandsEv.exit
-  %23 = phi ptr [ %15, %_ZNK4llvm12MachineInstr11memoperandsEv.exit.thread61 ], [ %22, %_ZNK4llvm12MachineInstr11memoperandsEv.exit ]
-  %.sroa.0.0.i65 = phi ptr [ %9, %_ZNK4llvm12MachineInstr11memoperandsEv.exit.thread61 ], [ %18, %_ZNK4llvm12MachineInstr11memoperandsEv.exit ]
+.lr.ph.preheader:                                 ; preds = %_ZNK4llvm12MachineInstr11memoperandsEv.exit.thread64, %_ZNK4llvm12MachineInstr11memoperandsEv.exit
+  %23 = phi ptr [ %15, %_ZNK4llvm12MachineInstr11memoperandsEv.exit.thread64 ], [ %22, %_ZNK4llvm12MachineInstr11memoperandsEv.exit ]
+  %.sroa.0.0.i68 = phi ptr [ %9, %_ZNK4llvm12MachineInstr11memoperandsEv.exit.thread64 ], [ %18, %_ZNK4llvm12MachineInstr11memoperandsEv.exit ]
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %46, %12, %.lr.ph50, %_ZNK4llvm12MachineInstr11memoperandsEv.exit
@@ -84,7 +84,7 @@ _ZNK4llvm12MachineInstr11memoperandsEv.exit:      ; preds = %12
   br i1 %.not43, label %._crit_edge51, label %.lr.ph50
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %46
-  %.045 = phi ptr [ %47, %46 ], [ %.sroa.0.0.i65, %.lr.ph.preheader ]
+  %.045 = phi ptr [ %47, %46 ], [ %.sroa.0.0.i68, %.lr.ph.preheader ]
   %25 = load ptr, ptr %.045, align 8, !tbaa !19
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 40
   %.sroa.0.0.copyload = load ptr, ptr %26, align 8, !tbaa !21

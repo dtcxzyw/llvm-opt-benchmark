@@ -1461,8 +1461,8 @@ define internal range(i32 -1, 1) i32 @binary(ptr noundef captures(none) %0, ptr 
   br i1 %.not, label %.thread92, label %.thread
 
 .thread.sink.split:                               ; preds = %42, %39, %36, %33, %30, %27
-  %.sink95 = phi i1 [ %28, %27 ], [ %31, %30 ], [ %34, %33 ], [ %37, %36 ], [ %40, %39 ], [ %43, %42 ]
-  %45 = zext i1 %.sink95 to i64
+  %.sink97 = phi i1 [ %28, %27 ], [ %31, %30 ], [ %34, %33 ], [ %37, %36 ], [ %40, %39 ], [ %43, %42 ]
+  %45 = zext i1 %.sink97 to i64
   store i64 %45, ptr %20, align 8, !tbaa !65
   br label %.thread
 
@@ -2105,7 +2105,7 @@ define internal ptr @getval(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr 
   %197 = inttoptr i64 %194 to ptr
   %198 = load i32, ptr %197, align 8
   %199 = and i32 %198, 3
-  switch i32 %199, label %default.unreachable768 [
+  switch i32 %199, label %default.unreachable818 [
     i32 0, label %200
     i32 1, label %201
     i32 3, label %202
@@ -2124,7 +2124,7 @@ define internal ptr @getval(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr 
   store ptr @.str.74, ptr %10, align 8, !tbaa !65
   br label %lookup.exit.thread
 
-default.unreachable768:                           ; preds = %196
+default.unreachable818:                           ; preds = %196
   unreachable
 
 203:                                              ; preds = %15
@@ -2958,8 +2958,8 @@ default.unreachable768:                           ; preds = %196
   %592 = sext i32 %591 to i64
   store i64 %592, ptr %10, align 8, !tbaa !65
   %.not648 = icmp eq i32 %591, 0
-  %or.cond769 = select i1 %590, i1 %.not648, i1 false
-  br i1 %or.cond769, label %593, label %lookup.exit.thread
+  %or.cond819 = select i1 %590, i1 %.not648, i1 false
+  br i1 %or.cond819, label %593, label %lookup.exit.thread
 
 593:                                              ; preds = %587
   store ptr null, ptr %588, align 8, !tbaa !100

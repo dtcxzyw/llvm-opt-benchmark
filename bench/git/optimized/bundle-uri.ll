@@ -698,8 +698,8 @@ copy_uri_to_file.exit:                            ; preds = %download_https_uri_
   %87 = load ptr, ptr %31, align 8, !tbaa !19
   %88 = load ptr, ptr %15, align 8, !tbaa !20
   %89 = call i32 @bundle_uri_parse_config_format(ptr noundef %87, ptr noundef %88, ptr noundef nonnull %5)
-  %.not.i44 = icmp eq i32 %89, 0
-  br i1 %.not.i44, label %90, label %fetch_bundle_list_in_config_format.exit.thread
+  %.not.i49 = icmp eq i32 %89, 0
+  br i1 %.not.i49, label %90, label %fetch_bundle_list_in_config_format.exit.thread
 
 90:                                               ; preds = %84
   %91 = load i32, ptr %86, align 4, !tbaa !4
@@ -708,17 +708,17 @@ copy_uri_to_file.exit:                            ; preds = %download_https_uri_
 
 93:                                               ; preds = %90
   %94 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !30
-  %.not4.i50 = icmp eq i32 %94, 0
-  br i1 %.not4.i50, label %_.exit52, label %95
+  %.not4.i55 = icmp eq i32 %94, 0
+  br i1 %.not4.i55, label %_.exit57, label %95
 
 95:                                               ; preds = %93
   %96 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.38, i32 noundef 5) #16
-  br label %_.exit52
+  br label %_.exit57
 
-_.exit52:                                         ; preds = %93, %95
-  %.0.i51 = phi ptr [ %96, %95 ], [ @.str.38, %93 ]
+_.exit57:                                         ; preds = %93, %95
+  %.0.i56 = phi ptr [ %96, %95 ], [ @.str.38, %93 ]
   %97 = load ptr, ptr %31, align 8, !tbaa !19
-  call void (ptr, ...) @warning(ptr noundef %.0.i51, ptr noundef %97) #16
+  call void (ptr, ...) @warning(ptr noundef %.0.i56, ptr noundef %97) #16
   br label %fetch_bundle_list_in_config_format.exit.thread
 
 98:                                               ; preds = %90
@@ -737,17 +737,17 @@ _.exit52:                                         ; preds = %93, %95
   %106 = call fastcc i32 @download_bundle_list(ptr noundef %0, ptr noundef nonnull %5, ptr noundef %3, i32 noundef range(i32 -2147483647, 4) %2)
   br label %fetch_bundle_list_in_config_format.exit
 
-fetch_bundle_list_in_config_format.exit.thread:   ; preds = %84, %_.exit52
-  %.0.i45.ph = phi i32 [ -1, %_.exit52 ], [ %89, %84 ]
+fetch_bundle_list_in_config_format.exit.thread:   ; preds = %84, %_.exit57
+  %.0.i50.ph = phi i32 [ -1, %_.exit57 ], [ %89, %84 ]
   call void @clear_bundle_list(ptr noundef nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %120
 
 fetch_bundle_list_in_config_format.exit:          ; preds = %102, %105
-  %.0.i45 = phi i32 [ %103, %102 ], [ %106, %105 ]
+  %.0.i50 = phi i32 [ %103, %102 ], [ %106, %105 ]
   call void @clear_bundle_list(ptr noundef nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %.not33 = icmp eq i32 %.0.i45, 0
+  %.not33 = icmp eq i32 %.0.i50, 0
   br i1 %.not33, label %.thread39, label %120
 
 107:                                              ; preds = %81
@@ -772,34 +772,34 @@ fetch_bundle_list_in_config_format.exit:          ; preds = %102, %105
 
 120:                                              ; preds = %fetch_bundle_list_in_config_format.exit.thread, %fetch_bundle_list_in_config_format.exit, %copy_uri_to_file.exit
   %.str.24.sink = phi ptr [ @.str.24, %copy_uri_to_file.exit ], [ @.str.25, %fetch_bundle_list_in_config_format.exit ], [ @.str.25, %fetch_bundle_list_in_config_format.exit.thread ]
-  %.025.ph.ph = phi i32 [ %.07.i, %copy_uri_to_file.exit ], [ %.0.i45, %fetch_bundle_list_in_config_format.exit ], [ %.0.i45.ph, %fetch_bundle_list_in_config_format.exit.thread ]
+  %.025.ph.ph = phi i32 [ %.07.i, %copy_uri_to_file.exit ], [ %.0.i50, %fetch_bundle_list_in_config_format.exit ], [ %.0.i50.ph, %fetch_bundle_list_in_config_format.exit.thread ]
   %121 = load i8, ptr %.str.24.sink, align 1, !tbaa !31
-  %.not.i46 = icmp eq i8 %121, 0
-  br i1 %.not.i46, label %_.exit49, label %122
+  %.not.i51 = icmp eq i8 %121, 0
+  br i1 %.not.i51, label %_.exit54, label %122
 
 122:                                              ; preds = %120
   %123 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !30
-  %.not4.i47 = icmp eq i32 %123, 0
-  br i1 %.not4.i47, label %_.exit49, label %124
+  %.not4.i52 = icmp eq i32 %123, 0
+  br i1 %.not4.i52, label %_.exit54, label %124
 
 124:                                              ; preds = %122
   %125 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull %.str.24.sink, i32 noundef 5) #16
-  br label %_.exit49
+  br label %_.exit54
 
-_.exit49:                                         ; preds = %120, %122, %124
-  %.0.i48 = phi ptr [ %125, %124 ], [ @.str.8, %120 ], [ %.str.24.sink, %122 ]
+_.exit54:                                         ; preds = %120, %122, %124
+  %.0.i53 = phi ptr [ %125, %124 ], [ @.str.8, %120 ], [ %.str.24.sink, %122 ]
   %126 = load ptr, ptr %31, align 8, !tbaa !19
-  tail call void (ptr, ...) @warning(ptr noundef %.0.i48, ptr noundef %126) #16
+  tail call void (ptr, ...) @warning(ptr noundef %.0.i53, ptr noundef %126) #16
   %.pr = load ptr, ptr %15, align 8, !tbaa !20
   %.not35 = icmp eq ptr %.pr, null
   br i1 %.not35, label %.thread39, label %127
 
-127:                                              ; preds = %_.exit49
+127:                                              ; preds = %_.exit54
   %128 = tail call i32 @unlink(ptr noundef nonnull %.pr) #16
   br label %.thread39
 
-.thread39:                                        ; preds = %find_temp_filename.exit.thread, %find_temp_filename.exit, %107, %fetch_bundle_list_in_config_format.exit, %_.exit49, %127, %_.exit
-  %.0 = phi i32 [ -1, %_.exit ], [ %.025.ph.ph, %127 ], [ %.025.ph.ph, %_.exit49 ], [ 0, %fetch_bundle_list_in_config_format.exit ], [ 0, %107 ], [ -1, %find_temp_filename.exit ], [ -1, %find_temp_filename.exit.thread ]
+.thread39:                                        ; preds = %find_temp_filename.exit.thread, %find_temp_filename.exit, %107, %fetch_bundle_list_in_config_format.exit, %_.exit54, %127, %_.exit
+  %.0 = phi i32 [ -1, %_.exit ], [ %.025.ph.ph, %127 ], [ %.025.ph.ph, %_.exit54 ], [ 0, %fetch_bundle_list_in_config_format.exit ], [ 0, %107 ], [ -1, %find_temp_filename.exit ], [ -1, %find_temp_filename.exit.thread ]
   ret i32 %.0
 }
 
@@ -977,8 +977,8 @@ for_all_bundles_in_list.exit.thread:              ; preds = %hashmap_get_size.ex
   %19 = getelementptr inbounds nuw ptr, ptr %16, i64 %.sroa.9.0
   store ptr %.0913.i, ptr %19, align 8, !tbaa !49
   %20 = call ptr @hashmap_iter_next(ptr noundef nonnull %3) #16
-  %.not.i88 = icmp eq ptr %20, null
-  br i1 %.not.i88, label %for_all_bundles_in_list.exit, label %.preheader, !llvm.loop !21
+  %.not.i92 = icmp eq ptr %20, null
+  br i1 %.not.i92, label %for_all_bundles_in_list.exit, label %.preheader, !llvm.loop !21
 
 for_all_bundles_in_list.exit:                     ; preds = %.preheader
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -990,8 +990,8 @@ for_all_bundles_in_list.exit:                     ; preds = %.preheader
   br label %88
 
 22:                                               ; preds = %for_all_bundles_in_list.exit
-  %.not101 = icmp eq i64 %.sroa.9.0, 0
-  br i1 %.not101, label %sane_qsort.exit, label %23
+  %.not105 = icmp eq i64 %.sroa.9.0, 0
+  br i1 %.not105, label %sane_qsort.exit, label %23
 
 23:                                               ; preds = %22
   call void @qsort(ptr noundef nonnull %16, i64 noundef range(i64 1, 0) %18, i64 noundef 8, ptr noundef nonnull @compare_creation_token_decreasing) #16
@@ -1128,19 +1128,19 @@ _.exit:                                           ; preds = %53, %55
 
 81:                                               ; preds = %77
   %82 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !30
-  %.not4.i89 = icmp eq i32 %82, 0
-  br i1 %.not4.i89, label %_.exit91, label %83
+  %.not4.i93 = icmp eq i32 %82, 0
+  br i1 %.not4.i93, label %_.exit95, label %83
 
 83:                                               ; preds = %81
   %84 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.48, i32 noundef 5) #16
-  br label %_.exit91
+  br label %_.exit95
 
-_.exit91:                                         ; preds = %81, %83
-  %.0.i90 = phi ptr [ %84, %83 ], [ @.str.48, %81 ]
-  call void (ptr, ...) @warning(ptr noundef %.0.i90) #16
+_.exit95:                                         ; preds = %81, %83
+  %.0.i94 = phi ptr [ %84, %83 ], [ @.str.48, %81 ]
+  call void (ptr, ...) @warning(ptr noundef %.0.i94) #16
   br label %85
 
-85:                                               ; preds = %_.exit91, %77
+85:                                               ; preds = %_.exit95, %77
   call void @strbuf_release(ptr noundef nonnull %6) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.thread53.thread
@@ -1197,7 +1197,7 @@ define internal fastcc noundef i32 @download_bundle_list(ptr noundef captures(no
   br label %download_bundle_to_file.exit
 
 download_bundle_to_file.exit:                     ; preds = %13, %.lr.ph.i
-  %.sroa.8.1 = phi i32 [ %.sroa.8.0, %.lr.ph.i ], [ %15, %13 ]
+  %.sroa.8.1 = phi i32 [ 1, %.lr.ph.i ], [ %15, %13 ]
   %16 = call ptr @hashmap_iter_next(ptr noundef nonnull %5) #16
   %.not.i = icmp eq ptr %16, null
   br i1 %.not.i, label %for_all_bundles_in_list.exit, label %.lr.ph.i, !llvm.loop !21
@@ -1659,20 +1659,20 @@ define internal fastcc range(i32 0, 2) i32 @unbundle_from_file(ptr noundef %0, p
   %23 = load i64, ptr %20, align 8, !tbaa !68
   %24 = getelementptr inbounds nuw %struct.string_list_item, ptr %22, i64 %23
   %25 = icmp ult ptr %19, %24
-  br i1 %25, label %.lr.ph29, label %.critedge
+  br i1 %25, label %.lr.ph33, label %.critedge
 
-.lr.ph29:                                         ; preds = %.lr.ph, %skip_prefix.exit
-  %.0132528 = phi ptr [ %52, %skip_prefix.exit ], [ %19, %.lr.ph ]
-  %26 = getelementptr inbounds nuw i8, ptr %.0132528, i64 8
+.lr.ph33:                                         ; preds = %.lr.ph, %skip_prefix.exit
+  %.0132532 = phi ptr [ %52, %skip_prefix.exit ], [ %19, %.lr.ph ]
+  %26 = getelementptr inbounds nuw i8, ptr %.0132532, i64 8
   %27 = load ptr, ptr %26, align 8, !tbaa !69
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %28 = load ptr, ptr %.0132528, align 8, !tbaa !71
+  %28 = load ptr, ptr %.0132532, align 8, !tbaa !71
   %scevgep = getelementptr i8, ptr %28, i64 11
   br label %29
 
-29:                                               ; preds = %30, %.lr.ph29
-  %.07.i = phi ptr [ %28, %.lr.ph29 ], [ %32, %30 ]
-  %.06.i.idx = phi i64 [ 0, %.lr.ph29 ], [ %.06.i.add, %30 ]
+29:                                               ; preds = %30, %.lr.ph33
+  %.07.i = phi ptr [ %28, %.lr.ph33 ], [ %32, %30 ]
+  %.06.i.idx = phi i64 [ 0, %.lr.ph33 ], [ %.06.i.add, %30 ]
   %exitcond = icmp eq i64 %.06.i.idx, 11
   br i1 %exitcond, label %35, label %30
 
@@ -1723,12 +1723,12 @@ strbuf_setlen.exit:                               ; preds = %39, %41
 
 skip_prefix.exit:                                 ; preds = %30, %strbuf_setlen.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %52 = getelementptr inbounds nuw i8, ptr %.0132528, i64 16
+  %52 = getelementptr inbounds nuw i8, ptr %.0132532, i64 16
   %53 = load ptr, ptr %18, align 8, !tbaa !62
   %54 = load i64, ptr %20, align 8, !tbaa !68
   %55 = getelementptr inbounds nuw %struct.string_list_item, ptr %53, i64 %54
   %56 = icmp ult ptr %52, %55
-  br i1 %56, label %.lr.ph29, label %.critedge
+  br i1 %56, label %.lr.ph33, label %.critedge
 
 .critedge:                                        ; preds = %skip_prefix.exit, %.lr.ph, %15, %13, %2
   %.0 = phi i32 [ 1, %2 ], [ 1, %13 ], [ 0, %15 ], [ 0, %.lr.ph ], [ 0, %skip_prefix.exit ]

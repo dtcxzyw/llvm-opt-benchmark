@@ -66,11 +66,11 @@ WebPIsAlphaMode.exit.thread:                      ; preds = %17
   %switch.maskindex = trunc i32 %switch.tableidx to i16
   %switch.shifted = lshr i16 2077, %switch.maskindex
   %switch.lobit = trunc i16 %switch.shifted to i1
-  %or.cond23 = select i1 %31, i1 %switch.lobit, i1 false
+  %or.cond25 = select i1 %31, i1 %switch.lobit, i1 false
   %32 = add i32 %30, -11
   %narrow.i.i = icmp ult i32 %32, -4
   %spec.select = select i1 %narrow.i.i, i32 2, i32 6
-  %33 = select i1 %or.cond23, i32 6, i32 %spec.select
+  %33 = select i1 %or.cond25, i32 6, i32 %spec.select
   %34 = load volatile ptr, ptr %3, align 8, !tbaa !4
   %35 = load volatile ptr, ptr %4, align 8, !tbaa !9
   call void @png_set_IHDR(ptr noundef %34, ptr noundef %35, i32 noundef %23, i32 noundef %25, i32 noundef 8, i32 noundef %33, i32 noundef 0, i32 noundef 0, i32 noundef 0) #9
@@ -326,7 +326,7 @@ WebPIsAlphaMode.exit:                             ; preds = %8
 
 .thread:                                          ; preds = %8, %8, %8, %8, %8, %WebPIsAlphaMode.exit, %11
   %12 = phi i32 [ 54, %11 ], [ 70, %WebPIsAlphaMode.exit ], [ 70, %8 ], [ 70, %8 ], [ 70, %8 ], [ 70, %8 ], [ 70, %8 ]
-  %.not7678 = phi i1 [ true, %11 ], [ false, %WebPIsAlphaMode.exit ], [ false, %8 ], [ false, %8 ], [ false, %8 ], [ false, %8 ], [ false, %8 ]
+  %.not8082 = phi i1 [ true, %11 ], [ false, %WebPIsAlphaMode.exit ], [ false, %8 ], [ false, %8 ], [ false, %8 ], [ false, %8 ], [ false, %8 ]
   %13 = phi i32 [ 3, %11 ], [ 4, %WebPIsAlphaMode.exit ], [ 4, %8 ], [ 4, %8 ], [ 4, %8 ], [ 4, %8 ], [ 4, %8 ]
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %15 = load i32, ptr %14, align 4, !tbaa !11
@@ -366,7 +366,7 @@ WebPIsAlphaMode.exit:                             ; preds = %8
   %38 = shl nuw nsw i16 %.tr, 3
   store i16 %38, ptr %37, align 4
   %39 = getelementptr inbounds nuw i8, ptr %3, i64 30
-  %40 = select i1 %.not7678, i32 0, i32 3
+  %40 = select i1 %.not8082, i32 0, i32 3
   store i32 %40, ptr %39, align 2
   %41 = getelementptr inbounds nuw i8, ptr %3, i64 34
   store i32 %27, ptr %41, align 2
@@ -376,7 +376,7 @@ WebPIsAlphaMode.exit:                             ; preds = %8
   store i32 2400, ptr %43, align 2
   %44 = getelementptr inbounds nuw i8, ptr %3, i64 46
   store i32 0, ptr %44, align 2
-  br i1 %.not7678, label %50, label %45
+  br i1 %.not8082, label %50, label %45
 
 45:                                               ; preds = %26
   %46 = getelementptr inbounds nuw i8, ptr %3, i64 54
@@ -805,8 +805,8 @@ define hidden range(i32 0, 2) i32 @WebPWriteTIFF(ptr noundef captures(address_is
   %switch.maskindex = trunc i32 %switch.tableidx to i16
   %switch.shifted = lshr i16 2077, %switch.maskindex
   %switch.lobit = trunc i16 %switch.shifted to i1
-  %or.cond45 = select i1 %176, i1 %switch.lobit, i1 false
-  br i1 %or.cond45, label %WebPIsAlphaMode.exit, label %177
+  %or.cond49 = select i1 %176, i1 %switch.lobit, i1 false
+  br i1 %or.cond49, label %WebPIsAlphaMode.exit, label %177
 
 177:                                              ; preds = %174
   %178 = add i32 %175, -11

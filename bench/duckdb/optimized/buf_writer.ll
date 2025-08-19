@@ -90,12 +90,12 @@ sz_size2index.exit.i:                             ; preds = %22, %20, %14
 tsdn_witness_tsdp_get.exit.i:                     ; preds = %sz_size2index.exit.i
   %41 = tail call ptr @duckdb_je_arena_malloc_hard(ptr noundef nonnull %0, ptr noundef %.0.i.i7.i, i64 noundef %5, i32 noundef range(i32 0, 256) %.0.i.i, i1 noundef zeroext false, i1 noundef zeroext %39) #8
   %.not.i.i = icmp eq ptr %41, null
-  br i1 %.not.i.i, label %.thread37, label %43, !prof !14
+  br i1 %.not.i.i, label %.thread45, label %43, !prof !14
 
 tsdn_witness_tsdp_get.exit.thread.i:              ; preds = %sz_size2index.exit.i
   %42 = tail call ptr @duckdb_je_arena_malloc_hard(ptr noundef null, ptr noundef %.0.i.i7.i, i64 noundef %5, i32 noundef range(i32 0, 256) %.0.i.i, i1 noundef zeroext false, i1 noundef zeroext %39) #8
   %.not.i17.i = icmp eq ptr %42, null
-  br i1 %.not.i17.i, label %.thread37, label %.thread.i, !prof !14
+  br i1 %.not.i17.i, label %.thread45, label %.thread.i, !prof !14
 
 .thread.i:                                        ; preds = %tsdn_witness_tsdp_get.exit.thread.i
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -282,7 +282,7 @@ emap_alloc_ctx_lookup.exit.i:                     ; preds = %100, %99
   %142 = call ptr @duckdb_je_rtree_leaf_elm_lookup_hard(ptr noundef %0, ptr noundef nonnull @duckdb_je_arena_emap_global, ptr noundef nonnull %.0.i.i.i, i64 noundef %46, i1 noundef zeroext true, i1 noundef zeroext false) #8
   br label %145
 
-.thread37:                                        ; preds = %tsdn_witness_tsdp_get.exit.thread.i, %tsdn_witness_tsdp_get.exit.i
+.thread45:                                        ; preds = %tsdn_witness_tsdp_get.exit.thread.i, %tsdn_witness_tsdp_get.exit.i
   %143 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store ptr null, ptr %143, align 8, !tbaa !28
   %144 = getelementptr inbounds nuw i8, ptr %1, i64 40
@@ -301,23 +301,23 @@ emap_alloc_ctx_lookup.exit.i:                     ; preds = %100, %99
   br label %.thread
 
 .thread:                                          ; preds = %6, %145
-  %.sink50 = phi ptr [ %45, %145 ], [ %4, %6 ]
-  %.sink48 = phi i8 [ 1, %145 ], [ 0, %6 ]
+  %.sink58 = phi ptr [ %45, %145 ], [ %4, %6 ]
+  %.sink56 = phi i8 [ 1, %145 ], [ 0, %6 ]
   %152 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store ptr %.sink50, ptr %152, align 8, !tbaa !28
+  store ptr %.sink58, ptr %152, align 8, !tbaa !28
   %153 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  store i8 %.sink48, ptr %153, align 8, !tbaa !29
+  store i8 %.sink56, ptr %153, align 8, !tbaa !29
   %154 = add i64 %5, -1
   br label %155
 
-155:                                              ; preds = %.thread37, %.thread
-  %.not2335 = phi i1 [ false, %.thread ], [ true, %.thread37 ]
-  %.sink = phi i64 [ %154, %.thread ], [ 0, %.thread37 ]
+155:                                              ; preds = %.thread45, %.thread
+  %.not2343 = phi i1 [ false, %.thread ], [ true, %.thread45 ]
+  %.sink = phi i64 [ %154, %.thread ], [ 0, %.thread45 ]
   %156 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i64 %.sink, ptr %156, align 8, !tbaa !34
   %157 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store i64 0, ptr %157, align 8, !tbaa !35
-  ret i1 %.not2335
+  ret i1 %.not2343
 }
 
 declare void @duckdb_je_wrtmessage(ptr noundef, ptr noundef) #1

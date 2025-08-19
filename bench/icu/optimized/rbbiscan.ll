@@ -796,10 +796,10 @@ _ZN6icu_7715RBBIRuleScanner11pushNewNodeENS_8RBBINode8NodeTypeE.exit: ; preds = 
   br i1 %83, label %._crit_edge.i, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %74
-  %or.cond.i307 = icmp slt i32 %82, 4
-  br i1 %or.cond.i307, label %_ZN6icu_7715RBBIRuleScanner10fixOpStackENS_8RBBINode12OpPrecedenceE.exit, label %.lr.ph310
+  %or.cond.i376 = icmp slt i32 %82, 4
+  br i1 %or.cond.i376, label %_ZN6icu_7715RBBIRuleScanner10fixOpStackENS_8RBBINode12OpPrecedenceE.exit, label %.lr.ph379
 
-.lr.ph310:                                        ; preds = %.lr.ph.preheader.i
+.lr.ph379:                                        ; preds = %.lr.ph.preheader.i
   %84 = sext i32 %.promoted.i to i64
   br label %103
 
@@ -839,22 +839,22 @@ _ZN6icu_7715RBBIRuleScanner11pushNewNodeENS_8RBBINode8NodeTypeE.exit: ; preds = 
   br label %_ZN6icu_7715RBBIRuleScanner10fixOpStackENS_8RBBINode12OpPrecedenceE.exit.thread
 
 .lr.ph.i:                                         ; preds = %103
-  %indvars.iv.next38.i = add nsw i64 %indvars.iv37.i308, -1
+  %indvars.iv.next38.i = add nsw i64 %indvars.iv37.i377, -1
   %or.cond.i = icmp slt i32 %113, 4
   br i1 %or.cond.i, label %_ZN6icu_7715RBBIRuleScanner10fixOpStackENS_8RBBINode12OpPrecedenceE.exit.loopexit, label %103, !llvm.loop !67
 
-103:                                              ; preds = %.lr.ph310, %.lr.ph.i
-  %104 = phi ptr [ %80, %.lr.ph310 ], [ %111, %.lr.ph.i ]
-  %indvars.iv.i309 = phi i64 [ %78, %.lr.ph310 ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %indvars.iv37.i308 = phi i64 [ %84, %.lr.ph310 ], [ %indvars.iv.next38.i, %.lr.ph.i ]
-  %105 = getelementptr inbounds [100 x ptr], ptr %75, i64 0, i64 %indvars.iv37.i308
+103:                                              ; preds = %.lr.ph379, %.lr.ph.i
+  %104 = phi ptr [ %80, %.lr.ph379 ], [ %111, %.lr.ph.i ]
+  %indvars.iv.i378 = phi i64 [ %78, %.lr.ph379 ], [ %indvars.iv.next.i, %.lr.ph.i ]
+  %indvars.iv37.i377 = phi i64 [ %84, %.lr.ph379 ], [ %indvars.iv.next38.i, %.lr.ph.i ]
+  %105 = getelementptr inbounds [100 x ptr], ptr %75, i64 0, i64 %indvars.iv37.i377
   %106 = load ptr, ptr %105, align 8, !tbaa !31
   %107 = getelementptr inbounds nuw i8, ptr %104, i64 24
   store ptr %106, ptr %107, align 8, !tbaa !68
   %108 = getelementptr inbounds nuw i8, ptr %106, i64 8
   store ptr %104, ptr %108, align 8, !tbaa !69
-  %109 = trunc nsw i64 %indvars.iv.i309 to i32
-  %indvars.iv.next.i = add nsw i64 %indvars.iv.i309, -1
+  %109 = trunc nsw i64 %indvars.iv.i378 to i32
+  %indvars.iv.next.i = add nsw i64 %indvars.iv.i378, -1
   %110 = getelementptr inbounds [100 x ptr], ptr %75, i64 0, i64 %indvars.iv.next.i
   %111 = load ptr, ptr %110, align 8, !tbaa !31
   %112 = getelementptr inbounds nuw i8, ptr %111, i64 40
@@ -985,8 +985,8 @@ _ZN6icu_7715RBBIRuleScanner11pushNewNodeENS_8RBBINode8NodeTypeE.exit180: ; preds
   br i1 %178, label %._crit_edge.i189, label %.lr.ph.preheader.i182
 
 .lr.ph.preheader.i182:                            ; preds = %169
-  %or.cond.i186304 = icmp slt i32 %177, 4
-  br i1 %or.cond.i186304, label %_ZN6icu_7715RBBIRuleScanner10fixOpStackENS_8RBBINode12OpPrecedenceE.exit191, label %.lr.ph
+  %or.cond.i186373 = icmp slt i32 %177, 4
+  br i1 %or.cond.i186373, label %_ZN6icu_7715RBBIRuleScanner10fixOpStackENS_8RBBINode12OpPrecedenceE.exit191, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader.i182
   %179 = sext i32 %.promoted.i181 to i64
@@ -1028,22 +1028,22 @@ _ZN6icu_7715RBBIRuleScanner11pushNewNodeENS_8RBBINode8NodeTypeE.exit180: ; preds
   br label %_ZN6icu_7715RBBIRuleScanner10fixOpStackENS_8RBBINode12OpPrecedenceE.exit191.thread
 
 .lr.ph.i183:                                      ; preds = %198
-  %indvars.iv.next38.i188 = add nsw i64 %indvars.iv37.i184305, -1
+  %indvars.iv.next38.i188 = add nsw i64 %indvars.iv37.i184374, -1
   %or.cond.i186 = icmp slt i32 %208, 4
   br i1 %or.cond.i186, label %_ZN6icu_7715RBBIRuleScanner10fixOpStackENS_8RBBINode12OpPrecedenceE.exit191.loopexit, label %198, !llvm.loop !67
 
 198:                                              ; preds = %.lr.ph, %.lr.ph.i183
   %199 = phi ptr [ %175, %.lr.ph ], [ %206, %.lr.ph.i183 ]
-  %indvars.iv.i185306 = phi i64 [ %173, %.lr.ph ], [ %indvars.iv.next.i187, %.lr.ph.i183 ]
-  %indvars.iv37.i184305 = phi i64 [ %179, %.lr.ph ], [ %indvars.iv.next38.i188, %.lr.ph.i183 ]
-  %200 = getelementptr inbounds [100 x ptr], ptr %170, i64 0, i64 %indvars.iv37.i184305
+  %indvars.iv.i185375 = phi i64 [ %173, %.lr.ph ], [ %indvars.iv.next.i187, %.lr.ph.i183 ]
+  %indvars.iv37.i184374 = phi i64 [ %179, %.lr.ph ], [ %indvars.iv.next38.i188, %.lr.ph.i183 ]
+  %200 = getelementptr inbounds [100 x ptr], ptr %170, i64 0, i64 %indvars.iv37.i184374
   %201 = load ptr, ptr %200, align 8, !tbaa !31
   %202 = getelementptr inbounds nuw i8, ptr %199, i64 24
   store ptr %201, ptr %202, align 8, !tbaa !68
   %203 = getelementptr inbounds nuw i8, ptr %201, i64 8
   store ptr %199, ptr %203, align 8, !tbaa !69
-  %204 = trunc nsw i64 %indvars.iv.i185306 to i32
-  %indvars.iv.next.i187 = add nsw i64 %indvars.iv.i185306, -1
+  %204 = trunc nsw i64 %indvars.iv.i185375 to i32
+  %indvars.iv.next.i187 = add nsw i64 %indvars.iv.i185375, -1
   %205 = getelementptr inbounds [100 x ptr], ptr %170, i64 0, i64 %indvars.iv.next.i187
   %206 = load ptr, ptr %205, align 8, !tbaa !31
   %207 = getelementptr inbounds nuw i8, ptr %206, i64 40
@@ -1065,23 +1065,23 @@ _ZN6icu_7715RBBIRuleScanner10fixOpStackENS_8RBBINode12OpPrecedenceE.exit191.loop
   br label %_ZN6icu_7715RBBIRuleScanner10fixOpStackENS_8RBBINode12OpPrecedenceE.exit191
 
 _ZN6icu_7715RBBIRuleScanner10fixOpStackENS_8RBBINode12OpPrecedenceE.exit191: ; preds = %_ZN6icu_7715RBBIRuleScanner10fixOpStackENS_8RBBINode12OpPrecedenceE.exit191.loopexit, %.lr.ph.preheader.i182
-  %.lcssa301 = phi i32 [ %.promoted.i181, %.lr.ph.preheader.i182 ], [ %204, %_ZN6icu_7715RBBIRuleScanner10fixOpStackENS_8RBBINode12OpPrecedenceE.exit191.loopexit ]
+  %.lcssa370 = phi i32 [ %.promoted.i181, %.lr.ph.preheader.i182 ], [ %204, %_ZN6icu_7715RBBIRuleScanner10fixOpStackENS_8RBBINode12OpPrecedenceE.exit191.loopexit ]
   %.phi.trans.insert276 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.pre277 = load ptr, ptr %.phi.trans.insert276, align 8, !tbaa !12
   %.phi.trans.insert278 = getelementptr inbounds nuw i8, ptr %.pre277, i64 16
   %.pre279 = load ptr, ptr %.phi.trans.insert278, align 8, !tbaa !35
   %.pre280 = load i32, ptr %.pre279, align 4, !tbaa !45
   %215 = icmp slt i32 %.pre280, 1
-  %216 = add nsw i32 %.lcssa301, -1
+  %216 = add nsw i32 %.lcssa370, -1
   store i32 %216, ptr %171, align 8, !tbaa !56
-  %217 = sext i32 %.lcssa301 to i64
+  %217 = sext i32 %.lcssa370 to i64
   %218 = getelementptr inbounds [100 x ptr], ptr %170, i64 0, i64 %217
   %219 = load ptr, ptr %218, align 8, !tbaa !31
   %220 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br i1 %215, label %221, label %_ZN6icu_7715RBBIRuleScanner11pushNewNodeENS_8RBBINode8NodeTypeE.exit194
 
 221:                                              ; preds = %_ZN6icu_7715RBBIRuleScanner10fixOpStackENS_8RBBINode12OpPrecedenceE.exit191
-  %222 = icmp sgt i32 %.lcssa301, 99
+  %222 = icmp sgt i32 %.lcssa370, 99
   br i1 %222, label %223, label %234
 
 223:                                              ; preds = %221
@@ -1106,7 +1106,7 @@ _ZN6icu_7715RBBIRuleScanner10fixOpStackENS_8RBBINode12OpPrecedenceE.exit191: ; p
   br label %_ZN6icu_7715RBBIRuleScanner11pushNewNodeENS_8RBBINode8NodeTypeE.exit194
 
 234:                                              ; preds = %221
-  store i32 %.lcssa301, ptr %171, align 8, !tbaa !56
+  store i32 %.lcssa370, ptr %171, align 8, !tbaa !56
   %235 = tail call noundef ptr @_ZN6icu_777UMemorynwEm(i64 noundef 160) #13
   %236 = icmp eq ptr %235, null
   br i1 %236, label %245, label %237

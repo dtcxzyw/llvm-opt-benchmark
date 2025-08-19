@@ -2730,7 +2730,7 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EE9push_backEOS2_.exit.us: ; preds = %_ZNSt6ve
   br i1 %.not28.i.i, label %466, label %_ZSt27__uninitialized_default_n_aIPN2cv6Point_IfEEmS2_ET_S4_T0_RSaIT1_E.exit.i.i
 
 _ZSt27__uninitialized_default_n_aIPN2cv6Point_IfEEmS2_ET_S4_T0_RSaIT1_E.exit.i.i: ; preds = %455
-  %465 = shl nuw i64 %456, 3
+  %465 = shl nuw nsw i64 %456, 3
   call void @llvm.memset.p0.i64(ptr align 4 %448, i8 0, i64 %465, i1 false), !tbaa !37
   %scevgep.i.i.i.i.i = getelementptr i8, ptr %448, i64 %465
   store ptr %scevgep.i.i.i.i.i, ptr %447, align 8, !tbaa !133
@@ -3978,7 +3978,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE6resizeEm(p
   br i1 %.not28.i, label %22, label %_ZSt27__uninitialized_default_n_aIPN2cv6Point_IfEEmS2_ET_S4_T0_RSaIT1_E.exit.i
 
 _ZSt27__uninitialized_default_n_aIPN2cv6Point_IfEEmS2_ET_S4_T0_RSaIT1_E.exit.i: ; preds = %11
-  %21 = shl nuw i64 %12, 3
+  %21 = shl nuw nsw i64 %12, 3
   tail call void @llvm.memset.p0.i64(ptr align 4 %4, i8 0, i64 %21, i1 false), !tbaa !37
   %scevgep.i.i.i.i = getelementptr i8, ptr %4, i64 %21
   store ptr %scevgep.i.i.i.i, ptr %3, align 8, !tbaa !133
@@ -6043,7 +6043,7 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EE9push_backEOS2_.exit.us: ; preds = %_ZNSt6ve
   br i1 %.not28.i.i, label %489, label %_ZSt27__uninitialized_default_n_aIPN2cv6Point_IfEEmS2_ET_S4_T0_RSaIT1_E.exit.i.i
 
 _ZSt27__uninitialized_default_n_aIPN2cv6Point_IfEEmS2_ET_S4_T0_RSaIT1_E.exit.i.i: ; preds = %478
-  %488 = shl nuw i64 %479, 3
+  %488 = shl nuw nsw i64 %479, 3
   call void @llvm.memset.p0.i64(ptr align 4 %471, i8 0, i64 %488, i1 false), !tbaa !37
   %scevgep.i.i.i.i.i = getelementptr i8, ptr %471, i64 %488
   store ptr %scevgep.i.i.i.i.i, ptr %470, align 8, !tbaa !133

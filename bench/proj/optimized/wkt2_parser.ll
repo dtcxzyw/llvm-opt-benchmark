@@ -374,16 +374,16 @@ define hidden i32 @pj_wkt2_lex(ptr noundef readnone captures(none) %0, ptr nound
 33:                                               ; preds = %.loopexit
   %.off = add nsw i8 %31, -49
   %switch = icmp ult i8 %.off, 3
-  br i1 %switch, label %34, label %.preheader101
+  br i1 %switch, label %34, label %.preheader105
 
 34:                                               ; preds = %33
   %35 = getelementptr inbounds nuw i8, ptr %.066, i64 1
   %36 = load i8, ptr %35, align 1, !tbaa !12
   %37 = add i8 %36, -48
   %or.cond78 = icmp ult i8 %37, 10
-  br i1 %or.cond78, label %.preheader101, label %38
+  br i1 %or.cond78, label %.preheader105, label %38
 
-.preheader101:                                    ; preds = %33, %34
+.preheader105:                                    ; preds = %33, %34
   br label %41
 
 38:                                               ; preds = %34
@@ -392,8 +392,8 @@ define hidden i32 @pj_wkt2_lex(ptr noundef readnone captures(none) %0, ptr nound
   %40 = sext i8 %39 to i32
   br label %68
 
-41:                                               ; preds = %.preheader101, %41
-  %.066.pn76 = phi ptr [ %.167, %41 ], [ %.066, %.preheader101 ]
+41:                                               ; preds = %.preheader105, %41
+  %.066.pn76 = phi ptr [ %.167, %41 ], [ %.066, %.preheader105 ]
   %.167 = getelementptr inbounds nuw i8, ptr %.066.pn76, i64 1
   %42 = load i8, ptr %.167, align 1, !tbaa !12
   %43 = add i8 %42, -48

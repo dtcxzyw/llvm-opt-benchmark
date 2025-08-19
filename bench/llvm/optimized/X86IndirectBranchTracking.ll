@@ -846,8 +846,8 @@ _ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit104: ; pred
   br label %.loopexit.sink.split
 
 .loopexit.sink.split:                             ; preds = %162, %.loopexit.sink.split.sink.split
-  %.sink194 = phi ptr [ %219, %.loopexit.sink.split.sink.split ], [ %.sroa.0111.0164, %162 ]
-  %220 = call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_129X86IndirectBranchTrackingPass8addENDBRERN4llvm17MachineBasicBlockENS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE(ptr noundef nonnull align 8 dereferenceable(68) %0, ptr noundef nonnull align 8 dereferenceable(288) %.sroa.0121.0169, ptr %.sink194)
+  %.sink205 = phi ptr [ %219, %.loopexit.sink.split.sink.split ], [ %.sroa.0111.0164, %162 ]
+  %220 = call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_129X86IndirectBranchTrackingPass8addENDBRERN4llvm17MachineBasicBlockENS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEE(ptr noundef nonnull align 8 dereferenceable(68) %0, ptr noundef nonnull align 8 dereferenceable(288) %.sroa.0121.0169, ptr %.sink205)
   %221 = or i1 %.3.lcssa, %220
   br label %.loopexit
 

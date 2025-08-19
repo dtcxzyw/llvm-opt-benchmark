@@ -70,9 +70,9 @@ define internal range(i32 -22, 1) i32 @dnxhd_encode_init(ptr noundef %0) #0 {
   br label %.sink.split
 
 .sink.split:                                      ; preds = %1, %6
-  %.sink175 = phi i32 [ 10, %6 ], [ 8, %1 ]
+  %.sink183 = phi i32 [ 10, %6 ], [ 8, %1 ]
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 7000
-  store i32 %.sink175, ptr %7, align 8, !tbaa !28
+  store i32 %.sink183, ptr %7, align 8, !tbaa !28
   br label %8
 
 8:                                                ; preds = %.sink.split, %1
@@ -213,31 +213,31 @@ define internal range(i32 -22, 1) i32 @dnxhd_encode_init(ptr noundef %0) #0 {
 63:                                               ; preds = %60, %48
   %64 = load i32, ptr %23, align 4, !tbaa !64
   %.not151 = icmp eq i32 %64, 0
-  br i1 %.not151, label %65, label %.sink.split180
+  br i1 %.not151, label %65, label %.sink.split188
 
 65:                                               ; preds = %63
   %66 = load i32, ptr %9, align 4, !tbaa !63
   %67 = icmp eq i32 %66, 4
-  br i1 %67, label %.sink.split180, label %68
+  br i1 %67, label %.sink.split188, label %68
 
 68:                                               ; preds = %65
   %69 = load i32, ptr %25, align 8, !tbaa !28
   %70 = icmp eq i32 %69, 10
-  br i1 %70, label %.sink.split180, label %72
+  br i1 %70, label %.sink.split188, label %72
 
-.sink.split180:                                   ; preds = %68, %63, %65
+.sink.split188:                                   ; preds = %68, %63, %65
   %dnxhd_10bit_dct_quantize.sink = phi ptr [ @dnxhd_10bit_dct_quantize_444, %65 ], [ @dnxhd_10bit_dct_quantize_444, %63 ], [ @dnxhd_10bit_dct_quantize, %68 ]
   %71 = getelementptr inbounds nuw i8, ptr %3, i64 6904
   store ptr %dnxhd_10bit_dct_quantize.sink, ptr %71, align 8, !tbaa !75
   br label %72
 
-72:                                               ; preds = %.sink.split180, %68
-  %dnxhd_10bit_get_pixels_8x4_sym.sink = phi ptr [ @dnxhd_8bit_get_pixels_8x4_sym, %68 ], [ @dnxhd_10bit_get_pixels_8x4_sym, %.sink.split180 ]
-  %.sink177 = phi i32 [ 3, %68 ], [ 4, %.sink.split180 ]
+72:                                               ; preds = %.sink.split188, %68
+  %dnxhd_10bit_get_pixels_8x4_sym.sink = phi ptr [ @dnxhd_8bit_get_pixels_8x4_sym, %68 ], [ @dnxhd_10bit_get_pixels_8x4_sym, %.sink.split188 ]
+  %.sink185 = phi i32 [ 3, %68 ], [ 4, %.sink.split188 ]
   %73 = getelementptr inbounds nuw i8, ptr %3, i64 10584
   store ptr %dnxhd_10bit_get_pixels_8x4_sym.sink, ptr %73, align 8, !tbaa !76
   %74 = getelementptr inbounds nuw i8, ptr %3, i64 7304
-  store i32 %.sink177, ptr %74, align 8, !tbaa !77
+  store i32 %.sink185, ptr %74, align 8, !tbaa !77
   %75 = load i32, ptr %40, align 4, !tbaa !69
   %76 = add nsw i32 %75, 15
   %77 = sdiv i32 %76, 16
@@ -909,10 +909,10 @@ select.unfold127.i:                               ; preds = %244, %240
 271:                                              ; preds = %dnxhd_write_header.exit
   %272 = load i32, ptr %59, align 4, !tbaa !122
   %.pre.i.i = load i32, ptr %60, align 8, !tbaa !78
-  br label %.outer211
+  br label %.outer246
 
-.outer211:                                        ; preds = %313, %271
-  %.ph212 = phi i32 [ %280, %313 ], [ %.pre.i.i, %271 ]
+.outer246:                                        ; preds = %313, %271
+  %.ph247 = phi i32 [ %280, %313 ], [ %.pre.i.i, %271 ]
   %.062.i.i.ph = phi i32 [ %.264.i.i, %313 ], [ 1, %271 ]
   %.057.i.i.ph = phi i32 [ %314, %313 ], [ 0, %271 ]
   %.055.i.i.ph = phi i32 [ %.055.i.i, %313 ], [ 2147483647, %271 ]
@@ -921,12 +921,12 @@ select.unfold127.i:                               ; preds = %244, %240
   %273 = zext i1 %.not73.i.i to i32
   br label %274
 
-274:                                              ; preds = %.outer211, %305
-  %275 = phi i32 [ %280, %305 ], [ %.ph212, %.outer211 ]
-  %.062.i.i = phi i32 [ 1, %305 ], [ %.062.i.i.ph, %.outer211 ]
-  %.059.i.i = phi i32 [ %.160.i.i, %305 ], [ 1, %.outer211 ]
-  %.055.i.i = phi i32 [ %306, %305 ], [ %.055.i.i.ph, %.outer211 ]
-  %.054.i.i = phi i32 [ %spec.store.select.i.i, %305 ], [ %.054.i.i.ph, %.outer211 ]
+274:                                              ; preds = %.outer246, %305
+  %275 = phi i32 [ %280, %305 ], [ %.ph247, %.outer246 ]
+  %.062.i.i = phi i32 [ 1, %305 ], [ %.062.i.i.ph, %.outer246 ]
+  %.059.i.i = phi i32 [ %.160.i.i, %305 ], [ 1, %.outer246 ]
+  %.055.i.i = phi i32 [ %306, %305 ], [ %.055.i.i.ph, %.outer246 ]
+  %.054.i.i = phi i32 [ %spec.store.select.i.i, %305 ], [ %.054.i.i.ph, %.outer246 ]
   store i32 %.054.i.i, ptr %59, align 4, !tbaa !122
   %276 = load ptr, ptr %16, align 8, !tbaa !71
   %277 = getelementptr inbounds nuw i8, ptr %276, i64 680
@@ -990,7 +990,7 @@ select.unfold127.i:                               ; preds = %244, %240
 302:                                              ; preds = %300
   %303 = add nsw i32 %.054.i.i, -1
   %304 = icmp eq i32 %.057.i.i.ph, %303
-  br i1 %304, label %.loopexit213, label %305
+  br i1 %304, label %.loopexit248, label %305
 
 305:                                              ; preds = %302
   %306 = tail call i32 @llvm.smin.i32(i32 %.054.i.i, i32 %.055.i.i)
@@ -1005,7 +1005,7 @@ select.unfold127.i:                               ; preds = %244, %240
 310:                                              ; preds = %._crit_edge78.i.i
   %311 = add nsw i32 %.054.i.i, 1
   %312 = icmp eq i32 %.055.i.i, %311
-  br i1 %312, label %.loopexit213, label %313
+  br i1 %312, label %.loopexit248, label %313
 
 313:                                              ; preds = %310
   %314 = tail call i32 @llvm.smax.i32(i32 %.054.i.i, i32 %.057.i.i.ph)
@@ -1020,15 +1020,15 @@ select.unfold127.i:                               ; preds = %244, %240
   %320 = getelementptr inbounds nuw i8, ptr %319, i64 440
   %321 = load i32, ptr %320, align 8, !tbaa !97
   %.not72.i.i = icmp slt i32 %.4.i.i, %321
-  br i1 %.not72.i.i, label %.outer211, label %dnxhd_encode_rdo.exit
+  br i1 %.not72.i.i, label %.outer246, label %dnxhd_encode_rdo.exit
 
-.loopexit213:                                     ; preds = %310, %302
+.loopexit248:                                     ; preds = %310, %302
   %.1.i.i = phi i32 [ %.057.i.i.ph, %302 ], [ %.054.i.i, %310 ]
   store i32 %.1.i.i, ptr %59, align 4, !tbaa !122
   br label %dnxhd_find_qscale.exit.i
 
-dnxhd_find_qscale.exit.i:                         ; preds = %300, %.loopexit213
-  %.not.i78 = phi i1 [ true, %.loopexit213 ], [ false, %300 ]
+dnxhd_find_qscale.exit.i:                         ; preds = %300, %.loopexit248
+  %.not.i78 = phi i1 [ true, %.loopexit248 ], [ false, %300 ]
   br i1 %281, label %.preheader.lr.ph.i82, label %._crit_edge79.i
 
 .preheader.lr.ph.i82:                             ; preds = %dnxhd_find_qscale.exit.i
@@ -2633,10 +2633,10 @@ put_bits.exit:                                    ; preds = %116, %123, %109
   br label %put_bits.exit61
 
 put_bits.exit61:                                  ; preds = %136, %143, %129
-  %.sink159 = phi i32 [ -1, %129 ], [ 31, %143 ], [ 31, %136 ]
+  %.sink178 = phi i32 [ -1, %129 ], [ 31, %143 ], [ 31, %136 ]
   %.sroa.40.9 = phi ptr [ %.sroa.40.7, %129 ], [ %.sroa.40.7, %143 ], [ %142, %136 ]
   %.026.i.i59 = phi i32 [ %131, %129 ], [ %127, %143 ], [ %127, %136 ]
-  %144 = add nsw i32 %124, %.sink159
+  %144 = add nsw i32 %124, %.sink178
   %145 = load i32, ptr %44, align 8, !tbaa !77
   %146 = shl nuw i32 1, %145
   %147 = load i32, ptr %45, align 16, !tbaa !107
@@ -2717,8 +2717,8 @@ put_bits.exit61:                                  ; preds = %136, %143, %129
   %.phi.trans.insert152 = getelementptr inbounds nuw i8, ptr %199, i64 116
   %.pre153 = load i32, ptr %.phi.trans.insert152, align 4, !tbaa !69
   %203 = icmp sgt i32 %56, %.pre153
-  %or.cond160 = select i1 %202, i1 true, i1 %203
-  br i1 %or.cond160, label %._crit_edge151, label %.thread
+  %or.cond179 = select i1 %202, i1 true, i1 %203
+  br i1 %or.cond179, label %._crit_edge151, label %.thread
 
 ._crit_edge151:                                   ; preds = %196
   %204 = sub nsw i32 %201, %197
@@ -2761,8 +2761,8 @@ put_bits.exit61:                                  ; preds = %136, %143, %129
   %223 = load i32, ptr %52, align 4, !tbaa !64
   %.not254.i = icmp eq i32 %223, 0
   %224 = load ptr, ptr %53, align 8, !tbaa !201
-  %sext161 = shl i64 %.0246.i, 32
-  %225 = ashr exact i64 %sext161, 32
+  %sext180 = shl i64 %.0246.i, 32
+  %225 = ashr exact i64 %sext180, 32
   call void %224(ptr noundef nonnull %60, ptr noundef %.0248.i, i64 noundef %225) #11
   %226 = load ptr, ptr %53, align 8, !tbaa !201
   %227 = sext i32 %146 to i64
@@ -3374,8 +3374,8 @@ define internal noundef i32 @dnxhd_calc_bits_thread(ptr noundef readonly capture
   %.phi.trans.insert138 = getelementptr inbounds nuw i8, ptr %126, i64 116
   %.pre139 = load i32, ptr %.phi.trans.insert138, align 4, !tbaa !69
   %130 = icmp sgt i32 %38, %.pre139
-  %or.cond143 = select i1 %129, i1 true, i1 %130
-  br i1 %or.cond143, label %._crit_edge137, label %.thread
+  %or.cond157 = select i1 %129, i1 true, i1 %130
+  br i1 %or.cond157, label %._crit_edge137, label %.thread
 
 ._crit_edge137:                                   ; preds = %123
   %131 = sub nsw i32 %128, %124
@@ -3685,8 +3685,8 @@ dnxhd_calc_ac_bits.exit:                          ; preds = %262, %dnxhd_switch_
 
 304:                                              ; preds = %302, %298
   %.not48.i.sink = phi i1 [ %.not48.i, %302 ], [ %301, %298 ]
-  %.150 = select i1 %.not48.i.sink, i64 40, i64 48
-  %305 = getelementptr inbounds nuw i8, ptr %285, i64 %.150
+  %.164 = select i1 %.not48.i.sink, i64 40, i64 48
+  %305 = getelementptr inbounds nuw i8, ptr %285, i64 %.164
   %.0.i91 = load ptr, ptr %305, align 8, !tbaa !116
   br i1 %.not.i8595, label %dnxhd_unquantize_c.exit, label %.lr.ph101.preheader
 
@@ -3721,12 +3721,12 @@ dnxhd_calc_ac_bits.exit:                          ; preds = %262, %dnxhd_switch_
   %323 = mul nsw i32 %322, %10
   %324 = mul nsw i32 %323, %318
   %. = select i1 %320, i8 8, i8 32
-  %.151 = select i1 %320, i32 8, i32 32
-  %.152 = select i1 %320, i32 4, i32 6
+  %.165 = select i1 %320, i32 8, i32 32
+  %.166 = select i1 %320, i32 4, i32 6
   %.not54.i = icmp eq i8 %317, %.
-  %325 = select i1 %.not54.i, i32 0, i32 %.151
+  %325 = select i1 %.not54.i, i32 0, i32 %.165
   %spec.select56.i = add nsw i32 %324, %325
-  %326 = ashr i32 %spec.select56.i, %.152
+  %326 = ashr i32 %spec.select56.i, %.166
   %327 = sub nsw i32 0, %326
   br label %338
 
@@ -3920,8 +3920,8 @@ define internal noundef i32 @dnxhd_mb_var_thread(ptr noundef readonly captures(n
   %67 = sub nsw i32 %66, %29
   %68 = icmp sgt i32 %67, 0
   %69 = icmp sgt i32 %63, 0
-  %or.cond201 = select i1 %68, i1 %69, i1 false
-  br i1 %or.cond201, label %.preheader.lr.ph.split.us, label %.loopexit
+  %or.cond205 = select i1 %68, i1 %69, i1 false
+  br i1 %or.cond205, label %.preheader.lr.ph.split.us, label %.loopexit
 
 .preheader.lr.ph.split.us:                        ; preds = %._crit_edge
   %spec.select = tail call i32 @llvm.smin.i32(i32 %63, i32 16)

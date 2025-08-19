@@ -1254,14 +1254,14 @@ define { ptr, i64 } @"_ZN130_$LT$salsa..memo_ingredient_indices..MemoIngredientI
   store i64 %2, ptr %18, align 8
   store ptr %5, ptr %16, align 8
   %.not = icmp eq i64 %2, 0
-  %.sink47.sroa.gep = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %.sink47.sroa.gep54 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %.sink47.sroa.gep56 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  %.sink47.sroa.gep57 = getelementptr inbounds nuw i8, ptr %10, i64 32
-  %.sink47.sroa.gep59 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %.sink47.sroa.gep60 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %.sink47.sroa.gep62 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %.sink47.sroa.gep63 = getelementptr inbounds nuw i8, ptr %10, i64 24
+  %.sink55.sroa.gep = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %.sink55.sroa.gep62 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %.sink55.sroa.gep64 = getelementptr inbounds nuw i8, ptr %8, i64 32
+  %.sink55.sroa.gep65 = getelementptr inbounds nuw i8, ptr %10, i64 32
+  %.sink55.sroa.gep67 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %.sink55.sroa.gep68 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  %.sink55.sroa.gep70 = getelementptr inbounds nuw i8, ptr %8, i64 24
+  %.sink55.sroa.gep71 = getelementptr inbounds nuw i8, ptr %10, i64 24
   br i1 %.not, label %19, label %24, !prof !38
 
 19:                                               ; preds = %6
@@ -1402,20 +1402,20 @@ _ZN6boxcar3raw8Location2of17ha4cf7422e4b07184E.exit.i.i: ; preds = %.noexc13
   br label %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h87d12542241e6091E.exit.thread.i.invoke"
 
 "_ZN6boxcar3raw12Vec$LT$T$GT$3get17h87d12542241e6091E.exit.thread.i.invoke": ; preds = %57, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h87d12542241e6091E.exit.thread.i"
-  %.sink47.sroa.phi = phi ptr [ %.sink47.sroa.gep, %57 ], [ %.sink47.sroa.gep54, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h87d12542241e6091E.exit.thread.i" ]
-  %.sink47.sroa.phi55 = phi ptr [ %.sink47.sroa.gep56, %57 ], [ %.sink47.sroa.gep57, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h87d12542241e6091E.exit.thread.i" ]
-  %.sink47.sroa.phi58 = phi ptr [ %.sink47.sroa.gep59, %57 ], [ %.sink47.sroa.gep60, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h87d12542241e6091E.exit.thread.i" ]
-  %.sink47.sroa.phi61 = phi ptr [ %.sink47.sroa.gep62, %57 ], [ %.sink47.sroa.gep63, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h87d12542241e6091E.exit.thread.i" ]
-  %.sink47 = phi ptr [ %8, %57 ], [ %10, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h87d12542241e6091E.exit.thread.i" ]
-  %.sink45 = phi i64 [ 1, %57 ], [ 2, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h87d12542241e6091E.exit.thread.i" ]
-  %.sink40 = phi ptr [ inttoptr (i64 8 to ptr), %57 ], [ %9, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h87d12542241e6091E.exit.thread.i" ]
+  %.sink55.sroa.phi = phi ptr [ %.sink55.sroa.gep, %57 ], [ %.sink55.sroa.gep62, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h87d12542241e6091E.exit.thread.i" ]
+  %.sink55.sroa.phi63 = phi ptr [ %.sink55.sroa.gep64, %57 ], [ %.sink55.sroa.gep65, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h87d12542241e6091E.exit.thread.i" ]
+  %.sink55.sroa.phi66 = phi ptr [ %.sink55.sroa.gep67, %57 ], [ %.sink55.sroa.gep68, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h87d12542241e6091E.exit.thread.i" ]
+  %.sink55.sroa.phi69 = phi ptr [ %.sink55.sroa.gep70, %57 ], [ %.sink55.sroa.gep71, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h87d12542241e6091E.exit.thread.i" ]
+  %.sink55 = phi ptr [ %8, %57 ], [ %10, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h87d12542241e6091E.exit.thread.i" ]
+  %.sink53 = phi i64 [ 1, %57 ], [ 2, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h87d12542241e6091E.exit.thread.i" ]
+  %.sink48 = phi ptr [ inttoptr (i64 8 to ptr), %57 ], [ %9, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h87d12542241e6091E.exit.thread.i" ]
   %.sink = phi i64 [ 0, %57 ], [ 1, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h87d12542241e6091E.exit.thread.i" ]
   %71 = phi ptr [ @anon.8bf1f29a660b296f966d18effed83e80.32, %57 ], [ @anon.8bf1f29a660b296f966d18effed83e80.68, %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h87d12542241e6091E.exit.thread.i" ]
-  store i64 %.sink45, ptr %.sink47.sroa.phi, align 8
-  store ptr null, ptr %.sink47.sroa.phi55, align 8
-  store ptr %.sink40, ptr %.sink47.sroa.phi58, align 8
-  store i64 %.sink, ptr %.sink47.sroa.phi61, align 8
-  invoke void @_ZN4core9panicking9panic_fmt17h8d16370d7cdeaf7bE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %.sink47, ptr noalias noundef readonly align 8 dereferenceable(24) %71) #15
+  store i64 %.sink53, ptr %.sink55.sroa.phi, align 8
+  store ptr null, ptr %.sink55.sroa.phi63, align 8
+  store ptr %.sink48, ptr %.sink55.sroa.phi66, align 8
+  store i64 %.sink, ptr %.sink55.sroa.phi69, align 8
+  invoke void @_ZN4core9panicking9panic_fmt17h8d16370d7cdeaf7bE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %.sink55, ptr noalias noundef readonly align 8 dereferenceable(24) %71) #15
           to label %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h87d12542241e6091E.exit.thread.i.cont" unwind label %.thread24.loopexit.split-lp
 
 "_ZN6boxcar3raw12Vec$LT$T$GT$3get17h87d12542241e6091E.exit.thread.i.cont": ; preds = %"_ZN6boxcar3raw12Vec$LT$T$GT$3get17h87d12542241e6091E.exit.thread.i.invoke"

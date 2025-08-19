@@ -2026,8 +2026,8 @@ rbimpl_RB_TYPE_P_fastpath.exit:                   ; preds = %RARRAY_AREF.exit
   %30 = inttoptr i64 %25 to ptr
   %31 = load i64, ptr %30, align 8, !tbaa !11
   %32 = and i64 %31, 8223
-  %or.cond21.not = icmp eq i64 %32, 8200
-  br i1 %or.cond21.not, label %33, label %.critedge
+  %or.cond22.not = icmp eq i64 %32, 8200
+  br i1 %or.cond22.not, label %33, label %.critedge
 
 .critedge:                                        ; preds = %RARRAY_AREF.exit, %rbimpl_RB_TYPE_P_fastpath.exit
   br label %33

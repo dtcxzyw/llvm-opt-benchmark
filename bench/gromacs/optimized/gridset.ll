@@ -1407,7 +1407,7 @@ define linkonce_odr void @_ZNSt6vectorIiN3gmx9AllocatorIiNS0_20HostAllocationPol
   br i1 %.not23, label %21, label %_ZSt27__uninitialized_default_n_aIPimN3gmx9AllocatorIiNS1_20HostAllocationPolicyEEEET_S5_T0_RT1_.exit
 
 _ZSt27__uninitialized_default_n_aIPimN3gmx9AllocatorIiNS1_20HostAllocationPolicyEEEET_S5_T0_RT1_.exit: ; preds = %3
-  %20 = shl nuw i64 %1, 2
+  %20 = shl nuw nsw i64 %1, 2
   tail call void @llvm.memset.p0.i64(ptr align 4 %6, i8 0, i64 %20, i1 false), !tbaa !14
   %scevgep.i = getelementptr i8, ptr %6, i64 %20
   store ptr %scevgep.i, ptr %5, align 8, !tbaa !66
@@ -1828,14 +1828,14 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit:               ; preds = %23, %25, %27, %29
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %34, %_ZNSt6vectorIiSaIiEE6resizeEm.exit, %48
-  %.sink19.in = phi ptr [ %51, %48 ], [ %15, %_ZNSt6vectorIiSaIiEE6resizeEm.exit ], [ %15, %34 ]
-  %.sink18 = phi ptr [ %50, %48 ], [ %.pre12, %_ZNSt6vectorIiSaIiEE6resizeEm.exit ], [ %.pre12, %34 ]
-  %.sink19 = load ptr, ptr %.sink19.in, align 8, !tbaa !71
-  %52 = ptrtoint ptr %.sink19 to i64
-  %53 = ptrtoint ptr %.sink18 to i64
+  %.sink22.in = phi ptr [ %51, %48 ], [ %15, %_ZNSt6vectorIiSaIiEE6resizeEm.exit ], [ %15, %34 ]
+  %.sink21 = phi ptr [ %50, %48 ], [ %.pre12, %_ZNSt6vectorIiSaIiEE6resizeEm.exit ], [ %.pre12, %34 ]
+  %.sink22 = load ptr, ptr %.sink22.in, align 8, !tbaa !71
+  %52 = ptrtoint ptr %.sink22 to i64
+  %53 = ptrtoint ptr %.sink21 to i64
   %54 = sub i64 %52, %53
-  %55 = getelementptr inbounds nuw i8, ptr %.sink18, i64 %54
-  %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sink18, 0
+  %55 = getelementptr inbounds nuw i8, ptr %.sink21, i64 %54
+  %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sink21, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %55, 1
   ret { ptr, ptr } %.fca.1.insert
 }
@@ -1869,13 +1869,13 @@ define linkonce_odr void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef 
 19:                                               ; preds = %3
   store i32 0, ptr %5, align 4, !tbaa !14
   %20 = getelementptr i8, ptr %5, i64 4
-  %21 = add i64 %1, -1
+  %21 = add nsw i64 %1, -1
   %22 = icmp eq i64 %21, 0
   br i1 %22, label %_ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit, label %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i
 
 _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
-  %23 = shl i64 %1, 2
-  %24 = add i64 %23, -4
+  %23 = shl nuw nsw i64 %1, 2
+  %24 = add nsw i64 %23, -4
   tail call void @llvm.memset.p0.i64(ptr align 4 %20, i8 0, i64 %24, i1 false), !tbaa !14
   %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 2
   %25 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i

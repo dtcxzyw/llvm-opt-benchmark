@@ -2090,9 +2090,9 @@ _ZNK13ReplacedNodes8has_nodeERKNS_12ReplacedNodeE.exit: ; preds = %27
   br i1 %44, label %._crit_edge.thread, label %_ZNK13ReplacedNodes8is_emptyEv.exit.thread
 
 ._crit_edge.thread:                               ; preds = %.lr.ph, %._crit_edge
-  %.014.lcssa24 = phi i32 [ %.1, %._crit_edge ], [ %5, %.lr.ph ]
+  %.014.lcssa28 = phi i32 [ %.1, %._crit_edge ], [ %5, %.lr.ph ]
   %45 = load ptr, ptr %0, align 8
-  %46 = sub nsw i32 %5, %.014.lcssa24
+  %46 = sub nsw i32 %5, %.014.lcssa28
   store i32 %46, ptr %45, align 4
   br label %_ZNK13ReplacedNodes8is_emptyEv.exit.thread
 

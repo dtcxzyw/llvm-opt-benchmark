@@ -993,11 +993,11 @@ define internal fastcc i32 @ext4_splice_branch(ptr noundef %0, ptr noundef reado
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %21 = load i32, ptr %20, align 8
   %22 = icmp ugt i32 %21, 1
-  br i1 %22, label %.preheader6, label %.loopexit5
+  br i1 %22, label %.preheader11, label %.loopexit5
 
-.preheader6:                                      ; preds = %19, %.preheader6
-  %23 = phi i32 [ %28, %.preheader6 ], [ 1, %19 ]
-  %.in = phi i32 [ %24, %.preheader6 ], [ %16, %19 ]
+.preheader11:                                     ; preds = %19, %.preheader11
+  %23 = phi i32 [ %28, %.preheader11 ], [ 1, %19 ]
+  %.in = phi i32 [ %24, %.preheader11 ], [ %16, %19 ]
   %24 = add i32 %.in, 1
   %25 = load ptr, ptr %2, align 8
   %26 = sext i32 %23 to i64
@@ -1006,9 +1006,9 @@ define internal fastcc i32 @ext4_splice_branch(ptr noundef %0, ptr noundef reado
   %28 = add nuw i32 %23, 1
   %29 = load i32, ptr %20, align 8
   %30 = icmp ult i32 %28, %29
-  br i1 %30, label %.preheader6, label %.loopexit5, !llvm.loop !38
+  br i1 %30, label %.preheader11, label %.loopexit5, !llvm.loop !38
 
-.loopexit5:                                       ; preds = %.preheader6, %19, %14
+.loopexit5:                                       ; preds = %.preheader11, %19, %14
   %31 = load ptr, ptr %5, align 8
   %32 = icmp eq ptr %31, null
   %33 = load ptr, ptr %1, align 8
@@ -1934,7 +1934,7 @@ define dso_local noundef i32 @ext4_ind_remove_space(ptr noundef %0, ptr noundef 
   %80 = phi i1 [ false, %69 ], [ true, %61 ], [ true, %51 ], [ true, %46 ], [ false, %40 ]
   %81 = phi i32 [ 0, %69 ], [ 4, %61 ], [ 3, %51 ], [ 2, %46 ], [ 1, %40 ]
   %82 = icmp ult i32 %28, 12
-  br i1 %82, label %.thread121, label %83
+  br i1 %82, label %.thread171, label %83
 
 83:                                               ; preds = %76
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %6, i8 0, i64 16, i1 false), !annotation !6
@@ -2000,26 +2000,26 @@ define dso_local noundef i32 @ext4_ind_remove_space(ptr noundef %0, ptr noundef 
   %119 = icmp samesign ugt i32 %81, %118
   br i1 %119, label %120, label %151, !prof !18
 
-.thread121:                                       ; preds = %76
-  br i1 %80, label %120, label %.thread122, !prof !18
+.thread171:                                       ; preds = %76
+  br i1 %80, label %120, label %.thread172, !prof !18
 
-120:                                              ; preds = %.thread121, %117
+120:                                              ; preds = %.thread171, %117
   tail call void asm sideeffect "2053: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 2053b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 2053) #12, !srcloc !48
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.1, i32 1259, i32 0, i64 12) #12, !srcloc !49
   unreachable
 
-.thread122:                                       ; preds = %.thread121
+.thread172:                                       ; preds = %.thread171
   %121 = zext nneg i32 %28 to i64
   %122 = getelementptr i32, ptr %11, i64 %77
   %123 = getelementptr i32, ptr %11, i64 %121
   %124 = icmp ult ptr %122, %123
   br i1 %124, label %.preheader, label %.thread
 
-.preheader:                                       ; preds = %.thread122, %142
-  %125 = phi ptr [ %146, %142 ], [ %122, %.thread122 ]
-  %126 = phi ptr [ %145, %142 ], [ null, %.thread122 ]
-  %127 = phi i64 [ %144, %142 ], [ 0, %.thread122 ]
-  %128 = phi i64 [ %143, %142 ], [ 0, %.thread122 ]
+.preheader:                                       ; preds = %.thread172, %142
+  %125 = phi ptr [ %146, %142 ], [ %122, %.thread172 ]
+  %126 = phi ptr [ %145, %142 ], [ null, %.thread172 ]
+  %127 = phi i64 [ %144, %142 ], [ 0, %.thread172 ]
+  %128 = phi i64 [ %143, %142 ], [ 0, %.thread172 ]
   %129 = load i32, ptr %125, align 4
   %130 = zext i32 %129 to i64
   %131 = icmp eq i32 %129, 0
@@ -2504,7 +2504,7 @@ define dso_local noundef i32 @ext4_ind_remove_space(ptr noundef %0, ptr noundef 
   store i32 0, ptr %429, align 4
   br label %.loopexit70
 
-.thread:                                          ; preds = %401, %139, %.thread122, %.loopexit, %149, %148, %4
+.thread:                                          ; preds = %401, %139, %.thread172, %.loopexit, %149, %148, %4
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)

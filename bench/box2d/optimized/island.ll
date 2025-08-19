@@ -573,9 +573,9 @@ define hidden void @b2LinkContact(ptr noundef %0, ptr noundef captures(none) %1)
   br label %b2AddContactToIsland.exit
 
 b2AddContactToIsland.exit:                        ; preds = %114, %109, %97, %92, %52, %47
-  %.sink147 = phi ptr [ %37, %47 ], [ %37, %52 ], [ %82, %92 ], [ %82, %97 ], [ %99, %109 ], [ %99, %114 ]
+  %.sink155 = phi ptr [ %37, %47 ], [ %37, %52 ], [ %82, %92 ], [ %82, %97 ], [ %99, %109 ], [ %99, %114 ]
   %.0113.sink = phi i32 [ %30, %47 ], [ %30, %52 ], [ %.0113, %92 ], [ %.0113, %97 ], [ %.065104105, %109 ], [ %.065104105, %114 ]
-  %115 = getelementptr inbounds nuw i8, ptr %.sink147, i64 32
+  %115 = getelementptr inbounds nuw i8, ptr %.sink155, i64 32
   %116 = load i32, ptr %115, align 4, !tbaa !86
   %117 = add nsw i32 %116, 1
   store i32 %117, ptr %115, align 4, !tbaa !86
@@ -925,9 +925,9 @@ b2AddJointToIsland.exit:                          ; preds = %41, %46
   br label %b2AddJointToIsland.exit89
 
 b2AddJointToIsland.exit89:                        ; preds = %114, %109, %97, %92
-  %.sink140 = phi ptr [ %82, %92 ], [ %82, %97 ], [ %99, %109 ], [ %99, %114 ]
+  %.sink152 = phi ptr [ %82, %92 ], [ %82, %97 ], [ %99, %109 ], [ %99, %114 ]
   %.060102103.sink = phi i32 [ %.0111, %92 ], [ %.0111, %97 ], [ %.060102103, %109 ], [ %.060102103, %114 ]
-  %115 = getelementptr inbounds nuw i8, ptr %.sink140, i64 44
+  %115 = getelementptr inbounds nuw i8, ptr %.sink152, i64 44
   %116 = load i32, ptr %115, align 4, !tbaa !89
   %117 = add nsw i32 %116, 1
   store i32 %117, ptr %115, align 4, !tbaa !89

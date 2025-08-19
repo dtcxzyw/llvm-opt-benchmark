@@ -1936,10 +1936,10 @@ _ZN7msgpack2v14zone15finalizer_array11push_expandEPFvPvES3_.exit.i.i.i: ; preds 
   resume { ptr, i32 } %94
 
 96:                                               ; preds = %88, %_ZN7msgpack2v14zone15finalizer_array11push_expandEPFvPvES3_.exit.i.i.i
-  %.sink8.i.i.i = phi ptr [ %70, %88 ], [ %87, %_ZN7msgpack2v14zone15finalizer_array11push_expandEPFvPvES3_.exit.i.i.i ]
-  %97 = getelementptr inbounds nuw i8, ptr %.sink8.i.i.i, i64 8
+  %.sink9.i.i.i = phi ptr [ %70, %88 ], [ %87, %_ZN7msgpack2v14zone15finalizer_array11push_expandEPFvPvES3_.exit.i.i.i ]
+  %97 = getelementptr inbounds nuw i8, ptr %.sink9.i.i.i, i64 8
   store ptr %60, ptr %97, align 8, !tbaa !132
-  %storemerge.i.i.i = getelementptr inbounds nuw i8, ptr %.sink8.i.i.i, i64 16
+  %storemerge.i.i.i = getelementptr inbounds nuw i8, ptr %.sink9.i.i.i, i64 16
   store ptr %storemerge.i.i.i, ptr %69, align 8, !tbaa !128
   store i8 0, ptr %62, align 8, !tbaa !125
   br label %_ZN7msgpack2v16detail10decr_countEPv.exit
@@ -2246,10 +2246,10 @@ _ZN7msgpack2v14zone15finalizer_array11push_expandEPFvPvES3_.exit.i.i.i: ; preds 
 
 30:                                               ; preds = %29, %_ZN7msgpack2v14zone15finalizer_array11push_expandEPFvPvES3_.exit.i.i.i
   %31 = phi ptr [ %9, %29 ], [ %.pre.i, %_ZN7msgpack2v14zone15finalizer_array11push_expandEPFvPvES3_.exit.i.i.i ]
-  %.sink8.i.i.i = phi ptr [ %11, %29 ], [ %28, %_ZN7msgpack2v14zone15finalizer_array11push_expandEPFvPvES3_.exit.i.i.i ]
-  %32 = getelementptr inbounds nuw i8, ptr %.sink8.i.i.i, i64 8
+  %.sink9.i.i.i = phi ptr [ %11, %29 ], [ %28, %_ZN7msgpack2v14zone15finalizer_array11push_expandEPFvPvES3_.exit.i.i.i ]
+  %32 = getelementptr inbounds nuw i8, ptr %.sink9.i.i.i, i64 8
   store ptr %9, ptr %32, align 8, !tbaa !132
-  %storemerge.i.i.i = getelementptr inbounds nuw i8, ptr %.sink8.i.i.i, i64 16
+  %storemerge.i.i.i = getelementptr inbounds nuw i8, ptr %.sink9.i.i.i, i64 16
   store ptr %storemerge.i.i.i, ptr %10, align 8, !tbaa !128
   store i8 0, ptr %2, align 8, !tbaa !125
   %33 = atomicrmw add ptr %31, i32 1 seq_cst, align 4
@@ -2875,7 +2875,7 @@ _ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit548: ; p
   %269 = add i32 %268, -1
   store i32 %269, ptr %267, align 4, !tbaa !160
   %270 = icmp eq i32 %269, 0
-  br i1 %270, label %.sink.split.i.i555, label %.sink.split2606
+  br i1 %270, label %.sink.split.i.i555, label %.sink.split2673
 
 271:                                              ; preds = %258
   %272 = getelementptr inbounds i8, ptr %259, i64 -8
@@ -2883,7 +2883,7 @@ _ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit548: ; p
   %274 = getelementptr inbounds nuw i8, ptr %273, i64 24
   store ptr %274, ptr %272, align 8, !tbaa !108
   store i32 2, ptr %261, align 4, !tbaa !157
-  br label %.sink.split2606
+  br label %.sink.split2673
 
 275:                                              ; preds = %258
   %276 = getelementptr inbounds i8, ptr %259, i64 -8
@@ -2899,7 +2899,7 @@ _ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit548: ; p
 
 283:                                              ; preds = %275
   store i32 1, ptr %261, align 4, !tbaa !157
-  br label %.sink.split2606
+  br label %.sink.split2673
 
 .sink.split.i.i555:                               ; preds = %275, %263
   %.sink.i.i556 = phi ptr [ %264, %263 ], [ %276, %275 ]
@@ -2965,7 +2965,7 @@ _ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit558: ; p
   %315 = add i32 %314, -1
   store i32 %315, ptr %313, align 4, !tbaa !160
   %316 = icmp eq i32 %315, 0
-  br i1 %316, label %.sink.split.i.i565, label %.sink.split2606
+  br i1 %316, label %.sink.split.i.i565, label %.sink.split2673
 
 317:                                              ; preds = %304
   %318 = getelementptr inbounds i8, ptr %305, i64 -8
@@ -2973,7 +2973,7 @@ _ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit558: ; p
   %320 = getelementptr inbounds nuw i8, ptr %319, i64 24
   store ptr %320, ptr %318, align 8, !tbaa !108
   store i32 2, ptr %307, align 4, !tbaa !157
-  br label %.sink.split2606
+  br label %.sink.split2673
 
 321:                                              ; preds = %304
   %322 = getelementptr inbounds i8, ptr %305, i64 -8
@@ -2989,7 +2989,7 @@ _ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit558: ; p
 
 329:                                              ; preds = %321
   store i32 1, ptr %307, align 4, !tbaa !157
-  br label %.sink.split2606
+  br label %.sink.split2673
 
 .sink.split.i.i565:                               ; preds = %321, %309
   %.sink.i.i566 = phi ptr [ %310, %309 ], [ %322, %321 ]
@@ -3055,7 +3055,7 @@ _ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit568: ; p
   %361 = add i32 %360, -1
   store i32 %361, ptr %359, align 4, !tbaa !160
   %362 = icmp eq i32 %361, 0
-  br i1 %362, label %.sink.split.i.i575, label %.sink.split2606
+  br i1 %362, label %.sink.split.i.i575, label %.sink.split2673
 
 363:                                              ; preds = %350
   %364 = getelementptr inbounds i8, ptr %351, i64 -8
@@ -3063,7 +3063,7 @@ _ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit568: ; p
   %366 = getelementptr inbounds nuw i8, ptr %365, i64 24
   store ptr %366, ptr %364, align 8, !tbaa !108
   store i32 2, ptr %353, align 4, !tbaa !157
-  br label %.sink.split2606
+  br label %.sink.split2673
 
 367:                                              ; preds = %350
   %368 = getelementptr inbounds i8, ptr %351, i64 -8
@@ -3079,7 +3079,7 @@ _ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit568: ; p
 
 375:                                              ; preds = %367
   store i32 1, ptr %353, align 4, !tbaa !157
-  br label %.sink.split2606
+  br label %.sink.split2673
 
 .sink.split.i.i575:                               ; preds = %367, %355
   %.sink.i.i576 = phi ptr [ %356, %355 ], [ %368, %367 ]
@@ -3146,7 +3146,7 @@ _ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit578: ; p
   %407 = add i32 %406, -1
   store i32 %407, ptr %405, align 4, !tbaa !160
   %408 = icmp eq i32 %407, 0
-  br i1 %408, label %.sink.split.i.i585, label %.sink.split2606
+  br i1 %408, label %.sink.split.i.i585, label %.sink.split2673
 
 409:                                              ; preds = %396
   %410 = getelementptr inbounds i8, ptr %397, i64 -8
@@ -3154,7 +3154,7 @@ _ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit578: ; p
   %412 = getelementptr inbounds nuw i8, ptr %411, i64 24
   store ptr %412, ptr %410, align 8, !tbaa !108
   store i32 2, ptr %399, align 4, !tbaa !157
-  br label %.sink.split2606
+  br label %.sink.split2673
 
 413:                                              ; preds = %396
   %414 = getelementptr inbounds i8, ptr %397, i64 -8
@@ -3170,7 +3170,7 @@ _ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit578: ; p
 
 421:                                              ; preds = %413
   store i32 1, ptr %399, align 4, !tbaa !157
-  br label %.sink.split2606
+  br label %.sink.split2673
 
 .sink.split.i.i585:                               ; preds = %413, %401
   %.sink.i.i586 = phi ptr [ %402, %401 ], [ %414, %413 ]
@@ -3237,7 +3237,7 @@ _ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit588: ; p
   %454 = add i32 %453, -1
   store i32 %454, ptr %452, align 4, !tbaa !160
   %455 = icmp eq i32 %454, 0
-  br i1 %455, label %.sink.split.i.i595, label %.sink.split2606
+  br i1 %455, label %.sink.split.i.i595, label %.sink.split2673
 
 456:                                              ; preds = %443
   %457 = getelementptr inbounds i8, ptr %444, i64 -8
@@ -3245,7 +3245,7 @@ _ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit588: ; p
   %459 = getelementptr inbounds nuw i8, ptr %458, i64 24
   store ptr %459, ptr %457, align 8, !tbaa !108
   store i32 2, ptr %446, align 4, !tbaa !157
-  br label %.sink.split2606
+  br label %.sink.split2673
 
 460:                                              ; preds = %443
   %461 = getelementptr inbounds i8, ptr %444, i64 -8
@@ -3261,7 +3261,7 @@ _ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit588: ; p
 
 468:                                              ; preds = %460
   store i32 1, ptr %446, align 4, !tbaa !157
-  br label %.sink.split2606
+  br label %.sink.split2673
 
 .sink.split.i.i595:                               ; preds = %460, %448
   %.sink.i.i596 = phi ptr [ %449, %448 ], [ %461, %460 ]
@@ -3327,7 +3327,7 @@ _ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit598: ; p
   %500 = add i32 %499, -1
   store i32 %500, ptr %498, align 4, !tbaa !160
   %501 = icmp eq i32 %500, 0
-  br i1 %501, label %.sink.split.i.i605, label %.sink.split2606
+  br i1 %501, label %.sink.split.i.i605, label %.sink.split2673
 
 502:                                              ; preds = %489
   %503 = getelementptr inbounds i8, ptr %490, i64 -8
@@ -3335,7 +3335,7 @@ _ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit598: ; p
   %505 = getelementptr inbounds nuw i8, ptr %504, i64 24
   store ptr %505, ptr %503, align 8, !tbaa !108
   store i32 2, ptr %492, align 4, !tbaa !157
-  br label %.sink.split2606
+  br label %.sink.split2673
 
 506:                                              ; preds = %489
   %507 = getelementptr inbounds i8, ptr %490, i64 -8
@@ -3351,7 +3351,7 @@ _ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit598: ; p
 
 514:                                              ; preds = %506
   store i32 1, ptr %492, align 4, !tbaa !157
-  br label %.sink.split2606
+  br label %.sink.split2673
 
 .sink.split.i.i605:                               ; preds = %506, %494
   %.sink.i.i606 = phi ptr [ %495, %494 ], [ %507, %506 ]
@@ -3419,7 +3419,7 @@ _ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit608: ; p
   %547 = add i32 %546, -1
   store i32 %547, ptr %545, align 4, !tbaa !160
   %548 = icmp eq i32 %547, 0
-  br i1 %548, label %.sink.split.i.i616, label %.sink.split2606
+  br i1 %548, label %.sink.split.i.i616, label %.sink.split2673
 
 549:                                              ; preds = %536
   %550 = getelementptr inbounds i8, ptr %537, i64 -8
@@ -3427,7 +3427,7 @@ _ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit608: ; p
   %552 = getelementptr inbounds nuw i8, ptr %551, i64 24
   store ptr %552, ptr %550, align 8, !tbaa !108
   store i32 2, ptr %539, align 4, !tbaa !157
-  br label %.sink.split2606
+  br label %.sink.split2673
 
 553:                                              ; preds = %536
   %554 = getelementptr inbounds i8, ptr %537, i64 -8
@@ -3443,7 +3443,7 @@ _ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit608: ; p
 
 561:                                              ; preds = %553
   store i32 1, ptr %539, align 4, !tbaa !157
-  br label %.sink.split2606
+  br label %.sink.split2673
 
 .sink.split.i.i616:                               ; preds = %553, %541
   %.sink.i.i617 = phi ptr [ %542, %541 ], [ %554, %553 ]
@@ -3512,7 +3512,7 @@ _ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit619: ; p
   %594 = add i32 %593, -1
   store i32 %594, ptr %592, align 4, !tbaa !160
   %595 = icmp eq i32 %594, 0
-  br i1 %595, label %.sink.split.i.i628, label %.sink.split2606
+  br i1 %595, label %.sink.split.i.i628, label %.sink.split2673
 
 596:                                              ; preds = %583
   %597 = getelementptr inbounds i8, ptr %584, i64 -8
@@ -3520,7 +3520,7 @@ _ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit619: ; p
   %599 = getelementptr inbounds nuw i8, ptr %598, i64 24
   store ptr %599, ptr %597, align 8, !tbaa !108
   store i32 2, ptr %586, align 4, !tbaa !157
-  br label %.sink.split2606
+  br label %.sink.split2673
 
 600:                                              ; preds = %583
   %601 = getelementptr inbounds i8, ptr %584, i64 -8
@@ -3536,7 +3536,7 @@ _ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit619: ; p
 
 608:                                              ; preds = %600
   store i32 1, ptr %586, align 4, !tbaa !157
-  br label %.sink.split2606
+  br label %.sink.split2673
 
 .sink.split.i.i628:                               ; preds = %600, %588
   %.sink.i.i629 = phi ptr [ %589, %588 ], [ %601, %600 ]
@@ -3605,7 +3605,7 @@ _ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit631: ; p
   %642 = add i32 %641, -1
   store i32 %642, ptr %640, align 4, !tbaa !160
   %643 = icmp eq i32 %642, 0
-  br i1 %643, label %.sink.split.i.i639, label %.sink.split2606
+  br i1 %643, label %.sink.split.i.i639, label %.sink.split2673
 
 644:                                              ; preds = %631
   %645 = getelementptr inbounds i8, ptr %632, i64 -8
@@ -3613,7 +3613,7 @@ _ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit631: ; p
   %647 = getelementptr inbounds nuw i8, ptr %646, i64 24
   store ptr %647, ptr %645, align 8, !tbaa !108
   store i32 2, ptr %634, align 4, !tbaa !157
-  br label %.sink.split2606
+  br label %.sink.split2673
 
 648:                                              ; preds = %631
   %649 = getelementptr inbounds i8, ptr %632, i64 -8
@@ -3629,7 +3629,7 @@ _ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit631: ; p
 
 656:                                              ; preds = %648
   store i32 1, ptr %634, align 4, !tbaa !157
-  br label %.sink.split2606
+  br label %.sink.split2673
 
 .sink.split.i.i639:                               ; preds = %648, %636
   %.sink.i.i640 = phi ptr [ %637, %636 ], [ %649, %648 ]
@@ -3697,7 +3697,7 @@ _ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit642: ; p
   %689 = add i32 %688, -1
   store i32 %689, ptr %687, align 4, !tbaa !160
   %690 = icmp eq i32 %689, 0
-  br i1 %690, label %.sink.split.i.i650, label %.sink.split2606
+  br i1 %690, label %.sink.split.i.i650, label %.sink.split2673
 
 691:                                              ; preds = %678
   %692 = getelementptr inbounds i8, ptr %679, i64 -8
@@ -3705,7 +3705,7 @@ _ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit642: ; p
   %694 = getelementptr inbounds nuw i8, ptr %693, i64 24
   store ptr %694, ptr %692, align 8, !tbaa !108
   store i32 2, ptr %681, align 4, !tbaa !157
-  br label %.sink.split2606
+  br label %.sink.split2673
 
 695:                                              ; preds = %678
   %696 = getelementptr inbounds i8, ptr %679, i64 -8
@@ -3721,7 +3721,7 @@ _ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit642: ; p
 
 703:                                              ; preds = %695
   store i32 1, ptr %681, align 4, !tbaa !157
-  br label %.sink.split2606
+  br label %.sink.split2673
 
 .sink.split.i.i650:                               ; preds = %695, %683
   %.sink.i.i651 = phi ptr [ %684, %683 ], [ %696, %695 ]
@@ -3792,7 +3792,7 @@ _ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit663.thre
   %736 = add i32 %735, -1
   store i32 %736, ptr %734, align 4, !tbaa !160
   %737 = icmp eq i32 %736, 0
-  br i1 %737, label %.sink.split.i.i660, label %.sink.split2606
+  br i1 %737, label %.sink.split.i.i660, label %.sink.split2673
 
 738:                                              ; preds = %725
   %739 = getelementptr inbounds i8, ptr %726, i64 -8
@@ -3800,7 +3800,7 @@ _ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit663.thre
   %741 = getelementptr inbounds nuw i8, ptr %740, i64 24
   store ptr %741, ptr %739, align 8, !tbaa !108
   store i32 2, ptr %728, align 4, !tbaa !157
-  br label %.sink.split2606
+  br label %.sink.split2673
 
 742:                                              ; preds = %725
   %743 = getelementptr inbounds i8, ptr %726, i64 -8
@@ -3816,7 +3816,7 @@ _ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit663.thre
 
 750:                                              ; preds = %742
   store i32 1, ptr %728, align 4, !tbaa !157
-  br label %.sink.split2606
+  br label %.sink.split2673
 
 .sink.split.i.i660:                               ; preds = %742, %730
   %.sink.i.i661 = phi ptr [ %731, %730 ], [ %743, %742 ]
@@ -3887,7 +3887,7 @@ _ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit673.thre
   %783 = add i32 %782, -1
   store i32 %783, ptr %781, align 4, !tbaa !160
   %784 = icmp eq i32 %783, 0
-  br i1 %784, label %.sink.split.i.i670, label %.sink.split2606
+  br i1 %784, label %.sink.split.i.i670, label %.sink.split2673
 
 785:                                              ; preds = %772
   %786 = getelementptr inbounds i8, ptr %773, i64 -8
@@ -3895,7 +3895,7 @@ _ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit673.thre
   %788 = getelementptr inbounds nuw i8, ptr %787, i64 24
   store ptr %788, ptr %786, align 8, !tbaa !108
   store i32 2, ptr %775, align 4, !tbaa !157
-  br label %.sink.split2606
+  br label %.sink.split2673
 
 789:                                              ; preds = %772
   %790 = getelementptr inbounds i8, ptr %773, i64 -8
@@ -3911,7 +3911,7 @@ _ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit673.thre
 
 797:                                              ; preds = %789
   store i32 1, ptr %775, align 4, !tbaa !157
-  br label %.sink.split2606
+  br label %.sink.split2673
 
 .sink.split.i.i670:                               ; preds = %789, %777
   %.sink.i.i671 = phi ptr [ %778, %777 ], [ %790, %789 ]
@@ -3982,7 +3982,7 @@ _ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit683.thre
   %830 = add i32 %829, -1
   store i32 %830, ptr %828, align 4, !tbaa !160
   %831 = icmp eq i32 %830, 0
-  br i1 %831, label %.sink.split.i.i680, label %.sink.split2606
+  br i1 %831, label %.sink.split.i.i680, label %.sink.split2673
 
 832:                                              ; preds = %819
   %833 = getelementptr inbounds i8, ptr %820, i64 -8
@@ -3990,7 +3990,7 @@ _ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit683.thre
   %835 = getelementptr inbounds nuw i8, ptr %834, i64 24
   store ptr %835, ptr %833, align 8, !tbaa !108
   store i32 2, ptr %822, align 4, !tbaa !157
-  br label %.sink.split2606
+  br label %.sink.split2673
 
 836:                                              ; preds = %819
   %837 = getelementptr inbounds i8, ptr %820, i64 -8
@@ -4006,7 +4006,7 @@ _ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit683.thre
 
 844:                                              ; preds = %836
   store i32 1, ptr %822, align 4, !tbaa !157
-  br label %.sink.split2606
+  br label %.sink.split2673
 
 .sink.split.i.i680:                               ; preds = %836, %824
   %.sink.i.i681 = phi ptr [ %825, %824 ], [ %837, %836 ]
@@ -4077,7 +4077,7 @@ _ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit693.thre
   %877 = add i32 %876, -1
   store i32 %877, ptr %875, align 4, !tbaa !160
   %878 = icmp eq i32 %877, 0
-  br i1 %878, label %.sink.split.i.i690, label %.sink.split2606
+  br i1 %878, label %.sink.split.i.i690, label %.sink.split2673
 
 879:                                              ; preds = %866
   %880 = getelementptr inbounds i8, ptr %867, i64 -8
@@ -4085,7 +4085,7 @@ _ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit693.thre
   %882 = getelementptr inbounds nuw i8, ptr %881, i64 24
   store ptr %882, ptr %880, align 8, !tbaa !108
   store i32 2, ptr %869, align 4, !tbaa !157
-  br label %.sink.split2606
+  br label %.sink.split2673
 
 883:                                              ; preds = %866
   %884 = getelementptr inbounds i8, ptr %867, i64 -8
@@ -4101,7 +4101,7 @@ _ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit693.thre
 
 891:                                              ; preds = %883
   store i32 1, ptr %869, align 4, !tbaa !157
-  br label %.sink.split2606
+  br label %.sink.split2673
 
 .sink.split.i.i690:                               ; preds = %883, %871
   %.sink.i.i691 = phi ptr [ %872, %871 ], [ %884, %883 ]
@@ -4172,7 +4172,7 @@ _ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit703.thre
   %924 = add i32 %923, -1
   store i32 %924, ptr %922, align 4, !tbaa !160
   %925 = icmp eq i32 %924, 0
-  br i1 %925, label %.sink.split.i.i700, label %.sink.split2606
+  br i1 %925, label %.sink.split.i.i700, label %.sink.split2673
 
 926:                                              ; preds = %913
   %927 = getelementptr inbounds i8, ptr %914, i64 -8
@@ -4180,7 +4180,7 @@ _ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit703.thre
   %929 = getelementptr inbounds nuw i8, ptr %928, i64 24
   store ptr %929, ptr %927, align 8, !tbaa !108
   store i32 2, ptr %916, align 4, !tbaa !157
-  br label %.sink.split2606
+  br label %.sink.split2673
 
 930:                                              ; preds = %913
   %931 = getelementptr inbounds i8, ptr %914, i64 -8
@@ -4196,7 +4196,7 @@ _ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit703.thre
 
 938:                                              ; preds = %930
   store i32 1, ptr %916, align 4, !tbaa !157
-  br label %.sink.split2606
+  br label %.sink.split2673
 
 .sink.split.i.i700:                               ; preds = %930, %918
   %.sink.i.i701 = phi ptr [ %919, %918 ], [ %931, %930 ]
@@ -4225,7 +4225,7 @@ _ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit703: ; p
   %950 = zext i8 %949 to i64
   store i64 %950, ptr %24, align 8, !tbaa !88
   %951 = icmp eq i8 %949, 0
-  br i1 %951, label %952, label %.sink.split2606
+  br i1 %951, label %952, label %.sink.split2673
 
 952:                                              ; preds = %948
   %953 = call noundef zeroext i1 @_ZN7msgpack2v26detail21create_object_visitor9visit_strEPKcj(ptr noundef nonnull align 8 dereferenceable(121) %25, ptr noundef nonnull %232, i32 noundef 0)
@@ -4274,7 +4274,7 @@ _ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit703: ; p
   %975 = add i32 %974, -1
   store i32 %975, ptr %973, align 4, !tbaa !160
   %976 = icmp eq i32 %975, 0
-  br i1 %976, label %.sink.split.i.i710, label %.sink.split2606
+  br i1 %976, label %.sink.split.i.i710, label %.sink.split2673
 
 977:                                              ; preds = %964
   %978 = getelementptr inbounds i8, ptr %965, i64 -8
@@ -4282,7 +4282,7 @@ _ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit703: ; p
   %980 = getelementptr inbounds nuw i8, ptr %979, i64 24
   store ptr %980, ptr %978, align 8, !tbaa !108
   store i32 2, ptr %967, align 4, !tbaa !157
-  br label %.sink.split2606
+  br label %.sink.split2673
 
 981:                                              ; preds = %964
   %982 = getelementptr inbounds i8, ptr %965, i64 -8
@@ -4298,7 +4298,7 @@ _ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit703: ; p
 
 989:                                              ; preds = %981
   store i32 1, ptr %967, align 4, !tbaa !157
-  br label %.sink.split2606
+  br label %.sink.split2673
 
 .sink.split.i.i710:                               ; preds = %981, %969
   %.sink.i.i711 = phi ptr [ %970, %969 ], [ %982, %981 ]
@@ -4327,7 +4327,7 @@ _ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit703: ; p
   %1001 = zext i8 %1000 to i64
   store i64 %1001, ptr %24, align 8, !tbaa !88
   %1002 = icmp eq i8 %1000, 0
-  br i1 %1002, label %1003, label %.sink.split2606
+  br i1 %1002, label %1003, label %.sink.split2673
 
 1003:                                             ; preds = %999
   %1004 = call noundef zeroext i1 @_ZN7msgpack2v26detail21create_object_visitor9visit_binEPKcj(ptr noundef nonnull align 8 dereferenceable(121) %25, ptr noundef nonnull %232, i32 noundef 0)
@@ -4376,7 +4376,7 @@ _ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit703: ; p
   %1026 = add i32 %1025, -1
   store i32 %1026, ptr %1024, align 4, !tbaa !160
   %1027 = icmp eq i32 %1026, 0
-  br i1 %1027, label %.sink.split.i.i720, label %.sink.split2606
+  br i1 %1027, label %.sink.split.i.i720, label %.sink.split2673
 
 1028:                                             ; preds = %1015
   %1029 = getelementptr inbounds i8, ptr %1016, i64 -8
@@ -4384,7 +4384,7 @@ _ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit703: ; p
   %1031 = getelementptr inbounds nuw i8, ptr %1030, i64 24
   store ptr %1031, ptr %1029, align 8, !tbaa !108
   store i32 2, ptr %1018, align 4, !tbaa !157
-  br label %.sink.split2606
+  br label %.sink.split2673
 
 1032:                                             ; preds = %1015
   %1033 = getelementptr inbounds i8, ptr %1016, i64 -8
@@ -4400,7 +4400,7 @@ _ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit703: ; p
 
 1040:                                             ; preds = %1032
   store i32 1, ptr %1018, align 4, !tbaa !157
-  br label %.sink.split2606
+  br label %.sink.split2673
 
 .sink.split.i.i720:                               ; preds = %1032, %1020
   %.sink.i.i721 = phi ptr [ %1021, %1020 ], [ %1033, %1032 ]
@@ -4429,7 +4429,7 @@ _ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit703: ; p
   %1052 = zext i8 %1051 to i64
   %1053 = add nuw nsw i64 %1052, 1
   store i64 %1053, ptr %24, align 8, !tbaa !88
-  br label %.sink.split2606
+  br label %.sink.split2673
 
 1054:                                             ; preds = %242
   %1055 = load i16, ptr %232, align 1
@@ -4437,7 +4437,7 @@ _ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit703: ; p
   %1056 = zext i16 %rev.i.i724 to i64
   store i64 %1056, ptr %24, align 8, !tbaa !88
   %1057 = icmp eq i16 %1055, 0
-  br i1 %1057, label %1058, label %.sink.split2606
+  br i1 %1057, label %1058, label %.sink.split2673
 
 1058:                                             ; preds = %1054
   %1059 = zext nneg i16 %rev.i.i724 to i32
@@ -4487,7 +4487,7 @@ _ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit703: ; p
   %1082 = add i32 %1081, -1
   store i32 %1082, ptr %1080, align 4, !tbaa !160
   %1083 = icmp eq i32 %1082, 0
-  br i1 %1083, label %.sink.split.i.i731, label %.sink.split2606
+  br i1 %1083, label %.sink.split.i.i731, label %.sink.split2673
 
 1084:                                             ; preds = %1071
   %1085 = getelementptr inbounds i8, ptr %1072, i64 -8
@@ -4495,7 +4495,7 @@ _ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit703: ; p
   %1087 = getelementptr inbounds nuw i8, ptr %1086, i64 24
   store ptr %1087, ptr %1085, align 8, !tbaa !108
   store i32 2, ptr %1074, align 4, !tbaa !157
-  br label %.sink.split2606
+  br label %.sink.split2673
 
 1088:                                             ; preds = %1071
   %1089 = getelementptr inbounds i8, ptr %1072, i64 -8
@@ -4511,7 +4511,7 @@ _ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit703: ; p
 
 1096:                                             ; preds = %1088
   store i32 1, ptr %1074, align 4, !tbaa !157
-  br label %.sink.split2606
+  br label %.sink.split2673
 
 .sink.split.i.i731:                               ; preds = %1088, %1076
   %.sink.i.i732 = phi ptr [ %1077, %1076 ], [ %1089, %1088 ]
@@ -4541,7 +4541,7 @@ _ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit703: ; p
   %1108 = zext i16 %rev.i.i735 to i64
   store i64 %1108, ptr %24, align 8, !tbaa !88
   %1109 = icmp eq i16 %1107, 0
-  br i1 %1109, label %1110, label %.sink.split2606
+  br i1 %1109, label %1110, label %.sink.split2673
 
 1110:                                             ; preds = %1106
   %1111 = zext nneg i16 %rev.i.i735 to i32
@@ -4591,7 +4591,7 @@ _ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit703: ; p
   %1134 = add i32 %1133, -1
   store i32 %1134, ptr %1132, align 4, !tbaa !160
   %1135 = icmp eq i32 %1134, 0
-  br i1 %1135, label %.sink.split.i.i742, label %.sink.split2606
+  br i1 %1135, label %.sink.split.i.i742, label %.sink.split2673
 
 1136:                                             ; preds = %1123
   %1137 = getelementptr inbounds i8, ptr %1124, i64 -8
@@ -4599,7 +4599,7 @@ _ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit703: ; p
   %1139 = getelementptr inbounds nuw i8, ptr %1138, i64 24
   store ptr %1139, ptr %1137, align 8, !tbaa !108
   store i32 2, ptr %1126, align 4, !tbaa !157
-  br label %.sink.split2606
+  br label %.sink.split2673
 
 1140:                                             ; preds = %1123
   %1141 = getelementptr inbounds i8, ptr %1124, i64 -8
@@ -4615,7 +4615,7 @@ _ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit703: ; p
 
 1148:                                             ; preds = %1140
   store i32 1, ptr %1126, align 4, !tbaa !157
-  br label %.sink.split2606
+  br label %.sink.split2673
 
 .sink.split.i.i742:                               ; preds = %1140, %1128
   %.sink.i.i743 = phi ptr [ %1129, %1128 ], [ %1141, %1140 ]
@@ -4645,7 +4645,7 @@ _ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit703: ; p
   %1160 = zext i16 %rev.i.i746 to i64
   %1161 = add nuw nsw i64 %1160, 1
   store i64 %1161, ptr %24, align 8, !tbaa !88
-  br label %.sink.split2606
+  br label %.sink.split2673
 
 1162:                                             ; preds = %242
   %1163 = load i32, ptr %232, align 1
@@ -4653,7 +4653,7 @@ _ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit703: ; p
   %1165 = zext i32 %1164 to i64
   store i64 %1165, ptr %24, align 8, !tbaa !88
   %1166 = icmp eq i32 %1163, 0
-  br i1 %1166, label %1167, label %.sink.split2606
+  br i1 %1166, label %1167, label %.sink.split2673
 
 1167:                                             ; preds = %1162
   %1168 = call noundef zeroext i1 @_ZN7msgpack2v26detail21create_object_visitor9visit_strEPKcj(ptr noundef nonnull align 8 dereferenceable(121) %25, ptr noundef nonnull %232, i32 noundef %1164)
@@ -4702,7 +4702,7 @@ _ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit703: ; p
   %1190 = add i32 %1189, -1
   store i32 %1190, ptr %1188, align 4, !tbaa !160
   %1191 = icmp eq i32 %1190, 0
-  br i1 %1191, label %.sink.split.i.i753, label %.sink.split2606
+  br i1 %1191, label %.sink.split.i.i753, label %.sink.split2673
 
 1192:                                             ; preds = %1179
   %1193 = getelementptr inbounds i8, ptr %1180, i64 -8
@@ -4710,7 +4710,7 @@ _ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit703: ; p
   %1195 = getelementptr inbounds nuw i8, ptr %1194, i64 24
   store ptr %1195, ptr %1193, align 8, !tbaa !108
   store i32 2, ptr %1182, align 4, !tbaa !157
-  br label %.sink.split2606
+  br label %.sink.split2673
 
 1196:                                             ; preds = %1179
   %1197 = getelementptr inbounds i8, ptr %1180, i64 -8
@@ -4726,7 +4726,7 @@ _ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit703: ; p
 
 1204:                                             ; preds = %1196
   store i32 1, ptr %1182, align 4, !tbaa !157
-  br label %.sink.split2606
+  br label %.sink.split2673
 
 .sink.split.i.i753:                               ; preds = %1196, %1184
   %.sink.i.i754 = phi ptr [ %1185, %1184 ], [ %1197, %1196 ]
@@ -4756,7 +4756,7 @@ _ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit703: ; p
   %1217 = zext i32 %1216 to i64
   store i64 %1217, ptr %24, align 8, !tbaa !88
   %1218 = icmp eq i32 %1215, 0
-  br i1 %1218, label %1219, label %.sink.split2606
+  br i1 %1218, label %1219, label %.sink.split2673
 
 1219:                                             ; preds = %1214
   %1220 = call noundef zeroext i1 @_ZN7msgpack2v26detail21create_object_visitor9visit_binEPKcj(ptr noundef nonnull align 8 dereferenceable(121) %25, ptr noundef nonnull %232, i32 noundef %1216)
@@ -4805,7 +4805,7 @@ _ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit703: ; p
   %1242 = add i32 %1241, -1
   store i32 %1242, ptr %1240, align 4, !tbaa !160
   %1243 = icmp eq i32 %1242, 0
-  br i1 %1243, label %.sink.split.i.i763, label %.sink.split2606
+  br i1 %1243, label %.sink.split.i.i763, label %.sink.split2673
 
 1244:                                             ; preds = %1231
   %1245 = getelementptr inbounds i8, ptr %1232, i64 -8
@@ -4813,7 +4813,7 @@ _ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit703: ; p
   %1247 = getelementptr inbounds nuw i8, ptr %1246, i64 24
   store ptr %1247, ptr %1245, align 8, !tbaa !108
   store i32 2, ptr %1234, align 4, !tbaa !157
-  br label %.sink.split2606
+  br label %.sink.split2673
 
 1248:                                             ; preds = %1231
   %1249 = getelementptr inbounds i8, ptr %1232, i64 -8
@@ -4829,7 +4829,7 @@ _ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit703: ; p
 
 1256:                                             ; preds = %1248
   store i32 1, ptr %1234, align 4, !tbaa !157
-  br label %.sink.split2606
+  br label %.sink.split2673
 
 .sink.split.i.i763:                               ; preds = %1248, %1236
   %.sink.i.i764 = phi ptr [ %1237, %1236 ], [ %1249, %1248 ]
@@ -4859,7 +4859,7 @@ _ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit703: ; p
   %1269 = zext i32 %1268 to i64
   %1270 = add nuw nsw i64 %1269, 1
   store i64 %1270, ptr %24, align 8, !tbaa !88
-  br label %.sink.split2606
+  br label %.sink.split2673
 
 1271:                                             ; preds = %242
   %1272 = trunc i64 %236 to i32
@@ -4909,7 +4909,7 @@ _ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit776.thre
   %1295 = add i32 %1294, -1
   store i32 %1295, ptr %1293, align 4, !tbaa !160
   %1296 = icmp eq i32 %1295, 0
-  br i1 %1296, label %.sink.split.i.i773, label %.sink.split2606
+  br i1 %1296, label %.sink.split.i.i773, label %.sink.split2673
 
 1297:                                             ; preds = %1284
   %1298 = getelementptr inbounds i8, ptr %1285, i64 -8
@@ -4917,7 +4917,7 @@ _ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit776.thre
   %1300 = getelementptr inbounds nuw i8, ptr %1299, i64 24
   store ptr %1300, ptr %1298, align 8, !tbaa !108
   store i32 2, ptr %1287, align 4, !tbaa !157
-  br label %.sink.split2606
+  br label %.sink.split2673
 
 1301:                                             ; preds = %1284
   %1302 = getelementptr inbounds i8, ptr %1285, i64 -8
@@ -4933,7 +4933,7 @@ _ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit776.thre
 
 1309:                                             ; preds = %1301
   store i32 1, ptr %1287, align 4, !tbaa !157
-  br label %.sink.split2606
+  br label %.sink.split2673
 
 .sink.split.i.i773:                               ; preds = %1301, %1289
   %.sink.i.i774 = phi ptr [ %1290, %1289 ], [ %1302, %1301 ]
@@ -5005,7 +5005,7 @@ _ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit786.thre
   %1343 = add i32 %1342, -1
   store i32 %1343, ptr %1341, align 4, !tbaa !160
   %1344 = icmp eq i32 %1343, 0
-  br i1 %1344, label %.sink.split.i.i783, label %.sink.split2606
+  br i1 %1344, label %.sink.split.i.i783, label %.sink.split2673
 
 1345:                                             ; preds = %1332
   %1346 = getelementptr inbounds i8, ptr %1333, i64 -8
@@ -5013,7 +5013,7 @@ _ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit786.thre
   %1348 = getelementptr inbounds nuw i8, ptr %1347, i64 24
   store ptr %1348, ptr %1346, align 8, !tbaa !108
   store i32 2, ptr %1335, align 4, !tbaa !157
-  br label %.sink.split2606
+  br label %.sink.split2673
 
 1349:                                             ; preds = %1332
   %1350 = getelementptr inbounds i8, ptr %1333, i64 -8
@@ -5029,7 +5029,7 @@ _ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit786.thre
 
 1357:                                             ; preds = %1349
   store i32 1, ptr %1335, align 4, !tbaa !157
-  br label %.sink.split2606
+  br label %.sink.split2673
 
 .sink.split.i.i783:                               ; preds = %1349, %1337
   %.sink.i.i784 = phi ptr [ %1338, %1337 ], [ %1350, %1349 ]
@@ -5101,7 +5101,7 @@ _ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit796.thre
   %1391 = add i32 %1390, -1
   store i32 %1391, ptr %1389, align 4, !tbaa !160
   %1392 = icmp eq i32 %1391, 0
-  br i1 %1392, label %.sink.split.i.i793, label %.sink.split2606
+  br i1 %1392, label %.sink.split.i.i793, label %.sink.split2673
 
 1393:                                             ; preds = %1380
   %1394 = getelementptr inbounds i8, ptr %1381, i64 -8
@@ -5109,7 +5109,7 @@ _ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit796.thre
   %1396 = getelementptr inbounds nuw i8, ptr %1395, i64 24
   store ptr %1396, ptr %1394, align 8, !tbaa !108
   store i32 2, ptr %1383, align 4, !tbaa !157
-  br label %.sink.split2606
+  br label %.sink.split2673
 
 1397:                                             ; preds = %1380
   %1398 = getelementptr inbounds i8, ptr %1381, i64 -8
@@ -5125,7 +5125,7 @@ _ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit796.thre
 
 1405:                                             ; preds = %1397
   store i32 1, ptr %1383, align 4, !tbaa !157
-  br label %.sink.split2606
+  br label %.sink.split2673
 
 .sink.split.i.i793:                               ; preds = %1397, %1385
   %.sink.i.i794 = phi ptr [ %1386, %1385 ], [ %1398, %1397 ]
@@ -5205,15 +5205,15 @@ _ZN7msgpack2v26detail7contextINS0_8unpackerEE16after_visit_procEbRm.exit796: ; p
   call void @_ZN7msgpack2v26detail21create_object_visitor11parse_errorEmm(ptr noundef nonnull align 8 dereferenceable(121) %25, i64 noundef %1430, i64 noundef %1429)
   br label %.thread
 
-.sink.split2606:                                  ; preds = %1385, %1337, %1289, %1236, %1184, %1128, %1076, %1020, %969, %918, %871, %824, %777, %730, %683, %636, %588, %541, %494, %448, %401, %355, %309, %263, %1405, %1393, %1357, %1345, %1309, %1297, %1256, %1244, %1214, %1204, %1192, %1162, %1148, %1136, %1106, %1096, %1084, %1054, %1040, %1028, %999, %989, %977, %948, %938, %926, %891, %879, %844, %832, %797, %785, %750, %738, %703, %691, %656, %644, %608, %596, %561, %549, %514, %502, %468, %456, %421, %409, %375, %363, %329, %317, %283, %271, %1050, %1158, %1266
+.sink.split2673:                                  ; preds = %1385, %1337, %1289, %1236, %1184, %1128, %1076, %1020, %969, %918, %871, %824, %777, %730, %683, %636, %588, %541, %494, %448, %401, %355, %309, %263, %1405, %1393, %1357, %1345, %1309, %1297, %1256, %1244, %1214, %1204, %1192, %1162, %1148, %1136, %1106, %1096, %1084, %1054, %1040, %1028, %999, %989, %977, %948, %938, %926, %891, %879, %844, %832, %797, %785, %750, %738, %703, %691, %656, %644, %608, %596, %561, %549, %514, %502, %468, %456, %421, %409, %375, %363, %329, %317, %283, %271, %1050, %1158, %1266
   %.sink = phi i32 [ 34, %1266 ], [ 34, %1158 ], [ 34, %1050 ], [ 0, %271 ], [ 0, %283 ], [ 0, %317 ], [ 0, %329 ], [ 0, %363 ], [ 0, %375 ], [ 0, %409 ], [ 0, %421 ], [ 0, %456 ], [ 0, %468 ], [ 0, %502 ], [ 0, %514 ], [ 0, %549 ], [ 0, %561 ], [ 0, %596 ], [ 0, %608 ], [ 0, %644 ], [ 0, %656 ], [ 0, %691 ], [ 0, %703 ], [ 0, %738 ], [ 0, %750 ], [ 0, %785 ], [ 0, %797 ], [ 0, %832 ], [ 0, %844 ], [ 0, %879 ], [ 0, %891 ], [ 0, %926 ], [ 0, %938 ], [ 32, %948 ], [ 0, %977 ], [ 0, %989 ], [ 33, %999 ], [ 0, %1028 ], [ 0, %1040 ], [ 32, %1054 ], [ 0, %1084 ], [ 0, %1096 ], [ 33, %1106 ], [ 0, %1136 ], [ 0, %1148 ], [ 32, %1162 ], [ 0, %1192 ], [ 0, %1204 ], [ 33, %1214 ], [ 0, %1244 ], [ 0, %1256 ], [ 0, %1297 ], [ 0, %1309 ], [ 0, %1345 ], [ 0, %1357 ], [ 0, %1393 ], [ 0, %1405 ], [ 0, %263 ], [ 0, %309 ], [ 0, %355 ], [ 0, %401 ], [ 0, %448 ], [ 0, %494 ], [ 0, %541 ], [ 0, %588 ], [ 0, %636 ], [ 0, %683 ], [ 0, %730 ], [ 0, %777 ], [ 0, %824 ], [ 0, %871 ], [ 0, %918 ], [ 0, %969 ], [ 0, %1020 ], [ 0, %1076 ], [ 0, %1128 ], [ 0, %1184 ], [ 0, %1236 ], [ 0, %1289 ], [ 0, %1337 ], [ 0, %1385 ]
   %.23413.ph = phi i1 [ true, %1266 ], [ true, %1158 ], [ true, %1050 ], [ false, %271 ], [ false, %283 ], [ false, %317 ], [ false, %329 ], [ false, %363 ], [ false, %375 ], [ false, %409 ], [ false, %421 ], [ false, %456 ], [ false, %468 ], [ false, %502 ], [ false, %514 ], [ false, %549 ], [ false, %561 ], [ false, %596 ], [ false, %608 ], [ false, %644 ], [ false, %656 ], [ false, %691 ], [ false, %703 ], [ false, %738 ], [ false, %750 ], [ false, %785 ], [ false, %797 ], [ false, %832 ], [ false, %844 ], [ false, %879 ], [ false, %891 ], [ false, %926 ], [ false, %938 ], [ true, %948 ], [ false, %977 ], [ false, %989 ], [ true, %999 ], [ false, %1028 ], [ false, %1040 ], [ true, %1054 ], [ false, %1084 ], [ false, %1096 ], [ true, %1106 ], [ false, %1136 ], [ false, %1148 ], [ true, %1162 ], [ false, %1192 ], [ false, %1204 ], [ true, %1214 ], [ false, %1244 ], [ false, %1256 ], [ false, %1297 ], [ false, %1309 ], [ false, %1345 ], [ false, %1357 ], [ false, %1393 ], [ false, %1405 ], [ false, %263 ], [ false, %309 ], [ false, %355 ], [ false, %401 ], [ false, %448 ], [ false, %494 ], [ false, %541 ], [ false, %588 ], [ false, %636 ], [ false, %683 ], [ false, %730 ], [ false, %777 ], [ false, %824 ], [ false, %871 ], [ false, %918 ], [ false, %969 ], [ false, %1020 ], [ false, %1076 ], [ false, %1128 ], [ false, %1184 ], [ false, %1236 ], [ false, %1289 ], [ false, %1337 ], [ false, %1385 ]
   store i32 %.sink, ptr %22, align 8, !tbaa !89
   br label %1431
 
-1431:                                             ; preds = %.sink.split2606, %224, %1421, %1419, %1417, %1415
-  %.23413 = phi i1 [ false, %1415 ], [ false, %1417 ], [ false, %1419 ], [ false, %1421 ], [ false, %224 ], [ %.23413.ph, %.sink.split2606 ]
-  %.1340 = phi ptr [ %232, %1415 ], [ %232, %1417 ], [ %232, %1419 ], [ %232, %1421 ], [ %.0339, %224 ], [ %232, %.sink.split2606 ]
+1431:                                             ; preds = %.sink.split2673, %224, %1421, %1419, %1417, %1415
+  %.23413 = phi i1 [ false, %1415 ], [ false, %1417 ], [ false, %1419 ], [ false, %1421 ], [ false, %224 ], [ %.23413.ph, %.sink.split2673 ]
+  %.1340 = phi ptr [ %232, %1415 ], [ %232, %1417 ], [ %232, %1419 ], [ %232, %1421 ], [ %.0339, %224 ], [ %232, %.sink.split2673 ]
   %1432 = load ptr, ptr %19, align 8, !tbaa !154
   %.not493 = icmp eq ptr %1432, %20
   br i1 %.not493, label %1433, label %29, !llvm.loop !163
@@ -5410,7 +5410,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN7msgpack2v26detail21create_
 
 40:                                               ; preds = %38
   %.not.i.i = icmp sgt i64 %.0.i.i, 0
-  %41 = shl nuw i64 %.0.i.i, 1
+  %41 = shl nuw nsw i64 %.0.i.i, 1
   br i1 %.not.i.i, label %38, label %42
 
 42:                                               ; preds = %40, %38
@@ -5982,7 +5982,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN7msgpack2v26detail21create_
 
 41:                                               ; preds = %39
   %.not.i.i = icmp sgt i64 %.0.i.i, 0
-  %42 = shl nuw i64 %.0.i.i, 1
+  %42 = shl nuw nsw i64 %.0.i.i, 1
   br i1 %.not.i.i, label %39, label %43
 
 43:                                               ; preds = %41, %39
@@ -6105,7 +6105,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN7msgpack2v26detail21create_
 
 40:                                               ; preds = %38
   %.not.i.i = icmp sgt i64 %.0.i.i, 0
-  %41 = shl nuw i64 %.0.i.i, 1
+  %41 = shl nuw nsw i64 %.0.i.i, 1
   br i1 %.not.i.i, label %38, label %42
 
 42:                                               ; preds = %40, %38
@@ -7119,7 +7119,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN7msgpack2v26detail21create_
 
 54:                                               ; preds = %52
   %.not.i.i = icmp sgt i64 %.0.i.i, 0
-  %55 = shl nuw i64 %.0.i.i, 1
+  %55 = shl nuw nsw i64 %.0.i.i, 1
   br i1 %.not.i.i, label %52, label %56
 
 56:                                               ; preds = %54, %52
@@ -7351,7 +7351,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN7msgpack2v26detail21create_
 
 54:                                               ; preds = %52
   %.not.i.i = icmp sgt i64 %.0.i.i, 0
-  %55 = shl nuw i64 %.0.i.i, 1
+  %55 = shl nuw nsw i64 %.0.i.i, 1
   br i1 %.not.i.i, label %52, label %56
 
 56:                                               ; preds = %54, %52
@@ -7552,13 +7552,13 @@ define linkonce_odr dso_local void @_ZNSt6vectorIPN7msgpack2v26objectESaIS3_EE17
 19:                                               ; preds = %3
   store ptr null, ptr %5, align 8, !tbaa !108
   %20 = getelementptr i8, ptr %5, i64 8
-  %21 = add i64 %1, -1
+  %21 = add nsw i64 %1, -1
   %22 = icmp eq i64 %21, 0
   br i1 %22, label %_ZSt27__uninitialized_default_n_aIPPN7msgpack2v26objectEmS3_ET_S5_T0_RSaIT1_E.exit, label %_ZSt6fill_nIPPN7msgpack2v26objectEmS3_ET_S5_T0_RKT1_.exit.loopexit.i.i.i
 
 _ZSt6fill_nIPPN7msgpack2v26objectEmS3_ET_S5_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
-  %23 = shl i64 %1, 3
-  %24 = add i64 %23, -8
+  %23 = shl nuw nsw i64 %1, 3
+  %24 = add nsw i64 %23, -8
   tail call void @llvm.memset.p0.i64(ptr align 8 %20, i8 0, i64 %24, i1 false), !tbaa !108
   %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 3
   %25 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i

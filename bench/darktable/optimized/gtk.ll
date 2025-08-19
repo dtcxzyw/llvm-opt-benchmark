@@ -4338,9 +4338,9 @@ switch.lookup:                                    ; preds = %31
   br label %.sink.split
 
 .sink.split:                                      ; preds = %switch.lookup, %30
-  %.sink108 = phi i64 [ 32, %30 ], [ %switch.load, %switch.lookup ]
+  %.sink114 = phi i64 [ 32, %30 ], [ %switch.load, %switch.lookup ]
   %34 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !15
-  %35 = getelementptr inbounds nuw i8, ptr %34, i64 %.sink108
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 %.sink114
   %36 = load ptr, ptr %35, align 8, !tbaa !76
   tail call void @gtk_widget_queue_draw(ptr noundef %36) #18
   br label %37
@@ -4936,9 +4936,9 @@ define range(i32 0, 2) i32 @dt_gui_show_standalone_yes_no_dialog(ptr noundef %0,
   br label %26
 
 26:                                               ; preds = %4, %14, %20, %24
-  %.sink57 = phi i32 [ 4, %24 ], [ 2, %20 ], [ 2, %14 ], [ 2, %4 ]
+  %.sink60 = phi i32 [ 4, %24 ], [ 2, %20 ], [ 2, %14 ], [ 2, %4 ]
   %27 = tail call ptr @g_type_check_instance_cast(ptr noundef %6, i64 noundef %9) #18
-  tail call void @gtk_window_set_position(ptr noundef %27, i32 noundef %.sink57) #18
+  tail call void @gtk_window_set_position(ptr noundef %27, i32 noundef %.sink60) #18
   %28 = tail call ptr @gtk_box_new(i32 noundef 1, i32 noundef %8) #18
   %29 = tail call i64 @gtk_container_get_type() #19
   %30 = tail call ptr @g_type_check_instance_cast(ptr noundef %6, i64 noundef %29) #18

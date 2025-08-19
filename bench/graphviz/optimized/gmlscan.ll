@@ -74,7 +74,7 @@ define dso_local range(i32 -128, 289) i32 @gmllex() local_unnamed_addr #1 {
 
 ._crit_edge418:                                   ; preds = %0
   %.pre401.pre = load ptr, ptr @yy_c_buf_p, align 8, !tbaa !11
-  br label %.preheader753
+  br label %.preheader825
 
 1:                                                ; preds = %0
   store i1 true, ptr @yy_init, align 4
@@ -206,14 +206,14 @@ gml_create_buffer.exit:                           ; preds = %36
   store ptr %51, ptr @gmlin, align 8, !tbaa !4
   %52 = load i8, ptr %50, align 1, !tbaa !26
   store i8 %52, ptr @yy_hold_char, align 1, !tbaa !26
-  br label %.preheader753
+  br label %.preheader825
 
-.preheader753:                                    ; preds = %._crit_edge418, %45
+.preheader825:                                    ; preds = %._crit_edge418, %45
   %.ph = phi ptr [ %50, %45 ], [ %.pre401.pre, %._crit_edge418 ]
   br label %53
 
-53:                                               ; preds = %.backedge, %.preheader753
-  %54 = phi ptr [ %.ph, %.preheader753 ], [ %.be, %.backedge ]
+53:                                               ; preds = %.backedge, %.preheader825
+  %54 = phi ptr [ %.ph, %.preheader825 ], [ %.be, %.backedge ]
   %55 = load i8, ptr @yy_hold_char, align 1, !tbaa !26
   store i8 %55, ptr %54, align 1, !tbaa !26
   %56 = load i32, ptr @yy_start, align 4, !tbaa !9
@@ -1759,7 +1759,7 @@ yy_get_next_buffer.exit:                          ; preds = %._crit_edge70.i, %1
   %1024 = getelementptr inbounds nuw i8, ptr %1023, i64 8
   %1025 = load ptr, ptr %1024, align 8, !tbaa !21
   store ptr %1025, ptr @gmltext, align 8, !tbaa !11
-  switch i32 %.036.i, label %default.unreachable421 [
+  switch i32 %.036.i, label %default.unreachable493 [
     i32 1, label %yy_get_previous_state.exit133
     i32 0, label %1026
     i32 2, label %yy_get_next_buffer.exit.yy_get_next_buffer.exit.thread150_crit_edge
@@ -1782,8 +1782,8 @@ yy_get_next_buffer.exit.yy_get_next_buffer.exit.thread150_crit_edge: ; preds = %
   %1029 = sub i64 %1027, %1028
   %1030 = trunc i64 %1029 to i32
   %1031 = shl i64 %1029, 32
-  %sext582 = add i64 %1031, -4294967296
-  %1032 = ashr exact i64 %sext582, 32
+  %sext654 = add i64 %1031, -4294967296
+  %1032 = ashr exact i64 %sext654, 32
   %1033 = getelementptr inbounds i8, ptr %1025, i64 %1032
   store ptr %1033, ptr @yy_c_buf_p, align 8, !tbaa !11
   %1034 = load i32, ptr @yy_start, align 4, !tbaa !9
@@ -1965,7 +1965,7 @@ yy_get_next_buffer.exit.thread150:                ; preds = %921, %yy_get_next_b
   %exitcond.not.i147 = icmp eq ptr %1133, %1087
   br i1 %exitcond.not.i147, label %.preheader.outer.backedge, label %.lr.ph26.i135, !llvm.loop !35
 
-default.unreachable421:                           ; preds = %yy_get_next_buffer.exit
+default.unreachable493:                           ; preds = %yy_get_next_buffer.exit
   unreachable
 
 yy_get_previous_state.exit133:                    ; preds = %yy_get_next_buffer.exit, %921
@@ -2179,7 +2179,7 @@ gml_flush_buffer.exit.thread:                     ; preds = %5
   %18 = getelementptr inbounds nuw ptr, ptr %.pr.pre, i64 %17
   %19 = load ptr, ptr %18, align 8, !tbaa !17
   %20 = icmp eq ptr %0, %19
-  br i1 %20, label %21, label %gml_flush_buffer.exit.thread15
+  br i1 %20, label %21, label %gml_flush_buffer.exit.thread17
 
 21:                                               ; preds = %16
   %22 = getelementptr inbounds nuw i8, ptr %19, i64 28
@@ -2193,9 +2193,9 @@ gml_flush_buffer.exit.thread:                     ; preds = %5
   store ptr %26, ptr @gmlin, align 8, !tbaa !4
   %27 = load i8, ptr %25, align 1, !tbaa !26
   store i8 %27, ptr @yy_hold_char, align 1, !tbaa !26
-  br label %gml_flush_buffer.exit.thread15
+  br label %gml_flush_buffer.exit.thread17
 
-gml_flush_buffer.exit.thread15:                   ; preds = %16, %21
+gml_flush_buffer.exit.thread17:                   ; preds = %16, %21
   store ptr %1, ptr %0, align 8, !tbaa !25
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 52
   store i32 1, ptr %28, align 4, !tbaa !37
@@ -2208,7 +2208,7 @@ gml_flush_buffer.exit:                            ; preds = %2
   %.not = icmp eq ptr %.pr.pre, null
   br i1 %.not, label %.critedge, label %30
 
-30:                                               ; preds = %gml_flush_buffer.exit.thread15, %gml_flush_buffer.exit
+30:                                               ; preds = %gml_flush_buffer.exit.thread17, %gml_flush_buffer.exit
   %31 = load i64, ptr @yy_buffer_stack_top, align 8, !tbaa !15
   %32 = getelementptr inbounds nuw ptr, ptr %.pr.pre, i64 %31
   %33 = load ptr, ptr %32, align 8, !tbaa !17

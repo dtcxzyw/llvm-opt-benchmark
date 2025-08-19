@@ -235,10 +235,10 @@ get_down2_steps.exit:                             ; preds = %.preheader
   br i1 %.not60, label %272, label %.lr.ph
 
 .lr.ph:                                           ; preds = %11, %get_down2_steps.exit
-  %.1.i5999 = phi i32 [ %.06.i, %get_down2_steps.exit ], [ %12, %11 ]
+  %.1.i59105 = phi i32 [ %.06.i, %get_down2_steps.exit ], [ %12, %11 ]
   %.in = add nsw i32 %1, 1
   %14 = ashr i32 %.in, 1
-  %15 = add nsw i32 %.1.i5999, -1
+  %15 = add nsw i32 %.1.i59105, -1
   br label %16
 
 16:                                               ; preds = %.lr.ph, %down2_symodd.exit
@@ -407,8 +407,8 @@ get_down2_steps.exit:                             ; preds = %.preheader
   %106 = getelementptr inbounds nuw i8, ptr %20, i64 %105
   %107 = load i8, ptr %106, align 1
   %108 = zext i8 %107 to i32
-  %gep180.i = getelementptr inbounds nuw i8, ptr %99, i64 %indvars.iv152.i
-  %109 = load i8, ptr %gep180.i, align 1
+  %gep181.i = getelementptr inbounds nuw i8, ptr %99, i64 %indvars.iv152.i
+  %109 = load i8, ptr %gep181.i, align 1
   %110 = zext i8 %109 to i32
   %111 = add nuw nsw i32 %110, %108
   %112 = getelementptr inbounds nuw i16, ptr @av1_down2_symodd_half_filter, i64 %indvars.iv152.i
@@ -680,7 +680,7 @@ get_down2_steps.exit:                             ; preds = %.preheader
 
 down2_symodd.exit:                                ; preds = %148, %59, %262, %183, %.preheader109.i, %.preheader107.i, %.preheader117.i, %.preheader.i
   %270 = add nuw nsw i32 %.04477, 1
-  %exitcond.not = icmp eq i32 %270, %.1.i5999
+  %exitcond.not = icmp eq i32 %270, %.1.i59105
   br i1 %exitcond.not, label %._crit_edge, label %16, !llvm.loop !26
 
 ._crit_edge:                                      ; preds = %down2_symodd.exit
@@ -1316,10 +1316,10 @@ get_down2_steps.exit:                             ; preds = %.preheader
   br i1 %.not68, label %304, label %.lr.ph
 
 .lr.ph:                                           ; preds = %13, %get_down2_steps.exit
-  %.1.i67107 = phi i32 [ %.06.i, %get_down2_steps.exit ], [ %14, %13 ]
+  %.1.i67113 = phi i32 [ %.06.i, %get_down2_steps.exit ], [ %14, %13 ]
   %.in = add nsw i32 %1, 1
   %16 = ashr i32 %.in, 1
-  %17 = add nsw i32 %.1.i67107, -1
+  %17 = add nsw i32 %.1.i67113, -1
   br label %18
 
 18:                                               ; preds = %.lr.ph, %highbd_down2_symodd.exit
@@ -1524,8 +1524,8 @@ clip_pixel_highbd.exit117.i:                      ; preds = %101, %99, %97
   %115 = getelementptr inbounds nuw i16, ptr %22, i64 %114
   %116 = load i16, ptr %115, align 2
   %117 = zext i16 %116 to i32
-  %gep187.i = getelementptr inbounds nuw i16, ptr %108, i64 %indvars.iv159.i
-  %118 = load i16, ptr %gep187.i, align 2
+  %gep188.i = getelementptr inbounds nuw i16, ptr %108, i64 %indvars.iv159.i
+  %118 = load i16, ptr %gep188.i, align 2
   %119 = zext i16 %118 to i32
   %120 = add nuw nsw i32 %119, %117
   %121 = getelementptr inbounds nuw i16, ptr @av1_down2_symodd_half_filter, i64 %indvars.iv159.i
@@ -1905,7 +1905,7 @@ clip_pixel_highbd.exit115.i:                      ; preds = %297, %295, %293
 
 highbd_down2_symodd.exit:                         ; preds = %clip_pixel_highbd.exit123.i, %clip_pixel_highbd.exit.i, %clip_pixel_highbd.exit115.i, %clip_pixel_highbd.exit.i63, %.preheader118.i, %.preheader116.i, %.preheader124.i, %.preheader.i
   %302 = add nuw nsw i32 %.04885, 1
-  %exitcond.not = icmp eq i32 %302, %.1.i67107
+  %exitcond.not = icmp eq i32 %302, %.1.i67113
   br i1 %exitcond.not, label %._crit_edge, label %18, !llvm.loop !61
 
 ._crit_edge:                                      ; preds = %highbd_down2_symodd.exit
@@ -2654,8 +2654,8 @@ define hidden noundef ptr @av1_scale_if_required(ptr noundef readonly captures(n
   %15 = load i32, ptr %14, align 4
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %17 = load i32, ptr %16, align 8
-  %.not29 = icmp eq i32 %15, %17
-  br i1 %.not29, label %65, label %.thread
+  %.not30 = icmp eq i32 %15, %17
+  br i1 %.not30, label %65, label %.thread
 
 18:                                               ; preds = %7
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 456
@@ -2668,8 +2668,8 @@ define hidden noundef ptr @av1_scale_if_required(ptr noundef readonly captures(n
   %23 = load i32, ptr %22, align 4
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %25 = load i32, ptr %24, align 8
-  %.not28 = icmp eq i32 %23, %25
-  br i1 %.not28, label %65, label %.thread
+  %.not29 = icmp eq i32 %23, %25
+  br i1 %.not29, label %65, label %.thread
 
 .thread:                                          ; preds = %13, %18, %10, %21
   %26 = getelementptr i8, ptr %0, i64 25261

@@ -122,8 +122,8 @@ define i32 @Aig_NodeDeref_rec(ptr noundef readonly captures(none) %0, i32 nounde
   br i1 %74, label %.split38, label %77
 
 .split38:                                         ; preds = %70, %69
-  %.sink53 = phi i32 [ 0, %69 ], [ %1, %70 ]
-  %75 = call i32 @Aig_NodeDeref_rec(ptr noundef nonnull %57, i32 noundef %.sink53, ptr noundef nonnull %6, ptr noundef %3)
+  %.sink56 = phi i32 [ 0, %69 ], [ %1, %70 ]
+  %75 = call i32 @Aig_NodeDeref_rec(ptr noundef nonnull %57, i32 noundef %.sink56, ptr noundef nonnull %6, ptr noundef %3)
   %76 = add nsw i32 %75, %.0
   br label %77
 
@@ -241,8 +241,8 @@ define i32 @Aig_NodeRef_rec(ptr noundef readonly captures(none) %0, i32 noundef 
   br i1 %45, label %.split22, label %48
 
 .split22:                                         ; preds = %41, %40
-  %.sink33 = phi i32 [ 0, %40 ], [ %1, %41 ]
-  %46 = tail call i32 @Aig_NodeRef_rec(ptr noundef nonnull %31, i32 noundef %.sink33)
+  %.sink34 = phi i32 [ 0, %40 ], [ %1, %41 ]
+  %46 = tail call i32 @Aig_NodeRef_rec(ptr noundef nonnull %31, i32 noundef %.sink34)
   %47 = add nsw i32 %46, %.0
   br label %48
 
@@ -337,8 +337,8 @@ define i32 @Aig_NodeRefLabel_rec(ptr noundef %0, ptr noundef captures(none) %1, 
   br i1 %48, label %.split26, label %51
 
 .split26:                                         ; preds = %44, %43
-  %.sink38 = phi i32 [ 0, %43 ], [ %2, %44 ]
-  %49 = tail call i32 @Aig_NodeRefLabel_rec(ptr noundef nonnull %0, ptr noundef nonnull %34, i32 noundef %.sink38)
+  %.sink39 = phi i32 [ 0, %43 ], [ %2, %44 ]
+  %49 = tail call i32 @Aig_NodeRefLabel_rec(ptr noundef nonnull %0, ptr noundef nonnull %34, i32 noundef %.sink39)
   %50 = add nsw i32 %49, %.0
   br label %51
 

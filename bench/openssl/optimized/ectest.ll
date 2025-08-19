@@ -7080,35 +7080,36 @@ define internal fastcc range(i32 0, 2) i32 @group_order_tests(ptr noundef %0) un
   br label %106
 
 106:                                              ; preds = %.preheader, %211
-  %indvars.iv = phi i64 [ 1, %.preheader ], [ %indvars.iv.next, %211 ]
+  %107 = phi i1 [ true, %.preheader ], [ false, %211 ]
+  %exitcond.not = phi i1 [ false, %.preheader ], [ true, %211 ]
+  %indvars.iv = phi i64 [ 1, %.preheader ], [ 2, %211 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %107 = call i32 @BN_set_word(ptr noundef %4, i64 noundef %indvars.iv) #7
-  %108 = icmp ne i32 %107, 0
-  %109 = zext i1 %108 to i32
-  %110 = call i32 @test_true(ptr noundef nonnull @.str, i32 noundef 82, ptr noundef nonnull @.str.272, i32 noundef %109) #7
-  %.not186 = icmp eq i32 %110, 0
-  br i1 %.not186, label %select.unfold, label %111
+  %108 = call i32 @BN_set_word(ptr noundef %4, i64 noundef %indvars.iv) #7
+  %109 = icmp ne i32 %108, 0
+  %110 = zext i1 %109 to i32
+  %111 = call i32 @test_true(ptr noundef nonnull @.str, i32 noundef 82, ptr noundef nonnull @.str.272, i32 noundef %110) #7
+  %.not186 = icmp eq i32 %111, 0
+  br i1 %.not186, label %select.unfold, label %112
 
-111:                                              ; preds = %106
-  %112 = call i32 @EC_POINT_mul(ptr noundef %0, ptr noundef %19, ptr noundef %4, ptr noundef null, ptr noundef null, ptr noundef %13) #7
-  %113 = icmp ne i32 %112, 0
-  %114 = zext i1 %113 to i32
-  %115 = call i32 @test_true(ptr noundef nonnull @.str, i32 noundef 87, ptr noundef nonnull @.str.273, i32 noundef %114) #7
-  %.not187 = icmp eq i32 %115, 0
-  br i1 %.not187, label %select.unfold, label %116
+112:                                              ; preds = %106
+  %113 = call i32 @EC_POINT_mul(ptr noundef %0, ptr noundef %19, ptr noundef %4, ptr noundef null, ptr noundef null, ptr noundef %13) #7
+  %114 = icmp ne i32 %113, 0
+  %115 = zext i1 %114 to i32
+  %116 = call i32 @test_true(ptr noundef nonnull @.str, i32 noundef 87, ptr noundef nonnull @.str.273, i32 noundef %115) #7
+  %.not187 = icmp eq i32 %116, 0
+  br i1 %.not187, label %select.unfold, label %117
 
-116:                                              ; preds = %111
-  %117 = icmp eq i64 %indvars.iv, 1
-  br i1 %117, label %118, label %121
+117:                                              ; preds = %112
+  br i1 %107, label %118, label %121
 
-118:                                              ; preds = %116
+118:                                              ; preds = %117
   %119 = call i32 @EC_POINT_cmp(ptr noundef %0, ptr noundef %19, ptr noundef %16, ptr noundef %13) #7
   %120 = call i32 @test_int_eq(ptr noundef nonnull @.str, i32 noundef 88, ptr noundef nonnull @.str.27, ptr noundef nonnull @.str.274, i32 noundef 0, i32 noundef %119) #7
   %.not188 = icmp eq i32 %120, 0
   br i1 %.not188, label %select.unfold, label %121
 
-121:                                              ; preds = %118, %116
+121:                                              ; preds = %118, %117
   %122 = call i32 @BN_set_word(ptr noundef %4, i64 noundef 1) #7
   %123 = icmp ne i32 %122, 0
   %124 = zext i1 %123 to i32
@@ -7275,16 +7276,14 @@ define internal fastcc range(i32 0, 2) i32 @group_order_tests(ptr noundef %0) un
 211:                                              ; preds = %206
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, 3
   br i1 %exitcond.not, label %.thread212, label %106, !llvm.loop !55
 
-select.unfold:                                    ; preds = %206, %163, %158, %153, %150, %145, %139, %136, %131, %126, %121, %118, %111, %106, %181, %176, %171, %166, %198, %192, %186, %201
+select.unfold:                                    ; preds = %206, %163, %158, %153, %150, %145, %139, %136, %131, %126, %121, %118, %112, %106, %181, %176, %171, %166, %198, %192, %186, %201
+  %.lcssa = phi i1 [ %107, %206 ], [ %107, %163 ], [ %107, %158 ], [ %107, %153 ], [ %107, %150 ], [ %107, %145 ], [ %107, %139 ], [ %107, %136 ], [ %107, %131 ], [ %107, %126 ], [ %107, %121 ], [ true, %118 ], [ %107, %112 ], [ %107, %106 ], [ %107, %181 ], [ %107, %176 ], [ %107, %171 ], [ %107, %166 ], [ %107, %198 ], [ %107, %192 ], [ %107, %186 ], [ %107, %201 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %212 = icmp eq i64 %indvars.iv, 1
-  %213 = select i1 %212, ptr @.str.285, ptr @.str.286
-  call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str, i32 noundef 147, ptr noundef nonnull %213) #7
+  %212 = select i1 %.lcssa, ptr @.str.285, ptr @.str.286
+  call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str, i32 noundef 147, ptr noundef nonnull %212) #7
   br label %.thread212
 
 .thread212:                                       ; preds = %211, %1, %6, %9, %12, %15, %18, %21, %24, %27, %30, %35, %40, %45, %50, %55, %60, %65, %70, %75, %78, %83, %88, %93, %select.unfold

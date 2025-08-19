@@ -2847,8 +2847,8 @@ define linkonce_odr hidden i64 @_ZN5clang29getFunctionOrMethodParamRangeEPKNS_4D
   br i1 %.not22.not.i, label %_ZN5clang24getFunctionOrMethodParamEPKNS_4DeclEj.exit.thread, label %_ZN5clang24getFunctionOrMethodParamEPKNS_4DeclEj.exit
 
 _ZN5clang24getFunctionOrMethodParamEPKNS_4DeclEj.exit: ; preds = %2, %8, %11
-  %.sink41.i = phi i64 [ 120, %2 ], [ 96, %8 ], [ 72, %11 ]
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink41.i
+  %.sink42.i = phi i64 [ 120, %2 ], [ 96, %8 ], [ 72, %11 ]
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink42.i
   %14 = load ptr, ptr %13, align 8, !tbaa !1125
   %15 = zext i32 %1 to i64
   %16 = getelementptr inbounds nuw ptr, ptr %14, i64 %15

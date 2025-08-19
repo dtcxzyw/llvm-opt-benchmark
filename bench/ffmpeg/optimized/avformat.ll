@@ -1242,7 +1242,7 @@ define range(i32 -22, 2) i32 @avformat_match_stream_specifier(ptr noundef %0, pt
 24:                                               ; preds = %17
   %25 = load ptr, ptr %6, align 8, !tbaa !35
   %.not51 = icmp eq ptr %25, null
-  br i1 %.not51, label %26, label %.thread105
+  br i1 %.not51, label %26, label %.thread118
 
 26:                                               ; preds = %24
   %27 = load ptr, ptr %7, align 8, !tbaa !71
@@ -1256,7 +1256,7 @@ define range(i32 -22, 2) i32 @avformat_match_stream_specifier(ptr noundef %0, pt
   %33 = select i1 %31, i1 %32, i1 false
   br i1 %33, label %.lr.ph, label %.thread65
 
-.thread105:                                       ; preds = %24
+.thread118:                                       ; preds = %24
   %34 = getelementptr inbounds nuw i8, ptr %25, i64 56
   %35 = load i32, ptr %34, align 4, !tbaa !102
   %36 = icmp sgt i32 %35, 0
@@ -1264,7 +1264,7 @@ define range(i32 -22, 2) i32 @avformat_match_stream_specifier(ptr noundef %0, pt
   %38 = select i1 %36, i1 %37, i1 false
   br i1 %38, label %.lr.ph.thread, label %.thread65
 
-.lr.ph.thread:                                    ; preds = %.thread105
+.lr.ph.thread:                                    ; preds = %.thread118
   %39 = getelementptr inbounds nuw i8, ptr %25, i64 64
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %41 = zext nneg i32 %35 to i64
@@ -1384,8 +1384,8 @@ define range(i32 -22, 2) i32 @avformat_match_stream_specifier(ptr noundef %0, pt
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.12, ptr noundef %2) #13
   br label %.thread65
 
-.thread65:                                        ; preds = %88, %.thread, %69, %.thread.us, %52, %.thread.us.us, %.thread105, %26, %.thread68, %.thread71, %10, %19
-  %.0 = phi i32 [ %23, %19 ], [ %8, %10 ], [ -22, %.thread71 ], [ %.032, %.thread68 ], [ 0, %26 ], [ 0, %.thread105 ], [ 1, %52 ], [ 0, %.thread.us.us ], [ 1, %69 ], [ 0, %.thread.us ], [ 1, %88 ], [ 0, %.thread ]
+.thread65:                                        ; preds = %88, %.thread, %69, %.thread.us, %52, %.thread.us.us, %.thread118, %26, %.thread68, %.thread71, %10, %19
+  %.0 = phi i32 [ %23, %19 ], [ %8, %10 ], [ -22, %.thread71 ], [ %.032, %.thread68 ], [ 0, %26 ], [ 0, %.thread118 ], [ 1, %52 ], [ 0, %.thread.us.us ], [ 1, %69 ], [ 0, %.thread.us ], [ 1, %88 ], [ 0, %.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -1653,7 +1653,7 @@ define internal fastcc range(i32 -22, 2) i32 @match_stream_specifier(ptr noundef
   br label %.thread246
 
 .loopexit250:                                     ; preds = %94, %.preheader249, %102, %101, %73
-  %.4143 = phi i32 [ %.0139285, %102 ], [ %.0139285, %101 ], [ 0, %73 ], [ 0, %.preheader249 ], [ 0, %94 ]
+  %.4143 = phi i32 [ 1, %102 ], [ 1, %101 ], [ 0, %73 ], [ 0, %.preheader249 ], [ 0, %94 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.thread
 
@@ -1753,7 +1753,7 @@ define internal fastcc range(i32 -22, 2) i32 @match_stream_specifier(ptr noundef
   br label %.thread238
 
 .thread238:                                       ; preds = %._crit_edge, %.thread234
-  %.6145.ph = phi i32 [ %.0139285, %._crit_edge ], [ 0, %.thread234 ]
+  %.6145.ph = phi i32 [ 1, %._crit_edge ], [ 0, %.thread234 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.thread
 
@@ -1997,8 +1997,8 @@ define i64 @av_guess_sample_aspect_ratio(ptr noundef readnone captures(none) %0,
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %sext = shl i64 %18, 32
   %21 = ashr exact i64 %sext, 32
-  %sext22 = shl nuw i64 %17, 32
-  %22 = ashr exact i64 %sext22, 32
+  %sext23 = shl nuw i64 %17, 32
+  %22 = ashr exact i64 %sext23, 32
   %23 = call i32 @av_reduce(ptr noundef nonnull %4, ptr noundef nonnull %20, i64 noundef %21, i64 noundef %22, i64 noundef 2147483647) #13
   %24 = load i32, ptr %4, align 8, !tbaa !135
   %25 = icmp slt i32 %24, 1
@@ -2013,8 +2013,8 @@ define i64 @av_guess_sample_aspect_ratio(ptr noundef readnone captures(none) %0,
 
 29:                                               ; preds = %16, %28
   %30 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  %sext23 = shl i64 %storemerge18, 32
-  %31 = ashr exact i64 %sext23, 32
+  %sext24 = shl i64 %storemerge18, 32
+  %31 = ashr exact i64 %sext24, 32
   %32 = ashr i64 %storemerge18, 32
   %33 = call i32 @av_reduce(ptr noundef nonnull %6, ptr noundef nonnull %30, i64 noundef %31, i64 noundef %32, i64 noundef 2147483647) #13
   %34 = load i32, ptr %6, align 8, !tbaa !135

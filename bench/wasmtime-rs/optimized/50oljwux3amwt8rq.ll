@@ -690,7 +690,7 @@ _ZN20wasmtime_wit_bindgen4rust13RustGenerator12lifetime_for17h6bd602bf2742d020E.
 30:                                               ; preds = %_ZN20wasmtime_wit_bindgen4rust13RustGenerator12lifetime_for17h6bd602bf2742d020E.exit
   %31 = getelementptr inbounds nuw i8, ptr %26, i64 24
   %32 = load i64, ptr %31, align 8, !range !6, !noundef !3
-  switch i64 %32, label %default.unreachable76 [
+  switch i64 %32, label %default.unreachable77 [
     i64 0, label %59
     i64 1, label %64
     i64 2, label %65
@@ -798,7 +798,7 @@ _ZN20wasmtime_wit_bindgen4rust13RustGenerator14print_generics17h2d89f37bcf921759
 58:                                               ; preds = %45
   resume { ptr, i32 } %46
 
-default.unreachable76:                            ; preds = %30
+default.unreachable77:                            ; preds = %30
   unreachable
 
 59:                                               ; preds = %30

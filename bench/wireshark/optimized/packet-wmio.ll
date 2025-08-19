@@ -513,12 +513,12 @@ define internal fastcc i32 @dissect_wmio_encoded_string(ptr noundef %0, i32 noun
 
 .sink.split:                                      ; preds = %50, %56
   %.sink = phi i32 [ -2147483644, %56 ], [ 0, %50 ]
-  %.sink77 = phi i32 [ 4, %56 ], [ 0, %50 ]
+  %.sink79 = phi i32 [ 4, %56 ], [ 0, %50 ]
   %57 = call ptr @proto_tree_add_item_ret_length(ptr noundef %27, i32 noundef %2, ptr noundef %0, i32 noundef %54, i32 noundef -1, i32 noundef %.sink, ptr noundef nonnull %8)
   %58 = getelementptr inbounds nuw i8, ptr %3, i64 408
   %59 = load ptr, ptr %58, align 8
   %60 = load i32, ptr %8, align 4
-  %61 = call ptr @tvb_get_string_enc(ptr noundef %59, ptr noundef %0, i32 noundef %54, i32 noundef %60, i32 noundef %.sink77)
+  %61 = call ptr @tvb_get_string_enc(ptr noundef %59, ptr noundef %0, i32 noundef %54, i32 noundef %60, i32 noundef %.sink79)
   br label %62
 
 62:                                               ; preds = %.sink.split, %50

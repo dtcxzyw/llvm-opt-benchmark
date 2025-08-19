@@ -227,19 +227,19 @@ _ZN4cvc58internal12NodeTemplateILb0EEaSERKS2_.exit: ; preds = %65, %69
   %70 = phi ptr [ %67, %65 ], [ %68, %69 ]
   %71 = load i64, ptr %40, align 8, !tbaa !24
   %.not.not.i.i = icmp eq i64 %71, 0
-  br i1 %.not.not.i.i, label %.preheader716, label %76
+  br i1 %.not.not.i.i, label %.preheader776, label %76
 
-.preheader716:                                    ; preds = %_ZN4cvc58internal12NodeTemplateILb0EEaSERKS2_.exit, %72
+.preheader776:                                    ; preds = %_ZN4cvc58internal12NodeTemplateILb0EEaSERKS2_.exit, %72
   %.sroa.06.0.in.i.i = phi ptr [ %.sroa.06.0.i.i, %72 ], [ %22, %_ZN4cvc58internal12NodeTemplateILb0EEaSERKS2_.exit ]
   %.sroa.06.0.i.i = load ptr, ptr %.sroa.06.0.in.i.i, align 8, !tbaa !25
   %.not.i.i75 = icmp eq ptr %.sroa.06.0.i.i, null
   br i1 %.not.i.i75, label %.loopexit254, label %72
 
-72:                                               ; preds = %.preheader716
+72:                                               ; preds = %.preheader776
   %73 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i.i, i64 8
   %74 = load ptr, ptr %73, align 8, !tbaa !19
   %75 = icmp eq ptr %70, %74
-  br i1 %75, label %_ZNSt13unordered_mapIN4cvc58internal12NodeTemplateILb0EEENS2_ILb1EEESt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_S4_EEE4findERSA_.exit, label %.preheader716, !llvm.loop !26
+  br i1 %75, label %_ZNSt13unordered_mapIN4cvc58internal12NodeTemplateILb0EEENS2_ILb1EEESt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_S4_EEE4findERSA_.exit, label %.preheader776, !llvm.loop !26
 
 76:                                               ; preds = %_ZN4cvc58internal12NodeTemplateILb0EEaSERKS2_.exit
   %77 = invoke noundef i64 @_ZNKSt4hashIN4cvc58internal12NodeTemplateILb0EEEEclERKS3_(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull align 8 dereferenceable(8) %4)
@@ -290,8 +290,8 @@ _ZN4cvc58internal12NodeTemplateILb0EEaSERKS2_.exit: ; preds = %65, %69
 ..loopexit_crit_edge21.i.i.i.i:                   ; preds = %99
   br label %.loopexit254, !llvm.loop !31
 
-.loopexit254:                                     ; preds = %.lr.ph.i.i.i.i, %.preheader716, %.noexc76, %..loopexit_crit_edge21.i.i.i.i
-  %103 = phi ptr [ %.pre568, %.noexc76 ], [ %.pre568, %..loopexit_crit_edge21.i.i.i.i ], [ %70, %.preheader716 ], [ %.pre568, %.lr.ph.i.i.i.i ]
+.loopexit254:                                     ; preds = %.lr.ph.i.i.i.i, %.preheader776, %.noexc76, %..loopexit_crit_edge21.i.i.i.i
+  %103 = phi ptr [ %.pre568, %.noexc76 ], [ %.pre568, %..loopexit_crit_edge21.i.i.i.i ], [ %70, %.preheader776 ], [ %.pre568, %.lr.ph.i.i.i.i ]
   %104 = getelementptr inbounds nuw i8, ptr %103, i64 8
   %105 = load i64, ptr %104, align 8
   %106 = and i64 %105, 1023

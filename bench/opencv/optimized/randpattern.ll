@@ -1476,7 +1476,7 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EED2Ev.exit:     ; preds = %_ZNSt6vectorIN2cv6D
   call void @_ZdlPv(ptr noundef nonnull %216) #21
   br label %_ZNSt6vectorIN2cv6DMatchESaIS1_EED2Ev.exit177
 
-280:                                              ; preds = %.noexc.i.i246.invoke, %.invoke447, %.noexc332, %_ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i327, %.noexc330, %442, %.noexc322, %_ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i, %.noexc320, %314, %_ZNSt16allocator_traitsISaIN2cv8KeyPointEEE8allocateERS2_m.exit.i.i.i.i239, %424, %_ZNSt16allocator_traitsISaIN2cv8KeyPointEEE8allocateERS2_m.exit.i.i.i.i187, %296, %_ZNSt16allocator_traitsISaIN2cv8KeyPointEEE8allocateERS2_m.exit.i.i.i.i, %427, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit235, %420, %330, %299, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit
+280:                                              ; preds = %.noexc.i.i246.invoke, %.invoke497, %.noexc332, %_ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i327, %.noexc330, %442, %.noexc322, %_ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i, %.noexc320, %314, %_ZNSt16allocator_traitsISaIN2cv8KeyPointEEE8allocateERS2_m.exit.i.i.i.i239, %424, %_ZNSt16allocator_traitsISaIN2cv8KeyPointEEE8allocateERS2_m.exit.i.i.i.i187, %296, %_ZNSt16allocator_traitsISaIN2cv8KeyPointEEE8allocateERS2_m.exit.i.i.i.i, %427, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit235, %420, %330, %299, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit
   %281 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt6vectorIN2cv8KeyPointESaIS1_EED2Ev.exit183
@@ -1549,7 +1549,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %296
   %307 = getelementptr inbounds nuw i8, ptr %306, i64 240
   %308 = load ptr, ptr %307, align 8, !tbaa !86
   %.not.i.i.i318 = icmp eq ptr %308, null
-  br i1 %.not.i.i.i318, label %.invoke447, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i
+  br i1 %.not.i.i.i318, label %.invoke497, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i: ; preds = %302
   %309 = getelementptr inbounds nuw i8, ptr %308, i64 56
@@ -1924,13 +1924,13 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit235: ; preds = %424
   %435 = getelementptr inbounds nuw i8, ptr %434, i64 240
   %436 = load ptr, ptr %435, align 8, !tbaa !86
   %.not.i.i.i324 = icmp eq ptr %436, null
-  br i1 %.not.i.i.i324, label %.invoke447, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i325
+  br i1 %.not.i.i.i324, label %.invoke497, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i325
 
-.invoke447:                                       ; preds = %430, %302
+.invoke497:                                       ; preds = %430, %302
   invoke void @_ZSt16__throw_bad_castv() #22
-          to label %.cont448 unwind label %280
+          to label %.cont498 unwind label %280
 
-.cont448:                                         ; preds = %.invoke447
+.cont498:                                         ; preds = %.invoke497
   unreachable
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i325: ; preds = %430
@@ -2370,13 +2370,13 @@ _ZN2cv3Mat2atINS_3VecIdLi2EEEEERT_i.exit:         ; preds = %574, %571
   %617 = trunc nuw nsw i64 %indvars.iv to i32
   %618 = sdiv i32 %617, %616
   %619 = mul nsw i32 %618, %616
-  %.recomposed507 = srem i32 %617, %616
+  %.recomposed557 = srem i32 %617, %616
   %620 = load ptr, ptr %534, align 8, !tbaa !118
   %621 = load i64, ptr %620, align 8, !tbaa !112
   %622 = sext i32 %618 to i64
   %623 = mul i64 %621, %622
   %624 = getelementptr inbounds nuw i8, ptr %.ph, i64 %623
-  %625 = sext i32 %.recomposed507 to i64
+  %625 = sext i32 %.recomposed557 to i64
   %626 = getelementptr inbounds %"class.cv::Vec", ptr %624, i64 %625
   br label %627
 
@@ -3375,14 +3375,14 @@ _ZNK2cv3Mat2atIhEERKT_i.exit:                     ; preds = %85, %79, %72
   %122 = trunc nuw nsw i64 %indvars.iv to i32
   %123 = sdiv i32 %122, %121
   %124 = mul nsw i32 %123, %121
-  %.recomposed191 = srem i32 %122, %121
+  %.recomposed196 = srem i32 %122, %121
   %125 = load ptr, ptr %26, align 8, !tbaa !113
   %126 = load ptr, ptr %27, align 8, !tbaa !118
   %127 = load i64, ptr %126, align 8, !tbaa !112
   %128 = sext i32 %123 to i64
   %129 = mul i64 %127, %128
   %130 = getelementptr inbounds nuw i8, ptr %125, i64 %129
-  %131 = sext i32 %.recomposed191 to i64
+  %131 = sext i32 %.recomposed196 to i64
   %132 = getelementptr inbounds %"class.cv::Vec", ptr %130, i64 %131
   br label %_ZN2cv3Mat2atINS_3VecIdLi2EEEEERT_i.exit
 
@@ -3508,14 +3508,14 @@ _ZNSt6vectorIN2cv3VecIdLi2EEESaIS2_EE9push_backERKS2_.exit: ; preds = %.preheade
   %186 = trunc nuw nsw i64 %indvars.iv to i32
   %187 = sdiv i32 %186, %185
   %188 = mul nsw i32 %187, %185
-  %.recomposed192 = srem i32 %186, %185
+  %.recomposed197 = srem i32 %186, %185
   %189 = load ptr, ptr %30, align 8, !tbaa !113
   %190 = load ptr, ptr %31, align 8, !tbaa !118
   %191 = load i64, ptr %190, align 8, !tbaa !112
   %192 = sext i32 %187 to i64
   %193 = mul i64 %191, %192
   %194 = getelementptr inbounds nuw i8, ptr %189, i64 %193
-  %195 = sext i32 %.recomposed192 to i64
+  %195 = sext i32 %.recomposed197 to i64
   %196 = getelementptr inbounds %"class.cv::Vec", ptr %194, i64 %195
   br label %_ZN2cv3Mat2atINS_3VecIdLi2EEEEERT_i.exit38
 
@@ -3983,13 +3983,13 @@ _ZNK2cv3Mat2atINS_3VecIdLi2EEEEERKT_i.exit:       ; preds = %83, %80
   %126 = trunc nuw nsw i64 %indvars.iv to i32
   %127 = sdiv i32 %126, %125
   %128 = mul nsw i32 %127, %125
-  %.recomposed110 = srem i32 %126, %125
+  %.recomposed114 = srem i32 %126, %125
   %129 = load ptr, ptr %44, align 8, !tbaa !118
   %130 = load i64, ptr %129, align 8, !tbaa !112
   %131 = sext i32 %127 to i64
   %132 = mul i64 %130, %131
   %133 = getelementptr inbounds nuw i8, ptr %.ph, i64 %132
-  %134 = sext i32 %.recomposed110 to i64
+  %134 = sext i32 %.recomposed114 to i64
   %135 = getelementptr inbounds %"class.cv::Vec", ptr %133, i64 %134
   br label %136
 
@@ -4733,8 +4733,8 @@ _ZNSt6vectorIcSaIcEED2Ev.exit79:                  ; preds = %51, %54
           to label %65 unwind label %.loopexit
 
 65:                                               ; preds = %62
-  %sext135 = shl i64 %64, 32
-  %66 = ashr exact i64 %sext135, 32
+  %sext155 = shl i64 %64, 32
+  %66 = ashr exact i64 %sext155, 32
   %67 = icmp slt i64 %indvars.iv132, %66
   br i1 %67, label %68, label %134
 
@@ -5067,14 +5067,14 @@ _ZNSt6vectorIN2cv6DMatchESaIS1_EED2Ev.exit89:     ; preds = %158, %160
   %200 = trunc nuw nsw i64 %indvars.iv to i32
   %201 = sdiv i32 %200, %199
   %202 = mul nsw i32 %201, %199
-  %.recomposed140 = srem i32 %200, %199
+  %.recomposed160 = srem i32 %200, %199
   %203 = load ptr, ptr %164, align 8, !tbaa !113
   %204 = load ptr, ptr %165, align 8, !tbaa !118
   %205 = load i64, ptr %204, align 8, !tbaa !112
   %206 = sext i32 %201 to i64
   %207 = mul i64 %205, %206
   %208 = getelementptr inbounds nuw i8, ptr %203, i64 %207
-  %209 = sext i32 %.recomposed140 to i64
+  %209 = sext i32 %.recomposed160 to i64
   %210 = getelementptr inbounds i8, ptr %208, i64 %209
   br label %_ZNK2cv3Mat2atIhEERKT_i.exit92
 
@@ -5128,14 +5128,14 @@ _ZNK2cv3Mat2atIhEERKT_i.exit92:                   ; preds = %198, %192, %185
   %239 = load i32, ptr %167, align 4, !tbaa !107
   %240 = sdiv i32 %.027, %239
   %241 = mul nsw i32 %240, %239
-  %.recomposed141 = srem i32 %.027, %239
+  %.recomposed161 = srem i32 %.027, %239
   %242 = load ptr, ptr %168, align 8, !tbaa !113
   %243 = load ptr, ptr %169, align 8, !tbaa !118
   %244 = load i64, ptr %243, align 8, !tbaa !112
   %245 = sext i32 %240 to i64
   %246 = mul i64 %244, %245
   %247 = getelementptr inbounds nuw i8, ptr %242, i64 %246
-  %248 = sext i32 %.recomposed141 to i64
+  %248 = sext i32 %.recomposed161 to i64
   %249 = getelementptr inbounds i8, ptr %247, i64 %248
   br label %_ZNK2cv3Mat2atIhEERKT_i.exit95
 

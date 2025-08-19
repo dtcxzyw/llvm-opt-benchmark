@@ -218,7 +218,7 @@ define i32 @EVP_PKEY_copy_parameters(ptr noundef %0, ptr noundef %1) local_unnam
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %12 = load ptr, ptr %11, align 8, !tbaa !30
   %.not46 = icmp eq ptr %12, null
-  br i1 %.not46, label %.thread89, label %13
+  br i1 %.not46, label %.thread102, label %13
 
 13:                                               ; preds = %10
   %14 = call i32 @evp_pkey_copy_downgraded(ptr noundef nonnull %3, ptr noundef nonnull %1)
@@ -229,7 +229,7 @@ define i32 @EVP_PKEY_copy_parameters(ptr noundef %0, ptr noundef %1) local_unnam
   %16 = load ptr, ptr %3, align 8, !tbaa !28
   %.pr.pre = load i32, ptr %0, align 8, !tbaa !26
   %17 = icmp eq i32 %.pr.pre, 0
-  br i1 %17, label %.thread, label %.thread89
+  br i1 %17, label %.thread, label %.thread102
 
 .thread:                                          ; preds = %2, %15
   %.04071 = phi ptr [ %16, %15 ], [ %1, %2 ]
@@ -257,16 +257,16 @@ define i32 @EVP_PKEY_copy_parameters(ptr noundef %0, ptr noundef %1) local_unnam
   %28 = icmp eq i32 %27, 0
   br i1 %28, label %102, label %.thread74
 
-.thread89:                                        ; preds = %10, %15
-  %.040.ph93.ph = phi ptr [ %1, %10 ], [ %16, %15 ]
-  %.pr92.ph = phi i32 [ %5, %10 ], [ %.pr.pre, %15 ]
+.thread102:                                       ; preds = %10, %15
+  %.040.ph106.ph = phi ptr [ %1, %10 ], [ %16, %15 ]
+  %.pr105.ph = phi i32 [ %5, %10 ], [ %.pr.pre, %15 ]
   %.pr = load ptr, ptr %7, align 8, !tbaa !30
   %29 = icmp eq ptr %.pr, null
   br i1 %29, label %30, label %.thread72
 
-30:                                               ; preds = %.thread89
-  %31 = load i32, ptr %.040.ph93.ph, align 8, !tbaa !26
-  %.not49 = icmp eq i32 %.pr92.ph, %31
+30:                                               ; preds = %.thread102
+  %31 = load i32, ptr %.040.ph106.ph, align 8, !tbaa !26
+  %.not49 = icmp eq i32 %.pr105.ph, %31
   br i1 %.not49, label %.thread74, label %32
 
 32:                                               ; preds = %30
@@ -275,13 +275,13 @@ define i32 @EVP_PKEY_copy_parameters(ptr noundef %0, ptr noundef %1) local_unnam
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 101, ptr noundef null) #12
   br label %102
 
-.thread72:                                        ; preds = %6, %.thread, %.thread89
-  %.04069 = phi ptr [ %.040.ph93.ph, %.thread89 ], [ %.04071, %.thread ], [ %1, %6 ]
+.thread72:                                        ; preds = %6, %.thread, %.thread102
+  %.04069 = phi ptr [ %.040.ph106.ph, %.thread102 ], [ %.04071, %.thread ], [ %1, %6 ]
   %.not.i = icmp eq ptr %.04069, null
   br i1 %.not.i, label %EVP_PKEY_missing_parameters.exit.thread, label %.thread74
 
 .thread74:                                        ; preds = %30, %._crit_edge, %24, %.thread72
-  %.0406977 = phi ptr [ %.04069, %.thread72 ], [ %.04071, %24 ], [ %.04071, %._crit_edge ], [ %.040.ph93.ph, %30 ]
+  %.0406977 = phi ptr [ %.04069, %.thread72 ], [ %.04071, %24 ], [ %.04071, %._crit_edge ], [ %.040.ph106.ph, %30 ]
   %33 = getelementptr inbounds nuw i8, ptr %.0406977, i64 96
   %34 = load ptr, ptr %33, align 8, !tbaa !30
   %.not10.i = icmp eq ptr %34, null
@@ -325,7 +325,7 @@ EVP_PKEY_missing_parameters.exit.thread:          ; preds = %35, %.thread72, %40
 48:                                               ; preds = %EVP_PKEY_missing_parameters.exit.thread
   %49 = call i32 @evp_keymgmt_util_has(ptr noundef nonnull %0, i32 noundef 4) #12
   %.not13.i60.not = icmp eq i32 %49, 0
-  %.pre8896 = load ptr, ptr %46, align 8, !tbaa !30
+  %.pre88109 = load ptr, ptr %46, align 8, !tbaa !30
   br i1 %.not13.i60.not, label %75, label %EVP_PKEY_missing_parameters.exit64.thread
 
 50:                                               ; preds = %EVP_PKEY_missing_parameters.exit.thread
@@ -347,7 +347,7 @@ EVP_PKEY_missing_parameters.exit64:               ; preds = %53
   br i1 %57, label %EVP_PKEY_missing_parameters.exit64.thread, label %75
 
 EVP_PKEY_missing_parameters.exit64.thread:        ; preds = %48, %EVP_PKEY_missing_parameters.exit64
-  %58 = phi ptr [ %.pre88, %EVP_PKEY_missing_parameters.exit64 ], [ %.pre8896, %48 ]
+  %58 = phi ptr [ %.pre88, %EVP_PKEY_missing_parameters.exit64 ], [ %.pre88109, %48 ]
   %.not.i65 = icmp eq ptr %58, null
   br i1 %.not.i65, label %EVP_PKEY_missing_parameters.exit64.thread.thread, label %61
 
@@ -395,8 +395,8 @@ EVP_PKEY_parameters_eq.exit.thread:               ; preds = %66, %69, %63, %EVP_
   br label %102
 
 75:                                               ; preds = %48, %EVP_PKEY_missing_parameters.exit64
-  %.pre8897 = phi ptr [ %.pre8896, %48 ], [ %.pre88, %EVP_PKEY_missing_parameters.exit64 ]
-  %.not53 = icmp eq ptr %.pre8897, null
+  %.pre88110 = phi ptr [ %.pre88109, %48 ], [ %.pre88, %EVP_PKEY_missing_parameters.exit64 ]
+  %.not53 = icmp eq ptr %.pre88110, null
   br i1 %.not53, label %.thread86, label %76
 
 76:                                               ; preds = %75
@@ -417,7 +417,7 @@ EVP_PKEY_parameters_eq.exit.thread:               ; preds = %66, %69, %63, %EVP_
 
 85:                                               ; preds = %81
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  store ptr %.pre8897, ptr %4, align 8, !tbaa !34
+  store ptr %.pre88110, ptr %4, align 8, !tbaa !34
   %86 = call ptr @evp_pkey_export_to_provider(ptr noundef nonnull %.040697882, ptr noundef null, ptr noundef nonnull %4, ptr noundef null)
   %87 = icmp eq ptr %86, null
   br i1 %87, label %88, label %89
@@ -1478,15 +1478,15 @@ thread-pre-split:                                 ; preds = %36
   br i1 %65, label %EVP_PKEY_free.exit, label %thread-pre-split.thread
 
 thread-pre-split.thread.sink.split:               ; preds = %63, %59, %57, %53
-  %.sink69 = phi i32 [ 498, %53 ], [ 503, %57 ], [ 508, %59 ], [ 513, %63 ]
+  %.sink78 = phi i32 [ 498, %53 ], [ 503, %57 ], [ 508, %59 ], [ 513, %63 ]
   %.sink = phi i32 [ 150, %53 ], [ 180, %57 ], [ 150, %59 ], [ 180, %63 ]
   call void @ERR_new() #12
-  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink69, ptr noundef nonnull @__func__.new_raw_key_int) #12
+  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink78, ptr noundef nonnull @__func__.new_raw_key_int) #12
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef %.sink, ptr noundef null) #12
   br label %thread-pre-split.thread
 
 thread-pre-split.thread:                          ; preds = %thread-pre-split.thread.sink.split, %47, %49, %thread-pre-split
-  %.134.ph64 = phi ptr [ %30, %thread-pre-split ], [ %.033, %49 ], [ %.033, %47 ], [ %.033, %thread-pre-split.thread.sink.split ]
+  %.134.ph73 = phi ptr [ %30, %thread-pre-split ], [ %.033, %49 ], [ %.033, %47 ], [ %.033, %thread-pre-split.thread.sink.split ]
   %66 = phi ptr [ %.pr.pre, %thread-pre-split ], [ %44, %49 ], [ %44, %47 ], [ %44, %thread-pre-split.thread.sink.split ]
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 48
   %68 = atomicrmw sub ptr %67, i32 1 release, align 4
@@ -1515,12 +1515,12 @@ CRYPTO_DOWN_REF.exit.i:                           ; preds = %thread-pre-split.th
   br label %EVP_PKEY_free.exit
 
 EVP_PKEY_free.exit:                               ; preds = %46, %28, %thread-pre-split, %CRYPTO_DOWN_REF.exit.i, %71
-  %.134.ph65 = phi ptr [ %30, %thread-pre-split ], [ %.134.ph64, %CRYPTO_DOWN_REF.exit.i ], [ %.134.ph64, %71 ], [ %.033, %46 ], [ null, %28 ]
+  %.134.ph74 = phi ptr [ %30, %thread-pre-split ], [ %.134.ph73, %CRYPTO_DOWN_REF.exit.i ], [ %.134.ph73, %71 ], [ %.033, %46 ], [ null, %28 ]
   store ptr null, ptr %9, align 8, !tbaa !28
   br label %77
 
 77:                                               ; preds = %63, %57, %EVP_PKEY_free.exit
-  %.13460 = phi ptr [ %.134.ph65, %EVP_PKEY_free.exit ], [ %.033, %63 ], [ %.033, %57 ]
+  %.13460 = phi ptr [ %.134.ph74, %EVP_PKEY_free.exit ], [ %.033, %63 ], [ %.033, %57 ]
   call void @EVP_PKEY_CTX_free(ptr noundef %.13460) #12
   %78 = load ptr, ptr %9, align 8, !tbaa !28
   br label %79
@@ -3104,10 +3104,10 @@ unsup_alg.exit:                                   ; preds = %32, %30, %28, %25
   br i1 %.not.i20, label %print_reset_indent.exit, label %print_reset_indent.exit.sink.split
 
 print_reset_indent.exit.sink.split:               ; preds = %unsup_alg.exit, %21
-  %.018.sink28 = phi ptr [ %.018, %21 ], [ %.119, %unsup_alg.exit ]
+  %.018.sink30 = phi ptr [ %.018, %21 ], [ %.119, %unsup_alg.exit ]
   %.014.ph = phi i32 [ 0, %21 ], [ %.1, %unsup_alg.exit ]
-  %39 = tail call ptr @BIO_pop(ptr noundef %.018.sink28) #12
-  %40 = tail call i32 @BIO_free(ptr noundef %.018.sink28) #12
+  %39 = tail call ptr @BIO_pop(ptr noundef %.018.sink30) #12
+  %40 = tail call i32 @BIO_free(ptr noundef %.018.sink30) #12
   br label %print_reset_indent.exit
 
 print_reset_indent.exit:                          ; preds = %print_reset_indent.exit.sink.split, %21, %14, %unsup_alg.exit

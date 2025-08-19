@@ -3560,8 +3560,8 @@ _ZN13GrowableArrayIP8_jobjectEC2Ei.exit.thread:   ; preds = %12
   %34 = getelementptr inbounds nuw i8, ptr %25, i64 16
   store i64 0, ptr %34, align 8
   %35 = call noundef i32 @_ZN12JvmtiEnvBase17check_thread_listEiPKP8_jobject(i32 noundef %1, ptr noundef %2) #18
-  %.not58103 = icmp eq i32 %35, 0
-  br i1 %.not58103, label %._crit_edge, label %.critedge
+  %.not58114 = icmp eq i32 %35, 0
+  br i1 %.not58114, label %._crit_edge, label %.critedge
 
 .lr.ph.preheader:                                 ; preds = %_ZN13GrowableArrayIP8_jobjectEC2Ei.exit
   %wide.trip.count = zext nneg i32 %1 to i64
@@ -5124,9 +5124,9 @@ _ZN13EscapeBarrierD2Ev.exit:                      ; preds = %79, %85, %86
 
 95:                                               ; preds = %90
   %96 = icmp eq i32 %91, 0
-  br i1 %96, label %_ZN12JvmtiEnvBase8allocateElPPh.exit.thread66, label %97
+  br i1 %96, label %_ZN12JvmtiEnvBase8allocateElPPh.exit.thread74, label %97
 
-_ZN12JvmtiEnvBase8allocateElPPh.exit.thread66:    ; preds = %95
+_ZN12JvmtiEnvBase8allocateElPPh.exit.thread74:    ; preds = %95
   store ptr null, ptr %3, align 8
   br label %._crit_edge
 
@@ -5154,7 +5154,7 @@ _ZN12JvmtiEnvBase8allocateElPPh.exit.thread66:    ; preds = %95
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %101, !llvm.loop !21
 
-._crit_edge:                                      ; preds = %101, %_ZN12JvmtiEnvBase8allocateElPPh.exit.thread66
+._crit_edge:                                      ; preds = %101, %_ZN12JvmtiEnvBase8allocateElPPh.exit.thread74
   store i32 %91, ptr %2, align 4
   br label %_ZN12JvmtiEnvBase8allocateElPPh.exit.thread
 
@@ -5165,7 +5165,7 @@ _ZN12JvmtiEnvBase8allocateElPPh.exit.thread:      ; preds = %._crit_edge, %87
   br i1 %109, label %.lr.ph57, label %._crit_edge58
 
 .lr.ph57:                                         ; preds = %97, %_ZN12JvmtiEnvBase8allocateElPPh.exit.thread
-  %.269 = phi i32 [ %.2, %_ZN12JvmtiEnvBase8allocateElPPh.exit.thread ], [ 110, %97 ]
+  %.277 = phi i32 [ %.2, %_ZN12JvmtiEnvBase8allocateElPPh.exit.thread ], [ 110, %97 ]
   %110 = phi i32 [ %108, %_ZN12JvmtiEnvBase8allocateElPPh.exit.thread ], [ %91, %97 ]
   %111 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %wide.trip.count64 = zext nneg i32 %110 to i64
@@ -5189,7 +5189,7 @@ _ZN12JvmtiEnvBase10deallocateEPh.exit:            ; preds = %112, %116
   br i1 %exitcond65.not, label %._crit_edge58, label %112, !llvm.loop !22
 
 ._crit_edge58:                                    ; preds = %_ZN12JvmtiEnvBase10deallocateEPh.exit, %90, %_ZN12JvmtiEnvBase8allocateElPPh.exit.thread
-  %.268 = phi i32 [ %.2, %_ZN12JvmtiEnvBase8allocateElPPh.exit.thread ], [ 103, %90 ], [ %.269, %_ZN12JvmtiEnvBase10deallocateEPh.exit ]
+  %.276 = phi i32 [ %.2, %_ZN12JvmtiEnvBase8allocateElPPh.exit.thread ], [ 103, %90 ], [ %.277, %_ZN12JvmtiEnvBase10deallocateEPh.exit ]
   %117 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %118 = load i64, ptr %117, align 8
   %119 = and i64 %118, 1
@@ -5197,13 +5197,13 @@ _ZN12JvmtiEnvBase10deallocateEPh.exit:            ; preds = %112, %116
   br i1 %.not.i51, label %.sink.split, label %.sink.split.sink.split
 
 .sink.split.sink.split:                           ; preds = %._crit_edge58, %26
-  %.036.ph.ph = phi i32 [ %24, %26 ], [ %.268, %._crit_edge58 ]
+  %.036.ph.ph = phi i32 [ %24, %26 ], [ %.276, %._crit_edge58 ]
   store i32 0, ptr %14, align 4
   call void @_ZN26GrowableArrayWithAllocatorIP26jvmtiMonitorStackDepthInfo13GrowableArrayIS1_EE13shrink_to_fitEv(ptr noundef nonnull align 8 dereferenceable(24) %14)
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.sink.split.sink.split, %._crit_edge58, %26
-  %.036.ph = phi i32 [ %24, %26 ], [ %.268, %._crit_edge58 ], [ %.036.ph.ph, %.sink.split.sink.split ]
+  %.036.ph = phi i32 [ %24, %26 ], [ %.276, %._crit_edge58 ], [ %.036.ph.ph, %.sink.split.sink.split ]
   call void @_ZN6AnyObjdlEPv(ptr noundef nonnull %14) #18
   br label %120
 
@@ -5417,9 +5417,9 @@ _ZN13EscapeBarrierD2Ev.exit:                      ; preds = %79, %85, %86
 
 95:                                               ; preds = %90
   %96 = icmp eq i32 %91, 0
-  br i1 %96, label %_ZN12JvmtiEnvBase8allocateElPPh.exit.thread67, label %97
+  br i1 %96, label %_ZN12JvmtiEnvBase8allocateElPPh.exit.thread74, label %97
 
-_ZN12JvmtiEnvBase8allocateElPPh.exit.thread67:    ; preds = %95
+_ZN12JvmtiEnvBase8allocateElPPh.exit.thread74:    ; preds = %95
   store ptr null, ptr %3, align 8
   br label %_ZN12JvmtiEnvBase8allocateElPPh.exit.thread
 
@@ -5455,8 +5455,8 @@ _ZN12JvmtiEnvBase8allocateElPPh.exit.thread67:    ; preds = %95
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %_ZN12JvmtiEnvBase8allocateElPPh.exit.thread, label %101, !llvm.loop !23
 
-_ZN12JvmtiEnvBase8allocateElPPh.exit.thread:      ; preds = %101, %_ZN12JvmtiEnvBase8allocateElPPh.exit.thread67, %97, %90
-  %.0.i56 = phi i32 [ 110, %97 ], [ 103, %90 ], [ 0, %_ZN12JvmtiEnvBase8allocateElPPh.exit.thread67 ], [ 0, %101 ]
+_ZN12JvmtiEnvBase8allocateElPPh.exit.thread:      ; preds = %101, %_ZN12JvmtiEnvBase8allocateElPPh.exit.thread74, %97, %90
+  %.0.i56 = phi i32 [ 110, %97 ], [ 103, %90 ], [ 0, %_ZN12JvmtiEnvBase8allocateElPPh.exit.thread74 ], [ 0, %101 ]
   store i32 %91, ptr %2, align 4
   br label %115
 
@@ -8929,11 +8929,11 @@ define hidden noundef range(i32 0, 111) i32 @_ZN8JvmtiEnv17GetClassSignatureEP7o
 
 24:                                               ; preds = %4
   %.not = icmp eq ptr %2, null
-  br i1 %.not, label %.thread66, label %25
+  br i1 %.not, label %.thread74, label %25
 
 .thread:                                          ; preds = %20
   %.not48 = icmp eq ptr %2, null
-  br i1 %.not48, label %.thread55, label %.thread72
+  br i1 %.not48, label %.thread55, label %.thread80
 
 25:                                               ; preds = %24
   %26 = tail call noundef zeroext i8 @_ZN15java_lang_Class14primitive_typeEP7oopDesc(ptr noundef nonnull %1) #18
@@ -8956,7 +8956,7 @@ define hidden noundef range(i32 0, 111) i32 @_ZN8JvmtiEnv17GetClassSignatureEP7o
   %.not38 = icmp eq ptr %3, null
   br i1 %.not38, label %_ZN12JvmtiEnvBase8allocateElPPh.exit, label %_ZN12JvmtiEnvBase8allocateElPPh.exit.sink.split
 
-.thread72:                                        ; preds = %.thread
+.thread80:                                        ; preds = %.thread
   %36 = load ptr, ptr %22, align 8
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 264
   %38 = load ptr, ptr %37, align 8
@@ -8966,25 +8966,25 @@ define hidden noundef range(i32 0, 111) i32 @_ZN8JvmtiEnv17GetClassSignatureEP7o
   %42 = tail call noundef ptr @_ZN12JvmtiEnvBase11jvmtiMallocEl(ptr noundef nonnull align 8 dereferenceable(460) %0, i64 noundef %41) #18
   %43 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %42, ptr noundef nonnull dereferenceable(1) %39) #18
   store ptr %42, ptr %2, align 8
-  %.not3875 = icmp eq ptr %3, null
-  br i1 %.not3875, label %_ZN12JvmtiEnvBase8allocateElPPh.exit, label %.thread76
+  %.not3883 = icmp eq ptr %3, null
+  br i1 %.not3883, label %_ZN12JvmtiEnvBase8allocateElPPh.exit, label %.thread84
 
-.thread66:                                        ; preds = %24
-  %.not3868 = icmp eq ptr %3, null
-  br i1 %.not3868, label %_ZN12JvmtiEnvBase8allocateElPPh.exit, label %_ZN12JvmtiEnvBase8allocateElPPh.exit.sink.split
+.thread74:                                        ; preds = %24
+  %.not3876 = icmp eq ptr %3, null
+  br i1 %.not3876, label %_ZN12JvmtiEnvBase8allocateElPPh.exit, label %_ZN12JvmtiEnvBase8allocateElPPh.exit.sink.split
 
 .thread55:                                        ; preds = %.thread
   %.not3857 = icmp eq ptr %3, null
-  br i1 %.not3857, label %_ZN12JvmtiEnvBase8allocateElPPh.exit, label %.thread76
+  br i1 %.not3857, label %_ZN12JvmtiEnvBase8allocateElPPh.exit, label %.thread84
 
-.thread76:                                        ; preds = %.thread55, %.thread72
+.thread84:                                        ; preds = %.thread55, %.thread80
   store ptr null, ptr %3, align 8
   %44 = getelementptr inbounds nuw i8, ptr %22, i64 12
   %45 = load i32, ptr %44, align 4
   %46 = icmp slt i32 %45, 5
   br i1 %46, label %47, label %_ZN12JvmtiEnvBase8allocateElPPh.exit
 
-47:                                               ; preds = %.thread76
+47:                                               ; preds = %.thread84
   %48 = tail call noundef ptr @_ZNK13InstanceKlass17generic_signatureEv(ptr noundef nonnull align 8 dereferenceable(464) %22) #18
   %.not39 = icmp eq ptr %48, null
   br i1 %.not39, label %_ZN12JvmtiEnvBase8allocateElPPh.exit, label %49
@@ -9011,13 +9011,13 @@ define hidden noundef range(i32 0, 111) i32 @_ZN8JvmtiEnv17GetClassSignatureEP7o
   %60 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %57, ptr noundef nonnull dereferenceable(1) %50) #18
   br label %_ZN12JvmtiEnvBase8allocateElPPh.exit.sink.split
 
-_ZN12JvmtiEnvBase8allocateElPPh.exit.sink.split:  ; preds = %32, %.thread66, %59
-  %.sink = phi ptr [ %57, %59 ], [ null, %.thread66 ], [ null, %32 ]
+_ZN12JvmtiEnvBase8allocateElPPh.exit.sink.split:  ; preds = %32, %.thread74, %59
+  %.sink = phi ptr [ %57, %59 ], [ null, %.thread74 ], [ null, %32 ]
   store ptr %.sink, ptr %3, align 8
   br label %_ZN12JvmtiEnvBase8allocateElPPh.exit
 
-_ZN12JvmtiEnvBase8allocateElPPh.exit:             ; preds = %_ZN12JvmtiEnvBase8allocateElPPh.exit.sink.split, %.thread72, %.thread66, %55, %51, %.thread55, %32, %47, %49, %.thread76, %20
-  %.0 = phi i32 [ 21, %20 ], [ 0, %.thread76 ], [ 0, %49 ], [ 0, %47 ], [ 0, %32 ], [ 0, %.thread55 ], [ 103, %51 ], [ 110, %55 ], [ 0, %.thread66 ], [ 0, %.thread72 ], [ 0, %_ZN12JvmtiEnvBase8allocateElPPh.exit.sink.split ]
+_ZN12JvmtiEnvBase8allocateElPPh.exit:             ; preds = %_ZN12JvmtiEnvBase8allocateElPPh.exit.sink.split, %.thread80, %.thread74, %55, %51, %.thread55, %32, %47, %49, %.thread84, %20
+  %.0 = phi i32 [ 21, %20 ], [ 0, %.thread84 ], [ 0, %49 ], [ 0, %47 ], [ 0, %32 ], [ 0, %.thread55 ], [ 103, %51 ], [ 110, %55 ], [ 0, %.thread74 ], [ 0, %.thread80 ], [ 0, %_ZN12JvmtiEnvBase8allocateElPPh.exit.sink.split ]
   %61 = load ptr, ptr %10, align 8
   %.not.i.i.i.i = icmp eq ptr %61, null
   br i1 %.not.i.i.i.i, label %63, label %62
@@ -12825,14 +12825,14 @@ _Z15color_mark_good8zaddress8zpointer.exit:       ; preds = %_ZN8ZBarrier14make_
   br i1 %.not, label %_ZN8ZBarrier7barrierIZNS_63blocking_keep_alive_load_barrier_on_phantom_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit, label %.preheader.i.i.preheader
 
 .preheader.i.i.preheader:                         ; preds = %_Z15color_mark_good8zaddress8zpointer.exit.thread, %_Z15color_mark_good8zaddress8zpointer.exit
-  %.0.i.i310.in = phi i64 [ %55, %_Z15color_mark_good8zaddress8zpointer.exit.thread ], [ %67, %_Z15color_mark_good8zaddress8zpointer.exit ]
+  %.0.i.i311.in = phi i64 [ %55, %_Z15color_mark_good8zaddress8zpointer.exit.thread ], [ %67, %_Z15color_mark_good8zaddress8zpointer.exit ]
   %69 = phi i64 [ %54, %_Z15color_mark_good8zaddress8zpointer.exit.thread ], [ %53, %_Z15color_mark_good8zaddress8zpointer.exit ]
-  %.0.i.i310 = or i64 %.0.i.i310.in, 48
+  %.0.i.i311 = or i64 %.0.i.i311.in, 48
   br label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %.preheader.i.i.preheader, %72
   %.0.i16.i = phi i64 [ %70, %72 ], [ %1, %.preheader.i.i.preheader ]
-  %70 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.0.i.i310, i64 %.0.i16.i, ptr nonnull %0) #18, !srcloc !51
+  %70 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.0.i.i311, i64 %.0.i16.i, ptr nonnull %0) #18, !srcloc !51
   %71 = icmp eq i64 %70, %.0.i16.i
   br i1 %71, label %_ZN8ZBarrier7barrierIZNS_63blocking_keep_alive_load_barrier_on_phantom_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit, label %72
 
@@ -12966,14 +12966,14 @@ _Z15color_mark_good8zaddress8zpointer.exit:       ; preds = %_ZN8ZBarrier14make_
   br i1 %.not, label %_ZN8ZBarrier7barrierIPF8zaddressS1_EEES1_PFb8zpointerET_PFS4_S1_S4_EPVS4_S4_b.exit, label %.preheader.i.i.preheader
 
 .preheader.i.i.preheader:                         ; preds = %_Z15color_mark_good8zaddress8zpointer.exit.thread, %_Z15color_mark_good8zaddress8zpointer.exit
-  %.0.i.i18.in = phi i64 [ %55, %_Z15color_mark_good8zaddress8zpointer.exit.thread ], [ %67, %_Z15color_mark_good8zaddress8zpointer.exit ]
+  %.0.i.i19.in = phi i64 [ %55, %_Z15color_mark_good8zaddress8zpointer.exit.thread ], [ %67, %_Z15color_mark_good8zaddress8zpointer.exit ]
   %69 = phi i64 [ %54, %_Z15color_mark_good8zaddress8zpointer.exit.thread ], [ %53, %_Z15color_mark_good8zaddress8zpointer.exit ]
-  %.0.i.i18 = or i64 %.0.i.i18.in, 48
+  %.0.i.i19 = or i64 %.0.i.i19.in, 48
   br label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %.preheader.i.i.preheader, %72
   %.0.i17.i = phi i64 [ %70, %72 ], [ %1, %.preheader.i.i.preheader ]
-  %70 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.0.i.i18, i64 %.0.i17.i, ptr nonnull %0) #18, !srcloc !51
+  %70 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.0.i.i19, i64 %.0.i17.i, ptr nonnull %0) #18, !srcloc !51
   %71 = icmp eq i64 %70, %.0.i17.i
   br i1 %71, label %_ZN8ZBarrier7barrierIPF8zaddressS1_EEES1_PFb8zpointerET_PFS4_S1_S4_EPVS4_S4_b.exit, label %72
 
@@ -16435,7 +16435,7 @@ define linkonce_odr hidden void @_ZN26GrowableArrayWithAllocatorIP26jvmtiMonitor
   br i1 %.not, label %_ZN13GrowableArrayIP26jvmtiMonitorStackDepthInfoE10deallocateEPS1_.exit, label %.loopexit.thread
 
 .loopexit.thread:                                 ; preds = %.lr.ph, %.loopexit
-  %.01827 = phi ptr [ null, %.loopexit ], [ %.0.i, %.lr.ph ]
+  %.01829 = phi ptr [ null, %.loopexit ], [ %.0.i, %.lr.ph ]
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %29 = load i64, ptr %28, align 8
   %30 = and i64 %29, 1
@@ -16447,8 +16447,8 @@ define linkonce_odr hidden void @_ZN26GrowableArrayWithAllocatorIP26jvmtiMonitor
   br label %_ZN13GrowableArrayIP26jvmtiMonitorStackDepthInfoE10deallocateEPS1_.exit
 
 _ZN13GrowableArrayIP26jvmtiMonitorStackDepthInfoE10deallocateEPS1_.exit: ; preds = %31, %.loopexit.thread, %.loopexit
-  %.01828 = phi ptr [ %.01827, %31 ], [ %.01827, %.loopexit.thread ], [ null, %.loopexit ]
-  store ptr %.01828, ptr %7, align 8
+  %.01830 = phi ptr [ %.01829, %31 ], [ %.01829, %.loopexit.thread ], [ null, %.loopexit ]
+  store ptr %.01830, ptr %7, align 8
   br label %32
 
 32:                                               ; preds = %1, %_ZN13GrowableArrayIP26jvmtiMonitorStackDepthInfoE10deallocateEPS1_.exit

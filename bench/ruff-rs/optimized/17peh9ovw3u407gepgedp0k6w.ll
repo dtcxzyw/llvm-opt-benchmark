@@ -4834,10 +4834,10 @@ _ZN4core5alloc6layout6Layout6repeat17h2488b81f909995bfE.exit.i.i.i: ; preds = %2
   br label %397
 
 397:                                              ; preds = %"_ZN140_$LT$clap_builder..builder..value_parser..RangedI64ValueParser$LT$T$GT$$u20$as$u20$clap_builder..builder..value_parser..TypedValueParser$GT$9parse_ref28_$u7b$$u7b$closure$u7d$$u7d$17h19f13127b4dd6999E.exit", %395, %"_ZN140_$LT$clap_builder..builder..value_parser..RangedI64ValueParser$LT$T$GT$$u20$as$u20$clap_builder..builder..value_parser..TypedValueParser$GT$9parse_ref28_$u7b$$u7b$closure$u7d$$u7d$17h08f7bc15daf39658E.exit"
-  %.sink145 = phi ptr [ %443, %"_ZN140_$LT$clap_builder..builder..value_parser..RangedI64ValueParser$LT$T$GT$$u20$as$u20$clap_builder..builder..value_parser..TypedValueParser$GT$9parse_ref28_$u7b$$u7b$closure$u7d$$u7d$17h19f13127b4dd6999E.exit" ], [ %396, %395 ], [ %207, %"_ZN140_$LT$clap_builder..builder..value_parser..RangedI64ValueParser$LT$T$GT$$u20$as$u20$clap_builder..builder..value_parser..TypedValueParser$GT$9parse_ref28_$u7b$$u7b$closure$u7d$$u7d$17h08f7bc15daf39658E.exit" ]
-  %398 = call fastcc noundef nonnull align 8 ptr @"_ZN12clap_builder5error14Error$LT$F$GT$8with_cmd17h8236215660d0eb53E"(ptr noalias noundef nonnull align 8 %.sink145, ptr noalias noundef readonly align 8 dereferenceable(776) %2)
+  %.sink167 = phi ptr [ %443, %"_ZN140_$LT$clap_builder..builder..value_parser..RangedI64ValueParser$LT$T$GT$$u20$as$u20$clap_builder..builder..value_parser..TypedValueParser$GT$9parse_ref28_$u7b$$u7b$closure$u7d$$u7d$17h19f13127b4dd6999E.exit" ], [ %396, %395 ], [ %207, %"_ZN140_$LT$clap_builder..builder..value_parser..RangedI64ValueParser$LT$T$GT$$u20$as$u20$clap_builder..builder..value_parser..TypedValueParser$GT$9parse_ref28_$u7b$$u7b$closure$u7d$$u7d$17h08f7bc15daf39658E.exit" ]
+  %398 = call fastcc noundef nonnull align 8 ptr @"_ZN12clap_builder5error14Error$LT$F$GT$8with_cmd17h8236215660d0eb53E"(ptr noalias noundef nonnull align 8 %.sink167, ptr noalias noundef readonly align 8 dereferenceable(776) %2)
   %399 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sink145, ptr %399, align 8
+  store ptr %.sink167, ptr %399, align 8
   store i8 1, ptr %0, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %53)
   br label %447
@@ -6146,7 +6146,7 @@ _ZN4core5slice4sort6shared17find_existing_run17hc901f6992846b4d5E.exit.i: ; pred
   br label %_ZN4core5slice4sort6stable5drift10create_run17h227c7ecad0d471baE.exit
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17h3f2de7f734ed5a78E.exit.i": ; preds = %_ZN4core10intrinsics25typed_swap_nonoverlapping17h2f70965e9bf8b589E.exit.i.i.i, %.preheader18.i, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h38603a1c3ebff2faE.exit.i", %43, %28
-  %.sroa.0.0.i1417.i = phi i64 [ %.sroa.0.0.i.i, %43 ], [ 1, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h38603a1c3ebff2faE.exit.i" ], [ %25, %28 ], [ 2, %.preheader18.i ], [ %.sroa.0.0.i384548.i, %_ZN4core10intrinsics25typed_swap_nonoverlapping17h2f70965e9bf8b589E.exit.i.i.i ]
+  %.sroa.0.0.i1417.i = phi i64 [ %.sroa.0.0.i.i, %43 ], [ 1, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h38603a1c3ebff2faE.exit.i" ], [ %25, %28 ], [ 2, %.preheader18.i ], [ %.sroa.0.0.i435053.i, %_ZN4core10intrinsics25typed_swap_nonoverlapping17h2f70965e9bf8b589E.exit.i.i.i ]
   %49 = shl i64 %.sroa.0.0.i1417.i, 1
   %50 = or disjoint i64 %49, 1
   br label %_ZN4core5slice4sort6stable5drift10create_run17h227c7ecad0d471baE.exit
@@ -6160,8 +6160,8 @@ _ZN4core5slice4sort6shared17find_existing_run17hc901f6992846b4d5E.exit.i: ; pred
 
 .lr.ph.preheader.i.i.i:                           ; preds = %.preheader.i, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h38603a1c3ebff2faE.exit.i"
   %52 = phi i64 [ %51, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h38603a1c3ebff2faE.exit.i" ], [ 1, %.preheader.i ]
-  %.sroa.0.0.i384548.i = phi i64 [ %.sroa.0.0.i.i, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h38603a1c3ebff2faE.exit.i" ], [ 2, %.preheader.i ]
-  %53 = getelementptr inbounds nuw { ptr, i64, i8, [7 x i8] }, ptr %26, i64 %.sroa.0.0.i384548.i
+  %.sroa.0.0.i435053.i = phi i64 [ %.sroa.0.0.i.i, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h38603a1c3ebff2faE.exit.i" ], [ 2, %.preheader.i ]
+  %53 = getelementptr inbounds nuw { ptr, i64, i8, [7 x i8] }, ptr %26, i64 %.sroa.0.0.i435053.i
   br label %54
 
 54:                                               ; preds = %_ZN4core10intrinsics25typed_swap_nonoverlapping17h2f70965e9bf8b589E.exit.i.i.i, %.lr.ph.preheader.i.i.i
@@ -6594,12 +6594,12 @@ define internal fastcc void @_ZN5alloc7raw_vec11finish_grow17h666e5d3a6da98726E(
   %30 = icmp eq ptr %.sroa.012.0.i.i.pn, null
   %31 = inttoptr i64 %1 to ptr
   %spec.select = select i1 %30, ptr %31, ptr %.sroa.012.0.i.i.pn
-  %spec.select4 = zext i1 %30 to i64
+  %spec.select6 = zext i1 %30 to i64
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %spec.select, ptr %32, align 8
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %2, ptr %33, align 8
-  store i64 %spec.select4, ptr %0, align 8
+  store i64 %spec.select6, ptr %0, align 8
   ret void
 }
 

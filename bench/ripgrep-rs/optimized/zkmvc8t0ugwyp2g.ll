@@ -1046,7 +1046,7 @@ define void @_ZN7globset8pathutil13file_name_ext17hee621f33b21c3816E(ptr noalias
 
 31:                                               ; preds = %23
   %32 = sub nuw i64 %.pn1.i, %19
-  %33 = getelementptr inbounds i8, ptr %.pn3.i, i64 %19
+  %33 = getelementptr inbounds nuw i8, ptr %.pn3.i, i64 %19
   br label %35
 
 34:                                               ; preds = %23

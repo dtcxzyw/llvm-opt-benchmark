@@ -207,10 +207,10 @@ define void @CRYPTO_ccm128_aad(ptr noundef %0, ptr noundef readonly captures(non
   br label %81
 
 81:                                               ; preds = %29, %65, %17
-  %.sink75 = phi i64 [ 25, %29 ], [ 21, %65 ], [ 17, %17 ]
+  %.sink76 = phi i64 [ 25, %29 ], [ 21, %65 ], [ 17, %17 ]
   %.055 = phi i64 [ 10, %29 ], [ 6, %65 ], [ 2, %17 ]
   %82 = trunc i64 %2 to i8
-  %83 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink75
+  %83 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink76
   %84 = load i8, ptr %83, align 1, !tbaa !3
   %85 = xor i8 %84, %82
   store i8 %85, ptr %83, align 1, !tbaa !3

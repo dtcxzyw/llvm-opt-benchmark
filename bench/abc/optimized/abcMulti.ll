@@ -1500,7 +1500,7 @@ define internal fastcc ptr @Abc_NtkMultiDeriveBdd_rec(ptr noundef %0, ptr nounde
 common.ret:                                       ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %8 = load ptr, ptr %7, align 8, !tbaa !45
-  br label %common.ret34
+  br label %common.ret36
 
 9:                                                ; preds = %3
   %10 = or disjoint i32 %5, 64
@@ -1563,9 +1563,9 @@ Vec_PtrGrow.exit.i:                               ; preds = %22, %20
   store i32 %26, ptr %2, align 8, !tbaa !51
   br label %Vec_PtrPush.exit
 
-common.ret34:                                     ; preds = %Vec_PtrPush.exit, %common.ret
-  %common.ret34.op = phi ptr [ %8, %common.ret ], [ %70, %Vec_PtrPush.exit ]
-  ret ptr %common.ret34.op
+common.ret36:                                     ; preds = %Vec_PtrPush.exit, %common.ret
+  %common.ret36.op = phi ptr [ %8, %common.ret ], [ %70, %Vec_PtrPush.exit ]
+  ret ptr %common.ret36.op
 
 Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11_crit_edge.i, %Vec_PtrGrow.exit.i, %35
   %37 = phi ptr [ %.pre.i, %.Vec_PtrGrow.exit11_crit_edge.i ], [ %36, %35 ], [ %24, %Vec_PtrGrow.exit.i ]
@@ -1620,7 +1620,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %69) #6
   %71 = getelementptr inbounds nuw i8, ptr %1, i64 56
   store ptr %70, ptr %71, align 8, !tbaa !45
-  br label %common.ret34
+  br label %common.ret36
 }
 
 declare void @Cudd_RecursiveDeref(ptr noundef, ptr noundef) local_unnamed_addr #1

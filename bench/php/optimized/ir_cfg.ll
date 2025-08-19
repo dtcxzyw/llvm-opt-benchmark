@@ -149,7 +149,7 @@ ir_worklist_push.exit:                            ; preds = %.lr.ph, %34
 51:                                               ; preds = %43
   %52 = getelementptr inbounds nuw i32, ptr %17, i64 %44
   %53 = trunc nuw i64 %indvars.iv to i32
-  %54 = trunc i64 %44 to i32
+  %54 = trunc nuw i64 %44 to i32
   %55 = load ptr, ptr %24, align 8, !tbaa !36
   %56 = getelementptr inbounds %struct._ir_use_list, ptr %55, i64 %47
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 4
@@ -2240,7 +2240,7 @@ ir_array_init.exit:                               ; preds = %1
   br label %.preheader297
 
 .preheader297:                                    ; preds = %.preheader297.backedge, %.preheader297.preheader
-  %.sroa.17243.1 = phi i32 [ 1, %.preheader297.preheader ], [ %.sroa.17243.1.be449, %.preheader297.backedge ]
+  %.sroa.17243.1 = phi i32 [ 1, %.preheader297.preheader ], [ %.sroa.17243.1.be462, %.preheader297.backedge ]
   %.1189 = phi i32 [ 1, %.preheader297.preheader ], [ %.1189.be, %.preheader297.backedge ]
   %37 = add i32 %.sroa.17243.1, -1
   %38 = zext i32 %37 to i64
@@ -2293,7 +2293,7 @@ ir_worklist_push.exit231:                         ; preds = %.lr.ph
   br label %.preheader297.backedge
 
 .preheader297.backedge:                           ; preds = %.backedge299, %.thread275
-  %.sroa.17243.1.be449 = phi i32 [ %.sroa.17243.1.be, %.backedge299 ], [ %37, %.thread275 ]
+  %.sroa.17243.1.be462 = phi i32 [ %.sroa.17243.1.be, %.backedge299 ], [ %37, %.thread275 ]
   %.1189.be = phi i32 [ %.2190, %.backedge299 ], [ %91, %.thread275 ]
   br label %.preheader297
 
@@ -2923,15 +2923,15 @@ define hidden noundef i32 @ir_schedule_blocks(ptr noundef %0) local_unnamed_addr
   %.not.i = icmp ugt i32 %109, %92
   br i1 %.not.i, label %.preheader.i, label %.lr.ph.i
 
-.loopexit243:                                     ; preds = %275, %252, %246, %.thread.i
+.loopexit296:                                     ; preds = %275, %252, %246, %.thread.i
   br label %110
 
-110:                                              ; preds = %.loopexit243, %.preheader.i
-  %.sroa.4.0.i = phi i32 [ 0, %.preheader.i ], [ %.020.i.i, %.loopexit243 ]
-  %.0149.i = phi ptr [ %97, %.preheader.i ], [ %.2151.i, %.loopexit243 ]
-  %.0145.i = phi i32 [ 0, %.preheader.i ], [ %.3148.i, %.loopexit243 ]
-  %.0137.i = phi i32 [ undef, %.preheader.i ], [ %.2139194.i, %.loopexit243 ]
-  %.0131.i = phi i32 [ undef, %.preheader.i ], [ %.2133196.i, %.loopexit243 ]
+110:                                              ; preds = %.loopexit296, %.preheader.i
+  %.sroa.4.0.i = phi i32 [ 0, %.preheader.i ], [ %.020.i.i, %.loopexit296 ]
+  %.0149.i = phi ptr [ %97, %.preheader.i ], [ %.2151.i, %.loopexit296 ]
+  %.0145.i = phi i32 [ 0, %.preheader.i ], [ %.3148.i, %.loopexit296 ]
+  %.0137.i = phi i32 [ undef, %.preheader.i ], [ %.2139194.i, %.loopexit296 ]
+  %.0131.i = phi i32 [ undef, %.preheader.i ], [ %.2133196.i, %.loopexit296 ]
   %111 = zext i32 %.sroa.4.0.i to i64
   %112 = getelementptr inbounds nuw i64, ptr %86, i64 %111
   br label %113
@@ -3195,7 +3195,7 @@ ir_bitqueue_pop.exit.i:                           ; preds = %113
   %244 = icmp ne i32 %243, 0
   %245 = icmp ne i32 %.1144.i, 0
   %or.cond.i = select i1 %244, i1 %245, i1 false
-  br i1 %or.cond.i, label %246, label %.loopexit243
+  br i1 %or.cond.i, label %246, label %.loopexit296
 
 246:                                              ; preds = %.thread.i
   %247 = zext i32 %.1144.i to i64
@@ -3203,7 +3203,7 @@ ir_bitqueue_pop.exit.i:                           ; preds = %113
   %249 = getelementptr inbounds nuw i8, ptr %248, i64 16
   %250 = load i32, ptr %249, align 4, !tbaa !47
   %251 = icmp eq i32 %250, 2
-  br i1 %251, label %252, label %.loopexit243
+  br i1 %251, label %252, label %.loopexit296
 
 252:                                              ; preds = %246
   %253 = load ptr, ptr %0, align 8, !tbaa !32
@@ -3213,7 +3213,7 @@ ir_bitqueue_pop.exit.i:                           ; preds = %113
   %257 = getelementptr inbounds %struct._ir_insn, ptr %253, i64 %256
   %258 = load i8, ptr %257, align 8, !tbaa !33
   %259 = icmp eq i8 %258, 102
-  br i1 %259, label %260, label %.loopexit243
+  br i1 %259, label %260, label %.loopexit296
 
 260:                                              ; preds = %252
   %261 = load ptr, ptr %99, align 8, !tbaa !28
@@ -3247,17 +3247,17 @@ ir_bitqueue_pop.exit.i:                           ; preds = %113
   %.pre159 = load i64, ptr %.phi.trans.insert, align 8, !tbaa !34
   %.pre161 = and i64 %.pre159, %.pre228.i
   %280 = icmp eq i64 %.pre161, 0
-  br i1 %280, label %.loopexit243, label %.thread
+  br i1 %280, label %.loopexit296, label %.thread
 
 .thread:                                          ; preds = %260, %275
-  %.3.i168 = phi i32 [ %279, %275 ], [ %266, %260 ]
-  %.pre-phi223.i167 = phi i64 [ %.pre222.i, %275 ], [ %268, %260 ]
-  %.pre-phi229.i166 = phi i64 [ %.pre228.i, %275 ], [ %273, %260 ]
+  %.3.i221 = phi i32 [ %279, %275 ], [ %266, %260 ]
+  %.pre-phi223.i220 = phi i64 [ %.pre222.i, %275 ], [ %268, %260 ]
+  %.pre-phi229.i219 = phi i64 [ %.pre228.i, %275 ], [ %273, %260 ]
   %281 = phi i64 [ %.pre159, %275 ], [ %270, %260 ]
-  %282 = getelementptr inbounds nuw i64, ptr %86, i64 %.pre-phi223.i167
-  %283 = zext i32 %.3.i168 to i64
+  %282 = getelementptr inbounds nuw i64, ptr %86, i64 %.pre-phi223.i220
+  %283 = zext i32 %.3.i221 to i64
   %284 = getelementptr inbounds nuw %struct._ir_block, ptr %126, i64 %283
-  %285 = xor i64 %.pre-phi229.i166, -1
+  %285 = xor i64 %.pre-phi229.i219, -1
   %286 = and i64 %281, %285
   store i64 %286, ptr %282, align 8, !tbaa !34
   br label %.backedge
@@ -3279,7 +3279,7 @@ ir_bitqueue_pop.exit.i:                           ; preds = %113
   %.0152.i.be = phi ptr [ %.0154.i, %287 ], [ %284, %.thread ]
   %.1138.i.be = phi i32 [ %.2139.i, %287 ], [ %.2139194.i, %.thread ]
   %.1132.i.be = phi i32 [ %.2133.i, %287 ], [ %.2133196.i, %.thread ]
-  %.1.i.be = phi i32 [ %.2133.i, %287 ], [ %.3.i168, %.thread ]
+  %.1.i.be = phi i32 [ %.2133.i, %287 ], [ %.3.i221, %.thread ]
   br label %129
 
 ir_schedule_blocks_top_down.exit:                 ; preds = %ir_bitqueue_pop.exit.i, %115

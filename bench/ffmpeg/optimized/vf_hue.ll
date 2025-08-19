@@ -230,8 +230,8 @@ sub_0:
   br i1 %40, label %.tail46.thread, label %42
 
 .sink.split:                                      ; preds = %20, %12
-  %.sink65 = phi i64 [ 24, %12 ], [ 16, %20 ]
-  %41 = getelementptr inbounds nuw i8, ptr %7, i64 %.sink65
+  %.sink69 = phi i64 [ 24, %12 ], [ 16, %20 ]
+  %41 = getelementptr inbounds nuw i8, ptr %7, i64 %.sink69
   tail call void @av_freep(ptr noundef nonnull %41) #6
   br label %42
 
@@ -465,7 +465,7 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   br i1 %or.cond199, label %create_chrominance_lut.exit.thread, label %143
 
 create_chrominance_lut.exit.thread:               ; preds = %111
-  %.pre210213 = load float, ptr %15, align 8, !tbaa !50
+  %.pre210228 = load float, ptr %15, align 8, !tbaa !50
   br label %198
 
 143:                                              ; preds = %111
@@ -569,15 +569,15 @@ create_chrominance_lut.exit:                      ; preds = %197
   br i1 %.not146, label %198, label %201
 
 198:                                              ; preds = %create_chrominance_lut.exit.thread, %create_chrominance_lut.exit
-  %.pre210214 = phi float [ %.pre210213, %create_chrominance_lut.exit.thread ], [ %.pre210, %create_chrominance_lut.exit ]
-  %199 = fcmp nsz une float %16, %.pre210214
-  %200 = fcmp nsz une float %.pre210214, 0.000000e+00
+  %.pre210229 = phi float [ %.pre210228, %create_chrominance_lut.exit.thread ], [ %.pre210, %create_chrominance_lut.exit ]
+  %199 = fcmp nsz une float %16, %.pre210229
+  %200 = fcmp nsz une float %.pre210229, 0.000000e+00
   %or.cond153 = and i1 %199, %200
   br i1 %or.cond153, label %201, label %create_luma_lut.exit
 
 201:                                              ; preds = %198, %create_chrominance_lut.exit
-  %.pre210215 = phi float [ %.pre210214, %198 ], [ %.pre210, %create_chrominance_lut.exit ]
-  %202 = fpext nsz float %.pre210215 to double
+  %.pre210230 = phi float [ %.pre210229, %198 ], [ %.pre210, %create_chrominance_lut.exit ]
+  %202 = fpext nsz float %.pre210230 to double
   %203 = getelementptr inbounds nuw i8, ptr %7, i64 160
   br label %205
 
@@ -618,11 +618,11 @@ create_chrominance_lut.exit:                      ; preds = %197
   br i1 %exitcond20.not.i, label %create_luma_lut.exit, label %213, !llvm.loop !76
 
 create_luma_lut.exit:                             ; preds = %213, %198
-  %.pre210216 = phi float [ %.pre210214, %198 ], [ %.pre210215, %213 ]
+  %.pre210231 = phi float [ %.pre210229, %198 ], [ %.pre210230, %213 ]
   br i1 %.not, label %222, label %253
 
 222:                                              ; preds = %create_luma_lut.exit
-  %223 = fcmp nsz une float %.pre210216, 0.000000e+00
+  %223 = fcmp nsz une float %.pre210231, 0.000000e+00
   br i1 %223, label %237, label %224
 
 224:                                              ; preds = %222

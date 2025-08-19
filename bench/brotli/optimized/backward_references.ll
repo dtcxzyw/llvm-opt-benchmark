@@ -481,7 +481,7 @@ FindMatchLengthWithLimit.exit281:                 ; preds = %174, %.critedge.i27
   %210 = and i32 %209, 14
   %narrow.i296 = add nuw nsw i32 %210, 39
   %211 = zext nneg i32 %narrow.i296 to i64
-  %212 = sub i64 %203, %211
+  %212 = sub nuw i64 %203, %211
   br label %213
 
 213:                                              ; preds = %206, %205
@@ -746,10 +746,10 @@ FindMatchLengthWithLimit.exit295:                 ; preds = %249, %.critedge.i29
   br i1 %.not.i.i735, label %.critedge.i.i, label %.lr.ph739.preheader
 
 .lr.ph739.preheader:                              ; preds = %325, %.preheader624
-  %.022.i.i.lcssa1098 = phi ptr [ %346, %.preheader624 ], [ %139, %325 ]
-  %.025.i.i.lcssa1097 = phi ptr [ %345, %.preheader624 ], [ %335, %325 ]
-  %.027.i.i.lcssa1096 = phi i64 [ %347, %.preheader624 ], [ %319, %325 ]
-  %scevgep1074 = getelementptr i8, ptr %.022.i.i.lcssa1098, i64 %.027.i.i.lcssa1096
+  %.022.i.i.lcssa1206 = phi ptr [ %346, %.preheader624 ], [ %139, %325 ]
+  %.025.i.i.lcssa1205 = phi ptr [ %345, %.preheader624 ], [ %335, %325 ]
+  %.027.i.i.lcssa1204 = phi i64 [ %347, %.preheader624 ], [ %319, %325 ]
+  %scevgep1074 = getelementptr i8, ptr %.022.i.i.lcssa1206, i64 %.027.i.i.lcssa1204
   br label %.lr.ph739
 
 .lr.ph731:                                        ; preds = %325, %344
@@ -778,9 +778,9 @@ FindMatchLengthWithLimit.exit295:                 ; preds = %249, %.critedge.i29
   br i1 %348, label %.lr.ph731, label %.preheader624, !llvm.loop !63
 
 .lr.ph739:                                        ; preds = %.lr.ph739.preheader, %352
-  %.224.i.i738 = phi ptr [ %355, %352 ], [ %.022.i.i.lcssa1098, %.lr.ph739.preheader ]
-  %.126.i.i737 = phi ptr [ %354, %352 ], [ %.025.i.i.lcssa1097, %.lr.ph739.preheader ]
-  %.128.i.i736 = phi i64 [ %353, %352 ], [ %.027.i.i.lcssa1096, %.lr.ph739.preheader ]
+  %.224.i.i738 = phi ptr [ %355, %352 ], [ %.022.i.i.lcssa1206, %.lr.ph739.preheader ]
+  %.126.i.i737 = phi ptr [ %354, %352 ], [ %.025.i.i.lcssa1205, %.lr.ph739.preheader ]
+  %.128.i.i736 = phi i64 [ %353, %352 ], [ %.027.i.i.lcssa1204, %.lr.ph739.preheader ]
   %349 = load i8, ptr %.224.i.i738, align 1, !tbaa !53, !noalias !76
   %350 = load i8, ptr %.126.i.i737, align 1, !tbaa !53, !noalias !76
   %351 = icmp eq i8 %349, %350
@@ -1045,7 +1045,7 @@ FindMatchLengthWithLimit.exit162.i404:            ; preds = %462, %.critedge.i15
   %495 = and i32 %494, 4
   %narrow.i.i409 = add nuw nsw i32 %495, 39
   %496 = zext nneg i32 %narrow.i.i409 to i64
-  %497 = sub i64 %488, %496
+  %497 = sub nuw i64 %488, %496
   br label %498
 
 498:                                              ; preds = %491, %490
@@ -1121,10 +1121,10 @@ FindMatchLengthWithLimit.exit162.i404:            ; preds = %462, %.critedge.i15
   br i1 %.not.i.i384781, label %.critedge.i.i385, label %.lr.ph785.preheader
 
 .lr.ph785.preheader:                              ; preds = %521, %.preheader622
-  %.022.i.i379.lcssa1105 = phi ptr [ %534, %.preheader622 ], [ %522, %521 ]
-  %.025.i.i378.lcssa1104 = phi ptr [ %533, %.preheader622 ], [ %139, %521 ]
-  %.027.i.i377.lcssa1103 = phi i64 [ %535, %.preheader622 ], [ %510, %521 ]
-  %scevgep1077 = getelementptr i8, ptr %.022.i.i379.lcssa1105, i64 %.027.i.i377.lcssa1103
+  %.022.i.i379.lcssa1213 = phi ptr [ %534, %.preheader622 ], [ %522, %521 ]
+  %.025.i.i378.lcssa1212 = phi ptr [ %533, %.preheader622 ], [ %139, %521 ]
+  %.027.i.i377.lcssa1211 = phi i64 [ %535, %.preheader622 ], [ %510, %521 ]
+  %scevgep1077 = getelementptr i8, ptr %.022.i.i379.lcssa1213, i64 %.027.i.i377.lcssa1211
   br label %.lr.ph785
 
 .lr.ph777:                                        ; preds = %521, %532
@@ -1154,9 +1154,9 @@ FindMatchLengthWithLimit.exit162.i404:            ; preds = %462, %.critedge.i15
   br i1 %536, label %.lr.ph777, label %.preheader622, !llvm.loop !63
 
 .lr.ph785:                                        ; preds = %.lr.ph785.preheader, %540
-  %.224.i.i383784 = phi ptr [ %543, %540 ], [ %.022.i.i379.lcssa1105, %.lr.ph785.preheader ]
-  %.126.i.i382783 = phi ptr [ %542, %540 ], [ %.025.i.i378.lcssa1104, %.lr.ph785.preheader ]
-  %.128.i.i381782 = phi i64 [ %541, %540 ], [ %.027.i.i377.lcssa1103, %.lr.ph785.preheader ]
+  %.224.i.i383784 = phi ptr [ %543, %540 ], [ %.022.i.i379.lcssa1213, %.lr.ph785.preheader ]
+  %.126.i.i382783 = phi ptr [ %542, %540 ], [ %.025.i.i378.lcssa1212, %.lr.ph785.preheader ]
+  %.128.i.i381782 = phi i64 [ %541, %540 ], [ %.027.i.i377.lcssa1211, %.lr.ph785.preheader ]
   %537 = load i8, ptr %.224.i.i383784, align 1, !tbaa !53, !noalias !103
   %538 = load i8, ptr %.126.i.i382783, align 1, !tbaa !53, !alias.scope !92, !noalias !95
   %539 = icmp eq i8 %537, %538
@@ -1435,7 +1435,7 @@ FindMatchLengthWithLimit.exit:                    ; preds = %629, %.critedge.i
   %665 = and i32 %664, 14
   %narrow.i = add nuw nsw i32 %665, 39
   %666 = zext nneg i32 %narrow.i to i64
-  %667 = sub i64 %658, %666
+  %667 = sub nuw i64 %658, %666
   br label %668
 
 668:                                              ; preds = %661, %660
@@ -1691,10 +1691,10 @@ FindMatchLengthWithLimit.exit267:                 ; preds = %703, %.critedge.i26
   br i1 %.not.i.i326905, label %.critedge.i.i327, label %.lr.ph909.preheader
 
 .lr.ph909.preheader:                              ; preds = %779, %.preheader619
-  %.022.i.i321.lcssa1112 = phi ptr [ %800, %.preheader619 ], [ %599, %779 ]
-  %.025.i.i320.lcssa1111 = phi ptr [ %799, %.preheader619 ], [ %789, %779 ]
-  %.027.i.i319.lcssa1110 = phi i64 [ %801, %.preheader619 ], [ %773, %779 ]
-  %scevgep1082 = getelementptr i8, ptr %.022.i.i321.lcssa1112, i64 %.027.i.i319.lcssa1110
+  %.022.i.i321.lcssa1220 = phi ptr [ %800, %.preheader619 ], [ %599, %779 ]
+  %.025.i.i320.lcssa1219 = phi ptr [ %799, %.preheader619 ], [ %789, %779 ]
+  %.027.i.i319.lcssa1218 = phi i64 [ %801, %.preheader619 ], [ %773, %779 ]
+  %scevgep1082 = getelementptr i8, ptr %.022.i.i321.lcssa1220, i64 %.027.i.i319.lcssa1218
   br label %.lr.ph909
 
 .lr.ph901:                                        ; preds = %779, %798
@@ -1723,9 +1723,9 @@ FindMatchLengthWithLimit.exit267:                 ; preds = %703, %.critedge.i26
   br i1 %802, label %.lr.ph901, label %.preheader619, !llvm.loop !63
 
 .lr.ph909:                                        ; preds = %.lr.ph909.preheader, %806
-  %.224.i.i325908 = phi ptr [ %809, %806 ], [ %.022.i.i321.lcssa1112, %.lr.ph909.preheader ]
-  %.126.i.i324907 = phi ptr [ %808, %806 ], [ %.025.i.i320.lcssa1111, %.lr.ph909.preheader ]
-  %.128.i.i323906 = phi i64 [ %807, %806 ], [ %.027.i.i319.lcssa1110, %.lr.ph909.preheader ]
+  %.224.i.i325908 = phi ptr [ %809, %806 ], [ %.022.i.i321.lcssa1220, %.lr.ph909.preheader ]
+  %.126.i.i324907 = phi ptr [ %808, %806 ], [ %.025.i.i320.lcssa1219, %.lr.ph909.preheader ]
+  %.128.i.i323906 = phi i64 [ %807, %806 ], [ %.027.i.i319.lcssa1218, %.lr.ph909.preheader ]
   %803 = load i8, ptr %.224.i.i325908, align 1, !tbaa !53, !noalias !124
   %804 = load i8, ptr %.126.i.i324907, align 1, !tbaa !53, !noalias !124
   %805 = icmp eq i8 %803, %804
@@ -1987,7 +1987,7 @@ FindMatchLengthWithLimit.exit162.i:               ; preds = %914, %.critedge.i15
   %947 = and i32 %946, 4
   %narrow.i.i = add nuw nsw i32 %947, 39
   %948 = zext nneg i32 %narrow.i.i to i64
-  %949 = sub i64 %940, %948
+  %949 = sub nuw i64 %940, %948
   br label %950
 
 950:                                              ; preds = %943, %942
@@ -2063,10 +2063,10 @@ FindMatchLengthWithLimit.exit162.i:               ; preds = %914, %.critedge.i15
   br i1 %.not.i.i350952, label %.critedge.i.i351, label %.lr.ph956.preheader
 
 .lr.ph956.preheader:                              ; preds = %973, %.preheader
-  %.022.i.i345.lcssa1119 = phi ptr [ %986, %.preheader ], [ %974, %973 ]
-  %.025.i.i344.lcssa1118 = phi ptr [ %985, %.preheader ], [ %599, %973 ]
-  %.027.i.i343.lcssa1117 = phi i64 [ %987, %.preheader ], [ %962, %973 ]
-  %scevgep1085 = getelementptr i8, ptr %.022.i.i345.lcssa1119, i64 %.027.i.i343.lcssa1117
+  %.022.i.i345.lcssa1227 = phi ptr [ %986, %.preheader ], [ %974, %973 ]
+  %.025.i.i344.lcssa1226 = phi ptr [ %985, %.preheader ], [ %599, %973 ]
+  %.027.i.i343.lcssa1225 = phi i64 [ %987, %.preheader ], [ %962, %973 ]
+  %scevgep1085 = getelementptr i8, ptr %.022.i.i345.lcssa1227, i64 %.027.i.i343.lcssa1225
   br label %.lr.ph956
 
 .lr.ph948:                                        ; preds = %973, %984
@@ -2096,9 +2096,9 @@ FindMatchLengthWithLimit.exit162.i:               ; preds = %914, %.critedge.i15
   br i1 %988, label %.lr.ph948, label %.preheader, !llvm.loop !63
 
 .lr.ph956:                                        ; preds = %.lr.ph956.preheader, %992
-  %.224.i.i349955 = phi ptr [ %995, %992 ], [ %.022.i.i345.lcssa1119, %.lr.ph956.preheader ]
-  %.126.i.i348954 = phi ptr [ %994, %992 ], [ %.025.i.i344.lcssa1118, %.lr.ph956.preheader ]
-  %.128.i.i347953 = phi i64 [ %993, %992 ], [ %.027.i.i343.lcssa1117, %.lr.ph956.preheader ]
+  %.224.i.i349955 = phi ptr [ %995, %992 ], [ %.022.i.i345.lcssa1227, %.lr.ph956.preheader ]
+  %.126.i.i348954 = phi ptr [ %994, %992 ], [ %.025.i.i344.lcssa1226, %.lr.ph956.preheader ]
+  %.128.i.i347953 = phi i64 [ %993, %992 ], [ %.027.i.i343.lcssa1225, %.lr.ph956.preheader ]
   %989 = load i8, ptr %.224.i.i349955, align 1, !tbaa !53, !noalias !136
   %990 = load i8, ptr %.126.i.i348954, align 1, !tbaa !53, !alias.scope !125, !noalias !128
   %991 = icmp eq i8 %989, %990
@@ -2424,14 +2424,14 @@ GetInsertLengthCode.exit:                         ; preds = %1128, %1132, %1146,
   %1160 = sub nuw nsw i32 30, %1159
   %1161 = shl nuw nsw i32 %1160, 1
   %1162 = lshr i32 %narrow, %1160
-  %1163 = add i32 %1162, %1161
+  %1163 = add nuw nsw i32 %1162, %1161
   br label %GetCopyLengthCode.exit
 
 1164:                                             ; preds = %1156
   %1165 = icmp ult i32 %1123, 2118
-  br i1 %1165, label %GetCopyLengthCode.exit.thread1120, label %GetCopyLengthCode.exit.thread
+  br i1 %1165, label %GetCopyLengthCode.exit.thread1228, label %GetCopyLengthCode.exit.thread
 
-GetCopyLengthCode.exit.thread1120:                ; preds = %1164
+GetCopyLengthCode.exit.thread1228:                ; preds = %1164
   %1166 = add nsw i32 %1123, -70
   %1167 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %1166, i1 true)
   %1168 = trunc nuw nsw i32 %1167 to i16
@@ -2439,10 +2439,10 @@ GetCopyLengthCode.exit.thread1120:                ; preds = %1164
   br label %GetCopyLengthCode.exit.thread
 
 GetCopyLengthCode.exit:                           ; preds = %GetInsertLengthCode.exit, %1158
-  %.sink1280 = phi i32 [ %1163, %1158 ], [ %1123, %GetInsertLengthCode.exit ]
-  %.sink1279 = phi i16 [ 4, %1158 ], [ -2, %GetInsertLengthCode.exit ]
-  %1170 = trunc i32 %.sink1280 to i16
-  %1171 = add nsw i16 %.sink1279, %1170
+  %.sink1311 = phi i32 [ %1163, %1158 ], [ %1123, %GetInsertLengthCode.exit ]
+  %.sink1310 = phi i16 [ 4, %1158 ], [ -2, %GetInsertLengthCode.exit ]
+  %1170 = trunc nuw nsw i32 %.sink1311 to i16
+  %1171 = add nsw i16 %.sink1310, %1170
   %1172 = icmp samesign ult i16 %.0.i420, 8
   %or.cond.i422 = and i1 %1125, %1172
   %1173 = icmp ult i16 %1171, 16
@@ -2454,8 +2454,8 @@ GetCopyLengthCode.exit:                           ; preds = %GetInsertLengthCode
   %1176 = and i16 %1175, 64
   br label %CombineLengthCodes.exit
 
-GetCopyLengthCode.exit.thread:                    ; preds = %GetCopyLengthCode.exit.thread1120, %1164, %GetCopyLengthCode.exit
-  %.0.i421590 = phi i16 [ %1171, %GetCopyLengthCode.exit ], [ 23, %1164 ], [ %1169, %GetCopyLengthCode.exit.thread1120 ]
+GetCopyLengthCode.exit.thread:                    ; preds = %GetCopyLengthCode.exit.thread1228, %1164, %GetCopyLengthCode.exit
+  %.0.i421590 = phi i16 [ %1171, %GetCopyLengthCode.exit ], [ 23, %1164 ], [ %1169, %GetCopyLengthCode.exit.thread1228 ]
   %1177 = lshr i16 %.0.i421590, 3
   %1178 = lshr i16 %.0.i420, 3
   %narrow.i423 = mul nuw nsw i16 %1178, 3
@@ -2983,7 +2983,7 @@ FindMatchLengthWithLimit.exit189.i:               ; preds = %174, %.critedge.i18
   %210 = and i32 %209, 14
   %narrow.i.i306 = add nuw nsw i32 %210, 39
   %211 = zext nneg i32 %narrow.i.i306 to i64
-  %212 = sub i64 %203, %211
+  %212 = sub nuw i64 %203, %211
   br label %213
 
 213:                                              ; preds = %206, %205
@@ -3252,10 +3252,10 @@ FindMatchLengthWithLimit.exit.i298:               ; preds = %252, %.critedge.i.i
   br i1 %.not.i.i.i710, label %.critedge.i.i.i, label %.lr.ph714.preheader
 
 .lr.ph714.preheader:                              ; preds = %327, %.preheader599
-  %.022.i.i.i.lcssa1073 = phi ptr [ %348, %.preheader599 ], [ %138, %327 ]
-  %.025.i.i.i.lcssa1072 = phi ptr [ %347, %.preheader599 ], [ %337, %327 ]
-  %.027.i.i.i.lcssa1071 = phi i64 [ %349, %.preheader599 ], [ %321, %327 ]
-  %scevgep1049 = getelementptr i8, ptr %.022.i.i.i.lcssa1073, i64 %.027.i.i.i.lcssa1071
+  %.022.i.i.i.lcssa1183 = phi ptr [ %348, %.preheader599 ], [ %138, %327 ]
+  %.025.i.i.i.lcssa1182 = phi ptr [ %347, %.preheader599 ], [ %337, %327 ]
+  %.027.i.i.i.lcssa1181 = phi i64 [ %349, %.preheader599 ], [ %321, %327 ]
+  %scevgep1049 = getelementptr i8, ptr %.022.i.i.i.lcssa1183, i64 %.027.i.i.i.lcssa1181
   br label %.lr.ph714
 
 .lr.ph706:                                        ; preds = %327, %346
@@ -3284,9 +3284,9 @@ FindMatchLengthWithLimit.exit.i298:               ; preds = %252, %.critedge.i.i
   br i1 %350, label %.lr.ph706, label %.preheader599, !llvm.loop !63
 
 .lr.ph714:                                        ; preds = %.lr.ph714.preheader, %354
-  %.224.i.i.i713 = phi ptr [ %357, %354 ], [ %.022.i.i.i.lcssa1073, %.lr.ph714.preheader ]
-  %.126.i.i.i712 = phi ptr [ %356, %354 ], [ %.025.i.i.i.lcssa1072, %.lr.ph714.preheader ]
-  %.128.i.i.i711 = phi i64 [ %355, %354 ], [ %.027.i.i.i.lcssa1071, %.lr.ph714.preheader ]
+  %.224.i.i.i713 = phi ptr [ %357, %354 ], [ %.022.i.i.i.lcssa1183, %.lr.ph714.preheader ]
+  %.126.i.i.i712 = phi ptr [ %356, %354 ], [ %.025.i.i.i.lcssa1182, %.lr.ph714.preheader ]
+  %.128.i.i.i711 = phi i64 [ %355, %354 ], [ %.027.i.i.i.lcssa1181, %.lr.ph714.preheader ]
   %351 = load i8, ptr %.224.i.i.i713, align 1, !tbaa !53, !alias.scope !189, !noalias !193
   %352 = load i8, ptr %.126.i.i.i712, align 1, !tbaa !53, !noalias !193
   %353 = icmp eq i8 %351, %352
@@ -3551,7 +3551,7 @@ FindMatchLengthWithLimit.exit162.i263:            ; preds = %464, %.critedge.i15
   %497 = and i32 %496, 4
   %narrow.i.i268 = add nuw nsw i32 %497, 39
   %498 = zext nneg i32 %narrow.i.i268 to i64
-  %499 = sub i64 %490, %498
+  %499 = sub nuw i64 %490, %498
   br label %500
 
 500:                                              ; preds = %493, %492
@@ -3627,10 +3627,10 @@ FindMatchLengthWithLimit.exit162.i263:            ; preds = %464, %.critedge.i15
   br i1 %.not.i.i243756, label %.critedge.i.i244, label %.lr.ph760.preheader
 
 .lr.ph760.preheader:                              ; preds = %523, %.preheader597
-  %.022.i.i238.lcssa1080 = phi ptr [ %536, %.preheader597 ], [ %524, %523 ]
-  %.025.i.i237.lcssa1079 = phi ptr [ %535, %.preheader597 ], [ %138, %523 ]
-  %.027.i.i236.lcssa1078 = phi i64 [ %537, %.preheader597 ], [ %512, %523 ]
-  %scevgep1052 = getelementptr i8, ptr %.022.i.i238.lcssa1080, i64 %.027.i.i236.lcssa1078
+  %.022.i.i238.lcssa1190 = phi ptr [ %536, %.preheader597 ], [ %524, %523 ]
+  %.025.i.i237.lcssa1189 = phi ptr [ %535, %.preheader597 ], [ %138, %523 ]
+  %.027.i.i236.lcssa1188 = phi i64 [ %537, %.preheader597 ], [ %512, %523 ]
+  %scevgep1052 = getelementptr i8, ptr %.022.i.i238.lcssa1190, i64 %.027.i.i236.lcssa1188
   br label %.lr.ph760
 
 .lr.ph752:                                        ; preds = %523, %534
@@ -3660,9 +3660,9 @@ FindMatchLengthWithLimit.exit162.i263:            ; preds = %464, %.critedge.i15
   br i1 %538, label %.lr.ph752, label %.preheader597, !llvm.loop !63
 
 .lr.ph760:                                        ; preds = %.lr.ph760.preheader, %542
-  %.224.i.i242759 = phi ptr [ %545, %542 ], [ %.022.i.i238.lcssa1080, %.lr.ph760.preheader ]
-  %.126.i.i241758 = phi ptr [ %544, %542 ], [ %.025.i.i237.lcssa1079, %.lr.ph760.preheader ]
-  %.128.i.i240757 = phi i64 [ %543, %542 ], [ %.027.i.i236.lcssa1078, %.lr.ph760.preheader ]
+  %.224.i.i242759 = phi ptr [ %545, %542 ], [ %.022.i.i238.lcssa1190, %.lr.ph760.preheader ]
+  %.126.i.i241758 = phi ptr [ %544, %542 ], [ %.025.i.i237.lcssa1189, %.lr.ph760.preheader ]
+  %.128.i.i240757 = phi i64 [ %543, %542 ], [ %.027.i.i236.lcssa1188, %.lr.ph760.preheader ]
   %539 = load i8, ptr %.224.i.i242759, align 1, !tbaa !53, !noalias !212
   %540 = load i8, ptr %.126.i.i241758, align 1, !tbaa !53, !alias.scope !205, !noalias !208
   %541 = icmp eq i8 %539, %540
@@ -3941,7 +3941,7 @@ FindMatchLengthWithLimit.exit189.i386:            ; preds = %631, %.critedge.i18
   %667 = and i32 %666, 14
   %narrow.i.i390 = add nuw nsw i32 %667, 39
   %668 = zext nneg i32 %narrow.i.i390 to i64
-  %669 = sub i64 %660, %668
+  %669 = sub nuw i64 %660, %668
   br label %670
 
 670:                                              ; preds = %663, %662
@@ -4201,10 +4201,10 @@ FindMatchLengthWithLimit.exit.i362:               ; preds = %708, %.critedge.i.i
   br i1 %.not.i.i.i330880, label %.critedge.i.i.i331, label %.lr.ph884.preheader
 
 .lr.ph884.preheader:                              ; preds = %783, %.preheader594
-  %.022.i.i.i325.lcssa1087 = phi ptr [ %804, %.preheader594 ], [ %601, %783 ]
-  %.025.i.i.i324.lcssa1086 = phi ptr [ %803, %.preheader594 ], [ %793, %783 ]
-  %.027.i.i.i323.lcssa1085 = phi i64 [ %805, %.preheader594 ], [ %777, %783 ]
-  %scevgep1057 = getelementptr i8, ptr %.022.i.i.i325.lcssa1087, i64 %.027.i.i.i323.lcssa1085
+  %.022.i.i.i325.lcssa1197 = phi ptr [ %804, %.preheader594 ], [ %601, %783 ]
+  %.025.i.i.i324.lcssa1196 = phi ptr [ %803, %.preheader594 ], [ %793, %783 ]
+  %.027.i.i.i323.lcssa1195 = phi i64 [ %805, %.preheader594 ], [ %777, %783 ]
+  %scevgep1057 = getelementptr i8, ptr %.022.i.i.i325.lcssa1197, i64 %.027.i.i.i323.lcssa1195
   br label %.lr.ph884
 
 .lr.ph876:                                        ; preds = %783, %802
@@ -4233,9 +4233,9 @@ FindMatchLengthWithLimit.exit.i362:               ; preds = %708, %.critedge.i.i
   br i1 %806, label %.lr.ph876, label %.preheader594, !llvm.loop !63
 
 .lr.ph884:                                        ; preds = %.lr.ph884.preheader, %810
-  %.224.i.i.i329883 = phi ptr [ %813, %810 ], [ %.022.i.i.i325.lcssa1087, %.lr.ph884.preheader ]
-  %.126.i.i.i328882 = phi ptr [ %812, %810 ], [ %.025.i.i.i324.lcssa1086, %.lr.ph884.preheader ]
-  %.128.i.i.i327881 = phi i64 [ %811, %810 ], [ %.027.i.i.i323.lcssa1085, %.lr.ph884.preheader ]
+  %.224.i.i.i329883 = phi ptr [ %813, %810 ], [ %.022.i.i.i325.lcssa1197, %.lr.ph884.preheader ]
+  %.126.i.i.i328882 = phi ptr [ %812, %810 ], [ %.025.i.i.i324.lcssa1196, %.lr.ph884.preheader ]
+  %.128.i.i.i327881 = phi i64 [ %811, %810 ], [ %.027.i.i.i323.lcssa1195, %.lr.ph884.preheader ]
   %807 = load i8, ptr %.224.i.i.i329883, align 1, !tbaa !53, !alias.scope !221, !noalias !223
   %808 = load i8, ptr %.126.i.i.i328882, align 1, !tbaa !53, !noalias !223
   %809 = icmp eq i8 %807, %808
@@ -4497,7 +4497,7 @@ FindMatchLengthWithLimit.exit162.i:               ; preds = %918, %.critedge.i15
   %951 = and i32 %950, 4
   %narrow.i.i = add nuw nsw i32 %951, 39
   %952 = zext nneg i32 %narrow.i.i to i64
-  %953 = sub i64 %944, %952
+  %953 = sub nuw i64 %944, %952
   br label %954
 
 954:                                              ; preds = %947, %946
@@ -4573,10 +4573,10 @@ FindMatchLengthWithLimit.exit162.i:               ; preds = %918, %.critedge.i15
   br i1 %.not.i.i927, label %.critedge.i.i, label %.lr.ph931.preheader
 
 .lr.ph931.preheader:                              ; preds = %977, %.preheader
-  %.022.i.i.lcssa1094 = phi ptr [ %990, %.preheader ], [ %978, %977 ]
-  %.025.i.i.lcssa1093 = phi ptr [ %989, %.preheader ], [ %601, %977 ]
-  %.027.i.i.lcssa1092 = phi i64 [ %991, %.preheader ], [ %966, %977 ]
-  %scevgep1060 = getelementptr i8, ptr %.022.i.i.lcssa1094, i64 %.027.i.i.lcssa1092
+  %.022.i.i.lcssa1204 = phi ptr [ %990, %.preheader ], [ %978, %977 ]
+  %.025.i.i.lcssa1203 = phi ptr [ %989, %.preheader ], [ %601, %977 ]
+  %.027.i.i.lcssa1202 = phi i64 [ %991, %.preheader ], [ %966, %977 ]
+  %scevgep1060 = getelementptr i8, ptr %.022.i.i.lcssa1204, i64 %.027.i.i.lcssa1202
   br label %.lr.ph931
 
 .lr.ph923:                                        ; preds = %977, %988
@@ -4606,9 +4606,9 @@ FindMatchLengthWithLimit.exit162.i:               ; preds = %918, %.critedge.i15
   br i1 %992, label %.lr.ph923, label %.preheader, !llvm.loop !63
 
 .lr.ph931:                                        ; preds = %.lr.ph931.preheader, %996
-  %.224.i.i930 = phi ptr [ %999, %996 ], [ %.022.i.i.lcssa1094, %.lr.ph931.preheader ]
-  %.126.i.i929 = phi ptr [ %998, %996 ], [ %.025.i.i.lcssa1093, %.lr.ph931.preheader ]
-  %.128.i.i928 = phi i64 [ %997, %996 ], [ %.027.i.i.lcssa1092, %.lr.ph931.preheader ]
+  %.224.i.i930 = phi ptr [ %999, %996 ], [ %.022.i.i.lcssa1204, %.lr.ph931.preheader ]
+  %.126.i.i929 = phi ptr [ %998, %996 ], [ %.025.i.i.lcssa1203, %.lr.ph931.preheader ]
+  %.128.i.i928 = phi i64 [ %997, %996 ], [ %.027.i.i.lcssa1202, %.lr.ph931.preheader ]
   %993 = load i8, ptr %.224.i.i930, align 1, !tbaa !53, !noalias !237
   %994 = load i8, ptr %.126.i.i929, align 1, !tbaa !53, !alias.scope !226, !noalias !229
   %995 = icmp eq i8 %993, %994
@@ -4935,14 +4935,14 @@ GetInsertLengthCode.exit:                         ; preds = %1132, %1136, %1150,
   %1164 = sub nuw nsw i32 30, %1163
   %1165 = shl nuw nsw i32 %1164, 1
   %1166 = lshr i32 %narrow, %1164
-  %1167 = add i32 %1166, %1165
+  %1167 = add nuw nsw i32 %1166, %1165
   br label %GetCopyLengthCode.exit
 
 1168:                                             ; preds = %1160
   %1169 = icmp ult i32 %1127, 2118
-  br i1 %1169, label %GetCopyLengthCode.exit.thread1095, label %GetCopyLengthCode.exit.thread
+  br i1 %1169, label %GetCopyLengthCode.exit.thread1205, label %GetCopyLengthCode.exit.thread
 
-GetCopyLengthCode.exit.thread1095:                ; preds = %1168
+GetCopyLengthCode.exit.thread1205:                ; preds = %1168
   %1170 = add nsw i32 %1127, -70
   %1171 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %1170, i1 true)
   %1172 = trunc nuw nsw i32 %1171 to i16
@@ -4950,10 +4950,10 @@ GetCopyLengthCode.exit.thread1095:                ; preds = %1168
   br label %GetCopyLengthCode.exit.thread
 
 GetCopyLengthCode.exit:                           ; preds = %GetInsertLengthCode.exit, %1162
-  %.sink1255 = phi i32 [ %1167, %1162 ], [ %1127, %GetInsertLengthCode.exit ]
-  %.sink1254 = phi i16 [ 4, %1162 ], [ -2, %GetInsertLengthCode.exit ]
-  %1174 = trunc i32 %.sink1255 to i16
-  %1175 = add nsw i16 %.sink1254, %1174
+  %.sink1288 = phi i32 [ %1167, %1162 ], [ %1127, %GetInsertLengthCode.exit ]
+  %.sink1287 = phi i16 [ 4, %1162 ], [ -2, %GetInsertLengthCode.exit ]
+  %1174 = trunc nuw nsw i32 %.sink1288 to i16
+  %1175 = add nsw i16 %.sink1287, %1174
   %1176 = icmp samesign ult i16 %.0.i278, 8
   %or.cond.i280 = and i1 %1129, %1176
   %1177 = icmp ult i16 %1175, 16
@@ -4965,8 +4965,8 @@ GetCopyLengthCode.exit:                           ; preds = %GetInsertLengthCode
   %1180 = and i16 %1179, 64
   br label %CombineLengthCodes.exit
 
-GetCopyLengthCode.exit.thread:                    ; preds = %GetCopyLengthCode.exit.thread1095, %1168, %GetCopyLengthCode.exit
-  %.0.i279565 = phi i16 [ %1175, %GetCopyLengthCode.exit ], [ 23, %1168 ], [ %1173, %GetCopyLengthCode.exit.thread1095 ]
+GetCopyLengthCode.exit.thread:                    ; preds = %GetCopyLengthCode.exit.thread1205, %1168, %GetCopyLengthCode.exit
+  %.0.i279565 = phi i16 [ %1175, %GetCopyLengthCode.exit ], [ 23, %1168 ], [ %1173, %GetCopyLengthCode.exit.thread1205 ]
   %1181 = lshr i16 %.0.i279565, 3
   %1182 = lshr i16 %.0.i278, 3
   %narrow.i = mul nuw nsw i16 %1182, 3
@@ -5494,7 +5494,7 @@ FindMatchLengthWithLimit.exit205.i:               ; preds = %178, %.critedge.i20
   %214 = and i32 %213, 14
   %narrow.i.i305 = add nuw nsw i32 %214, 39
   %215 = zext nneg i32 %narrow.i.i305 to i64
-  %216 = sub i64 %207, %215
+  %216 = sub nuw i64 %207, %215
   br label %217
 
 217:                                              ; preds = %210, %209
@@ -5824,10 +5824,10 @@ FindMatchLengthWithLimit.exit.i297:               ; preds = %290, %.critedge.i.i
   br i1 %.not.i.i.i728, label %.critedge.i.i.i, label %.lr.ph732.preheader
 
 .lr.ph732.preheader:                              ; preds = %368, %.preheader610
-  %.022.i.i.i.lcssa1104 = phi ptr [ %389, %.preheader610 ], [ %141, %368 ]
-  %.025.i.i.i.lcssa1103 = phi ptr [ %388, %.preheader610 ], [ %378, %368 ]
-  %.027.i.i.i.lcssa1102 = phi i64 [ %390, %.preheader610 ], [ %362, %368 ]
-  %scevgep1080 = getelementptr i8, ptr %.022.i.i.i.lcssa1104, i64 %.027.i.i.i.lcssa1102
+  %.022.i.i.i.lcssa1212 = phi ptr [ %389, %.preheader610 ], [ %141, %368 ]
+  %.025.i.i.i.lcssa1211 = phi ptr [ %388, %.preheader610 ], [ %378, %368 ]
+  %.027.i.i.i.lcssa1210 = phi i64 [ %390, %.preheader610 ], [ %362, %368 ]
+  %scevgep1080 = getelementptr i8, ptr %.022.i.i.i.lcssa1212, i64 %.027.i.i.i.lcssa1210
   br label %.lr.ph732
 
 .lr.ph724:                                        ; preds = %368, %387
@@ -5856,9 +5856,9 @@ FindMatchLengthWithLimit.exit.i297:               ; preds = %290, %.critedge.i.i
   br i1 %391, label %.lr.ph724, label %.preheader610, !llvm.loop !63
 
 .lr.ph732:                                        ; preds = %.lr.ph732.preheader, %395
-  %.224.i.i.i731 = phi ptr [ %398, %395 ], [ %.022.i.i.i.lcssa1104, %.lr.ph732.preheader ]
-  %.126.i.i.i730 = phi ptr [ %397, %395 ], [ %.025.i.i.i.lcssa1103, %.lr.ph732.preheader ]
-  %.128.i.i.i729 = phi i64 [ %396, %395 ], [ %.027.i.i.i.lcssa1102, %.lr.ph732.preheader ]
+  %.224.i.i.i731 = phi ptr [ %398, %395 ], [ %.022.i.i.i.lcssa1212, %.lr.ph732.preheader ]
+  %.126.i.i.i730 = phi ptr [ %397, %395 ], [ %.025.i.i.i.lcssa1211, %.lr.ph732.preheader ]
+  %.128.i.i.i729 = phi i64 [ %396, %395 ], [ %.027.i.i.i.lcssa1210, %.lr.ph732.preheader ]
   %392 = load i8, ptr %.224.i.i.i731, align 1, !tbaa !53, !alias.scope !288, !noalias !299
   %393 = load i8, ptr %.126.i.i.i730, align 1, !tbaa !53, !noalias !299
   %394 = icmp eq i8 %392, %393
@@ -6124,7 +6124,7 @@ FindMatchLengthWithLimit.exit162.i263:            ; preds = %506, %.critedge.i15
   %539 = and i32 %538, 4
   %narrow.i.i268 = add nuw nsw i32 %539, 39
   %540 = zext nneg i32 %narrow.i.i268 to i64
-  %541 = sub i64 %532, %540
+  %541 = sub nuw i64 %532, %540
   br label %542
 
 542:                                              ; preds = %535, %534
@@ -6200,10 +6200,10 @@ FindMatchLengthWithLimit.exit162.i263:            ; preds = %506, %.critedge.i15
   br i1 %.not.i.i243774, label %.critedge.i.i244, label %.lr.ph778.preheader
 
 .lr.ph778.preheader:                              ; preds = %565, %.preheader608
-  %.022.i.i238.lcssa1111 = phi ptr [ %578, %.preheader608 ], [ %566, %565 ]
-  %.025.i.i237.lcssa1110 = phi ptr [ %577, %.preheader608 ], [ %141, %565 ]
-  %.027.i.i236.lcssa1109 = phi i64 [ %579, %.preheader608 ], [ %554, %565 ]
-  %scevgep1083 = getelementptr i8, ptr %.022.i.i238.lcssa1111, i64 %.027.i.i236.lcssa1109
+  %.022.i.i238.lcssa1219 = phi ptr [ %578, %.preheader608 ], [ %566, %565 ]
+  %.025.i.i237.lcssa1218 = phi ptr [ %577, %.preheader608 ], [ %141, %565 ]
+  %.027.i.i236.lcssa1217 = phi i64 [ %579, %.preheader608 ], [ %554, %565 ]
+  %scevgep1083 = getelementptr i8, ptr %.022.i.i238.lcssa1219, i64 %.027.i.i236.lcssa1217
   br label %.lr.ph778
 
 .lr.ph770:                                        ; preds = %565, %576
@@ -6233,9 +6233,9 @@ FindMatchLengthWithLimit.exit162.i263:            ; preds = %506, %.critedge.i15
   br i1 %580, label %.lr.ph770, label %.preheader608, !llvm.loop !63
 
 .lr.ph778:                                        ; preds = %.lr.ph778.preheader, %584
-  %.224.i.i242777 = phi ptr [ %587, %584 ], [ %.022.i.i238.lcssa1111, %.lr.ph778.preheader ]
-  %.126.i.i241776 = phi ptr [ %586, %584 ], [ %.025.i.i237.lcssa1110, %.lr.ph778.preheader ]
-  %.128.i.i240775 = phi i64 [ %585, %584 ], [ %.027.i.i236.lcssa1109, %.lr.ph778.preheader ]
+  %.224.i.i242777 = phi ptr [ %587, %584 ], [ %.022.i.i238.lcssa1219, %.lr.ph778.preheader ]
+  %.126.i.i241776 = phi ptr [ %586, %584 ], [ %.025.i.i237.lcssa1218, %.lr.ph778.preheader ]
+  %.128.i.i240775 = phi i64 [ %585, %584 ], [ %.027.i.i236.lcssa1217, %.lr.ph778.preheader ]
   %581 = load i8, ptr %.224.i.i242777, align 1, !tbaa !53, !noalias !319
   %582 = load i8, ptr %.126.i.i241776, align 1, !tbaa !53, !alias.scope !312, !noalias !315
   %583 = icmp eq i8 %581, %582
@@ -6526,7 +6526,7 @@ FindMatchLengthWithLimit.exit205.i382:            ; preds = %682, %.critedge.i20
   %718 = and i32 %717, 14
   %narrow.i.i386 = add nuw nsw i32 %718, 39
   %719 = zext nneg i32 %narrow.i.i386 to i64
-  %720 = sub i64 %711, %719
+  %720 = sub nuw i64 %711, %719
   br label %721
 
 721:                                              ; preds = %714, %713
@@ -6842,10 +6842,10 @@ FindMatchLengthWithLimit.exit.i358:               ; preds = %789, %.critedge.i.i
   br i1 %.not.i.i.i336906, label %.critedge.i.i.i337, label %.lr.ph910.preheader
 
 .lr.ph910.preheader:                              ; preds = %867, %.preheader605
-  %.022.i.i.i331.lcssa1118 = phi ptr [ %888, %.preheader605 ], [ %650, %867 ]
-  %.025.i.i.i330.lcssa1117 = phi ptr [ %887, %.preheader605 ], [ %877, %867 ]
-  %.027.i.i.i329.lcssa1116 = phi i64 [ %889, %.preheader605 ], [ %861, %867 ]
-  %scevgep1089 = getelementptr i8, ptr %.022.i.i.i331.lcssa1118, i64 %.027.i.i.i329.lcssa1116
+  %.022.i.i.i331.lcssa1226 = phi ptr [ %888, %.preheader605 ], [ %650, %867 ]
+  %.025.i.i.i330.lcssa1225 = phi ptr [ %887, %.preheader605 ], [ %877, %867 ]
+  %.027.i.i.i329.lcssa1224 = phi i64 [ %889, %.preheader605 ], [ %861, %867 ]
+  %scevgep1089 = getelementptr i8, ptr %.022.i.i.i331.lcssa1226, i64 %.027.i.i.i329.lcssa1224
   br label %.lr.ph910
 
 .lr.ph902:                                        ; preds = %867, %886
@@ -6874,9 +6874,9 @@ FindMatchLengthWithLimit.exit.i358:               ; preds = %789, %.critedge.i.i
   br i1 %890, label %.lr.ph902, label %.preheader605, !llvm.loop !63
 
 .lr.ph910:                                        ; preds = %.lr.ph910.preheader, %894
-  %.224.i.i.i335909 = phi ptr [ %897, %894 ], [ %.022.i.i.i331.lcssa1118, %.lr.ph910.preheader ]
-  %.126.i.i.i334908 = phi ptr [ %896, %894 ], [ %.025.i.i.i330.lcssa1117, %.lr.ph910.preheader ]
-  %.128.i.i.i333907 = phi i64 [ %895, %894 ], [ %.027.i.i.i329.lcssa1116, %.lr.ph910.preheader ]
+  %.224.i.i.i335909 = phi ptr [ %897, %894 ], [ %.022.i.i.i331.lcssa1226, %.lr.ph910.preheader ]
+  %.126.i.i.i334908 = phi ptr [ %896, %894 ], [ %.025.i.i.i330.lcssa1225, %.lr.ph910.preheader ]
+  %.128.i.i.i333907 = phi i64 [ %895, %894 ], [ %.027.i.i.i329.lcssa1224, %.lr.ph910.preheader ]
   %891 = load i8, ptr %.224.i.i.i335909, align 1, !tbaa !53, !alias.scope !328, !noalias !330
   %892 = load i8, ptr %.126.i.i.i334908, align 1, !tbaa !53, !noalias !330
   %893 = icmp eq i8 %891, %892
@@ -7142,7 +7142,7 @@ FindMatchLengthWithLimit.exit162.i:               ; preds = %1005, %.critedge.i1
   %1038 = and i32 %1037, 4
   %narrow.i.i = add nuw nsw i32 %1038, 39
   %1039 = zext nneg i32 %narrow.i.i to i64
-  %1040 = sub i64 %1031, %1039
+  %1040 = sub nuw i64 %1031, %1039
   br label %1041
 
 1041:                                             ; preds = %1034, %1033
@@ -7218,10 +7218,10 @@ FindMatchLengthWithLimit.exit162.i:               ; preds = %1005, %.critedge.i1
   br i1 %.not.i.i953, label %.critedge.i.i, label %.lr.ph957.preheader
 
 .lr.ph957.preheader:                              ; preds = %1064, %.preheader
-  %.022.i.i.lcssa1125 = phi ptr [ %1077, %.preheader ], [ %1065, %1064 ]
-  %.025.i.i.lcssa1124 = phi ptr [ %1076, %.preheader ], [ %650, %1064 ]
-  %.027.i.i.lcssa1123 = phi i64 [ %1078, %.preheader ], [ %1053, %1064 ]
-  %scevgep1092 = getelementptr i8, ptr %.022.i.i.lcssa1125, i64 %.027.i.i.lcssa1123
+  %.022.i.i.lcssa1233 = phi ptr [ %1077, %.preheader ], [ %1065, %1064 ]
+  %.025.i.i.lcssa1232 = phi ptr [ %1076, %.preheader ], [ %650, %1064 ]
+  %.027.i.i.lcssa1231 = phi i64 [ %1078, %.preheader ], [ %1053, %1064 ]
+  %scevgep1092 = getelementptr i8, ptr %.022.i.i.lcssa1233, i64 %.027.i.i.lcssa1231
   br label %.lr.ph957
 
 .lr.ph949:                                        ; preds = %1064, %1075
@@ -7251,9 +7251,9 @@ FindMatchLengthWithLimit.exit162.i:               ; preds = %1005, %.critedge.i1
   br i1 %1079, label %.lr.ph949, label %.preheader, !llvm.loop !63
 
 .lr.ph957:                                        ; preds = %.lr.ph957.preheader, %1083
-  %.224.i.i956 = phi ptr [ %1086, %1083 ], [ %.022.i.i.lcssa1125, %.lr.ph957.preheader ]
-  %.126.i.i955 = phi ptr [ %1085, %1083 ], [ %.025.i.i.lcssa1124, %.lr.ph957.preheader ]
-  %.128.i.i954 = phi i64 [ %1084, %1083 ], [ %.027.i.i.lcssa1123, %.lr.ph957.preheader ]
+  %.224.i.i956 = phi ptr [ %1086, %1083 ], [ %.022.i.i.lcssa1233, %.lr.ph957.preheader ]
+  %.126.i.i955 = phi ptr [ %1085, %1083 ], [ %.025.i.i.lcssa1232, %.lr.ph957.preheader ]
+  %.128.i.i954 = phi i64 [ %1084, %1083 ], [ %.027.i.i.lcssa1231, %.lr.ph957.preheader ]
   %1080 = load i8, ptr %.224.i.i956, align 1, !tbaa !53, !noalias !344
   %1081 = load i8, ptr %.126.i.i955, align 1, !tbaa !53, !alias.scope !337, !noalias !340
   %1082 = icmp eq i8 %1080, %1081
@@ -7580,14 +7580,14 @@ GetInsertLengthCode.exit:                         ; preds = %1219, %1223, %1237,
   %1251 = sub nuw nsw i32 30, %1250
   %1252 = shl nuw nsw i32 %1251, 1
   %1253 = lshr i32 %narrow, %1251
-  %1254 = add i32 %1253, %1252
+  %1254 = add nuw nsw i32 %1253, %1252
   br label %GetCopyLengthCode.exit
 
 1255:                                             ; preds = %1247
   %1256 = icmp ult i32 %1214, 2118
-  br i1 %1256, label %GetCopyLengthCode.exit.thread1126, label %GetCopyLengthCode.exit.thread
+  br i1 %1256, label %GetCopyLengthCode.exit.thread1234, label %GetCopyLengthCode.exit.thread
 
-GetCopyLengthCode.exit.thread1126:                ; preds = %1255
+GetCopyLengthCode.exit.thread1234:                ; preds = %1255
   %1257 = add nsw i32 %1214, -70
   %1258 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %1257, i1 true)
   %1259 = trunc nuw nsw i32 %1258 to i16
@@ -7595,10 +7595,10 @@ GetCopyLengthCode.exit.thread1126:                ; preds = %1255
   br label %GetCopyLengthCode.exit.thread
 
 GetCopyLengthCode.exit:                           ; preds = %GetInsertLengthCode.exit, %1249
-  %.sink1290 = phi i32 [ %1254, %1249 ], [ %1214, %GetInsertLengthCode.exit ]
-  %.sink1289 = phi i16 [ 4, %1249 ], [ -2, %GetInsertLengthCode.exit ]
-  %1261 = trunc i32 %.sink1290 to i16
-  %1262 = add nsw i16 %.sink1289, %1261
+  %.sink1319 = phi i32 [ %1254, %1249 ], [ %1214, %GetInsertLengthCode.exit ]
+  %.sink1318 = phi i16 [ 4, %1249 ], [ -2, %GetInsertLengthCode.exit ]
+  %1261 = trunc nuw nsw i32 %.sink1319 to i16
+  %1262 = add nsw i16 %.sink1318, %1261
   %1263 = icmp samesign ult i16 %.0.i278, 8
   %or.cond.i280 = and i1 %1216, %1263
   %1264 = icmp ult i16 %1262, 16
@@ -7610,8 +7610,8 @@ GetCopyLengthCode.exit:                           ; preds = %GetInsertLengthCode
   %1267 = and i16 %1266, 64
   br label %CombineLengthCodes.exit
 
-GetCopyLengthCode.exit.thread:                    ; preds = %GetCopyLengthCode.exit.thread1126, %1255, %GetCopyLengthCode.exit
-  %.0.i279576 = phi i16 [ %1262, %GetCopyLengthCode.exit ], [ 23, %1255 ], [ %1260, %GetCopyLengthCode.exit.thread1126 ]
+GetCopyLengthCode.exit.thread:                    ; preds = %GetCopyLengthCode.exit.thread1234, %1255, %GetCopyLengthCode.exit
+  %.0.i279576 = phi i16 [ %1262, %GetCopyLengthCode.exit ], [ 23, %1255 ], [ %1260, %GetCopyLengthCode.exit.thread1234 ]
   %1268 = lshr i16 %.0.i279576, 3
   %1269 = lshr i16 %.0.i278, 3
   %narrow.i = mul nuw nsw i16 %1269, 3
@@ -8165,7 +8165,7 @@ FindMatchLengthWithLimit.exit210.i:               ; preds = %178, %.critedge.i20
   %214 = and i32 %213, 14
   %narrow.i.i305 = add nuw nsw i32 %214, 39
   %215 = zext nneg i32 %narrow.i.i305 to i64
-  %216 = sub i64 %207, %215
+  %216 = sub nuw i64 %207, %215
   br label %217
 
 217:                                              ; preds = %210, %209
@@ -8499,10 +8499,10 @@ FindMatchLengthWithLimit.exit.i297:               ; preds = %293, %.critedge.i.i
   br i1 %.not.i.i.i730, label %.critedge.i.i.i, label %.lr.ph734.preheader
 
 .lr.ph734.preheader:                              ; preds = %370, %.preheader612
-  %.022.i.i.i.lcssa1106 = phi ptr [ %391, %.preheader612 ], [ %140, %370 ]
-  %.025.i.i.i.lcssa1105 = phi ptr [ %390, %.preheader612 ], [ %380, %370 ]
-  %.027.i.i.i.lcssa1104 = phi i64 [ %392, %.preheader612 ], [ %364, %370 ]
-  %scevgep1082 = getelementptr i8, ptr %.022.i.i.i.lcssa1106, i64 %.027.i.i.i.lcssa1104
+  %.022.i.i.i.lcssa1216 = phi ptr [ %391, %.preheader612 ], [ %140, %370 ]
+  %.025.i.i.i.lcssa1215 = phi ptr [ %390, %.preheader612 ], [ %380, %370 ]
+  %.027.i.i.i.lcssa1214 = phi i64 [ %392, %.preheader612 ], [ %364, %370 ]
+  %scevgep1082 = getelementptr i8, ptr %.022.i.i.i.lcssa1216, i64 %.027.i.i.i.lcssa1214
   br label %.lr.ph734
 
 .lr.ph726:                                        ; preds = %370, %389
@@ -8531,9 +8531,9 @@ FindMatchLengthWithLimit.exit.i297:               ; preds = %293, %.critedge.i.i
   br i1 %393, label %.lr.ph726, label %.preheader612, !llvm.loop !63
 
 .lr.ph734:                                        ; preds = %.lr.ph734.preheader, %397
-  %.224.i.i.i733 = phi ptr [ %400, %397 ], [ %.022.i.i.i.lcssa1106, %.lr.ph734.preheader ]
-  %.126.i.i.i732 = phi ptr [ %399, %397 ], [ %.025.i.i.i.lcssa1105, %.lr.ph734.preheader ]
-  %.128.i.i.i731 = phi i64 [ %398, %397 ], [ %.027.i.i.i.lcssa1104, %.lr.ph734.preheader ]
+  %.224.i.i.i733 = phi ptr [ %400, %397 ], [ %.022.i.i.i.lcssa1216, %.lr.ph734.preheader ]
+  %.126.i.i.i732 = phi ptr [ %399, %397 ], [ %.025.i.i.i.lcssa1215, %.lr.ph734.preheader ]
+  %.128.i.i.i731 = phi i64 [ %398, %397 ], [ %.027.i.i.i.lcssa1214, %.lr.ph734.preheader ]
   %394 = load i8, ptr %.224.i.i.i733, align 1, !tbaa !53, !alias.scope !386, !noalias !397
   %395 = load i8, ptr %.126.i.i.i732, align 1, !tbaa !53, !noalias !397
   %396 = icmp eq i8 %394, %395
@@ -8799,7 +8799,7 @@ FindMatchLengthWithLimit.exit162.i263:            ; preds = %508, %.critedge.i15
   %541 = and i32 %540, 4
   %narrow.i.i268 = add nuw nsw i32 %541, 39
   %542 = zext nneg i32 %narrow.i.i268 to i64
-  %543 = sub i64 %534, %542
+  %543 = sub nuw i64 %534, %542
   br label %544
 
 544:                                              ; preds = %537, %536
@@ -8875,10 +8875,10 @@ FindMatchLengthWithLimit.exit162.i263:            ; preds = %508, %.critedge.i15
   br i1 %.not.i.i243776, label %.critedge.i.i244, label %.lr.ph780.preheader
 
 .lr.ph780.preheader:                              ; preds = %567, %.preheader610
-  %.022.i.i238.lcssa1113 = phi ptr [ %580, %.preheader610 ], [ %568, %567 ]
-  %.025.i.i237.lcssa1112 = phi ptr [ %579, %.preheader610 ], [ %140, %567 ]
-  %.027.i.i236.lcssa1111 = phi i64 [ %581, %.preheader610 ], [ %556, %567 ]
-  %scevgep1085 = getelementptr i8, ptr %.022.i.i238.lcssa1113, i64 %.027.i.i236.lcssa1111
+  %.022.i.i238.lcssa1223 = phi ptr [ %580, %.preheader610 ], [ %568, %567 ]
+  %.025.i.i237.lcssa1222 = phi ptr [ %579, %.preheader610 ], [ %140, %567 ]
+  %.027.i.i236.lcssa1221 = phi i64 [ %581, %.preheader610 ], [ %556, %567 ]
+  %scevgep1085 = getelementptr i8, ptr %.022.i.i238.lcssa1223, i64 %.027.i.i236.lcssa1221
   br label %.lr.ph780
 
 .lr.ph772:                                        ; preds = %567, %578
@@ -8908,9 +8908,9 @@ FindMatchLengthWithLimit.exit162.i263:            ; preds = %508, %.critedge.i15
   br i1 %582, label %.lr.ph772, label %.preheader610, !llvm.loop !63
 
 .lr.ph780:                                        ; preds = %.lr.ph780.preheader, %586
-  %.224.i.i242779 = phi ptr [ %589, %586 ], [ %.022.i.i238.lcssa1113, %.lr.ph780.preheader ]
-  %.126.i.i241778 = phi ptr [ %588, %586 ], [ %.025.i.i237.lcssa1112, %.lr.ph780.preheader ]
-  %.128.i.i240777 = phi i64 [ %587, %586 ], [ %.027.i.i236.lcssa1111, %.lr.ph780.preheader ]
+  %.224.i.i242779 = phi ptr [ %589, %586 ], [ %.022.i.i238.lcssa1223, %.lr.ph780.preheader ]
+  %.126.i.i241778 = phi ptr [ %588, %586 ], [ %.025.i.i237.lcssa1222, %.lr.ph780.preheader ]
+  %.128.i.i240777 = phi i64 [ %587, %586 ], [ %.027.i.i236.lcssa1221, %.lr.ph780.preheader ]
   %583 = load i8, ptr %.224.i.i242779, align 1, !tbaa !53, !noalias !416
   %584 = load i8, ptr %.126.i.i241778, align 1, !tbaa !53, !alias.scope !409, !noalias !412
   %585 = icmp eq i8 %583, %584
@@ -9202,7 +9202,7 @@ FindMatchLengthWithLimit.exit210.i389:            ; preds = %685, %.critedge.i20
   %721 = and i32 %720, 14
   %narrow.i.i393 = add nuw nsw i32 %721, 39
   %722 = zext nneg i32 %narrow.i.i393 to i64
-  %723 = sub i64 %714, %722
+  %723 = sub nuw i64 %714, %722
   br label %724
 
 724:                                              ; preds = %717, %716
@@ -9522,10 +9522,10 @@ FindMatchLengthWithLimit.exit.i365:               ; preds = %795, %.critedge.i.i
   br i1 %.not.i.i.i341908, label %.critedge.i.i.i342, label %.lr.ph912.preheader
 
 .lr.ph912.preheader:                              ; preds = %872, %.preheader607
-  %.022.i.i.i336.lcssa1120 = phi ptr [ %893, %.preheader607 ], [ %653, %872 ]
-  %.025.i.i.i335.lcssa1119 = phi ptr [ %892, %.preheader607 ], [ %882, %872 ]
-  %.027.i.i.i334.lcssa1118 = phi i64 [ %894, %.preheader607 ], [ %866, %872 ]
-  %scevgep1091 = getelementptr i8, ptr %.022.i.i.i336.lcssa1120, i64 %.027.i.i.i334.lcssa1118
+  %.022.i.i.i336.lcssa1230 = phi ptr [ %893, %.preheader607 ], [ %653, %872 ]
+  %.025.i.i.i335.lcssa1229 = phi ptr [ %892, %.preheader607 ], [ %882, %872 ]
+  %.027.i.i.i334.lcssa1228 = phi i64 [ %894, %.preheader607 ], [ %866, %872 ]
+  %scevgep1091 = getelementptr i8, ptr %.022.i.i.i336.lcssa1230, i64 %.027.i.i.i334.lcssa1228
   br label %.lr.ph912
 
 .lr.ph904:                                        ; preds = %872, %891
@@ -9554,9 +9554,9 @@ FindMatchLengthWithLimit.exit.i365:               ; preds = %795, %.critedge.i.i
   br i1 %895, label %.lr.ph904, label %.preheader607, !llvm.loop !63
 
 .lr.ph912:                                        ; preds = %.lr.ph912.preheader, %899
-  %.224.i.i.i340911 = phi ptr [ %902, %899 ], [ %.022.i.i.i336.lcssa1120, %.lr.ph912.preheader ]
-  %.126.i.i.i339910 = phi ptr [ %901, %899 ], [ %.025.i.i.i335.lcssa1119, %.lr.ph912.preheader ]
-  %.128.i.i.i338909 = phi i64 [ %900, %899 ], [ %.027.i.i.i334.lcssa1118, %.lr.ph912.preheader ]
+  %.224.i.i.i340911 = phi ptr [ %902, %899 ], [ %.022.i.i.i336.lcssa1230, %.lr.ph912.preheader ]
+  %.126.i.i.i339910 = phi ptr [ %901, %899 ], [ %.025.i.i.i335.lcssa1229, %.lr.ph912.preheader ]
+  %.128.i.i.i338909 = phi i64 [ %900, %899 ], [ %.027.i.i.i334.lcssa1228, %.lr.ph912.preheader ]
   %896 = load i8, ptr %.224.i.i.i340911, align 1, !tbaa !53, !alias.scope !425, !noalias !427
   %897 = load i8, ptr %.126.i.i.i339910, align 1, !tbaa !53, !noalias !427
   %898 = icmp eq i8 %896, %897
@@ -9822,7 +9822,7 @@ FindMatchLengthWithLimit.exit162.i:               ; preds = %1010, %.critedge.i1
   %1043 = and i32 %1042, 4
   %narrow.i.i = add nuw nsw i32 %1043, 39
   %1044 = zext nneg i32 %narrow.i.i to i64
-  %1045 = sub i64 %1036, %1044
+  %1045 = sub nuw i64 %1036, %1044
   br label %1046
 
 1046:                                             ; preds = %1039, %1038
@@ -9898,10 +9898,10 @@ FindMatchLengthWithLimit.exit162.i:               ; preds = %1010, %.critedge.i1
   br i1 %.not.i.i955, label %.critedge.i.i, label %.lr.ph959.preheader
 
 .lr.ph959.preheader:                              ; preds = %1069, %.preheader
-  %.022.i.i.lcssa1127 = phi ptr [ %1082, %.preheader ], [ %1070, %1069 ]
-  %.025.i.i.lcssa1126 = phi ptr [ %1081, %.preheader ], [ %653, %1069 ]
-  %.027.i.i.lcssa1125 = phi i64 [ %1083, %.preheader ], [ %1058, %1069 ]
-  %scevgep1094 = getelementptr i8, ptr %.022.i.i.lcssa1127, i64 %.027.i.i.lcssa1125
+  %.022.i.i.lcssa1237 = phi ptr [ %1082, %.preheader ], [ %1070, %1069 ]
+  %.025.i.i.lcssa1236 = phi ptr [ %1081, %.preheader ], [ %653, %1069 ]
+  %.027.i.i.lcssa1235 = phi i64 [ %1083, %.preheader ], [ %1058, %1069 ]
+  %scevgep1094 = getelementptr i8, ptr %.022.i.i.lcssa1237, i64 %.027.i.i.lcssa1235
   br label %.lr.ph959
 
 .lr.ph951:                                        ; preds = %1069, %1080
@@ -9931,9 +9931,9 @@ FindMatchLengthWithLimit.exit162.i:               ; preds = %1010, %.critedge.i1
   br i1 %1084, label %.lr.ph951, label %.preheader, !llvm.loop !63
 
 .lr.ph959:                                        ; preds = %.lr.ph959.preheader, %1088
-  %.224.i.i958 = phi ptr [ %1091, %1088 ], [ %.022.i.i.lcssa1127, %.lr.ph959.preheader ]
-  %.126.i.i957 = phi ptr [ %1090, %1088 ], [ %.025.i.i.lcssa1126, %.lr.ph959.preheader ]
-  %.128.i.i956 = phi i64 [ %1089, %1088 ], [ %.027.i.i.lcssa1125, %.lr.ph959.preheader ]
+  %.224.i.i958 = phi ptr [ %1091, %1088 ], [ %.022.i.i.lcssa1237, %.lr.ph959.preheader ]
+  %.126.i.i957 = phi ptr [ %1090, %1088 ], [ %.025.i.i.lcssa1236, %.lr.ph959.preheader ]
+  %.128.i.i956 = phi i64 [ %1089, %1088 ], [ %.027.i.i.lcssa1235, %.lr.ph959.preheader ]
   %1085 = load i8, ptr %.224.i.i958, align 1, !tbaa !53, !noalias !441
   %1086 = load i8, ptr %.126.i.i957, align 1, !tbaa !53, !alias.scope !434, !noalias !437
   %1087 = icmp eq i8 %1085, %1086
@@ -10260,14 +10260,14 @@ GetInsertLengthCode.exit:                         ; preds = %1224, %1228, %1242,
   %1256 = sub nuw nsw i32 30, %1255
   %1257 = shl nuw nsw i32 %1256, 1
   %1258 = lshr i32 %narrow, %1256
-  %1259 = add i32 %1258, %1257
+  %1259 = add nuw nsw i32 %1258, %1257
   br label %GetCopyLengthCode.exit
 
 1260:                                             ; preds = %1252
   %1261 = icmp ult i32 %1219, 2118
-  br i1 %1261, label %GetCopyLengthCode.exit.thread1128, label %GetCopyLengthCode.exit.thread
+  br i1 %1261, label %GetCopyLengthCode.exit.thread1238, label %GetCopyLengthCode.exit.thread
 
-GetCopyLengthCode.exit.thread1128:                ; preds = %1260
+GetCopyLengthCode.exit.thread1238:                ; preds = %1260
   %1262 = add nsw i32 %1219, -70
   %1263 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %1262, i1 true)
   %1264 = trunc nuw nsw i32 %1263 to i16
@@ -10275,10 +10275,10 @@ GetCopyLengthCode.exit.thread1128:                ; preds = %1260
   br label %GetCopyLengthCode.exit.thread
 
 GetCopyLengthCode.exit:                           ; preds = %GetInsertLengthCode.exit, %1254
-  %.sink1292 = phi i32 [ %1259, %1254 ], [ %1219, %GetInsertLengthCode.exit ]
-  %.sink1291 = phi i16 [ 4, %1254 ], [ -2, %GetInsertLengthCode.exit ]
-  %1266 = trunc i32 %.sink1292 to i16
-  %1267 = add nsw i16 %.sink1291, %1266
+  %.sink1323 = phi i32 [ %1259, %1254 ], [ %1219, %GetInsertLengthCode.exit ]
+  %.sink1322 = phi i16 [ 4, %1254 ], [ -2, %GetInsertLengthCode.exit ]
+  %1266 = trunc nuw nsw i32 %.sink1323 to i16
+  %1267 = add nsw i16 %.sink1322, %1266
   %1268 = icmp samesign ult i16 %.0.i278, 8
   %or.cond.i280 = and i1 %1221, %1268
   %1269 = icmp ult i16 %1267, 16
@@ -10290,8 +10290,8 @@ GetCopyLengthCode.exit:                           ; preds = %GetInsertLengthCode
   %1272 = and i16 %1271, 64
   br label %CombineLengthCodes.exit
 
-GetCopyLengthCode.exit.thread:                    ; preds = %GetCopyLengthCode.exit.thread1128, %1260, %GetCopyLengthCode.exit
-  %.0.i279578 = phi i16 [ %1267, %GetCopyLengthCode.exit ], [ 23, %1260 ], [ %1265, %GetCopyLengthCode.exit.thread1128 ]
+GetCopyLengthCode.exit.thread:                    ; preds = %GetCopyLengthCode.exit.thread1238, %1260, %GetCopyLengthCode.exit
+  %.0.i279578 = phi i16 [ %1267, %GetCopyLengthCode.exit ], [ 23, %1260 ], [ %1265, %GetCopyLengthCode.exit.thread1238 ]
   %1273 = lshr i16 %.0.i279578, 3
   %1274 = lshr i16 %.0.i278, 3
   %narrow.i = mul nuw nsw i16 %1274, 3
@@ -10736,7 +10736,7 @@ FindMatchLengthWithLimit.exit164.i:               ; preds = %112, %.critedge.i15
   %145 = and i32 %144, 4
   %narrow.i.i311 = add nuw nsw i32 %145, 39
   %146 = zext nneg i32 %narrow.i.i311 to i64
-  %147 = sub i64 %138, %146
+  %147 = sub nuw i64 %138, %146
   br label %148
 
 148:                                              ; preds = %141, %140
@@ -11004,10 +11004,10 @@ FindMatchLengthWithLimit.exit.i303:               ; preds = %187, %.critedge.i.i
   br i1 %.not.i.i.i679, label %.critedge.i.i.i, label %.lr.ph683.preheader
 
 .lr.ph683.preheader:                              ; preds = %266, %.preheader583
-  %.022.i.i.i.lcssa1018 = phi ptr [ %287, %.preheader583 ], [ %93, %266 ]
-  %.025.i.i.i.lcssa1017 = phi ptr [ %286, %.preheader583 ], [ %276, %266 ]
-  %.027.i.i.i.lcssa1016 = phi i64 [ %288, %.preheader583 ], [ %260, %266 ]
-  %scevgep995 = getelementptr i8, ptr %.022.i.i.i.lcssa1018, i64 %.027.i.i.i.lcssa1016
+  %.022.i.i.i.lcssa1118 = phi ptr [ %287, %.preheader583 ], [ %93, %266 ]
+  %.025.i.i.i.lcssa1117 = phi ptr [ %286, %.preheader583 ], [ %276, %266 ]
+  %.027.i.i.i.lcssa1116 = phi i64 [ %288, %.preheader583 ], [ %260, %266 ]
+  %scevgep995 = getelementptr i8, ptr %.022.i.i.i.lcssa1118, i64 %.027.i.i.i.lcssa1116
   br label %.lr.ph683
 
 .lr.ph675:                                        ; preds = %266, %285
@@ -11036,9 +11036,9 @@ FindMatchLengthWithLimit.exit.i303:               ; preds = %187, %.critedge.i.i
   br i1 %289, label %.lr.ph675, label %.preheader583, !llvm.loop !63
 
 .lr.ph683:                                        ; preds = %.lr.ph683.preheader, %293
-  %.224.i.i.i682 = phi ptr [ %296, %293 ], [ %.022.i.i.i.lcssa1018, %.lr.ph683.preheader ]
-  %.126.i.i.i681 = phi ptr [ %295, %293 ], [ %.025.i.i.i.lcssa1017, %.lr.ph683.preheader ]
-  %.128.i.i.i680 = phi i64 [ %294, %293 ], [ %.027.i.i.i.lcssa1016, %.lr.ph683.preheader ]
+  %.224.i.i.i682 = phi ptr [ %296, %293 ], [ %.022.i.i.i.lcssa1118, %.lr.ph683.preheader ]
+  %.126.i.i.i681 = phi ptr [ %295, %293 ], [ %.025.i.i.i.lcssa1117, %.lr.ph683.preheader ]
+  %.128.i.i.i680 = phi i64 [ %294, %293 ], [ %.027.i.i.i.lcssa1116, %.lr.ph683.preheader ]
   %290 = load i8, ptr %.224.i.i.i682, align 1, !tbaa !53, !alias.scope !482, !noalias !492
   %291 = load i8, ptr %.126.i.i.i681, align 1, !tbaa !53, !noalias !508
   %292 = icmp eq i8 %290, %291
@@ -11304,7 +11304,7 @@ FindMatchLengthWithLimit.exit162.i263:            ; preds = %404, %.critedge.i15
   %437 = and i32 %436, 4
   %narrow.i.i268 = add nuw nsw i32 %437, 39
   %438 = zext nneg i32 %narrow.i.i268 to i64
-  %439 = sub i64 %430, %438
+  %439 = sub nuw i64 %430, %438
   br label %440
 
 440:                                              ; preds = %433, %432
@@ -11380,10 +11380,10 @@ FindMatchLengthWithLimit.exit162.i263:            ; preds = %404, %.critedge.i15
   br i1 %.not.i.i243723, label %.critedge.i.i244, label %.lr.ph727.preheader
 
 .lr.ph727.preheader:                              ; preds = %463, %.preheader581
-  %.022.i.i238.lcssa1025 = phi ptr [ %476, %.preheader581 ], [ %464, %463 ]
-  %.025.i.i237.lcssa1024 = phi ptr [ %475, %.preheader581 ], [ %93, %463 ]
-  %.027.i.i236.lcssa1023 = phi i64 [ %477, %.preheader581 ], [ %452, %463 ]
-  %scevgep998 = getelementptr i8, ptr %.022.i.i238.lcssa1025, i64 %.027.i.i236.lcssa1023
+  %.022.i.i238.lcssa1125 = phi ptr [ %476, %.preheader581 ], [ %464, %463 ]
+  %.025.i.i237.lcssa1124 = phi ptr [ %475, %.preheader581 ], [ %93, %463 ]
+  %.027.i.i236.lcssa1123 = phi i64 [ %477, %.preheader581 ], [ %452, %463 ]
+  %scevgep998 = getelementptr i8, ptr %.022.i.i238.lcssa1125, i64 %.027.i.i236.lcssa1123
   br label %.lr.ph727
 
 .lr.ph719:                                        ; preds = %463, %474
@@ -11413,9 +11413,9 @@ FindMatchLengthWithLimit.exit162.i263:            ; preds = %404, %.critedge.i15
   br i1 %478, label %.lr.ph719, label %.preheader581, !llvm.loop !63
 
 .lr.ph727:                                        ; preds = %.lr.ph727.preheader, %482
-  %.224.i.i242726 = phi ptr [ %485, %482 ], [ %.022.i.i238.lcssa1025, %.lr.ph727.preheader ]
-  %.126.i.i241725 = phi ptr [ %484, %482 ], [ %.025.i.i237.lcssa1024, %.lr.ph727.preheader ]
-  %.128.i.i240724 = phi i64 [ %483, %482 ], [ %.027.i.i236.lcssa1023, %.lr.ph727.preheader ]
+  %.224.i.i242726 = phi ptr [ %485, %482 ], [ %.022.i.i238.lcssa1125, %.lr.ph727.preheader ]
+  %.126.i.i241725 = phi ptr [ %484, %482 ], [ %.025.i.i237.lcssa1124, %.lr.ph727.preheader ]
+  %.128.i.i240724 = phi i64 [ %483, %482 ], [ %.027.i.i236.lcssa1123, %.lr.ph727.preheader ]
   %479 = load i8, ptr %.224.i.i242726, align 1, !tbaa !53, !noalias !521
   %480 = load i8, ptr %.126.i.i241725, align 1, !tbaa !53, !alias.scope !514, !noalias !517
   %481 = icmp eq i8 %479, %480
@@ -11665,7 +11665,7 @@ FindMatchLengthWithLimit.exit164.i392:            ; preds = %559, %.critedge.i15
   %592 = and i32 %591, 4
   %narrow.i.i395 = add nuw nsw i32 %592, 39
   %593 = zext nneg i32 %narrow.i.i395 to i64
-  %594 = sub i64 %585, %593
+  %594 = sub nuw i64 %585, %593
   br label %595
 
 595:                                              ; preds = %588, %587
@@ -11932,10 +11932,10 @@ FindMatchLengthWithLimit.exit.i370:               ; preds = %634, %.critedge.i.i
   br i1 %.not.i.i.i348828, label %.critedge.i.i.i349, label %.lr.ph832.preheader
 
 .lr.ph832.preheader:                              ; preds = %712, %.preheader578
-  %.022.i.i.i343.lcssa1032 = phi ptr [ %733, %.preheader578 ], [ %540, %712 ]
-  %.025.i.i.i342.lcssa1031 = phi ptr [ %732, %.preheader578 ], [ %722, %712 ]
-  %.027.i.i.i341.lcssa1030 = phi i64 [ %734, %.preheader578 ], [ %706, %712 ]
-  %scevgep1003 = getelementptr i8, ptr %.022.i.i.i343.lcssa1032, i64 %.027.i.i.i341.lcssa1030
+  %.022.i.i.i343.lcssa1132 = phi ptr [ %733, %.preheader578 ], [ %540, %712 ]
+  %.025.i.i.i342.lcssa1131 = phi ptr [ %732, %.preheader578 ], [ %722, %712 ]
+  %.027.i.i.i341.lcssa1130 = phi i64 [ %734, %.preheader578 ], [ %706, %712 ]
+  %scevgep1003 = getelementptr i8, ptr %.022.i.i.i343.lcssa1132, i64 %.027.i.i.i341.lcssa1130
   br label %.lr.ph832
 
 .lr.ph824:                                        ; preds = %712, %731
@@ -11964,9 +11964,9 @@ FindMatchLengthWithLimit.exit.i370:               ; preds = %634, %.critedge.i.i
   br i1 %735, label %.lr.ph824, label %.preheader578, !llvm.loop !63
 
 .lr.ph832:                                        ; preds = %.lr.ph832.preheader, %739
-  %.224.i.i.i347831 = phi ptr [ %742, %739 ], [ %.022.i.i.i343.lcssa1032, %.lr.ph832.preheader ]
-  %.126.i.i.i346830 = phi ptr [ %741, %739 ], [ %.025.i.i.i342.lcssa1031, %.lr.ph832.preheader ]
-  %.128.i.i.i345829 = phi i64 [ %740, %739 ], [ %.027.i.i.i341.lcssa1030, %.lr.ph832.preheader ]
+  %.224.i.i.i347831 = phi ptr [ %742, %739 ], [ %.022.i.i.i343.lcssa1132, %.lr.ph832.preheader ]
+  %.126.i.i.i346830 = phi ptr [ %741, %739 ], [ %.025.i.i.i342.lcssa1131, %.lr.ph832.preheader ]
+  %.128.i.i.i345829 = phi i64 [ %740, %739 ], [ %.027.i.i.i341.lcssa1130, %.lr.ph832.preheader ]
   %736 = load i8, ptr %.224.i.i.i347831, align 1, !tbaa !53, !alias.scope !533, !noalias !540
   %737 = load i8, ptr %.126.i.i.i346830, align 1, !tbaa !53, !noalias !543
   %738 = icmp eq i8 %736, %737
@@ -12232,7 +12232,7 @@ FindMatchLengthWithLimit.exit162.i:               ; preds = %850, %.critedge.i15
   %883 = and i32 %882, 4
   %narrow.i.i = add nuw nsw i32 %883, 39
   %884 = zext nneg i32 %narrow.i.i to i64
-  %885 = sub i64 %876, %884
+  %885 = sub nuw i64 %876, %884
   br label %886
 
 886:                                              ; preds = %879, %878
@@ -12308,10 +12308,10 @@ FindMatchLengthWithLimit.exit162.i:               ; preds = %850, %.critedge.i15
   br i1 %.not.i.i873, label %.critedge.i.i, label %.lr.ph877.preheader
 
 .lr.ph877.preheader:                              ; preds = %909, %.preheader
-  %.022.i.i.lcssa1039 = phi ptr [ %922, %.preheader ], [ %910, %909 ]
-  %.025.i.i.lcssa1038 = phi ptr [ %921, %.preheader ], [ %540, %909 ]
-  %.027.i.i.lcssa1037 = phi i64 [ %923, %.preheader ], [ %898, %909 ]
-  %scevgep1006 = getelementptr i8, ptr %.022.i.i.lcssa1039, i64 %.027.i.i.lcssa1037
+  %.022.i.i.lcssa1139 = phi ptr [ %922, %.preheader ], [ %910, %909 ]
+  %.025.i.i.lcssa1138 = phi ptr [ %921, %.preheader ], [ %540, %909 ]
+  %.027.i.i.lcssa1137 = phi i64 [ %923, %.preheader ], [ %898, %909 ]
+  %scevgep1006 = getelementptr i8, ptr %.022.i.i.lcssa1139, i64 %.027.i.i.lcssa1137
   br label %.lr.ph877
 
 .lr.ph869:                                        ; preds = %909, %920
@@ -12341,9 +12341,9 @@ FindMatchLengthWithLimit.exit162.i:               ; preds = %850, %.critedge.i15
   br i1 %924, label %.lr.ph869, label %.preheader, !llvm.loop !63
 
 .lr.ph877:                                        ; preds = %.lr.ph877.preheader, %928
-  %.224.i.i876 = phi ptr [ %931, %928 ], [ %.022.i.i.lcssa1039, %.lr.ph877.preheader ]
-  %.126.i.i875 = phi ptr [ %930, %928 ], [ %.025.i.i.lcssa1038, %.lr.ph877.preheader ]
-  %.128.i.i874 = phi i64 [ %929, %928 ], [ %.027.i.i.lcssa1037, %.lr.ph877.preheader ]
+  %.224.i.i876 = phi ptr [ %931, %928 ], [ %.022.i.i.lcssa1139, %.lr.ph877.preheader ]
+  %.126.i.i875 = phi ptr [ %930, %928 ], [ %.025.i.i.lcssa1138, %.lr.ph877.preheader ]
+  %.128.i.i874 = phi i64 [ %929, %928 ], [ %.027.i.i.lcssa1137, %.lr.ph877.preheader ]
   %925 = load i8, ptr %.224.i.i876, align 1, !tbaa !53, !noalias !556
   %926 = load i8, ptr %.126.i.i875, align 1, !tbaa !53, !alias.scope !549, !noalias !552
   %927 = icmp eq i8 %925, %926
@@ -12635,14 +12635,14 @@ GetInsertLengthCode.exit:                         ; preds = %1047, %1051, %1065,
   %1079 = sub nuw nsw i32 30, %1078
   %1080 = shl nuw nsw i32 %1079, 1
   %1081 = lshr i32 %narrow, %1079
-  %1082 = add i32 %1081, %1080
+  %1082 = add nuw nsw i32 %1081, %1080
   br label %GetCopyLengthCode.exit
 
 1083:                                             ; preds = %1075
   %1084 = icmp ult i32 %1042, 2118
-  br i1 %1084, label %GetCopyLengthCode.exit.thread1040, label %GetCopyLengthCode.exit.thread
+  br i1 %1084, label %GetCopyLengthCode.exit.thread1140, label %GetCopyLengthCode.exit.thread
 
-GetCopyLengthCode.exit.thread1040:                ; preds = %1083
+GetCopyLengthCode.exit.thread1140:                ; preds = %1083
   %1085 = add nsw i32 %1042, -70
   %1086 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %1085, i1 true)
   %1087 = trunc nuw nsw i32 %1086 to i16
@@ -12650,10 +12650,10 @@ GetCopyLengthCode.exit.thread1040:                ; preds = %1083
   br label %GetCopyLengthCode.exit.thread
 
 GetCopyLengthCode.exit:                           ; preds = %GetInsertLengthCode.exit, %1077
-  %.sink1204 = phi i32 [ %1082, %1077 ], [ %1042, %GetInsertLengthCode.exit ]
-  %.sink1203 = phi i16 [ 4, %1077 ], [ -2, %GetInsertLengthCode.exit ]
-  %1089 = trunc i32 %.sink1204 to i16
-  %1090 = add nsw i16 %.sink1203, %1089
+  %.sink1224 = phi i32 [ %1082, %1077 ], [ %1042, %GetInsertLengthCode.exit ]
+  %.sink1223 = phi i16 [ 4, %1077 ], [ -2, %GetInsertLengthCode.exit ]
+  %1089 = trunc nuw nsw i32 %.sink1224 to i16
+  %1090 = add nsw i16 %.sink1223, %1089
   %1091 = icmp samesign ult i16 %.0.i278, 8
   %or.cond.i280 = and i1 %1044, %1091
   %1092 = icmp ult i16 %1090, 16
@@ -12665,8 +12665,8 @@ GetCopyLengthCode.exit:                           ; preds = %GetInsertLengthCode
   %1095 = and i16 %1094, 64
   br label %CombineLengthCodes.exit
 
-GetCopyLengthCode.exit.thread:                    ; preds = %GetCopyLengthCode.exit.thread1040, %1083, %GetCopyLengthCode.exit
-  %.0.i279549 = phi i16 [ %1090, %GetCopyLengthCode.exit ], [ 23, %1083 ], [ %1088, %GetCopyLengthCode.exit.thread1040 ]
+GetCopyLengthCode.exit.thread:                    ; preds = %GetCopyLengthCode.exit.thread1140, %1083, %GetCopyLengthCode.exit
+  %.0.i279549 = phi i16 [ %1090, %GetCopyLengthCode.exit ], [ 23, %1083 ], [ %1088, %GetCopyLengthCode.exit.thread1140 ]
   %1096 = lshr i16 %.0.i279549, 3
   %1097 = lshr i16 %.0.i278, 3
   %narrow.i = mul nuw nsw i16 %1097, 3
@@ -12869,12 +12869,12 @@ CombineLengthCodes.exit:                          ; preds = %1093, %GetCopyLengt
   br i1 %1223, label %1199, label %StoreRangeH40.exit.sink.split, !llvm.loop !584
 
 StoreRangeH40.exit.sink.split:                    ; preds = %1199, %1166, %1128
-  %.lcssa1075.sink = phi i16 [ %1135, %1128 ], [ %1173, %1166 ], [ %1206, %1199 ]
+  %.lcssa1175.sink = phi i16 [ %1135, %1128 ], [ %1173, %1166 ], [ %1206, %1199 ]
   %.1190.ph = phi i64 [ %957, %1128 ], [ %.0189908, %1166 ], [ %.0189908, %1199 ]
   %.4186.ph = phi i64 [ 0, %1128 ], [ %1188, %1166 ], [ %1221, %1199 ]
   %.1181.ph = phi ptr [ %1000, %1128 ], [ %.0180910, %1166 ], [ %.0180910, %1199 ]
   %.4.ph = phi i64 [ %1113, %1128 ], [ %1189, %1166 ], [ %1222, %1199 ]
-  store i16 %.lcssa1075.sink, ptr %13, align 2, !tbaa !67, !noalias !585
+  store i16 %.lcssa1175.sink, ptr %13, align 2, !tbaa !67, !noalias !585
   br label %StoreRangeH40.exit
 
 StoreRangeH40.exit:                               ; preds = %StoreRangeH40.exit.sink.split, %1191, %1158, %1122, %1151
@@ -13154,7 +13154,7 @@ FindMatchLengthWithLimit.exit164.i:               ; preds = %125, %.critedge.i15
   %158 = and i32 %157, 14
   %narrow.i.i311 = add nuw nsw i32 %158, 39
   %159 = zext nneg i32 %narrow.i.i311 to i64
-  %160 = sub i64 %151, %159
+  %160 = sub nuw i64 %151, %159
   br label %161
 
 161:                                              ; preds = %154, %153
@@ -13422,10 +13422,10 @@ FindMatchLengthWithLimit.exit.i303:               ; preds = %200, %.critedge.i.i
   br i1 %.not.i.i.i679, label %.critedge.i.i.i, label %.lr.ph683.preheader
 
 .lr.ph683.preheader:                              ; preds = %279, %.preheader583
-  %.022.i.i.i.lcssa1018 = phi ptr [ %300, %.preheader583 ], [ %106, %279 ]
-  %.025.i.i.i.lcssa1017 = phi ptr [ %299, %.preheader583 ], [ %289, %279 ]
-  %.027.i.i.i.lcssa1016 = phi i64 [ %301, %.preheader583 ], [ %273, %279 ]
-  %scevgep995 = getelementptr i8, ptr %.022.i.i.i.lcssa1018, i64 %.027.i.i.i.lcssa1016
+  %.022.i.i.i.lcssa1118 = phi ptr [ %300, %.preheader583 ], [ %106, %279 ]
+  %.025.i.i.i.lcssa1117 = phi ptr [ %299, %.preheader583 ], [ %289, %279 ]
+  %.027.i.i.i.lcssa1116 = phi i64 [ %301, %.preheader583 ], [ %273, %279 ]
+  %scevgep995 = getelementptr i8, ptr %.022.i.i.i.lcssa1118, i64 %.027.i.i.i.lcssa1116
   br label %.lr.ph683
 
 .lr.ph675:                                        ; preds = %279, %298
@@ -13454,9 +13454,9 @@ FindMatchLengthWithLimit.exit.i303:               ; preds = %200, %.critedge.i.i
   br i1 %302, label %.lr.ph675, label %.preheader583, !llvm.loop !63
 
 .lr.ph683:                                        ; preds = %.lr.ph683.preheader, %306
-  %.224.i.i.i682 = phi ptr [ %309, %306 ], [ %.022.i.i.i.lcssa1018, %.lr.ph683.preheader ]
-  %.126.i.i.i681 = phi ptr [ %308, %306 ], [ %.025.i.i.i.lcssa1017, %.lr.ph683.preheader ]
-  %.128.i.i.i680 = phi i64 [ %307, %306 ], [ %.027.i.i.i.lcssa1016, %.lr.ph683.preheader ]
+  %.224.i.i.i682 = phi ptr [ %309, %306 ], [ %.022.i.i.i.lcssa1118, %.lr.ph683.preheader ]
+  %.126.i.i.i681 = phi ptr [ %308, %306 ], [ %.025.i.i.i.lcssa1117, %.lr.ph683.preheader ]
+  %.128.i.i.i680 = phi i64 [ %307, %306 ], [ %.027.i.i.i.lcssa1116, %.lr.ph683.preheader ]
   %303 = load i8, ptr %.224.i.i.i682, align 1, !tbaa !53, !alias.scope !595, !noalias !604
   %304 = load i8, ptr %.126.i.i.i681, align 1, !tbaa !53, !noalias !620
   %305 = icmp eq i8 %303, %304
@@ -13722,7 +13722,7 @@ FindMatchLengthWithLimit.exit162.i263:            ; preds = %417, %.critedge.i15
   %450 = and i32 %449, 4
   %narrow.i.i268 = add nuw nsw i32 %450, 39
   %451 = zext nneg i32 %narrow.i.i268 to i64
-  %452 = sub i64 %443, %451
+  %452 = sub nuw i64 %443, %451
   br label %453
 
 453:                                              ; preds = %446, %445
@@ -13798,10 +13798,10 @@ FindMatchLengthWithLimit.exit162.i263:            ; preds = %417, %.critedge.i15
   br i1 %.not.i.i243723, label %.critedge.i.i244, label %.lr.ph727.preheader
 
 .lr.ph727.preheader:                              ; preds = %476, %.preheader581
-  %.022.i.i238.lcssa1025 = phi ptr [ %489, %.preheader581 ], [ %477, %476 ]
-  %.025.i.i237.lcssa1024 = phi ptr [ %488, %.preheader581 ], [ %106, %476 ]
-  %.027.i.i236.lcssa1023 = phi i64 [ %490, %.preheader581 ], [ %465, %476 ]
-  %scevgep998 = getelementptr i8, ptr %.022.i.i238.lcssa1025, i64 %.027.i.i236.lcssa1023
+  %.022.i.i238.lcssa1125 = phi ptr [ %489, %.preheader581 ], [ %477, %476 ]
+  %.025.i.i237.lcssa1124 = phi ptr [ %488, %.preheader581 ], [ %106, %476 ]
+  %.027.i.i236.lcssa1123 = phi i64 [ %490, %.preheader581 ], [ %465, %476 ]
+  %scevgep998 = getelementptr i8, ptr %.022.i.i238.lcssa1125, i64 %.027.i.i236.lcssa1123
   br label %.lr.ph727
 
 .lr.ph719:                                        ; preds = %476, %487
@@ -13831,9 +13831,9 @@ FindMatchLengthWithLimit.exit162.i263:            ; preds = %417, %.critedge.i15
   br i1 %491, label %.lr.ph719, label %.preheader581, !llvm.loop !63
 
 .lr.ph727:                                        ; preds = %.lr.ph727.preheader, %495
-  %.224.i.i242726 = phi ptr [ %498, %495 ], [ %.022.i.i238.lcssa1025, %.lr.ph727.preheader ]
-  %.126.i.i241725 = phi ptr [ %497, %495 ], [ %.025.i.i237.lcssa1024, %.lr.ph727.preheader ]
-  %.128.i.i240724 = phi i64 [ %496, %495 ], [ %.027.i.i236.lcssa1023, %.lr.ph727.preheader ]
+  %.224.i.i242726 = phi ptr [ %498, %495 ], [ %.022.i.i238.lcssa1125, %.lr.ph727.preheader ]
+  %.126.i.i241725 = phi ptr [ %497, %495 ], [ %.025.i.i237.lcssa1124, %.lr.ph727.preheader ]
+  %.128.i.i240724 = phi i64 [ %496, %495 ], [ %.027.i.i236.lcssa1123, %.lr.ph727.preheader ]
   %492 = load i8, ptr %.224.i.i242726, align 1, !tbaa !53, !noalias !633
   %493 = load i8, ptr %.126.i.i241725, align 1, !tbaa !53, !alias.scope !626, !noalias !629
   %494 = icmp eq i8 %492, %493
@@ -14083,7 +14083,7 @@ FindMatchLengthWithLimit.exit164.i392:            ; preds = %572, %.critedge.i15
   %605 = and i32 %604, 14
   %narrow.i.i395 = add nuw nsw i32 %605, 39
   %606 = zext nneg i32 %narrow.i.i395 to i64
-  %607 = sub i64 %598, %606
+  %607 = sub nuw i64 %598, %606
   br label %608
 
 608:                                              ; preds = %601, %600
@@ -14350,10 +14350,10 @@ FindMatchLengthWithLimit.exit.i370:               ; preds = %647, %.critedge.i.i
   br i1 %.not.i.i.i348828, label %.critedge.i.i.i349, label %.lr.ph832.preheader
 
 .lr.ph832.preheader:                              ; preds = %725, %.preheader578
-  %.022.i.i.i343.lcssa1032 = phi ptr [ %746, %.preheader578 ], [ %553, %725 ]
-  %.025.i.i.i342.lcssa1031 = phi ptr [ %745, %.preheader578 ], [ %735, %725 ]
-  %.027.i.i.i341.lcssa1030 = phi i64 [ %747, %.preheader578 ], [ %719, %725 ]
-  %scevgep1003 = getelementptr i8, ptr %.022.i.i.i343.lcssa1032, i64 %.027.i.i.i341.lcssa1030
+  %.022.i.i.i343.lcssa1132 = phi ptr [ %746, %.preheader578 ], [ %553, %725 ]
+  %.025.i.i.i342.lcssa1131 = phi ptr [ %745, %.preheader578 ], [ %735, %725 ]
+  %.027.i.i.i341.lcssa1130 = phi i64 [ %747, %.preheader578 ], [ %719, %725 ]
+  %scevgep1003 = getelementptr i8, ptr %.022.i.i.i343.lcssa1132, i64 %.027.i.i.i341.lcssa1130
   br label %.lr.ph832
 
 .lr.ph824:                                        ; preds = %725, %744
@@ -14382,9 +14382,9 @@ FindMatchLengthWithLimit.exit.i370:               ; preds = %647, %.critedge.i.i
   br i1 %748, label %.lr.ph824, label %.preheader578, !llvm.loop !63
 
 .lr.ph832:                                        ; preds = %.lr.ph832.preheader, %752
-  %.224.i.i.i347831 = phi ptr [ %755, %752 ], [ %.022.i.i.i343.lcssa1032, %.lr.ph832.preheader ]
-  %.126.i.i.i346830 = phi ptr [ %754, %752 ], [ %.025.i.i.i342.lcssa1031, %.lr.ph832.preheader ]
-  %.128.i.i.i345829 = phi i64 [ %753, %752 ], [ %.027.i.i.i341.lcssa1030, %.lr.ph832.preheader ]
+  %.224.i.i.i347831 = phi ptr [ %755, %752 ], [ %.022.i.i.i343.lcssa1132, %.lr.ph832.preheader ]
+  %.126.i.i.i346830 = phi ptr [ %754, %752 ], [ %.025.i.i.i342.lcssa1131, %.lr.ph832.preheader ]
+  %.128.i.i.i345829 = phi i64 [ %753, %752 ], [ %.027.i.i.i341.lcssa1130, %.lr.ph832.preheader ]
   %749 = load i8, ptr %.224.i.i.i347831, align 1, !tbaa !53, !alias.scope !645, !noalias !652
   %750 = load i8, ptr %.126.i.i.i346830, align 1, !tbaa !53, !noalias !655
   %751 = icmp eq i8 %749, %750
@@ -14650,7 +14650,7 @@ FindMatchLengthWithLimit.exit162.i:               ; preds = %863, %.critedge.i15
   %896 = and i32 %895, 4
   %narrow.i.i = add nuw nsw i32 %896, 39
   %897 = zext nneg i32 %narrow.i.i to i64
-  %898 = sub i64 %889, %897
+  %898 = sub nuw i64 %889, %897
   br label %899
 
 899:                                              ; preds = %892, %891
@@ -14726,10 +14726,10 @@ FindMatchLengthWithLimit.exit162.i:               ; preds = %863, %.critedge.i15
   br i1 %.not.i.i873, label %.critedge.i.i, label %.lr.ph877.preheader
 
 .lr.ph877.preheader:                              ; preds = %922, %.preheader
-  %.022.i.i.lcssa1039 = phi ptr [ %935, %.preheader ], [ %923, %922 ]
-  %.025.i.i.lcssa1038 = phi ptr [ %934, %.preheader ], [ %553, %922 ]
-  %.027.i.i.lcssa1037 = phi i64 [ %936, %.preheader ], [ %911, %922 ]
-  %scevgep1006 = getelementptr i8, ptr %.022.i.i.lcssa1039, i64 %.027.i.i.lcssa1037
+  %.022.i.i.lcssa1139 = phi ptr [ %935, %.preheader ], [ %923, %922 ]
+  %.025.i.i.lcssa1138 = phi ptr [ %934, %.preheader ], [ %553, %922 ]
+  %.027.i.i.lcssa1137 = phi i64 [ %936, %.preheader ], [ %911, %922 ]
+  %scevgep1006 = getelementptr i8, ptr %.022.i.i.lcssa1139, i64 %.027.i.i.lcssa1137
   br label %.lr.ph877
 
 .lr.ph869:                                        ; preds = %922, %933
@@ -14759,9 +14759,9 @@ FindMatchLengthWithLimit.exit162.i:               ; preds = %863, %.critedge.i15
   br i1 %937, label %.lr.ph869, label %.preheader, !llvm.loop !63
 
 .lr.ph877:                                        ; preds = %.lr.ph877.preheader, %941
-  %.224.i.i876 = phi ptr [ %944, %941 ], [ %.022.i.i.lcssa1039, %.lr.ph877.preheader ]
-  %.126.i.i875 = phi ptr [ %943, %941 ], [ %.025.i.i.lcssa1038, %.lr.ph877.preheader ]
-  %.128.i.i874 = phi i64 [ %942, %941 ], [ %.027.i.i.lcssa1037, %.lr.ph877.preheader ]
+  %.224.i.i876 = phi ptr [ %944, %941 ], [ %.022.i.i.lcssa1139, %.lr.ph877.preheader ]
+  %.126.i.i875 = phi ptr [ %943, %941 ], [ %.025.i.i.lcssa1138, %.lr.ph877.preheader ]
+  %.128.i.i874 = phi i64 [ %942, %941 ], [ %.027.i.i.lcssa1137, %.lr.ph877.preheader ]
   %938 = load i8, ptr %.224.i.i876, align 1, !tbaa !53, !noalias !668
   %939 = load i8, ptr %.126.i.i875, align 1, !tbaa !53, !alias.scope !661, !noalias !664
   %940 = icmp eq i8 %938, %939
@@ -15065,14 +15065,14 @@ GetInsertLengthCode.exit:                         ; preds = %1066, %1070, %1084,
   %1098 = sub nuw nsw i32 30, %1097
   %1099 = shl nuw nsw i32 %1098, 1
   %1100 = lshr i32 %narrow, %1098
-  %1101 = add i32 %1100, %1099
+  %1101 = add nuw nsw i32 %1100, %1099
   br label %GetCopyLengthCode.exit
 
 1102:                                             ; preds = %1094
   %1103 = icmp ult i32 %1061, 2118
-  br i1 %1103, label %GetCopyLengthCode.exit.thread1040, label %GetCopyLengthCode.exit.thread
+  br i1 %1103, label %GetCopyLengthCode.exit.thread1140, label %GetCopyLengthCode.exit.thread
 
-GetCopyLengthCode.exit.thread1040:                ; preds = %1102
+GetCopyLengthCode.exit.thread1140:                ; preds = %1102
   %1104 = add nsw i32 %1061, -70
   %1105 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %1104, i1 true)
   %1106 = trunc nuw nsw i32 %1105 to i16
@@ -15080,10 +15080,10 @@ GetCopyLengthCode.exit.thread1040:                ; preds = %1102
   br label %GetCopyLengthCode.exit.thread
 
 GetCopyLengthCode.exit:                           ; preds = %GetInsertLengthCode.exit, %1096
-  %.sink1204 = phi i32 [ %1101, %1096 ], [ %1061, %GetInsertLengthCode.exit ]
-  %.sink1203 = phi i16 [ 4, %1096 ], [ -2, %GetInsertLengthCode.exit ]
-  %1108 = trunc i32 %.sink1204 to i16
-  %1109 = add nsw i16 %.sink1203, %1108
+  %.sink1224 = phi i32 [ %1101, %1096 ], [ %1061, %GetInsertLengthCode.exit ]
+  %.sink1223 = phi i16 [ 4, %1096 ], [ -2, %GetInsertLengthCode.exit ]
+  %1108 = trunc nuw nsw i32 %.sink1224 to i16
+  %1109 = add nsw i16 %.sink1223, %1108
   %1110 = icmp samesign ult i16 %.0.i278, 8
   %or.cond.i280 = and i1 %1063, %1110
   %1111 = icmp ult i16 %1109, 16
@@ -15095,8 +15095,8 @@ GetCopyLengthCode.exit:                           ; preds = %GetInsertLengthCode
   %1114 = and i16 %1113, 64
   br label %CombineLengthCodes.exit
 
-GetCopyLengthCode.exit.thread:                    ; preds = %GetCopyLengthCode.exit.thread1040, %1102, %GetCopyLengthCode.exit
-  %.0.i279549 = phi i16 [ %1109, %GetCopyLengthCode.exit ], [ 23, %1102 ], [ %1107, %GetCopyLengthCode.exit.thread1040 ]
+GetCopyLengthCode.exit.thread:                    ; preds = %GetCopyLengthCode.exit.thread1140, %1102, %GetCopyLengthCode.exit
+  %.0.i279549 = phi i16 [ %1109, %GetCopyLengthCode.exit ], [ 23, %1102 ], [ %1107, %GetCopyLengthCode.exit.thread1140 ]
   %1115 = lshr i16 %.0.i279549, 3
   %1116 = lshr i16 %.0.i278, 3
   %narrow.i = mul nuw nsw i16 %1116, 3
@@ -15299,12 +15299,12 @@ CombineLengthCodes.exit:                          ; preds = %1112, %GetCopyLengt
   br i1 %1242, label %1218, label %StoreRangeH41.exit.sink.split, !llvm.loop !701
 
 StoreRangeH41.exit.sink.split:                    ; preds = %1218, %1185, %1147
-  %.lcssa1075.sink = phi i16 [ %1154, %1147 ], [ %1192, %1185 ], [ %1225, %1218 ]
+  %.lcssa1175.sink = phi i16 [ %1154, %1147 ], [ %1192, %1185 ], [ %1225, %1218 ]
   %.1190.ph = phi i64 [ %970, %1147 ], [ %.0189908, %1185 ], [ %.0189908, %1218 ]
   %.4186.ph = phi i64 [ 0, %1147 ], [ %1207, %1185 ], [ %1240, %1218 ]
   %.1181.ph = phi ptr [ %1019, %1147 ], [ %.0180910, %1185 ], [ %.0180910, %1218 ]
   %.4.ph = phi i64 [ %1132, %1147 ], [ %1208, %1185 ], [ %1241, %1218 ]
-  store i16 %.lcssa1075.sink, ptr %13, align 2, !tbaa !67, !noalias !585
+  store i16 %.lcssa1175.sink, ptr %13, align 2, !tbaa !67, !noalias !585
   br label %StoreRangeH41.exit
 
 StoreRangeH41.exit:                               ; preds = %StoreRangeH41.exit.sink.split, %1210, %1177, %1141, %1170
@@ -15603,7 +15603,7 @@ FindMatchLengthWithLimit.exit164.i:               ; preds = %138, %.critedge.i15
   %171 = and i32 %170, 14
   %narrow.i.i311 = add nuw nsw i32 %171, 39
   %172 = zext nneg i32 %narrow.i.i311 to i64
-  %173 = sub i64 %164, %172
+  %173 = sub nuw i64 %164, %172
   br label %174
 
 174:                                              ; preds = %167, %166
@@ -15876,10 +15876,10 @@ FindMatchLengthWithLimit.exit.i303:               ; preds = %215, %.critedge.i.i
   br i1 %.not.i.i.i679, label %.critedge.i.i.i, label %.lr.ph683.preheader
 
 .lr.ph683.preheader:                              ; preds = %297, %.preheader583
-  %.022.i.i.i.lcssa1011 = phi ptr [ %318, %.preheader583 ], [ %119, %297 ]
-  %.025.i.i.i.lcssa1010 = phi ptr [ %317, %.preheader583 ], [ %307, %297 ]
-  %.027.i.i.i.lcssa1009 = phi i64 [ %319, %.preheader583 ], [ %291, %297 ]
-  %scevgep988 = getelementptr i8, ptr %.022.i.i.i.lcssa1011, i64 %.027.i.i.i.lcssa1009
+  %.022.i.i.i.lcssa1111 = phi ptr [ %318, %.preheader583 ], [ %119, %297 ]
+  %.025.i.i.i.lcssa1110 = phi ptr [ %317, %.preheader583 ], [ %307, %297 ]
+  %.027.i.i.i.lcssa1109 = phi i64 [ %319, %.preheader583 ], [ %291, %297 ]
+  %scevgep988 = getelementptr i8, ptr %.022.i.i.i.lcssa1111, i64 %.027.i.i.i.lcssa1109
   br label %.lr.ph683
 
 .lr.ph675:                                        ; preds = %297, %316
@@ -15908,9 +15908,9 @@ FindMatchLengthWithLimit.exit.i303:               ; preds = %215, %.critedge.i.i
   br i1 %320, label %.lr.ph675, label %.preheader583, !llvm.loop !63
 
 .lr.ph683:                                        ; preds = %.lr.ph683.preheader, %324
-  %.224.i.i.i682 = phi ptr [ %327, %324 ], [ %.022.i.i.i.lcssa1011, %.lr.ph683.preheader ]
-  %.126.i.i.i681 = phi ptr [ %326, %324 ], [ %.025.i.i.i.lcssa1010, %.lr.ph683.preheader ]
-  %.128.i.i.i680 = phi i64 [ %325, %324 ], [ %.027.i.i.i.lcssa1009, %.lr.ph683.preheader ]
+  %.224.i.i.i682 = phi ptr [ %327, %324 ], [ %.022.i.i.i.lcssa1111, %.lr.ph683.preheader ]
+  %.126.i.i.i681 = phi ptr [ %326, %324 ], [ %.025.i.i.i.lcssa1110, %.lr.ph683.preheader ]
+  %.128.i.i.i680 = phi i64 [ %325, %324 ], [ %.027.i.i.i.lcssa1109, %.lr.ph683.preheader ]
   %321 = load i8, ptr %.224.i.i.i682, align 1, !tbaa !53, !alias.scope !711, !noalias !720
   %322 = load i8, ptr %.126.i.i.i681, align 1, !tbaa !53, !noalias !736
   %323 = icmp eq i8 %321, %322
@@ -16176,7 +16176,7 @@ FindMatchLengthWithLimit.exit162.i263:            ; preds = %435, %.critedge.i15
   %468 = and i32 %467, 4
   %narrow.i.i268 = add nuw nsw i32 %468, 39
   %469 = zext nneg i32 %narrow.i.i268 to i64
-  %470 = sub i64 %461, %469
+  %470 = sub nuw i64 %461, %469
   br label %471
 
 471:                                              ; preds = %464, %463
@@ -16252,10 +16252,10 @@ FindMatchLengthWithLimit.exit162.i263:            ; preds = %435, %.critedge.i15
   br i1 %.not.i.i243723, label %.critedge.i.i244, label %.lr.ph727.preheader
 
 .lr.ph727.preheader:                              ; preds = %494, %.preheader581
-  %.022.i.i238.lcssa1018 = phi ptr [ %507, %.preheader581 ], [ %495, %494 ]
-  %.025.i.i237.lcssa1017 = phi ptr [ %506, %.preheader581 ], [ %119, %494 ]
-  %.027.i.i236.lcssa1016 = phi i64 [ %508, %.preheader581 ], [ %483, %494 ]
-  %scevgep991 = getelementptr i8, ptr %.022.i.i238.lcssa1018, i64 %.027.i.i236.lcssa1016
+  %.022.i.i238.lcssa1118 = phi ptr [ %507, %.preheader581 ], [ %495, %494 ]
+  %.025.i.i237.lcssa1117 = phi ptr [ %506, %.preheader581 ], [ %119, %494 ]
+  %.027.i.i236.lcssa1116 = phi i64 [ %508, %.preheader581 ], [ %483, %494 ]
+  %scevgep991 = getelementptr i8, ptr %.022.i.i238.lcssa1118, i64 %.027.i.i236.lcssa1116
   br label %.lr.ph727
 
 .lr.ph719:                                        ; preds = %494, %505
@@ -16285,9 +16285,9 @@ FindMatchLengthWithLimit.exit162.i263:            ; preds = %435, %.critedge.i15
   br i1 %509, label %.lr.ph719, label %.preheader581, !llvm.loop !63
 
 .lr.ph727:                                        ; preds = %.lr.ph727.preheader, %513
-  %.224.i.i242726 = phi ptr [ %516, %513 ], [ %.022.i.i238.lcssa1018, %.lr.ph727.preheader ]
-  %.126.i.i241725 = phi ptr [ %515, %513 ], [ %.025.i.i237.lcssa1017, %.lr.ph727.preheader ]
-  %.128.i.i240724 = phi i64 [ %514, %513 ], [ %.027.i.i236.lcssa1016, %.lr.ph727.preheader ]
+  %.224.i.i242726 = phi ptr [ %516, %513 ], [ %.022.i.i238.lcssa1118, %.lr.ph727.preheader ]
+  %.126.i.i241725 = phi ptr [ %515, %513 ], [ %.025.i.i237.lcssa1117, %.lr.ph727.preheader ]
+  %.128.i.i240724 = phi i64 [ %514, %513 ], [ %.027.i.i236.lcssa1116, %.lr.ph727.preheader ]
   %510 = load i8, ptr %.224.i.i242726, align 1, !tbaa !53, !noalias !749
   %511 = load i8, ptr %.126.i.i241725, align 1, !tbaa !53, !alias.scope !742, !noalias !745
   %512 = icmp eq i8 %510, %511
@@ -16535,7 +16535,7 @@ FindMatchLengthWithLimit.exit164.i392:            ; preds = %588, %.critedge.i15
   %621 = and i32 %620, 14
   %narrow.i.i395 = add nuw nsw i32 %621, 39
   %622 = zext nneg i32 %narrow.i.i395 to i64
-  %623 = sub i64 %614, %622
+  %623 = sub nuw i64 %614, %622
   br label %624
 
 624:                                              ; preds = %617, %616
@@ -16808,10 +16808,10 @@ FindMatchLengthWithLimit.exit.i370:               ; preds = %665, %.critedge.i.i
   br i1 %.not.i.i.i348825, label %.critedge.i.i.i349, label %.lr.ph829.preheader
 
 .lr.ph829.preheader:                              ; preds = %747, %.preheader578
-  %.022.i.i.i343.lcssa1025 = phi ptr [ %768, %.preheader578 ], [ %569, %747 ]
-  %.025.i.i.i342.lcssa1024 = phi ptr [ %767, %.preheader578 ], [ %757, %747 ]
-  %.027.i.i.i341.lcssa1023 = phi i64 [ %769, %.preheader578 ], [ %741, %747 ]
-  %scevgep996 = getelementptr i8, ptr %.022.i.i.i343.lcssa1025, i64 %.027.i.i.i341.lcssa1023
+  %.022.i.i.i343.lcssa1125 = phi ptr [ %768, %.preheader578 ], [ %569, %747 ]
+  %.025.i.i.i342.lcssa1124 = phi ptr [ %767, %.preheader578 ], [ %757, %747 ]
+  %.027.i.i.i341.lcssa1123 = phi i64 [ %769, %.preheader578 ], [ %741, %747 ]
+  %scevgep996 = getelementptr i8, ptr %.022.i.i.i343.lcssa1125, i64 %.027.i.i.i341.lcssa1123
   br label %.lr.ph829
 
 .lr.ph821:                                        ; preds = %747, %766
@@ -16840,9 +16840,9 @@ FindMatchLengthWithLimit.exit.i370:               ; preds = %665, %.critedge.i.i
   br i1 %770, label %.lr.ph821, label %.preheader578, !llvm.loop !63
 
 .lr.ph829:                                        ; preds = %.lr.ph829.preheader, %774
-  %.224.i.i.i347828 = phi ptr [ %777, %774 ], [ %.022.i.i.i343.lcssa1025, %.lr.ph829.preheader ]
-  %.126.i.i.i346827 = phi ptr [ %776, %774 ], [ %.025.i.i.i342.lcssa1024, %.lr.ph829.preheader ]
-  %.128.i.i.i345826 = phi i64 [ %775, %774 ], [ %.027.i.i.i341.lcssa1023, %.lr.ph829.preheader ]
+  %.224.i.i.i347828 = phi ptr [ %777, %774 ], [ %.022.i.i.i343.lcssa1125, %.lr.ph829.preheader ]
+  %.126.i.i.i346827 = phi ptr [ %776, %774 ], [ %.025.i.i.i342.lcssa1124, %.lr.ph829.preheader ]
+  %.128.i.i.i345826 = phi i64 [ %775, %774 ], [ %.027.i.i.i341.lcssa1123, %.lr.ph829.preheader ]
   %771 = load i8, ptr %.224.i.i.i347828, align 1, !tbaa !53, !alias.scope !754, !noalias !763
   %772 = load i8, ptr %.126.i.i.i346827, align 1, !tbaa !53, !noalias !771
   %773 = icmp eq i8 %771, %772
@@ -17108,7 +17108,7 @@ FindMatchLengthWithLimit.exit162.i:               ; preds = %885, %.critedge.i15
   %918 = and i32 %917, 4
   %narrow.i.i = add nuw nsw i32 %918, 39
   %919 = zext nneg i32 %narrow.i.i to i64
-  %920 = sub i64 %911, %919
+  %920 = sub nuw i64 %911, %919
   br label %921
 
 921:                                              ; preds = %914, %913
@@ -17184,10 +17184,10 @@ FindMatchLengthWithLimit.exit162.i:               ; preds = %885, %.critedge.i15
   br i1 %.not.i.i870, label %.critedge.i.i, label %.lr.ph874.preheader
 
 .lr.ph874.preheader:                              ; preds = %944, %.preheader
-  %.022.i.i.lcssa1032 = phi ptr [ %957, %.preheader ], [ %945, %944 ]
-  %.025.i.i.lcssa1031 = phi ptr [ %956, %.preheader ], [ %569, %944 ]
-  %.027.i.i.lcssa1030 = phi i64 [ %958, %.preheader ], [ %933, %944 ]
-  %scevgep999 = getelementptr i8, ptr %.022.i.i.lcssa1032, i64 %.027.i.i.lcssa1030
+  %.022.i.i.lcssa1132 = phi ptr [ %957, %.preheader ], [ %945, %944 ]
+  %.025.i.i.lcssa1131 = phi ptr [ %956, %.preheader ], [ %569, %944 ]
+  %.027.i.i.lcssa1130 = phi i64 [ %958, %.preheader ], [ %933, %944 ]
+  %scevgep999 = getelementptr i8, ptr %.022.i.i.lcssa1132, i64 %.027.i.i.lcssa1130
   br label %.lr.ph874
 
 .lr.ph866:                                        ; preds = %944, %955
@@ -17217,9 +17217,9 @@ FindMatchLengthWithLimit.exit162.i:               ; preds = %885, %.critedge.i15
   br i1 %959, label %.lr.ph866, label %.preheader, !llvm.loop !63
 
 .lr.ph874:                                        ; preds = %.lr.ph874.preheader, %963
-  %.224.i.i873 = phi ptr [ %966, %963 ], [ %.022.i.i.lcssa1032, %.lr.ph874.preheader ]
-  %.126.i.i872 = phi ptr [ %965, %963 ], [ %.025.i.i.lcssa1031, %.lr.ph874.preheader ]
-  %.128.i.i871 = phi i64 [ %964, %963 ], [ %.027.i.i.lcssa1030, %.lr.ph874.preheader ]
+  %.224.i.i873 = phi ptr [ %966, %963 ], [ %.022.i.i.lcssa1132, %.lr.ph874.preheader ]
+  %.126.i.i872 = phi ptr [ %965, %963 ], [ %.025.i.i.lcssa1131, %.lr.ph874.preheader ]
+  %.128.i.i871 = phi i64 [ %964, %963 ], [ %.027.i.i.lcssa1130, %.lr.ph874.preheader ]
   %960 = load i8, ptr %.224.i.i873, align 1, !tbaa !53, !noalias !784
   %961 = load i8, ptr %.126.i.i872, align 1, !tbaa !53, !alias.scope !777, !noalias !780
   %962 = icmp eq i8 %960, %961
@@ -17535,14 +17535,14 @@ GetInsertLengthCode.exit:                         ; preds = %1094, %1098, %1112,
   %1126 = sub nuw nsw i32 30, %1125
   %1127 = shl nuw nsw i32 %1126, 1
   %1128 = lshr i32 %narrow, %1126
-  %1129 = add i32 %1128, %1127
+  %1129 = add nuw nsw i32 %1128, %1127
   br label %GetCopyLengthCode.exit
 
 1130:                                             ; preds = %1122
   %1131 = icmp ult i32 %1089, 2118
-  br i1 %1131, label %GetCopyLengthCode.exit.thread1033, label %GetCopyLengthCode.exit.thread
+  br i1 %1131, label %GetCopyLengthCode.exit.thread1133, label %GetCopyLengthCode.exit.thread
 
-GetCopyLengthCode.exit.thread1033:                ; preds = %1130
+GetCopyLengthCode.exit.thread1133:                ; preds = %1130
   %1132 = add nsw i32 %1089, -70
   %1133 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %1132, i1 true)
   %1134 = trunc nuw nsw i32 %1133 to i16
@@ -17550,10 +17550,10 @@ GetCopyLengthCode.exit.thread1033:                ; preds = %1130
   br label %GetCopyLengthCode.exit.thread
 
 GetCopyLengthCode.exit:                           ; preds = %GetInsertLengthCode.exit, %1124
-  %.sink1193 = phi i32 [ %1129, %1124 ], [ %1089, %GetInsertLengthCode.exit ]
-  %.sink1192 = phi i16 [ 4, %1124 ], [ -2, %GetInsertLengthCode.exit ]
-  %1136 = trunc i32 %.sink1193 to i16
-  %1137 = add nsw i16 %.sink1192, %1136
+  %.sink1216 = phi i32 [ %1129, %1124 ], [ %1089, %GetInsertLengthCode.exit ]
+  %.sink1215 = phi i16 [ 4, %1124 ], [ -2, %GetInsertLengthCode.exit ]
+  %1136 = trunc nuw nsw i32 %.sink1216 to i16
+  %1137 = add nsw i16 %.sink1215, %1136
   %1138 = icmp samesign ult i16 %.0.i278, 8
   %or.cond.i280 = and i1 %1091, %1138
   %1139 = icmp ult i16 %1137, 16
@@ -17565,8 +17565,8 @@ GetCopyLengthCode.exit:                           ; preds = %GetInsertLengthCode
   %1142 = and i16 %1141, 64
   br label %CombineLengthCodes.exit
 
-GetCopyLengthCode.exit.thread:                    ; preds = %GetCopyLengthCode.exit.thread1033, %1130, %GetCopyLengthCode.exit
-  %.0.i279549 = phi i16 [ %1137, %GetCopyLengthCode.exit ], [ 23, %1130 ], [ %1135, %GetCopyLengthCode.exit.thread1033 ]
+GetCopyLengthCode.exit.thread:                    ; preds = %GetCopyLengthCode.exit.thread1133, %1130, %GetCopyLengthCode.exit
+  %.0.i279549 = phi i16 [ %1137, %GetCopyLengthCode.exit ], [ 23, %1130 ], [ %1135, %GetCopyLengthCode.exit.thread1133 ]
   %1143 = lshr i16 %.0.i279549, 3
   %1144 = lshr i16 %.0.i278, 3
   %narrow.i = mul nuw nsw i16 %1144, 3
@@ -18480,7 +18480,7 @@ FindMatchLengthWithLimit.exit162.i263:            ; preds = %314, %.critedge.i15
   %347 = and i32 %346, 4
   %narrow.i.i268 = add nuw nsw i32 %347, 39
   %348 = zext nneg i32 %narrow.i.i268 to i64
-  %349 = sub i64 %340, %348
+  %349 = sub nuw i64 %340, %348
   br label %350
 
 350:                                              ; preds = %343, %342
@@ -18554,10 +18554,10 @@ FindMatchLengthWithLimit.exit162.i263:            ; preds = %314, %.critedge.i15
   br i1 %.not.i.i243659, label %.critedge.i.i244, label %.lr.ph663.preheader
 
 .lr.ph663.preheader:                              ; preds = %373, %.preheader525
-  %.022.i.i238.lcssa941 = phi ptr [ %386, %.preheader525 ], [ %374, %373 ]
-  %.025.i.i237.lcssa940 = phi ptr [ %385, %.preheader525 ], [ %57, %373 ]
-  %.027.i.i236.lcssa939 = phi i64 [ %387, %.preheader525 ], [ %362, %373 ]
-  %scevgep920 = getelementptr i8, ptr %.022.i.i238.lcssa941, i64 %.027.i.i236.lcssa939
+  %.022.i.i238.lcssa1036 = phi ptr [ %386, %.preheader525 ], [ %374, %373 ]
+  %.025.i.i237.lcssa1035 = phi ptr [ %385, %.preheader525 ], [ %57, %373 ]
+  %.027.i.i236.lcssa1034 = phi i64 [ %387, %.preheader525 ], [ %362, %373 ]
+  %scevgep920 = getelementptr i8, ptr %.022.i.i238.lcssa1036, i64 %.027.i.i236.lcssa1034
   br label %.lr.ph663
 
 .lr.ph655:                                        ; preds = %373, %384
@@ -18587,9 +18587,9 @@ FindMatchLengthWithLimit.exit162.i263:            ; preds = %314, %.critedge.i15
   br i1 %388, label %.lr.ph655, label %.preheader525, !llvm.loop !63
 
 .lr.ph663:                                        ; preds = %.lr.ph663.preheader, %392
-  %.224.i.i242662 = phi ptr [ %395, %392 ], [ %.022.i.i238.lcssa941, %.lr.ph663.preheader ]
-  %.126.i.i241661 = phi ptr [ %394, %392 ], [ %.025.i.i237.lcssa940, %.lr.ph663.preheader ]
-  %.128.i.i240660 = phi i64 [ %393, %392 ], [ %.027.i.i236.lcssa939, %.lr.ph663.preheader ]
+  %.224.i.i242662 = phi ptr [ %395, %392 ], [ %.022.i.i238.lcssa1036, %.lr.ph663.preheader ]
+  %.126.i.i241661 = phi ptr [ %394, %392 ], [ %.025.i.i237.lcssa1035, %.lr.ph663.preheader ]
+  %.128.i.i240660 = phi i64 [ %393, %392 ], [ %.027.i.i236.lcssa1034, %.lr.ph663.preheader ]
   %389 = load i8, ptr %.224.i.i242662, align 1, !tbaa !53, !noalias !861
   %390 = load i8, ptr %.126.i.i241661, align 1, !tbaa !53, !alias.scope !854, !noalias !857
   %391 = icmp eq i8 %389, %390
@@ -19286,7 +19286,7 @@ FindMatchLengthWithLimit.exit162.i:               ; preds = %680, %.critedge.i15
   %713 = and i32 %712, 4
   %narrow.i.i = add nuw nsw i32 %713, 39
   %714 = zext nneg i32 %narrow.i.i to i64
-  %715 = sub i64 %706, %714
+  %715 = sub nuw i64 %706, %714
   br label %716
 
 716:                                              ; preds = %709, %708
@@ -19360,10 +19360,10 @@ FindMatchLengthWithLimit.exit162.i:               ; preds = %680, %.critedge.i15
   br i1 %.not.i.i797, label %.critedge.i.i, label %.lr.ph801.preheader
 
 .lr.ph801.preheader:                              ; preds = %739, %.preheader
-  %.022.i.i.lcssa948 = phi ptr [ %752, %.preheader ], [ %740, %739 ]
-  %.025.i.i.lcssa947 = phi ptr [ %751, %.preheader ], [ %425, %739 ]
-  %.027.i.i.lcssa946 = phi i64 [ %753, %.preheader ], [ %728, %739 ]
-  %scevgep929 = getelementptr i8, ptr %.022.i.i.lcssa948, i64 %.027.i.i.lcssa946
+  %.022.i.i.lcssa1043 = phi ptr [ %752, %.preheader ], [ %740, %739 ]
+  %.025.i.i.lcssa1042 = phi ptr [ %751, %.preheader ], [ %425, %739 ]
+  %.027.i.i.lcssa1041 = phi i64 [ %753, %.preheader ], [ %728, %739 ]
+  %scevgep929 = getelementptr i8, ptr %.022.i.i.lcssa1043, i64 %.027.i.i.lcssa1041
   br label %.lr.ph801
 
 .lr.ph793:                                        ; preds = %739, %750
@@ -19393,9 +19393,9 @@ FindMatchLengthWithLimit.exit162.i:               ; preds = %680, %.critedge.i15
   br i1 %754, label %.lr.ph793, label %.preheader, !llvm.loop !63
 
 .lr.ph801:                                        ; preds = %.lr.ph801.preheader, %758
-  %.224.i.i800 = phi ptr [ %761, %758 ], [ %.022.i.i.lcssa948, %.lr.ph801.preheader ]
-  %.126.i.i799 = phi ptr [ %760, %758 ], [ %.025.i.i.lcssa947, %.lr.ph801.preheader ]
-  %.128.i.i798 = phi i64 [ %759, %758 ], [ %.027.i.i.lcssa946, %.lr.ph801.preheader ]
+  %.224.i.i800 = phi ptr [ %761, %758 ], [ %.022.i.i.lcssa1043, %.lr.ph801.preheader ]
+  %.126.i.i799 = phi ptr [ %760, %758 ], [ %.025.i.i.lcssa1042, %.lr.ph801.preheader ]
+  %.128.i.i798 = phi i64 [ %759, %758 ], [ %.027.i.i.lcssa1041, %.lr.ph801.preheader ]
   %755 = load i8, ptr %.224.i.i800, align 1, !tbaa !53, !noalias !892
   %756 = load i8, ptr %.126.i.i799, align 1, !tbaa !53, !alias.scope !881, !noalias !884
   %757 = icmp eq i8 %755, %756
@@ -20222,7 +20222,7 @@ FindMatchLengthWithLimit.exit189.i.i:             ; preds = %179, %.critedge.i18
   %215 = and i32 %214, 14
   %narrow.i.i.i = add nuw nsw i32 %215, 39
   %216 = zext nneg i32 %narrow.i.i.i to i64
-  %217 = sub i64 %208, %216
+  %217 = sub nuw i64 %208, %216
   br label %218
 
 218:                                              ; preds = %211, %210
@@ -20491,10 +20491,10 @@ FindMatchLengthWithLimit.exit.i.i:                ; preds = %257, %.critedge.i.i
   br i1 %.not.i.i.i.i755, label %.critedge.i.i.i.i, label %.lr.ph759.preheader
 
 .lr.ph759.preheader:                              ; preds = %332, %.preheader638
-  %.022.i.i.i.i.lcssa1200 = phi ptr [ %353, %.preheader638 ], [ %143, %332 ]
-  %.025.i.i.i.i.lcssa1199 = phi ptr [ %352, %.preheader638 ], [ %342, %332 ]
-  %.027.i.i.i.i.lcssa1198 = phi i64 [ %354, %.preheader638 ], [ %326, %332 ]
-  %scevgep1174 = getelementptr i8, ptr %.022.i.i.i.i.lcssa1200, i64 %.027.i.i.i.i.lcssa1198
+  %.022.i.i.i.i.lcssa1330 = phi ptr [ %353, %.preheader638 ], [ %143, %332 ]
+  %.025.i.i.i.i.lcssa1329 = phi ptr [ %352, %.preheader638 ], [ %342, %332 ]
+  %.027.i.i.i.i.lcssa1328 = phi i64 [ %354, %.preheader638 ], [ %326, %332 ]
+  %scevgep1174 = getelementptr i8, ptr %.022.i.i.i.i.lcssa1330, i64 %.027.i.i.i.i.lcssa1328
   br label %.lr.ph759
 
 .lr.ph751:                                        ; preds = %332, %351
@@ -20523,9 +20523,9 @@ FindMatchLengthWithLimit.exit.i.i:                ; preds = %257, %.critedge.i.i
   br i1 %355, label %.lr.ph751, label %.preheader638, !llvm.loop !63
 
 .lr.ph759:                                        ; preds = %.lr.ph759.preheader, %359
-  %.224.i.i.i.i758 = phi ptr [ %362, %359 ], [ %.022.i.i.i.i.lcssa1200, %.lr.ph759.preheader ]
-  %.126.i.i.i.i757 = phi ptr [ %361, %359 ], [ %.025.i.i.i.i.lcssa1199, %.lr.ph759.preheader ]
-  %.128.i.i.i.i756 = phi i64 [ %360, %359 ], [ %.027.i.i.i.i.lcssa1198, %.lr.ph759.preheader ]
+  %.224.i.i.i.i758 = phi ptr [ %362, %359 ], [ %.022.i.i.i.i.lcssa1330, %.lr.ph759.preheader ]
+  %.126.i.i.i.i757 = phi ptr [ %361, %359 ], [ %.025.i.i.i.i.lcssa1329, %.lr.ph759.preheader ]
+  %.128.i.i.i.i756 = phi i64 [ %360, %359 ], [ %.027.i.i.i.i.lcssa1328, %.lr.ph759.preheader ]
   %356 = load i8, ptr %.224.i.i.i.i758, align 1, !tbaa !53, !alias.scope !944, !noalias !941
   %357 = load i8, ptr %.126.i.i.i.i757, align 1, !tbaa !53, !noalias !941
   %358 = icmp eq i8 %356, %357
@@ -21037,10 +21037,10 @@ FindMatchLengthWithLimit.exit162.i263:            ; preds = %542, %.critedge.i15
   br i1 %.not.i.i243832, label %.critedge.i.i244, label %.lr.ph836.preheader
 
 .lr.ph836.preheader:                              ; preds = %601, %.preheader635
-  %.022.i.i238.lcssa1207 = phi ptr [ %614, %.preheader635 ], [ %602, %601 ]
-  %.025.i.i237.lcssa1206 = phi ptr [ %613, %.preheader635 ], [ %143, %601 ]
-  %.027.i.i236.lcssa1205 = phi i64 [ %615, %.preheader635 ], [ %590, %601 ]
-  %scevgep1178 = getelementptr i8, ptr %.022.i.i238.lcssa1207, i64 %.027.i.i236.lcssa1205
+  %.022.i.i238.lcssa1337 = phi ptr [ %614, %.preheader635 ], [ %602, %601 ]
+  %.025.i.i237.lcssa1336 = phi ptr [ %613, %.preheader635 ], [ %143, %601 ]
+  %.027.i.i236.lcssa1335 = phi i64 [ %615, %.preheader635 ], [ %590, %601 ]
+  %scevgep1178 = getelementptr i8, ptr %.022.i.i238.lcssa1337, i64 %.027.i.i236.lcssa1335
   br label %.lr.ph836
 
 .lr.ph828:                                        ; preds = %601, %612
@@ -21070,9 +21070,9 @@ FindMatchLengthWithLimit.exit162.i263:            ; preds = %542, %.critedge.i15
   br i1 %616, label %.lr.ph828, label %.preheader635, !llvm.loop !63
 
 .lr.ph836:                                        ; preds = %.lr.ph836.preheader, %620
-  %.224.i.i242835 = phi ptr [ %623, %620 ], [ %.022.i.i238.lcssa1207, %.lr.ph836.preheader ]
-  %.126.i.i241834 = phi ptr [ %622, %620 ], [ %.025.i.i237.lcssa1206, %.lr.ph836.preheader ]
-  %.128.i.i240833 = phi i64 [ %621, %620 ], [ %.027.i.i236.lcssa1205, %.lr.ph836.preheader ]
+  %.224.i.i242835 = phi ptr [ %623, %620 ], [ %.022.i.i238.lcssa1337, %.lr.ph836.preheader ]
+  %.126.i.i241834 = phi ptr [ %622, %620 ], [ %.025.i.i237.lcssa1336, %.lr.ph836.preheader ]
+  %.128.i.i240833 = phi i64 [ %621, %620 ], [ %.027.i.i236.lcssa1335, %.lr.ph836.preheader ]
   %617 = load i8, ptr %.224.i.i242835, align 1, !tbaa !53, !noalias !972
   %618 = load i8, ptr %.126.i.i241834, align 1, !tbaa !53, !alias.scope !965, !noalias !968
   %619 = icmp eq i8 %617, %618
@@ -21353,7 +21353,7 @@ FindMatchLengthWithLimit.exit189.i.i366:          ; preds = %708, %.critedge.i18
   %744 = and i32 %743, 14
   %narrow.i.i.i370 = add nuw nsw i32 %744, 39
   %745 = zext nneg i32 %narrow.i.i.i370 to i64
-  %746 = sub i64 %737, %745
+  %746 = sub nuw i64 %737, %745
   br label %747
 
 747:                                              ; preds = %740, %739
@@ -21614,10 +21614,10 @@ FindMatchLengthWithLimit.exit.i.i342:             ; preds = %785, %.critedge.i.i
   br i1 %.not.i.i.i.i310956, label %.critedge.i.i.i.i311, label %.lr.ph960.preheader
 
 .lr.ph960.preheader:                              ; preds = %861, %.preheader632
-  %.022.i.i.i.i305.lcssa1214 = phi ptr [ %882, %.preheader632 ], [ %673, %861 ]
-  %.025.i.i.i.i304.lcssa1213 = phi ptr [ %881, %.preheader632 ], [ %871, %861 ]
-  %.027.i.i.i.i303.lcssa1212 = phi i64 [ %883, %.preheader632 ], [ %855, %861 ]
-  %scevgep1183 = getelementptr i8, ptr %.022.i.i.i.i305.lcssa1214, i64 %.027.i.i.i.i303.lcssa1212
+  %.022.i.i.i.i305.lcssa1344 = phi ptr [ %882, %.preheader632 ], [ %673, %861 ]
+  %.025.i.i.i.i304.lcssa1343 = phi ptr [ %881, %.preheader632 ], [ %871, %861 ]
+  %.027.i.i.i.i303.lcssa1342 = phi i64 [ %883, %.preheader632 ], [ %855, %861 ]
+  %scevgep1183 = getelementptr i8, ptr %.022.i.i.i.i305.lcssa1344, i64 %.027.i.i.i.i303.lcssa1342
   br label %.lr.ph960
 
 .lr.ph952:                                        ; preds = %861, %880
@@ -21646,9 +21646,9 @@ FindMatchLengthWithLimit.exit.i.i342:             ; preds = %785, %.critedge.i.i
   br i1 %884, label %.lr.ph952, label %.preheader632, !llvm.loop !63
 
 .lr.ph960:                                        ; preds = %.lr.ph960.preheader, %888
-  %.224.i.i.i.i309959 = phi ptr [ %891, %888 ], [ %.022.i.i.i.i305.lcssa1214, %.lr.ph960.preheader ]
-  %.126.i.i.i.i308958 = phi ptr [ %890, %888 ], [ %.025.i.i.i.i304.lcssa1213, %.lr.ph960.preheader ]
-  %.128.i.i.i.i307957 = phi i64 [ %889, %888 ], [ %.027.i.i.i.i303.lcssa1212, %.lr.ph960.preheader ]
+  %.224.i.i.i.i309959 = phi ptr [ %891, %888 ], [ %.022.i.i.i.i305.lcssa1344, %.lr.ph960.preheader ]
+  %.126.i.i.i.i308958 = phi ptr [ %890, %888 ], [ %.025.i.i.i.i304.lcssa1343, %.lr.ph960.preheader ]
+  %.128.i.i.i.i307957 = phi i64 [ %889, %888 ], [ %.027.i.i.i.i303.lcssa1342, %.lr.ph960.preheader ]
   %885 = load i8, ptr %.224.i.i.i.i309959, align 1, !tbaa !53, !alias.scope !996, !noalias !993
   %886 = load i8, ptr %.126.i.i.i.i308958, align 1, !tbaa !53, !noalias !993
   %887 = icmp eq i8 %885, %886
@@ -22157,10 +22157,10 @@ FindMatchLengthWithLimit.exit162.i:               ; preds = %1069, %.critedge.i1
   br i1 %.not.i.i1034, label %.critedge.i.i, label %.lr.ph1038.preheader
 
 .lr.ph1038.preheader:                             ; preds = %1128, %.preheader
-  %.022.i.i.lcssa1221 = phi ptr [ %1141, %.preheader ], [ %1129, %1128 ]
-  %.025.i.i.lcssa1220 = phi ptr [ %1140, %.preheader ], [ %673, %1128 ]
-  %.027.i.i.lcssa1219 = phi i64 [ %1142, %.preheader ], [ %1117, %1128 ]
-  %scevgep1187 = getelementptr i8, ptr %.022.i.i.lcssa1221, i64 %.027.i.i.lcssa1219
+  %.022.i.i.lcssa1351 = phi ptr [ %1141, %.preheader ], [ %1129, %1128 ]
+  %.025.i.i.lcssa1350 = phi ptr [ %1140, %.preheader ], [ %673, %1128 ]
+  %.027.i.i.lcssa1349 = phi i64 [ %1142, %.preheader ], [ %1117, %1128 ]
+  %scevgep1187 = getelementptr i8, ptr %.022.i.i.lcssa1351, i64 %.027.i.i.lcssa1349
   br label %.lr.ph1038
 
 .lr.ph1030:                                       ; preds = %1128, %1139
@@ -22190,9 +22190,9 @@ FindMatchLengthWithLimit.exit162.i:               ; preds = %1069, %.critedge.i1
   br i1 %1143, label %.lr.ph1030, label %.preheader, !llvm.loop !63
 
 .lr.ph1038:                                       ; preds = %.lr.ph1038.preheader, %1147
-  %.224.i.i1037 = phi ptr [ %1150, %1147 ], [ %.022.i.i.lcssa1221, %.lr.ph1038.preheader ]
-  %.126.i.i1036 = phi ptr [ %1149, %1147 ], [ %.025.i.i.lcssa1220, %.lr.ph1038.preheader ]
-  %.128.i.i1035 = phi i64 [ %1148, %1147 ], [ %.027.i.i.lcssa1219, %.lr.ph1038.preheader ]
+  %.224.i.i1037 = phi ptr [ %1150, %1147 ], [ %.022.i.i.lcssa1351, %.lr.ph1038.preheader ]
+  %.126.i.i1036 = phi ptr [ %1149, %1147 ], [ %.025.i.i.lcssa1350, %.lr.ph1038.preheader ]
+  %.128.i.i1035 = phi i64 [ %1148, %1147 ], [ %.027.i.i.lcssa1349, %.lr.ph1038.preheader ]
   %1144 = load i8, ptr %.224.i.i1037, align 1, !tbaa !53, !noalias !1017
   %1145 = load i8, ptr %.126.i.i1036, align 1, !tbaa !53, !alias.scope !1006, !noalias !1009
   %1146 = icmp eq i8 %1144, %1145
@@ -22521,14 +22521,14 @@ GetInsertLengthCode.exit:                         ; preds = %1283, %1287, %1301,
   %1315 = sub nuw nsw i32 30, %1314
   %1316 = shl nuw nsw i32 %1315, 1
   %1317 = lshr i32 %narrow, %1315
-  %1318 = add i32 %1317, %1316
+  %1318 = add nuw nsw i32 %1317, %1316
   br label %GetCopyLengthCode.exit
 
 1319:                                             ; preds = %1311
   %1320 = icmp ult i32 %1278, 2118
-  br i1 %1320, label %GetCopyLengthCode.exit.thread1222, label %GetCopyLengthCode.exit.thread
+  br i1 %1320, label %GetCopyLengthCode.exit.thread1352, label %GetCopyLengthCode.exit.thread
 
-GetCopyLengthCode.exit.thread1222:                ; preds = %1319
+GetCopyLengthCode.exit.thread1352:                ; preds = %1319
   %1321 = add nsw i32 %1278, -70
   %1322 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %1321, i1 true)
   %1323 = trunc nuw nsw i32 %1322 to i16
@@ -22536,10 +22536,10 @@ GetCopyLengthCode.exit.thread1222:                ; preds = %1319
   br label %GetCopyLengthCode.exit.thread
 
 GetCopyLengthCode.exit:                           ; preds = %GetInsertLengthCode.exit, %1313
-  %.sink1414 = phi i32 [ %1318, %1313 ], [ %1278, %GetInsertLengthCode.exit ]
-  %.sink1413 = phi i16 [ 4, %1313 ], [ -2, %GetInsertLengthCode.exit ]
-  %1325 = trunc i32 %.sink1414 to i16
-  %1326 = add nsw i16 %.sink1413, %1325
+  %.sink1451 = phi i32 [ %1318, %1313 ], [ %1278, %GetInsertLengthCode.exit ]
+  %.sink1450 = phi i16 [ 4, %1313 ], [ -2, %GetInsertLengthCode.exit ]
+  %1325 = trunc nuw nsw i32 %.sink1451 to i16
+  %1326 = add nsw i16 %.sink1450, %1325
   %1327 = icmp samesign ult i16 %.0.i278, 8
   %or.cond.i280 = and i1 %1280, %1327
   %1328 = icmp ult i16 %1326, 16
@@ -22551,8 +22551,8 @@ GetCopyLengthCode.exit:                           ; preds = %GetInsertLengthCode
   %1331 = and i16 %1330, 64
   br label %CombineLengthCodes.exit
 
-GetCopyLengthCode.exit.thread:                    ; preds = %GetCopyLengthCode.exit.thread1222, %1319, %GetCopyLengthCode.exit
-  %.0.i279596 = phi i16 [ %1326, %GetCopyLengthCode.exit ], [ 23, %1319 ], [ %1324, %GetCopyLengthCode.exit.thread1222 ]
+GetCopyLengthCode.exit.thread:                    ; preds = %GetCopyLengthCode.exit.thread1352, %1319, %GetCopyLengthCode.exit
+  %.0.i279596 = phi i16 [ %1326, %GetCopyLengthCode.exit ], [ 23, %1319 ], [ %1324, %GetCopyLengthCode.exit.thread1352 ]
   %1332 = lshr i16 %.0.i279596, 3
   %1333 = lshr i16 %.0.i278, 3
   %narrow.i = mul nuw nsw i16 %1333, 3
@@ -23108,10 +23108,10 @@ FindMatchLengthWithLimit.exit.i:                  ; preds = %142, %.critedge.i.i
   br i1 %.not.i.i.i444, label %.critedge.i.i.i, label %.lr.ph448.preheader
 
 .lr.ph448.preheader:                              ; preds = %202, %.preheader383
-  %.022.i.i.i.lcssa586 = phi ptr [ %223, %.preheader383 ], [ %85, %202 ]
-  %.025.i.i.i.lcssa585 = phi ptr [ %222, %.preheader383 ], [ %212, %202 ]
-  %.027.i.i.i.lcssa584 = phi i64 [ %224, %.preheader383 ], [ %196, %202 ]
-  %scevgep573 = getelementptr i8, ptr %.022.i.i.i.lcssa586, i64 %.027.i.i.i.lcssa584
+  %.022.i.i.i.lcssa637 = phi ptr [ %223, %.preheader383 ], [ %85, %202 ]
+  %.025.i.i.i.lcssa636 = phi ptr [ %222, %.preheader383 ], [ %212, %202 ]
+  %.027.i.i.i.lcssa635 = phi i64 [ %224, %.preheader383 ], [ %196, %202 ]
+  %scevgep573 = getelementptr i8, ptr %.022.i.i.i.lcssa637, i64 %.027.i.i.i.lcssa635
   br label %.lr.ph448
 
 .lr.ph440:                                        ; preds = %202, %221
@@ -23140,9 +23140,9 @@ FindMatchLengthWithLimit.exit.i:                  ; preds = %142, %.critedge.i.i
   br i1 %225, label %.lr.ph440, label %.preheader383, !llvm.loop !63
 
 .lr.ph448:                                        ; preds = %.lr.ph448.preheader, %229
-  %.224.i.i.i447 = phi ptr [ %232, %229 ], [ %.022.i.i.i.lcssa586, %.lr.ph448.preheader ]
-  %.126.i.i.i446 = phi ptr [ %231, %229 ], [ %.025.i.i.i.lcssa585, %.lr.ph448.preheader ]
-  %.128.i.i.i445 = phi i64 [ %230, %229 ], [ %.027.i.i.i.lcssa584, %.lr.ph448.preheader ]
+  %.224.i.i.i447 = phi ptr [ %232, %229 ], [ %.022.i.i.i.lcssa637, %.lr.ph448.preheader ]
+  %.126.i.i.i446 = phi ptr [ %231, %229 ], [ %.025.i.i.i.lcssa636, %.lr.ph448.preheader ]
+  %.128.i.i.i445 = phi i64 [ %230, %229 ], [ %.027.i.i.i.lcssa635, %.lr.ph448.preheader ]
   %226 = load i8, ptr %.224.i.i.i447, align 1, !tbaa !53, !alias.scope !1091, !noalias !1093
   %227 = load i8, ptr %.126.i.i.i446, align 1, !tbaa !53, !noalias !1093
   %228 = icmp eq i8 %226, %227
@@ -23206,24 +23206,24 @@ FindLongestMatchH2.exit:                          ; preds = %255
   %267 = sub nsw i32 %265, %266
   %268 = add i64 %175, 1
   store i64 %268, ptr %174, align 8, !tbaa !74, !noalias !1093
-  %.not666 = icmp eq i64 %263, 2020
-  br i1 %.not666, label %FindLongestMatchH2.exit.thread, label %.preheader384
+  %.not720 = icmp eq i64 %263, 2020
+  br i1 %.not720, label %FindLongestMatchH2.exit.thread, label %.preheader384
 
 .preheader384:                                    ; preds = %166, %126, %FindLongestMatchH2.exit
-  %.sroa.33.6601 = phi i32 [ %267, %FindLongestMatchH2.exit ], [ 0, %126 ], [ 0, %166 ]
-  %.sroa.0272.6600 = phi i64 [ %.2.i.i.i, %FindLongestMatchH2.exit ], [ %.2.i114.i, %126 ], [ %.2.i.i, %166 ]
-  %.sroa.14.6599 = phi i64 [ %253, %FindLongestMatchH2.exit ], [ %90, %126 ], [ %133, %166 ]
-  %.sroa.23282.6598 = phi i64 [ %263, %FindLongestMatchH2.exit ], [ %125, %126 ], [ %172, %166 ]
+  %.sroa.33.6652 = phi i32 [ %267, %FindLongestMatchH2.exit ], [ 0, %126 ], [ 0, %166 ]
+  %.sroa.0272.6651 = phi i64 [ %.2.i.i.i, %FindLongestMatchH2.exit ], [ %.2.i114.i, %126 ], [ %.2.i.i, %166 ]
+  %.sroa.14.6650 = phi i64 [ %253, %FindLongestMatchH2.exit ], [ %90, %126 ], [ %133, %166 ]
+  %.sroa.23282.6649 = phi i64 [ %263, %FindLongestMatchH2.exit ], [ %125, %126 ], [ %172, %166 ]
   %269 = load i32, ptr %7, align 4, !tbaa !39, !alias.scope !1097, !noalias !1100
   %270 = sext i32 %269 to i64
   %271 = add i64 %.0166521, 4
   br label %272
 
 272:                                              ; preds = %.preheader384, %491
-  %.sroa.23282.0 = phi i64 [ %.sroa.12.4, %491 ], [ %.sroa.23282.6598, %.preheader384 ]
-  %.sroa.14.0 = phi i64 [ %.sroa.8.4, %491 ], [ %.sroa.14.6599, %.preheader384 ]
-  %.sroa.0272.0 = phi i64 [ %.sroa.0.4, %491 ], [ %.sroa.0272.6600, %.preheader384 ]
-  %.sroa.33.0 = phi i32 [ %.sroa.20.4, %491 ], [ %.sroa.33.6601, %.preheader384 ]
+  %.sroa.23282.0 = phi i64 [ %.sroa.12.4, %491 ], [ %.sroa.23282.6649, %.preheader384 ]
+  %.sroa.14.0 = phi i64 [ %.sroa.8.4, %491 ], [ %.sroa.14.6650, %.preheader384 ]
+  %.sroa.0272.0 = phi i64 [ %.sroa.0.4, %491 ], [ %.sroa.0272.6651, %.preheader384 ]
+  %.sroa.33.0 = phi i32 [ %.sroa.20.4, %491 ], [ %.sroa.33.6652, %.preheader384 ]
   %.1185 = phi i32 [ %.2186, %491 ], [ %.0184, %.preheader384 ]
   %.1182 = phi i8 [ %.2183, %491 ], [ %.0181, %.preheader384 ]
   %.0178 = phi i32 [ %493, %491 ], [ 0, %.preheader384 ]
@@ -23529,10 +23529,10 @@ FindMatchLengthWithLimit.exit.i212:               ; preds = %361, %.critedge.i.i
   br i1 %.not.i.i.i227504, label %.critedge.i.i.i228, label %.lr.ph508.preheader
 
 .lr.ph508.preheader:                              ; preds = %421, %.preheader
-  %.022.i.i.i222.lcssa608 = phi ptr [ %442, %.preheader ], [ %303, %421 ]
-  %.025.i.i.i221.lcssa607 = phi ptr [ %441, %.preheader ], [ %431, %421 ]
-  %.027.i.i.i220.lcssa606 = phi i64 [ %443, %.preheader ], [ %415, %421 ]
-  %scevgep576 = getelementptr i8, ptr %.022.i.i.i222.lcssa608, i64 %.027.i.i.i220.lcssa606
+  %.022.i.i.i222.lcssa659 = phi ptr [ %442, %.preheader ], [ %303, %421 ]
+  %.025.i.i.i221.lcssa658 = phi ptr [ %441, %.preheader ], [ %431, %421 ]
+  %.027.i.i.i220.lcssa657 = phi i64 [ %443, %.preheader ], [ %415, %421 ]
+  %scevgep576 = getelementptr i8, ptr %.022.i.i.i222.lcssa659, i64 %.027.i.i.i220.lcssa657
   br label %.lr.ph508
 
 .lr.ph500:                                        ; preds = %421, %440
@@ -23561,9 +23561,9 @@ FindMatchLengthWithLimit.exit.i212:               ; preds = %361, %.critedge.i.i
   br i1 %444, label %.lr.ph500, label %.preheader, !llvm.loop !63
 
 .lr.ph508:                                        ; preds = %.lr.ph508.preheader, %448
-  %.224.i.i.i226507 = phi ptr [ %451, %448 ], [ %.022.i.i.i222.lcssa608, %.lr.ph508.preheader ]
-  %.126.i.i.i225506 = phi ptr [ %450, %448 ], [ %.025.i.i.i221.lcssa607, %.lr.ph508.preheader ]
-  %.128.i.i.i224505 = phi i64 [ %449, %448 ], [ %.027.i.i.i220.lcssa606, %.lr.ph508.preheader ]
+  %.224.i.i.i226507 = phi ptr [ %451, %448 ], [ %.022.i.i.i222.lcssa659, %.lr.ph508.preheader ]
+  %.126.i.i.i225506 = phi ptr [ %450, %448 ], [ %.025.i.i.i221.lcssa658, %.lr.ph508.preheader ]
+  %.128.i.i.i224505 = phi i64 [ %449, %448 ], [ %.027.i.i.i220.lcssa657, %.lr.ph508.preheader ]
   %445 = load i8, ptr %.224.i.i.i226507, align 1, !tbaa !53, !alias.scope !1105, !noalias !1106
   %446 = load i8, ptr %.126.i.i.i225506, align 1, !tbaa !53, !noalias !1106
   %447 = icmp eq i8 %445, %446
@@ -23862,14 +23862,14 @@ GetInsertLengthCode.exit:                         ; preds = %588, %592, %606, %6
   %620 = sub nuw nsw i32 30, %619
   %621 = shl nuw nsw i32 %620, 1
   %622 = lshr i32 %narrow, %620
-  %623 = add i32 %622, %621
+  %623 = add nuw nsw i32 %622, %621
   br label %GetCopyLengthCode.exit
 
 624:                                              ; preds = %616
   %625 = icmp ult i32 %583, 2118
-  br i1 %625, label %GetCopyLengthCode.exit.thread609, label %GetCopyLengthCode.exit.thread
+  br i1 %625, label %GetCopyLengthCode.exit.thread660, label %GetCopyLengthCode.exit.thread
 
-GetCopyLengthCode.exit.thread609:                 ; preds = %624
+GetCopyLengthCode.exit.thread660:                 ; preds = %624
   %626 = add nsw i32 %583, -70
   %627 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %626, i1 true)
   %628 = trunc nuw nsw i32 %627 to i16
@@ -23877,10 +23877,10 @@ GetCopyLengthCode.exit.thread609:                 ; preds = %624
   br label %GetCopyLengthCode.exit.thread
 
 GetCopyLengthCode.exit:                           ; preds = %GetInsertLengthCode.exit, %618
-  %.sink722 = phi i32 [ %623, %618 ], [ %583, %GetInsertLengthCode.exit ]
-  %.sink721 = phi i16 [ 4, %618 ], [ -2, %GetInsertLengthCode.exit ]
-  %630 = trunc i32 %.sink722 to i16
-  %631 = add nsw i16 %.sink721, %630
+  %.sink719 = phi i32 [ %623, %618 ], [ %583, %GetInsertLengthCode.exit ]
+  %.sink718 = phi i16 [ 4, %618 ], [ -2, %GetInsertLengthCode.exit ]
+  %630 = trunc nuw nsw i32 %.sink719 to i16
+  %631 = add nsw i16 %.sink718, %630
   %632 = icmp samesign ult i16 %.0.i197, 8
   %or.cond.i = and i1 %585, %632
   %633 = icmp ult i16 %631, 16
@@ -23892,8 +23892,8 @@ GetCopyLengthCode.exit:                           ; preds = %GetInsertLengthCode
   %636 = and i16 %635, 64
   br label %CombineLengthCodes.exit
 
-GetCopyLengthCode.exit.thread:                    ; preds = %GetCopyLengthCode.exit.thread609, %624, %GetCopyLengthCode.exit
-  %.0.i198359 = phi i16 [ %631, %GetCopyLengthCode.exit ], [ 23, %624 ], [ %629, %GetCopyLengthCode.exit.thread609 ]
+GetCopyLengthCode.exit.thread:                    ; preds = %GetCopyLengthCode.exit.thread660, %624, %GetCopyLengthCode.exit
+  %.0.i198359 = phi i16 [ %631, %GetCopyLengthCode.exit ], [ 23, %624 ], [ %629, %GetCopyLengthCode.exit.thread660 ]
   %637 = lshr i16 %.0.i198359, 3
   %638 = lshr i16 %.0.i197, 3
   %narrow.i = mul nuw nsw i16 %638, 3
@@ -25440,10 +25440,10 @@ FindMatchLengthWithLimit.exit.i:                  ; preds = %161, %.critedge.i.i
   br i1 %.not.i.i.i460, label %.critedge.i.i.i, label %.lr.ph464.preheader
 
 .lr.ph464.preheader:                              ; preds = %230, %.preheader391
-  %.022.i.i.i.lcssa614 = phi ptr [ %251, %.preheader391 ], [ %87, %230 ]
-  %.025.i.i.i.lcssa613 = phi ptr [ %250, %.preheader391 ], [ %240, %230 ]
-  %.027.i.i.i.lcssa612 = phi i64 [ %252, %.preheader391 ], [ %224, %230 ]
-  %scevgep598 = getelementptr i8, ptr %.022.i.i.i.lcssa614, i64 %.027.i.i.i.lcssa612
+  %.022.i.i.i.lcssa670 = phi ptr [ %251, %.preheader391 ], [ %87, %230 ]
+  %.025.i.i.i.lcssa669 = phi ptr [ %250, %.preheader391 ], [ %240, %230 ]
+  %.027.i.i.i.lcssa668 = phi i64 [ %252, %.preheader391 ], [ %224, %230 ]
+  %scevgep598 = getelementptr i8, ptr %.022.i.i.i.lcssa670, i64 %.027.i.i.i.lcssa668
   br label %.lr.ph464
 
 .lr.ph456:                                        ; preds = %230, %249
@@ -25472,9 +25472,9 @@ FindMatchLengthWithLimit.exit.i:                  ; preds = %161, %.critedge.i.i
   br i1 %253, label %.lr.ph456, label %.preheader391, !llvm.loop !63
 
 .lr.ph464:                                        ; preds = %.lr.ph464.preheader, %257
-  %.224.i.i.i463 = phi ptr [ %260, %257 ], [ %.022.i.i.i.lcssa614, %.lr.ph464.preheader ]
-  %.126.i.i.i462 = phi ptr [ %259, %257 ], [ %.025.i.i.i.lcssa613, %.lr.ph464.preheader ]
-  %.128.i.i.i461 = phi i64 [ %258, %257 ], [ %.027.i.i.i.lcssa612, %.lr.ph464.preheader ]
+  %.224.i.i.i463 = phi ptr [ %260, %257 ], [ %.022.i.i.i.lcssa670, %.lr.ph464.preheader ]
+  %.126.i.i.i462 = phi ptr [ %259, %257 ], [ %.025.i.i.i.lcssa669, %.lr.ph464.preheader ]
+  %.128.i.i.i461 = phi i64 [ %258, %257 ], [ %.027.i.i.i.lcssa668, %.lr.ph464.preheader ]
   %254 = load i8, ptr %.224.i.i.i463, align 1, !tbaa !53, !alias.scope !1169, !noalias !1171
   %255 = load i8, ptr %.126.i.i.i462, align 1, !tbaa !53, !noalias !1171
   %256 = icmp eq i8 %254, %255
@@ -25921,10 +25921,10 @@ FindMatchLengthWithLimit.exit.i248:               ; preds = %409, %.critedge.i.i
   br i1 %.not.i.i.i222518, label %.critedge.i.i.i223, label %.lr.ph522.preheader
 
 .lr.ph522.preheader:                              ; preds = %478, %.preheader
-  %.022.i.i.i217.lcssa626 = phi ptr [ %499, %.preheader ], [ %335, %478 ]
-  %.025.i.i.i216.lcssa625 = phi ptr [ %498, %.preheader ], [ %488, %478 ]
-  %.027.i.i.i215.lcssa624 = phi i64 [ %500, %.preheader ], [ %472, %478 ]
-  %scevgep603 = getelementptr i8, ptr %.022.i.i.i217.lcssa626, i64 %.027.i.i.i215.lcssa624
+  %.022.i.i.i217.lcssa682 = phi ptr [ %499, %.preheader ], [ %335, %478 ]
+  %.025.i.i.i216.lcssa681 = phi ptr [ %498, %.preheader ], [ %488, %478 ]
+  %.027.i.i.i215.lcssa680 = phi i64 [ %500, %.preheader ], [ %472, %478 ]
+  %scevgep603 = getelementptr i8, ptr %.022.i.i.i217.lcssa682, i64 %.027.i.i.i215.lcssa680
   br label %.lr.ph522
 
 .lr.ph514:                                        ; preds = %478, %497
@@ -25953,9 +25953,9 @@ FindMatchLengthWithLimit.exit.i248:               ; preds = %409, %.critedge.i.i
   br i1 %501, label %.lr.ph514, label %.preheader, !llvm.loop !63
 
 .lr.ph522:                                        ; preds = %.lr.ph522.preheader, %505
-  %.224.i.i.i221521 = phi ptr [ %508, %505 ], [ %.022.i.i.i217.lcssa626, %.lr.ph522.preheader ]
-  %.126.i.i.i220520 = phi ptr [ %507, %505 ], [ %.025.i.i.i216.lcssa625, %.lr.ph522.preheader ]
-  %.128.i.i.i219519 = phi i64 [ %506, %505 ], [ %.027.i.i.i215.lcssa624, %.lr.ph522.preheader ]
+  %.224.i.i.i221521 = phi ptr [ %508, %505 ], [ %.022.i.i.i217.lcssa682, %.lr.ph522.preheader ]
+  %.126.i.i.i220520 = phi ptr [ %507, %505 ], [ %.025.i.i.i216.lcssa681, %.lr.ph522.preheader ]
+  %.128.i.i.i219519 = phi i64 [ %506, %505 ], [ %.027.i.i.i215.lcssa680, %.lr.ph522.preheader ]
   %502 = load i8, ptr %.224.i.i.i221521, align 1, !tbaa !53, !alias.scope !1185, !noalias !1186
   %503 = load i8, ptr %.126.i.i.i220520, align 1, !tbaa !53, !noalias !1186
   %504 = icmp eq i8 %502, %503
@@ -26257,14 +26257,14 @@ GetInsertLengthCode.exit:                         ; preds = %647, %651, %665, %6
   %679 = sub nuw nsw i32 30, %678
   %680 = shl nuw nsw i32 %679, 1
   %681 = lshr i32 %narrow, %679
-  %682 = add i32 %681, %680
+  %682 = add nuw nsw i32 %681, %680
   br label %GetCopyLengthCode.exit
 
 683:                                              ; preds = %675
   %684 = icmp ult i32 %642, 2118
-  br i1 %684, label %GetCopyLengthCode.exit.thread627, label %GetCopyLengthCode.exit.thread
+  br i1 %684, label %GetCopyLengthCode.exit.thread683, label %GetCopyLengthCode.exit.thread
 
-GetCopyLengthCode.exit.thread627:                 ; preds = %683
+GetCopyLengthCode.exit.thread683:                 ; preds = %683
   %685 = add nsw i32 %642, -70
   %686 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %685, i1 true)
   %687 = trunc nuw nsw i32 %686 to i16
@@ -26272,10 +26272,10 @@ GetCopyLengthCode.exit.thread627:                 ; preds = %683
   br label %GetCopyLengthCode.exit.thread
 
 GetCopyLengthCode.exit:                           ; preds = %GetInsertLengthCode.exit, %677
-  %.sink741 = phi i32 [ %682, %677 ], [ %642, %GetInsertLengthCode.exit ]
-  %.sink740 = phi i16 [ 4, %677 ], [ -2, %GetInsertLengthCode.exit ]
-  %689 = trunc i32 %.sink741 to i16
-  %690 = add nsw i16 %.sink740, %689
+  %.sink742 = phi i32 [ %682, %677 ], [ %642, %GetInsertLengthCode.exit ]
+  %.sink741 = phi i16 [ 4, %677 ], [ -2, %GetInsertLengthCode.exit ]
+  %689 = trunc nuw nsw i32 %.sink742 to i16
+  %690 = add nsw i16 %.sink741, %689
   %691 = icmp samesign ult i16 %.0.i197, 8
   %or.cond.i = and i1 %644, %691
   %692 = icmp ult i16 %690, 16
@@ -26287,8 +26287,8 @@ GetCopyLengthCode.exit:                           ; preds = %GetInsertLengthCode
   %695 = and i16 %694, 64
   br label %CombineLengthCodes.exit
 
-GetCopyLengthCode.exit.thread:                    ; preds = %GetCopyLengthCode.exit.thread627, %683, %GetCopyLengthCode.exit
-  %.0.i198367 = phi i16 [ %690, %GetCopyLengthCode.exit ], [ 23, %683 ], [ %688, %GetCopyLengthCode.exit.thread627 ]
+GetCopyLengthCode.exit.thread:                    ; preds = %GetCopyLengthCode.exit.thread683, %683, %GetCopyLengthCode.exit
+  %.0.i198367 = phi i16 [ %690, %GetCopyLengthCode.exit ], [ 23, %683 ], [ %688, %GetCopyLengthCode.exit.thread683 ]
   %696 = lshr i16 %.0.i198367, 3
   %697 = lshr i16 %.0.i197, 3
   %narrow.i = mul nuw nsw i16 %697, 3
@@ -26773,7 +26773,7 @@ FindMatchLengthWithLimit.exit262:                 ; preds = %171, %.critedge.i25
   %207 = and i32 %206, 14
   %narrow.i277 = add nuw nsw i32 %207, 39
   %208 = zext nneg i32 %narrow.i277 to i64
-  %209 = sub i64 %200, %208
+  %209 = sub nuw i64 %200, %208
   br label %210
 
 210:                                              ; preds = %203, %202
@@ -27038,10 +27038,10 @@ FindMatchLengthWithLimit.exit276:                 ; preds = %246, %.critedge.i27
   br i1 %.not.i.i589, label %.critedge.i.i, label %.lr.ph593.preheader
 
 .lr.ph593.preheader:                              ; preds = %322, %.preheader490
-  %.022.i.i.lcssa785 = phi ptr [ %343, %.preheader490 ], [ %136, %322 ]
-  %.025.i.i.lcssa784 = phi ptr [ %342, %.preheader490 ], [ %332, %322 ]
-  %.027.i.i.lcssa783 = phi i64 [ %344, %.preheader490 ], [ %316, %322 ]
-  %scevgep769 = getelementptr i8, ptr %.022.i.i.lcssa785, i64 %.027.i.i.lcssa783
+  %.022.i.i.lcssa857 = phi ptr [ %343, %.preheader490 ], [ %136, %322 ]
+  %.025.i.i.lcssa856 = phi ptr [ %342, %.preheader490 ], [ %332, %322 ]
+  %.027.i.i.lcssa855 = phi i64 [ %344, %.preheader490 ], [ %316, %322 ]
+  %scevgep769 = getelementptr i8, ptr %.022.i.i.lcssa857, i64 %.027.i.i.lcssa855
   br label %.lr.ph593
 
 .lr.ph585:                                        ; preds = %322, %341
@@ -27070,9 +27070,9 @@ FindMatchLengthWithLimit.exit276:                 ; preds = %246, %.critedge.i27
   br i1 %345, label %.lr.ph585, label %.preheader490, !llvm.loop !63
 
 .lr.ph593:                                        ; preds = %.lr.ph593.preheader, %349
-  %.224.i.i592 = phi ptr [ %352, %349 ], [ %.022.i.i.lcssa785, %.lr.ph593.preheader ]
-  %.126.i.i591 = phi ptr [ %351, %349 ], [ %.025.i.i.lcssa784, %.lr.ph593.preheader ]
-  %.128.i.i590 = phi i64 [ %350, %349 ], [ %.027.i.i.lcssa783, %.lr.ph593.preheader ]
+  %.224.i.i592 = phi ptr [ %352, %349 ], [ %.022.i.i.lcssa857, %.lr.ph593.preheader ]
+  %.126.i.i591 = phi ptr [ %351, %349 ], [ %.025.i.i.lcssa856, %.lr.ph593.preheader ]
+  %.128.i.i590 = phi i64 [ %350, %349 ], [ %.027.i.i.lcssa855, %.lr.ph593.preheader ]
   %346 = load i8, ptr %.224.i.i592, align 1, !tbaa !53, !noalias !1221
   %347 = load i8, ptr %.126.i.i591, align 1, !tbaa !53, !noalias !1221
   %348 = icmp eq i8 %346, %347
@@ -27368,7 +27368,7 @@ FindMatchLengthWithLimit.exit:                    ; preds = %462, %.critedge.i
   %498 = and i32 %497, 14
   %narrow.i = add nuw nsw i32 %498, 39
   %499 = zext nneg i32 %narrow.i to i64
-  %500 = sub i64 %491, %499
+  %500 = sub nuw i64 %491, %499
   br label %501
 
 501:                                              ; preds = %494, %493
@@ -27622,10 +27622,10 @@ FindMatchLengthWithLimit.exit248:                 ; preds = %534, %.critedge.i24
   br i1 %.not.i.i307683, label %.critedge.i.i308, label %.lr.ph687.preheader
 
 .lr.ph687.preheader:                              ; preds = %610, %.preheader
-  %.022.i.i302.lcssa792 = phi ptr [ %631, %.preheader ], [ %432, %610 ]
-  %.025.i.i301.lcssa791 = phi ptr [ %630, %.preheader ], [ %620, %610 ]
-  %.027.i.i300.lcssa790 = phi i64 [ %632, %.preheader ], [ %604, %610 ]
-  %scevgep773 = getelementptr i8, ptr %.022.i.i302.lcssa792, i64 %.027.i.i300.lcssa790
+  %.022.i.i302.lcssa864 = phi ptr [ %631, %.preheader ], [ %432, %610 ]
+  %.025.i.i301.lcssa863 = phi ptr [ %630, %.preheader ], [ %620, %610 ]
+  %.027.i.i300.lcssa862 = phi i64 [ %632, %.preheader ], [ %604, %610 ]
+  %scevgep773 = getelementptr i8, ptr %.022.i.i302.lcssa864, i64 %.027.i.i300.lcssa862
   br label %.lr.ph687
 
 .lr.ph679:                                        ; preds = %610, %629
@@ -27654,9 +27654,9 @@ FindMatchLengthWithLimit.exit248:                 ; preds = %534, %.critedge.i24
   br i1 %633, label %.lr.ph679, label %.preheader, !llvm.loop !63
 
 .lr.ph687:                                        ; preds = %.lr.ph687.preheader, %637
-  %.224.i.i306686 = phi ptr [ %640, %637 ], [ %.022.i.i302.lcssa792, %.lr.ph687.preheader ]
-  %.126.i.i305685 = phi ptr [ %639, %637 ], [ %.025.i.i301.lcssa791, %.lr.ph687.preheader ]
-  %.128.i.i304684 = phi i64 [ %638, %637 ], [ %.027.i.i300.lcssa790, %.lr.ph687.preheader ]
+  %.224.i.i306686 = phi ptr [ %640, %637 ], [ %.022.i.i302.lcssa864, %.lr.ph687.preheader ]
+  %.126.i.i305685 = phi ptr [ %639, %637 ], [ %.025.i.i301.lcssa863, %.lr.ph687.preheader ]
+  %.128.i.i304684 = phi i64 [ %638, %637 ], [ %.027.i.i300.lcssa862, %.lr.ph687.preheader ]
   %634 = load i8, ptr %.224.i.i306686, align 1, !tbaa !53, !noalias !1233
   %635 = load i8, ptr %.126.i.i305685, align 1, !tbaa !53, !noalias !1233
   %636 = icmp eq i8 %634, %635
@@ -27998,14 +27998,14 @@ GetInsertLengthCode.exit:                         ; preds = %796, %800, %814, %8
   %828 = sub nuw nsw i32 30, %827
   %829 = shl nuw nsw i32 %828, 1
   %830 = lshr i32 %narrow, %828
-  %831 = add i32 %830, %829
+  %831 = add nuw nsw i32 %830, %829
   br label %GetCopyLengthCode.exit
 
 832:                                              ; preds = %824
   %833 = icmp ult i32 %791, 2118
-  br i1 %833, label %GetCopyLengthCode.exit.thread793, label %GetCopyLengthCode.exit.thread
+  br i1 %833, label %GetCopyLengthCode.exit.thread865, label %GetCopyLengthCode.exit.thread
 
-GetCopyLengthCode.exit.thread793:                 ; preds = %832
+GetCopyLengthCode.exit.thread865:                 ; preds = %832
   %834 = add nsw i32 %791, -70
   %835 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %834, i1 true)
   %836 = trunc nuw nsw i32 %835 to i16
@@ -28013,10 +28013,10 @@ GetCopyLengthCode.exit.thread793:                 ; preds = %832
   br label %GetCopyLengthCode.exit.thread
 
 GetCopyLengthCode.exit:                           ; preds = %GetInsertLengthCode.exit, %826
-  %.sink905 = phi i32 [ %831, %826 ], [ %791, %GetInsertLengthCode.exit ]
-  %.sink904 = phi i16 [ 4, %826 ], [ -2, %GetInsertLengthCode.exit ]
-  %838 = trunc i32 %.sink905 to i16
-  %839 = add nsw i16 %.sink904, %838
+  %.sink924 = phi i32 [ %831, %826 ], [ %791, %GetInsertLengthCode.exit ]
+  %.sink923 = phi i16 [ 4, %826 ], [ -2, %GetInsertLengthCode.exit ]
+  %838 = trunc nuw nsw i32 %.sink924 to i16
+  %839 = add nsw i16 %.sink923, %838
   %840 = icmp samesign ult i16 %.0.i319, 8
   %or.cond.i321 = and i1 %793, %840
   %841 = icmp ult i16 %839, 16
@@ -28028,8 +28028,8 @@ GetCopyLengthCode.exit:                           ; preds = %GetInsertLengthCode
   %844 = and i16 %843, 64
   br label %CombineLengthCodes.exit
 
-GetCopyLengthCode.exit.thread:                    ; preds = %GetCopyLengthCode.exit.thread793, %832, %GetCopyLengthCode.exit
-  %.0.i320468 = phi i16 [ %839, %GetCopyLengthCode.exit ], [ 23, %832 ], [ %837, %GetCopyLengthCode.exit.thread793 ]
+GetCopyLengthCode.exit.thread:                    ; preds = %GetCopyLengthCode.exit.thread865, %832, %GetCopyLengthCode.exit
+  %.0.i320468 = phi i16 [ %839, %GetCopyLengthCode.exit ], [ 23, %832 ], [ %837, %GetCopyLengthCode.exit.thread865 ]
   %845 = lshr i16 %.0.i320468, 3
   %846 = lshr i16 %.0.i319, 3
   %narrow.i322 = mul nuw nsw i16 %846, 3
@@ -28554,7 +28554,7 @@ FindMatchLengthWithLimit.exit189.i:               ; preds = %171, %.critedge.i18
   %207 = and i32 %206, 14
   %narrow.i.i = add nuw nsw i32 %207, 39
   %208 = zext nneg i32 %narrow.i.i to i64
-  %209 = sub i64 %200, %208
+  %209 = sub nuw i64 %200, %208
   br label %210
 
 210:                                              ; preds = %203, %202
@@ -28823,10 +28823,10 @@ FindMatchLengthWithLimit.exit.i:                  ; preds = %249, %.critedge.i.i
   br i1 %.not.i.i.i564, label %.critedge.i.i.i, label %.lr.ph568.preheader
 
 .lr.ph568.preheader:                              ; preds = %324, %.preheader465
-  %.022.i.i.i.lcssa760 = phi ptr [ %345, %.preheader465 ], [ %135, %324 ]
-  %.025.i.i.i.lcssa759 = phi ptr [ %344, %.preheader465 ], [ %334, %324 ]
-  %.027.i.i.i.lcssa758 = phi i64 [ %346, %.preheader465 ], [ %318, %324 ]
-  %scevgep744 = getelementptr i8, ptr %.022.i.i.i.lcssa760, i64 %.027.i.i.i.lcssa758
+  %.022.i.i.i.lcssa834 = phi ptr [ %345, %.preheader465 ], [ %135, %324 ]
+  %.025.i.i.i.lcssa833 = phi ptr [ %344, %.preheader465 ], [ %334, %324 ]
+  %.027.i.i.i.lcssa832 = phi i64 [ %346, %.preheader465 ], [ %318, %324 ]
+  %scevgep744 = getelementptr i8, ptr %.022.i.i.i.lcssa834, i64 %.027.i.i.i.lcssa832
   br label %.lr.ph568
 
 .lr.ph560:                                        ; preds = %324, %343
@@ -28855,9 +28855,9 @@ FindMatchLengthWithLimit.exit.i:                  ; preds = %249, %.critedge.i.i
   br i1 %347, label %.lr.ph560, label %.preheader465, !llvm.loop !63
 
 .lr.ph568:                                        ; preds = %.lr.ph568.preheader, %351
-  %.224.i.i.i567 = phi ptr [ %354, %351 ], [ %.022.i.i.i.lcssa760, %.lr.ph568.preheader ]
-  %.126.i.i.i566 = phi ptr [ %353, %351 ], [ %.025.i.i.i.lcssa759, %.lr.ph568.preheader ]
-  %.128.i.i.i565 = phi i64 [ %352, %351 ], [ %.027.i.i.i.lcssa758, %.lr.ph568.preheader ]
+  %.224.i.i.i567 = phi ptr [ %354, %351 ], [ %.022.i.i.i.lcssa834, %.lr.ph568.preheader ]
+  %.126.i.i.i566 = phi ptr [ %353, %351 ], [ %.025.i.i.i.lcssa833, %.lr.ph568.preheader ]
+  %.128.i.i.i565 = phi i64 [ %352, %351 ], [ %.027.i.i.i.lcssa832, %.lr.ph568.preheader ]
   %348 = load i8, ptr %.224.i.i.i567, align 1, !tbaa !53, !alias.scope !1275, !noalias !1277
   %349 = load i8, ptr %.126.i.i.i566, align 1, !tbaa !53, !noalias !1277
   %350 = icmp eq i8 %348, %349
@@ -29153,7 +29153,7 @@ FindMatchLengthWithLimit.exit189.i285:            ; preds = %464, %.critedge.i18
   %500 = and i32 %499, 14
   %narrow.i.i289 = add nuw nsw i32 %500, 39
   %501 = zext nneg i32 %narrow.i.i289 to i64
-  %502 = sub i64 %493, %501
+  %502 = sub nuw i64 %493, %501
   br label %503
 
 503:                                              ; preds = %496, %495
@@ -29411,10 +29411,10 @@ FindMatchLengthWithLimit.exit.i261:               ; preds = %539, %.critedge.i.i
   br i1 %.not.i.i.i229658, label %.critedge.i.i.i230, label %.lr.ph662.preheader
 
 .lr.ph662.preheader:                              ; preds = %614, %.preheader
-  %.022.i.i.i224.lcssa767 = phi ptr [ %635, %.preheader ], [ %434, %614 ]
-  %.025.i.i.i223.lcssa766 = phi ptr [ %634, %.preheader ], [ %624, %614 ]
-  %.027.i.i.i222.lcssa765 = phi i64 [ %636, %.preheader ], [ %608, %614 ]
-  %scevgep748 = getelementptr i8, ptr %.022.i.i.i224.lcssa767, i64 %.027.i.i.i222.lcssa765
+  %.022.i.i.i224.lcssa841 = phi ptr [ %635, %.preheader ], [ %434, %614 ]
+  %.025.i.i.i223.lcssa840 = phi ptr [ %634, %.preheader ], [ %624, %614 ]
+  %.027.i.i.i222.lcssa839 = phi i64 [ %636, %.preheader ], [ %608, %614 ]
+  %scevgep748 = getelementptr i8, ptr %.022.i.i.i224.lcssa841, i64 %.027.i.i.i222.lcssa839
   br label %.lr.ph662
 
 .lr.ph654:                                        ; preds = %614, %633
@@ -29443,9 +29443,9 @@ FindMatchLengthWithLimit.exit.i261:               ; preds = %539, %.critedge.i.i
   br i1 %637, label %.lr.ph654, label %.preheader, !llvm.loop !63
 
 .lr.ph662:                                        ; preds = %.lr.ph662.preheader, %641
-  %.224.i.i.i228661 = phi ptr [ %644, %641 ], [ %.022.i.i.i224.lcssa767, %.lr.ph662.preheader ]
-  %.126.i.i.i227660 = phi ptr [ %643, %641 ], [ %.025.i.i.i223.lcssa766, %.lr.ph662.preheader ]
-  %.128.i.i.i226659 = phi i64 [ %642, %641 ], [ %.027.i.i.i222.lcssa765, %.lr.ph662.preheader ]
+  %.224.i.i.i228661 = phi ptr [ %644, %641 ], [ %.022.i.i.i224.lcssa841, %.lr.ph662.preheader ]
+  %.126.i.i.i227660 = phi ptr [ %643, %641 ], [ %.025.i.i.i223.lcssa840, %.lr.ph662.preheader ]
+  %.128.i.i.i226659 = phi i64 [ %642, %641 ], [ %.027.i.i.i222.lcssa839, %.lr.ph662.preheader ]
   %638 = load i8, ptr %.224.i.i.i228661, align 1, !tbaa !53, !alias.scope !1287, !noalias !1289
   %639 = load i8, ptr %.126.i.i.i227660, align 1, !tbaa !53, !noalias !1289
   %640 = icmp eq i8 %638, %639
@@ -29788,14 +29788,14 @@ GetInsertLengthCode.exit:                         ; preds = %800, %804, %818, %8
   %832 = sub nuw nsw i32 30, %831
   %833 = shl nuw nsw i32 %832, 1
   %834 = lshr i32 %narrow, %832
-  %835 = add i32 %834, %833
+  %835 = add nuw nsw i32 %834, %833
   br label %GetCopyLengthCode.exit
 
 836:                                              ; preds = %828
   %837 = icmp ult i32 %795, 2118
-  br i1 %837, label %GetCopyLengthCode.exit.thread768, label %GetCopyLengthCode.exit.thread
+  br i1 %837, label %GetCopyLengthCode.exit.thread842, label %GetCopyLengthCode.exit.thread
 
-GetCopyLengthCode.exit.thread768:                 ; preds = %836
+GetCopyLengthCode.exit.thread842:                 ; preds = %836
   %838 = add nsw i32 %795, -70
   %839 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %838, i1 true)
   %840 = trunc nuw nsw i32 %839 to i16
@@ -29803,10 +29803,10 @@ GetCopyLengthCode.exit.thread768:                 ; preds = %836
   br label %GetCopyLengthCode.exit.thread
 
 GetCopyLengthCode.exit:                           ; preds = %GetInsertLengthCode.exit, %830
-  %.sink880 = phi i32 [ %835, %830 ], [ %795, %GetInsertLengthCode.exit ]
-  %.sink879 = phi i16 [ 4, %830 ], [ -2, %GetInsertLengthCode.exit ]
-  %842 = trunc i32 %.sink880 to i16
-  %843 = add nsw i16 %.sink879, %842
+  %.sink901 = phi i32 [ %835, %830 ], [ %795, %GetInsertLengthCode.exit ]
+  %.sink900 = phi i16 [ 4, %830 ], [ -2, %GetInsertLengthCode.exit ]
+  %842 = trunc nuw nsw i32 %.sink901 to i16
+  %843 = add nsw i16 %.sink900, %842
   %844 = icmp samesign ult i16 %.0.i197, 8
   %or.cond.i = and i1 %797, %844
   %845 = icmp ult i16 %843, 16
@@ -29818,8 +29818,8 @@ GetCopyLengthCode.exit:                           ; preds = %GetInsertLengthCode
   %848 = and i16 %847, 64
   br label %CombineLengthCodes.exit
 
-GetCopyLengthCode.exit.thread:                    ; preds = %GetCopyLengthCode.exit.thread768, %836, %GetCopyLengthCode.exit
-  %.0.i198443 = phi i16 [ %843, %GetCopyLengthCode.exit ], [ 23, %836 ], [ %841, %GetCopyLengthCode.exit.thread768 ]
+GetCopyLengthCode.exit.thread:                    ; preds = %GetCopyLengthCode.exit.thread842, %836, %GetCopyLengthCode.exit
+  %.0.i198443 = phi i16 [ %843, %GetCopyLengthCode.exit ], [ 23, %836 ], [ %841, %GetCopyLengthCode.exit.thread842 ]
   %849 = lshr i16 %.0.i198443, 3
   %850 = lshr i16 %.0.i197, 3
   %narrow.i = mul nuw nsw i16 %850, 3
@@ -30238,7 +30238,7 @@ FindMatchLengthWithLimit.exit164.i:               ; preds = %109, %.critedge.i15
   %142 = and i32 %141, 4
   %narrow.i.i = add nuw nsw i32 %142, 39
   %143 = zext nneg i32 %narrow.i.i to i64
-  %144 = sub i64 %135, %143
+  %144 = sub nuw i64 %135, %143
   br label %145
 
 145:                                              ; preds = %138, %137
@@ -30506,10 +30506,10 @@ FindMatchLengthWithLimit.exit.i:                  ; preds = %184, %.critedge.i.i
   br i1 %.not.i.i.i524, label %.critedge.i.i.i, label %.lr.ph528.preheader
 
 .lr.ph528.preheader:                              ; preds = %263, %.preheader440
-  %.022.i.i.i.lcssa703 = phi ptr [ %284, %.preheader440 ], [ %90, %263 ]
-  %.025.i.i.i.lcssa702 = phi ptr [ %283, %.preheader440 ], [ %273, %263 ]
-  %.027.i.i.i.lcssa701 = phi i64 [ %285, %.preheader440 ], [ %257, %263 ]
-  %scevgep688 = getelementptr i8, ptr %.022.i.i.i.lcssa703, i64 %.027.i.i.i.lcssa701
+  %.022.i.i.i.lcssa767 = phi ptr [ %284, %.preheader440 ], [ %90, %263 ]
+  %.025.i.i.i.lcssa766 = phi ptr [ %283, %.preheader440 ], [ %273, %263 ]
+  %.027.i.i.i.lcssa765 = phi i64 [ %285, %.preheader440 ], [ %257, %263 ]
+  %scevgep688 = getelementptr i8, ptr %.022.i.i.i.lcssa767, i64 %.027.i.i.i.lcssa765
   br label %.lr.ph528
 
 .lr.ph520:                                        ; preds = %263, %282
@@ -30538,9 +30538,9 @@ FindMatchLengthWithLimit.exit.i:                  ; preds = %184, %.critedge.i.i
   br i1 %286, label %.lr.ph520, label %.preheader440, !llvm.loop !63
 
 .lr.ph528:                                        ; preds = %.lr.ph528.preheader, %290
-  %.224.i.i.i527 = phi ptr [ %293, %290 ], [ %.022.i.i.i.lcssa703, %.lr.ph528.preheader ]
-  %.126.i.i.i526 = phi ptr [ %292, %290 ], [ %.025.i.i.i.lcssa702, %.lr.ph528.preheader ]
-  %.128.i.i.i525 = phi i64 [ %291, %290 ], [ %.027.i.i.i.lcssa701, %.lr.ph528.preheader ]
+  %.224.i.i.i527 = phi ptr [ %293, %290 ], [ %.022.i.i.i.lcssa767, %.lr.ph528.preheader ]
+  %.126.i.i.i526 = phi ptr [ %292, %290 ], [ %.025.i.i.i.lcssa766, %.lr.ph528.preheader ]
+  %.128.i.i.i525 = phi i64 [ %291, %290 ], [ %.027.i.i.i.lcssa765, %.lr.ph528.preheader ]
   %287 = load i8, ptr %.224.i.i.i527, align 1, !tbaa !53, !alias.scope !1330, !noalias !1339
   %288 = load i8, ptr %.126.i.i.i526, align 1, !tbaa !53, !noalias !1347
   %289 = icmp eq i8 %287, %288
@@ -30806,7 +30806,7 @@ FindMatchLengthWithLimit.exit164.i282:            ; preds = %390, %.critedge.i15
   %423 = and i32 %422, 4
   %narrow.i.i285 = add nuw nsw i32 %423, 39
   %424 = zext nneg i32 %narrow.i.i285 to i64
-  %425 = sub i64 %416, %424
+  %425 = sub nuw i64 %416, %424
   br label %426
 
 426:                                              ; preds = %419, %418
@@ -31073,10 +31073,10 @@ FindMatchLengthWithLimit.exit.i260:               ; preds = %465, %.critedge.i.i
   br i1 %.not.i.i.i238600, label %.critedge.i.i.i239, label %.lr.ph604.preheader
 
 .lr.ph604.preheader:                              ; preds = %543, %.preheader
-  %.022.i.i.i233.lcssa710 = phi ptr [ %564, %.preheader ], [ %371, %543 ]
-  %.025.i.i.i232.lcssa709 = phi ptr [ %563, %.preheader ], [ %553, %543 ]
-  %.027.i.i.i231.lcssa708 = phi i64 [ %565, %.preheader ], [ %537, %543 ]
-  %scevgep692 = getelementptr i8, ptr %.022.i.i.i233.lcssa710, i64 %.027.i.i.i231.lcssa708
+  %.022.i.i.i233.lcssa774 = phi ptr [ %564, %.preheader ], [ %371, %543 ]
+  %.025.i.i.i232.lcssa773 = phi ptr [ %563, %.preheader ], [ %553, %543 ]
+  %.027.i.i.i231.lcssa772 = phi i64 [ %565, %.preheader ], [ %537, %543 ]
+  %scevgep692 = getelementptr i8, ptr %.022.i.i.i233.lcssa774, i64 %.027.i.i.i231.lcssa772
   br label %.lr.ph604
 
 .lr.ph596:                                        ; preds = %543, %562
@@ -31105,9 +31105,9 @@ FindMatchLengthWithLimit.exit.i260:               ; preds = %465, %.critedge.i.i
   br i1 %566, label %.lr.ph596, label %.preheader, !llvm.loop !63
 
 .lr.ph604:                                        ; preds = %.lr.ph604.preheader, %570
-  %.224.i.i.i237603 = phi ptr [ %573, %570 ], [ %.022.i.i.i233.lcssa710, %.lr.ph604.preheader ]
-  %.126.i.i.i236602 = phi ptr [ %572, %570 ], [ %.025.i.i.i232.lcssa709, %.lr.ph604.preheader ]
-  %.128.i.i.i235601 = phi i64 [ %571, %570 ], [ %.027.i.i.i231.lcssa708, %.lr.ph604.preheader ]
+  %.224.i.i.i237603 = phi ptr [ %573, %570 ], [ %.022.i.i.i233.lcssa774, %.lr.ph604.preheader ]
+  %.126.i.i.i236602 = phi ptr [ %572, %570 ], [ %.025.i.i.i232.lcssa773, %.lr.ph604.preheader ]
+  %.128.i.i.i235601 = phi i64 [ %571, %570 ], [ %.027.i.i.i231.lcssa772, %.lr.ph604.preheader ]
   %567 = load i8, ptr %.224.i.i.i237603, align 1, !tbaa !53, !alias.scope !1359, !noalias !1366
   %568 = load i8, ptr %.126.i.i.i236602, align 1, !tbaa !53, !noalias !1369
   %569 = icmp eq i8 %567, %568
@@ -31415,14 +31415,14 @@ GetInsertLengthCode.exit:                         ; preds = %712, %716, %730, %7
   %744 = sub nuw nsw i32 30, %743
   %745 = shl nuw nsw i32 %744, 1
   %746 = lshr i32 %narrow, %744
-  %747 = add i32 %746, %745
+  %747 = add nuw nsw i32 %746, %745
   br label %GetCopyLengthCode.exit
 
 748:                                              ; preds = %740
   %749 = icmp ult i32 %707, 2118
-  br i1 %749, label %GetCopyLengthCode.exit.thread711, label %GetCopyLengthCode.exit.thread
+  br i1 %749, label %GetCopyLengthCode.exit.thread775, label %GetCopyLengthCode.exit.thread
 
-GetCopyLengthCode.exit.thread711:                 ; preds = %748
+GetCopyLengthCode.exit.thread775:                 ; preds = %748
   %750 = add nsw i32 %707, -70
   %751 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %750, i1 true)
   %752 = trunc nuw nsw i32 %751 to i16
@@ -31430,10 +31430,10 @@ GetCopyLengthCode.exit.thread711:                 ; preds = %748
   br label %GetCopyLengthCode.exit.thread
 
 GetCopyLengthCode.exit:                           ; preds = %GetInsertLengthCode.exit, %742
-  %.sink827 = phi i32 [ %747, %742 ], [ %707, %GetInsertLengthCode.exit ]
-  %.sink826 = phi i16 [ 4, %742 ], [ -2, %GetInsertLengthCode.exit ]
-  %754 = trunc i32 %.sink827 to i16
-  %755 = add nsw i16 %.sink826, %754
+  %.sink835 = phi i32 [ %747, %742 ], [ %707, %GetInsertLengthCode.exit ]
+  %.sink834 = phi i16 [ 4, %742 ], [ -2, %GetInsertLengthCode.exit ]
+  %754 = trunc nuw nsw i32 %.sink835 to i16
+  %755 = add nsw i16 %.sink834, %754
   %756 = icmp samesign ult i16 %.0.i197, 8
   %or.cond.i = and i1 %709, %756
   %757 = icmp ult i16 %755, 16
@@ -31445,8 +31445,8 @@ GetCopyLengthCode.exit:                           ; preds = %GetInsertLengthCode
   %760 = and i16 %759, 64
   br label %CombineLengthCodes.exit
 
-GetCopyLengthCode.exit.thread:                    ; preds = %GetCopyLengthCode.exit.thread711, %748, %GetCopyLengthCode.exit
-  %.0.i198418 = phi i16 [ %755, %GetCopyLengthCode.exit ], [ 23, %748 ], [ %753, %GetCopyLengthCode.exit.thread711 ]
+GetCopyLengthCode.exit.thread:                    ; preds = %GetCopyLengthCode.exit.thread775, %748, %GetCopyLengthCode.exit
+  %.0.i198418 = phi i16 [ %755, %GetCopyLengthCode.exit ], [ 23, %748 ], [ %753, %GetCopyLengthCode.exit.thread775 ]
   %761 = lshr i16 %.0.i198418, 3
   %762 = lshr i16 %.0.i197, 3
   %narrow.i = mul nuw nsw i16 %762, 3
@@ -31649,12 +31649,12 @@ FindLongestMatchH40.exit.thread:                  ; preds = %229, %FindLongestMa
   br i1 %887, label %863, label %StoreRangeH40.exit.sink.split, !llvm.loop !1396
 
 StoreRangeH40.exit.sink.split:                    ; preds = %793, %863, %830
-  %.lcssa762.sink = phi i16 [ %837, %830 ], [ %870, %863 ], [ %800, %793 ]
+  %.lcssa826.sink = phi i16 [ %837, %830 ], [ %870, %863 ], [ %800, %793 ]
   %.1174.ph = phi i64 [ %.0173633, %830 ], [ %.0173633, %863 ], [ %622, %793 ]
   %.4170.ph = phi i64 [ %852, %830 ], [ %885, %863 ], [ 0, %793 ]
   %.1165.ph = phi ptr [ %.0164635, %830 ], [ %.0164635, %863 ], [ %665, %793 ]
   %.4.ph = phi i64 [ %853, %830 ], [ %886, %863 ], [ %778, %793 ]
-  store i16 %.lcssa762.sink, ptr %13, align 2, !tbaa !67, !noalias !585
+  store i16 %.lcssa826.sink, ptr %13, align 2, !tbaa !67, !noalias !585
   br label %StoreRangeH40.exit
 
 StoreRangeH40.exit:                               ; preds = %StoreRangeH40.exit.sink.split, %787, %855, %822, %FindLongestMatchH40.exit.thread
@@ -31931,7 +31931,7 @@ FindMatchLengthWithLimit.exit164.i:               ; preds = %122, %.critedge.i15
   %155 = and i32 %154, 14
   %narrow.i.i = add nuw nsw i32 %155, 39
   %156 = zext nneg i32 %narrow.i.i to i64
-  %157 = sub i64 %148, %156
+  %157 = sub nuw i64 %148, %156
   br label %158
 
 158:                                              ; preds = %151, %150
@@ -32199,10 +32199,10 @@ FindMatchLengthWithLimit.exit.i:                  ; preds = %197, %.critedge.i.i
   br i1 %.not.i.i.i524, label %.critedge.i.i.i, label %.lr.ph528.preheader
 
 .lr.ph528.preheader:                              ; preds = %276, %.preheader440
-  %.022.i.i.i.lcssa703 = phi ptr [ %297, %.preheader440 ], [ %103, %276 ]
-  %.025.i.i.i.lcssa702 = phi ptr [ %296, %.preheader440 ], [ %286, %276 ]
-  %.027.i.i.i.lcssa701 = phi i64 [ %298, %.preheader440 ], [ %270, %276 ]
-  %scevgep688 = getelementptr i8, ptr %.022.i.i.i.lcssa703, i64 %.027.i.i.i.lcssa701
+  %.022.i.i.i.lcssa767 = phi ptr [ %297, %.preheader440 ], [ %103, %276 ]
+  %.025.i.i.i.lcssa766 = phi ptr [ %296, %.preheader440 ], [ %286, %276 ]
+  %.027.i.i.i.lcssa765 = phi i64 [ %298, %.preheader440 ], [ %270, %276 ]
+  %scevgep688 = getelementptr i8, ptr %.022.i.i.i.lcssa767, i64 %.027.i.i.i.lcssa765
   br label %.lr.ph528
 
 .lr.ph520:                                        ; preds = %276, %295
@@ -32231,9 +32231,9 @@ FindMatchLengthWithLimit.exit.i:                  ; preds = %197, %.critedge.i.i
   br i1 %299, label %.lr.ph520, label %.preheader440, !llvm.loop !63
 
 .lr.ph528:                                        ; preds = %.lr.ph528.preheader, %303
-  %.224.i.i.i527 = phi ptr [ %306, %303 ], [ %.022.i.i.i.lcssa703, %.lr.ph528.preheader ]
-  %.126.i.i.i526 = phi ptr [ %305, %303 ], [ %.025.i.i.i.lcssa702, %.lr.ph528.preheader ]
-  %.128.i.i.i525 = phi i64 [ %304, %303 ], [ %.027.i.i.i.lcssa701, %.lr.ph528.preheader ]
+  %.224.i.i.i527 = phi ptr [ %306, %303 ], [ %.022.i.i.i.lcssa767, %.lr.ph528.preheader ]
+  %.126.i.i.i526 = phi ptr [ %305, %303 ], [ %.025.i.i.i.lcssa766, %.lr.ph528.preheader ]
+  %.128.i.i.i525 = phi i64 [ %304, %303 ], [ %.027.i.i.i.lcssa765, %.lr.ph528.preheader ]
   %300 = load i8, ptr %.224.i.i.i527, align 1, !tbaa !53, !alias.scope !1406, !noalias !1415
   %301 = load i8, ptr %.126.i.i.i526, align 1, !tbaa !53, !noalias !1423
   %302 = icmp eq i8 %300, %301
@@ -32499,7 +32499,7 @@ FindMatchLengthWithLimit.exit164.i282:            ; preds = %403, %.critedge.i15
   %436 = and i32 %435, 14
   %narrow.i.i285 = add nuw nsw i32 %436, 39
   %437 = zext nneg i32 %narrow.i.i285 to i64
-  %438 = sub i64 %429, %437
+  %438 = sub nuw i64 %429, %437
   br label %439
 
 439:                                              ; preds = %432, %431
@@ -32766,10 +32766,10 @@ FindMatchLengthWithLimit.exit.i260:               ; preds = %478, %.critedge.i.i
   br i1 %.not.i.i.i238600, label %.critedge.i.i.i239, label %.lr.ph604.preheader
 
 .lr.ph604.preheader:                              ; preds = %556, %.preheader
-  %.022.i.i.i233.lcssa710 = phi ptr [ %577, %.preheader ], [ %384, %556 ]
-  %.025.i.i.i232.lcssa709 = phi ptr [ %576, %.preheader ], [ %566, %556 ]
-  %.027.i.i.i231.lcssa708 = phi i64 [ %578, %.preheader ], [ %550, %556 ]
-  %scevgep692 = getelementptr i8, ptr %.022.i.i.i233.lcssa710, i64 %.027.i.i.i231.lcssa708
+  %.022.i.i.i233.lcssa774 = phi ptr [ %577, %.preheader ], [ %384, %556 ]
+  %.025.i.i.i232.lcssa773 = phi ptr [ %576, %.preheader ], [ %566, %556 ]
+  %.027.i.i.i231.lcssa772 = phi i64 [ %578, %.preheader ], [ %550, %556 ]
+  %scevgep692 = getelementptr i8, ptr %.022.i.i.i233.lcssa774, i64 %.027.i.i.i231.lcssa772
   br label %.lr.ph604
 
 .lr.ph596:                                        ; preds = %556, %575
@@ -32798,9 +32798,9 @@ FindMatchLengthWithLimit.exit.i260:               ; preds = %478, %.critedge.i.i
   br i1 %579, label %.lr.ph596, label %.preheader, !llvm.loop !63
 
 .lr.ph604:                                        ; preds = %.lr.ph604.preheader, %583
-  %.224.i.i.i237603 = phi ptr [ %586, %583 ], [ %.022.i.i.i233.lcssa710, %.lr.ph604.preheader ]
-  %.126.i.i.i236602 = phi ptr [ %585, %583 ], [ %.025.i.i.i232.lcssa709, %.lr.ph604.preheader ]
-  %.128.i.i.i235601 = phi i64 [ %584, %583 ], [ %.027.i.i.i231.lcssa708, %.lr.ph604.preheader ]
+  %.224.i.i.i237603 = phi ptr [ %586, %583 ], [ %.022.i.i.i233.lcssa774, %.lr.ph604.preheader ]
+  %.126.i.i.i236602 = phi ptr [ %585, %583 ], [ %.025.i.i.i232.lcssa773, %.lr.ph604.preheader ]
+  %.128.i.i.i235601 = phi i64 [ %584, %583 ], [ %.027.i.i.i231.lcssa772, %.lr.ph604.preheader ]
   %580 = load i8, ptr %.224.i.i.i237603, align 1, !tbaa !53, !alias.scope !1435, !noalias !1442
   %581 = load i8, ptr %.126.i.i.i236602, align 1, !tbaa !53, !noalias !1445
   %582 = icmp eq i8 %580, %581
@@ -33120,14 +33120,14 @@ GetInsertLengthCode.exit:                         ; preds = %731, %735, %749, %7
   %763 = sub nuw nsw i32 30, %762
   %764 = shl nuw nsw i32 %763, 1
   %765 = lshr i32 %narrow, %763
-  %766 = add i32 %765, %764
+  %766 = add nuw nsw i32 %765, %764
   br label %GetCopyLengthCode.exit
 
 767:                                              ; preds = %759
   %768 = icmp ult i32 %726, 2118
-  br i1 %768, label %GetCopyLengthCode.exit.thread711, label %GetCopyLengthCode.exit.thread
+  br i1 %768, label %GetCopyLengthCode.exit.thread775, label %GetCopyLengthCode.exit.thread
 
-GetCopyLengthCode.exit.thread711:                 ; preds = %767
+GetCopyLengthCode.exit.thread775:                 ; preds = %767
   %769 = add nsw i32 %726, -70
   %770 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %769, i1 true)
   %771 = trunc nuw nsw i32 %770 to i16
@@ -33135,10 +33135,10 @@ GetCopyLengthCode.exit.thread711:                 ; preds = %767
   br label %GetCopyLengthCode.exit.thread
 
 GetCopyLengthCode.exit:                           ; preds = %GetInsertLengthCode.exit, %761
-  %.sink827 = phi i32 [ %766, %761 ], [ %726, %GetInsertLengthCode.exit ]
-  %.sink826 = phi i16 [ 4, %761 ], [ -2, %GetInsertLengthCode.exit ]
-  %773 = trunc i32 %.sink827 to i16
-  %774 = add nsw i16 %.sink826, %773
+  %.sink835 = phi i32 [ %766, %761 ], [ %726, %GetInsertLengthCode.exit ]
+  %.sink834 = phi i16 [ 4, %761 ], [ -2, %GetInsertLengthCode.exit ]
+  %773 = trunc nuw nsw i32 %.sink835 to i16
+  %774 = add nsw i16 %.sink834, %773
   %775 = icmp samesign ult i16 %.0.i197, 8
   %or.cond.i = and i1 %728, %775
   %776 = icmp ult i16 %774, 16
@@ -33150,8 +33150,8 @@ GetCopyLengthCode.exit:                           ; preds = %GetInsertLengthCode
   %779 = and i16 %778, 64
   br label %CombineLengthCodes.exit
 
-GetCopyLengthCode.exit.thread:                    ; preds = %GetCopyLengthCode.exit.thread711, %767, %GetCopyLengthCode.exit
-  %.0.i198418 = phi i16 [ %774, %GetCopyLengthCode.exit ], [ 23, %767 ], [ %772, %GetCopyLengthCode.exit.thread711 ]
+GetCopyLengthCode.exit.thread:                    ; preds = %GetCopyLengthCode.exit.thread775, %767, %GetCopyLengthCode.exit
+  %.0.i198418 = phi i16 [ %774, %GetCopyLengthCode.exit ], [ 23, %767 ], [ %772, %GetCopyLengthCode.exit.thread775 ]
   %780 = lshr i16 %.0.i198418, 3
   %781 = lshr i16 %.0.i197, 3
   %narrow.i = mul nuw nsw i16 %781, 3
@@ -33354,12 +33354,12 @@ FindLongestMatchH41.exit.thread:                  ; preds = %242, %FindLongestMa
   br i1 %906, label %882, label %StoreRangeH41.exit.sink.split, !llvm.loop !1477
 
 StoreRangeH41.exit.sink.split:                    ; preds = %812, %882, %849
-  %.lcssa762.sink = phi i16 [ %856, %849 ], [ %889, %882 ], [ %819, %812 ]
+  %.lcssa826.sink = phi i16 [ %856, %849 ], [ %889, %882 ], [ %819, %812 ]
   %.1174.ph = phi i64 [ %.0173633, %849 ], [ %.0173633, %882 ], [ %635, %812 ]
   %.4170.ph = phi i64 [ %871, %849 ], [ %904, %882 ], [ 0, %812 ]
   %.1165.ph = phi ptr [ %.0164635, %849 ], [ %.0164635, %882 ], [ %684, %812 ]
   %.4.ph = phi i64 [ %872, %849 ], [ %905, %882 ], [ %797, %812 ]
-  store i16 %.lcssa762.sink, ptr %13, align 2, !tbaa !67, !noalias !585
+  store i16 %.lcssa826.sink, ptr %13, align 2, !tbaa !67, !noalias !585
   br label %StoreRangeH41.exit
 
 StoreRangeH41.exit:                               ; preds = %StoreRangeH41.exit.sink.split, %806, %874, %841, %FindLongestMatchH41.exit.thread
@@ -33655,7 +33655,7 @@ FindMatchLengthWithLimit.exit164.i:               ; preds = %135, %.critedge.i15
   %168 = and i32 %167, 14
   %narrow.i.i = add nuw nsw i32 %168, 39
   %169 = zext nneg i32 %narrow.i.i to i64
-  %170 = sub i64 %161, %169
+  %170 = sub nuw i64 %161, %169
   br label %171
 
 171:                                              ; preds = %164, %163
@@ -33928,10 +33928,10 @@ FindMatchLengthWithLimit.exit.i:                  ; preds = %212, %.critedge.i.i
   br i1 %.not.i.i.i524, label %.critedge.i.i.i, label %.lr.ph528.preheader
 
 .lr.ph528.preheader:                              ; preds = %294, %.preheader440
-  %.022.i.i.i.lcssa696 = phi ptr [ %315, %.preheader440 ], [ %116, %294 ]
-  %.025.i.i.i.lcssa695 = phi ptr [ %314, %.preheader440 ], [ %304, %294 ]
-  %.027.i.i.i.lcssa694 = phi i64 [ %316, %.preheader440 ], [ %288, %294 ]
-  %scevgep681 = getelementptr i8, ptr %.022.i.i.i.lcssa696, i64 %.027.i.i.i.lcssa694
+  %.022.i.i.i.lcssa760 = phi ptr [ %315, %.preheader440 ], [ %116, %294 ]
+  %.025.i.i.i.lcssa759 = phi ptr [ %314, %.preheader440 ], [ %304, %294 ]
+  %.027.i.i.i.lcssa758 = phi i64 [ %316, %.preheader440 ], [ %288, %294 ]
+  %scevgep681 = getelementptr i8, ptr %.022.i.i.i.lcssa760, i64 %.027.i.i.i.lcssa758
   br label %.lr.ph528
 
 .lr.ph520:                                        ; preds = %294, %313
@@ -33960,9 +33960,9 @@ FindMatchLengthWithLimit.exit.i:                  ; preds = %212, %.critedge.i.i
   br i1 %317, label %.lr.ph520, label %.preheader440, !llvm.loop !63
 
 .lr.ph528:                                        ; preds = %.lr.ph528.preheader, %321
-  %.224.i.i.i527 = phi ptr [ %324, %321 ], [ %.022.i.i.i.lcssa696, %.lr.ph528.preheader ]
-  %.126.i.i.i526 = phi ptr [ %323, %321 ], [ %.025.i.i.i.lcssa695, %.lr.ph528.preheader ]
-  %.128.i.i.i525 = phi i64 [ %322, %321 ], [ %.027.i.i.i.lcssa694, %.lr.ph528.preheader ]
+  %.224.i.i.i527 = phi ptr [ %324, %321 ], [ %.022.i.i.i.lcssa760, %.lr.ph528.preheader ]
+  %.126.i.i.i526 = phi ptr [ %323, %321 ], [ %.025.i.i.i.lcssa759, %.lr.ph528.preheader ]
+  %.128.i.i.i525 = phi i64 [ %322, %321 ], [ %.027.i.i.i.lcssa758, %.lr.ph528.preheader ]
   %318 = load i8, ptr %.224.i.i.i527, align 1, !tbaa !53, !alias.scope !1487, !noalias !1496
   %319 = load i8, ptr %.126.i.i.i526, align 1, !tbaa !53, !noalias !1504
   %320 = icmp eq i8 %318, %319
@@ -34226,7 +34226,7 @@ FindMatchLengthWithLimit.exit164.i282:            ; preds = %419, %.critedge.i15
   %452 = and i32 %451, 14
   %narrow.i.i285 = add nuw nsw i32 %452, 39
   %453 = zext nneg i32 %narrow.i.i285 to i64
-  %454 = sub i64 %445, %453
+  %454 = sub nuw i64 %445, %453
   br label %455
 
 455:                                              ; preds = %448, %447
@@ -34499,10 +34499,10 @@ FindMatchLengthWithLimit.exit.i260:               ; preds = %496, %.critedge.i.i
   br i1 %.not.i.i.i238600, label %.critedge.i.i.i239, label %.lr.ph604.preheader
 
 .lr.ph604.preheader:                              ; preds = %578, %.preheader
-  %.022.i.i.i233.lcssa703 = phi ptr [ %599, %.preheader ], [ %400, %578 ]
-  %.025.i.i.i232.lcssa702 = phi ptr [ %598, %.preheader ], [ %588, %578 ]
-  %.027.i.i.i231.lcssa701 = phi i64 [ %600, %.preheader ], [ %572, %578 ]
-  %scevgep685 = getelementptr i8, ptr %.022.i.i.i233.lcssa703, i64 %.027.i.i.i231.lcssa701
+  %.022.i.i.i233.lcssa767 = phi ptr [ %599, %.preheader ], [ %400, %578 ]
+  %.025.i.i.i232.lcssa766 = phi ptr [ %598, %.preheader ], [ %588, %578 ]
+  %.027.i.i.i231.lcssa765 = phi i64 [ %600, %.preheader ], [ %572, %578 ]
+  %scevgep685 = getelementptr i8, ptr %.022.i.i.i233.lcssa767, i64 %.027.i.i.i231.lcssa765
   br label %.lr.ph604
 
 .lr.ph596:                                        ; preds = %578, %597
@@ -34531,9 +34531,9 @@ FindMatchLengthWithLimit.exit.i260:               ; preds = %496, %.critedge.i.i
   br i1 %601, label %.lr.ph596, label %.preheader, !llvm.loop !63
 
 .lr.ph604:                                        ; preds = %.lr.ph604.preheader, %605
-  %.224.i.i.i237603 = phi ptr [ %608, %605 ], [ %.022.i.i.i233.lcssa703, %.lr.ph604.preheader ]
-  %.126.i.i.i236602 = phi ptr [ %607, %605 ], [ %.025.i.i.i232.lcssa702, %.lr.ph604.preheader ]
-  %.128.i.i.i235601 = phi i64 [ %606, %605 ], [ %.027.i.i.i231.lcssa701, %.lr.ph604.preheader ]
+  %.224.i.i.i237603 = phi ptr [ %608, %605 ], [ %.022.i.i.i233.lcssa767, %.lr.ph604.preheader ]
+  %.126.i.i.i236602 = phi ptr [ %607, %605 ], [ %.025.i.i.i232.lcssa766, %.lr.ph604.preheader ]
+  %.128.i.i.i235601 = phi i64 [ %606, %605 ], [ %.027.i.i.i231.lcssa765, %.lr.ph604.preheader ]
   %602 = load i8, ptr %.224.i.i.i237603, align 1, !tbaa !53, !alias.scope !1509, !noalias !1518
   %603 = load i8, ptr %.126.i.i.i236602, align 1, !tbaa !53, !noalias !1526
   %604 = icmp eq i8 %602, %603
@@ -34865,14 +34865,14 @@ GetInsertLengthCode.exit:                         ; preds = %759, %763, %777, %7
   %791 = sub nuw nsw i32 30, %790
   %792 = shl nuw nsw i32 %791, 1
   %793 = lshr i32 %narrow, %791
-  %794 = add i32 %793, %792
+  %794 = add nuw nsw i32 %793, %792
   br label %GetCopyLengthCode.exit
 
 795:                                              ; preds = %787
   %796 = icmp ult i32 %754, 2118
-  br i1 %796, label %GetCopyLengthCode.exit.thread704, label %GetCopyLengthCode.exit.thread
+  br i1 %796, label %GetCopyLengthCode.exit.thread768, label %GetCopyLengthCode.exit.thread
 
-GetCopyLengthCode.exit.thread704:                 ; preds = %795
+GetCopyLengthCode.exit.thread768:                 ; preds = %795
   %797 = add nsw i32 %754, -70
   %798 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %797, i1 true)
   %799 = trunc nuw nsw i32 %798 to i16
@@ -34880,10 +34880,10 @@ GetCopyLengthCode.exit.thread704:                 ; preds = %795
   br label %GetCopyLengthCode.exit.thread
 
 GetCopyLengthCode.exit:                           ; preds = %GetInsertLengthCode.exit, %789
-  %.sink816 = phi i32 [ %794, %789 ], [ %754, %GetInsertLengthCode.exit ]
-  %.sink815 = phi i16 [ 4, %789 ], [ -2, %GetInsertLengthCode.exit ]
-  %801 = trunc i32 %.sink816 to i16
-  %802 = add nsw i16 %.sink815, %801
+  %.sink827 = phi i32 [ %794, %789 ], [ %754, %GetInsertLengthCode.exit ]
+  %.sink826 = phi i16 [ 4, %789 ], [ -2, %GetInsertLengthCode.exit ]
+  %801 = trunc nuw nsw i32 %.sink827 to i16
+  %802 = add nsw i16 %.sink826, %801
   %803 = icmp samesign ult i16 %.0.i197, 8
   %or.cond.i = and i1 %756, %803
   %804 = icmp ult i16 %802, 16
@@ -34895,8 +34895,8 @@ GetCopyLengthCode.exit:                           ; preds = %GetInsertLengthCode
   %807 = and i16 %806, 64
   br label %CombineLengthCodes.exit
 
-GetCopyLengthCode.exit.thread:                    ; preds = %GetCopyLengthCode.exit.thread704, %795, %GetCopyLengthCode.exit
-  %.0.i198418 = phi i16 [ %802, %GetCopyLengthCode.exit ], [ 23, %795 ], [ %800, %GetCopyLengthCode.exit.thread704 ]
+GetCopyLengthCode.exit.thread:                    ; preds = %GetCopyLengthCode.exit.thread768, %795, %GetCopyLengthCode.exit
+  %.0.i198418 = phi i16 [ %802, %GetCopyLengthCode.exit ], [ 23, %795 ], [ %800, %GetCopyLengthCode.exit.thread768 ]
   %808 = lshr i16 %.0.i198418, 3
   %809 = lshr i16 %.0.i197, 3
   %narrow.i = mul nuw nsw i16 %809, 3
@@ -36480,7 +36480,7 @@ FindMatchLengthWithLimit.exit205.i:               ; preds = %175, %.critedge.i20
   %211 = and i32 %210, 14
   %narrow.i.i = add nuw nsw i32 %211, 39
   %212 = zext nneg i32 %narrow.i.i to i64
-  %213 = sub i64 %204, %212
+  %213 = sub nuw i64 %204, %212
   br label %214
 
 214:                                              ; preds = %207, %206
@@ -36810,10 +36810,10 @@ FindMatchLengthWithLimit.exit.i:                  ; preds = %287, %.critedge.i.i
   br i1 %.not.i.i.i583, label %.critedge.i.i.i, label %.lr.ph587.preheader
 
 .lr.ph587.preheader:                              ; preds = %365, %.preheader477
-  %.022.i.i.i.lcssa793 = phi ptr [ %386, %.preheader477 ], [ %138, %365 ]
-  %.025.i.i.i.lcssa792 = phi ptr [ %385, %.preheader477 ], [ %375, %365 ]
-  %.027.i.i.i.lcssa791 = phi i64 [ %387, %.preheader477 ], [ %359, %365 ]
-  %scevgep777 = getelementptr i8, ptr %.022.i.i.i.lcssa793, i64 %.027.i.i.i.lcssa791
+  %.022.i.i.i.lcssa865 = phi ptr [ %386, %.preheader477 ], [ %138, %365 ]
+  %.025.i.i.i.lcssa864 = phi ptr [ %385, %.preheader477 ], [ %375, %365 ]
+  %.027.i.i.i.lcssa863 = phi i64 [ %387, %.preheader477 ], [ %359, %365 ]
+  %scevgep777 = getelementptr i8, ptr %.022.i.i.i.lcssa865, i64 %.027.i.i.i.lcssa863
   br label %.lr.ph587
 
 .lr.ph579:                                        ; preds = %365, %384
@@ -36842,9 +36842,9 @@ FindMatchLengthWithLimit.exit.i:                  ; preds = %287, %.critedge.i.i
   br i1 %388, label %.lr.ph579, label %.preheader477, !llvm.loop !63
 
 .lr.ph587:                                        ; preds = %.lr.ph587.preheader, %392
-  %.224.i.i.i586 = phi ptr [ %395, %392 ], [ %.022.i.i.i.lcssa793, %.lr.ph587.preheader ]
-  %.126.i.i.i585 = phi ptr [ %394, %392 ], [ %.025.i.i.i.lcssa792, %.lr.ph587.preheader ]
-  %.128.i.i.i584 = phi i64 [ %393, %392 ], [ %.027.i.i.i.lcssa791, %.lr.ph587.preheader ]
+  %.224.i.i.i586 = phi ptr [ %395, %392 ], [ %.022.i.i.i.lcssa865, %.lr.ph587.preheader ]
+  %.126.i.i.i585 = phi ptr [ %394, %392 ], [ %.025.i.i.i.lcssa864, %.lr.ph587.preheader ]
+  %.128.i.i.i584 = phi i64 [ %393, %392 ], [ %.027.i.i.i.lcssa863, %.lr.ph587.preheader ]
   %389 = load i8, ptr %.224.i.i.i586, align 1, !tbaa !53, !alias.scope !1605, !noalias !1611
   %390 = load i8, ptr %.126.i.i.i585, align 1, !tbaa !53, !noalias !1611
   %391 = icmp eq i8 %389, %390
@@ -37151,7 +37151,7 @@ FindMatchLengthWithLimit.exit205.i282:            ; preds = %513, %.critedge.i20
   %549 = and i32 %548, 14
   %narrow.i.i286 = add nuw nsw i32 %549, 39
   %550 = zext nneg i32 %narrow.i.i286 to i64
-  %551 = sub i64 %542, %550
+  %551 = sub nuw i64 %542, %550
   br label %552
 
 552:                                              ; preds = %545, %544
@@ -37467,10 +37467,10 @@ FindMatchLengthWithLimit.exit.i258:               ; preds = %620, %.critedge.i.i
   br i1 %.not.i.i.i236686, label %.critedge.i.i.i237, label %.lr.ph690.preheader
 
 .lr.ph690.preheader:                              ; preds = %698, %.preheader
-  %.022.i.i.i231.lcssa800 = phi ptr [ %719, %.preheader ], [ %481, %698 ]
-  %.025.i.i.i230.lcssa799 = phi ptr [ %718, %.preheader ], [ %708, %698 ]
-  %.027.i.i.i229.lcssa798 = phi i64 [ %720, %.preheader ], [ %692, %698 ]
-  %scevgep782 = getelementptr i8, ptr %.022.i.i.i231.lcssa800, i64 %.027.i.i.i229.lcssa798
+  %.022.i.i.i231.lcssa872 = phi ptr [ %719, %.preheader ], [ %481, %698 ]
+  %.025.i.i.i230.lcssa871 = phi ptr [ %718, %.preheader ], [ %708, %698 ]
+  %.027.i.i.i229.lcssa870 = phi i64 [ %720, %.preheader ], [ %692, %698 ]
+  %scevgep782 = getelementptr i8, ptr %.022.i.i.i231.lcssa872, i64 %.027.i.i.i229.lcssa870
   br label %.lr.ph690
 
 .lr.ph682:                                        ; preds = %698, %717
@@ -37499,9 +37499,9 @@ FindMatchLengthWithLimit.exit.i258:               ; preds = %620, %.critedge.i.i
   br i1 %721, label %.lr.ph682, label %.preheader, !llvm.loop !63
 
 .lr.ph690:                                        ; preds = %.lr.ph690.preheader, %725
-  %.224.i.i.i235689 = phi ptr [ %728, %725 ], [ %.022.i.i.i231.lcssa800, %.lr.ph690.preheader ]
-  %.126.i.i.i234688 = phi ptr [ %727, %725 ], [ %.025.i.i.i230.lcssa799, %.lr.ph690.preheader ]
-  %.128.i.i.i233687 = phi i64 [ %726, %725 ], [ %.027.i.i.i229.lcssa798, %.lr.ph690.preheader ]
+  %.224.i.i.i235689 = phi ptr [ %728, %725 ], [ %.022.i.i.i231.lcssa872, %.lr.ph690.preheader ]
+  %.126.i.i.i234688 = phi ptr [ %727, %725 ], [ %.025.i.i.i230.lcssa871, %.lr.ph690.preheader ]
+  %.128.i.i.i233687 = phi i64 [ %726, %725 ], [ %.027.i.i.i229.lcssa870, %.lr.ph690.preheader ]
   %722 = load i8, ptr %.224.i.i.i235689, align 1, !tbaa !53, !alias.scope !1621, !noalias !1623
   %723 = load i8, ptr %.126.i.i.i234688, align 1, !tbaa !53, !noalias !1623
   %724 = icmp eq i8 %722, %723
@@ -37844,14 +37844,14 @@ GetInsertLengthCode.exit:                         ; preds = %884, %888, %902, %9
   %916 = sub nuw nsw i32 30, %915
   %917 = shl nuw nsw i32 %916, 1
   %918 = lshr i32 %narrow, %916
-  %919 = add i32 %918, %917
+  %919 = add nuw nsw i32 %918, %917
   br label %GetCopyLengthCode.exit
 
 920:                                              ; preds = %912
   %921 = icmp ult i32 %879, 2118
-  br i1 %921, label %GetCopyLengthCode.exit.thread801, label %GetCopyLengthCode.exit.thread
+  br i1 %921, label %GetCopyLengthCode.exit.thread873, label %GetCopyLengthCode.exit.thread
 
-GetCopyLengthCode.exit.thread801:                 ; preds = %920
+GetCopyLengthCode.exit.thread873:                 ; preds = %920
   %922 = add nsw i32 %879, -70
   %923 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %922, i1 true)
   %924 = trunc nuw nsw i32 %923 to i16
@@ -37859,10 +37859,10 @@ GetCopyLengthCode.exit.thread801:                 ; preds = %920
   br label %GetCopyLengthCode.exit.thread
 
 GetCopyLengthCode.exit:                           ; preds = %GetInsertLengthCode.exit, %914
-  %.sink917 = phi i32 [ %919, %914 ], [ %879, %GetInsertLengthCode.exit ]
-  %.sink916 = phi i16 [ 4, %914 ], [ -2, %GetInsertLengthCode.exit ]
-  %926 = trunc i32 %.sink917 to i16
-  %927 = add nsw i16 %.sink916, %926
+  %.sink934 = phi i32 [ %919, %914 ], [ %879, %GetInsertLengthCode.exit ]
+  %.sink933 = phi i16 [ 4, %914 ], [ -2, %GetInsertLengthCode.exit ]
+  %926 = trunc nuw nsw i32 %.sink934 to i16
+  %927 = add nsw i16 %.sink933, %926
   %928 = icmp samesign ult i16 %.0.i197, 8
   %or.cond.i = and i1 %881, %928
   %929 = icmp ult i16 %927, 16
@@ -37874,8 +37874,8 @@ GetCopyLengthCode.exit:                           ; preds = %GetInsertLengthCode
   %932 = and i16 %931, 64
   br label %CombineLengthCodes.exit
 
-GetCopyLengthCode.exit.thread:                    ; preds = %GetCopyLengthCode.exit.thread801, %920, %GetCopyLengthCode.exit
-  %.0.i198455 = phi i16 [ %927, %GetCopyLengthCode.exit ], [ 23, %920 ], [ %925, %GetCopyLengthCode.exit.thread801 ]
+GetCopyLengthCode.exit.thread:                    ; preds = %GetCopyLengthCode.exit.thread873, %920, %GetCopyLengthCode.exit
+  %.0.i198455 = phi i16 [ %927, %GetCopyLengthCode.exit ], [ 23, %920 ], [ %925, %GetCopyLengthCode.exit.thread873 ]
   %933 = lshr i16 %.0.i198455, 3
   %934 = lshr i16 %.0.i197, 3
   %narrow.i = mul nuw nsw i16 %934, 3
@@ -38426,7 +38426,7 @@ FindMatchLengthWithLimit.exit210.i:               ; preds = %175, %.critedge.i20
   %211 = and i32 %210, 14
   %narrow.i.i = add nuw nsw i32 %211, 39
   %212 = zext nneg i32 %narrow.i.i to i64
-  %213 = sub i64 %204, %212
+  %213 = sub nuw i64 %204, %212
   br label %214
 
 214:                                              ; preds = %207, %206
@@ -38760,10 +38760,10 @@ FindMatchLengthWithLimit.exit.i:                  ; preds = %290, %.critedge.i.i
   br i1 %.not.i.i.i585, label %.critedge.i.i.i, label %.lr.ph589.preheader
 
 .lr.ph589.preheader:                              ; preds = %367, %.preheader479
-  %.022.i.i.i.lcssa795 = phi ptr [ %388, %.preheader479 ], [ %137, %367 ]
-  %.025.i.i.i.lcssa794 = phi ptr [ %387, %.preheader479 ], [ %377, %367 ]
-  %.027.i.i.i.lcssa793 = phi i64 [ %389, %.preheader479 ], [ %361, %367 ]
-  %scevgep779 = getelementptr i8, ptr %.022.i.i.i.lcssa795, i64 %.027.i.i.i.lcssa793
+  %.022.i.i.i.lcssa869 = phi ptr [ %388, %.preheader479 ], [ %137, %367 ]
+  %.025.i.i.i.lcssa868 = phi ptr [ %387, %.preheader479 ], [ %377, %367 ]
+  %.027.i.i.i.lcssa867 = phi i64 [ %389, %.preheader479 ], [ %361, %367 ]
+  %scevgep779 = getelementptr i8, ptr %.022.i.i.i.lcssa869, i64 %.027.i.i.i.lcssa867
   br label %.lr.ph589
 
 .lr.ph581:                                        ; preds = %367, %386
@@ -38792,9 +38792,9 @@ FindMatchLengthWithLimit.exit.i:                  ; preds = %290, %.critedge.i.i
   br i1 %390, label %.lr.ph581, label %.preheader479, !llvm.loop !63
 
 .lr.ph589:                                        ; preds = %.lr.ph589.preheader, %394
-  %.224.i.i.i588 = phi ptr [ %397, %394 ], [ %.022.i.i.i.lcssa795, %.lr.ph589.preheader ]
-  %.126.i.i.i587 = phi ptr [ %396, %394 ], [ %.025.i.i.i.lcssa794, %.lr.ph589.preheader ]
-  %.128.i.i.i586 = phi i64 [ %395, %394 ], [ %.027.i.i.i.lcssa793, %.lr.ph589.preheader ]
+  %.224.i.i.i588 = phi ptr [ %397, %394 ], [ %.022.i.i.i.lcssa869, %.lr.ph589.preheader ]
+  %.126.i.i.i587 = phi ptr [ %396, %394 ], [ %.025.i.i.i.lcssa868, %.lr.ph589.preheader ]
+  %.128.i.i.i586 = phi i64 [ %395, %394 ], [ %.027.i.i.i.lcssa867, %.lr.ph589.preheader ]
   %391 = load i8, ptr %.224.i.i.i588, align 1, !tbaa !53, !alias.scope !1663, !noalias !1669
   %392 = load i8, ptr %.126.i.i.i587, align 1, !tbaa !53, !noalias !1669
   %393 = icmp eq i8 %391, %392
@@ -39102,7 +39102,7 @@ FindMatchLengthWithLimit.exit210.i289:            ; preds = %516, %.critedge.i20
   %552 = and i32 %551, 14
   %narrow.i.i293 = add nuw nsw i32 %552, 39
   %553 = zext nneg i32 %narrow.i.i293 to i64
-  %554 = sub i64 %545, %553
+  %554 = sub nuw i64 %545, %553
   br label %555
 
 555:                                              ; preds = %548, %547
@@ -39422,10 +39422,10 @@ FindMatchLengthWithLimit.exit.i265:               ; preds = %626, %.critedge.i.i
   br i1 %.not.i.i.i241688, label %.critedge.i.i.i242, label %.lr.ph692.preheader
 
 .lr.ph692.preheader:                              ; preds = %703, %.preheader
-  %.022.i.i.i236.lcssa802 = phi ptr [ %724, %.preheader ], [ %484, %703 ]
-  %.025.i.i.i235.lcssa801 = phi ptr [ %723, %.preheader ], [ %713, %703 ]
-  %.027.i.i.i234.lcssa800 = phi i64 [ %725, %.preheader ], [ %697, %703 ]
-  %scevgep784 = getelementptr i8, ptr %.022.i.i.i236.lcssa802, i64 %.027.i.i.i234.lcssa800
+  %.022.i.i.i236.lcssa876 = phi ptr [ %724, %.preheader ], [ %484, %703 ]
+  %.025.i.i.i235.lcssa875 = phi ptr [ %723, %.preheader ], [ %713, %703 ]
+  %.027.i.i.i234.lcssa874 = phi i64 [ %725, %.preheader ], [ %697, %703 ]
+  %scevgep784 = getelementptr i8, ptr %.022.i.i.i236.lcssa876, i64 %.027.i.i.i234.lcssa874
   br label %.lr.ph692
 
 .lr.ph684:                                        ; preds = %703, %722
@@ -39454,9 +39454,9 @@ FindMatchLengthWithLimit.exit.i265:               ; preds = %626, %.critedge.i.i
   br i1 %726, label %.lr.ph684, label %.preheader, !llvm.loop !63
 
 .lr.ph692:                                        ; preds = %.lr.ph692.preheader, %730
-  %.224.i.i.i240691 = phi ptr [ %733, %730 ], [ %.022.i.i.i236.lcssa802, %.lr.ph692.preheader ]
-  %.126.i.i.i239690 = phi ptr [ %732, %730 ], [ %.025.i.i.i235.lcssa801, %.lr.ph692.preheader ]
-  %.128.i.i.i238689 = phi i64 [ %731, %730 ], [ %.027.i.i.i234.lcssa800, %.lr.ph692.preheader ]
+  %.224.i.i.i240691 = phi ptr [ %733, %730 ], [ %.022.i.i.i236.lcssa876, %.lr.ph692.preheader ]
+  %.126.i.i.i239690 = phi ptr [ %732, %730 ], [ %.025.i.i.i235.lcssa875, %.lr.ph692.preheader ]
+  %.128.i.i.i238689 = phi i64 [ %731, %730 ], [ %.027.i.i.i234.lcssa874, %.lr.ph692.preheader ]
   %727 = load i8, ptr %.224.i.i.i240691, align 1, !tbaa !53, !alias.scope !1679, !noalias !1681
   %728 = load i8, ptr %.126.i.i.i239690, align 1, !tbaa !53, !noalias !1681
   %729 = icmp eq i8 %727, %728
@@ -39799,14 +39799,14 @@ GetInsertLengthCode.exit:                         ; preds = %889, %893, %907, %9
   %921 = sub nuw nsw i32 30, %920
   %922 = shl nuw nsw i32 %921, 1
   %923 = lshr i32 %narrow, %921
-  %924 = add i32 %923, %922
+  %924 = add nuw nsw i32 %923, %922
   br label %GetCopyLengthCode.exit
 
 925:                                              ; preds = %917
   %926 = icmp ult i32 %884, 2118
-  br i1 %926, label %GetCopyLengthCode.exit.thread803, label %GetCopyLengthCode.exit.thread
+  br i1 %926, label %GetCopyLengthCode.exit.thread877, label %GetCopyLengthCode.exit.thread
 
-GetCopyLengthCode.exit.thread803:                 ; preds = %925
+GetCopyLengthCode.exit.thread877:                 ; preds = %925
   %927 = add nsw i32 %884, -70
   %928 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %927, i1 true)
   %929 = trunc nuw nsw i32 %928 to i16
@@ -39814,10 +39814,10 @@ GetCopyLengthCode.exit.thread803:                 ; preds = %925
   br label %GetCopyLengthCode.exit.thread
 
 GetCopyLengthCode.exit:                           ; preds = %GetInsertLengthCode.exit, %919
-  %.sink919 = phi i32 [ %924, %919 ], [ %884, %GetInsertLengthCode.exit ]
-  %.sink918 = phi i16 [ 4, %919 ], [ -2, %GetInsertLengthCode.exit ]
-  %931 = trunc i32 %.sink919 to i16
-  %932 = add nsw i16 %.sink918, %931
+  %.sink938 = phi i32 [ %924, %919 ], [ %884, %GetInsertLengthCode.exit ]
+  %.sink937 = phi i16 [ 4, %919 ], [ -2, %GetInsertLengthCode.exit ]
+  %931 = trunc nuw nsw i32 %.sink938 to i16
+  %932 = add nsw i16 %.sink937, %931
   %933 = icmp samesign ult i16 %.0.i197, 8
   %or.cond.i = and i1 %886, %933
   %934 = icmp ult i16 %932, 16
@@ -39829,8 +39829,8 @@ GetCopyLengthCode.exit:                           ; preds = %GetInsertLengthCode
   %937 = and i16 %936, 64
   br label %CombineLengthCodes.exit
 
-GetCopyLengthCode.exit.thread:                    ; preds = %GetCopyLengthCode.exit.thread803, %925, %GetCopyLengthCode.exit
-  %.0.i198457 = phi i16 [ %932, %GetCopyLengthCode.exit ], [ 23, %925 ], [ %930, %GetCopyLengthCode.exit.thread803 ]
+GetCopyLengthCode.exit.thread:                    ; preds = %GetCopyLengthCode.exit.thread877, %925, %GetCopyLengthCode.exit
+  %.0.i198457 = phi i16 [ %932, %GetCopyLengthCode.exit ], [ 23, %925 ], [ %930, %GetCopyLengthCode.exit.thread877 ]
   %938 = lshr i16 %.0.i198457, 3
   %939 = lshr i16 %.0.i197, 3
   %narrow.i = mul nuw nsw i16 %939, 3
@@ -43083,7 +43083,7 @@ FindMatchLengthWithLimit.exit189.i.i:             ; preds = %176, %.critedge.i18
   %212 = and i32 %211, 14
   %narrow.i.i.i = add nuw nsw i32 %212, 39
   %213 = zext nneg i32 %narrow.i.i.i to i64
-  %214 = sub i64 %205, %213
+  %214 = sub nuw i64 %205, %213
   br label %215
 
 215:                                              ; preds = %208, %207
@@ -43352,10 +43352,10 @@ FindMatchLengthWithLimit.exit.i.i:                ; preds = %254, %.critedge.i.i
   br i1 %.not.i.i.i.i610, label %.critedge.i.i.i.i, label %.lr.ph614.preheader
 
 .lr.ph614.preheader:                              ; preds = %329, %.preheader505
-  %.022.i.i.i.i.lcssa888 = phi ptr [ %350, %.preheader505 ], [ %140, %329 ]
-  %.025.i.i.i.i.lcssa887 = phi ptr [ %349, %.preheader505 ], [ %339, %329 ]
-  %.027.i.i.i.i.lcssa886 = phi i64 [ %351, %.preheader505 ], [ %323, %329 ]
-  %scevgep869 = getelementptr i8, ptr %.022.i.i.i.i.lcssa888, i64 %.027.i.i.i.i.lcssa886
+  %.022.i.i.i.i.lcssa982 = phi ptr [ %350, %.preheader505 ], [ %140, %329 ]
+  %.025.i.i.i.i.lcssa981 = phi ptr [ %349, %.preheader505 ], [ %339, %329 ]
+  %.027.i.i.i.i.lcssa980 = phi i64 [ %351, %.preheader505 ], [ %323, %329 ]
+  %scevgep869 = getelementptr i8, ptr %.022.i.i.i.i.lcssa982, i64 %.027.i.i.i.i.lcssa980
   br label %.lr.ph614
 
 .lr.ph606:                                        ; preds = %329, %348
@@ -43384,9 +43384,9 @@ FindMatchLengthWithLimit.exit.i.i:                ; preds = %254, %.critedge.i.i
   br i1 %352, label %.lr.ph606, label %.preheader505, !llvm.loop !63
 
 .lr.ph614:                                        ; preds = %.lr.ph614.preheader, %356
-  %.224.i.i.i.i613 = phi ptr [ %359, %356 ], [ %.022.i.i.i.i.lcssa888, %.lr.ph614.preheader ]
-  %.126.i.i.i.i612 = phi ptr [ %358, %356 ], [ %.025.i.i.i.i.lcssa887, %.lr.ph614.preheader ]
-  %.128.i.i.i.i611 = phi i64 [ %357, %356 ], [ %.027.i.i.i.i.lcssa886, %.lr.ph614.preheader ]
+  %.224.i.i.i.i613 = phi ptr [ %359, %356 ], [ %.022.i.i.i.i.lcssa982, %.lr.ph614.preheader ]
+  %.126.i.i.i.i612 = phi ptr [ %358, %356 ], [ %.025.i.i.i.i.lcssa981, %.lr.ph614.preheader ]
+  %.128.i.i.i.i611 = phi i64 [ %357, %356 ], [ %.027.i.i.i.i.lcssa980, %.lr.ph614.preheader ]
   %353 = load i8, ptr %.224.i.i.i.i613, align 1, !tbaa !53, !alias.scope !1887, !noalias !1884
   %354 = load i8, ptr %.126.i.i.i.i612, align 1, !tbaa !53, !noalias !1884
   %355 = icmp eq i8 %353, %354
@@ -43854,7 +43854,7 @@ FindMatchLengthWithLimit.exit189.i.i281:          ; preds = %539, %.critedge.i18
   %575 = and i32 %574, 14
   %narrow.i.i.i285 = add nuw nsw i32 %575, 39
   %576 = zext nneg i32 %narrow.i.i.i285 to i64
-  %577 = sub i64 %568, %576
+  %577 = sub nuw i64 %568, %576
   br label %578
 
 578:                                              ; preds = %571, %570
@@ -44114,10 +44114,10 @@ FindMatchLengthWithLimit.exit.i.i257:             ; preds = %615, %.critedge.i.i
   br i1 %.not.i.i.i.i225746, label %.critedge.i.i.i.i226, label %.lr.ph750.preheader
 
 .lr.ph750.preheader:                              ; preds = %690, %.preheader501
-  %.022.i.i.i.i220.lcssa895 = phi ptr [ %711, %.preheader501 ], [ %504, %690 ]
-  %.025.i.i.i.i219.lcssa894 = phi ptr [ %710, %.preheader501 ], [ %700, %690 ]
-  %.027.i.i.i.i218.lcssa893 = phi i64 [ %712, %.preheader501 ], [ %684, %690 ]
-  %scevgep874 = getelementptr i8, ptr %.022.i.i.i.i220.lcssa895, i64 %.027.i.i.i.i218.lcssa893
+  %.022.i.i.i.i220.lcssa989 = phi ptr [ %711, %.preheader501 ], [ %504, %690 ]
+  %.025.i.i.i.i219.lcssa988 = phi ptr [ %710, %.preheader501 ], [ %700, %690 ]
+  %.027.i.i.i.i218.lcssa987 = phi i64 [ %712, %.preheader501 ], [ %684, %690 ]
+  %scevgep874 = getelementptr i8, ptr %.022.i.i.i.i220.lcssa989, i64 %.027.i.i.i.i218.lcssa987
   br label %.lr.ph750
 
 .lr.ph742:                                        ; preds = %690, %709
@@ -44146,9 +44146,9 @@ FindMatchLengthWithLimit.exit.i.i257:             ; preds = %615, %.critedge.i.i
   br i1 %713, label %.lr.ph742, label %.preheader501, !llvm.loop !63
 
 .lr.ph750:                                        ; preds = %.lr.ph750.preheader, %717
-  %.224.i.i.i.i224749 = phi ptr [ %720, %717 ], [ %.022.i.i.i.i220.lcssa895, %.lr.ph750.preheader ]
-  %.126.i.i.i.i223748 = phi ptr [ %719, %717 ], [ %.025.i.i.i.i219.lcssa894, %.lr.ph750.preheader ]
-  %.128.i.i.i.i222747 = phi i64 [ %718, %717 ], [ %.027.i.i.i.i218.lcssa893, %.lr.ph750.preheader ]
+  %.224.i.i.i.i224749 = phi ptr [ %720, %717 ], [ %.022.i.i.i.i220.lcssa989, %.lr.ph750.preheader ]
+  %.126.i.i.i.i223748 = phi ptr [ %719, %717 ], [ %.025.i.i.i.i219.lcssa988, %.lr.ph750.preheader ]
+  %.128.i.i.i.i222747 = phi i64 [ %718, %717 ], [ %.027.i.i.i.i218.lcssa987, %.lr.ph750.preheader ]
   %714 = load i8, ptr %.224.i.i.i.i224749, align 1, !tbaa !53, !alias.scope !1919, !noalias !1916
   %715 = load i8, ptr %.126.i.i.i.i223748, align 1, !tbaa !53, !noalias !1916
   %716 = icmp eq i8 %714, %715
@@ -44664,14 +44664,14 @@ GetInsertLengthCode.exit:                         ; preds = %949, %953, %967, %9
   %981 = sub nuw nsw i32 30, %980
   %982 = shl nuw nsw i32 %981, 1
   %983 = lshr i32 %narrow, %981
-  %984 = add i32 %983, %982
+  %984 = add nuw nsw i32 %983, %982
   br label %GetCopyLengthCode.exit
 
 985:                                              ; preds = %977
   %986 = icmp ult i32 %944, 2118
-  br i1 %986, label %GetCopyLengthCode.exit.thread896, label %GetCopyLengthCode.exit.thread
+  br i1 %986, label %GetCopyLengthCode.exit.thread990, label %GetCopyLengthCode.exit.thread
 
-GetCopyLengthCode.exit.thread896:                 ; preds = %985
+GetCopyLengthCode.exit.thread990:                 ; preds = %985
   %987 = add nsw i32 %944, -70
   %988 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %987, i1 true)
   %989 = trunc nuw nsw i32 %988 to i16
@@ -44679,10 +44679,10 @@ GetCopyLengthCode.exit.thread896:                 ; preds = %985
   br label %GetCopyLengthCode.exit.thread
 
 GetCopyLengthCode.exit:                           ; preds = %GetInsertLengthCode.exit, %979
-  %.sink1040 = phi i32 [ %984, %979 ], [ %944, %GetInsertLengthCode.exit ]
-  %.sink1039 = phi i16 [ 4, %979 ], [ -2, %GetInsertLengthCode.exit ]
-  %991 = trunc i32 %.sink1040 to i16
-  %992 = add nsw i16 %.sink1039, %991
+  %.sink1065 = phi i32 [ %984, %979 ], [ %944, %GetInsertLengthCode.exit ]
+  %.sink1064 = phi i16 [ 4, %979 ], [ -2, %GetInsertLengthCode.exit ]
+  %991 = trunc nuw nsw i32 %.sink1065 to i16
+  %992 = add nsw i16 %.sink1064, %991
   %993 = icmp samesign ult i16 %.0.i197, 8
   %or.cond.i = and i1 %946, %993
   %994 = icmp ult i16 %992, 16
@@ -44694,8 +44694,8 @@ GetCopyLengthCode.exit:                           ; preds = %GetInsertLengthCode
   %997 = and i16 %996, 64
   br label %CombineLengthCodes.exit
 
-GetCopyLengthCode.exit.thread:                    ; preds = %GetCopyLengthCode.exit.thread896, %985, %GetCopyLengthCode.exit
-  %.0.i198475 = phi i16 [ %992, %GetCopyLengthCode.exit ], [ 23, %985 ], [ %990, %GetCopyLengthCode.exit.thread896 ]
+GetCopyLengthCode.exit.thread:                    ; preds = %GetCopyLengthCode.exit.thread990, %985, %GetCopyLengthCode.exit
+  %.0.i198475 = phi i16 [ %992, %GetCopyLengthCode.exit ], [ 23, %985 ], [ %990, %GetCopyLengthCode.exit.thread990 ]
   %998 = lshr i16 %.0.i198475, 3
   %999 = lshr i16 %.0.i197, 3
   %narrow.i = mul nuw nsw i16 %999, 3

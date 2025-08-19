@@ -6955,7 +6955,7 @@ define hidden void @"_ZN5serde2de5impls82_$LT$impl$u20$serde..de..Deserialize$u2
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !1443
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !1443
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !1443
-  switch i8 %7, label %default.unreachable.i.i [
+  switch i8 %7, label %default.unreachable [
     i8 5, label %17
     i8 1, label %10
     i8 2, label %11
@@ -6963,7 +6963,7 @@ define hidden void @"_ZN5serde2de5impls82_$LT$impl$u20$serde..de..Deserialize$u2
     i8 4, label %15
   ]
 
-default.unreachable.i.i:                          ; preds = %9
+default.unreachable:                              ; preds = %9
   unreachable
 
 10:                                               ; preds = %9

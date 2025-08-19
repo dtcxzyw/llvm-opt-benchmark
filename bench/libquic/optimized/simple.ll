@@ -521,8 +521,8 @@ set_Jprojective_coordinate_GFp.exit30.thread:     ; preds = %46, %48
 
 set_Jprojective_coordinate_GFp.exit30:            ; preds = %52
   %59 = tail call ptr @BN_copy(ptr noundef nonnull %44, ptr noundef nonnull %4) #4
-  %.fr51 = freeze ptr %59
-  %.not49 = icmp eq ptr %.fr51, null
+  %.fr59 = freeze ptr %59
+  %.not49 = icmp eq ptr %.fr59, null
   br i1 %.not49, label %60, label %set_Jprojective_coordinate_GFp.exit30.thread44
 
 60:                                               ; preds = %56, %set_Jprojective_coordinate_GFp.exit30.thread, %set_Jprojective_coordinate_GFp.exit30
@@ -1659,14 +1659,14 @@ define hidden range(i32 0, 2) i32 @ec_GFp_simple_points_make_affine(ptr noundef 
   %17 = shl i64 %1, 3
   %calloc = tail call ptr @calloc(i64 1, i64 %17)
   %18 = icmp eq ptr %calloc, null
-  br i1 %18, label %.thread, label %.preheader194
+  br i1 %18, label %.thread, label %.preheader208
 
-19:                                               ; preds = %.preheader194
+19:                                               ; preds = %.preheader208
   %20 = add nuw i64 %.0130170, 1
   %exitcond.not = icmp eq i64 %20, %1
-  br i1 %exitcond.not, label %24, label %.preheader194, !llvm.loop !23
+  br i1 %exitcond.not, label %24, label %.preheader208, !llvm.loop !23
 
-.preheader194:                                    ; preds = %16, %19
+.preheader208:                                    ; preds = %16, %19
   %.0130170 = phi i64 [ %20, %19 ], [ 0, %16 ]
   %21 = tail call ptr @BN_new() #4
   %22 = getelementptr inbounds nuw ptr, ptr %calloc, i64 %.0130170
@@ -1886,9 +1886,9 @@ define hidden range(i32 0, 2) i32 @ec_GFp_simple_points_make_affine(ptr noundef 
   %exitcond186.not = icmp eq i64 %144, %1
   br i1 %exitcond186.not, label %.thread, label %113, !llvm.loop !30
 
-.thread:                                          ; preds = %.preheader194, %53, %42, %83, %91, %98, %140, %118, %123, %129, %134, %143, %107, %71, %73, %33, %29, %16, %11, %66
-  %.0131 = phi ptr [ null, %11 ], [ null, %16 ], [ %calloc, %33 ], [ %calloc, %107 ], [ %calloc, %73 ], [ %calloc, %71 ], [ %calloc, %66 ], [ %calloc, %29 ], [ %calloc, %143 ], [ %calloc, %134 ], [ %calloc, %129 ], [ %calloc, %123 ], [ %calloc, %118 ], [ %calloc, %140 ], [ %calloc, %98 ], [ %calloc, %91 ], [ %calloc, %83 ], [ %calloc, %42 ], [ %calloc, %53 ], [ %calloc, %.preheader194 ]
-  %.0129 = phi i32 [ 0, %11 ], [ 0, %16 ], [ 0, %33 ], [ 0, %107 ], [ 0, %73 ], [ 0, %71 ], [ 0, %66 ], [ 0, %29 ], [ 0, %140 ], [ 0, %118 ], [ 0, %123 ], [ 0, %129 ], [ 0, %134 ], [ 1, %143 ], [ 0, %98 ], [ 0, %91 ], [ 0, %83 ], [ 0, %42 ], [ 0, %53 ], [ 0, %.preheader194 ]
+.thread:                                          ; preds = %.preheader208, %53, %42, %83, %91, %98, %140, %118, %123, %129, %134, %143, %107, %71, %73, %33, %29, %16, %11, %66
+  %.0131 = phi ptr [ null, %11 ], [ null, %16 ], [ %calloc, %33 ], [ %calloc, %107 ], [ %calloc, %73 ], [ %calloc, %71 ], [ %calloc, %66 ], [ %calloc, %29 ], [ %calloc, %143 ], [ %calloc, %134 ], [ %calloc, %129 ], [ %calloc, %123 ], [ %calloc, %118 ], [ %calloc, %140 ], [ %calloc, %98 ], [ %calloc, %91 ], [ %calloc, %83 ], [ %calloc, %42 ], [ %calloc, %53 ], [ %calloc, %.preheader208 ]
+  %.0129 = phi i32 [ 0, %11 ], [ 0, %16 ], [ 0, %33 ], [ 0, %107 ], [ 0, %73 ], [ 0, %71 ], [ 0, %66 ], [ 0, %29 ], [ 0, %140 ], [ 0, %118 ], [ 0, %123 ], [ 0, %129 ], [ 0, %134 ], [ 1, %143 ], [ 0, %98 ], [ 0, %91 ], [ 0, %83 ], [ 0, %42 ], [ 0, %53 ], [ 0, %.preheader208 ]
   tail call void @BN_CTX_end(ptr noundef nonnull %.0132) #4
   tail call void @BN_CTX_free(ptr noundef %.0133) #4
   %.not163 = icmp eq ptr %.0131, null

@@ -2764,14 +2764,14 @@ _ZN4ncnn3MataSERKS0_.exit:                        ; preds = %._crit_edge.us, %.l
   %indvars.iv252 = phi i64 [ %indvars.iv.next253, %._crit_edge.us238 ], [ 0, %.lr.ph234.split.us ]
   %.reass.us236 = mul i64 %factor.op.mul235, %indvars.iv252
   %167 = getelementptr inbounds nuw i8, ptr %160, i64 %.reass.us236
-  %invariant.gep287 = getelementptr float, ptr %165, i64 %indvars.iv252
+  %invariant.gep346 = getelementptr float, ptr %165, i64 %indvars.iv252
   br label %168
 
 168:                                              ; preds = %.lr.ph.us237, %168
   %indvars.iv247 = phi i64 [ 0, %.lr.ph.us237 ], [ %indvars.iv.next248, %168 ]
   %169 = mul nsw i64 %indvars.iv247, %166
-  %gep288 = getelementptr float, ptr %invariant.gep287, i64 %169
-  %170 = load float, ptr %gep288, align 4, !tbaa !63
+  %gep347 = getelementptr float, ptr %invariant.gep346, i64 %169
+  %170 = load float, ptr %gep347, align 4, !tbaa !63
   %171 = getelementptr inbounds nuw float, ptr %167, i64 %indvars.iv247
   store float %170, ptr %171, align 4, !tbaa !63
   %indvars.iv.next248 = add nuw nsw i64 %indvars.iv247, 1
@@ -3313,23 +3313,23 @@ _ZNK4ncnn3Mat5emptyEv.exit.thread:                ; preds = %._crit_edge, %290, 
   %436 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %437 = load ptr, ptr %436, align 8, !tbaa !75
   %. = select i1 %.not118, i32 %222, i32 %218
-  %.290 = select i1 %.not118, i32 %218, i32 %222
-  br i1 %.not119, label %.invoke, label %.invoke289
+  %.349 = select i1 %.not118, i32 %218, i32 %222
+  br i1 %.not119, label %.invoke, label %.invoke348
 
-438:                                              ; preds = %.invoke289, %.invoke
+438:                                              ; preds = %.invoke348, %.invoke
   %439 = landingpad { ptr, i32 }
           cleanup
   br label %514
 
-.invoke289:                                       ; preds = %_ZNK4ncnn3Mat5emptyEv.exit.thread
-  invoke void @_ZN4ncnn3Mat6createEiiimPNS_9AllocatorE(ptr noundef nonnull align 8 dereferenceable(72) %431, i32 noundef %., i32 noundef 1, i32 noundef %.290, i64 noundef %37, ptr noundef %437)
+.invoke348:                                       ; preds = %_ZNK4ncnn3Mat5emptyEv.exit.thread
+  invoke void @_ZN4ncnn3Mat6createEiiimPNS_9AllocatorE(ptr noundef nonnull align 8 dereferenceable(72) %431, i32 noundef %., i32 noundef 1, i32 noundef %.349, i64 noundef %37, ptr noundef %437)
           to label %440 unwind label %438
 
 .invoke:                                          ; preds = %_ZNK4ncnn3Mat5emptyEv.exit.thread
-  invoke void @_ZN4ncnn3Mat6createEiimPNS_9AllocatorE(ptr noundef nonnull align 8 dereferenceable(72) %431, i32 noundef %., i32 noundef %.290, i64 noundef %37, ptr noundef %437)
+  invoke void @_ZN4ncnn3Mat6createEiimPNS_9AllocatorE(ptr noundef nonnull align 8 dereferenceable(72) %431, i32 noundef %., i32 noundef %.349, i64 noundef %37, ptr noundef %437)
           to label %440 unwind label %438
 
-440:                                              ; preds = %.invoke289, %.invoke
+440:                                              ; preds = %.invoke348, %.invoke
   %441 = load ptr, ptr %431, align 8, !tbaa !16
   %442 = icmp eq ptr %441, null
   br i1 %442, label %_ZNK4ncnn3Mat5emptyEv.exit216.thread, label %_ZNK4ncnn3Mat5emptyEv.exit216
@@ -4129,7 +4129,7 @@ _ZSt10_ConstructIN4ncnn3MatEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i.us: ; preds = %_ZS
   br label %_ZSt10_ConstructIN4ncnn3MatEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i
 
 _ZSt10_ConstructIN4ncnn3MatEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i: ; preds = %68, %.lr.ph.i.i.i.i.i.split
-  %70 = add i64 %.01113.i.i.i.i.i, -1
+  %70 = add nsw i64 %.01113.i.i.i.i.i, -1
   %71 = getelementptr inbounds nuw i8, ptr %.014.i.i.i.i.i, i64 72
   %.not.i.i.i.i.i = icmp eq i64 %70, 0
   br i1 %.not.i.i.i.i.i, label %.loopexit, label %.lr.ph.i.i.i.i.i.splitthread-pre-split, !llvm.loop !81
@@ -5541,23 +5541,23 @@ _ZNK4ncnn3Mat5emptyEv.exit345.thread:             ; preds = %._crit_edge515, %52
   %670 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %671 = load ptr, ptr %670, align 8, !tbaa !75
   %. = select i1 %.not191, i32 %455, i32 %456
-  %.550 = select i1 %.not191, i32 %456, i32 %455
-  br i1 %.not192, label %.invoke, label %.invoke549
+  %.637 = select i1 %.not191, i32 %456, i32 %455
+  br i1 %.not192, label %.invoke, label %.invoke636
 
-672:                                              ; preds = %.invoke549, %.invoke
+672:                                              ; preds = %.invoke636, %.invoke
   %673 = landingpad { ptr, i32 }
           cleanup
   br label %792
 
-.invoke549:                                       ; preds = %_ZNK4ncnn3Mat5emptyEv.exit345.thread
-  invoke void @_ZN4ncnn3Mat6createEiiimPNS_9AllocatorE(ptr noundef nonnull align 8 dereferenceable(72) %665, i32 noundef %., i32 noundef 1, i32 noundef %.550, i64 noundef 4, ptr noundef %671)
+.invoke636:                                       ; preds = %_ZNK4ncnn3Mat5emptyEv.exit345.thread
+  invoke void @_ZN4ncnn3Mat6createEiiimPNS_9AllocatorE(ptr noundef nonnull align 8 dereferenceable(72) %665, i32 noundef %., i32 noundef 1, i32 noundef %.637, i64 noundef 4, ptr noundef %671)
           to label %674 unwind label %672
 
 .invoke:                                          ; preds = %_ZNK4ncnn3Mat5emptyEv.exit345.thread
-  invoke void @_ZN4ncnn3Mat6createEiimPNS_9AllocatorE(ptr noundef nonnull align 8 dereferenceable(72) %665, i32 noundef %., i32 noundef %.550, i64 noundef 4, ptr noundef %671)
+  invoke void @_ZN4ncnn3Mat6createEiimPNS_9AllocatorE(ptr noundef nonnull align 8 dereferenceable(72) %665, i32 noundef %., i32 noundef %.637, i64 noundef 4, ptr noundef %671)
           to label %674 unwind label %672
 
-674:                                              ; preds = %.invoke549, %.invoke
+674:                                              ; preds = %.invoke636, %.invoke
   %675 = load ptr, ptr %665, align 8, !tbaa !16
   %676 = icmp eq ptr %675, null
   br i1 %676, label %_ZNK4ncnn3Mat5emptyEv.exit.thread, label %_ZNK4ncnn3Mat5emptyEv.exit
@@ -6218,7 +6218,7 @@ define internal void @_ZN4ncnnL11gemm_transBERKNS_3MatES2_S2_RS0_ffiiRKNS_6Optio
   %72 = select i1 %38, i32 %70, i32 %71
   %73 = sext i32 %72 to i64
   %74 = sext i32 %65 to i64
-  %invariant.gep204 = getelementptr float, ptr %66, i64 %74
+  %invariant.gep210 = getelementptr float, ptr %66, i64 %74
   br label %.lr.ph.us.us.us.us.us.us
 
 ._crit_edge89.split.us.split.us.us.us.us:         ; preds = %._crit_edge.us.us.us.us.us.us, %.lr.ph88.split.us.split.us.split.us115.us.us.preheader
@@ -6248,8 +6248,8 @@ define internal void @_ZN4ncnnL11gemm_transBERKNS_3MatES2_S2_RS0_ffiiRKNS_6Optio
 ._crit_edge.us.us.us.us.us.us:                    ; preds = %78
   %85 = load float, ptr %11, align 4, !tbaa !63
   %86 = fmul fast float %85, %84
-  %gep205 = getelementptr float, ptr %invariant.gep204, i64 %indvars.iv184
-  store float %86, ptr %gep205, align 4, !tbaa !63
+  %gep211 = getelementptr float, ptr %invariant.gep210, i64 %indvars.iv184
+  store float %86, ptr %gep211, align 4, !tbaa !63
   %indvars.iv.next185 = add nuw nsw i64 %indvars.iv184, 1
   %exitcond188.not = icmp eq i64 %indvars.iv.next185, %52
   br i1 %exitcond188.not, label %._crit_edge89.split.us.split.us.us.us.us, label %.lr.ph.us.us.us.us.us.us, !llvm.loop !101
@@ -6284,7 +6284,7 @@ define internal void @_ZN4ncnnL11gemm_transBERKNS_3MatES2_S2_RS0_ffiiRKNS_6Optio
   %104 = load ptr, ptr %3, align 8
   %105 = sext i32 %100 to i64
   %106 = sext i32 %92 to i64
-  %invariant.gep202 = getelementptr float, ptr %104, i64 %indvars.iv171
+  %invariant.gep208 = getelementptr float, ptr %104, i64 %indvars.iv171
   br label %.lr.ph.us.us94.us.us.us
 
 .lr.ph.us.us94.us.us.us:                          ; preds = %._crit_edge.us.us95.us.us.us, %.lr.ph88.us.us.us116
@@ -6310,8 +6310,8 @@ define internal void @_ZN4ncnnL11gemm_transBERKNS_3MatES2_S2_RS0_ffiiRKNS_6Optio
   %116 = load float, ptr %11, align 4, !tbaa !63
   %117 = fmul fast float %116, %115
   %118 = mul nsw i64 %indvars.iv166, %106
-  %gep203 = getelementptr float, ptr %invariant.gep202, i64 %118
-  store float %117, ptr %gep203, align 4, !tbaa !63
+  %gep209 = getelementptr float, ptr %invariant.gep208, i64 %118
+  store float %117, ptr %gep209, align 4, !tbaa !63
   %indvars.iv.next167 = add nuw nsw i64 %indvars.iv166, 1
   %exitcond170.not = icmp eq i64 %indvars.iv.next167, %wide.trip.count169
   br i1 %exitcond170.not, label %._crit_edge89.split.us.split.split.us.us.us.us, label %.lr.ph.us.us94.us.us.us, !llvm.loop !101
@@ -6331,14 +6331,14 @@ define internal void @_ZN4ncnnL11gemm_transBERKNS_3MatES2_S2_RS0_ffiiRKNS_6Optio
   %120 = load ptr, ptr %3, align 8
   %sext = shl i64 %119, 32
   %121 = ashr exact i64 %sext, 32
-  %invariant.gep200 = getelementptr float, ptr %120, i64 %indvars.iv156
+  %invariant.gep206 = getelementptr float, ptr %120, i64 %indvars.iv156
   br label %122
 
 122:                                              ; preds = %.lr.ph88.us.us.us119, %122
   %indvars.iv151 = phi i64 [ 0, %.lr.ph88.us.us.us119 ], [ %indvars.iv.next152, %122 ]
   %123 = mul nsw i64 %indvars.iv151, %121
-  %gep201 = getelementptr float, ptr %invariant.gep200, i64 %123
-  store float 0.000000e+00, ptr %gep201, align 4, !tbaa !63
+  %gep207 = getelementptr float, ptr %invariant.gep206, i64 %123
+  store float 0.000000e+00, ptr %gep207, align 4, !tbaa !63
   %indvars.iv.next152 = add nuw nsw i64 %indvars.iv151, 1
   %exitcond155.not = icmp eq i64 %indvars.iv.next152, %wide.trip.count169
   br i1 %exitcond155.not, label %._crit_edge89.split.us.split.split.us109.us.us, label %122, !llvm.loop !101
@@ -6354,14 +6354,14 @@ define internal void @_ZN4ncnnL11gemm_transBERKNS_3MatES2_S2_RS0_ffiiRKNS_6Optio
   %124 = load i32, ptr %30, align 4
   %125 = load ptr, ptr %3, align 8
   %126 = sext i32 %124 to i64
-  %invariant.gep198 = getelementptr float, ptr %125, i64 %indvars.iv146
+  %invariant.gep204 = getelementptr float, ptr %125, i64 %indvars.iv146
   br label %127
 
 127:                                              ; preds = %.lr.ph88.us.us, %127
   %indvars.iv141 = phi i64 [ 0, %.lr.ph88.us.us ], [ %indvars.iv.next142, %127 ]
   %128 = mul nsw i64 %indvars.iv141, %126
-  %gep199 = getelementptr float, ptr %invariant.gep198, i64 %128
-  store float 0.000000e+00, ptr %gep199, align 4, !tbaa !63
+  %gep205 = getelementptr float, ptr %invariant.gep204, i64 %128
+  store float 0.000000e+00, ptr %gep205, align 4, !tbaa !63
   %indvars.iv.next142 = add nuw nsw i64 %indvars.iv141, 1
   %exitcond145.not = icmp eq i64 %indvars.iv.next142, %wide.trip.count169
   br i1 %exitcond145.not, label %._crit_edge89.split.us.split.split.us109.us, label %127, !llvm.loop !101
@@ -6398,7 +6398,7 @@ define internal void @_ZN4ncnnL11gemm_transBERKNS_3MatES2_S2_RS0_ffiiRKNS_6Optio
   %150 = sext i32 %140 to i64
   %151 = getelementptr float, ptr %42, i64 %145
   %invariant.gep = getelementptr float, ptr %147, i64 %indvars.iv137
-  %invariant.gep196 = getelementptr float, ptr %147, i64 %149
+  %invariant.gep202 = getelementptr float, ptr %147, i64 %149
   br label %152
 
 152:                                              ; preds = %.lr.ph88.us, %173
@@ -6454,8 +6454,8 @@ define internal void @_ZN4ncnnL11gemm_transBERKNS_3MatES2_S2_RS0_ffiiRKNS_6Optio
   br label %173
 
 172:                                              ; preds = %._crit_edge.us
-  %gep197 = getelementptr float, ptr %invariant.gep196, i64 %indvars.iv132
-  store float %169, ptr %gep197, align 4, !tbaa !63
+  %gep203 = getelementptr float, ptr %invariant.gep202, i64 %indvars.iv132
+  store float %169, ptr %gep203, align 4, !tbaa !63
   br label %173
 
 173:                                              ; preds = %172, %170
@@ -6619,7 +6619,7 @@ define internal void @_ZN4ncnnL16gemm_transB_int8ERKNS_3MatES2_S2_fS2_RS0_ffiiRK
   %66 = sext i32 %60 to i64
   %67 = mul nsw i64 %indvars.iv205, %66
   %68 = load ptr, ptr %3, align 8
-  %invariant.gep226 = getelementptr float, ptr %68, i64 %67
+  %invariant.gep231 = getelementptr float, ptr %68, i64 %67
   %69 = fdiv fast float 1.000000e+00, %65
   br label %.lr.ph.us.us.us.us.us.us.us
 
@@ -6649,8 +6649,8 @@ define internal void @_ZN4ncnnL16gemm_transB_int8ERKNS_3MatES2_S2_fS2_RS0_ffiiRK
   %81 = load float, ptr %13, align 4, !tbaa !63
   %82 = fmul fast float %81, %80
   %83 = fmul fast float %82, %69
-  %gep227 = getelementptr float, ptr %invariant.gep226, i64 %indvars.iv200
-  store float %83, ptr %gep227, align 4, !tbaa !63
+  %gep232 = getelementptr float, ptr %invariant.gep231, i64 %indvars.iv200
+  store float %83, ptr %gep232, align 4, !tbaa !63
   %indvars.iv.next201 = add nuw nsw i64 %indvars.iv200, 1
   %exitcond204.not = icmp eq i64 %indvars.iv.next201, %wide.trip.count203
   br i1 %exitcond204.not, label %._crit_edge90.split.us.split.us.us.us.split.us.us.us, label %.lr.ph.us.us.us.us.us.us.us, !llvm.loop !105
@@ -6717,7 +6717,7 @@ define internal void @_ZN4ncnnL16gemm_transB_int8ERKNS_3MatES2_S2_fS2_RS0_ffiiRK
   %109 = fmul fast float %108, %107
   %110 = load ptr, ptr %3, align 8
   %111 = sext i32 %104 to i64
-  %invariant.gep224 = getelementptr float, ptr %110, i64 %indvars.iv181
+  %invariant.gep229 = getelementptr float, ptr %110, i64 %indvars.iv181
   %112 = fdiv fast float 1.000000e+00, %109
   br label %.lr.ph.us.us96.us.us.us
 
@@ -6748,8 +6748,8 @@ define internal void @_ZN4ncnnL16gemm_transB_int8ERKNS_3MatES2_S2_fS2_RS0_ffiiRK
   %125 = fmul fast float %124, %123
   %126 = fmul fast float %125, %112
   %127 = mul nsw i64 %indvars.iv176, %111
-  %gep225 = getelementptr float, ptr %invariant.gep224, i64 %127
-  store float %126, ptr %gep225, align 4, !tbaa !63
+  %gep230 = getelementptr float, ptr %invariant.gep229, i64 %127
+  store float %126, ptr %gep230, align 4, !tbaa !63
   %indvars.iv.next177 = add nuw nsw i64 %indvars.iv176, 1
   %exitcond180.not = icmp eq i64 %indvars.iv.next177, %wide.trip.count179
   br i1 %exitcond180.not, label %._crit_edge90.split.us.split.split.us.us.us.us, label %.lr.ph.us.us96.us.us.us, !llvm.loop !105
@@ -6769,14 +6769,14 @@ define internal void @_ZN4ncnnL16gemm_transB_int8ERKNS_3MatES2_S2_fS2_RS0_ffiiRK
   %129 = load ptr, ptr %3, align 8
   %sext = shl i64 %128, 32
   %130 = ashr exact i64 %sext, 32
-  %invariant.gep222 = getelementptr float, ptr %129, i64 %indvars.iv166
+  %invariant.gep227 = getelementptr float, ptr %129, i64 %indvars.iv166
   br label %131
 
 131:                                              ; preds = %.lr.ph89.us.us.us124, %131
   %indvars.iv161 = phi i64 [ 0, %.lr.ph89.us.us.us124 ], [ %indvars.iv.next162, %131 ]
   %132 = mul nsw i64 %indvars.iv161, %130
-  %gep223 = getelementptr float, ptr %invariant.gep222, i64 %132
-  store float 0.000000e+00, ptr %gep223, align 4, !tbaa !63
+  %gep228 = getelementptr float, ptr %invariant.gep227, i64 %132
+  store float 0.000000e+00, ptr %gep228, align 4, !tbaa !63
   %indvars.iv.next162 = add nuw nsw i64 %indvars.iv161, 1
   %exitcond165.not = icmp eq i64 %indvars.iv.next162, %wide.trip.count179
   br i1 %exitcond165.not, label %._crit_edge90.split.us.split.split.us113.us.us, label %131, !llvm.loop !105
@@ -6792,14 +6792,14 @@ define internal void @_ZN4ncnnL16gemm_transB_int8ERKNS_3MatES2_S2_fS2_RS0_ffiiRK
   %133 = load i32, ptr %32, align 4
   %134 = load ptr, ptr %3, align 8
   %135 = sext i32 %133 to i64
-  %invariant.gep220 = getelementptr float, ptr %134, i64 %indvars.iv156
+  %invariant.gep225 = getelementptr float, ptr %134, i64 %indvars.iv156
   br label %136
 
 136:                                              ; preds = %.lr.ph89.us.us, %136
   %indvars.iv151 = phi i64 [ 0, %.lr.ph89.us.us ], [ %indvars.iv.next152, %136 ]
   %137 = mul nsw i64 %indvars.iv151, %135
-  %gep221 = getelementptr float, ptr %invariant.gep220, i64 %137
-  store float 0.000000e+00, ptr %gep221, align 4, !tbaa !63
+  %gep226 = getelementptr float, ptr %invariant.gep225, i64 %137
+  store float 0.000000e+00, ptr %gep226, align 4, !tbaa !63
   %indvars.iv.next152 = add nuw nsw i64 %indvars.iv151, 1
   %exitcond155.not = icmp eq i64 %indvars.iv.next152, %wide.trip.count179
   br i1 %exitcond155.not, label %._crit_edge90.split.us.split.split.us113.us, label %136, !llvm.loop !105
@@ -6830,7 +6830,7 @@ define internal void @_ZN4ncnnL16gemm_transB_int8ERKNS_3MatES2_S2_fS2_RS0_ffiiRK
   %152 = mul nsw i64 %indvars.iv147, %151
   %153 = getelementptr float, ptr %39, i64 %148
   %invariant.gep = getelementptr float, ptr %150, i64 %indvars.iv147
-  %invariant.gep218 = getelementptr float, ptr %150, i64 %152
+  %invariant.gep223 = getelementptr float, ptr %150, i64 %152
   %154 = fdiv fast float 1.000000e+00, %146
   br label %155
 
@@ -6893,8 +6893,8 @@ define internal void @_ZN4ncnnL16gemm_transB_int8ERKNS_3MatES2_S2_fS2_RS0_ffiiRK
   br label %178
 
 177:                                              ; preds = %.thread82.us
-  %gep219 = getelementptr float, ptr %invariant.gep218, i64 %indvars.iv142
-  store float %174, ptr %gep219, align 4, !tbaa !63
+  %gep224 = getelementptr float, ptr %invariant.gep223, i64 %indvars.iv142
+  store float %174, ptr %gep224, align 4, !tbaa !63
   br label %178
 
 178:                                              ; preds = %177, %175

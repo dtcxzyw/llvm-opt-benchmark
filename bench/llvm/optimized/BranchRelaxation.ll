@@ -1920,8 +1920,8 @@ _ZNK4llvm12MachineInstr9isBarrierENS0_9QueryTypeE.exit..thread11_crit_edge.i.i: 
   %.phi.trans.insert17.i.i = getelementptr inbounds nuw i8, ptr %.pre16.i.i, i64 16
   %.pre18.i.i = load i64, ptr %.phi.trans.insert17.i.i, align 8, !tbaa !277
   %758 = and i64 %.pre18.i.i, 2048
-  %.not268.i = icmp eq i64 %758, 0
-  br i1 %.not268.i, label %760, label %_ZNK4llvm12MachineInstr19isConditionalBranchENS0_9QueryTypeE.exit.thread.i
+  %.not325.i = icmp eq i64 %758, 0
+  br i1 %.not325.i, label %760, label %_ZNK4llvm12MachineInstr19isConditionalBranchENS0_9QueryTypeE.exit.thread.i
 
 _ZNK4llvm12MachineInstr19isConditionalBranchENS0_9QueryTypeE.exit.i: ; preds = %.thread11.i.i
   %759 = call noundef zeroext i1 @_ZNK4llvm12MachineInstr19hasPropertyInBundleEmNS0_9QueryTypeE(ptr noundef nonnull align 8 dereferenceable(70) %storemerge.in206.i, i64 noundef 2048, i32 noundef 1) #15
@@ -2106,8 +2106,8 @@ _ZNK4llvm12MachineInstr9isBarrierENS0_9QueryTypeE.exit..thread11_crit_edge.i: ; 
   %.phi.trans.insert17.i = getelementptr inbounds nuw i8, ptr %.pre16.i, i64 16
   %.pre18.i = load i64, ptr %.phi.trans.insert17.i, align 8, !tbaa !277
   %845 = and i64 %.pre18.i, 2048
-  %.not165 = icmp eq i64 %845, 0
-  br i1 %.not165, label %847, label %.critedge2.i
+  %.not234 = icmp eq i64 %845, 0
+  br i1 %.not234, label %847, label %.critedge2.i
 
 _ZNK4llvm12MachineInstr19isConditionalBranchENS0_9QueryTypeE.exit: ; preds = %.thread11.i
   %846 = call noundef zeroext i1 @_ZNK4llvm12MachineInstr19hasPropertyInBundleEmNS0_9QueryTypeE(ptr noundef nonnull align 8 dereferenceable(70) %733, i64 noundef 2048, i32 noundef 1) #15

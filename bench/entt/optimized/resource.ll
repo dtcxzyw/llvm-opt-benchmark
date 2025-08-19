@@ -4501,9 +4501,9 @@ _ZN4entt8resourceI4baseEC2I7derivedvEERKNS0_IT_EE.exit: ; preds = %_ZNSt12__shar
 
 38:                                               ; preds = %_ZN4entt8resourceI4baseEC2I7derivedvEERKNS0_IT_EE.exit.thread, %_ZN4entt8resourceI4baseEC2I7derivedvEERKNS0_IT_EE.exit
   %39 = phi ptr [ %35, %_ZN4entt8resourceI4baseEC2I7derivedvEERKNS0_IT_EE.exit.thread ], [ %37, %_ZN4entt8resourceI4baseEC2I7derivedvEERKNS0_IT_EE.exit ]
-  %.pr247 = phi ptr [ %28, %_ZN4entt8resourceI4baseEC2I7derivedvEERKNS0_IT_EE.exit.thread ], [ %.pr.pre, %_ZN4entt8resourceI4baseEC2I7derivedvEERKNS0_IT_EE.exit ]
+  %.pr317 = phi ptr [ %28, %_ZN4entt8resourceI4baseEC2I7derivedvEERKNS0_IT_EE.exit.thread ], [ %.pr.pre, %_ZN4entt8resourceI4baseEC2I7derivedvEERKNS0_IT_EE.exit ]
   %40 = phi ptr [ %31, %_ZN4entt8resourceI4baseEC2I7derivedvEERKNS0_IT_EE.exit.thread ], [ %.pre, %_ZN4entt8resourceI4baseEC2I7derivedvEERKNS0_IT_EE.exit ]
-  %41 = getelementptr inbounds nuw i8, ptr %.pr247, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %.pr317, i64 8
   %42 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !39
   %.not.i.i.i.i.i82 = icmp eq i8 %42, 0
   br i1 %.not.i.i.i.i.i82, label %46, label %43
@@ -6193,9 +6193,9 @@ _ZN4entt8resourceI7derivedEC2ERKS2_.exit:         ; preds = %_ZNSt12__shared_ptr
 
 72:                                               ; preds = %_ZN4entt8resourceI7derivedEC2ERKS2_.exit.thread, %_ZN4entt8resourceI7derivedEC2ERKS2_.exit
   %73 = phi ptr [ %69, %_ZN4entt8resourceI7derivedEC2ERKS2_.exit.thread ], [ %71, %_ZN4entt8resourceI7derivedEC2ERKS2_.exit ]
-  %.pr502 = phi ptr [ %62, %_ZN4entt8resourceI7derivedEC2ERKS2_.exit.thread ], [ %.pr.pre, %_ZN4entt8resourceI7derivedEC2ERKS2_.exit ]
+  %.pr640 = phi ptr [ %62, %_ZN4entt8resourceI7derivedEC2ERKS2_.exit.thread ], [ %.pr.pre, %_ZN4entt8resourceI7derivedEC2ERKS2_.exit ]
   %74 = phi ptr [ %65, %_ZN4entt8resourceI7derivedEC2ERKS2_.exit.thread ], [ %.pre, %_ZN4entt8resourceI7derivedEC2ERKS2_.exit ]
-  %75 = getelementptr inbounds nuw i8, ptr %.pr502, i64 8
+  %75 = getelementptr inbounds nuw i8, ptr %.pr640, i64 8
   %76 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !39
   %.not.i.i.i.i.i178 = icmp eq i8 %76, 0
   br i1 %.not.i.i.i.i.i178, label %80, label %77

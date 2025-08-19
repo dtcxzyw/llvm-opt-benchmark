@@ -956,30 +956,30 @@ define dso_local i64 @percentile_disc_multi_final(ptr noundef captures(none) %0)
 .lr.ph.preheader:                                 ; preds = %40
   %54 = load i64, ptr %44, align 8
   %55 = icmp sgt i64 %54, 0
-  br i1 %55, label %._crit_edge, label %.lr.ph78
+  br i1 %55, label %._crit_edge, label %.lr.ph82
 
-.lr.ph:                                           ; preds = %.lr.ph78
+.lr.ph:                                           ; preds = %.lr.ph82
   %56 = getelementptr inbounds nuw %struct.pct_info, ptr %44, i64 %indvars.iv.next
   %57 = load i64, ptr %56, align 8
   %58 = icmp sgt i64 %57, 0
-  br i1 %58, label %._crit_edge, label %.lr.ph78, !llvm.loop !10
+  br i1 %58, label %._crit_edge, label %.lr.ph82, !llvm.loop !10
 
-.lr.ph78:                                         ; preds = %.lr.ph.preheader, %.lr.ph
-  %indvars.iv77 = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %59 = getelementptr inbounds nuw %struct.pct_info, ptr %44, i64 %indvars.iv77, i32 3
+.lr.ph82:                                         ; preds = %.lr.ph.preheader, %.lr.ph
+  %indvars.iv81 = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %59 = getelementptr inbounds nuw %struct.pct_info, ptr %44, i64 %indvars.iv81, i32 3
   %60 = load i32, ptr %59, align 8
   %61 = sext i32 %60 to i64
   %62 = getelementptr inbounds i64, ptr %48, i64 %61
   store i64 0, ptr %62, align 8
   %63 = getelementptr inbounds i8, ptr %51, i64 %61
   store i8 1, ptr %63, align 1
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv77, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv81, 1
   %64 = load i32, ptr %4, align 4
   %65 = sext i32 %64 to i64
   %66 = icmp slt i64 %indvars.iv.next, %65
   br i1 %66, label %.lr.ph, label %.._crit_edge_crit_edge, !llvm.loop !10
 
-.._crit_edge_crit_edge:                           ; preds = %.lr.ph78
+.._crit_edge_crit_edge:                           ; preds = %.lr.ph82
   br label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.._crit_edge_crit_edge, %.lr.ph.preheader
@@ -1031,7 +1031,7 @@ define dso_local i64 @percentile_disc_multi_final(ptr noundef captures(none) %0)
 90:                                               ; preds = %82
   %91 = load ptr, ptr %80, align 8
   %92 = xor i64 %.05466, -1
-  %93 = add i64 %86, %92
+  %93 = add nsw i64 %86, %92
   %94 = call zeroext i1 @tuplesort_skiptuples(ptr noundef %91, i64 noundef %93, i1 noundef zeroext true) #10
   br i1 %94, label %98, label %95
 
@@ -1399,7 +1399,7 @@ define internal fastcc i64 @percentile_cont_multi_final_common(ptr noundef captu
 95:                                               ; preds = %87
   %96 = load ptr, ptr %85, align 8
   %97 = xor i64 %.07386, -1
-  %98 = add i64 %89, %97
+  %98 = add nsw i64 %89, %97
   %99 = call zeroext i1 @tuplesort_skiptuples(ptr noundef %96, i64 noundef %98, i1 noundef zeroext true) #10
   br i1 %99, label %103, label %100
 
@@ -1431,11 +1431,11 @@ define internal fastcc i64 @percentile_cont_multi_final_common(ptr noundef captu
   br i1 %112, label %.sink.split, label %114
 
 .sink.split:                                      ; preds = %111, %103
-  %.sink96 = phi ptr [ %9, %103 ], [ %10, %111 ]
-  %.sink95 = phi ptr [ %10, %103 ], [ %9, %111 ]
+  %.sink101 = phi ptr [ %9, %103 ], [ %10, %111 ]
+  %.sink100 = phi ptr [ %10, %103 ], [ %9, %111 ]
   %.1.ph = phi i64 [ %89, %103 ], [ %.07386, %111 ]
-  %113 = load i64, ptr %.sink96, align 8
-  store i64 %113, ptr %.sink95, align 8
+  %113 = load i64, ptr %.sink101, align 8
+  store i64 %113, ptr %.sink100, align 8
   br label %114
 
 114:                                              ; preds = %.sink.split, %111
@@ -1460,7 +1460,7 @@ define internal fastcc i64 @percentile_cont_multi_final_common(ptr noundef captu
   unreachable
 
 124:                                              ; preds = %116
-  %125 = add nsw i64 %.1, 1
+  %125 = add nuw nsw i64 %.1, 1
   br label %126
 
 126:                                              ; preds = %124, %114

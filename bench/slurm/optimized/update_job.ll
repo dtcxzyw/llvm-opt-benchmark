@@ -1532,8 +1532,8 @@ define dso_local range(i32 -1, -2147483648) i32 @scontrol_update_job(i32 noundef
   br label %.thread780
 
 147:                                              ; preds = %141, %142
-  %storemerge1229 = phi ptr [ %.1558, %142 ], [ %.sink, %141 ]
-  store ptr %storemerge1229, ptr %84, align 8
+  %storemerge1261 = phi ptr [ %.1558, %142 ], [ %.sink, %141 ]
+  store ptr %storemerge1261, ptr %84, align 8
   %148 = add nsw i32 %.05311060, 1
   br label %.thread772
 
@@ -2313,8 +2313,8 @@ define dso_local range(i32 -1, -2147483648) i32 @scontrol_update_job(i32 noundef
   br label %.thread780
 
 .sink.split:                                      ; preds = %462, %458
-  %.sink1387 = phi i16 [ 1, %458 ], [ 0, %462 ]
-  store i16 %.sink1387, ptr %45, align 2
+  %.sink1419 = phi i16 [ 1, %458 ], [ 0, %462 ]
+  store i16 %.sink1419, ptr %45, align 2
   br label %468
 
 468:                                              ; preds = %.sink.split, %464
@@ -2331,12 +2331,12 @@ define dso_local range(i32 -1, -2147483648) i32 @scontrol_update_job(i32 noundef
   %474 = zext nneg i32 %473 to i64
   %475 = call i32 @xstrncasecmp(ptr noundef nonnull %.sink, ptr noundef nonnull @.str.88, i64 noundef %474) #13
   %.not682 = icmp eq i32 %475, 0
-  br i1 %.not682, label %.sink.split1388, label %476
+  br i1 %.not682, label %.sink.split1420, label %476
 
 476:                                              ; preds = %472
   %477 = call i32 @xstrncasecmp(ptr noundef nonnull %.sink, ptr noundef nonnull @.str.89, i64 noundef %474) #13
   %.not683 = icmp eq i32 %477, 0
-  br i1 %.not683, label %.sink.split1388, label %478
+  br i1 %.not683, label %.sink.split1420, label %478
 
 478:                                              ; preds = %476
   %479 = call i32 @parse_uint16(ptr noundef nonnull %.sink, ptr noundef nonnull %44) #13
@@ -2348,12 +2348,12 @@ define dso_local range(i32 -1, -2147483648) i32 @scontrol_update_job(i32 noundef
   store i32 1, ptr @exit_code, align 4
   br label %.thread780
 
-.sink.split1388:                                  ; preds = %476, %472
-  %.sink1389 = phi i16 [ 1, %472 ], [ 0, %476 ]
-  store i16 %.sink1389, ptr %44, align 8
+.sink.split1420:                                  ; preds = %476, %472
+  %.sink1421 = phi i16 [ 1, %472 ], [ 0, %476 ]
+  store i16 %.sink1421, ptr %44, align 8
   br label %482
 
-482:                                              ; preds = %.sink.split1388, %478
+482:                                              ; preds = %.sink.split1420, %478
   %483 = add nsw i32 %.05311060, 1
   br label %667
 
@@ -2686,12 +2686,12 @@ define dso_local range(i32 -1, -2147483648) i32 @scontrol_update_job(i32 noundef
   %615 = zext nneg i32 %614 to i64
   %616 = call i32 @xstrncasecmp(ptr noundef nonnull %.sink, ptr noundef nonnull @.str.88, i64 noundef %615) #13
   %.not719 = icmp eq i32 %616, 0
-  br i1 %.not719, label %.sink.split1390, label %617
+  br i1 %.not719, label %.sink.split1422, label %617
 
 617:                                              ; preds = %613
   %618 = call i32 @xstrncasecmp(ptr noundef nonnull %.sink, ptr noundef nonnull @.str.89, i64 noundef %615) #13
   %.not720 = icmp eq i32 %618, 0
-  br i1 %.not720, label %.sink.split1390, label %619
+  br i1 %.not720, label %.sink.split1422, label %619
 
 619:                                              ; preds = %617
   %620 = call i32 @parse_uint16(ptr noundef nonnull %.sink, ptr noundef nonnull %26) #13
@@ -2703,12 +2703,12 @@ define dso_local range(i32 -1, -2147483648) i32 @scontrol_update_job(i32 noundef
   store i32 1, ptr @exit_code, align 4
   br label %.thread780
 
-.sink.split1390:                                  ; preds = %617, %613
-  %.sink1391 = phi i16 [ 1, %613 ], [ 0, %617 ]
-  store i16 %.sink1391, ptr %26, align 8
+.sink.split1422:                                  ; preds = %617, %613
+  %.sink1423 = phi i16 [ 1, %613 ], [ 0, %617 ]
+  store i16 %.sink1423, ptr %26, align 8
   br label %623
 
-623:                                              ; preds = %.sink.split1390, %619
+623:                                              ; preds = %.sink.split1422, %619
   %624 = add nsw i32 %.05311060, 1
   br label %667
 
@@ -3401,8 +3401,8 @@ _is_single_job.exit:                              ; preds = %781
 
 956:                                              ; preds = %951
   %957 = load i32, ptr @quiet_flag, align 4
-  %.not1230 = icmp eq i32 %957, 0
-  br i1 %.not1230, label %958, label %965
+  %.not1262 = icmp eq i32 %957, 0
+  br i1 %.not1262, label %958, label %965
 
 958:                                              ; preds = %956
   %959 = load ptr, ptr @stdout, align 8

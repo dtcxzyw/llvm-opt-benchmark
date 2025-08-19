@@ -338,18 +338,18 @@ _ZNK5boost10shared_ptrIN8QuantLib18YieldTermStructureEEptEv.exit: ; preds = %ent
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %floatLeg_, i8 0, i64 72, i1 false)
   %4 = load ptr, ptr %_M_finish.i, align 8, !tbaa !21
   %5 = load ptr, ptr %iborLeg, align 8, !tbaa !23
-  %sub.ptr.lhs.cast.i666 = ptrtoint ptr %4 to i64
-  %sub.ptr.rhs.cast.i667 = ptrtoint ptr %5 to i64
-  %sub.ptr.sub.i668 = sub i64 %sub.ptr.lhs.cast.i666, %sub.ptr.rhs.cast.i667
-  %cmp670 = icmp ugt i64 %sub.ptr.sub.i668, 16
-  br i1 %cmp670, label %land.rhs, label %while.end
+  %sub.ptr.lhs.cast.i722 = ptrtoint ptr %4 to i64
+  %sub.ptr.rhs.cast.i723 = ptrtoint ptr %5 to i64
+  %sub.ptr.sub.i724 = sub i64 %sub.ptr.lhs.cast.i722, %sub.ptr.rhs.cast.i723
+  %cmp726 = icmp ugt i64 %sub.ptr.sub.i724, 16
+  br i1 %cmp726, label %land.rhs, label %while.end
 
 land.rhs:                                         ; preds = %_ZNK5boost10shared_ptrIN8QuantLib18YieldTermStructureEEptEv.exit, %while.cond.backedge
   %6 = phi ptr [ %25, %while.cond.backedge ], [ %5, %_ZNK5boost10shared_ptrIN8QuantLib18YieldTermStructureEEptEv.exit ]
-  %add672 = phi i64 [ %add, %while.cond.backedge ], [ 1, %_ZNK5boost10shared_ptrIN8QuantLib18YieldTermStructureEEptEv.exit ]
-  %floatIdx.0671 = phi i64 [ %add672, %while.cond.backedge ], [ 0, %_ZNK5boost10shared_ptrIN8QuantLib18YieldTermStructureEEptEv.exit ]
+  %add728 = phi i64 [ %add, %while.cond.backedge ], [ 1, %_ZNK5boost10shared_ptrIN8QuantLib18YieldTermStructureEEptEv.exit ]
+  %floatIdx.0727 = phi i64 [ %add728, %while.cond.backedge ], [ 0, %_ZNK5boost10shared_ptrIN8QuantLib18YieldTermStructureEEptEv.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp)
-  %add.ptr.i = getelementptr inbounds nuw %"class.boost::shared_ptr.43", ptr %6, i64 %floatIdx.0671
+  %add.ptr.i = getelementptr inbounds nuw %"class.boost::shared_ptr.43", ptr %6, i64 %floatIdx.0727
   tail call void @llvm.experimental.noalias.scope.decl(metadata !24)
   %7 = load ptr, ptr %add.ptr.i, align 8, !tbaa !27, !noalias !24
   %8 = icmp eq ptr %7, null
@@ -366,15 +366,15 @@ cond.true.i:                                      ; preds = %dynamic_cast.end3.i
   %10 = load ptr, ptr %pn2.i.i, align 8, !tbaa !16, !noalias !24
   store ptr %10, ptr %pn.i.i, align 8, !tbaa !16, !alias.scope !24
   %cmp.not.i.i.i = icmp eq ptr %10, null
-  br i1 %cmp.not.i.i.i, label %cleanup.action.thread605, label %if.then.i.i
+  br i1 %cmp.not.i.i.i, label %cleanup.action.thread661, label %if.then.i.i
 
-cleanup.action.thread605:                         ; preds = %cond.true.i
-  %accrualStartDate_.i606 = getelementptr inbounds nuw i8, ptr %9, i64 40
+cleanup.action.thread661:                         ; preds = %cond.true.i
+  %accrualStartDate_.i662 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %11 = load i64, ptr %this, align 8, !tbaa !31
-  %12 = load i64, ptr %accrualStartDate_.i606, align 8, !tbaa !31
-  %cmp.i607 = icmp sgt i64 %11, %12
+  %12 = load i64, ptr %accrualStartDate_.i662, align 8, !tbaa !31
+  %cmp.i663 = icmp sgt i64 %11, %12
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp)
-  br i1 %cmp.i607, label %while.cond.backedge, label %cleanup.done18.while.end_crit_edge
+  br i1 %cmp.i663, label %while.cond.backedge, label %cleanup.done18.while.end_crit_edge
 
 cond.false.i51:                                   ; preds = %dynamic_cast.end3.i, %land.rhs
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i8 0, i64 16, i1 false), !alias.scope !24
@@ -384,9 +384,9 @@ cond.false.i51:                                   ; preds = %dynamic_cast.end3.i
 cleanup.action.thread:                            ; preds = %cond.false.i51
   %13 = load i64, ptr %this, align 8, !tbaa !31
   %14 = load i64, ptr inttoptr (i64 40 to ptr), align 8, !tbaa !31
-  %cmp.i602 = icmp sgt i64 %13, %14
+  %cmp.i658 = icmp sgt i64 %13, %14
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp)
-  br i1 %cmp.i602, label %while.cond.backedge, label %cleanup.done18.while.end_crit_edge
+  br i1 %cmp.i658, label %while.cond.backedge, label %cleanup.done18.while.end_crit_edge
 
 if.then.i.i:                                      ; preds = %cond.true.i
   %use_count_.i.i.i.i = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -431,8 +431,8 @@ cleanup.done18:                                   ; preds = %if.then.i.i.i.i, %.
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp)
   br i1 %cmp.i, label %while.cond.backedge, label %cleanup.done18.while.end_crit_edge
 
-while.cond.backedge:                              ; preds = %cleanup.done18, %cleanup.action.thread, %cleanup.action.thread605
-  %add = add nuw i64 %add672, 1
+while.cond.backedge:                              ; preds = %cleanup.done18, %cleanup.action.thread, %cleanup.action.thread661
+  %add = add nuw i64 %add728, 1
   %24 = load ptr, ptr %_M_finish.i, align 8, !tbaa !21
   %25 = load ptr, ptr %iborLeg, align 8, !tbaa !23
   %sub.ptr.lhs.cast.i = ptrtoint ptr %24 to i64
@@ -442,7 +442,7 @@ while.cond.backedge:                              ; preds = %cleanup.done18, %cl
   %cmp = icmp ult i64 %add, %sub.ptr.div.i
   br i1 %cmp, label %land.rhs, label %while.end, !llvm.loop !33
 
-cleanup.done18.while.end_crit_edge:               ; preds = %cleanup.action.thread605, %cleanup.action.thread, %cleanup.done18
+cleanup.done18.while.end_crit_edge:               ; preds = %cleanup.action.thread661, %cleanup.action.thread, %cleanup.done18
   %.pre = load ptr, ptr %iborLeg, align 8, !tbaa !23
   br label %while.end, !llvm.loop !33
 
@@ -454,10 +454,10 @@ lpad:                                             ; preds = %cond.false.i51
   br label %ehcleanup318
 
 while.end:                                        ; preds = %while.cond.backedge, %_ZNK5boost10shared_ptrIN8QuantLib18YieldTermStructureEEptEv.exit, %cleanup.done18.while.end_crit_edge
-  %floatIdx.0665 = phi i64 [ %floatIdx.0671, %cleanup.done18.while.end_crit_edge ], [ 0, %_ZNK5boost10shared_ptrIN8QuantLib18YieldTermStructureEEptEv.exit ], [ %add672, %while.cond.backedge ]
+  %floatIdx.0721 = phi i64 [ %floatIdx.0727, %cleanup.done18.while.end_crit_edge ], [ 0, %_ZNK5boost10shared_ptrIN8QuantLib18YieldTermStructureEEptEv.exit ], [ %add728, %while.cond.backedge ]
   %27 = phi ptr [ %.pre, %cleanup.done18.while.end_crit_edge ], [ %5, %_ZNK5boost10shared_ptrIN8QuantLib18YieldTermStructureEEptEv.exit ], [ %25, %while.cond.backedge ]
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp23)
-  %add.ptr.i54 = getelementptr inbounds nuw %"class.boost::shared_ptr.43", ptr %27, i64 %floatIdx.0665
+  %add.ptr.i54 = getelementptr inbounds nuw %"class.boost::shared_ptr.43", ptr %27, i64 %floatIdx.0721
   tail call void @llvm.experimental.noalias.scope.decl(metadata !35)
   %28 = load ptr, ptr %add.ptr.i54, align 8, !tbaa !27, !noalias !35
   %29 = icmp eq ptr %28, null
@@ -475,15 +475,15 @@ cond.true.i57:                                    ; preds = %dynamic_cast.end3.i
   %31 = load ptr, ptr %pn2.i.i59, align 8, !tbaa !16, !noalias !35
   store ptr %31, ptr %pn.i.i58, align 8, !tbaa !16, !alias.scope !35
   %cmp.not.i.i.i60 = icmp eq ptr %31, null
-  br i1 %cmp.not.i.i.i60, label %invoke.cont26.thread617, label %if.then.i.i74
+  br i1 %cmp.not.i.i.i60, label %invoke.cont26.thread673, label %if.then.i.i74
 
-invoke.cont26.thread617:                          ; preds = %cond.true.i57
-  %accrualStartDate_.i70618 = getelementptr inbounds nuw i8, ptr %30, i64 40
+invoke.cont26.thread673:                          ; preds = %cond.true.i57
+  %accrualStartDate_.i70674 = getelementptr inbounds nuw i8, ptr %30, i64 40
   %32 = load i64, ptr %this, align 8, !tbaa !31
-  %33 = load i64, ptr %accrualStartDate_.i70618, align 8, !tbaa !31
-  %cmp.i71.not619 = icmp sgt i64 %32, %33
+  %33 = load i64, ptr %accrualStartDate_.i70674, align 8, !tbaa !31
+  %cmp.i71.not675 = icmp sgt i64 %32, %33
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp23)
-  br i1 %cmp.i71.not619, label %if.end238, label %if.then
+  br i1 %cmp.i71.not675, label %if.end238, label %if.then
 
 cond.false.i66:                                   ; preds = %dynamic_cast.end3.i55, %while.end
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp23, i8 0, i64 16, i1 false), !alias.scope !35
@@ -493,9 +493,9 @@ cond.false.i66:                                   ; preds = %dynamic_cast.end3.i
 invoke.cont26.thread:                             ; preds = %cond.false.i66
   %34 = load i64, ptr %this, align 8, !tbaa !31
   %35 = load i64, ptr inttoptr (i64 40 to ptr), align 8, !tbaa !31
-  %cmp.i71.not614 = icmp sgt i64 %34, %35
+  %cmp.i71.not670 = icmp sgt i64 %34, %35
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp23)
-  br i1 %cmp.i71.not614, label %if.end238, label %if.then
+  br i1 %cmp.i71.not670, label %if.end238, label %if.then
 
 if.then.i.i74:                                    ; preds = %cond.true.i57
   %use_count_.i.i.i.i62 = getelementptr inbounds nuw i8, ptr %31, i64 8
@@ -540,10 +540,10 @@ _ZN5boost10shared_ptrIN8QuantLib6CouponEED2Ev.exit87: ; preds = %if.then.i.i74, 
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp23)
   br i1 %cmp.i71.not, label %if.end238, label %if.then
 
-if.then:                                          ; preds = %invoke.cont26.thread617, %invoke.cont26.thread, %_ZN5boost10shared_ptrIN8QuantLib6CouponEED2Ev.exit87
+if.then:                                          ; preds = %invoke.cont26.thread673, %invoke.cont26.thread, %_ZN5boost10shared_ptrIN8QuantLib6CouponEED2Ev.exit87
   call void @llvm.lifetime.start.p0(ptr nonnull %firstFloatCoupon)
   %45 = load ptr, ptr %iborLeg, align 8, !tbaa !23
-  %add.ptr.i88 = getelementptr inbounds nuw %"class.boost::shared_ptr.43", ptr %45, i64 %floatIdx.0665
+  %add.ptr.i88 = getelementptr inbounds nuw %"class.boost::shared_ptr.43", ptr %45, i64 %floatIdx.0721
   tail call void @llvm.experimental.noalias.scope.decl(metadata !38)
   %46 = load ptr, ptr %add.ptr.i88, align 8, !tbaa !27, !noalias !38
   %47 = icmp eq ptr %46, null
@@ -711,7 +711,7 @@ _ZN5boost10shared_ptrIN8QuantLib8CashFlowEED2Ev.exit: ; preds = %invoke.cont52.t
   %sub.ptr.rhs.cast.i133559 = ptrtoint ptr %68 to i64
   %sub.ptr.sub.i134560 = sub i64 %sub.ptr.lhs.cast.i132558, %sub.ptr.rhs.cast.i133559
   %sub.ptr.div.i135561 = ashr exact i64 %sub.ptr.sub.i134560, 4
-  %cmp54562 = icmp ult i64 %floatIdx.0665, %sub.ptr.div.i135561
+  %cmp54562 = icmp ult i64 %floatIdx.0721, %sub.ptr.div.i135561
   br i1 %cmp54562, label %for.body.lr.ph, label %for.cond.cleanup
 
 for.body.lr.ph:                                   ; preds = %_ZN5boost10shared_ptrIN8QuantLib8CashFlowEED2Ev.exit
@@ -789,7 +789,7 @@ ehcleanup:                                        ; preds = %lpad35, %lpad.body.
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZN5boost10shared_ptrIN8QuantLib6CouponEED2Ev.exit307
   %79 = phi ptr [ %68, %for.body.lr.ph ], [ %150, %_ZN5boost10shared_ptrIN8QuantLib6CouponEED2Ev.exit307 ]
-  %k.0563 = phi i64 [ %floatIdx.0665, %for.body.lr.ph ], [ %inc208, %_ZN5boost10shared_ptrIN8QuantLib6CouponEED2Ev.exit307 ]
+  %k.0563 = phi i64 [ %floatIdx.0721, %for.body.lr.ph ], [ %inc208, %_ZN5boost10shared_ptrIN8QuantLib6CouponEED2Ev.exit307 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %coupon)
   %add.ptr.i147 = getelementptr inbounds nuw %"class.boost::shared_ptr.43", ptr %79, i64 %k.0563
   call void @llvm.experimental.noalias.scope.decl(metadata !51)
@@ -1679,7 +1679,7 @@ ehcleanup236:                                     ; preds = %ehcleanup233, %ehcl
   call void @llvm.lifetime.end.p0(ptr nonnull %firstFloatCoupon)
   br label %ehcleanup318
 
-if.end238:                                        ; preds = %invoke.cont26.thread617, %invoke.cont26.thread, %_ZN5boost10shared_ptrIN8QuantLib6CouponEED2Ev.exit391, %_ZN5boost10shared_ptrIN8QuantLib6CouponEED2Ev.exit87
+if.end238:                                        ; preds = %invoke.cont26.thread673, %invoke.cont26.thread, %_ZN5boost10shared_ptrIN8QuantLib6CouponEED2Ev.exit391, %_ZN5boost10shared_ptrIN8QuantLib6CouponEED2Ev.exit87
   call void @llvm.lifetime.start.p0(ptr nonnull %dc)
   call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp.i)
   invoke void @_ZN8QuantLib14Actual365Fixed14implementationENS0_10ConventionE(ptr dead_on_unwind nonnull writable sret(%"class.boost::shared_ptr.18") align 8 %agg.tmp.i, i32 noundef 0)
@@ -2813,15 +2813,15 @@ cond.true.i:                                      ; preds = %dynamic_cast.end3.i
   %17 = load ptr, ptr %pn2.i.i, align 8, !tbaa !16, !noalias !74
   store ptr %17, ptr %pn.i.i, align 8, !tbaa !16, !alias.scope !74
   %cmp.not.i.i.i = icmp eq ptr %17, null
-  br i1 %cmp.not.i.i.i, label %invoke.cont13.thread245, label %if.then.i.i
+  br i1 %cmp.not.i.i.i, label %invoke.cont13.thread291, label %if.then.i.i
 
-invoke.cont13.thread245:                          ; preds = %cond.true.i
-  %accrualStartDate_.i246 = getelementptr inbounds nuw i8, ptr %16, i64 40
-  %18 = load i64, ptr %accrualStartDate_.i246, align 8, !tbaa !31
+invoke.cont13.thread291:                          ; preds = %cond.true.i
+  %accrualStartDate_.i292 = getelementptr inbounds nuw i8, ptr %16, i64 40
+  %18 = load i64, ptr %accrualStartDate_.i292, align 8, !tbaa !31
   %19 = load i64, ptr %this, align 8, !tbaa !31
-  %cmp.i28.not247 = icmp slt i64 %18, %19
+  %cmp.i28.not293 = icmp slt i64 %18, %19
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp)
-  br i1 %cmp.i28.not247, label %if.end, label %if.then
+  br i1 %cmp.i28.not293, label %if.end, label %if.then
 
 cond.false.i25:                                   ; preds = %dynamic_cast.end3.i, %for.body
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i8 0, i64 16, i1 false), !alias.scope !74
@@ -2831,9 +2831,9 @@ cond.false.i25:                                   ; preds = %dynamic_cast.end3.i
 invoke.cont13.thread:                             ; preds = %cond.false.i25
   %20 = load i64, ptr inttoptr (i64 40 to ptr), align 8, !tbaa !31
   %21 = load i64, ptr %this, align 8, !tbaa !31
-  %cmp.i28.not242 = icmp slt i64 %20, %21
+  %cmp.i28.not288 = icmp slt i64 %20, %21
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp)
-  br i1 %cmp.i28.not242, label %if.end, label %if.then
+  br i1 %cmp.i28.not288, label %if.end, label %if.then
 
 if.then.i.i:                                      ; preds = %cond.true.i
   %use_count_.i.i.i.i = getelementptr inbounds nuw i8, ptr %17, i64 8
@@ -2878,7 +2878,7 @@ _ZN5boost10shared_ptrIN8QuantLib6CouponEED2Ev.exit: ; preds = %if.then.i.i, %.no
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp)
   br i1 %cmp.i28.not, label %if.end, label %if.then
 
-if.then:                                          ; preds = %invoke.cont13.thread245, %invoke.cont13.thread, %_ZN5boost10shared_ptrIN8QuantLib6CouponEED2Ev.exit
+if.then:                                          ; preds = %invoke.cont13.thread291, %invoke.cont13.thread, %_ZN5boost10shared_ptrIN8QuantLib6CouponEED2Ev.exit
   %31 = load ptr, ptr %_M_finish.i30, align 8, !tbaa !21
   %32 = load ptr, ptr %_M_end_of_storage.i, align 8, !tbaa !47
   %cmp.not.i31 = icmp eq ptr %31, %32
@@ -2922,7 +2922,7 @@ lpad20:                                           ; preds = %if.else.i
           cleanup
   br label %ehcleanup147
 
-if.end:                                           ; preds = %invoke.cont13.thread245, %invoke.cont13.thread, %_ZNSt16allocator_traitsISaIN5boost10shared_ptrIN8QuantLib8CashFlowEEEEE9constructIS4_JRKS4_EEEvRS5_PT_DpOT0_.exit.i, %if.else.i, %_ZN5boost10shared_ptrIN8QuantLib6CouponEED2Ev.exit
+if.end:                                           ; preds = %invoke.cont13.thread291, %invoke.cont13.thread, %_ZNSt16allocator_traitsISaIN5boost10shared_ptrIN8QuantLib8CashFlowEEEEE9constructIS4_JRKS4_EEEvRS5_PT_DpOT0_.exit.i, %if.else.i, %_ZN5boost10shared_ptrIN8QuantLib6CouponEED2Ev.exit
   %incdec.ptr.i34 = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.0225, i64 16
   %cmp.i.not = icmp eq ptr %incdec.ptr.i34, %__cur.0.lcssa.i.i.i.i.i
   br i1 %cmp.i.not, label %for.cond.cleanup, label %for.body

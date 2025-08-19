@@ -3905,11 +3905,11 @@ define internal ptr @create_interpreter(ptr readnone captures(none) %0, ptr noun
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %17 = load i64, ptr %8, align 8, !tbaa !26
   %18 = and i64 %17, -3
-  %or.cond23 = icmp eq i64 %18, 0
-  br i1 %or.cond23, label %.thread24, label %_init_interp_config_from_object.exit.thread17
+  %or.cond30 = icmp eq i64 %18, 0
+  br i1 %or.cond30, label %.thread31, label %_init_interp_config_from_object.exit.thread17
 
 19:                                               ; preds = %14
-  br i1 %.not14, label %.thread24, label %20
+  br i1 %.not14, label %.thread31, label %20
 
 20:                                               ; preds = %19
   %21 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !9
@@ -3934,7 +3934,7 @@ _init_interp_config_from_object.exit.thread17:    ; preds = %.thread, %22
   store i32 1, ptr %.sroa.6.0..sroa_idx.i, align 4, !tbaa !25
   %.sroa.7.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %9, i64 24
   store i32 2, ptr %.sroa.7.0..sroa_idx.i, align 4, !tbaa !25
-  br label %.thread24
+  br label %.thread31
 
 24:                                               ; preds = %22
   %25 = call ptr @PyObject_GetAttrString(ptr noundef nonnull %12, ptr noundef nonnull @.str.237) #11
@@ -3968,9 +3968,9 @@ _init_interp_config_from_object.exit:             ; preds = %29, %32, %35
 
 _init_interp_config_from_object.exit._crit_edge:  ; preds = %_init_interp_config_from_object.exit
   %.pre = load i64, ptr %8, align 8, !tbaa !26
-  br label %.thread24
+  br label %.thread31
 
-.thread24:                                        ; preds = %.thread, %_init_interp_config_from_object.exit._crit_edge, %_init_interp_config_from_object.exit.thread17, %19
+.thread31:                                        ; preds = %.thread, %_init_interp_config_from_object.exit._crit_edge, %_init_interp_config_from_object.exit.thread17, %19
   %37 = phi i64 [ %15, %19 ], [ %.pre, %_init_interp_config_from_object.exit._crit_edge ], [ %23, %_init_interp_config_from_object.exit.thread17 ], [ %17, %.thread ]
   %.011 = phi ptr [ null, %19 ], [ %9, %_init_interp_config_from_object.exit._crit_edge ], [ %9, %_init_interp_config_from_object.exit.thread17 ], [ null, %.thread ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -3980,7 +3980,7 @@ _init_interp_config_from_object.exit._crit_edge:  ; preds = %_init_interp_config
     i64 0, label %38
   ]
 
-38:                                               ; preds = %.thread24
+38:                                               ; preds = %.thread31
   %39 = icmp eq ptr %.011, null
   br i1 %39, label %41, label %40
 
@@ -3992,7 +3992,7 @@ _init_interp_config_from_object.exit._crit_edge:  ; preds = %_init_interp_config
   %42 = call ptr @PyInterpreterState_New() #11
   br label %77
 
-43:                                               ; preds = %.thread24
+43:                                               ; preds = %.thread31
   %44 = and i64 %37, -2
   %or.cond.i = icmp eq i64 %44, 2
   br i1 %or.cond.i, label %45, label %74
@@ -4097,7 +4097,7 @@ _new_interpreter.exit.thread:                     ; preds = %74, %79, %81
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %88
 
-_new_interpreter.exit:                            ; preds = %.thread24
+_new_interpreter.exit:                            ; preds = %.thread31
   %82 = call ptr @_PyXI_NewInterpreter(ptr noundef %.011, ptr noundef nonnull %4, ptr noundef null, ptr noundef null) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %83 = icmp eq ptr %82, null
@@ -5086,8 +5086,8 @@ define internal fastcc range(i32 -1, 1) i32 @check_edit_cost(ptr noundef %0, ptr
 
 .preheader:                                       ; preds = %9, %14
   %.041 = phi i64 [ %15, %14 ], [ %2, %9 ]
-  %.not72 = icmp eq i64 %.041, 0
-  br i1 %.not72, label %19, label %14
+  %.not82 = icmp eq i64 %.041, 0
+  br i1 %.not82, label %19, label %14
 
 14:                                               ; preds = %.preheader
   %15 = lshr i64 %.041, 1

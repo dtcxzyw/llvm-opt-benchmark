@@ -410,10 +410,10 @@ _ZN14b3QuantizedBvh22setInternalNodeAabbMinEiRK9b3Vector3.exit: ; preds = %32
 
 81:                                               ; preds = %_ZN14b3QuantizedBvh22setInternalNodeAabbMinEiRK9b3Vector3.exit.thread, %_ZN14b3QuantizedBvh22setInternalNodeAabbMinEiRK9b3Vector3.exit
   %82 = phi ptr [ %75, %_ZN14b3QuantizedBvh22setInternalNodeAabbMinEiRK9b3Vector3.exit.thread ], [ %80, %_ZN14b3QuantizedBvh22setInternalNodeAabbMinEiRK9b3Vector3.exit ]
-  %.pre-phi46 = phi i64 [ %40, %_ZN14b3QuantizedBvh22setInternalNodeAabbMinEiRK9b3Vector3.exit.thread ], [ %.pre44, %_ZN14b3QuantizedBvh22setInternalNodeAabbMinEiRK9b3Vector3.exit ]
+  %.pre-phi47 = phi i64 [ %40, %_ZN14b3QuantizedBvh22setInternalNodeAabbMinEiRK9b3Vector3.exit.thread ], [ %.pre44, %_ZN14b3QuantizedBvh22setInternalNodeAabbMinEiRK9b3Vector3.exit ]
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %84 = load ptr, ptr %83, align 16, !tbaa !30
-  %85 = getelementptr inbounds %struct.b3QuantizedBvhNode, ptr %84, i64 %.pre-phi46, i32 0, i32 1
+  %85 = getelementptr inbounds %struct.b3QuantizedBvhNode, ptr %84, i64 %.pre-phi47, i32 0, i32 1
   %86 = load float, ptr %82, align 16, !tbaa !39
   %87 = fsub float %86, %86
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -1032,8 +1032,8 @@ _ZNK14b3QuantizedBvh10getAabbMinEi.exit:          ; preds = %.lr.ph, %_ZNK14b3Qu
   %.sroa.3.0.copyload.i19 = load <2 x float>, ptr %.sroa.3.0..sroa_idx.i18, align 8, !tbaa !39
   %foldExtExtBinop = fadd <2 x float> %.sroa.0.0.copyload.i, %.sroa.0.0.copyload.i17
   %67 = extractelement <2 x float> %foldExtExtBinop, i64 0
-  %foldExtExtBinop204 = fadd <2 x float> %.sroa.0.0.copyload.i, %.sroa.0.0.copyload.i17
-  %68 = extractelement <2 x float> %foldExtExtBinop204, i64 1
+  %foldExtExtBinop206 = fadd <2 x float> %.sroa.0.0.copyload.i, %.sroa.0.0.copyload.i17
+  %68 = extractelement <2 x float> %foldExtExtBinop206, i64 1
   %69 = extractelement <2 x float> %.sroa.3.0.copyload.i, i64 0
   %70 = extractelement <2 x float> %.sroa.3.0.copyload.i19, i64 0
   %71 = fadd float %69, %70
@@ -1062,12 +1062,12 @@ _ZNK14b3QuantizedBvh10getAabbMinEi.exit:          ; preds = %.lr.ph, %_ZNK14b3Qu
   %.sroa.13137.0.lcssa.ph = phi <2 x float> [ %.sroa.13137.8.vec.insert.us, %_ZNK14b3QuantizedBvh10getAabbMinEi.exit.us ], [ %.sroa.13137.8.vec.insert, %_ZNK14b3QuantizedBvh10getAabbMinEi.exit ]
   %79 = sitofp i32 %4 to float
   %80 = fdiv float 1.000000e+00, %79
-  %.sroa.0122.0.vec.extract125196 = extractelement <2 x float> %.sroa.0122.0.lcssa.ph, i64 0
-  %81 = fmul float %80, %.sroa.0122.0.vec.extract125196
-  %.sroa.0122.4.vec.extract132197 = extractelement <2 x float> %.sroa.0122.0.lcssa.ph, i64 1
-  %82 = fmul float %80, %.sroa.0122.4.vec.extract132197
-  %.sroa.13137.8.vec.extract140198 = extractelement <2 x float> %.sroa.13137.0.lcssa.ph, i64 0
-  %83 = fmul float %80, %.sroa.13137.8.vec.extract140198
+  %.sroa.0122.0.vec.extract125198 = extractelement <2 x float> %.sroa.0122.0.lcssa.ph, i64 0
+  %81 = fmul float %80, %.sroa.0122.0.vec.extract125198
+  %.sroa.0122.4.vec.extract132199 = extractelement <2 x float> %.sroa.0122.0.lcssa.ph, i64 1
+  %82 = fmul float %80, %.sroa.0122.4.vec.extract132199
+  %.sroa.13137.8.vec.extract140200 = extractelement <2 x float> %.sroa.13137.0.lcssa.ph, i64 0
+  %83 = fmul float %80, %.sroa.13137.8.vec.extract140200
   %84 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %85 = load i8, ptr %84, align 8, !tbaa !24, !range !42, !noundef !45
   %86 = trunc nuw i8 %85 to i1
@@ -1162,10 +1162,10 @@ _ZNK14b3QuantizedBvh10getAabbMinEi.exit45:        ; preds = %.lr.ph170, %_ZNK14b
   %.sroa.0.0.copyload.i36 = load <2 x float>, ptr %149, align 16
   %.sroa.3.0..sroa_idx.i37 = getelementptr inbounds nuw i8, ptr %149, i64 8
   %.sroa.3.0.copyload.i38 = load <2 x float>, ptr %.sroa.3.0..sroa_idx.i37, align 8, !tbaa !39
-  %foldExtExtBinop208 = fadd <2 x float> %.sroa.0.0.copyload.i26, %.sroa.0.0.copyload.i36
-  %151 = extractelement <2 x float> %foldExtExtBinop208, i64 0
   %foldExtExtBinop210 = fadd <2 x float> %.sroa.0.0.copyload.i26, %.sroa.0.0.copyload.i36
-  %152 = extractelement <2 x float> %foldExtExtBinop210, i64 1
+  %151 = extractelement <2 x float> %foldExtExtBinop210, i64 0
+  %foldExtExtBinop212 = fadd <2 x float> %.sroa.0.0.copyload.i26, %.sroa.0.0.copyload.i36
+  %152 = extractelement <2 x float> %foldExtExtBinop212, i64 1
   %153 = extractelement <2 x float> %.sroa.3.0.copyload.i28, i64 0
   %154 = extractelement <2 x float> %.sroa.3.0.copyload.i38, i64 0
   %155 = fadd float %153, %154
@@ -1205,9 +1205,9 @@ _ZNK14b3QuantizedBvh10getAabbMinEi.exit45:        ; preds = %.lr.ph170, %_ZNK14b
   %173 = fmul float %170, %.sroa.13.8.vec.extract117
   %174 = fcmp olt float %171, %172
   %..i = select i1 %174, float %172, float %171
-  %.4.i = zext i1 %174 to i32
+  %.5.i = zext i1 %174 to i32
   %175 = fcmp olt float %..i, %173
-  %176 = select i1 %175, i32 2, i32 %.4.i
+  %176 = select i1 %175, i32 2, i32 %.5.i
   ret i32 %176
 }
 
@@ -1311,8 +1311,8 @@ _ZNK14b3QuantizedBvh10getAabbMinEi.exit:          ; preds = %.lr.ph, %_ZNK14b3Qu
   %.sroa.3.0.copyload.i42 = load <2 x float>, ptr %.sroa.3.0..sroa_idx.i41, align 8, !tbaa !39
   %foldExtExtBinop = fadd <2 x float> %.sroa.0.0.copyload.i, %.sroa.0.0.copyload.i40
   %78 = extractelement <2 x float> %foldExtExtBinop, i64 0
-  %foldExtExtBinop158 = fadd <2 x float> %.sroa.0.0.copyload.i, %.sroa.0.0.copyload.i40
-  %79 = extractelement <2 x float> %foldExtExtBinop158, i64 1
+  %foldExtExtBinop161 = fadd <2 x float> %.sroa.0.0.copyload.i, %.sroa.0.0.copyload.i40
+  %79 = extractelement <2 x float> %foldExtExtBinop161, i64 1
   %80 = extractelement <2 x float> %.sroa.3.0.copyload.i, i64 0
   %81 = extractelement <2 x float> %.sroa.3.0.copyload.i42, i64 0
   %82 = fadd float %80, %81
@@ -1431,12 +1431,12 @@ _ZNK14b3QuantizedBvh10getAabbMinEi.exit68:        ; preds = %114, %154
   %.sroa.0.4.vec.insert12.i.pn.i52107 = phi <2 x float> [ %.sroa.0.4.vec.insert12.i.i56, %114 ], [ %.sroa.0.0.copyload.i49, %154 ]
   %.sroa.0.4.vec.insert12.i.pn.i62 = phi <2 x float> [ %.sroa.0.4.vec.insert12.i.i66, %114 ], [ %.sroa.0.0.copyload.i59, %154 ]
   %.sroa.7.8.vec.insert16.i.pn.i63 = phi <2 x float> [ %.sroa.7.8.vec.insert16.i.i67, %114 ], [ %.sroa.3.0.copyload.i61, %154 ]
-  %foldExtExtBinop162 = fadd <2 x float> %.sroa.0.4.vec.insert12.i.pn.i52107, %.sroa.0.4.vec.insert12.i.pn.i62
-  %158 = extractelement <2 x float> %foldExtExtBinop162, i64 0
-  %foldExtExtBinop164 = fadd <2 x float> %.sroa.0.4.vec.insert12.i.pn.i52107, %.sroa.0.4.vec.insert12.i.pn.i62
-  %159 = extractelement <2 x float> %foldExtExtBinop164, i64 1
-  %foldExtExtBinop166 = fadd <2 x float> %.sroa.7.8.vec.insert16.i.pn.i53109, %.sroa.7.8.vec.insert16.i.pn.i63
-  %160 = extractelement <2 x float> %foldExtExtBinop166, i64 0
+  %foldExtExtBinop165 = fadd <2 x float> %.sroa.0.4.vec.insert12.i.pn.i52107, %.sroa.0.4.vec.insert12.i.pn.i62
+  %158 = extractelement <2 x float> %foldExtExtBinop165, i64 0
+  %foldExtExtBinop167 = fadd <2 x float> %.sroa.0.4.vec.insert12.i.pn.i52107, %.sroa.0.4.vec.insert12.i.pn.i62
+  %159 = extractelement <2 x float> %foldExtExtBinop167, i64 1
+  %foldExtExtBinop169 = fadd <2 x float> %.sroa.7.8.vec.insert16.i.pn.i53109, %.sroa.7.8.vec.insert16.i.pn.i63
+  %160 = extractelement <2 x float> %foldExtExtBinop169, i64 0
   %161 = fmul float %158, 5.000000e-01
   %162 = fmul float %159, 5.000000e-01
   %163 = fmul float %160, 5.000000e-01
@@ -2032,7 +2032,7 @@ define dso_local void @_ZNK14b3QuantizedBvh26reportAabbOverlappingNodexEP21b3Nod
 
 108:                                              ; preds = %107, %.thread.i
   %109 = getelementptr inbounds nuw i8, ptr %.03235.i, i64 16
-  %110 = add nsw i32 %.037.i, 1
+  %110 = add nuw nsw i32 %.037.i, 1
   br label %116
 
 111:                                              ; preds = %107
@@ -2771,14 +2771,14 @@ _Z8b3SetMinIfEvRT_RKS0_.exit.i:
   %73 = fcmp olt float %28, %.sroa.0.0.copyload
   %74 = fcmp ogt float %26, %.sroa.24.16.copyload
   %75 = fcmp olt float %34, %.sroa.11.0.copyload
-  %or.cond136 = select i1 %74, i1 true, i1 %75
-  %76 = select i1 %or.cond136, i1 true, i1 %72
-  %spec.select138 = select i1 %76, i1 true, i1 %73
+  %or.cond142 = select i1 %74, i1 true, i1 %75
+  %76 = select i1 %or.cond142, i1 true, i1 %72
+  %spec.select144 = select i1 %76, i1 true, i1 %73
   %77 = fcmp ogt float %23, %.sroa.20.16.copyload
   %78 = fcmp olt float %31, %.sroa.7.0.copyload
-  %brmerge = or i1 %spec.select138, %78
-  %or.cond137 = select i1 %77, i1 true, i1 %brmerge
-  br i1 %or.cond137, label %_Z10b3RayAabb2RK9b3Vector3S1_PKjPS0_Rfff.exit.thread, label %79
+  %brmerge = or i1 %spec.select144, %78
+  %or.cond143 = select i1 %77, i1 true, i1 %brmerge
+  br i1 %or.cond143, label %_Z10b3RayAabb2RK9b3Vector3S1_PKjPS0_Rfff.exit.thread, label %79
 
 79:                                               ; preds = %65
   %80 = load float, ptr %21, align 4, !tbaa !39
@@ -4134,7 +4134,7 @@ _ZN20b3AlignedObjectArrayI18b3QuantizedBvhNodeE20initializeFromBufferEPvii.exit:
 .thread:                                          ; preds = %.lr.ph174, %_ZN20b3AlignedObjectArrayI18b3QuantizedBvhNodeE20initializeFromBufferEPvii.exit
   %112 = sext i32 %64 to i64
   %113 = shl nsw i64 %112, 4
-  %.0135198 = getelementptr inbounds nuw i8, ptr %74, i64 %113
+  %.0135201 = getelementptr inbounds nuw i8, ptr %74, i64 %113
   br label %_ZN20b3AlignedObjectArrayI16b3BvhSubtreeInfoE20initializeFromBufferEPvii.exit
 
 _ZN20b3AlignedObjectArrayI18b3OptimizedBvhNodeE20initializeFromBufferEPvii.exit: ; preds = %73
@@ -4142,12 +4142,12 @@ _ZN20b3AlignedObjectArrayI18b3OptimizedBvhNodeE20initializeFromBufferEPvii.exit:
   store ptr %74, ptr %81, align 8, !tbaa !26
   store i32 %64, ptr %82, align 4, !tbaa !27
   store i32 %64, ptr %83, align 8, !tbaa !28
-  br i1 %or.cond, label %.lr.ph.preheader, label %.thread202
+  br i1 %or.cond, label %.lr.ph.preheader, label %.thread205
 
-.thread202:                                       ; preds = %_ZN20b3AlignedObjectArrayI18b3OptimizedBvhNodeE20initializeFromBufferEPvii.exit
+.thread205:                                       ; preds = %_ZN20b3AlignedObjectArrayI18b3OptimizedBvhNodeE20initializeFromBufferEPvii.exit
   %114 = sext i32 %64 to i64
   %115 = shl nsw i64 %114, 6
-  %.0135206 = getelementptr inbounds nuw i8, ptr %74, i64 %115
+  %.0135209 = getelementptr inbounds nuw i8, ptr %74, i64 %115
   br label %_ZN20b3AlignedObjectArrayI16b3BvhSubtreeInfoE20initializeFromBufferEPvii.exit
 
 .lr.ph.preheader:                                 ; preds = %_ZN20b3AlignedObjectArrayI18b3OptimizedBvhNodeE20initializeFromBufferEPvii.exit
@@ -4250,11 +4250,11 @@ _Z21b3UnSwapVector3EndianR9b3Vector3.exit159:     ; preds = %133
   tail call void @_Z21b3AlignedFreeInternalPv(ptr noundef nonnull %.pre192.pre)
   br label %_ZN20b3AlignedObjectArrayI16b3BvhSubtreeInfoE20initializeFromBufferEPvii.exit
 
-_ZN20b3AlignedObjectArrayI16b3BvhSubtreeInfoE20initializeFromBufferEPvii.exit: ; preds = %.thread202, %.thread, %157, %161
-  %.0135201 = phi ptr [ %.0135198, %.thread ], [ %.0135, %157 ], [ %.0135, %161 ], [ %.0135206, %.thread202 ]
-  %162 = phi i32 [ %65, %.thread ], [ %.pre191.pre, %157 ], [ %.pre191.pre, %161 ], [ %65, %.thread202 ]
+_ZN20b3AlignedObjectArrayI16b3BvhSubtreeInfoE20initializeFromBufferEPvii.exit: ; preds = %.thread205, %.thread, %157, %161
+  %.0135204 = phi ptr [ %.0135201, %.thread ], [ %.0135, %157 ], [ %.0135, %161 ], [ %.0135209, %.thread205 ]
+  %162 = phi i32 [ %65, %.thread ], [ %.pre191.pre, %157 ], [ %.pre191.pre, %161 ], [ %65, %.thread205 ]
   store i8 0, ptr %92, align 8, !tbaa !34
-  store ptr %.0135201, ptr %93, align 8, !tbaa !35
+  store ptr %.0135204, ptr %93, align 8, !tbaa !35
   store i32 %162, ptr %94, align 4, !tbaa !36
   store i32 %162, ptr %95, align 8, !tbaa !37
   br i1 %2, label %.preheader, label %.loopexit
@@ -4270,7 +4270,7 @@ _ZN20b3AlignedObjectArrayI16b3BvhSubtreeInfoE20initializeFromBufferEPvii.exit: ;
 
 .lr.ph176:                                        ; preds = %.lr.ph176.preheader, %.lr.ph176
   %indvars.iv184 = phi i64 [ 0, %.lr.ph176.preheader ], [ %indvars.iv.next185, %.lr.ph176 ]
-  %165 = getelementptr inbounds nuw %class.b3BvhSubtreeInfo, ptr %.0135201, i64 %indvars.iv184
+  %165 = getelementptr inbounds nuw %class.b3BvhSubtreeInfo, ptr %.0135204, i64 %indvars.iv184
   %166 = load i16, ptr %165, align 16, !tbaa !46
   %rev.i162 = tail call noundef i16 @llvm.bswap.i16(i16 %166)
   store i16 %rev.i162, ptr %165, align 16, !tbaa !46

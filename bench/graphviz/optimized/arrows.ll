@@ -965,11 +965,11 @@ arrow_length.exit232:                             ; preds = %.loopexit.i227, %13
   br label %.sink.split
 
 .sink.split:                                      ; preds = %81, %178
-  %.sink258 = phi i64 [ 24, %178 ], [ 40, %81 ]
+  %.sink275 = phi i64 [ 24, %178 ], [ 40, %81 ]
   %.sroa.078.0.copyload97.sink = phi double [ %.sroa.078.0.copyload97, %178 ], [ %.sroa.035.0.copyload, %81 ]
   %.sink = phi i64 [ 32, %178 ], [ 48, %81 ]
   %.sroa.24.0.copyload106.sink = phi double [ %.sroa.24.0.copyload106, %178 ], [ %.sroa.21.0.copyload, %81 ]
-  %182 = getelementptr inbounds nuw i8, ptr %4, i64 %.sink258
+  %182 = getelementptr inbounds nuw i8, ptr %4, i64 %.sink275
   store double %.sroa.078.0.copyload97.sink, ptr %182, align 8, !tbaa !55
   %.sroa.24.0..sroa_idx107 = getelementptr inbounds nuw i8, ptr %4, i64 %.sink
   store double %.sroa.24.0.copyload106.sink, ptr %.sroa.24.0..sroa_idx107, align 8, !tbaa !55

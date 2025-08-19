@@ -592,8 +592,8 @@ define hidden void @_ZN2cv5gimpl6passes20applyTransformationsERN3ade6passes11Pas
   %291 = load ptr, ptr %94, align 8, !tbaa !15
   %292 = icmp ne ptr %288, %289
   %293 = icmp ne ptr %290, %291
-  %narrow.i.i.i.i.i.i.i.not39864000 = select i1 %292, i1 %293, i1 false
-  br i1 %narrow.i.i.i.i.i.i.i.not39864000, label %.lr.ph.preheader, label %.loopexit426
+  %narrow.i.i.i.i.i.i.i.not39864116 = select i1 %292, i1 %293, i1 false
+  br i1 %narrow.i.i.i.i.i.i.i.not39864116, label %.lr.ph.preheader, label %.loopexit426
 
 294:                                              ; preds = %89
   call void @llvm.lifetime.start.p0(ptr nonnull %79)

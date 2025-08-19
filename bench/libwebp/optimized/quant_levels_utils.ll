@@ -132,14 +132,14 @@ define hidden range(i32 0, 2) i32 @QuantizeLevels(ptr noundef captures(address_i
   %62 = load double, ptr %61, align 8, !tbaa !10
   %63 = fadd double %60, %62
   %64 = fcmp olt double %63, %54
-  br i1 %64, label %56, label %.critedge.split.loop.exit208, !llvm.loop !13
+  br i1 %64, label %56, label %.critedge.split.loop.exit214, !llvm.loop !13
 
-.critedge.split.loop.exit208:                     ; preds = %58
+.critedge.split.loop.exit214:                     ; preds = %58
   %65 = trunc nsw i64 %indvars.iv178 to i32
   br label %.critedge
 
-.critedge:                                        ; preds = %56, %.critedge.split.loop.exit208
-  %.1110.lcssa = phi i32 [ %65, %.critedge.split.loop.exit208 ], [ %smax, %56 ]
+.critedge:                                        ; preds = %56, %.critedge.split.loop.exit214
+  %.1110.lcssa = phi i32 [ %65, %.critedge.split.loop.exit214 ], [ %smax, %56 ]
   %66 = getelementptr inbounds nuw [256 x i32], ptr %6, i64 0, i64 %indvars.iv181
   %67 = load i32, ptr %66, align 4, !tbaa !6
   %68 = icmp sgt i32 %67, 0
@@ -221,8 +221,8 @@ define hidden range(i32 0, 2) i32 @QuantizeLevels(ptr noundef captures(address_i
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %107 = add nuw nsw i32 %.0121162, 1
   %exitcond196.not = icmp eq i32 %107, 6
-  %or.cond210 = select i1 %106, i1 true, i1 %exitcond196.not
-  br i1 %or.cond210, label %.lr.ph167.preheader, label %52, !llvm.loop !17
+  %or.cond216 = select i1 %106, i1 true, i1 %exitcond196.not
+  br i1 %or.cond216, label %.lr.ph167.preheader, label %52, !llvm.loop !17
 
 .lr.ph167.preheader:                              ; preds = %._crit_edge160
   call void @llvm.lifetime.start.p0(ptr nonnull %11)

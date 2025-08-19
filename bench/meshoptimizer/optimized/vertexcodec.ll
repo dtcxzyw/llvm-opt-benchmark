@@ -243,7 +243,7 @@ _ZN7meshoptL14estimateRotateEPKhmmmm.exit:        ; preds = %.preheader.i
 140:                                              ; preds = %_ZN7meshoptL12encodeDeltasEPhPKhmmS2_mi.exit.thread.i, %.preheader85.i
   %.07092.i = phi i64 [ 0, %.preheader85.i ], [ %217, %_ZN7meshoptL12encodeDeltasEPhPKhmmS2_mi.exit.thread.i ]
   %141 = add nuw nsw i64 %.07092.i, %.091182
-  switch i32 %132, label %default.unreachable36.i.i [
+  switch i32 %132, label %default.unreachable37.i.i [
     i32 0, label %142
     i32 1, label %153
     i32 2, label %182
@@ -384,7 +384,7 @@ _ZN7meshoptL14estimateRotateEPKhmmmm.exit:        ; preds = %.preheader.i
   %exitcond45.not.i.i.i = icmp eq i64 %216, 4
   br i1 %exitcond45.not.i.i.i, label %201, label %209, !llvm.loop !22
 
-default.unreachable36.i.i:                        ; preds = %140
+default.unreachable37.i.i:                        ; preds = %140
   unreachable
 
 _ZN7meshoptL12encodeDeltasEPhPKhmmS2_mi.exit.i:   ; preds = %140
@@ -898,11 +898,11 @@ _ZN7meshoptL23encodeBytesGroupMeasureEPKhi.exit.i74.i: ; preds = %.preheader.i11
   %478 = trunc i64 %.05890.i.i to i32
   %479 = lshr exact i32 %478, 3
   %480 = and i32 %479, 6
-  %481 = shl i32 %.157.i.i, %480
+  %481 = shl nuw nsw i32 %.157.i.i, %480
   %482 = lshr i64 %.05890.i.i, 6
   %483 = getelementptr inbounds nuw i8, ptr %.058131.i, i64 %482
   %484 = load i8, ptr %483, align 1, !tbaa !8
-  %485 = trunc i32 %481 to i8
+  %485 = trunc nuw i32 %481 to i8
   %486 = or i8 %484, %485
   store i8 %486, ptr %483, align 1, !tbaa !8
   %487 = zext nneg i32 %.157.i.i to i64
@@ -1084,8 +1084,8 @@ _ZN7meshoptL23encodeBytesGroupMeasureEPKhi.exit73.i.i: ; preds = %551, %541, %53
   br i1 %or.cond74.i.i, label %563, label %569
 
 563:                                              ; preds = %560
-  %564 = sext i32 %.05685.i.i to i64
-  %565 = getelementptr inbounds i32, ptr %446, i64 %564
+  %564 = zext nneg i32 %.05685.i.i to i64
+  %565 = getelementptr inbounds nuw i32, ptr %446, i64 %564
   %566 = load i32, ptr %565, align 4, !tbaa !4
   %.not.i.i = icmp eq i32 %566, 8
   br i1 %.not.i.i, label %569, label %567
@@ -1104,8 +1104,8 @@ _ZN7meshoptL23encodeBytesGroupMeasureEPKhi.exit73.i.i: ; preds = %551, %541, %53
 .loopexit.i:                                      ; preds = %_ZN7meshoptL16encodeBytesGroupEPhPKhi.exit.i.i, %450
   %.050.lcssa.i.i = phi ptr [ %451, %450 ], [ %.0.i.i.i, %_ZN7meshoptL16encodeBytesGroupEPhPKhi.exit.i.i ]
   %.not61.lcssa.i.i = phi i1 [ %281, %450 ], [ %.not61.i.i, %_ZN7meshoptL16encodeBytesGroupEPhPKhi.exit.i.i ]
-  %.not68.not169.i = icmp ne ptr %.050.lcssa.i.i, null
-  %.not68.not.not.i = select i1 %.not61.lcssa.i.i, i1 %.not68.not169.i, i1 false
+  %.not68.not184.i = icmp ne ptr %.050.lcssa.i.i, null
+  %.not68.not.not.i = select i1 %.not61.lcssa.i.i, i1 %.not68.not184.i, i1 false
   br i1 %.not68.not.not.i, label %.thread96.i, label %_ZN7meshoptL17encodeVertexBlockEPhS0_PKhmmS0_S2_ii.exit.thread
 
 .thread96.i:                                      ; preds = %.loopexit.i, %443, %.thread86.i
@@ -2333,7 +2333,7 @@ _ZN7meshopt20decodeBytesGroupSimdEPKhPhi.exit79.i: ; preds = %741, %738, %691, %
   %777 = load i8, ptr %776, align 1, !tbaa !8
   %778 = zext i8 %777 to i32
   %779 = and i32 %778, 3
-  switch i32 %779, label %default.unreachable156 [
+  switch i32 %779, label %default.unreachable164 [
     i32 0, label %.thread123
     i32 1, label %927
     i32 2, label %1047
@@ -2827,7 +2827,7 @@ _ZN7meshopt20decodeBytesGroupSimdEPKhPhi.exit79.i: ; preds = %741, %738, %691, %
   %1182 = icmp ult i64 %1181, %12
   br i1 %1182, label %1056, label %_ZN7meshoptL17decodeDeltas4SimdILi0EEEvPKhPhmmS3_i.exit, !llvm.loop !44
 
-default.unreachable156:                           ; preds = %774
+default.unreachable164:                           ; preds = %774
   unreachable
 
 _ZN7meshoptL17decodeDeltas4SimdILi0EEEvPKhPhmmS3_i.exit: ; preds = %1056, %932, %784, %1047, %927, %.thread123
@@ -3433,13 +3433,13 @@ _ZN7meshoptL16decodeBytesGroupEPKhPhi.exit.i:     ; preds = %427, %299, %171, %7
   br i1 %or.cond.i, label %433, label %.lr.ph.i, !llvm.loop !46
 
 433:                                              ; preds = %_ZN7meshoptL16decodeBytesGroupEPKhPhi.exit.i
-  %.not.not159 = icmp ne ptr %.0.i.i, null
-  %.not.not.not = select i1 %.not.i, i1 %.not.not159, i1 false
+  %.not.not170 = icmp ne ptr %.0.i.i, null
+  %.not.not.not = select i1 %.not.i, i1 %.not.not170, i1 false
   br i1 %.not.not.not, label %.thread, label %.critedge
 
 .thread122:                                       ; preds = %58
-  %.not126.not160 = icmp ne ptr %.278142, null
-  %.not126.not.not = select i1 %.not29.i, i1 %.not126.not160, i1 false
+  %.not126.not171 = icmp ne ptr %.278142, null
+  %.not126.not.not = select i1 %.not29.i, i1 %.not126.not171, i1 false
   br i1 %.not126.not.not, label %.thread, label %.critedge
 
 .thread:                                          ; preds = %42, %46, %.thread122, %433
@@ -3457,7 +3457,7 @@ _ZN7meshoptL16decodeBytesGroupEPKhPhi.exit.i:     ; preds = %427, %299, %171, %7
   %438 = load i8, ptr %437, align 1, !tbaa !8
   %439 = zext i8 %438 to i32
   %440 = and i32 %439, 3
-  switch i32 %440, label %default.unreachable152 [
+  switch i32 %440, label %default.unreachable163 [
     i32 0, label %.thread130
     i32 1, label %458
     i32 2, label %485
@@ -3518,12 +3518,12 @@ _ZN7meshoptL16decodeBytesGroupEPKhPhi.exit.i:     ; preds = %427, %299, %171, %7
   %.04455.us.i = phi ptr [ %483, %._crit_edge.us.i100 ], [ %9, %.split.us.i.preheader ]
   %.04554.us.i = phi ptr [ %484, %._crit_edge.us.i100 ], [ %460, %.split.us.i.preheader ]
   %462 = load i16, ptr %.04554.us.i, align 1
-  br label %.critedge168
+  br label %.critedge179
 
-.critedge168:                                     ; preds = %.critedge168, %.split.us.i
-  %.03953.us.i = phi i64 [ 0, %.split.us.i ], [ %482, %.critedge168 ]
-  %.152.us.i = phi i16 [ %462, %.split.us.i ], [ %475, %.critedge168 ]
-  %.04251.us.i = phi i64 [ %.04356.us.i, %.split.us.i ], [ %481, %.critedge168 ]
+.critedge179:                                     ; preds = %.critedge179, %.split.us.i
+  %.03953.us.i = phi i64 [ 0, %.split.us.i ], [ %482, %.critedge179 ]
+  %.152.us.i = phi i16 [ %462, %.split.us.i ], [ %475, %.critedge179 ]
+  %.04251.us.i = phi i64 [ %.04356.us.i, %.split.us.i ], [ %481, %.critedge179 ]
   %463 = getelementptr inbounds nuw i8, ptr %.04455.us.i, i64 %.03953.us.i
   %464 = load i8, ptr %463, align 1, !tbaa !8
   %465 = zext i8 %464 to i16
@@ -3547,9 +3547,9 @@ _ZN7meshoptL16decodeBytesGroupEPKhPhi.exit.i:     ; preds = %427, %299, %171, %7
   %481 = add i64 %.04251.us.i, %4
   %482 = add nuw i64 %.03953.us.i, 1
   %exitcond.not.i99 = icmp eq i64 %482, %3
-  br i1 %exitcond.not.i99, label %._crit_edge.us.i100, label %.critedge168, !llvm.loop !50
+  br i1 %exitcond.not.i99, label %._crit_edge.us.i100, label %.critedge179, !llvm.loop !50
 
-._crit_edge.us.i100:                              ; preds = %.critedge168
+._crit_edge.us.i100:                              ; preds = %.critedge179
   %483 = getelementptr inbounds nuw i8, ptr %.04455.us.i, i64 %25
   %484 = getelementptr inbounds nuw i8, ptr %.04554.us.i, i64 2
   br i1 %461, label %.split.us.i, label %_ZN7meshoptL13decodeDeltas1IhLb0EEEvPKhPhmmS2_i.exit, !llvm.loop !51
@@ -3627,7 +3627,7 @@ _ZN7meshoptL16decodeBytesGroupEPKhPhi.exit.i:     ; preds = %427, %299, %171, %7
   %exitcond.not.i103 = icmp eq i64 %523, 4
   br i1 %exitcond.not.i103, label %.preheader.us.i, label %516, !llvm.loop !55
 
-default.unreachable152:                           ; preds = %435
+default.unreachable163:                           ; preds = %435
   unreachable
 
 _ZN7meshoptL13decodeDeltas1IhLb0EEEvPKhPhmmS2_i.exit: ; preds = %498, %._crit_edge.us.i100, %._crit_edge.us.i, %485, %458, %.thread130

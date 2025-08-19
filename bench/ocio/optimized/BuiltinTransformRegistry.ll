@@ -171,8 +171,8 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %1
 
 _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev28BuiltinTransformRegistryImplELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.thread.thread: ; preds = %7
   %13 = tail call ptr @__dynamic_cast(ptr nonnull %10, ptr nonnull @_ZTIN19OpenColorIO_v2_5dev24BuiltinTransformRegistryE, ptr nonnull @_ZTIN19OpenColorIO_v2_5dev28BuiltinTransformRegistryImplE, i64 0) #24, !noalias !22
-  %.not.not.i.i18 = icmp ne ptr %13, null
-  tail call void @llvm.assume(i1 %.not.not.i.i18)
+  %.not.not.i.i21 = icmp ne ptr %13, null
+  tail call void @llvm.assume(i1 %.not.not.i.i21)
   br label %36
 
 14:                                               ; preds = %7

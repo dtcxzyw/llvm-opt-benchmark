@@ -249,11 +249,11 @@ _ZN17meshopt_Allocator8allocateIjEEPT_m.exit:     ; preds = %14
 ._crit_edge239.i:                                 ; preds = %.lr.ph238.i
   %114 = icmp ugt i64 %125, 4611686018427387903
   %115 = shl nuw i64 %125, 2
-  %spec.select324.i = select i1 %114, i64 -1, i64 %115
+  %spec.select352.i = select i1 %114, i64 -1, i64 %115
   br label %._crit_edge239.thread.i
 
 ._crit_edge239.thread.i:                          ; preds = %.noexc157, %._crit_edge239.i
-  %116 = phi i64 [ %spec.select324.i, %._crit_edge239.i ], [ 0, %.noexc157 ]
+  %116 = phi i64 [ %spec.select352.i, %._crit_edge239.i ], [ 0, %.noexc157 ]
   %117 = load ptr, ptr @_ZN17meshopt_Allocator8StorageTIvE8allocateE, align 8, !tbaa !4
   %118 = invoke noundef ptr %117(i64 noundef %116)
           to label %.noexc158 unwind label %258
@@ -495,10 +495,10 @@ _ZN17meshopt_Allocator8allocateIjEEPT_m.exit:     ; preds = %14
   br i1 %223, label %183, label %._crit_edge268.i, !llvm.loop !27
 
 ._crit_edge275.i:                                 ; preds = %.lr.ph274.i, %._crit_edge268.i, %.lr.ph278.i
-  %.0182.lcssa313.i = phi i32 [ %181, %._crit_edge268.i ], [ 0, %.lr.ph278.i ], [ %181, %.lr.ph274.i ]
+  %.0182.lcssa341.i = phi i32 [ %181, %._crit_edge268.i ], [ 0, %.lr.ph278.i ], [ %181, %.lr.ph274.i ]
   %224 = getelementptr inbounds nuw i32, ptr %68, i64 %.0185276.i
   %225 = load i32, ptr %224, align 4, !tbaa !11
-  %226 = add i32 %225, %.0182.lcssa313.i
+  %226 = add i32 %225, %.0182.lcssa341.i
   %227 = getelementptr inbounds nuw i32, ptr %68, i64 %174
   store i32 %226, ptr %227, align 4, !tbaa !11
   %exitcond294.not.i = icmp eq i64 %174, %4
@@ -520,12 +520,12 @@ _ZN17meshopt_Allocator8allocateIjEEPT_m.exit:     ; preds = %14
 236:                                              ; preds = %7
   %237 = landingpad { ptr, i32 }
           cleanup
-  br label %516
+  br label %510
 
 238:                                              ; preds = %14
   %239 = landingpad { ptr, i32 }
           cleanup
-  br label %516
+  br label %510
 
 .lr.ph:                                           ; preds = %_ZN17meshopt_Allocator8allocateIjEEPT_m.exit, %.lr.ph
   %.0136209 = phi i32 [ %243, %.lr.ph ], [ 0, %_ZN17meshopt_Allocator8allocateIjEEPT_m.exit ]
@@ -566,17 +566,17 @@ _ZN17meshopt_Allocator8allocateIN7meshopt10GroupOrderEEEPT_m.exit: ; preds = %25
 258:                                              ; preds = %._crit_edge279.i, %._crit_edge239.thread.i, %.noexc156, %.noexc155, %._crit_edge234.i, %._crit_edge
   %259 = landingpad { ptr, i32 }
           cleanup
-  br label %516
+  br label %510
 
 260:                                              ; preds = %245
   %261 = landingpad { ptr, i32 }
           cleanup
-  br label %516
+  br label %510
 
 262:                                              ; preds = %251
   %263 = landingpad { ptr, i32 }
           cleanup
-  br label %516
+  br label %510
 
 .lr.ph212:                                        ; preds = %_ZN17meshopt_Allocator8allocateIN7meshopt10GroupOrderEEEPT_m.exit, %_ZN7meshoptL8heapPushEPNS_10GroupOrderEmS0_.exit
   %.0139211 = phi i64 [ %309, %_ZN7meshoptL8heapPushEPNS_10GroupOrderEmS0_.exit ], [ 0, %_ZN17meshopt_Allocator8allocateIN7meshopt10GroupOrderEEEPT_m.exit ]
@@ -664,11 +664,11 @@ _ZN17meshopt_Allocator8allocateIN7meshopt10GroupOrderEEEPT_m.exit: ; preds = %25
   br i1 %307, label %.lr.ph43.i, label %._crit_edge44.i, !llvm.loop !38
 
 _ZN7meshoptL10countTotalEPKNS_12ClusterGroupEiPKjS4_Ph.exit: ; preds = %._crit_edge44.i, %.lr.ph212
-  %.031.lcssa49.i = phi i32 [ 0, %.lr.ph212 ], [ %.1.lcssa.i, %._crit_edge44.i ]
+  %.031.lcssa51.i = phi i32 [ 0, %.lr.ph212 ], [ %.1.lcssa.i, %._crit_edge44.i ]
   %308 = getelementptr inbounds nuw i8, ptr %265, i64 12
-  store i32 %.031.lcssa49.i, ptr %308, align 4, !tbaa !39
+  store i32 %.031.lcssa51.i, ptr %308, align 4, !tbaa !39
   %309 = add nuw i64 %.0139211, 1
-  %.sroa.5.0.insert.ext = zext i32 %.031.lcssa49.i to i64
+  %.sroa.5.0.insert.ext = zext i32 %.031.lcssa51.i to i64
   %.sroa.5.0.insert.shift = shl nuw i64 %.sroa.5.0.insert.ext, 32
   %.sroa.044.0.insert.ext = and i64 %.0139211, 4294967295
   %.sroa.044.0.insert.insert = or disjoint i64 %.sroa.5.0.insert.shift, %.sroa.044.0.insert.ext
@@ -684,7 +684,7 @@ _ZN7meshoptL10countTotalEPKNS_12ClusterGroupEiPKjS4_Ph.exit: ; preds = %._crit_e
   %313 = getelementptr inbounds nuw %"struct.meshopt::GroupOrder", ptr %256, i64 %312
   %314 = getelementptr inbounds nuw i8, ptr %313, i64 4
   %315 = load i32, ptr %314, align 4, !tbaa !40
-  %316 = icmp sgt i32 %315, %.031.lcssa49.i
+  %316 = icmp sgt i32 %315, %.031.lcssa51.i
   br i1 %316, label %317, label %_ZN7meshoptL8heapPushEPNS_10GroupOrderEmS0_.exit
 
 317:                                              ; preds = %.lr.ph.i165
@@ -914,215 +914,200 @@ _ZN7meshoptL11countSharedEPKNS_12ClusterGroupEiiRKNS_16ClusterAdjacencyE.exit.lo
 
 _ZN7meshoptL16pickGroupToMergeEPKNS_12ClusterGroupEiRKNS_16ClusterAdjacencyEm.exit: ; preds = %._crit_edge.split.us.us.i
   %429 = icmp eq i32 %.1.lcssa.us.i, -1
-  br i1 %429, label %_ZN7meshoptL8heapPushEPNS_10GroupOrderEmS0_.exit179, label %430, !llvm.loop !44
+  br i1 %429, label %_ZN7meshoptL8heapPushEPNS_10GroupOrderEmS0_.exit179, label %.preheader.us.i, !llvm.loop !44
 
-430:                                              ; preds = %_ZN7meshoptL16pickGroupToMergeEPKNS_12ClusterGroupEiRKNS_16ClusterAdjacencyEm.exit
-  %431 = icmp sgt i32 %.1.lcssa.us.i, -1
-  br i1 %431, label %.preheader.us.i, label %_ZN7meshoptL11countSharedEPKNS_12ClusterGroupEiiRKNS_16ClusterAdjacencyE.exit
-
-.preheader.us.i:                                  ; preds = %430, %._crit_edge.us.i
-  %.02129.us.i = phi i32 [ %440, %._crit_edge.us.i ], [ %.sroa.029.0.extract.trunc, %430 ]
-  %.02228.us.i = phi i32 [ %.us-phi.us.i, %._crit_edge.us.i ], [ 0, %430 ]
-  %432 = zext nneg i32 %.02129.us.i to i64
-  %433 = getelementptr inbounds nuw i32, ptr %68, i64 %432
+.preheader.us.i:                                  ; preds = %_ZN7meshoptL16pickGroupToMergeEPKNS_12ClusterGroupEiRKNS_16ClusterAdjacencyEm.exit, %._crit_edge.us.i
+  %.02129.us.i = phi i32 [ %438, %._crit_edge.us.i ], [ %.sroa.029.0.extract.trunc, %_ZN7meshoptL16pickGroupToMergeEPKNS_12ClusterGroupEiRKNS_16ClusterAdjacencyEm.exit ]
+  %.02228.us.i = phi i32 [ %.us-phi.us.i, %._crit_edge.us.i ], [ 0, %_ZN7meshoptL16pickGroupToMergeEPKNS_12ClusterGroupEiRKNS_16ClusterAdjacencyEm.exit ]
+  %430 = zext nneg i32 %.02129.us.i to i64
+  %431 = getelementptr inbounds nuw i32, ptr %68, i64 %430
+  %432 = load i32, ptr %431, align 4, !tbaa !11
+  %433 = getelementptr inbounds nuw i8, ptr %431, i64 4
   %434 = load i32, ptr %433, align 4, !tbaa !11
-  %435 = getelementptr inbounds nuw i8, ptr %433, i64 4
-  %436 = load i32, ptr %435, align 4, !tbaa !11
-  %437 = icmp ult i32 %434, %436
-  br i1 %437, label %.lr.ph.us.us.preheader.i, label %._crit_edge.us.i
+  %435 = icmp ult i32 %432, %434
+  br i1 %435, label %.lr.ph.us.us.preheader.i, label %._crit_edge.us.i
 
 .lr.ph.us.us.preheader.i:                         ; preds = %.preheader.us.i
-  %438 = zext i32 %434 to i64
+  %436 = zext i32 %432 to i64
   br label %.lr.ph.us.us.i
 
 ._crit_edge.us.i:                                 ; preds = %..loopexit_crit_edge.us.us.i, %.preheader.us.i
   %.us-phi.us.i = phi i32 [ %.02228.us.i, %.preheader.us.i ], [ %.2.us.us.i173, %..loopexit_crit_edge.us.us.i ]
-  %439 = getelementptr inbounds nuw %"struct.meshopt::ClusterGroup", ptr %250, i64 %432, i32 1
-  %440 = load i32, ptr %439, align 4, !tbaa !33
-  %441 = icmp sgt i32 %440, -1
-  br i1 %441, label %.preheader.us.i, label %_ZN7meshoptL11countSharedEPKNS_12ClusterGroupEiiRKNS_16ClusterAdjacencyE.exit, !llvm.loop !49
+  %437 = getelementptr inbounds nuw %"struct.meshopt::ClusterGroup", ptr %250, i64 %430, i32 1
+  %438 = load i32, ptr %437, align 4, !tbaa !33
+  %439 = icmp sgt i32 %438, -1
+  br i1 %439, label %.preheader.us.i, label %_ZN7meshoptL11countSharedEPKNS_12ClusterGroupEiiRKNS_16ClusterAdjacencyE.exit, !llvm.loop !49
 
 .lr.ph.us.us.i:                                   ; preds = %..loopexit_crit_edge.us.us.i, %.lr.ph.us.us.preheader.i
-  %.02025.us.us.i = phi i32 [ %453, %..loopexit_crit_edge.us.us.i ], [ %.1.lcssa.us.i, %.lr.ph.us.us.preheader.i ]
+  %.02025.us.us.i = phi i32 [ %451, %..loopexit_crit_edge.us.us.i ], [ %.1.lcssa.us.i, %.lr.ph.us.us.preheader.i ]
   %.124.us.us.i = phi i32 [ %.2.us.us.i173, %..loopexit_crit_edge.us.us.i ], [ %.02228.us.i, %.lr.ph.us.us.preheader.i ]
-  br label %443
+  br label %441
 
-442:                                              ; preds = %443
+440:                                              ; preds = %441
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %lftr.wideiv.i = trunc i64 %indvars.iv.next.i to i32
-  %exitcond.not.i172 = icmp eq i32 %436, %lftr.wideiv.i
-  br i1 %exitcond.not.i172, label %..loopexit_crit_edge.us.us.i, label %443, !llvm.loop !47
+  %exitcond.not.i172 = icmp eq i32 %434, %lftr.wideiv.i
+  br i1 %exitcond.not.i172, label %..loopexit_crit_edge.us.us.i, label %441, !llvm.loop !47
 
-443:                                              ; preds = %442, %.lr.ph.us.us.i
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %442 ], [ %438, %.lr.ph.us.us.i ]
-  %444 = getelementptr inbounds nuw i32, ptr %73, i64 %indvars.iv.i
-  %445 = load i32, ptr %444, align 4, !tbaa !11
-  %446 = icmp eq i32 %445, %.02025.us.us.i
-  br i1 %446, label %447, label %442
+441:                                              ; preds = %440, %.lr.ph.us.us.i
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %440 ], [ %436, %.lr.ph.us.us.i ]
+  %442 = getelementptr inbounds nuw i32, ptr %73, i64 %indvars.iv.i
+  %443 = load i32, ptr %442, align 4, !tbaa !11
+  %444 = icmp eq i32 %443, %.02025.us.us.i
+  br i1 %444, label %445, label %440
 
-447:                                              ; preds = %443
-  %448 = getelementptr inbounds nuw i32, ptr %76, i64 %indvars.iv.i
-  %449 = load i32, ptr %448, align 4, !tbaa !11
-  %450 = add i32 %449, %.124.us.us.i
+445:                                              ; preds = %441
+  %446 = getelementptr inbounds nuw i32, ptr %76, i64 %indvars.iv.i
+  %447 = load i32, ptr %446, align 4, !tbaa !11
+  %448 = add i32 %447, %.124.us.us.i
   br label %..loopexit_crit_edge.us.us.i
 
-..loopexit_crit_edge.us.us.i:                     ; preds = %442, %447
-  %.2.us.us.i173 = phi i32 [ %450, %447 ], [ %.124.us.us.i, %442 ]
-  %451 = zext nneg i32 %.02025.us.us.i to i64
-  %452 = getelementptr inbounds nuw %"struct.meshopt::ClusterGroup", ptr %250, i64 %451, i32 1
-  %453 = load i32, ptr %452, align 4, !tbaa !33
-  %454 = icmp sgt i32 %453, -1
-  br i1 %454, label %.lr.ph.us.us.i, label %._crit_edge.us.i, !llvm.loop !48
+..loopexit_crit_edge.us.us.i:                     ; preds = %440, %445
+  %.2.us.us.i173 = phi i32 [ %448, %445 ], [ %.124.us.us.i, %440 ]
+  %449 = zext nneg i32 %.02025.us.us.i to i64
+  %450 = getelementptr inbounds nuw %"struct.meshopt::ClusterGroup", ptr %250, i64 %449, i32 1
+  %451 = load i32, ptr %450, align 4, !tbaa !33
+  %452 = icmp sgt i32 %451, -1
+  br i1 %452, label %.lr.ph.us.us.i, label %._crit_edge.us.i, !llvm.loop !48
 
-_ZN7meshoptL11countSharedEPKNS_12ClusterGroupEiiRKNS_16ClusterAdjacencyE.exit: ; preds = %._crit_edge.us.i, %430
-  %.022.lcssa.i = phi i32 [ 0, %430 ], [ %.us-phi.us.i, %._crit_edge.us.i ]
-  br label %455
+_ZN7meshoptL11countSharedEPKNS_12ClusterGroupEiiRKNS_16ClusterAdjacencyE.exit: ; preds = %._crit_edge.us.i, %_ZN7meshoptL11countSharedEPKNS_12ClusterGroupEiiRKNS_16ClusterAdjacencyE.exit
+  %.0130 = phi i32 [ %455, %_ZN7meshoptL11countSharedEPKNS_12ClusterGroupEiiRKNS_16ClusterAdjacencyE.exit ], [ %.sroa.029.0.extract.trunc, %._crit_edge.us.i ]
+  %453 = zext nneg i32 %.0130 to i64
+  %454 = getelementptr inbounds nuw %"struct.meshopt::ClusterGroup", ptr %250, i64 %453, i32 1
+  %455 = load i32, ptr %454, align 4, !tbaa !33
+  %456 = icmp slt i32 %455, 0
+  br i1 %456, label %.lr.ph218.preheader, label %_ZN7meshoptL11countSharedEPKNS_12ClusterGroupEiiRKNS_16ClusterAdjacencyE.exit, !llvm.loop !51
 
-455:                                              ; preds = %457, %_ZN7meshoptL11countSharedEPKNS_12ClusterGroupEiiRKNS_16ClusterAdjacencyE.exit
-  %.0130 = phi i32 [ %.sroa.029.0.extract.trunc, %_ZN7meshoptL11countSharedEPKNS_12ClusterGroupEiiRKNS_16ClusterAdjacencyE.exit ], [ %460, %457 ]
-  %456 = icmp sgt i32 %.0130, -1
-  br i1 %456, label %457, label %.lr.ph218.preheader
-
-457:                                              ; preds = %455
-  %458 = zext nneg i32 %.0130 to i64
-  %459 = getelementptr inbounds nuw %"struct.meshopt::ClusterGroup", ptr %250, i64 %458, i32 1
-  %460 = load i32, ptr %459, align 4, !tbaa !33
-  %461 = icmp slt i32 %460, 0
-  br i1 %461, label %462, label %455, !llvm.loop !51
-
-462:                                              ; preds = %457
-  store i32 %.1.lcssa.us.i, ptr %459, align 4, !tbaa !33
-  br label %.lr.ph218.preheader
-
-.lr.ph218.preheader:                              ; preds = %455, %462
-  %463 = sext i32 %.1.lcssa.us.i to i64
-  %464 = getelementptr inbounds %"struct.meshopt::ClusterGroup", ptr %250, i64 %463
-  %465 = getelementptr inbounds nuw i8, ptr %464, i64 8
-  %466 = load i32, ptr %465, align 4, !tbaa !34
-  %467 = load i32, ptr %349, align 4, !tbaa !34
-  %468 = add i32 %467, %466
-  store i32 %468, ptr %349, align 4, !tbaa !34
-  %469 = getelementptr inbounds nuw i8, ptr %464, i64 12
-  %470 = load i32, ptr %469, align 4, !tbaa !39
-  %471 = getelementptr inbounds nuw i8, ptr %348, i64 12
-  %472 = load i32, ptr %471, align 4, !tbaa !39
-  %473 = add i32 %472, %470
-  %474 = icmp ugt i32 %473, %.022.lcssa.i
-  %475 = sub nuw i32 %473, %.022.lcssa.i
-  %spec.select = select i1 %474, i32 %475, i32 1
-  store i32 %spec.select, ptr %471, align 4, !tbaa !39
-  store i32 0, ptr %465, align 4, !tbaa !34
-  store i32 0, ptr %469, align 4, !tbaa !39
+.lr.ph218.preheader:                              ; preds = %_ZN7meshoptL11countSharedEPKNS_12ClusterGroupEiiRKNS_16ClusterAdjacencyE.exit
+  store i32 %.1.lcssa.us.i, ptr %454, align 4, !tbaa !33
+  %457 = zext nneg i32 %.1.lcssa.us.i to i64
+  %458 = getelementptr inbounds nuw %"struct.meshopt::ClusterGroup", ptr %250, i64 %457
+  %459 = getelementptr inbounds nuw i8, ptr %458, i64 8
+  %460 = load i32, ptr %459, align 4, !tbaa !34
+  %461 = load i32, ptr %349, align 4, !tbaa !34
+  %462 = add i32 %461, %460
+  store i32 %462, ptr %349, align 4, !tbaa !34
+  %463 = getelementptr inbounds nuw i8, ptr %458, i64 12
+  %464 = load i32, ptr %463, align 4, !tbaa !39
+  %465 = getelementptr inbounds nuw i8, ptr %348, i64 12
+  %466 = load i32, ptr %465, align 4, !tbaa !39
+  %467 = add i32 %466, %464
+  %468 = icmp ugt i32 %467, %.us-phi.us.i
+  %469 = sub nuw i32 %467, %.us-phi.us.i
+  %spec.select = select i1 %468, i32 %469, i32 1
+  store i32 %spec.select, ptr %465, align 4, !tbaa !39
+  store i32 0, ptr %459, align 4, !tbaa !34
+  store i32 0, ptr %463, align 4, !tbaa !39
   br label %.lr.ph218
 
 ._crit_edge219:                                   ; preds = %.lr.ph218
-  %476 = load i32, ptr %471, align 4, !tbaa !39
-  %.sroa.19.0.insert.ext = zext i32 %476 to i64
+  %470 = load i32, ptr %465, align 4, !tbaa !39
+  %.sroa.19.0.insert.ext = zext i32 %470 to i64
   %.sroa.19.0.insert.shift = shl nuw i64 %.sroa.19.0.insert.ext, 32
   %.sroa.029.0.insert.insert = or disjoint i64 %.sroa.19.0.insert.shift, %347
   store i64 %.sroa.029.0.insert.insert, ptr %321, align 4
   %.not17.i174 = icmp eq i64 %320, 0
   br i1 %.not17.i174, label %_ZN7meshoptL8heapPushEPNS_10GroupOrderEmS0_.exit179, label %.lr.ph.i175
 
-.lr.ph.i175:                                      ; preds = %._crit_edge219, %483
-  %.018.i176 = phi i64 [ %478, %483 ], [ %320, %._crit_edge219 ]
-  %477 = add i64 %.018.i176, -1
-  %478 = lshr i64 %477, 1
-  %479 = getelementptr inbounds nuw %"struct.meshopt::GroupOrder", ptr %256, i64 %478
-  %480 = getelementptr inbounds nuw i8, ptr %479, i64 4
-  %481 = load i32, ptr %480, align 4, !tbaa !40
-  %482 = icmp sgt i32 %481, %476
-  br i1 %482, label %483, label %_ZN7meshoptL8heapPushEPNS_10GroupOrderEmS0_.exit179
+.lr.ph.i175:                                      ; preds = %._crit_edge219, %477
+  %.018.i176 = phi i64 [ %472, %477 ], [ %320, %._crit_edge219 ]
+  %471 = add i64 %.018.i176, -1
+  %472 = lshr i64 %471, 1
+  %473 = getelementptr inbounds nuw %"struct.meshopt::GroupOrder", ptr %256, i64 %472
+  %474 = getelementptr inbounds nuw i8, ptr %473, i64 4
+  %475 = load i32, ptr %474, align 4, !tbaa !40
+  %476 = icmp sgt i32 %475, %470
+  br i1 %476, label %477, label %_ZN7meshoptL8heapPushEPNS_10GroupOrderEmS0_.exit179
 
-483:                                              ; preds = %.lr.ph.i175
-  %484 = getelementptr inbounds nuw %"struct.meshopt::GroupOrder", ptr %256, i64 %.018.i176
-  %485 = load i64, ptr %479, align 4
-  store i64 %485, ptr %484, align 4
-  store i64 %.sroa.029.0.insert.insert, ptr %479, align 4
-  %.not.i178 = icmp ult i64 %477, 2
+477:                                              ; preds = %.lr.ph.i175
+  %478 = getelementptr inbounds nuw %"struct.meshopt::GroupOrder", ptr %256, i64 %.018.i176
+  %479 = load i64, ptr %473, align 4
+  store i64 %479, ptr %478, align 4
+  store i64 %.sroa.029.0.insert.insert, ptr %473, align 4
+  %.not.i178 = icmp ult i64 %471, 2
   br i1 %.not.i178, label %_ZN7meshoptL8heapPushEPNS_10GroupOrderEmS0_.exit179, label %.lr.ph.i175, !llvm.loop !42
 
 .lr.ph218:                                        ; preds = %.lr.ph218.preheader, %.lr.ph218
-  %.0129216 = phi i32 [ %489, %.lr.ph218 ], [ %.sroa.029.0.extract.trunc, %.lr.ph218.preheader ]
-  %486 = zext nneg i32 %.0129216 to i64
-  %487 = getelementptr inbounds nuw %"struct.meshopt::ClusterGroup", ptr %250, i64 %486
-  store i32 %.sroa.029.0.extract.trunc, ptr %487, align 4, !tbaa !31
-  %488 = getelementptr inbounds nuw i8, ptr %487, i64 4
-  %489 = load i32, ptr %488, align 4, !tbaa !33
-  %490 = icmp sgt i32 %489, -1
-  br i1 %490, label %.lr.ph218, label %._crit_edge219, !llvm.loop !52
+  %.0129216 = phi i32 [ %483, %.lr.ph218 ], [ %.sroa.029.0.extract.trunc, %.lr.ph218.preheader ]
+  %480 = zext nneg i32 %.0129216 to i64
+  %481 = getelementptr inbounds nuw %"struct.meshopt::ClusterGroup", ptr %250, i64 %480
+  store i32 %.sroa.029.0.extract.trunc, ptr %481, align 4, !tbaa !31
+  %482 = getelementptr inbounds nuw i8, ptr %481, i64 4
+  %483 = load i32, ptr %482, align 4, !tbaa !33
+  %484 = icmp sgt i32 %483, -1
+  br i1 %484, label %.lr.ph218, label %._crit_edge219, !llvm.loop !52
 
-_ZN7meshoptL8heapPushEPNS_10GroupOrderEmS0_.exit179: ; preds = %483, %.lr.ph.i175, %359, %._crit_edge219, %_ZN7meshoptL16pickGroupToMergeEPKNS_12ClusterGroupEiRKNS_16ClusterAdjacencyEm.exit, %._crit_edge215, %_ZN7meshoptL7heapPopEPNS_10GroupOrderEm.exit
-  %.2141 = phi i64 [ %320, %_ZN7meshoptL7heapPopEPNS_10GroupOrderEm.exit ], [ %320, %._crit_edge215 ], [ %320, %_ZN7meshoptL16pickGroupToMergeEPKNS_12ClusterGroupEiRKNS_16ClusterAdjacencyEm.exit ], [ 1, %._crit_edge219 ], [ %320, %359 ], [ %.1140221, %.lr.ph.i175 ], [ %.1140221, %483 ]
+_ZN7meshoptL8heapPushEPNS_10GroupOrderEmS0_.exit179: ; preds = %477, %.lr.ph.i175, %359, %._crit_edge219, %_ZN7meshoptL16pickGroupToMergeEPKNS_12ClusterGroupEiRKNS_16ClusterAdjacencyEm.exit, %._crit_edge215, %_ZN7meshoptL7heapPopEPNS_10GroupOrderEm.exit
+  %.2141 = phi i64 [ %320, %_ZN7meshoptL7heapPopEPNS_10GroupOrderEm.exit ], [ %320, %._crit_edge215 ], [ %320, %_ZN7meshoptL16pickGroupToMergeEPKNS_12ClusterGroupEiRKNS_16ClusterAdjacencyEm.exit ], [ 1, %._crit_edge219 ], [ %320, %359 ], [ %.1140221, %.lr.ph.i175 ], [ %.1140221, %477 ]
   %.not = icmp eq i64 %.2141, 0
   br i1 %.not, label %.lr.ph229, label %.lr.ph222
 
-._crit_edge230:                                   ; preds = %514, %_ZN17meshopt_Allocator8allocateIN7meshopt10GroupOrderEEEPT_m.exit
-  %.0126.lcssa = phi i64 [ 0, %_ZN17meshopt_Allocator8allocateIN7meshopt10GroupOrderEEEPT_m.exit ], [ %.1, %514 ]
-  br label %491
+._crit_edge230:                                   ; preds = %508, %_ZN17meshopt_Allocator8allocateIN7meshopt10GroupOrderEEEPT_m.exit
+  %.0126.lcssa = phi i64 [ 0, %_ZN17meshopt_Allocator8allocateIN7meshopt10GroupOrderEEEPT_m.exit ], [ %.1, %508 ]
+  br label %485
 
-491:                                              ; preds = %492, %._crit_edge230
-  %.0.i = phi i64 [ 8, %._crit_edge230 ], [ %494, %492 ]
+485:                                              ; preds = %486, %._crit_edge230
+  %.0.i = phi i64 [ 8, %._crit_edge230 ], [ %488, %486 ]
   %.not.i180 = icmp eq i64 %.0.i, 0
-  br i1 %.not.i180, label %_ZN17meshopt_AllocatorD2Ev.exit, label %492
+  br i1 %.not.i180, label %_ZN17meshopt_AllocatorD2Ev.exit, label %486
 
-492:                                              ; preds = %491
-  %493 = load ptr, ptr @_ZN17meshopt_Allocator8StorageTIvE10deallocateE, align 8, !tbaa !4
-  %494 = add i64 %.0.i, -1
-  %495 = getelementptr inbounds nuw [24 x ptr], ptr %8, i64 0, i64 %494
-  %496 = load ptr, ptr %495, align 8, !tbaa !4
-  invoke void %493(ptr noundef %496)
-          to label %491 unwind label %497, !llvm.loop !53
+486:                                              ; preds = %485
+  %487 = load ptr, ptr @_ZN17meshopt_Allocator8StorageTIvE10deallocateE, align 8, !tbaa !4
+  %488 = add i64 %.0.i, -1
+  %489 = getelementptr inbounds nuw [24 x ptr], ptr %8, i64 0, i64 %488
+  %490 = load ptr, ptr %489, align 8, !tbaa !4
+  invoke void %487(ptr noundef %490)
+          to label %485 unwind label %491, !llvm.loop !53
 
-497:                                              ; preds = %492
-  %498 = landingpad { ptr, i32 }
+491:                                              ; preds = %486
+  %492 = landingpad { ptr, i32 }
           catch ptr null
-  %499 = extractvalue { ptr, i32 } %498, 0
-  tail call void @__clang_call_terminate(ptr %499) #12
+  %493 = extractvalue { ptr, i32 } %492, 0
+  tail call void @__clang_call_terminate(ptr %493) #12
   unreachable
 
-_ZN17meshopt_AllocatorD2Ev.exit:                  ; preds = %491
+_ZN17meshopt_AllocatorD2Ev.exit:                  ; preds = %485
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i64 %.0126.lcssa
 
-.lr.ph229:                                        ; preds = %_ZN7meshoptL8heapPushEPNS_10GroupOrderEmS0_.exit179, %514
-  %.0125228 = phi i64 [ %515, %514 ], [ 0, %_ZN7meshoptL8heapPushEPNS_10GroupOrderEmS0_.exit179 ]
-  %.0126227 = phi i64 [ %.1, %514 ], [ 0, %_ZN7meshoptL8heapPushEPNS_10GroupOrderEmS0_.exit179 ]
-  %500 = getelementptr inbounds nuw %"struct.meshopt::ClusterGroup", ptr %250, i64 %.0125228, i32 2
-  %501 = load i32, ptr %500, align 4, !tbaa !34
-  %502 = icmp eq i32 %501, 0
-  br i1 %502, label %514, label %503
+.lr.ph229:                                        ; preds = %_ZN7meshoptL8heapPushEPNS_10GroupOrderEmS0_.exit179, %508
+  %.0125228 = phi i64 [ %509, %508 ], [ 0, %_ZN7meshoptL8heapPushEPNS_10GroupOrderEmS0_.exit179 ]
+  %.0126227 = phi i64 [ %.1, %508 ], [ 0, %_ZN7meshoptL8heapPushEPNS_10GroupOrderEmS0_.exit179 ]
+  %494 = getelementptr inbounds nuw %"struct.meshopt::ClusterGroup", ptr %250, i64 %.0125228, i32 2
+  %495 = load i32, ptr %494, align 4, !tbaa !34
+  %496 = icmp eq i32 %495, 0
+  br i1 %496, label %508, label %497
 
-503:                                              ; preds = %.lr.ph229
-  %504 = trunc i64 %.0125228 to i32
-  %505 = icmp sgt i32 %504, -1
-  br i1 %505, label %.lr.ph225, label %._crit_edge226
+497:                                              ; preds = %.lr.ph229
+  %498 = trunc i64 %.0125228 to i32
+  %499 = icmp sgt i32 %498, -1
+  br i1 %499, label %.lr.ph225, label %._crit_edge226
 
-.lr.ph225:                                        ; preds = %503
-  %506 = trunc i64 %.0126227 to i32
+.lr.ph225:                                        ; preds = %497
+  %500 = trunc i64 %.0126227 to i32
+  br label %502
+
+._crit_edge226:                                   ; preds = %502, %497
+  %501 = add i64 %.0126227, 1
   br label %508
 
-._crit_edge226:                                   ; preds = %508, %503
-  %507 = add i64 %.0126227, 1
-  br label %514
+502:                                              ; preds = %.lr.ph225, %502
+  %.0223 = phi i32 [ %498, %.lr.ph225 ], [ %506, %502 ]
+  %503 = zext nneg i32 %.0223 to i64
+  %504 = getelementptr inbounds nuw i32, ptr %0, i64 %503
+  store i32 %500, ptr %504, align 4, !tbaa !11
+  %505 = getelementptr inbounds nuw %"struct.meshopt::ClusterGroup", ptr %250, i64 %503, i32 1
+  %506 = load i32, ptr %505, align 4, !tbaa !33
+  %507 = icmp sgt i32 %506, -1
+  br i1 %507, label %502, label %._crit_edge226, !llvm.loop !54
 
-508:                                              ; preds = %.lr.ph225, %508
-  %.0223 = phi i32 [ %504, %.lr.ph225 ], [ %512, %508 ]
-  %509 = zext nneg i32 %.0223 to i64
-  %510 = getelementptr inbounds nuw i32, ptr %0, i64 %509
-  store i32 %506, ptr %510, align 4, !tbaa !11
-  %511 = getelementptr inbounds nuw %"struct.meshopt::ClusterGroup", ptr %250, i64 %509, i32 1
-  %512 = load i32, ptr %511, align 4, !tbaa !33
-  %513 = icmp sgt i32 %512, -1
-  br i1 %513, label %508, label %._crit_edge226, !llvm.loop !54
-
-514:                                              ; preds = %.lr.ph229, %._crit_edge226
-  %.1 = phi i64 [ %.0126227, %.lr.ph229 ], [ %507, %._crit_edge226 ]
-  %515 = add nuw i64 %.0125228, 1
-  %exitcond251.not = icmp eq i64 %515, %4
+508:                                              ; preds = %.lr.ph229, %._crit_edge226
+  %.1 = phi i64 [ %.0126227, %.lr.ph229 ], [ %501, %._crit_edge226 ]
+  %509 = add nuw i64 %.0125228, 1
+  %exitcond251.not = icmp eq i64 %509, %4
   br i1 %exitcond251.not, label %._crit_edge230, label %.lr.ph229, !llvm.loop !55
 
-516:                                              ; preds = %258, %262, %260, %238, %236
+510:                                              ; preds = %258, %262, %260, %238, %236
   %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %237, %236 ], [ %239, %238 ], [ %259, %258 ], [ %261, %260 ], [ %263, %262 ]
   call void @_ZN17meshopt_AllocatorD2Ev(ptr noundef nonnull align 8 dereferenceable(200) %8) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %8)

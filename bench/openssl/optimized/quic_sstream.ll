@@ -708,9 +708,9 @@ ring_buf_push.exit.thread:                        ; preds = %30, %ring_buf_push.
   br label %ring_buf_push.exit.thread.thread
 
 ring_buf_push.exit.thread.thread:                 ; preds = %ring_buf_push.exit.thread, %34, %.preheader, %4, %40
-  %.026.lcssa44.sink = phi i64 [ 0, %40 ], [ 0, %4 ], [ %.026.lcssa, %34 ], [ 0, %ring_buf_push.exit.thread ], [ 0, %.preheader ]
+  %.026.lcssa47.sink = phi i64 [ 0, %40 ], [ 0, %4 ], [ %.026.lcssa, %34 ], [ 0, %ring_buf_push.exit.thread ], [ 0, %.preheader ]
   %.0 = phi i32 [ 0, %40 ], [ 0, %4 ], [ 1, %34 ], [ 1, %ring_buf_push.exit.thread ], [ 1, %.preheader ]
-  store i64 %.026.lcssa44.sink, ptr %3, align 8, !tbaa !12
+  store i64 %.026.lcssa47.sink, ptr %3, align 8, !tbaa !12
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0

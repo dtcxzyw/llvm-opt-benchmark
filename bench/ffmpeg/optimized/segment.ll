@@ -353,7 +353,7 @@ define internal i32 @seg_write_packet(ptr noundef %0, ptr noundef %1) #0 {
   %88 = phi ptr [ %.pre, %.preheader ], [ %279, %.backedge ]
   %.0169 = phi i32 [ 2147483647, %.preheader ], [ %.1170, %.backedge ]
   %.0167 = phi i64 [ undef, %.preheader ], [ %.1168, %.backedge ]
-  %.0166 = phi i64 [ 9223372036854775807, %.preheader ], [ %.2270, %.backedge ]
+  %.0166 = phi i64 [ 9223372036854775807, %.preheader ], [ %.2296, %.backedge ]
   %.not193 = icmp eq ptr %88, null
   br i1 %.not193, label %97, label %89
 
@@ -443,26 +443,26 @@ define internal i32 @seg_write_packet(ptr noundef %0, ptr noundef %1) #0 {
   %.1 = phi i64 [ %.0166, %134 ], [ %140, %135 ], [ 9223372036854775807, %89 ], [ %96, %93 ], [ %.0166, %103 ], [ %.0166, %99 ]
   %142 = load i64, ptr %66, align 8, !tbaa !75
   %143 = icmp eq i64 %142, -9223372036854775808
-  br i1 %143, label %145, label %.thread260
+  br i1 %143, label %145, label %.thread286
 
-.thread260:                                       ; preds = %141
+.thread286:                                       ; preds = %141
   %.pre246 = load i64, ptr %68, align 8, !tbaa !76
   %144 = sub nsw i64 9223372036854775807, %.1
-  %.262 = call i64 @llvm.smin.i64(i64 %144, i64 %142)
-  br label %.thread256
+  %.288 = call i64 @llvm.smin.i64(i64 %144, i64 %142)
+  br label %.thread282
 
 145:                                              ; preds = %141
   %146 = load i32, ptr %22, align 4, !tbaa !44
   %147 = load i32, ptr %67, align 8, !tbaa !77
   %148 = icmp eq i32 %146, %147
   %.pre247 = load i64, ptr %68, align 8, !tbaa !76
-  br i1 %148, label %149, label %.thread256
+  br i1 %148, label %149, label %.thread282
 
 149:                                              ; preds = %145
   %.not196 = icmp eq i64 %.pre247, -9223372036854775808
-  br i1 %.not196, label %.thread256.thread, label %.thread266
+  br i1 %.not196, label %.thread282.thread, label %.thread292
 
-.thread266:                                       ; preds = %149
+.thread292:                                       ; preds = %149
   %150 = load i64, ptr %69, align 8
   %151 = call i64 @av_rescale_q(i64 noundef %.pre247, i64 %150, i64 4294967296000001) #14
   %.fr = freeze i64 %151
@@ -471,34 +471,34 @@ define internal i32 @seg_write_packet(ptr noundef %0, ptr noundef %1) #0 {
   %152 = sub nsw i64 9223372036854775807, %.1
   %. = call i64 @llvm.smin.i64(i64 %152, i64 %.fr)
   %spec.select = select i1 %.not197, i64 0, i64 %.
-  %.2267 = add nsw i64 %spec.select, %.1
+  %.2293 = add nsw i64 %spec.select, %.1
   br label %155
 
-.thread256:                                       ; preds = %145, %.thread260
-  %153 = phi i64 [ %.pre246, %.thread260 ], [ %.pre247, %145 ]
-  %154 = phi i64 [ %.262, %.thread260 ], [ 0, %145 ]
+.thread282:                                       ; preds = %145, %.thread286
+  %153 = phi i64 [ %.pre246, %.thread286 ], [ %.pre247, %145 ]
+  %154 = phi i64 [ %.288, %.thread286 ], [ 0, %145 ]
   %.2 = add nsw i64 %154, %.1
   %.not199 = icmp eq i64 %153, -9223372036854775808
-  br i1 %.not199, label %.thread256.thread, label %155
+  br i1 %.not199, label %.thread282.thread, label %155
 
-155:                                              ; preds = %.thread266, %.thread256
-  %.2269 = phi i64 [ %.2267, %.thread266 ], [ %.2, %.thread256 ]
-  %156 = phi i64 [ %.pre247, %.thread266 ], [ %153, %.thread256 ]
+155:                                              ; preds = %.thread292, %.thread282
+  %.2295 = phi i64 [ %.2293, %.thread292 ], [ %.2, %.thread282 ]
+  %156 = phi i64 [ %.pre247, %.thread292 ], [ %153, %.thread282 ]
   %157 = load i64, ptr %69, align 8
   %158 = call i64 @av_rescale_q(i64 noundef %156, i64 %157, i64 4294967296000001) #14
-  br label %.thread256.thread
+  br label %.thread282.thread
 
-.thread256.thread:                                ; preds = %149, %155, %.thread256
-  %.not199272 = phi i1 [ false, %155 ], [ true, %.thread256 ], [ true, %149 ]
-  %.2270 = phi i64 [ %.2269, %155 ], [ %.2, %.thread256 ], [ %.1, %149 ]
-  %159 = phi i64 [ %156, %155 ], [ -9223372036854775808, %.thread256 ], [ -9223372036854775808, %149 ]
-  %.1168 = phi i64 [ %158, %155 ], [ %.0167, %.thread256 ], [ %.0167, %149 ]
+.thread282.thread:                                ; preds = %149, %155, %.thread282
+  %.not199298 = phi i1 [ false, %155 ], [ true, %.thread282 ], [ true, %149 ]
+  %.2296 = phi i64 [ %.2295, %155 ], [ %.2, %.thread282 ], [ %.1, %149 ]
+  %159 = phi i64 [ %156, %155 ], [ -9223372036854775808, %.thread282 ], [ -9223372036854775808, %149 ]
+  %.1168 = phi i64 [ %158, %155 ], [ %.0167, %.thread282 ], [ %.0167, %149 ]
   %160 = load i32, ptr %22, align 4, !tbaa !44
   %161 = load i32, ptr %67, align 8, !tbaa !77
   %162 = icmp eq i32 %160, %161
   br i1 %162, label %163, label %286
 
-163:                                              ; preds = %.thread256.thread
+163:                                              ; preds = %.thread282.thread
   %164 = load i32, ptr %70, align 8, !tbaa !78
   %165 = and i32 %164, 1
   %.not200 = icmp eq i32 %165, 0
@@ -530,7 +530,7 @@ define internal i32 @seg_write_packet(ptr noundef %0, ptr noundef %1) #0 {
   br i1 %.not204, label %177, label %188
 
 177:                                              ; preds = %175
-  br i1 %.not199272, label %286, label %178
+  br i1 %.not199298, label %286, label %178
 
 178:                                              ; preds = %177
   %179 = load i64, ptr %75, align 8, !tbaa !83
@@ -541,7 +541,7 @@ define internal i32 @seg_write_packet(ptr noundef %0, ptr noundef %1) #0 {
 
 182:                                              ; preds = %178
   %183 = load i64, ptr %77, align 8, !tbaa !85
-  %184 = sub nsw i64 %.2270, %183
+  %184 = sub nsw i64 %.2296, %183
   %185 = load i64, ptr %69, align 8
   %186 = call i32 @av_compare_ts(i64 noundef %159, i64 %185, i64 noundef %184, i64 4294967296000001) #13
   %187 = icmp sgt i32 %186, -1
@@ -727,7 +727,7 @@ define internal i32 @seg_write_packet(ptr noundef %0, ptr noundef %1) #0 {
 .backedge:                                        ; preds = %284, %263
   br label %87
 
-286:                                              ; preds = %280, %282, %284, %182, %178, %177, %171, %166, %.thread256.thread
+286:                                              ; preds = %280, %282, %284, %182, %178, %177, %171, %166, %.thread282.thread
   %287 = load i32, ptr %22, align 4, !tbaa !44
   %288 = load i32, ptr %67, align 8, !tbaa !77
   %289 = icmp eq i32 %287, %288
@@ -1419,31 +1419,31 @@ parse_frames.exit:                                ; preds = %134, %.preheader.i1
   %.not151 = icmp ne i32 %173, 0
   %.not152 = icmp eq i32 %171, 2
   %or.cond = or i1 %.not151, %.not152
-  br i1 %or.cond, label %.thread228, label %174
+  br i1 %or.cond, label %.thread256, label %174
 
 .thread:                                          ; preds = %164
   store i32 2, ptr %156, align 8, !tbaa !118
-  br label %.thread228
+  br label %.thread256
 
 174:                                              ; preds = %170
   %175 = call fastcc i32 @segment_list_open(ptr noundef %0)
   %176 = icmp slt i32 %175, 0
   br i1 %176, label %parse_frames.exit.thread, label %185
 
-.thread228:                                       ; preds = %.thread, %170
+.thread256:                                       ; preds = %.thread, %170
   %177 = load ptr, ptr %153, align 8, !tbaa !117
   %178 = call ptr @avio_find_protocol_name(ptr noundef %177) #13
   %.not153 = icmp eq ptr %178, null
   br i1 %.not153, label %182, label %179
 
-179:                                              ; preds = %.thread228
+179:                                              ; preds = %.thread256
   %180 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %178, ptr noundef nonnull dereferenceable(5) @.str.129) #15
   %.not154 = icmp eq i32 %180, 0
   %181 = zext i1 %.not154 to i32
   br label %182
 
-182:                                              ; preds = %179, %.thread228
-  %183 = phi i32 [ 0, %.thread228 ], [ %181, %179 ]
+182:                                              ; preds = %179, %.thread256
+  %183 = phi i32 [ 0, %.thread256 ], [ %181, %179 ]
   %184 = getelementptr inbounds nuw i8, ptr %8, i64 288
   store i32 %183, ptr %184, align 8, !tbaa !120
   br label %185

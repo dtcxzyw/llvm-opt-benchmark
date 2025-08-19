@@ -1476,8 +1476,8 @@ add_cql_uuid.exit:                                ; preds = %377
   %.not625 = icmp ne i32 %520, 0
   %521 = load i32, ptr %20, align 4
   %522 = icmp sgt i32 %521, 0
-  %or.cond735 = select i1 %.not625, i1 %522, i1 false
-  br i1 %or.cond735, label %.lr.ph686, label %.loopexit
+  %or.cond764 = select i1 %.not625, i1 %522, i1 false
+  br i1 %or.cond764, label %.lr.ph686, label %.loopexit
 
 .lr.ph686:                                        ; preds = %518
   %523 = add i32 %507, 4
@@ -2801,21 +2801,21 @@ add_cql_uuid.exit:                                ; preds = %114
 
 127:                                              ; preds = %45
   %128 = load i32, ptr %10, align 4
-  %switch.tableidx312 = add i32 %128, -1
-  %129 = icmp ult i32 %switch.tableidx312, 8
-  br i1 %129, label %switch.lookup311, label %add_varint_item.exit231
+  %switch.tableidx334 = add i32 %128, -1
+  %129 = icmp ult i32 %switch.tableidx334, 8
+  br i1 %129, label %switch.lookup333, label %add_varint_item.exit231
 
-switch.lookup311:                                 ; preds = %127
-  %130 = zext nneg i32 %switch.tableidx312 to i64
-  %switch.gep313 = getelementptr inbounds nuw [8 x ptr], ptr @switch.table.parse_value.3, i64 0, i64 %130
-  %switch.load314 = load ptr, ptr %switch.gep313, align 8
-  %131 = load i32, ptr %switch.load314, align 4
+switch.lookup333:                                 ; preds = %127
+  %130 = zext nneg i32 %switch.tableidx334 to i64
+  %switch.gep335 = getelementptr inbounds nuw [8 x ptr], ptr @switch.table.parse_value.3, i64 0, i64 %130
+  %switch.load336 = load ptr, ptr %switch.gep335, align 8
+  %131 = load i32, ptr %switch.load336, align 4
   %132 = call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %131, ptr noundef %2, i32 noundef %20, i32 noundef %128, i32 noundef 0)
   %.pre = load i32, ptr %10, align 4
   br label %add_varint_item.exit231
 
-add_varint_item.exit231:                          ; preds = %127, %switch.lookup311
-  %133 = phi i32 [ %128, %127 ], [ %.pre, %switch.lookup311 ]
+add_varint_item.exit231:                          ; preds = %127, %switch.lookup333
+  %133 = phi i32 [ %128, %127 ], [ %.pre, %switch.lookup333 ]
   %134 = add i32 %133, %20
   br label %.loopexit
 
@@ -2914,8 +2914,8 @@ add_cql_uuid.exit236:                             ; preds = %148
 186:                                              ; preds = %178
   %187 = add i32 %4, 8
   %188 = load i32, ptr %3, align 4
-  %.not294 = icmp eq i32 %181, 0
-  br i1 %.not294, label %.loopexit, label %.lr.ph
+  %.not316 = icmp eq i32 %181, 0
+  br i1 %.not316, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %186, %.lr.ph
   %.2267 = phi i32 [ %189, %.lr.ph ], [ %187, %186 ]

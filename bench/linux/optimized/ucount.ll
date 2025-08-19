@@ -882,8 +882,8 @@ define dso_local noundef zeroext i1 @is_rlimit_overlimit(ptr noundef %0, i32 nou
   %12 = load volatile i64, ptr %11, align 8
   %13 = icmp slt i64 %12, 0
   %14 = icmp sgt i64 %12, %8
-  %.not7 = select i1 %13, i1 true, i1 %14
-  br i1 %.not7, label %.critedge, label %15
+  %.not8 = select i1 %13, i1 true, i1 %14
+  br i1 %.not8, label %.critedge, label %15
 
 15:                                               ; preds = %7
   %16 = getelementptr inbounds nuw i8, ptr %9, i64 16
@@ -897,7 +897,7 @@ define dso_local noundef zeroext i1 @is_rlimit_overlimit(ptr noundef %0, i32 nou
   br i1 %.not4, label %.critedge, label %7, !llvm.loop !40
 
 .critedge:                                        ; preds = %7, %15, %3
-  %23 = phi i1 [ false, %3 ], [ %.not7, %15 ], [ %.not7, %7 ]
+  %23 = phi i1 [ false, %3 ], [ %.not8, %15 ], [ %.not8, %7 ]
   ret i1 %23
 }
 

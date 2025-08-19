@@ -521,7 +521,7 @@ vec_erase_ptr_at.exit:                            ; preds = %.lr.ph.i, %13, %15
   %32 = getelementptr inbounds i8, ptr %30, i64 -8
   %33 = load i32, ptr %32, align 4
   %.not59 = icmp eq i32 %33, 0
-  br i1 %.not59, label %._crit_edge.thread73, label %.lr.ph57.preheader
+  br i1 %.not59, label %._crit_edge.thread80, label %.lr.ph57.preheader
 
 .lr.ph57.preheader:                               ; preds = %31
   %wide.trip.count65 = zext i32 %33 to i64
@@ -542,7 +542,7 @@ vec_erase_ptr_at.exit:                            ; preds = %.lr.ph.i, %13, %15
 ._crit_edge:                                      ; preds = %34
   %.pre = load ptr, ptr %29, align 8
   %.not.i52 = icmp eq ptr %.pre, null
-  br i1 %.not.i52, label %._crit_edge.thread, label %._crit_edge.thread73
+  br i1 %.not.i52, label %._crit_edge.thread, label %._crit_edge.thread80
 
 ._crit_edge.thread:                               ; preds = %.loopexit53, %._crit_edge
   %38 = tail call ptr @calloc_arena(i64 noundef 72) #17
@@ -550,16 +550,16 @@ vec_erase_ptr_at.exit:                            ; preds = %.lr.ph.i, %13, %15
   store i32 8, ptr %39, align 4
   br label %42
 
-._crit_edge.thread73:                             ; preds = %31, %._crit_edge
+._crit_edge.thread80:                             ; preds = %31, %._crit_edge
   %40 = phi ptr [ %.pre, %._crit_edge ], [ %30, %31 ]
   %41 = getelementptr inbounds i8, ptr %40, i64 -8
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %40, i64 -4
   %.pre.i = load i32, ptr %.phi.trans.insert.i, align 4
   br label %42
 
-42:                                               ; preds = %._crit_edge.thread73, %._crit_edge.thread
-  %43 = phi i32 [ %.pre.i, %._crit_edge.thread73 ], [ 8, %._crit_edge.thread ]
-  %.0.i = phi ptr [ %41, %._crit_edge.thread73 ], [ %38, %._crit_edge.thread ]
+42:                                               ; preds = %._crit_edge.thread80, %._crit_edge.thread
+  %43 = phi i32 [ %.pre.i, %._crit_edge.thread80 ], [ 8, %._crit_edge.thread ]
+  %.0.i = phi ptr [ %41, %._crit_edge.thread80 ], [ %38, %._crit_edge.thread ]
   %44 = load i32, ptr %.0.i, align 4
   %45 = icmp eq i32 %44, %43
   br i1 %45, label %46, label %60

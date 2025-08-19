@@ -892,11 +892,11 @@ Abc_Clock.exit505:                                ; preds = %._crit_edge581, %40
   %441 = shl nuw nsw i64 %440, 32
   %442 = zext nneg i32 %435 to i64
   %wide.trip.count709 = zext nneg i32 %435 to i64
-  %invariant.op815 = or disjoint i64 %441, %440
-  %invariant.op817 = or disjoint i64 %441, %440
-  %invariant.op819 = or disjoint i64 %441, %440
-  %invariant.op821 = or disjoint i64 %441, %440
-  %invariant.op823 = or disjoint i64 %441, %440
+  %invariant.op836 = or disjoint i64 %441, %440
+  %invariant.op838 = or disjoint i64 %441, %440
+  %invariant.op840 = or disjoint i64 %441, %440
+  %invariant.op842 = or disjoint i64 %441, %440
+  %invariant.op844 = or disjoint i64 %441, %440
   br label %506
 
 443:                                              ; preds = %.lr.ph593, %._crit_edge589
@@ -913,11 +913,11 @@ Abc_Clock.exit505:                                ; preds = %._crit_edge581, %40
 .preheader.us.preheader:                          ; preds = %443
   %449 = and i64 %indvars.iv688, 255
   %wide.trip.count686 = zext nneg i32 %447 to i64
-  %invariant.op805 = or disjoint i64 %438, %449
-  %invariant.op807 = or disjoint i64 %438, %449
-  %invariant.op809 = or disjoint i64 %438, %449
-  %invariant.op811 = or disjoint i64 %438, %449
-  %invariant.op813 = or disjoint i64 %438, %449
+  %invariant.op826 = or disjoint i64 %438, %449
+  %invariant.op828 = or disjoint i64 %438, %449
+  %invariant.op830 = or disjoint i64 %438, %449
+  %invariant.op832 = or disjoint i64 %438, %449
+  %invariant.op834 = or disjoint i64 %438, %449
   br label %.preheader.us
 
 .preheader.us:                                    ; preds = %.preheader.us.preheader, %._crit_edge585.us
@@ -927,11 +927,11 @@ Abc_Clock.exit505:                                ; preds = %._crit_edge581, %40
   %451 = shl i64 %indvars.iv683, 8
   %452 = and i64 %451, 1048320
   %453 = sext i32 %.3588.us to i64
-  %invariant.op806 = or disjoint i64 %invariant.op805, %452
-  %invariant.op808 = or disjoint i64 %invariant.op807, %452
-  %invariant.op810 = or disjoint i64 %invariant.op809, %452
-  %invariant.op812 = or disjoint i64 %invariant.op811, %452
-  %invariant.op814 = or disjoint i64 %invariant.op813, %452
+  %invariant.op827 = or disjoint i64 %invariant.op826, %452
+  %invariant.op829 = or disjoint i64 %invariant.op828, %452
+  %invariant.op831 = or disjoint i64 %invariant.op830, %452
+  %invariant.op833 = or disjoint i64 %invariant.op832, %452
+  %invariant.op835 = or disjoint i64 %invariant.op834, %452
   br label %454
 
 454:                                              ; preds = %.preheader.us, %454
@@ -948,8 +948,8 @@ Abc_Clock.exit505:                                ; preds = %._crit_edge581, %40
   %462 = and i64 %461, -4503599627370496
   %463 = shl i64 %indvars.iv676, 40
   %464 = and i64 %463, 4502500115742720
-  %.reass755.reass = or disjoint i64 %462, %invariant.op806
-  %465 = or disjoint i64 %.reass755.reass, %464
+  %.reass776.reass = or disjoint i64 %462, %invariant.op827
+  %465 = or disjoint i64 %.reass776.reass, %464
   store i64 %465, ptr %459, align 8
   %466 = load i64, ptr %450, align 8, !tbaa !14
   %467 = xor i64 %466, -1
@@ -960,8 +960,8 @@ Abc_Clock.exit505:                                ; preds = %._crit_edge581, %40
   store i64 %469, ptr %471, align 8, !tbaa !14
   %472 = load i64, ptr %470, align 8
   %473 = and i64 %472, -4503599627370496
-  %.reass758.reass = or disjoint i64 %473, %invariant.op808
-  %474 = or disjoint i64 %.reass758.reass, %464
+  %.reass779.reass = or disjoint i64 %473, %invariant.op829
+  %474 = or disjoint i64 %.reass779.reass, %464
   %475 = or disjoint i64 %474, 1048576
   store i64 %475, ptr %470, align 8
   %476 = load i64, ptr %450, align 8, !tbaa !14
@@ -973,8 +973,8 @@ Abc_Clock.exit505:                                ; preds = %._crit_edge581, %40
   store i64 %479, ptr %481, align 8, !tbaa !14
   %482 = load i64, ptr %480, align 8
   %483 = and i64 %482, -4503599627370496
-  %.reass761.reass = or disjoint i64 %483, %invariant.op810
-  %484 = or disjoint i64 %.reass761.reass, %464
+  %.reass782.reass = or disjoint i64 %483, %invariant.op831
+  %484 = or disjoint i64 %.reass782.reass, %464
   %485 = or disjoint i64 %484, 2097152
   store i64 %485, ptr %480, align 8
   %486 = load i64, ptr %450, align 8, !tbaa !14
@@ -986,8 +986,8 @@ Abc_Clock.exit505:                                ; preds = %._crit_edge581, %40
   store i64 %488, ptr %490, align 8, !tbaa !14
   %491 = load i64, ptr %489, align 8
   %492 = and i64 %491, -4503599627370496
-  %.reass764.reass = or disjoint i64 %492, %invariant.op812
-  %493 = or disjoint i64 %.reass764.reass, %464
+  %.reass785.reass = or disjoint i64 %492, %invariant.op833
+  %493 = or disjoint i64 %.reass785.reass, %464
   %494 = or disjoint i64 %493, 3145728
   store i64 %494, ptr %489, align 8
   %495 = load i64, ptr %450, align 8, !tbaa !14
@@ -999,8 +999,8 @@ Abc_Clock.exit505:                                ; preds = %._crit_edge581, %40
   %500 = load i64, ptr %498, align 8
   %501 = and i64 %500, -4503599627370496
   %indvars.iv.next675 = add nsw i64 %indvars.iv674, 5
-  %.reass767.reass = or disjoint i64 %501, %invariant.op814
-  %502 = or disjoint i64 %.reass767.reass, %464
+  %.reass788.reass = or disjoint i64 %501, %invariant.op835
+  %502 = or disjoint i64 %.reass788.reass, %464
   %503 = or disjoint i64 %502, 4194304
   store i64 %503, ptr %498, align 8
   %indvars.iv.next677 = add nuw nsw i64 %indvars.iv676, 1
@@ -1042,11 +1042,11 @@ Abc_Clock.exit505:                                ; preds = %._crit_edge581, %40
   %509 = shl i64 %indvars.iv706, 8
   %510 = and i64 %509, 1048320
   %511 = sext i32 %.5609 to i64
-  %invariant.op816 = or disjoint i64 %invariant.op815, %510
-  %invariant.op818 = or disjoint i64 %invariant.op817, %510
-  %invariant.op820 = or disjoint i64 %invariant.op819, %510
-  %invariant.op822 = or disjoint i64 %invariant.op821, %510
-  %invariant.op824 = or disjoint i64 %invariant.op823, %510
+  %invariant.op837 = or disjoint i64 %invariant.op836, %510
+  %invariant.op839 = or disjoint i64 %invariant.op838, %510
+  %invariant.op841 = or disjoint i64 %invariant.op840, %510
+  %invariant.op843 = or disjoint i64 %invariant.op842, %510
+  %invariant.op845 = or disjoint i64 %invariant.op844, %510
   br label %512
 
 512:                                              ; preds = %.lr.ph606, %512
@@ -1063,8 +1063,8 @@ Abc_Clock.exit505:                                ; preds = %._crit_edge581, %40
   %520 = and i64 %519, -4503599627370496
   %521 = shl i64 %indvars.iv699, 40
   %522 = and i64 %521, 4502500115742720
-  %.reass770.reass = or disjoint i64 %520, %invariant.op816
-  %523 = or disjoint i64 %.reass770.reass, %522
+  %.reass791.reass = or disjoint i64 %520, %invariant.op837
+  %523 = or disjoint i64 %.reass791.reass, %522
   store i64 %523, ptr %517, align 8
   %524 = load i64, ptr %508, align 8, !tbaa !14
   %525 = xor i64 %524, -1
@@ -1075,8 +1075,8 @@ Abc_Clock.exit505:                                ; preds = %._crit_edge581, %40
   store i64 %527, ptr %529, align 8, !tbaa !14
   %530 = load i64, ptr %528, align 8
   %531 = and i64 %530, -4503599627370496
-  %.reass773.reass = or disjoint i64 %531, %invariant.op818
-  %532 = or disjoint i64 %.reass773.reass, %522
+  %.reass794.reass = or disjoint i64 %531, %invariant.op839
+  %532 = or disjoint i64 %.reass794.reass, %522
   %533 = or disjoint i64 %532, 1048576
   store i64 %533, ptr %528, align 8
   %534 = load i64, ptr %508, align 8, !tbaa !14
@@ -1088,8 +1088,8 @@ Abc_Clock.exit505:                                ; preds = %._crit_edge581, %40
   store i64 %537, ptr %539, align 8, !tbaa !14
   %540 = load i64, ptr %538, align 8
   %541 = and i64 %540, -4503599627370496
-  %.reass776.reass = or disjoint i64 %541, %invariant.op820
-  %542 = or disjoint i64 %.reass776.reass, %522
+  %.reass797.reass = or disjoint i64 %541, %invariant.op841
+  %542 = or disjoint i64 %.reass797.reass, %522
   %543 = or disjoint i64 %542, 2097152
   store i64 %543, ptr %538, align 8
   %544 = load i64, ptr %508, align 8, !tbaa !14
@@ -1101,8 +1101,8 @@ Abc_Clock.exit505:                                ; preds = %._crit_edge581, %40
   store i64 %546, ptr %548, align 8, !tbaa !14
   %549 = load i64, ptr %547, align 8
   %550 = and i64 %549, -4503599627370496
-  %.reass779.reass = or disjoint i64 %550, %invariant.op822
-  %551 = or disjoint i64 %.reass779.reass, %522
+  %.reass800.reass = or disjoint i64 %550, %invariant.op843
+  %551 = or disjoint i64 %.reass800.reass, %522
   %552 = or disjoint i64 %551, 3145728
   store i64 %552, ptr %547, align 8
   %553 = load i64, ptr %508, align 8, !tbaa !14
@@ -1114,8 +1114,8 @@ Abc_Clock.exit505:                                ; preds = %._crit_edge581, %40
   %558 = load i64, ptr %556, align 8
   %559 = and i64 %558, -4503599627370496
   %indvars.iv.next696 = add nsw i64 %indvars.iv695, 5
-  %.reass782.reass = or disjoint i64 %559, %invariant.op824
-  %560 = or disjoint i64 %.reass782.reass, %522
+  %.reass803.reass = or disjoint i64 %559, %invariant.op845
+  %560 = or disjoint i64 %.reass803.reass, %522
   %561 = or disjoint i64 %560, 4194304
   store i64 %561, ptr %556, align 8
   %indvars.iv.next700 = add nuw nsw i64 %indvars.iv699, 1
@@ -1380,7 +1380,7 @@ Vec_IntPush.exit514:                              ; preds = %.Vec_IntGrow.exit10
   %738 = load i32, ptr %737, align 4, !tbaa !28
   %739 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.16, i32 noundef %738)
   %740 = call noalias ptr @calloc(i64 noundef %422, i64 noundef 16) #24
-  br i1 %562, label %.lr.ph620.preheader, label %.loopexit745
+  br i1 %562, label %.lr.ph620.preheader, label %.loopexit766
 
 .lr.ph620.preheader:                              ; preds = %._crit_edge616
   %741 = zext nneg i32 %732 to i64
@@ -1390,7 +1390,7 @@ Vec_IntPush.exit514:                              ; preds = %.Vec_IntGrow.exit10
 742:                                              ; preds = %.lr.ph620
   %indvars.iv.next719 = add nsw i64 %indvars.iv718, -1
   %exitcond724.not = icmp eq i64 %indvars.iv.next717, %wide.trip.count723
-  br i1 %exitcond724.not, label %.loopexit745, label %.lr.ph620, !llvm.loop !41
+  br i1 %exitcond724.not, label %.loopexit766, label %.lr.ph620, !llvm.loop !41
 
 .lr.ph620:                                        ; preds = %.lr.ph620.preheader, %742
   %indvars.iv718 = phi i64 [ %741, %.lr.ph620.preheader ], [ %indvars.iv.next719, %742 ]
@@ -1403,9 +1403,9 @@ Vec_IntPush.exit514:                              ; preds = %.Vec_IntGrow.exit10
   %747 = getelementptr inbounds %struct.Bdc_Nod_t_, ptr %420, i64 %746
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %743, ptr noundef nonnull align 8 dereferenceable(16) %747, i64 16, i1 false), !tbaa.struct !42
   %748 = icmp eq i64 %indvars.iv.next717, %424
-  br i1 %748, label %.loopexit745, label %742
+  br i1 %748, label %.loopexit766, label %742
 
-.loopexit745:                                     ; preds = %742, %.lr.ph620, %._crit_edge616
+.loopexit766:                                     ; preds = %742, %.lr.ph620, %._crit_edge616
   %.4446536 = phi i32 [ 0, %._crit_edge616 ], [ %2, %.lr.ph620 ], [ %.5.lcssa, %742 ]
   call void @free(ptr noundef nonnull %731) #22
   %749 = load i32, ptr %77, align 4, !tbaa !27
@@ -1413,11 +1413,11 @@ Vec_IntPush.exit514:                              ; preds = %.Vec_IntGrow.exit10
   %751 = icmp eq i32 %749, %750
   br i1 %751, label %752, label %.Vec_PtrGrow.exit11_crit_edge.i515
 
-.Vec_PtrGrow.exit11_crit_edge.i515:               ; preds = %.loopexit745
+.Vec_PtrGrow.exit11_crit_edge.i515:               ; preds = %.loopexit766
   %.pre.i517 = load ptr, ptr %79, align 8, !tbaa !9
   br label %Vec_PtrPush.exit521
 
-752:                                              ; preds = %.loopexit745
+752:                                              ; preds = %.loopexit766
   %753 = icmp slt i32 %749, 16
   br i1 %753, label %754, label %761
 
@@ -2067,14 +2067,14 @@ Bdc_SpfdHashLookup.exit:                          ; preds = %Bdc_SpfdHashLookup.
   br label %Vec_WrdPush.exit.sink.split
 
 Vec_WrdPush.exit.sink.split:                      ; preds = %80, %82, %72, %74
-  %.sink318 = phi ptr [ %73, %72 ], [ %75, %74 ], [ %81, %80 ], [ %83, %82 ]
+  %.sink343 = phi ptr [ %73, %72 ], [ %75, %74 ], [ %81, %80 ], [ %83, %82 ]
   %.sink = phi i32 [ 16, %72 ], [ 16, %74 ], [ %77, %80 ], [ %77, %82 ]
-  store ptr %.sink318, ptr %24, align 8, !tbaa !56
+  store ptr %.sink343, ptr %24, align 8, !tbaa !56
   store i32 %.sink, ptr %22, align 8, !tbaa !53
   br label %Vec_WrdPush.exit
 
 Vec_WrdPush.exit:                                 ; preds = %Vec_WrdPush.exit.sink.split, %Bdc_SpfdHashLookup.exit
-  %.pre.i179290 = phi ptr [ %33, %Bdc_SpfdHashLookup.exit ], [ %.sink318, %Vec_WrdPush.exit.sink.split ]
+  %.pre.i179290 = phi ptr [ %33, %Bdc_SpfdHashLookup.exit ], [ %.sink343, %Vec_WrdPush.exit.sink.split ]
   %84 = add nsw i32 %66, 1
   store i32 %84, ptr %23, align 4, !tbaa !57
   %85 = sext i32 %66 to i64
@@ -2342,8 +2342,8 @@ Abc_Clock.exit197:                                ; preds = %155, %174
   %200 = and i32 %199, 1
   %201 = load i64, ptr %314, align 8, !tbaa !50
   %202 = and i32 %199, 1
-  %sext319 = sub nsw i32 0, %202
-  %203 = sext i32 %sext319 to i64
+  %sext344 = sub nsw i32 0, %202
+  %203 = sext i32 %sext344 to i64
   %204 = xor i64 %201, %203
   %205 = lshr i32 %.0157260.us, 2
   %.not166.not.us = icmp eq i32 %.0157260.us, 4
@@ -3284,14 +3284,14 @@ define void @Bdc_SpfdDecomposeTest3() local_unnamed_addr #3 {
   br label %Vec_WrdPush.exit.sink.split
 
 Vec_WrdPush.exit.sink.split:                      ; preds = %27, %29, %19, %21
-  %.sink96 = phi ptr [ %20, %19 ], [ %22, %21 ], [ %28, %27 ], [ %30, %29 ]
+  %.sink103 = phi ptr [ %20, %19 ], [ %22, %21 ], [ %28, %27 ], [ %30, %29 ]
   %.sink = phi i32 [ 16, %19 ], [ 16, %21 ], [ %24, %27 ], [ %24, %29 ]
-  store ptr %.sink96, ptr %9, align 8, !tbaa !56
+  store ptr %.sink103, ptr %9, align 8, !tbaa !56
   store i32 %.sink, ptr %6, align 8, !tbaa !53
   br label %Vec_WrdPush.exit
 
 Vec_WrdPush.exit:                                 ; preds = %Vec_WrdPush.exit.sink.split, %10
-  %.pre.i90 = phi ptr [ %11, %10 ], [ %.sink96, %Vec_WrdPush.exit.sink.split ]
+  %.pre.i90 = phi ptr [ %11, %10 ], [ %.sink103, %Vec_WrdPush.exit.sink.split ]
   %31 = phi i32 [ %12, %10 ], [ %.sink, %Vec_WrdPush.exit.sink.split ]
   %32 = add nuw nsw i32 %13, 1
   store i32 %32, ptr %7, align 4, !tbaa !57
@@ -3787,14 +3787,14 @@ define void @Bdc_SpfdDecomposeTest() local_unnamed_addr #3 {
   br label %Vec_WrdPush.exit.sink.split
 
 Vec_WrdPush.exit.sink.split:                      ; preds = %27, %29, %19, %21
-  %.sink124 = phi ptr [ %20, %19 ], [ %22, %21 ], [ %28, %27 ], [ %30, %29 ]
+  %.sink131 = phi ptr [ %20, %19 ], [ %22, %21 ], [ %28, %27 ], [ %30, %29 ]
   %.sink = phi i32 [ 16, %19 ], [ 16, %21 ], [ %24, %27 ], [ %24, %29 ]
-  store ptr %.sink124, ptr %9, align 8, !tbaa !56
+  store ptr %.sink131, ptr %9, align 8, !tbaa !56
   store i32 %.sink, ptr %6, align 8, !tbaa !53
   br label %Vec_WrdPush.exit
 
 Vec_WrdPush.exit:                                 ; preds = %Vec_WrdPush.exit.sink.split, %10
-  %.pre.i118 = phi ptr [ %11, %10 ], [ %.sink124, %Vec_WrdPush.exit.sink.split ]
+  %.pre.i118 = phi ptr [ %11, %10 ], [ %.sink131, %Vec_WrdPush.exit.sink.split ]
   %31 = phi i32 [ %12, %10 ], [ %.sink, %Vec_WrdPush.exit.sink.split ]
   %32 = add nuw nsw i32 %13, 1
   store i32 %32, ptr %7, align 4, !tbaa !57

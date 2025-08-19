@@ -1126,14 +1126,14 @@ define void @_ZN6icu_7716RBBITableBuilder15buildStateTableEv(ptr noundef nonnull
 47:                                               ; preds = %45
   %48 = tail call noundef ptr @_ZN6icu_777UMemorynwEm(i64 noundef 40) #13
   %49 = icmp eq ptr %48, null
-  br i1 %49, label %.thread226, label %50
+  br i1 %49, label %.thread238, label %50
 
 50:                                               ; preds = %47
   %51 = load ptr, ptr %2, align 8, !tbaa !15
   invoke void @_ZN6icu_777UVectorC1ER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(40) %48, ptr noundef nonnull align 4 dereferenceable(4) %51)
           to label %56 unwind label %54
 
-.thread226:                                       ; preds = %47
+.thread238:                                       ; preds = %47
   %52 = getelementptr inbounds nuw i8, ptr %39, i64 32
   store ptr null, ptr %52, align 8, !tbaa !64
   %53 = load ptr, ptr %2, align 8, !tbaa !15
@@ -1367,12 +1367,12 @@ define void @_ZN6icu_7716RBBITableBuilder15buildStateTableEv(ptr noundef nonnull
   br i1 %163, label %.lr.ph.backedge, label %.thread158
 
 .lr.ph.backedge:                                  ; preds = %158, %.thread155.loopexit
-  %.be284 = phi ptr [ %160, %158 ], [ %.pre221, %.thread155.loopexit ]
+  %.be296 = phi ptr [ %160, %158 ], [ %.pre221, %.thread155.loopexit ]
   %.098187.be = phi i32 [ %159, %158 ], [ 1, %.thread155.loopexit ]
   br label %.lr.ph, !llvm.loop !71
 
 .lr.ph:                                           ; preds = %.thread155.preheader.split, %.lr.ph.backedge
-  %164 = phi ptr [ %.be284, %.lr.ph.backedge ], [ %70, %.thread155.preheader.split ]
+  %164 = phi ptr [ %.be296, %.lr.ph.backedge ], [ %70, %.thread155.preheader.split ]
   %.098187 = phi i32 [ %.098187.be, %.lr.ph.backedge ], [ 1, %.thread155.preheader.split ]
   %165 = tail call noundef ptr @_ZNK6icu_777UVector9elementAtEi(ptr noundef nonnull align 8 dereferenceable(40) %164, i32 noundef %.098187)
   %166 = load i8, ptr %165, align 8, !tbaa !67
@@ -1387,8 +1387,8 @@ define void @_ZN6icu_7716RBBITableBuilder15buildStateTableEv(ptr noundef nonnull
   %168 = icmp sgt i32 %.pre222, 1
   br i1 %168, label %.lr.ph.backedge, label %.thread158
 
-.thread165.sink.split:                            ; preds = %._crit_edge197.us, %134, %.thread226
-  %.sink.sink = phi ptr [ %53, %.thread226 ], [ %137, %134 ], [ %92, %._crit_edge197.us ]
+.thread165.sink.split:                            ; preds = %._crit_edge197.us, %134, %.thread238
+  %.sink.sink = phi ptr [ %53, %.thread238 ], [ %137, %134 ], [ %92, %._crit_edge197.us ]
   store i32 7, ptr %.sink.sink, align 4, !tbaa !17
   br label %.thread165
 
@@ -1410,9 +1410,9 @@ define void @_ZN6icu_7716RBBITableBuilder15buildStateTableEv(ptr noundef nonnull
   ret void
 
 170:                                              ; preds = %.split.us, %.split204.us, %54, %43, %25, %16
-  %.lcssa242.sink = phi ptr [ %90, %.split.us ], [ %135, %.split204.us ], [ %48, %54 ], [ %39, %43 ], [ %19, %25 ], [ %12, %16 ]
+  %.lcssa254.sink = phi ptr [ %90, %.split.us ], [ %135, %.split204.us ], [ %48, %54 ], [ %39, %43 ], [ %19, %25 ], [ %12, %16 ]
   %.pn.pn = phi { ptr, i32 } [ %156, %.split.us ], [ %157, %.split204.us ], [ %55, %54 ], [ %44, %43 ], [ %26, %25 ], [ %17, %16 ]
-  tail call void @_ZN6icu_777UMemorydlEPv(ptr noundef nonnull %.lcssa242.sink) #13
+  tail call void @_ZN6icu_777UMemorydlEPv(ptr noundef nonnull %.lcssa254.sink) #13
   resume { ptr, i32 } %.pn.pn
 }
 
@@ -1487,11 +1487,11 @@ define void @_ZN6icu_7716RBBITableBuilder17mapLookAheadRulesEv(ptr noundef nonnu
   %40 = icmp sgt i32 %39, 0
   br i1 %40, label %.lr.ph.outer, label %.loopexit
 
-.lr.ph.outer:                                     ; preds = %33, %.thread53
-  %.ph = phi ptr [ %68, %.thread53 ], [ %37, %33 ]
-  %.03144.ph = phi i32 [ %spec.select, %.thread53 ], [ 0, %33 ]
-  %.03243.ph = phi i1 [ true, %.thread53 ], [ false, %33 ]
-  %.03442.ph = phi i32 [ %67, %.thread53 ], [ 0, %33 ]
+.lr.ph.outer:                                     ; preds = %33, %.thread58
+  %.ph = phi ptr [ %68, %.thread58 ], [ %37, %33 ]
+  %.03144.ph = phi i32 [ %spec.select, %.thread58 ], [ 0, %33 ]
+  %.03243.ph = phi i1 [ true, %.thread58 ], [ false, %33 ]
+  %.03442.ph = phi i32 [ %67, %.thread58 ], [ 0, %33 ]
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %58
@@ -1514,7 +1514,7 @@ define void @_ZN6icu_7716RBBITableBuilder17mapLookAheadRulesEv(ptr noundef nonnu
   %50 = load i32, ptr %49, align 8
   %51 = icmp sgt i32 %50, %46
   %or.cond.i = select i1 %48, i1 %51, i1 false
-  br i1 %or.cond.i, label %52, label %.thread53
+  br i1 %or.cond.i, label %52, label %.thread58
 
 52:                                               ; preds = %44
   %53 = getelementptr inbounds nuw i8, ptr %47, i64 24
@@ -1522,7 +1522,7 @@ define void @_ZN6icu_7716RBBITableBuilder17mapLookAheadRulesEv(ptr noundef nonnu
   %55 = zext nneg i32 %46 to i64
   %56 = getelementptr inbounds nuw i32, ptr %54, i64 %55
   %57 = load i32, ptr %56, align 4, !tbaa !77
-  br label %.thread53
+  br label %.thread58
 
 58:                                               ; preds = %.lr.ph
   %59 = add nuw nsw i32 %.03442, 1
@@ -1532,7 +1532,7 @@ define void @_ZN6icu_7716RBBITableBuilder17mapLookAheadRulesEv(ptr noundef nonnu
   %63 = icmp slt i32 %59, %62
   br i1 %63, label %.lr.ph, label %._crit_edge, !llvm.loop !78
 
-.thread53:                                        ; preds = %52, %44
+.thread58:                                        ; preds = %52, %44
   %64 = phi i32 [ %57, %52 ], [ 0, %44 ]
   %65 = icmp ne i32 %64, 0
   %66 = icmp eq i32 %.03144.ph, 0
@@ -1545,11 +1545,11 @@ define void @_ZN6icu_7716RBBITableBuilder17mapLookAheadRulesEv(ptr noundef nonnu
   %71 = icmp slt i32 %67, %70
   br i1 %71, label %.lr.ph.outer, label %._crit_edge.thread, !llvm.loop !78
 
-._crit_edge.thread:                               ; preds = %.thread53, %._crit_edge
-  %.15760 = phi i32 [ %.03144.ph, %._crit_edge ], [ %spec.select, %.thread53 ]
-  %72 = phi ptr [ %60, %._crit_edge ], [ %68, %.thread53 ]
-  %73 = phi i32 [ %62, %._crit_edge ], [ %70, %.thread53 ]
-  %74 = icmp eq i32 %.15760, 0
+._crit_edge.thread:                               ; preds = %.thread58, %._crit_edge
+  %.16265 = phi i32 [ %.03144.ph, %._crit_edge ], [ %spec.select, %.thread58 ]
+  %72 = phi ptr [ %60, %._crit_edge ], [ %68, %.thread58 ]
+  %73 = phi i32 [ %62, %._crit_edge ], [ %70, %.thread58 ]
+  %74 = icmp eq i32 %.16265, 0
   br i1 %74, label %75, label %78
 
 75:                                               ; preds = %._crit_edge.thread
@@ -1559,7 +1559,7 @@ define void @_ZN6icu_7716RBBITableBuilder17mapLookAheadRulesEv(ptr noundef nonnu
   br label %78
 
 78:                                               ; preds = %75, %._crit_edge.thread
-  %.3 = phi i32 [ %77, %75 ], [ %.15760, %._crit_edge.thread ]
+  %.3 = phi i32 [ %77, %75 ], [ %.16265, %._crit_edge.thread ]
   %79 = icmp sgt i32 %73, 0
   br i1 %79, label %.lr.ph48, label %.loopexit
 
@@ -2703,10 +2703,10 @@ define noundef zeroext i1 @_ZN6icu_7716RBBITableBuilder21findDuplCharClassFromEP
 .split.us.us:                                     ; preds = %22, %.lr.ph.split.us
   %27 = phi i32 [ %26, %22 ], [ %10, %.lr.ph.split.us ]
   %storemerge.in.us.us.pre = load i32, ptr %1, align 4, !tbaa !77
-  %storemerge.us.us66 = add nsw i32 %storemerge.in.us.us.pre, 1
-  store i32 %storemerge.us.us66, ptr %14, align 4, !tbaa !109
-  %.not38.us.us67 = icmp slt i32 %storemerge.us.us66, %27
-  br i1 %.not38.us.us67, label %.preheader.us.us, label %.critedge.split.us.us
+  %storemerge.us.us72 = add nsw i32 %storemerge.in.us.us.pre, 1
+  store i32 %storemerge.us.us72, ptr %14, align 4, !tbaa !109
+  %.not38.us.us73 = icmp slt i32 %storemerge.us.us72, %27
+  br i1 %.not38.us.us73, label %.preheader.us.us, label %.critedge.split.us.us
 
 28:                                               ; preds = %._crit_edge.us.us
   %storemerge.us.us = add nsw i32 %45, 1
@@ -2770,8 +2770,8 @@ _ZNK6icu_779UVector3210elementAtiEi.exit40.us.us: ; preds = %48, %_ZNK6icu_779UV
   br i1 %.not.us.us, label %.loopexit, label %28, !llvm.loop !110
 
 .critedge.split.us.us:                            ; preds = %28, %.split.us.us
-  %.lcssa64 = phi i32 [ %storemerge.in.us.us.pre, %.split.us.us ], [ %33, %28 ]
-  %59 = add nsw i32 %.lcssa64, 1
+  %.lcssa70 = phi i32 [ %storemerge.in.us.us.pre, %.split.us.us ], [ %33, %28 ]
+  %59 = add nsw i32 %.lcssa70, 1
   store i32 %59, ptr %1, align 4, !tbaa !107
   %60 = icmp slt i32 %59, %11
   br i1 %60, label %.lr.ph.split.us, label %.loopexit, !llvm.loop !111
@@ -3078,15 +3078,15 @@ define noundef zeroext i1 @_ZN6icu_7716RBBITableBuilder22findDuplicateSafeStateE
   %17 = getelementptr inbounds nuw i8, ptr %14, i64 10
   %18 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %storemerge.in.pre = load i32, ptr %1, align 4, !tbaa !77
-  %storemerge97 = add nsw i32 %storemerge.in.pre, 1
-  store i32 %storemerge97, ptr %10, align 4, !tbaa !109
-  %.not98 = icmp slt i32 %storemerge97, %6
-  br i1 %.not98, label %.lr.ph100, label %.critedge
+  %storemerge108 = add nsw i32 %storemerge.in.pre, 1
+  store i32 %storemerge108, ptr %10, align 4, !tbaa !109
+  %.not109 = icmp slt i32 %storemerge108, %6
+  br i1 %.not109, label %.lr.ph111, label %.critedge
 
-.lr.ph100:                                        ; preds = %11, %.thread
-  %storemerge99 = phi i32 [ %storemerge, %.thread ], [ %storemerge97, %11 ]
+.lr.ph111:                                        ; preds = %11, %.thread
+  %storemerge110 = phi i32 [ %storemerge, %.thread ], [ %storemerge108, %11 ]
   %19 = load ptr, ptr %3, align 8, !tbaa !28
-  %20 = tail call noundef ptr @_ZNK6icu_777UVector9elementAtEi(ptr noundef nonnull align 8 dereferenceable(40) %19, i32 noundef %storemerge99)
+  %20 = tail call noundef ptr @_ZNK6icu_777UVector9elementAtEi(ptr noundef nonnull align 8 dereferenceable(40) %19, i32 noundef %storemerge110)
   %21 = load i16, ptr %15, align 8, !tbaa !116
   %22 = icmp slt i16 %21, 0
   %23 = ashr i16 %21, 5
@@ -3096,7 +3096,7 @@ define noundef zeroext i1 @_ZN6icu_7716RBBITableBuilder22findDuplicateSafeStateE
   %.not5157 = icmp sgt i32 %26, 0
   br i1 %.not5157, label %_ZNK6icu_7713UnicodeString6charAtEi.exit.lr.ph, label %.critedge52
 
-_ZNK6icu_7713UnicodeString6charAtEi.exit.lr.ph:   ; preds = %.lr.ph100
+_ZNK6icu_7713UnicodeString6charAtEi.exit.lr.ph:   ; preds = %.lr.ph111
   %27 = and i16 %21, 2
   %.not.i.i.i = icmp eq i16 %27, 0
   %28 = load ptr, ptr %18, align 8
@@ -3211,17 +3211,17 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit48:       ; preds = %_ZNK6icu_7713Unicod
   %storemerge = add nsw i32 %storemerge.in74, 1
   store i32 %storemerge, ptr %10, align 4, !tbaa !109
   %.not = icmp slt i32 %storemerge, %6
-  br i1 %.not, label %.lr.ph100, label %.critedge, !llvm.loop !120
+  br i1 %.not, label %.lr.ph111, label %.critedge, !llvm.loop !120
 
 .critedge:                                        ; preds = %.thread, %11
-  %.lcssa93 = phi i32 [ %storemerge.in.pre, %11 ], [ %85, %.thread ]
-  %86 = add nsw i32 %.lcssa93, 1
+  %.lcssa104 = phi i32 [ %storemerge.in.pre, %11 ], [ %85, %.thread ]
+  %86 = add nsw i32 %.lcssa104, 1
   store i32 %86, ptr %1, align 4, !tbaa !107
   %87 = icmp slt i32 %86, %7
   br i1 %87, label %11, label %.critedge52, !llvm.loop !121
 
-.critedge52:                                      ; preds = %.critedge, %.lr.ph100, %84, %63, %2
-  %88 = phi i1 [ false, %2 ], [ true, %63 ], [ true, %84 ], [ true, %.lr.ph100 ], [ false, %.critedge ]
+.critedge52:                                      ; preds = %.critedge, %.lr.ph111, %84, %63, %2
+  %88 = phi i1 [ false, %2 ], [ true, %63 ], [ true, %84 ], [ true, %.lr.ph111 ], [ false, %.critedge ]
   ret i1 %88
 }
 
@@ -3758,8 +3758,8 @@ define void @_ZN6icu_7716RBBITableBuilder21buildSafeReverseTableER10UErrorCode(p
   %15 = load i32, ptr %14, align 8, !tbaa !20
   %16 = icmp sgt i32 %11, 0
   %17 = icmp sgt i32 %15, 1
-  %or.cond188 = select i1 %16, i1 %17, i1 false
-  br i1 %or.cond188, label %.preheader132.us.us.preheader, label %._crit_edge
+  %or.cond200 = select i1 %16, i1 %17, i1 false
+  br i1 %or.cond200, label %.preheader132.us.us.preheader, label %._crit_edge
 
 .preheader132.us.us.preheader:                    ; preds = %.split
   %wide.trip.count177 = zext nneg i32 %11 to i64

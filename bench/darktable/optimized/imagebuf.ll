@@ -104,9 +104,9 @@ define range(i32 0, 2) i32 @dt_iop_alloc_image_buffers(ptr noundef %0, ptr nound
 52:                                               ; preds = %158, %47
   %53 = load i32, ptr %4, align 16
   %54 = icmp ult i32 %53, 41
-  br i1 %54, label %58, label %.thread138
+  br i1 %54, label %58, label %.thread160
 
-.thread138:                                       ; preds = %52
+.thread160:                                       ; preds = %52
   %55 = load ptr, ptr %5, align 8
   %56 = getelementptr i8, ptr %55, i64 8
   store ptr %56, ptr %5, align 8
@@ -131,9 +131,9 @@ define range(i32 0, 2) i32 @dt_iop_alloc_image_buffers(ptr noundef %0, ptr nound
   store i32 %69, ptr %4, align 16
   br label %75
 
-70:                                               ; preds = %.thread138, %58
-  %71 = phi i32 [ %57, %.thread138 ], [ %63, %58 ]
-  %72 = phi i32 [ %53, %.thread138 ], [ %62, %58 ]
+70:                                               ; preds = %.thread160, %58
+  %71 = phi i32 [ %57, %.thread160 ], [ %63, %58 ]
+  %72 = phi i32 [ %53, %.thread160 ], [ %62, %58 ]
   %73 = load ptr, ptr %5, align 8
   %74 = getelementptr i8, ptr %73, i64 8
   store ptr %74, ptr %5, align 8
@@ -317,9 +317,9 @@ thread-pre-split:                                 ; preds = %151, %157
 162:                                              ; preds = %203, %160
   %163 = load i32, ptr %4, align 16
   %164 = icmp ult i32 %163, 41
-  br i1 %164, label %168, label %.thread139
+  br i1 %164, label %168, label %.thread161
 
-.thread139:                                       ; preds = %162
+.thread161:                                       ; preds = %162
   %165 = load ptr, ptr %5, align 8
   %166 = getelementptr i8, ptr %165, i64 8
   store ptr %166, ptr %5, align 8
@@ -344,9 +344,9 @@ thread-pre-split:                                 ; preds = %151, %157
   store i32 %179, ptr %4, align 16
   br label %185
 
-180:                                              ; preds = %.thread139, %168
-  %181 = phi i32 [ %167, %.thread139 ], [ %173, %168 ]
-  %182 = phi i32 [ %163, %.thread139 ], [ %172, %168 ]
+180:                                              ; preds = %.thread161, %168
+  %181 = phi i32 [ %167, %.thread161 ], [ %173, %168 ]
+  %182 = phi i32 [ %163, %.thread161 ], [ %172, %168 ]
   %183 = load ptr, ptr %5, align 8
   %184 = getelementptr i8, ptr %183, i64 8
   store ptr %184, ptr %5, align 8

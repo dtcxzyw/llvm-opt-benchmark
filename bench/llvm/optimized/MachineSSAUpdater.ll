@@ -1912,9 +1912,9 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_14SSAUpdaterImplINS_17MachineSSAUpdaterEE6
   %95 = icmp ne ptr %88, null
   %96 = and i1 %95, %.not.i.i
   %97 = getelementptr inbounds nuw i8, ptr %68, i64 48
-  br i1 %96, label %.thread206, label %100, !prof !160
+  br i1 %96, label %.thread256, label %100, !prof !160
 
-.thread206:                                       ; preds = %83
+.thread256:                                       ; preds = %83
   %98 = inttoptr i64 %92 to ptr
   store ptr %98, ptr %14, align 8, !tbaa !286
   %99 = inttoptr i64 %91 to ptr
@@ -1928,7 +1928,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_14SSAUpdaterImplINS_17MachineSSAUpdaterEE6
   store ptr %101, ptr %97, align 8, !tbaa !233
   br i1 %102, label %.loopexit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.thread206, %100
+.lr.ph:                                           ; preds = %.thread256, %100
   %103 = getelementptr inbounds nuw i8, ptr %68, i64 48
   br label %104
 

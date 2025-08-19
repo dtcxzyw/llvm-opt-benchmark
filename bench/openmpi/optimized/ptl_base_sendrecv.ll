@@ -2060,7 +2060,7 @@ pmix_obj_update.exit121:                          ; preds = %.loopexit156
   %72 = getelementptr inbounds nuw i8, ptr %70, i64 312
   %73 = load i8, ptr %72, align 8, !tbaa !170, !range !45, !noundef !46
   %74 = trunc nuw i8 %73 to i1
-  br i1 %74, label %.thread207, label %75
+  br i1 %74, label %.thread232, label %75
 
 75:                                               ; preds = %69
   %76 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_ptl_base_framework, i64 76), align 4, !tbaa !28
@@ -2250,8 +2250,8 @@ pmix_obj_update.exit121:                          ; preds = %.loopexit156
   %.pre201 = load i32, ptr %.phi.trans.insert200, align 4, !tbaa !175
   %.pre206 = zext i32 %.pre201 to i64
   %180 = icmp ult i64 %179, %.pre206
-  %or.cond229 = select i1 %.not, i1 %180, i1 false
-  br i1 %or.cond229, label %181, label %._crit_edge
+  %or.cond254 = select i1 %.not, i1 %180, i1 false
+  br i1 %or.cond254, label %181, label %._crit_edge
 
 181:                                              ; preds = %178
   %182 = tail call i32 (ptr, ptr, i32, ...) @pmix_show_help(ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.15, i32 noundef 1, i64 noundef %.pre206, i64 noundef %179) #12
@@ -2294,9 +2294,9 @@ pmix_obj_update.exit121:                          ; preds = %.loopexit156
   %.phi.trans.insert203 = getelementptr inbounds nuw i8, ptr %.pre199, i64 312
   %.pre204 = load i8, ptr %.phi.trans.insert203, align 8, !tbaa !170, !range !45
   %202 = trunc nuw i8 %.pre204 to i1
-  br i1 %202, label %.thread207, label %read_bytes.exit
+  br i1 %202, label %.thread232, label %read_bytes.exit
 
-.thread207:                                       ; preds = %69, %._crit_edge
+.thread232:                                       ; preds = %69, %._crit_edge
   %203 = getelementptr inbounds nuw i8, ptr %2, i64 156
   %204 = load i32, ptr %203, align 4, !tbaa !38
   %205 = getelementptr inbounds nuw i8, ptr %70, i64 320
@@ -2304,8 +2304,8 @@ pmix_obj_update.exit121:                          ; preds = %.loopexit156
   %207 = load ptr, ptr %205, align 8, !tbaa !181
   br label %thread-pre-split.i123
 
-thread-pre-split.i123:                            ; preds = %212, %.thread207
-  %.0.ph.i124 = phi ptr [ %.027.i128, %212 ], [ %207, %.thread207 ]
+thread-pre-split.i123:                            ; preds = %212, %.thread232
+  %.0.ph.i124 = phi ptr [ %.027.i128, %212 ], [ %207, %.thread232 ]
   %.pr.i125 = load i64, ptr %206, align 8, !tbaa !182
   %.not26.i126 = icmp eq i64 %.pr.i125, 0
   br i1 %.not26.i126, label %.loopexit153, label %.lr.ph.i127

@@ -1609,8 +1609,8 @@ define dso_local void @_ZN4Luau12tryGetLValueERKNS_7AstExprE(ptr dead_on_unwind 
   %17 = phi i32 [ %11, %2 ], [ %15, %.lr.ph ]
   %.039.lcssa = phi ptr [ %1, %2 ], [ %13, %.lr.ph ]
   %18 = load i32, ptr @_ZN4Luau7AstRttiINS_12AstExprLocalEE5valueE, align 4, !tbaa !4
-  %.not121 = icmp eq i32 %17, %18
-  br i1 %.not121, label %19, label %24
+  %.not129 = icmp eq i32 %17, %18
+  br i1 %.not129, label %19, label %24
 
 19:                                               ; preds = %._crit_edge
   %20 = getelementptr inbounds nuw i8, ptr %.039.lcssa, i64 32
@@ -1626,8 +1626,8 @@ define dso_local void @_ZN4Luau12tryGetLValueERKNS_7AstExprE(ptr dead_on_unwind 
 
 24:                                               ; preds = %._crit_edge
   %25 = load i32, ptr @_ZN4Luau7AstRttiINS_13AstExprGlobalEE5valueE, align 4, !tbaa !4
-  %.not122 = icmp eq i32 %17, %25
-  br i1 %.not122, label %26, label %31
+  %.not130 = icmp eq i32 %17, %25
+  br i1 %.not130, label %26, label %31
 
 26:                                               ; preds = %24
   %27 = getelementptr inbounds nuw i8, ptr %.039.lcssa, i64 32
@@ -1643,8 +1643,8 @@ define dso_local void @_ZN4Luau12tryGetLValueERKNS_7AstExprE(ptr dead_on_unwind 
 
 31:                                               ; preds = %24
   %32 = load i32, ptr @_ZN4Luau7AstRttiINS_16AstExprIndexNameEE5valueE, align 4, !tbaa !4
-  %.not123 = icmp eq i32 %17, %32
-  br i1 %.not123, label %33, label %113
+  %.not131 = icmp eq i32 %17, %32
+  br i1 %.not131, label %33, label %113
 
 33:                                               ; preds = %31
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -1848,8 +1848,8 @@ _ZNSt14_Optional_baseIN4Luau7VariantIJNS0_6SymbolENS0_5FieldEEEELb0ELb0EED2Ev.ex
 
 113:                                              ; preds = %31
   %114 = load i32, ptr @_ZN4Luau7AstRttiINS_16AstExprIndexExprEE5valueE, align 4, !tbaa !4
-  %.not124 = icmp eq i32 %17, %114
-  br i1 %.not124, label %115, label %192
+  %.not132 = icmp eq i32 %17, %114
+  br i1 %.not132, label %115, label %192
 
 115:                                              ; preds = %113
   call void @llvm.lifetime.start.p0(ptr nonnull %6)

@@ -3152,8 +3152,8 @@ put_var_int.exit:                                 ; preds = %._crit_edge.i
   br label %.critedge
 
 .thread:                                          ; preds = %4, %28
-  %.sroa.0.082 = phi ptr [ %30, %28 ], [ %1, %4 ]
-  %.sroa.10.081 = phi i64 [ %31, %28 ], [ %2, %4 ]
+  %.sroa.0.088 = phi ptr [ %30, %28 ], [ %1, %4 ]
+  %.sroa.10.087 = phi i64 [ %31, %28 ], [ %2, %4 ]
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %36 = load ptr, ptr %35, align 8, !tbaa !54
   %37 = load i64, ptr %36, align 8, !tbaa !15
@@ -3182,7 +3182,7 @@ put_var_int.exit:                                 ; preds = %._crit_edge.i
 ._crit_edge.i37:                                  ; preds = %.lr.ph.i32, %.thread
   %.0.lcssa.i38 = phi i64 [ 9, %.thread ], [ %46, %.lr.ph.i32 ]
   %48 = sub nsw i64 10, %.0.lcssa.i38
-  %49 = icmp ult i64 %.sroa.10.081, %48
+  %49 = icmp ult i64 %.sroa.10.087, %48
   br i1 %49, label %put_var_int.exit40.thread, label %put_var_int.exit40
 
 put_var_int.exit40.thread:                        ; preds = %._crit_edge.i37
@@ -3191,7 +3191,7 @@ put_var_int.exit40.thread:                        ; preds = %._crit_edge.i37
 
 put_var_int.exit40:                               ; preds = %._crit_edge.i37
   %50 = getelementptr inbounds nuw i8, ptr %6, i64 %.0.lcssa.i38
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.sroa.0.082, ptr nonnull align 1 %50, i64 %48, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.sroa.0.088, ptr nonnull align 1 %50, i64 %48, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %51 = and i64 %48, 2147483648
   %.not66 = icmp eq i64 %51, 0
@@ -3199,14 +3199,14 @@ put_var_int.exit40:                               ; preds = %._crit_edge.i37
 
 52:                                               ; preds = %put_var_int.exit40
   %53 = and i64 %48, 2147483647
-  %54 = sub i64 %.sroa.10.081, %53
+  %54 = sub i64 %.sroa.10.087, %53
   %55 = load i32, ptr %8, align 8, !tbaa !55
   %56 = icmp sgt i32 %55, 1
   br i1 %56, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %52
   %57 = load ptr, ptr %35, align 8, !tbaa !54
-  %58 = getelementptr inbounds nuw i8, ptr %.sroa.0.082, i64 %53
+  %58 = getelementptr inbounds nuw i8, ptr %.sroa.0.088, i64 %53
   %59 = getelementptr inbounds nuw i8, ptr %5, i64 9
   br label %60
 

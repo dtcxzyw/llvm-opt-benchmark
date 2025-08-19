@@ -241,7 +241,7 @@ blas_quickdivide.exit:                            ; preds = %50, %54
   br i1 %130, label %.lr.ph167.i, label %.lr.ph169.i.preheader
 
 .lr.ph167.i:                                      ; preds = %.preheader161.i, %128
-  %.0.lcssa193.i = phi i64 [ %155, %.preheader161.i ], [ 0, %128 ]
+  %.0.lcssa201.i = phi i64 [ %155, %.preheader161.i ], [ 0, %128 ]
   %131 = phi i64 [ %154, %.preheader161.i ], [ %.sink.i, %128 ]
   br label %158
 
@@ -291,7 +291,7 @@ blas_quickdivide.exit.i:                          ; preds = %140, %.lr.ph165.i
   br i1 %157, label %.lr.ph165.i, label %.preheader161.i, !llvm.loop !30
 
 158:                                              ; preds = %158, %.lr.ph167.i
-  %.0139166.i = phi i64 [ %.0.lcssa193.i, %.lr.ph167.i ], [ %159, %158 ]
+  %.0139166.i = phi i64 [ %.0.lcssa201.i, %.lr.ph167.i ], [ %159, %158 ]
   %159 = add nuw nsw i64 %.0139166.i, 1
   %160 = getelementptr inbounds nuw i64, ptr %121, i64 %159
   store i64 %131, ptr %160, align 8, !tbaa !11
@@ -328,7 +328,7 @@ blas_quickdivide.exit.i:                          ; preds = %140, %.lr.ph165.i
   %171 = getelementptr inbounds nuw i8, ptr %11, i64 56
   store ptr %4, ptr %171, align 8, !tbaa !42
   %172 = add nsw i64 %74, -1
-  %173 = getelementptr inbounds [16 x %struct.blas_queue], ptr %11, i64 0, i64 %172, i32 8
+  %173 = getelementptr inbounds nuw [16 x %struct.blas_queue], ptr %11, i64 0, i64 %172, i32 8
   store ptr null, ptr %173, align 8, !tbaa !39
   br i1 %.not65, label %177, label %174
 
@@ -367,7 +367,7 @@ blas_quickdivide.exit.i:                          ; preds = %140, %.lr.ph165.i
   br label %.preheader157.us.i
 
 .lr.ph177.i:                                      ; preds = %.preheader159.i, %180
-  %.1.lcssa195.i = phi i64 [ %209, %.preheader159.i ], [ 0, %180 ]
+  %.1.lcssa203.i = phi i64 [ %209, %.preheader159.i ], [ 0, %180 ]
   %184 = phi i64 [ %208, %.preheader159.i ], [ %.0135183.i, %180 ]
   br label %217
 
@@ -441,7 +441,7 @@ blas_quickdivide.exit154.i:                       ; preds = %193, %.lr.ph174.i
   br i1 %exitcond191.not.i, label %._crit_edge182.split.us.i, label %.preheader157.us.i, !llvm.loop !45
 
 217:                                              ; preds = %217, %.lr.ph177.i
-  %.0137176.i = phi i64 [ %.1.lcssa195.i, %.lr.ph177.i ], [ %218, %217 ]
+  %.0137176.i = phi i64 [ %.1.lcssa203.i, %.lr.ph177.i ], [ %218, %217 ]
   %218 = add nuw nsw i64 %.0137176.i, 1
   %219 = getelementptr inbounds nuw i64, ptr %122, i64 %218
   store i64 %184, ptr %219, align 8, !tbaa !11

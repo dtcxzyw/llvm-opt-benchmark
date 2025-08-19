@@ -1370,7 +1370,7 @@ define internal fastcc range(i32 -28, 1) i32 @virtqueue_add(ptr noundef %0, ptr 
   %779 = icmp ne i8 %778, 0
   %780 = icmp eq i32 %746, 0
   %or.cond = select i1 %779, i1 true, i1 %780
-  br i1 %or.cond, label %.thread60, label %.thread168
+  br i1 %or.cond, label %.thread60, label %.thread221
 
 781:                                              ; preds = %767
   %782 = getelementptr inbounds nuw i8, ptr %0, i64 96
@@ -1462,7 +1462,7 @@ define internal fastcc range(i32 -28, 1) i32 @virtqueue_add(ptr noundef %0, ptr 
   %840 = icmp eq i32 %839, %838
   br i1 %840, label %.loopexit, label %843
 
-.thread168:                                       ; preds = %776
+.thread221:                                       ; preds = %776
   %841 = getelementptr inbounds nuw i8, ptr %0, i64 71
   %842 = getelementptr inbounds nuw i8, ptr %0, i64 200
   br label %.split118.preheader
@@ -1474,11 +1474,11 @@ define internal fastcc range(i32 -28, 1) i32 @virtqueue_add(ptr noundef %0, ptr 
   %847 = getelementptr inbounds nuw i8, ptr %0, i64 65
   br i1 %487, label %.split118.us, label %.split118.preheader
 
-.split118.preheader:                              ; preds = %.thread168, %843
-  %848 = phi ptr [ %842, %.thread168 ], [ %845, %843 ]
-  %849 = phi ptr [ %841, %.thread168 ], [ %844, %843 ]
-  %850 = phi i32 [ %746, %.thread168 ], [ %838, %843 ]
-  %851 = phi i32 [ 0, %.thread168 ], [ %839, %843 ]
+.split118.preheader:                              ; preds = %.thread221, %843
+  %848 = phi ptr [ %842, %.thread221 ], [ %845, %843 ]
+  %849 = phi ptr [ %841, %.thread221 ], [ %844, %843 ]
+  %850 = phi i32 [ %746, %.thread221 ], [ %838, %843 ]
+  %851 = phi i32 [ 0, %.thread221 ], [ %839, %843 ]
   br label %.split118
 
 .split118.us:                                     ; preds = %843, %876
@@ -5336,11 +5336,11 @@ define internal fastcc noundef range(i32 -22, 1) i32 @vring_alloc_queue_split(pt
   br i1 %71, label %.critedge, label %.thread17
 
 .thread17.sink.split:                             ; preds = %51, %64, %29
-  %.us-phi27.sink53 = phi ptr [ %32, %29 ], [ %67, %64 ], [ %54, %51 ]
-  %.ph47 = phi i32 [ %2, %29 ], [ %.ph, %64 ], [ %46, %51 ]
-  %72 = ptrtoint ptr %.us-phi27.sink53 to i64
+  %.us-phi27.sink62 = phi ptr [ %32, %29 ], [ %67, %64 ], [ %54, %51 ]
+  %.ph56 = phi i32 [ %2, %29 ], [ %.ph, %64 ], [ %46, %51 ]
+  %72 = ptrtoint ptr %.us-phi27.sink62 to i64
   %73 = add i64 %72, 2147483648
-  %74 = icmp ugt ptr %.us-phi27.sink53, inttoptr (i64 -2147483649 to ptr)
+  %74 = icmp ugt ptr %.us-phi27.sink62, inttoptr (i64 -2147483649 to ptr)
   %75 = load i64, ptr @phys_base, align 8
   %76 = load i64, ptr @page_offset_base, align 8
   %77 = sub i64 -2147483648, %76
@@ -5350,8 +5350,8 @@ define internal fastcc noundef range(i32 -22, 1) i32 @vring_alloc_queue_split(pt
   br label %.thread17
 
 .thread17:                                        ; preds = %56, %.thread17.sink.split, %26, %69
-  %80 = phi ptr [ %70, %69 ], [ %27, %26 ], [ %.us-phi27.sink53, %.thread17.sink.split ], [ %57, %56 ]
-  %81 = phi i32 [ %.ph, %69 ], [ %2, %26 ], [ %.ph47, %.thread17.sink.split ], [ %46, %56 ]
+  %80 = phi ptr [ %70, %69 ], [ %27, %26 ], [ %.us-phi27.sink62, %.thread17.sink.split ], [ %57, %56 ]
+  %81 = phi i32 [ %.ph, %69 ], [ %2, %26 ], [ %.ph56, %.thread17.sink.split ], [ %46, %56 ]
   %82 = zext i32 %3 to i64
   store i32 %81, ptr %0, align 8
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 8

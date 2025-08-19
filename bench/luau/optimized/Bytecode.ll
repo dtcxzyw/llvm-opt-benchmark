@@ -2086,7 +2086,7 @@ sub_1.i:                                          ; preds = %sub_0.i
   %26 = getelementptr inbounds nuw i8, ptr %22, i64 2
   %27 = load i8, ptr %26, align 1
   %28 = icmp eq i8 %27, 0
-  br i1 %28, label %35, label %.thread88.i
+  br i1 %28, label %35, label %.thread90.i
 
 .tail.thread.i:                                   ; preds = %sub_1.i
   %29 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %22, ptr noundef nonnull dereferenceable(7) @.str.83) #24
@@ -2098,12 +2098,12 @@ sub_1.i:                                          ; preds = %sub_0.i
   %32 = icmp eq i32 %31, 0
   br i1 %32, label %35, label %.tail63.thread.i
 
-.thread88.i:                                      ; preds = %.tail.i
+.thread90.i:                                      ; preds = %.tail.i
   %33 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %22, ptr noundef nonnull dereferenceable(7) @.str.83) #24
   %34 = icmp eq i32 %33, 0
   br i1 %34, label %35, label %.tail63.thread.i
 
-35:                                               ; preds = %.thread88.i, %.tail.thread.thread.i, %.tail.thread.i, %.tail.i
+35:                                               ; preds = %.thread90.i, %.tail.thread.thread.i, %.tail.thread.i, %.tail.i
   %36 = load ptr, ptr %1, align 8, !tbaa !19
   %37 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.92, ptr noundef %36)
   %putchar.i.i = call i32 @putchar(i32 10)
@@ -2154,7 +2154,7 @@ sub_1.i:                                          ; preds = %sub_0.i
   %51 = call i64 @fwrite(ptr nonnull @.str.87, i64 54, i64 1, ptr %50) #27
   br label %_ZL9parseArgsiPPcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread
 
-.tail63.thread.i:                                 ; preds = %.tail59.i, %.thread88.i, %.tail.thread.thread.i
+.tail63.thread.i:                                 ; preds = %.tail59.i, %.thread90.i, %.tail.thread.thread.i
   %52 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %22, ptr noundef nonnull dereferenceable(16) @.str.88, i64 noundef 15) #24
   %53 = icmp eq i32 %52, 0
   br i1 %53, label %54, label %64

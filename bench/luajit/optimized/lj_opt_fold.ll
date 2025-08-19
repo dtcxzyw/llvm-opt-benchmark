@@ -462,9 +462,9 @@ define hidden i32 @lj_opt_cselim(ptr noundef %0, i32 noundef %1) local_unnamed_a
   %14 = getelementptr inbounds nuw %union.IRIns, ptr %12, i64 %13
   %15 = load i32, ptr %14, align 8, !tbaa !28
   %16 = icmp eq i32 %15, %9
-  br i1 %16, label %.loopexit, label %.lr.ph22
+  br i1 %16, label %.loopexit, label %.lr.ph23
 
-.lr.ph22:                                         ; preds = %.lr.ph, %21
+.lr.ph23:                                         ; preds = %.lr.ph, %21
   %17 = phi i64 [ %22, %21 ], [ %13, %.lr.ph ]
   %18 = getelementptr inbounds nuw %union.IRIns, ptr %12, i64 %17
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 6
@@ -473,14 +473,14 @@ define hidden i32 @lj_opt_cselim(ptr noundef %0, i32 noundef %1) local_unnamed_a
   %20 = icmp samesign ult i32 %1, %.013
   br i1 %20, label %21, label %._crit_edge, !llvm.loop !40
 
-21:                                               ; preds = %.lr.ph22
+21:                                               ; preds = %.lr.ph23
   %22 = zext i16 %.013.in to i64
   %23 = getelementptr inbounds nuw %union.IRIns, ptr %12, i64 %22
   %24 = load i32, ptr %23, align 8, !tbaa !28
   %25 = icmp eq i32 %24, %9
-  br i1 %25, label %.loopexit, label %.lr.ph22, !llvm.loop !40
+  br i1 %25, label %.loopexit, label %.lr.ph23, !llvm.loop !40
 
-._crit_edge:                                      ; preds = %.lr.ph22, %2
+._crit_edge:                                      ; preds = %.lr.ph23, %2
   %26 = tail call i32 @lj_ir_emit(ptr noundef nonnull %0) #12
   br label %.loopexit
 

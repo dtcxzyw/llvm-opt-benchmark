@@ -208,8 +208,8 @@ thread-pre-split:                                 ; preds = %10
 29:                                               ; preds = %21
   %.not38.i = icmp ne i32 %.0.i, 1
   %30 = icmp eq i8 %24, 46
-  %or.cond39.i = and i1 %.not38.i, %30
-  br i1 %or.cond39.i, label %31, label %.thread.i
+  %or.cond40.i = and i1 %.not38.i, %30
+  br i1 %or.cond40.i, label %31, label %.thread.i
 
 31:                                               ; preds = %29
   %32 = getelementptr inbounds nuw i8, ptr %.029.i, i64 1
@@ -272,7 +272,7 @@ thread-pre-split:                                 ; preds = %10
   %60 = getelementptr i8, ptr %59, i64 -1
   %61 = load i8, ptr %60, align 1
   %62 = icmp eq i8 %61, 34
-  br i1 %62, label %203, label %.thread212
+  br i1 %62, label %203, label %.thread229
 
 63:                                               ; preds = %54
   switch i8 %15, label %185 [
@@ -313,14 +313,14 @@ thread-pre-split:                                 ; preds = %10
 79:                                               ; preds = %73
   %80 = load i32, ptr %4, align 4
   %81 = icmp eq i32 %80, 1
-  br i1 %81, label %82, label %.preheader276
+  br i1 %81, label %82, label %.preheader293
 
-.preheader276:                                    ; preds = %82, %79
+.preheader293:                                    ; preds = %82, %79
   br label %170
 
 82:                                               ; preds = %79
   %83 = load i8, ptr %74, align 1
-  switch i8 %83, label %.preheader276 [
+  switch i8 %83, label %.preheader293 [
     i8 105, label %.preheader
     i8 111, label %.preheader140
     i8 120, label %.preheader141
@@ -527,9 +527,9 @@ thread-pre-split:                                 ; preds = %10
   %169 = icmp eq ptr %168, null
   br i1 %169, label %._crit_edge, label %.lr.ph
 
-170:                                              ; preds = %.preheader276, %173
-  %.6 = phi ptr [ %176, %173 ], [ null, %.preheader276 ]
-  %.1 = phi ptr [ %177, %173 ], [ %74, %.preheader276 ]
+170:                                              ; preds = %.preheader293, %173
+  %.6 = phi ptr [ %176, %173 ], [ null, %.preheader293 ]
+  %.1 = phi ptr [ %177, %173 ], [ %74, %.preheader293 ]
   %171 = load i8, ptr %.1, align 1
   %172 = icmp eq i8 %171, 41
   br i1 %172, label %.loopexit, label %173
@@ -558,9 +558,9 @@ thread-pre-split:                                 ; preds = %10
 
 185:                                              ; preds = %63
   %186 = icmp eq i32 %14, 0
-  br i1 %186, label %.loopexit, label %.thread212
+  br i1 %186, label %.loopexit, label %.thread229
 
-.thread212:                                       ; preds = %57, %185
+.thread229:                                       ; preds = %57, %185
   %187 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
   tail call void @llvm.assume(i1 %187)
   %188 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.8, i32 noundef %14, ptr noundef nonnull %.063) #10

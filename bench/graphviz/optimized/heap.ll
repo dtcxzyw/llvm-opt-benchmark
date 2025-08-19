@@ -264,7 +264,7 @@ define void @PQcleanup(ptr noundef captures(address_is_null) %0) local_unnamed_a
 declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind uwtable
-define noalias noundef ptr @PQinitialize() local_unnamed_addr #7 {
+define noalias nonnull ptr @PQinitialize() local_unnamed_addr #7 {
   %1 = tail call noalias dereferenceable_or_null(24) ptr @calloc(i64 noundef 1, i64 noundef 24) #13
   %2 = icmp eq ptr %1, null
   br i1 %2, label %3, label %gv_alloc.exit

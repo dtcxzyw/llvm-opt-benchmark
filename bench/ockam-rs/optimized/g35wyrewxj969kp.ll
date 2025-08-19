@@ -297,14 +297,14 @@ define hidden void @"_ZN131_$LT$futures_util..stream..try_stream..try_filter_map
 
 11:                                               ; preds = %.backedge, %3
   %12 = phi i8 [ %.pre, %3 ], [ %.be, %.backedge ]
-  switch i8 %12, label %default.unreachable.i [
+  switch i8 %12, label %default.unreachable [
     i8 3, label %21
     i8 0, label %13
     i8 1, label %19
     i8 2, label %20
   ]
 
-default.unreachable.i:                            ; preds = %11
+default.unreachable:                              ; preds = %11
   unreachable
 
 13:                                               ; preds = %11
@@ -453,13 +453,13 @@ define hidden void @"_ZN131_$LT$futures_util..stream..try_stream..try_filter_map
 13:                                               ; preds = %10
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.6.i.i)
-  switch i8 %11, label %default.unreachable.i [
+  switch i8 %11, label %default.unreachable [
     i8 0, label %14
     i8 1, label %17
     i8 2, label %18
   ]
 
-default.unreachable.i:                            ; preds = %13
+default.unreachable:                              ; preds = %19, %13
   unreachable
 
 14:                                               ; preds = %13
@@ -501,9 +501,6 @@ default.unreachable.i:                            ; preds = %13
     i64 0, label %25
     i64 1, label %29
   ]
-
-default.unreachable:                              ; preds = %19
-  unreachable
 
 25:                                               ; preds = %19
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.9, ptr noundef nonnull align 8 dereferenceable(48) %9, i64 48, i1 false)
@@ -594,14 +591,14 @@ define hidden void @"_ZN131_$LT$futures_util..stream..try_stream..try_filter_map
 
 11:                                               ; preds = %.backedge, %3
   %12 = phi i8 [ %.pre, %3 ], [ %.be, %.backedge ]
-  switch i8 %12, label %default.unreachable.i [
+  switch i8 %12, label %default.unreachable [
     i8 3, label %21
     i8 0, label %13
     i8 1, label %19
     i8 2, label %20
   ]
 
-default.unreachable.i:                            ; preds = %11
+default.unreachable:                              ; preds = %11
   unreachable
 
 13:                                               ; preds = %11
@@ -750,13 +747,13 @@ define hidden void @"_ZN131_$LT$futures_util..stream..try_stream..try_filter_map
 13:                                               ; preds = %10
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.6.i.i)
-  switch i8 %11, label %default.unreachable.i [
+  switch i8 %11, label %default.unreachable [
     i8 0, label %14
     i8 1, label %17
     i8 2, label %18
   ]
 
-default.unreachable.i:                            ; preds = %13
+default.unreachable:                              ; preds = %19, %13
   unreachable
 
 14:                                               ; preds = %13
@@ -798,9 +795,6 @@ default.unreachable.i:                            ; preds = %13
     i64 0, label %25
     i64 1, label %29
   ]
-
-default.unreachable:                              ; preds = %19
-  unreachable
 
 25:                                               ; preds = %19
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %.sroa.9, ptr noundef nonnull align 8 dereferenceable(72) %9, i64 72, i1 false)
@@ -4933,7 +4927,7 @@ define hidden void @"_ZN4core3ptr44drop_in_place$LT$sqlx_core..error..Error$GT$1
   %5 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %6 = alloca { i8, [15 x i8] }, align 8
   %7 = load i64, ptr %0, align 8, !range !874, !noundef !4
-  switch i64 %7, label %default.unreachable12 [
+  switch i64 %7, label %default.unreachable26 [
     i64 0, label %36
     i64 1, label %52
     i64 2, label %68
@@ -4952,7 +4946,7 @@ define hidden void @"_ZN4core3ptr44drop_in_place$LT$sqlx_core..error..Error$GT$1
     i64 15, label %8
   ]
 
-default.unreachable12:                            ; preds = %1
+default.unreachable26:                            ; preds = %1
   unreachable
 
 8:                                                ; preds = %1

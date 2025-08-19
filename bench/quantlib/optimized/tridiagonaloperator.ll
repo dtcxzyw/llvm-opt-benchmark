@@ -2187,7 +2187,7 @@ for.cond.cleanup.for.cond.cleanup191_crit_edge:   ; preds = %for.cond.cleanup
   br label %for.cond.cleanup191
 
 for.body192.lr.ph:                                ; preds = %do.end120, %for.cond.cleanup
-  %sub188254 = phi i64 [ %sub188, %for.cond.cleanup ], [ -1, %do.end120 ]
+  %sub188288 = phi i64 [ %sub188, %for.cond.cleanup ], [ -1, %do.end120 ]
   %temp_193 = getelementptr inbounds nuw i8, ptr %this, i64 56
   %76 = load ptr, ptr %temp_193, align 8, !tbaa !18
   %arrayidx.i169.phi.trans.insert = getelementptr inbounds nuw double, ptr %72, i64 %sub
@@ -2398,7 +2398,7 @@ for.cond.cleanup191:                              ; preds = %for.body192, %for.c
 
 for.body192:                                      ; preds = %for.body192.lr.ph, %for.body192
   %111 = phi double [ %.pre, %for.body192.lr.ph ], [ %115, %for.body192 ]
-  %j186.0250 = phi i64 [ %sub188254, %for.body192.lr.ph ], [ %dec, %for.body192 ]
+  %j186.0250 = phi i64 [ %sub188288, %for.body192.lr.ph ], [ %dec, %for.body192 ]
   %112 = getelementptr double, ptr %76, i64 %j186.0250
   %arrayidx.i168 = getelementptr i8, ptr %112, i64 8
   %113 = load double, ptr %arrayidx.i168, align 8, !tbaa !30

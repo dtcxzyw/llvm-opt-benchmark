@@ -3960,22 +3960,22 @@ define dso_local void @__wait_rcu_gp(i1 noundef zeroext %0, i32 noundef %1, ptr 
 
 12:                                               ; preds = %.split.us
   %13 = icmp eq i64 %8, 0
-  br i1 %13, label %.loopexit7.us.thread, label %.preheader29
+  br i1 %13, label %.loopexit7.us.thread, label %.preheader42
 
-.preheader29:                                     ; preds = %12, %17
+.preheader42:                                     ; preds = %12, %17
   %indvars.iv16 = phi i64 [ %indvars.iv.next17, %17 ], [ 0, %12 ]
   %14 = getelementptr ptr, ptr %2, i64 %indvars.iv16
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, %10
   br i1 %16, label %.loopexit7.us, label %17
 
-17:                                               ; preds = %.preheader29
+17:                                               ; preds = %.preheader42
   %indvars.iv.next17 = add nuw nsw i64 %indvars.iv16, 1
   %18 = icmp eq i64 %8, %indvars.iv.next17
-  br i1 %18, label %.loopexit7.us, label %.preheader29, !llvm.loop !57
+  br i1 %18, label %.loopexit7.us, label %.preheader42, !llvm.loop !57
 
-.loopexit7.us:                                    ; preds = %.preheader29, %17
-  %.ph12.in = phi i64 [ %8, %17 ], [ %indvars.iv16, %.preheader29 ]
+.loopexit7.us:                                    ; preds = %.preheader42, %17
+  %.ph12.in = phi i64 [ %8, %17 ], [ %indvars.iv16, %.preheader42 ]
   %19 = and i64 %.ph12.in, 4294967295
   %20 = icmp eq i64 %8, %19
   br i1 %20, label %.loopexit7.us.thread, label %27
@@ -4055,22 +4055,22 @@ define dso_local void @__wait_rcu_gp(i1 noundef zeroext %0, i32 noundef %1, ptr 
 
 55:                                               ; preds = %.preheader.split9.us
   %56 = icmp eq i64 %51, 0
-  br i1 %56, label %.loopexit.us.thread, label %.preheader27
+  br i1 %56, label %.loopexit.us.thread, label %.preheader40
 
-.preheader27:                                     ; preds = %55, %60
+.preheader40:                                     ; preds = %55, %60
   %indvars.iv22 = phi i64 [ %indvars.iv.next23, %60 ], [ 0, %55 ]
   %57 = getelementptr ptr, ptr %2, i64 %indvars.iv22
   %58 = load ptr, ptr %57, align 8
   %59 = icmp eq ptr %58, %53
   br i1 %59, label %.loopexit.us, label %60
 
-60:                                               ; preds = %.preheader27
+60:                                               ; preds = %.preheader40
   %indvars.iv.next23 = add nuw nsw i64 %indvars.iv22, 1
   %61 = icmp eq i64 %51, %indvars.iv.next23
-  br i1 %61, label %.loopexit.us, label %.preheader27, !llvm.loop !59
+  br i1 %61, label %.loopexit.us, label %.preheader40, !llvm.loop !59
 
-.loopexit.us:                                     ; preds = %.preheader27, %60
-  %.ph.in = phi i64 [ %51, %60 ], [ %indvars.iv22, %.preheader27 ]
+.loopexit.us:                                     ; preds = %.preheader40, %60
+  %.ph.in = phi i64 [ %51, %60 ], [ %indvars.iv22, %.preheader40 ]
   %62 = and i64 %.ph.in, 4294967295
   %63 = icmp eq i64 %51, %62
   br i1 %63, label %.loopexit.us.thread, label %65
@@ -4610,9 +4610,9 @@ define dso_local void @show_rcu_tasks_classic_gp_kthread() #1 align 16 {
   br i1 %41, label %5, label %.thread, !llvm.loop !98
 
 .thread:                                          ; preds = %12, %5, %20, %16
-  %43 = phi i8 [ %36, %20 ], [ %6, %16 ], [ %6, %5 ], [ %6, %12 ]
-  %44 = phi i8 [ %32, %20 ], [ %7, %16 ], [ %7, %5 ], [ %7, %12 ]
-  %45 = phi i8 [ %28, %20 ], [ %8, %16 ], [ %8, %5 ], [ %8, %12 ]
+  %43 = phi i8 [ 1, %20 ], [ %6, %16 ], [ %6, %5 ], [ %6, %12 ]
+  %44 = phi i8 [ 1, %20 ], [ %7, %16 ], [ %7, %5 ], [ %7, %12 ]
+  %45 = phi i8 [ 1, %20 ], [ %8, %16 ], [ %8, %5 ], [ %8, %12 ]
   %46 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @rcu_tasks, i64 296), align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %47 = load i32, ptr getelementptr inbounds nuw (i8, ptr @rcu_tasks, i64 48), align 8

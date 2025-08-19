@@ -162,23 +162,23 @@ define hidden zeroext i1 @"_ZN4core4char7methods22_$LT$impl$u20$char$GT$15is_alp
 
 4:                                                ; preds = %1
   %5 = icmp ugt i32 %0, 127
-  br i1 %5, label %"_ZN4core4char7methods22_$LT$impl$u20$char$GT$13is_alphabetic17hc27b67a25ccf5adeE.exit", label %"_ZN4core4char7methods22_$LT$impl$u20$char$GT$13is_alphabetic17hc27b67a25ccf5adeE.exit.thread6"
+  br i1 %5, label %"_ZN4core4char7methods22_$LT$impl$u20$char$GT$13is_alphabetic17hc27b67a25ccf5adeE.exit", label %"_ZN4core4char7methods22_$LT$impl$u20$char$GT$13is_alphabetic17hc27b67a25ccf5adeE.exit.thread7"
 
 "_ZN4core4char7methods22_$LT$impl$u20$char$GT$13is_alphabetic17hc27b67a25ccf5adeE.exit": ; preds = %4
   %6 = tail call zeroext i1 @_ZN4core7unicode12unicode_data10alphabetic6lookup17he2429d790a896900E(i32 %0)
   br i1 %6, label %"_ZN4core4char7methods22_$LT$impl$u20$char$GT$13is_alphabetic17hc27b67a25ccf5adeE.exit.thread", label %8
 
-"_ZN4core4char7methods22_$LT$impl$u20$char$GT$13is_alphabetic17hc27b67a25ccf5adeE.exit.thread6": ; preds = %4
+"_ZN4core4char7methods22_$LT$impl$u20$char$GT$13is_alphabetic17hc27b67a25ccf5adeE.exit.thread7": ; preds = %4
   %7 = add nsw i32 %0, -48
-  %or.cond8 = icmp ult i32 %7, 10
+  %or.cond9 = icmp ult i32 %7, 10
   br label %"_ZN4core4char7methods22_$LT$impl$u20$char$GT$13is_alphabetic17hc27b67a25ccf5adeE.exit.thread"
 
 8:                                                ; preds = %"_ZN4core4char7methods22_$LT$impl$u20$char$GT$13is_alphabetic17hc27b67a25ccf5adeE.exit"
   %9 = tail call zeroext i1 @_ZN4core7unicode12unicode_data1n6lookup17h84a4475a9e303db4E(i32 %0)
   br label %"_ZN4core4char7methods22_$LT$impl$u20$char$GT$13is_alphabetic17hc27b67a25ccf5adeE.exit.thread"
 
-"_ZN4core4char7methods22_$LT$impl$u20$char$GT$13is_alphabetic17hc27b67a25ccf5adeE.exit.thread": ; preds = %"_ZN4core4char7methods22_$LT$impl$u20$char$GT$13is_alphabetic17hc27b67a25ccf5adeE.exit.thread6", %1, %"_ZN4core4char7methods22_$LT$impl$u20$char$GT$13is_alphabetic17hc27b67a25ccf5adeE.exit", %8
-  %.0 = phi i1 [ %9, %8 ], [ true, %"_ZN4core4char7methods22_$LT$impl$u20$char$GT$13is_alphabetic17hc27b67a25ccf5adeE.exit" ], [ true, %1 ], [ %or.cond8, %"_ZN4core4char7methods22_$LT$impl$u20$char$GT$13is_alphabetic17hc27b67a25ccf5adeE.exit.thread6" ]
+"_ZN4core4char7methods22_$LT$impl$u20$char$GT$13is_alphabetic17hc27b67a25ccf5adeE.exit.thread": ; preds = %"_ZN4core4char7methods22_$LT$impl$u20$char$GT$13is_alphabetic17hc27b67a25ccf5adeE.exit.thread7", %1, %"_ZN4core4char7methods22_$LT$impl$u20$char$GT$13is_alphabetic17hc27b67a25ccf5adeE.exit", %8
+  %.0 = phi i1 [ %9, %8 ], [ true, %"_ZN4core4char7methods22_$LT$impl$u20$char$GT$13is_alphabetic17hc27b67a25ccf5adeE.exit" ], [ true, %1 ], [ %or.cond9, %"_ZN4core4char7methods22_$LT$impl$u20$char$GT$13is_alphabetic17hc27b67a25ccf5adeE.exit.thread7" ]
   ret i1 %.0
 }
 

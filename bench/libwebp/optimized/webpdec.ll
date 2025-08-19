@@ -176,8 +176,8 @@ define hidden range(i32 0, 2) i32 @ReadWebP(ptr noundef %0, i64 noundef %1, ptr 
   %or.cond = or i1 %10, %11
   %12 = icmp eq ptr %2, null
   %or.cond3 = or i1 %or.cond, %12
-  %.sink150.sroa.gep = getelementptr inbounds nuw i8, ptr %8, i64 128
-  %.sink150.sroa.gep152 = getelementptr inbounds nuw i8, ptr %8, i64 72
+  %.sink161.sroa.gep = getelementptr inbounds nuw i8, ptr %8, i64 128
+  %.sink161.sroa.gep163 = getelementptr inbounds nuw i8, ptr %8, i64 72
   br i1 %or.cond3, label %172, label %13
 
 13:                                               ; preds = %5
@@ -325,10 +325,10 @@ define hidden range(i32 0, 2) i32 @ReadWebP(ptr noundef %0, i64 noundef %1, ptr 
   br label %94
 
 94:                                               ; preds = %75, %50
-  %.sink151 = phi i32 [ %93, %75 ], [ %58, %50 ]
-  %.sink150.sroa.phi = phi ptr [ %.sink150.sroa.gep, %75 ], [ %.sink150.sroa.gep152, %50 ]
-  %95 = sext i32 %.sink151 to i64
-  store i64 %95, ptr %.sink150.sroa.phi, align 8, !tbaa !30
+  %.sink162 = phi i32 [ %93, %75 ], [ %58, %50 ]
+  %.sink161.sroa.phi = phi ptr [ %.sink161.sroa.gep, %75 ], [ %.sink161.sroa.gep163, %50 ]
+  %95 = sext i32 %.sink162 to i64
+  store i64 %95, ptr %.sink161.sroa.phi, align 8, !tbaa !30
   %96 = getelementptr inbounds nuw i8, ptr %8, i64 52
   store i32 1, ptr %96, align 4, !tbaa !39
   %97 = getelementptr inbounds nuw i8, ptr %8, i64 12

@@ -298,7 +298,7 @@ define dso_local i32 @propagate_mnt(ptr noundef %0, ptr noundef %1, ptr noundef 
   br label %.thread19
 
 .thread19:                                        ; preds = %.thread19.backedge, %16
-  %18 = phi ptr [ %0, %16 ], [ %.be116, %.thread19.backedge ]
+  %18 = phi ptr [ %0, %16 ], [ %.be142, %.thread19.backedge ]
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 240
   %20 = load ptr, ptr %19, align 8
   %21 = icmp eq ptr %20, null
@@ -338,7 +338,7 @@ define dso_local i32 @propagate_mnt(ptr noundef %0, ptr noundef %1, ptr noundef 
   br i1 %44, label %.thread19.backedge, label %.preheader42
 
 .thread19.backedge:                               ; preds = %40, %38, %select.unfold
-  %.be116 = phi ptr [ %62, %select.unfold ], [ %33, %38 ], [ %33, %40 ]
+  %.be142 = phi ptr [ %62, %select.unfold ], [ %33, %38 ], [ %33, %40 ]
   br label %.thread19, !llvm.loop !12
 
 .preheader42:                                     ; preds = %40, %57
@@ -715,8 +715,8 @@ define dso_local noundef zeroext i1 @propagation_would_overmount(ptr noundef rea
   %27 = load i32, ptr %26, align 8
   %28 = icmp eq i32 %.fr6, %27
   %29 = and i1 %25, %28
-  %.not8 = xor i1 %25, true
-  %brmerge = or i1 %28, %.not8
+  %.not10 = xor i1 %25, true
+  %brmerge = or i1 %28, %.not10
   br i1 %brmerge, label %.loopexit, label %.preheader.split
 
 30:                                               ; preds = %.preheader.split

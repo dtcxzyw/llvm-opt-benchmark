@@ -2113,9 +2113,9 @@ define void @_ZN11TransTableL14CreateOrUpdateEPNS_12winBlockTypeERKNS_12winMatch
   br label %.sink.split
 
 .sink.split:                                      ; preds = %45, %66
-  %.sink51 = phi ptr [ %65, %66 ], [ %.047, %45 ]
+  %.sink55 = phi ptr [ %65, %66 ], [ %.047, %45 ]
   %.sink = phi i8 [ 0, %66 ], [ %50, %45 ]
-  %68 = getelementptr inbounds nuw i8, ptr %.sink51, i64 47
+  %68 = getelementptr inbounds nuw i8, ptr %.sink55, i64 47
   store i8 %.sink, ptr %68, align 1
   br label %69
 
@@ -2478,9 +2478,9 @@ define void @_ZN11TransTableL3AddEiiPKtS1_RK13nodeCardsTypeb(ptr noundef nonnull
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %249, %228
-  %.sink51.i = phi ptr [ %248, %249 ], [ %.047.i, %228 ]
+  %.sink55.i = phi ptr [ %248, %249 ], [ %.047.i, %228 ]
   %.sink.i = phi i8 [ 0, %249 ], [ %233, %228 ]
-  %251 = getelementptr inbounds nuw i8, ptr %.sink51.i, i64 47
+  %251 = getelementptr inbounds nuw i8, ptr %.sink55.i, i64 47
   store i8 %.sink.i, ptr %251, align 1
   br label %_ZN11TransTableL14CreateOrUpdateEPNS_12winBlockTypeERKNS_12winMatchTypeEb.exit
 
@@ -4516,19 +4516,19 @@ _ZNK11TransTableL13MakeHistStatsEPKiRiS2_S2_S2_i.exit: ; preds = %19
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !66
 
 ._crit_edge:                                      ; preds = %35, %5
-  %.270 = phi i32 [ 0, %5 ], [ %.1, %35 ]
-  %.25269 = phi double [ 0.000000e+00, %5 ], [ %21, %35 ]
-  %.25568 = phi double [ 0.000000e+00, %5 ], [ %20, %35 ]
-  %.25867 = phi i32 [ 0, %5 ], [ %.157, %35 ]
+  %.273 = phi i32 [ 0, %5 ], [ %.1, %35 ]
+  %.25272 = phi double [ 0.000000e+00, %5 ], [ %21, %35 ]
+  %.25571 = phi double [ 0.000000e+00, %5 ], [ %20, %35 ]
+  %.25870 = phi i32 [ 0, %5 ], [ %.157, %35 ]
   %36 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.7)
   %37 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_St5_Setw(ptr noundef nonnull align 8 dereferenceable(8) %1, i32 7)
   %38 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSt8ios_baseS0_E(ptr noundef nonnull align 8 dereferenceable(8) %37, ptr noundef nonnull @_ZSt4leftRSt8ios_base)
   %39 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %38, ptr noundef nonnull @.str.22)
   %40 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_St5_Setw(ptr noundef nonnull align 8 dereferenceable(8) %39, i32 6)
   %41 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSt8ios_baseS0_E(ptr noundef nonnull align 8 dereferenceable(8) %40, ptr noundef nonnull @_ZSt5rightRSt8ios_base)
-  %42 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %41, i32 noundef %.25867)
+  %42 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %41, i32 noundef %.25870)
   %43 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %42, ptr noundef nonnull @.str.7)
-  %44 = icmp sgt i32 %.25867, 1
+  %44 = icmp sgt i32 %.25870, 1
   br i1 %44, label %45, label %90
 
 45:                                               ; preds = %._crit_edge
@@ -4539,8 +4539,8 @@ _ZNK11TransTableL13MakeHistStatsEPKiRiS2_S2_S2_i.exit: ; preds = %19
   %50 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSt8ios_baseS0_E(ptr noundef nonnull align 8 dereferenceable(8) %49, ptr noundef nonnull @_ZSt5rightRSt8ios_base)
   %51 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %50, i32 noundef %3)
   %52 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %51, ptr noundef nonnull @.str.7)
-  %53 = uitofp nneg i32 %.25867 to double
-  %54 = fdiv double %.25568, %53
+  %53 = uitofp nneg i32 %.25870 to double
+  %54 = fdiv double %.25571, %53
   %55 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_St5_Setw(ptr noundef nonnull align 8 dereferenceable(8) %1, i32 7)
   %56 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSt8ios_baseS0_E(ptr noundef nonnull align 8 dereferenceable(8) %55, ptr noundef nonnull @_ZSt4leftRSt8ios_base)
   %57 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %56, ptr noundef nonnull @.str.24)
@@ -4552,8 +4552,8 @@ _ZNK11TransTableL13MakeHistStatsEPKiRiS2_S2_S2_i.exit: ; preds = %19
   %63 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %62, ptr noundef nonnull @.str.7)
   %64 = fneg double %53
   %65 = fmul double %54, %64
-  %66 = tail call double @llvm.fmuladd.f64(double %65, double %54, double %.25269)
-  %67 = add nsw i32 %.25867, -1
+  %66 = tail call double @llvm.fmuladd.f64(double %65, double %54, double %.25272)
+  %67 = add nsw i32 %.25870, -1
   %68 = uitofp nneg i32 %67 to double
   %69 = fdiv double %66, %68
   %70 = fcmp ult double %69, 0.000000e+00
@@ -4578,7 +4578,7 @@ _ZNK11TransTableL13MakeHistStatsEPKiRiS2_S2_S2_i.exit: ; preds = %19
   %85 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %84, ptr noundef nonnull @.str.26)
   %86 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_St5_Setw(ptr noundef nonnull align 8 dereferenceable(8) %85, i32 6)
   %87 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSt8ios_baseS0_E(ptr noundef nonnull align 8 dereferenceable(8) %86, ptr noundef nonnull @_ZSt5rightRSt8ios_base)
-  %88 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %87, i32 noundef %.270)
+  %88 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %87, i32 noundef %.273)
   %89 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %88, ptr noundef nonnull @.str.7)
   br label %90
 
@@ -7164,7 +7164,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit41: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit, %33
   store ptr %27, ptr %0, align 8
-  %37 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %28, i64 %1
+  %37 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %28, i64 %1
   store ptr %37, ptr %4, align 8
   %38 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %27, i64 %25
   store ptr %38, ptr %11, align 8

@@ -327,9 +327,9 @@ define range(i32 -1, 1) i32 @H5F_mount(ptr noundef %0, ptr noundef %1, ptr nound
   %.not145 = icmp eq i32 %87, 0
   br i1 %.not145, label %._crit_edge142.thread, label %.lr.ph141
 
-.lr.ph141:                                        ; preds = %85, %.thread167
-  %.088139 = phi i32 [ %109, %.thread167 ], [ 0, %85 ]
-  %.093138 = phi i32 [ %107, %.thread167 ], [ %87, %85 ]
+.lr.ph141:                                        ; preds = %85, %.thread178
+  %.088139 = phi i32 [ %109, %.thread178 ], [ 0, %85 ]
+  %.093138 = phi i32 [ %107, %.thread178 ], [ %87, %85 ]
   %88 = add i32 %.088139, %.093138
   %89 = lshr i32 %88, 1
   %90 = load ptr, ptr %74, align 8, !tbaa !10
@@ -343,43 +343,43 @@ define range(i32 -1, 1) i32 @H5F_mount(ptr noundef %0, ptr noundef %1, ptr nound
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 8
   %99 = load i64, ptr %98, align 8, !tbaa !58
   %.not110 = icmp eq i64 %99, -1
-  br i1 %.not110, label %.thread162, label %100
+  br i1 %.not110, label %.thread173, label %100
 
 100:                                              ; preds = %.lr.ph141
   %101 = getelementptr inbounds nuw i8, ptr %96, i64 8
   %102 = load i64, ptr %101, align 8, !tbaa !58
   %103 = icmp eq i64 %99, %102
-  br i1 %103, label %._crit_edge142.thread172, label %104
+  br i1 %103, label %._crit_edge142.thread183, label %104
 
 104:                                              ; preds = %100
   %.not112 = icmp ne i64 %102, -1
   %105 = icmp ult i64 %99, %102
   %or.cond = and i1 %.not112, %105
-  br i1 %or.cond, label %.thread167, label %.thread162
+  br i1 %or.cond, label %.thread178, label %.thread173
 
-.thread162:                                       ; preds = %104, %.lr.ph141
+.thread173:                                       ; preds = %104, %.lr.ph141
   %106 = add nuw i32 %89, 1
-  br label %.thread167
+  br label %.thread178
 
-.thread167:                                       ; preds = %104, %.thread162
-  %107 = phi i32 [ %.093138, %.thread162 ], [ %89, %104 ]
-  %108 = phi i32 [ 1, %.thread162 ], [ 0, %104 ]
-  %109 = phi i32 [ %106, %.thread162 ], [ %.088139, %104 ]
+.thread178:                                       ; preds = %104, %.thread173
+  %107 = phi i32 [ %.093138, %.thread173 ], [ %89, %104 ]
+  %108 = phi i32 [ 1, %.thread173 ], [ 0, %104 ]
+  %109 = phi i32 [ %106, %.thread173 ], [ %.088139, %104 ]
   %110 = icmp ult i32 %109, %107
   br i1 %110, label %.lr.ph141, label %._crit_edge142, !llvm.loop !59
 
-._crit_edge142:                                   ; preds = %.thread167
+._crit_edge142:                                   ; preds = %.thread178
   %111 = add nuw i32 %89, %108
   br label %._crit_edge142.thread
 
-._crit_edge142.thread172:                         ; preds = %100
+._crit_edge142.thread183:                         ; preds = %100
   %112 = load i64, ptr @H5E_FILE_g, align 8, !tbaa !45
   %113 = load i64, ptr @H5E_MOUNT_g, align 8, !tbaa !45
   %114 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5F_mount, i32 noundef 179, i64 noundef %112, i64 noundef %113, ptr noundef nonnull @.str.8) #6
   br label %193
 
 ._crit_edge142.thread:                            ; preds = %._crit_edge142, %85
-  %spec.select115171 = phi i32 [ %111, %._crit_edge142 ], [ 0, %85 ]
+  %spec.select115182 = phi i32 [ %111, %._crit_edge142 ], [ 0, %85 ]
   %115 = load ptr, ptr %74, align 8, !tbaa !10
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 40
   %117 = load i32, ptr %116, align 8, !tbaa !19
@@ -423,10 +423,10 @@ define range(i32 -1, 1) i32 @H5F_mount(ptr noundef %0, ptr noundef %1, ptr nound
 134:                                              ; preds = %._crit_edge152, %.thread120
   %135 = phi i32 [ %.pre156, %.thread120 ], [ %117, %._crit_edge152 ]
   %136 = phi ptr [ %126, %.thread120 ], [ %.pre154, %._crit_edge152 ]
-  %137 = zext i32 %spec.select115171 to i64
+  %137 = zext i32 %spec.select115182 to i64
   %138 = getelementptr inbounds nuw %struct.H5F_mount_t, ptr %136, i64 %137
   %139 = getelementptr inbounds nuw i8, ptr %138, i64 16
-  %140 = sub i32 %135, %spec.select115171
+  %140 = sub i32 %135, %spec.select115182
   %141 = zext i32 %140 to i64
   %142 = shl nuw nsw i64 %141, 4
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %139, ptr align 8 %138, i64 %142, i1 false)
@@ -501,7 +501,7 @@ define range(i32 -1, 1) i32 @H5F_mount(ptr noundef %0, ptr noundef %1, ptr nound
   %192 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5F_mount, i32 noundef 216, i64 noundef %190, i64 noundef %191, ptr noundef nonnull @.str.15) #6
   br label %193
 
-193:                                              ; preds = %._crit_edge142.thread172, %130, %189, %176, %166, %156, %81, %67, %.thread132
+193:                                              ; preds = %._crit_edge142.thread183, %130, %189, %176, %166, %156, %81, %67, %.thread132
   %194 = call i32 @H5G_close(ptr noundef nonnull %49) #6
   %195 = icmp slt i32 %194, 0
   br i1 %195, label %196, label %206
@@ -657,7 +657,7 @@ define range(i32 -1, 1) i32 @H5F_unmount(ptr noundef %0, ptr noundef %1) local_u
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 16
   %59 = load ptr, ptr %58, align 8, !tbaa !10
   %60 = icmp eq ptr %59, %54
-  br i1 %60, label %.loopexit.loopexit.split.loop.exit132, label %61
+  br i1 %60, label %.loopexit.loopexit.split.loop.exit139, label %61
 
 61:                                               ; preds = %55
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -743,16 +743,16 @@ define range(i32 -1, 1) i32 @H5F_unmount(ptr noundef %0, ptr noundef %1) local_u
   %106 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5F_unmount, i32 noundef 324, i64 noundef %104, i64 noundef %105, ptr noundef nonnull @.str.18) #6
   br label %190
 
-.loopexit.loopexit.split.loop.exit132:            ; preds = %55
+.loopexit.loopexit.split.loop.exit139:            ; preds = %55
   %107 = trunc nuw i64 %indvars.iv to i32
   br label %.loopexit
 
-.loopexit:                                        ; preds = %61, %.loopexit.loopexit.split.loop.exit132, %.preheader, %.thread95
-  %108 = phi ptr [ %.pre125, %.thread95 ], [ %49, %.preheader ], [ %49, %.loopexit.loopexit.split.loop.exit132 ], [ %49, %61 ]
-  %.084 = phi ptr [ %101, %.thread95 ], [ %32, %.preheader ], [ %32, %.loopexit.loopexit.split.loop.exit132 ], [ %32, %61 ]
-  %.082 = phi ptr [ %103, %.thread95 ], [ %39, %.preheader ], [ %39, %.loopexit.loopexit.split.loop.exit132 ], [ %39, %61 ]
-  %.179 = phi i1 [ false, %.thread95 ], [ true, %.preheader ], [ true, %.loopexit.loopexit.split.loop.exit132 ], [ true, %61 ]
-  %.175 = phi i32 [ %67, %.thread95 ], [ -1, %.preheader ], [ %107, %.loopexit.loopexit.split.loop.exit132 ], [ -1, %61 ]
+.loopexit:                                        ; preds = %61, %.loopexit.loopexit.split.loop.exit139, %.preheader, %.thread95
+  %108 = phi ptr [ %.pre125, %.thread95 ], [ %49, %.preheader ], [ %49, %.loopexit.loopexit.split.loop.exit139 ], [ %49, %61 ]
+  %.084 = phi ptr [ %101, %.thread95 ], [ %32, %.preheader ], [ %32, %.loopexit.loopexit.split.loop.exit139 ], [ %32, %61 ]
+  %.082 = phi ptr [ %103, %.thread95 ], [ %39, %.preheader ], [ %39, %.loopexit.loopexit.split.loop.exit139 ], [ %39, %61 ]
+  %.179 = phi i1 [ false, %.thread95 ], [ true, %.preheader ], [ true, %.loopexit.loopexit.split.loop.exit139 ], [ true, %61 ]
+  %.175 = phi i32 [ %67, %.thread95 ], [ -1, %.preheader ], [ %107, %.loopexit.loopexit.split.loop.exit139 ], [ -1, %61 ]
   %109 = getelementptr inbounds nuw i8, ptr %.082, i64 16
   %110 = getelementptr inbounds nuw i8, ptr %108, i64 48
   %111 = load ptr, ptr %110, align 8, !tbaa !40

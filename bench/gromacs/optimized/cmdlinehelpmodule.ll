@@ -3298,12 +3298,12 @@ _ZNKSt14default_deleteIN3gmx10IHelpTopicEEclEPS1_.exit.i5: ; preds = %.noexc, %1
   br label %_ZNSt10unique_ptrIN3gmx10IHelpTopicESt14default_deleteIS1_EED2Ev.exit6.sink.split
 
 _ZNSt10unique_ptrIN3gmx10IHelpTopicESt14default_deleteIS1_EED2Ev.exit6.sink.split: ; preds = %23, %_ZNKSt14default_deleteIN3gmx10IHelpTopicEEclEPS1_.exit.i5
-  %.sink16 = phi ptr [ %9, %_ZNKSt14default_deleteIN3gmx10IHelpTopicEEclEPS1_.exit.i5 ], [ %25, %23 ]
+  %.sink17 = phi ptr [ %9, %_ZNKSt14default_deleteIN3gmx10IHelpTopicEEclEPS1_.exit.i5 ], [ %25, %23 ]
   %eh.lpad-body12.ph = phi { ptr, i32 } [ %26, %_ZNKSt14default_deleteIN3gmx10IHelpTopicEEclEPS1_.exit.i5 ], [ %24, %23 ]
-  %27 = load ptr, ptr %.sink16, align 8, !tbaa !11
+  %27 = load ptr, ptr %.sink17, align 8, !tbaa !11
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %29 = load ptr, ptr %28, align 8
-  call void %29(ptr noundef nonnull align 8 dereferenceable(8) %.sink16) #29
+  call void %29(ptr noundef nonnull align 8 dereferenceable(8) %.sink17) #29
   br label %_ZNSt10unique_ptrIN3gmx10IHelpTopicESt14default_deleteIS1_EED2Ev.exit6
 
 _ZNSt10unique_ptrIN3gmx10IHelpTopicESt14default_deleteIS1_EED2Ev.exit6: ; preds = %_ZNSt10unique_ptrIN3gmx10IHelpTopicESt14default_deleteIS1_EED2Ev.exit6.sink.split, %23

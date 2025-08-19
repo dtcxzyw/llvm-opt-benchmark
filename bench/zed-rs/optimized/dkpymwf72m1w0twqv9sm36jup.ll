@@ -228,7 +228,7 @@ define internal void @"_ZN109_$LT$settings..settings_store..SettingValue$LT$T$GT
 .lr.ph.i.i.preheader:                             ; preds = %.thread, %80
   %83 = phi ptr [ %5, %.thread ], [ %spec.select31, %80 ]
   %84 = phi ptr [ %71, %.thread ], [ %.phi.trans.insert.i, %80 ]
-  %.sink.i.pre-phi.i2731.i45 = phi i64 [ 3, %.thread ], [ %.pre67.i.i, %80 ]
+  %.sink.i.pre-phi.i3337.i59 = phi i64 [ 3, %.thread ], [ %.pre67.i.i, %80 ]
   %85 = phi ptr [ %71, %.thread ], [ %spec.select, %80 ]
   %86 = phi i64 [ 0, %.thread ], [ %.pre, %80 ]
   br label %.lr.ph.i.i
@@ -237,7 +237,7 @@ define internal void @"_ZN109_$LT$settings..settings_store..SettingValue$LT$T$GT
   %87 = phi ptr [ %spec.select31, %80 ], [ %83, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf2815b6d88013e66E.exit.i.i" ]
   %88 = phi ptr [ %.phi.trans.insert.i, %80 ], [ %84, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf2815b6d88013e66E.exit.i.i" ]
   %.sroa.0.0.lcssa.i.i = phi ptr [ %67, %80 ], [ %92, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf2815b6d88013e66E.exit.i.i" ]
-  %storemerge.lcssa.i.i = phi i64 [ %.pre, %80 ], [ %.sink.i.pre-phi.i2731.i45, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf2815b6d88013e66E.exit.i.i" ]
+  %storemerge.lcssa.i.i = phi i64 [ %.pre, %80 ], [ %.sink.i.pre-phi.i3337.i59, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf2815b6d88013e66E.exit.i.i" ]
   store i64 %storemerge.lcssa.i.i, ptr %87, align 8, !alias.scope !10, !noalias !7
   %89 = icmp eq ptr %.sroa.0.0.lcssa.i.i, %70
   br i1 %89, label %.loopexit, label %.lr.ph59.i.i
@@ -337,7 +337,7 @@ define internal void @"_ZN109_$LT$settings..settings_store..SettingValue$LT$T$GT
   %126 = getelementptr inbounds ptr, ptr %85, i64 %storemerge55.i.i
   store ptr %93, ptr %126, align 8, !noalias !7
   %127 = add i64 %storemerge55.i.i, 1
-  %exitcond.not.i.i = icmp eq i64 %127, %.sink.i.pre-phi.i2731.i45
+  %exitcond.not.i.i = icmp eq i64 %127, %.sink.i.pre-phi.i3337.i59
   br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 128:                                              ; preds = %.lr.ph.i.i
@@ -495,9 +495,9 @@ common.resume:                                    ; preds = %.body, %"_ZN4core3p
   br i1 %174, label %"_ZN4core3ptr109drop_in_place$LT$smallvec..SmallVec$LT$$u5b$$RF$theme..settings..ThemeSettingsContent$u3b$$u20$3$u5d$$GT$$GT$17h37338800359cebb5E.exit28.sink.split", label %"_ZN4core3ptr109drop_in_place$LT$smallvec..SmallVec$LT$$u5b$$RF$theme..settings..ThemeSettingsContent$u3b$$u20$3$u5d$$GT$$GT$17h37338800359cebb5E.exit28"
 
 "_ZN4core3ptr109drop_in_place$LT$smallvec..SmallVec$LT$$u5b$$RF$theme..settings..ThemeSettingsContent$u3b$$u20$3$u5d$$GT$$GT$17h37338800359cebb5E.exit28.sink.split": ; preds = %171, %167
-  %.sink53 = phi i64 [ %169, %167 ], [ %173, %171 ]
+  %.sink67 = phi i64 [ %169, %167 ], [ %173, %171 ]
   %175 = load ptr, ptr %144, align 8, !nonnull !4, !noundef !4
-  %176 = shl nuw i64 %.sink53, 3
+  %176 = shl nuw i64 %.sink67, 3
   call void @__rust_dealloc(ptr noundef nonnull %175, i64 noundef %176, i64 noundef 8) #29, !noalias !4
   br label %"_ZN4core3ptr109drop_in_place$LT$smallvec..SmallVec$LT$$u5b$$RF$theme..settings..ThemeSettingsContent$u3b$$u20$3$u5d$$GT$$GT$17h37338800359cebb5E.exit28"
 
@@ -2158,9 +2158,9 @@ define hidden { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$10grow_exact1
   br i1 %23, label %25, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$4grow17h8fe1967c46a2f3c3E.exit.i.thread"
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$4grow17h8fe1967c46a2f3c3E.exit.i.thread": ; preds = %18, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$4grow17h8fe1967c46a2f3c3E.exit.i"
-  %.sroa.06.0.i.i.pn.i38 = phi ptr [ %.sroa.06.0.i.i.pn.i, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$4grow17h8fe1967c46a2f3c3E.exit.i" ], [ inttoptr (i64 8 to ptr), %18 ]
+  %.sroa.06.0.i.i.pn.i39 = phi ptr [ %.sroa.06.0.i.i.pn.i, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$4grow17h8fe1967c46a2f3c3E.exit.i" ], [ inttoptr (i64 8 to ptr), %18 ]
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sroa.06.0.i.i.pn.i38, ptr %24, align 8
+  store ptr %.sroa.06.0.i.i.pn.i39, ptr %24, align 8
   store i64 %7, ptr %0, align 8
   br label %25
 

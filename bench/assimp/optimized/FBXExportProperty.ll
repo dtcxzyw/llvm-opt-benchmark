@@ -742,7 +742,7 @@ define hidden void @_ZN6Assimp3FBX17FBXExportPropertyC2ERK12aiMatrix4x4tIfE(ptr 
 13:                                               ; preds = %.preheader, %_ZNK12aiMatrix4x4tIfEixEj.exit
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %_ZNK12aiMatrix4x4tIfEixEj.exit ]
   %14 = trunc nuw nsw i64 %indvars.iv to i32
-  switch i32 %14, label %default.unreachable.i [
+  switch i32 %14, label %default.unreachable5.i [
     i32 0, label %_ZNK12aiMatrix4x4tIfEixEj.exit
     i32 1, label %15
     i32 2, label %16
@@ -758,7 +758,7 @@ define hidden void @_ZN6Assimp3FBX17FBXExportPropertyC2ERK12aiMatrix4x4tIfE(ptr 
 17:                                               ; preds = %13
   br label %_ZNK12aiMatrix4x4tIfEixEj.exit
 
-default.unreachable.i:                            ; preds = %13
+default.unreachable5.i:                           ; preds = %13
   unreachable
 
 _ZNK12aiMatrix4x4tIfEixEj.exit:                   ; preds = %13, %15, %16, %17
@@ -1716,9 +1716,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %417
   resume { ptr, i32 } %.pn.pn
 
 .loopexit.sink.split:                             ; preds = %_ZN6Assimp12StreamWriterILb0ELb0EE5PutU1Eh.exit75, %_ZN6Assimp12StreamWriterILb0ELb0EE5PutI2Es.exit, %_ZN6Assimp12StreamWriterILb0ELb0EE5PutI4Ei.exit, %_ZN6Assimp12StreamWriterILb0ELb0EE5PutF4Ef.exit, %_ZN6Assimp12StreamWriterILb0ELb0EE5PutF8Ed.exit, %_ZN6Assimp12StreamWriterILb0ELb0EE5PutI8El.exit
-  %.sink198 = phi i64 [ 8, %_ZN6Assimp12StreamWriterILb0ELb0EE5PutI8El.exit ], [ 8, %_ZN6Assimp12StreamWriterILb0ELb0EE5PutF8Ed.exit ], [ 4, %_ZN6Assimp12StreamWriterILb0ELb0EE5PutF4Ef.exit ], [ 4, %_ZN6Assimp12StreamWriterILb0ELb0EE5PutI4Ei.exit ], [ 2, %_ZN6Assimp12StreamWriterILb0ELb0EE5PutI2Es.exit ], [ 1, %_ZN6Assimp12StreamWriterILb0ELb0EE5PutU1Eh.exit75 ]
+  %.sink231 = phi i64 [ 8, %_ZN6Assimp12StreamWriterILb0ELb0EE5PutI8El.exit ], [ 8, %_ZN6Assimp12StreamWriterILb0ELb0EE5PutF8Ed.exit ], [ 4, %_ZN6Assimp12StreamWriterILb0ELb0EE5PutF4Ef.exit ], [ 4, %_ZN6Assimp12StreamWriterILb0ELb0EE5PutI4Ei.exit ], [ 2, %_ZN6Assimp12StreamWriterILb0ELb0EE5PutI2Es.exit ], [ 1, %_ZN6Assimp12StreamWriterILb0ELb0EE5PutU1Eh.exit75 ]
   %429 = load i64, ptr %6, align 8
-  %430 = add i64 %429, %.sink198
+  %430 = add i64 %429, %.sink231
   store i64 %430, ptr %6, align 8
   br label %.loopexit
 
@@ -3465,7 +3465,7 @@ define linkonce_odr void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef nonnull alig
 19:                                               ; preds = %10
   store i8 0, ptr %4, align 1
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 1
-  %21 = add i64 %11, -1
+  %21 = add nsw i64 %11, -1
   %22 = icmp eq i64 %21, 0
   br i1 %22, label %_ZSt27__uninitialized_default_n_aIPhmhET_S1_T0_RSaIT1_E.exit.i, label %23
 

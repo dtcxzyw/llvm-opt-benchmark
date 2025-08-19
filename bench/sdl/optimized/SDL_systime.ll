@@ -35,8 +35,8 @@ define hidden void @SDL_GetSystemTimeLocalePreferences(ptr noundef writeonly cap
     i8 121, label %.loopexit26.sink.split.loopexit
     i8 70, label %.loopexit26.sink.split.loopexit
     i8 67, label %.loopexit26.sink.split.loopexit
-    i8 100, label %.loopexit26.sink.split.loopexit29
-    i8 101, label %.loopexit26.sink.split.loopexit29
+    i8 100, label %.loopexit26.sink.split.loopexit35
+    i8 101, label %.loopexit26.sink.split.loopexit35
     i8 98, label %.loopexit26.sink.split
     i8 68, label %.loopexit26.sink.split
     i8 104, label %.loopexit26.sink.split
@@ -46,11 +46,11 @@ define hidden void @SDL_GetSystemTimeLocalePreferences(ptr noundef writeonly cap
 .loopexit26.sink.split.loopexit:                  ; preds = %6, %6, %6, %6
   br label %.loopexit26.sink.split
 
-.loopexit26.sink.split.loopexit29:                ; preds = %6, %6
+.loopexit26.sink.split.loopexit35:                ; preds = %6, %6
   br label %.loopexit26.sink.split
 
-.loopexit26.sink.split:                           ; preds = %6, %6, %6, %6, %.loopexit26.sink.split.loopexit29, %.loopexit26.sink.split.loopexit
-  %.sink = phi i32 [ 0, %.loopexit26.sink.split.loopexit ], [ 1, %.loopexit26.sink.split.loopexit29 ], [ 2, %6 ], [ 2, %6 ], [ 2, %6 ], [ 2, %6 ]
+.loopexit26.sink.split:                           ; preds = %6, %6, %6, %6, %.loopexit26.sink.split.loopexit35, %.loopexit26.sink.split.loopexit
+  %.sink = phi i32 [ 0, %.loopexit26.sink.split.loopexit ], [ 1, %.loopexit26.sink.split.loopexit35 ], [ 2, %6 ], [ 2, %6 ], [ 2, %6 ], [ 2, %6 ]
   store i32 %.sink, ptr %0, align 4
   br label %.loopexit26
 
@@ -75,17 +75,17 @@ define hidden void @SDL_GetSystemTimeLocalePreferences(ptr noundef writeonly cap
     i8 72, label %.loopexit.sink.split
     i8 107, label %.loopexit.sink.split
     i8 84, label %.loopexit.sink.split
-    i8 73, label %.loopexit.sink.split.loopexit28
-    i8 108, label %.loopexit.sink.split.loopexit28
-    i8 114, label %.loopexit.sink.split.loopexit28
+    i8 73, label %.loopexit.sink.split.loopexit34
+    i8 108, label %.loopexit.sink.split.loopexit34
+    i8 114, label %.loopexit.sink.split.loopexit34
   ], !llvm.loop !5
 
-.loopexit.sink.split.loopexit28:                  ; preds = %11, %11, %11
+.loopexit.sink.split.loopexit34:                  ; preds = %11, %11, %11
   br label %.loopexit.sink.split
 
-.loopexit.sink.split:                             ; preds = %11, %11, %11, %.loopexit.sink.split.loopexit28
-  %.sink27 = phi i32 [ 1, %.loopexit.sink.split.loopexit28 ], [ 0, %11 ], [ 0, %11 ], [ 0, %11 ]
-  store i32 %.sink27, ptr %1, align 4
+.loopexit.sink.split:                             ; preds = %11, %11, %11, %.loopexit.sink.split.loopexit34
+  %.sink33 = phi i32 [ 1, %.loopexit.sink.split.loopexit34 ], [ 0, %11 ], [ 0, %11 ], [ 0, %11 ]
+  store i32 %.sink33, ptr %1, align 4
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader, %.loopexit.sink.split, %8, %.loopexit26

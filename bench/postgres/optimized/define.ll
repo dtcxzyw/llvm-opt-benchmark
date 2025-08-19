@@ -571,7 +571,7 @@ define dso_local i32 @defGetTypeLength(ptr noundef readonly captures(none) %0) l
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @defGetStringList(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
+define dso_local nonnull ptr @defGetStringList(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null

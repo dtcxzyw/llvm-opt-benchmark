@@ -252,7 +252,7 @@ Vec_IntRemove.exit:                               ; preds = %60, %.preheader.i
 
 .critedge2.thread:                                ; preds = %74, %.critedge2
   %78 = phi i32 [ %76, %.critedge2 ], [ %.069138, %74 ]
-  %.074.lcssa166 = phi i32 [ %.074.lcssa, %.critedge2 ], [ %.070137, %74 ]
+  %.074.lcssa176 = phi i32 [ %.074.lcssa, %.critedge2 ], [ %.070137, %74 ]
   %79 = add nsw i32 %.070137, 1
   %80 = sext i32 %.070137 to i64
   %81 = getelementptr inbounds i32, ptr %.val83, i64 %80
@@ -331,9 +331,9 @@ Vec_IntRemove.exit104:                            ; preds = %100, %.preheader.i8
 
 111:                                              ; preds = %Vec_IntRemove.exit104, %.loopexit112, %.critedge2.thread
   %112 = phi i32 [ %78, %.critedge2.thread ], [ %76, %Vec_IntRemove.exit104 ], [ %76, %.loopexit112 ]
-  %.074.lcssa165 = phi i32 [ %.074.lcssa166, %.critedge2.thread ], [ %.074.lcssa, %Vec_IntRemove.exit104 ], [ %.074.lcssa, %.loopexit112 ]
+  %.074.lcssa175 = phi i32 [ %.074.lcssa176, %.critedge2.thread ], [ %.074.lcssa, %Vec_IntRemove.exit104 ], [ %.074.lcssa, %.loopexit112 ]
   %.2 = phi i32 [ %79, %.critedge2.thread ], [ %.070137, %Vec_IntRemove.exit104 ], [ %.070137, %.loopexit112 ]
-  %113 = tail call ptr @Cudd_bddIthVar(ptr noundef %8, i32 noundef %.074.lcssa165) #15
+  %113 = tail call ptr @Cudd_bddIthVar(ptr noundef %8, i32 noundef %.074.lcssa175) #15
   %114 = getelementptr inbounds nuw ptr, ptr %25, i64 %indvars.iv160
   store ptr %113, ptr %114, align 8, !tbaa !41
   br label %115

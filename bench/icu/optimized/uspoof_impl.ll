@@ -2643,8 +2643,8 @@ define i32 @uspoof_swap_77(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr n
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 13
   %23 = load i8, ptr %22, align 1, !tbaa !38
   %24 = icmp eq i8 %23, 102
-  %or.cond125 = select i1 %21, i1 %24, i1 false
-  br i1 %or.cond125, label %25, label %._crit_edge
+  %or.cond131 = select i1 %21, i1 %24, i1 false
+  br i1 %or.cond131, label %25, label %._crit_edge
 
 25:                                               ; preds = %18
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 14

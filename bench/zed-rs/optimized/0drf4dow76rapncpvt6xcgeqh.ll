@@ -14331,14 +14331,14 @@ define hidden { i64, ptr } @"_ZN6picker15Picker$LT$D$GT$14update_matches28_$u7b$
   %13 = alloca [16 x i8], align 8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 113
   %15 = load i8, ptr %14, align 1, !range !53, !noundef !4
-  switch i8 %15, label %default.unreachable69 [
+  switch i8 %15, label %default.unreachable70 [
     i8 0, label %16
     i8 1, label %58
     i8 2, label %59
     i8 3, label %37
   ]
 
-default.unreachable69:                            ; preds = %2
+default.unreachable70:                            ; preds = %2
   unreachable
 
 16:                                               ; preds = %2
@@ -15049,14 +15049,14 @@ define hidden noundef zeroext i1 @"_ZN71_$LT$vcs_menu..BranchListDelegate$u20$as
   %33 = alloca [448 x i8], align 8
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 592
   %35 = load i8, ptr %34, align 8, !range !53, !noundef !4
-  switch i8 %35, label %default.unreachable102 [
+  switch i8 %35, label %default.unreachable119 [
     i8 0, label %36
     i8 1, label %136
     i8 2, label %137
     i8 3, label %57
   ]
 
-default.unreachable102:                           ; preds = %267, %138, %2
+default.unreachable119:                           ; preds = %267, %138, %2
   unreachable
 
 36:                                               ; preds = %2
@@ -15468,7 +15468,7 @@ common.ret:                                       ; preds = %"_ZN4core3ptr99drop
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %140 = getelementptr inbounds nuw i8, ptr %0, i64 586
   %141 = load i8, ptr %140, align 2, !range !53, !noalias !2485, !noundef !4
-  switch i8 %141, label %default.unreachable102 [
+  switch i8 %141, label %default.unreachable119 [
     i8 0, label %142
     i8 1, label %265
     i8 2, label %266
@@ -15812,7 +15812,7 @@ _ZN4core4iter6traits8iterator8Iterator7collect17hb19be14d1efde246E.exit.i: ; pre
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %0, i64 361
   %.pre.i = load i8, ptr %.phi.trans.insert.i, align 1, !range !53, !noalias !2566
   call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !2485
-  switch i8 %.pre.i, label %default.unreachable102 [
+  switch i8 %.pre.i, label %default.unreachable119 [
     i8 0, label %._crit_edge
     i8 1, label %358
     i8 2, label %359

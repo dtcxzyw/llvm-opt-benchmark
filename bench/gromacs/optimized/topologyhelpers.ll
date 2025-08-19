@@ -46,8 +46,8 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt5tupleIJiiEESt6vectorIS3_SaIS3_E
   %.02116.i.i = phi i64 [ %.2.i.i, %43 ], [ %11, %2 ]
   %.sroa.05.015.i.i = phi ptr [ %.sroa.05.1.i.i, %43 ], [ %4, %2 ]
   %13 = lshr i64 %.02116.i.i, 1
-  %.idx79 = shl nuw nsw i64 %13, 3
-  %14 = getelementptr inbounds nuw i8, ptr %.sroa.05.015.i.i, i64 %.idx79
+  %.idx95 = shl nuw nsw i64 %13, 3
+  %14 = getelementptr inbounds nuw i8, ptr %.sroa.05.015.i.i, i64 %.idx95
   %15 = getelementptr i8, ptr %14, i64 4
   %.val.i.i.i = load i32, ptr %15, align 4, !tbaa !9
   %16 = icmp slt i32 %.val.i.i.i, %.val
@@ -64,8 +64,8 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt5tupleIJiiEESt6vectorIS3_SaIS3_E
   br i1 %22, label %43, label %.critedge.i.i
 
 .critedge.i.i:                                    ; preds = %21
-  %.not78 = icmp samesign ult i64 %.02116.i.i, 2
-  br i1 %.not78, label %"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPKSt5tupleIJiiEESt6vectorIS3_SaIS3_EEEES3_NS0_5__ops14_Iter_comp_valIZN5nblib19toGmxExclusionBlockERKS8_E3$_0EEET_SH_SH_RKT0_T1_.exit.i.i", label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt5tupleIJiiEESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.i.i.i
+  %.not94 = icmp samesign ult i64 %.02116.i.i, 2
+  br i1 %.not94, label %"_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPKSt5tupleIJiiEESt6vectorIS3_SaIS3_EEEES3_NS0_5__ops14_Iter_comp_valIZN5nblib19toGmxExclusionBlockERKS8_E3$_0EEET_SH_SH_RKT0_T1_.exit.i.i", label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt5tupleIJiiEESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.i.i.i
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt5tupleIJiiEESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.i.i.i: ; preds = %.critedge.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt5tupleIJiiEESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.i.i.i
   %.04.i.i.i = phi i64 [ %.1.i.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt5tupleIJiiEESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.i.i.i ], [ %13, %.critedge.i.i ]
@@ -87,7 +87,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt5tupleIJiiEESt6vectorIS3_SaIS3_E
   %.sroa.02.0.lcssa.i.i.i = phi ptr [ %.sroa.05.015.i.i, %.critedge.i.i ], [ %.sroa.02.1.i.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt5tupleIJiiEESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.i.i.i ]
   %.idx = shl nuw nsw i64 %.02116.i.i, 3
   %31 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %32 = add nuw nsw i64 %.idx79, 8
+  %32 = add nuw nsw i64 %.idx95, 8
   %gepdiff = sub nsw i64 %.idx, %32
   %33 = ashr exact i64 %gepdiff, 3
   %34 = icmp sgt i64 %33, 0

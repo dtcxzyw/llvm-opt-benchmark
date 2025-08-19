@@ -3997,13 +3997,13 @@ define internal fastcc void @_ZN4core3str7pattern14TwoWaySearcher9next_back17h2c
 
 .sink.split:                                      ; preds = %30, %75, %63
   %.sink = phi i64 [ %17, %63 ], [ %5, %75 ], [ %5, %30 ]
-  %.ph90 = phi i64 [ %64, %63 ], [ %76, %75 ], [ %20, %30 ]
+  %.ph96 = phi i64 [ %64, %63 ], [ %76, %75 ], [ %20, %30 ]
   store i64 %.sink, ptr %15, align 8
   br label %33
 
 33:                                               ; preds = %.sink.split, %75, %63, %30
   %34 = phi i64 [ %19, %75 ], [ %19, %63 ], [ %19, %30 ], [ %.sink, %.sink.split ]
-  %35 = phi i64 [ %76, %75 ], [ %64, %63 ], [ %20, %30 ], [ %.ph90, %.sink.split ]
+  %35 = phi i64 [ %76, %75 ], [ %64, %63 ], [ %20, %30 ], [ %.ph96, %.sink.split ]
   %36 = sub i64 %35, %5
   %37 = icmp ult i64 %36, %3
   br i1 %37, label %18, label %._crit_edge

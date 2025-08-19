@@ -311,27 +311,27 @@ define weak_odr dso_local void @_ZN3igl23barycentric_coordinatesIN5Eigen6MatrixI
   %26 = fmul double %16, %16
   %27 = fadd double %25, %26
   %28 = fmul <2 x double> %17, %15
-  %shift362 = shufflevector <2 x double> %28, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop363 = fadd <2 x double> %28, %shift362
-  %29 = extractelement <2 x double> %foldExtExtBinop363, i64 0
+  %shift364 = shufflevector <2 x double> %28, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop365 = fadd <2 x double> %28, %shift364
+  %29 = extractelement <2 x double> %foldExtExtBinop365, i64 0
   %30 = fmul double %16, %14
   %31 = fadd double %29, %30
   %32 = fmul <2 x double> %15, %15
-  %shift365 = shufflevector <2 x double> %32, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop366 = fadd <2 x double> %32, %shift365
-  %33 = extractelement <2 x double> %foldExtExtBinop366, i64 0
+  %shift367 = shufflevector <2 x double> %32, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop368 = fadd <2 x double> %32, %shift367
+  %33 = extractelement <2 x double> %foldExtExtBinop368, i64 0
   %34 = fmul double %14, %14
   %35 = fadd double %33, %34
   %36 = fmul <2 x double> %17, %20
-  %shift368 = shufflevector <2 x double> %36, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop369 = fadd <2 x double> %36, %shift368
-  %37 = extractelement <2 x double> %foldExtExtBinop369, i64 0
+  %shift370 = shufflevector <2 x double> %36, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop371 = fadd <2 x double> %36, %shift370
+  %37 = extractelement <2 x double> %foldExtExtBinop371, i64 0
   %38 = fmul double %23, %16
   %39 = fadd double %37, %38
   %40 = fmul <2 x double> %15, %20
-  %shift371 = shufflevector <2 x double> %40, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop372 = fadd <2 x double> %40, %shift371
-  %41 = extractelement <2 x double> %foldExtExtBinop372, i64 0
+  %shift373 = shufflevector <2 x double> %40, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop374 = fadd <2 x double> %40, %shift373
+  %41 = extractelement <2 x double> %foldExtExtBinop374, i64 0
   %42 = fmul double %23, %14
   %43 = fadd double %41, %42
   %44 = fmul double %27, %35
@@ -562,7 +562,7 @@ _ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEElsINS1_IdLin1ELi1ELi0
   %56 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %57 = load i64, ptr %56, align 8, !tbaa !27
   %. = select i1 %.not, i64 %24, i64 0
-  %.112 = select i1 %.not, i64 %57, i64 %24
+  %.123 = select i1 %.not, i64 %57, i64 %24
   %58 = load ptr, ptr %5, align 8, !tbaa !32, !noalias !41
   %59 = getelementptr inbounds double, ptr %58, i64 %.
   %60 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -640,7 +640,7 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
   br label %98
 
 94:                                               ; preds = %.loopexit99
-  %95 = add nsw i64 %.112, %.
+  %95 = add nsw i64 %.123, %.
   %96 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %97 = load i64, ptr %96, align 8, !tbaa !27
   br label %98
@@ -648,7 +648,7 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 98:                                               ; preds = %94, %._crit_edge.i43
   %.sroa.7.1 = phi i64 [ %95, %94 ], [ %., %._crit_edge.i43 ]
   %.sroa.17.1 = phi i64 [ 0, %94 ], [ %91, %._crit_edge.i43 ]
-  %.sroa.30.1 = phi i64 [ %97, %94 ], [ %.112, %._crit_edge.i43 ]
+  %.sroa.30.1 = phi i64 [ %97, %94 ], [ %.123, %._crit_edge.i43 ]
   %99 = phi i64 [ %97, %94 ], [ %.pre13.i47, %._crit_edge.i43 ]
   %100 = load ptr, ptr %5, align 8, !tbaa !32, !noalias !46
   %101 = getelementptr inbounds double, ptr %100, i64 %.sroa.7.1

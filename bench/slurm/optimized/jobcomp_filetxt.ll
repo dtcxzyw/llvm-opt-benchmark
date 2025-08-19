@@ -619,18 +619,18 @@ _make_time_str.exit159:                           ; preds = %156
   call void (ptr, ptr, ...) @slurm_xstrfmtcat(ptr noundef nonnull %10, ptr noundef nonnull @.str.12, i64 noundef %207, ptr noundef %208, i64 noundef %211, ptr noundef %212, i64 noundef %215, ptr noundef %217, ptr noundef %.0104, ptr noundef %219, ptr noundef nonnull %13, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef %221, i32 noundef %223, i32 noundef %225, ptr noundef nonnull %.0103, ptr noundef nonnull %.0101, ptr noundef nonnull %.0109, ptr noundef nonnull %.0108, ptr noundef %.0107, ptr noundef nonnull %.0106, ptr noundef %.0105, ptr noundef nonnull %18, ptr noundef nonnull %19, ptr noundef nonnull %20, ptr noundef nonnull %21, ptr noundef %226, ptr noundef %227) #11
   %228 = load ptr, ptr %10, align 8
   %229 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %228) #14
-  %.not167 = icmp eq i64 %229, 0
-  br i1 %.not167, label %.split, label %.outer.split.preheader
+  %.not186 = icmp eq i64 %229, 0
+  br i1 %.not186, label %.split, label %.outer.split.preheader
 
 .outer.split.preheader:                           ; preds = %204, %.outer
   %230 = phi i64 [ %242, %.outer ], [ %229, %204 ]
-  %.0102.ph166 = phi i64 [ %240, %.outer ], [ 0, %204 ]
+  %.0102.ph185 = phi i64 [ %240, %.outer ], [ 0, %204 ]
   br label %.outer.split
 
 .outer.split:                                     ; preds = %.outer.split.preheader, %236
   %231 = load i32, ptr @job_comp_fd, align 4
   %232 = load ptr, ptr %10, align 8
-  %233 = getelementptr inbounds nuw i8, ptr %232, i64 %.0102.ph166
+  %233 = getelementptr inbounds nuw i8, ptr %232, i64 %.0102.ph185
   %234 = call i64 @write(i32 noundef %231, ptr noundef %233, i64 noundef %230) #11
   %235 = icmp eq i64 %234, -1
   br i1 %235, label %236, label %.outer
@@ -642,7 +642,7 @@ _make_time_str.exit159:                           ; preds = %156
   br i1 %239, label %.outer.split, label %.split, !llvm.loop !8
 
 .outer:                                           ; preds = %.outer.split
-  %240 = add i64 %234, %.0102.ph166
+  %240 = add i64 %234, %.0102.ph185
   %241 = icmp ult i64 %240, %229
   %242 = sub nuw i64 %229, %240
   br i1 %241, label %.outer.split.preheader, label %.split, !llvm.loop !8

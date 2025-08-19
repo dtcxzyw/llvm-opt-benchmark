@@ -2115,13 +2115,13 @@ _ZNK17GrowableArrayViewIP10ciMetadataE11find_sortedIP8MetadataTnPFiRKT_RKS1_EXad
   br i1 %.not.not9.i, label %.lr.ph.i17, label %.._crit_edge_crit_edge.i
 
 .._crit_edge_crit_edge.i:                         ; preds = %74
-  %.pre13.i = zext nneg i32 %.0 to i64
+  %.pre13.i = sext i32 %.0 to i64
   br label %_ZN26GrowableArrayWithAllocatorIP10ciMetadata13GrowableArrayIS1_EE13insert_beforeEiRKS1_.exit
 
 .lr.ph.i17:                                       ; preds = %74
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %77 = sext i32 %75 to i64
-  %78 = zext nneg i32 %.0 to i64
+  %78 = sext i32 %.0 to i64
   br label %79
 
 79:                                               ; preds = %79, %.lr.ph.i17
@@ -2146,7 +2146,7 @@ _ZN26GrowableArrayWithAllocatorIP10ciMetadata13GrowableArrayIS1_EE13insert_befor
   store i32 %85, ptr %19, align 8
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %87 = load ptr, ptr %86, align 8
-  %88 = getelementptr inbounds nuw ptr, ptr %87, i64 %.pre-phi.i
+  %88 = getelementptr inbounds ptr, ptr %87, i64 %.pre-phi.i
   store ptr %39, ptr %88, align 8
   br label %_ZNK17GrowableArrayViewIP10ciMetadataE11find_sortedIP8MetadataTnPFiRKT_RKS1_EXadL_ZN15ciObjectFactory16metadata_compareERKS5_SA_EEEEiS8_Rb.exit
 
@@ -2450,22 +2450,22 @@ _ZNK7oopDesc5klassEv.exit:                        ; preds = %6, %16
   %26 = load ptr, ptr %25, align 8
   %27 = tail call noundef ptr @_ZNK8ciObject7get_oopEv(ptr noundef nonnull align 8 dereferenceable(40) %26) #10
   %28 = icmp eq ptr %27, %1
-  br i1 %28, label %._crit_edge, label %.lr.ph13
+  br i1 %28, label %._crit_edge, label %.lr.ph14
 
-.lr.ph13:                                         ; preds = %.lr.ph.preheader, %.lr.ph
+.lr.ph14:                                         ; preds = %.lr.ph.preheader, %.lr.ph
   %29 = phi ptr [ %31, %.lr.ph ], [ %25, %.lr.ph.preheader ]
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %31 = load ptr, ptr %30, align 8
   %.not = icmp eq ptr %31, null
   br i1 %.not, label %.._crit_edge.loopexit_crit_edge, label %.lr.ph, !llvm.loop !15
 
-.lr.ph:                                           ; preds = %.lr.ph13
+.lr.ph:                                           ; preds = %.lr.ph14
   %32 = load ptr, ptr %31, align 8
   %33 = tail call noundef ptr @_ZNK8ciObject7get_oopEv(ptr noundef nonnull align 8 dereferenceable(40) %32) #10
   %34 = icmp eq ptr %33, %1
-  br i1 %34, label %._crit_edge.loopexit, label %.lr.ph13, !llvm.loop !15
+  br i1 %34, label %._crit_edge.loopexit, label %.lr.ph14, !llvm.loop !15
 
-.._crit_edge.loopexit_crit_edge:                  ; preds = %.lr.ph13
+.._crit_edge.loopexit_crit_edge:                  ; preds = %.lr.ph14
   %35 = getelementptr inbounds nuw i8, ptr %29, i64 8
   br label %._crit_edge, !llvm.loop !15
 

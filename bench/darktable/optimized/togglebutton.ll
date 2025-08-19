@@ -296,8 +296,8 @@ dt_dev_gui_module.exit.thread:                    ; preds = %DTGTK_TOGGLEBUTTON.
   %50 = load ptr, ptr %49, align 8, !tbaa !82
   %51 = icmp ne ptr %48, %50
   %.not108 = icmp eq ptr %48, null
-  %or.cond129 = or i1 %51, %.not108
-  br i1 %or.cond129, label %.critedge, label %52
+  %or.cond134 = or i1 %51, %.not108
+  br i1 %or.cond134, label %.critedge, label %52
 
 52:                                               ; preds = %dt_dev_gui_module.exit.thread
   %53 = or i32 %.072, 8192

@@ -2150,8 +2150,8 @@ _ZN15InteractionListD2Ev.exit.i85.i:              ; preds = %764, %760
   br i1 %.not.i.i.i.i87.i, label %_ZN3gmxL34makeUpdateGroupingsPerMoleculeTypeERK13gmx_moltype_tNS_8ArrayRefIK9t_iparamsEE.exit, label %.thread128.i
 
 .thread128.sink.split.i:                          ; preds = %_ZN3gmxL21hasIncompatibleVsitesERK13gmx_moltype_tNS_8ArrayRefIK9t_iparamsEE.exit.i, %44
-  %.sink401.i = phi i32 [ 0, %44 ], [ 1, %_ZN3gmxL21hasIncompatibleVsitesERK13gmx_moltype_tNS_8ArrayRefIK9t_iparamsEE.exit.i ]
-  store i32 %.sink401.i, ptr %8, align 8, !tbaa !91, !alias.scope !20
+  %.sink492.i = phi i32 [ 0, %44 ], [ 1, %_ZN3gmxL21hasIncompatibleVsitesERK13gmx_moltype_tNS_8ArrayRefIK9t_iparamsEE.exit.i ]
+  store i32 %.sink492.i, ptr %8, align 8, !tbaa !91, !alias.scope !20
   store i8 1, ptr %24, align 8, !tbaa !94, !alias.scope !20
   br label %.thread128.i
 
@@ -2206,16 +2206,16 @@ _ZSt17holds_alternativeIN3gmx22IncompatibilityReasonsEJNS0_17RangePartitioningES
   br i1 %787, label %788, label %810
 
 788:                                              ; preds = %_ZSt17holds_alternativeIN3gmx22IncompatibilityReasonsEJNS0_17RangePartitioningES1_EEbRKSt7variantIJDpT0_EE.exit
-  switch i8 %778, label %.invoke.loopexit811 [
+  switch i8 %778, label %.invoke.loopexit915 [
     i8 1, label %_ZSt3getIN3gmx22IncompatibilityReasonsEJNS0_17RangePartitioningES1_EERKT_RKSt7variantIJDpT0_EE.exit
     i8 -1, label %.invoke
   ], !prof !97
 
-.invoke.loopexit811:                              ; preds = %788, %810
+.invoke.loopexit915:                              ; preds = %788, %810
   br label %.invoke
 
-.invoke:                                          ; preds = %810, %788, %.invoke.loopexit811
-  %.str.16.sink = phi ptr [ @.str.17, %.invoke.loopexit811 ], [ @.str.16, %788 ], [ @.str.16, %810 ]
+.invoke:                                          ; preds = %810, %788, %.invoke.loopexit915
+  %.str.16.sink = phi ptr [ @.str.17, %.invoke.loopexit915 ], [ @.str.16, %788 ], [ @.str.16, %810 ]
   %789 = call ptr @__cxa_allocate_exception(i64 16) #25
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %789, align 8, !tbaa !86
   %790 = getelementptr inbounds nuw i8, ptr %789, i64 8
@@ -2296,7 +2296,7 @@ _ZNSt7variantIJSt6vectorIN3gmx17RangePartitioningESaIS2_EENSt7__cxx1112basic_str
   br label %.body
 
 810:                                              ; preds = %_ZSt17holds_alternativeIN3gmx22IncompatibilityReasonsEJNS0_17RangePartitioningES1_EEbRKSt7variantIJDpT0_EE.exit
-  switch i8 %778, label %.invoke.loopexit811 [
+  switch i8 %778, label %.invoke.loopexit915 [
     i8 0, label %_ZSt3getIN3gmx17RangePartitioningEJS1_NS0_22IncompatibilityReasonsEEERKT_RKSt7variantIJDpT0_EE.exit
     i8 -1, label %.invoke
   ], !prof !97
@@ -4015,8 +4015,8 @@ _ZN3gmxL15getAngleIndicesERK13gmx_moltype_t.exit.i: ; preds = %_ZNSt18unordered_
   %278 = sub nsw i32 %275, %273
   %279 = icmp eq i32 %278, 1
   %.not260283.i = icmp eq i32 %273, %275
-  %or.cond342.i = or i1 %.not260283.i, %279
-  br i1 %or.cond342.i, label %_ZNK3gmx17RangePartitioning5blockEi.exit133._crit_edge.thread.i, label %_ZNK3gmx17RangePartitioning5blockEi.exit133.preheader311.i
+  %or.cond367.i = or i1 %.not260283.i, %279
+  br i1 %or.cond367.i, label %_ZNK3gmx17RangePartitioning5blockEi.exit133._crit_edge.thread.i, label %_ZNK3gmx17RangePartitioning5blockEi.exit133.preheader311.i
 
 _ZNK3gmx17RangePartitioning5blockEi.exit133.preheader311.i: ; preds = %277
   %280 = sext i32 %273 to i64

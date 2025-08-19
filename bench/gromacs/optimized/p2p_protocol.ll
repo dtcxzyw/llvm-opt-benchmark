@@ -796,11 +796,11 @@ define noundef ptr @_Z14tMPI_Post_sendP11tmpi_threadP10tmpi_comm_S0_PviP14tmpi_d
   br i1 %23, label %.preheader.thread.i.i, label %.lr.ph.i.i
 
 .preheader.thread.i.i:                            ; preds = %.preheader29.i.i
-  %.pre3538.i.i = load ptr, ptr %18, align 8, !tbaa !32
+  %.pre3539.i.i = load ptr, ptr %18, align 8, !tbaa !32
   br label %.lr.ph32.i.i.preheader
 
 .lr.ph32.i.i.preheader:                           ; preds = %.preheader.i.i, %.preheader.thread.i.i
-  %.13133.i.i.ph = phi ptr [ %.pre35.i.i, %.preheader.i.i ], [ %.pre3538.i.i, %.preheader.thread.i.i ]
+  %.13133.i.i.ph = phi ptr [ %.pre35.i.i, %.preheader.i.i ], [ %.pre3539.i.i, %.preheader.thread.i.i ]
   %.131.i.i.ph = phi ptr [ %24, %.preheader.i.i ], [ %20, %.preheader.thread.i.i ]
   br label %.lr.ph32.i.i
 

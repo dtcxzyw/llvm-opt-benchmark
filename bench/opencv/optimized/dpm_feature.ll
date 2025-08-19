@@ -1352,8 +1352,8 @@ _ZN2cv3MataSERKNS_7MatExprE.exit:                 ; preds = %123
 .preheader494.us.preheader:                       ; preds = %.preheader494.lr.ph
   %320 = zext nneg i32 %3 to i64
   %321 = zext nneg i32 %4 to i64
-  %wide.trip.count562 = sext i32 %314 to i64
-  %wide.trip.count557 = sext i32 %316 to i64
+  %wide.trip.count562 = zext nneg i32 %314 to i64
+  %wide.trip.count557 = zext nneg i32 %316 to i64
   br label %.preheader494.us
 
 .preheader494.us:                                 ; preds = %.preheader494.us.preheader, %._crit_edge521.us
@@ -1374,8 +1374,8 @@ _ZN2cv3MataSERKNS_7MatExprE.exit:                 ; preds = %123
 
 332:                                              ; preds = %.preheader494.us, %391
   %indvars.iv554 = phi i64 [ %320, %.preheader494.us ], [ %indvars.iv.next555, %391 ]
-  %.idx575 = shl nsw i64 %indvars.iv554, 8
-  %333 = getelementptr inbounds nuw i8, ptr %323, i64 %.idx575
+  %.idx593 = shl nsw i64 %indvars.iv554, 8
+  %333 = getelementptr inbounds nuw i8, ptr %323, i64 %.idx593
   %334 = sub nuw nsw i64 %indvars.iv554, %320
   %335 = add nuw nsw i64 %334, 1
   %336 = getelementptr inbounds nuw double, ptr %327, i64 %335
@@ -1434,8 +1434,8 @@ _ZN2cv3MataSERKNS_7MatExprE.exit:                 ; preds = %123
   %387 = fadd double %386, 1.000000e-04
   %388 = call double @sqrt(double noundef %387) #19, !tbaa !52
   %389 = fdiv double 1.000000e+00, %388
-  %.idx576 = mul nuw nsw i64 %335, 144
-  %390 = getelementptr inbounds nuw i8, ptr %331, i64 %.idx576
+  %.idx594 = mul nuw nsw i64 %335, 144
+  %390 = getelementptr inbounds nuw i8, ptr %331, i64 %.idx594
   br label %419
 
 391:                                              ; preds = %.preheader493.us
@@ -2270,13 +2270,13 @@ define linkonce_odr void @_ZNSt6vectorIdSaIdEE17_M_default_appendEm(ptr noundef 
 19:                                               ; preds = %3
   store double 0.000000e+00, ptr %5, align 8, !tbaa !53
   %20 = getelementptr i8, ptr %5, i64 8
-  %21 = add i64 %1, -1
+  %21 = add nsw i64 %1, -1
   %22 = icmp eq i64 %21, 0
   br i1 %22, label %_ZSt27__uninitialized_default_n_aIPdmdET_S1_T0_RSaIT1_E.exit, label %_ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i
 
 _ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
-  %23 = shl i64 %1, 3
-  %24 = add i64 %23, -8
+  %23 = shl nuw nsw i64 %1, 3
+  %24 = add nsw i64 %23, -8
   tail call void @llvm.memset.p0.i64(ptr align 8 %20, i8 0, i64 %24, i1 false), !tbaa !53
   %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 3
   %25 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i

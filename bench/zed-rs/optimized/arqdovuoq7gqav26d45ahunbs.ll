@@ -1059,10 +1059,10 @@ define hidden void @_ZN4core5slice4sort8unstable9quicksort9quicksort17h54756cdc6
   br label %.outer.i.i
 
 common.resume.sink.split:                         ; preds = %118, %210
-  %.sroa.1413.0.ph.i.i30144.sink = phi ptr [ %.sroa.1413.0.ph.i.i30, %210 ], [ %.sroa.1413.0.ph.i.i, %118 ]
+  %.sroa.1413.0.ph.i.i30155.sink = phi ptr [ %.sroa.1413.0.ph.i.i30, %210 ], [ %.sroa.1413.0.ph.i.i, %118 ]
   %.sroa.4.i.i27.sink = phi ptr [ %.sroa.4.i.i27, %210 ], [ %.sroa.4.i.i, %118 ]
   %common.resume.op.ph = phi { ptr, i32 } [ %lpad.phi.i.i42, %210 ], [ %lpad.phi.i.i, %118 ]
-  %.sroa.14.0..sroa_idx.i.i43 = getelementptr inbounds nuw i8, ptr %.sroa.1413.0.ph.i.i30144.sink, i64 8
+  %.sroa.14.0..sroa_idx.i.i43 = getelementptr inbounds nuw i8, ptr %.sroa.1413.0.ph.i.i30155.sink, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %.sroa.14.0..sroa_idx.i.i43, ptr noundef nonnull align 8 dereferenceable(96) %.sroa.4.i.i27.sink, i64 96, i1 false), !noalias !5
   br label %common.resume
 
@@ -1717,10 +1717,10 @@ define hidden void @_ZN4core5slice4sort8unstable9quicksort9quicksort17hee03a32b8
   br label %.outer.i.i
 
 common.resume.sink.split:                         ; preds = %118, %210
-  %.sroa.1413.0.ph.i.i30144.sink = phi ptr [ %.sroa.1413.0.ph.i.i30, %210 ], [ %.sroa.1413.0.ph.i.i, %118 ]
+  %.sroa.1413.0.ph.i.i30155.sink = phi ptr [ %.sroa.1413.0.ph.i.i30, %210 ], [ %.sroa.1413.0.ph.i.i, %118 ]
   %.sroa.4.i.i27.sink = phi ptr [ %.sroa.4.i.i27, %210 ], [ %.sroa.4.i.i, %118 ]
   %common.resume.op.ph = phi { ptr, i32 } [ %lpad.phi.i.i42, %210 ], [ %lpad.phi.i.i, %118 ]
-  %.sroa.14.0..sroa_idx.i.i43 = getelementptr inbounds nuw i8, ptr %.sroa.1413.0.ph.i.i30144.sink, i64 8
+  %.sroa.14.0..sroa_idx.i.i43 = getelementptr inbounds nuw i8, ptr %.sroa.1413.0.ph.i.i30155.sink, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %.sroa.14.0..sroa_idx.i.i43, ptr noundef nonnull align 8 dereferenceable(96) %.sroa.4.i.i27.sink, i64 96, i1 false), !noalias !5
   br label %common.resume
 

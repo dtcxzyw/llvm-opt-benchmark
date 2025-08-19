@@ -2447,8 +2447,8 @@ _ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit.thread156.threa
   br i1 %.not102, label %.thread163.thread, label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %218, %._crit_edge
-  %.pr165.pr217 = phi i32 [ %.pr.pre, %._crit_edge ], [ %217, %218 ]
-  %258 = zext i32 %.pr165.pr217 to i64
+  %.pr165.pr242 = phi i32 [ %.pr.pre, %._crit_edge ], [ %217, %218 ]
+  %258 = zext i32 %.pr165.pr242 to i64
   %259 = load ptr, ptr %34, align 8, !tbaa !179
   %260 = getelementptr inbounds nuw ptr, ptr %259, i64 %258
   %261 = load ptr, ptr %260, align 8, !tbaa !181
@@ -2469,11 +2469,11 @@ _ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit.thread156.threa
   %.02243.i.i = phi ptr [ %.123.i.i, %279 ], [ %37, %.thread163 ]
   %263 = getelementptr inbounds nuw i8, ptr %.044.i.i, i64 32
   %264 = load i32, ptr %263, align 4, !tbaa !191
-  %265 = icmp ult i32 %264, %.pr165.pr217
+  %265 = icmp ult i32 %264, %.pr165.pr242
   br i1 %265, label %279, label %266
 
 266:                                              ; preds = %.lr.ph.i.i
-  %267 = icmp ult i32 %.pr165.pr217, %264
+  %267 = icmp ult i32 %.pr165.pr242, %264
   br i1 %267, label %279, label %268
 
 268:                                              ; preds = %266
@@ -2489,7 +2489,7 @@ _ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit.thread156.threa
   %.0811.i.i.i = phi ptr [ %.19.i.i.i, %.lr.ph.i.i.i ], [ %.044.i.i, %268 ]
   %273 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
   %274 = load i32, ptr %273, align 4, !tbaa !191
-  %275 = icmp ult i32 %274, %.pr165.pr217
+  %275 = icmp ult i32 %274, %.pr165.pr242
   %.19.i.i.i = select i1 %275, ptr %.0811.i.i.i, ptr %.012.i.i.i
   %.1.in.v.i.i.i = select i1 %275, i64 24, i64 16
   %.1.in.i.i.i = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 %.1.in.v.i.i.i
@@ -2507,7 +2507,7 @@ _ZNSt8_Rb_treeIjSt4pairIKjPN4llvm14MachineOperandEESt10_Select1stIS5_ESt4lessIjE
   %.0811.i27.i.i = phi ptr [ %.19.i28.i.i, %.lr.ph.i25.i.i ], [ %.02243.i.i, %_ZNSt8_Rb_treeIjSt4pairIKjPN4llvm14MachineOperandEESt10_Select1stIS5_ESt4lessIjESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS1_.exit.i.i ]
   %276 = getelementptr inbounds nuw i8, ptr %.012.i26.i.i, i64 32
   %277 = load i32, ptr %276, align 4, !tbaa !191
-  %278 = icmp ult i32 %.pr165.pr217, %277
+  %278 = icmp ult i32 %.pr165.pr242, %277
   %.19.i28.i.i = select i1 %278, ptr %.012.i26.i.i, ptr %.0811.i27.i.i
   %.1.in.v.i29.i.i = select i1 %278, i64 16, i64 24
   %.1.in.i30.i.i = getelementptr inbounds nuw i8, ptr %.012.i26.i.i, i64 %.1.in.v.i29.i.i
@@ -2528,7 +2528,7 @@ _ZNSt8multimapIjPN4llvm14MachineOperandESt4lessIjESaISt4pairIKjS2_EEE11equal_ran
   %.sroa.3.0.i.i = phi ptr [ %.02243.i.i, %_ZNSt8_Rb_treeIjSt4pairIKjPN4llvm14MachineOperandEESt10_Select1stIS5_ESt4lessIjESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRS1_.exit.i.i ], [ %37, %.thread163 ], [ %.19.i28.i.i, %.lr.ph.i25.i.i ], [ %.123.i.i, %279 ]
   %281 = getelementptr inbounds nuw i32, ptr %.sroa.0146.0, i64 %258
   %282 = load i32, ptr %281, align 4, !tbaa !191
-  %283 = call noundef i32 @_ZN4llvm22CriticalAntiDepBreaker24findSuitableFreeRegisterESt23_Rb_tree_const_iteratorISt4pairIKjPNS_14MachineOperandEEES7_jjPKNS_19TargetRegisterClassERNS_15SmallVectorImplIjEE(ptr noundef nonnull align 8 dereferenceable(312) %0, ptr %.sroa.037.0.i.i, ptr %.sroa.3.0.i.i, i32 noundef %.pr165.pr217, i32 noundef %282, ptr noundef %261, ptr noundef nonnull align 8 dereferenceable(16) %10)
+  %283 = call noundef i32 @_ZN4llvm22CriticalAntiDepBreaker24findSuitableFreeRegisterESt23_Rb_tree_const_iteratorISt4pairIKjPNS_14MachineOperandEEES7_jjPKNS_19TargetRegisterClassERNS_15SmallVectorImplIjEE(ptr noundef nonnull align 8 dereferenceable(312) %0, ptr %.sroa.037.0.i.i, ptr %.sroa.3.0.i.i, i32 noundef %.pr165.pr242, i32 noundef %282, ptr noundef %261, ptr noundef nonnull align 8 dereferenceable(16) %10)
   %.not104 = icmp eq i32 %283, 0
   br i1 %.not104, label %.thread163.thread, label %.preheader
 

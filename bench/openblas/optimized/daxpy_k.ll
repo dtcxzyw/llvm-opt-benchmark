@@ -102,8 +102,8 @@ define noundef i32 @daxpy_k(i64 noundef %0, i64 noundef %1, i64 noundef %2, doub
   br i1 %72, label %.lr.ph3.i, label %daxpy_kernel_8.exit, !llvm.loop !8
 
 daxpy_kernel_8.exit:                              ; preds = %.lr.ph3.i, %.preheader.i, %15
-  %.not93 = icmp eq i64 %16, %0
-  br i1 %.not93, label %.loopexit, label %.lr.ph84
+  %.not97 = icmp eq i64 %16, %0
+  br i1 %.not97, label %.loopexit, label %.lr.ph84
 
 .lr.ph84:                                         ; preds = %daxpy_kernel_8.exit, %.lr.ph84
   %.06283 = phi i64 [ %78, %.lr.ph84 ], [ %16, %daxpy_kernel_8.exit ]

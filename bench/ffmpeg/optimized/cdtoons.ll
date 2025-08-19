@@ -41,7 +41,7 @@ define internal range(i32 -12, 1) i32 @cdtoons_decode_init(ptr noundef captures(
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @cdtoons_decode_frame(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef readonly captures(none) %3) #1 {
+define internal range(i32 44, 0) i32 @cdtoons_decode_frame(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef readonly captures(none) %3) #1 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load ptr, ptr %5, align 8, !tbaa !4
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -193,7 +193,7 @@ define internal i32 @cdtoons_decode_frame(ptr noundef %0, ptr noundef %1, ptr no
 .loopexit:                                        ; preds = %152, %112
   %.5290.lcssa = phi ptr [ %109, %112 ], [ %153, %152 ]
   %96 = icmp ult ptr %.5290.lcssa, %12
-  br i1 %96, label %.lr.ph353, label %.outer._crit_edge.thread409
+  br i1 %96, label %.lr.ph353, label %.outer._crit_edge.thread436
 
 .lr.ph353:                                        ; preds = %.lr.ph353.lr.ph, %.loopexit
   %97 = phi i1 [ true, %.lr.ph353.lr.ph ], [ false, %.loopexit ]
@@ -326,7 +326,7 @@ split:                                            ; preds = %157, %._crit_edge
   br i1 %166, label %98, label %.outer._crit_edge, !llvm.loop !48
 
 .outer._crit_edge:                                ; preds = %164
-  br i1 %97, label %.outer._crit_edge.thread, label %.outer._crit_edge.thread409
+  br i1 %97, label %.outer._crit_edge.thread, label %.outer._crit_edge.thread436
 
 .outer._crit_edge.thread:                         ; preds = %.preheader, %.outer._crit_edge
   %167 = load ptr, ptr %7, align 8, !tbaa !33
@@ -443,13 +443,13 @@ split:                                            ; preds = %157, %._crit_edge
 
 ._crit_edge370:                                   ; preds = %227, %.outer._crit_edge.thread
   %.not225 = icmp eq i16 %33, 0
-  br i1 %.not225, label %.outer._crit_edge.thread409, label %229
+  br i1 %.not225, label %.outer._crit_edge.thread436, label %229
 
 229:                                              ; preds = %._crit_edge370
   %230 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %231 = load i16, ptr %230, align 8, !tbaa !28
   %.not226 = icmp eq i16 %34, %231
-  br i1 %.not226, label %.outer._crit_edge.thread409, label %232
+  br i1 %.not226, label %.outer._crit_edge.thread436, label %232
 
 232:                                              ; preds = %229
   %233 = icmp ugt i16 %34, 1199
@@ -470,7 +470,7 @@ split:                                            ; preds = %157, %._crit_edge
 
 241:                                              ; preds = %235
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 24, ptr noundef nonnull @.str.15, i32 noundef %35) #8
-  br label %.outer._crit_edge.thread409
+  br label %.outer._crit_edge.thread436
 
 242:                                              ; preds = %235
   %243 = getelementptr inbounds nuw i8, ptr %238, i64 12
@@ -485,7 +485,7 @@ split:                                            ; preds = %157, %._crit_edge
 246:                                              ; preds = %242
   store i16 %34, ptr %230, align 8, !tbaa !28
   %.not229 = icmp eq i8 %36, 0
-  br i1 %.not229, label %247, label %.outer._crit_edge.thread409
+  br i1 %.not229, label %247, label %.outer._crit_edge.thread436
 
 247:                                              ; preds = %246
   %248 = getelementptr inbounds nuw i8, ptr %238, i64 16
@@ -495,7 +495,7 @@ split:                                            ; preds = %157, %._crit_edge
 
 251:                                              ; preds = %252
   store i32 0, ptr %250, align 4, !tbaa !50
-  br label %.outer._crit_edge.thread409
+  br label %.outer._crit_edge.thread436
 
 252:                                              ; preds = %247, %252
   %indvars.iv = phi i64 [ 0, %247 ], [ %indvars.iv.next, %252 ]
@@ -520,7 +520,7 @@ split:                                            ; preds = %157, %._crit_edge
   %exitcond401.not = icmp eq i64 %indvars.iv.next, 256
   br i1 %exitcond401.not, label %251, label %252, !llvm.loop !53
 
-.outer._crit_edge.thread409:                      ; preds = %.loopexit, %._crit_edge370, %229, %251, %246, %.outer._crit_edge, %241
+.outer._crit_edge.thread436:                      ; preds = %.loopexit, %._crit_edge370, %229, %251, %246, %.outer._crit_edge, %241
   %268 = getelementptr inbounds nuw i8, ptr %6, i64 1040
   br label %277
 
@@ -535,8 +535,8 @@ split:                                            ; preds = %157, %._crit_edge
   %276 = icmp slt i32 %275, 0
   br i1 %276, label %.thread, label %285
 
-277:                                              ; preds = %.outer._crit_edge.thread409, %284
-  %indvars.iv402 = phi i64 [ 0, %.outer._crit_edge.thread409 ], [ %indvars.iv.next403, %284 ]
+277:                                              ; preds = %.outer._crit_edge.thread436, %284
+  %indvars.iv402 = phi i64 [ 0, %.outer._crit_edge.thread436 ], [ %indvars.iv.next403, %284 ]
   %278 = getelementptr inbounds nuw [1200 x %struct.CDToonsSprite], ptr %268, i64 0, i64 %indvars.iv402
   %279 = getelementptr inbounds nuw i8, ptr %278, i64 6
   %280 = load i16, ptr %279, align 2, !tbaa !43

@@ -718,8 +718,8 @@ get_soi.exit:                                     ; preds = %90, %98
   store i32 %173, ptr %186, align 8, !tbaa !78
   %187 = getelementptr inbounds nuw i8, ptr %0, i64 440
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %187, i8 0, i64 32, i1 false), !tbaa !55
-  %.3161199225.i = getelementptr inbounds nuw i8, ptr %.2160.i, i64 1
-  %.3200226.i = add i64 %.2.i, -1
+  %.3161199231.i = getelementptr inbounds nuw i8, ptr %.2160.i, i64 1
+  %.3200232.i = add i64 %.2.i, -1
   br label %.lr.ph204.i
 
 .preheader.i:                                     ; preds = %171
@@ -738,8 +738,8 @@ get_soi.exit:                                     ; preds = %90, %98
   br i1 %.not208.i, label %._crit_edge205.i, label %.lr.ph204.i
 
 .lr.ph204.i:                                      ; preds = %.preheader.i, %.preheader.thread.i
-  %.3200229.i = phi i64 [ %.3200226.i, %.preheader.thread.i ], [ %.3200.i, %.preheader.i ]
-  %.3161199228.i = phi ptr [ %.3161199225.i, %.preheader.thread.i ], [ %.3161199.i, %.preheader.i ]
+  %.3200235.i = phi i64 [ %.3200232.i, %.preheader.thread.i ], [ %.3200.i, %.preheader.i ]
+  %.3161199234.i = phi ptr [ %.3161199231.i, %.preheader.thread.i ], [ %.3161199.i, %.preheader.i ]
   %193 = getelementptr inbounds nuw i8, ptr %123, i64 24
   %194 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %195 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -749,8 +749,8 @@ get_soi.exit:                                     ; preds = %90, %98
 
 197:                                              ; preds = %._crit_edge198.i, %.lr.ph204.i
   %indvars.iv220.i = phi i64 [ 0, %.lr.ph204.i ], [ %indvars.iv.next221.i, %._crit_edge198.i ]
-  %.3203.i = phi i64 [ %.3200229.i, %.lr.ph204.i ], [ %.3.i, %._crit_edge198.i ]
-  %.3161202.i = phi ptr [ %.3161199228.i, %.lr.ph204.i ], [ %.3161.i, %._crit_edge198.i ]
+  %.3203.i = phi i64 [ %.3200235.i, %.lr.ph204.i ], [ %.3.i, %._crit_edge198.i ]
+  %.3161202.i = phi ptr [ %.3161199234.i, %.lr.ph204.i ], [ %.3161.i, %._crit_edge198.i ]
   %198 = icmp eq i64 %.3203.i, 0
   br i1 %198, label %199, label %205
 
@@ -2446,8 +2446,8 @@ define internal range(i32 0, 2) i32 @get_interesting_appn(ptr noundef %0) #0 {
   %107 = load ptr, ptr %0, align 8, !tbaa !30
   %108 = getelementptr inbounds nuw i8, ptr %107, i64 40
   store i32 78, ptr %108, align 8, !tbaa !31
-  %109 = trunc nsw i64 %48 to i32
-  %110 = add nsw i32 %.060, %109
+  %109 = trunc i64 %48 to i32
+  %110 = add i32 %.060, %109
   %111 = getelementptr inbounds nuw i8, ptr %107, i64 44
   store i32 %110, ptr %111, align 4, !tbaa !34
   %112 = load ptr, ptr %0, align 8, !tbaa !30
@@ -2686,7 +2686,7 @@ define internal range(i32 0, 2) i32 @save_marker(ptr noundef %0) #0 {
   %.2113 = phi ptr [ %37, %43 ], [ %8, %68 ]
   %.2 = phi i64 [ %36, %43 ], [ %10, %68 ]
   %78 = icmp ult i32 %.0125, %.0124
-  br i1 %78, label %.lr.ph156, label %._crit_edge.thread184
+  br i1 %78, label %.lr.ph156, label %._crit_edge.thread189
 
 .lr.ph156:                                        ; preds = %77
   %79 = getelementptr inbounds nuw i8, ptr %3, i64 256
@@ -2699,7 +2699,7 @@ define internal range(i32 0, 2) i32 @save_marker(ptr noundef %0) #0 {
   %.5116.lcssa = phi ptr [ %.4115, %90 ], [ %94, %.lr.ph ]
   %.5.lcssa = phi i64 [ %.4, %90 ], [ %97, %.lr.ph ]
   %81 = icmp ult i32 %.2127.lcssa, %.0124
-  br i1 %81, label %82, label %._crit_edge.thread184, !llvm.loop !113
+  br i1 %81, label %82, label %._crit_edge.thread189, !llvm.loop !113
 
 82:                                               ; preds = %.lr.ph156, %.loopexit
   %.3155 = phi i64 [ %.2, %.lr.ph156 ], [ %.5.lcssa, %.loopexit ]
@@ -2747,9 +2747,9 @@ define internal range(i32 0, 2) i32 @save_marker(ptr noundef %0) #0 {
   %101 = select i1 %99, i1 %100, i1 false
   br i1 %101, label %.lr.ph, label %.loopexit, !llvm.loop !114
 
-._crit_edge.thread184:                            ; preds = %.loopexit, %77
-  %.3.lcssa195 = phi i64 [ %.2, %77 ], [ %.5.lcssa, %.loopexit ]
-  %.3114.lcssa194 = phi ptr [ %.2113, %77 ], [ %.5116.lcssa, %.loopexit ]
+._crit_edge.thread189:                            ; preds = %.loopexit, %77
+  %.3.lcssa200 = phi i64 [ %.2, %77 ], [ %.5.lcssa, %.loopexit ]
+  %.3114.lcssa199 = phi ptr [ %.2113, %77 ], [ %.5116.lcssa, %.loopexit ]
   %102 = getelementptr inbounds nuw i8, ptr %0, i64 400
   %103 = load ptr, ptr %102, align 8, !tbaa !115
   %104 = icmp eq ptr %103, null
@@ -2757,13 +2757,13 @@ define internal range(i32 0, 2) i32 @save_marker(ptr noundef %0) #0 {
   %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !116
   br i1 %104, label %._crit_edge163, label %105
 
-105:                                              ; preds = %._crit_edge.thread184
+105:                                              ; preds = %._crit_edge.thread189
   %106 = getelementptr inbounds nuw i8, ptr %.pre, i64 120
   %107 = load ptr, ptr %106, align 8, !tbaa !117
   %108 = icmp eq ptr %107, null
   br i1 %108, label %._crit_edge163, label %110
 
-._crit_edge163:                                   ; preds = %._crit_edge.thread184, %105
+._crit_edge163:                                   ; preds = %._crit_edge.thread189, %105
   %109 = getelementptr inbounds nuw i8, ptr %.pre, i64 120
   store ptr %.0128, ptr %109, align 8, !tbaa !117
   store ptr %.0128, ptr %102, align 8, !tbaa !115
@@ -2784,9 +2784,9 @@ define internal range(i32 0, 2) i32 @save_marker(ptr noundef %0) #0 {
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %35, %111
-  %.3.lcssa183 = phi i64 [ %.3.lcssa195, %111 ], [ %36, %35 ]
-  %.3114.lcssa182 = phi ptr [ %.3114.lcssa194, %111 ], [ %37, %35 ]
-  %.0124172181 = phi i32 [ %.0124, %111 ], [ 0, %35 ]
+  %.3.lcssa188 = phi i64 [ %.3.lcssa200, %111 ], [ %36, %35 ]
+  %.3114.lcssa187 = phi ptr [ %.3114.lcssa199, %111 ], [ %37, %35 ]
+  %.0124177186 = phi i32 [ %.0124, %111 ], [ 0, %35 ]
   %.3123 = phi ptr [ %113, %111 ], [ null, %35 ]
   %.1119 = phi i64 [ %117, %111 ], [ %41, %35 ]
   store ptr null, ptr %4, align 8, !tbaa !63
@@ -2798,11 +2798,11 @@ define internal range(i32 0, 2) i32 @save_marker(ptr noundef %0) #0 {
   ]
 
 120:                                              ; preds = %._crit_edge.thread
-  tail call fastcc void @examine_app0(ptr noundef nonnull %0, ptr noundef %.3123, i32 noundef %.0124172181, i64 noundef %.1119)
+  tail call fastcc void @examine_app0(ptr noundef nonnull %0, ptr noundef %.3123, i32 noundef %.0124177186, i64 noundef %.1119)
   br label %examine_app14.exit
 
 121:                                              ; preds = %._crit_edge.thread
-  %122 = icmp ugt i32 %.0124172181, 11
+  %122 = icmp ugt i32 %.0124177186, 11
   br i1 %122, label %123, label %180
 
 123:                                              ; preds = %121
@@ -2887,7 +2887,7 @@ define internal range(i32 0, 2) i32 @save_marker(ptr noundef %0) #0 {
   %182 = getelementptr inbounds nuw i8, ptr %181, i64 40
   store i32 78, ptr %182, align 8, !tbaa !31
   %183 = trunc i64 %.1119 to i32
-  %184 = add i32 %.0124172181, %183
+  %184 = add i32 %.0124177186, %183
   %185 = getelementptr inbounds nuw i8, ptr %181, i64 44
   store i32 %184, ptr %185, align 4, !tbaa !34
   %186 = load ptr, ptr %0, align 8, !tbaa !30
@@ -2903,7 +2903,7 @@ define internal range(i32 0, 2) i32 @save_marker(ptr noundef %0) #0 {
   %192 = getelementptr inbounds nuw i8, ptr %190, i64 44
   store i32 %119, ptr %192, align 4, !tbaa !34
   %193 = trunc i64 %.1119 to i32
-  %194 = add i32 %.0124172181, %193
+  %194 = add i32 %.0124177186, %193
   %195 = load ptr, ptr %0, align 8, !tbaa !30
   %196 = getelementptr inbounds nuw i8, ptr %195, i64 48
   store i32 %194, ptr %196, align 4, !tbaa !34
@@ -2914,8 +2914,8 @@ define internal range(i32 0, 2) i32 @save_marker(ptr noundef %0) #0 {
   br label %examine_app14.exit
 
 examine_app14.exit:                               ; preds = %180, %142, %189, %120
-  store ptr %.3114.lcssa182, ptr %7, align 8, !tbaa !37
-  store i64 %.3.lcssa183, ptr %9, align 8, !tbaa !39
+  store ptr %.3114.lcssa187, ptr %7, align 8, !tbaa !37
+  store i64 %.3.lcssa188, ptr %9, align 8, !tbaa !39
   %200 = icmp sgt i64 %.1119, 0
   br i1 %200, label %201, label %.loopexit141
 
@@ -3429,25 +3429,25 @@ define internal fastcc void @examine_app0(ptr noundef %0, ptr noundef readonly c
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %13 = load i8, ptr %12, align 1, !tbaa !34
   %14 = icmp eq i8 %13, 70
-  br i1 %14, label %15, label %.thread.thread103
+  br i1 %14, label %15, label %.thread.thread105
 
 15:                                               ; preds = %11
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %17 = load i8, ptr %16, align 1, !tbaa !34
   %18 = icmp eq i8 %17, 73
-  br i1 %18, label %19, label %.thread.thread103
+  br i1 %18, label %19, label %.thread.thread105
 
 19:                                               ; preds = %15
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 3
   %21 = load i8, ptr %20, align 1, !tbaa !34
   %22 = icmp eq i8 %21, 70
-  br i1 %22, label %23, label %.thread.thread103
+  br i1 %22, label %23, label %.thread.thread105
 
 23:                                               ; preds = %19
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %25 = load i8, ptr %24, align 1, !tbaa !34
   %26 = icmp eq i8 %25, 0
-  br i1 %26, label %27, label %.thread.thread103
+  br i1 %26, label %27, label %.thread.thread105
 
 27:                                               ; preds = %23
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 372
@@ -3593,15 +3593,15 @@ define internal fastcc void @examine_app0(ptr noundef %0, ptr noundef readonly c
 .thread:                                          ; preds = %119
   %.pr.pre = load i8, ptr %1, align 1, !tbaa !34
   %121 = icmp eq i8 %.pr.pre, 74
-  br i1 %121, label %.thread.thread103, label %.thread.thread
+  br i1 %121, label %.thread.thread105, label %.thread.thread
 
-.thread.thread103:                                ; preds = %23, %19, %15, %11, %.thread
+.thread.thread105:                                ; preds = %23, %19, %15, %11, %.thread
   %122 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %123 = load i8, ptr %122, align 1, !tbaa !34
   %124 = icmp eq i8 %123, 70
   br i1 %124, label %125, label %.thread.thread
 
-125:                                              ; preds = %.thread.thread103
+125:                                              ; preds = %.thread.thread105
   %126 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %127 = load i8, ptr %126, align 1, !tbaa !34
   %128 = icmp eq i8 %127, 88
@@ -3663,7 +3663,7 @@ define internal fastcc void @examine_app0(ptr noundef %0, ptr noundef readonly c
   store i32 %155, ptr %157, align 4, !tbaa !34
   br label %.sink.split
 
-.thread.thread:                                   ; preds = %8, %133, %129, %125, %.thread.thread103, %.thread, %119
+.thread.thread:                                   ; preds = %8, %133, %129, %125, %.thread.thread105, %.thread, %119
   %158 = load ptr, ptr %0, align 8, !tbaa !30
   %159 = getelementptr inbounds nuw i8, ptr %158, i64 40
   store i32 77, ptr %159, align 8, !tbaa !31

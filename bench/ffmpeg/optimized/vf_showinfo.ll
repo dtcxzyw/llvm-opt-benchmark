@@ -488,12 +488,12 @@ update_sample_stats.exit.loopexit304:             ; preds = %.lr.ph.split.i.i
   br i1 %exitcond.not, label %._crit_edge.sink.split, label %.lr.ph.i9.i, !llvm.loop !50
 
 ._crit_edge.sink.split:                           ; preds = %update_sample_stats.exit.loopexit304, %update_sample_stats.exit.loopexit303.us
-  %.lcssa420.lcssa.sink = phi i64 [ %98, %update_sample_stats.exit.loopexit303.us ], [ %114, %update_sample_stats.exit.loopexit304 ]
-  %.lcssa419.lcssa.sink = phi i64 [ %102, %update_sample_stats.exit.loopexit303.us ], [ %118, %update_sample_stats.exit.loopexit304 ]
+  %.lcssa443.lcssa.sink = phi i64 [ %98, %update_sample_stats.exit.loopexit303.us ], [ %114, %update_sample_stats.exit.loopexit304 ]
+  %.lcssa442.lcssa.sink = phi i64 [ %102, %update_sample_stats.exit.loopexit303.us ], [ %118, %update_sample_stats.exit.loopexit304 ]
   %.us-phi325.ph = phi i32 [ %91, %update_sample_stats.exit.loopexit303.us ], [ %106, %update_sample_stats.exit.loopexit304 ]
   %.us-phi326.ph = phi i32 [ %92, %update_sample_stats.exit.loopexit303.us ], [ %107, %update_sample_stats.exit.loopexit304 ]
-  store i64 %.lcssa420.lcssa.sink, ptr %64, align 8, !tbaa !51
-  store i64 %.lcssa419.lcssa.sink, ptr %65, align 8, !tbaa !51
+  store i64 %.lcssa443.lcssa.sink, ptr %64, align 8, !tbaa !51
+  store i64 %.lcssa442.lcssa.sink, ptr %65, align 8, !tbaa !51
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %update_sample_stats.exit.us330, %update_sample_stats.exit.us, %._crit_edge.sink.split

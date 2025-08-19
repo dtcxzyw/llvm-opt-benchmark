@@ -45,18 +45,18 @@ define noundef zeroext i1 @_Z9lmfit_expiPKdS0_S0_Pdbii(i32 noundef %0, ptr nound
   %19 = getelementptr inbounds nuw i8, ptr %10, i64 64
   store i32 0, ptr %19, align 8, !tbaa !17
   %20 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 141, i64 noundef 1, i64 noundef 24)
-  br i1 %5, label %21, label %.thread68
+  br i1 %5, label %21, label %.thread70
 
 21:                                               ; preds = %14
   %22 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5)
   %23 = icmp sgt i32 %7, 0
   br i1 %23, label %.preheader.preheader, label %.split.us.preheader
 
-.thread68:                                        ; preds = %14
+.thread70:                                        ; preds = %14
   %24 = icmp sgt i32 %7, 0
   br i1 %24, label %.preheader.preheader, label %.critedge.preheader
 
-.preheader.preheader:                             ; preds = %.thread68, %21
+.preheader.preheader:                             ; preds = %.thread70, %21
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
@@ -81,8 +81,8 @@ define noundef zeroext i1 @_Z9lmfit_expiPKdS0_S0_Pdbii(i32 noundef %0, ptr nound
   %34 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.6, i32 noundef %.2, i32 noundef %33)
   br label %.split.us.preheader
 
-.critedge.preheader:                              ; preds = %32, %.thread68
-  %.04767 = phi i32 [ %15, %.thread68 ], [ %.2, %32 ]
+.critedge.preheader:                              ; preds = %32, %.thread70
+  %.04769 = phi i32 [ %15, %.thread70 ], [ %.2, %32 ]
   %35 = zext nneg i32 %6 to i64
   %36 = getelementptr inbounds nuw [12 x ptr], ptr @lmcurves, i64 0, i64 %35
   %37 = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -91,7 +91,7 @@ define noundef zeroext i1 @_Z9lmfit_expiPKdS0_S0_Pdbii(i32 noundef %0, ptr nound
   br label %.critedge
 
 .split.us.preheader:                              ; preds = %21, %.thread
-  %.04764 = phi i32 [ %.2, %.thread ], [ %15, %21 ]
+  %.04766 = phi i32 [ %.2, %.thread ], [ %15, %21 ]
   %40 = zext nneg i32 %6 to i64
   %41 = getelementptr inbounds nuw [12 x ptr], ptr @lmcurves, i64 0, i64 %40
   %42 = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -111,7 +111,7 @@ define noundef zeroext i1 @_Z9lmfit_expiPKdS0_S0_Pdbii(i32 noundef %0, ptr nound
   store ptr %2, ptr %42, align 8, !tbaa !24
   store ptr %3, ptr %43, align 8, !tbaa !25
   store ptr %48, ptr %44, align 8, !tbaa !26
-  call void @_Z5lmminiPdiPKdPKvPFvS1_iS3_S_PiEPK17lm_control_structP16lm_status_struct(i32 noundef %.04764, ptr noundef %4, i32 noundef %0, ptr noundef null, ptr noundef nonnull %9, ptr noundef nonnull @_ZL16lmcurve_evaluatePKdiPKvPdPi, ptr noundef nonnull %10, ptr noundef %20)
+  call void @_Z5lmminiPdiPKdPKvPFvS1_iS3_S_PiEPK17lm_control_structP16lm_status_struct(i32 noundef %.04766, ptr noundef %4, i32 noundef %0, ptr noundef null, ptr noundef nonnull %9, ptr noundef nonnull @_ZL16lmcurve_evaluatePKdiPKvPdPi, ptr noundef nonnull %10, ptr noundef %20)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %49 = load double, ptr %20, align 8, !tbaa !27
   %50 = fmul double %49, %49
@@ -160,7 +160,7 @@ define noundef zeroext i1 @_Z9lmfit_expiPKdS0_S0_Pdbii(i32 noundef %0, ptr nound
   store ptr %2, ptr %37, align 8, !tbaa !24
   store ptr %3, ptr %38, align 8, !tbaa !25
   store ptr %76, ptr %39, align 8, !tbaa !26
-  call void @_Z5lmminiPdiPKdPKvPFvS1_iS3_S_PiEPK17lm_control_structP16lm_status_struct(i32 noundef %.04767, ptr noundef %4, i32 noundef %0, ptr noundef null, ptr noundef nonnull %9, ptr noundef nonnull @_ZL16lmcurve_evaluatePKdiPKvPdPi, ptr noundef nonnull %10, ptr noundef %20)
+  call void @_Z5lmminiPdiPKdPKvPFvS1_iS3_S_PiEPK17lm_control_structP16lm_status_struct(i32 noundef %.04769, ptr noundef %4, i32 noundef %0, ptr noundef null, ptr noundef nonnull %9, ptr noundef nonnull @_ZL16lmcurve_evaluatePKdiPKvPdPi, ptr noundef nonnull %10, ptr noundef %20)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %77 = load double, ptr %20, align 8, !tbaa !27
   %78 = fmul double %77, %77

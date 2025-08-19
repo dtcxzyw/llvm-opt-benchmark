@@ -1060,8 +1060,8 @@ define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$
   %12 = trunc i32 %1 to i8
   %13 = and i8 %12, 63
   %14 = or disjoint i8 %13, -128
-  %.sroa.0.i.1.i.1.i.1..sroa_idx8 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 1
-  store i8 %14, ptr %.sroa.0.i.1.i.1.i.1..sroa_idx8, align 1, !alias.scope !108, !noalias !105
+  %.sroa.0.i.1.i.1.i.1..sroa_idx11 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 1
+  store i8 %14, ptr %.sroa.0.i.1.i.1.i.1..sroa_idx11, align 1, !alias.scope !108, !noalias !105
   br label %_ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit.i
 
 15:                                               ; preds = %6
@@ -1073,13 +1073,13 @@ define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$
   %20 = trunc i32 %19 to i8
   %21 = and i8 %20, 63
   %22 = or disjoint i8 %21, -128
-  %.sroa.0.i.1.i.1.i.1..sroa_idx7 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 1
-  store i8 %22, ptr %.sroa.0.i.1.i.1.i.1..sroa_idx7, align 1, !alias.scope !108, !noalias !105
+  %.sroa.0.i.1.i.1.i.1..sroa_idx10 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 1
+  store i8 %22, ptr %.sroa.0.i.1.i.1.i.1..sroa_idx10, align 1, !alias.scope !108, !noalias !105
   %23 = trunc i32 %1 to i8
   %24 = and i8 %23, 63
   %25 = or disjoint i8 %24, -128
-  %.sroa.0.i.2.i.2.i.2..sroa_idx9 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 2
-  store i8 %25, ptr %.sroa.0.i.2.i.2.i.2..sroa_idx9, align 2, !alias.scope !108, !noalias !105
+  %.sroa.0.i.2.i.2.i.2..sroa_idx12 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 2
+  store i8 %25, ptr %.sroa.0.i.2.i.2.i.2..sroa_idx12, align 2, !alias.scope !108, !noalias !105
   br label %_ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit.i
 
 26:                                               ; preds = %6
@@ -4104,7 +4104,7 @@ define internal void @"_ZN11wasi_common4file8WasiFile12get_filestat28_$u7b$$u7b$
   %4 = alloca { i8, [15 x i8] }, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %6 = load i8, ptr %5, align 8, !range !26, !noundef !4
-  switch i8 %6, label %default.unreachable33 [
+  switch i8 %6, label %default.unreachable34 [
     i8 0, label %8
     i8 1, label %18
     i8 2, label %19
@@ -4118,7 +4118,7 @@ define internal void @"_ZN11wasi_common4file8WasiFile12get_filestat28_$u7b$$u7b$
   %.pre32 = load ptr, ptr %.phi.trans.insert31, align 8, !alias.scope !370, !noalias !375
   br label %20
 
-default.unreachable33:                            ; preds = %3
+default.unreachable34:                            ; preds = %3
   unreachable
 
 common.ret:                                       ; preds = %39, %7
@@ -4271,7 +4271,7 @@ define internal void @"_ZN11wasi_common4file8WasiFile12get_filestat28_$u7b$$u7b$
   %4 = alloca { i8, [15 x i8] }, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %6 = load i8, ptr %5, align 8, !range !26, !noundef !4
-  switch i8 %6, label %default.unreachable33 [
+  switch i8 %6, label %default.unreachable34 [
     i8 0, label %8
     i8 1, label %18
     i8 2, label %19
@@ -4285,7 +4285,7 @@ define internal void @"_ZN11wasi_common4file8WasiFile12get_filestat28_$u7b$$u7b$
   %.pre32 = load ptr, ptr %.phi.trans.insert31, align 8, !alias.scope !393, !noalias !398
   br label %20
 
-default.unreachable33:                            ; preds = %3
+default.unreachable34:                            ; preds = %3
   unreachable
 
 common.ret:                                       ; preds = %39, %7
@@ -6045,13 +6045,13 @@ define internal void @"_ZN85_$LT$wasi_common..pipe..WritePipe$LT$W$GT$$u20$as$u2
   %4 = alloca { { ptr, i8, [7 x i8] } }, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %6 = load i8, ptr %5, align 8, !range !324, !noundef !4
-  switch i8 %6, label %default.unreachable30 [
+  switch i8 %6, label %default.unreachable31 [
     i8 0, label %8
     i8 1, label %54
     i8 2, label %55
   ]
 
-default.unreachable30:                            ; preds = %3
+default.unreachable31:                            ; preds = %3
   unreachable
 
 7:                                                ; preds = %51, %_ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.1938814379164664089.exit.i.i

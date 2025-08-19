@@ -226,9 +226,9 @@ define void @ff_fmt_from_frame(ptr dead_on_unwind noalias writable sret(%struct.
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %switch.selectcmp = icmp eq i32 %53, 18
   %switch.select = select i1 %switch.selectcmp, i64 4294968296, i64 4294967499
-  %switch.selectcmp166 = icmp eq i32 %53, 16
-  %switch.select167 = select i1 %switch.selectcmp166, i64 4294977296, i64 %switch.select
-  store i64 %switch.select167, ptr %73, align 8
+  %switch.selectcmp176 = icmp eq i32 %53, 16
+  %switch.select177 = select i1 %switch.selectcmp176, i64 4294977296, i64 %switch.select
+  store i64 %switch.select177, ptr %73, align 8
   %74 = tail call ptr @av_csp_primaries_desc_from_id(i32 noundef %52) #8
   %.not127 = icmp eq ptr %74, null
   br i1 %.not127, label %78, label %75
@@ -420,12 +420,12 @@ av_cmp_q.exit143:                                 ; preds = %161, %174
   %.0.i139 = phi i32 [ %167, %161 ], [ %176, %174 ]
   %177 = icmp sgt i32 %.0.i139, 0
   %spec.select = select i1 %177, i32 %.sroa.011.0.extract.trunc.i134, i32 %.sroa.019.0
-  %spec.select165 = select i1 %177, i32 %160, i32 %.sroa.12.0
+  %spec.select175 = select i1 %177, i32 %160, i32 %.sroa.12.0
   br label %av_cmp_q.exit143.thread
 
 av_cmp_q.exit143.thread:                          ; preds = %av_cmp_q.exit143, %171, %168
   %.sroa.019.1 = phi i32 [ %.sroa.019.0, %168 ], [ %.sroa.019.0, %171 ], [ %spec.select, %av_cmp_q.exit143 ]
-  %.sroa.12.1 = phi i32 [ %.sroa.12.0, %168 ], [ %.sroa.12.0, %171 ], [ %spec.select165, %av_cmp_q.exit143 ]
+  %.sroa.12.1 = phi i32 [ %.sroa.12.0, %168 ], [ %.sroa.12.0, %171 ], [ %spec.select175, %av_cmp_q.exit143 ]
   %178 = icmp sgt i32 %.sroa.019.1, 0
   br i1 %178, label %184, label %.preheader
 
@@ -1038,8 +1038,8 @@ sws_test_transfer.exit.i.us:                      ; preds = %sws_test_colorspace
   %37 = load i32, ptr %11, align 8, !tbaa !28
   %.not10.not.us = icmp ne i32 %37, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %or.cond28 = and i1 %.not10.not.us, %12
-  br i1 %or.cond28, label %.split.us, label %.loopexit, !llvm.loop !65
+  %or.cond30 = and i1 %.not10.not.us, %12
+  br i1 %or.cond30, label %.split.us, label %.loopexit, !llvm.loop !65
 
 .split:                                           ; preds = %2, %63
   %38 = phi i1 [ false, %63 ], [ true, %2 ]
@@ -1109,8 +1109,8 @@ sws_test_transfer.exit.i:                         ; preds = %sws_test_colorspace
   %64 = load i32, ptr %11, align 8, !tbaa !28
   %.not10.not = icmp ne i32 %64, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %or.cond29 = and i1 %.not10.not, %38
-  br i1 %or.cond29, label %.split, label %.loopexit, !llvm.loop !65
+  %or.cond31 = and i1 %.not10.not, %38
+  br i1 %or.cond31, label %.split, label %.loopexit, !llvm.loop !65
 
 .loopexit:                                        ; preds = %63, %36, %.thread
   %.0 = phi i32 [ 0, %.thread ], [ 1, %36 ], [ 1, %63 ]
@@ -1520,8 +1520,8 @@ ff_fmt_equal.exit.thread15:                       ; preds = %199, %196, %ff_q_eq
   %.not11.not = icmp ne i32 %47, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %or.cond22 = and i1 %.not11.not, %38
-  br i1 %or.cond22, label %37, label %.loopexit, !llvm.loop !66
+  %or.cond23 = and i1 %.not11.not, %38
+  br i1 %or.cond23, label %37, label %.loopexit, !llvm.loop !66
 
 .loopexit:                                        ; preds = %ff_fmt_equal.exit.thread15, %.thread
   %.0 = phi i32 [ 0, %.thread ], [ 1, %ff_fmt_equal.exit.thread15 ]

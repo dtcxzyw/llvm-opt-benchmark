@@ -811,8 +811,8 @@ default.unreachable:                              ; preds = %48
   br label %.outer
 
 _ZN3std2io5error5Error4kind17he6aa3f96c380349fE.exit.thread: ; preds = %_ZN3std2io5error5Error4kind17he6aa3f96c380349fE.exit, %51, %50, %135
-  %.lcssa105.sink = phi ptr [ %136, %135 ], [ %44, %50 ], [ %44, %51 ], [ %44, %_ZN3std2io5error5Error4kind17he6aa3f96c380349fE.exit ]
-  store ptr %.lcssa105.sink, ptr %0, align 8
+  %.lcssa114.sink = phi ptr [ %136, %135 ], [ %44, %50 ], [ %44, %51 ], [ %44, %_ZN3std2io5error5Error4kind17he6aa3f96c380349fE.exit ]
+  store ptr %.lcssa114.sink, ptr %0, align 8
   %139 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 -9223372036854775808, ptr %139, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !241

@@ -365,7 +365,7 @@ rsa_pss_decode.exit.thread:                       ; preds = %3, %9, %rsa_pss_dec
   br i1 %.not.i31, label %43, label %45
 
 43:                                               ; preds = %.thread, %42
-  %.036.ph52 = phi ptr [ null, %.thread ], [ %.036.ph.ph, %42 ]
+  %.036.ph61 = phi ptr [ null, %.thread ], [ %.036.ph.ph, %42 ]
   %44 = call ptr @EVP_sha1() #3
   br label %rsa_mgf1_to_md.exit
 
@@ -392,7 +392,7 @@ rsa_pss_decode.exit.thread:                       ; preds = %3, %9, %rsa_pss_dec
   br label %rsa_mgf1_to_md.exit
 
 rsa_mgf1_to_md.exit:                              ; preds = %43, %50, %51, %55
-  %.036.ph51 = phi ptr [ %.036.ph.ph, %50 ], [ %.036.ph.ph, %55 ], [ %.036.ph52, %43 ], [ %.036.ph.ph, %51 ]
+  %.036.ph60 = phi ptr [ %.036.ph.ph, %50 ], [ %.036.ph.ph, %55 ], [ %.036.ph61, %43 ], [ %.036.ph.ph, %51 ]
   %.0.i32 = phi ptr [ null, %50 ], [ null, %55 ], [ %44, %43 ], [ %53, %51 ]
   %56 = load ptr, ptr %18, align 8, !tbaa !38
   %.not.i33 = icmp eq ptr %56, null
@@ -477,7 +477,7 @@ rsa_algor_to_md.exit:                             ; preds = %57, %59
 
 90:                                               ; preds = %rsa_algor_to_md.exit.thread, %87, %79, %81, %84, %rsa_algor_to_md.exit, %78, %72, %rsa_pss_decode.exit.thread
   %.0.i41 = phi ptr [ null, %rsa_pss_decode.exit.thread ], [ %18, %rsa_algor_to_md.exit ], [ %18, %72 ], [ %18, %78 ], [ %18, %84 ], [ %18, %81 ], [ %18, %79 ], [ %18, %87 ], [ %18, %rsa_algor_to_md.exit.thread ]
-  %.139 = phi ptr [ null, %rsa_pss_decode.exit.thread ], [ %.036.ph51, %rsa_algor_to_md.exit ], [ %.036.ph51, %72 ], [ %.036.ph51, %78 ], [ %.036.ph51, %84 ], [ %.036.ph51, %81 ], [ %.036.ph51, %79 ], [ %.036.ph51, %87 ], [ %.036.ph51, %rsa_algor_to_md.exit.thread ]
+  %.139 = phi ptr [ null, %rsa_pss_decode.exit.thread ], [ %.036.ph60, %rsa_algor_to_md.exit ], [ %.036.ph60, %72 ], [ %.036.ph60, %78 ], [ %.036.ph60, %84 ], [ %.036.ph60, %81 ], [ %.036.ph60, %79 ], [ %.036.ph60, %87 ], [ %.036.ph60, %rsa_algor_to_md.exit.thread ]
   %.018 = phi i32 [ 0, %rsa_pss_decode.exit.thread ], [ 0, %rsa_algor_to_md.exit ], [ 0, %72 ], [ 0, %78 ], [ 0, %84 ], [ 0, %81 ], [ 0, %79 ], [ %spec.select, %87 ], [ 0, %rsa_algor_to_md.exit.thread ]
   call void @ASN1_item_free(ptr noundef %.0.i41, ptr noundef nonnull @RSA_PSS_PARAMS_it) #3
   call void @X509_ALGOR_free(ptr noundef %.139) #3

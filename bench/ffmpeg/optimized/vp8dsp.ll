@@ -5607,8 +5607,8 @@ vp7_normal_limit.exit.i16:                        ; preds = %174
 179:                                              ; preds = %vp7_normal_limit.exit.i16
   %180 = icmp sgt i32 %170, %5
   %.not27 = icmp samesign ugt i32 %178, %5
-  %or.cond38 = select i1 %180, i1 true, i1 %.not27
-  br i1 %or.cond38, label %hev.exit.i18.thread, label %210
+  %or.cond43 = select i1 %180, i1 true, i1 %.not27
+  br i1 %or.cond43, label %hev.exit.i18.thread, label %210
 
 hev.exit.i18.thread:                              ; preds = %179
   %181 = sub nsw i32 %147, %145
@@ -5955,8 +5955,8 @@ vp7_normal_limit.exit.i16:                        ; preds = %170
 175:                                              ; preds = %vp7_normal_limit.exit.i16
   %176 = icmp sgt i32 %166, %5
   %.not27 = icmp samesign ugt i32 %174, %5
-  %or.cond38 = select i1 %176, i1 true, i1 %.not27
-  br i1 %or.cond38, label %hev.exit.i18.thread, label %206
+  %or.cond43 = select i1 %176, i1 true, i1 %.not27
+  br i1 %or.cond43, label %hev.exit.i18.thread, label %206
 
 hev.exit.i18.thread:                              ; preds = %175
   %177 = sub nsw i32 %143, %141
@@ -6611,10 +6611,10 @@ vp7_normal_limit.exit.i16:                        ; preds = %156
 161:                                              ; preds = %vp7_normal_limit.exit.i16
   %162 = icmp sgt i32 %152, %5
   %.not28 = icmp samesign ugt i32 %160, %5
-  %or.cond39 = select i1 %162, i1 true, i1 %.not28
+  %or.cond44 = select i1 %162, i1 true, i1 %.not28
   %163 = sub nsw i32 %129, %127
   %164 = mul nsw i32 %163, 3
-  br i1 %or.cond39, label %hev.exit.i18.thread, label %192
+  br i1 %or.cond44, label %hev.exit.i18.thread, label %192
 
 hev.exit.i18.thread:                              ; preds = %161
   %165 = sub nsw i32 %124, %132
@@ -6921,10 +6921,10 @@ vp7_normal_limit.exit.i16:                        ; preds = %152
 157:                                              ; preds = %vp7_normal_limit.exit.i16
   %158 = icmp sgt i32 %148, %5
   %.not28 = icmp samesign ugt i32 %156, %5
-  %or.cond39 = select i1 %158, i1 true, i1 %.not28
+  %or.cond44 = select i1 %158, i1 true, i1 %.not28
   %159 = sub nsw i32 %125, %123
   %160 = mul nsw i32 %159, 3
-  br i1 %or.cond39, label %hev.exit.i18.thread, label %188
+  br i1 %or.cond44, label %hev.exit.i18.thread, label %188
 
 hev.exit.i18.thread:                              ; preds = %157
   %161 = sub nsw i32 %120, %128
@@ -9164,8 +9164,8 @@ vp8_normal_limit.exit.i16:                        ; preds = %182
 187:                                              ; preds = %vp8_normal_limit.exit.i16
   %188 = icmp sgt i32 %178, %5
   %.not26 = icmp samesign ugt i32 %186, %5
-  %or.cond37 = select i1 %188, i1 true, i1 %.not26
-  br i1 %or.cond37, label %hev.exit.i18.thread, label %217
+  %or.cond42 = select i1 %188, i1 true, i1 %.not26
+  br i1 %or.cond42, label %hev.exit.i18.thread, label %217
 
 hev.exit.i18.thread:                              ; preds = %187
   %189 = sub nsw i32 %150, %148
@@ -9516,8 +9516,8 @@ vp8_normal_limit.exit.i16:                        ; preds = %178
 183:                                              ; preds = %vp8_normal_limit.exit.i16
   %184 = icmp sgt i32 %174, %5
   %.not26 = icmp samesign ugt i32 %182, %5
-  %or.cond37 = select i1 %184, i1 true, i1 %.not26
-  br i1 %or.cond37, label %hev.exit.i18.thread, label %213
+  %or.cond42 = select i1 %184, i1 true, i1 %.not26
+  br i1 %or.cond42, label %hev.exit.i18.thread, label %213
 
 hev.exit.i18.thread:                              ; preds = %183
   %185 = sub nsw i32 %146, %144
@@ -10180,10 +10180,10 @@ vp8_normal_limit.exit.i16:                        ; preds = %165
 170:                                              ; preds = %vp8_normal_limit.exit.i16
   %171 = icmp sgt i32 %161, %5
   %.not26 = icmp samesign ugt i32 %169, %5
-  %or.cond37 = select i1 %171, i1 true, i1 %.not26
+  %or.cond42 = select i1 %171, i1 true, i1 %.not26
   %172 = sub nsw i32 %133, %131
   %173 = mul nsw i32 %172, 3
-  br i1 %or.cond37, label %hev.exit.i18.thread, label %200
+  br i1 %or.cond42, label %hev.exit.i18.thread, label %200
 
 hev.exit.i18.thread:                              ; preds = %170
   %174 = sext i32 %145 to i64
@@ -10494,10 +10494,10 @@ vp8_normal_limit.exit.i16:                        ; preds = %161
 166:                                              ; preds = %vp8_normal_limit.exit.i16
   %167 = icmp sgt i32 %157, %5
   %.not26 = icmp samesign ugt i32 %165, %5
-  %or.cond37 = select i1 %167, i1 true, i1 %.not26
+  %or.cond42 = select i1 %167, i1 true, i1 %.not26
   %168 = sub nsw i32 %129, %127
   %169 = mul nsw i32 %168, 3
-  br i1 %or.cond37, label %hev.exit.i18.thread, label %196
+  br i1 %or.cond42, label %hev.exit.i18.thread, label %196
 
 hev.exit.i18.thread:                              ; preds = %166
   %170 = sext i32 %141 to i64

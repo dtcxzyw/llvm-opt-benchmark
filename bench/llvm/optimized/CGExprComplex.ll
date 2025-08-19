@@ -1815,9 +1815,9 @@ _ZN12_GLOBAL__N_118ComplexExprEmitter24EmitComplexToComplexCastESt4pairIPN4llvm5
   br label %307
 
 307:                                              ; preds = %303, %_ZN12_GLOBAL__N_118ComplexExprEmitter24EmitComplexToComplexCastESt4pairIPN4llvm5ValueES4_EN5clang8QualTypeES7_NS6_14SourceLocationE.exit171
-  %.sink235 = phi i8 [ 0, %303 ], [ 2, %_ZN12_GLOBAL__N_118ComplexExprEmitter24EmitComplexToComplexCastESt4pairIPN4llvm5ValueES4_EN5clang8QualTypeES7_NS6_14SourceLocationE.exit171 ]
+  %.sink246 = phi i8 [ 0, %303 ], [ 2, %_ZN12_GLOBAL__N_118ComplexExprEmitter24EmitComplexToComplexCastESt4pairIPN4llvm5ValueES4_EN5clang8QualTypeES7_NS6_14SourceLocationE.exit171 ]
   %.sroa.5172.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 48
-  store i8 %.sink235, ptr %.sroa.5172.0..sroa_idx, align 8, !tbaa !3
+  store i8 %.sink246, ptr %.sroa.5172.0..sroa_idx, align 8, !tbaa !3
   call void @_ZN5clang7CodeGen15CodeGenFunction15CGFPOptionsRAIID1Ev(ptr noundef nonnull align 8 dereferenceable(56) %8) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -6547,8 +6547,8 @@ _ZN5clang7CodeGen11CallArgList3addENS0_6RValueENS_8QualTypeE.exit61: ; preds = %
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %165, i8 0, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(52) %164, i8 0, i64 52, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.481)
-  %.sroa.481.4..sroa_idx136 = getelementptr inbounds nuw i8, ptr %.sroa.481, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %.sroa.481.4..sroa_idx136, i8 0, i64 40, i1 false)
+  %.sroa.481.4..sroa_idx143 = getelementptr inbounds nuw i8, ptr %.sroa.481, i64 4
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %.sroa.481.4..sroa_idx143, i8 0, i64 40, i1 false)
   %.sroa.586.0..sroa_idx87 = getelementptr inbounds nuw i8, ptr %11, i64 28
   store i32 5, ptr %163, align 8, !tbaa !787
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(44) %.sroa.586.0..sroa_idx87, ptr noundef nonnull align 4 dereferenceable(44) %.sroa.481, i64 44, i1 false)
@@ -17360,8 +17360,8 @@ _ZN5clang7CodeGen15CodeGenFunction14MakeAddrLValueENS0_7AddressENS_8QualTypeENS0
   %80 = sext i32 %79 to i64
   %81 = or i64 %78, %80
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %.sroa.2.4..sroa_idx131 = getelementptr inbounds nuw i8, ptr %.sroa.2, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %.sroa.2.4..sroa_idx131, i8 0, i64 32, i1 false)
+  %.sroa.2.4..sroa_idx132 = getelementptr inbounds nuw i8, ptr %.sroa.2, i64 4
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %.sroa.2.4..sroa_idx132, i8 0, i64 32, i1 false)
   store i32 0, ptr %13, align 8, !tbaa !962
   %.sroa.4.sroa.3.0..sroa.4.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 8
   store i64 %spec.select130, ptr %.sroa.4.sroa.3.0..sroa.4.0..sroa_idx.sroa_idx, align 8
@@ -18565,13 +18565,13 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang15OpaqueValueExprENS2_7CodeGen6LVal
   br label %.loopexit
 
 .loopexit:                                        ; preds = %27, %10, %59
-  %.sink28 = phi i32 [ %63, %59 ], [ %8, %10 ], [ %8, %27 ]
-  %.sink26 = phi ptr [ %62, %59 ], [ %6, %10 ], [ %6, %27 ]
-  %.sink25 = phi ptr [ %50, %59 ], [ %19, %10 ], [ %33, %27 ]
+  %.sink32 = phi i32 [ %63, %59 ], [ %8, %10 ], [ %8, %27 ]
+  %.sink30 = phi ptr [ %62, %59 ], [ %6, %10 ], [ %6, %27 ]
+  %.sink29 = phi ptr [ %50, %59 ], [ %19, %10 ], [ %33, %27 ]
   %.sink = phi i8 [ 1, %59 ], [ 0, %10 ], [ 0, %27 ]
-  %64 = zext i32 %.sink28 to i64
-  %65 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %.sink26, i64 %64
-  store ptr %.sink25, ptr %0, align 8
+  %64 = zext i32 %.sink32 to i64
+  %65 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %.sink30, i64 %64
+  store ptr %.sink29, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %65, ptr %.sroa.4.0..sroa_idx, align 8
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -18908,13 +18908,13 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang15OpaqueValueExprENS2_7CodeGen6RVal
   br label %.loopexit
 
 .loopexit:                                        ; preds = %27, %10, %59
-  %.sink28 = phi i32 [ %63, %59 ], [ %8, %10 ], [ %8, %27 ]
-  %.sink26 = phi ptr [ %62, %59 ], [ %6, %10 ], [ %6, %27 ]
-  %.sink25 = phi ptr [ %50, %59 ], [ %19, %10 ], [ %33, %27 ]
+  %.sink32 = phi i32 [ %63, %59 ], [ %8, %10 ], [ %8, %27 ]
+  %.sink30 = phi ptr [ %62, %59 ], [ %6, %10 ], [ %6, %27 ]
+  %.sink29 = phi ptr [ %50, %59 ], [ %19, %10 ], [ %33, %27 ]
   %.sink = phi i8 [ 1, %59 ], [ 0, %10 ], [ 0, %27 ]
-  %64 = zext i32 %.sink28 to i64
-  %65 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.1536", ptr %.sink26, i64 %64
-  store ptr %.sink25, ptr %0, align 8
+  %64 = zext i32 %.sink32 to i64
+  %65 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.1536", ptr %.sink30, i64 %64
+  store ptr %.sink29, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %65, ptr %.sroa.4.0..sroa_idx, align 8
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 16

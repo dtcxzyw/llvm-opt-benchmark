@@ -2631,8 +2631,8 @@ define hidden void @_ZN3csv11byte_record10ByteRecord8validate17hd1f86b6f882f6349
   br i1 %.not.i, label %.preheader.i, label %.preheader14.i
 
 .preheader14.i:                                   ; preds = %27
-  %.not37.i = icmp eq i64 %.sroa.01.0.i, -32
-  br i1 %.not37.i, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h9ba9796ee2dc9f3bE.exit.i", label %.lr.ph.i
+  %.not38.i = icmp eq i64 %.sroa.01.0.i, -32
+  br i1 %.not38.i, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h9ba9796ee2dc9f3bE.exit.i", label %.lr.ph.i
 
 .preheader.i:                                     ; preds = %27
   %29 = icmp ult i64 %.sroa.01.0.i, %.sroa.0.07
@@ -3066,9 +3066,9 @@ define hidden void @"_ZN3csv6reader15Reader$LT$R$GT$16read_byte_record17h8562cda
   %46 = getelementptr inbounds nuw i8, ptr %9, i64 24
   br label %47
 
-47:                                               ; preds = %.backedge440, %.preheader114
-  %.sroa.05.0.i = phi i64 [ 0, %.preheader114 ], [ %97, %.backedge440 ]
-  %.sroa.010.0.i = phi i64 [ 0, %.preheader114 ], [ %98, %.backedge440 ]
+47:                                               ; preds = %.backedge464, %.preheader114
+  %.sroa.05.0.i = phi i64 [ 0, %.preheader114 ], [ %97, %.backedge464 ]
+  %.sroa.010.0.i = phi i64 [ 0, %.preheader114 ], [ %98, %.backedge464 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !704
   call void @llvm.experimental.noalias.scope.decl(metadata !706)
   call void @llvm.experimental.noalias.scope.decl(metadata !709)
@@ -3178,7 +3178,7 @@ default.unreachable:                              ; preds = %96, %281
   %97 = add i64 %85, %.sroa.05.0.i
   %98 = add i64 %86, %.sroa.010.0.i
   switch i8 %83, label %default.unreachable [
-    i8 0, label %.backedge440
+    i8 0, label %.backedge464
     i8 1, label %99
     i8 2, label %117
     i8 3, label %139
@@ -3218,7 +3218,7 @@ default.unreachable:                              ; preds = %96, %281
   store i8 0, ptr %scevgep.i.i.i, align 1
   %116 = add i64 %110, %105
   store i64 %116, ptr %100, align 8, !alias.scope !726
-  br label %.backedge440
+  br label %.backedge464
 
 117:                                              ; preds = %96
   %118 = load ptr, ptr %2, align 8, !alias.scope !700, !noalias !702, !nonnull !3, !noundef !3
@@ -3257,9 +3257,9 @@ _ZN3csv11byte_record6Bounds6expand17hd6504c3e006856b4E.exit: ; preds = %117, %12
   %scevgep.i.i = getelementptr i8, ptr %138, i64 -8
   store i64 0, ptr %scevgep.i.i, align 8, !noalias !717
   store i64 %137, ptr %120, align 8, !alias.scope !738, !noalias !717
-  br label %.backedge440
+  br label %.backedge464
 
-.backedge440:                                     ; preds = %_ZN3csv11byte_record6Bounds6expand17hd6504c3e006856b4E.exit, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hca130a186be2785dE.llvm.1074626156026677913.exit.i.i.i", %96
+.backedge464:                                     ; preds = %_ZN3csv11byte_record6Bounds6expand17hd6504c3e006856b4E.exit, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hca130a186be2785dE.llvm.1074626156026677913.exit.i.i.i", %96
   br label %47
 
 139:                                              ; preds = %96
@@ -4172,7 +4172,7 @@ define hidden { i64, ptr } @"_ZN3csv6reader15Reader$LT$R$GT$7headers17h05064ed37
   %.not26.i = icmp eq ptr %.pre.i, null
   br i1 %.not26.i, label %.loopexit66.loopexit, label %59
 
-default.unreachable141:                           ; preds = %90
+default.unreachable153:                           ; preds = %90
   unreachable
 
 59:                                               ; preds = %.noexc
@@ -4250,7 +4250,7 @@ default.unreachable141:                           ; preds = %90
   store i64 %85, ptr %16, align 8, !alias.scope !867, !noalias !873
   %91 = add i64 %77, %.sroa.05.0.i
   %92 = add i64 %78, %.sroa.010.0.i
-  switch i8 %75, label %default.unreachable141 [
+  switch i8 %75, label %default.unreachable153 [
     i8 0, label %.backedge
     i8 1, label %93
     i8 2, label %108
@@ -7325,9 +7325,9 @@ define hidden void @"_ZN62_$LT$T$u20$as$u20$alloc..vec..spec_from_elem..SpecFrom
   br i1 %trunc, label %30, label %28
 
 25:                                               ; preds = %._crit_edge.i, %._crit_edge.thread.i, %28
-  %.sink6 = phi i64 [ %23, %28 ], [ %11, %._crit_edge.thread.i ], [ %11, %._crit_edge.i ]
+  %.sink7 = phi i64 [ %23, %28 ], [ %11, %._crit_edge.thread.i ], [ %11, %._crit_edge.i ]
   %.sink = phi ptr [ %29, %28 ], [ %15, %._crit_edge.thread.i ], [ %15, %._crit_edge.i ]
-  store i64 %.sink6, ptr %0, align 8
+  store i64 %.sink7, ptr %0, align 8
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sink, ptr %26, align 8
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -8000,15 +8000,15 @@ default.unreachable:                              ; preds = %2
   invoke fastcc void @"_ZN77_$LT$serde..__private..de..content..Content$u20$as$u20$core..clone..Clone$GT$5clone17h5cd98bca0677822bE"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %94)
           to label %"_ZN69_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h413c0d5fb4d3bb3aE.exit" unwind label %95
 
-common.resume8:                                   ; preds = %135, %common.resume
-  %common.resume8.op = phi { ptr, i32 } [ %common.resume.op, %common.resume ], [ %lpad.loopexit.i, %135 ]
-  resume { ptr, i32 } %common.resume8.op
+common.resume9:                                   ; preds = %135, %common.resume
+  %common.resume9.op = phi { ptr, i32 } [ %common.resume.op, %common.resume ], [ %lpad.loopexit.i, %135 ]
+  resume { ptr, i32 } %common.resume9.op
 
 common.resume:                                    ; preds = %104, %95
   %.sink = phi ptr [ %99, %104 ], [ %90, %95 ]
   %common.resume.op = phi { ptr, i32 } [ %105, %104 ], [ %96, %95 ]
   tail call void @__rust_dealloc(ptr noundef nonnull %.sink, i64 noundef 32, i64 noundef 8) #32, !noalias !3
-  br label %common.resume8
+  br label %common.resume9
 
 95:                                               ; preds = %"_ZN5alloc5boxed16Box$LT$T$C$A$GT$13new_uninit_in17h05f92b15a764d88cE.exit"
   %96 = landingpad { ptr, i32 }
@@ -8117,7 +8117,7 @@ common.resume:                                    ; preds = %104, %95
           cleanup
   store i64 %.sroa.7.019.i, ptr %122, align 8, !noalias !1599
   invoke void @"_ZN4core3ptr82drop_in_place$LT$alloc..vec..Vec$LT$serde..__private..de..content..Content$GT$$GT$17hcf4f767d1a5d3e85E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %5) #30
-          to label %common.resume8 unwind label %133, !noalias !1606
+          to label %common.resume9 unwind label %133, !noalias !1606
 
 "_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17h64879c6cbf3b06c6E.llvm.1074626156026677913.exit": ; preds = %.lr.ph.i, %128, %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$16with_capacity_in17h75a6bc6ced74a128E.llvm.1074626156026677913.exit.i"
   store i64 %111, ptr %122, align 8, !noalias !1599

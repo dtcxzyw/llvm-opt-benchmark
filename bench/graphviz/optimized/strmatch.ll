@@ -991,8 +991,8 @@ gv_isspace.exit.thread448:                        ; preds = %gv_isspace.exit.thr
   %240 = icmp eq i8 %238, %235
   %.pre69 = load i8, ptr %239, align 1, !tbaa !15
   %241 = icmp eq i8 %.pre69, 93
-  %or.cond68770 = select i1 %240, i1 %241, i1 false
-  br i1 %or.cond68770, label %.lr.ph._crit_edge, label %.lr.ph73
+  %or.cond70370 = select i1 %240, i1 %241, i1 false
+  br i1 %or.cond70370, label %.lr.ph._crit_edge, label %.lr.ph73
 
 .lr.ph:                                           ; preds = %.lr.ph73
   %242 = add i64 %.sroa.15.054471, 1
@@ -1000,8 +1000,8 @@ gv_isspace.exit.thread448:                        ; preds = %gv_isspace.exit.thr
   %244 = icmp eq i8 %.pre72, %235
   %.pre = load i8, ptr %243, align 1, !tbaa !15
   %245 = icmp eq i8 %.pre, 93
-  %or.cond687 = select i1 %244, i1 %245, i1 false
-  br i1 %or.cond687, label %.lr.ph._crit_edge, label %.lr.ph73
+  %or.cond703 = select i1 %244, i1 %245, i1 false
+  br i1 %or.cond703, label %.lr.ph._crit_edge, label %.lr.ph73
 
 .lr.ph73:                                         ; preds = %.lr.ph.preheader, %.lr.ph
   %.pre72 = phi i8 [ %.pre, %.lr.ph ], [ %.pre69, %.lr.ph.preheader ]

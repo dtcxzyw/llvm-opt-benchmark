@@ -863,8 +863,8 @@ pg_detoast_datum.exit:                            ; preds = %52, %61
   %111 = getelementptr inbounds nuw i8, ptr %104, i64 16
   %112 = getelementptr inbounds nuw i8, ptr %106, i64 16
   %113 = select i1 %.not118, i1 true, i1 %.not116
-  %or.cond140 = select i1 %113, i1 true, i1 %.not117
-  br i1 %or.cond140, label %.critedge, label %.split.split.split
+  %or.cond150 = select i1 %113, i1 true, i1 %.not117
+  br i1 %or.cond150, label %.critedge, label %.split.split.split
 
 .split.split.split:                               ; preds = %100, %139
   %indvars.iv137 = phi i64 [ %indvars.iv.next138, %139 ], [ 0, %100 ]
@@ -3308,8 +3308,8 @@ define dso_local i32 @get_call_expr_argtype(ptr noundef readonly captures(addres
   %switch.maskindex = trunc i32 %switch.tableidx to i16
   %switch.shifted = lshr i16 977, %switch.maskindex
   %switch.lobit = trunc i16 %switch.shifted to i1
-  %or.cond30 = select i1 %6, i1 %switch.lobit, i1 false
-  br i1 %or.cond30, label %switch.lookup, label %list_length.exit.thread
+  %or.cond31 = select i1 %6, i1 %switch.lobit, i1 false
+  br i1 %or.cond31, label %switch.lookup, label %list_length.exit.thread
 
 switch.lookup:                                    ; preds = %4
   %7 = zext nneg i32 %switch.tableidx to i64
@@ -3428,8 +3428,8 @@ define dso_local noundef zeroext i1 @get_call_expr_arg_stable(ptr noundef readon
   %switch.maskindex = trunc i32 %switch.tableidx to i16
   %switch.shifted = lshr i16 977, %switch.maskindex
   %switch.lobit = trunc i16 %switch.shifted to i1
-  %or.cond27 = select i1 %6, i1 %switch.lobit, i1 false
-  br i1 %or.cond27, label %switch.lookup, label %list_length.exit.thread
+  %or.cond29 = select i1 %6, i1 %switch.lobit, i1 false
+  br i1 %or.cond29, label %switch.lookup, label %list_length.exit.thread
 
 switch.lookup:                                    ; preds = %4
   %7 = zext nneg i32 %switch.tableidx to i64

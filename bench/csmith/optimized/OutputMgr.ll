@@ -784,8 +784,8 @@ _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i150: ; preds = %_ZStlsISt11char
           to label %_ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i152.invoke unwind label %73
 
 _ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i152.invoke.sink.split: ; preds = %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i150, %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i139
-  %.sink174 = phi ptr [ %217, %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i139 ], [ %228, %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i150 ]
-  %236 = getelementptr inbounds nuw i8, ptr %.sink174, i64 67
+  %.sink192 = phi ptr [ %217, %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i139 ], [ %228, %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i150 ]
+  %236 = getelementptr inbounds nuw i8, ptr %.sink192, i64 67
   %237 = load i8, ptr %236, align 1, !tbaa !17
   br label %_ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i152.invoke
 

@@ -643,11 +643,11 @@ _ZN10XPageCache17alloc_medium_pageEv.exit.thread: ; preds = %select.unfold.i, %4
   %61 = ptrtoint ptr %60 to i64
   %62 = add i64 %61, -120
   %63 = inttoptr i64 %62 to ptr
-  %spec.select49 = select i1 %59, ptr null, ptr %63
+  %spec.select53 = select i1 %59, ptr null, ptr %63
   br label %select.unfold.i.i
 
 select.unfold.i.i:                                ; preds = %_ZN10XPageCache17alloc_medium_pageEv.exit.thread, %64
-  %.sroa.2.0.i.i = phi ptr [ %71, %64 ], [ %spec.select49, %_ZN10XPageCache17alloc_medium_pageEv.exit.thread ]
+  %.sroa.2.0.i.i = phi ptr [ %71, %64 ], [ %spec.select53, %_ZN10XPageCache17alloc_medium_pageEv.exit.thread ]
   %.not.i.not.i.i = icmp eq ptr %.sroa.2.0.i.i, null
   br i1 %.not.i.not.i.i, label %85, label %64
 

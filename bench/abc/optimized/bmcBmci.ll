@@ -68,9 +68,9 @@ define void @Bmc_BmciUnfold(ptr noundef %0, ptr noundef readonly captures(none) 
   br i1 %.not55, label %.lr.ph90.split.us.preheader, label %.lr.ph90.split.split.us
 
 .lr.ph90.split.us.preheader:                      ; preds = %.lr.ph90
-  %.val70.us142 = load ptr, ptr %5, align 8, !tbaa !3
-  %.not51.us143 = icmp eq ptr %.val70.us142, null
-  br i1 %.not51.us143, label %.critedge2, label %.critedge.us
+  %.val70.us143 = load ptr, ptr %5, align 8, !tbaa !3
+  %.not51.us144 = icmp eq ptr %.val70.us143, null
+  br i1 %.not51.us144, label %.critedge2, label %.critedge.us
 
 .lr.ph90.split.us:                                ; preds = %.critedge.us
   %.val70.us = load ptr, ptr %5, align 8, !tbaa !3
@@ -78,18 +78,18 @@ define void @Bmc_BmciUnfold(ptr noundef %0, ptr noundef readonly captures(none) 
   br i1 %.not51.us, label %.critedge2, label %.critedge.us, !llvm.loop !34
 
 .critedge.us:                                     ; preds = %.lr.ph90.split.us.preheader, %.lr.ph90.split.us
-  %.val70.us146 = phi ptr [ %.val70.us, %.lr.ph90.split.us ], [ %.val70.us142, %.lr.ph90.split.us.preheader ]
-  %.val6189.us145 = phi ptr [ %.val61.us, %.lr.ph90.split.us ], [ %.val6186.pre, %.lr.ph90.split.us.preheader ]
-  %indvars.iv122144 = phi i64 [ %indvars.iv.next123, %.lr.ph90.split.us ], [ 0, %.lr.ph90.split.us.preheader ]
-  %14 = getelementptr i8, ptr %.val6189.us145, i64 8
+  %.val70.us147 = phi ptr [ %.val70.us, %.lr.ph90.split.us ], [ %.val70.us143, %.lr.ph90.split.us.preheader ]
+  %.val6189.us146 = phi ptr [ %.val61.us, %.lr.ph90.split.us ], [ %.val6186.pre, %.lr.ph90.split.us.preheader ]
+  %indvars.iv122145 = phi i64 [ %indvars.iv.next123, %.lr.ph90.split.us ], [ 0, %.lr.ph90.split.us.preheader ]
+  %14 = getelementptr i8, ptr %.val6189.us146, i64 8
   %.val71.val.us = load ptr, ptr %14, align 8, !tbaa !33
-  %15 = getelementptr inbounds nuw i32, ptr %.val71.val.us, i64 %indvars.iv122144
+  %15 = getelementptr inbounds nuw i32, ptr %.val71.val.us, i64 %indvars.iv122145
   %16 = load i32, ptr %15, align 4, !tbaa !36
   %17 = sext i32 %16 to i64
   %18 = tail call fastcc i32 @Gia_ManAppendCi(ptr noundef %0)
-  %19 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val70.us146, i64 %17, i32 1
+  %19 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val70.us147, i64 %17, i32 1
   store i32 %18, ptr %19, align 4, !tbaa !28
-  %indvars.iv.next123 = add nuw nsw i64 %indvars.iv122144, 1
+  %indvars.iv.next123 = add nuw nsw i64 %indvars.iv122145, 1
   %.val60.us = load i32, ptr %7, align 8, !tbaa !30
   %.val61.us = load ptr, ptr %12, align 8, !tbaa !31
   %20 = getelementptr i8, ptr %.val61.us, i64 4
@@ -1311,14 +1311,14 @@ Vec_IntAlloc.exit:                                ; preds = %Abc_UtilStrsav.exit
   br label %Vec_IntPush.exit.sink.split
 
 Vec_IntPush.exit.sink.split:                      ; preds = %77, %79, %69, %71
-  %.sink344 = phi ptr [ %70, %69 ], [ %72, %71 ], [ %78, %77 ], [ %80, %79 ]
+  %.sink377 = phi ptr [ %70, %69 ], [ %72, %71 ], [ %78, %77 ], [ %80, %79 ]
   %.sink = phi i32 [ 16, %69 ], [ 16, %71 ], [ %74, %77 ], [ %74, %79 ]
-  store ptr %.sink344, ptr %50, align 8, !tbaa !33
+  store ptr %.sink377, ptr %50, align 8, !tbaa !33
   store i32 %.sink, ptr %42, align 8, !tbaa !42
   br label %Vec_IntPush.exit
 
 Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.sink.split, %61
-  %.pre.i329 = phi ptr [ %55, %61 ], [ %.sink344, %Vec_IntPush.exit.sink.split ]
+  %.pre.i329 = phi ptr [ %55, %61 ], [ %.sink377, %Vec_IntPush.exit.sink.split ]
   %81 = add nsw i32 %63, 1
   store i32 %81, ptr %44, align 4, !tbaa !32
   %82 = sext i32 %63 to i64
@@ -1419,14 +1419,14 @@ Vec_IntAlloc.exit218:                             ; preds = %.critedge, %88
   br label %Vec_IntPush.exit225.sink.split
 
 Vec_IntPush.exit225.sink.split:                   ; preds = %120, %122, %112, %114
-  %.sink346 = phi ptr [ %113, %112 ], [ %115, %114 ], [ %121, %120 ], [ %123, %122 ]
-  %.sink345 = phi i32 [ 16, %112 ], [ 16, %114 ], [ %117, %120 ], [ %117, %122 ]
-  store ptr %.sink346, ptr %93, align 8, !tbaa !33
-  store i32 %.sink345, ptr %86, align 8, !tbaa !42
+  %.sink379 = phi ptr [ %113, %112 ], [ %115, %114 ], [ %121, %120 ], [ %123, %122 ]
+  %.sink378 = phi i32 [ 16, %112 ], [ 16, %114 ], [ %117, %120 ], [ %117, %122 ]
+  store ptr %.sink379, ptr %93, align 8, !tbaa !33
+  store i32 %.sink378, ptr %86, align 8, !tbaa !42
   br label %Vec_IntPush.exit225
 
 Vec_IntPush.exit225:                              ; preds = %Vec_IntPush.exit225.sink.split, %104
-  %.pre.i221332 = phi ptr [ %98, %104 ], [ %.sink346, %Vec_IntPush.exit225.sink.split ]
+  %.pre.i221332 = phi ptr [ %98, %104 ], [ %.sink379, %Vec_IntPush.exit225.sink.split ]
   %124 = add nsw i32 %106, 1
   store i32 %124, ptr %87, align 4, !tbaa !32
   %125 = sext i32 %106 to i64
@@ -1686,7 +1686,7 @@ Vec_IntPush.exit241:                              ; preds = %.Vec_IntGrow.exit10
 
 Vec_IntSum.exit:                                  ; preds = %230, %Abc_Clock.exit227, %.critedge4
   %234 = phi i1 [ false, %.critedge4 ], [ false, %Abc_Clock.exit227 ], [ true, %230 ]
-  %.0156.lcssa340 = phi i32 [ %.1157, %.critedge4 ], [ 0, %Abc_Clock.exit227 ], [ %.1157, %230 ]
+  %.0156.lcssa373 = phi i32 [ %.1157, %.critedge4 ], [ 0, %Abc_Clock.exit227 ], [ %.1157, %230 ]
   %235 = phi i32 [ %.pre, %.critedge4 ], [ 0, %Abc_Clock.exit227 ], [ %.pre, %230 ]
   %.0.lcssa.i = phi i32 [ 0, %.critedge4 ], [ 0, %Abc_Clock.exit227 ], [ %233, %230 ]
   %.val186 = load i32, ptr %87, align 4, !tbaa !32
@@ -2022,7 +2022,7 @@ sat_solver_add_buffer.exit:                       ; preds = %314, %323
   %397 = xor i32 %396, -1
   %398 = add i32 %389, %397
   %399 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.6, i32 noundef %398)
-  %400 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, i32 noundef %.0156.lcssa340)
+  %400 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, i32 noundef %.0156.lcssa373)
   %401 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.8, i32 noundef %.0158.lcssa)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %402 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %8) #16

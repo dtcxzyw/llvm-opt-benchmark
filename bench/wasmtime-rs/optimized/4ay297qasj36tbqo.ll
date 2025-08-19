@@ -1561,10 +1561,10 @@ define hidden void @_ZN22cranelift_codegen_meta8gen_inst16gen_inst_builder17hd5d
           cleanup
   br label %.thread
 
-.loopexit.split-lp.loopexit.split-lp:             ; preds = %.invoke171, %.invoke, %314, %184, %182, %181, %159, %95
-  %.0117.ph.ph = phi i8 [ %.10127, %314 ], [ 1, %181 ], [ 1, %182 ], [ 1, %184 ], [ 1, %159 ], [ 1, %95 ], [ 1, %.invoke ], [ 1, %.invoke171 ]
-  %.0109.ph.ph = phi i8 [ %.11, %314 ], [ 1, %181 ], [ 1, %182 ], [ 1, %184 ], [ 1, %159 ], [ 1, %95 ], [ 1, %.invoke ], [ 1, %.invoke171 ]
-  %.0.ph.ph = phi i8 [ 0, %314 ], [ 1, %181 ], [ 1, %182 ], [ 1, %184 ], [ 1, %159 ], [ 1, %95 ], [ 1, %.invoke ], [ 1, %.invoke171 ]
+.loopexit.split-lp.loopexit.split-lp:             ; preds = %.invoke173, %.invoke, %314, %184, %182, %181, %159, %95
+  %.0117.ph.ph = phi i8 [ %.10127, %314 ], [ 1, %181 ], [ 1, %182 ], [ 1, %184 ], [ 1, %159 ], [ 1, %95 ], [ 1, %.invoke ], [ 1, %.invoke173 ]
+  %.0109.ph.ph = phi i8 [ %.11, %314 ], [ 1, %181 ], [ 1, %182 ], [ 1, %184 ], [ 1, %159 ], [ 1, %95 ], [ 1, %.invoke ], [ 1, %.invoke173 ]
+  %.0.ph.ph = phi i8 [ 0, %314 ], [ 1, %181 ], [ 1, %182 ], [ 1, %184 ], [ 1, %159 ], [ 1, %95 ], [ 1, %.invoke ], [ 1, %.invoke173 ]
   %lpad.loopexit.split-lp164 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
@@ -1612,18 +1612,18 @@ define hidden void @_ZN22cranelift_codegen_meta8gen_inst16gen_inst_builder17hd5d
   %155 = getelementptr inbounds nuw i8, ptr %83, i64 16
   %156 = load i64, ptr %155, align 8, !noundef !4
   %.not = icmp eq i64 %156, 0
-  br i1 %.not, label %.invoke, label %.invoke171, !prof !9
+  br i1 %.not, label %.invoke, label %.invoke173, !prof !9
 
 157:                                              ; preds = %147
   %158 = invoke zeroext i1 @_ZN22cranelift_codegen_meta4cdsl8operands11OperandKind8is_block17h839ed686daa70d50E(ptr nonnull align 8 %146)
           to label %338 unwind label %.loopexit.split-lp.loopexit
 
-159:                                              ; preds = %.invoke171
+159:                                              ; preds = %.invoke173
   %160 = getelementptr inbounds nuw i8, ptr %89, i64 112
   %161 = invoke { ptr, ptr } @"_ZN94_$LT$$RF$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h9dbf4e10efcd553aE"(ptr nonnull align 8 %160)
           to label %164 unwind label %.loopexit.split-lp.loopexit.split-lp
 
-.invoke171:                                       ; preds = %149
+.invoke173:                                       ; preds = %149
   %. = select i1 %or.cond.not, i64 8, i64 4
   %anon.9ab4b5496d0f80d34150a5d25f0f517e.114.anon.9ab4b5496d0f80d34150a5d25f0f517e.92 = select i1 %or.cond.not, ptr @anon.9ab4b5496d0f80d34150a5d25f0f517e.114, ptr @anon.9ab4b5496d0f80d34150a5d25f0f517e.92
   %162 = getelementptr inbounds nuw i8, ptr %83, i64 8
@@ -2979,10 +2979,10 @@ define internal fastcc void @_ZN22cranelift_codegen_meta8gen_inst15gen_common_is
   %274 = load i8, ptr %109, align 1, !range !7, !noundef !4
   %275 = icmp eq i8 %274, 0
   %spec.select = select i1 %275, ptr @anon.9ab4b5496d0f80d34150a5d25f0f517e.115, ptr @anon.9ab4b5496d0f80d34150a5d25f0f517e.116
-  %spec.select340 = select i1 %275, i64 4, i64 5
+  %spec.select344 = select i1 %275, i64 4, i64 5
   store ptr %spec.select, ptr %43, align 8
   %276 = getelementptr inbounds nuw i8, ptr %43, i64 8
-  store i64 %spec.select340, ptr %276, align 8
+  store i64 %spec.select344, ptr %276, align 8
   %277 = load ptr, ptr %110, align 8, !nonnull !4, !align !12, !noundef !4
   %278 = invoke { ptr, ptr } @"_ZN94_$LT$$RF$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h27e60c7ff0071136E"(ptr nonnull align 8 %277)
           to label %279 unwind label %.loopexit.split-lp.loopexit.split-lp
@@ -3058,9 +3058,9 @@ define internal fastcc void @_ZN22cranelift_codegen_meta8gen_inst15gen_common_is
   br i1 %318, label %319, label %.backedge.backedge
 
 319:                                              ; preds = %302, %315
-  %storemerge339 = phi ptr [ @anon.9ab4b5496d0f80d34150a5d25f0f517e.154, %315 ], [ @anon.9ab4b5496d0f80d34150a5d25f0f517e.10, %302 ]
+  %storemerge343 = phi ptr [ @anon.9ab4b5496d0f80d34150a5d25f0f517e.154, %315 ], [ @anon.9ab4b5496d0f80d34150a5d25f0f517e.10, %302 ]
   %storemerge = phi i64 [ 5, %315 ], [ 0, %302 ]
-  store ptr %storemerge339, ptr %37, align 8
+  store ptr %storemerge343, ptr %37, align 8
   store i64 %storemerge, ptr %283, align 8
   %320 = getelementptr inbounds nuw i8, ptr %305, i64 16
   %321 = getelementptr inbounds nuw i8, ptr %305, i64 96

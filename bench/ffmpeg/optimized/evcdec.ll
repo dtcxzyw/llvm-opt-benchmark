@@ -100,11 +100,11 @@ evc_get_nalu_type.exit.thread:                    ; preds = %14, %16, %evc_get_n
   %.031.lcssa.ph = phi i32 [ %.1, %evc_get_nalu_type.exit.thread ], [ %.03146, %.lr.ph ], [ %.03146, %10 ]
   %30 = icmp eq i32 %.036.lcssa.ph, 0
   %31 = icmp eq i32 %.034.lcssa.ph, 0
-  %.not67 = select i1 %30, i1 true, i1 %31
+  %.not71 = select i1 %30, i1 true, i1 %31
   %32 = icmp eq i32 %.032.lcssa.ph, 0
   %33 = icmp slt i32 %.031.lcssa.ph, 4
-  %.not69 = select i1 %32, i1 %33, i1 false
-  %brmerge = select i1 %.not67, i1 true, i1 %.not69
+  %.not73 = select i1 %32, i1 %33, i1 false
+  %brmerge = select i1 %.not71, i1 true, i1 %.not73
   br i1 %brmerge, label %._crit_edge.thread, label %34
 
 ._crit_edge.thread:                               ; preds = %._crit_edge, %1

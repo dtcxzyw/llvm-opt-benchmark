@@ -973,7 +973,7 @@ _ZNSt6vectorIcSaIcEEC2EmRKS0_.exit:               ; preds = %35, %.noexc20
 
 52:                                               ; preds = %45
   store i8 0, ptr %.0.i.i.i.i.i, align 1, !tbaa !20
-  %53 = add i64 %46, -1
+  %53 = add nsw i64 %46, -1
   %54 = icmp eq i64 %53, 0
   br i1 %54, label %_ZNSt6vectorIcSaIcEE6resizeEm.exit, label %55
 
@@ -1746,8 +1746,8 @@ _ZNSt6vectorIwSaIwEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPwmwET_
 
 _ZSt6fill_nIPwmwET_S1_T0_RKT1_.exit.loopexit.i.i.i.i: ; preds = %59
   %61 = getelementptr i8, ptr %.0.i.i.i.i.i, i64 4
-  %62 = shl i64 %52, 2
-  %63 = add i64 %62, -4
+  %62 = shl nuw nsw i64 %52, 2
+  %63 = add nsw i64 %62, -4
   call void @llvm.memset.p0.i64(ptr align 4 %61, i8 0, i64 %63, i1 false), !tbaa !43
   br label %_ZNSt6vectorIwSaIwEE6resizeEm.exit
 

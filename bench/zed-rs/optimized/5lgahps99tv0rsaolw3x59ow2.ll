@@ -439,7 +439,7 @@ _ZN4core10intrinsics10typed_swap17h5d4f9f35dc9407bfE.exit.i22: ; preds = %103
   br i1 %155, label %181, label %173
 
 156:                                              ; preds = %._crit_edge54.thread, %._crit_edge54
-  %.sroa.8.1.lcssa60 = phi float [ undef, %._crit_edge54.thread ], [ %.sroa.8.2, %._crit_edge54 ]
+  %.sroa.8.1.lcssa77 = phi float [ undef, %._crit_edge54.thread ], [ %.sroa.8.2, %._crit_edge54 ]
   %157 = load i64, ptr %128, align 8, !noundef !4
   %158 = icmp eq i64 %157, 0
   br i1 %158, label %170, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6remove17h0f58527ee8f0cc7eE.exit31"
@@ -472,7 +472,7 @@ _ZN4core10intrinsics10typed_swap17h5d4f9f35dc9407bfE.exit: ; preds = %164
   br label %170
 
 170:                                              ; preds = %156, %._crit_edge54, %_ZN4core10intrinsics10typed_swap17h5d4f9f35dc9407bfE.exit, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6remove17h0f58527ee8f0cc7eE.exit", %12
-  %.sroa.8.0 = phi float [ %15, %12 ], [ %.sroa.8.2, %._crit_edge54 ], [ %160, %_ZN4core10intrinsics10typed_swap17h5d4f9f35dc9407bfE.exit ], [ %22, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6remove17h0f58527ee8f0cc7eE.exit" ], [ %.sroa.8.1.lcssa60, %156 ]
+  %.sroa.8.0 = phi float [ %15, %12 ], [ %.sroa.8.2, %._crit_edge54 ], [ %160, %_ZN4core10intrinsics10typed_swap17h5d4f9f35dc9407bfE.exit ], [ %22, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6remove17h0f58527ee8f0cc7eE.exit" ], [ %.sroa.8.1.lcssa77, %156 ]
   %.sroa.0.0 = phi i32 [ %14, %12 ], [ 1, %._crit_edge54 ], [ 1, %_ZN4core10intrinsics10typed_swap17h5d4f9f35dc9407bfE.exit ], [ 1, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6remove17h0f58527ee8f0cc7eE.exit" ], [ 0, %156 ]
   %171 = insertvalue { i32, float } poison, i32 %.sroa.0.0, 0
   %172 = insertvalue { i32, float } %171, float %.sroa.8.0, 1

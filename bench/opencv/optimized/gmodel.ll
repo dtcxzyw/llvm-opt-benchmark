@@ -10482,12 +10482,12 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i6.i: ; preds = %46, %
   br i1 %48, label %common.resume.sink.split, label %common.resume
 
 common.resume.sink.split:                         ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i6.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i6.i7
-  %.sink23 = phi ptr [ %86, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i6.i7 ], [ %39, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i6.i ]
+  %.sink32 = phi ptr [ %86, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i6.i7 ], [ %39, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i6.i ]
   %common.resume.op.ph = phi { ptr, i32 } [ %85, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i6.i7 ], [ %38, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i6.i ]
-  %49 = load ptr, ptr %.sink23, align 8, !tbaa !25, !noalias !116
+  %49 = load ptr, ptr %.sink32, align 8, !tbaa !25, !noalias !116
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 24
   %51 = load ptr, ptr %50, align 8, !noalias !116
-  call void %51(ptr noundef nonnull align 8 dereferenceable(16) %.sink23) #20, !noalias !116
+  call void %51(ptr noundef nonnull align 8 dereferenceable(16) %.sink32) #20, !noalias !116
   br label %common.resume
 
 common.resume:                                    ; preds = %common.resume.sink.split, %84, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i6.i7, %37, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i6.i
@@ -11057,8 +11057,8 @@ _ZNK3ade6HandleINS_4NodeEEptEv.exit27:            ; preds = %61, %_ZN9__gnu_cxx2
 
 91:                                               ; preds = %82
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.not149 = icmp eq ptr %84, %85
-  br i1 %.not149, label %_ZNSt6vectorIN3ade6HandleINS0_4EdgeEEESaIS3_EE7reserveEm.exit, label %_ZNSt12_Vector_baseIN3ade6HandleINS0_4EdgeEEESaIS3_EE11_M_allocateEm.exit.i
+  %.not177 = icmp eq ptr %84, %85
+  br i1 %.not177, label %_ZNSt6vectorIN3ade6HandleINS0_4EdgeEEESaIS3_EE7reserveEm.exit, label %_ZNSt12_Vector_baseIN3ade6HandleINS0_4EdgeEEESaIS3_EE11_M_allocateEm.exit.i
 
 _ZNSt12_Vector_baseIN3ade6HandleINS0_4EdgeEEESaIS3_EE11_M_allocateEm.exit.i: ; preds = %91
   %93 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %88) #21

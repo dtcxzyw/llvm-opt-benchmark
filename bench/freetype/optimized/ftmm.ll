@@ -511,18 +511,18 @@ ft_face_get_mm_service.exit:                      ; preds = %.fold.split.i
 
 .thread71.thread:                                 ; preds = %39
   tail call void %38(ptr noundef nonnull %0) #3
-  br label %.thread71.thread91
+  br label %.thread71.thread99
 
 42:                                               ; preds = %34
-  br i1 %32, label %.critedge, label %.thread71.thread91
+  br i1 %32, label %.critedge, label %.thread71.thread99
 
-.thread71.thread91:                               ; preds = %42, %.thread71.thread
+.thread71.thread99:                               ; preds = %42, %.thread71.thread
   %43 = load i64, ptr %8, align 8, !tbaa !3
   %44 = and i64 %43, 256
   %.not24.i47 = icmp eq i64 %44, 0
   br i1 %.not24.i47, label %ft_face_get_mvar_service.exit.thread, label %45
 
-45:                                               ; preds = %.thread71.thread91
+45:                                               ; preds = %.thread71.thread99
   %46 = load ptr, ptr %12, align 8, !tbaa !25
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 72
   %48 = load ptr, ptr %47, align 8, !tbaa !53
@@ -570,7 +570,7 @@ ft_face_get_mvar_service.exit:                    ; preds = %45, %57
   tail call void %63(ptr noundef nonnull %0) #3
   br label %ft_face_get_mvar_service.exit.thread
 
-ft_face_get_mvar_service.exit.thread:             ; preds = %45, %.thread71.thread91, %64, %61, %ft_face_get_mvar_service.exit
+ft_face_get_mvar_service.exit.thread:             ; preds = %45, %.thread71.thread99, %64, %61, %ft_face_get_mvar_service.exit
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %66 = load ptr, ptr %65, align 8, !tbaa !47
   %.not45 = icmp eq ptr %66, null
@@ -753,18 +753,18 @@ ft_face_get_mm_service.exit:                      ; preds = %.fold.split.i
 
 .thread71.thread:                                 ; preds = %39
   tail call void %38(ptr noundef nonnull %0) #3
-  br label %.thread71.thread91
+  br label %.thread71.thread99
 
 42:                                               ; preds = %34
-  br i1 %32, label %.critedge, label %.thread71.thread91
+  br i1 %32, label %.critedge, label %.thread71.thread99
 
-.thread71.thread91:                               ; preds = %42, %.thread71.thread
+.thread71.thread99:                               ; preds = %42, %.thread71.thread
   %43 = load i64, ptr %8, align 8, !tbaa !3
   %44 = and i64 %43, 256
   %.not24.i47 = icmp eq i64 %44, 0
   br i1 %.not24.i47, label %ft_face_get_mvar_service.exit.thread, label %45
 
-45:                                               ; preds = %.thread71.thread91
+45:                                               ; preds = %.thread71.thread99
   %46 = load ptr, ptr %12, align 8, !tbaa !25
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 72
   %48 = load ptr, ptr %47, align 8, !tbaa !53
@@ -812,7 +812,7 @@ ft_face_get_mvar_service.exit:                    ; preds = %45, %57
   tail call void %63(ptr noundef nonnull %0) #3
   br label %ft_face_get_mvar_service.exit.thread
 
-ft_face_get_mvar_service.exit.thread:             ; preds = %45, %.thread71.thread91, %64, %61, %ft_face_get_mvar_service.exit
+ft_face_get_mvar_service.exit.thread:             ; preds = %45, %.thread71.thread99, %64, %61, %ft_face_get_mvar_service.exit
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %66 = load ptr, ptr %65, align 8, !tbaa !47
   %.not45 = icmp eq ptr %66, null
@@ -925,18 +925,18 @@ ft_face_get_mm_service.exit:                      ; preds = %.fold.split.i
 
 .thread71.thread:                                 ; preds = %39
   tail call void %38(ptr noundef nonnull %0) #3
-  br label %.thread71.thread91
+  br label %.thread71.thread99
 
 42:                                               ; preds = %34
-  br i1 %32, label %.critedge, label %.thread71.thread91
+  br i1 %32, label %.critedge, label %.thread71.thread99
 
-.thread71.thread91:                               ; preds = %42, %.thread71.thread
+.thread71.thread99:                               ; preds = %42, %.thread71.thread
   %43 = load i64, ptr %8, align 8, !tbaa !3
   %44 = and i64 %43, 256
   %.not24.i47 = icmp eq i64 %44, 0
   br i1 %.not24.i47, label %ft_face_get_mvar_service.exit.thread, label %45
 
-45:                                               ; preds = %.thread71.thread91
+45:                                               ; preds = %.thread71.thread99
   %46 = load ptr, ptr %12, align 8, !tbaa !25
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 72
   %48 = load ptr, ptr %47, align 8, !tbaa !53
@@ -984,7 +984,7 @@ ft_face_get_mvar_service.exit:                    ; preds = %45, %57
   tail call void %63(ptr noundef nonnull %0) #3
   br label %ft_face_get_mvar_service.exit.thread
 
-ft_face_get_mvar_service.exit.thread:             ; preds = %45, %.thread71.thread91, %64, %61, %ft_face_get_mvar_service.exit
+ft_face_get_mvar_service.exit.thread:             ; preds = %45, %.thread71.thread99, %64, %61, %ft_face_get_mvar_service.exit
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %66 = load ptr, ptr %65, align 8, !tbaa !47
   %.not45 = icmp eq ptr %66, null
@@ -1262,18 +1262,18 @@ ft_face_get_mm_service.exit:                      ; preds = %.fold.split.i
 
 .thread66.thread:                                 ; preds = %41
   tail call void %40(ptr noundef nonnull %0) #3
-  br label %.thread66.thread86
+  br label %.thread66.thread94
 
 45:                                               ; preds = %30
-  br i1 %28, label %.critedge, label %.thread66.thread86
+  br i1 %28, label %.critedge, label %.thread66.thread94
 
-.thread66.thread86:                               ; preds = %45, %.thread66.thread
+.thread66.thread94:                               ; preds = %45, %.thread66.thread
   %46 = load i64, ptr %4, align 8, !tbaa !3
   %47 = and i64 %46, 256
   %.not24.i42 = icmp eq i64 %47, 0
   br i1 %.not24.i42, label %ft_face_get_mvar_service.exit.thread, label %48
 
-48:                                               ; preds = %.thread66.thread86
+48:                                               ; preds = %.thread66.thread94
   %49 = load ptr, ptr %8, align 8, !tbaa !25
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 72
   %51 = load ptr, ptr %50, align 8, !tbaa !53
@@ -1321,7 +1321,7 @@ ft_face_get_mvar_service.exit:                    ; preds = %48, %60
   tail call void %66(ptr noundef nonnull %0) #3
   br label %ft_face_get_mvar_service.exit.thread
 
-ft_face_get_mvar_service.exit.thread:             ; preds = %48, %.thread66.thread86, %67, %64, %ft_face_get_mvar_service.exit
+ft_face_get_mvar_service.exit.thread:             ; preds = %48, %.thread66.thread94, %67, %64, %ft_face_get_mvar_service.exit
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %69 = load ptr, ptr %68, align 8, !tbaa !47
   %.not40 = icmp eq ptr %69, null

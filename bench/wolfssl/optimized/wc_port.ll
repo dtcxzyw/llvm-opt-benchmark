@@ -200,8 +200,8 @@ define range(i32 -244, 1) i32 @wc_ReadDirFirst(ptr noundef %0, ptr noundef reado
   %28 = icmp sgt i32 %27, 258
   br i1 %28, label %.thread54, label %32
 
-29:                                               ; preds = %.thread65, %40
-  %.234.us68 = phi i32 [ -244, %.thread65 ], [ -1, %40 ]
+29:                                               ; preds = %.thread73, %40
+  %.234.us76 = phi i32 [ -244, %.thread73 ], [ -1, %40 ]
   %30 = load ptr, ptr %13, align 8, !tbaa !18
   %31 = tail call ptr @readdir(ptr noundef %30) #16
   store ptr %31, ptr %0, align 8, !tbaa !19
@@ -221,18 +221,18 @@ define range(i32 -244, 1) i32 @wc_ReadDirFirst(ptr noundef %0, ptr noundef reado
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(424) %4, i8 0, i64 424, i1 false)
   %39 = call i32 @stat(ptr noundef nonnull readonly %16, ptr noundef nonnull %21) #16
   %.not.i.us = icmp eq i32 %39, 0
-  br i1 %.not.i.us, label %40, label %.thread65
+  br i1 %.not.i.us, label %40, label %.thread73
 
-.thread65:                                        ; preds = %32
+.thread73:                                        ; preds = %32
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %29
 
 40:                                               ; preds = %32
   %41 = load i32, ptr %22, align 8, !tbaa !12
   %42 = and i32 %41, 61440
-  %.not72 = icmp eq i32 %42, 32768
+  %.not80 = icmp eq i32 %42, 32768
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br i1 %.not72, label %wc_ReadDirClose.exit, label %29
+  br i1 %.not80, label %wc_ReadDirClose.exit, label %29
 
 43:                                               ; preds = %wc_FileExists.exit, %wc_FileExists.exit.thread
   %.234 = phi i32 [ -1, %wc_FileExists.exit ], [ -244, %wc_FileExists.exit.thread ]
@@ -273,16 +273,16 @@ wc_FileExists.exit.thread:                        ; preds = %52
 wc_FileExists.exit:                               ; preds = %52
   %60 = load i32, ptr %22, align 8, !tbaa !12
   %61 = and i32 %60, 61440
-  %.not71 = icmp eq i32 %61, 32768
+  %.not79 = icmp eq i32 %61, 32768
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br i1 %.not71, label %.thread, label %43
+  br i1 %.not79, label %.thread, label %43
 
 .thread:                                          ; preds = %wc_FileExists.exit
   store ptr %16, ptr %2, align 8, !tbaa !7
   br label %wc_ReadDirClose.exit
 
 .thread54:                                        ; preds = %43, %.lr.ph.split, %29, %.lr.ph.split.us, %.preheader
-  %.133 = phi i32 [ -1, %.preheader ], [ -244, %.lr.ph.split.us ], [ %.234.us68, %29 ], [ -244, %.lr.ph.split ], [ %.234, %43 ]
+  %.133 = phi i32 [ -1, %.preheader ], [ -244, %.lr.ph.split.us ], [ %.234.us76, %29 ], [ -244, %.lr.ph.split ], [ %.234, %43 ]
   %62 = load ptr, ptr %13, align 8, !tbaa !18
   %.not.i46 = icmp eq ptr %62, null
   br i1 %.not.i46, label %wc_ReadDirClose.exit, label %63
@@ -375,8 +375,8 @@ define range(i32 -244, 1) i32 @wc_ReadDirNext(ptr noundef %0, ptr noundef readon
   %27 = icmp sgt i32 %26, 258
   br i1 %27, label %.thread51, label %31
 
-28:                                               ; preds = %.thread63, %39
-  %.231.us66 = phi i32 [ -244, %.thread63 ], [ -1, %39 ]
+28:                                               ; preds = %.thread70, %39
+  %.231.us73 = phi i32 [ -244, %.thread70 ], [ -1, %39 ]
   %29 = load ptr, ptr %13, align 8, !tbaa !18
   %30 = tail call ptr @readdir(ptr noundef %29) #16
   store ptr %30, ptr %0, align 8, !tbaa !19
@@ -396,18 +396,18 @@ define range(i32 -244, 1) i32 @wc_ReadDirNext(ptr noundef %0, ptr noundef readon
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(424) %4, i8 0, i64 424, i1 false)
   %38 = call i32 @stat(ptr noundef nonnull readonly %10, ptr noundef nonnull %20) #16
   %.not.i.us = icmp eq i32 %38, 0
-  br i1 %.not.i.us, label %39, label %.thread63
+  br i1 %.not.i.us, label %39, label %.thread70
 
-.thread63:                                        ; preds = %31
+.thread70:                                        ; preds = %31
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %28
 
 39:                                               ; preds = %31
   %40 = load i32, ptr %21, align 8, !tbaa !12
   %41 = and i32 %40, 61440
-  %.not70 = icmp eq i32 %41, 32768
+  %.not77 = icmp eq i32 %41, 32768
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br i1 %.not70, label %wc_ReadDirClose.exit, label %28
+  br i1 %.not77, label %wc_ReadDirClose.exit, label %28
 
 42:                                               ; preds = %wc_FileExists.exit, %wc_FileExists.exit.thread
   %.231 = phi i32 [ -1, %wc_FileExists.exit ], [ -244, %wc_FileExists.exit.thread ]
@@ -448,16 +448,16 @@ wc_FileExists.exit.thread:                        ; preds = %51
 wc_FileExists.exit:                               ; preds = %51
   %59 = load i32, ptr %21, align 8, !tbaa !12
   %60 = and i32 %59, 61440
-  %.not69 = icmp eq i32 %60, 32768
+  %.not76 = icmp eq i32 %60, 32768
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br i1 %.not69, label %.thread, label %42
+  br i1 %.not76, label %.thread, label %42
 
 .thread:                                          ; preds = %wc_FileExists.exit
   store ptr %10, ptr %2, align 8, !tbaa !7
   br label %wc_ReadDirClose.exit
 
 .thread51:                                        ; preds = %42, %.lr.ph.split, %28, %.lr.ph.split.us, %9
-  %.130 = phi i32 [ -1, %9 ], [ -244, %.lr.ph.split.us ], [ %.231.us66, %28 ], [ -244, %.lr.ph.split ], [ %.231, %42 ]
+  %.130 = phi i32 [ -1, %9 ], [ -244, %.lr.ph.split.us ], [ %.231.us73, %28 ], [ -244, %.lr.ph.split ], [ %.231, %42 ]
   %61 = load ptr, ptr %13, align 8, !tbaa !18
   %.not.i43 = icmp eq ptr %61, null
   br i1 %.not.i43, label %wc_ReadDirClose.exit, label %62

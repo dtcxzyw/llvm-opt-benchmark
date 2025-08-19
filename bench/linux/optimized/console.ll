@@ -183,11 +183,11 @@ thread-pre-split:                                 ; preds = %.preheader
   %6 = phi ptr [ %.pr, %thread-pre-split ], [ %1, %0 ]
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %8 = load i8, ptr %7, align 8, !range !9, !noundef !10
-  %.not3.not = icmp ne i8 %8, 0
-  br i1 %.not3.not, label %.loopexit, label %thread-pre-split, !llvm.loop !11
+  %.not4.not = icmp ne i8 %8, 0
+  br i1 %.not4.not, label %.loopexit, label %thread-pre-split, !llvm.loop !11
 
 .loopexit:                                        ; preds = %.preheader, %thread-pre-split, %0
-  %9 = phi i1 [ true, %0 ], [ %.not3.not, %thread-pre-split ], [ %.not3.not, %.preheader ]
+  %9 = phi i1 [ true, %0 ], [ %.not4.not, %thread-pre-split ], [ %.not4.not, %.preheader ]
   tail call void @mutex_unlock(ptr noundef nonnull @vt_switch_mutex) #3
   %10 = load i32, ptr @orig_fgconsole, align 4
   %11 = icmp sgt i32 %10, -1

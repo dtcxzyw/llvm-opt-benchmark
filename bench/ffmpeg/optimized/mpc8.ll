@@ -446,8 +446,8 @@ get_vlc2.exit369:                                 ; preds = %150, %174
   store i32 %.promoted445, ptr %30, align 8
   %204 = getelementptr inbounds nuw i8, ptr %11, i64 68
   %205 = load i32, ptr %204, align 4, !tbaa !35
-  %.not345602 = icmp eq i32 %205, 0
-  br i1 %.not345602, label %.loopexit441, label %._crit_edge451
+  %.not345624 = icmp eq i32 %205, 0
+  br i1 %.not345624, label %.loopexit441, label %._crit_edge451
 
 .lr.ph.preheader:                                 ; preds = %._crit_edge
   %wide.trip.count = zext nneg i32 %.0314 to i64
@@ -664,8 +664,8 @@ mpc8_get_mod_golomb.exit415:                      ; preds = %._crit_edge451, %ge
   %310 = getelementptr inbounds nuw i8, ptr %307, i64 8
   %311 = load i32, ptr %310, align 4, !tbaa !49
   %.not354 = icmp eq i32 %311, 0
-  %or.cond613 = select i1 %.not353, i1 %.not354, i1 false
-  br i1 %or.cond613, label %350, label %._crit_edge599
+  %or.cond635 = select i1 %.not353, i1 %.not354, i1 false
+  br i1 %or.cond635, label %350, label %._crit_edge599
 
 ._crit_edge599:                                   ; preds = %305
   %312 = icmp ne i32 %309, 0

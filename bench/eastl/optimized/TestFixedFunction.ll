@@ -1085,7 +1085,7 @@ if.then.i.i.i72:                                  ; preds = %_ZN10TestObject7IsC
   store i64 0, ptr @_ZN10TestObject8sTOCountE, align 8
   store i64 5, ptr @_ZN10TestObject12sTODtorCountE, align 8
   %call43 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 336, ptr noundef nonnull @.str.1)
-          to label %"_ZN5eastl8internal20function_base_detailILi24EE16function_managerIZ32TestFixedFunctionExistingClosurevE3$_2vJEE7ManagerEPvS6_NS2_17ManagerOperationsE.exit" unwind label %"_ZN5eastl8internal20function_base_detailILi24EE16function_managerIZ32TestFixedFunctionExistingClosurevE3$_2vJEE7ManagerEPvS6_NS2_17ManagerOperationsE.exit530"
+          to label %"_ZN5eastl8internal20function_base_detailILi24EE16function_managerIZ32TestFixedFunctionExistingClosurevE3$_2vJEE7ManagerEPvS6_NS2_17ManagerOperationsE.exit" unwind label %"_ZN5eastl8internal20function_base_detailILi24EE16function_managerIZ32TestFixedFunctionExistingClosurevE3$_2vJEE7ManagerEPvS6_NS2_17ManagerOperationsE.exit554"
 
 "_ZN5eastl8internal20function_base_detailILi24EE16function_managerIZ32TestFixedFunctionExistingClosurevE3$_2vJEE7ManagerEPvS6_NS2_17ManagerOperationsE.exit": ; preds = %if.then.i.i.i72
   store i64 0, ptr @_ZN10TestObject19sTODefaultCtorCountE, align 8
@@ -1099,7 +1099,7 @@ if.then.i.i.i72:                                  ; preds = %_ZN10TestObject7IsC
   store i64 0, ptr @_ZN10TestObject8sTOCountE, align 8
   store i64 1, ptr @_ZN10TestObject12sTODtorCountE, align 8
   %call60 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 345, ptr noundef nonnull @.str.1)
-          to label %_ZN10TestObject7IsClearEv.exit321 unwind label %"_ZN5eastl8internal20function_base_detailILi24EE16function_managerIZ32TestFixedFunctionExistingClosurevE3$_4vJEE7ManagerEPvS6_NS2_17ManagerOperationsE.exit516"
+          to label %_ZN10TestObject7IsClearEv.exit321 unwind label %"_ZN5eastl8internal20function_base_detailILi24EE16function_managerIZ32TestFixedFunctionExistingClosurevE3$_4vJEE7ManagerEPvS6_NS2_17ManagerOperationsE.exit537"
 
 _ZN10TestObject7IsClearEv.exit321:                ; preds = %"_ZN5eastl8internal20function_base_detailILi24EE16function_managerIZ32TestFixedFunctionExistingClosurevE3$_2vJEE7ManagerEPvS6_NS2_17ManagerOperationsE.exit"
   store i64 0, ptr @_ZN10TestObject19sTODefaultCtorCountE, align 8
@@ -1129,34 +1129,34 @@ if.then.i.i.i359:                                 ; preds = %_ZN10TestObject7IsC
   %3 = landingpad { ptr, i32 }
           cleanup
   %4 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
-  %dec.i.i.i.i.i544 = add nsw i64 %4, -1
-  store i64 %dec.i.i.i.i.i544, ptr @_ZN10TestObject8sTOCountE, align 8
+  %dec.i.i.i.i.i569 = add nsw i64 %4, -1
+  store i64 %dec.i.i.i.i.i569, ptr @_ZN10TestObject8sTOCountE, align 8
   %5 = load i64, ptr @_ZN10TestObject12sTODtorCountE, align 8
-  %inc3.i.i.i.i.i545 = add nsw i64 %5, 1
-  store i64 %inc3.i.i.i.i.i545, ptr @_ZN10TestObject12sTODtorCountE, align 8
+  %inc3.i.i.i.i.i570 = add nsw i64 %5, 1
+  store i64 %inc3.i.i.i.i.i570, ptr @_ZN10TestObject12sTODtorCountE, align 8
   %call2.i.i.i360 = call noundef ptr @"_ZN5eastl8internal20function_base_detailILi24EE16function_managerIZ32TestFixedFunctionExistingClosurevE3$_0vJEE7ManagerEPvS6_NS2_17ManagerOperationsE"(ptr noundef nonnull align 8 dereferenceable(40) %ff1, ptr noundef null, i32 noundef 0)
   br label %_ZN10TestObjectD2Ev.exit427
 
-"_ZN5eastl8internal20function_base_detailILi24EE16function_managerIZ32TestFixedFunctionExistingClosurevE3$_2vJEE7ManagerEPvS6_NS2_17ManagerOperationsE.exit530": ; preds = %if.then.i.i.i72
+"_ZN5eastl8internal20function_base_detailILi24EE16function_managerIZ32TestFixedFunctionExistingClosurevE3$_2vJEE7ManagerEPvS6_NS2_17ManagerOperationsE.exit554": ; preds = %if.then.i.i.i72
   %6 = landingpad { ptr, i32 }
           cleanup
   %7 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
-  %dec.i.i.i.i.i528 = add nsw i64 %7, -1
-  store i64 %dec.i.i.i.i.i528, ptr @_ZN10TestObject8sTOCountE, align 8
+  %dec.i.i.i.i.i552 = add nsw i64 %7, -1
+  store i64 %dec.i.i.i.i.i552, ptr @_ZN10TestObject8sTOCountE, align 8
   %8 = load i64, ptr @_ZN10TestObject12sTODtorCountE, align 8
-  %inc3.i.i.i.i.i529 = add nsw i64 %8, 1
-  store i64 %inc3.i.i.i.i.i529, ptr @_ZN10TestObject12sTODtorCountE, align 8
+  %inc3.i.i.i.i.i553 = add nsw i64 %8, 1
+  store i64 %inc3.i.i.i.i.i553, ptr @_ZN10TestObject12sTODtorCountE, align 8
   br label %_ZN10TestObjectD2Ev.exit427
 
-"_ZN5eastl8internal20function_base_detailILi24EE16function_managerIZ32TestFixedFunctionExistingClosurevE3$_4vJEE7ManagerEPvS6_NS2_17ManagerOperationsE.exit516": ; preds = %"_ZN5eastl8internal20function_base_detailILi24EE16function_managerIZ32TestFixedFunctionExistingClosurevE3$_2vJEE7ManagerEPvS6_NS2_17ManagerOperationsE.exit"
+"_ZN5eastl8internal20function_base_detailILi24EE16function_managerIZ32TestFixedFunctionExistingClosurevE3$_4vJEE7ManagerEPvS6_NS2_17ManagerOperationsE.exit537": ; preds = %"_ZN5eastl8internal20function_base_detailILi24EE16function_managerIZ32TestFixedFunctionExistingClosurevE3$_2vJEE7ManagerEPvS6_NS2_17ManagerOperationsE.exit"
   %9 = landingpad { ptr, i32 }
           cleanup
   %10 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
-  %dec.i.i.i.i.i514 = add nsw i64 %10, -1
-  store i64 %dec.i.i.i.i.i514, ptr @_ZN10TestObject8sTOCountE, align 8
+  %dec.i.i.i.i.i535 = add nsw i64 %10, -1
+  store i64 %dec.i.i.i.i.i535, ptr @_ZN10TestObject8sTOCountE, align 8
   %11 = load i64, ptr @_ZN10TestObject12sTODtorCountE, align 8
-  %inc3.i.i.i.i.i515 = add nsw i64 %11, 1
-  store i64 %inc3.i.i.i.i.i515, ptr @_ZN10TestObject12sTODtorCountE, align 8
+  %inc3.i.i.i.i.i536 = add nsw i64 %11, 1
+  store i64 %inc3.i.i.i.i.i536, ptr @_ZN10TestObject12sTODtorCountE, align 8
   br label %_ZN10TestObjectD2Ev.exit427
 
 lpad71:                                           ; preds = %_ZN10TestObject7IsClearEv.exit321
@@ -1164,8 +1164,8 @@ lpad71:                                           ; preds = %_ZN10TestObject7IsC
           cleanup
   br label %_ZN10TestObjectD2Ev.exit427
 
-_ZN10TestObjectD2Ev.exit427:                      ; preds = %if.then.i.i.i359, %"_ZN5eastl8internal20function_base_detailILi24EE16function_managerIZ32TestFixedFunctionExistingClosurevE3$_2vJEE7ManagerEPvS6_NS2_17ManagerOperationsE.exit530", %"_ZN5eastl8internal20function_base_detailILi24EE16function_managerIZ32TestFixedFunctionExistingClosurevE3$_4vJEE7ManagerEPvS6_NS2_17ManagerOperationsE.exit516", %lpad71
-  %.pn6 = phi { ptr, i32 } [ %3, %if.then.i.i.i359 ], [ %6, %"_ZN5eastl8internal20function_base_detailILi24EE16function_managerIZ32TestFixedFunctionExistingClosurevE3$_2vJEE7ManagerEPvS6_NS2_17ManagerOperationsE.exit530" ], [ %9, %"_ZN5eastl8internal20function_base_detailILi24EE16function_managerIZ32TestFixedFunctionExistingClosurevE3$_4vJEE7ManagerEPvS6_NS2_17ManagerOperationsE.exit516" ], [ %12, %lpad71 ]
+_ZN10TestObjectD2Ev.exit427:                      ; preds = %if.then.i.i.i359, %"_ZN5eastl8internal20function_base_detailILi24EE16function_managerIZ32TestFixedFunctionExistingClosurevE3$_2vJEE7ManagerEPvS6_NS2_17ManagerOperationsE.exit554", %"_ZN5eastl8internal20function_base_detailILi24EE16function_managerIZ32TestFixedFunctionExistingClosurevE3$_4vJEE7ManagerEPvS6_NS2_17ManagerOperationsE.exit537", %lpad71
+  %.pn6 = phi { ptr, i32 } [ %3, %if.then.i.i.i359 ], [ %6, %"_ZN5eastl8internal20function_base_detailILi24EE16function_managerIZ32TestFixedFunctionExistingClosurevE3$_2vJEE7ManagerEPvS6_NS2_17ManagerOperationsE.exit554" ], [ %9, %"_ZN5eastl8internal20function_base_detailILi24EE16function_managerIZ32TestFixedFunctionExistingClosurevE3$_4vJEE7ManagerEPvS6_NS2_17ManagerOperationsE.exit537" ], [ %12, %lpad71 ]
   %13 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
   %dec.i425 = add nsw i64 %13, -1
   store i64 %dec.i425, ptr @_ZN10TestObject8sTOCountE, align 8

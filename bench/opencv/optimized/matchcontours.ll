@@ -405,8 +405,8 @@ _ZN2cv10AutoBufferIdLm136EED2Ev.exit:             ; preds = %27, %24
   %28 = load ptr, ptr %5, align 8, !tbaa !23
   %.not.i.i13 = icmp eq ptr %28, %11
   %29 = icmp eq ptr %28, null
-  %or.cond19 = or i1 %.not.i.i13, %29
-  br i1 %or.cond19, label %_ZN2cv10AutoBufferIdLm136EED2Ev.exit14, label %30
+  %or.cond25 = or i1 %.not.i.i13, %29
+  br i1 %or.cond25, label %_ZN2cv10AutoBufferIdLm136EED2Ev.exit14, label %30
 
 30:                                               ; preds = %_ZN2cv10AutoBufferIdLm136EED2Ev.exit
   call void @_ZdaPv(ptr noundef nonnull %28) #13
@@ -446,8 +446,8 @@ _ZN2cv10AutoBufferIdLm136EED2Ev.exit14:           ; preds = %30, %_ZN2cv10AutoBu
   %39 = load ptr, ptr %6, align 8, !tbaa !23
   %.not.i.i15 = icmp eq ptr %39, %13
   %40 = icmp eq ptr %39, null
-  %or.cond20 = or i1 %.not.i.i15, %40
-  br i1 %or.cond20, label %_ZN2cv10AutoBufferIdLm136EED2Ev.exit16, label %41
+  %or.cond26 = or i1 %.not.i.i15, %40
+  br i1 %or.cond26, label %_ZN2cv10AutoBufferIdLm136EED2Ev.exit16, label %41
 
 41:                                               ; preds = %38
   call void @_ZdaPv(ptr noundef nonnull %39) #13
@@ -458,8 +458,8 @@ _ZN2cv10AutoBufferIdLm136EED2Ev.exit16:           ; preds = %41, %38
   %42 = load ptr, ptr %5, align 8, !tbaa !23
   %.not.i.i17 = icmp eq ptr %42, %11
   %43 = icmp eq ptr %42, null
-  %or.cond21 = or i1 %.not.i.i17, %43
-  br i1 %or.cond21, label %_ZN2cv10AutoBufferIdLm136EED2Ev.exit18, label %44
+  %or.cond27 = or i1 %.not.i.i17, %43
+  br i1 %or.cond27, label %_ZN2cv10AutoBufferIdLm136EED2Ev.exit18, label %44
 
 44:                                               ; preds = %_ZN2cv10AutoBufferIdLm136EED2Ev.exit16
   call void @_ZdaPv(ptr noundef nonnull %42) #13

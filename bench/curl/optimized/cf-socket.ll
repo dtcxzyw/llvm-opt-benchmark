@@ -100,9 +100,9 @@ define hidden range(i32 0, 101) i32 @Curl_sock_assign_addr(ptr noundef writeonly
   br label %10
 
 10:                                               ; preds = %3, %9, %8
-  %.sink16 = phi i32 [ 2, %9 ], [ 1, %8 ], [ 1, %3 ]
+  %.sink17 = phi i32 [ 2, %9 ], [ 1, %8 ], [ 1, %3 ]
   %.sink = phi i32 [ 17, %9 ], [ 0, %8 ], [ 6, %3 ]
-  store i32 %.sink16, ptr %6, align 4, !tbaa !14
+  store i32 %.sink17, ptr %6, align 4, !tbaa !14
   store i32 %.sink, ptr %7, align 8, !tbaa !15
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load i32, ptr %11, align 8, !tbaa !16
@@ -152,9 +152,9 @@ define hidden range(i32 0, 101) i32 @Curl_socket_open(ptr noundef %0, ptr nounde
   br label %11
 
 11:                                               ; preds = %10, %9, %5
-  %.sink16.i = phi i32 [ 2, %10 ], [ 1, %9 ], [ 1, %5 ]
+  %.sink17.i = phi i32 [ 2, %10 ], [ 1, %9 ], [ 1, %5 ]
   %.sink.i = phi i32 [ 17, %10 ], [ 0, %9 ], [ 6, %5 ]
-  store i32 %.sink16.i, ptr %spec.store.select.sroa.sel.v.sroa.sel.v.sroa.sel, align 4, !tbaa !14
+  store i32 %.sink17.i, ptr %spec.store.select.sroa.sel.v.sroa.sel.v.sroa.sel, align 4, !tbaa !14
   store i32 %.sink.i, ptr %spec.store.select.sroa.sel15.v.sroa.sel.v.sroa.sel, align 8, !tbaa !15
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %13 = load i32, ptr %12, align 8, !tbaa !16
@@ -188,7 +188,7 @@ define hidden range(i32 0, 101) i32 @Curl_socket_open(ptr noundef %0, ptr nounde
   br label %28
 
 26:                                               ; preds = %15
-  %27 = tail call i32 @socket(i32 noundef %8, i32 noundef %.sink16.i, i32 noundef %.sink.i) #13
+  %27 = tail call i32 @socket(i32 noundef %8, i32 noundef %.sink17.i, i32 noundef %.sink.i) #13
   store i32 %27, ptr %4, align 4, !tbaa !87
   br label %28
 
@@ -1748,9 +1748,9 @@ define hidden i32 @Curl_cf_tcp_create(ptr noundef writeonly captures(none) initi
   br label %18
 
 18:                                               ; preds = %17, %16, %9
-  %.sink16.i.i = phi i32 [ 2, %17 ], [ 1, %16 ], [ 1, %9 ]
+  %.sink17.i.i = phi i32 [ 2, %17 ], [ 1, %16 ], [ 1, %9 ]
   %.sink.i.i = phi i32 [ 17, %17 ], [ 0, %16 ], [ 6, %9 ]
-  store i32 %.sink16.i.i, ptr %14, align 4, !tbaa !14
+  store i32 %.sink17.i.i, ptr %14, align 4, !tbaa !14
   store i32 %.sink.i.i, ptr %15, align 8, !tbaa !15
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %20 = load i32, ptr %19, align 8, !tbaa !16
@@ -2110,9 +2110,9 @@ define hidden i32 @Curl_cf_udp_create(ptr noundef writeonly captures(none) initi
   br label %18
 
 18:                                               ; preds = %17, %16, %9
-  %.sink16.i.i = phi i32 [ 2, %17 ], [ 1, %16 ], [ 1, %9 ]
+  %.sink17.i.i = phi i32 [ 2, %17 ], [ 1, %16 ], [ 1, %9 ]
   %.sink.i.i = phi i32 [ 17, %17 ], [ 0, %16 ], [ 6, %9 ]
-  store i32 %.sink16.i.i, ptr %14, align 4, !tbaa !14
+  store i32 %.sink17.i.i, ptr %14, align 4, !tbaa !14
   store i32 %.sink.i.i, ptr %15, align 8, !tbaa !15
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %20 = load i32, ptr %19, align 8, !tbaa !16
@@ -2188,9 +2188,9 @@ define hidden i32 @Curl_cf_unix_create(ptr noundef writeonly captures(none) init
   br label %18
 
 18:                                               ; preds = %17, %16, %9
-  %.sink16.i.i = phi i32 [ 2, %17 ], [ 1, %16 ], [ 1, %9 ]
+  %.sink17.i.i = phi i32 [ 2, %17 ], [ 1, %16 ], [ 1, %9 ]
   %.sink.i.i = phi i32 [ 17, %17 ], [ 0, %16 ], [ 6, %9 ]
-  store i32 %.sink16.i.i, ptr %14, align 4, !tbaa !14
+  store i32 %.sink17.i.i, ptr %14, align 4, !tbaa !14
   store i32 %.sink.i.i, ptr %15, align 8, !tbaa !15
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %20 = load i32, ptr %19, align 8, !tbaa !16
@@ -3082,8 +3082,8 @@ set_remote_ip.exit:                               ; preds = %58
   %.pre.pre164 = load i64, ptr %101, align 2
   %108 = and i64 %.pre.pre164, 2147483648
   %.not.i127 = icmp eq i64 %108, 0
-  %or.cond168 = select i1 %107, i1 true, i1 %.not.i127
-  br i1 %or.cond168, label %tcpnodelay.exit, label %109
+  %or.cond186 = select i1 %107, i1 true, i1 %.not.i127
+  br i1 %or.cond186, label %tcpnodelay.exit, label %109
 
 109:                                              ; preds = %104
   %110 = getelementptr inbounds nuw i8, ptr %1, i64 4864
@@ -3183,7 +3183,7 @@ tcpnodelay.exit:                                  ; preds = %104, %112, %116
   %or.cond.i129 = select i1 %154, i1 true, i1 %156
   %157 = icmp ne i16 %142, 0
   %or.cond7.i = select i1 %or.cond.i129, i1 true, i1 %157
-  br i1 %or.cond7.i, label %158, label %.sink.split169
+  br i1 %or.cond7.i, label %158, label %.sink.split187
 
 158:                                              ; preds = %135
   br i1 %154, label %159, label %.thread.i
@@ -3287,7 +3287,7 @@ tcpnodelay.exit:                                  ; preds = %104, %112, %116
   br label %202
 
 202:                                              ; preds = %201, %197, %190
-  br i1 %.not.i128, label %.thread224.i, label %.thread257.i
+  br i1 %.not.i128, label %.thread224.i, label %.thread271.i
 
 .thread137:                                       ; preds = %180
   br i1 %.not.i128, label %.thread224.i, label %.thread231.i
@@ -3354,15 +3354,15 @@ tcpnodelay.exit:                                  ; preds = %104, %112, %116
 228:                                              ; preds = %227, %223, %213
   call void @Curl_resolv_unlink(ptr noundef nonnull %1, ptr noundef nonnull %4) #13
   %.not203.i = icmp eq i32 %134, %216
-  br i1 %.not203.i, label %.thread257.i, label %bindlocal.exit.thread153
+  br i1 %.not203.i, label %.thread271.i, label %bindlocal.exit.thread153
 
-.thread257.i:                                     ; preds = %202, %228
+.thread271.i:                                     ; preds = %202, %228
   switch i32 %134, label %.critedge.i [
     i32 10, label %229
     i32 2, label %245
   ]
 
-229:                                              ; preds = %.thread257.i
+229:                                              ; preds = %.thread271.i
   %230 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %6, i32 noundef 37) #14
   %.not204.i = icmp eq ptr %230, null
   br i1 %.not204.i, label %233, label %231
@@ -3398,7 +3398,7 @@ tcpnodelay.exit:                                  ; preds = %104, %112, %116
   store i32 %243, ptr %244, align 8, !tbaa !98
   br label %.critedge.i
 
-245:                                              ; preds = %.thread257.i
+245:                                              ; preds = %.thread271.i
   %246 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %247 = call i32 @inet_pton(i32 noundef 2, ptr noundef nonnull %6, ptr noundef nonnull %246) #13
   %248 = icmp sgt i32 %247, 0
@@ -3427,8 +3427,8 @@ tcpnodelay.exit:                                  ; preds = %104, %112, %116
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %bindlocal.exit.thread153
 
-.critedge.i:                                      ; preds = %249, %245, %242, %237, %233, %.thread257.i
-  %.1157.ph.i = phi i32 [ 0, %.thread257.i ], [ 0, %245 ], [ 16, %249 ], [ 28, %242 ], [ 28, %237 ], [ 28, %233 ]
+.critedge.i:                                      ; preds = %249, %245, %242, %237, %233, %.thread271.i
+  %.1157.ph.i = phi i32 [ 0, %.thread271.i ], [ 0, %245 ], [ 16, %249 ], [ 28, %242 ], [ 28, %237 ], [ 28, %233 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %263
 
@@ -3467,7 +3467,7 @@ tcpnodelay.exit:                                  ; preds = %104, %112, %116
   br label %.lr.ph.split.i
 
 ._crit_edge.thread.i:                             ; preds = %303, %263
-  %.0161.lcssa263.i = phi i16 [ %142, %263 ], [ %indvars.i, %303 ]
+  %.0161.lcssa277.i = phi i16 [ %142, %263 ], [ %indvars.i, %303 ]
   %271 = getelementptr inbounds nuw i8, ptr %1, i64 2658
   %272 = load i64, ptr %271, align 2
   %273 = and i64 %272, 2147483648
@@ -3487,7 +3487,7 @@ tcpnodelay.exit:                                  ; preds = %104, %112, %116
   br i1 %280, label %281, label %283
 
 281:                                              ; preds = %277, %274
-  %282 = zext i16 %.0161.lcssa263.i to i32
+  %282 = zext i16 %.0161.lcssa277.i to i32
   call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %1, ptr noundef nonnull @.str.24, i32 noundef %282) #13
   br label %283
 
@@ -3496,7 +3496,7 @@ tcpnodelay.exit:                                  ; preds = %104, %112, %116
   %285 = load i64, ptr %284, align 8
   %286 = or i64 %285, 1048576
   store i64 %286, ptr %284, align 8
-  br label %.sink.split169
+  br label %.sink.split187
 
 .lr.ph.split.i:                                   ; preds = %303, %.lr.ph.split.preheader.i
   %indvars.iv.i = phi i32 [ %270, %.lr.ph.split.preheader.i ], [ %indvars.iv.next.i, %303 ]
@@ -3559,7 +3559,7 @@ bindlocal.exit.thread153:                         ; preds = %239, %228, %180, %1
 
 bindlocal.exit:                                   ; preds = %167, %174, %178
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %.sink.split169
+  br label %.sink.split187
 
 bindlocal.exit.thread148:                         ; preds = %159, %.split.us.i, %bindlocal.exit.thread153
   %.0.i130151 = phi i32 [ %.1.ph.i.ph, %bindlocal.exit.thread153 ], [ 43, %159 ], [ 45, %.split.us.i ]
@@ -3570,13 +3570,13 @@ bindlocal.exit.thread148:                         ; preds = %159, %.split.us.i, 
   %spec.store.select = select i1 %310, i32 7, i32 %.0.i130151
   br label %321
 
-.sink.split169:                                   ; preds = %135, %283, %bindlocal.exit
+.sink.split187:                                   ; preds = %135, %283, %bindlocal.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %311
 
-311:                                              ; preds = %.sink.split169, %133
+311:                                              ; preds = %.sink.split187, %133
   %312 = load ptr, ptr %19, align 8, !tbaa !19
   %.not117 = icmp eq ptr %312, null
   br i1 %.not117, label %335, label %313

@@ -95,8 +95,8 @@ define noundef i32 @print_param_types(ptr noundef %0, ptr noundef readonly captu
   %.041.idx.i = select i1 %26, i64 %27, i64 0
   %.041.i = getelementptr inbounds nuw i8, ptr %4, i64 %.041.idx.i
   %29 = call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef nonnull %.041.i, i64 noundef %.045.i, ptr noundef nonnull @.str.19, ptr noundef nonnull %.3.i, ptr noundef nonnull %.039.i) #5
-  %narrow52.i = call i32 @llvm.smax.i32(i32 %29, i32 0)
-  %30 = zext nneg i32 %narrow52.i to i64
+  %narrow54.i = call i32 @llvm.smax.i32(i32 %29, i32 0)
+  %30 = zext nneg i32 %narrow54.i to i64
   %.146.i = sub nsw i64 %.045.i, %30
   %.142.i = getelementptr inbounds nuw i8, ptr %.041.i, i64 %30
   br i1 %.not.i, label %39, label %31

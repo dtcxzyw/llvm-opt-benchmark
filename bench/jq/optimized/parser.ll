@@ -2566,10 +2566,10 @@ define dso_local range(i32 0, 3) i32 @yyparse(ptr noundef writeonly captures(non
   br label %1456
 
 1456:                                             ; preds = %1435, %1448, %1443, %1427
-  %.sink1588 = phi { ptr, ptr } [ %1439, %1435 ], [ %1455, %1448 ], [ %1447, %1443 ], [ %1431, %1427 ]
-  %1457 = extractvalue { ptr, ptr } %.sink1588, 0
+  %.sink1596 = phi { ptr, ptr } [ %1439, %1435 ], [ %1455, %1448 ], [ %1447, %1443 ], [ %1431, %1427 ]
+  %1457 = extractvalue { ptr, ptr } %.sink1596, 0
   store ptr %1457, ptr %.sroa.0616, align 8, !tbaa !20
-  %.sroa.181.2 = extractvalue { ptr, ptr } %.sink1588, 1
+  %.sroa.181.2 = extractvalue { ptr, ptr } %.sink1596, 1
   %1458 = load i64, ptr %.21183, align 8
   %1459 = load ptr, ptr %1422, align 8
   call void @jv_free(i64 %1458, ptr %1459) #10
@@ -3524,13 +3524,13 @@ define dso_local range(i32 0, 3) i32 @yyparse(ptr noundef writeonly captures(non
 2069:                                             ; preds = %2065
   %2070 = sext i16 %2066 to i64
   %2071 = add nsw i64 %2070, 1
-  %2072 = getelementptr inbounds [2052 x i16], ptr @yycheck, i64 0, i64 %2071
+  %2072 = getelementptr inbounds nuw [2052 x i16], ptr @yycheck, i64 0, i64 %2071
   %2073 = load i16, ptr %2072, align 2, !tbaa !14
   %2074 = icmp eq i16 %2073, 1
   br i1 %2074, label %2075, label %2079
 
 2075:                                             ; preds = %2069
-  %2076 = getelementptr inbounds [2052 x i16], ptr @yytable, i64 0, i64 %2071
+  %2076 = getelementptr inbounds nuw [2052 x i16], ptr @yytable, i64 0, i64 %2071
   %2077 = load i16, ptr %2076, align 2, !tbaa !14
   %2078 = icmp sgt i16 %2077, 0
   br i1 %2078, label %2090, label %2079
@@ -4454,10 +4454,10 @@ yytnamerr.exit:                                   ; preds = %.preheader.split.us
   br label %yytnamerr.exit68
 
 yytnamerr.exit68:                                 ; preds = %68, %.preheader, %.thread.thread.i, %.split.us.thread.i
-  %.sink26 = phi i64 [ %95, %.thread.thread.i ], [ %.020.i, %.split.us.thread.i ], [ 1, %.preheader ], [ 1, %68 ]
+  %.sink30 = phi i64 [ %95, %.thread.thread.i ], [ %.020.i, %.split.us.thread.i ], [ 1, %.preheader ], [ 1, %68 ]
   %.sink = phi i64 [ 2, %.thread.thread.i ], [ 2, %.split.us.thread.i ], [ 1, %.preheader ], [ 1, %68 ]
   %.1 = phi i32 [ %74, %.thread.thread.i ], [ %74, %.split.us.thread.i ], [ %.0, %.preheader ], [ %.0, %68 ]
-  %96 = getelementptr inbounds i8, ptr %.039, i64 %.sink26
+  %96 = getelementptr inbounds i8, ptr %.039, i64 %.sink30
   %97 = getelementptr inbounds nuw i8, ptr %.147, i64 %.sink
   br label %.preheader, !llvm.loop !28
 

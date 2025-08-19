@@ -75,7 +75,7 @@ define noundef i32 @_ZN11OpenImageIO6v3_1_06bjhash8hashwordEPKjmj(ptr noundef re
   %.097.lcssa = phi i32 [ %7, %3 ], [ %36, %.lr.ph ]
   %.095.lcssa = phi i32 [ %7, %3 ], [ %40, %.lr.ph ]
   %.0.lcssa = phi i32 [ %7, %3 ], [ %39, %.lr.ph ]
-  switch i64 %.099.lcssa, label %._crit_edge.unreachabledefault [
+  switch i64 %.099.lcssa, label %default.unreachable [
     i64 3, label %44
     i64 2, label %48
     i64 1, label %52
@@ -123,7 +123,7 @@ define noundef i32 @_ZN11OpenImageIO6v3_1_06bjhash8hashwordEPKjmj(ptr noundef re
   %75 = sub i32 %73, %74
   br label %76
 
-._crit_edge.unreachabledefault:                   ; preds = %._crit_edge
+default.unreachable:                              ; preds = %._crit_edge
   unreachable
 
 76:                                               ; preds = %._crit_edge, %52
@@ -194,7 +194,7 @@ define noundef i32 @_ZN11OpenImageIO6v3_1_06bjhash10hashlittleEPKvmj(ptr noundef
   %.0355.lcssa = phi i32 [ %6, %.preheader ], [ %41, %.lr.ph439 ]
   %.0352.lcssa = phi i64 [ %1, %.preheader ], [ %43, %.lr.ph439 ]
   %.0351.lcssa = phi ptr [ %0, %.preheader ], [ %44, %.lr.ph439 ]
-  switch i64 %.0352.lcssa, label %default.unreachable [
+  switch i64 %.0352.lcssa, label %default.unreachable464 [
     i64 12, label %46
     i64 11, label %54
     i64 10, label %63
@@ -303,7 +303,7 @@ define noundef i32 @_ZN11OpenImageIO6v3_1_06bjhash10hashlittleEPKvmj(ptr noundef
   %114 = and i32 %113, 255
   br label %.thread
 
-default.unreachable:                              ; preds = %._crit_edge, %._crit_edge428, %._crit_edge440
+default.unreachable464:                           ; preds = %._crit_edge, %._crit_edge428, %._crit_edge440
   unreachable
 
 .thread:                                          ; preds = %46, %54, %63, %72, %81, %86, %92, %98, %104, %106, %109, %112
@@ -374,7 +374,7 @@ default.unreachable:                              ; preds = %._crit_edge, %._cri
   %.4.lcssa = phi i32 [ %6, %.preheader411 ], [ %149, %.lr.ph427 ]
   %.1353.lcssa = phi i64 [ %1, %.preheader411 ], [ %151, %.lr.ph427 ]
   %.0347.lcssa = phi ptr [ %0, %.preheader411 ], [ %152, %.lr.ph427 ]
-  switch i64 %.1353.lcssa, label %default.unreachable [
+  switch i64 %.1353.lcssa, label %default.unreachable464 [
     i64 12, label %154
     i64 11, label %163
     i64 10, label %169
@@ -587,7 +587,7 @@ default.unreachable:                              ; preds = %._crit_edge, %._cri
   %.9.lcssa = phi i32 [ %6, %.preheader412 ], [ %303, %.lr.ph ]
   %.2354.lcssa = phi i64 [ %1, %.preheader412 ], [ %305, %.lr.ph ]
   %.0.lcssa = phi ptr [ %0, %.preheader412 ], [ %306, %.lr.ph ]
-  switch i64 %.2354.lcssa, label %default.unreachable [
+  switch i64 %.2354.lcssa, label %default.unreachable464 [
     i64 12, label %308
     i64 11, label %314
     i64 10, label %320

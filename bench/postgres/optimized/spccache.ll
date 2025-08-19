@@ -59,18 +59,18 @@ define dso_local void @get_tablespace_page_costs(i32 noundef %0, ptr noundef wri
   %19 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %20 = load double, ptr %19, align 8
   %21 = fcmp olt double %20, 0.000000e+00
-  br i1 %21, label %22, label %.sink.split20
+  br i1 %21, label %22, label %.sink.split25
 
 22:                                               ; preds = %18, %15
   %23 = load double, ptr @seq_page_cost, align 8
-  br label %.sink.split20
+  br label %.sink.split25
 
-.sink.split20:                                    ; preds = %18, %22
-  %.sink21 = phi double [ %23, %22 ], [ %20, %18 ]
-  store double %.sink21, ptr %2, align 8
+.sink.split25:                                    ; preds = %18, %22
+  %.sink26 = phi double [ %23, %22 ], [ %20, %18 ]
+  store double %.sink26, ptr %2, align 8
   br label %24
 
-24:                                               ; preds = %.sink.split20, %14
+24:                                               ; preds = %.sink.split25, %14
   ret void
 }
 

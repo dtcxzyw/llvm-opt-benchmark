@@ -478,9 +478,9 @@ define range(i32 -1, 1) i32 @H5Padd_merge_committed_dtype_path(i64 noundef %0, p
   %74 = call noalias ptr @H5MM_strdup(ptr noundef nonnull %1) #8
   store ptr %74, ptr %67, align 8, !tbaa !23
   %75 = icmp eq ptr %74, null
-  br i1 %75, label %.thread47, label %79
+  br i1 %75, label %.thread50, label %79
 
-.thread47:                                        ; preds = %73
+.thread50:                                        ; preds = %73
   %76 = load i64, ptr @H5E_RESOURCE_g, align 8, !tbaa !10
   %77 = load i64, ptr @H5E_NOSPACE_g, align 8, !tbaa !10
   %78 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5Padd_merge_committed_dtype_path, i32 noundef 707, i64 noundef %76, i64 noundef %77, ptr noundef nonnull @.str.15) #8
@@ -502,8 +502,8 @@ define range(i32 -1, 1) i32 @H5Padd_merge_committed_dtype_path(i64 noundef %0, p
   %.not42 = icmp eq ptr %.pre43, null
   br i1 %.not42, label %.thread40, label %88
 
-88:                                               ; preds = %.thread47, %84
-  %89 = phi ptr [ %67, %.thread47 ], [ %.pre43, %84 ]
+88:                                               ; preds = %.thread50, %84
+  %89 = phi ptr [ %67, %.thread50 ], [ %.pre43, %84 ]
   %90 = load ptr, ptr %89, align 8, !tbaa !23
   %91 = call ptr @H5MM_xfree(ptr noundef %90) #8
   %92 = load ptr, ptr %4, align 8, !tbaa !18

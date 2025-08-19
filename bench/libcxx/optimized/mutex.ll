@@ -346,9 +346,9 @@ _ZNSt3__111unique_lockINS_5mutexEEC2B8ne210000ERS1_.exit: ; preds = %1
 
 .preheader:                                       ; preds = %_ZNSt3__111unique_lockINS_5mutexEEC2B8ne210000ERS1_.exit
   %.not5 = icmp eq i64 %9, 0
-  br i1 %.not5, label %.thread7, label %.lr.ph
+  br i1 %.not5, label %.thread9, label %.lr.ph
 
-.thread7:                                         ; preds = %.preheader
+.thread9:                                         ; preds = %.preheader
   store i64 1, ptr %8, align 8, !tbaa !23
   store i64 %3, ptr %7, align 8, !tbaa !21
   br label %22
@@ -393,7 +393,7 @@ _ZNSt3__111unique_lockINS_5mutexEED2B8ne210000Ev.exit: ; preds = %13
   store i64 %3, ptr %7, align 8, !tbaa !21
   br i1 %21, label %22, label %_ZNSt3__111unique_lockINS_5mutexEED2B8ne210000Ev.exit4
 
-22:                                               ; preds = %.thread7, %.thread, %20
+22:                                               ; preds = %.thread9, %.thread, %20
   %23 = load ptr, ptr %2, align 8, !tbaa !5
   %24 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %23) #10
   br label %_ZNSt3__111unique_lockINS_5mutexEED2B8ne210000Ev.exit4

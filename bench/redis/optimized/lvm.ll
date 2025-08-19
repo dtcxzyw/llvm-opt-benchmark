@@ -1031,13 +1031,13 @@ define internal fastcc range(i32 0, 2) i32 @call_binTM(ptr noundef %0, ptr nound
   br i1 %12, label %54, label %.thread
 
 .thread:                                          ; preds = %5, %10
-  %.015 = phi ptr [ %11, %10 ], [ %6, %5 ]
-  %13 = getelementptr inbounds nuw i8, ptr %.015, i64 8
+  %.016 = phi ptr [ %11, %10 ], [ %6, %5 ]
+  %13 = getelementptr inbounds nuw i8, ptr %.016, i64 8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %15 = load ptr, ptr %14, align 8, !tbaa !32
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %17 = load ptr, ptr %16, align 8, !tbaa !33
-  %18 = load i64, ptr %.015, align 8, !tbaa !9
+  %18 = load i64, ptr %.016, align 8, !tbaa !9
   store i64 %18, ptr %17, align 8, !tbaa !9
   %19 = load i32, ptr %13, align 8, !tbaa !4
   %20 = getelementptr inbounds nuw i8, ptr %17, i64 8
@@ -2418,8 +2418,8 @@ lessequal.exit:                                   ; preds = %536, %539, %l_strcm
 
 740:                                              ; preds = %734
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %cond911 = icmp eq i32 %738, 4
-  br i1 %cond911, label %741, label %746
+  %cond = icmp eq i32 %738, 4
+  br i1 %cond, label %741, label %746
 
 741:                                              ; preds = %740
   %742 = load ptr, ptr %95, align 8, !tbaa !9
@@ -2448,8 +2448,8 @@ luaV_tonumber.exit.thread:                        ; preds = %741
 
 751:                                              ; preds = %747
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %cond910 = icmp eq i32 %749, 4
-  br i1 %cond910, label %752, label %757
+  %cond961 = icmp eq i32 %749, 4
+  br i1 %cond961, label %752, label %757
 
 752:                                              ; preds = %751
   %753 = load ptr, ptr %735, align 8, !tbaa !9
@@ -2478,8 +2478,8 @@ luaV_tonumber.exit815.thread:                     ; preds = %752
 
 762:                                              ; preds = %758
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %cond = icmp eq i32 %760, 4
-  br i1 %cond, label %763, label %768
+  %cond962 = icmp eq i32 %760, 4
+  br i1 %cond962, label %763, label %768
 
 763:                                              ; preds = %762
   %764 = load ptr, ptr %736, align 8, !tbaa !9

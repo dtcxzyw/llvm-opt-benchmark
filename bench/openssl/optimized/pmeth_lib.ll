@@ -257,28 +257,28 @@ define internal fastcc ptr @int_ctx_new(ptr noundef %0, ptr noundef %1, ptr noun
   %30 = load i8, ptr %29, align 4
   %31 = and i8 %30, 1
   %32 = icmp eq i8 %31, 0
-  br i1 %32, label %33, label %.thread213
+  br i1 %32, label %33, label %.thread233
 
 33:                                               ; preds = %28
   %34 = tail call ptr @OBJ_nid2sn(i32 noundef %.0106154) #10
-  br label %.thread213
+  br label %.thread233
 
-.thread213:                                       ; preds = %28, %33
-  %.4215 = phi ptr [ %34, %33 ], [ %.0111153, %28 ]
+.thread233:                                       ; preds = %28, %33
+  %.4235 = phi ptr [ %34, %33 ], [ %.0111153, %28 ]
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %36 = load ptr, ptr %35, align 8, !tbaa !37
   %.not130 = icmp eq ptr %36, null
   br i1 %.not130, label %37, label %.thread160
 
-37:                                               ; preds = %.thread213
+37:                                               ; preds = %.thread233
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %39 = load ptr, ptr %38, align 8, !tbaa !38
   %.not131 = icmp eq ptr %39, null
   br i1 %.not131, label %.thread167.thread, label %.thread160
 
-.thread160:                                       ; preds = %.thread150, %.thread213, %37
-  %.1109166 = phi ptr [ %39, %37 ], [ %36, %.thread213 ], [ %2, %.thread150 ]
-  %.4158165 = phi ptr [ %.4215, %37 ], [ %.4215, %.thread213 ], [ null, %.thread150 ]
+.thread160:                                       ; preds = %.thread150, %.thread233, %37
+  %.1109166 = phi ptr [ %39, %37 ], [ %36, %.thread233 ], [ %2, %.thread150 ]
+  %.4158165 = phi ptr [ %.4235, %37 ], [ %.4235, %.thread233 ], [ null, %.thread150 ]
   %40 = tail call i32 @ENGINE_init(ptr noundef nonnull %.1109166) #10
   %.not132 = icmp eq i32 %40, 0
   br i1 %.not132, label %41, label %.thread178
@@ -297,23 +297,23 @@ define internal fastcc ptr @int_ctx_new(ptr noundef %0, ptr noundef %1, ptr noun
 
 .thread167.thread:                                ; preds = %37
   %44 = tail call ptr @ENGINE_get_pkey_meth_engine(i32 noundef %.0106154) #10
-  %.not133219 = icmp eq ptr %44, null
-  br i1 %.not133219, label %.thread221, label %.thread178
+  %.not133239 = icmp eq ptr %44, null
+  br i1 %.not133239, label %.thread241, label %.thread178
 
 .thread178:                                       ; preds = %.thread167.thread, %.thread167, %.thread160
   %.2110177 = phi ptr [ %43, %.thread167 ], [ %.1109166, %.thread160 ], [ %44, %.thread167.thread ]
-  %.4158164176 = phi ptr [ %42, %.thread167 ], [ %.4158165, %.thread160 ], [ %.4215, %.thread167.thread ]
+  %.4158164176 = phi ptr [ %42, %.thread167 ], [ %.4158165, %.thread160 ], [ %.4235, %.thread167.thread ]
   %45 = tail call ptr @ENGINE_get_pkey_meth(ptr noundef nonnull %.2110177, i32 noundef %.0106154) #10
   br label %93
 
-.thread221:                                       ; preds = %.thread167.thread
+.thread241:                                       ; preds = %.thread167.thread
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 76
   %47 = load i8, ptr %46, align 4
   %48 = and i8 %47, 1
   %.not134 = icmp eq i8 %48, 0
   br i1 %.not134, label %63, label %49
 
-49:                                               ; preds = %.thread221
+49:                                               ; preds = %.thread241
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %50 = load ptr, ptr @app_pkey_methods, align 8, !tbaa !3
@@ -360,8 +360,8 @@ EVP_PKEY_meth_find.exit:                          ; preds = %evp_pkey_meth_find_
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %72
 
-63:                                               ; preds = %.thread167, %.thread221
-  %.4216220224 = phi ptr [ %.4215, %.thread221 ], [ %42, %.thread167 ]
+63:                                               ; preds = %.thread167, %.thread241
+  %.4236240244 = phi ptr [ %.4235, %.thread241 ], [ %42, %.thread167 ]
   %64 = load ptr, ptr @app_pkey_methods, align 8, !tbaa !3
   %.not.i144 = icmp eq ptr %64, null
   br i1 %.not.i144, label %evp_pkey_meth_find_added_by_application.exit, label %65
@@ -391,7 +391,7 @@ evp_pkey_meth_find_added_by_application.exit:     ; preds = %63, %.sink.split.i
 72:                                               ; preds = %evp_pkey_meth_find_added_by_application.exit, %EVP_PKEY_meth_find.exit, %.thread
   %73 = phi i1 [ true, %.thread ], [ false, %EVP_PKEY_meth_find.exit ], [ false, %evp_pkey_meth_find_added_by_application.exit ]
   %.0106148 = phi i32 [ -1, %.thread ], [ %.0106154, %EVP_PKEY_meth_find.exit ], [ %.0106154, %evp_pkey_meth_find_added_by_application.exit ]
-  %.2113 = phi ptr [ %.0111147, %.thread ], [ %.4215, %EVP_PKEY_meth_find.exit ], [ %.4216220224, %evp_pkey_meth_find_added_by_application.exit ]
+  %.2113 = phi ptr [ %.0111147, %.thread ], [ %.4235, %EVP_PKEY_meth_find.exit ], [ %.4236240244, %evp_pkey_meth_find_added_by_application.exit ]
   %.0104 = phi ptr [ null, %.thread ], [ %.0.i, %EVP_PKEY_meth_find.exit ], [ %.1.i, %evp_pkey_meth_find_added_by_application.exit ]
   %.0103 = phi i1 [ true, %.thread ], [ true, %EVP_PKEY_meth_find.exit ], [ %71, %evp_pkey_meth_find_added_by_application.exit ]
   %74 = icmp ne ptr %.2113, null
@@ -3148,7 +3148,7 @@ define internal fastcc i32 @evp_pkey_ctx_ctrl_int(ptr noundef %0, i32 noundef %1
 21:                                               ; preds = %10
   %.pre = load i32, ptr %0, align 8, !tbaa !15
   %22 = icmp eq i32 %.pre, 0
-  br i1 %22, label %.thread38, label %.thread
+  br i1 %22, label %.thread43, label %.thread
 
 .thread:                                          ; preds = %18, %21
   %23 = phi i32 [ %.pre, %21 ], [ %15, %18 ]
@@ -3211,21 +3211,21 @@ define internal fastcc i32 @evp_pkey_ctx_ctrl_int(ptr noundef %0, i32 noundef %1
   br label %62
 
 50:                                               ; preds = %43, %45
-  br i1 %9, label %54, label %.thread38
+  br i1 %9, label %54, label %.thread43
 
-.thread38:                                        ; preds = %21, %50
+.thread43:                                        ; preds = %21, %50
   %51 = getelementptr inbounds nuw i8, ptr %8, i64 192
   %52 = load ptr, ptr %51, align 8, !tbaa !106
   %53 = icmp eq ptr %52, null
   br i1 %53, label %54, label %55
 
-54:                                               ; preds = %.thread38, %50
+54:                                               ; preds = %.thread43, %50
   tail call void @ERR_new() #10
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1319, ptr noundef nonnull @__func__.evp_pkey_ctx_ctrl_int) #10
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 147, ptr noundef null) #10
   br label %62
 
-55:                                               ; preds = %.thread38
+55:                                               ; preds = %.thread43
   %.not33 = icmp eq i32 %1, -1
   br i1 %.not33, label %58, label %56
 

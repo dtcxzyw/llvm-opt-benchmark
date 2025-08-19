@@ -2004,13 +2004,13 @@ define hidden void @_glfwSetWindowIconX11(ptr noundef readonly captures(none) %0
 
 ._crit_edge60:                                    ; preds = %._crit_edge54, %._crit_edge
   %15 = phi ptr [ %5, %._crit_edge ], [ %7, %._crit_edge54 ]
-  %.045.lcssa74 = phi i32 [ 0, %._crit_edge ], [ %14, %._crit_edge54 ]
+  %.045.lcssa75 = phi i32 [ 0, %._crit_edge ], [ %14, %._crit_edge54 ]
   %16 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141368), align 8, !tbaa !125
   %17 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !93
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 1248
   %19 = load i64, ptr %18, align 8, !tbaa !140
   %20 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 140984), align 8, !tbaa !329
-  %21 = tail call i32 %16(ptr noundef %17, i64 noundef %19, i64 noundef %20, i64 noundef 6, i32 noundef 32, i32 noundef 0, ptr noundef %15, i32 noundef %.045.lcssa74) #17
+  %21 = tail call i32 %16(ptr noundef %17, i64 noundef %19, i64 noundef %20, i64 noundef 6, i32 noundef 32, i32 noundef 0, ptr noundef %15, i32 noundef %.045.lcssa75) #17
   tail call void @_glfw_free(ptr noundef %15) #17
   br label %62
 
@@ -2369,22 +2369,22 @@ define internal fastcc void @updateNormalHints(ptr noundef readonly captures(non
   br label %.sink.split
 
 .sink.split:                                      ; preds = %47, %49
-  %.sink55 = phi i64 [ %50, %49 ], [ %48, %47 ]
-  %.sink54 = phi i64 [ 32, %49 ], [ 56, %47 ]
-  %.sink52 = phi i32 [ %1, %49 ], [ %43, %47 ]
-  %.sink51 = phi i64 [ 24, %49 ], [ 48, %47 ]
-  %.sink48 = phi i64 [ 36, %49 ], [ 60, %47 ]
-  %.sink46 = phi i32 [ %2, %49 ], [ %46, %47 ]
-  %.sink45 = phi i64 [ 28, %49 ], [ 52, %47 ]
-  store i64 %.sink55, ptr %6, align 8, !tbaa !230
-  %51 = getelementptr inbounds nuw i8, ptr %6, i64 %.sink54
-  store i32 %.sink52, ptr %51, align 8, !tbaa !183
-  %52 = getelementptr inbounds nuw i8, ptr %6, i64 %.sink51
-  store i32 %.sink52, ptr %52, align 8, !tbaa !183
-  %53 = getelementptr inbounds nuw i8, ptr %6, i64 %.sink48
-  store i32 %.sink46, ptr %53, align 4, !tbaa !183
-  %54 = getelementptr inbounds nuw i8, ptr %6, i64 %.sink45
-  store i32 %.sink46, ptr %54, align 4, !tbaa !183
+  %.sink60 = phi i64 [ %50, %49 ], [ %48, %47 ]
+  %.sink59 = phi i64 [ 32, %49 ], [ 56, %47 ]
+  %.sink57 = phi i32 [ %1, %49 ], [ %43, %47 ]
+  %.sink56 = phi i64 [ 24, %49 ], [ 48, %47 ]
+  %.sink53 = phi i64 [ 36, %49 ], [ 60, %47 ]
+  %.sink51 = phi i32 [ %2, %49 ], [ %46, %47 ]
+  %.sink50 = phi i64 [ 28, %49 ], [ 52, %47 ]
+  store i64 %.sink60, ptr %6, align 8, !tbaa !230
+  %51 = getelementptr inbounds nuw i8, ptr %6, i64 %.sink59
+  store i32 %.sink57, ptr %51, align 8, !tbaa !183
+  %52 = getelementptr inbounds nuw i8, ptr %6, i64 %.sink56
+  store i32 %.sink57, ptr %52, align 8, !tbaa !183
+  %53 = getelementptr inbounds nuw i8, ptr %6, i64 %.sink53
+  store i32 %.sink51, ptr %53, align 4, !tbaa !183
+  %54 = getelementptr inbounds nuw i8, ptr %6, i64 %.sink50
+  store i32 %.sink51, ptr %54, align 4, !tbaa !183
   br label %55
 
 55:                                               ; preds = %.sink.split, %44, %40, %3
@@ -3007,7 +3007,8 @@ define hidden void @_glfwMaximizeWindowX11(ptr noundef readonly captures(none) %
   %14 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141056), align 8
   %15 = icmp ne i64 %14, 0
   %or.cond3 = select i1 %or.cond, i1 %15, i1 false
-  br i1 %or.cond3, label %16, label %77
+  %.028.sroa.gep38 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  br i1 %or.cond3, label %16, label %75
 
 16:                                               ; preds = %1
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
@@ -3049,7 +3050,7 @@ define hidden void @_glfwMaximizeWindowX11(ptr noundef readonly captures(none) %
   %37 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137856), align 8, !tbaa !198
   %38 = call i32 %35(ptr noundef %36, i64 noundef %37, i32 noundef 0, i64 noundef 1572864, ptr noundef nonnull %6) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %73
+  br label %71
 
 39:                                               ; preds = %16
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -3092,67 +3093,66 @@ define hidden void @_glfwMaximizeWindowX11(ptr noundef readonly captures(none) %
 ._crit_edge31:                                    ; preds = %._crit_edge, %39
   %.022.lcssa = phi i64 [ 2, %39 ], [ %.1.lcssa, %._crit_edge ]
   %.not24 = icmp eq ptr %.pre35, null
-  br i1 %.not24, label %65, label %62
+  br i1 %.not24, label %63, label %60
 
-._crit_edge:                                      ; preds = %59, %.preheader
-  %.1.lcssa = phi i64 [ 0, %.preheader ], [ %.2, %59 ]
+._crit_edge:                                      ; preds = %58, %.preheader
+  %.1.lcssa = phi i64 [ 0, %.preheader ], [ %.2, %58 ]
   %50 = add nuw i64 %.02130, 1
   %exitcond.not = icmp eq i64 %50, %45
   br i1 %exitcond.not, label %._crit_edge31, label %.preheader
 
-51:                                               ; preds = %.lr.ph, %59
-  %.028 = phi i64 [ 0, %.lr.ph ], [ %60, %59 ]
-  %.127 = phi i64 [ %.02229, %.lr.ph ], [ %.2, %59 ]
-  %52 = getelementptr inbounds nuw [2 x i64], ptr %9, i64 0, i64 %.028
-  %53 = load i64, ptr %52, align 8, !tbaa !94
-  %54 = icmp eq i64 %.pre, %53
-  br i1 %54, label %55, label %59
+51:                                               ; preds = %.lr.ph, %58
+  %.028.sroa.phi = phi ptr [ %9, %.lr.ph ], [ %.028.sroa.gep38, %58 ]
+  %.028 = phi i64 [ 1, %.lr.ph ], [ 2, %58 ]
+  %.127 = phi i64 [ %.02229, %.lr.ph ], [ 2, %58 ]
+  %52 = load i64, ptr %.028.sroa.phi, align 8, !tbaa !94
+  %53 = icmp eq i64 %.pre, %52
+  br i1 %53, label %54, label %58
 
-55:                                               ; preds = %51
-  %56 = add nsw i64 %.127, -1
-  %57 = getelementptr inbounds nuw [2 x i64], ptr %9, i64 0, i64 %56
-  %58 = load i64, ptr %57, align 8, !tbaa !94
-  store i64 %58, ptr %52, align 8, !tbaa !94
-  br label %59
+54:                                               ; preds = %51
+  %55 = add nsw i64 %.127, -1
+  %56 = getelementptr inbounds nuw [2 x i64], ptr %9, i64 0, i64 %55
+  %57 = load i64, ptr %56, align 8, !tbaa !94
+  store i64 %57, ptr %.028.sroa.phi, align 8, !tbaa !94
+  br label %58
 
-59:                                               ; preds = %51, %55
-  %.2 = phi i64 [ %56, %55 ], [ %.127, %51 ]
-  %60 = add nuw nsw i64 %.028, 1
-  %61 = icmp ult i64 %60, %.2
-  br i1 %61, label %51, label %._crit_edge
+58:                                               ; preds = %51, %54
+  %.2 = phi i64 [ %55, %54 ], [ %.127, %51 ]
+  %59 = icmp ult i64 %.028, %.2
+  br i1 %59, label %51, label %._crit_edge
 
-62:                                               ; preds = %._crit_edge31
-  %63 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141552), align 8, !tbaa !130
-  %64 = call i32 %63(ptr noundef nonnull %.pre35) #17
-  br label %65
+60:                                               ; preds = %._crit_edge31
+  %61 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141552), align 8, !tbaa !130
+  %62 = call i32 %61(ptr noundef nonnull %.pre35) #17
+  br label %63
 
-65:                                               ; preds = %62, %._crit_edge31
+63:                                               ; preds = %60, %._crit_edge31
   %.not25 = icmp eq i64 %.022.lcssa, 0
-  br i1 %.not25, label %72, label %.thread
+  br i1 %.not25, label %70, label %.thread
 
-.thread:                                          ; preds = %65
-  %66 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141368), align 8, !tbaa !125
-  %67 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !93
-  %68 = load i64, ptr %19, align 8, !tbaa !140
-  %69 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141024), align 8, !tbaa !212
-  %70 = trunc nuw nsw i64 %.022.lcssa to i32
-  %71 = call i32 %66(ptr noundef %67, i64 noundef %68, i64 noundef %69, i64 noundef 4, i32 noundef 32, i32 noundef 2, ptr noundef nonnull %9, i32 noundef %70) #17
+.thread:                                          ; preds = %63
+  %64 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141368), align 8, !tbaa !125
+  %65 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !93
+  %66 = load i64, ptr %19, align 8, !tbaa !140
+  %67 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141024), align 8, !tbaa !212
+  %68 = trunc nuw nsw i64 %.022.lcssa to i32
+  %69 = call i32 %64(ptr noundef %65, i64 noundef %66, i64 noundef %67, i64 noundef 4, i32 noundef 32, i32 noundef 2, ptr noundef nonnull %9, i32 noundef %68) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %73
+  br label %71
 
-72:                                               ; preds = %65
+70:                                               ; preds = %63
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %77
+  br label %75
 
-73:                                               ; preds = %.thread, %24
-  %74 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141544), align 8, !tbaa !261
-  %75 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !93
-  %76 = call i32 %74(ptr noundef %75) #17
-  br label %77
+71:                                               ; preds = %.thread, %24
+  %72 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141544), align 8, !tbaa !261
+  %73 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !93
+  %74 = call i32 %72(ptr noundef %73) #17
+  br label %75
 
-77:                                               ; preds = %72, %1, %73
+75:                                               ; preds = %70, %1, %71
   ret void
 }
 
@@ -3588,9 +3588,9 @@ define hidden void @_glfwSetWindowFloatingX11(ptr noundef readonly captures(none
   br i1 %.not26, label %.thread, label %.loopexit.thread
 
 .loopexit.thread:                                 ; preds = %.preheader, %.loopexit
-  %.pr44 = phi ptr [ %.pr.pr, %.loopexit ], [ %58, %.preheader ]
+  %.pr47 = phi ptr [ %.pr.pr, %.loopexit ], [ %58, %.preheader ]
   %77 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141552), align 8, !tbaa !130
-  %78 = call i32 %77(ptr noundef nonnull %.pr44) #17
+  %78 = call i32 %77(ptr noundef nonnull %.pr47) #17
   br label %.thread
 
 .thread:                                          ; preds = %57, %.loopexit.thread, %.loopexit
@@ -3735,13 +3735,13 @@ define hidden range(i32 0, 2) i32 @_glfwWindowMaximizedX11(ptr noundef readonly 
   br i1 %.not, label %31, label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %24, %22, %._crit_edge
-  %.01224 = phi i32 [ 0, %._crit_edge ], [ 0, %22 ], [ 1, %24 ]
+  %.01226 = phi i32 [ 0, %._crit_edge ], [ 0, %22 ], [ 1, %24 ]
   %29 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141552), align 8, !tbaa !130
   %30 = call i32 %29(ptr noundef nonnull %.pre) #17
   br label %31
 
 31:                                               ; preds = %._crit_edge, %._crit_edge.thread, %1
-  %.011 = phi i32 [ 0, %1 ], [ %.01224, %._crit_edge.thread ], [ 0, %._crit_edge ]
+  %.011 = phi i32 [ 0, %1 ], [ %.01226, %._crit_edge.thread ], [ 0, %._crit_edge ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.011
 }
@@ -4152,8 +4152,8 @@ thread-pre-split:                                 ; preds = %78, %88
   %.not244.i = icmp ne i32 %95, 0
   %96 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 142252), align 4
   %97 = icmp eq i32 %.pr.i.pr, %96
-  %or.cond357.i = select i1 %.not244.i, i1 %97, i1 false
-  br i1 %or.cond357.i, label %98, label %thread-pre-split.i
+  %or.cond377.i = select i1 %.not244.i, i1 %97, i1 false
+  br i1 %or.cond377.i, label %98, label %thread-pre-split.i
 
 98:                                               ; preds = %thread-pre-split
   %99 = load i32, ptr %48, align 8, !tbaa !106
@@ -4939,21 +4939,21 @@ updateCursorImage.exit:                           ; preds = %345
   br i1 %.not333.i, label %.loopexit323.i, label %.lr.ph329.i
 
 .lr.ph329.i:                                      ; preds = %483, %.thread.i
-  %.0219354.i = phi i64 [ 3, %.thread.i ], [ %485, %483 ]
-  %.pre338352.i = phi ptr [ %55, %.thread.i ], [ %.pre338.pre.i, %483 ]
+  %.0219374.i = phi i64 [ 3, %.thread.i ], [ %485, %483 ]
+  %.pre338372.i = phi ptr [ %55, %.thread.i ], [ %.pre338.pre.i, %483 ]
   %486 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141224), align 8, !tbaa !403
   br label %491
 
 487:                                              ; preds = %491
   %488 = add i32 %.0217327.i, 1
   %489 = zext i32 %488 to i64
-  %490 = icmp ugt i64 %.0219354.i, %489
+  %490 = icmp ugt i64 %.0219374.i, %489
   br i1 %490, label %491, label %.loopexit323.i
 
 491:                                              ; preds = %487, %.lr.ph329.i
   %492 = phi i64 [ 0, %.lr.ph329.i ], [ %489, %487 ]
   %.0217327.i = phi i32 [ 0, %.lr.ph329.i ], [ %488, %487 ]
-  %493 = getelementptr inbounds nuw i64, ptr %.pre338352.i, i64 %492
+  %493 = getelementptr inbounds nuw i64, ptr %.pre338372.i, i64 %492
   %494 = load i64, ptr %493, align 8, !tbaa !94
   %495 = icmp eq i64 %494, %486
   br i1 %495, label %496, label %487
@@ -4963,14 +4963,14 @@ updateCursorImage.exit:                           ; preds = %345
   br label %.loopexit323.i
 
 .loopexit323.i:                                   ; preds = %487, %496, %483
-  %.pre338353.i = phi ptr [ %.pre338.pre.i, %483 ], [ %.pre338352.i, %496 ], [ %.pre338352.i, %487 ]
-  %497 = icmp ne ptr %.pre338353.i, null
+  %.pre338373.i = phi ptr [ %.pre338.pre.i, %483 ], [ %.pre338372.i, %496 ], [ %.pre338372.i, %487 ]
+  %497 = icmp ne ptr %.pre338373.i, null
   %or.cond11.i = select i1 %482, i1 %497, i1 false
   br i1 %or.cond11.i, label %498, label %501
 
 498:                                              ; preds = %.loopexit323.i
   %499 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141552), align 8, !tbaa !130
-  %500 = call i32 %499(ptr noundef nonnull %.pre338353.i) #17
+  %500 = call i32 %499(ptr noundef nonnull %.pre338373.i) #17
   br label %501
 
 501:                                              ; preds = %498, %.loopexit323.i
@@ -5535,16 +5535,14 @@ define hidden void @_glfwWaitEventsX11() local_unnamed_addr #0 {
   br i1 %.not9.i, label %waitForAnyEvent.exit, label %.preheader.i
 
 24:                                               ; preds = %.preheader.i
-  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.i = icmp eq i64 %indvars.iv.next.i, 3
   br i1 %exitcond.i, label %.critedge.loopexit.i, label %.preheader.i
 
 .preheader.i:                                     ; preds = %.lr.ph.i, %24
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %24 ], [ 1, %.lr.ph.i ]
-  %25 = getelementptr inbounds nuw [3 x %struct.pollfd], ptr %1, i64 0, i64 %indvars.iv.i, i32 2
-  %26 = load i16, ptr %25, align 2, !tbaa !115
-  %27 = and i16 %26, 1
-  %.not10.i = icmp eq i16 %27, 0
+  %exitcond.i = phi i1 [ true, %24 ], [ false, %.lr.ph.i ]
+  %indvars.iv.i.sroa.phi = phi ptr [ %13, %24 ], [ %10, %.lr.ph.i ]
+  %25 = load i16, ptr %indvars.iv.i.sroa.phi, align 2, !tbaa !115
+  %26 = and i16 %25, 1
+  %.not10.i = icmp eq i16 %26, 0
   br i1 %.not10.i, label %24, label %waitForAnyEvent.exit
 
 waitForAnyEvent.exit:                             ; preds = %.critedge.loopexit.i, %.lr.ph.i, %.preheader.i, %17
@@ -5608,16 +5606,14 @@ define hidden void @_glfwWaitEventsTimeoutX11(double noundef %0) local_unnamed_a
   br i1 %.not9.i, label %waitForAnyEvent.exit, label %.preheader.i
 
 26:                                               ; preds = %.preheader.i
-  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.i = icmp eq i64 %indvars.iv.next.i, 3
   br i1 %exitcond.i, label %.critedge.loopexit.i, label %.preheader.i
 
 .preheader.i:                                     ; preds = %.lr.ph.i, %26
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %26 ], [ 1, %.lr.ph.i ]
-  %27 = getelementptr inbounds nuw [3 x %struct.pollfd], ptr %2, i64 0, i64 %indvars.iv.i, i32 2
-  %28 = load i16, ptr %27, align 2, !tbaa !115
-  %29 = and i16 %28, 1
-  %.not10.i = icmp eq i16 %29, 0
+  %exitcond.i = phi i1 [ true, %26 ], [ false, %.lr.ph.i ]
+  %indvars.iv.i.sroa.phi = phi ptr [ %15, %26 ], [ %12, %.lr.ph.i ]
+  %27 = load i16, ptr %indvars.iv.i.sroa.phi, align 2, !tbaa !115
+  %28 = and i16 %27, 1
+  %.not10.i = icmp eq i16 %28, 0
   br i1 %.not10.i, label %26, label %waitForAnyEvent.exit
 
 waitForAnyEvent.exit:                             ; preds = %.critedge.loopexit.i, %.lr.ph.i, %.preheader.i, %19
@@ -6034,35 +6030,35 @@ switch.lookup:                                    ; preds = %8
   br i1 %.not22, label %26, label %.thread
 
 26:                                               ; preds = %23
-  %switch.tableidx27 = add i32 %1, -221185
-  %27 = icmp ult i32 %switch.tableidx27, 9
-  %switch.maskindex = trunc i32 %switch.tableidx27 to i16
+  %switch.tableidx28 = add i32 %1, -221185
+  %27 = icmp ult i32 %switch.tableidx28, 9
+  %switch.maskindex = trunc i32 %switch.tableidx28 to i16
   %switch.shifted = lshr i16 319, %switch.maskindex
   %switch.lobit = trunc i16 %switch.shifted to i1
   %or.cond = select i1 %27, i1 %switch.lobit, i1 false
-  br i1 %or.cond, label %switch.lookup28, label %28
+  br i1 %or.cond, label %switch.lookup29, label %28
 
 28:                                               ; preds = %26
   tail call void (i32, ptr, ...) @_glfwInputError(i32 noundef 65547, ptr noundef nonnull @.str.18) #17
   br label %.thread
 
-switch.lookup28:                                  ; preds = %26
-  %29 = zext nneg i32 %switch.tableidx27 to i64
-  %switch.gep29 = getelementptr inbounds nuw [9 x i32], ptr @switch.table._glfwCreateStandardCursorX11.6, i64 0, i64 %29
-  %switch.load30 = load i32, ptr %switch.gep29, align 4
+switch.lookup29:                                  ; preds = %26
+  %29 = zext nneg i32 %switch.tableidx28 to i64
+  %switch.gep30 = getelementptr inbounds nuw [9 x i32], ptr @switch.table._glfwCreateStandardCursorX11.6, i64 0, i64 %29
+  %switch.load31 = load i32, ptr %switch.gep30, align 4
   %30 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141432), align 8, !tbaa !424
   %31 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !93
-  %32 = tail call i64 %30(ptr noundef %31, i32 noundef %switch.load30) #17
+  %32 = tail call i64 %30(ptr noundef %31, i32 noundef %switch.load31) #17
   store i64 %32, ptr %24, align 8, !tbaa !315
   %.not23 = icmp eq i64 %32, 0
   br i1 %.not23, label %33, label %.thread
 
-33:                                               ; preds = %switch.lookup28
+33:                                               ; preds = %switch.lookup29
   tail call void (i32, ptr, ...) @_glfwInputError(i32 noundef 65544, ptr noundef nonnull @.str.19) #17
   br label %.thread
 
-.thread:                                          ; preds = %33, %28, %23, %switch.lookup28
-  %.1 = phi i32 [ 1, %switch.lookup28 ], [ 1, %23 ], [ 0, %28 ], [ 0, %33 ]
+.thread:                                          ; preds = %33, %28, %23, %switch.lookup29
+  %.1 = phi i32 [ 1, %switch.lookup29 ], [ 1, %23 ], [ 0, %28 ], [ 0, %33 ]
   ret i32 %.1
 }
 

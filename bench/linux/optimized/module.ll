@@ -190,7 +190,7 @@ define dso_local noundef range(i32 -8, 1) i32 @apply_relocate_add(ptr noundef re
   br label %.thread
 
 .sink.split:                                      ; preds = %26, %26, %54
-  %.ph43 = phi i64 [ 8, %54 ], [ 4, %26 ], [ 4, %26 ]
+  %.ph45 = phi i64 [ 8, %54 ], [ 4, %26 ], [ 4, %26 ]
   %58 = ptrtoint ptr %37 to i64
   %59 = sub i64 %47, %58
   store i64 %59, ptr %6, align 8
@@ -198,7 +198,7 @@ define dso_local noundef range(i32 -8, 1) i32 @apply_relocate_add(ptr noundef re
 
 60:                                               ; preds = %.sink.split, %51, %49, %26
   %61 = phi i64 [ %47, %26 ], [ %47, %49 ], [ %47, %51 ], [ %59, %.sink.split ]
-  %62 = phi i64 [ 8, %26 ], [ 4, %49 ], [ 4, %51 ], [ %.ph43, %.sink.split ]
+  %62 = phi i64 [ 8, %26 ], [ 4, %49 ], [ 4, %51 ], [ %.ph45, %.sink.split ]
   %63 = call i32 @bcmp(ptr noundef %37, ptr noundef nonnull dereferenceable(1) %7, i64 %62)
   %64 = icmp eq i32 %63, 0
   br i1 %64, label %67, label %65
@@ -254,8 +254,8 @@ define dso_local noundef i32 @module_finalize(ptr noundef readonly captures(none
   %13 = zext i16 %12 to i64
   %14 = getelementptr %struct.elf64_shdr, ptr %1, i64 %13
   %15 = icmp ugt ptr %14, %1
-  %.sink42.sroa.gep = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %.sink42.sroa.gep59 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %.sink53.sroa.gep = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %.sink53.sroa.gep70 = getelementptr inbounds nuw i8, ptr %4, i64 24
   br i1 %15, label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %3, %.preheader
@@ -433,9 +433,9 @@ define dso_local noundef i32 @module_finalize(ptr noundef readonly captures(none
   br label %.thread13
 
 .thread13:                                        ; preds = %123, %.thread12
-  %.sink42.sroa.phi = phi ptr [ %.sink42.sroa.gep, %123 ], [ %.sink42.sroa.gep59, %.thread12 ]
+  %.sink53.sroa.phi = phi ptr [ %.sink53.sroa.gep, %123 ], [ %.sink53.sroa.gep70, %.thread12 ]
   %.sink = phi ptr [ %129, %123 ], [ %136, %.thread12 ]
-  store ptr %.sink, ptr %.sink42.sroa.phi, align 8
+  store ptr %.sink, ptr %.sink53.sroa.phi, align 8
   call void @callthunks_patch_module_calls(ptr noundef nonnull %4, ptr noundef %2) #10
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %137

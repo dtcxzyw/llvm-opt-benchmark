@@ -1135,9 +1135,9 @@ _ZN4absl12lts_202407226StatusC2ERKS1_.exit17:     ; preds = %47
 _ZN4absl12lts_202407226StatusC2ERKS1_.exit17.thread: ; preds = %47
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %53 = icmp eq ptr %1, null
-  br i1 %53, label %.thread25, label %.thread
+  br i1 %53, label %.thread26, label %.thread
 
-.thread25:                                        ; preds = %_ZN4absl12lts_202407226StatusC2ERKS1_.exit17.thread
+.thread26:                                        ; preds = %_ZN4absl12lts_202407226StatusC2ERKS1_.exit17.thread
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZN4absl12lts_202407226StatusD2Ev.exit
 
@@ -1215,7 +1215,7 @@ _Z24grpc_closure_list_appendP17grpc_closure_listP12grpc_closure.exit.i: ; preds 
   call void @__clang_call_terminate(ptr %79) #26
   unreachable
 
-_ZN4absl12lts_202407226StatusD2Ev.exit:           ; preds = %.thread25, %75, %74, %34, %33
+_ZN4absl12lts_202407226StatusD2Ev.exit:           ; preds = %.thread26, %75, %74, %34, %33
   ret void
 
 80:                                               ; preds = %.body, %39

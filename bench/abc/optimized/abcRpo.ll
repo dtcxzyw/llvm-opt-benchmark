@@ -368,8 +368,8 @@ Abc_TruthReadHexDigit.exit.i.us.i.i:              ; preds = %65, %63, %60
   br i1 %exitcond.not.i.us.i.i, label %Abc_TruthReadHex.exit.loopexit.us.preheader.i.i, label %.lr.ph.i.us.i.i, !llvm.loop !36
 
 Abc_TruthReadHex.exit.loopexit.us.preheader.i.i:  ; preds = %Abc_TruthReadHexDigit.exit.i.us.i.i
-  %sext31.i.i = shl i64 %.01418.us.i.i, 32
-  %76 = ashr exact i64 %sext31.i.i, 32
+  %sext33.i.i = shl i64 %.01418.us.i.i, 32
+  %76 = ashr exact i64 %sext33.i.i, 32
   br label %Abc_TruthReadHex.exit.loopexit.us.i.i
 
 Abc_TruthReadHex.exit.loopexit.us.i.i:            ; preds = %Abc_TruthReadHex.exit.loopexit.us.i.i, %Abc_TruthReadHex.exit.loopexit.us.preheader.i.i
@@ -381,8 +381,8 @@ Abc_TruthReadHex.exit.loopexit.us.i.i:            ; preds = %Abc_TruthReadHex.ex
   br i1 %.not16.us.i.i, label %79, label %Abc_TruthReadHex.exit.loopexit.us.i.i, !llvm.loop !37
 
 79:                                               ; preds = %Abc_TruthReadHex.exit.loopexit.us.i.i
-  %sext32.i.i = shl i64 %indvars.iv.next26.i.i, 32
-  %80 = ashr exact i64 %sext32.i.i, 32
+  %sext34.i.i = shl i64 %indvars.iv.next26.i.i, 32
+  %80 = ashr exact i64 %sext34.i.i, 32
   %81 = getelementptr inbounds i8, ptr %36, i64 %80
   %82 = load i8, ptr %81, align 1, !tbaa !33
   %.not.us.i.i = icmp eq i8 %82, 10
@@ -439,14 +439,14 @@ Abc_TruthReadHex.exit.loopexit.us.i.i:            ; preds = %Abc_TruthReadHex.ex
 .lr.ph.i43.i:                                     ; preds = %92
   %106 = sext i32 %98 to i64
   %wide.trip.count.i44.i = zext nneg i32 %88 to i64
-  %load_initial11 = load ptr, ptr %103, align 8
+  %load_initial22 = load ptr, ptr %103, align 8
   br label %107
 
 107:                                              ; preds = %107, %.lr.ph.i43.i
-  %store_forwarded12 = phi ptr [ %load_initial11, %.lr.ph.i43.i ], [ %109, %107 ]
+  %store_forwarded23 = phi ptr [ %load_initial22, %.lr.ph.i43.i ], [ %109, %107 ]
   %indvars.iv.i45.i = phi i64 [ 1, %.lr.ph.i43.i ], [ %indvars.iv.next.i46.i, %107 ]
   %108 = getelementptr ptr, ptr %103, i64 %indvars.iv.i45.i
-  %109 = getelementptr inbounds i64, ptr %store_forwarded12, i64 %106
+  %109 = getelementptr inbounds i64, ptr %store_forwarded23, i64 %106
   store ptr %109, ptr %108, align 8, !tbaa !11
   %indvars.iv.next.i46.i = add nuw nsw i64 %indvars.iv.i45.i, 1
   %exitcond.not.i47.i = icmp eq i64 %indvars.iv.next.i46.i, %wide.trip.count.i44.i

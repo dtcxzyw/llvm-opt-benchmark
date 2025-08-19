@@ -567,9 +567,9 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_12MachineInstrELb1EE9push_backES2_.exit.i:
 
 _ZNK12_GLOBAL__N_114SMEPeepholeOpt22optimizeStartStopPairsERN4llvm17MachineBasicBlockERb.exit: ; preds = %18, %._crit_edge22.i, %37
   %.018.shrunk = phi i1 [ %35, %._crit_edge22.i ], [ %35, %37 ], [ false, %18 ]
-  %.0.lcssa27.i = phi i1 [ %.2.i, %._crit_edge22.i ], [ %.2.i, %37 ], [ false, %18 ]
+  %.0.lcssa32.i = phi i1 [ %.2.i, %._crit_edge22.i ], [ %.2.i, %37 ], [ false, %18 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %140 = or i1 %.01322, %.0.lcssa27.i
+  %140 = or i1 %.01322, %.0.lcssa32.i
   %141 = or i1 %.01421, %.018.shrunk
   %142 = getelementptr inbounds nuw i8, ptr %.sroa.015.023, i64 8
   %.sroa.015.0 = load ptr, ptr %142, align 8, !tbaa !285

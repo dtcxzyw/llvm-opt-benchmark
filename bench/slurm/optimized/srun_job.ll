@@ -673,8 +673,8 @@ define dso_local ptr @job_step_create_allocation(ptr noundef readonly captures(n
   br label %18
 
 18:                                               ; preds = %2, %15
-  %.sink242 = phi ptr [ %17, %15 ], [ %14, %2 ]
-  %19 = tail call ptr @xstrdup(ptr noundef %.sink242) #15
+  %.sink272 = phi ptr [ %17, %15 ], [ %14, %2 ]
+  %19 = tail call ptr @xstrdup(ptr noundef %.sink272) #15
   %20 = getelementptr inbounds nuw i8, ptr %9, i64 24
   store ptr %19, ptr %20, align 8
   %21 = getelementptr inbounds nuw i8, ptr %9, i64 24
@@ -1455,11 +1455,11 @@ define dso_local void @init_srun(i32 noundef %0, ptr noundef %1, ptr noundef cap
   unreachable
 
 .lr.ph:                                           ; preds = %30, %55
-  %.0254857 = phi i32 [ %57, %55 ], [ %0, %30 ]
-  %.04956 = phi ptr [ %59, %55 ], [ %1, %30 ]
+  %.0254875 = phi i32 [ %57, %55 ], [ %0, %30 ]
+  %.04974 = phi ptr [ %59, %55 ], [ %1, %30 ]
   %35 = load i32, ptr %11, align 4
   %36 = icmp sgt i32 %35, -1
-  %37 = icmp slt i32 %35, %.0254857
+  %37 = icmp slt i32 %35, %.0254875
   %or.cond37 = and i1 %36, %37
   br i1 %or.cond37, label %.preheader.preheader, label %.loopexit
 
@@ -1469,7 +1469,7 @@ define dso_local void @init_srun(i32 noundef %0, ptr noundef %1, ptr noundef cap
 
 .preheader:                                       ; preds = %.preheader.preheader, %44
   %indvars.iv = phi i64 [ %38, %.preheader.preheader ], [ %indvars.iv.next, %44 ]
-  %39 = getelementptr inbounds nuw ptr, ptr %.04956, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw ptr, ptr %.04974, i64 %indvars.iv
   %40 = load ptr, ptr %39, align 8
   %41 = call i32 @xstrcmp(ptr noundef %40, ptr noundef nonnull @.str.14) #15
   %.not35 = icmp eq i32 %41, 0
@@ -1483,7 +1483,7 @@ define dso_local void @init_srun(i32 noundef %0, ptr noundef %1, ptr noundef cap
 44:                                               ; preds = %.preheader
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %45 = trunc nuw i64 %indvars.iv.next to i32
-  %46 = icmp sgt i32 %.0254857, %45
+  %46 = icmp sgt i32 %.0254875, %45
   br i1 %46, label %.preheader, label %.loopexit.loopexit, !llvm.loop !18
 
 .loopexit.loopexit:                               ; preds = %44
@@ -1493,13 +1493,13 @@ define dso_local void @init_srun(i32 noundef %0, ptr noundef %1, ptr noundef cap
 .loopexit:                                        ; preds = %.loopexit.loopexit, %42, %.lr.ph
   %47 = phi i32 [ %.pre, %.loopexit.loopexit ], [ %43, %42 ], [ %35, %.lr.ph ]
   %48 = icmp sgt i32 %47, -1
-  %49 = icmp slt i32 %47, %.0254857
+  %49 = icmp slt i32 %47, %.0254875
   %or.cond38 = and i1 %48, %49
   br i1 %or.cond38, label %50, label %.critedge
 
 50:                                               ; preds = %.loopexit
   %51 = zext nneg i32 %47 to i64
-  %52 = getelementptr inbounds nuw ptr, ptr %.04956, i64 %51
+  %52 = getelementptr inbounds nuw ptr, ptr %.04974, i64 %51
   %53 = load ptr, ptr %52, align 8
   %54 = call i32 @xstrcmp(ptr noundef %53, ptr noundef nonnull @.str.14) #15
   %.not36 = icmp eq i32 %54, 0
@@ -1507,9 +1507,9 @@ define dso_local void @init_srun(i32 noundef %0, ptr noundef %1, ptr noundef cap
 
 55:                                               ; preds = %50
   %56 = load i32, ptr %11, align 4
-  %57 = sub nsw i32 %.0254857, %56
+  %57 = sub nsw i32 %.0254875, %56
   %58 = sext i32 %56 to i64
-  %59 = getelementptr inbounds ptr, ptr %.04956, i64 %58
+  %59 = getelementptr inbounds ptr, ptr %.04974, i64 %58
   %60 = load i32, ptr @colon_cnt, align 4
   %61 = add nsw i32 %60, 1
   store i32 %61, ptr @colon_cnt, align 4
@@ -3401,14 +3401,14 @@ _shepherd_spawn.exit:                             ; preds = %517, %521, %523
   br i1 %577, label %.lr.ph.preheader.i, label %._crit_edge.i305
 
 .lr.ph.preheader.i:                               ; preds = %575, %573
-  %.011.i = phi i32 [ %576, %575 ], [ 1, %573 ]
+  %.012.i = phi i32 [ %576, %575 ], [ 1, %573 ]
   br label %.lr.ph.i306
 
 .lr.ph.i306:                                      ; preds = %.lr.ph.i306, %.lr.ph.preheader.i
   %.069.i = phi i32 [ %578, %.lr.ph.i306 ], [ 0, %.lr.ph.preheader.i ]
   call void @cli_filter_g_post_submit(i32 noundef %.069.i, i32 noundef %.6, i32 noundef %572) #15
   %578 = add nuw nsw i32 %.069.i, 1
-  %exitcond.not.i307 = icmp eq i32 %578, %.011.i
+  %exitcond.not.i307 = icmp eq i32 %578, %.012.i
   br i1 %exitcond.not.i307, label %._crit_edge.i305, label %.lr.ph.i306, !llvm.loop !31
 
 ._crit_edge.i305:                                 ; preds = %.lr.ph.i306, %575
@@ -3881,9 +3881,9 @@ define internal fastcc ptr @_compress_het_job_nodelist(ptr noundef %0) unnamed_a
   br label %.loopexit.sink.split
 
 .loopexit.sink.split:                             ; preds = %77, %85
-  %.sink131 = phi i64 [ %87, %85 ], [ %78, %77 ]
+  %.sink146 = phi i64 [ %87, %85 ], [ %78, %77 ]
   %.1.ph = phi i32 [ %spec.select, %85 ], [ %.0111, %77 ]
-  %89 = getelementptr inbounds nuw i32, ptr %63, i64 %.sink131
+  %89 = getelementptr inbounds nuw i32, ptr %63, i64 %.sink146
   %90 = load i32, ptr %89, align 4
   %91 = add i32 %90, 1
   store i32 %91, ptr %89, align 4
@@ -4309,7 +4309,7 @@ _handle_het_step_exclude.exit.thread:             ; preds = %72, %73, %_handle_h
   br i1 %.not165, label %.loopexit, label %.lr.ph48, !llvm.loop !42
 
 .loopexit:                                        ; preds = %.lr.ph48, %._crit_edge, %157, %.loopexit12
-  %.11076165 = phi i32 [ %.1107, %157 ], [ %.1107, %.loopexit12 ], [ 0, %._crit_edge ], [ %.1107, %.lr.ph48 ]
+  %.11078993 = phi i32 [ %.1107, %157 ], [ %.1107, %.loopexit12 ], [ 0, %._crit_edge ], [ %.1107, %.lr.ph48 ]
   %.not166 = icmp eq ptr %.0105, null
   br i1 %.not166, label %163, label %162
 
@@ -4318,7 +4318,7 @@ _handle_het_step_exclude.exit.thread:             ; preds = %72, %73, %_handle_h
   br label %163
 
 163:                                              ; preds = %162, %.loopexit
-  %164 = icmp eq i32 %.11076165, 0
+  %164 = icmp eq i32 %.11078993, 0
   %165 = load ptr, ptr %5, align 8
   %166 = icmp ne ptr %165, null
   %or.cond = select i1 %164, i1 %166, i1 false
@@ -4424,7 +4424,7 @@ _handle_het_step_exclude.exit.thread:             ; preds = %72, %73, %_handle_h
   br label %211
 
 211:                                              ; preds = %198, %196, %197, %209
-  %.0 = phi i32 [ %210, %209 ], [ %.11076165, %197 ], [ %.11076165, %196 ], [ -1, %198 ]
+  %.0 = phi i32 [ %210, %209 ], [ %.11078993, %197 ], [ %.11078993, %196 ], [ -1, %198 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }
@@ -4998,7 +4998,7 @@ _run_srun_epilog.exit:                            ; preds = %.thread, %39, %46, 
 57:                                               ; preds = %_run_srun_epilog.exit
   %58 = lshr i32 %54, 8
   %59 = and i32 %58, 255
-  br label %.sink.split20
+  br label %.sink.split25
 
 60:                                               ; preds = %_run_srun_epilog.exit
   %61 = shl nuw nsw i32 %55, 24
@@ -5008,14 +5008,14 @@ _run_srun_epilog.exit:                            ; preds = %.thread, %39, %46, 
 
 63:                                               ; preds = %60
   %64 = or disjoint i32 %55, 128
-  br label %.sink.split20
+  br label %.sink.split25
 
-.sink.split20:                                    ; preds = %57, %63
-  %.sink21 = phi i32 [ %64, %63 ], [ %59, %57 ]
-  store i32 %.sink21, ptr %2, align 4
+.sink.split25:                                    ; preds = %57, %63
+  %.sink26 = phi i32 [ %64, %63 ], [ %59, %57 ]
+  store i32 %.sink26, ptr %2, align 4
   br label %65
 
-65:                                               ; preds = %.sink.split20, %60
+65:                                               ; preds = %.sink.split25, %60
   tail call void @mpir_cleanup() #15
   ret void
 }

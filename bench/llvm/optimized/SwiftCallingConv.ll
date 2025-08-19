@@ -1585,7 +1585,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang7CodeGen9swiftcall16SwiftAggLowering12S
 .preheader:                                       ; preds = %.split
   %.not.i.i = icmp eq ptr %1, null
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %45 = trunc i64 %.0 to i32
+  %45 = trunc nuw i64 %.0 to i32
   br i1 %.not.i.i, label %.preheader.split.us, label %.preheader.split
 
 .preheader.split.us:                              ; preds = %.preheader, %61
@@ -2264,8 +2264,8 @@ define dso_local noundef zeroext i1 @_ZN5clang7CodeGen9swiftcall16SwiftAggLoweri
   %or.cond = select i1 %18, i1 %switch.lobit, i1 false
   %19 = and i32 %17, 253
   %spec.select.i.i = icmp eq i32 %19, 4
-  %or.cond23 = or i1 %or.cond, %spec.select.i.i
-  br i1 %or.cond23, label %_ZL20isMergeableEntryTypePN4llvm4TypeE.exit13, label %_ZL20isMergeableEntryTypePN4llvm4TypeE.exit
+  %or.cond25 = or i1 %or.cond, %spec.select.i.i
+  br i1 %or.cond25, label %_ZL20isMergeableEntryTypePN4llvm4TypeE.exit13, label %_ZL20isMergeableEntryTypePN4llvm4TypeE.exit
 
 _ZL20isMergeableEntryTypePN4llvm4TypeE.exit:      ; preds = %15
   %20 = and i32 %17, 255
@@ -2284,13 +2284,13 @@ _ZL20isMergeableEntryTypePN4llvm4TypeE.exit.thread15: ; preds = %11, %_ZL20isMer
   %27 = load i32, ptr %26, align 8
   %trunc.i.i.i8 = trunc i32 %27 to i8
   %28 = icmp ult i8 %trunc.i.i.i8, 6
-  %switch.shifted20 = lshr i8 47, %trunc.i.i.i8
-  %switch.lobit21 = trunc i8 %switch.shifted20 to i1
-  %or.cond22 = select i1 %28, i1 %switch.lobit21, i1 false
+  %switch.shifted22 = lshr i8 47, %trunc.i.i.i8
+  %switch.lobit23 = trunc i8 %switch.shifted22 to i1
+  %or.cond24 = select i1 %28, i1 %switch.lobit23, i1 false
   %29 = and i32 %27, 253
   %spec.select.i.i11 = icmp eq i32 %29, 4
-  %or.cond24 = or i1 %or.cond22, %spec.select.i.i11
-  br i1 %or.cond24, label %_ZL20isMergeableEntryTypePN4llvm4TypeE.exit13, label %30
+  %or.cond26 = or i1 %or.cond24, %spec.select.i.i11
+  br i1 %or.cond26, label %_ZL20isMergeableEntryTypePN4llvm4TypeE.exit13, label %30
 
 30:                                               ; preds = %25
   %31 = and i32 %27, 255
@@ -2342,7 +2342,7 @@ define dso_local void @_ZN5clang7CodeGen9swiftcall16SwiftAggLowering6finishEv(pt
   br label %.backedge
 
 ._crit_edge:                                      ; preds = %55
-  br i1 %spec.select, label %._crit_edge.thread90, label %61
+  br i1 %spec.select, label %._crit_edge.thread98, label %61
 
 ._crit_edge.thread:                               ; preds = %9
   br i1 %22, label %.thread, label %61
@@ -2403,7 +2403,7 @@ _ZL20isMergeableEntryTypePN4llvm4TypeE.exit.thread15.i: ; preds = %_ZL20isMergea
   %46 = getelementptr inbounds nuw i8, ptr %29, i64 16
   %47 = load ptr, ptr %46, align 8, !tbaa !796
   %48 = icmp eq ptr %47, null
-  br i1 %48, label %.thread86, label %49
+  br i1 %48, label %.thread94, label %49
 
 49:                                               ; preds = %_ZL20isMergeableEntryTypePN4llvm4TypeE.exit.thread15.i
   %50 = getelementptr inbounds nuw i8, ptr %47, i64 8
@@ -2426,7 +2426,7 @@ _ZN5clang7CodeGen9swiftcall16SwiftAggLowering18shouldMergeEntriesERKNS2_12Storag
   %53 = and i32 %51, 255
   %54 = add nsw i32 %53, -19
   %spec.select.i5.i12.i = icmp ult i32 %54, -2
-  br i1 %spec.select.i5.i12.i, label %.thread86, label %55
+  br i1 %spec.select.i5.i12.i, label %.thread94, label %55
 
 55:                                               ; preds = %_ZN5clang7CodeGen9swiftcall16SwiftAggLowering18shouldMergeEntriesERKNS2_12StorageEntryES5_NS_9CharUnitsE.exit, %.backedge, %_ZL20isMergeableEntryTypePN4llvm4TypeE.exit.i, %_ZNK4llvm4Type17isFloatingPointTyEv.exit.i10.i, %49, %49, %49, %49, %49, %_ZNK4llvm4Type17isFloatingPointTyEv.exit.i.i, %40, %40, %40, %40, %40
   %56 = getelementptr inbounds nuw i8, ptr %29, i64 16
@@ -2437,25 +2437,25 @@ _ZN5clang7CodeGen9swiftcall16SwiftAggLowering18shouldMergeEntriesERKNS2_12Storag
   %.not = icmp eq i64 %59, %24
   br i1 %.not, label %._crit_edge, label %.backedge.backedge
 
-.backedge.backedge:                               ; preds = %55, %.thread86
-  %.077.be = phi i1 [ %spec.select, %55 ], [ true, %.thread86 ]
-  %.03476.be = phi i64 [ %59, %55 ], [ %60, %.thread86 ]
+.backedge.backedge:                               ; preds = %55, %.thread94
+  %.077.be = phi i1 [ %spec.select, %55 ], [ true, %.thread94 ]
+  %.03476.be = phi i64 [ %59, %55 ], [ %60, %.thread94 ]
   br label %.backedge, !llvm.loop !816
 
-.thread86:                                        ; preds = %_ZN5clang7CodeGen9swiftcall16SwiftAggLowering18shouldMergeEntriesERKNS2_12StorageEntryES5_NS_9CharUnitsE.exit, %_ZL20isMergeableEntryTypePN4llvm4TypeE.exit.thread15.i
+.thread94:                                        ; preds = %_ZN5clang7CodeGen9swiftcall16SwiftAggLowering18shouldMergeEntriesERKNS2_12StorageEntryES5_NS_9CharUnitsE.exit, %_ZL20isMergeableEntryTypePN4llvm4TypeE.exit.thread15.i
   store ptr null, ptr %37, align 8, !tbaa !796
   store ptr null, ptr %46, align 8, !tbaa !796
   store i64 %.sroa.01.0.copyload.i, ptr %30, align 8, !tbaa !776
   %60 = add i64 %.03476, 1
-  %.not88 = icmp eq i64 %60, %24
-  br i1 %.not88, label %._crit_edge.thread90, label %.backedge.backedge
+  %.not96 = icmp eq i64 %60, %24
+  br i1 %.not96, label %._crit_edge.thread98, label %.backedge.backedge
 
 61:                                               ; preds = %._crit_edge.thread, %._crit_edge
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store i8 1, ptr %62, align 8, !tbaa !806
   br label %158
 
-._crit_edge.thread90:                             ; preds = %.thread86, %._crit_edge
+._crit_edge.thread98:                             ; preds = %.thread94, %._crit_edge
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %63 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %63, ptr %2, align 8, !tbaa !361
@@ -2466,9 +2466,9 @@ _ZN5clang7CodeGen9swiftcall16SwiftAggLowering18shouldMergeEntriesERKNS2_12Storag
   %.not.i.i = icmp eq i32 %23, 0
   br i1 %.not.i.i, label %._crit_edge81, label %_ZN4llvm11SmallVectorIN5clang7CodeGen9swiftcall16SwiftAggLowering12StorageEntryELj4EEC2EOS6_.exit
 
-_ZN4llvm11SmallVectorIN5clang7CodeGen9swiftcall16SwiftAggLowering12StorageEntryELj4EEC2EOS6_.exit: ; preds = %._crit_edge.thread90, %.thread
-  %66 = phi ptr [ %27, %.thread ], [ %64, %._crit_edge.thread90 ]
-  %67 = phi ptr [ %26, %.thread ], [ %63, %._crit_edge.thread90 ]
+_ZN4llvm11SmallVectorIN5clang7CodeGen9swiftcall16SwiftAggLowering12StorageEntryELj4EEC2EOS6_.exit: ; preds = %._crit_edge.thread98, %.thread
+  %66 = phi ptr [ %27, %.thread ], [ %64, %._crit_edge.thread98 ]
+  %67 = phi ptr [ %26, %.thread ], [ %63, %._crit_edge.thread98 ]
   %68 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplIN5clang7CodeGen9swiftcall16SwiftAggLowering12StorageEntryEEaSEOS6_(ptr noundef nonnull align 8 dereferenceable(112) %2, ptr noundef nonnull align 8 dereferenceable(112) %4)
   %.pre = load i32, ptr %66, align 8, !tbaa !362
   %69 = zext i32 %.pre to i64
@@ -2485,8 +2485,8 @@ _ZN4llvm11SmallVectorIN5clang7CodeGen9swiftcall16SwiftAggLowering12StorageEntryE
   %76 = add nsw i64 %69, -1
   br label %82
 
-._crit_edge81:                                    ; preds = %.loopexit, %._crit_edge.thread90, %_ZN4llvm11SmallVectorIN5clang7CodeGen9swiftcall16SwiftAggLowering12StorageEntryELj4EEC2EOS6_.exit
-  %77 = phi ptr [ %67, %_ZN4llvm11SmallVectorIN5clang7CodeGen9swiftcall16SwiftAggLowering12StorageEntryELj4EEC2EOS6_.exit ], [ %63, %._crit_edge.thread90 ], [ %67, %.loopexit ]
+._crit_edge81:                                    ; preds = %.loopexit, %._crit_edge.thread98, %_ZN4llvm11SmallVectorIN5clang7CodeGen9swiftcall16SwiftAggLowering12StorageEntryELj4EEC2EOS6_.exit
+  %77 = phi ptr [ %67, %_ZN4llvm11SmallVectorIN5clang7CodeGen9swiftcall16SwiftAggLowering12StorageEntryELj4EEC2EOS6_.exit ], [ %63, %._crit_edge.thread98 ], [ %67, %.loopexit ]
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store i8 1, ptr %78, align 8, !tbaa !806
   %79 = load ptr, ptr %2, align 8, !tbaa !361
@@ -3002,8 +3002,8 @@ define dso_local noundef zeroext i1 @_ZNK5clang7CodeGen9swiftcall16SwiftAggLower
 
 _ZN4llvm15SmallVectorImplIPNS_4TypeEE7reserveEm.exit.thread: ; preds = %24
   %29 = load ptr, ptr %4, align 8, !tbaa !361
-  %.idx19 = mul nuw nsw i64 %8, 24
-  %30 = getelementptr inbounds nuw i8, ptr %29, i64 %.idx19
+  %.idx23 = mul nuw nsw i64 %8, 24
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 %.idx23
   br label %.lr.ph.preheader
 
 _ZN4llvm15SmallVectorImplIPNS_4TypeEE7reserveEm.exit: ; preds = %24

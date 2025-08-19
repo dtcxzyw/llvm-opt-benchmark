@@ -547,15 +547,15 @@ define dso_local void @_ZN5clang7targets16getDarwinDefinesERNS_12MacroBuilderERK
   %35 = load i32, ptr %34, align 4, !tbaa !23
   %36 = and i32 %35, -9
   %spec.select.i = icmp eq i32 %36, 1
-  %.sink229.sroa.gep = getelementptr inbounds nuw i8, ptr %10, i64 5
-  %.sink229.sroa.gep239 = getelementptr inbounds nuw i8, ptr %10, i64 6
-  %.sink231.sroa.gep = getelementptr inbounds nuw i8, ptr %10, i64 4
-  %.sink231.sroa.gep240 = getelementptr inbounds nuw i8, ptr %10, i64 5
-  %.sink234.sroa.gep = getelementptr inbounds nuw i8, ptr %10, i64 3
-  %.sink234.sroa.gep241 = getelementptr inbounds nuw i8, ptr %10, i64 4
-  br i1 %spec.select.i, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread204.thread223, label %38
+  %.sink231.sroa.gep = getelementptr inbounds nuw i8, ptr %10, i64 5
+  %.sink231.sroa.gep241 = getelementptr inbounds nuw i8, ptr %10, i64 6
+  %.sink233.sroa.gep = getelementptr inbounds nuw i8, ptr %10, i64 4
+  %.sink233.sroa.gep242 = getelementptr inbounds nuw i8, ptr %10, i64 5
+  %.sink236.sroa.gep = getelementptr inbounds nuw i8, ptr %10, i64 3
+  %.sink236.sroa.gep243 = getelementptr inbounds nuw i8, ptr %10, i64 4
+  br i1 %spec.select.i, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread204.thread225, label %38
 
-_ZN4llvmeqENS_9StringRefES0_.exit.thread204.thread223: ; preds = %5
+_ZN4llvmeqENS_9StringRefES0_.exit.thread204.thread225: ; preds = %5
   %37 = call noundef zeroext i1 @_ZNK4llvm6Triple16getMacOSXVersionERNS_12VersionTupleE(ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull align 4 dereferenceable(16) %9) #7
   store ptr @.str.16, ptr %3, align 8, !tbaa !33
   %.sroa.4202.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -595,9 +595,9 @@ _ZN4llvmeqENS_9StringRefES0_.exit:                ; preds = %38
   store i64 11, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !34
   br label %_ZN4llvmeqENS_9StringRefES0_.exit38.thread207
 
-_ZN4llvmeqENS_9StringRefES0_.exit38:              ; preds = %38, %_ZN4llvmeqENS_9StringRefES0_.exit.thread204.thread223
-  %.sroa.0.0.copyload227 = phi ptr [ @.str.16, %_ZN4llvmeqENS_9StringRefES0_.exit.thread204.thread223 ], [ %44, %38 ]
-  %bcmp.i37 = call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %.sroa.0.0.copyload227, ptr noundef nonnull dereferenceable(5) @.str.19, i64 5)
+_ZN4llvmeqENS_9StringRefES0_.exit38:              ; preds = %38, %_ZN4llvmeqENS_9StringRefES0_.exit.thread204.thread225
+  %.sroa.0.0.copyload229 = phi ptr [ @.str.16, %_ZN4llvmeqENS_9StringRefES0_.exit.thread204.thread225 ], [ %44, %38 ]
+  %bcmp.i37 = call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %.sroa.0.0.copyload229, ptr noundef nonnull dereferenceable(5) @.str.19, i64 5)
   %51 = icmp eq i32 %bcmp.i37, 0
   br i1 %51, label %_ZN4llvmeqENS_9StringRefES0_.exit38.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit38.thread207
 
@@ -664,7 +664,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit38.thread207:    ; preds = %38, %50, %_ZN4llvme
   store i8 %82, ptr %83, align 1, !tbaa !8
   %84 = getelementptr inbounds nuw i8, ptr %10, i64 4
   store i8 0, ptr %84, align 1, !tbaa !8
-  br label %.thread228
+  br label %.thread230
 
 .critedge:                                        ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit38.thread207
   %85 = icmp ult i32 %55, 10
@@ -728,25 +728,25 @@ _ZN4llvmeqENS_9StringRefES0_.exit38.thread207:    ; preds = %38, %50, %_ZN4llvme
   br label %123
 
 123:                                              ; preds = %86, %.critedge.thread
-  %.sink238 = phi i64 [ %102, %86 ], [ %103, %.critedge.thread ]
-  %.sink234.sroa.phi = phi ptr [ %.sink234.sroa.gep, %86 ], [ %.sink234.sroa.gep241, %.critedge.thread ]
-  %.sink231.sroa.phi = phi ptr [ %.sink231.sroa.gep, %86 ], [ %.sink231.sroa.gep240, %.critedge.thread ]
-  %.sink229.sroa.phi = phi ptr [ %.sink229.sroa.gep, %86 ], [ %.sink229.sroa.gep239, %.critedge.thread ]
+  %.sink240 = phi i64 [ %102, %86 ], [ %103, %.critedge.thread ]
+  %.sink236.sroa.phi = phi ptr [ %.sink236.sroa.gep, %86 ], [ %.sink236.sroa.gep243, %.critedge.thread ]
+  %.sink233.sroa.phi = phi ptr [ %.sink233.sroa.gep, %86 ], [ %.sink233.sroa.gep242, %.critedge.thread ]
+  %.sink231.sroa.phi = phi ptr [ %.sink231.sroa.gep, %86 ], [ %.sink231.sroa.gep241, %.critedge.thread ]
   %124 = phi i8 [ %88, %86 ], [ %106, %.critedge.thread ]
-  %125 = trunc i64 %.sink238 to i32
+  %125 = trunc i64 %.sink240 to i32
   %.sroa.0157.0.extract.trunc = and i32 %125, 2147483647
-  %126 = and i64 %.sink238, 2147483648
+  %126 = and i64 %.sink240, 2147483648
   %.not = icmp eq i64 %126, 0
   %.0.i70 = select i1 %.not, i32 0, i32 %.sroa.0157.0.extract.trunc
   %127 = udiv i32 %.0.i70, 10
   %128 = trunc i32 %127 to i8
   %129 = add i8 %128, 48
-  store i8 %129, ptr %.sink234.sroa.phi, align 1, !tbaa !8
+  store i8 %129, ptr %.sink236.sroa.phi, align 1, !tbaa !8
   %130 = urem i32 %.0.i70, 10
   %131 = trunc nuw nsw i32 %130 to i8
   %132 = or disjoint i8 %131, 48
-  store i8 %132, ptr %.sink231.sroa.phi, align 1, !tbaa !8
-  store i8 0, ptr %.sink229.sroa.phi, align 1, !tbaa !8
+  store i8 %132, ptr %.sink233.sroa.phi, align 1, !tbaa !8
+  store i8 0, ptr %.sink231.sroa.phi, align 1, !tbaa !8
   switch i32 %52, label %161 [
     i32 26, label %133
     i32 5, label %140
@@ -867,9 +867,9 @@ _ZN4llvm5TwineC2EPKc.exit119:                     ; preds = %154, %159
   br label %169
 
 161:                                              ; preds = %123
-  br i1 %spec.select.i39, label %.thread228, label %169
+  br i1 %spec.select.i39, label %.thread230, label %169
 
-.thread228:                                       ; preds = %.thread, %161
+.thread230:                                       ; preds = %.thread, %161
   %162 = phi i8 [ %124, %161 ], [ 1, %.thread ]
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
   %163 = getelementptr inbounds nuw i8, ptr %23, i64 32
@@ -884,12 +884,12 @@ _ZN4llvm5TwineC2EPKc.exit119:                     ; preds = %154, %159
   %.not.i123 = icmp eq i8 %162, 0
   br i1 %.not.i123, label %_ZN4llvm5TwineC2EPKc.exit125, label %167
 
-167:                                              ; preds = %.thread228
+167:                                              ; preds = %.thread230
   store ptr %10, ptr %24, align 8, !tbaa !8
   br label %_ZN4llvm5TwineC2EPKc.exit125
 
-_ZN4llvm5TwineC2EPKc.exit125:                     ; preds = %.thread228, %167
-  %storemerge.i124 = phi i8 [ 3, %167 ], [ 1, %.thread228 ]
+_ZN4llvm5TwineC2EPKc.exit125:                     ; preds = %.thread230, %167
+  %storemerge.i124 = phi i8 [ 3, %167 ], [ 1, %.thread230 ]
   store i8 %storemerge.i124, ptr %165, align 8, !tbaa !9
   %168 = getelementptr inbounds nuw i8, ptr %25, i64 32
   store i16 257, ptr %168, align 8

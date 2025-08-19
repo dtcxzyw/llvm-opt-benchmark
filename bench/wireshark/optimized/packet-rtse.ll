@@ -395,11 +395,11 @@ define internal i32 @dissect_rtse(ptr noundef %0, ptr noundef %1, ptr noundef %2
   call void @col_clear(ptr noundef %13, i32 noundef 25)
   %14 = load i8, ptr @rtse_reassemble, align 1, !range !6, !noundef !7
   %15 = trunc nuw i8 %14 to i1
-  br i1 %15, label %16, label %.thread94
+  br i1 %15, label %16, label %.thread101
 
 16:                                               ; preds = %9
   %17 = load i8, ptr %3, align 4
-  switch i8 %17, label %.thread94 [
+  switch i8 %17, label %.thread101 [
     i8 1, label %18
     i8 41, label %18
   ]
@@ -420,20 +420,20 @@ define internal i32 @dissect_rtse(ptr noundef %0, ptr noundef %1, ptr noundef %2
   store i8 1, ptr %24, align 4
   %.pre = load i8, ptr @rtse_reassemble, align 1, !range !6
   %25 = trunc nuw i8 %.pre to i1
-  br i1 %25, label %26, label %.thread94
+  br i1 %25, label %26, label %.thread101
 
 26:                                               ; preds = %23
   %.pr = load i8, ptr %3, align 4
   %27 = icmp eq i8 %.pr, 41
-  br i1 %27, label %28, label %.thread94
+  br i1 %27, label %28, label %.thread101
 
 28:                                               ; preds = %26
   %29 = call ptr @fragment_end_seq_next(ptr noundef nonnull @rtse_reassembly_table, ptr noundef %1, i32 noundef %.172, ptr noundef null)
   %30 = call ptr @process_reassembled_data(ptr noundef %0, i32 noundef 0, ptr noundef %1, ptr noundef nonnull @.str.137, ptr noundef %29, ptr noundef nonnull @rtse_frag_items, ptr noundef null, ptr noundef %2)
-  br label %.thread94
+  br label %.thread101
 
-.thread94:                                        ; preds = %16, %9, %28, %26, %23
-  %.07193 = phi i32 [ %.172, %28 ], [ %.172, %26 ], [ %.172, %23 ], [ 0, %9 ], [ 0, %16 ]
+.thread101:                                       ; preds = %16, %9, %28, %26, %23
+  %.071100 = phi i32 [ %.172, %28 ], [ %.172, %26 ], [ %.172, %23 ], [ 0, %9 ], [ 0, %16 ]
   %.074 = phi ptr [ %30, %28 ], [ null, %26 ], [ null, %23 ], [ null, %9 ], [ null, %16 ]
   %31 = load i32, ptr @proto_rtse, align 4
   %.not85 = icmp eq ptr %.074, null
@@ -446,7 +446,7 @@ define internal i32 @dissect_rtse(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %37 = trunc nuw i8 %36 to i1
   br i1 %37, label %38, label %.preheader.preheader
 
-38:                                               ; preds = %.thread94
+38:                                               ; preds = %.thread101
   %39 = load i8, ptr %3, align 4
   switch i8 %39, label %.preheader.preheader [
     i8 1, label %40
@@ -468,7 +468,7 @@ define internal i32 @dissect_rtse(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %49 = select i1 %48, ptr @.str.139, ptr @.str.140
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %47, ptr noundef nonnull @.str.138, i32 noundef %45, ptr noundef nonnull %49)
   %50 = load ptr, ptr %6, align 8
-  %51 = call ptr @fragment_add_seq_next(ptr noundef nonnull @rtse_reassembly_table, ptr noundef %50, i32 noundef 0, ptr noundef %1, i32 noundef %.07193, ptr noundef null, i32 noundef %45, i1 noundef zeroext true)
+  %51 = call ptr @fragment_add_seq_next(ptr noundef nonnull @rtse_reassembly_table, ptr noundef %50, i32 noundef 0, ptr noundef %1, i32 noundef %.071100, ptr noundef null, i32 noundef %45, i1 noundef zeroext true)
   %.not87 = icmp eq ptr %51, null
   br i1 %.not87, label %61, label %52
 
@@ -503,7 +503,7 @@ define internal i32 @dissect_rtse(ptr noundef %0, ptr noundef %1, ptr noundef %2
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %66, i32 noundef 25, ptr noundef nonnull @.str.141, i32 noundef %.073, ptr noundef nonnull %68)
   br i1 %.not86.not, label %.preheader.preheader, label %.loopexit
 
-.preheader.preheader:                             ; preds = %38, %.thread94, %65
+.preheader.preheader:                             ; preds = %38, %.thread101, %65
   br label %.preheader
 
 69:                                               ; preds = %38

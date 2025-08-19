@@ -1361,9 +1361,9 @@ _ZNK6icu_7720DecimalFormatSymbols9getLocaleEv.exit: ; preds = %6
   br label %404
 
 .sink.split:                                      ; preds = %326, %322
-  %.sink334 = phi { i64, i32 } [ %323, %322 ], [ %327, %326 ]
-  %.fca.0.extract29 = extractvalue { i64, i32 } %.sink334, 0
-  %.fca.1.extract30 = extractvalue { i64, i32 } %.sink334, 1
+  %.sink349 = phi { i64, i32 } [ %323, %322 ], [ %327, %326 ]
+  %.fca.0.extract29 = extractvalue { i64, i32 } %.sink349, 0
+  %.fca.1.extract30 = extractvalue { i64, i32 } %.sink349, 1
   %330 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i64 %.fca.0.extract29, ptr %330, align 4
   %.sroa.534.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -2399,8 +2399,8 @@ define noundef zeroext i1 @_ZNK6icu_776number4impl30PropertiesAffixPatternProvid
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %9 = load i16, ptr %8, align 8, !tbaa !109
   %10 = and i16 %9, 1
-  %.not18 = icmp eq i16 %10, 0
-  br i1 %.not18, label %.critedge, label %34
+  %.not19 = icmp eq i16 %10, 0
+  br i1 %.not19, label %.critedge, label %34
 
 11:                                               ; preds = %1
   %12 = icmp slt i16 %5, 0
@@ -2431,8 +2431,8 @@ _ZNK6icu_7713UnicodeStringneERKS0_.exit:          ; preds = %11
   %31 = load ptr, ptr %30, align 8
   %32 = select i1 %.not.i.i.i.i, ptr %31, ptr %29
   %33 = tail call noundef signext i8 @_ZNK6icu_7713UnicodeString8doEqualsEPKDsi(ptr noundef nonnull align 8 dereferenceable(64) %3, ptr noundef %32, i32 noundef %17)
-  %.not19 = icmp eq i8 %33, 0
-  br i1 %.not19, label %.critedge, label %34
+  %.not20 = icmp eq i8 %33, 0
+  br i1 %.not20, label %.critedge, label %34
 
 34:                                               ; preds = %7, %_ZNK6icu_7713UnicodeStringneERKS0_.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
@@ -2448,8 +2448,8 @@ _ZNK6icu_7713UnicodeStringneERKS0_.exit:          ; preds = %11
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %41 = load i16, ptr %40, align 8, !tbaa !109
   %42 = and i16 %41, 1
-  %.not20 = icmp eq i16 %42, 0
-  br i1 %.not20, label %.thread, label %68
+  %.not21 = icmp eq i16 %42, 0
+  br i1 %.not21, label %.thread, label %68
 
 43:                                               ; preds = %34
   %44 = icmp slt i16 %37, 0
@@ -2483,8 +2483,8 @@ _ZNK6icu_7713UnicodeStringneERKS0_.exit:          ; preds = %11
           to label %67 unwind label %86
 
 67:                                               ; preds = %60
-  %.not21 = icmp eq i8 %66, 0
-  br i1 %.not21, label %.thread, label %68
+  %.not22 = icmp eq i8 %66, 0
+  br i1 %.not22, label %.thread, label %68
 
 68:                                               ; preds = %39, %67
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 144
@@ -2916,12 +2916,12 @@ _ZN6icu_776number4impl25CurrencyPluralInfoWrapperC2ERKS2_.exit: ; preds = %_ZN6i
   br i1 %91, label %.body, label %.body.sink.split
 
 .body.sink.split:                                 ; preds = %89, %24
-  %.sink40 = phi ptr [ %26, %24 ], [ %90, %89 ]
+  %.sink43 = phi ptr [ %26, %24 ], [ %90, %89 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.ph = phi { ptr, i32 } [ %25, %24 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn, %89 ]
-  %92 = load ptr, ptr %.sink40, align 8, !tbaa !59
+  %92 = load ptr, ptr %.sink43, align 8, !tbaa !59
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 8
   %94 = load ptr, ptr %93, align 8
-  tail call void %94(ptr noundef nonnull align 8 dereferenceable(36) %.sink40) #16
+  tail call void %94(ptr noundef nonnull align 8 dereferenceable(36) %.sink43) #16
   br label %.body
 
 .body:                                            ; preds = %.body.sink.split, %89, %24

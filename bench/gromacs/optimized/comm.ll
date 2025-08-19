@@ -638,19 +638,19 @@ define noundef i32 @_Z13tMPI_Comm_dupP10tmpi_comm_PS0_(ptr noundef %0, ptr nound
   %9 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv.i
   %10 = load ptr, ptr %9, align 8, !tbaa !30
   %11 = icmp eq ptr %10, %3
-  br i1 %11, label %.loopexit.loopexit.split.loop.exit14.i, label %12
+  br i1 %11, label %.loopexit.loopexit.split.loop.exit15.i, label %12
 
 12:                                               ; preds = %8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %_Z19tMPI_Comm_seek_rankP10tmpi_comm_P11tmpi_thread.exit, label %8, !llvm.loop !60
 
-.loopexit.loopexit.split.loop.exit14.i:           ; preds = %8
+.loopexit.loopexit.split.loop.exit15.i:           ; preds = %8
   %13 = trunc nuw nsw i64 %indvars.iv.i to i32
   br label %_Z19tMPI_Comm_seek_rankP10tmpi_comm_P11tmpi_thread.exit
 
-_Z19tMPI_Comm_seek_rankP10tmpi_comm_P11tmpi_thread.exit: ; preds = %12, %2, %.preheader.i, %.loopexit.loopexit.split.loop.exit14.i
-  %.08.i = phi i32 [ -1, %2 ], [ -1, %.preheader.i ], [ %13, %.loopexit.loopexit.split.loop.exit14.i ], [ -1, %12 ]
+_Z19tMPI_Comm_seek_rankP10tmpi_comm_P11tmpi_thread.exit: ; preds = %12, %2, %.preheader.i, %.loopexit.loopexit.split.loop.exit15.i
+  %.08.i = phi i32 [ -1, %2 ], [ -1, %.preheader.i ], [ %13, %.loopexit.loopexit.split.loop.exit15.i ], [ -1, %12 ]
   %14 = tail call noundef i32 @_Z15tMPI_Comm_splitP10tmpi_comm_iiPS0_(ptr noundef %0, i32 noundef 0, i32 noundef %.08.i, ptr noundef %1)
   ret i32 %14
 }
@@ -762,19 +762,19 @@ _Z19tMPI_Comm_seek_rankP10tmpi_comm_P11tmpi_thread.exit.thread162: ; preds = %_Z
   br label %_Z11tMPI_Comm_NP10tmpi_comm_.exit144
 
 _Z11tMPI_Comm_NP10tmpi_comm_.exit144:             ; preds = %43, %40
-  %.sink242 = phi ptr [ %49, %43 ], [ %41, %40 ]
+  %.sink249 = phi ptr [ %49, %43 ], [ %41, %40 ]
   %.sink = phi ptr [ %48, %43 ], [ %6, %40 ]
-  %50 = getelementptr inbounds nuw i8, ptr %.sink242, i64 24
+  %50 = getelementptr inbounds nuw i8, ptr %.sink249, i64 24
   store ptr %.sink, ptr %50, align 8, !tbaa !65
   %51 = load i32, ptr %0, align 8, !tbaa !3
-  store volatile i32 %51, ptr %.sink242, align 8, !tbaa !66
-  %52 = getelementptr inbounds nuw i8, ptr %.sink242, i64 8
+  store volatile i32 %51, ptr %.sink249, align 8, !tbaa !66
+  %52 = getelementptr inbounds nuw i8, ptr %.sink249, i64 8
   store volatile i32 0, ptr %52, align 8, !tbaa !67
   %.pre = load ptr, ptr %31, align 8, !tbaa !61
   br label %53
 
 53:                                               ; preds = %._crit_edge227, %_Z11tMPI_Comm_NP10tmpi_comm_.exit144
-  %54 = phi ptr [ %.sink242, %_Z11tMPI_Comm_NP10tmpi_comm_.exit144 ], [ %.pre228, %._crit_edge227 ]
+  %54 = phi ptr [ %.sink249, %_Z11tMPI_Comm_NP10tmpi_comm_.exit144 ], [ %.pre228, %._crit_edge227 ]
   %55 = phi ptr [ %.pre, %_Z11tMPI_Comm_NP10tmpi_comm_.exit144 ], [ %32, %._crit_edge227 ]
   %56 = getelementptr inbounds nuw i8, ptr %54, i64 16
   %57 = load ptr, ptr %56, align 8, !tbaa !63
@@ -878,13 +878,13 @@ _Z11tMPI_Comm_NP10tmpi_comm_.exit144:             ; preds = %43, %40
   call void @llvm.memset.p0.i64(ptr align 4 %.0122170, i8 0, i64 %.pre-phi231, i1 false), !tbaa !28
   br label %.lr.ph73.i
 
-.lr.ph73.i:                                       ; preds = %._crit_edge.thread90.i, %.lr.ph73.preheader.i
-  %.0158 = phi i32 [ 0, %.lr.ph73.preheader.i ], [ %.1159, %._crit_edge.thread90.i ]
-  %indvars.iv81.i = phi i64 [ 0, %.lr.ph73.preheader.i ], [ %indvars.iv.next82.i, %._crit_edge.thread90.i ]
+.lr.ph73.i:                                       ; preds = %._crit_edge.thread95.i, %.lr.ph73.preheader.i
+  %.0158 = phi i32 [ 0, %.lr.ph73.preheader.i ], [ %.1159, %._crit_edge.thread95.i ]
+  %indvars.iv81.i = phi i64 [ 0, %.lr.ph73.preheader.i ], [ %indvars.iv.next82.i, %._crit_edge.thread95.i ]
   %104 = getelementptr inbounds nuw i32, ptr %102, i64 %indvars.iv81.i
   %105 = load i32, ptr %104, align 4, !tbaa !28
   %.not.i145 = icmp eq i32 %105, -1
-  br i1 %.not.i145, label %._crit_edge.thread90.i, label %.preheader.i146
+  br i1 %.not.i145, label %._crit_edge.thread95.i, label %.preheader.i146
 
 .preheader.i146:                                  ; preds = %.lr.ph73.i
   %106 = icmp sgt i32 %.0158, 0
@@ -901,7 +901,7 @@ _Z11tMPI_Comm_NP10tmpi_comm_.exit144:             ; preds = %43, %40
   br label %.outer.i
 
 .outer.i:                                         ; preds = %.thread.i, %.lr.ph69.i
-  %indvars.iv78.ph.i = phi i64 [ %indvars.iv.next7988.i, %.thread.i ], [ 0, %.lr.ph69.i ]
+  %indvars.iv78.ph.i = phi i64 [ %indvars.iv.next7993.i, %.thread.i ], [ 0, %.lr.ph69.i ]
   %110 = phi i1 [ false, %.thread.i ], [ true, %.lr.ph69.i ]
   %111 = load i32, ptr %104, align 4, !tbaa !28
   br label %112
@@ -962,12 +962,12 @@ _Z11tMPI_Comm_NP10tmpi_comm_.exit144:             ; preds = %43, %40
   %138 = load i32, ptr %117, align 4, !tbaa !28
   %139 = add nsw i32 %138, 1
   store i32 %139, ptr %117, align 4, !tbaa !28
-  %indvars.iv.next7988.i = add nuw nsw i64 %indvars.iv78.i, 1
-  %140 = icmp slt i64 %indvars.iv.next7988.i, %109
-  br i1 %140, label %.outer.i, label %._crit_edge.thread90.i, !llvm.loop !72
+  %indvars.iv.next7993.i = add nuw nsw i64 %indvars.iv78.i, 1
+  %140 = icmp slt i64 %indvars.iv.next7993.i, %109
+  br i1 %140, label %.outer.i, label %._crit_edge.thread95.i, !llvm.loop !72
 
 ._crit_edge.i:                                    ; preds = %131
-  br i1 %110, label %._crit_edge.thread.i, label %._crit_edge.thread90.i
+  br i1 %110, label %._crit_edge.thread.i, label %._crit_edge.thread95.i
 
 ._crit_edge.thread.i:                             ; preds = %.preheader.i146.._crit_edge.thread.i_crit_edge, %._crit_edge.i
   %.pre-phi233 = phi i32 [ %.pre232, %.preheader.i146.._crit_edge.thread.i_crit_edge ], [ %108, %._crit_edge.i ]
@@ -982,18 +982,18 @@ _Z11tMPI_Comm_NP10tmpi_comm_.exit144:             ; preds = %43, %40
   %147 = getelementptr inbounds i32, ptr %94, i64 %146
   store i32 %.pre-phi233, ptr %147, align 4, !tbaa !28
   %148 = add i32 %.0158, 1
-  br label %._crit_edge.thread90.i
+  br label %._crit_edge.thread95.i
 
-._crit_edge.thread90.i:                           ; preds = %.thread.i, %._crit_edge.thread.i, %._crit_edge.i, %.lr.ph73.i
+._crit_edge.thread95.i:                           ; preds = %.thread.i, %._crit_edge.thread.i, %._crit_edge.i, %.lr.ph73.i
   %.1159 = phi i32 [ %.0158, %.lr.ph73.i ], [ %148, %._crit_edge.thread.i ], [ %.0158, %._crit_edge.i ], [ %.0158, %.thread.i ]
   %indvars.iv.next82.i = add nuw nsw i64 %indvars.iv81.i, 1
   %exitcond.not.i147 = icmp eq i64 %indvars.iv.next82.i, %.pre-phi
   br i1 %exitcond.not.i147, label %_ZL17tMPI_Split_colorsiPKiS0_PiS1_S1_S1_.exit, label %.lr.ph73.i, !llvm.loop !73
 
-_ZL17tMPI_Split_colorsiPKiS0_PiS1_S1_S1_.exit:    ; preds = %._crit_edge.thread90.i, %100
-  %.0122169 = phi ptr [ %8, %100 ], [ %.0122170, %._crit_edge.thread90.i ]
-  %.0123167 = phi ptr [ %7, %100 ], [ %.0123168, %._crit_edge.thread90.i ]
-  %.2160 = phi i32 [ 0, %100 ], [ %.1159, %._crit_edge.thread90.i ]
+_ZL17tMPI_Split_colorsiPKiS0_PiS1_S1_S1_.exit:    ; preds = %._crit_edge.thread95.i, %100
+  %.0122169 = phi ptr [ %8, %100 ], [ %.0122170, %._crit_edge.thread95.i ]
+  %.0123167 = phi ptr [ %7, %100 ], [ %.0123168, %._crit_edge.thread95.i ]
+  %.2160 = phi i32 [ 0, %100 ], [ %.1159, %._crit_edge.thread95.i ]
   %149 = sext i32 %.2160 to i64
   %150 = shl nsw i64 %149, 3
   %151 = call noundef ptr @_Z11tMPI_Mallocm(i64 noundef %150)
@@ -1208,19 +1208,19 @@ define noundef range(i32 -2147483648, 2147483647) i32 @_Z19tMPI_Comm_seek_rankP1
   %8 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv
   %9 = load ptr, ptr %8, align 8, !tbaa !30
   %10 = icmp eq ptr %9, %1
-  br i1 %10, label %.loopexit.loopexit.split.loop.exit14, label %11
+  br i1 %10, label %.loopexit.loopexit.split.loop.exit15, label %11
 
 11:                                               ; preds = %7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %7, !llvm.loop !60
 
-.loopexit.loopexit.split.loop.exit14:             ; preds = %7
+.loopexit.loopexit.split.loop.exit15:             ; preds = %7
   %12 = trunc nuw nsw i64 %indvars.iv to i32
   br label %.loopexit
 
-.loopexit:                                        ; preds = %11, %.loopexit.loopexit.split.loop.exit14, %.preheader, %2
-  %.08 = phi i32 [ -1, %2 ], [ -1, %.preheader ], [ %12, %.loopexit.loopexit.split.loop.exit14 ], [ -1, %11 ]
+.loopexit:                                        ; preds = %11, %.loopexit.loopexit.split.loop.exit15, %.preheader, %2
+  %.08 = phi i32 [ -1, %2 ], [ -1, %.preheader ], [ %12, %.loopexit.loopexit.split.loop.exit15 ], [ -1, %11 ]
   ret i32 %.08
 }
 
@@ -1248,19 +1248,19 @@ define noundef i32 @_Z16tMPI_Comm_createP10tmpi_comm_P11tmpi_group_PS0_(ptr noun
   %10 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv.i
   %11 = load ptr, ptr %10, align 8, !tbaa !30
   %12 = icmp eq ptr %11, %4
-  br i1 %12, label %.loopexit.loopexit.split.loop.exit14.i, label %13
+  br i1 %12, label %.loopexit.loopexit.split.loop.exit15.i, label %13
 
 13:                                               ; preds = %9
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %_Z19tMPI_Comm_seek_rankP10tmpi_comm_P11tmpi_thread.exit, label %9, !llvm.loop !60
 
-.loopexit.loopexit.split.loop.exit14.i:           ; preds = %9
+.loopexit.loopexit.split.loop.exit15.i:           ; preds = %9
   %14 = trunc nuw nsw i64 %indvars.iv.i to i32
   br label %_Z19tMPI_Comm_seek_rankP10tmpi_comm_P11tmpi_thread.exit
 
-_Z19tMPI_Comm_seek_rankP10tmpi_comm_P11tmpi_thread.exit: ; preds = %13, %3, %.preheader.i, %.loopexit.loopexit.split.loop.exit14.i
-  %.08.i = phi i32 [ -1, %3 ], [ -1, %.preheader.i ], [ %14, %.loopexit.loopexit.split.loop.exit14.i ], [ -1, %13 ]
+_Z19tMPI_Comm_seek_rankP10tmpi_comm_P11tmpi_thread.exit: ; preds = %13, %3, %.preheader.i, %.loopexit.loopexit.split.loop.exit15.i
+  %.08.i = phi i32 [ -1, %3 ], [ -1, %.preheader.i ], [ %14, %.loopexit.loopexit.split.loop.exit15.i ], [ -1, %13 ]
   %15 = tail call noundef i32 @_Z13tMPI_In_groupP11tmpi_group_(ptr noundef %1)
   %.not = icmp eq i32 %15, 0
   %. = select i1 %.not, i32 -1, i32 1

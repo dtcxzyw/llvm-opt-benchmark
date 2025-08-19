@@ -260,8 +260,8 @@ define internal i32 @decode_mcus(ptr noundef %0, ptr noundef readonly captures(n
 ._crit_edge.thread:                               ; preds = %5
   %34 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %35 = load i32, ptr %34, align 8, !tbaa !68
-  %.not173 = icmp eq i32 %35, 0
-  br i1 %.not173, label %52, label %._crit_edge150
+  %.not181 = icmp eq i32 %35, 0
+  br i1 %.not181, label %52, label %._crit_edge150
 
 .lr.ph149:                                        ; preds = %._crit_edge
   %36 = getelementptr inbounds nuw i8, ptr %8, i64 168

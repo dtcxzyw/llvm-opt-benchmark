@@ -112,8 +112,8 @@ define internal void @vc2_subband_dwt_97(ptr noundef readonly captures(none) %0,
 
 .lr.ph:                                           ; preds = %25, %.lr.ph
   %indvars.iv284 = phi i64 [ %indvars.iv.next285, %.lr.ph ], [ 1, %25 ]
-  %.idx333 = shl nuw nsw i64 %indvars.iv284, 3
-  %40 = getelementptr inbounds nuw i8, ptr %.1193237, i64 %.idx333
+  %.idx342 = shl nuw nsw i64 %indvars.iv284, 3
+  %40 = getelementptr inbounds nuw i8, ptr %.1193237, i64 %.idx342
   %41 = load i32, ptr %40, align 4, !tbaa !13
   %42 = getelementptr inbounds nuw i8, ptr %40, i64 8
   %43 = load i32, ptr %42, align 4, !tbaa !13
@@ -172,8 +172,8 @@ define internal void @vc2_subband_dwt_97(ptr noundef readonly captures(none) %0,
 
 .lr.ph235:                                        ; preds = %._crit_edge, %.lr.ph235
   %indvars.iv289 = phi i64 [ %indvars.iv.next290, %.lr.ph235 ], [ 1, %._crit_edge ]
-  %.idx334 = shl i64 %indvars.iv289, 3
-  %84 = getelementptr i8, ptr %.1193237, i64 %.idx334
+  %.idx343 = shl i64 %indvars.iv289, 3
+  %84 = getelementptr i8, ptr %.1193237, i64 %.idx343
   %85 = getelementptr i8, ptr %84, i64 -4
   %86 = load i32, ptr %85, align 4, !tbaa !13
   %87 = getelementptr inbounds nuw i8, ptr %84, i64 4
@@ -534,8 +534,8 @@ define internal void @vc2_subband_dwt_53(ptr noundef readonly captures(none) %0,
 
 .lr.ph:                                           ; preds = %.preheader168, %.lr.ph
   %indvars.iv224 = phi i64 [ %indvars.iv.next225, %.lr.ph ], [ 0, %.preheader168 ]
-  %.idx273 = shl nuw nsw i64 %indvars.iv224, 3
-  %24 = getelementptr inbounds nuw i8, ptr %.1148181, i64 %.idx273
+  %.idx282 = shl nuw nsw i64 %indvars.iv224, 3
+  %24 = getelementptr inbounds nuw i8, ptr %.1148181, i64 %.idx282
   %25 = load i32, ptr %24, align 4, !tbaa !13
   %26 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %27 = load i32, ptr %26, align 4, !tbaa !13
@@ -570,8 +570,8 @@ define internal void @vc2_subband_dwt_53(ptr noundef readonly captures(none) %0,
 
 .lr.ph179:                                        ; preds = %._crit_edge, %.lr.ph179
   %indvars.iv229 = phi i64 [ %indvars.iv.next230, %.lr.ph179 ], [ 1, %._crit_edge ]
-  %.idx274 = shl i64 %indvars.iv229, 3
-  %47 = getelementptr i8, ptr %.1148181, i64 %.idx274
+  %.idx283 = shl i64 %indvars.iv229, 3
+  %47 = getelementptr i8, ptr %.1148181, i64 %.idx283
   %48 = getelementptr i8, ptr %47, i64 -4
   %49 = load i32, ptr %48, align 4, !tbaa !13
   %50 = getelementptr inbounds nuw i8, ptr %47, i64 4
@@ -743,8 +743,8 @@ define internal void @vc2_subband_dwt_53(ptr noundef readonly captures(none) %0,
   br i1 %exitcond255.not, label %.preheader165, label %.lr.ph198, !llvm.loop !41
 
 .lr.ph207.preheader:                              ; preds = %._crit_edge201.us, %.preheader165
-  %.pn289 = add nsw i64 %10, -2
-  %.pn = mul nsw i64 %.pn289, %8
+  %.pn298 = add nsw i64 %10, -2
+  %.pn = mul nsw i64 %.pn298, %8
   %127 = getelementptr inbounds i32, ptr %6, i64 %.pn
   %wide.trip.count265 = zext nneg i32 %7 to i64
   br label %.lr.ph207

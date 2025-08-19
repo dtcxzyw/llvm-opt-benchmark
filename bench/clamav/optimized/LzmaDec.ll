@@ -185,10 +185,10 @@ LzmaDec_WriteRem.exit:                            ; preds = %6, %._crit_edge.i
 .lr.ph:                                           ; preds = %.preheader195
   %umax = tail call i32 @llvm.umax.i32(i32 %.pre, i32 5)
   %wide.trip.count = zext i32 %umax to i64
-  %exitcond.not298 = icmp ugt i32 %.pre, 4
-  br i1 %exitcond.not298, label %.critedge, label %.lr.ph302
+  %exitcond.not304 = icmp ugt i32 %.pre, 4
+  br i1 %exitcond.not304, label %.critedge, label %.lr.ph308
 
-.lr.ph302:                                        ; preds = %.lr.ph
+.lr.ph308:                                        ; preds = %.lr.ph
   %73 = zext nneg i32 %.pre to i64
   br label %75
 
@@ -196,21 +196,21 @@ LzmaDec_WriteRem.exit:                            ; preds = %6, %._crit_edge.i
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.critedge, label %75
 
-75:                                               ; preds = %.lr.ph302, %74
-  %.2139216301 = phi i64 [ %.0137230, %.lr.ph302 ], [ %82, %74 ]
-  %.2126217300 = phi ptr [ %.0124231, %.lr.ph302 ], [ %76, %74 ]
-  %indvars.iv299 = phi i64 [ %73, %.lr.ph302 ], [ %indvars.iv.next, %74 ]
-  %76 = getelementptr inbounds nuw i8, ptr %.2126217300, i64 1
-  %77 = load i8, ptr %.2126217300, align 1, !tbaa !24
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv299, 1
+75:                                               ; preds = %.lr.ph308, %74
+  %.2139216307 = phi i64 [ %.0137230, %.lr.ph308 ], [ %82, %74 ]
+  %.2126217306 = phi ptr [ %.0124231, %.lr.ph308 ], [ %76, %74 ]
+  %indvars.iv305 = phi i64 [ %73, %.lr.ph308 ], [ %indvars.iv.next, %74 ]
+  %76 = getelementptr inbounds nuw i8, ptr %.2126217306, i64 1
+  %77 = load i8, ptr %.2126217306, align 1, !tbaa !24
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv305, 1
   %78 = trunc nuw nsw i64 %indvars.iv.next to i32
   store i32 %78, ptr %50, align 4, !tbaa !14
-  %79 = getelementptr inbounds nuw [20 x i8], ptr %51, i64 0, i64 %indvars.iv299
+  %79 = getelementptr inbounds nuw [20 x i8], ptr %51, i64 0, i64 %indvars.iv305
   store i8 %77, ptr %79, align 1, !tbaa !24
   %80 = load i64, ptr %3, align 8, !tbaa !19
   %81 = add i64 %80, 1
   store i64 %81, ptr %3, align 8, !tbaa !19
-  %82 = add i64 %.2139216301, -1
+  %82 = add i64 %.2139216307, -1
   %.not156 = icmp eq i64 %82, 0
   br i1 %.not156, label %.critedge, label %74
 
@@ -2773,8 +2773,8 @@ define internal fastcc range(i32 0, 2) i32 @LzmaDec_DecodeReal2(ptr noundef capt
   %880 = icmp ult ptr %879, %2
   %.pre70 = load i32, ptr %21, align 4, !tbaa !13
   %881 = icmp ult i32 %.pre70, 274
-  %or.cond83 = select i1 %880, i1 %881, i1 false
-  br i1 %or.cond83, label %22, label %.critedge
+  %or.cond143 = select i1 %880, i1 %881, i1 false
+  br i1 %or.cond143, label %22, label %.critedge
 
 .critedge:                                        ; preds = %878, %..critedge_crit_edge
   %882 = phi i32 [ %.pre69, %..critedge_crit_edge ], [ %.pre70, %878 ]

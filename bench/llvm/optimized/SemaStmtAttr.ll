@@ -3118,9 +3118,9 @@ _ZN5clanglsIPNS_4ExprEEERKNS_8SemaBase21SemaDiagnosticBuilderES6_RKT_.exit: ; pr
 .thread.thread:                                   ; preds = %55
   %704 = load ptr, ptr %16, align 8, !tbaa !717
   %705 = icmp eq ptr %704, null
-  br i1 %705, label %.sink.split, label %.thread170
+  br i1 %705, label %.sink.split, label %.thread227
 
-.thread170:                                       ; preds = %.thread.thread
+.thread227:                                       ; preds = %.thread.thread
   call void @_ZdaPv(ptr noundef nonnull %704) #20
   br label %.sink.split
 
@@ -3133,7 +3133,7 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %700, %.thread
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br i1 %.08.ph, label %730, label %707
 
-.sink.split:                                      ; preds = %.thread.thread, %.thread170
+.sink.split:                                      ; preds = %.thread.thread, %.thread227
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %707
 
@@ -3301,8 +3301,8 @@ define dso_local void @_ZN5clang4Sema21ProcessStmtAttributesEPNS_4StmtERKNS_16Pa
   %110 = zext i32 %109 to i64
   %.idx = shl nuw nsw i64 %110, 3
   %111 = getelementptr inbounds nuw i8, ptr %107, i64 %.idx
-  %.not406417 = icmp eq i32 %109, 0
-  br i1 %.not406417, label %._crit_edge, label %.lr.ph
+  %.not406415 = icmp eq i32 %109, 0
+  br i1 %.not406415, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4
   %112 = getelementptr inbounds nuw i8, ptr %0, i64 248
@@ -3512,7 +3512,7 @@ define dso_local void @_ZN5clang4Sema21ProcessStmtAttributesEPNS_4StmtERKNS_16Pa
   %258 = getelementptr i8, ptr %.val30.i.i.i.i.i.i, i64 32
   %.val30.val.i.i.i.i.i.i = load i16, ptr %258, align 8
   %259 = icmp eq i16 %.val30.val.i.i.i.i.i.i, 283
-  br i1 %259, label %"_ZN4llvm7find_ifIRKNS_15SmallVectorImplIPKN5clang4AttrEEEZL24DiagnoseMutualExclusionsRNS2_4SemaES8_E3$_0EEDaOT_T0_.exit.i.i.loopexit.split.loop.exit475", label %260
+  br i1 %259, label %"_ZN4llvm7find_ifIRKNS_15SmallVectorImplIPKN5clang4AttrEEEZL24DiagnoseMutualExclusionsRNS2_4SemaES8_E3$_0EEDaOT_T0_.exit.i.i.loopexit.split.loop.exit722", label %260
 
 260:                                              ; preds = %256
   %261 = getelementptr inbounds nuw i8, ptr %.02943.i.i.i.i.i.i, i64 24
@@ -3520,7 +3520,7 @@ define dso_local void @_ZN5clang4Sema21ProcessStmtAttributesEPNS_4StmtERKNS_16Pa
   %262 = getelementptr i8, ptr %.val31.i.i.i.i.i.i, i64 32
   %.val31.val.i.i.i.i.i.i = load i16, ptr %262, align 8
   %263 = icmp eq i16 %.val31.val.i.i.i.i.i.i, 283
-  br i1 %263, label %"_ZN4llvm7find_ifIRKNS_15SmallVectorImplIPKN5clang4AttrEEEZL24DiagnoseMutualExclusionsRNS2_4SemaES8_E3$_0EEDaOT_T0_.exit.i.i.loopexit.split.loop.exit477", label %264
+  br i1 %263, label %"_ZN4llvm7find_ifIRKNS_15SmallVectorImplIPKN5clang4AttrEEEZL24DiagnoseMutualExclusionsRNS2_4SemaES8_E3$_0EEDaOT_T0_.exit.i.i.loopexit.split.loop.exit724", label %264
 
 264:                                              ; preds = %260
   %265 = getelementptr inbounds nuw i8, ptr %.02943.i.i.i.i.i.i, i64 32
@@ -3531,7 +3531,7 @@ define dso_local void @_ZN5clang4Sema21ProcessStmtAttributesEPNS_4StmtERKNS_16Pa
 ._crit_edge.i.i.i.i.i.i:                          ; preds = %264, %249
   %.pre-phi50.i.i.i.i.i.i = phi i32 [ %235, %249 ], [ %242, %264 ]
   %.029.lcssa.i.i.i.i.i.i = phi ptr [ %238, %249 ], [ %scevgep.i.i.i.i.i.i, %264 ]
-  switch i32 %.pre-phi50.i.i.i.i.i.i, label %._crit_edge.i.i.i.unreachabledefault.i.i.i [
+  switch i32 %.pre-phi50.i.i.i.i.i.i, label %default.unreachable [
     i32 3, label %268
     i32 2, label %273
     i32 1, label %278
@@ -3569,7 +3569,7 @@ define dso_local void @_ZN5clang4Sema21ProcessStmtAttributesEPNS_4StmtERKNS_16Pa
   %280 = icmp eq i16 %.2.val.val.i.i.i.i.i.i, 283
   br i1 %280, label %"_ZN4llvm7find_ifIRKNS_15SmallVectorImplIPKN5clang4AttrEEEZL24DiagnoseMutualExclusionsRNS2_4SemaES8_E3$_0EEDaOT_T0_.exit.i.i", label %281
 
-._crit_edge.i.i.i.unreachabledefault.i.i.i:       ; preds = %._crit_edge.i.i.i.i.i.i
+default.unreachable:                              ; preds = %._crit_edge.i.i.i.i151.i.i, %._crit_edge.i.i.i.i109.i.i, %._crit_edge.i.i.i.i.i.i
   unreachable
 
 281:                                              ; preds = %278, %._crit_edge.i.i.i.i.i.i
@@ -3579,16 +3579,16 @@ define dso_local void @_ZN5clang4Sema21ProcessStmtAttributesEPNS_4StmtERKNS_16Pa
   %282 = getelementptr inbounds nuw i8, ptr %.02943.i.i.i.i.i.i, i64 8
   br label %"_ZN4llvm7find_ifIRKNS_15SmallVectorImplIPKN5clang4AttrEEEZL24DiagnoseMutualExclusionsRNS2_4SemaES8_E3$_0EEDaOT_T0_.exit.i.i"
 
-"_ZN4llvm7find_ifIRKNS_15SmallVectorImplIPKN5clang4AttrEEEZL24DiagnoseMutualExclusionsRNS2_4SemaES8_E3$_0EEDaOT_T0_.exit.i.i.loopexit.split.loop.exit475": ; preds = %256
+"_ZN4llvm7find_ifIRKNS_15SmallVectorImplIPKN5clang4AttrEEEZL24DiagnoseMutualExclusionsRNS2_4SemaES8_E3$_0EEDaOT_T0_.exit.i.i.loopexit.split.loop.exit722": ; preds = %256
   %283 = getelementptr inbounds nuw i8, ptr %.02943.i.i.i.i.i.i, i64 16
   br label %"_ZN4llvm7find_ifIRKNS_15SmallVectorImplIPKN5clang4AttrEEEZL24DiagnoseMutualExclusionsRNS2_4SemaES8_E3$_0EEDaOT_T0_.exit.i.i"
 
-"_ZN4llvm7find_ifIRKNS_15SmallVectorImplIPKN5clang4AttrEEEZL24DiagnoseMutualExclusionsRNS2_4SemaES8_E3$_0EEDaOT_T0_.exit.i.i.loopexit.split.loop.exit477": ; preds = %260
+"_ZN4llvm7find_ifIRKNS_15SmallVectorImplIPKN5clang4AttrEEEZL24DiagnoseMutualExclusionsRNS2_4SemaES8_E3$_0EEDaOT_T0_.exit.i.i.loopexit.split.loop.exit724": ; preds = %260
   %284 = getelementptr inbounds nuw i8, ptr %.02943.i.i.i.i.i.i, i64 24
   br label %"_ZN4llvm7find_ifIRKNS_15SmallVectorImplIPKN5clang4AttrEEEZL24DiagnoseMutualExclusionsRNS2_4SemaES8_E3$_0EEDaOT_T0_.exit.i.i"
 
-"_ZN4llvm7find_ifIRKNS_15SmallVectorImplIPKN5clang4AttrEEEZL24DiagnoseMutualExclusionsRNS2_4SemaES8_E3$_0EEDaOT_T0_.exit.i.i": ; preds = %.lr.ph.i.i.i.i.i.i, %"_ZN4llvm7find_ifIRKNS_15SmallVectorImplIPKN5clang4AttrEEEZL24DiagnoseMutualExclusionsRNS2_4SemaES8_E3$_0EEDaOT_T0_.exit.i.i.loopexit.split.loop.exit", %"_ZN4llvm7find_ifIRKNS_15SmallVectorImplIPKN5clang4AttrEEEZL24DiagnoseMutualExclusionsRNS2_4SemaES8_E3$_0EEDaOT_T0_.exit.i.i.loopexit.split.loop.exit475", %"_ZN4llvm7find_ifIRKNS_15SmallVectorImplIPKN5clang4AttrEEEZL24DiagnoseMutualExclusionsRNS2_4SemaES8_E3$_0EEDaOT_T0_.exit.i.i.loopexit.split.loop.exit477", %281, %278, %273, %268
-  %.028.i.i.i.i.i.i = phi ptr [ %239, %281 ], [ %.029.lcssa.i.i.i.i.i.i, %268 ], [ %.1.i.i.i.i.i.i, %273 ], [ %.2.i.i.i.i.i.i, %278 ], [ %282, %"_ZN4llvm7find_ifIRKNS_15SmallVectorImplIPKN5clang4AttrEEEZL24DiagnoseMutualExclusionsRNS2_4SemaES8_E3$_0EEDaOT_T0_.exit.i.i.loopexit.split.loop.exit" ], [ %283, %"_ZN4llvm7find_ifIRKNS_15SmallVectorImplIPKN5clang4AttrEEEZL24DiagnoseMutualExclusionsRNS2_4SemaES8_E3$_0EEDaOT_T0_.exit.i.i.loopexit.split.loop.exit475" ], [ %284, %"_ZN4llvm7find_ifIRKNS_15SmallVectorImplIPKN5clang4AttrEEEZL24DiagnoseMutualExclusionsRNS2_4SemaES8_E3$_0EEDaOT_T0_.exit.i.i.loopexit.split.loop.exit477" ], [ %.02943.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i ]
+"_ZN4llvm7find_ifIRKNS_15SmallVectorImplIPKN5clang4AttrEEEZL24DiagnoseMutualExclusionsRNS2_4SemaES8_E3$_0EEDaOT_T0_.exit.i.i": ; preds = %.lr.ph.i.i.i.i.i.i, %"_ZN4llvm7find_ifIRKNS_15SmallVectorImplIPKN5clang4AttrEEEZL24DiagnoseMutualExclusionsRNS2_4SemaES8_E3$_0EEDaOT_T0_.exit.i.i.loopexit.split.loop.exit", %"_ZN4llvm7find_ifIRKNS_15SmallVectorImplIPKN5clang4AttrEEEZL24DiagnoseMutualExclusionsRNS2_4SemaES8_E3$_0EEDaOT_T0_.exit.i.i.loopexit.split.loop.exit722", %"_ZN4llvm7find_ifIRKNS_15SmallVectorImplIPKN5clang4AttrEEEZL24DiagnoseMutualExclusionsRNS2_4SemaES8_E3$_0EEDaOT_T0_.exit.i.i.loopexit.split.loop.exit724", %281, %278, %273, %268
+  %.028.i.i.i.i.i.i = phi ptr [ %239, %281 ], [ %.029.lcssa.i.i.i.i.i.i, %268 ], [ %.1.i.i.i.i.i.i, %273 ], [ %.2.i.i.i.i.i.i, %278 ], [ %282, %"_ZN4llvm7find_ifIRKNS_15SmallVectorImplIPKN5clang4AttrEEEZL24DiagnoseMutualExclusionsRNS2_4SemaES8_E3$_0EEDaOT_T0_.exit.i.i.loopexit.split.loop.exit" ], [ %283, %"_ZN4llvm7find_ifIRKNS_15SmallVectorImplIPKN5clang4AttrEEEZL24DiagnoseMutualExclusionsRNS2_4SemaES8_E3$_0EEDaOT_T0_.exit.i.i.loopexit.split.loop.exit722" ], [ %284, %"_ZN4llvm7find_ifIRKNS_15SmallVectorImplIPKN5clang4AttrEEEZL24DiagnoseMutualExclusionsRNS2_4SemaES8_E3$_0EEDaOT_T0_.exit.i.i.loopexit.split.loop.exit724" ], [ %.02943.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i ]
   %.not66.i.i = icmp eq ptr %.028.i.i.i.i.i.i, %243
   br i1 %.not66.i.i, label %.critedge72.i.i, label %285
 
@@ -4149,7 +4149,7 @@ _ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i89.i.i: ; preds = 
   %557 = getelementptr i8, ptr %.val30.i.i.i.i104.i.i, i64 32
   %.val30.val.i.i.i.i105.i.i = load i16, ptr %557, align 8
   %558 = icmp eq i16 %.val30.val.i.i.i.i105.i.i, 48
-  br i1 %558, label %"_ZN4llvm7find_ifIRKNS_15SmallVectorImplIPKN5clang4AttrEEEZL24DiagnoseMutualExclusionsRNS2_4SemaES8_E3$_1EEDaOT_T0_.exit.i.i.loopexit.split.loop.exit483", label %559
+  br i1 %558, label %"_ZN4llvm7find_ifIRKNS_15SmallVectorImplIPKN5clang4AttrEEEZL24DiagnoseMutualExclusionsRNS2_4SemaES8_E3$_1EEDaOT_T0_.exit.i.i.loopexit.split.loop.exit730", label %559
 
 559:                                              ; preds = %555
   %560 = getelementptr inbounds nuw i8, ptr %.02943.i.i.i.i99.i.i, i64 24
@@ -4157,7 +4157,7 @@ _ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i89.i.i: ; preds = 
   %561 = getelementptr i8, ptr %.val31.i.i.i.i106.i.i, i64 32
   %.val31.val.i.i.i.i107.i.i = load i16, ptr %561, align 8
   %562 = icmp eq i16 %.val31.val.i.i.i.i107.i.i, 48
-  br i1 %562, label %"_ZN4llvm7find_ifIRKNS_15SmallVectorImplIPKN5clang4AttrEEEZL24DiagnoseMutualExclusionsRNS2_4SemaES8_E3$_1EEDaOT_T0_.exit.i.i.loopexit.split.loop.exit485", label %563
+  br i1 %562, label %"_ZN4llvm7find_ifIRKNS_15SmallVectorImplIPKN5clang4AttrEEEZL24DiagnoseMutualExclusionsRNS2_4SemaES8_E3$_1EEDaOT_T0_.exit.i.i.loopexit.split.loop.exit732", label %563
 
 563:                                              ; preds = %559
   %564 = getelementptr inbounds nuw i8, ptr %.02943.i.i.i.i99.i.i, i64 32
@@ -4168,7 +4168,7 @@ _ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i89.i.i: ; preds = 
 ._crit_edge.i.i.i.i109.i.i:                       ; preds = %563, %548
   %.pre-phi50.i.i.i.i110.i.i = phi i32 [ %235, %548 ], [ %242, %563 ]
   %.029.lcssa.i.i.i.i111.i.i = phi ptr [ %238, %548 ], [ %scevgep.i.i.i.i.i.i, %563 ]
-  switch i32 %.pre-phi50.i.i.i.i110.i.i, label %._crit_edge.i.i.i.unreachabledefault.i121.i.i [
+  switch i32 %.pre-phi50.i.i.i.i110.i.i, label %default.unreachable [
     i32 3, label %567
     i32 2, label %572
     i32 1, label %577
@@ -4206,9 +4206,6 @@ _ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i89.i.i: ; preds = 
   %579 = icmp eq i16 %.2.val.val.i.i.i.i115.i.i, 48
   br i1 %579, label %"_ZN4llvm7find_ifIRKNS_15SmallVectorImplIPKN5clang4AttrEEEZL24DiagnoseMutualExclusionsRNS2_4SemaES8_E3$_1EEDaOT_T0_.exit.i.i", label %580
 
-._crit_edge.i.i.i.unreachabledefault.i121.i.i:    ; preds = %._crit_edge.i.i.i.i109.i.i
-  unreachable
-
 580:                                              ; preds = %577, %._crit_edge.i.i.i.i109.i.i
   br label %"_ZN4llvm7find_ifIRKNS_15SmallVectorImplIPKN5clang4AttrEEEZL24DiagnoseMutualExclusionsRNS2_4SemaES8_E3$_1EEDaOT_T0_.exit.i.i"
 
@@ -4216,16 +4213,16 @@ _ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i89.i.i: ; preds = 
   %581 = getelementptr inbounds nuw i8, ptr %.02943.i.i.i.i99.i.i, i64 8
   br label %"_ZN4llvm7find_ifIRKNS_15SmallVectorImplIPKN5clang4AttrEEEZL24DiagnoseMutualExclusionsRNS2_4SemaES8_E3$_1EEDaOT_T0_.exit.i.i"
 
-"_ZN4llvm7find_ifIRKNS_15SmallVectorImplIPKN5clang4AttrEEEZL24DiagnoseMutualExclusionsRNS2_4SemaES8_E3$_1EEDaOT_T0_.exit.i.i.loopexit.split.loop.exit483": ; preds = %555
+"_ZN4llvm7find_ifIRKNS_15SmallVectorImplIPKN5clang4AttrEEEZL24DiagnoseMutualExclusionsRNS2_4SemaES8_E3$_1EEDaOT_T0_.exit.i.i.loopexit.split.loop.exit730": ; preds = %555
   %582 = getelementptr inbounds nuw i8, ptr %.02943.i.i.i.i99.i.i, i64 16
   br label %"_ZN4llvm7find_ifIRKNS_15SmallVectorImplIPKN5clang4AttrEEEZL24DiagnoseMutualExclusionsRNS2_4SemaES8_E3$_1EEDaOT_T0_.exit.i.i"
 
-"_ZN4llvm7find_ifIRKNS_15SmallVectorImplIPKN5clang4AttrEEEZL24DiagnoseMutualExclusionsRNS2_4SemaES8_E3$_1EEDaOT_T0_.exit.i.i.loopexit.split.loop.exit485": ; preds = %559
+"_ZN4llvm7find_ifIRKNS_15SmallVectorImplIPKN5clang4AttrEEEZL24DiagnoseMutualExclusionsRNS2_4SemaES8_E3$_1EEDaOT_T0_.exit.i.i.loopexit.split.loop.exit732": ; preds = %559
   %583 = getelementptr inbounds nuw i8, ptr %.02943.i.i.i.i99.i.i, i64 24
   br label %"_ZN4llvm7find_ifIRKNS_15SmallVectorImplIPKN5clang4AttrEEEZL24DiagnoseMutualExclusionsRNS2_4SemaES8_E3$_1EEDaOT_T0_.exit.i.i"
 
-"_ZN4llvm7find_ifIRKNS_15SmallVectorImplIPKN5clang4AttrEEEZL24DiagnoseMutualExclusionsRNS2_4SemaES8_E3$_1EEDaOT_T0_.exit.i.i": ; preds = %.lr.ph.i.i.i.i97.i.i, %"_ZN4llvm7find_ifIRKNS_15SmallVectorImplIPKN5clang4AttrEEEZL24DiagnoseMutualExclusionsRNS2_4SemaES8_E3$_1EEDaOT_T0_.exit.i.i.loopexit.split.loop.exit", %"_ZN4llvm7find_ifIRKNS_15SmallVectorImplIPKN5clang4AttrEEEZL24DiagnoseMutualExclusionsRNS2_4SemaES8_E3$_1EEDaOT_T0_.exit.i.i.loopexit.split.loop.exit483", %"_ZN4llvm7find_ifIRKNS_15SmallVectorImplIPKN5clang4AttrEEEZL24DiagnoseMutualExclusionsRNS2_4SemaES8_E3$_1EEDaOT_T0_.exit.i.i.loopexit.split.loop.exit485", %580, %577, %572, %567
-  %.028.i.i.i.i112.i.i = phi ptr [ %239, %580 ], [ %.029.lcssa.i.i.i.i111.i.i, %567 ], [ %.1.i.i.i.i116.i.i, %572 ], [ %.2.i.i.i.i113.i.i, %577 ], [ %581, %"_ZN4llvm7find_ifIRKNS_15SmallVectorImplIPKN5clang4AttrEEEZL24DiagnoseMutualExclusionsRNS2_4SemaES8_E3$_1EEDaOT_T0_.exit.i.i.loopexit.split.loop.exit" ], [ %582, %"_ZN4llvm7find_ifIRKNS_15SmallVectorImplIPKN5clang4AttrEEEZL24DiagnoseMutualExclusionsRNS2_4SemaES8_E3$_1EEDaOT_T0_.exit.i.i.loopexit.split.loop.exit483" ], [ %583, %"_ZN4llvm7find_ifIRKNS_15SmallVectorImplIPKN5clang4AttrEEEZL24DiagnoseMutualExclusionsRNS2_4SemaES8_E3$_1EEDaOT_T0_.exit.i.i.loopexit.split.loop.exit485" ], [ %.02943.i.i.i.i99.i.i, %.lr.ph.i.i.i.i97.i.i ]
+"_ZN4llvm7find_ifIRKNS_15SmallVectorImplIPKN5clang4AttrEEEZL24DiagnoseMutualExclusionsRNS2_4SemaES8_E3$_1EEDaOT_T0_.exit.i.i": ; preds = %.lr.ph.i.i.i.i97.i.i, %"_ZN4llvm7find_ifIRKNS_15SmallVectorImplIPKN5clang4AttrEEEZL24DiagnoseMutualExclusionsRNS2_4SemaES8_E3$_1EEDaOT_T0_.exit.i.i.loopexit.split.loop.exit", %"_ZN4llvm7find_ifIRKNS_15SmallVectorImplIPKN5clang4AttrEEEZL24DiagnoseMutualExclusionsRNS2_4SemaES8_E3$_1EEDaOT_T0_.exit.i.i.loopexit.split.loop.exit730", %"_ZN4llvm7find_ifIRKNS_15SmallVectorImplIPKN5clang4AttrEEEZL24DiagnoseMutualExclusionsRNS2_4SemaES8_E3$_1EEDaOT_T0_.exit.i.i.loopexit.split.loop.exit732", %580, %577, %572, %567
+  %.028.i.i.i.i112.i.i = phi ptr [ %239, %580 ], [ %.029.lcssa.i.i.i.i111.i.i, %567 ], [ %.1.i.i.i.i116.i.i, %572 ], [ %.2.i.i.i.i113.i.i, %577 ], [ %581, %"_ZN4llvm7find_ifIRKNS_15SmallVectorImplIPKN5clang4AttrEEEZL24DiagnoseMutualExclusionsRNS2_4SemaES8_E3$_1EEDaOT_T0_.exit.i.i.loopexit.split.loop.exit" ], [ %582, %"_ZN4llvm7find_ifIRKNS_15SmallVectorImplIPKN5clang4AttrEEEZL24DiagnoseMutualExclusionsRNS2_4SemaES8_E3$_1EEDaOT_T0_.exit.i.i.loopexit.split.loop.exit730" ], [ %583, %"_ZN4llvm7find_ifIRKNS_15SmallVectorImplIPKN5clang4AttrEEEZL24DiagnoseMutualExclusionsRNS2_4SemaES8_E3$_1EEDaOT_T0_.exit.i.i.loopexit.split.loop.exit732" ], [ %.02943.i.i.i.i99.i.i, %.lr.ph.i.i.i.i97.i.i ]
   %.not68.i.i = icmp eq ptr %.028.i.i.i.i112.i.i, %243
   br i1 %.not68.i.i, label %.critedge76.i.i, label %584
 
@@ -4786,7 +4783,7 @@ _ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i130.i.i: ; preds =
   %856 = getelementptr i8, ptr %.val30.i.i.i.i146.i.i, i64 32
   %.val30.val.i.i.i.i147.i.i = load i16, ptr %856, align 8
   %857 = icmp eq i16 %.val30.val.i.i.i.i147.i.i, 45
-  br i1 %857, label %"_ZN4llvm7find_ifIRKNS_15SmallVectorImplIPKN5clang4AttrEEEZL24DiagnoseMutualExclusionsRNS2_4SemaES8_E3$_2EEDaOT_T0_.exit.i.i.loopexit.split.loop.exit491", label %858
+  br i1 %857, label %"_ZN4llvm7find_ifIRKNS_15SmallVectorImplIPKN5clang4AttrEEEZL24DiagnoseMutualExclusionsRNS2_4SemaES8_E3$_2EEDaOT_T0_.exit.i.i.loopexit.split.loop.exit738", label %858
 
 858:                                              ; preds = %854
   %859 = getelementptr inbounds nuw i8, ptr %.02943.i.i.i.i141.i.i, i64 24
@@ -4794,7 +4791,7 @@ _ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i130.i.i: ; preds =
   %860 = getelementptr i8, ptr %.val31.i.i.i.i148.i.i, i64 32
   %.val31.val.i.i.i.i149.i.i = load i16, ptr %860, align 8
   %861 = icmp eq i16 %.val31.val.i.i.i.i149.i.i, 45
-  br i1 %861, label %"_ZN4llvm7find_ifIRKNS_15SmallVectorImplIPKN5clang4AttrEEEZL24DiagnoseMutualExclusionsRNS2_4SemaES8_E3$_2EEDaOT_T0_.exit.i.i.loopexit.split.loop.exit493", label %862
+  br i1 %861, label %"_ZN4llvm7find_ifIRKNS_15SmallVectorImplIPKN5clang4AttrEEEZL24DiagnoseMutualExclusionsRNS2_4SemaES8_E3$_2EEDaOT_T0_.exit.i.i.loopexit.split.loop.exit740", label %862
 
 862:                                              ; preds = %858
   %863 = getelementptr inbounds nuw i8, ptr %.02943.i.i.i.i141.i.i, i64 32
@@ -4805,7 +4802,7 @@ _ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i130.i.i: ; preds =
 ._crit_edge.i.i.i.i151.i.i:                       ; preds = %862, %847
   %.pre-phi50.i.i.i.i152.i.i = phi i32 [ %235, %847 ], [ %242, %862 ]
   %.029.lcssa.i.i.i.i153.i.i = phi ptr [ %238, %847 ], [ %scevgep.i.i.i.i.i.i, %862 ]
-  switch i32 %.pre-phi50.i.i.i.i152.i.i, label %._crit_edge.i.i.i.unreachabledefault.i163.i.i [
+  switch i32 %.pre-phi50.i.i.i.i152.i.i, label %default.unreachable [
     i32 3, label %866
     i32 2, label %871
     i32 1, label %876
@@ -4843,9 +4840,6 @@ _ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i130.i.i: ; preds =
   %878 = icmp eq i16 %.2.val.val.i.i.i.i157.i.i, 45
   br i1 %878, label %"_ZN4llvm7find_ifIRKNS_15SmallVectorImplIPKN5clang4AttrEEEZL24DiagnoseMutualExclusionsRNS2_4SemaES8_E3$_2EEDaOT_T0_.exit.i.i", label %879
 
-._crit_edge.i.i.i.unreachabledefault.i163.i.i:    ; preds = %._crit_edge.i.i.i.i151.i.i
-  unreachable
-
 879:                                              ; preds = %876, %._crit_edge.i.i.i.i151.i.i
   br label %"_ZN4llvm7find_ifIRKNS_15SmallVectorImplIPKN5clang4AttrEEEZL24DiagnoseMutualExclusionsRNS2_4SemaES8_E3$_2EEDaOT_T0_.exit.i.i"
 
@@ -4853,16 +4847,16 @@ _ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i130.i.i: ; preds =
   %880 = getelementptr inbounds nuw i8, ptr %.02943.i.i.i.i141.i.i, i64 8
   br label %"_ZN4llvm7find_ifIRKNS_15SmallVectorImplIPKN5clang4AttrEEEZL24DiagnoseMutualExclusionsRNS2_4SemaES8_E3$_2EEDaOT_T0_.exit.i.i"
 
-"_ZN4llvm7find_ifIRKNS_15SmallVectorImplIPKN5clang4AttrEEEZL24DiagnoseMutualExclusionsRNS2_4SemaES8_E3$_2EEDaOT_T0_.exit.i.i.loopexit.split.loop.exit491": ; preds = %854
+"_ZN4llvm7find_ifIRKNS_15SmallVectorImplIPKN5clang4AttrEEEZL24DiagnoseMutualExclusionsRNS2_4SemaES8_E3$_2EEDaOT_T0_.exit.i.i.loopexit.split.loop.exit738": ; preds = %854
   %881 = getelementptr inbounds nuw i8, ptr %.02943.i.i.i.i141.i.i, i64 16
   br label %"_ZN4llvm7find_ifIRKNS_15SmallVectorImplIPKN5clang4AttrEEEZL24DiagnoseMutualExclusionsRNS2_4SemaES8_E3$_2EEDaOT_T0_.exit.i.i"
 
-"_ZN4llvm7find_ifIRKNS_15SmallVectorImplIPKN5clang4AttrEEEZL24DiagnoseMutualExclusionsRNS2_4SemaES8_E3$_2EEDaOT_T0_.exit.i.i.loopexit.split.loop.exit493": ; preds = %858
+"_ZN4llvm7find_ifIRKNS_15SmallVectorImplIPKN5clang4AttrEEEZL24DiagnoseMutualExclusionsRNS2_4SemaES8_E3$_2EEDaOT_T0_.exit.i.i.loopexit.split.loop.exit740": ; preds = %858
   %882 = getelementptr inbounds nuw i8, ptr %.02943.i.i.i.i141.i.i, i64 24
   br label %"_ZN4llvm7find_ifIRKNS_15SmallVectorImplIPKN5clang4AttrEEEZL24DiagnoseMutualExclusionsRNS2_4SemaES8_E3$_2EEDaOT_T0_.exit.i.i"
 
-"_ZN4llvm7find_ifIRKNS_15SmallVectorImplIPKN5clang4AttrEEEZL24DiagnoseMutualExclusionsRNS2_4SemaES8_E3$_2EEDaOT_T0_.exit.i.i": ; preds = %.lr.ph.i.i.i.i139.i.i, %"_ZN4llvm7find_ifIRKNS_15SmallVectorImplIPKN5clang4AttrEEEZL24DiagnoseMutualExclusionsRNS2_4SemaES8_E3$_2EEDaOT_T0_.exit.i.i.loopexit.split.loop.exit", %"_ZN4llvm7find_ifIRKNS_15SmallVectorImplIPKN5clang4AttrEEEZL24DiagnoseMutualExclusionsRNS2_4SemaES8_E3$_2EEDaOT_T0_.exit.i.i.loopexit.split.loop.exit491", %"_ZN4llvm7find_ifIRKNS_15SmallVectorImplIPKN5clang4AttrEEEZL24DiagnoseMutualExclusionsRNS2_4SemaES8_E3$_2EEDaOT_T0_.exit.i.i.loopexit.split.loop.exit493", %879, %876, %871, %866
-  %.028.i.i.i.i154.i.i = phi ptr [ %239, %879 ], [ %.029.lcssa.i.i.i.i153.i.i, %866 ], [ %.1.i.i.i.i158.i.i, %871 ], [ %.2.i.i.i.i155.i.i, %876 ], [ %880, %"_ZN4llvm7find_ifIRKNS_15SmallVectorImplIPKN5clang4AttrEEEZL24DiagnoseMutualExclusionsRNS2_4SemaES8_E3$_2EEDaOT_T0_.exit.i.i.loopexit.split.loop.exit" ], [ %881, %"_ZN4llvm7find_ifIRKNS_15SmallVectorImplIPKN5clang4AttrEEEZL24DiagnoseMutualExclusionsRNS2_4SemaES8_E3$_2EEDaOT_T0_.exit.i.i.loopexit.split.loop.exit491" ], [ %882, %"_ZN4llvm7find_ifIRKNS_15SmallVectorImplIPKN5clang4AttrEEEZL24DiagnoseMutualExclusionsRNS2_4SemaES8_E3$_2EEDaOT_T0_.exit.i.i.loopexit.split.loop.exit493" ], [ %.02943.i.i.i.i141.i.i, %.lr.ph.i.i.i.i139.i.i ]
+"_ZN4llvm7find_ifIRKNS_15SmallVectorImplIPKN5clang4AttrEEEZL24DiagnoseMutualExclusionsRNS2_4SemaES8_E3$_2EEDaOT_T0_.exit.i.i": ; preds = %.lr.ph.i.i.i.i139.i.i, %"_ZN4llvm7find_ifIRKNS_15SmallVectorImplIPKN5clang4AttrEEEZL24DiagnoseMutualExclusionsRNS2_4SemaES8_E3$_2EEDaOT_T0_.exit.i.i.loopexit.split.loop.exit", %"_ZN4llvm7find_ifIRKNS_15SmallVectorImplIPKN5clang4AttrEEEZL24DiagnoseMutualExclusionsRNS2_4SemaES8_E3$_2EEDaOT_T0_.exit.i.i.loopexit.split.loop.exit738", %"_ZN4llvm7find_ifIRKNS_15SmallVectorImplIPKN5clang4AttrEEEZL24DiagnoseMutualExclusionsRNS2_4SemaES8_E3$_2EEDaOT_T0_.exit.i.i.loopexit.split.loop.exit740", %879, %876, %871, %866
+  %.028.i.i.i.i154.i.i = phi ptr [ %239, %879 ], [ %.029.lcssa.i.i.i.i153.i.i, %866 ], [ %.1.i.i.i.i158.i.i, %871 ], [ %.2.i.i.i.i155.i.i, %876 ], [ %880, %"_ZN4llvm7find_ifIRKNS_15SmallVectorImplIPKN5clang4AttrEEEZL24DiagnoseMutualExclusionsRNS2_4SemaES8_E3$_2EEDaOT_T0_.exit.i.i.loopexit.split.loop.exit" ], [ %881, %"_ZN4llvm7find_ifIRKNS_15SmallVectorImplIPKN5clang4AttrEEEZL24DiagnoseMutualExclusionsRNS2_4SemaES8_E3$_2EEDaOT_T0_.exit.i.i.loopexit.split.loop.exit738" ], [ %882, %"_ZN4llvm7find_ifIRKNS_15SmallVectorImplIPKN5clang4AttrEEEZL24DiagnoseMutualExclusionsRNS2_4SemaES8_E3$_2EEDaOT_T0_.exit.i.i.loopexit.split.loop.exit740" ], [ %.02943.i.i.i.i141.i.i, %.lr.ph.i.i.i.i139.i.i ]
   %.not70.i.i = icmp eq ptr %.028.i.i.i.i154.i.i, %243
   br i1 %.not70.i.i, label %.critedge78.i.i, label %883
 
@@ -5441,8 +5435,8 @@ _ZL24DiagnoseMutualExclusionsRN5clang4SemaERKN4llvm15SmallVectorImplIPKNS_4AttrE
   br label %_ZL30CheckForIncompatibleAttributesRN5clang4SemaERKN4llvm15SmallVectorImplIPKNS_4AttrEEE.exit
 
 1169:                                             ; preds = %1544, %.lr.ph.i
-  %.0161.i = phi ptr [ %238, %.lr.ph.i ], [ %1545, %1544 ]
-  %1170 = load ptr, ptr %.0161.i, align 8, !tbaa !760
+  %.0159.i = phi ptr [ %238, %.lr.ph.i ], [ %1545, %1544 ]
+  %1170 = load ptr, ptr %.0159.i, align 8, !tbaa !760
   %1171 = getelementptr inbounds nuw i8, ptr %1170, i64 32
   %1172 = load i16, ptr %1171, align 8
   %1173 = icmp ne i16 %1172, 408
@@ -6218,7 +6212,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit92.i: ; preds = %_
   br label %1544
 
 1544:                                             ; preds = %1543, %1169
-  %1545 = getelementptr inbounds nuw i8, ptr %.0161.i, i64 8
+  %1545 = getelementptr inbounds nuw i8, ptr %.0159.i, i64 8
   %.not.i = icmp eq ptr %1545, %239
   br i1 %.not.i, label %._crit_edge.i, label %1169
 
@@ -6230,8 +6224,8 @@ _ZL30CheckForIncompatibleAttributesRN5clang4SemaERKN4llvm15SmallVectorImplIPKNS_
   ret void
 
 1549:                                             ; preds = %.lr.ph, %_ZL20ProcessStmtAttributeRN5clang4SemaEPNS_4StmtERKNS_10ParsedAttrENS_11SourceRangeE.exit.thread
-  %.sroa.0392.0418 = phi ptr [ %107, %.lr.ph ], [ %3742, %_ZL20ProcessStmtAttributeRN5clang4SemaEPNS_4StmtERKNS_10ParsedAttrENS_11SourceRangeE.exit.thread ]
-  %1550 = load ptr, ptr %.sroa.0392.0418, align 8, !tbaa !1131
+  %.sroa.0392.0416 = phi ptr [ %107, %.lr.ph ], [ %3742, %_ZL20ProcessStmtAttributeRN5clang4SemaEPNS_4StmtERKNS_10ParsedAttrENS_11SourceRangeE.exit.thread ]
+  %1550 = load ptr, ptr %.sroa.0392.0416, align 8, !tbaa !1131
   %.sroa.0.0.copyload = load i64, ptr %2, align 8
   %1551 = getelementptr inbounds nuw i8, ptr %1550, i64 48
   %1552 = load i32, ptr %1551, align 8
@@ -7573,9 +7567,9 @@ _ZNK4llvm5APInt6isZeroEv.exit.i:                  ; preds = %2148
   %2155 = icmp eq i32 %2154, %2150
   %2156 = add i32 %2150, -1
   %2157 = icmp eq i32 %2154, %2156
-  %or.cond552.i = or i1 %2155, %2157
-  %.1295318.i = select i1 %or.cond552.i, i32 1, i32 2
-  %.1297316.i = select i1 %or.cond552.i, i32 4, i32 5
+  %or.cond563.i = or i1 %2155, %2157
+  %.1295318.i = select i1 %or.cond563.i, i32 1, i32 2
+  %.1297316.i = select i1 %or.cond563.i, i32 4, i32 5
   %2158 = load ptr, ptr %25, align 8, !tbaa !717
   %2159 = icmp eq ptr %2158, null
   br i1 %2159, label %_ZN4llvm5APIntD2Ev.exit.i, label %2160
@@ -7692,8 +7686,8 @@ _ZN4llvmeqENS_9StringRefES0_.exit.i.i176.i:       ; preds = %_ZN4llvmeqENS_9Stri
 
 _ZN4llvm12StringSwitchIN5clang12LoopHintAttr10OptionTypeES3_E4CaseENS_13StringLiteralES3_.exit179.i: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i.i152.i, %_ZN4llvmeqENS_9StringRefES0_.exit104.thread328.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i176.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i168.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i160.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i144.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i136.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i128.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i120.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i112.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i
   %.sroa.24.9.i = phi i64 [ 4294967304, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i160.i ], [ 4294967300, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i144.i ], [ 4294967299, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i136.i ], [ 4294967307, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i128.i ], [ 4294967298, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i120.i ], [ %spec.select501.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i168.i ], [ %spec.select504.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i176.i ], [ 4294967297, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i112.i ], [ 4294967296, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit104.thread328.i ], [ %spec.select, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i152.i ]
-  %spec.select.i555.i = call i64 @llvm.umax.i64(i64 %.sroa.24.9.i, i64 4294967296)
-  %spec.select.i.i = trunc i64 %spec.select.i555.i to i32
+  %spec.select.i566.i = call i64 @llvm.umax.i64(i64 %.sroa.24.9.i, i64 4294967296)
+  %spec.select.i.i = trunc i64 %spec.select.i566.i to i32
   switch i32 %spec.select.i.i, label %_ZN4llvm12StringSwitchIN5clang12LoopHintAttr10OptionTypeES3_E4CaseENS_13StringLiteralES3_.exit179.thread.i [
     i32 1, label %2179
     i32 9, label %2195
@@ -11017,7 +11011,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPKN5clang4AttrELb1EE9push_backES4_.exit: ; pre
   br label %_ZL20ProcessStmtAttributeRN5clang4SemaEPNS_4StmtERKNS_10ParsedAttrENS_11SourceRangeE.exit.thread
 
 _ZL20ProcessStmtAttributeRN5clang4SemaEPNS_4StmtERKNS_10ParsedAttrENS_11SourceRangeE.exit.thread: ; preds = %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_11SourceRangeEvEERKS1_OT_.exit.i70, %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsIivEERKS1_OT_.exit.i, %_ZNSt14_Optional_baseIN4llvm6APSIntELb0ELb0EED2Ev.exit31.i, %_ZNSt14_Optional_baseIN4llvm6APSIntELb0ELb0EED2Ev.exit38.i, %2223, %2217, %2195, %2180, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit90.i, %1816, %1689, %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_14SourceLocationEvEERKS1_OT_.exit, %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_11SourceRangeEvEERKS1_OT_.exit.i, %1549, %1554, %_ZN4llvm23SmallVectorTemplateBaseIPKN5clang4AttrELb1EE9push_backES4_.exit, %_ZL20ProcessStmtAttributeRN5clang4SemaEPNS_4StmtERKNS_10ParsedAttrENS_11SourceRangeE.exit
-  %3742 = getelementptr inbounds nuw i8, ptr %.sroa.0392.0418, i64 8
+  %3742 = getelementptr inbounds nuw i8, ptr %.sroa.0392.0416, i64 8
   %.not406 = icmp eq ptr %3742, %111
   br i1 %.not406, label %._crit_edge, label %1549
 }
@@ -11068,7 +11062,7 @@ define internal fastcc void @_ZL26CheckForDuplicateLoopAttrsIN5clang13CodeAlignA
   %22 = getelementptr i8, ptr %.val30.i.i.i, i64 32
   %.val30.val.i.i.i = load i16, ptr %22, align 8
   %23 = icmp eq i16 %.val30.val.i.i.i, 41
-  br i1 %23, label %_ZSt7find_ifIPKPKN5clang4AttrEZL26CheckForDuplicateLoopAttrsINS0_13CodeAlignAttrEEvRNS0_4SemaEN4llvm8ArrayRefIS3_EEEUlS3_E_ET_SE_SE_T0_.exit.loopexit.split.loop.exit98, label %24
+  br i1 %23, label %_ZSt7find_ifIPKPKN5clang4AttrEZL26CheckForDuplicateLoopAttrsINS0_13CodeAlignAttrEEvRNS0_4SemaEN4llvm8ArrayRefIS3_EEEUlS3_E_ET_SE_SE_T0_.exit.loopexit.split.loop.exit111, label %24
 
 24:                                               ; preds = %20
   %25 = getelementptr inbounds nuw i8, ptr %.02943.i.i.i, i64 24
@@ -11076,7 +11070,7 @@ define internal fastcc void @_ZL26CheckForDuplicateLoopAttrsIN5clang13CodeAlignA
   %26 = getelementptr i8, ptr %.val31.i.i.i, i64 32
   %.val31.val.i.i.i = load i16, ptr %26, align 8
   %27 = icmp eq i16 %.val31.val.i.i.i, 41
-  br i1 %27, label %_ZSt7find_ifIPKPKN5clang4AttrEZL26CheckForDuplicateLoopAttrsINS0_13CodeAlignAttrEEvRNS0_4SemaEN4llvm8ArrayRefIS3_EEEUlS3_E_ET_SE_SE_T0_.exit.loopexit.split.loop.exit101, label %28
+  br i1 %27, label %_ZSt7find_ifIPKPKN5clang4AttrEZL26CheckForDuplicateLoopAttrsINS0_13CodeAlignAttrEEvRNS0_4SemaEN4llvm8ArrayRefIS3_EEEUlS3_E_ET_SE_SE_T0_.exit.loopexit.split.loop.exit114, label %28
 
 28:                                               ; preds = %24
   %29 = getelementptr inbounds nuw i8, ptr %.02943.i.i.i, i64 32
@@ -11133,17 +11127,17 @@ _ZSt7find_ifIPKPKN5clang4AttrEZL26CheckForDuplicateLoopAttrsINS0_13CodeAlignAttr
   %46 = getelementptr inbounds nuw i8, ptr %.02943.i.i.i, i64 8
   br label %_ZSt7find_ifIPKPKN5clang4AttrEZL26CheckForDuplicateLoopAttrsINS0_13CodeAlignAttrEEvRNS0_4SemaEN4llvm8ArrayRefIS3_EEEUlS3_E_ET_SE_SE_T0_.exit
 
-_ZSt7find_ifIPKPKN5clang4AttrEZL26CheckForDuplicateLoopAttrsINS0_13CodeAlignAttrEEvRNS0_4SemaEN4llvm8ArrayRefIS3_EEEUlS3_E_ET_SE_SE_T0_.exit.loopexit.split.loop.exit98: ; preds = %20
+_ZSt7find_ifIPKPKN5clang4AttrEZL26CheckForDuplicateLoopAttrsINS0_13CodeAlignAttrEEvRNS0_4SemaEN4llvm8ArrayRefIS3_EEEUlS3_E_ET_SE_SE_T0_.exit.loopexit.split.loop.exit111: ; preds = %20
   %47 = getelementptr inbounds nuw i8, ptr %.02943.i.i.i, i64 16
   br label %_ZSt7find_ifIPKPKN5clang4AttrEZL26CheckForDuplicateLoopAttrsINS0_13CodeAlignAttrEEvRNS0_4SemaEN4llvm8ArrayRefIS3_EEEUlS3_E_ET_SE_SE_T0_.exit
 
-_ZSt7find_ifIPKPKN5clang4AttrEZL26CheckForDuplicateLoopAttrsINS0_13CodeAlignAttrEEvRNS0_4SemaEN4llvm8ArrayRefIS3_EEEUlS3_E_ET_SE_SE_T0_.exit.loopexit.split.loop.exit101: ; preds = %24
+_ZSt7find_ifIPKPKN5clang4AttrEZL26CheckForDuplicateLoopAttrsINS0_13CodeAlignAttrEEvRNS0_4SemaEN4llvm8ArrayRefIS3_EEEUlS3_E_ET_SE_SE_T0_.exit.loopexit.split.loop.exit114: ; preds = %24
   %48 = getelementptr inbounds nuw i8, ptr %.02943.i.i.i, i64 24
   br label %_ZSt7find_ifIPKPKN5clang4AttrEZL26CheckForDuplicateLoopAttrsINS0_13CodeAlignAttrEEvRNS0_4SemaEN4llvm8ArrayRefIS3_EEEUlS3_E_ET_SE_SE_T0_.exit
 
-_ZSt7find_ifIPKPKN5clang4AttrEZL26CheckForDuplicateLoopAttrsINS0_13CodeAlignAttrEEvRNS0_4SemaEN4llvm8ArrayRefIS3_EEEUlS3_E_ET_SE_SE_T0_.exit: ; preds = %.lr.ph.i.i.i, %_ZSt7find_ifIPKPKN5clang4AttrEZL26CheckForDuplicateLoopAttrsINS0_13CodeAlignAttrEEvRNS0_4SemaEN4llvm8ArrayRefIS3_EEEUlS3_E_ET_SE_SE_T0_.exit.loopexit.split.loop.exit, %_ZSt7find_ifIPKPKN5clang4AttrEZL26CheckForDuplicateLoopAttrsINS0_13CodeAlignAttrEEvRNS0_4SemaEN4llvm8ArrayRefIS3_EEEUlS3_E_ET_SE_SE_T0_.exit.loopexit.split.loop.exit98, %_ZSt7find_ifIPKPKN5clang4AttrEZL26CheckForDuplicateLoopAttrsINS0_13CodeAlignAttrEEvRNS0_4SemaEN4llvm8ArrayRefIS3_EEEUlS3_E_ET_SE_SE_T0_.exit.loopexit.split.loop.exit101, %33, %38, %43
-  %49 = phi ptr [ %.029.val32.i.i.i, %33 ], [ %.1.val.i.i.i, %38 ], [ %.2.val.i.i.i, %43 ], [ %.val.i.i.i, %_ZSt7find_ifIPKPKN5clang4AttrEZL26CheckForDuplicateLoopAttrsINS0_13CodeAlignAttrEEvRNS0_4SemaEN4llvm8ArrayRefIS3_EEEUlS3_E_ET_SE_SE_T0_.exit.loopexit.split.loop.exit ], [ %.val30.i.i.i, %_ZSt7find_ifIPKPKN5clang4AttrEZL26CheckForDuplicateLoopAttrsINS0_13CodeAlignAttrEEvRNS0_4SemaEN4llvm8ArrayRefIS3_EEEUlS3_E_ET_SE_SE_T0_.exit.loopexit.split.loop.exit98 ], [ %.val31.i.i.i, %_ZSt7find_ifIPKPKN5clang4AttrEZL26CheckForDuplicateLoopAttrsINS0_13CodeAlignAttrEEvRNS0_4SemaEN4llvm8ArrayRefIS3_EEEUlS3_E_ET_SE_SE_T0_.exit.loopexit.split.loop.exit101 ], [ %.029.val.i.i.i, %.lr.ph.i.i.i ]
-  %.028.i.i.i = phi ptr [ %.029.lcssa.i.i.i, %33 ], [ %.1.i.i.i, %38 ], [ %.2.i.i.i, %43 ], [ %46, %_ZSt7find_ifIPKPKN5clang4AttrEZL26CheckForDuplicateLoopAttrsINS0_13CodeAlignAttrEEvRNS0_4SemaEN4llvm8ArrayRefIS3_EEEUlS3_E_ET_SE_SE_T0_.exit.loopexit.split.loop.exit ], [ %47, %_ZSt7find_ifIPKPKN5clang4AttrEZL26CheckForDuplicateLoopAttrsINS0_13CodeAlignAttrEEvRNS0_4SemaEN4llvm8ArrayRefIS3_EEEUlS3_E_ET_SE_SE_T0_.exit.loopexit.split.loop.exit98 ], [ %48, %_ZSt7find_ifIPKPKN5clang4AttrEZL26CheckForDuplicateLoopAttrsINS0_13CodeAlignAttrEEvRNS0_4SemaEN4llvm8ArrayRefIS3_EEEUlS3_E_ET_SE_SE_T0_.exit.loopexit.split.loop.exit101 ], [ %.02943.i.i.i, %.lr.ph.i.i.i ]
+_ZSt7find_ifIPKPKN5clang4AttrEZL26CheckForDuplicateLoopAttrsINS0_13CodeAlignAttrEEvRNS0_4SemaEN4llvm8ArrayRefIS3_EEEUlS3_E_ET_SE_SE_T0_.exit: ; preds = %.lr.ph.i.i.i, %_ZSt7find_ifIPKPKN5clang4AttrEZL26CheckForDuplicateLoopAttrsINS0_13CodeAlignAttrEEvRNS0_4SemaEN4llvm8ArrayRefIS3_EEEUlS3_E_ET_SE_SE_T0_.exit.loopexit.split.loop.exit, %_ZSt7find_ifIPKPKN5clang4AttrEZL26CheckForDuplicateLoopAttrsINS0_13CodeAlignAttrEEvRNS0_4SemaEN4llvm8ArrayRefIS3_EEEUlS3_E_ET_SE_SE_T0_.exit.loopexit.split.loop.exit111, %_ZSt7find_ifIPKPKN5clang4AttrEZL26CheckForDuplicateLoopAttrsINS0_13CodeAlignAttrEEvRNS0_4SemaEN4llvm8ArrayRefIS3_EEEUlS3_E_ET_SE_SE_T0_.exit.loopexit.split.loop.exit114, %33, %38, %43
+  %49 = phi ptr [ %.029.val32.i.i.i, %33 ], [ %.1.val.i.i.i, %38 ], [ %.2.val.i.i.i, %43 ], [ %.val.i.i.i, %_ZSt7find_ifIPKPKN5clang4AttrEZL26CheckForDuplicateLoopAttrsINS0_13CodeAlignAttrEEvRNS0_4SemaEN4llvm8ArrayRefIS3_EEEUlS3_E_ET_SE_SE_T0_.exit.loopexit.split.loop.exit ], [ %.val30.i.i.i, %_ZSt7find_ifIPKPKN5clang4AttrEZL26CheckForDuplicateLoopAttrsINS0_13CodeAlignAttrEEvRNS0_4SemaEN4llvm8ArrayRefIS3_EEEUlS3_E_ET_SE_SE_T0_.exit.loopexit.split.loop.exit111 ], [ %.val31.i.i.i, %_ZSt7find_ifIPKPKN5clang4AttrEZL26CheckForDuplicateLoopAttrsINS0_13CodeAlignAttrEEvRNS0_4SemaEN4llvm8ArrayRefIS3_EEEUlS3_E_ET_SE_SE_T0_.exit.loopexit.split.loop.exit114 ], [ %.029.val.i.i.i, %.lr.ph.i.i.i ]
+  %.028.i.i.i = phi ptr [ %.029.lcssa.i.i.i, %33 ], [ %.1.i.i.i, %38 ], [ %.2.i.i.i, %43 ], [ %46, %_ZSt7find_ifIPKPKN5clang4AttrEZL26CheckForDuplicateLoopAttrsINS0_13CodeAlignAttrEEvRNS0_4SemaEN4llvm8ArrayRefIS3_EEEUlS3_E_ET_SE_SE_T0_.exit.loopexit.split.loop.exit ], [ %47, %_ZSt7find_ifIPKPKN5clang4AttrEZL26CheckForDuplicateLoopAttrsINS0_13CodeAlignAttrEEvRNS0_4SemaEN4llvm8ArrayRefIS3_EEEUlS3_E_ET_SE_SE_T0_.exit.loopexit.split.loop.exit111 ], [ %48, %_ZSt7find_ifIPKPKN5clang4AttrEZL26CheckForDuplicateLoopAttrsINS0_13CodeAlignAttrEEvRNS0_4SemaEN4llvm8ArrayRefIS3_EEEUlS3_E_ET_SE_SE_T0_.exit.loopexit.split.loop.exit114 ], [ %.02943.i.i.i, %.lr.ph.i.i.i ]
   %50 = icmp eq ptr %.028.i.i.i, %10
   br i1 %50, label %_ZSt7find_ifIPKPKN5clang4AttrEZL26CheckForDuplicateLoopAttrsINS0_13CodeAlignAttrEEvRNS0_4SemaEN4llvm8ArrayRefIS3_EEEUlS3_E_ET_SE_SE_T0_.exit.thread, label %51
 
@@ -11210,7 +11204,7 @@ _ZSt7find_ifIPKPKN5clang4AttrEZL26CheckForDuplicateLoopAttrsINS0_13CodeAlignAttr
   %84 = getelementptr i8, ptr %.val30.i.i.i42, i64 32
   %.val30.val.i.i.i43 = load i16, ptr %84, align 8
   %85 = icmp eq i16 %.val30.val.i.i.i43, 41
-  br i1 %85, label %_ZSt7find_ifIPKPKN5clang4AttrEZL26CheckForDuplicateLoopAttrsINS0_13CodeAlignAttrEEvRNS0_4SemaEN4llvm8ArrayRefIS3_EEEUlS3_E_ET_SE_SE_T0_.exit52.loopexit.split.loop.exit109, label %86
+  br i1 %85, label %_ZSt7find_ifIPKPKN5clang4AttrEZL26CheckForDuplicateLoopAttrsINS0_13CodeAlignAttrEEvRNS0_4SemaEN4llvm8ArrayRefIS3_EEEUlS3_E_ET_SE_SE_T0_.exit52.loopexit.split.loop.exit122, label %86
 
 86:                                               ; preds = %82
   %87 = getelementptr inbounds nuw i8, ptr %.02943.i.i.i37, i64 24
@@ -11218,7 +11212,7 @@ _ZSt7find_ifIPKPKN5clang4AttrEZL26CheckForDuplicateLoopAttrsINS0_13CodeAlignAttr
   %88 = getelementptr i8, ptr %.val31.i.i.i44, i64 32
   %.val31.val.i.i.i45 = load i16, ptr %88, align 8
   %89 = icmp eq i16 %.val31.val.i.i.i45, 41
-  br i1 %89, label %_ZSt7find_ifIPKPKN5clang4AttrEZL26CheckForDuplicateLoopAttrsINS0_13CodeAlignAttrEEvRNS0_4SemaEN4llvm8ArrayRefIS3_EEEUlS3_E_ET_SE_SE_T0_.exit52.loopexit.split.loop.exit112, label %90
+  br i1 %89, label %_ZSt7find_ifIPKPKN5clang4AttrEZL26CheckForDuplicateLoopAttrsINS0_13CodeAlignAttrEEvRNS0_4SemaEN4llvm8ArrayRefIS3_EEEUlS3_E_ET_SE_SE_T0_.exit52.loopexit.split.loop.exit125, label %90
 
 90:                                               ; preds = %86
   %91 = getelementptr inbounds nuw i8, ptr %.02943.i.i.i37, i64 32
@@ -11276,17 +11270,17 @@ _ZSt7find_ifIPKPKN5clang4AttrEZL26CheckForDuplicateLoopAttrsINS0_13CodeAlignAttr
   %108 = getelementptr inbounds nuw i8, ptr %.02943.i.i.i37, i64 8
   br label %_ZSt7find_ifIPKPKN5clang4AttrEZL26CheckForDuplicateLoopAttrsINS0_13CodeAlignAttrEEvRNS0_4SemaEN4llvm8ArrayRefIS3_EEEUlS3_E_ET_SE_SE_T0_.exit52
 
-_ZSt7find_ifIPKPKN5clang4AttrEZL26CheckForDuplicateLoopAttrsINS0_13CodeAlignAttrEEvRNS0_4SemaEN4llvm8ArrayRefIS3_EEEUlS3_E_ET_SE_SE_T0_.exit52.loopexit.split.loop.exit109: ; preds = %82
+_ZSt7find_ifIPKPKN5clang4AttrEZL26CheckForDuplicateLoopAttrsINS0_13CodeAlignAttrEEvRNS0_4SemaEN4llvm8ArrayRefIS3_EEEUlS3_E_ET_SE_SE_T0_.exit52.loopexit.split.loop.exit122: ; preds = %82
   %109 = getelementptr inbounds nuw i8, ptr %.02943.i.i.i37, i64 16
   br label %_ZSt7find_ifIPKPKN5clang4AttrEZL26CheckForDuplicateLoopAttrsINS0_13CodeAlignAttrEEvRNS0_4SemaEN4llvm8ArrayRefIS3_EEEUlS3_E_ET_SE_SE_T0_.exit52
 
-_ZSt7find_ifIPKPKN5clang4AttrEZL26CheckForDuplicateLoopAttrsINS0_13CodeAlignAttrEEvRNS0_4SemaEN4llvm8ArrayRefIS3_EEEUlS3_E_ET_SE_SE_T0_.exit52.loopexit.split.loop.exit112: ; preds = %86
+_ZSt7find_ifIPKPKN5clang4AttrEZL26CheckForDuplicateLoopAttrsINS0_13CodeAlignAttrEEvRNS0_4SemaEN4llvm8ArrayRefIS3_EEEUlS3_E_ET_SE_SE_T0_.exit52.loopexit.split.loop.exit125: ; preds = %86
   %110 = getelementptr inbounds nuw i8, ptr %.02943.i.i.i37, i64 24
   br label %_ZSt7find_ifIPKPKN5clang4AttrEZL26CheckForDuplicateLoopAttrsINS0_13CodeAlignAttrEEvRNS0_4SemaEN4llvm8ArrayRefIS3_EEEUlS3_E_ET_SE_SE_T0_.exit52
 
-_ZSt7find_ifIPKPKN5clang4AttrEZL26CheckForDuplicateLoopAttrsINS0_13CodeAlignAttrEEvRNS0_4SemaEN4llvm8ArrayRefIS3_EEEUlS3_E_ET_SE_SE_T0_.exit52: ; preds = %.lr.ph.i.i.i35, %_ZSt7find_ifIPKPKN5clang4AttrEZL26CheckForDuplicateLoopAttrsINS0_13CodeAlignAttrEEvRNS0_4SemaEN4llvm8ArrayRefIS3_EEEUlS3_E_ET_SE_SE_T0_.exit52.loopexit.split.loop.exit, %_ZSt7find_ifIPKPKN5clang4AttrEZL26CheckForDuplicateLoopAttrsINS0_13CodeAlignAttrEEvRNS0_4SemaEN4llvm8ArrayRefIS3_EEEUlS3_E_ET_SE_SE_T0_.exit52.loopexit.split.loop.exit109, %_ZSt7find_ifIPKPKN5clang4AttrEZL26CheckForDuplicateLoopAttrsINS0_13CodeAlignAttrEEvRNS0_4SemaEN4llvm8ArrayRefIS3_EEEUlS3_E_ET_SE_SE_T0_.exit52.loopexit.split.loop.exit112, %95, %100, %105
-  %111 = phi ptr [ %.029.val32.i.i.i31, %95 ], [ %.1.val.i.i.i29, %100 ], [ %.2.val.i.i.i25, %105 ], [ %.val.i.i.i40, %_ZSt7find_ifIPKPKN5clang4AttrEZL26CheckForDuplicateLoopAttrsINS0_13CodeAlignAttrEEvRNS0_4SemaEN4llvm8ArrayRefIS3_EEEUlS3_E_ET_SE_SE_T0_.exit52.loopexit.split.loop.exit ], [ %.val30.i.i.i42, %_ZSt7find_ifIPKPKN5clang4AttrEZL26CheckForDuplicateLoopAttrsINS0_13CodeAlignAttrEEvRNS0_4SemaEN4llvm8ArrayRefIS3_EEEUlS3_E_ET_SE_SE_T0_.exit52.loopexit.split.loop.exit109 ], [ %.val31.i.i.i44, %_ZSt7find_ifIPKPKN5clang4AttrEZL26CheckForDuplicateLoopAttrsINS0_13CodeAlignAttrEEvRNS0_4SemaEN4llvm8ArrayRefIS3_EEEUlS3_E_ET_SE_SE_T0_.exit52.loopexit.split.loop.exit112 ], [ %.029.val.i.i.i38, %.lr.ph.i.i.i35 ]
-  %.028.i.i.i27 = phi ptr [ %.029.lcssa.i.i.i23, %95 ], [ %.1.i.i.i28, %100 ], [ %.2.i.i.i24, %105 ], [ %108, %_ZSt7find_ifIPKPKN5clang4AttrEZL26CheckForDuplicateLoopAttrsINS0_13CodeAlignAttrEEvRNS0_4SemaEN4llvm8ArrayRefIS3_EEEUlS3_E_ET_SE_SE_T0_.exit52.loopexit.split.loop.exit ], [ %109, %_ZSt7find_ifIPKPKN5clang4AttrEZL26CheckForDuplicateLoopAttrsINS0_13CodeAlignAttrEEvRNS0_4SemaEN4llvm8ArrayRefIS3_EEEUlS3_E_ET_SE_SE_T0_.exit52.loopexit.split.loop.exit109 ], [ %110, %_ZSt7find_ifIPKPKN5clang4AttrEZL26CheckForDuplicateLoopAttrsINS0_13CodeAlignAttrEEvRNS0_4SemaEN4llvm8ArrayRefIS3_EEEUlS3_E_ET_SE_SE_T0_.exit52.loopexit.split.loop.exit112 ], [ %.02943.i.i.i37, %.lr.ph.i.i.i35 ]
+_ZSt7find_ifIPKPKN5clang4AttrEZL26CheckForDuplicateLoopAttrsINS0_13CodeAlignAttrEEvRNS0_4SemaEN4llvm8ArrayRefIS3_EEEUlS3_E_ET_SE_SE_T0_.exit52: ; preds = %.lr.ph.i.i.i35, %_ZSt7find_ifIPKPKN5clang4AttrEZL26CheckForDuplicateLoopAttrsINS0_13CodeAlignAttrEEvRNS0_4SemaEN4llvm8ArrayRefIS3_EEEUlS3_E_ET_SE_SE_T0_.exit52.loopexit.split.loop.exit, %_ZSt7find_ifIPKPKN5clang4AttrEZL26CheckForDuplicateLoopAttrsINS0_13CodeAlignAttrEEvRNS0_4SemaEN4llvm8ArrayRefIS3_EEEUlS3_E_ET_SE_SE_T0_.exit52.loopexit.split.loop.exit122, %_ZSt7find_ifIPKPKN5clang4AttrEZL26CheckForDuplicateLoopAttrsINS0_13CodeAlignAttrEEvRNS0_4SemaEN4llvm8ArrayRefIS3_EEEUlS3_E_ET_SE_SE_T0_.exit52.loopexit.split.loop.exit125, %95, %100, %105
+  %111 = phi ptr [ %.029.val32.i.i.i31, %95 ], [ %.1.val.i.i.i29, %100 ], [ %.2.val.i.i.i25, %105 ], [ %.val.i.i.i40, %_ZSt7find_ifIPKPKN5clang4AttrEZL26CheckForDuplicateLoopAttrsINS0_13CodeAlignAttrEEvRNS0_4SemaEN4llvm8ArrayRefIS3_EEEUlS3_E_ET_SE_SE_T0_.exit52.loopexit.split.loop.exit ], [ %.val30.i.i.i42, %_ZSt7find_ifIPKPKN5clang4AttrEZL26CheckForDuplicateLoopAttrsINS0_13CodeAlignAttrEEvRNS0_4SemaEN4llvm8ArrayRefIS3_EEEUlS3_E_ET_SE_SE_T0_.exit52.loopexit.split.loop.exit122 ], [ %.val31.i.i.i44, %_ZSt7find_ifIPKPKN5clang4AttrEZL26CheckForDuplicateLoopAttrsINS0_13CodeAlignAttrEEvRNS0_4SemaEN4llvm8ArrayRefIS3_EEEUlS3_E_ET_SE_SE_T0_.exit52.loopexit.split.loop.exit125 ], [ %.029.val.i.i.i38, %.lr.ph.i.i.i35 ]
+  %.028.i.i.i27 = phi ptr [ %.029.lcssa.i.i.i23, %95 ], [ %.1.i.i.i28, %100 ], [ %.2.i.i.i24, %105 ], [ %108, %_ZSt7find_ifIPKPKN5clang4AttrEZL26CheckForDuplicateLoopAttrsINS0_13CodeAlignAttrEEvRNS0_4SemaEN4llvm8ArrayRefIS3_EEEUlS3_E_ET_SE_SE_T0_.exit52.loopexit.split.loop.exit ], [ %109, %_ZSt7find_ifIPKPKN5clang4AttrEZL26CheckForDuplicateLoopAttrsINS0_13CodeAlignAttrEEvRNS0_4SemaEN4llvm8ArrayRefIS3_EEEUlS3_E_ET_SE_SE_T0_.exit52.loopexit.split.loop.exit122 ], [ %110, %_ZSt7find_ifIPKPKN5clang4AttrEZL26CheckForDuplicateLoopAttrsINS0_13CodeAlignAttrEEvRNS0_4SemaEN4llvm8ArrayRefIS3_EEEUlS3_E_ET_SE_SE_T0_.exit52.loopexit.split.loop.exit125 ], [ %.02943.i.i.i37, %.lr.ph.i.i.i35 ]
   %.not19 = icmp eq ptr %10, %.028.i.i.i27
   br i1 %.not19, label %.critedge, label %112
 
@@ -13942,7 +13936,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IN4llvm9StringRefEvEERKT_
   %79 = load ptr, ptr %78, align 8, !tbaa !722
   %80 = getelementptr inbounds nuw i8, ptr %78, i64 16
   %81 = icmp eq ptr %79, %80
-  br i1 %81, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i
+  br i1 %81, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IN4llvm9StringRefEvEERKT_RKS3_.exit
   %82 = getelementptr inbounds nuw i8, ptr %78, i64 8
@@ -13953,13 +13947,13 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i: ; 
   %86 = icmp eq ptr %85, %56
   br i1 %86, label %89, label %.thread.i
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IN4llvm9StringRefEvEERKT_RKS3_.exit
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IN4llvm9StringRefEvEERKT_RKS3_.exit
   %87 = load ptr, ptr %5, align 8, !tbaa !722
   %88 = icmp eq ptr %87, %56
   br i1 %88, label %89, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit24.thread.i
 
-89:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i
-  %90 = phi ptr [ %87, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i ], [ %85, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i ]
+89:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i
+  %90 = phi ptr [ %87, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i ], [ %85, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i ]
   %91 = load i64, ptr %70, align 8, !tbaa !716
   %92 = icmp ult i64 %91, 16
   call void @llvm.assume(i1 %92)
@@ -13999,7 +13993,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm.exit.i: ; p
   store i64 %102, ptr %80, align 8, !tbaa !717
   br label %108
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit24.thread.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit24.thread.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i
   %103 = load i64, ptr %80, align 8, !tbaa !717
   store ptr %87, ptr %78, align 8, !tbaa !722
   %104 = load i64, ptr %70, align 8, !tbaa !716

@@ -3827,12 +3827,12 @@ proto_item_set_generated.exit.i:                  ; preds = %120, %117, %.lr.ph.
   %310 = zext i8 %306 to i32
   %switch.selectcmp = icmp eq i8 %306, 4
   %switch.select = select i1 %switch.selectcmp, ptr @dissect_spc_inquiry.aca_fields_spc2, ptr @dissect_spc_inquiry.aca_fields_spc3
-  %switch.selectcmp215 = icmp eq i8 %306, 3
-  %switch.select216 = select i1 %switch.selectcmp215, ptr @dissect_spc_inquiry.aca_fields_spc, ptr %switch.select
+  %switch.selectcmp223 = icmp eq i8 %306, 3
+  %switch.select224 = select i1 %switch.selectcmp223, ptr @dissect_spc_inquiry.aca_fields_spc, ptr %switch.select
   %.0..0..0..0.34 = load volatile i32, ptr %9, align 4
   %311 = load i32, ptr @hf_scsi_inq_acaflags, align 4
   %312 = load i32, ptr @ett_scsi_inq_acaflags, align 4
-  %313 = call ptr @proto_tree_add_bitmask(ptr noundef %2, ptr noundef %285, i32 noundef %.0..0..0..0.34, i32 noundef %311, i32 noundef %312, ptr noundef nonnull %switch.select216, i32 noundef 0)
+  %313 = call ptr @proto_tree_add_bitmask(ptr noundef %2, ptr noundef %285, i32 noundef %.0..0..0..0.34, i32 noundef %311, i32 noundef %312, ptr noundef nonnull %switch.select224, i32 noundef 0)
   %.0..0..0..0.35 = load volatile i32, ptr %9, align 4
   %314 = add i32 %.0..0..0..0.35, 1
   store volatile i32 %314, ptr %9, align 4
@@ -5861,7 +5861,7 @@ define hidden void @dissect_scsi_lun(ptr noundef %0, ptr noundef %1, i32 noundef
 
 28:                                               ; preds = %26
   %29 = call ptr @proto_tree_add_item(ptr noundef %.0117, i32 noundef %27, ptr noundef %1, i32 noundef %10, i32 noundef 1, i32 noundef 0)
-  switch i8 %16, label %default.unreachable133 [
+  switch i8 %16, label %default.unreachable134 [
     i8 0, label %30
     i8 1, label %46
     i8 2, label %51
@@ -5974,7 +5974,7 @@ define hidden void @dissect_scsi_lun(ptr noundef %0, ptr noundef %1, i32 noundef
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %88, ptr noundef nonnull @.str.61, ptr noundef nonnull %spec.store.select)
   br label %89
 
-default.unreachable133:                           ; preds = %28
+default.unreachable134:                           ; preds = %28
   unreachable
 
 89:                                               ; preds = %30, %40, %87, %51, %46
@@ -6576,8 +6576,8 @@ proto_item_set_generated.exit:                    ; preds = %get_cmdset_data.exi
   br label %210
 
 210:                                              ; preds = %.lr.ph, %198
-  %.sink191 = phi i32 [ -20, %198 ], [ -8, %.lr.ph ]
-  %211 = add nsw i32 %.0190, %.sink191
+  %.sink197 = phi i32 [ -20, %198 ], [ -8, %.lr.ph ]
+  %211 = add nsw i32 %.0190, %.sink197
   %212 = icmp sgt i32 %211, 19
   br i1 %212, label %.lr.ph, label %.loopexit
 

@@ -140,21 +140,21 @@ define i32 @ff_rtp_chain_mux_open(ptr noundef writeonly captures(none) %0, ptr n
   br i1 %.not65, label %83, label %80
 
 80:                                               ; preds = %78
-  br i1 %79, label %.thread76, label %81
+  br i1 %79, label %.thread84, label %81
 
 81:                                               ; preds = %80
   %82 = call i32 @avio_closep(ptr noundef nonnull %.phi.trans.insert) #4
-  br label %.thread76
+  br label %.thread84
 
 83:                                               ; preds = %78
-  br i1 %79, label %.thread76, label %84
+  br i1 %79, label %.thread84, label %84
 
 84:                                               ; preds = %83
   %85 = getelementptr inbounds nuw i8, ptr %11, i64 32
   call void @ffio_free_dyn_buf(ptr noundef nonnull %85) #4
-  br label %.thread76
+  br label %.thread84
 
-.thread76:                                        ; preds = %80, %83, %84, %81
+.thread84:                                        ; preds = %80, %83, %84, %81
   call void @avformat_free_context(ptr noundef nonnull %11) #4
   br label %90
 
@@ -173,8 +173,8 @@ define i32 @ff_rtp_chain_mux_open(ptr noundef writeonly captures(none) %0, ptr n
   %89 = tail call i32 @ffurl_close(ptr noundef nonnull %3) #4
   br label %90
 
-90:                                               ; preds = %87, %88, %86, %.thread76
-  %.0 = phi i32 [ %.275, %.thread76 ], [ 0, %86 ], [ %.052, %88 ], [ %.052, %87 ]
+90:                                               ; preds = %87, %88, %86, %.thread84
+  %.0 = phi i32 [ %.275, %.thread84 ], [ 0, %86 ], [ %.052, %88 ], [ %.052, %87 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0

@@ -1007,7 +1007,7 @@ define void @gui_update(ptr noundef initializes((484, 488), (676, 680)) %0) loca
   %74 = getelementptr inbounds nuw i8, ptr %6, i64 132
   %75 = load i32, ptr %73, align 8, !tbaa !126
   %76 = icmp sgt i32 %75, 5
-  br i1 %76, label %.lr.ph292, label %.critedge.preheader
+  br i1 %76, label %.lr.ph295, label %.critedge.preheader
 
 77:                                               ; preds = %70
   %78 = load ptr, ptr %52, align 8, !tbaa !124
@@ -1021,11 +1021,11 @@ define void @gui_update(ptr noundef initializes((484, 488), (676, 680)) %0) loca
   %81 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %82 = load i32, ptr %73, align 8, !tbaa !126
   %83 = icmp sgt i32 %82, 5
-  br i1 %83, label %.lr.ph295, label %.critedge218
+  br i1 %83, label %.lr.ph298, label %.critedge218
 
-.lr.ph292:                                        ; preds = %.preheader, %.critedge3
-  %indvars.iv290 = phi i64 [ %indvars.iv.next, %.critedge3 ], [ 5, %.preheader ]
-  %84 = getelementptr inbounds nuw [54 x i32], ptr %74, i64 0, i64 %indvars.iv290
+.lr.ph295:                                        ; preds = %.preheader, %.critedge3
+  %indvars.iv293 = phi i64 [ %indvars.iv.next, %.critedge3 ], [ 5, %.preheader ]
+  %84 = getelementptr inbounds nuw [54 x i32], ptr %74, i64 0, i64 %indvars.iv293
   %85 = load i32, ptr %84, align 4, !tbaa !24
   %86 = tail call i32 @dt_wb_presets_count() #24
   %87 = icmp slt i32 %85, %86
@@ -1037,8 +1037,8 @@ define void @gui_update(ptr noundef initializes((484, 488), (676, 680)) %0) loca
   %91 = icmp slt i32 %89, %90
   br i1 %91, label %.lr.ph, label %.critedge3
 
-.lr.ph:                                           ; preds = %.lr.ph292, %88
-  %.0192247 = phi i32 [ %89, %88 ], [ %85, %.lr.ph292 ]
+.lr.ph:                                           ; preds = %.lr.ph295, %88
+  %.0192247 = phi i32 [ %89, %88 ], [ %85, %.lr.ph295 ]
   %92 = tail call ptr @dt_wb_preset(i32 noundef %.0192247) #24
   %93 = load ptr, ptr %92, align 8, !tbaa !127
   %94 = load ptr, ptr %14, align 8, !tbaa !65
@@ -1078,7 +1078,7 @@ define void @gui_update(ptr noundef initializes((484, 488), (676, 680)) %0) loca
 
 117:                                              ; preds = %113
   %118 = load ptr, ptr %52, align 8, !tbaa !124
-  %119 = trunc nuw nsw i64 %indvars.iv290 to i32
+  %119 = trunc nuw nsw i64 %indvars.iv293 to i32
   tail call void @dt_bauhaus_combobox_set(ptr noundef %118, i32 noundef %119) #24
   %120 = load ptr, ptr %52, align 8, !tbaa !124
   %121 = tail call ptr @dt_bauhaus_combobox_get_data(ptr noundef %120) #24
@@ -1118,25 +1118,25 @@ define void @gui_update(ptr noundef initializes((484, 488), (676, 680)) %0) loca
   tail call void @dt_bauhaus_slider_set_default(ptr noundef %144, float noundef %147) #24
   br label %.critedge219.thread.loopexit258
 
-.critedge3:                                       ; preds = %97, %.lr.ph, %88, %104, %.lr.ph292
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv290, 1
+.critedge3:                                       ; preds = %97, %.lr.ph, %88, %104, %.lr.ph295
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv293, 1
   %148 = load i32, ptr %73, align 8, !tbaa !126
   %149 = sext i32 %148 to i64
   %150 = icmp slt i64 %indvars.iv.next, %149
-  br i1 %150, label %.lr.ph292, label %.critedge.preheader
+  br i1 %150, label %.lr.ph295, label %.critedge.preheader
 
-.lr.ph295:                                        ; preds = %.critedge.preheader, %.critedge7
-  %.7257294 = phi i32 [ %.8.ph.ph, %.critedge7 ], [ 0, %.critedge.preheader ]
-  %indvars.iv266293 = phi i64 [ %indvars.iv.next267, %.critedge7 ], [ 5, %.critedge.preheader ]
-  %151 = getelementptr inbounds nuw [54 x i32], ptr %74, i64 0, i64 %indvars.iv266293
+.lr.ph298:                                        ; preds = %.critedge.preheader, %.critedge7
+  %.7257297 = phi i32 [ %.8.ph.ph, %.critedge7 ], [ 0, %.critedge.preheader ]
+  %indvars.iv266296 = phi i64 [ %indvars.iv.next267, %.critedge7 ], [ 5, %.critedge.preheader ]
+  %151 = getelementptr inbounds nuw [54 x i32], ptr %74, i64 0, i64 %indvars.iv266296
   %152 = load i32, ptr %151, align 4, !tbaa !24
-  %153 = trunc nuw nsw i64 %indvars.iv266293 to i32
+  %153 = trunc nuw nsw i64 %indvars.iv266296 to i32
   br label %.outer.outer
 
-.outer.outer:                                     ; preds = %.thread227, %.lr.ph295
-  %.0190.in.ph.ph = phi i32 [ %.0190, %.thread227 ], [ %152, %.lr.ph295 ]
-  %.ph = phi i1 [ false, %.thread227 ], [ true, %.lr.ph295 ]
-  %.8.ph.ph = phi i32 [ %.11, %.thread227 ], [ %.7257294, %.lr.ph295 ]
+.outer.outer:                                     ; preds = %.thread227, %.lr.ph298
+  %.0190.in.ph.ph = phi i32 [ %.0190, %.thread227 ], [ %152, %.lr.ph298 ]
+  %.ph = phi i1 [ false, %.thread227 ], [ true, %.lr.ph298 ]
+  %.8.ph.ph = phi i32 [ %.11, %.thread227 ], [ %.7257297, %.lr.ph298 ]
   br label %.outer
 
 .outer:                                           ; preds = %.outer.backedge, %.outer.outer
@@ -1282,11 +1282,11 @@ define void @gui_update(ptr noundef initializes((484, 488), (676, 680)) %0) loca
   br i1 %237, label %.lr.ph255, label %.outer.backedge
 
 .critedge7:                                       ; preds = %165, %159, %156, %172
-  %indvars.iv.next267 = add nuw nsw i64 %indvars.iv266293, 1
+  %indvars.iv.next267 = add nuw nsw i64 %indvars.iv266296, 1
   %238 = load i32, ptr %73, align 8, !tbaa !126
   %239 = sext i32 %238 to i64
   %240 = icmp slt i64 %indvars.iv.next267, %239
-  br i1 %240, label %.lr.ph295, label %.critedge218
+  br i1 %240, label %.lr.ph298, label %.critedge218
 
 .critedge218:                                     ; preds = %.critedge7, %.critedge.preheader
   %.7257.lcssa = phi i32 [ 0, %.critedge.preheader ], [ %.8.ph.ph, %.critedge7 ]
@@ -4650,8 +4650,8 @@ _temp_params_from_array.exit:                     ; preds = %83, %75, %67, %51, 
 
 226:                                              ; preds = %225, %222
   %.in = phi ptr [ %6, %225 ], [ %224, %222 ]
-  %.in192 = phi ptr [ %5, %225 ], [ %223, %222 ]
-  %227 = load float, ptr %.in192, align 4, !tbaa !6
+  %.in198 = phi ptr [ %5, %225 ], [ %223, %222 ]
+  %227 = load float, ptr %.in198, align 4, !tbaa !6
   %228 = load float, ptr %.in, align 4, !tbaa !6
   %229 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !205
   %230 = getelementptr inbounds nuw i8, ptr %229, i64 96

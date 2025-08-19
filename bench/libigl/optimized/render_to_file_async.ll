@@ -90,8 +90,8 @@ define internal noundef zeroext i1 @_ZL27render_to_file_async_helperPhiiNSt7__cx
   %8 = icmp slt i32 %1, 1
   %or.cond.not = or i1 %8, %4
   %9 = icmp slt i32 %2, 1
-  %or.cond.not34 = or i1 %9, %or.cond.not
-  br i1 %or.cond.not34, label %.loopexit, label %.preheader.us.preheader
+  %or.cond.not39 = or i1 %9, %or.cond.not
+  br i1 %or.cond.not39, label %.loopexit, label %.preheader.us.preheader
 
 .preheader.us.preheader:                          ; preds = %5
   %10 = zext nneg i32 %1 to i64

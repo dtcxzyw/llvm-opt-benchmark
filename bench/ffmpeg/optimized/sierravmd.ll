@@ -104,9 +104,9 @@ define internal range(i32 17, 16) i32 @vmd_read_header(ptr noundef %0) #1 {
   br label %35
 
 35:                                               ; preds = %30, %34
-  %.sink245 = phi i32 [ 0, %34 ], [ 1, %30 ]
+  %.sink257 = phi i32 [ 0, %34 ], [ 1, %30 ]
   %36 = getelementptr inbounds nuw i8, ptr %7, i64 28
-  store i32 %.sink245, ptr %36, align 4, !tbaa !29
+  store i32 %.sink257, ptr %36, align 4, !tbaa !29
   %37 = tail call ptr @avformat_new_stream(ptr noundef nonnull %0, ptr noundef null) #5
   %.not179 = icmp eq ptr %37, null
   br i1 %.not179, label %.critedge, label %38
@@ -190,11 +190,11 @@ define internal range(i32 17, 16) i32 @vmd_read_header(ptr noundef %0) #1 {
   %81 = getelementptr inbounds nuw i8, ptr %73, i64 156
   %.not184 = icmp sgt i16 %79, -1
   %82 = sub nuw nsw i32 65536, %80
-  %spec.select250 = select i1 %.not184, i32 %80, i32 %82
-  %spec.select251 = select i1 %.not184, i32 8, i32 16
-  store i32 %spec.select250, ptr %81, align 4, !tbaa !52
+  %spec.select262 = select i1 %.not184, i32 %80, i32 %82
+  %spec.select263 = select i1 %.not184, i32 8, i32 16
+  store i32 %spec.select262, ptr %81, align 4, !tbaa !52
   %83 = getelementptr inbounds nuw i8, ptr %73, i64 56
-  store i32 %spec.select251, ptr %83, align 8, !tbaa !53
+  store i32 %spec.select263, ptr %83, align 8, !tbaa !53
   %84 = getelementptr inbounds nuw i8, ptr %7, i64 863
   %85 = load i8, ptr %84, align 1, !tbaa !12
   %.not185 = icmp sgt i8 %85, -1
@@ -206,7 +206,7 @@ define internal range(i32 17, 16) i32 @vmd_read_header(ptr noundef %0) #1 {
   br i1 %.not186, label %90, label %88
 
 88:                                               ; preds = %86
-  %89 = shl nuw nsw i32 %spec.select250, 1
+  %89 = shl nuw nsw i32 %spec.select262, 1
   store i32 %89, ptr %81, align 4, !tbaa !52
   br label %90
 

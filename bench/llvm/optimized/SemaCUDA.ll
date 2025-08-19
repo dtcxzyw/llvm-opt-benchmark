@@ -702,7 +702,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZL7hasAttrIN5clang14CUDASharedAttrEEbPKNS3_4Decl
   %76 = load i8, ptr %75, align 2
   %77 = and i8 %76, 4
   %.not.i.i40.i.i.i.i.i.us.i.i = icmp eq i8 %77, 0
-  br i1 %.not.i.i40.i.i.i.i.i.us.i.i, label %_ZL7hasAttrIN5clang14CUDASharedAttrEEbPKNS0_4DeclEb.exit.loopexit.split.loop.exit83, label %_ZN9__gnu_cxx5__ops10_Iter_predIZL7hasAttrIN5clang14CUDASharedAttrEEbPKNS3_4DeclEbEUlPNS3_4AttrEE_EclIPKS9_EEbT_.exit41.thread53.i.i.i.i.i.us.i.i
+  br i1 %.not.i.i40.i.i.i.i.i.us.i.i, label %_ZL7hasAttrIN5clang14CUDASharedAttrEEbPKNS0_4DeclEb.exit.loopexit.split.loop.exit84, label %_ZN9__gnu_cxx5__ops10_Iter_predIZL7hasAttrIN5clang14CUDASharedAttrEEbPKNS3_4DeclEbEUlPNS3_4AttrEE_EclIPKS9_EEbT_.exit41.thread53.i.i.i.i.i.us.i.i
 
 _ZN9__gnu_cxx5__ops10_Iter_predIZL7hasAttrIN5clang14CUDASharedAttrEEbPKNS3_4DeclEbEUlPNS3_4AttrEE_EclIPKS9_EEbT_.exit41.thread53.i.i.i.i.i.us.i.i: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZL7hasAttrIN5clang14CUDASharedAttrEEbPKNS3_4DeclEbEUlPNS3_4AttrEE_EclIPKS9_EEbT_.exit41.i.i.i.i.i.us.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZL7hasAttrIN5clang14CUDASharedAttrEEbPKNS3_4DeclEbEUlPNS3_4AttrEE_EclIPKS9_EEbT_.exit.thread52.i.i.i.i.i.us.i.i
   %78 = getelementptr inbounds nuw i8, ptr %.02980.i.i.i.i.i.us.i.i, i64 16
@@ -717,7 +717,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZL7hasAttrIN5clang14CUDASharedAttrEEbPKNS3_4Decl
   %83 = load i8, ptr %82, align 2
   %84 = and i8 %83, 4
   %.not.i.i42.i.i.i.i.i.us.i.i = icmp eq i8 %84, 0
-  br i1 %.not.i.i42.i.i.i.i.i.us.i.i, label %_ZL7hasAttrIN5clang14CUDASharedAttrEEbPKNS0_4DeclEb.exit.loopexit.split.loop.exit81, label %_ZN9__gnu_cxx5__ops10_Iter_predIZL7hasAttrIN5clang14CUDASharedAttrEEbPKNS3_4DeclEbEUlPNS3_4AttrEE_EclIPKS9_EEbT_.exit43.thread54.i.i.i.i.i.us.i.i
+  br i1 %.not.i.i42.i.i.i.i.i.us.i.i, label %_ZL7hasAttrIN5clang14CUDASharedAttrEEbPKNS0_4DeclEb.exit.loopexit.split.loop.exit82, label %_ZN9__gnu_cxx5__ops10_Iter_predIZL7hasAttrIN5clang14CUDASharedAttrEEbPKNS3_4DeclEbEUlPNS3_4AttrEE_EclIPKS9_EEbT_.exit43.thread54.i.i.i.i.i.us.i.i
 
 _ZN9__gnu_cxx5__ops10_Iter_predIZL7hasAttrIN5clang14CUDASharedAttrEEbPKNS3_4DeclEbEUlPNS3_4AttrEE_EclIPKS9_EEbT_.exit43.thread54.i.i.i.i.i.us.i.i: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZL7hasAttrIN5clang14CUDASharedAttrEEbPKNS3_4DeclEbEUlPNS3_4AttrEE_EclIPKS9_EEbT_.exit43.i.i.i.i.i.us.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZL7hasAttrIN5clang14CUDASharedAttrEEbPKNS3_4DeclEbEUlPNS3_4AttrEE_EclIPKS9_EEbT_.exit41.thread53.i.i.i.i.i.us.i.i
   %85 = getelementptr inbounds nuw i8, ptr %.02980.i.i.i.i.i.us.i.i, i64 24
@@ -747,7 +747,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZL7hasAttrIN5clang14CUDASharedAttrEEbPKNS3_4Decl
 ._crit_edge.i.i.i.i.i.i.i:                        ; preds = %._crit_edge.loopexit.i.i.i.i.i.i.i, %58
   %.pre-phi90.i.i.i.i.i.i.i = phi i32 [ %95, %._crit_edge.loopexit.i.i.i.i.i.i.i ], [ %.val2.i, %58 ]
   %.029.lcssa.i.i.i.i.i.i.i = phi ptr [ %scevgep.i.i.i.i.i.i.i, %._crit_edge.loopexit.i.i.i.i.i.i.i ], [ %.val.i, %58 ]
-  switch i32 %.pre-phi90.i.i.i.i.i.i.i, label %._crit_edge.i.i.i.i.i.unreachabledefault.i.i [
+  switch i32 %.pre-phi90.i.i.i.i.i.i.i, label %default.unreachable [
     i32 3, label %96
     i32 2, label %104
     i32 1, label %112
@@ -806,23 +806,23 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZL7hasAttrIN5clang14CUDASharedAttrEEbPKNS3_4Decl
   %.not.i.i50.i.i.i.i.i.i.i = icmp eq i8 %118, 0
   br i1 %.not.i.i50.i.i.i.i.i.i.i, label %_ZL7hasAttrIN5clang14CUDASharedAttrEEbPKNS0_4DeclEb.exit, label %_ZL7hasAttrIN5clang14CUDASharedAttrEEbPKNS0_4DeclEb.exit.thread
 
-._crit_edge.i.i.i.i.i.unreachabledefault.i.i:     ; preds = %._crit_edge.i.i.i.i.i.i.i
+default.unreachable:                              ; preds = %._crit_edge.i.i.i.i.i.i.i29, %._crit_edge.i.i.i.i.i.i.i
   unreachable
 
 _ZL7hasAttrIN5clang14CUDASharedAttrEEbPKNS0_4DeclEb.exit.loopexit.split.loop.exit: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZL7hasAttrIN5clang14CUDASharedAttrEEbPKNS3_4DeclEbEUlPNS3_4AttrEE_EclIPKS9_EEbT_.exit45.i.i.i.i.i.us.i.i
   %119 = getelementptr inbounds nuw i8, ptr %.02980.i.i.i.i.i.us.i.i, i64 24
   br label %_ZL7hasAttrIN5clang14CUDASharedAttrEEbPKNS0_4DeclEb.exit
 
-_ZL7hasAttrIN5clang14CUDASharedAttrEEbPKNS0_4DeclEb.exit.loopexit.split.loop.exit81: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZL7hasAttrIN5clang14CUDASharedAttrEEbPKNS3_4DeclEbEUlPNS3_4AttrEE_EclIPKS9_EEbT_.exit43.i.i.i.i.i.us.i.i
+_ZL7hasAttrIN5clang14CUDASharedAttrEEbPKNS0_4DeclEb.exit.loopexit.split.loop.exit82: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZL7hasAttrIN5clang14CUDASharedAttrEEbPKNS3_4DeclEbEUlPNS3_4AttrEE_EclIPKS9_EEbT_.exit43.i.i.i.i.i.us.i.i
   %120 = getelementptr inbounds nuw i8, ptr %.02980.i.i.i.i.i.us.i.i, i64 16
   br label %_ZL7hasAttrIN5clang14CUDASharedAttrEEbPKNS0_4DeclEb.exit
 
-_ZL7hasAttrIN5clang14CUDASharedAttrEEbPKNS0_4DeclEb.exit.loopexit.split.loop.exit83: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZL7hasAttrIN5clang14CUDASharedAttrEEbPKNS3_4DeclEbEUlPNS3_4AttrEE_EclIPKS9_EEbT_.exit41.i.i.i.i.i.us.i.i
+_ZL7hasAttrIN5clang14CUDASharedAttrEEbPKNS0_4DeclEb.exit.loopexit.split.loop.exit84: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZL7hasAttrIN5clang14CUDASharedAttrEEbPKNS3_4DeclEbEUlPNS3_4AttrEE_EclIPKS9_EEbT_.exit41.i.i.i.i.i.us.i.i
   %121 = getelementptr inbounds nuw i8, ptr %.02980.i.i.i.i.i.us.i.i, i64 8
   br label %_ZL7hasAttrIN5clang14CUDASharedAttrEEbPKNS0_4DeclEb.exit
 
-_ZL7hasAttrIN5clang14CUDASharedAttrEEbPKNS0_4DeclEb.exit: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZL7hasAttrIN5clang14CUDASharedAttrEEbPKNS3_4DeclEbEUlPNS3_4AttrEE_EclIPKS9_EEbT_.exit.i.i.i.i.i.us.i.i, %_ZL7hasAttrIN5clang14CUDASharedAttrEEbPKNS0_4DeclEb.exit.loopexit.split.loop.exit, %_ZL7hasAttrIN5clang14CUDASharedAttrEEbPKNS0_4DeclEb.exit.loopexit.split.loop.exit81, %_ZL7hasAttrIN5clang14CUDASharedAttrEEbPKNS0_4DeclEb.exit.loopexit.split.loop.exit83, %_ZN9__gnu_cxx5__ops10_Iter_predIZL7hasAttrIN5clang14CUDASharedAttrEEbPKNS3_4DeclEbEUlPNS3_4AttrEE_EclIPKS9_EEbT_.exit47.i.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZL7hasAttrIN5clang14CUDASharedAttrEEbPKNS3_4DeclEbEUlPNS3_4AttrEE_EclIPKS9_EEbT_.exit49.i.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZL7hasAttrIN5clang14CUDASharedAttrEEbPKNS3_4DeclEbEUlPNS3_4AttrEE_EclIPKS9_EEbT_.exit51.i.i.i.i.i.i.i
-  %.028.i.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZL7hasAttrIN5clang14CUDASharedAttrEEbPKNS3_4DeclEbEUlPNS3_4AttrEE_EclIPKS9_EEbT_.exit47.i.i.i.i.i.i.i ], [ %.1.i.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZL7hasAttrIN5clang14CUDASharedAttrEEbPKNS3_4DeclEbEUlPNS3_4AttrEE_EclIPKS9_EEbT_.exit49.i.i.i.i.i.i.i ], [ %.2.i.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZL7hasAttrIN5clang14CUDASharedAttrEEbPKNS3_4DeclEbEUlPNS3_4AttrEE_EclIPKS9_EEbT_.exit51.i.i.i.i.i.i.i ], [ %119, %_ZL7hasAttrIN5clang14CUDASharedAttrEEbPKNS0_4DeclEb.exit.loopexit.split.loop.exit ], [ %120, %_ZL7hasAttrIN5clang14CUDASharedAttrEEbPKNS0_4DeclEb.exit.loopexit.split.loop.exit81 ], [ %121, %_ZL7hasAttrIN5clang14CUDASharedAttrEEbPKNS0_4DeclEb.exit.loopexit.split.loop.exit83 ], [ %.02980.i.i.i.i.i.us.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZL7hasAttrIN5clang14CUDASharedAttrEEbPKNS3_4DeclEbEUlPNS3_4AttrEE_EclIPKS9_EEbT_.exit.i.i.i.i.i.us.i.i ]
+_ZL7hasAttrIN5clang14CUDASharedAttrEEbPKNS0_4DeclEb.exit: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZL7hasAttrIN5clang14CUDASharedAttrEEbPKNS3_4DeclEbEUlPNS3_4AttrEE_EclIPKS9_EEbT_.exit.i.i.i.i.i.us.i.i, %_ZL7hasAttrIN5clang14CUDASharedAttrEEbPKNS0_4DeclEb.exit.loopexit.split.loop.exit, %_ZL7hasAttrIN5clang14CUDASharedAttrEEbPKNS0_4DeclEb.exit.loopexit.split.loop.exit82, %_ZL7hasAttrIN5clang14CUDASharedAttrEEbPKNS0_4DeclEb.exit.loopexit.split.loop.exit84, %_ZN9__gnu_cxx5__ops10_Iter_predIZL7hasAttrIN5clang14CUDASharedAttrEEbPKNS3_4DeclEbEUlPNS3_4AttrEE_EclIPKS9_EEbT_.exit47.i.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZL7hasAttrIN5clang14CUDASharedAttrEEbPKNS3_4DeclEbEUlPNS3_4AttrEE_EclIPKS9_EEbT_.exit49.i.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZL7hasAttrIN5clang14CUDASharedAttrEEbPKNS3_4DeclEbEUlPNS3_4AttrEE_EclIPKS9_EEbT_.exit51.i.i.i.i.i.i.i
+  %.028.i.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZL7hasAttrIN5clang14CUDASharedAttrEEbPKNS3_4DeclEbEUlPNS3_4AttrEE_EclIPKS9_EEbT_.exit47.i.i.i.i.i.i.i ], [ %.1.i.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZL7hasAttrIN5clang14CUDASharedAttrEEbPKNS3_4DeclEbEUlPNS3_4AttrEE_EclIPKS9_EEbT_.exit49.i.i.i.i.i.i.i ], [ %.2.i.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZL7hasAttrIN5clang14CUDASharedAttrEEbPKNS3_4DeclEbEUlPNS3_4AttrEE_EclIPKS9_EEbT_.exit51.i.i.i.i.i.i.i ], [ %119, %_ZL7hasAttrIN5clang14CUDASharedAttrEEbPKNS0_4DeclEb.exit.loopexit.split.loop.exit ], [ %120, %_ZL7hasAttrIN5clang14CUDASharedAttrEEbPKNS0_4DeclEb.exit.loopexit.split.loop.exit82 ], [ %121, %_ZL7hasAttrIN5clang14CUDASharedAttrEEbPKNS0_4DeclEb.exit.loopexit.split.loop.exit84 ], [ %.02980.i.i.i.i.i.us.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZL7hasAttrIN5clang14CUDASharedAttrEEbPKNS3_4DeclEbEUlPNS3_4AttrEE_EclIPKS9_EEbT_.exit.i.i.i.i.i.us.i.i ]
   %.not = icmp eq ptr %62, %.028.i.i.i.i.i.i.i
   br i1 %.not, label %_ZL7hasAttrIN5clang14CUDASharedAttrEEbPKNS0_4DeclEb.exit.thread, label %_ZL7hasAttrIN5clang16CUDAConstantAttrEEbPKNS0_4DeclEb.exit.thread
 
@@ -878,7 +878,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZL7hasAttrIN5clang16CUDAConstantAttrEEbPKNS3_4De
   %142 = load i8, ptr %141, align 2
   %143 = and i8 %142, 4
   %.not.i.i40.i.i.i.i.i.us.i.i44 = icmp eq i8 %143, 0
-  br i1 %.not.i.i40.i.i.i.i.i.us.i.i44, label %_ZL7hasAttrIN5clang16CUDAConstantAttrEEbPKNS0_4DeclEb.exit.loopexit.split.loop.exit91, label %_ZN9__gnu_cxx5__ops10_Iter_predIZL7hasAttrIN5clang16CUDAConstantAttrEEbPKNS3_4DeclEbEUlPNS3_4AttrEE_EclIPKS9_EEbT_.exit41.thread53.i.i.i.i.i.us.i.i
+  br i1 %.not.i.i40.i.i.i.i.i.us.i.i44, label %_ZL7hasAttrIN5clang16CUDAConstantAttrEEbPKNS0_4DeclEb.exit.loopexit.split.loop.exit92, label %_ZN9__gnu_cxx5__ops10_Iter_predIZL7hasAttrIN5clang16CUDAConstantAttrEEbPKNS3_4DeclEbEUlPNS3_4AttrEE_EclIPKS9_EEbT_.exit41.thread53.i.i.i.i.i.us.i.i
 
 _ZN9__gnu_cxx5__ops10_Iter_predIZL7hasAttrIN5clang16CUDAConstantAttrEEbPKNS3_4DeclEbEUlPNS3_4AttrEE_EclIPKS9_EEbT_.exit41.thread53.i.i.i.i.i.us.i.i: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZL7hasAttrIN5clang16CUDAConstantAttrEEbPKNS3_4DeclEbEUlPNS3_4AttrEE_EclIPKS9_EEbT_.exit41.i.i.i.i.i.us.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZL7hasAttrIN5clang16CUDAConstantAttrEEbPKNS3_4DeclEbEUlPNS3_4AttrEE_EclIPKS9_EEbT_.exit.thread52.i.i.i.i.i.us.i.i
   %144 = getelementptr inbounds nuw i8, ptr %.02980.i.i.i.i.i.us.i.i23, i64 16
@@ -893,7 +893,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZL7hasAttrIN5clang16CUDAConstantAttrEEbPKNS3_4De
   %149 = load i8, ptr %148, align 2
   %150 = and i8 %149, 4
   %.not.i.i42.i.i.i.i.i.us.i.i43 = icmp eq i8 %150, 0
-  br i1 %.not.i.i42.i.i.i.i.i.us.i.i43, label %_ZL7hasAttrIN5clang16CUDAConstantAttrEEbPKNS0_4DeclEb.exit.loopexit.split.loop.exit89, label %_ZN9__gnu_cxx5__ops10_Iter_predIZL7hasAttrIN5clang16CUDAConstantAttrEEbPKNS3_4DeclEbEUlPNS3_4AttrEE_EclIPKS9_EEbT_.exit43.thread54.i.i.i.i.i.us.i.i
+  br i1 %.not.i.i42.i.i.i.i.i.us.i.i43, label %_ZL7hasAttrIN5clang16CUDAConstantAttrEEbPKNS0_4DeclEb.exit.loopexit.split.loop.exit90, label %_ZN9__gnu_cxx5__ops10_Iter_predIZL7hasAttrIN5clang16CUDAConstantAttrEEbPKNS3_4DeclEbEUlPNS3_4AttrEE_EclIPKS9_EEbT_.exit43.thread54.i.i.i.i.i.us.i.i
 
 _ZN9__gnu_cxx5__ops10_Iter_predIZL7hasAttrIN5clang16CUDAConstantAttrEEbPKNS3_4DeclEbEUlPNS3_4AttrEE_EclIPKS9_EEbT_.exit43.thread54.i.i.i.i.i.us.i.i: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZL7hasAttrIN5clang16CUDAConstantAttrEEbPKNS3_4DeclEbEUlPNS3_4AttrEE_EclIPKS9_EEbT_.exit43.i.i.i.i.i.us.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZL7hasAttrIN5clang16CUDAConstantAttrEEbPKNS3_4DeclEbEUlPNS3_4AttrEE_EclIPKS9_EEbT_.exit41.thread53.i.i.i.i.i.us.i.i
   %151 = getelementptr inbounds nuw i8, ptr %.02980.i.i.i.i.i.us.i.i23, i64 24
@@ -923,7 +923,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZL7hasAttrIN5clang16CUDAConstantAttrEEbPKNS3_4De
 ._crit_edge.i.i.i.i.i.i.i29:                      ; preds = %._crit_edge.loopexit.i.i.i.i.i.i.i28, %124
   %.pre-phi90.i.i.i.i.i.i.i30 = phi i32 [ %161, %._crit_edge.loopexit.i.i.i.i.i.i.i28 ], [ %.val2.i16, %124 ]
   %.029.lcssa.i.i.i.i.i.i.i31 = phi ptr [ %scevgep.i.i.i.i.i.i.i20, %._crit_edge.loopexit.i.i.i.i.i.i.i28 ], [ %.val.i15, %124 ]
-  switch i32 %.pre-phi90.i.i.i.i.i.i.i30, label %._crit_edge.i.i.i.i.i.unreachabledefault.i.i41 [
+  switch i32 %.pre-phi90.i.i.i.i.i.i.i30, label %default.unreachable [
     i32 3, label %162
     i32 2, label %170
     i32 1, label %178
@@ -982,23 +982,20 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZL7hasAttrIN5clang16CUDAConstantAttrEEbPKNS3_4De
   %.not.i.i50.i.i.i.i.i.i.i35 = icmp eq i8 %184, 0
   br i1 %.not.i.i50.i.i.i.i.i.i.i35, label %_ZL7hasAttrIN5clang16CUDAConstantAttrEEbPKNS0_4DeclEb.exit, label %_ZL7hasAttrIN5clang16CUDAConstantAttrEEbPKNS0_4DeclEb.exit.thread
 
-._crit_edge.i.i.i.i.i.unreachabledefault.i.i41:   ; preds = %._crit_edge.i.i.i.i.i.i.i29
-  unreachable
-
 _ZL7hasAttrIN5clang16CUDAConstantAttrEEbPKNS0_4DeclEb.exit.loopexit.split.loop.exit: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZL7hasAttrIN5clang16CUDAConstantAttrEEbPKNS3_4DeclEbEUlPNS3_4AttrEE_EclIPKS9_EEbT_.exit45.i.i.i.i.i.us.i.i
   %185 = getelementptr inbounds nuw i8, ptr %.02980.i.i.i.i.i.us.i.i23, i64 24
   br label %_ZL7hasAttrIN5clang16CUDAConstantAttrEEbPKNS0_4DeclEb.exit
 
-_ZL7hasAttrIN5clang16CUDAConstantAttrEEbPKNS0_4DeclEb.exit.loopexit.split.loop.exit89: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZL7hasAttrIN5clang16CUDAConstantAttrEEbPKNS3_4DeclEbEUlPNS3_4AttrEE_EclIPKS9_EEbT_.exit43.i.i.i.i.i.us.i.i
+_ZL7hasAttrIN5clang16CUDAConstantAttrEEbPKNS0_4DeclEb.exit.loopexit.split.loop.exit90: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZL7hasAttrIN5clang16CUDAConstantAttrEEbPKNS3_4DeclEbEUlPNS3_4AttrEE_EclIPKS9_EEbT_.exit43.i.i.i.i.i.us.i.i
   %186 = getelementptr inbounds nuw i8, ptr %.02980.i.i.i.i.i.us.i.i23, i64 16
   br label %_ZL7hasAttrIN5clang16CUDAConstantAttrEEbPKNS0_4DeclEb.exit
 
-_ZL7hasAttrIN5clang16CUDAConstantAttrEEbPKNS0_4DeclEb.exit.loopexit.split.loop.exit91: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZL7hasAttrIN5clang16CUDAConstantAttrEEbPKNS3_4DeclEbEUlPNS3_4AttrEE_EclIPKS9_EEbT_.exit41.i.i.i.i.i.us.i.i
+_ZL7hasAttrIN5clang16CUDAConstantAttrEEbPKNS0_4DeclEb.exit.loopexit.split.loop.exit92: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZL7hasAttrIN5clang16CUDAConstantAttrEEbPKNS3_4DeclEbEUlPNS3_4AttrEE_EclIPKS9_EEbT_.exit41.i.i.i.i.i.us.i.i
   %187 = getelementptr inbounds nuw i8, ptr %.02980.i.i.i.i.i.us.i.i23, i64 8
   br label %_ZL7hasAttrIN5clang16CUDAConstantAttrEEbPKNS0_4DeclEb.exit
 
-_ZL7hasAttrIN5clang16CUDAConstantAttrEEbPKNS0_4DeclEb.exit: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZL7hasAttrIN5clang16CUDAConstantAttrEEbPKNS3_4DeclEbEUlPNS3_4AttrEE_EclIPKS9_EEbT_.exit.i.i.i.i.i.us.i.i, %_ZL7hasAttrIN5clang16CUDAConstantAttrEEbPKNS0_4DeclEb.exit.loopexit.split.loop.exit, %_ZL7hasAttrIN5clang16CUDAConstantAttrEEbPKNS0_4DeclEb.exit.loopexit.split.loop.exit89, %_ZL7hasAttrIN5clang16CUDAConstantAttrEEbPKNS0_4DeclEb.exit.loopexit.split.loop.exit91, %_ZN9__gnu_cxx5__ops10_Iter_predIZL7hasAttrIN5clang16CUDAConstantAttrEEbPKNS3_4DeclEbEUlPNS3_4AttrEE_EclIPKS9_EEbT_.exit47.i.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZL7hasAttrIN5clang16CUDAConstantAttrEEbPKNS3_4DeclEbEUlPNS3_4AttrEE_EclIPKS9_EEbT_.exit49.i.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZL7hasAttrIN5clang16CUDAConstantAttrEEbPKNS3_4DeclEbEUlPNS3_4AttrEE_EclIPKS9_EEbT_.exit51.i.i.i.i.i.i.i
-  %.028.i.i.i.i.i.i.i32 = phi ptr [ %.029.lcssa.i.i.i.i.i.i.i31, %_ZN9__gnu_cxx5__ops10_Iter_predIZL7hasAttrIN5clang16CUDAConstantAttrEEbPKNS3_4DeclEbEUlPNS3_4AttrEE_EclIPKS9_EEbT_.exit47.i.i.i.i.i.i.i ], [ %.1.i.i.i.i.i.i.i36, %_ZN9__gnu_cxx5__ops10_Iter_predIZL7hasAttrIN5clang16CUDAConstantAttrEEbPKNS3_4DeclEbEUlPNS3_4AttrEE_EclIPKS9_EEbT_.exit49.i.i.i.i.i.i.i ], [ %.2.i.i.i.i.i.i.i33, %_ZN9__gnu_cxx5__ops10_Iter_predIZL7hasAttrIN5clang16CUDAConstantAttrEEbPKNS3_4DeclEbEUlPNS3_4AttrEE_EclIPKS9_EEbT_.exit51.i.i.i.i.i.i.i ], [ %185, %_ZL7hasAttrIN5clang16CUDAConstantAttrEEbPKNS0_4DeclEb.exit.loopexit.split.loop.exit ], [ %186, %_ZL7hasAttrIN5clang16CUDAConstantAttrEEbPKNS0_4DeclEb.exit.loopexit.split.loop.exit89 ], [ %187, %_ZL7hasAttrIN5clang16CUDAConstantAttrEEbPKNS0_4DeclEb.exit.loopexit.split.loop.exit91 ], [ %.02980.i.i.i.i.i.us.i.i23, %_ZN9__gnu_cxx5__ops10_Iter_predIZL7hasAttrIN5clang16CUDAConstantAttrEEbPKNS3_4DeclEbEUlPNS3_4AttrEE_EclIPKS9_EEbT_.exit.i.i.i.i.i.us.i.i ]
+_ZL7hasAttrIN5clang16CUDAConstantAttrEEbPKNS0_4DeclEb.exit: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZL7hasAttrIN5clang16CUDAConstantAttrEEbPKNS3_4DeclEbEUlPNS3_4AttrEE_EclIPKS9_EEbT_.exit.i.i.i.i.i.us.i.i, %_ZL7hasAttrIN5clang16CUDAConstantAttrEEbPKNS0_4DeclEb.exit.loopexit.split.loop.exit, %_ZL7hasAttrIN5clang16CUDAConstantAttrEEbPKNS0_4DeclEb.exit.loopexit.split.loop.exit90, %_ZL7hasAttrIN5clang16CUDAConstantAttrEEbPKNS0_4DeclEb.exit.loopexit.split.loop.exit92, %_ZN9__gnu_cxx5__ops10_Iter_predIZL7hasAttrIN5clang16CUDAConstantAttrEEbPKNS3_4DeclEbEUlPNS3_4AttrEE_EclIPKS9_EEbT_.exit47.i.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZL7hasAttrIN5clang16CUDAConstantAttrEEbPKNS3_4DeclEbEUlPNS3_4AttrEE_EclIPKS9_EEbT_.exit49.i.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZL7hasAttrIN5clang16CUDAConstantAttrEEbPKNS3_4DeclEbEUlPNS3_4AttrEE_EclIPKS9_EEbT_.exit51.i.i.i.i.i.i.i
+  %.028.i.i.i.i.i.i.i32 = phi ptr [ %.029.lcssa.i.i.i.i.i.i.i31, %_ZN9__gnu_cxx5__ops10_Iter_predIZL7hasAttrIN5clang16CUDAConstantAttrEEbPKNS3_4DeclEbEUlPNS3_4AttrEE_EclIPKS9_EEbT_.exit47.i.i.i.i.i.i.i ], [ %.1.i.i.i.i.i.i.i36, %_ZN9__gnu_cxx5__ops10_Iter_predIZL7hasAttrIN5clang16CUDAConstantAttrEEbPKNS3_4DeclEbEUlPNS3_4AttrEE_EclIPKS9_EEbT_.exit49.i.i.i.i.i.i.i ], [ %.2.i.i.i.i.i.i.i33, %_ZN9__gnu_cxx5__ops10_Iter_predIZL7hasAttrIN5clang16CUDAConstantAttrEEbPKNS3_4DeclEbEUlPNS3_4AttrEE_EclIPKS9_EEbT_.exit51.i.i.i.i.i.i.i ], [ %185, %_ZL7hasAttrIN5clang16CUDAConstantAttrEEbPKNS0_4DeclEb.exit.loopexit.split.loop.exit ], [ %186, %_ZL7hasAttrIN5clang16CUDAConstantAttrEEbPKNS0_4DeclEb.exit.loopexit.split.loop.exit90 ], [ %187, %_ZL7hasAttrIN5clang16CUDAConstantAttrEEbPKNS0_4DeclEb.exit.loopexit.split.loop.exit92 ], [ %.02980.i.i.i.i.i.us.i.i23, %_ZN9__gnu_cxx5__ops10_Iter_predIZL7hasAttrIN5clang16CUDAConstantAttrEEbPKNS3_4DeclEbEUlPNS3_4AttrEE_EclIPKS9_EEbT_.exit.i.i.i.i.i.us.i.i ]
   %.not56 = icmp eq ptr %128, %.028.i.i.i.i.i.i.i32
   %spec.select = select i1 %.not56, i32 2, i32 0
   br label %_ZL7hasAttrIN5clang16CUDAConstantAttrEEbPKNS0_4DeclEb.exit.thread
@@ -1156,7 +1153,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZL7hasAttrIN5clang14CUDADeviceAttrEEbPKNS3_4Decl
 ._crit_edge.i.i.i.i.i.i:                          ; preds = %._crit_edge.loopexit.i.i.i.i.i.i, %6
   %.pre-phi90.i.i.i.i.i.i = phi i32 [ %61, %._crit_edge.loopexit.i.i.i.i.i.i ], [ %.val2, %6 ]
   %.029.lcssa.i.i.i.i.i.i = phi ptr [ %scevgep.i.i.i.i.i.i, %._crit_edge.loopexit.i.i.i.i.i.i ], [ %.val, %6 ]
-  switch i32 %.pre-phi90.i.i.i.i.i.i, label %._crit_edge.i.i.i.i.i.unreachabledefault.i [
+  switch i32 %.pre-phi90.i.i.i.i.i.i, label %default.unreachable [
     i32 3, label %62
     i32 2, label %71
     i32 1, label %80
@@ -1224,7 +1221,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZL7hasAttrIN5clang14CUDADeviceAttrEEbPKNS3_4Decl
   %.not.i.i50.i.i.i.i.i.i = icmp eq i8 %87, 0
   br i1 %.not.i.i50.i.i.i.i.i.i, label %_ZN4llvm6any_ofIRKNS_11SmallVectorIPN5clang4AttrELj4EEEZL7hasAttrINS2_14CUDADeviceAttrEEbPKNS2_4DeclEbEUlS4_E_EEbOT_T0_.exit, label %_ZN9__gnu_cxx5__ops10_Iter_predIZL7hasAttrIN5clang14CUDADeviceAttrEEbPKNS3_4DeclEbEUlPNS3_4AttrEE_EclIPKS9_EEbT_.exit51.thread58.i.i.i.i.i.i
 
-._crit_edge.i.i.i.i.i.unreachabledefault.i:       ; preds = %._crit_edge.i.i.i.i.i.i
+default.unreachable:                              ; preds = %._crit_edge.i.i.i.i.i.i
   unreachable
 
 _ZN9__gnu_cxx5__ops10_Iter_predIZL7hasAttrIN5clang14CUDADeviceAttrEEbPKNS3_4DeclEbEUlPNS3_4AttrEE_EclIPKS9_EEbT_.exit51.thread58.i.i.i.i.i.i: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZL7hasAttrIN5clang14CUDADeviceAttrEEbPKNS3_4DeclEbEUlPNS3_4AttrEE_EclIPKS9_EEbT_.exit51.i.i.i.i.i.i, %80, %._crit_edge.i.i.i.i.i.i
@@ -1402,7 +1399,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZL7hasAttrIN5clang12CUDAHostAttrEEbPKNS3_4DeclEb
 ._crit_edge.i.i.i.i.i.i:                          ; preds = %._crit_edge.loopexit.i.i.i.i.i.i, %6
   %.pre-phi90.i.i.i.i.i.i = phi i32 [ %61, %._crit_edge.loopexit.i.i.i.i.i.i ], [ %.val2, %6 ]
   %.029.lcssa.i.i.i.i.i.i = phi ptr [ %scevgep.i.i.i.i.i.i, %._crit_edge.loopexit.i.i.i.i.i.i ], [ %.val, %6 ]
-  switch i32 %.pre-phi90.i.i.i.i.i.i, label %._crit_edge.i.i.i.i.i.unreachabledefault.i [
+  switch i32 %.pre-phi90.i.i.i.i.i.i, label %default.unreachable [
     i32 3, label %62
     i32 2, label %71
     i32 1, label %80
@@ -1470,7 +1467,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZL7hasAttrIN5clang12CUDAHostAttrEEbPKNS3_4DeclEb
   %.not.i.i50.i.i.i.i.i.i = icmp eq i8 %87, 0
   br i1 %.not.i.i50.i.i.i.i.i.i, label %_ZN4llvm6any_ofIRKNS_11SmallVectorIPN5clang4AttrELj4EEEZL7hasAttrINS2_12CUDAHostAttrEEbPKNS2_4DeclEbEUlS4_E_EEbOT_T0_.exit, label %_ZN9__gnu_cxx5__ops10_Iter_predIZL7hasAttrIN5clang12CUDAHostAttrEEbPKNS3_4DeclEbEUlPNS3_4AttrEE_EclIPKS9_EEbT_.exit51.thread58.i.i.i.i.i.i
 
-._crit_edge.i.i.i.i.i.unreachabledefault.i:       ; preds = %._crit_edge.i.i.i.i.i.i
+default.unreachable:                              ; preds = %._crit_edge.i.i.i.i.i.i
   unreachable
 
 _ZN9__gnu_cxx5__ops10_Iter_predIZL7hasAttrIN5clang12CUDAHostAttrEEbPKNS3_4DeclEbEUlPNS3_4AttrEE_EclIPKS9_EEbT_.exit51.thread58.i.i.i.i.i.i: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZL7hasAttrIN5clang12CUDAHostAttrEEbPKNS3_4DeclEbEUlPNS3_4AttrEE_EclIPKS9_EEbT_.exit51.i.i.i.i.i.i, %80, %._crit_edge.i.i.i.i.i.i
@@ -4453,13 +4450,13 @@ _ZN5clang13CXXMethodDecl9getParentEv.exit14:      ; preds = %48, %55
   %88 = and i16 %87, 511
   %89 = add nsw i16 %88, -115
   %spec.select.i.i.i.i.i.i.i.i25 = icmp ult i16 %89, 2
-  br i1 %spec.select.i.i.i.i.i.i.i.i25, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5clang8SemaCUDA18isEmptyConstructorENS2_14SourceLocationEPNS2_18CXXConstructorDeclEE3$_0EclIPPNS2_18CXXCtorInitializerEEEbT_.exit34.i", label %"_ZSt13__find_if_notIPPN5clang18CXXCtorInitializerEN9__gnu_cxx5__ops10_Iter_predIZNS0_8SemaCUDA18isEmptyConstructorENS0_14SourceLocationEPNS0_18CXXConstructorDeclEE3$_0EEET_SD_SD_T0_.exit.loopexit.split.loop.exit104"
+  br i1 %spec.select.i.i.i.i.i.i.i.i25, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5clang8SemaCUDA18isEmptyConstructorENS2_14SourceLocationEPNS2_18CXXConstructorDeclEE3$_0EclIPPNS2_18CXXCtorInitializerEEEbT_.exit34.i", label %"_ZSt13__find_if_notIPPN5clang18CXXCtorInitializerEN9__gnu_cxx5__ops10_Iter_predIZNS0_8SemaCUDA18isEmptyConstructorENS0_14SourceLocationEPNS0_18CXXConstructorDeclEE3$_0EEET_SD_SD_T0_.exit.loopexit.split.loop.exit105"
 
 "_ZN9__gnu_cxx5__ops12_Iter_negateIZN5clang8SemaCUDA18isEmptyConstructorENS2_14SourceLocationEPNS2_18CXXConstructorDeclEE3$_0EclIPPNS2_18CXXCtorInitializerEEEbT_.exit34.i": ; preds = %82
   %90 = getelementptr inbounds nuw i8, ptr %86, i64 16
   %91 = load ptr, ptr %90, align 8, !tbaa !1196
   %92 = call noundef zeroext i1 @_ZN5clang8SemaCUDA18isEmptyConstructorENS_14SourceLocationEPNS_18CXXConstructorDeclE(ptr noundef nonnull align 8 dereferenceable(76) %0, i32 %1, ptr noundef %91)
-  br i1 %92, label %93, label %"_ZSt13__find_if_notIPPN5clang18CXXCtorInitializerEN9__gnu_cxx5__ops10_Iter_predIZNS0_8SemaCUDA18isEmptyConstructorENS0_14SourceLocationEPNS0_18CXXConstructorDeclEE3$_0EEET_SD_SD_T0_.exit.loopexit.split.loop.exit102"
+  br i1 %92, label %93, label %"_ZSt13__find_if_notIPPN5clang18CXXCtorInitializerEN9__gnu_cxx5__ops10_Iter_predIZNS0_8SemaCUDA18isEmptyConstructorENS0_14SourceLocationEPNS0_18CXXConstructorDeclEE3$_0EEET_SD_SD_T0_.exit.loopexit.split.loop.exit103"
 
 93:                                               ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5clang8SemaCUDA18isEmptyConstructorENS2_14SourceLocationEPNS2_18CXXConstructorDeclEE3$_0EclIPPNS2_18CXXCtorInitializerEEEbT_.exit34.i"
   %94 = getelementptr inbounds nuw i8, ptr %.029.i.i85, i64 16
@@ -4470,13 +4467,13 @@ _ZN5clang13CXXMethodDecl9getParentEv.exit14:      ; preds = %48, %55
   %99 = and i16 %98, 511
   %100 = add nsw i16 %99, -115
   %spec.select.i.i.i.i.i.i.i.i23 = icmp ult i16 %100, 2
-  br i1 %spec.select.i.i.i.i.i.i.i.i23, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5clang8SemaCUDA18isEmptyConstructorENS2_14SourceLocationEPNS2_18CXXConstructorDeclEE3$_0EclIPPNS2_18CXXCtorInitializerEEEbT_.exit28.i", label %"_ZSt13__find_if_notIPPN5clang18CXXCtorInitializerEN9__gnu_cxx5__ops10_Iter_predIZNS0_8SemaCUDA18isEmptyConstructorENS0_14SourceLocationEPNS0_18CXXConstructorDeclEE3$_0EEET_SD_SD_T0_.exit.loopexit.split.loop.exit106"
+  br i1 %spec.select.i.i.i.i.i.i.i.i23, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5clang8SemaCUDA18isEmptyConstructorENS2_14SourceLocationEPNS2_18CXXConstructorDeclEE3$_0EclIPPNS2_18CXXCtorInitializerEEEbT_.exit28.i", label %"_ZSt13__find_if_notIPPN5clang18CXXCtorInitializerEN9__gnu_cxx5__ops10_Iter_predIZNS0_8SemaCUDA18isEmptyConstructorENS0_14SourceLocationEPNS0_18CXXConstructorDeclEE3$_0EEET_SD_SD_T0_.exit.loopexit.split.loop.exit107"
 
 "_ZN9__gnu_cxx5__ops12_Iter_negateIZN5clang8SemaCUDA18isEmptyConstructorENS2_14SourceLocationEPNS2_18CXXConstructorDeclEE3$_0EclIPPNS2_18CXXCtorInitializerEEEbT_.exit28.i": ; preds = %93
   %101 = getelementptr inbounds nuw i8, ptr %97, i64 16
   %102 = load ptr, ptr %101, align 8, !tbaa !1196
   %103 = call noundef zeroext i1 @_ZN5clang8SemaCUDA18isEmptyConstructorENS_14SourceLocationEPNS_18CXXConstructorDeclE(ptr noundef nonnull align 8 dereferenceable(76) %0, i32 %1, ptr noundef %102)
-  br i1 %103, label %104, label %"_ZSt13__find_if_notIPPN5clang18CXXCtorInitializerEN9__gnu_cxx5__ops10_Iter_predIZNS0_8SemaCUDA18isEmptyConstructorENS0_14SourceLocationEPNS0_18CXXConstructorDeclEE3$_0EEET_SD_SD_T0_.exit.loopexit.split.loop.exit100"
+  br i1 %103, label %104, label %"_ZSt13__find_if_notIPPN5clang18CXXCtorInitializerEN9__gnu_cxx5__ops10_Iter_predIZNS0_8SemaCUDA18isEmptyConstructorENS0_14SourceLocationEPNS0_18CXXConstructorDeclEE3$_0EEET_SD_SD_T0_.exit.loopexit.split.loop.exit101"
 
 104:                                              ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5clang8SemaCUDA18isEmptyConstructorENS2_14SourceLocationEPNS2_18CXXConstructorDeclEE3$_0EclIPPNS2_18CXXCtorInitializerEEEbT_.exit28.i"
   %105 = getelementptr inbounds nuw i8, ptr %.029.i.i85, i64 24
@@ -4487,7 +4484,7 @@ _ZN5clang13CXXMethodDecl9getParentEv.exit14:      ; preds = %48, %55
   %110 = and i16 %109, 511
   %111 = add nsw i16 %110, -115
   %spec.select.i.i.i.i.i.i.i.i21 = icmp ult i16 %111, 2
-  br i1 %spec.select.i.i.i.i.i.i.i.i21, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5clang8SemaCUDA18isEmptyConstructorENS2_14SourceLocationEPNS2_18CXXConstructorDeclEE3$_0EclIPPNS2_18CXXCtorInitializerEEEbT_.exit22.i", label %"_ZSt13__find_if_notIPPN5clang18CXXCtorInitializerEN9__gnu_cxx5__ops10_Iter_predIZNS0_8SemaCUDA18isEmptyConstructorENS0_14SourceLocationEPNS0_18CXXConstructorDeclEE3$_0EEET_SD_SD_T0_.exit.loopexit.split.loop.exit108"
+  br i1 %spec.select.i.i.i.i.i.i.i.i21, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5clang8SemaCUDA18isEmptyConstructorENS2_14SourceLocationEPNS2_18CXXConstructorDeclEE3$_0EclIPPNS2_18CXXCtorInitializerEEEbT_.exit22.i", label %"_ZSt13__find_if_notIPPN5clang18CXXCtorInitializerEN9__gnu_cxx5__ops10_Iter_predIZNS0_8SemaCUDA18isEmptyConstructorENS0_14SourceLocationEPNS0_18CXXConstructorDeclEE3$_0EEET_SD_SD_T0_.exit.loopexit.split.loop.exit109"
 
 "_ZN9__gnu_cxx5__ops12_Iter_negateIZN5clang8SemaCUDA18isEmptyConstructorENS2_14SourceLocationEPNS2_18CXXConstructorDeclEE3$_0EclIPPNS2_18CXXCtorInitializerEEEbT_.exit22.i": ; preds = %104
   %112 = getelementptr inbounds nuw i8, ptr %108, i64 16
@@ -4581,28 +4578,28 @@ _ZN5clang13CXXMethodDecl9getParentEv.exit14:      ; preds = %48, %55
   %155 = getelementptr inbounds nuw i8, ptr %.029.i.i85, i64 24
   br label %"_ZSt13__find_if_notIPPN5clang18CXXCtorInitializerEN9__gnu_cxx5__ops10_Iter_predIZNS0_8SemaCUDA18isEmptyConstructorENS0_14SourceLocationEPNS0_18CXXConstructorDeclEE3$_0EEET_SD_SD_T0_.exit"
 
-"_ZSt13__find_if_notIPPN5clang18CXXCtorInitializerEN9__gnu_cxx5__ops10_Iter_predIZNS0_8SemaCUDA18isEmptyConstructorENS0_14SourceLocationEPNS0_18CXXConstructorDeclEE3$_0EEET_SD_SD_T0_.exit.loopexit.split.loop.exit100": ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5clang8SemaCUDA18isEmptyConstructorENS2_14SourceLocationEPNS2_18CXXConstructorDeclEE3$_0EclIPPNS2_18CXXCtorInitializerEEEbT_.exit28.i"
+"_ZSt13__find_if_notIPPN5clang18CXXCtorInitializerEN9__gnu_cxx5__ops10_Iter_predIZNS0_8SemaCUDA18isEmptyConstructorENS0_14SourceLocationEPNS0_18CXXConstructorDeclEE3$_0EEET_SD_SD_T0_.exit.loopexit.split.loop.exit101": ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5clang8SemaCUDA18isEmptyConstructorENS2_14SourceLocationEPNS2_18CXXConstructorDeclEE3$_0EclIPPNS2_18CXXCtorInitializerEEEbT_.exit28.i"
   %156 = getelementptr inbounds nuw i8, ptr %.029.i.i85, i64 16
   br label %"_ZSt13__find_if_notIPPN5clang18CXXCtorInitializerEN9__gnu_cxx5__ops10_Iter_predIZNS0_8SemaCUDA18isEmptyConstructorENS0_14SourceLocationEPNS0_18CXXConstructorDeclEE3$_0EEET_SD_SD_T0_.exit"
 
-"_ZSt13__find_if_notIPPN5clang18CXXCtorInitializerEN9__gnu_cxx5__ops10_Iter_predIZNS0_8SemaCUDA18isEmptyConstructorENS0_14SourceLocationEPNS0_18CXXConstructorDeclEE3$_0EEET_SD_SD_T0_.exit.loopexit.split.loop.exit102": ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5clang8SemaCUDA18isEmptyConstructorENS2_14SourceLocationEPNS2_18CXXConstructorDeclEE3$_0EclIPPNS2_18CXXCtorInitializerEEEbT_.exit34.i"
+"_ZSt13__find_if_notIPPN5clang18CXXCtorInitializerEN9__gnu_cxx5__ops10_Iter_predIZNS0_8SemaCUDA18isEmptyConstructorENS0_14SourceLocationEPNS0_18CXXConstructorDeclEE3$_0EEET_SD_SD_T0_.exit.loopexit.split.loop.exit103": ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5clang8SemaCUDA18isEmptyConstructorENS2_14SourceLocationEPNS2_18CXXConstructorDeclEE3$_0EclIPPNS2_18CXXCtorInitializerEEEbT_.exit34.i"
   %157 = getelementptr inbounds nuw i8, ptr %.029.i.i85, i64 8
   br label %"_ZSt13__find_if_notIPPN5clang18CXXCtorInitializerEN9__gnu_cxx5__ops10_Iter_predIZNS0_8SemaCUDA18isEmptyConstructorENS0_14SourceLocationEPNS0_18CXXConstructorDeclEE3$_0EEET_SD_SD_T0_.exit"
 
-"_ZSt13__find_if_notIPPN5clang18CXXCtorInitializerEN9__gnu_cxx5__ops10_Iter_predIZNS0_8SemaCUDA18isEmptyConstructorENS0_14SourceLocationEPNS0_18CXXConstructorDeclEE3$_0EEET_SD_SD_T0_.exit.loopexit.split.loop.exit104": ; preds = %82
+"_ZSt13__find_if_notIPPN5clang18CXXCtorInitializerEN9__gnu_cxx5__ops10_Iter_predIZNS0_8SemaCUDA18isEmptyConstructorENS0_14SourceLocationEPNS0_18CXXConstructorDeclEE3$_0EEET_SD_SD_T0_.exit.loopexit.split.loop.exit105": ; preds = %82
   %158 = getelementptr inbounds nuw i8, ptr %.029.i.i85, i64 8
   br label %"_ZSt13__find_if_notIPPN5clang18CXXCtorInitializerEN9__gnu_cxx5__ops10_Iter_predIZNS0_8SemaCUDA18isEmptyConstructorENS0_14SourceLocationEPNS0_18CXXConstructorDeclEE3$_0EEET_SD_SD_T0_.exit"
 
-"_ZSt13__find_if_notIPPN5clang18CXXCtorInitializerEN9__gnu_cxx5__ops10_Iter_predIZNS0_8SemaCUDA18isEmptyConstructorENS0_14SourceLocationEPNS0_18CXXConstructorDeclEE3$_0EEET_SD_SD_T0_.exit.loopexit.split.loop.exit106": ; preds = %93
+"_ZSt13__find_if_notIPPN5clang18CXXCtorInitializerEN9__gnu_cxx5__ops10_Iter_predIZNS0_8SemaCUDA18isEmptyConstructorENS0_14SourceLocationEPNS0_18CXXConstructorDeclEE3$_0EEET_SD_SD_T0_.exit.loopexit.split.loop.exit107": ; preds = %93
   %159 = getelementptr inbounds nuw i8, ptr %.029.i.i85, i64 16
   br label %"_ZSt13__find_if_notIPPN5clang18CXXCtorInitializerEN9__gnu_cxx5__ops10_Iter_predIZNS0_8SemaCUDA18isEmptyConstructorENS0_14SourceLocationEPNS0_18CXXConstructorDeclEE3$_0EEET_SD_SD_T0_.exit"
 
-"_ZSt13__find_if_notIPPN5clang18CXXCtorInitializerEN9__gnu_cxx5__ops10_Iter_predIZNS0_8SemaCUDA18isEmptyConstructorENS0_14SourceLocationEPNS0_18CXXConstructorDeclEE3$_0EEET_SD_SD_T0_.exit.loopexit.split.loop.exit108": ; preds = %104
+"_ZSt13__find_if_notIPPN5clang18CXXCtorInitializerEN9__gnu_cxx5__ops10_Iter_predIZNS0_8SemaCUDA18isEmptyConstructorENS0_14SourceLocationEPNS0_18CXXConstructorDeclEE3$_0EEET_SD_SD_T0_.exit.loopexit.split.loop.exit109": ; preds = %104
   %160 = getelementptr inbounds nuw i8, ptr %.029.i.i85, i64 24
   br label %"_ZSt13__find_if_notIPPN5clang18CXXCtorInitializerEN9__gnu_cxx5__ops10_Iter_predIZNS0_8SemaCUDA18isEmptyConstructorENS0_14SourceLocationEPNS0_18CXXConstructorDeclEE3$_0EEET_SD_SD_T0_.exit"
 
-"_ZSt13__find_if_notIPPN5clang18CXXCtorInitializerEN9__gnu_cxx5__ops10_Iter_predIZNS0_8SemaCUDA18isEmptyConstructorENS0_14SourceLocationEPNS0_18CXXConstructorDeclEE3$_0EEET_SD_SD_T0_.exit": ; preds = %.lr.ph, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5clang8SemaCUDA18isEmptyConstructorENS2_14SourceLocationEPNS2_18CXXConstructorDeclEE3$_0EclIPPNS2_18CXXCtorInitializerEEEbT_.exit40.i", %"_ZSt13__find_if_notIPPN5clang18CXXCtorInitializerEN9__gnu_cxx5__ops10_Iter_predIZNS0_8SemaCUDA18isEmptyConstructorENS0_14SourceLocationEPNS0_18CXXConstructorDeclEE3$_0EEET_SD_SD_T0_.exit.loopexit.split.loop.exit", %"_ZSt13__find_if_notIPPN5clang18CXXCtorInitializerEN9__gnu_cxx5__ops10_Iter_predIZNS0_8SemaCUDA18isEmptyConstructorENS0_14SourceLocationEPNS0_18CXXConstructorDeclEE3$_0EEET_SD_SD_T0_.exit.loopexit.split.loop.exit100", %"_ZSt13__find_if_notIPPN5clang18CXXCtorInitializerEN9__gnu_cxx5__ops10_Iter_predIZNS0_8SemaCUDA18isEmptyConstructorENS0_14SourceLocationEPNS0_18CXXConstructorDeclEE3$_0EEET_SD_SD_T0_.exit.loopexit.split.loop.exit102", %"_ZSt13__find_if_notIPPN5clang18CXXCtorInitializerEN9__gnu_cxx5__ops10_Iter_predIZNS0_8SemaCUDA18isEmptyConstructorENS0_14SourceLocationEPNS0_18CXXConstructorDeclEE3$_0EEET_SD_SD_T0_.exit.loopexit.split.loop.exit104", %"_ZSt13__find_if_notIPPN5clang18CXXCtorInitializerEN9__gnu_cxx5__ops10_Iter_predIZNS0_8SemaCUDA18isEmptyConstructorENS0_14SourceLocationEPNS0_18CXXConstructorDeclEE3$_0EEET_SD_SD_T0_.exit.loopexit.split.loop.exit106", %"_ZSt13__find_if_notIPPN5clang18CXXCtorInitializerEN9__gnu_cxx5__ops10_Iter_predIZNS0_8SemaCUDA18isEmptyConstructorENS0_14SourceLocationEPNS0_18CXXConstructorDeclEE3$_0EEET_SD_SD_T0_.exit.loopexit.split.loop.exit108", %144, %132, %120, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5clang8SemaCUDA18isEmptyConstructorENS2_14SourceLocationEPNS2_18CXXConstructorDeclEE3$_0EclIPPNS2_18CXXCtorInitializerEEEbT_.exit16.i", %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5clang8SemaCUDA18isEmptyConstructorENS2_14SourceLocationEPNS2_18CXXConstructorDeclEE3$_0EclIPPNS2_18CXXCtorInitializerEEEbT_.exit10.i", %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5clang8SemaCUDA18isEmptyConstructorENS2_14SourceLocationEPNS2_18CXXConstructorDeclEE3$_0EclIPPNS2_18CXXCtorInitializerEEEbT_.exit.i", %154
-  %.028.i.i = phi ptr [ %67, %154 ], [ %.029.i.i.lcssa, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5clang8SemaCUDA18isEmptyConstructorENS2_14SourceLocationEPNS2_18CXXConstructorDeclEE3$_0EclIPPNS2_18CXXCtorInitializerEEEbT_.exit16.i" ], [ %.1.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5clang8SemaCUDA18isEmptyConstructorENS2_14SourceLocationEPNS2_18CXXConstructorDeclEE3$_0EclIPPNS2_18CXXCtorInitializerEEEbT_.exit10.i" ], [ %.2.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5clang8SemaCUDA18isEmptyConstructorENS2_14SourceLocationEPNS2_18CXXConstructorDeclEE3$_0EclIPPNS2_18CXXCtorInitializerEEEbT_.exit.i" ], [ %.029.i.i.lcssa, %120 ], [ %.1.i.i, %132 ], [ %.2.i.i, %144 ], [ %155, %"_ZSt13__find_if_notIPPN5clang18CXXCtorInitializerEN9__gnu_cxx5__ops10_Iter_predIZNS0_8SemaCUDA18isEmptyConstructorENS0_14SourceLocationEPNS0_18CXXConstructorDeclEE3$_0EEET_SD_SD_T0_.exit.loopexit.split.loop.exit" ], [ %156, %"_ZSt13__find_if_notIPPN5clang18CXXCtorInitializerEN9__gnu_cxx5__ops10_Iter_predIZNS0_8SemaCUDA18isEmptyConstructorENS0_14SourceLocationEPNS0_18CXXConstructorDeclEE3$_0EEET_SD_SD_T0_.exit.loopexit.split.loop.exit100" ], [ %157, %"_ZSt13__find_if_notIPPN5clang18CXXCtorInitializerEN9__gnu_cxx5__ops10_Iter_predIZNS0_8SemaCUDA18isEmptyConstructorENS0_14SourceLocationEPNS0_18CXXConstructorDeclEE3$_0EEET_SD_SD_T0_.exit.loopexit.split.loop.exit102" ], [ %158, %"_ZSt13__find_if_notIPPN5clang18CXXCtorInitializerEN9__gnu_cxx5__ops10_Iter_predIZNS0_8SemaCUDA18isEmptyConstructorENS0_14SourceLocationEPNS0_18CXXConstructorDeclEE3$_0EEET_SD_SD_T0_.exit.loopexit.split.loop.exit104" ], [ %159, %"_ZSt13__find_if_notIPPN5clang18CXXCtorInitializerEN9__gnu_cxx5__ops10_Iter_predIZNS0_8SemaCUDA18isEmptyConstructorENS0_14SourceLocationEPNS0_18CXXConstructorDeclEE3$_0EEET_SD_SD_T0_.exit.loopexit.split.loop.exit106" ], [ %160, %"_ZSt13__find_if_notIPPN5clang18CXXCtorInitializerEN9__gnu_cxx5__ops10_Iter_predIZNS0_8SemaCUDA18isEmptyConstructorENS0_14SourceLocationEPNS0_18CXXConstructorDeclEE3$_0EEET_SD_SD_T0_.exit.loopexit.split.loop.exit108" ], [ %.029.i.i85, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5clang8SemaCUDA18isEmptyConstructorENS2_14SourceLocationEPNS2_18CXXConstructorDeclEE3$_0EclIPPNS2_18CXXCtorInitializerEEEbT_.exit40.i" ], [ %.029.i.i85, %.lr.ph ]
+"_ZSt13__find_if_notIPPN5clang18CXXCtorInitializerEN9__gnu_cxx5__ops10_Iter_predIZNS0_8SemaCUDA18isEmptyConstructorENS0_14SourceLocationEPNS0_18CXXConstructorDeclEE3$_0EEET_SD_SD_T0_.exit": ; preds = %.lr.ph, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5clang8SemaCUDA18isEmptyConstructorENS2_14SourceLocationEPNS2_18CXXConstructorDeclEE3$_0EclIPPNS2_18CXXCtorInitializerEEEbT_.exit40.i", %"_ZSt13__find_if_notIPPN5clang18CXXCtorInitializerEN9__gnu_cxx5__ops10_Iter_predIZNS0_8SemaCUDA18isEmptyConstructorENS0_14SourceLocationEPNS0_18CXXConstructorDeclEE3$_0EEET_SD_SD_T0_.exit.loopexit.split.loop.exit", %"_ZSt13__find_if_notIPPN5clang18CXXCtorInitializerEN9__gnu_cxx5__ops10_Iter_predIZNS0_8SemaCUDA18isEmptyConstructorENS0_14SourceLocationEPNS0_18CXXConstructorDeclEE3$_0EEET_SD_SD_T0_.exit.loopexit.split.loop.exit101", %"_ZSt13__find_if_notIPPN5clang18CXXCtorInitializerEN9__gnu_cxx5__ops10_Iter_predIZNS0_8SemaCUDA18isEmptyConstructorENS0_14SourceLocationEPNS0_18CXXConstructorDeclEE3$_0EEET_SD_SD_T0_.exit.loopexit.split.loop.exit103", %"_ZSt13__find_if_notIPPN5clang18CXXCtorInitializerEN9__gnu_cxx5__ops10_Iter_predIZNS0_8SemaCUDA18isEmptyConstructorENS0_14SourceLocationEPNS0_18CXXConstructorDeclEE3$_0EEET_SD_SD_T0_.exit.loopexit.split.loop.exit105", %"_ZSt13__find_if_notIPPN5clang18CXXCtorInitializerEN9__gnu_cxx5__ops10_Iter_predIZNS0_8SemaCUDA18isEmptyConstructorENS0_14SourceLocationEPNS0_18CXXConstructorDeclEE3$_0EEET_SD_SD_T0_.exit.loopexit.split.loop.exit107", %"_ZSt13__find_if_notIPPN5clang18CXXCtorInitializerEN9__gnu_cxx5__ops10_Iter_predIZNS0_8SemaCUDA18isEmptyConstructorENS0_14SourceLocationEPNS0_18CXXConstructorDeclEE3$_0EEET_SD_SD_T0_.exit.loopexit.split.loop.exit109", %144, %132, %120, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5clang8SemaCUDA18isEmptyConstructorENS2_14SourceLocationEPNS2_18CXXConstructorDeclEE3$_0EclIPPNS2_18CXXCtorInitializerEEEbT_.exit16.i", %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5clang8SemaCUDA18isEmptyConstructorENS2_14SourceLocationEPNS2_18CXXConstructorDeclEE3$_0EclIPPNS2_18CXXCtorInitializerEEEbT_.exit10.i", %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5clang8SemaCUDA18isEmptyConstructorENS2_14SourceLocationEPNS2_18CXXConstructorDeclEE3$_0EclIPPNS2_18CXXCtorInitializerEEEbT_.exit.i", %154
+  %.028.i.i = phi ptr [ %67, %154 ], [ %.029.i.i.lcssa, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5clang8SemaCUDA18isEmptyConstructorENS2_14SourceLocationEPNS2_18CXXConstructorDeclEE3$_0EclIPPNS2_18CXXCtorInitializerEEEbT_.exit16.i" ], [ %.1.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5clang8SemaCUDA18isEmptyConstructorENS2_14SourceLocationEPNS2_18CXXConstructorDeclEE3$_0EclIPPNS2_18CXXCtorInitializerEEEbT_.exit10.i" ], [ %.2.i.i, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5clang8SemaCUDA18isEmptyConstructorENS2_14SourceLocationEPNS2_18CXXConstructorDeclEE3$_0EclIPPNS2_18CXXCtorInitializerEEEbT_.exit.i" ], [ %.029.i.i.lcssa, %120 ], [ %.1.i.i, %132 ], [ %.2.i.i, %144 ], [ %155, %"_ZSt13__find_if_notIPPN5clang18CXXCtorInitializerEN9__gnu_cxx5__ops10_Iter_predIZNS0_8SemaCUDA18isEmptyConstructorENS0_14SourceLocationEPNS0_18CXXConstructorDeclEE3$_0EEET_SD_SD_T0_.exit.loopexit.split.loop.exit" ], [ %156, %"_ZSt13__find_if_notIPPN5clang18CXXCtorInitializerEN9__gnu_cxx5__ops10_Iter_predIZNS0_8SemaCUDA18isEmptyConstructorENS0_14SourceLocationEPNS0_18CXXConstructorDeclEE3$_0EEET_SD_SD_T0_.exit.loopexit.split.loop.exit101" ], [ %157, %"_ZSt13__find_if_notIPPN5clang18CXXCtorInitializerEN9__gnu_cxx5__ops10_Iter_predIZNS0_8SemaCUDA18isEmptyConstructorENS0_14SourceLocationEPNS0_18CXXConstructorDeclEE3$_0EEET_SD_SD_T0_.exit.loopexit.split.loop.exit103" ], [ %158, %"_ZSt13__find_if_notIPPN5clang18CXXCtorInitializerEN9__gnu_cxx5__ops10_Iter_predIZNS0_8SemaCUDA18isEmptyConstructorENS0_14SourceLocationEPNS0_18CXXConstructorDeclEE3$_0EEET_SD_SD_T0_.exit.loopexit.split.loop.exit105" ], [ %159, %"_ZSt13__find_if_notIPPN5clang18CXXCtorInitializerEN9__gnu_cxx5__ops10_Iter_predIZNS0_8SemaCUDA18isEmptyConstructorENS0_14SourceLocationEPNS0_18CXXConstructorDeclEE3$_0EEET_SD_SD_T0_.exit.loopexit.split.loop.exit107" ], [ %160, %"_ZSt13__find_if_notIPPN5clang18CXXCtorInitializerEN9__gnu_cxx5__ops10_Iter_predIZNS0_8SemaCUDA18isEmptyConstructorENS0_14SourceLocationEPNS0_18CXXConstructorDeclEE3$_0EEET_SD_SD_T0_.exit.loopexit.split.loop.exit109" ], [ %.029.i.i85, %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5clang8SemaCUDA18isEmptyConstructorENS2_14SourceLocationEPNS2_18CXXConstructorDeclEE3$_0EclIPPNS2_18CXXCtorInitializerEEEbT_.exit40.i" ], [ %.029.i.i85, %.lr.ph ]
   %161 = icmp eq ptr %67, %.028.i.i
   br label %_ZNK5clang13CXXRecordDecl14isDynamicClassEv.exit.thread
 
@@ -6340,14 +6337,14 @@ _ZNK5clang7VarDecl13isFileVarDeclEv.exit:         ; preds = %57, %62
   %65 = load i16, ptr %64, align 8
   %66 = and i16 %65, 124
   %spec.select.i.i.i = icmp eq i16 %66, 56
-  br i1 %spec.select.i.i.i, label %_ZNK5clang7VarDecl13isFileVarDeclEv.exit.thread29, label %_ZNK5clang7VarDecl13isFileVarDeclEv.exit.thread.thread43
+  br i1 %spec.select.i.i.i, label %_ZNK5clang7VarDecl13isFileVarDeclEv.exit.thread29, label %_ZNK5clang7VarDecl13isFileVarDeclEv.exit.thread.thread46
 
 _ZNK5clang7VarDecl13isFileVarDeclEv.exit.thread:  ; preds = %_ZNK5clang4Decl7hasAttrINS_14CUDASharedAttrEEEbv.exit.thread25
   %.pre = and i32 %39, 43
   %67 = icmp eq i32 %.pre, 41
-  br i1 %67, label %.critedge, label %_ZNK5clang7VarDecl13isFileVarDeclEv.exit.thread.thread43
+  br i1 %67, label %.critedge, label %_ZNK5clang7VarDecl13isFileVarDeclEv.exit.thread.thread46
 
-_ZNK5clang7VarDecl13isFileVarDeclEv.exit.thread.thread43: ; preds = %_ZNK5clang7VarDecl13isFileVarDeclEv.exit, %_ZNK5clang7VarDecl13isFileVarDeclEv.exit.thread
+_ZNK5clang7VarDecl13isFileVarDeclEv.exit.thread.thread46: ; preds = %_ZNK5clang7VarDecl13isFileVarDeclEv.exit, %_ZNK5clang7VarDecl13isFileVarDeclEv.exit.thread
   %68 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.0.copyload.i.i.i.i.i.i.i.i.i.i.i19 = load i64, ptr %68, align 8
   %69 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i19, 4
@@ -6356,12 +6353,12 @@ _ZNK5clang7VarDecl13isFileVarDeclEv.exit.thread.thread43: ; preds = %_ZNK5clang7
   %72 = inttoptr i64 %71 to ptr
   br i1 %70, label %_ZNK5clang7VarDecl18isStaticDataMemberEv.exit, label %73
 
-73:                                               ; preds = %_ZNK5clang7VarDecl13isFileVarDeclEv.exit.thread.thread43
+73:                                               ; preds = %_ZNK5clang7VarDecl13isFileVarDeclEv.exit.thread.thread46
   %74 = load ptr, ptr %72, align 8, !tbaa !438
   br label %_ZNK5clang7VarDecl18isStaticDataMemberEv.exit
 
-_ZNK5clang7VarDecl18isStaticDataMemberEv.exit:    ; preds = %_ZNK5clang7VarDecl13isFileVarDeclEv.exit.thread.thread43, %73
-  %.0.i.i.i20 = phi ptr [ %74, %73 ], [ %72, %_ZNK5clang7VarDecl13isFileVarDeclEv.exit.thread.thread43 ]
+_ZNK5clang7VarDecl18isStaticDataMemberEv.exit:    ; preds = %_ZNK5clang7VarDecl13isFileVarDeclEv.exit.thread.thread46, %73
+  %.0.i.i.i20 = phi ptr [ %74, %73 ], [ %72, %_ZNK5clang7VarDecl13isFileVarDeclEv.exit.thread.thread46 ]
   %75 = getelementptr inbounds nuw i8, ptr %.0.i.i.i20, i64 8
   %76 = load i16, ptr %75, align 8
   %77 = and i16 %76, 124
@@ -7571,7 +7568,7 @@ _ZN5clangneENS_22specific_attr_iteratorINS_14CUDADeviceAttrEN4llvm11SmallVectorI
 73:                                               ; preds = %68
   %74 = and i8 %70, 8
   %.not.i36 = icmp eq i8 %74, 0
-  br i1 %.not.i36, label %75, label %.thread45
+  br i1 %.not.i36, label %75, label %.thread51
 
 75:                                               ; preds = %73
   %76 = tail call noundef nonnull align 8 dereferenceable(849) ptr @_ZNK5clang8SemaBase11getLangOptsEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #16
@@ -7600,9 +7597,9 @@ _ZN5clangneENS_22specific_attr_iteratorINS_14CUDADeviceAttrEN4llvm11SmallVectorI
   %.pre = load i8, ptr %69, align 8
   %.pre44 = and i8 %.pre, 8
   %86 = icmp eq i8 %.pre44, 0
-  br i1 %86, label %.thread, label %.thread45
+  br i1 %86, label %.thread, label %.thread51
 
-.thread45:                                        ; preds = %73, %85
+.thread51:                                        ; preds = %73, %85
   %87 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.0.0.copyload.i37 = load i32, ptr %87, align 8, !tbaa !403
   %88 = load ptr, ptr %0, align 8, !tbaa !408
@@ -7610,7 +7607,7 @@ _ZN5clangneENS_22specific_attr_iteratorINS_14CUDADeviceAttrEN4llvm11SmallVectorI
   call void @_ZN5clang8SemaBase21SemaDiagnosticBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(136) %6) #16
   br label %.thread
 
-.thread:                                          ; preds = %_ZNK5clang4Decl7hasAttrINS_14CUDAGlobalAttrEEEbv.exit, %11, %80, %.thread45, %85, %65, %68, %3
+.thread:                                          ; preds = %_ZNK5clang4Decl7hasAttrINS_14CUDAGlobalAttrEEEbv.exit, %11, %80, %.thread51, %85, %65, %68, %3
   ret void
 }
 
@@ -9883,7 +9880,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IN4llvm9StringRefEvEERKT_
   %79 = load ptr, ptr %78, align 8, !tbaa !385
   %80 = getelementptr inbounds nuw i8, ptr %78, i64 16
   %81 = icmp eq ptr %79, %80
-  br i1 %81, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i
+  br i1 %81, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IN4llvm9StringRefEvEERKT_RKS3_.exit
   %82 = getelementptr inbounds nuw i8, ptr %78, i64 8
@@ -9894,13 +9891,13 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i: ; 
   %86 = icmp eq ptr %85, %56
   br i1 %86, label %89, label %.thread.i
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IN4llvm9StringRefEvEERKT_RKS3_.exit
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IN4llvm9StringRefEvEERKT_RKS3_.exit
   %87 = load ptr, ptr %5, align 8, !tbaa !385
   %88 = icmp eq ptr %87, %56
   br i1 %88, label %89, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit24.thread.i
 
-89:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i
-  %90 = phi ptr [ %87, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i ], [ %85, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i ]
+89:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i
+  %90 = phi ptr [ %87, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i ], [ %85, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i ]
   %91 = load i64, ptr %70, align 8, !tbaa !386
   %92 = icmp ult i64 %91, 16
   call void @llvm.assume(i1 %92)
@@ -9940,7 +9937,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm.exit.i: ; p
   store i64 %102, ptr %80, align 8, !tbaa !407
   br label %108
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit24.thread.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit24.thread.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i
   %103 = load i64, ptr %80, align 8, !tbaa !407
   store ptr %87, ptr %78, align 8, !tbaa !385
   %104 = load i64, ptr %70, align 8, !tbaa !386
@@ -10805,13 +10802,13 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang12FunctionDeclENS_6detail13DenseSet
   br label %.loopexit
 
 .loopexit:                                        ; preds = %27, %10, %59
-  %.sink28 = phi i32 [ %62, %59 ], [ %8, %10 ], [ %8, %27 ]
-  %.sink26 = phi ptr [ %61, %59 ], [ %6, %10 ], [ %6, %27 ]
-  %.sink25 = phi ptr [ %50, %59 ], [ %19, %10 ], [ %33, %27 ]
+  %.sink32 = phi i32 [ %62, %59 ], [ %8, %10 ], [ %8, %27 ]
+  %.sink30 = phi ptr [ %61, %59 ], [ %6, %10 ], [ %6, %27 ]
+  %.sink29 = phi ptr [ %50, %59 ], [ %19, %10 ], [ %33, %27 ]
   %.sink = phi i8 [ 1, %59 ], [ 0, %10 ], [ 0, %27 ]
-  %63 = zext i32 %.sink28 to i64
-  %64 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair.1424", ptr %.sink26, i64 %63
-  store ptr %.sink25, ptr %0, align 8
+  %63 = zext i32 %.sink32 to i64
+  %64 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair.1424", ptr %.sink30, i64 %63
+  store ptr %.sink29, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %64, ptr %.sroa.4.0..sroa_idx, align 8
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -11138,13 +11135,13 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang9ValueDeclENS_6detail13DenseSetEmpt
   br label %.loopexit
 
 .loopexit:                                        ; preds = %27, %10, %59
-  %.sink28 = phi i32 [ %62, %59 ], [ %8, %10 ], [ %8, %27 ]
-  %.sink26 = phi ptr [ %61, %59 ], [ %6, %10 ], [ %6, %27 ]
-  %.sink25 = phi ptr [ %50, %59 ], [ %19, %10 ], [ %33, %27 ]
+  %.sink32 = phi i32 [ %62, %59 ], [ %8, %10 ], [ %8, %27 ]
+  %.sink30 = phi ptr [ %61, %59 ], [ %6, %10 ], [ %6, %27 ]
+  %.sink29 = phi ptr [ %50, %59 ], [ %19, %10 ], [ %33, %27 ]
   %.sink = phi i8 [ 1, %59 ], [ 0, %10 ], [ 0, %27 ]
-  %63 = zext i32 %.sink28 to i64
-  %64 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair.1435", ptr %.sink26, i64 %63
-  store ptr %.sink25, ptr %0, align 8
+  %63 = zext i32 %.sink32 to i64
+  %64 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair.1435", ptr %.sink30, i64 %63
+  store ptr %.sink29, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %64, ptr %.sroa.4.0..sroa_idx, align 8
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 16

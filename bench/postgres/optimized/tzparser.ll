@@ -248,8 +248,8 @@ define internal fastcc i32 @ParseTzFile(ptr noundef %0, i32 noundef range(i32 0,
   br i1 %cond, label %.backedge, label %76, !llvm.loop !6
 
 .critedge:                                        ; preds = %76
-  %cond208 = icmp eq i8 %77, 35
-  br i1 %cond208, label %.backedge, label %86
+  %cond226 = icmp eq i8 %77, 35
+  br i1 %cond226, label %.backedge, label %86
 
 .backedge:                                        ; preds = %82, %.critedge, %.preheader
   %85 = call i32 @feof(ptr noundef nonnull %36) #9

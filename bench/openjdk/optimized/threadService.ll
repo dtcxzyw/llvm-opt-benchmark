@@ -855,21 +855,21 @@ _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit: ; preds = %1, %3
 
 .lr.ph.preheader:                                 ; preds = %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit
   %4 = icmp eq ptr %.013, %0
-  br i1 %4, label %.lr.ph._crit_edge, label %.lr.ph21
+  br i1 %4, label %.lr.ph._crit_edge, label %.lr.ph23
 
-.lr.ph21:                                         ; preds = %.lr.ph.preheader, %.lr.ph
-  %.01620 = phi ptr [ %.0, %.lr.ph ], [ %.013, %.lr.ph.preheader ]
-  %5 = getelementptr inbounds nuw i8, ptr %.01620, i64 24
+.lr.ph23:                                         ; preds = %.lr.ph.preheader, %.lr.ph
+  %.01622 = phi ptr [ %.0, %.lr.ph ], [ %.013, %.lr.ph.preheader ]
+  %5 = getelementptr inbounds nuw i8, ptr %.01622, i64 24
   %.0 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %.0, null
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !12
 
-.lr.ph:                                           ; preds = %.lr.ph21
+.lr.ph:                                           ; preds = %.lr.ph23
   %6 = icmp eq ptr %.0, %0
-  br i1 %6, label %.lr.ph._crit_edge, label %.lr.ph21, !llvm.loop !12
+  br i1 %6, label %.lr.ph._crit_edge, label %.lr.ph23, !llvm.loop !12
 
 .lr.ph._crit_edge:                                ; preds = %.lr.ph, %.lr.ph.preheader
-  %.0915.lcssa = phi ptr [ null, %.lr.ph.preheader ], [ %.01620, %.lr.ph ]
+  %.0915.lcssa = phi ptr [ null, %.lr.ph.preheader ], [ %.01622, %.lr.ph ]
   %7 = icmp eq ptr %.0915.lcssa, null
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = load ptr, ptr %8, align 8
@@ -884,7 +884,7 @@ _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit: ; preds = %1, %3
   store ptr %9, ptr %12, align 8
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph21, %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit, %10, %11
+.loopexit:                                        ; preds = %.lr.ph23, %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit, %10, %11
   br i1 %.not.i.i, label %_ZN11MutexLockerD2Ev.exit, label %13
 
 13:                                               ; preds = %.loopexit
@@ -1853,9 +1853,9 @@ _ZN13DeadlockCycleC2Ev.exit135:                   ; preds = %226, %230
   br i1 %or.cond3, label %.critedge, label %_ZN13ThreadService28is_virtual_or_carrier_threadEP10JavaThread.exit118.thread, !llvm.loop !17
 
 _ZN13ThreadService28is_virtual_or_carrier_threadEP10JavaThread.exit118.thread.sink.split: ; preds = %_ZN13DeadlockCycleC2Ev.exit135, %_ZN13DeadlockCycleC2Ev.exit119
-  %.sink238 = phi ptr [ %144, %_ZN13DeadlockCycleC2Ev.exit119 ], [ %227, %_ZN13DeadlockCycleC2Ev.exit135 ]
+  %.sink260 = phi ptr [ %144, %_ZN13DeadlockCycleC2Ev.exit119 ], [ %227, %_ZN13DeadlockCycleC2Ev.exit135 ]
   %.182.ph = phi ptr [ %.283, %_ZN13DeadlockCycleC2Ev.exit119 ], [ %.3, %_ZN13DeadlockCycleC2Ev.exit135 ]
-  %240 = getelementptr inbounds nuw i8, ptr %.sink238, i64 8
+  %240 = getelementptr inbounds nuw i8, ptr %.sink260, i64 8
   store ptr null, ptr %240, align 8
   br label %_ZN13ThreadService28is_virtual_or_carrier_threadEP10JavaThread.exit118.thread
 
@@ -1863,7 +1863,7 @@ _ZN13ThreadService28is_virtual_or_carrier_threadEP10JavaThread.exit118.thread: ;
   %.191 = phi ptr [ %.090194, %_ZN13ThreadService28is_virtual_or_carrier_threadEP10JavaThread.exit118 ], [ %.393173, %219 ], [ %.090194, %_ZNK7oopDesc4is_aEP5Klass.exit.i117 ], [ %.090194, %_ZNK7oopDesc5klassEv.exit.i.i105 ], [ null, %101 ], [ %.393173, %_ZN13ThreadService28is_virtual_or_carrier_threadEP10JavaThread.exit118.thread.sink.split ], [ %.393173, %.lr.ph.i.i.i127 ], [ %.393173, %179 ], [ null, %237 ], [ %.393173, %_ZNK7oopDesc4is_aEP5Klass.exit.thread ], [ %.393173, %_ZNK7oopDesc4is_aEP5Klass.exit ], [ %.393173, %176 ], [ %.393173, %_ZNK7oopDesc4is_aEP5Klass.exit.i133 ], [ %.393173, %_ZNK7oopDesc5klassEv.exit.i.i121 ], [ %.090194, %.lr.ph.i.i.i111 ]
   %.182 = phi ptr [ %.081196, %_ZN13ThreadService28is_virtual_or_carrier_threadEP10JavaThread.exit118 ], [ %.081196, %219 ], [ %.081196, %_ZNK7oopDesc4is_aEP5Klass.exit.i117 ], [ %.081196, %_ZNK7oopDesc5klassEv.exit.i.i105 ], [ %.081196, %101 ], [ %.182.ph, %_ZN13ThreadService28is_virtual_or_carrier_threadEP10JavaThread.exit118.thread.sink.split ], [ %.081196, %.lr.ph.i.i.i127 ], [ %.081196, %_ZNK7oopDesc5klassEv.exit.i.i121 ], [ %.081196, %_ZNK7oopDesc4is_aEP5Klass.exit.i133 ], [ %.081196, %176 ], [ %.081196, %_ZNK7oopDesc4is_aEP5Klass.exit ], [ %.081196, %_ZNK7oopDesc4is_aEP5Klass.exit.thread ], [ %.081196, %237 ], [ %.081196, %179 ], [ %.081196, %.lr.ph.i.i.i111 ]
   %.180 = phi ptr [ %.079197, %_ZN13ThreadService28is_virtual_or_carrier_threadEP10JavaThread.exit118 ], [ %.079197, %219 ], [ %.079197, %_ZNK7oopDesc4is_aEP5Klass.exit.i117 ], [ %.079197, %_ZNK7oopDesc5klassEv.exit.i.i105 ], [ %.079197, %101 ], [ %.077198, %_ZN13ThreadService28is_virtual_or_carrier_threadEP10JavaThread.exit118.thread.sink.split ], [ %.079197, %.lr.ph.i.i.i127 ], [ %.079197, %_ZNK7oopDesc5klassEv.exit.i.i121 ], [ %.079197, %_ZNK7oopDesc4is_aEP5Klass.exit.i133 ], [ %.079197, %176 ], [ %.079197, %_ZNK7oopDesc4is_aEP5Klass.exit ], [ %.079197, %_ZNK7oopDesc4is_aEP5Klass.exit.thread ], [ %.079197, %237 ], [ %.079197, %179 ], [ %.079197, %.lr.ph.i.i.i111 ]
-  %.178 = phi ptr [ %.077198, %_ZN13ThreadService28is_virtual_or_carrier_threadEP10JavaThread.exit118 ], [ %.077198, %219 ], [ %.077198, %_ZNK7oopDesc4is_aEP5Klass.exit.i117 ], [ %.077198, %_ZNK7oopDesc5klassEv.exit.i.i105 ], [ %.077198, %101 ], [ %.sink238, %_ZN13ThreadService28is_virtual_or_carrier_threadEP10JavaThread.exit118.thread.sink.split ], [ %.077198, %.lr.ph.i.i.i127 ], [ %.077198, %_ZNK7oopDesc5klassEv.exit.i.i121 ], [ %.077198, %_ZNK7oopDesc4is_aEP5Klass.exit.i133 ], [ %.077198, %176 ], [ %.077198, %_ZNK7oopDesc4is_aEP5Klass.exit ], [ %.077198, %_ZNK7oopDesc4is_aEP5Klass.exit.thread ], [ %.077198, %237 ], [ %.077198, %179 ], [ %.077198, %.lr.ph.i.i.i111 ]
+  %.178 = phi ptr [ %.077198, %_ZN13ThreadService28is_virtual_or_carrier_threadEP10JavaThread.exit118 ], [ %.077198, %219 ], [ %.077198, %_ZNK7oopDesc4is_aEP5Klass.exit.i117 ], [ %.077198, %_ZNK7oopDesc5klassEv.exit.i.i105 ], [ %.077198, %101 ], [ %.sink260, %_ZN13ThreadService28is_virtual_or_carrier_threadEP10JavaThread.exit118.thread.sink.split ], [ %.077198, %.lr.ph.i.i.i127 ], [ %.077198, %_ZNK7oopDesc5klassEv.exit.i.i121 ], [ %.077198, %_ZNK7oopDesc4is_aEP5Klass.exit.i133 ], [ %.077198, %176 ], [ %.077198, %_ZNK7oopDesc4is_aEP5Klass.exit ], [ %.077198, %_ZNK7oopDesc4is_aEP5Klass.exit.thread ], [ %.077198, %237 ], [ %.077198, %179 ], [ %.077198, %.lr.ph.i.i.i111 ]
   %.1 = phi i32 [ %.0200, %_ZN13ThreadService28is_virtual_or_carrier_threadEP10JavaThread.exit118 ], [ %.2176, %219 ], [ %.0200, %_ZNK7oopDesc4is_aEP5Klass.exit.i117 ], [ %.0200, %_ZNK7oopDesc5klassEv.exit.i.i105 ], [ %.2170, %101 ], [ %.2176, %_ZN13ThreadService28is_virtual_or_carrier_threadEP10JavaThread.exit118.thread.sink.split ], [ %.2176, %.lr.ph.i.i.i127 ], [ %.2176, %179 ], [ %.2, %237 ], [ %.2176, %_ZNK7oopDesc4is_aEP5Klass.exit.thread ], [ %.2176, %_ZNK7oopDesc4is_aEP5Klass.exit ], [ %.2176, %176 ], [ %.2176, %_ZNK7oopDesc4is_aEP5Klass.exit.i133 ], [ %.2176, %_ZNK7oopDesc5klassEv.exit.i.i121 ], [ %.0200, %.lr.ph.i.i.i111 ]
   %241 = add i32 %.sroa.5.1193, 1
   %242 = load i32, ptr %57, align 4
@@ -1883,9 +1883,9 @@ _ZN18JavaThreadIterator4nextEv.exit138:           ; preds = %_ZN13ThreadService2
   br i1 %247, label %255, label %._crit_edge202.thread
 
 ._crit_edge202.thread:                            ; preds = %_ZN13DeadlockCycleC2Ev.exit, %._crit_edge202
-  %.077.lcssa225 = phi ptr [ %.178, %._crit_edge202 ], [ %46, %_ZN13DeadlockCycleC2Ev.exit ]
-  %.081.lcssa223 = phi ptr [ %.182, %._crit_edge202 ], [ null, %_ZN13DeadlockCycleC2Ev.exit ]
-  %248 = load ptr, ptr %.077.lcssa225, align 8
+  %.077.lcssa247 = phi ptr [ %.178, %._crit_edge202 ], [ %46, %_ZN13DeadlockCycleC2Ev.exit ]
+  %.081.lcssa245 = phi ptr [ %.182, %._crit_edge202 ], [ null, %_ZN13DeadlockCycleC2Ev.exit ]
+  %248 = load ptr, ptr %.077.lcssa247, align 8
   %249 = icmp eq ptr %248, null
   br i1 %249, label %_ZN13DeadlockCycleD2Ev.exit, label %250
 
@@ -1906,12 +1906,12 @@ _ZN13GrowableArrayIP10JavaThreadED2Ev.exit.i:     ; preds = %254, %250
   br label %_ZN13DeadlockCycleD2Ev.exit
 
 _ZN13DeadlockCycleD2Ev.exit:                      ; preds = %._crit_edge202.thread, %_ZN13GrowableArrayIP10JavaThreadED2Ev.exit.i
-  tail call void @_Z8FreeHeapPv(ptr noundef nonnull %.077.lcssa225) #13
+  tail call void @_Z8FreeHeapPv(ptr noundef nonnull %.077.lcssa247) #13
   br label %255
 
 255:                                              ; preds = %_ZN13DeadlockCycleD2Ev.exit, %._crit_edge202
-  %.081.lcssa224 = phi ptr [ %.081.lcssa223, %_ZN13DeadlockCycleD2Ev.exit ], [ %.182, %._crit_edge202 ]
-  ret ptr %.081.lcssa224
+  %.081.lcssa246 = phi ptr [ %.081.lcssa245, %_ZN13DeadlockCycleD2Ev.exit ], [ %.182, %._crit_edge202 ]
+  ret ptr %.081.lcssa246
 }
 
 declare noundef ptr @_ZN10JavaThread20current_park_blockerEv(ptr noundef nonnull align 8 dereferenceable(1800)) local_unnamed_addr #1
@@ -6929,7 +6929,7 @@ define linkonce_odr hidden void @_ZN23InflatedMonitorsClosure10do_monitorEP13Obj
   br label %.outer
 
 .outer:                                           ; preds = %_ZNK9OopHandle7resolveEv.exit._crit_edge.i.thread, %.lr.ph21.i
-  %indvars.iv24.i.ph = phi i64 [ %indvars.iv.next25.i6, %_ZNK9OopHandle7resolveEv.exit._crit_edge.i.thread ], [ 0, %.lr.ph21.i ]
+  %indvars.iv24.i.ph = phi i64 [ %indvars.iv.next25.i11, %_ZNK9OopHandle7resolveEv.exit._crit_edge.i.thread ], [ 0, %.lr.ph21.i ]
   %.019.i.ph = phi i1 [ true, %_ZNK9OopHandle7resolveEv.exit._crit_edge.i.thread ], [ false, %.lr.ph21.i ]
   br label %10
 
@@ -6984,12 +6984,12 @@ _ZNK9OopHandle7resolveEv.exit._crit_edge.i:       ; preds = %21, %_ZN14StackFram
   br i1 %exitcond27.not.i, label %_ZN16ThreadStackTrace25is_owned_monitor_on_stackEP7oopDesc.exit, label %10, !llvm.loop !30
 
 _ZNK9OopHandle7resolveEv.exit._crit_edge.i.thread: ; preds = %_ZNK9OopHandle7resolveEv.exit.i
-  %indvars.iv.next25.i6 = add nuw nsw i64 %indvars.iv24.i, 1
-  %exitcond27.not.i7 = icmp eq i64 %indvars.iv.next25.i6, %wide.trip.count26.i
-  br i1 %exitcond27.not.i7, label %_ZN16ThreadStackTrace25is_owned_monitor_on_stackEP7oopDesc.exit.thread9, label %.outer, !llvm.loop !30
+  %indvars.iv.next25.i11 = add nuw nsw i64 %indvars.iv24.i, 1
+  %exitcond27.not.i12 = icmp eq i64 %indvars.iv.next25.i11, %wide.trip.count26.i
+  br i1 %exitcond27.not.i12, label %_ZN16ThreadStackTrace25is_owned_monitor_on_stackEP7oopDesc.exit.thread14, label %.outer, !llvm.loop !30
 
 _ZN16ThreadStackTrace25is_owned_monitor_on_stackEP7oopDesc.exit: ; preds = %_ZNK9OopHandle7resolveEv.exit._crit_edge.i
-  br i1 %.019.i.ph, label %_ZN16ThreadStackTrace25is_owned_monitor_on_stackEP7oopDesc.exit.thread9, label %_ZN16ThreadStackTrace25is_owned_monitor_on_stackEP7oopDesc.exit._ZN16ThreadStackTrace25is_owned_monitor_on_stackEP7oopDesc.exit.thread_crit_edge
+  br i1 %.019.i.ph, label %_ZN16ThreadStackTrace25is_owned_monitor_on_stackEP7oopDesc.exit.thread14, label %_ZN16ThreadStackTrace25is_owned_monitor_on_stackEP7oopDesc.exit._ZN16ThreadStackTrace25is_owned_monitor_on_stackEP7oopDesc.exit.thread_crit_edge
 
 _ZN16ThreadStackTrace25is_owned_monitor_on_stackEP7oopDesc.exit._ZN16ThreadStackTrace25is_owned_monitor_on_stackEP7oopDesc.exit.thread_crit_edge: ; preds = %_ZN16ThreadStackTrace25is_owned_monitor_on_stackEP7oopDesc.exit
   %.pre = load ptr, ptr %4, align 8
@@ -7040,9 +7040,9 @@ _ZN16ThreadStackTrace22add_jni_locked_monitorEP7oopDesc.exit: ; preds = %_ZN9Oop
   %56 = sext i32 %52 to i64
   %57 = getelementptr inbounds %class.OopHandle, ptr %55, i64 %56
   store ptr %36, ptr %57, align 8
-  br label %_ZN16ThreadStackTrace25is_owned_monitor_on_stackEP7oopDesc.exit.thread9
+  br label %_ZN16ThreadStackTrace25is_owned_monitor_on_stackEP7oopDesc.exit.thread14
 
-_ZN16ThreadStackTrace25is_owned_monitor_on_stackEP7oopDesc.exit.thread9: ; preds = %_ZNK9OopHandle7resolveEv.exit._crit_edge.i.thread, %_ZN16ThreadStackTrace22add_jni_locked_monitorEP7oopDesc.exit, %_ZN16ThreadStackTrace25is_owned_monitor_on_stackEP7oopDesc.exit
+_ZN16ThreadStackTrace25is_owned_monitor_on_stackEP7oopDesc.exit.thread14: ; preds = %_ZNK9OopHandle7resolveEv.exit._crit_edge.i.thread, %_ZN16ThreadStackTrace22add_jni_locked_monitorEP7oopDesc.exit, %_ZN16ThreadStackTrace25is_owned_monitor_on_stackEP7oopDesc.exit
   ret void
 }
 
@@ -7316,7 +7316,7 @@ define linkonce_odr hidden void @_ZN26GrowableArrayWithAllocatorI9OopHandle13Gro
   br i1 %.not, label %_ZN13GrowableArrayI9OopHandleE10deallocateEPS0_.exit, label %.loopexit.thread
 
 .loopexit.thread:                                 ; preds = %.lr.ph, %.loopexit
-  %.01827 = phi ptr [ null, %.loopexit ], [ %.0.i, %.lr.ph ]
+  %.01829 = phi ptr [ null, %.loopexit ], [ %.0.i, %.lr.ph ]
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %29 = load i64, ptr %28, align 8
   %30 = and i64 %29, 1
@@ -7328,8 +7328,8 @@ define linkonce_odr hidden void @_ZN26GrowableArrayWithAllocatorI9OopHandle13Gro
   br label %_ZN13GrowableArrayI9OopHandleE10deallocateEPS0_.exit
 
 _ZN13GrowableArrayI9OopHandleE10deallocateEPS0_.exit: ; preds = %31, %.loopexit.thread, %.loopexit
-  %.01828 = phi ptr [ %.01827, %31 ], [ %.01827, %.loopexit.thread ], [ null, %.loopexit ]
-  store ptr %.01828, ptr %7, align 8
+  %.01830 = phi ptr [ %.01829, %31 ], [ %.01829, %.loopexit.thread ], [ null, %.loopexit ]
+  store ptr %.01830, ptr %7, align 8
   br label %32
 
 32:                                               ; preds = %1, %_ZN13GrowableArrayI9OopHandleE10deallocateEPS0_.exit
@@ -7397,7 +7397,7 @@ define linkonce_odr hidden void @_ZN26GrowableArrayWithAllocatorIP14StackFrameIn
   br i1 %.not, label %_ZN13GrowableArrayIP14StackFrameInfoE10deallocateEPS1_.exit, label %.loopexit.thread
 
 .loopexit.thread:                                 ; preds = %.lr.ph, %.loopexit
-  %.01827 = phi ptr [ null, %.loopexit ], [ %.0.i, %.lr.ph ]
+  %.01829 = phi ptr [ null, %.loopexit ], [ %.0.i, %.lr.ph ]
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %29 = load i64, ptr %28, align 8
   %30 = and i64 %29, 1
@@ -7409,8 +7409,8 @@ define linkonce_odr hidden void @_ZN26GrowableArrayWithAllocatorIP14StackFrameIn
   br label %_ZN13GrowableArrayIP14StackFrameInfoE10deallocateEPS1_.exit
 
 _ZN13GrowableArrayIP14StackFrameInfoE10deallocateEPS1_.exit: ; preds = %31, %.loopexit.thread, %.loopexit
-  %.01828 = phi ptr [ %.01827, %31 ], [ %.01827, %.loopexit.thread ], [ null, %.loopexit ]
-  store ptr %.01828, ptr %7, align 8
+  %.01830 = phi ptr [ %.01829, %31 ], [ %.01829, %.loopexit.thread ], [ null, %.loopexit ]
+  store ptr %.01830, ptr %7, align 8
   br label %32
 
 32:                                               ; preds = %1, %_ZN13GrowableArrayIP14StackFrameInfoE10deallocateEPS1_.exit
@@ -7575,7 +7575,7 @@ define linkonce_odr hidden void @_ZN26GrowableArrayWithAllocatorIP7oopDesc13Grow
   br i1 %.not, label %_ZN13GrowableArrayIP7oopDescE10deallocateEPS1_.exit, label %.loopexit.thread
 
 .loopexit.thread:                                 ; preds = %.lr.ph, %.loopexit
-  %.01827 = phi ptr [ null, %.loopexit ], [ %.0.i, %.lr.ph ]
+  %.01829 = phi ptr [ null, %.loopexit ], [ %.0.i, %.lr.ph ]
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %29 = load i64, ptr %28, align 8
   %30 = and i64 %29, 1
@@ -7587,8 +7587,8 @@ define linkonce_odr hidden void @_ZN26GrowableArrayWithAllocatorIP7oopDesc13Grow
   br label %_ZN13GrowableArrayIP7oopDescE10deallocateEPS1_.exit
 
 _ZN13GrowableArrayIP7oopDescE10deallocateEPS1_.exit: ; preds = %31, %.loopexit.thread, %.loopexit
-  %.01828 = phi ptr [ %.01827, %31 ], [ %.01827, %.loopexit.thread ], [ null, %.loopexit ]
-  store ptr %.01828, ptr %7, align 8
+  %.01830 = phi ptr [ %.01829, %31 ], [ %.01829, %.loopexit.thread ], [ null, %.loopexit ]
+  store ptr %.01830, ptr %7, align 8
   br label %32
 
 32:                                               ; preds = %1, %_ZN13GrowableArrayIP7oopDescE10deallocateEPS1_.exit
@@ -7656,7 +7656,7 @@ define linkonce_odr hidden void @_ZN26GrowableArrayWithAllocatorIP10JavaThread13
   br i1 %.not, label %_ZN13GrowableArrayIP10JavaThreadE10deallocateEPS1_.exit, label %.loopexit.thread
 
 .loopexit.thread:                                 ; preds = %.lr.ph, %.loopexit
-  %.01827 = phi ptr [ null, %.loopexit ], [ %.0.i, %.lr.ph ]
+  %.01829 = phi ptr [ null, %.loopexit ], [ %.0.i, %.lr.ph ]
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %29 = load i64, ptr %28, align 8
   %30 = and i64 %29, 1
@@ -7668,8 +7668,8 @@ define linkonce_odr hidden void @_ZN26GrowableArrayWithAllocatorIP10JavaThread13
   br label %_ZN13GrowableArrayIP10JavaThreadE10deallocateEPS1_.exit
 
 _ZN13GrowableArrayIP10JavaThreadE10deallocateEPS1_.exit: ; preds = %31, %.loopexit.thread, %.loopexit
-  %.01828 = phi ptr [ %.01827, %31 ], [ %.01827, %.loopexit.thread ], [ null, %.loopexit ]
-  store ptr %.01828, ptr %7, align 8
+  %.01830 = phi ptr [ %.01829, %31 ], [ %.01829, %.loopexit.thread ], [ null, %.loopexit ]
+  store ptr %.01830, ptr %7, align 8
   br label %32
 
 32:                                               ; preds = %1, %_ZN13GrowableArrayIP10JavaThreadE10deallocateEPS1_.exit

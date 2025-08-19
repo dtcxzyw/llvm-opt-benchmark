@@ -459,8 +459,8 @@ Abc_TtCountOnesVecMask.exit180._crit_edge:        ; preds = %59, %Abc_TtCountOne
   %.val122201.us = phi ptr [ %.val122.us, %252 ], [ %.val122198, %.lr.ph202 ]
   %236 = getelementptr i8, ptr %.val122201.us, i64 8
   %.val132.val.us = load ptr, ptr %236, align 8, !tbaa !41
-  %.idx220 = shl nuw nsw i64 %indvars.iv214, 3
-  %237 = getelementptr inbounds nuw i8, ptr %.val132.val.us, i64 %.idx220
+  %.idx230 = shl nuw nsw i64 %indvars.iv214, 3
+  %237 = getelementptr inbounds nuw i8, ptr %.val132.val.us, i64 %.idx230
   %238 = getelementptr inbounds nuw i8, ptr %237, i64 4
   %239 = load i32, ptr %238, align 4, !tbaa !42
   %.val151.us = load ptr, ptr %231, align 8, !tbaa !8
@@ -521,12 +521,12 @@ Abc_TtCountOnesVecMask.exit180._crit_edge:        ; preds = %59, %Abc_TtCountOne
   %271 = load i64, ptr %270, align 8, !tbaa !35
   %272 = and i64 %271, %233
   %.not117 = icmp eq i64 %272, 0
-  %.226 = select i1 %.not117, i32 48, i32 49
+  %.236 = select i1 %.not117, i32 48, i32 49
   br label %273
 
 273:                                              ; preds = %266, %.lr.ph202.split
-  %.sink225 = phi i32 [ 120, %.lr.ph202.split ], [ %.226, %266 ]
-  %putchar119 = tail call i32 @putchar(i32 %.sink225)
+  %.sink235 = phi i32 [ 120, %.lr.ph202.split ], [ %.236, %266 ]
+  %putchar119 = tail call i32 @putchar(i32 %.sink235)
   %indvars.iv.next212 = add nuw nsw i64 %indvars.iv211, 1
   %.val122 = load ptr, ptr %53, align 8, !tbaa !39
   %274 = getelementptr i8, ptr %.val122, i64 4

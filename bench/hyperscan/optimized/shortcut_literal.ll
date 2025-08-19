@@ -674,8 +674,8 @@ define linkonce_odr hidden void @_ZN3ue223ConstructLiteralVisitor3preERKNS_15Com
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %10 = load i32, ptr %9, align 4
   %.not = icmp eq i32 %7, %10
-  %or.cond19 = select i1 %8, i1 %.not, i1 false
-  br i1 %or.cond19, label %13, label %11
+  %or.cond22 = select i1 %8, i1 %.not, i1 false
+  br i1 %or.cond22, label %13, label %11
 
 11:                                               ; preds = %2
   %12 = tail call ptr @__cxa_allocate_exception(i64 1) #19

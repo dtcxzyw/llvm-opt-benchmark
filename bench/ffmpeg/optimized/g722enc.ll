@@ -606,7 +606,7 @@ encode_low.exit.i:                                ; preds = %122, %.critedge.i.i
   br i1 %exitcond334.not.i, label %.critedge2.i, label %.lr.ph282.i, !llvm.loop !71
 
 .critedge2.i:                                     ; preds = %263, %.lr.ph282.i, %filter_samples.exit.i
-  %.sroa.099.1.lcssa355.i = phi i32 [ %.sroa.099.0298.i, %filter_samples.exit.i ], [ %.sroa.099.1.lcssa.i, %.lr.ph282.i ], [ %.sroa.099.1.lcssa.i, %263 ]
+  %.sroa.099.1.lcssa365.i = phi i32 [ %.sroa.099.0298.i, %filter_samples.exit.i ], [ %.sroa.099.1.lcssa.i, %.lr.ph282.i ], [ %.sroa.099.1.lcssa.i, %263 ]
   %.sroa.6.1.lcssa.i = phi i32 [ %.sroa.6.0297.i, %filter_samples.exit.i ], [ %.sroa.6.3.i, %263 ], [ %.sroa.6.1280.i, %.lr.ph282.i ]
   br label %264
 
@@ -714,7 +714,7 @@ encode_low.exit.i:                                ; preds = %122, %.critedge.i.i
 318:                                              ; preds = %._crit_edge295.i, %280
   %.1215.i = phi i32 [ %64, %._crit_edge295.i ], [ %.0214296.i, %280 ]
   %.sroa.6.5.i = phi i32 [ 0, %._crit_edge295.i ], [ %.sroa.6.1.lcssa.i, %280 ]
-  %.sroa.099.5.i = phi i32 [ 0, %._crit_edge295.i ], [ %.sroa.099.1.lcssa355.i, %280 ]
+  %.sroa.099.5.i = phi i32 [ 0, %._crit_edge295.i ], [ %.sroa.099.1.lcssa365.i, %280 ]
   %indvars.iv.next344.i = add nuw nsw i64 %indvars.iv343.i, 1
   %exitcond350.not.i = icmp eq i64 %indvars.iv.next344.i, %wide.trip.count349.i
   br i1 %exitcond350.not.i, label %._crit_edge301.i, label %.critedge, !llvm.loop !75
@@ -730,8 +730,8 @@ encode_low.exit.i:                                ; preds = %122, %.critedge.i.i
   %321 = phi ptr [ %.sroa.878.0..sroa.878.0..sroa.878.0..sroa.878.8., %._crit_edge301.thread.i ], [ %.sroa.878.0..sroa.878.0..sroa.878.0..sroa.878.8.81, %._crit_edge301.i ]
   %322 = phi ptr [ %36, %._crit_edge301.thread.i ], [ %319, %._crit_edge301.i ]
   %323 = phi ptr [ %.sroa.074.0..sroa.074.0..sroa.074.0..sroa.074.0., %._crit_edge301.thread.i ], [ %.sroa.074.0..sroa.074.0..sroa.074.0..sroa.074.0.76, %._crit_edge301.i ]
-  %.1.lcssa359.i = phi i32 [ 0, %._crit_edge301.thread.i ], [ %34, %._crit_edge301.i ]
-  %.0214.lcssa358.i = phi i32 [ -1, %._crit_edge301.thread.i ], [ %.1215.i, %._crit_edge301.i ]
+  %.1.lcssa369.i = phi i32 [ 0, %._crit_edge301.thread.i ], [ %34, %._crit_edge301.i ]
+  %.0214.lcssa368.i = phi i32 [ -1, %._crit_edge301.thread.i ], [ %.1215.i, %._crit_edge301.i ]
   %324 = getelementptr inbounds nuw i8, ptr %9, i64 2208
   %325 = getelementptr inbounds nuw i8, ptr %9, i64 2216
   %326 = load ptr, ptr %325, align 8, !tbaa !38
@@ -745,8 +745,8 @@ encode_low.exit.i:                                ; preds = %122, %.critedge.i.i
   %334 = load i32, ptr %333, align 4, !tbaa !54
   %335 = sext i32 %334 to i64
   %336 = getelementptr inbounds %struct.TrellisPath, ptr %332, i64 %335
-  %337 = zext nneg i32 %.1.lcssa359.i to i64
-  %338 = sext i32 %.0214.lcssa358.i to i64
+  %337 = zext nneg i32 %.1.lcssa369.i to i64
+  %338 = sext i32 %.0214.lcssa368.i to i64
   br label %.lr.ph308.i
 
 .lr.ph308.i:                                      ; preds = %.lr.ph308.i, %.lr.ph308.preheader.i

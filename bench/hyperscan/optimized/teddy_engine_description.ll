@@ -323,8 +323,8 @@ _ZN3ue2L15maxFloodTailLenERKSt6vectorINS_11hwlmLiteralESaIS1_EE.exit: ; preds = 
 78:                                               ; preds = %73
   %79 = icmp samesign ult i64 %65, 41
   %.not31.i = icmp eq ptr %61, %60
-  %or.cond35.i = or i1 %.not31.i, %79
-  br i1 %or.cond35.i, label %_ZN3ue2L9isAllowedERKSt6vectorINS_11hwlmLiteralESaIS1_EERKNS_22TeddyEngineDescriptionEmRKNS_8target_tE.exit, label %.lr.ph.i55
+  %or.cond38.i = or i1 %.not31.i, %79
+  br i1 %or.cond38.i, label %_ZN3ue2L9isAllowedERKSt6vectorINS_11hwlmLiteralESaIS1_EERKNS_22TeddyEngineDescriptionEmRKNS_8target_tE.exit, label %.lr.ph.i55
 
 ._crit_edge.i57:                                  ; preds = %.lr.ph.i55
   %80 = mul i32 %spec.select.i, 5
@@ -355,8 +355,8 @@ _ZN3ue2L9isAllowedERKSt6vectorINS_11hwlmLiteralESaIS1_EERKNS_22TeddyEngineDescri
   %91 = zext i32 %90 to i64
   %92 = icmp samesign ugt i64 %65, %91
   %93 = shl i32 %75, 2
-  %spec.select81 = select i1 %92, i32 %93, i32 100
-  %.1 = add i32 %spec.select81, %spec.select
+  %spec.select94 = select i1 %92, i32 %93, i32 100
+  %.1 = add i32 %spec.select94, %spec.select
   %94 = icmp ult i64 %.0.lcssa.i, %76
   %95 = add i32 %.1, 50
   %spec.select51 = select i1 %94, i32 %95, i32 %.1
@@ -407,20 +407,20 @@ _ZN5boost11make_uniqueIN3ue222TeddyEngineDescriptionEJRKS2_EEENS_10enable_if_IXn
   br label %125
 
 ._crit_edge.thread:                               ; preds = %_ZN3ue2L15maxFloodTailLenERKSt6vectorINS_11hwlmLiteralESaIS1_EE.exit, %._crit_edge, %_ZN5boost11make_uniqueIN3ue222TeddyEngineDescriptionEJRKS2_EEENS_10enable_if_IXntsr8is_arrayIT_EE5valueESt10unique_ptrIS6_St14default_deleteIS6_EEE4typeEDpOT0_.exit
-  %.lcssa79 = phi ptr [ %106, %_ZN5boost11make_uniqueIN3ue222TeddyEngineDescriptionEJRKS2_EEENS_10enable_if_IXntsr8is_arrayIT_EE5valueESt10unique_ptrIS6_St14default_deleteIS6_EEE4typeEDpOT0_.exit ], [ %106, %._crit_edge ], [ %48, %_ZN3ue2L15maxFloodTailLenERKSt6vectorINS_11hwlmLiteralESaIS1_EE.exit ]
-  %.lcssa6378 = phi ptr [ %105, %_ZN5boost11make_uniqueIN3ue222TeddyEngineDescriptionEJRKS2_EEENS_10enable_if_IXntsr8is_arrayIT_EE5valueESt10unique_ptrIS6_St14default_deleteIS6_EEE4typeEDpOT0_.exit ], [ %105, %._crit_edge ], [ %47, %_ZN3ue2L15maxFloodTailLenERKSt6vectorINS_11hwlmLiteralESaIS1_EE.exit ]
+  %.lcssa92 = phi ptr [ %106, %_ZN5boost11make_uniqueIN3ue222TeddyEngineDescriptionEJRKS2_EEENS_10enable_if_IXntsr8is_arrayIT_EE5valueESt10unique_ptrIS6_St14default_deleteIS6_EEE4typeEDpOT0_.exit ], [ %106, %._crit_edge ], [ %48, %_ZN3ue2L15maxFloodTailLenERKSt6vectorINS_11hwlmLiteralESaIS1_EE.exit ]
+  %.lcssa6391 = phi ptr [ %105, %_ZN5boost11make_uniqueIN3ue222TeddyEngineDescriptionEJRKS2_EEENS_10enable_if_IXntsr8is_arrayIT_EE5valueESt10unique_ptrIS6_St14default_deleteIS6_EEE4typeEDpOT0_.exit ], [ %105, %._crit_edge ], [ %47, %_ZN3ue2L15maxFloodTailLenERKSt6vectorINS_11hwlmLiteralESaIS1_EE.exit ]
   %storemerge = phi ptr [ %113, %_ZN5boost11make_uniqueIN3ue222TeddyEngineDescriptionEJRKS2_EEENS_10enable_if_IXntsr8is_arrayIT_EE5valueESt10unique_ptrIS6_St14default_deleteIS6_EEE4typeEDpOT0_.exit ], [ null, %._crit_edge ], [ null, %_ZN3ue2L15maxFloodTailLenERKSt6vectorINS_11hwlmLiteralESaIS1_EE.exit ]
   store ptr %storemerge, ptr %0, align 8
-  %.not4.i.i.i.i = icmp eq ptr %.lcssa79, %.lcssa6378
+  %.not4.i.i.i.i = icmp eq ptr %.lcssa92, %.lcssa6391
   br i1 %.not4.i.i.i.i, label %_ZSt8_DestroyIPN3ue222TeddyEngineDescriptionES1_EvT_S3_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %._crit_edge.thread, %.lr.ph.i.i.i.i
-  %.05.i.i.i.i = phi ptr [ %122, %.lr.ph.i.i.i.i ], [ %.lcssa79, %._crit_edge.thread ]
+  %.05.i.i.i.i = phi ptr [ %122, %.lr.ph.i.i.i.i ], [ %.lcssa92, %._crit_edge.thread ]
   %120 = load ptr, ptr %.05.i.i.i.i, align 8
   %121 = load ptr, ptr %120, align 8
   call void %121(ptr noundef nonnull align 8 dereferenceable(41) %.05.i.i.i.i) #17
   %122 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 48
-  %.not.i.i.i.i = icmp eq ptr %122, %.lcssa6378
+  %.not.i.i.i.i = icmp eq ptr %122, %.lcssa6391
   br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPN3ue222TeddyEngineDescriptionES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !7
 
 _ZSt8_DestroyIPN3ue222TeddyEngineDescriptionES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i: ; preds = %.lr.ph.i.i.i.i
@@ -428,7 +428,7 @@ _ZSt8_DestroyIPN3ue222TeddyEngineDescriptionES1_EvT_S3_RSaIT0_E.exitthread-pre-s
   br label %_ZSt8_DestroyIPN3ue222TeddyEngineDescriptionES1_EvT_S3_RSaIT0_E.exit.i
 
 _ZSt8_DestroyIPN3ue222TeddyEngineDescriptionES1_EvT_S3_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyIPN3ue222TeddyEngineDescriptionES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i, %._crit_edge.thread
-  %123 = phi ptr [ %.pr.i, %_ZSt8_DestroyIPN3ue222TeddyEngineDescriptionES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i ], [ %.lcssa79, %._crit_edge.thread ]
+  %123 = phi ptr [ %.pr.i, %_ZSt8_DestroyIPN3ue222TeddyEngineDescriptionES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i ], [ %.lcssa92, %._crit_edge.thread ]
   %.not.i.i.i60 = icmp eq ptr %123, null
   br i1 %.not.i.i.i60, label %_ZNSt6vectorIN3ue222TeddyEngineDescriptionESaIS1_EED2Ev.exit, label %124
 

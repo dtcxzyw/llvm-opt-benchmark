@@ -1865,7 +1865,7 @@ define internal fastcc void @SnapBuildSerialize(ptr noundef captures(none) %0, i
   %12 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %4, ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.21, i32 noundef %10, i32 noundef %11) #14
   %13 = call i32 @stat(ptr noundef nonnull %4, ptr noundef nonnull %5) #14
   %cond = icmp eq i32 %13, 0
-  br i1 %cond, label %.thread101, label %14
+  br i1 %cond, label %.thread103, label %14
 
 14:                                               ; preds = %8
   %15 = tail call ptr @__errno_location() #16
@@ -1881,7 +1881,7 @@ define internal fastcc void @SnapBuildSerialize(ptr noundef captures(none) %0, i
   call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1498, ptr noundef nonnull @__func__.SnapBuildSerialize) #14
   unreachable
 
-.thread101:                                       ; preds = %8
+.thread103:                                       ; preds = %8
   call void @fsync_fname(ptr noundef nonnull %4, i1 noundef zeroext false) #14
   call void @fsync_fname(ptr noundef nonnull @.str.21, i1 noundef zeroext true) #14
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -2099,7 +2099,7 @@ define internal fastcc void @SnapBuildSerialize(ptr noundef captures(none) %0, i
   call void @pfree(ptr noundef nonnull %44) #14
   br label %132
 
-132:                                              ; preds = %.thread101, %127, %131, %2
+132:                                              ; preds = %.thread103, %127, %131, %2
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)

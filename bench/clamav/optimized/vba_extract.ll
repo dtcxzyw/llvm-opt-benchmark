@@ -2582,16 +2582,16 @@ define ptr @cli_vba_inflate(i32 noundef %0, i64 noundef %1, ptr noundef writeonl
   %56 = add nuw nsw i32 %18, %52
   %57 = icmp samesign ult i32 %56, 4096
   %or.cond109 = select i1 %55, i1 %57, i1 false
-  br i1 %or.cond109, label %58, label %.preheader161
+  br i1 %or.cond109, label %58, label %.preheader164
 
-.preheader161:                                    ; preds = %58, %26
+.preheader164:                                    ; preds = %58, %26
   br label %69
 
 58:                                               ; preds = %26
   %59 = and i32 %51, 4095
   %60 = add nuw nsw i32 %59, %52
   %61 = icmp samesign ult i32 %60, 4096
-  br i1 %61, label %62, label %.preheader161
+  br i1 %61, label %62, label %.preheader164
 
 62:                                               ; preds = %58
   %63 = zext nneg i32 %18 to i64
@@ -2603,9 +2603,9 @@ define ptr @cli_vba_inflate(i32 noundef %0, i64 noundef %1, ptr noundef writeonl
   %68 = add i32 %.176152, %52
   br label %.loopexit
 
-69:                                               ; preds = %.preheader161, %69
-  %.0149 = phi i16 [ %70, %69 ], [ %48, %.preheader161 ]
-  %.580148 = phi i32 [ %76, %69 ], [ %.176152, %.preheader161 ]
+69:                                               ; preds = %.preheader164, %69
+  %.0149 = phi i16 [ %70, %69 ], [ %48, %.preheader164 ]
+  %.580148 = phi i32 [ %76, %69 ], [ %.176152, %.preheader164 ]
   %70 = add i16 %.0149, -1
   %71 = add i32 %.580148, %50
   %72 = and i32 %71, 4095
@@ -3260,9 +3260,9 @@ define noundef ptr @cli_vba_readdir(ptr noundef %0, ptr noundef %1, i32 noundef 
 
 178:                                              ; preds = %170, %176
   %.0.i.i174.sink = phi i16 [ %.0.i.i180, %176 ], [ %.0.i.i174, %170 ]
-  %.sink291 = phi i64 [ 8, %176 ], [ 10, %170 ]
+  %.sink298 = phi i64 [ 8, %176 ], [ 10, %170 ]
   %179 = zext i16 %.0.i.i174.sink to i64
-  %180 = add nuw nsw i64 %.sink291, %179
+  %180 = add nuw nsw i64 %.sink298, %179
   %181 = call i64 @lseek(i32 noundef %24, i64 noundef %180, i32 noundef 1) #16
   %182 = call i64 @cli_readn(i32 noundef %24, ptr noundef nonnull %6, i64 noundef 2) #16
   %.not.i182 = icmp eq i64 %182, 2
@@ -3316,11 +3316,11 @@ define noundef ptr @cli_vba_readdir(ptr noundef %0, ptr noundef %1, i32 noundef 
   br label %.loopexit.thread
 
 .loopexit.thread:                                 ; preds = %.preheader, %199, %.loopexit
-  %.0115237266 = phi i32 [ %.0115237, %199 ], [ %.0115237, %.loopexit ], [ 0, %.preheader ]
+  %.0115237273 = phi i32 [ %.0115237, %199 ], [ %.0115237, %.loopexit ], [ 0, %.preheader ]
   %200 = call i32 @close(i32 noundef %24) #16
   %201 = load i16, ptr %4, align 2, !tbaa !48
   %202 = zext i16 %201 to i32
-  %203 = icmp samesign ult i32 %.0115237266, %202
+  %203 = icmp samesign ult i32 %.0115237273, %202
   br i1 %203, label %204, label %212
 
 204:                                              ; preds = %.loopexit.thread
@@ -3666,13 +3666,13 @@ define internal fastcc ptr @get_unicode_name(ptr noundef readonly captures(addre
 19:                                               ; preds = %17
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.170, i32 noundef %1) #16
   %20 = add nsw i32 %1, -1
-  %.not88 = icmp eq i32 %20, 0
-  br i1 %.not88, label %.thread._crit_edge, label %.lr.ph.preheader
+  %.not93 = icmp eq i32 %20, 0
+  br i1 %.not93, label %.thread._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %17, %16, %19
-  %.05987 = phi i32 [ %20, %19 ], [ %1, %16 ], [ %1, %17 ]
+  %.05992 = phi i32 [ %20, %19 ], [ %1, %16 ], [ %1, %17 ]
   %21 = phi i64 [ 2, %19 ], [ 1, %16 ], [ 2, %17 ]
-  %22 = zext nneg i32 %.05987 to i64
+  %22 = zext nneg i32 %.05992 to i64
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %69
@@ -4567,7 +4567,7 @@ word_skip_oxo3.exit:                              ; preds = %102
 
 117:                                              ; preds = %115
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.196) #16
-  br label %.loopexit115
+  br label %.loopexit130
 
 118:                                              ; preds = %115
   %119 = load i16, ptr %6, align 2, !tbaa !48
@@ -4582,13 +4582,13 @@ word_skip_oxo3.exit:                              ; preds = %102
   %124 = mul nuw nsw i64 %123, 12
   %125 = call i64 @lseek(i32 noundef %0, i64 noundef %124, i32 noundef 1) #16
   %126 = icmp eq i64 %125, -1
-  br i1 %126, label %.loopexit115, label %word_skip_menu_info.exit
+  br i1 %126, label %.loopexit130, label %word_skip_menu_info.exit
 
 word_skip_menu_info.exit:                         ; preds = %118, %122
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %word_read_macro_info.exit
 
-.loopexit115:                                     ; preds = %122, %117
+.loopexit130:                                     ; preds = %122, %117
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %word_read_macro_info.exit.thread
 
@@ -4762,7 +4762,7 @@ word_skip_macro_intnames.exit:                    ; preds = %182, %168
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.152, i32 noundef %187) #16
   br label %word_read_macro_info.exit.thread
 
-word_read_macro_info.exit.thread:                 ; preds = %36, %36, %186, %44, %45, %55, %56, %83, %84, %word_skip_oxo3.exit.thread90, %word_skip_oxo3.exit.thread, %.loopexit115, %164, %185
+word_read_macro_info.exit.thread:                 ; preds = %36, %36, %186, %44, %45, %55, %56, %83, %84, %word_skip_oxo3.exit.thread90, %word_skip_oxo3.exit.thread, %.loopexit130, %164, %185
   %188 = call i64 @lseek(i32 noundef %0, i64 noundef 0, i32 noundef 1) #16
   br label %.loopexit102
 

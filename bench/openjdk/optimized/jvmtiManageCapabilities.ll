@@ -654,28 +654,28 @@ _ZN23JvmtiManageCapabilities7excludeEPK17jvmtiCapabilitiesS2_PS0_.exit65: ; pred
   %114 = load i64, ptr %2, align 4
   %115 = and i64 %114, 17592186044416
   %.not = icmp eq i64 %115, 0
-  br i1 %.not, label %.preheader74, label %116
+  br i1 %.not, label %.preheader75, label %116
 
 116:                                              ; preds = %_ZN23JvmtiManageCapabilities7excludeEPK17jvmtiCapabilitiesS2_PS0_.exit65
   %117 = load i64, ptr %0, align 4
   %118 = and i64 %117, 17592186044416
   %119 = icmp eq i64 %118, 0
-  br i1 %119, label %120, label %.preheader74
+  br i1 %119, label %120, label %.preheader75
 
 120:                                              ; preds = %116
   %121 = load i32, ptr @_ZN23JvmtiManageCapabilities34_can_support_virtual_threads_countE, align 4
   %122 = add nsw i32 %121, 1
   store i32 %122, ptr @_ZN23JvmtiManageCapabilities34_can_support_virtual_threads_countE, align 4
-  br label %.preheader74
+  br label %.preheader75
 
-.preheader74:                                     ; preds = %120, %116, %_ZN23JvmtiManageCapabilities7excludeEPK17jvmtiCapabilitiesS2_PS0_.exit65
+.preheader75:                                     ; preds = %120, %116, %_ZN23JvmtiManageCapabilities7excludeEPK17jvmtiCapabilitiesS2_PS0_.exit65
   br label %123
 
-123:                                              ; preds = %.preheader74, %123
-  %.014.i66 = phi i32 [ %130, %123 ], [ 0, %.preheader74 ]
-  %.0813.i67 = phi ptr [ %129, %123 ], [ %3, %.preheader74 ]
-  %.0912.i68 = phi ptr [ %126, %123 ], [ %2, %.preheader74 ]
-  %.01011.i69 = phi ptr [ %124, %123 ], [ %0, %.preheader74 ]
+123:                                              ; preds = %.preheader75, %123
+  %.014.i66 = phi i32 [ %130, %123 ], [ 0, %.preheader75 ]
+  %.0813.i67 = phi ptr [ %129, %123 ], [ %3, %.preheader75 ]
+  %.0912.i68 = phi ptr [ %126, %123 ], [ %2, %.preheader75 ]
+  %.01011.i69 = phi ptr [ %124, %123 ], [ %0, %.preheader75 ]
   %124 = getelementptr inbounds nuw i8, ptr %.01011.i69, i64 1
   %125 = load i8, ptr %.01011.i69, align 1
   %126 = getelementptr inbounds nuw i8, ptr %.0912.i68, i64 1

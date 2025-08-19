@@ -1206,20 +1206,20 @@ _ZN12_GLOBAL__N_119IndexingDeclVisitor25handleReferencedProtocolsERKN5clang16Obj
   %47 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %48 = call ptr @_ZNK5clang11DeclContext11decls_beginEv(ptr noundef nonnull align 8 dereferenceable(32) %47) #10
   %.not14.i = icmp eq ptr %48, null
-  br i1 %.not14.i, label %_ZN5clang5index15IndexingContext16indexDeclContextEPKNS_11DeclContextE.exit, label %.lr.ph.i16
+  br i1 %.not14.i, label %_ZN5clang5index15IndexingContext16indexDeclContextEPKNS_11DeclContextE.exit, label %.lr.ph.i18
 
-.lr.ph.i16:                                       ; preds = %.loopexit, %50
+.lr.ph.i18:                                       ; preds = %.loopexit, %50
   %.sroa.0.015.i = phi ptr [ %53, %50 ], [ %48, %.loopexit ]
   %49 = call noundef zeroext i1 @_ZN5clang5index15IndexingContext9indexDeclEPKNS_4DeclE(ptr noundef nonnull align 8 dereferenceable(64) %46, ptr noundef nonnull %.sroa.0.015.i)
   br i1 %49, label %50, label %_ZN5clang5index15IndexingContext16indexDeclContextEPKNS_11DeclContextE.exit
 
-50:                                               ; preds = %.lr.ph.i16
+50:                                               ; preds = %.lr.ph.i18
   %51 = getelementptr inbounds nuw i8, ptr %.sroa.0.015.i, i64 8
   %.0.copyload.i.i.i.i.i.i = load i64, ptr %51, align 8
   %52 = and i64 %.0.copyload.i.i.i.i.i.i, -8
   %53 = inttoptr i64 %52 to ptr
-  %.not.i17 = icmp eq i64 %52, 0
-  br i1 %.not.i17, label %_ZN5clang5index15IndexingContext16indexDeclContextEPKNS_11DeclContextE.exit, label %.lr.ph.i16
+  %.not.i19 = icmp eq i64 %52, 0
+  br i1 %.not.i19, label %_ZN5clang5index15IndexingContext16indexDeclContextEPKNS_11DeclContextE.exit, label %.lr.ph.i18
 
 _ZNK5clang16ObjCProtocolDecl28isThisDeclarationADefinitionEv.exit.thread: ; preds = %_ZNK5clang16ObjCProtocolDecl13hasDefinitionEv.exit.i.i, %_ZNK5clang16ObjCProtocolDecl28isThisDeclarationADefinitionEv.exit
   %54 = load ptr, ptr %0, align 8, !tbaa !13
@@ -1243,8 +1243,8 @@ _ZNK5clang4Decl14getDeclContextEv.exit:           ; preds = %_ZNK5clang16ObjCPro
   %63 = tail call noundef zeroext i1 @_ZN5clang5index15IndexingContext15handleReferenceEPKNS_9NamedDeclENS_14SourceLocationES4_PKNS_11DeclContextEjN4llvm8ArrayRefINS0_14SymbolRelationEEEPKNS_4ExprE(ptr noundef nonnull align 8 dereferenceable(64) %54, ptr noundef nonnull %1, i32 %.sroa.0.0.copyload.i, ptr noundef null, ptr noundef %.0.i.i, i32 noundef 0, ptr noundef nonnull byval(%"class.llvm::ArrayRef") align 8 %5, ptr noundef null) #10
   br label %_ZN5clang5index15IndexingContext16indexDeclContextEPKNS_11DeclContextE.exit
 
-_ZN5clang5index15IndexingContext16indexDeclContextEPKNS_11DeclContextE.exit: ; preds = %50, %.lr.ph.i16, %.loopexit, %_ZN12_GLOBAL__N_119IndexingDeclVisitor25handleReferencedProtocolsERKN5clang16ObjCProtocolListEPKNS1_17ObjCContainerDeclENS1_14SourceLocationE.exit, %20, %17, %_ZNK5clang4Decl14getDeclContextEv.exit
-  %.0 = phi i1 [ %63, %_ZNK5clang4Decl14getDeclContextEv.exit ], [ true, %17 ], [ false, %20 ], [ false, %_ZN12_GLOBAL__N_119IndexingDeclVisitor25handleReferencedProtocolsERKN5clang16ObjCProtocolListEPKNS1_17ObjCContainerDeclENS1_14SourceLocationE.exit ], [ true, %.loopexit ], [ %49, %.lr.ph.i16 ], [ %49, %50 ]
+_ZN5clang5index15IndexingContext16indexDeclContextEPKNS_11DeclContextE.exit: ; preds = %50, %.lr.ph.i18, %.loopexit, %_ZN12_GLOBAL__N_119IndexingDeclVisitor25handleReferencedProtocolsERKN5clang16ObjCProtocolListEPKNS1_17ObjCContainerDeclENS1_14SourceLocationE.exit, %20, %17, %_ZNK5clang4Decl14getDeclContextEv.exit
+  %.0 = phi i1 [ %63, %_ZNK5clang4Decl14getDeclContextEv.exit ], [ true, %17 ], [ false, %20 ], [ false, %_ZN12_GLOBAL__N_119IndexingDeclVisitor25handleReferencedProtocolsERKN5clang16ObjCProtocolListEPKNS1_17ObjCContainerDeclENS1_14SourceLocationE.exit ], [ true, %.loopexit ], [ %49, %.lr.ph.i18 ], [ %49, %50 ]
   ret i1 %.0
 }
 
@@ -1446,20 +1446,20 @@ _ZN12_GLOBAL__N_119IndexingDeclVisitor25handleReferencedProtocolsERKN5clang16Obj
   %89 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %90 = call ptr @_ZNK5clang11DeclContext11decls_beginEv(ptr noundef nonnull align 8 dereferenceable(32) %89) #10
   %.not14.i = icmp eq ptr %90, null
-  br i1 %.not14.i, label %.critedge67, label %.lr.ph.i86
+  br i1 %.not14.i, label %.critedge67, label %.lr.ph.i92
 
-.lr.ph.i86:                                       ; preds = %.loopexit, %92
+.lr.ph.i92:                                       ; preds = %.loopexit, %92
   %.sroa.0.015.i = phi ptr [ %95, %92 ], [ %90, %.loopexit ]
   %91 = call noundef zeroext i1 @_ZN5clang5index15IndexingContext9indexDeclEPKNS_4DeclE(ptr noundef nonnull align 8 dereferenceable(64) %88, ptr noundef nonnull %.sroa.0.015.i)
   br i1 %91, label %92, label %.critedge67
 
-92:                                               ; preds = %.lr.ph.i86
+92:                                               ; preds = %.lr.ph.i92
   %93 = getelementptr inbounds nuw i8, ptr %.sroa.0.015.i, i64 8
   %.0.copyload.i.i.i.i.i.i = load i64, ptr %93, align 8
   %94 = and i64 %.0.copyload.i.i.i.i.i.i, -8
   %95 = inttoptr i64 %94 to ptr
-  %.not.i87 = icmp eq i64 %94, 0
-  br i1 %.not.i87, label %.critedge67, label %.lr.ph.i86
+  %.not.i93 = icmp eq i64 %94, 0
+  br i1 %.not.i93, label %.critedge67, label %.lr.ph.i92
 
 _ZNK5clang17ObjCInterfaceDecl28isThisDeclarationADefinitionEv.exit.thread: ; preds = %_ZNK5clang17ObjCInterfaceDecl13hasDefinitionEv.exit.i.i, %_ZNK5clang17ObjCInterfaceDecl28isThisDeclarationADefinitionEv.exit
   %96 = load ptr, ptr %0, align 8, !tbaa !13
@@ -1483,8 +1483,8 @@ _ZNK5clang4Decl14getDeclContextEv.exit:           ; preds = %_ZNK5clang17ObjCInt
   %105 = tail call noundef zeroext i1 @_ZN5clang5index15IndexingContext15handleReferenceEPKNS_9NamedDeclENS_14SourceLocationES4_PKNS_11DeclContextEjN4llvm8ArrayRefINS0_14SymbolRelationEEEPKNS_4ExprE(ptr noundef nonnull align 8 dereferenceable(64) %96, ptr noundef nonnull %1, i32 %.sroa.0.0.copyload.i77, ptr noundef null, ptr noundef %.0.i.i, i32 noundef 0, ptr noundef nonnull byval(%"class.llvm::ArrayRef") align 8 %8, ptr noundef null) #10
   br label %.critedge67
 
-.critedge67:                                      ; preds = %92, %.lr.ph.i86, %.loopexit, %53, %.critedge, %_ZN12_GLOBAL__N_119IndexingDeclVisitor25handleReferencedProtocolsERKN5clang16ObjCProtocolListEPKNS1_17ObjCContainerDeclENS1_14SourceLocationE.exit, %23, %20, %_ZNK5clang4Decl14getDeclContextEv.exit
-  %.0 = phi i1 [ %105, %_ZNK5clang4Decl14getDeclContextEv.exit ], [ true, %20 ], [ false, %23 ], [ false, %53 ], [ false, %.critedge ], [ false, %_ZN12_GLOBAL__N_119IndexingDeclVisitor25handleReferencedProtocolsERKN5clang16ObjCProtocolListEPKNS1_17ObjCContainerDeclENS1_14SourceLocationE.exit ], [ true, %.loopexit ], [ %91, %.lr.ph.i86 ], [ %91, %92 ]
+.critedge67:                                      ; preds = %92, %.lr.ph.i92, %.loopexit, %53, %.critedge, %_ZN12_GLOBAL__N_119IndexingDeclVisitor25handleReferencedProtocolsERKN5clang16ObjCProtocolListEPKNS1_17ObjCContainerDeclENS1_14SourceLocationE.exit, %23, %20, %_ZNK5clang4Decl14getDeclContextEv.exit
+  %.0 = phi i1 [ %105, %_ZNK5clang4Decl14getDeclContextEv.exit ], [ true, %20 ], [ false, %23 ], [ false, %53 ], [ false, %.critedge ], [ false, %_ZN12_GLOBAL__N_119IndexingDeclVisitor25handleReferencedProtocolsERKN5clang16ObjCProtocolListEPKNS1_17ObjCContainerDeclENS1_14SourceLocationE.exit ], [ true, %.loopexit ], [ %91, %.lr.ph.i92 ], [ %91, %92 ]
   ret i1 %.0
 }
 
@@ -1811,23 +1811,23 @@ _ZN12_GLOBAL__N_119IndexingDeclVisitor25handleReferencedProtocolsERKN5clang16Obj
   %45 = load ptr, ptr %0, align 8, !tbaa !13
   %46 = call ptr @_ZNK5clang11DeclContext11decls_beginEv(ptr noundef nonnull align 8 dereferenceable(32) %15) #10
   %.not14.i = icmp eq ptr %46, null
-  br i1 %.not14.i, label %_ZN5clang5index15IndexingContext16indexDeclContextEPKNS_11DeclContextE.exit, label %.lr.ph.i29
+  br i1 %.not14.i, label %_ZN5clang5index15IndexingContext16indexDeclContextEPKNS_11DeclContextE.exit, label %.lr.ph.i31
 
-.lr.ph.i29:                                       ; preds = %.loopexit, %48
+.lr.ph.i31:                                       ; preds = %.loopexit, %48
   %.sroa.0.015.i = phi ptr [ %51, %48 ], [ %46, %.loopexit ]
   %47 = call noundef zeroext i1 @_ZN5clang5index15IndexingContext9indexDeclEPKNS_4DeclE(ptr noundef nonnull align 8 dereferenceable(64) %45, ptr noundef nonnull %.sroa.0.015.i)
   br i1 %47, label %48, label %_ZN5clang5index15IndexingContext16indexDeclContextEPKNS_11DeclContextE.exit
 
-48:                                               ; preds = %.lr.ph.i29
+48:                                               ; preds = %.lr.ph.i31
   %49 = getelementptr inbounds nuw i8, ptr %.sroa.0.015.i, i64 8
   %.0.copyload.i.i.i.i.i.i = load i64, ptr %49, align 8
   %50 = and i64 %.0.copyload.i.i.i.i.i.i, -8
   %51 = inttoptr i64 %50 to ptr
-  %.not.i30 = icmp eq i64 %50, 0
-  br i1 %.not.i30, label %_ZN5clang5index15IndexingContext16indexDeclContextEPKNS_11DeclContextE.exit, label %.lr.ph.i29
+  %.not.i32 = icmp eq i64 %50, 0
+  br i1 %.not.i32, label %_ZN5clang5index15IndexingContext16indexDeclContextEPKNS_11DeclContextE.exit, label %.lr.ph.i31
 
-_ZN5clang5index15IndexingContext16indexDeclContextEPKNS_11DeclContextE.exit: ; preds = %48, %.lr.ph.i29, %.loopexit, %22, %_ZN12_GLOBAL__N_119IndexingDeclVisitor25handleReferencedProtocolsERKN5clang16ObjCProtocolListEPKNS1_17ObjCContainerDeclENS1_14SourceLocationE.exit, %9, %12, %2
-  %.0 = phi i1 [ true, %2 ], [ true, %9 ], [ false, %12 ], [ false, %22 ], [ false, %_ZN12_GLOBAL__N_119IndexingDeclVisitor25handleReferencedProtocolsERKN5clang16ObjCProtocolListEPKNS1_17ObjCContainerDeclENS1_14SourceLocationE.exit ], [ true, %.loopexit ], [ %47, %.lr.ph.i29 ], [ %47, %48 ]
+_ZN5clang5index15IndexingContext16indexDeclContextEPKNS_11DeclContextE.exit: ; preds = %48, %.lr.ph.i31, %.loopexit, %22, %_ZN12_GLOBAL__N_119IndexingDeclVisitor25handleReferencedProtocolsERKN5clang16ObjCProtocolListEPKNS1_17ObjCContainerDeclENS1_14SourceLocationE.exit, %9, %12, %2
+  %.0 = phi i1 [ true, %2 ], [ true, %9 ], [ false, %12 ], [ false, %22 ], [ false, %_ZN12_GLOBAL__N_119IndexingDeclVisitor25handleReferencedProtocolsERKN5clang16ObjCProtocolListEPKNS1_17ObjCContainerDeclENS1_14SourceLocationE.exit ], [ true, %.loopexit ], [ %47, %.lr.ph.i31 ], [ %47, %48 ]
   ret i1 %.0
 }
 
@@ -3872,8 +3872,8 @@ _ZNK5clang14DeclaratorDecl15getQualifierLocEv.exit: ; preds = %_ZNK5clang4Decl21
 
 31:                                               ; preds = %_ZNK5clang14DeclaratorDecl15getQualifierLocEv.exit
   %32 = and i32 %30, 127
-  %.not132 = icmp eq i32 %32, 41
-  br i1 %.not132, label %33, label %80
+  %.not135 = icmp eq i32 %32, 41
+  br i1 %.not135, label %33, label %80
 
 33:                                               ; preds = %31
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 16

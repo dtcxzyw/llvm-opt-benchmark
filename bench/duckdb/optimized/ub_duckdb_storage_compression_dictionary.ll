@@ -578,9 +578,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %75
           to label %95 unwind label %72
 
 .invoke:                                          ; preds = %85, %84
-  %.sink74 = phi i64 [ 48, %84 ], [ 32, %85 ]
+  %.sink81 = phi i64 [ 48, %84 ], [ 32, %85 ]
   %92 = load ptr, ptr %0, align 8, !tbaa !60
-  %93 = getelementptr inbounds nuw i8, ptr %92, i64 %.sink74
+  %93 = getelementptr inbounds nuw i8, ptr %92, i64 %.sink81
   %94 = load ptr, ptr %93, align 8
   invoke void %94(ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %95 unwind label %72
@@ -2488,8 +2488,8 @@ define { i64, ptr } @_ZN6duckdb25CompressedStringScanState19FetchStringFromDictE
   br i1 %17, label %18, label %22
 
 18:                                               ; preds = %6
-  %.sroa.0.4..sroa_idx20 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0.4..sroa_idx20, i8 0, i64 12, i1 false)
+  %.sroa.0.4..sroa_idx21 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 4
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0.4..sroa_idx21, i8 0, i64 12, i1 false)
   %19 = icmp eq i16 %2, 0
   br i1 %19, label %_ZN6duckdb8string_tC2EPKcj.exit, label %20
 
@@ -2503,8 +2503,8 @@ define { i64, ptr } @_ZN6duckdb25CompressedStringScanState19FetchStringFromDictE
 
 22:                                               ; preds = %6
   %23 = load i32, ptr %15, align 1
-  %.sroa.0.4..sroa_idx19 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 4
-  store i32 %23, ptr %.sroa.0.4..sroa_idx19, align 4
+  %.sroa.0.4..sroa_idx20 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 4
+  store i32 %23, ptr %.sroa.0.4..sroa_idx20, align 4
   br label %_ZN6duckdb8string_tC2EPKcj.exit
 
 _ZN6duckdb8string_tC2EPKcj.exit:                  ; preds = %22, %20, %18, %5
@@ -2771,7 +2771,7 @@ _ZN6duckdb10shared_ptrINS_6VectorELb1EED2Ev.exit: ; preds = %_ZN6duckdb10shared_
 
 _ZN6duckdb25CompressedStringScanState15GetStringLengthEj.exit.lr.ph: ; preds = %_ZN6duckdb10shared_ptrINS_6VectorELb1EED2Ev.exit
   %132 = getelementptr inbounds nuw i8, ptr %0, i64 156
-  %.sroa.0.i.sroa.5.4.i.8..fca.1.gep.sroa_idx41 = getelementptr inbounds nuw i8, ptr %.sroa.0.i.sroa.5, i64 4
+  %.sroa.0.i.sroa.5.4.i.8..fca.1.gep.sroa_idx45 = getelementptr inbounds nuw i8, ptr %.sroa.0.i.sroa.5, i64 4
   br label %_ZN6duckdb25CompressedStringScanState15GetStringLengthEj.exit
 
 _ZN6duckdb25CompressedStringScanState15GetStringLengthEj.exit: ; preds = %_ZN6duckdb25CompressedStringScanState15GetStringLengthEj.exit.lr.ph, %_ZN6duckdb25CompressedStringScanState19FetchStringFromDictEit.exit
@@ -2809,7 +2809,7 @@ _ZN6duckdb25CompressedStringScanState15GetStringLengthEj.exit: ; preds = %_ZN6du
   %.mask = and i32 %139, 15
   %155 = zext nneg i32 %.mask to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %.sroa.0.i.sroa.5, ptr nonnull align 1 %149, i64 %155, i1 false)
-  %.sroa.0.i.sroa.5.4..sroa.0.i.sroa.5.4..sroa.0.i.sroa.5.8..sroa.0.i.8..sroa.0.8..sroa.0.8..sroa.0.8..fca.1.load.pre.i = load ptr, ptr %.sroa.0.i.sroa.5.4.i.8..fca.1.gep.sroa_idx41, align 4
+  %.sroa.0.i.sroa.5.4..sroa.0.i.sroa.5.4..sroa.0.i.sroa.5.8..sroa.0.i.8..sroa.0.8..sroa.0.8..sroa.0.8..fca.1.load.pre.i = load ptr, ptr %.sroa.0.i.sroa.5.4.i.8..fca.1.gep.sroa_idx45, align 4
   %.sroa.0.i.sroa.5.0..sroa.0.i.sroa.5.0..sroa.0.i.sroa.5.4..sroa.0.i.0..sroa.0.0..sroa.0.0..sroa.0.0..fca.0.load.i39.pre = load i32, ptr %.sroa.0.i.sroa.5, align 4
   br label %_ZN6duckdb25CompressedStringScanState19FetchStringFromDictEit.exit
 
@@ -3119,7 +3119,7 @@ _ZN6duckdb20BitpackingPrimitives12UnPackBufferIjEEvPhS2_mhb.exit: ; preds = %92,
   %101 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %102 = getelementptr inbounds nuw i8, ptr %0, i64 156
   %103 = getelementptr %"struct.duckdb::string_t", ptr %7, i64 %2
-  %.sroa.0.i.sroa.5.4.i.8..fca.1.gep.sroa_idx44 = getelementptr inbounds nuw i8, ptr %.sroa.0.i.sroa.5, i64 4
+  %.sroa.0.i.sroa.5.4.i.8..fca.1.gep.sroa_idx50 = getelementptr inbounds nuw i8, ptr %.sroa.0.i.sroa.5, i64 4
   br label %104
 
 ._crit_edge:                                      ; preds = %_ZN6duckdb25CompressedStringScanState19FetchStringFromDictEit.exit, %_ZN6duckdb20BitpackingPrimitives12UnPackBufferIjEEvPhS2_mhb.exit
@@ -3185,7 +3185,7 @@ _ZN6duckdb25CompressedStringScanState15GetStringLengthEj.exit.thread: ; preds = 
   %.mask = and i32 %124, 15
   %139 = zext nneg i32 %.mask to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %.sroa.0.i.sroa.5, ptr nonnull align 1 %134, i64 %139, i1 false)
-  %.sroa.0.i.sroa.5.4..sroa.0.i.sroa.5.4..sroa.0.i.sroa.5.8..sroa.0.i.8..sroa.0.8..sroa.0.8..sroa.0.8..fca.1.load.pre.i = load ptr, ptr %.sroa.0.i.sroa.5.4.i.8..fca.1.gep.sroa_idx44, align 4
+  %.sroa.0.i.sroa.5.4..sroa.0.i.sroa.5.4..sroa.0.i.sroa.5.8..sroa.0.i.8..sroa.0.8..sroa.0.8..sroa.0.8..fca.1.load.pre.i = load ptr, ptr %.sroa.0.i.sroa.5.4.i.8..fca.1.gep.sroa_idx50, align 4
   %.sroa.0.i.sroa.5.0..sroa.0.i.sroa.5.0..sroa.0.i.sroa.5.4..sroa.0.i.0..sroa.0.0..sroa.0.0..sroa.0.0..fca.0.load.i36.pre = load i32, ptr %.sroa.0.i.sroa.5, align 4
   br label %_ZN6duckdb25CompressedStringScanState19FetchStringFromDictEit.exit
 
@@ -3623,7 +3623,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i: ; preds = %
   %169 = load ptr, ptr %168, align 8, !tbaa !86
   %170 = getelementptr inbounds nuw i8, ptr %154, i64 80
   %171 = icmp eq ptr %169, %170
-  br i1 %171, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i.i.i
+  br i1 %171, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i
   %172 = getelementptr inbounds nuw i8, ptr %154, i64 72
@@ -3633,11 +3633,11 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   %175 = icmp eq ptr %164, %155
   br i1 %175, label %177, label %.thread.i.i.i
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i.i.i: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i.i.i: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i
   %176 = icmp eq ptr %164, %155
   br i1 %176, label %177, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit24.thread.i.i.i
 
-177:                                              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
+177:                                              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   %178 = icmp ult i64 %165, 16
   call void @llvm.assume(i1 %178)
   %.not22.i.i.i = icmp eq ptr %7, %168
@@ -3675,7 +3675,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm.exit.i.i.i:
   store i64 %187, ptr %170, align 8, !tbaa !83
   br label %192
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit24.thread.i.i.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i.i.i
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit24.thread.i.i.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i.i.i
   %188 = load i64, ptr %170, align 8, !tbaa !83
   store ptr %164, ptr %168, align 8, !tbaa !86
   %189 = getelementptr inbounds nuw i8, ptr %154, i64 72

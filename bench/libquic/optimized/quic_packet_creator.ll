@@ -578,7 +578,7 @@ _ZN3net17QuicPacketCreator10PacketSizeEv.exit.i.i: ; preds = %24, %._crit_edge.i
   br i1 %50, label %_ZN3net17QuicPacketCreator21HasRoomForStreamFrameEjm.exit, label %51
 
 51:                                               ; preds = %_ZN3net17QuicPacketCreator10PacketSizeEv.exit.i.i, %_ZN3net17QuicPacketCreator10PacketSizeEv.exit.thread.i.i
-  %.0.i5.i.i = phi i64 [ %20, %_ZN3net17QuicPacketCreator10PacketSizeEv.exit.thread.i.i ], [ %48, %_ZN3net17QuicPacketCreator10PacketSizeEv.exit.i.i ]
+  %.0.i7.i.i = phi i64 [ %20, %_ZN3net17QuicPacketCreator10PacketSizeEv.exit.thread.i.i ], [ %48, %_ZN3net17QuicPacketCreator10PacketSizeEv.exit.i.i ]
   %52 = phi ptr [ %17, %_ZN3net17QuicPacketCreator10PacketSizeEv.exit.thread.i.i ], [ %.pre3.i.i, %_ZN3net17QuicPacketCreator10PacketSizeEv.exit.i.i ]
   %53 = getelementptr inbounds i8, ptr %52, i64 -16
   %54 = load i32, ptr %53, align 8, !tbaa !97
@@ -587,9 +587,9 @@ _ZN3net17QuicPacketCreator10PacketSizeEv.exit.i.i: ; preds = %24, %._crit_edge.i
   br label %_ZN3net17QuicPacketCreator21HasRoomForStreamFrameEjm.exit
 
 _ZN3net17QuicPacketCreator21HasRoomForStreamFrameEjm.exit: ; preds = %_ZN3net17QuicPacketCreator10PacketSizeEv.exit.i.i, %51
-  %.0.i6.i.i = phi i64 [ %48, %_ZN3net17QuicPacketCreator10PacketSizeEv.exit.i.i ], [ %.0.i5.i.i, %51 ]
+  %.0.i8.i.i = phi i64 [ %48, %_ZN3net17QuicPacketCreator10PacketSizeEv.exit.i.i ], [ %.0.i7.i.i, %51 ]
   %57 = phi i64 [ 0, %_ZN3net17QuicPacketCreator10PacketSizeEv.exit.i.i ], [ %56, %51 ]
-  %58 = add i64 %57, %.0.i6.i.i
+  %58 = add i64 %57, %.0.i8.i.i
   %59 = load i64, ptr %12, align 8, !tbaa !102
   %.sroa.speculated.i.i = tail call i64 @llvm.umin.i64(i64 %58, i64 %59)
   %60 = sub i64 %13, %.sroa.speculated.i.i
@@ -854,7 +854,7 @@ _ZN3net17QuicPacketCreator10PacketSizeEv.exit.i:  ; preds = %16, %._crit_edge.i.
   br i1 %42, label %_ZN3net17QuicPacketCreator9BytesFreeEv.exit, label %43
 
 43:                                               ; preds = %_ZN3net17QuicPacketCreator10PacketSizeEv.exit.i, %_ZN3net17QuicPacketCreator10PacketSizeEv.exit.thread.i
-  %.0.i5.i = phi i64 [ %12, %_ZN3net17QuicPacketCreator10PacketSizeEv.exit.thread.i ], [ %40, %_ZN3net17QuicPacketCreator10PacketSizeEv.exit.i ]
+  %.0.i7.i = phi i64 [ %12, %_ZN3net17QuicPacketCreator10PacketSizeEv.exit.thread.i ], [ %40, %_ZN3net17QuicPacketCreator10PacketSizeEv.exit.i ]
   %44 = phi ptr [ %9, %_ZN3net17QuicPacketCreator10PacketSizeEv.exit.thread.i ], [ %.pre3.i, %_ZN3net17QuicPacketCreator10PacketSizeEv.exit.i ]
   %45 = getelementptr inbounds i8, ptr %44, i64 -16
   %46 = load i32, ptr %45, align 8, !tbaa !97
@@ -863,9 +863,9 @@ _ZN3net17QuicPacketCreator10PacketSizeEv.exit.i:  ; preds = %16, %._crit_edge.i.
   br label %_ZN3net17QuicPacketCreator9BytesFreeEv.exit
 
 _ZN3net17QuicPacketCreator9BytesFreeEv.exit:      ; preds = %_ZN3net17QuicPacketCreator10PacketSizeEv.exit.i, %43
-  %.0.i6.i = phi i64 [ %40, %_ZN3net17QuicPacketCreator10PacketSizeEv.exit.i ], [ %.0.i5.i, %43 ]
+  %.0.i8.i = phi i64 [ %40, %_ZN3net17QuicPacketCreator10PacketSizeEv.exit.i ], [ %.0.i7.i, %43 ]
   %49 = phi i64 [ 0, %_ZN3net17QuicPacketCreator10PacketSizeEv.exit.i ], [ %48, %43 ]
-  %50 = add i64 %49, %.0.i6.i
+  %50 = add i64 %49, %.0.i8.i
   %51 = load i64, ptr %4, align 8, !tbaa !102
   %.sroa.speculated.i = tail call i64 @llvm.umin.i64(i64 %50, i64 %51)
   %52 = sub i64 %5, %.sroa.speculated.i
@@ -967,7 +967,7 @@ _ZN3net17QuicPacketCreator10PacketSizeEv.exit.i.i: ; preds = %40, %._crit_edge.i
   br i1 %66, label %_ZN3net17QuicPacketCreator21HasRoomForStreamFrameEjm.exit, label %67
 
 67:                                               ; preds = %_ZN3net17QuicPacketCreator10PacketSizeEv.exit.i.i, %_ZN3net17QuicPacketCreator10PacketSizeEv.exit.thread.i.i
-  %.0.i5.i.i = phi i64 [ %36, %_ZN3net17QuicPacketCreator10PacketSizeEv.exit.thread.i.i ], [ %64, %_ZN3net17QuicPacketCreator10PacketSizeEv.exit.i.i ]
+  %.0.i7.i.i = phi i64 [ %36, %_ZN3net17QuicPacketCreator10PacketSizeEv.exit.thread.i.i ], [ %64, %_ZN3net17QuicPacketCreator10PacketSizeEv.exit.i.i ]
   %68 = phi ptr [ %33, %_ZN3net17QuicPacketCreator10PacketSizeEv.exit.thread.i.i ], [ %.pre3.i.i, %_ZN3net17QuicPacketCreator10PacketSizeEv.exit.i.i ]
   %69 = getelementptr inbounds i8, ptr %68, i64 -16
   %70 = load i32, ptr %69, align 8, !tbaa !97
@@ -976,9 +976,9 @@ _ZN3net17QuicPacketCreator10PacketSizeEv.exit.i.i: ; preds = %40, %._crit_edge.i
   br label %_ZN3net17QuicPacketCreator21HasRoomForStreamFrameEjm.exit
 
 _ZN3net17QuicPacketCreator21HasRoomForStreamFrameEjm.exit: ; preds = %_ZN3net17QuicPacketCreator10PacketSizeEv.exit.i.i, %67
-  %.0.i6.i.i = phi i64 [ %64, %_ZN3net17QuicPacketCreator10PacketSizeEv.exit.i.i ], [ %.0.i5.i.i, %67 ]
+  %.0.i8.i.i = phi i64 [ %64, %_ZN3net17QuicPacketCreator10PacketSizeEv.exit.i.i ], [ %.0.i7.i.i, %67 ]
   %73 = phi i64 [ 0, %_ZN3net17QuicPacketCreator10PacketSizeEv.exit.i.i ], [ %72, %67 ]
-  %74 = add i64 %73, %.0.i6.i.i
+  %74 = add i64 %73, %.0.i8.i.i
   %75 = load i64, ptr %28, align 8, !tbaa !102
   %.sroa.speculated.i.i = tail call i64 @llvm.umin.i64(i64 %74, i64 %75)
   %76 = sub i64 %29, %.sroa.speculated.i.i
@@ -1055,7 +1055,7 @@ _ZN3net17QuicPacketCreator10PacketSizeEv.exit.i:  ; preds = %91, %._crit_edge.i.
   br i1 %117, label %124, label %118
 
 118:                                              ; preds = %.noexc, %_ZN3net17QuicPacketCreator10PacketSizeEv.exit.thread.i
-  %.0.i5.i = phi i64 [ %87, %_ZN3net17QuicPacketCreator10PacketSizeEv.exit.thread.i ], [ %115, %.noexc ]
+  %.0.i7.i = phi i64 [ %87, %_ZN3net17QuicPacketCreator10PacketSizeEv.exit.thread.i ], [ %115, %.noexc ]
   %119 = phi ptr [ %84, %_ZN3net17QuicPacketCreator10PacketSizeEv.exit.thread.i ], [ %.pre3.i, %.noexc ]
   %120 = getelementptr inbounds i8, ptr %119, i64 -16
   %121 = load i32, ptr %120, align 8, !tbaa !97
@@ -1064,9 +1064,9 @@ _ZN3net17QuicPacketCreator10PacketSizeEv.exit.i:  ; preds = %91, %._crit_edge.i.
   br label %124
 
 124:                                              ; preds = %118, %.noexc
-  %.0.i6.i = phi i64 [ %115, %.noexc ], [ %.0.i5.i, %118 ]
+  %.0.i8.i = phi i64 [ %115, %.noexc ], [ %.0.i7.i, %118 ]
   %125 = phi i64 [ 0, %.noexc ], [ %123, %118 ]
-  %126 = add i64 %125, %.0.i6.i
+  %126 = add i64 %125, %.0.i8.i
   %127 = load i64, ptr %28, align 8, !tbaa !102
   %.sroa.speculated.i = call i64 @llvm.umin.i64(i64 %126, i64 %127)
   %128 = sub i64 %82, %.sroa.speculated.i
@@ -1211,7 +1211,7 @@ _ZN3net17QuicPacketCreator10PacketSizeEv.exit.i64: ; preds = %165, %._crit_edge.
   br i1 %191, label %_ZN3net17QuicPacketCreator9BytesFreeEv.exit70, label %192
 
 192:                                              ; preds = %_ZN3net17QuicPacketCreator10PacketSizeEv.exit.i64, %_ZN3net17QuicPacketCreator10PacketSizeEv.exit.thread.i60
-  %.0.i5.i61 = phi i64 [ %161, %_ZN3net17QuicPacketCreator10PacketSizeEv.exit.thread.i60 ], [ %189, %_ZN3net17QuicPacketCreator10PacketSizeEv.exit.i64 ]
+  %.0.i7.i61 = phi i64 [ %161, %_ZN3net17QuicPacketCreator10PacketSizeEv.exit.thread.i60 ], [ %189, %_ZN3net17QuicPacketCreator10PacketSizeEv.exit.i64 ]
   %193 = phi ptr [ %158, %_ZN3net17QuicPacketCreator10PacketSizeEv.exit.thread.i60 ], [ %.pre3.i66, %_ZN3net17QuicPacketCreator10PacketSizeEv.exit.i64 ]
   %194 = getelementptr inbounds i8, ptr %193, i64 -16
   %195 = load i32, ptr %194, align 8, !tbaa !97
@@ -1220,9 +1220,9 @@ _ZN3net17QuicPacketCreator10PacketSizeEv.exit.i64: ; preds = %165, %._crit_edge.
   br label %_ZN3net17QuicPacketCreator9BytesFreeEv.exit70
 
 _ZN3net17QuicPacketCreator9BytesFreeEv.exit70:    ; preds = %_ZN3net17QuicPacketCreator10PacketSizeEv.exit.i64, %192
-  %.0.i6.i62 = phi i64 [ %189, %_ZN3net17QuicPacketCreator10PacketSizeEv.exit.i64 ], [ %.0.i5.i61, %192 ]
+  %.0.i8.i62 = phi i64 [ %189, %_ZN3net17QuicPacketCreator10PacketSizeEv.exit.i64 ], [ %.0.i7.i61, %192 ]
   %198 = phi i64 [ 0, %_ZN3net17QuicPacketCreator10PacketSizeEv.exit.i64 ], [ %197, %192 ]
-  %199 = add i64 %198, %.0.i6.i62
+  %199 = add i64 %198, %.0.i8.i62
   %200 = load i64, ptr %153, align 8, !tbaa !102
   %.sroa.speculated.i63 = call i64 @llvm.umin.i64(i64 %199, i64 %200)
   %201 = add i64 %152, %.sroa.speculated.i63
@@ -1569,7 +1569,7 @@ _ZN3net17QuicPacketCreator10PacketSizeEv.exit.i:  ; preds = %82, %._crit_edge.i.
   %116 = phi i64 [ %77, %_ZN3net17QuicPacketCreator10PacketSizeEv.exit.thread.i ], [ %88, %_ZN3net17QuicPacketCreator10PacketSizeEv.exit.i ]
   %117 = phi ptr [ %78, %_ZN3net17QuicPacketCreator10PacketSizeEv.exit.thread.i ], [ %87, %_ZN3net17QuicPacketCreator10PacketSizeEv.exit.i ]
   %118 = phi ptr [ %79, %_ZN3net17QuicPacketCreator10PacketSizeEv.exit.thread.i ], [ %86, %_ZN3net17QuicPacketCreator10PacketSizeEv.exit.i ]
-  %.0.i5.i = phi i64 [ %81, %_ZN3net17QuicPacketCreator10PacketSizeEv.exit.thread.i ], [ %109, %_ZN3net17QuicPacketCreator10PacketSizeEv.exit.i ]
+  %.0.i7.i = phi i64 [ %81, %_ZN3net17QuicPacketCreator10PacketSizeEv.exit.thread.i ], [ %109, %_ZN3net17QuicPacketCreator10PacketSizeEv.exit.i ]
   %119 = phi ptr [ %74, %_ZN3net17QuicPacketCreator10PacketSizeEv.exit.thread.i ], [ %.pre3.i, %_ZN3net17QuicPacketCreator10PacketSizeEv.exit.i ]
   %120 = getelementptr inbounds i8, ptr %119, i64 -16
   %121 = load i32, ptr %120, align 8, !tbaa !97
@@ -1584,9 +1584,9 @@ _ZN3net17QuicPacketCreator9BytesFreeEv.exit:      ; preds = %_ZN3net17QuicPacket
   %127 = phi i64 [ %88, %_ZN3net17QuicPacketCreator10PacketSizeEv.exit.i ], [ %116, %112 ]
   %128 = phi ptr [ %87, %_ZN3net17QuicPacketCreator10PacketSizeEv.exit.i ], [ %117, %112 ]
   %129 = phi ptr [ %86, %_ZN3net17QuicPacketCreator10PacketSizeEv.exit.i ], [ %118, %112 ]
-  %.0.i6.i = phi i64 [ %109, %_ZN3net17QuicPacketCreator10PacketSizeEv.exit.i ], [ %.0.i5.i, %112 ]
+  %.0.i8.i = phi i64 [ %109, %_ZN3net17QuicPacketCreator10PacketSizeEv.exit.i ], [ %.0.i7.i, %112 ]
   %130 = phi i64 [ 0, %_ZN3net17QuicPacketCreator10PacketSizeEv.exit.i ], [ %123, %112 ]
-  %131 = add i64 %130, %.0.i6.i
+  %131 = add i64 %130, %.0.i8.i
   %132 = load i64, ptr %128, align 8, !tbaa !102
   %.sroa.speculated.i = tail call i64 @llvm.umin.i64(i64 %131, i64 %132)
   %133 = sub i64 %127, %.sroa.speculated.i
@@ -1652,8 +1652,8 @@ _ZNK3net17QuicPacketCreator19ExpansionOnNewFrameEv.exit: ; preds = %144, %145
   %166 = ptrtoint ptr %159 to i64
   %167 = sub i64 %165, %166
   %168 = icmp ult i64 %167, 17
-  %or.cond91 = select i1 %162, i1 %168, i1 false
-  br i1 %or.cond91, label %_ZNSt6vectorIN3net9QuicFrameESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i, label %_ZNSt6vectorIN3net9QuicFrameESaIS1_EE7reserveEm.exit
+  %or.cond118 = select i1 %162, i1 %168, i1 false
+  br i1 %or.cond118, label %_ZNSt6vectorIN3net9QuicFrameESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i, label %_ZNSt6vectorIN3net9QuicFrameESaIS1_EE7reserveEm.exit
 
 _ZNSt6vectorIN3net9QuicFrameESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i: ; preds = %157
   %169 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #25
@@ -1991,7 +1991,7 @@ _ZN3net17QuicPacketCreator10PacketSizeEv.exit:    ; preds = %._crit_edge.i, %14
   br i1 %40, label %_ZNK3net17QuicPacketCreator19ExpansionOnNewFrameEv.exit, label %41
 
 41:                                               ; preds = %_ZN3net17QuicPacketCreator10PacketSizeEv.exit.thread, %_ZN3net17QuicPacketCreator10PacketSizeEv.exit
-  %.0.i5 = phi i64 [ %10, %_ZN3net17QuicPacketCreator10PacketSizeEv.exit.thread ], [ %38, %_ZN3net17QuicPacketCreator10PacketSizeEv.exit ]
+  %.0.i7 = phi i64 [ %10, %_ZN3net17QuicPacketCreator10PacketSizeEv.exit.thread ], [ %38, %_ZN3net17QuicPacketCreator10PacketSizeEv.exit ]
   %42 = phi ptr [ %7, %_ZN3net17QuicPacketCreator10PacketSizeEv.exit.thread ], [ %.pre3, %_ZN3net17QuicPacketCreator10PacketSizeEv.exit ]
   %43 = getelementptr inbounds i8, ptr %42, i64 -16
   %44 = load i32, ptr %43, align 8, !tbaa !97
@@ -2000,9 +2000,9 @@ _ZN3net17QuicPacketCreator10PacketSizeEv.exit:    ; preds = %._crit_edge.i, %14
   br label %_ZNK3net17QuicPacketCreator19ExpansionOnNewFrameEv.exit
 
 _ZNK3net17QuicPacketCreator19ExpansionOnNewFrameEv.exit: ; preds = %_ZN3net17QuicPacketCreator10PacketSizeEv.exit, %41
-  %.0.i6 = phi i64 [ %38, %_ZN3net17QuicPacketCreator10PacketSizeEv.exit ], [ %.0.i5, %41 ]
+  %.0.i8 = phi i64 [ %38, %_ZN3net17QuicPacketCreator10PacketSizeEv.exit ], [ %.0.i7, %41 ]
   %47 = phi i64 [ 0, %_ZN3net17QuicPacketCreator10PacketSizeEv.exit ], [ %46, %41 ]
-  %48 = add i64 %47, %.0.i6
+  %48 = add i64 %47, %.0.i8
   %49 = load i64, ptr %2, align 8, !tbaa !102
   %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %48, i64 %49)
   %50 = sub i64 %3, %.sroa.speculated
@@ -2561,7 +2561,7 @@ _ZN3net17QuicPacketCreator10PacketSizeEv.exit.i:  ; preds = %85, %._crit_edge.i.
   br i1 %105, label %.noexc55, label %106
 
 106:                                              ; preds = %.noexc72, %_ZN3net17QuicPacketCreator10PacketSizeEv.exit.thread.i
-  %.0.i5.i = phi i64 [ %81, %_ZN3net17QuicPacketCreator10PacketSizeEv.exit.thread.i ], [ %103, %.noexc72 ]
+  %.0.i7.i = phi i64 [ %81, %_ZN3net17QuicPacketCreator10PacketSizeEv.exit.thread.i ], [ %103, %.noexc72 ]
   %107 = phi ptr [ %78, %_ZN3net17QuicPacketCreator10PacketSizeEv.exit.thread.i ], [ %.pre3.i, %.noexc72 ]
   %108 = getelementptr inbounds i8, ptr %107, i64 -16
   %109 = load i32, ptr %108, align 8, !tbaa !97
@@ -2570,9 +2570,9 @@ _ZN3net17QuicPacketCreator10PacketSizeEv.exit.i:  ; preds = %85, %._crit_edge.i.
   br label %.noexc55
 
 .noexc55:                                         ; preds = %106, %.noexc72
-  %.0.i6.i = phi i64 [ %103, %.noexc72 ], [ %.0.i5.i, %106 ]
+  %.0.i8.i = phi i64 [ %103, %.noexc72 ], [ %.0.i7.i, %106 ]
   %112 = phi i64 [ 0, %.noexc72 ], [ %111, %106 ]
-  %113 = add i64 %112, %.0.i6.i
+  %113 = add i64 %112, %.0.i8.i
   %114 = load i64, ptr %73, align 8, !tbaa !102
   %.sroa.speculated.i = call i64 @llvm.umin.i64(i64 %113, i64 %114)
   %115 = icmp eq i64 %74, %.sroa.speculated.i
@@ -4034,7 +4034,7 @@ _ZN3net17QuicPacketCreator10PacketSizeEv.exit.i:  ; preds = %19, %._crit_edge.i.
   br i1 %45, label %_ZN3net17QuicPacketCreator9BytesFreeEv.exit, label %46
 
 46:                                               ; preds = %_ZN3net17QuicPacketCreator10PacketSizeEv.exit.i, %_ZN3net17QuicPacketCreator10PacketSizeEv.exit.thread.i
-  %.0.i5.i = phi i64 [ %15, %_ZN3net17QuicPacketCreator10PacketSizeEv.exit.thread.i ], [ %43, %_ZN3net17QuicPacketCreator10PacketSizeEv.exit.i ]
+  %.0.i7.i = phi i64 [ %15, %_ZN3net17QuicPacketCreator10PacketSizeEv.exit.thread.i ], [ %43, %_ZN3net17QuicPacketCreator10PacketSizeEv.exit.i ]
   %47 = phi ptr [ %12, %_ZN3net17QuicPacketCreator10PacketSizeEv.exit.thread.i ], [ %.pre3.i, %_ZN3net17QuicPacketCreator10PacketSizeEv.exit.i ]
   %48 = getelementptr inbounds i8, ptr %47, i64 -16
   %49 = load i32, ptr %48, align 8, !tbaa !97
@@ -4043,9 +4043,9 @@ _ZN3net17QuicPacketCreator10PacketSizeEv.exit.i:  ; preds = %19, %._crit_edge.i.
   br label %_ZN3net17QuicPacketCreator9BytesFreeEv.exit
 
 _ZN3net17QuicPacketCreator9BytesFreeEv.exit:      ; preds = %_ZN3net17QuicPacketCreator10PacketSizeEv.exit.i, %46
-  %.0.i6.i = phi i64 [ %43, %_ZN3net17QuicPacketCreator10PacketSizeEv.exit.i ], [ %.0.i5.i, %46 ]
+  %.0.i8.i = phi i64 [ %43, %_ZN3net17QuicPacketCreator10PacketSizeEv.exit.i ], [ %.0.i7.i, %46 ]
   %52 = phi i64 [ 0, %_ZN3net17QuicPacketCreator10PacketSizeEv.exit.i ], [ %51, %46 ]
-  %53 = add i64 %52, %.0.i6.i
+  %53 = add i64 %52, %.0.i8.i
   %54 = load i64, ptr %7, align 8, !tbaa !102
   %.sroa.speculated.i = tail call i64 @llvm.umin.i64(i64 %53, i64 %54)
   %55 = icmp eq i64 %8, %.sroa.speculated.i

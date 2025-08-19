@@ -1022,8 +1022,8 @@ define internal void @_ZN5clang4ento5check7PreStmtINS_14BinaryOperatorEE10_check
 
 107:                                              ; preds = %103
   %108 = and i32 %101, -4
-  %.not92.i = icmp eq i32 %108, 20
-  br i1 %.not92.i, label %109, label %114
+  %.not100.i = icmp eq i32 %108, 20
+  br i1 %.not100.i, label %109, label %114
 
 109:                                              ; preds = %107
   %110 = load ptr, ptr %97, align 8, !tbaa !7
@@ -1037,8 +1037,8 @@ define internal void @_ZN5clang4ento5check7PreStmtINS_14BinaryOperatorEE10_check
   %115 = phi i32 [ %.pre.i, %109 ], [ %105, %107 ]
   %.2.i = phi ptr [ %113, %109 ], [ null, %107 ]
   %116 = and i32 %115, -4
-  %.not93.i = icmp eq i32 %116, 20
-  br i1 %.not93.i, label %117, label %.thread.i
+  %.not101.i = icmp eq i32 %116, 20
+  br i1 %.not101.i, label %117, label %.thread.i
 
 117:                                              ; preds = %114
   %118 = load ptr, ptr %92, align 8, !tbaa !7
@@ -1175,12 +1175,12 @@ define linkonce_odr hidden noundef ptr @_ZN5clang4ento14CheckerContext25generate
   br label %18
 
 10:                                               ; preds = %3
-  %.not5 = icmp eq ptr %2, null
+  %.not6 = icmp eq ptr %2, null
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %.0.copyload.i.i.i.i6 = load i64, ptr %11, align 8
-  %12 = and i64 %.0.copyload.i.i.i.i6, -8
+  %.0.copyload.i.i.i.i7 = load i64, ptr %11, align 8
+  %12 = and i64 %.0.copyload.i.i.i.i7, -8
   %13 = inttoptr i64 %12 to ptr
-  %14 = select i1 %.not5, ptr %13, ptr %2
+  %14 = select i1 %.not6, ptr %13, ptr %2
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = load ptr, ptr %15, align 8, !tbaa !58

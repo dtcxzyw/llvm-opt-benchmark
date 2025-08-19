@@ -854,11 +854,11 @@ checkControlFile.exit:                            ; preds = %127
   br i1 %228, label %sub_0, label %.critedge
 
 sub_0:                                            ; preds = %.lr.ph137, %253
-  %.080134216 = phi i32 [ %.181, %253 ], [ 0, %.lr.ph137 ]
-  %.172135215 = phi i8 [ %.2, %253 ], [ 0, %.lr.ph137 ]
-  %indvars.iv214 = phi i64 [ %indvars.iv.next, %253 ], [ 0, %.lr.ph137 ]
+  %.080134230 = phi i32 [ %.181, %253 ], [ 0, %.lr.ph137 ]
+  %.172135229 = phi i8 [ %.2, %253 ], [ 0, %.lr.ph137 ]
+  %indvars.iv228 = phi i64 [ %indvars.iv.next, %253 ], [ 0, %.lr.ph137 ]
   %229 = load ptr, ptr %226, align 8
-  %230 = getelementptr inbounds nuw %union.ListCell, ptr %229, i64 %indvars.iv214
+  %230 = getelementptr inbounds nuw %union.ListCell, ptr %229, i64 %indvars.iv228
   %231 = load ptr, ptr %230, align 8
   %232 = load i8, ptr %231, align 1
   %.not = icmp eq i8 %232, 42
@@ -896,8 +896,8 @@ sub_0:                                            ; preds = %.lr.ph137, %253
   br i1 %244, label %245, label %249
 
 245:                                              ; preds = %239
-  %246 = add i32 %.080134216, 1
-  %247 = trunc nuw i8 %.172135215 to i1
+  %246 = add i32 %.080134230, 1
+  %247 = trunc nuw i8 %.172135229 to i1
   br i1 %247, label %253, label %248
 
 248:                                              ; preds = %245
@@ -914,9 +914,9 @@ sub_0:                                            ; preds = %.lr.ph137, %253
   br label %253
 
 253:                                              ; preds = %249, %251, %245, %248
-  %.181 = phi i32 [ %246, %245 ], [ %246, %248 ], [ %.080134216, %251 ], [ %.080134216, %249 ]
-  %.2 = phi i8 [ 1, %245 ], [ 1, %248 ], [ %.172135215, %251 ], [ %.172135215, %249 ]
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv214, 1
+  %.181 = phi i32 [ %246, %245 ], [ %246, %248 ], [ %.080134230, %251 ], [ %.080134230, %249 ]
+  %.2 = phi i8 [ 1, %245 ], [ 1, %248 ], [ %.172135229, %251 ], [ %.172135229, %249 ]
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv228, 1
   %254 = load i32, ptr %225, align 4
   %255 = sext i32 %254 to i64
   %256 = icmp slt i64 %indvars.iv.next, %255
@@ -930,7 +930,7 @@ sub_0:                                            ; preds = %.lr.ph137, %253
   unreachable
 
 .critedge.thread:                                 ; preds = %223, %.critedge
-  %.172.lcssa176 = phi i1 [ %.172135.lcssa, %.critedge ], [ false, %223 ]
+  %.172.lcssa190 = phi i1 [ %.172135.lcssa, %.critedge ], [ false, %223 ]
   %260 = phi ptr [ %.pre, %.critedge ], [ null, %223 ]
   call void @list_free(ptr noundef %260) #18
   call void @pfree(ptr noundef %217) #18
@@ -938,7 +938,7 @@ sub_0:                                            ; preds = %.lr.ph137, %253
   br label %261
 
 261:                                              ; preds = %.critedge.thread, %213
-  %.071 = phi i1 [ %.172.lcssa176, %.critedge.thread ], [ false, %213 ]
+  %.071 = phi i1 [ %.172.lcssa190, %.critedge.thread ], [ false, %213 ]
   %262 = load ptr, ptr @Unix_socket_directories, align 8
   %.not103 = icmp eq ptr %262, null
   br i1 %.not103, label %303, label %263
@@ -1647,8 +1647,8 @@ define internal fastcc void @maybe_start_bgworkers() unnamed_addr #1 {
 1:                                                ; preds = %0
   %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @BackgroundWorkerList, i64 8), align 8
   %.not = icmp eq ptr %2, null
-  %.not325364 = icmp eq ptr %2, @BackgroundWorkerList
-  %.not3253 = or i1 %.not, %.not325364
+  %.not325369 = icmp eq ptr %2, @BackgroundWorkerList
+  %.not3253 = or i1 %.not, %.not325369
   br i1 %.not3253, label %bgworker_should_start_now.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1, %select.unfold
@@ -1925,8 +1925,8 @@ ConfigurePostmasterWaitSet.exit:                  ; preds = %.lr.ph.i, %25
 58:                                               ; preds = %56
   %59 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @BackgroundWorkerList, i64 8), align 8
   %.not.i35 = icmp eq ptr %59, null
-  %.not293741.i = icmp eq ptr %59, @BackgroundWorkerList
-  %.not2937.i = or i1 %.not.i35, %.not293741.i
+  %.not293743.i = icmp eq ptr %59, @BackgroundWorkerList
+  %.not2937.i = or i1 %.not.i35, %.not293743.i
   br i1 %.not2937.i, label %DetermineSleepTime.exit, label %.lr.ph.i36
 
 .lr.ph.i36:                                       ; preds = %58, %select.unfold.i
@@ -2411,8 +2411,8 @@ StartChildProcess.exit116:                        ; preds = %253, %256, %244, %2
   br label %StartChildProcess.exit113.thread.sink.split
 
 StartChildProcess.exit113.thread.sink.split:      ; preds = %282, %272
-  %.sink375 = phi i32 [ 3900, %272 ], [ 3911, %282 ]
-  call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef %.sink375, ptr noundef nonnull @__func__.StartChildProcess) #18
+  %.sink470 = phi i32 [ 3900, %272 ], [ 3911, %282 ]
+  call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef %.sink470, ptr noundef nonnull @__func__.StartChildProcess) #18
   br label %StartChildProcess.exit113.thread
 
 StartChildProcess.exit113.thread:                 ; preds = %StartChildProcess.exit113.thread.sink.split, %270, %279
@@ -2561,12 +2561,12 @@ LaunchMissingBackgroundProcesses.exit:            ; preds = %314, %315
 
 342:                                              ; preds = %339
   store i1 true, ptr @connsAllowed, align 1
-  br label %.sink.split26.i
+  br label %.sink.split27.i
 
 343:                                              ; preds = %339
   %344 = add i32 %340, -1
   %or.cond3.i = icmp ult i32 %344, 2
-  br i1 %or.cond3.i, label %345, label %.sink.split26.i
+  br i1 %or.cond3.i, label %345, label %.sink.split27.i
 
 345:                                              ; preds = %343
   %346 = call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #18
@@ -2583,7 +2583,7 @@ switch.lookup:                                    ; preds = %345
 
 UpdatePMState.exit.i:                             ; preds = %switch.lookup, %345
   store i32 5, ptr @pmState, align 4
-  br label %.sink.split26.i
+  br label %.sink.split27.i
 
 350:                                              ; preds = %330
   store volatile i32 0, ptr @pending_pm_fast_shutdown_request, align 4
@@ -2615,7 +2615,7 @@ UpdatePMState.exit.i:                             ; preds = %switch.lookup, %345
 362:                                              ; preds = %357
   %363 = add i32 %358, -3
   %or.cond7.i43 = icmp ult i32 %363, 2
-  br i1 %or.cond7.i43, label %364, label %.sink.split26.i
+  br i1 %or.cond7.i43, label %364, label %.sink.split27.i
 
 364:                                              ; preds = %362
   %365 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #18
@@ -2642,7 +2642,7 @@ UpdatePMState.exit.i:                             ; preds = %switch.lookup, %345
 
 .sink.split.i:                                    ; preds = %.sink.split.sink.split.i, %368, %360
   store i32 5, ptr @pmState, align 4
-  br label %.sink.split26.i
+  br label %.sink.split27.i
 
 373:                                              ; preds = %328
   store volatile i32 0, ptr @pending_pm_immediate_shutdown_request, align 4
@@ -2714,13 +2714,13 @@ UpdatePMState.exit22.i:                           ; preds = %switch.lookup20, %T
   store i32 6, ptr @pmState, align 4
   %394 = call i64 @time(ptr noundef null) #18
   store i64 %394, ptr @AbortStartTime, align 8
-  br label %.sink.split26.i
+  br label %.sink.split27.i
 
-.sink.split26.i:                                  ; preds = %UpdatePMState.exit22.i, %.sink.split.i, %362, %UpdatePMState.exit.i, %343, %342
+.sink.split27.i:                                  ; preds = %UpdatePMState.exit22.i, %.sink.split.i, %362, %UpdatePMState.exit.i, %343, %342
   call fastcc void @PostmasterStateMachine()
   br label %process_pm_shutdown_request.exit
 
-process_pm_shutdown_request.exit:                 ; preds = %.sink.split26.i, %373, %350, %332, %322
+process_pm_shutdown_request.exit:                 ; preds = %.sink.split27.i, %373, %350, %332, %322
   %395 = load volatile i32, ptr @pending_pm_reload_request, align 4
   %.not27 = icmp eq i32 %395, 0
   br i1 %.not27, label %process_pm_reload_request.exit, label %396
@@ -3123,9 +3123,9 @@ UpdatePMState.exit83.i:                           ; preds = %switch.lookup29, %5
   br i1 %.not.i295, label %.sink.split.i299, label %.sink.split.sink.split.i296
 
 .sink.split.sink.split.i296:                      ; preds = %553, %549, %540
-  %.sink54.i297 = phi ptr [ %.053.i303, %540 ], [ %536, %549 ], [ %536, %553 ]
+  %.sink56.i297 = phi ptr [ %.053.i303, %540 ], [ %536, %549 ], [ %536, %553 ]
   %.sink.ph.i298 = phi i32 [ 2808, %540 ], [ 2830, %549 ], [ 2841, %553 ]
-  %555 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.103, ptr noundef nonnull %.sink54.i297) #18
+  %555 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.103, ptr noundef nonnull %.sink56.i297) #18
   br label %.sink.split.i299
 
 .sink.split.i299:                                 ; preds = %.sink.split.sink.split.i296, %553, %549, %540
@@ -3399,9 +3399,9 @@ SignalChildren.exit.i57:                          ; preds = %select.unfold.i.i55
   br i1 %.not.i271, label %.sink.split.i275, label %.sink.split.sink.split.i272
 
 .sink.split.sink.split.i272:                      ; preds = %656, %652, %643
-  %.sink54.i273 = phi ptr [ %.053.i279, %643 ], [ %639, %652 ], [ %639, %656 ]
+  %.sink56.i273 = phi ptr [ %.053.i279, %643 ], [ %639, %652 ], [ %639, %656 ]
   %.sink.ph.i274 = phi i32 [ 2808, %643 ], [ 2830, %652 ], [ 2841, %656 ]
-  %658 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.103, ptr noundef nonnull %.sink54.i273) #18
+  %658 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.103, ptr noundef nonnull %.sink56.i273) #18
   br label %.sink.split.i275
 
 .sink.split.i275:                                 ; preds = %.sink.split.sink.split.i272, %656, %652, %643
@@ -4173,9 +4173,9 @@ LogChildExit.exit197:                             ; preds = %.thread.i194, %921,
   br i1 %.not.i175, label %.sink.split.i179, label %.sink.split.sink.split.i176
 
 .sink.split.sink.split.i176:                      ; preds = %980, %976, %967
-  %.sink54.i177 = phi ptr [ %.053.i183, %967 ], [ %963, %976 ], [ %963, %980 ]
+  %.sink56.i177 = phi ptr [ %.053.i183, %967 ], [ %963, %976 ], [ %963, %980 ]
   %.sink.ph.i178 = phi i32 [ 2808, %967 ], [ 2830, %976 ], [ 2841, %980 ]
-  %982 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.103, ptr noundef nonnull %.sink54.i177) #18
+  %982 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.103, ptr noundef nonnull %.sink56.i177) #18
   br label %.sink.split.i179
 
 .sink.split.i179:                                 ; preds = %.sink.split.sink.split.i176, %980, %976, %967
@@ -4715,8 +4715,8 @@ canAcceptConnections.exit.i.i:                    ; preds = %1177
   br label %StartAutovacuumWorker.exit.i
 
 canAcceptConnections.exit.thread.i.i.sink.split:  ; preds = %1181, %1192
-  %.sink376 = phi i32 [ 3911, %1192 ], [ 3896, %1181 ]
-  call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef %.sink376, ptr noundef nonnull @__func__.StartChildProcess) #18
+  %.sink471 = phi i32 [ 3911, %1192 ], [ 3896, %1181 ]
+  call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef %.sink471, ptr noundef nonnull @__func__.StartChildProcess) #18
   br label %canAcceptConnections.exit.thread.i.i
 
 canAcceptConnections.exit.thread.i.i:             ; preds = %canAcceptConnections.exit.thread.i.i.sink.split, %1189, %1179, %1177
@@ -4799,13 +4799,13 @@ signal_child.exit323:                             ; preds = %1223, %1221, %1218,
   %1232 = getelementptr inbounds i8, ptr %.sroa.0.020.us.i.i, i64 -28
   %1233 = load i32, ptr %1232, align 4
   %1234 = call zeroext i1 @IsPostmasterChildWalSender(i32 noundef %1233) #18
-  br i1 %1234, label %.thread38.i, label %._crit_edge.i.i
+  br i1 %1234, label %.thread43.i, label %._crit_edge.i.i
 
 ._crit_edge.i.i:                                  ; preds = %1231
   %.pre.i.i = load i32, ptr %1228, align 8
   br label %1235
 
-.thread38.i:                                      ; preds = %1231
+.thread43.i:                                      ; preds = %1231
   store i32 6, ptr %1228, align 8
   br label %1237
 
@@ -4814,7 +4814,7 @@ signal_child.exit323:                             ; preds = %1223, %1221, %1218,
   %.not37.i = icmp eq i32 %1236, 6
   br i1 %.not37.i, label %1237, label %select.unfold.us.i.i
 
-1237:                                             ; preds = %1235, %.thread38.i
+1237:                                             ; preds = %1235, %.thread43.i
   %1238 = load i32, ptr %1227, align 8
   %1239 = call zeroext i1 @errstart(i32 noundef 12, ptr noundef null) #18
   br i1 %1239, label %1240, label %1245
@@ -5713,18 +5713,18 @@ select.unfold.i:                                  ; preds = %81, %.lr.ph.split.i
 
 SignalChildren.exit:                              ; preds = %select.unfold.i, %select.unfold.us.i, %54
   %85 = tail call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #18
-  br i1 %85, label %switch.lookup148, label %UpdatePMState.exit55
+  br i1 %85, label %switch.lookup159, label %UpdatePMState.exit55
 
-switch.lookup148:                                 ; preds = %SignalChildren.exit
+switch.lookup159:                                 ; preds = %SignalChildren.exit
   %86 = load i32, ptr @pmState, align 4
   %87 = zext nneg i32 %86 to i64
-  %switch.gep149 = getelementptr inbounds nuw [12 x ptr], ptr @switch.table.HandleFatalError.20, i64 0, i64 %87
-  %switch.load150 = load ptr, ptr %switch.gep149, align 8
-  %88 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.127, ptr noundef nonnull %switch.load150, ptr noundef nonnull @.str.134) #18
+  %switch.gep160 = getelementptr inbounds nuw [12 x ptr], ptr @switch.table.HandleFatalError.20, i64 0, i64 %87
+  %switch.load161 = load ptr, ptr %switch.gep160, align 8
+  %88 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.127, ptr noundef nonnull %switch.load161, ptr noundef nonnull @.str.134) #18
   tail call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 3220, ptr noundef nonnull @__func__.UpdatePMState) #18
   br label %UpdatePMState.exit55
 
-UpdatePMState.exit55:                             ; preds = %SignalChildren.exit, %switch.lookup148
+UpdatePMState.exit55:                             ; preds = %SignalChildren.exit, %switch.lookup159
   store i32 6, ptr @pmState, align 4
   br label %89
 
@@ -5742,18 +5742,18 @@ UpdatePMState.exit55:                             ; preds = %SignalChildren.exit
 
 95:                                               ; preds = %92
   %96 = tail call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #18
-  br i1 %96, label %switch.lookup151, label %UpdatePMState.exit59
+  br i1 %96, label %switch.lookup162, label %UpdatePMState.exit59
 
-switch.lookup151:                                 ; preds = %95
+switch.lookup162:                                 ; preds = %95
   %97 = load i32, ptr @pmState, align 4
   %98 = zext nneg i32 %97 to i64
-  %switch.gep152 = getelementptr inbounds nuw [12 x ptr], ptr @switch.table.HandleFatalError.20, i64 0, i64 %98
-  %switch.load153 = load ptr, ptr %switch.gep152, align 8
-  %99 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.127, ptr noundef nonnull %switch.load153, ptr noundef nonnull @.str.137) #18
+  %switch.gep163 = getelementptr inbounds nuw [12 x ptr], ptr @switch.table.HandleFatalError.20, i64 0, i64 %98
+  %switch.load164 = load ptr, ptr %switch.gep163, align 8
+  %99 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.127, ptr noundef nonnull %switch.load164, ptr noundef nonnull @.str.137) #18
   tail call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 3220, ptr noundef nonnull @__func__.UpdatePMState) #18
   br label %UpdatePMState.exit59
 
-UpdatePMState.exit59:                             ; preds = %95, %switch.lookup151
+UpdatePMState.exit59:                             ; preds = %95, %switch.lookup162
   store i32 10, ptr @pmState, align 4
   %100 = load ptr, ptr @pm_wait_set, align 8
   %.not.i60 = icmp eq ptr %100, null
@@ -5808,18 +5808,18 @@ select.unfold.i72:                                ; preds = %108, %.lr.ph.split.
   %117 = phi ptr [ %116, %115 ], [ %113, %112 ]
   tail call fastcc void @signal_child(ptr noundef nonnull %117, i32 noundef 2)
   %118 = tail call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #18
-  br i1 %118, label %switch.lookup154, label %SignalChildren.exit76.thread
+  br i1 %118, label %switch.lookup165, label %SignalChildren.exit76.thread
 
-switch.lookup154:                                 ; preds = %.thread
+switch.lookup165:                                 ; preds = %.thread
   %119 = load i32, ptr @pmState, align 4
   %120 = zext nneg i32 %119 to i64
-  %switch.gep155 = getelementptr inbounds nuw [12 x ptr], ptr @switch.table.HandleFatalError.20, i64 0, i64 %120
-  %switch.load156 = load ptr, ptr %switch.gep155, align 8
-  %121 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.127, ptr noundef nonnull %switch.load156, ptr noundef nonnull @.str.135) #18
+  %switch.gep166 = getelementptr inbounds nuw [12 x ptr], ptr @switch.table.HandleFatalError.20, i64 0, i64 %120
+  %switch.load167 = load ptr, ptr %switch.gep166, align 8
+  %121 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.127, ptr noundef nonnull %switch.load167, ptr noundef nonnull @.str.135) #18
   tail call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 3220, ptr noundef nonnull @__func__.UpdatePMState) #18
   br label %SignalChildren.exit76.thread
 
-SignalChildren.exit76.thread:                     ; preds = %switch.lookup154, %.thread
+SignalChildren.exit76.thread:                     ; preds = %switch.lookup165, %.thread
   store i32 7, ptr @pmState, align 4
   br label %ConfigurePostmasterWaitSet.exit105
 
@@ -5859,18 +5859,18 @@ btmask_all_except_n.exit:                         ; preds = %127
 
 135:                                              ; preds = %btmask_all_except_n.exit
   %136 = tail call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #18
-  br i1 %136, label %switch.lookup157, label %UpdatePMState.exit87
+  br i1 %136, label %switch.lookup168, label %UpdatePMState.exit87
 
-switch.lookup157:                                 ; preds = %135
+switch.lookup168:                                 ; preds = %135
   %137 = load i32, ptr @pmState, align 4
   %138 = zext nneg i32 %137 to i64
-  %switch.gep158 = getelementptr inbounds nuw [12 x ptr], ptr @switch.table.HandleFatalError.20, i64 0, i64 %138
-  %switch.load159 = load ptr, ptr %switch.gep158, align 8
-  %139 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.127, ptr noundef nonnull %switch.load159, ptr noundef nonnull @.str.138) #18
+  %switch.gep169 = getelementptr inbounds nuw [12 x ptr], ptr @switch.table.HandleFatalError.20, i64 0, i64 %138
+  %switch.load170 = load ptr, ptr %switch.gep169, align 8
+  %139 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.127, ptr noundef nonnull %switch.load170, ptr noundef nonnull @.str.138) #18
   tail call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 3220, ptr noundef nonnull @__func__.UpdatePMState) #18
   br label %UpdatePMState.exit87
 
-UpdatePMState.exit87:                             ; preds = %135, %switch.lookup157
+UpdatePMState.exit87:                             ; preds = %135, %switch.lookup168
   store i32 9, ptr @pmState, align 4
   %140 = load ptr, ptr @CheckpointerPMChild, align 8
   %.not34 = icmp eq ptr %140, null
@@ -5900,16 +5900,16 @@ btmask_all_except_n.exit92.thread-pre-split111_crit_edge: ; preds = %btmask_all_
 
 147:                                              ; preds = %btmask_all_except_n.exit92
   %148 = tail call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #18
-  br i1 %148, label %switch.lookup160, label %.thread131
+  br i1 %148, label %switch.lookup171, label %.thread142
 
-switch.lookup160:                                 ; preds = %147
+switch.lookup171:                                 ; preds = %147
   %149 = load i32, ptr @pmState, align 4
   %150 = zext nneg i32 %149 to i64
-  %switch.gep161 = getelementptr inbounds nuw [12 x ptr], ptr @switch.table.HandleFatalError.20, i64 0, i64 %150
-  %switch.load162 = load ptr, ptr %switch.gep161, align 8
-  %151 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.127, ptr noundef nonnull %switch.load162, ptr noundef nonnull @.str.139) #18
+  %switch.gep172 = getelementptr inbounds nuw [12 x ptr], ptr @switch.table.HandleFatalError.20, i64 0, i64 %150
+  %switch.load173 = load ptr, ptr %switch.gep172, align 8
+  %151 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.127, ptr noundef nonnull %switch.load173, ptr noundef nonnull @.str.139) #18
   tail call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 3220, ptr noundef nonnull @__func__.UpdatePMState) #18
-  br label %.thread131
+  br label %.thread142
 
 152:                                              ; preds = %142, %btmask_all_except_n.exit92.thread-pre-split111_crit_edge
   %.pr112 = phi i32 [ %.pr112.pre, %btmask_all_except_n.exit92.thread-pre-split111_crit_edge ], [ %143, %142 ]
@@ -5919,13 +5919,13 @@ switch.lookup160:                                 ; preds = %147
   %or.cond9 = select i1 %155, i1 %153, i1 false
   br i1 %or.cond9, label %158, label %165
 
-.thread131:                                       ; preds = %switch.lookup160, %147
+.thread142:                                       ; preds = %switch.lookup171, %147
   store i32 11, ptr @pmState, align 4
   %156 = load i32, ptr @Shutdown, align 4
   %157 = icmp sgt i32 %156, 0
-  br i1 %157, label %158, label %.thread133
+  br i1 %157, label %158, label %.thread144
 
-158:                                              ; preds = %.thread131, %152
+158:                                              ; preds = %.thread142, %152
   %.b2936 = load i1, ptr @FatalError, align 1
   br i1 %.b2936, label %159, label %164
 
@@ -5947,14 +5947,14 @@ switch.lookup160:                                 ; preds = %147
   unreachable
 
 165:                                              ; preds = %152
-  br i1 %153, label %.thread133, label %ConfigurePostmasterWaitSet.exit105
+  br i1 %153, label %.thread144, label %ConfigurePostmasterWaitSet.exit105
 
-.thread133:                                       ; preds = %.thread131, %165
+.thread144:                                       ; preds = %.thread142, %165
   %166 = load i32, ptr @StartupStatus, align 4
   %167 = icmp eq i32 %166, 3
   br i1 %167, label %168, label %173
 
-168:                                              ; preds = %.thread133
+168:                                              ; preds = %.thread144
   %169 = tail call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #18
   br i1 %169, label %170, label %172
 
@@ -5967,7 +5967,7 @@ switch.lookup160:                                 ; preds = %147
   tail call fastcc void @ExitPostmaster(i32 noundef 1) #20
   unreachable
 
-173:                                              ; preds = %.thread133
+173:                                              ; preds = %.thread144
   %174 = load i8, ptr @restart_after_crash, align 1, !range !6, !noundef !7
   %175 = trunc nuw i8 %174 to i1
   br i1 %175, label %181, label %176
@@ -6016,18 +6016,18 @@ switch.lookup160:                                 ; preds = %147
   store ptr %191, ptr @StartupPMChild, align 8
   store i32 1, ptr @StartupStatus, align 4
   %192 = tail call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #18
-  br i1 %192, label %switch.lookup163, label %UpdatePMState.exit100
+  br i1 %192, label %switch.lookup174, label %UpdatePMState.exit100
 
-switch.lookup163:                                 ; preds = %190
+switch.lookup174:                                 ; preds = %190
   %193 = load i32, ptr @pmState, align 4
   %194 = zext nneg i32 %193 to i64
-  %switch.gep164 = getelementptr inbounds nuw [12 x ptr], ptr @switch.table.HandleFatalError.20, i64 0, i64 %194
-  %switch.load165 = load ptr, ptr %switch.gep164, align 8
-  %195 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.127, ptr noundef nonnull %switch.load165, ptr noundef nonnull @.str.129) #18
+  %switch.gep175 = getelementptr inbounds nuw [12 x ptr], ptr @switch.table.HandleFatalError.20, i64 0, i64 %194
+  %switch.load176 = load ptr, ptr %switch.gep175, align 8
+  %195 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.127, ptr noundef nonnull %switch.load176, ptr noundef nonnull @.str.129) #18
   tail call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 3220, ptr noundef nonnull @__func__.UpdatePMState) #18
   br label %UpdatePMState.exit100
 
-UpdatePMState.exit100:                            ; preds = %190, %switch.lookup163
+UpdatePMState.exit100:                            ; preds = %190, %switch.lookup174
   store i32 1, ptr @pmState, align 4
   store i64 0, ptr @AbortStartTime, align 8
   %196 = load ptr, ptr @pm_wait_set, align 8

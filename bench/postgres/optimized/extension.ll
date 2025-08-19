@@ -841,37 +841,37 @@ find_install_path.exit.thread127:                 ; preds = %get_ext_ver_info.ex
   %153 = load ptr, ptr %152, align 8
   %154 = ptrtoint ptr %153 to i64
   %155 = tail call i32 @GetSysCacheOid(i32 noundef 27, i16 noundef signext 1, i64 noundef %154, i64 noundef 0, i64 noundef 0, i64 noundef 0) #15
-  %.not.i162.us = icmp eq i32 %155, 0
-  br i1 %.not.i162.us, label %156, label %get_required_extension.exit.us
+  %.not.i178.us = icmp eq i32 %155, 0
+  br i1 %.not.i178.us, label %156, label %get_required_extension.exit.us
 
 156:                                              ; preds = %.lr.ph153.us
   tail call fastcc void @check_valid_extension_name(ptr noundef %153)
-  br i1 %.not32.i, label %.critedge.i.us, label %.lr.ph.i163.us
+  br i1 %.not32.i, label %.critedge.i.us, label %.lr.ph.i179.us
 
-.lr.ph.i163.us:                                   ; preds = %156
+.lr.ph.i179.us:                                   ; preds = %156
   %157 = load i32, ptr %149, align 4
   %158 = icmp sgt i32 %157, 0
   br i1 %158, label %.lr.ph37.i.us, label %.critedge.i.us
 
-.lr.ph37.i.us:                                    ; preds = %.lr.ph.i163.us
+.lr.ph37.i.us:                                    ; preds = %.lr.ph.i179.us
   %159 = load ptr, ptr %150, align 8
-  %wide.trip.count.i164.us = zext nneg i32 %157 to i64
+  %wide.trip.count.i180.us = zext nneg i32 %157 to i64
   br label %160
 
 160:                                              ; preds = %165, %.lr.ph37.i.us
-  %indvars.iv.i165.us = phi i64 [ 0, %.lr.ph37.i.us ], [ %indvars.iv.next.i166.us, %165 ]
-  %161 = getelementptr inbounds nuw %union.ListCell, ptr %159, i64 %indvars.iv.i165.us
+  %indvars.iv.i181.us = phi i64 [ 0, %.lr.ph37.i.us ], [ %indvars.iv.next.i182.us, %165 ]
+  %161 = getelementptr inbounds nuw %union.ListCell, ptr %159, i64 %indvars.iv.i181.us
   %162 = load ptr, ptr %161, align 8
   %163 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %162, ptr noundef nonnull dereferenceable(1) %153) #17
   %164 = icmp eq i32 %163, 0
   br i1 %164, label %.split.i, label %165
 
 165:                                              ; preds = %160
-  %indvars.iv.next.i166.us = add nuw nsw i64 %indvars.iv.i165.us, 1
-  %exitcond.not.i167.us = icmp eq i64 %indvars.iv.next.i166.us, %wide.trip.count.i164.us
-  br i1 %exitcond.not.i167.us, label %.critedge.i.us, label %160
+  %indvars.iv.next.i182.us = add nuw nsw i64 %indvars.iv.i181.us, 1
+  %exitcond.not.i183.us = icmp eq i64 %indvars.iv.next.i182.us, %wide.trip.count.i180.us
+  br i1 %exitcond.not.i183.us, label %.critedge.i.us, label %160
 
-.critedge.i.us:                                   ; preds = %165, %.lr.ph.i163.us, %156
+.critedge.i.us:                                   ; preds = %165, %.lr.ph.i179.us, %156
   %166 = tail call zeroext i1 @errstart(i32 noundef 18, ptr noundef null) #15
   br i1 %166, label %167, label %169
 
@@ -927,8 +927,8 @@ get_extension_schema.exit.us:                     ; preds = %175, %get_required_
   %190 = load ptr, ptr %189, align 8
   %191 = ptrtoint ptr %190 to i64
   %192 = tail call i32 @GetSysCacheOid(i32 noundef 27, i16 noundef signext 1, i64 noundef %191, i64 noundef 0, i64 noundef 0, i64 noundef 0) #15
-  %.not.i162 = icmp eq i32 %192, 0
-  br i1 %.not.i162, label %196, label %get_required_extension.exit
+  %.not.i178 = icmp eq i32 %192, 0
+  br i1 %.not.i178, label %196, label %get_required_extension.exit
 
 .split.i:                                         ; preds = %160
   %193 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
@@ -1955,8 +1955,8 @@ define dso_local noundef zeroext i1 @extension_file_exists(ptr noundef readonly 
 
 11:                                               ; preds = %7, %1
   %12 = call ptr @ReadDir(ptr noundef %5, ptr noundef %3) #15
-  %.not15.not = icmp eq ptr %12, null
-  br i1 %.not15.not, label %._crit_edge, label %.lr.ph
+  %.not17.not = icmp eq ptr %12, null
+  br i1 %.not17.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %11, %.backedge
   %13 = phi ptr [ %25, %.backedge ], [ %12, %11 ]
@@ -2036,19 +2036,19 @@ define dso_local noundef i64 @pg_extension_update_paths(ptr noundef %0) local_un
   %23 = getelementptr inbounds nuw i8, ptr %9, i64 48
   %.pre = load i32, ptr %17, align 4
   %24 = icmp sgt i32 %.pre, 0
-  br i1 %24, label %.lr.ph75, label %.critedge
+  br i1 %24, label %.lr.ph85, label %.critedge
 
-.lr.ph75:                                         ; preds = %.lr.ph62, %.critedge53
-  %indvars.iv6874 = phi i64 [ %indvars.iv.next69, %.critedge53 ], [ 0, %.lr.ph62 ]
+.lr.ph85:                                         ; preds = %.lr.ph62, %.critedge53
+  %indvars.iv6884 = phi i64 [ %indvars.iv.next69, %.critedge53 ], [ 0, %.lr.ph62 ]
   %25 = phi i32 [ %40, %.critedge53 ], [ %.pre, %.lr.ph62 ]
   %26 = phi i32 [ %39, %.critedge53 ], [ %.pre, %.lr.ph62 ]
   %27 = load ptr, ptr %18, align 8
-  %28 = getelementptr inbounds nuw %union.ListCell, ptr %27, i64 %indvars.iv6874
+  %28 = getelementptr inbounds nuw %union.ListCell, ptr %27, i64 %indvars.iv6884
   %29 = load ptr, ptr %28, align 8
   %30 = icmp sgt i32 %25, 0
   br i1 %30, label %.lr.ph60, label %.critedge53
 
-.lr.ph60:                                         ; preds = %.lr.ph75
+.lr.ph60:                                         ; preds = %.lr.ph85
   %31 = getelementptr inbounds nuw i8, ptr %29, i64 20
   br label %32
 
@@ -2067,13 +2067,13 @@ define dso_local noundef i64 @pg_extension_update_paths(ptr noundef %0) local_un
   %38 = icmp eq ptr %29, %37
   br i1 %38, label %147, label %.lr.ph.i
 
-.critedge53:                                      ; preds = %147, %.lr.ph75
-  %39 = phi i32 [ %26, %.lr.ph75 ], [ %148, %147 ]
-  %40 = phi i32 [ %25, %.lr.ph75 ], [ %148, %147 ]
-  %indvars.iv.next69 = add nuw nsw i64 %indvars.iv6874, 1
+.critedge53:                                      ; preds = %147, %.lr.ph85
+  %39 = phi i32 [ %26, %.lr.ph85 ], [ %148, %147 ]
+  %40 = phi i32 [ %25, %.lr.ph85 ], [ %148, %147 ]
+  %indvars.iv.next69 = add nuw nsw i64 %indvars.iv6884, 1
   %41 = sext i32 %40 to i64
   %42 = icmp slt i64 %indvars.iv.next69, %41
-  br i1 %42, label %.lr.ph75, label %.critedge
+  br i1 %42, label %.lr.ph85, label %.critedge
 
 .lr.ph.i:                                         ; preds = %32
   %43 = icmp sgt i32 %34, 0
@@ -2550,9 +2550,9 @@ define internal fastcc ptr @find_update_path(ptr noundef readonly captures(addre
 .preheader69:                                     ; preds = %5
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %.critedge.thread91, label %.lr.ph
+  br i1 %.not, label %.critedge.thread100, label %.lr.ph
 
-.critedge.thread91:                               ; preds = %.preheader69
+.critedge.thread100:                              ; preds = %.preheader69
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 20
   store i32 0, ptr %7, align 4
   br label %get_nearest_unprocessed_vertex.exit.thread
@@ -2724,7 +2724,7 @@ get_nearest_unprocessed_vertex.exit:              ; preds = %43
   %89 = icmp slt i64 %indvars.iv.next88, %88
   br i1 %89, label %.lr.ph78, label %.critedge66
 
-get_nearest_unprocessed_vertex.exit.thread:       ; preds = %.critedge66, %48, %44, %get_nearest_unprocessed_vertex.exit, %.lr.ph.i.lr.ph, %.critedge.thread91, %.critedge
+get_nearest_unprocessed_vertex.exit.thread:       ; preds = %.critedge66, %48, %44, %get_nearest_unprocessed_vertex.exit, %.lr.ph.i.lr.ph, %.critedge.thread100, %.critedge
   %90 = getelementptr inbounds nuw i8, ptr %2, i64 17
   %91 = load i8, ptr %90, align 1, !range !4, !noundef !5
   %92 = trunc nuw i8 %91 to i1
@@ -2892,8 +2892,8 @@ define dso_local noundef i64 @pg_extension_config_dump(ptr noundef readonly capt
   %77 = getelementptr inbounds nuw i8, ptr %57, i64 24
   %78 = add nuw i32 %59, 1
   store i32 %78, ptr %4, align 4
-  %.not79 = icmp eq i32 %59, 0
-  br i1 %.not79, label %.loopexit, label %.lr.ph.preheader
+  %.not81 = icmp eq i32 %59, 0
+  br i1 %.not81, label %.loopexit, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %76
   %wide.trip.count = zext nneg i32 %59 to i64
@@ -3910,13 +3910,13 @@ define internal fastcc void @ApplyExtensionUpdates(i32 noundef %0, ptr noundef r
   %23 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %24 = load i32, ptr %14, align 4
   %25 = icmp sgt i32 %24, 0
-  br i1 %25, label %.lr.ph120, label %.critedge
+  br i1 %25, label %.lr.ph124, label %.critedge
 
-.lr.ph120:                                        ; preds = %.lr.ph100, %110
-  %.099119 = phi ptr [ %28, %110 ], [ %2, %.lr.ph100 ]
-  %indvars.iv106118 = phi i64 [ %indvars.iv.next107, %110 ], [ 0, %.lr.ph100 ]
+.lr.ph124:                                        ; preds = %.lr.ph100, %110
+  %.099123 = phi ptr [ %28, %110 ], [ %2, %.lr.ph100 ]
+  %indvars.iv106122 = phi i64 [ %indvars.iv.next107, %110 ], [ 0, %.lr.ph100 ]
   %26 = load ptr, ptr %15, align 8
-  %27 = getelementptr inbounds nuw %union.ListCell, ptr %26, i64 %indvars.iv106118
+  %27 = getelementptr inbounds nuw %union.ListCell, ptr %26, i64 %indvars.iv106122
   %28 = load ptr, ptr %27, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
@@ -3936,14 +3936,14 @@ define internal fastcc void @ApplyExtensionUpdates(i32 noundef %0, ptr noundef r
 .critedge:                                        ; preds = %110, %.lr.ph100, %7
   ret void
 
-33:                                               ; preds = %.lr.ph120
+33:                                               ; preds = %.lr.ph124
   %34 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
   call void @llvm.assume(i1 %34)
   %35 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.15, i32 noundef %0) #15
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 3295, ptr noundef nonnull @__func__.ApplyExtensionUpdates) #15
   unreachable
 
-36:                                               ; preds = %.lr.ph120
+36:                                               ; preds = %.lr.ph124
   %37 = getelementptr i8, ptr %32, i64 16
   %.val = load ptr, ptr %37, align 8
   %38 = getelementptr inbounds nuw i8, ptr %.val, i64 22
@@ -3981,14 +3981,14 @@ define internal fastcc void @ApplyExtensionUpdates(i32 noundef %0, ptr noundef r
   %57 = getelementptr inbounds nuw i8, ptr %55, i64 16
   %58 = load i32, ptr %56, align 4
   %59 = icmp sgt i32 %58, 0
-  br i1 %59, label %.lr.ph116, label %.critedge79
+  br i1 %59, label %.lr.ph120, label %.critedge79
 
-.lr.ph116:                                        ; preds = %.lr.ph, %get_extension_schema.exit
-  %.06687115 = phi ptr [ %93, %get_extension_schema.exit ], [ null, %.lr.ph ]
-  %.06588114 = phi ptr [ %92, %get_extension_schema.exit ], [ null, %.lr.ph ]
-  %indvars.iv113 = phi i64 [ %indvars.iv.next, %get_extension_schema.exit ], [ 0, %.lr.ph ]
+.lr.ph120:                                        ; preds = %.lr.ph, %get_extension_schema.exit
+  %.06687119 = phi ptr [ %93, %get_extension_schema.exit ], [ null, %.lr.ph ]
+  %.06588118 = phi ptr [ %92, %get_extension_schema.exit ], [ null, %.lr.ph ]
+  %indvars.iv117 = phi i64 [ %indvars.iv.next, %get_extension_schema.exit ], [ 0, %.lr.ph ]
   %60 = load ptr, ptr %57, align 8
-  %61 = getelementptr inbounds nuw %union.ListCell, ptr %60, i64 %indvars.iv113
+  %61 = getelementptr inbounds nuw %union.ListCell, ptr %60, i64 %indvars.iv117
   %62 = load ptr, ptr %61, align 8
   %63 = load ptr, ptr %29, align 8
   %64 = ptrtoint ptr %62 to i64
@@ -3996,7 +3996,7 @@ define internal fastcc void @ApplyExtensionUpdates(i32 noundef %0, ptr noundef r
   %.not.i = icmp eq i32 %65, 0
   br i1 %.not.i, label %66, label %get_required_extension.exit
 
-66:                                               ; preds = %.lr.ph116
+66:                                               ; preds = %.lr.ph120
   br i1 %5, label %67, label %75
 
 67:                                               ; preds = %66
@@ -4033,8 +4033,8 @@ define internal fastcc void @ApplyExtensionUpdates(i32 noundef %0, ptr noundef r
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1869, ptr noundef nonnull @__func__.get_required_extension) #15
   unreachable
 
-get_required_extension.exit:                      ; preds = %.lr.ph116, %71
-  %.0.i = phi i32 [ %65, %.lr.ph116 ], [ %.sroa.09.4.extract.trunc.i, %71 ]
+get_required_extension.exit:                      ; preds = %.lr.ph120, %71
+  %.0.i = phi i32 [ %65, %.lr.ph120 ], [ %.sroa.09.4.extract.trunc.i, %71 ]
   %82 = zext i32 %.0.i to i64
   %83 = call ptr @SearchSysCache1(i32 noundef 28, i64 noundef %82) #15
   %.not.i82 = icmp eq ptr %83, null
@@ -4054,13 +4054,13 @@ get_required_extension.exit:                      ; preds = %.lr.ph116, %71
 
 get_extension_schema.exit:                        ; preds = %get_required_extension.exit, %84
   %.0.i83 = phi i32 [ %91, %84 ], [ 0, %get_required_extension.exit ]
-  %92 = call ptr @lappend_oid(ptr noundef %.06588114, i32 noundef %.0.i) #15
-  %93 = call ptr @lappend_oid(ptr noundef %.06687115, i32 noundef %.0.i83) #15
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv113, 1
+  %92 = call ptr @lappend_oid(ptr noundef %.06588118, i32 noundef %.0.i) #15
+  %93 = call ptr @lappend_oid(ptr noundef %.06687119, i32 noundef %.0.i83) #15
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv117, 1
   %94 = load i32, ptr %56, align 4
   %95 = sext i32 %94 to i64
   %96 = icmp slt i64 %indvars.iv.next, %95
-  br i1 %96, label %.lr.ph116, label %.critedge79
+  br i1 %96, label %.lr.ph120, label %.critedge79
 
 .critedge79:                                      ; preds = %get_extension_schema.exit, %.lr.ph, %36
   %.066.lcssa = phi ptr [ null, %36 ], [ null, %.lr.ph ], [ %93, %get_extension_schema.exit ]
@@ -4106,17 +4106,17 @@ get_extension_schema.exit:                        ; preds = %get_required_extens
   br label %110
 
 110:                                              ; preds = %109, %.critedge81
-  call fastcc void @execute_extension_script(i32 noundef %0, ptr noundef nonnull %29, ptr noundef %.099119, ptr noundef %28, ptr noundef %.066.lcssa, ptr noundef %44)
+  call fastcc void @execute_extension_script(i32 noundef %0, ptr noundef nonnull %29, ptr noundef %.099123, ptr noundef %28, ptr noundef %.066.lcssa, ptr noundef %44)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  %indvars.iv.next107 = add nuw nsw i64 %indvars.iv106118, 1
+  %indvars.iv.next107 = add nuw nsw i64 %indvars.iv106122, 1
   %111 = load i32, ptr %14, align 4
   %112 = sext i32 %111 to i64
   %113 = icmp slt i64 %indvars.iv.next107, %112
-  br i1 %113, label %.lr.ph120, label %.critedge
+  br i1 %113, label %.lr.ph124, label %.critedge
 }
 
 ; Function Attrs: nounwind uwtable
@@ -4401,8 +4401,8 @@ get_extension_schema.exit:                        ; preds = %35, %37
 
 107:                                              ; preds = %101
   %108 = getelementptr inbounds nuw i8, ptr %88, i64 24
-  %.not116.i = icmp eq i32 %90, 0
-  br i1 %.not116.i, label %extension_config_remove.exit, label %.lr.ph.preheader.i
+  %.not119.i = icmp eq i32 %90, 0
+  br i1 %.not119.i, label %extension_config_remove.exit, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %107
   %wide.trip.count.i = zext nneg i32 %90 to i64
@@ -4442,7 +4442,7 @@ get_extension_schema.exit:                        ; preds = %35, %37
   br i1 %120, label %.lr.ph93.preheader.i, label %._crit_edge.i
 
 .lr.ph93.preheader.i:                             ; preds = %118
-  %wide.trip.count106.i = zext i32 %119 to i64
+  %wide.trip.count106.i = zext nneg i32 %119 to i64
   br label %.lr.ph93.i
 
 .lr.ph93.i:                                       ; preds = %.lr.ph93.i, %.lr.ph93.preheader.i
@@ -4543,7 +4543,7 @@ get_extension_schema.exit:                        ; preds = %35, %37
   br i1 %165, label %.lr.ph96.preheader.i, label %._crit_edge97.i
 
 .lr.ph96.preheader.i:                             ; preds = %163
-  %wide.trip.count113.i = zext i32 %164 to i64
+  %wide.trip.count113.i = zext nneg i32 %164 to i64
   br label %.lr.ph96.i
 
 .lr.ph96.i:                                       ; preds = %.lr.ph96.i, %.lr.ph96.preheader.i

@@ -175,7 +175,7 @@ prepare_hex_byte_from_chars_table.exit:           ; preds = %55
 56:                                               ; preds = %prepare_hex_byte_from_chars_table.exit, %42
   %57 = tail call noalias dereferenceable_or_null(232) ptr @g_malloc0(i64 noundef 232) #18
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 12
-  %59 = add i32 %.1.ph, 1
+  %59 = add nsw i32 %.1.ph, 1
   %60 = sext i32 %59 to i64
   %61 = tail call i64 @g_strlcpy(ptr noundef nonnull %58, ptr noundef nonnull @catapult_dct2000_open.linebuff, i64 noundef %60)
   %62 = getelementptr inbounds nuw i8, ptr %57, i64 164
@@ -935,7 +935,7 @@ switch.early.test:                                ; preds = %36
   %55 = getelementptr i8, ptr %0, i64 %54
   %56 = load i8, ptr %55, align 1
   %.not = icmp eq i8 %56, 47
-  br i1 %.not, label %.critedge3.thread.thread735, label %.lr.ph
+  br i1 %.not, label %.critedge3.thread.thread755, label %.lr.ph
 
 .lr.ph:                                           ; preds = %52
   %57 = add nuw nsw i64 %49, 1
@@ -983,16 +983,16 @@ switch.early.test:                                ; preds = %36
   %or.cond468 = and i1 %.not399, %.not400
   br i1 %or.cond468, label %77, label %.critedge25
 
-.critedge3.thread.thread735:                      ; preds = %52
+.critedge3.thread.thread755:                      ; preds = %52
   %76 = add i32 %.0368543, 2
-  %.not399738 = icmp slt i32 %76, %1
-  br i1 %.not399738, label %.thread742, label %.critedge25
+  %.not399758 = icmp slt i32 %76, %1
+  br i1 %.not399758, label %.thread762, label %.critedge25
 
 77:                                               ; preds = %.critedge3.thread
   %78 = getelementptr [3 x i8], ptr %19, i64 0, i64 %indvars.iv.next672
   store i8 0, ptr %78, align 1
   %79 = icmp eq i64 %indvars.iv671, 0
-  br i1 %79, label %80, label %.thread742
+  br i1 %79, label %80, label %.thread762
 
 80:                                               ; preds = %77
   %81 = load i8, ptr %19, align 1
@@ -1000,18 +1000,18 @@ switch.early.test:                                ; preds = %36
   store i8 %82, ptr %14, align 1
   br label %85
 
-.thread742:                                       ; preds = %.critedge3.thread.thread735, %77
-  %83 = phi i32 [ %75, %77 ], [ %76, %.critedge3.thread.thread735 ]
+.thread762:                                       ; preds = %.critedge3.thread.thread755, %77
+  %83 = phi i32 [ %75, %77 ], [ %76, %.critedge3.thread.thread755 ]
   %84 = call zeroext i1 @ws_strtou8(ptr noundef nonnull %19, ptr noundef null, ptr noundef %14)
   br i1 %84, label %85, label %.critedge25
 
-85:                                               ; preds = %.thread742, %80
-  %86 = phi i32 [ %83, %.thread742 ], [ %75, %80 ]
+85:                                               ; preds = %.thread762, %80
+  %86 = phi i32 [ %83, %.thread762 ], [ %75, %80 ]
   %87 = sext i32 %86 to i64
   %88 = getelementptr i8, ptr %0, i64 %87
   %89 = load i8, ptr %88, align 1
-  %.not725 = icmp eq i8 %89, 47
-  br i1 %.not725, label %.critedge7, label %.lr.ph558
+  %.not745 = icmp eq i8 %89, 47
+  br i1 %.not745, label %.critedge7, label %.lr.ph558
 
 .lr.ph558:                                        ; preds = %85
   %90 = sext i32 %1 to i64
@@ -1087,20 +1087,20 @@ switch.early.test451:                             ; preds = %91
 .lr.ph567.preheader:                              ; preds = %112
   %121 = add i32 %.3.lcssa, 2
   %122 = icmp slt i32 %121, %1
-  br i1 %122, label %.lr.ph856, label %.critedge11.thread
+  br i1 %122, label %.lr.ph876, label %.critedge11.thread
 
-.lr.ph567:                                        ; preds = %.lr.ph856
+.lr.ph567:                                        ; preds = %.lr.ph876
   %123 = add i32 %125, 1
   %124 = icmp slt i32 %123, %1
-  br i1 %124, label %.lr.ph856, label %.lr.ph567..critedge11.thread.loopexit_crit_edge, !llvm.loop !14
+  br i1 %124, label %.lr.ph876, label %.lr.ph567..critedge11.thread.loopexit_crit_edge, !llvm.loop !14
 
-.lr.ph856:                                        ; preds = %.lr.ph567.preheader, %.lr.ph567
+.lr.ph876:                                        ; preds = %.lr.ph567.preheader, %.lr.ph567
   %125 = phi i32 [ %123, %.lr.ph567 ], [ %121, %.lr.ph567.preheader ]
   %126 = phi i8 [ %130, %.lr.ph567 ], [ %116, %.lr.ph567.preheader ]
-  %indvars.iv681855 = phi i64 [ %indvars.iv.next682, %.lr.ph567 ], [ 0, %.lr.ph567.preheader ]
-  %127 = getelementptr i8, ptr %16, i64 %indvars.iv681855
+  %indvars.iv681875 = phi i64 [ %indvars.iv.next682, %.lr.ph567 ], [ 0, %.lr.ph567.preheader ]
+  %127 = getelementptr i8, ptr %16, i64 %indvars.iv681875
   store i8 %126, ptr %127, align 1
-  %indvars.iv.next682 = add nuw nsw i64 %indvars.iv681855, 1
+  %indvars.iv.next682 = add nuw nsw i64 %indvars.iv681875, 1
   %128 = sext i32 %125 to i64
   %129 = getelementptr i8, ptr %0, i64 %128
   %130 = load i8, ptr %129, align 1
@@ -1109,20 +1109,20 @@ switch.early.test451:                             ; preds = %91
   %133 = load i16, ptr %132, align 2
   %134 = and i16 %133, 8
   %135 = icmp ne i16 %134, 0
-  %136 = icmp samesign ult i64 %indvars.iv681855, 16
+  %136 = icmp samesign ult i64 %indvars.iv681875, 16
   %or.cond9 = select i1 %135, i1 %136, i1 false
   br i1 %or.cond9, label %.lr.ph567, label %.critedge11, !llvm.loop !14
 
-.critedge11:                                      ; preds = %.lr.ph856
+.critedge11:                                      ; preds = %.lr.ph876
   %137 = trunc nuw nsw i64 %indvars.iv.next682 to i32
-  %138 = icmp samesign ugt i64 %indvars.iv681855, 15
+  %138 = icmp samesign ugt i64 %indvars.iv681875, 15
   br i1 %138, label %.critedge25, label %.critedge11..critedge11.thread_crit_edge
 
 .critedge11..critedge11.thread_crit_edge:         ; preds = %112, %.critedge11
-  %.0366.lcssa750 = phi i32 [ %137, %.critedge11 ], [ 0, %112 ]
-  %.4.lcssa749 = phi i32 [ %125, %.critedge11 ], [ %113, %112 ]
-  %.lcssa564748 = phi i64 [ %128, %.critedge11 ], [ %114, %112 ]
-  %.pre = add i32 %.4.lcssa749, 1
+  %.0366.lcssa770 = phi i32 [ %137, %.critedge11 ], [ 0, %112 ]
+  %.4.lcssa769 = phi i32 [ %125, %.critedge11 ], [ %113, %112 ]
+  %.lcssa564768 = phi i64 [ %128, %.critedge11 ], [ %114, %112 ]
+  %.pre = add i32 %.4.lcssa769, 1
   br label %.critedge11.thread
 
 .lr.ph567..critedge11.thread.loopexit_crit_edge:  ; preds = %.lr.ph567
@@ -1131,9 +1131,9 @@ switch.early.test451:                             ; preds = %91
 
 .critedge11.thread:                               ; preds = %.lr.ph567.preheader, %.lr.ph567..critedge11.thread.loopexit_crit_edge, %.critedge11..critedge11.thread_crit_edge
   %.pre-phi = phi i32 [ %.pre, %.critedge11..critedge11.thread_crit_edge ], [ %123, %.lr.ph567..critedge11.thread.loopexit_crit_edge ], [ %121, %.lr.ph567.preheader ]
-  %.4524 = phi i32 [ %.4.lcssa749, %.critedge11..critedge11.thread_crit_edge ], [ %125, %.lr.ph567..critedge11.thread.loopexit_crit_edge ], [ %113, %.lr.ph567.preheader ]
-  %.0366522 = phi i32 [ %.0366.lcssa750, %.critedge11..critedge11.thread_crit_edge ], [ %139, %.lr.ph567..critedge11.thread.loopexit_crit_edge ], [ 0, %.lr.ph567.preheader ]
-  %.pn = phi i64 [ %.lcssa564748, %.critedge11..critedge11.thread_crit_edge ], [ %128, %.lr.ph567..critedge11.thread.loopexit_crit_edge ], [ %114, %.lr.ph567.preheader ]
+  %.4524 = phi i32 [ %.4.lcssa769, %.critedge11..critedge11.thread_crit_edge ], [ %125, %.lr.ph567..critedge11.thread.loopexit_crit_edge ], [ %113, %.lr.ph567.preheader ]
+  %.0366522 = phi i32 [ %.0366.lcssa770, %.critedge11..critedge11.thread_crit_edge ], [ %139, %.lr.ph567..critedge11.thread.loopexit_crit_edge ], [ 0, %.lr.ph567.preheader ]
+  %.pn = phi i64 [ %.lcssa564768, %.critedge11..critedge11.thread_crit_edge ], [ %128, %.lr.ph567..critedge11.thread.loopexit_crit_edge ], [ %114, %.lr.ph567.preheader ]
   %140 = getelementptr i8, ptr %0, i64 %.pn
   %.not403 = icmp slt i32 %.pre-phi, %1
   br i1 %.not403, label %141, label %.critedge25
@@ -1360,7 +1360,7 @@ sub_1473:                                         ; preds = %sub_0472
 243:                                              ; preds = %240
   %244 = call i32 @strncmp(ptr noundef %15, ptr noundef nonnull dereferenceable(13) @.str.22, i64 noundef 12) #19
   %245 = icmp eq i32 %244, 0
-  %spec.select814 = select i1 %245, i32 103, i32 0
+  %spec.select834 = select i1 %245, i32 103, i32 0
   br label %.thread.sink.split
 
 246:                                              ; preds = %210, %205
@@ -1438,7 +1438,7 @@ sub_1473:                                         ; preds = %sub_0472
   br i1 %.not414, label %.thread, label %.critedge25
 
 .thread.sink.split:                               ; preds = %243, %237, %240, %234, %231, %225, %228, %222, %219, %216, %213, %205, %.tail, %.tail.thread, %189, %192, %195
-  %.sink = phi i32 [ 7, %195 ], [ 7, %192 ], [ 7, %189 ], [ 7, %.tail.thread ], [ 7, %.tail ], [ 0, %205 ], [ 4, %213 ], [ 17, %216 ], [ 17, %219 ], [ 1, %222 ], [ 101, %228 ], [ 101, %225 ], [ 26, %231 ], [ 102, %234 ], [ 103, %240 ], [ 103, %237 ], [ %spec.select814, %243 ]
+  %.sink = phi i32 [ 7, %195 ], [ 7, %192 ], [ 7, %189 ], [ 7, %.tail.thread ], [ 7, %.tail ], [ 0, %205 ], [ 4, %213 ], [ 17, %216 ], [ 17, %219 ], [ 1, %222 ], [ 101, %228 ], [ 101, %225 ], [ 26, %231 ], [ 102, %234 ], [ 103, %240 ], [ 103, %237 ], [ %spec.select834, %243 ]
   %.0361461.ph = phi i1 [ false, %195 ], [ false, %192 ], [ false, %189 ], [ false, %.tail.thread ], [ false, %.tail ], [ false, %205 ], [ false, %213 ], [ true, %216 ], [ false, %219 ], [ false, %222 ], [ false, %228 ], [ false, %225 ], [ false, %231 ], [ false, %234 ], [ false, %240 ], [ false, %237 ], [ false, %243 ]
   store i32 %.sink, ptr %9, align 4
   br label %.thread
@@ -1460,7 +1460,7 @@ sub_1473:                                         ; preds = %sub_0472
 .preheader485.preheader:                          ; preds = %.thread
   %288 = add i32 %.6, 2
   %smax704 = call i32 @llvm.smax.i32(i32 %1, i32 %288)
-  %289 = add i32 %smax704, -1
+  %289 = add nsw i32 %smax704, -1
   br label %.preheader485
 
 .preheader485:                                    ; preds = %.preheader485.preheader, %292
@@ -1480,7 +1480,7 @@ sub_1473:                                         ; preds = %sub_0472
   %.10 = phi i32 [ %280, %.thread ], [ %.11, %292 ], [ %289, %.preheader485 ]
   %296 = add i32 %.10, 1
   %smax705 = call i32 @llvm.smax.i32(i32 %1, i32 %296)
-  %297 = add i32 %smax705, -1
+  %297 = add nsw i32 %smax705, -1
   br label %298
 
 298:                                              ; preds = %301, %.critedge19
@@ -1523,19 +1523,19 @@ sub_1473:                                         ; preds = %sub_0472
   %storemerge = phi i32 [ 1, %313 ], [ 0, %309 ]
   store i32 %storemerge, ptr %8, align 4
   %315 = add i32 %.13, 1
-  br label %.preheader868
+  br label %.preheader888
 
 316:                                              ; preds = %.critedge446
   store i32 0, ptr %8, align 4
-  br label %.preheader868
+  br label %.preheader888
 
-.preheader868:                                    ; preds = %316, %314
+.preheader888:                                    ; preds = %316, %314
   %.15.ph = phi i32 [ %315, %314 ], [ %.13, %316 ]
   br label %317
 
-317:                                              ; preds = %.preheader868, %.backedge
-  %indvars.iv706 = phi i32 [ %indvars.iv.next707, %.backedge ], [ %.15.ph, %.preheader868 ]
-  %.15 = phi i32 [ %321, %.backedge ], [ %.15.ph, %.preheader868 ]
+317:                                              ; preds = %.preheader888, %.backedge
+  %indvars.iv706 = phi i32 [ %indvars.iv.next707, %.backedge ], [ %.15.ph, %.preheader888 ]
+  %.15 = phi i32 [ %321, %.backedge ], [ %.15.ph, %.preheader888 ]
   %318 = sext i32 %.15 to i64
   %319 = getelementptr i8, ptr %0, i64 %318
   %320 = load i8, ptr %319, align 1
@@ -1633,25 +1633,25 @@ sub_1473:                                         ; preds = %sub_0472
   br i1 %or.cond448, label %.lr.ph587, label %.critedge25
 
 .critedge30.thread:                               ; preds = %336
-  br i1 %342, label %.thread758, label %.critedge25
+  br i1 %342, label %.thread778, label %.critedge25
 
 .lr.ph587:                                        ; preds = %.critedge30
   %358 = getelementptr [17 x i8], ptr %21, i64 0, i64 %indvars.iv.next713
   store i8 0, ptr %358, align 1
   br label %367
 
-.thread758:                                       ; preds = %367, %.critedge30.thread
-  %.sink813 = phi i32 [ 0, %.critedge30.thread ], [ %374, %367 ]
-  %.17.lcssa756761 = phi i32 [ %337, %.critedge30.thread ], [ %356, %367 ]
-  %.pn815 = phi i64 [ %338, %.critedge30.thread ], [ %indvars.iv.next716, %367 ]
-  %359 = getelementptr i8, ptr %0, i64 %.pn815
-  store i32 %.sink813, ptr %2, align 4
+.thread778:                                       ; preds = %367, %.critedge30.thread
+  %.sink833 = phi i32 [ 0, %.critedge30.thread ], [ %374, %367 ]
+  %.17.lcssa776781 = phi i32 [ %337, %.critedge30.thread ], [ %356, %367 ]
+  %.pn835 = phi i64 [ %338, %.critedge30.thread ], [ %indvars.iv.next716, %367 ]
+  %359 = getelementptr i8, ptr %0, i64 %.pn835
+  store i32 %.sink833, ptr %2, align 4
   %360 = load i8, ptr %359, align 1
   %.not425 = icmp eq i8 %360, 46
   br i1 %.not425, label %.preheader481, label %.critedge25
 
-.preheader481:                                    ; preds = %.thread758
-  %.18590 = add nsw i32 %.17.lcssa756761, 1
+.preheader481:                                    ; preds = %.thread778
+  %.18590 = add nsw i32 %.17.lcssa776781, 1
   %361 = sext i32 %.18590 to i64
   %362 = getelementptr i8, ptr %0, i64 %361
   %363 = load i8, ptr %362, align 1
@@ -1677,7 +1677,7 @@ sub_1473:                                         ; preds = %sub_0472
   %374 = add i32 %373, %368
   %375 = mul i32 %.0357585, 10
   %376 = icmp samesign ugt i64 %indvars.iv717, 1
-  br i1 %376, label %367, label %.thread758, !llvm.loop !23
+  br i1 %376, label %367, label %.thread778, !llvm.loop !23
 
 .lr.ph594:                                        ; preds = %.lr.ph594.preheader, %382
   %indvars.iv722 = phi i64 [ 0, %.lr.ph594.preheader ], [ %indvars.iv.next723, %382 ]
@@ -1775,7 +1775,7 @@ sub_1478:                                         ; preds = %sub_0477
 .preheader.preheader:                             ; preds = %426
   %429 = add i32 %389, 3
   %smax724 = call i32 @llvm.smax.i32(i32 %1, i32 %429)
-  %430 = add i32 %smax724, -1
+  %430 = add nsw i32 %smax724, -1
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %434
@@ -1818,8 +1818,8 @@ sub_1478:                                         ; preds = %sub_0477
   store i32 %446, ptr %7, align 4
   br label %.critedge25
 
-.critedge25:                                      ; preds = %switch.early.test, %41, %60, %62, %switch.early.test451, %170, %173, %277, %335, %.lr.ph580, %.lr.ph594, %.preheader481, %.critedge30.thread, %.critedge3.thread.thread735, %259, %.thread758, %.critedge35, %391, %.critedge37, %442, %439, %.critedge30, %.critedge23, %309, %.critedge15, %150, %.critedge11, %.critedge11.thread, %107, %.critedge7, %.thread742, %.critedge3, %.critedge3.thread, %48, %.critedge.thread, %29, %278
-  %.0369 = phi i1 [ false, %278 ], [ false, %29 ], [ false, %.critedge.thread ], [ false, %48 ], [ false, %.critedge3.thread ], [ false, %.critedge3 ], [ false, %.thread742 ], [ false, %.critedge7 ], [ false, %107 ], [ false, %.critedge11.thread ], [ false, %.critedge11 ], [ false, %150 ], [ false, %.critedge15 ], [ false, %309 ], [ false, %.critedge23 ], [ false, %.critedge30 ], [ false, %.thread758 ], [ false, %.critedge35 ], [ false, %391 ], [ false, %.critedge37 ], [ true, %442 ], [ true, %439 ], [ false, %259 ], [ false, %.critedge3.thread.thread735 ], [ false, %.critedge30.thread ], [ false, %.preheader481 ], [ false, %.lr.ph594 ], [ false, %.lr.ph580 ], [ false, %335 ], [ false, %277 ], [ false, %173 ], [ false, %170 ], [ false, %switch.early.test451 ], [ false, %62 ], [ false, %60 ], [ false, %41 ], [ false, %switch.early.test ]
+.critedge25:                                      ; preds = %switch.early.test, %41, %60, %62, %switch.early.test451, %170, %173, %277, %335, %.lr.ph580, %.lr.ph594, %.preheader481, %.critedge30.thread, %.critedge3.thread.thread755, %259, %.thread778, %.critedge35, %391, %.critedge37, %442, %439, %.critedge30, %.critedge23, %309, %.critedge15, %150, %.critedge11, %.critedge11.thread, %107, %.critedge7, %.thread762, %.critedge3, %.critedge3.thread, %48, %.critedge.thread, %29, %278
+  %.0369 = phi i1 [ false, %278 ], [ false, %29 ], [ false, %.critedge.thread ], [ false, %48 ], [ false, %.critedge3.thread ], [ false, %.critedge3 ], [ false, %.thread762 ], [ false, %.critedge7 ], [ false, %107 ], [ false, %.critedge11.thread ], [ false, %.critedge11 ], [ false, %150 ], [ false, %.critedge15 ], [ false, %309 ], [ false, %.critedge23 ], [ false, %.critedge30 ], [ false, %.thread778 ], [ false, %.critedge35 ], [ false, %391 ], [ false, %.critedge37 ], [ true, %442 ], [ true, %439 ], [ false, %259 ], [ false, %.critedge3.thread.thread755 ], [ false, %.critedge30.thread ], [ false, %.preheader481 ], [ false, %.lr.ph594 ], [ false, %.lr.ph580 ], [ false, %335 ], [ false, %277 ], [ false, %173 ], [ false, %170 ], [ false, %switch.early.test451 ], [ false, %62 ], [ false, %60 ], [ false, %41 ], [ false, %switch.early.test ]
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
@@ -2516,14 +2516,14 @@ define internal zeroext i1 @catapult_dct2000_dump(ptr noundef %0, ptr noundef %1
   br i1 %.not137150, label %.critedge2, label %.lr.ph153.preheader
 
 .lr.ph153.preheader:                              ; preds = %.lr.ph, %.critedge
-  %.0125.lcssa176 = phi ptr [ %scevgep, %.critedge ], [ %.0125147, %.lr.ph ]
-  %.0125.lcssa159 = ptrtoint ptr %.0125.lcssa176 to i64
+  %.0125.lcssa183 = phi ptr [ %scevgep, %.critedge ], [ %.0125147, %.lr.ph ]
+  %.0125.lcssa159 = ptrtoint ptr %.0125.lcssa183 to i64
   %63 = trunc i64 %.0125.lcssa159 to i32
   %64 = sub i32 0, %63
   br label %.lr.ph153
 
 .lr.ph153:                                        ; preds = %.lr.ph153.preheader, %67
-  %.1126152 = phi ptr [ %69, %67 ], [ %.0125.lcssa176, %.lr.ph153.preheader ]
+  %.1126152 = phi ptr [ %69, %67 ], [ %.0125.lcssa183, %.lr.ph153.preheader ]
   %.0127151 = phi i32 [ %68, %67 ], [ 0, %.lr.ph153.preheader ]
   %65 = load i8, ptr %.1126152, align 1
   %66 = icmp eq i8 %65, 47
@@ -2582,18 +2582,18 @@ define internal zeroext i1 @catapult_dct2000_dump(ptr noundef %0, ptr noundef %1
   %96 = getelementptr inbounds nuw i8, ptr %52, i64 8
   %97 = load i8, ptr %96, align 8, !range !9, !noundef !10
   %98 = trunc nuw i8 %97 to i1
-  br i1 %98, label %99, label %.preheader179
+  br i1 %98, label %99, label %.preheader186
 
 99:                                               ; preds = %95
   %100 = call zeroext i1 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull @.str.1, i64 noundef 3, ptr noundef %3)
-  br i1 %100, label %.preheader179, label %.loopexit144
+  br i1 %100, label %.preheader186, label %.loopexit144
 
-.preheader179:                                    ; preds = %99, %95
+.preheader186:                                    ; preds = %99, %95
   br label %101
 
-101:                                              ; preds = %.preheader179, %101
-  %indvars.iv = phi i32 [ %indvars.iv.next, %101 ], [ 8, %.preheader179 ]
-  %.0120 = phi i32 [ %105, %101 ], [ 0, %.preheader179 ]
+101:                                              ; preds = %.preheader186, %101
+  %indvars.iv = phi i32 [ %indvars.iv.next, %101 ], [ 8, %.preheader186 ]
+  %.0120 = phi i32 [ %105, %101 ], [ 0, %.preheader186 ]
   %102 = zext i32 %.0120 to i64
   %103 = getelementptr i8, ptr %2, i64 %102
   %104 = load i8, ptr %103, align 1

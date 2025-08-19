@@ -1015,10 +1015,10 @@ fdt_offset_ptr.exit13._crit_edge:                 ; preds = %77, %94
   %116 = icmp sgt i32 %114, -1
   %117 = zext i32 %115 to i64
   %118 = icmp samesign ule i64 %indvars.iv, %117
-  %or.cond.i9.not70 = and i1 %116, %118
-  %.not58 = icmp ult i32 %115, %60
-  %or.cond65 = and i1 %or.cond.i9.not70, %.not58
-  br i1 %or.cond65, label %119, label %fdt_next_node.exit.thread
+  %or.cond.i9.not80 = and i1 %116, %118
+  %.not68 = icmp ult i32 %115, %60
+  %or.cond75 = and i1 %or.cond.i9.not80, %.not68
+  br i1 %or.cond75, label %119, label %fdt_next_node.exit.thread
 
 119:                                              ; preds = %.preheader.i
   br i1 %92, label %120, label %fdt_offset_ptr.exit

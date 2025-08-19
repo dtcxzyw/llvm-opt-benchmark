@@ -618,11 +618,11 @@ define range(i32 -1, 1) i32 @H5B2__neighbor_leaf(ptr noundef %0, ptr noundef cap
   br i1 %55, label %.sink.split, label %60
 
 .sink.split:                                      ; preds = %51, %49
-  %.sink45 = phi i32 [ %50, %49 ], [ %52, %51 ]
+  %.sink48 = phi i32 [ %50, %49 ], [ %52, %51 ]
   %.sink = load ptr, ptr %28, align 8, !tbaa !35
-  %.sink43 = load ptr, ptr %26, align 8, !tbaa !56
-  %56 = zext i32 %.sink45 to i64
-  %57 = getelementptr inbounds nuw i64, ptr %.sink43, i64 %56
+  %.sink46 = load ptr, ptr %26, align 8, !tbaa !56
+  %56 = zext i32 %.sink48 to i64
+  %57 = getelementptr inbounds nuw i64, ptr %.sink46, i64 %56
   %58 = load i64, ptr %57, align 8, !tbaa !10
   %59 = getelementptr inbounds nuw i8, ptr %.sink, i64 %58
   br label %60
@@ -983,7 +983,7 @@ define range(i32 -1, 1) i32 @H5B2__update_leaf(ptr noundef %0, ptr noundef captu
 
 25:                                               ; preds = %21
   store i32 0, ptr %10, align 4, !tbaa !54
-  br label %.thread127
+  br label %.thread137
 
 26:                                               ; preds = %21
   %27 = zext i16 %23 to i32
@@ -1042,7 +1042,7 @@ define range(i32 -1, 1) i32 @H5B2__update_leaf(ptr noundef %0, ptr noundef captu
   %58 = load i16, ptr %22, align 8, !tbaa !55
   %59 = zext i16 %58 to i32
   %60 = icmp ult i32 %57, %59
-  br i1 %60, label %61, label %.thread127
+  br i1 %60, label %61, label %.thread137
 
 61:                                               ; preds = %56
   %62 = load ptr, ptr %32, align 8, !tbaa !35
@@ -1064,7 +1064,7 @@ define range(i32 -1, 1) i32 @H5B2__update_leaf(ptr noundef %0, ptr noundef captu
   %.pr.pre = load i32, ptr %9, align 4, !tbaa !54
   %.pre116.pre = load i32, ptr %10, align 4, !tbaa !54
   %77 = icmp eq i32 %.pr.pre, 0
-  br i1 %77, label %.thread, label %.thread127
+  br i1 %77, label %.thread, label %.thread137
 
 .thread:                                          ; preds = %..thread_crit_edge, %61
   %78 = phi i32 [ %.pre115, %..thread_crit_edge ], [ %.pre116.pre, %61 ]
@@ -1097,8 +1097,8 @@ define range(i32 -1, 1) i32 @H5B2__update_leaf(ptr noundef %0, ptr noundef captu
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %.thread107
 
-.thread127:                                       ; preds = %25, %56, %61
-  %.pre116130 = phi i32 [ %.pre116.pre, %61 ], [ 0, %25 ], [ %57, %56 ]
+.thread137:                                       ; preds = %25, %56, %61
+  %.pre116140 = phi i32 [ %.pre116.pre, %61 ], [ 0, %25 ], [ %57, %56 ]
   %96 = getelementptr inbounds nuw i8, ptr %0, i64 424
   %97 = load ptr, ptr %96, align 8, !tbaa !36
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 40
@@ -1107,7 +1107,7 @@ define range(i32 -1, 1) i32 @H5B2__update_leaf(ptr noundef %0, ptr noundef captu
   %101 = load ptr, ptr %100, align 8, !tbaa !35
   %102 = getelementptr inbounds nuw i8, ptr %0, i64 360
   %103 = load ptr, ptr %102, align 8, !tbaa !56
-  %104 = zext i32 %.pre116130 to i64
+  %104 = zext i32 %.pre116140 to i64
   %105 = getelementptr inbounds nuw i64, ptr %103, i64 %104
   %106 = load i64, ptr %105, align 8, !tbaa !10
   %107 = getelementptr inbounds nuw i8, ptr %101, i64 %106
@@ -1115,13 +1115,13 @@ define range(i32 -1, 1) i32 @H5B2__update_leaf(ptr noundef %0, ptr noundef captu
   %109 = icmp slt i32 %108, 0
   br i1 %109, label %110, label %114
 
-110:                                              ; preds = %.thread127
+110:                                              ; preds = %.thread137
   %111 = load i64, ptr @H5E_BTREE_g, align 8, !tbaa !10
   %112 = load i64, ptr @H5E_CANTINSERT_g, align 8, !tbaa !10
   %113 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5B2__update_leaf, i32 noundef 513, i64 noundef %111, i64 noundef %112, ptr noundef nonnull @.str.21) #6
   br label %.thread107
 
-114:                                              ; preds = %.thread127
+114:                                              ; preds = %.thread137
   store i32 3, ptr %2, align 4, !tbaa !54
   %115 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %116 = load i64, ptr %115, align 8, !tbaa !58

@@ -1120,8 +1120,8 @@ _ZN2cv4Mat_IhEC2Eii.exit136:                      ; preds = %448
   %479 = ptrtoint ptr %477 to i64
   %480 = sub i64 %478, %479
   %481 = sdiv exact i64 %480, 80
-  %sext242 = shl i64 %481, 32
-  %482 = ashr exact i64 %sext242, 32
+  %sext277 = shl i64 %481, 32
+  %482 = ashr exact i64 %sext277, 32
   %483 = icmp slt i64 %indvars.iv.next238, %482
   br i1 %483, label %.lr.ph226, label %._crit_edge227, !llvm.loop !143
 
@@ -1475,11 +1475,11 @@ define hidden void @_ZN2cv8tracking4impl3tld15TrackerTLDModel13pushIntoModelERKN
   br i1 %exitcond.not, label %34, label %37, !llvm.loop !150
 
 46:                                               ; preds = %25, %34, %4, %13
-  %.sink42 = phi i64 [ 120, %13 ], [ 120, %4 ], [ 144, %34 ], [ 144, %25 ]
-  %.sink41 = phi i64 [ 416, %13 ], [ 416, %4 ], [ 420, %34 ], [ 420, %25 ]
+  %.sink48 = phi i64 [ 120, %13 ], [ 120, %4 ], [ 144, %34 ], [ 144, %25 ]
+  %.sink47 = phi i64 [ 416, %13 ], [ 416, %4 ], [ 420, %34 ], [ 420, %25 ]
   %.sink = phi i64 [ 368, %13 ], [ 368, %4 ], [ 392, %34 ], [ 392, %25 ]
-  %47 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink42
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink41
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink48
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink47
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink
   %50 = getelementptr inbounds nuw i8, ptr %47, i64 8
   %51 = load ptr, ptr %50, align 8, !tbaa !120
@@ -1950,8 +1950,8 @@ _ZNSt6vectorIdSaIdEE6resizeEm.exit:               ; preds = %26, %28, %30, %32
   %109 = ptrtoint ptr %107 to i64
   %110 = sub i64 %108, %109
   %111 = sdiv exact i64 %110, 80
-  %sext65 = shl i64 %111, 32
-  %112 = ashr exact i64 %sext65, 32
+  %sext68 = shl i64 %111, 32
+  %112 = ashr exact i64 %sext68, 32
   %113 = icmp slt i64 %indvars.iv.next52, %112
   br i1 %113, label %.lr.ph44, label %.loopexit, !llvm.loop !176
 
@@ -1963,8 +1963,8 @@ _ZNSt6vectorIdSaIdEE6resizeEm.exit:               ; preds = %26, %28, %30, %32
   %117 = ptrtoint ptr %115 to i64
   %118 = sub i64 %116, %117
   %119 = sdiv exact i64 %118, 96
-  %sext66 = shl i64 %119, 32
-  %120 = ashr exact i64 %sext66, 32
+  %sext69 = shl i64 %119, 32
+  %120 = ashr exact i64 %sext69, 32
   %121 = icmp slt i64 %indvars.iv.next55, %120
   br i1 %121, label %49, label %.loopexit38, !llvm.loop !177
 
@@ -2680,13 +2680,13 @@ define linkonce_odr void @_ZNSt6vectorIdSaIdEE17_M_default_appendEm(ptr noundef 
 19:                                               ; preds = %3
   store double 0.000000e+00, ptr %5, align 8, !tbaa !7
   %20 = getelementptr i8, ptr %5, i64 8
-  %21 = add i64 %1, -1
+  %21 = add nsw i64 %1, -1
   %22 = icmp eq i64 %21, 0
   br i1 %22, label %_ZSt27__uninitialized_default_n_aIPdmdET_S1_T0_RSaIT1_E.exit, label %_ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i
 
 _ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
-  %23 = shl i64 %1, 3
-  %24 = add i64 %23, -8
+  %23 = shl nuw nsw i64 %1, 3
+  %24 = add nsw i64 %23, -8
   tail call void @llvm.memset.p0.i64(ptr align 8 %20, i8 0, i64 %24, i1 false), !tbaa !7
   %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 3
   %25 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i

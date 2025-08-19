@@ -1161,8 +1161,8 @@ strbuf_complete.exit.i:                           ; preds = %strbuf_addch.exit.i
   %95 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %96 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %97 = load i64, ptr %94, align 8, !tbaa !47
-  %.not23 = icmp eq i64 %97, 0
-  br i1 %.not23, label %.critedge.i, label %.lr.ph
+  %.not29 = icmp eq i64 %97, 0
+  br i1 %.not29, label %.critedge.i, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph48.i, %123
   %.02646.i22 = phi ptr [ %124, %123 ], [ %.pre52.i, %.lr.ph48.i ]

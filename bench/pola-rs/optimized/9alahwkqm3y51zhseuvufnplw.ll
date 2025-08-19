@@ -576,7 +576,7 @@ define hidden void @"_ZN121_$LT$polars_parquet_format..parquet_format..PageHeade
           cleanup
   br label %.body
 
-.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %.invoke4651, %276, %357, %405, %497
+.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %.invoke4712, %276, %357, %405, %497
   %lpad.loopexit.split-lp1112 = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -1618,14 +1618,14 @@ define hidden void @"_ZN121_$LT$polars_parquet_format..parquet_format..PageHeade
   %382 = load i32, ptr %42, align 4, !range !13, !noalias !64, !noundef !4
   %383 = trunc nuw i32 %382 to i1
   %384 = select i1 %383, i1 %368, i1 false
-  br i1 %384, label %607, label %.invoke4651, !prof !36
+  br i1 %384, label %607, label %.invoke4712, !prof !36
 
-.invoke4651:                                      ; preds = %381
+.invoke4712:                                      ; preds = %381
   %anon.98434e219670b7020a4dc0f3f5333e65.32.mux = select i1 %383, ptr @anon.98434e219670b7020a4dc0f3f5333e65.33, ptr @anon.98434e219670b7020a4dc0f3f5333e65.32, !prof !35
   invoke void @_ZN4core6option13expect_failed17hac9b20460123012bE(ptr noalias noundef nonnull readonly align 1 @anon.98434e219670b7020a4dc0f3f5333e65.4, i64 noundef 71, ptr noalias noundef readonly align 8 dereferenceable(24) %anon.98434e219670b7020a4dc0f3f5333e65.32.mux) #8
-          to label %.cont4652 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
+          to label %.cont4713 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-.cont4652:                                        ; preds = %.invoke4651
+.cont4713:                                        ; preds = %.invoke4712
   unreachable
 
 385:                                              ; preds = %.noexc370, %380, %377, %374

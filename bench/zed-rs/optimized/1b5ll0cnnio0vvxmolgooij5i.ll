@@ -3397,13 +3397,13 @@ define hidden void @"_ZN10serde_json5value2de78_$LT$impl$u20$serde..de..Deserial
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !779)
-  switch i64 %.sroa.0.0.copyload, label %default.unreachable2.i [
+  switch i64 %.sroa.0.0.copyload, label %default.unreachable4.i [
     i64 0, label %11
     i64 1, label %20
     i64 2, label %29
   ]
 
-default.unreachable2.i:                           ; preds = %9
+default.unreachable4.i:                           ; preds = %9
   unreachable
 
 11:                                               ; preds = %9
@@ -4610,7 +4610,7 @@ define internal void @"_ZN11http_client10HttpClient3get28_$u7b$$u7b$closure$u7d$
   %5 = alloca [256 x i8], align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 280
   %7 = load i8, ptr %6, align 8, !range !1059, !noundef !9
-  switch i8 %7, label %default.unreachable12 [
+  switch i8 %7, label %default.unreachable15 [
     i8 0, label %8
     i8 1, label %19
     i8 2, label %20
@@ -4624,7 +4624,7 @@ define internal void @"_ZN11http_client10HttpClient3get28_$u7b$$u7b$closure$u7d$
   %.pre11 = load ptr, ptr %.phi.trans.insert10, align 8, !alias.scope !1060, !noalias !1065
   br label %21
 
-default.unreachable12:                            ; preds = %3
+default.unreachable15:                            ; preds = %3
   unreachable
 
 8:                                                ; preds = %3
@@ -4825,7 +4825,7 @@ define internal void @"_ZN11http_client10HttpClient3get28_$u7b$$u7b$closure$u7d$
   %5 = alloca [256 x i8], align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 280
   %7 = load i8, ptr %6, align 8, !range !1059, !noundef !9
-  switch i8 %7, label %default.unreachable12 [
+  switch i8 %7, label %default.unreachable15 [
     i8 0, label %8
     i8 1, label %19
     i8 2, label %20
@@ -4839,7 +4839,7 @@ define internal void @"_ZN11http_client10HttpClient3get28_$u7b$$u7b$closure$u7d$
   %.pre11 = load ptr, ptr %.phi.trans.insert10, align 8, !alias.scope !1091, !noalias !1096
   br label %21
 
-default.unreachable12:                            ; preds = %3
+default.unreachable15:                            ; preds = %3
   unreachable
 
 8:                                                ; preds = %3
@@ -5504,7 +5504,7 @@ define internal void @"_ZN11http_client10HttpClient9post_json28_$u7b$$u7b$closur
   %5 = alloca [256 x i8], align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 280
   %7 = load i8, ptr %6, align 8, !range !1059, !noundef !9
-  switch i8 %7, label %default.unreachable12 [
+  switch i8 %7, label %default.unreachable15 [
     i8 0, label %8
     i8 1, label %19
     i8 2, label %20
@@ -5518,7 +5518,7 @@ define internal void @"_ZN11http_client10HttpClient9post_json28_$u7b$$u7b$closur
   %.pre11 = load ptr, ptr %.phi.trans.insert10, align 8, !alias.scope !1247, !noalias !1252
   br label %21
 
-default.unreachable12:                            ; preds = %3
+default.unreachable15:                            ; preds = %3
   unreachable
 
 8:                                                ; preds = %3
@@ -6835,13 +6835,13 @@ define hidden { i64, ptr } @"_ZN16concurrent_queue9unbounded18Unbounded$LT$T$GT$
   %13 = lshr exact i64 %.sroa.013.0.ph103, 1
   %14 = and i64 %13, 31
   %15 = icmp eq i64 %14, 31
-  br i1 %15, label %.lr.ph170, label %._crit_edge
+  br i1 %15, label %.lr.ph172, label %._crit_edge
 
 16:                                               ; preds = %79
   %17 = lshr exact i64 %80, 1
   %18 = and i64 %17, 31
   %19 = icmp eq i64 %18, 31
-  br i1 %19, label %.lr.ph170, label %._crit_edge
+  br i1 %19, label %.lr.ph172, label %._crit_edge
 
 .thread66:                                        ; preds = %.outer.backedge, %79, %2
   %.sroa.0.050.ph.lcssa98 = phi ptr [ null, %2 ], [ %.sroa.0.050.ph102, %79 ], [ %.sroa.0.050.ph.be, %.outer.backedge ]
@@ -6857,7 +6857,7 @@ define hidden { i64, ptr } @"_ZN16concurrent_queue9unbounded18Unbounded$LT$T$GT$
   %or.cond = select i1 %21, i1 %22, i1 false
   br i1 %or.cond, label %25, label %23
 
-.lr.ph170:                                        ; preds = %.lr.ph, %16
+.lr.ph172:                                        ; preds = %.lr.ph, %16
   invoke void @_ZN3std6thread9yield_now17h17a04a6f48076bfbE()
           to label %79 unwind label %.loopexit
 
@@ -7012,14 +7012,14 @@ define hidden { i64, ptr } @"_ZN16concurrent_queue9unbounded18Unbounded$LT$T$GT$
   %78 = atomicrmw or ptr %77, i64 1 release, align 8
   br label %"_ZN4core3ptr146drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$concurrent_queue..unbounded..Block$LT$async_task..runnable..Runnable$GT$$GT$$GT$$GT$17h1982b333c7e2f15eE.exit44"
 
-79:                                               ; preds = %.lr.ph170
+79:                                               ; preds = %.lr.ph172
   %80 = load atomic i64, ptr %6 acquire, align 128
   %81 = load atomic ptr, ptr %8 acquire, align 8
   %82 = and i64 %80, 1
   %83 = icmp eq i64 %82, 0
   br i1 %83, label %16, label %.thread66
 
-.loopexit:                                        ; preds = %.lr.ph170
+.loopexit:                                        ; preds = %.lr.ph172
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %84
@@ -13640,15 +13640,15 @@ define internal fastcc noundef range(i8 0, 3) i8 @"_ZN4http6header3map18HeaderMa
   %53 = zext nneg i16 %52 to i64
   %54 = getelementptr inbounds nuw i8, ptr %.sroa.0.038.i.i, i64 96
   store i16 %51, ptr %54, align 8, !noalias !3601
-  br label %.outer227
+  br label %.outer252
 
-.outer227:                                        ; preds = %73, %47
+.outer252:                                        ; preds = %73, %47
   %.sroa.03.0.i.i.ph = phi i64 [ %74, %73 ], [ 0, %47 ]
   %.sroa.07.0.i.i.ph = phi i64 [ %75, %73 ], [ %53, %47 ]
   br label %55
 
-55:                                               ; preds = %.outer227, %55
-  %.sroa.07.0.i.i = phi i64 [ 0, %55 ], [ %.sroa.07.0.i.i.ph, %.outer227 ]
+55:                                               ; preds = %.outer252, %55
+  %.sroa.07.0.i.i = phi i64 [ 0, %55 ], [ %.sroa.07.0.i.i.ph, %.outer252 ]
   %56 = icmp ult i64 %.sroa.07.0.i.i, %44
   br i1 %56, label %57, label %55
 
@@ -13684,20 +13684,20 @@ define internal fastcc noundef range(i8 0, 3) i8 @"_ZN4http6header3map18HeaderMa
 73:                                               ; preds = %60
   %74 = add nuw nsw i64 %.sroa.03.0.i.i.ph, 1
   %75 = add nuw i64 %.sroa.07.0.i.i, 1
-  br label %.outer227
+  br label %.outer252
 
 76:                                               ; preds = %60
   %77 = trunc i64 %.sroa.7.037.i.i to i16
-  br label %.outer226
+  br label %.outer251
 
-.outer226:                                        ; preds = %85, %76
+.outer251:                                        ; preds = %85, %76
   %.sroa.07.2.i.i.ph = phi i64 [ %88, %85 ], [ %.sroa.07.0.i.i, %76 ]
   %.sroa.021.0.i.i.ph = phi i16 [ %82, %85 ], [ %77, %76 ]
   %.sroa.623.0.i.i.ph = phi i16 [ %87, %85 ], [ %51, %76 ]
   br label %78
 
-78:                                               ; preds = %.outer226, %78
-  %.sroa.07.2.i.i = phi i64 [ 0, %78 ], [ %.sroa.07.2.i.i.ph, %.outer226 ]
+78:                                               ; preds = %.outer251, %78
+  %.sroa.07.2.i.i = phi i64 [ 0, %78 ], [ %.sroa.07.2.i.i.ph, %.outer251 ]
   %79 = icmp ult i64 %.sroa.07.2.i.i, %44
   br i1 %79, label %80, label %78
 
@@ -13717,7 +13717,7 @@ define internal fastcc noundef range(i8 0, 3) i8 @"_ZN4http6header3map18HeaderMa
   store i16 %.sroa.021.0.i.i.ph, ptr %81, align 2, !noalias !3601
   store i16 %.sroa.623.0.i.i.ph, ptr %86, align 2, !noalias !3601
   %88 = add nuw i64 %.sroa.07.2.i.i, 1
-  br label %.outer226
+  br label %.outer251
 
 .lr.ph.i:                                         ; preds = %.noexc, %.lr.ph.i
   %.sroa.0.02430.i = phi ptr [ %89, %.lr.ph.i ], [ %30, %.noexc ]
@@ -13892,7 +13892,7 @@ define internal fastcc noundef range(i8 0, 3) i8 @"_ZN4http6header3map18HeaderMa
           cleanup
   br label %.body.thread
 
-.body.thread79.loopexit.split-lp:                 ; preds = %.invoke180, %.invoke, %123, %34, %28
+.body.thread79.loopexit.split-lp:                 ; preds = %.invoke205, %.invoke, %123, %34, %28
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.body.thread
@@ -13906,7 +13906,7 @@ define internal fastcc noundef range(i8 0, 3) i8 @"_ZN4http6header3map18HeaderMa
   %148 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %149 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %150 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  br label %.outer206
+  br label %.outer231
 
 151:                                              ; preds = %.noexc49, %.noexc51
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3675)
@@ -13923,8 +13923,8 @@ define internal fastcc noundef range(i8 0, 3) i8 @"_ZN4http6header3map18HeaderMa
   invoke void %154(ptr noalias noundef nonnull align 8 dereferenceable(8) %155, ptr noundef %157, i64 noundef %159)
           to label %"_ZN4core3ptr53drop_in_place$LT$http..header..value..HeaderValue$GT$17h24f3af637c9d0138E.exit" unwind label %351
 
-160:                                              ; preds = %.outer206, %160
-  %.sroa.018.0 = phi i64 [ 0, %160 ], [ %.sroa.018.0.ph, %.outer206 ]
+160:                                              ; preds = %.outer231, %160
+  %.sroa.018.0 = phi i64 [ 0, %160 ], [ %.sroa.018.0.ph, %.outer231 ]
   %161 = icmp ult i64 %.sroa.018.0, %181
   br i1 %161, label %162, label %160
 
@@ -13955,9 +13955,9 @@ define internal fastcc noundef range(i8 0, 3) i8 @"_ZN4http6header3map18HeaderMa
 "_ZN71_$LT$http..header..name..HeaderName$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc816068f1e86db0cE.exit.thread": ; preds = %185, %194, %"_ZN71_$LT$http..header..name..HeaderName$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc816068f1e86db0cE.exit", %177
   %179 = add nuw nsw i64 %.sroa.012.0.ph, 1
   %180 = add nuw i64 %.sroa.018.0, 1
-  br label %.outer206
+  br label %.outer231
 
-.outer206:                                        ; preds = %"_ZN71_$LT$http..header..name..HeaderName$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc816068f1e86db0cE.exit.thread", %"_ZN4http6header3map18HeaderMap$LT$T$GT$15try_reserve_one17h71e99b32669595eaE.exit"
+.outer231:                                        ; preds = %"_ZN71_$LT$http..header..name..HeaderName$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc816068f1e86db0cE.exit.thread", %"_ZN4http6header3map18HeaderMap$LT$T$GT$15try_reserve_one17h71e99b32669595eaE.exit"
   %.sroa.018.0.ph = phi i64 [ %180, %"_ZN71_$LT$http..header..name..HeaderName$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc816068f1e86db0cE.exit.thread" ], [ %147, %"_ZN4http6header3map18HeaderMap$LT$T$GT$15try_reserve_one17h71e99b32669595eaE.exit" ]
   %.sroa.012.0.ph = phi i64 [ %179, %"_ZN71_$LT$http..header..name..HeaderName$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc816068f1e86db0cE.exit.thread" ], [ 0, %"_ZN4http6header3map18HeaderMap$LT$T$GT$15try_reserve_one17h71e99b32669595eaE.exit" ]
   %181 = load i64, ptr %16, align 8, !noundef !9
@@ -13966,7 +13966,7 @@ define internal fastcc noundef range(i8 0, 3) i8 @"_ZN4http6header3map18HeaderMa
 182:                                              ; preds = %177
   %183 = load i64, ptr %12, align 8, !noundef !9
   %184 = icmp ugt i64 %183, %167
-  br i1 %184, label %185, label %.invoke180
+  br i1 %184, label %185, label %.invoke205
 
 185:                                              ; preds = %182
   %186 = load ptr, ptr %149, align 8, !nonnull !9, !noundef !9
@@ -13995,13 +13995,13 @@ define internal fastcc noundef range(i8 0, 3) i8 @"_ZN4http6header3map18HeaderMa
   %200 = invoke noundef zeroext i1 @"_ZN60_$LT$bytes..bytes..Bytes$u20$as$u20$core..cmp..PartialEq$GT$2eq17h789722c0ca80f2ceE"(ptr noundef nonnull align 8 %187, ptr noundef nonnull align 8 %1)
           to label %"_ZN71_$LT$http..header..name..HeaderName$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc816068f1e86db0cE.exit" unwind label %.body.thread79.loopexit
 
-.invoke180:                                       ; preds = %182, %split
+.invoke205:                                       ; preds = %182, %split
   %201 = phi i64 [ %203, %split ], [ %183, %182 ]
   %202 = phi ptr [ @anon.638f0274039b11b7af3152a35fe02d62.111, %split ], [ @anon.638f0274039b11b7af3152a35fe02d62.110, %182 ]
   invoke void @_ZN4core9panicking18panic_bounds_check17h9397cb495d89a72dE(i64 noundef %167, i64 noundef %201, ptr noalias noundef readonly align 8 dereferenceable(24) %202) #76
-          to label %.cont181 unwind label %.body.thread79.loopexit.split-lp
+          to label %.cont206 unwind label %.body.thread79.loopexit.split-lp
 
-.cont181:                                         ; preds = %.invoke180
+.cont206:                                         ; preds = %.invoke205
   unreachable
 
 "_ZN71_$LT$http..header..name..HeaderName$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc816068f1e86db0cE.exit": ; preds = %199
@@ -14014,7 +14014,7 @@ define internal fastcc noundef range(i8 0, 3) i8 @"_ZN4http6header3map18HeaderMa
 split:                                            ; preds = %194, %"_ZN71_$LT$http..header..name..HeaderName$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc816068f1e86db0cE.exit._crit_edge"
   %203 = phi i64 [ %.pre, %"_ZN71_$LT$http..header..name..HeaderName$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc816068f1e86db0cE.exit._crit_edge" ], [ %183, %194 ]
   %204 = icmp ugt i64 %203, %167
-  br i1 %204, label %205, label %.invoke180
+  br i1 %204, label %205, label %.invoke205
 
 205:                                              ; preds = %split
   %206 = load ptr, ptr %149, align 8, !nonnull !9, !noundef !9
@@ -15103,10 +15103,10 @@ common.resume:                                    ; preds = %69, %"_ZN63_$LT$all
   %77 = zext i16 %76 to i64
   br label %78
 
-78:                                               ; preds = %.backedge64, %75
-  %.sroa.01.0.i = phi i64 [ %77, %75 ], [ %.sroa.01.0.i.be, %.backedge64 ]
+78:                                               ; preds = %.backedge76, %75
+  %.sroa.01.0.i = phi i64 [ %77, %75 ], [ %.sroa.01.0.i.be, %.backedge76 ]
   %79 = icmp ult i64 %.sroa.01.0.i, %.sroa.8.0.copyload
-  br i1 %79, label %80, label %.backedge64
+  br i1 %79, label %80, label %.backedge76
 
 80:                                               ; preds = %78
   %81 = getelementptr inbounds [0 x { i16, i16 }], ptr %.sroa.42.0.copyload.i, i64 0, i64 %.sroa.01.0.i
@@ -15116,9 +15116,9 @@ common.resume:                                    ; preds = %69, %"_ZN63_$LT$all
 
 83:                                               ; preds = %80
   %84 = add nuw i64 %.sroa.01.0.i, 1
-  br label %.backedge64
+  br label %.backedge76
 
-.backedge64:                                      ; preds = %83, %78
+.backedge76:                                      ; preds = %83, %78
   %.sroa.01.0.i.be = phi i64 [ %84, %83 ], [ 0, %78 ]
   br label %78
 
@@ -53335,13 +53335,13 @@ define hidden void @"_ZN70_$LT$serde_json..number..Number$u20$as$u20$serde..de..
   %6 = alloca [24 x i8], align 8
   %7 = load i64, ptr %1, align 8, !range !3545, !noundef !9
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  switch i64 %7, label %default.unreachable2 [
+  switch i64 %7, label %default.unreachable4 [
     i64 0, label %9
     i64 1, label %19
     i64 2, label %29
   ]
 
-default.unreachable2:                             ; preds = %2
+default.unreachable4:                             ; preds = %2
   unreachable
 
 9:                                                ; preds = %2

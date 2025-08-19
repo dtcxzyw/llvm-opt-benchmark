@@ -275,19 +275,19 @@ loadActiveIdx.exit:                               ; preds = %3, %46, %48, %56, %
   %98 = getelementptr inbounds nuw i32, ptr %86, i64 %97
   %99 = load i32, ptr %98, align 4
   %100 = icmp ult i32 %89, %99
-  br i1 %100, label %._crit_edge.loopexit.split.loop.exit20.i, label %101
+  br i1 %100, label %._crit_edge.loopexit.split.loop.exit21.i, label %101
 
 101:                                              ; preds = %96, %.lr.ph._crit_edge.i
   %indvars.iv.next.pre-phi.i = phi i64 [ %.pre.i, %.lr.ph._crit_edge.i ], [ %97, %96 ]
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.pre-phi.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %findEngineForTop.exit, label %.lr.ph.i
 
-._crit_edge.loopexit.split.loop.exit20.i:         ; preds = %96
+._crit_edge.loopexit.split.loop.exit21.i:         ; preds = %96
   %102 = trunc nuw i64 %indvars.iv.i to i32
   br label %findEngineForTop.exit
 
-findEngineForTop.exit:                            ; preds = %101, %94, %._crit_edge.loopexit.split.loop.exit20.i, %85, %79
-  %.042 = phi i32 [ %.0.i.i, %79 ], [ 0, %85 ], [ %102, %._crit_edge.loopexit.split.loop.exit20.i ], [ %43, %101 ], [ %90, %94 ]
+findEngineForTop.exit:                            ; preds = %101, %94, %._crit_edge.loopexit.split.loop.exit21.i, %85, %79
+  %.042 = phi i32 [ %.0.i.i, %79 ], [ 0, %85 ], [ %102, %._crit_edge.loopexit.split.loop.exit21.i ], [ %43, %101 ], [ %90, %94 ]
   %.not = icmp ne i32 %.0.i.i, %.042
   %103 = icmp ne i32 %.0.i.i, %43
   %or.cond = and i1 %103, %76
@@ -1133,7 +1133,7 @@ define hidden signext i8 @nfaExecTamarama_Q(ptr noundef %0, ptr noundef captures
   %8 = load i32, ptr %6, align 8
   %9 = load i32, ptr %7, align 4
   %10 = icmp ult i32 %8, %9
-  br i1 %10, label %.lr.ph, label %.critedge.thread31
+  br i1 %10, label %.lr.ph, label %.critedge.thread33
 
 .lr.ph:                                           ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 112
@@ -1141,13 +1141,13 @@ define hidden signext i8 @nfaExecTamarama_Q(ptr noundef %0, ptr noundef captures
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %15 = zext i32 %8 to i64
-  %.idx.i41 = mul nuw nsw i64 %15, 24
-  %16 = getelementptr inbounds nuw i8, ptr %11, i64 %.idx.i41
+  %.idx.i43 = mul nuw nsw i64 %15, 24
+  %16 = getelementptr inbounds nuw i8, ptr %11, i64 %.idx.i43
   %17 = load i64, ptr %16, align 8
-  %.not42 = icmp sgt i64 %17, %2
-  br i1 %.not42, label %.critedge, label %.lr.ph43
+  %.not44 = icmp sgt i64 %17, %2
+  br i1 %.not44, label %.critedge, label %.lr.ph45
 
-18:                                               ; preds = %.lr.ph43
+18:                                               ; preds = %.lr.ph45
   %19 = load i32, ptr %6, align 8
   %20 = load i32, ptr %7, align 4
   %21 = icmp ult i32 %19, %20
@@ -1159,9 +1159,9 @@ define hidden signext i8 @nfaExecTamarama_Q(ptr noundef %0, ptr noundef captures
   %24 = getelementptr inbounds nuw i8, ptr %11, i64 %.idx.i
   %25 = load i64, ptr %24, align 8
   %.not = icmp sgt i64 %25, %2
-  br i1 %.not, label %.critedge, label %.lr.ph43
+  br i1 %.not, label %.critedge, label %.lr.ph45
 
-.lr.ph43:                                         ; preds = %.lr.ph, %22
+.lr.ph45:                                         ; preds = %.lr.ph, %22
   call fastcc void @updateQueues(ptr noundef nonnull %5, ptr noundef nonnull %1, ptr noundef %4)
   %26 = load ptr, ptr %4, align 8
   %27 = call signext i8 @nfaQueueExec_raw(ptr noundef %26, ptr noundef nonnull %4, i64 noundef %2) #7
@@ -1176,14 +1176,14 @@ define hidden signext i8 @nfaExecTamarama_Q(ptr noundef %0, ptr noundef captures
 
 .critedge:                                        ; preds = %22, %.lr.ph
   %.026.lcssa = phi i8 [ 1, %.lr.ph ], [ %27, %22 ]
-  br i1 %.not42, label %.critedge.thread31, label %.critedge.thread
+  br i1 %.not44, label %.critedge.thread33, label %.critedge.thread
 
-.critedge.thread:                                 ; preds = %18, %.lr.ph43, %.critedge
-  %.121 = phi i8 [ %.026.lcssa, %.critedge ], [ %27, %.lr.ph43 ], [ %27, %18 ]
+.critedge.thread:                                 ; preds = %18, %.lr.ph45, %.critedge
+  %.121 = phi i8 [ %.026.lcssa, %.critedge ], [ %27, %.lr.ph45 ], [ %27, %18 ]
   call fastcc void @copyBack(ptr noundef nonnull %5, ptr noundef nonnull %1, ptr noundef %4)
-  br label %.critedge.thread31
+  br label %.critedge.thread33
 
-.critedge.thread31:                               ; preds = %3, %.critedge.thread, %.critedge
+.critedge.thread33:                               ; preds = %3, %.critedge.thread, %.critedge
   %.122 = phi i8 [ %.121, %.critedge.thread ], [ %.026.lcssa, %.critedge ], [ 1, %3 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i8 %.122
@@ -1387,7 +1387,7 @@ define hidden signext i8 @nfaExecTamarama_Q2(ptr noundef %0, ptr noundef capture
   %8 = load i32, ptr %6, align 8
   %9 = load i32, ptr %7, align 4
   %10 = icmp ult i32 %8, %9
-  br i1 %10, label %.lr.ph, label %.critedge.thread33
+  br i1 %10, label %.lr.ph, label %.critedge.thread35
 
 .lr.ph:                                           ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 112
@@ -1395,13 +1395,13 @@ define hidden signext i8 @nfaExecTamarama_Q2(ptr noundef %0, ptr noundef capture
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %15 = zext i32 %8 to i64
-  %.idx.i43 = mul nuw nsw i64 %15, 24
-  %16 = getelementptr inbounds nuw i8, ptr %11, i64 %.idx.i43
+  %.idx.i45 = mul nuw nsw i64 %15, 24
+  %16 = getelementptr inbounds nuw i8, ptr %11, i64 %.idx.i45
   %17 = load i64, ptr %16, align 8
-  %.not46 = icmp sgt i64 %17, %2
-  br i1 %.not46, label %.critedge, label %.lr.ph44
+  %.not48 = icmp sgt i64 %17, %2
+  br i1 %.not48, label %.critedge, label %.lr.ph46
 
-18:                                               ; preds = %.lr.ph44
+18:                                               ; preds = %.lr.ph46
   %19 = load i32, ptr %6, align 8
   %20 = load i32, ptr %7, align 4
   %21 = icmp ult i32 %19, %20
@@ -1415,9 +1415,9 @@ define hidden signext i8 @nfaExecTamarama_Q2(ptr noundef %0, ptr noundef capture
   %26 = icmp sle i64 %25, %2
   %27 = icmp ne i8 %29, 2
   %or.cond = select i1 %26, i1 %27, i1 false
-  br i1 %or.cond, label %.lr.ph44, label %.critedge
+  br i1 %or.cond, label %.lr.ph46, label %.critedge
 
-.lr.ph44:                                         ; preds = %.lr.ph, %22
+.lr.ph46:                                         ; preds = %.lr.ph, %22
   call fastcc void @updateQueues(ptr noundef nonnull %5, ptr noundef nonnull %1, ptr noundef %4)
   %28 = load ptr, ptr %4, align 8
   %29 = call signext i8 @nfaQueueExec2_raw(ptr noundef %28, ptr noundef nonnull %4, i64 noundef %2) #7
@@ -1432,14 +1432,14 @@ define hidden signext i8 @nfaExecTamarama_Q2(ptr noundef %0, ptr noundef capture
 
 .critedge:                                        ; preds = %22, %.lr.ph
   %.028.lcssa = phi i8 [ 0, %.lr.ph ], [ %29, %22 ]
-  br i1 %.not46, label %.critedge.thread33, label %.critedge.thread
+  br i1 %.not48, label %.critedge.thread35, label %.critedge.thread
 
-.critedge.thread:                                 ; preds = %18, %.lr.ph44, %.critedge
-  %.123 = phi i8 [ %.028.lcssa, %.critedge ], [ %29, %.lr.ph44 ], [ %29, %18 ]
+.critedge.thread:                                 ; preds = %18, %.lr.ph46, %.critedge
+  %.123 = phi i8 [ %.028.lcssa, %.critedge ], [ %29, %.lr.ph46 ], [ %29, %18 ]
   call fastcc void @copyBack(ptr noundef nonnull %5, ptr noundef nonnull %1, ptr noundef %4)
-  br label %.critedge.thread33
+  br label %.critedge.thread35
 
-.critedge.thread33:                               ; preds = %3, %.critedge.thread, %.critedge
+.critedge.thread35:                               ; preds = %3, %.critedge.thread, %.critedge
   %.124 = phi i8 [ %.123, %.critedge.thread ], [ %.028.lcssa, %.critedge ], [ 0, %3 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i8 %.124
@@ -1482,8 +1482,8 @@ define internal fastcc void @copyQueueItems(ptr noundef readonly captures(none) 
   %24 = icmp ult i8 %switch.tableidx, 8
   %switch.shifted = lshr i8 -3, %switch.tableidx
   %switch.lobit = trunc i8 %switch.shifted to i1
-  %or.cond62 = select i1 %24, i1 %switch.lobit, i1 false
-  br i1 %or.cond62, label %isMultiTopType.exit, label %25
+  %or.cond69 = select i1 %24, i1 %switch.lobit, i1 false
+  br i1 %or.cond69, label %isMultiTopType.exit, label %25
 
 25:                                               ; preds = %23
   %26 = add i8 %21, -11

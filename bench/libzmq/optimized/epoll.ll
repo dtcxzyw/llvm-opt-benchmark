@@ -578,7 +578,7 @@ _ZNSt6vectorIPN3zmq7epoll_t12poll_entry_tESaIS3_EE5clearEv.exit: ; preds = %.bac
   %46 = load i32, ptr %27, align 4, !tbaa !63
   %47 = and i32 %46, 4
   %.not28 = icmp eq i32 %47, 0
-  br i1 %.not28, label %.thread47, label %48
+  br i1 %.not28, label %.thread57, label %48
 
 48:                                               ; preds = %.thread
   %49 = load ptr, ptr %32, align 8, !tbaa !58
@@ -588,15 +588,15 @@ _ZNSt6vectorIPN3zmq7epoll_t12poll_entry_tESaIS3_EE5clearEv.exit: ; preds = %.bac
   call void %52(ptr noundef nonnull align 8 dereferenceable(8) %49)
   %.pre44 = load i32, ptr %29, align 8, !tbaa !52
   %53 = icmp eq i32 %.pre44, -1
-  br i1 %53, label %61, label %.thread47
+  br i1 %53, label %61, label %.thread57
 
-.thread47:                                        ; preds = %.thread, %48
+.thread57:                                        ; preds = %.thread, %48
   %54 = load i32, ptr %27, align 4, !tbaa !63
   %55 = and i32 %54, 1
   %.not29 = icmp eq i32 %55, 0
   br i1 %.not29, label %61, label %56
 
-56:                                               ; preds = %.thread47
+56:                                               ; preds = %.thread57
   %57 = load ptr, ptr %32, align 8, !tbaa !58
   %58 = load ptr, ptr %57, align 8, !tbaa !3
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 16
@@ -604,7 +604,7 @@ _ZNSt6vectorIPN3zmq7epoll_t12poll_entry_tESaIS3_EE5clearEv.exit: ; preds = %.bac
   call void %60(ptr noundef nonnull align 8 dereferenceable(8) %57)
   br label %61
 
-61:                                               ; preds = %.thread47, %56, %48, %41, %35, %31, %.lr.ph
+61:                                               ; preds = %.thread57, %56, %48, %41, %35, %31, %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !64

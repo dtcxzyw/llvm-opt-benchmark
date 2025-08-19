@@ -635,12 +635,12 @@ StressMajorizationSmoother_delete.exit:           ; preds = %129, %128
 
 ._crit_edge486:                                   ; preds = %.lr.ph485, %130, %._crit_edge479
   %283 = phi double [ %278, %._crit_edge479 ], [ 0x7FF8000000000000, %130 ], [ %278, %.lr.ph485 ]
-  %.8.lcssa554 = phi i32 [ %275, %._crit_edge479 ], [ 0, %130 ], [ %275, %.lr.ph485 ]
+  %.8.lcssa580 = phi i32 [ %275, %._crit_edge479 ], [ 0, %130 ], [ %275, %.lr.ph485 ]
   store double %283, ptr %17, align 8, !tbaa !16
   %284 = getelementptr inbounds nuw i8, ptr %122, i64 8
-  store i32 %.8.lcssa554, ptr %284, align 8, !tbaa !42
+  store i32 %.8.lcssa580, ptr %284, align 8, !tbaa !42
   %285 = getelementptr inbounds nuw i8, ptr %124, i64 8
-  store i32 %.8.lcssa554, ptr %285, align 8, !tbaa !42
+  store i32 %.8.lcssa580, ptr %285, align 8, !tbaa !42
   tail call void @free(ptr noundef %119) #16
   tail call void @free(ptr noundef %118) #16
   tail call void @SparseMatrix_delete(ptr noundef %11) #16
@@ -1200,8 +1200,8 @@ StressMajorizationSmoother_delete.exit:           ; preds = %57, %56
   %70 = load ptr, ptr %69, align 8, !tbaa !36
   store i32 0, ptr %64, align 4, !tbaa !22
   store i32 0, ptr %60, align 4, !tbaa !22
-  %.not233 = icmp eq i32 %4, 0
-  br i1 %.not233, label %._crit_edge204, label %.lr.ph197.preheader
+  %.not245 = icmp eq i32 %4, 0
+  br i1 %.not245, label %._crit_edge204, label %.lr.ph197.preheader
 
 .lr.ph197.preheader:                              ; preds = %58
   %wide.trip.count219 = zext nneg i32 %4 to i64
@@ -1336,13 +1336,13 @@ StressMajorizationSmoother_delete.exit167:        ; preds = %._crit_edge198
   br i1 %exitcond225.not, label %._crit_edge204, label %.lr.ph203, !llvm.loop !59
 
 ._crit_edge204:                                   ; preds = %.lr.ph203, %58, %.preheader
-  %.0152.lcssa229231 = phi i32 [ %114, %.preheader ], [ 0, %58 ], [ %114, %.lr.ph203 ]
+  %.0152.lcssa241243 = phi i32 [ %114, %.preheader ], [ 0, %58 ], [ %114, %.lr.ph203 ]
   %123 = phi double [ %117, %.preheader ], [ 0x7FF8000000000000, %58 ], [ %117, %.lr.ph203 ]
   store double %123, ptr %25, align 8, !tbaa !16
   %124 = getelementptr inbounds nuw i8, ptr %50, i64 8
-  store i32 %.0152.lcssa229231, ptr %124, align 8, !tbaa !42
+  store i32 %.0152.lcssa241243, ptr %124, align 8, !tbaa !42
   %125 = getelementptr inbounds nuw i8, ptr %52, i64 8
-  store i32 %.0152.lcssa229231, ptr %125, align 8, !tbaa !42
+  store i32 %.0152.lcssa241243, ptr %125, align 8, !tbaa !42
   br label %126
 
 126:                                              ; preds = %._crit_edge204, %StressMajorizationSmoother_delete.exit167, %StressMajorizationSmoother_delete.exit
@@ -1889,10 +1889,10 @@ gv_calloc.exit263.i:                              ; preds = %219, %.thread.i262.
 
 250:                                              ; preds = %.lr.ph.us278.i, %250
   %indvars.iv333.i = phi i64 [ 0, %.lr.ph.us278.i ], [ %indvars.iv.next334.i, %250 ]
-  %gep382.i = getelementptr double, ptr %invariant.gep381.i, i64 %indvars.iv333.i
-  %251 = load double, ptr %gep382.i, align 8, !tbaa !25
+  %gep407.i = getelementptr double, ptr %invariant.gep406.i, i64 %indvars.iv333.i
+  %251 = load double, ptr %gep407.i, align 8, !tbaa !25
   %252 = fmul double %264, %251
-  store double %252, ptr %gep382.i, align 8, !tbaa !25
+  store double %252, ptr %gep407.i, align 8, !tbaa !25
   %indvars.iv.next334.i = add nuw nsw i64 %indvars.iv333.i, 1
   %exitcond337.not.i = icmp eq i64 %indvars.iv.next334.i, %wide.trip.count326.i
   br i1 %exitcond337.not.i, label %._crit_edge.us279.i, label %250, !llvm.loop !76
@@ -1900,7 +1900,7 @@ gv_calloc.exit263.i:                              ; preds = %219, %.thread.i262.
 .lr.ph272.us.i:                                   ; preds = %.lr.ph276.split.us.i
   %253 = sext i32 %244 to i64
   %wide.trip.count331.i = sext i32 %246 to i64
-  %invariant.gep379.i = getelementptr double, ptr %226, i64 %249
+  %invariant.gep404.i = getelementptr double, ptr %226, i64 %249
   br label %.lr.ph.us.us.i
 
 .lr.ph.us.us.i:                                   ; preds = %._crit_edge.us.us.i, %.lr.ph272.us.i
@@ -1916,10 +1916,10 @@ gv_calloc.exit263.i:                              ; preds = %219, %.thread.i262.
   %indvars.iv323.i = phi i64 [ %indvars.iv.next324.i, %258 ], [ 0, %.lr.ph.us.us.i ]
   %gep.i = getelementptr double, ptr %invariant.gep.i, i64 %indvars.iv323.i
   %259 = load double, ptr %gep.i, align 8, !tbaa !25
-  %gep380.i = getelementptr double, ptr %invariant.gep379.i, i64 %indvars.iv323.i
-  %260 = load double, ptr %gep380.i, align 8, !tbaa !25
+  %gep405.i = getelementptr double, ptr %invariant.gep404.i, i64 %indvars.iv323.i
+  %260 = load double, ptr %gep405.i, align 8, !tbaa !25
   %261 = fadd double %259, %260
-  store double %261, ptr %gep380.i, align 8, !tbaa !25
+  store double %261, ptr %gep405.i, align 8, !tbaa !25
   %indvars.iv.next324.i = add nuw nsw i64 %indvars.iv323.i, 1
   %exitcond327.not.i = icmp eq i64 %indvars.iv.next324.i, %wide.trip.count326.i
   br i1 %exitcond327.not.i, label %._crit_edge.us.us.i, label %258, !llvm.loop !77
@@ -1933,7 +1933,7 @@ gv_calloc.exit263.i:                              ; preds = %219, %.thread.i262.
   %262 = sub nsw i32 %246, %244
   %263 = sitofp i32 %262 to double
   %264 = fdiv double %242, %263
-  %invariant.gep381.i = getelementptr double, ptr %226, i64 %249
+  %invariant.gep406.i = getelementptr double, ptr %226, i64 %249
   br label %250
 
 .lr.ph276.split.i:                                ; preds = %.lr.ph276.i, %.lr.ph276.split.i
@@ -2133,10 +2133,10 @@ get_edge_label_matrix.exit.thread:                ; preds = %178, %get_edge_labe
   br label %355
 
 355:                                              ; preds = %342, %352
-  %.sink290 = phi double [ %354, %352 ], [ 0.000000e+00, %342 ]
+  %.sink324 = phi double [ %354, %352 ], [ 0.000000e+00, %342 ]
   %356 = getelementptr inbounds double, ptr %30, i64 %indvars.iv
-  store double %.sink290, ptr %356, align 8, !tbaa !25
-  %357 = fadd double %.0145206, %.sink290
+  store double %.sink324, ptr %356, align 8, !tbaa !25
+  %357 = fadd double %.0145206, %.sink324
   %.pre266 = load i32, ptr %292, align 4, !tbaa !22
   br label %358
 
@@ -2286,11 +2286,11 @@ total_distance.exit:                              ; preds = %._crit_edge.us.i, %
   br label %.sink.split
 
 .sink.split:                                      ; preds = %16, %4, %408
-  %.sink292 = phi ptr [ %.1, %408 ], [ %11, %4 ], [ %11, %16 ]
+  %.sink326 = phi ptr [ %.1, %408 ], [ %11, %4 ], [ %11, %16 ]
   %.0143191.ph = phi double [ %.1144.lcssa, %408 ], [ 1.000000e+00, %4 ], [ 1.000000e+00, %16 ]
   %.0147190.ph = phi ptr [ %21, %408 ], [ null, %4 ], [ null, %16 ]
   %.0178189.ph = phi ptr [ %.1179, %408 ], [ null, %4 ], [ null, %16 ]
-  tail call void @SparseMatrix_delete(ptr noundef %.sink292) #16
+  tail call void @SparseMatrix_delete(ptr noundef %.sink326) #16
   br label %409
 
 409:                                              ; preds = %.sink.split, %._crit_edge223

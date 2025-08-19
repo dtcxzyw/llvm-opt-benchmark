@@ -4407,7 +4407,7 @@ define hidden void @_ZN13LIR_Assembler13emit_opBranchEP12LIR_OpBranch(ptr nounde
 
 27:                                               ; preds = %14
   %28 = icmp ult i32 %4, 8
-  br i1 %28, label %switch.lookup10, label %29
+  br i1 %28, label %switch.lookup12, label %29
 
 29:                                               ; preds = %27
   %30 = load ptr, ptr @g_assert_poison, align 8
@@ -4420,13 +4420,13 @@ switch.lookup:                                    ; preds = %18
   %switch.gep = getelementptr inbounds nuw [6 x i32], ptr @switch.table._ZN13LIR_Assembler13emit_opBranchEP12LIR_OpBranch, i64 0, i64 %31
   br label %33
 
-switch.lookup10:                                  ; preds = %27
+switch.lookup12:                                  ; preds = %27
   %32 = zext nneg i32 %4 to i64
-  %switch.gep11 = getelementptr inbounds nuw [8 x i32], ptr @switch.table._ZN13LIR_Assembler5cmoveE13LIR_Condition7LIR_OprS1_S1_9BasicTypeS1_S1_.2, i64 0, i64 %32
+  %switch.gep13 = getelementptr inbounds nuw [8 x i32], ptr @switch.table._ZN13LIR_Assembler5cmoveE13LIR_Condition7LIR_OprS1_S1_9BasicTypeS1_S1_.2, i64 0, i64 %32
   br label %33
 
-33:                                               ; preds = %switch.lookup10, %switch.lookup
-  %.0.in = phi ptr [ %switch.gep, %switch.lookup ], [ %switch.gep11, %switch.lookup10 ]
+33:                                               ; preds = %switch.lookup12, %switch.lookup
+  %.0.in = phi ptr [ %switch.gep, %switch.lookup ], [ %switch.gep13, %switch.lookup12 ]
   %.0 = load i32, ptr %.0.in, align 4
   %34 = load ptr, ptr %0, align 8
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 128
@@ -9910,9 +9910,9 @@ switch.lookup:                                    ; preds = %_Z17is_reference_ty
   br i1 %.not397, label %.sink.split, label %410
 
 .sink.split:                                      ; preds = %407, %405
-  %.sink426 = phi i32 [ %71, %405 ], [ %73, %407 ]
+  %.sink428 = phi i32 [ %71, %405 ], [ %73, %407 ]
   %409 = load ptr, ptr %0, align 8
-  call void @_ZN14MacroAssembler10load_klassE8RegisterS0_S0_(ptr noundef nonnull align 8 dereferenceable(40) %409, i32 %81, i32 %.sink426, i32 10) #15
+  call void @_ZN14MacroAssembler10load_klassE8RegisterS0_S0_(ptr noundef nonnull align 8 dereferenceable(40) %409, i32 %81, i32 %.sink428, i32 10) #15
   br label %410
 
 410:                                              ; preds = %.sink.split, %407

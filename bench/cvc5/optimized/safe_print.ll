@@ -462,8 +462,8 @@ _ZN4cvc58internal10safe_printILm2EEEviRAT__Kc.exit: ; preds = %_ZN4cvc58internal
   %28 = load i64, ptr %27, align 8, !tbaa !33
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(9) %3, i8 48, i64 9, i1 false), !tbaa !15
-  %.not23.i = icmp eq i64 %28, 0
-  br i1 %.not23.i, label %._crit_edge.i, label %.lr.ph22.i
+  %.not24.i = icmp eq i64 %28, 0
+  br i1 %.not24.i, label %._crit_edge.i, label %.lr.ph22.i
 
 .lr.ph22.i:                                       ; preds = %_ZN4cvc58internal10safe_printILm2EEEviRAT__Kc.exit, %.lr.ph22.i
   %.0.in21.i = phi i64 [ %.0.i, %.lr.ph22.i ], [ 9, %_ZN4cvc58internal10safe_printILm2EEEviRAT__Kc.exit ]
@@ -504,8 +504,8 @@ define hidden void @_ZN4cvc58internal24safe_print_right_alignedEiml(i32 noundef 
 
 .preheader:                                       ; preds = %3
   call void @llvm.memset.p0.i64(ptr nonnull align 16 %4, i8 48, i64 %5, i1 false), !tbaa !15
-  %.not23 = icmp eq i64 %1, 0
-  br i1 %.not23, label %._crit_edge, label %.lr.ph22
+  %.not24 = icmp eq i64 %1, 0
+  br i1 %.not24, label %._crit_edge, label %.lr.ph22
 
 .lr.ph22:                                         ; preds = %.preheader, %.lr.ph22
   %.0.in21 = phi i64 [ %.0, %.lr.ph22 ], [ %5, %.preheader ]

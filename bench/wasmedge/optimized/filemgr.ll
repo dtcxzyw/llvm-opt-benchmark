@@ -488,8 +488,8 @@ _ZNSt6vectorIhSaIhEEC2EmRKS0_.exit:               ; preds = %13, %.noexc5
 
 _ZNSt6vectorIhSaIhEEC2EmRKS0_.exit.thread:        ; preds = %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i
   %18 = load i32, ptr %1, align 8, !noalias !7
-  %.not.i33 = icmp eq i32 %18, 0
-  br i1 %.not.i33, label %.thread, label %33
+  %.not.i36 = icmp eq i32 %18, 0
+  br i1 %.not.i36, label %.thread, label %33
 
 19:                                               ; preds = %_ZNSt6vectorIhSaIhEEC2EmRKS0_.exit
   %.not11.i = icmp eq ptr %.0.i.i.i.i.i, %8
@@ -518,16 +518,16 @@ _ZSt6copy_nIPKhmPhET1_T_T0_S3_.exit.i:            ; preds = %20
   br label %.thread
 
 .thread:                                          ; preds = %_ZNSt6vectorIhSaIhEEC2EmRKS0_.exit.thread, %_ZSt6copy_nIPKhmPhET1_T_T0_S3_.exit.i, %19
-  %.sroa.11.13446 = phi ptr [ %9, %_ZSt6copy_nIPKhmPhET1_T_T0_S3_.exit.i ], [ %9, %19 ], [ null, %_ZNSt6vectorIhSaIhEEC2EmRKS0_.exit.thread ]
-  %.sroa.011.13645 = phi ptr [ %8, %_ZSt6copy_nIPKhmPhET1_T_T0_S3_.exit.i ], [ %8, %19 ], [ null, %_ZNSt6vectorIhSaIhEEC2EmRKS0_.exit.thread ]
-  %.0.i.i.i.i.i3844 = phi ptr [ %.0.i.i.i.i.i, %_ZSt6copy_nIPKhmPhET1_T_T0_S3_.exit.i ], [ %.0.i.i.i.i.i, %19 ], [ null, %_ZNSt6vectorIhSaIhEEC2EmRKS0_.exit.thread ]
+  %.sroa.11.13749 = phi ptr [ %9, %_ZSt6copy_nIPKhmPhET1_T_T0_S3_.exit.i ], [ %9, %19 ], [ null, %_ZNSt6vectorIhSaIhEEC2EmRKS0_.exit.thread ]
+  %.sroa.011.13948 = phi ptr [ %8, %_ZSt6copy_nIPKhmPhET1_T_T0_S3_.exit.i ], [ %8, %19 ], [ null, %_ZNSt6vectorIhSaIhEEC2EmRKS0_.exit.thread ]
+  %.0.i.i.i.i.i4147 = phi ptr [ %.0.i.i.i.i.i, %_ZSt6copy_nIPKhmPhET1_T_T0_S3_.exit.i ], [ %.0.i.i.i.i.i, %19 ], [ null, %_ZNSt6vectorIhSaIhEEC2EmRKS0_.exit.thread ]
   store i8 1, ptr %0, align 8
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sroa.011.13645, ptr %30, align 8
+  store ptr %.sroa.011.13948, ptr %30, align 8
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %.0.i.i.i.i.i3844, ptr %31, align 8
+  store ptr %.0.i.i.i.i.i4147, ptr %31, align 8
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %.sroa.11.13446, ptr %32, align 8
+  store ptr %.sroa.11.13749, ptr %32, align 8
   br label %_ZNSt6vectorIhSaIhEED2Ev.exit7
 
 33:                                               ; preds = %_ZNSt6vectorIhSaIhEEC2EmRKS0_.exit.thread
@@ -657,13 +657,13 @@ define void @_ZN8WasmEdge7FileMgr7readU32Ev(ptr dead_on_unwind noalias writable 
   br i1 %.not, label %.loopexit, label %12, !llvm.loop !19
 
 .sink.split:                                      ; preds = %18, %12, %17
-  %.sink26 = phi i32 [ 258, %17 ], [ 278, %12 ], [ 277, %18 ]
-  store i32 %.sink26, ptr %1, align 8
+  %.sink28 = phi i32 [ 258, %17 ], [ 278, %12 ], [ 277, %18 ]
+  store i32 %.sink28, ptr %1, align 8
   br label %.loopexit
 
 .loopexit:                                        ; preds = %26, %.sink.split, %2
   %.sink = phi i8 [ 0, %2 ], [ 0, %.sink.split ], [ 1, %26 ]
-  %.lcssa.sink = phi i32 [ %3, %2 ], [ %.sink26, %.sink.split ], [ %29, %26 ]
+  %.lcssa.sink = phi i32 [ %3, %2 ], [ %.sink28, %.sink.split ], [ %29, %26 ]
   store i8 %.sink, ptr %0, align 4
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %.lcssa.sink, ptr %31, align 4
@@ -969,9 +969,9 @@ define void @_ZN8WasmEdge7FileMgr7readS32Ev(ptr dead_on_unwind noalias writable 
   br label %_ZN8WasmEdge7FileMgr6readSNIiLm32EEEN5cxx208expectedIT_NS_7ErrCodeEEEv.exit
 
 _ZN8WasmEdge7FileMgr6readSNIiLm32EEEN5cxx208expectedIT_NS_7ErrCodeEEEv.exit: ; preds = %2, %._crit_edge, %20, %37, %39, %40
-  %.sink82.i = phi i8 [ 1, %40 ], [ 0, %39 ], [ 0, %37 ], [ 0, %20 ], [ 0, %._crit_edge ], [ 0, %2 ]
+  %.sink87.i = phi i8 [ 1, %40 ], [ 0, %39 ], [ 0, %37 ], [ 0, %20 ], [ 0, %._crit_edge ], [ 0, %2 ]
   %.sink.i = phi i32 [ %43, %40 ], [ 277, %39 ], [ 277, %37 ], [ 278, %20 ], [ 258, %._crit_edge ], [ %3, %2 ]
-  store i8 %.sink82.i, ptr %0, align 4, !alias.scope !31
+  store i8 %.sink87.i, ptr %0, align 4, !alias.scope !31
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %.sink.i, ptr %44, align 4, !alias.scope !31
   ret void
@@ -1273,11 +1273,11 @@ define void @_ZN8WasmEdge7FileMgr8readNameB5cxx11Ev(ptr dead_on_unwind noalias w
   br i1 %.not.i, label %36, label %16, !llvm.loop !19
 
 .loopexit:                                        ; preds = %16, %22, %21
-  %.sink26.i = phi i32 [ 258, %21 ], [ 277, %22 ], [ 278, %16 ]
-  store i32 %.sink26.i, ptr %1, align 8, !noalias !51
+  %.sink28.i = phi i32 [ 258, %21 ], [ 277, %22 ], [ 278, %16 ]
+  store i32 %.sink28.i, ptr %1, align 8, !noalias !51
   store i8 0, ptr %0, align 8
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 %.sink26.i, ptr %35, align 8
+  store i32 %.sink28.i, ptr %35, align 8
   br label %148
 
 36:                                               ; preds = %30
@@ -1429,9 +1429,9 @@ _ZN8WasmEdge7FileMgr9readBytesEN5cxx204spanIhLm18446744073709551615EEE.exit: ; p
   %95 = getelementptr inbounds nuw i8, ptr %92, i64 %94
   %96 = load i8, ptr %95, align 1
   %97 = and i8 %96, -96
-  %.not104 = icmp eq i8 %97, -128
-  %spec.select103 = select i1 %.not104, i8 0, i8 %spec.select
-  br label %.thread96
+  %.not111 = icmp eq i8 %97, -128
+  %spec.select110 = select i1 %.not111, i8 0, i8 %spec.select
+  br label %.thread103
 
 98:                                               ; preds = %90
   %99 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #19
@@ -1443,10 +1443,10 @@ _ZN8WasmEdge7FileMgr9readBytesEN5cxx204spanIhLm18446744073709551615EEE.exit: ; p
   %105 = icmp ne i8 %104, -96
   %brmerge.not = and i1 %83, %105
   %.mux = select i1 %105, i8 %spec.select, i8 0
-  br i1 %brmerge.not, label %.thread76, label %.thread96
+  br i1 %brmerge.not, label %.thread76, label %.thread103
 
 106:                                              ; preds = %90, %89
-  br i1 %83, label %107, label %.thread96
+  br i1 %83, label %107, label %.thread103
 
 107:                                              ; preds = %106
   switch i8 %68, label %123 [
@@ -1472,24 +1472,24 @@ _ZN8WasmEdge7FileMgr9readBytesEN5cxx204spanIhLm18446744073709551615EEE.exit: ; p
   %121 = load i8, ptr %120, align 1
   %122 = and i8 %121, -80
   %.not45 = icmp eq i8 %122, -128
-  br i1 %.not45, label %.thread96, label %._crit_edge
+  br i1 %.not45, label %.thread103, label %._crit_edge
 
 .thread76:                                        ; preds = %108, %98
-  br label %.thread96
+  br label %.thread103
 
 123:                                              ; preds = %107
   %.old = and i32 %69, -12
   %.old51 = icmp eq i32 %.old, -12
-  br i1 %.old51, label %._crit_edge, label %.thread96
+  br i1 %.old51, label %._crit_edge, label %.thread103
 
-.thread96:                                        ; preds = %91, %116, %.thread76, %98, %123, %106
-  %.3 = phi i8 [ %spec.select, %123 ], [ %spec.select, %106 ], [ %.mux, %98 ], [ %spec.select, %.thread76 ], [ %spec.select, %116 ], [ %spec.select103, %91 ]
+.thread103:                                       ; preds = %91, %116, %.thread76, %98, %123, %106
+  %.3 = phi i8 [ %spec.select, %123 ], [ %spec.select, %106 ], [ %.mux, %98 ], [ %spec.select, %.thread76 ], [ %spec.select, %116 ], [ %spec.select110, %91 ]
   %124 = icmp ne i32 %.037, 0
   %125 = trunc nuw i8 %.3 to i1
   %126 = select i1 %124, i1 %125, i1 false
   br i1 %126, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %.thread96
+.lr.ph:                                           ; preds = %.thread103
   %127 = add i32 %.03989, 1
   %128 = zext nneg i32 %.037 to i64
   br label %129
@@ -1512,8 +1512,8 @@ _ZN8WasmEdge7FileMgr9readBytesEN5cxx204spanIhLm18446744073709551615EEE.exit: ; p
   %spec.select53 = zext i1 %.not47 to i8
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %108, %116, %123, %80, %._crit_edge.loopexit, %.thread96
-  %.4.lcssa = phi i8 [ %.3, %.thread96 ], [ %spec.select53, %._crit_edge.loopexit ], [ 0, %80 ], [ 0, %123 ], [ 0, %116 ], [ 0, %108 ]
+._crit_edge:                                      ; preds = %108, %116, %123, %80, %._crit_edge.loopexit, %.thread103
+  %.4.lcssa = phi i8 [ %.3, %.thread103 ], [ %spec.select53, %._crit_edge.loopexit ], [ 0, %80 ], [ 0, %123 ], [ 0, %116 ], [ 0, %108 ]
   %138 = add i32 %84, 1
   %139 = zext i32 %138 to i64
   %140 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #19
@@ -1733,11 +1733,11 @@ define void @_ZN8WasmEdge7FileMgr11jumpContentEv(ptr dead_on_unwind noalias writ
   br i1 %36, label %38, label %40
 
 .loopexit:                                        ; preds = %20, %14, %19
-  %.sink26.i = phi i32 [ 258, %19 ], [ 277, %20 ], [ 278, %14 ]
-  store i32 %.sink26.i, ptr %1, align 8, !noalias !74
+  %.sink28.i = phi i32 [ 258, %19 ], [ 277, %20 ], [ 278, %14 ]
+  store i32 %.sink28.i, ptr %1, align 8, !noalias !74
   store i8 0, ptr %0, align 4
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %.sink26.i, ptr %37, align 4
+  store i32 %.sink28.i, ptr %37, align 4
   br label %42
 
 38:                                               ; preds = %33

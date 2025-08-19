@@ -700,7 +700,7 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17h47677aab4e497c2bE.exit.thread:
 31:                                               ; preds = %25
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !32
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !27
-  br label %.thread59
+  br label %.thread63
 
 32:                                               ; preds = %25, %.lr.ph.i
   %.sroa.7.1 = phi i64 [ %.sroa.7.0, %.lr.ph.i ], [ %30, %25 ]
@@ -716,18 +716,18 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17h47677aab4e497c2bE.exit.thread:
 
 _ZN4core4iter6traits8iterator8Iterator8try_fold17h47677aab4e497c2bE.exit: ; preds = %32
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !27
-  br i1 %.sroa.0.1, label %.thread59, label %.thread
+  br i1 %.sroa.0.1, label %.thread63, label %.thread
 
 .thread:                                          ; preds = %_ZN4core4iter6traits8iterator8Iterator8try_fold17h47677aab4e497c2bE.exit, %_ZN4core4iter6traits8iterator8Iterator8try_fold17h47677aab4e497c2bE.exit.thread
-  br label %.thread59
+  br label %.thread63
 
-.thread59:                                        ; preds = %31, %_ZN4core4iter6traits8iterator8Iterator8try_fold17h47677aab4e497c2bE.exit, %.thread
+.thread63:                                        ; preds = %31, %_ZN4core4iter6traits8iterator8Iterator8try_fold17h47677aab4e497c2bE.exit, %.thread
   %35 = phi i64 [ 0, %.thread ], [ %.sroa.7.1, %_ZN4core4iter6traits8iterator8Iterator8try_fold17h47677aab4e497c2bE.exit ], [ %30, %31 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   %36 = icmp ult i64 %35, %4
   br i1 %36, label %49, label %37
 
-37:                                               ; preds = %.thread59
+37:                                               ; preds = %.thread63
   %38 = sub nuw i64 %35, %4
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %39 = add i64 %4, %2
@@ -758,7 +758,7 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17h47677aab4e497c2bE.exit: ; pred
   invoke void @"_ZN69_$LT$str$u20$as$u20$ruff_source_file..newlines..UniversalNewlines$GT$18universal_newlines17he54d8483dcfddcb7E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %14, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2)
           to label %51 unwind label %.loopexit.split-lp
 
-49:                                               ; preds = %.thread59
+49:                                               ; preds = %.thread63
   store i64 -9223372036854775808, ptr %0, align 8
   br label %60
 

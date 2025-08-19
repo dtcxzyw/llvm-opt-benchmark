@@ -490,8 +490,8 @@ _ZNK5clang23NonTypeTemplateParmDecl28hasPlaceholderTypeConstraintEv.exit: ; pred
 
 88:                                               ; preds = %.lr.ph.i
   %89 = and i32 %86, 127
-  %.not44.i = icmp eq i32 %89, 65
-  br i1 %.not44.i, label %90, label %.critedge.i
+  %.not46.i = icmp eq i32 %89, 65
+  br i1 %.not46.i, label %90, label %.critedge.i
 
 90:                                               ; preds = %88
   %91 = getelementptr inbounds nuw i8, ptr %84, i64 60
@@ -660,9 +660,9 @@ _ZL45DefaultTemplateArgumentContainsUnexpandedPackIN5clang20TemplateTypeParmDecl
   br i1 %.not76, label %_ZNK5clang23NonTypeTemplateParmDecl28hasPlaceholderTypeConstraintEv.exit.thread, label %_ZNK5clang23NonTypeTemplateParmDecl28hasPlaceholderTypeConstraintEv.exit.thread.sink.split
 
 _ZNK5clang23NonTypeTemplateParmDecl28hasPlaceholderTypeConstraintEv.exit.thread.sink.split: ; preds = %94, %160, %_ZL45DefaultTemplateArgumentContainsUnexpandedPackIN5clang24TemplateTemplateParmDeclEEbRKT_.exit, %75, %_ZNK5clang23NonTypeTemplateParmDecl28hasPlaceholderTypeConstraintEv.exit
-  %.sink84 = phi i32 [ -2147483648, %_ZNK5clang23NonTypeTemplateParmDecl28hasPlaceholderTypeConstraintEv.exit ], [ 536870912, %75 ], [ 536870912, %_ZL45DefaultTemplateArgumentContainsUnexpandedPackIN5clang24TemplateTemplateParmDeclEEbRKT_.exit ], [ -2147483648, %160 ], [ 536870912, %94 ]
+  %.sink86 = phi i32 [ -2147483648, %_ZNK5clang23NonTypeTemplateParmDecl28hasPlaceholderTypeConstraintEv.exit ], [ 536870912, %75 ], [ 536870912, %_ZL45DefaultTemplateArgumentContainsUnexpandedPackIN5clang24TemplateTemplateParmDeclEEbRKT_.exit ], [ -2147483648, %160 ], [ 536870912, %94 ]
   %164 = load i32, ptr %12, align 4
-  %165 = or i32 %164, %.sink84
+  %165 = or i32 %164, %.sink86
   store i32 %165, ptr %12, align 4
   br label %_ZNK5clang23NonTypeTemplateParmDecl28hasPlaceholderTypeConstraintEv.exit.thread
 
@@ -738,8 +738,8 @@ define dso_local noundef zeroext i1 @_ZNK5clang21TemplateParameterList31contains
 
 12:                                               ; preds = %.lr.ph
   %13 = and i32 %10, 127
-  %.not44 = icmp eq i32 %13, 65
-  br i1 %.not44, label %14, label %.critedge
+  %.not46 = icmp eq i32 %13, 65
+  br i1 %.not46, label %14, label %.critedge
 
 14:                                               ; preds = %12
   %15 = getelementptr inbounds nuw i8, ptr %8, i64 60
@@ -1496,7 +1496,7 @@ _ZNK5clang23NonTypeTemplateParmDecl28getPlaceholderTypeConstraintEv.exit: ; pred
 
 _ZNK5clang23NonTypeTemplateParmDecl28getPlaceholderTypeConstraintEv.exit.thread.sink.split.sink.split: ; preds = %47, %22
   %.sink = phi i32 [ %25, %22 ], [ %48, %47 ]
-  %.sink46.ph = phi ptr [ %24, %22 ], [ %46, %47 ]
+  %.sink57.ph = phi ptr [ %24, %22 ], [ %46, %47 ]
   %50 = zext i32 %.sink to i64
   %51 = add nuw nsw i64 %50, 1
   tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull %11, i64 noundef %51, i64 noundef 8) #22
@@ -1504,12 +1504,12 @@ _ZNK5clang23NonTypeTemplateParmDecl28getPlaceholderTypeConstraintEv.exit.thread.
   br label %_ZNK5clang23NonTypeTemplateParmDecl28getPlaceholderTypeConstraintEv.exit.thread.sink.split
 
 _ZNK5clang23NonTypeTemplateParmDecl28getPlaceholderTypeConstraintEv.exit.thread.sink.split: ; preds = %_ZNK5clang23NonTypeTemplateParmDecl28getPlaceholderTypeConstraintEv.exit.thread.sink.split.sink.split, %47, %22
-  %.sink48 = phi i32 [ %25, %22 ], [ %48, %47 ], [ %.pre.i33, %_ZNK5clang23NonTypeTemplateParmDecl28getPlaceholderTypeConstraintEv.exit.thread.sink.split.sink.split ]
-  %.sink46 = phi ptr [ %24, %22 ], [ %46, %47 ], [ %.sink46.ph, %_ZNK5clang23NonTypeTemplateParmDecl28getPlaceholderTypeConstraintEv.exit.thread.sink.split.sink.split ]
+  %.sink59 = phi i32 [ %25, %22 ], [ %48, %47 ], [ %.pre.i33, %_ZNK5clang23NonTypeTemplateParmDecl28getPlaceholderTypeConstraintEv.exit.thread.sink.split.sink.split ]
+  %.sink57 = phi ptr [ %24, %22 ], [ %46, %47 ], [ %.sink57.ph, %_ZNK5clang23NonTypeTemplateParmDecl28getPlaceholderTypeConstraintEv.exit.thread.sink.split.sink.split ]
   %52 = load ptr, ptr %1, align 8, !tbaa !79
-  %53 = zext i32 %.sink48 to i64
+  %53 = zext i32 %.sink59 to i64
   %54 = getelementptr inbounds nuw ptr, ptr %52, i64 %53
-  %55 = ptrtoint ptr %.sink46 to i64
+  %55 = ptrtoint ptr %.sink57 to i64
   store i64 %55, ptr %54, align 1
   %56 = load i32, ptr %9, align 8, !tbaa !77
   %57 = add i32 %56, 1

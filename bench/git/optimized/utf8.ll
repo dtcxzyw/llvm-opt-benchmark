@@ -39,7 +39,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.19 = private unnamed_addr constant [11 x i8] c"./strbuf.h\00", align 1
 @.str.20 = private unnamed_addr constant [30 x i8] c"strbuf_setlen() beyond buffer\00", align 1
 @.str.21 = private unnamed_addr constant [4 x i8] c"utf\00", align 1
-@.str.22 = private unnamed_addr constant [2 x i8] c"-\00", align 1
 @.str.23 = private unnamed_addr constant [27 x i8] c"size_t overflow: %lu + %lu\00", align 1
 @.str.24 = private unnamed_addr constant [27 x i8] c"size_t overflow: %lu * %lu\00", align 1
 @.str.25 = private constant [6 x i8] c"UTF-8\00", align 1
@@ -643,9 +642,10 @@ define dso_local void @strbuf_add_wrapped_text(ptr noundef %0, ptr noundef %1, i
   %.not.i = icmp eq i8 %21, 0
   br i1 %.not.i, label %strbuf_add_indented_text.exit, label %.lr.ph.i, !llvm.loop !23
 
-.loopexit132:                                     ; preds = %.loopexit132.backedge, %.loopexit132.outer182
-  %.promoted = phi ptr [ %.promoted.ph183, %.loopexit132.outer182 ], [ %106, %.loopexit132.backedge ]
-  %.148 = phi i32 [ %.148.ph185, %.loopexit132.outer182 ], [ %.148.be, %.loopexit132.backedge ]
+.loopexit132:                                     ; preds = %.loopexit132.backedge, %.loopexit132.outer
+  %.promoted = phi ptr [ %.promoted.ph, %.loopexit132.outer ], [ %.promoted.be, %.loopexit132.backedge ]
+  %.153 = phi i32 [ %.153.ph, %.loopexit132.outer ], [ %.153.be, %.loopexit132.backedge ]
+  %.148 = phi i32 [ %.148.ph, %.loopexit132.outer ], [ %.148.be, %.loopexit132.backedge ]
   br label %22
 
 22:                                               ; preds = %display_mode_esc_sequence_len.exit, %.loopexit132
@@ -697,20 +697,20 @@ display_mode_esc_sequence_len.exit:               ; preds = %36
   %43 = load i8, ptr %42, align 1, !tbaa !4
   %44 = and i8 %43, 1
   %.not72 = icmp eq i8 %44, 0
-  br i1 %.not72, label %103, label %.loopexit181
+  br i1 %.not72, label %103, label %.loopexit192
 
 .loopexit:                                        ; preds = %22
   store ptr %23, ptr %6, align 8
-  br label %.loopexit181
+  br label %.loopexit192
 
-.loopexit181:                                     ; preds = %.thread, %.loopexit
+.loopexit192:                                     ; preds = %.thread, %.loopexit
   %.not71109 = phi i1 [ true, %.loopexit ], [ false, %.thread ]
   %45 = icmp sgt i32 %.148, %4
   %46 = icmp ne ptr %.159.ph, null
   %or.cond = and i1 %45, %46
   br i1 %or.cond, label %.thread118, label %47
 
-47:                                               ; preds = %.loopexit181
+47:                                               ; preds = %.loopexit192
   %48 = icmp eq ptr %23, %.055.ph.ph
   %or.cond78 = select i1 %.not71109, i1 %48, i1 false
   br i1 %or.cond78, label %strbuf_add_indented_text.exit, label %49
@@ -719,7 +719,7 @@ display_mode_esc_sequence_len.exit:               ; preds = %36
   br i1 %46, label %51, label %50
 
 50:                                               ; preds = %49
-  tail call void @strbuf_addchars(ptr noundef %0, i32 noundef 32, i64 noundef %155) #23
+  tail call void @strbuf_addchars(ptr noundef %0, i32 noundef 32, i64 noundef %157) #23
   br label %51
 
 51:                                               ; preds = %49, %50
@@ -814,8 +814,8 @@ strbuf_addch.exit90:                              ; preds = %strbuf_avail.exit.i
   store i8 0, ptr %84, align 1, !tbaa !4
   br label %100
 
-.thread118:                                       ; preds = %71, %.loopexit181, %strbuf_addch.exit
-  %.563 = phi ptr [ %59, %strbuf_addch.exit ], [ %59, %71 ], [ %.159.ph, %.loopexit181 ]
+.thread118:                                       ; preds = %71, %.loopexit192, %strbuf_addch.exit
+  %.563 = phi ptr [ %59, %strbuf_addch.exit ], [ %59, %71 ], [ %.159.ph, %.loopexit192 ]
   %85 = load i64, ptr %0, align 8, !tbaa !25
   %.not.i.i91 = icmp eq i64 %85, 0
   br i1 %.not.i.i91, label %strbuf_avail.exit.thread.i96, label %strbuf_avail.exit.i92
@@ -853,12 +853,12 @@ strbuf_addch.exit100:                             ; preds = %strbuf_avail.exit.i
   store ptr %99, ptr %6, align 8, !tbaa !9
   br label %.loopexit132.outer.outer.backedge
 
-.loopexit132.outer.outer.backedge:                ; preds = %strbuf_addch.exit100, %151, %153
-  %.159.ph.ph.be = phi ptr [ %spec.select, %153 ], [ %spec.select, %151 ], [ null, %strbuf_addch.exit100 ]
-  %.055.ph.ph.be = phi ptr [ %1, %153 ], [ %1, %151 ], [ %99, %strbuf_addch.exit100 ]
-  %.153.ph.ph.be = phi i32 [ 0, %153 ], [ 0, %151 ], [ %.153.ph184, %strbuf_addch.exit100 ]
-  %.148.ph.ph.be = phi i32 [ %spec.select76, %153 ], [ %spec.select76, %151 ], [ %3, %strbuf_addch.exit100 ]
-  %.046.ph.ph.be = phi i32 [ %2, %153 ], [ %2, %151 ], [ %3, %strbuf_addch.exit100 ]
+.loopexit132.outer.outer.backedge:                ; preds = %strbuf_addch.exit100, %153, %155
+  %.159.ph.ph.be = phi ptr [ %spec.select, %155 ], [ %spec.select, %153 ], [ null, %strbuf_addch.exit100 ]
+  %.055.ph.ph.be = phi ptr [ %1, %155 ], [ %1, %153 ], [ %99, %strbuf_addch.exit100 ]
+  %.153.ph.ph.be = phi i32 [ 0, %155 ], [ 0, %153 ], [ %.153, %strbuf_addch.exit100 ]
+  %.148.ph.ph.be = phi i32 [ %spec.select76, %155 ], [ %spec.select76, %153 ], [ %3, %strbuf_addch.exit100 ]
+  %.046.ph.ph.be = phi i32 [ %2, %155 ], [ %2, %153 ], [ %3, %strbuf_addch.exit100 ]
   br label %.loopexit132.outer.outer
 
 100:                                              ; preds = %55, %strbuf_addch.exit90, %56
@@ -870,7 +870,8 @@ strbuf_addch.exit100:                             ; preds = %strbuf_avail.exit.i
   br label %.loopexit132.outer
 
 103:                                              ; preds = %.thread
-  br i1 %.not73, label %156, label %104
+  %.not73 = icmp eq i32 %.153, 0
+  br i1 %.not73, label %158, label %104
 
 104:                                              ; preds = %103
   %105 = call fastcc i32 @pick_one_utf8_char(ptr noundef nonnull %6, ptr noundef null)
@@ -885,12 +886,12 @@ strbuf_addch.exit100:                             ; preds = %strbuf_avail.exit.i
   %110 = add nsw i32 %105, -127
   %or.cond.i.i = icmp ult i32 %110, 33
   %or.cond10.i.i = select i1 %109, i1 true, i1 %or.cond.i.i
-  br i1 %or.cond10.i.i, label %.loopexit132.backedge, label %111
+  br i1 %or.cond10.i.i, label %utf8_width.exit.thread, label %111
 
 111:                                              ; preds = %108
   %112 = add nsw i32 %105, -918000
   %or.cond25.i.i = icmp ult i32 %112, -917232
-  br i1 %or.cond25.i.i, label %.loopexit132.backedge, label %.preheader.i.i.i
+  br i1 %or.cond25.i.i, label %utf8_width.exit.thread, label %.preheader.i.i.i
 
 .preheader.i.i.i:                                 ; preds = %111, %128
   %.01823.i.i.i = phi i32 [ %.1.i.i.i, %128 ], [ 0, %111 ]
@@ -961,35 +962,42 @@ strbuf_addch.exit100:                             ; preds = %strbuf_avail.exit.i
   %.not.i17.i.i = icmp slt i32 %.120.i15.i.i, %.1.i16.i.i
   br i1 %.not.i17.i.i, label %utf8_width.exit, label %.preheader.i11.i.i, !llvm.loop !16
 
+utf8_width.exit.thread:                           ; preds = %108, %111
+  %.0.i103.ph = phi i32 [ 1, %111 ], [ -1, %108 ]
+  %147 = add nsw i32 %.0.i103.ph, %.148
+  br label %.loopexit132.backedge
+
 utf8_width.exit:                                  ; preds = %123, %141, %146, %104, %129
   %.0.i103 = phi i32 [ 0, %104 ], [ 1, %129 ], [ 1, %146 ], [ 2, %141 ], [ 0, %123 ]
-  br i1 %.not.i101, label %147, label %.loopexit132.backedge
+  %148 = add nsw i32 %.0.i103, %.148
+  br i1 %.not.i101, label %149, label %.loopexit132.backedge
 
-.loopexit132.backedge:                            ; preds = %111, %108, %utf8_width.exit
-  %.0.i103.ph.pn = phi i32 [ %.0.i103, %utf8_width.exit ], [ 1, %111 ], [ -1, %108 ]
-  %.148.be = add nsw i32 %.0.i103.ph.pn, %.148
+.loopexit132.backedge:                            ; preds = %utf8_width.exit, %158, %utf8_width.exit.thread
+  %.promoted.be = phi ptr [ %106, %utf8_width.exit.thread ], [ %160, %158 ], [ %106, %utf8_width.exit ]
+  %.153.be = phi i32 [ 1, %utf8_width.exit.thread ], [ 0, %158 ], [ 1, %utf8_width.exit ]
+  %.148.be = phi i32 [ %147, %utf8_width.exit.thread ], [ %159, %158 ], [ %148, %utf8_width.exit ]
   br label %.loopexit132
 
-147:                                              ; preds = %utf8_width.exit
+149:                                              ; preds = %utf8_width.exit
   store ptr %1, ptr %6, align 8, !tbaa !9
-  %148 = load i64, ptr %0, align 8, !tbaa !25
-  %spec.select.i104 = tail call i64 @llvm.usub.sat.i64(i64 %148, i64 1)
-  %149 = icmp ugt i64 %8, %spec.select.i104
-  br i1 %149, label %150, label %151
+  %150 = load i64, ptr %0, align 8, !tbaa !25
+  %spec.select.i104 = tail call i64 @llvm.usub.sat.i64(i64 %150, i64 1)
+  %151 = icmp ugt i64 %8, %spec.select.i104
+  br i1 %151, label %152, label %153
 
-150:                                              ; preds = %147
+152:                                              ; preds = %149
   tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.19, i32 noundef 167, ptr noundef nonnull @.str.20) #21
   unreachable
 
-151:                                              ; preds = %147
+153:                                              ; preds = %149
   store i64 %8, ptr %7, align 8, !tbaa !21
-  %152 = load ptr, ptr %11, align 8, !tbaa !26
-  %.not9.i = icmp eq ptr %152, @strbuf_slopbuf
-  br i1 %.not9.i, label %.loopexit132.outer.outer.backedge, label %153
+  %154 = load ptr, ptr %11, align 8, !tbaa !26
+  %.not9.i = icmp eq ptr %154, @strbuf_slopbuf
+  br i1 %.not9.i, label %.loopexit132.outer.outer.backedge, label %155
 
-153:                                              ; preds = %151
-  %154 = getelementptr inbounds nuw i8, ptr %152, i64 %8
-  store i8 0, ptr %154, align 1, !tbaa !4
+155:                                              ; preds = %153
+  %156 = getelementptr inbounds nuw i8, ptr %154, i64 %8
+  store i8 0, ptr %156, align 1, !tbaa !4
   br label %.loopexit132.outer.outer.backedge
 
 .loopexit132.outer.outer:                         ; preds = %.loopexit132.outer.outer.backedge, %.preheader
@@ -998,28 +1006,21 @@ utf8_width.exit:                                  ; preds = %123, %141, %146, %1
   %.153.ph.ph = phi i32 [ 1, %.preheader ], [ %.153.ph.ph.be, %.loopexit132.outer.outer.backedge ]
   %.148.ph.ph = phi i32 [ %spec.select76, %.preheader ], [ %.148.ph.ph.be, %.loopexit132.outer.outer.backedge ]
   %.046.ph.ph = phi i32 [ %2, %.preheader ], [ %.046.ph.ph.be, %.loopexit132.outer.outer.backedge ]
-  %155 = sext i32 %.046.ph.ph to i64
+  %157 = sext i32 %.046.ph.ph to i64
   br label %.loopexit132.outer
 
 .loopexit132.outer:                               ; preds = %.loopexit132.outer.outer, %100
   %.promoted.ph = phi ptr [ %102, %100 ], [ %.055.ph.ph, %.loopexit132.outer.outer ]
   %.159.ph = phi ptr [ %.361, %100 ], [ %.159.ph.ph, %.loopexit132.outer.outer ]
-  %.153.ph = phi i32 [ %.153.ph184, %100 ], [ %.153.ph.ph, %.loopexit132.outer.outer ]
+  %.153.ph = phi i32 [ %.153, %100 ], [ %.153.ph.ph, %.loopexit132.outer.outer ]
   %.148.ph = phi i32 [ %101, %100 ], [ %.148.ph.ph, %.loopexit132.outer.outer ]
-  br label %.loopexit132.outer182
-
-.loopexit132.outer182:                            ; preds = %.loopexit132.outer, %156
-  %.promoted.ph183 = phi ptr [ %.promoted.ph, %.loopexit132.outer ], [ %158, %156 ]
-  %.153.ph184 = phi i32 [ %.153.ph, %.loopexit132.outer ], [ 0, %156 ]
-  %.148.ph185 = phi i32 [ %.148.ph, %.loopexit132.outer ], [ %157, %156 ]
-  %.not73 = icmp eq i32 %.153.ph184, 0
   br label %.loopexit132
 
-156:                                              ; preds = %103
-  %157 = add nsw i32 %.148, 1
-  %158 = getelementptr inbounds nuw i8, ptr %23, i64 1
-  store ptr %158, ptr %6, align 8, !tbaa !9
-  br label %.loopexit132.outer182
+158:                                              ; preds = %103
+  %159 = add nsw i32 %.148, 1
+  %160 = getelementptr inbounds nuw i8, ptr %23, i64 1
+  store ptr %160, ptr %6, align 8, !tbaa !9
+  br label %.loopexit132.backedge
 
 strbuf_add_indented_text.exit:                    ; preds = %47, %51, %.lr.ph.i, %12
   ret void
@@ -1264,128 +1265,81 @@ declare void @strbuf_release(ptr noundef) local_unnamed_addr #6
 ; Function Attrs: nofree norecurse nounwind memory(read) uwtable
 define dso_local range(i32 0, 2) i32 @is_encoding_utf8(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #8 {
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %4, label %2
+  br i1 %.not, label %36, label %.preheader
 
-2:                                                ; preds = %1
-  %3 = tail call fastcc i32 @same_utf_encoding(ptr noundef nonnull @.str, ptr noundef nonnull %0)
-  br label %4
+.preheader:                                       ; preds = %1, %2
+  %.06.i.i = phi ptr [ %4, %2 ], [ @.str, %1 ]
+  %.05.idx.i.i = phi i64 [ %.05.add.i.i, %2 ], [ 0, %1 ]
+  %exitcond.i.i = icmp eq i64 %.05.idx.i.i, 3
+  br i1 %exitcond.i.i, label %skip_iprefix.exit.i, label %2
 
-4:                                                ; preds = %2, %1
-  %.0 = phi i32 [ 1, %1 ], [ %3, %2 ]
-  ret i32 %.0
-}
+2:                                                ; preds = %.preheader
+  %.05.ptr.i.i = getelementptr inbounds nuw i8, ptr @.str.21, i64 %.05.idx.i.i
+  %3 = load i8, ptr %.05.ptr.i.i, align 1, !tbaa !4
+  %4 = getelementptr inbounds nuw i8, ptr %.06.i.i, i64 1
+  %5 = load i8, ptr %.06.i.i, align 1, !tbaa !4
+  %6 = zext i8 %5 to i64
+  %7 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %6
+  %8 = load i8, ptr %7, align 1, !tbaa !4
+  %9 = shl i8 %8, 3
+  %10 = and i8 %9, 32
+  %spec.select.i1.i.i = or i8 %10, %5
+  %.05.add.i.i = add nuw nsw i64 %.05.idx.i.i, 1
+  %11 = zext i8 %3 to i64
+  %12 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %11
+  %13 = load i8, ptr %12, align 1, !tbaa !4
+  %14 = shl i8 %13, 3
+  %15 = and i8 %14, 32
+  %spec.select.i72.i.i = or i8 %15, %3
+  %16 = icmp eq i8 %spec.select.i1.i.i, %spec.select.i72.i.i
+  br i1 %16, label %.preheader, label %same_utf_encoding.exit.thread, !llvm.loop !28
 
-; Function Attrs: nofree norecurse nounwind memory(read) uwtable
-define internal fastcc range(i32 0, 2) i32 @same_utf_encoding(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #8 {
-  %scevgep.i = getelementptr i8, ptr %0, i64 3
-  br label %3
+skip_iprefix.exit.i:                              ; preds = %.preheader
+  %scevgep.i3.i = getelementptr i8, ptr %0, i64 3
+  br label %17
 
-3:                                                ; preds = %4, %2
-  %.06.i = phi ptr [ %0, %2 ], [ %6, %4 ]
-  %.05.idx.i = phi i64 [ 0, %2 ], [ %.05.add.i, %4 ]
-  %exitcond.i = icmp eq i64 %.05.idx.i, 3
-  br i1 %exitcond.i, label %skip_iprefix.exit, label %4
+17:                                               ; preds = %18, %skip_iprefix.exit.i
+  %.06.i4.i = phi ptr [ %0, %skip_iprefix.exit.i ], [ %20, %18 ]
+  %.05.idx.i5.i = phi i64 [ 0, %skip_iprefix.exit.i ], [ %.05.add.i9.i, %18 ]
+  %exitcond.i6.i = icmp eq i64 %.05.idx.i5.i, 3
+  br i1 %exitcond.i6.i, label %skip_prefix.exit.i, label %18
 
-4:                                                ; preds = %3
-  %.05.ptr.i = getelementptr inbounds nuw i8, ptr @.str.21, i64 %.05.idx.i
-  %5 = load i8, ptr %.05.ptr.i, align 1, !tbaa !4
-  %6 = getelementptr inbounds nuw i8, ptr %.06.i, i64 1
-  %7 = load i8, ptr %.06.i, align 1, !tbaa !4
-  %8 = zext i8 %7 to i64
-  %9 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %8
-  %10 = load i8, ptr %9, align 1, !tbaa !4
-  %11 = shl i8 %10, 3
-  %12 = and i8 %11, 32
-  %spec.select.i1.i = or i8 %12, %7
-  %.05.add.i = add nuw nsw i64 %.05.idx.i, 1
-  %13 = zext i8 %5 to i64
-  %14 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %13
-  %15 = load i8, ptr %14, align 1, !tbaa !4
-  %16 = shl i8 %15, 3
-  %17 = and i8 %16, 32
-  %spec.select.i72.i = or i8 %17, %5
-  %18 = icmp eq i8 %spec.select.i1.i, %spec.select.i72.i
-  br i1 %18, label %3, label %skip_iprefix.exit.thread, !llvm.loop !28
+18:                                               ; preds = %17
+  %.05.ptr.i7.i = getelementptr inbounds nuw i8, ptr @.str.21, i64 %.05.idx.i5.i
+  %19 = load i8, ptr %.05.ptr.i7.i, align 1, !tbaa !4
+  %20 = getelementptr inbounds nuw i8, ptr %.06.i4.i, i64 1
+  %21 = load i8, ptr %.06.i4.i, align 1, !tbaa !4
+  %22 = zext i8 %21 to i64
+  %23 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %22
+  %24 = load i8, ptr %23, align 1, !tbaa !4
+  %25 = shl i8 %24, 3
+  %26 = and i8 %25, 32
+  %spec.select.i1.i8.i = or i8 %26, %21
+  %.05.add.i9.i = add nuw nsw i64 %.05.idx.i5.i, 1
+  %27 = zext i8 %19 to i64
+  %28 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %27
+  %29 = load i8, ptr %28, align 1, !tbaa !4
+  %30 = shl i8 %29, 3
+  %31 = and i8 %30, 32
+  %spec.select.i72.i10.i = or i8 %31, %19
+  %32 = icmp eq i8 %spec.select.i1.i8.i, %spec.select.i72.i10.i
+  br i1 %32, label %17, label %same_utf_encoding.exit.thread, !llvm.loop !28
 
-skip_iprefix.exit:                                ; preds = %3
-  %scevgep.i3 = getelementptr i8, ptr %1, i64 3
-  br label %19
+skip_prefix.exit.i:                               ; preds = %17
+  %scevgep.i15.i = getelementptr i8, ptr %0, i64 4
+  %33 = load i8, ptr %scevgep.i3.i, align 1, !tbaa !4
+  %34 = icmp eq i8 %33, 45
+  %.1.i = select i1 %34, ptr %scevgep.i15.i, ptr %scevgep.i3.i
+  %35 = tail call i32 @strcasecmp(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 4), ptr noundef %.1.i) #22
+  %.fr = freeze i32 %35
+  %.not2.i.not = icmp eq i32 %.fr, 0
+  br i1 %.not2.i.not, label %36, label %same_utf_encoding.exit.thread
 
-19:                                               ; preds = %20, %skip_iprefix.exit
-  %.06.i4 = phi ptr [ %1, %skip_iprefix.exit ], [ %22, %20 ]
-  %.05.idx.i5 = phi i64 [ 0, %skip_iprefix.exit ], [ %.05.add.i9, %20 ]
-  %exitcond.i6 = icmp eq i64 %.05.idx.i5, 3
-  br i1 %exitcond.i6, label %skip_iprefix.exit12, label %20
+same_utf_encoding.exit.thread:                    ; preds = %2, %18, %skip_prefix.exit.i
+  br label %36
 
-20:                                               ; preds = %19
-  %.05.ptr.i7 = getelementptr inbounds nuw i8, ptr @.str.21, i64 %.05.idx.i5
-  %21 = load i8, ptr %.05.ptr.i7, align 1, !tbaa !4
-  %22 = getelementptr inbounds nuw i8, ptr %.06.i4, i64 1
-  %23 = load i8, ptr %.06.i4, align 1, !tbaa !4
-  %24 = zext i8 %23 to i64
-  %25 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %24
-  %26 = load i8, ptr %25, align 1, !tbaa !4
-  %27 = shl i8 %26, 3
-  %28 = and i8 %27, 32
-  %spec.select.i1.i8 = or i8 %28, %23
-  %.05.add.i9 = add nuw nsw i64 %.05.idx.i5, 1
-  %29 = zext i8 %21 to i64
-  %30 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %29
-  %31 = load i8, ptr %30, align 1, !tbaa !4
-  %32 = shl i8 %31, 3
-  %33 = and i8 %32, 32
-  %spec.select.i72.i10 = or i8 %33, %21
-  %34 = icmp eq i8 %spec.select.i1.i8, %spec.select.i72.i10
-  br i1 %34, label %19, label %skip_iprefix.exit.thread, !llvm.loop !28
-
-skip_iprefix.exit12:                              ; preds = %19
-  %scevgep.i13 = getelementptr i8, ptr %0, i64 4
-  br label %35
-
-35:                                               ; preds = %36, %skip_iprefix.exit12
-  %.07.i = phi ptr [ %scevgep.i, %skip_iprefix.exit12 ], [ %38, %36 ]
-  %.06.idx.i = phi i64 [ 0, %skip_iprefix.exit12 ], [ %.06.add.i, %36 ]
-  %exitcond.i14 = icmp eq i64 %.06.idx.i, 1
-  br i1 %exitcond.i14, label %skip_prefix.exit, label %36
-
-36:                                               ; preds = %35
-  %.06.ptr.i = getelementptr inbounds nuw i8, ptr @.str.22, i64 %.06.idx.i
-  %37 = load i8, ptr %.06.ptr.i, align 1, !tbaa !4
-  %38 = getelementptr inbounds nuw i8, ptr %.07.i, i64 1
-  %39 = load i8, ptr %.07.i, align 1, !tbaa !4
-  %.06.add.i = add nuw nsw i64 %.06.idx.i, 1
-  %40 = icmp eq i8 %39, %37
-  br i1 %40, label %35, label %skip_prefix.exit, !llvm.loop !29
-
-skip_prefix.exit:                                 ; preds = %35, %36
-  %.129 = phi ptr [ %scevgep.i, %36 ], [ %scevgep.i13, %35 ]
-  %scevgep.i15 = getelementptr i8, ptr %1, i64 4
-  br label %41
-
-41:                                               ; preds = %42, %skip_prefix.exit
-  %.07.i16 = phi ptr [ %scevgep.i3, %skip_prefix.exit ], [ %44, %42 ]
-  %.06.idx.i17 = phi i64 [ 0, %skip_prefix.exit ], [ %.06.add.i20, %42 ]
-  %exitcond.i18 = icmp eq i64 %.06.idx.i17, 1
-  br i1 %exitcond.i18, label %skip_prefix.exit22, label %42
-
-42:                                               ; preds = %41
-  %.06.ptr.i19 = getelementptr inbounds nuw i8, ptr @.str.22, i64 %.06.idx.i17
-  %43 = load i8, ptr %.06.ptr.i19, align 1, !tbaa !4
-  %44 = getelementptr inbounds nuw i8, ptr %.07.i16, i64 1
-  %45 = load i8, ptr %.07.i16, align 1, !tbaa !4
-  %.06.add.i20 = add nuw nsw i64 %.06.idx.i17, 1
-  %46 = icmp eq i8 %45, %43
-  br i1 %46, label %41, label %skip_prefix.exit22, !llvm.loop !29
-
-skip_prefix.exit22:                               ; preds = %41, %42
-  %.1 = phi ptr [ %scevgep.i3, %42 ], [ %scevgep.i15, %41 ]
-  %47 = tail call i32 @strcasecmp(ptr noundef %.129, ptr noundef %.1) #22
-  %.not2 = icmp eq i32 %47, 0
-  %48 = zext i1 %.not2 to i32
-  br label %skip_iprefix.exit.thread
-
-skip_iprefix.exit.thread:                         ; preds = %4, %20, %skip_prefix.exit22
-  %.0 = phi i32 [ %48, %skip_prefix.exit22 ], [ 0, %20 ], [ 0, %4 ]
+36:                                               ; preds = %same_utf_encoding.exit.thread, %skip_prefix.exit.i, %1
+  %.0 = phi i32 [ 1, %1 ], [ 0, %same_utf_encoding.exit.thread ], [ 1, %skip_prefix.exit.i ]
   ret i32 %.0
 }
 
@@ -1395,18 +1349,88 @@ define dso_local range(i32 0, 2) i32 @same_encoding(ptr noundef readonly capture
   %spec.store.select = select i1 %.not, ptr @.str.25, ptr %0
   %.not7 = icmp eq ptr %1, null
   %spec.store.select1 = select i1 %.not7, ptr @.str.25, ptr %1
-  %3 = tail call fastcc i32 @same_utf_encoding(ptr noundef nonnull %spec.store.select, ptr noundef nonnull %spec.store.select1)
-  %.not8 = icmp eq i32 %3, 0
-  br i1 %.not8, label %4, label %7
+  %scevgep.i.i = getelementptr i8, ptr %spec.store.select, i64 3
+  br label %3
 
-4:                                                ; preds = %2
-  %5 = tail call i32 @strcasecmp(ptr noundef nonnull %spec.store.select, ptr noundef nonnull %spec.store.select1) #22
-  %.not9 = icmp eq i32 %5, 0
-  %6 = zext i1 %.not9 to i32
-  br label %7
+3:                                                ; preds = %4, %2
+  %.06.i.i = phi ptr [ %spec.store.select, %2 ], [ %6, %4 ]
+  %.05.idx.i.i = phi i64 [ 0, %2 ], [ %.05.add.i.i, %4 ]
+  %exitcond.i.i = icmp eq i64 %.05.idx.i.i, 3
+  br i1 %exitcond.i.i, label %skip_iprefix.exit.i, label %4
 
-7:                                                ; preds = %2, %4
-  %.0 = phi i32 [ %6, %4 ], [ 1, %2 ]
+4:                                                ; preds = %3
+  %.05.ptr.i.i = getelementptr inbounds nuw i8, ptr @.str.21, i64 %.05.idx.i.i
+  %5 = load i8, ptr %.05.ptr.i.i, align 1, !tbaa !4
+  %6 = getelementptr inbounds nuw i8, ptr %.06.i.i, i64 1
+  %7 = load i8, ptr %.06.i.i, align 1, !tbaa !4
+  %8 = zext i8 %7 to i64
+  %9 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %8
+  %10 = load i8, ptr %9, align 1, !tbaa !4
+  %11 = shl i8 %10, 3
+  %12 = and i8 %11, 32
+  %spec.select.i1.i.i = or i8 %12, %7
+  %.05.add.i.i = add nuw nsw i64 %.05.idx.i.i, 1
+  %13 = zext i8 %5 to i64
+  %14 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %13
+  %15 = load i8, ptr %14, align 1, !tbaa !4
+  %16 = shl i8 %15, 3
+  %17 = and i8 %16, 32
+  %spec.select.i72.i.i = or i8 %17, %5
+  %18 = icmp eq i8 %spec.select.i1.i.i, %spec.select.i72.i.i
+  br i1 %18, label %3, label %same_utf_encoding.exit.thread, !llvm.loop !28
+
+skip_iprefix.exit.i:                              ; preds = %3
+  %scevgep.i3.i = getelementptr i8, ptr %spec.store.select1, i64 3
+  br label %19
+
+19:                                               ; preds = %20, %skip_iprefix.exit.i
+  %.06.i4.i = phi ptr [ %spec.store.select1, %skip_iprefix.exit.i ], [ %22, %20 ]
+  %.05.idx.i5.i = phi i64 [ 0, %skip_iprefix.exit.i ], [ %.05.add.i9.i, %20 ]
+  %exitcond.i6.i = icmp eq i64 %.05.idx.i5.i, 3
+  br i1 %exitcond.i6.i, label %skip_iprefix.exit12.i, label %20
+
+20:                                               ; preds = %19
+  %.05.ptr.i7.i = getelementptr inbounds nuw i8, ptr @.str.21, i64 %.05.idx.i5.i
+  %21 = load i8, ptr %.05.ptr.i7.i, align 1, !tbaa !4
+  %22 = getelementptr inbounds nuw i8, ptr %.06.i4.i, i64 1
+  %23 = load i8, ptr %.06.i4.i, align 1, !tbaa !4
+  %24 = zext i8 %23 to i64
+  %25 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %24
+  %26 = load i8, ptr %25, align 1, !tbaa !4
+  %27 = shl i8 %26, 3
+  %28 = and i8 %27, 32
+  %spec.select.i1.i8.i = or i8 %28, %23
+  %.05.add.i9.i = add nuw nsw i64 %.05.idx.i5.i, 1
+  %29 = zext i8 %21 to i64
+  %30 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %29
+  %31 = load i8, ptr %30, align 1, !tbaa !4
+  %32 = shl i8 %31, 3
+  %33 = and i8 %32, 32
+  %spec.select.i72.i10.i = or i8 %33, %21
+  %34 = icmp eq i8 %spec.select.i1.i8.i, %spec.select.i72.i10.i
+  br i1 %34, label %19, label %same_utf_encoding.exit.thread, !llvm.loop !28
+
+skip_iprefix.exit12.i:                            ; preds = %19
+  %scevgep.i13.i = getelementptr i8, ptr %spec.store.select, i64 4
+  %35 = load i8, ptr %scevgep.i.i, align 1, !tbaa !4
+  %36 = icmp eq i8 %35, 45
+  %.129.i = select i1 %36, ptr %scevgep.i13.i, ptr %scevgep.i.i
+  %scevgep.i15.i = getelementptr i8, ptr %spec.store.select1, i64 4
+  %37 = load i8, ptr %scevgep.i3.i, align 1, !tbaa !4
+  %38 = icmp eq i8 %37, 45
+  %.1.i = select i1 %38, ptr %scevgep.i15.i, ptr %scevgep.i3.i
+  %39 = tail call i32 @strcasecmp(ptr noundef %.129.i, ptr noundef %.1.i) #22
+  %.not2.i.not = icmp eq i32 %39, 0
+  br i1 %.not2.i.not, label %42, label %same_utf_encoding.exit.thread
+
+same_utf_encoding.exit.thread:                    ; preds = %4, %20, %skip_iprefix.exit12.i
+  %40 = tail call i32 @strcasecmp(ptr noundef nonnull %spec.store.select, ptr noundef nonnull %spec.store.select1) #22
+  %.not9 = icmp eq i32 %40, 0
+  %41 = zext i1 %.not9 to i32
+  br label %42
+
+42:                                               ; preds = %skip_iprefix.exit12.i, %same_utf_encoding.exit.thread
+  %.0 = phi i32 [ %41, %same_utf_encoding.exit.thread ], [ 1, %skip_iprefix.exit12.i ]
   ret i32 %.0
 }
 
@@ -1493,7 +1517,7 @@ st_add.exit:                                      ; preds = %5
 
 20:                                               ; preds = %.lr.ph, %42
   %.02449 = phi ptr [ %15, %.lr.ph ], [ %44, %42 ]
-  %21 = load i32, ptr %19, align 4, !tbaa !30
+  %21 = load i32, ptr %19, align 4, !tbaa !29
   %.not28 = icmp eq i32 %21, 7
   br i1 %.not28, label %22, label %.thread34
 
@@ -1579,193 +1603,833 @@ declare ptr @xrealloc(ptr noundef, i64 noundef) local_unnamed_addr #6
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @reencode_string_len(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #3 {
   %.not = icmp eq ptr %3, null
-  br i1 %.not, label %29, label %6
+  br i1 %.not, label %125, label %.preheader
 
-6:                                                ; preds = %5
-  %7 = tail call fastcc i32 @same_utf_encoding(ptr noundef nonnull @.str.1, ptr noundef nonnull %3)
-  %.not37 = icmp eq i32 %7, 0
-  %spec.select = select i1 %.not37, ptr %3, ptr @.str.2
-  %8 = tail call fastcc i32 @same_utf_encoding(ptr noundef nonnull @.str.1, ptr noundef %2)
-  %.not38 = icmp eq i32 %8, 0
-  br i1 %.not38, label %9, label %12
+.preheader:                                       ; preds = %5, %6
+  %.06.i.i = phi ptr [ %8, %6 ], [ @.str.1, %5 ]
+  %.05.idx.i.i = phi i64 [ %.05.add.i.i, %6 ], [ 0, %5 ]
+  %exitcond.i.i = icmp eq i64 %.05.idx.i.i, 3
+  br i1 %exitcond.i.i, label %skip_iprefix.exit.i, label %6
 
-9:                                                ; preds = %6
-  %10 = tail call fastcc i32 @same_utf_encoding(ptr noundef nonnull @.str.4, ptr noundef %2)
-  %.not39 = icmp eq i32 %10, 0
-  br i1 %.not39, label %12, label %11
+6:                                                ; preds = %.preheader
+  %.05.ptr.i.i = getelementptr inbounds nuw i8, ptr @.str.21, i64 %.05.idx.i.i
+  %7 = load i8, ptr %.05.ptr.i.i, align 1, !tbaa !4
+  %8 = getelementptr inbounds nuw i8, ptr %.06.i.i, i64 1
+  %9 = load i8, ptr %.06.i.i, align 1, !tbaa !4
+  %10 = zext i8 %9 to i64
+  %11 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %10
+  %12 = load i8, ptr %11, align 1, !tbaa !4
+  %13 = shl i8 %12, 3
+  %14 = and i8 %13, 32
+  %spec.select.i1.i.i = or i8 %14, %9
+  %.05.add.i.i = add nuw nsw i64 %.05.idx.i.i, 1
+  %15 = zext i8 %7 to i64
+  %16 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %15
+  %17 = load i8, ptr %16, align 1, !tbaa !4
+  %18 = shl i8 %17, 3
+  %19 = and i8 %18, 32
+  %spec.select.i72.i.i = or i8 %19, %7
+  %20 = icmp eq i8 %spec.select.i1.i.i, %spec.select.i72.i.i
+  br i1 %20, label %.preheader, label %same_utf_encoding.exit.thread, !llvm.loop !28
 
-11:                                               ; preds = %9
-  br label %12
+skip_iprefix.exit.i:                              ; preds = %.preheader
+  %scevgep.i3.i = getelementptr i8, ptr %3, i64 3
+  br label %21
 
-12:                                               ; preds = %6, %9, %11
-  %.031 = phi ptr [ @.str.5, %11 ], [ %2, %9 ], [ @.str.3, %6 ]
-  %13 = phi i1 [ true, %11 ], [ false, %9 ], [ true, %6 ]
-  %.028 = phi ptr [ @utf16_be_bom, %11 ], [ null, %9 ], [ @utf16_le_bom, %6 ]
-  %.0 = phi i64 [ 2, %11 ], [ 0, %9 ], [ 2, %6 ]
-  %14 = tail call ptr @iconv_open(ptr noundef %.031, ptr noundef nonnull %spec.select) #23
-  %15 = icmp eq ptr %14, inttoptr (i64 -1 to ptr)
-  br i1 %15, label %is_encoding_utf8.exit.i, label %24
+21:                                               ; preds = %22, %skip_iprefix.exit.i
+  %.06.i4.i = phi ptr [ %3, %skip_iprefix.exit.i ], [ %24, %22 ]
+  %.05.idx.i5.i = phi i64 [ 0, %skip_iprefix.exit.i ], [ %.05.add.i9.i, %22 ]
+  %exitcond.i6.i = icmp eq i64 %.05.idx.i5.i, 3
+  br i1 %exitcond.i6.i, label %skip_prefix.exit.i, label %22
 
-is_encoding_utf8.exit.i:                          ; preds = %12
-  %16 = tail call fastcc i32 @same_utf_encoding(ptr noundef nonnull @.str, ptr noundef nonnull readonly %spec.select)
-  %.not.i = icmp eq i32 %16, 0
-  br i1 %.not.i, label %17, label %fallback_encoding.exit
+22:                                               ; preds = %21
+  %.05.ptr.i7.i = getelementptr inbounds nuw i8, ptr @.str.21, i64 %.05.idx.i5.i
+  %23 = load i8, ptr %.05.ptr.i7.i, align 1, !tbaa !4
+  %24 = getelementptr inbounds nuw i8, ptr %.06.i4.i, i64 1
+  %25 = load i8, ptr %.06.i4.i, align 1, !tbaa !4
+  %26 = zext i8 %25 to i64
+  %27 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %26
+  %28 = load i8, ptr %27, align 1, !tbaa !4
+  %29 = shl i8 %28, 3
+  %30 = and i8 %29, 32
+  %spec.select.i1.i8.i = or i8 %30, %25
+  %.05.add.i9.i = add nuw nsw i64 %.05.idx.i5.i, 1
+  %31 = zext i8 %23 to i64
+  %32 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %31
+  %33 = load i8, ptr %32, align 1, !tbaa !4
+  %34 = shl i8 %33, 3
+  %35 = and i8 %34, 32
+  %spec.select.i72.i10.i = or i8 %35, %23
+  %36 = icmp eq i8 %spec.select.i1.i8.i, %spec.select.i72.i10.i
+  br i1 %36, label %21, label %same_utf_encoding.exit.thread, !llvm.loop !28
 
-17:                                               ; preds = %is_encoding_utf8.exit.i
-  %18 = tail call i32 @strcasecmp(ptr noundef nonnull readonly %spec.select, ptr noundef nonnull @.str.26) #22
-  %.not4.i = icmp eq i32 %18, 0
-  %.str.27..i = select i1 %.not4.i, ptr @.str.27, ptr %spec.select
-  br label %fallback_encoding.exit
+skip_prefix.exit.i:                               ; preds = %21
+  %scevgep.i15.i = getelementptr i8, ptr %3, i64 4
+  %37 = load i8, ptr %scevgep.i3.i, align 1, !tbaa !4
+  %38 = icmp eq i8 %37, 45
+  %.1.i = select i1 %38, ptr %scevgep.i15.i, ptr %scevgep.i3.i
+  %39 = tail call i32 @strcasecmp(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.1, i64 4), ptr noundef %.1.i) #22
+  %.fr = freeze i32 %39
+  %.not2.i.not = icmp eq i32 %.fr, 0
+  br i1 %.not2.i.not, label %40, label %same_utf_encoding.exit.thread
 
-fallback_encoding.exit:                           ; preds = %is_encoding_utf8.exit.i, %17
-  %.0.i = phi ptr [ @.str.25, %is_encoding_utf8.exit.i ], [ %.str.27..i, %17 ]
-  %.not.i.i40 = icmp eq ptr %.031, null
-  br i1 %.not.i.i40, label %fallback_encoding.exit46, label %is_encoding_utf8.exit.i41
+same_utf_encoding.exit.thread:                    ; preds = %6, %22, %skip_prefix.exit.i
+  br label %40
 
-is_encoding_utf8.exit.i41:                        ; preds = %fallback_encoding.exit
-  %19 = tail call fastcc i32 @same_utf_encoding(ptr noundef nonnull @.str, ptr noundef nonnull readonly %.031)
-  %.not.i42 = icmp eq i32 %19, 0
-  br i1 %.not.i42, label %20, label %fallback_encoding.exit46
+40:                                               ; preds = %skip_prefix.exit.i, %same_utf_encoding.exit.thread
+  %41 = phi ptr [ %3, %same_utf_encoding.exit.thread ], [ @.str.2, %skip_prefix.exit.i ]
+  br label %42
 
-20:                                               ; preds = %is_encoding_utf8.exit.i41
-  %21 = tail call i32 @strcasecmp(ptr noundef nonnull readonly %.031, ptr noundef nonnull @.str.26) #22
-  %.not4.i44 = icmp eq i32 %21, 0
-  %.str.27..i45 = select i1 %.not4.i44, ptr @.str.27, ptr %.031
-  br label %fallback_encoding.exit46
+42:                                               ; preds = %43, %40
+  %.06.i.i40 = phi ptr [ @.str.1, %40 ], [ %45, %43 ]
+  %.05.idx.i.i41 = phi i64 [ 0, %40 ], [ %.05.add.i.i45, %43 ]
+  %exitcond.i.i42 = icmp eq i64 %.05.idx.i.i41, 3
+  br i1 %exitcond.i.i42, label %skip_iprefix.exit.i48, label %43
 
-fallback_encoding.exit46:                         ; preds = %fallback_encoding.exit, %is_encoding_utf8.exit.i41, %20
-  %.0.i43 = phi ptr [ @.str.25, %is_encoding_utf8.exit.i41 ], [ %.str.27..i45, %20 ], [ @.str.25, %fallback_encoding.exit ]
-  %22 = tail call ptr @iconv_open(ptr noundef %.0.i43, ptr noundef %.0.i) #23
-  %23 = icmp eq ptr %22, inttoptr (i64 -1 to ptr)
-  br i1 %23, label %29, label %24
+43:                                               ; preds = %42
+  %.05.ptr.i.i43 = getelementptr inbounds nuw i8, ptr @.str.21, i64 %.05.idx.i.i41
+  %44 = load i8, ptr %.05.ptr.i.i43, align 1, !tbaa !4
+  %45 = getelementptr inbounds nuw i8, ptr %.06.i.i40, i64 1
+  %46 = load i8, ptr %.06.i.i40, align 1, !tbaa !4
+  %47 = zext i8 %46 to i64
+  %48 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %47
+  %49 = load i8, ptr %48, align 1, !tbaa !4
+  %50 = shl i8 %49, 3
+  %51 = and i8 %50, 32
+  %spec.select.i1.i.i44 = or i8 %51, %46
+  %.05.add.i.i45 = add nuw nsw i64 %.05.idx.i.i41, 1
+  %52 = zext i8 %44 to i64
+  %53 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %52
+  %54 = load i8, ptr %53, align 1, !tbaa !4
+  %55 = shl i8 %54, 3
+  %56 = and i8 %55, 32
+  %spec.select.i72.i.i46 = or i8 %56, %44
+  %57 = icmp eq i8 %spec.select.i1.i.i44, %spec.select.i72.i.i46
+  br i1 %57, label %42, label %same_utf_encoding.exit68.thread.preheader, !llvm.loop !28
 
-24:                                               ; preds = %fallback_encoding.exit46, %12
-  %.030 = phi ptr [ %22, %fallback_encoding.exit46 ], [ %14, %12 ]
-  %25 = tail call ptr @reencode_string_iconv(ptr noundef %0, i64 noundef %1, ptr noundef %.030, i64 noundef %.0, ptr noundef %4)
-  %26 = tail call i32 @iconv_close(ptr noundef %.030) #23
-  %27 = icmp ne ptr %25, null
-  %or.cond = and i1 %13, %27
-  br i1 %or.cond, label %28, label %29
+skip_iprefix.exit.i48:                            ; preds = %42
+  %scevgep.i3.i49 = getelementptr i8, ptr %2, i64 3
+  br label %58
 
-28:                                               ; preds = %24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %25, ptr align 1 %.028, i64 %.0, i1 false)
-  br label %29
+58:                                               ; preds = %59, %skip_iprefix.exit.i48
+  %.06.i4.i50 = phi ptr [ %2, %skip_iprefix.exit.i48 ], [ %61, %59 ]
+  %.05.idx.i5.i51 = phi i64 [ 0, %skip_iprefix.exit.i48 ], [ %.05.add.i9.i55, %59 ]
+  %exitcond.i6.i52 = icmp eq i64 %.05.idx.i5.i51, 3
+  br i1 %exitcond.i6.i52, label %skip_prefix.exit.i60, label %59
 
-29:                                               ; preds = %24, %28, %fallback_encoding.exit46, %5
-  %.029 = phi ptr [ null, %5 ], [ null, %fallback_encoding.exit46 ], [ %25, %28 ], [ %25, %24 ]
+59:                                               ; preds = %58
+  %.05.ptr.i7.i53 = getelementptr inbounds nuw i8, ptr @.str.21, i64 %.05.idx.i5.i51
+  %60 = load i8, ptr %.05.ptr.i7.i53, align 1, !tbaa !4
+  %61 = getelementptr inbounds nuw i8, ptr %.06.i4.i50, i64 1
+  %62 = load i8, ptr %.06.i4.i50, align 1, !tbaa !4
+  %63 = zext i8 %62 to i64
+  %64 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %63
+  %65 = load i8, ptr %64, align 1, !tbaa !4
+  %66 = shl i8 %65, 3
+  %67 = and i8 %66, 32
+  %spec.select.i1.i8.i54 = or i8 %67, %62
+  %.05.add.i9.i55 = add nuw nsw i64 %.05.idx.i5.i51, 1
+  %68 = zext i8 %60 to i64
+  %69 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %68
+  %70 = load i8, ptr %69, align 1, !tbaa !4
+  %71 = shl i8 %70, 3
+  %72 = and i8 %71, 32
+  %spec.select.i72.i10.i56 = or i8 %72, %60
+  %73 = icmp eq i8 %spec.select.i1.i8.i54, %spec.select.i72.i10.i56
+  br i1 %73, label %58, label %same_utf_encoding.exit68.thread.preheader, !llvm.loop !28
+
+skip_prefix.exit.i60:                             ; preds = %58
+  %scevgep.i15.i62 = getelementptr i8, ptr %2, i64 4
+  %74 = load i8, ptr %scevgep.i3.i49, align 1, !tbaa !4
+  %75 = icmp eq i8 %74, 45
+  %.1.i66 = select i1 %75, ptr %scevgep.i15.i62, ptr %scevgep.i3.i49
+  %76 = tail call i32 @strcasecmp(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.1, i64 4), ptr noundef %.1.i66) #22
+  %.not2.i67.not = icmp eq i32 %76, 0
+  br i1 %.not2.i67.not, label %same_utf_encoding.exit97.thread, label %same_utf_encoding.exit68.thread.preheader
+
+same_utf_encoding.exit68.thread.preheader:        ; preds = %43, %59, %skip_prefix.exit.i60
+  br label %same_utf_encoding.exit68.thread
+
+same_utf_encoding.exit68.thread:                  ; preds = %same_utf_encoding.exit68.thread.preheader, %77
+  %.06.i.i69 = phi ptr [ %79, %77 ], [ @.str.4, %same_utf_encoding.exit68.thread.preheader ]
+  %.05.idx.i.i70 = phi i64 [ %.05.add.i.i74, %77 ], [ 0, %same_utf_encoding.exit68.thread.preheader ]
+  %exitcond.i.i71 = icmp eq i64 %.05.idx.i.i70, 3
+  br i1 %exitcond.i.i71, label %skip_iprefix.exit.i77, label %77
+
+77:                                               ; preds = %same_utf_encoding.exit68.thread
+  %.05.ptr.i.i72 = getelementptr inbounds nuw i8, ptr @.str.21, i64 %.05.idx.i.i70
+  %78 = load i8, ptr %.05.ptr.i.i72, align 1, !tbaa !4
+  %79 = getelementptr inbounds nuw i8, ptr %.06.i.i69, i64 1
+  %80 = load i8, ptr %.06.i.i69, align 1, !tbaa !4
+  %81 = zext i8 %80 to i64
+  %82 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %81
+  %83 = load i8, ptr %82, align 1, !tbaa !4
+  %84 = shl i8 %83, 3
+  %85 = and i8 %84, 32
+  %spec.select.i1.i.i73 = or i8 %85, %80
+  %.05.add.i.i74 = add nuw nsw i64 %.05.idx.i.i70, 1
+  %86 = zext i8 %78 to i64
+  %87 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %86
+  %88 = load i8, ptr %87, align 1, !tbaa !4
+  %89 = shl i8 %88, 3
+  %90 = and i8 %89, 32
+  %spec.select.i72.i.i75 = or i8 %90, %78
+  %91 = icmp eq i8 %spec.select.i1.i.i73, %spec.select.i72.i.i75
+  br i1 %91, label %same_utf_encoding.exit68.thread, label %same_utf_encoding.exit97.thread, !llvm.loop !28
+
+skip_iprefix.exit.i77:                            ; preds = %same_utf_encoding.exit68.thread
+  %scevgep.i3.i78 = getelementptr i8, ptr %2, i64 3
+  br label %92
+
+92:                                               ; preds = %93, %skip_iprefix.exit.i77
+  %.06.i4.i79 = phi ptr [ %2, %skip_iprefix.exit.i77 ], [ %95, %93 ]
+  %.05.idx.i5.i80 = phi i64 [ 0, %skip_iprefix.exit.i77 ], [ %.05.add.i9.i84, %93 ]
+  %exitcond.i6.i81 = icmp eq i64 %.05.idx.i5.i80, 3
+  br i1 %exitcond.i6.i81, label %skip_prefix.exit.i89, label %93
+
+93:                                               ; preds = %92
+  %.05.ptr.i7.i82 = getelementptr inbounds nuw i8, ptr @.str.21, i64 %.05.idx.i5.i80
+  %94 = load i8, ptr %.05.ptr.i7.i82, align 1, !tbaa !4
+  %95 = getelementptr inbounds nuw i8, ptr %.06.i4.i79, i64 1
+  %96 = load i8, ptr %.06.i4.i79, align 1, !tbaa !4
+  %97 = zext i8 %96 to i64
+  %98 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %97
+  %99 = load i8, ptr %98, align 1, !tbaa !4
+  %100 = shl i8 %99, 3
+  %101 = and i8 %100, 32
+  %spec.select.i1.i8.i83 = or i8 %101, %96
+  %.05.add.i9.i84 = add nuw nsw i64 %.05.idx.i5.i80, 1
+  %102 = zext i8 %94 to i64
+  %103 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %102
+  %104 = load i8, ptr %103, align 1, !tbaa !4
+  %105 = shl i8 %104, 3
+  %106 = and i8 %105, 32
+  %spec.select.i72.i10.i85 = or i8 %106, %94
+  %107 = icmp eq i8 %spec.select.i1.i8.i83, %spec.select.i72.i10.i85
+  br i1 %107, label %92, label %same_utf_encoding.exit97.thread, !llvm.loop !28
+
+skip_prefix.exit.i89:                             ; preds = %92
+  %scevgep.i15.i91 = getelementptr i8, ptr %2, i64 4
+  %108 = load i8, ptr %scevgep.i3.i78, align 1, !tbaa !4
+  %109 = icmp eq i8 %108, 45
+  %.1.i95 = select i1 %109, ptr %scevgep.i15.i91, ptr %scevgep.i3.i78
+  %110 = tail call i32 @strcasecmp(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.4, i64 4), ptr noundef %.1.i95) #22
+  %.not2.i96.not = icmp eq i32 %110, 0
+  br i1 %.not2.i96.not, label %111, label %same_utf_encoding.exit97.thread
+
+111:                                              ; preds = %skip_prefix.exit.i89
+  br label %same_utf_encoding.exit97.thread
+
+same_utf_encoding.exit97.thread:                  ; preds = %77, %93, %skip_prefix.exit.i60, %skip_prefix.exit.i89, %111
+  %.031 = phi ptr [ @.str.5, %111 ], [ %2, %skip_prefix.exit.i89 ], [ @.str.3, %skip_prefix.exit.i60 ], [ %2, %93 ], [ %2, %77 ]
+  %112 = phi i1 [ true, %111 ], [ false, %skip_prefix.exit.i89 ], [ true, %skip_prefix.exit.i60 ], [ false, %93 ], [ false, %77 ]
+  %.028 = phi ptr [ @utf16_be_bom, %111 ], [ null, %skip_prefix.exit.i89 ], [ @utf16_le_bom, %skip_prefix.exit.i60 ], [ null, %93 ], [ null, %77 ]
+  %.0 = phi i64 [ 2, %111 ], [ 0, %skip_prefix.exit.i89 ], [ 2, %skip_prefix.exit.i60 ], [ 0, %93 ], [ 0, %77 ]
+  %113 = tail call ptr @iconv_open(ptr noundef %.031, ptr noundef nonnull %41) #23
+  %114 = icmp eq ptr %113, inttoptr (i64 -1 to ptr)
+  br i1 %114, label %115, label %120
+
+115:                                              ; preds = %same_utf_encoding.exit97.thread
+  %116 = tail call fastcc ptr @fallback_encoding(ptr noundef nonnull %41)
+  %117 = tail call fastcc ptr @fallback_encoding(ptr noundef %.031)
+  %118 = tail call ptr @iconv_open(ptr noundef %117, ptr noundef %116) #23
+  %119 = icmp eq ptr %118, inttoptr (i64 -1 to ptr)
+  br i1 %119, label %125, label %120
+
+120:                                              ; preds = %115, %same_utf_encoding.exit97.thread
+  %.030 = phi ptr [ %118, %115 ], [ %113, %same_utf_encoding.exit97.thread ]
+  %121 = tail call ptr @reencode_string_iconv(ptr noundef %0, i64 noundef %1, ptr noundef %.030, i64 noundef %.0, ptr noundef %4)
+  %122 = tail call i32 @iconv_close(ptr noundef %.030) #23
+  %123 = icmp ne ptr %121, null
+  %or.cond = and i1 %112, %123
+  br i1 %or.cond, label %124, label %125
+
+124:                                              ; preds = %120
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %121, ptr align 1 %.028, i64 %.0, i1 false)
+  br label %125
+
+125:                                              ; preds = %120, %124, %115, %5
+  %.029 = phi ptr [ null, %5 ], [ null, %115 ], [ %121, %124 ], [ %121, %120 ]
   ret ptr %.029
 }
 
 declare ptr @iconv_open(ptr noundef, ptr noundef) local_unnamed_addr #6
 
+; Function Attrs: nofree norecurse nounwind memory(read) uwtable
+define internal fastcc ptr @fallback_encoding(ptr noundef readonly captures(address_is_null, ret: address, provenance) %0) unnamed_addr #8 {
+  %.not.i = icmp eq ptr %0, null
+  br i1 %.not.i, label %is_encoding_utf8.exit.thread, label %.preheader.i
+
+.preheader.i:                                     ; preds = %1, %2
+  %.06.i.i.i = phi ptr [ %4, %2 ], [ @.str, %1 ]
+  %.05.idx.i.i.i = phi i64 [ %.05.add.i.i.i, %2 ], [ 0, %1 ]
+  %exitcond.i.i.i = icmp eq i64 %.05.idx.i.i.i, 3
+  br i1 %exitcond.i.i.i, label %skip_iprefix.exit.i.i, label %2
+
+2:                                                ; preds = %.preheader.i
+  %.05.ptr.i.i.i = getelementptr inbounds nuw i8, ptr @.str.21, i64 %.05.idx.i.i.i
+  %3 = load i8, ptr %.05.ptr.i.i.i, align 1, !tbaa !4
+  %4 = getelementptr inbounds nuw i8, ptr %.06.i.i.i, i64 1
+  %5 = load i8, ptr %.06.i.i.i, align 1, !tbaa !4
+  %6 = zext i8 %5 to i64
+  %7 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %6
+  %8 = load i8, ptr %7, align 1, !tbaa !4
+  %9 = shl i8 %8, 3
+  %10 = and i8 %9, 32
+  %spec.select.i1.i.i.i = or i8 %10, %5
+  %.05.add.i.i.i = add nuw nsw i64 %.05.idx.i.i.i, 1
+  %11 = zext i8 %3 to i64
+  %12 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %11
+  %13 = load i8, ptr %12, align 1, !tbaa !4
+  %14 = shl i8 %13, 3
+  %15 = and i8 %14, 32
+  %spec.select.i72.i.i.i = or i8 %15, %3
+  %16 = icmp eq i8 %spec.select.i1.i.i.i, %spec.select.i72.i.i.i
+  br i1 %16, label %.preheader.i, label %is_encoding_utf8.exit, !llvm.loop !28
+
+skip_iprefix.exit.i.i:                            ; preds = %.preheader.i
+  %scevgep.i3.i.i = getelementptr i8, ptr %0, i64 3
+  br label %17
+
+17:                                               ; preds = %21, %skip_iprefix.exit.i.i
+  %.06.i4.i.i = phi ptr [ %0, %skip_iprefix.exit.i.i ], [ %23, %21 ]
+  %.05.idx.i5.i.i = phi i64 [ 0, %skip_iprefix.exit.i.i ], [ %.05.add.i9.i.i, %21 ]
+  %exitcond.i6.i.i = icmp eq i64 %.05.idx.i5.i.i, 3
+  br i1 %exitcond.i6.i.i, label %skip_iprefix.exit12.i.i.preheader, label %21
+
+skip_iprefix.exit12.i.i.preheader:                ; preds = %17
+  %scevgep.i15.i.i = getelementptr i8, ptr %0, i64 4
+  %18 = load i8, ptr %scevgep.i3.i.i, align 1, !tbaa !4
+  %19 = icmp eq i8 %18, 45
+  %.1.i.i = select i1 %19, ptr %scevgep.i15.i.i, ptr %scevgep.i3.i.i
+  %20 = tail call i32 @strcasecmp(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 4), ptr noundef %.1.i.i) #22
+  %.fr.i = freeze i32 %20
+  %.not2.i.not.i = icmp eq i32 %.fr.i, 0
+  br i1 %.not2.i.not.i, label %is_encoding_utf8.exit.thread, label %is_encoding_utf8.exit
+
+21:                                               ; preds = %17
+  %.05.ptr.i7.i.i = getelementptr inbounds nuw i8, ptr @.str.21, i64 %.05.idx.i5.i.i
+  %22 = load i8, ptr %.05.ptr.i7.i.i, align 1, !tbaa !4
+  %23 = getelementptr inbounds nuw i8, ptr %.06.i4.i.i, i64 1
+  %24 = load i8, ptr %.06.i4.i.i, align 1, !tbaa !4
+  %25 = zext i8 %24 to i64
+  %26 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %25
+  %27 = load i8, ptr %26, align 1, !tbaa !4
+  %28 = shl i8 %27, 3
+  %29 = and i8 %28, 32
+  %spec.select.i1.i8.i.i = or i8 %29, %24
+  %.05.add.i9.i.i = add nuw nsw i64 %.05.idx.i5.i.i, 1
+  %30 = zext i8 %22 to i64
+  %31 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %30
+  %32 = load i8, ptr %31, align 1, !tbaa !4
+  %33 = shl i8 %32, 3
+  %34 = and i8 %33, 32
+  %spec.select.i72.i10.i.i = or i8 %34, %22
+  %35 = icmp eq i8 %spec.select.i1.i8.i.i, %spec.select.i72.i10.i.i
+  br i1 %35, label %17, label %is_encoding_utf8.exit, !llvm.loop !28
+
+is_encoding_utf8.exit:                            ; preds = %2, %21, %skip_iprefix.exit12.i.i.preheader
+  %36 = tail call i32 @strcasecmp(ptr noundef nonnull %0, ptr noundef nonnull @.str.26) #22
+  %.not4 = icmp eq i32 %36, 0
+  %.str.27. = select i1 %.not4, ptr @.str.27, ptr %0
+  br label %is_encoding_utf8.exit.thread
+
+is_encoding_utf8.exit.thread:                     ; preds = %skip_iprefix.exit12.i.i.preheader, %1, %is_encoding_utf8.exit
+  %.0 = phi ptr [ %.str.27., %is_encoding_utf8.exit ], [ @.str.25, %1 ], [ @.str.25, %skip_iprefix.exit12.i.i.preheader ]
+  ret ptr %.0
+}
+
 declare i32 @iconv_close(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nofree norecurse nounwind memory(read) uwtable
 define dso_local range(i32 0, 2) i32 @has_prohibited_utf_bom(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1, i64 noundef %2) local_unnamed_addr #8 {
-  %4 = tail call fastcc i32 @same_utf_encoding(ptr noundef nonnull @.str.5, ptr noundef %0)
-  %.not = icmp eq i32 %4, 0
-  br i1 %.not, label %5, label %7
+  br label %4
 
-5:                                                ; preds = %3
-  %6 = tail call fastcc i32 @same_utf_encoding(ptr noundef nonnull @.str.3, ptr noundef %0)
-  %.not11 = icmp eq i32 %6, 0
-  br i1 %.not11, label %has_bom_prefix.exit21.thread, label %7
+4:                                                ; preds = %5, %3
+  %.06.i.i = phi ptr [ @.str.5, %3 ], [ %7, %5 ]
+  %.05.idx.i.i = phi i64 [ 0, %3 ], [ %.05.add.i.i, %5 ]
+  %exitcond.i.i = icmp eq i64 %.05.idx.i.i, 3
+  br i1 %exitcond.i.i, label %skip_iprefix.exit.i, label %5
 
-7:                                                ; preds = %5, %3
-  %8 = icmp eq ptr %1, null
+5:                                                ; preds = %4
+  %.05.ptr.i.i = getelementptr inbounds nuw i8, ptr @.str.21, i64 %.05.idx.i.i
+  %6 = load i8, ptr %.05.ptr.i.i, align 1, !tbaa !4
+  %7 = getelementptr inbounds nuw i8, ptr %.06.i.i, i64 1
+  %8 = load i8, ptr %.06.i.i, align 1, !tbaa !4
+  %9 = zext i8 %8 to i64
+  %10 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %9
+  %11 = load i8, ptr %10, align 1, !tbaa !4
+  %12 = shl i8 %11, 3
+  %13 = and i8 %12, 32
+  %spec.select.i1.i.i = or i8 %13, %8
+  %.05.add.i.i = add nuw nsw i64 %.05.idx.i.i, 1
+  %14 = zext i8 %6 to i64
+  %15 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %14
+  %16 = load i8, ptr %15, align 1, !tbaa !4
+  %17 = shl i8 %16, 3
+  %18 = and i8 %17, 32
+  %spec.select.i72.i.i = or i8 %18, %6
+  %19 = icmp eq i8 %spec.select.i1.i.i, %spec.select.i72.i.i
+  br i1 %19, label %4, label %same_utf_encoding.exit.thread.preheader, !llvm.loop !28
+
+skip_iprefix.exit.i:                              ; preds = %4
+  %scevgep.i3.i = getelementptr i8, ptr %0, i64 3
+  br label %20
+
+20:                                               ; preds = %21, %skip_iprefix.exit.i
+  %.06.i4.i = phi ptr [ %0, %skip_iprefix.exit.i ], [ %23, %21 ]
+  %.05.idx.i5.i = phi i64 [ 0, %skip_iprefix.exit.i ], [ %.05.add.i9.i, %21 ]
+  %exitcond.i6.i = icmp eq i64 %.05.idx.i5.i, 3
+  br i1 %exitcond.i6.i, label %skip_prefix.exit.i, label %21
+
+21:                                               ; preds = %20
+  %.05.ptr.i7.i = getelementptr inbounds nuw i8, ptr @.str.21, i64 %.05.idx.i5.i
+  %22 = load i8, ptr %.05.ptr.i7.i, align 1, !tbaa !4
+  %23 = getelementptr inbounds nuw i8, ptr %.06.i4.i, i64 1
+  %24 = load i8, ptr %.06.i4.i, align 1, !tbaa !4
+  %25 = zext i8 %24 to i64
+  %26 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %25
+  %27 = load i8, ptr %26, align 1, !tbaa !4
+  %28 = shl i8 %27, 3
+  %29 = and i8 %28, 32
+  %spec.select.i1.i8.i = or i8 %29, %24
+  %.05.add.i9.i = add nuw nsw i64 %.05.idx.i5.i, 1
+  %30 = zext i8 %22 to i64
+  %31 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %30
+  %32 = load i8, ptr %31, align 1, !tbaa !4
+  %33 = shl i8 %32, 3
+  %34 = and i8 %33, 32
+  %spec.select.i72.i10.i = or i8 %34, %22
+  %35 = icmp eq i8 %spec.select.i1.i8.i, %spec.select.i72.i10.i
+  br i1 %35, label %20, label %same_utf_encoding.exit.thread.preheader, !llvm.loop !28
+
+skip_prefix.exit.i:                               ; preds = %20
+  %scevgep.i15.i = getelementptr i8, ptr %0, i64 4
+  %36 = load i8, ptr %scevgep.i3.i, align 1, !tbaa !4
+  %37 = icmp eq i8 %36, 45
+  %.1.i = select i1 %37, ptr %scevgep.i15.i, ptr %scevgep.i3.i
+  %38 = tail call i32 @strcasecmp(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.5, i64 4), ptr noundef %.1.i) #22
+  %.not2.i.not = icmp eq i32 %38, 0
+  br i1 %.not2.i.not, label %73, label %same_utf_encoding.exit.thread.preheader
+
+same_utf_encoding.exit.thread.preheader:          ; preds = %5, %21, %skip_prefix.exit.i
+  br label %same_utf_encoding.exit.thread
+
+same_utf_encoding.exit.thread:                    ; preds = %same_utf_encoding.exit.thread.preheader, %39
+  %.06.i.i17 = phi ptr [ %41, %39 ], [ @.str.3, %same_utf_encoding.exit.thread.preheader ]
+  %.05.idx.i.i18 = phi i64 [ %.05.add.i.i22, %39 ], [ 0, %same_utf_encoding.exit.thread.preheader ]
+  %exitcond.i.i19 = icmp eq i64 %.05.idx.i.i18, 3
+  br i1 %exitcond.i.i19, label %skip_iprefix.exit.i25, label %39
+
+39:                                               ; preds = %same_utf_encoding.exit.thread
+  %.05.ptr.i.i20 = getelementptr inbounds nuw i8, ptr @.str.21, i64 %.05.idx.i.i18
+  %40 = load i8, ptr %.05.ptr.i.i20, align 1, !tbaa !4
+  %41 = getelementptr inbounds nuw i8, ptr %.06.i.i17, i64 1
+  %42 = load i8, ptr %.06.i.i17, align 1, !tbaa !4
+  %43 = zext i8 %42 to i64
+  %44 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %43
+  %45 = load i8, ptr %44, align 1, !tbaa !4
+  %46 = shl i8 %45, 3
+  %47 = and i8 %46, 32
+  %spec.select.i1.i.i21 = or i8 %47, %42
+  %.05.add.i.i22 = add nuw nsw i64 %.05.idx.i.i18, 1
+  %48 = zext i8 %40 to i64
+  %49 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %48
+  %50 = load i8, ptr %49, align 1, !tbaa !4
+  %51 = shl i8 %50, 3
+  %52 = and i8 %51, 32
+  %spec.select.i72.i.i23 = or i8 %52, %40
+  %53 = icmp eq i8 %spec.select.i1.i.i21, %spec.select.i72.i.i23
+  br i1 %53, label %same_utf_encoding.exit.thread, label %same_utf_encoding.exit45.thread.preheader, !llvm.loop !28
+
+skip_iprefix.exit.i25:                            ; preds = %same_utf_encoding.exit.thread
+  %scevgep.i3.i26 = getelementptr i8, ptr %0, i64 3
+  br label %54
+
+54:                                               ; preds = %55, %skip_iprefix.exit.i25
+  %.06.i4.i27 = phi ptr [ %0, %skip_iprefix.exit.i25 ], [ %57, %55 ]
+  %.05.idx.i5.i28 = phi i64 [ 0, %skip_iprefix.exit.i25 ], [ %.05.add.i9.i32, %55 ]
+  %exitcond.i6.i29 = icmp eq i64 %.05.idx.i5.i28, 3
+  br i1 %exitcond.i6.i29, label %skip_prefix.exit.i37, label %55
+
+55:                                               ; preds = %54
+  %.05.ptr.i7.i30 = getelementptr inbounds nuw i8, ptr @.str.21, i64 %.05.idx.i5.i28
+  %56 = load i8, ptr %.05.ptr.i7.i30, align 1, !tbaa !4
+  %57 = getelementptr inbounds nuw i8, ptr %.06.i4.i27, i64 1
+  %58 = load i8, ptr %.06.i4.i27, align 1, !tbaa !4
+  %59 = zext i8 %58 to i64
+  %60 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %59
+  %61 = load i8, ptr %60, align 1, !tbaa !4
+  %62 = shl i8 %61, 3
+  %63 = and i8 %62, 32
+  %spec.select.i1.i8.i31 = or i8 %63, %58
+  %.05.add.i9.i32 = add nuw nsw i64 %.05.idx.i5.i28, 1
+  %64 = zext i8 %56 to i64
+  %65 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %64
+  %66 = load i8, ptr %65, align 1, !tbaa !4
+  %67 = shl i8 %66, 3
+  %68 = and i8 %67, 32
+  %spec.select.i72.i10.i33 = or i8 %68, %56
+  %69 = icmp eq i8 %spec.select.i1.i8.i31, %spec.select.i72.i10.i33
+  br i1 %69, label %54, label %same_utf_encoding.exit45.thread.preheader, !llvm.loop !28
+
+skip_prefix.exit.i37:                             ; preds = %54
+  %scevgep.i15.i39 = getelementptr i8, ptr %0, i64 4
+  %70 = load i8, ptr %scevgep.i3.i26, align 1, !tbaa !4
+  %71 = icmp eq i8 %70, 45
+  %.1.i43 = select i1 %71, ptr %scevgep.i15.i39, ptr %scevgep.i3.i26
+  %72 = tail call i32 @strcasecmp(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.3, i64 4), ptr noundef %.1.i43) #22
+  %.not2.i44.not = icmp eq i32 %72, 0
+  br i1 %.not2.i44.not, label %73, label %same_utf_encoding.exit45.thread.preheader
+
+73:                                               ; preds = %skip_prefix.exit.i37, %skip_prefix.exit.i
+  %74 = icmp eq ptr %1, null
   %.not.i = icmp ult i64 %2, 2
-  %or.cond10.i = or i1 %8, %.not.i
-  br i1 %or.cond10.i, label %has_bom_prefix.exit21.thread, label %has_bom_prefix.exit
+  %or.cond10.i = or i1 %74, %.not.i
+  br i1 %or.cond10.i, label %same_utf_encoding.exit45.thread.preheader, label %has_bom_prefix.exit
 
-has_bom_prefix.exit:                              ; preds = %7
+has_bom_prefix.exit:                              ; preds = %73
   %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(2) %1, ptr noundef nonnull dereferenceable(2) @utf16_be_bom, i64 2)
   %.not9.i.not = icmp eq i32 %bcmp.i, 0
-  br i1 %.not9.i.not, label %has_bom_prefix.exit31, label %has_bom_prefix.exit21
+  br i1 %.not9.i.not, label %has_bom_prefix.exit118, label %has_bom_prefix.exit50
 
-has_bom_prefix.exit21:                            ; preds = %has_bom_prefix.exit
-  %bcmp.i19 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(2) %1, ptr noundef nonnull dereferenceable(2) @utf16_le_bom, i64 2)
-  %.not9.i20.not = icmp eq i32 %bcmp.i19, 0
-  br i1 %.not9.i20.not, label %has_bom_prefix.exit31, label %has_bom_prefix.exit21.thread
+has_bom_prefix.exit50:                            ; preds = %has_bom_prefix.exit
+  %bcmp.i48 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(2) %1, ptr noundef nonnull dereferenceable(2) @utf16_le_bom, i64 2)
+  %.not9.i49.not = icmp eq i32 %bcmp.i48, 0
+  br i1 %.not9.i49.not, label %has_bom_prefix.exit118, label %same_utf_encoding.exit45.thread.preheader
 
-has_bom_prefix.exit21.thread:                     ; preds = %7, %has_bom_prefix.exit21, %5
-  %9 = tail call fastcc i32 @same_utf_encoding(ptr noundef nonnull @.str.6, ptr noundef %0)
-  %.not14 = icmp eq i32 %9, 0
-  br i1 %.not14, label %10, label %12
+same_utf_encoding.exit45.thread.preheader:        ; preds = %39, %55, %73, %has_bom_prefix.exit50, %skip_prefix.exit.i37
+  br label %same_utf_encoding.exit45.thread
 
-10:                                               ; preds = %has_bom_prefix.exit21.thread
-  %11 = tail call fastcc i32 @same_utf_encoding(ptr noundef nonnull @.str.7, ptr noundef %0)
-  %.not15 = icmp eq i32 %11, 0
-  br i1 %.not15, label %has_bom_prefix.exit31, label %12
+same_utf_encoding.exit45.thread:                  ; preds = %same_utf_encoding.exit45.thread.preheader, %75
+  %.06.i.i51 = phi ptr [ %77, %75 ], [ @.str.6, %same_utf_encoding.exit45.thread.preheader ]
+  %.05.idx.i.i52 = phi i64 [ %.05.add.i.i56, %75 ], [ 0, %same_utf_encoding.exit45.thread.preheader ]
+  %exitcond.i.i53 = icmp eq i64 %.05.idx.i.i52, 3
+  br i1 %exitcond.i.i53, label %skip_iprefix.exit.i59, label %75
 
-12:                                               ; preds = %10, %has_bom_prefix.exit21.thread
-  %13 = icmp eq ptr %1, null
-  %.not.i22 = icmp ult i64 %2, 4
-  %or.cond10.i23 = or i1 %13, %.not.i22
-  br i1 %or.cond10.i23, label %has_bom_prefix.exit31, label %has_bom_prefix.exit26
+75:                                               ; preds = %same_utf_encoding.exit45.thread
+  %.05.ptr.i.i54 = getelementptr inbounds nuw i8, ptr @.str.21, i64 %.05.idx.i.i52
+  %76 = load i8, ptr %.05.ptr.i.i54, align 1, !tbaa !4
+  %77 = getelementptr inbounds nuw i8, ptr %.06.i.i51, i64 1
+  %78 = load i8, ptr %.06.i.i51, align 1, !tbaa !4
+  %79 = zext i8 %78 to i64
+  %80 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %79
+  %81 = load i8, ptr %80, align 1, !tbaa !4
+  %82 = shl i8 %81, 3
+  %83 = and i8 %82, 32
+  %spec.select.i1.i.i55 = or i8 %83, %78
+  %.05.add.i.i56 = add nuw nsw i64 %.05.idx.i.i52, 1
+  %84 = zext i8 %76 to i64
+  %85 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %84
+  %86 = load i8, ptr %85, align 1, !tbaa !4
+  %87 = shl i8 %86, 3
+  %88 = and i8 %87, 32
+  %spec.select.i72.i.i57 = or i8 %88, %76
+  %89 = icmp eq i8 %spec.select.i1.i.i55, %spec.select.i72.i.i57
+  br i1 %89, label %same_utf_encoding.exit45.thread, label %same_utf_encoding.exit79.thread.preheader, !llvm.loop !28
 
-has_bom_prefix.exit26:                            ; preds = %12
-  %bcmp.i24 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %1, ptr noundef nonnull dereferenceable(4) @utf32_be_bom, i64 4)
-  %.not9.i25.not = icmp eq i32 %bcmp.i24, 0
-  br i1 %.not9.i25.not, label %has_bom_prefix.exit31, label %14
+skip_iprefix.exit.i59:                            ; preds = %same_utf_encoding.exit45.thread
+  %scevgep.i3.i60 = getelementptr i8, ptr %0, i64 3
+  br label %90
 
-14:                                               ; preds = %has_bom_prefix.exit26
-  %bcmp.i29 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %1, ptr noundef nonnull dereferenceable(4) @utf32_le_bom, i64 4)
-  %.not9.i30 = icmp eq i32 %bcmp.i29, 0
-  %15 = zext i1 %.not9.i30 to i32
-  br label %has_bom_prefix.exit31
+90:                                               ; preds = %91, %skip_iprefix.exit.i59
+  %.06.i4.i61 = phi ptr [ %0, %skip_iprefix.exit.i59 ], [ %93, %91 ]
+  %.05.idx.i5.i62 = phi i64 [ 0, %skip_iprefix.exit.i59 ], [ %.05.add.i9.i66, %91 ]
+  %exitcond.i6.i63 = icmp eq i64 %.05.idx.i5.i62, 3
+  br i1 %exitcond.i6.i63, label %skip_prefix.exit.i71, label %91
 
-has_bom_prefix.exit31:                            ; preds = %12, %14, %10, %has_bom_prefix.exit26, %has_bom_prefix.exit21, %has_bom_prefix.exit
-  %16 = phi i32 [ 1, %has_bom_prefix.exit21 ], [ 1, %has_bom_prefix.exit ], [ 0, %10 ], [ 1, %has_bom_prefix.exit26 ], [ %15, %14 ], [ 0, %12 ]
-  ret i32 %16
+91:                                               ; preds = %90
+  %.05.ptr.i7.i64 = getelementptr inbounds nuw i8, ptr @.str.21, i64 %.05.idx.i5.i62
+  %92 = load i8, ptr %.05.ptr.i7.i64, align 1, !tbaa !4
+  %93 = getelementptr inbounds nuw i8, ptr %.06.i4.i61, i64 1
+  %94 = load i8, ptr %.06.i4.i61, align 1, !tbaa !4
+  %95 = zext i8 %94 to i64
+  %96 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %95
+  %97 = load i8, ptr %96, align 1, !tbaa !4
+  %98 = shl i8 %97, 3
+  %99 = and i8 %98, 32
+  %spec.select.i1.i8.i65 = or i8 %99, %94
+  %.05.add.i9.i66 = add nuw nsw i64 %.05.idx.i5.i62, 1
+  %100 = zext i8 %92 to i64
+  %101 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %100
+  %102 = load i8, ptr %101, align 1, !tbaa !4
+  %103 = shl i8 %102, 3
+  %104 = and i8 %103, 32
+  %spec.select.i72.i10.i67 = or i8 %104, %92
+  %105 = icmp eq i8 %spec.select.i1.i8.i65, %spec.select.i72.i10.i67
+  br i1 %105, label %90, label %same_utf_encoding.exit79.thread.preheader, !llvm.loop !28
+
+skip_prefix.exit.i71:                             ; preds = %90
+  %scevgep.i15.i73 = getelementptr i8, ptr %0, i64 4
+  %106 = load i8, ptr %scevgep.i3.i60, align 1, !tbaa !4
+  %107 = icmp eq i8 %106, 45
+  %.1.i77 = select i1 %107, ptr %scevgep.i15.i73, ptr %scevgep.i3.i60
+  %108 = tail call i32 @strcasecmp(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.6, i64 4), ptr noundef %.1.i77) #22
+  %.not2.i78.not = icmp eq i32 %108, 0
+  br i1 %.not2.i78.not, label %143, label %same_utf_encoding.exit79.thread.preheader
+
+same_utf_encoding.exit79.thread.preheader:        ; preds = %75, %91, %skip_prefix.exit.i71
+  br label %same_utf_encoding.exit79.thread
+
+same_utf_encoding.exit79.thread:                  ; preds = %same_utf_encoding.exit79.thread.preheader, %109
+  %.06.i.i80 = phi ptr [ %111, %109 ], [ @.str.7, %same_utf_encoding.exit79.thread.preheader ]
+  %.05.idx.i.i81 = phi i64 [ %.05.add.i.i85, %109 ], [ 0, %same_utf_encoding.exit79.thread.preheader ]
+  %exitcond.i.i82 = icmp eq i64 %.05.idx.i.i81, 3
+  br i1 %exitcond.i.i82, label %skip_iprefix.exit.i88, label %109
+
+109:                                              ; preds = %same_utf_encoding.exit79.thread
+  %.05.ptr.i.i83 = getelementptr inbounds nuw i8, ptr @.str.21, i64 %.05.idx.i.i81
+  %110 = load i8, ptr %.05.ptr.i.i83, align 1, !tbaa !4
+  %111 = getelementptr inbounds nuw i8, ptr %.06.i.i80, i64 1
+  %112 = load i8, ptr %.06.i.i80, align 1, !tbaa !4
+  %113 = zext i8 %112 to i64
+  %114 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %113
+  %115 = load i8, ptr %114, align 1, !tbaa !4
+  %116 = shl i8 %115, 3
+  %117 = and i8 %116, 32
+  %spec.select.i1.i.i84 = or i8 %117, %112
+  %.05.add.i.i85 = add nuw nsw i64 %.05.idx.i.i81, 1
+  %118 = zext i8 %110 to i64
+  %119 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %118
+  %120 = load i8, ptr %119, align 1, !tbaa !4
+  %121 = shl i8 %120, 3
+  %122 = and i8 %121, 32
+  %spec.select.i72.i.i86 = or i8 %122, %110
+  %123 = icmp eq i8 %spec.select.i1.i.i84, %spec.select.i72.i.i86
+  br i1 %123, label %same_utf_encoding.exit79.thread, label %has_bom_prefix.exit118, !llvm.loop !28
+
+skip_iprefix.exit.i88:                            ; preds = %same_utf_encoding.exit79.thread
+  %scevgep.i3.i89 = getelementptr i8, ptr %0, i64 3
+  br label %124
+
+124:                                              ; preds = %125, %skip_iprefix.exit.i88
+  %.06.i4.i90 = phi ptr [ %0, %skip_iprefix.exit.i88 ], [ %127, %125 ]
+  %.05.idx.i5.i91 = phi i64 [ 0, %skip_iprefix.exit.i88 ], [ %.05.add.i9.i95, %125 ]
+  %exitcond.i6.i92 = icmp eq i64 %.05.idx.i5.i91, 3
+  br i1 %exitcond.i6.i92, label %skip_prefix.exit.i100, label %125
+
+125:                                              ; preds = %124
+  %.05.ptr.i7.i93 = getelementptr inbounds nuw i8, ptr @.str.21, i64 %.05.idx.i5.i91
+  %126 = load i8, ptr %.05.ptr.i7.i93, align 1, !tbaa !4
+  %127 = getelementptr inbounds nuw i8, ptr %.06.i4.i90, i64 1
+  %128 = load i8, ptr %.06.i4.i90, align 1, !tbaa !4
+  %129 = zext i8 %128 to i64
+  %130 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %129
+  %131 = load i8, ptr %130, align 1, !tbaa !4
+  %132 = shl i8 %131, 3
+  %133 = and i8 %132, 32
+  %spec.select.i1.i8.i94 = or i8 %133, %128
+  %.05.add.i9.i95 = add nuw nsw i64 %.05.idx.i5.i91, 1
+  %134 = zext i8 %126 to i64
+  %135 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %134
+  %136 = load i8, ptr %135, align 1, !tbaa !4
+  %137 = shl i8 %136, 3
+  %138 = and i8 %137, 32
+  %spec.select.i72.i10.i96 = or i8 %138, %126
+  %139 = icmp eq i8 %spec.select.i1.i8.i94, %spec.select.i72.i10.i96
+  br i1 %139, label %124, label %has_bom_prefix.exit118, !llvm.loop !28
+
+skip_prefix.exit.i100:                            ; preds = %124
+  %scevgep.i15.i102 = getelementptr i8, ptr %0, i64 4
+  %140 = load i8, ptr %scevgep.i3.i89, align 1, !tbaa !4
+  %141 = icmp eq i8 %140, 45
+  %.1.i106 = select i1 %141, ptr %scevgep.i15.i102, ptr %scevgep.i3.i89
+  %142 = tail call i32 @strcasecmp(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.7, i64 4), ptr noundef %.1.i106) #22
+  %.not2.i107.not = icmp eq i32 %142, 0
+  br i1 %.not2.i107.not, label %143, label %has_bom_prefix.exit118
+
+143:                                              ; preds = %skip_prefix.exit.i100, %skip_prefix.exit.i71
+  %144 = icmp eq ptr %1, null
+  %.not.i109 = icmp ult i64 %2, 4
+  %or.cond10.i110 = or i1 %144, %.not.i109
+  br i1 %or.cond10.i110, label %has_bom_prefix.exit118, label %has_bom_prefix.exit113
+
+has_bom_prefix.exit113:                           ; preds = %143
+  %bcmp.i111 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %1, ptr noundef nonnull dereferenceable(4) @utf32_be_bom, i64 4)
+  %.not9.i112.not = icmp eq i32 %bcmp.i111, 0
+  br i1 %.not9.i112.not, label %has_bom_prefix.exit118, label %145
+
+145:                                              ; preds = %has_bom_prefix.exit113
+  %bcmp.i116 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %1, ptr noundef nonnull dereferenceable(4) @utf32_le_bom, i64 4)
+  %.not9.i117 = icmp eq i32 %bcmp.i116, 0
+  %146 = zext i1 %.not9.i117 to i32
+  br label %has_bom_prefix.exit118
+
+has_bom_prefix.exit118:                           ; preds = %109, %125, %143, %145, %skip_prefix.exit.i100, %has_bom_prefix.exit113, %has_bom_prefix.exit50, %has_bom_prefix.exit
+  %147 = phi i32 [ 1, %has_bom_prefix.exit50 ], [ 1, %has_bom_prefix.exit ], [ 0, %skip_prefix.exit.i100 ], [ 1, %has_bom_prefix.exit113 ], [ %146, %145 ], [ 0, %143 ], [ 0, %125 ], [ 0, %109 ]
+  ret i32 %147
 }
 
 ; Function Attrs: nofree norecurse nounwind memory(read) uwtable
 define dso_local range(i32 0, 2) i32 @is_missing_required_utf_bom(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1, i64 noundef %2) local_unnamed_addr #8 {
-  %4 = tail call fastcc i32 @same_utf_encoding(ptr noundef %0, ptr noundef nonnull @.str.2)
-  %.not = icmp eq i32 %4, 0
-  br i1 %.not, label %7, label %5
+  %scevgep.i.i = getelementptr i8, ptr %0, i64 3
+  br label %4
 
-5:                                                ; preds = %3
-  %6 = icmp eq ptr %1, null
+4:                                                ; preds = %5, %3
+  %.06.i.i = phi ptr [ %0, %3 ], [ %7, %5 ]
+  %.05.idx.i.i = phi i64 [ 0, %3 ], [ %.05.add.i.i, %5 ]
+  %exitcond.i.i = icmp eq i64 %.05.idx.i.i, 3
+  br i1 %exitcond.i.i, label %skip_iprefix.exit.i, label %5
+
+5:                                                ; preds = %4
+  %.05.ptr.i.i = getelementptr inbounds nuw i8, ptr @.str.21, i64 %.05.idx.i.i
+  %6 = load i8, ptr %.05.ptr.i.i, align 1, !tbaa !4
+  %7 = getelementptr inbounds nuw i8, ptr %.06.i.i, i64 1
+  %8 = load i8, ptr %.06.i.i, align 1, !tbaa !4
+  %9 = zext i8 %8 to i64
+  %10 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %9
+  %11 = load i8, ptr %10, align 1, !tbaa !4
+  %12 = shl i8 %11, 3
+  %13 = and i8 %12, 32
+  %spec.select.i1.i.i = or i8 %13, %8
+  %.05.add.i.i = add nuw nsw i64 %.05.idx.i.i, 1
+  %14 = zext i8 %6 to i64
+  %15 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %14
+  %16 = load i8, ptr %15, align 1, !tbaa !4
+  %17 = shl i8 %16, 3
+  %18 = and i8 %17, 32
+  %spec.select.i72.i.i = or i8 %18, %6
+  %19 = icmp eq i8 %spec.select.i1.i.i, %spec.select.i72.i.i
+  br i1 %19, label %4, label %same_utf_encoding.exit.thread.preheader, !llvm.loop !28
+
+skip_iprefix.exit.i:                              ; preds = %4, %20
+  %.06.i4.i = phi ptr [ %22, %20 ], [ @.str.2, %4 ]
+  %.05.idx.i5.i = phi i64 [ %.05.add.i9.i, %20 ], [ 0, %4 ]
+  %exitcond.i6.i = icmp eq i64 %.05.idx.i5.i, 3
+  br i1 %exitcond.i6.i, label %skip_iprefix.exit12.i, label %20
+
+20:                                               ; preds = %skip_iprefix.exit.i
+  %.05.ptr.i7.i = getelementptr inbounds nuw i8, ptr @.str.21, i64 %.05.idx.i5.i
+  %21 = load i8, ptr %.05.ptr.i7.i, align 1, !tbaa !4
+  %22 = getelementptr inbounds nuw i8, ptr %.06.i4.i, i64 1
+  %23 = load i8, ptr %.06.i4.i, align 1, !tbaa !4
+  %24 = zext i8 %23 to i64
+  %25 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %24
+  %26 = load i8, ptr %25, align 1, !tbaa !4
+  %27 = shl i8 %26, 3
+  %28 = and i8 %27, 32
+  %spec.select.i1.i8.i = or i8 %28, %23
+  %.05.add.i9.i = add nuw nsw i64 %.05.idx.i5.i, 1
+  %29 = zext i8 %21 to i64
+  %30 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %29
+  %31 = load i8, ptr %30, align 1, !tbaa !4
+  %32 = shl i8 %31, 3
+  %33 = and i8 %32, 32
+  %spec.select.i72.i10.i = or i8 %33, %21
+  %34 = icmp eq i8 %spec.select.i1.i8.i, %spec.select.i72.i10.i
+  br i1 %34, label %skip_iprefix.exit.i, label %same_utf_encoding.exit.thread.preheader, !llvm.loop !28
+
+skip_iprefix.exit12.i:                            ; preds = %skip_iprefix.exit.i
+  %scevgep.i13.i = getelementptr i8, ptr %0, i64 4
+  %35 = load i8, ptr %scevgep.i.i, align 1, !tbaa !4
+  %36 = icmp eq i8 %35, 45
+  %.129.i = select i1 %36, ptr %scevgep.i13.i, ptr %scevgep.i.i
+  %37 = tail call i32 @strcasecmp(ptr noundef %.129.i, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.2, i64 4)) #22
+  %.not2.i.not = icmp eq i32 %37, 0
+  br i1 %.not2.i.not, label %38, label %same_utf_encoding.exit.thread.preheader
+
+38:                                               ; preds = %skip_iprefix.exit12.i
+  %39 = icmp eq ptr %1, null
   %.not.i = icmp ult i64 %2, 2
-  %or.cond10.i = or i1 %6, %.not.i
+  %or.cond10.i = or i1 %39, %.not.i
   br i1 %or.cond10.i, label %has_bom_prefix.exit17.thread, label %has_bom_prefix.exit
 
-has_bom_prefix.exit:                              ; preds = %5
+has_bom_prefix.exit:                              ; preds = %38
   %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(2) %1, ptr noundef nonnull dereferenceable(2) @utf16_be_bom, i64 2)
   %.not9.i.not = icmp eq i32 %bcmp.i, 0
-  br i1 %.not9.i.not, label %7, label %has_bom_prefix.exit17
+  br i1 %.not9.i.not, label %same_utf_encoding.exit.thread.preheader, label %has_bom_prefix.exit17
 
 has_bom_prefix.exit17:                            ; preds = %has_bom_prefix.exit
   %bcmp.i15 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(2) %1, ptr noundef nonnull dereferenceable(2) @utf16_le_bom, i64 2)
   %.not9.i16.not = icmp eq i32 %bcmp.i15, 0
-  br i1 %.not9.i16.not, label %7, label %has_bom_prefix.exit17.thread
+  br i1 %.not9.i16.not, label %same_utf_encoding.exit.thread.preheader, label %has_bom_prefix.exit17.thread
 
-7:                                                ; preds = %has_bom_prefix.exit17, %has_bom_prefix.exit, %3
-  %8 = tail call fastcc i32 @same_utf_encoding(ptr noundef %0, ptr noundef nonnull @.str.8)
-  %.not11 = icmp eq i32 %8, 0
-  br i1 %.not11, label %has_bom_prefix.exit17.thread, label %9
+same_utf_encoding.exit.thread.preheader:          ; preds = %5, %20, %has_bom_prefix.exit17, %has_bom_prefix.exit, %skip_iprefix.exit12.i
+  br label %same_utf_encoding.exit.thread
 
-9:                                                ; preds = %7
-  %10 = icmp eq ptr %1, null
-  %.not.i18 = icmp ult i64 %2, 4
-  %or.cond10.i19 = or i1 %10, %.not.i18
-  br i1 %or.cond10.i19, label %has_bom_prefix.exit17.thread, label %has_bom_prefix.exit22
+same_utf_encoding.exit.thread:                    ; preds = %same_utf_encoding.exit.thread.preheader, %40
+  %.06.i.i19 = phi ptr [ %42, %40 ], [ %0, %same_utf_encoding.exit.thread.preheader ]
+  %.05.idx.i.i20 = phi i64 [ %.05.add.i.i24, %40 ], [ 0, %same_utf_encoding.exit.thread.preheader ]
+  %exitcond.i.i21 = icmp eq i64 %.05.idx.i.i20, 3
+  br i1 %exitcond.i.i21, label %skip_iprefix.exit.i27, label %40
 
-has_bom_prefix.exit22:                            ; preds = %9
-  %bcmp.i20 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %1, ptr noundef nonnull dereferenceable(4) @utf32_be_bom, i64 4)
-  %.not9.i21.not = icmp eq i32 %bcmp.i20, 0
-  br i1 %.not9.i21.not, label %has_bom_prefix.exit17.thread, label %11
+40:                                               ; preds = %same_utf_encoding.exit.thread
+  %.05.ptr.i.i22 = getelementptr inbounds nuw i8, ptr @.str.21, i64 %.05.idx.i.i20
+  %41 = load i8, ptr %.05.ptr.i.i22, align 1, !tbaa !4
+  %42 = getelementptr inbounds nuw i8, ptr %.06.i.i19, i64 1
+  %43 = load i8, ptr %.06.i.i19, align 1, !tbaa !4
+  %44 = zext i8 %43 to i64
+  %45 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %44
+  %46 = load i8, ptr %45, align 1, !tbaa !4
+  %47 = shl i8 %46, 3
+  %48 = and i8 %47, 32
+  %spec.select.i1.i.i23 = or i8 %48, %43
+  %.05.add.i.i24 = add nuw nsw i64 %.05.idx.i.i20, 1
+  %49 = zext i8 %41 to i64
+  %50 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %49
+  %51 = load i8, ptr %50, align 1, !tbaa !4
+  %52 = shl i8 %51, 3
+  %53 = and i8 %52, 32
+  %spec.select.i72.i.i25 = or i8 %53, %41
+  %54 = icmp eq i8 %spec.select.i1.i.i23, %spec.select.i72.i.i25
+  br i1 %54, label %same_utf_encoding.exit.thread, label %has_bom_prefix.exit17.thread, !llvm.loop !28
 
-11:                                               ; preds = %has_bom_prefix.exit22
-  %bcmp.i25 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %1, ptr noundef nonnull dereferenceable(4) @utf32_le_bom, i64 4)
-  %.not9.i26 = icmp ne i32 %bcmp.i25, 0
-  %12 = zext i1 %.not9.i26 to i32
+skip_iprefix.exit.i27:                            ; preds = %same_utf_encoding.exit.thread, %55
+  %.06.i4.i28 = phi ptr [ %57, %55 ], [ @.str.8, %same_utf_encoding.exit.thread ]
+  %.05.idx.i5.i29 = phi i64 [ %.05.add.i9.i33, %55 ], [ 0, %same_utf_encoding.exit.thread ]
+  %exitcond.i6.i30 = icmp eq i64 %.05.idx.i5.i29, 3
+  br i1 %exitcond.i6.i30, label %skip_iprefix.exit12.i35, label %55
+
+55:                                               ; preds = %skip_iprefix.exit.i27
+  %.05.ptr.i7.i31 = getelementptr inbounds nuw i8, ptr @.str.21, i64 %.05.idx.i5.i29
+  %56 = load i8, ptr %.05.ptr.i7.i31, align 1, !tbaa !4
+  %57 = getelementptr inbounds nuw i8, ptr %.06.i4.i28, i64 1
+  %58 = load i8, ptr %.06.i4.i28, align 1, !tbaa !4
+  %59 = zext i8 %58 to i64
+  %60 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %59
+  %61 = load i8, ptr %60, align 1, !tbaa !4
+  %62 = shl i8 %61, 3
+  %63 = and i8 %62, 32
+  %spec.select.i1.i8.i32 = or i8 %63, %58
+  %.05.add.i9.i33 = add nuw nsw i64 %.05.idx.i5.i29, 1
+  %64 = zext i8 %56 to i64
+  %65 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %64
+  %66 = load i8, ptr %65, align 1, !tbaa !4
+  %67 = shl i8 %66, 3
+  %68 = and i8 %67, 32
+  %spec.select.i72.i10.i34 = or i8 %68, %56
+  %69 = icmp eq i8 %spec.select.i1.i8.i32, %spec.select.i72.i10.i34
+  br i1 %69, label %skip_iprefix.exit.i27, label %has_bom_prefix.exit17.thread, !llvm.loop !28
+
+skip_iprefix.exit12.i35:                          ; preds = %skip_iprefix.exit.i27
+  %scevgep.i13.i36 = getelementptr i8, ptr %0, i64 4
+  %70 = load i8, ptr %scevgep.i.i, align 1, !tbaa !4
+  %71 = icmp eq i8 %70, 45
+  %.129.i40 = select i1 %71, ptr %scevgep.i13.i36, ptr %scevgep.i.i
+  %72 = tail call i32 @strcasecmp(ptr noundef %.129.i40, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.8, i64 4)) #22
+  %.not2.i45.not = icmp eq i32 %72, 0
+  br i1 %.not2.i45.not, label %73, label %has_bom_prefix.exit17.thread
+
+73:                                               ; preds = %skip_iprefix.exit12.i35
+  %74 = icmp eq ptr %1, null
+  %.not.i47 = icmp ult i64 %2, 4
+  %or.cond10.i48 = or i1 %74, %.not.i47
+  br i1 %or.cond10.i48, label %has_bom_prefix.exit17.thread, label %has_bom_prefix.exit51
+
+has_bom_prefix.exit51:                            ; preds = %73
+  %bcmp.i49 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %1, ptr noundef nonnull dereferenceable(4) @utf32_be_bom, i64 4)
+  %.not9.i50.not = icmp eq i32 %bcmp.i49, 0
+  br i1 %.not9.i50.not, label %has_bom_prefix.exit17.thread, label %75
+
+75:                                               ; preds = %has_bom_prefix.exit51
+  %bcmp.i54 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %1, ptr noundef nonnull dereferenceable(4) @utf32_le_bom, i64 4)
+  %.not9.i55 = icmp ne i32 %bcmp.i54, 0
+  %76 = zext i1 %.not9.i55 to i32
   br label %has_bom_prefix.exit17.thread
 
-has_bom_prefix.exit17.thread:                     ; preds = %11, %9, %5, %has_bom_prefix.exit22, %7, %has_bom_prefix.exit17
-  %13 = phi i32 [ 1, %has_bom_prefix.exit17 ], [ 0, %7 ], [ 0, %has_bom_prefix.exit22 ], [ 1, %5 ], [ %12, %11 ], [ 1, %9 ]
-  ret i32 %13
+has_bom_prefix.exit17.thread:                     ; preds = %40, %55, %75, %73, %38, %has_bom_prefix.exit51, %skip_iprefix.exit12.i35, %has_bom_prefix.exit17
+  %77 = phi i32 [ 1, %has_bom_prefix.exit17 ], [ 0, %skip_iprefix.exit12.i35 ], [ 0, %has_bom_prefix.exit51 ], [ 1, %38 ], [ %76, %75 ], [ 1, %73 ], [ 0, %55 ], [ 0, %40 ]
+  ret i32 %77
 }
 
 ; Function Attrs: nofree norecurse nounwind memory(read, argmem: readwrite) uwtable
@@ -1787,45 +2451,108 @@ define dso_local i32 @mbs_chrlen(ptr noundef captures(none) %0, ptr noundef capt
   %8 = load i64, ptr %1, align 8, !tbaa !17
   store i64 %8, ptr %5, align 8, !tbaa !17
   %9 = icmp eq i64 %8, 0
-  br i1 %9, label %25, label %10
+  br i1 %9, label %58, label %10
 
 10:                                               ; preds = %.thread, %7
   %.not.i = icmp eq ptr %2, null
-  br i1 %.not.i, label %is_encoding_utf8.exit.thread, label %is_encoding_utf8.exit
+  br i1 %.not.i, label %45, label %.preheader.i
 
-is_encoding_utf8.exit:                            ; preds = %10
-  %11 = tail call fastcc i32 @same_utf_encoding(ptr noundef nonnull @.str, ptr noundef nonnull readonly %2)
-  %.not14 = icmp eq i32 %11, 0
-  br i1 %.not14, label %19, label %is_encoding_utf8.exit.thread
+.preheader.i:                                     ; preds = %10, %11
+  %.06.i.i.i = phi ptr [ %13, %11 ], [ @.str, %10 ]
+  %.05.idx.i.i.i = phi i64 [ %.05.add.i.i.i, %11 ], [ 0, %10 ]
+  %exitcond.i.i.i = icmp eq i64 %.05.idx.i.i.i, 3
+  br i1 %exitcond.i.i.i, label %skip_iprefix.exit.i.i, label %11
 
-is_encoding_utf8.exit.thread:                     ; preds = %10, %is_encoding_utf8.exit
-  %12 = call fastcc i32 @pick_one_utf8_char(ptr noundef nonnull %4, ptr noundef nonnull %5)
-  %13 = load ptr, ptr %4, align 8, !tbaa !9
-  %.not15 = icmp eq ptr %13, null
-  br i1 %.not15, label %19, label %14
+11:                                               ; preds = %.preheader.i
+  %.05.ptr.i.i.i = getelementptr inbounds nuw i8, ptr @.str.21, i64 %.05.idx.i.i.i
+  %12 = load i8, ptr %.05.ptr.i.i.i, align 1, !tbaa !4
+  %13 = getelementptr inbounds nuw i8, ptr %.06.i.i.i, i64 1
+  %14 = load i8, ptr %.06.i.i.i, align 1, !tbaa !4
+  %15 = zext i8 %14 to i64
+  %16 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %15
+  %17 = load i8, ptr %16, align 1, !tbaa !4
+  %18 = shl i8 %17, 3
+  %19 = and i8 %18, 32
+  %spec.select.i1.i.i.i = or i8 %19, %14
+  %.05.add.i.i.i = add nuw nsw i64 %.05.idx.i.i.i, 1
+  %20 = zext i8 %12 to i64
+  %21 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %20
+  %22 = load i8, ptr %21, align 1, !tbaa !4
+  %23 = shl i8 %22, 3
+  %24 = and i8 %23, 32
+  %spec.select.i72.i.i.i = or i8 %24, %12
+  %25 = icmp eq i8 %spec.select.i1.i.i.i, %spec.select.i72.i.i.i
+  br i1 %25, label %.preheader.i, label %is_encoding_utf8.exit, !llvm.loop !28
 
-14:                                               ; preds = %is_encoding_utf8.exit.thread
-  %15 = ptrtoint ptr %13 to i64
-  %16 = ptrtoint ptr %6 to i64
-  %17 = sub i64 %15, %16
-  %18 = trunc i64 %17 to i32
-  br label %19
+skip_iprefix.exit.i.i:                            ; preds = %.preheader.i
+  %scevgep.i3.i.i = getelementptr i8, ptr %2, i64 3
+  br label %26
 
-19:                                               ; preds = %is_encoding_utf8.exit, %14, %is_encoding_utf8.exit.thread
-  %.0 = phi i32 [ %18, %14 ], [ 1, %is_encoding_utf8.exit.thread ], [ 1, %is_encoding_utf8.exit ]
-  %20 = sext i32 %.0 to i64
-  %21 = getelementptr inbounds i8, ptr %6, i64 %20
-  store ptr %21, ptr %0, align 8, !tbaa !9
-  br i1 %.not, label %25, label %22
+26:                                               ; preds = %30, %skip_iprefix.exit.i.i
+  %.06.i4.i.i = phi ptr [ %2, %skip_iprefix.exit.i.i ], [ %32, %30 ]
+  %.05.idx.i5.i.i = phi i64 [ 0, %skip_iprefix.exit.i.i ], [ %.05.add.i9.i.i, %30 ]
+  %exitcond.i6.i.i = icmp eq i64 %.05.idx.i5.i.i, 3
+  br i1 %exitcond.i6.i.i, label %skip_iprefix.exit12.i.i.preheader, label %30
 
-22:                                               ; preds = %19
-  %23 = load i64, ptr %1, align 8, !tbaa !17
-  %24 = sub i64 %23, %20
-  store i64 %24, ptr %1, align 8, !tbaa !17
-  br label %25
+skip_iprefix.exit12.i.i.preheader:                ; preds = %26
+  %scevgep.i15.i.i = getelementptr i8, ptr %2, i64 4
+  %27 = load i8, ptr %scevgep.i3.i.i, align 1, !tbaa !4
+  %28 = icmp eq i8 %27, 45
+  %.1.i.i = select i1 %28, ptr %scevgep.i15.i.i, ptr %scevgep.i3.i.i
+  %29 = tail call i32 @strcasecmp(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 4), ptr noundef %.1.i.i) #22
+  %.fr.i = freeze i32 %29
+  %.not2.i.not.i = icmp eq i32 %.fr.i, 0
+  br i1 %.not2.i.not.i, label %45, label %is_encoding_utf8.exit
 
-25:                                               ; preds = %19, %22, %7
-  %.011 = phi i32 [ 0, %7 ], [ %.0, %22 ], [ %.0, %19 ]
+30:                                               ; preds = %26
+  %.05.ptr.i7.i.i = getelementptr inbounds nuw i8, ptr @.str.21, i64 %.05.idx.i5.i.i
+  %31 = load i8, ptr %.05.ptr.i7.i.i, align 1, !tbaa !4
+  %32 = getelementptr inbounds nuw i8, ptr %.06.i4.i.i, i64 1
+  %33 = load i8, ptr %.06.i4.i.i, align 1, !tbaa !4
+  %34 = zext i8 %33 to i64
+  %35 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %34
+  %36 = load i8, ptr %35, align 1, !tbaa !4
+  %37 = shl i8 %36, 3
+  %38 = and i8 %37, 32
+  %spec.select.i1.i8.i.i = or i8 %38, %33
+  %.05.add.i9.i.i = add nuw nsw i64 %.05.idx.i5.i.i, 1
+  %39 = zext i8 %31 to i64
+  %40 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %39
+  %41 = load i8, ptr %40, align 1, !tbaa !4
+  %42 = shl i8 %41, 3
+  %43 = and i8 %42, 32
+  %spec.select.i72.i10.i.i = or i8 %43, %31
+  %44 = icmp eq i8 %spec.select.i1.i8.i.i, %spec.select.i72.i10.i.i
+  br i1 %44, label %26, label %is_encoding_utf8.exit, !llvm.loop !28
+
+45:                                               ; preds = %10, %skip_iprefix.exit12.i.i.preheader
+  %46 = call fastcc i32 @pick_one_utf8_char(ptr noundef nonnull %4, ptr noundef nonnull %5)
+  %47 = load ptr, ptr %4, align 8, !tbaa !9
+  %.not15 = icmp eq ptr %47, null
+  br i1 %.not15, label %is_encoding_utf8.exit, label %48
+
+48:                                               ; preds = %45
+  %49 = ptrtoint ptr %47 to i64
+  %50 = ptrtoint ptr %6 to i64
+  %51 = sub i64 %49, %50
+  %52 = trunc i64 %51 to i32
+  br label %is_encoding_utf8.exit
+
+is_encoding_utf8.exit:                            ; preds = %11, %30, %skip_iprefix.exit12.i.i.preheader, %48, %45
+  %.0 = phi i32 [ %52, %48 ], [ 1, %45 ], [ 1, %skip_iprefix.exit12.i.i.preheader ], [ 1, %30 ], [ 1, %11 ]
+  %53 = sext i32 %.0 to i64
+  %54 = getelementptr inbounds i8, ptr %6, i64 %53
+  store ptr %54, ptr %0, align 8, !tbaa !9
+  br i1 %.not, label %58, label %55
+
+55:                                               ; preds = %is_encoding_utf8.exit
+  %56 = load i64, ptr %1, align 8, !tbaa !17
+  %57 = sub i64 %56, %53
+  store i64 %57, ptr %1, align 8, !tbaa !17
+  br label %58
+
+58:                                               ; preds = %is_encoding_utf8.exit, %55, %7
+  %.011 = phi i32 [ 0, %7 ], [ %.0, %55 ], [ %.0, %is_encoding_utf8.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.011
@@ -1864,7 +2591,7 @@ define dso_local range(i32 0, 2) i32 @is_hfs_dotgit(ptr noundef %0) local_unname
   %16 = getelementptr inbounds nuw i8, ptr %.0919.i.i, i64 1
   %17 = add nsw i64 %.020.i.i, -1
   %.not13.i.i = icmp eq i64 %17, 0
-  br i1 %.not13.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !31
+  br i1 %.not13.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !30
 
 ._crit_edge.i.i:                                  ; preds = %15
   %18 = call fastcc i32 @next_hfs_char(ptr noundef %2)
@@ -1913,7 +2640,7 @@ define dso_local range(i32 0, 2) i32 @is_hfs_dotgitmodules(ptr noundef %0) local
   %16 = getelementptr inbounds nuw i8, ptr %.0919.i.i, i64 1
   %17 = add nsw i64 %.020.i.i, -1
   %.not13.i.i = icmp eq i64 %17, 0
-  br i1 %.not13.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !31
+  br i1 %.not13.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !30
 
 ._crit_edge.i.i:                                  ; preds = %15
   %18 = call fastcc i32 @next_hfs_char(ptr noundef %2)
@@ -1962,7 +2689,7 @@ define dso_local range(i32 0, 2) i32 @is_hfs_dotgitignore(ptr noundef %0) local_
   %16 = getelementptr inbounds nuw i8, ptr %.0919.i.i, i64 1
   %17 = add nsw i64 %.020.i.i, -1
   %.not13.i.i = icmp eq i64 %17, 0
-  br i1 %.not13.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !31
+  br i1 %.not13.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !30
 
 ._crit_edge.i.i:                                  ; preds = %15
   %18 = call fastcc i32 @next_hfs_char(ptr noundef %2)
@@ -2011,7 +2738,7 @@ define dso_local range(i32 0, 2) i32 @is_hfs_dotgitattributes(ptr noundef %0) lo
   %16 = getelementptr inbounds nuw i8, ptr %.0919.i.i, i64 1
   %17 = add nsw i64 %.020.i.i, -1
   %.not13.i.i = icmp eq i64 %17, 0
-  br i1 %.not13.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !31
+  br i1 %.not13.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !30
 
 ._crit_edge.i.i:                                  ; preds = %15
   %18 = call fastcc i32 @next_hfs_char(ptr noundef %2)
@@ -2060,7 +2787,7 @@ define dso_local range(i32 0, 2) i32 @is_hfs_dotmailmap(ptr noundef %0) local_un
   %16 = getelementptr inbounds nuw i8, ptr %.0919.i.i, i64 1
   %17 = add nsw i64 %.020.i.i, -1
   %.not13.i.i = icmp eq i64 %17, 0
-  br i1 %.not13.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !31
+  br i1 %.not13.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !30
 
 ._crit_edge.i.i:                                  ; preds = %15
   %18 = call fastcc i32 @next_hfs_char(ptr noundef %2)
@@ -2267,6 +2994,5 @@ attributes #24 = { nounwind willreturn memory(none) }
 !26 = !{!22, !10, i64 16}
 !27 = distinct !{!27, !8}
 !28 = distinct !{!28, !8}
-!29 = distinct !{!29, !8}
-!30 = !{!14, !14, i64 0}
-!31 = distinct !{!31, !8}
+!29 = !{!14, !14, i64 0}
+!30 = distinct !{!30, !8}

@@ -945,16 +945,16 @@ define hidden { i64, ptr } @_ZN12pingora_core9protocols11raw_connect23generate_c
   %181 = load i16, ptr %88, align 8, !alias.scope !133, !noalias !138, !noundef !3
   %182 = and i16 %181, %178
   %183 = zext i16 %182 to i64
-  br label %.outer339
+  br label %.outer355
 
-.outer339:                                        ; preds = %"_ZN71_$LT$http..header..name..HeaderName$u20$as$u20$core..cmp..PartialEq$GT$2eq17h26881b5227ba53caE.exit.thread.i", %180
+.outer355:                                        ; preds = %"_ZN71_$LT$http..header..name..HeaderName$u20$as$u20$core..cmp..PartialEq$GT$2eq17h26881b5227ba53caE.exit.thread.i", %180
   %.sroa.010.0.i.ph = phi i64 [ %235, %"_ZN71_$LT$http..header..name..HeaderName$u20$as$u20$core..cmp..PartialEq$GT$2eq17h26881b5227ba53caE.exit.thread.i" ], [ 0, %180 ]
   %.sroa.020.0.i.ph = phi i64 [ %236, %"_ZN71_$LT$http..header..name..HeaderName$u20$as$u20$core..cmp..PartialEq$GT$2eq17h26881b5227ba53caE.exit.thread.i" ], [ %183, %180 ]
   %184 = load i64, ptr %90, align 8, !alias.scope !133, !noalias !138, !noundef !3
   br label %185
 
-185:                                              ; preds = %.outer339, %185
-  %.sroa.020.0.i = phi i64 [ 0, %185 ], [ %.sroa.020.0.i.ph, %.outer339 ]
+185:                                              ; preds = %.outer355, %185
+  %.sroa.020.0.i = phi i64 [ 0, %185 ], [ %.sroa.020.0.i.ph, %.outer355 ]
   %186 = icmp ult i64 %.sroa.020.0.i, %184
   br i1 %186, label %187, label %185
 
@@ -1080,7 +1080,7 @@ define hidden { i64, ptr } @_ZN12pingora_core9protocols11raw_connect23generate_c
 "_ZN71_$LT$http..header..name..HeaderName$u20$as$u20$core..cmp..PartialEq$GT$2eq17h26881b5227ba53caE.exit.thread.i": ; preds = %"_ZN71_$LT$http..header..name..HeaderName$u20$as$u20$core..cmp..PartialEq$GT$2eq17h26881b5227ba53caE.exit.i", %251, %240, %233
   %235 = add nuw nsw i64 %.sroa.010.0.i.ph, 1
   %236 = add i64 %.sroa.020.0.i, 1
-  br label %.outer339
+  br label %.outer355
 
 237:                                              ; preds = %233
   %238 = load i64, ptr %91, align 8, !alias.scope !133, !noalias !138, !noundef !3

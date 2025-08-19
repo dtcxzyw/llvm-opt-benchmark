@@ -60,8 +60,8 @@ _ZNK4decl13get_family_idEv.exit.thread.i.i:       ; preds = %4
   %13 = load i32, ptr %12, align 4, !tbaa !18
   %14 = icmp eq i32 %13, 4
   %.not18 = icmp eq i32 %2, 0
-  %or.cond26 = or i1 %14, %.not18
-  br i1 %or.cond26, label %._crit_edge, label %.lr.ph
+  %or.cond28 = or i1 %14, %.not18
+  br i1 %or.cond28, label %._crit_edge, label %.lr.ph
 
 .preheader:                                       ; preds = %_ZNK4decl13get_family_idEv.exit.thread.i.i, %4
   %.not18.old = icmp eq i32 %2, 0
@@ -447,8 +447,8 @@ _ZNK4decl13get_family_idEv.exit.thread.i.i.i:     ; preds = %4
   %13 = load i32, ptr %12, align 4, !tbaa !18
   %14 = icmp eq i32 %13, 4
   %.not18.i = icmp eq i32 %2, 0
-  %or.cond26.i = or i1 %.not18.i, %14
-  br i1 %or.cond26.i, label %_ZN16push_app_ite_cfg9is_targetEP9func_decljPKP4expr.exit.thread14, label %.lr.ph.i
+  %or.cond28.i = or i1 %.not18.i, %14
+  br i1 %or.cond28.i, label %_ZN16push_app_ite_cfg9is_targetEP9func_decljPKP4expr.exit.thread14, label %.lr.ph.i
 
 .preheader.i:                                     ; preds = %_ZNK4decl13get_family_idEv.exit.thread.i.i.i, %4
   %.not18.old.i = icmp eq i32 %2, 0

@@ -2039,8 +2039,8 @@ _ZN26GrowableArrayWithAllocatorIP6Method13GrowableArrayIS1_EE4pushERKS1_.exit51.
 _ZL24switchover_constant_poolP20BytecodeConstantPoolP13InstanceKlassP13GrowableArrayIP6MethodEP10JavaThread.exit.i: ; preds = %.lr.ph34.i.i, %.preheader.i.i37
   %800 = phi i32 [ %781, %.preheader.i.i37 ], [ %797, %.lr.ph34.i.i ]
   %801 = phi ptr [ %780, %.preheader.i.i37 ], [ %796, %.lr.ph34.i.i ]
-  %.pr215.i.pr = load ptr, ptr %566, align 8
-  %.not176.i = icmp eq ptr %.pr215.i.pr, null
+  %.pr232.i.pr = load ptr, ptr %566, align 8
+  %.not176.i = icmp eq ptr %.pr232.i.pr, null
   br i1 %.not176.i, label %_ZL24switchover_constant_poolP20BytecodeConstantPoolP13InstanceKlassP13GrowableArrayIP6MethodEP10JavaThread.exit.i.thread, label %_ZL30create_defaults_and_exceptionsP13GrowableArrayIP15EmptyVtableSlotEP13InstanceKlassP10JavaThread.exit
 
 _ZL24switchover_constant_poolP20BytecodeConstantPoolP13InstanceKlassP13GrowableArrayIP6MethodEP10JavaThread.exit.i.thread: ; preds = %._ZL24switchover_constant_poolP20BytecodeConstantPoolP13InstanceKlassP13GrowableArrayIP6MethodEP10JavaThread.exit.i.thread_crit_edge, %_ZL24switchover_constant_poolP20BytecodeConstantPoolP13InstanceKlassP13GrowableArrayIP6MethodEP10JavaThread.exit.i
@@ -2421,7 +2421,7 @@ _ZL30create_defaults_and_exceptionsP13GrowableArrayIP15EmptyVtableSlotEP13Instan
   br label %_ZL30create_defaults_and_exceptionsP13GrowableArrayIP15EmptyVtableSlotEP13InstanceKlassP10JavaThread.exit
 
 _ZL30create_defaults_and_exceptionsP13GrowableArrayIP15EmptyVtableSlotEP13InstanceKlassP10JavaThread.exit: ; preds = %675, %_ZL10new_methodP20BytecodeConstantPoolP14BytecodeBufferP6SymbolS4_11AccessFlagsiiN11ConstMethod10MethodTypeEP10JavaThread.exit.i, %_ZL30create_defaults_and_exceptionsP13GrowableArrayIP15EmptyVtableSlotEP13InstanceKlassP10JavaThread.exitthread-pre-split, %763, %_ZL24switchover_constant_poolP20BytecodeConstantPoolP13InstanceKlassP13GrowableArrayIP6MethodEP10JavaThread.exit.i, %_ZN15MetadataFactory9new_arrayIP6MethodEEP5ArrayIT_EP15ClassLoaderDataiP10JavaThread.exit.i.i.i, %.lr.ph.i.i.i, %_ZN15MetadataFactory9new_arrayIiEEP5ArrayIT_EP15ClassLoaderDataiP10JavaThread.exit.i.i, %_ZL20merge_in_new_methodsP13InstanceKlassP13GrowableArrayIP6MethodEP10JavaThread.exit.i, %_ZN15MetadataFactory9new_arrayIP6MethodEEP5ArrayIT_EP15ClassLoaderDataiP10JavaThread.exit.i.i59.i, %.lr.ph.i.i62.i
-  %987 = phi ptr [ %.pr, %_ZL30create_defaults_and_exceptionsP13GrowableArrayIP15EmptyVtableSlotEP13InstanceKlassP10JavaThread.exitthread-pre-split ], [ %765, %763 ], [ %.pr215.i.pr, %_ZL24switchover_constant_poolP20BytecodeConstantPoolP13InstanceKlassP13GrowableArrayIP6MethodEP10JavaThread.exit.i ], [ %822, %_ZN15MetadataFactory9new_arrayIP6MethodEEP5ArrayIT_EP15ClassLoaderDataiP10JavaThread.exit.i.i.i ], [ %.pr.i.i, %.lr.ph.i.i.i ], [ %844, %_ZN15MetadataFactory9new_arrayIiEEP5ArrayIT_EP15ClassLoaderDataiP10JavaThread.exit.i.i ], [ %.pr174.i, %_ZL20merge_in_new_methodsP13InstanceKlassP13GrowableArrayIP6MethodEP10JavaThread.exit.i ], [ %978, %_ZN15MetadataFactory9new_arrayIP6MethodEEP5ArrayIT_EP15ClassLoaderDataiP10JavaThread.exit.i.i59.i ], [ %.pr.i63.i, %.lr.ph.i.i62.i ], [ %.pr.i, %_ZL10new_methodP20BytecodeConstantPoolP14BytecodeBufferP6SymbolS4_11AccessFlagsiiN11ConstMethod10MethodTypeEP10JavaThread.exit.i ], [ %680, %675 ]
+  %987 = phi ptr [ %.pr, %_ZL30create_defaults_and_exceptionsP13GrowableArrayIP15EmptyVtableSlotEP13InstanceKlassP10JavaThread.exitthread-pre-split ], [ %765, %763 ], [ %.pr232.i.pr, %_ZL24switchover_constant_poolP20BytecodeConstantPoolP13InstanceKlassP13GrowableArrayIP6MethodEP10JavaThread.exit.i ], [ %822, %_ZN15MetadataFactory9new_arrayIP6MethodEEP5ArrayIT_EP15ClassLoaderDataiP10JavaThread.exit.i.i.i ], [ %.pr.i.i, %.lr.ph.i.i.i ], [ %844, %_ZN15MetadataFactory9new_arrayIiEEP5ArrayIT_EP15ClassLoaderDataiP10JavaThread.exit.i.i ], [ %.pr174.i, %_ZL20merge_in_new_methodsP13InstanceKlassP13GrowableArrayIP6MethodEP10JavaThread.exit.i ], [ %978, %_ZN15MetadataFactory9new_arrayIP6MethodEEP5ArrayIT_EP15ClassLoaderDataiP10JavaThread.exit.i.i59.i ], [ %.pr.i63.i, %.lr.ph.i.i62.i ], [ %.pr.i, %_ZL10new_methodP20BytecodeConstantPoolP14BytecodeBufferP6SymbolS4_11AccessFlagsiiN11ConstMethod10MethodTypeEP10JavaThread.exit.i ], [ %680, %675 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.not288 = icmp eq ptr %987, null
   %988 = load i64, ptr %491, align 8
@@ -3558,7 +3558,7 @@ _ZN22FindMethodsByErasedSig13new_node_dataEv.exit: ; preds = %11, %18
   br i1 %47, label %_ZN16HierarchyVisitorI22FindMethodsByErasedSigE9has_superEP13InstanceKlass.exit.sink.split, label %_ZN16HierarchyVisitorI22FindMethodsByErasedSigE9has_superEP13InstanceKlass.exit
 
 _ZN16HierarchyVisitorI22FindMethodsByErasedSigE9has_superEP13InstanceKlass.exit.sink.split: ; preds = %45, %33
-  %.sink16.ph = phi ptr [ %30, %33 ], [ %42, %45 ]
+  %.sink19.ph = phi ptr [ %30, %33 ], [ %42, %45 ]
   %48 = getelementptr inbounds nuw i8, ptr %1, i64 164
   %49 = load i32, ptr %48, align 4
   %50 = lshr i32 %49, 9
@@ -3567,14 +3567,14 @@ _ZN16HierarchyVisitorI22FindMethodsByErasedSigE9has_superEP13InstanceKlass.exit.
   br label %_ZN16HierarchyVisitorI22FindMethodsByErasedSigE9has_superEP13InstanceKlass.exit
 
 _ZN16HierarchyVisitorI22FindMethodsByErasedSigE9has_superEP13InstanceKlass.exit: ; preds = %_ZN16HierarchyVisitorI22FindMethodsByErasedSigE9has_superEP13InstanceKlass.exit.sink.split, %45, %36, %33, %29
-  %.sink16 = phi ptr [ %30, %29 ], [ %30, %33 ], [ %42, %36 ], [ %42, %45 ], [ %.sink16.ph, %_ZN16HierarchyVisitorI22FindMethodsByErasedSigE9has_superEP13InstanceKlass.exit.sink.split ]
+  %.sink19 = phi ptr [ %30, %29 ], [ %30, %33 ], [ %42, %36 ], [ %42, %45 ], [ %.sink19.ph, %_ZN16HierarchyVisitorI22FindMethodsByErasedSigE9has_superEP13InstanceKlass.exit.sink.split ]
   %.sink = phi i8 [ 1, %29 ], [ 0, %33 ], [ 1, %36 ], [ 0, %45 ], [ %52, %_ZN16HierarchyVisitorI22FindMethodsByErasedSigE9has_superEP13InstanceKlass.exit.sink.split ]
-  store ptr %1, ptr %.sink16, align 8
-  %53 = getelementptr inbounds nuw i8, ptr %.sink16, i64 8
+  store ptr %1, ptr %.sink19, align 8
+  %53 = getelementptr inbounds nuw i8, ptr %.sink19, i64 8
   store i8 %.sink, ptr %53, align 8
-  %54 = getelementptr inbounds nuw i8, ptr %.sink16, i64 12
+  %54 = getelementptr inbounds nuw i8, ptr %.sink19, i64 12
   store i32 0, ptr %54, align 4
-  %55 = getelementptr inbounds nuw i8, ptr %.sink16, i64 16
+  %55 = getelementptr inbounds nuw i8, ptr %.sink19, i64 16
   store ptr %.0.i, ptr %55, align 8
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %57 = load i32, ptr %56, align 8
@@ -3605,7 +3605,7 @@ _ZN26GrowableArrayWithAllocatorIPN16HierarchyVisitorI22FindMethodsByErasedSigE4N
   %72 = load ptr, ptr %71, align 8
   %73 = sext i32 %69 to i64
   %74 = getelementptr inbounds ptr, ptr %72, i64 %73
-  store ptr %.sink16, ptr %74, align 8
+  store ptr %.sink19, ptr %74, align 8
   ret void
 }
 
@@ -4382,7 +4382,7 @@ define linkonce_odr hidden void @_ZN16HierarchyVisitorI16KeepAliveVisitorE4pushE
   br i1 %29, label %_ZN16HierarchyVisitorI16KeepAliveVisitorE9has_superEP13InstanceKlass.exit.sink.split, label %_ZN16HierarchyVisitorI16KeepAliveVisitorE9has_superEP13InstanceKlass.exit
 
 _ZN16HierarchyVisitorI16KeepAliveVisitorE9has_superEP13InstanceKlass.exit.sink.split: ; preds = %27, %15
-  %.sink16.ph = phi ptr [ %12, %15 ], [ %24, %27 ]
+  %.sink18.ph = phi ptr [ %12, %15 ], [ %24, %27 ]
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 164
   %31 = load i32, ptr %30, align 4
   %32 = lshr i32 %31, 9
@@ -4391,14 +4391,14 @@ _ZN16HierarchyVisitorI16KeepAliveVisitorE9has_superEP13InstanceKlass.exit.sink.s
   br label %_ZN16HierarchyVisitorI16KeepAliveVisitorE9has_superEP13InstanceKlass.exit
 
 _ZN16HierarchyVisitorI16KeepAliveVisitorE9has_superEP13InstanceKlass.exit: ; preds = %_ZN16HierarchyVisitorI16KeepAliveVisitorE9has_superEP13InstanceKlass.exit.sink.split, %27, %18, %15, %11
-  %.sink16 = phi ptr [ %12, %11 ], [ %12, %15 ], [ %24, %18 ], [ %24, %27 ], [ %.sink16.ph, %_ZN16HierarchyVisitorI16KeepAliveVisitorE9has_superEP13InstanceKlass.exit.sink.split ]
+  %.sink18 = phi ptr [ %12, %11 ], [ %12, %15 ], [ %24, %18 ], [ %24, %27 ], [ %.sink18.ph, %_ZN16HierarchyVisitorI16KeepAliveVisitorE9has_superEP13InstanceKlass.exit.sink.split ]
   %.sink = phi i8 [ 1, %11 ], [ 0, %15 ], [ 1, %18 ], [ 0, %27 ], [ %34, %_ZN16HierarchyVisitorI16KeepAliveVisitorE9has_superEP13InstanceKlass.exit.sink.split ]
-  store ptr %1, ptr %.sink16, align 8
-  %35 = getelementptr inbounds nuw i8, ptr %.sink16, i64 8
+  store ptr %1, ptr %.sink18, align 8
+  %35 = getelementptr inbounds nuw i8, ptr %.sink18, i64 8
   store i8 %.sink, ptr %35, align 8
-  %36 = getelementptr inbounds nuw i8, ptr %.sink16, i64 12
+  %36 = getelementptr inbounds nuw i8, ptr %.sink18, i64 12
   store i32 0, ptr %36, align 4
-  %37 = getelementptr inbounds nuw i8, ptr %.sink16, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %.sink18, i64 16
   store ptr null, ptr %37, align 8
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %39 = load i32, ptr %38, align 8
@@ -4429,7 +4429,7 @@ _ZN26GrowableArrayWithAllocatorIPN16HierarchyVisitorI16KeepAliveVisitorE4NodeE13
   %54 = load ptr, ptr %53, align 8
   %55 = sext i32 %51 to i64
   %56 = getelementptr inbounds ptr, ptr %54, i64 %55
-  store ptr %.sink16, ptr %56, align 8
+  store ptr %.sink18, ptr %56, align 8
   ret void
 }
 
@@ -4757,7 +4757,7 @@ define linkonce_odr hidden void @_ZN16HierarchyVisitorI14PrintHierarchyE4pushEP1
   br i1 %29, label %_ZN16HierarchyVisitorI14PrintHierarchyE9has_superEP13InstanceKlass.exit.sink.split, label %_ZN16HierarchyVisitorI14PrintHierarchyE9has_superEP13InstanceKlass.exit
 
 _ZN16HierarchyVisitorI14PrintHierarchyE9has_superEP13InstanceKlass.exit.sink.split: ; preds = %27, %15
-  %.sink16.ph = phi ptr [ %12, %15 ], [ %24, %27 ]
+  %.sink18.ph = phi ptr [ %12, %15 ], [ %24, %27 ]
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 164
   %31 = load i32, ptr %30, align 4
   %32 = lshr i32 %31, 9
@@ -4766,14 +4766,14 @@ _ZN16HierarchyVisitorI14PrintHierarchyE9has_superEP13InstanceKlass.exit.sink.spl
   br label %_ZN16HierarchyVisitorI14PrintHierarchyE9has_superEP13InstanceKlass.exit
 
 _ZN16HierarchyVisitorI14PrintHierarchyE9has_superEP13InstanceKlass.exit: ; preds = %_ZN16HierarchyVisitorI14PrintHierarchyE9has_superEP13InstanceKlass.exit.sink.split, %27, %18, %15, %11
-  %.sink16 = phi ptr [ %12, %11 ], [ %12, %15 ], [ %24, %18 ], [ %24, %27 ], [ %.sink16.ph, %_ZN16HierarchyVisitorI14PrintHierarchyE9has_superEP13InstanceKlass.exit.sink.split ]
+  %.sink18 = phi ptr [ %12, %11 ], [ %12, %15 ], [ %24, %18 ], [ %24, %27 ], [ %.sink18.ph, %_ZN16HierarchyVisitorI14PrintHierarchyE9has_superEP13InstanceKlass.exit.sink.split ]
   %.sink = phi i8 [ 1, %11 ], [ 0, %15 ], [ 1, %18 ], [ 0, %27 ], [ %34, %_ZN16HierarchyVisitorI14PrintHierarchyE9has_superEP13InstanceKlass.exit.sink.split ]
-  store ptr %1, ptr %.sink16, align 8
-  %35 = getelementptr inbounds nuw i8, ptr %.sink16, i64 8
+  store ptr %1, ptr %.sink18, align 8
+  %35 = getelementptr inbounds nuw i8, ptr %.sink18, i64 8
   store i8 %.sink, ptr %35, align 8
-  %36 = getelementptr inbounds nuw i8, ptr %.sink16, i64 12
+  %36 = getelementptr inbounds nuw i8, ptr %.sink18, i64 12
   store i32 0, ptr %36, align 4
-  %37 = getelementptr inbounds nuw i8, ptr %.sink16, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %.sink18, i64 16
   store ptr null, ptr %37, align 8
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %39 = load i32, ptr %38, align 8
@@ -4804,7 +4804,7 @@ _ZN26GrowableArrayWithAllocatorIPN16HierarchyVisitorI14PrintHierarchyE4NodeE13Gr
   %54 = load ptr, ptr %53, align 8
   %55 = sext i32 %51 to i64
   %56 = getelementptr inbounds ptr, ptr %54, i64 %55
-  store ptr %.sink16, ptr %56, align 8
+  store ptr %.sink18, ptr %56, align 8
   ret void
 }
 

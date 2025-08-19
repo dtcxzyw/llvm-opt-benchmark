@@ -967,8 +967,8 @@ if.end.i:                                         ; preds = %invoke.cont40
 
 if.end.thread.i:                                  ; preds = %invoke.cont40
   %56 = load ptr, ptr %ref.tmp37, align 8, !tbaa !10
-  %cmp.i1739.i = icmp eq ptr %56, %29
-  br i1 %cmp.i1739.i, label %if.then15.i, label %if.end32.i
+  %cmp.i1744.i = icmp eq ptr %56, %29
+  br i1 %cmp.i1744.i, label %if.then15.i, label %if.end32.i
 
 if.then15.i:                                      ; preds = %if.end.thread.i, %if.end.i
   %57 = phi ptr [ %56, %if.end.thread.i ], [ %55, %if.end.i ]
@@ -12739,12 +12739,12 @@ if.then143:                                       ; preds = %invoke.cont139
 invoke.cont144:                                   ; preds = %if.then143
   %121 = load i16, ptr %current_match.i323, align 2, !tbaa !189
   call void @llvm.lifetime.end.p0(ptr nonnull %level.i326)
-  switch i16 %121, label %cleanup156.loopexit1098 [
+  switch i16 %121, label %cleanup156.loopexit1170 [
     i16 -1, label %if.then8.i.i.i342.invoke
     i16 3, label %cleanup156
     i16 4, label %cleanup156.loopexit1073
-    i16 2, label %cleanup156.loopexit1093
-    i16 1, label %cleanup156.loopexit1088
+    i16 2, label %cleanup156.loopexit1165
+    i16 1, label %cleanup156.loopexit1160
   ]
 
 lpad138:                                          ; preds = %if.then143, %sw.bb136
@@ -12791,17 +12791,17 @@ lpad153:                                          ; preds = %if.then8.i.i.i342.i
 cleanup156.loopexit1073:                          ; preds = %invoke.cont144
   br label %cleanup156
 
-cleanup156.loopexit1088:                          ; preds = %invoke.cont144
+cleanup156.loopexit1160:                          ; preds = %invoke.cont144
   br label %cleanup156
 
-cleanup156.loopexit1093:                          ; preds = %invoke.cont144
+cleanup156.loopexit1165:                          ; preds = %invoke.cont144
   br label %cleanup156
 
-cleanup156.loopexit1098:                          ; preds = %invoke.cont144
+cleanup156.loopexit1170:                          ; preds = %invoke.cont144
   br label %cleanup156
 
-cleanup156:                                       ; preds = %invoke.cont144, %cleanup156.loopexit1098, %cleanup156.loopexit1093, %cleanup156.loopexit1088, %cleanup156.loopexit1073
-  %retval.sroa.0.0.i.i333 = phi i32 [ 5373484, %cleanup156.loopexit1073 ], [ 0, %cleanup156.loopexit1088 ], [ -1, %cleanup156.loopexit1093 ], [ -2, %cleanup156.loopexit1098 ], [ 2232400, %invoke.cont144 ]
+cleanup156:                                       ; preds = %invoke.cont144, %cleanup156.loopexit1170, %cleanup156.loopexit1165, %cleanup156.loopexit1160, %cleanup156.loopexit1073
+  %retval.sroa.0.0.i.i333 = phi i32 [ 5373484, %cleanup156.loopexit1073 ], [ 0, %cleanup156.loopexit1160 ], [ -1, %cleanup156.loopexit1165 ], [ -2, %cleanup156.loopexit1170 ], [ 2232400, %invoke.cont144 ]
   %128 = load ptr, ptr %mr137, align 8, !tbaa !10
   %cmp.i.i.i.i353 = icmp eq ptr %128, %28
   br i1 %cmp.i.i.i.i353, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i356, label %if.then.i.i.i354
@@ -12872,12 +12872,12 @@ if.then170:                                       ; preds = %invoke.cont165
 invoke.cont172:                                   ; preds = %if.then170
   %134 = load i16, ptr %current_match.i369, align 2, !tbaa !189
   call void @llvm.lifetime.end.p0(ptr nonnull %level.i370)
-  switch i16 %134, label %cleanup184.loopexit1097 [
+  switch i16 %134, label %cleanup184.loopexit1169 [
     i16 -1, label %if.then8.i.i.i386.invoke
     i16 3, label %cleanup184
     i16 4, label %cleanup184.loopexit1072
-    i16 2, label %cleanup184.loopexit1092
-    i16 1, label %cleanup184.loopexit1087
+    i16 2, label %cleanup184.loopexit1164
+    i16 1, label %cleanup184.loopexit1159
   ]
 
 lpad164:                                          ; preds = %sw.bb161
@@ -12930,17 +12930,17 @@ lpad181:                                          ; preds = %if.then8.i.i.i386.i
 cleanup184.loopexit1072:                          ; preds = %invoke.cont172
   br label %cleanup184
 
-cleanup184.loopexit1087:                          ; preds = %invoke.cont172
+cleanup184.loopexit1159:                          ; preds = %invoke.cont172
   br label %cleanup184
 
-cleanup184.loopexit1092:                          ; preds = %invoke.cont172
+cleanup184.loopexit1164:                          ; preds = %invoke.cont172
   br label %cleanup184
 
-cleanup184.loopexit1097:                          ; preds = %invoke.cont172
+cleanup184.loopexit1169:                          ; preds = %invoke.cont172
   br label %cleanup184
 
-cleanup184:                                       ; preds = %invoke.cont172, %cleanup184.loopexit1097, %cleanup184.loopexit1092, %cleanup184.loopexit1087, %cleanup184.loopexit1072
-  %retval.sroa.0.0.i.i377 = phi i32 [ 5373484, %cleanup184.loopexit1072 ], [ 0, %cleanup184.loopexit1087 ], [ -1, %cleanup184.loopexit1092 ], [ -2, %cleanup184.loopexit1097 ], [ 2232400, %invoke.cont172 ]
+cleanup184:                                       ; preds = %invoke.cont172, %cleanup184.loopexit1169, %cleanup184.loopexit1164, %cleanup184.loopexit1159, %cleanup184.loopexit1072
+  %retval.sroa.0.0.i.i377 = phi i32 [ 5373484, %cleanup184.loopexit1072 ], [ 0, %cleanup184.loopexit1159 ], [ -1, %cleanup184.loopexit1164 ], [ -2, %cleanup184.loopexit1169 ], [ 2232400, %invoke.cont172 ]
   %142 = load ptr, ptr %mr162, align 8, !tbaa !10
   %cmp.i.i.i.i398 = icmp eq ptr %142, %27
   br i1 %cmp.i.i.i.i398, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i401, label %if.then.i.i.i399
@@ -13011,12 +13011,12 @@ if.then196:                                       ; preds = %invoke.cont192
 invoke.cont197:                                   ; preds = %if.then196
   %148 = load i16, ptr %current_match.i414, align 2, !tbaa !189
   call void @llvm.lifetime.end.p0(ptr nonnull %level.i419)
-  switch i16 %148, label %cleanup213.loopexit1096 [
+  switch i16 %148, label %cleanup213.loopexit1168 [
     i16 -1, label %if.then8.i.i.invoke
     i16 3, label %cleanup213
     i16 4, label %cleanup213.loopexit1071
-    i16 2, label %cleanup213.loopexit1091
-    i16 1, label %cleanup213.loopexit1086
+    i16 2, label %cleanup213.loopexit1163
+    i16 1, label %cleanup213.loopexit1158
   ]
 
 lpad191:                                          ; preds = %if.then196, %sw.bb189
@@ -13062,17 +13062,17 @@ lpad208:                                          ; preds = %if.then8.i.i.invoke
 cleanup213.loopexit1071:                          ; preds = %invoke.cont197
   br label %cleanup213
 
-cleanup213.loopexit1086:                          ; preds = %invoke.cont197
+cleanup213.loopexit1158:                          ; preds = %invoke.cont197
   br label %cleanup213
 
-cleanup213.loopexit1091:                          ; preds = %invoke.cont197
+cleanup213.loopexit1163:                          ; preds = %invoke.cont197
   br label %cleanup213
 
-cleanup213.loopexit1096:                          ; preds = %invoke.cont197
+cleanup213.loopexit1168:                          ; preds = %invoke.cont197
   br label %cleanup213
 
-cleanup213:                                       ; preds = %invoke.cont197, %cleanup213.loopexit1096, %cleanup213.loopexit1091, %cleanup213.loopexit1086, %cleanup213.loopexit1071
-  %retval.sroa.0.0.i.i426 = phi i32 [ 5373484, %cleanup213.loopexit1071 ], [ 0, %cleanup213.loopexit1086 ], [ -1, %cleanup213.loopexit1091 ], [ -2, %cleanup213.loopexit1096 ], [ 2232400, %invoke.cont197 ]
+cleanup213:                                       ; preds = %invoke.cont197, %cleanup213.loopexit1168, %cleanup213.loopexit1163, %cleanup213.loopexit1158, %cleanup213.loopexit1071
+  %retval.sroa.0.0.i.i426 = phi i32 [ 5373484, %cleanup213.loopexit1071 ], [ 0, %cleanup213.loopexit1158 ], [ -1, %cleanup213.loopexit1163 ], [ -2, %cleanup213.loopexit1168 ], [ 2232400, %invoke.cont197 ]
   %155 = load ptr, ptr %mr190, align 8, !tbaa !10
   %cmp.i.i.i.i442 = icmp eq ptr %155, %26
   br i1 %cmp.i.i.i.i442, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i445, label %if.then.i.i.i443
@@ -13143,12 +13143,12 @@ if.then225:                                       ; preds = %invoke.cont221
 invoke.cont226:                                   ; preds = %if.then225
   %161 = load i16, ptr %current_match.i458, align 2, !tbaa !189
   call void @llvm.lifetime.end.p0(ptr nonnull %level.i463)
-  switch i16 %161, label %cleanup238.loopexit1095 [
+  switch i16 %161, label %cleanup238.loopexit1167 [
     i16 -1, label %if.then8.i.i.i479.invoke
     i16 3, label %cleanup238
     i16 4, label %cleanup238.loopexit1070
-    i16 2, label %cleanup238.loopexit1090
-    i16 1, label %cleanup238.loopexit1085
+    i16 2, label %cleanup238.loopexit1162
+    i16 1, label %cleanup238.loopexit1157
   ]
 
 lpad220:                                          ; preds = %if.then225, %sw.bb218
@@ -13195,17 +13195,17 @@ lpad235:                                          ; preds = %if.then8.i.i.i479.i
 cleanup238.loopexit1070:                          ; preds = %invoke.cont226
   br label %cleanup238
 
-cleanup238.loopexit1085:                          ; preds = %invoke.cont226
+cleanup238.loopexit1157:                          ; preds = %invoke.cont226
   br label %cleanup238
 
-cleanup238.loopexit1090:                          ; preds = %invoke.cont226
+cleanup238.loopexit1162:                          ; preds = %invoke.cont226
   br label %cleanup238
 
-cleanup238.loopexit1095:                          ; preds = %invoke.cont226
+cleanup238.loopexit1167:                          ; preds = %invoke.cont226
   br label %cleanup238
 
-cleanup238:                                       ; preds = %invoke.cont226, %cleanup238.loopexit1095, %cleanup238.loopexit1090, %cleanup238.loopexit1085, %cleanup238.loopexit1070
-  %retval.sroa.0.0.i.i470 = phi i32 [ 5373484, %cleanup238.loopexit1070 ], [ 0, %cleanup238.loopexit1085 ], [ -1, %cleanup238.loopexit1090 ], [ -2, %cleanup238.loopexit1095 ], [ 2232400, %invoke.cont226 ]
+cleanup238:                                       ; preds = %invoke.cont226, %cleanup238.loopexit1167, %cleanup238.loopexit1162, %cleanup238.loopexit1157, %cleanup238.loopexit1070
+  %retval.sroa.0.0.i.i470 = phi i32 [ 5373484, %cleanup238.loopexit1070 ], [ 0, %cleanup238.loopexit1157 ], [ -1, %cleanup238.loopexit1162 ], [ -2, %cleanup238.loopexit1167 ], [ 2232400, %invoke.cont226 ]
   %168 = load ptr, ptr %mr219, align 8, !tbaa !10
   %cmp.i.i.i.i491 = icmp eq ptr %168, %25
   br i1 %cmp.i.i.i.i491, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i494, label %if.then.i.i.i492
@@ -13274,12 +13274,12 @@ if.then250:                                       ; preds = %invoke.cont246
 invoke.cont251:                                   ; preds = %if.then250
   %174 = load i16, ptr %current_match.i507, align 2, !tbaa !189
   call void @llvm.lifetime.end.p0(ptr nonnull %level.i512)
-  switch i16 %174, label %cleanup263.loopexit1094 [
+  switch i16 %174, label %cleanup263.loopexit1166 [
     i16 -1, label %if.then8.i.i.i528.invoke
     i16 3, label %cleanup263
     i16 4, label %cleanup263.loopexit1069
-    i16 2, label %cleanup263.loopexit1089
-    i16 1, label %cleanup263.loopexit1084
+    i16 2, label %cleanup263.loopexit1161
+    i16 1, label %cleanup263.loopexit1156
   ]
 
 lpad245:                                          ; preds = %if.then250, %sw.bb243
@@ -13330,17 +13330,17 @@ lpad260:                                          ; preds = %if.then8.i.i.i528.i
 cleanup263.loopexit1069:                          ; preds = %invoke.cont251
   br label %cleanup263
 
-cleanup263.loopexit1084:                          ; preds = %invoke.cont251
+cleanup263.loopexit1156:                          ; preds = %invoke.cont251
   br label %cleanup263
 
-cleanup263.loopexit1089:                          ; preds = %invoke.cont251
+cleanup263.loopexit1161:                          ; preds = %invoke.cont251
   br label %cleanup263
 
-cleanup263.loopexit1094:                          ; preds = %invoke.cont251
+cleanup263.loopexit1166:                          ; preds = %invoke.cont251
   br label %cleanup263
 
-cleanup263:                                       ; preds = %invoke.cont251, %cleanup263.loopexit1094, %cleanup263.loopexit1089, %cleanup263.loopexit1084, %cleanup263.loopexit1069
-  %retval.sroa.0.0.i.i519 = phi i32 [ 5373484, %cleanup263.loopexit1069 ], [ 0, %cleanup263.loopexit1084 ], [ -1, %cleanup263.loopexit1089 ], [ -2, %cleanup263.loopexit1094 ], [ 2232400, %invoke.cont251 ]
+cleanup263:                                       ; preds = %invoke.cont251, %cleanup263.loopexit1166, %cleanup263.loopexit1161, %cleanup263.loopexit1156, %cleanup263.loopexit1069
+  %retval.sroa.0.0.i.i519 = phi i32 [ 5373484, %cleanup263.loopexit1069 ], [ 0, %cleanup263.loopexit1156 ], [ -1, %cleanup263.loopexit1161 ], [ -2, %cleanup263.loopexit1166 ], [ 2232400, %invoke.cont251 ]
   %181 = load ptr, ptr %mr244, align 8, !tbaa !10
   %cmp.i.i.i.i539 = icmp eq ptr %181, %24
   br i1 %cmp.i.i.i.i539, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i542, label %if.then.i.i.i540
@@ -13621,10 +13621,10 @@ _ZN5boost9gregorian9greg_yearC2Et.exit629:        ; preds = %_ZN5boost9gregorian
   br label %cleanup342
 
 if.end332:                                        ; preds = %while.end, %while.end310
-  %t_year.sroa.0.0.lcssa1083 = phi i16 [ %t_year.sroa.0.0.lcssa.ph, %while.end310 ], [ 1400, %while.end ]
-  %t_month.sroa.0.0.lcssa1082 = phi i16 [ %t_month.sroa.0.0.lcssa.ph, %while.end310 ], [ 1, %while.end ]
-  %t_day.sroa.0.0.lcssa1081 = phi i16 [ %t_day.sroa.0.0.lcssa.ph, %while.end310 ], [ 1, %while.end ]
-  call void @_ZN5boost9gregorian4dateC2ENS0_9greg_yearENS0_10greg_monthENS0_8greg_dayE(ptr noundef nonnull align 4 dereferenceable(4) %retval, i16 %t_year.sroa.0.0.lcssa1083, i16 %t_month.sroa.0.0.lcssa1082, i16 %t_day.sroa.0.0.lcssa1081)
+  %t_year.sroa.0.0.lcssa1155 = phi i16 [ %t_year.sroa.0.0.lcssa.ph, %while.end310 ], [ 1400, %while.end ]
+  %t_month.sroa.0.0.lcssa1154 = phi i16 [ %t_month.sroa.0.0.lcssa.ph, %while.end310 ], [ 1, %while.end ]
+  %t_day.sroa.0.0.lcssa1153 = phi i16 [ %t_day.sroa.0.0.lcssa.ph, %while.end310 ], [ 1, %while.end ]
+  call void @_ZN5boost9gregorian4dateC2ENS0_9greg_yearENS0_10greg_monthENS0_8greg_dayE(ptr noundef nonnull align 4 dereferenceable(4) %retval, i16 %t_year.sroa.0.0.lcssa1155, i16 %t_month.sroa.0.0.lcssa1154, i16 %t_day.sroa.0.0.lcssa1153)
   %.pre1074 = load i32, ptr %retval, align 4
   br label %cleanup342
 
@@ -13950,10 +13950,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit86: ; preds = %_ZN
   br label %if.end
 
 if.end:                                           ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit86, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit
-  %add.i.i75.sink111 = phi i64 [ %add.i.i75, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit86 ], [ %add.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit ]
-  store i64 %add.i.i75.sink111, ptr %_M_string_length.i.i.i74, align 8, !tbaa !3
+  %add.i.i75.sink124 = phi i64 [ %add.i.i75, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit86 ], [ %add.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit ]
+  store i64 %add.i.i75.sink124, ptr %_M_string_length.i.i.i74, align 8, !tbaa !3
   %46 = load ptr, ptr %mr, align 8, !tbaa !10
-  %arrayidx.i.i.i81 = getelementptr inbounds nuw i8, ptr %46, i64 %add.i.i75.sink111
+  %arrayidx.i.i.i81 = getelementptr inbounds nuw i8, ptr %46, i64 %add.i.i75.sink124
   store i8 0, ptr %arrayidx.i.i.i81, align 1, !tbaa !11
   %retval.sroa.0.0.copyload.i = load ptr, ptr %itr, align 8
   %_M_in_cur.i.i.i = getelementptr inbounds nuw i8, ptr %retval.sroa.0.0.copyload.i, i64 16

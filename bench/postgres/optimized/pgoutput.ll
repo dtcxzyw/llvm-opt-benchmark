@@ -1962,9 +1962,9 @@ define internal fastcc ptr @get_rel_sync_entry(ptr noundef captures(none) %0, pt
   %15 = load i8, ptr %8, align 1, !range !3, !noundef !4
   %16 = trunc nuw i8 %15 to i1
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %14, i64 4
-  br i1 %16, label %23, label %.thread214
+  br i1 %16, label %23, label %.thread226
 
-.thread214:                                       ; preds = %2
+.thread226:                                       ; preds = %2
   store i8 0, ptr %.phi.trans.insert, align 4
   %17 = getelementptr inbounds nuw i8, ptr %14, i64 5
   store i8 0, ptr %17, align 1
@@ -1985,7 +1985,7 @@ define internal fastcc ptr @get_rel_sync_entry(ptr noundef captures(none) %0, pt
   %24 = trunc nuw i8 %.pre to i1
   br i1 %24, label %442, label %25
 
-25:                                               ; preds = %.thread214, %23
+25:                                               ; preds = %.thread226, %23
   %26 = getelementptr inbounds nuw i8, ptr %14, i64 4
   %27 = load i32, ptr %9, align 4
   %28 = call i32 @get_rel_namespace(i32 noundef %27) #13
@@ -2121,15 +2121,15 @@ LoadPublications.exit:                            ; preds = %.lr.ph20.i, %36, %.
   %.not152 = icmp eq i8 %35, 112
   %93 = load i32, ptr %91, align 4
   %94 = icmp sgt i32 %93, 0
-  br i1 %94, label %.lr.ph233, label %.critedge
+  br i1 %94, label %.lr.ph245, label %.critedge
 
-.lr.ph233:                                        ; preds = %.lr.ph, %158
-  %.0135194232 = phi ptr [ %.2137, %158 ], [ null, %.lr.ph ]
-  %.0120195231 = phi i32 [ %.2122, %158 ], [ 0, %.lr.ph ]
-  %.0117196230 = phi i32 [ %.2, %158 ], [ %32, %.lr.ph ]
-  %indvars.iv229 = phi i64 [ %indvars.iv.next, %158 ], [ 0, %.lr.ph ]
+.lr.ph245:                                        ; preds = %.lr.ph, %158
+  %.0135194244 = phi ptr [ %.2137, %158 ], [ null, %.lr.ph ]
+  %.0120195243 = phi i32 [ %.2122, %158 ], [ 0, %.lr.ph ]
+  %.0117196242 = phi i32 [ %.2, %158 ], [ %32, %.lr.ph ]
+  %indvars.iv241 = phi i64 [ %indvars.iv.next, %158 ], [ 0, %.lr.ph ]
   %95 = load ptr, ptr %92, align 8
-  %96 = getelementptr inbounds nuw %union.ListCell, ptr %95, i64 %indvars.iv229
+  %96 = getelementptr inbounds nuw %union.ListCell, ptr %95, i64 %indvars.iv241
   %97 = load ptr, ptr %96, align 8
   %98 = load i32, ptr %9, align 4
   %99 = getelementptr inbounds nuw i8, ptr %97, i64 16
@@ -2146,7 +2146,7 @@ LoadPublications.exit:                            ; preds = %.lr.ph20.i, %36, %.
   %104 = trunc nuw i8 %103 to i1
   br i1 %104, label %168, label %162
 
-105:                                              ; preds = %.lr.ph233
+105:                                              ; preds = %.lr.ph245
   %106 = getelementptr inbounds nuw i8, ptr %97, i64 17
   %107 = load i8, ptr %106, align 1, !range !3, !noundef !4
   %108 = trunc nuw i8 %107 to i1
@@ -2165,7 +2165,7 @@ list_length.exit:                                 ; preds = %105
   %115 = load i32, ptr %114, align 8
   br label %.thread
 
-116:                                              ; preds = %.lr.ph233
+116:                                              ; preds = %.lr.ph245
   br i1 %33, label %117, label %127
 
 117:                                              ; preds = %116
@@ -2237,25 +2237,25 @@ list_length.exit:                                 ; preds = %105
   %152 = load i8, ptr %66, align 1, !range !3, !noundef !4
   %153 = or i8 %152, %151
   store i8 %153, ptr %66, align 1
-  %154 = icmp sgt i32 %.0120195231, %.1125.ph
+  %154 = icmp sgt i32 %.0120195243, %.1125.ph
   br i1 %154, label %158, label %155
 
 155:                                              ; preds = %137
-  %156 = icmp slt i32 %.0120195231, %.1125.ph
-  %.3138 = select i1 %156, ptr null, ptr %.0135194232
-  %.3 = select i1 %156, i32 %.1129.ph, i32 %.0117196230
+  %156 = icmp slt i32 %.0120195243, %.1125.ph
+  %.3138 = select i1 %156, ptr null, ptr %.0135194244
+  %.3 = select i1 %156, i32 %.1129.ph, i32 %.0117196242
   %157 = call ptr @lappend(ptr noundef %.3138, ptr noundef nonnull %97) #13
   br label %158
 
 158:                                              ; preds = %130, %133, %155, %137
-  %.2137 = phi ptr [ %.0135194232, %137 ], [ %157, %155 ], [ %.0135194232, %133 ], [ %.0135194232, %130 ]
-  %.2122 = phi i32 [ %.0120195231, %137 ], [ %.1125.ph, %155 ], [ %.0120195231, %133 ], [ %.0120195231, %130 ]
-  %.2 = phi i32 [ %.0117196230, %137 ], [ %.3, %155 ], [ %.0117196230, %133 ], [ %.0117196230, %130 ]
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv229, 1
+  %.2137 = phi ptr [ %.0135194244, %137 ], [ %157, %155 ], [ %.0135194244, %133 ], [ %.0135194244, %130 ]
+  %.2122 = phi i32 [ %.0120195243, %137 ], [ %.1125.ph, %155 ], [ %.0120195243, %133 ], [ %.0120195243, %130 ]
+  %.2 = phi i32 [ %.0117196242, %137 ], [ %.3, %155 ], [ %.0117196242, %133 ], [ %.0117196242, %130 ]
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv241, 1
   %159 = load i32, ptr %91, align 4
   %160 = sext i32 %159 to i64
   %161 = icmp slt i64 %indvars.iv.next, %160
-  br i1 %161, label %.lr.ph233, label %.critedge
+  br i1 %161, label %.lr.ph245, label %.critedge
 
 162:                                              ; preds = %.critedge
   %163 = load i8, ptr %64, align 1, !range !3, !noundef !4

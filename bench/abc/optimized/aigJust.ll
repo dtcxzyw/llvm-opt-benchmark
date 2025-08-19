@@ -213,7 +213,7 @@ tailrecurse.backedge:                             ; preds = %71, %89, %109
   %99 = trunc i64 %98 to i32
   %100 = lshr i32 %99, 4
   %101 = and i32 %100, 1
-  %.not4.i96170 = icmp eq i32 %101, %95
+  %.not4.i96174 = icmp eq i32 %101, %95
   br label %Aig_ObjSatValue.exit
 
 .thread106:                                       ; preds = %81
@@ -251,7 +251,7 @@ tailrecurse.backedge:                             ; preds = %71, %89, %109
   br i1 %.not140, label %Aig_ObjSatValue.exit, label %.lr.ph
 
 Aig_ObjSatValue.exit:                             ; preds = %.thread105, %tailrecurse.backedge, %68, %83, %109, %.thread, %5, %25, %Vec_IntPush.exit, %13
-  %.0.shrunk = phi i1 [ %17, %13 ], [ true, %Vec_IntPush.exit ], [ true, %25 ], [ true, %5 ], [ %.not4.i96170, %.thread ], [ true, %tailrecurse.backedge ], [ false, %68 ], [ true, %83 ], [ true, %109 ], [ true, %.thread105 ]
+  %.0.shrunk = phi i1 [ %17, %13 ], [ true, %Vec_IntPush.exit ], [ true, %25 ], [ true, %5 ], [ %.not4.i96174, %.thread ], [ true, %tailrecurse.backedge ], [ false, %68 ], [ true, %83 ], [ true, %109 ], [ true, %.thread105 ]
   %.0 = zext i1 %.0.shrunk to i32
   ret i32 %.0
 }
@@ -313,7 +313,7 @@ define range(i32 0, 4) i32 @Aig_ObjTerSimulate_rec(ptr noundef %0, ptr noundef c
   %.val = load i64, ptr %3, align 8
   %4 = and i64 %.val, 7
   %.not = icmp eq i64 %4, 1
-  br i1 %.not, label %common.ret42, label %5
+  br i1 %.not, label %common.ret43, label %5
 
 5:                                                ; preds = %2
   %6 = getelementptr i8, ptr %0, i64 312
@@ -327,7 +327,7 @@ define range(i32 0, 4) i32 @Aig_ObjTerSimulate_rec(ptr noundef %0, ptr noundef c
   %9 = trunc i64 %.val to i32
   %10 = lshr i32 %9, 4
   %11 = and i32 %10, 3
-  br label %common.ret42
+  br label %common.ret43
 
 12:                                               ; preds = %5
   store i32 %.val25, ptr %7, align 8, !tbaa !21
@@ -337,7 +337,7 @@ define range(i32 0, 4) i32 @Aig_ObjTerSimulate_rec(ptr noundef %0, ptr noundef c
 13:                                               ; preds = %12
   %14 = or i64 %.val, 48
   store i64 %14, ptr %3, align 8
-  br label %common.ret42
+  br label %common.ret43
 
 15:                                               ; preds = %12
   %16 = getelementptr i8, ptr %1, i64 8
@@ -368,11 +368,11 @@ define range(i32 0, 4) i32 @Aig_ObjTerSimulate_rec(ptr noundef %0, ptr noundef c
   %30 = zext nneg i32 %28 to i64
   %31 = or disjoint i64 %29, %30
   store i64 %31, ptr %3, align 8
-  br label %common.ret42
+  br label %common.ret43
 
-common.ret42:                                     ; preds = %2, %27, %13, %8, %32
-  %common.ret42.op = phi i32 [ %.0.i, %32 ], [ %11, %8 ], [ 3, %13 ], [ %23, %27 ], [ 2, %2 ]
-  ret i32 %common.ret42.op
+common.ret43:                                     ; preds = %2, %27, %13, %8, %32
+  %common.ret43.op = phi i32 [ %.0.i, %32 ], [ %11, %8 ], [ 3, %13 ], [ %23, %27 ], [ 2, %2 ]
+  ret i32 %common.ret43.op
 
 32:                                               ; preds = %15
   %33 = getelementptr i8, ptr %1, i64 16
@@ -402,7 +402,7 @@ common.ret42:                                     ; preds = %2, %27, %13, %8, %3
   %47 = zext nneg i32 %45 to i64
   %48 = or disjoint i64 %46, %47
   store i64 %48, ptr %3, align 8
-  br label %common.ret42
+  br label %common.ret43
 }
 
 ; Function Attrs: nounwind uwtable

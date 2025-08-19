@@ -2181,7 +2181,8 @@ _parse_number.exit378.i:                          ; preds = %585, %.critedge.i36
   br label %718
 
 612:                                              ; preds = %_parse_number.exit412.i, %601
-  %indvars.iv645.i = phi i64 [ 1, %601 ], [ %indvars.iv.next646.i, %_parse_number.exit412.i ]
+  %exitcond.not.i167 = phi i1 [ false, %601 ], [ true, %_parse_number.exit412.i ]
+  %indvars.iv645.i = phi i64 [ 1, %601 ], [ 2, %_parse_number.exit412.i ]
   %.5611.i = phi ptr [ %.2241544.i, %601 ], [ %.0.i400.i, %_parse_number.exit412.i ]
   %613 = ptrtoint ptr %.5611.i to i64
   %.not.i379.i = icmp eq ptr %.5611.i, null
@@ -2286,8 +2287,6 @@ _parse_number.exit412.i:                          ; preds = %633, %.critedge.i39
   store float %.0523.i, ptr %638, align 4, !tbaa !70
   %639 = getelementptr inbounds nuw i8, ptr %638, i64 4
   store float %.0521.i, ptr %639, align 4, !tbaa !72
-  %indvars.iv.next646.i = add nuw nsw i64 %indvars.iv645.i, 1
-  %exitcond.not.i167 = icmp eq i64 %indvars.iv.next646.i, 3
   br i1 %exitcond.not.i167, label %603, label %612, !llvm.loop !77
 
 640:                                              ; preds = %_is_relative_cmd.exit.i, %_is_relative_cmd.exit.i
@@ -4742,8 +4741,8 @@ _parse_number.exit.thread.i.i:                    ; preds = %_parse_number.exit.
   br label %_parse_clock_time.exit.i
 
 _parse_clock_time.exit.i:                         ; preds = %_parse_number.exit.thread.i.i, %1521, %1519, %1515
-  %.sink29.i.sink.i = phi float [ %1523, %_parse_number.exit.thread.i.i ], [ %1520, %1519 ], [ %1522, %1521 ], [ %1506, %1515 ]
-  %1524 = call float @llvm.round.f32(float %.sink29.i.sink.i)
+  %.sink34.i.sink.i = phi float [ %1523, %_parse_number.exit.thread.i.i ], [ %1520, %1519 ], [ %1522, %1521 ], [ %1506, %1515 ]
+  %1524 = call float @llvm.round.f32(float %.sink34.i.sink.i)
   br label %_process_clock_time.exit
 
 _process_clock_time.exit:                         ; preds = %1495, %_parse_clock_time.exit.i
@@ -7601,8 +7600,8 @@ _parse_number.exit.thread.i:                      ; preds = %_parse_number.exit.
   br label %_parse_clock_time.exit
 
 _parse_clock_time.exit:                           ; preds = %51, %55, %57, %_parse_number.exit.thread.i
-  %.sink29.i.sink = phi float [ %60, %_parse_number.exit.thread.i ], [ %56, %55 ], [ %58, %57 ], [ %42, %51 ]
-  %61 = tail call float @llvm.round.f32(float %.sink29.i.sink)
+  %.sink34.i.sink = phi float [ %60, %_parse_number.exit.thread.i ], [ %56, %55 ], [ %58, %57 ], [ %42, %51 ]
+  %61 = tail call float @llvm.round.f32(float %.sink34.i.sink)
   store float %61, ptr %.0, align 4, !tbaa !64
   %62 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %63 = load i32, ptr %62, align 4, !tbaa !99

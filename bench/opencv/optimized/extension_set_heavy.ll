@@ -2346,15 +2346,15 @@ define linkonce_odr hidden noundef ptr @_ZN6google8protobuf8internal12ExtensionS
   %.0110.ph = phi ptr [ %1, %5 ], [ %.0110.ph.be, %.thread136.outer.backedge ]
   %.057.ph = phi i1 [ false, %5 ], [ %.057.ph.be, %.thread136.outer.backedge ]
   %.036.ph = phi i32 [ 0, %5 ], [ %.036.ph.be, %.thread136.outer.backedge ]
-  br label %.thread136.outer272
+  br label %.thread136.outer282
 
-.thread136.outer272:                              ; preds = %.thread136.outer, %_ZN6google8protobuf8internal12ExtensionSet21ParseFieldMaybeLazilyEmPKcPKNS0_7MessageEPNS1_16InternalMetadataEPNS1_12ParseContextE.exit
-  %.0110.ph273 = phi ptr [ %.0110.ph, %.thread136.outer ], [ %174, %_ZN6google8protobuf8internal12ExtensionSet21ParseFieldMaybeLazilyEmPKcPKNS0_7MessageEPNS1_16InternalMetadataEPNS1_12ParseContextE.exit ]
-  %.036.ph274 = phi i32 [ %.036.ph, %.thread136.outer ], [ 0, %_ZN6google8protobuf8internal12ExtensionSet21ParseFieldMaybeLazilyEmPKcPKNS0_7MessageEPNS1_16InternalMetadataEPNS1_12ParseContextE.exit ]
+.thread136.outer282:                              ; preds = %.thread136.outer, %_ZN6google8protobuf8internal12ExtensionSet21ParseFieldMaybeLazilyEmPKcPKNS0_7MessageEPNS1_16InternalMetadataEPNS1_12ParseContextE.exit
+  %.0110.ph283 = phi ptr [ %.0110.ph, %.thread136.outer ], [ %174, %_ZN6google8protobuf8internal12ExtensionSet21ParseFieldMaybeLazilyEmPKcPKNS0_7MessageEPNS1_16InternalMetadataEPNS1_12ParseContextE.exit ]
+  %.036.ph284 = phi i32 [ %.036.ph, %.thread136.outer ], [ 0, %_ZN6google8protobuf8internal12ExtensionSet21ParseFieldMaybeLazilyEmPKcPKNS0_7MessageEPNS1_16InternalMetadataEPNS1_12ParseContextE.exit ]
   br label %.thread136
 
-.thread136:                                       ; preds = %.thread136.outer272, %221
-  %.0110 = phi ptr [ %220, %221 ], [ %.0110.ph273, %.thread136.outer272 ]
+.thread136:                                       ; preds = %.thread136.outer282, %221
+  %.0110 = phi ptr [ %220, %221 ], [ %.0110.ph283, %.thread136.outer282 ]
   %40 = load i32, ptr %14, align 4, !tbaa !135
   %41 = load ptr, ptr %4, align 8, !tbaa !138
   %42 = icmp ult ptr %.0110, %41
@@ -2665,11 +2665,11 @@ _ZN6google8protobuf8internal12ParseContextC2IJRNSt7__cxx1112basic_stringIcSt11ch
   br label %226
 
 169:                                              ; preds = %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread121
-  %.not64 = icmp eq i32 %.036.ph274, 0
+  %.not64 = icmp eq i32 %.036.ph284, 0
   br i1 %.not64, label %175, label %170
 
 170:                                              ; preds = %169
-  %171 = zext i32 %.036.ph274 to i64
+  %171 = zext i32 %.036.ph284 to i64
   %172 = shl nuw nsw i64 %171, 3
   %173 = or disjoint i64 %172, 2
   %174 = invoke noundef ptr @_ZN6google8protobuf8internal12ExtensionSet10ParseFieldEmPKcPKNS0_7MessageEPNS1_16InternalMetadataEPNS1_12ParseContextE(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %173, ptr noundef nonnull %59, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4)
@@ -2677,7 +2677,7 @@ _ZN6google8protobuf8internal12ParseContextC2IJRNSt7__cxx1112basic_stringIcSt11ch
 
 _ZN6google8protobuf8internal12ExtensionSet21ParseFieldMaybeLazilyEmPKcPKNS0_7MessageEPNS1_16InternalMetadataEPNS1_12ParseContextE.exit: ; preds = %170
   %.not67 = icmp eq ptr %174, null
-  br i1 %.not67, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %.thread136.outer272, !llvm.loop !145
+  br i1 %.not67, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %.thread136.outer282, !llvm.loop !145
 
 .loopexit:                                        ; preds = %218, %210
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -3040,7 +3040,7 @@ _ZN6google8protobuf8internal12ExtensionSet15ParseMessageSetEPNS0_2io16CodedInput
   %47 = getelementptr inbounds nuw i8, ptr %1, i64 32
   br label %48
 
-48:                                               ; preds = %.backedge28, %41
+48:                                               ; preds = %.backedge30, %41
   %49 = load ptr, ptr %1, align 8, !tbaa !3
   %50 = load ptr, ptr %46, align 8, !tbaa !14
   %51 = icmp ult ptr %49, %50
@@ -3075,16 +3075,16 @@ _ZN6google8protobuf2io16CodedInputStream16ReadTagNoLastTagEv.exit.i21: ; preds =
           to label %.noexc25 unwind label %66
 
 .noexc25:                                         ; preds = %60
-  br i1 %61, label %.backedge28, label %_ZN6google8protobuf8internal12ExtensionSet15ParseMessageSetEPNS0_2io16CodedInputStreamEPNS1_15ExtensionFinderEPNS1_22MessageSetFieldSkipperE.exit27
+  br i1 %61, label %.backedge30, label %_ZN6google8protobuf8internal12ExtensionSet15ParseMessageSetEPNS0_2io16CodedInputStreamEPNS1_15ExtensionFinderEPNS1_22MessageSetFieldSkipperE.exit27
 
 62:                                               ; preds = %_ZN6google8protobuf2io16CodedInputStream16ReadTagNoLastTagEv.exit.i21
   %63 = invoke noundef zeroext i1 @_ZN6google8protobuf8internal12ExtensionSet10ParseFieldEjPNS0_2io16CodedInputStreamEPNS1_15ExtensionFinderEPNS1_12FieldSkipperE(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %.05.i.i22, ptr noundef nonnull %1, ptr noundef nonnull %7, ptr noundef nonnull %5)
           to label %.noexc26 unwind label %66
 
 .noexc26:                                         ; preds = %62
-  br i1 %63, label %.backedge28, label %_ZN6google8protobuf8internal12ExtensionSet15ParseMessageSetEPNS0_2io16CodedInputStreamEPNS1_15ExtensionFinderEPNS1_22MessageSetFieldSkipperE.exit27
+  br i1 %63, label %.backedge30, label %_ZN6google8protobuf8internal12ExtensionSet15ParseMessageSetEPNS0_2io16CodedInputStreamEPNS1_15ExtensionFinderEPNS1_22MessageSetFieldSkipperE.exit27
 
-.backedge28:                                      ; preds = %.noexc26, %.noexc25
+.backedge30:                                      ; preds = %.noexc26, %.noexc25
   br label %48
 
 _ZN6google8protobuf8internal12ExtensionSet15ParseMessageSetEPNS0_2io16CodedInputStreamEPNS1_15ExtensionFinderEPNS1_22MessageSetFieldSkipperE.exit27: ; preds = %.noexc26, %.noexc25, %_ZN6google8protobuf2io16CodedInputStream16ReadTagNoLastTagEv.exit.i21

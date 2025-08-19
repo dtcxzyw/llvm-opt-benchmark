@@ -63,7 +63,7 @@ define void @_ZN6icu_7720UnicodeSetStringSpanC2ERKNS_10UnicodeSetERKNS_7UVectorE
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %32 = load i32, ptr %31, align 8, !tbaa !24
   %33 = icmp sgt i32 %32, 0
-  br i1 %33, label %.lr.ph, label %.sink.split286
+  br i1 %33, label %.lr.ph, label %.sink.split299
 
 .lr.ph:                                           ; preds = %29
   %34 = and i32 %3, 8
@@ -322,7 +322,7 @@ define void @_ZN6icu_7720UnicodeSetStringSpanC2ERKNS_10UnicodeSetERKNS_7UVectorE
 ._crit_edge:                                      ; preds = %140, %61, %92
   %.0166.lcssa = phi i8 [ %.1167.us, %92 ], [ %.1167.us.us, %61 ], [ %.1167, %140 ]
   %.not185 = icmp eq i8 %.0166.lcssa, 0
-  br i1 %.not185, label %.sink.split286, label %142
+  br i1 %.not185, label %.sink.split299, label %142
 
 142:                                              ; preds = %._crit_edge
   %143 = load i8, ptr %20, align 4, !tbaa !22
@@ -379,7 +379,7 @@ define void @_ZN6icu_7720UnicodeSetStringSpanC2ERKNS_10UnicodeSetERKNS_7UVectorE
 166:                                              ; preds = %163
   store ptr %165, ptr %14, align 8, !tbaa !36
   %167 = icmp eq ptr %165, null
-  br i1 %167, label %.sink.split286, label %._crit_edge272
+  br i1 %167, label %.sink.split299, label %._crit_edge272
 
 ._crit_edge272:                                   ; preds = %166
   %.pre = load i8, ptr %20, align 4, !tbaa !22
@@ -534,10 +534,10 @@ define void @_ZN6icu_7720UnicodeSetStringSpanC2ERKNS_10UnicodeSetERKNS_7UVectorE
   br label %.sink.split
 
 .sink.split:                                      ; preds = %233, %237
-  %.sink280 = phi ptr [ %239, %237 ], [ %.0170, %233 ]
-  %.sink278 = phi i8 [ 0, %237 ], [ %236, %233 ]
-  %240 = getelementptr inbounds nuw i8, ptr %.sink280, i64 %indvars.iv
-  store i8 %.sink278, ptr %240, align 1, !tbaa !27
+  %.sink293 = phi ptr [ %239, %237 ], [ %.0170, %233 ]
+  %.sink291 = phi i8 [ 0, %237 ], [ %236, %233 ]
+  %240 = getelementptr inbounds nuw i8, ptr %.sink293, i64 %indvars.iv
+  store i8 %.sink291, ptr %240, align 1, !tbaa !27
   br label %241
 
 241:                                              ; preds = %.sink.split, %230, %218
@@ -573,7 +573,7 @@ define void @_ZN6icu_7720UnicodeSetStringSpanC2ERKNS_10UnicodeSetERKNS_7UVectorE
 257:                                              ; preds = %249
   %258 = getelementptr inbounds nuw i8, ptr %.0177, i64 %indvars.iv
   store i8 -1, ptr %258, align 1, !tbaa !27
-  br label %.sink.split281
+  br label %.sink.split294
 
 259:                                              ; preds = %242, %270, %263
   %260 = landingpad { ptr, i32 }
@@ -608,22 +608,22 @@ define void @_ZN6icu_7720UnicodeSetStringSpanC2ERKNS_10UnicodeSetERKNS_7UVectorE
   %273 = sub nsw i32 %.0.i232, %271
   %274 = call i32 @llvm.smin.i32(i32 %273, i32 254)
   %275 = trunc i32 %274 to i8
-  br label %.sink.split281
+  br label %.sink.split294
 
 276:                                              ; preds = %261
   %277 = getelementptr inbounds nuw i8, ptr %.0177, i64 %indvars.iv
   store i8 0, ptr %277, align 1, !tbaa !27
-  br label %.sink.split281
+  br label %.sink.split294
 
-.sink.split281:                                   ; preds = %276, %272, %257
+.sink.split294:                                   ; preds = %276, %272, %257
   %.0171.sink = phi ptr [ %.0171, %257 ], [ %.0177, %272 ], [ %.0171, %276 ]
-  %.sink282 = phi i8 [ -1, %257 ], [ %275, %272 ], [ 0, %276 ]
+  %.sink295 = phi i8 [ -1, %257 ], [ %275, %272 ], [ 0, %276 ]
   %278 = getelementptr inbounds nuw i8, ptr %.0171.sink, i64 %indvars.iv
-  store i8 %.sink282, ptr %278, align 1, !tbaa !27
+  store i8 %.sink295, ptr %278, align 1, !tbaa !27
   br label %279
 
-279:                                              ; preds = %.sink.split281, %269, %241
-  %.1173 = phi i32 [ %.0172260, %241 ], [ %255, %269 ], [ %255, %.sink.split281 ]
+279:                                              ; preds = %.sink.split294, %269, %241
+  %.1173 = phi i32 [ %.0172260, %241 ], [ %255, %269 ], [ %255, %.sink.split294 ]
   br i1 %.not, label %_ZN6icu_7720UnicodeSetStringSpan15addToSpanNotSetEi.exit243, label %280
 
 280:                                              ; preds = %279
@@ -842,12 +842,12 @@ _ZN6icu_7720UnicodeSetStringSpan15addToSpanNotSetEi.exit243: ; preds = %_ZN6icu_
           cleanup
   br label %.split.us
 
-.sink.split286:                                   ; preds = %166, %._crit_edge, %29
+.sink.split299:                                   ; preds = %166, %._crit_edge, %29
   store i32 0, ptr %19, align 8, !tbaa !35
   store i32 0, ptr %18, align 4, !tbaa !30
   br label %378
 
-378:                                              ; preds = %.sink.split286, %373, %._crit_edge265
+378:                                              ; preds = %.sink.split299, %373, %._crit_edge265
   ret void
 
 .split.us:                                        ; preds = %.split254, %.split254.us.split.us, %.split254.us.split, %.split, %.split.us.split.us, %.split.us.split, %146, %138, %376, %228, %259, %359, %341, %308, %226, %168, %27
@@ -1283,7 +1283,7 @@ _ZN6icu_7710OffsetList12setMaxLengthEi.exit:      ; preds = %23, %._crit_edge.i,
   %96 = sext i32 %73 to i64
   %97 = call i32 @llvm.smin.i32(i32 %.0169, i32 %.0135)
   %smin303 = sext i32 %97 to i64
-  %invariant.op332 = sub nsw i64 %41, %96
+  %invariant.op350 = sub nsw i64 %41, %96
   br label %98
 
 98:                                               ; preds = %.lr.ph288, %143
@@ -1341,7 +1341,7 @@ _ZN6icu_77L9matches16EPKDsS1_i.exit.i:            ; preds = %113
   br i1 %127, label %_ZN6icu_77L12matches16CPBEPKDsiiS1_i.exit.thread, label %128
 
 128:                                              ; preds = %124, %119, %_ZN6icu_77L9matches16EPKDsS1_i.exit.i
-  %129 = icmp slt i64 %108, %invariant.op332
+  %129 = icmp slt i64 %108, %invariant.op350
   br i1 %129, label %130, label %_ZN6icu_77L12matches16CPBEPKDsiiS1_i.exit.thread226
 
 130:                                              ; preds = %128
@@ -1508,13 +1508,13 @@ _ZN6icu_77L9matches16EPKDsS1_i.exit.i214:         ; preds = %189
   %209 = load i16, ptr %208, align 2, !tbaa !39
   %210 = and i16 %209, -1024
   %211 = icmp eq i16 %210, -10240
-  br i1 %211, label %_ZN6icu_77L12matches16CPBEPKDsiiS1_i.exit215, label %_ZN6icu_77L12matches16CPBEPKDsiiS1_i.exit215.thread233.loopexit.split.loop.exit321
+  br i1 %211, label %_ZN6icu_77L12matches16CPBEPKDsiiS1_i.exit215, label %_ZN6icu_77L12matches16CPBEPKDsiiS1_i.exit215.thread233.loopexit.split.loop.exit339
 
 _ZN6icu_77L12matches16CPBEPKDsiiS1_i.exit215:     ; preds = %206
   %212 = load i16, ptr %207, align 2, !tbaa !39
   %213 = and i16 %212, -1024
   %.not251 = icmp eq i16 %213, -9216
-  br i1 %.not251, label %_ZN6icu_77L12matches16CPBEPKDsiiS1_i.exit215.thread, label %_ZN6icu_77L12matches16CPBEPKDsiiS1_i.exit215.thread233.loopexit.split.loop.exit327
+  br i1 %.not251, label %_ZN6icu_77L12matches16CPBEPKDsiiS1_i.exit215.thread, label %_ZN6icu_77L12matches16CPBEPKDsiiS1_i.exit215.thread233.loopexit.split.loop.exit345
 
 _ZN6icu_77L12matches16CPBEPKDsiiS1_i.exit215.thread: ; preds = %186, %200, %.lr.ph, %_ZN6icu_77L12matches16CPBEPKDsiiS1_i.exit215
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
@@ -1528,17 +1528,17 @@ _ZN6icu_77L12matches16CPBEPKDsiiS1_i.exit215.thread233.loopexit.split.loop.exit:
   %217 = trunc nsw i64 %indvars.iv to i32
   br label %_ZN6icu_77L12matches16CPBEPKDsiiS1_i.exit215.thread233
 
-_ZN6icu_77L12matches16CPBEPKDsiiS1_i.exit215.thread233.loopexit.split.loop.exit321: ; preds = %206
+_ZN6icu_77L12matches16CPBEPKDsiiS1_i.exit215.thread233.loopexit.split.loop.exit339: ; preds = %206
   %218 = trunc nsw i64 %indvars.iv to i32
   br label %_ZN6icu_77L12matches16CPBEPKDsiiS1_i.exit215.thread233
 
-_ZN6icu_77L12matches16CPBEPKDsiiS1_i.exit215.thread233.loopexit.split.loop.exit327: ; preds = %_ZN6icu_77L12matches16CPBEPKDsiiS1_i.exit215
+_ZN6icu_77L12matches16CPBEPKDsiiS1_i.exit215.thread233.loopexit.split.loop.exit345: ; preds = %_ZN6icu_77L12matches16CPBEPKDsiiS1_i.exit215
   %219 = trunc nsw i64 %indvars.iv to i32
   br label %_ZN6icu_77L12matches16CPBEPKDsiiS1_i.exit215.thread233
 
-_ZN6icu_77L12matches16CPBEPKDsiiS1_i.exit215.thread233: ; preds = %_ZN6icu_77L12matches16CPBEPKDsiiS1_i.exit215.thread, %_ZN6icu_77L12matches16CPBEPKDsiiS1_i.exit215.thread233.loopexit.split.loop.exit, %_ZN6icu_77L12matches16CPBEPKDsiiS1_i.exit215.thread233.loopexit.split.loop.exit321, %_ZN6icu_77L12matches16CPBEPKDsiiS1_i.exit215.thread233.loopexit.split.loop.exit327, %173, %163
-  %.1154 = phi i32 [ %.0153280, %163 ], [ %.0153280, %173 ], [ %.0134269, %_ZN6icu_77L12matches16CPBEPKDsiiS1_i.exit215.thread233.loopexit.split.loop.exit ], [ %.0134269, %_ZN6icu_77L12matches16CPBEPKDsiiS1_i.exit215.thread233.loopexit.split.loop.exit321 ], [ %.0134269, %_ZN6icu_77L12matches16CPBEPKDsiiS1_i.exit215.thread233.loopexit.split.loop.exit327 ], [ %.0153280, %_ZN6icu_77L12matches16CPBEPKDsiiS1_i.exit215.thread ]
-  %.1151 = phi i32 [ %.0150281, %163 ], [ %.0150281, %173 ], [ %217, %_ZN6icu_77L12matches16CPBEPKDsiiS1_i.exit215.thread233.loopexit.split.loop.exit ], [ %218, %_ZN6icu_77L12matches16CPBEPKDsiiS1_i.exit215.thread233.loopexit.split.loop.exit321 ], [ %219, %_ZN6icu_77L12matches16CPBEPKDsiiS1_i.exit215.thread233.loopexit.split.loop.exit327 ], [ %.0150281, %_ZN6icu_77L12matches16CPBEPKDsiiS1_i.exit215.thread ]
+_ZN6icu_77L12matches16CPBEPKDsiiS1_i.exit215.thread233: ; preds = %_ZN6icu_77L12matches16CPBEPKDsiiS1_i.exit215.thread, %_ZN6icu_77L12matches16CPBEPKDsiiS1_i.exit215.thread233.loopexit.split.loop.exit, %_ZN6icu_77L12matches16CPBEPKDsiiS1_i.exit215.thread233.loopexit.split.loop.exit339, %_ZN6icu_77L12matches16CPBEPKDsiiS1_i.exit215.thread233.loopexit.split.loop.exit345, %173, %163
+  %.1154 = phi i32 [ %.0153280, %163 ], [ %.0153280, %173 ], [ %.0134269, %_ZN6icu_77L12matches16CPBEPKDsiiS1_i.exit215.thread233.loopexit.split.loop.exit ], [ %.0134269, %_ZN6icu_77L12matches16CPBEPKDsiiS1_i.exit215.thread233.loopexit.split.loop.exit339 ], [ %.0134269, %_ZN6icu_77L12matches16CPBEPKDsiiS1_i.exit215.thread233.loopexit.split.loop.exit345 ], [ %.0153280, %_ZN6icu_77L12matches16CPBEPKDsiiS1_i.exit215.thread ]
+  %.1151 = phi i32 [ %.0150281, %163 ], [ %.0150281, %173 ], [ %217, %_ZN6icu_77L12matches16CPBEPKDsiiS1_i.exit215.thread233.loopexit.split.loop.exit ], [ %218, %_ZN6icu_77L12matches16CPBEPKDsiiS1_i.exit215.thread233.loopexit.split.loop.exit339 ], [ %219, %_ZN6icu_77L12matches16CPBEPKDsiiS1_i.exit215.thread233.loopexit.split.loop.exit345 ], [ %.0150281, %_ZN6icu_77L12matches16CPBEPKDsiiS1_i.exit215.thread ]
   %indvars.iv.next301 = add nuw nsw i64 %indvars.iv300, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next301, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph282, !llvm.loop !51
@@ -2282,7 +2282,7 @@ _ZN6icu_7710OffsetList12setMaxLengthEi.exit:      ; preds = %24, %._crit_edge.i,
   %94 = add i32 %48, %spec.select186
   %95 = call i32 @llvm.smin.i32(i32 %.0157, i32 %.0129)
   %96 = sub i32 %94, %95
-  %invariant.op308 = sub nsw i64 %45, %92
+  %invariant.op323 = sub nsw i64 %45, %92
   br label %97
 
 97:                                               ; preds = %.lr.ph272, %143
@@ -2341,7 +2341,7 @@ _ZN6icu_77L9matches16EPKDsS1_i.exit.i:            ; preds = %113
   br i1 %127, label %_ZN6icu_77L12matches16CPBEPKDsiiS1_i.exit.thread, label %128
 
 128:                                              ; preds = %124, %119, %_ZN6icu_77L9matches16EPKDsS1_i.exit.i
-  %129 = icmp slt i64 %108, %invariant.op308
+  %129 = icmp slt i64 %108, %invariant.op323
   br i1 %129, label %130, label %_ZN6icu_77L12matches16CPBEPKDsiiS1_i.exit.thread216
 
 130:                                              ; preds = %128
@@ -2507,13 +2507,13 @@ _ZN6icu_77L9matches16EPKDsS1_i.exit.i204:         ; preds = %188
   %208 = load i16, ptr %207, align 2, !tbaa !39
   %209 = and i16 %208, -1024
   %210 = icmp eq i16 %209, -10240
-  br i1 %210, label %_ZN6icu_77L12matches16CPBEPKDsiiS1_i.exit205, label %_ZN6icu_77L12matches16CPBEPKDsiiS1_i.exit205.thread223.loopexit.split.loop.exit297
+  br i1 %210, label %_ZN6icu_77L12matches16CPBEPKDsiiS1_i.exit205, label %_ZN6icu_77L12matches16CPBEPKDsiiS1_i.exit205.thread223.loopexit.split.loop.exit312
 
 _ZN6icu_77L12matches16CPBEPKDsiiS1_i.exit205:     ; preds = %205
   %211 = load i16, ptr %206, align 2, !tbaa !39
   %212 = and i16 %211, -1024
   %.not239 = icmp eq i16 %212, -9216
-  br i1 %.not239, label %_ZN6icu_77L12matches16CPBEPKDsiiS1_i.exit205.thread, label %_ZN6icu_77L12matches16CPBEPKDsiiS1_i.exit205.thread223.loopexit.split.loop.exit303
+  br i1 %.not239, label %_ZN6icu_77L12matches16CPBEPKDsiiS1_i.exit205.thread, label %_ZN6icu_77L12matches16CPBEPKDsiiS1_i.exit205.thread223.loopexit.split.loop.exit318
 
 _ZN6icu_77L12matches16CPBEPKDsiiS1_i.exit205.thread: ; preds = %185, %199, %.lr.ph, %_ZN6icu_77L12matches16CPBEPKDsiiS1_i.exit205
   %213 = add nsw i32 %.2134252, -1
@@ -2527,17 +2527,17 @@ _ZN6icu_77L12matches16CPBEPKDsiiS1_i.exit205.thread223.loopexit.split.loop.exit:
   %216 = trunc nsw i64 %indvars.iv to i32
   br label %_ZN6icu_77L12matches16CPBEPKDsiiS1_i.exit205.thread223
 
-_ZN6icu_77L12matches16CPBEPKDsiiS1_i.exit205.thread223.loopexit.split.loop.exit297: ; preds = %205
+_ZN6icu_77L12matches16CPBEPKDsiiS1_i.exit205.thread223.loopexit.split.loop.exit312: ; preds = %205
   %217 = trunc nsw i64 %indvars.iv to i32
   br label %_ZN6icu_77L12matches16CPBEPKDsiiS1_i.exit205.thread223
 
-_ZN6icu_77L12matches16CPBEPKDsiiS1_i.exit205.thread223.loopexit.split.loop.exit303: ; preds = %_ZN6icu_77L12matches16CPBEPKDsiiS1_i.exit205
+_ZN6icu_77L12matches16CPBEPKDsiiS1_i.exit205.thread223.loopexit.split.loop.exit318: ; preds = %_ZN6icu_77L12matches16CPBEPKDsiiS1_i.exit205
   %218 = trunc nsw i64 %indvars.iv to i32
   br label %_ZN6icu_77L12matches16CPBEPKDsiiS1_i.exit205.thread223
 
-_ZN6icu_77L12matches16CPBEPKDsiiS1_i.exit205.thread223: ; preds = %_ZN6icu_77L12matches16CPBEPKDsiiS1_i.exit205.thread, %_ZN6icu_77L12matches16CPBEPKDsiiS1_i.exit205.thread223.loopexit.split.loop.exit, %_ZN6icu_77L12matches16CPBEPKDsiiS1_i.exit205.thread223.loopexit.split.loop.exit297, %_ZN6icu_77L12matches16CPBEPKDsiiS1_i.exit205.thread223.loopexit.split.loop.exit303, %172, %162
-  %.1139 = phi i32 [ %.0138264, %162 ], [ %.0138264, %172 ], [ %216, %_ZN6icu_77L12matches16CPBEPKDsiiS1_i.exit205.thread223.loopexit.split.loop.exit ], [ %217, %_ZN6icu_77L12matches16CPBEPKDsiiS1_i.exit205.thread223.loopexit.split.loop.exit297 ], [ %218, %_ZN6icu_77L12matches16CPBEPKDsiiS1_i.exit205.thread223.loopexit.split.loop.exit303 ], [ %.0138264, %_ZN6icu_77L12matches16CPBEPKDsiiS1_i.exit205.thread ]
-  %.1136 = phi i32 [ %.0135265, %162 ], [ %.0135265, %172 ], [ %.2134252, %_ZN6icu_77L12matches16CPBEPKDsiiS1_i.exit205.thread223.loopexit.split.loop.exit ], [ %.2134252, %_ZN6icu_77L12matches16CPBEPKDsiiS1_i.exit205.thread223.loopexit.split.loop.exit297 ], [ %.2134252, %_ZN6icu_77L12matches16CPBEPKDsiiS1_i.exit205.thread223.loopexit.split.loop.exit303 ], [ %.0135265, %_ZN6icu_77L12matches16CPBEPKDsiiS1_i.exit205.thread ]
+_ZN6icu_77L12matches16CPBEPKDsiiS1_i.exit205.thread223: ; preds = %_ZN6icu_77L12matches16CPBEPKDsiiS1_i.exit205.thread, %_ZN6icu_77L12matches16CPBEPKDsiiS1_i.exit205.thread223.loopexit.split.loop.exit, %_ZN6icu_77L12matches16CPBEPKDsiiS1_i.exit205.thread223.loopexit.split.loop.exit312, %_ZN6icu_77L12matches16CPBEPKDsiiS1_i.exit205.thread223.loopexit.split.loop.exit318, %172, %162
+  %.1139 = phi i32 [ %.0138264, %162 ], [ %.0138264, %172 ], [ %216, %_ZN6icu_77L12matches16CPBEPKDsiiS1_i.exit205.thread223.loopexit.split.loop.exit ], [ %217, %_ZN6icu_77L12matches16CPBEPKDsiiS1_i.exit205.thread223.loopexit.split.loop.exit312 ], [ %218, %_ZN6icu_77L12matches16CPBEPKDsiiS1_i.exit205.thread223.loopexit.split.loop.exit318 ], [ %.0138264, %_ZN6icu_77L12matches16CPBEPKDsiiS1_i.exit205.thread ]
+  %.1136 = phi i32 [ %.0135265, %162 ], [ %.0135265, %172 ], [ %.2134252, %_ZN6icu_77L12matches16CPBEPKDsiiS1_i.exit205.thread223.loopexit.split.loop.exit ], [ %.2134252, %_ZN6icu_77L12matches16CPBEPKDsiiS1_i.exit205.thread223.loopexit.split.loop.exit312 ], [ %.2134252, %_ZN6icu_77L12matches16CPBEPKDsiiS1_i.exit205.thread223.loopexit.split.loop.exit318 ], [ %.0135265, %_ZN6icu_77L12matches16CPBEPKDsiiS1_i.exit205.thread ]
   %indvars.iv.next281 = add nuw nsw i64 %indvars.iv280, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next281, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph266, !llvm.loop !60

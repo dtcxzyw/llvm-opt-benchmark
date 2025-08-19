@@ -384,19 +384,19 @@ _ZNK4cvc58internal15ResourceManager3outEv.exit:   ; preds = %37
   %51 = phi i64 [ 0, %49 ], [ %41, %40 ]
   %52 = load i64, ptr %20, align 8, !tbaa !54
   %.not.not.i.i = icmp eq i64 %52, 0
-  br i1 %.not.not.i.i, label %.preheader80, label %57
+  br i1 %.not.not.i.i, label %.preheader96, label %57
 
-.preheader80:                                     ; preds = %50, %53
+.preheader96:                                     ; preds = %50, %53
   %.sroa.06.0.in.i.i = phi ptr [ %.sroa.06.0.i.i, %53 ], [ %33, %50 ]
   %.sroa.06.0.i.i = load ptr, ptr %.sroa.06.0.in.i.i, align 8, !tbaa !36
   %.not.i.i20 = icmp eq ptr %.sroa.06.0.i.i, null
   br i1 %.not.i.i20, label %.loopexit, label %53
 
-53:                                               ; preds = %.preheader80
+53:                                               ; preds = %.preheader96
   %54 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i.i, i64 8
   %55 = load i64, ptr %54, align 8, !tbaa !55
   %56 = icmp eq i64 %51, %55
-  br i1 %56, label %_ZNSt13unordered_setImSt4hashImESt8equal_toImESaImEE4findERKm.exit, label %.preheader80, !llvm.loop !56
+  br i1 %56, label %_ZNSt13unordered_setImSt4hashImESt8equal_toImESaImEE4findERKm.exit, label %.preheader96, !llvm.loop !56
 
 57:                                               ; preds = %50
   %58 = load i64, ptr %32, align 8, !tbaa !16
@@ -434,7 +434,7 @@ _ZNK4cvc58internal15ResourceManager3outEv.exit:   ; preds = %37
 ..loopexit_crit_edge21.i.i.i.i:                   ; preds = %71
   br label %.loopexit, !llvm.loop !58
 
-.loopexit:                                        ; preds = %.lr.ph.i.i.i.i, %.preheader80, %57, %..loopexit_crit_edge21.i.i.i.i
+.loopexit:                                        ; preds = %.lr.ph.i.i.i.i, %.preheader96, %57, %..loopexit_crit_edge21.i.i.i.i
   %75 = getelementptr inbounds nuw %"class.std::unique_ptr.349", ptr %43, i64 %51
   %76 = load ptr, ptr %75, align 8, !tbaa !31
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -850,11 +850,11 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit45: ; preds = %_ZN4cvc58internal12
   br i1 %257, label %.invoke, label %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit, !prof !59
 
 .invoke:                                          ; preds = %256, %274
-  %.sink73 = phi i64 [ %269, %274 ], [ %251, %256 ]
-  %.sink72 = phi ptr [ %268, %274 ], [ %250, %256 ]
-  %258 = or i64 %.sink73, 1152920405095219200
-  store i64 %258, ptr %.sink72, align 8
-  invoke void @_ZN4cvc58internal4expr9NodeValue20markRefCountMaxedOutEv(ptr noundef nonnull align 8 dereferenceable(24) %.sink72)
+  %.sink89 = phi i64 [ %269, %274 ], [ %251, %256 ]
+  %.sink88 = phi ptr [ %268, %274 ], [ %250, %256 ]
+  %258 = or i64 %.sink89, 1152920405095219200
+  store i64 %258, ptr %.sink88, align 8
+  invoke void @_ZN4cvc58internal4expr9NodeValue20markRefCountMaxedOutEv(ptr noundef nonnull align 8 dereferenceable(24) %.sink88)
           to label %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit unwind label %.loopexit.split-lp
 
 259:                                              ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit45, %143
@@ -884,15 +884,15 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit45: ; preds = %_ZN4cvc58internal12
   br i1 %275, label %.invoke, label %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit, !prof !59
 
 _ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit.sink.split: ; preds = %.critedge, %249
-  %.sink79 = phi i32 [ %254, %249 ], [ %272, %.critedge ]
+  %.sink95 = phi i32 [ %254, %249 ], [ %272, %.critedge ]
   %.sink = phi i64 [ %251, %249 ], [ %269, %.critedge ]
-  %.sink74 = phi ptr [ %250, %249 ], [ %268, %.critedge ]
-  %276 = add nuw nsw i32 %.sink79, 1
+  %.sink90 = phi ptr [ %250, %249 ], [ %268, %.critedge ]
+  %276 = add nuw nsw i32 %.sink95, 1
   %277 = zext nneg i32 %276 to i64
   %278 = shl nuw nsw i64 %277, 40
   %279 = and i64 %.sink, -1152920405095219201
   %280 = or i64 %278, %279
-  store i64 %280, ptr %.sink74, align 8
+  store i64 %280, ptr %.sink90, align 8
   br label %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit
 
 _ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit: ; preds = %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit.sink.split, %.invoke, %274, %256

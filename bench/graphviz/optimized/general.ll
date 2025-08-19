@@ -354,8 +354,8 @@ gv_calloc.exit:                                   ; preds = %.thread.i, %12
 
 44:                                               ; preds = %._crit_edge, %44
   %indvars.iv35 = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next36, %44 ]
-  %.idx40 = shl nuw nsw i64 %indvars.iv35, 4
-  %45 = getelementptr inbounds nuw i8, ptr %28, i64 %.idx40
+  %.idx42 = shl nuw nsw i64 %indvars.iv35, 4
+  %45 = getelementptr inbounds nuw i8, ptr %28, i64 %.idx42
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %47 = load double, ptr %46, align 8, !tbaa !13
   %48 = fptosi double %47 to i32
@@ -516,7 +516,7 @@ define ptr @strip_dir(ptr noundef captures(address_is_null, ret: address, proven
   br label %4
 
 4:                                                ; preds = %13, %2
-  %.017 = phi i1 [ true, %2 ], [ %.127, %13 ]
+  %.017 = phi i1 [ true, %2 ], [ %.129, %13 ]
   %.0 = phi i64 [ %3, %2 ], [ %14, %13 ]
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 %.0
   %6 = load i8, ptr %5, align 1, !tbaa !30
@@ -538,7 +538,7 @@ define ptr @strip_dir(ptr noundef captures(address_is_null, ret: address, proven
   br label %.loopexit
 
 11:                                               ; preds = %.thread, %._crit_edge
-  %.127 = phi i1 [ false, %.thread ], [ %.017, %._crit_edge ]
+  %.129 = phi i1 [ false, %.thread ], [ %.017, %._crit_edge ]
   %12 = icmp eq i64 %.0, 0
   br i1 %12, label %.loopexit, label %13
 

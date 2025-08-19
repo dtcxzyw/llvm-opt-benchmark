@@ -395,7 +395,7 @@ lean_array_uget.exit:                             ; preds = %lean_dec.exit349, %
   br label %lean_dec.exit348
 
 120:                                              ; preds = %112
-  %121 = tail call ptr @lean_big_usize_to_nat(i64 noundef range(i64 0, -1) %114) #3
+  %121 = tail call ptr @lean_big_usize_to_nat(i64 noundef range(i64 0, -1) -9223372036854775808) #3
   br label %lean_dec.exit348
 
 122:                                              ; preds = %109
@@ -535,8 +535,8 @@ lean_dec.exit347:                                 ; preds = %173, %172, %170, %l
   br i1 %.not575, label %180, label %lean_dec.exit346.thread, !prof !14
 
 lean_dec.exit346.thread:                          ; preds = %lean_dec.exit347
-  %.not625 = icmp ugt ptr %.1.i541, %177
-  br i1 %.not625, label %188, label %190
+  %.not694 = icmp ugt ptr %.1.i541, %177
+  br i1 %.not694, label %188, label %190
 
 180:                                              ; preds = %lean_dec.exit347
   %181 = tail call zeroext i1 @lean_nat_big_le(ptr noundef %.1.i541, ptr noundef nonnull %177) #3
@@ -783,7 +783,7 @@ lean_array_uget.exit451:                          ; preds = %lean_dec.exit343, %
   br label %lean_dec.exit342
 
 280:                                              ; preds = %272
-  %281 = tail call ptr @lean_big_usize_to_nat(i64 noundef range(i64 0, -1) %274) #3
+  %281 = tail call ptr @lean_big_usize_to_nat(i64 noundef range(i64 0, -1) -9223372036854775808) #3
   br label %lean_dec.exit342
 
 282:                                              ; preds = %271
@@ -923,8 +923,8 @@ lean_dec.exit341:                                 ; preds = %333, %332, %330, %l
   br i1 %.not571, label %340, label %lean_dec.exit340.thread, !prof !14
 
 lean_dec.exit340.thread:                          ; preds = %lean_dec.exit341
-  %.not624 = icmp ugt ptr %.1.i461546, %337
-  br i1 %.not624, label %348, label %356
+  %.not693 = icmp ugt ptr %.1.i461546, %337
+  br i1 %.not693, label %348, label %356
 
 340:                                              ; preds = %lean_dec.exit341
   %341 = tail call zeroext i1 @lean_nat_big_le(ptr noundef %.1.i461546, ptr noundef nonnull %337) #3
@@ -1461,7 +1461,7 @@ lean_array_uget.exit509:                          ; preds = %lean_dec.exit335, %
   br label %lean_dec.exit334
 
 542:                                              ; preds = %534
-  %543 = tail call ptr @lean_big_usize_to_nat(i64 noundef range(i64 0, -1) %536) #3
+  %543 = tail call ptr @lean_big_usize_to_nat(i64 noundef range(i64 0, -1) -9223372036854775808) #3
   br label %lean_dec.exit334
 
 544:                                              ; preds = %533
@@ -1619,8 +1619,8 @@ lean_dec.exit333:                                 ; preds = %602, %601, %599, %l
   br i1 %.not562, label %609, label %lean_dec.exit332.thread, !prof !14
 
 lean_dec.exit332.thread:                          ; preds = %lean_dec.exit333
-  %.not623 = icmp ugt ptr %.1.i520551, %606
-  br i1 %.not623, label %617, label %629
+  %.not692 = icmp ugt ptr %.1.i520551, %606
+  br i1 %.not692, label %617, label %629
 
 609:                                              ; preds = %lean_dec.exit333
   %610 = tail call zeroext i1 @lean_nat_big_le(ptr noundef %.1.i520551, ptr noundef nonnull %606) #3
@@ -1826,7 +1826,7 @@ declare ptr @l_Std_DHashMap_Internal_Raw_u2080_expand___at___private_Lean_Enviro
 declare ptr @l_Std_DHashMap_Internal_AssocList_replace___at___private_Lean_Environment_0__Lean_Kernel_Environment_add___spec__10(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noalias ptr @l_Array_foldlMUnsafe_fold___at_Lean_Server_Completion_getEligibleHeaderDecls___spec__2(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2, i64 noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 {
+define noalias nonnull ptr @l_Array_foldlMUnsafe_fold___at_Lean_Server_Completion_getEligibleHeaderDecls___spec__2(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2, i64 noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 {
   %.not65 = icmp eq i64 %2, %3
   br i1 %.not65, label %.._crit_edge_crit_edge, label %.lr.ph
 
@@ -3071,7 +3071,7 @@ declare ptr @l_Lean_Environment_constants(ptr noundef) local_unnamed_addr #1
 declare ptr @lean_st_ref_set(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noalias ptr @l_Array_foldlMUnsafe_fold___at_Lean_Server_Completion_getEligibleHeaderDecls___spec__2___boxed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 {
+define noalias nonnull ptr @l_Array_foldlMUnsafe_fold___at_Lean_Server_Completion_getEligibleHeaderDecls___spec__2___boxed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 {
   %7 = getelementptr i8, ptr %2, i64 8
   %.val = load i64, ptr %7, align 8, !tbaa !12
   %8 = ptrtoint ptr %2 to i64
@@ -5561,18 +5561,18 @@ _init_l_Lean_Server_Completion_getEligibleHeaderDecls___closed__5.exit: ; preds 
   unreachable
 
 .sink.split:                                      ; preds = %_init_l_Lean_Server_Completion_getEligibleHeaderDecls___closed__5.exit, %3
-  %.sink19 = phi ptr [ %4, %3 ], [ %47, %_init_l_Lean_Server_Completion_getEligibleHeaderDecls___closed__5.exit ]
-  %50 = getelementptr inbounds nuw i8, ptr %.sink19, i64 4
-  store i32 1, ptr %.sink19, align 4, !tbaa !4
+  %.sink26 = phi ptr [ %4, %3 ], [ %47, %_init_l_Lean_Server_Completion_getEligibleHeaderDecls___closed__5.exit ]
+  %50 = getelementptr inbounds nuw i8, ptr %.sink26, i64 4
+  store i32 1, ptr %.sink26, align 4, !tbaa !4
   store i32 131096, ptr %50, align 4
-  %51 = getelementptr inbounds nuw i8, ptr %.sink19, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %.sink26, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %51, align 8, !tbaa !9
-  %52 = getelementptr inbounds nuw i8, ptr %.sink19, i64 16
+  %52 = getelementptr inbounds nuw i8, ptr %.sink26, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %52, align 8, !tbaa !9
   br label %53
 
 53:                                               ; preds = %.sink.split, %18, %7
-  %.0 = phi ptr [ %8, %7 ], [ %19, %18 ], [ %.sink19, %.sink.split ]
+  %.0 = phi ptr [ %8, %7 ], [ %19, %18 ], [ %.sink26, %.sink.split ]
   ret ptr %.0
 }
 

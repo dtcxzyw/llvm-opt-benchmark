@@ -288,22 +288,22 @@ define dso_local i32 @ttm_pool_alloc(ptr noundef %0, ptr noundef readonly captur
   %132 = load i64, ptr %131, align 8
   %133 = inttoptr i64 %132 to ptr
   %134 = load i64, ptr %133, align 8
-  br label %.preheader331
+  br label %.preheader357
 
 135:                                              ; preds = %127
   %136 = load ptr, ptr %0, align 8
   %137 = tail call i64 @dma_map_page_attrs(ptr noundef %136, ptr noundef nonnull %125, i64 noundef 0, i64 noundef %118, i32 noundef 0, i64 noundef 0) #7
   %138 = icmp eq i64 %137, -1
-  br i1 %138, label %.loopexit, label %.preheader331
+  br i1 %138, label %.loopexit, label %.preheader357
 
-.preheader331:                                    ; preds = %135, %130
-  %.ph332 = phi i64 [ %134, %130 ], [ %137, %135 ]
+.preheader357:                                    ; preds = %135, %130
+  %.ph358 = phi i64 [ %134, %130 ], [ %137, %135 ]
   br label %139
 
-139:                                              ; preds = %.preheader331, %139
-  %140 = phi ptr [ %143, %139 ], [ %123, %.preheader331 ]
-  %141 = phi i64 [ %144, %139 ], [ %.ph332, %.preheader331 ]
-  %142 = phi i32 [ %145, %139 ], [ %119, %.preheader331 ]
+139:                                              ; preds = %.preheader357, %139
+  %140 = phi ptr [ %143, %139 ], [ %123, %.preheader357 ]
+  %141 = phi i64 [ %144, %139 ], [ %.ph358, %.preheader357 ]
+  %142 = phi i32 [ %145, %139 ], [ %119, %.preheader357 ]
   %143 = getelementptr i8, ptr %140, i64 8
   store i64 %141, ptr %140, align 8
   %144 = add i64 %141, 4096
@@ -357,19 +357,19 @@ define dso_local i32 @ttm_pool_alloc(ptr noundef %0, ptr noundef readonly captur
   br label %121, !llvm.loop !22
 
 .thread33.sink.split:                             ; preds = %159, %85
-  %.ph264 = phi i64 [ %53, %85 ], [ %157, %159 ]
-  %.ph265 = phi ptr [ %52, %85 ], [ %147, %159 ]
-  %.ph266 = phi ptr [ %51, %85 ], [ %153, %159 ]
-  %.ph267 = phi ptr [ %49, %85 ], [ %153, %159 ]
+  %.ph290 = phi i64 [ %53, %85 ], [ %157, %159 ]
+  %.ph291 = phi ptr [ %52, %85 ], [ %147, %159 ]
+  %.ph292 = phi ptr [ %51, %85 ], [ %153, %159 ]
+  %.ph293 = phi ptr [ %49, %85 ], [ %153, %159 ]
   tail call void @_raw_spin_unlock(ptr noundef nonnull %86) #7
   br label %.thread33
 
 .thread33:                                        ; preds = %156, %.thread33.sink.split, %65, %82
-  %173 = phi i64 [ %53, %82 ], [ %53, %65 ], [ %.ph264, %.thread33.sink.split ], [ %157, %156 ]
-  %174 = phi ptr [ %52, %82 ], [ %52, %65 ], [ %.ph265, %.thread33.sink.split ], [ %147, %156 ]
-  %175 = phi ptr [ %51, %82 ], [ %51, %65 ], [ %.ph266, %.thread33.sink.split ], [ %153, %156 ]
+  %173 = phi i64 [ %53, %82 ], [ %53, %65 ], [ %.ph290, %.thread33.sink.split ], [ %157, %156 ]
+  %174 = phi ptr [ %52, %82 ], [ %52, %65 ], [ %.ph291, %.thread33.sink.split ], [ %147, %156 ]
+  %175 = phi ptr [ %51, %82 ], [ %51, %65 ], [ %.ph292, %.thread33.sink.split ], [ %153, %156 ]
   %176 = phi i1 [ true, %82 ], [ true, %65 ], [ true, %.thread33.sink.split ], [ false, %156 ]
-  %177 = phi ptr [ %49, %82 ], [ %49, %65 ], [ %.ph267, %.thread33.sink.split ], [ %153, %156 ]
+  %177 = phi ptr [ %49, %82 ], [ %49, %65 ], [ %.ph293, %.thread33.sink.split ], [ %153, %156 ]
   %178 = shl nuw nsw i32 1, %50
   %179 = zext nneg i32 %178 to i64
   %180 = icmp ult i64 %173, %179
@@ -491,12 +491,12 @@ define dso_local i32 @ttm_pool_alloc(ptr noundef %0, ptr noundef readonly captur
   br i1 %252, label %.thread66, label %.preheader, !llvm.loop !23
 
 .preheader:                                       ; preds = %249, %247
-  %.ph330 = phi i64 [ %248, %247 ], [ %251, %249 ]
+  %.ph356 = phi i64 [ %248, %247 ], [ %251, %249 ]
   br label %253
 
 253:                                              ; preds = %.preheader, %253
   %254 = phi ptr [ %257, %253 ], [ %193, %.preheader ]
-  %255 = phi i64 [ %258, %253 ], [ %.ph330, %.preheader ]
+  %255 = phi i64 [ %258, %253 ], [ %.ph356, %.preheader ]
   %256 = phi i32 [ %259, %253 ], [ %178, %.preheader ]
   %257 = getelementptr i8, ptr %254, i64 8
   store i64 %255, ptr %254, align 8
@@ -675,9 +675,9 @@ define internal fastcc void @ttm_pool_free_range(ptr noundef %0, ptr noundef rea
   %.not = icmp eq i8 %23, 0
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 40
   %25 = load i64, ptr %24, align 8
-  br i1 %.not, label %33, label %.thread8
+  br i1 %.not, label %33, label %.thread14
 
-.thread8:                                         ; preds = %19
+.thread14:                                        ; preds = %19
   %26 = inttoptr i64 %25 to ptr
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %28 = load i64, ptr %27, align 8
@@ -692,9 +692,9 @@ define internal fastcc void @ttm_pool_free_range(ptr noundef %0, ptr noundef rea
   %35 = and i64 %25, 4294967295
   %36 = load ptr, ptr %11, align 8
   %37 = icmp eq ptr %36, null
-  br i1 %37, label %.thread7, label %39
+  br i1 %37, label %.thread13, label %39
 
-.thread7:                                         ; preds = %33
+.thread13:                                        ; preds = %33
   %38 = shl nuw i64 1, %35
   br label %47
 
@@ -710,16 +710,16 @@ define internal fastcc void @ttm_pool_free_range(ptr noundef %0, ptr noundef rea
   %46 = shl nuw i64 1, %35
   br i1 %45, label %47, label %51
 
-47:                                               ; preds = %.thread7, %39
-  %48 = phi i64 [ %38, %.thread7 ], [ %46, %39 ]
+47:                                               ; preds = %.thread13, %39
+  %48 = phi i64 [ %38, %.thread13 ], [ %46, %39 ]
   %49 = load i32, ptr %12, align 8
   %50 = icmp eq i32 %49, -1
   br i1 %50, label %56, label %51
 
-51:                                               ; preds = %.thread8, %47, %39
-  %52 = phi i64 [ %48, %47 ], [ %46, %39 ], [ %32, %.thread8 ]
-  %53 = phi i32 [ %34, %47 ], [ %34, %39 ], [ %30, %.thread8 ]
-  %54 = phi i64 [ %35, %47 ], [ %35, %39 ], [ %31, %.thread8 ]
+51:                                               ; preds = %.thread14, %47, %39
+  %52 = phi i64 [ %48, %47 ], [ %46, %39 ], [ %32, %.thread14 ]
+  %53 = phi i32 [ %34, %47 ], [ %34, %39 ], [ %30, %.thread14 ]
+  %54 = phi i64 [ %35, %47 ], [ %35, %39 ], [ %31, %.thread14 ]
   %55 = getelementptr [11 x %struct.ttm_pool_type], ptr %15, i64 0, i64 %54
   br label %72
 
@@ -1237,7 +1237,7 @@ define dso_local noundef i32 @ttm_pool_debugfs(ptr noundef %0, ptr noundef %1) #
   %15 = phi i64 [ 0, %12 ], [ %37, %36 ]
   tail call void @seq_puts(ptr noundef %1, ptr noundef nonnull @.str.2) #7
   %16 = trunc nuw nsw i64 %15 to i32
-  switch i32 %16, label %default.unreachable [
+  switch i32 %16, label %default.unreachable3 [
     i32 2, label %19
     i32 1, label %17
     i32 0, label %18
@@ -1249,7 +1249,7 @@ define dso_local noundef i32 @ttm_pool_debugfs(ptr noundef %0, ptr noundef %1) #
 18:                                               ; preds = %14
   br label %19
 
-default.unreachable:                              ; preds = %14
+default.unreachable3:                             ; preds = %14
   unreachable
 
 19:                                               ; preds = %18, %17, %14

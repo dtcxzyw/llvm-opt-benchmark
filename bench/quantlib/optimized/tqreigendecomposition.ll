@@ -528,7 +528,7 @@ for.body164:                                      ; preds = %for.body164.lr.ph, 
   %arrayidx.i182 = getelementptr inbounds nuw double, ptr %e.sroa.0.0, i64 %sub176
   store double %sqrt, ptr %arrayidx.i182, align 8, !tbaa !21
   %cmp182 = fcmp oeq double %69, 0.000000e+00
-  br i1 %cmp182, label %for.cond.cleanup163.thread403, label %if.then183
+  br i1 %cmp182, label %for.cond.cleanup163.thread424, label %if.then183
 
 if.then183:                                       ; preds = %for.body164
   %mul168 = fmul double %cosine.0358, %68
@@ -574,28 +574,28 @@ if.end264:                                        ; preds = %invoke.cont246, %if
   %cmp159 = icmp ugt i64 %inc268, %k.0368
   br i1 %cmp159, label %for.cond.cleanup163, label %for.body164, !llvm.loop !36
 
-for.cond.cleanup163.thread403:                    ; preds = %for.body164
+for.cond.cleanup163.thread424:                    ; preds = %for.body164
   %arrayidx.i205 = getelementptr inbounds nuw double, ptr %6, i64 %sub176
   %79 = load double, ptr %arrayidx.i205, align 8, !tbaa !21
   %sub261 = fsub double %79, %u.0357
   store double %sub261, ptr %arrayidx.i205, align 8, !tbaa !21
   store double 0.000000e+00, ptr %arrayidx.i206, align 8, !tbaa !21
-  %.pre381.pre406 = load double, ptr %41, align 8, !tbaa !21
+  %.pre381.pre427 = load double, ptr %41, align 8, !tbaa !21
   br label %if.end282
 
 if.then272:                                       ; preds = %for.cond.cleanup163, %if.end155
-  %q.2.lcssa393 = phi double [ %73, %for.cond.cleanup163 ], [ %q.0, %if.end155 ]
-  %u.0.lcssa392 = phi double [ %mul205, %for.cond.cleanup163 ], [ 0.000000e+00, %if.end155 ]
-  %.pre381391 = phi double [ %.pre381.pre, %for.cond.cleanup163 ], [ %.pre381383, %if.end155 ]
-  %sub277 = fsub double %.pre381391, %u.0.lcssa392
+  %q.2.lcssa414 = phi double [ %73, %for.cond.cleanup163 ], [ %q.0, %if.end155 ]
+  %u.0.lcssa413 = phi double [ %mul205, %for.cond.cleanup163 ], [ 0.000000e+00, %if.end155 ]
+  %.pre381412 = phi double [ %.pre381.pre, %for.cond.cleanup163 ], [ %.pre381383, %if.end155 ]
+  %sub277 = fsub double %.pre381412, %u.0.lcssa413
   store double %sub277, ptr %41, align 8, !tbaa !21
-  store double %q.2.lcssa393, ptr %arrayidx.i8.i, align 8, !tbaa !21
+  store double %q.2.lcssa414, ptr %arrayidx.i8.i, align 8, !tbaa !21
   %arrayidx.i209 = getelementptr inbounds nuw double, ptr %e.sroa.0.0, i64 %dec
   store double 0.000000e+00, ptr %arrayidx.i209, align 8, !tbaa !21
   br label %if.end282
 
-if.end282:                                        ; preds = %for.cond.cleanup163.thread403, %if.then272
-  %.pre381384 = phi double [ %sub277, %if.then272 ], [ %.pre381.pre406, %for.cond.cleanup163.thread403 ]
+if.end282:                                        ; preds = %for.cond.cleanup163.thread424, %if.then272
+  %.pre381384 = phi double [ %sub277, %if.then272 ], [ %.pre381.pre427, %for.cond.cleanup163.thread424 ]
   %80 = load double, ptr %arrayidx.i.i, align 8, !tbaa !21
   %81 = tail call double @llvm.fabs.f64(double %80)
   %82 = tail call double @llvm.fabs.f64(double %.pre381384)
@@ -1366,13 +1366,13 @@ if.then.i.i.i.i26.i:                              ; preds = %lpad.i
   br label %common.resume.sink.split
 
 common.resume.sink.split:                         ; preds = %if.then.i.i.i.i26.i, %if.then.i.i.i.i22.i
-  %.sink23 = phi ptr [ %28, %if.then.i.i.i.i22.i ], [ %8, %if.then.i.i.i.i26.i ]
-  %.sink22 = phi ptr [ %27, %if.then.i.i.i.i22.i ], [ %7, %if.then.i.i.i.i26.i ]
+  %.sink32 = phi ptr [ %28, %if.then.i.i.i.i22.i ], [ %8, %if.then.i.i.i.i26.i ]
+  %.sink31 = phi ptr [ %27, %if.then.i.i.i.i22.i ], [ %7, %if.then.i.i.i.i26.i ]
   %common.resume.op.ph = phi { ptr, i32 } [ %26, %if.then.i.i.i.i22.i ], [ %6, %if.then.i.i.i.i26.i ]
-  %sub.ptr.lhs.cast.i.i.i24.i = ptrtoint ptr %.sink23 to i64
-  %sub.ptr.rhs.cast.i.i.i25.i = ptrtoint ptr %.sink22 to i64
+  %sub.ptr.lhs.cast.i.i.i24.i = ptrtoint ptr %.sink32 to i64
+  %sub.ptr.rhs.cast.i.i.i25.i = ptrtoint ptr %.sink31 to i64
   %sub.ptr.sub.i.i.i26.i = sub i64 %sub.ptr.lhs.cast.i.i.i24.i, %sub.ptr.rhs.cast.i.i.i25.i
-  call void @_ZdlPvm(ptr noundef nonnull %.sink22, i64 noundef %sub.ptr.sub.i.i.i26.i) #23
+  call void @_ZdlPvm(ptr noundef nonnull %.sink31, i64 noundef %sub.ptr.sub.i.i.i26.i) #23
   br label %common.resume
 
 common.resume:                                    ; preds = %common.resume.sink.split, %lpad.i9, %lpad.i
@@ -2270,24 +2270,24 @@ if.else55:                                        ; preds = %_ZN9__gnu_cxx5__ops
   br label %if.end62
 
 if.end62:                                         ; preds = %for.body.i.i.i.i.i.i.i.i.i.i.i96, %if.end.i.i.i.i.i.i.i.i.i.i.i138, %for.body.i.i.i.i.i.i.i.i.i.i.i134, %for.body.i.i.i.i.i.i.i.i.i.i.i19, %if.end.i.i.i.i.i.i.i.i.i.i.i56, %for.body.i.i.i.i.i.i.i.i.i.i.i52, %lor.rhs.i.i.i.i.i117.if.else55_crit_edge, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterIvEEclINS_17__normal_iteratorIPSt4pairIdSt6vectorIdSaIdEEES8_ISB_SaISB_EEEESF_EEbT_T0_.exit147, %if.else44.if.then50_crit_edge, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterIvEEclINS_17__normal_iteratorIPSt4pairIdSt6vectorIdSaIdEEES8_ISB_SaISB_EEEESF_EEbT_T0_.exit109, %if.else33.if.then39_crit_edge, %lor.rhs.i.i.i.i.i35.if.else27_crit_edge, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterIvEEclINS_17__normal_iteratorIPSt4pairIdSt6vectorIdSaIdEEES8_ISB_SaISB_EEEESF_EEbT_T0_.exit65, %if.else.if.then22_crit_edge, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterIvEEclINS_17__normal_iteratorIPSt4pairIdSt6vectorIdSaIdEEES8_ISB_SaISB_EEEESF_EEbT_T0_.exit32, %if.then.if.then12_crit_edge, %if.else55, %if.else27
-  %.sink193 = phi double [ %0, %if.then.if.then12_crit_edge ], [ %0, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterIvEEclINS_17__normal_iteratorIPSt4pairIdSt6vectorIdSaIdEEES8_ISB_SaISB_EEEESF_EEbT_T0_.exit32 ], [ %8, %if.else.if.then22_crit_edge ], [ %8, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterIvEEclINS_17__normal_iteratorIPSt4pairIdSt6vectorIdSaIdEEES8_ISB_SaISB_EEEESF_EEbT_T0_.exit65 ], [ %1, %lor.rhs.i.i.i.i.i35.if.else27_crit_edge ], [ %1, %if.else27 ], [ %1, %if.else33.if.then39_crit_edge ], [ %1, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterIvEEclINS_17__normal_iteratorIPSt4pairIdSt6vectorIdSaIdEEES8_ISB_SaISB_EEEESF_EEbT_T0_.exit109 ], [ %21, %if.else44.if.then50_crit_edge ], [ %21, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterIvEEclINS_17__normal_iteratorIPSt4pairIdSt6vectorIdSaIdEEES8_ISB_SaISB_EEEESF_EEbT_T0_.exit147 ], [ %0, %lor.rhs.i.i.i.i.i117.if.else55_crit_edge ], [ %0, %if.else55 ], [ %8, %for.body.i.i.i.i.i.i.i.i.i.i.i52 ], [ %1, %if.end.i.i.i.i.i.i.i.i.i.i.i56 ], [ %0, %for.body.i.i.i.i.i.i.i.i.i.i.i19 ], [ %21, %for.body.i.i.i.i.i.i.i.i.i.i.i134 ], [ %0, %if.end.i.i.i.i.i.i.i.i.i.i.i138 ], [ %1, %for.body.i.i.i.i.i.i.i.i.i.i.i96 ]
-  %__a.coerce.sink192 = phi ptr [ %__b.coerce, %if.then.if.then12_crit_edge ], [ %__b.coerce, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterIvEEclINS_17__normal_iteratorIPSt4pairIdSt6vectorIdSaIdEEES8_ISB_SaISB_EEEESF_EEbT_T0_.exit32 ], [ %__c.coerce, %if.else.if.then22_crit_edge ], [ %__c.coerce, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterIvEEclINS_17__normal_iteratorIPSt4pairIdSt6vectorIdSaIdEEES8_ISB_SaISB_EEEESF_EEbT_T0_.exit65 ], [ %__a.coerce, %lor.rhs.i.i.i.i.i35.if.else27_crit_edge ], [ %__a.coerce, %if.else27 ], [ %__a.coerce, %if.else33.if.then39_crit_edge ], [ %__a.coerce, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterIvEEclINS_17__normal_iteratorIPSt4pairIdSt6vectorIdSaIdEEES8_ISB_SaISB_EEEESF_EEbT_T0_.exit109 ], [ %__c.coerce, %if.else44.if.then50_crit_edge ], [ %__c.coerce, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterIvEEclINS_17__normal_iteratorIPSt4pairIdSt6vectorIdSaIdEEES8_ISB_SaISB_EEEESF_EEbT_T0_.exit147 ], [ %__b.coerce, %lor.rhs.i.i.i.i.i117.if.else55_crit_edge ], [ %__b.coerce, %if.else55 ], [ %__c.coerce, %for.body.i.i.i.i.i.i.i.i.i.i.i52 ], [ %__a.coerce, %if.end.i.i.i.i.i.i.i.i.i.i.i56 ], [ %__b.coerce, %for.body.i.i.i.i.i.i.i.i.i.i.i19 ], [ %__c.coerce, %for.body.i.i.i.i.i.i.i.i.i.i.i134 ], [ %__b.coerce, %if.end.i.i.i.i.i.i.i.i.i.i.i138 ], [ %__a.coerce, %for.body.i.i.i.i.i.i.i.i.i.i.i96 ]
-  %.sink187 = phi ptr [ %.pre179, %if.then.if.then12_crit_edge ], [ %11, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterIvEEclINS_17__normal_iteratorIPSt4pairIdSt6vectorIdSaIdEEES8_ISB_SaISB_EEEESF_EEbT_T0_.exit32 ], [ %.pre177, %if.else.if.then22_crit_edge ], [ %15, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterIvEEclINS_17__normal_iteratorIPSt4pairIdSt6vectorIdSaIdEEES8_ISB_SaISB_EEEESF_EEbT_T0_.exit65 ], [ %.pre175, %lor.rhs.i.i.i.i.i35.if.else27_crit_edge ], [ %17, %if.else27 ], [ %.pre173, %if.else33.if.then39_crit_edge ], [ %24, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterIvEEclINS_17__normal_iteratorIPSt4pairIdSt6vectorIdSaIdEEES8_ISB_SaISB_EEEESF_EEbT_T0_.exit109 ], [ %.pre171, %if.else44.if.then50_crit_edge ], [ %28, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterIvEEclINS_17__normal_iteratorIPSt4pairIdSt6vectorIdSaIdEEES8_ISB_SaISB_EEEESF_EEbT_T0_.exit147 ], [ %.pre, %lor.rhs.i.i.i.i.i117.if.else55_crit_edge ], [ %30, %if.else55 ], [ %15, %for.body.i.i.i.i.i.i.i.i.i.i.i52 ], [ %17, %if.end.i.i.i.i.i.i.i.i.i.i.i56 ], [ %11, %for.body.i.i.i.i.i.i.i.i.i.i.i19 ], [ %28, %for.body.i.i.i.i.i.i.i.i.i.i.i134 ], [ %30, %if.end.i.i.i.i.i.i.i.i.i.i.i138 ], [ %24, %for.body.i.i.i.i.i.i.i.i.i.i.i96 ]
-  %.sink185 = phi ptr [ %.pre180, %if.then.if.then12_crit_edge ], [ %12, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterIvEEclINS_17__normal_iteratorIPSt4pairIdSt6vectorIdSaIdEEES8_ISB_SaISB_EEEESF_EEbT_T0_.exit32 ], [ %.pre178, %if.else.if.then22_crit_edge ], [ %16, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterIvEEclINS_17__normal_iteratorIPSt4pairIdSt6vectorIdSaIdEEES8_ISB_SaISB_EEEESF_EEbT_T0_.exit65 ], [ %.pre176, %lor.rhs.i.i.i.i.i35.if.else27_crit_edge ], [ %18, %if.else27 ], [ %.pre174, %if.else33.if.then39_crit_edge ], [ %25, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterIvEEclINS_17__normal_iteratorIPSt4pairIdSt6vectorIdSaIdEEES8_ISB_SaISB_EEEESF_EEbT_T0_.exit109 ], [ %.pre172, %if.else44.if.then50_crit_edge ], [ %29, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterIvEEclINS_17__normal_iteratorIPSt4pairIdSt6vectorIdSaIdEEES8_ISB_SaISB_EEEESF_EEbT_T0_.exit147 ], [ %.pre170, %lor.rhs.i.i.i.i.i117.if.else55_crit_edge ], [ %31, %if.else55 ], [ %16, %for.body.i.i.i.i.i.i.i.i.i.i.i52 ], [ %18, %if.end.i.i.i.i.i.i.i.i.i.i.i56 ], [ %12, %for.body.i.i.i.i.i.i.i.i.i.i.i19 ], [ %29, %for.body.i.i.i.i.i.i.i.i.i.i.i134 ], [ %31, %if.end.i.i.i.i.i.i.i.i.i.i.i138 ], [ %25, %for.body.i.i.i.i.i.i.i.i.i.i.i96 ]
+  %.sink216 = phi double [ %0, %if.then.if.then12_crit_edge ], [ %0, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterIvEEclINS_17__normal_iteratorIPSt4pairIdSt6vectorIdSaIdEEES8_ISB_SaISB_EEEESF_EEbT_T0_.exit32 ], [ %8, %if.else.if.then22_crit_edge ], [ %8, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterIvEEclINS_17__normal_iteratorIPSt4pairIdSt6vectorIdSaIdEEES8_ISB_SaISB_EEEESF_EEbT_T0_.exit65 ], [ %1, %lor.rhs.i.i.i.i.i35.if.else27_crit_edge ], [ %1, %if.else27 ], [ %1, %if.else33.if.then39_crit_edge ], [ %1, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterIvEEclINS_17__normal_iteratorIPSt4pairIdSt6vectorIdSaIdEEES8_ISB_SaISB_EEEESF_EEbT_T0_.exit109 ], [ %21, %if.else44.if.then50_crit_edge ], [ %21, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterIvEEclINS_17__normal_iteratorIPSt4pairIdSt6vectorIdSaIdEEES8_ISB_SaISB_EEEESF_EEbT_T0_.exit147 ], [ %0, %lor.rhs.i.i.i.i.i117.if.else55_crit_edge ], [ %0, %if.else55 ], [ %8, %for.body.i.i.i.i.i.i.i.i.i.i.i52 ], [ %1, %if.end.i.i.i.i.i.i.i.i.i.i.i56 ], [ %0, %for.body.i.i.i.i.i.i.i.i.i.i.i19 ], [ %21, %for.body.i.i.i.i.i.i.i.i.i.i.i134 ], [ %0, %if.end.i.i.i.i.i.i.i.i.i.i.i138 ], [ %1, %for.body.i.i.i.i.i.i.i.i.i.i.i96 ]
+  %__a.coerce.sink215 = phi ptr [ %__b.coerce, %if.then.if.then12_crit_edge ], [ %__b.coerce, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterIvEEclINS_17__normal_iteratorIPSt4pairIdSt6vectorIdSaIdEEES8_ISB_SaISB_EEEESF_EEbT_T0_.exit32 ], [ %__c.coerce, %if.else.if.then22_crit_edge ], [ %__c.coerce, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterIvEEclINS_17__normal_iteratorIPSt4pairIdSt6vectorIdSaIdEEES8_ISB_SaISB_EEEESF_EEbT_T0_.exit65 ], [ %__a.coerce, %lor.rhs.i.i.i.i.i35.if.else27_crit_edge ], [ %__a.coerce, %if.else27 ], [ %__a.coerce, %if.else33.if.then39_crit_edge ], [ %__a.coerce, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterIvEEclINS_17__normal_iteratorIPSt4pairIdSt6vectorIdSaIdEEES8_ISB_SaISB_EEEESF_EEbT_T0_.exit109 ], [ %__c.coerce, %if.else44.if.then50_crit_edge ], [ %__c.coerce, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterIvEEclINS_17__normal_iteratorIPSt4pairIdSt6vectorIdSaIdEEES8_ISB_SaISB_EEEESF_EEbT_T0_.exit147 ], [ %__b.coerce, %lor.rhs.i.i.i.i.i117.if.else55_crit_edge ], [ %__b.coerce, %if.else55 ], [ %__c.coerce, %for.body.i.i.i.i.i.i.i.i.i.i.i52 ], [ %__a.coerce, %if.end.i.i.i.i.i.i.i.i.i.i.i56 ], [ %__b.coerce, %for.body.i.i.i.i.i.i.i.i.i.i.i19 ], [ %__c.coerce, %for.body.i.i.i.i.i.i.i.i.i.i.i134 ], [ %__b.coerce, %if.end.i.i.i.i.i.i.i.i.i.i.i138 ], [ %__a.coerce, %for.body.i.i.i.i.i.i.i.i.i.i.i96 ]
+  %.sink210 = phi ptr [ %.pre179, %if.then.if.then12_crit_edge ], [ %11, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterIvEEclINS_17__normal_iteratorIPSt4pairIdSt6vectorIdSaIdEEES8_ISB_SaISB_EEEESF_EEbT_T0_.exit32 ], [ %.pre177, %if.else.if.then22_crit_edge ], [ %15, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterIvEEclINS_17__normal_iteratorIPSt4pairIdSt6vectorIdSaIdEEES8_ISB_SaISB_EEEESF_EEbT_T0_.exit65 ], [ %.pre175, %lor.rhs.i.i.i.i.i35.if.else27_crit_edge ], [ %17, %if.else27 ], [ %.pre173, %if.else33.if.then39_crit_edge ], [ %24, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterIvEEclINS_17__normal_iteratorIPSt4pairIdSt6vectorIdSaIdEEES8_ISB_SaISB_EEEESF_EEbT_T0_.exit109 ], [ %.pre171, %if.else44.if.then50_crit_edge ], [ %28, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterIvEEclINS_17__normal_iteratorIPSt4pairIdSt6vectorIdSaIdEEES8_ISB_SaISB_EEEESF_EEbT_T0_.exit147 ], [ %.pre, %lor.rhs.i.i.i.i.i117.if.else55_crit_edge ], [ %30, %if.else55 ], [ %15, %for.body.i.i.i.i.i.i.i.i.i.i.i52 ], [ %17, %if.end.i.i.i.i.i.i.i.i.i.i.i56 ], [ %11, %for.body.i.i.i.i.i.i.i.i.i.i.i19 ], [ %28, %for.body.i.i.i.i.i.i.i.i.i.i.i134 ], [ %30, %if.end.i.i.i.i.i.i.i.i.i.i.i138 ], [ %24, %for.body.i.i.i.i.i.i.i.i.i.i.i96 ]
+  %.sink208 = phi ptr [ %.pre180, %if.then.if.then12_crit_edge ], [ %12, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterIvEEclINS_17__normal_iteratorIPSt4pairIdSt6vectorIdSaIdEEES8_ISB_SaISB_EEEESF_EEbT_T0_.exit32 ], [ %.pre178, %if.else.if.then22_crit_edge ], [ %16, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterIvEEclINS_17__normal_iteratorIPSt4pairIdSt6vectorIdSaIdEEES8_ISB_SaISB_EEEESF_EEbT_T0_.exit65 ], [ %.pre176, %lor.rhs.i.i.i.i.i35.if.else27_crit_edge ], [ %18, %if.else27 ], [ %.pre174, %if.else33.if.then39_crit_edge ], [ %25, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterIvEEclINS_17__normal_iteratorIPSt4pairIdSt6vectorIdSaIdEEES8_ISB_SaISB_EEEESF_EEbT_T0_.exit109 ], [ %.pre172, %if.else44.if.then50_crit_edge ], [ %29, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterIvEEclINS_17__normal_iteratorIPSt4pairIdSt6vectorIdSaIdEEES8_ISB_SaISB_EEEESF_EEbT_T0_.exit147 ], [ %.pre170, %lor.rhs.i.i.i.i.i117.if.else55_crit_edge ], [ %31, %if.else55 ], [ %16, %for.body.i.i.i.i.i.i.i.i.i.i.i52 ], [ %18, %if.end.i.i.i.i.i.i.i.i.i.i.i56 ], [ %12, %for.body.i.i.i.i.i.i.i.i.i.i.i19 ], [ %29, %for.body.i.i.i.i.i.i.i.i.i.i.i134 ], [ %31, %if.end.i.i.i.i.i.i.i.i.i.i.i138 ], [ %25, %for.body.i.i.i.i.i.i.i.i.i.i.i96 ]
   %34 = load double, ptr %__result.coerce, align 8, !tbaa !21
-  store double %.sink193, ptr %__result.coerce, align 8, !tbaa !21
-  store double %34, ptr %__a.coerce.sink192, align 8, !tbaa !21
+  store double %.sink216, ptr %__result.coerce, align 8, !tbaa !21
+  store double %34, ptr %__a.coerce.sink215, align 8, !tbaa !21
   %second.i.i.i110 = getelementptr inbounds nuw i8, ptr %__result.coerce, i64 8
-  %second3.i.i.i111 = getelementptr inbounds nuw i8, ptr %__a.coerce.sink192, i64 8
+  %second3.i.i.i111 = getelementptr inbounds nuw i8, ptr %__a.coerce.sink215, i64 8
   %35 = load ptr, ptr %second.i.i.i110, align 8, !tbaa !53
   %_M_finish.i.i.i.i.i.i.i112 = getelementptr inbounds nuw i8, ptr %__result.coerce, i64 16
   %36 = load ptr, ptr %_M_finish.i.i.i.i.i.i.i112, align 8, !tbaa !55
   %_M_end_of_storage.i.i.i.i.i.i.i113 = getelementptr inbounds nuw i8, ptr %__result.coerce, i64 24
   %37 = load ptr, ptr %_M_end_of_storage.i.i.i.i.i.i.i113, align 8, !tbaa !54
-  store ptr %.sink187, ptr %second.i.i.i110, align 8, !tbaa !53
-  %_M_finish.i2.i.i.i.i.i.i114 = getelementptr inbounds nuw i8, ptr %__a.coerce.sink192, i64 16
-  store ptr %.sink185, ptr %_M_finish.i.i.i.i.i.i.i112, align 8, !tbaa !55
-  %_M_end_of_storage.i4.i.i.i.i.i.i115 = getelementptr inbounds nuw i8, ptr %__a.coerce.sink192, i64 24
+  store ptr %.sink210, ptr %second.i.i.i110, align 8, !tbaa !53
+  %_M_finish.i2.i.i.i.i.i.i114 = getelementptr inbounds nuw i8, ptr %__a.coerce.sink215, i64 16
+  store ptr %.sink208, ptr %_M_finish.i.i.i.i.i.i.i112, align 8, !tbaa !55
+  %_M_end_of_storage.i4.i.i.i.i.i.i115 = getelementptr inbounds nuw i8, ptr %__a.coerce.sink215, i64 24
   %38 = load ptr, ptr %_M_end_of_storage.i4.i.i.i.i.i.i115, align 8, !tbaa !54
   store ptr %38, ptr %_M_end_of_storage.i.i.i.i.i.i.i113, align 8, !tbaa !54
   store ptr %35, ptr %second3.i.i.i111, align 8, !tbaa !53

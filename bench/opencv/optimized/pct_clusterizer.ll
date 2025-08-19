@@ -1680,19 +1680,19 @@ define linkonce_odr hidden void @_ZN2cv11xfeatures2d14pct_signatures19PCTCluster
   %22 = getelementptr inbounds nuw i8, ptr %14, i64 %21
   %23 = load float, ptr %22, align 4, !tbaa !7
   %24 = fcmp ogt float %23, %19
-  br i1 %24, label %25, label %.critedge.loopexit.split.loop.exit45
+  br i1 %24, label %25, label %.critedge.loopexit.split.loop.exit46
 
 25:                                               ; preds = %20
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.critedge, label %20, !llvm.loop !109
 
-.critedge.loopexit.split.loop.exit45:             ; preds = %20
+.critedge.loopexit.split.loop.exit46:             ; preds = %20
   %26 = trunc nuw nsw i64 %indvars.iv to i32
   br label %.critedge
 
-.critedge:                                        ; preds = %25, %.critedge.loopexit.split.loop.exit45, %2
-  %.024.lcssa = phi i32 [ 0, %2 ], [ %26, %.critedge.loopexit.split.loop.exit45 ], [ %11, %25 ]
+.critedge:                                        ; preds = %25, %.critedge.loopexit.split.loop.exit46, %2
+  %.024.lcssa = phi i32 [ 0, %2 ], [ %26, %.critedge.loopexit.split.loop.exit46 ], [ %11, %25 ]
   %.12533 = add nuw nsw i32 %.024.lcssa, 1
   %27 = icmp slt i32 %.12533, %11
   br i1 %27, label %.lr.ph37, label %._crit_edge

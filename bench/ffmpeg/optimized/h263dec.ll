@@ -821,8 +821,8 @@ h263_get_format.exit:                             ; preds = %98, %101, %104
 
 321:                                              ; preds = %317, %309
   %.sink.in = phi ptr [ %310, %309 ], [ %169, %317 ]
-  %.sink302 = load ptr, ptr %.sink.in, align 8, !tbaa !127
-  tail call void @ff_print_debug_info(ptr noundef nonnull %8, ptr noundef %.sink302, ptr noundef %1) #6
+  %.sink323 = load ptr, ptr %.sink.in, align 8, !tbaa !127
+  tail call void @ff_print_debug_info(ptr noundef nonnull %8, ptr noundef %.sink323, ptr noundef %1) #6
   %.sink = load ptr, ptr %.sink.in, align 8, !tbaa !127
   %322 = tail call i32 @ff_mpv_export_qp_table(ptr noundef nonnull %8, ptr noundef %1, ptr noundef %.sink, i32 noundef 0) #6
   %.pr = load ptr, ptr %169, align 8, !tbaa !106
@@ -1349,7 +1349,7 @@ define internal fastcc i32 @decode_slice(ptr noundef %0) unnamed_addr #2 {
   ]
 
 250:                                              ; preds = %._crit_edge330
-  br i1 %249, label %.thread307.thread348, label %251
+  br i1 %249, label %.thread307.thread368, label %251
 
 251:                                              ; preds = %250
   %252 = getelementptr i8, ptr %0, i64 4176
@@ -1441,7 +1441,7 @@ define internal fastcc i32 @decode_slice(ptr noundef %0) unnamed_addr #2 {
   br label %.thread307.thread.sink.split
 
 302:                                              ; preds = %._crit_edge330
-  br i1 %249, label %.thread307.thread348, label %303
+  br i1 %249, label %.thread307.thread368, label %303
 
 303:                                              ; preds = %302
   %304 = getelementptr i8, ptr %0, i64 4176
@@ -1502,15 +1502,15 @@ define internal fastcc i32 @decode_slice(ptr noundef %0) unnamed_addr #2 {
   br i1 %337, label %.thread307.thread.sink.split, label %.thread307.thread
 
 .thread307.thread.sink.split:                     ; preds = %332, %297, %282, %279, %301
-  %.sink372 = phi i32 [ 1, %301 ], [ 16, %279 ], [ -1, %282 ], [ 4, %297 ], [ 32, %332 ]
+  %.sink392 = phi i32 [ 1, %301 ], [ 16, %279 ], [ -1, %282 ], [ 4, %297 ], [ 32, %332 ]
   %338 = getelementptr inbounds nuw i8, ptr %0, i64 4112
   %339 = load i32, ptr %338, align 8, !tbaa !155
-  %340 = add nsw i32 %339, %.sink372
+  %340 = add nsw i32 %339, %.sink392
   store i32 %340, ptr %338, align 8, !tbaa !155
   br label %.thread307.thread
 
 .thread307:                                       ; preds = %._crit_edge330
-  br i1 %249, label %.thread307.thread348, label %.thread307.thread
+  br i1 %249, label %.thread307.thread368, label %.thread307.thread
 
 .thread307.thread:                                ; preds = %327, %332, %281, %276, %272, %.thread307.thread.sink.split, %.thread307
   %341 = getelementptr inbounds nuw i8, ptr %0, i64 524
@@ -1527,30 +1527,30 @@ define internal fastcc i32 @decode_slice(ptr noundef %0) unnamed_addr #2 {
 
 348:                                              ; preds = %345
   %349 = or i32 %.pre, 16
-  br label %.thread307.thread348.sink.split
+  br label %.thread307.thread368.sink.split
 
 350:                                              ; preds = %345, %.thread307.thread
   %351 = and i32 %.pre, -17
-  br label %.thread307.thread348.sink.split
+  br label %.thread307.thread368.sink.split
 
-.thread307.thread348.sink.split:                  ; preds = %350, %348
+.thread307.thread368.sink.split:                  ; preds = %350, %348
   %.sink = phi i32 [ %349, %348 ], [ %351, %350 ]
   store i32 %.sink, ptr %341, align 4, !tbaa !158
-  br label %.thread307.thread348
+  br label %.thread307.thread368
 
-.thread307.thread348:                             ; preds = %.thread307.thread348.sink.split, %302, %250, %.thread307
-  %352 = phi i32 [ %.pre, %.thread307 ], [ %.pre, %302 ], [ %.pre, %250 ], [ %.sink, %.thread307.thread348.sink.split ]
+.thread307.thread368:                             ; preds = %.thread307.thread368.sink.split, %302, %250, %.thread307
+  %352 = phi i32 [ %.pre, %.thread307 ], [ %.pre, %302 ], [ %.pre, %250 ], [ %.sink, %.thread307.thread368.sink.split ]
   %353 = getelementptr inbounds nuw i8, ptr %0, i64 4148
   %354 = load i32, ptr %353, align 4, !tbaa !68
   %.not248 = icmp eq i32 %354, 0
   br i1 %.not248, label %355, label %360
 
-355:                                              ; preds = %.thread307.thread348
+355:                                              ; preds = %.thread307.thread368
   %356 = and i32 %352, 16
   %.not249 = icmp eq i32 %356, 0
-  br i1 %.not249, label %402, label %.thread350
+  br i1 %.not249, label %402, label %.thread370
 
-.thread350:                                       ; preds = %355
+.thread370:                                       ; preds = %355
   %357 = getelementptr i8, ptr %0, i64 4176
   %.val269309 = load i32, ptr %357, align 8, !tbaa !91
   %358 = getelementptr i8, ptr %0, i64 4180
@@ -1558,7 +1558,7 @@ define internal fastcc i32 @decode_slice(ptr noundef %0) unnamed_addr #2 {
   %359 = sub nsw i32 %.val270310, %.val269309
   br label %367
 
-360:                                              ; preds = %.thread307.thread348
+360:                                              ; preds = %.thread307.thread368
   %361 = getelementptr i8, ptr %0, i64 4176
   %.val269 = load i32, ptr %361, align 8, !tbaa !91
   %362 = getelementptr i8, ptr %0, i64 4180
@@ -1572,11 +1572,11 @@ define internal fastcc i32 @decode_slice(ptr noundef %0) unnamed_addr #2 {
   %.not251 = icmp eq i32 %.pre340, 0
   br i1 %.not251, label %375, label %367
 
-367:                                              ; preds = %.thread350, %360
-  %.0360 = phi i32 [ 7, %.thread350 ], [ %spec.select, %360 ]
-  %.val269311358 = phi i32 [ %.val269309, %.thread350 ], [ %.val269, %360 ]
-  %368 = phi i32 [ %359, %.thread350 ], [ %363, %360 ]
-  %.pre-phi341355 = phi i32 [ %356, %.thread350 ], [ %.pre340, %360 ]
+367:                                              ; preds = %.thread370, %360
+  %.0380 = phi i32 [ 7, %.thread370 ], [ %spec.select, %360 ]
+  %.val269311378 = phi i32 [ %.val269309, %.thread370 ], [ %.val269, %360 ]
+  %368 = phi i32 [ %359, %.thread370 ], [ %363, %360 ]
+  %.pre-phi341375 = phi i32 [ %356, %.thread370 ], [ %.pre340, %360 ]
   %369 = load ptr, ptr %5, align 8, !tbaa !95
   %370 = getelementptr inbounds nuw i8, ptr %369, i64 528
   %371 = load i32, ptr %370, align 8, !tbaa !137
@@ -1585,20 +1585,20 @@ define internal fastcc i32 @decode_slice(ptr noundef %0) unnamed_addr #2 {
   br i1 %.not252, label %375, label %373
 
 373:                                              ; preds = %367
-  %374 = add nuw nsw i32 %.0360, 48
+  %374 = add nuw nsw i32 %.0380, 48
   br label %378
 
 375:                                              ; preds = %367, %360
-  %.0361 = phi i32 [ %.0360, %367 ], [ %spec.select, %360 ]
-  %.val269311359 = phi i32 [ %.val269311358, %367 ], [ %.val269, %360 ]
+  %.0381 = phi i32 [ %.0380, %367 ], [ %spec.select, %360 ]
+  %.val269311379 = phi i32 [ %.val269311378, %367 ], [ %.val269, %360 ]
   %376 = phi i32 [ %368, %367 ], [ %363, %360 ]
-  %.pre-phi341356 = phi i32 [ %.pre-phi341355, %367 ], [ 0, %360 ]
-  %377 = shl nuw nsw i32 %.pre-phi341356, 26
-  %spec.select264 = or disjoint i32 %377, %.0361
+  %.pre-phi341376 = phi i32 [ %.pre-phi341375, %367 ], [ 0, %360 ]
+  %377 = shl nuw nsw i32 %.pre-phi341376, 26
+  %spec.select264 = or disjoint i32 %377, %.0381
   br label %378
 
 378:                                              ; preds = %375, %373
-  %.val269311357 = phi i32 [ %.val269311358, %373 ], [ %.val269311359, %375 ]
+  %.val269311377 = phi i32 [ %.val269311378, %373 ], [ %.val269311379, %375 ]
   %379 = phi i32 [ %368, %373 ], [ %376, %375 ]
   %.1 = phi i32 [ %374, %373 ], [ %spec.select264, %375 ]
   %380 = icmp sgt i32 %379, %.1
@@ -1607,12 +1607,12 @@ define internal fastcc i32 @decode_slice(ptr noundef %0) unnamed_addr #2 {
 381:                                              ; preds = %378
   %382 = load ptr, ptr %5, align 8, !tbaa !95
   %.val291 = load ptr, ptr %11, align 8, !tbaa !87
-  %383 = lshr i32 %.val269311357, 3
+  %383 = lshr i32 %.val269311377, 3
   %384 = zext nneg i32 %383 to i64
   %385 = getelementptr inbounds nuw i8, ptr %.val291, i64 %384
   %386 = load i32, ptr %385, align 1, !tbaa !73
   %387 = tail call i32 @llvm.bswap.i32(i32 %386)
-  %388 = and i32 %.val269311357, 7
+  %388 = and i32 %.val269311377, 7
   %389 = shl i32 %387, %388
   %390 = lshr i32 %389, 8
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %382, i32 noundef 16, ptr noundef nonnull @.str.13, i32 noundef %379, i32 noundef %390) #6

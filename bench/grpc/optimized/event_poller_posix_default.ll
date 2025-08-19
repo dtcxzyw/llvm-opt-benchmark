@@ -174,10 +174,10 @@ _ZNK4absl12lts_2024072216strings_internal8SplitterINS0_6ByCharENS0_10AllowEmptyE
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i: ; preds = %54
   %bcmp.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(3) %.sroa.24.0.copyload, ptr noundef nonnull dereferenceable(3) @.str.4, i64 3)
   %55 = icmp eq i32 %bcmp.i.i, 0
-  br i1 %55, label %_ZN17grpc_event_engine12experimental12_GLOBAL__N_119PollStrategyMatchesESt17basic_string_viewIcSt11char_traitsIcEES5_.exit, label %_ZN17grpc_event_engine12experimental12_GLOBAL__N_119PollStrategyMatchesESt17basic_string_viewIcSt11char_traitsIcEES5_.exit.thread.thread.thread95
+  br i1 %55, label %_ZN17grpc_event_engine12experimental12_GLOBAL__N_119PollStrategyMatchesESt17basic_string_viewIcSt11char_traitsIcEES5_.exit, label %_ZN17grpc_event_engine12experimental12_GLOBAL__N_119PollStrategyMatchesESt17basic_string_viewIcSt11char_traitsIcEES5_.exit.thread.thread.thread108
 
-_ZN17grpc_event_engine12experimental12_GLOBAL__N_119PollStrategyMatchesESt17basic_string_viewIcSt11char_traitsIcEES5_.exit.thread.thread.thread95: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i
-  %.sroa.22.0.copyload97 = load ptr, ptr %.sroa.24.0..sroa_idx, align 8, !tbaa !16
+_ZN17grpc_event_engine12experimental12_GLOBAL__N_119PollStrategyMatchesESt17basic_string_viewIcSt11char_traitsIcEES5_.exit.thread.thread.thread108: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i
+  %.sroa.22.0.copyload110 = load ptr, ptr %.sroa.24.0..sroa_idx, align 8, !tbaa !16
   br label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i23
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i9.i: ; preds = %54
@@ -321,9 +321,9 @@ _ZN17grpc_event_engine12experimental12_GLOBAL__N_119PollStrategyMatchesESt17basi
     i64 4, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i9.i20
   ]
 
-_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i23: ; preds = %_ZN17grpc_event_engine12experimental12_GLOBAL__N_119PollStrategyMatchesESt17basic_string_viewIcSt11char_traitsIcEES5_.exit.thread.thread.thread95, %_ZN17grpc_event_engine12experimental12_GLOBAL__N_119PollStrategyMatchesESt17basic_string_viewIcSt11char_traitsIcEES5_.exit.thread.thread
-  %.sroa.22.0.copyload98 = phi ptr [ %.sroa.22.0.copyload97, %_ZN17grpc_event_engine12experimental12_GLOBAL__N_119PollStrategyMatchesESt17basic_string_viewIcSt11char_traitsIcEES5_.exit.thread.thread.thread95 ], [ %.sroa.22.0.copyload, %_ZN17grpc_event_engine12experimental12_GLOBAL__N_119PollStrategyMatchesESt17basic_string_viewIcSt11char_traitsIcEES5_.exit.thread.thread ]
-  %bcmp.i.i24 = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(3) %.sroa.22.0.copyload98, ptr noundef nonnull dereferenceable(3) @.str.4, i64 3)
+_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i23: ; preds = %_ZN17grpc_event_engine12experimental12_GLOBAL__N_119PollStrategyMatchesESt17basic_string_viewIcSt11char_traitsIcEES5_.exit.thread.thread.thread108, %_ZN17grpc_event_engine12experimental12_GLOBAL__N_119PollStrategyMatchesESt17basic_string_viewIcSt11char_traitsIcEES5_.exit.thread.thread
+  %.sroa.22.0.copyload111 = phi ptr [ %.sroa.22.0.copyload110, %_ZN17grpc_event_engine12experimental12_GLOBAL__N_119PollStrategyMatchesESt17basic_string_viewIcSt11char_traitsIcEES5_.exit.thread.thread.thread108 ], [ %.sroa.22.0.copyload, %_ZN17grpc_event_engine12experimental12_GLOBAL__N_119PollStrategyMatchesESt17basic_string_viewIcSt11char_traitsIcEES5_.exit.thread.thread ]
+  %bcmp.i.i24 = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(3) %.sroa.22.0.copyload111, ptr noundef nonnull dereferenceable(3) @.str.4, i64 3)
   %107 = icmp eq i32 %bcmp.i.i24, 0
   br i1 %107, label %_ZN17grpc_event_engine12experimental12_GLOBAL__N_119PollStrategyMatchesESt17basic_string_viewIcSt11char_traitsIcEES5_.exit26, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i39
 
@@ -392,11 +392,11 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i29: ; preds = %130,
   br label %_ZNSt10shared_ptrIN17grpc_event_engine12experimental16PosixEventPollerEEaSINS1_10PollPollerEEENSt9enable_ifIXsr13is_assignableIRSt12__shared_ptrIS2_LN9__gnu_cxx12_Lock_policyE2EES_IT_EEE5valueERS3_E4typeEOSD_.exitthread-pre-split
 
 _ZNSt10shared_ptrIN17grpc_event_engine12experimental16PosixEventPollerEEaSINS1_10PollPollerEEENSt9enable_ifIXsr13is_assignableIRSt12__shared_ptrIS2_LN9__gnu_cxx12_Lock_policyE2EES_IT_EEE5valueERS3_E4typeEOSD_.exitthread-pre-split: ; preds = %133, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i29, %118
-  %.pr86 = load ptr, ptr %48, align 8, !tbaa !38
+  %.pr99 = load ptr, ptr %48, align 8, !tbaa !38
   br label %_ZNSt10shared_ptrIN17grpc_event_engine12experimental16PosixEventPollerEEaSINS1_10PollPollerEEENSt9enable_ifIXsr13is_assignableIRSt12__shared_ptrIS2_LN9__gnu_cxx12_Lock_policyE2EES_IT_EEE5valueERS3_E4typeEOSD_.exit
 
 _ZNSt10shared_ptrIN17grpc_event_engine12experimental16PosixEventPollerEEaSINS1_10PollPollerEEENSt9enable_ifIXsr13is_assignableIRSt12__shared_ptrIS2_LN9__gnu_cxx12_Lock_policyE2EES_IT_EEE5valueERS3_E4typeEOSD_.exit: ; preds = %_ZNSt10shared_ptrIN17grpc_event_engine12experimental16PosixEventPollerEEaSINS1_10PollPollerEEENSt9enable_ifIXsr13is_assignableIRSt12__shared_ptrIS2_LN9__gnu_cxx12_Lock_policyE2EES_IT_EEE5valueERS3_E4typeEOSD_.exitthread-pre-split, %109
-  %134 = phi ptr [ %.pr86, %_ZNSt10shared_ptrIN17grpc_event_engine12experimental16PosixEventPollerEEaSINS1_10PollPollerEEENSt9enable_ifIXsr13is_assignableIRSt12__shared_ptrIS2_LN9__gnu_cxx12_Lock_policyE2EES_IT_EEE5valueERS3_E4typeEOSD_.exitthread-pre-split ], [ null, %109 ]
+  %134 = phi ptr [ %.pr99, %_ZNSt10shared_ptrIN17grpc_event_engine12experimental16PosixEventPollerEEaSINS1_10PollPollerEEENSt9enable_ifIXsr13is_assignableIRSt12__shared_ptrIS2_LN9__gnu_cxx12_Lock_policyE2EES_IT_EEE5valueERS3_E4typeEOSD_.exitthread-pre-split ], [ null, %109 ]
   %.not.i.i31 = icmp eq ptr %134, null
   br i1 %.not.i.i31, label %_ZNSt12__shared_ptrIN17grpc_event_engine12experimental10PollPollerELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %135
 
@@ -455,7 +455,7 @@ _ZNSt12__shared_ptrIN17grpc_event_engine12experimental10PollPollerELN9__gnu_cxx1
   br label %237
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i39: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i23
-  %bcmp.i.i40 = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(3) %.sroa.22.0.copyload98, ptr noundef nonnull dereferenceable(3) @.str.4, i64 3)
+  %bcmp.i.i40 = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(3) %.sroa.22.0.copyload111, ptr noundef nonnull dereferenceable(3) @.str.4, i64 3)
   %158 = icmp eq i32 %bcmp.i.i40, 0
   br i1 %158, label %_ZN17grpc_event_engine12experimental12_GLOBAL__N_119PollStrategyMatchesESt17basic_string_viewIcSt11char_traitsIcEES5_.exit42, label %_ZN17grpc_event_engine12experimental12_GLOBAL__N_119PollStrategyMatchesESt17basic_string_viewIcSt11char_traitsIcEES5_.exit42.thread
 
@@ -524,11 +524,11 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i45: ; preds = %181,
   br label %_ZNSt10shared_ptrIN17grpc_event_engine12experimental16PosixEventPollerEEaSINS1_10PollPollerEEENSt9enable_ifIXsr13is_assignableIRSt12__shared_ptrIS2_LN9__gnu_cxx12_Lock_policyE2EES_IT_EEE5valueERS3_E4typeEOSD_.exit47thread-pre-split
 
 _ZNSt10shared_ptrIN17grpc_event_engine12experimental16PosixEventPollerEEaSINS1_10PollPollerEEENSt9enable_ifIXsr13is_assignableIRSt12__shared_ptrIS2_LN9__gnu_cxx12_Lock_policyE2EES_IT_EEE5valueERS3_E4typeEOSD_.exit47thread-pre-split: ; preds = %184, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i45, %169
-  %.pr88 = load ptr, ptr %49, align 8, !tbaa !38
+  %.pr101 = load ptr, ptr %49, align 8, !tbaa !38
   br label %_ZNSt10shared_ptrIN17grpc_event_engine12experimental16PosixEventPollerEEaSINS1_10PollPollerEEENSt9enable_ifIXsr13is_assignableIRSt12__shared_ptrIS2_LN9__gnu_cxx12_Lock_policyE2EES_IT_EEE5valueERS3_E4typeEOSD_.exit47
 
 _ZNSt10shared_ptrIN17grpc_event_engine12experimental16PosixEventPollerEEaSINS1_10PollPollerEEENSt9enable_ifIXsr13is_assignableIRSt12__shared_ptrIS2_LN9__gnu_cxx12_Lock_policyE2EES_IT_EEE5valueERS3_E4typeEOSD_.exit47: ; preds = %_ZNSt10shared_ptrIN17grpc_event_engine12experimental16PosixEventPollerEEaSINS1_10PollPollerEEENSt9enable_ifIXsr13is_assignableIRSt12__shared_ptrIS2_LN9__gnu_cxx12_Lock_policyE2EES_IT_EEE5valueERS3_E4typeEOSD_.exit47thread-pre-split, %160
-  %185 = phi ptr [ %.pr88, %_ZNSt10shared_ptrIN17grpc_event_engine12experimental16PosixEventPollerEEaSINS1_10PollPollerEEENSt9enable_ifIXsr13is_assignableIRSt12__shared_ptrIS2_LN9__gnu_cxx12_Lock_policyE2EES_IT_EEE5valueERS3_E4typeEOSD_.exit47thread-pre-split ], [ null, %160 ]
+  %185 = phi ptr [ %.pr101, %_ZNSt10shared_ptrIN17grpc_event_engine12experimental16PosixEventPollerEEaSINS1_10PollPollerEEENSt9enable_ifIXsr13is_assignableIRSt12__shared_ptrIS2_LN9__gnu_cxx12_Lock_policyE2EES_IT_EEE5valueERS3_E4typeEOSD_.exit47thread-pre-split ], [ null, %160 ]
   %.not.i.i48 = icmp eq ptr %185, null
   br i1 %.not.i.i48, label %_ZNSt12__shared_ptrIN17grpc_event_engine12experimental10PollPollerELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit52, label %186
 

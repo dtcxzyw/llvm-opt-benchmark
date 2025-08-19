@@ -218,9 +218,9 @@ define void @Mtr_MakeLastChild(ptr noundef %0, ptr noundef initializes((40, 48))
   br label %12
 
 12:                                               ; preds = %10, %7
-  %.0.lcssa17.sink = phi ptr [ %.0, %10 ], [ null, %7 ]
+  %.0.lcssa18.sink = phi ptr [ %.0, %10 ], [ null, %7 ]
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  store ptr %.0.lcssa17.sink, ptr %13, align 8, !tbaa !15
+  store ptr %.0.lcssa18.sink, ptr %13, align 8, !tbaa !15
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store ptr %0, ptr %14, align 8, !tbaa !16
   ret void
@@ -293,8 +293,8 @@ define noundef ptr @Mtr_CreateLastChild(ptr noundef %0) local_unnamed_addr #9 {
   br label %Mtr_MakeLastChild.exit
 
 Mtr_MakeLastChild.exit:                           ; preds = %10, %13
-  %.0.lcssa17.sink.i = phi ptr [ %.0.i, %13 ], [ null, %10 ]
-  store ptr %.0.lcssa17.sink.i, ptr %5, align 8, !tbaa !15
+  %.0.lcssa18.sink.i = phi ptr [ %.0.i, %13 ], [ null, %10 ]
+  store ptr %.0.lcssa18.sink.i, ptr %5, align 8, !tbaa !15
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %0, ptr %15, align 8, !tbaa !16
   br label %16

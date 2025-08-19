@@ -378,8 +378,8 @@ define void @process(ptr noundef readonly captures(none) %0, ptr noundef readonl
 
 141:                                              ; preds = %.preheader.us.i, %141
   %indvars.iv171.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next172.i, %141 ]
-  %gep206.i = getelementptr inbounds nuw float, ptr %invariant.gep205.i, i64 %indvars.iv171.i
-  store float %.pre202.i, ptr %gep206.i, align 4, !tbaa !47
+  %gep216.i = getelementptr inbounds nuw float, ptr %invariant.gep215.i, i64 %indvars.iv171.i
+  store float %.pre202.i, ptr %gep216.i, align 4, !tbaa !47
   %indvars.iv.next172.i = add nuw nsw i64 %indvars.iv171.i, 1
   %exitcond175.not.i = icmp eq i64 %indvars.iv.next172.i, %14
   br i1 %exitcond175.not.i, label %140, label %141
@@ -418,8 +418,8 @@ define void @process(ptr noundef readonly captures(none) %0, ptr noundef readonl
 .preheader.us.i:                                  ; preds = %.preheader.us.preheader.i, %140
   %indvars.iv176.i = phi i64 [ 1, %.preheader.us.preheader.i ], [ %indvars.iv.next177.i, %140 ]
   %.pre202.i = load float, ptr %.0109129.us142.i, align 4, !tbaa !47
-  %.idx203.i = shl nuw nsw i64 %indvars.iv176.i, 4
-  %invariant.gep205.i = getelementptr inbounds nuw i8, ptr %.0108130.us141.i, i64 %.idx203.i
+  %.idx213.i = shl nuw nsw i64 %indvars.iv176.i, 4
+  %invariant.gep215.i = getelementptr inbounds nuw i8, ptr %.0108130.us141.i, i64 %.idx213.i
   br label %141
 
 .preheader119.us.i:                               ; preds = %142, %.preheader119.us.preheader.i

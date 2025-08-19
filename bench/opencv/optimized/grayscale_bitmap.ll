@@ -601,9 +601,9 @@ define hidden void @_ZN2cv11xfeatures2d14pct_signatures15GrayscaleBitmap18getCon
   %52 = lshr i32 %51, %47
   %53 = and i32 %52, %37
   %..i75.us = tail call i32 @llvm.umax.i32(i32 %43, i32 %53)
-  %.11.i.us = tail call i32 @llvm.umin.i32(i32 %43, i32 %53)
+  %.13.i.us = tail call i32 @llvm.umin.i32(i32 %43, i32 %53)
   %54 = shl i32 %..i75.us, %30
-  %55 = add i32 %54, %.11.i.us
+  %55 = add i32 %54, %.13.i.us
   %56 = sext i32 %55 to i64
   %57 = getelementptr inbounds nuw i32, ptr %27, i64 %56
   %58 = load i32, ptr %57, align 4, !tbaa !48
@@ -635,9 +635,9 @@ define hidden void @_ZN2cv11xfeatures2d14pct_signatures15GrayscaleBitmap18getCon
   %82 = lshr i32 %81, %77
   %83 = and i32 %82, %67
   %..i78.us = tail call i32 @llvm.umax.i32(i32 %73, i32 %83)
-  %.11.i79.us = tail call i32 @llvm.umin.i32(i32 %73, i32 %83)
+  %.13.i79.us = tail call i32 @llvm.umin.i32(i32 %73, i32 %83)
   %84 = shl i32 %..i78.us, %60
-  %85 = add i32 %84, %.11.i79.us
+  %85 = add i32 %84, %.13.i79.us
   %86 = sext i32 %85 to i64
   %87 = getelementptr inbounds nuw i32, ptr %27, i64 %86
   %88 = load i32, ptr %87, align 4, !tbaa !48
@@ -669,9 +669,9 @@ define hidden void @_ZN2cv11xfeatures2d14pct_signatures15GrayscaleBitmap18getCon
   %112 = lshr i32 %111, %107
   %113 = and i32 %112, %97
   %..i82.us = tail call i32 @llvm.umax.i32(i32 %103, i32 %113)
-  %.11.i83.us = tail call i32 @llvm.umin.i32(i32 %103, i32 %113)
+  %.13.i83.us = tail call i32 @llvm.umin.i32(i32 %103, i32 %113)
   %114 = shl i32 %..i82.us, %90
-  %115 = add i32 %114, %.11.i83.us
+  %115 = add i32 %114, %.13.i83.us
   %116 = sext i32 %115 to i64
   %117 = getelementptr inbounds nuw i32, ptr %27, i64 %116
   %118 = load i32, ptr %117, align 4, !tbaa !48
@@ -703,9 +703,9 @@ define hidden void @_ZN2cv11xfeatures2d14pct_signatures15GrayscaleBitmap18getCon
   %142 = lshr i32 %141, %137
   %143 = and i32 %142, %127
   %..i86.us = tail call i32 @llvm.umax.i32(i32 %133, i32 %143)
-  %.11.i87.us = tail call i32 @llvm.umin.i32(i32 %133, i32 %143)
+  %.13.i87.us = tail call i32 @llvm.umin.i32(i32 %133, i32 %143)
   %144 = shl i32 %..i86.us, %120
-  %145 = add i32 %144, %.11.i87.us
+  %145 = add i32 %144, %.13.i87.us
   %146 = sext i32 %145 to i64
   %147 = getelementptr inbounds nuw i32, ptr %27, i64 %146
   %148 = load i32, ptr %147, align 4, !tbaa !48
@@ -979,13 +979,13 @@ define linkonce_odr void @_ZNSt6vectorIjSaIjEE17_M_default_appendEm(ptr noundef 
 19:                                               ; preds = %3
   store i32 0, ptr %5, align 4, !tbaa !48
   %20 = getelementptr i8, ptr %5, i64 4
-  %21 = add i64 %1, -1
+  %21 = add nsw i64 %1, -1
   %22 = icmp eq i64 %21, 0
   br i1 %22, label %_ZSt27__uninitialized_default_n_aIPjmjET_S1_T0_RSaIT1_E.exit, label %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i
 
 _ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
-  %23 = shl i64 %1, 2
-  %24 = add i64 %23, -4
+  %23 = shl nuw nsw i64 %1, 2
+  %24 = add nsw i64 %23, -4
   tail call void @llvm.memset.p0.i64(ptr align 4 %20, i8 0, i64 %24, i1 false), !tbaa !48
   %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 2
   %25 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i

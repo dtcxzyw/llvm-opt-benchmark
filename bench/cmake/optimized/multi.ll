@@ -2980,7 +2980,7 @@ state_do.exit:                                    ; preds = %319, %323, %327, %m
 388:                                              ; preds = %._crit_edge
   %389 = load ptr, ptr %62, align 8, !tbaa !102
   %.not.i198 = icmp eq ptr %389, null
-  br i1 %.not.i198, label %.thread289, label %390
+  br i1 %.not.i198, label %.thread335, label %390
 
 390:                                              ; preds = %388
   %391 = getelementptr inbounds nuw i8, ptr %389, i64 928
@@ -2988,9 +2988,9 @@ state_do.exit:                                    ; preds = %319, %323, %327, %m
   %393 = getelementptr inbounds nuw i8, ptr %392, i64 56
   %394 = load ptr, ptr %393, align 8, !tbaa !188
   %.not9.i199 = icmp eq ptr %394, null
-  br i1 %.not9.i199, label %.thread289, label %protocol_doing.exit
+  br i1 %.not9.i199, label %.thread335, label %protocol_doing.exit
 
-.thread289:                                       ; preds = %390, %388
+.thread335:                                       ; preds = %390, %388
   store i8 1, ptr %21, align 1, !tbaa !171
   store i32 0, ptr %22, align 4, !tbaa !25
   br label %398
@@ -3007,7 +3007,7 @@ protocol_doing.exit:                              ; preds = %390
   %397 = trunc nuw i8 %.pre282 to i1
   br i1 %397, label %398, label %mstate.exit184thread-pre-split
 
-398:                                              ; preds = %.thread289, %396
+398:                                              ; preds = %.thread335, %396
   %399 = load ptr, ptr %62, align 8, !tbaa !102
   %400 = getelementptr inbounds nuw i8, ptr %399, i64 920
   %401 = load i64, ptr %400, align 8
@@ -3045,9 +3045,9 @@ protocol_doing.exit:                              ; preds = %390
   %419 = getelementptr inbounds nuw i8, ptr %418, i64 32
   %420 = load ptr, ptr %419, align 8, !tbaa !189
   %.not.i203 = icmp eq ptr %420, null
-  br i1 %.not.i203, label %.thread290, label %multi_do_more.exit
+  br i1 %.not.i203, label %.thread336, label %multi_do_more.exit
 
-.thread290:                                       ; preds = %415
+.thread336:                                       ; preds = %415
   store i32 0, ptr %22, align 4, !tbaa !25
   br label %mstate.exit184thread-pre-split
 
@@ -3641,8 +3641,8 @@ state_performing.exit:                            ; preds = %537, %541, %mstate.
   call void @init_completed(ptr noundef nonnull %2) #20
   br label %mstate.exit184thread-pre-split
 
-mstate.exit184thread-pre-split:                   ; preds = %.thread290, %state_connect.exit, %state_resolving.exit, %243, %state_do.exit, %state_ratelimiting.exit, %state_performing.exit, %112, %224, %242, %.thread260, %298, %299, %396, %413, %422, %435, %410, %432, %679
-  %.2137.ph = phi i32 [ -1, %679 ], [ -1, %432 ], [ -1, %410 ], [ %.089.i, %state_performing.exit ], [ %.035.i, %state_ratelimiting.exit ], [ 0, %422 ], [ 0, %435 ], [ 0, %396 ], [ 0, %413 ], [ %.062.i, %state_do.exit ], [ 0, %298 ], [ 0, %299 ], [ 0, %.thread260 ], [ 0, %242 ], [ 0, %243 ], [ 0, %224 ], [ %.033.i, %state_resolving.exit ], [ %.0.i, %state_connect.exit ], [ 0, %112 ], [ 0, %.thread290 ]
+mstate.exit184thread-pre-split:                   ; preds = %.thread336, %state_connect.exit, %state_resolving.exit, %243, %state_do.exit, %state_ratelimiting.exit, %state_performing.exit, %112, %224, %242, %.thread260, %298, %299, %396, %413, %422, %435, %410, %432, %679
+  %.2137.ph = phi i32 [ -1, %679 ], [ -1, %432 ], [ -1, %410 ], [ %.089.i, %state_performing.exit ], [ %.035.i, %state_ratelimiting.exit ], [ 0, %422 ], [ 0, %435 ], [ 0, %396 ], [ 0, %413 ], [ %.062.i, %state_do.exit ], [ 0, %298 ], [ 0, %299 ], [ 0, %.thread260 ], [ 0, %242 ], [ 0, %243 ], [ 0, %224 ], [ %.033.i, %state_resolving.exit ], [ %.0.i, %state_connect.exit ], [ 0, %112 ], [ 0, %.thread336 ]
   %.pr = load i32, ptr %61, align 8, !tbaa !95
   br label %mstate.exit184
 
@@ -3784,7 +3784,7 @@ thread-pre-split:                                 ; preds = %Curl_detach_connect
   %733 = icmp ugt i32 %732, 14
   %734 = select i1 %733, i32 16, i32 15
   %735 = icmp eq i32 %732, %734
-  br i1 %735, label %mstate.exit230.thread295, label %736
+  br i1 %735, label %mstate.exit230.thread341, label %736
 
 736:                                              ; preds = %730
   store i32 %734, ptr %61, align 8, !tbaa !95
@@ -3851,18 +3851,18 @@ mstate.exit230:                                   ; preds = %mstate.exit230threa
   %767 = icmp eq i32 %766, 16
   br i1 %767, label %mstate.exit230.thread, label %786
 
-mstate.exit230.thread295:                         ; preds = %730
+mstate.exit230.thread341:                         ; preds = %730
   %768 = icmp eq i32 %732, 16
-  br i1 %768, label %mstate.exit230.thread, label %.thread298
+  br i1 %768, label %mstate.exit230.thread, label %.thread344
 
-.thread298:                                       ; preds = %mstate.exit230.thread295
+.thread344:                                       ; preds = %mstate.exit230.thread341
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
   br label %.critedge.backedge
 
-.critedge.backedge:                               ; preds = %.thread298, %788, %786
+.critedge.backedge:                               ; preds = %.thread344, %788, %786
   br label %.critedge, !llvm.loop !198
 
-mstate.exit230.thread:                            ; preds = %mstate.exit230.thread295, %654, %mstate.exit230
+mstate.exit230.thread:                            ; preds = %mstate.exit230.thread341, %654, %mstate.exit230
   %769 = getelementptr inbounds nuw i8, ptr %2, i64 2512
   %770 = load ptr, ptr %769, align 8, !tbaa !199
   %.not176 = icmp eq ptr %770, null
@@ -5121,8 +5121,8 @@ singlesocket.exit:                                ; preds = %.lr.ph61
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %26, ptr noundef nonnull align 4 dereferenceable(32) %8, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %29 = call ptr @Curl_node_next(ptr noundef nonnull %.04259) #20
-  %.not65 = icmp eq ptr %29, null
-  br i1 %.not65, label %.loopexit, label %.lr.ph61, !llvm.loop !224
+  %.not73 = icmp eq ptr %29, null
+  br i1 %.not73, label %.loopexit, label %.lr.ph61, !llvm.loop !224
 
 .loopexit:                                        ; preds = %singlesocket.exit, %singlesocket.exit.thread, %20, %18
   %.040 = phi i32 [ 1, %18 ], [ %19, %20 ], [ %27, %singlesocket.exit.thread ], [ 0, %singlesocket.exit ]
@@ -6698,7 +6698,7 @@ define internal fastcc i32 @multi_follow(ptr noundef nonnull %0, ptr noundef %1,
 .thread:                                          ; preds = %8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 4408
   %14 = load ptr, ptr %13, align 8, !tbaa !251
-  br label %.thread275
+  br label %.thread293
 
 15:                                               ; preds = %8
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 528
@@ -6707,8 +6707,8 @@ define internal fastcc i32 @multi_follow(ptr noundef nonnull %0, ptr noundef %1,
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 3136
   %.pre = load i64, ptr %.phi.trans.insert, align 8, !tbaa !253
   %.not182 = icmp slt i64 %.pre, %17
-  %or.cond287 = select i1 %.not181, i1 true, i1 %.not182
-  br i1 %or.cond287, label %._crit_edge, label %55
+  %or.cond305 = select i1 %.not181, i1 true, i1 %.not182
+  br i1 %or.cond305, label %._crit_edge, label %55
 
 ._crit_edge:                                      ; preds = %15
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 3136
@@ -6818,22 +6818,22 @@ define internal fastcc i32 @multi_follow(ptr noundef nonnull %0, ptr noundef %1,
   br i1 %56, label %68, label %67
 
 67:                                               ; preds = %63
-  %spec.select288 = select i1 %57, i32 2176, i32 2048
-  br label %.thread275
+  %spec.select306 = select i1 %57, i32 2176, i32 2048
+  br label %.thread293
 
 68:                                               ; preds = %63
   %69 = call i32 @curl_url_set(ptr noundef %65, i32 noundef 0, ptr noundef %66, i32 noundef 8) #20
   %.not195 = icmp eq i32 %69, 0
   br i1 %.not195, label %88, label %84
 
-.thread275:                                       ; preds = %67, %.thread
-  %.0141239244274 = phi i1 [ true, %.thread ], [ %57, %67 ]
-  %.0150237246273 = phi i1 [ false, %.thread ], [ %.0150.ph, %67 ]
-  %.0142248272 = phi i1 [ false, %.thread ], [ %.0142, %67 ]
+.thread293:                                       ; preds = %67, %.thread
+  %.0141239244292 = phi i1 [ true, %.thread ], [ %57, %67 ]
+  %.0150237246291 = phi i1 [ false, %.thread ], [ %.0150.ph, %67 ]
+  %.0142248290 = phi i1 [ false, %.thread ], [ %.0142, %67 ]
   %70 = phi ptr [ %13, %.thread ], [ %64, %67 ]
   %71 = phi ptr [ %14, %.thread ], [ %65, %67 ]
   %72 = phi ptr [ %1, %.thread ], [ %66, %67 ]
-  %73 = phi i32 [ 2048, %.thread ], [ %spec.select288, %67 ]
+  %73 = phi i32 [ 2048, %.thread ], [ %spec.select306, %67 ]
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 2562
   %75 = load i64, ptr %74, align 2
   %76 = lshr i64 %75, 36
@@ -6841,10 +6841,10 @@ define internal fastcc i32 @multi_follow(ptr noundef nonnull %0, ptr noundef %1,
   %78 = and i32 %77, 16
   %79 = or disjoint i32 %78, %73
   %80 = call i32 @curl_url_set(ptr noundef %71, i32 noundef 0, ptr noundef %72, i32 noundef %79) #20
-  %.not195279 = icmp eq i32 %80, 0
-  br i1 %.not195279, label %88, label %81
+  %.not195297 = icmp eq i32 %80, 0
+  br i1 %.not195297, label %88, label %81
 
-81:                                               ; preds = %.thread275
+81:                                               ; preds = %.thread293
   %82 = call ptr @curl_url_strerror(i32 noundef %80) #20
   call void (ptr, ptr, ...) @Curl_failf(ptr noundef nonnull %0, ptr noundef nonnull @.str.16, ptr noundef %82) #20
   %83 = call i32 @Curl_uc_to_curlcode(i32 noundef %80) #20
@@ -6858,12 +6858,12 @@ define internal fastcc i32 @multi_follow(ptr noundef nonnull %0, ptr noundef %1,
   %.not209 = icmp eq ptr %87, null
   br i1 %.not209, label %276, label %.thread263
 
-88:                                               ; preds = %.thread275, %68
-  %.0141239245284 = phi i1 [ %.0141239244274, %.thread275 ], [ false, %68 ]
-  %.0150237247283 = phi i1 [ %.0150237246273, %.thread275 ], [ %.0150.ph, %68 ]
-  %.0142249280 = phi i1 [ %.0142248272, %.thread275 ], [ %.0142, %68 ]
-  %89 = phi ptr [ %70, %.thread275 ], [ %64, %68 ]
-  %90 = phi i1 [ false, %.thread275 ], [ true, %68 ]
+88:                                               ; preds = %.thread293, %68
+  %.0141239245302 = phi i1 [ %.0141239244292, %.thread293 ], [ false, %68 ]
+  %.0150237247301 = phi i1 [ %.0150237246291, %.thread293 ], [ %.0150.ph, %68 ]
+  %.0142249298 = phi i1 [ %.0142248290, %.thread293 ], [ %.0142, %68 ]
+  %89 = phi ptr [ %70, %.thread293 ], [ %64, %68 ]
+  %90 = phi i1 [ false, %.thread293 ], [ true, %68 ]
   %91 = load ptr, ptr %89, align 8, !tbaa !251
   %92 = call i32 @curl_url_get(ptr noundef %91, i32 noundef 0, ptr noundef nonnull %4, i32 noundef 0) #20
   %.not196 = icmp eq i32 %92, 0
@@ -6878,7 +6878,7 @@ define internal fastcc i32 @multi_follow(ptr noundef nonnull %0, ptr noundef %1,
   %97 = load i64, ptr %96, align 2
   %98 = and i64 %97, 4194304
   %99 = icmp eq i64 %98, 0
-  %or.cond5 = and i1 %.0141239245284, %99
+  %or.cond5 = and i1 %.0141239245302, %99
   br i1 %or.cond5, label %100, label %175
 
 100:                                              ; preds = %95
@@ -7043,7 +7043,7 @@ define internal fastcc i32 @multi_follow(ptr noundef nonnull %0, ptr noundef %1,
   %.pre268 = load ptr, ptr %4, align 8, !tbaa !174
   %176 = getelementptr inbounds nuw i8, ptr %0, i64 4952
   store ptr %.pre268, ptr %176, align 8, !tbaa !263
-  br i1 %.0150237247283, label %178, label %276
+  br i1 %.0150237247301, label %178, label %276
 
 .thread263:                                       ; preds = %84
   %177 = getelementptr inbounds nuw i8, ptr %0, i64 4952
@@ -7059,7 +7059,7 @@ define internal fastcc i32 @multi_follow(ptr noundef nonnull %0, ptr noundef %1,
 181:                                              ; preds = %175
   %182 = getelementptr inbounds nuw i8, ptr %0, i64 4876
   %183 = load i32, ptr %182, align 4
-  br i1 %.0142249280, label %184, label %._crit_edge264
+  br i1 %.0142249298, label %184, label %._crit_edge264
 
 184:                                              ; preds = %181
   %185 = and i32 %183, -65

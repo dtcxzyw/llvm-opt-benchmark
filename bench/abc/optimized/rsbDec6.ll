@@ -1835,13 +1835,13 @@ Vec_IntGrow.exit.i133:                            ; preds = %271
   br label %Vec_IntPush.exit134.sink.split
 
 Vec_IntPush.exit134.sink.split:                   ; preds = %275, %Vec_IntGrow.exit.i133
-  %.sink170 = phi i32 [ 16, %Vec_IntGrow.exit.i133 ], [ %276, %275 ]
-  %.ph169 = phi ptr [ %274, %Vec_IntGrow.exit.i133 ], [ %280, %275 ]
-  store i32 %.sink170, ptr %6, align 8, !tbaa !42
+  %.sink188 = phi i32 [ 16, %Vec_IntGrow.exit.i133 ], [ %276, %275 ]
+  %.ph187 = phi ptr [ %274, %Vec_IntGrow.exit.i133 ], [ %280, %275 ]
+  store i32 %.sink188, ptr %6, align 8, !tbaa !42
   br label %Vec_IntPush.exit134
 
 Vec_IntPush.exit134:                              ; preds = %Vec_IntPush.exit134.sink.split, %Vec_IntPush.exit127
-  %281 = phi ptr [ %263, %Vec_IntPush.exit127 ], [ %.ph169, %Vec_IntPush.exit134.sink.split ]
+  %281 = phi ptr [ %263, %Vec_IntPush.exit127 ], [ %.ph187, %Vec_IntPush.exit134.sink.split ]
   %282 = load i32, ptr %219, align 4, !tbaa !16
   %283 = add nsw i32 %282, 1
   store i32 %283, ptr %219, align 4, !tbaa !16
@@ -1873,13 +1873,13 @@ Vec_IntGrow.exit.i140:                            ; preds = %289
   br label %Vec_IntPush.exit141.sink.split
 
 Vec_IntPush.exit141.sink.split:                   ; preds = %293, %Vec_IntGrow.exit.i140
-  %.sink172 = phi i32 [ 16, %Vec_IntGrow.exit.i140 ], [ %294, %293 ]
-  %.ph171 = phi ptr [ %292, %Vec_IntGrow.exit.i140 ], [ %298, %293 ]
-  store i32 %.sink172, ptr %6, align 8, !tbaa !42
+  %.sink190 = phi i32 [ 16, %Vec_IntGrow.exit.i140 ], [ %294, %293 ]
+  %.ph189 = phi ptr [ %292, %Vec_IntGrow.exit.i140 ], [ %298, %293 ]
+  store i32 %.sink190, ptr %6, align 8, !tbaa !42
   br label %Vec_IntPush.exit141
 
 Vec_IntPush.exit141:                              ; preds = %Vec_IntPush.exit141.sink.split, %Vec_IntPush.exit134
-  %299 = phi ptr [ %281, %Vec_IntPush.exit134 ], [ %.ph171, %Vec_IntPush.exit141.sink.split ]
+  %299 = phi ptr [ %281, %Vec_IntPush.exit134 ], [ %.ph189, %Vec_IntPush.exit141.sink.split ]
   %300 = load i32, ptr %219, align 4, !tbaa !16
   %301 = add nsw i32 %300, 1
   store i32 %301, ptr %219, align 4, !tbaa !16

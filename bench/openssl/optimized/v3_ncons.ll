@@ -371,15 +371,15 @@ define internal fastcc range(i32 0, 54) i32 @nc_match(ptr noundef readonly captu
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %17
 
-17:                                               ; preds = %.lr.ph, %47
-  %.04069 = phi i32 [ 0, %.lr.ph ], [ %.1, %47 ]
-  %.04168 = phi i32 [ 0, %.lr.ph ], [ %48, %47 ]
+17:                                               ; preds = %.lr.ph, %45
+  %.04069 = phi i32 [ 0, %.lr.ph ], [ %.1, %45 ]
+  %.04168 = phi i32 [ 0, %.lr.ph ], [ %46, %45 ]
   %18 = load ptr, ptr %1, align 8, !tbaa !19
   %19 = tail call ptr @OPENSSL_sk_value(ptr noundef %18, i32 noundef %.04168) #9
   %20 = load ptr, ptr %19, align 8, !tbaa !13
   %21 = load i32, ptr %20, align 8, !tbaa !49
   %.not51 = icmp eq i32 %.0.fr, %21
-  br i1 %.not51, label %22, label %47
+  br i1 %.not51, label %22, label %45
 
 22:                                               ; preds = %17
   br i1 %15, label %23, label %30
@@ -392,7 +392,7 @@ define internal fastcc range(i32 0, 54) i32 @nc_match(ptr noundef readonly captu
   %28 = load ptr, ptr %27, align 8, !tbaa !53
   %29 = tail call i32 @OBJ_cmp(ptr noundef %25, ptr noundef %28) #9
   %.not52 = icmp eq i32 %29, 0
-  br i1 %.not52, label %30, label %47
+  br i1 %.not52, label %30, label %45
 
 30:                                               ; preds = %23, %22
   %31 = getelementptr i8, ptr %19, i64 8
@@ -429,175 +429,175 @@ nc_minmax_valid.exit:                             ; preds = %30, %39
 
 40:                                               ; preds = %nc_minmax_valid.exit
   %41 = icmp eq i32 %.04069, 2
-  br i1 %41, label %47, label %42
+  br i1 %41, label %45, label %42
 
 42:                                               ; preds = %40
   %43 = load ptr, ptr %19, align 8, !tbaa !13
   %44 = tail call fastcc i32 @nc_match_single(i32 noundef %.0.fr, ptr noundef nonnull %0, ptr noundef %43)
-  %45 = icmp eq i32 %44, 0
-  br i1 %45, label %47, label %46
+  switch i32 %44, label %.split.us [
+    i32 0, label %45
+    i32 47, label %.fold.split
+  ]
 
-46:                                               ; preds = %42
-  %spec.store.select = tail call i32 @llvm.umax.i32(i32 %.04069, i32 1)
-  %.not54 = icmp eq i32 %44, 47
-  br i1 %.not54, label %47, label %.split.us
+.fold.split:                                      ; preds = %42
+  br label %45
 
-47:                                               ; preds = %42, %46, %40, %17, %23
-  %.1 = phi i32 [ %.04069, %17 ], [ %.04069, %23 ], [ 2, %40 ], [ %spec.store.select, %46 ], [ 2, %42 ]
-  %48 = add nuw nsw i32 %.04168, 1
-  %49 = load ptr, ptr %1, align 8, !tbaa !19
-  %50 = tail call i32 @OPENSSL_sk_num(ptr noundef %49) #9
-  %51 = icmp slt i32 %48, %50
-  br i1 %51, label %17, label %._crit_edge, !llvm.loop !57
+45:                                               ; preds = %42, %.fold.split, %40, %17, %23
+  %.1 = phi i32 [ %.04069, %17 ], [ %.04069, %23 ], [ 2, %40 ], [ 2, %42 ], [ 1, %.fold.split ]
+  %46 = add nuw nsw i32 %.04168, 1
+  %47 = load ptr, ptr %1, align 8, !tbaa !19
+  %48 = tail call i32 @OPENSSL_sk_num(ptr noundef %47) #9
+  %49 = icmp slt i32 %46, %48
+  br i1 %49, label %17, label %._crit_edge, !llvm.loop !57
 
-._crit_edge:                                      ; preds = %47
-  %52 = icmp eq i32 %.1, 1
-  br i1 %52, label %.split.us, label %.preheader
+._crit_edge:                                      ; preds = %45
+  %50 = icmp eq i32 %.1, 1
+  br i1 %50, label %.split.us, label %.preheader
 
 .preheader:                                       ; preds = %11, %._crit_edge
-  %53 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %54 = load ptr, ptr %53, align 8, !tbaa !21
-  %55 = tail call i32 @OPENSSL_sk_num(ptr noundef %54) #9
-  %56 = icmp sgt i32 %55, 0
-  br i1 %56, label %.lr.ph71, label %.split.us
+  %51 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %52 = load ptr, ptr %51, align 8, !tbaa !21
+  %53 = tail call i32 @OPENSSL_sk_num(ptr noundef %52) #9
+  %54 = icmp sgt i32 %53, 0
+  br i1 %54, label %.lr.ph71, label %.split.us
 
 .lr.ph71:                                         ; preds = %.preheader
-  %57 = icmp eq i32 %.0.fr, 0
-  %58 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  br i1 %57, label %.lr.ph71.split.us, label %.lr.ph71.split
+  %55 = icmp eq i32 %.0.fr, 0
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  br i1 %55, label %.lr.ph71.split.us, label %.lr.ph71.split
 
-.lr.ph71.split.us:                                ; preds = %.lr.ph71, %83
-  %.14270.us = phi i32 [ %84, %83 ], [ 0, %.lr.ph71 ]
-  %59 = load ptr, ptr %53, align 8, !tbaa !21
-  %60 = tail call ptr @OPENSSL_sk_value(ptr noundef %59, i32 noundef %.14270.us) #9
-  %61 = load ptr, ptr %60, align 8, !tbaa !13
-  %62 = load i32, ptr %61, align 8, !tbaa !49
-  %.not.us = icmp eq i32 %62, 0
-  br i1 %.not.us, label %63, label %83
+.lr.ph71.split.us:                                ; preds = %.lr.ph71, %81
+  %.14270.us = phi i32 [ %82, %81 ], [ 0, %.lr.ph71 ]
+  %57 = load ptr, ptr %51, align 8, !tbaa !21
+  %58 = tail call ptr @OPENSSL_sk_value(ptr noundef %57, i32 noundef %.14270.us) #9
+  %59 = load ptr, ptr %58, align 8, !tbaa !13
+  %60 = load i32, ptr %59, align 8, !tbaa !49
+  %.not.us = icmp eq i32 %60, 0
+  br i1 %.not.us, label %61, label %81
 
-63:                                               ; preds = %.lr.ph71.split.us
-  %64 = load ptr, ptr %58, align 8, !tbaa !11
-  %65 = load ptr, ptr %64, align 8, !tbaa !53
-  %66 = getelementptr inbounds nuw i8, ptr %61, i64 8
-  %67 = load ptr, ptr %66, align 8, !tbaa !11
-  %68 = load ptr, ptr %67, align 8, !tbaa !53
-  %69 = tail call i32 @OBJ_cmp(ptr noundef %65, ptr noundef %68) #9
-  %.not48.us = icmp eq i32 %69, 0
-  br i1 %.not48.us, label %70, label %83
+61:                                               ; preds = %.lr.ph71.split.us
+  %62 = load ptr, ptr %56, align 8, !tbaa !11
+  %63 = load ptr, ptr %62, align 8, !tbaa !53
+  %64 = getelementptr inbounds nuw i8, ptr %59, i64 8
+  %65 = load ptr, ptr %64, align 8, !tbaa !11
+  %66 = load ptr, ptr %65, align 8, !tbaa !53
+  %67 = tail call i32 @OBJ_cmp(ptr noundef %63, ptr noundef %66) #9
+  %.not48.us = icmp eq i32 %67, 0
+  br i1 %.not48.us, label %68, label %81
 
-70:                                               ; preds = %63
-  %71 = getelementptr i8, ptr %60, i64 8
-  %.val56.us = load ptr, ptr %71, align 8, !tbaa !55
-  %72 = getelementptr i8, ptr %60, i64 16
-  %.val57.us = load ptr, ptr %72, align 8, !tbaa !56
+68:                                               ; preds = %61
+  %69 = getelementptr i8, ptr %58, i64 8
+  %.val56.us = load ptr, ptr %69, align 8, !tbaa !55
+  %70 = getelementptr i8, ptr %58, i64 16
+  %.val57.us = load ptr, ptr %70, align 8, !tbaa !56
   %.not.i58.us = icmp eq ptr %.val57.us, null
   %spec.store.select.i59.us = zext i1 %.not.i58.us to i32
   %.not8.i60.us = icmp eq ptr %.val56.us, null
-  br i1 %.not8.i60.us, label %nc_minmax_valid.exit64.us, label %73
+  br i1 %.not8.i60.us, label %nc_minmax_valid.exit64.us, label %71
 
-73:                                               ; preds = %70
-  %74 = tail call ptr @ASN1_INTEGER_to_BN(ptr noundef nonnull %.val56.us, ptr noundef null) #9
-  %75 = icmp eq ptr %74, null
-  br i1 %75, label %78, label %76
+71:                                               ; preds = %68
+  %72 = tail call ptr @ASN1_INTEGER_to_BN(ptr noundef nonnull %.val56.us, ptr noundef null) #9
+  %73 = icmp eq ptr %72, null
+  br i1 %73, label %76, label %74
 
-76:                                               ; preds = %73
-  %77 = tail call i32 @BN_is_zero(ptr noundef nonnull %74) #9
-  %.not9.i61.us = icmp eq i32 %77, 0
-  br i1 %.not9.i61.us, label %78, label %79
+74:                                               ; preds = %71
+  %75 = tail call i32 @BN_is_zero(ptr noundef nonnull %72) #9
+  %.not9.i61.us = icmp eq i32 %75, 0
+  br i1 %.not9.i61.us, label %76, label %77
 
-78:                                               ; preds = %76, %73
-  br label %79
+76:                                               ; preds = %74, %71
+  br label %77
 
-79:                                               ; preds = %78, %76
-  %.1.i62.us = phi i32 [ 0, %78 ], [ %spec.store.select.i59.us, %76 ]
-  tail call void @BN_free(ptr noundef %74) #9
+77:                                               ; preds = %76, %74
+  %.1.i62.us = phi i32 [ 0, %76 ], [ %spec.store.select.i59.us, %74 ]
+  tail call void @BN_free(ptr noundef %72) #9
   br label %nc_minmax_valid.exit64.us
 
-nc_minmax_valid.exit64.us:                        ; preds = %79, %70
-  %.0.i63.us = phi i32 [ %.1.i62.us, %79 ], [ %spec.store.select.i59.us, %70 ]
+nc_minmax_valid.exit64.us:                        ; preds = %77, %68
+  %.0.i63.us = phi i32 [ %.1.i62.us, %77 ], [ %spec.store.select.i59.us, %68 ]
   %.not49.us = icmp eq i32 %.0.i63.us, 0
-  br i1 %.not49.us, label %.split.us, label %80
+  br i1 %.not49.us, label %.split.us, label %78
 
-80:                                               ; preds = %nc_minmax_valid.exit64.us
-  %81 = load ptr, ptr %60, align 8, !tbaa !13
-  %82 = tail call fastcc i32 @nc_match_single(i32 noundef 0, ptr noundef nonnull %0, ptr noundef %81)
-  switch i32 %82, label %.split.us [
-    i32 0, label %.split.us.loopexit96
-    i32 47, label %83
+78:                                               ; preds = %nc_minmax_valid.exit64.us
+  %79 = load ptr, ptr %58, align 8, !tbaa !13
+  %80 = tail call fastcc i32 @nc_match_single(i32 noundef 0, ptr noundef nonnull %0, ptr noundef %79)
+  switch i32 %80, label %.split.us [
+    i32 0, label %.split.us.loopexit104
+    i32 47, label %81
   ]
 
-83:                                               ; preds = %80, %63, %.lr.ph71.split.us
-  %84 = add nuw nsw i32 %.14270.us, 1
-  %85 = load ptr, ptr %53, align 8, !tbaa !21
-  %86 = tail call i32 @OPENSSL_sk_num(ptr noundef %85) #9
-  %87 = icmp slt i32 %84, %86
-  br i1 %87, label %.lr.ph71.split.us, label %.split.us, !llvm.loop !58
+81:                                               ; preds = %78, %61, %.lr.ph71.split.us
+  %82 = add nuw nsw i32 %.14270.us, 1
+  %83 = load ptr, ptr %51, align 8, !tbaa !21
+  %84 = tail call i32 @OPENSSL_sk_num(ptr noundef %83) #9
+  %85 = icmp slt i32 %82, %84
+  br i1 %85, label %.lr.ph71.split.us, label %.split.us, !llvm.loop !58
 
-.lr.ph71.split:                                   ; preds = %.lr.ph71, %105
-  %.14270 = phi i32 [ %106, %105 ], [ 0, %.lr.ph71 ]
-  %88 = load ptr, ptr %53, align 8, !tbaa !21
-  %89 = tail call ptr @OPENSSL_sk_value(ptr noundef %88, i32 noundef %.14270) #9
-  %90 = load ptr, ptr %89, align 8, !tbaa !13
-  %91 = load i32, ptr %90, align 8, !tbaa !49
-  %.not = icmp eq i32 %.0.fr, %91
-  br i1 %.not, label %92, label %105
+.lr.ph71.split:                                   ; preds = %.lr.ph71, %103
+  %.14270 = phi i32 [ %104, %103 ], [ 0, %.lr.ph71 ]
+  %86 = load ptr, ptr %51, align 8, !tbaa !21
+  %87 = tail call ptr @OPENSSL_sk_value(ptr noundef %86, i32 noundef %.14270) #9
+  %88 = load ptr, ptr %87, align 8, !tbaa !13
+  %89 = load i32, ptr %88, align 8, !tbaa !49
+  %.not = icmp eq i32 %.0.fr, %89
+  br i1 %.not, label %90, label %103
 
-92:                                               ; preds = %.lr.ph71.split
-  %93 = getelementptr i8, ptr %89, i64 8
-  %.val56 = load ptr, ptr %93, align 8, !tbaa !55
-  %94 = getelementptr i8, ptr %89, i64 16
-  %.val57 = load ptr, ptr %94, align 8, !tbaa !56
+90:                                               ; preds = %.lr.ph71.split
+  %91 = getelementptr i8, ptr %87, i64 8
+  %.val56 = load ptr, ptr %91, align 8, !tbaa !55
+  %92 = getelementptr i8, ptr %87, i64 16
+  %.val57 = load ptr, ptr %92, align 8, !tbaa !56
   %.not.i58 = icmp eq ptr %.val57, null
   %spec.store.select.i59 = zext i1 %.not.i58 to i32
   %.not8.i60 = icmp eq ptr %.val56, null
-  br i1 %.not8.i60, label %nc_minmax_valid.exit64, label %95
+  br i1 %.not8.i60, label %nc_minmax_valid.exit64, label %93
 
-95:                                               ; preds = %92
-  %96 = tail call ptr @ASN1_INTEGER_to_BN(ptr noundef nonnull %.val56, ptr noundef null) #9
-  %97 = icmp eq ptr %96, null
-  br i1 %97, label %100, label %98
+93:                                               ; preds = %90
+  %94 = tail call ptr @ASN1_INTEGER_to_BN(ptr noundef nonnull %.val56, ptr noundef null) #9
+  %95 = icmp eq ptr %94, null
+  br i1 %95, label %98, label %96
 
-98:                                               ; preds = %95
-  %99 = tail call i32 @BN_is_zero(ptr noundef nonnull %96) #9
-  %.not9.i61 = icmp eq i32 %99, 0
-  br i1 %.not9.i61, label %100, label %101
+96:                                               ; preds = %93
+  %97 = tail call i32 @BN_is_zero(ptr noundef nonnull %94) #9
+  %.not9.i61 = icmp eq i32 %97, 0
+  br i1 %.not9.i61, label %98, label %99
 
-100:                                              ; preds = %98, %95
-  br label %101
+98:                                               ; preds = %96, %93
+  br label %99
 
-101:                                              ; preds = %100, %98
-  %.1.i62 = phi i32 [ 0, %100 ], [ %spec.store.select.i59, %98 ]
-  tail call void @BN_free(ptr noundef %96) #9
+99:                                               ; preds = %98, %96
+  %.1.i62 = phi i32 [ 0, %98 ], [ %spec.store.select.i59, %96 ]
+  tail call void @BN_free(ptr noundef %94) #9
   br label %nc_minmax_valid.exit64
 
-nc_minmax_valid.exit64:                           ; preds = %92, %101
-  %.0.i63 = phi i32 [ %.1.i62, %101 ], [ %spec.store.select.i59, %92 ]
+nc_minmax_valid.exit64:                           ; preds = %90, %99
+  %.0.i63 = phi i32 [ %.1.i62, %99 ], [ %spec.store.select.i59, %90 ]
   %.not49 = icmp eq i32 %.0.i63, 0
-  br i1 %.not49, label %.split.us, label %102
+  br i1 %.not49, label %.split.us, label %100
 
-102:                                              ; preds = %nc_minmax_valid.exit64
-  %103 = load ptr, ptr %89, align 8, !tbaa !13
-  %104 = tail call fastcc i32 @nc_match_single(i32 noundef %.0.fr, ptr noundef nonnull %0, ptr noundef %103)
-  switch i32 %104, label %.split.us [
-    i32 0, label %.split.us.loopexit97
-    i32 47, label %105
+100:                                              ; preds = %nc_minmax_valid.exit64
+  %101 = load ptr, ptr %87, align 8, !tbaa !13
+  %102 = tail call fastcc i32 @nc_match_single(i32 noundef %.0.fr, ptr noundef nonnull %0, ptr noundef %101)
+  switch i32 %102, label %.split.us [
+    i32 0, label %.split.us.loopexit105
+    i32 47, label %103
   ]
 
-105:                                              ; preds = %102, %.lr.ph71.split
-  %106 = add nuw nsw i32 %.14270, 1
-  %107 = load ptr, ptr %53, align 8, !tbaa !21
-  %108 = tail call i32 @OPENSSL_sk_num(ptr noundef %107) #9
-  %109 = icmp slt i32 %106, %108
-  br i1 %109, label %.lr.ph71.split, label %.split.us, !llvm.loop !58
+103:                                              ; preds = %100, %.lr.ph71.split
+  %104 = add nuw nsw i32 %.14270, 1
+  %105 = load ptr, ptr %51, align 8, !tbaa !21
+  %106 = tail call i32 @OPENSSL_sk_num(ptr noundef %105) #9
+  %107 = icmp slt i32 %104, %106
+  br i1 %107, label %.lr.ph71.split, label %.split.us, !llvm.loop !58
 
-.split.us.loopexit96:                             ; preds = %80
+.split.us.loopexit104:                            ; preds = %78
   br label %.split.us
 
-.split.us.loopexit97:                             ; preds = %102
+.split.us.loopexit105:                            ; preds = %100
   br label %.split.us
 
-.split.us:                                        ; preds = %46, %nc_minmax_valid.exit, %nc_minmax_valid.exit64, %105, %nc_minmax_valid.exit64.us, %83, %102, %80, %.split.us.loopexit97, %.split.us.loopexit96, %.preheader, %._crit_edge
-  %.043 = phi i32 [ 47, %._crit_edge ], [ 0, %.preheader ], [ %82, %80 ], [ %104, %102 ], [ 49, %nc_minmax_valid.exit64.us ], [ 0, %83 ], [ 48, %.split.us.loopexit96 ], [ 49, %nc_minmax_valid.exit64 ], [ 0, %105 ], [ 48, %.split.us.loopexit97 ], [ %44, %46 ], [ 49, %nc_minmax_valid.exit ]
+.split.us:                                        ; preds = %nc_minmax_valid.exit, %42, %nc_minmax_valid.exit64, %103, %nc_minmax_valid.exit64.us, %81, %100, %78, %.split.us.loopexit105, %.split.us.loopexit104, %.preheader, %._crit_edge
+  %.043 = phi i32 [ 47, %._crit_edge ], [ 0, %.preheader ], [ %80, %78 ], [ %102, %100 ], [ 49, %nc_minmax_valid.exit64.us ], [ 0, %81 ], [ 48, %.split.us.loopexit104 ], [ 49, %nc_minmax_valid.exit64 ], [ 0, %103 ], [ 48, %.split.us.loopexit105 ], [ 49, %nc_minmax_valid.exit ], [ %44, %42 ]
   ret i32 %.043
 }
 
@@ -662,7 +662,7 @@ define range(i32 0, 54) i32 @NAME_CONSTRAINTS_check_CN(ptr noundef %0, ptr nound
 
 .critedge.i:                                      ; preds = %24, %.lr.ph.i, %.preheader67.i
   %.045.lcssa.i = phi i32 [ 0, %.preheader67.i ], [ %.04570.i, %.lr.ph.i ], [ 0, %24 ]
-  %26 = zext i32 %.045.lcssa.i to i64
+  %26 = zext nneg i32 %.045.lcssa.i to i64
   %27 = call ptr @memchr(ptr noundef %.pre.i, i32 noundef 0, i64 noundef %26) #10
   %.not.i = icmp eq ptr %27, null
   br i1 %.not.i, label %.preheader.i, label %32
@@ -677,7 +677,7 @@ define range(i32 0, 54) i32 @NAME_CONSTRAINTS_check_CN(ptr noundef %0, ptr nound
   br label %.outer.i
 
 .outer.i:                                         ; preds = %.thread.i, %.lr.ph75.i
-  %indvars.iv.ph.i = phi i64 [ %indvars.iv.next80.i, %.thread.i ], [ 0, %.lr.ph75.i ]
+  %indvars.iv.ph.i = phi i64 [ %indvars.iv.next84.i, %.thread.i ], [ 0, %.lr.ph75.i ]
   %31 = phi i1 [ false, %.thread.i ], [ true, %.lr.ph75.i ]
   br label %33
 
@@ -703,7 +703,7 @@ define range(i32 0, 54) i32 @NAME_CONSTRAINTS_check_CN(ptr noundef %0, ptr nound
 
 41:                                               ; preds = %38
   %.not49.i = icmp ne i64 %indvars.iv.i, 0
-  %42 = icmp slt i64 %indvars.iv.i, %30
+  %42 = icmp samesign ult i64 %indvars.iv.i, %30
   %or.cond56.i = select i1 %.not49.i, i1 %42, i1 false
   br i1 %or.cond56.i, label %43, label %.loopexit
 
@@ -734,9 +734,9 @@ define range(i32 0, 54) i32 @NAME_CONSTRAINTS_check_CN(ptr noundef %0, ptr nound
   br i1 %exitcond.not.i, label %._crit_edge.i, label %33, !llvm.loop !62
 
 .thread.i:                                        ; preds = %48
-  %indvars.iv.next80.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.not81.i = icmp eq i64 %indvars.iv.next80.i, %26
-  br i1 %exitcond.not81.i, label %.loopexit41, label %.outer.i, !llvm.loop !62
+  %indvars.iv.next84.i = add nuw nsw i64 %indvars.iv.i, 1
+  %exitcond.not85.i = icmp eq i64 %indvars.iv.next84.i, %26
+  br i1 %exitcond.not85.i, label %.loopexit41, label %.outer.i, !llvm.loop !62
 
 ._crit_edge.i:                                    ; preds = %51
   br i1 %31, label %.loopexit, label %.loopexit41
@@ -1574,9 +1574,6 @@ declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #7
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #7
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #8

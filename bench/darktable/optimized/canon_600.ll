@@ -56,7 +56,7 @@ define void @_ZN6LibRaw18canon_600_fixed_wbEi(ptr noundef nonnull writeonly alig
 
 ._crit_edge:                                      ; preds = %.split.loop.exit44
   %.pre = zext nneg i32 %.023.lcssa to i64
-  %.pre39 = sext i32 %.lcssa to i64
+  %.pre39 = zext nneg i32 %.lcssa to i64
   br label %29
 
 15:                                               ; preds = %.split.loop.exit44
@@ -135,9 +135,9 @@ define noundef range(i32 0, 3) i32 @_ZN6LibRaw15canon_600_colorEPii(ptr noundef 
 
 17:                                               ; preds = %15
   %18 = icmp sgt i32 %8, 307
-  br i1 %18, label %.thread49, label %19
+  br i1 %18, label %.thread53, label %19
 
-.thread49:                                        ; preds = %17
+.thread53:                                        ; preds = %17
   store i32 307, ptr %7, align 4, !tbaa !77
   br label %25
 
@@ -158,16 +158,16 @@ define noundef range(i32 0, 3) i32 @_ZN6LibRaw15canon_600_colorEPii(ptr noundef 
   %24 = sub nsw i32 -38, %23
   br label %30
 
-25:                                               ; preds = %.thread49, %19
-  %.151 = phi i32 [ 1, %.thread49 ], [ 0, %19 ]
-  %26 = phi i32 [ 307, %.thread49 ], [ %8, %19 ]
+25:                                               ; preds = %.thread53, %19
+  %.155 = phi i32 [ 1, %.thread53 ], [ 0, %19 ]
+  %26 = phi i32 [ 307, %.thread53 ], [ %8, %19 ]
   %27 = mul nuw nsw i32 %26, 48
   %28 = lshr i32 %27, 10
   %29 = add nuw nsw i32 %28, -123
   br label %30
 
 30:                                               ; preds = %25, %.thread43
-  %.145 = phi i32 [ %.146, %.thread43 ], [ %.151, %25 ]
+  %.145 = phi i32 [ %.146, %.thread43 ], [ %.155, %25 ]
   %31 = phi i32 [ %24, %.thread43 ], [ %29, %25 ]
   %32 = sub nsw i32 %31, %2
   %33 = load i32, ptr %1, align 4, !tbaa !77
@@ -312,7 +312,7 @@ define void @_ZN6LibRaw17canon_600_auto_wbEv(ptr noundef nonnull align 8 capture
 .preheader89.us:                                  ; preds = %42, %.loopexit86.us
   %55 = phi i1 [ false, %.loopexit86.us ], [ true, %42 ]
   %indvars.iv126.sroa.phi = phi ptr [ %.sroa.5, %.loopexit86.us ], [ %.sroa.0, %42 ]
-  %indvars.iv126.sroa.phi144 = phi ptr [ %indvars.iv126.sroa.gep, %.loopexit86.us ], [ %5, %42 ]
+  %indvars.iv126.sroa.phi150 = phi ptr [ %indvars.iv126.sroa.gep, %.loopexit86.us ], [ %5, %42 ]
   %indvars.iv126 = phi i64 [ 4, %.loopexit86.us ], [ 0, %42 ]
   %56 = load i32, ptr %indvars.iv126.sroa.phi, align 4, !tbaa !77
   %.not84.us = icmp eq i32 %56, 0
@@ -325,7 +325,7 @@ define void @_ZN6LibRaw17canon_600_auto_wbEv(ptr noundef nonnull align 8 capture
   %59 = or disjoint i64 %58, %indvars.iv126
   %60 = getelementptr inbounds nuw [8 x i32], ptr %3, i64 0, i64 %59
   %61 = load i32, ptr %60, align 8, !tbaa !77
-  %62 = getelementptr inbounds nuw [2 x i32], ptr %indvars.iv126.sroa.phi144, i64 0, i64 %indvars.iv123
+  %62 = getelementptr inbounds nuw [2 x i32], ptr %indvars.iv126.sroa.phi150, i64 0, i64 %indvars.iv123
   %63 = load i32, ptr %62, align 4, !tbaa !77
   %64 = add nsw i32 %63, 1024
   %65 = mul nsw i32 %64, %61
@@ -339,7 +339,7 @@ define void @_ZN6LibRaw17canon_600_auto_wbEv(ptr noundef nonnull align 8 capture
   br i1 %55, label %.preheader89.us, label %.preheader88.us, !llvm.loop !85
 
 69:                                               ; preds = %106
-  %70 = getelementptr inbounds nuw i8, ptr %indvars.iv120.sroa.phi146, i64 4
+  %70 = getelementptr inbounds nuw i8, ptr %indvars.iv120.sroa.phi152, i64 4
   %71 = load i32, ptr %70, align 4, !tbaa !77
   br i1 %20, label %85, label %72
 
@@ -354,19 +354,19 @@ define void @_ZN6LibRaw17canon_600_auto_wbEv(ptr noundef nonnull align 8 capture
 
 76:                                               ; preds = %74
   %77 = icmp sgt i32 %71, 307
-  br i1 %77, label %.thread49.i.us, label %78
+  br i1 %77, label %.thread53.i.us, label %78
 
 78:                                               ; preds = %76
   %79 = icmp slt i32 %71, 197
   br i1 %79, label %.thread43.i.us, label %80
 
-.thread49.i.us:                                   ; preds = %76
+.thread53.i.us:                                   ; preds = %76
   store i32 307, ptr %70, align 4, !tbaa !77
   br label %80
 
-80:                                               ; preds = %.thread49.i.us, %78
-  %.151.i.us = phi i32 [ 1, %.thread49.i.us ], [ 0, %78 ]
-  %81 = phi i32 [ 307, %.thread49.i.us ], [ %71, %78 ]
+80:                                               ; preds = %.thread53.i.us, %78
+  %.155.i.us = phi i32 [ 1, %.thread53.i.us ], [ 0, %78 ]
+  %81 = phi i32 [ 307, %.thread53.i.us ], [ %71, %78 ]
   %82 = mul nuw nsw i32 %81, 48
   %83 = lshr i32 %82, 10
   %84 = add nuw nsw i32 %83, -123
@@ -394,10 +394,10 @@ define void @_ZN6LibRaw17canon_600_auto_wbEv(ptr noundef nonnull align 8 capture
   br label %93
 
 93:                                               ; preds = %.thread43.i.us, %80
-  %.145.i.us = phi i32 [ %.146.i.us, %.thread43.i.us ], [ %.151.i.us, %80 ]
+  %.145.i.us = phi i32 [ %.146.i.us, %.thread43.i.us ], [ %.155.i.us, %80 ]
   %94 = phi i32 [ %92, %.thread43.i.us ], [ %84, %80 ]
   %95 = sub nsw i32 %94, %.178
-  %96 = load i32, ptr %indvars.iv120.sroa.phi146, align 8, !tbaa !77
+  %96 = load i32, ptr %indvars.iv120.sroa.phi152, align 8, !tbaa !77
   %.not.i.us = icmp sgt i32 %95, %96
   br i1 %.not.i.us, label %101, label %97
 
@@ -418,7 +418,7 @@ define void @_ZN6LibRaw17canon_600_auto_wbEv(ptr noundef nonnull align 8 capture
   %spec.store.select.i.us = tail call i32 @llvm.smax.i32(i32 %102, i32 -20)
   %spec.select.i.us = tail call i32 @llvm.smin.i32(i32 %spec.store.select.i.us, i32 %.178)
   %105 = sub nsw i32 %94, %spec.select.i.us
-  store i32 %105, ptr %indvars.iv120.sroa.phi146, align 8, !tbaa !77
+  store i32 %105, ptr %indvars.iv120.sroa.phi152, align 8, !tbaa !77
   br label %_ZN6LibRaw15canon_600_colorEPii.exit.us
 
 _ZN6LibRaw15canon_600_colorEPii.exit.us:          ; preds = %104, %101, %97, %72
@@ -439,7 +439,7 @@ _ZN6LibRaw15canon_600_colorEPii.exit.us:          ; preds = %104, %101, %97, %72
   %115 = shl i32 %114, 10
   %116 = sdiv i32 %115, %113
   %117 = lshr exact i64 %indvars.iv117, 1
-  %118 = getelementptr inbounds nuw [2 x i32], ptr %indvars.iv120.sroa.phi146, i64 0, i64 %117
+  %118 = getelementptr inbounds nuw [2 x i32], ptr %indvars.iv120.sroa.phi152, i64 0, i64 %117
   store i32 %116, ptr %118, align 4, !tbaa !77
   br i1 %107, label %106, label %69, !llvm.loop !87
 
@@ -502,7 +502,7 @@ _ZN6LibRaw15canon_600_colorEPii.exit.us:          ; preds = %104, %101, %97, %72
 .preheader87.us:                                  ; preds = %41, %_ZN6LibRaw15canon_600_colorEPii.exit.us
   %158 = phi i1 [ false, %_ZN6LibRaw15canon_600_colorEPii.exit.us ], [ true, %41 ]
   %indvars.iv120.sroa.phi = phi ptr [ %.sroa.5, %_ZN6LibRaw15canon_600_colorEPii.exit.us ], [ %.sroa.0, %41 ]
-  %indvars.iv120.sroa.phi146 = phi ptr [ %indvars.iv120.sroa.gep, %_ZN6LibRaw15canon_600_colorEPii.exit.us ], [ %5, %41 ]
+  %indvars.iv120.sroa.phi152 = phi ptr [ %indvars.iv120.sroa.gep, %_ZN6LibRaw15canon_600_colorEPii.exit.us ], [ %5, %41 ]
   %indvars.iv120 = phi i64 [ 4, %_ZN6LibRaw15canon_600_colorEPii.exit.us ], [ 0, %41 ]
   br label %106
 

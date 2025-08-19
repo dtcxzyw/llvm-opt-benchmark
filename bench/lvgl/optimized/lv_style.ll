@@ -411,22 +411,22 @@ define void @lv_style_set_prop(ptr noundef captures(none) %0, i8 noundef zeroext
 define zeroext i8 @lv_style_register_prop(i8 noundef zeroext %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 88), align 8, !tbaa !20
   %3 = icmp eq ptr %2, null
-  br i1 %3, label %4, label %.thread18
+  br i1 %3, label %4, label %.thread20
 
 4:                                                ; preds = %1
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 76), align 4, !tbaa !42
   store i32 140, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 80), align 8, !tbaa !43
   br label %7
 
-.thread18:                                        ; preds = %1
+.thread20:                                        ; preds = %1
   %.pre = load i32, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 80), align 8, !tbaa !43
   %.pre17 = load i32, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 76), align 4, !tbaa !42
   %5 = add i32 %.pre, -139
   %6 = icmp ult i32 %.pre17, %5
-  br i1 %6, label %7, label %.thread19
+  br i1 %6, label %7, label %.thread21
 
-7:                                                ; preds = %4, %.thread18
-  %8 = phi i32 [ %5, %.thread18 ], [ 1, %4 ]
+7:                                                ; preds = %4, %.thread20
+  %8 = phi i32 [ %5, %.thread20 ], [ 1, %4 ]
   %9 = zext i32 %8 to i64
   %10 = add nuw nsw i64 %9, 31
   %11 = and i64 %10, 8589934560
@@ -439,11 +439,11 @@ define zeroext i8 @lv_style_register_prop(i8 noundef zeroext %0) local_unnamed_a
   %13 = trunc i64 %11 to i32
   store i32 %13, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 76), align 4, !tbaa !42
   %14 = load i32, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 80), align 8, !tbaa !43
-  br label %.thread19
+  br label %.thread21
 
-.thread19:                                        ; preds = %.thread18, %.thread
-  %.pre.sink = phi i32 [ %14, %.thread ], [ %.pre, %.thread18 ]
-  %15 = phi ptr [ %12, %.thread ], [ %2, %.thread18 ]
+.thread21:                                        ; preds = %.thread20, %.thread
+  %.pre.sink = phi i32 [ %14, %.thread ], [ %.pre, %.thread20 ]
+  %15 = phi ptr [ %12, %.thread ], [ %2, %.thread20 ]
   %16 = add i32 %.pre.sink, 1
   store i32 %16, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 80), align 8, !tbaa !43
   %17 = add i32 %.pre.sink, -140
@@ -454,8 +454,8 @@ define zeroext i8 @lv_style_register_prop(i8 noundef zeroext %0) local_unnamed_a
   %21 = trunc i32 %20 to i8
   br label %.critedge
 
-.critedge:                                        ; preds = %7, %.thread19
-  %.1 = phi i8 [ %21, %.thread19 ], [ 0, %7 ]
+.critedge:                                        ; preds = %7, %.thread21
+  %.1 = phi i8 [ %21, %.thread21 ], [ 0, %7 ]
   ret i8 %.1
 }
 

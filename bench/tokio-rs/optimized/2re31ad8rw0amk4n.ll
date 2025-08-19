@@ -1087,7 +1087,7 @@ define internal fastcc noundef align 8 dereferenceable_or_null(32) ptr @_ZN10tok
   %.0 = phi ptr [ null, %1 ], [ %24, %76 ], [ %24, %26 ], [ %24, %30 ], [ %24, %87 ], [ %24, %69 ], [ %24, %73 ], [ null, %"_ZN4core3ptr71drop_in_place$LT$core..option..Option$LT$tokio_test..io..Action$GT$$GT$17hf541638d5b305adfE.exit" ]
   ret ptr %.0
 
-default.unreachable33:                            ; preds = %18
+default.unreachable42:                            ; preds = %18
   unreachable
 
 18:                                               ; preds = %.lr.ph, %"_ZN4core3ptr71drop_in_place$LT$core..option..Option$LT$tokio_test..io..Action$GT$$GT$17hf541638d5b305adfE.exit"
@@ -1100,7 +1100,7 @@ default.unreachable33:                            ; preds = %18
   %23 = load ptr, ptr %9, align 8, !alias.scope !133, !nonnull !5, !noundef !5
   %24 = getelementptr inbounds { i64, [3 x i64] }, ptr %23, i64 %.0.i.i
   %25 = load i64, ptr %24, align 8, !range !134, !noundef !5
-  switch i64 %25, label %default.unreachable33 [
+  switch i64 %25, label %default.unreachable42 [
     i64 0, label %26
     i64 1, label %30
     i64 2, label %34
@@ -1478,7 +1478,7 @@ _ZN5tokio2io8read_buf7ReadBuf9put_slice17h9547e43b786e079fE.exit.i: ; preds = %6
   unreachable
 
 common.resume:                                    ; preds = %119, %.body52, %.body, %.body.thread, %86, %91
-  %common.resume.op = phi { ptr, i32 } [ %87, %91 ], [ %87, %86 ], [ %.pn206, %.body.thread ], [ %.pn, %.body ], [ %eh.lpad-body53, %.body52 ], [ %120, %119 ]
+  %common.resume.op = phi { ptr, i32 } [ %87, %91 ], [ %87, %86 ], [ %.pn222, %.body.thread ], [ %.pn, %.body ], [ %eh.lpad-body53, %.body52 ], [ %120, %119 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6expect17h06c023400f5cec3eE.exit.i": ; preds = %82
@@ -1546,7 +1546,7 @@ common.resume:                                    ; preds = %119, %.body52, %.bo
 _ZN10tokio_test2io5Inner11poll_action17h70e2505b9b8d6805E.exit: ; preds = %112
   %113 = load i64, ptr %10, align 8, !range !230, !noundef !5
   switch i64 %113, label %114 [
-    i64 6, label %.loopexit298
+    i64 6, label %.loopexit314
     i64 5, label %.fold.split
   ]
 
@@ -1580,11 +1580,11 @@ _ZN10tokio_test2io5Inner11poll_action17h70e2505b9b8d6805E.exit: ; preds = %112
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #16
   unreachable
 
-.loopexit298:                                     ; preds = %_ZN10tokio_test2io5Inner11poll_action17h70e2505b9b8d6805E.exit
+.loopexit314:                                     ; preds = %_ZN10tokio_test2io5Inner11poll_action17h70e2505b9b8d6805E.exit
   br label %.fold.split
 
-.fold.split:                                      ; preds = %_ZN10tokio_test2io5Inner11poll_action17h70e2505b9b8d6805E.exit, %.loopexit298
-  %.sroa.0.2 = phi i64 [ 1, %.loopexit298 ], [ 0, %_ZN10tokio_test2io5Inner11poll_action17h70e2505b9b8d6805E.exit ]
+.fold.split:                                      ; preds = %_ZN10tokio_test2io5Inner11poll_action17h70e2505b9b8d6805E.exit, %.loopexit314
+  %.sroa.0.2 = phi i64 [ 1, %.loopexit314 ], [ 0, %_ZN10tokio_test2io5Inner11poll_action17h70e2505b9b8d6805E.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %.thread70
 
@@ -1782,7 +1782,7 @@ _ZN10tokio_test2io5Inner11poll_action17h70e2505b9b8d6805E.exit: ; preds = %112
   br label %.thread70
 
 .body.thread:                                     ; preds = %163, %189, %.body64, %.body
-  %.pn206 = phi { ptr, i32 } [ %.pn, %.body ], [ %164, %163 ], [ %190, %189 ], [ %eh.lpad-body65, %.body64 ]
+  %.pn222 = phi { ptr, i32 } [ %.pn, %.body ], [ %164, %163 ], [ %190, %189 ], [ %eh.lpad-body65, %.body64 ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17hfc03380e8d3640f3E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %12) #15
           to label %common.resume unwind label %196
 

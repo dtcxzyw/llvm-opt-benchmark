@@ -398,9 +398,9 @@ data_alloc.exit.thread:                           ; preds = %215, %251, %153
   br label %258
 
 data_alloc.exit.sink.split:                       ; preds = %127, %.split, %91
-  %.sink23 = phi i64 [ 3, %91 ], [ 1, %.split ], [ 1, %127 ]
-  store i64 %.sink23, ptr %71, align 8
-  store i64 %.sink23, ptr %76, align 8
+  %.sink33 = phi i64 [ 3, %91 ], [ 1, %.split ], [ 1, %127 ]
+  store i64 %.sink33, ptr %71, align 8
+  store i64 %.sink33, ptr %76, align 8
   br label %data_alloc.exit
 
 data_alloc.exit:                                  ; preds = %data_alloc.exit.sink.split, %225, %222, %189
@@ -1093,10 +1093,10 @@ select.unfold:                                    ; preds = %53, %37
   br label %295
 
 ._crit_edge:                                      ; preds = %223, %197, %193
-  %.sink49 = phi i64 [ 3, %193 ], [ 1, %197 ], [ 1, %223 ]
-  store i64 %.sink49, ptr %195, align 8
+  %.sink54 = phi i64 [ 3, %193 ], [ 1, %197 ], [ 1, %223 ]
+  store i64 %.sink54, ptr %195, align 8
   %253 = getelementptr inbounds nuw i8, ptr %195, i64 8
-  store i64 %.sink49, ptr %253, align 8
+  store i64 %.sink54, ptr %253, align 8
   %254 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr null, ptr %254, align 8
   %255 = load i32, ptr %7, align 8

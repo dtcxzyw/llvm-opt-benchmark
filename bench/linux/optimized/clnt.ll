@@ -418,11 +418,11 @@ define dso_local ptr @rpc_create(ptr noundef %0) #0 align 16 {
 
 49:                                               ; preds = %45
   %50 = and i64 %47, 256
-  %.not6 = icmp eq i64 %50, 0
+  %.not11 = icmp eq i64 %50, 0
   %51 = and i64 %47, 128
-  %.not5 = icmp eq i64 %51, 0
-  %52 = select i1 %.not5, i32 2, i32 3
-  %simplifycfg.merge = select i1 %.not6, i32 1, i32 %52
+  %.not10 = icmp eq i64 %51, 0
+  %52 = select i1 %.not10, i32 2, i32 3
+  %simplifycfg.merge = select i1 %.not11, i32 1, i32 %52
   store i32 %simplifycfg.merge, ptr %24, align 8
   br label %53
 

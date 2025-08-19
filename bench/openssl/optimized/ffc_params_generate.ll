@@ -514,8 +514,8 @@ ffc_validate_LN.exit:                             ; preds = %57, %47, %40, %34
   %230 = load ptr, ptr %216, align 8, !tbaa !18
   %231 = icmp eq ptr %230, null
   %232 = icmp eq ptr %226, null
-  %or.cond295 = select i1 %231, i1 true, i1 %232
-  br i1 %or.cond295, label %.loopexit, label %233
+  %or.cond316 = select i1 %231, i1 true, i1 %232
+  br i1 %or.cond316, label %.loopexit, label %233
 
 233:                                              ; preds = %229
   %234 = load i32, ptr %9, align 4, !tbaa !3
@@ -1564,8 +1564,8 @@ default_mdname.exit:                              ; preds = %27
   %216 = load ptr, ptr %202, align 8, !tbaa !18
   %217 = icmp eq ptr %216, null
   %218 = icmp eq ptr %212, null
-  %or.cond258 = select i1 %217, i1 true, i1 %218
-  br i1 %or.cond258, label %.thread227, label %219
+  %or.cond275 = select i1 %217, i1 true, i1 %218
+  br i1 %or.cond275, label %.thread227, label %219
 
 219:                                              ; preds = %215
   %220 = load i32, ptr %13, align 4, !tbaa !3

@@ -605,7 +605,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %cmp27, label %for.body, label %for.cond.cleanup, !llvm.loop !31
 
 if.then54:                                        ; preds = %for.cond.preheader, %for.cond.cleanup
-  %sum.0.lcssa94 = phi double [ %35, %for.cond.cleanup ], [ 0.000000e+00, %for.cond.preheader ]
+  %sum.0.lcssa102 = phi double [ %35, %for.cond.cleanup ], [ 0.000000e+00, %for.cond.preheader ]
   %sub55 = add i64 %0, -1
   %36 = load ptr, ptr %x, align 8, !tbaa !15
   %arrayidx.i64 = getelementptr inbounds nuw double, ptr %36, i64 %sub55
@@ -620,7 +620,7 @@ if.then54:                                        ; preds = %for.cond.preheader,
   %arrayidx.i67 = getelementptr inbounds nuw double, ptr %39, i64 %sub
   %41 = load double, ptr %arrayidx.i67, align 8, !tbaa !16
   %add65 = fadd double %40, %41
-  %42 = tail call double @llvm.fmuladd.f64(double %mul60, double %add65, double %sum.0.lcssa94)
+  %42 = tail call double @llvm.fmuladd.f64(double %mul60, double %add65, double %sum.0.lcssa102)
   br label %if.end67
 
 if.end67:                                         ; preds = %if.then54, %for.cond.cleanup

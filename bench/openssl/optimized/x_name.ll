@@ -326,10 +326,10 @@ define internal range(i32 0, 2) i32 @x509_name_ex_new(ptr noundef writeonly capt
   br label %16
 
 14:                                               ; preds = %8, %5
-  %.sink10 = phi i32 [ 97, %5 ], [ 101, %8 ]
+  %.sink11 = phi i32 [ 97, %5 ], [ 101, %8 ]
   %.sink = phi i32 [ 524303, %5 ], [ 524295, %8 ]
   tail call void @ERR_new() #6
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str.2, i32 noundef %.sink10, ptr noundef nonnull @__func__.x509_name_ex_new) #6
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str.2, i32 noundef %.sink11, ptr noundef nonnull @__func__.x509_name_ex_new) #6
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 13, i32 noundef %.sink, ptr noundef null) #6
   %15 = load ptr, ptr %3, align 8, !tbaa !21
   tail call void @OPENSSL_sk_free(ptr noundef %15) #6

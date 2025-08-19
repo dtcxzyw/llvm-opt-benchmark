@@ -598,13 +598,13 @@ define linkonce_odr void @_ZNSt3mapIN3vcg8ColorMapESt6vectorINS0_6Color4IhEESaIS
   br i1 %23, label %._crit_edge.thread.i.i, label %28
 
 ._crit_edge.thread.i.i:                           ; preds = %._crit_edge.i.i, %18
-  %.019.lcssa28.i.i = phi ptr [ %.02024.i.i, %._crit_edge.i.i ], [ %6, %18 ]
+  %.019.lcssa29.i.i = phi ptr [ %.02024.i.i, %._crit_edge.i.i ], [ %6, %18 ]
   %24 = load ptr, ptr %8, align 8
-  %25 = icmp eq ptr %.019.lcssa28.i.i, %24
+  %25 = icmp eq ptr %.019.lcssa29.i.i, %24
   br i1 %25, label %select.unfold, label %26
 
 26:                                               ; preds = %._crit_edge.thread.i.i
-  %27 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa28.i.i) #28
+  %27 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa29.i.i) #28
   %.phi.trans.insert80.i = getelementptr inbounds nuw i8, ptr %27, i64 32
   %.pre81.i = load i32, ptr %.phi.trans.insert80.i, align 4
   %.pre82.i = load i32, ptr %.08.i, align 4
@@ -613,12 +613,12 @@ define linkonce_odr void @_ZNSt3mapIN3vcg8ColorMapESt6vectorINS0_6Color4IhEESaIS
 28:                                               ; preds = %26, %._crit_edge.i.i
   %29 = phi i32 [ %.pre82.i, %26 ], [ %19, %._crit_edge.i.i ]
   %30 = phi i32 [ %.pre81.i, %26 ], [ %22, %._crit_edge.i.i ]
-  %.019.lcssa29.i.i = phi ptr [ %.019.lcssa28.i.i, %26 ], [ %.02024.i.i, %._crit_edge.i.i ]
+  %.019.lcssa28.i.i = phi ptr [ %.019.lcssa29.i.i, %26 ], [ %.02024.i.i, %._crit_edge.i.i ]
   %31 = icmp slt i32 %30, %29
   br i1 %31, label %select.unfold, label %_ZNSt8_Rb_treeIN3vcg8ColorMapESt4pairIKS1_St6vectorINS0_6Color4IhEESaIS6_EEESt10_Select1stIS9_ESt4lessIS1_ESaIS9_EE17_M_insert_unique_IRKS9_NSF_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS9_ESt23_Rb_tree_const_iteratorIS9_EOT_RT0_.exit.i
 
 select.unfold:                                    ; preds = %28, %12, %._crit_edge.thread.i.i
-  %.sroa.12.0.i.ph = phi ptr [ %.019.lcssa28.i.i, %._crit_edge.thread.i.i ], [ %13, %12 ], [ %.019.lcssa29.i.i, %28 ]
+  %.sroa.12.0.i.ph = phi ptr [ %.019.lcssa29.i.i, %._crit_edge.thread.i.i ], [ %13, %12 ], [ %.019.lcssa28.i.i, %28 ]
   %32 = icmp eq ptr %.sroa.12.0.i.ph, %6
   br i1 %32, label %_ZNSt8_Rb_treeIN3vcg8ColorMapESt4pairIKS1_St6vectorINS0_6Color4IhEESaIS6_EEESt10_Select1stIS9_ESt4lessIS1_ESaIS9_EE10_M_insert_IRKS9_NSF_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS9_EPSt18_Rb_tree_node_baseSN_OT_RT0_.exit.i.i, label %33
 
@@ -3236,8 +3236,8 @@ define void @_ZN15EditPaintPlugin8decorateER9MeshModelP6GLArea(ptr noundef nonnu
   %28 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %29 = load ptr, ptr %28, align 8
   %30 = icmp eq ptr %29, null
-  %.sink106.sroa.gep = getelementptr inbounds nuw i8, ptr %15, i64 4
-  %.sink106.sroa.gep107 = getelementptr inbounds nuw i8, ptr %14, i64 4
+  %.sink115.sroa.gep = getelementptr inbounds nuw i8, ptr %15, i64 4
+  %.sink115.sroa.gep116 = getelementptr inbounds nuw i8, ptr %14, i64 4
   br i1 %30, label %608, label %31
 
 31:                                               ; preds = %3
@@ -3592,10 +3592,10 @@ _ZNSt6vectorISt4pairIP8CVertexON15EditPaintPlugin11PickingDataEESaIS5_EE5clearEv
   br label %263
 
 263:                                              ; preds = %262, %261
-  %.sink106.sroa.phi = phi ptr [ %.sink106.sroa.gep, %262 ], [ %.sink106.sroa.gep107, %261 ]
-  %.sink106 = phi ptr [ %15, %262 ], [ %14, %261 ]
-  %264 = load i32, ptr %.sink106, align 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(10) %257, ptr noundef nonnull align 4 dereferenceable(10) %.sink106.sroa.phi, i64 10, i1 false)
+  %.sink115.sroa.phi = phi ptr [ %.sink115.sroa.gep, %262 ], [ %.sink115.sroa.gep116, %261 ]
+  %.sink115 = phi ptr [ %15, %262 ], [ %14, %261 ]
+  %264 = load i32, ptr %.sink115, align 4
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(10) %257, ptr noundef nonnull align 4 dereferenceable(10) %.sink115.sroa.phi, i64 10, i1 false)
   store i32 %264, ptr %13, align 4
   %265 = call noundef i32 @_ZNK6QColor3redEv(ptr noundef nonnull align 4 dereferenceable(14) %13) #26
   %266 = trunc i32 %265 to i8
@@ -4779,13 +4779,13 @@ _ZN7QVectorI7QPointFEC2Ei.exit:                   ; preds = %82, %.lr.ph.prehead
   br label %259
 
 259:                                              ; preds = %248, %256, %.noexc121, %224, %232, %.noexc118
-  %.sink180 = phi ptr [ %225, %224 ], [ %233, %232 ], [ %.pre.i.i, %.noexc118 ], [ %249, %248 ], [ %257, %256 ], [ %.pre.i.i120, %.noexc121 ]
+  %.sink192 = phi ptr [ %225, %224 ], [ %233, %232 ], [ %.pre.i.i, %.noexc118 ], [ %249, %248 ], [ %257, %256 ], [ %.pre.i.i120, %.noexc121 ]
   %.097.lcssa.sink = phi double [ %.097, %224 ], [ %.097, %232 ], [ %.097, %.noexc118 ], [ %.198, %248 ], [ %.198, %256 ], [ %.198, %.noexc121 ]
   %.pn = sitofp i32 %194 to double
   %.sink = fsub double %.pn, %.095
-  %260 = getelementptr inbounds nuw i8, ptr %.sink180, i64 16
+  %260 = getelementptr inbounds nuw i8, ptr %.sink192, i64 16
   %261 = load i64, ptr %260, align 8
-  %262 = getelementptr inbounds i8, ptr %.sink180, i64 %261
+  %262 = getelementptr inbounds i8, ptr %.sink192, i64 %261
   %sext140 = shl i64 %.0102157, 32
   %263 = ashr exact i64 %sext140, 28
   %264 = getelementptr inbounds i8, ptr %262, i64 %263
@@ -5093,8 +5093,8 @@ _ZNSt12_Vector_baseIP6CFaceOSaIS1_EE11_M_allocateEm.exit.i:
           cleanup
   br label %_ZNSt6vectorIP6CFaceOSaIS1_EED2Ev.exit
 
-.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %.invoke509, %662
-  %.sroa.0209.0.ph247.ph.ph.ph.ph = phi ptr [ %.sroa.0209.5, %662 ], [ %.sroa.0209.1396, %.invoke509 ]
+.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %.invoke541, %662
+  %.sroa.0209.0.ph247.ph.ph.ph.ph = phi ptr [ %.sroa.0209.5, %662 ], [ %.sroa.0209.1396, %.invoke541 ]
   %lpad.loopexit.split-lp299 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt6vectorIP6CFaceOSaIS1_EED2Ev.exit
@@ -5689,7 +5689,7 @@ _ZN8Paintbox11getSizeUnitEv.exit:                 ; preds = %_ZN8Paintbox17getPa
   br i1 %exitcond.not, label %334, label %264, !llvm.loop !44
 
 334:                                              ; preds = %333
-  br i1 %156, label %.preheader511, label %335
+  br i1 %156, label %.preheader543, label %335
 
 335:                                              ; preds = %334
   %336 = load double, ptr %5, align 16
@@ -5712,14 +5712,14 @@ _ZN8Paintbox11getSizeUnitEv.exit:                 ; preds = %_ZN8Paintbox17getPa
   %353 = fmul float %350, %352
   %354 = call float @llvm.fmuladd.f32(float %348, float %349, float %353)
   %355 = fcmp ogt float %354, 0.000000e+00
-  br i1 %355, label %.preheader511, label %_Z15pointInTriangleRK7QPointFS1_S1_S1_.exit141.thread279
+  br i1 %355, label %.preheader543, label %_Z15pointInTriangleRK7QPointFS1_S1_S1_.exit141.thread279
 
-.preheader511:                                    ; preds = %335, %334
+.preheader543:                                    ; preds = %335, %334
   br label %356
 
-356:                                              ; preds = %.preheader511, %.thread268
-  %indvars.iv437 = phi i64 [ %indvars.iv.next438, %.thread268 ], [ 0, %.preheader511 ]
-  %.187380 = phi i8 [ %.3, %.thread268 ], [ 0, %.preheader511 ]
+356:                                              ; preds = %.preheader543, %.thread268
+  %indvars.iv437 = phi i64 [ %indvars.iv.next438, %.thread268 ], [ 0, %.preheader543 ]
+  %.187380 = phi i8 [ %.3, %.thread268 ], [ 0, %.preheader543 ]
   br i1 %160, label %364, label %357
 
 357:                                              ; preds = %356
@@ -5818,7 +5818,7 @@ _ZN8Paintbox11getSizeUnitEv.exit:                 ; preds = %_ZN8Paintbox17getPa
   %420 = ptrtoint ptr %418 to i64
   %421 = sub i64 %419, %420
   %422 = icmp eq i64 %421, 9223372036854775800
-  br i1 %422, label %.invoke509, label %_ZNKSt6vectorISt4pairIP8CVertexON15EditPaintPlugin11PickingDataEESaIS5_EE12_M_check_lenEmPKc.exit.i.i
+  br i1 %422, label %.invoke541, label %_ZNKSt6vectorISt4pairIP8CVertexON15EditPaintPlugin11PickingDataEESaIS5_EE12_M_check_lenEmPKc.exit.i.i
 
 _ZNKSt6vectorISt4pairIP8CVertexON15EditPaintPlugin11PickingDataEESaIS5_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %417
   %423 = sdiv exact i64 %421, 40
@@ -6108,13 +6108,13 @@ _ZNSt6vectorIP6CFaceOSaIS1_EE9push_backERKS1_.exit151.preheader: ; preds = %_ZNS
   %604 = ptrtoint ptr %602 to i64
   %605 = sub i64 %603, %604
   %606 = icmp eq i64 %605, 9223372036854775800
-  br i1 %606, label %.invoke509, label %_ZNKSt6vectorIP6CFaceOSaIS1_EE12_M_check_lenEmPKc.exit.i.i143
+  br i1 %606, label %.invoke541, label %_ZNKSt6vectorIP6CFaceOSaIS1_EE12_M_check_lenEmPKc.exit.i.i143
 
-.invoke509:                                       ; preds = %601, %417
+.invoke541:                                       ; preds = %601, %417
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.24) #30
-          to label %.cont510 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
+          to label %.cont542 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-.cont510:                                         ; preds = %.invoke509
+.cont542:                                         ; preds = %.invoke541
   unreachable
 
 _ZNKSt6vectorIP6CFaceOSaIS1_EE12_M_check_lenEmPKc.exit.i.i143: ; preds = %601
@@ -7374,13 +7374,13 @@ _ZNK5QHashIP8CVertexOSt4pairIN3vcg6Point3IfEEfEE8containsERKS1_.exit.thread: ; p
   %163 = load ptr, ptr %4, align 8
   %164 = getelementptr inbounds nuw i8, ptr %163, i64 24
   %.sroa.210.0..sroa_idx = getelementptr inbounds nuw i8, ptr %163, i64 32
-  %.sroa.09.0.copyload.sink75.in = select i1 %117, ptr %34, ptr %164
+  %.sroa.09.0.copyload.sink83.in = select i1 %117, ptr %34, ptr %164
   %.sroa.210.0.copyload.sink.in = select i1 %117, ptr %.sroa.26.0..sroa_idx, ptr %.sroa.210.0..sroa_idx
   %.sroa.210.0.copyload.sink = load float, ptr %.sroa.210.0.copyload.sink.in, align 4
-  %.sroa.09.0.copyload.sink75 = load <2 x float>, ptr %.sroa.09.0.copyload.sink75.in, align 4
-  %.sroa.04.0.vec.extract.i41 = extractelement <2 x float> %.sroa.09.0.copyload.sink75, i64 0
+  %.sroa.09.0.copyload.sink83 = load <2 x float>, ptr %.sroa.09.0.copyload.sink83.in, align 4
+  %.sroa.04.0.vec.extract.i41 = extractelement <2 x float> %.sroa.09.0.copyload.sink83, i64 0
   %165 = fmul float %.sroa.04.0.vec.extract.i41, %112
-  %.sroa.04.4.vec.extract.i42 = extractelement <2 x float> %.sroa.09.0.copyload.sink75, i64 1
+  %.sroa.04.4.vec.extract.i42 = extractelement <2 x float> %.sroa.09.0.copyload.sink83, i64 1
   %166 = fmul float %.sroa.04.4.vec.extract.i42, %112
   %167 = fmul float %.sroa.210.0.copyload.sink, %112
   %168 = getelementptr inbounds nuw i8, ptr %163, i64 8
@@ -7438,18 +7438,18 @@ _ZNK5QHashIP8CVertexOSt4pairIN3vcg6Point3IfEEfEE8containsERKS1_.exit: ; preds = 
   store float %.sroa.3.0.copyload, ptr %195, align 4
   %196 = getelementptr inbounds nuw i8, ptr %192, i64 24
   %.sroa.22.0..sroa_idx = getelementptr inbounds nuw i8, ptr %192, i64 32
-  %.sroa.01.0.copyload.sink76.in = select i1 %117, ptr %34, ptr %196
+  %.sroa.01.0.copyload.sink84.in = select i1 %117, ptr %34, ptr %196
   %.sroa.22.0.copyload.pn.in = select i1 %117, ptr %.sroa.26.0..sroa_idx, ptr %.sroa.22.0..sroa_idx
   %.sroa.22.0.copyload.pn = load float, ptr %.sroa.22.0.copyload.pn.in, align 4
-  %.sroa.01.0.copyload.sink76 = load <2 x float>, ptr %.sroa.01.0.copyload.sink76.in, align 4
-  %.sroa.04.0.vec.extract.i45 = extractelement <2 x float> %.sroa.01.0.copyload.sink76, i64 0
-  %.sroa.04.4.vec.extract.i46 = extractelement <2 x float> %.sroa.01.0.copyload.sink76, i64 1
-  %.pn64 = fmul float %.sroa.04.0.vec.extract.i45, %112
-  %storemerge63 = fadd float %.sroa.0.0.copyload, %.pn64
-  store float %storemerge63, ptr %193, align 4
-  %.pn62 = fmul float %.sroa.04.4.vec.extract.i46, %112
-  %storemerge61 = fadd float %.pn62, %.sroa.2.0.copyload
-  store float %storemerge61, ptr %194, align 4
+  %.sroa.01.0.copyload.sink84 = load <2 x float>, ptr %.sroa.01.0.copyload.sink84.in, align 4
+  %.sroa.04.0.vec.extract.i45 = extractelement <2 x float> %.sroa.01.0.copyload.sink84, i64 0
+  %.sroa.04.4.vec.extract.i46 = extractelement <2 x float> %.sroa.01.0.copyload.sink84, i64 1
+  %.pn72 = fmul float %.sroa.04.0.vec.extract.i45, %112
+  %storemerge71 = fadd float %.sroa.0.0.copyload, %.pn72
+  store float %storemerge71, ptr %193, align 4
+  %.pn70 = fmul float %.sroa.04.4.vec.extract.i46, %112
+  %storemerge69 = fadd float %.pn70, %.sroa.2.0.copyload
+  store float %storemerge69, ptr %194, align 4
   %.pn = fmul float %.sroa.22.0.copyload.pn, %112
   %storemerge = fadd float %.pn, %.sroa.3.0.copyload
   store float %storemerge, ptr %195, align 4
@@ -8198,7 +8198,7 @@ _ZN5QHashIP8CVertexOSt4pairIN3vcg6Point3IfEENS3_6Color4IhEEEE6detachEv.exit.i: ;
   br i1 %248, label %.loopexit, label %239, !llvm.loop !68
 
 _ZNK5QHashIP8CVertexOSt4pairIN3vcg6Point3IfEENS3_6Color4IhEEEE8findNodeERKS1_Pj.exit.thread.i: ; preds = %239, %_ZN5QHashIP8CVertexOSt4pairIN3vcg6Point3IfEENS3_6Color4IhEEEE6detachEv.exit.i
-  %.1.i.i15.i = phi ptr [ %3, %_ZN5QHashIP8CVertexOSt4pairIN3vcg6Point3IfEENS3_6Color4IhEEEE6detachEv.exit.i ], [ %.0.i.i.i140, %239 ]
+  %.1.i.i21.i = phi ptr [ %3, %_ZN5QHashIP8CVertexOSt4pairIN3vcg6Point3IfEENS3_6Color4IhEEEE6detachEv.exit.i ], [ %.0.i.i.i140, %239 ]
   %249 = getelementptr inbounds nuw i8, ptr %232, i64 20
   %250 = load i32, ptr %249, align 4
   %.not.i.not.i = icmp slt i32 %250, %231
@@ -8245,7 +8245,7 @@ _ZNK5QHashIP8CVertexOSt4pairIN3vcg6Point3IfEENS3_6Color4IhEEEE8findNodeERKS1_Pj.
 
 _ZN9QHashData8willGrowEv.exit.i:                  ; preds = %267, %265, %.noexc144, %_ZNK5QHashIP8CVertexOSt4pairIN3vcg6Point3IfEENS3_6Color4IhEEEE8findNodeERKS1_Pj.exit.thread.i
   %275 = phi ptr [ %232, %_ZNK5QHashIP8CVertexOSt4pairIN3vcg6Point3IfEENS3_6Color4IhEEEE8findNodeERKS1_Pj.exit.thread.i ], [ %256, %.noexc144 ], [ %256, %265 ], [ %256, %267 ]
-  %.0.i = phi ptr [ %.1.i.i15.i, %_ZNK5QHashIP8CVertexOSt4pairIN3vcg6Point3IfEENS3_6Color4IhEEEE8findNodeERKS1_Pj.exit.thread.i ], [ %3, %.noexc144 ], [ %.0.i.i, %265 ], [ %.0.i.i, %267 ]
+  %.0.i = phi ptr [ %.1.i.i21.i, %_ZNK5QHashIP8CVertexOSt4pairIN3vcg6Point3IfEENS3_6Color4IhEEEE8findNodeERKS1_Pj.exit.thread.i ], [ %3, %.noexc144 ], [ %.0.i.i, %265 ], [ %.0.i.i, %267 ]
   %276 = invoke noundef ptr @_ZN9QHashData12allocateNodeEi(ptr noundef nonnull align 8 dereferenceable(44) %275, i32 noundef 8)
           to label %.noexc145 unwind label %.loopexit179
 
@@ -8827,14 +8827,14 @@ _ZNSt6vectorIP6CFaceOSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal
   br i1 %.not.i.i.i33, label %_ZNSt6vectorIP6CFaceOSaIS1_EED2Ev.exit, label %157
 
 157:                                              ; preds = %.thread, %156
-  %lpad.phi59 = phi { ptr, i32 } [ %lpad.loopexit, %.thread ], [ %lpad.loopexit.split-lp, %156 ]
+  %lpad.phi67 = phi { ptr, i32 } [ %lpad.loopexit, %.thread ], [ %lpad.loopexit.split-lp, %156 ]
   %158 = phi ptr [ %44, %.thread ], [ %.pre, %156 ]
   call void @_ZdlPv(ptr noundef nonnull %158) #25
   br label %_ZNSt6vectorIP6CFaceOSaIS1_EED2Ev.exit
 
 _ZNSt6vectorIP6CFaceOSaIS1_EED2Ev.exit:           ; preds = %156, %157
-  %lpad.phi60 = phi { ptr, i32 } [ %lpad.loopexit.split-lp, %156 ], [ %lpad.phi59, %157 ]
-  resume { ptr, i32 } %lpad.phi60
+  %lpad.phi68 = phi { ptr, i32 } [ %lpad.loopexit.split-lp, %156 ], [ %lpad.phi67, %157 ]
+  resume { ptr, i32 } %lpad.phi68
 
 _ZNSt6vectorIP6CFaceOSaIS1_EE9push_backERKS1_.exit: ; preds = %_ZNSt6vectorIP6CFaceOSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i, %131, %43, %114
   %159 = add nuw i64 %.056, 1
@@ -9123,7 +9123,7 @@ _ZN5QHashIP8CVertexOS1_E6detachEv.exit.i:         ; preds = %_ZN5QHashIP8CVertex
   br i1 %135, label %_ZNK5QHashIP8CVertexOS1_E8findNodeERKS1_Pj.exit.i, label %126, !llvm.loop !67
 
 _ZNK5QHashIP8CVertexOS1_E8findNodeERKS1_Pj.exit.thread.i: ; preds = %126, %_ZN5QHashIP8CVertexOS1_E6detachEv.exit.i
-  %.1.i.i16.i = phi ptr [ %6, %_ZN5QHashIP8CVertexOS1_E6detachEv.exit.i ], [ %.0.i.i.i54, %126 ]
+  %.1.i.i22.i = phi ptr [ %6, %_ZN5QHashIP8CVertexOS1_E6detachEv.exit.i ], [ %.0.i.i.i54, %126 ]
   %136 = getelementptr inbounds nuw i8, ptr %111, i64 20
   %137 = load i32, ptr %136, align 4
   %.not.i.not.i = icmp slt i32 %137, %110
@@ -9171,7 +9171,7 @@ _ZNK5QHashIP8CVertexOS1_E8findNodeERKS1_Pj.exit.thread.i: ; preds = %126, %_ZN5Q
 
 _ZN9QHashData8willGrowEv.exit.i:                  ; preds = %155, %153, %.noexc59, %_ZNK5QHashIP8CVertexOS1_E8findNodeERKS1_Pj.exit.thread.i
   %163 = phi ptr [ %111, %_ZNK5QHashIP8CVertexOS1_E8findNodeERKS1_Pj.exit.thread.i ], [ %143, %.noexc59 ], [ %143, %153 ], [ %143, %155 ]
-  %.0.i = phi ptr [ %.1.i.i16.i, %_ZNK5QHashIP8CVertexOS1_E8findNodeERKS1_Pj.exit.thread.i ], [ %6, %.noexc59 ], [ %.0.i.i, %153 ], [ %.0.i.i, %155 ]
+  %.0.i = phi ptr [ %.1.i.i22.i, %_ZNK5QHashIP8CVertexOS1_E8findNodeERKS1_Pj.exit.thread.i ], [ %6, %.noexc59 ], [ %.0.i.i, %153 ], [ %.0.i.i, %155 ]
   %164 = invoke noundef ptr @_ZN9QHashData12allocateNodeEi(ptr noundef nonnull align 8 dereferenceable(44) %163, i32 noundef 8)
           to label %.noexc60 unwind label %.loopexit167
 
@@ -9654,7 +9654,7 @@ _ZN5QHashIP6CFaceOS1_E6detachEv.exit.i:           ; preds = %_ZN5QHashIP6CFaceOS
   br i1 %366, label %_ZNK5QHashIP6CFaceOS1_E8findNodeERKS1_Pj.exit.i, label %357, !llvm.loop !82
 
 _ZNK5QHashIP6CFaceOS1_E8findNodeERKS1_Pj.exit.thread.i: ; preds = %357, %_ZN5QHashIP6CFaceOS1_E6detachEv.exit.i
-  %.1.i.i16.i87 = phi ptr [ %5, %_ZN5QHashIP6CFaceOS1_E6detachEv.exit.i ], [ %.0.i.i.i84, %357 ]
+  %.1.i.i22.i87 = phi ptr [ %5, %_ZN5QHashIP6CFaceOS1_E6detachEv.exit.i ], [ %.0.i.i.i84, %357 ]
   %367 = getelementptr inbounds nuw i8, ptr %340, i64 20
   %368 = load i32, ptr %367, align 4
   %.not.i.not.i88 = icmp slt i32 %368, %342
@@ -9702,7 +9702,7 @@ _ZNK5QHashIP6CFaceOS1_E8findNodeERKS1_Pj.exit.thread.i: ; preds = %357, %_ZN5QHa
 
 _ZN9QHashData8willGrowEv.exit.i92:                ; preds = %386, %384, %.noexc101, %_ZNK5QHashIP6CFaceOS1_E8findNodeERKS1_Pj.exit.thread.i
   %394 = phi ptr [ %340, %_ZNK5QHashIP6CFaceOS1_E8findNodeERKS1_Pj.exit.thread.i ], [ %374, %.noexc101 ], [ %374, %384 ], [ %374, %386 ]
-  %.0.i93 = phi ptr [ %.1.i.i16.i87, %_ZNK5QHashIP6CFaceOS1_E8findNodeERKS1_Pj.exit.thread.i ], [ %5, %.noexc101 ], [ %.0.i.i90, %384 ], [ %.0.i.i90, %386 ]
+  %.0.i93 = phi ptr [ %.1.i.i22.i87, %_ZNK5QHashIP6CFaceOS1_E8findNodeERKS1_Pj.exit.thread.i ], [ %5, %.noexc101 ], [ %.0.i.i90, %384 ], [ %.0.i.i90, %386 ]
   %395 = invoke noundef ptr @_ZN9QHashData12allocateNodeEi(ptr noundef nonnull align 8 dereferenceable(44) %394, i32 noundef 8)
           to label %.noexc102 unwind label %.loopexit.split-lp.loopexit
 
@@ -9993,14 +9993,14 @@ thread-pre-split:                                 ; preds = %16, %_Z10getNearest
   br i1 %.not.i.i.i23, label %_ZNSt6vectorIP6CFaceOSaIS1_EED2Ev.exit24, label %thread-pre-split.thread
 
 thread-pre-split.thread:                          ; preds = %20, %18, %thread-pre-split
-  %.02135 = phi i1 [ %17, %thread-pre-split ], [ false, %18 ], [ false, %20 ]
+  %.02137 = phi i1 [ %17, %thread-pre-split ], [ false, %18 ], [ false, %20 ]
   %73 = phi ptr [ %72, %thread-pre-split ], [ %.pr.pre31, %18 ], [ %.pr.pre31, %20 ]
   call void @_ZdlPv(ptr noundef nonnull %73) #25
   br label %_ZNSt6vectorIP6CFaceOSaIS1_EED2Ev.exit24
 
 _ZNSt6vectorIP6CFaceOSaIS1_EED2Ev.exit24:         ; preds = %thread-pre-split, %thread-pre-split.thread
-  %.02136 = phi i1 [ %17, %thread-pre-split ], [ %.02135, %thread-pre-split.thread ]
-  ret i1 %.02136
+  %.02138 = phi i1 [ %17, %thread-pre-split ], [ %.02137, %thread-pre-split.thread ]
+  ret i1 %.02138
 }
 
 declare void @_ZN6QColor6setRgbEiiii(ptr noundef nonnull align 4 dereferenceable(14), i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #0
@@ -10159,8 +10159,8 @@ _ZN8Paintbox10getOpacityEv.exit:                  ; preds = %3
   %or.cond.i.not = icmp ne i32 %110, 32
   %111 = getelementptr inbounds nuw i8, ptr %.sroa.04.09.i, i64 48
   %.not12.i = icmp ne ptr %111, %107
-  %or.cond201.not = select i1 %or.cond.i.not, i1 %.not12.i, i1 false
-  br i1 %or.cond201.not, label %.lr.ph.i, label %_Z11hasSelectedR9MeshModel.exit, !llvm.loop !101
+  %or.cond218.not = select i1 %or.cond.i.not, i1 %.not12.i, i1 false
+  br i1 %or.cond218.not, label %.lr.ph.i, label %_Z11hasSelectedR9MeshModel.exit, !llvm.loop !101
 
 _Z11hasSelectedR9MeshModel.exit:                  ; preds = %.lr.ph.i, %52
   %.lcssa.i.not = phi i1 [ true, %52 ], [ %or.cond.i.not, %.lr.ph.i ]
@@ -10387,7 +10387,7 @@ _ZN5QHashIP8CVertexOS1_E6detachEv.exit.i:         ; preds = %_ZN5QHashIP8CVertex
   br i1 %227, label %_ZNK5QHashIP8CVertexOS1_E8findNodeERKS1_Pj.exit.i, label %218, !llvm.loop !67
 
 _ZNK5QHashIP8CVertexOS1_E8findNodeERKS1_Pj.exit.thread.i: ; preds = %218, %_ZN5QHashIP8CVertexOS1_E6detachEv.exit.i
-  %.1.i.i16.i = phi ptr [ %11, %_ZN5QHashIP8CVertexOS1_E6detachEv.exit.i ], [ %.0.i.i.i75, %218 ]
+  %.1.i.i22.i = phi ptr [ %11, %_ZN5QHashIP8CVertexOS1_E6detachEv.exit.i ], [ %.0.i.i.i75, %218 ]
   %228 = getelementptr inbounds nuw i8, ptr %204, i64 20
   %229 = load i32, ptr %228, align 4
   %.not.i.not.i = icmp slt i32 %229, %203
@@ -10434,7 +10434,7 @@ _ZNK5QHashIP8CVertexOS1_E8findNodeERKS1_Pj.exit.thread.i: ; preds = %218, %_ZN5Q
 
 _ZN9QHashData8willGrowEv.exit.i:                  ; preds = %246, %244, %.noexc79, %_ZNK5QHashIP8CVertexOS1_E8findNodeERKS1_Pj.exit.thread.i
   %254 = phi ptr [ %204, %_ZNK5QHashIP8CVertexOS1_E8findNodeERKS1_Pj.exit.thread.i ], [ %235, %.noexc79 ], [ %235, %244 ], [ %235, %246 ]
-  %.0.i = phi ptr [ %.1.i.i16.i, %_ZNK5QHashIP8CVertexOS1_E8findNodeERKS1_Pj.exit.thread.i ], [ %11, %.noexc79 ], [ %.0.i.i, %244 ], [ %.0.i.i, %246 ]
+  %.0.i = phi ptr [ %.1.i.i22.i, %_ZNK5QHashIP8CVertexOS1_E8findNodeERKS1_Pj.exit.thread.i ], [ %11, %.noexc79 ], [ %.0.i.i, %244 ], [ %.0.i.i, %246 ]
   %255 = invoke noundef ptr @_ZN9QHashData12allocateNodeEi(ptr noundef nonnull align 8 dereferenceable(44) %254, i32 noundef 8)
           to label %.noexc80 unwind label %.loopexit179
 
@@ -10765,10 +10765,10 @@ _Z10applyColorP8CVertexORKN3vcg6Color4IhEEi.exit107: ; preds = %399
   %423 = fdiv float %sqrt175, %sqrt174
   %424 = fsub float 1.000000e+00, %423
   %425 = fpext float %424 to double
-  br i1 %143, label %.preheader198, label %459
+  br i1 %143, label %.preheader215, label %459
 
-.preheader198:                                    ; preds = %422, %.preheader198
-  %indvars.iv.i108 = phi i64 [ %indvars.iv.next.i110, %.preheader198 ], [ 0, %422 ]
+.preheader215:                                    ; preds = %422, %.preheader215
+  %indvars.iv.i108 = phi i64 [ %indvars.iv.next.i110, %.preheader215 ], [ 0, %422 ]
   %426 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 0, i64 %indvars.iv.i108
   %427 = load i8, ptr %426, align 1
   %428 = zext i8 %427 to i32
@@ -10786,9 +10786,9 @@ _Z10applyColorP8CVertexORKN3vcg6Color4IhEEi.exit107: ; preds = %399
   store i8 %437, ptr %438, align 1
   %indvars.iv.next.i110 = add nuw nsw i64 %indvars.iv.i108, 1
   %exitcond.not.i111 = icmp eq i64 %indvars.iv.next.i110, 4
-  br i1 %exitcond.not.i111, label %_Z11mergeColorsdRKN3vcg6Color4IhEES3_PS1_.exit112, label %.preheader198, !llvm.loop !71
+  br i1 %exitcond.not.i111, label %_Z11mergeColorsdRKN3vcg6Color4IhEES3_PS1_.exit112, label %.preheader215, !llvm.loop !71
 
-_Z11mergeColorsdRKN3vcg6Color4IhEES3_PS1_.exit112: ; preds = %.preheader198
+_Z11mergeColorsdRKN3vcg6Color4IhEES3_PS1_.exit112: ; preds = %.preheader215
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %439 = load i32, ptr %283, align 1
   store i32 %439, ptr %5, align 4
@@ -11241,9 +11241,9 @@ define linkonce_odr noundef zeroext i1 @_Z4isInRK7QPointFS1_fffPfRS_(ptr noundef
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %34 = load double, ptr %33, align 8
   %35 = fcmp une double %34, 0.000000e+00
-  %or.cond17.i.i = select i1 %32, i1 %35, i1 false
+  %or.cond19.i.i = select i1 %32, i1 %35, i1 false
   %36 = fsub double %31, %34
-  br i1 %or.cond17.i.i, label %_ZneRK7QPointFS1_.exit, label %._crit_edge.i.i
+  br i1 %or.cond19.i.i, label %_ZneRK7QPointFS1_.exit, label %._crit_edge.i.i
 
 ._crit_edge.i.i:                                  ; preds = %29
   %37 = tail call double @llvm.fabs.f64(double %36)
@@ -11391,9 +11391,9 @@ _ZneRK7QPointFS1_.exit.thread:                    ; preds = %._crit_edge.i.i, %1
   %132 = fcmp une double %131, 0.000000e+00
   %133 = load double, ptr %97, align 8
   %134 = fcmp une double %133, 0.000000e+00
-  %or.cond17.i = select i1 %132, i1 %134, i1 false
+  %or.cond19.i = select i1 %132, i1 %134, i1 false
   %135 = fsub double %131, %133
-  br i1 %or.cond17.i, label %_ZeqRK7QPointFS1_.exit, label %._crit_edge.i
+  br i1 %or.cond19.i, label %_ZeqRK7QPointFS1_.exit, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %129
   %136 = tail call double @llvm.fabs.f64(double %135)
@@ -11787,7 +11787,7 @@ _ZNK5QHashIP8CVertexOSt4pairIN3vcg6Color4IhEEiEE8findNodeERKS1_Pj.exit: ; preds 
   br i1 %42, label %_ZNK5QHashIP8CVertexOSt4pairIN3vcg6Color4IhEEiEE8findNodeERKS1_Pj.exit.thread, label %82
 
 _ZNK5QHashIP8CVertexOSt4pairIN3vcg6Color4IhEEiEE8findNodeERKS1_Pj.exit.thread: ; preds = %_ZN5QHashIP8CVertexOSt4pairIN3vcg6Color4IhEEiEE6detachEv.exit, %_ZNK5QHashIP8CVertexOSt4pairIN3vcg6Color4IhEEiEE8findNodeERKS1_Pj.exit
-  %.1.i.i16 = phi ptr [ %.0.i.i, %_ZNK5QHashIP8CVertexOSt4pairIN3vcg6Color4IhEEiEE8findNodeERKS1_Pj.exit ], [ %0, %_ZN5QHashIP8CVertexOSt4pairIN3vcg6Color4IhEEiEE6detachEv.exit ]
+  %.1.i.i22 = phi ptr [ %.0.i.i, %_ZNK5QHashIP8CVertexOSt4pairIN3vcg6Color4IhEEiEE8findNodeERKS1_Pj.exit ], [ %0, %_ZN5QHashIP8CVertexOSt4pairIN3vcg6Color4IhEEiEE6detachEv.exit ]
   %43 = getelementptr inbounds nuw i8, ptr %15, i64 20
   %44 = load i32, ptr %43, align 4
   %.not.i.not = icmp slt i32 %44, %17
@@ -11832,7 +11832,7 @@ _ZNK5QHashIP8CVertexOSt4pairIN3vcg6Color4IhEEiEE8findNodeERKS1_Pj.exit.thread: ;
 
 _ZN9QHashData8willGrowEv.exit:                    ; preds = %62, %60, %45, %_ZNK5QHashIP8CVertexOSt4pairIN3vcg6Color4IhEEiEE8findNodeERKS1_Pj.exit.thread
   %70 = phi ptr [ %15, %_ZNK5QHashIP8CVertexOSt4pairIN3vcg6Color4IhEEiEE8findNodeERKS1_Pj.exit.thread ], [ %50, %45 ], [ %50, %60 ], [ %50, %62 ]
-  %.0 = phi ptr [ %.1.i.i16, %_ZNK5QHashIP8CVertexOSt4pairIN3vcg6Color4IhEEiEE8findNodeERKS1_Pj.exit.thread ], [ %0, %45 ], [ %.0.i, %60 ], [ %.0.i, %62 ]
+  %.0 = phi ptr [ %.1.i.i22, %_ZNK5QHashIP8CVertexOSt4pairIN3vcg6Color4IhEEiEE8findNodeERKS1_Pj.exit.thread ], [ %0, %45 ], [ %.0.i, %60 ], [ %.0.i, %62 ]
   %71 = tail call noundef ptr @_ZN9QHashData12allocateNodeEi(ptr noundef nonnull align 8 dereferenceable(44) %70, i32 noundef 8)
   %72 = load ptr, ptr %.0, align 8
   store ptr %72, ptr %71, align 8
@@ -11950,7 +11950,7 @@ _ZNK5QHashIP8CVertexOSt4pairIN3vcg6Color4IhEEiEE8findNodeERKS1_Pj.exit: ; preds 
   br i1 %41, label %_ZNK5QHashIP8CVertexOSt4pairIN3vcg6Color4IhEEiEE8findNodeERKS1_Pj.exit.thread, label %80
 
 _ZNK5QHashIP8CVertexOSt4pairIN3vcg6Color4IhEEiEE8findNodeERKS1_Pj.exit.thread: ; preds = %_ZN5QHashIP8CVertexOSt4pairIN3vcg6Color4IhEEiEE6detachEv.exit, %_ZNK5QHashIP8CVertexOSt4pairIN3vcg6Color4IhEEiEE8findNodeERKS1_Pj.exit
-  %.1.i.i15 = phi ptr [ %.0.i.i, %_ZNK5QHashIP8CVertexOSt4pairIN3vcg6Color4IhEEiEE8findNodeERKS1_Pj.exit ], [ %0, %_ZN5QHashIP8CVertexOSt4pairIN3vcg6Color4IhEEiEE6detachEv.exit ]
+  %.1.i.i21 = phi ptr [ %.0.i.i, %_ZNK5QHashIP8CVertexOSt4pairIN3vcg6Color4IhEEiEE8findNodeERKS1_Pj.exit ], [ %0, %_ZN5QHashIP8CVertexOSt4pairIN3vcg6Color4IhEEiEE6detachEv.exit ]
   %42 = getelementptr inbounds nuw i8, ptr %14, i64 20
   %43 = load i32, ptr %42, align 4
   %.not.i.not = icmp slt i32 %43, %16
@@ -11995,7 +11995,7 @@ _ZNK5QHashIP8CVertexOSt4pairIN3vcg6Color4IhEEiEE8findNodeERKS1_Pj.exit.thread: ;
 
 _ZN9QHashData8willGrowEv.exit:                    ; preds = %61, %59, %44, %_ZNK5QHashIP8CVertexOSt4pairIN3vcg6Color4IhEEiEE8findNodeERKS1_Pj.exit.thread
   %69 = phi ptr [ %14, %_ZNK5QHashIP8CVertexOSt4pairIN3vcg6Color4IhEEiEE8findNodeERKS1_Pj.exit.thread ], [ %49, %44 ], [ %49, %59 ], [ %49, %61 ]
-  %.0 = phi ptr [ %.1.i.i15, %_ZNK5QHashIP8CVertexOSt4pairIN3vcg6Color4IhEEiEE8findNodeERKS1_Pj.exit.thread ], [ %0, %44 ], [ %.0.i, %59 ], [ %.0.i, %61 ]
+  %.0 = phi ptr [ %.1.i.i21, %_ZNK5QHashIP8CVertexOSt4pairIN3vcg6Color4IhEEiEE8findNodeERKS1_Pj.exit.thread ], [ %0, %44 ], [ %.0.i, %59 ], [ %.0.i, %61 ]
   %70 = tail call noundef ptr @_ZN9QHashData12allocateNodeEi(ptr noundef nonnull align 8 dereferenceable(44) %69, i32 noundef 8)
   %71 = load ptr, ptr %.0, align 8
   store ptr %71, ptr %70, align 8
@@ -12465,7 +12465,7 @@ _ZNK5QHashIP8CVertexOSt4pairIN3vcg6Point3IfEEfEE8findNodeERKS1_Pj.exit: ; preds 
   br i1 %42, label %_ZNK5QHashIP8CVertexOSt4pairIN3vcg6Point3IfEEfEE8findNodeERKS1_Pj.exit.thread, label %81
 
 _ZNK5QHashIP8CVertexOSt4pairIN3vcg6Point3IfEEfEE8findNodeERKS1_Pj.exit.thread: ; preds = %_ZN5QHashIP8CVertexOSt4pairIN3vcg6Point3IfEEfEE6detachEv.exit, %_ZNK5QHashIP8CVertexOSt4pairIN3vcg6Point3IfEEfEE8findNodeERKS1_Pj.exit
-  %.1.i.i16 = phi ptr [ %.0.i.i, %_ZNK5QHashIP8CVertexOSt4pairIN3vcg6Point3IfEEfEE8findNodeERKS1_Pj.exit ], [ %0, %_ZN5QHashIP8CVertexOSt4pairIN3vcg6Point3IfEEfEE6detachEv.exit ]
+  %.1.i.i22 = phi ptr [ %.0.i.i, %_ZNK5QHashIP8CVertexOSt4pairIN3vcg6Point3IfEEfEE8findNodeERKS1_Pj.exit ], [ %0, %_ZN5QHashIP8CVertexOSt4pairIN3vcg6Point3IfEEfEE6detachEv.exit ]
   %43 = getelementptr inbounds nuw i8, ptr %15, i64 20
   %44 = load i32, ptr %43, align 4
   %.not.i.not = icmp slt i32 %44, %17
@@ -12510,7 +12510,7 @@ _ZNK5QHashIP8CVertexOSt4pairIN3vcg6Point3IfEEfEE8findNodeERKS1_Pj.exit.thread: ;
 
 _ZN9QHashData8willGrowEv.exit:                    ; preds = %62, %60, %45, %_ZNK5QHashIP8CVertexOSt4pairIN3vcg6Point3IfEEfEE8findNodeERKS1_Pj.exit.thread
   %70 = phi ptr [ %15, %_ZNK5QHashIP8CVertexOSt4pairIN3vcg6Point3IfEEfEE8findNodeERKS1_Pj.exit.thread ], [ %50, %45 ], [ %50, %60 ], [ %50, %62 ]
-  %.0 = phi ptr [ %.1.i.i16, %_ZNK5QHashIP8CVertexOSt4pairIN3vcg6Point3IfEEfEE8findNodeERKS1_Pj.exit.thread ], [ %0, %45 ], [ %.0.i, %60 ], [ %.0.i, %62 ]
+  %.0 = phi ptr [ %.1.i.i22, %_ZNK5QHashIP8CVertexOSt4pairIN3vcg6Point3IfEEfEE8findNodeERKS1_Pj.exit.thread ], [ %0, %45 ], [ %.0.i, %60 ], [ %.0.i, %62 ]
   %71 = tail call noundef ptr @_ZN9QHashData12allocateNodeEi(ptr noundef nonnull align 8 dereferenceable(44) %70, i32 noundef 8)
   %72 = load ptr, ptr %.0, align 8
   store ptr %72, ptr %71, align 8
@@ -12793,7 +12793,7 @@ _ZNK5QHashIP8CVertexOSt4pairIN3vcg6Point3IfEEfEE8findNodeERKS1_Pj.exit: ; preds 
   br i1 %41, label %_ZNK5QHashIP8CVertexOSt4pairIN3vcg6Point3IfEEfEE8findNodeERKS1_Pj.exit.thread, label %79
 
 _ZNK5QHashIP8CVertexOSt4pairIN3vcg6Point3IfEEfEE8findNodeERKS1_Pj.exit.thread: ; preds = %_ZN5QHashIP8CVertexOSt4pairIN3vcg6Point3IfEEfEE6detachEv.exit, %_ZNK5QHashIP8CVertexOSt4pairIN3vcg6Point3IfEEfEE8findNodeERKS1_Pj.exit
-  %.1.i.i15 = phi ptr [ %.0.i.i, %_ZNK5QHashIP8CVertexOSt4pairIN3vcg6Point3IfEEfEE8findNodeERKS1_Pj.exit ], [ %0, %_ZN5QHashIP8CVertexOSt4pairIN3vcg6Point3IfEEfEE6detachEv.exit ]
+  %.1.i.i21 = phi ptr [ %.0.i.i, %_ZNK5QHashIP8CVertexOSt4pairIN3vcg6Point3IfEEfEE8findNodeERKS1_Pj.exit ], [ %0, %_ZN5QHashIP8CVertexOSt4pairIN3vcg6Point3IfEEfEE6detachEv.exit ]
   %42 = getelementptr inbounds nuw i8, ptr %14, i64 20
   %43 = load i32, ptr %42, align 4
   %.not.i.not = icmp slt i32 %43, %16
@@ -12838,7 +12838,7 @@ _ZNK5QHashIP8CVertexOSt4pairIN3vcg6Point3IfEEfEE8findNodeERKS1_Pj.exit.thread: ;
 
 _ZN9QHashData8willGrowEv.exit:                    ; preds = %61, %59, %44, %_ZNK5QHashIP8CVertexOSt4pairIN3vcg6Point3IfEEfEE8findNodeERKS1_Pj.exit.thread
   %69 = phi ptr [ %14, %_ZNK5QHashIP8CVertexOSt4pairIN3vcg6Point3IfEEfEE8findNodeERKS1_Pj.exit.thread ], [ %49, %44 ], [ %49, %59 ], [ %49, %61 ]
-  %.0 = phi ptr [ %.1.i.i15, %_ZNK5QHashIP8CVertexOSt4pairIN3vcg6Point3IfEEfEE8findNodeERKS1_Pj.exit.thread ], [ %0, %44 ], [ %.0.i, %59 ], [ %.0.i, %61 ]
+  %.0 = phi ptr [ %.1.i.i21, %_ZNK5QHashIP8CVertexOSt4pairIN3vcg6Point3IfEEfEE8findNodeERKS1_Pj.exit.thread ], [ %0, %44 ], [ %.0.i, %59 ], [ %.0.i, %61 ]
   %70 = tail call noundef ptr @_ZN9QHashData12allocateNodeEi(ptr noundef nonnull align 8 dereferenceable(44) %69, i32 noundef 8)
   %71 = load ptr, ptr %.0, align 8
   store ptr %71, ptr %70, align 8
@@ -13784,7 +13784,7 @@ _ZNK5QHashIP8CVertexOS1_E8findNodeERKS1_Pj.exit:  ; preds = %32, %34
   br i1 %42, label %_ZNK5QHashIP8CVertexOS1_E8findNodeERKS1_Pj.exit.thread, label %82
 
 _ZNK5QHashIP8CVertexOS1_E8findNodeERKS1_Pj.exit.thread: ; preds = %_ZN5QHashIP8CVertexOS1_E6detachEv.exit, %_ZNK5QHashIP8CVertexOS1_E8findNodeERKS1_Pj.exit
-  %.1.i.i16 = phi ptr [ %.0.i.i, %_ZNK5QHashIP8CVertexOS1_E8findNodeERKS1_Pj.exit ], [ %0, %_ZN5QHashIP8CVertexOS1_E6detachEv.exit ]
+  %.1.i.i22 = phi ptr [ %.0.i.i, %_ZNK5QHashIP8CVertexOS1_E8findNodeERKS1_Pj.exit ], [ %0, %_ZN5QHashIP8CVertexOS1_E6detachEv.exit ]
   %43 = getelementptr inbounds nuw i8, ptr %15, i64 20
   %44 = load i32, ptr %43, align 4
   %.not.i.not = icmp slt i32 %44, %17
@@ -13829,7 +13829,7 @@ _ZNK5QHashIP8CVertexOS1_E8findNodeERKS1_Pj.exit.thread: ; preds = %_ZN5QHashIP8C
 
 _ZN9QHashData8willGrowEv.exit:                    ; preds = %62, %60, %45, %_ZNK5QHashIP8CVertexOS1_E8findNodeERKS1_Pj.exit.thread
   %70 = phi ptr [ %15, %_ZNK5QHashIP8CVertexOS1_E8findNodeERKS1_Pj.exit.thread ], [ %50, %45 ], [ %50, %60 ], [ %50, %62 ]
-  %.0 = phi ptr [ %.1.i.i16, %_ZNK5QHashIP8CVertexOS1_E8findNodeERKS1_Pj.exit.thread ], [ %0, %45 ], [ %.0.i, %60 ], [ %.0.i, %62 ]
+  %.0 = phi ptr [ %.1.i.i22, %_ZNK5QHashIP8CVertexOS1_E8findNodeERKS1_Pj.exit.thread ], [ %0, %45 ], [ %.0.i, %60 ], [ %.0.i, %62 ]
   %71 = tail call noundef ptr @_ZN9QHashData12allocateNodeEi(ptr noundef nonnull align 8 dereferenceable(44) %70, i32 noundef 8)
   %72 = load ptr, ptr %.0, align 8
   store ptr %72, ptr %71, align 8
@@ -13941,7 +13941,7 @@ _ZNK5QHashIP8CVertexOSt4pairIN3vcg6Point3IfEENS3_6Color4IhEEEE8findNodeERKS1_Pj.
   br i1 %42, label %_ZNK5QHashIP8CVertexOSt4pairIN3vcg6Point3IfEENS3_6Color4IhEEEE8findNodeERKS1_Pj.exit.thread, label %81
 
 _ZNK5QHashIP8CVertexOSt4pairIN3vcg6Point3IfEENS3_6Color4IhEEEE8findNodeERKS1_Pj.exit.thread: ; preds = %_ZN5QHashIP8CVertexOSt4pairIN3vcg6Point3IfEENS3_6Color4IhEEEE6detachEv.exit, %_ZNK5QHashIP8CVertexOSt4pairIN3vcg6Point3IfEENS3_6Color4IhEEEE8findNodeERKS1_Pj.exit
-  %.1.i.i16 = phi ptr [ %.0.i.i, %_ZNK5QHashIP8CVertexOSt4pairIN3vcg6Point3IfEENS3_6Color4IhEEEE8findNodeERKS1_Pj.exit ], [ %0, %_ZN5QHashIP8CVertexOSt4pairIN3vcg6Point3IfEENS3_6Color4IhEEEE6detachEv.exit ]
+  %.1.i.i22 = phi ptr [ %.0.i.i, %_ZNK5QHashIP8CVertexOSt4pairIN3vcg6Point3IfEENS3_6Color4IhEEEE8findNodeERKS1_Pj.exit ], [ %0, %_ZN5QHashIP8CVertexOSt4pairIN3vcg6Point3IfEENS3_6Color4IhEEEE6detachEv.exit ]
   %43 = getelementptr inbounds nuw i8, ptr %15, i64 20
   %44 = load i32, ptr %43, align 4
   %.not.i.not = icmp slt i32 %44, %17
@@ -13986,7 +13986,7 @@ _ZNK5QHashIP8CVertexOSt4pairIN3vcg6Point3IfEENS3_6Color4IhEEEE8findNodeERKS1_Pj.
 
 _ZN9QHashData8willGrowEv.exit:                    ; preds = %62, %60, %45, %_ZNK5QHashIP8CVertexOSt4pairIN3vcg6Point3IfEENS3_6Color4IhEEEE8findNodeERKS1_Pj.exit.thread
   %70 = phi ptr [ %15, %_ZNK5QHashIP8CVertexOSt4pairIN3vcg6Point3IfEENS3_6Color4IhEEEE8findNodeERKS1_Pj.exit.thread ], [ %50, %45 ], [ %50, %60 ], [ %50, %62 ]
-  %.0 = phi ptr [ %.1.i.i16, %_ZNK5QHashIP8CVertexOSt4pairIN3vcg6Point3IfEENS3_6Color4IhEEEE8findNodeERKS1_Pj.exit.thread ], [ %0, %45 ], [ %.0.i, %60 ], [ %.0.i, %62 ]
+  %.0 = phi ptr [ %.1.i.i22, %_ZNK5QHashIP8CVertexOSt4pairIN3vcg6Point3IfEENS3_6Color4IhEEEE8findNodeERKS1_Pj.exit.thread ], [ %0, %45 ], [ %.0.i, %60 ], [ %.0.i, %62 ]
   %71 = tail call noundef ptr @_ZN9QHashData12allocateNodeEi(ptr noundef nonnull align 8 dereferenceable(44) %70, i32 noundef 8)
   %72 = load ptr, ptr %.0, align 8
   store ptr %72, ptr %71, align 8
@@ -15094,7 +15094,7 @@ define linkonce_odr void @_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EE6resizeEm(ptr nou
   br i1 %.not28.i, label %23, label %21
 
 21:                                               ; preds = %11
-  %22 = mul i64 %12, 12
+  %22 = mul nuw nsw i64 %12, 12
   %scevgep.i.i.i.i = getelementptr i8, ptr %4, i64 %22
   store ptr %scevgep.i.i.i.i, ptr %3, align 8
   br label %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EE17_M_default_appendEm.exit
@@ -15934,7 +15934,7 @@ _ZNK5QHashIP6CFaceOS1_E8findNodeERKS1_Pj.exit:    ; preds = %32, %34
   br i1 %42, label %_ZNK5QHashIP6CFaceOS1_E8findNodeERKS1_Pj.exit.thread, label %82
 
 _ZNK5QHashIP6CFaceOS1_E8findNodeERKS1_Pj.exit.thread: ; preds = %_ZN5QHashIP6CFaceOS1_E6detachEv.exit, %_ZNK5QHashIP6CFaceOS1_E8findNodeERKS1_Pj.exit
-  %.1.i.i16 = phi ptr [ %.0.i.i, %_ZNK5QHashIP6CFaceOS1_E8findNodeERKS1_Pj.exit ], [ %0, %_ZN5QHashIP6CFaceOS1_E6detachEv.exit ]
+  %.1.i.i22 = phi ptr [ %.0.i.i, %_ZNK5QHashIP6CFaceOS1_E8findNodeERKS1_Pj.exit ], [ %0, %_ZN5QHashIP6CFaceOS1_E6detachEv.exit ]
   %43 = getelementptr inbounds nuw i8, ptr %15, i64 20
   %44 = load i32, ptr %43, align 4
   %.not.i.not = icmp slt i32 %44, %17
@@ -15979,7 +15979,7 @@ _ZNK5QHashIP6CFaceOS1_E8findNodeERKS1_Pj.exit.thread: ; preds = %_ZN5QHashIP6CFa
 
 _ZN9QHashData8willGrowEv.exit:                    ; preds = %62, %60, %45, %_ZNK5QHashIP6CFaceOS1_E8findNodeERKS1_Pj.exit.thread
   %70 = phi ptr [ %15, %_ZNK5QHashIP6CFaceOS1_E8findNodeERKS1_Pj.exit.thread ], [ %50, %45 ], [ %50, %60 ], [ %50, %62 ]
-  %.0 = phi ptr [ %.1.i.i16, %_ZNK5QHashIP6CFaceOS1_E8findNodeERKS1_Pj.exit.thread ], [ %0, %45 ], [ %.0.i, %60 ], [ %.0.i, %62 ]
+  %.0 = phi ptr [ %.1.i.i22, %_ZNK5QHashIP6CFaceOS1_E8findNodeERKS1_Pj.exit.thread ], [ %0, %45 ], [ %.0.i, %60 ], [ %.0.i, %62 ]
   %71 = tail call noundef ptr @_ZN9QHashData12allocateNodeEi(ptr noundef nonnull align 8 dereferenceable(44) %70, i32 noundef 8)
   %72 = load ptr, ptr %.0, align 8
   store ptr %72, ptr %71, align 8

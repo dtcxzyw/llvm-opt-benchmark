@@ -439,20 +439,20 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
   br i1 %exitcond145.not, label %.critedge72, label %.preheader.us, !llvm.loop !59
 
 .critedge72:                                      ; preds = %._crit_edge.us, %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit.thread, %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit
-  %.sroa.0128.0149 = phi ptr [ null, %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit.thread ], [ %170, %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit ], [ %170, %._crit_edge.us ]
-  %.sroa.9.0148 = phi ptr [ null, %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit.thread ], [ %171, %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit ], [ %171, %._crit_edge.us ]
+  %.sroa.0128.0179 = phi ptr [ null, %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit.thread ], [ %170, %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit ], [ %170, %._crit_edge.us ]
+  %.sroa.9.0178 = phi ptr [ null, %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit.thread ], [ %171, %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit ], [ %171, %._crit_edge.us ]
   %184 = load i32, ptr %49, align 4, !tbaa !42
   call void @__kmpc_push_num_threads(ptr nonnull @2, i32 %16, i32 %184)
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 9, ptr nonnull @_ZNK4ncnn3LRN15forward_inplaceERNS_3MatERKNS_6OptionE.omp_outlined.2, ptr nonnull %4, ptr nonnull %1, ptr nonnull %11, ptr nonnull %10, ptr nonnull %9, ptr nonnull %13, ptr nonnull %15, ptr nonnull %0, ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
-  %.not.i.i.i = icmp eq ptr %.sroa.0128.0149, null
+  %.not.i.i.i = icmp eq ptr %.sroa.0128.0179, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %185
 
 185:                                              ; preds = %.critedge72
-  %186 = ptrtoint ptr %.sroa.9.0148 to i64
-  %187 = ptrtoint ptr %.sroa.0128.0149 to i64
+  %186 = ptrtoint ptr %.sroa.9.0178 to i64
+  %187 = ptrtoint ptr %.sroa.0128.0179 to i64
   %188 = sub i64 %186, %187
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0128.0149, i64 noundef %188) #16
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0128.0179, i64 noundef %188) #16
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit
 
 _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %.critedge72, %185

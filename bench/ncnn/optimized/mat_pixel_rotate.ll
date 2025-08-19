@@ -1521,8 +1521,8 @@ define hidden void @_ZN4ncnn15kanna_rotate_c3EPKhiiiPhiiii(ptr noundef readonly 
 .lr.ph.us.i87:                                    ; preds = %._crit_edge.us.i91, %.lr.ph.us.preheader.i85
   %indvars.iv.i88 = phi i64 [ 0, %.lr.ph.us.preheader.i85 ], [ %indvars.iv.next.i92, %._crit_edge.us.i91 ]
   %.02529.us.i = phi ptr [ %0, %.lr.ph.us.preheader.i85 ], [ %219, %._crit_edge.us.i91 ]
-  %.neg37.i = mul nsw i64 %indvars.iv.i88, -3
-  %206 = getelementptr inbounds i8, ptr %200, i64 %.neg37.i
+  %.neg38.i = mul nsw i64 %indvars.iv.i88, -3
+  %206 = getelementptr inbounds i8, ptr %200, i64 %.neg38.i
   %207 = getelementptr inbounds i8, ptr %206, i64 -3
   br label %208
 
@@ -1579,8 +1579,8 @@ define hidden void @_ZN4ncnn15kanna_rotate_c3EPKhiiiPhiiii(ptr noundef readonly 
 .lr.ph.us.i96:                                    ; preds = %._crit_edge.us.i101, %.lr.ph.us.preheader.i94
   %indvars.iv.i97 = phi i64 [ 0, %.lr.ph.us.preheader.i94 ], [ %indvars.iv.next.i102, %._crit_edge.us.i101 ]
   %.02731.us.i = phi ptr [ %0, %.lr.ph.us.preheader.i94 ], [ %247, %._crit_edge.us.i101 ]
-  %.neg39.i = mul nsw i64 %indvars.iv.i97, -3
-  %234 = getelementptr inbounds i8, ptr %227, i64 %.neg39.i
+  %.neg40.i = mul nsw i64 %indvars.iv.i97, -3
+  %234 = getelementptr inbounds i8, ptr %227, i64 %.neg40.i
   %235 = getelementptr inbounds i8, ptr %234, i64 -3
   br label %236
 

@@ -103,20 +103,20 @@ sdsReqType.exit:                                  ; preds = %3, %6, %8, %10
 
 switch.lookup:                                    ; preds = %32
   %39 = zext nneg i8 %spec.store.select to i64
-  %switch.gep77 = getelementptr inbounds nuw [4 x i64], ptr @switch.table._sdsnewlen.2, i64 0, i64 %39
-  %switch.load78 = load i64, ptr %switch.gep77, align 8
-  %40 = icmp ugt i64 %37, %switch.load78
-  br i1 %40, label %switch.lookup79, label %42
+  %switch.gep82 = getelementptr inbounds nuw [4 x i64], ptr @switch.table._sdsnewlen.2, i64 0, i64 %39
+  %switch.load83 = load i64, ptr %switch.gep82, align 8
+  %40 = icmp ugt i64 %37, %switch.load83
+  br i1 %40, label %switch.lookup84, label %42
 
-switch.lookup79:                                  ; preds = %switch.lookup
+switch.lookup84:                                  ; preds = %switch.lookup
   %41 = zext nneg i8 %spec.store.select to i64
-  %switch.gep80 = getelementptr inbounds nuw [4 x i64], ptr @switch.table._sdsnewlen.2, i64 0, i64 %41
-  %switch.load81 = load i64, ptr %switch.gep80, align 8
-  store i64 %switch.load81, ptr %4, align 8, !tbaa !11
+  %switch.gep85 = getelementptr inbounds nuw [4 x i64], ptr @switch.table._sdsnewlen.2, i64 0, i64 %41
+  %switch.load86 = load i64, ptr %switch.gep85, align 8
+  store i64 %switch.load86, ptr %4, align 8, !tbaa !11
   br label %42
 
-42:                                               ; preds = %switch.lookup79, %switch.lookup
-  %43 = phi i64 [ %switch.load81, %switch.lookup79 ], [ %37, %switch.lookup ]
+42:                                               ; preds = %switch.lookup84, %switch.lookup
+  %43 = phi i64 [ %switch.load86, %switch.lookup84 ], [ %37, %switch.lookup ]
   switch i8 %spec.store.select, label %default.unreachable [
     i8 0, label %44
     i8 1, label %46
@@ -644,15 +644,15 @@ sdsHdrSize.exit:                                  ; preds = %sdslen.exit, %switc
 76:                                               ; preds = %74
   %77 = icmp ult i64 %.050, 4294967296
   %spec.select = select i1 %77, i8 3, i8 4
-  %spec.select88 = select i1 %77, i64 9, i64 17
+  %spec.select94 = select i1 %77, i64 9, i64 17
   br label %sdsHdrSize.exit61
 
-default.unreachable68:                            ; preds = %90
+default.unreachable74:                            ; preds = %90
   unreachable
 
 sdsHdrSize.exit61:                                ; preds = %76, %72, %74
-  %.0.i5970 = phi i8 [ 2, %74 ], [ 1, %72 ], [ %spec.select, %76 ]
-  %.0.i60 = phi i64 [ 5, %74 ], [ 3, %72 ], [ %spec.select88, %76 ]
+  %.0.i5976 = phi i8 [ 2, %74 ], [ 1, %72 ], [ %spec.select, %76 ]
+  %.0.i60 = phi i64 [ 5, %74 ], [ 3, %72 ], [ %spec.select94, %76 ]
   %78 = add i64 %.050, 1
   %79 = add i64 %78, %.0.i60
   %80 = icmp ugt i64 %79, %61
@@ -664,7 +664,7 @@ sdsHdrSize.exit61:                                ; preds = %76, %72, %74
   unreachable
 
 82:                                               ; preds = %sdsHdrSize.exit61
-  %83 = icmp eq i8 %7, %.0.i5970
+  %83 = icmp eq i8 %7, %.0.i5976
   br i1 %83, label %84, label %87
 
 84:                                               ; preds = %82
@@ -683,15 +683,15 @@ sdsHdrSize.exit61:                                ; preds = %76, %72, %74
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %91, ptr noundef nonnull align 1 dereferenceable(1) %0, i64 %92, i1 false)
   call void @zfree(ptr noundef nonnull %60) #25
   %93 = getelementptr inbounds i8, ptr %91, i64 -1
-  store i8 %.0.i5970, ptr %93, align 1, !tbaa !13
-  switch i8 %.0.i5970, label %default.unreachable68 [
+  store i8 %.0.i5976, ptr %93, align 1, !tbaa !13
+  switch i8 %.0.i5976, label %default.unreachable74 [
     i8 4, label %sdssetlen.exit.thread
-    i8 1, label %sdssetlen.exit.thread83
-    i8 2, label %sdssetlen.exit.thread85
-    i8 3, label %sdssetlen.exit.thread79
+    i8 1, label %sdssetlen.exit.thread89
+    i8 2, label %sdssetlen.exit.thread91
+    i8 3, label %sdssetlen.exit.thread85
   ]
 
-sdssetlen.exit.thread83:                          ; preds = %90
+sdssetlen.exit.thread89:                          ; preds = %90
   %94 = trunc i64 %.0.i57 to i8
   %95 = getelementptr inbounds i8, ptr %91, i64 -3
   store i8 %94, ptr %95, align 1, !tbaa !13
@@ -701,7 +701,7 @@ sdssetlen.exit.thread83:                          ; preds = %90
   store i64 %98, ptr %4, align 8, !tbaa !11
   br label %sdsTypeMaxSize.exit
 
-sdssetlen.exit.thread85:                          ; preds = %90
+sdssetlen.exit.thread91:                          ; preds = %90
   %99 = trunc i64 %.0.i57 to i16
   %100 = getelementptr inbounds i8, ptr %91, i64 -5
   store i16 %99, ptr %100, align 1, !tbaa !14
@@ -711,7 +711,7 @@ sdssetlen.exit.thread85:                          ; preds = %90
   store i64 %103, ptr %4, align 8, !tbaa !11
   br label %sdsTypeMaxSize.exit
 
-sdssetlen.exit.thread79:                          ; preds = %90
+sdssetlen.exit.thread85:                          ; preds = %90
   %104 = trunc i64 %.0.i57 to i32
   %105 = getelementptr inbounds i8, ptr %91, i64 -9
   store i32 %104, ptr %105, align 1, !tbaa !16
@@ -735,7 +735,7 @@ sdssetlen.exit:                                   ; preds = %84
   %115 = xor i64 %.0.i60, -1
   %116 = add i64 %114, %115
   store i64 %116, ptr %4, align 8, !tbaa !11
-  switch i8 %.0.i5970, label %sdsTypeMaxSize.exit.thread [
+  switch i8 %.0.i5976, label %sdsTypeMaxSize.exit.thread [
     i8 3, label %118
     i8 1, label %sdsTypeMaxSize.exit
     i8 2, label %117
@@ -747,15 +747,15 @@ sdssetlen.exit:                                   ; preds = %84
 118:                                              ; preds = %sdssetlen.exit
   br label %sdsTypeMaxSize.exit
 
-sdsTypeMaxSize.exit:                              ; preds = %sdssetlen.exit.thread79, %sdssetlen.exit.thread85, %sdssetlen.exit.thread83, %sdssetlen.exit, %117, %118
-  %119 = phi i64 [ %116, %sdssetlen.exit ], [ %98, %sdssetlen.exit.thread83 ], [ %103, %sdssetlen.exit.thread85 ], [ %116, %117 ], [ %108, %sdssetlen.exit.thread79 ], [ %116, %118 ]
-  %.04981 = phi ptr [ %113, %sdssetlen.exit ], [ %91, %sdssetlen.exit.thread83 ], [ %91, %sdssetlen.exit.thread85 ], [ %113, %117 ], [ %91, %sdssetlen.exit.thread79 ], [ %113, %118 ]
-  %.0.i62 = phi i64 [ 255, %sdssetlen.exit ], [ 255, %sdssetlen.exit.thread83 ], [ 65535, %sdssetlen.exit.thread85 ], [ 65535, %117 ], [ 4294967295, %sdssetlen.exit.thread79 ], [ 4294967295, %118 ]
+sdsTypeMaxSize.exit:                              ; preds = %sdssetlen.exit.thread85, %sdssetlen.exit.thread91, %sdssetlen.exit.thread89, %sdssetlen.exit, %117, %118
+  %119 = phi i64 [ %116, %sdssetlen.exit ], [ %98, %sdssetlen.exit.thread89 ], [ %103, %sdssetlen.exit.thread91 ], [ %116, %117 ], [ %108, %sdssetlen.exit.thread85 ], [ %116, %118 ]
+  %.04987 = phi ptr [ %113, %sdssetlen.exit ], [ %91, %sdssetlen.exit.thread89 ], [ %91, %sdssetlen.exit.thread91 ], [ %113, %117 ], [ %91, %sdssetlen.exit.thread85 ], [ %113, %118 ]
+  %.0.i62 = phi i64 [ 255, %sdssetlen.exit ], [ 255, %sdssetlen.exit.thread89 ], [ 65535, %sdssetlen.exit.thread91 ], [ 65535, %117 ], [ 4294967295, %sdssetlen.exit.thread85 ], [ 4294967295, %118 ]
   %120 = icmp ugt i64 %119, %.0.i62
   br i1 %120, label %121, label %sdsTypeMaxSize.exit.thread
 
 121:                                              ; preds = %sdsTypeMaxSize.exit
-  switch i8 %.0.i5970, label %default.unreachable66 [
+  switch i8 %.0.i5976, label %default.unreachable66 [
     i8 3, label %123
     i8 1, label %sdsTypeMaxSize.exit.thread.sink.split
     i8 2, label %122
@@ -772,14 +772,14 @@ default.unreachable66:                            ; preds = %121
 
 sdsTypeMaxSize.exit.thread.sink.split:            ; preds = %123, %122, %121, %sdssetlen.exit.thread
   %.sink = phi i64 [ %112, %sdssetlen.exit.thread ], [ 65535, %122 ], [ 4294967295, %123 ], [ 255, %121 ]
-  %.04978.ph = phi ptr [ %91, %sdssetlen.exit.thread ], [ %.04981, %122 ], [ %.04981, %123 ], [ %.04981, %121 ]
+  %.04984.ph = phi ptr [ %91, %sdssetlen.exit.thread ], [ %.04987, %122 ], [ %.04987, %123 ], [ %.04987, %121 ]
   store i64 %.sink, ptr %4, align 8, !tbaa !11
   br label %sdsTypeMaxSize.exit.thread
 
 sdsTypeMaxSize.exit.thread:                       ; preds = %sdsTypeMaxSize.exit.thread.sink.split, %sdssetlen.exit, %sdsTypeMaxSize.exit
-  %.04978 = phi ptr [ %113, %sdssetlen.exit ], [ %.04981, %sdsTypeMaxSize.exit ], [ %.04978.ph, %sdsTypeMaxSize.exit.thread.sink.split ]
+  %.04984 = phi ptr [ %113, %sdssetlen.exit ], [ %.04987, %sdsTypeMaxSize.exit ], [ %.04984.ph, %sdsTypeMaxSize.exit.thread.sink.split ]
   %124 = phi i64 [ %116, %sdssetlen.exit ], [ %119, %sdsTypeMaxSize.exit ], [ %.sink, %sdsTypeMaxSize.exit.thread.sink.split ]
-  %125 = getelementptr inbounds i8, ptr %.04978, i64 -1
+  %125 = getelementptr inbounds i8, ptr %.04984, i64 -1
   %126 = load i8, ptr %125, align 1, !tbaa !13
   %127 = and i8 %126, 7
   switch i8 %127, label %sdssetalloc.exit [
@@ -791,29 +791,29 @@ sdsTypeMaxSize.exit.thread:                       ; preds = %sdsTypeMaxSize.exit
 
 128:                                              ; preds = %sdsTypeMaxSize.exit.thread
   %129 = trunc i64 %124 to i8
-  %130 = getelementptr inbounds i8, ptr %.04978, i64 -2
+  %130 = getelementptr inbounds i8, ptr %.04984, i64 -2
   store i8 %129, ptr %130, align 1, !tbaa !13
   br label %sdssetalloc.exit
 
 131:                                              ; preds = %sdsTypeMaxSize.exit.thread
   %132 = trunc i64 %124 to i16
-  %133 = getelementptr inbounds i8, ptr %.04978, i64 -3
+  %133 = getelementptr inbounds i8, ptr %.04984, i64 -3
   store i16 %132, ptr %133, align 1, !tbaa !14
   br label %sdssetalloc.exit
 
 134:                                              ; preds = %sdsTypeMaxSize.exit.thread
   %135 = trunc i64 %124 to i32
-  %136 = getelementptr inbounds i8, ptr %.04978, i64 -5
+  %136 = getelementptr inbounds i8, ptr %.04984, i64 -5
   store i32 %135, ptr %136, align 1, !tbaa !16
   br label %sdssetalloc.exit
 
 137:                                              ; preds = %sdsTypeMaxSize.exit.thread
-  %138 = getelementptr inbounds i8, ptr %.04978, i64 -9
+  %138 = getelementptr inbounds i8, ptr %.04984, i64 -9
   store i64 %124, ptr %138, align 1, !tbaa !11
   br label %sdssetalloc.exit
 
 sdssetalloc.exit:                                 ; preds = %137, %134, %131, %128, %sdsTypeMaxSize.exit.thread, %87, %84, %sdsavail.exit
-  %.0 = phi ptr [ %0, %sdsavail.exit ], [ null, %84 ], [ null, %87 ], [ %.04978, %sdsTypeMaxSize.exit.thread ], [ %.04978, %128 ], [ %.04978, %131 ], [ %.04978, %134 ], [ %.04978, %137 ]
+  %.0 = phi ptr [ %0, %sdsavail.exit ], [ null, %84 ], [ null, %87 ], [ %.04984, %sdsTypeMaxSize.exit.thread ], [ %.04984, %128 ], [ %.04984, %131 ], [ %.04984, %134 ], [ %.04984, %137 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0
 }
@@ -991,8 +991,8 @@ sdsReqType.exit:                                  ; preds = %49, %51, %53, %55
   %spec.store.select = tail call i8 @llvm.umax.i8(i8 %.0.i67, i8 1)
   %.058 = select i1 %.not, i8 %.0.i67, i8 %spec.store.select
   %57 = zext nneg i8 %.058 to i64
-  %switch.gep90 = getelementptr inbounds nuw [5 x i64], ptr @switch.table.sdsAllocSize, i64 0, i64 %57
-  %switch.load91 = load i64, ptr %switch.gep90, align 8
+  %switch.gep94 = getelementptr inbounds nuw [5 x i64], ptr @switch.table.sdsAllocSize, i64 0, i64 %57
+  %switch.load95 = load i64, ptr %switch.gep94, align 8
   %58 = icmp eq i8 %6, %.058
   br i1 %58, label %.thread, label %59
 
@@ -1021,13 +1021,13 @@ sdsReqType.exit:                                  ; preds = %49, %51, %53, %55
 
 72:                                               ; preds = %59
   %.in = add i64 %1, 1
-  %73 = add i64 %.in, %switch.load91
+  %73 = add i64 %.in, %switch.load95
   %74 = tail call noalias ptr @zmalloc(i64 noundef %73) #29
   %75 = icmp eq ptr %74, null
   br i1 %75, label %.critedge, label %76
 
 76:                                               ; preds = %72
-  %77 = getelementptr inbounds nuw i8, ptr %74, i64 %switch.load91
+  %77 = getelementptr inbounds nuw i8, ptr %74, i64 %switch.load95
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %77, ptr nonnull align 1 %0, i64 %spec.select, i1 false)
   tail call void @zfree(ptr noundef %47) #25
   %78 = getelementptr inbounds i8, ptr %77, i64 -1
@@ -4844,8 +4844,8 @@ define dso_local ptr @sdssplitargs(ptr noundef readonly captures(none) %0, ptr n
   %3 = alloca i64, align 8
   store i32 0, ptr %1, align 4, !tbaa !16
   %4 = load i8, ptr %0, align 1, !tbaa !13
-  %.not143216 = icmp eq i8 %4, 0
-  br i1 %.not143216, label %._crit_edge, label %.lr.ph.preheader
+  %.not143228 = icmp eq i8 %4, 0
+  br i1 %.not143228, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %2
   %5 = tail call ptr @__ctype_b_loc() #30
@@ -4853,14 +4853,14 @@ define dso_local ptr @sdssplitargs(ptr noundef readonly captures(none) %0, ptr n
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.loopexit
   %6 = phi i8 [ %365, %.loopexit ], [ %4, %.lr.ph.preheader ]
-  %.066218 = phi ptr [ %360, %.loopexit ], [ null, %.lr.ph.preheader ]
-  %.071217 = phi ptr [ %spec.select171, %.loopexit ], [ %0, %.lr.ph.preheader ]
+  %.066230 = phi ptr [ %360, %.loopexit ], [ null, %.lr.ph.preheader ]
+  %.071229 = phi ptr [ %spec.select183, %.loopexit ], [ %0, %.lr.ph.preheader ]
   %7 = load ptr, ptr %5, align 8, !tbaa !33
   br label %8
 
 8:                                                ; preds = %.lr.ph, %14
   %9 = phi i8 [ %6, %.lr.ph ], [ %16, %14 ]
-  %.172144 = phi ptr [ %.071217, %.lr.ph ], [ %15, %14 ]
+  %.172144 = phi ptr [ %.071229, %.lr.ph ], [ %15, %14 ]
   %10 = sext i8 %9 to i64
   %11 = getelementptr inbounds i16, ptr %7, i64 %10
   %12 = load i16, ptr %11, align 2, !tbaa !14
@@ -5627,21 +5627,21 @@ sdscatlen.exit:                                   ; preds = %306, %sdssetlen.exi
 
 .loopexit:                                        ; preds = %306, %306, %306, %306, %306, %252, %255, %146, %149
   %355 = load i8, ptr %.273147, align 1, !tbaa !13
-  %.not96169 = icmp ne i8 %355, 0
-  %spec.select.idx170 = zext i1 %.not96169 to i64
-  %spec.select171 = getelementptr inbounds nuw i8, ptr %.273147, i64 %spec.select.idx170
+  %.not96181 = icmp ne i8 %355, 0
+  %spec.select.idx182 = zext i1 %.not96181 to i64
+  %spec.select183 = getelementptr inbounds nuw i8, ptr %.273147, i64 %spec.select.idx182
   %356 = load i32, ptr %1, align 4, !tbaa !16
   %357 = add nsw i32 %356, 1
   %358 = sext i32 %357 to i64
   %359 = shl nsw i64 %358, 3
-  %360 = call ptr @zrealloc(ptr noundef %.066218, i64 noundef %359) #28
+  %360 = call ptr @zrealloc(ptr noundef %.066230, i64 noundef %359) #28
   %361 = load i32, ptr %1, align 4, !tbaa !16
   %362 = sext i32 %361 to i64
   %363 = getelementptr inbounds ptr, ptr %360, i64 %362
   store ptr %.270148, ptr %363, align 8, !tbaa !6
   %364 = add nsw i32 %361, 1
   store i32 %364, ptr %1, align 4, !tbaa !16
-  %365 = load i8, ptr %spec.select171, align 1, !tbaa !13
+  %365 = load i8, ptr %spec.select183, align 1, !tbaa !13
   %.not143 = icmp eq i8 %365, 0
   br i1 %.not143, label %._crit_edge, label %.lr.ph
 
@@ -5653,8 +5653,8 @@ sdscatlen.exit:                                   ; preds = %306, %sdssetlen.exi
   br i1 %.not94151, label %._crit_edge153, label %.lr.ph152
 
 ._crit_edge:                                      ; preds = %.loopexit, %14, %2
-  %.066214 = phi ptr [ null, %2 ], [ %.066218, %14 ], [ %360, %.loopexit ]
-  %368 = icmp eq ptr %.066214, null
+  %.066226 = phi ptr [ null, %2 ], [ %.066230, %14 ], [ %360, %.loopexit ]
+  %368 = icmp eq ptr %.066226, null
   br i1 %368, label %369, label %.loopexit134
 
 369:                                              ; preds = %._crit_edge
@@ -5664,7 +5664,7 @@ sdscatlen.exit:                                   ; preds = %306, %sdssetlen.exi
 .lr.ph152:                                        ; preds = %.preheader, %sdsfree.exit
   %371 = phi i32 [ %384, %sdsfree.exit ], [ %367, %.preheader ]
   %372 = sext i32 %371 to i64
-  %373 = getelementptr inbounds ptr, ptr %.066218, i64 %372
+  %373 = getelementptr inbounds ptr, ptr %.066230, i64 %372
   %374 = load ptr, ptr %373, align 8, !tbaa !6
   %375 = icmp eq ptr %374, null
   br i1 %375, label %sdsfree.exit, label %376
@@ -5697,7 +5697,7 @@ sdsfree.exit:                                     ; preds = %.lr.ph152, %sdsHdrS
   br i1 %.not94, label %._crit_edge153, label %.lr.ph152, !llvm.loop !39
 
 ._crit_edge153:                                   ; preds = %sdsfree.exit, %.preheader
-  call void @zfree(ptr noundef %.066218) #25
+  call void @zfree(ptr noundef %.066230) #25
   %.not95 = icmp eq ptr %.270148, null
   br i1 %.not95, label %392, label %385
 
@@ -5706,16 +5706,16 @@ sdsfree.exit:                                     ; preds = %.lr.ph152, %sdsHdrS
   %387 = load i8, ptr %386, align 1, !tbaa !13
   %388 = and i8 %387, 7
   %389 = icmp samesign ult i8 %388, 5
-  br i1 %389, label %switch.lookup219, label %sdsfree.exit127
+  br i1 %389, label %switch.lookup231, label %sdsfree.exit127
 
-switch.lookup219:                                 ; preds = %385
+switch.lookup231:                                 ; preds = %385
   %390 = zext nneg i8 %388 to i64
-  %switch.gep220 = getelementptr inbounds nuw [5 x i64], ptr @switch.table.sdstemplate.6, i64 0, i64 %390
-  %switch.load221 = load i64, ptr %switch.gep220, align 8
+  %switch.gep232 = getelementptr inbounds nuw [5 x i64], ptr @switch.table.sdstemplate.6, i64 0, i64 %390
+  %switch.load233 = load i64, ptr %switch.gep232, align 8
   br label %sdsfree.exit127
 
-sdsfree.exit127:                                  ; preds = %385, %switch.lookup219
-  %.0.i.neg.i126 = phi i64 [ %switch.load221, %switch.lookup219 ], [ 0, %385 ]
+sdsfree.exit127:                                  ; preds = %385, %switch.lookup231
+  %.0.i.neg.i126 = phi i64 [ %switch.load233, %switch.lookup231 ], [ 0, %385 ]
   %391 = getelementptr inbounds i8, ptr %.270148, i64 %.0.i.neg.i126
   call void @zfree(ptr noundef nonnull %391) #25
   br label %392
@@ -5725,7 +5725,7 @@ sdsfree.exit127:                                  ; preds = %385, %switch.lookup
   br label %.loopexit134
 
 .loopexit134:                                     ; preds = %._crit_edge, %369, %392
-  %.076 = phi ptr [ null, %392 ], [ %370, %369 ], [ %.066214, %._crit_edge ]
+  %.076 = phi ptr [ null, %392 ], [ %370, %369 ], [ %.066226, %._crit_edge ]
   ret ptr %.076
 }
 
@@ -6713,16 +6713,16 @@ sdscat.exit60:                                    ; preds = %sdssetlen.exit.i.i5
   %224 = load i8, ptr %223, align 1, !tbaa !13
   %225 = and i8 %224, 7
   %226 = icmp samesign ult i8 %225, 5
-  br i1 %226, label %switch.lookup98, label %sdsfree.exit63
+  br i1 %226, label %switch.lookup107, label %sdsfree.exit63
 
-switch.lookup98:                                  ; preds = %sdscat.exit60
+switch.lookup107:                                 ; preds = %sdscat.exit60
   %227 = zext nneg i8 %225 to i64
-  %switch.gep99 = getelementptr inbounds nuw [5 x i64], ptr @switch.table.sdstemplate.6, i64 0, i64 %227
-  %switch.load100 = load i64, ptr %switch.gep99, align 8
+  %switch.gep108 = getelementptr inbounds nuw [5 x i64], ptr @switch.table.sdstemplate.6, i64 0, i64 %227
+  %switch.load109 = load i64, ptr %switch.gep108, align 8
   br label %sdsfree.exit63
 
-sdsfree.exit63:                                   ; preds = %sdscat.exit60, %switch.lookup98
-  %.0.i.neg.i62 = phi i64 [ %switch.load100, %switch.lookup98 ], [ 0, %sdscat.exit60 ]
+sdsfree.exit63:                                   ; preds = %sdscat.exit60, %switch.lookup107
+  %.0.i.neg.i62 = phi i64 [ %switch.load109, %switch.lookup107 ], [ 0, %sdscat.exit60 ]
   %228 = getelementptr inbounds i8, ptr %168, i64 %.0.i.neg.i62
   call void @zfree(ptr noundef nonnull %228) #25
   %229 = getelementptr inbounds nuw i8, ptr %162, i64 1
@@ -6744,16 +6744,16 @@ sdscat.exit:                                      ; preds = %sdssetlen.exit.i.i5
   %235 = load i8, ptr %234, align 1, !tbaa !13
   %236 = and i8 %235, 7
   %237 = icmp samesign ult i8 %236, 5
-  br i1 %237, label %switch.lookup101, label %sdsHdrSize.exit.i64
+  br i1 %237, label %switch.lookup110, label %sdsHdrSize.exit.i64
 
-switch.lookup101:                                 ; preds = %233
+switch.lookup110:                                 ; preds = %233
   %238 = zext nneg i8 %236 to i64
-  %switch.gep102 = getelementptr inbounds nuw [5 x i64], ptr @switch.table.sdstemplate.6, i64 0, i64 %238
-  %switch.load103 = load i64, ptr %switch.gep102, align 8
+  %switch.gep111 = getelementptr inbounds nuw [5 x i64], ptr @switch.table.sdstemplate.6, i64 0, i64 %238
+  %switch.load112 = load i64, ptr %switch.gep111, align 8
   br label %sdsHdrSize.exit.i64
 
-sdsHdrSize.exit.i64:                              ; preds = %233, %switch.lookup101
-  %.0.i.neg.i65 = phi i64 [ %switch.load103, %switch.lookup101 ], [ 0, %233 ]
+sdsHdrSize.exit.i64:                              ; preds = %233, %switch.lookup110
+  %.0.i.neg.i65 = phi i64 [ %switch.load112, %switch.lookup110 ], [ 0, %233 ]
   %239 = getelementptr inbounds i8, ptr %.3, i64 %.0.i.neg.i65
   call void @zfree(ptr noundef nonnull %239) #25
   br label %sdsfree.exit66

@@ -462,9 +462,9 @@ uv__utf8_decode1.exit:                            ; preds = %7, %57
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %4, %79, %82, %._crit_edge
-  %.not262 = phi i1 [ false, %79 ], [ false, %82 ], [ true, %._crit_edge ], [ true, %4 ]
-  %.0103.lcssa261 = phi i32 [ %.1104, %79 ], [ %.1104, %82 ], [ 0, %._crit_edge ], [ 0, %4 ]
-  %.0120.lcssa260 = phi i32 [ %.1121, %79 ], [ %.1121, %82 ], [ %.1121, %._crit_edge ], [ 0, %4 ]
+  %.not294 = phi i1 [ false, %79 ], [ false, %82 ], [ true, %._crit_edge ], [ true, %4 ]
+  %.0103.lcssa293 = phi i32 [ %.1104, %79 ], [ %.1104, %82 ], [ 0, %._crit_edge ], [ 0, %4 ]
+  %.0120.lcssa292 = phi i32 [ %.1121, %79 ], [ %.1121, %82 ], [ %.1121, %._crit_edge ], [ 0, %4 ]
   %84 = ptrtoint ptr %1 to i64
   br label %.outer204
 
@@ -591,14 +591,14 @@ uv__utf8_decode1.exit158:                         ; preds = %87, %92, %94, %117,
 
 147:                                              ; preds = %144, %141
   %148 = add i32 %.0113.ph, 1
-  %149 = icmp eq i32 %148, %.0120.lcssa260
+  %149 = icmp eq i32 %148, %.0120.lcssa292
   br i1 %149, label %.loopexit, label %.outer204, !llvm.loop !13
 
 .loopexit:                                        ; preds = %147, %85
-  br i1 %.not262, label %uv__utf8_decode1.exit.thread, label %150
+  br i1 %.not294, label %uv__utf8_decode1.exit.thread, label %150
 
 150:                                              ; preds = %.loopexit
-  %.not141 = icmp eq i32 %.0120.lcssa260, 0
+  %.not141 = icmp eq i32 %.0120.lcssa292, 0
   br i1 %.not141, label %.preheader202.preheader, label %151
 
 151:                                              ; preds = %150
@@ -617,11 +617,11 @@ uv__utf8_decode1.exit158:                         ; preds = %87, %92, %94, %117,
 
 .preheader202:                                    ; preds = %.preheader202.preheader, %320
   %.0243 = phi i32 [ %.1.ph, %320 ], [ 1, %.preheader202.preheader ]
-  %.2105242 = phi i32 [ %.3.ph, %320 ], [ %.0103.lcssa261, %.preheader202.preheader ]
+  %.2105242 = phi i32 [ %.3.ph, %320 ], [ %.0103.lcssa293, %.preheader202.preheader ]
   %.0106241 = phi i32 [ %321, %320 ], [ 0, %.preheader202.preheader ]
   %.0110240 = phi i32 [ %.1111.ph, %320 ], [ 72, %.preheader202.preheader ]
   %.0118239 = phi i32 [ %322, %320 ], [ 128, %.preheader202.preheader ]
-  %.2122238 = phi i32 [ %.3123.ph, %320 ], [ %.0120.lcssa260, %.preheader202.preheader ]
+  %.2122238 = phi i32 [ %.3123.ph, %320 ], [ %.0120.lcssa292, %.preheader202.preheader ]
   br i1 %5, label %.lr.ph221, label %._crit_edge222
 
 .lr.ph221:                                        ; preds = %.preheader202, %uv__utf8_decode1.exit171
@@ -960,7 +960,7 @@ uv__utf8_decode1.exit184.thread:                  ; preds = %259, %255, %227, %2
   br i1 %.not142, label %uv__utf8_decode1.exit.thread, label %.preheader202, !llvm.loop !17
 
 uv__utf8_decode1.exit.thread:                     ; preds = %57, %46, %42, %14, %37, %12, %320, %._crit_edge222, %274, %.loopexit
-  %.0124 = phi i32 [ %.0120.lcssa260, %.loopexit ], [ -7, %274 ], [ 0, %320 ], [ -7, %._crit_edge222 ], [ -22, %12 ], [ -22, %37 ], [ -22, %14 ], [ -22, %42 ], [ -22, %46 ], [ -22, %57 ]
+  %.0124 = phi i32 [ %.0120.lcssa292, %.loopexit ], [ -7, %274 ], [ 0, %320 ], [ -7, %._crit_edge222 ], [ -22, %12 ], [ -22, %37 ], [ -22, %14 ], [ -22, %42 ], [ -22, %46 ], [ -22, %57 ]
   ret i32 %.0124
 }
 

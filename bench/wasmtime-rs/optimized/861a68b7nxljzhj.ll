@@ -458,7 +458,7 @@ define void @"_ZN72_$LT$cranelift_isle..trie_again..Binding$u20$as$u20$core..has
   %6 = zext nneg i8 %5 to i64
   tail call void @_ZN4core4hash6Hasher11write_isize17h83bde60138eb0869E(ptr align 8 %1, i64 %6)
   %7 = load i8, ptr %0, align 16, !range !14, !noundef !3
-  switch i8 %7, label %default.unreachable3 [
+  switch i8 %7, label %default.unreachable4 [
     i8 0, label %8
     i8 1, label %13
     i8 2, label %16
@@ -471,7 +471,7 @@ define void @"_ZN72_$LT$cranelift_isle..trie_again..Binding$u20$as$u20$core..has
     i8 9, label %71
   ]
 
-default.unreachable3:                             ; preds = %2
+default.unreachable4:                             ; preds = %2
   unreachable
 
 8:                                                ; preds = %2

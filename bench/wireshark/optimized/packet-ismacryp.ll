@@ -705,8 +705,8 @@ thread-pre-split:                                 ; preds = %26, %13
   %170 = load i8, ptr @slice_indication, align 1, !range !6, !noundef !7
   %171 = trunc nuw i8 %170 to i1
   %hf_ismacryp_slice_start.val.i = load i32, ptr @hf_ismacryp_slice_start, align 4
-  %hf_ismacryp_unused_bits.val296.i = load i32, ptr @hf_ismacryp_unused_bits, align 4
-  %172 = select i1 %171, i32 %hf_ismacryp_slice_start.val.i, i32 %hf_ismacryp_unused_bits.val296.i
+  %hf_ismacryp_unused_bits.val303.i = load i32, ptr @hf_ismacryp_unused_bits, align 4
+  %172 = select i1 %171, i32 %hf_ismacryp_slice_start.val.i, i32 %hf_ismacryp_unused_bits.val303.i
   %173 = tail call ptr @proto_tree_add_bits_item(ptr noundef %148, i32 noundef %172, ptr noundef %0, i32 noundef %169, i32 noundef 1, i32 noundef 0)
   %174 = add i32 %167, -1
   %175 = add i32 %174, %168
@@ -718,8 +718,8 @@ thread-pre-split:                                 ; preds = %26, %13
   %181 = load i8, ptr @slice_indication, align 1, !range !6, !noundef !7
   %182 = trunc nuw i8 %181 to i1
   %hf_ismacryp_slice_end.val.i = load i32, ptr @hf_ismacryp_slice_end, align 4
-  %hf_ismacryp_unused_bits.val297.i = load i32, ptr @hf_ismacryp_unused_bits, align 4
-  %183 = select i1 %182, i32 %hf_ismacryp_slice_end.val.i, i32 %hf_ismacryp_unused_bits.val297.i
+  %hf_ismacryp_unused_bits.val304.i = load i32, ptr @hf_ismacryp_unused_bits, align 4
+  %183 = select i1 %182, i32 %hf_ismacryp_slice_end.val.i, i32 %hf_ismacryp_unused_bits.val304.i
   %184 = tail call ptr @proto_tree_add_bits_item(ptr noundef %148, i32 noundef %183, ptr noundef %0, i32 noundef %180, i32 noundef 1, i32 noundef 0)
   %185 = add i32 %178, -3
   %186 = add i32 %185, %179
@@ -731,8 +731,8 @@ thread-pre-split:                                 ; preds = %26, %13
   %192 = load i8, ptr @padding_indication, align 1, !range !6, !noundef !7
   %193 = trunc nuw i8 %192 to i1
   %hf_ismacryp_padding_bitcount.val.i = load i32, ptr @hf_ismacryp_padding_bitcount, align 4
-  %hf_ismacryp_unused_bits.val298.i = load i32, ptr @hf_ismacryp_unused_bits, align 4
-  %194 = select i1 %193, i32 %hf_ismacryp_padding_bitcount.val.i, i32 %hf_ismacryp_unused_bits.val298.i
+  %hf_ismacryp_unused_bits.val305.i = load i32, ptr @hf_ismacryp_unused_bits, align 4
+  %194 = select i1 %193, i32 %hf_ismacryp_padding_bitcount.val.i, i32 %hf_ismacryp_unused_bits.val305.i
   %195 = tail call ptr @proto_tree_add_bits_item(ptr noundef %148, i32 noundef %194, ptr noundef %0, i32 noundef %191, i32 noundef 3, i32 noundef 0)
   br label %.thread.sink.split.i
 
@@ -743,9 +743,9 @@ thread-pre-split:                                 ; preds = %26, %13
 .thread.sink.split.i:                             ; preds = %162, %144
   %.pre-phi147 = phi i32 [ %190, %162 ], [ %156, %144 ]
   %.pre-phi = phi i32 [ %189, %162 ], [ %155, %144 ]
-  %.sink259.i = phi i32 [ -2, %162 ], [ -7, %144 ]
-  %.sink250.i = phi i32 [ 2, %162 ], [ 7, %144 ]
-  %197 = add nsw i32 %.sink259.i, %.pre-phi147
+  %.sink266.i = phi i32 [ -2, %162 ], [ -7, %144 ]
+  %.sink257.i = phi i32 [ 2, %162 ], [ 7, %144 ]
+  %197 = add nsw i32 %.sink266.i, %.pre-phi147
   %198 = add i32 %197, %.pre-phi
   %199 = sdiv i32 %198, 8
   %200 = srem i32 %198, 8
@@ -753,7 +753,7 @@ thread-pre-split:                                 ; preds = %26, %13
   %202 = and i32 %200, 255
   %203 = add i32 %201, %202
   %204 = load i32, ptr @hf_ismacryp_reserved_bits, align 4
-  %205 = tail call ptr @proto_tree_add_bits_item(ptr noundef %148, i32 noundef %204, ptr noundef %0, i32 noundef %203, i32 noundef %.sink250.i, i32 noundef 0)
+  %205 = tail call ptr @proto_tree_add_bits_item(ptr noundef %148, i32 noundef %204, ptr noundef %0, i32 noundef %203, i32 noundef %.sink257.i, i32 noundef 0)
   %206 = add i32 %201, 8
   %207 = add i32 %206, %202
   %208 = sdiv i32 %207, 8
@@ -777,19 +777,19 @@ thread-pre-split:                                 ; preds = %26, %13
 
 .sink.split.i:                                    ; preds = %213, %.thread.i
   %hf_ismacryp_iv.sink.i = phi ptr [ @hf_ismacryp_iv, %.thread.i ], [ @hf_ismacryp_delta_iv, %213 ]
-  %.sink275.i = phi i32 [ %211, %.thread.i ], [ %214, %213 ]
-  %iv_length.sink272.i = phi ptr [ @iv_length, %.thread.i ], [ @delta_iv_length, %213 ]
+  %.sink282.i = phi i32 [ %211, %.thread.i ], [ %214, %213 ]
+  %iv_length.sink279.i = phi ptr [ @iv_length, %.thread.i ], [ @delta_iv_length, %213 ]
   %.str.150.sink.i = phi ptr [ @.str.150, %.thread.i ], [ @.str.151, %213 ]
   %216 = load i32, ptr %hf_ismacryp_iv.sink.i, align 4
-  %217 = tail call ptr @proto_tree_add_item(ptr noundef %135, i32 noundef %216, ptr noundef %0, i32 noundef %.sroa.0.2, i32 noundef %.sink275.i, i32 noundef 0)
-  %218 = load i32, ptr %iv_length.sink272.i, align 4
+  %217 = tail call ptr @proto_tree_add_item(ptr noundef %135, i32 noundef %216, ptr noundef %0, i32 noundef %.sroa.0.2, i32 noundef %.sink282.i, i32 noundef 0)
+  %218 = load i32, ptr %iv_length.sink279.i, align 4
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %217, ptr noundef nonnull @.str.149, i32 noundef %218)
   %219 = load ptr, ptr %58, align 8
   %220 = load ptr, ptr %59, align 8
-  %221 = load i32, ptr %iv_length.sink272.i, align 4
+  %221 = load i32, ptr %iv_length.sink279.i, align 4
   %222 = tail call ptr @tvb_bytes_to_str_punct(ptr noundef %220, ptr noundef %0, i32 noundef %.sroa.0.2, i32 noundef %221, i8 noundef signext 32)
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %219, i32 noundef 25, ptr noundef nonnull %.str.150.sink.i, ptr noundef %222)
-  %223 = load i32, ptr %iv_length.sink272.i, align 4
+  %223 = load i32, ptr %iv_length.sink279.i, align 4
   %224 = add i32 %223, %.sroa.0.2
   br label %225
 
@@ -844,36 +844,36 @@ thread-pre-split:                                 ; preds = %26, %13
   %254 = load i32, ptr @au_index_length, align 4
   %255 = icmp ne i32 %254, 0
   %or.cond15.i = select i1 %74, i1 %255, i1 false
-  br i1 %or.cond15.i, label %.sink.split276.i, label %256
+  br i1 %or.cond15.i, label %.sink.split283.i, label %256
 
 256:                                              ; preds = %253
   %257 = load i32, ptr @au_index_delta_length, align 4
   %258 = icmp eq i32 %257, 0
   %or.cond17.not.i = select i1 %74, i1 true, i1 %258
-  br i1 %or.cond17.not.i, label %270, label %.sink.split276.i
+  br i1 %or.cond17.not.i, label %270, label %.sink.split283.i
 
-.sink.split276.i:                                 ; preds = %256, %253
+.sink.split283.i:                                 ; preds = %256, %253
   %hf_ismacryp_au_index.sink.i = phi ptr [ @hf_ismacryp_au_index, %253 ], [ @hf_ismacryp_au_index_delta, %256 ]
-  %.sink291.i = phi i32 [ %254, %253 ], [ %257, %256 ]
-  %au_index_length.sink288.i = phi ptr [ @au_index_length, %253 ], [ @au_index_delta_length, %256 ]
+  %.sink298.i = phi i32 [ %254, %253 ], [ %257, %256 ]
+  %au_index_length.sink295.i = phi ptr [ @au_index_length, %253 ], [ @au_index_delta_length, %256 ]
   %.str.154.sink.i = phi ptr [ @.str.154, %253 ], [ @.str.143, %256 ]
   %259 = shl i32 %.sroa.0.5, 3
   %260 = zext i8 %.sroa.60.2 to i32
   %261 = add i32 %259, %260
   %262 = load i32, ptr %hf_ismacryp_au_index.sink.i, align 4
-  %263 = tail call ptr @proto_tree_add_bits_item(ptr noundef %135, i32 noundef %262, ptr noundef %0, i32 noundef %261, i32 noundef %.sink291.i, i32 noundef 0)
-  %264 = load i32, ptr %au_index_length.sink288.i, align 4
+  %263 = tail call ptr @proto_tree_add_bits_item(ptr noundef %135, i32 noundef %262, ptr noundef %0, i32 noundef %261, i32 noundef %.sink298.i, i32 noundef 0)
+  %264 = load i32, ptr %au_index_length.sink295.i, align 4
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %263, ptr noundef nonnull %.str.154.sink.i, i32 noundef %264)
-  %265 = load i32, ptr %au_index_length.sink288.i, align 4
+  %265 = load i32, ptr %au_index_length.sink295.i, align 4
   %266 = add i32 %261, %265
   %267 = sdiv i32 %266, 8
   %268 = srem i32 %266, 8
   %269 = trunc nsw i32 %268 to i8
   br label %270
 
-270:                                              ; preds = %.sink.split276.i, %256
-  %.sroa.60.3 = phi i8 [ %269, %.sink.split276.i ], [ %.sroa.60.2, %256 ]
-  %.sroa.0.6 = phi i32 [ %267, %.sink.split276.i ], [ %.sroa.0.5, %256 ]
+270:                                              ; preds = %.sink.split283.i, %256
+  %.sroa.60.3 = phi i8 [ %269, %.sink.split283.i ], [ %.sroa.60.2, %256 ]
+  %.sroa.0.6 = phi i32 [ %267, %.sink.split283.i ], [ %.sroa.0.5, %256 ]
   %271 = load i32, ptr @cts_delta_length, align 4
   %.not225.i = icmp eq i32 %271, 0
   br i1 %.not225.i, label %297, label %272

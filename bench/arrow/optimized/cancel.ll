@@ -4566,9 +4566,9 @@ _ZN5arrow12_GLOBAL__N_115SignalStopState13ReceiveSignalEi.exit: ; preds = %_ZNSt
   %39 = getelementptr inbounds nuw i8, ptr %8, i64 1
   %40 = load i8, ptr %39, align 1, !tbaa !29, !range !40, !noundef !41
   %41 = trunc nuw i8 %40 to i1
-  br i1 %41, label %.loopexit.sink.split, label %.thread15
+  br i1 %41, label %.loopexit.sink.split, label %.thread18
 
-.thread15:                                        ; preds = %.thread.thread
+.thread18:                                        ; preds = %.thread.thread
   call void @_ZN5arrow6Status11DeleteStateEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #27
   br label %.loopexit.sink.split
 
@@ -4609,7 +4609,7 @@ _ZN5arrow6ResultImED2Ev.exit8:                    ; preds = %.body, %46, %50
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   resume { ptr, i32 } %.pn
 
-.loopexit.sink.split:                             ; preds = %.thread.thread, %.thread15
+.loopexit.sink.split:                             ; preds = %.thread.thread, %.thread18
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %.loopexit
 

@@ -64,7 +64,7 @@ define noalias noundef ptr @Abc_NtkMapGiaIntoNameId(ptr noundef readonly capture
   br label %Vec_IntFill.exit
 
 Vec_IntFill.exit:                                 ; preds = %9, %.lr.ph.i
-  %.val111149 = phi ptr [ %14, %.lr.ph.i ], [ null, %9 ]
+  %.val111160 = phi ptr [ %14, %.lr.ph.i ], [ null, %9 ]
   %17 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 4
   store i32 %10, ptr %17, align 4, !tbaa !25
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -142,7 +142,7 @@ Vec_IntFill.exit:                                 ; preds = %9, %.lr.ph.i
   %55 = getelementptr i8, ptr %24, i64 16
   %.val101.us = load i32, ptr %55, align 8, !tbaa !47
   %56 = sext i32 %.val98.us to i64
-  %57 = getelementptr inbounds i32, ptr %.val111149, i64 %56
+  %57 = getelementptr inbounds i32, ptr %.val111160, i64 %56
   store i32 %.val101.us, ptr %57, align 4, !tbaa !21
   %.val87.us.pre = load i32, ptr %20, align 4, !tbaa !37
   br label %58
@@ -231,7 +231,7 @@ Vec_IntFill.exit:                                 ; preds = %9, %.lr.ph.i
   %99 = getelementptr i8, ptr %66, i64 16
   %.val102 = load i32, ptr %99, align 8, !tbaa !47
   %100 = sext i32 %98 to i64
-  %101 = getelementptr inbounds i32, ptr %.val111149, i64 %100
+  %101 = getelementptr inbounds i32, ptr %.val111160, i64 %100
   store i32 %.val102, ptr %101, align 4, !tbaa !21
   %.val87.pre = load i32, ptr %20, align 4, !tbaa !37
   br label %102
@@ -320,7 +320,7 @@ Vec_IntFill.exit:                                 ; preds = %9, %.lr.ph.i
   %142 = getelementptr i8, ptr %117, i64 16
   %.val104 = load i32, ptr %142, align 8, !tbaa !47
   %143 = sext i32 %.sink to i64
-  %144 = getelementptr inbounds i32, ptr %.val111149, i64 %143
+  %144 = getelementptr inbounds i32, ptr %.val111160, i64 %143
   store i32 %.val104, ptr %144, align 4, !tbaa !21
   br label %.critedge
 
@@ -391,11 +391,11 @@ Vec_IntFill.exit:                                 ; preds = %9, %.lr.ph.i
   br label %.critedge2.sink.split
 
 .critedge2.sink.split:                            ; preds = %174, %176
-  %.sink155 = phi i32 [ %179, %176 ], [ %.val100, %174 ]
+  %.sink166 = phi i32 [ %179, %176 ], [ %.val100, %174 ]
   %180 = getelementptr i8, ptr %155, i64 16
   %.val106 = load i32, ptr %180, align 8, !tbaa !47
-  %181 = sext i32 %.sink155 to i64
-  %182 = getelementptr inbounds i32, ptr %.val111149, i64 %181
+  %181 = sext i32 %.sink166 to i64
+  %182 = getelementptr inbounds i32, ptr %.val111160, i64 %181
   store i32 %.val106, ptr %182, align 4, !tbaa !21
   br label %.critedge2
 

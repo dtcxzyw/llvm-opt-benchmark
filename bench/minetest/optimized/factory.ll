@@ -465,9 +465,9 @@ for.body.i.i.i.i.preheader:                       ; preds = %_ZNSt12_Vector_base
   %13 = lshr i64 %12, 3
   %14 = add nuw nsw i64 %13, 1
   %min.iters.check = icmp ult i64 %12, 152
-  br i1 %min.iters.check, label %for.body.i.i.i.i.preheader9, label %vector.memcheck
+  br i1 %min.iters.check, label %for.body.i.i.i.i.preheader12, label %vector.memcheck
 
-for.body.i.i.i.i.preheader9:                      ; preds = %middle.block, %vector.memcheck, %for.body.i.i.i.i.preheader
+for.body.i.i.i.i.preheader12:                     ; preds = %middle.block, %vector.memcheck, %for.body.i.i.i.i.preheader
   %__cur.08.i.i.i.i.ph = phi ptr [ %ind.end, %middle.block ], [ %call5.i.i.i.i12, %for.body.i.i.i.i.preheader ], [ %call5.i.i.i.i12, %vector.memcheck ]
   %__first.addr.07.i.i.i.i.ph = phi ptr [ %ind.end16, %middle.block ], [ %7, %for.body.i.i.i.i.preheader ], [ %7, %vector.memcheck ]
   br label %for.body.i.i.i.i
@@ -480,7 +480,7 @@ vector.memcheck:                                  ; preds = %for.body.i.i.i.i.pr
   %bound0 = icmp ult ptr %call5.i.i.i.i12, %scevgep15
   %bound1 = icmp ult ptr %7, %scevgep
   %found.conflict = and i1 %bound0, %bound1
-  br i1 %found.conflict, label %for.body.i.i.i.i.preheader9, label %vector.ph
+  br i1 %found.conflict, label %for.body.i.i.i.i.preheader12, label %vector.ph
 
 vector.ph:                                        ; preds = %vector.memcheck
   %n.vec = and i64 %14, 4611686018427387900
@@ -509,15 +509,15 @@ middle.block:                                     ; preds = %vector.body
   %ind.end = getelementptr i8, ptr %call5.i.i.i.i12, i64 %20
   %ind.end16 = getelementptr i8, ptr %7, i64 %20
   %cmp.n = icmp eq i64 %14, %n.vec
-  br i1 %cmp.n, label %_ZNSt6vectorISt10unique_ptrI20RenderPipelineObjectSt14default_deleteIS1_EESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit40.i.thread, label %for.body.i.i.i.i.preheader9
+  br i1 %cmp.n, label %_ZNSt6vectorISt10unique_ptrI20RenderPipelineObjectSt14default_deleteIS1_EESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit40.i.thread, label %for.body.i.i.i.i.preheader12
 
 _ZNSt6vectorISt10unique_ptrI20RenderPipelineObjectSt14default_deleteIS1_EESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit40.i.thread: ; preds = %middle.block
   %incdec.ptr.i5 = getelementptr i8, ptr %ind.end, i64 8
   br label %if.then.i41.i
 
-for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i.preheader9, %for.body.i.i.i.i
-  %__cur.08.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i, %for.body.i.i.i.i ], [ %__cur.08.i.i.i.i.ph, %for.body.i.i.i.i.preheader9 ]
-  %__first.addr.07.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i.i ], [ %__first.addr.07.i.i.i.i.ph, %for.body.i.i.i.i.preheader9 ]
+for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i.preheader12, %for.body.i.i.i.i
+  %__cur.08.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i, %for.body.i.i.i.i ], [ %__cur.08.i.i.i.i.ph, %for.body.i.i.i.i.preheader12 ]
+  %__first.addr.07.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %for.body.i.i.i.i ], [ %__first.addr.07.i.i.i.i.ph, %for.body.i.i.i.i.preheader12 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !52)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !55)
   %21 = load i64, ptr %__first.addr.07.i.i.i.i, align 8, !tbaa !44, !alias.scope !55, !noalias !52

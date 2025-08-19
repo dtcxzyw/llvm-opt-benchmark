@@ -116,8 +116,8 @@ define hidden i32 @_PyOS_GetOpt(i64 noundef %0, ptr noundef readonly captures(no
 43:                                               ; preds = %35
   store i32 0, ptr %2, align 4, !tbaa !4
   %44 = tail call i32 @wcscmp(ptr noundef nonnull @.str.11, ptr noundef nonnull %34) #5
-  %.not4557 = icmp eq i32 %44, 0
-  br i1 %.not4557, label %._crit_edge, label %.lr.ph
+  %.not4563 = icmp eq i32 %44, 0
+  br i1 %.not4563, label %._crit_edge, label %.lr.ph
 
 45:                                               ; preds = %.lr.ph
   %46 = tail call i32 @wcscmp(ptr noundef nonnull %51, ptr noundef nonnull %34) #5

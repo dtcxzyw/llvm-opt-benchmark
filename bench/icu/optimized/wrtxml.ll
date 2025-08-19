@@ -3481,9 +3481,9 @@ _ZL10write_tabsP11_FileStream.exit.i:             ; preds = %130, %127
   br label %_ZL13printCommentsP7UStringPKcaP10UErrorCode.exit
 
 .body.i:                                          ; preds = %123, %119, %117, %114
-  %.sink1.i = phi ptr [ %18, %123 ], [ %17, %119 ], [ %16, %114 ], [ %16, %117 ]
+  %.sink3.i = phi ptr [ %18, %123 ], [ %17, %119 ], [ %16, %114 ], [ %16, %117 ]
   %.pn.i = phi { ptr, i32 } [ %124, %123 ], [ %120, %119 ], [ %.pn.i.i, %114 ], [ %118, %117 ]
-  call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %.sink1.i) #13
+  call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %.sink3.i) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
@@ -3630,9 +3630,9 @@ define internal fastcc noundef ptr @_ZL16convertAndEscapePPciPiPKDsiP10UErrorCod
 .thread:                                          ; preds = %47
   %62 = add nsw i32 %.014316, 1
   %63 = icmp slt i32 %62, %.113817
-  br i1 %63, label %.thread27, label %158
+  br i1 %63, label %.thread35, label %158
 
-.thread27:                                        ; preds = %.thread
+.thread35:                                        ; preds = %.thread
   switch i32 %.1142, label %87 [
     i32 38, label %64
     i32 60, label %68
@@ -3670,49 +3670,49 @@ define internal fastcc noundef ptr @_ZL16convertAndEscapePPciPiPKDsiP10UErrorCod
     i32 31, label %84
   ]
 
-64:                                               ; preds = %.thread27
+64:                                               ; preds = %.thread35
   %65 = sext i32 %.014316 to i64
   %66 = getelementptr inbounds i8, ptr %.114715, i64 %65
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %66, ptr noundef nonnull align 1 dereferenceable(6) @.str.44, i64 6, i1 false) #13
   %67 = add nsw i32 %.014316, 5
   br label %.critedge
 
-68:                                               ; preds = %.thread27
+68:                                               ; preds = %.thread35
   %69 = sext i32 %.014316 to i64
   %70 = getelementptr inbounds i8, ptr %.114715, i64 %69
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %70, ptr noundef nonnull align 1 dereferenceable(5) @.str.45, i64 5, i1 false) #13
   %71 = add nsw i32 %.014316, 4
   br label %.critedge
 
-72:                                               ; preds = %.thread27
+72:                                               ; preds = %.thread35
   %73 = sext i32 %.014316 to i64
   %74 = getelementptr inbounds i8, ptr %.114715, i64 %73
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %74, ptr noundef nonnull align 1 dereferenceable(5) @.str.46, i64 5, i1 false) #13
   %75 = add nsw i32 %.014316, 4
   br label %.critedge
 
-76:                                               ; preds = %.thread27
+76:                                               ; preds = %.thread35
   %77 = sext i32 %.014316 to i64
   %78 = getelementptr inbounds i8, ptr %.114715, i64 %77
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %78, ptr noundef nonnull align 1 dereferenceable(7) @.str.47, i64 7, i1 false) #13
   %79 = add nsw i32 %.014316, 6
   br label %.critedge
 
-80:                                               ; preds = %.thread27
+80:                                               ; preds = %.thread35
   %81 = sext i32 %.014316 to i64
   %82 = getelementptr inbounds i8, ptr %.114715, i64 %81
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %82, ptr noundef nonnull align 1 dereferenceable(7) @.str.48, i64 7, i1 false) #13
   %83 = add nsw i32 %.014316, 6
   br label %.critedge
 
-84:                                               ; preds = %.thread27, %.thread27, %.thread27, %.thread27, %.thread27, %.thread27, %.thread27, %.thread27, %.thread27, %.thread27, %.thread27, %.thread27, %.thread27, %.thread27, %.thread27, %.thread27, %.thread27, %.thread27, %.thread27, %.thread27, %.thread27, %.thread27, %.thread27, %.thread27, %.thread27, %.thread27, %.thread27, %.thread27, %.thread27
+84:                                               ; preds = %.thread35, %.thread35, %.thread35, %.thread35, %.thread35, %.thread35, %.thread35, %.thread35, %.thread35, %.thread35, %.thread35, %.thread35, %.thread35, %.thread35, %.thread35, %.thread35, %.thread35, %.thread35, %.thread35, %.thread35, %.thread35, %.thread35, %.thread35, %.thread35, %.thread35, %.thread35, %.thread35, %.thread35, %.thread35
   store i32 12, ptr %4, align 4, !tbaa !13
   %85 = load ptr, ptr @stderr, align 8, !tbaa !35
   %86 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %85, ptr noundef nonnull @.str.49, i32 noundef %.1142) #16
   tail call void @uprv_free_77(ptr noundef %.114715)
   br label %167
 
-87:                                               ; preds = %.thread27
+87:                                               ; preds = %.thread35
   %88 = trunc nuw nsw i32 %.1142 to i8
   %89 = add nsw i32 %.014316, 1
   %90 = sext i32 %.014316 to i64

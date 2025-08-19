@@ -79,8 +79,8 @@ define dso_local noundef zeroext i1 @fsm_set_avail(ptr noundef captures(none) %0
   %40 = or disjoint i64 %36, 1
   %41 = getelementptr inbounds nuw [0 x i8], ptr %5, i64 0, i64 %40
   %42 = load i8, ptr %41, align 1
-  %.not32.i = icmp eq i64 %indvars.iv.i, 4081
-  br i1 %.not32.i, label %.thread.i, label %43
+  %.not33.i = icmp eq i64 %indvars.iv.i, 4081
+  br i1 %.not33.i, label %.thread.i, label %43
 
 43:                                               ; preds = %39
   %44 = getelementptr inbounds nuw [0 x i8], ptr %5, i64 0, i64 %37
@@ -101,8 +101,8 @@ define dso_local noundef zeroext i1 @fsm_set_avail(ptr noundef captures(none) %0
 
 49:                                               ; preds = %48, %.thread.i
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
-  %.not30.i = icmp eq i64 %indvars.iv.i, 0
-  br i1 %.not30.i, label %fsm_rebuild_page.exit, label %.preheader, !llvm.loop !6
+  %.not31.i = icmp eq i64 %indvars.iv.i, 0
+  br i1 %.not31.i, label %fsm_rebuild_page.exit, label %.preheader, !llvm.loop !6
 
 fsm_rebuild_page.exit:                            ; preds = %49, %.thread, %10
   %.0 = phi i1 [ false, %10 ], [ true, %.thread ], [ true, %49 ]
@@ -126,8 +126,8 @@ define dso_local zeroext i1 @fsm_rebuild_page(ptr noundef captures(none) %0) loc
   %8 = or disjoint i64 %4, 1
   %9 = getelementptr inbounds nuw [0 x i8], ptr %2, i64 0, i64 %8
   %10 = load i8, ptr %9, align 1
-  %.not32 = icmp eq i64 %indvars.iv, 4081
-  br i1 %.not32, label %.thread, label %11
+  %.not33 = icmp eq i64 %indvars.iv, 4081
+  br i1 %.not33, label %.thread, label %11
 
 11:                                               ; preds = %7
   %12 = getelementptr inbounds nuw [0 x i8], ptr %2, i64 0, i64 %5
@@ -149,8 +149,8 @@ define dso_local zeroext i1 @fsm_rebuild_page(ptr noundef captures(none) %0) loc
 17:                                               ; preds = %16, %.thread
   %.122 = phi i1 [ true, %16 ], [ %.02129, %.thread ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %.not30 = icmp eq i64 %indvars.iv, 0
-  br i1 %.not30, label %18, label %3, !llvm.loop !6
+  %.not31 = icmp eq i64 %indvars.iv, 0
+  br i1 %.not31, label %18, label %3, !llvm.loop !6
 
 18:                                               ; preds = %17
   ret i1 %.122
@@ -251,15 +251,15 @@ select.unfold:                                    ; preds = %.lr.ph
 ._crit_edge:                                      ; preds = %select.unfold, %.lr.ph, %29
   %.043.lcssa = phi i32 [ %32, %29 ], [ %.04353, %.lr.ph ], [ %44, %select.unfold ]
   %46 = icmp slt i32 %.043.lcssa, 4095
-  br i1 %46, label %.lr.ph65, label %._crit_edge._crit_edge
+  br i1 %46, label %.lr.ph69, label %._crit_edge._crit_edge
 
-.lr.ph65:                                         ; preds = %._crit_edge, %86
-  %.14464 = phi i32 [ %.245, %86 ], [ %.043.lcssa, %._crit_edge ]
-  %47 = shl i32 %.14464, 1
+.lr.ph69:                                         ; preds = %._crit_edge, %86
+  %.14468 = phi i32 [ %.245, %86 ], [ %.043.lcssa, %._crit_edge ]
+  %47 = shl i32 %.14468, 1
   %48 = icmp ult i32 %47, 8164
   br i1 %48, label %49, label %54
 
-49:                                               ; preds = %.lr.ph65
+49:                                               ; preds = %.lr.ph69
   %50 = or disjoint i32 %47, 1
   %51 = zext nneg i32 %50 to i64
   %52 = getelementptr inbounds nuw [0 x i8], ptr %22, i64 0, i64 %51
@@ -267,7 +267,7 @@ select.unfold:                                    ; preds = %.lr.ph
   %.not49 = icmp ult i8 %53, %1
   br i1 %.not49, label %54, label %86, !llvm.loop !8
 
-54:                                               ; preds = %49, %.lr.ph65
+54:                                               ; preds = %49, %.lr.ph69
   %55 = add i32 %47, 2
   %56 = icmp ult i32 %55, 8164
   br i1 %56, label %57, label %61
@@ -318,8 +318,8 @@ select.unfold:                                    ; preds = %.lr.ph
   %76 = or disjoint i64 %72, 1
   %77 = getelementptr inbounds nuw [0 x i8], ptr %22, i64 0, i64 %76
   %78 = load i8, ptr %77, align 1
-  %.not32.i = icmp eq i64 %indvars.iv.i, 4081
-  br i1 %.not32.i, label %.thread.i, label %79
+  %.not33.i = icmp eq i64 %indvars.iv.i, 4081
+  br i1 %.not33.i, label %.thread.i, label %79
 
 79:                                               ; preds = %75
   %80 = getelementptr inbounds nuw [0 x i8], ptr %22, i64 0, i64 %73
@@ -340,13 +340,13 @@ select.unfold:                                    ; preds = %.lr.ph
 
 85:                                               ; preds = %84, %.thread.i
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
-  %.not30.i = icmp eq i64 %indvars.iv.i, 0
-  br i1 %.not30.i, label %.loopexit, label %71, !llvm.loop !6
+  %.not31.i = icmp eq i64 %indvars.iv.i, 0
+  br i1 %.not31.i, label %.loopexit, label %71, !llvm.loop !6
 
 86:                                               ; preds = %57, %49
   %.245 = phi i32 [ %50, %49 ], [ %55, %57 ]
   %87 = icmp slt i32 %.245, 4095
-  br i1 %87, label %.lr.ph65, label %._crit_edge._crit_edge
+  br i1 %87, label %.lr.ph69, label %._crit_edge._crit_edge
 
 ._crit_edge._crit_edge:                           ; preds = %._crit_edge, %86
   %.144.lcssa = phi i32 [ %.245, %86 ], [ %.043.lcssa, %._crit_edge ]
@@ -416,8 +416,8 @@ define dso_local noundef zeroext i1 @fsm_truncate_avail(ptr noundef captures(non
   %15 = or disjoint i64 %11, 1
   %16 = getelementptr inbounds nuw [0 x i8], ptr %9, i64 0, i64 %15
   %17 = load i8, ptr %16, align 1
-  %.not32.i = icmp eq i64 %indvars.iv.i, 4081
-  br i1 %.not32.i, label %.thread.i, label %18
+  %.not33.i = icmp eq i64 %indvars.iv.i, 4081
+  br i1 %.not33.i, label %.thread.i, label %18
 
 18:                                               ; preds = %14
   %19 = getelementptr inbounds nuw [0 x i8], ptr %9, i64 0, i64 %12
@@ -438,8 +438,8 @@ define dso_local noundef zeroext i1 @fsm_truncate_avail(ptr noundef captures(non
 
 24:                                               ; preds = %23, %.thread.i
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
-  %.not30.i = icmp eq i64 %indvars.iv.i, 0
-  br i1 %.not30.i, label %fsm_rebuild_page.exit, label %10, !llvm.loop !6
+  %.not31.i = icmp eq i64 %indvars.iv.i, 0
+  br i1 %.not31.i, label %fsm_rebuild_page.exit, label %10, !llvm.loop !6
 
 fsm_rebuild_page.exit:                            ; preds = %24, %2, %._crit_edge
   %.0.lcssa16 = phi i1 [ false, %._crit_edge ], [ false, %2 ], [ true, %24 ]

@@ -5502,15 +5502,15 @@ _ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i: ; preds = %153
 
 159:                                              ; preds = %.noexc28.thread, %158, %.noexc28
   %160 = phi ptr [ null, %.noexc28.thread ], [ %155, %158 ], [ %155, %.noexc28 ]
-  %.pre-phi6265 = phi i64 [ 0, %.noexc28.thread ], [ %.pre61, %158 ], [ 0, %.noexc28 ]
-  %161 = getelementptr inbounds i8, ptr %160, i64 %.pre-phi6265
+  %.pre-phi6288 = phi i64 [ 0, %.noexc28.thread ], [ %.pre61, %158 ], [ 0, %.noexc28 ]
+  %161 = getelementptr inbounds i8, ptr %160, i64 %.pre-phi6288
   store ptr %161, ptr %79, align 8
   %162 = load ptr, ptr %81, align 8
   %163 = load ptr, ptr %10, align 8
   %164 = ptrtoint ptr %162 to i64
   %165 = ptrtoint ptr %163 to i64
   %166 = sub i64 %164, %165
-  %167 = icmp eq i64 %166, %.pre-phi6265
+  %167 = icmp eq i64 %166, %.pre-phi6288
   br i1 %167, label %168, label %_ZSteqIiSaIiEEbRKSt6vectorIT_T0_ES6_.exit.thread47
 
 168:                                              ; preds = %159
@@ -5518,7 +5518,7 @@ _ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i: ; preds = %153
   br i1 %.not.i.i.i.i.i29, label %_ZSteqIiSaIiEEbRKSt6vectorIT_T0_ES6_.exit.thread, label %_ZSteqIiSaIiEEbRKSt6vectorIT_T0_ES6_.exit
 
 _ZSteqIiSaIiEEbRKSt6vectorIT_T0_ES6_.exit:        ; preds = %168
-  %bcmp.i.i.i.i.i = call i32 @bcmp(ptr %163, ptr %160, i64 %.pre-phi6265)
+  %bcmp.i.i.i.i.i = call i32 @bcmp(ptr %163, ptr %160, i64 %.pre-phi6288)
   %.not7.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i, 0
   br i1 %.not7.i.i.i.i.i, label %_ZSteqIiSaIiEEbRKSt6vectorIT_T0_ES6_.exit.thread, label %_ZSteqIiSaIiEEbRKSt6vectorIT_T0_ES6_.exit.thread47
 
@@ -10081,10 +10081,10 @@ _ZN4absl7debian211string_viewC2EPKc.exit32:       ; preds = %78
   br label %.body29
 
 _ZN4absl7debian27StrJoinISt6vectorISt4pairIldESaIS4_EENS0_16strings_internal17PairFormatterImplINS7_21AlphaNumFormatterImplEN10open_spiel18HexDoubleFormatterEEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_NS0_11string_viewEOT0_.exit: ; preds = %91, %81
-  %.sink60 = phi ptr [ %19, %81 ], [ %21, %91 ]
+  %.sink64 = phi ptr [ %19, %81 ], [ %21, %91 ]
   %.sink = phi ptr [ %60, %81 ], [ %58, %91 ]
-  %97 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull align 8 dereferenceable(32) %.sink60) #21
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink60) #21
+  %97 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull align 8 dereferenceable(32) %.sink64) #21
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink64) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink) #21
   %98 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %66) #21
   %99 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %66) #21

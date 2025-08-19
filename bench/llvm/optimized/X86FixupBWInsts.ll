@@ -1384,7 +1384,7 @@ _ZN4llvm10MIMetadataD2Ev.exit:                    ; preds = %_ZN4llvm7BuildMIERN
   %81 = sext i32 %80 to i64
   br label %_ZNK4llvm12MachineInstr11memoperandsEv.exit
 
-_ZNK4llvm12MachineInstr11memoperandsEv.exit:      ; preds = %72, %._crit_edge, %74, %76
+_ZNK4llvm12MachineInstr11memoperandsEv.exit:      ; preds = %._crit_edge, %72, %74, %76
   %.sroa.0.0.i = phi ptr [ %15, %74 ], [ %79, %76 ], [ null, %._crit_edge ], [ null, %72 ]
   %.sroa.7.0.i = phi i64 [ 1, %74 ], [ %81, %76 ], [ 0, %._crit_edge ], [ 0, %72 ]
   call void @_ZN4llvm12MachineInstr10setMemRefsERNS_15MachineFunctionENS_8ArrayRefIPNS_17MachineMemOperandEEE(ptr noundef nonnull align 8 dereferenceable(70) %54, ptr noundef nonnull align 8 dereferenceable(1065) %10, ptr %.sroa.0.0.i, i64 %.sroa.7.0.i) #16
@@ -1616,7 +1616,7 @@ _ZN4llvm10MIMetadataD2Ev.exit:                    ; preds = %_ZN4llvm7BuildMIERN
   %94 = sext i32 %93 to i64
   br label %_ZNK4llvm12MachineInstr11memoperandsEv.exit
 
-_ZNK4llvm12MachineInstr11memoperandsEv.exit:      ; preds = %85, %._crit_edge, %87, %89
+_ZNK4llvm12MachineInstr11memoperandsEv.exit:      ; preds = %._crit_edge, %85, %87, %89
   %.sroa.0.0.i = phi ptr [ %28, %87 ], [ %92, %89 ], [ null, %._crit_edge ], [ null, %85 ]
   %.sroa.7.0.i = phi i64 [ 1, %87 ], [ %94, %89 ], [ 0, %._crit_edge ], [ 0, %85 ]
   call void @_ZN4llvm12MachineInstr10setMemRefsERNS_15MachineFunctionENS_8ArrayRefIPNS_17MachineMemOperandEEE(ptr noundef nonnull align 8 dereferenceable(70) %67, ptr noundef nonnull align 8 dereferenceable(1065) %23, ptr %.sroa.0.0.i, i64 %.sroa.7.0.i) #16

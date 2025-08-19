@@ -1043,9 +1043,9 @@ _is_writable.exit:                                ; preds = %2, %13
 _is_readable.exit:                                ; preds = %_is_writable.exit
   %18 = tail call zeroext i1 %17(ptr noundef nonnull %0) #10
   %.mux = select i1 %16, i16 8213, i16 8193
-  %brmerge52 = or i1 %18, %16
+  %brmerge53 = or i1 %18, %16
   %.mux.mux = select i1 %18, i16 %.mux, i16 20
-  br i1 %brmerge52, label %.thread42.sink.split, label %19
+  br i1 %brmerge53, label %.thread42.sink.split, label %19
 
 .thread:                                          ; preds = %_is_writable.exit
   br i1 %16, label %.thread42.sink.split, label %.critedge

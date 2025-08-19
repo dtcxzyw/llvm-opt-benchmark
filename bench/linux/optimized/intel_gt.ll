@@ -343,34 +343,34 @@ define dso_local i32 @intel_gt_init_hw(ptr noundef initializes((3480, 3488)) %0)
   br label %.sink.split
 
 .sink.split:                                      ; preds = %61, %42, %64
-  %.sink33 = phi i32 [ 8268, %64 ], [ 8492, %42 ], [ 8460, %61 ]
-  %.sink29 = phi i32 [ 8260, %64 ], [ 8484, %42 ], [ 8452, %61 ]
-  %.sink25 = phi i32 [ 8256, %64 ], [ 8480, %42 ], [ 8448, %61 ]
-  %.sink21 = phi i32 [ 8264, %64 ], [ 8488, %42 ], [ 8456, %61 ]
-  %.sink17 = phi i32 [ 8284, %64 ], [ 8508, %42 ], [ 8476, %61 ]
-  %.sink13 = phi i32 [ 8276, %64 ], [ 8500, %42 ], [ 8468, %61 ]
-  %.sink9 = phi i32 [ 8272, %64 ], [ 8496, %42 ], [ 8464, %61 ]
-  %.sink5 = phi i32 [ 8280, %64 ], [ 8504, %42 ], [ 8472, %61 ]
+  %.sink37 = phi i32 [ 8268, %64 ], [ 8492, %42 ], [ 8460, %61 ]
+  %.sink33 = phi i32 [ 8260, %64 ], [ 8484, %42 ], [ 8452, %61 ]
+  %.sink29 = phi i32 [ 8256, %64 ], [ 8480, %42 ], [ 8448, %61 ]
+  %.sink25 = phi i32 [ 8264, %64 ], [ 8488, %42 ], [ 8456, %61 ]
+  %.sink21 = phi i32 [ 8284, %64 ], [ 8508, %42 ], [ 8476, %61 ]
+  %.sink17 = phi i32 [ 8276, %64 ], [ 8500, %42 ], [ 8468, %61 ]
+  %.sink13 = phi i32 [ 8272, %64 ], [ 8496, %42 ], [ 8464, %61 ]
+  %.sink9 = phi i32 [ 8280, %64 ], [ 8504, %42 ], [ 8472, %61 ]
   %65 = load ptr, ptr %3, align 8
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 176
   %67 = load ptr, ptr %66, align 8
-  tail call void %67(ptr noundef %65, i32 %.sink33, i32 noundef 0, i1 noundef zeroext true) #7
+  tail call void %67(ptr noundef %65, i32 %.sink37, i32 noundef 0, i1 noundef zeroext true) #7
   %68 = load ptr, ptr %66, align 8
-  tail call void %68(ptr noundef %65, i32 %.sink29, i32 noundef 0, i1 noundef zeroext true) #7
+  tail call void %68(ptr noundef %65, i32 %.sink33, i32 noundef 0, i1 noundef zeroext true) #7
   %69 = load ptr, ptr %66, align 8
-  tail call void %69(ptr noundef %65, i32 %.sink25, i32 noundef 0, i1 noundef zeroext true) #7
+  tail call void %69(ptr noundef %65, i32 %.sink29, i32 noundef 0, i1 noundef zeroext true) #7
   %70 = load ptr, ptr %66, align 8
-  tail call void %70(ptr noundef %65, i32 %.sink21, i32 noundef 0, i1 noundef zeroext true) #7
+  tail call void %70(ptr noundef %65, i32 %.sink25, i32 noundef 0, i1 noundef zeroext true) #7
   %71 = load ptr, ptr %3, align 8
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 176
   %73 = load ptr, ptr %72, align 8
-  tail call void %73(ptr noundef %71, i32 %.sink17, i32 noundef 0, i1 noundef zeroext true) #7
+  tail call void %73(ptr noundef %71, i32 %.sink21, i32 noundef 0, i1 noundef zeroext true) #7
   %74 = load ptr, ptr %72, align 8
-  tail call void %74(ptr noundef %71, i32 %.sink13, i32 noundef 0, i1 noundef zeroext true) #7
+  tail call void %74(ptr noundef %71, i32 %.sink17, i32 noundef 0, i1 noundef zeroext true) #7
   %75 = load ptr, ptr %72, align 8
-  tail call void %75(ptr noundef %71, i32 %.sink9, i32 noundef 0, i1 noundef zeroext true) #7
+  tail call void %75(ptr noundef %71, i32 %.sink13, i32 noundef 0, i1 noundef zeroext true) #7
   %76 = load ptr, ptr %72, align 8
-  tail call void %76(ptr noundef %71, i32 %.sink5, i32 noundef 0, i1 noundef zeroext true) #7
+  tail call void %76(ptr noundef %71, i32 %.sink9, i32 noundef 0, i1 noundef zeroext true) #7
   br label %77
 
 77:                                               ; preds = %.sink.split, %61

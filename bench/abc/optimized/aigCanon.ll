@@ -985,11 +985,11 @@ define i32 @Aig_RManSemiCanonicize(ptr noundef %0, ptr noundef %1, i32 noundef %
   %.17593.us = phi i32 [ 0, %.lr.ph95.us.preheader ], [ %.276.us, %.lr.ph95.us.backedge ]
   %.07792.us = phi i32 [ 0, %.lr.ph95.us.preheader ], [ %.07792.us.be, %.lr.ph95.us.backedge ]
   %.18091.us = phi ptr [ %1, %.lr.ph95.us.preheader ], [ %.281.us, %.lr.ph95.us.backedge ]
-  %.idx108 = mul nuw nsw i64 %indvars.iv103, 104
-  %10 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx108
+  %.idx109 = mul nuw nsw i64 %indvars.iv103, 104
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx109
   %indvars.iv.next104 = add nuw nsw i64 %indvars.iv103, 1
-  %.idx109 = mul nuw nsw i64 %indvars.iv.next104, 104
-  %11 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx109
+  %.idx110 = mul nuw nsw i64 %indvars.iv.next104, 104
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx110
   %12 = tail call i32 @memcmp(ptr noundef nonnull readonly dereferenceable(4) %10, ptr noundef nonnull readonly dereferenceable(4) %11, i64 noundef 4) #18
   %13 = icmp slt i32 %12, 1
   br i1 %13, label %23, label %14
@@ -1062,7 +1062,7 @@ define i32 @Aig_RManSemiCanonicize(ptr noundef %0, ptr noundef %1, i32 noundef %
   br label %.split.us
 
 .split.us:                                        ; preds = %6, %.split.us.loopexit, %.preheader
-  %.0.lcssa111 = phi i32 [ %.1, %.preheader ], [ %.1, %.split.us.loopexit ], [ 0, %6 ]
+  %.0.lcssa112 = phi i32 [ %.1, %.preheader ], [ %.1, %.split.us.loopexit ], [ 0, %6 ]
   %.us-phi = phi ptr [ %1, %.preheader ], [ %.281.us, %.split.us.loopexit ], [ %1, %6 ]
   %.us-phi100 = phi i32 [ 0, %.preheader ], [ %33, %.split.us.loopexit ], [ 0, %6 ]
   %.us-phi101 = phi ptr [ %0, %.preheader ], [ %.2.us, %.split.us.loopexit ], [ %0, %6 ]
@@ -1094,7 +1094,7 @@ select.unfold.i:                                  ; preds = %select.unfold.i, %s
 
 Kit_TruthCopy.exit:                               ; preds = %select.unfold.i, %35, %.split.us
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  ret i32 %.0.lcssa111
+  ret i32 %.0.lcssa112
 }
 
 declare void @Kit_TruthChangePhase(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1

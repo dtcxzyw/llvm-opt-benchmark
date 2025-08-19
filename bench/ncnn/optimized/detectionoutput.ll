@@ -430,8 +430,8 @@ _ZNSt6vectorIN4ncnn8BBoxRectESaIS1_EE6resizeEm.exit: ; preds = %._ZNSt6vectorIN4
   br i1 %180, label %_ZSt27__uninitialized_default_n_aIPfmfET_S1_T0_RSaIT1_E.exit.i, label %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i
 
 _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i: ; preds = %177
-  %181 = shl i64 %168, 2
-  %182 = add i64 %181, -4
+  %181 = shl nuw nsw i64 %168, 2
+  %182 = add nsw i64 %181, -4
   call void @llvm.memset.p0.i64(ptr align 4 %178, i8 0, i64 %182, i1 false), !tbaa !31
   %.idx.i.i.i.i.i.i = shl nuw nsw i64 %179, 2
   %183 = getelementptr inbounds nuw i8, ptr %178, i64 %.idx.i.i.i.i.i.i
@@ -1421,8 +1421,8 @@ _ZNSt6vectorIN4ncnn8BBoxRectESaIS1_EE6resizeEm.exit: ; preds = %._ZNSt6vectorIN4
   br i1 %176, label %_ZSt27__uninitialized_default_n_aIPfmfET_S1_T0_RSaIT1_E.exit.i, label %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i
 
 _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i: ; preds = %173
-  %177 = shl i64 %167, 2
-  %178 = add i64 %177, -4
+  %177 = shl nuw nsw i64 %167, 2
+  %178 = add nsw i64 %177, -4
   call void @llvm.memset.p0.i64(ptr align 4 %174, i8 0, i64 %178, i1 false), !tbaa !31
   %.idx.i.i.i.i.i.i = shl nuw nsw i64 %175, 2
   %179 = getelementptr inbounds nuw i8, ptr %174, i64 %.idx.i.i.i.i.i.i
@@ -2201,7 +2201,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN4ncnn8BBoxRectESaIS1_EE17_M_defau
 19:                                               ; preds = %3
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %5, i8 0, i64 20, i1 false)
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 20
-  %21 = add i64 %1, -1
+  %21 = add nsw i64 %1, -1
   %22 = icmp eq i64 %21, 0
   br i1 %22, label %_ZSt27__uninitialized_default_n_aIPN4ncnn8BBoxRectEmS1_ET_S3_T0_RSaIT1_E.exit, label %23
 

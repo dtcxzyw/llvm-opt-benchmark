@@ -1943,9 +1943,9 @@ switch.early.test:                                ; preds = %342
   br label %301, !llvm.loop !8
 
 .thread663.sink.split:                            ; preds = %7, %425
-  %.sink694 = phi i32 [ %427, %425 ], [ 268435455, %7 ]
+  %.sink701 = phi i32 [ %427, %425 ], [ 268435455, %7 ]
   %445 = getelementptr inbounds nuw i8, ptr %1, i64 336
-  store i32 %.sink694, ptr %445, align 8
+  store i32 %.sink701, ptr %445, align 8
   br label %.thread663
 
 .thread663:                                       ; preds = %342, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %336, %350, %303, %346, %.thread663.sink.split, %9, %291, %288, %286, %280, %282, %284, %278, %275, %273, %261, %263, %265, %267, %269, %271, %259, %255, %253, %251, %249, %245, %247, %243, %241, %239, %235, %237, %231, %228, %226, %223, %219, %216, %214, %208, %210, %212, %206, %204, %202, %194, %196, %198, %200, %192, %190, %188, %186, %176, %178, %180, %182, %184, %174, %170, %168, %166, %164, %162, %160, %158, %156, %150, %152, %154, %148, %145, %142, %140, %136, %132, %130, %116, %118, %120, %122, %124, %126, %128, %114, %110, %108, %106, %92, %94, %96, %98, %100, %102, %104, %90, %87, %85, %83, %81, %79, %75, %73, %71, %69, %63, %65, %67, %62, %56, %54, %52, %51, %45, %43, %40, %32, %34, %36, %38, %28, %30, %24, %26, %22, %20, %16, %18, %14, %12
@@ -3087,15 +3087,15 @@ handleDataSegment.exit1602:                       ; preds = %.loopexit, %451, %4
 
 646:                                              ; preds = %629, %635, %619
   %hf_iscsi_ISID_Qualifier.sink = phi ptr [ @hf_iscsi_ISID_Qualifier, %629 ], [ @hf_iscsi_ISID_d, %635 ], [ @hf_iscsi_ISID8, %619 ]
-  %.sink1746 = phi ptr [ %626, %629 ], [ %626, %635 ], [ %.01447, %619 ]
+  %.sink1837 = phi ptr [ %626, %629 ], [ %626, %635 ], [ %.01447, %619 ]
   %647 = load i32, ptr %hf_iscsi_ISID_Qualifier.sink, align 4
   %648 = add i32 %3, 12
-  %649 = call ptr @proto_tree_add_item(ptr noundef %.sink1746, i32 noundef %647, ptr noundef %0, i32 noundef %648, i32 noundef 2, i32 noundef 0)
+  %649 = call ptr @proto_tree_add_item(ptr noundef %.sink1837, i32 noundef %647, ptr noundef %0, i32 noundef %648, i32 noundef 2, i32 noundef 0)
   %650 = load i32, ptr @iscsi_protocol_version, align 4
   %651 = icmp slt i32 %650, 4
-  %hf_iscsi_TSID.val1778 = load i32, ptr @hf_iscsi_TSID, align 4
-  %hf_iscsi_TSIH.val1779 = load i32, ptr @hf_iscsi_TSIH, align 4
-  %652 = select i1 %651, i32 %hf_iscsi_TSID.val1778, i32 %hf_iscsi_TSIH.val1779
+  %hf_iscsi_TSID.val1869 = load i32, ptr @hf_iscsi_TSID, align 4
+  %hf_iscsi_TSIH.val1870 = load i32, ptr @hf_iscsi_TSIH, align 4
+  %652 = select i1 %651, i32 %hf_iscsi_TSID.val1869, i32 %hf_iscsi_TSIH.val1870
   %653 = add i32 %3, 14
   %654 = call ptr @proto_tree_add_item(ptr noundef %.01447, i32 noundef %652, ptr noundef %0, i32 noundef %653, i32 noundef 2, i32 noundef 0)
   %655 = load i32, ptr @hf_iscsi_InitiatorTaskTag, align 4
@@ -3198,7 +3198,7 @@ handleDataSegment.exit1602:                       ; preds = %.loopexit, %451, %4
 721:                                              ; preds = %713
   %722 = load i32, ptr @hf_iscsi_ISID_Type, align 4
   %723 = call ptr @proto_tree_add_item(ptr noundef %718, i32 noundef %722, ptr noundef %0, i32 noundef %715, i32 noundef 1, i32 noundef 0)
-  br label %.sink.split1771
+  br label %.sink.split1862
 
 724:                                              ; preds = %713
   %725 = load i32, ptr @hf_iscsi_ISID_t, align 4
@@ -3208,24 +3208,24 @@ handleDataSegment.exit1602:                       ; preds = %.loopexit, %451, %4
   %729 = load i32, ptr @hf_iscsi_ISID_b, align 4
   %730 = add i32 %3, 9
   %731 = call ptr @proto_tree_add_item(ptr noundef %718, i32 noundef %729, ptr noundef %0, i32 noundef %730, i32 noundef 2, i32 noundef 0)
-  br label %.sink.split1771
+  br label %.sink.split1862
 
-.sink.split1771:                                  ; preds = %724, %721
+.sink.split1862:                                  ; preds = %724, %721
   %hf_iscsi_ISID_NamingAuthority.sink = phi ptr [ @hf_iscsi_ISID_NamingAuthority, %721 ], [ @hf_iscsi_ISID_c, %724 ]
-  %.sink1775 = phi i32 [ 9, %721 ], [ 11, %724 ]
-  %.sink1774 = phi i32 [ 3, %721 ], [ 1, %724 ]
-  %hf_iscsi_ISID_Qualifier.sink1754.ph = phi ptr [ @hf_iscsi_ISID_Qualifier, %721 ], [ @hf_iscsi_ISID_d, %724 ]
+  %.sink1866 = phi i32 [ 9, %721 ], [ 11, %724 ]
+  %.sink1865 = phi i32 [ 3, %721 ], [ 1, %724 ]
+  %hf_iscsi_ISID_Qualifier.sink1845.ph = phi ptr [ @hf_iscsi_ISID_Qualifier, %721 ], [ @hf_iscsi_ISID_d, %724 ]
   %732 = load i32, ptr %hf_iscsi_ISID_NamingAuthority.sink, align 4
-  %733 = add i32 %3, %.sink1775
-  %734 = call ptr @proto_tree_add_item(ptr noundef %718, i32 noundef %732, ptr noundef %0, i32 noundef %733, i32 noundef %.sink1774, i32 noundef 0)
+  %733 = add i32 %3, %.sink1866
+  %734 = call ptr @proto_tree_add_item(ptr noundef %718, i32 noundef %732, ptr noundef %0, i32 noundef %733, i32 noundef %.sink1865, i32 noundef 0)
   br label %735
 
-735:                                              ; preds = %.sink.split1771, %707
-  %hf_iscsi_ISID_Qualifier.sink1754 = phi ptr [ @hf_iscsi_ISID8, %707 ], [ %hf_iscsi_ISID_Qualifier.sink1754.ph, %.sink.split1771 ]
-  %.sink1751 = phi ptr [ %.01447, %707 ], [ %718, %.sink.split1771 ]
-  %736 = load i32, ptr %hf_iscsi_ISID_Qualifier.sink1754, align 4
+735:                                              ; preds = %.sink.split1862, %707
+  %hf_iscsi_ISID_Qualifier.sink1845 = phi ptr [ @hf_iscsi_ISID8, %707 ], [ %hf_iscsi_ISID_Qualifier.sink1845.ph, %.sink.split1862 ]
+  %.sink1842 = phi ptr [ %.01447, %707 ], [ %718, %.sink.split1862 ]
+  %736 = load i32, ptr %hf_iscsi_ISID_Qualifier.sink1845, align 4
   %737 = add i32 %3, 12
-  %738 = call ptr @proto_tree_add_item(ptr noundef %.sink1751, i32 noundef %736, ptr noundef %0, i32 noundef %737, i32 noundef 2, i32 noundef 0)
+  %738 = call ptr @proto_tree_add_item(ptr noundef %.sink1842, i32 noundef %736, ptr noundef %0, i32 noundef %737, i32 noundef 2, i32 noundef 0)
   %739 = load i32, ptr @iscsi_protocol_version, align 4
   %740 = icmp slt i32 %739, 4
   %hf_iscsi_TSID.val = load i32, ptr @hf_iscsi_TSID, align 4
@@ -3488,8 +3488,8 @@ handleDataSegment.exit1602:                       ; preds = %.loopexit, %451, %4
 
 .sink.split:                                      ; preds = %920
   %hf_iscsi_SCSIData_ResidualCount.val = load i32, ptr @hf_iscsi_SCSIData_ResidualCount, align 4
-  %hf_iscsi_TargetTransferTag.val1783 = load i32, ptr @hf_iscsi_TargetTransferTag, align 4
-  %925 = select i1 %924, i32 %hf_iscsi_SCSIData_ResidualCount.val, i32 %hf_iscsi_TargetTransferTag.val1783
+  %hf_iscsi_TargetTransferTag.val1874 = load i32, ptr @hf_iscsi_TargetTransferTag, align 4
+  %925 = select i1 %924, i32 %hf_iscsi_SCSIData_ResidualCount.val, i32 %hf_iscsi_TargetTransferTag.val1874
   %926 = add i32 %3, 20
   %927 = call ptr @proto_tree_add_item(ptr noundef %.01447, i32 noundef %925, ptr noundef %0, i32 noundef %926, i32 noundef 4, i32 noundef 0)
   br label %928
@@ -3670,8 +3670,8 @@ handleDataSegment.exit1602:                       ; preds = %.loopexit, %451, %4
   %1053 = icmp slt i32 %1052, 3
   %1054 = add i32 %3, 20
   %. = select i1 %1053, i32 24, i32 28
-  %.1776 = select i1 %1053, i32 28, i32 40
-  %.1777 = select i1 %1053, i32 36, i32 44
+  %.1867 = select i1 %1053, i32 28, i32 40
+  %.1868 = select i1 %1053, i32 36, i32 44
   %hf_iscsi_BegRun.val = load i32, ptr @hf_iscsi_BegRun, align 4
   %hf_iscsi_TargetTransferTag.val = load i32, ptr @hf_iscsi_TargetTransferTag, align 4
   %1055 = select i1 %1053, i32 %hf_iscsi_BegRun.val, i32 %hf_iscsi_TargetTransferTag.val
@@ -3681,15 +3681,15 @@ handleDataSegment.exit1602:                       ; preds = %.loopexit, %451, %4
   %1057 = select i1 %1053, i32 %hf_iscsi_RunLength.val, i32 %hf_iscsi_ExpStatSN.val
   %1058 = add i32 %3, %.
   %1059 = call ptr @proto_tree_add_item(ptr noundef %.01447, i32 noundef %1057, ptr noundef %0, i32 noundef %1058, i32 noundef 4, i32 noundef 0)
-  %hf_iscsi_ExpStatSN.val1780 = load i32, ptr @hf_iscsi_ExpStatSN, align 4
-  %hf_iscsi_BegRun.val1781 = load i32, ptr @hf_iscsi_BegRun, align 4
-  %1060 = select i1 %1053, i32 %hf_iscsi_ExpStatSN.val1780, i32 %hf_iscsi_BegRun.val1781
-  %1061 = add i32 %3, %.1776
+  %hf_iscsi_ExpStatSN.val1871 = load i32, ptr @hf_iscsi_ExpStatSN, align 4
+  %hf_iscsi_BegRun.val1872 = load i32, ptr @hf_iscsi_BegRun, align 4
+  %1060 = select i1 %1053, i32 %hf_iscsi_ExpStatSN.val1871, i32 %hf_iscsi_BegRun.val1872
+  %1061 = add i32 %3, %.1867
   %1062 = call ptr @proto_tree_add_item(ptr noundef %.01447, i32 noundef %1060, ptr noundef %0, i32 noundef %1061, i32 noundef 4, i32 noundef 0)
   %hf_iscsi_ExpDataSN.val = load i32, ptr @hf_iscsi_ExpDataSN, align 4
-  %hf_iscsi_RunLength.val1782 = load i32, ptr @hf_iscsi_RunLength, align 4
-  %1063 = select i1 %1053, i32 %hf_iscsi_ExpDataSN.val, i32 %hf_iscsi_RunLength.val1782
-  %1064 = add i32 %3, %.1777
+  %hf_iscsi_RunLength.val1873 = load i32, ptr @hf_iscsi_RunLength, align 4
+  %1063 = select i1 %1053, i32 %hf_iscsi_ExpDataSN.val, i32 %hf_iscsi_RunLength.val1873
+  %1064 = add i32 %3, %.1868
   %1065 = call ptr @proto_tree_add_item(ptr noundef %.01447, i32 noundef %1063, ptr noundef %0, i32 noundef %1064, i32 noundef 4, i32 noundef 0)
   %1066 = call fastcc i32 @handleHeaderDigest(ptr noundef %6, ptr noundef %.01447, ptr noundef %0, i32 noundef %3, i32 noundef 48)
   br label %proto_item_set_generated.exit1615
@@ -5335,13 +5335,13 @@ define internal fastcc void @iscsi_dissect_TargetAddress(ptr noundef %0, ptr nou
   br i1 %34, label %.sink.split, label %38
 
 .sink.split:                                      ; preds = %27, %19
-  %.sink64 = phi i32 [ 3, %19 ], [ 2, %27 ]
-  %.sink62 = phi i32 [ 16, %19 ], [ 4, %27 ]
+  %.sink70 = phi i32 [ 3, %19 ], [ 2, %27 ]
+  %.sink68 = phi i32 [ 16, %19 ], [ 4, %27 ]
   %.sink = phi ptr [ %22, %19 ], [ %33, %27 ]
   %.052.ph = phi i32 [ %17, %19 ], [ %7, %27 ]
-  store i32 %.sink64, ptr %5, align 8
+  store i32 %.sink70, ptr %5, align 8
   %35 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  store i32 %.sink62, ptr %35, align 4
+  store i32 %.sink68, ptr %35, align 4
   %36 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %.sink, ptr %36, align 8
   %37 = getelementptr inbounds nuw i8, ptr %5, i64 16

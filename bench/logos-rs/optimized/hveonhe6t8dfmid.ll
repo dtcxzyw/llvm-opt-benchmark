@@ -834,8 +834,8 @@ define void @"_ZN80_$LT$logos_codegen..parser..definition..Literal$u20$as$u20$sy
   store ptr inttoptr (i64 8 to ptr), ptr %.sroa.226.sroa.2.0..sroa.226.0..sroa_idx.sroa_idx, align 8
   %.sroa.226.sroa.3.0..sroa.226.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i64 0, ptr %.sroa.226.sroa.3.0..sroa.226.0..sroa_idx.sroa_idx, align 8
-  %.sink62.sroa.gep = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %.sink62.sroa.gep63 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %.sink63.sroa.gep = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %.sink63.sroa.gep64 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %16 = invoke zeroext i1 @_ZN3syn9lookahead9peek_impl17h73f559edc98485eaE(ptr nonnull align 8 %7, ptr nonnull @"_ZN3syn3lit7parsing64_$LT$impl$u20$syn..token..Token$u20$for$u20$syn..lit..LitStr$GT$4peek17hc1e81c1828c54d86E", ptr nonnull @"_ZN3syn3lit7parsing64_$LT$impl$u20$syn..token..Token$u20$for$u20$syn..lit..LitStr$GT$7display17h180fac9bb6cdc064E")
           to label %17 unwind label %40
 
@@ -874,10 +874,10 @@ define void @"_ZN80_$LT$logos_codegen..parser..definition..Literal$u20$as$u20$sy
   br i1 %27, label %30, label %33
 
 30:                                               ; preds = %25, %34
-  %.sink59 = phi i64 [ 0, %34 ], [ 1, %25 ]
+  %.sink60 = phi i64 [ 0, %34 ], [ 1, %25 ]
   %.sink = phi ptr [ %38, %34 ], [ %29, %25 ]
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.sink59, ptr %31, align 8
+  store i64 %.sink60, ptr %31, align 8
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %.sink, ptr %32, align 8
   store i64 -9223372036854775808, ptr %0, align 8
@@ -885,11 +885,11 @@ define void @"_ZN80_$LT$logos_codegen..parser..definition..Literal$u20$as$u20$sy
   br label %24
 
 33:                                               ; preds = %25, %34
-  %.sink62.sroa.phi = phi ptr [ %.sink62.sroa.gep, %34 ], [ %.sink62.sroa.gep63, %25 ]
-  %.sink61 = phi i64 [ %35, %34 ], [ %26, %25 ]
+  %.sink63.sroa.phi = phi ptr [ %.sink63.sroa.gep, %34 ], [ %.sink63.sroa.gep64, %25 ]
+  %.sink62 = phi i64 [ %35, %34 ], [ %26, %25 ]
   %.sroa.237.0.copyload.sink = phi ptr [ %38, %34 ], [ %29, %25 ]
-  %.sroa.338.0.copyload = load i64, ptr %.sink62.sroa.phi, align 8
-  store i64 %.sink61, ptr %0, align 8
+  %.sroa.338.0.copyload = load i64, ptr %.sink63.sroa.phi, align 8
+  store i64 %.sink62, ptr %0, align 8
   %.sroa.240.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.237.0.copyload.sink, ptr %.sroa.240.0..sroa_idx, align 8
   %.sroa.341.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16

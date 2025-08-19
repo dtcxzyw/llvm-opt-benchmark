@@ -402,15 +402,15 @@ fixjump.exit:                                     ; preds = %42
   unreachable
 
 fixjump.exit17:                                   ; preds = %49, %fixjump.exit
-  %.sink25 = phi i32 [ %48, %fixjump.exit ], [ %12, %49 ]
-  %.sink24 = phi i32 [ %43, %fixjump.exit ], [ %50, %49 ]
-  %55 = and i32 %.sink25, 127
-  %56 = shl i32 %.sink24, 7
+  %.sink26 = phi i32 [ %48, %fixjump.exit ], [ %12, %49 ]
+  %.sink25 = phi i32 [ %43, %fixjump.exit ], [ %50, %49 ]
+  %55 = and i32 %.sink26, 127
+  %56 = shl i32 %.sink25, 7
   %57 = add i32 %56, 2147483520
   %58 = or disjoint i32 %55, %57
   store i32 %58, ptr %11, align 4, !tbaa !53
-  %.not26 = icmp eq i32 %17, -1
-  %.not = select i1 %15, i1 true, i1 %.not26
+  %.not27 = icmp eq i32 %17, -1
+  %.not = select i1 %15, i1 true, i1 %.not27
   br i1 %.not, label %._crit_edge, label %9
 
 ._crit_edge:                                      ; preds = %fixjump.exit17, %5
@@ -2178,13 +2178,13 @@ define hidden void @luaK_indexed(ptr noundef %0, ptr noundef captures(none) %1, 
   store i32 4, ptr %2, align 8, !tbaa !21
   %17 = load i32, ptr %1, align 8, !tbaa !21
   %18 = icmp eq i32 %17, 10
-  br i1 %18, label %.thread41, label %thread-pre-split
+  br i1 %18, label %.thread45, label %thread-pre-split
 
 19:                                               ; preds = %7
   %20 = icmp eq i32 %5, 4
-  br i1 %20, label %.thread41, label %isKstr.exit.thread
+  br i1 %20, label %.thread45, label %isKstr.exit.thread
 
-.thread41:                                        ; preds = %.thread, %19
+.thread45:                                        ; preds = %.thread, %19
   %21 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %22 = load i32, ptr %21, align 8, !tbaa !18
   %23 = getelementptr inbounds nuw i8, ptr %2, i64 20
@@ -2192,7 +2192,7 @@ define hidden void @luaK_indexed(ptr noundef %0, ptr noundef captures(none) %1, 
   %.not.i = icmp eq i32 %22, %24
   br i1 %.not.i, label %25, label %isKstr.exit.thread
 
-25:                                               ; preds = %.thread41
+25:                                               ; preds = %.thread45
   %26 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %27 = load i32, ptr %26, align 8, !tbaa !22
   %28 = icmp slt i32 %27, 256
@@ -2208,7 +2208,7 @@ isKstr.exit:                                      ; preds = %25
   %.not = icmp eq i8 %34, 68
   br i1 %.not, label %thread-pre-split.thread, label %isKstr.exit.thread
 
-isKstr.exit.thread:                               ; preds = %19, %.thread41, %25, %isKstr.exit
+isKstr.exit.thread:                               ; preds = %19, %.thread45, %25, %isKstr.exit
   %35 = call i32 @luaK_exp2anyreg(ptr noundef %0, ptr noundef nonnull %1)
   %.pr.pre = load i32, ptr %1, align 8, !tbaa !21
   br label %thread-pre-split

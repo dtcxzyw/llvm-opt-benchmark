@@ -3024,9 +3024,9 @@ thread-pre-split:                                 ; preds = %23, %24, %25
   br label %.sink.split
 
 .sink.split:                                      ; preds = %26, %26, %28
-  %.sink20 = phi i64 [ 112, %28 ], [ 48, %26 ], [ 48, %26 ]
+  %.sink22 = phi i64 [ 112, %28 ], [ 48, %26 ], [ 48, %26 ]
   %.str.28.sink = phi ptr [ @.str.28, %28 ], [ @.str.26, %26 ], [ @.str.26, %26 ]
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink20
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink22
   call void @_ZN11cmXMLWriter9AttributeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvPKcRKT_(ptr noundef nonnull align 8 dereferenceable(83) %1, ptr noundef nonnull %.str.28.sink, ptr noundef nonnull align 8 dereferenceable(32) %30)
   br label %31
 

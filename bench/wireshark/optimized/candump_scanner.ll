@@ -221,18 +221,18 @@ define hidden range(i32 0, 9) i32 @candump_lex(ptr noundef %0) local_unnamed_add
   %109 = shl nuw i64 1, %108
   %110 = and i64 %109, 17585743593472
   %.not185.not = icmp eq i64 %110, 0
-  br i1 %.not185.not, label %66, label %.backedge.sink.split587, !llvm.loop !8
+  br i1 %.not185.not, label %66, label %.backedge.sink.split614, !llvm.loop !8
 
-.backedge.sink.split587:                          ; preds = %._crit_edge, %.backedge.sink.split587.backedge
-  %.1171.ph = phi ptr [ %.1171.ph.be, %.backedge.sink.split587.backedge ], [ %.0170, %._crit_edge ]
+.backedge.sink.split614:                          ; preds = %._crit_edge, %.backedge.sink.split614.backedge
+  %.1171.ph = phi ptr [ %.1171.ph.be, %.backedge.sink.split614.backedge ], [ %.0170, %._crit_edge ]
   %111 = load ptr, ptr %58, align 8
   %112 = load i32, ptr %57, align 8
   br label %.backedge
 
-.backedge:                                        ; preds = %.backedge.backedge, %.backedge.sink.split587
-  %.1171 = phi ptr [ %.1171.ph, %.backedge.sink.split587 ], [ %589, %.backedge.backedge ]
-  %.2164 = phi ptr [ %111, %.backedge.sink.split587 ], [ %591, %.backedge.backedge ]
-  %.3 = phi i32 [ %112, %.backedge.sink.split587 ], [ %.3.be, %.backedge.backedge ]
+.backedge:                                        ; preds = %.backedge.backedge, %.backedge.sink.split614
+  %.1171 = phi ptr [ %.1171.ph, %.backedge.sink.split614 ], [ %589, %.backedge.backedge ]
+  %.2164 = phi ptr [ %111, %.backedge.sink.split614 ], [ %591, %.backedge.backedge ]
+  %.3 = phi i32 [ %112, %.backedge.sink.split614 ], [ %.3.be, %.backedge.backedge ]
   %113 = sext i32 %.3 to i64
   %114 = getelementptr [29 x i16], ptr @yy_accept, i64 0, i64 %113
   %115 = load i16, ptr %114, align 2
@@ -321,7 +321,7 @@ define hidden range(i32 0, 9) i32 @candump_lex(ptr noundef %0) local_unnamed_add
 150:                                              ; preds = %.loopexit237
   %151 = load i8, ptr %54, align 8
   store i8 %151, ptr %.2164, align 1
-  br label %.backedge.sink.split587.backedge
+  br label %.backedge.sink.split614.backedge
 
 152:                                              ; preds = %.loopexit237
   %153 = load i32, ptr %60, align 8
@@ -660,13 +660,13 @@ yy_try_NUL_trans.exit:                            ; preds = %.lr.ph.i191, %353
   %373 = and i64 %372, 17585743593472
   %.not18.i = icmp ne i64 %373, 0
   %374 = and i64 %.lcssa.i194, 9223372036854775807
-  %.not189508 = icmp eq i64 %374, 0
-  %.not189 = or i1 %.not18.i, %.not189508
-  br i1 %.not189, label %.backedge.sink.split587.backedge, label %375
+  %.not189535 = icmp eq i64 %374, 0
+  %.not189 = or i1 %.not18.i, %.not189535
+  br i1 %.not189, label %.backedge.sink.split614.backedge, label %375
 
-.backedge.sink.split587.backedge:                 ; preds = %yy_try_NUL_trans.exit, %150
+.backedge.sink.split614.backedge:                 ; preds = %yy_try_NUL_trans.exit, %150
   %.1171.ph.be = phi ptr [ %.1171, %150 ], [ %299, %yy_try_NUL_trans.exit ]
-  br label %.backedge.sink.split587
+  br label %.backedge.sink.split614
 
 375:                                              ; preds = %yy_try_NUL_trans.exit
   %376 = getelementptr [44 x i16], ptr @yy_nxt, i64 0, i64 %.lcssa.i194
@@ -852,10 +852,10 @@ candump_yyinput.exit.i:                           ; preds = %458, %453
   br label %465
 
 465:                                              ; preds = %candump_yyinput.exit.i, %413
-  %.sink133.in.i = phi ptr [ %464, %candump_yyinput.exit.i ], [ %414, %413 ]
+  %.sink139.in.i = phi ptr [ %464, %candump_yyinput.exit.i ], [ %414, %413 ]
   %.0.i.sink.i = phi i32 [ %.0.i.i, %candump_yyinput.exit.i ], [ 0, %413 ]
-  %.sink133.i = load ptr, ptr %.sink133.in.i, align 8
-  %466 = getelementptr inbounds nuw i8, ptr %.sink133.i, i64 28
+  %.sink139.i = load ptr, ptr %.sink139.in.i, align 8
+  %466 = getelementptr inbounds nuw i8, ptr %.sink139.i, i64 28
   store i32 %.0.i.sink.i, ptr %466, align 4
   %467 = load i32, ptr %63, align 4
   %468 = icmp eq i32 %467, 0
@@ -958,7 +958,7 @@ yy_get_next_buffer.exit:                          ; preds = %479, %508
   %533 = getelementptr inbounds nuw i8, ptr %532, i64 8
   %534 = load ptr, ptr %533, align 8
   store ptr %534, ptr %59, align 8
-  switch i32 %.0100.i, label %default.unreachable421 [
+  switch i32 %.0100.i, label %default.unreachable448 [
     i32 1, label %yy_get_previous_state.exit214
     i32 0, label %536
     i32 2, label %yy_get_next_buffer.exit.yy_get_next_buffer.exit.thread232_crit_edge
@@ -978,8 +978,8 @@ yy_get_next_buffer.exit.yy_get_next_buffer.exit.thread232_crit_edge: ; preds = %
   %538 = ptrtoint ptr %265 to i64
   %539 = xor i64 %538, -1
   %540 = add i64 %539, %537
-  %sext509 = shl i64 %540, 32
-  %541 = ashr exact i64 %sext509, 32
+  %sext536 = shl i64 %540, 32
+  %541 = ashr exact i64 %sext536, 32
   %542 = getelementptr i8, ptr %534, i64 %541
   store ptr %542, ptr %53, align 8
   %543 = load i32, ptr %55, align 4
@@ -1156,7 +1156,7 @@ yy_get_next_buffer.exit.thread232:                ; preds = %393, %yy_get_next_b
   %exitcond.not.i229 = icmp eq ptr %637, %591
   br i1 %exitcond.not.i229, label %.backedge.backedge, label %.lr.ph32.i216, !llvm.loop !11
 
-default.unreachable421:                           ; preds = %yy_get_next_buffer.exit
+default.unreachable448:                           ; preds = %yy_get_next_buffer.exit
   unreachable
 
 yy_get_previous_state.exit214:                    ; preds = %yy_get_next_buffer.exit, %393
@@ -1370,7 +1370,7 @@ define hidden void @candump_restart(ptr noundef %0, ptr noundef captures(none) %
   %8 = getelementptr ptr, ptr %4, i64 %7
   %9 = load ptr, ptr %8, align 8
   %.not16 = icmp eq ptr %9, null
-  br i1 %.not16, label %10, label %.thread19
+  br i1 %.not16, label %10, label %.thread25
 
 10:                                               ; preds = %5, %2
   tail call fastcc void @candump_ensure_buffer_stack(ptr noundef %1)
@@ -1384,14 +1384,14 @@ define hidden void @candump_restart(ptr noundef %0, ptr noundef captures(none) %
   store ptr %13, ptr %17, align 8
   %.pre = load ptr, ptr %3, align 8
   %.not17 = icmp eq ptr %.pre, null
-  br i1 %.not17, label %.thread, label %.thread19
+  br i1 %.not17, label %.thread, label %.thread25
 
 .thread:                                          ; preds = %10
   %18 = tail call ptr @__errno_location() #25
   %19 = load i32, ptr %18, align 4
   br label %candump__flush_buffer.exit.i
 
-.thread19:                                        ; preds = %5, %10
+.thread25:                                        ; preds = %5, %10
   %20 = phi ptr [ %.pre, %10 ], [ %4, %5 ]
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %22 = load i64, ptr %21, align 8
@@ -1402,7 +1402,7 @@ define hidden void @candump_restart(ptr noundef %0, ptr noundef captures(none) %
   %.not.i.i = icmp eq ptr %24, null
   br i1 %.not.i.i, label %candump__flush_buffer.exit.i, label %27
 
-27:                                               ; preds = %.thread19
+27:                                               ; preds = %.thread25
   %28 = getelementptr inbounds nuw i8, ptr %24, i64 28
   store i32 0, ptr %28, align 4
   %29 = getelementptr inbounds nuw i8, ptr %24, i64 8
@@ -1450,10 +1450,10 @@ define hidden void @candump_restart(ptr noundef %0, ptr noundef captures(none) %
   store i8 %55, ptr %56, align 8
   br label %candump__flush_buffer.exit.i
 
-candump__flush_buffer.exit.i:                     ; preds = %.thread, %43, %38, %27, %.thread19
-  %57 = phi i32 [ %19, %.thread ], [ %26, %43 ], [ %26, %38 ], [ %26, %27 ], [ %26, %.thread19 ]
-  %58 = phi ptr [ %18, %.thread ], [ %25, %43 ], [ %25, %38 ], [ %25, %27 ], [ %25, %.thread19 ]
-  %59 = phi ptr [ null, %.thread ], [ %24, %43 ], [ %24, %38 ], [ %24, %27 ], [ null, %.thread19 ]
+candump__flush_buffer.exit.i:                     ; preds = %.thread, %43, %38, %27, %.thread25
+  %57 = phi i32 [ %19, %.thread ], [ %26, %43 ], [ %26, %38 ], [ %26, %27 ], [ %26, %.thread25 ]
+  %58 = phi ptr [ %18, %.thread ], [ %25, %43 ], [ %25, %38 ], [ %25, %27 ], [ %25, %.thread25 ]
+  %59 = phi ptr [ null, %.thread ], [ %24, %43 ], [ %24, %38 ], [ %24, %27 ], [ null, %.thread25 ]
   store ptr %0, ptr %59, align 8
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 52
   store i32 1, ptr %60, align 4
@@ -1720,7 +1720,7 @@ define hidden void @candump_push_buffer_state(ptr noundef %0, ptr noundef captur
   %10 = getelementptr ptr, ptr %6, i64 %9
   %11 = load ptr, ptr %10, align 8
   %.not25 = icmp eq ptr %11, null
-  br i1 %.not25, label %.thread30, label %12
+  br i1 %.not25, label %.thread31, label %12
 
 12:                                               ; preds = %7
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 48
@@ -1745,23 +1745,23 @@ define hidden void @candump_push_buffer_state(ptr noundef %0, ptr noundef captur
   store i32 %24, ptr %29, align 4
   %.pr.pre = load ptr, ptr %5, align 8
   %.not26 = icmp eq ptr %.pr.pre, null
-  br i1 %.not26, label %.thread, label %.thread30
+  br i1 %.not26, label %.thread, label %.thread31
 
-.thread30:                                        ; preds = %7, %12
-  %.pr33 = phi ptr [ %.pr.pre, %12 ], [ %6, %7 ]
+.thread31:                                        ; preds = %7, %12
+  %.pr34 = phi ptr [ %.pr.pre, %12 ], [ %6, %7 ]
   %30 = load i64, ptr %8, align 8
-  %31 = getelementptr ptr, ptr %.pr33, i64 %30
+  %31 = getelementptr ptr, ptr %.pr34, i64 %30
   %32 = load ptr, ptr %31, align 8
   %.not27 = icmp eq ptr %32, null
   br i1 %.not27, label %.thread, label %33
 
-33:                                               ; preds = %.thread30
+33:                                               ; preds = %.thread31
   %34 = add i64 %30, 1
   store i64 %34, ptr %8, align 8
   br label %.thread
 
-.thread:                                          ; preds = %4, %12, %33, %.thread30
-  %35 = phi ptr [ null, %12 ], [ %.pr33, %33 ], [ %.pr33, %.thread30 ], [ null, %4 ]
+.thread:                                          ; preds = %4, %12, %33, %.thread31
+  %35 = phi ptr [ null, %12 ], [ %.pr34, %33 ], [ %.pr34, %.thread31 ], [ null, %4 ]
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %37 = load i64, ptr %36, align 8
   %38 = getelementptr ptr, ptr %35, i64 %37

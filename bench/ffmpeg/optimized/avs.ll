@@ -30,7 +30,7 @@ define internal i32 @avs_decode_init(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @avs_decode_frame(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef readonly captures(none) %3) #1 {
+define internal range(i32 4, 0) i32 @avs_decode_frame(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef readonly captures(none) %3) #1 {
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %6 = load ptr, ptr %5, align 8, !tbaa !31
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 32
@@ -221,9 +221,9 @@ define internal i32 @avs_decode_frame(ptr noundef %0, ptr noundef %1, ptr nounde
   %115 = mul nsw i64 %114, %112
   %116 = add nuw nsw i64 %indvars.iv241, 2
   %117 = mul nsw i64 %116, %112
-  %invariant.gep291 = getelementptr i8, ptr %21, i64 %113
-  %invariant.gep293 = getelementptr i8, ptr %21, i64 %115
-  %invariant.gep295 = getelementptr i8, ptr %21, i64 %117
+  %invariant.gep299 = getelementptr i8, ptr %21, i64 %113
+  %invariant.gep301 = getelementptr i8, ptr %21, i64 %115
+  %invariant.gep303 = getelementptr i8, ptr %21, i64 %117
   br label %118
 
 118:                                              ; preds = %.loopexit.split.us.us.us.us.us, %.preheader.us.us
@@ -239,26 +239,26 @@ define internal i32 @avs_decode_frame(ptr noundef %0, ptr noundef %1, ptr nounde
   %123 = zext i8 %122 to i64
   %124 = mul nuw nsw i64 %123, 9
   %125 = getelementptr inbounds nuw i8, ptr %.0119, i64 %124
-  %gep292 = getelementptr i8, ptr %invariant.gep291, i64 %indvars.iv238
-  %invariant.gep287 = getelementptr inbounds nuw i8, ptr %125, i64 3
-  %gep294 = getelementptr i8, ptr %invariant.gep293, i64 %indvars.iv238
-  %invariant.gep289 = getelementptr inbounds nuw i8, ptr %125, i64 6
-  %gep296 = getelementptr i8, ptr %invariant.gep295, i64 %indvars.iv238
+  %gep300 = getelementptr i8, ptr %invariant.gep299, i64 %indvars.iv238
+  %invariant.gep295 = getelementptr inbounds nuw i8, ptr %125, i64 3
+  %gep302 = getelementptr i8, ptr %invariant.gep301, i64 %indvars.iv238
+  %invariant.gep297 = getelementptr inbounds nuw i8, ptr %125, i64 6
+  %gep304 = getelementptr i8, ptr %invariant.gep303, i64 %indvars.iv238
   br label %126
 
 126:                                              ; preds = %126, %.split.us.us.us.us.us
   %indvars.iv233 = phi i64 [ %indvars.iv.next234, %126 ], [ 0, %.split.us.us.us.us.us ]
   %127 = getelementptr inbounds nuw i8, ptr %125, i64 %indvars.iv233
   %128 = load i8, ptr %127, align 1, !tbaa !42
-  %129 = getelementptr i8, ptr %gep292, i64 %indvars.iv233
+  %129 = getelementptr i8, ptr %gep300, i64 %indvars.iv233
   store i8 %128, ptr %129, align 1, !tbaa !42
-  %gep288 = getelementptr inbounds nuw i8, ptr %invariant.gep287, i64 %indvars.iv233
-  %130 = load i8, ptr %gep288, align 1, !tbaa !42
-  %131 = getelementptr i8, ptr %gep294, i64 %indvars.iv233
+  %gep296 = getelementptr inbounds nuw i8, ptr %invariant.gep295, i64 %indvars.iv233
+  %130 = load i8, ptr %gep296, align 1, !tbaa !42
+  %131 = getelementptr i8, ptr %gep302, i64 %indvars.iv233
   store i8 %130, ptr %131, align 1, !tbaa !42
-  %gep290 = getelementptr inbounds nuw i8, ptr %invariant.gep289, i64 %indvars.iv233
-  %132 = load i8, ptr %gep290, align 1, !tbaa !42
-  %133 = getelementptr i8, ptr %gep296, i64 %indvars.iv233
+  %gep298 = getelementptr inbounds nuw i8, ptr %invariant.gep297, i64 %indvars.iv233
+  %132 = load i8, ptr %gep298, align 1, !tbaa !42
+  %133 = getelementptr i8, ptr %gep304, i64 %indvars.iv233
   store i8 %132, ptr %133, align 1, !tbaa !42
   %indvars.iv.next234 = add nuw nsw i64 %indvars.iv233, 1
   %exitcond237.not = icmp eq i64 %indvars.iv.next234, 3
@@ -284,9 +284,9 @@ define internal i32 @avs_decode_frame(ptr noundef %0, ptr noundef %1, ptr nounde
   %139 = mul nsw i64 %138, %110
   %140 = add nuw nsw i64 %indvars.iv230, 2
   %141 = mul nsw i64 %140, %110
-  %invariant.gep281 = getelementptr i8, ptr %21, i64 %137
-  %invariant.gep283 = getelementptr i8, ptr %21, i64 %139
-  %invariant.gep285 = getelementptr i8, ptr %21, i64 %141
+  %invariant.gep289 = getelementptr i8, ptr %21, i64 %137
+  %invariant.gep291 = getelementptr i8, ptr %21, i64 %139
+  %invariant.gep293 = getelementptr i8, ptr %21, i64 %141
   br label %142
 
 142:                                              ; preds = %.loopexit.split.us.us.us, %.preheader.us
@@ -319,11 +319,11 @@ define internal i32 @avs_decode_frame(ptr noundef %0, ptr noundef %1, ptr nounde
   %159 = mul nuw nsw i32 %105, %158
   %160 = zext nneg i32 %159 to i64
   %161 = getelementptr inbounds nuw i8, ptr %.0119, i64 %160
-  %gep282 = getelementptr i8, ptr %invariant.gep281, i64 %indvars.iv227
-  %invariant.gep277 = getelementptr inbounds nuw i8, ptr %161, i64 %106
-  %gep284 = getelementptr i8, ptr %invariant.gep283, i64 %indvars.iv227
-  %invariant.gep279 = getelementptr inbounds nuw i8, ptr %161, i64 %108
-  %gep286 = getelementptr i8, ptr %invariant.gep285, i64 %indvars.iv227
+  %gep290 = getelementptr i8, ptr %invariant.gep289, i64 %indvars.iv227
+  %invariant.gep285 = getelementptr inbounds nuw i8, ptr %161, i64 %106
+  %gep292 = getelementptr i8, ptr %invariant.gep291, i64 %indvars.iv227
+  %invariant.gep287 = getelementptr inbounds nuw i8, ptr %161, i64 %108
+  %gep294 = getelementptr i8, ptr %invariant.gep293, i64 %indvars.iv227
   br label %164
 
 .loopexit.split.us.us.us.loopexit:                ; preds = %164
@@ -340,15 +340,15 @@ define internal i32 @avs_decode_frame(ptr noundef %0, ptr noundef %1, ptr nounde
   %indvars.iv222 = phi i64 [ %indvars.iv.next223, %164 ], [ 0, %.split.us.us.us ]
   %165 = getelementptr inbounds nuw i8, ptr %161, i64 %indvars.iv222
   %166 = load i8, ptr %165, align 1, !tbaa !42
-  %167 = getelementptr i8, ptr %gep282, i64 %indvars.iv222
+  %167 = getelementptr i8, ptr %gep290, i64 %indvars.iv222
   store i8 %166, ptr %167, align 1, !tbaa !42
-  %gep278 = getelementptr inbounds nuw i8, ptr %invariant.gep277, i64 %indvars.iv222
-  %168 = load i8, ptr %gep278, align 1, !tbaa !42
-  %169 = getelementptr i8, ptr %gep284, i64 %indvars.iv222
+  %gep286 = getelementptr inbounds nuw i8, ptr %invariant.gep285, i64 %indvars.iv222
+  %168 = load i8, ptr %gep286, align 1, !tbaa !42
+  %169 = getelementptr i8, ptr %gep292, i64 %indvars.iv222
   store i8 %168, ptr %169, align 1, !tbaa !42
-  %gep280 = getelementptr inbounds nuw i8, ptr %invariant.gep279, i64 %indvars.iv222
-  %170 = load i8, ptr %gep280, align 1, !tbaa !42
-  %171 = getelementptr i8, ptr %gep286, i64 %indvars.iv222
+  %gep288 = getelementptr inbounds nuw i8, ptr %invariant.gep287, i64 %indvars.iv222
+  %170 = load i8, ptr %gep288, align 1, !tbaa !42
+  %171 = getelementptr i8, ptr %gep294, i64 %indvars.iv222
   store i8 %170, ptr %171, align 1, !tbaa !42
   %indvars.iv.next223 = add nuw nsw i64 %indvars.iv222, 1
   %exitcond226.not = icmp eq i64 %indvars.iv.next223, %wide.trip.count225
@@ -378,8 +378,8 @@ define internal i32 @avs_decode_frame(ptr noundef %0, ptr noundef %1, ptr nounde
   %179 = mul nsw i64 %indvars.iv208, %178
   %180 = add nuw nsw i64 %indvars.iv208, 1
   %181 = mul nsw i64 %180, %178
-  %invariant.gep273 = getelementptr i8, ptr %21, i64 %179
-  %invariant.gep275 = getelementptr i8, ptr %21, i64 %181
+  %invariant.gep281 = getelementptr i8, ptr %21, i64 %179
+  %invariant.gep283 = getelementptr i8, ptr %21, i64 %181
   br label %182
 
 182:                                              ; preds = %.preheader, %.loopexit.split
@@ -412,20 +412,20 @@ define internal i32 @avs_decode_frame(ptr noundef %0, ptr noundef %1, ptr nounde
   %199 = mul nuw nsw i32 %105, %198
   %200 = zext nneg i32 %199 to i64
   %201 = getelementptr inbounds nuw i8, ptr %.0119, i64 %200
-  %gep274 = getelementptr i8, ptr %invariant.gep273, i64 %indvars.iv205
+  %gep282 = getelementptr i8, ptr %invariant.gep281, i64 %indvars.iv205
   %invariant.gep = getelementptr inbounds nuw i8, ptr %201, i64 %106
-  %gep276 = getelementptr i8, ptr %invariant.gep275, i64 %indvars.iv205
+  %gep284 = getelementptr i8, ptr %invariant.gep283, i64 %indvars.iv205
   br label %202
 
 202:                                              ; preds = %.split, %202
   %indvars.iv202 = phi i64 [ 0, %.split ], [ %indvars.iv.next203, %202 ]
   %203 = getelementptr inbounds nuw i8, ptr %201, i64 %indvars.iv202
   %204 = load i8, ptr %203, align 1, !tbaa !42
-  %205 = getelementptr i8, ptr %gep274, i64 %indvars.iv202
+  %205 = getelementptr i8, ptr %gep282, i64 %indvars.iv202
   store i8 %204, ptr %205, align 1, !tbaa !42
   %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %indvars.iv202
   %206 = load i8, ptr %gep, align 1, !tbaa !42
-  %207 = getelementptr i8, ptr %gep276, i64 %indvars.iv202
+  %207 = getelementptr i8, ptr %gep284, i64 %indvars.iv202
   store i8 %206, ptr %207, align 1, !tbaa !42
   %indvars.iv.next203 = add nuw nsw i64 %indvars.iv202, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next203, %wide.trip.count

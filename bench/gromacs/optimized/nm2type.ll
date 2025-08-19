@@ -137,7 +137,7 @@ _ZSt8_DestroyIPNSt10filesystem7__cxx114pathES2_EvT_S4_RSaIT0_E.exitthread-pre-sp
   br label %_ZSt8_DestroyIPNSt10filesystem7__cxx114pathES2_EvT_S4_RSaIT0_E.exit.i
 
 _ZSt8_DestroyIPNSt10filesystem7__cxx114pathES2_EvT_S4_RSaIT0_E.exit.i: ; preds = %2, %_ZSt8_DestroyIPNSt10filesystem7__cxx114pathES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i, %._crit_edge
-  %.0.lcssa55 = phi ptr [ %.0.lcssa.i, %_ZSt8_DestroyIPNSt10filesystem7__cxx114pathES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i ], [ %.0.lcssa.i, %._crit_edge ], [ null, %2 ]
+  %.0.lcssa69 = phi ptr [ %.0.lcssa.i, %_ZSt8_DestroyIPNSt10filesystem7__cxx114pathES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i ], [ %.0.lcssa.i, %._crit_edge ], [ null, %2 ]
   %32 = phi ptr [ %.pr.i, %_ZSt8_DestroyIPNSt10filesystem7__cxx114pathES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i ], [ %.pre, %._crit_edge ], [ %17, %2 ]
   %.not.i.i.i = icmp eq ptr %32, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorINSt10filesystem7__cxx114pathESaIS2_EED2Ev.exit, label %33
@@ -153,7 +153,7 @@ _ZSt8_DestroyIPNSt10filesystem7__cxx114pathES2_EvT_S4_RSaIT0_E.exit.i: ; preds =
 
 _ZNSt6vectorINSt10filesystem7__cxx114pathESaIS2_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPNSt10filesystem7__cxx114pathES2_EvT_S4_RSaIT0_E.exit.i, %33
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
-  ret ptr %.0.lcssa55
+  ret ptr %.0.lcssa69
 
 .lr.ph:                                           ; preds = %2, %108
   %.043 = phi ptr [ %.0.lcssa.i, %108 ], [ null, %2 ]
@@ -882,7 +882,7 @@ define noundef i32 @_Z7nm2typeiP9t_nm2typeP7t_atomsP22PreprocessingAtomTypesPiP1
 
 47:                                               ; preds = %.lr.ph381, %326
   %indvars.iv462 = phi i64 [ 0, %.lr.ph381 ], [ %indvars.iv.next463.pre-phi, %326 ]
-  %.0162380 = phi i32 [ 0, %.lr.ph381 ], [ %.1.lcssa469, %326 ]
+  %.0162380 = phi i32 [ 0, %.lr.ph381 ], [ %.1.lcssa500, %326 ]
   %.0163379 = phi i32 [ 0, %.lr.ph381 ], [ %.1164, %326 ]
   %48 = load ptr, ptr %31, align 8, !tbaa !64
   %49 = getelementptr inbounds nuw ptr, ptr %48, i64 %indvars.iv462
@@ -1564,7 +1564,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit240: ; preds = %_Z
   br label %326
 
 ._crit_edge374.thread:                            ; preds = %.preheader287, %._crit_edge374
-  %.1.lcssa470 = phi i32 [ %.3, %._crit_edge374 ], [ %.0162380, %.preheader287 ]
+  %.1.lcssa501 = phi i32 [ %.3, %._crit_edge374 ], [ %.0162380, %.preheader287 ]
   %318 = load ptr, ptr @stderr, align 8, !tbaa !58
   %319 = load ptr, ptr %31, align 8, !tbaa !64
   %320 = getelementptr inbounds nuw ptr, ptr %319, i64 %indvars.iv462
@@ -1576,7 +1576,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit240: ; preds = %_Z
   br label %326
 
 326:                                              ; preds = %._crit_edge374.thread, %307
-  %.1.lcssa469 = phi i32 [ %.1.lcssa470, %._crit_edge374.thread ], [ %.3, %307 ]
+  %.1.lcssa500 = phi i32 [ %.1.lcssa501, %._crit_edge374.thread ], [ %.3, %307 ]
   %indvars.iv.next463.pre-phi = phi i64 [ %323, %._crit_edge374.thread ], [ %.pre, %307 ]
   %.1164 = phi i32 [ %.0163379, %._crit_edge374.thread ], [ %317, %307 ]
   %327 = load i32, ptr %2, align 8, !tbaa !50

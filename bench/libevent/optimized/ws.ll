@@ -851,8 +851,8 @@ define internal fastcc void @evws_send(ptr noundef readonly captures(none) %0, i
   %11 = or disjoint i8 %10, -128
   store i8 %11, ptr %5, align 16
   %12 = icmp ult i64 %3, 126
-  %.sink29.i.sroa.gep = getelementptr inbounds nuw i8, ptr %5, i64 3
-  %.sink29.i.sroa.gep6 = getelementptr inbounds nuw i8, ptr %5, i64 1
+  %.sink30.i.sroa.gep = getelementptr inbounds nuw i8, ptr %5, i64 3
+  %.sink30.i.sroa.gep6 = getelementptr inbounds nuw i8, ptr %5, i64 1
   br i1 %12, label %.loopexit.sink.split.i, label %13
 
 13:                                               ; preds = %4
@@ -860,7 +860,7 @@ define internal fastcc void @evws_send(ptr noundef readonly captures(none) %0, i
   br i1 %14, label %15, label %19
 
 15:                                               ; preds = %13
-  store i8 126, ptr %.sink29.i.sroa.gep6, align 1
+  store i8 126, ptr %.sink30.i.sroa.gep6, align 1
   %16 = lshr i64 %3, 8
   %17 = trunc nuw i64 %16 to i8
   %18 = getelementptr inbounds nuw i8, ptr %5, i64 2
@@ -868,7 +868,7 @@ define internal fastcc void @evws_send(ptr noundef readonly captures(none) %0, i
   br label %.loopexit.sink.split.i
 
 19:                                               ; preds = %13
-  store i8 127, ptr %.sink29.i.sroa.gep6, align 1
+  store i8 127, ptr %.sink30.i.sroa.gep6, align 1
   br label %20
 
 20:                                               ; preds = %20, %19
@@ -884,10 +884,10 @@ define internal fastcc void @evws_send(ptr noundef readonly captures(none) %0, i
   br i1 %exitcond.not.i, label %make_ws_frame.exit, label %20, !llvm.loop !10
 
 .loopexit.sink.split.i:                           ; preds = %15, %4
-  %.sink29.i.sroa.phi = phi ptr [ %.sink29.i.sroa.gep, %15 ], [ %.sink29.i.sroa.gep6, %4 ]
+  %.sink30.i.sroa.phi = phi ptr [ %.sink30.i.sroa.gep, %15 ], [ %.sink30.i.sroa.gep6, %4 ]
   %.0.ph.i = phi i64 [ 4, %15 ], [ 2, %4 ]
   %25 = trunc i64 %3 to i8
-  store i8 %25, ptr %.sink29.i.sroa.phi, align 1
+  store i8 %25, ptr %.sink30.i.sroa.phi, align 1
   br label %make_ws_frame.exit
 
 make_ws_frame.exit:                               ; preds = %20, %.loopexit.sink.split.i

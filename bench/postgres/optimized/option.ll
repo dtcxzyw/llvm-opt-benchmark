@@ -894,8 +894,8 @@ define dso_local void @get_sock_dir(ptr noundef captures(address) %0) local_unna
   unreachable
 
 .lr.ph:                                           ; preds = %.preheader, %24
-  %.02328 = phi i32 [ %25, %24 ], [ 1, %.preheader ]
-  switch i32 %.02328, label %24 [
+  %.02331 = phi i32 [ %25, %24 ], [ 1, %.preheader ]
+  switch i32 %.02331, label %24 [
     i32 4, label %22
     i32 5, label %28
   ]
@@ -905,7 +905,7 @@ define dso_local void @get_sock_dir(ptr noundef captures(address) %0) local_unna
   br label %24
 
 24:                                               ; preds = %22, %.lr.ph
-  %25 = add nuw nsw i32 %.02328, 1
+  %25 = add nuw nsw i32 %.02331, 1
   %26 = call ptr @fgets(ptr noundef nonnull %3, i32 noundef 1024, ptr noundef nonnull %16)
   %27 = icmp eq ptr %26, null
   br i1 %27, label %._crit_edge, label %.lr.ph

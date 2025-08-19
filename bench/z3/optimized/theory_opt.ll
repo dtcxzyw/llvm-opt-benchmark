@@ -112,14 +112,14 @@ _ZNK6vectorIP4exprLb0EjE5emptyEv.exit:            ; preds = %_ZNK6vectorIP4exprL
   br label %.backedge.sink.split
 
 .backedge.sink.split:                             ; preds = %.backedge.sink.split.sink.split, %188, %154
-  %.sink107 = phi ptr [ %152, %154 ], [ %186, %188 ], [ %.pre.i48, %.backedge.sink.split.sink.split ]
-  %.sink106 = phi i32 [ %156, %154 ], [ %190, %188 ], [ %.pre2.i50, %.backedge.sink.split.sink.split ]
+  %.sink129 = phi ptr [ %152, %154 ], [ %186, %188 ], [ %.pre.i48, %.backedge.sink.split.sink.split ]
+  %.sink128 = phi i32 [ %156, %154 ], [ %190, %188 ], [ %.pre2.i50, %.backedge.sink.split.sink.split ]
   %.sink = phi ptr [ %126, %154 ], [ %124, %188 ], [ %.sink.ph, %.backedge.sink.split.sink.split ]
-  %25 = getelementptr inbounds i8, ptr %.sink107, i64 -4
-  %26 = zext i32 %.sink106 to i64
-  %27 = getelementptr inbounds nuw ptr, ptr %.sink107, i64 %26
+  %25 = getelementptr inbounds i8, ptr %.sink129, i64 -4
+  %26 = zext i32 %.sink128 to i64
+  %27 = getelementptr inbounds nuw ptr, ptr %.sink129, i64 %26
   store ptr %.sink, ptr %27, align 8, !tbaa !14
-  %28 = add i32 %.sink106, 1
+  %28 = add i32 %.sink128, 1
   store i32 %28, ptr %25, align 4, !tbaa !12
   br label %.backedge
 

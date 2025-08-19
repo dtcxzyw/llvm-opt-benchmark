@@ -108,8 +108,8 @@ define i32 @ucase_tolower_77(i32 noundef %0) local_unnamed_addr #3 {
   br label %.sink.split
 
 .sink.split:                                      ; preds = %3, %16, %7
-  %.sink63 = phi i32 [ %11, %7 ], [ %25, %16 ], [ %4, %3 ]
-  %26 = zext nneg i32 %.sink63 to i64
+  %.sink64 = phi i32 [ %11, %7 ], [ %25, %16 ], [ %4, %3 ]
+  %26 = zext nneg i32 %.sink64 to i64
   %27 = getelementptr inbounds nuw i16, ptr @_ZL21ucase_props_trieIndex, i64 %26
   %28 = load i16, ptr %27, align 2, !tbaa !14
   %29 = zext i16 %28 to i32
@@ -261,8 +261,8 @@ define i32 @ucase_toupper_77(i32 noundef %0) local_unnamed_addr #3 {
   br label %.sink.split
 
 .sink.split:                                      ; preds = %3, %16, %7
-  %.sink63 = phi i32 [ %11, %7 ], [ %25, %16 ], [ %4, %3 ]
-  %26 = zext nneg i32 %.sink63 to i64
+  %.sink64 = phi i32 [ %11, %7 ], [ %25, %16 ], [ %4, %3 ]
+  %26 = zext nneg i32 %.sink64 to i64
   %27 = getelementptr inbounds nuw i16, ptr @_ZL21ucase_props_trieIndex, i64 %26
   %28 = load i16, ptr %27, align 2, !tbaa !14
   %29 = zext i16 %28 to i32
@@ -422,8 +422,8 @@ define i32 @ucase_totitle_77(i32 noundef %0) local_unnamed_addr #3 {
   br label %.sink.split
 
 .sink.split:                                      ; preds = %3, %16, %7
-  %.sink72 = phi i32 [ %11, %7 ], [ %25, %16 ], [ %4, %3 ]
-  %26 = zext nneg i32 %.sink72 to i64
+  %.sink73 = phi i32 [ %11, %7 ], [ %25, %16 ], [ %4, %3 ]
+  %26 = zext nneg i32 %.sink73 to i64
   %27 = getelementptr inbounds nuw i16, ptr @_ZL21ucase_props_trieIndex, i64 %26
   %28 = load i16, ptr %27, align 2, !tbaa !14
   %29 = zext i16 %28 to i32
@@ -591,8 +591,8 @@ define void @ucase_addCaseClosure_77(i32 noundef %0, ptr noundef readonly captur
   br label %.sink.split
 
 .sink.split:                                      ; preds = %4, %17, %8
-  %.sink167 = phi i32 [ %12, %8 ], [ %26, %17 ], [ %5, %4 ]
-  %27 = zext nneg i32 %.sink167 to i64
+  %.sink173 = phi i32 [ %12, %8 ], [ %26, %17 ], [ %5, %4 ]
+  %27 = zext nneg i32 %.sink173 to i64
   %28 = getelementptr inbounds nuw i16, ptr @_ZL21ucase_props_trieIndex, i64 %27
   %29 = load i16, ptr %28, align 2, !tbaa !14
   %30 = zext i16 %29 to i32
@@ -933,8 +933,8 @@ define void @ucase_addSimpleCaseClosure_77(i32 noundef %0, ptr noundef readonly 
   br label %.sink.split
 
 .sink.split:                                      ; preds = %4, %17, %8
-  %.sink184 = phi i32 [ %12, %8 ], [ %26, %17 ], [ %5, %4 ]
-  %27 = zext nneg i32 %.sink184 to i64
+  %.sink190 = phi i32 [ %12, %8 ], [ %26, %17 ], [ %5, %4 ]
+  %27 = zext nneg i32 %.sink190 to i64
   %28 = getelementptr inbounds nuw i16, ptr @_ZL21ucase_props_trieIndex, i64 %27
   %29 = load i16, ptr %28, align 2, !tbaa !14
   %30 = zext i16 %29 to i32
@@ -1127,7 +1127,7 @@ define void @ucase_addSimpleCaseClosure_77(i32 noundef %0, ptr noundef readonly 
   %140 = getelementptr inbounds nuw [256 x i8], ptr @_ZL11flagsOffset, i64 0, i64 %139
   %141 = load i8, ptr %140, align 1, !tbaa !16
   %142 = zext i8 %141 to i64
-  br i1 %69, label %143, label %.thread162
+  br i1 %69, label %143, label %.thread168
 
 143:                                              ; preds = %137
   %144 = getelementptr inbounds nuw i16, ptr %54, i64 %142
@@ -1140,18 +1140,18 @@ define void @ucase_addSimpleCaseClosure_77(i32 noundef %0, ptr noundef readonly 
   %or.cond = or i1 %.not142, %.not141
   br i1 %or.cond, label %.thread, label %153
 
-.thread162:                                       ; preds = %137
+.thread168:                                       ; preds = %137
   %.idx140 = shl nuw nsw i64 %142, 2
   %148 = getelementptr inbounds nuw i8, ptr %54, i64 %.idx140
   %149 = getelementptr inbounds nuw i8, ptr %148, i64 2
-  %.0122.in164 = load i16, ptr %149, align 2, !tbaa !14
-  %150 = and i16 %.0122.in164, 15
+  %.0122.in170 = load i16, ptr %149, align 2, !tbaa !14
+  %150 = and i16 %.0122.in170, 15
   %151 = getelementptr inbounds nuw i8, ptr %148, i64 4
-  %.not141165 = icmp eq i16 %150, 0
+  %.not141171 = icmp eq i16 %150, 0
   %152 = and i32 %56, 128
-  %.not142166 = icmp eq i32 %152, 0
-  %or.cond167 = or i1 %.not142166, %.not141165
-  br i1 %or.cond167, label %.thread, label %.thread168
+  %.not142172 = icmp eq i32 %152, 0
+  %or.cond173 = or i1 %.not142172, %.not141171
+  br i1 %or.cond173, label %.thread, label %.thread174
 
 153:                                              ; preds = %143
   %154 = and i32 %56, 127
@@ -1160,9 +1160,9 @@ define void @ucase_addSimpleCaseClosure_77(i32 noundef %0, ptr noundef readonly 
   %157 = load i8, ptr %156, align 1, !tbaa !16
   %158 = zext i8 %157 to i64
   %159 = getelementptr inbounds nuw i16, ptr %54, i64 %158
-  br label %.thread.thread173
+  br label %.thread.thread179
 
-.thread168:                                       ; preds = %.thread162
+.thread174:                                       ; preds = %.thread168
   %160 = and i32 %56, 127
   %161 = zext nneg i32 %160 to i64
   %162 = getelementptr inbounds nuw [256 x i8], ptr @_ZL11flagsOffset, i64 0, i64 %161
@@ -1171,11 +1171,11 @@ define void @ucase_addSimpleCaseClosure_77(i32 noundef %0, ptr noundef readonly 
   %.idx143 = shl nuw nsw i64 %164, 2
   %165 = getelementptr inbounds nuw i8, ptr %54, i64 %.idx143
   %166 = getelementptr inbounds nuw i8, ptr %165, i64 2
-  br label %.thread.thread173
+  br label %.thread.thread179
 
-.thread.thread173:                                ; preds = %153, %.thread168
-  %167 = phi i16 [ %145, %153 ], [ %150, %.thread168 ]
-  %.1127 = phi ptr [ %159, %153 ], [ %166, %.thread168 ]
+.thread.thread179:                                ; preds = %153, %.thread174
+  %167 = phi i16 [ %145, %153 ], [ %150, %.thread174 ]
+  %.1127 = phi ptr [ %159, %153 ], [ %166, %.thread174 ]
   %.0121.in = load i16, ptr %.1127, align 2, !tbaa !14
   %.0121 = zext i16 %.0121.in to i32
   %168 = getelementptr inbounds nuw i8, ptr %.1127, i64 2
@@ -1195,23 +1195,23 @@ define void @ucase_addSimpleCaseClosure_77(i32 noundef %0, ptr noundef readonly 
   %182 = getelementptr inbounds nuw i16, ptr %179, i64 %181
   br label %.lr.ph
 
-.thread:                                          ; preds = %.thread162, %143
-  %.1123152.shrunk = phi i16 [ %145, %143 ], [ %150, %.thread162 ]
-  %.1125 = phi ptr [ %146, %143 ], [ %151, %.thread162 ]
+.thread:                                          ; preds = %.thread168, %143
+  %.1123152.shrunk = phi i16 [ %145, %143 ], [ %150, %.thread168 ]
+  %.1125 = phi ptr [ %146, %143 ], [ %151, %.thread168 ]
   %.not159 = icmp eq i16 %.1123152.shrunk, 0
   br i1 %.not159, label %.critedge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.thread.thread173, %.thread
-  %.1123152179.in = phi i16 [ %167, %.thread.thread173 ], [ %.1123152.shrunk, %.thread ]
-  %.1125178 = phi ptr [ %182, %.thread.thread173 ], [ %.1125, %.thread ]
-  %.1123152179 = zext i16 %.1123152179.in to i32
+.lr.ph:                                           ; preds = %.thread.thread179, %.thread
+  %.1123152185.in = phi i16 [ %167, %.thread.thread179 ], [ %.1123152.shrunk, %.thread ]
+  %.1125184 = phi ptr [ %182, %.thread.thread179 ], [ %.1125, %.thread ]
+  %.1123152185 = zext i16 %.1123152185.in to i32
   br label %183
 
 183:                                              ; preds = %.lr.ph, %200
   %.0120156 = phi i32 [ 0, %.lr.ph ], [ %.1, %200 ]
   %184 = add nsw i32 %.0120156, 1
   %185 = sext i32 %.0120156 to i64
-  %186 = getelementptr inbounds i16, ptr %.1125178, i64 %185
+  %186 = getelementptr inbounds i16, ptr %.1125184, i64 %185
   %187 = load i16, ptr %186, align 2, !tbaa !20
   %188 = zext i16 %187 to i32
   %189 = and i32 %188, 64512
@@ -1222,7 +1222,7 @@ define void @ucase_addSimpleCaseClosure_77(i32 noundef %0, ptr noundef readonly 
   %192 = shl nuw nsw i32 %188, 10
   %193 = add nsw i32 %.0120156, 2
   %194 = sext i32 %184 to i64
-  %195 = getelementptr inbounds i16, ptr %.1125178, i64 %194
+  %195 = getelementptr inbounds i16, ptr %.1125184, i64 %194
   %196 = load i16, ptr %195, align 2, !tbaa !20
   %197 = zext i16 %196 to i32
   %198 = add nsw i32 %192, -56613888
@@ -1235,7 +1235,7 @@ define void @ucase_addSimpleCaseClosure_77(i32 noundef %0, ptr noundef readonly 
   %201 = load ptr, ptr %70, align 8, !tbaa !7
   %202 = load ptr, ptr %1, align 8, !tbaa !11
   tail call void %201(ptr noundef %202, i32 noundef %.0)
-  %203 = icmp slt i32 %.1, %.1123152179
+  %203 = icmp slt i32 %.1, %.1123152185
   br i1 %203, label %183, label %.critedge, !llvm.loop !24
 
 .critedge:                                        ; preds = %200, %135, %.thread, %58, %63, %57, %62, %41, %43
@@ -1346,25 +1346,25 @@ _ZL9strcmpMaxPKDsiS0_i.exit:                      ; preds = %36, %44
   br label %48
 
 48:                                               ; preds = %.preheader, %66
-  %.04471 = phi i32 [ 3, %.preheader ], [ %.145, %66 ]
-  %49 = sext i32 %.04471 to i64
-  %50 = getelementptr inbounds i16, ptr %.us-phi, i64 %49
+  %.04471 = phi i32 [ 3, %.preheader ], [ 4, %66 ]
+  %49 = zext nneg i32 %.04471 to i64
+  %50 = getelementptr inbounds nuw i16, ptr %.us-phi, i64 %49
   %51 = load i16, ptr %50, align 2, !tbaa !20
   %52 = zext i16 %51 to i32
   %.not = icmp eq i16 %51, 0
   br i1 %.not, label %.critedge, label %53, !llvm.loop !26
 
 53:                                               ; preds = %48
-  %54 = add nsw i32 %.04471, 1
+  %54 = add nuw nsw i32 %.04471, 1
   %55 = and i32 %52, 64512
   %56 = icmp eq i32 %55, 55296
   br i1 %56, label %57, label %66
 
 57:                                               ; preds = %53
   %58 = shl nuw nsw i32 %52, 10
-  %59 = add nsw i32 %.04471, 2
-  %60 = sext i32 %54 to i64
-  %61 = getelementptr inbounds i16, ptr %.us-phi, i64 %60
+  %59 = add nuw nsw i32 %.04471, 2
+  %60 = zext nneg i32 %54 to i64
+  %61 = getelementptr inbounds nuw i16, ptr %.us-phi, i64 %60
   %62 = load i16, ptr %61, align 2, !tbaa !20
   %63 = zext i16 %62 to i32
   %64 = add nsw i32 %58, -56613888
@@ -1378,7 +1378,7 @@ _ZL9strcmpMaxPKDsiS0_i.exit:                      ; preds = %36, %44
   %68 = load ptr, ptr %2, align 8, !tbaa !11
   tail call void %67(ptr noundef %68, i32 noundef %.0)
   tail call void @ucase_addCaseClosure_77(i32 noundef %.0, ptr noundef nonnull %2)
-  %69 = icmp slt i32 %.145, 5
+  %69 = icmp samesign ult i32 %.145, 5
   br i1 %69, label %48, label %.critedge, !llvm.loop !27
 
 _ZL9strcmpMaxPKDsiS0_i.exit.thread:               ; preds = %31, %_ZL9strcmpMaxPKDsiS0_i.exit
@@ -1683,8 +1683,8 @@ define signext range(i8 0, 2) i8 @ucase_isSoftDotted_77(i32 noundef %0) local_un
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %16, %7, %3
-  %.sink20.i = phi i32 [ %11, %7 ], [ %25, %16 ], [ %4, %3 ]
-  %26 = zext nneg i32 %.sink20.i to i64
+  %.sink21.i = phi i32 [ %11, %7 ], [ %25, %16 ], [ %4, %3 ]
+  %26 = zext nneg i32 %.sink21.i to i64
   %27 = getelementptr inbounds nuw i16, ptr @_ZL21ucase_props_trieIndex, i64 %26
   %28 = load i16, ptr %27, align 2, !tbaa !14
   %29 = zext i16 %28 to i32
@@ -1765,8 +1765,8 @@ define signext range(i8 0, 2) i8 @ucase_isCaseSensitive_77(i32 noundef %0) local
   br label %.sink.split
 
 .sink.split:                                      ; preds = %3, %16, %7
-  %.sink20 = phi i32 [ %11, %7 ], [ %25, %16 ], [ %4, %3 ]
-  %26 = zext nneg i32 %.sink20 to i64
+  %.sink21 = phi i32 [ %11, %7 ], [ %25, %16 ], [ %4, %3 ]
+  %26 = zext nneg i32 %.sink21 to i64
   %27 = getelementptr inbounds nuw i16, ptr @_ZL21ucase_props_trieIndex, i64 %26
   %28 = load i16, ptr %27, align 2, !tbaa !14
   %29 = zext i16 %28 to i32
@@ -2203,8 +2203,8 @@ define i32 @ucase_toFullLower_77(i32 noundef %0, ptr noundef readonly captures(a
   br label %.sink.split
 
 .sink.split:                                      ; preds = %7, %20, %11
-  %.sink183 = phi i32 [ %15, %11 ], [ %29, %20 ], [ %8, %7 ]
-  %30 = zext nneg i32 %.sink183 to i64
+  %.sink191 = phi i32 [ %15, %11 ], [ %29, %20 ], [ %8, %7 ]
+  %30 = zext nneg i32 %.sink191 to i64
   %31 = getelementptr inbounds nuw i16, ptr @_ZL21ucase_props_trieIndex, i64 %30
   %32 = load i16, ptr %31, align 2, !tbaa !14
   %33 = zext i16 %32 to i32
@@ -2311,8 +2311,8 @@ define i32 @ucase_toFullLower_77(i32 noundef %0, ptr noundef readonly captures(a
   br label %.sink.split.i.i
 
 .sink.split.i.i:                                  ; preds = %80, %71, %67
-  %.sink20.i.i = phi i32 [ %75, %71 ], [ %89, %80 ], [ %68, %67 ]
-  %90 = zext nneg i32 %.sink20.i.i to i64
+  %.sink21.i.i = phi i32 [ %75, %71 ], [ %89, %80 ], [ %68, %67 ]
+  %90 = zext nneg i32 %.sink21.i.i to i64
   %91 = getelementptr inbounds nuw i16, ptr @_ZL21ucase_props_trieIndex, i64 %90
   %92 = load i16, ptr %91, align 2, !tbaa !14
   %93 = zext i16 %92 to i32
@@ -2457,8 +2457,8 @@ _ZL21isFollowedByMoreAbovePFiPvaES_.exit:         ; preds = %_ZL10getDotTypei.ex
   br label %.sink.split.i.i145
 
 .sink.split.i.i145:                               ; preds = %146, %137, %133
-  %.sink20.i.i146 = phi i32 [ %141, %137 ], [ %155, %146 ], [ %134, %133 ]
-  %156 = zext nneg i32 %.sink20.i.i146 to i64
+  %.sink21.i.i146 = phi i32 [ %141, %137 ], [ %155, %146 ], [ %134, %133 ]
+  %156 = zext nneg i32 %.sink21.i.i146 to i64
   %157 = getelementptr inbounds nuw i16, ptr @_ZL21ucase_props_trieIndex, i64 %156
   %158 = load i16, ptr %157, align 2, !tbaa !14
   %159 = zext i16 %158 to i32
@@ -2555,8 +2555,8 @@ _ZL14isPrecededBy_IPFiPvaES_.exit.thread:         ; preds = %_ZL10getDotTypei.ex
   br label %.sink.split.i.i153
 
 .sink.split.i.i153:                               ; preds = %202, %193, %189
-  %.sink20.i.i154 = phi i32 [ %197, %193 ], [ %211, %202 ], [ %190, %189 ]
-  %212 = zext nneg i32 %.sink20.i.i154 to i64
+  %.sink21.i.i154 = phi i32 [ %197, %193 ], [ %211, %202 ], [ %190, %189 ]
+  %212 = zext nneg i32 %.sink21.i.i154 to i64
   %213 = getelementptr inbounds nuw i16, ptr @_ZL21ucase_props_trieIndex, i64 %212
   %214 = load i16, ptr %213, align 2, !tbaa !14
   %215 = zext i16 %214 to i32
@@ -2857,8 +2857,8 @@ define internal fastcc noundef i32 @_ZL14toUpperOrTitleiPFiPvaES_PPKDsia(i32 nou
   br label %.sink.split
 
 .sink.split:                                      ; preds = %8, %21, %12
-  %.sink138 = phi i32 [ %16, %12 ], [ %30, %21 ], [ %9, %8 ]
-  %31 = zext nneg i32 %.sink138 to i64
+  %.sink142 = phi i32 [ %16, %12 ], [ %30, %21 ], [ %9, %8 ]
+  %31 = zext nneg i32 %.sink142 to i64
   %32 = getelementptr inbounds nuw i16, ptr @_ZL21ucase_props_trieIndex, i64 %31
   %33 = load i16, ptr %32, align 2, !tbaa !14
   %34 = zext i16 %33 to i32
@@ -2961,8 +2961,8 @@ define internal fastcc noundef i32 @_ZL14toUpperOrTitleiPFiPvaES_PPKDsia(i32 nou
   br label %.sink.split.i.i
 
 .sink.split.i.i:                                  ; preds = %85, %76, %72
-  %.sink20.i.i = phi i32 [ %80, %76 ], [ %94, %85 ], [ %73, %72 ]
-  %95 = zext nneg i32 %.sink20.i.i to i64
+  %.sink21.i.i = phi i32 [ %80, %76 ], [ %94, %85 ], [ %73, %72 ]
+  %95 = zext nneg i32 %.sink21.i.i to i64
   %96 = getelementptr inbounds nuw i16, ptr @_ZL21ucase_props_trieIndex, i64 %95
   %97 = load i16, ptr %96, align 2, !tbaa !14
   %98 = zext i16 %97 to i32
@@ -3210,8 +3210,8 @@ define i32 @ucase_fold_77(i32 noundef %0, i32 noundef %1) local_unnamed_addr #3 
   br label %.sink.split
 
 .sink.split:                                      ; preds = %4, %17, %8
-  %.sink82 = phi i32 [ %12, %8 ], [ %26, %17 ], [ %5, %4 ]
-  %27 = zext nneg i32 %.sink82 to i64
+  %.sink84 = phi i32 [ %12, %8 ], [ %26, %17 ], [ %5, %4 ]
+  %27 = zext nneg i32 %.sink84 to i64
   %28 = getelementptr inbounds nuw i16, ptr @_ZL21ucase_props_trieIndex, i64 %27
   %29 = load i16, ptr %28, align 2, !tbaa !14
   %30 = zext i16 %29 to i32
@@ -3412,8 +3412,8 @@ define i32 @ucase_toFullFolding_77(i32 noundef %0, ptr noundef writeonly capture
   br label %.sink.split
 
 .sink.split:                                      ; preds = %5, %18, %9
-  %.sink112 = phi i32 [ %13, %9 ], [ %27, %18 ], [ %6, %5 ]
-  %28 = zext nneg i32 %.sink112 to i64
+  %.sink115 = phi i32 [ %13, %9 ], [ %27, %18 ], [ %6, %5 ]
+  %28 = zext nneg i32 %.sink115 to i64
   %29 = getelementptr inbounds nuw i16, ptr @_ZL21ucase_props_trieIndex, i64 %28
   %30 = load i16, ptr %29, align 2, !tbaa !14
   %31 = zext i16 %30 to i32
@@ -3946,8 +3946,8 @@ ucase_getType_77.exit16:                          ; preds = %54, %56, %.sink.spl
   br label %.sink.split.i.i
 
 .sink.split.i.i:                                  ; preds = %97, %88, %84
-  %.sink20.i.i = phi i32 [ %92, %88 ], [ %106, %97 ], [ %85, %84 ]
-  %107 = zext nneg i32 %.sink20.i.i to i64
+  %.sink21.i.i = phi i32 [ %92, %88 ], [ %106, %97 ], [ %85, %84 ]
+  %107 = zext nneg i32 %.sink21.i.i to i64
   %108 = getelementptr inbounds nuw i16, ptr @_ZL21ucase_props_trieIndex, i64 %107
   %109 = load i16, ptr %108, align 2, !tbaa !14
   %110 = zext i16 %109 to i32
@@ -4026,8 +4026,8 @@ ucase_isSoftDotted_77.exit:                       ; preds = %121, %123
   br label %.sink.split.i17
 
 .sink.split.i17:                                  ; preds = %148, %139, %135
-  %.sink20.i = phi i32 [ %143, %139 ], [ %157, %148 ], [ %136, %135 ]
-  %158 = zext nneg i32 %.sink20.i to i64
+  %.sink21.i = phi i32 [ %143, %139 ], [ %157, %148 ], [ %136, %135 ]
+  %158 = zext nneg i32 %.sink21.i to i64
   %159 = getelementptr inbounds nuw i16, ptr @_ZL21ucase_props_trieIndex, i64 %158
   %160 = load i16, ptr %159, align 2, !tbaa !14
   %161 = zext i16 %160 to i32

@@ -1399,7 +1399,7 @@ _ZN4core5slice4sort6shared17find_existing_run17ha7e9d1747c1a3977E.exit.i: ; pred
   br label %_ZN4core5slice4sort6stable5drift10create_run17h735837d698f3100dE.exit
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17h2eb526c1ba54f576E.exit.i": ; preds = %_ZN4core10intrinsics25typed_swap_nonoverlapping17hb2237ef941ff0df8E.exit.i.i.i, %.preheader28.i, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hb4c1337dab8f1d07E.exit.i", %58, %28
-  %.sroa.0.0.i2427.i = phi i64 [ %.sroa.0.0.i.i, %58 ], [ 1, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hb4c1337dab8f1d07E.exit.i" ], [ %25, %28 ], [ 2, %.preheader28.i ], [ %.sroa.0.0.i525962.i, %_ZN4core10intrinsics25typed_swap_nonoverlapping17hb2237ef941ff0df8E.exit.i.i.i ]
+  %.sroa.0.0.i2427.i = phi i64 [ %.sroa.0.0.i.i, %58 ], [ 1, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hb4c1337dab8f1d07E.exit.i" ], [ %25, %28 ], [ 2, %.preheader28.i ], [ %.sroa.0.0.i576467.i, %_ZN4core10intrinsics25typed_swap_nonoverlapping17hb2237ef941ff0df8E.exit.i.i.i ]
   %64 = shl i64 %.sroa.0.0.i2427.i, 1
   %65 = or disjoint i64 %64, 1
   br label %_ZN4core5slice4sort6stable5drift10create_run17h735837d698f3100dE.exit
@@ -1411,8 +1411,8 @@ _ZN4core5slice4sort6shared17find_existing_run17ha7e9d1747c1a3977E.exit.i: ; pred
 
 .lr.ph.preheader.i.i.i:                           ; preds = %.preheader.i, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hb4c1337dab8f1d07E.exit.i"
   %67 = phi i64 [ %66, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hb4c1337dab8f1d07E.exit.i" ], [ 1, %.preheader.i ]
-  %.sroa.0.0.i525962.i = phi i64 [ %.sroa.0.0.i.i, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hb4c1337dab8f1d07E.exit.i" ], [ 2, %.preheader.i ]
-  %68 = getelementptr inbounds nuw { { { { { ptr, i64 } }, {} }, {} }, { i32, [1 x i32] } }, ptr %26, i64 %.sroa.0.0.i525962.i
+  %.sroa.0.0.i576467.i = phi i64 [ %.sroa.0.0.i.i, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hb4c1337dab8f1d07E.exit.i" ], [ 2, %.preheader.i ]
+  %68 = getelementptr inbounds nuw { { { { { ptr, i64 } }, {} }, {} }, { i32, [1 x i32] } }, ptr %26, i64 %.sroa.0.0.i576467.i
   br label %69
 
 69:                                               ; preds = %_ZN4core10intrinsics25typed_swap_nonoverlapping17hb2237ef941ff0df8E.exit.i.i.i, %.lr.ph.preheader.i.i.i
@@ -6487,7 +6487,7 @@ define void @"_ZN5wasmi6module11instantiate39_$LT$impl$u20$wasmi..module..Module
   %22 = load i32, ptr %20, align 4, !range !682, !noundef !3
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 4
   %24 = load i32, ptr %23, align 4, !noundef !3
-  switch i32 %22, label %default.unreachable35 [
+  switch i32 %22, label %default.unreachable36 [
     i32 0, label %25
     i32 1, label %28
     i32 2, label %31
@@ -6498,7 +6498,7 @@ define void @"_ZN5wasmi6module11instantiate39_$LT$impl$u20$wasmi..module..Module
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 
-default.unreachable35:                            ; preds = %18
+default.unreachable36:                            ; preds = %18
   unreachable
 
 25:                                               ; preds = %18
@@ -6522,10 +6522,10 @@ default.unreachable35:                            ; preds = %18
   br label %37
 
 37:                                               ; preds = %34, %31, %28, %25
-  %.sink39 = phi { i32, i32 } [ %36, %34 ], [ %33, %31 ], [ %30, %28 ], [ %27, %25 ]
+  %.sink40 = phi { i32, i32 } [ %36, %34 ], [ %33, %31 ], [ %30, %28 ], [ %27, %25 ]
   %.sink = phi i32 [ 0, %34 ], [ 2, %31 ], [ 1, %28 ], [ 3, %25 ]
-  %38 = extractvalue { i32, i32 } %.sink39, 0
-  %39 = extractvalue { i32, i32 } %.sink39, 1
+  %38 = extractvalue { i32, i32 } %.sink40, 0
+  %39 = extractvalue { i32, i32 } %.sink40, 1
   store i32 %38, ptr %16, align 4
   store i32 %39, ptr %17, align 4
   store i32 %.sink, ptr %3, align 4
@@ -7543,14 +7543,14 @@ define hidden void @_ZN5wasmi6module6Module15get_extern_type17h0c841bdb0ce34288E
   %5 = load ptr, ptr %1, align 8, !alias.scope !748, !nonnull !3, !noundef !3
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 112
   %7 = load ptr, ptr %6, align 8, !noalias !748, !nonnull !3, !noundef !3
-  switch i32 %2, label %default.unreachable14 [
+  switch i32 %2, label %default.unreachable24 [
     i32 0, label %8
     i32 1, label %14
     i32 2, label %20
     i32 3, label %26
   ]
 
-default.unreachable14:                            ; preds = %4
+default.unreachable24:                            ; preds = %4
   unreachable
 
 8:                                                ; preds = %4
@@ -7677,7 +7677,7 @@ define void @"_ZN91_$LT$wasmi..module..ModuleImportsIter$u20$as$u20$core..iter..
   store ptr %24, ptr %18, align 8
   %25 = load i64, ptr %19, align 8, !range !751, !noundef !3
   %26 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  switch i64 %25, label %default.unreachable47 [
+  switch i64 %25, label %default.unreachable51 [
     i64 0, label %29
     i64 1, label %35
     i64 2, label %41
@@ -7691,7 +7691,7 @@ define void @"_ZN91_$LT$wasmi..module..ModuleImportsIter$u20$as$u20$core..iter..
 28:                                               ; preds = %63, %27
   ret void
 
-default.unreachable47:                            ; preds = %23
+default.unreachable51:                            ; preds = %23
   unreachable
 
 29:                                               ; preds = %23

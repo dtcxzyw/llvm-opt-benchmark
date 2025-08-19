@@ -2338,18 +2338,18 @@ _init_l_Lean_Elab_elabSetOption___rarg___lambda__2___closed__8.exit: ; preds = %
   unreachable
 
 .sink.split:                                      ; preds = %_init_l_Lean_Elab_elabSetOption___rarg___lambda__2___closed__8.exit, %3
-  %.sink17 = phi ptr [ %4, %3 ], [ %49, %_init_l_Lean_Elab_elabSetOption___rarg___lambda__2___closed__8.exit ]
-  %52 = getelementptr inbounds nuw i8, ptr %.sink17, i64 4
-  store i32 1, ptr %.sink17, align 4, !tbaa !8
+  %.sink24 = phi ptr [ %4, %3 ], [ %49, %_init_l_Lean_Elab_elabSetOption___rarg___lambda__2___closed__8.exit ]
+  %52 = getelementptr inbounds nuw i8, ptr %.sink24, i64 4
+  store i32 1, ptr %.sink24, align 4, !tbaa !8
   store i32 131096, ptr %52, align 4
-  %53 = getelementptr inbounds nuw i8, ptr %.sink17, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %.sink24, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %53, align 8, !tbaa !4
-  %54 = getelementptr inbounds nuw i8, ptr %.sink17, i64 16
+  %54 = getelementptr inbounds nuw i8, ptr %.sink24, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %54, align 8, !tbaa !4
   br label %55
 
 55:                                               ; preds = %.sink.split, %lean_dec_ref.exit, %7
-  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit ], [ %.sink17, %.sink.split ]
+  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit ], [ %.sink24, %.sink.split ]
   ret ptr %.0
 }
 

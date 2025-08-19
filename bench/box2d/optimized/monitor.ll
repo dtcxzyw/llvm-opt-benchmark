@@ -175,7 +175,7 @@ define hidden void @_glfwInputMonitor(ptr noundef %0, i32 noundef %1, i32 nounde
   %51 = add nsw i32 %28, -1
   store i32 %51, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 1928), align 8, !tbaa !8
   %52 = getelementptr inbounds nuw i8, ptr %50, i64 8
-  %53 = sext i32 %51 to i64
+  %53 = zext nneg i32 %51 to i64
   %54 = sub nsw i64 %53, %indvars.iv
   %55 = shl nsw i64 %54, 3
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %50, ptr nonnull align 8 %52, i64 %55, i1 false)

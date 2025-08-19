@@ -1792,8 +1792,8 @@ copy_address.exit64.i:                            ; preds = %168, %copy_address.
   %183 = getelementptr inbounds nuw i8, ptr %147, i64 72
   store ptr %182, ptr %183, align 8
   %.not62.i = icmp eq ptr %139, null
-  %.str.sink71.i = select i1 %.not62.i, ptr @.str, ptr %139
-  %184 = tail call noalias ptr @g_strdup(ptr noundef nonnull %.str.sink71.i)
+  %.str.sink76.i = select i1 %.not62.i, ptr @.str, ptr %139
+  %184 = tail call noalias ptr @g_strdup(ptr noundef nonnull %.str.sink76.i)
   %185 = getelementptr inbounds nuw i8, ptr %147, i64 88
   store ptr %184, ptr %185, align 8
   %186 = getelementptr inbounds nuw i8, ptr %147, i64 96
@@ -2008,8 +2008,8 @@ copy_address.exit47:                              ; preds = %copy_address.exit, 
   %52 = getelementptr inbounds nuw i8, ptr %14, i64 72
   store ptr %51, ptr %52, align 8
   %.not46 = icmp eq ptr %4, null
-  %.str.sink49 = select i1 %.not46, ptr @.str, ptr %4
-  %53 = tail call noalias ptr @g_strdup(ptr noundef nonnull %.str.sink49)
+  %.str.sink52 = select i1 %.not46, ptr @.str, ptr %4
+  %53 = tail call noalias ptr @g_strdup(ptr noundef nonnull %.str.sink52)
   %54 = getelementptr inbounds nuw i8, ptr %14, i64 88
   store ptr %53, ptr %54, align 8
   %55 = getelementptr inbounds nuw i8, ptr %14, i64 96
@@ -3113,8 +3113,8 @@ define internal noundef i32 @q931_calls_packet(ptr noundef %0, ptr noundef reado
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %17 = load ptr, ptr %16, align 8
   %.not243 = icmp eq ptr %17, null
-  %.str.sink339 = select i1 %.not243, ptr @.str, ptr %17
-  %18 = tail call noalias ptr @g_strdup(ptr noundef nonnull %.str.sink339)
+  %.str.sink364 = select i1 %.not243, ptr @.str, ptr %17
+  %18 = tail call noalias ptr @g_strdup(ptr noundef nonnull %.str.sink364)
   store ptr %18, ptr %12, align 8
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %20 = load i8, ptr %19, align 8
@@ -5214,13 +5214,13 @@ is_mgcp_signal.exit.thread:                       ; preds = %58, %.thread, %is_m
   br label %134
 
 134:                                              ; preds = %127, %120
-  %.sink334 = phi ptr [ %133, %127 ], [ @.str, %120 ]
-  %.sink333 = phi ptr [ %128, %127 ], [ %121, %120 ]
+  %.sink362 = phi ptr [ %133, %127 ], [ @.str, %120 ]
+  %.sink361 = phi ptr [ %128, %127 ], [ %121, %120 ]
   %.1199.ph275 = phi i8 [ 0, %127 ], [ 1, %120 ]
-  %135 = tail call noalias ptr @g_strdup(ptr noundef %.sink334)
-  %136 = getelementptr inbounds nuw i8, ptr %.sink333, i64 24
+  %135 = tail call noalias ptr @g_strdup(ptr noundef %.sink362)
+  %136 = getelementptr inbounds nuw i8, ptr %.sink361, i64 24
   store ptr %135, ptr %136, align 8
-  %137 = getelementptr inbounds nuw i8, ptr %.sink333, i64 48
+  %137 = getelementptr inbounds nuw i8, ptr %.sink361, i64 48
   %138 = getelementptr inbounds nuw i8, ptr %1, i64 208
   %139 = load i32, ptr %138, align 8
   %140 = getelementptr inbounds nuw i8, ptr %1, i64 212
@@ -5235,28 +5235,28 @@ is_mgcp_signal.exit.thread:                       ; preds = %58, %.thread, %is_m
 145:                                              ; preds = %134
   %146 = sext i32 %141 to i64
   %147 = tail call ptr @wmem_memdup(ptr noundef null, ptr noundef %143, i64 noundef %146) #16
-  %148 = getelementptr inbounds nuw i8, ptr %.sink333, i64 64
+  %148 = getelementptr inbounds nuw i8, ptr %.sink361, i64 64
   store ptr %147, ptr %148, align 8
-  %149 = getelementptr inbounds nuw i8, ptr %.sink333, i64 56
+  %149 = getelementptr inbounds nuw i8, ptr %.sink361, i64 56
   store ptr %147, ptr %149, align 8
-  %150 = getelementptr inbounds nuw i8, ptr %.sink333, i64 52
+  %150 = getelementptr inbounds nuw i8, ptr %.sink361, i64 52
   store i32 %141, ptr %150, align 4
   br label %copy_address.exit
 
 copy_address.exit:                                ; preds = %134, %145
   %151 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %152 = load ptr, ptr %151, align 8
-  %153 = getelementptr inbounds nuw i8, ptr %.sink333, i64 104
+  %153 = getelementptr inbounds nuw i8, ptr %.sink361, i64 104
   store ptr %152, ptr %153, align 8
-  %154 = getelementptr inbounds nuw i8, ptr %.sink333, i64 112
+  %154 = getelementptr inbounds nuw i8, ptr %.sink361, i64 112
   %155 = getelementptr inbounds nuw i8, ptr %1, i64 40
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %154, ptr noundef nonnull align 8 dereferenceable(16) %155, i64 16, i1 false)
-  %156 = getelementptr inbounds nuw i8, ptr %.sink333, i64 76
+  %156 = getelementptr inbounds nuw i8, ptr %.sink361, i64 76
   store i32 3, ptr %156, align 4
   %157 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc(i64 noundef 16) #13
-  %158 = getelementptr inbounds nuw i8, ptr %.sink333, i64 32
+  %158 = getelementptr inbounds nuw i8, ptr %.sink361, i64 32
   store ptr %157, ptr %158, align 8
-  %159 = getelementptr inbounds nuw i8, ptr %.sink333, i64 40
+  %159 = getelementptr inbounds nuw i8, ptr %.sink361, i64 40
   store ptr @g_free, ptr %159, align 8
   %160 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %161 = load ptr, ptr %160, align 8
@@ -5264,17 +5264,17 @@ copy_address.exit:                                ; preds = %134, %145
   store ptr %162, ptr %157, align 8
   %163 = getelementptr inbounds nuw i8, ptr %157, i64 8
   store i8 %.1199.ph275, ptr %163, align 8
-  %164 = getelementptr inbounds nuw i8, ptr %.sink333, i64 72
+  %164 = getelementptr inbounds nuw i8, ptr %.sink361, i64 72
   store i32 0, ptr %164, align 8
   %165 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %166 = load i32, ptr %165, align 8
   %167 = add i32 %166, 1
   store i32 %167, ptr %165, align 8
   %168 = trunc i32 %166 to i16
-  %169 = getelementptr inbounds nuw i8, ptr %.sink333, i64 96
+  %169 = getelementptr inbounds nuw i8, ptr %.sink361, i64 96
   store i16 %168, ptr %169, align 8
   %170 = load ptr, ptr %15, align 8
-  tail call void @g_queue_push_tail(ptr noundef %170, ptr noundef %.sink333)
+  tail call void @g_queue_push_tail(ptr noundef %170, ptr noundef %.sink361)
   br label %.loopexit
 
 .loopexit.loopexit:                               ; preds = %117
@@ -5284,7 +5284,7 @@ copy_address.exit:                                ; preds = %134, %145
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %52, %copy_address.exit
   %.8 = phi ptr [ %157, %copy_address.exit ], [ %31, %52 ], [ %172, %.loopexit.loopexit ]
-  %.6 = phi ptr [ %.sink333, %copy_address.exit ], [ %53, %52 ], [ %105, %.loopexit.loopexit ]
+  %.6 = phi ptr [ %.sink361, %copy_address.exit ], [ %53, %52 ], [ %105, %.loopexit.loopexit ]
   %173 = load i32, ptr %3, align 8
   switch i32 %173, label %321 [
     i32 0, label %174
@@ -6568,8 +6568,8 @@ define internal fastcc void @sccp_calls(ptr noundef captures(none) %0, ptr nound
   %27 = getelementptr inbounds nuw i8, ptr %8, i64 48
   %28 = load ptr, ptr %27, align 8
   %.not102 = icmp eq ptr %28, null
-  %.str.60.sink111 = select i1 %.not102, ptr @.str.60, ptr %28
-  %29 = tail call noalias ptr @g_strdup(ptr noundef nonnull %.str.60.sink111)
+  %.str.60.sink120 = select i1 %.not102, ptr @.str.60, ptr %28
+  %29 = tail call noalias ptr @g_strdup(ptr noundef nonnull %.str.60.sink120)
   %30 = getelementptr inbounds nuw i8, ptr %21, i64 24
   store ptr %29, ptr %30, align 8
   %31 = getelementptr inbounds nuw i8, ptr %21, i64 32
@@ -7182,8 +7182,8 @@ copy_address.exit434:                             ; preds = %copy_address.exit43
   br label %252
 
 252:                                              ; preds = %246, %250, %248, %239, %243, %241
-  %.sink460 = phi ptr [ %247, %246 ], [ %251, %250 ], [ %249, %248 ], [ %240, %239 ], [ %244, %243 ], [ %242, %241 ]
-  store ptr %.sink460, ptr %233, align 8
+  %.sink482 = phi ptr [ %247, %246 ], [ %251, %250 ], [ %249, %248 ], [ %240, %239 ], [ %244, %243 ], [ %242, %241 ]
+  store ptr %.sink482, ptr %233, align 8
   %253 = load i32, ptr %230, align 8
   %254 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %255 = load i32, ptr %254, align 4

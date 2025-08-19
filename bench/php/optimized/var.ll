@@ -3254,7 +3254,7 @@ smart_str_appendc_ex.exit39.i:                    ; preds = %820, %811
   %827 = load i32, ptr %826, align 4, !tbaa !4
   %828 = and i32 %827, 64
   %.not.i.i390 = icmp eq i32 %828, 0
-  br i1 %.not.i.i390, label %829, label %.thread571
+  br i1 %.not.i.i390, label %829, label %.thread689
 
 829:                                              ; preds = %smart_str_appendc_ex.exit39.i
   %830 = load i32, ptr %790, align 4, !tbaa !23
@@ -3263,7 +3263,7 @@ smart_str_appendc_ex.exit39.i:                    ; preds = %820, %811
   %832 = add i32 %830, -1
   store i32 %832, ptr %790, align 4, !tbaa !23
   %833 = icmp eq i32 %832, 0
-  br i1 %833, label %867, label %.thread571
+  br i1 %833, label %867, label %.thread689
 
 834:                                              ; preds = %smart_str_alloc.exit23.i
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -3345,7 +3345,7 @@ zend_print_long_to_buf.exit.i395:                 ; preds = %846, %zend_print_ul
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %868
 
-.thread571:                                       ; preds = %smart_str_appendc_ex.exit39.i, %829
+.thread689:                                       ; preds = %smart_str_appendc_ex.exit39.i, %829
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -3360,8 +3360,8 @@ zend_print_long_to_buf.exit.i395:                 ; preds = %846, %zend_print_ul
   %.not.i18.i = icmp eq ptr %.pr.pre, null
   br i1 %.not.i18.i, label %874, label %868, !prof !104
 
-868:                                              ; preds = %.thread571, %.thread, %867
-  %869 = phi ptr [ %865, %.thread ], [ %.pr.pre, %867 ], [ %824, %.thread571 ]
+868:                                              ; preds = %.thread689, %.thread, %867
+  %869 = phi ptr [ %865, %.thread ], [ %.pr.pre, %867 ], [ %824, %.thread689 ]
   %870 = getelementptr inbounds nuw i8, ptr %869, i64 16
   %871 = load i64, ptr %870, align 8, !tbaa !21
   %872 = add i64 %871, 4
@@ -5927,8 +5927,8 @@ zend_object_release.exit:                         ; preds = %884, %879, %878, %8
   br label %923
 
 923:                                              ; preds = %912, %915
-  %.sink677 = phi i32 [ %922, %915 ], [ -1, %912 ]
-  %spec.select = add i32 %.0220542, %.sink677
+  %.sink784 = phi i32 [ %922, %915 ], [ -1, %912 ]
+  %spec.select = add i32 %.0220542, %.sink784
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge546, label %912
@@ -8207,8 +8207,8 @@ zend_string_release.exit.i:                       ; preds = %177, %176, %169, %1
   br i1 %.not.i, label %zend_tmp_string_release.exit.i, label %18
 
 zend_tmp_string_release.exit.sink.split.i:        ; preds = %184, %129, %68
-  %.0121125135.lcssa152.sink.i = phi ptr [ %43, %68 ], [ %.0121125135.i, %129 ], [ %.0121125135.i, %184 ]
-  call void @_efree(ptr noundef nonnull %.0121125135.lcssa152.sink.i) #14
+  %.0121125135.lcssa157.sink.i = phi ptr [ %43, %68 ], [ %.0121125135.i, %129 ], [ %.0121125135.i, %184 ]
+  call void @_efree(ptr noundef nonnull %.0121125135.lcssa157.sink.i) #14
   br label %zend_tmp_string_release.exit.i
 
 zend_tmp_string_release.exit.i:                   ; preds = %.thread127.i, %.thread130.i, %zend_tmp_string_release.exit.sink.split.i, %184, %180, %179, %129, %125, %124, %68, %64, %63, %4
@@ -8724,14 +8724,14 @@ smart_str_alloc.exit:                             ; preds = %191, %196
   br i1 %.not.i.i, label %221, label %._crit_edge..thread103_crit_edge, !prof !149
 
 ._crit_edge..thread103_crit_edge:                 ; preds = %48, %._crit_edge
-  %.pr132 = phi ptr [ %.pr.pre, %._crit_edge ], [ %46, %48 ]
-  %.phi.trans.insert127 = getelementptr inbounds nuw i8, ptr %.pr132, i64 16
+  %.pr152 = phi ptr [ %.pr.pre, %._crit_edge ], [ %46, %48 ]
+  %.phi.trans.insert127 = getelementptr inbounds nuw i8, ptr %.pr152, i64 16
   %.pre128 = load i64, ptr %.phi.trans.insert127, align 8, !tbaa !21
   br label %.thread103
 
 .thread103:                                       ; preds = %._crit_edge..thread103_crit_edge, %smart_str_alloc.exit81
   %217 = phi i64 [ %.pre128, %._crit_edge..thread103_crit_edge ], [ %38, %smart_str_alloc.exit81 ]
-  %218 = phi ptr [ %.pr132, %._crit_edge..thread103_crit_edge ], [ %46, %smart_str_alloc.exit81 ]
+  %218 = phi ptr [ %.pr152, %._crit_edge..thread103_crit_edge ], [ %46, %smart_str_alloc.exit81 ]
   %219 = add i64 %217, 1
   %220 = load i64, ptr %39, align 8, !tbaa !71
   %.not12.i.i = icmp ult i64 %219, %220

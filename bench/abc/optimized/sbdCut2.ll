@@ -703,9 +703,9 @@ Vec_IntPush.exit22:                               ; preds = %.Vec_IntGrow.exit10
 
 74:                                               ; preds = %Vec_IntPush.exit, %Vec_IntPush.exit22
   %.sink = phi i32 [ %45, %Vec_IntPush.exit ], [ %72, %Vec_IntPush.exit22 ]
-  %.sink26 = phi ptr [ %44, %Vec_IntPush.exit ], [ %71, %Vec_IntPush.exit22 ]
+  %.sink31 = phi ptr [ %44, %Vec_IntPush.exit ], [ %71, %Vec_IntPush.exit22 ]
   %75 = sext i32 %.sink to i64
-  %76 = getelementptr inbounds i32, ptr %.sink26, i64 %75
+  %76 = getelementptr inbounds i32, ptr %.sink31, i64 %75
   store i32 %15, ptr %76, align 4, !tbaa !33
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.val15 = load i32, ptr %9, align 4, !tbaa !24

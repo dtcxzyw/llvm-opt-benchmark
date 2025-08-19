@@ -1148,11 +1148,11 @@ define internal range(i32 -1, 1) i32 @H5S__point_deserialize(ptr noundef capture
   store ptr %.3.lcssa, ptr %1, align 8, !tbaa !32
   %279 = load ptr, ptr %0, align 8, !tbaa !46
   %.not = icmp eq ptr %279, null
-  br i1 %.not, label %280, label %.thread347
+  br i1 %.not, label %280, label %.thread358
 
 280:                                              ; preds = %278
   store ptr %.1, ptr %0, align 8, !tbaa !46
-  br label %.thread347
+  br label %.thread358
 
 281:                                              ; preds = %274, %.split.us, %265, %202, %188, %178, %165, %150, %135, %121, %114, %103, %84, %71, %62, %53, %43, %24
   %.0211.ph = phi ptr [ null, %24 ], [ null, %62 ], [ null, %53 ], [ null, %84 ], [ null, %114 ], [ null, %165 ], [ null, %150 ], [ null, %135 ], [ %208, %274 ], [ %208, %.split.us ], [ null, %265 ], [ null, %202 ], [ null, %188 ], [ null, %178 ], [ null, %121 ], [ null, %103 ], [ null, %71 ], [ null, %43 ]
@@ -1173,16 +1173,16 @@ define internal range(i32 -1, 1) i32 @H5S__point_deserialize(ptr noundef capture
 
 290:                                              ; preds = %283, %286, %281
   %.not240 = icmp eq ptr %.0211.ph, null
-  br i1 %.not240, label %292, label %.thread347
+  br i1 %.not240, label %292, label %.thread358
 
-.thread347:                                       ; preds = %278, %280, %290
-  %.2352 = phi i32 [ -1, %290 ], [ 0, %280 ], [ 0, %278 ]
-  %.0211346351 = phi ptr [ %.0211.ph, %290 ], [ %208, %280 ], [ %208, %278 ]
-  %291 = call ptr @H5MM_xfree(ptr noundef nonnull %.0211346351) #15
+.thread358:                                       ; preds = %278, %280, %290
+  %.2363 = phi i32 [ -1, %290 ], [ 0, %280 ], [ 0, %278 ]
+  %.0211357362 = phi ptr [ %.0211.ph, %290 ], [ %208, %280 ], [ %208, %278 ]
+  %291 = call ptr @H5MM_xfree(ptr noundef nonnull %.0211357362) #15
   br label %292
 
-292:                                              ; preds = %.thread266, %290, %.thread347, %4
-  %.0199 = phi i32 [ %.2352, %.thread347 ], [ -1, %290 ], [ 0, %4 ], [ -1, %.thread266 ]
+292:                                              ; preds = %.thread266, %290, %.thread358, %4
+  %.0199 = phi i32 [ %.2363, %.thread358 ], [ -1, %290 ], [ 0, %4 ], [ -1, %.thread266 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0199
 }
@@ -2223,9 +2223,9 @@ define range(i32 -1, 1) i32 @H5S_select_elements(ptr noundef %0, i32 noundef %1,
   %25 = load ptr, ptr %24, align 8, !tbaa !34
   %26 = load i32, ptr %25, align 8, !tbaa !35
   %.not = icmp eq i32 %26, 1
-  br i1 %.not, label %.thread40, label %28
+  br i1 %.not, label %.thread43, label %28
 
-.thread40:                                        ; preds = %23
+.thread43:                                        ; preds = %23
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 80
   br label %38
 
@@ -2248,8 +2248,8 @@ define range(i32 -1, 1) i32 @H5S_select_elements(ptr noundef %0, i32 noundef %1,
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 80
   br i1 %36, label %38, label %43
 
-38:                                               ; preds = %.thread40, %35
-  %39 = phi ptr [ %27, %.thread40 ], [ %37, %35 ]
+38:                                               ; preds = %.thread43, %35
+  %39 = phi ptr [ %27, %.thread43 ], [ %37, %35 ]
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 360
   %41 = load ptr, ptr %40, align 8, !tbaa !10
   %42 = icmp eq ptr %41, null
@@ -3516,8 +3516,8 @@ define internal fastcc range(i32 -1, 1) i32 @H5S__point_get_version_enc_size(ptr
   %46 = icmp ugt i64 %45, 4294967295
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  %or.cond61 = select i1 %46, i1 true, i1 %exitcond.not
-  br i1 %or.cond61, label %.loopexit, label %.lr.ph, !llvm.loop !94
+  %or.cond63 = select i1 %46, i1 true, i1 %exitcond.not
+  br i1 %or.cond63, label %.loopexit, label %.lr.ph, !llvm.loop !94
 
 .loopexit:                                        ; preds = %.lr.ph, %.loopexit46, %.loopexit46.thread
   %47 = phi i1 [ true, %.loopexit46 ], [ %43, %.loopexit46.thread ], [ false, %.lr.ph ]

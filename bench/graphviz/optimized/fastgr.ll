@@ -685,7 +685,7 @@ safe_list_append.exit:                            ; preds = %.lr.ph.i, %gv_recal
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define noundef ptr @new_virtual_edge(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #3 {
+define nonnull ptr @new_virtual_edge(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #3 {
   %4 = tail call noalias dereferenceable_or_null(128) ptr @calloc(i64 noundef 1, i64 noundef range(i64 8, 473) 128) #19
   %5 = icmp eq ptr %4, null
   br i1 %5, label %6, label %gv_alloc.exit
@@ -749,8 +749,8 @@ gv_alloc.exit71:                                  ; preds = %gv_alloc.exit
   store i32 %36, ptr %37, align 4, !tbaa !59
   %38 = and i32 %20, 3
   %39 = icmp eq i32 %38, 3
-  %.idx73 = select i1 %39, i64 0, i64 64
-  %40 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx73
+  %.idx77 = select i1 %39, i64 0, i64 64
+  %40 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx77
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 56
   %42 = load ptr, ptr %41, align 8, !tbaa !16
   %43 = icmp eq ptr %0, %42
@@ -766,9 +766,9 @@ gv_alloc.exit71:                                  ; preds = %gv_alloc.exit
   br i1 %49, label %.sink.split, label %52
 
 .sink.split:                                      ; preds = %44, %19
-  %.sink75 = phi i64 [ 24, %19 ], [ 72, %44 ]
+  %.sink79 = phi i64 [ 24, %19 ], [ 72, %44 ]
   %50 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  %51 = getelementptr inbounds nuw i8, ptr %25, i64 %.sink75
+  %51 = getelementptr inbounds nuw i8, ptr %25, i64 %.sink79
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %50, ptr noundef nonnull align 8 dereferenceable(48) %51, i64 48, i1 false)
   br label %52
 
@@ -779,20 +779,20 @@ gv_alloc.exit71:                                  ; preds = %gv_alloc.exit
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 56
   %56 = load ptr, ptr %55, align 8, !tbaa !16
   %57 = icmp eq ptr %1, %56
-  br i1 %57, label %.sink.split76, label %58
+  br i1 %57, label %.sink.split80, label %58
 
 58:                                               ; preds = %52
   %59 = icmp eq ptr %1, %42
-  br i1 %59, label %.sink.split76, label %62
+  br i1 %59, label %.sink.split80, label %62
 
-.sink.split76:                                    ; preds = %58, %52
-  %.sink78 = phi i64 [ 72, %52 ], [ 24, %58 ]
+.sink.split80:                                    ; preds = %58, %52
+  %.sink82 = phi i64 [ 72, %52 ], [ 24, %58 ]
   %60 = getelementptr inbounds nuw i8, ptr %10, i64 72
-  %61 = getelementptr inbounds nuw i8, ptr %25, i64 %.sink78
+  %61 = getelementptr inbounds nuw i8, ptr %25, i64 %.sink82
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %60, ptr noundef nonnull align 8 dereferenceable(48) %61, i64 48, i1 false)
   br label %62
 
-62:                                               ; preds = %.sink.split76, %58
+62:                                               ; preds = %.sink.split80, %58
   %63 = getelementptr inbounds nuw i8, ptr %25, i64 232
   %64 = load ptr, ptr %63, align 8, !tbaa !60
   %65 = icmp eq ptr %64, null
@@ -826,9 +826,9 @@ gv_alloc.exit71:                                  ; preds = %gv_alloc.exit
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @virtual_edge(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #1 {
+define noundef nonnull ptr @virtual_edge(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #1 {
   %4 = tail call ptr @new_virtual_edge(ptr noundef %0, ptr noundef %1, ptr noundef %2)
-  %5 = tail call ptr @fast_edge(ptr noundef %4)
+  %5 = tail call ptr @fast_edge(ptr noundef nonnull %4)
   ret ptr %4
 }
 
@@ -889,7 +889,7 @@ define void @delete_fast_node(ptr noundef readonly captures(none) %0, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @virtual_node(ptr noundef %0) local_unnamed_addr #1 {
+define nonnull ptr @virtual_node(ptr noundef %0) local_unnamed_addr #1 {
   %2 = tail call noalias dereferenceable_or_null(104) ptr @calloc(i64 noundef 1, i64 noundef range(i64 8, 473) 104) #19
   %3 = icmp eq ptr %2, null
   br i1 %3, label %4, label %gv_alloc.exit

@@ -479,7 +479,7 @@ define linkonce_odr void @_ZNSt6vectorIS_IP8MeshFaceSaIS1_EESaIS3_EE17_M_default
   br i1 %.not28, label %20, label %_ZSt27__uninitialized_default_n_aIPSt6vectorIP8MeshFaceSaIS2_EEmS4_ET_S6_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPSt6vectorIP8MeshFaceSaIS2_EEmS4_ET_S6_T0_RSaIT1_E.exit: ; preds = %3
-  %19 = mul nuw i64 %1, 24
+  %19 = mul nuw nsw i64 %1, 24
   tail call void @llvm.memset.p0.i64(ptr align 8 %5, i8 0, i64 %19, i1 false)
   %scevgep.i.i.i = getelementptr i8, ptr %5, i64 %19
   store ptr %scevgep.i.i.i, ptr %4, align 8
@@ -536,7 +536,7 @@ _ZNSt6vectorIS_IP8MeshFaceSaIS1_EESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit: ; p
 
 _ZNSt12_Vector_baseISt6vectorIP8MeshFaceSaIS2_EESaIS4_EE13_M_deallocateEPS4_m.exit36: ; preds = %_ZNSt6vectorIS_IP8MeshFaceSaIS1_EESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit, %38
   store ptr %26, ptr %0, align 8
-  %39 = getelementptr inbounds %"class.std::vector.65", ptr %27, i64 %1
+  %39 = getelementptr inbounds nuw %"class.std::vector.65", ptr %27, i64 %1
   store ptr %39, ptr %4, align 8
   %40 = getelementptr inbounds nuw %"class.std::vector.65", ptr %26, i64 %24
   store ptr %40, ptr %11, align 8
@@ -1401,7 +1401,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceI6QImageSaIvELN9__gnu_cxx12
   %.not170.i = icmp eq ptr %384, %360
   br i1 %.not170.i, label %385, label %374, !llvm.loop !25
 
-.loopexit.i:                                      ; preds = %440, %439, %438, %434, %433, %432, %.invoke.i, %.invoke231.i, %.invoke232.i, %430, %425, %422, %419, %417, %413, %410, %408, %405, %.critedge87.i, %400, %396, %385
+.loopexit.i:                                      ; preds = %440, %439, %438, %434, %433, %432, %.invoke.i, %.invoke247.i, %.invoke248.i, %430, %425, %422, %419, %417, %413, %410, %408, %405, %.critedge87.i, %400, %396, %385
   %lpad.loopexit175.i = landingpad { ptr, i32 }
           cleanup
   br label %.body99.i
@@ -1504,7 +1504,7 @@ _ZN7logging6BufferlsIiEERS0_RKT_.exit.i:          ; preds = %_ZN7logging6Bufferl
 427:                                              ; preds = %425
   switch i32 %5, label %436 [
     i32 2, label %430
-    i32 1, label %.invoke232.i
+    i32 1, label %.invoke248.i
     i32 0, label %432
     i32 3, label %434
   ]
@@ -1518,17 +1518,17 @@ _ZN7logging6BufferlsIiEERS0_RKT_.exit.i:          ; preds = %_ZN7logging6Bufferl
 430:                                              ; preds = %427
   %431 = load ptr, ptr @__glewUniform1i, align 8, !noalias !13
   invoke void %431(i32 noundef %424, i32 noundef 1)
-          to label %.invoke232.i unwind label %.loopexit.i, !noalias !13
+          to label %.invoke248.i unwind label %.loopexit.i, !noalias !13
 
-.invoke232.i:                                     ; preds = %430, %427
+.invoke248.i:                                     ; preds = %430, %427
   invoke void @glTexParameteri(i32 noundef 3553, i32 noundef 10240, i32 noundef 9729)
-          to label %.invoke231.i unwind label %.loopexit.i, !noalias !13
+          to label %.invoke247.i unwind label %.loopexit.i, !noalias !13
 
-.invoke231.i:                                     ; preds = %.invoke232.i
+.invoke247.i:                                     ; preds = %.invoke248.i
   invoke void @glTexParameteri(i32 noundef 3553, i32 noundef 10241, i32 noundef 9987)
           to label %.invoke.i unwind label %.loopexit.i, !noalias !13
 
-.invoke.i:                                        ; preds = %.invoke231.i
+.invoke.i:                                        ; preds = %.invoke247.i
   invoke void @glTexParameterf(i32 noundef 3553, i32 noundef 34046, float noundef 1.600000e+01)
           to label %438 unwind label %.loopexit.i, !noalias !13
 
@@ -1833,12 +1833,12 @@ _ZN7logging6BufferlsIiEERS0_RKT_.exit.i:          ; preds = %_ZN7logging6Bufferl
   br i1 %579, label %.preheader.i.i, label %_ZN3vcgL11PullPushMipER6QImageS1_j.exit.i, !llvm.loop !29
 
 .loopexit.loopexit.i.i:                           ; preds = %.lr.ph
-  %lpad.loopexit46.i.i = landingpad { ptr, i32 }
+  %lpad.loopexit48.i.i = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.i.i
 
 .loopexit.loopexit.split-lp.i.i:                  ; preds = %.lr.ph.i.i._crit_edge
-  %lpad.loopexit.split-lp47.i.i = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp49.i.i = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.i.i
 
@@ -1858,7 +1858,7 @@ _ZN7logging6BufferlsIiEERS0_RKT_.exit.i:          ; preds = %_ZN7logging6Bufferl
   br label %.loopexit.i.i
 
 .loopexit.i.i:                                    ; preds = %.loopexit.split-lp.i.loopexit.split-lp.loopexit.split-lp.i, %.loopexit.split-lp.i.loopexit.split-lp.loopexit.i, %.loopexit.split-lp.i.loopexit.i, %.loopexit.loopexit.split-lp.i.i, %.loopexit.loopexit.i.i
-  %lpad.phi.i.i = phi { ptr, i32 } [ %lpad.loopexit46.i.i, %.loopexit.loopexit.i.i ], [ %lpad.loopexit.split-lp47.i.i, %.loopexit.loopexit.split-lp.i.i ], [ %lpad.loopexit.i, %.loopexit.split-lp.i.loopexit.i ], [ %lpad.loopexit172.i, %.loopexit.split-lp.i.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit.split-lp173.i, %.loopexit.split-lp.i.loopexit.split-lp.loopexit.split-lp.i ]
+  %lpad.phi.i.i = phi { ptr, i32 } [ %lpad.loopexit48.i.i, %.loopexit.loopexit.i.i ], [ %lpad.loopexit.split-lp49.i.i, %.loopexit.loopexit.split-lp.i.i ], [ %lpad.loopexit.i, %.loopexit.split-lp.i.loopexit.i ], [ %lpad.loopexit172.i, %.loopexit.split-lp.i.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit.split-lp173.i, %.loopexit.split-lp.i.loopexit.split-lp.loopexit.split-lp.i ]
   br label %.lr.ph.i.i.i.i53
 
 .lr.ph.i.i.i.i53:                                 ; preds = %.loopexit.i.i, %.lr.ph.i.i.i.i53
@@ -3314,7 +3314,7 @@ define linkonce_odr void @_ZNSt6vectorI15TexCoordStorageSaIS0_EE6resizeEm(ptr no
   br i1 %.not28.i, label %22, label %_ZSt27__uninitialized_default_n_aIP15TexCoordStoragemS0_ET_S2_T0_RSaIT1_E.exit.i
 
 _ZSt27__uninitialized_default_n_aIP15TexCoordStoragemS0_ET_S2_T0_RSaIT1_E.exit.i: ; preds = %11
-  %21 = mul nuw i64 %12, 72
+  %21 = mul nuw nsw i64 %12, 72
   tail call void @llvm.memset.p0.i64(ptr align 8 %4, i8 0, i64 %21, i1 false)
   %scevgep.i.i.i.i = getelementptr i8, ptr %4, i64 %21
   store ptr %scevgep.i.i.i.i, ptr %3, align 8
@@ -3804,24 +3804,24 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
 .lr.ph:                                           ; preds = %4
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = icmp eq i64 %2, 0
-  br i1 %11, label %.split.i.i.i, label %.lr.ph49
+  br i1 %11, label %.split.i.i.i, label %.lr.ph57
 
 12:                                               ; preds = %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPP8MeshFaceSt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZL13RenderTextureRS7_R4MeshSt10shared_ptrI13TextureObjectEb10RenderModeiiE3$_0EEET_SK_SK_T0_.exit"
   %13 = icmp eq i64 %150, 0
-  br i1 %13, label %.split.i.i.i, label %.lr.ph49, !llvm.loop !44
+  br i1 %13, label %.split.i.i.i, label %.lr.ph57, !llvm.loop !44
 
 .split.i.i.i:                                     ; preds = %12, %.lr.ph
-  %.lcssa45 = phi i64 [ %8, %.lr.ph ], [ %224, %12 ]
-  %.lcssa43 = phi i64 [ %7, %.lr.ph ], [ %223, %12 ]
+  %.lcssa53 = phi i64 [ %8, %.lr.ph ], [ %224, %12 ]
+  %.lcssa51 = phi i64 [ %7, %.lr.ph ], [ %223, %12 ]
   %storemerge27.lcssa = phi ptr [ %1, %.lr.ph ], [ %.sroa.016.1.i.i, %12 ]
-  %14 = add nsw i64 %.lcssa45, -2
+  %14 = add nsw i64 %.lcssa53, -2
   %15 = lshr i64 %14, 1
-  %16 = add nsw i64 %.lcssa45, -1
+  %16 = add nsw i64 %.lcssa53, -1
   %17 = lshr i64 %16, 1
-  %18 = and i64 %.lcssa43, 8
+  %18 = and i64 %.lcssa51, 8
   %19 = icmp eq i64 %18, 0
   %20 = or disjoint i64 %14, 1
-  %21 = getelementptr inbounds ptr, ptr %0, i64 %20
+  %21 = getelementptr inbounds nuw ptr, ptr %0, i64 %20
   %22 = getelementptr inbounds nuw ptr, ptr %0, i64 %15
   br label %23
 
@@ -3893,7 +3893,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   %.010.i.i.i.i.i = phi i64 [ %.1.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ %.0911.i.i.i.i.i, %74 ]
   %.0911.in.i.i.i.i.i = add nsw i64 %.010.i.i.i.i.i, -1
   %.0911.i.i.i.i.i = sdiv i64 %.0911.in.i.i.i.i.i, 2
-  %58 = getelementptr inbounds ptr, ptr %0, i64 %.0911.i.i.i.i.i
+  %58 = getelementptr inbounds nuw ptr, ptr %0, i64 %.0911.i.i.i.i.i
   %.val.val.i.i.i.i.i = load ptr, ptr %3, align 8
   %59 = getelementptr i8, ptr %.val.val.i.i.i.i.i, i64 8
   %.val.val.val.i.i.i.i.i = load ptr, ptr %59, align 8
@@ -3917,21 +3917,21 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   br i1 %73, label %74, label %"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPP8MeshFaceSt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZL13RenderTextureRS7_R4MeshSt10shared_ptrI13TextureObjectEb10RenderModeiiE3$_0EEEvT_T0_SL_T1_T2_.exit.i.i.i"
 
 74:                                               ; preds = %57
-  %75 = getelementptr inbounds ptr, ptr %0, i64 %.010.i.i.i.i.i
+  %75 = getelementptr inbounds nuw ptr, ptr %0, i64 %.010.i.i.i.i.i
   store ptr %.val2.i.i.i.i.i.i, ptr %75, align 8
   %76 = icmp sgt i64 %.0911.i.i.i.i.i, %.0.i.i.i
   br i1 %76, label %57, label %"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPP8MeshFaceSt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZL13RenderTextureRS7_R4MeshSt10shared_ptrI13TextureObjectEb10RenderModeiiE3$_0EEEvT_T0_SL_T1_T2_.exit.i.i.i", !llvm.loop !46
 
 "_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPP8MeshFaceSt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZL13RenderTextureRS7_R4MeshSt10shared_ptrI13TextureObjectEb10RenderModeiiE3$_0EEEvT_T0_SL_T1_T2_.exit.i.i.i": ; preds = %74, %57, %54
   %.0.lcssa.i.i.i.i.i = phi i64 [ %.1.i.i.i.i, %54 ], [ %.010.i.i.i.i.i, %57 ], [ %.0911.i.i.i.i.i, %74 ]
-  %77 = getelementptr inbounds ptr, ptr %0, i64 %.0.lcssa.i.i.i.i.i
+  %77 = getelementptr inbounds nuw ptr, ptr %0, i64 %.0.lcssa.i.i.i.i.i
   store ptr %24, ptr %77, align 8
   %78 = icmp eq i64 %.0.i.i.i, 0
   %79 = add nsw i64 %.0.i.i.i, -1
   br i1 %78, label %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPP8MeshFaceSt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZL13RenderTextureRS7_R4MeshSt10shared_ptrI13TextureObjectEb10RenderModeiiE3$_0EEEvT_SK_RT0_.exit.i.i", label %23, !llvm.loop !47
 
 "_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPP8MeshFaceSt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZL13RenderTextureRS7_R4MeshSt10shared_ptrI13TextureObjectEb10RenderModeiiE3$_0EEEvT_SK_RT0_.exit.i.i": ; preds = %"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPP8MeshFaceSt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZL13RenderTextureRS7_R4MeshSt10shared_ptrI13TextureObjectEb10RenderModeiiE3$_0EEEvT_T0_SL_T1_T2_.exit.i.i.i"
-  %80 = icmp sgt i64 %.lcssa43, 8
+  %80 = icmp sgt i64 %.lcssa51, 8
   br i1 %80, label %.lr.ph.i9.i, label %"_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPP8MeshFaceSt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZL13RenderTextureRS7_R4MeshSt10shared_ptrI13TextureObjectEb10RenderModeiiE3$_0EEEvT_SK_SK_T0_.exit"
 
 .lr.ph.i9.i:                                      ; preds = %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPP8MeshFaceSt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZL13RenderTextureRS7_R4MeshSt10shared_ptrI13TextureObjectEb10RenderModeiiE3$_0EEEvT_SK_RT0_.exit.i.i", %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPP8MeshFaceSt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZL13RenderTextureRS7_R4MeshSt10shared_ptrI13TextureObjectEb10RenderModeiiE3$_0EEEvT_SK_SK_RT0_.exit"
@@ -4055,14 +4055,14 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   %148 = icmp sgt i64 %85, 8
   br i1 %148, label %.lr.ph.i9.i, label %"_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPP8MeshFaceSt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZL13RenderTextureRS7_R4MeshSt10shared_ptrI13TextureObjectEb10RenderModeiiE3$_0EEEvT_SK_SK_T0_.exit", !llvm.loop !48
 
-.lr.ph49:                                         ; preds = %.lr.ph, %12
-  %storemerge2748 = phi ptr [ %.sroa.016.1.i.i, %12 ], [ %1, %.lr.ph ]
-  %.02847 = phi i64 [ %150, %12 ], [ %2, %.lr.ph ]
+.lr.ph57:                                         ; preds = %.lr.ph, %12
+  %storemerge2756 = phi ptr [ %.sroa.016.1.i.i, %12 ], [ %1, %.lr.ph ]
+  %.02855 = phi i64 [ %150, %12 ], [ %2, %.lr.ph ]
   %149 = phi i64 [ %224, %12 ], [ %8, %.lr.ph ]
-  %150 = add nsw i64 %.02847, -1
+  %150 = add nsw i64 %.02855, -1
   %151 = lshr i64 %149, 1
   %152 = getelementptr inbounds nuw ptr, ptr %0, i64 %151
-  %153 = getelementptr inbounds i8, ptr %storemerge2748, i64 -8
+  %153 = getelementptr inbounds i8, ptr %storemerge2756, i64 -8
   %.val29.val.i.i = load ptr, ptr %3, align 8
   %154 = getelementptr i8, ptr %.val29.val.i.i, i64 8
   %.val29.val.val.i.i = load ptr, ptr %154, align 8
@@ -4094,7 +4094,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   %175 = load i16, ptr %174, align 2
   br i1 %169, label %176, label %185
 
-176:                                              ; preds = %.lr.ph49
+176:                                              ; preds = %.lr.ph57
   %177 = icmp slt i16 %168, %175
   br i1 %177, label %178, label %180
 
@@ -4119,7 +4119,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   store ptr %182, ptr %10, align 8
   br label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPP8MeshFaceSt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZL13RenderTextureRS7_R4MeshSt10shared_ptrI13TextureObjectEb10RenderModeiiE3$_0EEEvT_SK_SK_SK_T0_.exit.i.preheader"
 
-185:                                              ; preds = %.lr.ph49
+185:                                              ; preds = %.lr.ph57
   %186 = icmp slt i16 %162, %175
   br i1 %186, label %187, label %189
 
@@ -4148,7 +4148,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   br label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPP8MeshFaceSt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZL13RenderTextureRS7_R4MeshSt10shared_ptrI13TextureObjectEb10RenderModeiiE3$_0EEEvT_SK_SK_SK_T0_.exit.i"
 
 "_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPP8MeshFaceSt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZL13RenderTextureRS7_R4MeshSt10shared_ptrI13TextureObjectEb10RenderModeiiE3$_0EEEvT_SK_SK_SK_T0_.exit.i": ; preds = %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPP8MeshFaceSt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZL13RenderTextureRS7_R4MeshSt10shared_ptrI13TextureObjectEb10RenderModeiiE3$_0EEEvT_SK_SK_SK_T0_.exit.i.preheader", %221
-  %.sroa.013.0.i.i = phi ptr [ %.sroa.013.1.i.i, %221 ], [ %storemerge2748, %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPP8MeshFaceSt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZL13RenderTextureRS7_R4MeshSt10shared_ptrI13TextureObjectEb10RenderModeiiE3$_0EEEvT_SK_SK_SK_T0_.exit.i.preheader" ]
+  %.sroa.013.0.i.i = phi ptr [ %.sroa.013.1.i.i, %221 ], [ %storemerge2756, %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPP8MeshFaceSt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZL13RenderTextureRS7_R4MeshSt10shared_ptrI13TextureObjectEb10RenderModeiiE3$_0EEEvT_SK_SK_SK_T0_.exit.i.preheader" ]
   %.sroa.016.0.i.i = phi ptr [ %211, %221 ], [ %10, %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPP8MeshFaceSt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZL13RenderTextureRS7_R4MeshSt10shared_ptrI13TextureObjectEb10RenderModeiiE3$_0EEEvT_SK_SK_SK_T0_.exit.i.preheader" ]
   %.val8.val.i.i = load ptr, ptr %3, align 8
   %194 = getelementptr i8, ptr %.val8.val.i.i, i64 8
@@ -4202,7 +4202,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   br label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPP8MeshFaceSt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZL13RenderTextureRS7_R4MeshSt10shared_ptrI13TextureObjectEb10RenderModeiiE3$_0EEEvT_SK_SK_SK_T0_.exit.i", !llvm.loop !51
 
 "_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPP8MeshFaceSt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZL13RenderTextureRS7_R4MeshSt10shared_ptrI13TextureObjectEb10RenderModeiiE3$_0EEET_SK_SK_T0_.exit": ; preds = %219
-  tail call fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPP8MeshFaceSt6vectorIS3_SaIS3_EEEElNS0_5__ops15_Iter_comp_iterIZL13RenderTextureRS7_R4MeshSt10shared_ptrI13TextureObjectEb10RenderModeiiE3$_0EEEvT_SK_T0_T1_"(ptr nonnull %.sroa.016.1.i.i, ptr %storemerge2748, i64 noundef %150, ptr nonnull %3)
+  tail call fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPP8MeshFaceSt6vectorIS3_SaIS3_EEEElNS0_5__ops15_Iter_comp_iterIZL13RenderTextureRS7_R4MeshSt10shared_ptrI13TextureObjectEb10RenderModeiiE3$_0EEEvT_SK_T0_T1_"(ptr nonnull %.sroa.016.1.i.i, ptr %storemerge2756, i64 noundef %150, ptr nonnull %3)
   %222 = ptrtoint ptr %.sroa.016.1.i.i to i64
   %223 = sub i64 %222, %5
   %224 = ashr exact i64 %223, 3
@@ -4327,12 +4327,12 @@ define internal fastcc void @_ZN3vcgL12PullPushFillER6QImageS1_j(ptr noundef non
 17:                                               ; preds = %13
   %18 = tail call noundef i32 @_ZNK6QImage5pixelEii(ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %.0182242, i32 noundef %.0245)
   %.not238 = icmp eq i32 %.0182242, 0
-  br i1 %.not238, label %19, label %.thread259
+  br i1 %.not238, label %19, label %.thread266
 
 19:                                               ; preds = %17
   br i1 %.not237, label %.thread, label %22
 
-.thread259:                                       ; preds = %17
+.thread266:                                       ; preds = %17
   %20 = add nsw i32 %.0182242, -1
   %21 = tail call noundef i32 @_ZNK6QImage5pixelEii(ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %20, i32 noundef %.0245)
   br i1 %.not237, label %.thread, label %24
@@ -4341,19 +4341,19 @@ define internal fastcc void @_ZN3vcgL12PullPushFillER6QImageS1_j(ptr noundef non
   %23 = tail call noundef i32 @_ZNK6QImage5pixelEii(ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %.0182242, i32 noundef %9)
   br label %.thread
 
-24:                                               ; preds = %.thread259
+24:                                               ; preds = %.thread266
   %25 = tail call noundef i32 @_ZNK6QImage5pixelEii(ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %.0182242, i32 noundef %9)
   %26 = add nsw i32 %.0182242, -1
   %27 = tail call noundef i32 @_ZNK6QImage5pixelEii(ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %26, i32 noundef %9)
   br label %.thread
 
-.thread:                                          ; preds = %22, %.thread259, %19, %24
-  %28 = phi i32 [ %21, %24 ], [ %2, %22 ], [ %2, %19 ], [ %21, %.thread259 ]
-  %29 = phi i32 [ 48, %24 ], [ 0, %22 ], [ 0, %19 ], [ 48, %.thread259 ]
-  %30 = phi i32 [ %25, %24 ], [ %23, %22 ], [ %2, %19 ], [ %2, %.thread259 ]
-  %31 = phi i32 [ 48, %24 ], [ 48, %22 ], [ 0, %19 ], [ 0, %.thread259 ]
-  %32 = phi i32 [ 16, %24 ], [ 0, %22 ], [ 0, %19 ], [ 0, %.thread259 ]
-  %33 = phi i32 [ %27, %24 ], [ %2, %22 ], [ %2, %19 ], [ %2, %.thread259 ]
+.thread:                                          ; preds = %22, %.thread266, %19, %24
+  %28 = phi i32 [ %21, %24 ], [ %2, %22 ], [ %2, %19 ], [ %21, %.thread266 ]
+  %29 = phi i32 [ 48, %24 ], [ 0, %22 ], [ 0, %19 ], [ 48, %.thread266 ]
+  %30 = phi i32 [ %25, %24 ], [ %23, %22 ], [ %2, %19 ], [ %2, %.thread266 ]
+  %31 = phi i32 [ 48, %24 ], [ 48, %22 ], [ 0, %19 ], [ 0, %.thread266 ]
+  %32 = phi i32 [ 16, %24 ], [ 0, %22 ], [ 0, %19 ], [ 0, %.thread266 ]
+  %33 = phi i32 [ %27, %24 ], [ %2, %22 ], [ %2, %19 ], [ %2, %.thread266 ]
   %34 = lshr i32 %18, 16
   %35 = and i32 %34, 255
   %36 = lshr i32 %28, 16

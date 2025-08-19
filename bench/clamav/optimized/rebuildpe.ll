@@ -113,8 +113,8 @@ define range(i32 0, 2) i32 @cli_rebuildpe_align(ptr noundef readonly captures(no
   br i1 %58, label %197, label %.loopexit.thread
 
 .loopexit.thread:                                 ; preds = %.preheader228, %.preheader, %.loopexit
-  %.1264 = phi i32 [ %.1, %.loopexit ], [ 0, %.preheader ], [ 0, %.preheader228 ]
-  %59 = add i32 %.1264, %.0207
+  %.1270 = phi i32 [ %.1, %.loopexit ], [ 0, %.preheader ], [ 0, %.preheader228 ]
+  %59 = add i32 %.1270, %.0207
   %60 = zext i32 %59 to i64
   %61 = tail call ptr @cli_max_calloc(i64 noundef %60, i64 noundef 1) #6
   %.not219 = icmp eq ptr %61, null

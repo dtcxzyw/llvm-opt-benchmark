@@ -648,7 +648,7 @@ define hidden noundef ptr @_ZN2cv8tinyxml27StrPair6GetStrEv(ptr noundef nonnull 
   %13 = load ptr, ptr %12, align 8, !tbaa !10
   %14 = load ptr, ptr %7, align 8, !tbaa !11
   %15 = icmp ult ptr %13, %14
-  br i1 %15, label %.lr.ph62, label %.loopexit81
+  br i1 %15, label %.lr.ph62, label %.loopexit88
 
 .lr.ph62:                                         ; preds = %11, %70
   %.03960 = phi ptr [ %.1, %70 ], [ %13, %11 ]
@@ -778,9 +778,9 @@ define hidden noundef ptr @_ZN2cv8tinyxml27StrPair6GetStrEv(ptr noundef nonnull 
   %.1 = phi ptr [ %24, %19 ], [ %30, %25 ], [ %.2.lcssa, %._crit_edge ], [ %.4, %.loopexit ], [ %69, %67 ]
   %71 = load ptr, ptr %7, align 8, !tbaa !11
   %72 = icmp ult ptr %.242, %71
-  br i1 %72, label %.lr.ph62, label %.loopexit81, !llvm.loop !25
+  br i1 %72, label %.lr.ph62, label %.loopexit88, !llvm.loop !25
 
-.loopexit81:                                      ; preds = %70, %11
+.loopexit88:                                      ; preds = %70, %11
   %.039.lcssa = phi ptr [ %13, %11 ], [ %.1, %70 ]
   store i8 0, ptr %.039.lcssa, align 1, !tbaa !12
   %.pre77 = load i32, ptr %0, align 8, !tbaa !3
@@ -788,7 +788,7 @@ define hidden noundef ptr @_ZN2cv8tinyxml27StrPair6GetStrEv(ptr noundef nonnull 
   %.not46 = icmp eq i32 %73, 0
   br i1 %.not46, label %_ZN2cv8tinyxml27StrPair18CollapseWhitespaceEv.exit, label %74
 
-74:                                               ; preds = %.loopexit81
+74:                                               ; preds = %.loopexit88
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %76 = load ptr, ptr %75, align 8, !tbaa !10
   %77 = load i8, ptr %76, align 1, !tbaa !12
@@ -871,8 +871,8 @@ _ZN2cv8tinyxml27XMLUtil12IsWhiteSpaceEc.exit.thread.i: ; preds = %_ZN2cv8tinyxml
   %.pre78 = load i32, ptr %0, align 8, !tbaa !3
   br label %_ZN2cv8tinyxml27StrPair18CollapseWhitespaceEv.exit
 
-_ZN2cv8tinyxml27StrPair18CollapseWhitespaceEv.exit: ; preds = %6, %98, %.loopexit.i, %.loopexit81
-  %99 = phi i32 [ %.pre78, %98 ], [ %.pre77, %.loopexit.i ], [ %.pre77, %.loopexit81 ], [ 0, %6 ]
+_ZN2cv8tinyxml27StrPair18CollapseWhitespaceEv.exit: ; preds = %6, %98, %.loopexit.i, %.loopexit88
+  %99 = phi i32 [ %.pre78, %98 ], [ %.pre77, %.loopexit.i ], [ %.pre77, %.loopexit88 ], [ 0, %6 ]
   %100 = and i32 %99, 512
   store i32 %100, ptr %0, align 8, !tbaa !3
   br label %101
@@ -3272,14 +3272,14 @@ define hidden noundef ptr @_ZN2cv8tinyxml27XMLNode9ParseDeepEPcPNS0_7StrPairE(pt
   br i1 %115, label %.thread69.thread, label %.thread62
 
 .thread62:                                        ; preds = %.critedge.i.thread, %.critedge.thread.i, %96, %92
-  %.sink101 = phi ptr [ %93, %92 ], [ %97, %96 ], [ %97, %.critedge.thread.i ], [ %97, %.critedge.i.thread ]
-  %.sink100 = load ptr, ptr %6, align 8, !tbaa !33
-  %116 = call noundef ptr @_ZN2cv8tinyxml27StrPair6GetStrEv(ptr noundef nonnull align 8 dereferenceable(24) %.sink101)
-  %117 = getelementptr inbounds nuw i8, ptr %.sink100, i64 92
+  %.sink119 = phi ptr [ %93, %92 ], [ %97, %96 ], [ %97, %.critedge.thread.i ], [ %97, %.critedge.i.thread ]
+  %.sink118 = load ptr, ptr %6, align 8, !tbaa !33
+  %116 = call noundef ptr @_ZN2cv8tinyxml27StrPair6GetStrEv(ptr noundef nonnull align 8 dereferenceable(24) %.sink119)
+  %117 = getelementptr inbounds nuw i8, ptr %.sink118, i64 92
   store i32 16, ptr %117, align 4, !tbaa !106
-  %118 = getelementptr inbounds nuw i8, ptr %.sink100, i64 104
+  %118 = getelementptr inbounds nuw i8, ptr %.sink118, i64 104
   store ptr %116, ptr %118, align 8, !tbaa !116
-  %119 = getelementptr inbounds nuw i8, ptr %.sink100, i64 112
+  %119 = getelementptr inbounds nuw i8, ptr %.sink118, i64 112
   store ptr null, ptr %119, align 8, !tbaa !117
   %120 = getelementptr inbounds nuw i8, ptr %26, i64 80
   %121 = load ptr, ptr %120, align 8, !tbaa !41
@@ -3413,7 +3413,7 @@ _ZN2cv8tinyxml27XMLNode14InsertEndChildEPS1_.exit: ; preds = %.thread62, %167, %
   switch i32 %.126, label %184 [
     i32 0, label %11
     i32 3, label %.critedge
-    i32 1, label %.critedge.loopexit105
+    i32 1, label %.critedge.loopexit123
   ], !llvm.loop !118
 
 177:                                              ; preds = %94, %128, %77, %39, %37
@@ -3437,11 +3437,11 @@ _ZN2cv8tinyxml27StrPairD2Ev.exit56:               ; preds = %177, %180, %183
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %.pn51
 
-.critedge.loopexit105:                            ; preds = %176
+.critedge.loopexit123:                            ; preds = %176
   br label %.critedge
 
-.critedge:                                        ; preds = %12, %176, %11, %.critedge.loopexit105, %.thread73
-  %.3 = phi ptr [ null, %.thread73 ], [ %.2, %.critedge.loopexit105 ], [ null, %11 ], [ null, %176 ], [ null, %12 ]
+.critedge:                                        ; preds = %12, %176, %11, %.critedge.loopexit123, %.thread73
+  %.3 = phi ptr [ null, %.thread73 ], [ %.2, %.critedge.loopexit123 ], [ null, %11 ], [ null, %176 ], [ null, %12 ]
   ret ptr %.3
 
 184:                                              ; preds = %176
@@ -6032,8 +6032,8 @@ define hidden void @_ZN2cv8tinyxml210XMLElement15DeleteAttributeEPKc(ptr noundef
 
 .preheader.i:                                     ; preds = %.lr.ph.preheader, %.lr.ph
   %10 = phi ptr [ %8, %.lr.ph ], [ %5, %.lr.ph.preheader ]
-  %.02742 = phi ptr [ %.0152841, %.lr.ph ], [ null, %.lr.ph.preheader ]
-  %.0152841 = phi ptr [ %.015, %.lr.ph ], [ %.01525, %.lr.ph.preheader ]
+  %.02745 = phi ptr [ %.0152844, %.lr.ph ], [ null, %.lr.ph.preheader ]
+  %.0152844 = phi ptr [ %.015, %.lr.ph ], [ %.01525, %.lr.ph.preheader ]
   %11 = load i8, ptr %1, align 1, !tbaa !12
   %.not26.i = icmp eq i8 %11, 0
   br i1 %.not26.i, label %.critedge.i.thread, label %.lr.ph.i
@@ -6072,8 +6072,8 @@ define hidden void @_ZN2cv8tinyxml210XMLElement15DeleteAttributeEPKc(ptr noundef
   br i1 %24, label %.lr.ph._crit_edge, label %_ZN2cv8tinyxml27XMLUtil11StringEqualEPKcS3_i.exit
 
 .lr.ph._crit_edge:                                ; preds = %.critedge.thread.i, %.critedge.i, %.critedge.i.thread, %.lr.ph, %.lr.ph.preheader
-  %.01528.lcssa = phi ptr [ %.01525, %.lr.ph.preheader ], [ %.0152841, %.critedge.thread.i ], [ %.0152841, %.critedge.i ], [ %.0152841, %.critedge.i.thread ], [ %.015, %.lr.ph ]
-  %.027.lcssa = phi ptr [ null, %.lr.ph.preheader ], [ %.02742, %.critedge.thread.i ], [ %.02742, %.critedge.i ], [ %.02742, %.critedge.i.thread ], [ %.0152841, %.lr.ph ]
+  %.01528.lcssa = phi ptr [ %.01525, %.lr.ph.preheader ], [ %.0152844, %.critedge.thread.i ], [ %.0152844, %.critedge.i ], [ %.0152844, %.critedge.i.thread ], [ %.015, %.lr.ph ]
+  %.027.lcssa = phi ptr [ null, %.lr.ph.preheader ], [ %.02745, %.critedge.thread.i ], [ %.02745, %.critedge.i ], [ %.02745, %.critedge.i.thread ], [ %.0152844, %.lr.ph ]
   %.not16 = icmp eq ptr %.027.lcssa, null
   %25 = getelementptr inbounds nuw i8, ptr %.01528.lcssa, i64 56
   %26 = load ptr, ptr %25, align 8, !tbaa !123
@@ -6101,7 +6101,7 @@ define hidden void @_ZN2cv8tinyxml210XMLElement15DeleteAttributeEPKc(ptr noundef
   br label %.loopexit
 
 _ZN2cv8tinyxml27XMLUtil11StringEqualEPKcS3_i.exit: ; preds = %.critedge.i.thread, %.critedge.thread.i
-  %38 = getelementptr inbounds nuw i8, ptr %.0152841, i64 56
+  %38 = getelementptr inbounds nuw i8, ptr %.0152844, i64 56
   %.015 = load ptr, ptr %38, align 8, !tbaa !127
   %.not = icmp eq ptr %.015, null
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !142
@@ -7564,8 +7564,8 @@ _ZN2cv8tinyxml27XMLUtil7ReadBOMEPKcPb.exit:       ; preds = %77, %_ZN2cv8tinyxml
   br label %89
 
 _ZN2cv8tinyxml27XMLUtil7ReadBOMEPKcPb.exit.thread: ; preds = %73, %69, %_ZN2cv8tinyxml27XMLUtil7ReadBOMEPKcPb.exit
-  %.0.i30 = phi ptr [ %.0.i, %_ZN2cv8tinyxml27XMLUtil7ReadBOMEPKcPb.exit ], [ %.0.lcssa.i, %69 ], [ %.0.lcssa.i, %73 ]
-  %81 = ptrtoint ptr %.0.i30 to i64
+  %.0.i40 = phi ptr [ %.0.i, %_ZN2cv8tinyxml27XMLUtil7ReadBOMEPKcPb.exit ], [ %.0.lcssa.i, %69 ], [ %.0.lcssa.i, %73 ]
+  %81 = ptrtoint ptr %.0.i40 to i64
   %82 = ptrtoint ptr %58 to i64
   %83 = sub i64 %81, %82
   %84 = getelementptr inbounds i8, ptr %58, i64 %83
@@ -8022,8 +8022,8 @@ _ZN2cv8tinyxml27XMLUtil7ReadBOMEPKcPb.exit:       ; preds = %70, %_ZN2cv8tinyxml
   br label %82
 
 _ZN2cv8tinyxml27XMLUtil7ReadBOMEPKcPb.exit.thread: ; preds = %66, %62, %_ZN2cv8tinyxml27XMLUtil7ReadBOMEPKcPb.exit
-  %.0.i29 = phi ptr [ %.0.i, %_ZN2cv8tinyxml27XMLUtil7ReadBOMEPKcPb.exit ], [ %.0.lcssa.i, %62 ], [ %.0.lcssa.i, %66 ]
-  %74 = ptrtoint ptr %.0.i29 to i64
+  %.0.i40 = phi ptr [ %.0.i, %_ZN2cv8tinyxml27XMLUtil7ReadBOMEPKcPb.exit ], [ %.0.lcssa.i, %62 ], [ %.0.lcssa.i, %66 ]
+  %74 = ptrtoint ptr %.0.i40 to i64
   %75 = ptrtoint ptr %1 to i64
   %76 = sub i64 %74, %75
   %77 = getelementptr inbounds i8, ptr %50, i64 %76
@@ -8347,8 +8347,8 @@ define hidden void @_ZN2cv8tinyxml210XMLPrinter11PrintStringEPKcb(ptr noundef no
   br i1 %or.cond30.not, label %39, label %.loopexit34.thread
 
 .loopexit34.thread:                               ; preds = %3, %.loopexit34
-  %.02151 = phi ptr [ %.021, %.loopexit34 ], [ %1, %3 ]
-  tail call void (ptr, ptr, ...) @_ZN2cv8tinyxml210XMLPrinter5PrintEPKcz(ptr noundef nonnull align 8 dereferenceable(312) %0, ptr noundef nonnull @.str.20, ptr noundef %.02151)
+  %.02154 = phi ptr [ %.021, %.loopexit34 ], [ %1, %3 ]
+  tail call void (ptr, ptr, ...) @_ZN2cv8tinyxml210XMLPrinter5PrintEPKcz(ptr noundef nonnull align 8 dereferenceable(312) %0, ptr noundef nonnull @.str.20, ptr noundef %.02154)
   br label %39
 
 39:                                               ; preds = %.loopexit34, %.loopexit34.thread
@@ -8666,8 +8666,8 @@ define hidden void @_ZN2cv8tinyxml210XMLPrinter13PushAttributeEPKci(ptr noundef 
   br i1 %or.cond30.not.i, label %_ZN2cv8tinyxml210XMLPrinter11PrintStringEPKcb.exit, label %.loopexit34.thread.i
 
 .loopexit34.thread.i:                             ; preds = %.loopexit34.i, %3
-  %.02151.i = phi ptr [ %.021.i, %.loopexit34.i ], [ %4, %3 ]
-  call void (ptr, ptr, ...) @_ZN2cv8tinyxml210XMLPrinter5PrintEPKcz(ptr noundef nonnull align 8 dereferenceable(312) %0, ptr noundef nonnull @.str.20, ptr noundef %.02151.i)
+  %.02154.i = phi ptr [ %.021.i, %.loopexit34.i ], [ %4, %3 ]
+  call void (ptr, ptr, ...) @_ZN2cv8tinyxml210XMLPrinter5PrintEPKcz(ptr noundef nonnull align 8 dereferenceable(312) %0, ptr noundef nonnull @.str.20, ptr noundef %.02154.i)
   br label %_ZN2cv8tinyxml210XMLPrinter11PrintStringEPKcb.exit
 
 _ZN2cv8tinyxml210XMLPrinter11PrintStringEPKcb.exit: ; preds = %.loopexit34.i, %.loopexit34.thread.i
@@ -8775,8 +8775,8 @@ define hidden void @_ZN2cv8tinyxml210XMLPrinter13PushAttributeEPKcj(ptr noundef 
   br i1 %or.cond30.not.i, label %_ZN2cv8tinyxml210XMLPrinter11PrintStringEPKcb.exit, label %.loopexit34.thread.i
 
 .loopexit34.thread.i:                             ; preds = %.loopexit34.i, %3
-  %.02151.i = phi ptr [ %.021.i, %.loopexit34.i ], [ %4, %3 ]
-  call void (ptr, ptr, ...) @_ZN2cv8tinyxml210XMLPrinter5PrintEPKcz(ptr noundef nonnull align 8 dereferenceable(312) %0, ptr noundef nonnull @.str.20, ptr noundef %.02151.i)
+  %.02154.i = phi ptr [ %.021.i, %.loopexit34.i ], [ %4, %3 ]
+  call void (ptr, ptr, ...) @_ZN2cv8tinyxml210XMLPrinter5PrintEPKcz(ptr noundef nonnull align 8 dereferenceable(312) %0, ptr noundef nonnull @.str.20, ptr noundef %.02154.i)
   br label %_ZN2cv8tinyxml210XMLPrinter11PrintStringEPKcb.exit
 
 _ZN2cv8tinyxml210XMLPrinter11PrintStringEPKcb.exit: ; preds = %.loopexit34.i, %.loopexit34.thread.i
@@ -8885,8 +8885,8 @@ define hidden void @_ZN2cv8tinyxml210XMLPrinter13PushAttributeEPKcb(ptr noundef 
   br i1 %or.cond30.not.i, label %_ZN2cv8tinyxml210XMLPrinter11PrintStringEPKcb.exit, label %.loopexit34.thread.i
 
 .loopexit34.thread.i:                             ; preds = %.loopexit34.i, %3
-  %.02151.i = phi ptr [ %.021.i, %.loopexit34.i ], [ %4, %3 ]
-  call void (ptr, ptr, ...) @_ZN2cv8tinyxml210XMLPrinter5PrintEPKcz(ptr noundef nonnull align 8 dereferenceable(312) %0, ptr noundef nonnull @.str.20, ptr noundef %.02151.i)
+  %.02154.i = phi ptr [ %.021.i, %.loopexit34.i ], [ %4, %3 ]
+  call void (ptr, ptr, ...) @_ZN2cv8tinyxml210XMLPrinter5PrintEPKcz(ptr noundef nonnull align 8 dereferenceable(312) %0, ptr noundef nonnull @.str.20, ptr noundef %.02154.i)
   br label %_ZN2cv8tinyxml210XMLPrinter11PrintStringEPKcb.exit
 
 _ZN2cv8tinyxml210XMLPrinter11PrintStringEPKcb.exit: ; preds = %.loopexit34.i, %.loopexit34.thread.i
@@ -8994,8 +8994,8 @@ define hidden void @_ZN2cv8tinyxml210XMLPrinter13PushAttributeEPKcd(ptr noundef 
   br i1 %or.cond30.not.i, label %_ZN2cv8tinyxml210XMLPrinter11PrintStringEPKcb.exit, label %.loopexit34.thread.i
 
 .loopexit34.thread.i:                             ; preds = %.loopexit34.i, %3
-  %.02151.i = phi ptr [ %.021.i, %.loopexit34.i ], [ %4, %3 ]
-  call void (ptr, ptr, ...) @_ZN2cv8tinyxml210XMLPrinter5PrintEPKcz(ptr noundef nonnull align 8 dereferenceable(312) %0, ptr noundef nonnull @.str.20, ptr noundef %.02151.i)
+  %.02154.i = phi ptr [ %.021.i, %.loopexit34.i ], [ %4, %3 ]
+  call void (ptr, ptr, ...) @_ZN2cv8tinyxml210XMLPrinter5PrintEPKcz(ptr noundef nonnull align 8 dereferenceable(312) %0, ptr noundef nonnull @.str.20, ptr noundef %.02154.i)
   br label %_ZN2cv8tinyxml210XMLPrinter11PrintStringEPKcb.exit
 
 _ZN2cv8tinyxml210XMLPrinter11PrintStringEPKcb.exit: ; preds = %.loopexit34.i, %.loopexit34.thread.i
@@ -9221,8 +9221,8 @@ _ZN2cv8tinyxml210XMLPrinter8PushTextEPKcb.exit:   ; preds = %2, %12
   br i1 %or.cond30.not.i, label %_ZN2cv8tinyxml210XMLPrinter11PrintStringEPKcb.exit, label %.loopexit34.thread.i
 
 .loopexit34.thread.i:                             ; preds = %.loopexit34.i, %_ZN2cv8tinyxml210XMLPrinter8PushTextEPKcb.exit
-  %.02151.i = phi ptr [ %.021.i, %.loopexit34.i ], [ %3, %_ZN2cv8tinyxml210XMLPrinter8PushTextEPKcb.exit ]
-  call void (ptr, ptr, ...) @_ZN2cv8tinyxml210XMLPrinter5PrintEPKcz(ptr noundef nonnull align 8 dereferenceable(312) %0, ptr noundef nonnull @.str.20, ptr noundef %.02151.i)
+  %.02154.i = phi ptr [ %.021.i, %.loopexit34.i ], [ %3, %_ZN2cv8tinyxml210XMLPrinter8PushTextEPKcb.exit ]
+  call void (ptr, ptr, ...) @_ZN2cv8tinyxml210XMLPrinter5PrintEPKcz(ptr noundef nonnull align 8 dereferenceable(312) %0, ptr noundef nonnull @.str.20, ptr noundef %.02154.i)
   br label %_ZN2cv8tinyxml210XMLPrinter11PrintStringEPKcb.exit
 
 _ZN2cv8tinyxml210XMLPrinter11PrintStringEPKcb.exit: ; preds = %.loopexit34.i, %.loopexit34.thread.i
@@ -9344,8 +9344,8 @@ _ZN2cv8tinyxml210XMLPrinter8PushTextEPKcb.exit:   ; preds = %2, %12
   br i1 %or.cond30.not.i, label %_ZN2cv8tinyxml210XMLPrinter11PrintStringEPKcb.exit, label %.loopexit34.thread.i
 
 .loopexit34.thread.i:                             ; preds = %.loopexit34.i, %_ZN2cv8tinyxml210XMLPrinter8PushTextEPKcb.exit
-  %.02151.i = phi ptr [ %.021.i, %.loopexit34.i ], [ %3, %_ZN2cv8tinyxml210XMLPrinter8PushTextEPKcb.exit ]
-  call void (ptr, ptr, ...) @_ZN2cv8tinyxml210XMLPrinter5PrintEPKcz(ptr noundef nonnull align 8 dereferenceable(312) %0, ptr noundef nonnull @.str.20, ptr noundef %.02151.i)
+  %.02154.i = phi ptr [ %.021.i, %.loopexit34.i ], [ %3, %_ZN2cv8tinyxml210XMLPrinter8PushTextEPKcb.exit ]
+  call void (ptr, ptr, ...) @_ZN2cv8tinyxml210XMLPrinter5PrintEPKcz(ptr noundef nonnull align 8 dereferenceable(312) %0, ptr noundef nonnull @.str.20, ptr noundef %.02154.i)
   br label %_ZN2cv8tinyxml210XMLPrinter11PrintStringEPKcb.exit
 
 _ZN2cv8tinyxml210XMLPrinter11PrintStringEPKcb.exit: ; preds = %.loopexit34.i, %.loopexit34.thread.i
@@ -9468,8 +9468,8 @@ _ZN2cv8tinyxml210XMLPrinter8PushTextEPKcb.exit:   ; preds = %2, %13
   br i1 %or.cond30.not.i, label %_ZN2cv8tinyxml210XMLPrinter11PrintStringEPKcb.exit, label %.loopexit34.thread.i
 
 .loopexit34.thread.i:                             ; preds = %.loopexit34.i, %_ZN2cv8tinyxml210XMLPrinter8PushTextEPKcb.exit
-  %.02151.i = phi ptr [ %.021.i, %.loopexit34.i ], [ %3, %_ZN2cv8tinyxml210XMLPrinter8PushTextEPKcb.exit ]
-  call void (ptr, ptr, ...) @_ZN2cv8tinyxml210XMLPrinter5PrintEPKcz(ptr noundef nonnull align 8 dereferenceable(312) %0, ptr noundef nonnull @.str.20, ptr noundef %.02151.i)
+  %.02154.i = phi ptr [ %.021.i, %.loopexit34.i ], [ %3, %_ZN2cv8tinyxml210XMLPrinter8PushTextEPKcb.exit ]
+  call void (ptr, ptr, ...) @_ZN2cv8tinyxml210XMLPrinter5PrintEPKcz(ptr noundef nonnull align 8 dereferenceable(312) %0, ptr noundef nonnull @.str.20, ptr noundef %.02154.i)
   br label %_ZN2cv8tinyxml210XMLPrinter11PrintStringEPKcb.exit
 
 _ZN2cv8tinyxml210XMLPrinter11PrintStringEPKcb.exit: ; preds = %.loopexit34.i, %.loopexit34.thread.i
@@ -9592,8 +9592,8 @@ _ZN2cv8tinyxml210XMLPrinter8PushTextEPKcb.exit:   ; preds = %2, %13
   br i1 %or.cond30.not.i, label %_ZN2cv8tinyxml210XMLPrinter11PrintStringEPKcb.exit, label %.loopexit34.thread.i
 
 .loopexit34.thread.i:                             ; preds = %.loopexit34.i, %_ZN2cv8tinyxml210XMLPrinter8PushTextEPKcb.exit
-  %.02151.i = phi ptr [ %.021.i, %.loopexit34.i ], [ %3, %_ZN2cv8tinyxml210XMLPrinter8PushTextEPKcb.exit ]
-  call void (ptr, ptr, ...) @_ZN2cv8tinyxml210XMLPrinter5PrintEPKcz(ptr noundef nonnull align 8 dereferenceable(312) %0, ptr noundef nonnull @.str.20, ptr noundef %.02151.i)
+  %.02154.i = phi ptr [ %.021.i, %.loopexit34.i ], [ %3, %_ZN2cv8tinyxml210XMLPrinter8PushTextEPKcb.exit ]
+  call void (ptr, ptr, ...) @_ZN2cv8tinyxml210XMLPrinter5PrintEPKcz(ptr noundef nonnull align 8 dereferenceable(312) %0, ptr noundef nonnull @.str.20, ptr noundef %.02154.i)
   br label %_ZN2cv8tinyxml210XMLPrinter11PrintStringEPKcb.exit
 
 _ZN2cv8tinyxml210XMLPrinter11PrintStringEPKcb.exit: ; preds = %.loopexit34.i, %.loopexit34.thread.i
@@ -9715,8 +9715,8 @@ _ZN2cv8tinyxml210XMLPrinter8PushTextEPKcb.exit:   ; preds = %2, %12
   br i1 %or.cond30.not.i, label %_ZN2cv8tinyxml210XMLPrinter11PrintStringEPKcb.exit, label %.loopexit34.thread.i
 
 .loopexit34.thread.i:                             ; preds = %.loopexit34.i, %_ZN2cv8tinyxml210XMLPrinter8PushTextEPKcb.exit
-  %.02151.i = phi ptr [ %.021.i, %.loopexit34.i ], [ %3, %_ZN2cv8tinyxml210XMLPrinter8PushTextEPKcb.exit ]
-  call void (ptr, ptr, ...) @_ZN2cv8tinyxml210XMLPrinter5PrintEPKcz(ptr noundef nonnull align 8 dereferenceable(312) %0, ptr noundef nonnull @.str.20, ptr noundef %.02151.i)
+  %.02154.i = phi ptr [ %.021.i, %.loopexit34.i ], [ %3, %_ZN2cv8tinyxml210XMLPrinter8PushTextEPKcb.exit ]
+  call void (ptr, ptr, ...) @_ZN2cv8tinyxml210XMLPrinter5PrintEPKcz(ptr noundef nonnull align 8 dereferenceable(312) %0, ptr noundef nonnull @.str.20, ptr noundef %.02154.i)
   br label %_ZN2cv8tinyxml210XMLPrinter11PrintStringEPKcb.exit
 
 _ZN2cv8tinyxml210XMLPrinter11PrintStringEPKcb.exit: ; preds = %.loopexit34.i, %.loopexit34.thread.i

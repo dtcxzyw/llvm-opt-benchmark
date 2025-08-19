@@ -140,8 +140,8 @@ xstrndup.exit:                                    ; preds = %9
   br label %.sink.split
 
 .sink.split:                                      ; preds = %xstrndup.exit, %23
-  %.sink31 = phi ptr [ %29, %23 ], [ %13, %xstrndup.exit ]
-  %30 = getelementptr inbounds i8, ptr %.sink31, i64 %.024
+  %.sink35 = phi ptr [ %29, %23 ], [ %13, %xstrndup.exit ]
+  %30 = getelementptr inbounds i8, ptr %.sink35, i64 %.024
   store ptr %30, ptr %1, align 8
   br label %31
 
@@ -452,8 +452,8 @@ define dso_local void @_xstrfmtcatat(ptr noundef %0, ptr noundef captures(none) 
   br label %.sink.split
 
 .sink.split:                                      ; preds = %10, %19
-  %.sink23 = phi ptr [ %25, %19 ], [ %7, %10 ]
-  %26 = getelementptr inbounds nuw i8, ptr %.sink23, i64 %6
+  %.sink26 = phi ptr [ %25, %19 ], [ %7, %10 ]
+  %26 = getelementptr inbounds nuw i8, ptr %.sink26, i64 %6
   store ptr %26, ptr %1, align 8
   br label %27
 
@@ -1372,8 +1372,8 @@ define dso_local void @xstrtrim(ptr noundef %0) local_unnamed_addr #18 {
   %16 = getelementptr inbounds i16, ptr %14, i64 %15
   %17 = load i16, ptr %16, align 2
   %18 = and i16 %17, 8192
-  %.not3756 = icmp eq i16 %18, 0
-  br i1 %.not3756, label %._crit_edge, label %.lr.ph57
+  %.not3761 = icmp eq i16 %18, 0
+  br i1 %.not3761, label %._crit_edge, label %.lr.ph62
 
 19:                                               ; preds = %6
   %20 = getelementptr inbounds nuw i8, ptr %.045, i64 1
@@ -1385,16 +1385,16 @@ define dso_local void @xstrtrim(ptr noundef %0) local_unnamed_addr #18 {
   store i8 0, ptr %0, align 1
   br label %34
 
-.lr.ph:                                           ; preds = %.lr.ph57
+.lr.ph:                                           ; preds = %.lr.ph62
   %22 = load ptr, ptr %4, align 8
   %23 = sext i8 %29 to i64
   %24 = getelementptr inbounds i16, ptr %22, i64 %23
   %25 = load i16, ptr %24, align 2
   %26 = and i16 %25, 8192
   %.not37 = icmp eq i16 %26, 0
-  br i1 %.not37, label %._crit_edge, label %.lr.ph57
+  br i1 %.not37, label %._crit_edge, label %.lr.ph62
 
-.lr.ph57:                                         ; preds = %.lr.ph.preheader, %.lr.ph
+.lr.ph62:                                         ; preds = %.lr.ph.preheader, %.lr.ph
   %27 = phi ptr [ %28, %.lr.ph ], [ %12, %.lr.ph.preheader ]
   store i8 0, ptr %27, align 1
   %28 = getelementptr inbounds i8, ptr %27, i64 -1
@@ -1404,8 +1404,8 @@ define dso_local void @xstrtrim(ptr noundef %0) local_unnamed_addr #18 {
   %or.cond = and i1 %.not35, %.not36
   br i1 %or.cond, label %.lr.ph, label %._crit_edge
 
-._crit_edge:                                      ; preds = %.lr.ph, %.lr.ph57, %.lr.ph.preheader, %.critedge.preheader
-  %.2.lcssa = phi ptr [ %scevgep, %.critedge.preheader ], [ %scevgep, %.lr.ph.preheader ], [ %27, %.lr.ph57 ], [ %27, %.lr.ph ]
+._crit_edge:                                      ; preds = %.lr.ph, %.lr.ph62, %.lr.ph.preheader, %.critedge.preheader
+  %.2.lcssa = phi ptr [ %scevgep, %.critedge.preheader ], [ %scevgep, %.lr.ph.preheader ], [ %27, %.lr.ph62 ], [ %27, %.lr.ph ]
   %.not38 = icmp eq i64 %strlen, 0
   br i1 %.not38, label %34, label %30
 

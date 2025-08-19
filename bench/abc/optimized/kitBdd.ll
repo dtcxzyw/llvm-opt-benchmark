@@ -150,8 +150,8 @@ define ptr @Kit_GraphToBdd(ptr noundef %0, ptr noundef readonly captures(none) %
   br i1 %.not66, label %12, label %.preheader
 
 .preheader:                                       ; preds = %7
-  %.not88 = icmp eq i32 %.val57, 0
-  br i1 %.not88, label %.critedge.preheader, label %.lr.ph
+  %.not89 = icmp eq i32 %.val57, 0
+  br i1 %.not89, label %.critedge.preheader, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
   %11 = getelementptr i8, ptr %1, i64 16
@@ -257,12 +257,12 @@ define ptr @Kit_GraphToBdd(ptr noundef %0, ptr noundef readonly captures(none) %
   br label %69
 
 69:                                               ; preds = %.critedge4, %12, %4
-  %.sink86.in = phi ptr [ %57, %.critedge4 ], [ %13, %12 ], [ %6, %4 ]
-  %.sink86 = ptrtoint ptr %.sink86.in to i64
+  %.sink87.in = phi ptr [ %57, %.critedge4 ], [ %13, %12 ], [ %6, %4 ]
+  %.sink87 = ptrtoint ptr %.sink87.in to i64
   %.val56.sink = load i32, ptr %3, align 8
   %70 = and i32 %.val56.sink, 1
   %71 = zext nneg i32 %70 to i64
-  %72 = xor i64 %71, %.sink86
+  %72 = xor i64 %71, %.sink87
   %.051 = inttoptr i64 %72 to ptr
   ret ptr %.051
 }

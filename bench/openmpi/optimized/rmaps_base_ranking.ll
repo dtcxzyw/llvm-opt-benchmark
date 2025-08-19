@@ -854,12 +854,12 @@ pmix_obj_run_destructors.exit308:                 ; preds = %.lr.ph.i305, %374
   br i1 %414, label %pmix_pointer_array_get_item.exit311, label %.critedge, !llvm.loop !80
 
 pmix_pointer_array_get_item.exit311:              ; preds = %.lr.ph370.preheader, %.lr.ph370
-  %.12368535 = phi i32 [ %.13, %.lr.ph370 ], [ %.11375, %.lr.ph370.preheader ]
+  %.12368571 = phi i32 [ %.13, %.lr.ph370 ], [ %.11375, %.lr.ph370.preheader ]
   %415 = phi ptr [ %512, %.lr.ph370 ], [ %408, %.lr.ph370.preheader ]
-  %indvars.iv435534 = phi i64 [ %indvars.iv.next436, %.lr.ph370 ], [ 0, %.lr.ph370.preheader ]
+  %indvars.iv435570 = phi i64 [ %indvars.iv.next436, %.lr.ph370 ], [ 0, %.lr.ph370.preheader ]
   %416 = getelementptr inbounds nuw i8, ptr %415, i64 152
   %417 = load ptr, ptr %416, align 8, !tbaa !37
-  %418 = getelementptr inbounds nuw ptr, ptr %417, i64 %indvars.iv435534
+  %418 = getelementptr inbounds nuw ptr, ptr %417, i64 %indvars.iv435570
   %419 = load ptr, ptr %418, align 8, !tbaa !38
   %420 = icmp eq ptr %419, null
   br i1 %420, label %.critedge2, label %421
@@ -882,7 +882,7 @@ pmix_pointer_array_get_item.exit311:              ; preds = %.lr.ph370.preheader
 430:                                              ; preds = %.lr.ph365, %.critedge4
   %.1217364 = phi i32 [ 0, %.lr.ph365 ], [ %509, %.critedge4 ]
   %.9363 = phi i32 [ %428, %.lr.ph365 ], [ %.10, %.critedge4 ]
-  %.14362 = phi i32 [ %.12368535, %.lr.ph365 ], [ %.15, %.critedge4 ]
+  %.14362 = phi i32 [ %.12368571, %.lr.ph365 ], [ %.15, %.critedge4 ]
   %431 = load i32, ptr %121, align 4, !tbaa !65
   %432 = icmp ult i32 %.14362, %431
   br i1 %432, label %433, label %.critedge2
@@ -1036,8 +1036,8 @@ pmix_obj_run_destructors.exit319:                 ; preds = %.lr.ph.i316, %486
   br i1 %exitcond.not, label %.critedge2, label %430, !llvm.loop !82
 
 .critedge2:                                       ; preds = %.critedge4, %430, %421, %pmix_pointer_array_get_item.exit311
-  %.13 = phi i32 [ %.12368535, %pmix_pointer_array_get_item.exit311 ], [ %.12368535, %421 ], [ %.15, %.critedge4 ], [ %.14362, %430 ]
-  %indvars.iv.next436 = add nuw nsw i64 %indvars.iv435534, 1
+  %.13 = phi i32 [ %.12368571, %pmix_pointer_array_get_item.exit311 ], [ %.12368571, %421 ], [ %.15, %.critedge4 ], [ %.14362, %430 ]
+  %indvars.iv.next436 = add nuw nsw i64 %indvars.iv435570, 1
   %510 = load ptr, ptr %123, align 8, !tbaa !16
   %511 = getelementptr inbounds nuw i8, ptr %510, i64 160
   %512 = load ptr, ptr %511, align 8, !tbaa !32

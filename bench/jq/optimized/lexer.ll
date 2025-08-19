@@ -1434,11 +1434,11 @@ yy_try_NUL_trans.exit:                            ; preds = %.lr.ph.i569, %612
 .critedge.i:                                      ; preds = %700, %.critedge.split.loop.exit.i
   %.0128.lcssa.i = phi i32 [ %710, %.critedge.split.loop.exit.i ], [ %693, %700 ]
   switch i32 %699, label %.loopexit.i [
-    i32 10, label %.loopexit.thread198.i
+    i32 10, label %.loopexit.thread205.i
     i32 -1, label %726
   ]
 
-.loopexit.thread198.i:                            ; preds = %.critedge.i
+.loopexit.thread205.i:                            ; preds = %.critedge.i
   %711 = load ptr, ptr %81, align 8, !tbaa !22
   %712 = load i64, ptr %82, align 8, !tbaa !23
   %713 = getelementptr inbounds nuw ptr, ptr %711, i64 %712
@@ -1489,9 +1489,9 @@ yy_try_NUL_trans.exit:                            ; preds = %.lr.ph.i569, %612
   %741 = load ptr, ptr %84, align 8, !tbaa !19
   %742 = tail call i32 @ferror(ptr noundef %741) #17
   %.not142.i = icmp eq i32 %742, 0
-  br i1 %.not142.i, label %.loopexit.thread196.i, label %747
+  br i1 %.not142.i, label %.loopexit.thread203.i, label %747
 
-.loopexit.thread196.i:                            ; preds = %.lr.ph174.i
+.loopexit.thread203.i:                            ; preds = %.lr.ph174.i
   %743 = load ptr, ptr %81, align 8, !tbaa !22
   %744 = load i64, ptr %82, align 8, !tbaa !23
   %745 = getelementptr inbounds nuw ptr, ptr %743, i64 %744
@@ -1545,14 +1545,14 @@ yy_try_NUL_trans.exit:                            ; preds = %.lr.ph.i569, %612
   %772 = icmp eq i32 %.0128.lcssa.i, 0
   br i1 %772, label %774, label %781
 
-.sink.split.i:                                    ; preds = %.loopexit.thread196.i, %.thread157.i
-  %.sink209.i = phi ptr [ %746, %.loopexit.thread196.i ], [ %660, %.thread157.i ]
-  %773 = getelementptr inbounds nuw i8, ptr %.sink209.i, i64 28
+.sink.split.i:                                    ; preds = %.loopexit.thread203.i, %.thread157.i
+  %.sink216.i = phi ptr [ %746, %.loopexit.thread203.i ], [ %660, %.thread157.i ]
+  %773 = getelementptr inbounds nuw i8, ptr %.sink216.i, i64 28
   store i32 0, ptr %773, align 4, !tbaa !31
   br label %774
 
 774:                                              ; preds = %.sink.split.i, %.loopexit.i
-  %775 = phi ptr [ %770, %.loopexit.i ], [ %.sink209.i, %.sink.split.i ]
+  %775 = phi ptr [ %770, %.loopexit.i ], [ %.sink216.i, %.sink.split.i ]
   %776 = icmp eq i32 %653, 0
   br i1 %776, label %777, label %779
 
@@ -1571,10 +1571,10 @@ yy_try_NUL_trans.exit:                            ; preds = %.lr.ph.i569, %612
   store i32 2, ptr %780, align 8, !tbaa !51
   br label %781
 
-781:                                              ; preds = %779, %777, %.loopexit.i, %.loopexit.thread.i, %.loopexit.thread198.i
-  %782 = phi ptr [ %.pre189.i, %777 ], [ %775, %779 ], [ %770, %.loopexit.i ], [ %765, %.loopexit.thread.i ], [ %724, %.loopexit.thread198.i ]
-  %783 = phi i32 [ %.pre185.i, %777 ], [ 0, %779 ], [ %.0128.lcssa.i, %.loopexit.i ], [ %.pr.ph.i, %.loopexit.thread.i ], [ %718, %.loopexit.thread198.i ]
-  %.0135.i = phi i32 [ 1, %777 ], [ 2, %779 ], [ 0, %.loopexit.i ], [ 0, %.loopexit.thread.i ], [ 0, %.loopexit.thread198.i ]
+781:                                              ; preds = %779, %777, %.loopexit.i, %.loopexit.thread.i, %.loopexit.thread205.i
+  %782 = phi ptr [ %.pre189.i, %777 ], [ %775, %779 ], [ %770, %.loopexit.i ], [ %765, %.loopexit.thread.i ], [ %724, %.loopexit.thread205.i ]
+  %783 = phi i32 [ %.pre185.i, %777 ], [ 0, %779 ], [ %.0128.lcssa.i, %.loopexit.i ], [ %.pr.ph.i, %.loopexit.thread.i ], [ %718, %.loopexit.thread205.i ]
+  %.0135.i = phi i32 [ 1, %777 ], [ 2, %779 ], [ 0, %.loopexit.i ], [ 0, %.loopexit.thread.i ], [ 0, %.loopexit.thread205.i ]
   %784 = add nsw i32 %783, %653
   %785 = getelementptr inbounds nuw i8, ptr %782, i64 24
   %786 = load i32, ptr %785, align 8, !tbaa !27
@@ -1639,7 +1639,7 @@ yy_get_next_buffer.exit:                          ; preds = %._crit_edge191.i, %
   %821 = getelementptr inbounds nuw i8, ptr %820, i64 8
   %822 = load ptr, ptr %821, align 8, !tbaa !29
   store ptr %822, ptr %79, align 8, !tbaa !35
-  switch i32 %.0135.i, label %default.unreachable1120 [
+  switch i32 %.0135.i, label %default.unreachable1148 [
     i32 1, label %yy_get_previous_state.exit590
     i32 0, label %823
     i32 2, label %yy_get_next_buffer.exit.yy_get_next_buffer.exit.thread607_crit_edge
@@ -1656,8 +1656,8 @@ yy_get_next_buffer.exit.yy_get_next_buffer.exit.thread607_crit_edge: ; preds = %
   %826 = sub i64 %824, %825
   %827 = trunc i64 %826 to i32
   %828 = shl i64 %826, 32
-  %sext1227 = add i64 %828, -4294967296
-  %829 = ashr exact i64 %sext1227, 32
+  %sext1255 = add i64 %828, -4294967296
+  %829 = ashr exact i64 %sext1255, 32
   %830 = getelementptr inbounds i8, ptr %822, i64 %829
   store ptr %830, ptr %74, align 8, !tbaa !34
   %831 = load i32, ptr %76, align 4, !tbaa !18
@@ -1828,7 +1828,7 @@ yy_get_next_buffer.exit.thread607:                ; preds = %647, %yy_get_next_b
   %exitcond.not.i604 = icmp eq ptr %919, %876
   br i1 %exitcond.not.i604, label %.preheader.outer.backedge, label %.lr.ph31.i592, !llvm.loop !53
 
-default.unreachable1120:                          ; preds = %yy_get_next_buffer.exit
+default.unreachable1148:                          ; preds = %yy_get_next_buffer.exit
   unreachable
 
 yy_get_previous_state.exit590:                    ; preds = %yy_get_next_buffer.exit, %647
@@ -2283,9 +2283,9 @@ define internal fastcc void @jq_yy_init_buffer(ptr noundef captures(address) %0,
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %17 = load ptr, ptr %16, align 8, !tbaa !22
   %.not15.i = icmp eq ptr %17, null
-  br i1 %.not15.i, label %jq_yy_flush_buffer.exit.thread20, label %19
+  br i1 %.not15.i, label %jq_yy_flush_buffer.exit.thread24, label %19
 
-jq_yy_flush_buffer.exit.thread20:                 ; preds = %6
+jq_yy_flush_buffer.exit.thread24:                 ; preds = %6
   store ptr %1, ptr %0, align 8, !tbaa !36
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 52
   store i32 1, ptr %18, align 4, !tbaa !55
@@ -2342,7 +2342,7 @@ jq_yy_flush_buffer.exit:                          ; preds = %3
   %45 = icmp eq ptr %0, %44
   br i1 %45, label %48, label %.critedge
 
-.critedge:                                        ; preds = %jq_yy_flush_buffer.exit.thread20, %jq_yy_flush_buffer.exit, %39
+.critedge:                                        ; preds = %jq_yy_flush_buffer.exit.thread24, %jq_yy_flush_buffer.exit, %39
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 44
   store i32 1, ptr %46, align 4, !tbaa !67
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -2692,9 +2692,9 @@ jq_yyensure_buffer_stack.exit:                    ; preds = %10, %13, %24
   br label %.thread
 
 .thread:                                          ; preds = %jq_yyensure_buffer_stack.exit, %31
-  %.pr33 = phi ptr [ %38, %31 ], [ %28, %jq_yyensure_buffer_stack.exit ]
+  %.pr37 = phi ptr [ %38, %31 ], [ %28, %jq_yyensure_buffer_stack.exit ]
   %47 = phi i64 [ %46, %31 ], [ %27, %jq_yyensure_buffer_stack.exit ]
-  %48 = getelementptr inbounds nuw ptr, ptr %.pr33, i64 %47
+  %48 = getelementptr inbounds nuw ptr, ptr %.pr37, i64 %47
   store ptr %0, ptr %48, align 8, !tbaa !24
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %50 = load i32, ptr %49, align 4, !tbaa !31

@@ -1433,13 +1433,13 @@ switch.early.test.i:                              ; preds = %342, %.thread.i
 
 477:                                              ; preds = %469, %464, %461
   %hf_sprt_payload_rawbit_n.sink.i = phi ptr [ @hf_sprt_payload_rawbit_n, %469 ], [ @hf_sprt_payload_rawbit_p, %464 ], [ @hf_sprt_payload_rawbit_len_a, %461 ]
-  %.sink684.i = phi i32 [ %476, %469 ], [ %134, %464 ], [ %134, %461 ]
-  %.sink682.i = phi i32 [ 3, %469 ], [ 2, %464 ], [ 2, %461 ]
-  %.sink681.i = phi i32 [ -3, %469 ], [ -2, %464 ], [ -2, %461 ]
+  %.sink693.i = phi i32 [ %476, %469 ], [ %134, %464 ], [ %134, %461 ]
+  %.sink691.i = phi i32 [ 3, %469 ], [ 2, %464 ], [ 2, %461 ]
+  %.sink690.i = phi i32 [ -3, %469 ], [ -2, %464 ], [ -2, %461 ]
   %478 = load i32, ptr %hf_sprt_payload_rawbit_n.sink.i, align 4
-  %479 = tail call ptr @proto_tree_add_item(ptr noundef %127, i32 noundef %478, ptr noundef %0, i32 noundef %.sink684.i, i32 noundef 1, i32 noundef 0)
-  %480 = add i32 %.sink682.i, %.099
-  %481 = add i32 %.sink681.i, %122
+  %479 = tail call ptr @proto_tree_add_item(ptr noundef %127, i32 noundef %478, ptr noundef %0, i32 noundef %.sink693.i, i32 noundef 1, i32 noundef 0)
+  %480 = add i32 %.sink691.i, %.099
+  %481 = add i32 %.sink690.i, %122
   %482 = load i32, ptr @hf_sprt_payload_data, align 4
   %483 = tail call ptr @proto_tree_add_item(ptr noundef %127, i32 noundef %482, ptr noundef %0, i32 noundef %480, i32 noundef %481, i32 noundef 0)
   br label %dissect_sprt_data.exit
@@ -1542,10 +1542,10 @@ proto_item_set_generated.exit672.i:               ; preds = %522, %519, %516
   br i1 %.not5.i677.i, label %proto_item_set_generated.exit.i115, label %proto_item_set_generated.exit.sink.split.i
 
 proto_item_set_generated.exit.sink.split.i:       ; preds = %536, %530, %513
-  %.sink689.i = phi ptr [ %515, %513 ], [ %532, %530 ], [ %538, %536 ]
+  %.sink698.i = phi ptr [ %515, %513 ], [ %532, %530 ], [ %538, %536 ]
   %.1664.ph.i = phi i32 [ %.2665.i, %513 ], [ %135, %530 ], [ %135, %536 ]
   %.3.ph.i = phi i32 [ %.4.i, %513 ], [ %134, %530 ], [ %134, %536 ]
-  %539 = getelementptr inbounds nuw i8, ptr %.sink689.i, i64 28
+  %539 = getelementptr inbounds nuw i8, ptr %.sink698.i, i64 28
   %540 = load i32, ptr %539, align 4
   %541 = or i32 %540, 2
   store i32 %541, ptr %539, align 4

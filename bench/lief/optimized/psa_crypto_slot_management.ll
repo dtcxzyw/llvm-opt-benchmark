@@ -294,12 +294,12 @@ psa_register_read.exit:                           ; preds = %55, %58, %62
   br i1 %65, label %.thread56.thread, label %psa_key_slot_state_transition.exit
 
 .thread56.thread:                                 ; preds = %36, %.thread56
-  %.334.ph85 = phi ptr [ %.2.ph, %.thread56 ], [ %37, %36 ]
-  %66 = getelementptr inbounds nuw i8, ptr %.334.ph85, i64 24
+  %.334.ph94 = phi ptr [ %.2.ph, %.thread56 ], [ %37, %36 ]
+  %66 = getelementptr inbounds nuw i8, ptr %.334.ph94, i64 24
   store i32 1, ptr %66, align 8, !tbaa !9
-  %67 = getelementptr inbounds nuw i8, ptr %.334.ph85, i64 28
+  %67 = getelementptr inbounds nuw i8, ptr %.334.ph94, i64 28
   store i8 22, ptr %67, align 4, !tbaa !25
-  store ptr %.334.ph85, ptr %1, align 8, !tbaa !3
+  store ptr %.334.ph94, ptr %1, align 8, !tbaa !3
   br label %psa_allocate_volatile_key_slot.exit
 
 psa_key_slot_state_transition.exit:               ; preds = %.thread56, %54, %2, %psa_register_read.exit
@@ -477,28 +477,28 @@ psa_reserve_free_key_slot.exit:                   ; preds = %65, %psa_register_r
   br label %psa_get_and_lock_key_slot_in_memory.exit
 
 .loopexit:                                        ; preds = %47, %.thread56.i
-  %.334.ph85.i = phi ptr [ %.2.ph.i, %.thread56.i ], [ %48, %47 ]
-  %77 = getelementptr inbounds nuw i8, ptr %.334.ph85.i, i64 24
+  %.334.ph94.i = phi ptr [ %.2.ph.i, %.thread56.i ], [ %48, %47 ]
+  %77 = getelementptr inbounds nuw i8, ptr %.334.ph94.i, i64 24
   store i32 1, ptr %77, align 8, !tbaa !9
-  %78 = getelementptr inbounds nuw i8, ptr %.334.ph85.i, i64 28
+  %78 = getelementptr inbounds nuw i8, ptr %.334.ph94.i, i64 28
   store i8 22, ptr %78, align 4, !tbaa !25
-  store ptr %.334.ph85.i, ptr %1, align 8, !tbaa !3
-  %79 = getelementptr inbounds nuw i8, ptr %.334.ph85.i, i64 20
+  store ptr %.334.ph94.i, ptr %1, align 8, !tbaa !3
+  %79 = getelementptr inbounds nuw i8, ptr %.334.ph94.i, i64 20
   store i32 %0, ptr %79, align 4, !tbaa !28
-  %80 = getelementptr inbounds nuw i8, ptr %.334.ph85.i, i64 4
+  %80 = getelementptr inbounds nuw i8, ptr %.334.ph94.i, i64 4
   store i32 1, ptr %80, align 4, !tbaa !26
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8, !tbaa !30
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 0, ptr %4, align 8, !tbaa !22
-  %81 = call i32 @psa_load_persistent_key(ptr noundef nonnull %.334.ph85.i, ptr noundef nonnull %3, ptr noundef nonnull %4) #12
+  %81 = call i32 @psa_load_persistent_key(ptr noundef nonnull %.334.ph94.i, ptr noundef nonnull %3, ptr noundef nonnull %4) #12
   %.not.i33 = icmp eq i32 %81, 0
   br i1 %.not.i33, label %82, label %psa_load_persistent_key_into_slot.exit
 
 82:                                               ; preds = %.loopexit
   %83 = load ptr, ptr %3, align 8, !tbaa !30
   %84 = load i64, ptr %4, align 8, !tbaa !22
-  %85 = call i32 @psa_copy_key_material_into_slot(ptr noundef nonnull %.334.ph85.i, ptr noundef %83, i64 noundef %84) #12
+  %85 = call i32 @psa_copy_key_material_into_slot(ptr noundef nonnull %.334.ph94.i, ptr noundef %83, i64 noundef %84) #12
   br label %psa_load_persistent_key_into_slot.exit
 
 psa_load_persistent_key_into_slot.exit:           ; preds = %.loopexit, %82

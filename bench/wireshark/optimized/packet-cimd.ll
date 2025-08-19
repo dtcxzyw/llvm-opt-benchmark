@@ -780,7 +780,7 @@ define internal void @dissect_cimd_ud(ptr noundef %0, ptr noundef %1, i32 nounde
 
 38:                                               ; preds = %36
   store i8 95, ptr %6, align 1
-  %39 = add i32 %.045, 2
+  %39 = add nsw i32 %.045, 2
   %40 = getelementptr i8, ptr %33, i64 1
   %41 = load i8, ptr %40, align 1
   store i8 %41, ptr %28, align 1

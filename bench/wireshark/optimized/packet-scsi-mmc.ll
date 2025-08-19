@@ -964,14 +964,14 @@ define internal void @dissect_mmc4_readtocpmaatip(ptr noundef %0, ptr noundef %1
 
 .sink.split:                                      ; preds = %32, %35
   %hf_scsi_mmc_session.sink = phi ptr [ @hf_scsi_mmc_session, %35 ], [ @hf_scsi_mmc_track, %32 ]
-  %.sink123 = phi i16 [ 1024, %35 ], [ 512, %32 ]
+  %.sink124 = phi i16 [ 1024, %35 ], [ 512, %32 ]
   %36 = load i32, ptr %hf_scsi_mmc_session.sink, align 4
   %37 = add i32 %3, 5
   %38 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %36, ptr noundef %0, i32 noundef %37, i32 noundef 1, i32 noundef 0)
   %39 = load ptr, ptr %19, align 8
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 12
   %41 = load i16, ptr %40, align 4
-  %42 = or i16 %41, %.sink123
+  %42 = or i16 %41, %.sink124
   store i16 %42, ptr %40, align 4
   br label %43
 
@@ -1586,7 +1586,7 @@ define internal void @dissect_mmc4_getconfiguration(ptr noundef %0, ptr noundef 
   %183 = add i32 %.0..0..0..0.49, %182
   store volatile i32 %183, ptr %9, align 4
   %.neg223 = add nsw i32 %.0230, -4
-  %184 = sub i32 %.neg223, %182
+  %184 = sub nsw i32 %.neg223, %182
   %185 = icmp sgt i32 %184, 0
   br i1 %185, label %.lr.ph231, label %.loopexit225, !llvm.loop !10
 

@@ -3774,7 +3774,7 @@ define linkonce_odr void @_ZNSt6vectorIcSaIcEE6resizeEm(ptr noundef nonnull alig
 19:                                               ; preds = %10
   store i8 0, ptr %4, align 1, !tbaa !78
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 1
-  %21 = add i64 %11, -1
+  %21 = add nsw i64 %11, -1
   %22 = icmp eq i64 %21, 0
   br i1 %22, label %_ZSt27__uninitialized_default_n_aIPcmcET_S1_T0_RSaIT1_E.exit.i, label %23
 
@@ -6179,7 +6179,7 @@ _ZNK8LightGBM7Linkers4SendEiPci.exit:             ; preds = %_ZN8LightGBM9TcpSoc
   br i1 %101, label %.lr.ph72.preheader, label %._crit_edge
 
 .lr.ph72.preheader:                               ; preds = %.preheader
-  %invariant.gep85 = getelementptr i32, ptr %4, i64 %102
+  %invariant.gep91 = getelementptr i32, ptr %4, i64 %102
   br label %.lr.ph72
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -6223,8 +6223,8 @@ _ZNK8LightGBM7Linkers4SendEiPci.exit:             ; preds = %_ZN8LightGBM9TcpSoc
 .lr.ph72:                                         ; preds = %.lr.ph72.preheader, %.lr.ph72
   %indvars.iv78 = phi i64 [ 0, %.lr.ph72.preheader ], [ %indvars.iv.next79, %.lr.ph72 ]
   %.05470 = phi i32 [ 0, %.lr.ph72.preheader ], [ %125, %.lr.ph72 ]
-  %gep86 = getelementptr i32, ptr %invariant.gep85, i64 %indvars.iv78
-  %124 = load i32, ptr %gep86, align 4, !tbaa !69
+  %gep92 = getelementptr i32, ptr %invariant.gep91, i64 %indvars.iv78
+  %124 = load i32, ptr %gep92, align 4, !tbaa !69
   %125 = add nsw i32 %124, %.05470
   %indvars.iv.next79 = add nuw nsw i64 %indvars.iv78, 1
   tail call void @_ZTHN8LightGBM7Network22recursive_halving_map_E()

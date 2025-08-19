@@ -5558,17 +5558,17 @@ lean_inc.exit1037:                                ; preds = %1888, %1887, %1885,
   unreachable
 
 lean_alloc_ctor.exit:                             ; preds = %lean_inc.exit1037, %lean_inc.exit1028, %lean_dec.exit1038
-  %.sink1715 = phi ptr [ %32, %lean_dec.exit1038 ], [ %1776, %lean_inc.exit1028 ], [ %1892, %lean_inc.exit1037 ]
-  %.sink1712 = phi i32 [ 16908312, %lean_dec.exit1038 ], [ 131096, %lean_inc.exit1028 ], [ 131096, %lean_inc.exit1037 ]
+  %.sink1814 = phi ptr [ %32, %lean_dec.exit1038 ], [ %1776, %lean_inc.exit1028 ], [ %1892, %lean_inc.exit1037 ]
+  %.sink1811 = phi i32 [ 16908312, %lean_dec.exit1038 ], [ 131096, %lean_inc.exit1028 ], [ 131096, %lean_inc.exit1037 ]
   %.sink = phi ptr [ inttoptr (i64 3 to ptr), %lean_dec.exit1038 ], [ %1775, %lean_inc.exit1028 ], [ %1891, %lean_inc.exit1037 ]
-  %1895 = getelementptr inbounds nuw i8, ptr %.sink1715, i64 4
-  store i32 1, ptr %.sink1715, align 4, !tbaa !8
-  store i32 %.sink1712, ptr %1895, align 4
-  %1896 = getelementptr inbounds nuw i8, ptr %.sink1715, i64 8
+  %1895 = getelementptr inbounds nuw i8, ptr %.sink1814, i64 4
+  store i32 1, ptr %.sink1814, align 4, !tbaa !8
+  store i32 %.sink1811, ptr %1895, align 4
+  %1896 = getelementptr inbounds nuw i8, ptr %.sink1814, i64 8
   store ptr %.sink, ptr %1896, align 8, !tbaa !4
-  %1897 = getelementptr inbounds nuw i8, ptr %.sink1715, i64 16
+  %1897 = getelementptr inbounds nuw i8, ptr %.sink1814, i64 16
   store ptr %2, ptr %1897, align 8, !tbaa !4
-  ret ptr %.sink1715
+  ret ptr %.sink1814
 }
 
 declare zeroext i8 @l_Lean_Syntax_isOfKind(ptr noundef, ptr noundef) local_unnamed_addr #2
@@ -6810,18 +6810,18 @@ _init_l_Lean_Meta_Simp___aux__Lean__Meta__Tactic__Simp__RegisterCommand______mac
   unreachable
 
 .sink.split:                                      ; preds = %_init_l_Lean_Meta_Simp___aux__Lean__Meta__Tactic__Simp__RegisterCommand______macroRules__Lean__Meta__Simp____root____Lean__Parser__Command__registerSimpAttr__1___closed__123.exit, %3
-  %.sink25 = phi ptr [ %4, %3 ], [ %495, %_init_l_Lean_Meta_Simp___aux__Lean__Meta__Tactic__Simp__RegisterCommand______macroRules__Lean__Meta__Simp____root____Lean__Parser__Command__registerSimpAttr__1___closed__123.exit ]
-  %498 = getelementptr inbounds nuw i8, ptr %.sink25, i64 4
-  store i32 1, ptr %.sink25, align 4, !tbaa !8
+  %.sink58 = phi ptr [ %4, %3 ], [ %495, %_init_l_Lean_Meta_Simp___aux__Lean__Meta__Tactic__Simp__RegisterCommand______macroRules__Lean__Meta__Simp____root____Lean__Parser__Command__registerSimpAttr__1___closed__123.exit ]
+  %498 = getelementptr inbounds nuw i8, ptr %.sink58, i64 4
+  store i32 1, ptr %.sink58, align 4, !tbaa !8
   store i32 131096, ptr %498, align 4
-  %499 = getelementptr inbounds nuw i8, ptr %.sink25, i64 8
+  %499 = getelementptr inbounds nuw i8, ptr %.sink58, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %499, align 8, !tbaa !4
-  %500 = getelementptr inbounds nuw i8, ptr %.sink25, i64 16
+  %500 = getelementptr inbounds nuw i8, ptr %.sink58, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %500, align 8, !tbaa !4
   br label %501
 
 501:                                              ; preds = %.sink.split, %lean_dec_ref.exit14, %lean_dec_ref.exit, %7
-  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit ], [ %28, %lean_dec_ref.exit14 ], [ %.sink25, %.sink.split ]
+  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit ], [ %28, %lean_dec_ref.exit14 ], [ %.sink58, %.sink.split ]
   ret ptr %.0
 }
 

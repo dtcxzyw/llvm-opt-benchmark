@@ -382,11 +382,11 @@ checknext.exit91.sink.split:                      ; preds = %cond.exit92, %96
   br label %checknext.exit91.preheader
 
 checknext.exit91.preheader:                       ; preds = %cond.exit92, %checknext.exit91.sink.split
-  %.0.i53.ph207 = phi i32 [ %.0.i53.ph, %checknext.exit91.sink.split ], [ %81, %cond.exit92 ]
+  %.0.i53.ph225 = phi i32 [ %.0.i53.ph, %checknext.exit91.sink.split ], [ %81, %cond.exit92 ]
   br label %checknext.exit91
 
 checknext.exit91:                                 ; preds = %checknext.exit91.preheader, %cond.exit
-  %.0.i53 = phi i32 [ %94, %cond.exit ], [ %.0.i53.ph207, %checknext.exit91.preheader ]
+  %.0.i53 = phi i32 [ %94, %cond.exit ], [ %.0.i53.ph225, %checknext.exit91.preheader ]
   call void @luaX_next(ptr noundef nonnull %0) #7
   call fastcc void @block(ptr noundef nonnull %0)
   %86 = load i32, ptr %32, align 8, !tbaa !54
@@ -1596,8 +1596,8 @@ explist1.exit.i:                                  ; preds = %.lr.ph
 explist1.exit.i.thread:                           ; preds = %613
   %624 = load i32, ptr %23, align 8, !tbaa !58
   %625 = add i32 %624, -13
-  %or.cond.i162 = icmp ult i32 %625, 2
-  br i1 %or.cond.i162, label %626, label %643
+  %or.cond.i180 = icmp ult i32 %625, 2
+  br i1 %or.cond.i180, label %626, label %643
 
 626:                                              ; preds = %explist1.exit.i.thread, %explist1.exit.i
   call void @luaK_setreturns(ptr noundef %611, ptr noundef nonnull %23, i32 noundef -1) #7
@@ -3591,7 +3591,7 @@ define internal fastcc range(i32 6, 9) i32 @singlevaraux(ptr noundef captures(ad
   br i1 %26, label %searchvar.exit, label %15, !llvm.loop !128
 
 searchvar.exit:                                   ; preds = %17
-  %27 = trunc nsw i64 %indvars.iv.next.i to i32
+  %27 = trunc nuw nsw i64 %indvars.iv.next.i to i32
   %28 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i32 -1, ptr %28, align 8, !tbaa !81
   %29 = getelementptr inbounds nuw i8, ptr %2, i64 20
@@ -4159,8 +4159,8 @@ define internal fastcc void @assignment(ptr noundef nonnull %0, ptr noundef nonn
 .thread.i:                                        ; preds = %31
   store i32 %20, ptr %33, align 4, !tbaa !50
   %38 = load ptr, ptr %.0171.i, align 8, !tbaa !90
-  %.not4.i = icmp eq ptr %38, null
-  br i1 %.not4.i, label %.thread6.i, label %.backedge.i.backedge
+  %.not5.i = icmp eq ptr %38, null
+  br i1 %.not5.i, label %.thread7.i, label %.backedge.i.backedge
 
 .backedge.i.backedge:                             ; preds = %.thread.i, %36
   %.02.i.be = phi i32 [ %.2.i, %36 ], [ 1, %.thread.i ]
@@ -4169,20 +4169,20 @@ define internal fastcc void @assignment(ptr noundef nonnull %0, ptr noundef nonn
 
 39:                                               ; preds = %36
   %.not18.i = icmp eq i32 %.2.i, 0
-  br i1 %.not18.i, label %check_conflict.exit, label %..thread6.i_crit_edge
+  br i1 %.not18.i, label %check_conflict.exit, label %..thread7.i_crit_edge
 
-..thread6.i_crit_edge:                            ; preds = %39
+..thread7.i_crit_edge:                            ; preds = %39
   %.pre = load i32, ptr %21, align 8, !tbaa !50
-  br label %.thread6.i
+  br label %.thread7.i
 
-.thread6.i:                                       ; preds = %.thread.i, %..thread6.i_crit_edge
-  %40 = phi i32 [ %.pre, %..thread6.i_crit_edge ], [ %32, %.thread.i ]
+.thread7.i:                                       ; preds = %.thread.i, %..thread7.i_crit_edge
+  %40 = phi i32 [ %.pre, %..thread7.i_crit_edge ], [ %32, %.thread.i ]
   %41 = load i32, ptr %19, align 4, !tbaa !75
   %42 = call i32 @luaK_codeABC(ptr noundef %.val37, i32 noundef 0, i32 noundef %41, i32 noundef %40, i32 noundef 0) #7
   call void @luaK_reserveregs(ptr noundef %.val37, i32 noundef 1) #7
   br label %check_conflict.exit
 
-check_conflict.exit:                              ; preds = %.thread6.i, %39, %13
+check_conflict.exit:                              ; preds = %.thread7.i, %39, %13
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %44 = load ptr, ptr %43, align 8, !tbaa !16
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 96

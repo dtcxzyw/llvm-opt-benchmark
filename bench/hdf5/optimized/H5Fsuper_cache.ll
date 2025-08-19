@@ -490,8 +490,8 @@ define internal ptr @H5F__cache_superblock_deserialize(ptr noundef %0, i64 nound
   %184 = ptrtoint ptr %175 to i64
   %185 = sub i64 %136, %184
   %186 = icmp ult i64 %185, 4
-  %or.cond222 = select i1 %183, i1 true, i1 %186
-  br i1 %or.cond222, label %187, label %191
+  %or.cond241 = select i1 %183, i1 true, i1 %186
+  br i1 %or.cond241, label %187, label %191
 
 187:                                              ; preds = %181
   %188 = load i64, ptr @H5E_FILE_g, align 8, !tbaa !10
@@ -541,8 +541,8 @@ define internal ptr @H5F__cache_superblock_deserialize(ptr noundef %0, i64 nound
   %216 = ptrtoint ptr %199 to i64
   %217 = sub i64 %136, %216
   %218 = icmp ult i64 %217, 2
-  %or.cond225 = select i1 %215, i1 true, i1 %218
-  br i1 %or.cond225, label %219, label %223
+  %or.cond244 = select i1 %215, i1 true, i1 %218
+  br i1 %or.cond244, label %219, label %223
 
 219:                                              ; preds = %214
   %220 = load i64, ptr @H5E_FILE_g, align 8, !tbaa !10
@@ -558,8 +558,8 @@ define internal ptr @H5F__cache_superblock_deserialize(ptr noundef %0, i64 nound
   %227 = ptrtoint ptr %225 to i64
   %228 = sub i64 %136, %227
   %229 = icmp ult i64 %228, 2
-  %or.cond228 = or i1 %226, %229
-  br i1 %or.cond228, label %230, label %234
+  %or.cond247 = or i1 %226, %229
+  br i1 %or.cond247, label %230, label %234
 
 230:                                              ; preds = %223
   %231 = load i64, ptr @H5E_FILE_g, align 8, !tbaa !10
@@ -1440,16 +1440,16 @@ define internal fastcc range(i32 -1, 1) i32 @H5F__superblock_prefix_decode(ptr n
   br label %.thread113
 
 56:                                               ; preds = %50, %48
-  %.sink119.in = phi ptr [ %49, %48 ], [ %29, %50 ]
+  %.sink123.in = phi ptr [ %49, %48 ], [ %29, %50 ]
   %.sink = phi i64 [ 14, %48 ], [ 10, %50 ]
-  %.sink119 = load i8, ptr %.sink119.in, align 1, !tbaa !31
+  %.sink123 = load i8, ptr %.sink123.in, align 1, !tbaa !31
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 252
-  store i8 %.sink119, ptr %57, align 4, !tbaa !32
+  store i8 %.sink123, ptr %57, align 4, !tbaa !32
   %58 = getelementptr inbounds nuw i8, ptr %6, i64 %.sink
   %59 = load i8, ptr %58, align 1, !tbaa !31
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 253
   store i8 %59, ptr %60, align 1, !tbaa !29
-  switch i8 %.sink119, label %61 [
+  switch i8 %.sink123, label %61 [
     i8 2, label %65
     i8 4, label %65
     i8 8, label %65
@@ -1482,7 +1482,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5F__superblock_prefix_decode(ptr n
   br i1 %4, label %71, label %95
 
 71:                                               ; preds = %70
-  %72 = zext nneg i8 %.sink119 to i32
+  %72 = zext nneg i8 %.sink123 to i32
   %73 = shl nuw nsw i32 %72, 2
   switch i8 %30, label %83 [
     i8 0, label %.thread

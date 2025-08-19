@@ -181,18 +181,18 @@ define internal void @evsig_cb(i32 noundef %0, i16 signext %1, ptr noundef %2) #
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 952
   %21 = load ptr, ptr %20, align 8
   %.not = icmp eq ptr %21, null
-  br i1 %.not, label %.preheader38, label %22
+  br i1 %.not, label %.preheader42, label %22
 
 22:                                               ; preds = %.loopexit30
   %23 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @evthread_lock_fns_, i64 24), align 8
   %24 = tail call i32 %23(i32 noundef 0, ptr noundef nonnull %21) #8
-  br label %.preheader38
+  br label %.preheader42
 
-.preheader38:                                     ; preds = %22, %.loopexit30
+.preheader42:                                     ; preds = %22, %.loopexit30
   br label %25
 
-25:                                               ; preds = %.preheader38, %30
-  %indvars.iv34 = phi i64 [ %indvars.iv.next35, %30 ], [ 0, %.preheader38 ]
+25:                                               ; preds = %.preheader42, %30
+  %indvars.iv34 = phi i64 [ %indvars.iv.next35, %30 ], [ 0, %.preheader42 ]
   %26 = getelementptr inbounds nuw [65 x i32], ptr %4, i64 0, i64 %indvars.iv34
   %27 = load i32, ptr %26, align 4
   %.not29 = icmp eq i32 %27, 0

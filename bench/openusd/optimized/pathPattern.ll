@@ -905,9 +905,9 @@ _ZNK32pxrInternal_v0_24__pxrReserved__14SdfPathPattern18HasTrailingStretchEv.exi
   ret i1 %.08
 
 48:                                               ; preds = %46, %18
-  %.sink14 = phi ptr [ %8, %46 ], [ %7, %18 ]
+  %.sink15 = phi ptr [ %8, %46 ], [ %7, %18 ]
   %.pn = phi { ptr, i32 } [ %47, %46 ], [ %19, %18 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink14) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink15) #18
   resume { ptr, i32 } %.pn
 }
 
@@ -1317,7 +1317,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__L13IsLiteralPrimERKNSt7__cxx1112basic_strin
   %67 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %68 = load ptr, ptr %67, align 8
   %.not = icmp eq ptr %66, %68
-  br i1 %.not, label %69, label %.thread30
+  br i1 %.not, label %69, label %.thread41
 
 69:                                               ; preds = %65
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1446,9 +1446,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit: ; preds = %_ZN32pxrInter
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.pre28 = load ptr, ptr %.phi.trans.insert, align 8
   %137 = icmp eq ptr %.pre, %.pre28
-  br i1 %137, label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__22SdfPredicateExpressionESaIS1_EE9push_backEOS1_.exit, label %.thread30
+  br i1 %137, label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__22SdfPredicateExpressionESaIS1_EE9push_backEOS1_.exit, label %.thread41
 
-.thread30:                                        ; preds = %65, %136
+.thread41:                                        ; preds = %65, %136
   %138 = phi ptr [ %.pre, %136 ], [ %66, %65 ]
   %139 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %140 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -1464,7 +1464,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit: ; preds = %_ZN32pxrInter
   %.not.i.i23 = icmp eq ptr %141, %149
   br i1 %.not.i.i23, label %170, label %150
 
-150:                                              ; preds = %.thread30
+150:                                              ; preds = %.thread41
   %151 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %138, ptr %141, align 8
   %152 = getelementptr inbounds nuw i8, ptr %141, i64 8
@@ -1496,7 +1496,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit: ; preds = %_ZN32pxrInter
   store ptr %169, ptr %140, align 8
   br label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__22SdfPredicateExpressionESaIS1_EE9push_backEOS1_.exit
 
-170:                                              ; preds = %.thread30
+170:                                              ; preds = %.thread41
   invoke void @_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__22SdfPredicateExpressionESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %139, ptr %141, ptr noundef nonnull align 8 dereferenceable(80) %2)
           to label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__22SdfPredicateExpressionESaIS1_EE9push_backEOS1_.exit unwind label %16
 
@@ -1788,10 +1788,10 @@ define noundef nonnull align 8 dereferenceable(57) ptr @_ZN32pxrInternal_v0_24__
   ret ptr %0
 
 34:                                               ; preds = %.body5, %.body
-  %.sink7 = phi ptr [ %2, %.body5 ], [ %3, %.body ]
+  %.sink8 = phi ptr [ %2, %.body5 ], [ %3, %.body ]
   %.sink = phi ptr [ %5, %.body5 ], [ %4, %.body ]
   %.pn = phi { ptr, i32 } [ %31, %.body5 ], [ %17, %.body ]
-  call void @_ZN32pxrInternal_v0_24__pxrReserved__22SdfPredicateExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %.sink7) #18
+  call void @_ZN32pxrInternal_v0_24__pxrReserved__22SdfPredicateExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %.sink8) #18
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink) #18
   resume { ptr, i32 } %.pn
 }

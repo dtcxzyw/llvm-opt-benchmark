@@ -181,7 +181,7 @@ define internal noundef i32 @speex_packet(ptr noundef readonly captures(none) %0
 
 14:                                               ; preds = %2
   %.not30 = icmp eq i64 %.pre, -9223372036854775808
-  br i1 %.not30, label %.thread49, label %15
+  br i1 %.not30, label %.thread54, label %15
 
 15:                                               ; preds = %14
   %16 = getelementptr inbounds nuw i8, ptr %7, i64 40
@@ -272,9 +272,9 @@ ogg_page_packets.exit45:                          ; preds = %43, %38
   br label %51
 
 51:                                               ; preds = %ogg_page_packets.exit45, %35, %._crit_edge
-  br i1 %.not, label %60, label %.thread49
+  br i1 %.not, label %60, label %.thread54
 
-.thread49:                                        ; preds = %14, %51
+.thread54:                                        ; preds = %14, %51
   %52 = getelementptr inbounds nuw i8, ptr %7, i64 112
   %53 = load i32, ptr %52, align 8, !tbaa !63
   %54 = getelementptr inbounds nuw i8, ptr %7, i64 108
@@ -282,13 +282,13 @@ ogg_page_packets.exit45:                          ; preds = %43, %38
   %56 = icmp eq i32 %53, %55
   br i1 %56, label %57, label %60
 
-57:                                               ; preds = %.thread49
+57:                                               ; preds = %.thread54
   %58 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %59 = load i32, ptr %58, align 4, !tbaa !61
   %.not35 = icmp eq i32 %59, 0
   br i1 %.not35, label %60, label %61
 
-60:                                               ; preds = %57, %.thread49, %51
+60:                                               ; preds = %57, %.thread54, %51
   br label %61
 
 61:                                               ; preds = %57, %60

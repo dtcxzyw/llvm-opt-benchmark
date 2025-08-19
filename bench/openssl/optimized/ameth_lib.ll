@@ -201,9 +201,9 @@ EVP_PKEY_asn1_get_count.exit:                     ; preds = %18
   br i1 %22, label %.lr.ph.preheader, label %.loopexit
 
 .lr.ph.preheader:                                 ; preds = %18, %EVP_PKEY_asn1_get_count.exit
-  %.0.i37 = phi i32 [ %21, %EVP_PKEY_asn1_get_count.exit ], [ 15, %18 ]
+  %.0.i40 = phi i32 [ %21, %EVP_PKEY_asn1_get_count.exit ], [ 15, %18 ]
   %23 = sext i32 %.021 to i64
-  %24 = zext nneg i32 %.0.i37 to i64
+  %24 = zext nneg i32 %.0.i40 to i64
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.backedge

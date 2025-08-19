@@ -359,11 +359,11 @@ define dso_local void @_ZNK4llvm15DWARFDebugMacro4dumpERNS_11raw_ostreamE(ptr no
   br i1 %.not106, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit, %34, %35
-  %.2109 = phi i32 [ 0, %35 ], [ 0, %34 ], [ %38, %_ZN4llvm11raw_ostreamlsEPKc.exit ]
+  %.2121 = phi i32 [ 0, %35 ], [ 0, %34 ], [ %38, %_ZN4llvm11raw_ostreamlsEPKc.exit ]
   %39 = load i32, ptr %.04995, align 8, !tbaa !61
   %40 = icmp eq i32 %39, 3
   %41 = zext i1 %40 to i32
-  %42 = add i32 %.2109, %41
+  %42 = add i32 %.2121, %41
   %43 = load i8, ptr %21, align 8, !tbaa !49, !range !57, !noundef !58
   %44 = trunc nuw i8 %43 to i1
   br i1 %44, label %57, label %81
@@ -899,7 +899,7 @@ _ZN4llvm20filter_iterator_baseIPSt10unique_ptrINS_9DWARFUnitESt14default_deleteI
 
 62:                                               ; preds = %.lr.ph102, %.backedge
   %63 = phi i64 [ %55, %.lr.ph102 ], [ %209, %.backedge ]
-  %.0101 = phi ptr [ null, %.lr.ph102 ], [ %.2116, %.backedge ]
+  %.0101 = phi ptr [ null, %.lr.ph102 ], [ %.2132, %.backedge ]
   %.not = icmp eq ptr %.0101, null
   br i1 %.not, label %64, label %_ZN4llvm5ErrorD2Ev.exit
 
@@ -1230,7 +1230,7 @@ _ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i56: ;
   br label %.backedge
 
 .backedge:                                        ; preds = %_ZN4llvm15SmallVectorImplINS_15DWARFDebugMacro5EntryEE12emplace_backIJEEERS2_DpOT_.exit, %208
-  %.2116 = phi ptr [ null, %_ZN4llvm15SmallVectorImplINS_15DWARFDebugMacro5EntryEE12emplace_backIJEEERS2_DpOT_.exit ], [ %.1, %208 ]
+  %.2132 = phi ptr [ null, %_ZN4llvm15SmallVectorImplINS_15DWARFDebugMacro5EntryEE12emplace_backIJEEERS2_DpOT_.exit ], [ %.1, %208 ]
   %209 = load i64, ptr %9, align 8, !tbaa !36
   %210 = load i64, ptr %20, align 8, !tbaa !80
   %211 = icmp ugt i64 %210, %209
@@ -1367,13 +1367,13 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapImPNS_9DWARFUnitENS_12DenseMapInfoImvEENS_6de
   br label %.loopexit
 
 .loopexit:                                        ; preds = %27, %10, %60
-  %.sink28 = phi i32 [ %65, %60 ], [ %8, %10 ], [ %8, %27 ]
-  %.sink26 = phi ptr [ %64, %60 ], [ %6, %10 ], [ %6, %27 ]
-  %.sink25 = phi ptr [ %51, %60 ], [ %19, %10 ], [ %34, %27 ]
+  %.sink32 = phi i32 [ %65, %60 ], [ %8, %10 ], [ %8, %27 ]
+  %.sink30 = phi ptr [ %64, %60 ], [ %6, %10 ], [ %6, %27 ]
+  %.sink29 = phi ptr [ %51, %60 ], [ %19, %10 ], [ %34, %27 ]
   %.sink = phi i8 [ 1, %60 ], [ 0, %10 ], [ 0, %27 ]
-  %66 = zext i32 %.sink28 to i64
-  %67 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %.sink26, i64 %66
-  store ptr %.sink25, ptr %0, align 8
+  %66 = zext i32 %.sink32 to i64
+  %67 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %.sink30, i64 %66
+  store ptr %.sink29, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %67, ptr %.sroa.4.0..sroa_idx, align 8
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 16

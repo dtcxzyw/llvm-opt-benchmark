@@ -348,14 +348,14 @@ apply_mdct.exit:                                  ; preds = %42, %2
   %131 = load ptr, ptr %128, align 8, !tbaa !49
   %gep376.us.us.us.us.us.i = getelementptr inbounds nuw [6 x [7 x [16 x float]]], ptr %gep.us.us.us.i, i64 0, i64 %indvars.iv549.i
   %.promoted.us.us.us.us.us.i = load float, ptr %gep376.us.us.us.us.us.i, align 4, !tbaa !61
-  %invariant.gep645.i = getelementptr float, ptr %131, i64 %111
+  %invariant.gep662.i = getelementptr float, ptr %131, i64 %111
   br label %132
 
 132:                                              ; preds = %132, %.lr.ph370.us.us.us.us.us.i
   %indvars.iv544.i = phi i64 [ %indvars.iv.next545.i, %132 ], [ 0, %.lr.ph370.us.us.us.us.us.i ]
   %133 = phi float [ %135, %132 ], [ %.promoted.us.us.us.us.us.i, %.lr.ph370.us.us.us.us.us.i ]
-  %gep646.i = getelementptr float, ptr %invariant.gep645.i, i64 %indvars.iv544.i
-  %134 = load float, ptr %gep646.i, align 4, !tbaa !61
+  %gep663.i = getelementptr float, ptr %invariant.gep662.i, i64 %indvars.iv544.i
+  %134 = load float, ptr %gep663.i, align 4, !tbaa !61
   %135 = tail call nsz float @llvm.fmuladd.f32(float %134, float %134, float %133)
   %indvars.iv.next545.i = add nuw nsw i64 %indvars.iv544.i, 1
   %exitcond548.not.i = icmp eq i64 %indvars.iv.next545.i, %wide.trip.count537.i
@@ -479,7 +479,7 @@ calc_cpl_coord.exit.i:                            ; preds = %161, %157
   %indvars.iv609.i = phi i64 [ 0, %.preheader340.us.preheader.i ], [ %indvars.iv.next610.i, %._crit_edge464.us.i ]
   %.0296468.us.i = phi i32 [ undef, %.preheader340.us.preheader.i ], [ %.2298.us.i, %._crit_edge464.us.i ]
   %invariant.gep466.us.i = getelementptr [16 x float], ptr %4, i64 0, i64 %indvars.iv609.i
-  %invariant.gep651.i = getelementptr [16 x float], ptr %6, i64 0, i64 %indvars.iv609.i
+  %invariant.gep668.i = getelementptr [16 x float], ptr %6, i64 0, i64 %indvars.iv609.i
   br label %180
 
 180:                                              ; preds = %.loopexit339.us.i, %.preheader340.us.i
@@ -501,12 +501,12 @@ calc_cpl_coord.exit.i:                            ; preds = %161, %157
   br i1 %.not313.us472.i, label %198, label %.critedge.us473.i
 
 .critedge.us473.i:                                ; preds = %.lr.ph456.split.us482.i
-  %187 = load float, ptr %gep652.i, align 4, !tbaa !61
+  %187 = load float, ptr %gep669.i, align 4, !tbaa !61
   %188 = fcmp nsz ogt float %187, 0.000000e+00
   br i1 %188, label %189, label %calc_cpl_coord.exit335.us475.i
 
 189:                                              ; preds = %.critedge.us473.i
-  %gep.us474.i = getelementptr inbounds nuw [7 x [16 x float]], ptr %gep652.i, i64 0, i64 %indvars.iv595.i
+  %gep.us474.i = getelementptr inbounds nuw [7 x [16 x float]], ptr %gep669.i, i64 0, i64 %indvars.iv595.i
   %190 = load float, ptr %gep.us474.i, align 4, !tbaa !61
   %191 = fdiv nsz float %190, %187
   %192 = tail call nsz float @llvm.sqrt.f32(float %191)
@@ -546,7 +546,7 @@ calc_cpl_coord.exit335.us475.i:                   ; preds = %189, %.critedge.us4
 
 .lr.ph456.us.i:                                   ; preds = %.preheader338.us.i
   %203 = getelementptr inbounds nuw i8, ptr %182, i64 580
-  %gep652.i = getelementptr [6 x [7 x [16 x float]]], ptr %invariant.gep651.i, i64 0, i64 %181
+  %gep669.i = getelementptr [6 x [7 x [16 x float]]], ptr %invariant.gep668.i, i64 0, i64 %181
   %.5301440.us.i = add nsw i32 %.4462.us.i, 1
   %204 = icmp slt i32 %.5301440.us.i, %172
   %gep467.us.i = getelementptr [7 x [16 x float]], ptr %invariant.gep466.us.i, i64 %181
@@ -575,8 +575,8 @@ calc_cpl_coord.exit335.us475.i:                   ; preds = %189, %.critedge.us4
   br i1 %.not313.us.us.i, label %242, label %.lr.ph445.us.us.i
 
 .lr.ph445.us.us.i:                                ; preds = %.lr.ph456.split.us.us.i
-  %211 = load float, ptr %gep652.i, align 4, !tbaa !61
-  %gep.us.us.i = getelementptr inbounds nuw [7 x [16 x float]], ptr %gep652.i, i64 0, i64 %indvars.iv604.i
+  %211 = load float, ptr %gep669.i, align 4, !tbaa !61
+  %gep.us.us.i = getelementptr inbounds nuw [7 x [16 x float]], ptr %gep669.i, i64 0, i64 %indvars.iv604.i
   %212 = load float, ptr %gep.us.us.i, align 4, !tbaa !61
   br label %213
 

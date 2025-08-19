@@ -402,11 +402,11 @@ switch.lookup:                                    ; preds = %114, %116
   %switch.gep = getelementptr inbounds nuw [3 x float], ptr @switch.table._Z11gmx_h2orderiPPc, i64 0, i64 %124
   %switch.load = load float, ptr %switch.gep, align 4
   %125 = zext nneg i32 %switch.select17 to i64
-  %switch.gep75 = getelementptr inbounds nuw [3 x float], ptr @switch.table._Z11gmx_h2orderiPPc.6, i64 0, i64 %125
-  %switch.load76 = load float, ptr %switch.gep75, align 4
+  %switch.gep97 = getelementptr inbounds nuw [3 x float], ptr @switch.table._Z11gmx_h2orderiPPc.6, i64 0, i64 %125
+  %switch.load98 = load float, ptr %switch.gep97, align 4
   %126 = zext nneg i32 %switch.select17 to i64
-  %switch.gep77 = getelementptr inbounds nuw [3 x float], ptr @switch.table._Z11gmx_h2orderiPPc.7, i64 0, i64 %126
-  %switch.load78 = load float, ptr %switch.gep77, align 4
+  %switch.gep99 = getelementptr inbounds nuw [3 x float], ptr @switch.table._Z11gmx_h2orderiPPc.7, i64 0, i64 %126
+  %switch.load100 = load float, ptr %switch.gep99, align 4
   store float 0.000000e+00, ptr %5, align 4, !tbaa !35
   %127 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store float 0.000000e+00, ptr %127, align 4, !tbaa !35
@@ -463,8 +463,8 @@ switch.lookup:                                    ; preds = %114, %116
 
 .split.us.i:                                      ; preds = %.noexc26, %.split.us.preheader.i
   %.sroa.0.1.us.i = phi float [ %.sroa.0.3.us.i, %.noexc26 ], [ %switch.load, %.split.us.preheader.i ]
-  %.sroa.14.1.us.i = phi float [ %.sroa.14.3.us.i, %.noexc26 ], [ %switch.load76, %.split.us.preheader.i ]
-  %.sroa.25.1.us.i = phi float [ %.sroa.25.3.us.i, %.noexc26 ], [ %switch.load78, %.split.us.preheader.i ]
+  %.sroa.14.1.us.i = phi float [ %.sroa.14.3.us.i, %.noexc26 ], [ %switch.load98, %.split.us.preheader.i ]
+  %.sroa.25.1.us.i = phi float [ %.sroa.25.3.us.i, %.noexc26 ], [ %switch.load100, %.split.us.preheader.i ]
   %157 = load float, ptr %142, align 4, !tbaa !35
   %158 = load i32, ptr @_ZZ11gmx_h2orderiPPcE7nslices, align 4, !tbaa !4
   %159 = sitofp i32 %158 to float

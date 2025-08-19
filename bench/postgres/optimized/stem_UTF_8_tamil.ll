@@ -656,7 +656,7 @@ define internal fastcc range(i32 -2147483648, 2) i32 @r_fix_ending(ptr noundef %
   store i32 %22, ptr %23, align 4
   %24 = tail call i32 @slice_del(ptr noundef nonnull %0) #3
   %25 = icmp sgt i32 %24, -1
-  br i1 %25, label %.thread484, label %.thread447
+  br i1 %25, label %.thread485, label %.thread447
 
 26:                                               ; preds = %._crit_edge, %13, %5
   %27 = phi i32 [ %.pre, %._crit_edge ], [ %10, %13 ], [ %10, %5 ]
@@ -682,7 +682,7 @@ define internal fastcc range(i32 -2147483648, 2) i32 @r_fix_ending(ptr noundef %
   store i32 %35, ptr %36, align 4
   %37 = tail call i32 @slice_del(ptr noundef nonnull %0) #3
   %38 = icmp sgt i32 %37, -1
-  br i1 %38, label %.thread484, label %.thread447
+  br i1 %38, label %.thread485, label %.thread447
 
 39:                                               ; preds = %29, %26
   %40 = load i32, ptr %9, align 4
@@ -705,7 +705,7 @@ define internal fastcc range(i32 -2147483648, 2) i32 @r_fix_ending(ptr noundef %
   store i32 %46, ptr %47, align 4
   %48 = tail call i32 @slice_from_s(ptr noundef nonnull %0, i32 noundef 6, ptr noundef nonnull @s_17) #3
   %49 = icmp sgt i32 %48, -1
-  br i1 %49, label %.thread484, label %.thread447
+  br i1 %49, label %.thread485, label %.thread447
 
 50:                                               ; preds = %42
   %51 = load i32, ptr %9, align 4
@@ -721,7 +721,7 @@ define internal fastcc range(i32 -2147483648, 2) i32 @r_fix_ending(ptr noundef %
   store i32 %54, ptr %55, align 4
   %56 = tail call i32 @slice_from_s(ptr noundef nonnull %0, i32 noundef 6, ptr noundef nonnull @s_19) #3
   %57 = icmp sgt i32 %56, -1
-  br i1 %57, label %.thread484, label %.thread447
+  br i1 %57, label %.thread485, label %.thread447
 
 58:                                               ; preds = %50
   %59 = load i32, ptr %9, align 4
@@ -737,7 +737,7 @@ define internal fastcc range(i32 -2147483648, 2) i32 @r_fix_ending(ptr noundef %
   store i32 %62, ptr %63, align 4
   %64 = tail call i32 @slice_from_s(ptr noundef nonnull %0, i32 noundef 6, ptr noundef nonnull @s_21) #3
   %65 = icmp sgt i32 %64, -1
-  br i1 %65, label %.thread484, label %.thread447
+  br i1 %65, label %.thread485, label %.thread447
 
 66:                                               ; preds = %58
   %67 = load i32, ptr %9, align 4
@@ -753,7 +753,7 @@ define internal fastcc range(i32 -2147483648, 2) i32 @r_fix_ending(ptr noundef %
   store i32 %70, ptr %71, align 4
   %72 = tail call i32 @slice_from_s(ptr noundef nonnull %0, i32 noundef 6, ptr noundef nonnull @s_23) #3
   %73 = icmp sgt i32 %72, -1
-  br i1 %73, label %.thread484, label %.thread447
+  br i1 %73, label %.thread485, label %.thread447
 
 74:                                               ; preds = %66
   %75 = load i32, ptr %9, align 4
@@ -791,7 +791,7 @@ define internal fastcc range(i32 -2147483648, 2) i32 @r_fix_ending(ptr noundef %
 .thread452:                                       ; preds = %84
   %89 = load i32, ptr %6, align 8
   store i32 %89, ptr %86, align 4
-  br label %.thread484
+  br label %.thread485
 
 90:                                               ; preds = %81, %79, %74
   %91 = phi i32 [ %.pre461, %81 ], [ %.pre462, %79 ], [ %75, %74 ]
@@ -814,7 +814,7 @@ define internal fastcc range(i32 -2147483648, 2) i32 @r_fix_ending(ptr noundef %
   store i32 %97, ptr %98, align 4
   %99 = tail call i32 @slice_from_s(ptr noundef nonnull %0, i32 noundef 3, ptr noundef nonnull @s_29) #3
   %100 = icmp sgt i32 %99, -1
-  br i1 %100, label %.thread484, label %.thread447
+  br i1 %100, label %.thread485, label %.thread447
 
 101:                                              ; preds = %93
   %102 = load i32, ptr %9, align 4
@@ -845,7 +845,7 @@ define internal fastcc range(i32 -2147483648, 2) i32 @r_fix_ending(ptr noundef %
   store i32 %111, ptr %112, align 4
   %113 = tail call i32 @slice_del(ptr noundef nonnull %0) #3
   %114 = icmp sgt i32 %113, -1
-  br i1 %114, label %.thread484, label %.thread447
+  br i1 %114, label %.thread485, label %.thread447
 
 115:                                              ; preds = %108, %106, %104, %101
   %116 = load i32, ptr %9, align 4
@@ -861,7 +861,7 @@ define internal fastcc range(i32 -2147483648, 2) i32 @r_fix_ending(ptr noundef %
   store i32 %119, ptr %120, align 4
   %121 = tail call i32 @slice_from_s(ptr noundef nonnull %0, i32 noundef 3, ptr noundef nonnull @s_33) #3
   %122 = icmp sgt i32 %121, -1
-  br i1 %122, label %.thread484, label %.thread447
+  br i1 %122, label %.thread485, label %.thread447
 
 123:                                              ; preds = %115
   %124 = load i32, ptr %9, align 4
@@ -882,7 +882,7 @@ define internal fastcc range(i32 -2147483648, 2) i32 @r_fix_ending(ptr noundef %
   store i32 %129, ptr %130, align 4
   %131 = tail call i32 @slice_del(ptr noundef nonnull %0) #3
   %132 = icmp sgt i32 %131, -1
-  br i1 %132, label %.thread484, label %.thread447
+  br i1 %132, label %.thread485, label %.thread447
 
 133:                                              ; preds = %126, %123
   %134 = load i32, ptr %9, align 4
@@ -947,7 +947,7 @@ define internal fastcc range(i32 -2147483648, 2) i32 @r_fix_ending(ptr noundef %
   store i32 %161, ptr %162, align 4
   %163 = tail call i32 @slice_from_s(ptr noundef nonnull %0, i32 noundef 3, ptr noundef nonnull @s_37) #3
   %164 = icmp sgt i32 %163, -1
-  br i1 %164, label %.thread484, label %.thread447
+  br i1 %164, label %.thread485, label %.thread447
 
 165:                                              ; preds = %154, %158, %133
   %166 = load i32, ptr %9, align 4
@@ -963,7 +963,7 @@ define internal fastcc range(i32 -2147483648, 2) i32 @r_fix_ending(ptr noundef %
   store i32 %169, ptr %170, align 4
   %171 = tail call i32 @slice_del(ptr noundef nonnull %0) #3
   %172 = icmp sgt i32 %171, -1
-  br i1 %172, label %.thread484, label %.thread447
+  br i1 %172, label %.thread485, label %.thread447
 
 173:                                              ; preds = %165
   %174 = load i32, ptr %9, align 4
@@ -989,7 +989,7 @@ define internal fastcc range(i32 -2147483648, 2) i32 @r_fix_ending(ptr noundef %
   store i32 %182, ptr %183, align 4
   %184 = tail call i32 @slice_del(ptr noundef nonnull %0) #3
   %185 = icmp sgt i32 %184, -1
-  br i1 %185, label %.thread484, label %.thread447
+  br i1 %185, label %.thread485, label %.thread447
 
 186:                                              ; preds = %176, %173
   %187 = load i32, ptr %9, align 4
@@ -1015,7 +1015,7 @@ define internal fastcc range(i32 -2147483648, 2) i32 @r_fix_ending(ptr noundef %
   store i32 %195, ptr %196, align 4
   %197 = tail call i32 @slice_from_s(ptr noundef nonnull %0, i32 noundef 6, ptr noundef nonnull @s_41) #3
   %198 = icmp sgt i32 %197, -1
-  br i1 %198, label %.thread484, label %.thread447
+  br i1 %198, label %.thread485, label %.thread447
 
 199:                                              ; preds = %189, %186
   %200 = load i32, ptr %9, align 4
@@ -1031,7 +1031,7 @@ define internal fastcc range(i32 -2147483648, 2) i32 @r_fix_ending(ptr noundef %
   store i32 %203, ptr %204, align 4
   %205 = tail call i32 @slice_del(ptr noundef nonnull %0) #3
   %206 = icmp sgt i32 %205, -1
-  br i1 %206, label %.thread484, label %.thread447
+  br i1 %206, label %.thread485, label %.thread447
 
 207:                                              ; preds = %199
   %208 = load i32, ptr %9, align 4
@@ -1066,15 +1066,15 @@ define internal fastcc range(i32 -2147483648, 2) i32 @r_fix_ending(ptr noundef %
   %223 = tail call i32 @slice_del(ptr noundef nonnull %0) #3
   %.398 = tail call i32 @llvm.smin.i32(i32 %223, i32 0)
   %switch399.not = icmp sgt i32 %223, -1
-  br i1 %switch399.not, label %.thread484, label %.thread447
+  br i1 %switch399.not, label %.thread485, label %.thread447
 
-.thread484:                                       ; preds = %202, %193, %180, %168, %160, %128, %118, %110, %96, %69, %61, %53, %45, %33, %21, %.thread452, %219
+.thread485:                                       ; preds = %202, %193, %180, %168, %160, %128, %118, %110, %96, %69, %61, %53, %45, %33, %21, %.thread452, %219
   %224 = load i32, ptr %8, align 8
   store i32 %224, ptr %6, align 8
   br label %.thread447
 
-.thread447:                                       ; preds = %202, %193, %180, %168, %160, %128, %118, %110, %96, %69, %61, %53, %45, %33, %21, %215, %207, %84, %219, %1, %.thread484
-  %.0 = phi i32 [ %.398, %219 ], [ 1, %.thread484 ], [ 0, %1 ], [ 0, %215 ], [ 0, %207 ], [ %87, %84 ], [ %205, %202 ], [ %197, %193 ], [ %184, %180 ], [ %171, %168 ], [ %163, %160 ], [ %131, %128 ], [ %121, %118 ], [ %113, %110 ], [ %99, %96 ], [ %72, %69 ], [ %64, %61 ], [ %56, %53 ], [ %48, %45 ], [ %37, %33 ], [ %24, %21 ]
+.thread447:                                       ; preds = %202, %193, %180, %168, %160, %128, %118, %110, %96, %69, %61, %53, %45, %33, %21, %215, %207, %84, %219, %1, %.thread485
+  %.0 = phi i32 [ %.398, %219 ], [ 1, %.thread485 ], [ 0, %1 ], [ 0, %215 ], [ 0, %207 ], [ %87, %84 ], [ %205, %202 ], [ %197, %193 ], [ %184, %180 ], [ %171, %168 ], [ %163, %160 ], [ %131, %128 ], [ %121, %118 ], [ %113, %110 ], [ %99, %96 ], [ %72, %69 ], [ %64, %61 ], [ %56, %53 ], [ %48, %45 ], [ %37, %33 ], [ %24, %21 ]
   ret i32 %.0
 }
 

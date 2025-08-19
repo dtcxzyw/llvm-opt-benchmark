@@ -186,28 +186,28 @@ define void @ff_rtp_send_h264_hevc(ptr noundef %0, ptr noundef %1, i32 noundef %
   %.pre.i = load i32, ptr %52, align 8, !tbaa !47
   %111 = add i32 %.0107.i, %70
   %112 = icmp sgt i32 %111, %.pre.i
-  %or.cond128.i = select i1 %112, i1 true, i1 %.0106.i
-  br i1 %or.cond128.i, label %133, label %.thread.i..thread130.i_crit_edge
+  %or.cond139.i = select i1 %112, i1 true, i1 %.0106.i
+  br i1 %or.cond139.i, label %133, label %.thread.i..thread141.i_crit_edge
 
-.thread.i..thread130.i_crit_edge:                 ; preds = %.thread.i
+.thread.i..thread141.i_crit_edge:                 ; preds = %.thread.i
   %.pre = load ptr, ptr %55, align 8, !tbaa !30
-  br label %.thread130.i
+  br label %.thread141.i
 
 113:                                              ; preds = %106
   %114 = icmp eq i32 %62, 0
-  br i1 %114, label %.thread130.i, label %121
+  br i1 %114, label %.thread141.i, label %121
 
-.thread130.i:                                     ; preds = %.thread.i..thread130.i_crit_edge, %113
-  %115 = phi ptr [ %.pre, %.thread.i..thread130.i_crit_edge ], [ %56, %113 ]
+.thread141.i:                                     ; preds = %.thread.i..thread141.i_crit_edge, %113
+  %115 = phi ptr [ %.pre, %.thread.i..thread141.i_crit_edge ], [ %56, %113 ]
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 1
   store ptr %116, ptr %55, align 8, !tbaa !30
   br i1 %63, label %117, label %118
 
-117:                                              ; preds = %.thread130.i
+117:                                              ; preds = %.thread141.i
   store i8 24, ptr %115, align 1, !tbaa !32
   br label %121
 
-118:                                              ; preds = %.thread130.i
+118:                                              ; preds = %.thread141.i
   store i8 96, ptr %115, align 1, !tbaa !32
   %119 = load ptr, ptr %55, align 8, !tbaa !30
   %120 = getelementptr inbounds nuw i8, ptr %119, i64 1
@@ -406,10 +406,10 @@ flush_buffered.exit118.i:                         ; preds = %196, %193, %190, %1
   br label %239
 
 239:                                              ; preds = %224, %209
-  %.sink135.i = phi i64 [ 2, %224 ], [ 1, %209 ]
+  %.sink146.i = phi i64 [ 2, %224 ], [ 1, %209 ]
   %.sink.i = phi i32 [ -2, %224 ], [ -1, %209 ]
   %.0104.i = phi i32 [ 3, %224 ], [ 2, %209 ]
-  %240 = getelementptr inbounds nuw i8, ptr %.2, i64 %.sink135.i
+  %240 = getelementptr inbounds nuw i8, ptr %.2, i64 %.sink146.i
   %241 = add nsw i32 %.sink.i, %39
   %242 = add nsw i32 %241, %.0104.i
   %243 = load i32, ptr %52, align 8, !tbaa !47
@@ -443,7 +443,7 @@ flush_buffered.exit118.i:                         ; preds = %196, %193, %190, %1
   %258 = getelementptr inbounds i8, ptr %.1120.i, i64 %257
   %259 = sub nsw i32 %.1101119.i, %256
   %260 = load ptr, ptr %245, align 8, !tbaa !29
-  %261 = getelementptr inbounds nuw i8, ptr %260, i64 %.sink135.i
+  %261 = getelementptr inbounds nuw i8, ptr %260, i64 %.sink146.i
   %262 = load i8, ptr %261, align 1, !tbaa !32
   %263 = and i8 %262, 127
   store i8 %263, ptr %261, align 1, !tbaa !32
@@ -459,7 +459,7 @@ flush_buffered.exit118.i:                         ; preds = %196, %193, %190, %1
   %.lcssa.i = phi i32 [ %242, %.._crit_edge_crit_edge.i ], [ %264, %247 ]
   %267 = getelementptr inbounds nuw i8, ptr %42, i64 96
   %268 = load ptr, ptr %267, align 8, !tbaa !29
-  %269 = getelementptr inbounds nuw i8, ptr %268, i64 %.sink135.i
+  %269 = getelementptr inbounds nuw i8, ptr %268, i64 %.sink146.i
   %270 = load i8, ptr %269, align 1, !tbaa !32
   %271 = or i8 %270, 64
   store i8 %271, ptr %269, align 1, !tbaa !32

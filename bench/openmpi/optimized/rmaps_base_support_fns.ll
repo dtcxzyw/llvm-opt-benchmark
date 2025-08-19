@@ -1438,8 +1438,8 @@ pmix_obj_run_destructors.exit443:                 ; preds = %.lr.ph.i440, %627
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.1509, i64 228
   %.pre538 = load i32, ptr %.phi.trans.insert, align 4, !tbaa !86
   %.not370 = icmp slt i32 %.pre538, %643
-  %or.cond551 = select i1 %.not369, i1 true, i1 %.not370
-  br i1 %or.cond551, label %._crit_edge537, label %644
+  %or.cond619 = select i1 %.not369, i1 true, i1 %.not370
+  br i1 %or.cond619, label %._crit_edge537, label %644
 
 644:                                              ; preds = %641
   %645 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_rmaps_base_framework, i64 76), align 4, !tbaa !34
@@ -1962,17 +1962,17 @@ define void @prte_rmaps_base_get_starting_point(ptr noundef %0, ptr noundef read
   %10 = getelementptr inbounds nuw i8, ptr %.01726, i64 144
   %11 = load i32, ptr %10, align 8, !tbaa !69
   %12 = icmp eq i32 %11, %9
-  br i1 %12, label %.thread, label %.lr.ph37
+  br i1 %12, label %.thread, label %.lr.ph39
 
-13:                                               ; preds = %.lr.ph37
+13:                                               ; preds = %.lr.ph39
   %14 = getelementptr inbounds nuw i8, ptr %.017, i64 144
   %15 = load i32, ptr %14, align 8, !tbaa !69
   %16 = icmp eq i32 %15, %9
-  br i1 %16, label %._crit_edge, label %.lr.ph37, !llvm.loop !91
+  br i1 %16, label %._crit_edge, label %.lr.ph39, !llvm.loop !91
 
-.lr.ph37:                                         ; preds = %.lr.ph, %13
-  %.0172936 = phi ptr [ %.017, %13 ], [ %.01726, %.lr.ph ]
-  %17 = getelementptr inbounds nuw i8, ptr %.0172936, i64 120
+.lr.ph39:                                         ; preds = %.lr.ph, %13
+  %.0172938 = phi ptr [ %.017, %13 ], [ %.01726, %.lr.ph ]
+  %17 = getelementptr inbounds nuw i8, ptr %.0172938, i64 120
   %.017 = load ptr, ptr %17, align 8, !tbaa !43
   %.not20 = icmp eq ptr %.017, %6
   br i1 %.not20, label %.thread, label %13, !llvm.loop !91
@@ -2020,7 +2020,7 @@ define void @prte_rmaps_base_get_starting_point(ptr noundef %0, ptr noundef read
   store volatile i64 %41, ptr %35, align 8, !tbaa !8
   br label %.thread
 
-.thread:                                          ; preds = %.lr.ph37, %.lr.ph, %5, %2, %28
+.thread:                                          ; preds = %.lr.ph39, %.lr.ph, %5, %2, %28
   ret void
 }
 
@@ -2869,8 +2869,8 @@ define range(i32 -46, 1) i32 @prte_rmaps_base_check_oversubscribed(ptr noundef c
   %.pre25 = load i16, ptr %.phi.trans.insert24, align 8, !tbaa !105
   %.pre26 = zext i16 %.pre25 to i32
   %12 = icmp ne i32 %.pre, %.pre26
-  %or.cond28.not = select i1 %11, i1 true, i1 %12
-  br i1 %or.cond28.not, label %._crit_edge, label %56
+  %or.cond32.not = select i1 %11, i1 true, i1 %12
+  br i1 %or.cond32.not, label %._crit_edge, label %56
 
 ._crit_edge:                                      ; preds = %8
   %13 = icmp slt i32 %.pre, %.pre26

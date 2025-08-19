@@ -9889,8 +9889,8 @@ define hidden void @_ZNK2cv11MatOp_AddEx6assignERKNS_7MatExprERNS_3MatEi(ptr non
   %or.cond250.not = xor i1 %or.cond250, true
   %71 = select i1 %or.cond250.not, i1 %64, i1 false
   %72 = select i1 %71, i1 %67, i1 false
-  %or.cond261 = select i1 %72, i1 %70, i1 false
-  br i1 %or.cond261, label %188, label %.critedge
+  %or.cond276 = select i1 %72, i1 %70, i1 false
+  br i1 %or.cond276, label %188, label %.critedge
 
 .critedge:                                        ; preds = %59
   %73 = getelementptr inbounds nuw i8, ptr %1, i64 304

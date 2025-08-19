@@ -109,9 +109,9 @@ construct_b.exit:                                 ; preds = %._crit_edge.i, %.lr
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %.not.i56 = icmp eq i64 %44, 0
-  br i1 %.not.i56, label %gv_calloc.exit60.thread94, label %46
+  br i1 %.not.i56, label %gv_calloc.exit60.thread98, label %46
 
-gv_calloc.exit60.thread94:                        ; preds = %._crit_edge
+gv_calloc.exit60.thread98:                        ; preds = %._crit_edge
   %45 = tail call noalias ptr @calloc(i64 noundef 0, i64 noundef 4) #9
   br label %.lr.ph69.preheader
 
@@ -137,8 +137,8 @@ gv_calloc.exit60.thread94:                        ; preds = %._crit_edge
   tail call fastcc void @graphviz_exit() #8
   unreachable
 
-.lr.ph69.preheader:                               ; preds = %50, %gv_calloc.exit60.thread94
-  %57 = phi ptr [ %45, %gv_calloc.exit60.thread94 ], [ %51, %50 ]
+.lr.ph69.preheader:                               ; preds = %50, %gv_calloc.exit60.thread98
+  %57 = phi ptr [ %45, %gv_calloc.exit60.thread98 ], [ %51, %50 ]
   %wide.trip.count82 = zext nneg i32 %1 to i64
   br label %.lr.ph69
 

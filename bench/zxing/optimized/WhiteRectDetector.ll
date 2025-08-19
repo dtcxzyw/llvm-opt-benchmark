@@ -94,10 +94,10 @@ define noundef zeroext i1 @_ZN5ZXing15DetectWhiteRectERKNS_9BitMatrixEiiiRNS_11R
   %37 = icmp slt i32 %spec.select264.us, %15
   br i1 %37, label %.lr.ph.split.us.split, label %.critedge.preheader, !llvm.loop !15
 
-.critedge.preheader:                              ; preds = %.loopexit509, %.lr.ph.split.us.split, %.lr.ph.split.us.split.us, %.preheader
-  %.1190.lcssa = phi i32 [ %.0189403, %.preheader ], [ %spec.select264.us.us, %.lr.ph.split.us.split.us ], [ %spec.select264.us, %.lr.ph.split.us.split ], [ %spec.select264, %.loopexit509 ]
-  %.1178.lcssa = phi i8 [ 0, %.preheader ], [ 0, %.lr.ph.split.us.split.us ], [ 0, %.lr.ph.split.us.split ], [ %51, %.loopexit509 ]
-  %.1173.lcssa = phi i1 [ %.0172407, %.preheader ], [ true, %.lr.ph.split.us.split.us ], [ false, %.lr.ph.split.us.split ], [ %52, %.loopexit509 ]
+.critedge.preheader:                              ; preds = %.loopexit526, %.lr.ph.split.us.split, %.lr.ph.split.us.split.us, %.preheader
+  %.1190.lcssa = phi i32 [ %.0189403, %.preheader ], [ %spec.select264.us.us, %.lr.ph.split.us.split.us ], [ %spec.select264.us, %.lr.ph.split.us.split ], [ %spec.select264, %.loopexit526 ]
+  %.1178.lcssa = phi i8 [ 0, %.preheader ], [ 0, %.lr.ph.split.us.split.us ], [ 0, %.lr.ph.split.us.split ], [ %51, %.loopexit526 ]
+  %.1173.lcssa = phi i1 [ %.0172407, %.preheader ], [ true, %.lr.ph.split.us.split.us ], [ false, %.lr.ph.split.us.split ], [ %52, %.loopexit526 ]
   %38 = icmp slt i32 %.0183405, %14
   br i1 %38, label %.lr.ph382, label %.critedge8.preheader
 
@@ -109,10 +109,10 @@ define noundef zeroext i1 @_ZN5ZXing15DetectWhiteRectERKNS_9BitMatrixEiiiRNS_11R
   %40 = zext nneg i32 %.sroa.speculated37.i to i64
   br label %57
 
-.lr.ph.split:                                     ; preds = %.lr.ph, %.loopexit509
-  %.1173370 = phi i1 [ %52, %.loopexit509 ], [ %.0172407, %.lr.ph ]
-  %.1178369 = phi i8 [ %51, %.loopexit509 ], [ 0, %.lr.ph ]
-  %.1190368 = phi i32 [ %spec.select264, %.loopexit509 ], [ %.0189403, %.lr.ph ]
+.lr.ph.split:                                     ; preds = %.lr.ph, %.loopexit526
+  %.1173370 = phi i1 [ %52, %.loopexit526 ], [ %.0172407, %.lr.ph ]
+  %.1178369 = phi i8 [ %51, %.loopexit526 ], [ 0, %.lr.ph ]
+  %.1190368 = phi i32 [ %spec.select264, %.loopexit526 ], [ %.0189403, %.lr.ph ]
   %41 = icmp slt i32 %.1190368, 0
   br i1 %41, label %.loopexit318, label %.lr.ph.i
 
@@ -140,14 +140,14 @@ _ZNK5ZXing9BitMatrix3getEii.exit34.i:             ; preds = %44
   %48 = getelementptr inbounds nuw i8, ptr %27, i64 %46
   %49 = load i8, ptr %48, align 1, !tbaa !18
   %.not62.not.i = icmp eq i8 %49, 0
-  br i1 %.not62.not.i, label %43, label %.loopexit509
+  br i1 %.not62.not.i, label %43, label %.loopexit526
 
 .loopexit318:                                     ; preds = %43, %.lr.ph.split
   %not.315 = xor i1 %.1173370, true
   %50 = zext i1 %not.315 to i32
-  br label %.loopexit509
+  br label %.loopexit526
 
-.loopexit509:                                     ; preds = %_ZNK5ZXing9BitMatrix3getEii.exit34.i, %.loopexit318
+.loopexit526:                                     ; preds = %_ZNK5ZXing9BitMatrix3getEii.exit34.i, %.loopexit318
   %.sink = phi i32 [ %50, %.loopexit318 ], [ 1, %_ZNK5ZXing9BitMatrix3getEii.exit34.i ]
   %51 = phi i8 [ %.1178369, %.loopexit318 ], [ 1, %_ZNK5ZXing9BitMatrix3getEii.exit34.i ]
   %.023.i265267271 = phi i1 [ false, %.loopexit318 ], [ true, %_ZNK5ZXing9BitMatrix3getEii.exit34.i ]
@@ -216,11 +216,11 @@ _ZNK5ZXing9BitMatrix3getEii.exit.i:               ; preds = %62
   br label %.critedge
 
 .critedge:                                        ; preds = %_ZNK5ZXing9BitMatrix3getEii.exit.i, %.loopexit317
-  %.sink506 = phi i32 [ %68, %.loopexit317 ], [ 1, %_ZNK5ZXing9BitMatrix3getEii.exit.i ]
+  %.sink523 = phi i32 [ %68, %.loopexit317 ], [ 1, %_ZNK5ZXing9BitMatrix3getEii.exit.i ]
   %69 = phi i8 [ %.3180380, %.loopexit317 ], [ 1, %_ZNK5ZXing9BitMatrix3getEii.exit.i ]
   %.023.i234275278282 = phi i1 [ false, %.loopexit317 ], [ true, %_ZNK5ZXing9BitMatrix3getEii.exit.i ]
   %70 = phi i1 [ %.1170381, %.loopexit317 ], [ true, %_ZNK5ZXing9BitMatrix3getEii.exit.i ]
-  %spec.select219274 = add nsw i32 %.1184379, %.sink506
+  %spec.select219274 = add nsw i32 %.1184379, %.sink523
   %.not = xor i1 %70, true
   %or.cond6.not = select i1 %.023.i234275278282, i1 true, i1 %.not
   %71 = icmp slt i32 %spec.select219274, %14
@@ -228,7 +228,7 @@ _ZNK5ZXing9BitMatrix3getEii.exit.i:               ; preds = %62
   br i1 %or.cond218, label %57, label %.critedge8.preheader, !llvm.loop !20
 
 .critedge13.preheader:                            ; preds = %.critedge8, %.critedge8.preheader
-  %.1193.lcssa = phi i32 [ %.0192402, %.critedge8.preheader ], [ %spec.select220285, %.critedge8 ]
+  %.1193.lcssa = phi i32 [ -1, %.critedge8.preheader ], [ %spec.select220285, %.critedge8 ]
   %.5182.lcssa = phi i8 [ %.3180.lcssa, %.critedge8.preheader ], [ %85, %.critedge8 ]
   %.1167.lcssa = phi i1 [ %.0166409, %.critedge8.preheader ], [ %86, %.critedge8 ]
   %72 = icmp sgt i32 %.0186404, -1
@@ -282,11 +282,11 @@ _ZNK5ZXing9BitMatrix3getEii.exit34.i244:          ; preds = %78
   br label %.critedge8
 
 .critedge8:                                       ; preds = %_ZNK5ZXing9BitMatrix3getEii.exit34.i244, %.loopexit316
-  %.sink507 = phi i32 [ %84, %.loopexit316 ], [ -1, %_ZNK5ZXing9BitMatrix3getEii.exit34.i244 ]
+  %.sink524 = phi i32 [ %84, %.loopexit316 ], [ -1, %_ZNK5ZXing9BitMatrix3getEii.exit34.i244 ]
   %85 = phi i8 [ %.5182388, %.loopexit316 ], [ 1, %_ZNK5ZXing9BitMatrix3getEii.exit34.i244 ]
   %.023.i238286289293 = phi i1 [ false, %.loopexit316 ], [ true, %_ZNK5ZXing9BitMatrix3getEii.exit34.i244 ]
   %86 = phi i1 [ %.1167389, %.loopexit316 ], [ true, %_ZNK5ZXing9BitMatrix3getEii.exit34.i244 ]
-  %spec.select220285 = add nsw i32 %.1193387, %.sink507
+  %spec.select220285 = add nsw i32 %.1193387, %.sink524
   %.not213 = xor i1 %86, true
   %or.cond11.not = select i1 %.023.i238286289293, i1 true, i1 %.not213
   %87 = icmp sgt i32 %spec.select220285, -1
@@ -335,11 +335,11 @@ _ZNK5ZXing9BitMatrix3getEii.exit.i258:            ; preds = %92
   br label %.critedge13
 
 .critedge13:                                      ; preds = %_ZNK5ZXing9BitMatrix3getEii.exit.i258, %.loopexit
-  %.sink508 = phi i32 [ %98, %.loopexit ], [ -1, %_ZNK5ZXing9BitMatrix3getEii.exit.i258 ]
+  %.sink525 = phi i32 [ %98, %.loopexit ], [ -1, %_ZNK5ZXing9BitMatrix3getEii.exit.i258 ]
   %99 = phi i8 [ %.7396, %.loopexit ], [ 1, %_ZNK5ZXing9BitMatrix3getEii.exit.i258 ]
   %.023.i252297300304 = phi i1 [ false, %.loopexit ], [ true, %_ZNK5ZXing9BitMatrix3getEii.exit.i258 ]
   %100 = phi i1 [ %.1164397, %.loopexit ], [ true, %_ZNK5ZXing9BitMatrix3getEii.exit.i258 ]
-  %spec.select221296 = add nsw i32 %.1187395, %.sink508
+  %spec.select221296 = add nsw i32 %.1187395, %.sink525
   %.not214 = xor i1 %100, true
   %or.cond16.not = select i1 %.023.i252297300304, i1 true, i1 %.not214
   %101 = icmp sgt i32 %spec.select221296, -1
@@ -347,7 +347,7 @@ _ZNK5ZXing9BitMatrix3getEii.exit.i258:            ; preds = %92
   br i1 %or.cond24, label %88, label %.critedge18, !llvm.loop !22
 
 .critedge18:                                      ; preds = %.critedge13, %.critedge13.preheader
-  %.1187.lcssa = phi i32 [ %.0186404, %.critedge13.preheader ], [ %spec.select221296, %.critedge13 ]
+  %.1187.lcssa = phi i32 [ -1, %.critedge13.preheader ], [ %spec.select221296, %.critedge13 ]
   %.7.lcssa = phi i8 [ %.5182.lcssa, %.critedge13.preheader ], [ %99, %.critedge13 ]
   %.1164.lcssa = phi i1 [ %.0163410, %.critedge13.preheader ], [ %100, %.critedge13 ]
   %102 = trunc nuw i8 %.7.lcssa to i1

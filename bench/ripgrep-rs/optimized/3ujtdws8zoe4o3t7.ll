@@ -655,10 +655,10 @@ default.unreachable:                              ; preds = %.lr.ph.i.i
           to label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h8e2cbe0a7cd5543fE.exit.sink.split.i.i" unwind label %.loopexit.split-lp.loopexit
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h8e2cbe0a7cd5543fE.exit.sink.split.i.i": ; preds = %51, %39
-  %.sink45.i.i = phi { i64, i64 } [ %40, %39 ], [ %52, %51 ]
-  %.sink40.ph.i.i = phi i64 [ %17, %39 ], [ %45, %51 ]
-  %53 = extractvalue { i64, i64 } %.sink45.i.i, 0
-  %54 = extractvalue { i64, i64 } %.sink45.i.i, 1
+  %.sink48.i.i = phi { i64, i64 } [ %40, %39 ], [ %52, %51 ]
+  %.sink43.ph.i.i = phi i64 [ %17, %39 ], [ %45, %51 ]
+  %53 = extractvalue { i64, i64 } %.sink48.i.i, 0
+  %54 = extractvalue { i64, i64 } %.sink48.i.i, 1
   invoke void @_ZN5alloc7raw_vec14handle_reserve17hbe02af521469e2d1E.llvm.16892080896559492178(i64 noundef %53, i64 %54)
           to label %.noexc27 unwind label %.loopexit.split-lp.loopexit
 
@@ -667,21 +667,21 @@ default.unreachable:                              ; preds = %.lr.ph.i.i
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h8e2cbe0a7cd5543fE.exit.i.i"
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h8e2cbe0a7cd5543fE.exit.i.i": ; preds = %.noexc27, %"_ZN115_$LT$core..ops..range..RangeInclusive$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hd862513045208d8eE.exit.i.i", %34
-  %.sink42.i.i = phi i64 [ %35, %34 ], [ %48, %"_ZN115_$LT$core..ops..range..RangeInclusive$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hd862513045208d8eE.exit.i.i" ], [ %.pre.i.i12.i.i, %.noexc27 ]
-  %.sink40.i.i = phi i64 [ %17, %34 ], [ %45, %"_ZN115_$LT$core..ops..range..RangeInclusive$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hd862513045208d8eE.exit.i.i" ], [ %.sink40.ph.i.i, %.noexc27 ]
+  %.sink45.i.i = phi i64 [ %35, %34 ], [ %48, %"_ZN115_$LT$core..ops..range..RangeInclusive$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hd862513045208d8eE.exit.i.i" ], [ %.pre.i.i12.i.i, %.noexc27 ]
+  %.sink43.i.i = phi i64 [ %17, %34 ], [ %45, %"_ZN115_$LT$core..ops..range..RangeInclusive$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hd862513045208d8eE.exit.i.i" ], [ %.sink43.ph.i.i, %.noexc27 ]
   %55 = load ptr, ptr %12, align 8, !alias.scope !109, !noalias !110, !nonnull !4, !noundef !4
-  %56 = getelementptr inbounds i8, ptr %55, i64 %.sink42.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %56, ptr nonnull readonly align 1 %.lcssa.i.i, i64 %.sink40.i.i, i1 false), !noalias !90
+  %56 = getelementptr inbounds i8, ptr %55, i64 %.sink45.i.i
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %56, ptr nonnull readonly align 1 %.lcssa.i.i, i64 %.sink43.i.i, i1 false), !noalias !90
   %57 = load i64, ptr %7, align 8, !alias.scope !109, !noalias !110, !noundef !4
-  %58 = add i64 %57, %.sink40.i.i
+  %58 = add i64 %57, %.sink43.i.i
   store i64 %58, ptr %7, align 8, !alias.scope !109, !noalias !110
   %59 = load i64, ptr %13, align 8, !alias.scope !111, !noalias !114, !noundef !4
-  %60 = add i64 %59, %.sink40.i.i
+  %60 = add i64 %59, %.sink43.i.i
   %61 = load i64, ptr %14, align 8, !alias.scope !111, !noalias !114, !noundef !4
   %.0.sroa.speculated.i.i.i.i = call noundef i64 @llvm.umin.i64(i64 %60, i64 %61)
   store i64 %.0.sroa.speculated.i.i.i.i, ptr %13, align 8, !alias.scope !111, !noalias !114
-  %62 = add i64 %.sink40.i.i, %.0.ph.i.i
-  %63 = icmp eq i64 %.sink40.i.i, 0
+  %62 = add i64 %.sink43.i.i, %.0.ph.i.i
+  %63 = icmp eq i64 %.sink43.i.i, 0
   %or.cond.i.i = or i1 %switch.i.i, %63
   br i1 %or.cond.i.i, label %"_ZN3std2io7BufRead9read_line28_$u7b$$u7b$closure$u7d$$u7d$17h3913e0aa608823eeE.exit", label %.outer.i.i
 
@@ -2542,8 +2542,8 @@ define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$
   %12 = trunc i32 %1 to i8
   %13 = and i8 %12, 63
   %14 = or disjoint i8 %13, -128
-  %.sroa.0.i.1.i.1.i.1..sroa_idx8 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 1
-  store i8 %14, ptr %.sroa.0.i.1.i.1.i.1..sroa_idx8, align 1, !alias.scope !434, !noalias !431
+  %.sroa.0.i.1.i.1.i.1..sroa_idx11 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 1
+  store i8 %14, ptr %.sroa.0.i.1.i.1.i.1..sroa_idx11, align 1, !alias.scope !434, !noalias !431
   br label %_ZN4core4char7methods15encode_utf8_raw17hb4a1fb525f58c43bE.exit.i
 
 15:                                               ; preds = %6
@@ -2555,13 +2555,13 @@ define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$
   %20 = trunc i32 %19 to i8
   %21 = and i8 %20, 63
   %22 = or disjoint i8 %21, -128
-  %.sroa.0.i.1.i.1.i.1..sroa_idx7 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 1
-  store i8 %22, ptr %.sroa.0.i.1.i.1.i.1..sroa_idx7, align 1, !alias.scope !434, !noalias !431
+  %.sroa.0.i.1.i.1.i.1..sroa_idx10 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 1
+  store i8 %22, ptr %.sroa.0.i.1.i.1.i.1..sroa_idx10, align 1, !alias.scope !434, !noalias !431
   %23 = trunc i32 %1 to i8
   %24 = and i8 %23, 63
   %25 = or disjoint i8 %24, -128
-  %.sroa.0.i.2.i.2.i.2..sroa_idx9 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 2
-  store i8 %25, ptr %.sroa.0.i.2.i.2.i.2..sroa_idx9, align 2, !alias.scope !434, !noalias !431
+  %.sroa.0.i.2.i.2.i.2..sroa_idx12 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 2
+  store i8 %25, ptr %.sroa.0.i.2.i.2.i.2..sroa_idx12, align 2, !alias.scope !434, !noalias !431
   br label %_ZN4core4char7methods15encode_utf8_raw17hb4a1fb525f58c43bE.exit.i
 
 26:                                               ; preds = %6

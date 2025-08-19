@@ -715,15 +715,15 @@ define internal noundef i32 @chr_h_scale(ptr noundef %0, ptr noundef readonly ca
   %55 = sext i32 %38 to i64
   %wide.trip.count = zext nneg i32 %3 to i64
   %invariant.gep = getelementptr ptr, ptr %30, i64 %52
-  %invariant.gep91 = getelementptr ptr, ptr %26, i64 %53
-  %invariant.gep93 = getelementptr ptr, ptr %32, i64 %54
-  %invariant.gep95 = getelementptr ptr, ptr %28, i64 %55
-  %invariant.gep97 = getelementptr ptr, ptr %30, i64 %52
-  %invariant.gep99 = getelementptr ptr, ptr %32, i64 %54
-  %invariant.gep101 = getelementptr ptr, ptr %26, i64 %53
-  %invariant.gep103 = getelementptr ptr, ptr %28, i64 %55
-  %invariant.gep105 = getelementptr ptr, ptr %30, i64 %52
-  %invariant.gep107 = getelementptr ptr, ptr %26, i64 %53
+  %invariant.gep93 = getelementptr ptr, ptr %26, i64 %53
+  %invariant.gep95 = getelementptr ptr, ptr %32, i64 %54
+  %invariant.gep97 = getelementptr ptr, ptr %28, i64 %55
+  %invariant.gep99 = getelementptr ptr, ptr %30, i64 %52
+  %invariant.gep101 = getelementptr ptr, ptr %32, i64 %54
+  %invariant.gep103 = getelementptr ptr, ptr %26, i64 %53
+  %invariant.gep105 = getelementptr ptr, ptr %28, i64 %55
+  %invariant.gep107 = getelementptr ptr, ptr %30, i64 %52
+  %invariant.gep109 = getelementptr ptr, ptr %26, i64 %53
   br label %56
 
 56:                                               ; preds = %.lr.ph, %83
@@ -735,30 +735,30 @@ define internal noundef i32 @chr_h_scale(ptr noundef %0, ptr noundef readonly ca
 58:                                               ; preds = %56
   %gep = getelementptr ptr, ptr %invariant.gep, i64 %indvars.iv
   %59 = load ptr, ptr %gep, align 8, !tbaa !32
-  %gep92 = getelementptr ptr, ptr %invariant.gep91, i64 %indvars.iv
-  %60 = load ptr, ptr %gep92, align 8, !tbaa !32
   %gep94 = getelementptr ptr, ptr %invariant.gep93, i64 %indvars.iv
-  %61 = load ptr, ptr %gep94, align 8, !tbaa !32
+  %60 = load ptr, ptr %gep94, align 8, !tbaa !32
   %gep96 = getelementptr ptr, ptr %invariant.gep95, i64 %indvars.iv
-  %62 = load ptr, ptr %gep96, align 8, !tbaa !32
+  %61 = load ptr, ptr %gep96, align 8, !tbaa !32
+  %gep98 = getelementptr ptr, ptr %invariant.gep97, i64 %indvars.iv
+  %62 = load ptr, ptr %gep98, align 8, !tbaa !32
   tail call void %57(ptr noundef nonnull %0, ptr noundef %59, ptr noundef %60, i32 noundef %21, ptr noundef %61, ptr noundef %62, i32 noundef %13, i32 noundef %23) #6
   br label %76
 
 63:                                               ; preds = %56
   %64 = load ptr, ptr %46, align 16, !tbaa !69
-  %gep98 = getelementptr ptr, ptr %invariant.gep97, i64 %indvars.iv
-  %65 = load ptr, ptr %gep98, align 8, !tbaa !32
   %gep100 = getelementptr ptr, ptr %invariant.gep99, i64 %indvars.iv
-  %66 = load ptr, ptr %gep100, align 8, !tbaa !32
+  %65 = load ptr, ptr %gep100, align 8, !tbaa !32
+  %gep102 = getelementptr ptr, ptr %invariant.gep101, i64 %indvars.iv
+  %66 = load ptr, ptr %gep102, align 8, !tbaa !32
   %67 = load ptr, ptr %6, align 8, !tbaa !53
   %68 = load ptr, ptr %47, align 8, !tbaa !55
   %69 = load i32, ptr %48, align 8, !tbaa !56
   tail call void %64(ptr noundef nonnull %0, ptr noundef %65, i32 noundef %21, ptr noundef %66, ptr noundef %67, ptr noundef %68, i32 noundef %69) #6
   %70 = load ptr, ptr %46, align 16, !tbaa !69
-  %gep102 = getelementptr ptr, ptr %invariant.gep101, i64 %indvars.iv
-  %71 = load ptr, ptr %gep102, align 8, !tbaa !32
   %gep104 = getelementptr ptr, ptr %invariant.gep103, i64 %indvars.iv
-  %72 = load ptr, ptr %gep104, align 8, !tbaa !32
+  %71 = load ptr, ptr %gep104, align 8, !tbaa !32
+  %gep106 = getelementptr ptr, ptr %invariant.gep105, i64 %indvars.iv
+  %72 = load ptr, ptr %gep106, align 8, !tbaa !32
   %73 = load ptr, ptr %6, align 8, !tbaa !53
   %74 = load ptr, ptr %47, align 8, !tbaa !55
   %75 = load i32, ptr %48, align 8, !tbaa !56
@@ -771,10 +771,10 @@ define internal noundef i32 @chr_h_scale(ptr noundef %0, ptr noundef readonly ca
   br i1 %.not87, label %83, label %78
 
 78:                                               ; preds = %76
-  %gep106 = getelementptr ptr, ptr %invariant.gep105, i64 %indvars.iv
-  %79 = load ptr, ptr %gep106, align 8, !tbaa !32
   %gep108 = getelementptr ptr, ptr %invariant.gep107, i64 %indvars.iv
-  %80 = load ptr, ptr %gep108, align 8, !tbaa !32
+  %79 = load ptr, ptr %gep108, align 8, !tbaa !32
+  %gep110 = getelementptr ptr, ptr %invariant.gep109, i64 %indvars.iv
+  %80 = load ptr, ptr %gep110, align 8, !tbaa !32
   %81 = load i32, ptr %50, align 4, !tbaa !71
   %82 = load i64, ptr %51, align 8, !tbaa !72
   tail call void %77(ptr noundef %79, ptr noundef %80, i32 noundef %21, i32 noundef %81, i64 noundef %82) #6

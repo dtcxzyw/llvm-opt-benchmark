@@ -1406,13 +1406,13 @@ define internal fastcc i32 @ecc_mulmod(ptr noundef nonnull %0, ptr noundef %1, p
   br i1 %75, label %128, label %.thread261
 
 128:                                              ; preds = %._crit_edge.loopexit, %._crit_edge
-  %.0.lcssa281 = phi i32 [ %127, %._crit_edge.loopexit ], [ 0, %._crit_edge ]
+  %.0.lcssa309 = phi i32 [ %127, %._crit_edge.loopexit ], [ 0, %._crit_edge ]
   %129 = load ptr, ptr %3, align 8, !tbaa !24
   %130 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %131 = load ptr, ptr %130, align 8, !tbaa !24
   %132 = load i16, ptr %5, align 8, !tbaa !21
   %133 = zext i16 %132 to i32
-  %134 = call i32 @sp_cond_swap_ct_ex(ptr noundef %129, ptr noundef %131, i32 noundef %133, i32 noundef %.0.lcssa281, ptr noundef nonnull %9) #19
+  %134 = call i32 @sp_cond_swap_ct_ex(ptr noundef %129, ptr noundef %131, i32 noundef %133, i32 noundef %.0.lcssa309, ptr noundef nonnull %9) #19
   %135 = icmp eq i32 %134, 0
   br i1 %135, label %136, label %.thread261
 
@@ -1423,7 +1423,7 @@ define internal fastcc i32 @ecc_mulmod(ptr noundef nonnull %0, ptr noundef %1, p
   %140 = getelementptr inbounds nuw i8, ptr %139, i64 1040
   %141 = load i16, ptr %5, align 8, !tbaa !21
   %142 = zext i16 %141 to i32
-  %143 = call i32 @sp_cond_swap_ct_ex(ptr noundef nonnull %138, ptr noundef nonnull %140, i32 noundef %142, i32 noundef %.0.lcssa281, ptr noundef nonnull %9) #19
+  %143 = call i32 @sp_cond_swap_ct_ex(ptr noundef nonnull %138, ptr noundef nonnull %140, i32 noundef %142, i32 noundef %.0.lcssa309, ptr noundef nonnull %9) #19
   %144 = icmp eq i32 %143, 0
   br i1 %144, label %145, label %.thread261
 
@@ -1434,7 +1434,7 @@ define internal fastcc i32 @ecc_mulmod(ptr noundef nonnull %0, ptr noundef %1, p
   %149 = getelementptr inbounds nuw i8, ptr %148, i64 2080
   %150 = load i16, ptr %5, align 8, !tbaa !21
   %151 = zext i16 %150 to i32
-  %152 = call i32 @sp_cond_swap_ct_ex(ptr noundef nonnull %147, ptr noundef nonnull %149, i32 noundef %151, i32 noundef %.0.lcssa281, ptr noundef nonnull %9) #19
+  %152 = call i32 @sp_cond_swap_ct_ex(ptr noundef nonnull %147, ptr noundef nonnull %149, i32 noundef %151, i32 noundef %.0.lcssa309, ptr noundef nonnull %9) #19
   %153 = icmp eq i32 %152, 0
   br i1 %153, label %154, label %.thread261
 
@@ -3895,8 +3895,8 @@ define i32 @wc_ecc_sign_hash(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr
   %17 = lshr i32 %15, 2
   %18 = and i32 %17, 1073741808
   %narrow = add nuw nsw i32 %18, 16
-  %narrow99 = select i1 %16, i32 16, i32 %narrow
-  %.ph.ph = zext nneg i32 %narrow99 to i64
+  %narrow114 = select i1 %16, i32 16, i32 %narrow
+  %.ph.ph = zext nneg i32 %narrow114 to i64
   %19 = alloca i8, i64 %.ph.ph, align 16
   %20 = load i32, ptr %10, align 8, !tbaa !20
   %21 = shl nsw i32 %20, 3
@@ -5209,8 +5209,8 @@ define i32 @wc_ecc_verify_hash(ptr noundef %0, i32 noundef %1, ptr noundef %2, i
   %17 = lshr i32 %15, 2
   %18 = and i32 %17, 1073741808
   %narrow = add nuw nsw i32 %18, 16
-  %narrow102 = select i1 %16, i32 16, i32 %narrow
-  %.ph.ph = zext nneg i32 %narrow102 to i64
+  %narrow118 = select i1 %16, i32 16, i32 %narrow
+  %.ph.ph = zext nneg i32 %narrow118 to i64
   %19 = alloca i8, i64 %.ph.ph, align 16
   %20 = load i32, ptr %10, align 8, !tbaa !20
   %21 = shl nsw i32 %20, 3
@@ -5488,9 +5488,9 @@ define internal fastcc i32 @ecc_verify_hash(ptr noundef nonnull %0, ptr noundef 
   %16 = lshr i32 %14, 2
   %17 = and i32 %16, 1073741808
   %narrow = add nuw nsw i32 %17, 16
-  %narrow377 = select i1 %15, i32 16, i32 %narrow
-  %.ph375 = zext nneg i32 %narrow377 to i64
-  %18 = alloca i8, i64 %.ph375, align 16
+  %narrow402 = select i1 %15, i32 16, i32 %narrow
+  %.ph400 = zext nneg i32 %narrow402 to i64
+  %18 = alloca i8, i64 %.ph400, align 16
   %19 = load i32, ptr %9, align 8, !tbaa !20
   %20 = shl nsw i32 %19, 3
   %21 = add i32 %20, 63
@@ -5570,8 +5570,8 @@ define internal fastcc i32 @ecc_verify_hash(ptr noundef nonnull %0, ptr noundef 
   %67 = lshr i32 %65, 2
   %68 = and i32 %67, 1073741808
   %narrow113 = add nuw nsw i32 %68, 16
-  %narrow378 = select i1 %66, i32 16, i32 %narrow113
-  %69 = zext nneg i32 %narrow378 to i64
+  %narrow403 = select i1 %66, i32 16, i32 %narrow113
+  %69 = zext nneg i32 %narrow403 to i64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %39, i8 0, i64 %69, i1 false)
   br i1 %52, label %70, label %wc_ecc_del_point_ex.exit132
 

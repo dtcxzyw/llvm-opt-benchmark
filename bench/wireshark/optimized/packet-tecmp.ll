@@ -2957,21 +2957,21 @@ proto_item_set_hidden.exit468.i:                  ; preds = %935, %932, %proto_i
   %951 = add nuw i32 %.0409486.i, 1
   %952 = load i32, ptr %11, align 4
   %953 = icmp ult i32 %951, %952
-  br i1 %953, label %.lr.ph.i85, label %.critedge.thread510.i, !llvm.loop !14
+  br i1 %953, label %.lr.ph.i85, label %.critedge.thread545.i, !llvm.loop !14
 
 .critedge.i:                                      ; preds = %.lr.ph.i85
   %.not426.i = icmp eq i32 %.0409486.i, 0
-  br i1 %.not426.i, label %.thread.i, label %.critedge.thread510.i
+  br i1 %.not426.i, label %.thread.i, label %.critedge.thread545.i
 
-.critedge.thread510.i:                            ; preds = %950, %.critedge.i
-  %.0409.lcssa513.i = phi i32 [ %.0409486.i, %.critedge.i ], [ %951, %950 ]
+.critedge.thread545.i:                            ; preds = %950, %.critedge.i
+  %.0409.lcssa548.i = phi i32 [ %.0409486.i, %.critedge.i ], [ %951, %950 ]
   %954 = load i32, ptr @hf_tecmp_payload_data_ethernet_raw_preamble, align 4
-  %955 = call ptr @proto_tree_add_item(ptr noundef %946, i32 noundef %954, ptr noundef %505, i32 noundef 0, i32 noundef %.0409.lcssa513.i, i32 noundef 0)
-  %956 = icmp ult i32 %.0409.lcssa513.i, %497
+  %955 = call ptr @proto_tree_add_item(ptr noundef %946, i32 noundef %954, ptr noundef %505, i32 noundef 0, i32 noundef %.0409.lcssa548.i, i32 noundef 0)
+  %956 = icmp ult i32 %.0409.lcssa548.i, %497
   br i1 %956, label %957, label %.thread.i
 
-957:                                              ; preds = %.critedge.thread510.i
-  %958 = call zeroext i8 @tvb_get_uint8(ptr noundef %505, i32 noundef %.0409.lcssa513.i)
+957:                                              ; preds = %.critedge.thread545.i
+  %958 = call zeroext i8 @tvb_get_uint8(ptr noundef %505, i32 noundef %.0409.lcssa548.i)
   %959 = zext i8 %958 to i32
   %960 = call ptr @try_val_to_str(i32 noundef %959, ptr noundef nonnull @tecmp_eth_raw_sfd)
   %.not427.i = icmp eq ptr %960, null
@@ -2979,8 +2979,8 @@ proto_item_set_hidden.exit468.i:                  ; preds = %935, %932, %proto_i
 
 961:                                              ; preds = %957
   %962 = load i32, ptr @hf_tecmp_payload_data_ethernet_raw_sfd, align 4
-  %963 = call ptr @proto_tree_add_item(ptr noundef %946, i32 noundef %962, ptr noundef %505, i32 noundef %.0409.lcssa513.i, i32 noundef 1, i32 noundef 0)
-  %964 = add nuw nsw i32 %.0409.lcssa513.i, 1
+  %963 = call ptr @proto_tree_add_item(ptr noundef %946, i32 noundef %962, ptr noundef %505, i32 noundef %.0409.lcssa548.i, i32 noundef 1, i32 noundef 0)
+  %964 = add nuw nsw i32 %.0409.lcssa548.i, 1
   %965 = icmp ult i32 %964, %497
   br i1 %965, label %966, label %.thread.i
 
@@ -3128,7 +3128,7 @@ proto_item_set_hidden.exit477.i:                  ; preds = %1013, %1009, %1006,
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   br label %.thread.i
 
-.thread.i:                                        ; preds = %843, %1043, %1019, %971, %966, %961, %957, %.critedge.thread510.i, %.critedge.i, %942, %.loopexit.i86, %799, %dissect_data.exit459.i, %775, %771, %761, %685, %682, %677, %674, %672, %590, %560, %ht_interface_config_to_bus_id.exit.i
+.thread.i:                                        ; preds = %843, %1043, %1019, %971, %966, %961, %957, %.critedge.thread545.i, %.critedge.i, %942, %.loopexit.i86, %799, %dissect_data.exit459.i, %775, %771, %761, %685, %682, %677, %674, %672, %590, %560, %ht_interface_config_to_bus_id.exit.i
   %1044 = add i32 %503, %497
   br label %1045
 

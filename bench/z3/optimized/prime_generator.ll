@@ -135,7 +135,7 @@ define hidden void @_ZN15prime_generator22process_next_k_numbersEm(ptr noundef n
 
 _ZNK6vectorImLb0EjE5emptyEv.exit:                 ; preds = %.preheader93, %.critedge
   %41 = phi ptr [ %183, %.critedge ], [ %19, %.preheader93 ]
-  %.058210 = phi i32 [ %.159.lcssa, %.critedge ], [ 1, %.preheader93 ]
+  %.058233 = phi i32 [ %.159.lcssa, %.critedge ], [ 1, %.preheader93 ]
   %42 = getelementptr inbounds i8, ptr %41, i64 -4
   %43 = load i32, ptr %42, align 4, !tbaa !9
   %44 = icmp eq i32 %43, 0
@@ -153,17 +153,17 @@ _ZNK6vectorImLb0EjE5emptyEv.exit:                 ; preds = %.preheader93, %.cri
 
 _ZNK6vectorImLb0EjE4sizeEv.exit:                  ; preds = %45, %48
   %.0.i = phi i32 [ %50, %48 ], [ 0, %45 ]
-  %.not106 = icmp ult i32 %.058210, %.0.i
+  %.not106 = icmp ult i32 %.058233, %.0.i
   br i1 %.not106, label %_ZNK6vectorImLb0EjE4sizeEv.exit67.lr.ph, label %142
 
 _ZNK6vectorImLb0EjE4sizeEv.exit67.lr.ph:          ; preds = %_ZNK6vectorImLb0EjE4sizeEv.exit
-  %51 = add nuw i32 %.058210, 1
+  %51 = add nuw i32 %.058233, 1
   %umax = call i32 @llvm.umax.i32(i32 %.0.i, i32 %51)
   br label %.lr.ph105.preheader
 
 .lr.ph105.preheader:                              ; preds = %140, %_ZNK6vectorImLb0EjE4sizeEv.exit67.lr.ph
   %52 = phi i32 [ %43, %_ZNK6vectorImLb0EjE4sizeEv.exit67.lr.ph ], [ %.152, %140 ]
-  %.159107 = phi i32 [ %.058210, %_ZNK6vectorImLb0EjE4sizeEv.exit67.lr.ph ], [ %141, %140 ]
+  %.159107 = phi i32 [ %.058233, %_ZNK6vectorImLb0EjE4sizeEv.exit67.lr.ph ], [ %141, %140 ]
   %53 = zext i32 %.159107 to i64
   %54 = getelementptr inbounds nuw i64, ptr %46, i64 %53
   %55 = load i64, ptr %54, align 8, !tbaa !11
@@ -381,7 +381,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread.i: ; preds
 
 142:                                              ; preds = %._crit_edge, %_ZNK6vectorImLb0EjE4sizeEv.exit
   %143 = phi i32 [ %.152, %._crit_edge ], [ %43, %_ZNK6vectorImLb0EjE4sizeEv.exit ]
-  %.159.lcssa = phi i32 [ %umax, %._crit_edge ], [ %.058210, %_ZNK6vectorImLb0EjE4sizeEv.exit ]
+  %.159.lcssa = phi i32 [ %umax, %._crit_edge ], [ %.058233, %_ZNK6vectorImLb0EjE4sizeEv.exit ]
   br i1 %47, label %.lr.ph114.preheader, label %144
 
 144:                                              ; preds = %142
@@ -475,10 +475,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread.i: ; preds
   br i1 %.not.i82, label %.critedge, label %._crit_edge123.thread
 
 ._crit_edge123.thread:                            ; preds = %178, %._crit_edge115, %._crit_edge123
-  %.0.lcssa168 = phi i32 [ 0, %._crit_edge123 ], [ 0, %._crit_edge115 ], [ %177, %178 ]
-  %.pre156.pre163167 = phi ptr [ %.pre156.pre.pre, %._crit_edge123 ], [ %153, %._crit_edge115 ], [ %153, %178 ]
-  %182 = getelementptr inbounds i8, ptr %.pre156.pre163167, i64 -4
-  store i32 %.0.lcssa168, ptr %182, align 4, !tbaa !9
+  %.0.lcssa191 = phi i32 [ 0, %._crit_edge123 ], [ 0, %._crit_edge115 ], [ %177, %178 ]
+  %.pre156.pre186190 = phi ptr [ %.pre156.pre.pre, %._crit_edge123 ], [ %153, %._crit_edge115 ], [ %153, %178 ]
+  %182 = getelementptr inbounds i8, ptr %.pre156.pre186190, i64 -4
+  store i32 %.0.lcssa191, ptr %182, align 4, !tbaa !9
   br label %.critedge
 
 .critedge.loopexit92:                             ; preds = %_ZN6vectorImLb0EjE6shrinkEj.exit
@@ -496,8 +496,8 @@ split:                                            ; preds = %130, %.critedge.loo
   br i1 %.not.i.i, label %_ZN6vectorImLb0EjED2Ev.exit, label %split.thread
 
 split.thread:                                     ; preds = %_ZNK6vectorImLb0EjE5emptyEv.exit, %split
-  %.pr173 = phi ptr [ %.pr.pre, %split ], [ %41, %_ZNK6vectorImLb0EjE5emptyEv.exit ]
-  %185 = getelementptr inbounds i8, ptr %.pr173, i64 -8
+  %.pr196 = phi ptr [ %.pr.pre, %split ], [ %41, %_ZNK6vectorImLb0EjE5emptyEv.exit ]
+  %185 = getelementptr inbounds i8, ptr %.pr196, i64 -8
   invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %185)
           to label %_ZN6vectorImLb0EjED2Ev.exit unwind label %186
 

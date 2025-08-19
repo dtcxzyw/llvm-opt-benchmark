@@ -330,10 +330,10 @@ Abc_StringGetNumber.exit.loopexit:                ; preds = %.lr.ph.i
   br label %Abc_StringGetNumber.exit
 
 Abc_StringGetNumber.exit:                         ; preds = %Abc_StringGetNumber.exit.loopexit, %29
-  %.not383 = phi i1 [ false, %29 ], [ %45, %Abc_StringGetNumber.exit.loopexit ]
+  %.not395 = phi i1 [ false, %29 ], [ %45, %Abc_StringGetNumber.exit.loopexit ]
   %.0122 = phi i64 [ 0, %29 ], [ %44, %Abc_StringGetNumber.exit.loopexit ]
   %46 = icmp ne i32 %9, 2
-  %brmerge = or i1 %46, %.not383
+  %brmerge = or i1 %46, %.not395
   br i1 %brmerge, label %.thread, label %47
 
 47:                                               ; preds = %Abc_StringGetNumber.exit
@@ -349,9 +349,9 @@ Abc_StringGetNumber.exit:                         ; preds = %Abc_StringGetNumber
   br label %57
 
 .thread:                                          ; preds = %Abc_StringGetNumber.exit, %34
-  %.0122357 = phi i64 [ %.0122, %Abc_StringGetNumber.exit ], [ 0, %34 ]
+  %.0122369 = phi i64 [ %.0122, %Abc_StringGetNumber.exit ], [ 0, %34 ]
   %55 = tail call ptr @Abc_AigConst1(ptr noundef %0) #15
-  %56 = getelementptr inbounds ptr, ptr %12, i64 %.0122357
+  %56 = getelementptr inbounds ptr, ptr %12, i64 %.0122369
   store ptr %55, ptr %56, align 8, !tbaa !45
   br label %57
 
@@ -1138,14 +1138,14 @@ define ptr @Abc_NtkStrashBlifMv(ptr noundef %0) local_unnamed_addr #0 {
   %27 = add i32 %.1402, -1
   %28 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %27, i1 true)
   %29 = sub nuw nsw i32 32, %28
-  %spec.select820 = select i1 %26, i32 %.1402, i32 %29
-  %30 = sext i32 %spec.select820 to i64
+  %spec.select856 = select i1 %26, i32 %.1402, i32 %29
+  %30 = sext i32 %spec.select856 to i64
   %31 = shl nsw i64 %30, 3
   %32 = icmp eq i32 %.1402, 2
   br label %.critedge.thread
 
 .critedge.thread:                                 ; preds = %.critedge, %1
-  %.0401.lcssa803 = phi i1 [ true, %1 ], [ %32, %.critedge ]
+  %.0401.lcssa839 = phi i1 [ true, %1 ], [ %32, %.critedge ]
   %33 = phi i64 [ 8, %1 ], [ %31, %.critedge ]
   %34 = tail call noalias ptr @malloc(i64 noundef %33) #17
   tail call void @Abc_NtkCleanCopy(ptr noundef nonnull %0) #15
@@ -1258,7 +1258,7 @@ Abc_NtkIncrementTravId.exit:                      ; preds = %.critedge.thread, %
 
 .lr.ph558:                                        ; preds = %72
   %wide.trip.count696 = zext nneg i32 %.09.i493 to i64
-  br i1 %.0401.lcssa803, label %.lr.ph558.split.us, label %.lr.ph558.split
+  br i1 %.0401.lcssa839, label %.lr.ph558.split.us, label %.lr.ph558.split
 
 .lr.ph558.split.us:                               ; preds = %.lr.ph558, %.lr.ph558.split.us
   %indvars.iv693 = phi i64 [ %indvars.iv.next694, %.lr.ph558.split.us ], [ 0, %.lr.ph558 ]
@@ -1496,7 +1496,7 @@ Abc_NodeSetTravIdCurrent.exit:                    ; preds = %._crit_edge563.spli
 
 .lr.ph572:                                        ; preds = %176
   %wide.trip.count719 = zext nneg i32 %.09.i495 to i64
-  br i1 %.0401.lcssa803, label %.lr.ph572.split.us, label %.lr.ph572.split
+  br i1 %.0401.lcssa839, label %.lr.ph572.split.us, label %.lr.ph572.split
 
 .lr.ph572.split.us:                               ; preds = %.lr.ph572, %.lr.ph572.split.us
   %indvars.iv716 = phi i64 [ %indvars.iv.next717, %.lr.ph572.split.us ], [ 0, %.lr.ph572 ]
@@ -1774,12 +1774,12 @@ Vec_PtrFree.exit:                                 ; preds = %.critedge10, %280
   %305 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %304, i1 true)
   %306 = sub nuw nsw i32 32, %305
   %.09.i512 = select i1 %303, i32 %.fr, i32 %306
-  %.not799 = icmp eq i32 %.09.i512, 0
-  br i1 %.not799, label %.loopexit550, label %.lr.ph600
+  %.not835 = icmp eq i32 %.09.i512, 0
+  br i1 %.not835, label %.loopexit550, label %.lr.ph600
 
 .lr.ph600:                                        ; preds = %293
   %307 = icmp sgt i32 %.fr, 0
-  br i1 %.0401.lcssa803, label %.lr.ph600.split.us.preheader, label %.lr.ph600.split
+  br i1 %.0401.lcssa839, label %.lr.ph600.split.us.preheader, label %.lr.ph600.split
 
 .lr.ph600.split.us.preheader:                     ; preds = %.lr.ph600
   %wide.trip.count748 = zext nneg i32 %.fr to i64
@@ -1937,12 +1937,12 @@ Vec_PtrFree.exit:                                 ; preds = %.critedge10, %280
   %375 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %374, i1 true)
   %376 = sub nuw nsw i32 32, %375
   %.09.i513 = select i1 %373, i32 %.fr676, i32 %376
-  %.not800 = icmp eq i32 %.09.i513, 0
-  br i1 %.not800, label %.critedge16, label %.lr.ph625
+  %.not836 = icmp eq i32 %.09.i513, 0
+  br i1 %.not836, label %.critedge16, label %.lr.ph625
 
 .lr.ph625:                                        ; preds = %363
   %377 = icmp sgt i32 %.fr676, 0
-  br i1 %.0401.lcssa803, label %.lr.ph625.split.us.preheader, label %.lr.ph625.split
+  br i1 %.0401.lcssa839, label %.lr.ph625.split.us.preheader, label %.lr.ph625.split
 
 .lr.ph625.split.us.preheader:                     ; preds = %.lr.ph625
   %wide.trip.count764 = zext nneg i32 %.fr676 to i64
@@ -3847,24 +3847,24 @@ default.unreachable:                              ; preds = %52
   switch i32 %55, label %default.unreachable [
     i32 1, label %57
     i32 2, label %56
-    i32 0, label %.sink.split126
+    i32 0, label %.sink.split128
     i32 3, label %59
   ]
 
 56:                                               ; preds = %52
-  br label %.sink.split126
+  br label %.sink.split128
 
 57:                                               ; preds = %52
-  br label %.sink.split126
+  br label %.sink.split128
 
-.sink.split126:                                   ; preds = %52, %56, %57
-  %.sink127 = phi i8 [ 48, %57 ], [ 49, %56 ], [ 45, %52 ]
+.sink.split128:                                   ; preds = %52, %56, %57
+  %.sink129 = phi i8 [ 48, %57 ], [ 49, %56 ], [ 45, %52 ]
   %58 = getelementptr inbounds nuw i8, ptr %.491.us, i64 1
-  store i8 %.sink127, ptr %.491.us, align 1, !tbaa !48
+  store i8 %.sink129, ptr %.491.us, align 1, !tbaa !48
   br label %59
 
-59:                                               ; preds = %.sink.split126, %52
-  %.5.us = phi ptr [ %.491.us, %52 ], [ %58, %.sink.split126 ]
+59:                                               ; preds = %.sink.split128, %52
+  %.5.us = phi ptr [ %.491.us, %52 ], [ %58, %.sink.split128 ]
   %60 = add nuw nsw i32 %.292.us, 1
   %exitcond112.not = icmp eq i32 %60, %0
   br i1 %exitcond112.not, label %._crit_edge.us99, label %52, !llvm.loop !121

@@ -733,14 +733,14 @@ Vec_IntAlloc.exit:                                ; preds = %1, %6
   br label %Vec_IntPush.exit.sink.split
 
 Vec_IntPush.exit.sink.split:                      ; preds = %41, %43, %33, %35
-  %.sink19 = phi ptr [ %34, %33 ], [ %36, %35 ], [ %42, %41 ], [ %44, %43 ]
+  %.sink20 = phi ptr [ %34, %33 ], [ %36, %35 ], [ %42, %41 ], [ %44, %43 ]
   %.sink = phi i32 [ 16, %33 ], [ 16, %35 ], [ %38, %41 ], [ %38, %43 ]
-  store ptr %.sink19, ptr %11, align 8, !tbaa !46
+  store ptr %.sink20, ptr %11, align 8, !tbaa !46
   store i32 %.sink, ptr %3, align 8, !tbaa !45
   br label %Vec_IntPush.exit
 
 Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.sink.split, %23
-  %.pre.i18 = phi ptr [ %17, %23 ], [ %.sink19, %Vec_IntPush.exit.sink.split ]
+  %.pre.i18 = phi ptr [ %17, %23 ], [ %.sink20, %Vec_IntPush.exit.sink.split ]
   %45 = add nsw i32 %27, 1
   store i32 %45, ptr %5, align 4, !tbaa !44
   %46 = sext i32 %27 to i64
@@ -2325,16 +2325,16 @@ define noundef ptr @Abc_NtkCRetime(ptr noundef %0, i32 noundef %1) local_unnamed
   br label %Vec_IntPush.exit.sink.split
 
 Vec_IntPush.exit.sink.split:                      ; preds = %59, %61, %51, %53
-  %.sink185 = phi ptr [ %52, %51 ], [ %54, %53 ], [ %60, %59 ], [ %62, %61 ]
+  %.sink205 = phi ptr [ %52, %51 ], [ %54, %53 ], [ %60, %59 ], [ %62, %61 ]
   %.sink = phi i32 [ 16, %51 ], [ 16, %53 ], [ %56, %59 ], [ %56, %61 ]
-  store ptr %.sink185, ptr %12, align 8, !tbaa !46
+  store ptr %.sink205, ptr %12, align 8, !tbaa !46
   store i32 %.sink, ptr %9, align 8, !tbaa !45
   br label %Vec_IntPush.exit
 
 Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.sink.split, %44
-  %.pre.i118170 = phi ptr [ %17, %44 ], [ %.sink185, %Vec_IntPush.exit.sink.split ]
-  %.pre.i111158 = phi ptr [ %18, %44 ], [ %.sink185, %Vec_IntPush.exit.sink.split ]
-  %.pre.i155 = phi ptr [ %19, %44 ], [ %.sink185, %Vec_IntPush.exit.sink.split ]
+  %.pre.i118170 = phi ptr [ %17, %44 ], [ %.sink205, %Vec_IntPush.exit.sink.split ]
+  %.pre.i111158 = phi ptr [ %18, %44 ], [ %.sink205, %Vec_IntPush.exit.sink.split ]
+  %.pre.i155 = phi ptr [ %19, %44 ], [ %.sink205, %Vec_IntPush.exit.sink.split ]
   %63 = load i32, ptr %10, align 4, !tbaa !44
   %64 = add nsw i32 %63, 1
   store i32 %64, ptr %10, align 4, !tbaa !44
@@ -2407,15 +2407,15 @@ Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.si
   br label %Vec_IntPush.exit115.sink.split
 
 Vec_IntPush.exit115.sink.split:                   ; preds = %98, %100, %90, %92
-  %.sink187 = phi ptr [ %91, %90 ], [ %93, %92 ], [ %99, %98 ], [ %101, %100 ]
-  %.sink186 = phi i32 [ 16, %90 ], [ 16, %92 ], [ %95, %98 ], [ %95, %100 ]
-  store ptr %.sink187, ptr %12, align 8, !tbaa !46
-  store i32 %.sink186, ptr %9, align 8, !tbaa !45
+  %.sink207 = phi ptr [ %91, %90 ], [ %93, %92 ], [ %99, %98 ], [ %101, %100 ]
+  %.sink206 = phi i32 [ 16, %90 ], [ 16, %92 ], [ %95, %98 ], [ %95, %100 ]
+  store ptr %.sink207, ptr %12, align 8, !tbaa !46
+  store i32 %.sink206, ptr %9, align 8, !tbaa !45
   br label %Vec_IntPush.exit115
 
 Vec_IntPush.exit115:                              ; preds = %Vec_IntPush.exit115.sink.split, %83
-  %.pre.i118171 = phi ptr [ %17, %83 ], [ %.sink187, %Vec_IntPush.exit115.sink.split ]
-  %.pre.i111159 = phi ptr [ %18, %83 ], [ %.sink187, %Vec_IntPush.exit115.sink.split ]
+  %.pre.i118171 = phi ptr [ %17, %83 ], [ %.sink207, %Vec_IntPush.exit115.sink.split ]
+  %.pre.i111159 = phi ptr [ %18, %83 ], [ %.sink207, %Vec_IntPush.exit115.sink.split ]
   %102 = load i32, ptr %10, align 4, !tbaa !44
   %103 = add nsw i32 %102, 1
   store i32 %103, ptr %10, align 4, !tbaa !44
@@ -2463,14 +2463,14 @@ Vec_IntPush.exit115:                              ; preds = %Vec_IntPush.exit115
   br label %Vec_IntPush.exit122.sink.split
 
 Vec_IntPush.exit122.sink.split:                   ; preds = %122, %124, %114, %116
-  %.sink189 = phi ptr [ %115, %114 ], [ %117, %116 ], [ %123, %122 ], [ %125, %124 ]
-  %.sink188 = phi i32 [ 16, %114 ], [ 16, %116 ], [ %119, %122 ], [ %119, %124 ]
-  store ptr %.sink189, ptr %12, align 8, !tbaa !46
-  store i32 %.sink188, ptr %9, align 8, !tbaa !45
+  %.sink209 = phi ptr [ %115, %114 ], [ %117, %116 ], [ %123, %122 ], [ %125, %124 ]
+  %.sink208 = phi i32 [ 16, %114 ], [ 16, %116 ], [ %119, %122 ], [ %119, %124 ]
+  store ptr %.sink209, ptr %12, align 8, !tbaa !46
+  store i32 %.sink208, ptr %9, align 8, !tbaa !45
   br label %Vec_IntPush.exit122
 
 Vec_IntPush.exit122:                              ; preds = %Vec_IntPush.exit122.sink.split, %107
-  %.pre.i118172 = phi ptr [ %17, %107 ], [ %.sink189, %Vec_IntPush.exit122.sink.split ]
+  %.pre.i118172 = phi ptr [ %17, %107 ], [ %.sink209, %Vec_IntPush.exit122.sink.split ]
   %126 = load i32, ptr %10, align 4, !tbaa !44
   %127 = add nsw i32 %126, 1
   store i32 %127, ptr %10, align 4, !tbaa !44
@@ -2721,16 +2721,16 @@ Vec_IntPush.exit135:                              ; preds = %.Vec_IntGrow.exit10
   br label %.critedge.thread
 
 .critedge.thread:                                 ; preds = %2, %224, %.critedge
-  %.0.lcssa183 = phi i32 [ %.1, %224 ], [ %.1, %.critedge ], [ 0, %2 ]
-  %.067.lcssa182 = phi i32 [ %.168, %224 ], [ 0, %.critedge ], [ 0, %2 ]
-  %.069.lcssa181 = phi i32 [ %.170, %224 ], [ %.170, %.critedge ], [ 0, %2 ]
-  %.071.lcssa180 = phi i32 [ %.172, %224 ], [ %.172, %.critedge ], [ 0, %2 ]
+  %.0.lcssa203 = phi i32 [ %.1, %224 ], [ %.1, %.critedge ], [ 0, %2 ]
+  %.067.lcssa202 = phi i32 [ %.168, %224 ], [ 0, %.critedge ], [ 0, %2 ]
+  %.069.lcssa201 = phi i32 [ %.170, %224 ], [ %.170, %.critedge ], [ 0, %2 ]
+  %.071.lcssa200 = phi i32 [ %.172, %224 ], [ %.172, %.critedge ], [ 0, %2 ]
   %.not76 = icmp eq i32 %1, 0
   %.val91.pre = load i32, ptr %6, align 4, !tbaa !33
   br i1 %.not76, label %229, label %227
 
 227:                                              ; preds = %.critedge.thread
-  %228 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.11, i32 noundef %.071.lcssa180, i32 noundef %.069.lcssa181, i32 noundef %.067.lcssa182, i32 noundef %.0.lcssa183, i32 noundef %.val91.pre)
+  %228 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.11, i32 noundef %.071.lcssa200, i32 noundef %.069.lcssa201, i32 noundef %.067.lcssa202, i32 noundef %.0.lcssa203, i32 noundef %.val91.pre)
   br label %229
 
 229:                                              ; preds = %227, %.critedge.thread

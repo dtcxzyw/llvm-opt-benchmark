@@ -2518,7 +2518,7 @@ define noundef i32 @_Z32computeGlobalCommunicationPeriodPK10t_inputrec(ptr nound
   br i1 %4, label %8, label %12
 
 8:                                                ; preds = %1
-  br i1 %7, label %9, label %.thread14
+  br i1 %7, label %9, label %.thread16
 
 9:                                                ; preds = %8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 204
@@ -2527,15 +2527,15 @@ define noundef i32 @_Z32computeGlobalCommunicationPeriodPK10t_inputrec(ptr nound
   br i1 %.not, label %.thread, label %27
 
 12:                                               ; preds = %1
-  br i1 %7, label %.thread, label %.thread14
+  br i1 %7, label %.thread, label %.thread16
 
-.thread14:                                        ; preds = %8, %12
+.thread16:                                        ; preds = %8, %12
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 196
   %14 = load i32, ptr %13, align 4, !tbaa !397
   br label %.thread
 
-.thread:                                          ; preds = %9, %12, %.thread14
-  %15 = phi i32 [ %14, %.thread14 ], [ 0, %12 ], [ 0, %9 ]
+.thread:                                          ; preds = %9, %12, %.thread16
+  %15 = phi i32 [ %14, %.thread16 ], [ 0, %12 ], [ 0, %9 ]
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 204
   %17 = load i32, ptr %16, align 4, !tbaa !396
   %.not12 = icmp eq i32 %17, 0
@@ -2834,7 +2834,7 @@ define noundef i32 @_Z32computeGlobalCommunicationPeriodRKN3gmx8MDLoggerEPK10t_i
   br i1 %7, label %11, label %15
 
 11:                                               ; preds = %3
-  br i1 %10, label %12, label %.thread14.i
+  br i1 %10, label %12, label %.thread16.i
 
 12:                                               ; preds = %11
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 204
@@ -2843,15 +2843,15 @@ define noundef i32 @_Z32computeGlobalCommunicationPeriodRKN3gmx8MDLoggerEPK10t_i
   br i1 %.not.i, label %.thread.i, label %_Z32computeGlobalCommunicationPeriodPK10t_inputrec.exit
 
 15:                                               ; preds = %3
-  br i1 %10, label %.thread.i, label %.thread14.i
+  br i1 %10, label %.thread.i, label %.thread16.i
 
-.thread14.i:                                      ; preds = %15, %11
+.thread16.i:                                      ; preds = %15, %11
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 196
   %17 = load i32, ptr %16, align 4, !tbaa !397
   br label %.thread.i
 
-.thread.i:                                        ; preds = %.thread14.i, %15, %12
-  %18 = phi i32 [ %17, %.thread14.i ], [ 0, %15 ], [ 0, %12 ]
+.thread.i:                                        ; preds = %.thread16.i, %15, %12
+  %18 = phi i32 [ %17, %.thread16.i ], [ 0, %15 ], [ 0, %12 ]
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 204
   %20 = load i32, ptr %19, align 4, !tbaa !396
   %.not12.i = icmp eq i32 %20, 0

@@ -365,11 +365,11 @@ define internal i32 @dissect_hsms_message(ptr noundef %0, ptr noundef %1, ptr no
 
 77:                                               ; preds = %72, %62
   %hf_hsms_header_statusbyte2.sink = phi ptr [ @hf_hsms_header_statusbyte2, %72 ], [ @hf_hsms_header_stream, %62 ]
-  %.sink98 = phi ptr [ %74, %72 ], [ %69, %62 ]
+  %.sink99 = phi ptr [ %74, %72 ], [ %69, %62 ]
   %hf_hsms_header_statusbyte3.sink = phi ptr [ @hf_hsms_header_statusbyte3, %72 ], [ @hf_hsms_header_function, %62 ]
   %.sink = phi ptr [ %74, %72 ], [ %64, %62 ]
   %78 = load i32, ptr %hf_hsms_header_statusbyte2.sink, align 4
-  %79 = call ptr @proto_tree_add_item(ptr noundef %.sink98, i32 noundef %78, ptr noundef %0, i32 noundef 6, i32 noundef 1, i32 noundef 0)
+  %79 = call ptr @proto_tree_add_item(ptr noundef %.sink99, i32 noundef %78, ptr noundef %0, i32 noundef 6, i32 noundef 1, i32 noundef 0)
   %80 = load i32, ptr %hf_hsms_header_statusbyte3.sink, align 4
   %81 = call ptr @proto_tree_add_item(ptr noundef %.sink, i32 noundef %80, ptr noundef %0, i32 noundef 7, i32 noundef 1, i32 noundef 0)
   %82 = load i32, ptr @hf_hsms_header_ptype, align 4
@@ -626,10 +626,10 @@ default.unreachable:                              ; preds = %4
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !6
 
 .loopexit.sink.split:                             ; preds = %39, %65
-  %.sink18 = phi ptr [ inttoptr (i64 16 to ptr), %65 ], [ inttoptr (i64 8 to ptr), %39 ]
+  %.sink21 = phi ptr [ inttoptr (i64 16 to ptr), %65 ], [ inttoptr (i64 8 to ptr), %39 ]
   %hf_hsms_data_item_value_string.sink = phi ptr [ @hf_hsms_data_item_value_string, %65 ], [ @hf_hsms_data_item_value_binary, %39 ]
   %87 = load ptr, ptr @value_lengths, align 8
-  %88 = call ptr @wmem_map_lookup(ptr noundef %87, ptr noundef nonnull %.sink18)
+  %88 = call ptr @wmem_map_lookup(ptr noundef %87, ptr noundef nonnull %.sink21)
   %89 = ptrtoint ptr %88 to i64
   %90 = trunc i64 %89 to i32
   %91 = mul i32 %.1144, %90

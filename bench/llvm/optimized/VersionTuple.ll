@@ -340,9 +340,9 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.i10:    ; preds = %72
   br label %_ZL8parseIntRN4llvm9StringRefERj.exit.sink.split
 
 _ZL8parseIntRN4llvm9StringRefERj.exit.sink.split: ; preds = %.thread, %.thread42, %75, %92
-  %.sink108 = phi i64 [ %100, %92 ], [ %82, %75 ], [ %66, %.thread42 ], [ %32, %.thread ]
+  %.sink114 = phi i64 [ %100, %92 ], [ %82, %75 ], [ %66, %.thread42 ], [ %32, %.thread ]
   %.sink = phi i64 [ %105, %92 ], [ %84, %75 ], [ 0, %.thread42 ], [ 0, %.thread ]
-  store i64 %.sink108, ptr %0, align 4, !tbaa !12
+  store i64 %.sink114, ptr %0, align 4, !tbaa !12
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sink, ptr %.sroa.4.0..sroa_idx, align 4, !tbaa !12
   br label %_ZL8parseIntRN4llvm9StringRefERj.exit

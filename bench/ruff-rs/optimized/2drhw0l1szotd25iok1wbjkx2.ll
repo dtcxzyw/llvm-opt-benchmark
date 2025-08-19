@@ -24815,10 +24815,10 @@ define hidden void @"_ZN78_$LT$ruff_workspace..options..ModuleName$u20$as$u20$se
   br label %.invoke
 
 .invoke:                                          ; preds = %35, %18
-  %.sink49 = phi ptr [ %36, %35 ], [ %19, %18 ]
+  %.sink51 = phi ptr [ %36, %35 ], [ %19, %18 ]
   %.sink = phi i64 [ %37, %35 ], [ 0, %18 ]
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr %.sink49, ptr %20, align 8
+  store ptr %.sink51, ptr %20, align 8
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i64 %.sink, ptr %21, align 8
   store i8 5, ptr %3, align 8
@@ -24960,10 +24960,10 @@ define hidden void @"_ZN78_$LT$ruff_workspace..options..ModuleName$u20$as$u20$se
   br label %.invoke
 
 .invoke:                                          ; preds = %35, %18
-  %.sink49 = phi ptr [ %36, %35 ], [ %19, %18 ]
+  %.sink51 = phi ptr [ %36, %35 ], [ %19, %18 ]
   %.sink = phi i64 [ %37, %35 ], [ 0, %18 ]
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr %.sink49, ptr %20, align 8
+  store ptr %.sink51, ptr %20, align 8
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i64 %.sink, ptr %21, align 8
   store i8 5, ptr %3, align 8

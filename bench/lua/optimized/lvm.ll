@@ -217,8 +217,8 @@ l_strton.exit:                                    ; preds = %14, %17
   %cond.fr = freeze i1 %25
   %.sroa.gep4 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %.ph = select i1 %cond.fr, ptr %0, ptr %4
-  %.ph15 = select i1 %cond.fr, ptr %5, ptr %.sroa.gep4
-  %.pr = load i8, ptr %.ph15, align 8, !tbaa !4
+  %.ph16 = select i1 %cond.fr, ptr %5, ptr %.sroa.gep4
+  %.pr = load i8, ptr %.ph16, align 8, !tbaa !4
   br label %26
 
 26:                                               ; preds = %l_strton.exit, %3
@@ -2589,9 +2589,9 @@ luaV_finishget.exit2595:                          ; preds = %395, %.thread.i2587
   %437 = load i8, ptr %436, align 1, !tbaa !8
   %438 = and i8 %437, 15
   %439 = icmp eq i8 %438, 0
-  br i1 %439, label %.thread2869, label %.thread3489
+  br i1 %439, label %.thread2869, label %.thread3587
 
-.thread3489:                                      ; preds = %432
+.thread3587:                                      ; preds = %432
   %440 = getelementptr inbounds nuw i8, ptr %415, i64 8
   store i8 %437, ptr %440, align 8, !tbaa !8
   %441 = load ptr, ptr %433, align 8, !tbaa !64
@@ -2705,8 +2705,8 @@ luaV_finishget.exit2608:                          ; preds = %483, %.thread.i2600
   %491 = load volatile i32, ptr %37, align 8, !tbaa !8
   br label %492
 
-492:                                              ; preds = %.thread3489, %luaV_finishget.exit2608, %446
-  %.192243 = phi i32 [ %491, %luaV_finishget.exit2608 ], [ %.32227, %446 ], [ %.32227, %.thread3489 ]
+492:                                              ; preds = %.thread3587, %luaV_finishget.exit2608, %446
+  %.192243 = phi i32 [ %491, %luaV_finishget.exit2608 ], [ %.32227, %446 ], [ %.32227, %.thread3587 ]
   %.not2561 = icmp eq i32 %.192243, 0
   br i1 %.not2561, label %497, label %493, !prof !44
 
@@ -3548,9 +3548,9 @@ luaV_finishget.exit2634:                          ; preds = %931, %.thread.i2626
   br label %.sink.split
 
 .sink.split:                                      ; preds = %960, %965
-  %storemerge3715 = phi double [ %968, %965 ], [ %964, %960 ]
+  %storemerge3813 = phi double [ %968, %965 ], [ %964, %960 ]
   %.12182.ph = getelementptr inbounds nuw i8, ptr %.02181, i64 4
-  store double %storemerge3715, ptr %951, align 8, !tbaa !8
+  store double %storemerge3813, ptr %951, align 8, !tbaa !8
   %969 = getelementptr inbounds nuw i8, ptr %951, i64 8
   store i8 %959, ptr %969, align 8, !tbaa !4
   br label %970
@@ -3602,7 +3602,7 @@ luaV_finishget.exit2634:                          ; preds = %931, %.thread.i2626
   %997 = load i64, ptr %984, align 8, !tbaa !8
   %998 = add i64 %997, %995
   %999 = bitcast i64 %998 to double
-  br label %.sink.split3674
+  br label %.sink.split3772
 
 1000:                                             ; preds = %977
   %1001 = load double, ptr %981, align 8, !tbaa !8
@@ -3634,19 +3634,19 @@ luaV_finishget.exit2634:                          ; preds = %931, %.thread.i2626
 1010:                                             ; preds = %1005, %1007
   %.02321 = phi double [ %1006, %1005 ], [ %1009, %1007 ]
   %1011 = fadd double %.02320, %.02321
-  br label %.sink.split3674
+  br label %.sink.split3772
 
-.sink.split3674:                                  ; preds = %996, %1010
-  %storemerge3714 = phi double [ %1011, %1010 ], [ %999, %996 ]
-  %.sink3675 = phi i8 [ 19, %1010 ], [ 3, %996 ]
+.sink.split3772:                                  ; preds = %996, %1010
+  %storemerge3812 = phi double [ %1011, %1010 ], [ %999, %996 ]
+  %.sink3773 = phi i8 [ 19, %1010 ], [ 3, %996 ]
   %.22183.ph = getelementptr inbounds nuw i8, ptr %.02181, i64 4
-  store double %storemerge3714, ptr %988, align 8, !tbaa !8
+  store double %storemerge3812, ptr %988, align 8, !tbaa !8
   %1012 = getelementptr inbounds nuw i8, ptr %988, i64 8
-  store i8 %.sink3675, ptr %1012, align 8, !tbaa !4
+  store i8 %.sink3773, ptr %1012, align 8, !tbaa !4
   br label %1013
 
-1013:                                             ; preds = %.sink.split3674, %977, %1003
-  %.22183 = phi ptr [ %.02181, %1003 ], [ %.02181, %977 ], [ %.22183.ph, %.sink.split3674 ]
+1013:                                             ; preds = %.sink.split3772, %977, %1003
+  %.22183 = phi ptr [ %.02181, %1003 ], [ %.02181, %977 ], [ %.22183.ph, %.sink.split3772 ]
   %.not2532 = icmp eq i32 %.32227, 0
   br i1 %.not2532, label %1018, label %1014, !prof !44
 
@@ -3692,7 +3692,7 @@ luaV_finishget.exit2634:                          ; preds = %931, %.thread.i2626
   %1040 = load i64, ptr %1027, align 8, !tbaa !8
   %1041 = sub i64 %1038, %1040
   %1042 = bitcast i64 %1041 to double
-  br label %.sink.split3677
+  br label %.sink.split3775
 
 1043:                                             ; preds = %1020
   %1044 = load double, ptr %1024, align 8, !tbaa !8
@@ -3724,19 +3724,19 @@ luaV_finishget.exit2634:                          ; preds = %931, %.thread.i2626
 1053:                                             ; preds = %1048, %1050
   %.02323 = phi double [ %1049, %1048 ], [ %1052, %1050 ]
   %1054 = fsub double %.02322, %.02323
-  br label %.sink.split3677
+  br label %.sink.split3775
 
-.sink.split3677:                                  ; preds = %1039, %1053
-  %storemerge3713 = phi double [ %1054, %1053 ], [ %1042, %1039 ]
-  %.sink3678 = phi i8 [ 19, %1053 ], [ 3, %1039 ]
+.sink.split3775:                                  ; preds = %1039, %1053
+  %storemerge3811 = phi double [ %1054, %1053 ], [ %1042, %1039 ]
+  %.sink3776 = phi i8 [ 19, %1053 ], [ 3, %1039 ]
   %.32184.ph = getelementptr inbounds nuw i8, ptr %.02181, i64 4
-  store double %storemerge3713, ptr %1031, align 8, !tbaa !8
+  store double %storemerge3811, ptr %1031, align 8, !tbaa !8
   %1055 = getelementptr inbounds nuw i8, ptr %1031, i64 8
-  store i8 %.sink3678, ptr %1055, align 8, !tbaa !4
+  store i8 %.sink3776, ptr %1055, align 8, !tbaa !4
   br label %1056
 
-1056:                                             ; preds = %.sink.split3677, %1020, %1046
-  %.32184 = phi ptr [ %.02181, %1046 ], [ %.02181, %1020 ], [ %.32184.ph, %.sink.split3677 ]
+1056:                                             ; preds = %.sink.split3775, %1020, %1046
+  %.32184 = phi ptr [ %.02181, %1046 ], [ %.02181, %1020 ], [ %.32184.ph, %.sink.split3775 ]
   %.not2531 = icmp eq i32 %.32227, 0
   br i1 %.not2531, label %1061, label %1057, !prof !44
 
@@ -3782,7 +3782,7 @@ luaV_finishget.exit2634:                          ; preds = %931, %.thread.i2626
   %1083 = load i64, ptr %1070, align 8, !tbaa !8
   %1084 = mul i64 %1083, %1081
   %1085 = bitcast i64 %1084 to double
-  br label %.sink.split3680
+  br label %.sink.split3778
 
 1086:                                             ; preds = %1063
   %1087 = load double, ptr %1067, align 8, !tbaa !8
@@ -3814,19 +3814,19 @@ luaV_finishget.exit2634:                          ; preds = %931, %.thread.i2626
 1096:                                             ; preds = %1091, %1093
   %.02325 = phi double [ %1092, %1091 ], [ %1095, %1093 ]
   %1097 = fmul double %.02324, %.02325
-  br label %.sink.split3680
+  br label %.sink.split3778
 
-.sink.split3680:                                  ; preds = %1082, %1096
-  %storemerge3712 = phi double [ %1097, %1096 ], [ %1085, %1082 ]
-  %.sink3681 = phi i8 [ 19, %1096 ], [ 3, %1082 ]
+.sink.split3778:                                  ; preds = %1082, %1096
+  %storemerge3810 = phi double [ %1097, %1096 ], [ %1085, %1082 ]
+  %.sink3779 = phi i8 [ 19, %1096 ], [ 3, %1082 ]
   %.42185.ph = getelementptr inbounds nuw i8, ptr %.02181, i64 4
-  store double %storemerge3712, ptr %1074, align 8, !tbaa !8
+  store double %storemerge3810, ptr %1074, align 8, !tbaa !8
   %1098 = getelementptr inbounds nuw i8, ptr %1074, i64 8
-  store i8 %.sink3681, ptr %1098, align 8, !tbaa !4
+  store i8 %.sink3779, ptr %1098, align 8, !tbaa !4
   br label %1099
 
-1099:                                             ; preds = %.sink.split3680, %1063, %1089
-  %.42185 = phi ptr [ %.02181, %1089 ], [ %.02181, %1063 ], [ %.42185.ph, %.sink.split3680 ]
+1099:                                             ; preds = %.sink.split3778, %1063, %1089
+  %.42185 = phi ptr [ %.02181, %1089 ], [ %.02181, %1063 ], [ %.42185.ph, %.sink.split3778 ]
   %.not2530 = icmp eq i32 %.32227, 0
   br i1 %.not2530, label %1104, label %1100, !prof !44
 
@@ -3878,7 +3878,7 @@ luaV_finishget.exit2634:                          ; preds = %931, %.thread.i2626
 
 1129:                                             ; preds = %1125
   %1130 = icmp eq i64 %1126, 0
-  br i1 %1130, label %1131, label %.sink.split3683
+  br i1 %1130, label %1131, label %.sink.split3781
 
 1131:                                             ; preds = %1129
   call void (ptr, ptr, ...) @luaG_runerror(ptr noundef nonnull %0, ptr noundef nonnull @.str.6) #14
@@ -3888,7 +3888,7 @@ luaV_finishget.exit2634:                          ; preds = %931, %.thread.i2626
   %1133 = load i64, ptr %1111, align 8, !tbaa !8
   %1134 = srem i64 %1133, %1126
   %.not.i2635 = icmp eq i64 %1134, 0
-  br i1 %.not.i2635, label %.sink.split3683, label %1135
+  br i1 %.not.i2635, label %.sink.split3781, label %1135
 
 1135:                                             ; preds = %1132
   %1136 = xor i64 %1134, %1126
@@ -3896,7 +3896,7 @@ luaV_finishget.exit2634:                          ; preds = %931, %.thread.i2626
   %1138 = select i1 %1137, i64 %1126, i64 0
   %spec.select.i = add nsw i64 %1138, %1134
   %1139 = bitcast i64 %spec.select.i to double
-  br label %.sink.split3683
+  br label %.sink.split3781
 
 1140:                                             ; preds = %1106
   %1141 = load double, ptr %1111, align 8, !tbaa !8
@@ -3934,29 +3934,29 @@ luaV_finishget.exit2634:                          ; preds = %931, %.thread.i2626
 
 1154:                                             ; preds = %1151
   %1155 = fcmp olt double %.02327, 0.000000e+00
-  br i1 %1155, label %1159, label %.sink.split3683
+  br i1 %1155, label %1159, label %.sink.split3781
 
 1156:                                             ; preds = %1151
   %1157 = fcmp olt double %1152, 0.000000e+00
   %1158 = fcmp ogt double %.02327, 0.000000e+00
   %or.cond.i = and i1 %1158, %1157
-  br i1 %or.cond.i, label %1159, label %.sink.split3683
+  br i1 %or.cond.i, label %1159, label %.sink.split3781
 
 1159:                                             ; preds = %1156, %1154
   %1160 = fadd double %.02327, %1152
-  br label %.sink.split3683
+  br label %.sink.split3781
 
-.sink.split3683:                                  ; preds = %1159, %1156, %1154, %1135, %1132, %1129
-  %storemerge3711 = phi double [ 0.000000e+00, %1129 ], [ 0.000000e+00, %1132 ], [ %1139, %1135 ], [ %1160, %1159 ], [ %1152, %1154 ], [ %1152, %1156 ]
-  %.sink3684 = phi i8 [ 3, %1129 ], [ 3, %1132 ], [ 3, %1135 ], [ 19, %1159 ], [ 19, %1154 ], [ 19, %1156 ]
+.sink.split3781:                                  ; preds = %1159, %1156, %1154, %1135, %1132, %1129
+  %storemerge3809 = phi double [ 0.000000e+00, %1129 ], [ 0.000000e+00, %1132 ], [ %1139, %1135 ], [ %1160, %1159 ], [ %1152, %1154 ], [ %1152, %1156 ]
+  %.sink3782 = phi i8 [ 3, %1129 ], [ 3, %1132 ], [ 3, %1135 ], [ 19, %1159 ], [ 19, %1154 ], [ 19, %1156 ]
   %.52186.ph = getelementptr inbounds nuw i8, ptr %.02181, i64 4
-  store double %storemerge3711, ptr %1118, align 8, !tbaa !8
+  store double %storemerge3809, ptr %1118, align 8, !tbaa !8
   %1161 = getelementptr inbounds nuw i8, ptr %1118, i64 8
-  store i8 %.sink3684, ptr %1161, align 8, !tbaa !4
+  store i8 %.sink3782, ptr %1161, align 8, !tbaa !4
   br label %1162
 
-1162:                                             ; preds = %.sink.split3683, %1106, %1144
-  %.52186 = phi ptr [ %.02181, %1144 ], [ %.02181, %1106 ], [ %.52186.ph, %.sink.split3683 ]
+1162:                                             ; preds = %.sink.split3781, %1106, %1144
+  %.52186 = phi ptr [ %.02181, %1144 ], [ %.02181, %1106 ], [ %.52186.ph, %.sink.split3781 ]
   %.not2529 = icmp eq i32 %.32227, 0
   br i1 %.not2529, label %1167, label %1163, !prof !44
 
@@ -4191,7 +4191,7 @@ luaV_finishget.exit2634:                          ; preds = %931, %.thread.i2626
 luaV_idiv.exit:                                   ; preds = %1278, %1280, %1285
   %.012.i = phi i64 [ %1279, %1278 ], [ %1281, %1280 ], [ %spec.select.i2638, %1285 ]
   %1287 = bitcast i64 %.012.i to double
-  br label %.sink.split3686
+  br label %.sink.split3784
 
 1288:                                             ; preds = %1251
   %1289 = load double, ptr %1256, align 8, !tbaa !8
@@ -4224,19 +4224,19 @@ luaV_idiv.exit:                                   ; preds = %1278, %1280, %1285
   %.02333 = phi double [ %1294, %1293 ], [ %1297, %1295 ]
   %1299 = fdiv double %.02332, %.02333
   %1300 = call double @llvm.floor.f64(double %1299)
-  br label %.sink.split3686
+  br label %.sink.split3784
 
-.sink.split3686:                                  ; preds = %luaV_idiv.exit, %1298
-  %storemerge3710 = phi double [ %1300, %1298 ], [ %1287, %luaV_idiv.exit ]
-  %.sink3687 = phi i8 [ 19, %1298 ], [ 3, %luaV_idiv.exit ]
+.sink.split3784:                                  ; preds = %luaV_idiv.exit, %1298
+  %storemerge3808 = phi double [ %1300, %1298 ], [ %1287, %luaV_idiv.exit ]
+  %.sink3785 = phi i8 [ 19, %1298 ], [ 3, %luaV_idiv.exit ]
   %.82189.ph = getelementptr inbounds nuw i8, ptr %.02181, i64 4
-  store double %storemerge3710, ptr %1263, align 8, !tbaa !8
+  store double %storemerge3808, ptr %1263, align 8, !tbaa !8
   %1301 = getelementptr inbounds nuw i8, ptr %1263, i64 8
-  store i8 %.sink3687, ptr %1301, align 8, !tbaa !4
+  store i8 %.sink3785, ptr %1301, align 8, !tbaa !4
   br label %1302
 
-1302:                                             ; preds = %.sink.split3686, %1251, %1291
-  %.82189 = phi ptr [ %.02181, %1291 ], [ %.02181, %1251 ], [ %.82189.ph, %.sink.split3686 ]
+1302:                                             ; preds = %.sink.split3784, %1251, %1291
+  %.82189 = phi ptr [ %.02181, %1291 ], [ %.02181, %1251 ], [ %.82189.ph, %.sink.split3784 ]
   %.not2526 = icmp eq i32 %.32227, 0
   br i1 %.not2526, label %1307, label %1303, !prof !44
 
@@ -4648,7 +4648,7 @@ luaV_tointegerns.exit2653.thread2940:             ; preds = %1456, %1471, %1475,
   %1518 = load i64, ptr %1505, align 8, !tbaa !8
   %1519 = add i64 %1518, %1516
   %1520 = bitcast i64 %1519 to double
-  br label %.sink.split3689
+  br label %.sink.split3787
 
 1521:                                             ; preds = %1498
   %1522 = load double, ptr %1502, align 8, !tbaa !8
@@ -4680,19 +4680,19 @@ luaV_tointegerns.exit2653.thread2940:             ; preds = %1456, %1471, %1475,
 1531:                                             ; preds = %1526, %1528
   %.02335 = phi double [ %1527, %1526 ], [ %1530, %1528 ]
   %1532 = fadd double %.02334, %.02335
-  br label %.sink.split3689
+  br label %.sink.split3787
 
-.sink.split3689:                                  ; preds = %1517, %1531
-  %storemerge3709 = phi double [ %1532, %1531 ], [ %1520, %1517 ]
-  %.sink3690 = phi i8 [ 19, %1531 ], [ 3, %1517 ]
+.sink.split3787:                                  ; preds = %1517, %1531
+  %storemerge3807 = phi double [ %1532, %1531 ], [ %1520, %1517 ]
+  %.sink3788 = phi i8 [ 19, %1531 ], [ 3, %1517 ]
   %.142195.ph = getelementptr inbounds nuw i8, ptr %.02181, i64 4
-  store double %storemerge3709, ptr %1509, align 8, !tbaa !8
+  store double %storemerge3807, ptr %1509, align 8, !tbaa !8
   %1533 = getelementptr inbounds nuw i8, ptr %1509, i64 8
-  store i8 %.sink3690, ptr %1533, align 8, !tbaa !4
+  store i8 %.sink3788, ptr %1533, align 8, !tbaa !4
   br label %1534
 
-1534:                                             ; preds = %.sink.split3689, %1498, %1524
-  %.142195 = phi ptr [ %.02181, %1524 ], [ %.02181, %1498 ], [ %.142195.ph, %.sink.split3689 ]
+1534:                                             ; preds = %.sink.split3787, %1498, %1524
+  %.142195 = phi ptr [ %.02181, %1524 ], [ %.02181, %1498 ], [ %.142195.ph, %.sink.split3787 ]
   %.not2515 = icmp eq i32 %.32227, 0
   br i1 %.not2515, label %1539, label %1535, !prof !44
 
@@ -4738,7 +4738,7 @@ luaV_tointegerns.exit2653.thread2940:             ; preds = %1456, %1471, %1475,
   %1561 = load i64, ptr %1548, align 8, !tbaa !8
   %1562 = sub i64 %1559, %1561
   %1563 = bitcast i64 %1562 to double
-  br label %.sink.split3692
+  br label %.sink.split3790
 
 1564:                                             ; preds = %1541
   %1565 = load double, ptr %1545, align 8, !tbaa !8
@@ -4770,19 +4770,19 @@ luaV_tointegerns.exit2653.thread2940:             ; preds = %1456, %1471, %1475,
 1574:                                             ; preds = %1569, %1571
   %.02337 = phi double [ %1570, %1569 ], [ %1573, %1571 ]
   %1575 = fsub double %.02336, %.02337
-  br label %.sink.split3692
+  br label %.sink.split3790
 
-.sink.split3692:                                  ; preds = %1560, %1574
-  %storemerge3708 = phi double [ %1575, %1574 ], [ %1563, %1560 ]
-  %.sink3693 = phi i8 [ 19, %1574 ], [ 3, %1560 ]
+.sink.split3790:                                  ; preds = %1560, %1574
+  %storemerge3806 = phi double [ %1575, %1574 ], [ %1563, %1560 ]
+  %.sink3791 = phi i8 [ 19, %1574 ], [ 3, %1560 ]
   %.152196.ph = getelementptr inbounds nuw i8, ptr %.02181, i64 4
-  store double %storemerge3708, ptr %1552, align 8, !tbaa !8
+  store double %storemerge3806, ptr %1552, align 8, !tbaa !8
   %1576 = getelementptr inbounds nuw i8, ptr %1552, i64 8
-  store i8 %.sink3693, ptr %1576, align 8, !tbaa !4
+  store i8 %.sink3791, ptr %1576, align 8, !tbaa !4
   br label %1577
 
-1577:                                             ; preds = %.sink.split3692, %1541, %1567
-  %.152196 = phi ptr [ %.02181, %1567 ], [ %.02181, %1541 ], [ %.152196.ph, %.sink.split3692 ]
+1577:                                             ; preds = %.sink.split3790, %1541, %1567
+  %.152196 = phi ptr [ %.02181, %1567 ], [ %.02181, %1541 ], [ %.152196.ph, %.sink.split3790 ]
   %.not2514 = icmp eq i32 %.32227, 0
   br i1 %.not2514, label %1582, label %1578, !prof !44
 
@@ -4828,7 +4828,7 @@ luaV_tointegerns.exit2653.thread2940:             ; preds = %1456, %1471, %1475,
   %1604 = load i64, ptr %1591, align 8, !tbaa !8
   %1605 = mul i64 %1604, %1602
   %1606 = bitcast i64 %1605 to double
-  br label %.sink.split3695
+  br label %.sink.split3793
 
 1607:                                             ; preds = %1584
   %1608 = load double, ptr %1588, align 8, !tbaa !8
@@ -4860,19 +4860,19 @@ luaV_tointegerns.exit2653.thread2940:             ; preds = %1456, %1471, %1475,
 1617:                                             ; preds = %1612, %1614
   %.02341 = phi double [ %1613, %1612 ], [ %1616, %1614 ]
   %1618 = fmul double %.02339, %.02341
-  br label %.sink.split3695
+  br label %.sink.split3793
 
-.sink.split3695:                                  ; preds = %1603, %1617
-  %storemerge3707 = phi double [ %1618, %1617 ], [ %1606, %1603 ]
-  %.sink3696 = phi i8 [ 19, %1617 ], [ 3, %1603 ]
+.sink.split3793:                                  ; preds = %1603, %1617
+  %storemerge3805 = phi double [ %1618, %1617 ], [ %1606, %1603 ]
+  %.sink3794 = phi i8 [ 19, %1617 ], [ 3, %1603 ]
   %.162197.ph = getelementptr inbounds nuw i8, ptr %.02181, i64 4
-  store double %storemerge3707, ptr %1595, align 8, !tbaa !8
+  store double %storemerge3805, ptr %1595, align 8, !tbaa !8
   %1619 = getelementptr inbounds nuw i8, ptr %1595, i64 8
-  store i8 %.sink3696, ptr %1619, align 8, !tbaa !4
+  store i8 %.sink3794, ptr %1619, align 8, !tbaa !4
   br label %1620
 
-1620:                                             ; preds = %.sink.split3695, %1584, %1610
-  %.162197 = phi ptr [ %.02181, %1610 ], [ %.02181, %1584 ], [ %.162197.ph, %.sink.split3695 ]
+1620:                                             ; preds = %.sink.split3793, %1584, %1610
+  %.162197 = phi ptr [ %.02181, %1610 ], [ %.02181, %1584 ], [ %.162197.ph, %.sink.split3793 ]
   %.not2513 = icmp eq i32 %.32227, 0
   br i1 %.not2513, label %1625, label %1621, !prof !44
 
@@ -4924,7 +4924,7 @@ luaV_tointegerns.exit2653.thread2940:             ; preds = %1456, %1471, %1475,
 
 1650:                                             ; preds = %1646
   %1651 = icmp eq i64 %1647, 0
-  br i1 %1651, label %1652, label %.sink.split3698
+  br i1 %1651, label %1652, label %.sink.split3796
 
 1652:                                             ; preds = %1650
   call void (ptr, ptr, ...) @luaG_runerror(ptr noundef nonnull %0, ptr noundef nonnull @.str.6) #14
@@ -4934,7 +4934,7 @@ luaV_tointegerns.exit2653.thread2940:             ; preds = %1456, %1471, %1475,
   %1654 = load i64, ptr %1632, align 8, !tbaa !8
   %1655 = srem i64 %1654, %1647
   %.not.i2657 = icmp eq i64 %1655, 0
-  br i1 %.not.i2657, label %.sink.split3698, label %1656
+  br i1 %.not.i2657, label %.sink.split3796, label %1656
 
 1656:                                             ; preds = %1653
   %1657 = xor i64 %1655, %1647
@@ -4942,7 +4942,7 @@ luaV_tointegerns.exit2653.thread2940:             ; preds = %1456, %1471, %1475,
   %1659 = select i1 %1658, i64 %1647, i64 0
   %spec.select.i2658 = add nsw i64 %1659, %1655
   %1660 = bitcast i64 %spec.select.i2658 to double
-  br label %.sink.split3698
+  br label %.sink.split3796
 
 1661:                                             ; preds = %1627
   %1662 = load double, ptr %1632, align 8, !tbaa !8
@@ -4980,29 +4980,29 @@ luaV_tointegerns.exit2653.thread2940:             ; preds = %1456, %1471, %1475,
 
 1675:                                             ; preds = %1672
   %1676 = fcmp olt double %.02345, 0.000000e+00
-  br i1 %1676, label %1680, label %.sink.split3698
+  br i1 %1676, label %1680, label %.sink.split3796
 
 1677:                                             ; preds = %1672
   %1678 = fcmp olt double %1673, 0.000000e+00
   %1679 = fcmp ogt double %.02345, 0.000000e+00
   %or.cond.i2661 = and i1 %1679, %1678
-  br i1 %or.cond.i2661, label %1680, label %.sink.split3698
+  br i1 %or.cond.i2661, label %1680, label %.sink.split3796
 
 1680:                                             ; preds = %1677, %1675
   %1681 = fadd double %.02345, %1673
-  br label %.sink.split3698
+  br label %.sink.split3796
 
-.sink.split3698:                                  ; preds = %1680, %1677, %1675, %1656, %1653, %1650
-  %storemerge3706 = phi double [ 0.000000e+00, %1650 ], [ 0.000000e+00, %1653 ], [ %1660, %1656 ], [ %1681, %1680 ], [ %1673, %1675 ], [ %1673, %1677 ]
-  %.sink3699 = phi i8 [ 3, %1650 ], [ 3, %1653 ], [ 3, %1656 ], [ 19, %1680 ], [ 19, %1675 ], [ 19, %1677 ]
+.sink.split3796:                                  ; preds = %1680, %1677, %1675, %1656, %1653, %1650
+  %storemerge3804 = phi double [ 0.000000e+00, %1650 ], [ 0.000000e+00, %1653 ], [ %1660, %1656 ], [ %1681, %1680 ], [ %1673, %1675 ], [ %1673, %1677 ]
+  %.sink3797 = phi i8 [ 3, %1650 ], [ 3, %1653 ], [ 3, %1656 ], [ 19, %1680 ], [ 19, %1675 ], [ 19, %1677 ]
   %.172198.ph = getelementptr inbounds nuw i8, ptr %.02181, i64 4
-  store double %storemerge3706, ptr %1639, align 8, !tbaa !8
+  store double %storemerge3804, ptr %1639, align 8, !tbaa !8
   %1682 = getelementptr inbounds nuw i8, ptr %1639, i64 8
-  store i8 %.sink3699, ptr %1682, align 8, !tbaa !4
+  store i8 %.sink3797, ptr %1682, align 8, !tbaa !4
   br label %1683
 
-1683:                                             ; preds = %.sink.split3698, %1627, %1665
-  %.172198 = phi ptr [ %.02181, %1665 ], [ %.02181, %1627 ], [ %.172198.ph, %.sink.split3698 ]
+1683:                                             ; preds = %.sink.split3796, %1627, %1665
+  %.172198 = phi ptr [ %.02181, %1665 ], [ %.02181, %1627 ], [ %.172198.ph, %.sink.split3796 ]
   %.not2512 = icmp eq i32 %.32227, 0
   br i1 %.not2512, label %1688, label %1684, !prof !44
 
@@ -5237,7 +5237,7 @@ luaV_tointegerns.exit2653.thread2940:             ; preds = %1456, %1471, %1475,
 luaV_idiv.exit2667:                               ; preds = %1799, %1801, %1806
   %.012.i2664 = phi i64 [ %1800, %1799 ], [ %1802, %1801 ], [ %spec.select.i2666, %1806 ]
   %1808 = bitcast i64 %.012.i2664 to double
-  br label %.sink.split3701
+  br label %.sink.split3799
 
 1809:                                             ; preds = %1772
   %1810 = load double, ptr %1777, align 8, !tbaa !8
@@ -5270,19 +5270,19 @@ luaV_idiv.exit2667:                               ; preds = %1799, %1801, %1806
   %.02352 = phi double [ %1815, %1814 ], [ %1818, %1816 ]
   %1820 = fdiv double %.02351, %.02352
   %1821 = call double @llvm.floor.f64(double %1820)
-  br label %.sink.split3701
+  br label %.sink.split3799
 
-.sink.split3701:                                  ; preds = %luaV_idiv.exit2667, %1819
+.sink.split3799:                                  ; preds = %luaV_idiv.exit2667, %1819
   %storemerge = phi double [ %1821, %1819 ], [ %1808, %luaV_idiv.exit2667 ]
-  %.sink3702 = phi i8 [ 19, %1819 ], [ 3, %luaV_idiv.exit2667 ]
+  %.sink3800 = phi i8 [ 19, %1819 ], [ 3, %luaV_idiv.exit2667 ]
   %.202201.ph = getelementptr inbounds nuw i8, ptr %.02181, i64 4
   store double %storemerge, ptr %1784, align 8, !tbaa !8
   %1822 = getelementptr inbounds nuw i8, ptr %1784, i64 8
-  store i8 %.sink3702, ptr %1822, align 8, !tbaa !4
+  store i8 %.sink3800, ptr %1822, align 8, !tbaa !4
   br label %1823
 
-1823:                                             ; preds = %.sink.split3701, %1772, %1812
-  %.202201 = phi ptr [ %.02181, %1812 ], [ %.02181, %1772 ], [ %.202201.ph, %.sink.split3701 ]
+1823:                                             ; preds = %.sink.split3799, %1772, %1812
+  %.202201 = phi ptr [ %.02181, %1812 ], [ %.02181, %1772 ], [ %.202201.ph, %.sink.split3799 ]
   %.not2509 = icmp eq i32 %.32227, 0
   br i1 %.not2509, label %1828, label %1824, !prof !44
 
@@ -6055,9 +6055,9 @@ luaV_tointegerns.exit2706.thread3056:             ; preds = %2185, %2198, %2202
   %2228 = and i8 %2226, 15
   %2229 = icmp eq i8 %2228, 0
   %or.cond2580 = or i1 %2227, %2229
-  %spec.select3704 = select i1 %or.cond2580, i8 17, i8 1
+  %spec.select3802 = select i1 %or.cond2580, i8 17, i8 1
   %2230 = getelementptr inbounds nuw %union.StackValue, ptr %.12180, i64 %2221, i32 0, i32 1
-  store i8 %spec.select3704, ptr %2230, align 8, !tbaa !8
+  store i8 %spec.select3802, ptr %2230, align 8, !tbaa !8
   %.not2487 = icmp eq i32 %.32227, 0
   br i1 %.not2487, label %2235, label %2231, !prof !44
 
@@ -7659,9 +7659,9 @@ lessequalothers.exit:                             ; preds = %l_strcmp.exit.i2722
   %.02181 = phi ptr [ %36, %.critedge ], [ %.02181.be, %.backedge.backedge ]
   %.12180 = phi ptr [ %.02179, %.critedge ], [ %.12180.be, %.backedge.backedge ]
   %.02305 = load i32, ptr %.02305.in, align 4, !tbaa !46
-  %.pn3705.in = and i32 %.02305, 127
-  %.pn3705 = zext nneg i32 %.pn3705.in to i64
-  %.in = getelementptr inbounds nuw [83 x ptr], ptr @luaV_execute.disptab, i64 0, i64 %.pn3705
+  %.pn3803.in = and i32 %.02305, 127
+  %.pn3803 = zext nneg i32 %.pn3803.in to i64
+  %.in = getelementptr inbounds nuw [83 x ptr], ptr @luaV_execute.disptab, i64 0, i64 %.pn3803
   %3132 = load ptr, ptr %.in, align 8, !tbaa !75
   indirectbr ptr %3132, [label %40, label %59, label %74, label %89, label %107, label %127, label %138, label %150, label %161, label %179, label %201, label %235, label %310, label %411, label %499, label %571, label %622, label %710, label %787, label %835, label %872, label %947, label %977, label %1020, label %1063, label %1106, label %1169, label %1213, label %1251, label %1309, label %1344, label %1379, label %1414, label %1456, label %1498, label %1541, label %1584, label %1627, label %1690, label %1734, label %1772, label %1830, label %1877, label %1924, label %2025, label %1971, label %2080, label %2104, label %2130, label %2156, label %2185, label %2218, label %2237, label %2292, label %2315, label %2329, label %2341, label %2353, label %2383, label %2522, label %2666, label %2694, label %2733, label %2777, label %2821, label %2865, label %2909, label %2936, label %2971, label %2994, label %3030, label %3075, label %3094, label %3136, label %3180, label %3416, label %3434, label %3463, label %3481, label %3552, label %3612, label %3627, label %3635]
 
@@ -7810,8 +7810,8 @@ l_strton.exit.i.i.i:                              ; preds = %3214, %3211
   %3222 = icmp ne i64 %3220, %3221
   %cond.fr.i.i.i = freeze i1 %3222
   %.ph.i.i.i = select i1 %cond.fr.i.i.i, ptr %3186, ptr %7
-  %.ph15.i.i.i = select i1 %cond.fr.i.i.i, ptr %3202, ptr %.sroa.gep4.i.i.i
-  %.pr.i.i.i = load i8, ptr %.ph15.i.i.i, align 8, !tbaa !4
+  %.ph16.i.i.i = select i1 %cond.fr.i.i.i, ptr %3202, ptr %.sroa.gep4.i.i.i
+  %.pr.i.i.i = load i8, ptr %.ph16.i.i.i, align 8, !tbaa !4
   br label %3223
 
 3223:                                             ; preds = %l_strton.exit.i.i.i, %3200

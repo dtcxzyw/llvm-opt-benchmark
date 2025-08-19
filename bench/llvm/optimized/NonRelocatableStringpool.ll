@@ -719,10 +719,10 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPN4llvm23DwarfStringPoolEntryRefESt6vectorIS3_SaIS3_EEEElNS0_5__ops15_Iter_comp_iterIZNKS2_24NonRelocatableStringpool21getEntriesForEmissionEvE3$_0EEEvT_SE_T0_T1_"(ptr %0, ptr %1, i64 noundef %2) unnamed_addr #9 {
-  %.fr30 = freeze ptr %1
+  %.fr39 = freeze ptr %1
   %.fr26 = freeze ptr %0
   %4 = ptrtoint ptr %.fr26 to i64
-  %5 = ptrtoint ptr %.fr30 to i64
+  %5 = ptrtoint ptr %.fr39 to i64
   %6 = sub i64 %5, %4
   %7 = ashr exact i64 %6, 3
   %8 = icmp sgt i64 %7, 16
@@ -731,15 +731,15 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
 .lr.ph:                                           ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %.fr26, i64 8
   %10 = icmp eq i64 %2, 0
-  br i1 %10, label %._crit_edge, label %.lr.ph39
+  br i1 %10, label %._crit_edge, label %.lr.ph48
 
 11:                                               ; preds = %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN4llvm23DwarfStringPoolEntryRefESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNKS2_24NonRelocatableStringpool21getEntriesForEmissionEvE3$_0EEET_SE_SE_T0_.exit"
   %12 = icmp eq i64 %136, 0
-  br i1 %12, label %._crit_edge, label %.lr.ph39, !llvm.loop !69
+  br i1 %12, label %._crit_edge, label %.lr.ph48, !llvm.loop !69
 
 ._crit_edge:                                      ; preds = %11, %.lr.ph
   %.fr.i.i25.lcssa = phi i64 [ %6, %.lr.ph ], [ %199, %11 ]
-  %storemerge23.lcssa = phi ptr [ %.fr30, %.lr.ph ], [ %.sroa.016.1.i.i, %11 ]
+  %storemerge23.lcssa = phi ptr [ %.fr39, %.lr.ph ], [ %.sroa.016.1.i.i, %11 ]
   %13 = lshr i64 %.fr.i.i25.lcssa, 3
   %14 = add nsw i64 %13, -2
   %15 = lshr i64 %14, 1
@@ -748,7 +748,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   %18 = and i64 %.fr.i.i25.lcssa, 8
   %19 = icmp eq i64 %18, 0
   %20 = or disjoint i64 %14, 1
-  %21 = getelementptr inbounds %"class.llvm::DwarfStringPoolEntryRef", ptr %.fr26, i64 %20
+  %21 = getelementptr inbounds nuw %"class.llvm::DwarfStringPoolEntryRef", ptr %.fr26, i64 %20
   %22 = getelementptr inbounds nuw %"class.llvm::DwarfStringPoolEntryRef", ptr %.fr26, i64 %15
   br label %23
 
@@ -823,7 +823,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   %.011.i.i.i.i.i = phi i64 [ %.1.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ %.0912.i.i.i.i.i, %68 ]
   %.0912.in.i.i.i.i.i = add nsw i64 %.011.i.i.i.i.i, -1
   %.0912.i.i.i.i.i = sdiv i64 %.0912.in.i.i.i.i.i, 2
-  %59 = getelementptr inbounds %"class.llvm::DwarfStringPoolEntryRef", ptr %.fr26, i64 %.0912.i.i.i.i.i
+  %59 = getelementptr inbounds nuw %"class.llvm::DwarfStringPoolEntryRef", ptr %.fr26, i64 %.0912.i.i.i.i.i
   %.sroa.01.0.copyload.i.i.i.i.i.i = load i64, ptr %59, align 8
   %60 = and i64 %.sroa.01.0.copyload.i.i.i.i.i.i, -8
   %61 = inttoptr i64 %60 to ptr
@@ -838,14 +838,14 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   br i1 %67, label %68, label %"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm23DwarfStringPoolEntryRefESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZNKS2_24NonRelocatableStringpool21getEntriesForEmissionEvE3$_0EEEvT_T0_SF_T1_T2_.exit.i.i.i"
 
 68:                                               ; preds = %58
-  %69 = getelementptr inbounds %"class.llvm::DwarfStringPoolEntryRef", ptr %.fr26, i64 %.011.i.i.i.i.i
+  %69 = getelementptr inbounds nuw %"class.llvm::DwarfStringPoolEntryRef", ptr %.fr26, i64 %.011.i.i.i.i.i
   store i64 %.sroa.01.0.copyload.i.i.i.i.i.i, ptr %69, align 8
   %70 = icmp sgt i64 %.0912.i.i.i.i.i, %.010.i.i.i
   br i1 %70, label %58, label %"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm23DwarfStringPoolEntryRefESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZNKS2_24NonRelocatableStringpool21getEntriesForEmissionEvE3$_0EEEvT_T0_SF_T1_T2_.exit.i.i.i", !llvm.loop !71
 
 "_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm23DwarfStringPoolEntryRefESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZNKS2_24NonRelocatableStringpool21getEntriesForEmissionEvE3$_0EEEvT_T0_SF_T1_T2_.exit.i.i.i": ; preds = %68, %58, %51
   %.0.lcssa.i.i.i.i.i = phi i64 [ %.1.i.i.i.i, %51 ], [ %.011.i.i.i.i.i, %58 ], [ %.0912.i.i.i.i.i, %68 ]
-  %71 = getelementptr inbounds %"class.llvm::DwarfStringPoolEntryRef", ptr %.fr26, i64 %.0.lcssa.i.i.i.i.i
+  %71 = getelementptr inbounds nuw %"class.llvm::DwarfStringPoolEntryRef", ptr %.fr26, i64 %.0.lcssa.i.i.i.i.i
   store i64 %.sroa.03.0.copyload.i.i.i, ptr %71, align 8
   %.not.i.i.i = icmp eq i64 %.010.i.i.i, 0
   %72 = add nsw i64 %.010.i.i.i, -1
@@ -970,14 +970,14 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   %134 = icmp sgt i64 %77, 8
   br i1 %134, label %.lr.ph.i9.i, label %"_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN4llvm23DwarfStringPoolEntryRefESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNKS2_24NonRelocatableStringpool21getEntriesForEmissionEvE3$_0EEEvT_SE_SE_T0_.exit", !llvm.loop !73
 
-.lr.ph39:                                         ; preds = %.lr.ph, %11
-  %storemerge2338 = phi ptr [ %.sroa.016.1.i.i, %11 ], [ %.fr30, %.lr.ph ]
-  %.02437 = phi i64 [ %136, %11 ], [ %2, %.lr.ph ]
+.lr.ph48:                                         ; preds = %.lr.ph, %11
+  %storemerge2347 = phi ptr [ %.sroa.016.1.i.i, %11 ], [ %.fr39, %.lr.ph ]
+  %.02446 = phi i64 [ %136, %11 ], [ %2, %.lr.ph ]
   %135 = phi i64 [ %200, %11 ], [ %7, %.lr.ph ]
-  %136 = add nsw i64 %.02437, -1
+  %136 = add nsw i64 %.02446, -1
   %137 = lshr i64 %135, 1
   %138 = getelementptr inbounds nuw %"class.llvm::DwarfStringPoolEntryRef", ptr %.fr26, i64 %137
-  %139 = getelementptr inbounds i8, ptr %storemerge2338, i64 -8
+  %139 = getelementptr inbounds i8, ptr %storemerge2347, i64 -8
   %.sroa.01.0.copyload.i.i.i = load i64, ptr %9, align 8
   %.sroa.0.0.copyload.i.i.i = load i64, ptr %138, align 8
   %140 = and i64 %.sroa.01.0.copyload.i.i.i, -8
@@ -1008,7 +1008,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   %158 = load i32, ptr %157, align 8, !tbaa !8
   br i1 %152, label %159, label %166
 
-159:                                              ; preds = %.lr.ph39
+159:                                              ; preds = %.lr.ph48
   %160 = icmp ult i32 %151, %158
   br i1 %160, label %161, label %162
 
@@ -1033,7 +1033,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   store i64 %.sroa.0.0.copyload.i.i38.i.i, ptr %9, align 8
   br label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN4llvm23DwarfStringPoolEntryRefESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNKS2_24NonRelocatableStringpool21getEntriesForEmissionEvE3$_0EEEvT_SE_SE_SE_T0_.exit.i.preheader"
 
-166:                                              ; preds = %.lr.ph39
+166:                                              ; preds = %.lr.ph48
   %167 = icmp ult i32 %145, %158
   br i1 %167, label %168, label %169
 
@@ -1063,7 +1063,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
 
 "_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN4llvm23DwarfStringPoolEntryRefESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNKS2_24NonRelocatableStringpool21getEntriesForEmissionEvE3$_0EEEvT_SE_SE_SE_T0_.exit.i": ; preds = %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN4llvm23DwarfStringPoolEntryRefESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNKS2_24NonRelocatableStringpool21getEntriesForEmissionEvE3$_0EEEvT_SE_SE_SE_T0_.exit.i.preheader", %197
   %.sroa.016.0.i.i = phi ptr [ %187, %197 ], [ %9, %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN4llvm23DwarfStringPoolEntryRefESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNKS2_24NonRelocatableStringpool21getEntriesForEmissionEvE3$_0EEEvT_SE_SE_SE_T0_.exit.i.preheader" ]
-  %.sroa.0.0.i.i = phi ptr [ %.sroa.0.1.i.i, %197 ], [ %storemerge2338, %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN4llvm23DwarfStringPoolEntryRefESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNKS2_24NonRelocatableStringpool21getEntriesForEmissionEvE3$_0EEEvT_SE_SE_SE_T0_.exit.i.preheader" ]
+  %.sroa.0.0.i.i = phi ptr [ %.sroa.0.1.i.i, %197 ], [ %storemerge2347, %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN4llvm23DwarfStringPoolEntryRefESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNKS2_24NonRelocatableStringpool21getEntriesForEmissionEvE3$_0EEEvT_SE_SE_SE_T0_.exit.i.preheader" ]
   %.sroa.0.0.copyload.i.i13.i = load i64, ptr %.fr26, align 8
   %173 = and i64 %.sroa.0.0.copyload.i.i13.i, -8
   %174 = inttoptr i64 %173 to ptr
@@ -1115,7 +1115,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   br label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN4llvm23DwarfStringPoolEntryRefESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNKS2_24NonRelocatableStringpool21getEntriesForEmissionEvE3$_0EEEvT_SE_SE_SE_T0_.exit.i", !llvm.loop !76
 
 "_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN4llvm23DwarfStringPoolEntryRefESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNKS2_24NonRelocatableStringpool21getEntriesForEmissionEvE3$_0EEET_SE_SE_T0_.exit": ; preds = %195
-  tail call fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPN4llvm23DwarfStringPoolEntryRefESt6vectorIS3_SaIS3_EEEElNS0_5__ops15_Iter_comp_iterIZNKS2_24NonRelocatableStringpool21getEntriesForEmissionEvE3$_0EEEvT_SE_T0_T1_"(ptr nonnull %.sroa.016.1.i.i, ptr %storemerge2338, i64 noundef %136)
+  tail call fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPN4llvm23DwarfStringPoolEntryRefESt6vectorIS3_SaIS3_EEEElNS0_5__ops15_Iter_comp_iterIZNKS2_24NonRelocatableStringpool21getEntriesForEmissionEvE3$_0EEEvT_SE_T0_T1_"(ptr nonnull %.sroa.016.1.i.i, ptr %storemerge2347, i64 noundef %136)
   %198 = ptrtoint ptr %.sroa.016.1.i.i to i64
   %199 = sub i64 %198, %4
   %200 = ashr exact i64 %199, 3

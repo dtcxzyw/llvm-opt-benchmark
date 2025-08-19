@@ -1617,10 +1617,10 @@ define range(i32 -21, 1) i32 @CVodeQuadInit(ptr noundef captures(address_is_null
   br i1 %.not.not.i, label %33, label %.loopexit20
 
 .loopexit.sink.split.sink.split:                  ; preds = %20, %31
-  %.sink28.in = phi ptr [ %18, %31 ], [ %14, %20 ]
+  %.sink30.in = phi ptr [ %18, %31 ], [ %14, %20 ]
   %.sink.in.ph = phi ptr [ %22, %31 ], [ %18, %20 ]
-  %.sink28 = load ptr, ptr %.sink28.in, align 8, !tbaa !65
-  call void @N_VDestroy(ptr noundef %.sink28) #13
+  %.sink30 = load ptr, ptr %.sink30.in, align 8, !tbaa !65
+  call void @N_VDestroy(ptr noundef %.sink30) #13
   br label %.loopexit.sink.split
 
 .loopexit.sink.split:                             ; preds = %.loopexit.sink.split.sink.split, %16
@@ -2803,7 +2803,7 @@ define range(i32 -28, 1) i32 @CVodeSensInit1(ptr noundef %0, i32 noundef %1, i32
   %134 = getelementptr inbounds nuw i8, ptr %0, i64 140
   store i32 1, ptr %134, align 4, !tbaa !166
   store i32 1, ptr %9, align 8, !tbaa !155
-  switch i32 %2, label %.thread214 [
+  switch i32 %2, label %.thread220 [
     i32 1, label %.thread
     i32 2, label %135
   ]
@@ -2814,9 +2814,9 @@ define range(i32 -28, 1) i32 @CVodeSensInit1(ptr noundef %0, i32 noundef %1, i32
   %138 = load ptr, ptr %0, align 8, !tbaa !3
   %139 = tail call ptr @SUNNonlinSol_NewtonSens(i32 noundef %1, ptr noundef %137, ptr noundef %138) #13
   %140 = icmp eq ptr %139, null
-  br i1 %140, label %152, label %.thread221
+  br i1 %140, label %152, label %.thread227
 
-.thread214:                                       ; preds = %._crit_edge197
+.thread220:                                       ; preds = %._crit_edge197
   %141 = getelementptr inbounds nuw i8, ptr %0, i64 456
   %142 = load ptr, ptr %141, align 8, !tbaa !97
   %143 = load ptr, ptr %0, align 8, !tbaa !3
@@ -2833,29 +2833,29 @@ define range(i32 -28, 1) i32 @CVodeSensInit1(ptr noundef %0, i32 noundef %1, i32
   %151 = icmp eq ptr %150, null
   br i1 %151, label %152, label %.thread183
 
-152:                                              ; preds = %.thread214, %.thread, %135
+152:                                              ; preds = %.thread220, %.thread, %135
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -20, i32 noundef 1815, ptr noundef nonnull @__func__.CVodeSensInit1, ptr noundef nonnull @.str, ptr noundef nonnull @.str.8)
   tail call fastcc void @cvSensFreeVectors(ptr noundef %0)
   br label %163
 
-153:                                              ; preds = %.thread214
+153:                                              ; preds = %.thread220
   %154 = tail call i32 @CVodeSetNonlinearSolverSensStg1(ptr noundef nonnull %0, ptr noundef nonnull %144) #13
   %.not174 = icmp eq i32 %154, 0
   br i1 %.not174, label %161, label %157
 
-.thread221:                                       ; preds = %135
+.thread227:                                       ; preds = %135
   %155 = tail call i32 @CVodeSetNonlinearSolverSensStg(ptr noundef nonnull %0, ptr noundef nonnull %139) #13
-  %.not174224 = icmp eq i32 %155, 0
-  br i1 %.not174224, label %.thread225, label %157
+  %.not174230 = icmp eq i32 %155, 0
+  br i1 %.not174230, label %.thread231, label %157
 
 .thread183:                                       ; preds = %.thread
   %156 = tail call i32 @CVodeSetNonlinearSolverSensSim(ptr noundef nonnull %0, ptr noundef nonnull %150) #13
   %.not174186 = icmp eq i32 %156, 0
   br i1 %.not174186, label %.thread189, label %157
 
-157:                                              ; preds = %.thread221, %.thread183, %153
-  %.0159188 = phi i32 [ %156, %.thread183 ], [ %154, %153 ], [ %155, %.thread221 ]
-  %.0178181187 = phi ptr [ %150, %.thread183 ], [ %144, %153 ], [ %139, %.thread221 ]
+157:                                              ; preds = %.thread227, %.thread183, %153
+  %.0159188 = phi i32 [ %156, %.thread183 ], [ %154, %153 ], [ %155, %.thread227 ]
+  %.0178181187 = phi ptr [ %150, %.thread183 ], [ %144, %153 ], [ %139, %.thread227 ]
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef %.0159188, i32 noundef 1835, ptr noundef nonnull @__func__.CVodeSensInit1, ptr noundef nonnull @.str, ptr noundef nonnull @.str.9)
   tail call fastcc void @cvSensFreeVectors(ptr noundef %0)
   %158 = tail call i32 @SUNNonlinSolFree(ptr noundef nonnull %.0178181187) #13
@@ -2866,7 +2866,7 @@ define range(i32 -28, 1) i32 @CVodeSensInit1(ptr noundef %0, i32 noundef %1, i32
   store i32 1, ptr %159, align 8, !tbaa !167
   br label %163
 
-.thread225:                                       ; preds = %.thread221
+.thread231:                                       ; preds = %.thread227
   %160 = getelementptr inbounds nuw i8, ptr %0, i64 1872
   store i32 1, ptr %160, align 8, !tbaa !168
   br label %163
@@ -2876,8 +2876,8 @@ define range(i32 -28, 1) i32 @CVodeSensInit1(ptr noundef %0, i32 noundef %1, i32
   store i32 1, ptr %162, align 8, !tbaa !182
   br label %163
 
-163:                                              ; preds = %.thread189, %161, %.thread225, %._crit_edge, %157, %152, %101, %70, %53, %22, %18, %14, %11, %7
-  %.0161 = phi i32 [ -21, %7 ], [ -22, %11 ], [ -22, %14 ], [ -22, %18 ], [ -22, %22 ], [ -20, %53 ], [ -20, %101 ], [ -20, %152 ], [ -20, %157 ], [ -20, %70 ], [ -28, %._crit_edge ], [ 0, %.thread225 ], [ 0, %161 ], [ 0, %.thread189 ]
+163:                                              ; preds = %.thread189, %161, %.thread231, %._crit_edge, %157, %152, %101, %70, %53, %22, %18, %14, %11, %7
+  %.0161 = phi i32 [ -21, %7 ], [ -22, %11 ], [ -22, %14 ], [ -22, %18 ], [ -22, %22 ], [ -20, %53 ], [ -20, %101 ], [ -20, %152 ], [ -20, %157 ], [ -20, %70 ], [ -28, %._crit_edge ], [ 0, %.thread231 ], [ 0, %161 ], [ 0, %.thread189 ]
   ret i32 %.0161
 }
 
@@ -3021,7 +3021,7 @@ define range(i32 -40, 1) i32 @CVodeSensReInit(ptr noundef %0, i32 noundef %1, pt
 .preheader:                                       ; preds = %60
   %67 = load i32, ptr %50, align 8, !tbaa !156
   %68 = icmp sgt i32 %67, 0
-  br i1 %68, label %.lr.ph147, label %.loopexit166
+  br i1 %68, label %.lr.ph147, label %.loopexit172
 
 .lr.ph147:                                        ; preds = %.preheader
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 1648
@@ -3043,7 +3043,7 @@ define range(i32 -40, 1) i32 @CVodeSensReInit(ptr noundef %0, i32 noundef %1, pt
   store i64 0, ptr %78, align 8, !tbaa !94
   %indvars.iv.next150 = add nuw nsw i64 %indvars.iv149, 1
   %exitcond153.not = icmp eq i64 %indvars.iv.next150, %wide.trip.count152
-  br i1 %exitcond153.not, label %.loopexit166, label %75
+  br i1 %exitcond153.not, label %.loopexit172, label %75
 
 .loopexit:                                        ; preds = %60
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 140
@@ -3063,13 +3063,13 @@ define range(i32 -40, 1) i32 @CVodeSensReInit(ptr noundef %0, i32 noundef %1, pt
   %87 = icmp eq ptr %86, null
   br i1 %87, label %92, label %.thread122
 
-.loopexit166:                                     ; preds = %75, %.preheader
+.loopexit172:                                     ; preds = %75, %.preheader
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 140
   store i32 1, ptr %88, align 4, !tbaa !166
   %89 = getelementptr inbounds nuw i8, ptr %0, i64 1880
   %90 = load ptr, ptr %89, align 8, !tbaa !185
   %91 = icmp eq ptr %90, null
-  br i1 %91, label %.thread154, label %.thread122
+  br i1 %91, label %.thread160, label %.thread122
 
 92:                                               ; preds = %84
   %93 = load i32, ptr %50, align 8, !tbaa !156
@@ -3078,9 +3078,9 @@ define range(i32 -40, 1) i32 @CVodeSensReInit(ptr noundef %0, i32 noundef %1, pt
   %96 = load ptr, ptr %0, align 8, !tbaa !3
   %97 = tail call ptr @SUNNonlinSol_NewtonSens(i32 noundef %93, ptr noundef %95, ptr noundef %96) #13
   %98 = icmp eq ptr %97, null
-  br i1 %98, label %111, label %.thread161
+  br i1 %98, label %111, label %.thread167
 
-.thread154:                                       ; preds = %.loopexit166
+.thread160:                                       ; preds = %.loopexit172
   %99 = getelementptr inbounds nuw i8, ptr %0, i64 456
   %100 = load ptr, ptr %99, align 8, !tbaa !97
   %101 = load ptr, ptr %0, align 8, !tbaa !3
@@ -3098,28 +3098,28 @@ define range(i32 -40, 1) i32 @CVodeSensReInit(ptr noundef %0, i32 noundef %1, pt
   %110 = icmp eq ptr %109, null
   br i1 %110, label %111, label %.thread133
 
-111:                                              ; preds = %.thread154, %.thread126, %92
+111:                                              ; preds = %.thread160, %.thread126, %92
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -20, i32 noundef 1998, ptr noundef nonnull @__func__.CVodeSensReInit, ptr noundef nonnull @.str, ptr noundef nonnull @.str.8)
   br label %.thread122
 
-112:                                              ; preds = %.thread154
+112:                                              ; preds = %.thread160
   %113 = tail call i32 @CVodeSetNonlinearSolverSensStg1(ptr noundef nonnull %0, ptr noundef nonnull %102) #13
   %.not119 = icmp eq i32 %113, 0
   br i1 %.not119, label %122, label %116
 
-.thread161:                                       ; preds = %92
+.thread167:                                       ; preds = %92
   %114 = tail call i32 @CVodeSetNonlinearSolverSensStg(ptr noundef nonnull %0, ptr noundef nonnull %97) #13
-  %.not119164 = icmp eq i32 %114, 0
-  br i1 %.not119164, label %.thread165, label %116
+  %.not119170 = icmp eq i32 %114, 0
+  br i1 %.not119170, label %.thread171, label %116
 
 .thread133:                                       ; preds = %.thread126
   %115 = tail call i32 @CVodeSetNonlinearSolverSensSim(ptr noundef nonnull %0, ptr noundef nonnull %109) #13
   %.not119136 = icmp eq i32 %115, 0
   br i1 %.not119136, label %.thread139, label %116
 
-116:                                              ; preds = %.thread161, %.thread133, %112
-  %.0110138 = phi i32 [ %115, %.thread133 ], [ %113, %112 ], [ %114, %.thread161 ]
-  %.0128131137 = phi ptr [ %109, %.thread133 ], [ %102, %112 ], [ %97, %.thread161 ]
+116:                                              ; preds = %.thread167, %.thread133, %112
+  %.0110138 = phi i32 [ %115, %.thread133 ], [ %113, %112 ], [ %114, %.thread167 ]
+  %.0128131137 = phi ptr [ %109, %.thread133 ], [ %102, %112 ], [ %97, %.thread167 ]
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef %.0110138, i32 noundef 2017, ptr noundef nonnull @__func__.CVodeSensReInit, ptr noundef nonnull @.str, ptr noundef nonnull @.str.9)
   %117 = tail call i32 @SUNNonlinSolFree(ptr noundef nonnull %.0128131137) #13
   br label %.thread122
@@ -3130,7 +3130,7 @@ define range(i32 -40, 1) i32 @CVodeSensReInit(ptr noundef %0, i32 noundef %1, pt
   %119 = tail call i32 @cvNlsInitSensSim(ptr noundef nonnull %0) #13
   br label %125
 
-.thread165:                                       ; preds = %.thread161
+.thread171:                                       ; preds = %.thread167
   %120 = getelementptr inbounds nuw i8, ptr %0, i64 1872
   store i32 1, ptr %120, align 8, !tbaa !168
   %121 = tail call i32 @cvNlsInitSensStg(ptr noundef nonnull %0) #13
@@ -3142,8 +3142,8 @@ define range(i32 -40, 1) i32 @CVodeSensReInit(ptr noundef %0, i32 noundef %1, pt
   %124 = tail call i32 @cvNlsInitSensStg1(ptr noundef nonnull %0) #13
   br label %125
 
-125:                                              ; preds = %.thread165, %122, %.thread139
-  %.1 = phi i32 [ %119, %.thread139 ], [ %121, %.thread165 ], [ %124, %122 ]
+125:                                              ; preds = %.thread171, %122, %.thread139
+  %.1 = phi i32 [ %119, %.thread139 ], [ %121, %.thread171 ], [ %124, %122 ]
   %.not120 = icmp eq i32 %.1, 0
   br i1 %.not120, label %.thread122, label %126
 
@@ -3151,8 +3151,8 @@ define range(i32 -40, 1) i32 @CVodeSensReInit(ptr noundef %0, i32 noundef %1, pt
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -13, i32 noundef 2036, ptr noundef nonnull @__func__.CVodeSensReInit, ptr noundef nonnull @.str, ptr noundef nonnull @.str.24)
   br label %.thread122
 
-.thread122:                                       ; preds = %80, %84, %.loopexit166, %125, %._crit_edge, %126, %116, %111, %48, %23, %19, %16, %10, %5
-  %.0113 = phi i32 [ -21, %5 ], [ -40, %10 ], [ -22, %16 ], [ -22, %19 ], [ -22, %23 ], [ -20, %48 ], [ -20, %111 ], [ -20, %116 ], [ -13, %126 ], [ -28, %._crit_edge ], [ 0, %125 ], [ 0, %.loopexit166 ], [ 0, %84 ], [ 0, %80 ]
+.thread122:                                       ; preds = %80, %84, %.loopexit172, %125, %._crit_edge, %126, %116, %111, %48, %23, %19, %16, %10, %5
+  %.0113 = phi i32 [ -21, %5 ], [ -40, %10 ], [ -22, %16 ], [ -22, %19 ], [ -22, %23 ], [ -20, %48 ], [ -20, %111 ], [ -20, %116 ], [ -13, %126 ], [ -28, %._crit_edge ], [ 0, %125 ], [ 0, %.loopexit172 ], [ 0, %84 ], [ 0, %80 ]
   ret i32 %.0113
 }
 
@@ -5011,25 +5011,25 @@ define range(i32 -9999, 3) i32 @CVode(ptr noundef %0, double noundef %1, ptr nou
   br i1 %.not127.i, label %232, label %230
 
 230:                                              ; preds = %227
-  br i1 %.not128.i, label %231, label %.thread138.i
+  br i1 %.not128.i, label %231, label %.thread142.i
 
 231:                                              ; preds = %230
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -56, i32 noundef 5374, ptr noundef nonnull @__func__.cvInitialSetup, ptr noundef nonnull @.str, ptr noundef nonnull @.str.79)
   br label %cvInitialSetup.exit.thread
 
 232:                                              ; preds = %227
-  br i1 %.not128.i, label %cvInitialSetup.exit, label %.thread138.i
+  br i1 %.not128.i, label %cvInitialSetup.exit, label %.thread142.i
 
-.thread138.i:                                     ; preds = %232, %230
+.thread142.i:                                     ; preds = %232, %230
   %233 = tail call i32 @cvProjInit(ptr noundef nonnull %.pre136.i) #13
   %.not129.i = icmp eq i32 %233, 0
   br i1 %.not129.i, label %235, label %234
 
-234:                                              ; preds = %.thread138.i
+234:                                              ; preds = %.thread142.i
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -20, i32 noundef 5384, ptr noundef nonnull @__func__.cvInitialSetup, ptr noundef nonnull @.str, ptr noundef nonnull @.str.8)
   br label %cvInitialSetup.exit.thread
 
-235:                                              ; preds = %.thread138.i
+235:                                              ; preds = %.thread142.i
   %236 = getelementptr inbounds nuw i8, ptr %0, i64 2532
   store i32 0, ptr %236, align 4, !tbaa !227
   br label %cvInitialSetup.exit
@@ -6312,8 +6312,8 @@ cvAdjustParams.exit.i:                            ; preds = %903, %900
   %958 = load i32, ptr %572, align 4, !tbaa !166
   %.not75.i.i = icmp eq i32 %958, 0
   %.not7698.i.i = icmp slt i32 %957, 1
-  %or.cond127.i.i = or i1 %.not7698.i.i, %.not75.i.i
-  br i1 %or.cond127.i.i, label %.loopexit86.i.i, label %.preheader84.i.i
+  %or.cond132.i.i = or i1 %.not7698.i.i, %.not75.i.i
+  br i1 %or.cond132.i.i, label %.loopexit86.i.i, label %.preheader84.i.i
 
 .preheader84.i.i:                                 ; preds = %.loopexit89.i.i, %968
   %indvars.iv116.i.i = phi i64 [ %indvars.iv.next117.i.i, %968 ], [ 1, %.loopexit89.i.i ]
@@ -6345,8 +6345,8 @@ cvAdjustParams.exit.i:                            ; preds = %903, %900
   %972 = load i32, ptr %575, align 8, !tbaa !198
   %.not77.i.i = icmp eq i32 %972, 0
   %.not78101.i.i = icmp slt i32 %971, 1
-  %or.cond128.i.i = or i1 %.not78101.i.i, %.not77.i.i
-  br i1 %or.cond128.i.i, label %cvPredict.exit.i, label %.preheader.i.i
+  %or.cond133.i.i = or i1 %.not78101.i.i, %.not77.i.i
+  br i1 %or.cond133.i.i, label %cvPredict.exit.i, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %.loopexit86.i.i, %982
   %indvars.iv122.i.i = phi i64 [ %indvars.iv.next123.i.i, %982 ], [ 1, %.loopexit86.i.i ]
@@ -6712,14 +6712,14 @@ cvSetAdams.exit.i.i:                              ; preds = %cvAdamsFinish.exit.
   %1123 = phi double [ %.pre123.i.i.i, %._crit_edge96.loopexit.i.i.i ], [ 1.000000e+00, %.preheader83.i.i.i ]
   %.177.lcssa.i.i.i = phi double [ %1122, %._crit_edge96.loopexit.i.i.i ], [ -1.000000e+00, %.preheader83.i.i.i ]
   %.172.lcssa.i.i.i = phi double [ %1109, %._crit_edge96.loopexit.i.i.i ], [ %1097, %.preheader83.i.i.i ]
-  %1124 = sitofp i32 %985 to double
+  %1124 = uitofp nneg i32 %985 to double
   %1125 = fdiv double 1.000000e+00, %1124
   %1126 = fsub double %.177.lcssa.i.i.i, %1125
   %1127 = fneg double %1123
   %1128 = fsub double %1127, %1126
   %1129 = add nsw i32 %985, -1
-  %1130 = sext i32 %1129 to i64
-  %1131 = getelementptr inbounds [14 x double], ptr %602, i64 0, i64 %1130
+  %1130 = zext nneg i32 %1129 to i64
+  %1131 = getelementptr inbounds nuw [14 x double], ptr %602, i64 0, i64 %1130
   %1132 = load double, ptr %1131, align 8, !tbaa !69
   %1133 = fadd double %.172.lcssa.i.i.i, %1132
   %1134 = fdiv double %1097, %1133
@@ -7038,12 +7038,12 @@ cvSet.exit.i:                                     ; preds = %1209, %1207, %.thre
   br label %.sink.split.i.i
 
 .sink.split.i.i:                                  ; preds = %1298, %.thread93.i.i
-  %.sink105.i.i = phi i64 [ 440, %.thread93.i.i ], [ %spec.select.i, %1298 ]
-  %.sink102.in.i.i = phi ptr [ %622, %.thread93.i.i ], [ %spec.select307.i, %1298 ]
-  %.sink102.i.i = load ptr, ptr %.sink102.in.i.i, align 8, !tbaa !65
-  %1300 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink105.i.i
+  %.sink106.i.i = phi i64 [ 440, %.thread93.i.i ], [ %spec.select.i, %1298 ]
+  %.sink103.in.i.i = phi ptr [ %622, %.thread93.i.i ], [ %spec.select307.i, %1298 ]
+  %.sink103.i.i = load ptr, ptr %.sink103.in.i.i, align 8, !tbaa !65
+  %1300 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink106.i.i
   %1301 = load ptr, ptr %1300, align 8, !tbaa !65
-  %1302 = call double @N_VWrmsNorm(ptr noundef %.sink102.i.i, ptr noundef %1301) #13
+  %1302 = call double @N_VWrmsNorm(ptr noundef %.sink103.i.i, ptr noundef %1301) #13
   store double %1302, ptr %632, align 8, !tbaa !267
   br label %1303
 
@@ -8507,14 +8507,14 @@ cvPrepareNextStep.exit.i:                         ; preds = %2017, %2011, %1988,
   %2028 = mul nuw nsw i32 %2026, %2020
   %2029 = add nuw nsw i32 %2020, 1
   %2030 = mul nuw nsw i32 %2028, %2029
-  %2031 = sitofp i32 %2030 to double
+  %2031 = uitofp nneg i32 %2030 to double
   %2032 = load double, ptr %632, align 8, !tbaa !267
   %2033 = fmul double %2032, %2031
   %2034 = load double, ptr %604, align 8, !tbaa !69
   %2035 = fcmp ogt double %2034, 1.000000e-10
   %2036 = select i1 %2035, double %2034, double 1.000000e-10
   %2037 = fdiv double %2033, %2036
-  %2038 = sitofp i32 %2028 to double
+  %2038 = uitofp nneg i32 %2028 to double
   %2039 = zext nneg i32 %2020 to i64
   %2040 = getelementptr inbounds nuw [13 x ptr], ptr %565, i64 0, i64 %2039
   %2041 = load ptr, ptr %2040, align 8, !tbaa !65
@@ -9052,9 +9052,9 @@ cvPrepareNextStep.exit.i:                         ; preds = %2017, %2011, %1988,
   %2345 = fdiv double %2344, %2339
   %2346 = mul nuw nsw i32 %2058, %2058
   %2347 = add nsw i32 %2346, -1
-  %2348 = sitofp i32 %2347 to double
+  %2348 = uitofp nneg i32 %2347 to double
   %2349 = add nsw i32 %2058, -1
-  %2350 = sitofp i32 %2349 to double
+  %2350 = uitofp nneg i32 %2349 to double
   %2351 = call double @llvm.fmuladd.f64(double %2343, double %2345, double -1.000000e+00)
   %2352 = fmul double %2348, -2.500000e-01
   %2353 = call double @llvm.fmuladd.f64(double %2352, double %2343, double %2351)
@@ -10496,7 +10496,7 @@ define internal fastcc range(i32 -12, 1) i32 @cvRcheck1(ptr noundef nonnull capt
 
 .outer:                                           ; preds = %.thread, %.lr.ph69
   %.ph = phi i32 [ %.pre, %.thread ], [ %35, %.lr.ph69 ]
-  %indvars.iv74.ph = phi i64 [ %indvars.iv.next7583, %.thread ], [ 0, %.lr.ph69 ]
+  %indvars.iv74.ph = phi i64 [ %indvars.iv.next7585, %.thread ], [ 0, %.lr.ph69 ]
   %39 = phi i1 [ false, %.thread ], [ true, %.lr.ph69 ]
   %40 = sext i32 %.ph to i64
   br label %41
@@ -10518,15 +10518,15 @@ define internal fastcc range(i32 -12, 1) i32 @cvRcheck1(ptr noundef nonnull capt
   %48 = getelementptr inbounds nuw i32, ptr %47, i64 %indvars.iv74
   store i32 0, ptr %48, align 4, !tbaa !67
   %.pre = load i32, ptr %2, align 8, !tbaa !208
-  %indvars.iv.next7583 = add nuw nsw i64 %indvars.iv74, 1
+  %indvars.iv.next7585 = add nuw nsw i64 %indvars.iv74, 1
   %49 = sext i32 %.pre to i64
-  %50 = icmp slt i64 %indvars.iv.next7583, %49
-  br i1 %50, label %.outer, label %._crit_edge70.thread85
+  %50 = icmp slt i64 %indvars.iv.next7585, %49
+  br i1 %50, label %.outer, label %._crit_edge70.thread87
 
 ._crit_edge70:                                    ; preds = %45
-  br i1 %39, label %.loopexit, label %._crit_edge70.thread85
+  br i1 %39, label %.loopexit, label %._crit_edge70.thread87
 
-._crit_edge70.thread85:                           ; preds = %.thread, %._crit_edge70
+._crit_edge70.thread87:                           ; preds = %.thread, %._crit_edge70
   %51 = load double, ptr %24, align 8, !tbaa !285
   %52 = load double, ptr %16, align 8, !tbaa !233
   %53 = tail call double @llvm.fabs.f64(double %52)
@@ -10554,7 +10554,7 @@ define internal fastcc range(i32 -12, 1) i32 @cvRcheck1(ptr noundef nonnull capt
   %.not63 = icmp eq i32 %70, 0
   br i1 %.not63, label %.preheader, label %.loopexit
 
-.preheader:                                       ; preds = %._crit_edge70.thread85
+.preheader:                                       ; preds = %._crit_edge70.thread87
   %73 = load i32, ptr %2, align 8, !tbaa !208
   %74 = icmp sgt i32 %73, 0
   br i1 %74, label %.lr.ph72, label %.loopexit
@@ -10594,8 +10594,8 @@ define internal fastcc range(i32 -12, 1) i32 @cvRcheck1(ptr noundef nonnull capt
   %92 = icmp slt i64 %indvars.iv.next78, %91
   br i1 %92, label %77, label %.loopexit
 
-.loopexit:                                        ; preds = %89, %.preheader65, %.preheader, %._crit_edge70.thread85, %._crit_edge70, %._crit_edge
-  %.058 = phi i32 [ -12, %._crit_edge ], [ 0, %._crit_edge70 ], [ -12, %._crit_edge70.thread85 ], [ 0, %.preheader ], [ 0, %.preheader65 ], [ 0, %89 ]
+.loopexit:                                        ; preds = %89, %.preheader65, %.preheader, %._crit_edge70.thread87, %._crit_edge70, %._crit_edge
+  %.058 = phi i32 [ -12, %._crit_edge ], [ 0, %._crit_edge70 ], [ -12, %._crit_edge70.thread87 ], [ 0, %.preheader ], [ 0, %.preheader65 ], [ 0, %89 ]
   ret i32 %.058
 }
 
@@ -10651,7 +10651,7 @@ define internal fastcc range(i32 -12, 4) i32 @cvRcheck2(ptr noundef nonnull capt
 
 .outer:                                           ; preds = %.thread, %.lr.ph87
   %.ph = phi i32 [ %.pre, %.thread ], [ %36, %.lr.ph87 ]
-  %indvars.iv94.ph = phi i64 [ %indvars.iv.next95103, %.thread ], [ 0, %.lr.ph87 ]
+  %indvars.iv94.ph = phi i64 [ %indvars.iv.next95106, %.thread ], [ 0, %.lr.ph87 ]
   %32 = phi i1 [ false, %.thread ], [ true, %.lr.ph87 ]
   %33 = sext i32 %.ph to i64
   br label %39
@@ -10690,15 +10690,15 @@ define internal fastcc range(i32 -12, 4) i32 @cvRcheck2(ptr noundef nonnull capt
   %50 = getelementptr inbounds nuw i32, ptr %49, i64 %indvars.iv94
   store i32 1, ptr %50, align 4, !tbaa !67
   %.pre = load i32, ptr %23, align 8, !tbaa !208
-  %indvars.iv.next95103 = add nuw nsw i64 %indvars.iv94, 1
+  %indvars.iv.next95106 = add nuw nsw i64 %indvars.iv94, 1
   %51 = sext i32 %.pre to i64
-  %52 = icmp slt i64 %indvars.iv.next95103, %51
-  br i1 %52, label %.outer, label %._crit_edge.thread105
+  %52 = icmp slt i64 %indvars.iv.next95106, %51
+  br i1 %52, label %.outer, label %._crit_edge.thread108
 
 ._crit_edge:                                      ; preds = %47
-  br i1 %32, label %.loopexit, label %._crit_edge.thread105
+  br i1 %32, label %.loopexit, label %._crit_edge.thread108
 
-._crit_edge.thread105:                            ; preds = %.thread, %._crit_edge
+._crit_edge.thread108:                            ; preds = %.thread, %._crit_edge
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 1032
   %54 = load double, ptr %53, align 8, !tbaa !106
   %55 = tail call double @llvm.fabs.f64(double %54)
@@ -10722,7 +10722,7 @@ define internal fastcc range(i32 -12, 4) i32 @cvRcheck2(ptr noundef nonnull capt
   %72 = fcmp ult double %71, 0.000000e+00
   br i1 %72, label %78, label %73
 
-73:                                               ; preds = %._crit_edge.thread105
+73:                                               ; preds = %._crit_edge.thread108
   %74 = fdiv double %67, %57
   %75 = load ptr, ptr %8, align 8, !tbaa !216
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 344
@@ -10730,7 +10730,7 @@ define internal fastcc range(i32 -12, 4) i32 @cvRcheck2(ptr noundef nonnull capt
   tail call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %75, double noundef %74, ptr noundef %77, ptr noundef %75) #13
   br label %81
 
-78:                                               ; preds = %._crit_edge.thread105
+78:                                               ; preds = %._crit_edge.thread108
   %79 = load ptr, ptr %8, align 8, !tbaa !216
   %80 = tail call i32 @CVodeGetDky(ptr noundef nonnull %0, double noundef %69, i32 noundef 0, ptr noundef %79)
   br label %81
@@ -10915,19 +10915,19 @@ define internal fastcc range(i32 -12, 2) i32 @cvRcheck3(ptr noundef nonnull %0) 
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 2448
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 2416
   %wide.trip.count.i = zext nneg i32 %65 to i64
-  br label %.outer426.i
+  br label %.outer442.i
 
-.outer426.i:                                      ; preds = %.thread.i, %.lr.ph.i
-  %indvars.iv.ph.i = phi i64 [ %indvars.iv.next379.i, %.thread.i ], [ 0, %.lr.ph.i ]
+.outer442.i:                                      ; preds = %.thread.i, %.lr.ph.i
+  %indvars.iv.ph.i = phi i64 [ %indvars.iv.next395.i, %.thread.i ], [ 0, %.lr.ph.i ]
   %74 = phi i1 [ false, %.thread.i ], [ true, %.lr.ph.i ]
   %.0221279.ph.i = phi i32 [ %.0221279.i, %.thread.i ], [ 0, %.lr.ph.i ]
   %.0227278.ph.i = phi i32 [ %116, %.thread.i ], [ 0, %.lr.ph.i ]
   %.0237276.ph.i = phi double [ %113, %.thread.i ], [ 0.000000e+00, %.lr.ph.i ]
   br label %75
 
-75:                                               ; preds = %115, %.outer426.i
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %115 ], [ %indvars.iv.ph.i, %.outer426.i ]
-  %.0221279.i = phi i32 [ %.1222.i, %115 ], [ %.0221279.ph.i, %.outer426.i ]
+75:                                               ; preds = %115, %.outer442.i
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %115 ], [ %indvars.iv.ph.i, %.outer442.i ]
+  %.0221279.i = phi i32 [ %.1222.i, %115 ], [ %.0221279.ph.i, %.outer442.i ]
   %76 = getelementptr inbounds nuw i32, ptr %71, i64 %indvars.iv.i
   %77 = load i32, ptr %76, align 4, !tbaa !67
   %.not254.i = icmp eq i32 %77, 0
@@ -10994,16 +10994,16 @@ define internal fastcc range(i32 -12, 2) i32 @cvRcheck3(ptr noundef nonnull %0) 
 
 .thread.i:                                        ; preds = %110
   %116 = trunc nuw nsw i64 %indvars.iv.i to i32
-  %indvars.iv.next379.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.not380.i = icmp eq i64 %indvars.iv.next379.i, %wide.trip.count.i
-  br i1 %exitcond.not380.i, label %.preheader263.i, label %.outer426.i
+  %indvars.iv.next395.i = add nuw nsw i64 %indvars.iv.i, 1
+  %exitcond.not396.i = icmp eq i64 %indvars.iv.next395.i, %wide.trip.count.i
+  br i1 %exitcond.not396.i, label %.preheader263.i, label %.outer442.i
 
 ._crit_edge.i:                                    ; preds = %115
   %.not57 = icmp eq i32 %.1222.i, 0
   br i1 %74, label %124, label %.preheader263.i
 
 .preheader263.i:                                  ; preds = %.thread.i, %._crit_edge.i
-  %.1228381388.i = phi i32 [ %.0227278.ph.i, %._crit_edge.i ], [ %116, %.thread.i ]
+  %.1228397404.i = phi i32 [ %.0227278.ph.i, %._crit_edge.i ], [ %116, %.thread.i ]
   %117 = getelementptr inbounds nuw i8, ptr %0, i64 2424
   %118 = load double, ptr %39, align 8, !tbaa !286
   %119 = load double, ptr %117, align 8, !tbaa !239
@@ -11092,7 +11092,7 @@ define internal fastcc range(i32 -12, 2) i32 @cvRcheck3(ptr noundef nonnull %0) 
   %.0225307.i = phi i32 [ -1, %.lr.ph308.i ], [ %.0226306.i, %.backedge.i ]
   %.0226306.i = phi i32 [ 0, %.lr.ph308.i ], [ %.0226.be.i, %.backedge.i ]
   %.v305.i = phi double [ 5.000000e-01, %.lr.ph308.i ], [ %.v.be.i, %.backedge.i ]
-  %.2229304.i = phi i32 [ %.1228381388.i, %.lr.ph308.i ], [ %.3230.lcssa398.i, %.backedge.i ]
+  %.2229304.i = phi i32 [ %.1228397404.i, %.lr.ph308.i ], [ %.3230.lcssa414.i, %.backedge.i ]
   %.0243303.i = phi double [ 1.000000e+00, %.lr.ph308.i ], [ %.1244.i, %.backedge.i ]
   %167 = icmp eq i32 %.0225307.i, %.0226306.i
   %168 = fmul double %.v305.i, %.0243303.i
@@ -11156,9 +11156,9 @@ define internal fastcc range(i32 -12, 2) i32 @cvRcheck3(ptr noundef nonnull %0) 
 .preheader262.i:                                  ; preds = %200
   %210 = load i32, ptr %64, align 8, !tbaa !208
   %211 = icmp sgt i32 %210, 0
-  br i1 %211, label %.lr.ph289.i, label %.thread420.i
+  br i1 %211, label %.lr.ph289.i, label %.thread436.i
 
-.thread420.i:                                     ; preds = %.preheader262.i
+.thread436.i:                                     ; preds = %.preheader262.i
   store double %.1242.i, ptr %117, align 8, !tbaa !239
   br label %._crit_edge302.i
 
@@ -11167,12 +11167,12 @@ define internal fastcc range(i32 -12, 2) i32 @cvRcheck3(ptr noundef nonnull %0) 
   %wide.trip.count336.i = zext nneg i32 %210 to i64
   br label %.outer.i
 
-.outer.i:                                         ; preds = %.thread401.i, %.lr.ph289.i
-  %indvars.iv333.ph.i = phi i64 [ %indvars.iv.next334406.i, %.thread401.i ], [ 0, %.lr.ph289.i ]
-  %213 = phi i1 [ false, %.thread401.i ], [ true, %.lr.ph289.i ]
-  %.2223287.ph.i = phi i32 [ %.2223287.i, %.thread401.i ], [ 0, %.lr.ph289.i ]
-  %.3230286.ph.i = phi i32 [ %255, %.thread401.i ], [ %.2229304.i, %.lr.ph289.i ]
-  %.2239284.ph.i = phi double [ %252, %.thread401.i ], [ 0.000000e+00, %.lr.ph289.i ]
+.outer.i:                                         ; preds = %.thread417.i, %.lr.ph289.i
+  %indvars.iv333.ph.i = phi i64 [ %indvars.iv.next334422.i, %.thread417.i ], [ 0, %.lr.ph289.i ]
+  %213 = phi i1 [ false, %.thread417.i ], [ true, %.lr.ph289.i ]
+  %.2223287.ph.i = phi i32 [ %.2223287.i, %.thread417.i ], [ 0, %.lr.ph289.i ]
+  %.3230286.ph.i = phi i32 [ %255, %.thread417.i ], [ %.2229304.i, %.lr.ph289.i ]
+  %.2239284.ph.i = phi double [ %252, %.thread417.i ], [ 0.000000e+00, %.lr.ph289.i ]
   br label %214
 
 214:                                              ; preds = %254, %.outer.i
@@ -11234,7 +11234,7 @@ define internal fastcc range(i32 -12, 2) i32 @cvRcheck3(ptr noundef nonnull %0) 
   %251 = fdiv double %220, %250
   %252 = tail call double @llvm.fabs.f64(double %251)
   %253 = fcmp ogt double %252, %.2239284.ph.i
-  br i1 %253, label %.thread401.i, label %254
+  br i1 %253, label %.thread417.i, label %254
 
 254:                                              ; preds = %249, %242, %239, %232, %222, %214
   %.3224.i = phi i32 [ 1, %232 ], [ %.2223287.i, %222 ], [ %.2223287.i, %249 ], [ %.2223287.i, %242 ], [ %.2223287.i, %239 ], [ %.2223287.i, %214 ]
@@ -11242,28 +11242,28 @@ define internal fastcc range(i32 -12, 2) i32 @cvRcheck3(ptr noundef nonnull %0) 
   %exitcond337.not.i = icmp eq i64 %indvars.iv.next334.i, %wide.trip.count336.i
   br i1 %exitcond337.not.i, label %._crit_edge290.i, label %214
 
-.thread401.i:                                     ; preds = %249
+.thread417.i:                                     ; preds = %249
   %255 = trunc nuw nsw i64 %indvars.iv333.i to i32
-  %indvars.iv.next334406.i = add nuw nsw i64 %indvars.iv333.i, 1
-  %exitcond337.not407.i = icmp eq i64 %indvars.iv.next334406.i, %wide.trip.count336.i
-  br i1 %exitcond337.not407.i, label %._crit_edge290.thread411.i, label %.outer.i
+  %indvars.iv.next334422.i = add nuw nsw i64 %indvars.iv333.i, 1
+  %exitcond337.not423.i = icmp eq i64 %indvars.iv.next334422.i, %wide.trip.count336.i
+  br i1 %exitcond337.not423.i, label %._crit_edge290.thread427.i, label %.outer.i
 
 ._crit_edge290.i:                                 ; preds = %254
-  br i1 %213, label %271, label %._crit_edge290.i.._crit_edge290.thread411.i_crit_edge
+  br i1 %213, label %271, label %._crit_edge290.i.._crit_edge290.thread427.i_crit_edge
 
-._crit_edge290.i.._crit_edge290.thread411.i_crit_edge: ; preds = %._crit_edge290.i
+._crit_edge290.i.._crit_edge290.thread427.i_crit_edge: ; preds = %._crit_edge290.i
   %.pre = load ptr, ptr %123, align 8, !tbaa !211
-  br label %._crit_edge290.thread411.i
+  br label %._crit_edge290.thread427.i
 
-._crit_edge290.thread411.i:                       ; preds = %.thread401.i, %._crit_edge290.i.._crit_edge290.thread411.i_crit_edge
-  %256 = phi ptr [ %.pre, %._crit_edge290.i.._crit_edge290.thread411.i_crit_edge ], [ %218, %.thread401.i ]
-  %.4408415.i = phi i32 [ %.3230286.ph.i, %._crit_edge290.i.._crit_edge290.thread411.i_crit_edge ], [ %255, %.thread401.i ]
+._crit_edge290.thread427.i:                       ; preds = %.thread417.i, %._crit_edge290.i.._crit_edge290.thread427.i_crit_edge
+  %256 = phi ptr [ %.pre, %._crit_edge290.i.._crit_edge290.thread427.i_crit_edge ], [ %218, %.thread417.i ]
+  %.4424431.i = phi i32 [ %.3230286.ph.i, %._crit_edge290.i.._crit_edge290.thread427.i_crit_edge ], [ %255, %.thread417.i ]
   store double %.1242.i, ptr %39, align 8, !tbaa !286
   %257 = load ptr, ptr %43, align 8, !tbaa !210
   br label %258
 
-258:                                              ; preds = %258, %._crit_edge290.thread411.i
-  %indvars.iv338.i = phi i64 [ 0, %._crit_edge290.thread411.i ], [ %indvars.iv.next339.i, %258 ]
+258:                                              ; preds = %258, %._crit_edge290.thread427.i
+  %indvars.iv338.i = phi i64 [ 0, %._crit_edge290.thread427.i ], [ %indvars.iv.next339.i, %258 ]
   %259 = getelementptr inbounds nuw double, ptr %256, i64 %indvars.iv338.i
   %260 = load double, ptr %259, align 8, !tbaa !69
   %261 = getelementptr inbounds nuw double, ptr %257, i64 %indvars.iv338.i
@@ -11282,7 +11282,7 @@ define internal fastcc range(i32 -12, 2) i32 @cvRcheck3(ptr noundef nonnull %0) 
   br i1 %266, label %.backedge.i, label %.loopexit261.i.loopexit
 
 .backedge.i:                                      ; preds = %._crit_edge302.i, %._crit_edge298.loopexit.i
-  %.3230.lcssa398.i = phi i32 [ %.4408415.i, %._crit_edge298.loopexit.i ], [ %.3230.lcssa399419422.i, %._crit_edge302.i ]
+  %.3230.lcssa414.i = phi i32 [ %.4424431.i, %._crit_edge298.loopexit.i ], [ %.3230.lcssa415435438.i, %._crit_edge302.i ]
   %.pre-phi370.i = phi double [ %264, %._crit_edge298.loopexit.i ], [ %290, %._crit_edge302.i ]
   %.pre-phi.i = phi double [ %263, %._crit_edge298.loopexit.i ], [ %289, %._crit_edge302.i ]
   %267 = phi double [ %265, %._crit_edge298.loopexit.i ], [ %291, %._crit_edge302.i ]
@@ -11333,9 +11333,9 @@ define internal fastcc range(i32 -12, 2) i32 @cvRcheck3(ptr noundef nonnull %0) 
   %.pre365.i = load double, ptr %117, align 8, !tbaa !239
   br label %._crit_edge302.i
 
-._crit_edge302.i:                                 ; preds = %._crit_edge302.loopexit.i, %.thread420.i
-  %.3230.lcssa399419422.i = phi i32 [ %.3230286.ph.i, %._crit_edge302.loopexit.i ], [ %.2229304.i, %.thread420.i ]
-  %287 = phi double [ %.pre365.i, %._crit_edge302.loopexit.i ], [ %.1242.i, %.thread420.i ]
+._crit_edge302.i:                                 ; preds = %._crit_edge302.loopexit.i, %.thread436.i
+  %.3230.lcssa415435438.i = phi i32 [ %.3230286.ph.i, %._crit_edge302.loopexit.i ], [ %.2229304.i, %.thread436.i ]
+  %287 = phi double [ %.pre365.i, %._crit_edge302.loopexit.i ], [ %.1242.i, %.thread436.i ]
   %288 = load double, ptr %39, align 8, !tbaa !286
   %289 = fsub double %288, %287
   %290 = tail call double @llvm.fabs.f64(double %289)
@@ -11354,9 +11354,9 @@ define internal fastcc range(i32 -12, 2) i32 @cvRcheck3(ptr noundef nonnull %0) 
   %294 = icmp sgt i32 %210, 0
   %295 = getelementptr inbounds nuw i8, ptr %0, i64 2440
   store double %.ph, ptr %295, align 8, !tbaa !287
-  br i1 %294, label %.loopexit261.i..lr.ph319.i_crit_edge, label %._crit_edge.thread.thread115
+  br i1 %294, label %.loopexit261.i..lr.ph319.i_crit_edge, label %._crit_edge.thread.thread132
 
-._crit_edge.thread.thread115:                     ; preds = %.loopexit261.i.loopexit
+._crit_edge.thread.thread132:                     ; preds = %.loopexit261.i.loopexit
   %296 = getelementptr inbounds nuw i8, ptr %0, i64 2440
   %297 = load double, ptr %296, align 8, !tbaa !287
   %298 = getelementptr inbounds nuw i8, ptr %0, i64 2424
@@ -11533,8 +11533,8 @@ cvRootfind.exit:                                  ; preds = %343, %157, %._crit_
 ._crit_edge81:                                    ; preds = %378, %._crit_edge
   br i1 %348, label %cvRootfind.exit.thread, label %382
 
-382:                                              ; preds = %._crit_edge.thread.thread115, %._crit_edge.thread, %._crit_edge81
-  %383 = phi ptr [ %367, %._crit_edge.thread ], [ %370, %._crit_edge81 ], [ %296, %._crit_edge.thread.thread115 ]
+382:                                              ; preds = %._crit_edge.thread.thread132, %._crit_edge.thread, %._crit_edge81
+  %383 = phi ptr [ %367, %._crit_edge.thread ], [ %370, %._crit_edge81 ], [ %296, %._crit_edge.thread.thread132 ]
   %384 = load double, ptr %383, align 8, !tbaa !287
   %385 = load ptr, ptr %41, align 8, !tbaa !216
   %386 = tail call i32 @CVodeGetDky(ptr noundef nonnull %0, double noundef %384, i32 noundef 0, ptr noundef %385)
@@ -13515,7 +13515,7 @@ define void @cvRescale(ptr noundef %0) local_unnamed_addr #0 {
 
 .preheader109.thread:                             ; preds = %27
   %33 = load i32, ptr %6, align 8, !tbaa !108
-  %.not100123181 = icmp slt i32 %33, 1
+  %.not100123187 = icmp slt i32 %33, 1
   br label %._crit_edge125
 
 .preheader108.lr.ph.split.us:                     ; preds = %.preheader109
@@ -13532,7 +13532,7 @@ define void @cvRescale(ptr noundef %0) local_unnamed_addr #0 {
   %38 = mul nsw i64 %37, %35
   %39 = mul nuw nsw i64 %indvars.iv155, %35
   %invariant.gep = getelementptr double, ptr %34, i64 %38
-  %invariant.gep186 = getelementptr inbounds nuw double, ptr %34, i64 %39
+  %invariant.gep192 = getelementptr inbounds nuw double, ptr %34, i64 %39
   br label %40
 
 40:                                               ; preds = %.preheader108.us, %40
@@ -13541,8 +13541,8 @@ define void @cvRescale(ptr noundef %0) local_unnamed_addr #0 {
   %gep = getelementptr double, ptr %invariant.gep, i64 %indvars.iv150
   %42 = load double, ptr %gep, align 8, !tbaa !69
   %43 = fmul double %41, %42
-  %gep187 = getelementptr inbounds nuw double, ptr %invariant.gep186, i64 %indvars.iv150
-  store double %43, ptr %gep187, align 8, !tbaa !69
+  %gep193 = getelementptr inbounds nuw double, ptr %invariant.gep192, i64 %indvars.iv150
+  store double %43, ptr %gep193, align 8, !tbaa !69
   %indvars.iv.next151 = add nuw nsw i64 %indvars.iv150, 1
   %exitcond154.not = icmp eq i64 %indvars.iv.next151, %wide.trip.count153
   br i1 %exitcond154.not, label %._crit_edge122.us, label %40
@@ -13561,12 +13561,12 @@ define void @cvRescale(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %exitcond149.not, label %.preheader109, label %44
 
 ._crit_edge125:                                   ; preds = %._crit_edge122.us, %.preheader109, %.preheader109.thread
-  %.not100123183 = phi i1 [ true, %.preheader109 ], [ %.not100123181, %.preheader109.thread ], [ false, %._crit_edge122.us ]
+  %.not100123189 = phi i1 [ true, %.preheader109 ], [ %.not100123187, %.preheader109.thread ], [ false, %._crit_edge122.us ]
   %46 = phi i32 [ %32, %.preheader109 ], [ %33, %.preheader109.thread ], [ %32, %._crit_edge122.us ]
   br i1 %.not98, label %.thread, label %.preheader107
 
 .preheader107:                                    ; preds = %._crit_edge125
-  br i1 %.not100123183, label %._crit_edge131, label %.preheader106.lr.ph
+  br i1 %.not100123189, label %._crit_edge131, label %.preheader106.lr.ph
 
 .preheader106.lr.ph:                              ; preds = %.preheader107
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 648
@@ -13767,8 +13767,8 @@ define void @cvRestore(ptr noundef captures(none) initializes((1032, 1040)) %0, 
   %33 = load i32, ptr %32, align 4, !tbaa !166
   %.not68 = icmp eq i32 %33, 0
   %.not6991 = icmp slt i32 %31, 1
-  %or.cond120 = or i1 %.not68, %.not6991
-  br i1 %or.cond120, label %.loopexit79, label %.preheader77.lr.ph
+  %or.cond125 = or i1 %.not68, %.not6991
+  br i1 %or.cond125, label %.loopexit79, label %.preheader77.lr.ph
 
 .preheader77.lr.ph:                               ; preds = %.loopexit82
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 144
@@ -13806,8 +13806,8 @@ define void @cvRestore(ptr noundef captures(none) initializes((1032, 1040)) %0, 
   %50 = load i32, ptr %49, align 8, !tbaa !198
   %.not70 = icmp eq i32 %50, 0
   %.not7194 = icmp slt i32 %48, 1
-  %or.cond121 = or i1 %.not70, %.not7194
-  br i1 %or.cond121, label %.loopexit, label %.preheader.lr.ph
+  %or.cond126 = or i1 %.not70, %.not7194
+  br i1 %or.cond126, label %.loopexit, label %.preheader.lr.ph
 
 .preheader.lr.ph:                                 ; preds = %.loopexit79
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 144

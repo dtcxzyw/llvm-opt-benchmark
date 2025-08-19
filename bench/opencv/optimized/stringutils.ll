@@ -414,16 +414,16 @@ define hidden void @_ZN5zxing6common11StringUtils18guessEncodingZXingB5cxx11EPci
   br label %46
 
 .outer33._crit_edge.i:                            ; preds = %.outer.i, %.outer33.i, %50, %22
-  %.0.lcssa412 = phi i1 [ true, %22 ], [ %37, %50 ], [ %37, %.outer33.i ], [ %37, %.outer.i ]
-  %.0154.lcssa411 = phi i1 [ true, %22 ], [ %36, %50 ], [ %36, %.outer33.i ], [ %36, %.outer.i ]
-  %.0156.lcssa410 = phi i1 [ true, %22 ], [ %35, %50 ], [ %35, %.outer33.i ], [ %35, %.outer.i ]
-  %.0165.lcssa409 = phi i1 [ false, %22 ], [ %39, %50 ], [ %39, %.outer33.i ], [ %39, %.outer.i ]
-  %.0167.lcssa408 = phi i32 [ 0, %22 ], [ %.1168, %50 ], [ %.1168, %.outer33.i ], [ %.1168, %.outer.i ]
-  %.0169.lcssa407 = phi i32 [ 0, %22 ], [ %.1170, %50 ], [ %.1170, %.outer33.i ], [ %.1170, %.outer.i ]
-  %.0175.lcssa406 = phi i32 [ 0, %22 ], [ %.1176, %50 ], [ %.1176, %.outer33.i ], [ %.1176, %.outer.i ]
-  %.0179.lcssa405 = phi i32 [ 0, %22 ], [ %.1180, %50 ], [ %.1180, %.outer33.i ], [ %.1180, %.outer.i ]
-  %.0181.lcssa404 = phi i32 [ 0, %22 ], [ %.1182, %50 ], [ %.1182, %.outer33.i ], [ %.1182, %.outer.i ]
-  %.0183.lcssa403 = phi i32 [ 0, %22 ], [ %.1184, %50 ], [ %.1184, %.outer33.i ], [ %.1184, %.outer.i ]
+  %.0.lcssa431 = phi i1 [ true, %22 ], [ %37, %50 ], [ %37, %.outer33.i ], [ %37, %.outer.i ]
+  %.0154.lcssa430 = phi i1 [ true, %22 ], [ %36, %50 ], [ %36, %.outer33.i ], [ %36, %.outer.i ]
+  %.0156.lcssa429 = phi i1 [ true, %22 ], [ %35, %50 ], [ %35, %.outer33.i ], [ %35, %.outer.i ]
+  %.0165.lcssa428 = phi i1 [ false, %22 ], [ %39, %50 ], [ %39, %.outer33.i ], [ %39, %.outer.i ]
+  %.0167.lcssa427 = phi i32 [ 0, %22 ], [ %.1168, %50 ], [ %.1168, %.outer33.i ], [ %.1168, %.outer.i ]
+  %.0169.lcssa426 = phi i32 [ 0, %22 ], [ %.1170, %50 ], [ %.1170, %.outer33.i ], [ %.1170, %.outer.i ]
+  %.0175.lcssa425 = phi i32 [ 0, %22 ], [ %.1176, %50 ], [ %.1176, %.outer33.i ], [ %.1176, %.outer.i ]
+  %.0179.lcssa424 = phi i32 [ 0, %22 ], [ %.1180, %50 ], [ %.1180, %.outer33.i ], [ %.1180, %.outer.i ]
+  %.0181.lcssa423 = phi i32 [ 0, %22 ], [ %.1182, %50 ], [ %.1182, %.outer33.i ], [ %.1182, %.outer.i ]
+  %.0183.lcssa422 = phi i32 [ 0, %22 ], [ %.1184, %50 ], [ %.1184, %.outer33.i ], [ %.1184, %.outer.i ]
   %42 = phi i1 [ false, %22 ], [ %24, %50 ], [ %24, %.outer33.i ], [ %24, %.outer.i ]
   %43 = phi i1 [ false, %22 ], [ true, %50 ], [ true, %.outer33.i ], [ true, %.outer.i ]
   %.031.ph.lcssa.i = phi i32 [ 0, %22 ], [ %.031.ph50.i, %50 ], [ %.031.ph50.i, %.outer33.i ], [ %60, %.outer.i ]
@@ -647,7 +647,7 @@ _ZN5zxing6common11StringUtils11is_gbk_codeEPci.exit: ; preds = %.outer32._crit_e
 
 _ZN5zxing6common11StringUtils13is_ascii_codeEPci.exit: ; preds = %.lr.ph.i231, %_ZN5zxing6common11StringUtils11is_gbk_codeEPci.exit
   %.06.lcssa.i = phi i1 [ true, %_ZN5zxing6common11StringUtils11is_gbk_codeEPci.exit ], [ %spec.select.i, %.lr.ph.i231 ]
-  br i1 %.0156.lcssa410, label %180, label %188
+  br i1 %.0156.lcssa429, label %180, label %188
 
 131:                                              ; preds = %.critedge5
   %132 = icmp sgt i32 %.0185323, 0
@@ -657,7 +657,7 @@ _ZN5zxing6common11StringUtils13is_ascii_codeEPci.exit: ; preds = %.lr.ph.i231, %
   %.lobit278 = ashr i8 %29, 7
   %134 = sext i8 %.lobit278 to i32
   %spec.select210 = add nsw i32 %.0185323, %134
-  %.lobit390 = lshr i8 %29, 7
+  %.lobit409 = lshr i8 %29, 7
   br label %153
 
 135:                                              ; preds = %131
@@ -701,12 +701,12 @@ _ZN5zxing6common11StringUtils13is_ascii_codeEPci.exit: ; preds = %.lr.ph.i231, %
   %.1184 = phi i32 [ %143, %142 ], [ %.0183324, %147 ], [ %.0183324, %135 ], [ %.0183324, %.critedge5 ], [ %.0183324, %136 ], [ %.0183324, %133 ], [ %.0183324, %149 ]
   %.1182 = phi i32 [ %.0181325, %142 ], [ %148, %147 ], [ %.0181325, %135 ], [ %.0181325, %.critedge5 ], [ %.0181325, %136 ], [ %.0181325, %133 ], [ %.0181325, %149 ]
   %.1180 = phi i32 [ %.0179326, %142 ], [ %.0179326, %147 ], [ %.0179326, %135 ], [ %.0179326, %.critedge5 ], [ %.0179326, %136 ], [ %.0179326, %133 ], [ %spec.select212, %149 ]
-  %.1157 = phi i8 [ 1, %142 ], [ 1, %147 ], [ 1, %135 ], [ 0, %.critedge5 ], [ 0, %136 ], [ %.lobit390, %133 ], [ %spec.select213, %149 ]
+  %.1157 = phi i8 [ 1, %142 ], [ 1, %147 ], [ 1, %135 ], [ 0, %.critedge5 ], [ 0, %136 ], [ %.lobit409, %133 ], [ %spec.select213, %149 ]
   br i1 %26, label %154, label %171
 
 154:                                              ; preds = %153
-  %.not391 = icmp eq i32 %.0177327, 0
-  br i1 %.not391, label %159, label %155
+  %.not410 = icmp eq i32 %.0177327, 0
+  br i1 %.not410, label %159, label %155
 
 155:                                              ; preds = %154
   %156 = icmp eq i8 %29, 127
@@ -781,8 +781,8 @@ _ZN5zxing6common11StringUtils13is_ascii_codeEPci.exit: ; preds = %.lr.ph.i231, %
   br i1 %42, label %._crit_edge.i.i, label %181
 
 181:                                              ; preds = %180
-  %182 = add nsw i32 %.0181.lcssa404, %.0183.lcssa403
-  %183 = add nsw i32 %182, %.0179.lcssa405
+  %182 = add nsw i32 %.0181.lcssa423, %.0183.lcssa422
+  %183 = add nsw i32 %182, %.0179.lcssa424
   %184 = icmp sgt i32 %183, 0
   br i1 %184, label %._crit_edge.i.i, label %188
 
@@ -799,13 +799,13 @@ _ZN5zxing6common11StringUtils13is_ascii_codeEPci.exit: ; preds = %.lr.ph.i231, %
 188:                                              ; preds = %181, %_ZN5zxing6common11StringUtils13is_ascii_codeEPci.exit
   %189 = tail call i32 @llvm.smax.i32(i32 %.1.i, i32 %.1.i214)
   %190 = shl nsw i32 %189, 1
-  %191 = shl nuw nsw i32 %.0167.lcssa408, 1
-  %192 = add nuw nsw i32 %191, %.0169.lcssa407
-  br i1 %.0154.lcssa411, label %193, label %.thread
+  %191 = shl nuw nsw i32 %.0167.lcssa427, 1
+  %192 = add nuw nsw i32 %191, %.0169.lcssa426
+  br i1 %.0154.lcssa430, label %193, label %.thread
 
 193:                                              ; preds = %188
-  %194 = icmp slt i32 %.0169.lcssa407, 3
-  %195 = icmp slt i32 %.0167.lcssa408, 3
+  %194 = icmp slt i32 %.0169.lcssa426, 3
+  %195 = icmp slt i32 %.0167.lcssa427, 3
   %or.cond27.not274 = select i1 %194, i1 %195, i1 false
   %.not199 = icmp sgt i32 %190, %192
   %or.cond = select i1 %or.cond27.not274, i1 true, i1 %.not199
@@ -816,7 +816,7 @@ _ZN5zxing6common11StringUtils13is_ascii_codeEPci.exit: ; preds = %.lr.ph.i231, %
   br i1 %197, label %198, label %._crit_edge.i.i238
 
 198:                                              ; preds = %196
-  %199 = icmp slt i32 %189, %.0175.lcssa406
+  %199 = icmp slt i32 %189, %.0175.lcssa425
   br i1 %199, label %._crit_edge.i.i234, label %206
 
 ._crit_edge.i.i234:                               ; preds = %198
@@ -840,13 +840,13 @@ _ZN5zxing6common11StringUtils13is_ascii_codeEPci.exit: ; preds = %.lr.ph.i231, %
   br label %245
 
 206:                                              ; preds = %198, %193
-  br i1 %.0.lcssa412, label %207, label %.thread
+  br i1 %.0.lcssa431, label %207, label %.thread
 
 207:                                              ; preds = %206
-  %208 = icmp ne i32 %.0169.lcssa407, 2
-  %209 = icmp ne i32 %.0175.lcssa406, 2
+  %208 = icmp ne i32 %.0169.lcssa426, 2
+  %209 = icmp ne i32 %.0175.lcssa425, 2
   %or.cond31.not277 = select i1 %208, i1 true, i1 %209
-  %or.cond209 = select i1 %or.cond31.not277, i1 %.0165.lcssa409, i1 false
+  %or.cond209 = select i1 %or.cond31.not277, i1 %.0165.lcssa428, i1 false
   br i1 %or.cond209, label %219, label %210
 
 210:                                              ; preds = %207
@@ -857,7 +857,7 @@ _ZN5zxing6common11StringUtils13is_ascii_codeEPci.exit: ; preds = %.lr.ph.i231, %
   br i1 %212, label %213, label %._crit_edge.i.i242
 
 213:                                              ; preds = %211
-  %214 = icmp slt i32 %189, %.0175.lcssa406
+  %214 = icmp slt i32 %189, %.0175.lcssa425
   br i1 %214, label %215, label %.thread
 
 215:                                              ; preds = %213
@@ -893,7 +893,7 @@ _ZN5zxing6common11StringUtils13is_ascii_codeEPci.exit: ; preds = %.lr.ph.i231, %
   br label %245
 
 .thread:                                          ; preds = %188, %213, %210, %219, %206
-  %224 = phi i1 [ true, %213 ], [ true, %210 ], [ true, %219 ], [ false, %206 ], [ %.0.lcssa412, %188 ]
+  %224 = phi i1 [ true, %213 ], [ true, %210 ], [ true, %219 ], [ false, %206 ], [ %.0.lcssa431, %188 ]
   br i1 %99, label %._crit_edge.i.i250, label %228
 
 ._crit_edge.i.i250:                               ; preds = %.thread
@@ -920,7 +920,7 @@ _ZN5zxing6common11StringUtils13is_ascii_codeEPci.exit: ; preds = %.lr.ph.i231, %
   br label %245
 
 232:                                              ; preds = %228
-  br i1 %.0154.lcssa411, label %._crit_edge.i.i258, label %236
+  br i1 %.0154.lcssa430, label %._crit_edge.i.i258, label %236
 
 ._crit_edge.i.i258:                               ; preds = %232
   %233 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -951,7 +951,7 @@ _ZN5zxing6common11StringUtils13is_ascii_codeEPci.exit: ; preds = %.lr.ph.i231, %
   br label %245
 
 240:                                              ; preds = %238
-  br i1 %.0156.lcssa410, label %241, label %242
+  br i1 %.0156.lcssa429, label %241, label %242
 
 241:                                              ; preds = %240
   call void @llvm.lifetime.start.p0(ptr nonnull %7)

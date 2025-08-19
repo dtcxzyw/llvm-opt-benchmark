@@ -265,7 +265,7 @@ define hidden noundef i32 @main(i32 noundef %0, ptr noundef readonly captures(no
 
 .lr.ph292.i:                                      ; preds = %.noexc33
   %28 = add nsw i32 %0, -1
-  %29 = sext i32 %28 to i64
+  %29 = zext nneg i32 %28 to i64
   br label %30
 
 30:                                               ; preds = %69, %.lr.ph292.i
@@ -276,7 +276,7 @@ define hidden noundef i32 @main(i32 noundef %0, ptr noundef readonly captures(no
   %34 = load i64, ptr %7, align 8, !tbaa !10
   %35 = sub i64 9223372036854775807, %34
   %36 = icmp ult i64 %35, %33
-  br i1 %36, label %.invoke387, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i.i.i
+  br i1 %36, label %.invoke400, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i.i.i: ; preds = %30
   %37 = add i64 %34, %33
@@ -322,19 +322,19 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit.i: ; preds = %5
   %51 = load ptr, ptr %3, align 8, !tbaa !15
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 %37
   store i8 0, ptr %52, align 1, !tbaa !13
-  %53 = icmp slt i64 %indvars.iv397.i, %29
+  %53 = icmp samesign ult i64 %indvars.iv397.i, %29
   br i1 %53, label %54, label %69
 
 54:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit.i
   %55 = load i64, ptr %7, align 8, !tbaa !10
   %56 = icmp eq i64 %55, 9223372036854775807
-  br i1 %56, label %.invoke387, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i.i134.i
+  br i1 %56, label %.invoke400, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i.i134.i
 
-.invoke387:                                       ; preds = %54, %30
+.invoke400:                                       ; preds = %54, %30
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.107) #22
-          to label %.cont388 unwind label %.loopexit.split-lp.loopexit.split-lp
+          to label %.cont401 unwind label %.loopexit.split-lp.loopexit.split-lp
 
-.cont388:                                         ; preds = %.invoke387
+.cont401:                                         ; preds = %.invoke400
   unreachable
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i.i134.i: ; preds = %54
@@ -629,11 +629,11 @@ sub_0188.i:                                       ; preds = %149
   %152 = getelementptr inbounds nuw i8, ptr %spec.select.i, i64 1
   %153 = load i8, ptr %152, align 1
   %154 = icmp eq i8 %153, 0
-  br i1 %154, label %155, label %.thread407.i
+  br i1 %154, label %155, label %.thread411.i
 
 155:                                              ; preds = %.tail187.i
   %.not131.i = icmp eq ptr %.0107.i, null
-  br i1 %.not131.i, label %.invoke386, label %.split.i
+  br i1 %.not131.i, label %.invoke399, label %.split.i
 
 .split.i:                                         ; preds = %155, %.split.i
   %.0.i.i = phi ptr [ %158, %.split.i ], [ %.0107.i, %155 ]
@@ -645,7 +645,7 @@ sub_0188.i:                                       ; preds = %149
 
 _ZL17validate_is_ulongPKc.exit.i:                 ; preds = %.split.i
   %.not.le.i.i = icmp eq i8 %156, 0
-  br i1 %.not.le.i.i, label %159, label %.invoke386
+  br i1 %.not.le.i.i, label %159, label %.invoke399
 
 159:                                              ; preds = %_ZL17validate_is_ulongPKc.exit.i
   %160 = call i64 @strtol(ptr noundef nonnull captures(none) %.0107.i, ptr noundef null, i32 noundef 10) #21
@@ -658,12 +658,12 @@ _ZL17validate_is_ulongPKc.exit.i:                 ; preds = %.split.i
   %163 = icmp eq i32 %162, 0
   br i1 %163, label %166, label %sub_0192.i
 
-.thread407.i:                                     ; preds = %.tail187.i
+.thread411.i:                                     ; preds = %.tail187.i
   %164 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select.i, ptr noundef nonnull dereferenceable(5) @.str.78) #23
   %165 = icmp eq i32 %164, 0
   br i1 %165, label %166, label %.tail208.thread.i
 
-166:                                              ; preds = %.thread407.i, %.tail187.thread.i
+166:                                              ; preds = %.thread411.i, %.tail187.thread.i
   store ptr %.0107.i, ptr @_ZL12g_input_file, align 8, !tbaa !14
   br label %.noexc49
 
@@ -683,7 +683,7 @@ sub_0192.i:                                       ; preds = %.tail187.thread.i
 
 170:                                              ; preds = %.tail191.i
   %.not130.i = icmp eq ptr %.0107.i, null
-  br i1 %.not130.i, label %.invoke386, label %.split111.i
+  br i1 %.not130.i, label %.invoke399, label %.split111.i
 
 .split111.i:                                      ; preds = %170, %.split111.i
   %.0.i144.i = phi ptr [ %173, %.split111.i ], [ %.0107.i, %170 ]
@@ -695,7 +695,7 @@ sub_0192.i:                                       ; preds = %.tail187.thread.i
 
 _ZL17validate_is_ulongPKc.exit147.i:              ; preds = %.split111.i
   %.not.le.i146.i = icmp eq i8 %171, 0
-  br i1 %.not.le.i146.i, label %174, label %.invoke386
+  br i1 %.not.le.i146.i, label %174, label %.invoke399
 
 174:                                              ; preds = %_ZL17validate_is_ulongPKc.exit147.i
   %175 = call i64 @strtol(ptr noundef nonnull captures(none) %.0107.i, ptr noundef null, i32 noundef 10) #21
@@ -709,7 +709,7 @@ _ZL17validate_is_ulongPKc.exit147.i:              ; preds = %.split111.i
 
 179:                                              ; preds = %.tail195.i
   %.not129.i = icmp eq ptr %.0107.i, null
-  br i1 %.not129.i, label %.invoke386, label %.invoke
+  br i1 %.not129.i, label %.invoke399, label %.invoke
 
 sub_1201.i:                                       ; preds = %sub_0192.i
   %180 = getelementptr inbounds nuw i8, ptr %spec.select.i, i64 1
@@ -757,8 +757,8 @@ sub_1201.i:                                       ; preds = %sub_0192.i
   call void @exit(i32 noundef 0) #24
   unreachable
 
-.tail208.thread.i:                                ; preds = %.tail204.i, %.tail208.i, %.tail199.i, %sub_1201.i, %.tail195.i, %.tail191.i, %sub_0192.i, %.thread407.i
-  %.not307416420422427.i = phi i1 [ true, %.tail208.i ], [ false, %.tail199.i ], [ false, %sub_1201.i ], [ false, %.tail195.i ], [ false, %.tail191.i ], [ false, %.thread407.i ], [ false, %sub_0192.i ], [ true, %.tail204.i ]
+.tail208.thread.i:                                ; preds = %.tail204.i, %.tail208.i, %.tail199.i, %sub_1201.i, %.tail195.i, %.tail191.i, %sub_0192.i, %.thread411.i
+  %.not307420424426431.i = phi i1 [ true, %.tail208.i ], [ false, %.tail199.i ], [ false, %sub_1201.i ], [ false, %.tail195.i ], [ false, %.tail191.i ], [ false, %.thread411.i ], [ false, %sub_0192.i ], [ true, %.tail204.i ]
   %193 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.select.i, ptr noundef nonnull dereferenceable(5) @.str.88) #23
   %194 = icmp eq i32 %193, 0
   br i1 %194, label %195, label %sub_0214.i
@@ -784,7 +784,7 @@ sub_1201.i:                                       ; preds = %sub_0192.i
   unreachable
 
 sub_0214.i:                                       ; preds = %.tail208.thread.i
-  br i1 %.not307416420422427.i, label %sub_1215.i, label %.tail218.thread.i
+  br i1 %.not307420424426431.i, label %sub_1215.i, label %.tail218.thread.i
 
 sub_1215.i:                                       ; preds = %sub_0214.i
   %199 = getelementptr inbounds nuw i8, ptr %spec.select.i, i64 1
@@ -828,7 +828,7 @@ sub_1215.i:                                       ; preds = %sub_0214.i
 
 211:                                              ; preds = %.tail218.i
   %.not126.i = icmp eq ptr %.0107.i, null
-  br i1 %.not126.i, label %.invoke386, label %212
+  br i1 %.not126.i, label %.invoke399, label %212
 
 212:                                              ; preds = %211
   invoke void @_ZN7gparams17display_parameterERSoPKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, ptr noundef nonnull %.0107.i)
@@ -845,7 +845,7 @@ sub_1215.i:                                       ; preds = %sub_0214.i
 
 215:                                              ; preds = %.tail218.thread.i
   %.not125.i = icmp eq ptr %.0107.i, null
-  br i1 %.not125.i, label %.invoke386, label %216
+  br i1 %.not125.i, label %.invoke399, label %216
 
 216:                                              ; preds = %215
   invoke void @_Z12enable_debugPKc(ptr noundef nonnull %.0107.i)
@@ -858,14 +858,14 @@ sub_1215.i:                                       ; preds = %sub_0214.i
 
 220:                                              ; preds = %217
   %.not124.i = icmp eq ptr %.0107.i, null
-  br i1 %.not124.i, label %.invoke386, label %.invoke
+  br i1 %.not124.i, label %.invoke399, label %.invoke
 
-.invoke386:                                       ; preds = %220, %215, %179, %_ZL17validate_is_ulongPKc.exit147.i, %170, %_ZL17validate_is_ulongPKc.exit.i, %155, %266, %211, %277
+.invoke399:                                       ; preds = %220, %215, %179, %_ZL17validate_is_ulongPKc.exit147.i, %170, %_ZL17validate_is_ulongPKc.exit.i, %155, %266, %211, %277
   %221 = phi ptr [ @.str.45, %277 ], [ @.str.92, %211 ], [ @.str.44, %266 ], [ @.str.76, %155 ], [ @.str.77, %_ZL17validate_is_ulongPKc.exit.i ], [ @.str.80, %170 ], [ @.str.81, %_ZL17validate_is_ulongPKc.exit147.i ], [ @.str.83, %179 ], [ @.str.94, %215 ], [ @.str.96, %220 ]
   invoke fastcc void @_ZL5errorPKc(ptr noundef nonnull %221)
           to label %.cont unwind label %.loopexit.split-lp.loopexit.split-lp
 
-.cont:                                            ; preds = %.invoke386
+.cont:                                            ; preds = %.invoke399
   unreachable
 
 222:                                              ; preds = %217
@@ -875,7 +875,7 @@ sub_1215.i:                                       ; preds = %sub_0214.i
 
 225:                                              ; preds = %222
   %.not123.i = icmp eq ptr %.0107.i, null
-  br i1 %.not123.i, label %226, label %.invoke385
+  br i1 %.not123.i, label %226, label %.invoke398
 
 226:                                              ; preds = %225
   invoke void @_Z12help_tacticsv()
@@ -903,9 +903,9 @@ sub_1215.i:                                       ; preds = %sub_0214.i
   %235 = icmp eq i32 %234, 0
   %236 = icmp ne ptr %.0107.i, null
   %or.cond.i = select i1 %235, i1 %236, i1 false
-  br i1 %or.cond.i, label %.invoke385, label %237
+  br i1 %or.cond.i, label %.invoke398, label %237
 
-.invoke385:                                       ; preds = %233, %225
+.invoke398:                                       ; preds = %233, %225
   invoke void @_Z11help_tacticPKcb(ptr noundef nonnull %.0107.i, i1 noundef zeroext %224)
           to label %.noexc49 unwind label %.loopexit.split-lp.loopexit
 
@@ -997,8 +997,8 @@ _Z13get_extensionPKc.exit157.i:                   ; preds = %.preheader.i152.i
   store ptr %10, ptr @_ZL12g_input_file, align 8, !tbaa !14
   br label %.noexc49
 
-.noexc49:                                         ; preds = %.invoke385, %.invoke, %262, %240, %232, %231, %226, %216, %185, %159, %263, %259, %174, %166, %149, %148, %139, %132, %126, %122, %118, %115, %109, %103
-  %.4.i = phi i64 [ %.0289.i, %259 ], [ %.0289.i, %263 ], [ %.0289.i, %103 ], [ %.0289.i, %109 ], [ %.0289.i, %115 ], [ %.0289.i, %118 ], [ %.0289.i, %122 ], [ %.0289.i, %126 ], [ %.0289.i, %132 ], [ %.0289.i, %139 ], [ %.0289.i, %148 ], [ %.0289.i, %166 ], [ %175, %174 ], [ %.0289.i, %149 ], [ %.0289.i, %159 ], [ %.0289.i, %185 ], [ %.0289.i, %216 ], [ %.0289.i, %226 ], [ %.0289.i, %231 ], [ %.0289.i, %232 ], [ %.0289.i, %240 ], [ %.0289.i, %262 ], [ %.0289.i, %.invoke ], [ %.0289.i, %.invoke385 ]
+.noexc49:                                         ; preds = %.invoke398, %.invoke, %262, %240, %232, %231, %226, %216, %185, %159, %263, %259, %174, %166, %149, %148, %139, %132, %126, %122, %118, %115, %109, %103
+  %.4.i = phi i64 [ %.0289.i, %259 ], [ %.0289.i, %263 ], [ %.0289.i, %103 ], [ %.0289.i, %109 ], [ %.0289.i, %115 ], [ %.0289.i, %118 ], [ %.0289.i, %122 ], [ %.0289.i, %126 ], [ %.0289.i, %132 ], [ %.0289.i, %139 ], [ %.0289.i, %148 ], [ %.0289.i, %166 ], [ %175, %174 ], [ %.0289.i, %149 ], [ %.0289.i, %159 ], [ %.0289.i, %185 ], [ %.0289.i, %216 ], [ %.0289.i, %226 ], [ %.0289.i, %231 ], [ %.0289.i, %232 ], [ %.0289.i, %240 ], [ %.0289.i, %262 ], [ %.0289.i, %.invoke ], [ %.0289.i, %.invoke398 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   %indvars.iv.next380.i = add nuw nsw i64 %indvars.iv379.i, 1
@@ -1023,7 +1023,7 @@ _ZL19parse_cmd_line_argsRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiPP
   %268 = icmp ne ptr %267, null
   %.b2930 = load i1, ptr @_ZL16g_standard_input, align 1
   %or.cond = select i1 %268, i1 %.b2930, i1 false
-  br i1 %or.cond, label %.invoke386, label %277
+  br i1 %or.cond, label %.invoke399, label %277
 
 269:                                              ; preds = %4, %2
   %270 = landingpad { ptr, i32 }
@@ -1037,13 +1037,13 @@ _ZL19parse_cmd_line_argsRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiPP
           catch ptr @_ZTI12z3_exception
   br label %.loopexit.split-lp
 
-.loopexit.split-lp.loopexit:                      ; preds = %.invoke385, %.invoke, %262, %240, %232, %231, %226, %216, %185, %159
+.loopexit.split-lp.loopexit:                      ; preds = %.invoke398, %.invoke, %262, %240, %232, %231, %226, %216, %185, %159
   %lpad.loopexit126 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTI12z3_exception
   br label %.loopexit.split-lp
 
-.loopexit.split-lp.loopexit.split-lp:             ; preds = %.invoke389, %.invoke387, %.invoke386, %89, %.noexc40, %.noexc42, %.noexc44, %.noexc45, %.noexc46, %241, %.noexc78, %.noexc79, %264, %.noexc80, %212, %.noexc64, %206, %205, %.noexc61, %197, %196, %192, %188, %.noexc47, %.noexc43, %.noexc41, %.noexc39, %85, %23, %22, %329, %328, %327, %326, %323, %322, %320, %314, %311, %.thread, %_ZL19parse_cmd_line_argsRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiPPc.exit
+.loopexit.split-lp.loopexit.split-lp:             ; preds = %.invoke402, %.invoke400, %.invoke399, %89, %.noexc40, %.noexc42, %.noexc44, %.noexc45, %.noexc46, %241, %.noexc78, %.noexc79, %264, %.noexc80, %212, %.noexc64, %206, %205, %.noexc61, %197, %196, %192, %188, %.noexc47, %.noexc43, %.noexc41, %.noexc39, %85, %23, %22, %329, %328, %327, %326, %323, %322, %320, %314, %311, %.thread, %_ZL19parse_cmd_line_argsRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiPPc.exit
   %lpad.loopexit.split-lp127 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTI12z3_exception
@@ -1073,7 +1073,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 
 277:                                              ; preds = %266
   %or.cond3 = select i1 %268, i1 true, i1 %.b2930
-  br i1 %or.cond3, label %278, label %.invoke386
+  br i1 %or.cond3, label %278, label %.invoke399
 
 278:                                              ; preds = %277
   %279 = load i32, ptr @_ZL12g_input_kind, align 4, !tbaa !18
@@ -1081,7 +1081,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
     i32 0, label %280
     i32 1, label %.thread
     i32 3, label %314
-    i32 4, label %.invoke389
+    i32 4, label %.invoke402
     i32 5, label %316
     i32 6, label %317
     i32 2, label %320
@@ -1153,7 +1153,7 @@ sub_1:                                            ; preds = %sub_0
 
 .thread115:                                       ; preds = %298
   store i32 4, ptr @_ZL12g_input_kind, align 4, !tbaa !18
-  br label %.invoke389
+  br label %.invoke402
 
 301:                                              ; preds = %298
   %302 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.08.i, ptr noundef nonnull dereferenceable(4) @.str.51) #23
@@ -1207,12 +1207,12 @@ sub_1123:                                         ; preds = %sub_0122
           to label %328 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 316:                                              ; preds = %278, %.thread116
-  br label %.invoke389
+  br label %.invoke402
 
 317:                                              ; preds = %278, %.thread117
-  br label %.invoke389
+  br label %.invoke402
 
-.invoke389:                                       ; preds = %.thread115, %278, %316, %317
+.invoke402:                                       ; preds = %.thread115, %278, %316, %317
   %318 = phi i32 [ 2, %317 ], [ 0, %316 ], [ 1, %278 ], [ 1, %.thread115 ]
   %319 = invoke noundef i32 @_Z9parse_optPKc10opt_format(ptr noundef %267, i32 noundef %318)
           to label %328 unwind label %.loopexit.split-lp.loopexit.split-lp
@@ -1238,8 +1238,8 @@ sub_1123:                                         ; preds = %sub_0122
   invoke void @_Z18invoke_exit_actionj(i32 noundef 114)
           to label %328 unwind label %.loopexit.split-lp.loopexit.split-lp
 
-328:                                              ; preds = %.invoke389, %323, %314, %311, %327, %322, %320
-  %.023 = phi i32 [ 0, %327 ], [ 0, %320 ], [ 0, %322 ], [ %313, %311 ], [ %315, %314 ], [ %325, %323 ], [ %319, %.invoke389 ]
+328:                                              ; preds = %.invoke402, %323, %314, %311, %327, %322, %320
+  %.023 = phi i32 [ 0, %327 ], [ 0, %320 ], [ 0, %322 ], [ %313, %311 ], [ %315, %314 ], [ %325, %323 ], [ %319, %.invoke402 ]
   invoke void @_Z15disable_timeoutv()
           to label %329 unwind label %.loopexit.split-lp.loopexit.split-lp
 

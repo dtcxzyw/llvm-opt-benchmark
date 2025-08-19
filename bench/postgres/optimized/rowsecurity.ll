@@ -343,12 +343,12 @@ define internal fastcc void @get_policies_for_relation(ptr noundef %0, i32 nound
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %12 = load i32, ptr %10, align 4
   %13 = icmp sgt i32 %12, 0
-  br i1 %13, label %.lr.ph124, label %.critedge.loopexit
+  br i1 %13, label %.lr.ph132, label %.critedge.loopexit
 
-.lr.ph124:                                        ; preds = %.lr.ph, %.critedge76
-  %indvars.iv123 = phi i64 [ %indvars.iv.next, %.critedge76 ], [ 0, %.lr.ph ]
+.lr.ph132:                                        ; preds = %.lr.ph, %.critedge76
+  %indvars.iv131 = phi i64 [ %indvars.iv.next, %.critedge76 ], [ 0, %.lr.ph ]
   %14 = load ptr, ptr %11, align 8
-  %15 = getelementptr inbounds nuw %union.ListCell, ptr %14, i64 %indvars.iv123
+  %15 = getelementptr inbounds nuw %union.ListCell, ptr %14, i64 %indvars.iv131
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %18 = load i8, ptr %17, align 8
@@ -366,7 +366,7 @@ define internal fastcc void @get_policies_for_relation(ptr noundef %0, i32 nound
   %.not66 = icmp eq ptr %21, null
   br i1 %.not66, label %.critedge80, label %70
 
-22:                                               ; preds = %.lr.ph124
+22:                                               ; preds = %.lr.ph132
   switch i32 %1, label %29 [
     i32 1, label %23
     i32 3, label %25
@@ -398,7 +398,7 @@ define internal fastcc void @get_policies_for_relation(ptr noundef %0, i32 nound
   %33 = icmp eq i8 %18, 100
   br i1 %33, label %.critedge78, label %.critedge76
 
-.critedge78:                                      ; preds = %27, %25, %23, %.lr.ph124, %32
+.critedge78:                                      ; preds = %27, %25, %23, %.lr.ph132, %32
   %34 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %35 = load ptr, ptr %34, align 8
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
@@ -457,11 +457,11 @@ define internal fastcc void @get_policies_for_relation(ptr noundef %0, i32 nound
   br label %.critedge76
 
 .critedge76:                                      ; preds = %55, %.loopexit101, %.preheader.i, %27, %25, %23, %22, %32
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv123, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv131, 1
   %67 = load i32, ptr %10, align 4
   %68 = sext i32 %67 to i64
   %69 = icmp slt i64 %indvars.iv.next, %68
-  br i1 %69, label %.lr.ph124, label %.critedge.loopexit
+  br i1 %69, label %.lr.ph132, label %.critedge.loopexit
 
 70:                                               ; preds = %.critedge
   %71 = tail call ptr %21(i32 noundef %1, ptr noundef %0) #7

@@ -763,8 +763,8 @@ push.exit60:                                      ; preds = %120
   br label %124
 
 push.exit58.thread.sink.split:                    ; preds = %120, %113
-  %.lcssa129.sink = phi ptr [ %111, %113 ], [ %118, %120 ]
-  call void @free(ptr noundef nonnull %.lcssa129.sink) #21
+  %.lcssa144.sink = phi ptr [ %111, %113 ], [ %118, %120 ]
+  call void @free(ptr noundef nonnull %.lcssa144.sink) #21
   br label %push.exit58.thread
 
 push.exit58.thread:                               ; preds = %116, %110, %push.exit58.thread.sink.split
@@ -817,8 +817,8 @@ push.exit64:                                      ; preds = %142
   br label %compare.exit.thread
 
 push.exit62.thread.sink.split:                    ; preds = %142, %135
-  %.lcssa133.sink = phi ptr [ %133, %135 ], [ %140, %142 ]
-  call void @free(ptr noundef nonnull %.lcssa133.sink) #21
+  %.lcssa148.sink = phi ptr [ %133, %135 ], [ %140, %142 ]
+  call void @free(ptr noundef nonnull %.lcssa148.sink) #21
   br label %push.exit62.thread
 
 push.exit62.thread:                               ; preds = %138, %132, %push.exit62.thread.sink.split
@@ -1076,7 +1076,7 @@ define void @messageAddArgument(ptr noundef captures(address_is_null) %0, ptr no
   br i1 %33, label %._crit_edge.thread, label %42
 
 ._crit_edge.thread:                               ; preds = %31, %._crit_edge
-  %.043.lcssa91 = phi i64 [ %.043.lcssa, %._crit_edge ], [ %21, %31 ]
+  %.043.lcssa106 = phi i64 [ %.043.lcssa, %._crit_edge ], [ %21, %31 ]
   %34 = add i64 %21, 1
   store i64 %34, ptr %20, align 8, !tbaa !16
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -1097,7 +1097,7 @@ define void @messageAddArgument(ptr noundef captures(address_is_null) %0, ptr no
   br label %42
 
 42:                                               ; preds = %41, %._crit_edge
-  %.043.lcssa90 = phi i64 [ %.043.lcssa91, %41 ], [ %.043.lcssa, %._crit_edge ]
+  %.043.lcssa105 = phi i64 [ %.043.lcssa106, %41 ], [ %.043.lcssa, %._crit_edge ]
   %43 = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %.0, ptr noundef nonnull dereferenceable(1) @.str.126) #23
   %.not.i = icmp eq ptr %43, null
   br i1 %.not.i, label %62, label %44
@@ -1396,7 +1396,7 @@ rfc2231.exit.thread:                              ; preds = %.lr.ph123.i, %146, 
   %.178.i.ph = phi ptr [ %68, %67 ], [ %47, %.loopexit111.i ], [ %76, %146 ], [ %68, %.lr.ph123.i ]
   %147 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %148 = load ptr, ptr %147, align 8, !tbaa !15
-  %149 = getelementptr inbounds nuw ptr, ptr %148, i64 %.043.lcssa90
+  %149 = getelementptr inbounds nuw ptr, ptr %148, i64 %.043.lcssa105
   store ptr %.178.i.ph, ptr %149, align 8, !tbaa !17
   br label %158
 
@@ -1405,7 +1405,7 @@ rfc2231.exit.thread59:                            ; preds = %.thread.i, %44
   tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull %.str.133.sink) #21
   %150 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %151 = load ptr, ptr %150, align 8, !tbaa !15
-  %152 = getelementptr inbounds nuw ptr, ptr %151, i64 %.043.lcssa90
+  %152 = getelementptr inbounds nuw ptr, ptr %151, i64 %.043.lcssa105
   store ptr null, ptr %152, align 8, !tbaa !17
   br label %157
 
@@ -1415,7 +1415,7 @@ rfc2231.exit:                                     ; preds = %145
   %153 = tail call ptr @cli_safer_strdup(ptr noundef nonnull @.str.13) #21
   %154 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %155 = load ptr, ptr %154, align 8, !tbaa !15
-  %156 = getelementptr inbounds nuw ptr, ptr %155, i64 %.043.lcssa90
+  %156 = getelementptr inbounds nuw ptr, ptr %155, i64 %.043.lcssa105
   store ptr %153, ptr %156, align 8, !tbaa !17
   %.not52 = icmp eq ptr %153, null
   br i1 %.not52, label %157, label %158
@@ -1464,11 +1464,11 @@ rfc2231.exit:                                     ; preds = %145
 
 175:                                              ; preds = %174, %172
   %176 = phi ptr [ %.pre, %174 ], [ %159, %172 ]
-  %177 = getelementptr inbounds nuw ptr, ptr %176, i64 %.043.lcssa90
+  %177 = getelementptr inbounds nuw ptr, ptr %176, i64 %.043.lcssa105
   %178 = load ptr, ptr %177, align 8, !tbaa !17
   tail call void @free(ptr noundef %178) #21
   %179 = load ptr, ptr %160, align 8, !tbaa !15
-  %180 = getelementptr inbounds nuw ptr, ptr %179, i64 %.043.lcssa90
+  %180 = getelementptr inbounds nuw ptr, ptr %179, i64 %.043.lcssa105
   store ptr null, ptr %180, align 8, !tbaa !17
   br label %.loopexit
 
@@ -1701,9 +1701,9 @@ define void @messageAddArguments(ptr noundef captures(address_is_null) %0, ptr n
   %61 = add i64 %60, %59
   %62 = tail call ptr @cli_max_realloc(ptr noundef nonnull %32, i64 noundef %61) #21
   %.not112 = icmp eq ptr %62, null
-  br i1 %.not112, label %.thread157, label %79
+  br i1 %.not112, label %.thread170, label %79
 
-.thread157:                                       ; preds = %57
+.thread170:                                       ; preds = %57
   tail call void @free(ptr noundef nonnull %32) #21
   tail call void @free(ptr noundef nonnull %51) #21
   br label %.thread
@@ -1744,9 +1744,9 @@ define void @messageAddArguments(ptr noundef captures(address_is_null) %0, ptr n
   %76 = add i64 %75, 1
   %77 = tail call ptr @cli_max_malloc(i64 noundef %76) #21
   %.not108 = icmp eq ptr %77, null
-  br i1 %.not108, label %.thread, label %.thread151
+  br i1 %.not108, label %.thread, label %.thread164
 
-.thread151:                                       ; preds = %.critedge3
+.thread164:                                       ; preds = %.critedge3
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %77, ptr nonnull align 1 %.0139, i64 %75, i1 false)
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 %75
   store i8 0, ptr %78, align 1, !tbaa !24
@@ -1758,15 +1758,15 @@ define void @messageAddArguments(ptr noundef captures(address_is_null) %0, ptr n
   tail call void @free(ptr noundef nonnull %51) #21
   br label %82
 
-82:                                               ; preds = %79, %.thread151
-  %.6156 = phi ptr [ %.8.lcssa, %.thread151 ], [ %.5, %79 ]
-  %.386155 = phi ptr [ %77, %.thread151 ], [ %62, %79 ]
-  tail call void @messageAddArgument(ptr noundef %0, ptr noundef nonnull %.386155)
-  tail call void @free(ptr noundef nonnull %.386155) #21
+82:                                               ; preds = %79, %.thread164
+  %.6169 = phi ptr [ %.8.lcssa, %.thread164 ], [ %.5, %79 ]
+  %.386168 = phi ptr [ %77, %.thread164 ], [ %62, %79 ]
+  tail call void @messageAddArgument(ptr noundef %0, ptr noundef nonnull %.386168)
+  tail call void @free(ptr noundef nonnull %.386168) #21
   br label %.thread
 
-.thread:                                          ; preds = %.critedge3, %.thread157, %49, %82, %15
-  %.1 = phi ptr [ %16, %15 ], [ %.6156, %82 ], [ %.5, %49 ], [ %.5, %.thread157 ], [ %.8.lcssa, %.critedge3 ]
+.thread:                                          ; preds = %.critedge3, %.thread170, %49, %82, %15
+  %.1 = phi ptr [ %16, %15 ], [ %.6169, %82 ], [ %.5, %49 ], [ %.5, %.thread170 ], [ %.8.lcssa, %.critedge3 ]
   %83 = load i8, ptr %.1, align 1, !tbaa !24
   %.not = icmp eq i8 %83, 0
   br i1 %.not, label %.thread123, label %7
@@ -5594,11 +5594,11 @@ sanitiseBase64.exit:                              ; preds = %.loopexit.i, %85
   %..i138 = select i1 %165, i8 63, i8 %164
   %166 = load i8, ptr %161, align 1, !tbaa !24
   %167 = icmp eq i8 %166, 0
-  br i1 %167, label %.thread224.i, label %.thread212
+  br i1 %167, label %.thread224.i, label %.thread235
 
 168:                                              ; preds = %157
   %.not154.i = icmp eq i32 %158, 0
-  br i1 %.not154.i, label %.thread212, label %169
+  br i1 %.not154.i, label %.thread235, label %169
 
 169:                                              ; preds = %168
   %170 = add nsw i32 %156, -2
@@ -5607,11 +5607,11 @@ sanitiseBase64.exit:                              ; preds = %.loopexit.i, %85
   %172 = icmp eq i8 %171, 0
   br i1 %172, label %.thread218.i, label %181
 
-.thread212:                                       ; preds = %168, %.thread
-  %.2139.i201211 = phi ptr [ %.1138246.i, %168 ], [ %161, %.thread ]
-  %.0127.i202210 = phi i8 [ %.0117172.i, %168 ], [ %..i138, %.thread ]
+.thread235:                                       ; preds = %168, %.thread
+  %.2139.i224234 = phi ptr [ %.1138246.i, %168 ], [ %161, %.thread ]
+  %.0127.i225233 = phi i8 [ %.0117172.i, %168 ], [ %..i138, %.thread ]
   %173 = phi i8 [ %159, %168 ], [ %166, %.thread ]
-  %174 = getelementptr inbounds nuw i8, ptr %.2139.i201211, i64 1
+  %174 = getelementptr inbounds nuw i8, ptr %.2139.i224234, i64 1
   %175 = zext i8 %173 to i64
   %176 = getelementptr inbounds nuw [256 x i8], ptr @base64Table, i64 0, i64 %175
   %177 = load i8, ptr %176, align 1, !tbaa !24
@@ -5619,23 +5619,23 @@ sanitiseBase64.exit:                              ; preds = %.loopexit.i, %85
   %..i137 = select i1 %178, i8 63, i8 %177
   %179 = load i8, ptr %174, align 1, !tbaa !24
   %180 = icmp eq i8 %179, 0
-  br i1 %180, label %.thread218.i, label %.thread223
+  br i1 %180, label %.thread218.i, label %.thread246
 
 181:                                              ; preds = %169
   %.not155.i = icmp eq i32 %170, 0
-  br i1 %.not155.i, label %.thread223, label %182
+  br i1 %.not155.i, label %.thread246, label %182
 
 182:                                              ; preds = %181
   %183 = add nsw i32 %156, -3
   store i32 %183, ptr %102, align 8, !tbaa !19
   br label %190
 
-.thread223:                                       ; preds = %.thread212, %181
-  %.0127.i202209216232 = phi i8 [ %.0117172.i, %181 ], [ %.0127.i202210, %.thread212 ]
-  %.4141.i219230 = phi ptr [ %.1138246.i, %181 ], [ %174, %.thread212 ]
-  %.2126.i220229 = phi i8 [ %.1116173.i, %181 ], [ %..i137, %.thread212 ]
-  %184 = phi i8 [ %171, %181 ], [ %179, %.thread212 ]
-  %185 = getelementptr inbounds nuw i8, ptr %.4141.i219230, i64 1
+.thread246:                                       ; preds = %.thread235, %181
+  %.0127.i225232239255 = phi i8 [ %.0117172.i, %181 ], [ %.0127.i225233, %.thread235 ]
+  %.4141.i242253 = phi ptr [ %.1138246.i, %181 ], [ %174, %.thread235 ]
+  %.2126.i243252 = phi i8 [ %.1116173.i, %181 ], [ %..i137, %.thread235 ]
+  %184 = phi i8 [ %171, %181 ], [ %179, %.thread235 ]
+  %185 = getelementptr inbounds nuw i8, ptr %.4141.i242253, i64 1
   %186 = zext i8 %184 to i64
   %187 = getelementptr inbounds nuw [256 x i8], ptr @base64Table, i64 0, i64 %186
   %188 = load i8, ptr %187, align 1, !tbaa !24
@@ -5643,11 +5643,11 @@ sanitiseBase64.exit:                              ; preds = %.loopexit.i, %85
   %..i136 = select i1 %189, i8 63, i8 %188
   br label %190
 
-190:                                              ; preds = %.thread223, %182
-  %.0127.i202209216231 = phi i8 [ %.0117172.i, %182 ], [ %.0127.i202209216232, %.thread223 ]
-  %.2126.i220228 = phi i8 [ %.1116173.i, %182 ], [ %.2126.i220229, %.thread223 ]
-  %.5142.i = phi ptr [ %.1138246.i, %182 ], [ %185, %.thread223 ]
-  %.3.i = phi i8 [ %.2174.i, %182 ], [ %..i136, %.thread223 ]
+190:                                              ; preds = %.thread246, %182
+  %.0127.i225232239254 = phi i8 [ %.0117172.i, %182 ], [ %.0127.i225232239255, %.thread246 ]
+  %.2126.i243251 = phi i8 [ %.1116173.i, %182 ], [ %.2126.i243252, %.thread246 ]
+  %.5142.i = phi ptr [ %.1138246.i, %182 ], [ %185, %.thread246 ]
+  %.3.i = phi i8 [ %.2174.i, %182 ], [ %..i136, %.thread246 ]
   %191 = load i8, ptr %.5142.i, align 1, !tbaa !24
   %192 = icmp eq i8 %191, 0
   br i1 %192, label %193, label %197
@@ -5657,19 +5657,19 @@ sanitiseBase64.exit:                              ; preds = %.loopexit.i, %85
   store i8 %.3.i, ptr %194, align 2, !tbaa !68
   br label %.thread218.i
 
-.thread218.i:                                     ; preds = %169, %.thread212, %193
-  %.2126.i221 = phi i8 [ %.2126.i220228, %193 ], [ %.1116173.i, %169 ], [ %..i137, %.thread212 ]
-  %.0127.i202209217 = phi i8 [ %.0127.i202209216231, %193 ], [ %.0117172.i, %169 ], [ %.0127.i202210, %.thread212 ]
-  %.0216.i = phi i32 [ 3, %193 ], [ 2, %.thread212 ], [ 2, %169 ]
+.thread218.i:                                     ; preds = %169, %.thread235, %193
+  %.2126.i244 = phi i8 [ %.2126.i243251, %193 ], [ %.1116173.i, %169 ], [ %..i137, %.thread235 ]
+  %.0127.i225232240 = phi i8 [ %.0127.i225232239254, %193 ], [ %.0117172.i, %169 ], [ %.0127.i225233, %.thread235 ]
+  %.0216.i = phi i32 [ 3, %193 ], [ 2, %.thread235 ], [ 2, %169 ]
   %195 = getelementptr inbounds nuw i8, ptr %0, i64 121
-  store i8 %.2126.i221, ptr %195, align 1, !tbaa !69
+  store i8 %.2126.i244, ptr %195, align 1, !tbaa !69
   br label %.thread224.i
 
 .thread224.i:                                     ; preds = %157, %.thread, %.thread218.i
-  %.0127.i203 = phi i8 [ %.0127.i202209217, %.thread218.i ], [ %.0117172.i, %157 ], [ %..i138, %.thread ]
+  %.0127.i226 = phi i8 [ %.0127.i225232240, %.thread218.i ], [ %.0117172.i, %157 ], [ %..i138, %.thread ]
   %.0215.i = phi i32 [ %.0216.i, %.thread218.i ], [ 1, %.thread ], [ 1, %157 ]
   %196 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  store i8 %.0127.i203, ptr %196, align 8, !tbaa !70
+  store i8 %.0127.i226, ptr %196, align 8, !tbaa !70
   store i32 %.0215.i, ptr %102, align 8, !tbaa !19
   br label %decode.exit
 
@@ -5678,13 +5678,13 @@ sanitiseBase64.exit:                              ; preds = %.loopexit.i, %85
   %199 = zext i8 %191 to i64
   %200 = getelementptr inbounds nuw [256 x i8], ptr @base64Table, i64 0, i64 %199
   %201 = load i8, ptr %200, align 1, !tbaa !24
-  %202 = shl i8 %.0127.i202209216231, 2
-  %203 = lshr i8 %.2126.i220228, 4
+  %202 = shl i8 %.0127.i225232239254, 2
+  %203 = lshr i8 %.2126.i243251, 4
   %204 = and i8 %203, 3
   %205 = or disjoint i8 %204, %202
   %206 = getelementptr inbounds nuw i8, ptr %.4247.i, i64 1
   store i8 %205, ptr %.4247.i, align 1, !tbaa !24
-  %207 = shl i8 %.2126.i220228, 4
+  %207 = shl i8 %.2126.i243251, 4
   %208 = lshr i8 %.3.i, 2
   %209 = and i8 %208, 15
   %210 = or disjoint i8 %209, %207

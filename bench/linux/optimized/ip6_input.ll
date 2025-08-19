@@ -515,7 +515,7 @@ define internal fastcc ptr @ip6_rcv_core(ptr noundef %0, ptr noundef readonly ca
   %.not = icmp eq i32 %165, 255
   %166 = lshr i32 %164, 8
   %167 = trunc i32 %166 to i8
-  br i1 %.not, label %.thread18, label %201
+  br i1 %.not, label %.thread26, label %201
 
 168:                                              ; preds = %158
   %169 = getelementptr inbounds nuw i8, ptr %1, i64 168
@@ -543,7 +543,7 @@ define internal fastcc ptr @ip6_rcv_core(ptr noundef %0, ptr noundef readonly ca
 183:                                              ; preds = %178
   %184 = and i8 %182, 15
   %185 = icmp eq i8 %184, 1
-  br i1 %185, label %250, label %.thread18
+  br i1 %185, label %250, label %.thread26
 
 186:                                              ; preds = %._crit_edge, %178
   %.pre-phi = phi i1 [ %177, %._crit_edge ], [ true, %178 ]
@@ -560,9 +560,9 @@ define internal fastcc ptr @ip6_rcv_core(ptr noundef %0, ptr noundef readonly ca
   br i1 %194, label %195, label %250
 
 195:                                              ; preds = %191, %186
-  br i1 %.pre-phi, label %201, label %.thread18
+  br i1 %.pre-phi, label %201, label %.thread26
 
-.thread18:                                        ; preds = %183, %.thread9, %195
+.thread26:                                        ; preds = %183, %.thread9, %195
   %196 = phi i8 [ %167, %.thread9 ], [ %187, %195 ], [ %182, %183 ]
   %197 = and i8 %196, 15
   %198 = icmp eq i8 %197, 0
@@ -573,10 +573,10 @@ define internal fastcc ptr @ip6_rcv_core(ptr noundef %0, ptr noundef readonly ca
 
 201:                                              ; preds = %.thread9, %195
   %.old = and i64 %135, 255
-  %.old21 = icmp eq i64 %.old, 255
-  br i1 %.old21, label %250, label %202
+  %.old29 = icmp eq i64 %.old, 255
+  br i1 %.old29, label %250, label %202
 
-202:                                              ; preds = %.thread18, %201
+202:                                              ; preds = %.thread26, %201
   %203 = load i16, ptr %95, align 4
   %204 = add i16 %203, 40
   %205 = getelementptr inbounds nuw i8, ptr %41, i64 178
@@ -593,7 +593,7 @@ define internal fastcc ptr @ip6_rcv_core(ptr noundef %0, ptr noundef readonly ca
   %212 = getelementptr inbounds nuw i8, ptr %98, i64 6
   %213 = load i8, ptr %212, align 2
   %214 = icmp eq i8 %213, 0
-  br i1 %214, label %.thread20, label %215
+  br i1 %214, label %.thread28, label %215
 
 215:                                              ; preds = %211, %202
   %216 = zext i16 %209 to i64
@@ -634,14 +634,14 @@ define internal fastcc ptr @ip6_rcv_core(ptr noundef %0, ptr noundef readonly ca
   %.phi.trans.insert12 = getelementptr inbounds nuw i8, ptr %236, i64 6
   %.pre13 = load i8, ptr %.phi.trans.insert12, align 2
   %237 = icmp eq i8 %.pre13, 0
-  br i1 %237, label %.thread20, label %245
+  br i1 %237, label %.thread28, label %245
 
-.thread20:                                        ; preds = %211, %232
+.thread28:                                        ; preds = %211, %232
   %238 = tail call i32 @ipv6_parse_hopopts(ptr noundef nonnull %41) #7
   %239 = icmp slt i32 %238, 0
   br i1 %239, label %240, label %245
 
-240:                                              ; preds = %.thread20
+240:                                              ; preds = %.thread28
   %241 = load ptr, ptr %111, align 8
   %242 = getelementptr i8, ptr %241, i64 56
   tail call void asm "incq %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %242, ptr elementtype(i64) %242) #7, !srcloc !19
@@ -651,7 +651,7 @@ define internal fastcc ptr @ip6_rcv_core(ptr noundef %0, ptr noundef readonly ca
   tail call void @__rcu_read_unlock() #7
   br label %263
 
-245:                                              ; preds = %.thread20, %232
+245:                                              ; preds = %.thread28, %232
   tail call void @__rcu_read_unlock() #7
   %246 = getelementptr inbounds nuw i8, ptr %41, i64 96
   %247 = load ptr, ptr %246, align 8
@@ -662,8 +662,8 @@ define internal fastcc ptr @ip6_rcv_core(ptr noundef %0, ptr noundef readonly ca
   tail call fastcc void @skb_orphan(ptr noundef nonnull %41)
   br label %263
 
-250:                                              ; preds = %229, %201, %.thread18, %191, %183, %154, %92, %88, %86
-  %251 = phi i32 [ 11, %88 ], [ 11, %.thread18 ], [ 11, %201 ], [ 11, %229 ], [ 11, %183 ], [ 11, %154 ], [ 56, %92 ], [ 13, %191 ], [ 11, %86 ]
+250:                                              ; preds = %229, %201, %.thread26, %191, %183, %154, %92, %88, %86
+  %251 = phi i32 [ 11, %88 ], [ 11, %.thread26 ], [ 11, %201 ], [ 11, %229 ], [ 11, %183 ], [ 11, %154 ], [ 56, %92 ], [ 13, %191 ], [ 11, %86 ]
   %252 = getelementptr inbounds nuw i8, ptr %15, i64 912
   %253 = load ptr, ptr %252, align 8
   %254 = getelementptr i8, ptr %253, i64 56
@@ -1409,7 +1409,7 @@ define dso_local void @ip6_protocol_deliver_rcu(ptr noundef readonly captures(no
   ]
 
 158:                                              ; preds = %111, %120, %152, %152, %152, %152, %81, %80
-  %159 = phi i8 [ %67, %80 ], [ 0, %81 ], [ 1, %152 ], [ 1, %152 ], [ 1, %152 ], [ 1, %152 ], [ 1, %120 ], [ 1, %111 ]
+  %159 = phi i8 [ 1, %80 ], [ 0, %81 ], [ 1, %152 ], [ 1, %152 ], [ 1, %152 ], [ 1, %152 ], [ 1, %120 ], [ 1, %111 ]
   %160 = load i32, ptr %76, align 8
   %161 = and i32 %160, 1
   %162 = icmp eq i32 %161, 0

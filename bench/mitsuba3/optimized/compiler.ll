@@ -1101,8 +1101,8 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1012BaseCompiler7_newRegEPNS0_7B
   br label %61
 
 61:                                               ; preds = %55, %60, %59
-  %.sink4 = phi i8 [ 57, %60 ], [ 47, %59 ], [ 37, %55 ]
-  %62 = add i8 %57, %.sink4
+  %.sink7 = phi i8 [ 57, %60 ], [ 47, %59 ], [ 37, %55 ]
+  %62 = add i8 %57, %.sink7
   store i8 %62, ptr %6, align 1, !tbaa !110
   %63 = icmp eq i8 %62, 0
   br i1 %63, label %64, label %78

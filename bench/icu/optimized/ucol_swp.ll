@@ -147,8 +147,8 @@ define i32 @ucol_swap_77(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nou
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 13
   %19 = load i8, ptr %18, align 1, !tbaa !7
   %20 = icmp eq i8 %19, 67
-  %or.cond57 = select i1 %17, i1 %20, i1 false
-  br i1 %or.cond57, label %21, label %._crit_edge
+  %or.cond58 = select i1 %17, i1 %20, i1 false
+  br i1 %or.cond58, label %21, label %._crit_edge
 
 21:                                               ; preds = %14
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 14
@@ -281,8 +281,8 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_118swapFormatVersion3EPK12UD
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %36 = load i8, ptr %35, align 4, !tbaa !7
   %37 = icmp eq i8 %36, 3
-  %or.cond266 = select i1 %34, i1 %37, i1 false
-  br i1 %or.cond266, label %42, label %._crit_edge
+  %or.cond282 = select i1 %34, i1 %37, i1 false
+  br i1 %or.cond282, label %42, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %28
   %38 = zext i8 %36 to i32

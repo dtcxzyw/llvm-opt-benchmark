@@ -865,8 +865,8 @@ _ZNK3gmx8BiasGrid13hasLambdaAxisEv.exit80.thread: ; preds = %._crit_edge.i.i.i.i
   %379 = load i8, ptr %378, align 8, !range !78
   %380 = trunc nuw i8 %379 to i1
   %or.cond.not.i = or i1 %.not130, %380
-  %or.cond161 = select i1 %377, i1 true, i1 %or.cond.not.i
-  br i1 %or.cond161, label %_ZN3gmx4Bias25warnForHistogramAnomaliesEdlP8_IO_FILE.exit, label %_ZNK3gmx10BiasParams32isCheckHistogramForAnomaliesStepEl.exit.i
+  %or.cond165 = select i1 %377, i1 true, i1 %or.cond.not.i
+  br i1 %or.cond165, label %_ZN3gmx4Bias25warnForHistogramAnomaliesEdlP8_IO_FILE.exit, label %_ZNK3gmx10BiasParams32isCheckHistogramForAnomaliesStepEl.exit.i
 
 _ZNK3gmx10BiasParams32isCheckHistogramForAnomaliesStepEl.exit.i: ; preds = %374
   %381 = getelementptr inbounds nuw i8, ptr %0, i64 104
@@ -1366,8 +1366,8 @@ define void @_ZN3gmx4Bias23restoreStateFromHistoryEPKNS_14AwhBiasHistoryEPK9t_co
   br i1 %13, label %14, label %.thread
 
 14:                                               ; preds = %3
-  %.not13 = icmp eq i8 %10, 0
-  br i1 %.not13, label %20, label %25
+  %.not24 = icmp eq i8 %10, 0
+  br i1 %.not24, label %20, label %25
 
 .thread:                                          ; preds = %3
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 56
@@ -2038,8 +2038,8 @@ _ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i43: ; preds = %.noexc48
 
 129:                                              ; preds = %117
   %130 = getelementptr inbounds nuw i8, ptr %0, i64 472
-  %.not88 = icmp eq ptr %121, %122
-  br i1 %.not88, label %_ZNSt6vectorIiSaIiEE7reserveEm.exit, label %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i
+  %.not100 = icmp eq ptr %121, %122
+  br i1 %.not100, label %_ZNSt6vectorIiSaIiEE7reserveEm.exit, label %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i
 
 _ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i: ; preds = %129
   %131 = shl nuw nsw i64 %126, 2
@@ -2272,14 +2272,14 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNSt6vectorIdSaIdE
   br i1 %.not.i.i.i68, label %.body, label %.body.sink.split
 
 .body.sink.split:                                 ; preds = %225, %29
-  %.sink92 = phi ptr [ %31, %29 ], [ %226, %225 ]
+  %.sink104 = phi ptr [ %31, %29 ], [ %226, %225 ]
   %.pn.pn.pn.pn.pn.pn.pn.ph = phi { ptr, i32 } [ %30, %29 ], [ %.pn.pn.pn.pn.pn.pn, %225 ]
   %227 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %228 = load ptr, ptr %227, align 8, !tbaa !186
   %229 = ptrtoint ptr %228 to i64
-  %230 = ptrtoint ptr %.sink92 to i64
+  %230 = ptrtoint ptr %.sink104 to i64
   %231 = sub i64 %229, %230
-  tail call void @_ZdlPvm(ptr noundef nonnull %.sink92, i64 noundef %231) #25
+  tail call void @_ZdlPvm(ptr noundef nonnull %.sink104, i64 noundef %231) #25
   br label %.body
 
 .body:                                            ; preds = %.body.sink.split, %225, %29

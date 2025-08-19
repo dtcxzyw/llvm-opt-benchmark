@@ -518,7 +518,7 @@ _ZNK4lean16elab_environment4findERKNS_4nameE.exit: ; preds = %8, %15, %17, %18
   br i1 %52, label %.thread, label %_ZN4lean8optionalINS_13constant_infoEED2Ev.exit
 
 .thread:                                          ; preds = %26, %51
-  %.113 = phi i1 [ %33, %51 ], [ false, %26 ]
+  %.119 = phi i1 [ %33, %51 ], [ false, %26 ]
   %53 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %54 = load ptr, ptr %53, align 8, !tbaa !3
   %55 = ptrtoint ptr %54 to i64
@@ -552,12 +552,12 @@ _ZNK4lean16elab_environment4findERKNS_4nameE.exit: ; preds = %8, %15, %17, %18
   unreachable
 
 _ZN4lean8optionalINS_13constant_infoEED2Ev.exit:  ; preds = %_ZNK4lean16elab_environment4findERKNS_4nameE.exit, %51, %.thread, %60, %62, %63
-  %.112 = phi i1 [ %33, %51 ], [ %.113, %.thread ], [ %.113, %60 ], [ %.113, %62 ], [ %.113, %63 ], [ false, %_ZNK4lean16elab_environment4findERKNS_4nameE.exit ]
+  %.118 = phi i1 [ %33, %51 ], [ %.119, %.thread ], [ %.119, %60 ], [ %.119, %62 ], [ %.119, %63 ], [ false, %_ZNK4lean16elab_environment4findERKNS_4nameE.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %67
 
 67:                                               ; preds = %2, %_ZN4lean8optionalINS_13constant_infoEED2Ev.exit
-  %.0 = phi i1 [ %.112, %_ZN4lean8optionalINS_13constant_infoEED2Ev.exit ], [ true, %2 ]
+  %.0 = phi i1 [ %.118, %_ZN4lean8optionalINS_13constant_infoEED2Ev.exit ], [ true, %2 ]
   ret i1 %.0
 }
 

@@ -908,8 +908,8 @@ define dso_local range(i32 -1, 1) i32 @BufFileSeek(ptr noundef %0, i32 noundef %
   %49 = sub i64 %48, %.0
   %50 = lshr i64 %49, 30
   %51 = zext i32 %46 to i64
-  %.not83 = icmp samesign ult i64 %50, %51
-  br i1 %.not83, label %.lr.ph.preheader.split, label %.loopexit
+  %.not86 = icmp samesign ult i64 %50, %51
+  br i1 %.not86, label %.lr.ph.preheader.split, label %.loopexit
 
 .lr.ph.preheader.split:                           ; preds = %.lr.ph.preheader
   %52 = and i64 %49, -1073741824
@@ -979,8 +979,8 @@ BufFileFlush.exit:                                ; preds = %72, %76
   %87 = add nuw i64 %86, 1073741823
   %88 = lshr i64 %87, 30
   %89 = zext i32 %85 to i64
-  %.not84.not = icmp samesign ult i64 %88, %89
-  br i1 %.not84.not, label %.lr.ph72.preheader.split, label %.loopexit
+  %.not87.not = icmp samesign ult i64 %88, %89
+  br i1 %.not87.not, label %.lr.ph72.preheader.split, label %.loopexit
 
 .lr.ph72.preheader.split:                         ; preds = %.lr.ph72.preheader
   %90 = add nsw i64 %spec.select61, -1073741824

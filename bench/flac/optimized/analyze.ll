@@ -362,12 +362,12 @@ define dso_local void @flac__analyze_frame(ptr noundef readonly captures(none) %
   %wide.trip.count300 = zext i32 %11 to i64
   br label %185
 
-185:                                              ; preds = %.lr.ph239, %.thread306
-  %indvars.iv297 = phi i64 [ 0, %.lr.ph239 ], [ %indvars.iv.next298, %.thread306 ]
+185:                                              ; preds = %.lr.ph239, %.thread315
+  %indvars.iv297 = phi i64 [ 0, %.lr.ph239 ], [ %indvars.iv.next298, %.thread315 ]
   %186 = getelementptr inbounds nuw %struct.FLAC__Subframe, ptr %176, i64 %indvars.iv297
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %180, i8 0, i64 16, i1 false)
   %187 = load i32, ptr %186, align 8, !tbaa !26
-  switch i32 %187, label %.thread306 [
+  switch i32 %187, label %.thread315 [
     i32 2, label %188
     i32 3, label %230
   ]
@@ -663,7 +663,7 @@ update_stats.exit164:                             ; preds = %302, %310
 
 311:                                              ; preds = %._crit_edge234, %.loopexit
   %.not140 = icmp eq i32 %.sink, 0
-  br i1 %.not140, label %.thread306, label %312
+  br i1 %.not140, label %.thread315, label %312
 
 312:                                              ; preds = %311
   %313 = trunc nuw i64 %indvars.iv297 to i32
@@ -679,14 +679,14 @@ update_stats.exit164:                             ; preds = %302, %310
   %321 = call double @sqrt(double noundef %320) #10, !tbaa !32
   store double %321, ptr %184, align 8, !tbaa !52
   call fastcc void @dump_stats(ptr noundef nonnull %9, ptr noundef nonnull %8)
-  br label %.thread306
+  br label %.thread315
 
-.thread306:                                       ; preds = %185, %312, %311
+.thread315:                                       ; preds = %185, %312, %311
   %indvars.iv.next298 = add nuw nsw i64 %indvars.iv297, 1
   %exitcond301.not = icmp eq i64 %indvars.iv.next298, %wide.trip.count300
   br i1 %exitcond301.not, label %.loopexit166, label %185, !llvm.loop !53
 
-.loopexit166:                                     ; preds = %.thread306, %33, %._crit_edge191
+.loopexit166:                                     ; preds = %.thread315, %33, %._crit_edge191
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret void

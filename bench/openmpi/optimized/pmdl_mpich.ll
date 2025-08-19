@@ -313,20 +313,20 @@ checkus.exit:                                     ; preds = %20
   %35 = tail call i32 @PMIx_Argv_append_nosize(ptr noundef nonnull %4, ptr noundef nonnull @.str) #12
   %36 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_pmdl_base_framework, i64 76), align 4, !tbaa !3
   %or.cond3 = icmp ult i32 %36, 64
-  br i1 %or.cond3, label %37, label %.preheader75
+  br i1 %or.cond3, label %37, label %.preheader91
 
 37:                                               ; preds = %.critedge
   %38 = zext nneg i32 %36 to i64
   %39 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %38, i32 2
   %40 = load i32, ptr %39, align 4, !tbaa !18
   %41 = icmp sgt i32 %40, 1
-  br i1 %41, label %42, label %.preheader75
+  br i1 %41, label %42, label %.preheader91
 
 42:                                               ; preds = %37
   tail call void (i32, ptr, ...) @pmix_output(i32 noundef %36, ptr noundef nonnull @.str.4) #12
-  br label %.preheader75
+  br label %.preheader91
 
-.preheader75:                                     ; preds = %42, %37, %.critedge
+.preheader91:                                     ; preds = %42, %37, %.critedge
   br label %45
 
 43:                                               ; preds = %45
@@ -334,8 +334,8 @@ checkus.exit:                                     ; preds = %20
   %exitcond.not = icmp eq i64 %44, %2
   br i1 %exitcond.not, label %48, label %45, !llvm.loop !44
 
-45:                                               ; preds = %.preheader75, %43
-  %.13863 = phi i64 [ %44, %43 ], [ 0, %.preheader75 ]
+45:                                               ; preds = %.preheader91, %43
+  %.13863 = phi i64 [ %44, %43 ], [ 0, %.preheader91 ]
   %46 = getelementptr inbounds nuw %struct.pmix_info, ptr %1, i64 %.13863
   %47 = tail call zeroext i1 @PMIx_Check_key(ptr noundef nonnull %46, ptr noundef nonnull @.str.5) #12
   br i1 %47, label %56, label %43

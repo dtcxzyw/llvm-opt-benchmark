@@ -237,8 +237,8 @@ define dso_local noundef range(i32 -22, 1) i32 @build_id_parse(ptr noundef reado
   %144 = icmp eq i32 %143, 3
   %.pre = load i32, ptr %141, align 4
   %145 = icmp eq i32 %.pre, 4
-  %or.cond38 = select i1 %144, i1 %145, i1 false
-  br i1 %or.cond38, label %146, label %164
+  %or.cond48 = select i1 %144, i1 %145, i1 false
+  br i1 %or.cond48, label %146, label %164
 
 146:                                              ; preds = %140
   %147 = getelementptr i8, ptr %141, i64 12

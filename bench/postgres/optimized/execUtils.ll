@@ -618,9 +618,9 @@ define dso_local ptr @ExecGetCommonSlotOps(ptr noundef readonly captures(none) %
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 120
   %15 = load ptr, ptr %14, align 8
   %.not21.i = icmp eq ptr %15, null
-  br i1 %.not21.i, label %.critedge, label %.sink.split.i.thread37
+  br i1 %.not21.i, label %.critedge, label %.sink.split.i.thread44
 
-.sink.split.i.thread37:                           ; preds = %.thread.i
+.sink.split.i.thread44:                           ; preds = %.thread.i
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 4
   %17 = load i16, ptr %16, align 4
   %18 = trunc i16 %17 to i8
@@ -633,15 +633,15 @@ define dso_local ptr @ExecGetCommonSlotOps(ptr noundef readonly captures(none) %
   %.not22.i = icmp eq ptr %.pre, null
   br i1 %.not22.i, label %ExecGetResultSlotOps.exit, label %20
 
-20:                                               ; preds = %.sink.split.i.thread37, %.sink.split.i
-  %.sink.i40 = phi i8 [ %19, %.sink.split.i.thread37 ], [ %13, %.sink.split.i ]
-  %21 = phi ptr [ %15, %.sink.split.i.thread37 ], [ %.pre, %.sink.split.i ]
+20:                                               ; preds = %.sink.split.i.thread44, %.sink.split.i
+  %.sink.i47 = phi i8 [ %19, %.sink.split.i.thread44 ], [ %13, %.sink.split.i ]
+  %21 = phi ptr [ %15, %.sink.split.i.thread44 ], [ %.pre, %.sink.split.i ]
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %23 = load ptr, ptr %22, align 8
   br label %ExecGetResultSlotOps.exit
 
 ExecGetResultSlotOps.exit:                        ; preds = %9, %.sink.split.i, %20
-  %.028 = phi i8 [ %13, %.sink.split.i ], [ %.sink.i40, %20 ], [ %13, %9 ]
+  %.028 = phi i8 [ %13, %.sink.split.i ], [ %.sink.i47, %20 ], [ %13, %9 ]
   %.0.i = phi ptr [ @TTSOpsVirtual, %.sink.split.i ], [ %23, %20 ], [ %11, %9 ]
   %24 = trunc i8 %.028 to i1
   br i1 %24, label %.preheader, label %.critedge
@@ -680,9 +680,9 @@ ExecGetResultSlotOps.exit:                        ; preds = %9, %.sink.split.i, 
   %36 = getelementptr inbounds nuw i8, ptr %27, i64 120
   %37 = load ptr, ptr %36, align 8
   %.not21.i19 = icmp eq ptr %37, null
-  br i1 %.not21.i19, label %.critedge, label %.sink.split.i20.thread45
+  br i1 %.not21.i19, label %.critedge, label %.sink.split.i20.thread52
 
-.sink.split.i20.thread45:                         ; preds = %.thread.i18
+.sink.split.i20.thread52:                         ; preds = %.thread.i18
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 4
   %39 = load i16, ptr %38, align 4
   %40 = trunc i16 %39 to i8
@@ -695,15 +695,15 @@ ExecGetResultSlotOps.exit:                        ; preds = %9, %.sink.split.i, 
   %.not22.i22 = icmp eq ptr %.pre34, null
   br i1 %.not22.i22, label %ExecGetResultSlotOps.exit26, label %42
 
-42:                                               ; preds = %.sink.split.i20.thread45, %.sink.split.i20
-  %.sink.i2148 = phi i8 [ %41, %.sink.split.i20.thread45 ], [ %35, %.sink.split.i20 ]
-  %43 = phi ptr [ %37, %.sink.split.i20.thread45 ], [ %.pre34, %.sink.split.i20 ]
+42:                                               ; preds = %.sink.split.i20.thread52, %.sink.split.i20
+  %.sink.i2155 = phi i8 [ %41, %.sink.split.i20.thread52 ], [ %35, %.sink.split.i20 ]
+  %43 = phi ptr [ %37, %.sink.split.i20.thread52 ], [ %.pre34, %.sink.split.i20 ]
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %45 = load ptr, ptr %44, align 8
   br label %ExecGetResultSlotOps.exit26
 
 ExecGetResultSlotOps.exit26:                      ; preds = %31, %.sink.split.i20, %42
-  %.1 = phi i8 [ %35, %.sink.split.i20 ], [ %.sink.i2148, %42 ], [ %35, %31 ]
+  %.1 = phi i8 [ %35, %.sink.split.i20 ], [ %.sink.i2155, %42 ], [ %35, %31 ]
   %.0.i23 = phi ptr [ @TTSOpsVirtual, %.sink.split.i20 ], [ %45, %42 ], [ %33, %31 ]
   %46 = trunc i8 %.1 to i1
   %.not = icmp eq ptr %.0.i, %.0.i23
@@ -738,9 +738,9 @@ define dso_local ptr @ExecGetCommonChildSlotOps(ptr noundef readonly captures(no
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 120
   %15 = load ptr, ptr %14, align 8
   %.not21.i.i = icmp eq ptr %15, null
-  br i1 %.not21.i.i, label %ExecGetCommonSlotOps.exit, label %.sink.split.i.thread37.i
+  br i1 %.not21.i.i, label %ExecGetCommonSlotOps.exit, label %.sink.split.i.thread44.i
 
-.sink.split.i.thread37.i:                         ; preds = %.thread.i.i
+.sink.split.i.thread44.i:                         ; preds = %.thread.i.i
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 4
   %17 = load i16, ptr %16, align 4
   %18 = trunc i16 %17 to i8
@@ -753,15 +753,15 @@ define dso_local ptr @ExecGetCommonChildSlotOps(ptr noundef readonly captures(no
   %.not22.i.i = icmp eq ptr %.pre.i, null
   br i1 %.not22.i.i, label %ExecGetResultSlotOps.exit.i, label %20
 
-20:                                               ; preds = %.sink.split.i.i, %.sink.split.i.thread37.i
-  %.sink.i40.i = phi i8 [ %19, %.sink.split.i.thread37.i ], [ %13, %.sink.split.i.i ]
-  %21 = phi ptr [ %15, %.sink.split.i.thread37.i ], [ %.pre.i, %.sink.split.i.i ]
+20:                                               ; preds = %.sink.split.i.i, %.sink.split.i.thread44.i
+  %.sink.i47.i = phi i8 [ %19, %.sink.split.i.thread44.i ], [ %13, %.sink.split.i.i ]
+  %21 = phi ptr [ %15, %.sink.split.i.thread44.i ], [ %.pre.i, %.sink.split.i.i ]
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %23 = load ptr, ptr %22, align 8
   br label %ExecGetResultSlotOps.exit.i
 
 ExecGetResultSlotOps.exit.i:                      ; preds = %20, %.sink.split.i.i, %9
-  %.028.i = phi i8 [ %13, %.sink.split.i.i ], [ %.sink.i40.i, %20 ], [ %13, %9 ]
+  %.028.i = phi i8 [ %13, %.sink.split.i.i ], [ %.sink.i47.i, %20 ], [ %13, %9 ]
   %.0.i.i = phi ptr [ @TTSOpsVirtual, %.sink.split.i.i ], [ %23, %20 ], [ %11, %9 ]
   %24 = trunc i8 %.028.i to i1
   br i1 %24, label %.lr.ph.i.preheader, label %ExecGetCommonSlotOps.exit
@@ -784,9 +784,9 @@ ExecGetResultSlotOps.exit.i:                      ; preds = %20, %.sink.split.i.
   %33 = getelementptr inbounds nuw i8, ptr %5, i64 120
   %34 = load ptr, ptr %33, align 8
   %.not21.i19.i = icmp eq ptr %34, null
-  br i1 %.not21.i19.i, label %ExecGetCommonSlotOps.exit, label %.sink.split.i20.thread45.i
+  br i1 %.not21.i19.i, label %ExecGetCommonSlotOps.exit, label %.sink.split.i20.thread52.i
 
-.sink.split.i20.thread45.i:                       ; preds = %.thread.i18.i
+.sink.split.i20.thread52.i:                       ; preds = %.thread.i18.i
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 4
   %36 = load i16, ptr %35, align 4
   %37 = trunc i16 %36 to i8
@@ -799,15 +799,15 @@ ExecGetResultSlotOps.exit.i:                      ; preds = %20, %.sink.split.i.
   %.not22.i22.i = icmp eq ptr %.pre34.i, null
   br i1 %.not22.i22.i, label %ExecGetResultSlotOps.exit26.i, label %39
 
-39:                                               ; preds = %.sink.split.i20.i, %.sink.split.i20.thread45.i
-  %.sink.i2148.i = phi i8 [ %38, %.sink.split.i20.thread45.i ], [ %32, %.sink.split.i20.i ]
-  %40 = phi ptr [ %34, %.sink.split.i20.thread45.i ], [ %.pre34.i, %.sink.split.i20.i ]
+39:                                               ; preds = %.sink.split.i20.i, %.sink.split.i20.thread52.i
+  %.sink.i2155.i = phi i8 [ %38, %.sink.split.i20.thread52.i ], [ %32, %.sink.split.i20.i ]
+  %40 = phi ptr [ %34, %.sink.split.i20.thread52.i ], [ %.pre34.i, %.sink.split.i20.i ]
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 8
   %42 = load ptr, ptr %41, align 8
   br label %ExecGetResultSlotOps.exit26.i
 
 ExecGetResultSlotOps.exit26.i:                    ; preds = %39, %.sink.split.i20.i, %28
-  %.1.i = phi i8 [ %32, %.sink.split.i20.i ], [ %.sink.i2148.i, %39 ], [ %32, %28 ]
+  %.1.i = phi i8 [ %32, %.sink.split.i20.i ], [ %.sink.i2155.i, %39 ], [ %32, %28 ]
   %.0.i23.i = phi ptr [ @TTSOpsVirtual, %.sink.split.i20.i ], [ %42, %39 ], [ %30, %28 ]
   %43 = trunc i8 %.1.i to i1
   %.not.i = icmp eq ptr %.0.i.i, %.0.i23.i
@@ -986,9 +986,9 @@ tlist_matches_tupdesc.exit.thread:                ; preds = %20, %27, %23, %30, 
   br label %79
 
 79:                                               ; preds = %73, %57
-  %.sink21 = phi i64 [ 136, %73 ], [ 184, %57 ]
+  %.sink24 = phi i64 [ 136, %73 ], [ 184, %57 ]
   %.sink = phi ptr [ %78, %73 ], [ %66, %57 ]
-  %80 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink21
+  %80 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink24
   store ptr %.sink, ptr %80, align 8
   ret void
 }

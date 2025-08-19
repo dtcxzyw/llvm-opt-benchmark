@@ -1033,9 +1033,9 @@ define internal fastcc void @StartTransaction() unnamed_addr #1 {
   %12 = tail call zeroext i1 @RecoveryInProgress() #21
   %13 = load i8, ptr @DefaultXactReadOnly, align 1, !range !4
   %spec.select = zext i1 %12 to i8
-  %spec.select17 = select i1 %12, i8 1, i8 %13
+  %spec.select19 = select i1 %12, i8 1, i8 %13
   store i8 %spec.select, ptr getelementptr inbounds nuw (i8, ptr @TopTransactionStateData, i64 97), align 1
-  store i8 %spec.select17, ptr @XactReadOnly, align 1
+  store i8 %spec.select19, ptr @XactReadOnly, align 1
   %14 = load i8, ptr @DefaultXactDeferrable, align 1, !range !4, !noundef !5
   store i8 %14, ptr @XactDeferrable, align 1
   %15 = load i32, ptr @DefaultXactIsoLevel, align 4
@@ -4746,7 +4746,7 @@ define dso_local i64 @XactLogCommitRecord(i64 noundef %0, i32 noundef %1, ptr no
   tail call void @XLogBeginInsert() #21
   call void @XLogRegisterData(ptr noundef nonnull %14, i32 noundef 8) #21
   %.not37 = icmp eq i32 %83, 0
-  br i1 %.not37, label %.thread63, label %84
+  br i1 %.not37, label %.thread67, label %84
 
 84:                                               ; preds = %82
   call void @XLogRegisterData(ptr noundef nonnull %15, i32 noundef 4) #21
@@ -4837,13 +4837,13 @@ define dso_local i64 @XactLogCommitRecord(i64 noundef %0, i32 noundef %1, ptr no
   %118 = phi i32 [ %111, %110 ], [ %.pre51, %113 ], [ %108, %107 ]
   %119 = and i32 %118, 32
   %.not45 = icmp eq i32 %119, 0
-  br i1 %.not45, label %.thread63, label %120
+  br i1 %.not45, label %.thread67, label %120
 
 120:                                              ; preds = %117
   call void @XLogRegisterData(ptr noundef nonnull %22, i32 noundef 16) #21
-  br label %.thread63
+  br label %.thread67
 
-.thread63:                                        ; preds = %82, %120, %117
+.thread67:                                        ; preds = %82, %120, %117
   %121 = or i8 %.1, -128
   %spec.select = select i1 %.not37, i8 %.1, i8 %121
   call void @XLogSetRecordFlags(i8 noundef zeroext 1) #21
@@ -4979,7 +4979,7 @@ define dso_local i64 @XactLogAbortRecord(i64 noundef %0, i32 noundef %1, ptr nou
   tail call void @XLogBeginInsert() #21
   call void @XLogRegisterData(ptr noundef nonnull %11, i32 noundef 8) #21
   %.not29 = icmp eq i32 %56, 0
-  br i1 %.not29, label %.thread55, label %57
+  br i1 %.not29, label %.thread58, label %57
 
 57:                                               ; preds = %55
   call void @XLogRegisterData(ptr noundef nonnull %12, i32 noundef 4) #21
@@ -5057,13 +5057,13 @@ define dso_local i64 @XactLogAbortRecord(i64 noundef %0, i32 noundef %1, ptr nou
   %86 = phi i32 [ %79, %78 ], [ %.pre43, %81 ], [ %76, %75 ]
   %87 = and i32 %86, 32
   %.not36 = icmp eq i32 %87, 0
-  br i1 %.not36, label %.thread55, label %88
+  br i1 %.not36, label %.thread58, label %88
 
 88:                                               ; preds = %85
   call void @XLogRegisterData(ptr noundef nonnull %18, i32 noundef 16) #21
-  br label %.thread55
+  br label %.thread58
 
-.thread55:                                        ; preds = %55, %88, %85
+.thread58:                                        ; preds = %55, %88, %85
   %89 = or i8 %.1, -128
   %spec.select = select i1 %.not29, i8 %.1, i8 %89
   call void @XLogSetRecordFlags(i8 noundef zeroext 1) #21

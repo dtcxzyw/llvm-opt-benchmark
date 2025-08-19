@@ -520,11 +520,11 @@ define void @_ZN6icu_776number4impl14SimpleModifierC2ERKNS_15SimpleFormatterENS_
 _ZN6icu_7715SimpleFormatter16getArgumentLimitEPKDsi.exit: ; preds = %25
   %33 = load i16, ptr %.0.i, align 2, !tbaa !37
   %34 = icmp eq i16 %33, 0
-  %.not20 = icmp eq i32 %31, 1
+  %.not21 = icmp eq i32 %31, 1
   br i1 %34, label %_ZN6icu_7715SimpleFormatter16getArgumentLimitEPKDsi.exit.thread, label %45
 
 _ZN6icu_7715SimpleFormatter16getArgumentLimitEPKDsi.exit.thread: ; preds = %_ZN6icu_7715SimpleFormatter16getArgumentLimitEPKDsi.exit
-  br i1 %.not20, label %_ZNK6icu_7713UnicodeString6charAtEi.exit, label %35
+  br i1 %.not21, label %_ZNK6icu_7713UnicodeString6charAtEi.exit, label %35
 
 35:                                               ; preds = %_ZN6icu_7715SimpleFormatter16getArgumentLimitEPKDsi.exit.thread
   %36 = and i16 %16, 2
@@ -546,7 +546,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit:         ; preds = %25, %35, %_ZN6icu_7
   br label %_ZNK6icu_7713UnicodeString6charAtEi.exit16
 
 45:                                               ; preds = %_ZN6icu_7715SimpleFormatter16getArgumentLimitEPKDsi.exit
-  br i1 %.not20, label %_ZNK6icu_7713UnicodeString6charAtEi.exit13, label %_ZNK6icu_7713UnicodeString6charAtEi.exit10
+  br i1 %.not21, label %_ZNK6icu_7713UnicodeString6charAtEi.exit13, label %_ZNK6icu_7713UnicodeString6charAtEi.exit10
 
 _ZNK6icu_7713UnicodeString6charAtEi.exit10:       ; preds = %45
   %46 = and i16 %16, 2

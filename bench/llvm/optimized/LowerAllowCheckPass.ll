@@ -2907,7 +2907,7 @@ _ZNKSt14default_deleteIN4llvm21RandomNumberGeneratorEEclEPS1_.exit.i.i: ; preds 
   br label %_ZNSt10unique_ptrIN4llvm21RandomNumberGeneratorESt14default_deleteIS1_EED2Ev.exit.i
 
 _ZNSt10unique_ptrIN4llvm21RandomNumberGeneratorESt14default_deleteIS1_EED2Ev.exit.i: ; preds = %_ZNKSt14default_deleteIN4llvm21RandomNumberGeneratorEEclEPS1_.exit.i.i, %._crit_edge130.i, %61
-  %.not.i141.i = phi i1 [ %.not.i.i, %._crit_edge130.i ], [ %.not.i.i, %_ZNKSt14default_deleteIN4llvm21RandomNumberGeneratorEEclEPS1_.exit.i.i ], [ false, %61 ]
+  %.not.i247.i = phi i1 [ %.not.i.i, %._crit_edge130.i ], [ %.not.i.i, %_ZNKSt14default_deleteIN4llvm21RandomNumberGeneratorEEclEPS1_.exit.i.i ], [ false, %61 ]
   %1016 = load ptr, ptr %48, align 8, !tbaa !25
   %1017 = icmp eq ptr %1016, %71
   br i1 %1017, label %_ZL16removeUbsanTrapsRN4llvm8FunctionERKNS_18BlockFrequencyInfoEPKNS_18ProfileSummaryInfoERNS_25OptimizationRemarkEmitterERKSt6vectorIjSaIjEE.exit, label %1018
@@ -2934,7 +2934,7 @@ _ZNSt10unique_ptrIN4llvm21RandomNumberGeneratorESt14default_deleteIS1_EED2Ev.exi
 
 _ZL16removeUbsanTrapsRN4llvm8FunctionERKNS_18BlockFrequencyInfoEPKNS_18ProfileSummaryInfoERNS_25OptimizationRemarkEmitterERKSt6vectorIjSaIjEE.exit: ; preds = %_ZNSt10unique_ptrIN4llvm21RandomNumberGeneratorESt14default_deleteIS1_EED2Ev.exit.i, %1018
   call void @llvm.lifetime.end.p0(ptr nonnull %48)
-  br i1 %.not.i141.i, label %1026, label %1036
+  br i1 %.not.i247.i, label %1026, label %1036
 
 1026:                                             ; preds = %_ZL16removeUbsanTrapsRN4llvm8FunctionERKNS_18BlockFrequencyInfoEPKNS_18ProfileSummaryInfoERNS_25OptimizationRemarkEmitterERKSt6vectorIjSaIjEE.exit
   %1027 = getelementptr inbounds nuw i8, ptr %0, i64 16

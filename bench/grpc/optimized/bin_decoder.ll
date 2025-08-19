@@ -197,21 +197,21 @@ define noundef zeroext i1 @_Z26grpc_base64_decode_partialP26grpc_base64_decode_c
 .lr.ph.preheader:                                 ; preds = %.preheader
   %13 = load ptr, ptr %9, align 8, !tbaa !21
   %14 = getelementptr inbounds nuw i8, ptr %8, i64 3
-  %.not6277 = icmp ult ptr %13, %14
-  br i1 %.not6277, label %.critedge, label %.lr.ph78
+  %.not6282 = icmp ult ptr %13, %14
+  br i1 %.not6282, label %.critedge, label %.lr.ph83
 
 .lr.ph:                                           ; preds = %19
   %15 = load ptr, ptr %9, align 8, !tbaa !21
   %16 = getelementptr inbounds nuw i8, ptr %65, i64 6
   %.not62 = icmp ult ptr %15, %16
-  br i1 %.not62, label %.critedge.loopexit, label %.lr.ph78, !llvm.loop !22
+  br i1 %.not62, label %.critedge.loopexit, label %.lr.ph83, !llvm.loop !22
 
-.lr.ph78:                                         ; preds = %.lr.ph.preheader, %.lr.ph
+.lr.ph83:                                         ; preds = %.lr.ph.preheader, %.lr.ph
   %17 = phi ptr [ %68, %.lr.ph ], [ %2, %.lr.ph.preheader ]
   %18 = tail call fastcc noundef zeroext i1 @_ZL14input_is_validPKhm(ptr noundef %17, i64 noundef 4)
   br i1 %18, label %19, label %.loopexit
 
-19:                                               ; preds = %.lr.ph78
+19:                                               ; preds = %.lr.ph83
   %20 = load ptr, ptr %0, align 8, !tbaa !15
   %21 = load i8, ptr %20, align 1, !tbaa !9
   %22 = zext i8 %21 to i64
@@ -302,8 +302,8 @@ define noundef zeroext i1 @_Z26grpc_base64_decode_partialP26grpc_base64_decode_c
   %.pre = load ptr, ptr %9, align 8, !tbaa !21
   %86 = getelementptr inbounds nuw i8, ptr %73, i64 1
   %.not64 = icmp ult ptr %.pre, %86
-  %or.cond74 = select i1 %85, i1 true, i1 %.not64
-  br i1 %or.cond74, label %105, label %87
+  %or.cond79 = select i1 %85, i1 true, i1 %.not64
+  br i1 %or.cond79, label %105, label %87
 
 87:                                               ; preds = %82
   %88 = tail call fastcc noundef zeroext i1 @_ZL14input_is_validPKhm(ptr noundef nonnull %.lcssa, i64 noundef 2)
@@ -448,14 +448,14 @@ define noundef zeroext i1 @_Z26grpc_base64_decode_partialP26grpc_base64_decode_c
   br label %.loopexit.sink.split
 
 .loopexit.sink.split:                             ; preds = %187, %109, %89
-  %.sink76 = phi i64 [ 4, %89 ], [ 4, %109 ], [ %76, %187 ]
+  %.sink81 = phi i64 [ 4, %89 ], [ 4, %109 ], [ %76, %187 ]
   %190 = load ptr, ptr %0, align 8, !tbaa !15
-  %191 = getelementptr inbounds nuw i8, ptr %190, i64 %.sink76
+  %191 = getelementptr inbounds nuw i8, ptr %190, i64 %.sink81
   store ptr %191, ptr %0, align 8, !tbaa !15
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph78, %.loopexit.sink.split, %105, %78, %146, %141, %152, %107, %87, %1, %6
-  %.0 = phi i1 [ false, %6 ], [ false, %1 ], [ false, %87 ], [ false, %107 ], [ false, %152 ], [ true, %141 ], [ true, %146 ], [ true, %78 ], [ true, %105 ], [ true, %.loopexit.sink.split ], [ false, %.lr.ph78 ]
+.loopexit:                                        ; preds = %.lr.ph83, %.loopexit.sink.split, %105, %78, %146, %141, %152, %107, %87, %1, %6
+  %.0 = phi i1 [ false, %6 ], [ false, %1 ], [ false, %87 ], [ false, %107 ], [ false, %152 ], [ true, %141 ], [ true, %146 ], [ true, %78 ], [ true, %105 ], [ true, %.loopexit.sink.split ], [ false, %.lr.ph83 ]
   ret i1 %.0
 }
 

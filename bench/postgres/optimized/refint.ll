@@ -780,12 +780,12 @@ define i64 @check_foreign_key(ptr noundef readonly captures(none) %0) local_unna
   store ptr %168, ptr %169, align 8
   %170 = zext nneg i32 %74 to i64
   %smax305 = call i32 @llvm.smax.i32(i32 %74, i32 1)
-  %171 = add nuw i32 %smax305, 1
+  %171 = add nuw nsw i32 %smax305, 1
   %smax323 = call i32 @llvm.smax.i32(i32 %48, i32 1)
   %wide.trip.count324 = zext nneg i32 %smax323 to i64
-  %wide.trip.count306 = zext i32 %171 to i64
-  %wide.trip.count312 = zext i32 %171 to i64
-  %wide.trip.count318 = zext i32 %171 to i64
+  %wide.trip.count306 = zext nneg i32 %171 to i64
+  %wide.trip.count312 = zext nneg i32 %171 to i64
+  %wide.trip.count318 = zext nneg i32 %171 to i64
   br label %172
 
 172:                                              ; preds = %.lr.ph265, %244

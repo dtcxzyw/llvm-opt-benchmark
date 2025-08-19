@@ -564,24 +564,24 @@ define hidden signext range(i8 0, 2) i8 @nfaQueueExec(ptr noundef %0, ptr nounde
   %38 = add nuw i32 %5, 1
   %39 = add i32 %.promoted, -1
   %40 = zext i32 %39 to i64
-  %.idx.i38 = mul nuw nsw i64 %40, 24
-  %41 = getelementptr inbounds nuw i8, ptr %35, i64 %.idx.i38
+  %.idx.i45 = mul nuw nsw i64 %40, 24
+  %41 = getelementptr inbounds nuw i8, ptr %35, i64 %.idx.i45
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 8
   %43 = load i64, ptr %42, align 8
   %44 = icmp sgt i64 %43, %34
-  br i1 %44, label %.lr.ph40, label %.critedge.i
+  br i1 %44, label %.lr.ph47, label %.critedge.i
 
-.lr.ph40:                                         ; preds = %.lr.ph.preheader
+.lr.ph47:                                         ; preds = %.lr.ph.preheader
   %45 = zext i32 %.promoted to i64
   br label %46
 
-46:                                               ; preds = %.lr.ph40, %.lr.ph
-  %47 = phi ptr [ %42, %.lr.ph40 ], [ %65, %.lr.ph ]
-  %48 = phi i64 [ %40, %.lr.ph40 ], [ %63, %.lr.ph ]
-  %49 = phi i32 [ %39, %.lr.ph40 ], [ %62, %.lr.ph ]
-  %50 = phi i32 [ %.promoted, %.lr.ph40 ], [ %61, %.lr.ph ]
-  %51 = phi i32 [ %.promoted, %.lr.ph40 ], [ %49, %.lr.ph ]
-  %indvars.iv39 = phi i64 [ %45, %.lr.ph40 ], [ %indvars.iv.next, %.lr.ph ]
+46:                                               ; preds = %.lr.ph47, %.lr.ph
+  %47 = phi ptr [ %42, %.lr.ph47 ], [ %65, %.lr.ph ]
+  %48 = phi i64 [ %40, %.lr.ph47 ], [ %63, %.lr.ph ]
+  %49 = phi i32 [ %39, %.lr.ph47 ], [ %62, %.lr.ph ]
+  %50 = phi i32 [ %.promoted, %.lr.ph47 ], [ %61, %.lr.ph ]
+  %51 = phi i32 [ %.promoted, %.lr.ph47 ], [ %49, %.lr.ph ]
+  %indvars.iv46 = phi i64 [ %45, %.lr.ph47 ], [ %indvars.iv.next, %.lr.ph ]
   store i64 %34, ptr %47, align 8
   %52 = getelementptr inbounds nuw [10 x %struct.mq_item], ptr %35, i64 0, i64 %48
   store i32 1, ptr %52, align 8
@@ -590,7 +590,7 @@ define hidden signext range(i8 0, 2) i8 @nfaQueueExec(ptr noundef %0, ptr nounde
   br i1 %54, label %.critedge.i, label %55
 
 55:                                               ; preds = %46
-  %56 = add i64 %indvars.iv39, 4294967294
+  %56 = add i64 %indvars.iv46, 4294967294
   %57 = and i64 %56, 4294967295
   %.idx41.i = mul nuw nsw i64 %57, 24
   %58 = getelementptr inbounds nuw i8, ptr %35, i64 %.idx41.i
@@ -601,7 +601,7 @@ define hidden signext range(i8 0, 2) i8 @nfaQueueExec(ptr noundef %0, ptr nounde
 
 .lr.ph:                                           ; preds = %55
   store i32 %49, ptr %36, align 4
-  %indvars.iv.next = add nsw i64 %indvars.iv39, -1
+  %indvars.iv.next = add nsw i64 %indvars.iv46, -1
   %61 = trunc nuw i64 %indvars.iv.next to i32
   %62 = add i32 %61, -1
   %63 = zext i32 %62 to i64
@@ -932,24 +932,24 @@ define hidden signext range(i8 0, 3) i8 @nfaQueueExecToMatch(ptr noundef %0, ptr
   %38 = add nuw i32 %6, 1
   %39 = add i32 %.promoted, -1
   %40 = zext i32 %39 to i64
-  %.idx.i54 = mul nuw nsw i64 %40, 24
-  %41 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx.i54
+  %.idx.i61 = mul nuw nsw i64 %40, 24
+  %41 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx.i61
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 8
   %43 = load i64, ptr %42, align 8
   %44 = icmp sgt i64 %43, %35
-  br i1 %44, label %.lr.ph56, label %.critedge.i
+  br i1 %44, label %.lr.ph63, label %.critedge.i
 
-.lr.ph56:                                         ; preds = %.lr.ph.preheader
+.lr.ph63:                                         ; preds = %.lr.ph.preheader
   %45 = zext i32 %.promoted to i64
   br label %46
 
-46:                                               ; preds = %.lr.ph56, %.lr.ph
-  %47 = phi ptr [ %42, %.lr.ph56 ], [ %65, %.lr.ph ]
-  %48 = phi i64 [ %40, %.lr.ph56 ], [ %63, %.lr.ph ]
-  %49 = phi i32 [ %39, %.lr.ph56 ], [ %62, %.lr.ph ]
-  %50 = phi i32 [ %.promoted, %.lr.ph56 ], [ %61, %.lr.ph ]
-  %51 = phi i32 [ %.promoted, %.lr.ph56 ], [ %49, %.lr.ph ]
-  %indvars.iv55 = phi i64 [ %45, %.lr.ph56 ], [ %indvars.iv.next, %.lr.ph ]
+46:                                               ; preds = %.lr.ph63, %.lr.ph
+  %47 = phi ptr [ %42, %.lr.ph63 ], [ %65, %.lr.ph ]
+  %48 = phi i64 [ %40, %.lr.ph63 ], [ %63, %.lr.ph ]
+  %49 = phi i32 [ %39, %.lr.ph63 ], [ %62, %.lr.ph ]
+  %50 = phi i32 [ %.promoted, %.lr.ph63 ], [ %61, %.lr.ph ]
+  %51 = phi i32 [ %.promoted, %.lr.ph63 ], [ %49, %.lr.ph ]
+  %indvars.iv62 = phi i64 [ %45, %.lr.ph63 ], [ %indvars.iv.next, %.lr.ph ]
   store i64 %35, ptr %47, align 8
   %52 = getelementptr inbounds nuw [10 x %struct.mq_item], ptr %4, i64 0, i64 %48
   store i32 1, ptr %52, align 8
@@ -958,7 +958,7 @@ define hidden signext range(i8 0, 3) i8 @nfaQueueExecToMatch(ptr noundef %0, ptr
   br i1 %54, label %.critedge.i, label %55
 
 55:                                               ; preds = %46
-  %56 = add i64 %indvars.iv55, 4294967294
+  %56 = add i64 %indvars.iv62, 4294967294
   %57 = and i64 %56, 4294967295
   %.idx41.i = mul nuw nsw i64 %57, 24
   %58 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx41.i
@@ -969,7 +969,7 @@ define hidden signext range(i8 0, 3) i8 @nfaQueueExecToMatch(ptr noundef %0, ptr
 
 .lr.ph:                                           ; preds = %55
   store i32 %49, ptr %36, align 4
-  %indvars.iv.next = add nsw i64 %indvars.iv55, -1
+  %indvars.iv.next = add nsw i64 %indvars.iv62, -1
   %61 = trunc nuw i64 %indvars.iv.next to i32
   %62 = add i32 %61, -1
   %63 = zext i32 %62 to i64

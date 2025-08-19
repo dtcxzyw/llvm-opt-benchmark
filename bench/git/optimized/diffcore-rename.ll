@@ -178,9 +178,9 @@ define dso_local void @diffcore_rename_extended(ptr noundef captures(none) %0, p
 
 38:                                               ; preds = %6
   %or.cond = select i1 %37, i1 true, i1 %35
-  br i1 %or.cond, label %40, label %.thread403
+  br i1 %or.cond, label %40, label %.thread467
 
-.thread403:                                       ; preds = %38
+.thread467:                                       ; preds = %38
   %39 = icmp ne ptr %2, null
   br label %44
 
@@ -197,8 +197,8 @@ define dso_local void @diffcore_rename_extended(ptr noundef captures(none) %0, p
   tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str, i32 noundef 1414, ptr noundef nonnull @.str.4) #15
   unreachable
 
-44:                                               ; preds = %.thread403, %41
-  %45 = phi i1 [ %39, %.thread403 ], [ %42, %41 ]
+44:                                               ; preds = %.thread467, %41
+  %45 = phi i1 [ %39, %.thread467 ], [ %42, %41 ]
   %.not198 = icmp eq i32 %29, 0
   %spec.store.select = select i1 %.not198, i32 30000, i32 %29
   %46 = load i32, ptr getelementptr inbounds nuw (i8, ptr @diff_queued_diff, i64 12), align 4, !tbaa !53
@@ -524,8 +524,8 @@ hash_filespec.exit.i.i:                           ; preds = %189, %180
   %200 = icmp slt i16 %.pre.i.i, -28672
   %or.cond.i.i = select i1 %199, i1 %200, i1 false
   %.not44.i.i = icmp eq i16 %198, %.pre.i.i
-  %or.cond97.i.i = select i1 %or.cond.i.i, i1 true, i1 %.not44.i.i
-  br i1 %or.cond97.i.i, label %201, label %.thread.i.i
+  %or.cond100.i.i = select i1 %or.cond.i.i, i1 true, i1 %.not44.i.i
+  br i1 %or.cond100.i.i, label %201, label %.thread.i.i
 
 201:                                              ; preds = %196
   %202 = getelementptr inbounds nuw i8, ptr %195, i64 76
@@ -1079,8 +1079,8 @@ initialize_dir_rename_info.exit:                  ; preds = %get_highest_rename_
   %452 = call i32 @strmap_contains(ptr noundef nonnull %13, ptr noundef nonnull %451) #14
   %.not74.i = icmp eq i32 %452, 0
   %453 = inttoptr i64 %indvars.iv97.i to ptr
-  %.sink103.i = select i1 %.not74.i, ptr %453, ptr inttoptr (i64 -1 to ptr)
-  %454 = call ptr @strmap_put(ptr noundef nonnull %13, ptr noundef nonnull %451, ptr noundef %.sink103.i) #14
+  %.sink108.i = select i1 %.not74.i, ptr %453, ptr inttoptr (i64 -1 to ptr)
+  %454 = call ptr @strmap_put(ptr noundef nonnull %13, ptr noundef nonnull %451, ptr noundef %.sink108.i) #14
   %.pre397 = load ptr, ptr @rename_dst, align 8, !tbaa !82
   %.pre399 = load i32, ptr @rename_dst_nr, align 4, !tbaa !81
   br label %455

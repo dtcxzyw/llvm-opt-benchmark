@@ -2679,8 +2679,8 @@ thread-pre-split:                                 ; preds = %.critedge, %27, %30
   %switch.maskindex = trunc i32 %33 to i16
   %switch.shifted = lshr i16 527, %switch.maskindex
   %switch.lobit = trunc i16 %switch.shifted to i1
-  %or.cond30 = select i1 %34, i1 %switch.lobit, i1 false
-  br i1 %or.cond30, label %throwUnixException.exit, label %35
+  %or.cond36 = select i1 %34, i1 %switch.lobit, i1 false
+  br i1 %or.cond36, label %throwUnixException.exit, label %35
 
 35:                                               ; preds = %.critedge.thread
   %36 = call ptr (ptr, ptr, ptr, ...) @JNU_NewObjectByName(ptr noundef %0, ptr noundef nonnull @.str.46, ptr noundef nonnull @.str.47, i32 noundef %33) #11

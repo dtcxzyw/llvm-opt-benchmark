@@ -767,12 +767,12 @@ _ZN5folly6detail19to_ascii_size_arrayILm10EEEmm.exit.i.i.i: ; preds = %178
   br i1 %185, label %.lr.ph.preheader.i.i.i, label %._crit_edge.i.i.i, !prof !63
 
 .lr.ph.preheader.i.i.i:                           ; preds = %182, %_ZN5folly6detail19to_ascii_size_arrayILm10EEEmm.exit.i.i.i
-  %spec.select.i11.i.i.i = phi i64 [ %184, %_ZN5folly6detail19to_ascii_size_arrayILm10EEEmm.exit.i.i.i ], [ 20, %182 ]
+  %spec.select.i12.i.i.i = phi i64 [ %184, %_ZN5folly6detail19to_ascii_size_arrayILm10EEEmm.exit.i.i.i ], [ 20, %182 ]
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i, %.lr.ph.preheader.i.i.i
   %.0.i5.i.i.i = phi i64 [ %187, %.lr.ph.i.i.i ], [ %177, %.lr.ph.preheader.i.i.i ]
-  %.014.i4.i.i.i = phi i64 [ %186, %.lr.ph.i.i.i ], [ %spec.select.i11.i.i.i, %.lr.ph.preheader.i.i.i ]
+  %.014.i4.i.i.i = phi i64 [ %186, %.lr.ph.i.i.i ], [ %spec.select.i12.i.i.i, %.lr.ph.preheader.i.i.i ]
   %186 = add i64 %.014.i4.i.i.i, -2
   %187 = udiv i64 %.0.i5.i.i.i, 100
   %188 = urem i64 %.0.i5.i.i.i, 100
@@ -784,7 +784,7 @@ _ZN5folly6detail19to_ascii_size_arrayILm10EEEmm.exit.i.i.i: ; preds = %178
   br i1 %192, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i, !prof !66, !llvm.loop !67
 
 ._crit_edge.i.i.i:                                ; preds = %.lr.ph.i.i.i, %_ZN5folly6detail19to_ascii_size_arrayILm10EEEmm.exit.i.i.i
-  %spec.select.i10.i.i.i = phi i64 [ %184, %_ZN5folly6detail19to_ascii_size_arrayILm10EEEmm.exit.i.i.i ], [ %spec.select.i11.i.i.i, %.lr.ph.i.i.i ]
+  %spec.select.i11.i.i.i = phi i64 [ %184, %_ZN5folly6detail19to_ascii_size_arrayILm10EEEmm.exit.i.i.i ], [ %spec.select.i12.i.i.i, %.lr.ph.i.i.i ]
   %.014.i.lcssa.i.i.i = phi i64 [ %184, %_ZN5folly6detail19to_ascii_size_arrayILm10EEEmm.exit.i.i.i ], [ %186, %.lr.ph.i.i.i ]
   %.0.i.lcssa.i.i.i = phi i64 [ %177, %_ZN5folly6detail19to_ascii_size_arrayILm10EEEmm.exit.i.i.i ], [ %187, %.lr.ph.i.i.i ]
   %193 = getelementptr inbounds nuw [100 x i16], ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 0, i64 %.0.i.lcssa.i.i.i
@@ -810,7 +810,7 @@ _ZN5folly16to_ascii_decimalILm20EEEmRAT__cm.exit: ; preds = %197, %196
           to label %203 unwind label %209
 
 203:                                              ; preds = %_ZN5folly16to_ascii_decimalILm20EEEmRAT__cm.exit
-  %204 = getelementptr inbounds nuw i8, ptr %9, i64 %spec.select.i10.i.i.i
+  %204 = getelementptr inbounds nuw i8, ptr %9, i64 %spec.select.i11.i.i.i
   %205 = load ptr, ptr %0, align 8, !tbaa !7
   %206 = getelementptr inbounds nuw i8, ptr %205, i64 24
   %207 = load ptr, ptr %206, align 8
@@ -1520,8 +1520,8 @@ define linkonce_odr noundef ptr @_ZN5folly13fbstring_coreIcE12expandNoinitEmbb(p
 
 21:                                               ; preds = %11
   %22 = icmp ult i64 %14, 46
-  %.0..val23 = load i64, ptr %5, align 8
-  %.pre = select i1 %22, i64 46, i64 %.0..val23
+  %.0..val25 = load i64, ptr %5, align 8
+  %.pre = select i1 %22, i64 46, i64 %.0..val25
   %23 = select i1 %2, i64 %.pre, i64 %14
   tail call void @_ZN5folly13fbstring_coreIcE12reserveSmallEmb(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %23, i1 noundef zeroext %3)
   br label %60

@@ -528,11 +528,11 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
 
 58:                                               ; preds = %52, %.thread
   %.pn = phi i64 [ %15, %.thread ], [ %53, %52 ]
-  %trunc.i.i150.in = phi i64 [ %19, %.thread ], [ %13, %52 ]
-  %.sroa.3.0.i9.pn.i.i148.in = phi ptr [ %34, %.thread ], [ %55, %52 ]
+  %trunc.i.i155.in = phi i64 [ %19, %.thread ], [ %13, %52 ]
+  %.sroa.3.0.i9.pn.i.i153.in = phi ptr [ %34, %.thread ], [ %55, %52 ]
   %59 = phi i64 [ %35, %.thread ], [ %spec.select, %52 ]
-  %.sroa.3.0.i9.pn.i.i148 = load i32, ptr %.sroa.3.0.i9.pn.i.i148.in, align 4, !alias.scope !227, !noundef !14
-  %trunc.i.i150 = trunc i64 %trunc.i.i150.in to i1
+  %.sroa.3.0.i9.pn.i.i153 = load i32, ptr %.sroa.3.0.i9.pn.i.i153.in, align 4, !alias.scope !227, !noundef !14
+  %trunc.i.i155 = trunc i64 %trunc.i.i155.in to i1
   %60 = sub nuw i64 %.val3.i.i.i, %.pn
   %61 = icmp eq ptr %14, null
   %62 = ptrtoint ptr %9 to i64
@@ -541,7 +541,7 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   %65 = lshr exact i64 %64, 5
   %66 = mul nuw nsw i64 %65, 5
   %67 = tail call i64 @llvm.uadd.sat.i64(i64 %60, i64 %59)
-  %68 = select i1 %trunc.i.i150, i64 %67, i64 %59
+  %68 = select i1 %trunc.i.i155, i64 %67, i64 %59
   %69 = tail call i64 @llvm.uadd.sat.i64(i64 %66, i64 %68)
   %70 = select i1 %61, i64 %68, i64 %69
   %71 = tail call i64 @llvm.uadd.sat.i64(i64 %70, i64 1)
@@ -551,7 +551,7 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   %74 = extractvalue { i64, ptr } %72, 1
   %75 = icmp ne ptr %74, null
   tail call void @llvm.assume(i1 %75)
-  store i32 %.sroa.3.0.i9.pn.i.i148, ptr %74, align 4
+  store i32 %.sroa.3.0.i9.pn.i.i153, ptr %74, align 4
   store i64 %73, ptr %4, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %74, ptr %.sroa.4.0..sroa_idx, align 8
@@ -668,8 +668,8 @@ _ZN4core4iter8adapters7flatten17and_then_or_clear17hfafb225b50945373E.exit.i.i.i
   store i32 %97, ptr %.sroa.5.sroa.9.0..sroa.5.0..sroa_idx5.sroa_idx.i.i.i.i, align 4
   store i32 %96, ptr %.sroa.5.sroa.10.0..sroa.5.0..sroa_idx5.sroa_idx.i.i.i.i, align 8
   %.not.not.i.i.i11.i.i.i.i = icmp ne i64 %85, %90
-  %or.cond204.not = select i1 %trunc.i8.i.i.i.i, i1 %.not.not.i.i.i11.i.i.i.i, i1 false
-  br i1 %or.cond204.not, label %_ZN4core3ops8function6FnOnce9call_once17hb0be15a6d839159aE.exit.thread.i12.i.i.i.i, label %"_ZN97_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$T$C$I$GT$$GT$11spec_extend17hcfae4459f9dbdd19E.exit"
+  %or.cond209.not = select i1 %trunc.i8.i.i.i.i, i1 %.not.not.i.i.i11.i.i.i.i, i1 false
+  br i1 %or.cond209.not, label %_ZN4core3ops8function6FnOnce9call_once17hb0be15a6d839159aE.exit.thread.i12.i.i.i.i, label %"_ZN97_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$T$C$I$GT$$GT$11spec_extend17hcfae4459f9dbdd19E.exit"
 
 _ZN4core3ops8function6FnOnce9call_once17hb0be15a6d839159aE.exit.thread.i12.i.i.i.i: ; preds = %113
   %.mux88.le = select i1 %trunc.i.i.i.i.i, i64 %106, i64 0
@@ -1355,10 +1355,10 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17h5fca2007f397
   br label %"_ZN68_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h94d03f177bee1d35E.exit"
 
 ._crit_edge.thread:                               ; preds = %"_ZN68_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h94d03f177bee1d35E.exit", %._crit_edge
-  %.0.lcssa42 = phi ptr [ %15, %._crit_edge ], [ %47, %"_ZN68_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h94d03f177bee1d35E.exit" ]
-  %storemerge.lcssa41 = phi i64 [ %12, %._crit_edge ], [ %21, %"_ZN68_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h94d03f177bee1d35E.exit" ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.0.lcssa42, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
-  %32 = add i64 %storemerge.lcssa41, 1
+  %.0.lcssa45 = phi ptr [ %15, %._crit_edge ], [ %47, %"_ZN68_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h94d03f177bee1d35E.exit" ]
+  %storemerge.lcssa44 = phi i64 [ %12, %._crit_edge ], [ %21, %"_ZN68_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h94d03f177bee1d35E.exit" ]
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.0.lcssa45, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
+  %32 = add i64 %storemerge.lcssa44, 1
   store i64 %32, ptr %4, align 8
   br label %"_ZN4core3ptr102drop_in_place$LT$core..option..Option$LT$tt..Subtree$LT$proc_macro_api..msg..flat..TokenId$GT$$GT$$GT$17h5f3e33bf181e4344E.exit"
 
@@ -1587,10 +1587,10 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17hae5c5c470534
   br label %"_ZN68_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h5c360dbc4f8e3284E.exit"
 
 ._crit_edge.thread:                               ; preds = %"_ZN68_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h5c360dbc4f8e3284E.exit", %._crit_edge
-  %.0.lcssa50 = phi ptr [ %15, %._crit_edge ], [ %63, %"_ZN68_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h5c360dbc4f8e3284E.exit" ]
-  %storemerge.lcssa49 = phi i64 [ %12, %._crit_edge ], [ %29, %"_ZN68_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h5c360dbc4f8e3284E.exit" ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.0.lcssa50, ptr noundef nonnull align 8 dereferenceable(64) %2, i64 64, i1 false)
-  %48 = add i64 %storemerge.lcssa49, 1
+  %.0.lcssa53 = phi ptr [ %15, %._crit_edge ], [ %63, %"_ZN68_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h5c360dbc4f8e3284E.exit" ]
+  %storemerge.lcssa52 = phi i64 [ %12, %._crit_edge ], [ %29, %"_ZN68_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h5c360dbc4f8e3284E.exit" ]
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.0.lcssa53, ptr noundef nonnull align 8 dereferenceable(64) %2, i64 64, i1 false)
+  %48 = add i64 %storemerge.lcssa52, 1
   store i64 %48, ptr %4, align 8
   br label %"_ZN4core3ptr120drop_in_place$LT$core..option..Option$LT$tt..Subtree$LT$span..SpanData$LT$span..hygiene..SyntaxContextId$GT$$GT$$GT$$GT$17h9f42d1b6623a4dfeE.exit"
 

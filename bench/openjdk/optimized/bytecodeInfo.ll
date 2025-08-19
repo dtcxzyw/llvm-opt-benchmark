@@ -1088,9 +1088,9 @@ _ZNK10InlineTree12inline_levelEv.exit67:          ; preds = %_ZNK10InlineTree12i
   %141 = load ptr, ptr %140, align 8
   %142 = icmp eq ptr %141, %1
   %spec.select = zext i1 %142 to i32
-  %.0618192 = load ptr, ptr %4, align 8
-  %.not638293 = icmp eq ptr %.0618192, null
-  br i1 %.not638293, label %.critedge, label %.lr.ph.split
+  %.0618196 = load ptr, ptr %4, align 8
+  %.not638297 = icmp eq ptr %.0618196, null
+  br i1 %.not638297, label %.critedge, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %126, %163
   %.06184.us = phi ptr [ %.061.us, %163 ], [ %.06181, %126 ]
@@ -1130,7 +1130,7 @@ _ZNK10InlineTree12inline_levelEv.exit67:          ; preds = %_ZNK10InlineTree12i
   br i1 %.not63.us, label %.critedge, label %.lr.ph.split.us, !llvm.loop !9
 
 .lr.ph.split:                                     ; preds = %.thread, %166
-  %.06184 = phi ptr [ %.061, %166 ], [ %.0618192, %.thread ]
+  %.06184 = phi ptr [ %.061, %166 ], [ %.0618196, %.thread ]
   %.183 = phi i32 [ %spec.select88, %166 ], [ %spec.select, %.thread ]
   %164 = getelementptr inbounds nuw i8, ptr %.06184, i64 48
   %165 = load ptr, ptr %164, align 8

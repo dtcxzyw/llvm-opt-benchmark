@@ -203,9 +203,9 @@ _Z16b3NormalizeAnglef.exit:                       ; preds = %14, %16, %18
   br label %.sink.split
 
 .sink.split:                                      ; preds = %27, %22
-  %.sink6 = phi float [ %24, %22 ], [ %28, %27 ]
+  %.sink7 = phi float [ %24, %22 ], [ %28, %27 ]
   %.sink = phi float [ 1.000000e+00, %22 ], [ -1.000000e+00, %27 ]
-  store float %.sink6, ptr %3, align 4, !tbaa !35
+  store float %.sink7, ptr %3, align 4, !tbaa !35
   store float %.sink, ptr %4, align 4, !tbaa !36
   br label %29
 

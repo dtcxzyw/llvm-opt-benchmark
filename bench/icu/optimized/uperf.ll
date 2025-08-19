@@ -822,17 +822,17 @@ define noundef signext range(i8 0, 2) i8 @_ZN9UPerfTest11runTestLoopEPcS0_(ptr n
   %13 = load ptr, ptr %12, align 8
   %14 = call noundef ptr %13(ptr noundef nonnull align 8 dereferenceable(160) %0, i32 noundef %.095.ph, i8 noundef signext 0, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef null)
   %15 = load ptr, ptr %4, align 8, !tbaa !52
-  %.not192 = icmp eq ptr %15, null
-  br i1 %.not192, label %.loopexit161, label %.lr.ph194
+  %.not201 = icmp eq ptr %15, null
+  br i1 %.not201, label %.loopexit170, label %.lr.ph203
 
-.lr.ph194:                                        ; preds = %.outer, %182
+.lr.ph203:                                        ; preds = %.outer, %182
   %16 = phi ptr [ %188, %182 ], [ %15, %.outer ]
-  %.095193 = phi i32 [ %183, %182 ], [ %.095.ph, %.outer ]
+  %.095202 = phi i32 [ %183, %182 ], [ %.095.ph, %.outer ]
   %17 = load i8, ptr %16, align 1, !tbaa !53
   %18 = icmp eq i8 %17, 0
-  br i1 %18, label %.loopexit161, label %19
+  br i1 %18, label %.loopexit170, label %19
 
-19:                                               ; preds = %.lr.ph194
+19:                                               ; preds = %.lr.ph203
   br i1 %.not120, label %.critedge, label %20
 
 20:                                               ; preds = %19
@@ -844,7 +844,7 @@ define noundef signext range(i8 0, 2) i8 @_ZN9UPerfTest11runTestLoopEPcS0_(ptr n
   %22 = load ptr, ptr %0, align 8, !tbaa !3
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 24
   %24 = load ptr, ptr %23, align 8
-  %25 = call noundef ptr %24(ptr noundef nonnull align 8 dereferenceable(160) %0, i32 noundef %.095193, i8 noundef signext 1, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef %2)
+  %25 = call noundef ptr %24(ptr noundef nonnull align 8 dereferenceable(160) %0, i32 noundef %.095202, i8 noundef signext 1, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef %2)
   %26 = load i32, ptr @_ZL9execCount, align 4, !tbaa !41
   %27 = add nsw i32 %26, 1
   store i32 %27, ptr @_ZL9execCount, align 4, !tbaa !41
@@ -1092,26 +1092,26 @@ define noundef signext range(i8 0, 2) i8 @_ZN9UPerfTest11runTestLoopEPcS0_(ptr n
   call void %179(ptr noundef nonnull align 8 dereferenceable(8) %25) #23
   %.pre = load ptr, ptr %4, align 8, !tbaa !52
   %180 = icmp eq ptr %.pre, null
-  %181 = add nuw nsw i32 %.095193, 1
-  br i1 %180, label %.loopexit161, label %.outer, !llvm.loop !60
+  %181 = add nuw nsw i32 %.095202, 1
+  br i1 %180, label %.loopexit170, label %.outer, !llvm.loop !60
 
 182:                                              ; preds = %20
-  %183 = add nuw nsw i32 %.095193, 1
+  %183 = add nuw nsw i32 %.095202, 1
   %184 = load ptr, ptr %0, align 8, !tbaa !3
   %185 = getelementptr inbounds nuw i8, ptr %184, i64 24
   %186 = load ptr, ptr %185, align 8
   %187 = call noundef ptr %186(ptr noundef nonnull align 8 dereferenceable(160) %0, i32 noundef %183, i8 noundef signext 0, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef null)
   %188 = load ptr, ptr %4, align 8, !tbaa !52
   %.not = icmp eq ptr %188, null
-  br i1 %.not, label %.loopexit161, label %.lr.ph194, !llvm.loop !60
+  br i1 %.not, label %.loopexit170, label %.lr.ph203, !llvm.loop !60
 
-.loopexit161:                                     ; preds = %176, %.outer, %.lr.ph194, %182
-  %.1109 = phi i8 [ %.0108.ph, %182 ], [ %.0108.ph, %.lr.ph194 ], [ 1, %176 ], [ %.0108.ph, %.outer ]
+.loopexit170:                                     ; preds = %176, %.outer, %.lr.ph203, %182
+  %.1109 = phi i8 [ %.0108.ph, %182 ], [ %.0108.ph, %.lr.ph203 ], [ 1, %176 ], [ %.0108.ph, %.outer ]
   store ptr %6, ptr @_ZN9UPerfTest5gTestE, align 8, !tbaa !57
   br label %.critedge129
 
-.critedge129:                                     ; preds = %82, %29, %39, %.loopexit161
-  %.5 = phi i8 [ %.1109, %.loopexit161 ], [ 0, %82 ], [ 0, %39 ], [ 0, %29 ]
+.critedge129:                                     ; preds = %82, %29, %39, %.loopexit170
+  %.5 = phi i8 [ %.1109, %.loopexit170 ], [ 0, %82 ], [ 0, %39 ], [ 0, %29 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i8 %.5

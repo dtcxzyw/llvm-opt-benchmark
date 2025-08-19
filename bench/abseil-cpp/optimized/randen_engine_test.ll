@@ -30416,8 +30416,8 @@ define linkonce_odr dso_local void @_ZNSt8seed_seqC2IivEESt16initializer_listIT_
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.not16 = icmp eq i64 %2, 0
-  br i1 %.not16, label %._crit_edge, label %_ZNSt12_Vector_baseIjSaIjEE11_M_allocateEm.exit.i
+  %.not22 = icmp eq i64 %2, 0
+  br i1 %.not22, label %._crit_edge, label %_ZNSt12_Vector_baseIjSaIjEE11_M_allocateEm.exit.i
 
 _ZNSt12_Vector_baseIjSaIjEE11_M_allocateEm.exit.i: ; preds = %6
   %8 = shl nuw nsw i64 %2, 2
@@ -30562,8 +30562,8 @@ define linkonce_odr dso_local void @_ZNSt8seed_seqC2IjvEESt16initializer_listIT_
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.not16 = icmp eq i64 %2, 0
-  br i1 %.not16, label %._crit_edge, label %_ZNSt12_Vector_baseIjSaIjEE11_M_allocateEm.exit.i
+  %.not22 = icmp eq i64 %2, 0
+  br i1 %.not22, label %._crit_edge, label %_ZNSt12_Vector_baseIjSaIjEE11_M_allocateEm.exit.i
 
 _ZNSt12_Vector_baseIjSaIjEE11_M_allocateEm.exit.i: ; preds = %6
   %8 = shl nuw nsw i64 %2, 2

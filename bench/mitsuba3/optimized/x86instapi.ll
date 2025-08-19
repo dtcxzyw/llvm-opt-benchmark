@@ -1057,7 +1057,7 @@ define hidden noundef range(i32 0, 63) i32 @_ZN6asmjit9_abi_1_103x8612InstIntern
   %409 = phi i32 [ 0, %403 ], [ %453, %451 ]
   %410 = phi i8 [ 0, %403 ], [ %452, %451 ]
   %411 = getelementptr inbounds nuw %"struct.asmjit::_abi_1_10::x86::InstDB::OpSignature", ptr %6, i64 %407
-  %412 = zext i32 %408 to i64
+  %412 = zext nneg i32 %408 to i64
   br label %413
 
 413:                                              ; preds = %421, %406

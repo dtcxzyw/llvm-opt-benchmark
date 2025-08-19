@@ -2229,10 +2229,10 @@ _ZNK4llvm8MCSymbol9isDefinedEv.exit.thread441:    ; preds = %201, %_ZNK4llvm8MCS
   br label %_ZN4llvmplERKNS_5TwineES2_.exit
 
 _ZN4llvmplERKNS_5TwineES2_.exit:                  ; preds = %266, %276, %277
-  %.sink689 = phi i8 [ 9, %276 ], [ %.014.i.i, %277 ], [ %275, %266 ]
+  %.sink734 = phi i8 [ 9, %276 ], [ %.014.i.i, %277 ], [ %275, %266 ]
   %.sink = phi i8 [ 1, %276 ], [ 9, %277 ], [ 1, %266 ]
   %281 = getelementptr inbounds nuw i8, ptr %10, i64 32
-  store i8 %.sink689, ptr %281, align 8, !tbaa !437
+  store i8 %.sink734, ptr %281, align 8, !tbaa !437
   %282 = getelementptr inbounds nuw i8, ptr %10, i64 33
   store i8 %.sink, ptr %282, align 1, !tbaa !437
   %283 = call noundef ptr @_ZN4llvm9MCContext17getOrCreateSymbolERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(2432) %270, ptr noundef nonnull align 8 dereferenceable(34) %10) #19
@@ -3450,8 +3450,8 @@ define hidden void @_ZN4llvm10EHStreamer13emitTypeInfosEjPNS_8MCSymbolE(ptr noun
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %11, i64 576
   %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !322, !noalias !570
   %.pre73 = load ptr, ptr %12, align 8, !tbaa !322, !noalias !581
-  %.not4477 = icmp eq ptr %.pre, %.pre73
-  br i1 %.not4477, label %._crit_edge, label %.lr.ph.split
+  %.not4484 = icmp eq ptr %.pre, %.pre73
+  br i1 %.not4484, label %._crit_edge, label %.lr.ph.split
 
 .lr.ph:                                           ; preds = %47
   %50 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -3503,7 +3503,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit.us:               ; preds = %.lr.ph, %_ZN4llvmpl
   %.pre75 = load ptr, ptr %13, align 8, !tbaa !129
   %73 = getelementptr inbounds nuw i8, ptr %11, i64 600
   %74 = load ptr, ptr %73, align 8, !tbaa !129
-  br i1 %19, label %81, label %.thread81
+  br i1 %19, label %81, label %.thread88
 
 .lr.ph.split:                                     ; preds = %.thread, %.lr.ph.split
   %.sroa.042.045 = phi ptr [ %75, %.lr.ph.split ], [ %.pre, %.thread ]
@@ -3554,7 +3554,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit.us:               ; preds = %.lr.ph, %_ZN4llvmpl
   %102 = icmp ult ptr %99, %101
   br i1 %102, label %.lr.ph50, label %._crit_edge51
 
-.thread81:                                        ; preds = %._crit_edge
+.thread88:                                        ; preds = %._crit_edge
   %103 = icmp ult ptr %.pre75, %74
   br i1 %103, label %.lr.ph50.split, label %._crit_edge51
 
@@ -3603,11 +3603,11 @@ _ZN4llvmplERKNS_5TwineES2_.exit36.us:             ; preds = %.lr.ph50.split.us
   %122 = icmp ult ptr %121, %101
   br i1 %122, label %.lr.ph50.split.us, label %._crit_edge51, !llvm.loop !602
 
-._crit_edge51:                                    ; preds = %.lr.ph50.split, %118, %.thread81, %98
+._crit_edge51:                                    ; preds = %.lr.ph50.split, %118, %.thread88, %98
   ret void
 
-.lr.ph50.split:                                   ; preds = %.thread81, %.lr.ph50.split
-  %.sroa.037.047 = phi ptr [ %126, %.lr.ph50.split ], [ %.pre75, %.thread81 ]
+.lr.ph50.split:                                   ; preds = %.thread88, %.lr.ph50.split
+  %.sroa.037.047 = phi ptr [ %126, %.lr.ph50.split ], [ %.pre75, %.thread88 ]
   %123 = load i32, ptr %.sroa.037.047, align 4, !tbaa !131
   %124 = load ptr, ptr %8, align 8, !tbaa !6
   %125 = zext i32 %123 to i64
@@ -4499,10 +4499,10 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPKN4llvm14LandingPadInfoEl
 
 "_ZSt22__move_median_to_firstIPPKN4llvm14LandingPadInfoEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_10EHStreamer18emitExceptionTableEvE3$_0EEEvT_SB_SB_SB_T0_.exit.i": ; preds = %.lr.ph.i.i.i.i.i.i.i.i42.i.i, %.lr.ph.i.i.i.i.i.i.i.i51.i.i, %.lr.ph.i.i.i.i.i.i.i.i60.i.i, %.lr.ph.i.i.i.i.i.i.i.i69.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm10EHStreamer18emitExceptionTableEvE3$_0EclIPPKNS2_14LandingPadInfoESA_EEbT_T0_.exit76.thread90.i.i", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm10EHStreamer18emitExceptionTableEvE3$_0EclIPPKNS2_14LandingPadInfoESA_EEbT_T0_.exit76.i.i", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm10EHStreamer18emitExceptionTableEvE3$_0EclIPPKNS2_14LandingPadInfoESA_EEbT_T0_.exit67.i.i", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm10EHStreamer18emitExceptionTableEvE3$_0EclIPPKNS2_14LandingPadInfoESA_EEbT_T0_.exit58.thread84.i.i", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm10EHStreamer18emitExceptionTableEvE3$_0EclIPPKNS2_14LandingPadInfoESA_EEbT_T0_.exit58.i.i", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm10EHStreamer18emitExceptionTableEvE3$_0EclIPPKNS2_14LandingPadInfoESA_EEbT_T0_.exit49.i.i"
   %.val29.sink.i.i = phi ptr [ %.val30.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm10EHStreamer18emitExceptionTableEvE3$_0EclIPPKNS2_14LandingPadInfoESA_EEbT_T0_.exit76.thread90.i.i" ], [ %.val29.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm10EHStreamer18emitExceptionTableEvE3$_0EclIPPKNS2_14LandingPadInfoESA_EEbT_T0_.exit58.thread84.i.i" ], [ %.val30.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm10EHStreamer18emitExceptionTableEvE3$_0EclIPPKNS2_14LandingPadInfoESA_EEbT_T0_.exit49.i.i" ], [ %.val28.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm10EHStreamer18emitExceptionTableEvE3$_0EclIPPKNS2_14LandingPadInfoESA_EEbT_T0_.exit58.i.i" ], [ %.val29.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm10EHStreamer18emitExceptionTableEvE3$_0EclIPPKNS2_14LandingPadInfoESA_EEbT_T0_.exit67.i.i" ], [ %.val24.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm10EHStreamer18emitExceptionTableEvE3$_0EclIPPKNS2_14LandingPadInfoESA_EEbT_T0_.exit76.i.i" ], [ %.val24.i.i, %.lr.ph.i.i.i.i.i.i.i.i69.i.i ], [ %.val29.i.i, %.lr.ph.i.i.i.i.i.i.i.i60.i.i ], [ %.val28.i.i, %.lr.ph.i.i.i.i.i.i.i.i51.i.i ], [ %.val30.i.i, %.lr.ph.i.i.i.i.i.i.i.i42.i.i ]
-  %.sink108.i.i = phi ptr [ %30, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm10EHStreamer18emitExceptionTableEvE3$_0EclIPPKNS2_14LandingPadInfoESA_EEbT_T0_.exit76.thread90.i.i" ], [ %8, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm10EHStreamer18emitExceptionTableEvE3$_0EclIPPKNS2_14LandingPadInfoESA_EEbT_T0_.exit58.thread84.i.i" ], [ %30, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm10EHStreamer18emitExceptionTableEvE3$_0EclIPPKNS2_14LandingPadInfoESA_EEbT_T0_.exit49.i.i" ], [ %31, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm10EHStreamer18emitExceptionTableEvE3$_0EclIPPKNS2_14LandingPadInfoESA_EEbT_T0_.exit58.i.i" ], [ %8, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm10EHStreamer18emitExceptionTableEvE3$_0EclIPPKNS2_14LandingPadInfoESA_EEbT_T0_.exit67.i.i" ], [ %31, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm10EHStreamer18emitExceptionTableEvE3$_0EclIPPKNS2_14LandingPadInfoESA_EEbT_T0_.exit76.i.i" ], [ %31, %.lr.ph.i.i.i.i.i.i.i.i69.i.i ], [ %8, %.lr.ph.i.i.i.i.i.i.i.i60.i.i ], [ %31, %.lr.ph.i.i.i.i.i.i.i.i51.i.i ], [ %30, %.lr.ph.i.i.i.i.i.i.i.i42.i.i ]
+  %.sink127.i.i = phi ptr [ %30, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm10EHStreamer18emitExceptionTableEvE3$_0EclIPPKNS2_14LandingPadInfoESA_EEbT_T0_.exit76.thread90.i.i" ], [ %8, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm10EHStreamer18emitExceptionTableEvE3$_0EclIPPKNS2_14LandingPadInfoESA_EEbT_T0_.exit58.thread84.i.i" ], [ %30, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm10EHStreamer18emitExceptionTableEvE3$_0EclIPPKNS2_14LandingPadInfoESA_EEbT_T0_.exit49.i.i" ], [ %31, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm10EHStreamer18emitExceptionTableEvE3$_0EclIPPKNS2_14LandingPadInfoESA_EEbT_T0_.exit58.i.i" ], [ %8, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm10EHStreamer18emitExceptionTableEvE3$_0EclIPPKNS2_14LandingPadInfoESA_EEbT_T0_.exit67.i.i" ], [ %31, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm10EHStreamer18emitExceptionTableEvE3$_0EclIPPKNS2_14LandingPadInfoESA_EEbT_T0_.exit76.i.i" ], [ %31, %.lr.ph.i.i.i.i.i.i.i.i69.i.i ], [ %8, %.lr.ph.i.i.i.i.i.i.i.i60.i.i ], [ %31, %.lr.ph.i.i.i.i.i.i.i.i51.i.i ], [ %30, %.lr.ph.i.i.i.i.i.i.i.i42.i.i ]
   %107 = load ptr, ptr %0, align 8, !tbaa !142
   store ptr %.val29.sink.i.i, ptr %0, align 8, !tbaa !142
-  store ptr %107, ptr %.sink108.i.i, align 8, !tbaa !142
+  store ptr %107, ptr %.sink127.i.i, align 8, !tbaa !142
   br label %108
 
 108:                                              ; preds = %149, %"_ZSt22__move_median_to_firstIPPKN4llvm14LandingPadInfoEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_10EHStreamer18emitExceptionTableEvE3$_0EEEvT_SB_SB_SB_T0_.exit.i"
@@ -4637,8 +4637,8 @@ define internal fastcc void @"_ZSt13__adjust_heapIPPKN4llvm14LandingPadInfoElS3_
 
 .lr.ph:                                           ; preds = %4, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm10EHStreamer18emitExceptionTableEvE3$_0EclIPPKNS2_14LandingPadInfoESA_EEbT_T0_.exit.thread34"
   %.040 = phi i64 [ %37, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm10EHStreamer18emitExceptionTableEvE3$_0EclIPPKNS2_14LandingPadInfoESA_EEbT_T0_.exit.thread34" ], [ %1, %4 ]
-  %8 = shl i64 %.040, 1
-  %9 = add i64 %8, 2
+  %8 = shl nuw nsw i64 %.040, 1
+  %9 = add nuw nsw i64 %8, 2
   %10 = getelementptr inbounds nuw ptr, ptr %0, i64 %9
   %11 = getelementptr inbounds nuw ptr, ptr %0, i64 %8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
@@ -4716,7 +4716,7 @@ define internal fastcc void @"_ZSt13__adjust_heapIPPKN4llvm14LandingPadInfoElS3_
   br i1 %47, label %48, label %54
 
 48:                                               ; preds = %44
-  %49 = shl nsw i64 %.0.lcssa, 1
+  %49 = shl nuw nsw i64 %.0.lcssa, 1
   %50 = or disjoint i64 %49, 1
   %51 = getelementptr inbounds nuw ptr, ptr %0, i64 %50
   %52 = load ptr, ptr %51, align 8, !tbaa !142
@@ -4740,10 +4740,10 @@ define internal fastcc void @"_ZSt13__adjust_heapIPPKN4llvm14LandingPadInfoElS3_
   br label %61
 
 61:                                               ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm10EHStreamer18emitExceptionTableEvE3$_0EclIPPKNS2_14LandingPadInfoES9_EEbT_RT0_.exit.thread.i", %.lr.ph.i
-  %.0139.i = phi i64 [ %.128, %.lr.ph.i ], [ %.010.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm10EHStreamer18emitExceptionTableEvE3$_0EclIPPKNS2_14LandingPadInfoES9_EEbT_RT0_.exit.thread.i" ]
+  %.0139.i = phi i64 [ %.128, %.lr.ph.i ], [ %.01019.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm10EHStreamer18emitExceptionTableEvE3$_0EclIPPKNS2_14LandingPadInfoES9_EEbT_RT0_.exit.thread.i" ]
   %.010.in.i = add nsw i64 %.0139.i, -1
-  %.010.i = sdiv i64 %.010.in.i, 2
-  %62 = getelementptr inbounds nuw ptr, ptr %0, i64 %.010.i
+  %.01019.i = lshr i64 %.010.in.i, 1
+  %62 = getelementptr inbounds nuw ptr, ptr %0, i64 %.01019.i
   %.val.i = load ptr, ptr %62, align 8, !tbaa !142
   %63 = getelementptr i8, ptr %.val.i, i64 96
   %.val.val.i = load ptr, ptr %63, align 8, !tbaa !129
@@ -4784,11 +4784,11 @@ define internal fastcc void @"_ZSt13__adjust_heapIPPKN4llvm14LandingPadInfoElS3_
 "_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm10EHStreamer18emitExceptionTableEvE3$_0EclIPPKNS2_14LandingPadInfoES9_EEbT_RT0_.exit.thread.i": ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm10EHStreamer18emitExceptionTableEvE3$_0EclIPPKNS2_14LandingPadInfoES9_EEbT_RT0_.exit.i"
   %79 = getelementptr inbounds nuw ptr, ptr %0, i64 %.0139.i
   store ptr %.val.i, ptr %79, align 8, !tbaa !142
-  %80 = icmp sgt i64 %.010.i, %1
+  %80 = icmp samesign ugt i64 %.01019.i, %1
   br i1 %80, label %61, label %"_ZSt11__push_heapIPPKN4llvm14LandingPadInfoElS3_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_10EHStreamer18emitExceptionTableEvE3$_0EEEvT_T0_SC_T1_RT2_.exit", !llvm.loop !622
 
 "_ZSt11__push_heapIPPKN4llvm14LandingPadInfoElS3_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_10EHStreamer18emitExceptionTableEvE3$_0EEEvT_T0_SC_T1_RT2_.exit": ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm10EHStreamer18emitExceptionTableEvE3$_0EclIPPKNS2_14LandingPadInfoES9_EEbT_RT0_.exit.i", %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm10EHStreamer18emitExceptionTableEvE3$_0EclIPPKNS2_14LandingPadInfoES9_EEbT_RT0_.exit.thread.i", %74, %54
-  %.0136.i = phi i64 [ %.128, %54 ], [ %.0139.i, %74 ], [ %.010.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm10EHStreamer18emitExceptionTableEvE3$_0EclIPPKNS2_14LandingPadInfoES9_EEbT_RT0_.exit.thread.i" ], [ %.0139.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm10EHStreamer18emitExceptionTableEvE3$_0EclIPPKNS2_14LandingPadInfoES9_EEbT_RT0_.exit.i" ]
+  %.0136.i = phi i64 [ %.128, %54 ], [ %.0139.i, %74 ], [ %.01019.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm10EHStreamer18emitExceptionTableEvE3$_0EclIPPKNS2_14LandingPadInfoES9_EEbT_RT0_.exit.thread.i" ], [ %.0139.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm10EHStreamer18emitExceptionTableEvE3$_0EclIPPKNS2_14LandingPadInfoES9_EEbT_RT0_.exit.i" ]
   %81 = getelementptr inbounds nuw ptr, ptr %0, i64 %.0136.i
   store ptr %3, ptr %81, align 8, !tbaa !142
   ret void

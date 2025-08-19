@@ -813,7 +813,7 @@ define internal fastcc ptr @split_and_resolve(ptr noundef captures(address_is_nu
   br i1 %110, label %._crit_edge108.thread, label %113
 
 ._crit_edge108.thread:                            ; preds = %76, %._crit_edge108
-  %.2.lcssa132 = phi i32 [ %.3, %._crit_edge108 ], [ %.073112, %76 ]
+  %.2.lcssa142 = phi i32 [ %.3, %._crit_edge108 ], [ %.073112, %76 ]
   %111 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @prte_process_info, i64 800), align 8, !tbaa !66
   %112 = call i32 (ptr, ptr, i32, ...) @pmix_show_help(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.56, i32 noundef 1, ptr noundef %1, ptr noundef %111, ptr noundef %49, ptr noundef nonnull @.str.61) #16
   call void @free(ptr noundef %49) #16
@@ -824,7 +824,7 @@ define internal fastcc ptr @split_and_resolve(ptr noundef captures(address_is_nu
   br label %114
 
 114:                                              ; preds = %._crit_edge, %44, %113, %._crit_edge108.thread, %63, %52
-  %.1 = phi i32 [ %47, %44 ], [ %.073112, %._crit_edge ], [ %.073112, %52 ], [ %.073112, %63 ], [ %.2.lcssa132, %._crit_edge108.thread ], [ %.3, %113 ]
+  %.1 = phi i32 [ %47, %44 ], [ %.073112, %._crit_edge ], [ %.073112, %52 ], [ %.073112, %63 ], [ %.2.lcssa142, %._crit_edge108.thread ], [ %.3, %113 ]
   %indvars.iv.next125 = add nuw nsw i64 %indvars.iv124, 1
   %115 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv.next125
   %116 = load ptr, ptr %115, align 8, !tbaa !41
@@ -1203,8 +1203,8 @@ sub_1:                                            ; preds = %sub_0
 16:                                               ; preds = %0, %15
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @prte_oob_base, i64 592), align 8, !tbaa !83
   %17 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @prte_oob_base, i64 632), align 8
-  %.not16 = icmp eq ptr %17, null
-  br i1 %.not16, label %18, label %.thread
+  %.not18 = icmp eq ptr %17, null
+  br i1 %.not18, label %18, label %.thread
 
 .thread:                                          ; preds = %sub_1, %sub_0, %.tail, %16
   store i8 1, ptr @prte_static_ports, align 1, !tbaa !84
@@ -1545,7 +1545,7 @@ define void @prte_oob_ping(ptr noundef %0) local_unnamed_addr #0 {
   %18 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %17, i32 2
   %19 = load i32, ptr %18, align 4, !tbaa !20
   %20 = icmp sgt i32 %19, 1
-  br i1 %20, label %21, label %.thread48
+  br i1 %20, label %21, label %.thread57
 
 21:                                               ; preds = %16
   %22 = tail call ptr @prte_util_print_name_args(ptr noundef nonnull @prte_process_info) #16
@@ -1553,23 +1553,23 @@ define void @prte_oob_ping(ptr noundef %0) local_unnamed_addr #0 {
   tail call void (i32, ptr, ...) @pmix_output(i32 noundef %15, ptr noundef nonnull @.str.44, ptr noundef %22, ptr noundef nonnull @.str.14, i32 noundef 589, ptr noundef %23) #16
   %.pr.pre = load i32, ptr @prte_oob_base, align 8, !tbaa !3
   %or.cond5 = icmp ult i32 %.pr.pre, 64
-  br i1 %or.cond5, label %.thread48, label %.thread
+  br i1 %or.cond5, label %.thread57, label %.thread
 
-.thread48:                                        ; preds = %16, %21
-  %.pr51 = phi i32 [ %.pr.pre, %21 ], [ %15, %16 ]
-  %24 = zext nneg i32 %.pr51 to i64
+.thread57:                                        ; preds = %16, %21
+  %.pr60 = phi i32 [ %.pr.pre, %21 ], [ %15, %16 ]
+  %24 = zext nneg i32 %.pr60 to i64
   %25 = getelementptr inbounds nuw [0 x %struct.pmix_output_desc_t], ptr @pmix_output_info, i64 0, i64 %24, i32 2
   %26 = load i32, ptr %25, align 4, !tbaa !20
   %27 = icmp sgt i32 %26, 4
   br i1 %27, label %28, label %.thread
 
-28:                                               ; preds = %.thread48
+28:                                               ; preds = %.thread57
   %29 = tail call ptr @prte_util_print_name_args(ptr noundef nonnull @prte_process_info) #16
   %30 = tail call ptr @prte_util_print_name_args(ptr noundef %0) #16
-  tail call void (i32, ptr, ...) @pmix_output(i32 noundef %.pr51, ptr noundef nonnull @.str.45, ptr noundef %29, ptr noundef nonnull @.str.14, i32 noundef 590, ptr noundef %30) #16
+  tail call void (i32, ptr, ...) @pmix_output(i32 noundef %.pr60, ptr noundef nonnull @.str.45, ptr noundef %29, ptr noundef nonnull @.str.14, i32 noundef 590, ptr noundef %30) #16
   br label %.thread
 
-.thread:                                          ; preds = %14, %28, %.thread48, %21
+.thread:                                          ; preds = %14, %28, %.thread57, %21
   %31 = load i64, ptr getelementptr inbounds nuw (i8, ptr @prte_oob_tcp_msg_error_t_class, i64 56), align 8, !tbaa !50
   %32 = tail call noalias noundef ptr @malloc(i64 noundef %31) #17
   %33 = load i32, ptr @pmix_class_init_epoch, align 4, !tbaa !23

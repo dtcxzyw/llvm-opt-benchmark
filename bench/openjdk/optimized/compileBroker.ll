@@ -4466,9 +4466,9 @@ _ZN13MonitorLockerC2EP6ThreadP7MonitorN5Mutex18SafepointCheckFlagE.exit: ; preds
   br i1 %17, label %.critedge, label %_ZN13MonitorLocker4waitEl.exit, !llvm.loop !36
 
 _ZN13MonitorLocker4waitEl.exit:                   ; preds = %.lr.ph, %15
-  %.0314358 = phi i32 [ %.13238, %15 ], [ %7, %.lr.ph ]
-  %.0284457 = phi i32 [ %.12940, %15 ], [ 0, %.lr.ph ]
-  %.04556 = phi i32 [ %.1, %15 ], [ 0, %.lr.ph ]
+  %.0314364 = phi i32 [ %.13238, %15 ], [ %7, %.lr.ph ]
+  %.0284463 = phi i32 [ %.12940, %15 ], [ 0, %.lr.ph ]
+  %.04562 = phi i32 [ %.1, %15 ], [ 0, %.lr.ph ]
   %18 = tail call noundef zeroext i1 @_ZN7Monitor4waitEm(ptr noundef nonnull align 8 dereferenceable(104) %4, i64 noundef 1000) #20
   br i1 %18, label %19, label %.critedge.thread
 
@@ -4480,7 +4480,7 @@ _ZN13MonitorLocker4waitEl.exit:                   ; preds = %.lr.ph, %15
 21:                                               ; preds = %19
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 44
   %23 = load i32, ptr %22, align 4
-  %24 = icmp ne i32 %23, %.0284457
+  %24 = icmp ne i32 %23, %.0284463
   %25 = load i64, ptr @JVMCITraceLevel, align 8
   %26 = icmp slt i64 %25, 1
   %27 = load i64, ptr @JVMCIEventLogLevel, align 8
@@ -4495,7 +4495,7 @@ _ZN13MonitorLocker4waitEl.exit:                   ; preds = %.lr.ph, %15
 
 31:                                               ; preds = %19
   %32 = load volatile i32, ptr %6, align 4
-  %33 = icmp ne i32 %32, %.0314358
+  %33 = icmp ne i32 %32, %.0314364
   %34 = load i64, ptr @JVMCITraceLevel, align 8
   %35 = icmp slt i64 %34, 1
   %36 = load i64, ptr @JVMCIEventLogLevel, align 8
@@ -4509,15 +4509,15 @@ _ZN13MonitorLocker4waitEl.exit:                   ; preds = %.lr.ph, %15
   br i1 %33, label %56, label %41
 
 40:                                               ; preds = %31, %21
-  %.132 = phi i32 [ %.0314358, %21 ], [ %32, %31 ]
+  %.132 = phi i32 [ %.0314364, %21 ], [ %32, %31 ]
   %.030.in = phi i1 [ %24, %21 ], [ %33, %31 ]
-  %.129 = phi i32 [ %23, %21 ], [ %.0284457, %31 ]
+  %.129 = phi i32 [ %23, %21 ], [ %.0284463, %31 ]
   br i1 %.030.in, label %56, label %41
 
 41:                                               ; preds = %38, %29, %40
-  %.12939 = phi i32 [ %.0284457, %29 ], [ %.129, %40 ], [ %.0284457, %38 ]
-  %.13237 = phi i32 [ %.0314358, %29 ], [ %.132, %40 ], [ %.0314358, %38 ]
-  %42 = add nsw i32 %.04556, 1
+  %.12939 = phi i32 [ %.0284463, %29 ], [ %.129, %40 ], [ %.0284463, %38 ]
+  %.13237 = phi i32 [ %.0314364, %29 ], [ %.132, %40 ], [ %.0314364, %38 ]
+  %42 = add nsw i32 %.04562, 1
   %43 = icmp eq i32 %42, 10
   br i1 %43, label %44, label %56
 
@@ -4545,14 +4545,14 @@ _ZN13MonitorLocker4waitEl.exit:                   ; preds = %.lr.ph, %15
   br label %.critedge.thread
 
 56:                                               ; preds = %38, %29, %40, %41
-  %.12940 = phi i32 [ %.12939, %41 ], [ %.129, %40 ], [ %23, %29 ], [ %.0284457, %38 ]
-  %.13238 = phi i32 [ %.13237, %41 ], [ %.132, %40 ], [ %.0314358, %29 ], [ %32, %38 ]
+  %.12940 = phi i32 [ %.12939, %41 ], [ %.129, %40 ], [ %23, %29 ], [ %.0284463, %38 ]
+  %.13238 = phi i32 [ %.13237, %41 ], [ %.132, %40 ], [ %.0314364, %29 ], [ %32, %38 ]
   %.1 = phi i32 [ %42, %41 ], [ 0, %40 ], [ 0, %29 ], [ 0, %38 ]
   %57 = load i8, ptr %8, align 4
   %58 = trunc i8 %57 to i1
-  br i1 %58, label %.critedge.thread48, label %15, !llvm.loop !36
+  br i1 %58, label %.critedge.thread54, label %15, !llvm.loop !36
 
-.critedge.thread48:                               ; preds = %56
+.critedge.thread54:                               ; preds = %56
   %59 = getelementptr inbounds nuw i8, ptr %1, i64 64
   store i8 0, ptr %59, align 8
   br label %64
@@ -4569,8 +4569,8 @@ _ZN13MonitorLocker4waitEl.exit:                   ; preds = %.lr.ph, %15
   store i8 0, ptr %63, align 8
   br i1 %.not.i.i, label %_ZN13MonitorLockerD2Ev.exit, label %64
 
-64:                                               ; preds = %.critedge.thread48, %.critedge.thread, %.critedge
-  %65 = phi i1 [ %62, %.critedge.thread ], [ %10, %.critedge ], [ true, %.critedge.thread48 ]
+64:                                               ; preds = %.critedge.thread54, %.critedge.thread, %.critedge
+  %65 = phi i1 [ %62, %.critedge.thread ], [ %10, %.critedge ], [ true, %.critedge.thread54 ]
   tail call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %4) #20
   br label %_ZN13MonitorLockerD2Ev.exit
 
@@ -4973,8 +4973,8 @@ define hidden void @_ZN13CompileBroker24init_compiler_thread_logEv() local_unnam
 
 5:                                                ; preds = %17
   %6 = add nsw i32 %.020, -1
-  %.not22 = icmp eq i32 %.020, 0
-  br i1 %.not22, label %26, label %7, !llvm.loop !40
+  %.not23 = icmp eq i32 %.020, 0
+  br i1 %.not23, label %26, label %7, !llvm.loop !40
 
 7:                                                ; preds = %0, %5
   %.020 = phi i32 [ 1, %0 ], [ %6, %5 ]
@@ -5565,7 +5565,7 @@ _ZN12ResourceMarkD2Ev.exit:                       ; preds = %1, %42, %40
   %58 = load i32, ptr %57, align 8
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %60 = load i32, ptr %59, align 8
-  %.not270 = icmp eq i32 %60, -1
+  %.not299 = icmp eq i32 %60, -1
   %61 = getelementptr inbounds nuw i8, ptr %43, i64 1816
   %62 = load ptr, ptr %61, align 8
   %.not258 = icmp eq ptr %62, null
@@ -6506,7 +6506,7 @@ _ZN13CompileBroker13compiler_nameEi.exit196:      ; preds = %490, %_ZN13CompileB
   %528 = load ptr, ptr @tty, align 8
   call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %528, ptr noundef nonnull @.str.93, i32 noundef %58) #20
   %529 = load ptr, ptr @tty, align 8
-  %.str.95..str.96 = select i1 %.not270, ptr @.str.96, ptr @.str.95
+  %.str.95..str.96 = select i1 %.not299, ptr @.str.96, ptr @.str.95
   call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %529, ptr noundef nonnull @.str.94, ptr noundef nonnull %.str.95..str.96) #20
   %530 = load i8, ptr %516, align 1
   %531 = trunc i8 %530 to i1
@@ -6638,7 +6638,7 @@ _ZL15codecache_printb.exit:                       ; preds = %_ZN11MutexLockerC2E
   ]
 
 573:                                              ; preds = %572
-  br i1 %.not270, label %575, label %574
+  br i1 %.not299, label %575, label %574
 
 574:                                              ; preds = %573
   call void @_ZN6Method22set_not_osr_compilableEPKcib(ptr noundef nonnull align 8 dereferenceable(88) %.pre, ptr noundef nonnull @.str.99, i32 noundef -1, i1 noundef zeroext false) #20
@@ -6649,7 +6649,7 @@ _ZL15codecache_printb.exit:                       ; preds = %_ZN11MutexLockerC2E
   br label %._crit_edge
 
 576:                                              ; preds = %572
-  br i1 %.not270, label %578, label %577
+  br i1 %.not299, label %578, label %577
 
 577:                                              ; preds = %576
   call void @_ZN6Method22set_not_osr_compilableEPKcib(ptr noundef nonnull align 8 dereferenceable(88) %.pre, ptr noundef nonnull @.str.100, i32 noundef %64, i1 noundef zeroext false) #20
@@ -7294,15 +7294,15 @@ _ZN13CompileBroker8compilerEi.exit:               ; preds = %138, %.thread59
 
 153:                                              ; preds = %_ZN13CompileBroker8compilerEi.exit
   %. = select i1 %.not, i64 24, i64 56
-  %.82 = select i1 %.not, i64 48, i64 80
-  %.83 = select i1 %.not, i64 52, i64 84
+  %.88 = select i1 %.not, i64 48, i64 80
+  %.89 = select i1 %.not, i64 52, i64 84
   %154 = getelementptr inbounds nuw i8, ptr %.0.i, i64 %.
   call void @_ZN12elapsedTimer3addES_(ptr noundef nonnull align 8 dereferenceable(32) %154, ptr noundef nonnull byval(%class.elapsedTimer) align 8 %1) #20
-  %155 = getelementptr inbounds nuw i8, ptr %.0.i, i64 %.82
+  %155 = getelementptr inbounds nuw i8, ptr %.0.i, i64 %.88
   %156 = load i32, ptr %155, align 8
   %157 = add i32 %156, %105
   store i32 %157, ptr %155, align 8
-  %158 = getelementptr inbounds nuw i8, ptr %.0.i, i64 %.83
+  %158 = getelementptr inbounds nuw i8, ptr %.0.i, i64 %.89
   %159 = load i32, ptr %158, align 4
   %160 = add i32 %159, 1
   store i32 %160, ptr %158, align 4
@@ -8942,14 +8942,14 @@ _Z15color_mark_good8zaddress8zpointer.exit:       ; preds = %_ZN8ZBarrier14make_
   br i1 %.not, label %_ZN8ZBarrier7barrierIZNS_63blocking_keep_alive_load_barrier_on_phantom_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit, label %.preheader.i.i.preheader
 
 .preheader.i.i.preheader:                         ; preds = %_Z15color_mark_good8zaddress8zpointer.exit.thread, %_Z15color_mark_good8zaddress8zpointer.exit
-  %.0.i.i310.in = phi i64 [ %55, %_Z15color_mark_good8zaddress8zpointer.exit.thread ], [ %67, %_Z15color_mark_good8zaddress8zpointer.exit ]
+  %.0.i.i311.in = phi i64 [ %55, %_Z15color_mark_good8zaddress8zpointer.exit.thread ], [ %67, %_Z15color_mark_good8zaddress8zpointer.exit ]
   %69 = phi i64 [ %54, %_Z15color_mark_good8zaddress8zpointer.exit.thread ], [ %53, %_Z15color_mark_good8zaddress8zpointer.exit ]
-  %.0.i.i310 = or i64 %.0.i.i310.in, 48
+  %.0.i.i311 = or i64 %.0.i.i311.in, 48
   br label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %.preheader.i.i.preheader, %72
   %.0.i16.i = phi i64 [ %70, %72 ], [ %1, %.preheader.i.i.preheader ]
-  %70 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.0.i.i310, i64 %.0.i16.i, ptr nonnull %0) #20, !srcloc !52
+  %70 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.0.i.i311, i64 %.0.i16.i, ptr nonnull %0) #20, !srcloc !52
   %71 = icmp eq i64 %70, %.0.i16.i
   br i1 %71, label %_ZN8ZBarrier7barrierIZNS_63blocking_keep_alive_load_barrier_on_phantom_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit, label %72
 
@@ -9083,14 +9083,14 @@ _Z15color_mark_good8zaddress8zpointer.exit:       ; preds = %_ZN8ZBarrier14make_
   br i1 %.not, label %_ZN8ZBarrier7barrierIPF8zaddressS1_EEES1_PFb8zpointerET_PFS4_S1_S4_EPVS4_S4_b.exit, label %.preheader.i.i.preheader
 
 .preheader.i.i.preheader:                         ; preds = %_Z15color_mark_good8zaddress8zpointer.exit.thread, %_Z15color_mark_good8zaddress8zpointer.exit
-  %.0.i.i18.in = phi i64 [ %55, %_Z15color_mark_good8zaddress8zpointer.exit.thread ], [ %67, %_Z15color_mark_good8zaddress8zpointer.exit ]
+  %.0.i.i19.in = phi i64 [ %55, %_Z15color_mark_good8zaddress8zpointer.exit.thread ], [ %67, %_Z15color_mark_good8zaddress8zpointer.exit ]
   %69 = phi i64 [ %54, %_Z15color_mark_good8zaddress8zpointer.exit.thread ], [ %53, %_Z15color_mark_good8zaddress8zpointer.exit ]
-  %.0.i.i18 = or i64 %.0.i.i18.in, 48
+  %.0.i.i19 = or i64 %.0.i.i19.in, 48
   br label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %.preheader.i.i.preheader, %72
   %.0.i17.i = phi i64 [ %70, %72 ], [ %1, %.preheader.i.i.preheader ]
-  %70 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.0.i.i18, i64 %.0.i17.i, ptr nonnull %0) #20, !srcloc !52
+  %70 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.0.i.i19, i64 %.0.i17.i, ptr nonnull %0) #20, !srcloc !52
   %71 = icmp eq i64 %70, %.0.i17.i
   br i1 %71, label %_ZN8ZBarrier7barrierIPF8zaddressS1_EEES1_PFb8zpointerET_PFS4_S1_S4_EPVS4_S4_b.exit, label %72
 

@@ -3293,12 +3293,12 @@ define internal fastcc i32 @magiccheck(ptr noundef %0, ptr noundef %1) unnamed_a
   %88 = add nuw nsw i64 %87, %spec.select
   %89 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %90 = load i64, ptr %89, align 8, !tbaa !65
-  %spec.select345 = tail call i64 @llvm.umin.i64(i64 %90, i64 %88)
+  %spec.select365 = tail call i64 @llvm.umin.i64(i64 %90, i64 %88)
   br label %91
 
 91:                                               ; preds = %86, %._crit_edge
   %92 = phi i64 [ %.pre, %._crit_edge ], [ %90, %86 ]
-  %.0223 = phi i64 [ %.pre, %._crit_edge ], [ %spec.select345, %86 ]
+  %.0223 = phi i64 [ %.pre, %._crit_edge ], [ %spec.select365, %86 ]
   %93 = getelementptr inbounds nuw i8, ptr %74, i64 %.0223
   %94 = icmp eq i8 %77, 1
   br i1 %94, label %95, label %98
@@ -5090,7 +5090,7 @@ define internal fastcc range(i32 0, 2) i32 @do_ops(ptr noundef readonly captures
 
 17:                                               ; preds = %16
   %18 = and i8 %.pre, 7
-  switch i8 %18, label %default.unreachable44 [
+  switch i8 %18, label %default.unreachable45 [
     i8 0, label %19
     i8 1, label %21
     i8 2, label %23
@@ -5133,7 +5133,7 @@ define internal fastcc range(i32 0, 2) i32 @do_ops(ptr noundef readonly captures
   %34 = srem i64 %3, %4
   br label %._crit_edge
 
-default.unreachable44:                            ; preds = %17
+default.unreachable45:                            ; preds = %17
   unreachable
 
 ._crit_edge:                                      ; preds = %16, %19, %21, %23, %25, %27, %29, %31, %33
@@ -5232,7 +5232,7 @@ define internal fastcc range(i32 -1, 1) i32 @cvt_8(ptr noundef captures(none) %0
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 9
   %7 = load i8, ptr %6, align 1, !tbaa !63
   %8 = and i8 %7, 7
-  switch i8 %8, label %default.unreachable30 [
+  switch i8 %8, label %default.unreachable31 [
     i8 0, label %9
     i8 1, label %13
     i8 2, label %17
@@ -5301,7 +5301,7 @@ define internal fastcc range(i32 -1, 1) i32 @cvt_8(ptr noundef captures(none) %0
   %44 = urem i8 %43, %.rhs.trunc28
   br label %.sink.split
 
-default.unreachable30:                            ; preds = %5
+default.unreachable31:                            ; preds = %5
   unreachable
 
 .sink.split:                                      ; preds = %42, %36, %29, %25, %21, %17, %13, %9
@@ -5338,7 +5338,7 @@ define internal fastcc range(i32 -1, 1) i32 @cvt_16(ptr noundef captures(none) %
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 9
   %7 = load i8, ptr %6, align 1, !tbaa !63
   %8 = and i8 %7, 7
-  switch i8 %8, label %default.unreachable30 [
+  switch i8 %8, label %default.unreachable31 [
     i8 0, label %9
     i8 1, label %13
     i8 2, label %17
@@ -5407,7 +5407,7 @@ define internal fastcc range(i32 -1, 1) i32 @cvt_16(ptr noundef captures(none) %
   %44 = urem i16 %43, %.rhs.trunc28
   br label %.sink.split
 
-default.unreachable30:                            ; preds = %5
+default.unreachable31:                            ; preds = %5
   unreachable
 
 .sink.split:                                      ; preds = %42, %36, %29, %25, %21, %17, %13, %9
@@ -5850,7 +5850,7 @@ define internal fastcc range(i32 -1, 1) i32 @varexpand(ptr noundef readonly capt
 12:                                               ; preds = %7
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.05795, ptr nonnull align 1 %.05894, i64 %11, i1 false)
   %13 = getelementptr inbounds nuw i8, ptr %.05795, i64 %11
-  %14 = sub nuw i64 %.06093, %11
+  %14 = sub nuw nsw i64 %.06093, %11
   %15 = getelementptr inbounds nuw i8, ptr %8, i64 2
   %16 = load i8, ptr %15, align 1, !tbaa !28
   %.not69 = icmp eq i8 %16, 0
@@ -5916,7 +5916,7 @@ define internal fastcc range(i32 -1, 1) i32 @varexpand(ptr noundef readonly capt
   %.059 = select i1 %.not77, ptr %27, ptr %21
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %13, ptr nonnull align 1 %.059, i64 %.0, i1 false)
   %43 = getelementptr inbounds nuw i8, ptr %13, i64 %.0
-  %44 = sub nuw i64 %14, %.0
+  %44 = sub nuw nsw i64 %14, %.0
   %45 = getelementptr inbounds nuw i8, ptr %.055, i64 1
   %46 = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %45, ptr noundef nonnull dereferenceable(1) @.str.39) #26
   %.not = icmp eq ptr %46, null

@@ -1369,13 +1369,13 @@ define dso_local i32 @i915_ggtt_probe_hw(ptr noundef %0) local_unnamed_addr #0 a
 
 229:                                              ; preds = %224
   %230 = icmp eq ptr %19, null
-  br i1 %230, label %.thread9, label %231
+  br i1 %230, label %.thread14, label %231
 
 231:                                              ; preds = %229
   %232 = load ptr, ptr %22, align 8
-  br label %.thread9
+  br label %.thread14
 
-.thread9:                                         ; preds = %229, %231
+.thread14:                                        ; preds = %229, %231
   %233 = phi ptr [ %232, %231 ], [ null, %229 ]
   %234 = lshr i64 %226, 20
   call void (ptr, ptr, ...) @_dev_err(ptr noundef %233, ptr noundef nonnull @.str.8, i64 noundef %234) #11
@@ -1409,9 +1409,9 @@ define dso_local i32 @i915_ggtt_probe_hw(ptr noundef %0) local_unnamed_addr #0 a
   store i64 %248, ptr %241, align 8
   br label %249
 
-249:                                              ; preds = %.thread9, %246, %239
-  %250 = phi ptr [ %241, %246 ], [ %241, %239 ], [ %238, %.thread9 ]
-  %251 = phi i64 [ %248, %246 ], [ %226, %239 ], [ 4294967296, %.thread9 ]
+249:                                              ; preds = %.thread14, %246, %239
+  %250 = phi ptr [ %241, %246 ], [ %241, %239 ], [ %238, %.thread14 ]
+  %251 = phi i64 [ %248, %246 ], [ %226, %239 ], [ 4294967296, %.thread14 ]
   %252 = icmp eq ptr %19, null
   br i1 %252, label %.thread, label %256
 
@@ -2074,18 +2074,18 @@ define internal void @gen8_ggtt_insert_entries(ptr noundef %0, ptr noundef reado
 
 .sink.split:                                      ; preds = %40, %77
   %.sink = phi ptr [ %75, %77 ], [ %38, %40 ]
-  %.sink28 = phi i32 [ %79, %77 ], [ %42, %40 ]
-  %.ph27 = phi ptr [ %58, %77 ], [ %30, %40 ]
+  %.sink38 = phi i32 [ %79, %77 ], [ %42, %40 ]
+  %.ph37 = phi ptr [ %58, %77 ], [ %30, %40 ]
   %48 = getelementptr inbounds nuw i8, ptr %.sink, i64 8
   %49 = load i32, ptr %48, align 8, !noalias !39
   %50 = getelementptr inbounds nuw i8, ptr %.sink, i64 16
   %51 = load i64, ptr %50, align 8, !noalias !39
-  %52 = add i32 %49, %.sink28
+  %52 = add i32 %49, %.sink38
   br label %53
 
 53:                                               ; preds = %.sink.split, %53
   %54 = phi i32 [ %60, %53 ], [ %49, %.sink.split ]
-  %55 = phi ptr [ %58, %53 ], [ %.ph27, %.sink.split ]
+  %55 = phi ptr [ %58, %53 ], [ %.ph37, %.sink.split ]
   %56 = zext i32 %54 to i64
   %57 = add i64 %51, %56
   %58 = getelementptr i8, ptr %55, i64 8
@@ -3354,11 +3354,11 @@ define internal void @gen6_ggtt_insert_entries(ptr noundef %0, ptr noundef reado
 
 .outer:                                           ; preds = %81, %42
   %.ph = phi i32 [ %84, %81 ], [ %45, %42 ]
-  %.ph24 = phi i32 [ %83, %81 ], [ %44, %42 ]
-  %.ph26 = phi ptr [ %75, %81 ], [ %36, %42 ]
-  %.ph27 = phi ptr [ %59, %81 ], [ %28, %42 ]
-  %.ph25.in = getelementptr inbounds nuw i8, ptr %.ph26, i64 16
-  %.ph25 = load i64, ptr %.ph25.in, align 8, !noalias !39
+  %.ph34 = phi i32 [ %83, %81 ], [ %44, %42 ]
+  %.ph36 = phi ptr [ %75, %81 ], [ %36, %42 ]
+  %.ph37 = phi ptr [ %59, %81 ], [ %28, %42 ]
+  %.ph35.in = getelementptr inbounds nuw i8, ptr %.ph36, i64 16
+  %.ph35 = load i64, ptr %.ph35.in, align 8, !noalias !39
   br label %51
 
 .thread:                                          ; preds = %62, %74, %77, %.loopexit18, %38
@@ -3371,10 +3371,10 @@ define internal void @gen6_ggtt_insert_entries(ptr noundef %0, ptr noundef reado
   br label %85
 
 51:                                               ; preds = %.outer, %51
-  %52 = phi i32 [ %60, %51 ], [ %.ph24, %.outer ]
-  %53 = phi ptr [ %59, %51 ], [ %.ph27, %.outer ]
+  %52 = phi i32 [ %60, %51 ], [ %.ph34, %.outer ]
+  %53 = phi ptr [ %59, %51 ], [ %.ph37, %.outer ]
   %54 = zext i32 %52 to i64
-  %55 = add i64 %.ph25, %54
+  %55 = add i64 %.ph35, %54
   %56 = load ptr, ptr %46, align 8
   %57 = tail call i64 %56(i64 noundef %55, i32 noundef %2, i32 noundef %3) #10
   %58 = trunc i64 %57 to i32
@@ -3385,13 +3385,13 @@ define internal void @gen6_ggtt_insert_entries(ptr noundef %0, ptr noundef reado
   br i1 %61, label %51, label %62, !llvm.loop !98
 
 62:                                               ; preds = %51
-  %63 = load i64, ptr %.ph26, align 8
+  %63 = load i64, ptr %.ph36, align 8
   %64 = and i64 %63, 2
   %65 = icmp eq i64 %64, 0
   br i1 %65, label %66, label %.thread
 
 66:                                               ; preds = %62
-  %67 = getelementptr i8, ptr %.ph26, i64 32
+  %67 = getelementptr i8, ptr %.ph36, i64 32
   %68 = load i64, ptr %67, align 8
   %69 = and i64 %68, 1
   %70 = icmp eq i64 %69, 0

@@ -211,9 +211,9 @@ define dso_local void @core_array_and(ptr noundef %0, ptr noundef %1) local_unna
   br i1 %18, label %.sink.split, label %21
 
 .sink.split:                                      ; preds = %17, %10
-  %.sink38 = phi i64 [ %11, %10 ], [ %14, %17 ]
+  %.sink40 = phi i64 [ %11, %10 ], [ %14, %17 ]
   %.sink = phi ptr [ %8, %10 ], [ %5, %17 ]
-  %sext = shl i64 %.sink38, 32
+  %sext = shl i64 %.sink40, 32
   %19 = ashr exact i64 %sext, 32
   %20 = tail call ptr @slurm_bit_realloc(ptr noundef nonnull %.sink, i64 noundef %19) #3
   br label %21
@@ -285,9 +285,9 @@ define dso_local void @core_array_and_not(ptr noundef %0, ptr noundef %1) local_
   br i1 %19, label %.sink.split, label %22
 
 .sink.split:                                      ; preds = %18, %11
-  %.sink31 = phi i64 [ %12, %11 ], [ %15, %18 ]
+  %.sink34 = phi i64 [ %12, %11 ], [ %15, %18 ]
   %.sink = phi ptr [ %9, %11 ], [ %6, %18 ]
-  %sext = shl i64 %.sink31, 32
+  %sext = shl i64 %.sink34, 32
   %20 = ashr exact i64 %sext, 32
   %21 = tail call ptr @slurm_bit_realloc(ptr noundef nonnull %.sink, i64 noundef %20) #3
   br label %22
@@ -345,9 +345,9 @@ define dso_local void @core_array_or(ptr noundef %0, ptr noundef %1) local_unnam
   br i1 %16, label %.sink.split, label %19
 
 .sink.split:                                      ; preds = %15, %8
-  %.sink40 = phi i64 [ %9, %8 ], [ %12, %15 ]
+  %.sink43 = phi i64 [ %9, %8 ], [ %12, %15 ]
   %.sink = phi ptr [ %.phi.trans.insert, %8 ], [ %5, %15 ]
-  %sext = shl i64 %.sink40, 32
+  %sext = shl i64 %.sink43, 32
   %17 = ashr exact i64 %sext, 32
   %18 = tail call ptr @slurm_bit_realloc(ptr noundef nonnull %.sink, i64 noundef %17) #3
   br label %19

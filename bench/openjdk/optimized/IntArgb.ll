@@ -2070,21 +2070,21 @@ define hidden void @IntArgbPreToIntArgbSrcOverMaskBlit(ptr noundef %0, ptr nound
   br label %.thread.sink.split
 
 .thread.sink.split:                               ; preds = %58, %105
-  %.sink223 = phi i32 [ %85, %105 ], [ %57, %58 ]
-  %.sink221 = phi ptr [ %107, %105 ], [ %47, %58 ]
-  %.sink218 = phi i32 [ %94, %105 ], [ %55, %58 ]
-  %.sink213 = phi i32 [ %103, %105 ], [ %53, %58 ]
+  %.sink231 = phi i32 [ %85, %105 ], [ %57, %58 ]
+  %.sink229 = phi ptr [ %107, %105 ], [ %47, %58 ]
+  %.sink226 = phi i32 [ %94, %105 ], [ %55, %58 ]
+  %.sink221 = phi i32 [ %103, %105 ], [ %53, %58 ]
   %.0163188.ph = phi i32 [ %74, %105 ], [ 255, %58 ]
-  %108 = zext nneg i32 %.sink223 to i64
-  %109 = getelementptr inbounds nuw [256 x i8], ptr %.sink221, i64 0, i64 %108
+  %108 = zext nneg i32 %.sink231 to i64
+  %109 = getelementptr inbounds nuw [256 x i8], ptr %.sink229, i64 0, i64 %108
   %110 = load i8, ptr %109, align 1
   %111 = zext i8 %110 to i32
-  %112 = zext nneg i32 %.sink218 to i64
-  %113 = getelementptr inbounds nuw [256 x i8], ptr %.sink221, i64 0, i64 %112
+  %112 = zext nneg i32 %.sink226 to i64
+  %113 = getelementptr inbounds nuw [256 x i8], ptr %.sink229, i64 0, i64 %112
   %114 = load i8, ptr %113, align 1
   %115 = zext i8 %114 to i32
-  %116 = zext nneg i32 %.sink213 to i64
-  %117 = getelementptr inbounds nuw [256 x i8], ptr %.sink221, i64 0, i64 %116
+  %116 = zext nneg i32 %.sink221 to i64
+  %117 = getelementptr inbounds nuw [256 x i8], ptr %.sink229, i64 0, i64 %116
   %118 = load i8, ptr %117, align 1
   %119 = zext i8 %118 to i32
   br label %.thread
@@ -2211,21 +2211,21 @@ define hidden void @IntArgbPreToIntArgbSrcOverMaskBlit(ptr noundef %0, ptr nound
   br label %.thread190.sink.split
 
 .thread190.sink.split:                            ; preds = %159, %206
-  %.sink238 = phi i32 [ %186, %206 ], [ %158, %159 ]
-  %.sink236 = phi ptr [ %208, %206 ], [ %26, %159 ]
-  %.sink233 = phi i32 [ %195, %206 ], [ %156, %159 ]
-  %.sink228 = phi i32 [ %204, %206 ], [ %154, %159 ]
+  %.sink246 = phi i32 [ %186, %206 ], [ %158, %159 ]
+  %.sink244 = phi ptr [ %208, %206 ], [ %26, %159 ]
+  %.sink241 = phi i32 [ %195, %206 ], [ %156, %159 ]
+  %.sink236 = phi i32 [ %204, %206 ], [ %154, %159 ]
   %.0156195.ph = phi i32 [ %175, %206 ], [ 255, %159 ]
-  %209 = zext nneg i32 %.sink238 to i64
-  %210 = getelementptr inbounds nuw [256 x i8], ptr %.sink236, i64 0, i64 %209
+  %209 = zext nneg i32 %.sink246 to i64
+  %210 = getelementptr inbounds nuw [256 x i8], ptr %.sink244, i64 0, i64 %209
   %211 = load i8, ptr %210, align 1
   %212 = zext i8 %211 to i32
-  %213 = zext nneg i32 %.sink233 to i64
-  %214 = getelementptr inbounds nuw [256 x i8], ptr %.sink236, i64 0, i64 %213
+  %213 = zext nneg i32 %.sink241 to i64
+  %214 = getelementptr inbounds nuw [256 x i8], ptr %.sink244, i64 0, i64 %213
   %215 = load i8, ptr %214, align 1
   %216 = zext i8 %215 to i32
-  %217 = zext nneg i32 %.sink228 to i64
-  %218 = getelementptr inbounds nuw [256 x i8], ptr %.sink236, i64 0, i64 %217
+  %217 = zext nneg i32 %.sink236 to i64
+  %218 = getelementptr inbounds nuw [256 x i8], ptr %.sink244, i64 0, i64 %217
   %219 = load i8, ptr %218, align 1
   %220 = zext i8 %219 to i32
   br label %.thread190

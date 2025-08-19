@@ -1951,10 +1951,10 @@ dissect_q933_segmented_message_ie.exit.us.us:     ; preds = %72
   br label %.sink.split.i211
 
 .sink.split.i211:                                 ; preds = %664, %662
-  %.sink32.i = phi i32 [ 4, %664 ], [ 2, %662 ]
+  %.sink33.i = phi i32 [ 4, %664 ], [ 2, %662 ]
   %.sink.i = phi i32 [ %670, %664 ], [ %663, %662 ]
   %.0.ph.i = phi i32 [ 4, %664 ], [ 3, %662 ]
-  %671 = add i32 %.sink32.i, %649
+  %671 = add i32 %.sink33.i, %649
   %672 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %671)
   %673 = lshr i8 %672, 1
   %674 = and i8 %673, 63

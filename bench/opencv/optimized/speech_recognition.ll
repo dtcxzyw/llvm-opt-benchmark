@@ -2633,9 +2633,9 @@ define linkonce_odr hidden void @_ZN18FilterbankFeatures18calculate_featuresERSt
   br i1 %.not137, label %._crit_edge, label %.lr.ph140.preheader
 
 .lr.ph140.preheader:                              ; preds = %3, %.preheader130
-  %.076136207 = phi i64 [ %.076136, %.preheader130 ], [ -1, %3 ]
-  %.lcssa132206 = phi i64 [ %26, %.preheader130 ], [ 0, %3 ]
-  %.lcssa133205 = phi ptr [ %17, %.preheader130 ], [ %15, %3 ]
+  %.076136234 = phi i64 [ %.076136, %.preheader130 ], [ -1, %3 ]
+  %.lcssa132233 = phi i64 [ %26, %.preheader130 ], [ 0, %3 ]
+  %.lcssa133232 = phi ptr [ %17, %.preheader130 ], [ %15, %3 ]
   br label %.lr.ph140
 
 .lr.ph:                                           ; preds = %3, %.lr.ph
@@ -2669,12 +2669,12 @@ define linkonce_odr hidden void @_ZN18FilterbankFeatures18calculate_featuresERSt
           to label %40 unwind label %129
 
 .lr.ph140:                                        ; preds = %.lr.ph140.preheader, %.lr.ph140
-  %.076139 = phi i64 [ %.076, %.lr.ph140 ], [ %.076136207, %.lr.ph140.preheader ]
-  %.076.in138 = phi i64 [ %.076139, %.lr.ph140 ], [ %.lcssa132206, %.lr.ph140.preheader ]
-  %34 = getelementptr double, ptr %.lcssa133205, i64 %.076.in138
+  %.076139 = phi i64 [ %.076, %.lr.ph140 ], [ %.076136234, %.lr.ph140.preheader ]
+  %.076.in138 = phi i64 [ %.076139, %.lr.ph140 ], [ %.lcssa132233, %.lr.ph140.preheader ]
+  %34 = getelementptr double, ptr %.lcssa133232, i64 %.076.in138
   %35 = getelementptr i8, ptr %34, i64 -16
   %36 = load double, ptr %35, align 8, !tbaa !71
-  %37 = getelementptr inbounds nuw double, ptr %.lcssa133205, i64 %.076139
+  %37 = getelementptr inbounds nuw double, ptr %.lcssa133232, i64 %.076139
   %38 = load double, ptr %37, align 8, !tbaa !71
   %39 = call double @llvm.fmuladd.f64(double %36, double 0xBFEF0A3D70A3D70A, double %38)
   store double %39, ptr %37, align 8, !tbaa !71
@@ -3843,7 +3843,7 @@ _ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i.thread: ; preds = %.prehea
 
 .preheader172.lr.ph:                              ; preds = %.preheader173
   %161 = load ptr, ptr %6, align 8
-  br i1 %158, label %._crit_edge227.thread313, label %.preheader172.us.preheader
+  br i1 %158, label %._crit_edge227.thread367, label %.preheader172.us.preheader
 
 .preheader172.us.preheader:                       ; preds = %.preheader172.lr.ph
   %162 = sub i64 %.pre302, %.pre304
@@ -3879,13 +3879,13 @@ _ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i.thread: ; preds = %.prehea
   %174 = icmp ugt i64 %157, 1152921504606846975
   br i1 %174, label %176, label %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i
 
-._crit_edge227.thread313:                         ; preds = %.preheader172.lr.ph
+._crit_edge227.thread367:                         ; preds = %.preheader172.lr.ph
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %175 = icmp ugt i64 %157, 1152921504606846975
-  br i1 %175, label %176, label %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i.thread317
+  br i1 %175, label %176, label %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i.thread371
 
-176:                                              ; preds = %._crit_edge227.thread313, %._crit_edge227
+176:                                              ; preds = %._crit_edge227.thread367, %._crit_edge227
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.14) #23
           to label %.noexc108 unwind label %248
 
@@ -3895,15 +3895,15 @@ _ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i.thread: ; preds = %.prehea
 _ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %._crit_edge227
   %177 = sub i64 %.pre302, %.pre304
   %178 = ashr exact i64 %177, 3
-  br label %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i.thread317
+  br label %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i.thread371
 
-_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i.thread317: ; preds = %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i, %._crit_edge227.thread313
-  %179 = phi i64 [ %178, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i ], [ 0, %._crit_edge227.thread313 ]
+_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i.thread371: ; preds = %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i, %._crit_edge227.thread367
+  %179 = phi i64 [ %178, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i ], [ 0, %._crit_edge227.thread367 ]
   %180 = shl nuw nsw i64 %157, 3
   %181 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %180) #22
           to label %.noexc109 unwind label %248
 
-.noexc109:                                        ; preds = %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i.thread317
+.noexc109:                                        ; preds = %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i.thread371
   store ptr %181, ptr %9, align 8, !tbaa !59
   %182 = getelementptr inbounds nuw double, ptr %181, i64 %157
   %183 = getelementptr inbounds nuw i8, ptr %9, i64 16
@@ -4063,7 +4063,7 @@ _ZNSt6vectorIS_IdSaIdEESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i115: ; preds = %
   %247 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %246) #22
           to label %254 unwind label %271
 
-248:                                              ; preds = %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i.thread317, %176
+248:                                              ; preds = %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i.thread371, %176
   %249 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit120
@@ -4247,8 +4247,8 @@ _ZNSt6vectorIdSaIdEED2Ev.exit120:                 ; preds = %253, %.body, %248
 
 344:                                              ; preds = %326, %331
   %.pn170.in.ph = phi ptr [ %330, %326 ], [ %343, %331 ]
-  %.pn170322 = load double, ptr %.pn170.in.ph, align 8, !tbaa !71
-  %345 = fmul double %322, %.pn170322
+  %.pn170376 = load double, ptr %.pn170.in.ph, align 8, !tbaa !71
+  %345 = fmul double %322, %.pn170376
   %346 = or disjoint i64 %289, 1
   %347 = getelementptr inbounds nuw i8, ptr %294, i64 4
   %348 = load i32, ptr %347, align 4, !tbaa !19
@@ -7504,8 +7504,8 @@ _ZNSt10_HashtableIiSt4pairIKicESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4
   %37 = load i64, ptr %35, align 4
   store i64 %37, ptr %36, align 8
   store ptr %33, ptr %.02636, align 8, !tbaa !107
-  %sext38 = shl i64 %37, 32
-  %38 = ashr exact i64 %sext38, 32
+  %sext41 = shl i64 %37, 32
+  %38 = ashr exact i64 %sext41, 32
   %39 = urem i64 %38, %29
   %40 = getelementptr inbounds nuw ptr, ptr %18, i64 %39
   %41 = load ptr, ptr %40, align 8, !tbaa !188

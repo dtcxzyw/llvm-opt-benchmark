@@ -152,32 +152,32 @@ define void @_ZN6icu_7717CharacterIteratorC2Eiiii(ptr noundef nonnull writeonly 
 17:                                               ; preds = %.sink.split, %15
   %18 = phi i32 [ %2, %15 ], [ %.sink, %.sink.split ]
   %19 = icmp slt i32 %3, %18
-  br i1 %19, label %.sink.split11, label %20
+  br i1 %19, label %.sink.split18, label %20
 
 20:                                               ; preds = %17
   %21 = icmp samesign ugt i32 %3, %13
-  br i1 %21, label %.sink.split11, label %22
+  br i1 %21, label %.sink.split18, label %22
 
-.sink.split11:                                    ; preds = %20, %17
-  %.sink13 = phi i32 [ %18, %17 ], [ %13, %20 ]
-  store i32 %.sink13, ptr %9, align 4, !tbaa !14
+.sink.split18:                                    ; preds = %20, %17
+  %.sink20 = phi i32 [ %18, %17 ], [ %13, %20 ]
+  store i32 %.sink20, ptr %9, align 4, !tbaa !14
   br label %22
 
-22:                                               ; preds = %.sink.split11, %20
-  %23 = phi i32 [ %3, %20 ], [ %.sink13, %.sink.split11 ]
+22:                                               ; preds = %.sink.split18, %20
+  %23 = phi i32 [ %3, %20 ], [ %.sink20, %.sink.split18 ]
   %24 = icmp slt i32 %4, %18
-  br i1 %24, label %.sink.split14, label %25
+  br i1 %24, label %.sink.split21, label %25
 
 25:                                               ; preds = %22
   %26 = icmp samesign ugt i32 %4, %23
-  br i1 %26, label %.sink.split14, label %27
+  br i1 %26, label %.sink.split21, label %27
 
-.sink.split14:                                    ; preds = %25, %22
-  %.sink15 = phi i32 [ %18, %22 ], [ %23, %25 ]
-  store i32 %.sink15, ptr %7, align 4, !tbaa !12
+.sink.split21:                                    ; preds = %25, %22
+  %.sink22 = phi i32 [ %18, %22 ], [ %23, %25 ]
+  store i32 %.sink22, ptr %7, align 4, !tbaa !12
   br label %27
 
-27:                                               ; preds = %.sink.split14, %25
+27:                                               ; preds = %.sink.split21, %25
   ret void
 }
 

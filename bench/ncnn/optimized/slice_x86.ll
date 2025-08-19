@@ -562,8 +562,8 @@ _ZN4ncnn3MatD2Ev.exit656:                         ; preds = %236, %233, %242, %2
   %268 = getelementptr inbounds nuw i8, ptr %267, i64 24
   %269 = load i32, ptr %268, align 8, !tbaa !24
   %270 = icmp eq i32 %269, 4
-  %or.cond1029 = select i1 %255, i1 %270, i1 false
-  br i1 %or.cond1029, label %.preheader, label %.loopexit875
+  %or.cond1106 = select i1 %255, i1 %270, i1 false
+  br i1 %or.cond1106, label %.preheader, label %.loopexit875
 
 .preheader:                                       ; preds = %264
   %271 = getelementptr inbounds nuw i8, ptr %267, i64 48
@@ -1060,8 +1060,8 @@ _ZNK4ncnn3Mat5emptyEv.exit650:                    ; preds = %533
   %552 = getelementptr inbounds nuw i8, ptr %551, i64 24
   %553 = load i32, ptr %552, align 8, !tbaa !24
   %554 = icmp eq i32 %553, 4
-  %or.cond1030 = select i1 %547, i1 %554, i1 false
-  br i1 %or.cond1030, label %555, label %.loopexit
+  %or.cond1107 = select i1 %547, i1 %554, i1 false
+  br i1 %or.cond1107, label %555, label %.loopexit
 
 555:                                              ; preds = %548
   %556 = getelementptr inbounds nuw i8, ptr %551, i64 44

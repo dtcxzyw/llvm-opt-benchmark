@@ -681,10 +681,10 @@ color_print.exit:                                 ; preds = %68, %70
   br label %color_print.exit26
 
 color_print.exit26:                               ; preds = %103, %101, %98
-  %ctest_main.num_fail.sink55 = phi ptr [ @ctest_main.num_ok, %98 ], [ @ctest_main.num_fail, %101 ], [ @ctest_main.num_fail, %103 ]
-  %104 = load i32, ptr %ctest_main.num_fail.sink55, align 4, !tbaa !3
+  %ctest_main.num_fail.sink57 = phi ptr [ @ctest_main.num_ok, %98 ], [ @ctest_main.num_fail, %101 ], [ @ctest_main.num_fail, %103 ]
+  %104 = load i32, ptr %ctest_main.num_fail.sink57, align 4, !tbaa !3
   %105 = add nsw i32 %104, 1
-  store i32 %105, ptr %ctest_main.num_fail.sink55, align 4, !tbaa !3
+  store i32 %105, ptr %ctest_main.num_fail.sink57, align 4, !tbaa !3
   %106 = load i64, ptr @ctest_errorsize, align 8, !tbaa !10
   %.not21 = icmp eq i64 %106, 4095
   br i1 %.not21, label %109, label %107

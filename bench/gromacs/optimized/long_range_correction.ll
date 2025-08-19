@@ -73,7 +73,7 @@ _ZNK15EwaldBoxZScaler8scaleBoxEPA3_KfPA3_f.exit:
   %39 = inttoptr i64 %38 to ptr
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 12
   %41 = getelementptr inbounds nuw i8, ptr %21, i64 12
-  %indvars.iv182.sroa.gep231 = getelementptr inbounds nuw i8, ptr %24, i64 4
+  %indvars.iv182.sroa.gep238 = getelementptr inbounds nuw i8, ptr %24, i64 4
   br label %52
 
 42:                                               ; preds = %52
@@ -164,7 +164,7 @@ _ZNK15EwaldBoxZScaler8scaleBoxEPA3_KfPA3_f.exit:
 
 100:                                              ; preds = %83, %109
   %101 = phi i1 [ true, %83 ], [ false, %109 ]
-  %indvars.iv182.sroa.phi = phi ptr [ %24, %83 ], [ %indvars.iv182.sroa.gep231, %109 ]
+  %indvars.iv182.sroa.phi = phi ptr [ %24, %83 ], [ %indvars.iv182.sroa.gep238, %109 ]
   %indvars.iv182 = phi i64 [ 0, %83 ], [ 1, %109 ]
   %102 = getelementptr inbounds nuw double, ptr %5, i64 %indvars.iv182
   %103 = load double, ptr %102, align 8, !tbaa !11

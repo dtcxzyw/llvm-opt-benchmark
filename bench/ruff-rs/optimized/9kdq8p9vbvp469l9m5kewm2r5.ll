@@ -599,9 +599,9 @@ _ZN4core3ops8function6FnOnce9call_once17h3ae8823258cba9eeE.exit.thread.i9.i: ; p
   br label %42
 
 "_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hde65bbfa0cb2a0d1E.exit.thread": ; preds = %_ZN4core3ops8function6FnOnce9call_once17h3ae8823258cba9eeE.exit.i4.i, %_ZN4core3ops8function6FnOnce9call_once17h3ae8823258cba9eeE.exit.i.i
-  %.sink20 = phi ptr [ %14, %_ZN4core3ops8function6FnOnce9call_once17h3ae8823258cba9eeE.exit.i.i ], [ %30, %_ZN4core3ops8function6FnOnce9call_once17h3ae8823258cba9eeE.exit.i4.i ]
+  %.sink22 = phi ptr [ %14, %_ZN4core3ops8function6FnOnce9call_once17h3ae8823258cba9eeE.exit.i.i ], [ %30, %_ZN4core3ops8function6FnOnce9call_once17h3ae8823258cba9eeE.exit.i4.i ]
   %.sroa.0.15 = phi ptr [ %.sroa.026.0.copyload.i, %_ZN4core3ops8function6FnOnce9call_once17h3ae8823258cba9eeE.exit.i.i ], [ %.sroa.030.0.copyload.i, %_ZN4core3ops8function6FnOnce9call_once17h3ae8823258cba9eeE.exit.i4.i ]
-  %.sroa.628.0..sroa_idx.le.i = getelementptr inbounds nuw i8, ptr %.sink20, i64 8
+  %.sroa.628.0..sroa_idx.le.i = getelementptr inbounds nuw i8, ptr %.sink22, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.7, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.628.0..sroa_idx.le.i, i64 24, i1 false)
   store ptr %.sroa.0.15, ptr %4, align 8
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -5316,9 +5316,9 @@ _ZN21ruff_python_formatter8comments9placement30handle_pattern_keyword_comment17h
 1072:                                             ; preds = %.split12.us.i, %1066
   %.pn = phi { i64, ptr } [ %1075, %.split12.us.i ], [ %1067, %1066 ]
   %.sink = extractvalue { i64, ptr } %.pn, 1
-  %.sink158 = extractvalue { i64, ptr } %.pn, 0
+  %.sink215 = extractvalue { i64, ptr } %.pn, 0
   %1073 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.sink158, ptr %1073, align 8, !alias.scope !775, !noalias !785
+  store i64 %.sink215, ptr %1073, align 8, !alias.scope !775, !noalias !785
   %1074 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %.sink, ptr %1074, align 8, !alias.scope !775, !noalias !785
   store i64 94, ptr %0, align 8, !alias.scope !775, !noalias !785
@@ -5748,14 +5748,14 @@ _ZN21ruff_python_formatter8comments9placement22handle_keyword_comment17hee5c0a37
   br label %1239
 
 1239:                                             ; preds = %1234, %1230, %1226
-  %.sink163 = phi i64 [ %1236, %1234 ], [ %1232, %1230 ], [ %1228, %1226 ]
-  %.sink161 = phi ptr [ %1237, %1234 ], [ %1233, %1230 ], [ %1229, %1226 ]
-  %.sink160 = phi i64 [ 94, %1234 ], [ 92, %1230 ], [ 93, %1226 ]
+  %.sink220 = phi i64 [ %1236, %1234 ], [ %1232, %1230 ], [ %1228, %1226 ]
+  %.sink218 = phi ptr [ %1237, %1234 ], [ %1233, %1230 ], [ %1229, %1226 ]
+  %.sink217 = phi i64 [ 94, %1234 ], [ 92, %1230 ], [ 93, %1226 ]
   %1240 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.sink163, ptr %1240, align 8, !alias.scope !829, !noalias !839
+  store i64 %.sink220, ptr %1240, align 8, !alias.scope !829, !noalias !839
   %1241 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %.sink161, ptr %1241, align 8, !alias.scope !829, !noalias !839
-  store i64 %.sink160, ptr %0, align 8, !alias.scope !829, !noalias !839
+  store ptr %.sink218, ptr %1241, align 8, !alias.scope !829, !noalias !839
+  store i64 %.sink217, ptr %0, align 8, !alias.scope !829, !noalias !839
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !838
   br label %_ZN21ruff_python_formatter8comments9placement24handle_with_item_comment17hb7e88f9f6bf54ad0E.exit
 

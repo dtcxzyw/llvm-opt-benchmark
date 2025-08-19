@@ -517,8 +517,8 @@ define hidden { i64, i64 } @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$14res
   br i1 %46, label %58, label %.thread.i.thread.i
 
 .thread.i.thread.i:                               ; preds = %.thread.i.i, %34, %32
-  %.sroa.6.051.i23.i = phi i64 [ %.sroa.6.051.i.i, %.thread.i.i ], [ %..i.i.i, %32 ], [ 1, %34 ]
-  %47 = shl nuw i64 %.sroa.6.051.i23.i, 3
+  %.sroa.6.051.i27.i = phi i64 [ %.sroa.6.051.i.i, %.thread.i.i ], [ %..i.i.i, %32 ], [ 1, %34 ]
+  %47 = shl nuw i64 %.sroa.6.051.i27.i, 3
   %48 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %47, i64 15)
   %49 = extractvalue { i64, i1 } %48, 1
   br i1 %49, label %58, label %50
@@ -526,7 +526,7 @@ define hidden { i64, i64 } @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$14res
 50:                                               ; preds = %.thread.i.thread.i
   %51 = extractvalue { i64, i1 } %48, 0
   %52 = and i64 %51, -16
-  %53 = add nuw nsw i64 %.sroa.6.051.i23.i, 16
+  %53 = add nuw nsw i64 %.sroa.6.051.i27.i, 16
   %54 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %52, i64 %53)
   %55 = extractvalue { i64, i1 } %54, 1
   %56 = extractvalue { i64, i1 } %54, 0
@@ -555,9 +555,9 @@ _ZN9hashbrown3raw5inner13RawTableInner17new_uninitialized17h6436aa5d6c9223bdE.ex
   br label %76
 
 _ZN9hashbrown3raw5inner13RawTableInner20full_buckets_indices17h0b871d5f27f4ba02E.exit.i: ; preds = %60
-  %66 = add nsw i64 %.sroa.6.051.i23.i, -1
+  %66 = add nsw i64 %.sroa.6.051.i27.i, -1
   %67 = icmp ult i64 %66, 8
-  %68 = lshr i64 %.sroa.6.051.i23.i, 3
+  %68 = lshr i64 %.sroa.6.051.i27.i, 3
   %69 = mul nuw nsw i64 %68, 7
   %.0.i.i.i = select i1 %67, i64 %66, i64 %69
   %70 = getelementptr inbounds i8, ptr %62, i64 %52
@@ -775,9 +775,9 @@ _ZN9hashbrown3raw5inner13RawTableInner15rehash_in_place17h11ac1c8566f75df4E.exit
 
 ._crit_edge.i.i10:                                ; preds = %153
   %spec.select.i = tail call i64 @llvm.umax.i64(i64 %22, i64 16)
-  %spec.select61.i = tail call i64 @llvm.umin.i64(i64 %22, i64 16)
+  %spec.select65.i = tail call i64 @llvm.umin.i64(i64 %22, i64 16)
   %152 = getelementptr inbounds i8, ptr %.val18.i, i64 %spec.select.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %152, ptr nonnull align 1 %.val18.i, i64 %spec.select61.i, i1 false), !noalias !103
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %152, ptr nonnull align 1 %.val18.i, i64 %spec.select65.i, i1 false), !noalias !103
   br label %170
 
 153:                                              ; preds = %153, %.lr.ph.i.i9
@@ -1036,8 +1036,8 @@ define hidden void @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$16with_capaci
   br i1 %23, label %35, label %.thread.i.thread
 
 .thread.i.thread:                                 ; preds = %9, %11, %.thread.i
-  %.sroa.6.051.i7 = phi i64 [ %.sroa.6.051.i, %.thread.i ], [ %..i.i, %9 ], [ 1, %11 ]
-  %24 = shl nuw i64 %.sroa.6.051.i7, 3
+  %.sroa.6.051.i11 = phi i64 [ %.sroa.6.051.i, %.thread.i ], [ %..i.i, %9 ], [ 1, %11 ]
+  %24 = shl nuw i64 %.sroa.6.051.i11, 3
   %25 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %24, i64 15)
   %26 = extractvalue { i64, i1 } %25, 1
   br i1 %26, label %35, label %27
@@ -1045,7 +1045,7 @@ define hidden void @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$16with_capaci
 27:                                               ; preds = %.thread.i.thread
   %28 = extractvalue { i64, i1 } %25, 0
   %29 = and i64 %28, -16
-  %30 = add nuw nsw i64 %.sroa.6.051.i7, 16
+  %30 = add nuw nsw i64 %.sroa.6.051.i11, 16
   %31 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %29, i64 %30)
   %32 = extractvalue { i64, i1 } %31, 1
   %33 = extractvalue { i64, i1 } %31, 0
@@ -1068,9 +1068,9 @@ define hidden void @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$16with_capaci
   br label %_ZN9hashbrown3raw5inner13RawTableInner17new_uninitialized17h6436aa5d6c9223bdE.exit.thread.i
 
 _ZN9hashbrown3raw5inner13RawTableInner17new_uninitialized17h6436aa5d6c9223bdE.exit.i: ; preds = %37
-  %43 = add nsw i64 %.sroa.6.051.i7, -1
+  %43 = add nsw i64 %.sroa.6.051.i11, -1
   %44 = icmp ult i64 %43, 8
-  %45 = lshr i64 %.sroa.6.051.i7, 3
+  %45 = lshr i64 %.sroa.6.051.i11, 3
   %46 = mul nuw nsw i64 %45, 7
   %.0.i.i = select i1 %44, i64 %43, i64 %46
   %47 = getelementptr inbounds i8, ptr %39, i64 %29

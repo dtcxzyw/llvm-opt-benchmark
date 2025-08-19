@@ -738,8 +738,8 @@ skipline.exit191.i:                               ; preds = %387, %335, %335, %3
   br i1 %.not175.i, label %397, label %skipline.exit191.thread.i
 
 skipline.exit191.thread.i:                        ; preds = %skipline.exit191.i, %332
-  %.8378.i = phi i32 [ %334, %skipline.exit191.i ], [ %324, %332 ]
-  %.5237377.i = phi i32 [ %.5237.i, %skipline.exit191.i ], [ %.0132.ph.ph307.i, %332 ]
+  %.8379.i = phi i32 [ %334, %skipline.exit191.i ], [ %324, %332 ]
+  %.5237378.i = phi i32 [ %.5237.i, %skipline.exit191.i ], [ %.0132.ph.ph307.i, %332 ]
   %389 = call { i64, ptr } @jq_next(ptr noundef %217) #13
   %390 = extractvalue { i64, ptr } %389, 0
   %391 = extractvalue { i64, ptr } %389, 1
@@ -750,7 +750,7 @@ skipline.exit191.thread.i:                        ; preds = %skipline.exit191.i,
 393:                                              ; preds = %skipline.exit191.thread.i
   %394 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.19)
   call void @jv_dump(i64 %390, ptr %391, i32 noundef 0) #13
-  %395 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.20, i32 noundef %.8378.i, ptr noundef nonnull %8)
+  %395 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.20, i32 noundef %.8379.i, ptr noundef nonnull %8)
   br label %397
 
 396:                                              ; preds = %skipline.exit191.thread.i
@@ -758,8 +758,8 @@ skipline.exit191.thread.i:                        ; preds = %skipline.exit191.i,
   br label %397
 
 397:                                              ; preds = %396, %393, %skipline.exit191.i, %skipline.exit191.thread202.i
-  %.5236.i = phi i32 [ %.5237.i, %skipline.exit191.i ], [ %.5237377.i, %393 ], [ %.5237377.i, %396 ], [ %.5299.i, %skipline.exit191.thread202.i ]
-  %.8207.i = phi i32 [ %334, %skipline.exit191.i ], [ %.8378.i, %393 ], [ %.8378.i, %396 ], [ %334, %skipline.exit191.thread202.i ]
+  %.5236.i = phi i32 [ %.5237.i, %skipline.exit191.i ], [ %.5237378.i, %393 ], [ %.5237378.i, %396 ], [ %.5299.i, %skipline.exit191.thread202.i ]
+  %.8207.i = phi i32 [ %334, %skipline.exit191.i ], [ %.8379.i, %393 ], [ %.8379.i, %396 ], [ %334, %skipline.exit191.thread202.i ]
   %.5154.i = phi i32 [ 0, %skipline.exit191.i ], [ 0, %393 ], [ 1, %396 ], [ 0, %skipline.exit191.thread202.i ]
   %398 = add nsw i32 %.5154.i, %.0129.ph.ph308.i
   br label %.outer.outer.i

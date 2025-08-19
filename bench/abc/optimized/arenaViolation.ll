@@ -921,7 +921,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   br i1 %64, label %66, label %.Vec_PtrGrow.exit11_crit_edge.i25
 
 .Vec_PtrGrow.exit11_crit_edge.i25:                ; preds = %2, %.critedge
-  %.016.lcssa40 = phi ptr [ %.1, %.critedge ], [ null, %2 ]
+  %.016.lcssa45 = phi ptr [ %.1, %.critedge ], [ null, %2 ]
   %65 = phi i32 [ %61, %.critedge ], [ 0, %2 ]
   %.pre.i27 = load ptr, ptr %6, align 8, !tbaa !10
   br label %Vec_PtrPush.exit31
@@ -972,14 +972,14 @@ Vec_PtrGrow.exit.i30:                             ; preds = %72, %70
   br label %Vec_PtrPush.exit31
 
 Vec_PtrPush.exit31:                               ; preds = %.Vec_PtrGrow.exit11_crit_edge.i25, %Vec_PtrGrow.exit.i30, %84
-  %.016.lcssa39 = phi ptr [ %.016.lcssa40, %.Vec_PtrGrow.exit11_crit_edge.i25 ], [ %.1, %84 ], [ %.1, %Vec_PtrGrow.exit.i30 ]
+  %.016.lcssa44 = phi ptr [ %.016.lcssa45, %.Vec_PtrGrow.exit11_crit_edge.i25 ], [ %.1, %84 ], [ %.1, %Vec_PtrGrow.exit.i30 ]
   %86 = phi i32 [ %65, %.Vec_PtrGrow.exit11_crit_edge.i25 ], [ %61, %84 ], [ %61, %Vec_PtrGrow.exit.i30 ]
   %87 = phi ptr [ %.pre.i27, %.Vec_PtrGrow.exit11_crit_edge.i25 ], [ %85, %84 ], [ %74, %Vec_PtrGrow.exit.i30 ]
   %88 = add nsw i32 %86, 1
   store i32 %88, ptr %4, align 4, !tbaa !3
   %89 = sext i32 %86 to i64
   %90 = getelementptr inbounds ptr, ptr %87, i64 %89
-  store ptr %.016.lcssa39, ptr %90, align 8, !tbaa !11
+  store ptr %.016.lcssa44, ptr %90, align 8, !tbaa !11
   ret ptr %3
 }
 

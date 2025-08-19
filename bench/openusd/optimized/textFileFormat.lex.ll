@@ -3114,10 +3114,10 @@ _ZL16yy_try_NUL_transiPv.exit:                    ; preds = %1121, %1116
   br label %1247
 
 1247:                                             ; preds = %.critedge2.i, %1152
-  %.sink183.in.i = phi ptr [ %1246, %.critedge2.i ], [ %1153, %1152 ]
+  %.sink189.in.i = phi ptr [ %1246, %.critedge2.i ], [ %1153, %1152 ]
   %.sink.i = phi i64 [ %1243, %.critedge2.i ], [ 0, %1152 ]
-  %.sink183.i = load ptr, ptr %.sink183.in.i, align 8
-  %1248 = getelementptr inbounds nuw i8, ptr %.sink183.i, i64 32
+  %.sink189.i = load ptr, ptr %.sink189.in.i, align 8
+  %1248 = getelementptr inbounds nuw i8, ptr %.sink189.i, i64 32
   store i64 %.sink.i, ptr %1248, align 8
   %1249 = load i64, ptr %253, align 8
   %1250 = icmp eq i64 %1249, 0
@@ -3213,7 +3213,7 @@ _ZL18yy_get_next_bufferPv.exit:                   ; preds = %1261, %._crit_edge1
   %1310 = getelementptr inbounds nuw i8, ptr %1309, i64 8
   %1311 = load ptr, ptr %1310, align 8
   store ptr %1311, ptr %249, align 8
-  switch i32 %.0132.i, label %default.unreachable1296 [
+  switch i32 %.0132.i, label %default.unreachable1311 [
     i32 1, label %_ZL18yy_get_next_bufferPv.exit.thread
     i32 0, label %1318
     i32 2, label %_ZL18yy_get_next_bufferPv.exit._ZL18yy_get_next_bufferPv.exit.thread536_crit_edge
@@ -3263,7 +3263,7 @@ _ZL18yy_get_next_bufferPv.exit.thread536:         ; preds = %1136, %_ZL18yy_get_
   tail call fastcc void @_ZL14yy_fatal_errorPKcPv(ptr noundef nonnull @.str.4)
   unreachable
 
-default.unreachable1296:                          ; preds = %_ZL18yy_get_next_bufferPv.exit
+default.unreachable1311:                          ; preds = %_ZL18yy_get_next_bufferPv.exit
   unreachable
 
 _ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev.exit531.loopexit: ; preds = %302
@@ -3279,7 +3279,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueD2Ev.exit531: ; pr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef ptr @_Z30textFileFormatYy_create_bufferP8_IO_FILEiPv(ptr noundef %0, i32 noundef %1, ptr noundef captures(none) %2) local_unnamed_addr #1 {
+define noundef nonnull ptr @_Z30textFileFormatYy_create_bufferP8_IO_FILEiPv(ptr noundef %0, i32 noundef %1, ptr noundef captures(none) %2) local_unnamed_addr #1 {
   %4 = tail call noalias noundef dereferenceable_or_null(72) ptr @malloc(i64 noundef 72) #30
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %5, label %6
@@ -4082,9 +4082,9 @@ _ZL35textFileFormatYyensure_buffer_stackPv.exit:  ; preds = %10, %13, %24
   br label %.critedge29
 
 .critedge29:                                      ; preds = %_ZL35textFileFormatYyensure_buffer_stackPv.exit, %51, %.critedge
-  %.pr36 = phi ptr [ %.pr.pre, %51 ], [ %.pr.pre, %.critedge ], [ %28, %_ZL35textFileFormatYyensure_buffer_stackPv.exit ]
+  %.pr40 = phi ptr [ %.pr.pre, %51 ], [ %.pr.pre, %.critedge ], [ %28, %_ZL35textFileFormatYyensure_buffer_stackPv.exit ]
   %53 = phi i64 [ %52, %51 ], [ %.pre32, %.critedge ], [ %27, %_ZL35textFileFormatYyensure_buffer_stackPv.exit ]
-  %54 = getelementptr inbounds ptr, ptr %.pr36, i64 %53
+  %54 = getelementptr inbounds ptr, ptr %.pr40, i64 %53
   store ptr %0, ptr %54, align 8
   %55 = load ptr, ptr %5, align 8
   %56 = load i64, ptr %29, align 8
@@ -4255,14 +4255,14 @@ define noundef ptr @_Z28textFileFormatYy_scan_bufferPcmPv(ptr noundef %0, i64 no
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef ptr @_Z28textFileFormatYy_scan_stringPKcPv(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) local_unnamed_addr #1 {
+define noundef nonnull ptr @_Z28textFileFormatYy_scan_stringPKcPv(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) local_unnamed_addr #1 {
   %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #37
   %4 = tail call noundef ptr @_Z27textFileFormatYy_scan_bytesPKcmPv(ptr noundef nonnull %0, i64 noundef %3, ptr noundef %1)
   ret ptr %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef ptr @_Z27textFileFormatYy_scan_bytesPKcmPv(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef captures(none) %2) local_unnamed_addr #1 {
+define noundef nonnull ptr @_Z27textFileFormatYy_scan_bytesPKcmPv(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef captures(none) %2) local_unnamed_addr #1 {
   %4 = add i64 %1, 2
   %5 = tail call noalias noundef ptr @malloc(i64 noundef %4) #30
   %.not = icmp eq ptr %5, null

@@ -76,11 +76,11 @@ define range(i32 0, 29) i32 @cli_vm_execute(ptr noundef readonly %0, ptr noundef
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 20
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.promoted = load ptr, ptr %14, align 1
-  %.promoted19210 = load i32, ptr %13, align 1
+  %.promoted20574 = load i32, ptr %13, align 1
   br label %.lr.ph.split
 
 .lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %ptr_register_glob_fixedid.exit
-  %15 = phi i32 [ %50, %ptr_register_glob_fixedid.exit ], [ %.promoted19210, %.lr.ph.split.preheader ]
+  %15 = phi i32 [ %50, %ptr_register_glob_fixedid.exit ], [ %.promoted20574, %.lr.ph.split.preheader ]
   %16 = phi ptr [ %51, %ptr_register_glob_fixedid.exit ], [ %.promoted, %.lr.ph.split.preheader ]
   %17 = phi ptr [ %52, %ptr_register_glob_fixedid.exit ], [ null, %.lr.ph.split.preheader ]
   %18 = phi i32 [ %53, %ptr_register_glob_fixedid.exit ], [ 0, %.lr.ph.split.preheader ]
@@ -518,9 +518,9 @@ ptr_register_glob_fixedid.exit12557:              ; preds = %65, %._crit_edge.i1
 
 .thread.sink.split:                               ; preds = %121, %119
   %.sink = phi i32 [ %116, %119 ], [ %114, %121 ]
-  %.sink17810 = phi ptr [ %120, %119 ], [ %.05402, %121 ]
+  %.sink19174 = phi ptr [ %120, %119 ], [ %.05402, %121 ]
   %124 = zext nneg i32 %.sink to i64
-  %125 = getelementptr inbounds nuw i8, ptr %.sink17810, i64 %124
+  %125 = getelementptr inbounds nuw i8, ptr %.sink19174, i64 %124
   %126 = load i8, ptr %125, align 1, !tbaa !62
   %127 = and i8 %126, 1
   br label %.thread
@@ -553,10 +553,10 @@ ptr_register_glob_fixedid.exit12557:              ; preds = %65, %._crit_edge.i1
   br i1 %.not11823, label %.thread13771.sink.split, label %.thread13776
 
 .thread13771.sink.split:                          ; preds = %136, %134
-  %.sink17815 = phi i32 [ %131, %134 ], [ %129, %136 ]
-  %.sink17813 = phi ptr [ %135, %134 ], [ %.05402, %136 ]
-  %139 = zext nneg i32 %.sink17815 to i64
-  %140 = getelementptr inbounds nuw i8, ptr %.sink17813, i64 %139
+  %.sink19179 = phi i32 [ %131, %134 ], [ %129, %136 ]
+  %.sink19177 = phi ptr [ %135, %134 ], [ %.05402, %136 ]
+  %139 = zext nneg i32 %.sink19179 to i64
+  %140 = getelementptr inbounds nuw i8, ptr %.sink19177, i64 %139
   %141 = load i8, ptr %140, align 1, !tbaa !62
   %142 = and i8 %141, 1
   br label %.thread13771
@@ -604,10 +604,10 @@ ptr_register_glob_fixedid.exit12557:              ; preds = %65, %._crit_edge.i1
   br i1 %.not11810, label %.thread13782.sink.split, label %.thread13776
 
 .thread13782.sink.split:                          ; preds = %159, %157
-  %.sink17819 = phi i32 [ %154, %157 ], [ %152, %159 ]
-  %.sink17817 = phi ptr [ %158, %157 ], [ %.05402, %159 ]
-  %162 = zext nneg i32 %.sink17819 to i64
-  %163 = getelementptr inbounds nuw i8, ptr %.sink17817, i64 %162
+  %.sink19183 = phi i32 [ %154, %157 ], [ %152, %159 ]
+  %.sink19181 = phi ptr [ %158, %157 ], [ %.05402, %159 ]
+  %162 = zext nneg i32 %.sink19183 to i64
+  %163 = getelementptr inbounds nuw i8, ptr %.sink19181, i64 %162
   %164 = load i8, ptr %163, align 1, !tbaa !62
   br label %.thread13782
 
@@ -639,10 +639,10 @@ ptr_register_glob_fixedid.exit12557:              ; preds = %65, %._crit_edge.i1
   br i1 %.not11814, label %.thread13787.sink.split, label %.thread13776
 
 .thread13787.sink.split:                          ; preds = %173, %171
-  %.sink17823 = phi i32 [ %168, %171 ], [ %166, %173 ]
-  %.sink17821 = phi ptr [ %172, %171 ], [ %.05402, %173 ]
-  %176 = zext nneg i32 %.sink17823 to i64
-  %177 = getelementptr inbounds nuw i8, ptr %.sink17821, i64 %176
+  %.sink19187 = phi i32 [ %168, %171 ], [ %166, %173 ]
+  %.sink19185 = phi ptr [ %172, %171 ], [ %.05402, %173 ]
+  %176 = zext nneg i32 %.sink19187 to i64
+  %177 = getelementptr inbounds nuw i8, ptr %.sink19185, i64 %176
   %178 = load i8, ptr %177, align 1, !tbaa !62
   br label %.thread13787
 
@@ -697,10 +697,10 @@ ptr_register_glob_fixedid.exit12557:              ; preds = %65, %._crit_edge.i1
   br i1 %or.cond11914, label %.thread13798.sink.split, label %.thread13776
 
 .thread13798.sink.split:                          ; preds = %198, %196
-  %.sink17827 = phi i32 [ %191, %196 ], [ %189, %198 ]
-  %.sink17825 = phi ptr [ %197, %196 ], [ %.05402, %198 ]
-  %203 = zext nneg i32 %.sink17827 to i64
-  %204 = getelementptr inbounds nuw i8, ptr %.sink17825, i64 %203
+  %.sink19191 = phi i32 [ %191, %196 ], [ %189, %198 ]
+  %.sink19189 = phi ptr [ %197, %196 ], [ %.05402, %198 ]
+  %203 = zext nneg i32 %.sink19191 to i64
+  %204 = getelementptr inbounds nuw i8, ptr %.sink19189, i64 %203
   %205 = load i16, ptr %204, align 2, !tbaa !69
   br label %.thread13798
 
@@ -740,10 +740,10 @@ ptr_register_glob_fixedid.exit12557:              ; preds = %65, %._crit_edge.i1
   br i1 %or.cond11916, label %.thread13803.sink.split, label %.thread13776
 
 .thread13803.sink.split:                          ; preds = %216, %214
-  %.sink17831 = phi i32 [ %209, %214 ], [ %207, %216 ]
-  %.sink17829 = phi ptr [ %215, %214 ], [ %.05402, %216 ]
-  %221 = zext nneg i32 %.sink17831 to i64
-  %222 = getelementptr inbounds nuw i8, ptr %.sink17829, i64 %221
+  %.sink19195 = phi i32 [ %209, %214 ], [ %207, %216 ]
+  %.sink19193 = phi ptr [ %215, %214 ], [ %.05402, %216 ]
+  %221 = zext nneg i32 %.sink19195 to i64
+  %222 = getelementptr inbounds nuw i8, ptr %.sink19193, i64 %221
   %223 = load i16, ptr %222, align 2, !tbaa !69
   br label %.thread13803
 
@@ -802,10 +802,10 @@ ptr_register_glob_fixedid.exit12557:              ; preds = %65, %._crit_edge.i1
   br i1 %or.cond11919, label %.thread13814.sink.split, label %.thread13776
 
 .thread13814.sink.split:                          ; preds = %245, %243
-  %.sink17835 = phi i32 [ %238, %243 ], [ %236, %245 ]
-  %.sink17833 = phi ptr [ %244, %243 ], [ %.05402, %245 ]
-  %250 = zext nneg i32 %.sink17835 to i64
-  %251 = getelementptr inbounds nuw i8, ptr %.sink17833, i64 %250
+  %.sink19199 = phi i32 [ %238, %243 ], [ %236, %245 ]
+  %.sink19197 = phi ptr [ %244, %243 ], [ %.05402, %245 ]
+  %250 = zext nneg i32 %.sink19199 to i64
+  %251 = getelementptr inbounds nuw i8, ptr %.sink19197, i64 %250
   %252 = load i32, ptr %251, align 4, !tbaa !34
   br label %.thread13814
 
@@ -845,10 +845,10 @@ ptr_register_glob_fixedid.exit12557:              ; preds = %65, %._crit_edge.i1
   br i1 %or.cond11921, label %.thread13819.sink.split, label %.thread13776
 
 .thread13819.sink.split:                          ; preds = %263, %261
-  %.sink17839 = phi i32 [ %256, %261 ], [ %254, %263 ]
-  %.sink17837 = phi ptr [ %262, %261 ], [ %.05402, %263 ]
-  %268 = zext nneg i32 %.sink17839 to i64
-  %269 = getelementptr inbounds nuw i8, ptr %.sink17837, i64 %268
+  %.sink19203 = phi i32 [ %256, %261 ], [ %254, %263 ]
+  %.sink19201 = phi ptr [ %262, %261 ], [ %.05402, %263 ]
+  %268 = zext nneg i32 %.sink19203 to i64
+  %269 = getelementptr inbounds nuw i8, ptr %.sink19201, i64 %268
   %270 = load i32, ptr %269, align 4, !tbaa !34
   br label %.thread13819
 
@@ -907,10 +907,10 @@ ptr_register_glob_fixedid.exit12557:              ; preds = %65, %._crit_edge.i1
   br i1 %or.cond11924, label %.thread13830.sink.split, label %.thread13776
 
 .thread13830.sink.split:                          ; preds = %292, %290
-  %.sink17843 = phi i32 [ %285, %290 ], [ %283, %292 ]
-  %.sink17841 = phi ptr [ %291, %290 ], [ %.05402, %292 ]
-  %297 = zext nneg i32 %.sink17843 to i64
-  %298 = getelementptr inbounds nuw i8, ptr %.sink17841, i64 %297
+  %.sink19207 = phi i32 [ %285, %290 ], [ %283, %292 ]
+  %.sink19205 = phi ptr [ %291, %290 ], [ %.05402, %292 ]
+  %297 = zext nneg i32 %.sink19207 to i64
+  %298 = getelementptr inbounds nuw i8, ptr %.sink19205, i64 %297
   %299 = load i64, ptr %298, align 8, !tbaa !70
   br label %.thread13830
 
@@ -950,10 +950,10 @@ ptr_register_glob_fixedid.exit12557:              ; preds = %65, %._crit_edge.i1
   br i1 %or.cond11926, label %.thread13835.sink.split, label %.thread13776
 
 .thread13835.sink.split:                          ; preds = %310, %308
-  %.sink17847 = phi i32 [ %303, %308 ], [ %301, %310 ]
-  %.sink17845 = phi ptr [ %309, %308 ], [ %.05402, %310 ]
-  %315 = zext nneg i32 %.sink17847 to i64
-  %316 = getelementptr inbounds nuw i8, ptr %.sink17845, i64 %315
+  %.sink19211 = phi i32 [ %303, %308 ], [ %301, %310 ]
+  %.sink19209 = phi ptr [ %309, %308 ], [ %.05402, %310 ]
+  %315 = zext nneg i32 %.sink19211 to i64
+  %316 = getelementptr inbounds nuw i8, ptr %.sink19209, i64 %315
   %317 = load i64, ptr %316, align 8, !tbaa !70
   br label %.thread13835
 
@@ -1004,10 +1004,10 @@ ptr_register_glob_fixedid.exit12557:              ; preds = %65, %._crit_edge.i1
   br i1 %.not11759, label %.thread13846.sink.split, label %.thread13776
 
 .thread13846.sink.split:                          ; preds = %337, %335
-  %.sink17851 = phi i32 [ %332, %335 ], [ %330, %337 ]
-  %.sink17849 = phi ptr [ %336, %335 ], [ %.05402, %337 ]
-  %340 = zext nneg i32 %.sink17851 to i64
-  %341 = getelementptr inbounds nuw i8, ptr %.sink17849, i64 %340
+  %.sink19215 = phi i32 [ %332, %335 ], [ %330, %337 ]
+  %.sink19213 = phi ptr [ %336, %335 ], [ %.05402, %337 ]
+  %340 = zext nneg i32 %.sink19215 to i64
+  %341 = getelementptr inbounds nuw i8, ptr %.sink19213, i64 %340
   %342 = load i8, ptr %341, align 1, !tbaa !62
   %343 = and i8 %342, 1
   br label %.thread13846
@@ -1040,10 +1040,10 @@ ptr_register_glob_fixedid.exit12557:              ; preds = %65, %._crit_edge.i1
   br i1 %.not11763, label %.thread13851.sink.split, label %.thread13776
 
 .thread13851.sink.split:                          ; preds = %352, %350
-  %.sink17855 = phi i32 [ %347, %350 ], [ %345, %352 ]
-  %.sink17853 = phi ptr [ %351, %350 ], [ %.05402, %352 ]
-  %355 = zext nneg i32 %.sink17855 to i64
-  %356 = getelementptr inbounds nuw i8, ptr %.sink17853, i64 %355
+  %.sink19219 = phi i32 [ %347, %350 ], [ %345, %352 ]
+  %.sink19217 = phi ptr [ %351, %350 ], [ %.05402, %352 ]
+  %355 = zext nneg i32 %.sink19219 to i64
+  %356 = getelementptr inbounds nuw i8, ptr %.sink19217, i64 %355
   %357 = load i8, ptr %356, align 1, !tbaa !62
   %358 = and i8 %357, 1
   br label %.thread13851
@@ -1091,10 +1091,10 @@ ptr_register_glob_fixedid.exit12557:              ; preds = %65, %._crit_edge.i1
   br i1 %.not11750, label %.thread13862.sink.split, label %.thread13776
 
 .thread13862.sink.split:                          ; preds = %376, %374
-  %.sink17859 = phi i32 [ %371, %374 ], [ %369, %376 ]
-  %.sink17857 = phi ptr [ %375, %374 ], [ %.05402, %376 ]
-  %379 = zext nneg i32 %.sink17859 to i64
-  %380 = getelementptr inbounds nuw i8, ptr %.sink17857, i64 %379
+  %.sink19223 = phi i32 [ %371, %374 ], [ %369, %376 ]
+  %.sink19221 = phi ptr [ %375, %374 ], [ %.05402, %376 ]
+  %379 = zext nneg i32 %.sink19223 to i64
+  %380 = getelementptr inbounds nuw i8, ptr %.sink19221, i64 %379
   %381 = load i8, ptr %380, align 1, !tbaa !62
   br label %.thread13862
 
@@ -1126,10 +1126,10 @@ ptr_register_glob_fixedid.exit12557:              ; preds = %65, %._crit_edge.i1
   br i1 %.not11754, label %.thread13867.sink.split, label %.thread13776
 
 .thread13867.sink.split:                          ; preds = %390, %388
-  %.sink17863 = phi i32 [ %385, %388 ], [ %383, %390 ]
-  %.sink17861 = phi ptr [ %389, %388 ], [ %.05402, %390 ]
-  %393 = zext nneg i32 %.sink17863 to i64
-  %394 = getelementptr inbounds nuw i8, ptr %.sink17861, i64 %393
+  %.sink19227 = phi i32 [ %385, %388 ], [ %383, %390 ]
+  %.sink19225 = phi ptr [ %389, %388 ], [ %.05402, %390 ]
+  %393 = zext nneg i32 %.sink19227 to i64
+  %394 = getelementptr inbounds nuw i8, ptr %.sink19225, i64 %393
   %395 = load i8, ptr %394, align 1, !tbaa !62
   br label %.thread13867
 
@@ -1184,10 +1184,10 @@ ptr_register_glob_fixedid.exit12557:              ; preds = %65, %._crit_edge.i1
   br i1 %or.cond11929, label %.thread13878.sink.split, label %.thread13776
 
 .thread13878.sink.split:                          ; preds = %415, %413
-  %.sink17867 = phi i32 [ %408, %413 ], [ %406, %415 ]
-  %.sink17865 = phi ptr [ %414, %413 ], [ %.05402, %415 ]
-  %420 = zext nneg i32 %.sink17867 to i64
-  %421 = getelementptr inbounds nuw i8, ptr %.sink17865, i64 %420
+  %.sink19231 = phi i32 [ %408, %413 ], [ %406, %415 ]
+  %.sink19229 = phi ptr [ %414, %413 ], [ %.05402, %415 ]
+  %420 = zext nneg i32 %.sink19231 to i64
+  %421 = getelementptr inbounds nuw i8, ptr %.sink19229, i64 %420
   %422 = load i16, ptr %421, align 2, !tbaa !69
   br label %.thread13878
 
@@ -1227,10 +1227,10 @@ ptr_register_glob_fixedid.exit12557:              ; preds = %65, %._crit_edge.i1
   br i1 %or.cond11931, label %.thread13883.sink.split, label %.thread13776
 
 .thread13883.sink.split:                          ; preds = %433, %431
-  %.sink17871 = phi i32 [ %426, %431 ], [ %424, %433 ]
-  %.sink17869 = phi ptr [ %432, %431 ], [ %.05402, %433 ]
-  %438 = zext nneg i32 %.sink17871 to i64
-  %439 = getelementptr inbounds nuw i8, ptr %.sink17869, i64 %438
+  %.sink19235 = phi i32 [ %426, %431 ], [ %424, %433 ]
+  %.sink19233 = phi ptr [ %432, %431 ], [ %.05402, %433 ]
+  %438 = zext nneg i32 %.sink19235 to i64
+  %439 = getelementptr inbounds nuw i8, ptr %.sink19233, i64 %438
   %440 = load i16, ptr %439, align 2, !tbaa !69
   br label %.thread13883
 
@@ -1289,10 +1289,10 @@ ptr_register_glob_fixedid.exit12557:              ; preds = %65, %._crit_edge.i1
   br i1 %or.cond11934, label %.thread13894.sink.split, label %.thread13776
 
 .thread13894.sink.split:                          ; preds = %462, %460
-  %.sink17875 = phi i32 [ %455, %460 ], [ %453, %462 ]
-  %.sink17873 = phi ptr [ %461, %460 ], [ %.05402, %462 ]
-  %467 = zext nneg i32 %.sink17875 to i64
-  %468 = getelementptr inbounds nuw i8, ptr %.sink17873, i64 %467
+  %.sink19239 = phi i32 [ %455, %460 ], [ %453, %462 ]
+  %.sink19237 = phi ptr [ %461, %460 ], [ %.05402, %462 ]
+  %467 = zext nneg i32 %.sink19239 to i64
+  %468 = getelementptr inbounds nuw i8, ptr %.sink19237, i64 %467
   %469 = load i32, ptr %468, align 4, !tbaa !34
   br label %.thread13894
 
@@ -1332,10 +1332,10 @@ ptr_register_glob_fixedid.exit12557:              ; preds = %65, %._crit_edge.i1
   br i1 %or.cond11936, label %.thread13899.sink.split, label %.thread13776
 
 .thread13899.sink.split:                          ; preds = %480, %478
-  %.sink17879 = phi i32 [ %473, %478 ], [ %471, %480 ]
-  %.sink17877 = phi ptr [ %479, %478 ], [ %.05402, %480 ]
-  %485 = zext nneg i32 %.sink17879 to i64
-  %486 = getelementptr inbounds nuw i8, ptr %.sink17877, i64 %485
+  %.sink19243 = phi i32 [ %473, %478 ], [ %471, %480 ]
+  %.sink19241 = phi ptr [ %479, %478 ], [ %.05402, %480 ]
+  %485 = zext nneg i32 %.sink19243 to i64
+  %486 = getelementptr inbounds nuw i8, ptr %.sink19241, i64 %485
   %487 = load i32, ptr %486, align 4, !tbaa !34
   br label %.thread13899
 
@@ -1394,10 +1394,10 @@ ptr_register_glob_fixedid.exit12557:              ; preds = %65, %._crit_edge.i1
   br i1 %or.cond11939, label %.thread13910.sink.split, label %.thread13776
 
 .thread13910.sink.split:                          ; preds = %509, %507
-  %.sink17883 = phi i32 [ %502, %507 ], [ %500, %509 ]
-  %.sink17881 = phi ptr [ %508, %507 ], [ %.05402, %509 ]
-  %514 = zext nneg i32 %.sink17883 to i64
-  %515 = getelementptr inbounds nuw i8, ptr %.sink17881, i64 %514
+  %.sink19247 = phi i32 [ %502, %507 ], [ %500, %509 ]
+  %.sink19245 = phi ptr [ %508, %507 ], [ %.05402, %509 ]
+  %514 = zext nneg i32 %.sink19247 to i64
+  %515 = getelementptr inbounds nuw i8, ptr %.sink19245, i64 %514
   %516 = load i64, ptr %515, align 8, !tbaa !70
   br label %.thread13910
 
@@ -1437,10 +1437,10 @@ ptr_register_glob_fixedid.exit12557:              ; preds = %65, %._crit_edge.i1
   br i1 %or.cond11941, label %.thread13915.sink.split, label %.thread13776
 
 .thread13915.sink.split:                          ; preds = %527, %525
-  %.sink17887 = phi i32 [ %520, %525 ], [ %518, %527 ]
-  %.sink17885 = phi ptr [ %526, %525 ], [ %.05402, %527 ]
-  %532 = zext nneg i32 %.sink17887 to i64
-  %533 = getelementptr inbounds nuw i8, ptr %.sink17885, i64 %532
+  %.sink19251 = phi i32 [ %520, %525 ], [ %518, %527 ]
+  %.sink19249 = phi ptr [ %526, %525 ], [ %.05402, %527 ]
+  %532 = zext nneg i32 %.sink19251 to i64
+  %533 = getelementptr inbounds nuw i8, ptr %.sink19249, i64 %532
   %534 = load i64, ptr %533, align 8, !tbaa !70
   br label %.thread13915
 
@@ -1491,10 +1491,10 @@ ptr_register_glob_fixedid.exit12557:              ; preds = %65, %._crit_edge.i1
   br i1 %.not11699, label %.thread13926.sink.split, label %.thread13776
 
 .thread13926.sink.split:                          ; preds = %554, %552
-  %.sink17891 = phi i32 [ %549, %552 ], [ %547, %554 ]
-  %.sink17889 = phi ptr [ %553, %552 ], [ %.05402, %554 ]
-  %557 = zext nneg i32 %.sink17891 to i64
-  %558 = getelementptr inbounds nuw i8, ptr %.sink17889, i64 %557
+  %.sink19255 = phi i32 [ %549, %552 ], [ %547, %554 ]
+  %.sink19253 = phi ptr [ %553, %552 ], [ %.05402, %554 ]
+  %557 = zext nneg i32 %.sink19255 to i64
+  %558 = getelementptr inbounds nuw i8, ptr %.sink19253, i64 %557
   %559 = load i8, ptr %558, align 1, !tbaa !62
   %560 = and i8 %559, 1
   br label %.thread13926
@@ -1527,10 +1527,10 @@ ptr_register_glob_fixedid.exit12557:              ; preds = %65, %._crit_edge.i1
   br i1 %.not11703, label %.thread13931.sink.split, label %.thread13776
 
 .thread13931.sink.split:                          ; preds = %569, %567
-  %.sink17895 = phi i32 [ %564, %567 ], [ %562, %569 ]
-  %.sink17893 = phi ptr [ %568, %567 ], [ %.05402, %569 ]
-  %572 = zext nneg i32 %.sink17895 to i64
-  %573 = getelementptr inbounds nuw i8, ptr %.sink17893, i64 %572
+  %.sink19259 = phi i32 [ %564, %567 ], [ %562, %569 ]
+  %.sink19257 = phi ptr [ %568, %567 ], [ %.05402, %569 ]
+  %572 = zext nneg i32 %.sink19259 to i64
+  %573 = getelementptr inbounds nuw i8, ptr %.sink19257, i64 %572
   %574 = load i8, ptr %573, align 1, !tbaa !62
   br label %.thread13931
 
@@ -1577,10 +1577,10 @@ ptr_register_glob_fixedid.exit12557:              ; preds = %65, %._crit_edge.i1
   br i1 %.not11690, label %.thread13942.sink.split, label %.thread13776
 
 .thread13942.sink.split:                          ; preds = %591, %589
-  %.sink17899 = phi i32 [ %586, %589 ], [ %584, %591 ]
-  %.sink17897 = phi ptr [ %590, %589 ], [ %.05402, %591 ]
-  %594 = zext nneg i32 %.sink17899 to i64
-  %595 = getelementptr inbounds nuw i8, ptr %.sink17897, i64 %594
+  %.sink19263 = phi i32 [ %586, %589 ], [ %584, %591 ]
+  %.sink19261 = phi ptr [ %590, %589 ], [ %.05402, %591 ]
+  %594 = zext nneg i32 %.sink19263 to i64
+  %595 = getelementptr inbounds nuw i8, ptr %.sink19261, i64 %594
   %596 = load i8, ptr %595, align 1, !tbaa !62
   br label %.thread13942
 
@@ -1612,10 +1612,10 @@ ptr_register_glob_fixedid.exit12557:              ; preds = %65, %._crit_edge.i1
   br i1 %.not11694, label %.thread13947.sink.split, label %.thread13776
 
 .thread13947.sink.split:                          ; preds = %605, %603
-  %.sink17903 = phi i32 [ %600, %603 ], [ %598, %605 ]
-  %.sink17901 = phi ptr [ %604, %603 ], [ %.05402, %605 ]
-  %608 = zext nneg i32 %.sink17903 to i64
-  %609 = getelementptr inbounds nuw i8, ptr %.sink17901, i64 %608
+  %.sink19267 = phi i32 [ %600, %603 ], [ %598, %605 ]
+  %.sink19265 = phi ptr [ %604, %603 ], [ %.05402, %605 ]
+  %608 = zext nneg i32 %.sink19267 to i64
+  %609 = getelementptr inbounds nuw i8, ptr %.sink19265, i64 %608
   %610 = load i8, ptr %609, align 1, !tbaa !62
   br label %.thread13947
 
@@ -1670,10 +1670,10 @@ ptr_register_glob_fixedid.exit12557:              ; preds = %65, %._crit_edge.i1
   br i1 %or.cond11944, label %.thread13958.sink.split, label %.thread13776
 
 .thread13958.sink.split:                          ; preds = %630, %628
-  %.sink17907 = phi i32 [ %623, %628 ], [ %621, %630 ]
-  %.sink17905 = phi ptr [ %629, %628 ], [ %.05402, %630 ]
-  %635 = zext nneg i32 %.sink17907 to i64
-  %636 = getelementptr inbounds nuw i8, ptr %.sink17905, i64 %635
+  %.sink19271 = phi i32 [ %623, %628 ], [ %621, %630 ]
+  %.sink19269 = phi ptr [ %629, %628 ], [ %.05402, %630 ]
+  %635 = zext nneg i32 %.sink19271 to i64
+  %636 = getelementptr inbounds nuw i8, ptr %.sink19269, i64 %635
   %637 = load i16, ptr %636, align 2, !tbaa !69
   br label %.thread13958
 
@@ -1713,10 +1713,10 @@ ptr_register_glob_fixedid.exit12557:              ; preds = %65, %._crit_edge.i1
   br i1 %or.cond11946, label %.thread13963.sink.split, label %.thread13776
 
 .thread13963.sink.split:                          ; preds = %648, %646
-  %.sink17911 = phi i32 [ %641, %646 ], [ %639, %648 ]
-  %.sink17909 = phi ptr [ %647, %646 ], [ %.05402, %648 ]
-  %653 = zext nneg i32 %.sink17911 to i64
-  %654 = getelementptr inbounds nuw i8, ptr %.sink17909, i64 %653
+  %.sink19275 = phi i32 [ %641, %646 ], [ %639, %648 ]
+  %.sink19273 = phi ptr [ %647, %646 ], [ %.05402, %648 ]
+  %653 = zext nneg i32 %.sink19275 to i64
+  %654 = getelementptr inbounds nuw i8, ptr %.sink19273, i64 %653
   %655 = load i16, ptr %654, align 2, !tbaa !69
   br label %.thread13963
 
@@ -1775,10 +1775,10 @@ ptr_register_glob_fixedid.exit12557:              ; preds = %65, %._crit_edge.i1
   br i1 %or.cond11949, label %.thread13974.sink.split, label %.thread13776
 
 .thread13974.sink.split:                          ; preds = %677, %675
-  %.sink17915 = phi i32 [ %670, %675 ], [ %668, %677 ]
-  %.sink17913 = phi ptr [ %676, %675 ], [ %.05402, %677 ]
-  %682 = zext nneg i32 %.sink17915 to i64
-  %683 = getelementptr inbounds nuw i8, ptr %.sink17913, i64 %682
+  %.sink19279 = phi i32 [ %670, %675 ], [ %668, %677 ]
+  %.sink19277 = phi ptr [ %676, %675 ], [ %.05402, %677 ]
+  %682 = zext nneg i32 %.sink19279 to i64
+  %683 = getelementptr inbounds nuw i8, ptr %.sink19277, i64 %682
   %684 = load i32, ptr %683, align 4, !tbaa !34
   br label %.thread13974
 
@@ -1818,10 +1818,10 @@ ptr_register_glob_fixedid.exit12557:              ; preds = %65, %._crit_edge.i1
   br i1 %or.cond11951, label %.thread13979.sink.split, label %.thread13776
 
 .thread13979.sink.split:                          ; preds = %695, %693
-  %.sink17919 = phi i32 [ %688, %693 ], [ %686, %695 ]
-  %.sink17917 = phi ptr [ %694, %693 ], [ %.05402, %695 ]
-  %700 = zext nneg i32 %.sink17919 to i64
-  %701 = getelementptr inbounds nuw i8, ptr %.sink17917, i64 %700
+  %.sink19283 = phi i32 [ %688, %693 ], [ %686, %695 ]
+  %.sink19281 = phi ptr [ %694, %693 ], [ %.05402, %695 ]
+  %700 = zext nneg i32 %.sink19283 to i64
+  %701 = getelementptr inbounds nuw i8, ptr %.sink19281, i64 %700
   %702 = load i32, ptr %701, align 4, !tbaa !34
   br label %.thread13979
 
@@ -1880,10 +1880,10 @@ ptr_register_glob_fixedid.exit12557:              ; preds = %65, %._crit_edge.i1
   br i1 %or.cond11954, label %.thread13990.sink.split, label %.thread13776
 
 .thread13990.sink.split:                          ; preds = %724, %722
-  %.sink17923 = phi i32 [ %717, %722 ], [ %715, %724 ]
-  %.sink17921 = phi ptr [ %723, %722 ], [ %.05402, %724 ]
-  %729 = zext nneg i32 %.sink17923 to i64
-  %730 = getelementptr inbounds nuw i8, ptr %.sink17921, i64 %729
+  %.sink19287 = phi i32 [ %717, %722 ], [ %715, %724 ]
+  %.sink19285 = phi ptr [ %723, %722 ], [ %.05402, %724 ]
+  %729 = zext nneg i32 %.sink19287 to i64
+  %730 = getelementptr inbounds nuw i8, ptr %.sink19285, i64 %729
   %731 = load i64, ptr %730, align 8, !tbaa !70
   br label %.thread13990
 
@@ -1923,10 +1923,10 @@ ptr_register_glob_fixedid.exit12557:              ; preds = %65, %._crit_edge.i1
   br i1 %or.cond11956, label %.thread13995.sink.split, label %.thread13776
 
 .thread13995.sink.split:                          ; preds = %742, %740
-  %.sink17927 = phi i32 [ %735, %740 ], [ %733, %742 ]
-  %.sink17925 = phi ptr [ %741, %740 ], [ %.05402, %742 ]
-  %747 = zext nneg i32 %.sink17927 to i64
-  %748 = getelementptr inbounds nuw i8, ptr %.sink17925, i64 %747
+  %.sink19291 = phi i32 [ %735, %740 ], [ %733, %742 ]
+  %.sink19289 = phi ptr [ %741, %740 ], [ %.05402, %742 ]
+  %747 = zext nneg i32 %.sink19291 to i64
+  %748 = getelementptr inbounds nuw i8, ptr %.sink19289, i64 %747
   %749 = load i64, ptr %748, align 8, !tbaa !70
   br label %.thread13995
 
@@ -1977,10 +1977,10 @@ ptr_register_glob_fixedid.exit12557:              ; preds = %65, %._crit_edge.i1
   br i1 %.not11639, label %.thread14006.sink.split, label %.thread13776
 
 .thread14006.sink.split:                          ; preds = %769, %767
-  %.sink17931 = phi i32 [ %764, %767 ], [ %762, %769 ]
-  %.sink17929 = phi ptr [ %768, %767 ], [ %.05402, %769 ]
-  %772 = zext nneg i32 %.sink17931 to i64
-  %773 = getelementptr inbounds nuw i8, ptr %.sink17929, i64 %772
+  %.sink19295 = phi i32 [ %764, %767 ], [ %762, %769 ]
+  %.sink19293 = phi ptr [ %768, %767 ], [ %.05402, %769 ]
+  %772 = zext nneg i32 %.sink19295 to i64
+  %773 = getelementptr inbounds nuw i8, ptr %.sink19293, i64 %772
   %774 = load i8, ptr %773, align 1, !tbaa !62
   %775 = and i8 %774, 1
   br label %.thread14006
@@ -2013,10 +2013,10 @@ ptr_register_glob_fixedid.exit12557:              ; preds = %65, %._crit_edge.i1
   br i1 %.not11643, label %.thread14011, label %.thread13776
 
 .thread14011:                                     ; preds = %784, %782
-  %.sink17934 = phi i32 [ %779, %782 ], [ %777, %784 ]
-  %.sink17932 = phi ptr [ %783, %782 ], [ %.05402, %784 ]
-  %787 = zext nneg i32 %.sink17934 to i64
-  %788 = getelementptr inbounds nuw i8, ptr %.sink17932, i64 %787
+  %.sink19298 = phi i32 [ %779, %782 ], [ %777, %784 ]
+  %.sink19296 = phi ptr [ %783, %782 ], [ %.05402, %784 ]
+  %787 = zext nneg i32 %.sink19298 to i64
+  %788 = getelementptr inbounds nuw i8, ptr %.sink19296, i64 %787
   %.56532 = load i8, ptr %788, align 1, !tbaa !62
   %789 = and i8 %.56532, 1
   %790 = icmp eq i8 %789, 0
@@ -2067,10 +2067,10 @@ ptr_register_glob_fixedid.exit12557:              ; preds = %65, %._crit_edge.i1
   br i1 %.not11630, label %.thread14023.sink.split, label %.thread13776
 
 .thread14023.sink.split:                          ; preds = %808, %806
-  %.sink17938 = phi i32 [ %803, %806 ], [ %801, %808 ]
-  %.sink17936 = phi ptr [ %807, %806 ], [ %.05402, %808 ]
-  %811 = zext nneg i32 %.sink17938 to i64
-  %812 = getelementptr inbounds nuw i8, ptr %.sink17936, i64 %811
+  %.sink19302 = phi i32 [ %803, %806 ], [ %801, %808 ]
+  %.sink19300 = phi ptr [ %807, %806 ], [ %.05402, %808 ]
+  %811 = zext nneg i32 %.sink19302 to i64
+  %812 = getelementptr inbounds nuw i8, ptr %.sink19300, i64 %811
   %813 = load i8, ptr %812, align 1, !tbaa !62
   br label %.thread14023
 
@@ -2102,10 +2102,10 @@ ptr_register_glob_fixedid.exit12557:              ; preds = %65, %._crit_edge.i1
   br i1 %.not11634, label %.thread14028, label %.thread13776
 
 .thread14028:                                     ; preds = %822, %820
-  %.sink17941 = phi i32 [ %817, %820 ], [ %815, %822 ]
-  %.sink17939 = phi ptr [ %821, %820 ], [ %.05402, %822 ]
-  %825 = zext nneg i32 %.sink17941 to i64
-  %826 = getelementptr inbounds nuw i8, ptr %.sink17939, i64 %825
+  %.sink19305 = phi i32 [ %817, %820 ], [ %815, %822 ]
+  %.sink19303 = phi ptr [ %821, %820 ], [ %.05402, %822 ]
+  %825 = zext nneg i32 %.sink19305 to i64
+  %826 = getelementptr inbounds nuw i8, ptr %.sink19303, i64 %825
   %.56562 = load i8, ptr %826, align 1, !tbaa !62
   %827 = icmp eq i8 %.56562, 0
   br i1 %827, label %.thread14028.thread, label %828
@@ -2164,10 +2164,10 @@ ptr_register_glob_fixedid.exit12557:              ; preds = %65, %._crit_edge.i1
   br i1 %or.cond11959, label %.thread14040.sink.split, label %.thread13776
 
 .thread14040.sink.split:                          ; preds = %848, %846
-  %.sink17945 = phi i32 [ %841, %846 ], [ %839, %848 ]
-  %.sink17943 = phi ptr [ %847, %846 ], [ %.05402, %848 ]
-  %853 = zext nneg i32 %.sink17945 to i64
-  %854 = getelementptr inbounds nuw i8, ptr %.sink17943, i64 %853
+  %.sink19309 = phi i32 [ %841, %846 ], [ %839, %848 ]
+  %.sink19307 = phi ptr [ %847, %846 ], [ %.05402, %848 ]
+  %853 = zext nneg i32 %.sink19309 to i64
+  %854 = getelementptr inbounds nuw i8, ptr %.sink19307, i64 %853
   %855 = load i16, ptr %854, align 2, !tbaa !69
   br label %.thread14040
 
@@ -2207,10 +2207,10 @@ ptr_register_glob_fixedid.exit12557:              ; preds = %65, %._crit_edge.i1
   br i1 %or.cond11961, label %.thread14045, label %.thread13776
 
 .thread14045:                                     ; preds = %866, %864
-  %.sink17948 = phi i32 [ %859, %864 ], [ %857, %866 ]
-  %.sink17946 = phi ptr [ %865, %864 ], [ %.05402, %866 ]
-  %871 = zext nneg i32 %.sink17948 to i64
-  %872 = getelementptr inbounds nuw i8, ptr %.sink17946, i64 %871
+  %.sink19312 = phi i32 [ %859, %864 ], [ %857, %866 ]
+  %.sink19310 = phi ptr [ %865, %864 ], [ %.05402, %866 ]
+  %871 = zext nneg i32 %.sink19312 to i64
+  %872 = getelementptr inbounds nuw i8, ptr %.sink19310, i64 %871
   %.56592 = load i16, ptr %872, align 2, !tbaa !69
   %873 = icmp eq i16 %.56592, 0
   br i1 %873, label %.thread14045.thread, label %874
@@ -2273,10 +2273,10 @@ ptr_register_glob_fixedid.exit12557:              ; preds = %65, %._crit_edge.i1
   br i1 %or.cond11964, label %.thread14057.sink.split, label %.thread13776
 
 .thread14057.sink.split:                          ; preds = %896, %894
-  %.sink17952 = phi i32 [ %889, %894 ], [ %887, %896 ]
-  %.sink17950 = phi ptr [ %895, %894 ], [ %.05402, %896 ]
-  %901 = zext nneg i32 %.sink17952 to i64
-  %902 = getelementptr inbounds nuw i8, ptr %.sink17950, i64 %901
+  %.sink19316 = phi i32 [ %889, %894 ], [ %887, %896 ]
+  %.sink19314 = phi ptr [ %895, %894 ], [ %.05402, %896 ]
+  %901 = zext nneg i32 %.sink19316 to i64
+  %902 = getelementptr inbounds nuw i8, ptr %.sink19314, i64 %901
   %903 = load i32, ptr %902, align 4, !tbaa !34
   br label %.thread14057
 
@@ -2316,10 +2316,10 @@ ptr_register_glob_fixedid.exit12557:              ; preds = %65, %._crit_edge.i1
   br i1 %or.cond11966, label %.thread14062, label %.thread13776
 
 .thread14062:                                     ; preds = %914, %912
-  %.sink17955 = phi i32 [ %907, %912 ], [ %905, %914 ]
-  %.sink17953 = phi ptr [ %913, %912 ], [ %.05402, %914 ]
-  %919 = zext nneg i32 %.sink17955 to i64
-  %920 = getelementptr inbounds nuw i8, ptr %.sink17953, i64 %919
+  %.sink19319 = phi i32 [ %907, %912 ], [ %905, %914 ]
+  %.sink19317 = phi ptr [ %913, %912 ], [ %.05402, %914 ]
+  %919 = zext nneg i32 %.sink19319 to i64
+  %920 = getelementptr inbounds nuw i8, ptr %.sink19317, i64 %919
   %.56622 = load i32, ptr %920, align 4, !tbaa !34
   %921 = icmp eq i32 %.56622, 0
   br i1 %921, label %.thread14062.thread, label %922
@@ -2382,10 +2382,10 @@ ptr_register_glob_fixedid.exit12557:              ; preds = %65, %._crit_edge.i1
   br i1 %or.cond11969, label %.thread14074.sink.split, label %.thread13776
 
 .thread14074.sink.split:                          ; preds = %944, %942
-  %.sink17959 = phi i32 [ %937, %942 ], [ %935, %944 ]
-  %.sink17957 = phi ptr [ %943, %942 ], [ %.05402, %944 ]
-  %949 = zext nneg i32 %.sink17959 to i64
-  %950 = getelementptr inbounds nuw i8, ptr %.sink17957, i64 %949
+  %.sink19323 = phi i32 [ %937, %942 ], [ %935, %944 ]
+  %.sink19321 = phi ptr [ %943, %942 ], [ %.05402, %944 ]
+  %949 = zext nneg i32 %.sink19323 to i64
+  %950 = getelementptr inbounds nuw i8, ptr %.sink19321, i64 %949
   %951 = load i64, ptr %950, align 8, !tbaa !70
   br label %.thread14074
 
@@ -2425,10 +2425,10 @@ ptr_register_glob_fixedid.exit12557:              ; preds = %65, %._crit_edge.i1
   br i1 %or.cond11971, label %.thread14079, label %.thread13776
 
 .thread14079:                                     ; preds = %962, %960
-  %.sink17962 = phi i32 [ %955, %960 ], [ %953, %962 ]
-  %.sink17960 = phi ptr [ %961, %960 ], [ %.05402, %962 ]
-  %967 = zext nneg i32 %.sink17962 to i64
-  %968 = getelementptr inbounds nuw i8, ptr %.sink17960, i64 %967
+  %.sink19326 = phi i32 [ %955, %960 ], [ %953, %962 ]
+  %.sink19324 = phi ptr [ %961, %960 ], [ %.05402, %962 ]
+  %967 = zext nneg i32 %.sink19326 to i64
+  %968 = getelementptr inbounds nuw i8, ptr %.sink19324, i64 %967
   %.56650 = load i64, ptr %968, align 8, !tbaa !70
   %969 = icmp eq i64 %.56650, 0
   br i1 %969, label %.thread14079.thread, label %970
@@ -2483,10 +2483,10 @@ ptr_register_glob_fixedid.exit12557:              ; preds = %65, %._crit_edge.i1
   br i1 %.not11578, label %.thread14091.sink.split, label %.thread13776
 
 .thread14091.sink.split:                          ; preds = %990, %988
-  %.sink17966 = phi i32 [ %985, %988 ], [ %983, %990 ]
-  %.sink17964 = phi ptr [ %989, %988 ], [ %.05402, %990 ]
-  %993 = zext nneg i32 %.sink17966 to i64
-  %994 = getelementptr inbounds nuw i8, ptr %.sink17964, i64 %993
+  %.sink19330 = phi i32 [ %985, %988 ], [ %983, %990 ]
+  %.sink19328 = phi ptr [ %989, %988 ], [ %.05402, %990 ]
+  %993 = zext nneg i32 %.sink19330 to i64
+  %994 = getelementptr inbounds nuw i8, ptr %.sink19328, i64 %993
   %995 = load i8, ptr %994, align 1, !tbaa !62
   %996 = and i8 %995, 1
   br label %.thread14091
@@ -2519,10 +2519,10 @@ ptr_register_glob_fixedid.exit12557:              ; preds = %65, %._crit_edge.i1
   br i1 %.not11582, label %.thread14096, label %.thread13776
 
 .thread14096:                                     ; preds = %1005, %1003
-  %.sink17969 = phi i32 [ %1000, %1003 ], [ %998, %1005 ]
-  %.sink17967 = phi ptr [ %1004, %1003 ], [ %.05402, %1005 ]
-  %1008 = zext nneg i32 %.sink17969 to i64
-  %1009 = getelementptr inbounds nuw i8, ptr %.sink17967, i64 %1008
+  %.sink19333 = phi i32 [ %1000, %1003 ], [ %998, %1005 ]
+  %.sink19331 = phi ptr [ %1004, %1003 ], [ %.05402, %1005 ]
+  %1008 = zext nneg i32 %.sink19333 to i64
+  %1009 = getelementptr inbounds nuw i8, ptr %.sink19331, i64 %1008
   %.56678 = load i8, ptr %1009, align 1, !tbaa !62
   %1010 = and i8 %.56678, 1
   %.not11585.not = icmp eq i8 %1010, 0
@@ -2573,10 +2573,10 @@ ptr_register_glob_fixedid.exit12557:              ; preds = %65, %._crit_edge.i1
   br i1 %.not11568, label %.thread14108.sink.split, label %.thread13776
 
 .thread14108.sink.split:                          ; preds = %1028, %1026
-  %.sink17973 = phi i32 [ %1023, %1026 ], [ %1021, %1028 ]
-  %.sink17971 = phi ptr [ %1027, %1026 ], [ %.05402, %1028 ]
-  %1031 = zext nneg i32 %.sink17973 to i64
-  %1032 = getelementptr inbounds nuw i8, ptr %.sink17971, i64 %1031
+  %.sink19337 = phi i32 [ %1023, %1026 ], [ %1021, %1028 ]
+  %.sink19335 = phi ptr [ %1027, %1026 ], [ %.05402, %1028 ]
+  %1031 = zext nneg i32 %.sink19337 to i64
+  %1032 = getelementptr inbounds nuw i8, ptr %.sink19335, i64 %1031
   %1033 = load i8, ptr %1032, align 1, !tbaa !62
   %1034 = sext i8 %1033 to i16
   br label %.thread14108
@@ -2609,10 +2609,10 @@ ptr_register_glob_fixedid.exit12557:              ; preds = %65, %._crit_edge.i1
   br i1 %.not11572, label %.thread14113, label %.thread13776
 
 .thread14113:                                     ; preds = %1043, %1041
-  %.sink17976 = phi i32 [ %1038, %1041 ], [ %1036, %1043 ]
-  %.sink17974 = phi ptr [ %1042, %1041 ], [ %.05402, %1043 ]
-  %1046 = zext nneg i32 %.sink17976 to i64
-  %1047 = getelementptr inbounds nuw i8, ptr %.sink17974, i64 %1046
+  %.sink19340 = phi i32 [ %1038, %1041 ], [ %1036, %1043 ]
+  %.sink19338 = phi ptr [ %1042, %1041 ], [ %.05402, %1043 ]
+  %1046 = zext nneg i32 %.sink19340 to i64
+  %1047 = getelementptr inbounds nuw i8, ptr %.sink19338, i64 %1046
   %.56706 = load i8, ptr %1047, align 1, !tbaa !62
   %.not17717 = icmp eq i8 %.56706, 0
   br i1 %.not17717, label %.thread14113.thread, label %1048
@@ -2673,10 +2673,10 @@ ptr_register_glob_fixedid.exit12557:              ; preds = %65, %._crit_edge.i1
   br i1 %or.cond11974, label %.thread14125.sink.split, label %.thread13776
 
 .thread14125.sink.split:                          ; preds = %1069, %1067
-  %.sink17980 = phi i32 [ %1062, %1067 ], [ %1060, %1069 ]
-  %.sink17978 = phi ptr [ %1068, %1067 ], [ %.05402, %1069 ]
-  %1074 = zext nneg i32 %.sink17980 to i64
-  %1075 = getelementptr inbounds nuw i8, ptr %.sink17978, i64 %1074
+  %.sink19344 = phi i32 [ %1062, %1067 ], [ %1060, %1069 ]
+  %.sink19342 = phi ptr [ %1068, %1067 ], [ %.05402, %1069 ]
+  %1074 = zext nneg i32 %.sink19344 to i64
+  %1075 = getelementptr inbounds nuw i8, ptr %.sink19342, i64 %1074
   %1076 = load i16, ptr %1075, align 2, !tbaa !69
   %1077 = sext i16 %1076 to i32
   br label %.thread14125
@@ -2717,10 +2717,10 @@ ptr_register_glob_fixedid.exit12557:              ; preds = %65, %._crit_edge.i1
   br i1 %or.cond11976, label %.thread14130, label %.thread13776
 
 .thread14130:                                     ; preds = %1088, %1086
-  %.sink17983 = phi i32 [ %1081, %1086 ], [ %1079, %1088 ]
-  %.sink17981 = phi ptr [ %1087, %1086 ], [ %.05402, %1088 ]
-  %1093 = zext nneg i32 %.sink17983 to i64
-  %1094 = getelementptr inbounds nuw i8, ptr %.sink17981, i64 %1093
+  %.sink19347 = phi i32 [ %1081, %1086 ], [ %1079, %1088 ]
+  %.sink19345 = phi ptr [ %1087, %1086 ], [ %.05402, %1088 ]
+  %1093 = zext nneg i32 %.sink19347 to i64
+  %1094 = getelementptr inbounds nuw i8, ptr %.sink19345, i64 %1093
   %.56720 = load i16, ptr %1094, align 2, !tbaa !69
   %.not17716 = icmp eq i16 %.56720, 0
   br i1 %.not17716, label %.thread14130.thread, label %1095
@@ -2785,10 +2785,10 @@ ptr_register_glob_fixedid.exit12557:              ; preds = %65, %._crit_edge.i1
   br i1 %or.cond11979, label %.thread14142.sink.split, label %.thread13776
 
 .thread14142.sink.split:                          ; preds = %1119, %1117
-  %.sink17987 = phi i32 [ %1112, %1117 ], [ %1110, %1119 ]
-  %.sink17985 = phi ptr [ %1118, %1117 ], [ %.05402, %1119 ]
-  %1124 = zext nneg i32 %.sink17987 to i64
-  %1125 = getelementptr inbounds nuw i8, ptr %.sink17985, i64 %1124
+  %.sink19351 = phi i32 [ %1112, %1117 ], [ %1110, %1119 ]
+  %.sink19349 = phi ptr [ %1118, %1117 ], [ %.05402, %1119 ]
+  %1124 = zext nneg i32 %.sink19351 to i64
+  %1125 = getelementptr inbounds nuw i8, ptr %.sink19349, i64 %1124
   %1126 = load i32, ptr %1125, align 4, !tbaa !34
   br label %.thread14142
 
@@ -2828,10 +2828,10 @@ ptr_register_glob_fixedid.exit12557:              ; preds = %65, %._crit_edge.i1
   br i1 %or.cond11981, label %.thread14147, label %.thread13776
 
 .thread14147:                                     ; preds = %1137, %1135
-  %.sink17990 = phi i32 [ %1130, %1135 ], [ %1128, %1137 ]
-  %.sink17988 = phi ptr [ %1136, %1135 ], [ %.05402, %1137 ]
-  %1142 = zext nneg i32 %.sink17990 to i64
-  %1143 = getelementptr inbounds nuw i8, ptr %.sink17988, i64 %1142
+  %.sink19354 = phi i32 [ %1130, %1135 ], [ %1128, %1137 ]
+  %.sink19352 = phi ptr [ %1136, %1135 ], [ %.05402, %1137 ]
+  %1142 = zext nneg i32 %.sink19354 to i64
+  %1143 = getelementptr inbounds nuw i8, ptr %.sink19352, i64 %1142
   %.56734 = load i32, ptr %1143, align 4, !tbaa !34
   %.not17715 = icmp eq i32 %.56734, 0
   br i1 %.not17715, label %.thread14147.thread, label %1144
@@ -2894,10 +2894,10 @@ ptr_register_glob_fixedid.exit12557:              ; preds = %65, %._crit_edge.i1
   br i1 %or.cond11984, label %.thread14159.sink.split, label %.thread13776
 
 .thread14159.sink.split:                          ; preds = %1166, %1164
-  %.sink17994 = phi i32 [ %1159, %1164 ], [ %1157, %1166 ]
-  %.sink17992 = phi ptr [ %1165, %1164 ], [ %.05402, %1166 ]
-  %1171 = zext nneg i32 %.sink17994 to i64
-  %1172 = getelementptr inbounds nuw i8, ptr %.sink17992, i64 %1171
+  %.sink19358 = phi i32 [ %1159, %1164 ], [ %1157, %1166 ]
+  %.sink19356 = phi ptr [ %1165, %1164 ], [ %.05402, %1166 ]
+  %1171 = zext nneg i32 %.sink19358 to i64
+  %1172 = getelementptr inbounds nuw i8, ptr %.sink19356, i64 %1171
   %1173 = load i64, ptr %1172, align 8, !tbaa !70
   br label %.thread14159
 
@@ -2937,10 +2937,10 @@ ptr_register_glob_fixedid.exit12557:              ; preds = %65, %._crit_edge.i1
   br i1 %or.cond11986, label %.thread14164, label %.thread13776
 
 .thread14164:                                     ; preds = %1184, %1182
-  %.sink17997 = phi i32 [ %1177, %1182 ], [ %1175, %1184 ]
-  %.sink17995 = phi ptr [ %1183, %1182 ], [ %.05402, %1184 ]
-  %1189 = zext nneg i32 %.sink17997 to i64
-  %1190 = getelementptr inbounds nuw i8, ptr %.sink17995, i64 %1189
+  %.sink19361 = phi i32 [ %1177, %1182 ], [ %1175, %1184 ]
+  %.sink19359 = phi ptr [ %1183, %1182 ], [ %.05402, %1184 ]
+  %1189 = zext nneg i32 %.sink19361 to i64
+  %1190 = getelementptr inbounds nuw i8, ptr %.sink19359, i64 %1189
   %.56758 = load i64, ptr %1190, align 8, !tbaa !70
   %.56758.fr = freeze i64 %.56758
   %1191 = icmp ne i64 %.56758.fr, 0
@@ -3022,10 +3022,10 @@ ptr_register_glob_fixedid.exit12557:              ; preds = %65, %._crit_edge.i1
   br i1 %.not11518, label %.thread14181, label %.thread13776
 
 .thread14181:                                     ; preds = %1223, %1221
-  %.sink18000 = phi i32 [ %1218, %1221 ], [ %1216, %1223 ]
-  %.sink17998 = phi ptr [ %1222, %1221 ], [ %.05402, %1223 ]
-  %1226 = zext nneg i32 %.sink18000 to i64
-  %1227 = getelementptr inbounds nuw i8, ptr %.sink17998, i64 %1226
+  %.sink19364 = phi i32 [ %1218, %1221 ], [ %1216, %1223 ]
+  %.sink19362 = phi ptr [ %1222, %1221 ], [ %.05402, %1223 ]
+  %1226 = zext nneg i32 %.sink19364 to i64
+  %1227 = getelementptr inbounds nuw i8, ptr %.sink19362, i64 %1226
   %.56797 = load i8, ptr %1227, align 1, !tbaa !62
   %1228 = and i8 %.56797, 1
   %1229 = icmp eq i8 %1228, 0
@@ -3076,10 +3076,10 @@ ptr_register_glob_fixedid.exit12557:              ; preds = %65, %._crit_edge.i1
   br i1 %.not11505, label %.thread14193.sink.split, label %.thread13776
 
 .thread14193.sink.split:                          ; preds = %1247, %1245
-  %.sink18004 = phi i32 [ %1242, %1245 ], [ %1240, %1247 ]
-  %.sink18002 = phi ptr [ %1246, %1245 ], [ %.05402, %1247 ]
-  %1250 = zext nneg i32 %.sink18004 to i64
-  %1251 = getelementptr inbounds nuw i8, ptr %.sink18002, i64 %1250
+  %.sink19368 = phi i32 [ %1242, %1245 ], [ %1240, %1247 ]
+  %.sink19366 = phi ptr [ %1246, %1245 ], [ %.05402, %1247 ]
+  %1250 = zext nneg i32 %.sink19368 to i64
+  %1251 = getelementptr inbounds nuw i8, ptr %.sink19366, i64 %1250
   %1252 = load i8, ptr %1251, align 1, !tbaa !62
   br label %.thread14193
 
@@ -3111,10 +3111,10 @@ ptr_register_glob_fixedid.exit12557:              ; preds = %65, %._crit_edge.i1
   br i1 %.not11509, label %.thread14198, label %.thread13776
 
 .thread14198:                                     ; preds = %1261, %1259
-  %.sink18007 = phi i32 [ %1256, %1259 ], [ %1254, %1261 ]
-  %.sink18005 = phi ptr [ %1260, %1259 ], [ %.05402, %1261 ]
-  %1264 = zext nneg i32 %.sink18007 to i64
-  %1265 = getelementptr inbounds nuw i8, ptr %.sink18005, i64 %1264
+  %.sink19371 = phi i32 [ %1256, %1259 ], [ %1254, %1261 ]
+  %.sink19369 = phi ptr [ %1260, %1259 ], [ %.05402, %1261 ]
+  %1264 = zext nneg i32 %.sink19371 to i64
+  %1265 = getelementptr inbounds nuw i8, ptr %.sink19369, i64 %1264
   %.56821 = load i8, ptr %1265, align 1, !tbaa !62
   %1266 = icmp eq i8 %.56821, 0
   br i1 %1266, label %.thread14198.thread, label %1267
@@ -3173,10 +3173,10 @@ ptr_register_glob_fixedid.exit12557:              ; preds = %65, %._crit_edge.i1
   br i1 %or.cond11989, label %.thread14210.sink.split, label %.thread13776
 
 .thread14210.sink.split:                          ; preds = %1287, %1285
-  %.sink18011 = phi i32 [ %1280, %1285 ], [ %1278, %1287 ]
-  %.sink18009 = phi ptr [ %1286, %1285 ], [ %.05402, %1287 ]
-  %1292 = zext nneg i32 %.sink18011 to i64
-  %1293 = getelementptr inbounds nuw i8, ptr %.sink18009, i64 %1292
+  %.sink19375 = phi i32 [ %1280, %1285 ], [ %1278, %1287 ]
+  %.sink19373 = phi ptr [ %1286, %1285 ], [ %.05402, %1287 ]
+  %1292 = zext nneg i32 %.sink19375 to i64
+  %1293 = getelementptr inbounds nuw i8, ptr %.sink19373, i64 %1292
   %1294 = load i16, ptr %1293, align 2, !tbaa !69
   br label %.thread14210
 
@@ -3216,10 +3216,10 @@ ptr_register_glob_fixedid.exit12557:              ; preds = %65, %._crit_edge.i1
   br i1 %or.cond11991, label %.thread14215, label %.thread13776
 
 .thread14215:                                     ; preds = %1305, %1303
-  %.sink18014 = phi i32 [ %1298, %1303 ], [ %1296, %1305 ]
-  %.sink18012 = phi ptr [ %1304, %1303 ], [ %.05402, %1305 ]
-  %1310 = zext nneg i32 %.sink18014 to i64
-  %1311 = getelementptr inbounds nuw i8, ptr %.sink18012, i64 %1310
+  %.sink19378 = phi i32 [ %1298, %1303 ], [ %1296, %1305 ]
+  %.sink19376 = phi ptr [ %1304, %1303 ], [ %.05402, %1305 ]
+  %1310 = zext nneg i32 %.sink19378 to i64
+  %1311 = getelementptr inbounds nuw i8, ptr %.sink19376, i64 %1310
   %.56845 = load i16, ptr %1311, align 2, !tbaa !69
   %1312 = icmp eq i16 %.56845, 0
   br i1 %1312, label %.thread14215.thread, label %1313
@@ -3282,10 +3282,10 @@ ptr_register_glob_fixedid.exit12557:              ; preds = %65, %._crit_edge.i1
   br i1 %or.cond11994, label %.thread14227.sink.split, label %.thread13776
 
 .thread14227.sink.split:                          ; preds = %1335, %1333
-  %.sink18018 = phi i32 [ %1328, %1333 ], [ %1326, %1335 ]
-  %.sink18016 = phi ptr [ %1334, %1333 ], [ %.05402, %1335 ]
-  %1340 = zext nneg i32 %.sink18018 to i64
-  %1341 = getelementptr inbounds nuw i8, ptr %.sink18016, i64 %1340
+  %.sink19382 = phi i32 [ %1328, %1333 ], [ %1326, %1335 ]
+  %.sink19380 = phi ptr [ %1334, %1333 ], [ %.05402, %1335 ]
+  %1340 = zext nneg i32 %.sink19382 to i64
+  %1341 = getelementptr inbounds nuw i8, ptr %.sink19380, i64 %1340
   %1342 = load i32, ptr %1341, align 4, !tbaa !34
   br label %.thread14227
 
@@ -3325,10 +3325,10 @@ ptr_register_glob_fixedid.exit12557:              ; preds = %65, %._crit_edge.i1
   br i1 %or.cond11996, label %.thread14232, label %.thread13776
 
 .thread14232:                                     ; preds = %1353, %1351
-  %.sink18021 = phi i32 [ %1346, %1351 ], [ %1344, %1353 ]
-  %.sink18019 = phi ptr [ %1352, %1351 ], [ %.05402, %1353 ]
-  %1358 = zext nneg i32 %.sink18021 to i64
-  %1359 = getelementptr inbounds nuw i8, ptr %.sink18019, i64 %1358
+  %.sink19385 = phi i32 [ %1346, %1351 ], [ %1344, %1353 ]
+  %.sink19383 = phi ptr [ %1352, %1351 ], [ %.05402, %1353 ]
+  %1358 = zext nneg i32 %.sink19385 to i64
+  %1359 = getelementptr inbounds nuw i8, ptr %.sink19383, i64 %1358
   %.56891 = load i32, ptr %1359, align 4, !tbaa !34
   %1360 = icmp eq i32 %.56891, 0
   br i1 %1360, label %.thread14232.thread, label %1361
@@ -3391,10 +3391,10 @@ ptr_register_glob_fixedid.exit12557:              ; preds = %65, %._crit_edge.i1
   br i1 %or.cond11999, label %.thread14244.sink.split, label %.thread13776
 
 .thread14244.sink.split:                          ; preds = %1383, %1381
-  %.sink18025 = phi i32 [ %1376, %1381 ], [ %1374, %1383 ]
-  %.sink18023 = phi ptr [ %1382, %1381 ], [ %.05402, %1383 ]
-  %1388 = zext nneg i32 %.sink18025 to i64
-  %1389 = getelementptr inbounds nuw i8, ptr %.sink18023, i64 %1388
+  %.sink19389 = phi i32 [ %1376, %1381 ], [ %1374, %1383 ]
+  %.sink19387 = phi ptr [ %1382, %1381 ], [ %.05402, %1383 ]
+  %1388 = zext nneg i32 %.sink19389 to i64
+  %1389 = getelementptr inbounds nuw i8, ptr %.sink19387, i64 %1388
   %1390 = load i64, ptr %1389, align 8, !tbaa !70
   br label %.thread14244
 
@@ -3434,10 +3434,10 @@ ptr_register_glob_fixedid.exit12557:              ; preds = %65, %._crit_edge.i1
   br i1 %or.cond12001, label %.thread14249, label %.thread13776
 
 .thread14249:                                     ; preds = %1401, %1399
-  %.sink18028 = phi i32 [ %1394, %1399 ], [ %1392, %1401 ]
-  %.sink18026 = phi ptr [ %1400, %1399 ], [ %.05402, %1401 ]
-  %1406 = zext nneg i32 %.sink18028 to i64
-  %1407 = getelementptr inbounds nuw i8, ptr %.sink18026, i64 %1406
+  %.sink19392 = phi i32 [ %1394, %1399 ], [ %1392, %1401 ]
+  %.sink19390 = phi ptr [ %1400, %1399 ], [ %.05402, %1401 ]
+  %1406 = zext nneg i32 %.sink19392 to i64
+  %1407 = getelementptr inbounds nuw i8, ptr %.sink19390, i64 %1406
   %.56932 = load i64, ptr %1407, align 8, !tbaa !70
   %1408 = icmp eq i64 %.56932, 0
   br i1 %1408, label %.thread14249.thread, label %1409
@@ -3514,10 +3514,10 @@ ptr_register_glob_fixedid.exit12557:              ; preds = %65, %._crit_edge.i1
   br i1 %.not11457, label %.thread14266, label %.thread13776
 
 .thread14266:                                     ; preds = %1438, %1436
-  %.sink18031 = phi i32 [ %1433, %1436 ], [ %1431, %1438 ]
-  %.sink18029 = phi ptr [ %1437, %1436 ], [ %.05402, %1438 ]
-  %1441 = zext nneg i32 %.sink18031 to i64
-  %1442 = getelementptr inbounds nuw i8, ptr %.sink18029, i64 %1441
+  %.sink19395 = phi i32 [ %1433, %1436 ], [ %1431, %1438 ]
+  %.sink19393 = phi ptr [ %1437, %1436 ], [ %.05402, %1438 ]
+  %1441 = zext nneg i32 %.sink19395 to i64
+  %1442 = getelementptr inbounds nuw i8, ptr %.sink19393, i64 %1441
   %.56946 = load i8, ptr %1442, align 1, !tbaa !62
   %1443 = and i8 %.56946, 1
   %.not11460.not = icmp eq i8 %1443, 0
@@ -3568,10 +3568,10 @@ ptr_register_glob_fixedid.exit12557:              ; preds = %65, %._crit_edge.i1
   br i1 %.not11443, label %.thread14278.sink.split, label %.thread13776
 
 .thread14278.sink.split:                          ; preds = %1461, %1459
-  %.sink18035 = phi i32 [ %1456, %1459 ], [ %1454, %1461 ]
-  %.sink18033 = phi ptr [ %1460, %1459 ], [ %.05402, %1461 ]
-  %1464 = zext nneg i32 %.sink18035 to i64
-  %1465 = getelementptr inbounds nuw i8, ptr %.sink18033, i64 %1464
+  %.sink19399 = phi i32 [ %1456, %1459 ], [ %1454, %1461 ]
+  %.sink19397 = phi ptr [ %1460, %1459 ], [ %.05402, %1461 ]
+  %1464 = zext nneg i32 %.sink19399 to i64
+  %1465 = getelementptr inbounds nuw i8, ptr %.sink19397, i64 %1464
   %1466 = load i8, ptr %1465, align 1, !tbaa !62
   %1467 = sext i8 %1466 to i16
   br label %.thread14278
@@ -3604,10 +3604,10 @@ ptr_register_glob_fixedid.exit12557:              ; preds = %65, %._crit_edge.i1
   br i1 %.not11447, label %.thread14283, label %.thread13776
 
 .thread14283:                                     ; preds = %1476, %1474
-  %.sink18038 = phi i32 [ %1471, %1474 ], [ %1469, %1476 ]
-  %.sink18036 = phi ptr [ %1475, %1474 ], [ %.05402, %1476 ]
-  %1479 = zext nneg i32 %.sink18038 to i64
-  %1480 = getelementptr inbounds nuw i8, ptr %.sink18036, i64 %1479
+  %.sink19402 = phi i32 [ %1471, %1474 ], [ %1469, %1476 ]
+  %.sink19400 = phi ptr [ %1475, %1474 ], [ %.05402, %1476 ]
+  %1479 = zext nneg i32 %.sink19402 to i64
+  %1480 = getelementptr inbounds nuw i8, ptr %.sink19400, i64 %1479
   %.56978 = load i8, ptr %1480, align 1, !tbaa !62
   %.not17711 = icmp eq i8 %.56978, 0
   br i1 %.not17711, label %.thread14283.thread, label %1481
@@ -3668,10 +3668,10 @@ ptr_register_glob_fixedid.exit12557:              ; preds = %65, %._crit_edge.i1
   br i1 %or.cond12004, label %.thread14295.sink.split, label %.thread13776
 
 .thread14295.sink.split:                          ; preds = %1502, %1500
-  %.sink18042 = phi i32 [ %1495, %1500 ], [ %1493, %1502 ]
-  %.sink18040 = phi ptr [ %1501, %1500 ], [ %.05402, %1502 ]
-  %1507 = zext nneg i32 %.sink18042 to i64
-  %1508 = getelementptr inbounds nuw i8, ptr %.sink18040, i64 %1507
+  %.sink19406 = phi i32 [ %1495, %1500 ], [ %1493, %1502 ]
+  %.sink19404 = phi ptr [ %1501, %1500 ], [ %.05402, %1502 ]
+  %1507 = zext nneg i32 %.sink19406 to i64
+  %1508 = getelementptr inbounds nuw i8, ptr %.sink19404, i64 %1507
   %1509 = load i16, ptr %1508, align 2, !tbaa !69
   %1510 = sext i16 %1509 to i32
   br label %.thread14295
@@ -3712,10 +3712,10 @@ ptr_register_glob_fixedid.exit12557:              ; preds = %65, %._crit_edge.i1
   br i1 %or.cond12006, label %.thread14300, label %.thread13776
 
 .thread14300:                                     ; preds = %1521, %1519
-  %.sink18045 = phi i32 [ %1514, %1519 ], [ %1512, %1521 ]
-  %.sink18043 = phi ptr [ %1520, %1519 ], [ %.05402, %1521 ]
-  %1526 = zext nneg i32 %.sink18045 to i64
-  %1527 = getelementptr inbounds nuw i8, ptr %.sink18043, i64 %1526
+  %.sink19409 = phi i32 [ %1514, %1519 ], [ %1512, %1521 ]
+  %.sink19407 = phi ptr [ %1520, %1519 ], [ %.05402, %1521 ]
+  %1526 = zext nneg i32 %.sink19409 to i64
+  %1527 = getelementptr inbounds nuw i8, ptr %.sink19407, i64 %1526
   %.56992 = load i16, ptr %1527, align 2, !tbaa !69
   %.not17710 = icmp eq i16 %.56992, 0
   br i1 %.not17710, label %.thread14300.thread, label %1528
@@ -3780,10 +3780,10 @@ ptr_register_glob_fixedid.exit12557:              ; preds = %65, %._crit_edge.i1
   br i1 %or.cond12009, label %.thread14312.sink.split, label %.thread13776
 
 .thread14312.sink.split:                          ; preds = %1552, %1550
-  %.sink18049 = phi i32 [ %1545, %1550 ], [ %1543, %1552 ]
-  %.sink18047 = phi ptr [ %1551, %1550 ], [ %.05402, %1552 ]
-  %1557 = zext nneg i32 %.sink18049 to i64
-  %1558 = getelementptr inbounds nuw i8, ptr %.sink18047, i64 %1557
+  %.sink19413 = phi i32 [ %1545, %1550 ], [ %1543, %1552 ]
+  %.sink19411 = phi ptr [ %1551, %1550 ], [ %.05402, %1552 ]
+  %1557 = zext nneg i32 %.sink19413 to i64
+  %1558 = getelementptr inbounds nuw i8, ptr %.sink19411, i64 %1557
   %1559 = load i32, ptr %1558, align 4, !tbaa !34
   br label %.thread14312
 
@@ -3823,10 +3823,10 @@ ptr_register_glob_fixedid.exit12557:              ; preds = %65, %._crit_edge.i1
   br i1 %or.cond12011, label %.thread14317, label %.thread13776
 
 .thread14317:                                     ; preds = %1570, %1568
-  %.sink18052 = phi i32 [ %1563, %1568 ], [ %1561, %1570 ]
-  %.sink18050 = phi ptr [ %1569, %1568 ], [ %.05402, %1570 ]
-  %1575 = zext nneg i32 %.sink18052 to i64
-  %1576 = getelementptr inbounds nuw i8, ptr %.sink18050, i64 %1575
+  %.sink19416 = phi i32 [ %1563, %1568 ], [ %1561, %1570 ]
+  %.sink19414 = phi ptr [ %1569, %1568 ], [ %.05402, %1570 ]
+  %1575 = zext nneg i32 %.sink19416 to i64
+  %1576 = getelementptr inbounds nuw i8, ptr %.sink19414, i64 %1575
   %.57059 = load i32, ptr %1576, align 4, !tbaa !34
   %.not17709 = icmp eq i32 %.57059, 0
   br i1 %.not17709, label %.thread14317.thread, label %1577
@@ -3889,10 +3889,10 @@ ptr_register_glob_fixedid.exit12557:              ; preds = %65, %._crit_edge.i1
   br i1 %or.cond12014, label %.thread14329.sink.split, label %.thread13776
 
 .thread14329.sink.split:                          ; preds = %1599, %1597
-  %.sink18056 = phi i32 [ %1592, %1597 ], [ %1590, %1599 ]
-  %.sink18054 = phi ptr [ %1598, %1597 ], [ %.05402, %1599 ]
-  %1604 = zext nneg i32 %.sink18056 to i64
-  %1605 = getelementptr inbounds nuw i8, ptr %.sink18054, i64 %1604
+  %.sink19420 = phi i32 [ %1592, %1597 ], [ %1590, %1599 ]
+  %.sink19418 = phi ptr [ %1598, %1597 ], [ %.05402, %1599 ]
+  %1604 = zext nneg i32 %.sink19420 to i64
+  %1605 = getelementptr inbounds nuw i8, ptr %.sink19418, i64 %1604
   %1606 = load i64, ptr %1605, align 8, !tbaa !70
   br label %.thread14329
 
@@ -3932,10 +3932,10 @@ ptr_register_glob_fixedid.exit12557:              ; preds = %65, %._crit_edge.i1
   br i1 %or.cond12016, label %.thread14334, label %.thread13776
 
 .thread14334:                                     ; preds = %1617, %1615
-  %.sink18059 = phi i32 [ %1610, %1615 ], [ %1608, %1617 ]
-  %.sink18057 = phi ptr [ %1616, %1615 ], [ %.05402, %1617 ]
-  %1622 = zext nneg i32 %.sink18059 to i64
-  %1623 = getelementptr inbounds nuw i8, ptr %.sink18057, i64 %1622
+  %.sink19423 = phi i32 [ %1610, %1615 ], [ %1608, %1617 ]
+  %.sink19421 = phi ptr [ %1616, %1615 ], [ %.05402, %1617 ]
+  %1622 = zext nneg i32 %.sink19423 to i64
+  %1623 = getelementptr inbounds nuw i8, ptr %.sink19421, i64 %1622
   %.57082 = load i64, ptr %1623, align 8, !tbaa !70
   %.57082.fr = freeze i64 %.57082
   %1624 = icmp ne i64 %.57082.fr, 0
@@ -3995,10 +3995,10 @@ ptr_register_glob_fixedid.exit12557:              ; preds = %65, %._crit_edge.i1
   br i1 %.not11389, label %.thread14346.sink.split, label %.thread13776
 
 .thread14346.sink.split:                          ; preds = %1647, %1645
-  %.sink18063 = phi i32 [ %1642, %1645 ], [ %1640, %1647 ]
-  %.sink18061 = phi ptr [ %1646, %1645 ], [ %.05402, %1647 ]
-  %1650 = zext nneg i32 %.sink18063 to i64
-  %1651 = getelementptr inbounds nuw i8, ptr %.sink18061, i64 %1650
+  %.sink19427 = phi i32 [ %1642, %1645 ], [ %1640, %1647 ]
+  %.sink19425 = phi ptr [ %1646, %1645 ], [ %.05402, %1647 ]
+  %1650 = zext nneg i32 %.sink19427 to i64
+  %1651 = getelementptr inbounds nuw i8, ptr %.sink19425, i64 %1650
   %1652 = load i8, ptr %1651, align 1, !tbaa !62
   %1653 = and i8 %1652, 1
   br label %.thread14346
@@ -4031,10 +4031,10 @@ ptr_register_glob_fixedid.exit12557:              ; preds = %65, %._crit_edge.i1
   br i1 %.not11393, label %.thread14351.sink.split, label %.thread13776
 
 .thread14351.sink.split:                          ; preds = %1662, %1660
-  %.sink18067 = phi i32 [ %1657, %1660 ], [ %1655, %1662 ]
-  %.sink18065 = phi ptr [ %1661, %1660 ], [ %.05402, %1662 ]
-  %1665 = zext nneg i32 %.sink18067 to i64
-  %1666 = getelementptr inbounds nuw i8, ptr %.sink18065, i64 %1665
+  %.sink19431 = phi i32 [ %1657, %1660 ], [ %1655, %1662 ]
+  %.sink19429 = phi ptr [ %1661, %1660 ], [ %.05402, %1662 ]
+  %1665 = zext nneg i32 %.sink19431 to i64
+  %1666 = getelementptr inbounds nuw i8, ptr %.sink19429, i64 %1665
   %1667 = load i8, ptr %1666, align 1, !tbaa !62
   %1668 = and i8 %1667, 1
   br label %.thread14351
@@ -4093,10 +4093,10 @@ ptr_register_glob_fixedid.exit12557:              ; preds = %65, %._crit_edge.i1
   br i1 %.not11380, label %.thread14363.sink.split, label %.thread13776
 
 .thread14363.sink.split:                          ; preds = %1692, %1690
-  %.sink18071 = phi i32 [ %1687, %1690 ], [ %1685, %1692 ]
-  %.sink18069 = phi ptr [ %1691, %1690 ], [ %.05402, %1692 ]
-  %1695 = zext nneg i32 %.sink18071 to i64
-  %1696 = getelementptr inbounds nuw i8, ptr %.sink18069, i64 %1695
+  %.sink19435 = phi i32 [ %1687, %1690 ], [ %1685, %1692 ]
+  %.sink19433 = phi ptr [ %1691, %1690 ], [ %.05402, %1692 ]
+  %1695 = zext nneg i32 %.sink19435 to i64
+  %1696 = getelementptr inbounds nuw i8, ptr %.sink19433, i64 %1695
   %1697 = load i8, ptr %1696, align 1, !tbaa !62
   %1698 = zext i8 %1697 to i32
   br label %.thread14363
@@ -4129,10 +4129,10 @@ ptr_register_glob_fixedid.exit12557:              ; preds = %65, %._crit_edge.i1
   br i1 %.not11384, label %.thread14368.sink.split, label %.thread13776
 
 .thread14368.sink.split:                          ; preds = %1707, %1705
-  %.sink18075 = phi i32 [ %1702, %1705 ], [ %1700, %1707 ]
-  %.sink18073 = phi ptr [ %1706, %1705 ], [ %.05402, %1707 ]
-  %1710 = zext nneg i32 %.sink18075 to i64
-  %1711 = getelementptr inbounds nuw i8, ptr %.sink18073, i64 %1710
+  %.sink19439 = phi i32 [ %1702, %1705 ], [ %1700, %1707 ]
+  %.sink19437 = phi ptr [ %1706, %1705 ], [ %.05402, %1707 ]
+  %1710 = zext nneg i32 %.sink19439 to i64
+  %1711 = getelementptr inbounds nuw i8, ptr %.sink19437, i64 %1710
   %1712 = load i8, ptr %1711, align 1, !tbaa !62
   br label %.thread14368
 
@@ -4200,10 +4200,10 @@ ptr_register_glob_fixedid.exit12557:              ; preds = %65, %._crit_edge.i1
   br i1 %or.cond12019, label %.thread14380.sink.split, label %.thread13776
 
 .thread14380.sink.split:                          ; preds = %1740, %1738
-  %.sink18079 = phi i32 [ %1733, %1738 ], [ %1731, %1740 ]
-  %.sink18077 = phi ptr [ %1739, %1738 ], [ %.05402, %1740 ]
-  %1745 = zext nneg i32 %.sink18079 to i64
-  %1746 = getelementptr inbounds nuw i8, ptr %.sink18077, i64 %1745
+  %.sink19443 = phi i32 [ %1733, %1738 ], [ %1731, %1740 ]
+  %.sink19441 = phi ptr [ %1739, %1738 ], [ %.05402, %1740 ]
+  %1745 = zext nneg i32 %.sink19443 to i64
+  %1746 = getelementptr inbounds nuw i8, ptr %.sink19441, i64 %1745
   %1747 = load i16, ptr %1746, align 2, !tbaa !69
   %1748 = zext i16 %1747 to i32
   br label %.thread14380
@@ -4244,10 +4244,10 @@ ptr_register_glob_fixedid.exit12557:              ; preds = %65, %._crit_edge.i1
   br i1 %or.cond12021, label %.thread14385, label %.thread13776
 
 .thread14385:                                     ; preds = %1759, %1757
-  %.sink18082 = phi i32 [ %1752, %1757 ], [ %1750, %1759 ]
-  %.sink18080 = phi ptr [ %1758, %1757 ], [ %.05402, %1759 ]
-  %1764 = zext nneg i32 %.sink18082 to i64
-  %1765 = getelementptr inbounds nuw i8, ptr %.sink18080, i64 %1764
+  %.sink19446 = phi i32 [ %1752, %1757 ], [ %1750, %1759 ]
+  %.sink19444 = phi ptr [ %1758, %1757 ], [ %.05402, %1759 ]
+  %1764 = zext nneg i32 %.sink19446 to i64
+  %1765 = getelementptr inbounds nuw i8, ptr %.sink19444, i64 %1764
   %.57181 = load i16, ptr %1765, align 2, !tbaa !69
   %1766 = getelementptr inbounds nuw i8, ptr %.013719, i64 4
   %1767 = load i16, ptr %1766, align 4, !tbaa !71
@@ -4315,10 +4315,10 @@ ptr_register_glob_fixedid.exit12557:              ; preds = %65, %._crit_edge.i1
   br i1 %or.cond12024, label %.thread14397.sink.split, label %.thread13776
 
 .thread14397.sink.split:                          ; preds = %1793, %1791
-  %.sink18086 = phi i32 [ %1786, %1791 ], [ %1784, %1793 ]
-  %.sink18084 = phi ptr [ %1792, %1791 ], [ %.05402, %1793 ]
-  %1798 = zext nneg i32 %.sink18086 to i64
-  %1799 = getelementptr inbounds nuw i8, ptr %.sink18084, i64 %1798
+  %.sink19450 = phi i32 [ %1786, %1791 ], [ %1784, %1793 ]
+  %.sink19448 = phi ptr [ %1792, %1791 ], [ %.05402, %1793 ]
+  %1798 = zext nneg i32 %.sink19450 to i64
+  %1799 = getelementptr inbounds nuw i8, ptr %.sink19448, i64 %1798
   %1800 = load i32, ptr %1799, align 4, !tbaa !34
   br label %.thread14397
 
@@ -4358,10 +4358,10 @@ ptr_register_glob_fixedid.exit12557:              ; preds = %65, %._crit_edge.i1
   br i1 %or.cond12026, label %.thread14402, label %.thread13776
 
 .thread14402:                                     ; preds = %1811, %1809
-  %.sink18089 = phi i32 [ %1804, %1809 ], [ %1802, %1811 ]
-  %.sink18087 = phi ptr [ %1810, %1809 ], [ %.05402, %1811 ]
-  %1816 = zext nneg i32 %.sink18089 to i64
-  %1817 = getelementptr inbounds nuw i8, ptr %.sink18087, i64 %1816
+  %.sink19453 = phi i32 [ %1804, %1809 ], [ %1802, %1811 ]
+  %.sink19451 = phi ptr [ %1810, %1809 ], [ %.05402, %1811 ]
+  %1816 = zext nneg i32 %.sink19453 to i64
+  %1817 = getelementptr inbounds nuw i8, ptr %.sink19451, i64 %1816
   %.57195 = load i32, ptr %1817, align 4, !tbaa !34
   %1818 = getelementptr inbounds nuw i8, ptr %.013719, i64 4
   %1819 = load i16, ptr %1818, align 4, !tbaa !71
@@ -4428,10 +4428,10 @@ ptr_register_glob_fixedid.exit12557:              ; preds = %65, %._crit_edge.i1
   br i1 %or.cond12029, label %.thread14414.sink.split, label %.thread13776
 
 .thread14414.sink.split:                          ; preds = %1844, %1842
-  %.sink18093 = phi i32 [ %1837, %1842 ], [ %1835, %1844 ]
-  %.sink18091 = phi ptr [ %1843, %1842 ], [ %.05402, %1844 ]
-  %1849 = zext nneg i32 %.sink18093 to i64
-  %1850 = getelementptr inbounds nuw i8, ptr %.sink18091, i64 %1849
+  %.sink19457 = phi i32 [ %1837, %1842 ], [ %1835, %1844 ]
+  %.sink19455 = phi ptr [ %1843, %1842 ], [ %.05402, %1844 ]
+  %1849 = zext nneg i32 %.sink19457 to i64
+  %1850 = getelementptr inbounds nuw i8, ptr %.sink19455, i64 %1849
   %1851 = load i64, ptr %1850, align 8, !tbaa !70
   br label %.thread14414
 
@@ -4471,10 +4471,10 @@ ptr_register_glob_fixedid.exit12557:              ; preds = %65, %._crit_edge.i1
   br i1 %or.cond12031, label %.thread14419, label %.thread13776
 
 .thread14419:                                     ; preds = %1862, %1860
-  %.sink18096 = phi i32 [ %1855, %1860 ], [ %1853, %1862 ]
-  %.sink18094 = phi ptr [ %1861, %1860 ], [ %.05402, %1862 ]
-  %1867 = zext nneg i32 %.sink18096 to i64
-  %1868 = getelementptr inbounds nuw i8, ptr %.sink18094, i64 %1867
+  %.sink19460 = phi i32 [ %1855, %1860 ], [ %1853, %1862 ]
+  %.sink19458 = phi ptr [ %1861, %1860 ], [ %.05402, %1862 ]
+  %1867 = zext nneg i32 %.sink19460 to i64
+  %1868 = getelementptr inbounds nuw i8, ptr %.sink19458, i64 %1867
   %.57230 = load i64, ptr %1868, align 8, !tbaa !70
   %1869 = getelementptr inbounds nuw i8, ptr %.013719, i64 4
   %1870 = load i16, ptr %1869, align 4, !tbaa !71
@@ -4533,10 +4533,10 @@ ptr_register_glob_fixedid.exit12557:              ; preds = %65, %._crit_edge.i1
   br i1 %.not11329, label %.thread14431.sink.split, label %.thread13776
 
 .thread14431.sink.split:                          ; preds = %1893, %1891
-  %.sink18100 = phi i32 [ %1888, %1891 ], [ %1886, %1893 ]
-  %.sink18098 = phi ptr [ %1892, %1891 ], [ %.05402, %1893 ]
-  %1896 = zext nneg i32 %.sink18100 to i64
-  %1897 = getelementptr inbounds nuw i8, ptr %.sink18098, i64 %1896
+  %.sink19464 = phi i32 [ %1888, %1891 ], [ %1886, %1893 ]
+  %.sink19462 = phi ptr [ %1892, %1891 ], [ %.05402, %1893 ]
+  %1896 = zext nneg i32 %.sink19464 to i64
+  %1897 = getelementptr inbounds nuw i8, ptr %.sink19462, i64 %1896
   %1898 = load i8, ptr %1897, align 1, !tbaa !62
   %1899 = and i8 %1898, 1
   br label %.thread14431
@@ -4569,10 +4569,10 @@ ptr_register_glob_fixedid.exit12557:              ; preds = %65, %._crit_edge.i1
   br i1 %.not11333, label %.thread14436.sink.split, label %.thread13776
 
 .thread14436.sink.split:                          ; preds = %1908, %1906
-  %.sink18104 = phi i32 [ %1903, %1906 ], [ %1901, %1908 ]
-  %.sink18102 = phi ptr [ %1907, %1906 ], [ %.05402, %1908 ]
-  %1911 = zext nneg i32 %.sink18104 to i64
-  %1912 = getelementptr inbounds nuw i8, ptr %.sink18102, i64 %1911
+  %.sink19468 = phi i32 [ %1903, %1906 ], [ %1901, %1908 ]
+  %.sink19466 = phi ptr [ %1907, %1906 ], [ %.05402, %1908 ]
+  %1911 = zext nneg i32 %.sink19468 to i64
+  %1912 = getelementptr inbounds nuw i8, ptr %.sink19466, i64 %1911
   %1913 = load i8, ptr %1912, align 1, !tbaa !62
   %1914 = and i8 %1913, 1
   br label %.thread14436
@@ -4631,10 +4631,10 @@ ptr_register_glob_fixedid.exit12557:              ; preds = %65, %._crit_edge.i1
   br i1 %.not11320, label %.thread14448.sink.split, label %.thread13776
 
 .thread14448.sink.split:                          ; preds = %1938, %1936
-  %.sink18108 = phi i32 [ %1933, %1936 ], [ %1931, %1938 ]
-  %.sink18106 = phi ptr [ %1937, %1936 ], [ %.05402, %1938 ]
-  %1941 = zext nneg i32 %.sink18108 to i64
-  %1942 = getelementptr inbounds nuw i8, ptr %.sink18106, i64 %1941
+  %.sink19472 = phi i32 [ %1933, %1936 ], [ %1931, %1938 ]
+  %.sink19470 = phi ptr [ %1937, %1936 ], [ %.05402, %1938 ]
+  %1941 = zext nneg i32 %.sink19472 to i64
+  %1942 = getelementptr inbounds nuw i8, ptr %.sink19470, i64 %1941
   %1943 = load i8, ptr %1942, align 1, !tbaa !62
   %1944 = zext i8 %1943 to i32
   br label %.thread14448
@@ -4667,10 +4667,10 @@ ptr_register_glob_fixedid.exit12557:              ; preds = %65, %._crit_edge.i1
   br i1 %.not11324, label %.thread14453.sink.split, label %.thread13776
 
 .thread14453.sink.split:                          ; preds = %1953, %1951
-  %.sink18112 = phi i32 [ %1948, %1951 ], [ %1946, %1953 ]
-  %.sink18110 = phi ptr [ %1952, %1951 ], [ %.05402, %1953 ]
-  %1956 = zext nneg i32 %.sink18112 to i64
-  %1957 = getelementptr inbounds nuw i8, ptr %.sink18110, i64 %1956
+  %.sink19476 = phi i32 [ %1948, %1951 ], [ %1946, %1953 ]
+  %.sink19474 = phi ptr [ %1952, %1951 ], [ %.05402, %1953 ]
+  %1956 = zext nneg i32 %.sink19476 to i64
+  %1957 = getelementptr inbounds nuw i8, ptr %.sink19474, i64 %1956
   %1958 = load i8, ptr %1957, align 1, !tbaa !62
   br label %.thread14453
 
@@ -4738,10 +4738,10 @@ ptr_register_glob_fixedid.exit12557:              ; preds = %65, %._crit_edge.i1
   br i1 %or.cond12034, label %.thread14465.sink.split, label %.thread13776
 
 .thread14465.sink.split:                          ; preds = %1986, %1984
-  %.sink18116 = phi i32 [ %1979, %1984 ], [ %1977, %1986 ]
-  %.sink18114 = phi ptr [ %1985, %1984 ], [ %.05402, %1986 ]
-  %1991 = zext nneg i32 %.sink18116 to i64
-  %1992 = getelementptr inbounds nuw i8, ptr %.sink18114, i64 %1991
+  %.sink19480 = phi i32 [ %1979, %1984 ], [ %1977, %1986 ]
+  %.sink19478 = phi ptr [ %1985, %1984 ], [ %.05402, %1986 ]
+  %1991 = zext nneg i32 %.sink19480 to i64
+  %1992 = getelementptr inbounds nuw i8, ptr %.sink19478, i64 %1991
   %1993 = load i16, ptr %1992, align 2, !tbaa !69
   %1994 = zext i16 %1993 to i32
   br label %.thread14465
@@ -4782,10 +4782,10 @@ ptr_register_glob_fixedid.exit12557:              ; preds = %65, %._crit_edge.i1
   br i1 %or.cond12036, label %.thread14470, label %.thread13776
 
 .thread14470:                                     ; preds = %2005, %2003
-  %.sink18119 = phi i32 [ %1998, %2003 ], [ %1996, %2005 ]
-  %.sink18117 = phi ptr [ %2004, %2003 ], [ %.05402, %2005 ]
-  %2010 = zext nneg i32 %.sink18119 to i64
-  %2011 = getelementptr inbounds nuw i8, ptr %.sink18117, i64 %2010
+  %.sink19483 = phi i32 [ %1998, %2003 ], [ %1996, %2005 ]
+  %.sink19481 = phi ptr [ %2004, %2003 ], [ %.05402, %2005 ]
+  %2010 = zext nneg i32 %.sink19483 to i64
+  %2011 = getelementptr inbounds nuw i8, ptr %.sink19481, i64 %2010
   %.57314 = load i16, ptr %2011, align 2, !tbaa !69
   %2012 = getelementptr inbounds nuw i8, ptr %.013719, i64 4
   %2013 = load i16, ptr %2012, align 4, !tbaa !71
@@ -4853,10 +4853,10 @@ ptr_register_glob_fixedid.exit12557:              ; preds = %65, %._crit_edge.i1
   br i1 %or.cond12039, label %.thread14482.sink.split, label %.thread13776
 
 .thread14482.sink.split:                          ; preds = %2039, %2037
-  %.sink18123 = phi i32 [ %2032, %2037 ], [ %2030, %2039 ]
-  %.sink18121 = phi ptr [ %2038, %2037 ], [ %.05402, %2039 ]
-  %2044 = zext nneg i32 %.sink18123 to i64
-  %2045 = getelementptr inbounds nuw i8, ptr %.sink18121, i64 %2044
+  %.sink19487 = phi i32 [ %2032, %2037 ], [ %2030, %2039 ]
+  %.sink19485 = phi ptr [ %2038, %2037 ], [ %.05402, %2039 ]
+  %2044 = zext nneg i32 %.sink19487 to i64
+  %2045 = getelementptr inbounds nuw i8, ptr %.sink19485, i64 %2044
   %2046 = load i32, ptr %2045, align 4, !tbaa !34
   br label %.thread14482
 
@@ -4896,10 +4896,10 @@ ptr_register_glob_fixedid.exit12557:              ; preds = %65, %._crit_edge.i1
   br i1 %or.cond12041, label %.thread14487, label %.thread13776
 
 .thread14487:                                     ; preds = %2057, %2055
-  %.sink18126 = phi i32 [ %2050, %2055 ], [ %2048, %2057 ]
-  %.sink18124 = phi ptr [ %2056, %2055 ], [ %.05402, %2057 ]
-  %2062 = zext nneg i32 %.sink18126 to i64
-  %2063 = getelementptr inbounds nuw i8, ptr %.sink18124, i64 %2062
+  %.sink19490 = phi i32 [ %2050, %2055 ], [ %2048, %2057 ]
+  %.sink19488 = phi ptr [ %2056, %2055 ], [ %.05402, %2057 ]
+  %2062 = zext nneg i32 %.sink19490 to i64
+  %2063 = getelementptr inbounds nuw i8, ptr %.sink19488, i64 %2062
   %.57328 = load i32, ptr %2063, align 4, !tbaa !34
   %2064 = getelementptr inbounds nuw i8, ptr %.013719, i64 4
   %2065 = load i16, ptr %2064, align 4, !tbaa !71
@@ -4966,10 +4966,10 @@ ptr_register_glob_fixedid.exit12557:              ; preds = %65, %._crit_edge.i1
   br i1 %or.cond12044, label %.thread14499.sink.split, label %.thread13776
 
 .thread14499.sink.split:                          ; preds = %2090, %2088
-  %.sink18130 = phi i32 [ %2083, %2088 ], [ %2081, %2090 ]
-  %.sink18128 = phi ptr [ %2089, %2088 ], [ %.05402, %2090 ]
-  %2095 = zext nneg i32 %.sink18130 to i64
-  %2096 = getelementptr inbounds nuw i8, ptr %.sink18128, i64 %2095
+  %.sink19494 = phi i32 [ %2083, %2088 ], [ %2081, %2090 ]
+  %.sink19492 = phi ptr [ %2089, %2088 ], [ %.05402, %2090 ]
+  %2095 = zext nneg i32 %.sink19494 to i64
+  %2096 = getelementptr inbounds nuw i8, ptr %.sink19492, i64 %2095
   %2097 = load i64, ptr %2096, align 8, !tbaa !70
   br label %.thread14499
 
@@ -5009,10 +5009,10 @@ ptr_register_glob_fixedid.exit12557:              ; preds = %65, %._crit_edge.i1
   br i1 %or.cond12046, label %.thread14504, label %.thread13776
 
 .thread14504:                                     ; preds = %2108, %2106
-  %.sink18133 = phi i32 [ %2101, %2106 ], [ %2099, %2108 ]
-  %.sink18131 = phi ptr [ %2107, %2106 ], [ %.05402, %2108 ]
-  %2113 = zext nneg i32 %.sink18133 to i64
-  %2114 = getelementptr inbounds nuw i8, ptr %.sink18131, i64 %2113
+  %.sink19497 = phi i32 [ %2101, %2106 ], [ %2099, %2108 ]
+  %.sink19495 = phi ptr [ %2107, %2106 ], [ %.05402, %2108 ]
+  %2113 = zext nneg i32 %.sink19497 to i64
+  %2114 = getelementptr inbounds nuw i8, ptr %.sink19495, i64 %2113
   %.57363 = load i64, ptr %2114, align 8, !tbaa !70
   %2115 = getelementptr inbounds nuw i8, ptr %.013719, i64 4
   %2116 = load i16, ptr %2115, align 4, !tbaa !71
@@ -5071,10 +5071,10 @@ ptr_register_glob_fixedid.exit12557:              ; preds = %65, %._crit_edge.i1
   br i1 %.not11269, label %.thread14516.sink.split, label %.thread13776
 
 .thread14516.sink.split:                          ; preds = %2139, %2137
-  %.sink18137 = phi i32 [ %2134, %2137 ], [ %2132, %2139 ]
-  %.sink18135 = phi ptr [ %2138, %2137 ], [ %.05402, %2139 ]
-  %2142 = zext nneg i32 %.sink18137 to i64
-  %2143 = getelementptr inbounds nuw i8, ptr %.sink18135, i64 %2142
+  %.sink19501 = phi i32 [ %2134, %2137 ], [ %2132, %2139 ]
+  %.sink19499 = phi ptr [ %2138, %2137 ], [ %.05402, %2139 ]
+  %2142 = zext nneg i32 %.sink19501 to i64
+  %2143 = getelementptr inbounds nuw i8, ptr %.sink19499, i64 %2142
   %2144 = load i8, ptr %2143, align 1, !tbaa !62
   %2145 = and i8 %2144, 1
   br label %.thread14516
@@ -5107,10 +5107,10 @@ ptr_register_glob_fixedid.exit12557:              ; preds = %65, %._crit_edge.i1
   br i1 %.not11273, label %.thread14521.sink.split, label %.thread13776
 
 .thread14521.sink.split:                          ; preds = %2154, %2152
-  %.sink18141 = phi i32 [ %2149, %2152 ], [ %2147, %2154 ]
-  %.sink18139 = phi ptr [ %2153, %2152 ], [ %.05402, %2154 ]
-  %2157 = zext nneg i32 %.sink18141 to i64
-  %2158 = getelementptr inbounds nuw i8, ptr %.sink18139, i64 %2157
+  %.sink19505 = phi i32 [ %2149, %2152 ], [ %2147, %2154 ]
+  %.sink19503 = phi ptr [ %2153, %2152 ], [ %.05402, %2154 ]
+  %2157 = zext nneg i32 %.sink19505 to i64
+  %2158 = getelementptr inbounds nuw i8, ptr %.sink19503, i64 %2157
   %2159 = load i8, ptr %2158, align 1, !tbaa !62
   %2160 = and i8 %2159, 1
   br label %.thread14521
@@ -5169,10 +5169,10 @@ ptr_register_glob_fixedid.exit12557:              ; preds = %65, %._crit_edge.i1
   br i1 %.not11260, label %.thread14533.sink.split, label %.thread13776
 
 .thread14533.sink.split:                          ; preds = %2184, %2182
-  %.sink18145 = phi i32 [ %2179, %2182 ], [ %2177, %2184 ]
-  %.sink18143 = phi ptr [ %2183, %2182 ], [ %.05402, %2184 ]
-  %2187 = zext nneg i32 %.sink18145 to i64
-  %2188 = getelementptr inbounds nuw i8, ptr %.sink18143, i64 %2187
+  %.sink19509 = phi i32 [ %2179, %2182 ], [ %2177, %2184 ]
+  %.sink19507 = phi ptr [ %2183, %2182 ], [ %.05402, %2184 ]
+  %2187 = zext nneg i32 %.sink19509 to i64
+  %2188 = getelementptr inbounds nuw i8, ptr %.sink19507, i64 %2187
   %2189 = load i8, ptr %2188, align 1, !tbaa !62
   %2190 = sext i8 %2189 to i32
   br label %.thread14533
@@ -5205,10 +5205,10 @@ ptr_register_glob_fixedid.exit12557:              ; preds = %65, %._crit_edge.i1
   br i1 %.not11264, label %.thread14538.sink.split, label %.thread13776
 
 .thread14538.sink.split:                          ; preds = %2199, %2197
-  %.sink18149 = phi i32 [ %2194, %2197 ], [ %2192, %2199 ]
-  %.sink18147 = phi ptr [ %2198, %2197 ], [ %.05402, %2199 ]
-  %2202 = zext nneg i32 %.sink18149 to i64
-  %2203 = getelementptr inbounds nuw i8, ptr %.sink18147, i64 %2202
+  %.sink19513 = phi i32 [ %2194, %2197 ], [ %2192, %2199 ]
+  %.sink19511 = phi ptr [ %2198, %2197 ], [ %.05402, %2199 ]
+  %2202 = zext nneg i32 %.sink19513 to i64
+  %2203 = getelementptr inbounds nuw i8, ptr %.sink19511, i64 %2202
   %2204 = load i8, ptr %2203, align 1, !tbaa !62
   br label %.thread14538
 
@@ -5276,10 +5276,10 @@ ptr_register_glob_fixedid.exit12557:              ; preds = %65, %._crit_edge.i1
   br i1 %or.cond12049, label %.thread14550.sink.split, label %.thread13776
 
 .thread14550.sink.split:                          ; preds = %2232, %2230
-  %.sink18153 = phi i32 [ %2225, %2230 ], [ %2223, %2232 ]
-  %.sink18151 = phi ptr [ %2231, %2230 ], [ %.05402, %2232 ]
-  %2237 = zext nneg i32 %.sink18153 to i64
-  %2238 = getelementptr inbounds nuw i8, ptr %.sink18151, i64 %2237
+  %.sink19517 = phi i32 [ %2225, %2230 ], [ %2223, %2232 ]
+  %.sink19515 = phi ptr [ %2231, %2230 ], [ %.05402, %2232 ]
+  %2237 = zext nneg i32 %.sink19517 to i64
+  %2238 = getelementptr inbounds nuw i8, ptr %.sink19515, i64 %2237
   %2239 = load i16, ptr %2238, align 2, !tbaa !69
   %2240 = sext i16 %2239 to i32
   br label %.thread14550
@@ -5320,10 +5320,10 @@ ptr_register_glob_fixedid.exit12557:              ; preds = %65, %._crit_edge.i1
   br i1 %or.cond12051, label %.thread14555, label %.thread13776
 
 .thread14555:                                     ; preds = %2251, %2249
-  %.sink18156 = phi i32 [ %2244, %2249 ], [ %2242, %2251 ]
-  %.sink18154 = phi ptr [ %2250, %2249 ], [ %.05402, %2251 ]
-  %2256 = zext nneg i32 %.sink18156 to i64
-  %2257 = getelementptr inbounds nuw i8, ptr %.sink18154, i64 %2256
+  %.sink19520 = phi i32 [ %2244, %2249 ], [ %2242, %2251 ]
+  %.sink19518 = phi ptr [ %2250, %2249 ], [ %.05402, %2251 ]
+  %2256 = zext nneg i32 %.sink19520 to i64
+  %2257 = getelementptr inbounds nuw i8, ptr %.sink19518, i64 %2256
   %.57426 = load i16, ptr %2257, align 2, !tbaa !69
   %2258 = getelementptr inbounds nuw i8, ptr %.013719, i64 4
   %2259 = load i16, ptr %2258, align 4, !tbaa !71
@@ -5391,10 +5391,10 @@ ptr_register_glob_fixedid.exit12557:              ; preds = %65, %._crit_edge.i1
   br i1 %or.cond12054, label %.thread14567.sink.split, label %.thread13776
 
 .thread14567.sink.split:                          ; preds = %2285, %2283
-  %.sink18160 = phi i32 [ %2278, %2283 ], [ %2276, %2285 ]
-  %.sink18158 = phi ptr [ %2284, %2283 ], [ %.05402, %2285 ]
-  %2290 = zext nneg i32 %.sink18160 to i64
-  %2291 = getelementptr inbounds nuw i8, ptr %.sink18158, i64 %2290
+  %.sink19524 = phi i32 [ %2278, %2283 ], [ %2276, %2285 ]
+  %.sink19522 = phi ptr [ %2284, %2283 ], [ %.05402, %2285 ]
+  %2290 = zext nneg i32 %.sink19524 to i64
+  %2291 = getelementptr inbounds nuw i8, ptr %.sink19522, i64 %2290
   %2292 = load i32, ptr %2291, align 4, !tbaa !34
   br label %.thread14567
 
@@ -5434,10 +5434,10 @@ ptr_register_glob_fixedid.exit12557:              ; preds = %65, %._crit_edge.i1
   br i1 %or.cond12056, label %.thread14572, label %.thread13776
 
 .thread14572:                                     ; preds = %2303, %2301
-  %.sink18163 = phi i32 [ %2296, %2301 ], [ %2294, %2303 ]
-  %.sink18161 = phi ptr [ %2302, %2301 ], [ %.05402, %2303 ]
-  %2308 = zext nneg i32 %.sink18163 to i64
-  %2309 = getelementptr inbounds nuw i8, ptr %.sink18161, i64 %2308
+  %.sink19527 = phi i32 [ %2296, %2301 ], [ %2294, %2303 ]
+  %.sink19525 = phi ptr [ %2302, %2301 ], [ %.05402, %2303 ]
+  %2308 = zext nneg i32 %.sink19527 to i64
+  %2309 = getelementptr inbounds nuw i8, ptr %.sink19525, i64 %2308
   %.57454 = load i32, ptr %2309, align 4, !tbaa !34
   %2310 = getelementptr inbounds nuw i8, ptr %.013719, i64 4
   %2311 = load i16, ptr %2310, align 4, !tbaa !71
@@ -5504,10 +5504,10 @@ ptr_register_glob_fixedid.exit12557:              ; preds = %65, %._crit_edge.i1
   br i1 %or.cond12059, label %.thread14584.sink.split, label %.thread13776
 
 .thread14584.sink.split:                          ; preds = %2336, %2334
-  %.sink18167 = phi i32 [ %2329, %2334 ], [ %2327, %2336 ]
-  %.sink18165 = phi ptr [ %2335, %2334 ], [ %.05402, %2336 ]
-  %2341 = zext nneg i32 %.sink18167 to i64
-  %2342 = getelementptr inbounds nuw i8, ptr %.sink18165, i64 %2341
+  %.sink19531 = phi i32 [ %2329, %2334 ], [ %2327, %2336 ]
+  %.sink19529 = phi ptr [ %2335, %2334 ], [ %.05402, %2336 ]
+  %2341 = zext nneg i32 %.sink19531 to i64
+  %2342 = getelementptr inbounds nuw i8, ptr %.sink19529, i64 %2341
   %2343 = load i64, ptr %2342, align 8, !tbaa !70
   br label %.thread14584
 
@@ -5547,10 +5547,10 @@ ptr_register_glob_fixedid.exit12557:              ; preds = %65, %._crit_edge.i1
   br i1 %or.cond12061, label %.thread14589, label %.thread13776
 
 .thread14589:                                     ; preds = %2354, %2352
-  %.sink18170 = phi i32 [ %2347, %2352 ], [ %2345, %2354 ]
-  %.sink18168 = phi ptr [ %2353, %2352 ], [ %.05402, %2354 ]
-  %2359 = zext nneg i32 %.sink18170 to i64
-  %2360 = getelementptr inbounds nuw i8, ptr %.sink18168, i64 %2359
+  %.sink19534 = phi i32 [ %2347, %2352 ], [ %2345, %2354 ]
+  %.sink19532 = phi ptr [ %2353, %2352 ], [ %.05402, %2354 ]
+  %2359 = zext nneg i32 %.sink19534 to i64
+  %2360 = getelementptr inbounds nuw i8, ptr %.sink19532, i64 %2359
   %.57468 = load i64, ptr %2360, align 8, !tbaa !70
   %2361 = getelementptr inbounds nuw i8, ptr %.013719, i64 4
   %2362 = load i16, ptr %2361, align 4, !tbaa !71
@@ -5609,10 +5609,10 @@ ptr_register_glob_fixedid.exit12557:              ; preds = %65, %._crit_edge.i1
   br i1 %.not11209, label %.thread14601.sink.split, label %.thread13776
 
 .thread14601.sink.split:                          ; preds = %2385, %2383
-  %.sink18174 = phi i32 [ %2380, %2383 ], [ %2378, %2385 ]
-  %.sink18172 = phi ptr [ %2384, %2383 ], [ %.05402, %2385 ]
-  %2388 = zext nneg i32 %.sink18174 to i64
-  %2389 = getelementptr inbounds nuw i8, ptr %.sink18172, i64 %2388
+  %.sink19538 = phi i32 [ %2380, %2383 ], [ %2378, %2385 ]
+  %.sink19536 = phi ptr [ %2384, %2383 ], [ %.05402, %2385 ]
+  %2388 = zext nneg i32 %.sink19538 to i64
+  %2389 = getelementptr inbounds nuw i8, ptr %.sink19536, i64 %2388
   %2390 = load i8, ptr %2389, align 1, !tbaa !62
   %2391 = and i8 %2390, 1
   br label %.thread14601
@@ -5645,10 +5645,10 @@ ptr_register_glob_fixedid.exit12557:              ; preds = %65, %._crit_edge.i1
   br i1 %.not11213, label %.thread14606.sink.split, label %.thread13776
 
 .thread14606.sink.split:                          ; preds = %2400, %2398
-  %.sink18178 = phi i32 [ %2395, %2398 ], [ %2393, %2400 ]
-  %.sink18176 = phi ptr [ %2399, %2398 ], [ %.05402, %2400 ]
-  %2403 = zext nneg i32 %.sink18178 to i64
-  %2404 = getelementptr inbounds nuw i8, ptr %.sink18176, i64 %2403
+  %.sink19542 = phi i32 [ %2395, %2398 ], [ %2393, %2400 ]
+  %.sink19540 = phi ptr [ %2399, %2398 ], [ %.05402, %2400 ]
+  %2403 = zext nneg i32 %.sink19542 to i64
+  %2404 = getelementptr inbounds nuw i8, ptr %.sink19540, i64 %2403
   %2405 = load i8, ptr %2404, align 1, !tbaa !62
   br label %.thread14606
 
@@ -5695,10 +5695,10 @@ ptr_register_glob_fixedid.exit12557:              ; preds = %65, %._crit_edge.i1
   br i1 %.not11200, label %.thread14617.sink.split, label %.thread13776
 
 .thread14617.sink.split:                          ; preds = %2423, %2421
-  %.sink18182 = phi i32 [ %2418, %2421 ], [ %2416, %2423 ]
-  %.sink18180 = phi ptr [ %2422, %2421 ], [ %.05402, %2423 ]
-  %2426 = zext nneg i32 %.sink18182 to i64
-  %2427 = getelementptr inbounds nuw i8, ptr %.sink18180, i64 %2426
+  %.sink19546 = phi i32 [ %2418, %2421 ], [ %2416, %2423 ]
+  %.sink19544 = phi ptr [ %2422, %2421 ], [ %.05402, %2423 ]
+  %2426 = zext nneg i32 %.sink19546 to i64
+  %2427 = getelementptr inbounds nuw i8, ptr %.sink19544, i64 %2426
   %2428 = load i8, ptr %2427, align 1, !tbaa !62
   br label %.thread14617
 
@@ -5730,10 +5730,10 @@ ptr_register_glob_fixedid.exit12557:              ; preds = %65, %._crit_edge.i1
   br i1 %.not11204, label %.thread14622.sink.split, label %.thread13776
 
 .thread14622.sink.split:                          ; preds = %2437, %2435
-  %.sink18186 = phi i32 [ %2432, %2435 ], [ %2430, %2437 ]
-  %.sink18184 = phi ptr [ %2436, %2435 ], [ %.05402, %2437 ]
-  %2440 = zext nneg i32 %.sink18186 to i64
-  %2441 = getelementptr inbounds nuw i8, ptr %.sink18184, i64 %2440
+  %.sink19550 = phi i32 [ %2432, %2435 ], [ %2430, %2437 ]
+  %.sink19548 = phi ptr [ %2436, %2435 ], [ %.05402, %2437 ]
+  %2440 = zext nneg i32 %.sink19550 to i64
+  %2441 = getelementptr inbounds nuw i8, ptr %.sink19548, i64 %2440
   %2442 = load i8, ptr %2441, align 1, !tbaa !62
   br label %.thread14622
 
@@ -5788,10 +5788,10 @@ ptr_register_glob_fixedid.exit12557:              ; preds = %65, %._crit_edge.i1
   br i1 %or.cond12064, label %.thread14633.sink.split, label %.thread13776
 
 .thread14633.sink.split:                          ; preds = %2462, %2460
-  %.sink18190 = phi i32 [ %2455, %2460 ], [ %2453, %2462 ]
-  %.sink18188 = phi ptr [ %2461, %2460 ], [ %.05402, %2462 ]
-  %2467 = zext nneg i32 %.sink18190 to i64
-  %2468 = getelementptr inbounds nuw i8, ptr %.sink18188, i64 %2467
+  %.sink19554 = phi i32 [ %2455, %2460 ], [ %2453, %2462 ]
+  %.sink19552 = phi ptr [ %2461, %2460 ], [ %.05402, %2462 ]
+  %2467 = zext nneg i32 %.sink19554 to i64
+  %2468 = getelementptr inbounds nuw i8, ptr %.sink19552, i64 %2467
   %2469 = load i16, ptr %2468, align 2, !tbaa !69
   br label %.thread14633
 
@@ -5831,10 +5831,10 @@ ptr_register_glob_fixedid.exit12557:              ; preds = %65, %._crit_edge.i1
   br i1 %or.cond12066, label %.thread14638.sink.split, label %.thread13776
 
 .thread14638.sink.split:                          ; preds = %2480, %2478
-  %.sink18194 = phi i32 [ %2473, %2478 ], [ %2471, %2480 ]
-  %.sink18192 = phi ptr [ %2479, %2478 ], [ %.05402, %2480 ]
-  %2485 = zext nneg i32 %.sink18194 to i64
-  %2486 = getelementptr inbounds nuw i8, ptr %.sink18192, i64 %2485
+  %.sink19558 = phi i32 [ %2473, %2478 ], [ %2471, %2480 ]
+  %.sink19556 = phi ptr [ %2479, %2478 ], [ %.05402, %2480 ]
+  %2485 = zext nneg i32 %.sink19558 to i64
+  %2486 = getelementptr inbounds nuw i8, ptr %.sink19556, i64 %2485
   %2487 = load i16, ptr %2486, align 2, !tbaa !69
   br label %.thread14638
 
@@ -5893,10 +5893,10 @@ ptr_register_glob_fixedid.exit12557:              ; preds = %65, %._crit_edge.i1
   br i1 %or.cond12069, label %.thread14649.sink.split, label %.thread13776
 
 .thread14649.sink.split:                          ; preds = %2509, %2507
-  %.sink18198 = phi i32 [ %2502, %2507 ], [ %2500, %2509 ]
-  %.sink18196 = phi ptr [ %2508, %2507 ], [ %.05402, %2509 ]
-  %2514 = zext nneg i32 %.sink18198 to i64
-  %2515 = getelementptr inbounds nuw i8, ptr %.sink18196, i64 %2514
+  %.sink19562 = phi i32 [ %2502, %2507 ], [ %2500, %2509 ]
+  %.sink19560 = phi ptr [ %2508, %2507 ], [ %.05402, %2509 ]
+  %2514 = zext nneg i32 %.sink19562 to i64
+  %2515 = getelementptr inbounds nuw i8, ptr %.sink19560, i64 %2514
   %2516 = load i32, ptr %2515, align 4, !tbaa !34
   br label %.thread14649
 
@@ -5936,10 +5936,10 @@ ptr_register_glob_fixedid.exit12557:              ; preds = %65, %._crit_edge.i1
   br i1 %or.cond12071, label %.thread14654.sink.split, label %.thread13776
 
 .thread14654.sink.split:                          ; preds = %2527, %2525
-  %.sink18202 = phi i32 [ %2520, %2525 ], [ %2518, %2527 ]
-  %.sink18200 = phi ptr [ %2526, %2525 ], [ %.05402, %2527 ]
-  %2532 = zext nneg i32 %.sink18202 to i64
-  %2533 = getelementptr inbounds nuw i8, ptr %.sink18200, i64 %2532
+  %.sink19566 = phi i32 [ %2520, %2525 ], [ %2518, %2527 ]
+  %.sink19564 = phi ptr [ %2526, %2525 ], [ %.05402, %2527 ]
+  %2532 = zext nneg i32 %.sink19566 to i64
+  %2533 = getelementptr inbounds nuw i8, ptr %.sink19564, i64 %2532
   %2534 = load i32, ptr %2533, align 4, !tbaa !34
   br label %.thread14654
 
@@ -5998,10 +5998,10 @@ ptr_register_glob_fixedid.exit12557:              ; preds = %65, %._crit_edge.i1
   br i1 %or.cond12074, label %.thread14665.sink.split, label %.thread13776
 
 .thread14665.sink.split:                          ; preds = %2556, %2554
-  %.sink18206 = phi i32 [ %2549, %2554 ], [ %2547, %2556 ]
-  %.sink18204 = phi ptr [ %2555, %2554 ], [ %.05402, %2556 ]
-  %2561 = zext nneg i32 %.sink18206 to i64
-  %2562 = getelementptr inbounds nuw i8, ptr %.sink18204, i64 %2561
+  %.sink19570 = phi i32 [ %2549, %2554 ], [ %2547, %2556 ]
+  %.sink19568 = phi ptr [ %2555, %2554 ], [ %.05402, %2556 ]
+  %2561 = zext nneg i32 %.sink19570 to i64
+  %2562 = getelementptr inbounds nuw i8, ptr %.sink19568, i64 %2561
   %2563 = load i64, ptr %2562, align 8, !tbaa !70
   br label %.thread14665
 
@@ -6041,10 +6041,10 @@ ptr_register_glob_fixedid.exit12557:              ; preds = %65, %._crit_edge.i1
   br i1 %or.cond12076, label %.thread14670.sink.split, label %.thread13776
 
 .thread14670.sink.split:                          ; preds = %2574, %2572
-  %.sink18210 = phi i32 [ %2567, %2572 ], [ %2565, %2574 ]
-  %.sink18208 = phi ptr [ %2573, %2572 ], [ %.05402, %2574 ]
-  %2579 = zext nneg i32 %.sink18210 to i64
-  %2580 = getelementptr inbounds nuw i8, ptr %.sink18208, i64 %2579
+  %.sink19574 = phi i32 [ %2567, %2572 ], [ %2565, %2574 ]
+  %.sink19572 = phi ptr [ %2573, %2572 ], [ %.05402, %2574 ]
+  %2579 = zext nneg i32 %.sink19574 to i64
+  %2580 = getelementptr inbounds nuw i8, ptr %.sink19572, i64 %2579
   %2581 = load i64, ptr %2580, align 8, !tbaa !70
   br label %.thread14670
 
@@ -6095,10 +6095,10 @@ ptr_register_glob_fixedid.exit12557:              ; preds = %65, %._crit_edge.i1
   br i1 %.not11149, label %.thread14681.sink.split, label %.thread13776
 
 .thread14681.sink.split:                          ; preds = %2601, %2599
-  %.sink18214 = phi i32 [ %2596, %2599 ], [ %2594, %2601 ]
-  %.sink18212 = phi ptr [ %2600, %2599 ], [ %.05402, %2601 ]
-  %2604 = zext nneg i32 %.sink18214 to i64
-  %2605 = getelementptr inbounds nuw i8, ptr %.sink18212, i64 %2604
+  %.sink19578 = phi i32 [ %2596, %2599 ], [ %2594, %2601 ]
+  %.sink19576 = phi ptr [ %2600, %2599 ], [ %.05402, %2601 ]
+  %2604 = zext nneg i32 %.sink19578 to i64
+  %2605 = getelementptr inbounds nuw i8, ptr %.sink19576, i64 %2604
   %2606 = load i8, ptr %2605, align 1, !tbaa !62
   br label %.thread14681
 
@@ -6130,10 +6130,10 @@ ptr_register_glob_fixedid.exit12557:              ; preds = %65, %._crit_edge.i1
   br i1 %.not11153, label %.thread14686.sink.split, label %.thread13776
 
 .thread14686.sink.split:                          ; preds = %2615, %2613
-  %.sink18218 = phi i32 [ %2610, %2613 ], [ %2608, %2615 ]
-  %.sink18216 = phi ptr [ %2614, %2613 ], [ %.05402, %2615 ]
-  %2618 = zext nneg i32 %.sink18218 to i64
-  %2619 = getelementptr inbounds nuw i8, ptr %.sink18216, i64 %2618
+  %.sink19582 = phi i32 [ %2610, %2613 ], [ %2608, %2615 ]
+  %.sink19580 = phi ptr [ %2614, %2613 ], [ %.05402, %2615 ]
+  %2618 = zext nneg i32 %.sink19582 to i64
+  %2619 = getelementptr inbounds nuw i8, ptr %.sink19580, i64 %2618
   %2620 = load i8, ptr %2619, align 1, !tbaa !62
   br label %.thread14686
 
@@ -6181,10 +6181,10 @@ ptr_register_glob_fixedid.exit12557:              ; preds = %65, %._crit_edge.i1
   br i1 %.not11140, label %.thread14697.sink.split, label %.thread13776
 
 .thread14697.sink.split:                          ; preds = %2639, %2637
-  %.sink18222 = phi i32 [ %2634, %2637 ], [ %2632, %2639 ]
-  %.sink18220 = phi ptr [ %2638, %2637 ], [ %.05402, %2639 ]
-  %2642 = zext nneg i32 %.sink18222 to i64
-  %2643 = getelementptr inbounds nuw i8, ptr %.sink18220, i64 %2642
+  %.sink19586 = phi i32 [ %2634, %2637 ], [ %2632, %2639 ]
+  %.sink19584 = phi ptr [ %2638, %2637 ], [ %.05402, %2639 ]
+  %2642 = zext nneg i32 %.sink19586 to i64
+  %2643 = getelementptr inbounds nuw i8, ptr %.sink19584, i64 %2642
   %2644 = load i8, ptr %2643, align 1, !tbaa !62
   br label %.thread14697
 
@@ -6216,10 +6216,10 @@ ptr_register_glob_fixedid.exit12557:              ; preds = %65, %._crit_edge.i1
   br i1 %.not11144, label %.thread14702.sink.split, label %.thread13776
 
 .thread14702.sink.split:                          ; preds = %2653, %2651
-  %.sink18226 = phi i32 [ %2648, %2651 ], [ %2646, %2653 ]
-  %.sink18224 = phi ptr [ %2652, %2651 ], [ %.05402, %2653 ]
-  %2656 = zext nneg i32 %.sink18226 to i64
-  %2657 = getelementptr inbounds nuw i8, ptr %.sink18224, i64 %2656
+  %.sink19590 = phi i32 [ %2648, %2651 ], [ %2646, %2653 ]
+  %.sink19588 = phi ptr [ %2652, %2651 ], [ %.05402, %2653 ]
+  %2656 = zext nneg i32 %.sink19590 to i64
+  %2657 = getelementptr inbounds nuw i8, ptr %.sink19588, i64 %2656
   %2658 = load i8, ptr %2657, align 1, !tbaa !62
   br label %.thread14702
 
@@ -6274,10 +6274,10 @@ ptr_register_glob_fixedid.exit12557:              ; preds = %65, %._crit_edge.i1
   br i1 %or.cond12079, label %.thread14713.sink.split, label %.thread13776
 
 .thread14713.sink.split:                          ; preds = %2678, %2676
-  %.sink18230 = phi i32 [ %2671, %2676 ], [ %2669, %2678 ]
-  %.sink18228 = phi ptr [ %2677, %2676 ], [ %.05402, %2678 ]
-  %2683 = zext nneg i32 %.sink18230 to i64
-  %2684 = getelementptr inbounds nuw i8, ptr %.sink18228, i64 %2683
+  %.sink19594 = phi i32 [ %2671, %2676 ], [ %2669, %2678 ]
+  %.sink19592 = phi ptr [ %2677, %2676 ], [ %.05402, %2678 ]
+  %2683 = zext nneg i32 %.sink19594 to i64
+  %2684 = getelementptr inbounds nuw i8, ptr %.sink19592, i64 %2683
   %2685 = load i16, ptr %2684, align 2, !tbaa !69
   br label %.thread14713
 
@@ -6317,10 +6317,10 @@ ptr_register_glob_fixedid.exit12557:              ; preds = %65, %._crit_edge.i1
   br i1 %or.cond12081, label %.thread14718.sink.split, label %.thread13776
 
 .thread14718.sink.split:                          ; preds = %2696, %2694
-  %.sink18234 = phi i32 [ %2689, %2694 ], [ %2687, %2696 ]
-  %.sink18232 = phi ptr [ %2695, %2694 ], [ %.05402, %2696 ]
-  %2701 = zext nneg i32 %.sink18234 to i64
-  %2702 = getelementptr inbounds nuw i8, ptr %.sink18232, i64 %2701
+  %.sink19598 = phi i32 [ %2689, %2694 ], [ %2687, %2696 ]
+  %.sink19596 = phi ptr [ %2695, %2694 ], [ %.05402, %2696 ]
+  %2701 = zext nneg i32 %.sink19598 to i64
+  %2702 = getelementptr inbounds nuw i8, ptr %.sink19596, i64 %2701
   %2703 = load i16, ptr %2702, align 2, !tbaa !69
   br label %.thread14718
 
@@ -6379,10 +6379,10 @@ ptr_register_glob_fixedid.exit12557:              ; preds = %65, %._crit_edge.i1
   br i1 %or.cond12084, label %.thread14729.sink.split, label %.thread13776
 
 .thread14729.sink.split:                          ; preds = %2725, %2723
-  %.sink18238 = phi i32 [ %2718, %2723 ], [ %2716, %2725 ]
-  %.sink18236 = phi ptr [ %2724, %2723 ], [ %.05402, %2725 ]
-  %2730 = zext nneg i32 %.sink18238 to i64
-  %2731 = getelementptr inbounds nuw i8, ptr %.sink18236, i64 %2730
+  %.sink19602 = phi i32 [ %2718, %2723 ], [ %2716, %2725 ]
+  %.sink19600 = phi ptr [ %2724, %2723 ], [ %.05402, %2725 ]
+  %2730 = zext nneg i32 %.sink19602 to i64
+  %2731 = getelementptr inbounds nuw i8, ptr %.sink19600, i64 %2730
   %2732 = load i32, ptr %2731, align 4, !tbaa !34
   br label %.thread14729
 
@@ -6422,10 +6422,10 @@ ptr_register_glob_fixedid.exit12557:              ; preds = %65, %._crit_edge.i1
   br i1 %or.cond12086, label %.thread14734.sink.split, label %.thread13776
 
 .thread14734.sink.split:                          ; preds = %2743, %2741
-  %.sink18242 = phi i32 [ %2736, %2741 ], [ %2734, %2743 ]
-  %.sink18240 = phi ptr [ %2742, %2741 ], [ %.05402, %2743 ]
-  %2748 = zext nneg i32 %.sink18242 to i64
-  %2749 = getelementptr inbounds nuw i8, ptr %.sink18240, i64 %2748
+  %.sink19606 = phi i32 [ %2736, %2741 ], [ %2734, %2743 ]
+  %.sink19604 = phi ptr [ %2742, %2741 ], [ %.05402, %2743 ]
+  %2748 = zext nneg i32 %.sink19606 to i64
+  %2749 = getelementptr inbounds nuw i8, ptr %.sink19604, i64 %2748
   %2750 = load i32, ptr %2749, align 4, !tbaa !34
   br label %.thread14734
 
@@ -6484,10 +6484,10 @@ ptr_register_glob_fixedid.exit12557:              ; preds = %65, %._crit_edge.i1
   br i1 %or.cond12089, label %.thread14745.sink.split, label %.thread13776
 
 .thread14745.sink.split:                          ; preds = %2772, %2770
-  %.sink18246 = phi i32 [ %2765, %2770 ], [ %2763, %2772 ]
-  %.sink18244 = phi ptr [ %2771, %2770 ], [ %.05402, %2772 ]
-  %2777 = zext nneg i32 %.sink18246 to i64
-  %2778 = getelementptr inbounds nuw i8, ptr %.sink18244, i64 %2777
+  %.sink19610 = phi i32 [ %2765, %2770 ], [ %2763, %2772 ]
+  %.sink19608 = phi ptr [ %2771, %2770 ], [ %.05402, %2772 ]
+  %2777 = zext nneg i32 %.sink19610 to i64
+  %2778 = getelementptr inbounds nuw i8, ptr %.sink19608, i64 %2777
   %2779 = load i64, ptr %2778, align 8, !tbaa !70
   br label %.thread14745
 
@@ -6527,10 +6527,10 @@ ptr_register_glob_fixedid.exit12557:              ; preds = %65, %._crit_edge.i1
   br i1 %or.cond12091, label %.thread14750.sink.split, label %.thread13776
 
 .thread14750.sink.split:                          ; preds = %2790, %2788
-  %.sink18250 = phi i32 [ %2783, %2788 ], [ %2781, %2790 ]
-  %.sink18248 = phi ptr [ %2789, %2788 ], [ %.05402, %2790 ]
-  %2795 = zext nneg i32 %.sink18250 to i64
-  %2796 = getelementptr inbounds nuw i8, ptr %.sink18248, i64 %2795
+  %.sink19614 = phi i32 [ %2783, %2788 ], [ %2781, %2790 ]
+  %.sink19612 = phi ptr [ %2789, %2788 ], [ %.05402, %2790 ]
+  %2795 = zext nneg i32 %.sink19614 to i64
+  %2796 = getelementptr inbounds nuw i8, ptr %.sink19612, i64 %2795
   %2797 = load i64, ptr %2796, align 8, !tbaa !70
   br label %.thread14750
 
@@ -6581,10 +6581,10 @@ ptr_register_glob_fixedid.exit12557:              ; preds = %65, %._crit_edge.i1
   br i1 %.not11089, label %.thread14761.sink.split, label %.thread13776
 
 .thread14761.sink.split:                          ; preds = %2817, %2815
-  %.sink18254 = phi i32 [ %2812, %2815 ], [ %2810, %2817 ]
-  %.sink18252 = phi ptr [ %2816, %2815 ], [ %.05402, %2817 ]
-  %2820 = zext nneg i32 %.sink18254 to i64
-  %2821 = getelementptr inbounds nuw i8, ptr %.sink18252, i64 %2820
+  %.sink19618 = phi i32 [ %2812, %2815 ], [ %2810, %2817 ]
+  %.sink19616 = phi ptr [ %2816, %2815 ], [ %.05402, %2817 ]
+  %2820 = zext nneg i32 %.sink19618 to i64
+  %2821 = getelementptr inbounds nuw i8, ptr %.sink19616, i64 %2820
   %2822 = load i8, ptr %2821, align 1, !tbaa !62
   br label %.thread14761
 
@@ -6616,10 +6616,10 @@ ptr_register_glob_fixedid.exit12557:              ; preds = %65, %._crit_edge.i1
   br i1 %.not11093, label %.thread14766.sink.split, label %.thread13776
 
 .thread14766.sink.split:                          ; preds = %2831, %2829
-  %.sink18258 = phi i32 [ %2826, %2829 ], [ %2824, %2831 ]
-  %.sink18256 = phi ptr [ %2830, %2829 ], [ %.05402, %2831 ]
-  %2834 = zext nneg i32 %.sink18258 to i64
-  %2835 = getelementptr inbounds nuw i8, ptr %.sink18256, i64 %2834
+  %.sink19622 = phi i32 [ %2826, %2829 ], [ %2824, %2831 ]
+  %.sink19620 = phi ptr [ %2830, %2829 ], [ %.05402, %2831 ]
+  %2834 = zext nneg i32 %.sink19622 to i64
+  %2835 = getelementptr inbounds nuw i8, ptr %.sink19620, i64 %2834
   %2836 = load i8, ptr %2835, align 1, !tbaa !62
   br label %.thread14766
 
@@ -6667,10 +6667,10 @@ ptr_register_glob_fixedid.exit12557:              ; preds = %65, %._crit_edge.i1
   br i1 %.not11080, label %.thread14777.sink.split, label %.thread13776
 
 .thread14777.sink.split:                          ; preds = %2855, %2853
-  %.sink18262 = phi i32 [ %2850, %2853 ], [ %2848, %2855 ]
-  %.sink18260 = phi ptr [ %2854, %2853 ], [ %.05402, %2855 ]
-  %2858 = zext nneg i32 %.sink18262 to i64
-  %2859 = getelementptr inbounds nuw i8, ptr %.sink18260, i64 %2858
+  %.sink19626 = phi i32 [ %2850, %2853 ], [ %2848, %2855 ]
+  %.sink19624 = phi ptr [ %2854, %2853 ], [ %.05402, %2855 ]
+  %2858 = zext nneg i32 %.sink19626 to i64
+  %2859 = getelementptr inbounds nuw i8, ptr %.sink19624, i64 %2858
   %2860 = load i8, ptr %2859, align 1, !tbaa !62
   br label %.thread14777
 
@@ -6702,10 +6702,10 @@ ptr_register_glob_fixedid.exit12557:              ; preds = %65, %._crit_edge.i1
   br i1 %.not11084, label %.thread14782.sink.split, label %.thread13776
 
 .thread14782.sink.split:                          ; preds = %2869, %2867
-  %.sink18266 = phi i32 [ %2864, %2867 ], [ %2862, %2869 ]
-  %.sink18264 = phi ptr [ %2868, %2867 ], [ %.05402, %2869 ]
-  %2872 = zext nneg i32 %.sink18266 to i64
-  %2873 = getelementptr inbounds nuw i8, ptr %.sink18264, i64 %2872
+  %.sink19630 = phi i32 [ %2864, %2867 ], [ %2862, %2869 ]
+  %.sink19628 = phi ptr [ %2868, %2867 ], [ %.05402, %2869 ]
+  %2872 = zext nneg i32 %.sink19630 to i64
+  %2873 = getelementptr inbounds nuw i8, ptr %.sink19628, i64 %2872
   %2874 = load i8, ptr %2873, align 1, !tbaa !62
   br label %.thread14782
 
@@ -6760,10 +6760,10 @@ ptr_register_glob_fixedid.exit12557:              ; preds = %65, %._crit_edge.i1
   br i1 %or.cond12094, label %.thread14793.sink.split, label %.thread13776
 
 .thread14793.sink.split:                          ; preds = %2894, %2892
-  %.sink18270 = phi i32 [ %2887, %2892 ], [ %2885, %2894 ]
-  %.sink18268 = phi ptr [ %2893, %2892 ], [ %.05402, %2894 ]
-  %2899 = zext nneg i32 %.sink18270 to i64
-  %2900 = getelementptr inbounds nuw i8, ptr %.sink18268, i64 %2899
+  %.sink19634 = phi i32 [ %2887, %2892 ], [ %2885, %2894 ]
+  %.sink19632 = phi ptr [ %2893, %2892 ], [ %.05402, %2894 ]
+  %2899 = zext nneg i32 %.sink19634 to i64
+  %2900 = getelementptr inbounds nuw i8, ptr %.sink19632, i64 %2899
   %2901 = load i16, ptr %2900, align 2, !tbaa !69
   br label %.thread14793
 
@@ -6803,10 +6803,10 @@ ptr_register_glob_fixedid.exit12557:              ; preds = %65, %._crit_edge.i1
   br i1 %or.cond12096, label %.thread14798.sink.split, label %.thread13776
 
 .thread14798.sink.split:                          ; preds = %2912, %2910
-  %.sink18274 = phi i32 [ %2905, %2910 ], [ %2903, %2912 ]
-  %.sink18272 = phi ptr [ %2911, %2910 ], [ %.05402, %2912 ]
-  %2917 = zext nneg i32 %.sink18274 to i64
-  %2918 = getelementptr inbounds nuw i8, ptr %.sink18272, i64 %2917
+  %.sink19638 = phi i32 [ %2905, %2910 ], [ %2903, %2912 ]
+  %.sink19636 = phi ptr [ %2911, %2910 ], [ %.05402, %2912 ]
+  %2917 = zext nneg i32 %.sink19638 to i64
+  %2918 = getelementptr inbounds nuw i8, ptr %.sink19636, i64 %2917
   %2919 = load i16, ptr %2918, align 2, !tbaa !69
   br label %.thread14798
 
@@ -6865,10 +6865,10 @@ ptr_register_glob_fixedid.exit12557:              ; preds = %65, %._crit_edge.i1
   br i1 %or.cond12099, label %.thread14809.sink.split, label %.thread13776
 
 .thread14809.sink.split:                          ; preds = %2941, %2939
-  %.sink18278 = phi i32 [ %2934, %2939 ], [ %2932, %2941 ]
-  %.sink18276 = phi ptr [ %2940, %2939 ], [ %.05402, %2941 ]
-  %2946 = zext nneg i32 %.sink18278 to i64
-  %2947 = getelementptr inbounds nuw i8, ptr %.sink18276, i64 %2946
+  %.sink19642 = phi i32 [ %2934, %2939 ], [ %2932, %2941 ]
+  %.sink19640 = phi ptr [ %2940, %2939 ], [ %.05402, %2941 ]
+  %2946 = zext nneg i32 %.sink19642 to i64
+  %2947 = getelementptr inbounds nuw i8, ptr %.sink19640, i64 %2946
   %2948 = load i32, ptr %2947, align 4, !tbaa !34
   br label %.thread14809
 
@@ -6908,10 +6908,10 @@ ptr_register_glob_fixedid.exit12557:              ; preds = %65, %._crit_edge.i1
   br i1 %or.cond12101, label %.thread14814.sink.split, label %.thread13776
 
 .thread14814.sink.split:                          ; preds = %2959, %2957
-  %.sink18282 = phi i32 [ %2952, %2957 ], [ %2950, %2959 ]
-  %.sink18280 = phi ptr [ %2958, %2957 ], [ %.05402, %2959 ]
-  %2964 = zext nneg i32 %.sink18282 to i64
-  %2965 = getelementptr inbounds nuw i8, ptr %.sink18280, i64 %2964
+  %.sink19646 = phi i32 [ %2952, %2957 ], [ %2950, %2959 ]
+  %.sink19644 = phi ptr [ %2958, %2957 ], [ %.05402, %2959 ]
+  %2964 = zext nneg i32 %.sink19646 to i64
+  %2965 = getelementptr inbounds nuw i8, ptr %.sink19644, i64 %2964
   %2966 = load i32, ptr %2965, align 4, !tbaa !34
   br label %.thread14814
 
@@ -6970,10 +6970,10 @@ ptr_register_glob_fixedid.exit12557:              ; preds = %65, %._crit_edge.i1
   br i1 %or.cond12104, label %.thread14825.sink.split, label %.thread13776
 
 .thread14825.sink.split:                          ; preds = %2988, %2986
-  %.sink18286 = phi i32 [ %2981, %2986 ], [ %2979, %2988 ]
-  %.sink18284 = phi ptr [ %2987, %2986 ], [ %.05402, %2988 ]
-  %2993 = zext nneg i32 %.sink18286 to i64
-  %2994 = getelementptr inbounds nuw i8, ptr %.sink18284, i64 %2993
+  %.sink19650 = phi i32 [ %2981, %2986 ], [ %2979, %2988 ]
+  %.sink19648 = phi ptr [ %2987, %2986 ], [ %.05402, %2988 ]
+  %2993 = zext nneg i32 %.sink19650 to i64
+  %2994 = getelementptr inbounds nuw i8, ptr %.sink19648, i64 %2993
   %2995 = load i64, ptr %2994, align 8, !tbaa !70
   br label %.thread14825
 
@@ -7013,10 +7013,10 @@ ptr_register_glob_fixedid.exit12557:              ; preds = %65, %._crit_edge.i1
   br i1 %or.cond12106, label %.thread14830.sink.split, label %.thread13776
 
 .thread14830.sink.split:                          ; preds = %3006, %3004
-  %.sink18290 = phi i32 [ %2999, %3004 ], [ %2997, %3006 ]
-  %.sink18288 = phi ptr [ %3005, %3004 ], [ %.05402, %3006 ]
-  %3011 = zext nneg i32 %.sink18290 to i64
-  %3012 = getelementptr inbounds nuw i8, ptr %.sink18288, i64 %3011
+  %.sink19654 = phi i32 [ %2999, %3004 ], [ %2997, %3006 ]
+  %.sink19652 = phi ptr [ %3005, %3004 ], [ %.05402, %3006 ]
+  %3011 = zext nneg i32 %.sink19654 to i64
+  %3012 = getelementptr inbounds nuw i8, ptr %.sink19652, i64 %3011
   %3013 = load i64, ptr %3012, align 8, !tbaa !70
   br label %.thread14830
 
@@ -7078,10 +7078,10 @@ ptr_register_glob_fixedid.exit12557:              ; preds = %65, %._crit_edge.i1
   br i1 %.not11031, label %.thread14841.sink.split, label %.thread13776
 
 .thread14841.sink.split:                          ; preds = %3036, %3034
-  %.sink18294 = phi i32 [ %3031, %3034 ], [ %3029, %3036 ]
-  %.sink18292 = phi ptr [ %3035, %3034 ], [ %.05402, %3036 ]
-  %3039 = zext nneg i32 %.sink18294 to i64
-  %3040 = getelementptr inbounds nuw i8, ptr %.sink18292, i64 %3039
+  %.sink19658 = phi i32 [ %3031, %3034 ], [ %3029, %3036 ]
+  %.sink19656 = phi ptr [ %3035, %3034 ], [ %.05402, %3036 ]
+  %3039 = zext nneg i32 %.sink19658 to i64
+  %3040 = getelementptr inbounds nuw i8, ptr %.sink19656, i64 %3039
   %3041 = load i8, ptr %3040, align 1, !tbaa !62
   %3042 = and i8 %3041, 1
   br label %.thread14841
@@ -7118,10 +7118,10 @@ ptr_register_glob_fixedid.exit12557:              ; preds = %65, %._crit_edge.i1
   br i1 %.not11027, label %.thread14846.sink.split, label %.thread13776
 
 .thread14846.sink.split:                          ; preds = %3052, %3050
-  %.sink18298 = phi i32 [ %3047, %3050 ], [ %3045, %3052 ]
-  %.sink18296 = phi ptr [ %3051, %3050 ], [ %.05402, %3052 ]
-  %3055 = zext nneg i32 %.sink18298 to i64
-  %3056 = getelementptr inbounds nuw i8, ptr %.sink18296, i64 %3055
+  %.sink19662 = phi i32 [ %3047, %3050 ], [ %3045, %3052 ]
+  %.sink19660 = phi ptr [ %3051, %3050 ], [ %.05402, %3052 ]
+  %3055 = zext nneg i32 %.sink19662 to i64
+  %3056 = getelementptr inbounds nuw i8, ptr %.sink19660, i64 %3055
   %3057 = load i8, ptr %3056, align 1, !tbaa !62
   %3058 = sext i8 %3057 to i64
   br label %.thread14846
@@ -7171,10 +7171,10 @@ ptr_register_glob_fixedid.exit12557:              ; preds = %65, %._crit_edge.i1
   br i1 %or.cond12109, label %.thread14851.sink.split, label %.thread13776
 
 .thread14851.sink.split:                          ; preds = %3076, %3074
-  %.sink18302 = phi i32 [ %3069, %3074 ], [ %3067, %3076 ]
-  %.sink18300 = phi ptr [ %3075, %3074 ], [ %.05402, %3076 ]
-  %3081 = zext nneg i32 %.sink18302 to i64
-  %3082 = getelementptr inbounds nuw i8, ptr %.sink18300, i64 %3081
+  %.sink19666 = phi i32 [ %3069, %3074 ], [ %3067, %3076 ]
+  %.sink19664 = phi ptr [ %3075, %3074 ], [ %.05402, %3076 ]
+  %3081 = zext nneg i32 %.sink19666 to i64
+  %3082 = getelementptr inbounds nuw i8, ptr %.sink19664, i64 %3081
   %3083 = load i16, ptr %3082, align 2, !tbaa !69
   %3084 = zext i16 %3083 to i64
   %3085 = shl i64 %3084, 56
@@ -7226,10 +7226,10 @@ ptr_register_glob_fixedid.exit12557:              ; preds = %65, %._crit_edge.i1
   br i1 %or.cond12111, label %.thread14856.sink.split, label %.thread13776
 
 .thread14856.sink.split:                          ; preds = %3104, %3102
-  %.sink18306 = phi i32 [ %3097, %3102 ], [ %3095, %3104 ]
-  %.sink18304 = phi ptr [ %3103, %3102 ], [ %.05402, %3104 ]
-  %3109 = zext nneg i32 %.sink18306 to i64
-  %3110 = getelementptr inbounds nuw i8, ptr %.sink18304, i64 %3109
+  %.sink19670 = phi i32 [ %3097, %3102 ], [ %3095, %3104 ]
+  %.sink19668 = phi ptr [ %3103, %3102 ], [ %.05402, %3104 ]
+  %3109 = zext nneg i32 %.sink19670 to i64
+  %3110 = getelementptr inbounds nuw i8, ptr %.sink19668, i64 %3109
   %3111 = load i32, ptr %3110, align 4, !tbaa !34
   %3112 = zext i32 %3111 to i64
   %3113 = shl i64 %3112, 56
@@ -7281,10 +7281,10 @@ ptr_register_glob_fixedid.exit12557:              ; preds = %65, %._crit_edge.i1
   br i1 %or.cond12113, label %.thread14861.sink.split, label %.thread13776
 
 .thread14861.sink.split:                          ; preds = %3132, %3130
-  %.sink18310 = phi i32 [ %3125, %3130 ], [ %3123, %3132 ]
-  %.sink18308 = phi ptr [ %3131, %3130 ], [ %.05402, %3132 ]
-  %3137 = zext nneg i32 %.sink18310 to i64
-  %3138 = getelementptr inbounds nuw i8, ptr %.sink18308, i64 %3137
+  %.sink19674 = phi i32 [ %3125, %3130 ], [ %3123, %3132 ]
+  %.sink19672 = phi ptr [ %3131, %3130 ], [ %.05402, %3132 ]
+  %3137 = zext nneg i32 %.sink19674 to i64
+  %3138 = getelementptr inbounds nuw i8, ptr %.sink19672, i64 %3137
   %3139 = load i64, ptr %3138, align 8, !tbaa !70
   %3140 = shl i64 %3139, 56
   %3141 = ashr exact i64 %3140, 56
@@ -7353,10 +7353,10 @@ ptr_register_glob_fixedid.exit12557:              ; preds = %65, %._crit_edge.i1
   br i1 %.not11002, label %.thread14871.sink.split, label %.thread13776
 
 .thread14871.sink.split:                          ; preds = %3168, %3166
-  %.sink18314 = phi i32 [ %3163, %3166 ], [ %3161, %3168 ]
-  %.sink18312 = phi ptr [ %3167, %3166 ], [ %.05402, %3168 ]
-  %3171 = zext nneg i32 %.sink18314 to i64
-  %3172 = getelementptr inbounds nuw i8, ptr %.sink18312, i64 %3171
+  %.sink19678 = phi i32 [ %3163, %3166 ], [ %3161, %3168 ]
+  %.sink19676 = phi ptr [ %3167, %3166 ], [ %.05402, %3168 ]
+  %3171 = zext nneg i32 %.sink19678 to i64
+  %3172 = getelementptr inbounds nuw i8, ptr %.sink19676, i64 %3171
   %3173 = load i8, ptr %3172, align 1, !tbaa !62
   %3174 = and i8 %3173, 1
   br label %.thread14871
@@ -7393,10 +7393,10 @@ ptr_register_glob_fixedid.exit12557:              ; preds = %65, %._crit_edge.i1
   br i1 %.not10998, label %.thread14876.sink.split, label %.thread13776
 
 .thread14876.sink.split:                          ; preds = %3184, %3182
-  %.sink18318 = phi i32 [ %3179, %3182 ], [ %3177, %3184 ]
-  %.sink18316 = phi ptr [ %3183, %3182 ], [ %.05402, %3184 ]
-  %3187 = zext nneg i32 %.sink18318 to i64
-  %3188 = getelementptr inbounds nuw i8, ptr %.sink18316, i64 %3187
+  %.sink19682 = phi i32 [ %3179, %3182 ], [ %3177, %3184 ]
+  %.sink19680 = phi ptr [ %3183, %3182 ], [ %.05402, %3184 ]
+  %3187 = zext nneg i32 %.sink19682 to i64
+  %3188 = getelementptr inbounds nuw i8, ptr %.sink19680, i64 %3187
   %3189 = load i8, ptr %3188, align 1, !tbaa !62
   %3190 = sext i8 %3189 to i64
   br label %.thread14876
@@ -7446,10 +7446,10 @@ ptr_register_glob_fixedid.exit12557:              ; preds = %65, %._crit_edge.i1
   br i1 %or.cond12115, label %.thread14881.sink.split, label %.thread13776
 
 .thread14881.sink.split:                          ; preds = %3208, %3206
-  %.sink18322 = phi i32 [ %3201, %3206 ], [ %3199, %3208 ]
-  %.sink18320 = phi ptr [ %3207, %3206 ], [ %.05402, %3208 ]
-  %3213 = zext nneg i32 %.sink18322 to i64
-  %3214 = getelementptr inbounds nuw i8, ptr %.sink18320, i64 %3213
+  %.sink19686 = phi i32 [ %3201, %3206 ], [ %3199, %3208 ]
+  %.sink19684 = phi ptr [ %3207, %3206 ], [ %.05402, %3208 ]
+  %3213 = zext nneg i32 %.sink19686 to i64
+  %3214 = getelementptr inbounds nuw i8, ptr %.sink19684, i64 %3213
   %3215 = load i16, ptr %3214, align 2, !tbaa !69
   %3216 = zext i16 %3215 to i64
   %3217 = shl i64 %3216, 56
@@ -7501,10 +7501,10 @@ ptr_register_glob_fixedid.exit12557:              ; preds = %65, %._crit_edge.i1
   br i1 %or.cond12117, label %.thread14886.sink.split, label %.thread13776
 
 .thread14886.sink.split:                          ; preds = %3236, %3234
-  %.sink18326 = phi i32 [ %3229, %3234 ], [ %3227, %3236 ]
-  %.sink18324 = phi ptr [ %3235, %3234 ], [ %.05402, %3236 ]
-  %3241 = zext nneg i32 %.sink18326 to i64
-  %3242 = getelementptr inbounds nuw i8, ptr %.sink18324, i64 %3241
+  %.sink19690 = phi i32 [ %3229, %3234 ], [ %3227, %3236 ]
+  %.sink19688 = phi ptr [ %3235, %3234 ], [ %.05402, %3236 ]
+  %3241 = zext nneg i32 %.sink19690 to i64
+  %3242 = getelementptr inbounds nuw i8, ptr %.sink19688, i64 %3241
   %3243 = load i32, ptr %3242, align 4, !tbaa !34
   %3244 = zext i32 %3243 to i64
   %3245 = shl i64 %3244, 56
@@ -7556,10 +7556,10 @@ ptr_register_glob_fixedid.exit12557:              ; preds = %65, %._crit_edge.i1
   br i1 %or.cond12119, label %.thread14891.sink.split, label %.thread13776
 
 .thread14891.sink.split:                          ; preds = %3264, %3262
-  %.sink18330 = phi i32 [ %3257, %3262 ], [ %3255, %3264 ]
-  %.sink18328 = phi ptr [ %3263, %3262 ], [ %.05402, %3264 ]
-  %3269 = zext nneg i32 %.sink18330 to i64
-  %3270 = getelementptr inbounds nuw i8, ptr %.sink18328, i64 %3269
+  %.sink19694 = phi i32 [ %3257, %3262 ], [ %3255, %3264 ]
+  %.sink19692 = phi ptr [ %3263, %3262 ], [ %.05402, %3264 ]
+  %3269 = zext nneg i32 %.sink19694 to i64
+  %3270 = getelementptr inbounds nuw i8, ptr %.sink19692, i64 %3269
   %3271 = load i64, ptr %3270, align 8, !tbaa !70
   %3272 = shl i64 %3271, 56
   %3273 = ashr exact i64 %3272, 56
@@ -7628,10 +7628,10 @@ ptr_register_glob_fixedid.exit12557:              ; preds = %65, %._crit_edge.i1
   br i1 %.not10972, label %.thread14901.sink.split, label %.thread13776
 
 .thread14901.sink.split:                          ; preds = %3300, %3298
-  %.sink18334 = phi i32 [ %3295, %3298 ], [ %3293, %3300 ]
-  %.sink18332 = phi ptr [ %3299, %3298 ], [ %.05402, %3300 ]
-  %3303 = zext nneg i32 %.sink18334 to i64
-  %3304 = getelementptr inbounds nuw i8, ptr %.sink18332, i64 %3303
+  %.sink19698 = phi i32 [ %3295, %3298 ], [ %3293, %3300 ]
+  %.sink19696 = phi ptr [ %3299, %3298 ], [ %.05402, %3300 ]
+  %3303 = zext nneg i32 %.sink19698 to i64
+  %3304 = getelementptr inbounds nuw i8, ptr %.sink19696, i64 %3303
   %3305 = load i8, ptr %3304, align 1, !tbaa !62
   %3306 = and i8 %3305, 1
   %3307 = zext nneg i8 %3306 to i16
@@ -7669,10 +7669,10 @@ ptr_register_glob_fixedid.exit12557:              ; preds = %65, %._crit_edge.i1
   br i1 %.not10968, label %.thread14906.sink.split, label %.thread13776
 
 .thread14906.sink.split:                          ; preds = %3317, %3315
-  %.sink18338 = phi i32 [ %3312, %3315 ], [ %3310, %3317 ]
-  %.sink18336 = phi ptr [ %3316, %3315 ], [ %.05402, %3317 ]
-  %3320 = zext nneg i32 %.sink18338 to i64
-  %3321 = getelementptr inbounds nuw i8, ptr %.sink18336, i64 %3320
+  %.sink19702 = phi i32 [ %3312, %3315 ], [ %3310, %3317 ]
+  %.sink19700 = phi ptr [ %3316, %3315 ], [ %.05402, %3317 ]
+  %3320 = zext nneg i32 %.sink19702 to i64
+  %3321 = getelementptr inbounds nuw i8, ptr %.sink19700, i64 %3320
   %3322 = load i8, ptr %3321, align 1, !tbaa !62
   %3323 = zext i8 %3322 to i64
   br label %.thread14906
@@ -7722,10 +7722,10 @@ ptr_register_glob_fixedid.exit12557:              ; preds = %65, %._crit_edge.i1
   br i1 %or.cond12121, label %.thread14911.sink.split, label %.thread13776
 
 .thread14911.sink.split:                          ; preds = %3341, %3339
-  %.sink18342 = phi i32 [ %3334, %3339 ], [ %3332, %3341 ]
-  %.sink18340 = phi ptr [ %3340, %3339 ], [ %.05402, %3341 ]
-  %3346 = zext nneg i32 %.sink18342 to i64
-  %3347 = getelementptr inbounds nuw i8, ptr %.sink18340, i64 %3346
+  %.sink19706 = phi i32 [ %3334, %3339 ], [ %3332, %3341 ]
+  %.sink19704 = phi ptr [ %3340, %3339 ], [ %.05402, %3341 ]
+  %3346 = zext nneg i32 %.sink19706 to i64
+  %3347 = getelementptr inbounds nuw i8, ptr %.sink19704, i64 %3346
   %3348 = load i16, ptr %3347, align 2, !tbaa !69
   %3349 = sext i16 %3348 to i64
   br label %.thread14911
@@ -7775,10 +7775,10 @@ ptr_register_glob_fixedid.exit12557:              ; preds = %65, %._crit_edge.i1
   br i1 %or.cond12123, label %.thread14916.sink.split, label %.thread13776
 
 .thread14916.sink.split:                          ; preds = %3367, %3365
-  %.sink18346 = phi i32 [ %3360, %3365 ], [ %3358, %3367 ]
-  %.sink18344 = phi ptr [ %3366, %3365 ], [ %.05402, %3367 ]
-  %3372 = zext nneg i32 %.sink18346 to i64
-  %3373 = getelementptr inbounds nuw i8, ptr %.sink18344, i64 %3372
+  %.sink19710 = phi i32 [ %3360, %3365 ], [ %3358, %3367 ]
+  %.sink19708 = phi ptr [ %3366, %3365 ], [ %.05402, %3367 ]
+  %3372 = zext nneg i32 %.sink19710 to i64
+  %3373 = getelementptr inbounds nuw i8, ptr %.sink19708, i64 %3372
   %3374 = load i32, ptr %3373, align 4, !tbaa !34
   %3375 = zext i32 %3374 to i64
   %3376 = shl i64 %3375, 48
@@ -7830,10 +7830,10 @@ ptr_register_glob_fixedid.exit12557:              ; preds = %65, %._crit_edge.i1
   br i1 %or.cond12125, label %.thread14921.sink.split, label %.thread13776
 
 .thread14921.sink.split:                          ; preds = %3395, %3393
-  %.sink18350 = phi i32 [ %3388, %3393 ], [ %3386, %3395 ]
-  %.sink18348 = phi ptr [ %3394, %3393 ], [ %.05402, %3395 ]
-  %3400 = zext nneg i32 %.sink18350 to i64
-  %3401 = getelementptr inbounds nuw i8, ptr %.sink18348, i64 %3400
+  %.sink19714 = phi i32 [ %3388, %3393 ], [ %3386, %3395 ]
+  %.sink19712 = phi ptr [ %3394, %3393 ], [ %.05402, %3395 ]
+  %3400 = zext nneg i32 %.sink19714 to i64
+  %3401 = getelementptr inbounds nuw i8, ptr %.sink19712, i64 %3400
   %3402 = load i64, ptr %3401, align 8, !tbaa !70
   %3403 = shl i64 %3402, 48
   %3404 = ashr exact i64 %3403, 48
@@ -7906,10 +7906,10 @@ ptr_register_glob_fixedid.exit12557:              ; preds = %65, %._crit_edge.i1
   br i1 %.not10942, label %.thread14931.sink.split, label %.thread13776
 
 .thread14931.sink.split:                          ; preds = %3433, %3431
-  %.sink18354 = phi i32 [ %3428, %3431 ], [ %3426, %3433 ]
-  %.sink18352 = phi ptr [ %3432, %3431 ], [ %.05402, %3433 ]
-  %3436 = zext nneg i32 %.sink18354 to i64
-  %3437 = getelementptr inbounds nuw i8, ptr %.sink18352, i64 %3436
+  %.sink19718 = phi i32 [ %3428, %3431 ], [ %3426, %3433 ]
+  %.sink19716 = phi ptr [ %3432, %3431 ], [ %.05402, %3433 ]
+  %3436 = zext nneg i32 %.sink19718 to i64
+  %3437 = getelementptr inbounds nuw i8, ptr %.sink19716, i64 %3436
   %3438 = load i8, ptr %3437, align 1, !tbaa !62
   %3439 = and i8 %3438, 1
   %3440 = zext nneg i8 %3439 to i32
@@ -7947,10 +7947,10 @@ ptr_register_glob_fixedid.exit12557:              ; preds = %65, %._crit_edge.i1
   br i1 %.not10938, label %.thread14936.sink.split, label %.thread13776
 
 .thread14936.sink.split:                          ; preds = %3450, %3448
-  %.sink18358 = phi i32 [ %3445, %3448 ], [ %3443, %3450 ]
-  %.sink18356 = phi ptr [ %3449, %3448 ], [ %.05402, %3450 ]
-  %3453 = zext nneg i32 %.sink18358 to i64
-  %3454 = getelementptr inbounds nuw i8, ptr %.sink18356, i64 %3453
+  %.sink19722 = phi i32 [ %3445, %3448 ], [ %3443, %3450 ]
+  %.sink19720 = phi ptr [ %3449, %3448 ], [ %.05402, %3450 ]
+  %3453 = zext nneg i32 %.sink19722 to i64
+  %3454 = getelementptr inbounds nuw i8, ptr %.sink19720, i64 %3453
   %3455 = load i8, ptr %3454, align 1, !tbaa !62
   %3456 = zext i8 %3455 to i64
   br label %.thread14936
@@ -8000,10 +8000,10 @@ ptr_register_glob_fixedid.exit12557:              ; preds = %65, %._crit_edge.i1
   br i1 %or.cond12128, label %.thread14941.sink.split, label %.thread13776
 
 .thread14941.sink.split:                          ; preds = %3474, %3472
-  %.sink18362 = phi i32 [ %3467, %3472 ], [ %3465, %3474 ]
-  %.sink18360 = phi ptr [ %3473, %3472 ], [ %.05402, %3474 ]
-  %3479 = zext nneg i32 %.sink18362 to i64
-  %3480 = getelementptr inbounds nuw i8, ptr %.sink18360, i64 %3479
+  %.sink19726 = phi i32 [ %3467, %3472 ], [ %3465, %3474 ]
+  %.sink19724 = phi ptr [ %3473, %3472 ], [ %.05402, %3474 ]
+  %3479 = zext nneg i32 %.sink19726 to i64
+  %3480 = getelementptr inbounds nuw i8, ptr %.sink19724, i64 %3479
   %3481 = load i16, ptr %3480, align 2, !tbaa !69
   %3482 = zext i16 %3481 to i64
   br label %.thread14941
@@ -8053,10 +8053,10 @@ ptr_register_glob_fixedid.exit12557:              ; preds = %65, %._crit_edge.i1
   br i1 %or.cond12130, label %.thread14946.sink.split, label %.thread13776
 
 .thread14946.sink.split:                          ; preds = %3500, %3498
-  %.sink18366 = phi i32 [ %3493, %3498 ], [ %3491, %3500 ]
-  %.sink18364 = phi ptr [ %3499, %3498 ], [ %.05402, %3500 ]
-  %3505 = zext nneg i32 %.sink18366 to i64
-  %3506 = getelementptr inbounds nuw i8, ptr %.sink18364, i64 %3505
+  %.sink19730 = phi i32 [ %3493, %3498 ], [ %3491, %3500 ]
+  %.sink19728 = phi ptr [ %3499, %3498 ], [ %.05402, %3500 ]
+  %3505 = zext nneg i32 %.sink19730 to i64
+  %3506 = getelementptr inbounds nuw i8, ptr %.sink19728, i64 %3505
   %3507 = load i32, ptr %3506, align 4, !tbaa !34
   %3508 = sext i32 %3507 to i64
   br label %.thread14946
@@ -8106,10 +8106,10 @@ ptr_register_glob_fixedid.exit12557:              ; preds = %65, %._crit_edge.i1
   br i1 %or.cond12132, label %.thread14951.sink.split, label %.thread13776
 
 .thread14951.sink.split:                          ; preds = %3526, %3524
-  %.sink18370 = phi i32 [ %3519, %3524 ], [ %3517, %3526 ]
-  %.sink18368 = phi ptr [ %3525, %3524 ], [ %.05402, %3526 ]
-  %3531 = zext nneg i32 %.sink18370 to i64
-  %3532 = getelementptr inbounds nuw i8, ptr %.sink18368, i64 %3531
+  %.sink19734 = phi i32 [ %3519, %3524 ], [ %3517, %3526 ]
+  %.sink19732 = phi ptr [ %3525, %3524 ], [ %.05402, %3526 ]
+  %3531 = zext nneg i32 %.sink19734 to i64
+  %3532 = getelementptr inbounds nuw i8, ptr %.sink19732, i64 %3531
   %3533 = load i64, ptr %3532, align 8, !tbaa !70
   %3534 = shl i64 %3533, 32
   %3535 = ashr exact i64 %3534, 32
@@ -8182,10 +8182,10 @@ ptr_register_glob_fixedid.exit12557:              ; preds = %65, %._crit_edge.i1
   br i1 %.not10912, label %.thread14961.sink.split, label %.thread13776
 
 .thread14961.sink.split:                          ; preds = %3564, %3562
-  %.sink18374 = phi i32 [ %3559, %3562 ], [ %3557, %3564 ]
-  %.sink18372 = phi ptr [ %3563, %3562 ], [ %.05402, %3564 ]
-  %3567 = zext nneg i32 %.sink18374 to i64
-  %3568 = getelementptr inbounds nuw i8, ptr %.sink18372, i64 %3567
+  %.sink19738 = phi i32 [ %3559, %3562 ], [ %3557, %3564 ]
+  %.sink19736 = phi ptr [ %3563, %3562 ], [ %.05402, %3564 ]
+  %3567 = zext nneg i32 %.sink19738 to i64
+  %3568 = getelementptr inbounds nuw i8, ptr %.sink19736, i64 %3567
   %3569 = load i8, ptr %3568, align 1, !tbaa !62
   %3570 = and i8 %3569, 1
   %3571 = zext nneg i8 %3570 to i64
@@ -8223,10 +8223,10 @@ ptr_register_glob_fixedid.exit12557:              ; preds = %65, %._crit_edge.i1
   br i1 %.not10908, label %.thread14966.sink.split, label %.thread13776
 
 .thread14966.sink.split:                          ; preds = %3582, %3580
-  %.sink18378 = phi i32 [ %3577, %3580 ], [ %3575, %3582 ]
-  %.sink18376 = phi ptr [ %3581, %3580 ], [ %.05402, %3582 ]
-  %3585 = zext nneg i32 %.sink18378 to i64
-  %3586 = getelementptr inbounds nuw i8, ptr %.sink18376, i64 %3585
+  %.sink19742 = phi i32 [ %3577, %3580 ], [ %3575, %3582 ]
+  %.sink19740 = phi ptr [ %3581, %3580 ], [ %.05402, %3582 ]
+  %3585 = zext nneg i32 %.sink19742 to i64
+  %3586 = getelementptr inbounds nuw i8, ptr %.sink19740, i64 %3585
   %3587 = load i8, ptr %3586, align 1, !tbaa !62
   %3588 = zext i8 %3587 to i64
   br label %.thread14966
@@ -8275,10 +8275,10 @@ ptr_register_glob_fixedid.exit12557:              ; preds = %65, %._crit_edge.i1
   br i1 %or.cond12135, label %.thread14971.sink.split, label %.thread13776
 
 .thread14971.sink.split:                          ; preds = %3605, %3603
-  %.sink18382 = phi i32 [ %3598, %3603 ], [ %3596, %3605 ]
-  %.sink18380 = phi ptr [ %3604, %3603 ], [ %.05402, %3605 ]
-  %3610 = zext nneg i32 %.sink18382 to i64
-  %3611 = getelementptr inbounds nuw i8, ptr %.sink18380, i64 %3610
+  %.sink19746 = phi i32 [ %3598, %3603 ], [ %3596, %3605 ]
+  %.sink19744 = phi ptr [ %3604, %3603 ], [ %.05402, %3605 ]
+  %3610 = zext nneg i32 %.sink19746 to i64
+  %3611 = getelementptr inbounds nuw i8, ptr %.sink19744, i64 %3610
   %3612 = load i16, ptr %3611, align 2, !tbaa !69
   %3613 = zext i16 %3612 to i64
   br label %.thread14971
@@ -8327,10 +8327,10 @@ ptr_register_glob_fixedid.exit12557:              ; preds = %65, %._crit_edge.i1
   br i1 %or.cond12137, label %.thread14976.sink.split, label %.thread13776
 
 .thread14976.sink.split:                          ; preds = %3630, %3628
-  %.sink18386 = phi i32 [ %3623, %3628 ], [ %3621, %3630 ]
-  %.sink18384 = phi ptr [ %3629, %3628 ], [ %.05402, %3630 ]
-  %3635 = zext nneg i32 %.sink18386 to i64
-  %3636 = getelementptr inbounds nuw i8, ptr %.sink18384, i64 %3635
+  %.sink19750 = phi i32 [ %3623, %3628 ], [ %3621, %3630 ]
+  %.sink19748 = phi ptr [ %3629, %3628 ], [ %.05402, %3630 ]
+  %3635 = zext nneg i32 %.sink19750 to i64
+  %3636 = getelementptr inbounds nuw i8, ptr %.sink19748, i64 %3635
   %3637 = load i32, ptr %3636, align 4, !tbaa !34
   %3638 = zext i32 %3637 to i64
   br label %.thread14976
@@ -8379,10 +8379,10 @@ ptr_register_glob_fixedid.exit12557:              ; preds = %65, %._crit_edge.i1
   br i1 %or.cond12139, label %.thread14981.sink.split, label %.thread13776
 
 .thread14981.sink.split:                          ; preds = %3655, %3653
-  %.sink18390 = phi i32 [ %3648, %3653 ], [ %3646, %3655 ]
-  %.sink18388 = phi ptr [ %3654, %3653 ], [ %.05402, %3655 ]
-  %3660 = zext nneg i32 %.sink18390 to i64
-  %3661 = getelementptr inbounds nuw i8, ptr %.sink18388, i64 %3660
+  %.sink19754 = phi i32 [ %3648, %3653 ], [ %3646, %3655 ]
+  %.sink19752 = phi ptr [ %3654, %3653 ], [ %.05402, %3655 ]
+  %3660 = zext nneg i32 %.sink19754 to i64
+  %3661 = getelementptr inbounds nuw i8, ptr %.sink19752, i64 %3660
   %3662 = load i64, ptr %3661, align 8, !tbaa !70
   br label %.thread14981
 
@@ -8452,10 +8452,10 @@ ptr_register_glob_fixedid.exit12557:              ; preds = %65, %._crit_edge.i1
   br i1 %.not10885, label %.thread14991.sink.split, label %.thread13776
 
 .thread14991.sink.split:                          ; preds = %3690, %3688
-  %.sink18394 = phi i32 [ %3685, %3688 ], [ %3683, %3690 ]
-  %.sink18392 = phi ptr [ %3689, %3688 ], [ %.05402, %3690 ]
-  %3693 = zext nneg i32 %.sink18394 to i64
-  %3694 = getelementptr inbounds nuw i8, ptr %.sink18392, i64 %3693
+  %.sink19758 = phi i32 [ %3685, %3688 ], [ %3683, %3690 ]
+  %.sink19756 = phi ptr [ %3689, %3688 ], [ %.05402, %3690 ]
+  %3693 = zext nneg i32 %.sink19758 to i64
+  %3694 = getelementptr inbounds nuw i8, ptr %.sink19756, i64 %3693
   %3695 = load i8, ptr %3694, align 1, !tbaa !62
   %3696 = and i8 %3695, 1
   br label %.thread14996
@@ -8683,10 +8683,10 @@ ptr_register_glob_fixedid.exit12557:              ; preds = %65, %._crit_edge.i1
   br i1 %.not10858, label %.thread15021.sink.split, label %.thread13776
 
 .thread15021.sink.split:                          ; preds = %3810, %3808
-  %.sink18398 = phi i32 [ %3805, %3808 ], [ %3803, %3810 ]
-  %.sink18396 = phi ptr [ %3809, %3808 ], [ %.05402, %3810 ]
-  %3813 = zext nneg i32 %.sink18398 to i64
-  %3814 = getelementptr inbounds nuw i8, ptr %.sink18396, i64 %3813
+  %.sink19762 = phi i32 [ %3805, %3808 ], [ %3803, %3810 ]
+  %.sink19760 = phi ptr [ %3809, %3808 ], [ %.05402, %3810 ]
+  %3813 = zext nneg i32 %.sink19762 to i64
+  %3814 = getelementptr inbounds nuw i8, ptr %.sink19760, i64 %3813
   %3815 = load i8, ptr %3814, align 1, !tbaa !62
   %3816 = and i8 %3815, 1
   br label %.thread15026
@@ -8914,10 +8914,10 @@ ptr_register_glob_fixedid.exit12557:              ; preds = %65, %._crit_edge.i1
   br i1 %.not10830, label %.thread15051.sink.split, label %.thread13776
 
 .thread15051.sink.split:                          ; preds = %3930, %3928
-  %.sink18402 = phi i32 [ %3925, %3928 ], [ %3923, %3930 ]
-  %.sink18400 = phi ptr [ %3929, %3928 ], [ %.05402, %3930 ]
-  %3933 = zext nneg i32 %.sink18402 to i64
-  %3934 = getelementptr inbounds nuw i8, ptr %.sink18400, i64 %3933
+  %.sink19766 = phi i32 [ %3925, %3928 ], [ %3923, %3930 ]
+  %.sink19764 = phi ptr [ %3929, %3928 ], [ %.05402, %3930 ]
+  %3933 = zext nneg i32 %.sink19766 to i64
+  %3934 = getelementptr inbounds nuw i8, ptr %.sink19764, i64 %3933
   %3935 = load i8, ptr %3934, align 1, !tbaa !62
   %3936 = and i8 %3935, 1
   %3937 = zext nneg i8 %3936 to i16
@@ -9150,10 +9150,10 @@ ptr_register_glob_fixedid.exit12557:              ; preds = %65, %._crit_edge.i1
   br i1 %.not10802, label %.thread15081.sink.split, label %.thread13776
 
 .thread15081.sink.split:                          ; preds = %4053, %4051
-  %.sink18406 = phi i32 [ %4048, %4051 ], [ %4046, %4053 ]
-  %.sink18404 = phi ptr [ %4052, %4051 ], [ %.05402, %4053 ]
-  %4056 = zext nneg i32 %.sink18406 to i64
-  %4057 = getelementptr inbounds nuw i8, ptr %.sink18404, i64 %4056
+  %.sink19770 = phi i32 [ %4048, %4051 ], [ %4046, %4053 ]
+  %.sink19768 = phi ptr [ %4052, %4051 ], [ %.05402, %4053 ]
+  %4056 = zext nneg i32 %.sink19770 to i64
+  %4057 = getelementptr inbounds nuw i8, ptr %.sink19768, i64 %4056
   %4058 = load i8, ptr %4057, align 1, !tbaa !62
   %4059 = and i8 %4058, 1
   %4060 = zext nneg i8 %4059 to i32
@@ -9386,10 +9386,10 @@ ptr_register_glob_fixedid.exit12557:              ; preds = %65, %._crit_edge.i1
   br i1 %.not10774, label %.thread15111.sink.split, label %.thread13776
 
 .thread15111.sink.split:                          ; preds = %4176, %4174
-  %.sink18410 = phi i32 [ %4171, %4174 ], [ %4169, %4176 ]
-  %.sink18408 = phi ptr [ %4175, %4174 ], [ %.05402, %4176 ]
-  %4179 = zext nneg i32 %.sink18410 to i64
-  %4180 = getelementptr inbounds nuw i8, ptr %.sink18408, i64 %4179
+  %.sink19774 = phi i32 [ %4171, %4174 ], [ %4169, %4176 ]
+  %.sink19772 = phi ptr [ %4175, %4174 ], [ %.05402, %4176 ]
+  %4179 = zext nneg i32 %.sink19774 to i64
+  %4180 = getelementptr inbounds nuw i8, ptr %.sink19772, i64 %4179
   %4181 = load i8, ptr %4180, align 1, !tbaa !62
   %4182 = and i8 %4181, 1
   %4183 = zext nneg i8 %4182 to i64
@@ -9622,10 +9622,10 @@ ptr_register_glob_fixedid.exit12557:              ; preds = %65, %._crit_edge.i1
   br i1 %.not10747, label %.thread15141.sink.split, label %.thread13776
 
 .thread15141.sink.split:                          ; preds = %4299, %4297
-  %.sink18414 = phi i32 [ %4294, %4297 ], [ %4292, %4299 ]
-  %.sink18412 = phi ptr [ %4298, %4297 ], [ %.05402, %4299 ]
-  %4302 = zext nneg i32 %.sink18414 to i64
-  %4303 = getelementptr inbounds nuw i8, ptr %.sink18412, i64 %4302
+  %.sink19778 = phi i32 [ %4294, %4297 ], [ %4292, %4299 ]
+  %.sink19776 = phi ptr [ %4298, %4297 ], [ %.05402, %4299 ]
+  %4302 = zext nneg i32 %.sink19778 to i64
+  %4303 = getelementptr inbounds nuw i8, ptr %.sink19776, i64 %4302
   %4304 = load i8, ptr %4303, align 1, !tbaa !62
   %4305 = and i8 %4304, 1
   br label %.thread15146
@@ -9853,10 +9853,10 @@ ptr_register_glob_fixedid.exit12557:              ; preds = %65, %._crit_edge.i1
   br i1 %.not10720, label %.thread15171.sink.split, label %.thread13776
 
 .thread15171.sink.split:                          ; preds = %4419, %4417
-  %.sink18418 = phi i32 [ %4414, %4417 ], [ %4412, %4419 ]
-  %.sink18416 = phi ptr [ %4418, %4417 ], [ %.05402, %4419 ]
-  %4422 = zext nneg i32 %.sink18418 to i64
-  %4423 = getelementptr inbounds nuw i8, ptr %.sink18416, i64 %4422
+  %.sink19782 = phi i32 [ %4414, %4417 ], [ %4412, %4419 ]
+  %.sink19780 = phi ptr [ %4418, %4417 ], [ %.05402, %4419 ]
+  %4422 = zext nneg i32 %.sink19782 to i64
+  %4423 = getelementptr inbounds nuw i8, ptr %.sink19780, i64 %4422
   %4424 = load i8, ptr %4423, align 1, !tbaa !62
   %4425 = and i8 %4424, 1
   br label %.thread15176
@@ -10084,10 +10084,10 @@ ptr_register_glob_fixedid.exit12557:              ; preds = %65, %._crit_edge.i1
   br i1 %.not10692, label %.thread15201.sink.split, label %.thread13776
 
 .thread15201.sink.split:                          ; preds = %4539, %4537
-  %.sink18422 = phi i32 [ %4534, %4537 ], [ %4532, %4539 ]
-  %.sink18420 = phi ptr [ %4538, %4537 ], [ %.05402, %4539 ]
-  %4542 = zext nneg i32 %.sink18422 to i64
-  %4543 = getelementptr inbounds nuw i8, ptr %.sink18420, i64 %4542
+  %.sink19786 = phi i32 [ %4534, %4537 ], [ %4532, %4539 ]
+  %.sink19784 = phi ptr [ %4538, %4537 ], [ %.05402, %4539 ]
+  %4542 = zext nneg i32 %.sink19786 to i64
+  %4543 = getelementptr inbounds nuw i8, ptr %.sink19784, i64 %4542
   %4544 = load i8, ptr %4543, align 1, !tbaa !62
   %4545 = and i8 %4544, 1
   %4546 = zext nneg i8 %4545 to i16
@@ -10320,10 +10320,10 @@ ptr_register_glob_fixedid.exit12557:              ; preds = %65, %._crit_edge.i1
   br i1 %.not10664, label %.thread15231.sink.split, label %.thread13776
 
 .thread15231.sink.split:                          ; preds = %4662, %4660
-  %.sink18426 = phi i32 [ %4657, %4660 ], [ %4655, %4662 ]
-  %.sink18424 = phi ptr [ %4661, %4660 ], [ %.05402, %4662 ]
-  %4665 = zext nneg i32 %.sink18426 to i64
-  %4666 = getelementptr inbounds nuw i8, ptr %.sink18424, i64 %4665
+  %.sink19790 = phi i32 [ %4657, %4660 ], [ %4655, %4662 ]
+  %.sink19788 = phi ptr [ %4661, %4660 ], [ %.05402, %4662 ]
+  %4665 = zext nneg i32 %.sink19790 to i64
+  %4666 = getelementptr inbounds nuw i8, ptr %.sink19788, i64 %4665
   %4667 = load i8, ptr %4666, align 1, !tbaa !62
   %4668 = and i8 %4667, 1
   %4669 = zext nneg i8 %4668 to i32
@@ -10556,10 +10556,10 @@ ptr_register_glob_fixedid.exit12557:              ; preds = %65, %._crit_edge.i1
   br i1 %.not10636, label %.thread15261.sink.split, label %.thread13776
 
 .thread15261.sink.split:                          ; preds = %4785, %4783
-  %.sink18430 = phi i32 [ %4780, %4783 ], [ %4778, %4785 ]
-  %.sink18428 = phi ptr [ %4784, %4783 ], [ %.05402, %4785 ]
-  %4788 = zext nneg i32 %.sink18430 to i64
-  %4789 = getelementptr inbounds nuw i8, ptr %.sink18428, i64 %4788
+  %.sink19794 = phi i32 [ %4780, %4783 ], [ %4778, %4785 ]
+  %.sink19792 = phi ptr [ %4784, %4783 ], [ %.05402, %4785 ]
+  %4788 = zext nneg i32 %.sink19794 to i64
+  %4789 = getelementptr inbounds nuw i8, ptr %.sink19792, i64 %4788
   %4790 = load i8, ptr %4789, align 1, !tbaa !62
   %4791 = and i8 %4790, 1
   %4792 = zext nneg i8 %4791 to i64
@@ -10823,10 +10823,10 @@ ptr_register_glob_fixedid.exit12557:              ; preds = %65, %._crit_edge.i1
   br i1 %.not10603, label %.thread15291.sink.split, label %.thread13776
 
 .thread15291.sink.split:                          ; preds = %4933, %4931
-  %.sink18434 = phi i32 [ %4928, %4931 ], [ %4926, %4933 ]
-  %.sink18432 = phi ptr [ %4932, %4931 ], [ %.05402, %4933 ]
-  %4936 = zext nneg i32 %.sink18434 to i64
-  %4937 = getelementptr inbounds nuw i8, ptr %.sink18432, i64 %4936
+  %.sink19798 = phi i32 [ %4928, %4931 ], [ %4926, %4933 ]
+  %.sink19796 = phi ptr [ %4932, %4931 ], [ %.05402, %4933 ]
+  %4936 = zext nneg i32 %.sink19798 to i64
+  %4937 = getelementptr inbounds nuw i8, ptr %.sink19796, i64 %4936
   %4938 = load i8, ptr %4937, align 1, !tbaa !62
   %4939 = and i8 %4938, 1
   br label %.thread15291
@@ -10953,10 +10953,10 @@ cli_stack_free.exit12547:                         ; preds = %4952, %4962, %4967,
   br i1 %.not10595, label %.thread15327.sink.split, label %.thread13776
 
 .thread15327.sink.split:                          ; preds = %5001, %4999
-  %.sink18438 = phi i32 [ %4996, %4999 ], [ %4994, %5001 ]
-  %.sink18436 = phi ptr [ %5000, %4999 ], [ %.05402, %5001 ]
-  %5004 = zext nneg i32 %.sink18438 to i64
-  %5005 = getelementptr inbounds nuw i8, ptr %.sink18436, i64 %5004
+  %.sink19802 = phi i32 [ %4996, %4999 ], [ %4994, %5001 ]
+  %.sink19800 = phi ptr [ %5000, %4999 ], [ %.05402, %5001 ]
+  %5004 = zext nneg i32 %.sink19802 to i64
+  %5005 = getelementptr inbounds nuw i8, ptr %.sink19800, i64 %5004
   %5006 = load i8, ptr %5005, align 1, !tbaa !62
   br label %.thread15327
 
@@ -11090,10 +11090,10 @@ cli_stack_free.exit12543:                         ; preds = %5019, %5029, %5034,
   br i1 %or.cond12208, label %.thread15363.sink.split, label %.thread13776
 
 .thread15363.sink.split:                          ; preds = %5070, %5068
-  %.sink18442 = phi i32 [ %5063, %5068 ], [ %5061, %5070 ]
-  %.sink18440 = phi ptr [ %5069, %5068 ], [ %.05402, %5070 ]
-  %5075 = zext nneg i32 %.sink18442 to i64
-  %5076 = getelementptr inbounds nuw i8, ptr %.sink18440, i64 %5075
+  %.sink19806 = phi i32 [ %5063, %5068 ], [ %5061, %5070 ]
+  %.sink19804 = phi ptr [ %5069, %5068 ], [ %.05402, %5070 ]
+  %5075 = zext nneg i32 %.sink19806 to i64
+  %5076 = getelementptr inbounds nuw i8, ptr %.sink19804, i64 %5075
   %5077 = load i16, ptr %5076, align 2, !tbaa !69
   br label %.thread15363
 
@@ -11232,10 +11232,10 @@ cli_stack_free.exit12539:                         ; preds = %5090, %5100, %5105,
   br i1 %or.cond12212, label %.thread15399.sink.split, label %.thread13776
 
 .thread15399.sink.split:                          ; preds = %5142, %5140
-  %.sink18446 = phi i32 [ %5135, %5140 ], [ %5133, %5142 ]
-  %.sink18444 = phi ptr [ %5141, %5140 ], [ %.05402, %5142 ]
-  %5147 = zext nneg i32 %.sink18446 to i64
-  %5148 = getelementptr inbounds nuw i8, ptr %.sink18444, i64 %5147
+  %.sink19810 = phi i32 [ %5135, %5140 ], [ %5133, %5142 ]
+  %.sink19808 = phi ptr [ %5141, %5140 ], [ %.05402, %5142 ]
+  %5147 = zext nneg i32 %.sink19810 to i64
+  %5148 = getelementptr inbounds nuw i8, ptr %.sink19808, i64 %5147
   %5149 = load i32, ptr %5148, align 4, !tbaa !34
   br label %.thread15399
 
@@ -11375,10 +11375,10 @@ cli_stack_free.exit12535:                         ; preds = %5162, %5172, %5177,
   br i1 %or.cond12216, label %.thread15435.sink.split, label %.thread13776
 
 .thread15435.sink.split:                          ; preds = %5215, %5213
-  %.sink18450 = phi i32 [ %5208, %5213 ], [ %5206, %5215 ]
-  %.sink18448 = phi ptr [ %5214, %5213 ], [ %.05402, %5215 ]
-  %5220 = zext nneg i32 %.sink18450 to i64
-  %5221 = getelementptr inbounds nuw i8, ptr %.sink18448, i64 %5220
+  %.sink19814 = phi i32 [ %5208, %5213 ], [ %5206, %5215 ]
+  %.sink19812 = phi ptr [ %5214, %5213 ], [ %.05402, %5215 ]
+  %5220 = zext nneg i32 %.sink19814 to i64
+  %5221 = getelementptr inbounds nuw i8, ptr %.sink19812, i64 %5220
   %5222 = load i64, ptr %5221, align 8, !tbaa !70
   br label %.thread15435
 
@@ -11959,10 +11959,10 @@ cli_stack_free.exit:                              ; preds = %5489, %5499, %5504,
   br i1 %.not10531, label %.thread15616.sink.split, label %.thread13776
 
 .thread15616.sink.split:                          ; preds = %5535, %5533
-  %.sink18454 = phi i32 [ %5530, %5533 ], [ %5528, %5535 ]
-  %.sink18452 = phi ptr [ %5534, %5533 ], [ %.05402, %5535 ]
-  %5538 = zext nneg i32 %.sink18454 to i64
-  %5539 = getelementptr inbounds nuw i8, ptr %.sink18452, i64 %5538
+  %.sink19818 = phi i32 [ %5530, %5533 ], [ %5528, %5535 ]
+  %.sink19816 = phi ptr [ %5534, %5533 ], [ %.05402, %5535 ]
+  %5538 = zext nneg i32 %.sink19818 to i64
+  %5539 = getelementptr inbounds nuw i8, ptr %.sink19816, i64 %5538
   %5540 = load i8, ptr %5539, align 1, !tbaa !62
   br label %.thread15616
 
@@ -11994,10 +11994,10 @@ cli_stack_free.exit:                              ; preds = %5489, %5499, %5504,
   br i1 %.not10535, label %.thread15621.sink.split, label %.thread13776
 
 .thread15621.sink.split:                          ; preds = %5549, %5547
-  %.sink18458 = phi i32 [ %5544, %5547 ], [ %5542, %5549 ]
-  %.sink18456 = phi ptr [ %5548, %5547 ], [ %.05402, %5549 ]
-  %5552 = zext nneg i32 %.sink18458 to i64
-  %5553 = getelementptr inbounds nuw i8, ptr %.sink18456, i64 %5552
+  %.sink19822 = phi i32 [ %5544, %5547 ], [ %5542, %5549 ]
+  %.sink19820 = phi ptr [ %5548, %5547 ], [ %.05402, %5549 ]
+  %5552 = zext nneg i32 %.sink19822 to i64
+  %5553 = getelementptr inbounds nuw i8, ptr %.sink19820, i64 %5552
   %5554 = load i8, ptr %5553, align 1, !tbaa !62
   br label %.thread15621
 
@@ -12046,10 +12046,10 @@ cli_stack_free.exit:                              ; preds = %5489, %5499, %5504,
   br i1 %.not10522, label %.thread15632.sink.split, label %.thread13776
 
 .thread15632.sink.split:                          ; preds = %5574, %5572
-  %.sink18462 = phi i32 [ %5569, %5572 ], [ %5567, %5574 ]
-  %.sink18460 = phi ptr [ %5573, %5572 ], [ %.05402, %5574 ]
-  %5577 = zext nneg i32 %.sink18462 to i64
-  %5578 = getelementptr inbounds nuw i8, ptr %.sink18460, i64 %5577
+  %.sink19826 = phi i32 [ %5569, %5572 ], [ %5567, %5574 ]
+  %.sink19824 = phi ptr [ %5573, %5572 ], [ %.05402, %5574 ]
+  %5577 = zext nneg i32 %.sink19826 to i64
+  %5578 = getelementptr inbounds nuw i8, ptr %.sink19824, i64 %5577
   %5579 = load i8, ptr %5578, align 1, !tbaa !62
   br label %.thread15632
 
@@ -12081,10 +12081,10 @@ cli_stack_free.exit:                              ; preds = %5489, %5499, %5504,
   br i1 %.not10526, label %.thread15637.sink.split, label %.thread13776
 
 .thread15637.sink.split:                          ; preds = %5588, %5586
-  %.sink18466 = phi i32 [ %5583, %5586 ], [ %5581, %5588 ]
-  %.sink18464 = phi ptr [ %5587, %5586 ], [ %.05402, %5588 ]
-  %5591 = zext nneg i32 %.sink18466 to i64
-  %5592 = getelementptr inbounds nuw i8, ptr %.sink18464, i64 %5591
+  %.sink19830 = phi i32 [ %5583, %5586 ], [ %5581, %5588 ]
+  %.sink19828 = phi ptr [ %5587, %5586 ], [ %.05402, %5588 ]
+  %5591 = zext nneg i32 %.sink19830 to i64
+  %5592 = getelementptr inbounds nuw i8, ptr %.sink19828, i64 %5591
   %5593 = load i8, ptr %5592, align 1, !tbaa !62
   br label %.thread15637
 
@@ -12140,10 +12140,10 @@ cli_stack_free.exit:                              ; preds = %5489, %5499, %5504,
   br i1 %or.cond12220, label %.thread15648.sink.split, label %.thread13776
 
 .thread15648.sink.split:                          ; preds = %5614, %5612
-  %.sink18470 = phi i32 [ %5607, %5612 ], [ %5605, %5614 ]
-  %.sink18468 = phi ptr [ %5613, %5612 ], [ %.05402, %5614 ]
-  %5619 = zext nneg i32 %.sink18470 to i64
-  %5620 = getelementptr inbounds nuw i8, ptr %.sink18468, i64 %5619
+  %.sink19834 = phi i32 [ %5607, %5612 ], [ %5605, %5614 ]
+  %.sink19832 = phi ptr [ %5613, %5612 ], [ %.05402, %5614 ]
+  %5619 = zext nneg i32 %.sink19834 to i64
+  %5620 = getelementptr inbounds nuw i8, ptr %.sink19832, i64 %5619
   %5621 = load i16, ptr %5620, align 2, !tbaa !69
   br label %.thread15648
 
@@ -12183,10 +12183,10 @@ cli_stack_free.exit:                              ; preds = %5489, %5499, %5504,
   br i1 %or.cond12222, label %.thread15653.sink.split, label %.thread13776
 
 .thread15653.sink.split:                          ; preds = %5632, %5630
-  %.sink18474 = phi i32 [ %5625, %5630 ], [ %5623, %5632 ]
-  %.sink18472 = phi ptr [ %5631, %5630 ], [ %.05402, %5632 ]
-  %5637 = zext nneg i32 %.sink18474 to i64
-  %5638 = getelementptr inbounds nuw i8, ptr %.sink18472, i64 %5637
+  %.sink19838 = phi i32 [ %5625, %5630 ], [ %5623, %5632 ]
+  %.sink19836 = phi ptr [ %5631, %5630 ], [ %.05402, %5632 ]
+  %5637 = zext nneg i32 %.sink19838 to i64
+  %5638 = getelementptr inbounds nuw i8, ptr %.sink19836, i64 %5637
   %5639 = load i16, ptr %5638, align 2, !tbaa !69
   br label %.thread15653
 
@@ -12242,10 +12242,10 @@ cli_stack_free.exit:                              ; preds = %5489, %5499, %5504,
   br i1 %or.cond12224, label %.thread15664.sink.split, label %.thread13776
 
 .thread15664.sink.split:                          ; preds = %5660, %5658
-  %.sink18478 = phi i32 [ %5653, %5658 ], [ %5651, %5660 ]
-  %.sink18476 = phi ptr [ %5659, %5658 ], [ %.05402, %5660 ]
-  %5665 = zext nneg i32 %.sink18478 to i64
-  %5666 = getelementptr inbounds nuw i8, ptr %.sink18476, i64 %5665
+  %.sink19842 = phi i32 [ %5653, %5658 ], [ %5651, %5660 ]
+  %.sink19840 = phi ptr [ %5659, %5658 ], [ %.05402, %5660 ]
+  %5665 = zext nneg i32 %.sink19842 to i64
+  %5666 = getelementptr inbounds nuw i8, ptr %.sink19840, i64 %5665
   %5667 = load i32, ptr %5666, align 4, !tbaa !34
   br label %.thread15664
 
@@ -12285,10 +12285,10 @@ cli_stack_free.exit:                              ; preds = %5489, %5499, %5504,
   br i1 %or.cond12226, label %.thread15669.sink.split, label %.thread13776
 
 .thread15669.sink.split:                          ; preds = %5678, %5676
-  %.sink18482 = phi i32 [ %5671, %5676 ], [ %5669, %5678 ]
-  %.sink18480 = phi ptr [ %5677, %5676 ], [ %.05402, %5678 ]
-  %5683 = zext nneg i32 %.sink18482 to i64
-  %5684 = getelementptr inbounds nuw i8, ptr %.sink18480, i64 %5683
+  %.sink19846 = phi i32 [ %5671, %5676 ], [ %5669, %5678 ]
+  %.sink19844 = phi ptr [ %5677, %5676 ], [ %.05402, %5678 ]
+  %5683 = zext nneg i32 %.sink19846 to i64
+  %5684 = getelementptr inbounds nuw i8, ptr %.sink19844, i64 %5683
   %5685 = load i32, ptr %5684, align 4, !tbaa !34
   br label %.thread15669
 
@@ -12344,10 +12344,10 @@ cli_stack_free.exit:                              ; preds = %5489, %5499, %5504,
   br i1 %or.cond12228, label %.thread15680.sink.split, label %.thread13776
 
 .thread15680.sink.split:                          ; preds = %5706, %5704
-  %.sink18486 = phi i32 [ %5699, %5704 ], [ %5697, %5706 ]
-  %.sink18484 = phi ptr [ %5705, %5704 ], [ %.05402, %5706 ]
-  %5711 = zext nneg i32 %.sink18486 to i64
-  %5712 = getelementptr inbounds nuw i8, ptr %.sink18484, i64 %5711
+  %.sink19850 = phi i32 [ %5699, %5704 ], [ %5697, %5706 ]
+  %.sink19848 = phi ptr [ %5705, %5704 ], [ %.05402, %5706 ]
+  %5711 = zext nneg i32 %.sink19850 to i64
+  %5712 = getelementptr inbounds nuw i8, ptr %.sink19848, i64 %5711
   %5713 = load i64, ptr %5712, align 8, !tbaa !70
   br label %.thread15680
 
@@ -12387,10 +12387,10 @@ cli_stack_free.exit:                              ; preds = %5489, %5499, %5504,
   br i1 %or.cond12230, label %.thread15685.sink.split, label %.thread13776
 
 .thread15685.sink.split:                          ; preds = %5724, %5722
-  %.sink18490 = phi i32 [ %5717, %5722 ], [ %5715, %5724 ]
-  %.sink18488 = phi ptr [ %5723, %5722 ], [ %.05402, %5724 ]
-  %5729 = zext nneg i32 %.sink18490 to i64
-  %5730 = getelementptr inbounds nuw i8, ptr %.sink18488, i64 %5729
+  %.sink19854 = phi i32 [ %5717, %5722 ], [ %5715, %5724 ]
+  %.sink19852 = phi ptr [ %5723, %5722 ], [ %.05402, %5724 ]
+  %5729 = zext nneg i32 %.sink19854 to i64
+  %5730 = getelementptr inbounds nuw i8, ptr %.sink19852, i64 %5729
   %5731 = load i64, ptr %5730, align 8, !tbaa !70
   br label %.thread15685
 
@@ -12438,10 +12438,10 @@ cli_stack_free.exit:                              ; preds = %5489, %5499, %5504,
   br i1 %.not10474, label %.thread15696.sink.split, label %.thread13776
 
 .thread15696.sink.split:                          ; preds = %5750, %5748
-  %.sink18494 = phi i32 [ %5745, %5748 ], [ %5743, %5750 ]
-  %.sink18492 = phi ptr [ %5749, %5748 ], [ %.05402, %5750 ]
-  %5753 = zext nneg i32 %.sink18494 to i64
-  %5754 = getelementptr inbounds nuw i8, ptr %.sink18492, i64 %5753
+  %.sink19858 = phi i32 [ %5745, %5748 ], [ %5743, %5750 ]
+  %.sink19856 = phi ptr [ %5749, %5748 ], [ %.05402, %5750 ]
+  %5753 = zext nneg i32 %.sink19858 to i64
+  %5754 = getelementptr inbounds nuw i8, ptr %.sink19856, i64 %5753
   %5755 = load i8, ptr %5754, align 1, !tbaa !62
   br label %.thread15696
 
@@ -12473,10 +12473,10 @@ cli_stack_free.exit:                              ; preds = %5489, %5499, %5504,
   br i1 %.not10478, label %.thread15701.sink.split, label %.thread13776
 
 .thread15701.sink.split:                          ; preds = %5764, %5762
-  %.sink18498 = phi i32 [ %5759, %5762 ], [ %5757, %5764 ]
-  %.sink18496 = phi ptr [ %5763, %5762 ], [ %.05402, %5764 ]
-  %5767 = zext nneg i32 %.sink18498 to i64
-  %5768 = getelementptr inbounds nuw i8, ptr %.sink18496, i64 %5767
+  %.sink19862 = phi i32 [ %5759, %5762 ], [ %5757, %5764 ]
+  %.sink19860 = phi ptr [ %5763, %5762 ], [ %.05402, %5764 ]
+  %5767 = zext nneg i32 %.sink19862 to i64
+  %5768 = getelementptr inbounds nuw i8, ptr %.sink19860, i64 %5767
   %5769 = load i8, ptr %5768, align 1, !tbaa !62
   br label %.thread15701
 
@@ -12524,10 +12524,10 @@ cli_stack_free.exit:                              ; preds = %5489, %5499, %5504,
   br i1 %.not10465, label %.thread15712.sink.split, label %.thread13776
 
 .thread15712.sink.split:                          ; preds = %5788, %5786
-  %.sink18502 = phi i32 [ %5783, %5786 ], [ %5781, %5788 ]
-  %.sink18500 = phi ptr [ %5787, %5786 ], [ %.05402, %5788 ]
-  %5791 = zext nneg i32 %.sink18502 to i64
-  %5792 = getelementptr inbounds nuw i8, ptr %.sink18500, i64 %5791
+  %.sink19866 = phi i32 [ %5783, %5786 ], [ %5781, %5788 ]
+  %.sink19864 = phi ptr [ %5787, %5786 ], [ %.05402, %5788 ]
+  %5791 = zext nneg i32 %.sink19866 to i64
+  %5792 = getelementptr inbounds nuw i8, ptr %.sink19864, i64 %5791
   %5793 = load i8, ptr %5792, align 1, !tbaa !62
   br label %.thread15712
 
@@ -12559,10 +12559,10 @@ cli_stack_free.exit:                              ; preds = %5489, %5499, %5504,
   br i1 %.not10469, label %.thread15717.sink.split, label %.thread13776
 
 .thread15717.sink.split:                          ; preds = %5802, %5800
-  %.sink18506 = phi i32 [ %5797, %5800 ], [ %5795, %5802 ]
-  %.sink18504 = phi ptr [ %5801, %5800 ], [ %.05402, %5802 ]
-  %5805 = zext nneg i32 %.sink18506 to i64
-  %5806 = getelementptr inbounds nuw i8, ptr %.sink18504, i64 %5805
+  %.sink19870 = phi i32 [ %5797, %5800 ], [ %5795, %5802 ]
+  %.sink19868 = phi ptr [ %5801, %5800 ], [ %.05402, %5802 ]
+  %5805 = zext nneg i32 %.sink19870 to i64
+  %5806 = getelementptr inbounds nuw i8, ptr %.sink19868, i64 %5805
   %5807 = load i8, ptr %5806, align 1, !tbaa !62
   br label %.thread15717
 
@@ -12618,10 +12618,10 @@ cli_stack_free.exit:                              ; preds = %5489, %5499, %5504,
   br i1 %or.cond12232, label %.thread15728.sink.split, label %.thread13776
 
 .thread15728.sink.split:                          ; preds = %5828, %5826
-  %.sink18510 = phi i32 [ %5821, %5826 ], [ %5819, %5828 ]
-  %.sink18508 = phi ptr [ %5827, %5826 ], [ %.05402, %5828 ]
-  %5833 = zext nneg i32 %.sink18510 to i64
-  %5834 = getelementptr inbounds nuw i8, ptr %.sink18508, i64 %5833
+  %.sink19874 = phi i32 [ %5821, %5826 ], [ %5819, %5828 ]
+  %.sink19872 = phi ptr [ %5827, %5826 ], [ %.05402, %5828 ]
+  %5833 = zext nneg i32 %.sink19874 to i64
+  %5834 = getelementptr inbounds nuw i8, ptr %.sink19872, i64 %5833
   %5835 = load i16, ptr %5834, align 2, !tbaa !69
   br label %.thread15728
 
@@ -12661,10 +12661,10 @@ cli_stack_free.exit:                              ; preds = %5489, %5499, %5504,
   br i1 %or.cond12234, label %.thread15733.sink.split, label %.thread13776
 
 .thread15733.sink.split:                          ; preds = %5846, %5844
-  %.sink18514 = phi i32 [ %5839, %5844 ], [ %5837, %5846 ]
-  %.sink18512 = phi ptr [ %5845, %5844 ], [ %.05402, %5846 ]
-  %5851 = zext nneg i32 %.sink18514 to i64
-  %5852 = getelementptr inbounds nuw i8, ptr %.sink18512, i64 %5851
+  %.sink19878 = phi i32 [ %5839, %5844 ], [ %5837, %5846 ]
+  %.sink19876 = phi ptr [ %5845, %5844 ], [ %.05402, %5846 ]
+  %5851 = zext nneg i32 %.sink19878 to i64
+  %5852 = getelementptr inbounds nuw i8, ptr %.sink19876, i64 %5851
   %5853 = load i16, ptr %5852, align 2, !tbaa !69
   br label %.thread15733
 
@@ -12720,10 +12720,10 @@ cli_stack_free.exit:                              ; preds = %5489, %5499, %5504,
   br i1 %or.cond12236, label %.thread15744.sink.split, label %.thread13776
 
 .thread15744.sink.split:                          ; preds = %5874, %5872
-  %.sink18518 = phi i32 [ %5867, %5872 ], [ %5865, %5874 ]
-  %.sink18516 = phi ptr [ %5873, %5872 ], [ %.05402, %5874 ]
-  %5879 = zext nneg i32 %.sink18518 to i64
-  %5880 = getelementptr inbounds nuw i8, ptr %.sink18516, i64 %5879
+  %.sink19882 = phi i32 [ %5867, %5872 ], [ %5865, %5874 ]
+  %.sink19880 = phi ptr [ %5873, %5872 ], [ %.05402, %5874 ]
+  %5879 = zext nneg i32 %.sink19882 to i64
+  %5880 = getelementptr inbounds nuw i8, ptr %.sink19880, i64 %5879
   %5881 = load i32, ptr %5880, align 4, !tbaa !34
   br label %.thread15744
 
@@ -12763,10 +12763,10 @@ cli_stack_free.exit:                              ; preds = %5489, %5499, %5504,
   br i1 %or.cond12238, label %.thread15749.sink.split, label %.thread13776
 
 .thread15749.sink.split:                          ; preds = %5892, %5890
-  %.sink18522 = phi i32 [ %5885, %5890 ], [ %5883, %5892 ]
-  %.sink18520 = phi ptr [ %5891, %5890 ], [ %.05402, %5892 ]
-  %5897 = zext nneg i32 %.sink18522 to i64
-  %5898 = getelementptr inbounds nuw i8, ptr %.sink18520, i64 %5897
+  %.sink19886 = phi i32 [ %5885, %5890 ], [ %5883, %5892 ]
+  %.sink19884 = phi ptr [ %5891, %5890 ], [ %.05402, %5892 ]
+  %5897 = zext nneg i32 %.sink19886 to i64
+  %5898 = getelementptr inbounds nuw i8, ptr %.sink19884, i64 %5897
   %5899 = load i32, ptr %5898, align 4, !tbaa !34
   br label %.thread15749
 
@@ -12822,10 +12822,10 @@ cli_stack_free.exit:                              ; preds = %5489, %5499, %5504,
   br i1 %or.cond12240, label %.thread15760.sink.split, label %.thread13776
 
 .thread15760.sink.split:                          ; preds = %5920, %5918
-  %.sink18526 = phi i32 [ %5913, %5918 ], [ %5911, %5920 ]
-  %.sink18524 = phi ptr [ %5919, %5918 ], [ %.05402, %5920 ]
-  %5925 = zext nneg i32 %.sink18526 to i64
-  %5926 = getelementptr inbounds nuw i8, ptr %.sink18524, i64 %5925
+  %.sink19890 = phi i32 [ %5913, %5918 ], [ %5911, %5920 ]
+  %.sink19888 = phi ptr [ %5919, %5918 ], [ %.05402, %5920 ]
+  %5925 = zext nneg i32 %.sink19890 to i64
+  %5926 = getelementptr inbounds nuw i8, ptr %.sink19888, i64 %5925
   %5927 = load i64, ptr %5926, align 8, !tbaa !70
   br label %.thread15760
 
@@ -12865,10 +12865,10 @@ cli_stack_free.exit:                              ; preds = %5489, %5499, %5504,
   br i1 %or.cond12242, label %.thread15765.sink.split, label %.thread13776
 
 .thread15765.sink.split:                          ; preds = %5938, %5936
-  %.sink18530 = phi i32 [ %5931, %5936 ], [ %5929, %5938 ]
-  %.sink18528 = phi ptr [ %5937, %5936 ], [ %.05402, %5938 ]
-  %5943 = zext nneg i32 %.sink18530 to i64
-  %5944 = getelementptr inbounds nuw i8, ptr %.sink18528, i64 %5943
+  %.sink19894 = phi i32 [ %5931, %5936 ], [ %5929, %5938 ]
+  %.sink19892 = phi ptr [ %5937, %5936 ], [ %.05402, %5938 ]
+  %5943 = zext nneg i32 %.sink19894 to i64
+  %5944 = getelementptr inbounds nuw i8, ptr %.sink19892, i64 %5943
   %5945 = load i64, ptr %5944, align 8, !tbaa !70
   br label %.thread15765
 
@@ -12916,10 +12916,10 @@ cli_stack_free.exit:                              ; preds = %5489, %5499, %5504,
   br i1 %.not10417, label %.thread15776.sink.split, label %.thread13776
 
 .thread15776.sink.split:                          ; preds = %5964, %5962
-  %.sink18534 = phi i32 [ %5959, %5962 ], [ %5957, %5964 ]
-  %.sink18532 = phi ptr [ %5963, %5962 ], [ %.05402, %5964 ]
-  %5967 = zext nneg i32 %.sink18534 to i64
-  %5968 = getelementptr inbounds nuw i8, ptr %.sink18532, i64 %5967
+  %.sink19898 = phi i32 [ %5959, %5962 ], [ %5957, %5964 ]
+  %.sink19896 = phi ptr [ %5963, %5962 ], [ %.05402, %5964 ]
+  %5967 = zext nneg i32 %.sink19898 to i64
+  %5968 = getelementptr inbounds nuw i8, ptr %.sink19896, i64 %5967
   %5969 = load i8, ptr %5968, align 1, !tbaa !62
   %5970 = and i8 %5969, 1
   br label %.thread15776
@@ -12952,10 +12952,10 @@ cli_stack_free.exit:                              ; preds = %5489, %5499, %5504,
   br i1 %.not10421, label %.thread15781.sink.split, label %.thread13776
 
 .thread15781.sink.split:                          ; preds = %5979, %5977
-  %.sink18538 = phi i32 [ %5974, %5977 ], [ %5972, %5979 ]
-  %.sink18536 = phi ptr [ %5978, %5977 ], [ %.05402, %5979 ]
-  %5982 = zext nneg i32 %.sink18538 to i64
-  %5983 = getelementptr inbounds nuw i8, ptr %.sink18536, i64 %5982
+  %.sink19902 = phi i32 [ %5974, %5977 ], [ %5972, %5979 ]
+  %.sink19900 = phi ptr [ %5978, %5977 ], [ %.05402, %5979 ]
+  %5982 = zext nneg i32 %.sink19902 to i64
+  %5983 = getelementptr inbounds nuw i8, ptr %.sink19900, i64 %5982
   %5984 = load i8, ptr %5983, align 1, !tbaa !62
   %5985 = and i8 %5984, 1
   br label %.thread15781
@@ -13004,10 +13004,10 @@ cli_stack_free.exit:                              ; preds = %5489, %5499, %5504,
   br i1 %.not10408, label %.thread15792.sink.split, label %.thread13776
 
 .thread15792.sink.split:                          ; preds = %6004, %6002
-  %.sink18542 = phi i32 [ %5999, %6002 ], [ %5997, %6004 ]
-  %.sink18540 = phi ptr [ %6003, %6002 ], [ %.05402, %6004 ]
-  %6007 = zext nneg i32 %.sink18542 to i64
-  %6008 = getelementptr inbounds nuw i8, ptr %.sink18540, i64 %6007
+  %.sink19906 = phi i32 [ %5999, %6002 ], [ %5997, %6004 ]
+  %.sink19904 = phi ptr [ %6003, %6002 ], [ %.05402, %6004 ]
+  %6007 = zext nneg i32 %.sink19906 to i64
+  %6008 = getelementptr inbounds nuw i8, ptr %.sink19904, i64 %6007
   %6009 = load i8, ptr %6008, align 1, !tbaa !62
   br label %.thread15792
 
@@ -13039,10 +13039,10 @@ cli_stack_free.exit:                              ; preds = %5489, %5499, %5504,
   br i1 %.not10412, label %.thread15797.sink.split, label %.thread13776
 
 .thread15797.sink.split:                          ; preds = %6018, %6016
-  %.sink18546 = phi i32 [ %6013, %6016 ], [ %6011, %6018 ]
-  %.sink18544 = phi ptr [ %6017, %6016 ], [ %.05402, %6018 ]
-  %6021 = zext nneg i32 %.sink18546 to i64
-  %6022 = getelementptr inbounds nuw i8, ptr %.sink18544, i64 %6021
+  %.sink19910 = phi i32 [ %6013, %6016 ], [ %6011, %6018 ]
+  %.sink19908 = phi ptr [ %6017, %6016 ], [ %.05402, %6018 ]
+  %6021 = zext nneg i32 %.sink19910 to i64
+  %6022 = getelementptr inbounds nuw i8, ptr %.sink19908, i64 %6021
   %6023 = load i8, ptr %6022, align 1, !tbaa !62
   br label %.thread15797
 
@@ -13098,10 +13098,10 @@ cli_stack_free.exit:                              ; preds = %5489, %5499, %5504,
   br i1 %or.cond12244, label %.thread15808.sink.split, label %.thread13776
 
 .thread15808.sink.split:                          ; preds = %6044, %6042
-  %.sink18550 = phi i32 [ %6037, %6042 ], [ %6035, %6044 ]
-  %.sink18548 = phi ptr [ %6043, %6042 ], [ %.05402, %6044 ]
-  %6049 = zext nneg i32 %.sink18550 to i64
-  %6050 = getelementptr inbounds nuw i8, ptr %.sink18548, i64 %6049
+  %.sink19914 = phi i32 [ %6037, %6042 ], [ %6035, %6044 ]
+  %.sink19912 = phi ptr [ %6043, %6042 ], [ %.05402, %6044 ]
+  %6049 = zext nneg i32 %.sink19914 to i64
+  %6050 = getelementptr inbounds nuw i8, ptr %.sink19912, i64 %6049
   %6051 = load i16, ptr %6050, align 2, !tbaa !69
   br label %.thread15808
 
@@ -13141,10 +13141,10 @@ cli_stack_free.exit:                              ; preds = %5489, %5499, %5504,
   br i1 %or.cond12246, label %.thread15813.sink.split, label %.thread13776
 
 .thread15813.sink.split:                          ; preds = %6062, %6060
-  %.sink18554 = phi i32 [ %6055, %6060 ], [ %6053, %6062 ]
-  %.sink18552 = phi ptr [ %6061, %6060 ], [ %.05402, %6062 ]
-  %6067 = zext nneg i32 %.sink18554 to i64
-  %6068 = getelementptr inbounds nuw i8, ptr %.sink18552, i64 %6067
+  %.sink19918 = phi i32 [ %6055, %6060 ], [ %6053, %6062 ]
+  %.sink19916 = phi ptr [ %6061, %6060 ], [ %.05402, %6062 ]
+  %6067 = zext nneg i32 %.sink19918 to i64
+  %6068 = getelementptr inbounds nuw i8, ptr %.sink19916, i64 %6067
   %6069 = load i16, ptr %6068, align 2, !tbaa !69
   br label %.thread15813
 
@@ -13200,10 +13200,10 @@ cli_stack_free.exit:                              ; preds = %5489, %5499, %5504,
   br i1 %or.cond12248, label %.thread15824.sink.split, label %.thread13776
 
 .thread15824.sink.split:                          ; preds = %6090, %6088
-  %.sink18558 = phi i32 [ %6083, %6088 ], [ %6081, %6090 ]
-  %.sink18556 = phi ptr [ %6089, %6088 ], [ %.05402, %6090 ]
-  %6095 = zext nneg i32 %.sink18558 to i64
-  %6096 = getelementptr inbounds nuw i8, ptr %.sink18556, i64 %6095
+  %.sink19922 = phi i32 [ %6083, %6088 ], [ %6081, %6090 ]
+  %.sink19920 = phi ptr [ %6089, %6088 ], [ %.05402, %6090 ]
+  %6095 = zext nneg i32 %.sink19922 to i64
+  %6096 = getelementptr inbounds nuw i8, ptr %.sink19920, i64 %6095
   %6097 = load i32, ptr %6096, align 4, !tbaa !34
   br label %.thread15824
 
@@ -13243,10 +13243,10 @@ cli_stack_free.exit:                              ; preds = %5489, %5499, %5504,
   br i1 %or.cond12250, label %.thread15829.sink.split, label %.thread13776
 
 .thread15829.sink.split:                          ; preds = %6108, %6106
-  %.sink18562 = phi i32 [ %6101, %6106 ], [ %6099, %6108 ]
-  %.sink18560 = phi ptr [ %6107, %6106 ], [ %.05402, %6108 ]
-  %6113 = zext nneg i32 %.sink18562 to i64
-  %6114 = getelementptr inbounds nuw i8, ptr %.sink18560, i64 %6113
+  %.sink19926 = phi i32 [ %6101, %6106 ], [ %6099, %6108 ]
+  %.sink19924 = phi ptr [ %6107, %6106 ], [ %.05402, %6108 ]
+  %6113 = zext nneg i32 %.sink19926 to i64
+  %6114 = getelementptr inbounds nuw i8, ptr %.sink19924, i64 %6113
   %6115 = load i32, ptr %6114, align 4, !tbaa !34
   br label %.thread15829
 
@@ -13302,10 +13302,10 @@ cli_stack_free.exit:                              ; preds = %5489, %5499, %5504,
   br i1 %or.cond12252, label %.thread15840.sink.split, label %.thread13776
 
 .thread15840.sink.split:                          ; preds = %6136, %6134
-  %.sink18566 = phi i32 [ %6129, %6134 ], [ %6127, %6136 ]
-  %.sink18564 = phi ptr [ %6135, %6134 ], [ %.05402, %6136 ]
-  %6141 = zext nneg i32 %.sink18566 to i64
-  %6142 = getelementptr inbounds nuw i8, ptr %.sink18564, i64 %6141
+  %.sink19930 = phi i32 [ %6129, %6134 ], [ %6127, %6136 ]
+  %.sink19928 = phi ptr [ %6135, %6134 ], [ %.05402, %6136 ]
+  %6141 = zext nneg i32 %.sink19930 to i64
+  %6142 = getelementptr inbounds nuw i8, ptr %.sink19928, i64 %6141
   %6143 = load i64, ptr %6142, align 8, !tbaa !70
   br label %.thread15840
 
@@ -13345,10 +13345,10 @@ cli_stack_free.exit:                              ; preds = %5489, %5499, %5504,
   br i1 %or.cond12254, label %.thread15845.sink.split, label %.thread13776
 
 .thread15845.sink.split:                          ; preds = %6154, %6152
-  %.sink18570 = phi i32 [ %6147, %6152 ], [ %6145, %6154 ]
-  %.sink18568 = phi ptr [ %6153, %6152 ], [ %.05402, %6154 ]
-  %6159 = zext nneg i32 %.sink18570 to i64
-  %6160 = getelementptr inbounds nuw i8, ptr %.sink18568, i64 %6159
+  %.sink19934 = phi i32 [ %6147, %6152 ], [ %6145, %6154 ]
+  %.sink19932 = phi ptr [ %6153, %6152 ], [ %.05402, %6154 ]
+  %6159 = zext nneg i32 %.sink19934 to i64
+  %6160 = getelementptr inbounds nuw i8, ptr %.sink19932, i64 %6159
   %6161 = load i64, ptr %6160, align 8, !tbaa !70
   br label %.thread15845
 
@@ -13396,10 +13396,10 @@ cli_stack_free.exit:                              ; preds = %5489, %5499, %5504,
   br i1 %.not10360, label %.thread15856.sink.split, label %.thread13776
 
 .thread15856.sink.split:                          ; preds = %6180, %6178
-  %.sink18574 = phi i32 [ %6175, %6178 ], [ %6173, %6180 ]
-  %.sink18572 = phi ptr [ %6179, %6178 ], [ %.05402, %6180 ]
-  %6183 = zext nneg i32 %.sink18574 to i64
-  %6184 = getelementptr inbounds nuw i8, ptr %.sink18572, i64 %6183
+  %.sink19938 = phi i32 [ %6175, %6178 ], [ %6173, %6180 ]
+  %.sink19936 = phi ptr [ %6179, %6178 ], [ %.05402, %6180 ]
+  %6183 = zext nneg i32 %.sink19938 to i64
+  %6184 = getelementptr inbounds nuw i8, ptr %.sink19936, i64 %6183
   %6185 = load i8, ptr %6184, align 1, !tbaa !62
   %6186 = and i8 %6185, 1
   br label %.thread15856
@@ -13432,10 +13432,10 @@ cli_stack_free.exit:                              ; preds = %5489, %5499, %5504,
   br i1 %.not10364, label %.thread15861.sink.split, label %.thread13776
 
 .thread15861.sink.split:                          ; preds = %6195, %6193
-  %.sink18578 = phi i32 [ %6190, %6193 ], [ %6188, %6195 ]
-  %.sink18576 = phi ptr [ %6194, %6193 ], [ %.05402, %6195 ]
-  %6198 = zext nneg i32 %.sink18578 to i64
-  %6199 = getelementptr inbounds nuw i8, ptr %.sink18576, i64 %6198
+  %.sink19942 = phi i32 [ %6190, %6193 ], [ %6188, %6195 ]
+  %.sink19940 = phi ptr [ %6194, %6193 ], [ %.05402, %6195 ]
+  %6198 = zext nneg i32 %.sink19942 to i64
+  %6199 = getelementptr inbounds nuw i8, ptr %.sink19940, i64 %6198
   %6200 = load i8, ptr %6199, align 1, !tbaa !62
   %6201 = and i8 %6200, 1
   %6202 = icmp samesign uge i8 %.68434, %6201
@@ -13484,10 +13484,10 @@ cli_stack_free.exit:                              ; preds = %5489, %5499, %5504,
   br i1 %.not10351, label %.thread15872.sink.split, label %.thread13776
 
 .thread15872.sink.split:                          ; preds = %6220, %6218
-  %.sink18582 = phi i32 [ %6215, %6218 ], [ %6213, %6220 ]
-  %.sink18580 = phi ptr [ %6219, %6218 ], [ %.05402, %6220 ]
-  %6223 = zext nneg i32 %.sink18582 to i64
-  %6224 = getelementptr inbounds nuw i8, ptr %.sink18580, i64 %6223
+  %.sink19946 = phi i32 [ %6215, %6218 ], [ %6213, %6220 ]
+  %.sink19944 = phi ptr [ %6219, %6218 ], [ %.05402, %6220 ]
+  %6223 = zext nneg i32 %.sink19946 to i64
+  %6224 = getelementptr inbounds nuw i8, ptr %.sink19944, i64 %6223
   %6225 = load i8, ptr %6224, align 1, !tbaa !62
   br label %.thread15872
 
@@ -13519,10 +13519,10 @@ cli_stack_free.exit:                              ; preds = %5489, %5499, %5504,
   br i1 %.not10355, label %.thread15877.sink.split, label %.thread13776
 
 .thread15877.sink.split:                          ; preds = %6234, %6232
-  %.sink18586 = phi i32 [ %6229, %6232 ], [ %6227, %6234 ]
-  %.sink18584 = phi ptr [ %6233, %6232 ], [ %.05402, %6234 ]
-  %6237 = zext nneg i32 %.sink18586 to i64
-  %6238 = getelementptr inbounds nuw i8, ptr %.sink18584, i64 %6237
+  %.sink19950 = phi i32 [ %6229, %6232 ], [ %6227, %6234 ]
+  %.sink19948 = phi ptr [ %6233, %6232 ], [ %.05402, %6234 ]
+  %6237 = zext nneg i32 %.sink19950 to i64
+  %6238 = getelementptr inbounds nuw i8, ptr %.sink19948, i64 %6237
   %6239 = load i8, ptr %6238, align 1, !tbaa !62
   %6240 = icmp uge i8 %.68462, %6239
   %6241 = zext i1 %6240 to i8
@@ -13578,10 +13578,10 @@ cli_stack_free.exit:                              ; preds = %5489, %5499, %5504,
   br i1 %or.cond12256, label %.thread15888.sink.split, label %.thread13776
 
 .thread15888.sink.split:                          ; preds = %6260, %6258
-  %.sink18590 = phi i32 [ %6253, %6258 ], [ %6251, %6260 ]
-  %.sink18588 = phi ptr [ %6259, %6258 ], [ %.05402, %6260 ]
-  %6265 = zext nneg i32 %.sink18590 to i64
-  %6266 = getelementptr inbounds nuw i8, ptr %.sink18588, i64 %6265
+  %.sink19954 = phi i32 [ %6253, %6258 ], [ %6251, %6260 ]
+  %.sink19952 = phi ptr [ %6259, %6258 ], [ %.05402, %6260 ]
+  %6265 = zext nneg i32 %.sink19954 to i64
+  %6266 = getelementptr inbounds nuw i8, ptr %.sink19952, i64 %6265
   %6267 = load i16, ptr %6266, align 2, !tbaa !69
   br label %.thread15888
 
@@ -13621,10 +13621,10 @@ cli_stack_free.exit:                              ; preds = %5489, %5499, %5504,
   br i1 %or.cond12258, label %.thread15893.sink.split, label %.thread13776
 
 .thread15893.sink.split:                          ; preds = %6278, %6276
-  %.sink18594 = phi i32 [ %6271, %6276 ], [ %6269, %6278 ]
-  %.sink18592 = phi ptr [ %6277, %6276 ], [ %.05402, %6278 ]
-  %6283 = zext nneg i32 %.sink18594 to i64
-  %6284 = getelementptr inbounds nuw i8, ptr %.sink18592, i64 %6283
+  %.sink19958 = phi i32 [ %6271, %6276 ], [ %6269, %6278 ]
+  %.sink19956 = phi ptr [ %6277, %6276 ], [ %.05402, %6278 ]
+  %6283 = zext nneg i32 %.sink19958 to i64
+  %6284 = getelementptr inbounds nuw i8, ptr %.sink19956, i64 %6283
   %6285 = load i16, ptr %6284, align 2, !tbaa !69
   %6286 = icmp uge i16 %.68476, %6285
   %6287 = zext i1 %6286 to i8
@@ -13680,10 +13680,10 @@ cli_stack_free.exit:                              ; preds = %5489, %5499, %5504,
   br i1 %or.cond12260, label %.thread15904.sink.split, label %.thread13776
 
 .thread15904.sink.split:                          ; preds = %6306, %6304
-  %.sink18598 = phi i32 [ %6299, %6304 ], [ %6297, %6306 ]
-  %.sink18596 = phi ptr [ %6305, %6304 ], [ %.05402, %6306 ]
-  %6311 = zext nneg i32 %.sink18598 to i64
-  %6312 = getelementptr inbounds nuw i8, ptr %.sink18596, i64 %6311
+  %.sink19962 = phi i32 [ %6299, %6304 ], [ %6297, %6306 ]
+  %.sink19960 = phi ptr [ %6305, %6304 ], [ %.05402, %6306 ]
+  %6311 = zext nneg i32 %.sink19962 to i64
+  %6312 = getelementptr inbounds nuw i8, ptr %.sink19960, i64 %6311
   %6313 = load i32, ptr %6312, align 4, !tbaa !34
   br label %.thread15904
 
@@ -13723,10 +13723,10 @@ cli_stack_free.exit:                              ; preds = %5489, %5499, %5504,
   br i1 %or.cond12262, label %.thread15909.sink.split, label %.thread13776
 
 .thread15909.sink.split:                          ; preds = %6324, %6322
-  %.sink18602 = phi i32 [ %6317, %6322 ], [ %6315, %6324 ]
-  %.sink18600 = phi ptr [ %6323, %6322 ], [ %.05402, %6324 ]
-  %6329 = zext nneg i32 %.sink18602 to i64
-  %6330 = getelementptr inbounds nuw i8, ptr %.sink18600, i64 %6329
+  %.sink19966 = phi i32 [ %6317, %6322 ], [ %6315, %6324 ]
+  %.sink19964 = phi ptr [ %6323, %6322 ], [ %.05402, %6324 ]
+  %6329 = zext nneg i32 %.sink19966 to i64
+  %6330 = getelementptr inbounds nuw i8, ptr %.sink19964, i64 %6329
   %6331 = load i32, ptr %6330, align 4, !tbaa !34
   %6332 = icmp uge i32 %.68504, %6331
   %6333 = zext i1 %6332 to i8
@@ -13782,10 +13782,10 @@ cli_stack_free.exit:                              ; preds = %5489, %5499, %5504,
   br i1 %or.cond12264, label %.thread15920.sink.split, label %.thread13776
 
 .thread15920.sink.split:                          ; preds = %6352, %6350
-  %.sink18606 = phi i32 [ %6345, %6350 ], [ %6343, %6352 ]
-  %.sink18604 = phi ptr [ %6351, %6350 ], [ %.05402, %6352 ]
-  %6357 = zext nneg i32 %.sink18606 to i64
-  %6358 = getelementptr inbounds nuw i8, ptr %.sink18604, i64 %6357
+  %.sink19970 = phi i32 [ %6345, %6350 ], [ %6343, %6352 ]
+  %.sink19968 = phi ptr [ %6351, %6350 ], [ %.05402, %6352 ]
+  %6357 = zext nneg i32 %.sink19970 to i64
+  %6358 = getelementptr inbounds nuw i8, ptr %.sink19968, i64 %6357
   %6359 = load i64, ptr %6358, align 8, !tbaa !70
   br label %.thread15920
 
@@ -13825,10 +13825,10 @@ cli_stack_free.exit:                              ; preds = %5489, %5499, %5504,
   br i1 %or.cond12266, label %.thread15925.sink.split, label %.thread13776
 
 .thread15925.sink.split:                          ; preds = %6370, %6368
-  %.sink18610 = phi i32 [ %6363, %6368 ], [ %6361, %6370 ]
-  %.sink18608 = phi ptr [ %6369, %6368 ], [ %.05402, %6370 ]
-  %6375 = zext nneg i32 %.sink18610 to i64
-  %6376 = getelementptr inbounds nuw i8, ptr %.sink18608, i64 %6375
+  %.sink19974 = phi i32 [ %6363, %6368 ], [ %6361, %6370 ]
+  %.sink19972 = phi ptr [ %6369, %6368 ], [ %.05402, %6370 ]
+  %6375 = zext nneg i32 %.sink19974 to i64
+  %6376 = getelementptr inbounds nuw i8, ptr %.sink19972, i64 %6375
   %6377 = load i64, ptr %6376, align 8, !tbaa !70
   %6378 = icmp uge i64 %.68518, %6377
   %6379 = zext i1 %6378 to i8
@@ -13876,10 +13876,10 @@ cli_stack_free.exit:                              ; preds = %5489, %5499, %5504,
   br i1 %.not10303, label %.thread15936.sink.split, label %.thread13776
 
 .thread15936.sink.split:                          ; preds = %6396, %6394
-  %.sink18614 = phi i32 [ %6391, %6394 ], [ %6389, %6396 ]
-  %.sink18612 = phi ptr [ %6395, %6394 ], [ %.05402, %6396 ]
-  %6399 = zext nneg i32 %.sink18614 to i64
-  %6400 = getelementptr inbounds nuw i8, ptr %.sink18612, i64 %6399
+  %.sink19978 = phi i32 [ %6391, %6394 ], [ %6389, %6396 ]
+  %.sink19976 = phi ptr [ %6395, %6394 ], [ %.05402, %6396 ]
+  %6399 = zext nneg i32 %.sink19978 to i64
+  %6400 = getelementptr inbounds nuw i8, ptr %.sink19976, i64 %6399
   %6401 = load i8, ptr %6400, align 1, !tbaa !62
   %6402 = and i8 %6401, 1
   br label %.thread15936
@@ -13912,10 +13912,10 @@ cli_stack_free.exit:                              ; preds = %5489, %5499, %5504,
   br i1 %.not10307, label %.thread15941.sink.split, label %.thread13776
 
 .thread15941.sink.split:                          ; preds = %6411, %6409
-  %.sink18618 = phi i32 [ %6406, %6409 ], [ %6404, %6411 ]
-  %.sink18616 = phi ptr [ %6410, %6409 ], [ %.05402, %6411 ]
-  %6414 = zext nneg i32 %.sink18618 to i64
-  %6415 = getelementptr inbounds nuw i8, ptr %.sink18616, i64 %6414
+  %.sink19982 = phi i32 [ %6406, %6409 ], [ %6404, %6411 ]
+  %.sink19980 = phi ptr [ %6410, %6409 ], [ %.05402, %6411 ]
+  %6414 = zext nneg i32 %.sink19982 to i64
+  %6415 = getelementptr inbounds nuw i8, ptr %.sink19980, i64 %6414
   %6416 = load i8, ptr %6415, align 1, !tbaa !62
   %6417 = and i8 %6416, 1
   %6418 = icmp samesign ult i8 %.68532, %6417
@@ -13964,10 +13964,10 @@ cli_stack_free.exit:                              ; preds = %5489, %5499, %5504,
   br i1 %.not10294, label %.thread15952.sink.split, label %.thread13776
 
 .thread15952.sink.split:                          ; preds = %6436, %6434
-  %.sink18622 = phi i32 [ %6431, %6434 ], [ %6429, %6436 ]
-  %.sink18620 = phi ptr [ %6435, %6434 ], [ %.05402, %6436 ]
-  %6439 = zext nneg i32 %.sink18622 to i64
-  %6440 = getelementptr inbounds nuw i8, ptr %.sink18620, i64 %6439
+  %.sink19986 = phi i32 [ %6431, %6434 ], [ %6429, %6436 ]
+  %.sink19984 = phi ptr [ %6435, %6434 ], [ %.05402, %6436 ]
+  %6439 = zext nneg i32 %.sink19986 to i64
+  %6440 = getelementptr inbounds nuw i8, ptr %.sink19984, i64 %6439
   %6441 = load i8, ptr %6440, align 1, !tbaa !62
   br label %.thread15952
 
@@ -13999,10 +13999,10 @@ cli_stack_free.exit:                              ; preds = %5489, %5499, %5504,
   br i1 %.not10298, label %.thread15957.sink.split, label %.thread13776
 
 .thread15957.sink.split:                          ; preds = %6450, %6448
-  %.sink18626 = phi i32 [ %6445, %6448 ], [ %6443, %6450 ]
-  %.sink18624 = phi ptr [ %6449, %6448 ], [ %.05402, %6450 ]
-  %6453 = zext nneg i32 %.sink18626 to i64
-  %6454 = getelementptr inbounds nuw i8, ptr %.sink18624, i64 %6453
+  %.sink19990 = phi i32 [ %6445, %6448 ], [ %6443, %6450 ]
+  %.sink19988 = phi ptr [ %6449, %6448 ], [ %.05402, %6450 ]
+  %6453 = zext nneg i32 %.sink19990 to i64
+  %6454 = getelementptr inbounds nuw i8, ptr %.sink19988, i64 %6453
   %6455 = load i8, ptr %6454, align 1, !tbaa !62
   %6456 = icmp ult i8 %.68560, %6455
   %6457 = zext i1 %6456 to i8
@@ -14058,10 +14058,10 @@ cli_stack_free.exit:                              ; preds = %5489, %5499, %5504,
   br i1 %or.cond12268, label %.thread15968.sink.split, label %.thread13776
 
 .thread15968.sink.split:                          ; preds = %6476, %6474
-  %.sink18630 = phi i32 [ %6469, %6474 ], [ %6467, %6476 ]
-  %.sink18628 = phi ptr [ %6475, %6474 ], [ %.05402, %6476 ]
-  %6481 = zext nneg i32 %.sink18630 to i64
-  %6482 = getelementptr inbounds nuw i8, ptr %.sink18628, i64 %6481
+  %.sink19994 = phi i32 [ %6469, %6474 ], [ %6467, %6476 ]
+  %.sink19992 = phi ptr [ %6475, %6474 ], [ %.05402, %6476 ]
+  %6481 = zext nneg i32 %.sink19994 to i64
+  %6482 = getelementptr inbounds nuw i8, ptr %.sink19992, i64 %6481
   %6483 = load i16, ptr %6482, align 2, !tbaa !69
   br label %.thread15968
 
@@ -14101,10 +14101,10 @@ cli_stack_free.exit:                              ; preds = %5489, %5499, %5504,
   br i1 %or.cond12270, label %.thread15973.sink.split, label %.thread13776
 
 .thread15973.sink.split:                          ; preds = %6494, %6492
-  %.sink18634 = phi i32 [ %6487, %6492 ], [ %6485, %6494 ]
-  %.sink18632 = phi ptr [ %6493, %6492 ], [ %.05402, %6494 ]
-  %6499 = zext nneg i32 %.sink18634 to i64
-  %6500 = getelementptr inbounds nuw i8, ptr %.sink18632, i64 %6499
+  %.sink19998 = phi i32 [ %6487, %6492 ], [ %6485, %6494 ]
+  %.sink19996 = phi ptr [ %6493, %6492 ], [ %.05402, %6494 ]
+  %6499 = zext nneg i32 %.sink19998 to i64
+  %6500 = getelementptr inbounds nuw i8, ptr %.sink19996, i64 %6499
   %6501 = load i16, ptr %6500, align 2, !tbaa !69
   %6502 = icmp ult i16 %.68574, %6501
   %6503 = zext i1 %6502 to i8
@@ -14160,10 +14160,10 @@ cli_stack_free.exit:                              ; preds = %5489, %5499, %5504,
   br i1 %or.cond12272, label %.thread15984.sink.split, label %.thread13776
 
 .thread15984.sink.split:                          ; preds = %6522, %6520
-  %.sink18638 = phi i32 [ %6515, %6520 ], [ %6513, %6522 ]
-  %.sink18636 = phi ptr [ %6521, %6520 ], [ %.05402, %6522 ]
-  %6527 = zext nneg i32 %.sink18638 to i64
-  %6528 = getelementptr inbounds nuw i8, ptr %.sink18636, i64 %6527
+  %.sink20002 = phi i32 [ %6515, %6520 ], [ %6513, %6522 ]
+  %.sink20000 = phi ptr [ %6521, %6520 ], [ %.05402, %6522 ]
+  %6527 = zext nneg i32 %.sink20002 to i64
+  %6528 = getelementptr inbounds nuw i8, ptr %.sink20000, i64 %6527
   %6529 = load i32, ptr %6528, align 4, !tbaa !34
   br label %.thread15984
 
@@ -14203,10 +14203,10 @@ cli_stack_free.exit:                              ; preds = %5489, %5499, %5504,
   br i1 %or.cond12274, label %.thread15989.sink.split, label %.thread13776
 
 .thread15989.sink.split:                          ; preds = %6540, %6538
-  %.sink18642 = phi i32 [ %6533, %6538 ], [ %6531, %6540 ]
-  %.sink18640 = phi ptr [ %6539, %6538 ], [ %.05402, %6540 ]
-  %6545 = zext nneg i32 %.sink18642 to i64
-  %6546 = getelementptr inbounds nuw i8, ptr %.sink18640, i64 %6545
+  %.sink20006 = phi i32 [ %6533, %6538 ], [ %6531, %6540 ]
+  %.sink20004 = phi ptr [ %6539, %6538 ], [ %.05402, %6540 ]
+  %6545 = zext nneg i32 %.sink20006 to i64
+  %6546 = getelementptr inbounds nuw i8, ptr %.sink20004, i64 %6545
   %6547 = load i32, ptr %6546, align 4, !tbaa !34
   %6548 = icmp ult i32 %.68602, %6547
   %6549 = zext i1 %6548 to i8
@@ -14262,10 +14262,10 @@ cli_stack_free.exit:                              ; preds = %5489, %5499, %5504,
   br i1 %or.cond12276, label %.thread16000.sink.split, label %.thread13776
 
 .thread16000.sink.split:                          ; preds = %6568, %6566
-  %.sink18646 = phi i32 [ %6561, %6566 ], [ %6559, %6568 ]
-  %.sink18644 = phi ptr [ %6567, %6566 ], [ %.05402, %6568 ]
-  %6573 = zext nneg i32 %.sink18646 to i64
-  %6574 = getelementptr inbounds nuw i8, ptr %.sink18644, i64 %6573
+  %.sink20010 = phi i32 [ %6561, %6566 ], [ %6559, %6568 ]
+  %.sink20008 = phi ptr [ %6567, %6566 ], [ %.05402, %6568 ]
+  %6573 = zext nneg i32 %.sink20010 to i64
+  %6574 = getelementptr inbounds nuw i8, ptr %.sink20008, i64 %6573
   %6575 = load i64, ptr %6574, align 8, !tbaa !70
   br label %.thread16000
 
@@ -14305,10 +14305,10 @@ cli_stack_free.exit:                              ; preds = %5489, %5499, %5504,
   br i1 %or.cond12278, label %.thread16005.sink.split, label %.thread13776
 
 .thread16005.sink.split:                          ; preds = %6586, %6584
-  %.sink18650 = phi i32 [ %6579, %6584 ], [ %6577, %6586 ]
-  %.sink18648 = phi ptr [ %6585, %6584 ], [ %.05402, %6586 ]
-  %6591 = zext nneg i32 %.sink18650 to i64
-  %6592 = getelementptr inbounds nuw i8, ptr %.sink18648, i64 %6591
+  %.sink20014 = phi i32 [ %6579, %6584 ], [ %6577, %6586 ]
+  %.sink20012 = phi ptr [ %6585, %6584 ], [ %.05402, %6586 ]
+  %6591 = zext nneg i32 %.sink20014 to i64
+  %6592 = getelementptr inbounds nuw i8, ptr %.sink20012, i64 %6591
   %6593 = load i64, ptr %6592, align 8, !tbaa !70
   %6594 = icmp ult i64 %.68616, %6593
   %6595 = zext i1 %6594 to i8
@@ -14356,10 +14356,10 @@ cli_stack_free.exit:                              ; preds = %5489, %5499, %5504,
   br i1 %.not10246, label %.thread16016.sink.split, label %.thread13776
 
 .thread16016.sink.split:                          ; preds = %6612, %6610
-  %.sink18654 = phi i32 [ %6607, %6610 ], [ %6605, %6612 ]
-  %.sink18652 = phi ptr [ %6611, %6610 ], [ %.05402, %6612 ]
-  %6615 = zext nneg i32 %.sink18654 to i64
-  %6616 = getelementptr inbounds nuw i8, ptr %.sink18652, i64 %6615
+  %.sink20018 = phi i32 [ %6607, %6610 ], [ %6605, %6612 ]
+  %.sink20016 = phi ptr [ %6611, %6610 ], [ %.05402, %6612 ]
+  %6615 = zext nneg i32 %.sink20018 to i64
+  %6616 = getelementptr inbounds nuw i8, ptr %.sink20016, i64 %6615
   %6617 = load i8, ptr %6616, align 1, !tbaa !62
   %6618 = and i8 %6617, 1
   br label %.thread16016
@@ -14392,10 +14392,10 @@ cli_stack_free.exit:                              ; preds = %5489, %5499, %5504,
   br i1 %.not10250, label %.thread16021.sink.split, label %.thread13776
 
 .thread16021.sink.split:                          ; preds = %6627, %6625
-  %.sink18658 = phi i32 [ %6622, %6625 ], [ %6620, %6627 ]
-  %.sink18656 = phi ptr [ %6626, %6625 ], [ %.05402, %6627 ]
-  %6630 = zext nneg i32 %.sink18658 to i64
-  %6631 = getelementptr inbounds nuw i8, ptr %.sink18656, i64 %6630
+  %.sink20022 = phi i32 [ %6622, %6625 ], [ %6620, %6627 ]
+  %.sink20020 = phi ptr [ %6626, %6625 ], [ %.05402, %6627 ]
+  %6630 = zext nneg i32 %.sink20022 to i64
+  %6631 = getelementptr inbounds nuw i8, ptr %.sink20020, i64 %6630
   %6632 = load i8, ptr %6631, align 1, !tbaa !62
   %6633 = and i8 %6632, 1
   br label %.thread16021
@@ -14444,10 +14444,10 @@ cli_stack_free.exit:                              ; preds = %5489, %5499, %5504,
   br i1 %.not10237, label %.thread16032.sink.split, label %.thread13776
 
 .thread16032.sink.split:                          ; preds = %6652, %6650
-  %.sink18662 = phi i32 [ %6647, %6650 ], [ %6645, %6652 ]
-  %.sink18660 = phi ptr [ %6651, %6650 ], [ %.05402, %6652 ]
-  %6655 = zext nneg i32 %.sink18662 to i64
-  %6656 = getelementptr inbounds nuw i8, ptr %.sink18660, i64 %6655
+  %.sink20026 = phi i32 [ %6647, %6650 ], [ %6645, %6652 ]
+  %.sink20024 = phi ptr [ %6651, %6650 ], [ %.05402, %6652 ]
+  %6655 = zext nneg i32 %.sink20026 to i64
+  %6656 = getelementptr inbounds nuw i8, ptr %.sink20024, i64 %6655
   %6657 = load i8, ptr %6656, align 1, !tbaa !62
   br label %.thread16032
 
@@ -14479,10 +14479,10 @@ cli_stack_free.exit:                              ; preds = %5489, %5499, %5504,
   br i1 %.not10241, label %.thread16037.sink.split, label %.thread13776
 
 .thread16037.sink.split:                          ; preds = %6666, %6664
-  %.sink18666 = phi i32 [ %6661, %6664 ], [ %6659, %6666 ]
-  %.sink18664 = phi ptr [ %6665, %6664 ], [ %.05402, %6666 ]
-  %6669 = zext nneg i32 %.sink18666 to i64
-  %6670 = getelementptr inbounds nuw i8, ptr %.sink18664, i64 %6669
+  %.sink20030 = phi i32 [ %6661, %6664 ], [ %6659, %6666 ]
+  %.sink20028 = phi ptr [ %6665, %6664 ], [ %.05402, %6666 ]
+  %6669 = zext nneg i32 %.sink20030 to i64
+  %6670 = getelementptr inbounds nuw i8, ptr %.sink20028, i64 %6669
   %6671 = load i8, ptr %6670, align 1, !tbaa !62
   br label %.thread16037
 
@@ -14538,10 +14538,10 @@ cli_stack_free.exit:                              ; preds = %5489, %5499, %5504,
   br i1 %or.cond12280, label %.thread16048.sink.split, label %.thread13776
 
 .thread16048.sink.split:                          ; preds = %6692, %6690
-  %.sink18670 = phi i32 [ %6685, %6690 ], [ %6683, %6692 ]
-  %.sink18668 = phi ptr [ %6691, %6690 ], [ %.05402, %6692 ]
-  %6697 = zext nneg i32 %.sink18670 to i64
-  %6698 = getelementptr inbounds nuw i8, ptr %.sink18668, i64 %6697
+  %.sink20034 = phi i32 [ %6685, %6690 ], [ %6683, %6692 ]
+  %.sink20032 = phi ptr [ %6691, %6690 ], [ %.05402, %6692 ]
+  %6697 = zext nneg i32 %.sink20034 to i64
+  %6698 = getelementptr inbounds nuw i8, ptr %.sink20032, i64 %6697
   %6699 = load i16, ptr %6698, align 2, !tbaa !69
   br label %.thread16048
 
@@ -14581,10 +14581,10 @@ cli_stack_free.exit:                              ; preds = %5489, %5499, %5504,
   br i1 %or.cond12282, label %.thread16053.sink.split, label %.thread13776
 
 .thread16053.sink.split:                          ; preds = %6710, %6708
-  %.sink18674 = phi i32 [ %6703, %6708 ], [ %6701, %6710 ]
-  %.sink18672 = phi ptr [ %6709, %6708 ], [ %.05402, %6710 ]
-  %6715 = zext nneg i32 %.sink18674 to i64
-  %6716 = getelementptr inbounds nuw i8, ptr %.sink18672, i64 %6715
+  %.sink20038 = phi i32 [ %6703, %6708 ], [ %6701, %6710 ]
+  %.sink20036 = phi ptr [ %6709, %6708 ], [ %.05402, %6710 ]
+  %6715 = zext nneg i32 %.sink20038 to i64
+  %6716 = getelementptr inbounds nuw i8, ptr %.sink20036, i64 %6715
   %6717 = load i16, ptr %6716, align 2, !tbaa !69
   br label %.thread16053
 
@@ -14640,10 +14640,10 @@ cli_stack_free.exit:                              ; preds = %5489, %5499, %5504,
   br i1 %or.cond12284, label %.thread16064.sink.split, label %.thread13776
 
 .thread16064.sink.split:                          ; preds = %6738, %6736
-  %.sink18678 = phi i32 [ %6731, %6736 ], [ %6729, %6738 ]
-  %.sink18676 = phi ptr [ %6737, %6736 ], [ %.05402, %6738 ]
-  %6743 = zext nneg i32 %.sink18678 to i64
-  %6744 = getelementptr inbounds nuw i8, ptr %.sink18676, i64 %6743
+  %.sink20042 = phi i32 [ %6731, %6736 ], [ %6729, %6738 ]
+  %.sink20040 = phi ptr [ %6737, %6736 ], [ %.05402, %6738 ]
+  %6743 = zext nneg i32 %.sink20042 to i64
+  %6744 = getelementptr inbounds nuw i8, ptr %.sink20040, i64 %6743
   %6745 = load i32, ptr %6744, align 4, !tbaa !34
   br label %.thread16064
 
@@ -14683,10 +14683,10 @@ cli_stack_free.exit:                              ; preds = %5489, %5499, %5504,
   br i1 %or.cond12286, label %.thread16069.sink.split, label %.thread13776
 
 .thread16069.sink.split:                          ; preds = %6756, %6754
-  %.sink18682 = phi i32 [ %6749, %6754 ], [ %6747, %6756 ]
-  %.sink18680 = phi ptr [ %6755, %6754 ], [ %.05402, %6756 ]
-  %6761 = zext nneg i32 %.sink18682 to i64
-  %6762 = getelementptr inbounds nuw i8, ptr %.sink18680, i64 %6761
+  %.sink20046 = phi i32 [ %6749, %6754 ], [ %6747, %6756 ]
+  %.sink20044 = phi ptr [ %6755, %6754 ], [ %.05402, %6756 ]
+  %6761 = zext nneg i32 %.sink20046 to i64
+  %6762 = getelementptr inbounds nuw i8, ptr %.sink20044, i64 %6761
   %6763 = load i32, ptr %6762, align 4, !tbaa !34
   br label %.thread16069
 
@@ -14742,10 +14742,10 @@ cli_stack_free.exit:                              ; preds = %5489, %5499, %5504,
   br i1 %or.cond12288, label %.thread16080.sink.split, label %.thread13776
 
 .thread16080.sink.split:                          ; preds = %6784, %6782
-  %.sink18686 = phi i32 [ %6777, %6782 ], [ %6775, %6784 ]
-  %.sink18684 = phi ptr [ %6783, %6782 ], [ %.05402, %6784 ]
-  %6789 = zext nneg i32 %.sink18686 to i64
-  %6790 = getelementptr inbounds nuw i8, ptr %.sink18684, i64 %6789
+  %.sink20050 = phi i32 [ %6777, %6782 ], [ %6775, %6784 ]
+  %.sink20048 = phi ptr [ %6783, %6782 ], [ %.05402, %6784 ]
+  %6789 = zext nneg i32 %.sink20050 to i64
+  %6790 = getelementptr inbounds nuw i8, ptr %.sink20048, i64 %6789
   %6791 = load i64, ptr %6790, align 8, !tbaa !70
   br label %.thread16080
 
@@ -14785,10 +14785,10 @@ cli_stack_free.exit:                              ; preds = %5489, %5499, %5504,
   br i1 %or.cond12290, label %.thread16085.sink.split, label %.thread13776
 
 .thread16085.sink.split:                          ; preds = %6802, %6800
-  %.sink18690 = phi i32 [ %6795, %6800 ], [ %6793, %6802 ]
-  %.sink18688 = phi ptr [ %6801, %6800 ], [ %.05402, %6802 ]
-  %6807 = zext nneg i32 %.sink18690 to i64
-  %6808 = getelementptr inbounds nuw i8, ptr %.sink18688, i64 %6807
+  %.sink20054 = phi i32 [ %6795, %6800 ], [ %6793, %6802 ]
+  %.sink20052 = phi ptr [ %6801, %6800 ], [ %.05402, %6802 ]
+  %6807 = zext nneg i32 %.sink20054 to i64
+  %6808 = getelementptr inbounds nuw i8, ptr %.sink20052, i64 %6807
   %6809 = load i64, ptr %6808, align 8, !tbaa !70
   br label %.thread16085
 
@@ -14836,10 +14836,10 @@ cli_stack_free.exit:                              ; preds = %5489, %5499, %5504,
   br i1 %.not10189, label %.thread16096.sink.split, label %.thread13776
 
 .thread16096.sink.split:                          ; preds = %6828, %6826
-  %.sink18694 = phi i32 [ %6823, %6826 ], [ %6821, %6828 ]
-  %.sink18692 = phi ptr [ %6827, %6826 ], [ %.05402, %6828 ]
-  %6831 = zext nneg i32 %.sink18694 to i64
-  %6832 = getelementptr inbounds nuw i8, ptr %.sink18692, i64 %6831
+  %.sink20058 = phi i32 [ %6823, %6826 ], [ %6821, %6828 ]
+  %.sink20056 = phi ptr [ %6827, %6826 ], [ %.05402, %6828 ]
+  %6831 = zext nneg i32 %.sink20058 to i64
+  %6832 = getelementptr inbounds nuw i8, ptr %.sink20056, i64 %6831
   %6833 = load i8, ptr %6832, align 1, !tbaa !62
   %6834 = and i8 %6833, 1
   br label %.thread16096
@@ -14872,10 +14872,10 @@ cli_stack_free.exit:                              ; preds = %5489, %5499, %5504,
   br i1 %.not10193, label %.thread16101.sink.split, label %.thread13776
 
 .thread16101.sink.split:                          ; preds = %6843, %6841
-  %.sink18698 = phi i32 [ %6838, %6841 ], [ %6836, %6843 ]
-  %.sink18696 = phi ptr [ %6842, %6841 ], [ %.05402, %6843 ]
-  %6846 = zext nneg i32 %.sink18698 to i64
-  %6847 = getelementptr inbounds nuw i8, ptr %.sink18696, i64 %6846
+  %.sink20062 = phi i32 [ %6838, %6841 ], [ %6836, %6843 ]
+  %.sink20060 = phi ptr [ %6842, %6841 ], [ %.05402, %6843 ]
+  %6846 = zext nneg i32 %.sink20062 to i64
+  %6847 = getelementptr inbounds nuw i8, ptr %.sink20060, i64 %6846
   %6848 = load i8, ptr %6847, align 1, !tbaa !62
   %6849 = and i8 %6848, 1
   br label %.thread16101
@@ -14924,10 +14924,10 @@ cli_stack_free.exit:                              ; preds = %5489, %5499, %5504,
   br i1 %.not10180, label %.thread16112.sink.split, label %.thread13776
 
 .thread16112.sink.split:                          ; preds = %6868, %6866
-  %.sink18702 = phi i32 [ %6863, %6866 ], [ %6861, %6868 ]
-  %.sink18700 = phi ptr [ %6867, %6866 ], [ %.05402, %6868 ]
-  %6871 = zext nneg i32 %.sink18702 to i64
-  %6872 = getelementptr inbounds nuw i8, ptr %.sink18700, i64 %6871
+  %.sink20066 = phi i32 [ %6863, %6866 ], [ %6861, %6868 ]
+  %.sink20064 = phi ptr [ %6867, %6866 ], [ %.05402, %6868 ]
+  %6871 = zext nneg i32 %.sink20066 to i64
+  %6872 = getelementptr inbounds nuw i8, ptr %.sink20064, i64 %6871
   %6873 = load i8, ptr %6872, align 1, !tbaa !62
   br label %.thread16112
 
@@ -14959,10 +14959,10 @@ cli_stack_free.exit:                              ; preds = %5489, %5499, %5504,
   br i1 %.not10184, label %.thread16117.sink.split, label %.thread13776
 
 .thread16117.sink.split:                          ; preds = %6882, %6880
-  %.sink18706 = phi i32 [ %6877, %6880 ], [ %6875, %6882 ]
-  %.sink18704 = phi ptr [ %6881, %6880 ], [ %.05402, %6882 ]
-  %6885 = zext nneg i32 %.sink18706 to i64
-  %6886 = getelementptr inbounds nuw i8, ptr %.sink18704, i64 %6885
+  %.sink20070 = phi i32 [ %6877, %6880 ], [ %6875, %6882 ]
+  %.sink20068 = phi ptr [ %6881, %6880 ], [ %.05402, %6882 ]
+  %6885 = zext nneg i32 %.sink20070 to i64
+  %6886 = getelementptr inbounds nuw i8, ptr %.sink20068, i64 %6885
   %6887 = load i8, ptr %6886, align 1, !tbaa !62
   br label %.thread16117
 
@@ -15018,10 +15018,10 @@ cli_stack_free.exit:                              ; preds = %5489, %5499, %5504,
   br i1 %or.cond12292, label %.thread16128.sink.split, label %.thread13776
 
 .thread16128.sink.split:                          ; preds = %6908, %6906
-  %.sink18710 = phi i32 [ %6901, %6906 ], [ %6899, %6908 ]
-  %.sink18708 = phi ptr [ %6907, %6906 ], [ %.05402, %6908 ]
-  %6913 = zext nneg i32 %.sink18710 to i64
-  %6914 = getelementptr inbounds nuw i8, ptr %.sink18708, i64 %6913
+  %.sink20074 = phi i32 [ %6901, %6906 ], [ %6899, %6908 ]
+  %.sink20072 = phi ptr [ %6907, %6906 ], [ %.05402, %6908 ]
+  %6913 = zext nneg i32 %.sink20074 to i64
+  %6914 = getelementptr inbounds nuw i8, ptr %.sink20072, i64 %6913
   %6915 = load i16, ptr %6914, align 2, !tbaa !69
   br label %.thread16128
 
@@ -15061,10 +15061,10 @@ cli_stack_free.exit:                              ; preds = %5489, %5499, %5504,
   br i1 %or.cond12294, label %.thread16133.sink.split, label %.thread13776
 
 .thread16133.sink.split:                          ; preds = %6926, %6924
-  %.sink18714 = phi i32 [ %6919, %6924 ], [ %6917, %6926 ]
-  %.sink18712 = phi ptr [ %6925, %6924 ], [ %.05402, %6926 ]
-  %6931 = zext nneg i32 %.sink18714 to i64
-  %6932 = getelementptr inbounds nuw i8, ptr %.sink18712, i64 %6931
+  %.sink20078 = phi i32 [ %6919, %6924 ], [ %6917, %6926 ]
+  %.sink20076 = phi ptr [ %6925, %6924 ], [ %.05402, %6926 ]
+  %6931 = zext nneg i32 %.sink20078 to i64
+  %6932 = getelementptr inbounds nuw i8, ptr %.sink20076, i64 %6931
   %6933 = load i16, ptr %6932, align 2, !tbaa !69
   br label %.thread16133
 
@@ -15120,10 +15120,10 @@ cli_stack_free.exit:                              ; preds = %5489, %5499, %5504,
   br i1 %or.cond12296, label %.thread16144.sink.split, label %.thread13776
 
 .thread16144.sink.split:                          ; preds = %6954, %6952
-  %.sink18718 = phi i32 [ %6947, %6952 ], [ %6945, %6954 ]
-  %.sink18716 = phi ptr [ %6953, %6952 ], [ %.05402, %6954 ]
-  %6959 = zext nneg i32 %.sink18718 to i64
-  %6960 = getelementptr inbounds nuw i8, ptr %.sink18716, i64 %6959
+  %.sink20082 = phi i32 [ %6947, %6952 ], [ %6945, %6954 ]
+  %.sink20080 = phi ptr [ %6953, %6952 ], [ %.05402, %6954 ]
+  %6959 = zext nneg i32 %.sink20082 to i64
+  %6960 = getelementptr inbounds nuw i8, ptr %.sink20080, i64 %6959
   %6961 = load i32, ptr %6960, align 4, !tbaa !34
   br label %.thread16144
 
@@ -15163,10 +15163,10 @@ cli_stack_free.exit:                              ; preds = %5489, %5499, %5504,
   br i1 %or.cond12298, label %.thread16149.sink.split, label %.thread13776
 
 .thread16149.sink.split:                          ; preds = %6972, %6970
-  %.sink18722 = phi i32 [ %6965, %6970 ], [ %6963, %6972 ]
-  %.sink18720 = phi ptr [ %6971, %6970 ], [ %.05402, %6972 ]
-  %6977 = zext nneg i32 %.sink18722 to i64
-  %6978 = getelementptr inbounds nuw i8, ptr %.sink18720, i64 %6977
+  %.sink20086 = phi i32 [ %6965, %6970 ], [ %6963, %6972 ]
+  %.sink20084 = phi ptr [ %6971, %6970 ], [ %.05402, %6972 ]
+  %6977 = zext nneg i32 %.sink20086 to i64
+  %6978 = getelementptr inbounds nuw i8, ptr %.sink20084, i64 %6977
   %6979 = load i32, ptr %6978, align 4, !tbaa !34
   br label %.thread16149
 
@@ -15222,10 +15222,10 @@ cli_stack_free.exit:                              ; preds = %5489, %5499, %5504,
   br i1 %or.cond12300, label %.thread16160.sink.split, label %.thread13776
 
 .thread16160.sink.split:                          ; preds = %7000, %6998
-  %.sink18726 = phi i32 [ %6993, %6998 ], [ %6991, %7000 ]
-  %.sink18724 = phi ptr [ %6999, %6998 ], [ %.05402, %7000 ]
-  %7005 = zext nneg i32 %.sink18726 to i64
-  %7006 = getelementptr inbounds nuw i8, ptr %.sink18724, i64 %7005
+  %.sink20090 = phi i32 [ %6993, %6998 ], [ %6991, %7000 ]
+  %.sink20088 = phi ptr [ %6999, %6998 ], [ %.05402, %7000 ]
+  %7005 = zext nneg i32 %.sink20090 to i64
+  %7006 = getelementptr inbounds nuw i8, ptr %.sink20088, i64 %7005
   %7007 = load i64, ptr %7006, align 8, !tbaa !70
   br label %.thread16160
 
@@ -15265,10 +15265,10 @@ cli_stack_free.exit:                              ; preds = %5489, %5499, %5504,
   br i1 %or.cond12302, label %.thread16165.sink.split, label %.thread13776
 
 .thread16165.sink.split:                          ; preds = %7018, %7016
-  %.sink18730 = phi i32 [ %7011, %7016 ], [ %7009, %7018 ]
-  %.sink18728 = phi ptr [ %7017, %7016 ], [ %.05402, %7018 ]
-  %7023 = zext nneg i32 %.sink18730 to i64
-  %7024 = getelementptr inbounds nuw i8, ptr %.sink18728, i64 %7023
+  %.sink20094 = phi i32 [ %7011, %7016 ], [ %7009, %7018 ]
+  %.sink20092 = phi ptr [ %7017, %7016 ], [ %.05402, %7018 ]
+  %7023 = zext nneg i32 %.sink20094 to i64
+  %7024 = getelementptr inbounds nuw i8, ptr %.sink20092, i64 %7023
   %7025 = load i64, ptr %7024, align 8, !tbaa !70
   br label %.thread16165
 
@@ -15316,10 +15316,10 @@ cli_stack_free.exit:                              ; preds = %5489, %5499, %5504,
   br i1 %.not10132, label %.thread16176.sink.split, label %.thread13776
 
 .thread16176.sink.split:                          ; preds = %7044, %7042
-  %.sink18734 = phi i32 [ %7039, %7042 ], [ %7037, %7044 ]
-  %.sink18732 = phi ptr [ %7043, %7042 ], [ %.05402, %7044 ]
-  %7047 = zext nneg i32 %.sink18734 to i64
-  %7048 = getelementptr inbounds nuw i8, ptr %.sink18732, i64 %7047
+  %.sink20098 = phi i32 [ %7039, %7042 ], [ %7037, %7044 ]
+  %.sink20096 = phi ptr [ %7043, %7042 ], [ %.05402, %7044 ]
+  %7047 = zext nneg i32 %.sink20098 to i64
+  %7048 = getelementptr inbounds nuw i8, ptr %.sink20096, i64 %7047
   %7049 = load i8, ptr %7048, align 1, !tbaa !62
   %7050 = and i8 %7049, 1
   br label %.thread16176
@@ -15352,10 +15352,10 @@ cli_stack_free.exit:                              ; preds = %5489, %5499, %5504,
   br i1 %.not10136, label %.thread16181.sink.split, label %.thread13776
 
 .thread16181.sink.split:                          ; preds = %7059, %7057
-  %.sink18738 = phi i32 [ %7054, %7057 ], [ %7052, %7059 ]
-  %.sink18736 = phi ptr [ %7058, %7057 ], [ %.05402, %7059 ]
-  %7062 = zext nneg i32 %.sink18738 to i64
-  %7063 = getelementptr inbounds nuw i8, ptr %.sink18736, i64 %7062
+  %.sink20102 = phi i32 [ %7054, %7057 ], [ %7052, %7059 ]
+  %.sink20100 = phi ptr [ %7058, %7057 ], [ %.05402, %7059 ]
+  %7062 = zext nneg i32 %.sink20102 to i64
+  %7063 = getelementptr inbounds nuw i8, ptr %.sink20100, i64 %7062
   %7064 = load i8, ptr %7063, align 1, !tbaa !62
   %7065 = and i8 %7064, 1
   %7066 = icmp samesign uge i8 %.68252, %7065
@@ -15404,10 +15404,10 @@ cli_stack_free.exit:                              ; preds = %5489, %5499, %5504,
   br i1 %.not10123, label %.thread16192.sink.split, label %.thread13776
 
 .thread16192.sink.split:                          ; preds = %7084, %7082
-  %.sink18742 = phi i32 [ %7079, %7082 ], [ %7077, %7084 ]
-  %.sink18740 = phi ptr [ %7083, %7082 ], [ %.05402, %7084 ]
-  %7087 = zext nneg i32 %.sink18742 to i64
-  %7088 = getelementptr inbounds nuw i8, ptr %.sink18740, i64 %7087
+  %.sink20106 = phi i32 [ %7079, %7082 ], [ %7077, %7084 ]
+  %.sink20104 = phi ptr [ %7083, %7082 ], [ %.05402, %7084 ]
+  %7087 = zext nneg i32 %.sink20106 to i64
+  %7088 = getelementptr inbounds nuw i8, ptr %.sink20104, i64 %7087
   %7089 = load i8, ptr %7088, align 1, !tbaa !62
   br label %.thread16192
 
@@ -15439,10 +15439,10 @@ cli_stack_free.exit:                              ; preds = %5489, %5499, %5504,
   br i1 %.not10127, label %.thread16197.sink.split, label %.thread13776
 
 .thread16197.sink.split:                          ; preds = %7098, %7096
-  %.sink18746 = phi i32 [ %7093, %7096 ], [ %7091, %7098 ]
-  %.sink18744 = phi ptr [ %7097, %7096 ], [ %.05402, %7098 ]
-  %7101 = zext nneg i32 %.sink18746 to i64
-  %7102 = getelementptr inbounds nuw i8, ptr %.sink18744, i64 %7101
+  %.sink20110 = phi i32 [ %7093, %7096 ], [ %7091, %7098 ]
+  %.sink20108 = phi ptr [ %7097, %7096 ], [ %.05402, %7098 ]
+  %7101 = zext nneg i32 %.sink20110 to i64
+  %7102 = getelementptr inbounds nuw i8, ptr %.sink20108, i64 %7101
   %7103 = load i8, ptr %7102, align 1, !tbaa !62
   br label %.thread16197
 
@@ -15498,10 +15498,10 @@ cli_stack_free.exit:                              ; preds = %5489, %5499, %5504,
   br i1 %or.cond12304, label %.thread16208.sink.split, label %.thread13776
 
 .thread16208.sink.split:                          ; preds = %7124, %7122
-  %.sink18750 = phi i32 [ %7117, %7122 ], [ %7115, %7124 ]
-  %.sink18748 = phi ptr [ %7123, %7122 ], [ %.05402, %7124 ]
-  %7129 = zext nneg i32 %.sink18750 to i64
-  %7130 = getelementptr inbounds nuw i8, ptr %.sink18748, i64 %7129
+  %.sink20114 = phi i32 [ %7117, %7122 ], [ %7115, %7124 ]
+  %.sink20112 = phi ptr [ %7123, %7122 ], [ %.05402, %7124 ]
+  %7129 = zext nneg i32 %.sink20114 to i64
+  %7130 = getelementptr inbounds nuw i8, ptr %.sink20112, i64 %7129
   %7131 = load i16, ptr %7130, align 2, !tbaa !69
   br label %.thread16208
 
@@ -15541,10 +15541,10 @@ cli_stack_free.exit:                              ; preds = %5489, %5499, %5504,
   br i1 %or.cond12306, label %.thread16213.sink.split, label %.thread13776
 
 .thread16213.sink.split:                          ; preds = %7142, %7140
-  %.sink18754 = phi i32 [ %7135, %7140 ], [ %7133, %7142 ]
-  %.sink18752 = phi ptr [ %7141, %7140 ], [ %.05402, %7142 ]
-  %7147 = zext nneg i32 %.sink18754 to i64
-  %7148 = getelementptr inbounds nuw i8, ptr %.sink18752, i64 %7147
+  %.sink20118 = phi i32 [ %7135, %7140 ], [ %7133, %7142 ]
+  %.sink20116 = phi ptr [ %7141, %7140 ], [ %.05402, %7142 ]
+  %7147 = zext nneg i32 %.sink20118 to i64
+  %7148 = getelementptr inbounds nuw i8, ptr %.sink20116, i64 %7147
   %7149 = load i16, ptr %7148, align 2, !tbaa !69
   br label %.thread16213
 
@@ -15600,10 +15600,10 @@ cli_stack_free.exit:                              ; preds = %5489, %5499, %5504,
   br i1 %or.cond12308, label %.thread16224.sink.split, label %.thread13776
 
 .thread16224.sink.split:                          ; preds = %7170, %7168
-  %.sink18758 = phi i32 [ %7163, %7168 ], [ %7161, %7170 ]
-  %.sink18756 = phi ptr [ %7169, %7168 ], [ %.05402, %7170 ]
-  %7175 = zext nneg i32 %.sink18758 to i64
-  %7176 = getelementptr inbounds nuw i8, ptr %.sink18756, i64 %7175
+  %.sink20122 = phi i32 [ %7163, %7168 ], [ %7161, %7170 ]
+  %.sink20120 = phi ptr [ %7169, %7168 ], [ %.05402, %7170 ]
+  %7175 = zext nneg i32 %.sink20122 to i64
+  %7176 = getelementptr inbounds nuw i8, ptr %.sink20120, i64 %7175
   %7177 = load i32, ptr %7176, align 4, !tbaa !34
   br label %.thread16224
 
@@ -15643,10 +15643,10 @@ cli_stack_free.exit:                              ; preds = %5489, %5499, %5504,
   br i1 %or.cond12310, label %.thread16229.sink.split, label %.thread13776
 
 .thread16229.sink.split:                          ; preds = %7188, %7186
-  %.sink18762 = phi i32 [ %7181, %7186 ], [ %7179, %7188 ]
-  %.sink18760 = phi ptr [ %7187, %7186 ], [ %.05402, %7188 ]
-  %7193 = zext nneg i32 %.sink18762 to i64
-  %7194 = getelementptr inbounds nuw i8, ptr %.sink18760, i64 %7193
+  %.sink20126 = phi i32 [ %7181, %7186 ], [ %7179, %7188 ]
+  %.sink20124 = phi ptr [ %7187, %7186 ], [ %.05402, %7188 ]
+  %7193 = zext nneg i32 %.sink20126 to i64
+  %7194 = getelementptr inbounds nuw i8, ptr %.sink20124, i64 %7193
   %7195 = load i32, ptr %7194, align 4, !tbaa !34
   br label %.thread16229
 
@@ -15702,10 +15702,10 @@ cli_stack_free.exit:                              ; preds = %5489, %5499, %5504,
   br i1 %or.cond12312, label %.thread16240.sink.split, label %.thread13776
 
 .thread16240.sink.split:                          ; preds = %7216, %7214
-  %.sink18766 = phi i32 [ %7209, %7214 ], [ %7207, %7216 ]
-  %.sink18764 = phi ptr [ %7215, %7214 ], [ %.05402, %7216 ]
-  %7221 = zext nneg i32 %.sink18766 to i64
-  %7222 = getelementptr inbounds nuw i8, ptr %.sink18764, i64 %7221
+  %.sink20130 = phi i32 [ %7209, %7214 ], [ %7207, %7216 ]
+  %.sink20128 = phi ptr [ %7215, %7214 ], [ %.05402, %7216 ]
+  %7221 = zext nneg i32 %.sink20130 to i64
+  %7222 = getelementptr inbounds nuw i8, ptr %.sink20128, i64 %7221
   %7223 = load i64, ptr %7222, align 8, !tbaa !70
   br label %.thread16240
 
@@ -15745,10 +15745,10 @@ cli_stack_free.exit:                              ; preds = %5489, %5499, %5504,
   br i1 %or.cond12314, label %.thread16245.sink.split, label %.thread13776
 
 .thread16245.sink.split:                          ; preds = %7234, %7232
-  %.sink18770 = phi i32 [ %7227, %7232 ], [ %7225, %7234 ]
-  %.sink18768 = phi ptr [ %7233, %7232 ], [ %.05402, %7234 ]
-  %7239 = zext nneg i32 %.sink18770 to i64
-  %7240 = getelementptr inbounds nuw i8, ptr %.sink18768, i64 %7239
+  %.sink20134 = phi i32 [ %7227, %7232 ], [ %7225, %7234 ]
+  %.sink20132 = phi ptr [ %7233, %7232 ], [ %.05402, %7234 ]
+  %7239 = zext nneg i32 %.sink20134 to i64
+  %7240 = getelementptr inbounds nuw i8, ptr %.sink20132, i64 %7239
   %7241 = load i64, ptr %7240, align 8, !tbaa !70
   br label %.thread16245
 
@@ -15796,10 +15796,10 @@ cli_stack_free.exit:                              ; preds = %5489, %5499, %5504,
   br i1 %.not10075, label %.thread16256.sink.split, label %.thread13776
 
 .thread16256.sink.split:                          ; preds = %7260, %7258
-  %.sink18774 = phi i32 [ %7255, %7258 ], [ %7253, %7260 ]
-  %.sink18772 = phi ptr [ %7259, %7258 ], [ %.05402, %7260 ]
-  %7263 = zext nneg i32 %.sink18774 to i64
-  %7264 = getelementptr inbounds nuw i8, ptr %.sink18772, i64 %7263
+  %.sink20138 = phi i32 [ %7255, %7258 ], [ %7253, %7260 ]
+  %.sink20136 = phi ptr [ %7259, %7258 ], [ %.05402, %7260 ]
+  %7263 = zext nneg i32 %.sink20138 to i64
+  %7264 = getelementptr inbounds nuw i8, ptr %.sink20136, i64 %7263
   %7265 = load i8, ptr %7264, align 1, !tbaa !62
   %7266 = and i8 %7265, 1
   br label %.thread16256
@@ -15832,10 +15832,10 @@ cli_stack_free.exit:                              ; preds = %5489, %5499, %5504,
   br i1 %.not10079, label %.thread16261.sink.split, label %.thread13776
 
 .thread16261.sink.split:                          ; preds = %7275, %7273
-  %.sink18778 = phi i32 [ %7270, %7273 ], [ %7268, %7275 ]
-  %.sink18776 = phi ptr [ %7274, %7273 ], [ %.05402, %7275 ]
-  %7278 = zext nneg i32 %.sink18778 to i64
-  %7279 = getelementptr inbounds nuw i8, ptr %.sink18776, i64 %7278
+  %.sink20142 = phi i32 [ %7270, %7273 ], [ %7268, %7275 ]
+  %.sink20140 = phi ptr [ %7274, %7273 ], [ %.05402, %7275 ]
+  %7278 = zext nneg i32 %.sink20142 to i64
+  %7279 = getelementptr inbounds nuw i8, ptr %.sink20140, i64 %7278
   %7280 = load i8, ptr %7279, align 1, !tbaa !62
   %7281 = and i8 %7280, 1
   br label %.thread16261
@@ -15884,10 +15884,10 @@ cli_stack_free.exit:                              ; preds = %5489, %5499, %5504,
   br i1 %.not10066, label %.thread16272.sink.split, label %.thread13776
 
 .thread16272.sink.split:                          ; preds = %7300, %7298
-  %.sink18782 = phi i32 [ %7295, %7298 ], [ %7293, %7300 ]
-  %.sink18780 = phi ptr [ %7299, %7298 ], [ %.05402, %7300 ]
-  %7303 = zext nneg i32 %.sink18782 to i64
-  %7304 = getelementptr inbounds nuw i8, ptr %.sink18780, i64 %7303
+  %.sink20146 = phi i32 [ %7295, %7298 ], [ %7293, %7300 ]
+  %.sink20144 = phi ptr [ %7299, %7298 ], [ %.05402, %7300 ]
+  %7303 = zext nneg i32 %.sink20146 to i64
+  %7304 = getelementptr inbounds nuw i8, ptr %.sink20144, i64 %7303
   %7305 = load i8, ptr %7304, align 1, !tbaa !62
   br label %.thread16272
 
@@ -15919,10 +15919,10 @@ cli_stack_free.exit:                              ; preds = %5489, %5499, %5504,
   br i1 %.not10070, label %.thread16277.sink.split, label %.thread13776
 
 .thread16277.sink.split:                          ; preds = %7314, %7312
-  %.sink18786 = phi i32 [ %7309, %7312 ], [ %7307, %7314 ]
-  %.sink18784 = phi ptr [ %7313, %7312 ], [ %.05402, %7314 ]
-  %7317 = zext nneg i32 %.sink18786 to i64
-  %7318 = getelementptr inbounds nuw i8, ptr %.sink18784, i64 %7317
+  %.sink20150 = phi i32 [ %7309, %7312 ], [ %7307, %7314 ]
+  %.sink20148 = phi ptr [ %7313, %7312 ], [ %.05402, %7314 ]
+  %7317 = zext nneg i32 %.sink20150 to i64
+  %7318 = getelementptr inbounds nuw i8, ptr %.sink20148, i64 %7317
   %7319 = load i8, ptr %7318, align 1, !tbaa !62
   br label %.thread16277
 
@@ -15978,10 +15978,10 @@ cli_stack_free.exit:                              ; preds = %5489, %5499, %5504,
   br i1 %or.cond12316, label %.thread16288.sink.split, label %.thread13776
 
 .thread16288.sink.split:                          ; preds = %7340, %7338
-  %.sink18790 = phi i32 [ %7333, %7338 ], [ %7331, %7340 ]
-  %.sink18788 = phi ptr [ %7339, %7338 ], [ %.05402, %7340 ]
-  %7345 = zext nneg i32 %.sink18790 to i64
-  %7346 = getelementptr inbounds nuw i8, ptr %.sink18788, i64 %7345
+  %.sink20154 = phi i32 [ %7333, %7338 ], [ %7331, %7340 ]
+  %.sink20152 = phi ptr [ %7339, %7338 ], [ %.05402, %7340 ]
+  %7345 = zext nneg i32 %.sink20154 to i64
+  %7346 = getelementptr inbounds nuw i8, ptr %.sink20152, i64 %7345
   %7347 = load i16, ptr %7346, align 2, !tbaa !69
   br label %.thread16288
 
@@ -16021,10 +16021,10 @@ cli_stack_free.exit:                              ; preds = %5489, %5499, %5504,
   br i1 %or.cond12318, label %.thread16293.sink.split, label %.thread13776
 
 .thread16293.sink.split:                          ; preds = %7358, %7356
-  %.sink18794 = phi i32 [ %7351, %7356 ], [ %7349, %7358 ]
-  %.sink18792 = phi ptr [ %7357, %7356 ], [ %.05402, %7358 ]
-  %7363 = zext nneg i32 %.sink18794 to i64
-  %7364 = getelementptr inbounds nuw i8, ptr %.sink18792, i64 %7363
+  %.sink20158 = phi i32 [ %7351, %7356 ], [ %7349, %7358 ]
+  %.sink20156 = phi ptr [ %7357, %7356 ], [ %.05402, %7358 ]
+  %7363 = zext nneg i32 %.sink20158 to i64
+  %7364 = getelementptr inbounds nuw i8, ptr %.sink20156, i64 %7363
   %7365 = load i16, ptr %7364, align 2, !tbaa !69
   br label %.thread16293
 
@@ -16080,10 +16080,10 @@ cli_stack_free.exit:                              ; preds = %5489, %5499, %5504,
   br i1 %or.cond12320, label %.thread16304.sink.split, label %.thread13776
 
 .thread16304.sink.split:                          ; preds = %7386, %7384
-  %.sink18798 = phi i32 [ %7379, %7384 ], [ %7377, %7386 ]
-  %.sink18796 = phi ptr [ %7385, %7384 ], [ %.05402, %7386 ]
-  %7391 = zext nneg i32 %.sink18798 to i64
-  %7392 = getelementptr inbounds nuw i8, ptr %.sink18796, i64 %7391
+  %.sink20162 = phi i32 [ %7379, %7384 ], [ %7377, %7386 ]
+  %.sink20160 = phi ptr [ %7385, %7384 ], [ %.05402, %7386 ]
+  %7391 = zext nneg i32 %.sink20162 to i64
+  %7392 = getelementptr inbounds nuw i8, ptr %.sink20160, i64 %7391
   %7393 = load i32, ptr %7392, align 4, !tbaa !34
   br label %.thread16304
 
@@ -16123,10 +16123,10 @@ cli_stack_free.exit:                              ; preds = %5489, %5499, %5504,
   br i1 %or.cond12322, label %.thread16309.sink.split, label %.thread13776
 
 .thread16309.sink.split:                          ; preds = %7404, %7402
-  %.sink18802 = phi i32 [ %7397, %7402 ], [ %7395, %7404 ]
-  %.sink18800 = phi ptr [ %7403, %7402 ], [ %.05402, %7404 ]
-  %7409 = zext nneg i32 %.sink18802 to i64
-  %7410 = getelementptr inbounds nuw i8, ptr %.sink18800, i64 %7409
+  %.sink20166 = phi i32 [ %7397, %7402 ], [ %7395, %7404 ]
+  %.sink20164 = phi ptr [ %7403, %7402 ], [ %.05402, %7404 ]
+  %7409 = zext nneg i32 %.sink20166 to i64
+  %7410 = getelementptr inbounds nuw i8, ptr %.sink20164, i64 %7409
   %7411 = load i32, ptr %7410, align 4, !tbaa !34
   br label %.thread16309
 
@@ -16182,10 +16182,10 @@ cli_stack_free.exit:                              ; preds = %5489, %5499, %5504,
   br i1 %or.cond12324, label %.thread16320.sink.split, label %.thread13776
 
 .thread16320.sink.split:                          ; preds = %7432, %7430
-  %.sink18806 = phi i32 [ %7425, %7430 ], [ %7423, %7432 ]
-  %.sink18804 = phi ptr [ %7431, %7430 ], [ %.05402, %7432 ]
-  %7437 = zext nneg i32 %.sink18806 to i64
-  %7438 = getelementptr inbounds nuw i8, ptr %.sink18804, i64 %7437
+  %.sink20170 = phi i32 [ %7425, %7430 ], [ %7423, %7432 ]
+  %.sink20168 = phi ptr [ %7431, %7430 ], [ %.05402, %7432 ]
+  %7437 = zext nneg i32 %.sink20170 to i64
+  %7438 = getelementptr inbounds nuw i8, ptr %.sink20168, i64 %7437
   %7439 = load i64, ptr %7438, align 8, !tbaa !70
   br label %.thread16320
 
@@ -16225,10 +16225,10 @@ cli_stack_free.exit:                              ; preds = %5489, %5499, %5504,
   br i1 %or.cond12326, label %.thread16325.sink.split, label %.thread13776
 
 .thread16325.sink.split:                          ; preds = %7450, %7448
-  %.sink18810 = phi i32 [ %7443, %7448 ], [ %7441, %7450 ]
-  %.sink18808 = phi ptr [ %7449, %7448 ], [ %.05402, %7450 ]
-  %7455 = zext nneg i32 %.sink18810 to i64
-  %7456 = getelementptr inbounds nuw i8, ptr %.sink18808, i64 %7455
+  %.sink20174 = phi i32 [ %7443, %7448 ], [ %7441, %7450 ]
+  %.sink20172 = phi ptr [ %7449, %7448 ], [ %.05402, %7450 ]
+  %7455 = zext nneg i32 %.sink20174 to i64
+  %7456 = getelementptr inbounds nuw i8, ptr %.sink20172, i64 %7455
   %7457 = load i64, ptr %7456, align 8, !tbaa !70
   br label %.thread16325
 
@@ -16276,10 +16276,10 @@ cli_stack_free.exit:                              ; preds = %5489, %5499, %5504,
   br i1 %.not10018, label %.thread16336.sink.split, label %.thread13776
 
 .thread16336.sink.split:                          ; preds = %7476, %7474
-  %.sink18814 = phi i32 [ %7471, %7474 ], [ %7469, %7476 ]
-  %.sink18812 = phi ptr [ %7475, %7474 ], [ %.05402, %7476 ]
-  %7479 = zext nneg i32 %.sink18814 to i64
-  %7480 = getelementptr inbounds nuw i8, ptr %.sink18812, i64 %7479
+  %.sink20178 = phi i32 [ %7471, %7474 ], [ %7469, %7476 ]
+  %.sink20176 = phi ptr [ %7475, %7474 ], [ %.05402, %7476 ]
+  %7479 = zext nneg i32 %.sink20178 to i64
+  %7480 = getelementptr inbounds nuw i8, ptr %.sink20176, i64 %7479
   %7481 = load i8, ptr %7480, align 1, !tbaa !62
   %7482 = and i8 %7481, 1
   br label %.thread16336
@@ -16312,10 +16312,10 @@ cli_stack_free.exit:                              ; preds = %5489, %5499, %5504,
   br i1 %.not10022, label %.thread16341.sink.split, label %.thread13776
 
 .thread16341.sink.split:                          ; preds = %7491, %7489
-  %.sink18818 = phi i32 [ %7486, %7489 ], [ %7484, %7491 ]
-  %.sink18816 = phi ptr [ %7490, %7489 ], [ %.05402, %7491 ]
-  %7494 = zext nneg i32 %.sink18818 to i64
-  %7495 = getelementptr inbounds nuw i8, ptr %.sink18816, i64 %7494
+  %.sink20182 = phi i32 [ %7486, %7489 ], [ %7484, %7491 ]
+  %.sink20180 = phi ptr [ %7490, %7489 ], [ %.05402, %7491 ]
+  %7494 = zext nneg i32 %.sink20182 to i64
+  %7495 = getelementptr inbounds nuw i8, ptr %.sink20180, i64 %7494
   %7496 = load i8, ptr %7495, align 1, !tbaa !62
   %7497 = and i8 %7496, 1
   %7498 = icmp samesign ult i8 %.67637, %7497
@@ -16364,10 +16364,10 @@ cli_stack_free.exit:                              ; preds = %5489, %5499, %5504,
   br i1 %.not10009, label %.thread16352.sink.split, label %.thread13776
 
 .thread16352.sink.split:                          ; preds = %7516, %7514
-  %.sink18822 = phi i32 [ %7511, %7514 ], [ %7509, %7516 ]
-  %.sink18820 = phi ptr [ %7515, %7514 ], [ %.05402, %7516 ]
-  %7519 = zext nneg i32 %.sink18822 to i64
-  %7520 = getelementptr inbounds nuw i8, ptr %.sink18820, i64 %7519
+  %.sink20186 = phi i32 [ %7511, %7514 ], [ %7509, %7516 ]
+  %.sink20184 = phi ptr [ %7515, %7514 ], [ %.05402, %7516 ]
+  %7519 = zext nneg i32 %.sink20186 to i64
+  %7520 = getelementptr inbounds nuw i8, ptr %.sink20184, i64 %7519
   %7521 = load i8, ptr %7520, align 1, !tbaa !62
   br label %.thread16352
 
@@ -16399,10 +16399,10 @@ cli_stack_free.exit:                              ; preds = %5489, %5499, %5504,
   br i1 %.not10013, label %.thread16357.sink.split, label %.thread13776
 
 .thread16357.sink.split:                          ; preds = %7530, %7528
-  %.sink18826 = phi i32 [ %7525, %7528 ], [ %7523, %7530 ]
-  %.sink18824 = phi ptr [ %7529, %7528 ], [ %.05402, %7530 ]
-  %7533 = zext nneg i32 %.sink18826 to i64
-  %7534 = getelementptr inbounds nuw i8, ptr %.sink18824, i64 %7533
+  %.sink20190 = phi i32 [ %7525, %7528 ], [ %7523, %7530 ]
+  %.sink20188 = phi ptr [ %7529, %7528 ], [ %.05402, %7530 ]
+  %7533 = zext nneg i32 %.sink20190 to i64
+  %7534 = getelementptr inbounds nuw i8, ptr %.sink20188, i64 %7533
   %7535 = load i8, ptr %7534, align 1, !tbaa !62
   br label %.thread16357
 
@@ -16458,10 +16458,10 @@ cli_stack_free.exit:                              ; preds = %5489, %5499, %5504,
   br i1 %or.cond12328, label %.thread16368.sink.split, label %.thread13776
 
 .thread16368.sink.split:                          ; preds = %7556, %7554
-  %.sink18830 = phi i32 [ %7549, %7554 ], [ %7547, %7556 ]
-  %.sink18828 = phi ptr [ %7555, %7554 ], [ %.05402, %7556 ]
-  %7561 = zext nneg i32 %.sink18830 to i64
-  %7562 = getelementptr inbounds nuw i8, ptr %.sink18828, i64 %7561
+  %.sink20194 = phi i32 [ %7549, %7554 ], [ %7547, %7556 ]
+  %.sink20192 = phi ptr [ %7555, %7554 ], [ %.05402, %7556 ]
+  %7561 = zext nneg i32 %.sink20194 to i64
+  %7562 = getelementptr inbounds nuw i8, ptr %.sink20192, i64 %7561
   %7563 = load i16, ptr %7562, align 2, !tbaa !69
   br label %.thread16368
 
@@ -16501,10 +16501,10 @@ cli_stack_free.exit:                              ; preds = %5489, %5499, %5504,
   br i1 %or.cond12330, label %.thread16373.sink.split, label %.thread13776
 
 .thread16373.sink.split:                          ; preds = %7574, %7572
-  %.sink18834 = phi i32 [ %7567, %7572 ], [ %7565, %7574 ]
-  %.sink18832 = phi ptr [ %7573, %7572 ], [ %.05402, %7574 ]
-  %7579 = zext nneg i32 %.sink18834 to i64
-  %7580 = getelementptr inbounds nuw i8, ptr %.sink18832, i64 %7579
+  %.sink20198 = phi i32 [ %7567, %7572 ], [ %7565, %7574 ]
+  %.sink20196 = phi ptr [ %7573, %7572 ], [ %.05402, %7574 ]
+  %7579 = zext nneg i32 %.sink20198 to i64
+  %7580 = getelementptr inbounds nuw i8, ptr %.sink20196, i64 %7579
   %7581 = load i16, ptr %7580, align 2, !tbaa !69
   br label %.thread16373
 
@@ -16560,10 +16560,10 @@ cli_stack_free.exit:                              ; preds = %5489, %5499, %5504,
   br i1 %or.cond12332, label %.thread16384.sink.split, label %.thread13776
 
 .thread16384.sink.split:                          ; preds = %7602, %7600
-  %.sink18838 = phi i32 [ %7595, %7600 ], [ %7593, %7602 ]
-  %.sink18836 = phi ptr [ %7601, %7600 ], [ %.05402, %7602 ]
-  %7607 = zext nneg i32 %.sink18838 to i64
-  %7608 = getelementptr inbounds nuw i8, ptr %.sink18836, i64 %7607
+  %.sink20202 = phi i32 [ %7595, %7600 ], [ %7593, %7602 ]
+  %.sink20200 = phi ptr [ %7601, %7600 ], [ %.05402, %7602 ]
+  %7607 = zext nneg i32 %.sink20202 to i64
+  %7608 = getelementptr inbounds nuw i8, ptr %.sink20200, i64 %7607
   %7609 = load i32, ptr %7608, align 4, !tbaa !34
   br label %.thread16384
 
@@ -16603,10 +16603,10 @@ cli_stack_free.exit:                              ; preds = %5489, %5499, %5504,
   br i1 %or.cond12334, label %.thread16389.sink.split, label %.thread13776
 
 .thread16389.sink.split:                          ; preds = %7620, %7618
-  %.sink18842 = phi i32 [ %7613, %7618 ], [ %7611, %7620 ]
-  %.sink18840 = phi ptr [ %7619, %7618 ], [ %.05402, %7620 ]
-  %7625 = zext nneg i32 %.sink18842 to i64
-  %7626 = getelementptr inbounds nuw i8, ptr %.sink18840, i64 %7625
+  %.sink20206 = phi i32 [ %7613, %7618 ], [ %7611, %7620 ]
+  %.sink20204 = phi ptr [ %7619, %7618 ], [ %.05402, %7620 ]
+  %7625 = zext nneg i32 %.sink20206 to i64
+  %7626 = getelementptr inbounds nuw i8, ptr %.sink20204, i64 %7625
   %7627 = load i32, ptr %7626, align 4, !tbaa !34
   br label %.thread16389
 
@@ -16662,10 +16662,10 @@ cli_stack_free.exit:                              ; preds = %5489, %5499, %5504,
   br i1 %or.cond12336, label %.thread16400.sink.split, label %.thread13776
 
 .thread16400.sink.split:                          ; preds = %7648, %7646
-  %.sink18846 = phi i32 [ %7641, %7646 ], [ %7639, %7648 ]
-  %.sink18844 = phi ptr [ %7647, %7646 ], [ %.05402, %7648 ]
-  %7653 = zext nneg i32 %.sink18846 to i64
-  %7654 = getelementptr inbounds nuw i8, ptr %.sink18844, i64 %7653
+  %.sink20210 = phi i32 [ %7641, %7646 ], [ %7639, %7648 ]
+  %.sink20208 = phi ptr [ %7647, %7646 ], [ %.05402, %7648 ]
+  %7653 = zext nneg i32 %.sink20210 to i64
+  %7654 = getelementptr inbounds nuw i8, ptr %.sink20208, i64 %7653
   %7655 = load i64, ptr %7654, align 8, !tbaa !70
   br label %.thread16400
 
@@ -16705,10 +16705,10 @@ cli_stack_free.exit:                              ; preds = %5489, %5499, %5504,
   br i1 %or.cond12338, label %.thread16405.sink.split, label %.thread13776
 
 .thread16405.sink.split:                          ; preds = %7666, %7664
-  %.sink18850 = phi i32 [ %7659, %7664 ], [ %7657, %7666 ]
-  %.sink18848 = phi ptr [ %7665, %7664 ], [ %.05402, %7666 ]
-  %7671 = zext nneg i32 %.sink18850 to i64
-  %7672 = getelementptr inbounds nuw i8, ptr %.sink18848, i64 %7671
+  %.sink20214 = phi i32 [ %7659, %7664 ], [ %7657, %7666 ]
+  %.sink20212 = phi ptr [ %7665, %7664 ], [ %.05402, %7666 ]
+  %7671 = zext nneg i32 %.sink20214 to i64
+  %7672 = getelementptr inbounds nuw i8, ptr %.sink20212, i64 %7671
   %7673 = load i64, ptr %7672, align 8, !tbaa !70
   br label %.thread16405
 
@@ -16756,10 +16756,10 @@ cli_stack_free.exit:                              ; preds = %5489, %5499, %5504,
   br i1 %.not9955, label %.thread16416.sink.split, label %.thread13776
 
 .thread16416.sink.split:                          ; preds = %7692, %7690
-  %.sink18854 = phi i32 [ %7687, %7690 ], [ %7685, %7692 ]
-  %.sink18852 = phi ptr [ %7691, %7690 ], [ %.05402, %7692 ]
-  %7695 = zext nneg i32 %.sink18854 to i64
-  %7696 = getelementptr inbounds nuw i8, ptr %.sink18852, i64 %7695
+  %.sink20218 = phi i32 [ %7687, %7690 ], [ %7685, %7692 ]
+  %.sink20216 = phi ptr [ %7691, %7690 ], [ %.05402, %7692 ]
+  %7695 = zext nneg i32 %.sink20218 to i64
+  %7696 = getelementptr inbounds nuw i8, ptr %.sink20216, i64 %7695
   %7697 = load i8, ptr %7696, align 1, !tbaa !62
   %7698 = and i8 %7697, 1
   %7699 = icmp eq i8 %7698, 0
@@ -16793,10 +16793,10 @@ cli_stack_free.exit:                              ; preds = %5489, %5499, %5504,
   br i1 %.not9959, label %.thread16421.sink.split, label %.thread13776
 
 .thread16421.sink.split:                          ; preds = %7708, %7706
-  %.sink18858 = phi i32 [ %7703, %7706 ], [ %7701, %7708 ]
-  %.sink18856 = phi ptr [ %7707, %7706 ], [ %.05402, %7708 ]
-  %7711 = zext nneg i32 %.sink18858 to i64
-  %7712 = getelementptr inbounds nuw i8, ptr %.sink18856, i64 %7711
+  %.sink20222 = phi i32 [ %7703, %7706 ], [ %7701, %7708 ]
+  %.sink20220 = phi ptr [ %7707, %7706 ], [ %.05402, %7708 ]
+  %7711 = zext nneg i32 %.sink20222 to i64
+  %7712 = getelementptr inbounds nuw i8, ptr %.sink20220, i64 %7711
   %7713 = load i8, ptr %7712, align 1, !tbaa !62
   br label %.thread16421
 
@@ -16828,10 +16828,10 @@ cli_stack_free.exit:                              ; preds = %5489, %5499, %5504,
   br i1 %.not9963, label %.thread16426.sink.split, label %.thread13776
 
 .thread16426.sink.split:                          ; preds = %7722, %7720
-  %.sink18862 = phi i32 [ %7717, %7720 ], [ %7715, %7722 ]
-  %.sink18860 = phi ptr [ %7721, %7720 ], [ %.05402, %7722 ]
-  %7725 = zext nneg i32 %.sink18862 to i64
-  %7726 = getelementptr inbounds nuw i8, ptr %.sink18860, i64 %7725
+  %.sink20226 = phi i32 [ %7717, %7720 ], [ %7715, %7722 ]
+  %.sink20224 = phi ptr [ %7721, %7720 ], [ %.05402, %7722 ]
+  %7725 = zext nneg i32 %.sink20226 to i64
+  %7726 = getelementptr inbounds nuw i8, ptr %.sink20224, i64 %7725
   %7727 = load i8, ptr %7726, align 1, !tbaa !62
   br label %.thread16426
 
@@ -16879,10 +16879,10 @@ cli_stack_free.exit:                              ; preds = %5489, %5499, %5504,
   br i1 %.not9940, label %.thread16438.sink.split, label %.thread13776
 
 .thread16438.sink.split:                          ; preds = %7744, %7742
-  %.sink18866 = phi i32 [ %7739, %7742 ], [ %7737, %7744 ]
-  %.sink18864 = phi ptr [ %7743, %7742 ], [ %.05402, %7744 ]
-  %7747 = zext nneg i32 %.sink18866 to i64
-  %7748 = getelementptr inbounds nuw i8, ptr %.sink18864, i64 %7747
+  %.sink20230 = phi i32 [ %7739, %7742 ], [ %7737, %7744 ]
+  %.sink20228 = phi ptr [ %7743, %7742 ], [ %.05402, %7744 ]
+  %7747 = zext nneg i32 %.sink20230 to i64
+  %7748 = getelementptr inbounds nuw i8, ptr %.sink20228, i64 %7747
   %7749 = load i8, ptr %7748, align 1, !tbaa !62
   %7750 = and i8 %7749, 1
   %7751 = icmp eq i8 %7750, 0
@@ -16916,10 +16916,10 @@ cli_stack_free.exit:                              ; preds = %5489, %5499, %5504,
   br i1 %.not9944, label %.thread16443.sink.split, label %.thread13776
 
 .thread16443.sink.split:                          ; preds = %7760, %7758
-  %.sink18870 = phi i32 [ %7755, %7758 ], [ %7753, %7760 ]
-  %.sink18868 = phi ptr [ %7759, %7758 ], [ %.05402, %7760 ]
-  %7763 = zext nneg i32 %.sink18870 to i64
-  %7764 = getelementptr inbounds nuw i8, ptr %.sink18868, i64 %7763
+  %.sink20234 = phi i32 [ %7755, %7758 ], [ %7753, %7760 ]
+  %.sink20232 = phi ptr [ %7759, %7758 ], [ %.05402, %7760 ]
+  %7763 = zext nneg i32 %.sink20234 to i64
+  %7764 = getelementptr inbounds nuw i8, ptr %.sink20232, i64 %7763
   %7765 = load i8, ptr %7764, align 1, !tbaa !62
   br label %.thread16443
 
@@ -16951,10 +16951,10 @@ cli_stack_free.exit:                              ; preds = %5489, %5499, %5504,
   br i1 %.not9948, label %.thread16448.sink.split, label %.thread13776
 
 .thread16448.sink.split:                          ; preds = %7774, %7772
-  %.sink18874 = phi i32 [ %7769, %7772 ], [ %7767, %7774 ]
-  %.sink18872 = phi ptr [ %7773, %7772 ], [ %.05402, %7774 ]
-  %7777 = zext nneg i32 %.sink18874 to i64
-  %7778 = getelementptr inbounds nuw i8, ptr %.sink18872, i64 %7777
+  %.sink20238 = phi i32 [ %7769, %7772 ], [ %7767, %7774 ]
+  %.sink20236 = phi ptr [ %7773, %7772 ], [ %.05402, %7774 ]
+  %7777 = zext nneg i32 %.sink20238 to i64
+  %7778 = getelementptr inbounds nuw i8, ptr %.sink20236, i64 %7777
   %7779 = load i8, ptr %7778, align 1, !tbaa !62
   br label %.thread16448
 
@@ -17001,10 +17001,10 @@ cli_stack_free.exit:                              ; preds = %5489, %5499, %5504,
   br i1 %.not9921, label %.thread16460.sink.split, label %.thread13776
 
 .thread16460.sink.split:                          ; preds = %7796, %7794
-  %.sink18878 = phi i32 [ %7791, %7794 ], [ %7789, %7796 ]
-  %.sink18876 = phi ptr [ %7795, %7794 ], [ %.05402, %7796 ]
-  %7799 = zext nneg i32 %.sink18878 to i64
-  %7800 = getelementptr inbounds nuw i8, ptr %.sink18876, i64 %7799
+  %.sink20242 = phi i32 [ %7791, %7794 ], [ %7789, %7796 ]
+  %.sink20240 = phi ptr [ %7795, %7794 ], [ %.05402, %7796 ]
+  %7799 = zext nneg i32 %.sink20242 to i64
+  %7800 = getelementptr inbounds nuw i8, ptr %.sink20240, i64 %7799
   %7801 = load i8, ptr %7800, align 1, !tbaa !62
   %7802 = and i8 %7801, 1
   %7803 = icmp eq i8 %7802, 0
@@ -17046,10 +17046,10 @@ cli_stack_free.exit:                              ; preds = %5489, %5499, %5504,
   br i1 %or.cond12340, label %.thread16465.sink.split, label %.thread13776
 
 .thread16465.sink.split:                          ; preds = %7814, %7812
-  %.sink18882 = phi i32 [ %7807, %7812 ], [ %7805, %7814 ]
-  %.sink18880 = phi ptr [ %7813, %7812 ], [ %.05402, %7814 ]
-  %7819 = zext nneg i32 %.sink18882 to i64
-  %7820 = getelementptr inbounds nuw i8, ptr %.sink18880, i64 %7819
+  %.sink20246 = phi i32 [ %7807, %7812 ], [ %7805, %7814 ]
+  %.sink20244 = phi ptr [ %7813, %7812 ], [ %.05402, %7814 ]
+  %7819 = zext nneg i32 %.sink20246 to i64
+  %7820 = getelementptr inbounds nuw i8, ptr %.sink20244, i64 %7819
   %7821 = load i16, ptr %7820, align 2, !tbaa !69
   br label %.thread16465
 
@@ -17089,10 +17089,10 @@ cli_stack_free.exit:                              ; preds = %5489, %5499, %5504,
   br i1 %or.cond12342, label %.thread16470.sink.split, label %.thread13776
 
 .thread16470.sink.split:                          ; preds = %7832, %7830
-  %.sink18886 = phi i32 [ %7825, %7830 ], [ %7823, %7832 ]
-  %.sink18884 = phi ptr [ %7831, %7830 ], [ %.05402, %7832 ]
-  %7837 = zext nneg i32 %.sink18886 to i64
-  %7838 = getelementptr inbounds nuw i8, ptr %.sink18884, i64 %7837
+  %.sink20250 = phi i32 [ %7825, %7830 ], [ %7823, %7832 ]
+  %.sink20248 = phi ptr [ %7831, %7830 ], [ %.05402, %7832 ]
+  %7837 = zext nneg i32 %.sink20250 to i64
+  %7838 = getelementptr inbounds nuw i8, ptr %.sink20248, i64 %7837
   %7839 = load i16, ptr %7838, align 2, !tbaa !69
   br label %.thread16470
 
@@ -17143,10 +17143,10 @@ cli_stack_free.exit:                              ; preds = %5489, %5499, %5504,
   br i1 %.not9902, label %.thread16482.sink.split, label %.thread13776
 
 .thread16482.sink.split:                          ; preds = %7858, %7856
-  %.sink18890 = phi i32 [ %7853, %7856 ], [ %7851, %7858 ]
-  %.sink18888 = phi ptr [ %7857, %7856 ], [ %.05402, %7858 ]
-  %7861 = zext nneg i32 %.sink18890 to i64
-  %7862 = getelementptr inbounds nuw i8, ptr %.sink18888, i64 %7861
+  %.sink20254 = phi i32 [ %7853, %7856 ], [ %7851, %7858 ]
+  %.sink20252 = phi ptr [ %7857, %7856 ], [ %.05402, %7858 ]
+  %7861 = zext nneg i32 %.sink20254 to i64
+  %7862 = getelementptr inbounds nuw i8, ptr %.sink20252, i64 %7861
   %7863 = load i8, ptr %7862, align 1, !tbaa !62
   %7864 = and i8 %7863, 1
   %7865 = icmp eq i8 %7864, 0
@@ -17188,10 +17188,10 @@ cli_stack_free.exit:                              ; preds = %5489, %5499, %5504,
   br i1 %or.cond12345, label %.thread16487.sink.split, label %.thread13776
 
 .thread16487.sink.split:                          ; preds = %7876, %7874
-  %.sink18894 = phi i32 [ %7869, %7874 ], [ %7867, %7876 ]
-  %.sink18892 = phi ptr [ %7875, %7874 ], [ %.05402, %7876 ]
-  %7881 = zext nneg i32 %.sink18894 to i64
-  %7882 = getelementptr inbounds nuw i8, ptr %.sink18892, i64 %7881
+  %.sink20258 = phi i32 [ %7869, %7874 ], [ %7867, %7876 ]
+  %.sink20256 = phi ptr [ %7875, %7874 ], [ %.05402, %7876 ]
+  %7881 = zext nneg i32 %.sink20258 to i64
+  %7882 = getelementptr inbounds nuw i8, ptr %.sink20256, i64 %7881
   %7883 = load i32, ptr %7882, align 4, !tbaa !34
   br label %.thread16487
 
@@ -17231,10 +17231,10 @@ cli_stack_free.exit:                              ; preds = %5489, %5499, %5504,
   br i1 %or.cond12347, label %.thread16492.sink.split, label %.thread13776
 
 .thread16492.sink.split:                          ; preds = %7894, %7892
-  %.sink18898 = phi i32 [ %7887, %7892 ], [ %7885, %7894 ]
-  %.sink18896 = phi ptr [ %7893, %7892 ], [ %.05402, %7894 ]
-  %7899 = zext nneg i32 %.sink18898 to i64
-  %7900 = getelementptr inbounds nuw i8, ptr %.sink18896, i64 %7899
+  %.sink20262 = phi i32 [ %7887, %7892 ], [ %7885, %7894 ]
+  %.sink20260 = phi ptr [ %7893, %7892 ], [ %.05402, %7894 ]
+  %7899 = zext nneg i32 %.sink20262 to i64
+  %7900 = getelementptr inbounds nuw i8, ptr %.sink20260, i64 %7899
   %7901 = load i32, ptr %7900, align 4, !tbaa !34
   br label %.thread16492
 
@@ -17285,10 +17285,10 @@ cli_stack_free.exit:                              ; preds = %5489, %5499, %5504,
   br i1 %.not9883, label %.thread16504.sink.split, label %.thread13776
 
 .thread16504.sink.split:                          ; preds = %7921, %7919
-  %.sink18902 = phi i32 [ %7916, %7919 ], [ %7914, %7921 ]
-  %.sink18900 = phi ptr [ %7920, %7919 ], [ %.05402, %7921 ]
-  %7924 = zext nneg i32 %.sink18902 to i64
-  %7925 = getelementptr inbounds nuw i8, ptr %.sink18900, i64 %7924
+  %.sink20266 = phi i32 [ %7916, %7919 ], [ %7914, %7921 ]
+  %.sink20264 = phi ptr [ %7920, %7919 ], [ %.05402, %7921 ]
+  %7924 = zext nneg i32 %.sink20266 to i64
+  %7925 = getelementptr inbounds nuw i8, ptr %.sink20264, i64 %7924
   %7926 = load i8, ptr %7925, align 1, !tbaa !62
   %7927 = and i8 %7926, 1
   %7928 = icmp eq i8 %7927, 0
@@ -17330,10 +17330,10 @@ cli_stack_free.exit:                              ; preds = %5489, %5499, %5504,
   br i1 %or.cond12350, label %.thread16509.sink.split, label %.thread13776
 
 .thread16509.sink.split:                          ; preds = %7939, %7937
-  %.sink18906 = phi i32 [ %7932, %7937 ], [ %7930, %7939 ]
-  %.sink18904 = phi ptr [ %7938, %7937 ], [ %.05402, %7939 ]
-  %7944 = zext nneg i32 %.sink18906 to i64
-  %7945 = getelementptr inbounds nuw i8, ptr %.sink18904, i64 %7944
+  %.sink20270 = phi i32 [ %7932, %7937 ], [ %7930, %7939 ]
+  %.sink20268 = phi ptr [ %7938, %7937 ], [ %.05402, %7939 ]
+  %7944 = zext nneg i32 %.sink20270 to i64
+  %7945 = getelementptr inbounds nuw i8, ptr %.sink20268, i64 %7944
   %7946 = load i64, ptr %7945, align 8, !tbaa !70
   br label %.thread16509
 
@@ -17373,10 +17373,10 @@ cli_stack_free.exit:                              ; preds = %5489, %5499, %5504,
   br i1 %or.cond12352, label %.thread16514.sink.split, label %.thread13776
 
 .thread16514.sink.split:                          ; preds = %7957, %7955
-  %.sink18910 = phi i32 [ %7950, %7955 ], [ %7948, %7957 ]
-  %.sink18908 = phi ptr [ %7956, %7955 ], [ %.05402, %7957 ]
-  %7962 = zext nneg i32 %.sink18910 to i64
-  %7963 = getelementptr inbounds nuw i8, ptr %.sink18908, i64 %7962
+  %.sink20274 = phi i32 [ %7950, %7955 ], [ %7948, %7957 ]
+  %.sink20272 = phi ptr [ %7956, %7955 ], [ %.05402, %7957 ]
+  %7962 = zext nneg i32 %.sink20274 to i64
+  %7963 = getelementptr inbounds nuw i8, ptr %.sink20272, i64 %7962
   %7964 = load i64, ptr %7963, align 8, !tbaa !70
   br label %.thread16514
 
@@ -17461,10 +17461,10 @@ cli_stack_free.exit:                              ; preds = %5489, %5499, %5504,
   br i1 %or.cond12355, label %.thread16526.sink.split, label %.thread13776
 
 .thread16526.sink.split:                          ; preds = %7996, %7994
-  %.sink18914 = phi i32 [ %7989, %7994 ], [ %7987, %7996 ]
-  %.sink18912 = phi ptr [ %7995, %7994 ], [ %.05402, %7996 ]
-  %8001 = zext nneg i32 %.sink18914 to i64
-  %8002 = getelementptr inbounds nuw i8, ptr %.sink18912, i64 %8001
+  %.sink20278 = phi i32 [ %7989, %7994 ], [ %7987, %7996 ]
+  %.sink20276 = phi ptr [ %7995, %7994 ], [ %.05402, %7996 ]
+  %8001 = zext nneg i32 %.sink20278 to i64
+  %8002 = getelementptr inbounds nuw i8, ptr %.sink20276, i64 %8001
   %8003 = load i32, ptr %8002, align 4, !tbaa !34
   br label %.thread16526
 
@@ -17504,10 +17504,10 @@ cli_stack_free.exit:                              ; preds = %5489, %5499, %5504,
   br i1 %or.cond12357, label %.thread16531.sink.split, label %.thread13776
 
 .thread16531.sink.split:                          ; preds = %8014, %8012
-  %.sink18918 = phi i32 [ %8007, %8012 ], [ %8005, %8014 ]
-  %.sink18916 = phi ptr [ %8013, %8012 ], [ %.05402, %8014 ]
-  %8019 = zext nneg i32 %.sink18918 to i64
-  %8020 = getelementptr inbounds nuw i8, ptr %.sink18916, i64 %8019
+  %.sink20282 = phi i32 [ %8007, %8012 ], [ %8005, %8014 ]
+  %.sink20280 = phi ptr [ %8013, %8012 ], [ %.05402, %8014 ]
+  %8019 = zext nneg i32 %.sink20282 to i64
+  %8020 = getelementptr inbounds nuw i8, ptr %.sink20280, i64 %8019
   %8021 = load i32, ptr %8020, align 4, !tbaa !34
   br label %.thread16531
 
@@ -17572,10 +17572,10 @@ cli_stack_free.exit:                              ; preds = %5489, %5499, %5504,
   br i1 %or.cond12360, label %.thread16542.sink.split, label %.thread13776
 
 .thread16542.sink.split:                          ; preds = %8049, %8047
-  %.sink18922 = phi i32 [ %8042, %8047 ], [ %8040, %8049 ]
-  %.sink18920 = phi ptr [ %8048, %8047 ], [ %.05402, %8049 ]
-  %8054 = zext nneg i32 %.sink18922 to i64
-  %8055 = getelementptr inbounds nuw i8, ptr %.sink18920, i64 %8054
+  %.sink20286 = phi i32 [ %8042, %8047 ], [ %8040, %8049 ]
+  %.sink20284 = phi ptr [ %8048, %8047 ], [ %.05402, %8049 ]
+  %8054 = zext nneg i32 %.sink20286 to i64
+  %8055 = getelementptr inbounds nuw i8, ptr %.sink20284, i64 %8054
   %8056 = load i32, ptr %8055, align 4, !tbaa !34
   br label %.thread16542
 
@@ -17653,10 +17653,10 @@ cli_stack_free.exit:                              ; preds = %5489, %5499, %5504,
   br i1 %or.cond12362, label %.thread16547.sink.split, label %.thread13776
 
 .thread16547.sink.split:                          ; preds = %8088, %8086
-  %.sink18926 = phi i32 [ %8081, %8086 ], [ %8071, %8088 ]
-  %.sink18924 = phi ptr [ %8087, %8086 ], [ %.05402, %8088 ]
-  %8093 = zext nneg i32 %.sink18926 to i64
-  %8094 = getelementptr inbounds nuw i8, ptr %.sink18924, i64 %8093
+  %.sink20290 = phi i32 [ %8081, %8086 ], [ %8071, %8088 ]
+  %.sink20288 = phi ptr [ %8087, %8086 ], [ %.05402, %8088 ]
+  %8093 = zext nneg i32 %.sink20290 to i64
+  %8094 = getelementptr inbounds nuw i8, ptr %.sink20288, i64 %8093
   %8095 = load i64, ptr %8094, align 8, !tbaa !70
   br label %.thread16547
 
@@ -17721,10 +17721,10 @@ cli_stack_free.exit:                              ; preds = %5489, %5499, %5504,
   br i1 %or.cond12365, label %.thread16577.sink.split, label %.thread13776
 
 .thread16577.sink.split:                          ; preds = %8118, %8116
-  %.sink18930 = phi i32 [ %8111, %8116 ], [ %8109, %8118 ]
-  %.sink18928 = phi ptr [ %8117, %8116 ], [ %.05402, %8118 ]
-  %8123 = zext nneg i32 %.sink18930 to i64
-  %8124 = getelementptr inbounds nuw i8, ptr %.sink18928, i64 %8123
+  %.sink20294 = phi i32 [ %8111, %8116 ], [ %8109, %8118 ]
+  %.sink20292 = phi ptr [ %8117, %8116 ], [ %.05402, %8118 ]
+  %8123 = zext nneg i32 %.sink20294 to i64
+  %8124 = getelementptr inbounds nuw i8, ptr %.sink20292, i64 %8123
   %8125 = load i32, ptr %8124, align 4, !tbaa !34
   br label %.thread16577
 
@@ -17788,10 +17788,10 @@ cli_stack_free.exit:                              ; preds = %5489, %5499, %5504,
   br i1 %or.cond12368, label %.thread16587.sink.split, label %.thread13776
 
 .thread16587.sink.split:                          ; preds = %8152, %8150
-  %.sink18934 = phi i32 [ %8145, %8150 ], [ %8143, %8152 ]
-  %.sink18932 = phi ptr [ %8151, %8150 ], [ %.05402, %8152 ]
-  %8157 = zext nneg i32 %.sink18934 to i64
-  %8158 = getelementptr inbounds nuw i8, ptr %.sink18932, i64 %8157
+  %.sink20298 = phi i32 [ %8145, %8150 ], [ %8143, %8152 ]
+  %.sink20296 = phi ptr [ %8151, %8150 ], [ %.05402, %8152 ]
+  %8157 = zext nneg i32 %.sink20298 to i64
+  %8158 = getelementptr inbounds nuw i8, ptr %.sink20296, i64 %8157
   %8159 = load i32, ptr %8158, align 4, !tbaa !34
   br label %.thread16587
 
@@ -17857,10 +17857,10 @@ cli_stack_free.exit:                              ; preds = %5489, %5499, %5504,
   br i1 %or.cond12371, label %.thread16597.sink.split, label %.thread13776
 
 .thread16597.sink.split:                          ; preds = %8188, %8186
-  %.sink18938 = phi i32 [ %8181, %8186 ], [ %8179, %8188 ]
-  %.sink18936 = phi ptr [ %8187, %8186 ], [ %.05402, %8188 ]
-  %8193 = zext nneg i32 %.sink18938 to i64
-  %8194 = getelementptr inbounds nuw i8, ptr %.sink18936, i64 %8193
+  %.sink20302 = phi i32 [ %8181, %8186 ], [ %8179, %8188 ]
+  %.sink20300 = phi ptr [ %8187, %8186 ], [ %.05402, %8188 ]
+  %8193 = zext nneg i32 %.sink20302 to i64
+  %8194 = getelementptr inbounds nuw i8, ptr %.sink20300, i64 %8193
   %8195 = load i32, ptr %8194, align 4, !tbaa !34
   br label %.thread16597
 
@@ -17899,10 +17899,10 @@ cli_stack_free.exit:                              ; preds = %5489, %5499, %5504,
   br i1 %or.cond12373, label %.thread16602.sink.split, label %.thread13776
 
 .thread16602.sink.split:                          ; preds = %8205, %8203
-  %.sink18942 = phi i32 [ %8198, %8203 ], [ %8196, %8205 ]
-  %.sink18940 = phi ptr [ %8204, %8203 ], [ %.05402, %8205 ]
-  %8210 = zext nneg i32 %.sink18942 to i64
-  %8211 = getelementptr inbounds nuw i8, ptr %.sink18940, i64 %8210
+  %.sink20306 = phi i32 [ %8198, %8203 ], [ %8196, %8205 ]
+  %.sink20304 = phi ptr [ %8204, %8203 ], [ %.05402, %8205 ]
+  %8210 = zext nneg i32 %.sink20306 to i64
+  %8211 = getelementptr inbounds nuw i8, ptr %.sink20304, i64 %8210
   %8212 = load i64, ptr %8211, align 8, !tbaa !70
   br label %.thread16602
 
@@ -17947,10 +17947,10 @@ cli_stack_free.exit:                              ; preds = %5489, %5499, %5504,
   br i1 %or.cond12375, label %.thread16615.sink.split, label %.thread13776
 
 .thread16615.sink.split:                          ; preds = %8225, %8223
-  %.sink18946 = phi i32 [ %8218, %8223 ], [ %8216, %8225 ]
-  %.sink18944 = phi ptr [ %8224, %8223 ], [ %.05402, %8225 ]
-  %8230 = zext nneg i32 %.sink18946 to i64
-  %8231 = getelementptr inbounds nuw i8, ptr %.sink18944, i64 %8230
+  %.sink20310 = phi i32 [ %8218, %8223 ], [ %8216, %8225 ]
+  %.sink20308 = phi ptr [ %8224, %8223 ], [ %.05402, %8225 ]
+  %8230 = zext nneg i32 %.sink20310 to i64
+  %8231 = getelementptr inbounds nuw i8, ptr %.sink20308, i64 %8230
   %8232 = load i32, ptr %8231, align 4, !tbaa !34
   br label %.thread16615
 
@@ -17990,10 +17990,10 @@ cli_stack_free.exit:                              ; preds = %5489, %5499, %5504,
   br i1 %or.cond12377, label %.thread16620.sink.split, label %.thread13776
 
 .thread16620.sink.split:                          ; preds = %8243, %8241
-  %.sink18950 = phi i32 [ %8236, %8241 ], [ %8234, %8243 ]
-  %.sink18948 = phi ptr [ %8242, %8241 ], [ %.05402, %8243 ]
-  %8248 = zext nneg i32 %.sink18950 to i64
-  %8249 = getelementptr inbounds nuw i8, ptr %.sink18948, i64 %8248
+  %.sink20314 = phi i32 [ %8236, %8241 ], [ %8234, %8243 ]
+  %.sink20312 = phi ptr [ %8242, %8241 ], [ %.05402, %8243 ]
+  %8248 = zext nneg i32 %.sink20314 to i64
+  %8249 = getelementptr inbounds nuw i8, ptr %.sink20312, i64 %8248
   %8250 = load i32, ptr %8249, align 4, !tbaa !34
   br label %.thread16620
 
@@ -18033,10 +18033,10 @@ cli_stack_free.exit:                              ; preds = %5489, %5499, %5504,
   br i1 %or.cond12379, label %.thread16625.sink.split, label %.thread13776
 
 .thread16625.sink.split:                          ; preds = %8261, %8259
-  %.sink18954 = phi i32 [ %8254, %8259 ], [ %8252, %8261 ]
-  %.sink18952 = phi ptr [ %8260, %8259 ], [ %.05402, %8261 ]
-  %8266 = zext nneg i32 %.sink18954 to i64
-  %8267 = getelementptr inbounds nuw i8, ptr %.sink18952, i64 %8266
+  %.sink20318 = phi i32 [ %8254, %8259 ], [ %8252, %8261 ]
+  %.sink20316 = phi ptr [ %8260, %8259 ], [ %.05402, %8261 ]
+  %8266 = zext nneg i32 %.sink20318 to i64
+  %8267 = getelementptr inbounds nuw i8, ptr %.sink20316, i64 %8266
   %8268 = load i32, ptr %8267, align 4, !tbaa !34
   br label %.thread16625
 
@@ -18124,10 +18124,10 @@ cli_stack_free.exit:                              ; preds = %5489, %5499, %5504,
   br i1 %or.cond12383, label %.thread16653.sink.split, label %.thread13776
 
 .thread16653.sink.split:                          ; preds = %8310, %8308
-  %.sink18958 = phi i32 [ %8303, %8308 ], [ %8301, %8310 ]
-  %.sink18956 = phi ptr [ %8309, %8308 ], [ %.05402, %8310 ]
-  %8315 = zext nneg i32 %.sink18958 to i64
-  %8316 = getelementptr inbounds nuw i8, ptr %.sink18956, i64 %8315
+  %.sink20322 = phi i32 [ %8303, %8308 ], [ %8301, %8310 ]
+  %.sink20320 = phi ptr [ %8309, %8308 ], [ %.05402, %8310 ]
+  %8315 = zext nneg i32 %.sink20322 to i64
+  %8316 = getelementptr inbounds nuw i8, ptr %.sink20320, i64 %8315
   %8317 = load i32, ptr %8316, align 4, !tbaa !34
   br label %.thread16653
 
@@ -18167,10 +18167,10 @@ cli_stack_free.exit:                              ; preds = %5489, %5499, %5504,
   br i1 %or.cond12385, label %.thread16658.sink.split, label %.thread13776
 
 .thread16658.sink.split:                          ; preds = %8328, %8326
-  %.sink18962 = phi i32 [ %8321, %8326 ], [ %8319, %8328 ]
-  %.sink18960 = phi ptr [ %8327, %8326 ], [ %.05402, %8328 ]
-  %8333 = zext nneg i32 %.sink18962 to i64
-  %8334 = getelementptr inbounds nuw i8, ptr %.sink18960, i64 %8333
+  %.sink20326 = phi i32 [ %8321, %8326 ], [ %8319, %8328 ]
+  %.sink20324 = phi ptr [ %8327, %8326 ], [ %.05402, %8328 ]
+  %8333 = zext nneg i32 %.sink20326 to i64
+  %8334 = getelementptr inbounds nuw i8, ptr %.sink20324, i64 %8333
   %8335 = load i32, ptr %8334, align 4, !tbaa !34
   br label %.thread16658
 
@@ -18235,10 +18235,10 @@ cli_stack_free.exit:                              ; preds = %5489, %5499, %5504,
   br i1 %or.cond12388, label %.thread16669.sink.split, label %.thread13776
 
 .thread16669.sink.split:                          ; preds = %8363, %8361
-  %.sink18966 = phi i32 [ %8356, %8361 ], [ %8354, %8363 ]
-  %.sink18964 = phi ptr [ %8362, %8361 ], [ %.05402, %8363 ]
-  %8368 = zext nneg i32 %.sink18966 to i64
-  %8369 = getelementptr inbounds nuw i8, ptr %.sink18964, i64 %8368
+  %.sink20330 = phi i32 [ %8356, %8361 ], [ %8354, %8363 ]
+  %.sink20328 = phi ptr [ %8362, %8361 ], [ %.05402, %8363 ]
+  %8368 = zext nneg i32 %.sink20330 to i64
+  %8369 = getelementptr inbounds nuw i8, ptr %.sink20328, i64 %8368
   %8370 = load i32, ptr %8369, align 4, !tbaa !34
   br label %.thread16669
 
@@ -18278,10 +18278,10 @@ cli_stack_free.exit:                              ; preds = %5489, %5499, %5504,
   br i1 %or.cond12390, label %.thread16674.sink.split, label %.thread13776
 
 .thread16674.sink.split:                          ; preds = %8381, %8379
-  %.sink18970 = phi i32 [ %8374, %8379 ], [ %8372, %8381 ]
-  %.sink18968 = phi ptr [ %8380, %8379 ], [ %.05402, %8381 ]
-  %8386 = zext nneg i32 %.sink18970 to i64
-  %8387 = getelementptr inbounds nuw i8, ptr %.sink18968, i64 %8386
+  %.sink20334 = phi i32 [ %8374, %8379 ], [ %8372, %8381 ]
+  %.sink20332 = phi ptr [ %8380, %8379 ], [ %.05402, %8381 ]
+  %8386 = zext nneg i32 %.sink20334 to i64
+  %8387 = getelementptr inbounds nuw i8, ptr %.sink20332, i64 %8386
   %8388 = load i32, ptr %8387, align 4, !tbaa !34
   br label %.thread16674
 
@@ -18321,10 +18321,10 @@ cli_stack_free.exit:                              ; preds = %5489, %5499, %5504,
   br i1 %or.cond12392, label %.thread16679.sink.split, label %.thread13776
 
 .thread16679.sink.split:                          ; preds = %8399, %8397
-  %.sink18974 = phi i32 [ %8392, %8397 ], [ %8390, %8399 ]
-  %.sink18972 = phi ptr [ %8398, %8397 ], [ %.05402, %8399 ]
-  %8404 = zext nneg i32 %.sink18974 to i64
-  %8405 = getelementptr inbounds nuw i8, ptr %.sink18972, i64 %8404
+  %.sink20338 = phi i32 [ %8392, %8397 ], [ %8390, %8399 ]
+  %.sink20336 = phi ptr [ %8398, %8397 ], [ %.05402, %8399 ]
+  %8404 = zext nneg i32 %.sink20338 to i64
+  %8405 = getelementptr inbounds nuw i8, ptr %.sink20336, i64 %8404
   %8406 = load i32, ptr %8405, align 4, !tbaa !34
   br label %.thread16679
 
@@ -18389,10 +18389,10 @@ cli_stack_free.exit:                              ; preds = %5489, %5499, %5504,
   br i1 %or.cond12395, label %.thread16691.sink.split, label %.thread13776
 
 .thread16691.sink.split:                          ; preds = %8434, %8432
-  %.sink18978 = phi i32 [ %8427, %8432 ], [ %8425, %8434 ]
-  %.sink18976 = phi ptr [ %8433, %8432 ], [ %.05402, %8434 ]
-  %8439 = zext nneg i32 %.sink18978 to i64
-  %8440 = getelementptr inbounds nuw i8, ptr %.sink18976, i64 %8439
+  %.sink20342 = phi i32 [ %8427, %8432 ], [ %8425, %8434 ]
+  %.sink20340 = phi ptr [ %8433, %8432 ], [ %.05402, %8434 ]
+  %8439 = zext nneg i32 %.sink20342 to i64
+  %8440 = getelementptr inbounds nuw i8, ptr %.sink20340, i64 %8439
   %8441 = load i32, ptr %8440, align 4, !tbaa !34
   br label %.thread16691
 
@@ -18431,10 +18431,10 @@ cli_stack_free.exit:                              ; preds = %5489, %5499, %5504,
   br i1 %or.cond12397, label %.thread16696.sink.split, label %.thread13776
 
 .thread16696.sink.split:                          ; preds = %8451, %8449
-  %.sink18982 = phi i32 [ %8444, %8449 ], [ %8442, %8451 ]
-  %.sink18980 = phi ptr [ %8450, %8449 ], [ %.05402, %8451 ]
-  %8456 = zext nneg i32 %.sink18982 to i64
-  %8457 = getelementptr inbounds nuw i8, ptr %.sink18980, i64 %8456
+  %.sink20346 = phi i32 [ %8444, %8449 ], [ %8442, %8451 ]
+  %.sink20344 = phi ptr [ %8450, %8449 ], [ %.05402, %8451 ]
+  %8456 = zext nneg i32 %.sink20346 to i64
+  %8457 = getelementptr inbounds nuw i8, ptr %.sink20344, i64 %8456
   %8458 = load i64, ptr %8457, align 8, !tbaa !70
   br label %.thread16696
 
@@ -18479,10 +18479,10 @@ cli_stack_free.exit:                              ; preds = %5489, %5499, %5504,
   br i1 %or.cond12399, label %.thread16709.sink.split, label %.thread13776
 
 .thread16709.sink.split:                          ; preds = %8471, %8469
-  %.sink18986 = phi i32 [ %8464, %8469 ], [ %8462, %8471 ]
-  %.sink18984 = phi ptr [ %8470, %8469 ], [ %.05402, %8471 ]
-  %8476 = zext nneg i32 %.sink18986 to i64
-  %8477 = getelementptr inbounds nuw i8, ptr %.sink18984, i64 %8476
+  %.sink20350 = phi i32 [ %8464, %8469 ], [ %8462, %8471 ]
+  %.sink20348 = phi ptr [ %8470, %8469 ], [ %.05402, %8471 ]
+  %8476 = zext nneg i32 %.sink20350 to i64
+  %8477 = getelementptr inbounds nuw i8, ptr %.sink20348, i64 %8476
   %8478 = load i32, ptr %8477, align 4, !tbaa !34
   br label %.thread16709
 
@@ -18522,10 +18522,10 @@ cli_stack_free.exit:                              ; preds = %5489, %5499, %5504,
   br i1 %or.cond12401, label %.thread16714.sink.split, label %.thread13776
 
 .thread16714.sink.split:                          ; preds = %8489, %8487
-  %.sink18990 = phi i32 [ %8482, %8487 ], [ %8480, %8489 ]
-  %.sink18988 = phi ptr [ %8488, %8487 ], [ %.05402, %8489 ]
-  %8494 = zext nneg i32 %.sink18990 to i64
-  %8495 = getelementptr inbounds nuw i8, ptr %.sink18988, i64 %8494
+  %.sink20354 = phi i32 [ %8482, %8487 ], [ %8480, %8489 ]
+  %.sink20352 = phi ptr [ %8488, %8487 ], [ %.05402, %8489 ]
+  %8494 = zext nneg i32 %.sink20354 to i64
+  %8495 = getelementptr inbounds nuw i8, ptr %.sink20352, i64 %8494
   %8496 = load i64, ptr %8495, align 8, !tbaa !70
   br label %.thread16714
 
@@ -18595,10 +18595,10 @@ cli_stack_free.exit:                              ; preds = %5489, %5499, %5504,
   br i1 %or.cond12404, label %.thread16750.sink.split, label %.thread13776
 
 .thread16750.sink.split:                          ; preds = %8525, %8523
-  %.sink18994 = phi i32 [ %8518, %8523 ], [ %8516, %8525 ]
-  %.sink18992 = phi ptr [ %8524, %8523 ], [ %.05402, %8525 ]
-  %8530 = zext nneg i32 %.sink18994 to i64
-  %8531 = getelementptr inbounds nuw i8, ptr %.sink18992, i64 %8530
+  %.sink20358 = phi i32 [ %8518, %8523 ], [ %8516, %8525 ]
+  %.sink20356 = phi ptr [ %8524, %8523 ], [ %.05402, %8525 ]
+  %8530 = zext nneg i32 %.sink20358 to i64
+  %8531 = getelementptr inbounds nuw i8, ptr %.sink20356, i64 %8530
   %8532 = load i32, ptr %8531, align 4, !tbaa !34
   br label %.thread16750
 
@@ -18637,10 +18637,10 @@ cli_stack_free.exit:                              ; preds = %5489, %5499, %5504,
   br i1 %or.cond12406, label %.thread16755.sink.split, label %.thread13776
 
 .thread16755.sink.split:                          ; preds = %8542, %8540
-  %.sink18998 = phi i32 [ %8535, %8540 ], [ %8533, %8542 ]
-  %.sink18996 = phi ptr [ %8541, %8540 ], [ %.05402, %8542 ]
-  %8547 = zext nneg i32 %.sink18998 to i64
-  %8548 = getelementptr inbounds nuw i8, ptr %.sink18996, i64 %8547
+  %.sink20362 = phi i32 [ %8535, %8540 ], [ %8533, %8542 ]
+  %.sink20360 = phi ptr [ %8541, %8540 ], [ %.05402, %8542 ]
+  %8547 = zext nneg i32 %.sink20362 to i64
+  %8548 = getelementptr inbounds nuw i8, ptr %.sink20360, i64 %8547
   %8549 = load i64, ptr %8548, align 8, !tbaa !70
   br label %.thread16755
 
@@ -18685,10 +18685,10 @@ cli_stack_free.exit:                              ; preds = %5489, %5499, %5504,
   br i1 %or.cond12408, label %.thread16768.sink.split, label %.thread13776
 
 .thread16768.sink.split:                          ; preds = %8562, %8560
-  %.sink19002 = phi i32 [ %8555, %8560 ], [ %8553, %8562 ]
-  %.sink19000 = phi ptr [ %8561, %8560 ], [ %.05402, %8562 ]
-  %8567 = zext nneg i32 %.sink19002 to i64
-  %8568 = getelementptr inbounds nuw i8, ptr %.sink19000, i64 %8567
+  %.sink20366 = phi i32 [ %8555, %8560 ], [ %8553, %8562 ]
+  %.sink20364 = phi ptr [ %8561, %8560 ], [ %.05402, %8562 ]
+  %8567 = zext nneg i32 %.sink20366 to i64
+  %8568 = getelementptr inbounds nuw i8, ptr %.sink20364, i64 %8567
   %8569 = load i32, ptr %8568, align 4, !tbaa !34
   br label %.thread16768
 
@@ -19042,10 +19042,10 @@ jump.exit12508:                                   ; preds = %ptr_register_stack.
   br i1 %.not9698, label %.thread16855.sink.split, label %.thread13776
 
 .thread16855.sink.split:                          ; preds = %8762, %8760
-  %.sink19006 = phi i32 [ %8757, %8760 ], [ %8755, %8762 ]
-  %.sink19004 = phi ptr [ %8761, %8760 ], [ %.05402, %8762 ]
-  %8765 = zext nneg i32 %.sink19006 to i64
-  %8766 = getelementptr inbounds nuw i8, ptr %.sink19004, i64 %8765
+  %.sink20370 = phi i32 [ %8757, %8760 ], [ %8755, %8762 ]
+  %.sink20368 = phi ptr [ %8761, %8760 ], [ %.05402, %8762 ]
+  %8765 = zext nneg i32 %.sink20370 to i64
+  %8766 = getelementptr inbounds nuw i8, ptr %.sink20368, i64 %8765
   %8767 = load i8, ptr %8766, align 1, !tbaa !62
   %8768 = and i8 %8767, 1
   br label %.thread16855
@@ -19092,10 +19092,10 @@ jump.exit12508:                                   ; preds = %ptr_register_stack.
   br i1 %.not9693, label %.thread16865.sink.split, label %.thread13776
 
 .thread16865.sink.split:                          ; preds = %8785, %8783
-  %.sink19010 = phi i32 [ %8780, %8783 ], [ %8778, %8785 ]
-  %.sink19008 = phi ptr [ %8784, %8783 ], [ %.05402, %8785 ]
-  %8788 = zext nneg i32 %.sink19010 to i64
-  %8789 = getelementptr inbounds nuw i8, ptr %.sink19008, i64 %8788
+  %.sink20374 = phi i32 [ %8780, %8783 ], [ %8778, %8785 ]
+  %.sink20372 = phi ptr [ %8784, %8783 ], [ %.05402, %8785 ]
+  %8788 = zext nneg i32 %.sink20374 to i64
+  %8789 = getelementptr inbounds nuw i8, ptr %.sink20372, i64 %8788
   %8790 = load i8, ptr %8789, align 1, !tbaa !62
   br label %.thread16865
 
@@ -19149,10 +19149,10 @@ jump.exit12508:                                   ; preds = %ptr_register_stack.
   br i1 %or.cond12414, label %.thread16875.sink.split, label %.thread13776
 
 .thread16875.sink.split:                          ; preds = %8809, %8807
-  %.sink19014 = phi i32 [ %8802, %8807 ], [ %8800, %8809 ]
-  %.sink19012 = phi ptr [ %8808, %8807 ], [ %.05402, %8809 ]
-  %8814 = zext nneg i32 %.sink19014 to i64
-  %8815 = getelementptr inbounds nuw i8, ptr %.sink19012, i64 %8814
+  %.sink20378 = phi i32 [ %8802, %8807 ], [ %8800, %8809 ]
+  %.sink20376 = phi ptr [ %8808, %8807 ], [ %.05402, %8809 ]
+  %8814 = zext nneg i32 %.sink20378 to i64
+  %8815 = getelementptr inbounds nuw i8, ptr %.sink20376, i64 %8814
   %8816 = load i16, ptr %8815, align 2, !tbaa !69
   br label %.thread16875
 
@@ -19210,10 +19210,10 @@ jump.exit12508:                                   ; preds = %ptr_register_stack.
   br i1 %or.cond12417, label %.thread16885.sink.split, label %.thread13776
 
 .thread16885.sink.split:                          ; preds = %8837, %8835
-  %.sink19018 = phi i32 [ %8830, %8835 ], [ %8828, %8837 ]
-  %.sink19016 = phi ptr [ %8836, %8835 ], [ %.05402, %8837 ]
-  %8842 = zext nneg i32 %.sink19018 to i64
-  %8843 = getelementptr inbounds nuw i8, ptr %.sink19016, i64 %8842
+  %.sink20382 = phi i32 [ %8830, %8835 ], [ %8828, %8837 ]
+  %.sink20380 = phi ptr [ %8836, %8835 ], [ %.05402, %8837 ]
+  %8842 = zext nneg i32 %.sink20382 to i64
+  %8843 = getelementptr inbounds nuw i8, ptr %.sink20380, i64 %8842
   %8844 = load i32, ptr %8843, align 4, !tbaa !34
   br label %.thread16885
 
@@ -19271,10 +19271,10 @@ jump.exit12508:                                   ; preds = %ptr_register_stack.
   br i1 %or.cond12420, label %.thread16895.sink.split, label %.thread13776
 
 .thread16895.sink.split:                          ; preds = %8865, %8863
-  %.sink19022 = phi i32 [ %8858, %8863 ], [ %8856, %8865 ]
-  %.sink19020 = phi ptr [ %8864, %8863 ], [ %.05402, %8865 ]
-  %8870 = zext nneg i32 %.sink19022 to i64
-  %8871 = getelementptr inbounds nuw i8, ptr %.sink19020, i64 %8870
+  %.sink20386 = phi i32 [ %8858, %8863 ], [ %8856, %8865 ]
+  %.sink20384 = phi ptr [ %8864, %8863 ], [ %.05402, %8865 ]
+  %8870 = zext nneg i32 %.sink20386 to i64
+  %8871 = getelementptr inbounds nuw i8, ptr %.sink20384, i64 %8870
   %8872 = load i64, ptr %8871, align 8, !tbaa !70
   br label %.thread16895
 
@@ -19346,10 +19346,10 @@ jump.exit12508:                                   ; preds = %ptr_register_stack.
   br i1 %or.cond12423, label %.thread16905, label %.thread13776
 
 .thread16905:                                     ; preds = %8901, %8899
-  %.sink19025 = phi i32 [ %8894, %8899 ], [ %8884, %8901 ]
-  %.sink19023 = phi ptr [ %8900, %8899 ], [ %.05402, %8901 ]
-  %8906 = zext nneg i32 %.sink19025 to i64
-  %8907 = getelementptr inbounds nuw i8, ptr %.sink19023, i64 %8906
+  %.sink20389 = phi i32 [ %8894, %8899 ], [ %8884, %8901 ]
+  %.sink20387 = phi ptr [ %8900, %8899 ], [ %.05402, %8901 ]
+  %8906 = zext nneg i32 %.sink20389 to i64
+  %8907 = getelementptr inbounds nuw i8, ptr %.sink20387, i64 %8906
   %.76615 = load i64, ptr %8907, align 8, !tbaa !70
   %8908 = lshr i64 %.76615, 32
   %8909 = trunc nuw i64 %8908 to i32
@@ -19471,10 +19471,10 @@ jump.exit12508:                                   ; preds = %ptr_register_stack.
   br i1 %or.cond12425, label %.thread16942.sink.split, label %.thread13776
 
 .thread16942.sink.split:                          ; preds = %8964, %8962
-  %.sink19029 = phi i32 [ %8957, %8962 ], [ %8947, %8964 ]
-  %.sink19027 = phi ptr [ %8963, %8962 ], [ %.05402, %8964 ]
-  %8969 = zext nneg i32 %.sink19029 to i64
-  %8970 = getelementptr inbounds nuw i8, ptr %.sink19027, i64 %8969
+  %.sink20393 = phi i32 [ %8957, %8962 ], [ %8947, %8964 ]
+  %.sink20391 = phi ptr [ %8963, %8962 ], [ %.05402, %8964 ]
+  %8969 = zext nneg i32 %.sink20393 to i64
+  %8970 = getelementptr inbounds nuw i8, ptr %.sink20391, i64 %8969
   %8971 = load i64, ptr %8970, align 8, !tbaa !70
   br label %.thread16942
 
@@ -19557,10 +19557,10 @@ jump.exit12508:                                   ; preds = %ptr_register_stack.
   br i1 %or.cond12428, label %.thread16970.sink.split, label %.thread13776
 
 .thread16970.sink.split:                          ; preds = %9001, %8999
-  %.sink19033 = phi i32 [ %8994, %8999 ], [ %8984, %9001 ]
-  %.sink19031 = phi ptr [ %9000, %8999 ], [ %.05402, %9001 ]
-  %9006 = zext nneg i32 %.sink19033 to i64
-  %9007 = getelementptr inbounds nuw i8, ptr %.sink19031, i64 %9006
+  %.sink20397 = phi i32 [ %8994, %8999 ], [ %8984, %9001 ]
+  %.sink20395 = phi ptr [ %9000, %8999 ], [ %.05402, %9001 ]
+  %9006 = zext nneg i32 %.sink20397 to i64
+  %9007 = getelementptr inbounds nuw i8, ptr %.sink20395, i64 %9006
   %9008 = load i64, ptr %9007, align 8, !tbaa !70
   br label %.thread16970
 
@@ -19643,10 +19643,10 @@ jump.exit12508:                                   ; preds = %ptr_register_stack.
   br i1 %or.cond12431, label %.thread16998.sink.split, label %.thread13776
 
 .thread16998.sink.split:                          ; preds = %9038, %9036
-  %.sink19037 = phi i32 [ %9031, %9036 ], [ %9021, %9038 ]
-  %.sink19035 = phi ptr [ %9037, %9036 ], [ %.05402, %9038 ]
-  %9043 = zext nneg i32 %.sink19037 to i64
-  %9044 = getelementptr inbounds nuw i8, ptr %.sink19035, i64 %9043
+  %.sink20401 = phi i32 [ %9031, %9036 ], [ %9021, %9038 ]
+  %.sink20399 = phi ptr [ %9037, %9036 ], [ %.05402, %9038 ]
+  %9043 = zext nneg i32 %.sink20401 to i64
+  %9044 = getelementptr inbounds nuw i8, ptr %.sink20399, i64 %9043
   %9045 = load i64, ptr %9044, align 8, !tbaa !70
   br label %.thread16998
 
@@ -19715,10 +19715,10 @@ jump.exit12508:                                   ; preds = %ptr_register_stack.
   br i1 %or.cond12434, label %.thread17026, label %.thread13776
 
 .thread17026:                                     ; preds = %9067, %9065
-  %.sink19040 = phi i32 [ %9060, %9065 ], [ %9058, %9067 ]
-  %.sink19038 = phi ptr [ %9066, %9065 ], [ %.05402, %9067 ]
-  %9072 = zext nneg i32 %.sink19040 to i64
-  %9073 = getelementptr inbounds nuw i8, ptr %.sink19038, i64 %9072
+  %.sink20404 = phi i32 [ %9060, %9065 ], [ %9058, %9067 ]
+  %.sink20402 = phi ptr [ %9066, %9065 ], [ %.05402, %9067 ]
+  %9072 = zext nneg i32 %.sink20404 to i64
+  %9073 = getelementptr inbounds nuw i8, ptr %.sink20402, i64 %9072
   %.66499 = load i64, ptr %9073, align 8, !tbaa !70
   %9074 = lshr i64 %.66499, 32
   %9075 = trunc nuw i64 %9074 to i32
@@ -19798,10 +19798,10 @@ jump.exit12508:                                   ; preds = %ptr_register_stack.
   br i1 %.not9622, label %.thread17049.sink.split, label %.thread13776
 
 .thread17049.sink.split:                          ; preds = %9112, %9110
-  %.sink19044 = phi i32 [ %9107, %9110 ], [ %9105, %9112 ]
-  %.sink19042 = phi ptr [ %9111, %9110 ], [ %.05402, %9112 ]
-  %9115 = zext nneg i32 %.sink19044 to i64
-  %9116 = getelementptr inbounds nuw i8, ptr %.sink19042, i64 %9115
+  %.sink20408 = phi i32 [ %9107, %9110 ], [ %9105, %9112 ]
+  %.sink20406 = phi ptr [ %9111, %9110 ], [ %.05402, %9112 ]
+  %9115 = zext nneg i32 %.sink20408 to i64
+  %9116 = getelementptr inbounds nuw i8, ptr %.sink20406, i64 %9115
   %9117 = load i8, ptr %9116, align 1, !tbaa !62
   %9118 = and i8 %9117, 1
   br label %.thread17049
@@ -19846,10 +19846,10 @@ jump.exit12508:                                   ; preds = %ptr_register_stack.
   br i1 %or.cond12436, label %.thread17072, label %.thread13776
 
 .thread17072:                                     ; preds = %9130, %9128
-  %.sink19047 = phi i32 [ %9123, %9128 ], [ %9121, %9130 ]
-  %.sink19045 = phi ptr [ %9129, %9128 ], [ %.05402, %9130 ]
-  %9135 = zext nneg i32 %.sink19047 to i64
-  %9136 = getelementptr inbounds nuw i8, ptr %.sink19045, i64 %9135
+  %.sink20411 = phi i32 [ %9123, %9128 ], [ %9121, %9130 ]
+  %.sink20409 = phi ptr [ %9129, %9128 ], [ %.05402, %9130 ]
+  %9135 = zext nneg i32 %.sink20411 to i64
+  %9136 = getelementptr inbounds nuw i8, ptr %.sink20409, i64 %9135
   %.66467 = load i64, ptr %9136, align 8, !tbaa !70
   %9137 = lshr i64 %.66467, 32
   %9138 = trunc nuw i64 %9137 to i32
@@ -19929,10 +19929,10 @@ jump.exit12508:                                   ; preds = %ptr_register_stack.
   br i1 %.not9611, label %.thread17095.sink.split, label %.thread13776
 
 .thread17095.sink.split:                          ; preds = %9175, %9173
-  %.sink19051 = phi i32 [ %9170, %9173 ], [ %9168, %9175 ]
-  %.sink19049 = phi ptr [ %9174, %9173 ], [ %.05402, %9175 ]
-  %9178 = zext nneg i32 %.sink19051 to i64
-  %9179 = getelementptr inbounds nuw i8, ptr %.sink19049, i64 %9178
+  %.sink20415 = phi i32 [ %9170, %9173 ], [ %9168, %9175 ]
+  %.sink20413 = phi ptr [ %9174, %9173 ], [ %.05402, %9175 ]
+  %9178 = zext nneg i32 %.sink20415 to i64
+  %9179 = getelementptr inbounds nuw i8, ptr %.sink20413, i64 %9178
   %9180 = load i8, ptr %9179, align 1, !tbaa !62
   br label %.thread17095
 
@@ -19976,10 +19976,10 @@ jump.exit12508:                                   ; preds = %ptr_register_stack.
   br i1 %or.cond12438, label %.thread17118, label %.thread13776
 
 .thread17118:                                     ; preds = %9192, %9190
-  %.sink19054 = phi i32 [ %9185, %9190 ], [ %9183, %9192 ]
-  %.sink19052 = phi ptr [ %9191, %9190 ], [ %.05402, %9192 ]
-  %9197 = zext nneg i32 %.sink19054 to i64
-  %9198 = getelementptr inbounds nuw i8, ptr %.sink19052, i64 %9197
+  %.sink20418 = phi i32 [ %9185, %9190 ], [ %9183, %9192 ]
+  %.sink20416 = phi ptr [ %9191, %9190 ], [ %.05402, %9192 ]
+  %9197 = zext nneg i32 %.sink20418 to i64
+  %9198 = getelementptr inbounds nuw i8, ptr %.sink20416, i64 %9197
   %.66435 = load i64, ptr %9198, align 8, !tbaa !70
   %9199 = lshr i64 %.66435, 32
   %9200 = trunc nuw i64 %9199 to i32
@@ -20069,10 +20069,10 @@ jump.exit12508:                                   ; preds = %ptr_register_stack.
   br i1 %or.cond12440, label %.thread17141.sink.split, label %.thread13776
 
 .thread17141.sink.split:                          ; preds = %9239, %9237
-  %.sink19058 = phi i32 [ %9232, %9237 ], [ %9230, %9239 ]
-  %.sink19056 = phi ptr [ %9238, %9237 ], [ %.05402, %9239 ]
-  %9244 = zext nneg i32 %.sink19058 to i64
-  %9245 = getelementptr inbounds nuw i8, ptr %.sink19056, i64 %9244
+  %.sink20422 = phi i32 [ %9232, %9237 ], [ %9230, %9239 ]
+  %.sink20420 = phi ptr [ %9238, %9237 ], [ %.05402, %9239 ]
+  %9244 = zext nneg i32 %.sink20422 to i64
+  %9245 = getelementptr inbounds nuw i8, ptr %.sink20420, i64 %9244
   %9246 = load i16, ptr %9245, align 2, !tbaa !69
   br label %.thread17141
 
@@ -20116,10 +20116,10 @@ jump.exit12508:                                   ; preds = %ptr_register_stack.
   br i1 %or.cond12442, label %.thread17164, label %.thread13776
 
 .thread17164:                                     ; preds = %9258, %9256
-  %.sink19061 = phi i32 [ %9251, %9256 ], [ %9249, %9258 ]
-  %.sink19059 = phi ptr [ %9257, %9256 ], [ %.05402, %9258 ]
-  %9263 = zext nneg i32 %.sink19061 to i64
-  %9264 = getelementptr inbounds nuw i8, ptr %.sink19059, i64 %9263
+  %.sink20425 = phi i32 [ %9251, %9256 ], [ %9249, %9258 ]
+  %.sink20423 = phi ptr [ %9257, %9256 ], [ %.05402, %9258 ]
+  %9263 = zext nneg i32 %.sink20425 to i64
+  %9264 = getelementptr inbounds nuw i8, ptr %.sink20423, i64 %9263
   %.66403 = load i64, ptr %9264, align 8, !tbaa !70
   %9265 = lshr i64 %.66403, 32
   %9266 = trunc nuw i64 %9265 to i32
@@ -20209,10 +20209,10 @@ jump.exit12508:                                   ; preds = %ptr_register_stack.
   br i1 %or.cond12444, label %.thread17187.sink.split, label %.thread13776
 
 .thread17187.sink.split:                          ; preds = %9305, %9303
-  %.sink19065 = phi i32 [ %9298, %9303 ], [ %9296, %9305 ]
-  %.sink19063 = phi ptr [ %9304, %9303 ], [ %.05402, %9305 ]
-  %9310 = zext nneg i32 %.sink19065 to i64
-  %9311 = getelementptr inbounds nuw i8, ptr %.sink19063, i64 %9310
+  %.sink20429 = phi i32 [ %9298, %9303 ], [ %9296, %9305 ]
+  %.sink20427 = phi ptr [ %9304, %9303 ], [ %.05402, %9305 ]
+  %9310 = zext nneg i32 %.sink20429 to i64
+  %9311 = getelementptr inbounds nuw i8, ptr %.sink20427, i64 %9310
   %9312 = load i32, ptr %9311, align 4, !tbaa !34
   br label %.thread17187
 
@@ -20256,10 +20256,10 @@ jump.exit12508:                                   ; preds = %ptr_register_stack.
   br i1 %or.cond12446, label %.thread17210, label %.thread13776
 
 .thread17210:                                     ; preds = %9324, %9322
-  %.sink19068 = phi i32 [ %9317, %9322 ], [ %9315, %9324 ]
-  %.sink19066 = phi ptr [ %9323, %9322 ], [ %.05402, %9324 ]
-  %9329 = zext nneg i32 %.sink19068 to i64
-  %9330 = getelementptr inbounds nuw i8, ptr %.sink19066, i64 %9329
+  %.sink20432 = phi i32 [ %9317, %9322 ], [ %9315, %9324 ]
+  %.sink20430 = phi ptr [ %9323, %9322 ], [ %.05402, %9324 ]
+  %9329 = zext nneg i32 %.sink20432 to i64
+  %9330 = getelementptr inbounds nuw i8, ptr %.sink20430, i64 %9329
   %.66371 = load i64, ptr %9330, align 8, !tbaa !70
   %9331 = lshr i64 %.66371, 32
   %9332 = trunc nuw i64 %9331 to i32
@@ -20349,10 +20349,10 @@ jump.exit12508:                                   ; preds = %ptr_register_stack.
   br i1 %or.cond12448, label %.thread17233.sink.split, label %.thread13776
 
 .thread17233.sink.split:                          ; preds = %9371, %9369
-  %.sink19072 = phi i32 [ %9364, %9369 ], [ %9362, %9371 ]
-  %.sink19070 = phi ptr [ %9370, %9369 ], [ %.05402, %9371 ]
-  %9376 = zext nneg i32 %.sink19072 to i64
-  %9377 = getelementptr inbounds nuw i8, ptr %.sink19070, i64 %9376
+  %.sink20436 = phi i32 [ %9364, %9369 ], [ %9362, %9371 ]
+  %.sink20434 = phi ptr [ %9370, %9369 ], [ %.05402, %9371 ]
+  %9376 = zext nneg i32 %.sink20436 to i64
+  %9377 = getelementptr inbounds nuw i8, ptr %.sink20434, i64 %9376
   %9378 = load i64, ptr %9377, align 8, !tbaa !70
   br label %.thread17233
 
@@ -20410,10 +20410,10 @@ jump.exit12508:                                   ; preds = %ptr_register_stack.
   br i1 %or.cond12450, label %.thread17256, label %.thread13776
 
 .thread17256:                                     ; preds = %9398, %9396
-  %.sink19075 = phi i32 [ %9391, %9396 ], [ %9389, %9398 ]
-  %.sink19073 = phi ptr [ %9397, %9396 ], [ %.05402, %9398 ]
-  %9403 = zext nneg i32 %.sink19075 to i64
-  %9404 = getelementptr inbounds nuw i8, ptr %.sink19073, i64 %9403
+  %.sink20439 = phi i32 [ %9391, %9396 ], [ %9389, %9398 ]
+  %.sink20437 = phi ptr [ %9397, %9396 ], [ %.05402, %9398 ]
+  %9403 = zext nneg i32 %.sink20439 to i64
+  %9404 = getelementptr inbounds nuw i8, ptr %.sink20437, i64 %9403
   %.66334 = load i32, ptr %9404, align 4, !tbaa !34
   %9405 = icmp slt i32 %.66334, 0
   br i1 %9405, label %9406, label %.thread17256.thread
@@ -20490,10 +20490,10 @@ jump.exit12508:                                   ; preds = %ptr_register_stack.
   br i1 %or.cond12453, label %.thread17261.sink.split, label %.thread13776
 
 .thread17261.sink.split:                          ; preds = %9437, %9435
-  %.sink19079 = phi i32 [ %9430, %9435 ], [ %9428, %9437 ]
-  %.sink19077 = phi ptr [ %9436, %9435 ], [ %.05402, %9437 ]
-  %9442 = zext nneg i32 %.sink19079 to i64
-  %9443 = getelementptr inbounds nuw i8, ptr %.sink19077, i64 %9442
+  %.sink20443 = phi i32 [ %9430, %9435 ], [ %9428, %9437 ]
+  %.sink20441 = phi ptr [ %9436, %9435 ], [ %.05402, %9437 ]
+  %9442 = zext nneg i32 %.sink20443 to i64
+  %9443 = getelementptr inbounds nuw i8, ptr %.sink20441, i64 %9442
   %9444 = load i64, ptr %9443, align 8, !tbaa !70
   br label %.thread17261
 
@@ -20556,10 +20556,10 @@ jump.exit12508:                                   ; preds = %ptr_register_stack.
   br i1 %or.cond12456, label %.thread17272.sink.split, label %.thread13776
 
 .thread17272.sink.split:                          ; preds = %9470, %9468
-  %.sink19083 = phi i32 [ %9463, %9468 ], [ %9461, %9470 ]
-  %.sink19081 = phi ptr [ %9469, %9468 ], [ %.05402, %9470 ]
-  %9475 = zext nneg i32 %.sink19083 to i64
-  %9476 = getelementptr inbounds nuw i8, ptr %.sink19081, i64 %9475
+  %.sink20447 = phi i32 [ %9463, %9468 ], [ %9461, %9470 ]
+  %.sink20445 = phi ptr [ %9469, %9468 ], [ %.05402, %9470 ]
+  %9475 = zext nneg i32 %.sink20447 to i64
+  %9476 = getelementptr inbounds nuw i8, ptr %.sink20445, i64 %9475
   %9477 = load i32, ptr %9476, align 4, !tbaa !34
   br label %.thread17272
 
@@ -20613,10 +20613,10 @@ jump.exit12508:                                   ; preds = %ptr_register_stack.
   br i1 %or.cond12458, label %.thread17277, label %.thread13776
 
 .thread17277:                                     ; preds = %9496, %9494
-  %.sink19086 = phi i32 [ %9489, %9494 ], [ %9479, %9496 ]
-  %.sink19084 = phi ptr [ %9495, %9494 ], [ %.05402, %9496 ]
-  %9501 = zext nneg i32 %.sink19086 to i64
-  %9502 = getelementptr inbounds nuw i8, ptr %.sink19084, i64 %9501
+  %.sink20450 = phi i32 [ %9489, %9494 ], [ %9479, %9496 ]
+  %.sink20448 = phi ptr [ %9495, %9494 ], [ %.05402, %9496 ]
+  %9501 = zext nneg i32 %.sink20450 to i64
+  %9502 = getelementptr inbounds nuw i8, ptr %.sink20448, i64 %9501
   %.86278 = load i64, ptr %9502, align 8, !tbaa !70
   %9503 = lshr i64 %.86278, 32
   %9504 = trunc nuw i64 %9503 to i32
@@ -20721,10 +20721,10 @@ jump.exit12508:                                   ; preds = %ptr_register_stack.
   br i1 %or.cond12460, label %.thread17297.sink.split, label %.thread13776
 
 .thread17297.sink.split:                          ; preds = %9551, %9549
-  %.sink19090 = phi i32 [ %9544, %9549 ], [ %9534, %9551 ]
-  %.sink19088 = phi ptr [ %9550, %9549 ], [ %.05402, %9551 ]
-  %9556 = zext nneg i32 %.sink19090 to i64
-  %9557 = getelementptr inbounds nuw i8, ptr %.sink19088, i64 %9556
+  %.sink20454 = phi i32 [ %9544, %9549 ], [ %9534, %9551 ]
+  %.sink20452 = phi ptr [ %9550, %9549 ], [ %.05402, %9551 ]
+  %9556 = zext nneg i32 %.sink20454 to i64
+  %9557 = getelementptr inbounds nuw i8, ptr %.sink20452, i64 %9556
   %9558 = load i64, ptr %9557, align 8, !tbaa !70
   br label %.thread17297
 
@@ -20794,10 +20794,10 @@ jump.exit12508:                                   ; preds = %ptr_register_stack.
   br i1 %or.cond12463, label %.thread17333.sink.split, label %.thread13776
 
 .thread17333.sink.split:                          ; preds = %9582, %9580
-  %.sink19094 = phi i32 [ %9575, %9580 ], [ %9573, %9582 ]
-  %.sink19092 = phi ptr [ %9581, %9580 ], [ %.05402, %9582 ]
-  %9587 = zext nneg i32 %.sink19094 to i64
-  %9588 = getelementptr inbounds nuw i8, ptr %.sink19092, i64 %9587
+  %.sink20458 = phi i32 [ %9575, %9580 ], [ %9573, %9582 ]
+  %.sink20456 = phi ptr [ %9581, %9580 ], [ %.05402, %9582 ]
+  %9587 = zext nneg i32 %.sink20458 to i64
+  %9588 = getelementptr inbounds nuw i8, ptr %.sink20456, i64 %9587
   %9589 = load i32, ptr %9588, align 4, !tbaa !34
   br label %.thread17333
 
@@ -20851,10 +20851,10 @@ jump.exit12508:                                   ; preds = %ptr_register_stack.
   br i1 %or.cond12465, label %.thread17338, label %.thread13776
 
 .thread17338:                                     ; preds = %9608, %9606
-  %.sink19097 = phi i32 [ %9601, %9606 ], [ %9591, %9608 ]
-  %.sink19095 = phi ptr [ %9607, %9606 ], [ %.05402, %9608 ]
-  %9613 = zext nneg i32 %.sink19097 to i64
-  %9614 = getelementptr inbounds nuw i8, ptr %.sink19095, i64 %9613
+  %.sink20461 = phi i32 [ %9601, %9606 ], [ %9591, %9608 ]
+  %.sink20459 = phi ptr [ %9607, %9606 ], [ %.05402, %9608 ]
+  %9613 = zext nneg i32 %.sink20461 to i64
+  %9614 = getelementptr inbounds nuw i8, ptr %.sink20459, i64 %9613
   %.86204 = load i64, ptr %9614, align 8, !tbaa !70
   %9615 = lshr i64 %.86204, 32
   %9616 = trunc nuw i64 %9615 to i32
@@ -20959,10 +20959,10 @@ jump.exit12508:                                   ; preds = %ptr_register_stack.
   br i1 %or.cond12467, label %.thread17358.sink.split, label %.thread13776
 
 .thread17358.sink.split:                          ; preds = %9663, %9661
-  %.sink19101 = phi i32 [ %9656, %9661 ], [ %9646, %9663 ]
-  %.sink19099 = phi ptr [ %9662, %9661 ], [ %.05402, %9663 ]
-  %9668 = zext nneg i32 %.sink19101 to i64
-  %9669 = getelementptr inbounds nuw i8, ptr %.sink19099, i64 %9668
+  %.sink20465 = phi i32 [ %9656, %9661 ], [ %9646, %9663 ]
+  %.sink20463 = phi ptr [ %9662, %9661 ], [ %.05402, %9663 ]
+  %9668 = zext nneg i32 %.sink20465 to i64
+  %9669 = getelementptr inbounds nuw i8, ptr %.sink20463, i64 %9668
   %9670 = load i64, ptr %9669, align 8, !tbaa !70
   br label %.thread17358
 
@@ -21013,10 +21013,10 @@ jump.exit12508:                                   ; preds = %ptr_register_stack.
   br i1 %or.cond12469, label %.thread17394.sink.split, label %.thread13776
 
 .thread17394.sink.split:                          ; preds = %9685, %9683
-  %.sink19105 = phi i32 [ %9678, %9683 ], [ %9676, %9685 ]
-  %.sink19103 = phi ptr [ %9684, %9683 ], [ %.05402, %9685 ]
-  %9690 = zext nneg i32 %.sink19105 to i64
-  %9691 = getelementptr inbounds nuw i8, ptr %.sink19103, i64 %9690
+  %.sink20469 = phi i32 [ %9678, %9683 ], [ %9676, %9685 ]
+  %.sink20467 = phi ptr [ %9684, %9683 ], [ %.05402, %9685 ]
+  %9690 = zext nneg i32 %.sink20469 to i64
+  %9691 = getelementptr inbounds nuw i8, ptr %.sink20467, i64 %9690
   %9692 = load i64, ptr %9691, align 8, !tbaa !70
   br label %.thread17394
 
@@ -21070,10 +21070,10 @@ jump.exit12508:                                   ; preds = %ptr_register_stack.
   br i1 %or.cond12471, label %.thread17399, label %.thread13776
 
 .thread17399:                                     ; preds = %9711, %9709
-  %.sink19108 = phi i32 [ %9704, %9709 ], [ %9694, %9711 ]
-  %.sink19106 = phi ptr [ %9710, %9709 ], [ %.05402, %9711 ]
-  %9716 = zext nneg i32 %.sink19108 to i64
-  %9717 = getelementptr inbounds nuw i8, ptr %.sink19106, i64 %9716
+  %.sink20472 = phi i32 [ %9704, %9709 ], [ %9694, %9711 ]
+  %.sink20470 = phi ptr [ %9710, %9709 ], [ %.05402, %9711 ]
+  %9716 = zext nneg i32 %.sink20472 to i64
+  %9717 = getelementptr inbounds nuw i8, ptr %.sink20470, i64 %9716
   %.86130 = load i64, ptr %9717, align 8, !tbaa !70
   %9718 = trunc i64 %.66165 to i32
   %9719 = lshr i64 %.86130, 32
@@ -21179,10 +21179,10 @@ jump.exit12508:                                   ; preds = %ptr_register_stack.
   br i1 %or.cond12473, label %.thread17419.sink.split, label %.thread13776
 
 .thread17419.sink.split:                          ; preds = %9767, %9765
-  %.sink19112 = phi i32 [ %9760, %9765 ], [ %9750, %9767 ]
-  %.sink19110 = phi ptr [ %9766, %9765 ], [ %.05402, %9767 ]
-  %9772 = zext nneg i32 %.sink19112 to i64
-  %9773 = getelementptr inbounds nuw i8, ptr %.sink19110, i64 %9772
+  %.sink20476 = phi i32 [ %9760, %9765 ], [ %9750, %9767 ]
+  %.sink20474 = phi ptr [ %9766, %9765 ], [ %.05402, %9767 ]
+  %9772 = zext nneg i32 %.sink20476 to i64
+  %9773 = getelementptr inbounds nuw i8, ptr %.sink20474, i64 %9772
   %9774 = load i64, ptr %9773, align 8, !tbaa !70
   br label %.thread17419
 
@@ -21235,10 +21235,10 @@ jump.exit12508:                                   ; preds = %ptr_register_stack.
   br i1 %or.cond12475, label %.thread17455.sink.split, label %.thread13776
 
 .thread17455.sink.split:                          ; preds = %9790, %9788
-  %.sink19116 = phi i32 [ %9783, %9788 ], [ %9781, %9790 ]
-  %.sink19114 = phi ptr [ %9789, %9788 ], [ %.05402, %9790 ]
-  %9795 = zext nneg i32 %.sink19116 to i64
-  %9796 = getelementptr inbounds nuw i8, ptr %.sink19114, i64 %9795
+  %.sink20480 = phi i32 [ %9783, %9788 ], [ %9781, %9790 ]
+  %.sink20478 = phi ptr [ %9789, %9788 ], [ %.05402, %9790 ]
+  %9795 = zext nneg i32 %.sink20480 to i64
+  %9796 = getelementptr inbounds nuw i8, ptr %.sink20478, i64 %9795
   %9797 = load i64, ptr %9796, align 8, !tbaa !70
   br label %.thread17455
 
@@ -21292,10 +21292,10 @@ jump.exit12508:                                   ; preds = %ptr_register_stack.
   br i1 %or.cond12477, label %.thread17460, label %.thread13776
 
 .thread17460:                                     ; preds = %9816, %9814
-  %.sink19119 = phi i32 [ %9809, %9814 ], [ %9799, %9816 ]
-  %.sink19117 = phi ptr [ %9815, %9814 ], [ %.05402, %9816 ]
-  %9821 = zext nneg i32 %.sink19119 to i64
-  %9822 = getelementptr inbounds nuw i8, ptr %.sink19117, i64 %9821
+  %.sink20483 = phi i32 [ %9809, %9814 ], [ %9799, %9816 ]
+  %.sink20481 = phi ptr [ %9815, %9814 ], [ %.05402, %9816 ]
+  %9821 = zext nneg i32 %.sink20483 to i64
+  %9822 = getelementptr inbounds nuw i8, ptr %.sink20481, i64 %9821
   %.76055 = load i64, ptr %9822, align 8, !tbaa !70
   %9823 = trunc i64 %.66091 to i32
   %9824 = lshr i64 %.76055, 32
@@ -21387,10 +21387,10 @@ jump.exit12508:                                   ; preds = %ptr_register_stack.
   br i1 %or.cond12479, label %.thread17480.sink.split, label %.thread13776
 
 .thread17480.sink.split:                          ; preds = %9864, %9862
-  %.sink19123 = phi i32 [ %9857, %9862 ], [ %9855, %9864 ]
-  %.sink19121 = phi ptr [ %9863, %9862 ], [ %.05402, %9864 ]
-  %9869 = zext nneg i32 %.sink19123 to i64
-  %9870 = getelementptr inbounds nuw i8, ptr %.sink19121, i64 %9869
+  %.sink20487 = phi i32 [ %9857, %9862 ], [ %9855, %9864 ]
+  %.sink20485 = phi ptr [ %9863, %9862 ], [ %.05402, %9864 ]
+  %9869 = zext nneg i32 %.sink20487 to i64
+  %9870 = getelementptr inbounds nuw i8, ptr %.sink20485, i64 %9869
   %9871 = load i32, ptr %9870, align 4, !tbaa !34
   %9872 = trunc i32 %9871 to i8
   br label %.thread17480
@@ -21437,10 +21437,10 @@ jump.exit12508:                                   ; preds = %ptr_register_stack.
   br i1 %or.cond12481, label %.thread17506.sink.split, label %.thread13776
 
 .thread17506.sink.split:                          ; preds = %9885, %9883
-  %.sink19127 = phi i32 [ %9878, %9883 ], [ %9876, %9885 ]
-  %.sink19125 = phi ptr [ %9884, %9883 ], [ %.05402, %9885 ]
-  %9890 = zext nneg i32 %.sink19127 to i64
-  %9891 = getelementptr inbounds nuw i8, ptr %.sink19125, i64 %9890
+  %.sink20491 = phi i32 [ %9878, %9883 ], [ %9876, %9885 ]
+  %.sink20489 = phi ptr [ %9884, %9883 ], [ %.05402, %9885 ]
+  %9890 = zext nneg i32 %.sink20491 to i64
+  %9891 = getelementptr inbounds nuw i8, ptr %.sink20489, i64 %9890
   %9892 = load i16, ptr %9891, align 2, !tbaa !69
   %9893 = tail call i16 @llvm.bswap.i16(i16 %9892)
   br label %.thread17506
@@ -21499,10 +21499,10 @@ jump.exit12508:                                   ; preds = %ptr_register_stack.
   br i1 %or.cond12484, label %.thread17516.sink.split, label %.thread13776
 
 .thread17516.sink.split:                          ; preds = %9914, %9912
-  %.sink19131 = phi i32 [ %9907, %9912 ], [ %9905, %9914 ]
-  %.sink19129 = phi ptr [ %9913, %9912 ], [ %.05402, %9914 ]
-  %9919 = zext nneg i32 %.sink19131 to i64
-  %9920 = getelementptr inbounds nuw i8, ptr %.sink19129, i64 %9919
+  %.sink20495 = phi i32 [ %9907, %9912 ], [ %9905, %9914 ]
+  %.sink20493 = phi ptr [ %9913, %9912 ], [ %.05402, %9914 ]
+  %9919 = zext nneg i32 %.sink20495 to i64
+  %9920 = getelementptr inbounds nuw i8, ptr %.sink20493, i64 %9919
   %9921 = load i32, ptr %9920, align 4, !tbaa !34
   %9922 = tail call i32 @llvm.bswap.i32(i32 %9921)
   br label %.thread17516
@@ -21561,10 +21561,10 @@ jump.exit12508:                                   ; preds = %ptr_register_stack.
   br i1 %or.cond12487, label %.thread17526.sink.split, label %.thread13776
 
 .thread17526.sink.split:                          ; preds = %9943, %9941
-  %.sink19135 = phi i32 [ %9936, %9941 ], [ %9934, %9943 ]
-  %.sink19133 = phi ptr [ %9942, %9941 ], [ %.05402, %9943 ]
-  %9948 = zext nneg i32 %.sink19135 to i64
-  %9949 = getelementptr inbounds nuw i8, ptr %.sink19133, i64 %9948
+  %.sink20499 = phi i32 [ %9936, %9941 ], [ %9934, %9943 ]
+  %.sink20497 = phi ptr [ %9942, %9941 ], [ %.05402, %9943 ]
+  %9948 = zext nneg i32 %.sink20499 to i64
+  %9949 = getelementptr inbounds nuw i8, ptr %.sink20497, i64 %9948
   %9950 = load i64, ptr %9949, align 8, !tbaa !70
   %9951 = tail call i64 @llvm.bswap.i64(i64 %9950)
   br label %.thread17526
@@ -21836,10 +21836,10 @@ jump.exit12508:                                   ; preds = %ptr_register_stack.
   br i1 %or.cond12498, label %.thread17562, label %.thread13776
 
 .thread17562:                                     ; preds = %10085, %10083
-  %.sink19138 = phi i32 [ %10078, %10083 ], [ %10076, %10085 ]
-  %.sink19136 = phi ptr [ %10084, %10083 ], [ %.05402, %10085 ]
-  %10090 = zext nneg i32 %.sink19138 to i64
-  %10091 = getelementptr inbounds nuw i8, ptr %.sink19136, i64 %10090
+  %.sink20502 = phi i32 [ %10078, %10083 ], [ %10076, %10085 ]
+  %.sink20500 = phi ptr [ %10084, %10083 ], [ %.05402, %10085 ]
+  %10090 = zext nneg i32 %.sink20502 to i64
+  %10091 = getelementptr inbounds nuw i8, ptr %.sink20500, i64 %10090
   %.65235 = load i32, ptr %10091, align 4, !tbaa !34
   %10092 = icmp slt i32 %.65235, 0
   br i1 %10092, label %10093, label %.thread17562.thread
@@ -21920,10 +21920,10 @@ jump.exit12508:                                   ; preds = %ptr_register_stack.
   br i1 %or.cond12501, label %.thread17567.sink.split, label %.thread13776
 
 .thread17567.sink.split:                          ; preds = %10127, %10125
-  %.sink19142 = phi i32 [ %10120, %10125 ], [ %10118, %10127 ]
-  %.sink19140 = phi ptr [ %10126, %10125 ], [ %.05402, %10127 ]
-  %10132 = zext nneg i32 %.sink19142 to i64
-  %10133 = getelementptr inbounds nuw i8, ptr %.sink19140, i64 %10132
+  %.sink20506 = phi i32 [ %10120, %10125 ], [ %10118, %10127 ]
+  %.sink20504 = phi ptr [ %10126, %10125 ], [ %.05402, %10127 ]
+  %10132 = zext nneg i32 %.sink20506 to i64
+  %10133 = getelementptr inbounds nuw i8, ptr %.sink20504, i64 %10132
   %10134 = load i64, ptr %10133, align 8, !tbaa !70
   br label %.thread17567
 
@@ -21963,43 +21963,43 @@ jump.exit12508:                                   ; preds = %ptr_register_stack.
   br label %.loopexit17719
 
 allocate_stack.exit.thread.thread.sink.split:     ; preds = %5519, %5469, %5419, %5369, %5319, %5269, %5196, %5124, %5051, %4984
-  %.sink19158 = phi ptr [ %4991, %4984 ], [ %5058, %5051 ], [ %5130, %5124 ], [ %5203, %5196 ], [ %5275, %5269 ], [ %5325, %5319 ], [ %5375, %5369 ], [ %5425, %5419 ], [ %5475, %5469 ], [ %5525, %5519 ]
-  %.sink19157 = phi i32 [ %4987, %4984 ], [ %5054, %5051 ], [ %5126, %5124 ], [ %5199, %5196 ], [ %5271, %5269 ], [ %5321, %5319 ], [ %5371, %5369 ], [ %5421, %5419 ], [ %5471, %5469 ], [ %5521, %5519 ]
-  %.sink19156 = phi i32 [ %4986, %4984 ], [ %5053, %5051 ], [ %5125, %5124 ], [ %5198, %5196 ], [ %5270, %5269 ], [ %5320, %5319 ], [ %5370, %5369 ], [ %5420, %5419 ], [ %5470, %5469 ], [ %5520, %5519 ]
-  %.sink19152 = phi ptr [ %4978, %4984 ], [ %5045, %5051 ], [ %5116, %5124 ], [ %5188, %5196 ], [ %5261, %5269 ], [ %5315, %5319 ], [ %5365, %5369 ], [ %5415, %5419 ], [ %5465, %5469 ], [ %5515, %5519 ]
-  %.sink19149 = phi i32 [ %4985, %4984 ], [ %5052, %5051 ], [ %5118, %5124 ], [ %5197, %5196 ], [ %5263, %5269 ], [ %5317, %5319 ], [ %5367, %5369 ], [ %5417, %5419 ], [ %5467, %5469 ], [ %5517, %5519 ]
-  %.sink19147.ph = phi ptr [ %4948, %4984 ], [ %5015, %5051 ], [ %5086, %5124 ], [ %5158, %5196 ], [ %5231, %5269 ], [ %5285, %5319 ], [ %5335, %5369 ], [ %5385, %5419 ], [ %5435, %5469 ], [ %5485, %5519 ]
-  %.sink19145.ph = phi i32 [ %4950, %4984 ], [ %5017, %5051 ], [ %5088, %5124 ], [ %5160, %5196 ], [ %5233, %5269 ], [ %5287, %5319 ], [ %5337, %5369 ], [ %5387, %5419 ], [ %5437, %5469 ], [ %5487, %5519 ]
+  %.sink20522 = phi ptr [ %4991, %4984 ], [ %5058, %5051 ], [ %5130, %5124 ], [ %5203, %5196 ], [ %5275, %5269 ], [ %5325, %5319 ], [ %5375, %5369 ], [ %5425, %5419 ], [ %5475, %5469 ], [ %5525, %5519 ]
+  %.sink20521 = phi i32 [ %4987, %4984 ], [ %5054, %5051 ], [ %5126, %5124 ], [ %5199, %5196 ], [ %5271, %5269 ], [ %5321, %5319 ], [ %5371, %5369 ], [ %5421, %5419 ], [ %5471, %5469 ], [ %5521, %5519 ]
+  %.sink20520 = phi i32 [ %4986, %4984 ], [ %5053, %5051 ], [ %5125, %5124 ], [ %5198, %5196 ], [ %5270, %5269 ], [ %5320, %5319 ], [ %5370, %5369 ], [ %5420, %5419 ], [ %5470, %5469 ], [ %5520, %5519 ]
+  %.sink20516 = phi ptr [ %4978, %4984 ], [ %5045, %5051 ], [ %5116, %5124 ], [ %5188, %5196 ], [ %5261, %5269 ], [ %5315, %5319 ], [ %5365, %5369 ], [ %5415, %5419 ], [ %5465, %5469 ], [ %5515, %5519 ]
+  %.sink20513 = phi i32 [ %4985, %4984 ], [ %5052, %5051 ], [ %5118, %5124 ], [ %5197, %5196 ], [ %5263, %5269 ], [ %5317, %5319 ], [ %5367, %5369 ], [ %5417, %5419 ], [ %5467, %5469 ], [ %5517, %5519 ]
+  %.sink20511.ph = phi ptr [ %4948, %4984 ], [ %5015, %5051 ], [ %5086, %5124 ], [ %5158, %5196 ], [ %5231, %5269 ], [ %5285, %5319 ], [ %5335, %5369 ], [ %5385, %5419 ], [ %5435, %5469 ], [ %5485, %5519 ]
+  %.sink20509.ph = phi i32 [ %4950, %4984 ], [ %5017, %5051 ], [ %5088, %5124 ], [ %5160, %5196 ], [ %5233, %5269 ], [ %5287, %5319 ], [ %5337, %5369 ], [ %5387, %5419 ], [ %5437, %5469 ], [ %5487, %5519 ]
   %.sroa.29.1.ph.ph = phi i16 [ %.sroa.29.22, %4984 ], [ %.sroa.29.21, %5051 ], [ %.sroa.29.20, %5124 ], [ %.sroa.29.19, %5196 ], [ %.sroa.29.18, %5269 ], [ %.sroa.29.17, %5319 ], [ %.sroa.29.16, %5369 ], [ %.sroa.29.15, %5419 ], [ %.sroa.29.14, %5469 ], [ %.sroa.29.13, %5519 ]
   %.sroa.0.2.ph.ph = phi ptr [ %.sroa.0.23, %4984 ], [ %.sroa.0.22, %5051 ], [ %.sroa.0.21, %5124 ], [ %.sroa.0.20, %5196 ], [ %.sroa.0.19, %5269 ], [ %.sroa.0.18, %5319 ], [ %.sroa.0.17, %5369 ], [ %.sroa.0.16, %5419 ], [ %.sroa.0.15, %5469 ], [ %.sroa.0.14, %5519 ]
   %.113707.ph.ph = phi ptr [ %4944, %4984 ], [ %5011, %5051 ], [ %5082, %5124 ], [ %5154, %5196 ], [ %5227, %5269 ], [ %5281, %5319 ], [ %5331, %5369 ], [ %5381, %5419 ], [ %5431, %5469 ], [ %5481, %5519 ]
   %.15383.ph.ph = phi ptr [ %4951, %4984 ], [ %5018, %5051 ], [ %5089, %5124 ], [ %5161, %5196 ], [ %5234, %5269 ], [ %5288, %5319 ], [ %5338, %5369 ], [ %5388, %5419 ], [ %5438, %5469 ], [ %5488, %5519 ]
   %.15252.ph.ph = phi i32 [ %4942, %4984 ], [ %5009, %5051 ], [ %5080, %5124 ], [ %5152, %5196 ], [ %5225, %5269 ], [ %5279, %5319 ], [ %5329, %5369 ], [ %5379, %5419 ], [ %5429, %5469 ], [ %5479, %5519 ]
-  store ptr %.sink19158, ptr %5, align 8, !tbaa !89
-  store i32 %.sink19157, ptr %93, align 8, !tbaa !88
-  %10155 = zext i32 %.sink19156 to i64
-  %10156 = getelementptr inbounds nuw %struct.ptr_info, ptr %.sink19158, i64 %10155
-  store ptr %.sink19152, ptr %10156, align 8, !tbaa !40
+  store ptr %.sink20522, ptr %5, align 8, !tbaa !89
+  store i32 %.sink20521, ptr %93, align 8, !tbaa !88
+  %10155 = zext i32 %.sink20520 to i64
+  %10156 = getelementptr inbounds nuw %struct.ptr_info, ptr %.sink20522, i64 %10155
+  store ptr %.sink20516, ptr %10156, align 8, !tbaa !40
   %10157 = getelementptr inbounds nuw i8, ptr %10156, i64 8
-  store i32 %.sink19149, ptr %10157, align 8, !tbaa !42
-  %10158 = xor i32 %.sink19156, -1
+  store i32 %.sink20513, ptr %10157, align 8, !tbaa !42
+  %10158 = xor i32 %.sink20520, -1
   br label %allocate_stack.exit.thread.thread
 
 allocate_stack.exit.thread.thread:                ; preds = %allocate_stack.exit.thread.thread.sink.split, %5519, %5469, %5419, %5369, %5319, %5269, %5196, %5124, %5051, %4984
-  %.sink19147 = phi ptr [ %4948, %4984 ], [ %5015, %5051 ], [ %5086, %5124 ], [ %5158, %5196 ], [ %5231, %5269 ], [ %5285, %5319 ], [ %5335, %5369 ], [ %5385, %5419 ], [ %5435, %5469 ], [ %5485, %5519 ], [ %.sink19147.ph, %allocate_stack.exit.thread.thread.sink.split ]
-  %.sink19145 = phi i32 [ %4950, %4984 ], [ %5017, %5051 ], [ %5088, %5124 ], [ %5160, %5196 ], [ %5233, %5269 ], [ %5287, %5319 ], [ %5337, %5369 ], [ %5387, %5419 ], [ %5437, %5469 ], [ %5487, %5519 ], [ %.sink19145.ph, %allocate_stack.exit.thread.thread.sink.split ]
+  %.sink20511 = phi ptr [ %4948, %4984 ], [ %5015, %5051 ], [ %5086, %5124 ], [ %5158, %5196 ], [ %5231, %5269 ], [ %5285, %5319 ], [ %5335, %5369 ], [ %5385, %5419 ], [ %5435, %5469 ], [ %5485, %5519 ], [ %.sink20511.ph, %allocate_stack.exit.thread.thread.sink.split ]
+  %.sink20509 = phi i32 [ %4950, %4984 ], [ %5017, %5051 ], [ %5088, %5124 ], [ %5160, %5196 ], [ %5233, %5269 ], [ %5287, %5319 ], [ %5337, %5369 ], [ %5387, %5419 ], [ %5437, %5469 ], [ %5487, %5519 ], [ %.sink20509.ph, %allocate_stack.exit.thread.thread.sink.split ]
   %.sroa.29.1.ph = phi i16 [ %.sroa.29.22, %4984 ], [ %.sroa.29.21, %5051 ], [ %.sroa.29.20, %5124 ], [ %.sroa.29.19, %5196 ], [ %.sroa.29.18, %5269 ], [ %.sroa.29.17, %5319 ], [ %.sroa.29.16, %5369 ], [ %.sroa.29.15, %5419 ], [ %.sroa.29.14, %5469 ], [ %.sroa.29.13, %5519 ], [ %.sroa.29.1.ph.ph, %allocate_stack.exit.thread.thread.sink.split ]
   %.sroa.0.2.ph = phi ptr [ %.sroa.0.23, %4984 ], [ %.sroa.0.22, %5051 ], [ %.sroa.0.21, %5124 ], [ %.sroa.0.20, %5196 ], [ %.sroa.0.19, %5269 ], [ %.sroa.0.18, %5319 ], [ %.sroa.0.17, %5369 ], [ %.sroa.0.16, %5419 ], [ %.sroa.0.15, %5469 ], [ %.sroa.0.14, %5519 ], [ %.sroa.0.2.ph.ph, %allocate_stack.exit.thread.thread.sink.split ]
   %.113707.ph = phi ptr [ %4944, %4984 ], [ %5011, %5051 ], [ %5082, %5124 ], [ %5154, %5196 ], [ %5227, %5269 ], [ %5281, %5319 ], [ %5331, %5369 ], [ %5381, %5419 ], [ %5431, %5469 ], [ %5481, %5519 ], [ %.113707.ph.ph, %allocate_stack.exit.thread.thread.sink.split ]
   %.15430.ph = phi i32 [ 0, %4984 ], [ 0, %5051 ], [ 0, %5124 ], [ 0, %5196 ], [ 0, %5269 ], [ 0, %5319 ], [ 0, %5369 ], [ 0, %5419 ], [ 0, %5469 ], [ 0, %5519 ], [ %10158, %allocate_stack.exit.thread.thread.sink.split ]
-  %.15403.ph = phi ptr [ %4978, %4984 ], [ %5045, %5051 ], [ %5116, %5124 ], [ %5188, %5196 ], [ %5261, %5269 ], [ %5315, %5319 ], [ %5365, %5369 ], [ %5415, %5419 ], [ %5465, %5469 ], [ %5515, %5519 ], [ %.sink19152, %allocate_stack.exit.thread.thread.sink.split ]
+  %.15403.ph = phi ptr [ %4978, %4984 ], [ %5045, %5051 ], [ %5116, %5124 ], [ %5188, %5196 ], [ %5261, %5269 ], [ %5315, %5319 ], [ %5365, %5369 ], [ %5415, %5419 ], [ %5465, %5469 ], [ %5515, %5519 ], [ %.sink20516, %allocate_stack.exit.thread.thread.sink.split ]
   %.15383.ph = phi ptr [ %4951, %4984 ], [ %5018, %5051 ], [ %5089, %5124 ], [ %5161, %5196 ], [ %5234, %5269 ], [ %5288, %5319 ], [ %5338, %5369 ], [ %5388, %5419 ], [ %5438, %5469 ], [ %5488, %5519 ], [ %.15383.ph.ph, %allocate_stack.exit.thread.thread.sink.split ]
   %.15252.ph = phi i32 [ %4942, %4984 ], [ %5009, %5051 ], [ %5080, %5124 ], [ %5152, %5196 ], [ %5225, %5269 ], [ %5279, %5319 ], [ %5329, %5369 ], [ %5379, %5419 ], [ %5429, %5469 ], [ %5479, %5519 ], [ %.15252.ph.ph, %allocate_stack.exit.thread.thread.sink.split ]
-  %10159 = getelementptr inbounds nuw i8, ptr %.sink19147, i64 8
+  %10159 = getelementptr inbounds nuw i8, ptr %.sink20511, i64 8
   %10160 = load ptr, ptr %10159, align 8, !tbaa !74
-  %10161 = zext i32 %.sink19145 to i64
+  %10161 = zext i32 %.sink20509 to i64
   %10162 = getelementptr inbounds nuw %struct.cli_bc_inst, ptr %10160, i64 %10161
-  %10163 = add i32 %.sink19145, 1
+  %10163 = add i32 %.sink20509, 1
   %10164 = getelementptr inbounds nuw i8, ptr %10162, i64 40
   br label %10167
 
@@ -22017,31 +22017,31 @@ allocate_stack.exit.thread:                       ; preds = %9744, %.thread17419
 10167:                                            ; preds = %allocate_stack.exit.thread.thread, %allocate_stack.exit.thread
   %10168 = phi ptr [ %10164, %allocate_stack.exit.thread.thread ], [ %10166, %allocate_stack.exit.thread ]
   %10169 = phi i32 [ %10163, %allocate_stack.exit.thread.thread ], [ %10165, %allocate_stack.exit.thread ]
-  %.1525217779 = phi i32 [ %.15252.ph, %allocate_stack.exit.thread.thread ], [ %.05251, %allocate_stack.exit.thread ]
-  %.2527317778 = phi i32 [ 0, %allocate_stack.exit.thread.thread ], [ %.25273, %allocate_stack.exit.thread ]
-  %.1538317777 = phi ptr [ %.15383.ph, %allocate_stack.exit.thread.thread ], [ %.15383, %allocate_stack.exit.thread ]
-  %.1540317776 = phi ptr [ %.15403.ph, %allocate_stack.exit.thread.thread ], [ %.15403, %allocate_stack.exit.thread ]
-  %.1543017775 = phi i32 [ %.15430.ph, %allocate_stack.exit.thread.thread ], [ %.05429, %allocate_stack.exit.thread ]
-  %.11370717774 = phi ptr [ %.113707.ph, %allocate_stack.exit.thread.thread ], [ %.013706, %allocate_stack.exit.thread ]
-  %.sroa.0.217773 = phi ptr [ %.sroa.0.2.ph, %allocate_stack.exit.thread.thread ], [ %.sroa.0.2, %allocate_stack.exit.thread ]
-  %.sroa.29.117772 = phi i16 [ %.sroa.29.1.ph, %allocate_stack.exit.thread.thread ], [ %.sroa.29.1, %allocate_stack.exit.thread ]
-  %.11375217771 = phi ptr [ %.sink19147, %allocate_stack.exit.thread.thread ], [ %.013751, %allocate_stack.exit.thread ]
-  %10170 = load i32, ptr %.11375217771, align 8, !tbaa !105
+  %.1525219143 = phi i32 [ %.15252.ph, %allocate_stack.exit.thread.thread ], [ %.05251, %allocate_stack.exit.thread ]
+  %.2527319142 = phi i32 [ 0, %allocate_stack.exit.thread.thread ], [ %.25273, %allocate_stack.exit.thread ]
+  %.1538319141 = phi ptr [ %.15383.ph, %allocate_stack.exit.thread.thread ], [ %.15383, %allocate_stack.exit.thread ]
+  %.1540319140 = phi ptr [ %.15403.ph, %allocate_stack.exit.thread.thread ], [ %.15403, %allocate_stack.exit.thread ]
+  %.1543019139 = phi i32 [ %.15430.ph, %allocate_stack.exit.thread.thread ], [ %.05429, %allocate_stack.exit.thread ]
+  %.11370719138 = phi ptr [ %.113707.ph, %allocate_stack.exit.thread.thread ], [ %.013706, %allocate_stack.exit.thread ]
+  %.sroa.0.219137 = phi ptr [ %.sroa.0.2.ph, %allocate_stack.exit.thread.thread ], [ %.sroa.0.2, %allocate_stack.exit.thread ]
+  %.sroa.29.119136 = phi i16 [ %.sroa.29.1.ph, %allocate_stack.exit.thread.thread ], [ %.sroa.29.1, %allocate_stack.exit.thread ]
+  %.11375219135 = phi ptr [ %.sink20511, %allocate_stack.exit.thread.thread ], [ %.013751, %allocate_stack.exit.thread ]
+  %10170 = load i32, ptr %.11375219135, align 8, !tbaa !105
   %.not11829 = icmp ugt i32 %10170, %10169
   br i1 %.not11829, label %jump.exit, label %.thread13776
 
 jump.exit:                                        ; preds = %4917, %4905, %allocate_stack.exit.thread, %10167, %jump.exit12508
-  %.213753 = phi ptr [ null, %allocate_stack.exit.thread ], [ %.11375217771, %10167 ], [ %8749, %jump.exit12508 ], [ %4909, %4905 ], [ %4921, %4917 ]
-  %.sroa.29.2 = phi i16 [ %.sroa.29.1, %allocate_stack.exit.thread ], [ %.sroa.29.117772, %10167 ], [ %.sroa.29.23, %jump.exit12508 ], [ %.sroa.29.0, %4905 ], [ %.sroa.29.0, %4917 ]
-  %.sroa.0.3 = phi ptr [ %.sroa.0.2, %allocate_stack.exit.thread ], [ %.sroa.0.217773, %10167 ], [ %.sroa.0.24, %jump.exit12508 ], [ %.sroa.0.0, %4905 ], [ %.sroa.0.0, %4917 ]
+  %.213753 = phi ptr [ null, %allocate_stack.exit.thread ], [ %.11375219135, %10167 ], [ %8749, %jump.exit12508 ], [ %4909, %4905 ], [ %4921, %4917 ]
+  %.sroa.29.2 = phi i16 [ %.sroa.29.1, %allocate_stack.exit.thread ], [ %.sroa.29.119136, %10167 ], [ %.sroa.29.23, %jump.exit12508 ], [ %.sroa.29.0, %4905 ], [ %.sroa.29.0, %4917 ]
+  %.sroa.0.3 = phi ptr [ %.sroa.0.2, %allocate_stack.exit.thread ], [ %.sroa.0.219137, %10167 ], [ %.sroa.0.24, %jump.exit12508 ], [ %.sroa.0.0, %4905 ], [ %.sroa.0.0, %4917 ]
   %.213737 = phi i32 [ %10165, %allocate_stack.exit.thread ], [ %10169, %10167 ], [ 0, %jump.exit12508 ], [ 0, %4905 ], [ 0, %4917 ]
   %.213721 = phi ptr [ %10166, %allocate_stack.exit.thread ], [ %10168, %10167 ], [ %8751, %jump.exit12508 ], [ %4911, %4905 ], [ %4923, %4917 ]
-  %.213708 = phi ptr [ %.013706, %allocate_stack.exit.thread ], [ %.11370717774, %10167 ], [ %8594, %jump.exit12508 ], [ %.013706, %4905 ], [ %.013706, %4917 ]
-  %.25431 = phi i32 [ %.05429, %allocate_stack.exit.thread ], [ %.1543017775, %10167 ], [ %.0.i12588, %jump.exit12508 ], [ %.05429, %4905 ], [ %.05429, %4917 ]
-  %.25404 = phi ptr [ %.15403, %allocate_stack.exit.thread ], [ %.1540317776, %10167 ], [ %8636, %jump.exit12508 ], [ %.05402, %4905 ], [ %.05402, %4917 ]
-  %.25384 = phi ptr [ %.15383, %allocate_stack.exit.thread ], [ %.1538317777, %10167 ], [ %.0.i12549, %jump.exit12508 ], [ %.05382, %4905 ], [ %.05382, %4917 ]
-  %.385309 = phi i32 [ %.25273, %allocate_stack.exit.thread ], [ %.2527317778, %10167 ], [ 0, %jump.exit12508 ], [ 0, %4905 ], [ 0, %4917 ]
-  %.25253 = phi i32 [ %.05251, %allocate_stack.exit.thread ], [ %.1525217779, %10167 ], [ %8752, %jump.exit12508 ], [ %.05251, %4905 ], [ %.05251, %4917 ]
+  %.213708 = phi ptr [ %.013706, %allocate_stack.exit.thread ], [ %.11370719138, %10167 ], [ %8594, %jump.exit12508 ], [ %.013706, %4905 ], [ %.013706, %4917 ]
+  %.25431 = phi i32 [ %.05429, %allocate_stack.exit.thread ], [ %.1543019139, %10167 ], [ %.0.i12588, %jump.exit12508 ], [ %.05429, %4905 ], [ %.05429, %4917 ]
+  %.25404 = phi ptr [ %.15403, %allocate_stack.exit.thread ], [ %.1540319140, %10167 ], [ %8636, %jump.exit12508 ], [ %.05402, %4905 ], [ %.05402, %4917 ]
+  %.25384 = phi ptr [ %.15383, %allocate_stack.exit.thread ], [ %.1538319141, %10167 ], [ %.0.i12549, %jump.exit12508 ], [ %.05382, %4905 ], [ %.05382, %4917 ]
+  %.385309 = phi i32 [ %.25273, %allocate_stack.exit.thread ], [ %.2527319142, %10167 ], [ 0, %jump.exit12508 ], [ 0, %4905 ], [ 0, %4917 ]
+  %.25253 = phi i32 [ %.05251, %allocate_stack.exit.thread ], [ %.1525219143, %10167 ], [ %8752, %jump.exit12508 ], [ %.05251, %4905 ], [ %.05251, %4917 ]
   %10171 = icmp eq i32 %.385309, 0
   br i1 %10171, label %97, label %.loopexit17719
 

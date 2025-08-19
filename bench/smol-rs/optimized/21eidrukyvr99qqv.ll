@@ -276,13 +276,13 @@ define hidden { i64, ptr } @"_ZN16concurrent_queue9unbounded18Unbounded$LT$T$GT$
   %13 = lshr exact i64 %.049.ph130, 1
   %14 = and i64 %13, 31
   %15 = icmp eq i64 %14, 31
-  br i1 %15, label %.lr.ph194, label %._crit_edge
+  br i1 %15, label %.lr.ph196, label %._crit_edge
 
 16:                                               ; preds = %81
   %17 = lshr exact i64 %82, 1
   %18 = and i64 %17, 31
   %19 = icmp eq i64 %18, 31
-  br i1 %19, label %.lr.ph194, label %._crit_edge
+  br i1 %19, label %.lr.ph196, label %._crit_edge
 
 .thread92:                                        ; preds = %.outer.backedge, %81, %2
   %.0.ph.lcssa125 = phi ptr [ null, %2 ], [ %.0.ph129, %81 ], [ %.0.ph.be, %.outer.backedge ]
@@ -299,7 +299,7 @@ define hidden { i64, ptr } @"_ZN16concurrent_queue9unbounded18Unbounded$LT$T$GT$
   %or.cond = select i1 %.not109, i1 %.not, i1 false
   br i1 %or.cond, label %23, label %21
 
-.lr.ph194:                                        ; preds = %.lr.ph, %16
+.lr.ph196:                                        ; preds = %.lr.ph, %16
   invoke void @_ZN3std6thread9yield_now17h7997a258d0252531E()
           to label %81 unwind label %.loopexit
 
@@ -456,14 +456,14 @@ define hidden { i64, ptr } @"_ZN16concurrent_queue9unbounded18Unbounded$LT$T$GT$
   %80 = atomicrmw or ptr %79, i64 1 release, align 8
   br label %"_ZN4core3ptr146drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$concurrent_queue..unbounded..Block$LT$async_task..runnable..Runnable$GT$$GT$$GT$$GT$17hae1f0257ed15387dE.exit71"
 
-81:                                               ; preds = %.lr.ph194
+81:                                               ; preds = %.lr.ph196
   %82 = load atomic i64, ptr %6 acquire, align 128
   %83 = load atomic i64, ptr %8 acquire, align 8
   %84 = and i64 %82, 1
   %85 = icmp eq i64 %84, 0
   br i1 %85, label %16, label %.thread92
 
-.loopexit:                                        ; preds = %.lr.ph194
+.loopexit:                                        ; preds = %.lr.ph196
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %86

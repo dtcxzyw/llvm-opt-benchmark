@@ -913,23 +913,23 @@ get_interleaved_ue_golomb.exit:                   ; preds = %28, %.loopexit.i
   br i1 %189, label %206, label %.sink.split
 
 .sink.split:                                      ; preds = %173, %156
-  %.sink108 = phi i32 [ %171, %156 ], [ %188, %173 ]
-  %.sink100 = phi i32 [ 25, %156 ], [ 26, %173 ]
-  %.sink96 = phi ptr [ %161, %156 ], [ %178, %173 ]
+  %.sink110 = phi i32 [ %171, %156 ], [ %188, %173 ]
+  %.sink102 = phi i32 [ 25, %156 ], [ 26, %173 ]
+  %.sink98 = phi ptr [ %161, %156 ], [ %178, %173 ]
   %.str.2.sink = phi ptr [ @.str.2, %156 ], [ @.str.3, %173 ]
-  %190 = lshr i32 %.sink108, 3
+  %190 = lshr i32 %.sink110, 3
   %191 = zext nneg i32 %190 to i64
   %192 = getelementptr inbounds nuw i8, ptr %148, i64 %191
   %193 = load i32, ptr %192, align 1, !tbaa !65
   %194 = tail call i32 @llvm.bswap.i32(i32 %193)
-  %195 = and i32 %.sink108, 7
+  %195 = and i32 %.sink110, 7
   %196 = shl i32 %194, %195
-  %197 = lshr i32 %196, %.sink100
+  %197 = lshr i32 %196, %.sink102
   %198 = zext nneg i32 %197 to i64
-  %199 = getelementptr inbounds nuw %struct.VLCElem, ptr %.sink96, i64 %198, i32 0, i32 0, i32 1
+  %199 = getelementptr inbounds nuw %struct.VLCElem, ptr %.sink98, i64 %198, i32 0, i32 0, i32 1
   %200 = load i16, ptr %199, align 2, !tbaa !65
   %201 = sext i16 %200 to i32
-  %202 = add i32 %.sink108, %201
+  %202 = add i32 %.sink110, %201
   %203 = tail call i32 @llvm.umin.i32(i32 %147, i32 %202)
   store i32 %203, ptr %144, align 8, !tbaa !63
   %204 = getelementptr inbounds nuw i8, ptr %0, i64 472
@@ -966,10 +966,10 @@ define internal void @rv40_loop_filter(ptr noundef readonly captures(none) %0, i
   %22 = alloca [4 x i32], align 16
   %23 = alloca [4 x [2 x i32]], align 16
   %24 = alloca [4 x i32], align 16
+  %.sroa.0406 = alloca i32, align 4
+  %.sroa.4407 = alloca i32, align 4
   %.sroa.0400 = alloca i32, align 4
   %.sroa.4401 = alloca i32, align 4
-  %.sroa.0394 = alloca i32, align 4
-  %.sroa.4395 = alloca i32, align 4
   %25 = alloca [4 x i32], align 16
   %.sroa.0 = alloca i32, align 4
   %.sroa.4 = alloca i32, align 4
@@ -983,7 +983,7 @@ define internal void @rv40_loop_filter(ptr noundef readonly captures(none) %0, i
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 540
   %28 = load i32, ptr %27, align 4, !tbaa !97
   %29 = icmp sgt i32 %28, 0
-  %indvars.iv363.sroa.gep403 = getelementptr inbounds nuw i8, ptr %23, i64 4
+  %indvars.iv363.sroa.gep409 = getelementptr inbounds nuw i8, ptr %23, i64 4
   br i1 %29, label %.lr.ph, label %._crit_edge358
 
 .lr.ph:                                           ; preds = %2
@@ -1083,10 +1083,10 @@ define internal void @rv40_loop_filter(ptr noundef readonly captures(none) %0, i
 96:                                               ; preds = %.lr.ph357, %570
   %indvars.iv378 = phi i64 [ 0, %.lr.ph357 ], [ %indvars.iv.next379, %570 ]
   %indvars.iv376 = phi i64 [ %95, %.lr.ph357 ], [ %indvars.iv.next377, %570 ]
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0406)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.4407)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0400)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.4401)
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0394)
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.4395)
   call void @llvm.lifetime.start.p0(ptr nonnull %25)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.4)
@@ -1261,14 +1261,14 @@ define internal void @rv40_loop_filter(ptr noundef readonly captures(none) %0, i
 207:                                              ; preds = %198, %236
   %208 = phi i1 [ true, %198 ], [ false, %236 ]
   %indvars.iv363.sroa.phi = phi ptr [ %.sroa.0, %198 ], [ %.sroa.4, %236 ]
-  %indvars.iv363.sroa.phi390 = phi ptr [ %.sroa.0394, %198 ], [ %.sroa.4395, %236 ]
   %indvars.iv363.sroa.phi396 = phi ptr [ %.sroa.0400, %198 ], [ %.sroa.4401, %236 ]
-  %indvars.iv363.sroa.phi402 = phi ptr [ %23, %198 ], [ %indvars.iv363.sroa.gep403, %236 ]
+  %indvars.iv363.sroa.phi402 = phi ptr [ %.sroa.0406, %198 ], [ %.sroa.4407, %236 ]
+  %indvars.iv363.sroa.phi408 = phi ptr [ %23, %198 ], [ %indvars.iv363.sroa.gep409, %236 ]
   %indvars.iv363 = phi i64 [ 0, %198 ], [ 1, %236 ]
   %209 = getelementptr inbounds nuw [2 x i32], ptr %74, i64 0, i64 %indvars.iv363
   %210 = load i32, ptr %209, align 4, !tbaa !71
   %211 = shl i32 %210, 4
-  %212 = load i32, ptr %indvars.iv363.sroa.phi402, align 4, !tbaa !71
+  %212 = load i32, ptr %indvars.iv363.sroa.phi408, align 4, !tbaa !71
   %213 = or i32 %211, %212
   store i32 %213, ptr %indvars.iv363.sroa.phi, align 4, !tbaa !71
   %214 = shl i32 %212, 1
@@ -1279,7 +1279,7 @@ define internal void @rv40_loop_filter(ptr noundef readonly captures(none) %0, i
   %219 = and i32 %218, 5
   %220 = or disjoint i32 %215, %219
   %221 = or i32 %220, %213
-  store i32 %221, ptr %indvars.iv363.sroa.phi396, align 4, !tbaa !71
+  store i32 %221, ptr %indvars.iv363.sroa.phi402, align 4, !tbaa !71
   %222 = getelementptr inbounds nuw [2 x i32], ptr %76, i64 0, i64 %indvars.iv363
   %223 = load i32, ptr %222, align 4, !tbaa !71
   %224 = lshr i32 %223, 2
@@ -1287,12 +1287,12 @@ define internal void @rv40_loop_filter(ptr noundef readonly captures(none) %0, i
   %226 = shl i32 %212, 2
   %227 = or disjoint i32 %225, %226
   %228 = or i32 %227, %213
-  store i32 %228, ptr %indvars.iv363.sroa.phi390, align 4, !tbaa !71
+  store i32 %228, ptr %indvars.iv363.sroa.phi396, align 4, !tbaa !71
   br i1 %.not, label %229, label %231
 
 229:                                              ; preds = %207
   %230 = and i32 %221, -6
-  store i32 %230, ptr %indvars.iv363.sroa.phi396, align 4, !tbaa !71
+  store i32 %230, ptr %indvars.iv363.sroa.phi402, align 4, !tbaa !71
   br label %231
 
 231:                                              ; preds = %229, %207
@@ -1303,7 +1303,7 @@ define internal void @rv40_loop_filter(ptr noundef readonly captures(none) %0, i
   %234 = select i1 %.not263.not, i32 %233, i32 %228
   %235 = and i32 %234, -49
   %simplifycfg.merge = select i1 %brmerge, i32 %235, i32 %234
-  store i32 %simplifycfg.merge, ptr %indvars.iv363.sroa.phi390, align 4, !tbaa !71
+  store i32 %simplifycfg.merge, ptr %indvars.iv363.sroa.phi396, align 4, !tbaa !71
   br label %236
 
 236:                                              ; preds = %231, %232
@@ -1630,13 +1630,13 @@ rv40_adaptive_loop_filter.exit313:                ; preds = %383, %387, %389, %3
 .preheader:                                       ; preds = %.preheader338, %569
   %400 = phi i1 [ true, %.preheader338 ], [ false, %569 ]
   %indvars.iv373.sroa.phi = phi ptr [ %.sroa.0, %.preheader338 ], [ %.sroa.4, %569 ]
-  %indvars.iv373.sroa.phi392 = phi ptr [ %.sroa.0394, %.preheader338 ], [ %.sroa.4395, %569 ]
   %indvars.iv373.sroa.phi398 = phi ptr [ %.sroa.0400, %.preheader338 ], [ %.sroa.4401, %569 ]
+  %indvars.iv373.sroa.phi404 = phi ptr [ %.sroa.0406, %.preheader338 ], [ %.sroa.4407, %569 ]
   %indvars.iv373 = phi i64 [ 0, %.preheader338 ], [ 1, %569 ]
   %indvars.iv.next374 = add nuw nsw i64 %indvars.iv373, 1
   %401 = getelementptr inbounds nuw [3 x ptr], ptr %58, i64 0, i64 %indvars.iv.next374
   %402 = load i32, ptr %indvars.iv373.sroa.phi, align 4, !tbaa !71
-  %403 = load i32, ptr %indvars.iv373.sroa.phi392, align 4, !tbaa !71
+  %403 = load i32, ptr %indvars.iv373.sroa.phi398, align 4, !tbaa !71
   %404 = getelementptr inbounds nuw [2 x i32], ptr %75, i64 0, i64 %indvars.iv373
   %405 = getelementptr inbounds nuw [2 x i32], ptr %76, i64 0, i64 %indvars.iv373
   br label %406
@@ -1734,7 +1734,7 @@ rv40_adaptive_loop_filter.exit317:                ; preds = %445, %450, %452, %4
   br label %459
 
 459:                                              ; preds = %rv40_adaptive_loop_filter.exit317, %420
-  %460 = load i32, ptr %indvars.iv373.sroa.phi398, align 4, !tbaa !71
+  %460 = load i32, ptr %indvars.iv373.sroa.phi404, align 4, !tbaa !71
   %461 = and i32 %460, %423
   %.not268 = icmp eq i32 %461, 0
   br i1 %.not268, label %500, label %462
@@ -1963,10 +1963,10 @@ rv40_adaptive_loop_filter.exit329:                ; preds = %553, %557, %559, %5
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.4)
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0394)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.4395)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0400)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.4401)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0406)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.4407)
   %indvars.iv.next379 = add nuw nsw i64 %indvars.iv378, 1
   %indvars.iv.next377 = add nsw i64 %indvars.iv376, 1
   %571 = load i32, ptr %27, align 4, !tbaa !97

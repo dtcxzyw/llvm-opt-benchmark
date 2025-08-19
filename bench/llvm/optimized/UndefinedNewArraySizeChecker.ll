@@ -855,8 +855,8 @@ _ZNK5clang4ento16CXXAllocatorCall16getArraySizeExprEv.exit.i: ; preds = %28, %21
   %52 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %53 = load ptr, ptr %52, align 8, !tbaa !88
   %54 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %.0.copyload.i.i.i.i6.i.i.i = load i64, ptr %54, align 8
-  %55 = and i64 %.0.copyload.i.i.i.i6.i.i.i, -8
+  %.0.copyload.i.i.i.i7.i.i.i = load i64, ptr %54, align 8
+  %55 = and i64 %.0.copyload.i.i.i.i7.i.i.i, -8
   %56 = inttoptr i64 %55 to ptr
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %57 = getelementptr inbounds nuw i8, ptr %53, i64 56

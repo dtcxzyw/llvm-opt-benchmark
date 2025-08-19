@@ -745,7 +745,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @check_overlay_src(ptr noun
 
 10:                                               ; preds = %9, %8, %3, %3
   %11 = phi i1 [ true, %9 ], [ false, %8 ], [ false, %3 ], [ false, %3 ]
-  %.rhs.trunc11 = phi i16 [ -22, %9 ], [ 4, %8 ], [ 2, %3 ], [ 2, %3 ]
+  %.rhs.trunc17 = phi i16 [ -22, %9 ], [ 4, %8 ], [ 2, %3 ], [ 2, %3 ]
   switch i32 %7, label %13 [
     i32 2, label %14
     i32 3, label %14
@@ -830,9 +830,9 @@ define internal fastcc noundef range(i32 -22, 1) i32 @check_overlay_src(ptr noun
   br i1 %52, label %132, label %53
 
 53:                                               ; preds = %51, %43
-  %54 = srem i16 %37, %.rhs.trunc11
-  %55 = sdiv i16 %37, %.rhs.trunc11
-  %.sext12 = sext i16 %55 to i32
+  %54 = srem i16 %37, %.rhs.trunc17
+  %55 = sdiv i16 %37, %.rhs.trunc17
+  %.sext18 = sext i16 %55 to i32
   %56 = icmp eq i16 %54, 0
   br i1 %56, label %57, label %132
 
@@ -899,7 +899,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @check_overlay_src(ptr noun
 
 103:                                              ; preds = %86
   %104 = icmp ugt i16 %37, %63
-  %105 = icmp sgt i32 %.sext12, %70
+  %105 = icmp sgt i32 %.sext18, %70
   %106 = or i1 %104, %105
   br i1 %106, label %132, label %107
 

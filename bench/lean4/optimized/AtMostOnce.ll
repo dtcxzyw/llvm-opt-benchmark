@@ -1261,18 +1261,18 @@ _init_l_Lean_Compiler_atMostOnce___closed__1.exit: ; preds = %_init_l_Lean_Compi
   unreachable
 
 .sink.split:                                      ; preds = %_init_l_Lean_Compiler_atMostOnce___closed__1.exit, %3
-  %.sink9 = phi ptr [ %4, %3 ], [ %33, %_init_l_Lean_Compiler_atMostOnce___closed__1.exit ]
-  %36 = getelementptr inbounds nuw i8, ptr %.sink9, i64 4
-  store i32 1, ptr %.sink9, align 4, !tbaa !7
+  %.sink15 = phi ptr [ %4, %3 ], [ %33, %_init_l_Lean_Compiler_atMostOnce___closed__1.exit ]
+  %36 = getelementptr inbounds nuw i8, ptr %.sink15, i64 4
+  store i32 1, ptr %.sink15, align 4, !tbaa !7
   store i32 131096, ptr %36, align 4
-  %37 = getelementptr inbounds nuw i8, ptr %.sink9, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %.sink15, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %37, align 8, !tbaa !14
-  %38 = getelementptr inbounds nuw i8, ptr %.sink9, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %.sink15, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %38, align 8, !tbaa !14
   br label %39
 
 39:                                               ; preds = %.sink.split, %7
-  %.0 = phi ptr [ %8, %7 ], [ %.sink9, %.sink.split ]
+  %.0 = phi ptr [ %8, %7 ], [ %.sink15, %.sink.split ]
   ret ptr %.0
 }
 

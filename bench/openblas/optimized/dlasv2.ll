@@ -59,11 +59,11 @@ define void @dlasv2_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   store double %storemerge, ptr %3, align 8, !tbaa !3
   %37 = fdiv double %.0167, %21
   %38 = fdiv double %.0169, %21
-  %.0159..0157220 = select i1 %18, double %38, double %37
-  %.0157..0159221 = select i1 %18, double %37, double %38
+  %.0159..0157230 = select i1 %18, double %38, double %37
+  %.0157..0159231 = select i1 %18, double %37, double %38
   store double 1.000000e+00, ptr %8, align 8, !tbaa !3
-  store double %.0159..0157220, ptr %7, align 8, !tbaa !3
-  store double %.0157..0159221, ptr %6, align 8, !tbaa !3
+  store double %.0159..0157230, ptr %7, align 8, !tbaa !3
+  store double %.0157..0159231, ptr %6, align 8, !tbaa !3
   store double 1.000000e+00, ptr %5, align 8, !tbaa !3
   br label %.thread208
 
@@ -174,11 +174,11 @@ define void @dlasv2_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   br label %.thread208
 
 .thread208:                                       ; preds = %90, %.thread, %.thread205, %92
-  %.0161..0223.sink = phi double [ %91, %.thread205 ], [ %.0161..0, %92 ], [ 1.000000e+00, %.thread ], [ %.0161..0, %90 ]
-  %.sink234 = phi ptr [ %8, %.thread205 ], [ %7, %92 ], [ %8, %.thread ], [ %8, %90 ]
+  %.0161..0233.sink = phi double [ %91, %.thread205 ], [ %.0161..0, %92 ], [ 1.000000e+00, %.thread ], [ %.0161..0, %90 ]
+  %.sink244 = phi ptr [ %8, %.thread205 ], [ %7, %92 ], [ %8, %.thread ], [ %8, %90 ]
   %.sink = phi ptr [ %0, %.thread205 ], [ %2, %92 ], [ %1, %.thread ], [ %1, %90 ]
-  %93 = fcmp ult double %.0161..0223.sink, 0.000000e+00
-  %94 = load double, ptr %.sink234, align 8, !tbaa !3
+  %93 = fcmp ult double %.0161..0233.sink, 0.000000e+00
+  %94 = load double, ptr %.sink244, align 8, !tbaa !3
   %95 = fcmp ult double %94, 0.000000e+00
   %96 = select i1 %95, double -1.000000e+00, double 1.000000e+00
   %97 = fneg double %96

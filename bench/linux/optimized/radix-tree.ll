@@ -904,7 +904,7 @@ define internal fastcc noundef zeroext i1 @delete_node(ptr noundef %0, ptr nound
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 2
   %24 = load i8, ptr %23, align 2
   %25 = icmp eq i8 %24, 1
-  br i1 %25, label %.lr.ph25, label %._crit_edge11
+  br i1 %25, label %.lr.ph26, label %._crit_edge11
 
 .lr.ph10:                                         ; preds = %70
   %26 = and i64 %72, -4
@@ -912,9 +912,9 @@ define internal fastcc noundef zeroext i1 @delete_node(ptr noundef %0, ptr nound
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 2
   %29 = load i8, ptr %28, align 2
   %30 = icmp eq i8 %29, 1
-  br i1 %30, label %.lr.ph25, label %._crit_edge11
+  br i1 %30, label %.lr.ph26, label %._crit_edge11
 
-.lr.ph25:                                         ; preds = %.lr.ph10.preheader, %.lr.ph10
+.lr.ph26:                                         ; preds = %.lr.ph10.preheader, %.lr.ph10
   %31 = phi ptr [ %28, %.lr.ph10 ], [ %23, %.lr.ph10.preheader ]
   %32 = phi ptr [ %27, %.lr.ph10 ], [ %22, %.lr.ph10.preheader ]
   %33 = phi i8 [ 1, %.lr.ph10 ], [ 0, %.lr.ph10.preheader ]
@@ -923,7 +923,7 @@ define internal fastcc noundef zeroext i1 @delete_node(ptr noundef %0, ptr nound
   %36 = icmp eq ptr %35, null
   br i1 %36, label %._crit_edge11, label %37
 
-37:                                               ; preds = %.lr.ph25
+37:                                               ; preds = %.lr.ph26
   %38 = load i8, ptr %32, align 8
   %39 = icmp eq i8 %38, 0
   br i1 %39, label %40, label %44
@@ -1045,8 +1045,8 @@ define internal fastcc noundef zeroext i1 @delete_node(ptr noundef %0, ptr nound
   tail call void @call_rcu(ptr noundef nonnull %96, ptr noundef nonnull @radix_tree_node_rcu_free) #13
   br i1 %78, label %.loopexit, label %8, !llvm.loop !51
 
-._crit_edge11:                                    ; preds = %40, %.lr.ph25, %.lr.ph10, %70, %.lr.ph10.preheader, %.preheader
-  %.lcssa = phi i8 [ 0, %.preheader ], [ 0, %.lr.ph10.preheader ], [ 1, %70 ], [ 1, %.lr.ph10 ], [ %33, %.lr.ph25 ], [ %33, %40 ]
+._crit_edge11:                                    ; preds = %40, %.lr.ph26, %.lr.ph10, %70, %.lr.ph10.preheader, %.preheader
+  %.lcssa = phi i8 [ 0, %.preheader ], [ 0, %.lr.ph10.preheader ], [ 1, %70 ], [ 1, %.lr.ph10 ], [ %33, %.lr.ph26 ], [ %33, %40 ]
   %100 = or i8 %.lcssa, %.lcssa7
   %101 = icmp ne i8 %100, 0
   br label %.loopexit
@@ -1868,13 +1868,13 @@ define dso_local i32 @radix_tree_gang_lookup(ptr noundef %0, ptr noundef writeon
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 16
   br label %11
 
-.loopexit6:                                       ; preds = %45, %39
+.loopexit11:                                      ; preds = %45, %39
   %.ph = phi ptr [ null, %39 ], [ %46, %45 ]
   br label %11
 
-11:                                               ; preds = %.loopexit6, %7
-  %12 = phi i32 [ 0, %7 ], [ %34, %.loopexit6 ]
-  %13 = phi ptr [ null, %7 ], [ %.ph, %.loopexit6 ]
+11:                                               ; preds = %.loopexit11, %7
+  %12 = phi i32 [ 0, %7 ], [ %34, %.loopexit11 ]
+  %13 = phi ptr [ null, %7 ], [ %.ph, %.loopexit11 ]
   %14 = icmp eq ptr %13, null
   br i1 %14, label %15, label %18
 
@@ -1923,7 +1923,7 @@ define dso_local i32 @radix_tree_gang_lookup(ptr noundef %0, ptr noundef writeon
   %42 = phi i64 [ %38, %33 ], [ %43, %45 ]
   %43 = add i64 %42, -1
   %44 = icmp slt i64 %43, 1
-  br i1 %44, label %.loopexit6, label %45, !llvm.loop !71
+  br i1 %44, label %.loopexit11, label %45, !llvm.loop !71
 
 45:                                               ; preds = %39
   %46 = getelementptr i8, ptr %41, i64 8
@@ -1931,7 +1931,7 @@ define dso_local i32 @radix_tree_gang_lookup(ptr noundef %0, ptr noundef writeon
   store i64 %47, ptr %5, align 8
   %48 = load ptr, ptr %46, align 8
   %49 = icmp eq ptr %48, null
-  br i1 %49, label %39, label %.loopexit6, !prof !6, !llvm.loop !71
+  br i1 %49, label %39, label %.loopexit11, !prof !6, !llvm.loop !71
 
 .loopexit:                                        ; preds = %30, %15, %4
   %50 = phi i32 [ 0, %4 ], [ %12, %15 ], [ %3, %30 ]
@@ -1959,14 +1959,14 @@ define dso_local i32 @radix_tree_gang_lookup_tag(ptr noundef %0, ptr noundef wri
   br i1 %14, label %.split.us.outer, label %.split.outer
 
 .split.us.outer:                                  ; preds = %8, %.split.us.outer.backedge
-  %.ph18 = phi i32 [ %.ph.us, %.split.us.outer.backedge ], [ 0, %8 ]
-  %.ph19 = phi ptr [ %.ph19.be, %.split.us.outer.backedge ], [ null, %8 ]
-  %15 = zext i32 %.ph18 to i64
+  %.ph26 = phi i32 [ %.ph.us, %.split.us.outer.backedge ], [ 0, %8 ]
+  %.ph27 = phi ptr [ %.ph27.be, %.split.us.outer.backedge ], [ null, %8 ]
+  %15 = zext i32 %.ph26 to i64
   %16 = getelementptr ptr, ptr %1, i64 %15
   br label %.split.us
 
 .split.us:                                        ; preds = %.split.us.outer, %.thread.us
-  %17 = phi ptr [ null, %.thread.us ], [ %.ph19, %.split.us.outer ]
+  %17 = phi ptr [ null, %.thread.us ], [ %.ph27, %.split.us.outer ]
   %18 = icmp eq ptr %17, null
   br i1 %18, label %19, label %22
 
@@ -1980,7 +1980,7 @@ define dso_local i32 @radix_tree_gang_lookup_tag(ptr noundef %0, ptr noundef wri
   %24 = load volatile ptr, ptr %23, align 8
   store ptr %24, ptr %16, align 8
   %25 = icmp eq ptr %24, null
-  br i1 %25, label %.loopexit20, label %26
+  br i1 %25, label %.loopexit28, label %26
 
 26:                                               ; preds = %22
   %27 = ptrtoint ptr %24 to i64
@@ -1989,9 +1989,9 @@ define dso_local i32 @radix_tree_gang_lookup_tag(ptr noundef %0, ptr noundef wri
   br i1 %29, label %.thread.us, label %30
 
 30:                                               ; preds = %26
-  %31 = add i32 %.ph18, 1
+  %31 = add i32 %.ph26, 1
   %32 = icmp eq i32 %31, %3
-  br i1 %32, label %.loopexit, label %.loopexit20
+  br i1 %32, label %.loopexit, label %.loopexit28
 
 .thread.us:                                       ; preds = %26
   %33 = load i64, ptr %6, align 8
@@ -1999,19 +1999,19 @@ define dso_local i32 @radix_tree_gang_lookup_tag(ptr noundef %0, ptr noundef wri
   store i64 0, ptr %12, align 8
   br label %.split.us, !llvm.loop !72
 
-.loopexit20:                                      ; preds = %22, %30
-  %.ph.us = phi i32 [ %31, %30 ], [ %.ph18, %22 ]
+.loopexit28:                                      ; preds = %22, %30
+  %.ph.us = phi i32 [ %31, %30 ], [ %.ph26, %22 ]
   %.pr.us = load i64, ptr %12, align 8
   %34 = lshr i64 %.pr.us, 1
   store i64 %34, ptr %12, align 8
   %35 = icmp ult i64 %.pr.us, 2
   br i1 %35, label %.split.us.outer.backedge, label %36, !prof !73
 
-.split.us.outer.backedge:                         ; preds = %.loopexit20, %39, %43
-  %.ph19.be = phi ptr [ %51, %43 ], [ %42, %39 ], [ null, %.loopexit20 ]
+.split.us.outer.backedge:                         ; preds = %.loopexit28, %39, %43
+  %.ph27.be = phi ptr [ %51, %43 ], [ %42, %39 ], [ null, %.loopexit28 ]
   br label %.split.us.outer, !llvm.loop !72
 
-36:                                               ; preds = %.loopexit20
+36:                                               ; preds = %.loopexit28
   %37 = and i64 %.pr.us, 2
   %38 = icmp eq i64 %37, 0
   br i1 %38, label %43, label %39, !prof !6
@@ -2037,7 +2037,7 @@ define dso_local i32 @radix_tree_gang_lookup_tag(ptr noundef %0, ptr noundef wri
   br label %.split.us.outer.backedge
 
 .split:                                           ; preds = %.split.outer, %.thread
-  %52 = phi ptr [ null, %.thread ], [ %.ph27, %.split.outer ]
+  %52 = phi ptr [ null, %.thread ], [ %.ph35, %.split.outer ]
   %53 = icmp eq ptr %52, null
   br i1 %53, label %54, label %57
 
@@ -2051,7 +2051,7 @@ define dso_local i32 @radix_tree_gang_lookup_tag(ptr noundef %0, ptr noundef wri
   %59 = load volatile ptr, ptr %58, align 8
   store ptr %59, ptr %73, align 8
   %60 = icmp eq ptr %59, null
-  br i1 %60, label %.loopexit28, label %61
+  br i1 %60, label %.loopexit36, label %61
 
 61:                                               ; preds = %57
   %62 = ptrtoint ptr %59 to i64
@@ -2066,12 +2066,12 @@ define dso_local i32 @radix_tree_gang_lookup_tag(ptr noundef %0, ptr noundef wri
   br label %.split, !llvm.loop !72
 
 66:                                               ; preds = %61
-  %67 = add i32 %.ph26, 1
+  %67 = add i32 %.ph34, 1
   %68 = icmp eq i32 %67, %3
-  br i1 %68, label %.loopexit, label %.loopexit28
+  br i1 %68, label %.loopexit, label %.loopexit36
 
-.loopexit28:                                      ; preds = %57, %66
-  %.ph = phi i32 [ %67, %66 ], [ %.ph26, %57 ]
+.loopexit36:                                      ; preds = %57, %66
+  %.ph = phi i32 [ %67, %66 ], [ %.ph34, %57 ]
   %.pr = load i64, ptr %12, align 8
   %69 = lshr i64 %.pr, 1
   store i64 %69, ptr %12, align 8
@@ -2079,18 +2079,18 @@ define dso_local i32 @radix_tree_gang_lookup_tag(ptr noundef %0, ptr noundef wri
   %71 = icmp eq i64 %70, 0
   br i1 %71, label %.split.outer.backedge, label %74, !prof !74
 
-.split.outer.backedge:                            ; preds = %.loopexit28, %74
-  %.ph27.be = phi ptr [ %77, %74 ], [ null, %.loopexit28 ]
+.split.outer.backedge:                            ; preds = %.loopexit36, %74
+  %.ph35.be = phi ptr [ %77, %74 ], [ null, %.loopexit36 ]
   br label %.split.outer, !llvm.loop !72
 
 .split.outer:                                     ; preds = %8, %.split.outer.backedge
-  %.ph26 = phi i32 [ %.ph, %.split.outer.backedge ], [ 0, %8 ]
-  %.ph27 = phi ptr [ %.ph27.be, %.split.outer.backedge ], [ null, %8 ]
-  %72 = zext i32 %.ph26 to i64
+  %.ph34 = phi i32 [ %.ph, %.split.outer.backedge ], [ 0, %8 ]
+  %.ph35 = phi ptr [ %.ph35.be, %.split.outer.backedge ], [ null, %8 ]
+  %72 = zext i32 %.ph34 to i64
   %73 = getelementptr ptr, ptr %1, i64 %72
   br label %.split
 
-74:                                               ; preds = %.loopexit28
+74:                                               ; preds = %.loopexit36
   %75 = load i64, ptr %6, align 8
   %76 = add i64 %75, 1
   store i64 %76, ptr %6, align 8
@@ -2098,7 +2098,7 @@ define dso_local i32 @radix_tree_gang_lookup_tag(ptr noundef %0, ptr noundef wri
   br label %.split.outer.backedge
 
 .loopexit:                                        ; preds = %54, %66, %19, %30, %5
-  %78 = phi i32 [ 0, %5 ], [ %.ph18, %19 ], [ %3, %30 ], [ %.ph26, %54 ], [ %3, %66 ]
+  %78 = phi i32 [ 0, %5 ], [ %.ph26, %19 ], [ %3, %30 ], [ %.ph34, %54 ], [ %3, %66 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %78
 }
@@ -2180,7 +2180,7 @@ define dso_local i32 @radix_tree_gang_lookup_tag_slot(ptr noundef %0, ptr nounde
 
 .split:                                           ; preds = %8, %.split.backedge
   %47 = phi i64 [ %56, %.split.backedge ], [ 0, %8 ]
-  %48 = phi ptr [ %.be28, %.split.backedge ], [ null, %8 ]
+  %48 = phi ptr [ %.be35, %.split.backedge ], [ null, %8 ]
   %49 = icmp eq ptr %48, null
   br i1 %49, label %50, label %53
 
@@ -2213,7 +2213,7 @@ define dso_local i32 @radix_tree_gang_lookup_tag_slot(ptr noundef %0, ptr nounde
   br label %.split.backedge
 
 .split.backedge:                                  ; preds = %63, %58
-  %.be28 = phi ptr [ %66, %63 ], [ null, %58 ]
+  %.be35 = phi ptr [ %66, %63 ], [ null, %58 ]
   br label %.split, !llvm.loop !75
 
 .split7.us:                                       ; preds = %50, %19

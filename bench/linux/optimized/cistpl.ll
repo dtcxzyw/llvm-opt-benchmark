@@ -224,8 +224,8 @@ define dso_local noundef range(i32 -1, 1) i32 @pcmcia_read_cis_mem(ptr noundef %
   br i1 %91, label %.thread, label %59, !llvm.loop !11
 
 .thread.sink.split:                               ; preds = %59, %41, %8
-  %.sink18 = phi i32 [ %3, %8 ], [ %3, %41 ], [ %62, %59 ]
-  %92 = zext i32 %.sink18 to i64
+  %.sink24 = phi i32 [ %3, %8 ], [ %3, %41 ], [ %62, %59 ]
+  %92 = zext i32 %.sink24 to i64
   tail call void @llvm.memset.p0.i64(ptr align 1 %4, i8 -1, i64 %92, i1 false)
   br label %.thread
 
@@ -2294,7 +2294,7 @@ define dso_local range(i32 -22, 1) i32 @pcmcia_parse_tuple(ptr noundef readonly 
   %650 = phi ptr [ %645, %644 ], [ %625, %647 ]
   %651 = lshr i32 %416, 5
   %652 = and i32 %651, 3
-  switch i32 %652, label %default.unreachable225 [
+  switch i32 %652, label %default.unreachable292 [
     i32 0, label %653
     i32 1, label %655
     i32 2, label %665
@@ -2482,7 +2482,7 @@ define dso_local range(i32 -22, 1) i32 @pcmcia_parse_tuple(ptr noundef readonly 
   %778 = icmp eq ptr %770, null
   br i1 %778, label %.thread67, label %779
 
-default.unreachable225:                           ; preds = %649
+default.unreachable292:                           ; preds = %649
   unreachable
 
 779:                                              ; preds = %777, %665, %655, %653

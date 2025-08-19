@@ -1901,10 +1901,10 @@ define void @dt_colorspaces_get_profile_name(ptr noundef %0, ptr noundef %1, ptr
 32:                                               ; preds = %29, %31, %27
   %.04157.sink = phi ptr [ %11, %27 ], [ null, %31 ], [ %11, %29 ]
   %.03959.sink = phi ptr [ %.140, %27 ], [ null, %31 ], [ %.039.ph, %29 ]
-  %.sink61 = phi ptr [ %.1, %27 ], [ null, %31 ], [ null, %29 ]
+  %.sink65 = phi ptr [ %.1, %27 ], [ null, %31 ], [ null, %29 ]
   tail call void @free(ptr noundef %.04157.sink) #23
   tail call void @free(ptr noundef %.03959.sink) #23
-  tail call void @g_free(ptr noundef %.sink61) #23
+  tail call void @g_free(ptr noundef %.sink65) #23
   ret void
 }
 

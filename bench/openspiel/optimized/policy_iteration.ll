@@ -887,13 +887,13 @@ _ZNSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS1_EED2Ev.exit45.i.i: ;
   br label %common.resume.sink.split.i
 
 common.resume.sink.split.i:                       ; preds = %349, %324
-  %.sink49.i = phi ptr [ %350, %349 ], [ %325, %324 ]
-  %.sink48.i = phi ptr [ %348, %349 ], [ %323, %324 ]
+  %.sink83.i = phi ptr [ %350, %349 ], [ %325, %324 ]
+  %.sink82.i = phi ptr [ %348, %349 ], [ %323, %324 ]
   %common.resume.op.ph.i = phi { ptr, i32 } [ %347, %349 ], [ %.pn.pn.pn.pn.i.i, %324 ]
-  %326 = ptrtoint ptr %.sink49.i to i64
-  %327 = ptrtoint ptr %.sink48.i to i64
+  %326 = ptrtoint ptr %.sink83.i to i64
+  %327 = ptrtoint ptr %.sink82.i to i64
   %328 = sub i64 %326, %327
-  call void @_ZdlPvm(ptr noundef nonnull %.sink48.i, i64 noundef %328) #23
+  call void @_ZdlPvm(ptr noundef nonnull %.sink82.i, i64 noundef %328) #23
   br label %.body
 
 _ZN10open_spiel10algorithms12_GLOBAL__N_113AddTransitionEPN4absl7debian213flat_hash_mapIlSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdESaISD_EENS3_13hash_internal4HashIlEESt8equal_toIlESaIS6_IKlSF_EEEERKSC_RKSt10unique_ptrINS_5StateESt14default_deleteIST_EE.exit.i: ; preds = %117, %._crit_edge20.i.i
@@ -1089,7 +1089,7 @@ _ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyINSt7_
   %408 = getelementptr inbounds nuw i8, ptr %368, i64 %407
   %409 = load i8, ptr %408, align 1
   %410 = add nsw i64 %369, -1
-  %411 = getelementptr inbounds i8, ptr %368, i64 %410
+  %411 = getelementptr inbounds nuw i8, ptr %368, i64 %410
   %412 = load i8, ptr %411, align 1
   %413 = zext i8 %406 to i32
   %414 = zext i8 %409 to i32
@@ -1218,7 +1218,7 @@ _ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyINSt7_
   %488 = getelementptr inbounds nuw i8, ptr %448, i64 %487
   %489 = load i8, ptr %488, align 1
   %490 = add nsw i64 %449, -1
-  %491 = getelementptr inbounds i8, ptr %448, i64 %490
+  %491 = getelementptr inbounds nuw i8, ptr %448, i64 %490
   %492 = load i8, ptr %491, align 1
   %493 = zext i8 %486 to i32
   %494 = zext i8 %489 to i32
@@ -1521,7 +1521,7 @@ _ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyINSt7_
   %636 = getelementptr inbounds nuw i8, ptr %596, i64 %635
   %637 = load i8, ptr %636, align 1
   %638 = add nsw i64 %597, -1
-  %639 = getelementptr inbounds i8, ptr %596, i64 %638
+  %639 = getelementptr inbounds nuw i8, ptr %596, i64 %638
   %640 = load i8, ptr %639, align 1
   %641 = zext i8 %634 to i32
   %642 = zext i8 %637 to i32
@@ -1644,7 +1644,7 @@ _ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyINSt7_
   %712 = getelementptr inbounds nuw i8, ptr %672, i64 %711
   %713 = load i8, ptr %712, align 1
   %714 = add nsw i64 %673, -1
-  %715 = getelementptr inbounds i8, ptr %672, i64 %714
+  %715 = getelementptr inbounds nuw i8, ptr %672, i64 %714
   %716 = load i8, ptr %715, align 1
   %717 = zext i8 %710 to i32
   %718 = zext i8 %713 to i32
@@ -4383,7 +4383,7 @@ define linkonce_odr noundef i64 @_ZN4absl7debian213hash_internal9HashState21Comb
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 %39
   %41 = load i8, ptr %40, align 1
   %42 = add nsw i64 %2, -1
-  %43 = getelementptr inbounds i8, ptr %1, i64 %42
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 %42
   %44 = load i8, ptr %43, align 1
   %45 = zext i8 %38 to i32
   %46 = zext i8 %41 to i32

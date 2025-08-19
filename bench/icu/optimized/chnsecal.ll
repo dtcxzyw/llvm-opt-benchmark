@@ -481,9 +481,9 @@ define internal fastcc noundef i32 @_ZN6icu_7712_GLOBAL__N_111newMoonNearEPKNS_8
   call void %18(ptr noundef nonnull align 8 dereferenceable(72) %0, double noundef %14, i8 noundef signext 0, ptr noundef nonnull align 4 dereferenceable(4) %7, ptr noundef nonnull align 4 dereferenceable(4) %8, ptr noundef nonnull align 4 dereferenceable(4) %3)
   %19 = load i32, ptr %3, align 4, !tbaa !21
   %20 = icmp slt i32 %19, 1
-  br i1 %20, label %_ZN6icu_7712_GLOBAL__N_112daysToMillisEPKNS_8TimeZoneEdR10UErrorCode.exit.thread18, label %_ZN6icu_7712_GLOBAL__N_112daysToMillisEPKNS_8TimeZoneEdR10UErrorCode.exit
+  br i1 %20, label %_ZN6icu_7712_GLOBAL__N_112daysToMillisEPKNS_8TimeZoneEdR10UErrorCode.exit.thread20, label %_ZN6icu_7712_GLOBAL__N_112daysToMillisEPKNS_8TimeZoneEdR10UErrorCode.exit
 
-_ZN6icu_7712_GLOBAL__N_112daysToMillisEPKNS_8TimeZoneEdR10UErrorCode.exit.thread18: ; preds = %15
+_ZN6icu_7712_GLOBAL__N_112daysToMillisEPKNS_8TimeZoneEdR10UErrorCode.exit.thread20: ; preds = %15
   %21 = load i32, ptr %7, align 4, !tbaa !20
   %22 = load i32, ptr %8, align 4, !tbaa !20
   %23 = add nsw i32 %22, %21
@@ -502,10 +502,10 @@ _ZN6icu_7712_GLOBAL__N_112daysToMillisEPKNS_8TimeZoneEdR10UErrorCode.exit: ; pre
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %56
 
-27:                                               ; preds = %_ZN6icu_7712_GLOBAL__N_112daysToMillisEPKNS_8TimeZoneEdR10UErrorCode.exit.thread18, %_ZN6icu_7712_GLOBAL__N_112daysToMillisEPKNS_8TimeZoneEdR10UErrorCode.exit.thread
-  %.0.i17 = phi double [ %26, %_ZN6icu_7712_GLOBAL__N_112daysToMillisEPKNS_8TimeZoneEdR10UErrorCode.exit.thread ], [ %25, %_ZN6icu_7712_GLOBAL__N_112daysToMillisEPKNS_8TimeZoneEdR10UErrorCode.exit.thread18 ]
+27:                                               ; preds = %_ZN6icu_7712_GLOBAL__N_112daysToMillisEPKNS_8TimeZoneEdR10UErrorCode.exit.thread20, %_ZN6icu_7712_GLOBAL__N_112daysToMillisEPKNS_8TimeZoneEdR10UErrorCode.exit.thread
+  %.0.i19 = phi double [ %26, %_ZN6icu_7712_GLOBAL__N_112daysToMillisEPKNS_8TimeZoneEdR10UErrorCode.exit.thread ], [ %25, %_ZN6icu_7712_GLOBAL__N_112daysToMillisEPKNS_8TimeZoneEdR10UErrorCode.exit.thread20 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  call void @_ZN6icu_7718CalendarAstronomerC1Ed(ptr noundef nonnull align 8 dereferenceable(57) %9, double noundef %.0.i17)
+  call void @_ZN6icu_7718CalendarAstronomerC1Ed(ptr noundef nonnull align 8 dereferenceable(57) %9, double noundef %.0.i19)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %28 = invoke double @_ZN6icu_7718CalendarAstronomer8NEW_MOONEv()
           to label %29 unwind label %54
@@ -786,7 +786,7 @@ define internal fastcc { i64, i64 } @_ZN6icu_7712_GLOBAL__N_116computeMonthInfoE
 
 67:                                               ; preds = %62, %60
   %.0 = phi i32 [ %64, %62 ], [ %57, %60 ]
-  br i1 %49, label %68, label %.thread100
+  br i1 %49, label %68, label %.thread104
 
 68:                                               ; preds = %67
   %69 = tail call fastcc noundef signext i8 @_ZN6icu_7712_GLOBAL__N_118isLeapMonthBetweenEPKNS_8TimeZoneEiiR10UErrorCode(ptr noundef %25, i32 noundef %28, i32 noundef %37, ptr noundef nonnull align 4 dereferenceable(4) %3)
@@ -795,13 +795,13 @@ define internal fastcc { i64, i64 } @_ZN6icu_7712_GLOBAL__N_116computeMonthInfoE
   %spec.select = add nsw i32 %70, %56
   %.pre99 = load i32, ptr %3, align 4, !tbaa !21
   %71 = icmp slt i32 %.pre99, 1
-  br i1 %71, label %.thread100, label %96
+  br i1 %71, label %.thread104, label %96
 
-.thread100:                                       ; preds = %67, %68
-  %.sroa.0.sroa.0.4102 = phi i32 [ %spec.select, %68 ], [ %56, %67 ]
-  %72 = icmp slt i32 %.sroa.0.sroa.0.4102, 1
-  %73 = add nsw i32 %.sroa.0.sroa.0.4102, 12
-  %spec.select98 = select i1 %72, i32 %73, i32 %.sroa.0.sroa.0.4102
+.thread104:                                       ; preds = %67, %68
+  %.sroa.0.sroa.0.4106 = phi i32 [ %spec.select, %68 ], [ %56, %67 ]
+  %72 = icmp slt i32 %.sroa.0.sroa.0.4106, 1
+  %73 = add nsw i32 %.sroa.0.sroa.0.4106, 12
+  %spec.select98 = select i1 %72, i32 %73, i32 %.sroa.0.sroa.0.4106
   %74 = sub nsw i32 %37, %.0
   %75 = sitofp i32 %74 to double
   %76 = fdiv double %75, %43
@@ -814,7 +814,7 @@ define internal fastcc { i64, i64 } @_ZN6icu_7712_GLOBAL__N_116computeMonthInfoE
   %.sroa.0.sroa.8.4 = select i1 %81, i32 %82, i32 %80
   br i1 %49, label %83, label %93
 
-83:                                               ; preds = %.thread100
+83:                                               ; preds = %.thread104
   %84 = tail call fastcc noundef signext i8 @_ZN6icu_7712_GLOBAL__N_119hasNoMajorSolarTermEPKNS_8TimeZoneEiR10UErrorCode(ptr noundef %25, i32 noundef %37, ptr noundef nonnull align 4 dereferenceable(4) %3)
   %.not96 = icmp eq i8 %84, 0
   br i1 %.not96, label %93, label %85
@@ -829,8 +829,8 @@ define internal fastcc { i64, i64 } @_ZN6icu_7712_GLOBAL__N_116computeMonthInfoE
   %92 = shl nuw nsw i64 %91, 32
   br label %93
 
-93:                                               ; preds = %85, %83, %.thread100
-  %.sroa.12.12.insert.ext = phi i64 [ 0, %83 ], [ 0, %.thread100 ], [ %92, %85 ]
+93:                                               ; preds = %85, %83, %.thread104
+  %.sroa.12.12.insert.ext = phi i64 [ 0, %83 ], [ 0, %.thread104 ], [ %92, %85 ]
   %.sroa.12.12.insert.insert = or i64 %.sroa.12.12.insert.ext, %.sroa.12.13.insert.insert
   %94 = zext i32 %.sroa.0.sroa.8.4 to i64
   %95 = shl nuw i64 %94, 32
@@ -948,7 +948,7 @@ define void @_ZN6icu_7715ChineseCalendar4rollE19UCalendarDateFieldsiR10UErrorCod
   %.not29 = icmp eq i8 %22, 0
   %23 = add i32 %12, -2440587
   %24 = sub i32 %23, %14
-  br i1 %.not29, label %.loopexit.thread45.i, label %25
+  br i1 %.not29, label %.loopexit.thread47.i, label %25
 
 25:                                               ; preds = %18
   %26 = icmp eq i32 %15, 1
@@ -956,7 +956,7 @@ define void @_ZN6icu_7715ChineseCalendar4rollE19UCalendarDateFieldsiR10UErrorCod
 
 27:                                               ; preds = %25
   %28 = add nsw i32 %13, 1
-  br label %.loopexit.thread45.i
+  br label %.loopexit.thread47.i
 
 29:                                               ; preds = %25
   %30 = load double, ptr @_ZN6icu_7718CalendarAstronomer13SYNODIC_MONTHE, align 8, !tbaa !30
@@ -974,7 +974,7 @@ define void @_ZN6icu_7715ChineseCalendar4rollE19UCalendarDateFieldsiR10UErrorCod
 .preheader.i.i:                                   ; preds = %29, %_ZN6icu_7712_GLOBAL__N_119hasNoMajorSolarTermEPKNS_8TimeZoneEiR10UErrorCode.exit.thread.i.i
   %.010.i.i = phi i32 [ %50, %_ZN6icu_7712_GLOBAL__N_119hasNoMajorSolarTermEPKNS_8TimeZoneEiR10UErrorCode.exit.thread.i.i ], [ %24, %29 ]
   %.not11.i.i = icmp slt i32 %.010.i.i, %37
-  br i1 %.not11.i.i, label %.loopexit.thread45.i, label %_ZN6icu_7712_GLOBAL__N_119hasNoMajorSolarTermEPKNS_8TimeZoneEiR10UErrorCode.exit.i.i
+  br i1 %.not11.i.i, label %.loopexit.thread47.i, label %_ZN6icu_7712_GLOBAL__N_119hasNoMajorSolarTermEPKNS_8TimeZoneEiR10UErrorCode.exit.i.i
 
 _ZN6icu_7712_GLOBAL__N_119hasNoMajorSolarTermEPKNS_8TimeZoneEiR10UErrorCode.exit.i.i: ; preds = %.preheader.i.i
   %40 = call fastcc noundef i32 @_ZN6icu_7712_GLOBAL__N_114majorSolarTermEPKNS_8TimeZoneEiR10UErrorCode(ptr noundef %20, i32 noundef %.010.i.i, ptr noundef nonnull align 4 dereferenceable(4) %3)
@@ -998,16 +998,16 @@ _ZN6icu_7712_GLOBAL__N_119hasNoMajorSolarTermEPKNS_8TimeZoneEiR10UErrorCode.exit
 
 .loopexit.thread.i:                               ; preds = %_ZN6icu_7712_GLOBAL__N_119hasNoMajorSolarTermEPKNS_8TimeZoneEiR10UErrorCode.exit.i.i
   %53 = add nsw i32 %13, 1
-  br label %.loopexit.thread45.i
+  br label %.loopexit.thread47.i
 
-.loopexit.thread45.i:                             ; preds = %.preheader.i.i, %.loopexit.thread.i, %27, %18
+.loopexit.thread47.i:                             ; preds = %.preheader.i.i, %.loopexit.thread.i, %27, %18
   %54 = phi i32 [ 13, %27 ], [ 12, %18 ], [ 13, %.loopexit.thread.i ], [ 13, %.preheader.i.i ]
   %.031.i = phi i32 [ %28, %27 ], [ %13, %18 ], [ %53, %.loopexit.thread.i ], [ %13, %.preheader.i.i ]
   %55 = call signext i8 @uprv_add32_overflow_77(i32 noundef range(i32 1, 0) %2, i32 noundef %.031.i, ptr noundef nonnull %5)
   %.not37.i = icmp eq i8 %55, 0
   br i1 %.not37.i, label %_ZN6icu_7712_GLOBAL__N_19rollMonthEPKNS_8TimeZoneEiiiibbR10UErrorCode.exit, label %56
 
-56:                                               ; preds = %.loopexit.thread45.i
+56:                                               ; preds = %.loopexit.thread47.i
   store i32 1, ptr %3, align 4, !tbaa !21
   br label %_ZN6icu_7712_GLOBAL__N_19rollMonthEPKNS_8TimeZoneEiiiibbR10UErrorCode.exit.thread
 
@@ -1015,7 +1015,7 @@ _ZN6icu_7712_GLOBAL__N_19rollMonthEPKNS_8TimeZoneEiiiibbR10UErrorCode.exit.threa
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %67
 
-_ZN6icu_7712_GLOBAL__N_19rollMonthEPKNS_8TimeZoneEiiiibbR10UErrorCode.exit: ; preds = %.loopexit.thread45.i
+_ZN6icu_7712_GLOBAL__N_19rollMonthEPKNS_8TimeZoneEiiiibbR10UErrorCode.exit: ; preds = %.loopexit.thread47.i
   %57 = load i32, ptr %5, align 4, !tbaa !20
   %58 = srem i32 %57, %54
   %59 = icmp slt i32 %58, 0
@@ -1141,13 +1141,13 @@ define void @_ZN6icu_7715ChineseCalendar19handleComputeFieldsEiR10UErrorCode(ptr
   br i1 %51, label %.thread, label %96
 
 .thread:                                          ; preds = %46, %49
-  %.03953 = phi i32 [ %50, %49 ], [ %43, %46 ]
+  %.03957 = phi i32 [ %50, %49 ], [ %43, %46 ]
   %52 = add nsw i32 %42, 1
   %53 = load i32, ptr %6, align 4, !tbaa !20
   %54 = add nsw i32 %53, 1
   store i32 %54, ptr %6, align 4, !tbaa !20
   %55 = load i32, ptr %4, align 4, !tbaa !20
-  %reass.sub51 = sub i32 %55, %.03953
+  %reass.sub51 = sub i32 %55, %.03957
   %56 = add i32 %reass.sub51, 1
   %57 = load ptr, ptr %0, align 8, !tbaa !3
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 296
@@ -2136,9 +2136,9 @@ define internal fastcc noundef range(i32 0, 13) i32 @_ZN6icu_7712_GLOBAL__N_114m
   call void %15(ptr noundef nonnull align 8 dereferenceable(72) %0, double noundef %11, i8 noundef signext 0, ptr noundef nonnull align 4 dereferenceable(4) %4, ptr noundef nonnull align 4 dereferenceable(4) %5, ptr noundef nonnull align 4 dereferenceable(4) %2)
   %16 = load i32, ptr %2, align 4, !tbaa !21
   %17 = icmp slt i32 %16, 1
-  br i1 %17, label %_ZN6icu_7712_GLOBAL__N_112daysToMillisEPKNS_8TimeZoneEdR10UErrorCode.exit.thread19, label %_ZN6icu_7712_GLOBAL__N_112daysToMillisEPKNS_8TimeZoneEdR10UErrorCode.exit
+  br i1 %17, label %_ZN6icu_7712_GLOBAL__N_112daysToMillisEPKNS_8TimeZoneEdR10UErrorCode.exit.thread21, label %_ZN6icu_7712_GLOBAL__N_112daysToMillisEPKNS_8TimeZoneEdR10UErrorCode.exit
 
-_ZN6icu_7712_GLOBAL__N_112daysToMillisEPKNS_8TimeZoneEdR10UErrorCode.exit.thread19: ; preds = %12
+_ZN6icu_7712_GLOBAL__N_112daysToMillisEPKNS_8TimeZoneEdR10UErrorCode.exit.thread21: ; preds = %12
   %18 = load i32, ptr %4, align 4, !tbaa !20
   %19 = load i32, ptr %5, align 4, !tbaa !20
   %20 = add nsw i32 %19, %18
@@ -2157,10 +2157,10 @@ _ZN6icu_7712_GLOBAL__N_112daysToMillisEPKNS_8TimeZoneEdR10UErrorCode.exit: ; pre
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %38
 
-24:                                               ; preds = %_ZN6icu_7712_GLOBAL__N_112daysToMillisEPKNS_8TimeZoneEdR10UErrorCode.exit.thread19, %_ZN6icu_7712_GLOBAL__N_112daysToMillisEPKNS_8TimeZoneEdR10UErrorCode.exit.thread
-  %.0.i18 = phi double [ %23, %_ZN6icu_7712_GLOBAL__N_112daysToMillisEPKNS_8TimeZoneEdR10UErrorCode.exit.thread ], [ %22, %_ZN6icu_7712_GLOBAL__N_112daysToMillisEPKNS_8TimeZoneEdR10UErrorCode.exit.thread19 ]
+24:                                               ; preds = %_ZN6icu_7712_GLOBAL__N_112daysToMillisEPKNS_8TimeZoneEdR10UErrorCode.exit.thread21, %_ZN6icu_7712_GLOBAL__N_112daysToMillisEPKNS_8TimeZoneEdR10UErrorCode.exit.thread
+  %.0.i20 = phi double [ %23, %_ZN6icu_7712_GLOBAL__N_112daysToMillisEPKNS_8TimeZoneEdR10UErrorCode.exit.thread ], [ %22, %_ZN6icu_7712_GLOBAL__N_112daysToMillisEPKNS_8TimeZoneEdR10UErrorCode.exit.thread21 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  call void @_ZN6icu_7718CalendarAstronomerC1Ed(ptr noundef nonnull align 8 dereferenceable(57) %6, double noundef %.0.i18)
+  call void @_ZN6icu_7718CalendarAstronomerC1Ed(ptr noundef nonnull align 8 dereferenceable(57) %6, double noundef %.0.i20)
   %25 = invoke noundef double @_ZN6icu_7718CalendarAstronomer15getSunLongitudeEv(ptr noundef nonnull align 8 dereferenceable(57) %6)
           to label %26 unwind label %36
 
@@ -2300,9 +2300,9 @@ define internal fastcc noundef i32 @_ZN6icu_7712_GLOBAL__N_114winterSolsticeERKN
   call void %29(ptr noundef nonnull align 8 dereferenceable(72) %11, double noundef %25, i8 noundef signext 0, ptr noundef nonnull align 4 dereferenceable(4) %4, ptr noundef nonnull align 4 dereferenceable(4) %5, ptr noundef nonnull align 4 dereferenceable(4) %2)
   %30 = load i32, ptr %2, align 4, !tbaa !21
   %31 = icmp slt i32 %30, 1
-  br i1 %31, label %_ZN6icu_7712_GLOBAL__N_112daysToMillisEPKNS_8TimeZoneEdR10UErrorCode.exit.thread46, label %_ZN6icu_7712_GLOBAL__N_112daysToMillisEPKNS_8TimeZoneEdR10UErrorCode.exit
+  br i1 %31, label %_ZN6icu_7712_GLOBAL__N_112daysToMillisEPKNS_8TimeZoneEdR10UErrorCode.exit.thread51, label %_ZN6icu_7712_GLOBAL__N_112daysToMillisEPKNS_8TimeZoneEdR10UErrorCode.exit
 
-_ZN6icu_7712_GLOBAL__N_112daysToMillisEPKNS_8TimeZoneEdR10UErrorCode.exit.thread46: ; preds = %26
+_ZN6icu_7712_GLOBAL__N_112daysToMillisEPKNS_8TimeZoneEdR10UErrorCode.exit.thread51: ; preds = %26
   %32 = load i32, ptr %4, align 4, !tbaa !20
   %33 = load i32, ptr %5, align 4, !tbaa !20
   %34 = add nsw i32 %33, %32
@@ -2321,10 +2321,10 @@ _ZN6icu_7712_GLOBAL__N_112daysToMillisEPKNS_8TimeZoneEdR10UErrorCode.exit: ; pre
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.critedge
 
-38:                                               ; preds = %_ZN6icu_7712_GLOBAL__N_112daysToMillisEPKNS_8TimeZoneEdR10UErrorCode.exit.thread46, %_ZN6icu_7712_GLOBAL__N_112daysToMillisEPKNS_8TimeZoneEdR10UErrorCode.exit.thread
-  %.0.i43 = phi double [ %37, %_ZN6icu_7712_GLOBAL__N_112daysToMillisEPKNS_8TimeZoneEdR10UErrorCode.exit.thread ], [ %36, %_ZN6icu_7712_GLOBAL__N_112daysToMillisEPKNS_8TimeZoneEdR10UErrorCode.exit.thread46 ]
+38:                                               ; preds = %_ZN6icu_7712_GLOBAL__N_112daysToMillisEPKNS_8TimeZoneEdR10UErrorCode.exit.thread51, %_ZN6icu_7712_GLOBAL__N_112daysToMillisEPKNS_8TimeZoneEdR10UErrorCode.exit.thread
+  %.0.i48 = phi double [ %37, %_ZN6icu_7712_GLOBAL__N_112daysToMillisEPKNS_8TimeZoneEdR10UErrorCode.exit.thread ], [ %36, %_ZN6icu_7712_GLOBAL__N_112daysToMillisEPKNS_8TimeZoneEdR10UErrorCode.exit.thread51 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  call void @_ZN6icu_7718CalendarAstronomerC1Ed(ptr noundef nonnull align 8 dereferenceable(57) %6, double noundef %.0.i43)
+  call void @_ZN6icu_7718CalendarAstronomerC1Ed(ptr noundef nonnull align 8 dereferenceable(57) %6, double noundef %.0.i48)
   %39 = invoke noundef double @_ZN6icu_7718CalendarAstronomer15WINTER_SOLSTICEEv()
           to label %40 unwind label %47
 

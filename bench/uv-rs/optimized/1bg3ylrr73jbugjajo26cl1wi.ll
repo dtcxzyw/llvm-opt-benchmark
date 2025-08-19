@@ -418,8 +418,8 @@ define void @_ZN15uv_requirements7sources18RequirementsSource21from_requirements
   %48 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %49 = load i64, ptr %48, align 8, !noalias !39
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !39
-  %.not.i.i.i70 = icmp ult i64 %49, 7
-  %or.cond = select i1 %trunc.i.i, i1 true, i1 %.not.i.i.i70
+  %.not.i.i.i73 = icmp ult i64 %49, 7
+  %or.cond = select i1 %trunc.i.i, i1 true, i1 %.not.i.i.i73
   br i1 %or.cond, label %.thread62, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h3cd7ab8a903ca93dE.exit.i.i"
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h3cd7ab8a903ca93dE.exit.i.i": ; preds = %44
@@ -728,8 +728,8 @@ define void @_ZN15uv_requirements7sources18RequirementsSource20from_constraints_
   %48 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %49 = load i64, ptr %48, align 8, !noalias !101
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !101
-  %.not.i.i.i70 = icmp ult i64 %49, 7
-  %or.cond = select i1 %trunc.i.i, i1 true, i1 %.not.i.i.i70
+  %.not.i.i.i73 = icmp ult i64 %49, 7
+  %or.cond = select i1 %trunc.i.i, i1 true, i1 %.not.i.i.i73
   br i1 %or.cond, label %.thread62, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h3cd7ab8a903ca93dE.exit.i.i"
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h3cd7ab8a903ca93dE.exit.i.i": ; preds = %44
@@ -1038,8 +1038,8 @@ define void @_ZN15uv_requirements7sources18RequirementsSource18from_overrides_tx
   %48 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %49 = load i64, ptr %48, align 8, !noalias !162
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !162
-  %.not.i.i.i70 = icmp ult i64 %49, 7
-  %or.cond = select i1 %trunc.i.i, i1 true, i1 %.not.i.i.i70
+  %.not.i.i.i73 = icmp ult i64 %49, 7
+  %or.cond = select i1 %trunc.i.i, i1 true, i1 %.not.i.i.i73
   br i1 %or.cond, label %.thread62, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h3cd7ab8a903ca93dE.exit.i.i"
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h3cd7ab8a903ca93dE.exit.i.i": ; preds = %44

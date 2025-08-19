@@ -236,10 +236,10 @@ define dso_local void @storeMapping(i32 noundef %0, ptr noundef readonly capture
   br label %68
 
 68:                                               ; preds = %56, %58
-  %.sink87 = phi i16 [ 1, %56 ], [ 2, %58 ]
+  %.sink93 = phi i16 [ 1, %56 ], [ 2, %58 ]
   %.06380.sink = phi i16 [ %.06380, %56 ], [ %62, %58 ]
   %.sink = phi i16 [ %57, %56 ], [ %67, %58 ]
-  %69 = add i16 %.06380, %.sink87
+  %69 = add i16 %.06380, %.sink93
   %70 = sext i16 %.06380.sink to i64
   %71 = getelementptr inbounds i16, ptr %51, i64 %70
   store i16 %.sink, ptr %71, align 2, !tbaa !18
@@ -628,11 +628,11 @@ define dso_local void @generateData(ptr noundef %0, ptr noundef %1) local_unname
   br i1 %98, label %._crit_edge90.thread.i, label %104
 
 ._crit_edge90.thread.i:                           ; preds = %._crit_edge90.i, %10
-  %.038.lcssa120.i = phi i64 [ %indvars.iv.next.i, %._crit_edge90.i ], [ 1, %10 ]
+  %.038.lcssa125.i = phi i64 [ %indvars.iv.next.i, %._crit_edge90.i ], [ 1, %10 ]
   %99 = load i16, ptr @currentIndex, align 2, !tbaa !18
   %100 = sext i16 %99 to i32
   %101 = add nsw i32 %100, 1
-  %102 = add nuw nsw i64 %.038.lcssa120.i, 2
+  %102 = add nuw nsw i64 %.038.lcssa125.i, 2
   %103 = getelementptr inbounds nuw [16 x i32], ptr @indexes, i64 0, i64 %102
   store i32 %101, ptr %103, align 4, !tbaa !7
   br label %storeMappingData.exit

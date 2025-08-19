@@ -279,12 +279,12 @@ switch.early.test:                                ; preds = %15
 21:                                               ; preds = %switch.early.test
   %22 = getelementptr inbounds nuw i8, ptr %10, i64 1
   %23 = icmp ult ptr %22, %9
-  br i1 %23, label %.preheader433, label %31
+  br i1 %23, label %.preheader474, label %31
 
-.preheader433:                                    ; preds = %21, %.preheader433
-  %24 = phi i8 [ %29, %.preheader433 ], [ 63, %21 ]
-  %.015.i = phi ptr [ %spec.select.i, %.preheader433 ], [ %9, %21 ]
-  %.0914.i.idx = phi i64 [ %.0914.i.add, %.preheader433 ], [ 0, %21 ]
+.preheader474:                                    ; preds = %21, %.preheader474
+  %24 = phi i8 [ %29, %.preheader474 ], [ 63, %21 ]
+  %.015.i = phi ptr [ %spec.select.i, %.preheader474 ], [ %9, %21 ]
+  %.0914.i.idx = phi i64 [ %.0914.i.add, %.preheader474 ], [ 0, %21 ]
   %25 = sext i8 %24 to i32
   %26 = ptrtoint ptr %.015.i to i64
   %27 = sub i64 %26, %4
@@ -295,9 +295,9 @@ switch.early.test:                                ; preds = %15
   %.ptr = getelementptr inbounds nuw i8, ptr @.str, i64 %.0914.i.add
   %29 = load i8, ptr %.ptr, align 1, !tbaa !11
   %exitcond417 = icmp eq i64 %.0914.i.add, 2
-  br i1 %exitcond417, label %binary_strcspn.exit, label %.preheader433
+  br i1 %exitcond417, label %binary_strcspn.exit, label %.preheader474
 
-binary_strcspn.exit:                              ; preds = %.preheader433
+binary_strcspn.exit:                              ; preds = %.preheader474
   %30 = icmp ult ptr %10, %spec.select.i
   br i1 %30, label %157, label %31
 
@@ -589,7 +589,7 @@ php_replace_controlchars.exit345:                 ; preds = %128
 173:                                              ; preds = %171
   %174 = load i8, ptr %.0255.ptr.lcssa, align 1, !tbaa !11
   %175 = icmp eq i8 %174, 47
-  br i1 %175, label %176, label %.thread426
+  br i1 %175, label %176, label %.thread467
 
 176:                                              ; preds = %173, %171
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -635,23 +635,23 @@ php_replace_controlchars.exit345:                 ; preds = %128
   br label %php_replace_controlchars.exit
 
 .critedge3.thread:                                ; preds = %157, %.critedge3
-  %.0255.ptr.lcssa425 = phi ptr [ %.0255.ptr.lcssa, %.critedge3 ], [ %.ptr296, %157 ]
-  %.0255.idx.lcssa402424 = phi i64 [ %.0255.idx.lcssa402, %.critedge3 ], [ 1, %157 ]
-  %193 = icmp eq i64 %.0255.idx.lcssa402424, 1
-  %194 = icmp eq ptr %.0255.ptr.lcssa425, %9
+  %.0255.ptr.lcssa466 = phi ptr [ %.0255.ptr.lcssa, %.critedge3 ], [ %.ptr296, %157 ]
+  %.0255.idx.lcssa402465 = phi i64 [ %.0255.idx.lcssa402, %.critedge3 ], [ 1, %157 ]
+  %193 = icmp eq i64 %.0255.idx.lcssa402465, 1
+  %194 = icmp eq ptr %.0255.ptr.lcssa466, %9
   %or.cond323 = select i1 %193, i1 %194, i1 false
-  br i1 %or.cond323, label %195, label %.thread426
+  br i1 %or.cond323, label %195, label %.thread467
 
 195:                                              ; preds = %.critedge3.thread
   tail call void @php_url_free(ptr noundef %8)
   br label %php_replace_controlchars.exit
 
-.thread426:                                       ; preds = %173, %.critedge3.thread
+.thread467:                                       ; preds = %173, %.critedge3.thread
   %196 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %197 = icmp samesign ugt i64 %1, 1
   br i1 %197, label %198, label %php_replace_controlchars.exit340
 
-198:                                              ; preds = %.thread426
+198:                                              ; preds = %.thread467
   %199 = load i8, ptr %0, align 1, !tbaa !11
   %200 = icmp eq i8 %199, 47
   br i1 %200, label %201, label %php_replace_controlchars.exit340
@@ -700,8 +700,8 @@ php_replace_controlchars.exit345:                 ; preds = %128
   %.not12.i349 = icmp eq ptr %224, null
   %spec.select.i350 = select i1 %.not12.i349, ptr %.015.i347, ptr %224
   %.0914.i348.add = add nuw nsw i64 %.0914.i348.idx, 1
-  %.ptr419 = getelementptr inbounds nuw i8, ptr @.str.2, i64 %.0914.i348.add
-  %225 = load i8, ptr %.ptr419, align 1, !tbaa !11
+  %.ptr460 = getelementptr inbounds nuw i8, ptr @.str.2, i64 %.0914.i348.add
+  %225 = load i8, ptr %.ptr460, align 1, !tbaa !11
   %exitcond418 = icmp eq i64 %.0914.i348.add, 3
   br i1 %exitcond418, label %binary_strcspn.exit352, label %219
 
@@ -988,8 +988,8 @@ php_replace_controlchars.exit372:                 ; preds = %355
   %358 = icmp eq ptr %spec.select.i350, %9
   br i1 %358, label %php_replace_controlchars.exit, label %php_replace_controlchars.exit340
 
-php_replace_controlchars.exit340:                 ; preds = %107, %152, %php_replace_controlchars.exit372, %php_replace_controlchars.exit345, %133, %206, %209, %212, %.thread426, %198, %201, %149, %31, %34, %37
-  %.1248 = phi ptr [ %0, %201 ], [ %0, %198 ], [ %0, %.thread426 ], [ %0, %37 ], [ %0, %34 ], [ %0, %31 ], [ %137, %149 ], [ %0, %212 ], [ %0, %209 ], [ %0, %206 ], [ %spec.select, %152 ], [ %44, %133 ], [ %44, %php_replace_controlchars.exit345 ], [ %spec.select.i350, %php_replace_controlchars.exit372 ], [ %44, %107 ]
+php_replace_controlchars.exit340:                 ; preds = %107, %152, %php_replace_controlchars.exit372, %php_replace_controlchars.exit345, %133, %206, %209, %212, %.thread467, %198, %201, %149, %31, %34, %37
+  %.1248 = phi ptr [ %0, %201 ], [ %0, %198 ], [ %0, %.thread467 ], [ %0, %37 ], [ %0, %34 ], [ %0, %31 ], [ %137, %149 ], [ %0, %212 ], [ %0, %209 ], [ %0, %206 ], [ %spec.select, %152 ], [ %44, %133 ], [ %44, %php_replace_controlchars.exit345 ], [ %spec.select.i350, %php_replace_controlchars.exit372 ], [ %44, %107 ]
   %359 = ptrtoint ptr %9 to i64
   %360 = ptrtoint ptr %.1248 to i64
   %361 = sub i64 %359, %360

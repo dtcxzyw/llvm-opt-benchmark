@@ -1799,7 +1799,7 @@ _ZNKSt6vectorIN2cv6Point_IiEESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %
   br label %.lr.ph.i.i.i.i.i.i12
 
 .lr.ph.i.i.i.i.i.i12:                             ; preds = %.lr.ph.i.i.i.i.i.i12.preheader, %.lr.ph.i.i.i.i.i.i12
-  %.012.i.i.i.i.i.i13.idx = phi i64 [ %.012.i.i.i.i.i.i13.add92, %.lr.ph.i.i.i.i.i.i12 ], [ 0, %.lr.ph.i.i.i.i.i.i12.preheader ]
+  %.012.i.i.i.i.i.i13.idx = phi i64 [ %.012.i.i.i.i.i.i13.add100, %.lr.ph.i.i.i.i.i.i12 ], [ 0, %.lr.ph.i.i.i.i.i.i12.preheader ]
   %.0911.i.i.i.i.i.i14.idx = phi i64 [ %.0911.i.i.i.i.i.i14.add, %.lr.ph.i.i.i.i.i.i12 ], [ 0, %.lr.ph.i.i.i.i.i.i12.preheader ]
   %.012.i.i.i.i.i.i13.ptr = getelementptr inbounds nuw i8, ptr %12, i64 %.012.i.i.i.i.i.i13.idx
   %.0911.i.i.i.i.i.i14.ptr = getelementptr inbounds nuw i8, ptr %7, i64 %.0911.i.i.i.i.i.i14.idx
@@ -1808,7 +1808,7 @@ _ZNKSt6vectorIN2cv6Point_IiEESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %
   %14 = load i64, ptr %.0911.i.i.i.i.i.i14.ptr, align 4, !alias.scope !62, !noalias !59
   store i64 %14, ptr %.012.i.i.i.i.i.i13.ptr, align 4, !alias.scope !59, !noalias !62
   %.0911.i.i.i.i.i.i14.add = add nuw nsw i64 %.0911.i.i.i.i.i.i14.idx, 8
-  %.012.i.i.i.i.i.i13.add92 = add nuw nsw i64 %.012.i.i.i.i.i.i13.idx, 8
+  %.012.i.i.i.i.i.i13.add100 = add nuw nsw i64 %.012.i.i.i.i.i.i13.idx, 8
   %.not.i.i.i.i.i.i15 = icmp eq i64 %.0911.i.i.i.i.i.i14.add, 16
   br i1 %.not.i.i.i.i.i.i15, label %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i19, label %.lr.ph.i.i.i.i.i.i12, !llvm.loop !64
 
@@ -1922,14 +1922,14 @@ _ZNSt6vectorIN2cv6Point_IiEESaIS2_EE9push_backEOS2_.exit38: ; preds = %_ZNSt6vec
   br i1 %.not.i.i.i39, label %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit, label %47
 
 47:                                               ; preds = %.thread, %45
-  %.pn89 = phi { ptr, i32 } [ %42, %.thread ], [ %.pn, %45 ]
+  %.pn97 = phi { ptr, i32 } [ %42, %.thread ], [ %.pn, %45 ]
   %48 = phi ptr [ %5, %.thread ], [ %46, %45 ]
   tail call void @_ZdlPv(ptr noundef nonnull %48) #18
   br label %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit
 
 _ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit:    ; preds = %45, %47
-  %.pn90 = phi { ptr, i32 } [ %.pn, %45 ], [ %.pn89, %47 ]
-  resume { ptr, i32 } %.pn90
+  %.pn98 = phi { ptr, i32 } [ %.pn, %45 ], [ %.pn97, %47 ]
+  resume { ptr, i32 } %.pn98
 }
 
 declare i32 @__gxx_personality_v0(...)

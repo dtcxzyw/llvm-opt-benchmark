@@ -246,8 +246,8 @@ define signext range(i8 0, 2) i8 @ulist_removeString_77(ptr noundef captures(add
   %13 = getelementptr inbounds nuw i8, ptr %..i, i64 8
   store ptr %12, ptr %13, align 8, !tbaa !19
   %14 = icmp eq ptr %12, null
-  %.sink20.i = select i1 %14, ptr %0, ptr %12
-  %15 = getelementptr inbounds nuw i8, ptr %.sink20.i, i64 16
+  %.sink21.i = select i1 %14, ptr %0, ptr %12
+  %15 = getelementptr inbounds nuw i8, ptr %.sink21.i, i64 16
   store ptr %9, ptr %15, align 8, !tbaa !19
   %16 = load ptr, ptr %0, align 8, !tbaa !23
   %17 = icmp eq ptr %.09, %16

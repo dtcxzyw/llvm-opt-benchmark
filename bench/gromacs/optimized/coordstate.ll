@@ -196,8 +196,8 @@ _ZNSt6vectorIdSaIdEEC2EmRKS0_.exit.i:             ; preds = %.noexc19.i
   br label %.lr.ph.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %_ZNSt6vectorIdSaIdEEC2EmRKS0_.exit.i, %_ZNSt6vectorIdSaIdEEC2EmRKS0_.exit.thread.i
-  %.0.i.i.i.i.i55.i = phi ptr [ %21, %_ZNSt6vectorIdSaIdEEC2EmRKS0_.exit.thread.i ], [ %26, %_ZNSt6vectorIdSaIdEEC2EmRKS0_.exit.i ], [ %26, %.lr.ph.i ]
-  %29 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i55.i, i64 -8
+  %.0.i.i.i.i.i59.i = phi ptr [ %21, %_ZNSt6vectorIdSaIdEEC2EmRKS0_.exit.thread.i ], [ %26, %_ZNSt6vectorIdSaIdEEC2EmRKS0_.exit.i ], [ %26, %.lr.ph.i ]
+  %29 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i59.i, i64 -8
   %30 = load double, ptr %29, align 8, !tbaa !28
   %31 = invoke noundef zeroext i1 @_Z14gmx_within_tolddd(double noundef %30, double noundef 1.000000e+00, double noundef 1.000000e-02)
           to label %39 unwind label %32

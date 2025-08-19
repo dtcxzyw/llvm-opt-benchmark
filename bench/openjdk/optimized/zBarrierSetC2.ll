@@ -2475,8 +2475,7 @@ _ZNK5Block8get_nodeEj.exit.lr.ph.i:               ; preds = %197
 
 202:                                              ; preds = %_ZNK5Block8get_nodeEj.exit.i85
   %indvars.iv.next.i87 = add nuw nsw i64 %indvars.iv.i86, 1
-  %lftr.wideiv.i = trunc i64 %indvars.iv.next.i87 to i32
-  %exitcond.not.i88 = icmp eq i32 %52, %lftr.wideiv.i
+  %exitcond.not.i88 = icmp eq i64 %indvars.iv.i, %indvars.iv.next.i87
   br i1 %exitcond.not.i88, label %.loopexit122, label %_ZNK5Block8get_nodeEj.exit.i85, !llvm.loop !15
 
 _ZNK5Block8get_nodeEj.exit.i85:                   ; preds = %202, %_ZNK5Block8get_nodeEj.exit.lr.ph.i
@@ -2608,13 +2607,13 @@ _ZNK5Block8get_nodeEj.exit.i.i:                   ; preds = %253, %_ZNK5Block8ge
 
 .lr.ph135:                                        ; preds = %253, %_ZN10Block_List4pushEP5Block.exit
   %262 = load i32, ptr %25, align 8
-  %.not68170 = icmp eq i32 %262, 0
-  br i1 %.not68170, label %.critedge, label %.lr.ph171
+  %.not68191 = icmp eq i32 %262, 0
+  br i1 %.not68191, label %.critedge, label %.lr.ph192
 
 ..loopexit_crit_edge:                             ; preds = %_ZN10Block_List4pushEP5Block.exit109
   br label %.backedge, !llvm.loop !18
 
-.lr.ph171:                                        ; preds = %.lr.ph135, %.backedge
+.lr.ph192:                                        ; preds = %.lr.ph135, %.backedge
   %263 = phi i32 [ %282, %.backedge ], [ %262, %.lr.ph135 ]
   %264 = load ptr, ptr %24, align 8
   %265 = add i32 %263, -1
@@ -2629,11 +2628,11 @@ _ZNK5Block8get_nodeEj.exit.i.i:                   ; preds = %253, %_ZNK5Block8ge
   %.not.i97 = icmp ult i32 %271, %272
   br i1 %.not.i97, label %_ZN9VectorSet8test_setEj.exit, label %273
 
-273:                                              ; preds = %.lr.ph171
+273:                                              ; preds = %.lr.ph192
   call void @_ZN9VectorSet4growEj(ptr noundef nonnull align 8 dereferenceable(32) %8, i32 noundef %271) #15
   br label %_ZN9VectorSet8test_setEj.exit
 
-_ZN9VectorSet8test_setEj.exit:                    ; preds = %.lr.ph171, %273
+_ZN9VectorSet8test_setEj.exit:                    ; preds = %.lr.ph192, %273
   %274 = and i32 %270, 31
   %275 = shl nuw i32 1, %274
   %276 = load ptr, ptr %26, align 8
@@ -2649,7 +2648,7 @@ _ZN9VectorSet8test_setEj.exit:                    ; preds = %.lr.ph171, %273
 .backedge:                                        ; preds = %.preheader, %..loopexit_crit_edge, %_ZN9VectorSet8test_setEj.exit, %.loopexit121
   %282 = load i32, ptr %25, align 8
   %.not68 = icmp eq i32 %282, 0
-  br i1 %.not68, label %.critedge, label %.lr.ph171, !llvm.loop !18
+  br i1 %.not68, label %.critedge, label %.lr.ph192, !llvm.loop !18
 
 283:                                              ; preds = %_ZN9VectorSet8test_setEj.exit
   %284 = getelementptr inbounds nuw i8, ptr %268, i64 40

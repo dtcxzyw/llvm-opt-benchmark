@@ -2105,16 +2105,16 @@ LZ4IO_isStdout.exit:                              ; preds = %2
 5:                                                ; preds = %LZ4IO_isStdout.exit
   %6 = load i32, ptr @g_displayLevel, align 4, !tbaa !4
   %7 = icmp sgt i32 %6, 3
-  br i1 %7, label %8, label %.thread48
+  br i1 %7, label %8, label %.thread51
 
 8:                                                ; preds = %5
   %9 = load ptr, ptr @stderr, align 8, !tbaa !8
   %10 = tail call i64 @fwrite(ptr nonnull @.str.54, i64 25, i64 1, ptr %9) #27
   %11 = load i32, ptr @g_displayLevel, align 4, !tbaa !4
   %12 = icmp sgt i32 %11, 3
-  br i1 %12, label %14, label %.thread48
+  br i1 %12, label %14, label %.thread51
 
-.thread48:                                        ; preds = %8, %5
+.thread51:                                        ; preds = %8, %5
   %13 = load ptr, ptr @stdout, align 8, !tbaa !8
   br label %.critedge
 
@@ -2223,8 +2223,8 @@ LZ4IO_isDevNull.exit.thread:                      ; preds = %LZ4IO_isStdout.exit
   %67 = tail call i32 @fflush(ptr noundef %66)
   br label %.critedge
 
-.critedge:                                        ; preds = %.thread48, %.thread47, %41, %27, %22, %14, %65, %57, %.loopexit
-  %.3 = phi ptr [ %18, %27 ], [ %18, %22 ], [ %18, %14 ], [ null, %65 ], [ null, %57 ], [ %53, %.loopexit ], [ null, %41 ], [ null, %.thread47 ], [ %13, %.thread48 ]
+.critedge:                                        ; preds = %.thread51, %.thread47, %41, %27, %22, %14, %65, %57, %.loopexit
+  %.3 = phi ptr [ %18, %27 ], [ %18, %22 ], [ %18, %14 ], [ null, %65 ], [ null, %57 ], [ %53, %.loopexit ], [ null, %41 ], [ null, %.thread47 ], [ %13, %.thread51 ]
   ret ptr %.3
 }
 
@@ -9042,8 +9042,8 @@ thread-pre-split101:                              ; preds = %70, %65
   br i1 %exitcond.not, label %.critedge.thread, label %.lr.ph, !llvm.loop !163
 
 .critedge.thread:                                 ; preds = %91
-  %.082.tr151 = trunc nuw nsw i64 %spec.select to i32
-  %93 = shl nuw nsw i32 %.082.tr151, 3
+  %.082.tr177 = trunc nuw nsw i64 %spec.select to i32
+  %93 = shl nuw nsw i32 %.082.tr177, 3
   %94 = add i32 %93, %.1132
   br label %173
 

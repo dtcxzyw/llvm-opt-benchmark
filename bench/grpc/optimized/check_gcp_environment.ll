@@ -120,11 +120,11 @@ _ZN4absl12lts_2024072212log_internal8VLogSite9IsEnabledEi.exit: ; preds = %5
   br i1 %.not30.i, label %_ZL4trimPKc.exit, label %.critedge2.thread.i
 
 .critedge2.thread.i:                              ; preds = %.critedge2.i, %.critedge.i
-  %.024.lcssa37.i = phi i64 [ %.024.lcssa.i, %.critedge2.i ], [ 0, %.critedge.i ]
-  %42 = sub nuw i64 %.0.i17, %.024.lcssa37.i
+  %.024.lcssa39.i = phi i64 [ %.024.lcssa.i, %.critedge2.i ], [ 0, %.critedge.i ]
+  %42 = sub nuw i64 %.0.i17, %.024.lcssa39.i
   %43 = add i64 %42, 2
   %44 = tail call ptr @gpr_zalloc(i64 noundef %43)
-  %45 = getelementptr inbounds nuw i8, ptr %3, i64 %.024.lcssa37.i
+  %45 = getelementptr inbounds nuw i8, ptr %3, i64 %.024.lcssa39.i
   %46 = add i64 %42, 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %44, ptr nonnull readonly align 1 %45, i64 %46, i1 false)
   br label %_ZL4trimPKc.exit

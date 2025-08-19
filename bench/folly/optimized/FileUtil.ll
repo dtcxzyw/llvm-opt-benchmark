@@ -630,8 +630,8 @@ define noundef i64 @_ZN5folly9readvFullEiP5ioveci(i32 noundef %0, ptr noundef %1
 
 10:                                               ; preds = %4
   %11 = add nsw i64 %5, %.021.i
-  %.not58.i = icmp eq i32 %.037.i, 0
-  br i1 %.not58.i, label %_ZN5folly15fileutil_detail9wrapvFullIPFliPK5ioveciEJEEElT_iPS2_iDpT0_.exit, label %.lr.ph.i
+  %.not60.i = icmp eq i32 %.037.i, 0
+  br i1 %.not60.i, label %_ZN5folly15fileutil_detail9wrapvFullIPFliPK5ioveciEJEEElT_iPS2_iDpT0_.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %10, %18
   %.042.i = phi i64 [ %19, %18 ], [ %5, %10 ]
@@ -697,8 +697,8 @@ define noundef i64 @_ZN5folly10preadvFullEiP5iovecil(i32 noundef %0, ptr noundef
 11:                                               ; preds = %5
   %12 = add nsw i64 %6, %.021.i
   %13 = add nsw i64 %6, %.042.i
-  %.not62.i = icmp eq i32 %.039.i, 0
-  br i1 %.not62.i, label %_ZN5folly15fileutil_detail9wrapvFullIPFliPK5iovecilEJlEEElT_iPS2_iDpT0_.exit, label %.lr.ph.i
+  %.not64.i = icmp eq i32 %.039.i, 0
+  br i1 %.not64.i, label %_ZN5folly15fileutil_detail9wrapvFullIPFliPK5iovecilEJlEEElT_iPS2_iDpT0_.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %11, %20
   %.046.i = phi i64 [ %21, %20 ], [ %6, %11 ]
@@ -763,8 +763,8 @@ define noundef i64 @_ZN5folly10writevFullEiP5ioveci(i32 noundef %0, ptr noundef 
 
 10:                                               ; preds = %4
   %11 = add nsw i64 %5, %.021.i
-  %.not58.i = icmp eq i32 %.037.i, 0
-  br i1 %.not58.i, label %_ZN5folly15fileutil_detail9wrapvFullIPFliPK5ioveciEJEEElT_iPS2_iDpT0_.exit, label %.lr.ph.i
+  %.not60.i = icmp eq i32 %.037.i, 0
+  br i1 %.not60.i, label %_ZN5folly15fileutil_detail9wrapvFullIPFliPK5ioveciEJEEElT_iPS2_iDpT0_.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %10, %18
   %.042.i = phi i64 [ %19, %18 ], [ %5, %10 ]
@@ -830,8 +830,8 @@ define noundef i64 @_ZN5folly11pwritevFullEiP5iovecil(i32 noundef %0, ptr nounde
 11:                                               ; preds = %5
   %12 = add nsw i64 %6, %.021.i
   %13 = add nsw i64 %6, %.042.i
-  %.not62.i = icmp eq i32 %.039.i, 0
-  br i1 %.not62.i, label %_ZN5folly15fileutil_detail9wrapvFullIPFliPK5iovecilEJlEEElT_iPS2_iDpT0_.exit, label %.lr.ph.i
+  %.not64.i = icmp eq i32 %.039.i, 0
+  br i1 %.not64.i, label %_ZN5folly15fileutil_detail9wrapvFullIPFliPK5iovecilEJlEEElT_iPS2_iDpT0_.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %11, %20
   %.046.i = phi i64 [ %21, %20 ], [ %6, %11 ]
@@ -892,7 +892,7 @@ define noundef nonnull align 8 dereferenceable(40) ptr @_ZN5folly22WriteFileAtom
   %4 = load ptr, ptr %3, align 8, !tbaa !45
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = icmp eq ptr %4, %5
-  br i1 %6, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i
+  br i1 %6, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i: ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -904,14 +904,14 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i: ; 
   %12 = icmp eq ptr %10, %11
   br i1 %12, label %16, label %.thread.i
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i: ; preds = %2
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i: ; preds = %2
   %13 = load ptr, ptr %1, align 8, !tbaa !45
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %15 = icmp eq ptr %13, %14
   br i1 %15, label %16, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit24.thread.i
 
-16:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i
-  %17 = phi ptr [ %13, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i ], [ %10, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i ]
+16:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i
+  %17 = phi ptr [ %13, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i ], [ %10, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i ]
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %19 = load i64, ptr %18, align 8, !tbaa !46
   %20 = icmp ult i64 %19, 16
@@ -953,7 +953,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm.exit.i: ; p
   store i64 %31, ptr %5, align 8, !tbaa !48
   br label %38
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit24.thread.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit24.thread.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i
   %32 = load i64, ptr %5, align 8, !tbaa !48
   store ptr %13, ptr %3, align 8, !tbaa !45
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -1187,8 +1187,8 @@ define internal fastcc noundef i32 @_ZN5folly12_GLOBAL__N_126writeFileAtomicNoTh
 
 52:                                               ; preds = %.noexc21
   %53 = add nsw i64 %47, %.021.i.i
-  %.not58.i.i = icmp eq i32 %.037.i.i, 0
-  br i1 %.not58.i.i, label %_ZN5folly10writevFullEiP5ioveci.exit, label %.lr.ph.i.i
+  %.not60.i.i = icmp eq i32 %.037.i.i, 0
+  br i1 %.not60.i.i, label %_ZN5folly10writevFullEiP5ioveci.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %52, %60
   %.042.i.i = phi i64 [ %61, %60 ], [ %47, %52 ]
@@ -1236,7 +1236,7 @@ _ZN5folly10writevFullEiP5ioveci.exit._ZN5folly10writevFullEiP5ioveci.exit.thread
 _ZN5folly10writevFullEiP5ioveci.exit.thread:      ; preds = %48, %_ZN5folly10writevFullEiP5ioveci.exit._ZN5folly10writevFullEiP5ioveci.exit.thread_crit_edge
   %.pre-phi = phi ptr [ %.pre, %_ZN5folly10writevFullEiP5ioveci.exit._ZN5folly10writevFullEiP5ioveci.exit.thread_crit_edge ], [ %49, %48 ]
   %68 = load i32, ptr %.pre-phi, align 4, !tbaa !7
-  br label %.loopexit56
+  br label %.loopexit68
 
 .loopexit:                                        ; preds = %83
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -1270,7 +1270,7 @@ _ZN5folly10writevFullEiP5ioveci.exit.thread:      ; preds = %48, %_ZN5folly10wri
 74:                                               ; preds = %69
   %75 = tail call ptr @__errno_location() #22
   %76 = load i32, ptr %75, align 4, !tbaa !7
-  br label %.loopexit56
+  br label %.loopexit68
 
 77:                                               ; preds = %69
   %78 = getelementptr inbounds nuw i8, ptr %4, i64 4
@@ -1294,7 +1294,7 @@ _ZN5folly10writevFullEiP5ioveci.exit.thread:      ; preds = %48, %_ZN5folly10wri
   %87 = tail call ptr @__errno_location() #22
   %88 = load i32, ptr %87, align 4, !tbaa !7
   %89 = icmp eq i32 %88, 4
-  br i1 %89, label %83, label %.loopexit56, !llvm.loop !13
+  br i1 %89, label %83, label %.loopexit68, !llvm.loop !13
 
 _ZN5folly10fsyncNoIntEi.exit:                     ; preds = %.noexc22, %77
   %90 = load i32, ptr %9, align 4, !tbaa !7
@@ -1321,24 +1321,24 @@ _ZN5folly10fsyncNoIntEi.exit:                     ; preds = %.noexc22, %77
 101:                                              ; preds = %96
   %102 = tail call ptr @__errno_location() #22
   %103 = load i32, ptr %102, align 4, !tbaa !7
-  br label %.loopexit56
+  br label %.loopexit68
 
 104:                                              ; preds = %96
   store i8 1, ptr %10, align 1, !tbaa !51
-  br label %.loopexit56
+  br label %.loopexit68
 
-.loopexit56:                                      ; preds = %86, %_ZN5folly10writevFullEiP5ioveci.exit.thread, %74, %101, %104
+.loopexit68:                                      ; preds = %86, %_ZN5folly10writevFullEiP5ioveci.exit.thread, %74, %101, %104
   %.116.ph = phi i32 [ 0, %104 ], [ %103, %101 ], [ %76, %74 ], [ %68, %_ZN5folly10writevFullEiP5ioveci.exit.thread ], [ %88, %86 ]
   %.pr = load i32, ptr %9, align 4, !tbaa !7
   %.not.i.i.i = icmp eq i32 %.pr, -1
   br i1 %.not.i.i.i, label %107, label %105
 
-105:                                              ; preds = %.loopexit56
+105:                                              ; preds = %.loopexit68
   %106 = invoke i32 @close(i32 noundef %.pr)
           to label %107 unwind label %113
 
-107:                                              ; preds = %.thread, %105, %.loopexit56
-  %.11637 = phi i32 [ %95, %.thread ], [ %.116.ph, %105 ], [ %.116.ph, %.loopexit56 ]
+107:                                              ; preds = %.thread, %105, %.loopexit68
+  %.11637 = phi i32 [ %95, %.thread ], [ %.116.ph, %105 ], [ %.116.ph, %.loopexit68 ]
   %108 = load i8, ptr %10, align 1, !tbaa !51, !range !64, !noundef !65
   %109 = trunc nuw i8 %108 to i1
   br i1 %109, label %"_ZN5folly6detail14ScopeGuardImplIZNS_12_GLOBAL__N_126writeFileAtomicNoThrowImplENS_5RangeIPKcEEP5ioveciRKNS_22WriteFileAtomicOptionsEE3$_0Lb1EED2Ev.exit", label %110

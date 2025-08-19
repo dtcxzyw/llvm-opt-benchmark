@@ -6658,12 +6658,12 @@ lean_alloc_ctor.exit:                             ; preds = %lean_dec.exit
   br label %52
 
 52:                                               ; preds = %lean_alloc_ctor.exit, %9
-  %.sink54 = phi ptr [ %46, %lean_alloc_ctor.exit ], [ %7, %9 ]
-  %.sink52 = phi ptr [ %20, %lean_alloc_ctor.exit ], [ %11, %9 ]
+  %.sink56 = phi ptr [ %46, %lean_alloc_ctor.exit ], [ %7, %9 ]
+  %.sink54 = phi ptr [ %20, %lean_alloc_ctor.exit ], [ %11, %9 ]
   %53 = load ptr, ptr @l_Lean_MVarId_heqOfEq___lambda__1___closed__2, align 8, !tbaa !10
-  %54 = tail call ptr @l_Lean_Expr_const___override(ptr noundef %53, ptr noundef nonnull %.sink54) #4
+  %54 = tail call ptr @l_Lean_Expr_const___override(ptr noundef %53, ptr noundef nonnull %.sink56) #4
   %55 = load ptr, ptr @l_Lean_MVarId_heqOfEq___lambda__1___closed__3, align 8, !tbaa !10
-  %56 = tail call ptr @l_Lean_MVarId_apply(ptr noundef %0, ptr noundef %54, ptr noundef %55, ptr noundef nonnull inttoptr (i64 1 to ptr), ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %.sink52) #4
+  %56 = tail call ptr @l_Lean_MVarId_apply(ptr noundef %0, ptr noundef %54, ptr noundef %55, ptr noundef nonnull inttoptr (i64 1 to ptr), ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %.sink54) #4
   ret ptr %56
 }
 
@@ -7737,12 +7737,12 @@ lean_alloc_ctor.exit:                             ; preds = %lean_dec.exit
   br label %52
 
 52:                                               ; preds = %lean_alloc_ctor.exit, %9
-  %.sink54 = phi ptr [ %46, %lean_alloc_ctor.exit ], [ %7, %9 ]
-  %.sink52 = phi ptr [ %20, %lean_alloc_ctor.exit ], [ %11, %9 ]
+  %.sink56 = phi ptr [ %46, %lean_alloc_ctor.exit ], [ %7, %9 ]
+  %.sink54 = phi ptr [ %20, %lean_alloc_ctor.exit ], [ %11, %9 ]
   %53 = load ptr, ptr @l_Lean_MVarId_eqOfHEq___lambda__1___closed__2, align 8, !tbaa !10
-  %54 = tail call ptr @l_Lean_Expr_const___override(ptr noundef %53, ptr noundef nonnull %.sink54) #4
+  %54 = tail call ptr @l_Lean_Expr_const___override(ptr noundef %53, ptr noundef nonnull %.sink56) #4
   %55 = load ptr, ptr @l_Lean_MVarId_heqOfEq___lambda__1___closed__3, align 8, !tbaa !10
-  %56 = tail call ptr @l_Lean_MVarId_apply(ptr noundef %0, ptr noundef %54, ptr noundef %55, ptr noundef nonnull inttoptr (i64 1 to ptr), ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %.sink52) #4
+  %56 = tail call ptr @l_Lean_MVarId_apply(ptr noundef %0, ptr noundef %54, ptr noundef %55, ptr noundef nonnull inttoptr (i64 1 to ptr), ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %.sink54) #4
   ret ptr %56
 }
 
@@ -7956,12 +7956,12 @@ lean_alloc_ctor.exit:                             ; preds = %lean_dec.exit
   br label %52
 
 52:                                               ; preds = %lean_alloc_ctor.exit, %9
-  %.sink54 = phi ptr [ %46, %lean_alloc_ctor.exit ], [ %7, %9 ]
-  %.sink52 = phi ptr [ %20, %lean_alloc_ctor.exit ], [ %11, %9 ]
+  %.sink56 = phi ptr [ %46, %lean_alloc_ctor.exit ], [ %7, %9 ]
+  %.sink54 = phi ptr [ %20, %lean_alloc_ctor.exit ], [ %11, %9 ]
   %53 = load ptr, ptr @l_Lean_MVarId_hrefl___lambda__1___closed__2, align 8, !tbaa !10
-  %54 = tail call ptr @l_Lean_Expr_const___override(ptr noundef %53, ptr noundef nonnull %.sink54) #4
+  %54 = tail call ptr @l_Lean_Expr_const___override(ptr noundef %53, ptr noundef nonnull %.sink56) #4
   %55 = load ptr, ptr @l_Lean_MVarId_heqOfEq___lambda__1___closed__3, align 8, !tbaa !10
-  %56 = tail call ptr @l_Lean_MVarId_apply(ptr noundef %0, ptr noundef %54, ptr noundef %55, ptr noundef nonnull inttoptr (i64 1 to ptr), ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %.sink52) #4
+  %56 = tail call ptr @l_Lean_MVarId_apply(ptr noundef %0, ptr noundef %54, ptr noundef %55, ptr noundef nonnull inttoptr (i64 1 to ptr), ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %.sink54) #4
   ret ptr %56
 }
 
@@ -9192,18 +9192,18 @@ _init_l_Lean_MVarId_heqOfEq___lambda__1___closed__3.exit: ; preds = %lean_dec_re
   unreachable
 
 .sink.split:                                      ; preds = %_init_l_Lean_MVarId_heqOfEq___lambda__1___closed__3.exit, %3
-  %.sink25 = phi ptr [ %4, %3 ], [ %80, %_init_l_Lean_MVarId_heqOfEq___lambda__1___closed__3.exit ]
-  %83 = getelementptr inbounds nuw i8, ptr %.sink25, i64 4
-  store i32 1, ptr %.sink25, align 4, !tbaa !4
+  %.sink33 = phi ptr [ %4, %3 ], [ %80, %_init_l_Lean_MVarId_heqOfEq___lambda__1___closed__3.exit ]
+  %83 = getelementptr inbounds nuw i8, ptr %.sink33, i64 4
+  store i32 1, ptr %.sink33, align 4, !tbaa !4
   store i32 131096, ptr %83, align 4
-  %84 = getelementptr inbounds nuw i8, ptr %.sink25, i64 8
+  %84 = getelementptr inbounds nuw i8, ptr %.sink33, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %84, align 8, !tbaa !10
-  %85 = getelementptr inbounds nuw i8, ptr %.sink25, i64 16
+  %85 = getelementptr inbounds nuw i8, ptr %.sink33, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %85, align 8, !tbaa !10
   br label %86
 
 86:                                               ; preds = %.sink.split, %lean_dec_ref.exit14, %lean_dec_ref.exit16, %7
-  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit16 ], [ %28, %lean_dec_ref.exit14 ], [ %.sink25, %.sink.split ]
+  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit16 ], [ %28, %lean_dec_ref.exit14 ], [ %.sink33, %.sink.split ]
   ret ptr %.0
 }
 

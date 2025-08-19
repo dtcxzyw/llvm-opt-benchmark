@@ -446,11 +446,11 @@ _ZNSt10unique_ptrIA_KcSt14default_deleteIS1_EED2Ev.exit14.i.i: ; preds = %37
   br label %52
 
 _ZNSt10unique_ptrIN7rocksdb17CuckooTableReaderESt14default_deleteIS1_EED2Ev.exit.sink.split: ; preds = %43, %45
-  %.sink23 = phi ptr [ %46, %45 ], [ %10, %43 ]
-  %49 = load ptr, ptr %.sink23, align 8, !tbaa !54
+  %.sink24 = phi ptr [ %46, %45 ], [ %10, %43 ]
+  %49 = load ptr, ptr %.sink24, align 8, !tbaa !54
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 8
   %51 = load ptr, ptr %50, align 8
-  call void %51(ptr noundef nonnull align 8 dereferenceable(8) %.sink23) #24
+  call void %51(ptr noundef nonnull align 8 dereferenceable(8) %.sink24) #24
   br label %_ZNSt10unique_ptrIN7rocksdb17CuckooTableReaderESt14default_deleteIS1_EED2Ev.exit
 
 _ZNSt10unique_ptrIN7rocksdb17CuckooTableReaderESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZNSt10unique_ptrIN7rocksdb17CuckooTableReaderESt14default_deleteIS1_EED2Ev.exit.sink.split, %45

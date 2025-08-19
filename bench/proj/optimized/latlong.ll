@@ -58,16 +58,16 @@ define hidden noundef ptr @pj_latlong(ptr noundef writeonly captures(address_is_
   br label %.sink.split
 
 .sink.split:                                      ; preds = %2, %14
-  %.sink15 = phi ptr [ %12, %14 ], [ %0, %2 ]
+  %.sink17 = phi ptr [ %12, %14 ], [ %0, %2 ]
   %.sink = phi i32 [ 1, %14 ], [ 4, %2 ]
-  %18 = getelementptr inbounds nuw i8, ptr %.sink15, i64 380
+  %18 = getelementptr inbounds nuw i8, ptr %.sink17, i64 380
   store i32 4, ptr %18, align 4, !tbaa !45
-  %19 = getelementptr inbounds nuw i8, ptr %.sink15, i64 384
+  %19 = getelementptr inbounds nuw i8, ptr %.sink17, i64 384
   store i32 %.sink, ptr %19, align 8, !tbaa !46
   br label %20
 
 20:                                               ; preds = %.sink.split, %11
-  %.0 = phi ptr [ null, %11 ], [ %.sink15, %.sink.split ]
+  %.0 = phi ptr [ null, %11 ], [ %.sink17, %.sink.split ]
   ret ptr %.0
 }
 
@@ -137,16 +137,16 @@ define hidden noundef ptr @pj_longlat(ptr noundef writeonly captures(address_is_
   br label %.sink.split
 
 .sink.split:                                      ; preds = %2, %14
-  %.sink15 = phi ptr [ %12, %14 ], [ %0, %2 ]
+  %.sink17 = phi ptr [ %12, %14 ], [ %0, %2 ]
   %.sink = phi i32 [ 1, %14 ], [ 4, %2 ]
-  %18 = getelementptr inbounds nuw i8, ptr %.sink15, i64 380
+  %18 = getelementptr inbounds nuw i8, ptr %.sink17, i64 380
   store i32 4, ptr %18, align 4, !tbaa !45
-  %19 = getelementptr inbounds nuw i8, ptr %.sink15, i64 384
+  %19 = getelementptr inbounds nuw i8, ptr %.sink17, i64 384
   store i32 %.sink, ptr %19, align 8, !tbaa !46
   br label %20
 
 20:                                               ; preds = %.sink.split, %11
-  %.0 = phi ptr [ null, %11 ], [ %.sink15, %.sink.split ]
+  %.0 = phi ptr [ null, %11 ], [ %.sink17, %.sink.split ]
   ret ptr %.0
 }
 
@@ -214,16 +214,16 @@ define hidden noundef ptr @pj_latlon(ptr noundef writeonly captures(address_is_n
   br label %.sink.split
 
 .sink.split:                                      ; preds = %2, %14
-  %.sink15 = phi ptr [ %12, %14 ], [ %0, %2 ]
+  %.sink17 = phi ptr [ %12, %14 ], [ %0, %2 ]
   %.sink = phi i32 [ 1, %14 ], [ 4, %2 ]
-  %18 = getelementptr inbounds nuw i8, ptr %.sink15, i64 380
+  %18 = getelementptr inbounds nuw i8, ptr %.sink17, i64 380
   store i32 4, ptr %18, align 4, !tbaa !45
-  %19 = getelementptr inbounds nuw i8, ptr %.sink15, i64 384
+  %19 = getelementptr inbounds nuw i8, ptr %.sink17, i64 384
   store i32 %.sink, ptr %19, align 8, !tbaa !46
   br label %20
 
 20:                                               ; preds = %.sink.split, %11
-  %.0 = phi ptr [ null, %11 ], [ %.sink15, %.sink.split ]
+  %.0 = phi ptr [ null, %11 ], [ %.sink17, %.sink.split ]
   ret ptr %.0
 }
 
@@ -291,16 +291,16 @@ define hidden noundef ptr @pj_lonlat(ptr noundef writeonly captures(address_is_n
   br label %.sink.split
 
 .sink.split:                                      ; preds = %2, %14
-  %.sink15 = phi ptr [ %12, %14 ], [ %0, %2 ]
+  %.sink17 = phi ptr [ %12, %14 ], [ %0, %2 ]
   %.sink = phi i32 [ 1, %14 ], [ 4, %2 ]
-  %18 = getelementptr inbounds nuw i8, ptr %.sink15, i64 380
+  %18 = getelementptr inbounds nuw i8, ptr %.sink17, i64 380
   store i32 4, ptr %18, align 4, !tbaa !45
-  %19 = getelementptr inbounds nuw i8, ptr %.sink15, i64 384
+  %19 = getelementptr inbounds nuw i8, ptr %.sink17, i64 384
   store i32 %.sink, ptr %19, align 8, !tbaa !46
   br label %20
 
 20:                                               ; preds = %.sink.split, %11
-  %.0 = phi ptr [ null, %11 ], [ %.sink15, %.sink.split ]
+  %.0 = phi ptr [ null, %11 ], [ %.sink17, %.sink.split ]
   ret ptr %.0
 }
 

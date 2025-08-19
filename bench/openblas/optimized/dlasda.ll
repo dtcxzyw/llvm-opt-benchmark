@@ -214,10 +214,10 @@ define void @dlasda_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br label %146
 
 146:                                              ; preds = %134, %125
-  %.sink502 = phi i32 [ %145, %134 ], [ %132, %125 ]
-  %.sink500 = phi ptr [ %48, %134 ], [ %58, %125 ]
-  %147 = sext i32 %.sink502 to i64
-  %148 = getelementptr inbounds double, ptr %.sink500, i64 %147
+  %.sink513 = phi i32 [ %145, %134 ], [ %132, %125 ]
+  %.sink511 = phi ptr [ %48, %134 ], [ %58, %125 ]
+  %147 = sext i32 %.sink513 to i64
+  %148 = getelementptr inbounds double, ptr %.sink511, i64 %147
   %149 = sext i32 %122 to i64
   %150 = getelementptr inbounds double, ptr %58, i64 %149
   call void @dcopy_(ptr noundef nonnull %37, ptr noundef %148, ptr noundef nonnull @c__1, ptr noundef nonnull %150, ptr noundef nonnull @c__1) #3
@@ -307,10 +307,10 @@ define void @dlasda_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br label %194
 
 194:                                              ; preds = %183, %174
-  %.sink508 = phi i32 [ %193, %183 ], [ %182, %174 ]
-  %.sink506 = phi ptr [ %48, %183 ], [ %58, %174 ]
-  %195 = sext i32 %.sink508 to i64
-  %196 = getelementptr inbounds double, ptr %.sink506, i64 %195
+  %.sink519 = phi i32 [ %193, %183 ], [ %182, %174 ]
+  %.sink517 = phi ptr [ %48, %183 ], [ %58, %174 ]
+  %195 = sext i32 %.sink519 to i64
+  %196 = getelementptr inbounds double, ptr %.sink517, i64 %195
   %197 = sext i32 %167 to i64
   %198 = getelementptr inbounds double, ptr %58, i64 %197
   call void @dcopy_(ptr noundef nonnull %38, ptr noundef %196, ptr noundef nonnull @c__1, ptr noundef nonnull %198, ptr noundef nonnull @c__1) #3
@@ -327,14 +327,14 @@ define void @dlasda_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %202 = sext i32 %165 to i64
   %203 = add nuw i32 %201, 1
   %wide.trip.count474 = zext i32 %203 to i64
-  %invariant.gep495 = getelementptr i32, ptr %59, i64 %202
+  %invariant.gep506 = getelementptr i32, ptr %59, i64 %202
   br label %.lr.ph451
 
 .lr.ph451:                                        ; preds = %.lr.ph451.preheader, %.lr.ph451
   %indvars.iv471 = phi i64 [ 1, %.lr.ph451.preheader ], [ %indvars.iv.next472, %.lr.ph451 ]
-  %gep496 = getelementptr i32, ptr %invariant.gep495, i64 %indvars.iv471
+  %gep507 = getelementptr i32, ptr %invariant.gep506, i64 %indvars.iv471
   %204 = trunc nuw nsw i64 %indvars.iv471 to i32
-  store i32 %204, ptr %gep496, align 4, !tbaa !3
+  store i32 %204, ptr %gep507, align 4, !tbaa !3
   %indvars.iv.next472 = add nuw nsw i64 %indvars.iv471, 1
   %exitcond475.not = icmp eq i64 %indvars.iv.next472, %wide.trip.count474
   br i1 %exitcond475.not, label %._crit_edge452, label %.lr.ph451, !llvm.loop !9
@@ -398,7 +398,7 @@ define void @dlasda_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %.not33.i432 = icmp eq i64 %230, 0
   %231 = select i1 %.not33.i432, i32 1, i32 2
   %.not3134.i433 = icmp eq i64 %229, 1
-  br i1 %.not3134.i433, label %.loopexit491, label %.lr.ph.i434
+  br i1 %.not3134.i433, label %.loopexit502, label %.lr.ph.i434
 
 .lr.ph.i434:                                      ; preds = %228, %.lr.ph.i434
   %spec.select37.i435 = phi i32 [ %spec.select.i439, %.lr.ph.i434 ], [ %231, %228 ]
@@ -411,23 +411,23 @@ define void @dlasda_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %235 = select i1 %.not.i438, i32 1, i32 %233
   %spec.select.i439 = mul nuw nsw i32 %235, %spec.select37.i435
   %.not31.i440 = icmp samesign ult i64 %.036.i436, 4
-  br i1 %.not31.i440, label %.loopexit491, label %.lr.ph.i434
+  br i1 %.not31.i440, label %.loopexit502, label %.lr.ph.i434
 
-.loopexit491:                                     ; preds = %.lr.ph.i434, %228
+.loopexit502:                                     ; preds = %.lr.ph.i434, %228
   %.1.i431 = phi i32 [ %231, %228 ], [ %spec.select.i439, %.lr.ph.i434 ]
   %236 = shl i32 %.1.i431, 1
   %237 = add nsw i32 %236, -1
   %.not421458.not = icmp slt i32 %.1.i431, %236
   br i1 %.not421458.not, label %.lr.ph462, label %._crit_edge463
 
-.lr.ph462:                                        ; preds = %224, %.loopexit491
-  %238 = phi i32 [ %237, %.loopexit491 ], [ 1, %224 ]
-  %.0410490 = phi i32 [ %.1.i431, %.loopexit491 ], [ 1, %224 ]
+.lr.ph462:                                        ; preds = %224, %.loopexit502
+  %238 = phi i32 [ %237, %.loopexit502 ], [ 1, %224 ]
+  %.0410501 = phi i32 [ %.1.i431, %.loopexit502 ], [ 1, %224 ]
   %239 = mul nsw i64 %indvars.iv482, %222
   %240 = mul nsw i32 %226, %52
   %241 = mul nsw i32 %226, %41
   %242 = mul nsw i64 %indvars.iv482, %223
-  %243 = sext i32 %.0410490 to i64
+  %243 = sext i32 %.0410501 to i64
   %sext = sext i32 %238 to i64
   %244 = getelementptr i32, ptr %54, i64 %239
   br label %246
@@ -523,8 +523,8 @@ define void @dlasda_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %.not422 = icmp eq i32 %307, 0
   br i1 %.not422, label %245, label %.loopexit
 
-._crit_edge463:                                   ; preds = %245, %.loopexit491
-  %.3.lcssa = phi i32 [ %.2464, %.loopexit491 ], [ %.4, %245 ]
+._crit_edge463:                                   ; preds = %245, %.loopexit502
+  %.3.lcssa = phi i32 [ %.2464, %.loopexit502 ], [ %.4, %245 ]
   %indvars.iv.next483 = add nsw i64 %indvars.iv482, -1
   %308 = icmp sgt i64 %indvars.iv482, 1
   br i1 %308, label %224, label %.loopexit, !llvm.loop !14

@@ -355,22 +355,22 @@ define internal fastcc noundef i32 @dissect_resp_loop(ptr noundef %0, ptr nounde
 116:                                              ; preds = %110, %106
   %117 = phi ptr [ %114, %110 ], [ %109, %106 ]
   %118 = phi i32 [ %113, %110 ], [ %108, %106 ]
-  %.07685.i = phi i32 [ %94, %110 ], [ %77, %106 ]
+  %.07689.i = phi i32 [ %94, %110 ], [ %77, %106 ]
   %119 = load i32, ptr @ett_resp_bulk_string, align 4
   %120 = tail call ptr @proto_item_add_subtree(ptr noundef %117, i32 noundef %119)
   %121 = load i32, ptr @hf_resp_bulk_string_length, align 4
   %122 = tail call ptr @proto_tree_add_int(ptr noundef %120, i32 noundef %121, ptr noundef %0, i32 noundef %.02747, i32 noundef %92, i32 noundef %77)
-  %123 = icmp sgt i32 %.07685.i, 0
+  %123 = icmp sgt i32 %.07689.i, 0
   br i1 %123, label %124, label %127
 
 124:                                              ; preds = %116
   %125 = load i32, ptr @hf_resp_bulk_string_value, align 4
-  %126 = tail call ptr @proto_tree_add_item(ptr noundef %120, i32 noundef %125, ptr noundef %0, i32 noundef %93, i32 noundef %.07685.i, i32 noundef 0)
+  %126 = tail call ptr @proto_tree_add_item(ptr noundef %120, i32 noundef %125, ptr noundef %0, i32 noundef %93, i32 noundef %.07689.i, i32 noundef 0)
   br label %127
 
 127:                                              ; preds = %124, %116
   %128 = load ptr, ptr %10, align 8
-  %129 = tail call ptr @tvb_get_string_enc(ptr noundef %128, ptr noundef %0, i32 noundef %93, i32 noundef %.07685.i, i32 noundef 0)
+  %129 = tail call ptr @tvb_get_string_enc(ptr noundef %128, ptr noundef %0, i32 noundef %93, i32 noundef %.07689.i, i32 noundef 0)
   %130 = tail call i32 @g_str_is_ascii(ptr noundef %129)
   %.not.i = icmp eq i32 %130, 0
   br i1 %.not.i, label %149, label %131

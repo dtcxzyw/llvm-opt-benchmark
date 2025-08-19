@@ -1640,18 +1640,18 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN19ConcurrentHashTableI28G1Code
   %28 = load ptr, ptr %27, align 8
   %29 = load ptr, ptr %2, align 8
   %30 = icmp eq ptr %28, %29
-  br i1 %30, label %.lr.ph._crit_edge, label %.lr.ph34
+  br i1 %30, label %.lr.ph._crit_edge, label %.lr.ph35
 
-.lr.ph:                                           ; preds = %.lr.ph34
+.lr.ph:                                           ; preds = %.lr.ph35
   %31 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %32 = load ptr, ptr %31, align 8
   %33 = load ptr, ptr %2, align 8
   %34 = icmp eq ptr %32, %33
-  br i1 %34, label %.lr.ph._crit_edge, label %.lr.ph34, !llvm.loop !21
+  br i1 %34, label %.lr.ph._crit_edge, label %.lr.ph35, !llvm.loop !21
 
 .lr.ph._crit_edge:                                ; preds = %.lr.ph, %.lr.ph.preheader
   %.026.lcssa = phi ptr [ %26, %.lr.ph.preheader ], [ %43, %.lr.ph ]
-  %.01925.lcssa = phi ptr [ %22, %.lr.ph.preheader ], [ %.02633, %.lr.ph ]
+  %.01925.lcssa = phi ptr [ %22, %.lr.ph.preheader ], [ %.02634, %.lr.ph ]
   %35 = load volatile ptr, ptr %.026.lcssa, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !7
   %36 = load volatile ptr, ptr %.01925.lcssa, align 8
@@ -1665,15 +1665,15 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN19ConcurrentHashTableI28G1Code
   store volatile ptr %42, ptr %.01925.lcssa, align 8
   br label %.loopexit
 
-.lr.ph34:                                         ; preds = %.lr.ph.preheader, %.lr.ph
-  %.02633 = phi ptr [ %43, %.lr.ph ], [ %26, %.lr.ph.preheader ]
-  %43 = load volatile ptr, ptr %.02633, align 8
+.lr.ph35:                                         ; preds = %.lr.ph.preheader, %.lr.ph
+  %.02634 = phi ptr [ %43, %.lr.ph ], [ %26, %.lr.ph.preheader ]
+  %43 = load volatile ptr, ptr %.02634, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !7
   %.not = icmp eq ptr %43, null
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !21
 
-.loopexit:                                        ; preds = %.lr.ph34, %4, %.lr.ph._crit_edge
-  %.022 = phi ptr [ %.026.lcssa, %.lr.ph._crit_edge ], [ %26, %4 ], [ null, %.lr.ph34 ]
+.loopexit:                                        ; preds = %.lr.ph35, %4, %.lr.ph._crit_edge
+  %.022 = phi ptr [ %.026.lcssa, %.lr.ph._crit_edge ], [ %26, %4 ], [ null, %.lr.ph35 ]
   %44 = load volatile ptr, ptr %22, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !7
   %45 = ptrtoint ptr %44 to i64

@@ -407,8 +407,8 @@ sift_down.exit:                                   ; preds = %52, %54
   br label %.sink.split
 
 .sink.split:                                      ; preds = %32, %.lr.ph.i, %22, %sift_down.exit
-  %.sink18 = phi i64 [ %66, %sift_down.exit ], [ 0, %22 ], [ %25, %32 ], [ %.pre, %.lr.ph.i ]
-  %67 = getelementptr inbounds [0 x ptr], ptr %5, i64 0, i64 %.sink18
+  %.sink21 = phi i64 [ %66, %sift_down.exit ], [ 0, %22 ], [ %25, %32 ], [ %.pre, %.lr.ph.i ]
+  %67 = getelementptr inbounds [0 x ptr], ptr %5, i64 0, i64 %.sink21
   store ptr %20, ptr %67, align 8
   br label %68
 

@@ -354,8 +354,8 @@ ossl_quic_stream_map_is_local_allowed_by_stream_limit.exit: ; preds = %16, %12, 
   br i1 %.not.i, label %ossl_quic_stream_map_notify_totally_acked.exit, label %ossl_quic_stream_map_notify_totally_acked.exit.sink.split
 
 ossl_quic_stream_map_notify_totally_acked.exit.sink.split: ; preds = %48, %35
-  %.sink86 = phi i64 [ %39, %35 ], [ %49, %48 ]
-  %51 = and i64 %.sink86, -549755813889
+  %.sink90 = phi i64 [ %39, %35 ], [ %49, %48 ]
+  %51 = and i64 %.sink90, -549755813889
   store i64 %51, ptr %6, align 8
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %53 = load i64, ptr %52, align 8, !tbaa !44
@@ -366,8 +366,8 @@ ossl_quic_stream_map_notify_totally_acked.exit.sink.split: ; preds = %48, %35
 ossl_quic_stream_map_notify_totally_acked.exit:   ; preds = %ossl_quic_stream_map_notify_totally_acked.exit.sink.split, %48, %35, %33, %41, %44
   %55 = load i64, ptr %6, align 8
   %56 = and i64 %55, 412316860416
-  %or.cond88.not = icmp eq i64 %56, 137438953472
-  br i1 %or.cond88.not, label %57, label %qsm_ready_for_gc.exit.thread
+  %or.cond92.not = icmp eq i64 %56, 137438953472
+  br i1 %or.cond92.not, label %57, label %qsm_ready_for_gc.exit.thread
 
 57:                                               ; preds = %ossl_quic_stream_map_notify_totally_acked.exit
   %58 = and i64 %55, 16711680
@@ -418,8 +418,8 @@ qsm_ready_for_gc.exit.thread:                     ; preds = %57, %qsm_ready_for_
   %.pre80 = phi i64 [ %70, %qsm_ready_for_gc.exit ], [ %.pre80.pre, %71 ], [ %55, %ossl_quic_stream_map_notify_totally_acked.exit ], [ %55, %57 ]
   %77 = and i64 %.pre80, 274877906944
   %.not43 = icmp eq i64 %77, 0
-  %or.cond87 = select i1 %.0, i1 %.not43, i1 false
-  br i1 %or.cond87, label %78, label %.critedge
+  %or.cond91 = select i1 %.0, i1 %.not43, i1 false
+  br i1 %or.cond91, label %78, label %.critedge
 
 78:                                               ; preds = %qsm_ready_for_gc.exit.thread
   %79 = and i64 %.pre80, 16711680

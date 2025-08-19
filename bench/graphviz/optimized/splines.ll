@@ -516,13 +516,13 @@ define void @clip_and_install(ptr noundef %0, ptr noundef %1, ptr noundef %2, i6
   %54 = getelementptr inbounds nuw i8, ptr %21, i64 48
   %55 = getelementptr inbounds nuw i8, ptr %21, i64 96
   %. = select i1 %53, i64 58, i64 106
-  %.186 = select i1 %53, i64 106, i64 58
-  %.187 = select i1 %53, ptr %54, ptr %55
-  %.188 = select i1 %53, ptr %55, ptr %54
+  %.199 = select i1 %53, i64 106, i64 58
+  %.200 = select i1 %53, ptr %54, ptr %55
+  %.201 = select i1 %53, ptr %55, ptr %54
   %56 = getelementptr inbounds nuw i8, ptr %21, i64 %.
-  %57 = getelementptr inbounds nuw i8, ptr %21, i64 %.186
-  %.0111 = load ptr, ptr %.188, align 8, !tbaa !76
-  %.0112 = load ptr, ptr %.187, align 8, !tbaa !76
+  %57 = getelementptr inbounds nuw i8, ptr %21, i64 %.199
+  %.0111 = load ptr, ptr %.201, align 8, !tbaa !76
+  %.0112 = load ptr, ptr %.200, align 8, !tbaa !76
   %.0114.in = load i8, ptr %57, align 2, !tbaa !77, !range !72, !noundef !73
   %.0115.in = load i8, ptr %56, align 2, !tbaa !77, !range !72, !noundef !73
   %.not128 = icmp eq i8 %.0115.in, 0
@@ -1001,15 +1001,15 @@ define void @beginpath(ptr noundef captures(none) initializes((0, 16), (33, 34),
   br label %.sink.split
 
 .sink.split:                                      ; preds = %47, %59
-  %.sink336 = phi double [ %61, %59 ], [ %54, %47 ]
+  %.sink340 = phi double [ %61, %59 ], [ %54, %47 ]
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store double %.sink336, ptr %62, align 8, !tbaa !104
+  store double %.sink340, ptr %62, align 8, !tbaa !104
   br label %63
 
 63:                                               ; preds = %.sink.split, %55
-  %.sink320 = phi i8 [ 0, %55 ], [ 1, %.sink.split ]
+  %.sink324 = phi i8 [ 0, %55 ], [ 1, %.sink.split ]
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 33
-  store i8 %.sink320, ptr %64, align 1, !tbaa !105
+  store i8 %.sink324, ptr %64, align 1, !tbaa !105
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store i64 0, ptr %65, align 8, !tbaa !95
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 112
@@ -1089,32 +1089,32 @@ define void @beginpath(ptr noundef captures(none) initializes((0, 16), (33, 34),
   br label %113
 
 113:                                              ; preds = %102, %92
-  %.sink331 = phi ptr [ %106, %102 ], [ %96, %92 ]
+  %.sink335 = phi ptr [ %106, %102 ], [ %96, %92 ]
   %.sroa.050.0.copyload.sink = phi double [ %.sroa.050.0.copyload, %102 ], [ %93, %92 ]
-  %.sink323 = phi double [ %103, %102 ], [ %94, %92 ]
-  %.sink322 = phi double [ %104, %102 ], [ %.sroa.1868.0.copyload, %92 ]
-  %.pn339 = phi ptr [ %105, %102 ], [ %95, %92 ]
+  %.sink327 = phi double [ %103, %102 ], [ %94, %92 ]
+  %.sink326 = phi double [ %104, %102 ], [ %.sroa.1868.0.copyload, %92 ]
+  %.pn343 = phi ptr [ %105, %102 ], [ %95, %92 ]
   %.sink316 = phi double [ %112, %102 ], [ %93, %92 ]
   %.sink314 = phi double [ %104, %102 ], [ %101, %92 ]
-  %.pn338.in = getelementptr inbounds nuw i8, ptr %.pn339, i64 16
-  %.pn338 = load ptr, ptr %.pn338.in, align 8, !tbaa !9
-  %.pn.in.in.in = getelementptr inbounds nuw i8, ptr %.pn338, i64 356
+  %.pn342.in = getelementptr inbounds nuw i8, ptr %.pn343, i64 16
+  %.pn342 = load ptr, ptr %.pn342.in, align 8, !tbaa !9
+  %.pn.in.in.in = getelementptr inbounds nuw i8, ptr %.pn342, i64 356
   %.pn.in.in = load i32, ptr %.pn.in.in.in, align 4, !tbaa !115
   %.pn.in = sdiv i32 %.pn.in.in, 2
   %.pn = sitofp i32 %.pn.in to double
   %.sink317 = fadd double %91, %.pn
-  %114 = getelementptr inbounds nuw i8, ptr %.sink331, i64 40
+  %114 = getelementptr inbounds nuw i8, ptr %.sink335, i64 40
   %115 = load double, ptr %114, align 8, !tbaa !43
-  %116 = getelementptr inbounds nuw i8, ptr %.sink331, i64 96
+  %116 = getelementptr inbounds nuw i8, ptr %.sink335, i64 96
   %117 = load double, ptr %116, align 8, !tbaa !112
   %118 = fmul double %117, 5.000000e-01
   %119 = fsub double %115, %118
   %120 = getelementptr inbounds nuw i8, ptr %3, i64 56
   store double %.sroa.050.0.copyload.sink, ptr %120, align 8, !tbaa !3
   %.sroa.694.0..sroa_idx95 = getelementptr inbounds nuw i8, ptr %3, i64 64
-  store double %.sink323, ptr %.sroa.694.0..sroa_idx95, align 8, !tbaa !3
+  store double %.sink327, ptr %.sroa.694.0..sroa_idx95, align 8, !tbaa !3
   %.sroa.1098.0..sroa_idx99 = getelementptr inbounds nuw i8, ptr %3, i64 72
-  store double %.sink322, ptr %.sroa.1098.0..sroa_idx99, align 8, !tbaa !3
+  store double %.sink326, ptr %.sroa.1098.0..sroa_idx99, align 8, !tbaa !3
   %121 = getelementptr inbounds nuw i8, ptr %3, i64 80
   store double %.sink317, ptr %121, align 8, !tbaa !3
   %122 = getelementptr inbounds nuw i8, ptr %3, i64 88
@@ -1124,7 +1124,7 @@ define void @beginpath(ptr noundef captures(none) initializes((0, 16), (33, 34),
   %124 = getelementptr inbounds nuw i8, ptr %3, i64 104
   store double %.sink314, ptr %124, align 8, !tbaa !3
   %125 = getelementptr inbounds nuw i8, ptr %3, i64 112
-  store double %.sink323, ptr %125, align 8, !tbaa !3
+  store double %.sink327, ptr %125, align 8, !tbaa !3
   %126 = load double, ptr %.sroa.4112.0..sroa_idx, align 8, !tbaa !113
   %127 = fadd double %126, 1.000000e+00
   store double %127, ptr %.sroa.4112.0..sroa_idx, align 8, !tbaa !113
@@ -1282,7 +1282,7 @@ define void @beginpath(ptr noundef captures(none) initializes((0, 16), (33, 34),
   %194 = load double, ptr %.sroa.4112.0..sroa_idx, align 8, !tbaa !113
   %195 = fadd double %194, 1.000000e+00
   store double %195, ptr %.sroa.4112.0..sroa_idx, align 8, !tbaa !113
-  br label %.preheader341
+  br label %.preheader345
 
 196:                                              ; preds = %187
   %197 = and i32 %186, 1
@@ -1343,13 +1343,13 @@ define void @beginpath(ptr noundef captures(none) initializes((0, 16), (33, 34),
   br label %238
 
 238:                                              ; preds = %235, %202
-  %.sink333 = phi i64 [ 56, %235 ], [ 112, %202 ]
+  %.sink337 = phi i64 [ 56, %235 ], [ 112, %202 ]
   %.sroa.0.0.copyload.sink = phi double [ %.sroa.0.0.copyload, %235 ], [ %232, %202 ]
   %.sroa.10.0.copyload.sink = phi double [ %.sroa.10.0.copyload, %235 ], [ %219, %202 ]
   %.sroa.18.0.copyload.sink = phi double [ %.sroa.18.0.copyload, %235 ], [ %210, %202 ]
   %.sroa.22.0.copyload..sink = phi double [ %.sroa.22.0.copyload., %235 ], [ %209, %202 ]
   %.sink318 = phi i32 [ 1, %235 ], [ 2, %202 ]
-  %239 = getelementptr inbounds nuw i8, ptr %3, i64 %.sink333
+  %239 = getelementptr inbounds nuw i8, ptr %3, i64 %.sink337
   store double %.sroa.0.0.copyload.sink, ptr %239, align 8, !tbaa !3
   %240 = getelementptr inbounds nuw i8, ptr %3, i64 64
   store double %.sroa.10.0.copyload.sink, ptr %240, align 8, !tbaa !3
@@ -1362,7 +1362,7 @@ define void @beginpath(ptr noundef captures(none) initializes((0, 16), (33, 34),
   %244 = load double, ptr %.sroa.4112.0..sroa_idx, align 8, !tbaa !113
   %245 = fadd double %244, -1.000000e+00
   store double %245, ptr %.sroa.4112.0..sroa_idx, align 8, !tbaa !113
-  br label %.preheader341
+  br label %.preheader345
 
 246:                                              ; preds = %196
   %247 = and i32 %186, 8
@@ -1401,7 +1401,7 @@ define void @beginpath(ptr noundef captures(none) initializes((0, 16), (33, 34),
   %267 = load double, ptr %0, align 8, !tbaa !111
   %268 = fadd double %267, -1.000000e+00
   store double %268, ptr %0, align 8, !tbaa !111
-  br label %.preheader341
+  br label %.preheader345
 
 269:                                              ; preds = %246
   %270 = getelementptr inbounds nuw i8, ptr %3, i64 48
@@ -1432,13 +1432,13 @@ define void @beginpath(ptr noundef captures(none) initializes((0, 16), (33, 34),
   %285 = load double, ptr %0, align 8, !tbaa !111
   %286 = fadd double %285, 1.000000e+00
   store double %286, ptr %0, align 8, !tbaa !111
-  br label %.preheader341
+  br label %.preheader345
 
-.preheader341:                                    ; preds = %238, %269, %249, %189
+.preheader345:                                    ; preds = %238, %269, %249, %189
   br label %287
 
-287:                                              ; preds = %.preheader341, %292
-  %.0 = phi ptr [ %291, %292 ], [ %1, %.preheader341 ]
+287:                                              ; preds = %.preheader345, %292
+  %.0 = phi ptr [ %291, %292 ], [ %1, %.preheader345 ]
   %288 = getelementptr inbounds nuw i8, ptr %.0, i64 16
   %289 = load ptr, ptr %288, align 8, !tbaa !9
   %290 = getelementptr inbounds nuw i8, ptr %289, i64 160
@@ -1746,15 +1746,15 @@ define void @endpath(ptr noundef captures(none) initializes((48, 64), (81, 82)) 
   br label %.sink.split
 
 .sink.split:                                      ; preds = %48, %61
-  %.sink333 = phi double [ %63, %61 ], [ %56, %48 ]
+  %.sink337 = phi double [ %63, %61 ], [ %56, %48 ]
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store double %.sink333, ptr %64, align 8, !tbaa !138
+  store double %.sink337, ptr %64, align 8, !tbaa !138
   br label %65
 
 65:                                               ; preds = %.sink.split, %57
-  %.sink317 = phi i8 [ 0, %57 ], [ 1, %.sink.split ]
+  %.sink321 = phi i8 [ 0, %57 ], [ 1, %.sink.split ]
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 81
-  store i8 %.sink317, ptr %66, align 1, !tbaa !139
+  store i8 %.sink321, ptr %66, align 1, !tbaa !139
   %67 = getelementptr inbounds nuw i8, ptr %3, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %67, ptr noundef nonnull align 8 dereferenceable(16) %36, i64 16, i1 false), !tbaa.struct !88
   switch i32 %2, label %292 [
@@ -1856,32 +1856,32 @@ define void @endpath(ptr noundef captures(none) initializes((48, 64), (81, 82)) 
   br label %123
 
 123:                                              ; preds = %112, %102
-  %.sink326 = phi ptr [ %116, %112 ], [ %106, %102 ]
+  %.sink330 = phi ptr [ %116, %112 ], [ %106, %102 ]
   %.sroa.050.0.copyload.sink = phi double [ %.sroa.050.0.copyload, %112 ], [ %103, %102 ]
-  %.pn337 = phi ptr [ %115, %112 ], [ %105, %102 ]
-  %.sink319 = phi double [ %114, %112 ], [ %.sroa.21.0.copyload, %102 ]
+  %.pn341 = phi ptr [ %115, %112 ], [ %105, %102 ]
+  %.sink323 = phi double [ %114, %112 ], [ %.sroa.21.0.copyload, %102 ]
   %.sink314 = phi double [ %113, %112 ], [ %104, %102 ]
   %.sink313 = phi double [ %122, %112 ], [ %103, %102 ]
   %.sink311 = phi double [ %114, %112 ], [ %111, %102 ]
-  %.pn336.in = getelementptr inbounds nuw i8, ptr %.pn337, i64 16
-  %.pn336 = load ptr, ptr %.pn336.in, align 8, !tbaa !9
-  %.pn.in.in.in = getelementptr inbounds nuw i8, ptr %.pn336, i64 356
+  %.pn340.in = getelementptr inbounds nuw i8, ptr %.pn341, i64 16
+  %.pn340 = load ptr, ptr %.pn340.in, align 8, !tbaa !9
+  %.pn.in.in.in = getelementptr inbounds nuw i8, ptr %.pn340, i64 356
   %.pn.in.in = load i32, ptr %.pn.in.in.in, align 4, !tbaa !115
   %.pn.in = sdiv i32 %.pn.in.in, 2
   %.pn = sitofp i32 %.pn.in to double
-  %.sink320 = fsub double %101, %.pn
-  %124 = getelementptr inbounds nuw i8, ptr %.sink326, i64 40
+  %.sink324 = fsub double %101, %.pn
+  %124 = getelementptr inbounds nuw i8, ptr %.sink330, i64 40
   %125 = load double, ptr %124, align 8, !tbaa !43
-  %126 = getelementptr inbounds nuw i8, ptr %.sink326, i64 96
+  %126 = getelementptr inbounds nuw i8, ptr %.sink330, i64 96
   %127 = load double, ptr %126, align 8, !tbaa !112
   %128 = fmul double %127, 5.000000e-01
   %129 = fadd double %125, %128
   %130 = getelementptr inbounds nuw i8, ptr %3, i64 56
   store double %.sroa.050.0.copyload.sink, ptr %130, align 8, !tbaa !3
   %.sroa.693.0..sroa_idx94 = getelementptr inbounds nuw i8, ptr %3, i64 64
-  store double %.sink320, ptr %.sroa.693.0..sroa_idx94, align 8, !tbaa !3
+  store double %.sink324, ptr %.sroa.693.0..sroa_idx94, align 8, !tbaa !3
   %.sroa.8.0..sroa_idx96 = getelementptr inbounds nuw i8, ptr %3, i64 72
-  store double %.sink319, ptr %.sroa.8.0..sroa_idx96, align 8, !tbaa !3
+  store double %.sink323, ptr %.sroa.8.0..sroa_idx96, align 8, !tbaa !3
   %131 = getelementptr inbounds nuw i8, ptr %3, i64 80
   store double %.sink314, ptr %131, align 8, !tbaa !3
   %132 = getelementptr inbounds nuw i8, ptr %3, i64 88
@@ -2019,7 +2019,7 @@ define void @endpath(ptr noundef captures(none) initializes((48, 64), (81, 82)) 
   %193 = load double, ptr %.sroa.4110.0..sroa_idx, align 8, !tbaa !141
   %194 = fadd double %193, 1.000000e+00
   store double %194, ptr %.sroa.4110.0..sroa_idx, align 8, !tbaa !141
-  br label %.preheader339
+  br label %.preheader343
 
 195:                                              ; preds = %186
   %196 = and i32 %185, 1
@@ -2081,13 +2081,13 @@ define void @endpath(ptr noundef captures(none) initializes((48, 64), (81, 82)) 
   br label %238
 
 238:                                              ; preds = %234, %201
-  %.sink330 = phi i64 [ 56, %234 ], [ 112, %201 ]
+  %.sink334 = phi i64 [ 56, %234 ], [ 112, %201 ]
   %.sroa.0.0.copyload.sink = phi double [ %.sroa.0.0.copyload, %234 ], [ %231, %201 ]
   %.sroa.12.0.copyload.sink = phi double [ %.sroa.12.0.copyload, %234 ], [ %218, %201 ]
   %.sroa.20.0.copyload.sink = phi double [ %.sroa.20.0.copyload, %234 ], [ %210, %201 ]
   %.sroa.22.0.copyload..sink = phi double [ %.sroa.22.0.copyload., %234 ], [ %209, %201 ]
   %.sink315 = phi i32 [ 1, %234 ], [ 2, %201 ]
-  %239 = getelementptr inbounds nuw i8, ptr %3, i64 %.sink330
+  %239 = getelementptr inbounds nuw i8, ptr %3, i64 %.sink334
   store double %.sroa.0.0.copyload.sink, ptr %239, align 8, !tbaa !3
   %240 = getelementptr inbounds nuw i8, ptr %3, i64 64
   store double %.sroa.12.0.copyload.sink, ptr %240, align 8, !tbaa !3
@@ -2100,7 +2100,7 @@ define void @endpath(ptr noundef captures(none) initializes((48, 64), (81, 82)) 
   %244 = load double, ptr %.sroa.4110.0..sroa_idx, align 8, !tbaa !141
   %245 = fadd double %244, -1.000000e+00
   store double %245, ptr %.sroa.4110.0..sroa_idx, align 8, !tbaa !141
-  br label %.preheader339
+  br label %.preheader343
 
 246:                                              ; preds = %195
   %247 = and i32 %185, 8
@@ -2139,7 +2139,7 @@ define void @endpath(ptr noundef captures(none) initializes((48, 64), (81, 82)) 
   %267 = load double, ptr %36, align 8, !tbaa !142
   %268 = fadd double %267, -1.000000e+00
   store double %268, ptr %36, align 8, !tbaa !142
-  br label %.preheader339
+  br label %.preheader343
 
 269:                                              ; preds = %246
   %270 = fadd double %248, -1.000000e+00
@@ -2158,13 +2158,13 @@ define void @endpath(ptr noundef captures(none) initializes((48, 64), (81, 82)) 
   %273 = load double, ptr %36, align 8, !tbaa !142
   %274 = fadd double %273, 1.000000e+00
   store double %274, ptr %36, align 8, !tbaa !142
-  br label %.preheader339
+  br label %.preheader343
 
-.preheader339:                                    ; preds = %238, %269, %262, %188
+.preheader343:                                    ; preds = %238, %269, %262, %188
   br label %275
 
-275:                                              ; preds = %.preheader339, %280
-  %.0 = phi ptr [ %279, %280 ], [ %1, %.preheader339 ]
+275:                                              ; preds = %.preheader343, %280
+  %.0 = phi ptr [ %279, %280 ], [ %1, %.preheader343 ]
   %276 = getelementptr inbounds nuw i8, ptr %.0, i64 16
   %277 = load ptr, ptr %276, align 8, !tbaa !9
   %278 = getelementptr inbounds nuw i8, ptr %277, i64 160
@@ -2187,8 +2187,8 @@ define void @endpath(ptr noundef captures(none) initializes((48, 64), (81, 82)) 
   %287 = getelementptr inbounds nuw i8, ptr %286, i64 56
   %288 = load ptr, ptr %287, align 8, !tbaa !65
   %289 = icmp eq ptr %13, %288
-  %.335 = select i1 %289, i64 106, i64 58
-  %290 = getelementptr inbounds nuw i8, ptr %277, i64 %.335
+  %.339 = select i1 %289, i64 106, i64 58
+  %290 = getelementptr inbounds nuw i8, ptr %277, i64 %.339
   store i8 0, ptr %290, align 2, !tbaa !77
   %291 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store i32 %185, ptr %291, align 8, !tbaa !109
@@ -2580,8 +2580,8 @@ convert_sides_to_points.exit.thread.i:            ; preds = %77, %75, %convert_s
   %126 = load ptr, ptr %109, align 8, !tbaa !9
   %127 = getelementptr inbounds nuw i8, ptr %126, i64 120
   %128 = load ptr, ptr %127, align 8, !tbaa !145
-  %.137.i = select i1 %.not121.i, i64 40, i64 48
-  %129 = getelementptr inbounds nuw i8, ptr %128, i64 %.137.i
+  %.139.i = select i1 %.not121.i, i64 40, i64 48
+  %129 = getelementptr inbounds nuw i8, ptr %128, i64 %.139.i
   %.0117.i = load double, ptr %129, align 8, !tbaa !3
   %130 = load ptr, ptr %44, align 8, !tbaa !9
   %131 = getelementptr inbounds nuw i8, ptr %130, i64 32
@@ -2830,8 +2830,8 @@ convert_sides_to_points.exit.thread.i76:          ; preds = %204, %202, %convert
   %254 = load ptr, ptr %237, align 8, !tbaa !9
   %255 = getelementptr inbounds nuw i8, ptr %254, i64 120
   %256 = load ptr, ptr %255, align 8, !tbaa !145
-  %.137.i96 = select i1 %.not121.i95, i64 40, i64 48
-  %257 = getelementptr inbounds nuw i8, ptr %256, i64 %.137.i96
+  %.139.i96 = select i1 %.not121.i95, i64 40, i64 48
+  %257 = getelementptr inbounds nuw i8, ptr %256, i64 %.139.i96
   %.0117.i97 = load double, ptr %257, align 8, !tbaa !3
   %258 = load ptr, ptr %171, align 8, !tbaa !9
   %259 = getelementptr inbounds nuw i8, ptr %258, i64 32
@@ -3072,8 +3072,8 @@ convert_sides_to_points.exit.thread.i119:         ; preds = %convert_sides_to_po
   %380 = load ptr, ptr %363, align 8, !tbaa !9
   %381 = getelementptr inbounds nuw i8, ptr %380, i64 120
   %382 = load ptr, ptr %381, align 8, !tbaa !145
-  %.137.i129 = select i1 %.not119.i, i64 48, i64 40
-  %383 = getelementptr inbounds nuw i8, ptr %382, i64 %.137.i129
+  %.139.i129 = select i1 %.not119.i, i64 48, i64 40
+  %383 = getelementptr inbounds nuw i8, ptr %382, i64 %.139.i129
   %.0114.i = load double, ptr %383, align 8, !tbaa !3
   %384 = load ptr, ptr %297, align 8, !tbaa !9
   %385 = getelementptr inbounds nuw i8, ptr %384, i64 40
@@ -3427,8 +3427,8 @@ convert_sides_to_points.exit.thread:              ; preds = %.split.loop.exit29.
   %185 = load ptr, ptr %168, align 8, !tbaa !9
   %186 = getelementptr inbounds nuw i8, ptr %185, i64 120
   %187 = load ptr, ptr %186, align 8, !tbaa !145
-  %.186 = select i1 %.not170, i64 48, i64 40
-  %188 = getelementptr inbounds nuw i8, ptr %187, i64 %.186
+  %.188 = select i1 %.not170, i64 48, i64 40
+  %188 = getelementptr inbounds nuw i8, ptr %187, i64 %.188
   %.0166 = load double, ptr %188, align 8, !tbaa !3
   %189 = load ptr, ptr %20, align 8, !tbaa !9
   %190 = getelementptr inbounds nuw i8, ptr %189, i64 40

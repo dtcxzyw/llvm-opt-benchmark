@@ -12371,7 +12371,7 @@ define hidden { i64, ptr } @"_ZN84_$LT$async_task..task..Task$LT$T$C$M$GT$$u20$a
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef align 8 dereferenceable(104) ptr @"_ZN84_$LT$gpui..app..entity_map..Lease$LT$T$GT$$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17h3bab118640a7f9f6E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #0 {
+define hidden noundef nonnull align 8 dereferenceable(104) ptr @"_ZN84_$LT$gpui..app..entity_map..Lease$LT$T$GT$$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17h3bab118640a7f9f6E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !noundef !4
   %4 = icmp eq ptr %3, null
@@ -12404,7 +12404,7 @@ define hidden noundef align 8 dereferenceable(104) ptr @"_ZN84_$LT$gpui..app..en
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef align 8 dereferenceable(168) ptr @"_ZN84_$LT$gpui..app..entity_map..Lease$LT$T$GT$$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17h435827f01932d0beE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #0 {
+define hidden noundef nonnull align 8 dereferenceable(168) ptr @"_ZN84_$LT$gpui..app..entity_map..Lease$LT$T$GT$$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17h435827f01932d0beE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !noundef !4
   %4 = icmp eq ptr %3, null
@@ -12934,13 +12934,13 @@ define hidden { i64, ptr } @"_ZN8blocking7unblock28_$u7b$$u7b$closure$u7d$$u7d$1
   %4 = alloca [24 x i8], align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i8, ptr %5, align 8, !range !643, !noundef !4
-  switch i8 %6, label %default.unreachable2 [
+  switch i8 %6, label %default.unreachable3 [
     i8 0, label %7
     i8 1, label %30
     i8 2, label %31
   ]
 
-default.unreachable2:                             ; preds = %2
+default.unreachable3:                             ; preds = %2
   unreachable
 
 7:                                                ; preds = %2
@@ -13101,13 +13101,13 @@ define hidden { i64, ptr } @"_ZN8blocking7unblock28_$u7b$$u7b$closure$u7d$$u7d$1
   %5 = alloca [24 x i8], align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load i8, ptr %6, align 8, !range !643, !noundef !4
-  switch i8 %7, label %default.unreachable2 [
+  switch i8 %7, label %default.unreachable3 [
     i8 0, label %8
     i8 1, label %33
     i8 2, label %34
   ]
 
-default.unreachable2:                             ; preds = %2
+default.unreachable3:                             ; preds = %2
   unreachable
 
 8:                                                ; preds = %2
@@ -13195,13 +13195,13 @@ define hidden void @"_ZN8blocking7unblock28_$u7b$$u7b$closure$u7d$$u7d$17he363bc
   %6 = alloca [24 x i8], align 8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %8 = load i8, ptr %7, align 8, !range !643, !noundef !4
-  switch i8 %8, label %default.unreachable1 [
+  switch i8 %8, label %default.unreachable2 [
     i8 0, label %9
     i8 1, label %34
     i8 2, label %35
   ]
 
-default.unreachable1:                             ; preds = %3
+default.unreachable2:                             ; preds = %3
   unreachable
 
 9:                                                ; preds = %3
@@ -13338,13 +13338,13 @@ define hidden void @"_ZN8blocking7unblock28_$u7b$$u7b$closure$u7d$$u7d$17hf9f3fa
   %7 = alloca [24 x i8], align 8
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %9 = load i8, ptr %8, align 8, !range !643, !noundef !4
-  switch i8 %9, label %default.unreachable1 [
+  switch i8 %9, label %default.unreachable2 [
     i8 0, label %10
     i8 1, label %32
     i8 2, label %33
   ]
 
-default.unreachable1:                             ; preds = %3
+default.unreachable2:                             ; preds = %3
   unreachable
 
 10:                                               ; preds = %3

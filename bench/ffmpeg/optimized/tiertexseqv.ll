@@ -168,7 +168,7 @@ define internal i32 @seqvideo_decode_frame(ptr noundef %0, ptr noundef %1, ptr n
   %80 = ptrtoint ptr %.490.i to i64
   %81 = sub i64 %55, %80
   %82 = icmp slt i64 %81, 1
-  br i1 %82, label %seq_decode_op2.exit.thread117.i, label %83
+  br i1 %82, label %seq_decode_op2.exit.thread128.i, label %83
 
 83:                                               ; preds = %79
   %84 = getelementptr inbounds nuw i8, ptr %.490.i, i64 1
@@ -179,7 +179,7 @@ define internal i32 @seqvideo_decode_frame(ptr noundef %0, ptr noundef %1, ptr n
 
 87:                                               ; preds = %83
   %88 = and i32 %86, 3
-  switch i32 %88, label %seq_decode_op2.exit.thread121.i [
+  switch i32 %88, label %seq_decode_op2.exit.thread132.i [
     i32 1, label %89
     i32 2, label %154
   ]
@@ -435,7 +435,7 @@ seq_unpack_rle_block.exit75.i.i:                  ; preds = %159, %204, %197, %1
 
 224:                                              ; preds = %83
   %225 = icmp eq i8 %85, 0
-  br i1 %225, label %seq_decode_op2.exit.thread117.i, label %226
+  br i1 %225, label %seq_decode_op2.exit.thread128.i, label %226
 
 226:                                              ; preds = %224
   %227 = add nsw i32 %86, -1
@@ -450,7 +450,7 @@ seq_unpack_rle_block.exit75.i.i:                  ; preds = %159, %204, %197, %1
   %236 = add nuw nsw i32 %235, %86
   %237 = zext nneg i32 %236 to i64
   %238 = icmp slt i64 %234, %237
-  br i1 %238, label %seq_decode_op2.exit.thread117.i, label %239
+  br i1 %238, label %seq_decode_op2.exit.thread128.i, label %239
 
 239:                                              ; preds = %226
   %240 = zext nneg i8 %85 to i64
@@ -501,7 +501,7 @@ seq_unpack_rle_block.exit75.i.i:                  ; preds = %159, %204, %197, %1
 .loopexit.loopexit.i.i:                           ; preds = %260
   %267 = zext nneg i32 %235 to i64
   %268 = getelementptr inbounds nuw i8, ptr %241, i64 %267
-  br label %seq_decode_op2.exit.thread121.i
+  br label %seq_decode_op2.exit.thread132.i
 
 269:                                              ; preds = %61
   %270 = ptrtoint ptr %.490.i to i64
@@ -555,11 +555,11 @@ seq_unpack_rle_block.exit75.i.i:                  ; preds = %159, %204, %197, %1
 default.unreachable:                              ; preds = %61
   unreachable
 
-seq_decode_op2.exit.thread117.i:                  ; preds = %226, %224, %79
+seq_decode_op2.exit.thread128.i:                  ; preds = %226, %224, %79
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %seqvideo_decode.exit.thread
 
-seq_decode_op2.exit.thread121.i:                  ; preds = %.loopexit.loopexit.i.i, %87
+seq_decode_op2.exit.thread132.i:                  ; preds = %.loopexit.loopexit.i.i, %87
   %.0.i51.ph.i = phi ptr [ %268, %.loopexit.loopexit.i.i ], [ %84, %87 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %seq_decode_op2.exit.thread60.i
@@ -570,8 +570,8 @@ seq_decode_op2.exit.i:                            ; preds = %222, %145
   %.not50.i = icmp eq ptr %.0.i51.i, null
   br i1 %.not50.i, label %seqvideo_decode.exit.thread, label %seq_decode_op2.exit.thread60.i
 
-seq_decode_op2.exit.thread60.i:                   ; preds = %284, %.preheader.i52.i, %seq_decode_op2.exit.i, %seq_decode_op2.exit.thread121.i, %61
-  %.563.i = phi ptr [ %.0.i51.i, %seq_decode_op2.exit.i ], [ %.0.i51.ph.i, %seq_decode_op2.exit.thread121.i ], [ %.490.i, %61 ], [ %274, %.preheader.i52.i ], [ %296, %284 ]
+seq_decode_op2.exit.thread60.i:                   ; preds = %284, %.preheader.i52.i, %seq_decode_op2.exit.i, %seq_decode_op2.exit.thread132.i, %61
+  %.563.i = phi ptr [ %.0.i51.i, %seq_decode_op2.exit.i ], [ %.0.i51.ph.i, %seq_decode_op2.exit.thread132.i ], [ %.490.i, %61 ], [ %274, %.preheader.i52.i ], [ %296, %284 ]
   %300 = add nuw nsw i32 %.04789.i, 8
   %301 = icmp samesign ult i32 %.04789.i, 248
   br i1 %301, label %61, label %302, !llvm.loop !51
@@ -581,7 +581,7 @@ seq_decode_op2.exit.thread60.i:                   ; preds = %284, %.preheader.i5
   %304 = icmp samesign ult i32 %.04692.i, 120
   br i1 %304, label %.preheader69.i, label %.loopexit, !llvm.loop !52
 
-seqvideo_decode.exit.thread:                      ; preds = %seq_decode_op2.exit.i, %269, %.preheader.i, %26, %54, %seq_decode_op2.exit.thread117.i
+seqvideo_decode.exit.thread:                      ; preds = %seq_decode_op2.exit.i, %269, %.preheader.i, %26, %54, %seq_decode_op2.exit.thread128.i
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %309
 

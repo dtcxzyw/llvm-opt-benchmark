@@ -1090,8 +1090,8 @@ _ZNSt6vectorIdSaIdEEC2EmRKS0_.exit:               ; preds = %13, %_ZSt6fill_nIPd
 
 37:                                               ; preds = %_ZNSt6vectorIdSaIdEEC2EmRKS0_.exit
   %38 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %.not101 = icmp eq ptr %16, %14
-  br i1 %.not101, label %_ZNSt6vectorISt8functionIFvlEESaIS2_EE7reserveEm.exit, label %_ZNSt12_Vector_baseISt8functionIFvlEESaIS2_EE11_M_allocateEm.exit.i
+  %.not128 = icmp eq ptr %16, %14
+  br i1 %.not128, label %_ZNSt6vectorISt8functionIFvlEESaIS2_EE7reserveEm.exit, label %_ZNSt12_Vector_baseISt8functionIFvlEESaIS2_EE11_M_allocateEm.exit.i
 
 _ZNSt12_Vector_baseISt8functionIFvlEESaIS2_EE11_M_allocateEm.exit.i: ; preds = %37
   %39 = shl nuw nsw i64 %34, 5

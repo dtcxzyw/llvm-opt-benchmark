@@ -390,9 +390,9 @@ define hidden noundef ptr @_ZN17duckdb_libpgquery14list_copy_tailEPKNS_6PGListEi
   %.pn = phi ptr [ %0, %7 ], [ %.026, %17 ]
   %.026.in = getelementptr inbounds nuw i8, ptr %.pn, i64 8
   %.026 = load ptr, ptr %.026.in, align 8, !tbaa !17
-  %.not36 = icmp eq i32 %.028, 0
+  %.not37 = icmp eq i32 %.028, 0
   %18 = add nsw i32 %.028, -1
-  br i1 %.not36, label %19, label %17, !llvm.loop !23
+  br i1 %.not37, label %19, label %17, !llvm.loop !23
 
 19:                                               ; preds = %17
   %20 = load i64, ptr %.026, align 8, !tbaa !16

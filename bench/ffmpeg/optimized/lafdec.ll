@@ -74,8 +74,8 @@ define internal range(i32 -1094995529, 1) i32 @laf_read_header(ptr noundef %0) #
   %21 = tail call i32 @avio_feof(ptr noundef %5) #7
   %.not120 = icmp eq i32 %21, 0
   %22 = icmp ult i32 %9, 4
-  %or.cond144 = and i1 %.not120, %22
-  br i1 %or.cond144, label %switch.lookup, label %.critedge
+  %or.cond149 = and i1 %.not120, %22
+  br i1 %or.cond149, label %switch.lookup, label %.critedge
 
 23:                                               ; preds = %.lr.ph, %46
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %46 ]
@@ -139,8 +139,8 @@ switch.lookup:                                    ; preds = %._crit_edge
   %switch.gep = getelementptr inbounds nuw [4 x i32], ptr @switch.table.laf_read_header, i64 0, i64 %47
   %switch.load = load i32, ptr %switch.gep, align 4
   %48 = zext nneg i32 %9 to i64
-  %switch.gep142 = getelementptr inbounds nuw [4 x i32], ptr @switch.table.laf_read_header.1, i64 0, i64 %48
-  %switch.load143 = load i32, ptr %switch.gep142, align 4
+  %switch.gep147 = getelementptr inbounds nuw [4 x i32], ptr @switch.table.laf_read_header.1, i64 0, i64 %48
+  %switch.load148 = load i32, ptr %switch.gep147, align 4
   %49 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 0, ptr %49, align 8, !tbaa !38
   %50 = getelementptr inbounds nuw i8, ptr %3, i64 12
@@ -179,7 +179,7 @@ switch.lookup:                                    ; preds = %._crit_edge
   %67 = getelementptr inbounds nuw i8, ptr %64, i64 16
   %68 = load ptr, ptr %67, align 8, !tbaa !43
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 4
-  store i32 %switch.load143, ptr %69, align 4, !tbaa !50
+  store i32 %switch.load148, ptr %69, align 4, !tbaa !50
   store i32 1, ptr %68, align 8, !tbaa !52
   %70 = getelementptr inbounds nuw i8, ptr %68, i64 128
   %71 = getelementptr inbounds nuw i8, ptr %68, i64 132
@@ -298,16 +298,16 @@ define internal range(i32 -2147483648, 1) i32 @laf_read_packet(ptr noundef reado
   %.1150179 = phi i32 [ %.0149184, %32 ], [ %.2151, %44 ]
   %.1153178 = phi i32 [ %.0152183, %32 ], [ %48, %44 ]
   %exitcond.not = icmp eq i32 %.0144182, %36
-  br i1 %exitcond.not, label %.critedge.split.loop.exit256, label %39
+  br i1 %exitcond.not, label %.critedge.split.loop.exit261, label %39
 
-.critedge.split.loop.exit256:                     ; preds = %37
+.critedge.split.loop.exit261:                     ; preds = %37
   %38 = trunc nsw i64 %indvars.iv to i32
   br label %.critedge
 
-.critedge:                                        ; preds = %44, %.critedge.split.loop.exit256
-  %.1153.lcssa = phi i32 [ %.1153178, %.critedge.split.loop.exit256 ], [ %48, %44 ]
-  %.1150.lcssa = phi i32 [ %.1150179, %.critedge.split.loop.exit256 ], [ %.2151, %44 ]
-  %.1148.lcssa = phi i32 [ %38, %.critedge.split.loop.exit256 ], [ %46, %44 ]
+.critedge:                                        ; preds = %44, %.critedge.split.loop.exit261
+  %.1153.lcssa = phi i32 [ %.1153178, %.critedge.split.loop.exit261 ], [ %48, %44 ]
+  %.1150.lcssa = phi i32 [ %.1150179, %.critedge.split.loop.exit261 ], [ %.2151, %44 ]
+  %.1148.lcssa = phi i32 [ %38, %.critedge.split.loop.exit261 ], [ %46, %44 ]
   %indvars.iv.next228 = add nuw nsw i64 %indvars.iv227, 1
   %exitcond230.not = icmp eq i64 %indvars.iv.next228, %wide.trip.count
   br i1 %exitcond230.not, label %._crit_edge, label %32, !llvm.loop !64

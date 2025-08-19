@@ -259,8 +259,8 @@ define internal fastcc range(i32 0, 52) i32 @ac3_eac3_probe(ptr noundef readonly
   br i1 %brmerge, label %111, label %106
 
 ._crit_edge113.thread:                            ; preds = %2
-  %.not128 = icmp eq i32 %1, 86019
-  br i1 %.not128, label %.thread138, label %111
+  %.not133 = icmp eq i32 %1, 86019
+  br i1 %.not133, label %.thread143, label %111
 
 106:                                              ; preds = %._crit_edge113
   %107 = icmp sgt i32 %.175, 200
@@ -268,16 +268,16 @@ define internal fastcc range(i32 0, 52) i32 @ac3_eac3_probe(ptr noundef readonly
 
 108:                                              ; preds = %106
   %109 = icmp sgt i32 %.175, 3
-  br i1 %109, label %111, label %.thread138
+  br i1 %109, label %111, label %.thread143
 
-.thread138:                                       ; preds = %._crit_edge113.thread, %108
-  %.074.lcssa129134137140 = phi i32 [ %.175, %108 ], [ 0, %._crit_edge113.thread ]
-  %110 = icmp sgt i32 %.074.lcssa129134137140, 0
+.thread143:                                       ; preds = %._crit_edge113.thread, %108
+  %.074.lcssa134139142145 = phi i32 [ %.175, %108 ], [ 0, %._crit_edge113.thread ]
+  %110 = icmp sgt i32 %.074.lcssa134139142145, 0
   %. = zext i1 %110 to i32
   br label %111
 
-111:                                              ; preds = %._crit_edge113, %._crit_edge113.thread, %.thread138, %108, %106
-  %.066 = phi i32 [ %.mux, %._crit_edge113 ], [ 50, %106 ], [ 25, %108 ], [ %., %.thread138 ], [ 0, %._crit_edge113.thread ]
+111:                                              ; preds = %._crit_edge113, %._crit_edge113.thread, %.thread143, %108, %106
+  %.066 = phi i32 [ %.mux, %._crit_edge113 ], [ 50, %106 ], [ 25, %108 ], [ %., %.thread143 ], [ 0, %._crit_edge113.thread ]
   ret i32 %.066
 }
 

@@ -288,9 +288,9 @@ _ZNK3nla13factorization4sizeEv.exit:              ; preds = %17
   br i1 %.not.i.i.i, label %_ZN3nla13factorizationD2Ev.exit, label %.thread
 
 .thread:                                          ; preds = %_ZNK3nla13factorization4sizeEv.exit, %32
-  %.0.ph34 = phi i32 [ %., %32 ], [ 3, %_ZNK3nla13factorization4sizeEv.exit ]
-  %.pr33 = phi ptr [ %.pr.pre, %32 ], [ %18, %_ZNK3nla13factorization4sizeEv.exit ]
-  %33 = getelementptr inbounds i8, ptr %.pr33, i64 -8
+  %.0.ph38 = phi i32 [ %., %32 ], [ 3, %_ZNK3nla13factorization4sizeEv.exit ]
+  %.pr37 = phi ptr [ %.pr.pre, %32 ], [ %18, %_ZNK3nla13factorization4sizeEv.exit ]
+  %33 = getelementptr inbounds i8, ptr %.pr37, i64 -8
   invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %33)
           to label %_ZN3nla13factorizationD2Ev.exit unwind label %34
 
@@ -302,9 +302,9 @@ _ZNK3nla13factorization4sizeEv.exit:              ; preds = %17
   unreachable
 
 _ZN3nla13factorizationD2Ev.exit:                  ; preds = %32, %.thread
-  %.0.ph35 = phi i32 [ %., %32 ], [ %.0.ph34, %.thread ]
+  %.0.ph39 = phi i32 [ %., %32 ], [ %.0.ph38, %.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  switch i32 %.0.ph35, label %46 [
+  switch i32 %.0.ph39, label %46 [
     i32 0, label %37
     i32 3, label %37
   ]
@@ -422,7 +422,7 @@ _ZNK6vectorIjLb0EjE4sizeEv.exit2.i:               ; preds = %_ZNK6vectorIjLb0EjE
   br i1 %.not.not.i.i.i.i, label %_ZNK3nla21factorization_factory8get_maskEv.exit, label %.preheader.i.i.preheader.i
 
 .preheader.i.i.preheader.i:                       ; preds = %_ZNK6vectorIjLb0EjE4sizeEv.exit2.i, %_ZNK6vectorIjLb0EjE4sizeEv.exit2.thread.i
-  %.0.i116.i = phi i32 [ -1, %_ZNK6vectorIjLb0EjE4sizeEv.exit2.thread.i ], [ %10, %_ZNK6vectorIjLb0EjE4sizeEv.exit2.i ]
+  %.0.i119.i = phi i32 [ -1, %_ZNK6vectorIjLb0EjE4sizeEv.exit2.thread.i ], [ %10, %_ZNK6vectorIjLb0EjE4sizeEv.exit2.i ]
   br label %.preheader.i.i.i
 
 thread-pre-split.i.i.i.i:                         ; preds = %_ZNK6vectorIbLb0EjE8capacityEv.exit.i.i.i.i, %.preheader.i.i.i
@@ -438,13 +438,13 @@ thread-pre-split.i.i.i.i:                         ; preds = %_ZNK6vectorIbLb0EjE
 _ZNK6vectorIbLb0EjE8capacityEv.exit.i.i.i.i:      ; preds = %.preheader.i.i.i
   %13 = getelementptr inbounds i8, ptr %11, i64 -8
   %14 = load i32, ptr %13, align 4, !tbaa !44
-  %15 = icmp ugt i32 %.0.i116.i, %14
+  %15 = icmp ugt i32 %.0.i119.i, %14
   br i1 %15, label %thread-pre-split.i.i.i.i, label %.lr.ph.preheader.i.i.i.i
 
 .lr.ph.preheader.i.i.i.i:                         ; preds = %_ZNK6vectorIbLb0EjE8capacityEv.exit.i.i.i.i
   %16 = getelementptr inbounds i8, ptr %11, i64 -4
-  store i32 %.0.i116.i, ptr %16, align 4, !tbaa !44
-  %17 = zext i32 %.0.i116.i to i64
+  store i32 %.0.i119.i, ptr %16, align 4, !tbaa !44
+  %17 = zext i32 %.0.i119.i to i64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %11, i8 0, i64 %17, i1 false), !tbaa !65
   br label %_ZNK3nla21factorization_factory8get_maskEv.exit
 
@@ -532,7 +532,7 @@ _ZNK6vectorIjLb0EjE4sizeEv.exit:                  ; preds = %2
   br i1 %.not.not.i.i.i, label %_ZN7svectorIbjEC2EjRKb.exit, label %.preheader.i.i.preheader
 
 .preheader.i.i.preheader:                         ; preds = %_ZNK6vectorIjLb0EjE4sizeEv.exit.thread, %_ZNK6vectorIjLb0EjE4sizeEv.exit
-  %.0.i5 = phi i32 [ -1, %_ZNK6vectorIjLb0EjE4sizeEv.exit.thread ], [ %10, %_ZNK6vectorIjLb0EjE4sizeEv.exit ]
+  %.0.i7 = phi i32 [ -1, %_ZNK6vectorIjLb0EjE4sizeEv.exit.thread ], [ %10, %_ZNK6vectorIjLb0EjE4sizeEv.exit ]
   br label %.preheader.i.i
 
 thread-pre-split.i.i.i:                           ; preds = %_ZNK6vectorIbLb0EjE8capacityEv.exit.i.i.i, %.preheader.i.i
@@ -548,13 +548,13 @@ thread-pre-split.i.i.i:                           ; preds = %_ZNK6vectorIbLb0EjE
 _ZNK6vectorIbLb0EjE8capacityEv.exit.i.i.i:        ; preds = %.preheader.i.i
   %13 = getelementptr inbounds i8, ptr %11, i64 -8
   %14 = load i32, ptr %13, align 4, !tbaa !44
-  %15 = icmp ugt i32 %.0.i5, %14
+  %15 = icmp ugt i32 %.0.i7, %14
   br i1 %15, label %thread-pre-split.i.i.i, label %.lr.ph.preheader.i.i.i
 
 .lr.ph.preheader.i.i.i:                           ; preds = %_ZNK6vectorIbLb0EjE8capacityEv.exit.i.i.i
   %16 = getelementptr inbounds i8, ptr %11, i64 -4
-  store i32 %.0.i5, ptr %16, align 4, !tbaa !44
-  %17 = zext i32 %.0.i5 to i64
+  store i32 %.0.i7, ptr %16, align 4, !tbaa !44
+  %17 = zext i32 %.0.i7 to i64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %11, i8 1, i64 %17, i1 false), !tbaa !65
   br label %_ZN7svectorIbjEC2EjRKb.exit
 

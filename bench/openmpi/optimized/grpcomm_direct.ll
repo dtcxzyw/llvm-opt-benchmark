@@ -2593,8 +2593,8 @@ pmix_obj_run_destructors.exit612:                 ; preds = %.lr.ph.i609, %371
   %.not541 = icmp ne i32 %.1450.ph, 0
   %.pre768 = load i32, ptr %197, align 8, !tbaa !99
   %388 = icmp eq i32 %.pre768, 0
-  %or.cond778 = select i1 %.not541, i1 %388, i1 false
-  br i1 %or.cond778, label %389, label %390
+  %or.cond844 = select i1 %.not541, i1 %388, i1 false
+  br i1 %or.cond844, label %389, label %390
 
 389:                                              ; preds = %387
   store i32 %.1450.ph, ptr %197, align 8, !tbaa !99

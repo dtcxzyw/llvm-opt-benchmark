@@ -313,10 +313,10 @@ define range(i32 0, 2) i32 @ssl_srp_ctx_init_intern(ptr noundef captures(address
   br label %117
 
 96:                                               ; preds = %88, %81, %25, %32, %39, %46, %53, %60, %67, %74
-  %.sink77 = phi i32 [ 130, %74 ], [ 130, %67 ], [ 130, %60 ], [ 130, %53 ], [ 130, %46 ], [ 130, %39 ], [ 130, %32 ], [ 130, %25 ], [ 135, %81 ], [ 140, %88 ]
+  %.sink89 = phi i32 [ 130, %74 ], [ 130, %67 ], [ 130, %60 ], [ 130, %53 ], [ 130, %46 ], [ 130, %39 ], [ 130, %32 ], [ 130, %25 ], [ 135, %81 ], [ 140, %88 ]
   %.sink = phi i32 [ 524291, %74 ], [ 524291, %67 ], [ 524291, %60 ], [ 524291, %53 ], [ 524291, %46 ], [ 524291, %39 ], [ 524291, %32 ], [ 524291, %25 ], [ 786691, %81 ], [ 786691, %88 ]
   tail call void @ERR_new() #6
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink77, ptr noundef nonnull @__func__.ssl_srp_ctx_init_intern) #6
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink89, ptr noundef nonnull @__func__.ssl_srp_ctx_init_intern) #6
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef %.sink, ptr noundef null) #6
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 3056
   %98 = load ptr, ptr %97, align 8, !tbaa !53
@@ -677,18 +677,18 @@ define range(i32 -1, 2) i32 @SSL_set_srp_server_param(ptr noundef %0, ptr nounde
 32:                                               ; preds = %30
   %33 = load ptr, ptr %28, align 8, !tbaa !96
   tail call void @BN_free(ptr noundef %33) #6
-  br label %.sink.split79
+  br label %.sink.split92
 
 34:                                               ; preds = %27
   %35 = tail call ptr @BN_dup(ptr noundef nonnull %2) #6
-  br label %.sink.split79
+  br label %.sink.split92
 
-.sink.split79:                                    ; preds = %32, %34
-  %.sink80 = phi ptr [ %35, %34 ], [ null, %32 ]
-  store ptr %.sink80, ptr %28, align 8, !tbaa !96
+.sink.split92:                                    ; preds = %32, %34
+  %.sink93 = phi ptr [ %35, %34 ], [ null, %32 ]
+  store ptr %.sink93, ptr %28, align 8, !tbaa !96
   br label %36
 
-36:                                               ; preds = %.sink.split79, %30, %26
+36:                                               ; preds = %.sink.split92, %30, %26
   %.not66 = icmp eq ptr %3, null
   br i1 %.not66, label %46, label %37
 
@@ -706,18 +706,18 @@ define range(i32 -1, 2) i32 @SSL_set_srp_server_param(ptr noundef %0, ptr nounde
 42:                                               ; preds = %40
   %43 = load ptr, ptr %38, align 8, !tbaa !97
   tail call void @BN_free(ptr noundef %43) #6
-  br label %.sink.split81
+  br label %.sink.split94
 
 44:                                               ; preds = %37
   %45 = tail call ptr @BN_dup(ptr noundef nonnull %3) #6
-  br label %.sink.split81
+  br label %.sink.split94
 
-.sink.split81:                                    ; preds = %42, %44
-  %.sink82 = phi ptr [ %45, %44 ], [ null, %42 ]
-  store ptr %.sink82, ptr %38, align 8, !tbaa !97
+.sink.split94:                                    ; preds = %42, %44
+  %.sink95 = phi ptr [ %45, %44 ], [ null, %42 ]
+  store ptr %.sink95, ptr %38, align 8, !tbaa !97
   br label %46
 
-46:                                               ; preds = %.sink.split81, %40, %36
+46:                                               ; preds = %.sink.split94, %40, %36
   %.not69 = icmp eq ptr %4, null
   br i1 %.not69, label %56, label %47
 
@@ -735,18 +735,18 @@ define range(i32 -1, 2) i32 @SSL_set_srp_server_param(ptr noundef %0, ptr nounde
 52:                                               ; preds = %50
   %53 = load ptr, ptr %48, align 8, !tbaa !102
   tail call void @BN_free(ptr noundef %53) #6
-  br label %.sink.split83
+  br label %.sink.split96
 
 54:                                               ; preds = %47
   %55 = tail call ptr @BN_dup(ptr noundef nonnull %4) #6
-  br label %.sink.split83
+  br label %.sink.split96
 
-.sink.split83:                                    ; preds = %52, %54
-  %.sink84 = phi ptr [ %55, %54 ], [ null, %52 ]
-  store ptr %.sink84, ptr %48, align 8, !tbaa !102
+.sink.split96:                                    ; preds = %52, %54
+  %.sink97 = phi ptr [ %55, %54 ], [ null, %52 ]
+  store ptr %.sink97, ptr %48, align 8, !tbaa !102
   br label %56
 
-56:                                               ; preds = %.sink.split83, %50, %46
+56:                                               ; preds = %.sink.split96, %50, %46
   %.not72 = icmp eq ptr %5, null
   br i1 %.not72, label %64, label %57
 

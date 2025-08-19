@@ -32,8 +32,8 @@ define ptr @av_encryption_info_alloc(i32 noundef %0, i32 noundef %1, i32 noundef
   store i32 %0, ptr %17, align 8, !tbaa !16
   %.not21 = icmp eq ptr %7, null
   %.not22 = icmp eq ptr %11, null
-  %or.cond23 = select i1 %.not21, i1 true, i1 %.not22
-  br i1 %or.cond23, label %av_encryption_info_free.exit, label %18
+  %or.cond24 = select i1 %.not21, i1 true, i1 %.not22
+  br i1 %or.cond24, label %av_encryption_info_free.exit, label %18
 
 18:                                               ; preds = %5
   %19 = icmp eq ptr %15, null

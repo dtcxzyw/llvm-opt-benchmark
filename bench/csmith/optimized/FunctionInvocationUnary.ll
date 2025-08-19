@@ -887,16 +887,16 @@ _ZL22OutputStandardFuncName9eUnaryOpsRSo.exit:    ; preds = %96, %switch.lookup
 107:                                              ; preds = %9, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit39
   %108 = load i32, ptr %7, align 8, !tbaa !15
   %109 = icmp ult i32 %108, 4
-  br i1 %109, label %switch.lookup49, label %_ZL22OutputStandardFuncName9eUnaryOpsRSo.exit45
+  br i1 %109, label %switch.lookup55, label %_ZL22OutputStandardFuncName9eUnaryOpsRSo.exit45
 
-switch.lookup49:                                  ; preds = %107
+switch.lookup55:                                  ; preds = %107
   %110 = zext nneg i32 %108 to i64
-  %switch.gep50 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZNK23FunctionInvocationUnary15indented_outputERSoi, i64 0, i64 %110
-  %switch.load51 = load ptr, ptr %switch.gep50, align 8
-  %111 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %switch.load51, i64 noundef 1)
+  %switch.gep56 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZNK23FunctionInvocationUnary15indented_outputERSoi, i64 0, i64 %110
+  %switch.load57 = load ptr, ptr %switch.gep56, align 8
+  %111 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %switch.load57, i64 noundef 1)
   br label %_ZL22OutputStandardFuncName9eUnaryOpsRSo.exit45
 
-_ZL22OutputStandardFuncName9eUnaryOpsRSo.exit45:  ; preds = %107, %switch.lookup49
+_ZL22OutputStandardFuncName9eUnaryOpsRSo.exit45:  ; preds = %107, %switch.lookup55
   %112 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.1, i64 noundef 1)
   %113 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %114 = load ptr, ptr %113, align 8, !tbaa !40

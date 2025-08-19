@@ -161,12 +161,12 @@ _ZNK5boost13serialization6detail11key_compareclEPKNS0_18extended_type_infoES5_.e
   %23 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %21, ptr noundef nonnull dereferenceable(1) %15) #18
   %24 = icmp slt i32 %23, 0
   %spec.select.i.i.i = select i1 %24, i64 24, i64 16
-  %spec.select14.i.i.i = select i1 %24, ptr %.0812.i.i.i, ptr %.013.i.i.i
+  %spec.select17.i.i.i = select i1 %24, ptr %.0812.i.i.i, ptr %.013.i.i.i
   br label %_ZNK5boost13serialization6detail11key_compareclEPKNS0_18extended_type_infoES5_.exit.thread.i.i.i
 
 _ZNK5boost13serialization6detail11key_compareclEPKNS0_18extended_type_infoES5_.exit.thread.i.i.i: ; preds = %_ZNK5boost13serialization6detail11key_compareclEPKNS0_18extended_type_infoES5_.exit.i.i.i, %19, %.lr.ph.i.i.i
   %.sink.i.i.i = phi i64 [ 16, %19 ], [ 16, %.lr.ph.i.i.i ], [ %spec.select.i.i.i, %_ZNK5boost13serialization6detail11key_compareclEPKNS0_18extended_type_infoES5_.exit.i.i.i ]
-  %.19.i.i.i = phi ptr [ %.013.i.i.i, %19 ], [ %.013.i.i.i, %.lr.ph.i.i.i ], [ %spec.select14.i.i.i, %_ZNK5boost13serialization6detail11key_compareclEPKNS0_18extended_type_infoES5_.exit.i.i.i ]
+  %.19.i.i.i = phi ptr [ %.013.i.i.i, %19 ], [ %.013.i.i.i, %.lr.ph.i.i.i ], [ %spec.select17.i.i.i, %_ZNK5boost13serialization6detail11key_compareclEPKNS0_18extended_type_infoES5_.exit.i.i.i ]
   %25 = getelementptr inbounds nuw i8, ptr %.013.i.i.i, i64 %.sink.i.i.i
   %.1.i.i.i = load ptr, ptr %25, align 8, !tbaa !19
   %.not.i.i.i = icmp eq ptr %.1.i.i.i, null
@@ -270,12 +270,12 @@ _ZNK5boost13serialization6detail11key_compareclEPKNS0_18extended_type_infoES5_.e
   %14 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull dereferenceable(1) %0) #18
   %15 = icmp slt i32 %14, 0
   %spec.select.i.i.i = select i1 %15, i64 24, i64 16
-  %spec.select14.i.i.i = select i1 %15, ptr %.0812.i.i.i, ptr %.013.i.i.i
+  %spec.select17.i.i.i = select i1 %15, ptr %.0812.i.i.i, ptr %.013.i.i.i
   br label %_ZNK5boost13serialization6detail11key_compareclEPKNS0_18extended_type_infoES5_.exit.thread.i.i.i
 
 _ZNK5boost13serialization6detail11key_compareclEPKNS0_18extended_type_infoES5_.exit.thread.i.i.i: ; preds = %_ZNK5boost13serialization6detail11key_compareclEPKNS0_18extended_type_infoES5_.exit.i.i.i, %.lr.ph.i.i.i
   %.sink.i.i.i = phi i64 [ 16, %.lr.ph.i.i.i ], [ %spec.select.i.i.i, %_ZNK5boost13serialization6detail11key_compareclEPKNS0_18extended_type_infoES5_.exit.i.i.i ]
-  %.19.i.i.i = phi ptr [ %.013.i.i.i, %.lr.ph.i.i.i ], [ %spec.select14.i.i.i, %_ZNK5boost13serialization6detail11key_compareclEPKNS0_18extended_type_infoES5_.exit.i.i.i ]
+  %.19.i.i.i = phi ptr [ %.013.i.i.i, %.lr.ph.i.i.i ], [ %spec.select17.i.i.i, %_ZNK5boost13serialization6detail11key_compareclEPKNS0_18extended_type_infoES5_.exit.i.i.i ]
   %16 = getelementptr inbounds nuw i8, ptr %.013.i.i.i, i64 %.sink.i.i.i
   %.1.i.i.i = load ptr, ptr %16, align 8, !tbaa !19
   %.not.i.i.i = icmp eq ptr %.1.i.i.i, null

@@ -94,7 +94,7 @@ define dso_local void @zend_generator_restore_call_stack(ptr noundef captures(no
 
 4:                                                ; preds = %zend_vm_stack_push_call_frame_ex.exit, %1
   %.019 = phi ptr [ %3, %1 ], [ %57, %zend_vm_stack_push_call_frame_ex.exit ]
-  %.0 = phi ptr [ null, %1 ], [ %.sink29, %zend_vm_stack_push_call_frame_ex.exit ]
+  %.0 = phi ptr [ null, %1 ], [ %.sink31, %zend_vm_stack_push_call_frame_ex.exit ]
   %5 = getelementptr inbounds nuw i8, ptr %.019, i64 32
   %6 = getelementptr inbounds nuw i8, ptr %.019, i64 40
   %7 = load i32, ptr %6, align 8, !tbaa !24
@@ -147,21 +147,21 @@ zend_vm_calc_used_stack.exit:                     ; preds = %4, %19
   br label %zend_vm_stack_push_call_frame_ex.exit
 
 zend_vm_stack_push_call_frame_ex.exit:            ; preds = %36, %39
-  %.sink29 = phi ptr [ %37, %36 ], [ %27, %39 ]
+  %.sink31 = phi ptr [ %37, %36 ], [ %27, %39 ]
   %.sink = phi i32 [ %38, %36 ], [ %8, %39 ]
   %41 = load ptr, ptr %34, align 8, !tbaa !24
   %.not.i21 = icmp eq ptr %41, null
   %42 = or i1 %35, %.not.i21
   tail call void @llvm.assume(i1 %42)
-  %43 = getelementptr inbounds nuw i8, ptr %.sink29, i64 24
+  %43 = getelementptr inbounds nuw i8, ptr %.sink31, i64 24
   store ptr %10, ptr %43, align 8, !tbaa !25
-  %44 = getelementptr inbounds nuw i8, ptr %.sink29, i64 32
+  %44 = getelementptr inbounds nuw i8, ptr %.sink31, i64 32
   store ptr %13, ptr %44, align 8, !tbaa !24
-  %45 = getelementptr inbounds nuw i8, ptr %.sink29, i64 40
+  %45 = getelementptr inbounds nuw i8, ptr %.sink31, i64 40
   store i32 %.sink, ptr %45, align 8, !tbaa !24
-  %46 = getelementptr inbounds nuw i8, ptr %.sink29, i64 44
+  %46 = getelementptr inbounds nuw i8, ptr %.sink31, i64 44
   store i32 %12, ptr %46, align 4, !tbaa !24
-  %47 = getelementptr inbounds nuw i8, ptr %.sink29, i64 80
+  %47 = getelementptr inbounds nuw i8, ptr %.sink31, i64 80
   %48 = getelementptr inbounds nuw i8, ptr %.019, i64 80
   %49 = load i32, ptr %11, align 4, !tbaa !24
   %50 = zext i32 %49 to i64
@@ -169,9 +169,9 @@ zend_vm_stack_push_call_frame_ex.exit:            ; preds = %36, %39
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %47, ptr nonnull align 8 %48, i64 %51, i1 false)
   %52 = getelementptr inbounds nuw i8, ptr %.019, i64 72
   %53 = load ptr, ptr %52, align 8, !tbaa !54
-  %54 = getelementptr inbounds nuw i8, ptr %.sink29, i64 72
+  %54 = getelementptr inbounds nuw i8, ptr %.sink31, i64 72
   store ptr %53, ptr %54, align 8, !tbaa !54
-  %55 = getelementptr inbounds nuw i8, ptr %.sink29, i64 48
+  %55 = getelementptr inbounds nuw i8, ptr %.sink31, i64 48
   store ptr %.0, ptr %55, align 8, !tbaa !55
   %56 = getelementptr inbounds nuw i8, ptr %.019, i64 48
   %57 = load ptr, ptr %56, align 8, !tbaa !55
@@ -182,7 +182,7 @@ zend_vm_stack_push_call_frame_ex.exit:            ; preds = %36, %39
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %60 = load ptr, ptr %59, align 8, !tbaa !56
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 8
-  store ptr %.sink29, ptr %61, align 8, !tbaa !57
+  store ptr %.sink31, ptr %61, align 8, !tbaa !57
   %62 = load ptr, ptr %2, align 8, !tbaa !4
   tail call void @_efree(ptr noundef %62) #11
   store ptr null, ptr %2, align 8, !tbaa !4
@@ -1413,9 +1413,9 @@ zend_observer_fcall_end.exit.thread:              ; preds = %86
 92:                                               ; preds = %86
   %93 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 536), align 8, !tbaa !110
   %94 = icmp eq ptr %89, %93
-  br i1 %94, label %97, label %zend_observer_fcall_end.exit.thread139
+  br i1 %94, label %97, label %zend_observer_fcall_end.exit.thread152
 
-zend_observer_fcall_end.exit.thread139:           ; preds = %92
+zend_observer_fcall_end.exit.thread152:           ; preds = %92
   %95 = load i8, ptr %30, align 8, !tbaa !99
   %96 = and i8 %95, -18
   store i8 %96, ptr %30, align 8, !tbaa !99
@@ -1436,15 +1436,15 @@ zend_observer_fcall_end.exit:                     ; preds = %97, %84
   %.not73 = icmp eq ptr %.pr.pr, null
   br i1 %.not73, label %106, label %101, !prof !111
 
-101:                                              ; preds = %zend_observer_fcall_end.exit.thread139, %zend_observer_fcall_end.exit
-  %.pr142 = phi ptr [ %89, %zend_observer_fcall_end.exit.thread139 ], [ %.pr.pr, %zend_observer_fcall_end.exit ]
-  %102 = getelementptr inbounds nuw i8, ptr %.pr142, i64 8
+101:                                              ; preds = %zend_observer_fcall_end.exit.thread152, %zend_observer_fcall_end.exit
+  %.pr155 = phi ptr [ %89, %zend_observer_fcall_end.exit.thread152 ], [ %.pr.pr, %zend_observer_fcall_end.exit ]
+  %102 = getelementptr inbounds nuw i8, ptr %.pr155, i64 8
   %103 = load ptr, ptr %102, align 8, !tbaa !57
   %.not74 = icmp eq ptr %103, null
   br i1 %.not74, label %106, label %104, !prof !58
 
 104:                                              ; preds = %101
-  %105 = tail call ptr @zend_generator_freeze_call_stack(ptr noundef nonnull %.pr142)
+  %105 = tail call ptr @zend_generator_freeze_call_stack(ptr noundef nonnull %.pr155)
   br label %.sink.split
 
 .sink.split:                                      ; preds = %104, %zend_observer_fcall_end.exit.thread
@@ -2185,9 +2185,9 @@ zend_generator_get_current.exit:                  ; preds = %zend_generator_ensu
   br i1 %.not22, label %63, label %.sink.split
 
 .sink.split:                                      ; preds = %50, %53
-  %.sink31 = phi i32 [ %57, %53 ], [ %48, %50 ]
+  %.sink34 = phi i32 [ %57, %53 ], [ %48, %50 ]
   %.sink.in = phi ptr [ %55, %53 ], [ %44, %50 ]
-  %59 = and i32 %.sink31, 65280
+  %59 = and i32 %.sink34, 65280
   %60 = icmp ne i32 %59, 0
   tail call void @llvm.assume(i1 %60)
   %.sink = load ptr, ptr %.sink.in, align 8, !tbaa !24
@@ -2331,9 +2331,9 @@ zend_generator_get_current.exit:                  ; preds = %zend_generator_ensu
   br i1 %.not22, label %63, label %.sink.split
 
 .sink.split:                                      ; preds = %50, %53
-  %.sink31 = phi i32 [ %57, %53 ], [ %48, %50 ]
+  %.sink34 = phi i32 [ %57, %53 ], [ %48, %50 ]
   %.sink.in = phi ptr [ %55, %53 ], [ %44, %50 ]
-  %59 = and i32 %.sink31, 65280
+  %59 = and i32 %.sink34, 65280
   %60 = icmp ne i32 %59, 0
   tail call void @llvm.assume(i1 %60)
   %.sink = load ptr, ptr %.sink.in, align 8, !tbaa !24
@@ -2604,9 +2604,9 @@ zend_generator_get_current.exit:                  ; preds = %59, %72, %75
   br i1 %.not76, label %96, label %.sink.split
 
 .sink.split:                                      ; preds = %83, %86
-  %.sink95 = phi i32 [ %90, %86 ], [ %81, %83 ]
+  %.sink101 = phi i32 [ %90, %86 ], [ %81, %83 ]
   %.sink.in = phi ptr [ %88, %86 ], [ %79, %83 ]
-  %92 = and i32 %.sink95, 65280
+  %92 = and i32 %.sink101, 65280
   %93 = icmp ne i32 %92, 0
   tail call void @llvm.assume(i1 %93)
   %.sink = load ptr, ptr %.sink.in, align 8, !tbaa !24
@@ -2883,9 +2883,9 @@ zend_generator_get_current.exit:                  ; preds = %zend_generator_thro
   br i1 %.not71, label %113, label %.sink.split
 
 .sink.split:                                      ; preds = %100, %103
-  %.sink99 = phi i32 [ %107, %103 ], [ %98, %100 ]
+  %.sink110 = phi i32 [ %107, %103 ], [ %98, %100 ]
   %.sink.in = phi ptr [ %105, %103 ], [ %96, %100 ]
-  %109 = and i32 %.sink99, 65280
+  %109 = and i32 %.sink110, 65280
   %110 = icmp ne i32 %109, 0
   tail call void @llvm.assume(i1 %110)
   %.sink = load ptr, ptr %.sink.in, align 8, !tbaa !24
@@ -4179,9 +4179,9 @@ zend_generator_get_current.exit:                  ; preds = %zend_generator_ensu
   br i1 %.not21, label %56, label %.sink.split
 
 .sink.split:                                      ; preds = %43, %46
-  %.sink31 = phi i32 [ %50, %46 ], [ %41, %43 ]
+  %.sink34 = phi i32 [ %50, %46 ], [ %41, %43 ]
   %.sink.in = phi ptr [ %48, %46 ], [ %37, %43 ]
-  %52 = and i32 %.sink31, 65280
+  %52 = and i32 %.sink34, 65280
   %53 = icmp ne i32 %52, 0
   tail call void @llvm.assume(i1 %53)
   %.sink = load ptr, ptr %.sink.in, align 8, !tbaa !24
@@ -4199,9 +4199,9 @@ zend_generator_get_current.exit:                  ; preds = %zend_generator_ensu
   br label %60
 
 60:                                               ; preds = %zend_generator_get_current.exit, %56
-  %.sink27 = phi i32 [ %59, %56 ], [ 1, %zend_generator_get_current.exit ]
+  %.sink30 = phi i32 [ %59, %56 ], [ 1, %zend_generator_get_current.exit ]
   %61 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 %.sink27, ptr %61, align 8, !tbaa !24
+  store i32 %.sink30, ptr %61, align 8, !tbaa !24
   ret void
 }
 

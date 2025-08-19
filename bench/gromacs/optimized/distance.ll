@@ -2200,9 +2200,9 @@ _ZNSt10shared_ptrIN3gmx22AnalysisDataPlotModuleEEC2IS1_vEEPT_.exit: ; preds = %8
   %107 = load ptr, ptr %24, align 8, !tbaa !132
   %108 = load ptr, ptr %23, align 8, !tbaa !90
   %.not237 = icmp eq ptr %107, %108
-  br i1 %.not237, label %.loopexit241, label %.lr.ph229
+  br i1 %.not237, label %.loopexit280, label %.lr.ph229
 
-.loopexit241:                                     ; preds = %126, %.preheader187
+.loopexit280:                                     ; preds = %126, %.preheader187
   %109 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %110 = load ptr, ptr %109, align 8, !tbaa !87
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
@@ -2213,13 +2213,13 @@ _ZNSt10shared_ptrIN3gmx22AnalysisDataPlotModuleEEC2IS1_vEEPT_.exit: ; preds = %8
   %.not.i.i.i.i = icmp eq i8 %112, 0
   br i1 %.not.i.i.i.i, label %116, label %113
 
-113:                                              ; preds = %.loopexit241
+113:                                              ; preds = %.loopexit280
   %114 = load i32, ptr %101, align 4, !tbaa !81
   %115 = add nsw i32 %114, 1
   store i32 %115, ptr %101, align 4, !tbaa !81
   br label %_ZNSt10shared_ptrIN3gmx19IAnalysisDataModuleEEC2INS0_22AnalysisDataPlotModuleEvEERKS_IT_E.exit
 
-116:                                              ; preds = %.loopexit241
+116:                                              ; preds = %.loopexit280
   %117 = atomicrmw volatile add ptr %101, i32 1 acq_rel, align 4
   br label %_ZNSt10shared_ptrIN3gmx19IAnalysisDataModuleEEC2INS0_22AnalysisDataPlotModuleEvEERKS_IT_E.exit
 
@@ -2256,7 +2256,7 @@ _ZNSt10shared_ptrIN3gmx19IAnalysisDataModuleEEC2INS0_22AnalysisDataPlotModuleEvE
   %132 = sub i64 %130, %131
   %133 = ashr exact i64 %132, 3
   %134 = icmp ult i64 %127, %133
-  br i1 %134, label %.lr.ph229, label %.loopexit241, !llvm.loop !161
+  br i1 %134, label %.lr.ph229, label %.loopexit280, !llvm.loop !161
 
 135:                                              ; preds = %.lr.ph229
   %136 = landingpad { ptr, i32 }
@@ -3189,7 +3189,7 @@ _ZNSt10shared_ptrIN3gmx22AnalysisDataPlotModuleEEC2IS1_vEEPT_.exit119: ; preds =
   %513 = load ptr, ptr %24, align 8, !tbaa !132
   %514 = load ptr, ptr %23, align 8, !tbaa !90
   %.not239 = icmp eq ptr %513, %514
-  br i1 %.not239, label %.loopexit240, label %.lr.ph235
+  br i1 %.not239, label %.loopexit279, label %.lr.ph235
 
 .lr.ph235:                                        ; preds = %.preheader
   %515 = getelementptr inbounds nuw i8, ptr %19, i64 16
@@ -3202,7 +3202,7 @@ _ZNSt10shared_ptrIN3gmx22AnalysisDataPlotModuleEEC2IS1_vEEPT_.exit119: ; preds =
   %522 = getelementptr inbounds nuw i8, ptr %20, i64 8
   br label %536
 
-.loopexit240:                                     ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit147, %.preheader
+.loopexit279:                                     ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit147, %.preheader
   %523 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %524 = load ptr, ptr %523, align 8, !tbaa !76
   call void @llvm.lifetime.start.p0(ptr nonnull %22)
@@ -3213,13 +3213,13 @@ _ZNSt10shared_ptrIN3gmx22AnalysisDataPlotModuleEEC2IS1_vEEPT_.exit119: ; preds =
   %.not.i.i.i.i121 = icmp eq i8 %526, 0
   br i1 %.not.i.i.i.i121, label %530, label %527
 
-527:                                              ; preds = %.loopexit240
+527:                                              ; preds = %.loopexit279
   %528 = load i32, ptr %506, align 4, !tbaa !81
   %529 = add nsw i32 %528, 1
   store i32 %529, ptr %506, align 4, !tbaa !81
   br label %_ZNSt10shared_ptrIN3gmx19IAnalysisDataModuleEEC2INS0_22AnalysisDataPlotModuleEvEERKS_IT_E.exit122
 
-530:                                              ; preds = %.loopexit240
+530:                                              ; preds = %.loopexit279
   %531 = atomicrmw volatile add ptr %506, i32 1 acq_rel, align 4
   br label %_ZNSt10shared_ptrIN3gmx19IAnalysisDataModuleEEC2INS0_22AnalysisDataPlotModuleEvEERKS_IT_E.exit122
 
@@ -3538,7 +3538,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit147: ; preds = %_Z
   %641 = sub i64 %639, %640
   %642 = ashr exact i64 %641, 3
   %643 = icmp ult i64 %636, %642
-  br i1 %643, label %536, label %.loopexit240, !llvm.loop !170
+  br i1 %643, label %536, label %.loopexit279, !llvm.loop !170
 
 .loopexit:                                        ; preds = %.noexc.i
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -5026,13 +5026,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 .thread18:                                        ; preds = %56
   %64 = landingpad { ptr, i32 }
           cleanup
-  br label %.sink.split51
+  br label %.sink.split57
 
 .thread23:                                        ; preds = %60
   %65 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %7) #24
-  br label %.sink.split51
+  br label %.sink.split57
 
 66:                                               ; preds = %61, %63
   %.0 = phi i1 [ false, %63 ], [ true, %61 ]
@@ -5045,13 +5045,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br i1 %.0, label %68, label %69
 
-.sink.split51:                                    ; preds = %.thread18, %.thread23
+.sink.split57:                                    ; preds = %.thread18, %.thread23
   %.pn.pn22.ph = phi { ptr, i32 } [ %65, %.thread23 ], [ %64, %.thread18 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %68
 
-68:                                               ; preds = %.sink.split51, %66
-  %.pn.pn22 = phi { ptr, i32 } [ %67, %66 ], [ %.pn.pn22.ph, %.sink.split51 ]
+68:                                               ; preds = %.sink.split57, %66
+  %.pn.pn22 = phi { ptr, i32 } [ %67, %66 ], [ %.pn.pn22.ph, %.sink.split57 ]
   call void @__cxa_free_exception(ptr %59) #24
   br label %69
 

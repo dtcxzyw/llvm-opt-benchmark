@@ -2193,9 +2193,9 @@ fed_mgr_get_cluster_by_name.exit.thread.i:        ; preds = %fed_mgr_get_cluster
   br label %_spawn_job_watch_thread.exit.sink.split.i
 
 _spawn_job_watch_thread.exit.sink.split.i:        ; preds = %125, %124
-  %.sink58.i = phi i8 [ 1, %125 ], [ 0, %124 ]
-  store i8 %.sink58.i, ptr getelementptr inbounds nuw (i8, ptr @slurmctld_config, i64 321), align 1
-  store i8 %.sink58.i, ptr getelementptr inbounds nuw (i8, ptr @slurmctld_config, i64 336), align 8
+  %.sink71.i = phi i8 [ 1, %125 ], [ 0, %124 ]
+  store i8 %.sink71.i, ptr getelementptr inbounds nuw (i8, ptr @slurmctld_config, i64 321), align 1
+  store i8 %.sink71.i, ptr getelementptr inbounds nuw (i8, ptr @slurmctld_config, i64 336), align 8
   br label %_spawn_job_watch_thread.exit.i
 
 _spawn_job_watch_thread.exit.i:                   ; preds = %_spawn_job_watch_thread.exit.sink.split.i, %124
@@ -2623,9 +2623,9 @@ _is_fed_job.exit:                                 ; preds = %12
   %39 = load ptr, ptr %38, align 8
   %40 = icmp eq ptr %39, null
   %or.cond = or i1 %2, %40
-  %spec.select63 = select i1 %or.cond, ptr @.str.25, ptr %39
+  %spec.select73 = select i1 %or.cond, ptr @.str.25, ptr %39
   %41 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store ptr %spec.select63, ptr %41, align 8
+  store ptr %spec.select73, ptr %41, align 8
   call void @slurm_msg_t_init(ptr noundef nonnull %5) #16
   %42 = getelementptr inbounds nuw i8, ptr %5, i64 212
   store i16 4505, ptr %42, align 4
@@ -3539,8 +3539,8 @@ _is_fed_job.exit.thread.i:                        ; preds = %101, %_is_fed_job.e
 
 .loopexit:                                        ; preds = %105, %29
   %107 = load ptr, ptr @fed_mgr_fed_rec, align 8
-  %.not65 = icmp eq ptr %107, null
-  br i1 %.not65, label %.thread, label %108
+  %.not76 = icmp eq ptr %107, null
+  br i1 %.not76, label %.thread, label %108
 
 108:                                              ; preds = %.loopexit
   %109 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 320), align 8
@@ -5226,7 +5226,7 @@ define internal fastcc i32 @_submit_sibling_jobs(ptr noundef captures(none) %0, 
 
 67:                                               ; preds = %63
   %.not69 = icmp eq i16 %.05882, %66
-  br i1 %.not69, label %.thread90, label %68
+  br i1 %.not69, label %.thread96, label %68
 
 68:                                               ; preds = %67
   %.not70 = icmp eq ptr %.05683, null
@@ -5248,7 +5248,7 @@ define internal fastcc i32 @_submit_sibling_jobs(ptr noundef captures(none) %0, 
   %75 = load i16, ptr %65, align 8
   %.pr.pre = load ptr, ptr %40, align 8
   %.not71 = icmp eq ptr %.pr.pre, null
-  br i1 %.not71, label %.thread90, label %.thread
+  br i1 %.not71, label %.thread96, label %.thread
 
 .thread:                                          ; preds = %63, %70
   %76 = phi i16 [ %75, %70 ], [ %66, %63 ]
@@ -5265,11 +5265,11 @@ define internal fastcc i32 @_submit_sibling_jobs(ptr noundef captures(none) %0, 
   %81 = load i32, ptr %44, align 8
   store i32 %81, ptr %45, align 8
   store i16 %79, ptr %43, align 2
-  br label %.thread90
+  br label %.thread96
 
 82:                                               ; preds = %.thread
   %.not73 = icmp eq i16 %.26079, %76
-  br i1 %.not73, label %.thread90, label %83
+  br i1 %.not73, label %.thread96, label %83
 
 83:                                               ; preds = %82
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -5303,9 +5303,9 @@ define internal fastcc i32 @_submit_sibling_jobs(ptr noundef captures(none) %0, 
   %97 = load i16, ptr %78, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %.pre89 = load i16, ptr %78, align 8
-  br label %.thread90
+  br label %.thread96
 
-.thread90:                                        ; preds = %67, %80, %92, %82, %70
+.thread96:                                        ; preds = %67, %80, %92, %82, %70
   %98 = phi i16 [ %76, %80 ], [ %.pre89, %92 ], [ %76, %82 ], [ %75, %70 ], [ %.05882, %67 ]
   %.361 = phi i16 [ %.26079, %80 ], [ %97, %92 ], [ %76, %82 ], [ %75, %70 ], [ %.05882, %67 ]
   %.3 = phi ptr [ %.280, %80 ], [ %94, %92 ], [ %.280, %82 ], [ %72, %70 ], [ %.05683, %67 ]
@@ -5314,7 +5314,7 @@ define internal fastcc i32 @_submit_sibling_jobs(ptr noundef captures(none) %0, 
   %.not75 = icmp eq i32 %99, 0
   br i1 %.not75, label %100, label %107
 
-100:                                              ; preds = %.thread90
+100:                                              ; preds = %.thread96
   %101 = load i32, ptr %54, align 8
   %102 = add i32 %101, -1
   %103 = zext nneg i32 %102 to i64
@@ -5324,7 +5324,7 @@ define internal fastcc i32 @_submit_sibling_jobs(ptr noundef captures(none) %0, 
   store i64 %106, ptr %38, align 8
   br label %107
 
-107:                                              ; preds = %100, %.thread90
+107:                                              ; preds = %100, %.thread96
   %108 = or i32 %99, %.084
   br label %109
 
@@ -5346,10 +5346,10 @@ define internal fastcc i32 @_submit_sibling_jobs(ptr noundef captures(none) %0, 
   br label %112
 
 112:                                              ; preds = %._crit_edge.thread, %111, %._crit_edge
-  %.0.lcssa97 = phi i32 [ 0, %._crit_edge.thread ], [ %.1, %111 ], [ %.1, %._crit_edge ]
+  %.0.lcssa103 = phi i32 [ 0, %._crit_edge.thread ], [ %.1, %111 ], [ %.1, %._crit_edge ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  ret i32 %.0.lcssa97
+  ret i32 %.0.lcssa103
 }
 
 ; Function Attrs: nounwind uwtable
@@ -7876,9 +7876,9 @@ _is_fed_job.exit:                                 ; preds = %11
 
 .thread.i:                                        ; preds = %24
   %29 = getelementptr inbounds nuw i8, ptr %25, i64 16
-  %.02538.i = load i64, ptr %29, align 8
-  %.not3239.i = icmp eq i64 %.02538.i, 0
-  br i1 %.not3239.i, label %_cancel_sibling_jobs.exit, label %.lr.ph.thread.i
+  %.02540.i = load i64, ptr %29, align 8
+  %.not3241.i = icmp eq i64 %.02540.i, 0
+  br i1 %.not3241.i, label %_cancel_sibling_jobs.exit, label %.lr.ph.thread.i
 
 .lr.ph.thread.i:                                  ; preds = %.thread.i
   %30 = and i16 %2, -129
@@ -7938,7 +7938,7 @@ _is_fed_job.exit:                                 ; preds = %11
 
 .lr.ph.split.i:                                   ; preds = %71, %.lr.ph.thread.i
   %.02434.i = phi i32 [ %73, %71 ], [ 1, %.lr.ph.thread.i ]
-  %.133.i = phi i64 [ %72, %71 ], [ %.02538.i, %.lr.ph.thread.i ]
+  %.133.i = phi i64 [ %72, %71 ], [ %.02540.i, %.lr.ph.thread.i ]
   %56 = and i64 %.133.i, 1
   %.not28.i = icmp eq i64 %56, 0
   br i1 %.not28.i, label %71, label %57
@@ -9695,8 +9695,8 @@ _update_origin_job_dep.exit:                      ; preds = %_update_origin_job_
   br i1 %.not.i39, label %_update_origin_job_dep.exit40, label %_update_origin_job_dep.exit40.sink.split
 
 _update_origin_job_dep.exit40.sink.split:         ; preds = %85, %82
-  %.str.206.sink44 = phi ptr [ @.str.206, %82 ], [ @.str.207, %85 ]
-  %92 = call i32 (ptr, ...) @error(ptr noundef nonnull %.str.206.sink44, ptr noundef nonnull @__func__._update_origin_job_dep, ptr noundef nonnull %34) #16
+  %.str.206.sink48 = phi ptr [ @.str.206, %82 ], [ @.str.207, %85 ]
+  %92 = call i32 (ptr, ...) @error(ptr noundef nonnull %.str.206.sink48, ptr noundef nonnull @__func__._update_origin_job_dep, ptr noundef nonnull %34) #16
   br label %_update_origin_job_dep.exit40
 
 _update_origin_job_dep.exit40:                    ; preds = %_update_origin_job_dep.exit40.sink.split, %85
@@ -9744,8 +9744,8 @@ _update_origin_job_dep.exit40:                    ; preds = %_update_origin_job_
   br i1 %.not.i41, label %_update_origin_job_dep.exit42, label %_update_origin_job_dep.exit42.sink.split
 
 _update_origin_job_dep.exit42.sink.split:         ; preds = %104, %101
-  %.str.206.sink45 = phi ptr [ @.str.206, %101 ], [ @.str.207, %104 ]
-  %111 = call i32 (ptr, ...) @error(ptr noundef nonnull %.str.206.sink45, ptr noundef nonnull @__func__._update_origin_job_dep, ptr noundef nonnull %34) #16
+  %.str.206.sink49 = phi ptr [ @.str.206, %101 ], [ @.str.207, %104 ]
+  %111 = call i32 (ptr, ...) @error(ptr noundef nonnull %.str.206.sink49, ptr noundef nonnull @__func__._update_origin_job_dep, ptr noundef nonnull %34) #16
   br label %_update_origin_job_dep.exit42
 
 _update_origin_job_dep.exit42:                    ; preds = %_update_origin_job_dep.exit42.sink.split, %104

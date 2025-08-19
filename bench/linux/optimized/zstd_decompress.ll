@@ -522,7 +522,7 @@ define dso_local i64 @ZSTD_getFrameHeader_advanced(ptr noundef writeonly capture
 78:                                               ; preds = %.thread, %61
   %79 = phi i64 [ %6, %61 ], [ %67, %.thread ]
   %80 = phi i64 [ 0, %61 ], [ %77, %.thread ]
-  switch i32 %55, label %default.unreachable8 [
+  switch i32 %55, label %default.unreachable14 [
     i32 3, label %91
     i32 1, label %81
     i32 2, label %86
@@ -549,13 +549,13 @@ define dso_local i64 @ZSTD_getFrameHeader_advanced(ptr noundef writeonly capture
   %94 = add nuw nsw i64 %79, 4
   br label %95
 
-default.unreachable8:                             ; preds = %95, %78
+default.unreachable14:                            ; preds = %95, %78
   unreachable
 
 95:                                               ; preds = %78, %91, %86, %81
   %96 = phi i64 [ %79, %78 ], [ %90, %86 ], [ %85, %81 ], [ %94, %91 ]
   %97 = phi i32 [ %55, %78 ], [ %89, %86 ], [ %84, %81 ], [ %93, %91 ]
-  switch i32 %58, label %default.unreachable8 [
+  switch i32 %58, label %default.unreachable14 [
     i32 3, label %112
     i32 1, label %103
     i32 2, label %108
@@ -1137,9 +1137,9 @@ define internal fastcc i64 @ZSTD_decompressMultiFrame(ptr noundef %0, ptr nounde
   br label %109
 
 109:                                              ; preds = %94, %93, %101
-  %.sink120 = phi ptr [ %108, %101 ], [ %15, %93 ], [ %15, %94 ]
+  %.sink151 = phi ptr [ %108, %101 ], [ %15, %93 ], [ %15, %94 ]
   %.sink = phi ptr [ %102, %101 ], [ %15, %93 ], [ %15, %94 ]
-  store ptr %.sink120, ptr %52, align 8
+  store ptr %.sink151, ptr %52, align 8
   store ptr %.sink, ptr %51, align 8
   store ptr %54, ptr %23, align 8
   br label %ZSTD_decompressBegin_usingDict.exit.thread
@@ -3715,12 +3715,12 @@ select.unfold:                                    ; preds = %36, %22, %32
   br label %.thread52.outer
 
 .thread52.outer:                                  ; preds = %.thread52.outer.backedge, %select.unfold
-  %.ph157 = phi ptr [ %8, %select.unfold ], [ %.ph157.be, %.thread52.outer.backedge ]
-  %.ph158 = phi ptr [ %15, %select.unfold ], [ %.ph158.be, %.thread52.outer.backedge ]
+  %.ph195 = phi ptr [ %8, %select.unfold ], [ %.ph195.be, %.thread52.outer.backedge ]
+  %.ph196 = phi ptr [ %15, %select.unfold ], [ %.ph196.be, %.thread52.outer.backedge ]
   br label %.thread52
 
 .thread52:                                        ; preds = %.thread52.backedge, %.thread52.outer
-  %88 = phi ptr [ %.ph158, %.thread52.outer ], [ %405, %.thread52.backedge ]
+  %88 = phi ptr [ %.ph196, %.thread52.outer ], [ %405, %.thread52.backedge ]
   %89 = load i32, ptr %42, align 4
   switch i32 %89, label %.thread38 [
     i32 0, label %90
@@ -3817,18 +3817,18 @@ ZSTD_DCtx_selectFrameDDict.exit:                  ; preds = %126, %121, %100, %9
 133:                                              ; preds = %131
   %134 = load i64, ptr %52, align 8
   %135 = sub i64 %94, %134
-  %136 = ptrtoint ptr %.ph157 to i64
+  %136 = ptrtoint ptr %.ph195 to i64
   %137 = sub i64 %56, %136
   %138 = icmp ugt i64 %135, %137
   br i1 %138, label %139, label %153
 
 139:                                              ; preds = %133
-  %140 = icmp eq ptr %11, %.ph157
+  %140 = icmp eq ptr %11, %.ph195
   br i1 %140, label %145, label %141
 
 141:                                              ; preds = %139
   %142 = getelementptr i8, ptr %51, i64 %134
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %142, ptr align 1 %.ph157, i64 %137, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %142, ptr align 1 %.ph195, i64 %137, i1 false)
   %143 = load i64, ptr %52, align 8
   %144 = add i64 %143, %137
   store i64 %144, ptr %52, align 8
@@ -3848,9 +3848,9 @@ ZSTD_DCtx_selectFrameDDict.exit:                  ; preds = %126, %121, %100, %9
 
 153:                                              ; preds = %133
   %154 = getelementptr i8, ptr %51, i64 %134
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %154, ptr align 1 %.ph157, i64 %135, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %154, ptr align 1 %.ph195, i64 %135, i1 false)
   store i64 %94, ptr %52, align 8
-  %155 = getelementptr i8, ptr %.ph157, i64 %135
+  %155 = getelementptr i8, ptr %.ph195, i64 %135
   br label %.thread52.outer.backedge
 
 156:                                              ; preds = %131
@@ -4095,7 +4095,7 @@ ZSTD_getDDict.exit:                               ; preds = %172, %175, %177
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.thread52, %279
-  %280 = ptrtoint ptr %.ph157 to i64
+  %280 = ptrtoint ptr %.ph195 to i64
   %281 = sub i64 %56, %280
   %282 = load i32, ptr %64, align 4
   %283 = add i32 %282, -3
@@ -4147,7 +4147,7 @@ ZSTD_getDDict.exit:                               ; preds = %172, %175, %177
   %306 = phi i64 [ %304, %302 ], [ 0, %301 ]
   %307 = load ptr, ptr %46, align 8
   %308 = getelementptr i8, ptr %307, i64 %.pre110
-  %309 = tail call i64 @ZSTD_decompressContinue(ptr noundef %0, ptr noundef %308, i64 noundef %306, ptr noundef %.ph157, i64 noundef %295)
+  %309 = tail call i64 @ZSTD_decompressContinue(ptr noundef %0, ptr noundef %308, i64 noundef %306, ptr noundef %.ph195, i64 noundef %295)
   %310 = icmp ult i64 %309, -119
   br i1 %310, label %311, label %.thread38
 
@@ -4166,7 +4166,7 @@ ZSTD_getDDict.exit:                               ; preds = %172, %175, %177
   %318 = ptrtoint ptr %88 to i64
   %319 = sub i64 %45, %318
   %320 = select i1 %298, i64 0, i64 %319
-  %321 = tail call i64 @ZSTD_decompressContinue(ptr noundef %0, ptr noundef %88, i64 noundef %320, ptr noundef %.ph157, i64 noundef %295)
+  %321 = tail call i64 @ZSTD_decompressContinue(ptr noundef %0, ptr noundef %88, i64 noundef %320, ptr noundef %.ph195, i64 noundef %295)
   %322 = icmp ult i64 %321, -119
   br i1 %322, label %323, label %.thread38
 
@@ -4178,11 +4178,11 @@ select.unfold46:                                  ; preds = %323, %314, %311
   %325 = phi i32 [ 4, %314 ], [ 2, %323 ], [ 2, %311 ]
   %326 = phi ptr [ %88, %314 ], [ %324, %323 ], [ %88, %311 ]
   store i32 %325, ptr %42, align 4
-  %327 = getelementptr i8, ptr %.ph157, i64 %295
+  %327 = getelementptr i8, ptr %.ph195, i64 %295
   br label %.thread52.outer.backedge
 
 328:                                              ; preds = %293
-  %329 = icmp eq ptr %.ph157, %11
+  %329 = icmp eq ptr %.ph195, %11
   br i1 %329, label %.thread63, label %330
 
 330:                                              ; preds = %328
@@ -4198,7 +4198,7 @@ select.unfold46:                                  ; preds = %323, %314, %311
   br i1 %336, label %337, label %341
 
 337:                                              ; preds = %331
-  %338 = ptrtoint ptr %.ph157 to i64
+  %338 = ptrtoint ptr %.ph195 to i64
   %339 = sub i64 %56, %338
   %340 = tail call i64 @llvm.umin.i64(i64 %335, i64 %339)
   br label %353
@@ -4210,7 +4210,7 @@ select.unfold46:                                  ; preds = %323, %314, %311
   br i1 %344, label %.thread38, label %345
 
 345:                                              ; preds = %341
-  %346 = ptrtoint ptr %.ph157 to i64
+  %346 = ptrtoint ptr %.ph195 to i64
   %347 = sub i64 %56, %346
   %348 = tail call i64 @llvm.umin.i64(i64 %335, i64 %347)
   %349 = icmp eq i64 %348, 0
@@ -4219,14 +4219,14 @@ select.unfold46:                                  ; preds = %323, %314, %311
 350:                                              ; preds = %345
   %351 = load ptr, ptr %85, align 8
   %352 = getelementptr i8, ptr %351, i64 %334
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %352, ptr align 1 %.ph157, i64 %348, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %352, ptr align 1 %.ph195, i64 %348, i1 false)
   %.pre114 = load i64, ptr %50, align 8
   br label %353
 
 353:                                              ; preds = %350, %345, %337
   %354 = phi i64 [ %334, %337 ], [ %334, %345 ], [ %.pre114, %350 ]
   %355 = phi i64 [ %340, %337 ], [ 0, %345 ], [ %348, %350 ]
-  %356 = getelementptr i8, ptr %.ph157, i64 %355
+  %356 = getelementptr i8, ptr %.ph195, i64 %355
   %357 = add i64 %354, %355
   store i64 %357, ptr %50, align 8
   %358 = icmp ult i64 %355, %335
@@ -4288,8 +4288,8 @@ select.unfold46:                                  ; preds = %323, %314, %311
   br label %.thread52.outer.backedge
 
 .thread52.outer.backedge:                         ; preds = %389, %153, %select.unfold46
-  %.ph157.be = phi ptr [ %327, %select.unfold46 ], [ %155, %153 ], [ %356, %389 ]
-  %.ph158.be = phi ptr [ %326, %select.unfold46 ], [ %88, %153 ], [ %391, %389 ]
+  %.ph195.be = phi ptr [ %327, %select.unfold46 ], [ %155, %153 ], [ %356, %389 ]
+  %.ph196.be = phi ptr [ %326, %select.unfold46 ], [ %88, %153 ], [ %391, %389 ]
   br label %.thread52.outer, !llvm.loop !19
 
 392:                                              ; preds = %.thread52
@@ -4339,14 +4339,14 @@ select.unfold46:                                  ; preds = %323, %314, %311
   br label %.thread52.backedge
 
 .thread63.sink.split:                             ; preds = %290, %182
-  %.ph135 = phi ptr [ %183, %182 ], [ %.ph157, %290 ]
-  %.ph136 = phi ptr [ %184, %182 ], [ %88, %290 ]
+  %.ph173 = phi ptr [ %183, %182 ], [ %.ph195, %290 ]
+  %.ph174 = phi ptr [ %184, %182 ], [ %88, %290 ]
   store i32 0, ptr %42, align 4
   br label %.thread63
 
 .thread63:                                        ; preds = %403, %353, %328, %.thread63.sink.split
-  %417 = phi ptr [ %.ph135, %.thread63.sink.split ], [ %.ph157, %403 ], [ %11, %328 ], [ %356, %353 ]
-  %418 = phi ptr [ %.ph136, %.thread63.sink.split ], [ %405, %403 ], [ %88, %353 ], [ %88, %328 ]
+  %417 = phi ptr [ %.ph173, %.thread63.sink.split ], [ %.ph195, %403 ], [ %11, %328 ], [ %356, %353 ]
+  %418 = phi ptr [ %.ph174, %.thread63.sink.split ], [ %405, %403 ], [ %88, %353 ], [ %88, %328 ]
   %419 = load ptr, ptr %2, align 8
   %420 = ptrtoint ptr %417 to i64
   %421 = ptrtoint ptr %419 to i64

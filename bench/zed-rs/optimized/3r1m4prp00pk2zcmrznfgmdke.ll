@@ -778,7 +778,7 @@ default.unreachable:                              ; preds = %1
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef ptr @"_ZN14event_listener14Event$LT$T$GT$5inner17h2c67d728a1375490E"(ptr noundef nonnull align 8 captures(none) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef nonnull ptr @"_ZN14event_listener14Event$LT$T$GT$5inner17h2c67d728a1375490E"(ptr noundef nonnull align 8 captures(none) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca [8 x i8], align 8
   %3 = load atomic ptr, ptr %0 acquire, align 8
   %4 = icmp eq ptr %3, null
@@ -3419,8 +3419,8 @@ common.resume:                                    ; preds = %12
 
 "_ZN5alloc5boxed12Box$LT$T$GT$3new17hb4d6281243b6c9f2E.llvm.11830909381988143716.exit": ; preds = %0
   store i64 3, ptr %3, align 8
-  %.sroa.423.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 96
-  store ptr null, ptr %.sroa.423.0..sroa_idx, align 8
+  %.sroa.424.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 96
+  store ptr null, ptr %.sroa.424.0..sroa_idx, align 8
   %5 = ptrtoint ptr %3 to i64
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
   store i64 1, ptr %1, align 8
@@ -6484,8 +6484,8 @@ define hidden void @"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT
   %22 = getelementptr inbounds { ptr, i64 }, ptr %11, i64 %.sroa.13.0.lcssa.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %22, ptr noundef nonnull align 8 dereferenceable(16) %21, i64 16, i1 false), !noalias !1085
   store ptr %13, ptr %21, align 8, !noalias !1085
-  %.sroa.7.16..sroa_idx16.i.i = getelementptr inbounds nuw i8, ptr %21, i64 8
-  store i64 %15, ptr %.sroa.7.16..sroa_idx16.i.i, align 8, !noalias !1085
+  %.sroa.7.16..sroa_idx17.i.i = getelementptr inbounds nuw i8, ptr %21, i64 8
+  store i64 %15, ptr %.sroa.7.16..sroa_idx17.i.i, align 8, !noalias !1085
   %23 = icmp ult i64 %.sroa.09.0.lcssa.i.i, %7
   tail call void @llvm.assume(i1 %23)
   br label %.lr.ph.i.i.i.preheader
@@ -6604,8 +6604,8 @@ define hidden { ptr, i64 } @"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$
   %17 = getelementptr inbounds { ptr, i64 }, ptr %12, i64 %.sroa.13.0.lcssa.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef nonnull align 8 dereferenceable(16) %16, i64 16, i1 false)
   store ptr %1, ptr %16, align 8
-  %.sroa.7.16..sroa_idx16.i = getelementptr inbounds nuw i8, ptr %16, i64 8
-  store i64 %2, ptr %.sroa.7.16..sroa_idx16.i, align 8
+  %.sroa.7.16..sroa_idx17.i = getelementptr inbounds nuw i8, ptr %16, i64 8
+  store i64 %2, ptr %.sroa.7.16..sroa_idx17.i, align 8
   %18 = icmp ult i64 %.sroa.09.0.lcssa.i, %5
   tail call void @llvm.assume(i1 %18)
   br label %.lr.ph.i.i.preheader
@@ -8111,9 +8111,9 @@ define hidden void @"_ZN6client34PendingEntitySubscription$LT$T$GT$9set_model17h
 
 .noexc:                                           ; preds = %29
   %38 = icmp eq ptr %37, null
-  br i1 %38, label %.thread97, label %39
+  br i1 %38, label %.thread99, label %39
 
-.thread97:                                        ; preds = %.noexc
+.thread99:                                        ; preds = %.noexc
   store i64 0, ptr %17, align 8, !alias.scope !1165, !noalias !1168
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.4.i)
   br label %46
@@ -8144,7 +8144,7 @@ define hidden void @"_ZN6client34PendingEntitySubscription$LT$T$GT$9set_model17h
   %45 = icmp eq i32 %44, 0
   br i1 %45, label %47, label %46
 
-46:                                               ; preds = %.thread97, %41
+46:                                               ; preds = %.thread99, %41
   invoke fastcc void @"_ZN4core3ptr91drop_in_place$LT$core..option..Option$LT$rpc..proto_client..EntityMessageSubscriber$GT$$GT$17heae0e17cdc399898E"(ptr noalias noundef align 8 dereferenceable(40) %17)
           to label %150 unwind label %.thread
 
@@ -8556,9 +8556,9 @@ define hidden void @"_ZN6client34PendingEntitySubscription$LT$T$GT$9set_model17h
 
 .noexc:                                           ; preds = %29
   %38 = icmp eq ptr %37, null
-  br i1 %38, label %.thread97, label %39
+  br i1 %38, label %.thread99, label %39
 
-.thread97:                                        ; preds = %.noexc
+.thread99:                                        ; preds = %.noexc
   store i64 0, ptr %17, align 8, !alias.scope !1224, !noalias !1227
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.4.i)
   br label %46
@@ -8589,7 +8589,7 @@ define hidden void @"_ZN6client34PendingEntitySubscription$LT$T$GT$9set_model17h
   %45 = icmp eq i32 %44, 0
   br i1 %45, label %47, label %46
 
-46:                                               ; preds = %.thread97, %41
+46:                                               ; preds = %.thread99, %41
   invoke fastcc void @"_ZN4core3ptr91drop_in_place$LT$core..option..Option$LT$rpc..proto_client..EntityMessageSubscriber$GT$$GT$17heae0e17cdc399898E"(ptr noalias noundef align 8 dereferenceable(40) %17)
           to label %150 unwind label %.thread
 
@@ -9001,9 +9001,9 @@ define hidden void @"_ZN6client34PendingEntitySubscription$LT$T$GT$9set_model17h
 
 .noexc:                                           ; preds = %29
   %38 = icmp eq ptr %37, null
-  br i1 %38, label %.thread97, label %39
+  br i1 %38, label %.thread99, label %39
 
-.thread97:                                        ; preds = %.noexc
+.thread99:                                        ; preds = %.noexc
   store i64 0, ptr %17, align 8, !alias.scope !1283, !noalias !1286
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.4.i)
   br label %46
@@ -9034,7 +9034,7 @@ define hidden void @"_ZN6client34PendingEntitySubscription$LT$T$GT$9set_model17h
   %45 = icmp eq i32 %44, 0
   br i1 %45, label %47, label %46
 
-46:                                               ; preds = %.thread97, %41
+46:                                               ; preds = %.thread99, %41
   invoke fastcc void @"_ZN4core3ptr91drop_in_place$LT$core..option..Option$LT$rpc..proto_client..EntityMessageSubscriber$GT$$GT$17heae0e17cdc399898E"(ptr noalias noundef align 8 dereferenceable(40) %17)
           to label %150 unwind label %.thread
 
@@ -9446,9 +9446,9 @@ define hidden void @"_ZN6client34PendingEntitySubscription$LT$T$GT$9set_model17h
 
 .noexc:                                           ; preds = %29
   %38 = icmp eq ptr %37, null
-  br i1 %38, label %.thread97, label %39
+  br i1 %38, label %.thread99, label %39
 
-.thread97:                                        ; preds = %.noexc
+.thread99:                                        ; preds = %.noexc
   store i64 0, ptr %17, align 8, !alias.scope !1342, !noalias !1345
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.4.i)
   br label %46
@@ -9479,7 +9479,7 @@ define hidden void @"_ZN6client34PendingEntitySubscription$LT$T$GT$9set_model17h
   %45 = icmp eq i32 %44, 0
   br i1 %45, label %47, label %46
 
-46:                                               ; preds = %.thread97, %41
+46:                                               ; preds = %.thread99, %41
   invoke fastcc void @"_ZN4core3ptr91drop_in_place$LT$core..option..Option$LT$rpc..proto_client..EntityMessageSubscriber$GT$$GT$17heae0e17cdc399898E"(ptr noalias noundef align 8 dereferenceable(40) %17)
           to label %150 unwind label %.thread
 
@@ -9891,9 +9891,9 @@ define hidden void @"_ZN6client34PendingEntitySubscription$LT$T$GT$9set_model17h
 
 .noexc:                                           ; preds = %29
   %38 = icmp eq ptr %37, null
-  br i1 %38, label %.thread97, label %39
+  br i1 %38, label %.thread99, label %39
 
-.thread97:                                        ; preds = %.noexc
+.thread99:                                        ; preds = %.noexc
   store i64 0, ptr %17, align 8, !alias.scope !1401, !noalias !1404
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.4.i)
   br label %46
@@ -9924,7 +9924,7 @@ define hidden void @"_ZN6client34PendingEntitySubscription$LT$T$GT$9set_model17h
   %45 = icmp eq i32 %44, 0
   br i1 %45, label %47, label %46
 
-46:                                               ; preds = %.thread97, %41
+46:                                               ; preds = %.thread99, %41
   invoke fastcc void @"_ZN4core3ptr91drop_in_place$LT$core..option..Option$LT$rpc..proto_client..EntityMessageSubscriber$GT$$GT$17heae0e17cdc399898E"(ptr noalias noundef align 8 dereferenceable(40) %17)
           to label %150 unwind label %.thread
 
@@ -11926,14 +11926,14 @@ define internal { i64, ptr } @"_ZN6client6Client18respond_to_request28_$u7b$$u7b
   %15 = alloca [8 x i8], align 8
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 1096
   %17 = load i8, ptr %16, align 8, !range !144, !noundef !4
-  switch i8 %17, label %default.unreachable37 [
+  switch i8 %17, label %default.unreachable51 [
     i8 0, label %26
     i8 1, label %36
     i8 2, label %37
     i8 3, label %38
   ]
 
-default.unreachable37:                            ; preds = %38, %2
+default.unreachable51:                            ; preds = %38, %2
   unreachable
 
 18:                                               ; preds = %317, %.body, %"_ZN4core3ptr34drop_in_place$LT$anyhow..Error$GT$17he3d87b5460d7df86E.exit", %24
@@ -11985,7 +11985,7 @@ default.unreachable37:                            ; preds = %38, %2
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 552
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 984
   %41 = load i8, ptr %40, align 8, !range !103, !noalias !1587, !noundef !4
-  switch i8 %41, label %default.unreachable37 [
+  switch i8 %41, label %default.unreachable51 [
     i8 0, label %42
     i8 1, label %79
     i8 2, label %80

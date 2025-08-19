@@ -1037,11 +1037,11 @@ define dso_local noundef zeroext i1 @_ZN3igl6opengl4glfw5imgui15SelectionWidget1
 
 19:                                               ; preds = %16
   %20 = icmp eq i32 %.pre, 1
-  %.11 = select i1 %20, i32 2, i32 1
+  %.12 = select i1 %20, i32 2, i32 1
   br label %.sink.split
 
 .sink.split:                                      ; preds = %19, %13, %3
-  %.sink = phi i32 [ 0, %3 ], [ %., %13 ], [ %.11, %19 ]
+  %.sink = phi i32 [ 0, %3 ], [ %., %13 ], [ %.12, %19 ]
   store i32 %.sink, ptr %5, align 8, !tbaa !16
   br label %21
 
@@ -1151,7 +1151,7 @@ define linkonce_odr dso_local void @_ZNSt6vectorIN5Eigen6MatrixIfLi1ELi2ELi1ELi1
   br i1 %.not28.i, label %23, label %21
 
 21:                                               ; preds = %11
-  %22 = shl i64 %12, 3
+  %22 = shl nuw nsw i64 %12, 3
   %scevgep.i.i.i.i = getelementptr i8, ptr %4, i64 %22
   store ptr %scevgep.i.i.i.i, ptr %3, align 8, !tbaa !103
   br label %_ZNSt6vectorIN5Eigen6MatrixIfLi1ELi2ELi1ELi1ELi2EEESaIS2_EE17_M_default_appendEm.exit

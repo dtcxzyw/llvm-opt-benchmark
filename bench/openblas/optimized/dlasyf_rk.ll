@@ -516,16 +516,16 @@ define void @dlasyf_rk_(ptr noundef %0, ptr noundef readonly captures(none) %1, 
   %343 = getelementptr inbounds double, ptr %26, i64 %342
   %344 = sext i32 %340 to i64
   %wide.trip.count846 = zext nneg i32 %321 to i64
-  %invariant.gep938 = getelementptr double, ptr %26, i64 %344
+  %invariant.gep989 = getelementptr double, ptr %26, i64 %344
   br label %345
 
 345:                                              ; preds = %.lr.ph794, %345
   %indvars.iv843 = phi i64 [ 1, %.lr.ph794 ], [ %indvars.iv.next844, %345 ]
   %346 = load double, ptr %343, align 8, !tbaa !7
-  %gep939 = getelementptr double, ptr %invariant.gep938, i64 %indvars.iv843
-  %347 = load double, ptr %gep939, align 8, !tbaa !7
+  %gep990 = getelementptr double, ptr %invariant.gep989, i64 %indvars.iv843
+  %347 = load double, ptr %gep990, align 8, !tbaa !7
   %348 = fdiv double %347, %346
-  store double %348, ptr %gep939, align 8, !tbaa !7
+  store double %348, ptr %gep990, align 8, !tbaa !7
   %indvars.iv.next844 = add nuw nsw i64 %indvars.iv843, 1
   %exitcond847.not = icmp eq i64 %indvars.iv.next844, %wide.trip.count846
   br i1 %exitcond847.not, label %.loopexit771, label %345, !llvm.loop !9
@@ -577,40 +577,40 @@ define void @dlasyf_rk_(ptr noundef %0, ptr noundef readonly captures(none) %1, 
   %377 = sext i32 %374 to i64
   %wide.trip.count = zext nneg i32 %353 to i64
   %invariant.gep = getelementptr double, ptr %31, i64 %375
-  %invariant.gep932 = getelementptr double, ptr %31, i64 %53
-  %invariant.gep934 = getelementptr double, ptr %26, i64 %376
-  %invariant.gep936 = getelementptr double, ptr %26, i64 %377
+  %invariant.gep983 = getelementptr double, ptr %31, i64 %53
+  %invariant.gep985 = getelementptr double, ptr %26, i64 %376
+  %invariant.gep987 = getelementptr double, ptr %26, i64 %377
   br label %378
 
 378:                                              ; preds = %.lr.ph, %378
   %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %378 ]
   %gep = getelementptr double, ptr %invariant.gep, i64 %indvars.iv
   %379 = load double, ptr %gep, align 8, !tbaa !7
-  %gep933 = getelementptr double, ptr %invariant.gep932, i64 %indvars.iv
-  %380 = load double, ptr %gep933, align 8, !tbaa !7
+  %gep984 = getelementptr double, ptr %invariant.gep983, i64 %indvars.iv
+  %380 = load double, ptr %gep984, align 8, !tbaa !7
   %381 = fneg double %380
   %382 = call double @llvm.fmuladd.f64(double %362, double %379, double %381)
   %383 = fdiv double %382, %359
   %384 = fmul double %371, %383
-  %gep935 = getelementptr double, ptr %invariant.gep934, i64 %indvars.iv
-  store double %384, ptr %gep935, align 8, !tbaa !7
-  %385 = load double, ptr %gep933, align 8, !tbaa !7
+  %gep986 = getelementptr double, ptr %invariant.gep985, i64 %indvars.iv
+  store double %384, ptr %gep986, align 8, !tbaa !7
+  %385 = load double, ptr %gep984, align 8, !tbaa !7
   %386 = load double, ptr %gep, align 8, !tbaa !7
   %387 = fneg double %386
   %388 = call double @llvm.fmuladd.f64(double %369, double %385, double %387)
   %389 = fdiv double %388, %359
   %390 = fmul double %371, %389
-  %gep937 = getelementptr double, ptr %invariant.gep936, i64 %indvars.iv
-  store double %390, ptr %gep937, align 8, !tbaa !7
+  %gep988 = getelementptr double, ptr %invariant.gep987, i64 %indvars.iv
+  store double %390, ptr %gep988, align 8, !tbaa !7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit772, label %378, !llvm.loop !11
 
 .sink.split:                                      ; preds = %.loopexit771, %106
-  %.sink959 = phi i64 [ %107, %106 ], [ %350, %.loopexit771 ]
+  %.sink1010 = phi i64 [ %107, %106 ], [ %350, %.loopexit771 ]
   %.ph = phi i32 [ %104, %106 ], [ %349, %.loopexit771 ]
   %.1651.ph.ph = phi i32 [ %.0650, %106 ], [ %.2652, %.loopexit771 ]
-  %391 = getelementptr inbounds double, ptr %27, i64 %.sink959
+  %391 = getelementptr inbounds double, ptr %27, i64 %.sink1010
   store double 0.000000e+00, ptr %391, align 8, !tbaa !7
   br label %392
 
@@ -685,7 +685,7 @@ define void @dlasyf_rk_(ptr noundef %0, ptr noundef readonly captures(none) %1, 
   %434 = mul nsw i32 %433, %29
   %435 = sext i32 %434 to i64
   %436 = sext i32 %24 to i64
-  %invariant.gep941 = getelementptr double, ptr %31, i64 %435
+  %invariant.gep992 = getelementptr double, ptr %31, i64 %435
   br label %437
 
 437:                                              ; preds = %.lr.ph801, %477
@@ -704,7 +704,7 @@ define void @dlasyf_rk_(ptr noundef %0, ptr noundef readonly captures(none) %1, 
 
 .lr.ph797:                                        ; preds = %437
   %445 = sext i32 %.1647799 to i64
-  %invariant.gep943 = getelementptr double, ptr %26, i64 %445
+  %invariant.gep994 = getelementptr double, ptr %26, i64 %445
   br label %446
 
 446:                                              ; preds = %.lr.ph797, %446
@@ -722,10 +722,10 @@ define void @dlasyf_rk_(ptr noundef %0, ptr noundef readonly captures(none) %1, 
   %454 = add nsw i32 %453, %.1647799
   %455 = sext i32 %454 to i64
   %456 = getelementptr inbounds double, ptr %26, i64 %455
-  %gep942 = getelementptr double, ptr %invariant.gep941, i64 %indvars.iv848
+  %gep993 = getelementptr double, ptr %invariant.gep992, i64 %indvars.iv848
   %457 = mul nsw i64 %indvars.iv848, %436
-  %gep944 = getelementptr double, ptr %invariant.gep943, i64 %457
-  call void @dgemv_(ptr noundef nonnull @.str.2, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef nonnull @c_b9, ptr noundef %456, ptr noundef nonnull %5, ptr noundef %gep942, ptr noundef nonnull %9, ptr noundef nonnull @c_b10, ptr noundef %gep944, ptr noundef nonnull @c__1) #5
+  %gep995 = getelementptr double, ptr %invariant.gep994, i64 %457
+  call void @dgemv_(ptr noundef nonnull @.str.2, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef nonnull @c_b9, ptr noundef %456, ptr noundef nonnull %5, ptr noundef %gep993, ptr noundef nonnull %9, ptr noundef nonnull @c_b10, ptr noundef %gep995, ptr noundef nonnull @c__1) #5
   %indvars.iv.next849 = add nsw i64 %indvars.iv848, 1
   %458 = load i32, ptr %13, align 4, !tbaa !3
   %459 = sext i32 %458 to i64
@@ -786,25 +786,25 @@ define void @dlasyf_rk_(ptr noundef %0, ptr noundef readonly captures(none) %1, 
   %491 = add i32 %29, 1
   store i32 1, ptr %18, align 4, !tbaa !3
   %492 = load i32, ptr %2, align 4, !tbaa !3
-  %.not697977 = icmp slt i32 %492, 2
+  %.not6971028 = icmp slt i32 %492, 2
   %493 = icmp slt i32 %492, %487
-  %or.cond915978 = and i1 %.not697977, %493
+  %or.cond9661029 = and i1 %.not6971028, %493
   %494 = icmp slt i32 %487, 1
-  %or.cond916979 = or i1 %or.cond915978, %494
-  br i1 %or.cond916979, label %._crit_edge985, label %.lr.ph984
+  %or.cond9671030 = or i1 %or.cond9661029, %494
+  br i1 %or.cond9671030, label %._crit_edge1036, label %.lr.ph1035
 
-.lr.ph984:                                        ; preds = %486, %909
-  %.6656982 = phi i32 [ %.7657751, %909 ], [ undef, %486 ]
-  %storemerge981 = phi i32 [ %911, %909 ], [ 1, %486 ]
-  %.pre869980 = phi i32 [ %.pre869.pre, %909 ], [ %487, %486 ]
-  store i32 %storemerge981, ptr %19, align 4, !tbaa !3
-  %reass.sub822 = sub i32 %.pre869980, %storemerge981
+.lr.ph1035:                                       ; preds = %486, %909
+  %.66561033 = phi i32 [ %.7657751, %909 ], [ undef, %486 ]
+  %storemerge1032 = phi i32 [ %911, %909 ], [ 1, %486 ]
+  %.pre8691031 = phi i32 [ %.pre869.pre, %909 ], [ %487, %486 ]
+  store i32 %storemerge1032, ptr %19, align 4, !tbaa !3
+  %reass.sub822 = sub i32 %.pre8691031, %storemerge1032
   %495 = add i32 %reass.sub822, 1
   store i32 %495, ptr %12, align 4, !tbaa !3
-  %496 = mul i32 %storemerge981, %490
+  %496 = mul i32 %storemerge1032, %490
   %497 = sext i32 %496 to i64
   %498 = getelementptr inbounds double, ptr %26, i64 %497
-  %499 = mul i32 %storemerge981, %491
+  %499 = mul i32 %storemerge1032, %491
   %500 = sext i32 %499 to i64
   %501 = getelementptr inbounds double, ptr %31, i64 %500
   call void @dcopy_(ptr noundef nonnull %12, ptr noundef %498, ptr noundef nonnull @c__1, ptr noundef %501, ptr noundef nonnull @c__1) #5
@@ -812,7 +812,7 @@ define void @dlasyf_rk_(ptr noundef %0, ptr noundef readonly captures(none) %1, 
   %503 = icmp sgt i32 %502, 1
   br i1 %503, label %504, label %517
 
-504:                                              ; preds = %.lr.ph984
+504:                                              ; preds = %.lr.ph1035
   %505 = load i32, ptr %1, align 4, !tbaa !3
   %reass.sub823 = sub i32 %505, %502
   %506 = add i32 %reass.sub823, 1
@@ -832,8 +832,8 @@ define void @dlasyf_rk_(ptr noundef %0, ptr noundef readonly captures(none) %1, 
   %.pre870 = load i32, ptr %18, align 4, !tbaa !3
   br label %517
 
-517:                                              ; preds = %504, %.lr.ph984
-  %518 = phi i32 [ %.pre870, %504 ], [ %502, %.lr.ph984 ]
+517:                                              ; preds = %504, %.lr.ph1035
+  %518 = phi i32 [ %.pre870, %504 ], [ %502, %.lr.ph1035 ]
   %519 = mul i32 %518, %491
   %520 = sext i32 %519 to i64
   %521 = getelementptr inbounds double, ptr %31, i64 %520
@@ -900,7 +900,7 @@ define void @dlasyf_rk_(ptr noundef %0, ptr noundef readonly captures(none) %1, 
   %564 = load i32, ptr %18, align 4, !tbaa !3
   %565 = load i32, ptr %1, align 4, !tbaa !3
   %566 = icmp slt i32 %564, %565
-  br i1 %566, label %.sink.split960, label %877
+  br i1 %566, label %.sink.split1011, label %877
 
 567:                                              ; preds = %546
   %568 = fmul double %.3631, 0x3FE47E0F66AFED07
@@ -914,7 +914,7 @@ define void @dlasyf_rk_(ptr noundef %0, ptr noundef readonly captures(none) %1, 
 
 .preheader:                                       ; preds = %567, %677
   %570 = phi i32 [ %.pre871, %677 ], [ %547, %567 ]
-  %.9 = phi i32 [ %.11, %677 ], [ %.6656982, %567 ]
+  %.9 = phi i32 [ %.11, %677 ], [ %.66561033, %567 ]
   %.4 = phi double [ %.3, %677 ], [ %.3631, %567 ]
   %571 = load i32, ptr %17, align 4, !tbaa !3
   %572 = sub nsw i32 %571, %570
@@ -1154,7 +1154,7 @@ define void @dlasyf_rk_(ptr noundef %0, ptr noundef readonly captures(none) %1, 
 733:                                              ; preds = %686, %.thread739, %696, %.thread744
   %734 = phi i32 [ %547, %.thread739 ], [ %.pre874, %696 ], [ %.pre-phi, %.thread744 ], [ %695, %686 ]
   %735 = phi i1 [ true, %.thread739 ], [ false, %696 ], [ false, %.thread744 ], [ true, %686 ]
-  %.8742 = phi i32 [ %.6656982, %.thread739 ], [ %.11, %696 ], [ %.11, %.thread744 ], [ %.11, %686 ]
+  %.8742 = phi i32 [ %.66561033, %.thread739 ], [ %.11, %696 ], [ %.11, %.thread744 ], [ %.11, %686 ]
   %736 = load i32, ptr %23, align 4, !tbaa !3
   %.not701 = icmp eq i32 %736, %734
   br i1 %.not701, label %786, label %737
@@ -1259,11 +1259,11 @@ define void @dlasyf_rk_(ptr noundef %0, ptr noundef readonly captures(none) %1, 
   %815 = getelementptr inbounds double, ptr %26, i64 %814
   call void @dscal_(ptr noundef nonnull %12, ptr noundef nonnull %20, ptr noundef %815, ptr noundef nonnull @c__1) #5
   %.pre875 = load i32, ptr %18, align 4, !tbaa !3
-  br label %.sink.split960
+  br label %.sink.split1011
 
 816:                                              ; preds = %801
   %817 = fcmp une double %805, 0.000000e+00
-  br i1 %817, label %.lr.ph810, label %.sink.split960
+  br i1 %817, label %.lr.ph810, label %.sink.split1011
 
 .lr.ph810:                                        ; preds = %816
   store i32 %799, ptr %12, align 4, !tbaa !3
@@ -1274,19 +1274,19 @@ define void @dlasyf_rk_(ptr noundef %0, ptr noundef readonly captures(none) %1, 
   %822 = sext i32 %798 to i64
   %823 = sext i32 %818 to i64
   %wide.trip.count858 = sext i32 %799 to i64
-  %invariant.gep953 = getelementptr double, ptr %26, i64 %823
+  %invariant.gep1004 = getelementptr double, ptr %26, i64 %823
   br label %824
 
 824:                                              ; preds = %.lr.ph810, %824
   %indvars.iv855 = phi i64 [ %822, %.lr.ph810 ], [ %indvars.iv.next856, %824 ]
   %indvars.iv.next856 = add nsw i64 %indvars.iv855, 1
   %825 = load double, ptr %821, align 8, !tbaa !7
-  %gep954 = getelementptr double, ptr %invariant.gep953, i64 %indvars.iv.next856
-  %826 = load double, ptr %gep954, align 8, !tbaa !7
+  %gep1005 = getelementptr double, ptr %invariant.gep1004, i64 %indvars.iv.next856
+  %826 = load double, ptr %gep1005, align 8, !tbaa !7
   %827 = fdiv double %826, %825
-  store double %827, ptr %gep954, align 8, !tbaa !7
+  store double %827, ptr %gep1005, align 8, !tbaa !7
   %exitcond859.not = icmp eq i64 %indvars.iv.next856, %wide.trip.count858
-  br i1 %exitcond859.not, label %.sink.split960, label %824, !llvm.loop !14
+  br i1 %exitcond859.not, label %.sink.split1011, label %824, !llvm.loop !14
 
 828:                                              ; preds = %786
   %829 = load i32, ptr %18, align 4, !tbaa !3
@@ -1337,48 +1337,48 @@ define void @dlasyf_rk_(ptr noundef %0, ptr noundef readonly captures(none) %1, 
   %859 = sext i32 %854 to i64
   %860 = sext i32 %855 to i64
   %861 = add i32 %830, 1
-  %invariant.gep945 = getelementptr double, ptr %31, i64 %857
-  %invariant.gep947 = getelementptr double, ptr %31, i64 %858
-  %invariant.gep949 = getelementptr double, ptr %26, i64 %859
-  %invariant.gep951 = getelementptr double, ptr %26, i64 %860
+  %invariant.gep996 = getelementptr double, ptr %31, i64 %857
+  %invariant.gep998 = getelementptr double, ptr %31, i64 %858
+  %invariant.gep1000 = getelementptr double, ptr %26, i64 %859
+  %invariant.gep1002 = getelementptr double, ptr %26, i64 %860
   br label %862
 
 862:                                              ; preds = %.lr.ph806, %862
   %indvars.iv851 = phi i64 [ %856, %.lr.ph806 ], [ %indvars.iv.next852, %862 ]
-  %gep946 = getelementptr double, ptr %invariant.gep945, i64 %indvars.iv851
-  %863 = load double, ptr %gep946, align 8, !tbaa !7
-  %gep948 = getelementptr double, ptr %invariant.gep947, i64 %indvars.iv851
-  %864 = load double, ptr %gep948, align 8, !tbaa !7
+  %gep997 = getelementptr double, ptr %invariant.gep996, i64 %indvars.iv851
+  %863 = load double, ptr %gep997, align 8, !tbaa !7
+  %gep999 = getelementptr double, ptr %invariant.gep998, i64 %indvars.iv851
+  %864 = load double, ptr %gep999, align 8, !tbaa !7
   %865 = fneg double %864
   %866 = call double @llvm.fmuladd.f64(double %844, double %863, double %865)
   %867 = fdiv double %866, %839
   %868 = fmul double %851, %867
-  %gep950 = getelementptr double, ptr %invariant.gep949, i64 %indvars.iv851
-  store double %868, ptr %gep950, align 8, !tbaa !7
-  %869 = load double, ptr %gep948, align 8, !tbaa !7
-  %870 = load double, ptr %gep946, align 8, !tbaa !7
+  %gep1001 = getelementptr double, ptr %invariant.gep1000, i64 %indvars.iv851
+  store double %868, ptr %gep1001, align 8, !tbaa !7
+  %869 = load double, ptr %gep999, align 8, !tbaa !7
+  %870 = load double, ptr %gep997, align 8, !tbaa !7
   %871 = fneg double %870
   %872 = call double @llvm.fmuladd.f64(double %849, double %869, double %871)
   %873 = fdiv double %872, %839
   %874 = fmul double %851, %873
-  %gep952 = getelementptr double, ptr %invariant.gep951, i64 %indvars.iv851
-  store double %874, ptr %gep952, align 8, !tbaa !7
+  %gep1003 = getelementptr double, ptr %invariant.gep1002, i64 %indvars.iv851
+  store double %874, ptr %gep1003, align 8, !tbaa !7
   %indvars.iv.next852 = add nsw i64 %indvars.iv851, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next852 to i32
   %exitcond854.not = icmp eq i32 %861, %lftr.wideiv
   br i1 %exitcond854.not, label %.loopexit770, label %862, !llvm.loop !15
 
-.sink.split960:                                   ; preds = %824, %808, %816, %555
+.sink.split1011:                                  ; preds = %824, %808, %816, %555
   %.sink = phi i32 [ %564, %555 ], [ %798, %816 ], [ %.pre875, %808 ], [ %798, %824 ]
-  %.7657.ph.ph = phi i32 [ %.6656982, %555 ], [ %.8742, %816 ], [ %.8742, %808 ], [ %.8742, %824 ]
+  %.7657.ph.ph = phi i32 [ %.66561033, %555 ], [ %.8742, %816 ], [ %.8742, %808 ], [ %.8742, %824 ]
   %875 = sext i32 %.sink to i64
   %876 = getelementptr inbounds double, ptr %27, i64 %875
   store double 0.000000e+00, ptr %876, align 8, !tbaa !7
   br label %877
 
-877:                                              ; preds = %.sink.split960, %555, %787
-  %878 = phi i32 [ %798, %787 ], [ %564, %555 ], [ %.sink, %.sink.split960 ]
-  %.7657.ph = phi i32 [ %.8742, %787 ], [ %.6656982, %555 ], [ %.7657.ph.ph, %.sink.split960 ]
+877:                                              ; preds = %.sink.split1011, %555, %787
+  %878 = phi i32 [ %798, %787 ], [ %564, %555 ], [ %.sink, %.sink.split1011 ]
+  %.7657.ph = phi i32 [ %.8742, %787 ], [ %.66561033, %555 ], [ %.7657.ph.ph, %.sink.split1011 ]
   %879 = load i32, ptr %23, align 4, !tbaa !3
   %880 = sext i32 %878 to i64
   %881 = getelementptr inbounds i32, ptr %28, i64 %880
@@ -1434,28 +1434,28 @@ define void @dlasyf_rk_(ptr noundef %0, ptr noundef readonly captures(none) %1, 
   %912 = load i32, ptr %2, align 4, !tbaa !3
   %.not697 = icmp sge i32 %911, %912
   %913 = icmp slt i32 %912, %.pre869.pre
-  %or.cond915 = select i1 %.not697, i1 %913, i1 false
+  %or.cond966 = select i1 %.not697, i1 %913, i1 false
   %914 = icmp sgt i32 %911, %.pre869.pre
-  %or.cond916 = select i1 %or.cond915, i1 true, i1 %914
-  br i1 %or.cond916, label %._crit_edge985, label %.lr.ph984
+  %or.cond967 = select i1 %or.cond966, i1 true, i1 %914
+  br i1 %or.cond967, label %._crit_edge1036, label %.lr.ph1035
 
-._crit_edge985:                                   ; preds = %909, %486
+._crit_edge1036:                                  ; preds = %909, %486
   %.pre869.lcssa = phi i32 [ %487, %486 ], [ %.pre869.pre, %909 ]
   %storemerge.lcssa = phi i32 [ 1, %486 ], [ %911, %909 ]
-  %.lcssa970 = phi i32 [ %492, %486 ], [ %912, %909 ]
+  %.lcssa1021 = phi i32 [ %492, %486 ], [ %912, %909 ]
   store i32 %.pre869.lcssa, ptr %12, align 4, !tbaa !3
-  store i32 %.lcssa970, ptr %13, align 4, !tbaa !3
-  %915 = icmp slt i32 %.lcssa970, 0
+  store i32 %.lcssa1021, ptr %13, align 4, !tbaa !3
+  %915 = icmp slt i32 %.lcssa1021, 0
   %916 = icmp sge i32 %storemerge.lcssa, %.pre869.lcssa
   %917 = icmp sle i32 %storemerge.lcssa, %.pre869.lcssa
   %.in816 = select i1 %915, i1 %916, i1 %917
   br i1 %.in816, label %.lr.ph819, label %._crit_edge820
 
-.lr.ph819:                                        ; preds = %._crit_edge985
+.lr.ph819:                                        ; preds = %._crit_edge1036
   %918 = sext i32 %24 to i64
   %919 = sext i32 %29 to i64
-  %invariant.gep955 = getelementptr double, ptr %26, i64 %918
-  %invariant.gep957 = getelementptr double, ptr %31, i64 %919
+  %invariant.gep1006 = getelementptr double, ptr %26, i64 %918
+  %invariant.gep1008 = getelementptr double, ptr %31, i64 %919
   br label %920
 
 920:                                              ; preds = %.lr.ph819, %957
@@ -1486,12 +1486,12 @@ define void @dlasyf_rk_(ptr noundef %0, ptr noundef readonly captures(none) %1, 
   %933 = load i32, ptr %18, align 4, !tbaa !3
   %934 = add nsw i32 %933, -1
   store i32 %934, ptr %16, align 4, !tbaa !3
-  %gep956 = getelementptr double, ptr %invariant.gep955, i64 %indvars.iv860
-  %gep958 = getelementptr double, ptr %invariant.gep957, i64 %indvars.iv860
+  %gep1007 = getelementptr double, ptr %invariant.gep1006, i64 %indvars.iv860
+  %gep1009 = getelementptr double, ptr %invariant.gep1008, i64 %indvars.iv860
   %935 = mul i32 %490, %930
   %936 = sext i32 %935 to i64
   %937 = getelementptr inbounds double, ptr %26, i64 %936
-  call void @dgemv_(ptr noundef nonnull @.str.2, ptr noundef nonnull %15, ptr noundef nonnull %16, ptr noundef nonnull @c_b9, ptr noundef %gep956, ptr noundef nonnull %5, ptr noundef %gep958, ptr noundef nonnull %9, ptr noundef nonnull @c_b10, ptr noundef %937, ptr noundef nonnull @c__1) #5
+  call void @dgemv_(ptr noundef nonnull @.str.2, ptr noundef nonnull %15, ptr noundef nonnull %16, ptr noundef nonnull @c_b9, ptr noundef %gep1007, ptr noundef nonnull %5, ptr noundef %gep1009, ptr noundef nonnull %9, ptr noundef nonnull @c_b10, ptr noundef %937, ptr noundef nonnull @c__1) #5
   %indvars.iv.next861 = add nsw i64 %indvars.iv860, 1
   %938 = load i32, ptr %14, align 4, !tbaa !3
   %939 = sext i32 %938 to i64
@@ -1544,8 +1544,8 @@ define void @dlasyf_rk_(ptr noundef %0, ptr noundef readonly captures(none) %1, 
   %.pre878 = load i32, ptr %18, align 4, !tbaa !3
   br label %._crit_edge820
 
-._crit_edge820:                                   ; preds = %._crit_edge820.loopexit, %._crit_edge985
-  %964 = phi i32 [ %.pre878, %._crit_edge820.loopexit ], [ %storemerge.lcssa, %._crit_edge985 ]
+._crit_edge820:                                   ; preds = %._crit_edge820.loopexit, %._crit_edge1036
+  %964 = phi i32 [ %.pre878, %._crit_edge820.loopexit ], [ %storemerge.lcssa, %._crit_edge1036 ]
   %965 = add nsw i32 %964, -1
   br label %966
 

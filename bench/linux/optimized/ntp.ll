@@ -373,9 +373,9 @@ define dso_local range(i32 0, 6) i32 @__do_adjtimex(ptr noundef captures(none) i
   %51 = load i32, ptr %50, align 8
   %52 = and i32 %51, 1
   %53 = icmp eq i32 %52, 0
-  br i1 %53, label %.thread16, label %54
+  br i1 %53, label %.thread21, label %54
 
-.thread16:                                        ; preds = %49
+.thread21:                                        ; preds = %49
   store i32 0, ptr @time_state, align 4
   store i32 64, ptr @time_status, align 4
   store i64 9223372036854775807, ptr @ntp_next_leap_sec, align 8
@@ -386,8 +386,8 @@ define dso_local range(i32 0, 6) i32 @__do_adjtimex(ptr noundef captures(none) i
   %56 = icmp eq i32 %55, 0
   br i1 %56, label %57, label %65
 
-57:                                               ; preds = %.thread16, %54
-  %58 = phi i32 [ 64, %.thread16 ], [ %.pre13, %54 ]
+57:                                               ; preds = %.thread21, %54
+  %58 = phi i32 [ 64, %.thread21 ], [ %.pre13, %54 ]
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %60 = load i32, ptr %59, align 8
   %61 = and i32 %60, 1
@@ -418,9 +418,9 @@ define dso_local range(i32 0, 6) i32 @__do_adjtimex(ptr noundef captures(none) i
   %75 = and i32 %74, 8192
   %76 = or i32 %73, %75
   %77 = and i32 %74, 4096
-  %.not17 = icmp eq i32 %77, 0
+  %.not22 = icmp eq i32 %77, 0
   %78 = and i32 %73, -8193
-  %79 = select i1 %.not17, i32 %76, i32 %78
+  %79 = select i1 %.not22, i32 %76, i32 %78
   %80 = and i32 %74, 12288
   %.not = icmp eq i32 %80, 0
   br i1 %.not, label %82, label %81

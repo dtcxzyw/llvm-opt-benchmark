@@ -672,8 +672,8 @@ if.then23.us:                                     ; preds = %invoke.cont20.us
           to label %for.inc.us unwind label %lpad.loopexit.split.us
 
 for.inc.us.thread:                                ; preds = %invoke.cont20.us, %if.end13.us
-  %incdec.ptr.i17.us44 = getelementptr inbounds nuw i8, ptr %__begin2.sroa.0.035.us, i64 16
-  %cmp.i.not27.us45 = icmp eq ptr %incdec.ptr.i17.us44, %3
+  %incdec.ptr.i17.us52 = getelementptr inbounds nuw i8, ptr %__begin2.sroa.0.035.us, i64 16
+  %cmp.i.not27.us53 = icmp eq ptr %incdec.ptr.i17.us52, %3
   br label %cleanup
 
 for.inc.us:                                       ; preds = %if.then23.us
@@ -849,8 +849,8 @@ if.then23:                                        ; preds = %invoke.cont20
           to label %for.inc unwind label %lpad.loopexit.split
 
 for.inc.thread:                                   ; preds = %invoke.cont20, %invoke.cont18
-  %incdec.ptr.i1749 = getelementptr inbounds nuw i8, ptr %__begin2.sroa.0.035, i64 16
-  %cmp.i.not2750 = icmp eq ptr %incdec.ptr.i1749, %3
+  %incdec.ptr.i1757 = getelementptr inbounds nuw i8, ptr %__begin2.sroa.0.035, i64 16
+  %cmp.i.not2758 = icmp eq ptr %incdec.ptr.i1757, %3
   br label %cleanup
 
 for.inc:                                          ; preds = %if.then23
@@ -861,7 +861,7 @@ for.inc:                                          ; preds = %if.then23
   br i1 %or.cond, label %cleanup, label %if.end8
 
 cleanup:                                          ; preds = %invoke.cont, %for.inc, %invoke.cont.us, %for.inc.us, %for.inc.thread, %for.inc.us.thread, %if.end
-  %cmp.i.not27.lcssa = phi i1 [ %cmp.i.not2732, %if.end ], [ %cmp.i.not27.us45, %for.inc.us.thread ], [ %cmp.i.not2750, %for.inc.thread ], [ %cmp.i.not27.us, %for.inc.us ], [ false, %invoke.cont.us ], [ %cmp.i.not27, %for.inc ], [ false, %invoke.cont ]
+  %cmp.i.not27.lcssa = phi i1 [ %cmp.i.not2732, %if.end ], [ %cmp.i.not27.us53, %for.inc.us.thread ], [ %cmp.i.not2758, %for.inc.thread ], [ %cmp.i.not27.us, %for.inc.us ], [ false, %invoke.cont.us ], [ %cmp.i.not27, %for.inc ], [ false, %invoke.cont ]
   %26 = load ptr, ptr %parts, align 8
   %tobool.not.i.i.i18 = icmp eq ptr %26, null
   br i1 %tobool.not.i.i.i18, label %_ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EED2Ev.exit20, label %if.then.i.i.i19
@@ -7190,7 +7190,7 @@ do.body:                                          ; preds = %do.body.preheader, 
 
 do.cond.thread:                                   ; preds = %do.body
   store i32 2, ptr %state_.i.i, align 8
-  %inc25 = add nuw nsw i64 %index.0, 1
+  %inc30 = add nuw nsw i64 %index.0, 1
   br label %do.end
 
 if.end.i:                                         ; preds = %do.body
@@ -7247,9 +7247,9 @@ do.cond:                                          ; preds = %if.end10.i
   br i1 %or.cond, label %do.end, label %do.body, !llvm.loop !147
 
 do.end:                                           ; preds = %do.cond, %do.cond.thread
-  %inc29 = phi i64 [ %inc25, %do.cond.thread ], [ %inc, %do.cond ]
+  %inc34 = phi i64 [ %inc30, %do.cond.thread ], [ %inc, %do.cond ]
   %15 = load ptr, ptr %_M_finish.i, align 8
-  %add.ptr = getelementptr inbounds nuw %struct.raw_view, ptr %ar, i64 %inc29
+  %add.ptr = getelementptr inbounds nuw %struct.raw_view, ptr %ar, i64 %inc34
   %16 = load ptr, ptr %agg.result, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %15 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %16 to i64

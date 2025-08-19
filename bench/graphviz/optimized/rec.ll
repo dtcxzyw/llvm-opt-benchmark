@@ -179,20 +179,20 @@ gv_calloc.exit:                                   ; preds = %22
 
 objputrec.exit.sink.split:                        ; preds = %45, %20
   %.sink = phi i32 [ %17, %20 ], [ %43, %45 ]
-  %.021.i.lcssa38.sink = phi ptr [ %.021.i, %20 ], [ %24, %45 ]
+  %.021.i.lcssa44.sink = phi ptr [ %.021.i, %20 ], [ %24, %45 ]
   %47 = and i32 %.sink, 3
   %48 = icmp eq i32 %47, 3
   %.v.i.i = select i1 %48, i64 -64, i64 64
   %49 = getelementptr inbounds i8, ptr %0, i64 %.v.i.i
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 16
-  store ptr %.021.i.lcssa38.sink, ptr %50, align 8, !tbaa !3
+  store ptr %.021.i.lcssa44.sink, ptr %50, align 8, !tbaa !3
   %51 = load i32, ptr %49, align 8
   %52 = and i32 %51, -5
   store i32 %52, ptr %49, align 8
   br label %objputrec.exit
 
 objputrec.exit:                                   ; preds = %objputrec.exit.sink.split, %.critedge.i, %20, %45, %42, %aggetrec.exit
-  %.0 = phi ptr [ null, %aggetrec.exit ], [ %24, %42 ], [ %24, %45 ], [ %.021.i, %20 ], [ %.021.i, %.critedge.i ], [ %.021.i.lcssa38.sink, %objputrec.exit.sink.split ]
+  %.0 = phi ptr [ null, %aggetrec.exit ], [ %24, %42 ], [ %24, %45 ], [ %.021.i, %20 ], [ %.021.i, %.critedge.i ], [ %.021.i.lcssa44.sink, %objputrec.exit.sink.split ]
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %aggetrec.exit28, label %53
 

@@ -1014,8 +1014,8 @@ thread-pre-split.thread:                          ; preds = %332, %337, %.thread
 .thread.i:                                        ; preds = %420
   store i32 0, ptr %58, align 8, !tbaa !27
   %425 = load ptr, ptr %36, align 8, !tbaa !43
-  %.not17.i = icmp eq ptr %425, null
-  br i1 %.not17.i, label %.sink.split.i, label %429
+  %.not19.i = icmp eq ptr %425, null
+  br i1 %.not19.i, label %.sink.split.i, label %429
 
 426:                                              ; preds = %423
   %.not15.i = icmp eq i32 %421, 0
@@ -1118,8 +1118,8 @@ list_tags.exit:                                   ; preds = %429
 .lr.ph.i:                                         ; preds = %456
   %463 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %464 = load i64, ptr %463, align 8, !tbaa !24
-  %.not150 = icmp eq i64 %464, 0
-  br i1 %.not150, label %delete_tags.exit, label %.lr.ph
+  %.not174 = icmp eq i64 %464, 0
+  br i1 %.not174, label %delete_tags.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.i, %481
   %.01014.i147 = phi ptr [ %482, %481 ], [ %462, %.lr.ph.i ]

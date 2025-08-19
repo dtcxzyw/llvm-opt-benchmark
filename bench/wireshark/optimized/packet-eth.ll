@@ -473,20 +473,20 @@ define hidden void @add_ethernet_trailer(ptr noundef %0, ptr noundef %1, ptr nou
   %84 = icmp eq i32 %83, 2
   %85 = icmp ne i32 %.0121, 0
   %or.cond9 = and i1 %85, %84
-  br i1 %or.cond9, label %.sink.split160, label %86
+  br i1 %or.cond9, label %.sink.split167, label %86
 
 86:                                               ; preds = %82
   %87 = icmp eq i32 %83, 1
   %88 = icmp eq i32 %.0121, 0
   %or.cond11 = and i1 %88, %87
-  br i1 %or.cond11, label %.sink.split160, label %90
+  br i1 %or.cond11, label %.sink.split167, label %90
 
-.sink.split160:                                   ; preds = %86, %82
+.sink.split167:                                   ; preds = %86, %82
   %.str.1.sink = phi ptr [ @.str, %82 ], [ @.str.1, %86 ]
   %89 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %0, ptr noundef %81, ptr noundef nonnull @ei_eth_padding_bad, ptr noundef nonnull %.str.1.sink)
   br label %90
 
-90:                                               ; preds = %.sink.split160, %80, %86, %77
+90:                                               ; preds = %.sink.split167, %80, %86, %77
   br i1 %.0130, label %91, label %113
 
 91:                                               ; preds = %90

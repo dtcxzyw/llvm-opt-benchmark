@@ -332,8 +332,8 @@ define hidden void @scdf_solve(ptr noundef %0, ptr noundef readnone captures(non
 
 .critedge:                                        ; preds = %.lr.ph.i, %.lr.ph.i115, %.lr.ph.i124
   %39 = load i32, ptr %8, align 4, !tbaa !59
-  %.not12.i.i288 = icmp eq i32 %39, 0
-  br i1 %.not12.i.i288, label %.preheader190.preheader, label %.lr.ph.preheader.i.i
+  %.not12.i.i302 = icmp eq i32 %39, 0
+  br i1 %.not12.i.i302, label %.preheader190.preheader, label %.lr.ph.preheader.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %.critedge, %77
   %40 = phi i32 [ %78, %77 ], [ %39, %.critedge ]
@@ -378,8 +378,8 @@ zend_bitset_pop_first.exit:                       ; preds = %zend_bitset_first.e
 
 .preheader190.preheader:                          ; preds = %zend_bitset_pop_first.exit, %77, %44, %.critedge
   %59 = load i32, ptr %6, align 8, !tbaa !57
-  %.not12.i.i131289 = icmp eq i32 %59, 0
-  br i1 %.not12.i.i131289, label %.preheader.preheader, label %.lr.ph.preheader.i.i132
+  %.not12.i.i131303 = icmp eq i32 %59, 0
+  br i1 %.not12.i.i131303, label %.preheader.preheader, label %.lr.ph.preheader.i.i132
 
 60:                                               ; preds = %zend_bitset_pop_first.exit
   %61 = load ptr, ptr %11, align 8, !tbaa !74
@@ -452,8 +452,8 @@ zend_bitset_pop_first.exit141:                    ; preds = %zend_bitset_first.e
 
 .preheader.preheader:                             ; preds = %zend_bitset_pop_first.exit141, %scdf_mark_edge_feasible.exit, %83, %.preheader190.preheader
   %98 = load i32, ptr %10, align 8, !tbaa !61
-  %.not12.i.i147290 = icmp eq i32 %98, 0
-  br i1 %.not12.i.i147290, label %.loopexit.backedge, label %.lr.ph.preheader.i.i148
+  %.not12.i.i147304 = icmp eq i32 %98, 0
+  br i1 %.not12.i.i147304, label %.loopexit.backedge, label %.lr.ph.preheader.i.i148
 
 .loopexit.backedge:                               ; preds = %scdf_mark_edge_feasible.exit170, %zend_bitset_pop_first.exit157, %219, %.preheader.preheader
   br label %.loopexit

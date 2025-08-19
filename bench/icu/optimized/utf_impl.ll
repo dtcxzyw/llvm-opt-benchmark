@@ -459,12 +459,12 @@ define i32 @utf8_prevCharSafeBody_77(ptr noundef readonly captures(none) %0, i32
   br label %39
 
 39:                                               ; preds = %33, %27
-  %.sink149 = phi i32 [ %38, %33 ], [ %32, %27 ]
-  %.sink148.in.in = phi ptr [ %37, %33 ], [ %30, %27 ]
-  %.sink148.in = load i8, ptr %.sink148.in.in, align 1, !tbaa !7
-  %.sink148 = zext i8 %.sink148.in to i32
-  %40 = shl nuw nsw i32 1, %.sink149
-  %41 = and i32 %40, %.sink148
+  %.sink156 = phi i32 [ %38, %33 ], [ %32, %27 ]
+  %.sink155.in.in = phi ptr [ %37, %33 ], [ %30, %27 ]
+  %.sink155.in = load i8, ptr %.sink155.in.in, align 1, !tbaa !7
+  %.sink155 = zext i8 %.sink155.in to i32
+  %40 = shl nuw nsw i32 1, %.sink156
+  %41 = and i32 %40, %.sink155
   %.not126 = icmp eq i32 %41, 0
   br i1 %.not126, label %_ZL10errorValueia.exit, label %42
 
@@ -690,12 +690,12 @@ define i32 @utf8_back1SafeBody_77(ptr noundef readonly captures(none) %0, i32 no
   br label %32
 
 32:                                               ; preds = %27, %21
-  %.sink76 = phi i32 [ %31, %27 ], [ %26, %21 ]
-  %.sink75.in.in = phi ptr [ %30, %27 ], [ %24, %21 ]
-  %.sink75.in = load i8, ptr %.sink75.in.in, align 1, !tbaa !7
-  %.sink75 = zext i8 %.sink75.in to i32
-  %33 = shl nuw nsw i32 1, %.sink76
-  %34 = and i32 %33, %.sink75
+  %.sink79 = phi i32 [ %31, %27 ], [ %26, %21 ]
+  %.sink78.in.in = phi ptr [ %30, %27 ], [ %24, %21 ]
+  %.sink78.in = load i8, ptr %.sink78.in.in, align 1, !tbaa !7
+  %.sink78 = zext i8 %.sink78.in to i32
+  %33 = shl nuw nsw i32 1, %.sink79
+  %34 = and i32 %33, %.sink78
   %.not61 = icmp eq i32 %34, 0
   br i1 %.not61, label %.thread, label %.thread72
 
@@ -725,12 +725,12 @@ define i32 @utf8_back1SafeBody_77(ptr noundef readonly captures(none) %0, i32 no
   %52 = zext nneg i32 %51 to i64
   %53 = getelementptr inbounds nuw [17 x i8], ptr @.str, i64 0, i64 %52
   %54 = and i32 %43, 7
-  %.sink78 = select i1 %46, i32 %50, i32 %54
-  %.sink77.in.in = select i1 %46, ptr %49, ptr %53
-  %.sink77.in = load i8, ptr %.sink77.in.in, align 1, !tbaa !7
-  %.sink77 = zext i8 %.sink77.in to i32
-  %55 = shl nuw nsw i32 1, %.sink78
-  %56 = and i32 %55, %.sink77
+  %.sink81 = select i1 %46, i32 %50, i32 %54
+  %.sink80.in.in = select i1 %46, ptr %49, ptr %53
+  %.sink80.in = load i8, ptr %.sink80.in.in, align 1, !tbaa !7
+  %.sink80 = zext i8 %.sink80.in to i32
+  %55 = shl nuw nsw i32 1, %.sink81
+  %56 = and i32 %55, %.sink80
   %.not60 = icmp eq i32 %56, 0
   br i1 %.not60, label %.thread, label %.thread72
 

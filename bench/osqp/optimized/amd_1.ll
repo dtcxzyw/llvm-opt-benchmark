@@ -157,10 +157,10 @@ define void @amd_l1(i64 noundef %0, ptr noundef readonly captures(none) %1, ptr 
   br i1 %88, label %76, label %.loopexit, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %.loopexit, %10
-  %.0128.lcssa173176 = phi i64 [ 0, %10 ], [ %22, %.loopexit ]
+  %.0128.lcssa188191 = phi i64 [ 0, %10 ], [ %22, %.loopexit ]
   %.neg = mul i64 %0, -6
   %89 = add i64 %6, %.neg
-  tail call void @amd_l2(i64 noundef %0, ptr noundef %7, ptr noundef %16, ptr noundef %5, i64 noundef %89, i64 noundef %.0128.lcssa173176, ptr noundef %11, ptr noundef %4, ptr noundef %3, ptr noundef %12, ptr noundef %13, ptr noundef %14, ptr noundef %15, ptr noundef %8, ptr noundef %9) #2
+  tail call void @amd_l2(i64 noundef %0, ptr noundef %7, ptr noundef %16, ptr noundef %5, i64 noundef %89, i64 noundef %.0128.lcssa188191, ptr noundef %11, ptr noundef %4, ptr noundef %3, ptr noundef %12, ptr noundef %13, ptr noundef %14, ptr noundef %15, ptr noundef %8, ptr noundef %9) #2
   ret void
 }
 

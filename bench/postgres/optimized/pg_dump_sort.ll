@@ -506,7 +506,7 @@ TopoSort.exit.loopexit:                           ; preds = %107
   br label %.outer.i
 
 .outer.i:                                         ; preds = %.loopexit.thread.i, %.lr.ph69.i
-  %indvars.iv92.ph.i = phi i64 [ %indvars.iv.next93106.i, %.loopexit.thread.i ], [ 0, %.lr.ph69.i ]
+  %indvars.iv92.ph.i = phi i64 [ %indvars.iv.next93123.i, %.loopexit.thread.i ], [ 0, %.lr.ph69.i ]
   %.02568.ph.i = phi i1 [ true, %.loopexit.thread.i ], [ false, %.lr.ph69.i ]
   br label %120
 
@@ -1790,9 +1790,9 @@ describeDumpableObject.exit.i.i:                  ; preds = %824, %820, %816, %8
   br i1 %exitcond95.not.i, label %._crit_edge.i13, label %120, !llvm.loop !30
 
 .loopexit.thread.i:                               ; preds = %.lr.ph.i17
-  %indvars.iv.next93106.i = add nuw nsw i64 %indvars.iv92.i, 1
-  %exitcond95.not107.i = icmp eq i64 %indvars.iv.next93106.i, %wide.trip.count94.i
-  br i1 %exitcond95.not107.i, label %findDependencyLoops.exit, label %.outer.i, !llvm.loop !30
+  %indvars.iv.next93123.i = add nuw nsw i64 %indvars.iv92.i, 1
+  %exitcond95.not124.i = icmp eq i64 %indvars.iv.next93123.i, %wide.trip.count94.i
+  br i1 %exitcond95.not124.i, label %findDependencyLoops.exit, label %.outer.i, !llvm.loop !30
 
 ._crit_edge.i13:                                  ; preds = %.loopexit.i12
   br i1 %.02568.ph.i, label %findDependencyLoops.exit, label %.critedge.i

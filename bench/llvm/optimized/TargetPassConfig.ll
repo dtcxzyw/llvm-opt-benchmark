@@ -9004,9 +9004,9 @@ _ZNK4llvm16TargetPassConfig19getOptimizeRegAllocEv.exit.thread374: ; preds = %13
   br label %_ZNK4llvm16TargetPassConfig19getOptimizeRegAllocEv.exit.thread
 
 _ZNK4llvm16TargetPassConfig19getOptimizeRegAllocEv.exit.thread: ; preds = %_ZNK4llvm16TargetPassConfig19getOptimizeRegAllocEv.exit, %130, %_ZNK4llvm16TargetPassConfig19getOptimizeRegAllocEv.exit.thread374
-  %.sink471 = phi i64 [ 328, %_ZNK4llvm16TargetPassConfig19getOptimizeRegAllocEv.exit.thread374 ], [ 336, %130 ], [ 336, %_ZNK4llvm16TargetPassConfig19getOptimizeRegAllocEv.exit ]
+  %.sink559 = phi i64 [ 328, %_ZNK4llvm16TargetPassConfig19getOptimizeRegAllocEv.exit.thread374 ], [ 336, %130 ], [ 336, %_ZNK4llvm16TargetPassConfig19getOptimizeRegAllocEv.exit ]
   %136 = load ptr, ptr %0, align 8, !tbaa !3
-  %137 = getelementptr inbounds nuw i8, ptr %136, i64 %.sink471
+  %137 = getelementptr inbounds nuw i8, ptr %136, i64 %.sink559
   %138 = load ptr, ptr %137, align 8
   call void %138(ptr noundef nonnull align 8 dereferenceable(134) %0) #26
   %139 = load ptr, ptr %0, align 8, !tbaa !3

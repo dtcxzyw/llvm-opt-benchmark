@@ -1063,8 +1063,8 @@ _ZNSt8functionIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERN5clang4ent
   store ptr @"_ZNSt17_Function_handlerIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERN5clang4ento22PathSensitiveBugReportEEZNK12_GLOBAL__N_113StringChecker12checkPreCallERKNS7_9CallEventERNS7_14CheckerContextEE3$_0E9_M_invokeERKSt9_Any_dataS9_", ptr %99, align 8, !tbaa !250
   %100 = getelementptr inbounds nuw i8, ptr %98, i64 16
   store ptr %96, ptr %98, align 8
-  %.sroa.585.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %98, i64 8
-  store i64 0, ptr %.sroa.585.0..sroa_idx.i, align 8, !tbaa !12
+  %.sroa.596.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %98, i64 8
+  store i64 0, ptr %.sroa.596.0..sroa_idx.i, align 8, !tbaa !12
   store ptr @"_ZNSt17_Function_handlerIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERN5clang4ento22PathSensitiveBugReportEEZNK12_GLOBAL__N_113StringChecker12checkPreCallERKNS7_9CallEventERNS7_14CheckerContextEE3$_0E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation", ptr %100, align 8, !tbaa !253
   %101 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %102 = getelementptr inbounds nuw i8, ptr %11, i64 16
@@ -1159,7 +1159,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.i: ; preds =
 
 130:                                              ; preds = %126
   %131 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %.0.copyload.i.i.i.i6.i.i = load i64, ptr %131, align 8
+  %.0.copyload.i.i.i.i7.i.i = load i64, ptr %131, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr null, ptr %8, align 8, !tbaa !232
   br label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.i.i.i
@@ -1176,7 +1176,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.i: ; preds =
   br label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.i.i.i
 
 _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.i.i.i: ; preds = %132, %130
-  %.in.in.i = phi i64 [ %.0.copyload.i.i.i.i.i.i, %132 ], [ %.0.copyload.i.i.i.i6.i.i, %130 ]
+  %.in.in.i = phi i64 [ %.0.copyload.i.i.i.i.i.i, %132 ], [ %.0.copyload.i.i.i.i7.i.i, %130 ]
   %135 = phi ptr [ %133, %132 ], [ %127, %130 ]
   %.in.i = and i64 %.in.in.i, -8
   %136 = inttoptr i64 %.in.i to ptr

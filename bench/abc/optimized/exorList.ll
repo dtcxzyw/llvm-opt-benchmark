@@ -516,10 +516,10 @@ IteratorCubePairNext.exit:                        ; preds = %214
   br label %.lr.ph, !llvm.loop !42
 
 ._crit_edge.sink.split:                           ; preds = %35, %221
-  %.lcssa71.sink = phi ptr [ %206, %221 ], [ %21, %35 ]
-  %.lcssa67.sink = phi ptr [ %208, %221 ], [ %23, %35 ]
-  store ptr %.lcssa71.sink, ptr @p1, align 8, !tbaa !3
-  store ptr %.lcssa67.sink, ptr @p2, align 8, !tbaa !3
+  %.lcssa82.sink = phi ptr [ %206, %221 ], [ %21, %35 ]
+  %.lcssa78.sink = phi ptr [ %208, %221 ], [ %23, %35 ]
+  store ptr %.lcssa82.sink, ptr @p1, align 8, !tbaa !3
+  store ptr %.lcssa78.sink, ptr @p2, align 8, !tbaa !3
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %189, %._crit_edge.sink.split, %1
@@ -1079,7 +1079,7 @@ tailrecurse._crit_edge:                           ; preds = %NewRangeInsertCubeP
   br label %CubeInsert.exit
 
 CubeInsert.exit:                                  ; preds = %tailrecurse, %198, %200
-  %accumulator.tr.lcssa7578 = phi i32 [ %accumulator.tr.lcssa, %198 ], [ %accumulator.tr.lcssa, %200 ], [ %170, %tailrecurse ]
+  %accumulator.tr.lcssa8083 = phi i32 [ %accumulator.tr.lcssa, %198 ], [ %accumulator.tr.lcssa, %200 ], [ %170, %tailrecurse ]
   store ptr %0, ptr @s_List, align 8, !tbaa !3
   %203 = load i32, ptr getelementptr inbounds nuw (i8, ptr @g_CoverInfo, i64 24), align 8, !tbaa !13
   %204 = add nsw i32 %203, 1
@@ -1087,7 +1087,7 @@ CubeInsert.exit:                                  ; preds = %tailrecurse, %198, 
   br label %205
 
 205:                                              ; preds = %CubeInsert.exit, %tailrecurse._crit_edge
-  %accumulator.tr.lcssa76 = phi i32 [ %accumulator.tr.lcssa7578, %CubeInsert.exit ], [ %accumulator.tr.lcssa, %tailrecurse._crit_edge ]
+  %accumulator.tr.lcssa81 = phi i32 [ %accumulator.tr.lcssa8083, %CubeInsert.exit ], [ %accumulator.tr.lcssa, %tailrecurse._crit_edge ]
   %206 = load i32, ptr getelementptr inbounds nuw (i8, ptr @s_Que, i64 40), align 8, !tbaa !44
   store i32 %206, ptr getelementptr inbounds nuw (i8, ptr @s_Que, i64 36), align 4, !tbaa !22
   %207 = load i32, ptr getelementptr inbounds nuw (i8, ptr @s_Que, i64 96), align 16, !tbaa !44
@@ -1097,7 +1097,7 @@ CubeInsert.exit:                                  ; preds = %tailrecurse, %198, 
   br label %209
 
 209:                                              ; preds = %205, %CubeExtract.exit43
-  %accumulator.tr50 = phi i32 [ %accumulator.tr62, %CubeExtract.exit43 ], [ %accumulator.tr.lcssa76, %205 ]
+  %accumulator.tr50 = phi i32 [ %accumulator.tr62, %CubeExtract.exit43 ], [ %accumulator.tr.lcssa81, %205 ]
   %.028 = phi i32 [ 2, %CubeExtract.exit43 ], [ 0, %205 ]
   %accumulator.ret.tr = add nsw i32 %.028, %accumulator.tr50
   ret i32 %accumulator.ret.tr
@@ -1634,10 +1634,10 @@ IteratorCubePairNext.exit:                        ; preds = %274
   br label %.lr.ph, !llvm.loop !66
 
 ._crit_edge.sink.split:                           ; preds = %35, %281
-  %.lcssa94.sink = phi ptr [ %266, %281 ], [ %21, %35 ]
-  %.lcssa90.sink = phi ptr [ %268, %281 ], [ %23, %35 ]
-  store ptr %.lcssa94.sink, ptr @p1, align 8, !tbaa !3
-  store ptr %.lcssa90.sink, ptr @p2, align 8, !tbaa !3
+  %.lcssa108.sink = phi ptr [ %266, %281 ], [ %21, %35 ]
+  %.lcssa104.sink = phi ptr [ %268, %281 ], [ %23, %35 ]
+  store ptr %.lcssa108.sink, ptr @p1, align 8, !tbaa !3
+  store ptr %.lcssa104.sink, ptr @p2, align 8, !tbaa !3
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %249, %._crit_edge.sink.split, %1
@@ -2159,10 +2159,10 @@ IteratorCubePairNext.exit:                        ; preds = %230
   br label %.lr.ph, !llvm.loop !72
 
 ._crit_edge.sink.split:                           ; preds = %35, %237
-  %.lcssa107.sink = phi ptr [ %222, %237 ], [ %21, %35 ]
-  %.lcssa103.sink = phi ptr [ %224, %237 ], [ %23, %35 ]
-  store ptr %.lcssa107.sink, ptr @p1, align 8, !tbaa !3
-  store ptr %.lcssa103.sink, ptr @p2, align 8, !tbaa !3
+  %.lcssa120.sink = phi ptr [ %222, %237 ], [ %21, %35 ]
+  %.lcssa116.sink = phi ptr [ %224, %237 ], [ %23, %35 ]
+  store ptr %.lcssa120.sink, ptr @p1, align 8, !tbaa !3
+  store ptr %.lcssa116.sink, ptr @p2, align 8, !tbaa !3
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %205, %._crit_edge.sink.split, %1

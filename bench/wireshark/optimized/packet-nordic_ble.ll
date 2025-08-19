@@ -235,15 +235,15 @@ define internal range(i32 12, 23) i32 @dissect_nordic_ble(ptr noundef %0, ptr no
   br label %37
 
 37:                                               ; preds = %.split.i, %.split26.i
-  %.sink29.i = phi i8 [ %36, %.split.i ], [ 0, %.split26.i ]
+  %.sink42.i = phi i8 [ %36, %.split.i ], [ 0, %.split26.i ]
   %.sink.i = phi i32 [ 1, %.split.i ], [ 2, %.split26.i ]
   %38 = load i32, ptr @hf_nordic_ble_header, align 4
   %39 = tail call ptr @proto_tree_add_item(ptr noundef %29, i32 noundef %38, ptr noundef %0, i32 noundef range(i32 1, 3) %.sink.i, i32 noundef -1, i32 noundef 0)
   %40 = load i32, ptr @ett_packet_header, align 4
   %41 = tail call ptr @proto_item_add_subtree(ptr noundef %39, i32 noundef %40)
-  %42 = zext i8 %.sink29.i to i32
+  %42 = zext i8 %.sink42.i to i32
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %39, ptr noundef nonnull @.str.95, i32 noundef %42)
-  %43 = icmp eq i8 %.sink29.i, 0
+  %43 = icmp eq i8 %.sink42.i, 0
   br i1 %43, label %44, label %65
 
 44:                                               ; preds = %37
@@ -286,7 +286,7 @@ define internal range(i32 12, 23) i32 @dissect_nordic_ble(ptr noundef %0, ptr no
 65:                                               ; preds = %37
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %cond = icmp eq i8 %.sink29.i, 1
+  %cond = icmp eq i8 %.sink42.i, 1
   br i1 %cond, label %66, label %75
 
 66:                                               ; preds = %65
@@ -341,7 +341,7 @@ dissect_packet_header.exit.thread:                ; preds = %dissect_lengths.exi
   %90 = load i32, ptr @hf_nordic_ble_protover, align 4
   %91 = call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %90, ptr noundef %0, i32 noundef %.022.i.i, i32 noundef 1, i32 noundef 0)
   %92 = add nuw nsw i32 %.022.i.i, 1
-  %93 = icmp ugt i8 %.sink29.i, 3
+  %93 = icmp ugt i8 %.sink42.i, 3
   br i1 %93, label %94, label %96
 
 94:                                               ; preds = %89
@@ -357,7 +357,7 @@ dissect_packet_header.exit.thread:                ; preds = %dissect_lengths.exi
   %101 = add nuw nsw i32 %.022.i.i, 3
   %102 = load i32, ptr @hf_nordic_ble_packet_id, align 4
   %103 = call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %102, ptr noundef %0, i32 noundef %101, i32 noundef 1, i32 noundef 0)
-  %104 = icmp ugt i8 %.sink29.i, 2
+  %104 = icmp ugt i8 %.sink42.i, 2
   br i1 %104, label %105, label %112
 
 105:                                              ; preds = %96
@@ -391,7 +391,7 @@ dissect_packet_header.exit.thread:                ; preds = %dissect_lengths.exi
   %122 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.0.i.i)
   %123 = add nuw nsw i32 %.0.i.i, 1
   %124 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %123)
-  %125 = icmp ult i8 %.sink29.i, 3
+  %125 = icmp ult i8 %.sink42.i, 3
   br i1 %125, label %126, label %._crit_edge.i.i.i
 
 ._crit_edge.i.i.i:                                ; preds = %120

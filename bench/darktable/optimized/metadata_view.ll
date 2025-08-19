@@ -277,7 +277,7 @@ define void @gui_update(ptr noundef readonly captures(none) %0) local_unnamed_ad
   call void @g_free(ptr noundef %29) #13
   %55 = icmp eq i32 %.0233, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br i1 %55, label %.preheader394, label %56
+  br i1 %55, label %.preheader418, label %56
 
 .thread:                                          ; preds = %23, %1
   %.1.ph = phi i32 [ %18, %1 ], [ %26, %23 ]
@@ -446,7 +446,7 @@ define void @gui_update(ptr noundef readonly captures(none) %0) local_unnamed_ad
   %134 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 120), align 8, !tbaa !85
   %135 = call ptr @dt_image_cache_get(ptr noundef %134, i32 noundef %.1342, i8 noundef signext 114) #13
   %.not274 = icmp eq ptr %135, null
-  br i1 %.not274, label %.preheader394, label %136
+  br i1 %.not274, label %.preheader418, label %136
 
 136:                                              ; preds = %133
   %137 = getelementptr inbounds nuw i8, ptr %135, i64 1424
@@ -495,9 +495,9 @@ define void @gui_update(ptr noundef readonly captures(none) %0) local_unnamed_ad
 175:                                              ; preds = %136
   %176 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 120), align 8, !tbaa !85
   call void @dt_image_cache_read_release(ptr noundef %176, ptr noundef nonnull %135) #13
-  br label %.preheader394
+  br label %.preheader418
 
-.preheader394:                                    ; preds = %52, %133, %175
+.preheader418:                                    ; preds = %52, %133, %175
   br label %623
 
 177:                                              ; preds = %622
@@ -1249,8 +1249,8 @@ _metadata_update_tooltip.exit337:                 ; preds = %387, %394
   %.not290 = icmp eq i32 %474, 0
   %.pre377 = load i32, ptr %149, align 4, !tbaa !120
   %.not291 = icmp eq i32 %474, %.pre377
-  %or.cond381 = select i1 %.not290, i1 true, i1 %.not291
-  br i1 %or.cond381, label %477, label %475
+  %or.cond405 = select i1 %.not290, i1 true, i1 %.not291
+  br i1 %or.cond405, label %477, label %475
 
 475:                                              ; preds = %473
   %476 = call i32 (ptr, i64, ptr, ...) @g_snprintf(ptr noundef nonnull %11, i64 noundef 4096, ptr noundef nonnull @.str.22, i32 noundef %474, i32 noundef %.pre377) #13
@@ -1267,8 +1267,8 @@ _metadata_update_tooltip.exit337:                 ; preds = %387, %394
   %.not288 = icmp eq i32 %480, 0
   %.pre = load i32, ptr %147, align 16, !tbaa !122
   %.not289 = icmp eq i32 %480, %.pre
-  %or.cond382 = select i1 %.not288, i1 true, i1 %.not289
-  br i1 %or.cond382, label %483, label %481
+  %or.cond406 = select i1 %.not288, i1 true, i1 %.not289
+  br i1 %or.cond406, label %483, label %481
 
 481:                                              ; preds = %479
   %482 = call i32 (ptr, i64, ptr, ...) @g_snprintf(ptr noundef nonnull %11, i64 noundef 4096, ptr noundef nonnull @.str.22, i32 noundef %480, i32 noundef %.pre) #13
@@ -1500,13 +1500,13 @@ _metadata_update_tooltip.exit337:                 ; preds = %387, %394
 
 588:                                              ; preds = %._crit_edge364, %584, %542
   %589 = icmp eq i64 %indvars.iv372, 44
-  %.388 = select i1 %589, i32 44, i32 45
-  %.val389 = load ptr, ptr %16, align 8
-  %.val390 = load ptr, ptr %17, align 8
-  %590 = select i1 %589, ptr %.val389, ptr %.val390
+  %.412 = select i1 %589, i32 44, i32 45
+  %.val413 = load ptr, ptr %16, align 8
+  %.val414 = load ptr, ptr %17, align 8
+  %590 = select i1 %589, ptr %.val413, ptr %.val414
   %.not278 = icmp eq ptr %590, null
   %591 = select i1 %.not278, ptr @.str.14, ptr %590
-  call fastcc void @_metadata_update_value(i32 noundef %.388, ptr noundef nonnull %591, ptr noundef %0)
+  call fastcc void @_metadata_update_value(i32 noundef %.412, ptr noundef nonnull %591, ptr noundef %0)
   %592 = load ptr, ptr %16, align 8, !tbaa !107
   call void @g_free(ptr noundef %592) #13
   %593 = load ptr, ptr %17, align 8, !tbaa !107
@@ -1585,8 +1585,8 @@ _filter_non_printable.exit:                       ; preds = %614, %606
   %exitcond375.not = icmp eq i64 %indvars.iv.next373, 46
   br i1 %exitcond375.not, label %177, label %179
 
-623:                                              ; preds = %.preheader394, %623
-  %.0367 = phi i32 [ %624, %623 ], [ 0, %.preheader394 ]
+623:                                              ; preds = %.preheader418, %623
+  %.0367 = phi i32 [ %624, %623 ], [ 0, %.preheader418 ]
   call fastcc void @_metadata_update_value(i32 noundef %.0367, ptr noundef nonnull @.str.14, ptr noundef %0)
   %624 = add nuw nsw i32 %.0367, 1
   %exitcond376.not = icmp eq i32 %624, 46
@@ -2509,8 +2509,8 @@ _is_metadata_ui.exit.i:                           ; preds = %20, %_get_label.exi
 
 28:                                               ; preds = %_is_metadata_ui.exit.i, %5
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
-  %.not3.i = icmp eq i64 %indvars.iv.i, 0
-  br i1 %.not3.i, label %_lib_metadata_init_queue.exit, label %5
+  %.not4.i = icmp eq i64 %indvars.iv.i, 0
+  br i1 %.not4.i, label %_lib_metadata_init_queue.exit, label %5
 
 _lib_metadata_init_queue.exit:                    ; preds = %28
   %29 = tail call ptr @gtk_grid_new() #13
@@ -2537,8 +2537,8 @@ _lib_metadata_init_queue.exit:                    ; preds = %28
   %.val41 = load ptr, ptr %3, align 8, !tbaa !87
   %.023.in1.i = getelementptr inbounds nuw i8, ptr %.val41, i64 8
   %.0232.i = load ptr, ptr %.023.in1.i, align 8, !tbaa !92
-  %.not3.i42 = icmp eq ptr %.0232.i, null
-  br i1 %.not3.i42, label %_lib_metadata_setup_grid.exit, label %.lr.ph.i
+  %.not3.i = icmp eq ptr %.0232.i, null
+  br i1 %.not3.i, label %_lib_metadata_setup_grid.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_lib_metadata_init_queue.exit, %.lr.ph.i
   %.0235.i = phi ptr [ %.023.i, %.lr.ph.i ], [ %.0232.i, %_lib_metadata_init_queue.exit ]
@@ -2575,8 +2575,8 @@ _lib_metadata_init_queue.exit:                    ; preds = %28
   %63 = add nuw nsw i32 %.04.i, 1
   %.023.in.i = getelementptr inbounds nuw i8, ptr %.0235.i, i64 8
   %.023.i = load ptr, ptr %.023.in.i, align 8, !tbaa !92
-  %.not.i43 = icmp eq ptr %.023.i, null
-  br i1 %.not.i43, label %_lib_metadata_setup_grid.exit, label %.lr.ph.i
+  %.not.i42 = icmp eq ptr %.023.i, null
+  br i1 %.not.i42, label %_lib_metadata_setup_grid.exit, label %.lr.ph.i
 
 _lib_metadata_setup_grid.exit:                    ; preds = %.lr.ph.i, %_lib_metadata_init_queue.exit
   %64 = tail call ptr @dt_conf_get_string_const(ptr noundef nonnull @.str.50) #13
@@ -2589,37 +2589,37 @@ _lib_metadata_setup_grid.exit:                    ; preds = %.lr.ph.i, %_lib_met
   %.0.in11.i = getelementptr inbounds nuw i8, ptr %66, i64 8
   %.012.i = load ptr, ptr %.0.in11.i, align 8, !tbaa !92
   %.not13.i = icmp eq ptr %.012.i, null
-  br i1 %.not13.i, label %_display_default.exit, label %.lr.ph.i44
+  br i1 %.not13.i, label %_display_default.exit, label %.lr.ph.i43
 
-._crit_edge.loopexit.i:                           ; preds = %_is_metadata_ui.exit.i46
+._crit_edge.loopexit.i:                           ; preds = %_is_metadata_ui.exit.i45
   %.val.pre.i = load ptr, ptr %3, align 8, !tbaa !87
   br label %_display_default.exit
 
-.lr.ph.i44:                                       ; preds = %65, %_is_metadata_ui.exit.i46
-  %.014.i = phi ptr [ %.0.i, %_is_metadata_ui.exit.i46 ], [ %.012.i, %65 ]
+.lr.ph.i43:                                       ; preds = %65, %_is_metadata_ui.exit.i45
+  %.014.i = phi ptr [ %.0.i, %_is_metadata_ui.exit.i45 ], [ %.012.i, %65 ]
   %67 = load ptr, ptr %.014.i, align 8, !tbaa !93
   %68 = load i32, ptr %67, align 8, !tbaa !95
   %69 = getelementptr inbounds nuw i8, ptr %67, i64 4
   store i32 %68, ptr %69, align 4, !tbaa !136
   %70 = add i32 %68, -32
-  %or.cond.i.i45 = icmp ult i32 %70, 9
-  br i1 %or.cond.i.i45, label %71, label %_is_metadata_ui.exit.i46
+  %or.cond.i.i44 = icmp ult i32 %70, 9
+  br i1 %or.cond.i.i44, label %71, label %_is_metadata_ui.exit.i45
 
-71:                                               ; preds = %.lr.ph.i44
+71:                                               ; preds = %.lr.ph.i43
   %72 = tail call i32 @dt_metadata_get_keyid_by_display_order(i32 noundef %70) #13
   %73 = tail call i32 @dt_metadata_get_type(i32 noundef %72) #13
   %74 = icmp ne i32 %73, 2
   %75 = zext i1 %74 to i32
-  br label %_is_metadata_ui.exit.i46
+  br label %_is_metadata_ui.exit.i45
 
-_is_metadata_ui.exit.i46:                         ; preds = %71, %.lr.ph.i44
-  %.0.i.i47 = phi i32 [ %75, %71 ], [ 1, %.lr.ph.i44 ]
+_is_metadata_ui.exit.i45:                         ; preds = %71, %.lr.ph.i43
+  %.0.i.i46 = phi i32 [ %75, %71 ], [ 1, %.lr.ph.i43 ]
   %76 = getelementptr inbounds nuw i8, ptr %67, i64 32
-  store i32 %.0.i.i47, ptr %76, align 8, !tbaa !146
+  store i32 %.0.i.i46, ptr %76, align 8, !tbaa !146
   %.0.in.i = getelementptr inbounds nuw i8, ptr %.014.i, i64 8
   %.0.i = load ptr, ptr %.0.in.i, align 8, !tbaa !92
-  %.not.i48 = icmp eq ptr %.0.i, null
-  br i1 %.not.i48, label %._crit_edge.loopexit.i, label %.lr.ph.i44
+  %.not.i47 = icmp eq ptr %.0.i, null
+  br i1 %.not.i47, label %._crit_edge.loopexit.i, label %.lr.ph.i43
 
 _display_default.exit:                            ; preds = %65, %._crit_edge.loopexit.i
   %.val.i = phi ptr [ %.val.pre.i, %._crit_edge.loopexit.i ], [ %66, %65 ]

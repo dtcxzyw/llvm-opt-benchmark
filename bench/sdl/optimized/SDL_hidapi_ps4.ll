@@ -825,9 +825,9 @@ HIDAPI_DriverPS4_IsPacketValid.exit:              ; preds = %41, %.thread.i, %73
   br label %.outer.backedge.sink.split
 
 .outer.backedge.sink.split:                       ; preds = %100, %97, %95
-  %.sink120 = phi i32 [ -1, %95 ], [ -3, %97 ], [ -3, %100 ]
+  %.sink128 = phi i32 [ -1, %95 ], [ -3, %97 ], [ -3, %100 ]
   %.sink = phi ptr [ %22, %95 ], [ %39, %97 ], [ %39, %100 ]
-  %101 = add nsw i32 %42, %.sink120
+  %101 = add nsw i32 %42, %.sink128
   call fastcc void @HIDAPI_DriverPS4_HandleStatePacket(ptr noundef %.0, ptr noundef nonnull %7, ptr noundef %.sink, i32 noundef %101)
   br label %.outer.backedge
 
@@ -853,10 +853,10 @@ HIDAPI_DriverPS4_IsPacketValid.exit:              ; preds = %41, %.thread.i, %73
   %109 = getelementptr inbounds nuw i8, ptr %0, i64 84
   %110 = load i8, ptr %109, align 4, !range !5, !noundef !6
   %111 = trunc nuw i8 %110 to i1
-  br i1 %111, label %.thread108, label %136
+  br i1 %111, label %.thread116, label %136
 
 112:                                              ; preds = %.outer._crit_edge
-  br i1 %.068.ph.lcssa, label %113, label %.thread108
+  br i1 %.068.ph.lcssa, label %113, label %.thread116
 
 113:                                              ; preds = %112
   %114 = getelementptr inbounds nuw i8, ptr %7, i64 88
@@ -893,13 +893,13 @@ HIDAPI_DriverPS4_TickleBluetooth.exit:            ; preds = %117, %127
   store i64 %8, ptr %114, align 8
   br label %136
 
-.thread108:                                       ; preds = %.outer._crit_edge.thread, %112
-  %.lcssa81107111 = phi i32 [ %.lcssa81, %112 ], [ %103, %.outer._crit_edge.thread ]
+.thread116:                                       ; preds = %.outer._crit_edge.thread, %112
+  %.lcssa81115119 = phi i32 [ %.lcssa81, %112 ], [ %103, %.outer._crit_edge.thread ]
   %128 = load i32, ptr %9, align 4
   %129 = icmp eq i32 %128, 0
   br i1 %129, label %130, label %136
 
-130:                                              ; preds = %.thread108
+130:                                              ; preds = %.thread116
   %131 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %132 = load ptr, ptr %131, align 8
   %133 = call zeroext i1 @HIDAPI_HasConnectedUSBDevice(ptr noundef %132) #9
@@ -909,9 +909,9 @@ HIDAPI_DriverPS4_TickleBluetooth.exit:            ; preds = %117, %127
   %135 = call zeroext i1 @HIDAPI_JoystickConnected(ptr noundef nonnull %0, ptr noundef null) #9
   br label %136
 
-136:                                              ; preds = %.outer._crit_edge.thread, %HIDAPI_DriverPS4_TickleBluetooth.exit, %113, %134, %130, %.thread108, %.outer._crit_edge
-  %.lcssa81106 = phi i32 [ %103, %.outer._crit_edge.thread ], [ %.lcssa81, %HIDAPI_DriverPS4_TickleBluetooth.exit ], [ %.lcssa81, %113 ], [ %.lcssa81107111, %134 ], [ %.lcssa81107111, %130 ], [ %.lcssa81107111, %.thread108 ], [ %.lcssa81, %.outer._crit_edge ]
-  %.068.ph.lcssa104 = phi i1 [ false, %.outer._crit_edge.thread ], [ true, %HIDAPI_DriverPS4_TickleBluetooth.exit ], [ true, %113 ], [ false, %134 ], [ false, %130 ], [ false, %.thread108 ], [ %.068.ph.lcssa, %.outer._crit_edge ]
+136:                                              ; preds = %.outer._crit_edge.thread, %HIDAPI_DriverPS4_TickleBluetooth.exit, %113, %134, %130, %.thread116, %.outer._crit_edge
+  %.lcssa81114 = phi i32 [ %103, %.outer._crit_edge.thread ], [ %.lcssa81, %HIDAPI_DriverPS4_TickleBluetooth.exit ], [ %.lcssa81, %113 ], [ %.lcssa81115119, %134 ], [ %.lcssa81115119, %130 ], [ %.lcssa81115119, %.thread116 ], [ %.lcssa81, %.outer._crit_edge ]
+  %.068.ph.lcssa112 = phi i1 [ false, %.outer._crit_edge.thread ], [ true, %HIDAPI_DriverPS4_TickleBluetooth.exit ], [ true, %113 ], [ false, %134 ], [ false, %130 ], [ false, %.thread116 ], [ %.068.ph.lcssa, %.outer._crit_edge ]
   %137 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %138 = load i8, ptr %137, align 8, !range !5, !noundef !6
   %139 = trunc nuw i8 %138 to i1
@@ -925,7 +925,7 @@ HIDAPI_DriverPS4_TickleBluetooth.exit:            ; preds = %117, %127
 
 144:                                              ; preds = %140, %136
   %145 = load i32, ptr %9, align 4
-  br i1 %.068.ph.lcssa104, label %146, label %156
+  br i1 %.068.ph.lcssa112, label %146, label %156
 
 146:                                              ; preds = %144
   %147 = icmp sgt i32 %145, 0
@@ -1001,8 +1001,8 @@ HIDAPI_DriverPS4_TickleBluetooth.exit:            ; preds = %117, %127
   br label %.thread
 
 191:                                              ; preds = %148, %152, %146, %140
-  %192 = icmp ne i32 %.lcssa81106, 0
-  %or.cond21 = and i1 %.068.ph.lcssa104, %192
+  %192 = icmp ne i32 %.lcssa81114, 0
+  %or.cond21 = and i1 %.068.ph.lcssa112, %192
   br i1 %or.cond21, label %193, label %.thread
 
 193:                                              ; preds = %191
@@ -1018,7 +1018,7 @@ HIDAPI_DriverPS4_TickleBluetooth.exit:            ; preds = %117, %127
   br label %.thread
 
 .thread:                                          ; preds = %156, %189, %196, %193, %191
-  %.06977 = phi i32 [ %.lcssa81106, %196 ], [ %.lcssa81106, %193 ], [ %.lcssa81106, %191 ], [ %.lcssa81106, %156 ], [ %160, %189 ]
+  %.06977 = phi i32 [ %.lcssa81114, %196 ], [ %.lcssa81114, %193 ], [ %.lcssa81114, %191 ], [ %.lcssa81114, %156 ], [ %160, %189 ]
   %200 = icmp sgt i32 %.06977, -1
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %200
@@ -2244,8 +2244,8 @@ define internal fastcc void @HIDAPI_DriverPS4_HandleStatePacket(ptr noundef nonn
   %.phi.trans.insert3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.pre4 = load i8, ptr %.phi.trans.insert3, align 1
   %109 = icmp eq i8 %.pre4, 0
-  %spec.select5 = select i1 %109, i8 -1, i8 %.pre4
-  %110 = select i1 %.not177, i8 %.pre4, i8 %spec.select5
+  %spec.select12 = select i1 %109, i8 -1, i8 %.pre4
+  %110 = select i1 %.not177, i8 %.pre4, i8 %spec.select12
   %111 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i8 %110, ptr %111, align 1
   br label %112

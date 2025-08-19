@@ -2019,15 +2019,15 @@ define hidden i32 @get_dns_name(ptr noundef %0, i32 noundef %1, i32 noundef %2, 
   %105 = zext nneg i16 %89 to i32
   br label %.lr.ph.outer.i
 
-.lr.ph.outer.i:                                   ; preds = %.loopexit242.i, %.lr.ph.preheader.i
-  %.ph.i = phi i32 [ %105, %.lr.ph.preheader.i ], [ %125, %.loopexit242.i ]
-  %.4180.ph.i = phi i32 [ %87, %.lr.ph.preheader.i ], [ %124, %.loopexit242.i ]
-  %.6179.ph.i = phi i32 [ %.5.i, %.lr.ph.preheader.i ], [ %.7.i, %.loopexit242.i ]
-  %.6122178.ph.i = phi ptr [ %.5121.i, %.lr.ph.preheader.i ], [ %.7123.i, %.loopexit242.i ]
-  %.ph239.i = phi i64 [ %104, %.lr.ph.preheader.i ], [ %123, %.loopexit242.i ]
-  %.ph240.i = phi i64 [ %103, %.lr.ph.preheader.i ], [ %122, %.loopexit242.i ]
-  %.ph241.i = phi i64 [ %102, %.lr.ph.preheader.i ], [ %121, %.loopexit242.i ]
-  %106 = tail call i64 @llvm.usub.sat.i64(i64 255, i64 %.ph239.i)
+.lr.ph.outer.i:                                   ; preds = %.loopexit247.i, %.lr.ph.preheader.i
+  %.ph.i = phi i32 [ %105, %.lr.ph.preheader.i ], [ %125, %.loopexit247.i ]
+  %.4180.ph.i = phi i32 [ %87, %.lr.ph.preheader.i ], [ %124, %.loopexit247.i ]
+  %.6179.ph.i = phi i32 [ %.5.i, %.lr.ph.preheader.i ], [ %.7.i, %.loopexit247.i ]
+  %.6122178.ph.i = phi ptr [ %.5121.i, %.lr.ph.preheader.i ], [ %.7123.i, %.loopexit247.i ]
+  %.ph244.i = phi i64 [ %104, %.lr.ph.preheader.i ], [ %123, %.loopexit247.i ]
+  %.ph245.i = phi i64 [ %103, %.lr.ph.preheader.i ], [ %122, %.loopexit247.i ]
+  %.ph246.i = phi i64 [ %102, %.lr.ph.preheader.i ], [ %121, %.loopexit247.i ]
+  %106 = tail call i64 @llvm.usub.sat.i64(i64 255, i64 %.ph244.i)
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.thread.i, %.lr.ph.outer.i
@@ -2035,7 +2035,7 @@ define hidden i32 @get_dns_name(ptr noundef %0, i32 noundef %1, i32 noundef %2, 
   %.4180.i = phi i32 [ %126, %.thread.i ], [ %.4180.ph.i, %.lr.ph.outer.i ]
   %.6179.i = phi i32 [ 0, %.thread.i ], [ %.6179.ph.i, %.lr.ph.outer.i ]
   %108 = icmp sgt i32 %.6179.i, 0
-  br i1 %108, label %109, label %.loopexit242.i
+  br i1 %108, label %109, label %.loopexit247.i
 
 109:                                              ; preds = %.lr.ph.i
   %110 = zext nneg i32 %.6179.i to i64
@@ -2047,17 +2047,17 @@ define hidden i32 @get_dns_name(ptr noundef %0, i32 noundef %1, i32 noundef %2, 
 
 114:                                              ; preds = %109
   %115 = sext i32 %113 to i64
-  %116 = add i64 %.ph241.i, %115
-  %117 = add i64 %.ph240.i, %115
-  %118 = add i64 %.ph239.i, %115
+  %116 = add i64 %.ph246.i, %115
+  %117 = add i64 %.ph245.i, %115
+  %118 = add i64 %.ph244.i, %115
   %119 = getelementptr i8, ptr %.6122178.ph.i, i64 %115
   %120 = sub i32 %.6179.i, %113
-  br label %.loopexit242.i
+  br label %.loopexit247.i
 
-.loopexit242.i:                                   ; preds = %.lr.ph.i, %114
-  %121 = phi i64 [ %116, %114 ], [ %.ph241.i, %.lr.ph.i ]
-  %122 = phi i64 [ %117, %114 ], [ %.ph240.i, %.lr.ph.i ]
-  %123 = phi i64 [ %118, %114 ], [ %.ph239.i, %.lr.ph.i ]
+.loopexit247.i:                                   ; preds = %.lr.ph.i, %114
+  %121 = phi i64 [ %116, %114 ], [ %.ph246.i, %.lr.ph.i ]
+  %122 = phi i64 [ %117, %114 ], [ %.ph245.i, %.lr.ph.i ]
+  %123 = phi i64 [ %118, %114 ], [ %.ph244.i, %.lr.ph.i ]
   %.7123.i = phi ptr [ %119, %114 ], [ %.6122178.ph.i, %.lr.ph.i ]
   %.7.i = phi i32 [ %120, %114 ], [ %.6179.i, %.lr.ph.i ]
   %124 = add i32 %.4180.i, 1
@@ -2068,10 +2068,10 @@ define hidden i32 @get_dns_name(ptr noundef %0, i32 noundef %1, i32 noundef %2, 
 .thread.i:                                        ; preds = %109
   %126 = add i32 %.4180.i, 1
   %127 = add i32 %107, -1
-  %.not142232.i = icmp eq i32 %107, 0
-  br i1 %.not142232.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !8
+  %.not142237.i = icmp eq i32 %107, 0
+  br i1 %.not142237.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !8
 
-._crit_edge.i:                                    ; preds = %.loopexit242.i
+._crit_edge.i:                                    ; preds = %.loopexit247.i
   %128 = icmp sgt i32 %.7.i, 0
   br i1 %128, label %129, label %.loopexit.i
 
@@ -2139,9 +2139,9 @@ default.unreachable:                              ; preds = %18
 .loopexit.i:                                      ; preds = %51, %75, %.thread.i, %145, %133, %129, %._crit_edge.i
   %.1129.i = phi i32 [ %.0128.i66, %129 ], [ %.0128.i66, %133 ], [ %.0128.i66, %._crit_edge.i ], [ %.2130.i, %145 ], [ %.0128.i66, %.thread.i ], [ %.0128.i66, %75 ], [ %.0128.i66, %51 ]
   %.1127.i = phi i32 [ %.0126.i67, %129 ], [ %.0126.i67, %133 ], [ %.0126.i67, %._crit_edge.i ], [ %152, %145 ], [ %.0126.i67, %.thread.i ], [ %.0126.i67, %75 ], [ %.0126.i67, %51 ]
-  %161 = phi i64 [ %121, %129 ], [ %135, %133 ], [ %121, %._crit_edge.i ], [ %13, %145 ], [ %.ph241.i, %.thread.i ], [ %76, %75 ], [ %52, %51 ]
-  %162 = phi i64 [ %122, %129 ], [ %136, %133 ], [ %122, %._crit_edge.i ], [ %12, %145 ], [ %.ph240.i, %.thread.i ], [ %77, %75 ], [ %53, %51 ]
-  %163 = phi i64 [ %123, %129 ], [ %137, %133 ], [ %123, %._crit_edge.i ], [ %11, %145 ], [ %.ph239.i, %.thread.i ], [ %78, %75 ], [ %54, %51 ]
+  %161 = phi i64 [ %121, %129 ], [ %135, %133 ], [ %121, %._crit_edge.i ], [ %13, %145 ], [ %.ph246.i, %.thread.i ], [ %76, %75 ], [ %52, %51 ]
+  %162 = phi i64 [ %122, %129 ], [ %136, %133 ], [ %122, %._crit_edge.i ], [ %12, %145 ], [ %.ph245.i, %.thread.i ], [ %77, %75 ], [ %53, %51 ]
+  %163 = phi i64 [ %123, %129 ], [ %137, %133 ], [ %123, %._crit_edge.i ], [ %11, %145 ], [ %.ph244.i, %.thread.i ], [ %78, %75 ], [ %54, %51 ]
   %.1117.i = phi ptr [ %.7123.i, %129 ], [ %138, %133 ], [ %.7123.i, %._crit_edge.i ], [ %.0116.i68, %145 ], [ %.6122178.ph.i, %.thread.i ], [ %.4120.i, %75 ], [ %.4120.us.i, %51 ]
   %.1112.i = phi i32 [ 0, %129 ], [ %139, %133 ], [ %.7.i, %._crit_edge.i ], [ %.0111.i69, %145 ], [ 0, %.thread.i ], [ %.4115.i, %75 ], [ %.4115.us.i, %51 ]
   %.2.i = phi i32 [ %124, %129 ], [ %124, %133 ], [ %124, %._crit_edge.i ], [ %151, %145 ], [ %126, %.thread.i ], [ %80, %75 ], [ %56, %51 ]
@@ -2159,10 +2159,10 @@ default.unreachable:                              ; preds = %18
   br i1 %166, label %._crit_edge.thread, label %167
 
 ._crit_edge.thread:                               ; preds = %6, %._crit_edge
-  %.1.i121 = phi i32 [ %.1.i.ph, %._crit_edge ], [ %1, %6 ]
-  %.0116.i.lcssa119 = phi ptr [ %.0116.i.lcssa.ph, %._crit_edge ], [ %8, %6 ]
-  %.0128.i.lcssa118 = phi i32 [ %.0128.i.lcssa.ph, %._crit_edge ], [ -1, %6 ]
-  store i8 0, ptr %.0116.i.lcssa119, align 1
+  %.1.i126 = phi i32 [ %.1.i.ph, %._crit_edge ], [ %1, %6 ]
+  %.0116.i.lcssa124 = phi ptr [ %.0116.i.lcssa.ph, %._crit_edge ], [ %8, %6 ]
+  %.0128.i.lcssa123 = phi i32 [ %.0128.i.lcssa.ph, %._crit_edge ], [ -1, %6 ]
+  store i8 0, ptr %.0116.i.lcssa124, align 1
   br label %168
 
 167:                                              ; preds = %._crit_edge
@@ -2171,11 +2171,11 @@ default.unreachable:                              ; preds = %18
   br label %168
 
 168:                                              ; preds = %167, %._crit_edge.thread
-  %.1.i120 = phi i32 [ %.1.i.ph, %167 ], [ %.1.i121, %._crit_edge.thread ]
-  %.0128.i.lcssa117 = phi i32 [ %.0128.i.lcssa.ph, %167 ], [ %.0128.i.lcssa118, %._crit_edge.thread ]
-  %169 = icmp slt i32 %.0128.i.lcssa117, 0
-  %170 = sub i32 %.1.i120, %1
-  %spec.select.i = select i1 %169, i32 %170, i32 %.0128.i.lcssa117
+  %.1.i125 = phi i32 [ %.1.i.ph, %167 ], [ %.1.i126, %._crit_edge.thread ]
+  %.0128.i.lcssa122 = phi i32 [ %.0128.i.lcssa.ph, %167 ], [ %.0128.i.lcssa123, %._crit_edge.thread ]
+  %169 = icmp slt i32 %.0128.i.lcssa122, 0
+  %170 = sub i32 %.1.i125, %1
+  %spec.select.i = select i1 %169, i32 %170, i32 %.0128.i.lcssa122
   br label %expand_dns_name.exit
 
 expand_dns_name.exit:                             ; preds = %140, %158, %168
@@ -3107,7 +3107,7 @@ switch.lookup:                                    ; preds = %90
   br label %372
 
 372:                                              ; preds = %309, %317, %327, %337, %347, %357, %368, %370, %362, %352, %342, %332, %322, %312, %306
-  %.sink441 = phi i32 [ %311, %309 ], [ %319, %317 ], [ %329, %327 ], [ %339, %337 ], [ %349, %347 ], [ %359, %357 ], [ %369, %368 ], [ %371, %370 ], [ %364, %362 ], [ %354, %352 ], [ %344, %342 ], [ %334, %332 ], [ %324, %322 ], [ %314, %312 ], [ %308, %306 ]
+  %.sink448 = phi i32 [ %311, %309 ], [ %319, %317 ], [ %329, %327 ], [ %339, %337 ], [ %349, %347 ], [ %359, %357 ], [ %369, %368 ], [ %371, %370 ], [ %364, %362 ], [ %354, %352 ], [ %344, %342 ], [ %334, %332 ], [ %324, %322 ], [ %314, %312 ], [ %308, %306 ]
   %373 = load i8, ptr @dns_qr_qrn_statistics_enabled, align 1, !range !9, !noundef !10
   %374 = trunc nuw i8 %373 to i1
   br i1 %374, label %375, label %390
@@ -3137,7 +3137,7 @@ switch.lookup:                                    ; preds = %90
 .sink.split:                                      ; preds = %384, %381
   %387 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %388 = load ptr, ptr %387, align 8
-  %389 = call i32 @stats_tree_manip_node_int(i32 noundef 0, ptr noundef %0, ptr noundef %388, i32 noundef %.sink441, i1 noundef zeroext false, i32 noundef 1)
+  %389 = call i32 @stats_tree_manip_node_int(i32 noundef 0, ptr noundef %0, ptr noundef %388, i32 noundef %.sink448, i1 noundef zeroext false, i32 noundef 1)
   br label %390
 
 390:                                              ; preds = %.sink.split, %381, %378, %384, %372
@@ -3270,7 +3270,7 @@ switch.lookup:                                    ; preds = %90
   br label %461
 
 461:                                              ; preds = %398, %406, %416, %426, %436, %446, %457, %459, %451, %441, %431, %421, %411, %401, %395
-  %.sink444 = phi i32 [ %400, %398 ], [ %408, %406 ], [ %418, %416 ], [ %428, %426 ], [ %438, %436 ], [ %448, %446 ], [ %458, %457 ], [ %460, %459 ], [ %453, %451 ], [ %443, %441 ], [ %433, %431 ], [ %423, %421 ], [ %413, %411 ], [ %403, %401 ], [ %397, %395 ]
+  %.sink451 = phi i32 [ %400, %398 ], [ %408, %406 ], [ %418, %416 ], [ %428, %426 ], [ %438, %436 ], [ %448, %446 ], [ %458, %457 ], [ %460, %459 ], [ %453, %451 ], [ %443, %441 ], [ %433, %431 ], [ %423, %421 ], [ %413, %411 ], [ %403, %401 ], [ %397, %395 ]
   %462 = load i8, ptr @dns_qr_qrn_statistics_enabled, align 1, !range !9, !noundef !10
   %463 = trunc nuw i8 %462 to i1
   br i1 %463, label %464, label %479
@@ -3289,21 +3289,21 @@ switch.lookup:                                    ; preds = %90
   %471 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %472 = load i32, ptr %471, align 8
   %.not398 = icmp eq i32 %472, 0
-  br i1 %.not398, label %479, label %.sink.split445
+  br i1 %.not398, label %479, label %.sink.split452
 
 473:                                              ; preds = %464
   %474 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %475 = load i32, ptr %474, align 8
   %.not397 = icmp eq i32 %475, 0
-  br i1 %.not397, label %479, label %.sink.split445
+  br i1 %.not397, label %479, label %.sink.split452
 
-.sink.split445:                                   ; preds = %473, %470
+.sink.split452:                                   ; preds = %473, %470
   %476 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %477 = load ptr, ptr %476, align 8
-  %478 = call i32 @stats_tree_manip_node_int(i32 noundef 0, ptr noundef %0, ptr noundef %477, i32 noundef %.sink444, i1 noundef zeroext false, i32 noundef 1)
+  %478 = call i32 @stats_tree_manip_node_int(i32 noundef 0, ptr noundef %0, ptr noundef %477, i32 noundef %.sink451, i1 noundef zeroext false, i32 noundef 1)
   br label %479
 
-479:                                              ; preds = %.sink.split445, %470, %467, %473, %461
+479:                                              ; preds = %.sink.split452, %470, %467, %473, %461
   %480 = load i32, ptr @st_node_qr_r_packets, align 4
   %481 = call i32 @stats_tree_manip_node_int(i32 noundef 0, ptr noundef %0, ptr noundef nonnull @.str.972, i32 noundef %480, i1 noundef zeroext true, i32 noundef 1)
   %482 = getelementptr inbounds nuw i8, ptr %3, i64 52
@@ -3433,7 +3433,7 @@ switch.lookup:                                    ; preds = %90
   br label %550
 
 550:                                              ; preds = %487, %495, %505, %515, %525, %535, %546, %548, %540, %530, %520, %510, %500, %490, %484
-  %.sink448 = phi i32 [ %489, %487 ], [ %497, %495 ], [ %507, %505 ], [ %517, %515 ], [ %527, %525 ], [ %537, %535 ], [ %547, %546 ], [ %549, %548 ], [ %542, %540 ], [ %532, %530 ], [ %522, %520 ], [ %512, %510 ], [ %502, %500 ], [ %492, %490 ], [ %486, %484 ]
+  %.sink455 = phi i32 [ %489, %487 ], [ %497, %495 ], [ %507, %505 ], [ %517, %515 ], [ %527, %525 ], [ %537, %535 ], [ %547, %546 ], [ %549, %548 ], [ %542, %540 ], [ %532, %530 ], [ %522, %520 ], [ %512, %510 ], [ %502, %500 ], [ %492, %490 ], [ %486, %484 ]
   %551 = load i8, ptr @dns_qr_qrn_statistics_enabled, align 1, !range !9, !noundef !10
   %552 = trunc nuw i8 %551 to i1
   br i1 %552, label %553, label %568
@@ -3452,21 +3452,21 @@ switch.lookup:                                    ; preds = %90
   %560 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %561 = load i32, ptr %560, align 8
   %.not400 = icmp eq i32 %561, 0
-  br i1 %.not400, label %568, label %.sink.split449
+  br i1 %.not400, label %568, label %.sink.split456
 
 562:                                              ; preds = %553
   %563 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %564 = load i32, ptr %563, align 8
   %.not399 = icmp eq i32 %564, 0
-  br i1 %.not399, label %568, label %.sink.split449
+  br i1 %.not399, label %568, label %.sink.split456
 
-.sink.split449:                                   ; preds = %562, %559
+.sink.split456:                                   ; preds = %562, %559
   %565 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %566 = load ptr, ptr %565, align 8
-  %567 = call i32 @stats_tree_manip_node_int(i32 noundef 0, ptr noundef %0, ptr noundef %566, i32 noundef %.sink448, i1 noundef zeroext false, i32 noundef 1)
+  %567 = call i32 @stats_tree_manip_node_int(i32 noundef 0, ptr noundef %0, ptr noundef %566, i32 noundef %.sink455, i1 noundef zeroext false, i32 noundef 1)
   br label %568
 
-568:                                              ; preds = %.sink.split449, %559, %556, %562, %550
+568:                                              ; preds = %.sink.split456, %559, %556, %562, %550
   %569 = load i32, ptr @st_node_qr_r_packets, align 4
   %570 = call i32 @stats_tree_manip_node_int(i32 noundef 0, ptr noundef %0, ptr noundef nonnull @.str.965, i32 noundef %569, i1 noundef zeroext false, i32 noundef 1)
   %571 = getelementptr inbounds nuw i8, ptr %3, i64 20
@@ -3632,7 +3632,7 @@ switch.lookup:                                    ; preds = %90
   br label %659
 
 659:                                              ; preds = %576, %584, %594, %604, %614, %624, %634, %644, %655, %657, %649, %639, %629, %619, %609, %599, %589, %579, %573
-  %.sink452 = phi i32 [ %578, %576 ], [ %586, %584 ], [ %596, %594 ], [ %606, %604 ], [ %616, %614 ], [ %626, %624 ], [ %636, %634 ], [ %646, %644 ], [ %656, %655 ], [ %658, %657 ], [ %651, %649 ], [ %641, %639 ], [ %631, %629 ], [ %621, %619 ], [ %611, %609 ], [ %601, %599 ], [ %591, %589 ], [ %581, %579 ], [ %575, %573 ]
+  %.sink459 = phi i32 [ %578, %576 ], [ %586, %584 ], [ %596, %594 ], [ %606, %604 ], [ %616, %614 ], [ %626, %624 ], [ %636, %634 ], [ %646, %644 ], [ %656, %655 ], [ %658, %657 ], [ %651, %649 ], [ %641, %639 ], [ %631, %629 ], [ %621, %619 ], [ %611, %609 ], [ %601, %599 ], [ %591, %589 ], [ %581, %579 ], [ %575, %573 ]
   %660 = load i8, ptr @dns_qr_qrn_statistics_enabled, align 1, !range !9, !noundef !10
   %661 = trunc nuw i8 %660 to i1
   br i1 %661, label %662, label %669
@@ -3646,7 +3646,7 @@ switch.lookup:                                    ; preds = %90
 665:                                              ; preds = %662
   %666 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %667 = load ptr, ptr %666, align 8
-  %668 = call i32 @stats_tree_manip_node_int(i32 noundef 0, ptr noundef %0, ptr noundef %667, i32 noundef %.sink452, i1 noundef zeroext false, i32 noundef 1)
+  %668 = call i32 @stats_tree_manip_node_int(i32 noundef 0, ptr noundef %0, ptr noundef %667, i32 noundef %.sink459, i1 noundef zeroext false, i32 noundef 1)
   br label %669
 
 669:                                              ; preds = %665, %662, %659
@@ -3898,7 +3898,7 @@ switch.lookup:                                    ; preds = %90
   br label %829
 
 829:                                              ; preds = %799, %809, %819, %827, %825, %814, %804, %794
-  %.sink453 = phi i32 [ %801, %799 ], [ %811, %809 ], [ %821, %819 ], [ %828, %827 ], [ %826, %825 ], [ %816, %814 ], [ %806, %804 ], [ %796, %794 ]
+  %.sink460 = phi i32 [ %801, %799 ], [ %811, %809 ], [ %821, %819 ], [ %828, %827 ], [ %826, %825 ], [ %816, %814 ], [ %806, %804 ], [ %796, %794 ]
   %830 = load i8, ptr @dns_qr_qrn_statistics_enabled, align 1, !range !9, !noundef !10
   %831 = trunc nuw i8 %830 to i1
   br i1 %831, label %832, label %837
@@ -3910,7 +3910,7 @@ switch.lookup:                                    ; preds = %90
 
 834:                                              ; preds = %832
   %835 = load ptr, ptr %787, align 8
-  %836 = call i32 @stats_tree_manip_node_int(i32 noundef 0, ptr noundef %0, ptr noundef %835, i32 noundef %.sink453, i1 noundef zeroext false, i32 noundef 1)
+  %836 = call i32 @stats_tree_manip_node_int(i32 noundef 0, ptr noundef %0, ptr noundef %835, i32 noundef %.sink460, i1 noundef zeroext false, i32 noundef 1)
   br label %837
 
 837:                                              ; preds = %829, %832, %834
@@ -4003,7 +4003,7 @@ switch.lookup:                                    ; preds = %90
   br label %882
 
 882:                                              ; preds = %852, %862, %872, %880, %878, %867, %857, %847
-  %.sink454 = phi i32 [ %854, %852 ], [ %864, %862 ], [ %874, %872 ], [ %881, %880 ], [ %879, %878 ], [ %869, %867 ], [ %859, %857 ], [ %849, %847 ]
+  %.sink461 = phi i32 [ %854, %852 ], [ %864, %862 ], [ %874, %872 ], [ %881, %880 ], [ %879, %878 ], [ %869, %867 ], [ %859, %857 ], [ %849, %847 ]
   %883 = load i8, ptr @dns_qr_qrn_statistics_enabled, align 1, !range !9, !noundef !10
   %884 = trunc nuw i8 %883 to i1
   br i1 %884, label %885, label %890
@@ -4015,7 +4015,7 @@ switch.lookup:                                    ; preds = %90
 
 887:                                              ; preds = %885
   %888 = load ptr, ptr %840, align 8
-  %889 = call i32 @stats_tree_manip_node_int(i32 noundef 0, ptr noundef %0, ptr noundef %888, i32 noundef %.sink454, i1 noundef zeroext false, i32 noundef 1)
+  %889 = call i32 @stats_tree_manip_node_int(i32 noundef 0, ptr noundef %0, ptr noundef %888, i32 noundef %.sink461, i1 noundef zeroext false, i32 noundef 1)
   br label %890
 
 890:                                              ; preds = %882, %885, %887
@@ -4108,7 +4108,7 @@ switch.lookup:                                    ; preds = %90
   br label %935
 
 935:                                              ; preds = %905, %915, %925, %933, %931, %920, %910, %900
-  %.sink455 = phi i32 [ %907, %905 ], [ %917, %915 ], [ %927, %925 ], [ %934, %933 ], [ %932, %931 ], [ %922, %920 ], [ %912, %910 ], [ %902, %900 ]
+  %.sink462 = phi i32 [ %907, %905 ], [ %917, %915 ], [ %927, %925 ], [ %934, %933 ], [ %932, %931 ], [ %922, %920 ], [ %912, %910 ], [ %902, %900 ]
   %936 = load i8, ptr @dns_qr_qrn_statistics_enabled, align 1, !range !9, !noundef !10
   %937 = trunc nuw i8 %936 to i1
   br i1 %937, label %938, label %943
@@ -4120,7 +4120,7 @@ switch.lookup:                                    ; preds = %90
 
 940:                                              ; preds = %938
   %941 = load ptr, ptr %893, align 8
-  %942 = call i32 @stats_tree_manip_node_int(i32 noundef 0, ptr noundef %0, ptr noundef %941, i32 noundef %.sink455, i1 noundef zeroext false, i32 noundef 1)
+  %942 = call i32 @stats_tree_manip_node_int(i32 noundef 0, ptr noundef %0, ptr noundef %941, i32 noundef %.sink462, i1 noundef zeroext false, i32 noundef 1)
   br label %943
 
 943:                                              ; preds = %935, %938, %940
@@ -6143,9 +6143,9 @@ define internal fastcc i32 @dissect_dns_answer(ptr noundef %0, i32 noundef %1, i
 
 .sink.split.i:                                    ; preds = %186, %183, %159, %147, %144
   %hf_dns_srv_name.sink.i = phi ptr [ @hf_dns_srv_name, %186 ], [ @hf_dns_srv_name, %159 ], [ @hf_dns_srv_name, %183 ], [ @hf_dns_rr_name, %147 ], [ @hf_dns_rr_name, %144 ]
-  %.sink96.i = phi ptr [ %188, %186 ], [ %171, %159 ], [ %182, %183 ], [ %139, %147 ], [ %139, %144 ]
+  %.sink100.i = phi ptr [ %188, %186 ], [ %171, %159 ], [ %182, %183 ], [ %139, %147 ], [ %139, %144 ]
   %189 = load i32, ptr %hf_dns_srv_name.sink.i, align 4
-  %190 = call ptr @proto_tree_add_string(ptr noundef %145, i32 noundef %189, ptr noundef %0, i32 noundef %1, i32 noundef %111, ptr noundef %.sink96.i)
+  %190 = call ptr @proto_tree_add_string(ptr noundef %145, i32 noundef %189, ptr noundef %0, i32 noundef %1, i32 noundef %111, ptr noundef %.sink100.i)
   br label %191
 
 191:                                              ; preds = %.sink.split.i, %178, %172, %159
@@ -7606,13 +7606,13 @@ proto_item_set_generated.exit2208:                ; preds = %959, %1001, %1004
   %narrow = sub nuw nsw i32 16, %1060
   %1061 = zext nneg i32 %narrow to i64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %74, i8 0, i64 %1061, i1 false)
-  %.not2426 = icmp eq i32 %1060, 0
-  br i1 %.not2426, label %._crit_edge2323, label %.lr.ph2322.preheader
+  %.not2467 = icmp eq i32 %1060, 0
+  br i1 %.not2467, label %._crit_edge2323, label %.lr.ph2322.preheader
 
 .lr.ph2322.preheader:                             ; preds = %1052, %.preheader
-  %.02126.lcssa2387 = phi i32 [ %narrow, %.preheader ], [ 0, %1052 ]
+  %.02126.lcssa2428 = phi i32 [ %narrow, %.preheader ], [ 0, %1052 ]
   %1062 = phi i32 [ %1060, %.preheader ], [ %1058, %1052 ]
-  %1063 = zext nneg i32 %.02126.lcssa2387 to i64
+  %1063 = zext nneg i32 %.02126.lcssa2428 to i64
   br label %.lr.ph2322
 
 .lr.ph2322:                                       ; preds = %.lr.ph2322.preheader, %.lr.ph2322
@@ -9089,29 +9089,29 @@ proto_item_set_generated.exit2214:                ; preds = %1503, %1507, %1510
   %1991 = add i32 %117, 7
   %1992 = load i32, ptr %110, align 4
   switch i32 %1992, label %2008 [
-    i32 4, label %.sink.split2413
+    i32 4, label %.sink.split2454
     i32 6, label %1993
   ]
 
 1993:                                             ; preds = %1988
-  br label %.sink.split2413
+  br label %.sink.split2454
 
-.sink.split2413:                                  ; preds = %1988, %1993
+.sink.split2454:                                  ; preds = %1988, %1993
   %hf_dns_xpf_source_ipv6.sink = phi ptr [ @hf_dns_xpf_source_ipv6, %1993 ], [ @hf_dns_xpf_source_ipv4, %1988 ]
-  %.sink2424 = phi i32 [ 16, %1993 ], [ %1992, %1988 ]
-  %.sink2421 = phi i32 [ 24, %1993 ], [ 12, %1988 ]
+  %.sink2465 = phi i32 [ 16, %1993 ], [ %1992, %1988 ]
+  %.sink2462 = phi i32 [ 24, %1993 ], [ 12, %1988 ]
   %hf_dns_xpf_destination_ipv6.sink = phi ptr [ @hf_dns_xpf_destination_ipv6, %1993 ], [ @hf_dns_xpf_destination_ipv4, %1988 ]
-  %.sink2417 = phi i32 [ 40, %1993 ], [ 16, %1988 ]
+  %.sink2458 = phi i32 [ 40, %1993 ], [ 16, %1988 ]
   %.sink = phi i32 [ 42, %1993 ], [ 18, %1988 ]
   %1994 = load i32, ptr @hf_dns_xpf_protocol, align 4
   %1995 = call ptr @proto_tree_add_item(ptr noundef %.02114, i32 noundef %1994, ptr noundef %0, i32 noundef %1991, i32 noundef 1, i32 noundef 0)
   %1996 = add i32 %117, 8
   %1997 = load i32, ptr %hf_dns_xpf_source_ipv6.sink, align 4
-  %1998 = call ptr @proto_tree_add_item(ptr noundef %.02114, i32 noundef %1997, ptr noundef %0, i32 noundef %1996, i32 noundef %.sink2424, i32 noundef 0)
-  %1999 = add i32 %117, %.sink2421
+  %1998 = call ptr @proto_tree_add_item(ptr noundef %.02114, i32 noundef %1997, ptr noundef %0, i32 noundef %1996, i32 noundef %.sink2465, i32 noundef 0)
+  %1999 = add i32 %117, %.sink2462
   %2000 = load i32, ptr %hf_dns_xpf_destination_ipv6.sink, align 4
-  %2001 = call ptr @proto_tree_add_item(ptr noundef %.02114, i32 noundef %2000, ptr noundef %0, i32 noundef %1999, i32 noundef %.sink2424, i32 noundef 0)
-  %2002 = add i32 %117, %.sink2417
+  %2001 = call ptr @proto_tree_add_item(ptr noundef %.02114, i32 noundef %2000, ptr noundef %0, i32 noundef %1999, i32 noundef %.sink2465, i32 noundef 0)
+  %2002 = add i32 %117, %.sink2458
   %2003 = load i32, ptr @hf_dns_xpf_sport, align 4
   %2004 = call ptr @proto_tree_add_item(ptr noundef %.02114, i32 noundef %2003, ptr noundef %0, i32 noundef %2002, i32 noundef 2, i32 noundef 0)
   %2005 = add i32 %117, %.sink
@@ -9119,7 +9119,7 @@ proto_item_set_generated.exit2214:                ; preds = %1503, %1507, %1510
   %2007 = call ptr @proto_tree_add_item(ptr noundef %.02114, i32 noundef %2006, ptr noundef %0, i32 noundef %2005, i32 noundef 2, i32 noundef 0)
   br label %2008
 
-2008:                                             ; preds = %.sink.split2413, %1988
+2008:                                             ; preds = %.sink.split2454, %1988
   call void @llvm.lifetime.end.p0(ptr nonnull %110)
   br label %.loopexit
 

@@ -265,7 +265,7 @@ define hidden void @_ZN18ruff_python_stdlib9open_mode8OpenMode10from_chars17hbbe
   br i1 %or.cond, label %.lr.ph.i.i, label %78
 
 .lr.ph.i.i:                                       ; preds = %3, %64
-  %.sroa.0.0.lcssa8489 = phi i8 [ %.sroa.0.0.lcssa, %64 ], [ 0, %3 ]
+  %.sroa.0.0.lcssa8893 = phi i8 [ %.sroa.0.0.lcssa, %64 ], [ 0, %3 ]
   %66 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i8 -127, ptr %66, align 8
   %.sroa.424.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 17
@@ -286,7 +286,7 @@ define hidden void @_ZN18ruff_python_stdlib9open_mode8OpenMode10from_chars17hbbe
   %70 = add nuw nsw i64 %69, 1
   %71 = getelementptr inbounds nuw i8, ptr %66, i64 %69
   %72 = load i8, ptr %71, align 1, !alias.scope !23, !noalias !26, !noundef !3
-  %73 = and i8 %72, %.sroa.0.0.lcssa8489
+  %73 = and i8 %72, %.sroa.0.0.lcssa8893
   %74 = icmp ne i8 %73, 0
   %75 = zext i1 %74 to i64
   %76 = add i64 %.sroa.01.010.i.i, %75
@@ -329,7 +329,7 @@ define hidden void @_ZN18ruff_python_stdlib9open_mode8OpenMode10from_chars17hbbe
 
 88:                                               ; preds = %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h6e27c43d6e7620b5E.exit"
   %89 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 %.sroa.0.0.lcssa8489, ptr %89, align 8
+  store i8 %.sroa.0.0.lcssa8893, ptr %89, align 8
   store i64 -9223372036854775808, ptr %0, align 8
   br label %100
 

@@ -3197,8 +3197,8 @@ define internal range(i32 0, 2) i32 @wsp_stat_packet(ptr noundef readonly captur
   %.235.lcssa = phi i32 [ 0, %.preheader ], [ %.23542, %.lr.ph43 ], [ %42, %41 ]
   %.2 = phi i8 [ 0, %.preheader ], [ 1, %.lr.ph43 ], [ 0, %41 ]
   %45 = trunc nuw i8 %.2 to i1
-  %.b52 = load i1, ptr @unknown_sc_idx, align 4
-  %46 = select i1 %.b52, i32 40, i32 0
+  %.b56 = load i1, ptr @unknown_sc_idx, align 4
+  %46 = select i1 %.b56, i32 40, i32 0
   %spec.select36 = select i1 %45, i32 %.235.lcssa, i32 %46
   %47 = tail call ptr @stat_tap_get_field_data(ptr noundef %12, i32 noundef %spec.select36, i32 noundef 1)
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 8

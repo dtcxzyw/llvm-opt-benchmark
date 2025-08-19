@@ -80,9 +80,9 @@ define void @_ZN16pme_solve_work_tC2Ei(ptr noundef nonnull align 8 dereferenceab
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %15 = sext i32 %1 to i64
-  %.not98 = icmp eq i32 %1, 0
+  %.not134 = icmp eq i32 %1, 0
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(248) %0, i8 0, i64 248, i1 false)
-  br i1 %.not98, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit, label %16
+  br i1 %.not134, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit, label %16
 
 16:                                               ; preds = %2
   invoke void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %15)
@@ -656,13 +656,13 @@ define linkonce_odr void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef 
 19:                                               ; preds = %3
   store float 0.000000e+00, ptr %5, align 4, !tbaa !15
   %20 = getelementptr i8, ptr %5, i64 4
-  %21 = add i64 %1, -1
+  %21 = add nsw i64 %1, -1
   %22 = icmp eq i64 %21, 0
   br i1 %22, label %_ZSt27__uninitialized_default_n_aIPfmfET_S1_T0_RSaIT1_E.exit, label %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i
 
 _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
-  %23 = shl i64 %1, 2
-  %24 = add i64 %23, -4
+  %23 = shl nuw nsw i64 %1, 2
+  %24 = add nsw i64 %23, -4
   tail call void @llvm.memset.p0.i64(ptr align 4 %20, i8 0, i64 %24, i1 false), !tbaa !15
   %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 2
   %25 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
@@ -851,7 +851,7 @@ define linkonce_odr void @_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocation
   br i1 %.not23, label %20, label %_ZSt27__uninitialized_default_n_aIPfmN3gmx9AllocatorIfNS1_23AlignedAllocationPolicyEEEET_S5_T0_RT1_.exit
 
 _ZSt27__uninitialized_default_n_aIPfmN3gmx9AllocatorIfNS1_23AlignedAllocationPolicyEEEET_S5_T0_RT1_.exit: ; preds = %3
-  %19 = shl nuw i64 %1, 2
+  %19 = shl nuw nsw i64 %1, 2
   tail call void @llvm.memset.p0.i64(ptr align 4 %5, i8 0, i64 %19, i1 false), !tbaa !15
   %scevgep.i = getelementptr i8, ptr %5, i64 %19
   store ptr %scevgep.i, ptr %4, align 8, !tbaa !11
@@ -1372,7 +1372,7 @@ define linkonce_odr void @_ZNSt6vectorISt10unique_ptrI16pme_solve_work_tSt14defa
   br i1 %.not28, label %20, label %_ZSt27__uninitialized_default_n_aIPSt10unique_ptrI16pme_solve_work_tSt14default_deleteIS1_EEmS4_ET_S6_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPSt10unique_ptrI16pme_solve_work_tSt14default_deleteIS1_EEmS4_ET_S6_T0_RSaIT1_E.exit: ; preds = %3
-  %19 = shl nuw i64 %1, 3
+  %19 = shl nuw nsw i64 %1, 3
   tail call void @llvm.memset.p0.i64(ptr align 8 %5, i8 0, i64 %19, i1 false), !tbaa !54
   %scevgep.i.i.i = getelementptr i8, ptr %5, i64 %19
   store ptr %scevgep.i.i.i, ptr %4, align 8, !tbaa !51
@@ -2300,7 +2300,7 @@ _ZL19calc_exponentials_qiifN3gmx8ArrayRefIKNS_9SimdFloatEEES3_NS0_IS1_EE.exit.us
   %.0371480 = phi i32 [ %422, %.loopexit439 ], [ %78, %.lr.ph482 ]
   %300 = sdiv i32 %.0371480, %75
   %301 = mul nsw i32 %300, %75
-  %.recomposed563 = srem i32 %.0371480, %75
+  %.recomposed567 = srem i32 %.0371480, %75
   %302 = add nsw i32 %87, %300
   %303 = icmp slt i32 %302, %45
   %304 = select i1 %303, i32 0, i32 %22
@@ -2313,7 +2313,7 @@ _ZL19calc_exponentials_qiifN3gmx8ArrayRefIKNS_9SimdFloatEEES3_NS0_IS1_EE.exit.us
   %309 = fpext float %308 to double
   %310 = fmul double %89, %309
   %311 = fptrunc double %310 to float
-  %312 = add nsw i32 %93, %.recomposed563
+  %312 = add nsw i32 %93, %.recomposed567
   %313 = sitofp i32 %312 to float
   %314 = sext i32 %312 to i64
   %315 = load ptr, ptr %94, align 8, !tbaa !10
@@ -2322,7 +2322,7 @@ _ZL19calc_exponentials_qiifN3gmx8ArrayRefIKNS_9SimdFloatEEES3_NS0_IS1_EE.exit.us
   %.reass = mul i32 %factor.op.mul, %300
   %318 = sext i32 %.reass to i64
   %319 = getelementptr inbounds %struct.t_complex, ptr %2, i64 %318
-  %320 = mul nsw i32 %99, %.recomposed563
+  %320 = mul nsw i32 %99, %.recomposed567
   %321 = sext i32 %320 to i64
   %322 = getelementptr inbounds %struct.t_complex, ptr %319, i64 %321
   %323 = icmp slt i32 %302, 1
@@ -2993,13 +2993,13 @@ _ZL20calc_exponentials_ljiiN3gmx8ArrayRefINS_9SimdFloatEEES2_S2_.exit.us: ; pred
   br i1 %exitcond746.not, label %.lr.ph635.us, label %.preheader577.us.backedge
 
 .preheader577.us.backedge:                        ; preds = %._crit_edge632.us, %._crit_edge632.us.thread
-  %indvars.iv743.be = phi i64 [ %indvars.iv.next744, %._crit_edge632.us ], [ %indvars.iv.next744758, %._crit_edge632.us.thread ]
+  %indvars.iv743.be = phi i64 [ %indvars.iv.next744, %._crit_edge632.us ], [ %indvars.iv.next744769, %._crit_edge632.us.thread ]
   br label %.preheader577.us, !llvm.loop !202
 
 ._crit_edge632.us.thread:                         ; preds = %.preheader577.us
-  %indvars.iv.next744758 = add nuw nsw i64 %indvars.iv743, 1
-  %exitcond746.not759 = icmp eq i64 %indvars.iv.next744758, 7
-  br i1 %exitcond746.not759, label %.loopexit.us, label %.preheader577.us.backedge
+  %indvars.iv.next744769 = add nuw nsw i64 %indvars.iv743, 1
+  %exitcond746.not770 = icmp eq i64 %indvars.iv.next744769, 7
+  br i1 %exitcond746.not770, label %.loopexit.us, label %.preheader577.us.backedge
 
 .lr.ph631.us:                                     ; preds = %.lr.ph631.us.preheader, %.lr.ph631.us
   %indvars.iv740 = phi i64 [ %.pre-phi, %.lr.ph631.us.preheader ], [ %indvars.iv.next741, %.lr.ph631.us ]
@@ -3243,7 +3243,7 @@ _ZL20calc_exponentials_ljiiN3gmx8ArrayRefINS_9SimdFloatEEES2_S2_.exit.us: ; pred
   %461 = load i32, ptr %70, align 4, !tbaa !39
   %462 = sdiv i32 %.0510660, %461
   %463 = mul nsw i32 %462, %461
-  %.recomposed793 = srem i32 %.0510660, %461
+  %.recomposed804 = srem i32 %.0510660, %461
   %464 = load i32, ptr %79, align 4, !tbaa !39
   %465 = add nsw i32 %464, %462
   %466 = icmp slt i32 %465, %43
@@ -3259,7 +3259,7 @@ _ZL20calc_exponentials_ljiiN3gmx8ArrayRefINS_9SimdFloatEEES2_S2_.exit.us: ; pred
   %474 = fdiv double %473, %87
   %475 = fptrunc double %474 to float
   %476 = load i32, ptr %88, align 4, !tbaa !39
-  %477 = add nsw i32 %476, %.recomposed793
+  %477 = add nsw i32 %476, %.recomposed804
   %478 = sitofp i32 %477 to float
   %479 = sext i32 %477 to i64
   %480 = load ptr, ptr %89, align 8, !tbaa !10
@@ -3542,7 +3542,7 @@ _ZL20calc_exponentials_ljiiN3gmx8ArrayRefINS_9SimdFloatEEES2_S2_.exit559: ; pred
   %682 = load i32, ptr %12, align 4, !tbaa !39
   %683 = mul nsw i32 %681, %682
   %684 = sext i32 %683 to i64
-  %685 = mul nsw i32 %682, %.recomposed793
+  %685 = mul nsw i32 %682, %.recomposed804
   %686 = sext i32 %685 to i64
   br label %687
 

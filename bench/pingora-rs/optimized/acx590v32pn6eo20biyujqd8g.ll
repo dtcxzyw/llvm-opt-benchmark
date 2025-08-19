@@ -1150,8 +1150,8 @@ define hidden void @_ZN2h25proto7go_away6GoAway20send_pending_go_away17hedade6d3
 8:                                                ; preds = %4
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %.sroa.0.0.copyload, ptr %7, align 8
-  %.sroa.5.0..sroa_idx58 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.5.0..sroa_idx58, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.5, i64 32, i1 false)
+  %.sroa.5.0..sroa_idx59 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.5.0..sroa_idx59, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.5, i64 32, i1 false)
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 72
   %10 = invoke { i64, ptr } @"_ZN2h25codec12framed_write24FramedWrite$LT$T$C$B$GT$10poll_ready17hba3839f1c6427850E"(ptr noalias noundef nonnull align 8 dereferenceable(328) %9, ptr noalias noundef nonnull align 8 dereferenceable(32) %2)
           to label %15 unwind label %28
@@ -1185,8 +1185,8 @@ define hidden void @_ZN2h25proto7go_away6GoAway20send_pending_go_away17hedade6d3
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %24 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %.sroa.0.0.copyload, ptr %24, align 8
-  %.sroa.5.0..sroa_idx59 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.5.0..sroa_idx59, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.5, i64 32, i1 false)
+  %.sroa.5.0..sroa_idx60 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.5.0..sroa_idx60, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.5, i64 32, i1 false)
   store i8 6, ptr %6, align 8
   %25 = call noundef i8 @"_ZN2h25codec12framed_write16Encoder$LT$B$GT$6buffer17hb92901447c5ddc02E"(ptr noalias noundef nonnull align 8 dereferenceable(304) %9, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(296) %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -1211,8 +1211,8 @@ define hidden void @_ZN2h25proto7go_away6GoAway20send_pending_go_away17hedade6d3
 
 "_ZN4core3ptr75drop_in_place$LT$core..option..Option$LT$h2..frame..go_away..GoAway$GT$$GT$17ha0c56a2c924c6098E.exit": ; preds = %15
   store ptr %.sroa.0.0.copyload, ptr %1, align 8
-  %.sroa.5.0..sroa_idx60 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.5.0..sroa_idx60, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.5, i64 32, i1 false)
+  %.sroa.5.0..sroa_idx61 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.5.0..sroa_idx61, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.5, i64 32, i1 false)
   store i32 3, ptr %0, align 8
   br label %.thread52
 
@@ -2288,9 +2288,9 @@ define hidden { i64, ptr } @_ZN2h25proto7streams10prioritize10Prioritize13poll_c
 .thread535.i:                                     ; preds = %.thread.i, %204, %202, %199, %197
   store i64 2, ptr %75, align 8, !noalias !85
   store ptr null, ptr %.sroa.4.0..sroa_idx.i, align 8, !noalias !85
-  br label %.preheader254
+  br label %.preheader288
 
-.preheader254:                                    ; preds = %211, %208, %.thread535.i
+.preheader288:                                    ; preds = %211, %208, %.thread535.i
   br label %214
 
 204:                                              ; preds = %202
@@ -2315,11 +2315,11 @@ define hidden { i64, ptr } @_ZN2h25proto7streams10prioritize10Prioritize13poll_c
   call void @llvm.lifetime.end.p0(ptr nonnull %74), !noalias !85
   %.pr.i = load i64, ptr %75, align 8, !noalias !85
   %.not384.i = icmp eq i64 %.pr.i, 2
-  br i1 %.not384.i, label %.preheader254, label %211
+  br i1 %.not384.i, label %.preheader288, label %211
 
 211:                                              ; preds = %208
   invoke void @_ZN12tracing_core10dispatcher8Dispatch5enter17h4210b80375cbfd2cE(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %75, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %115)
-          to label %.preheader254 unwind label %212, !noalias !90
+          to label %.preheader288 unwind label %212, !noalias !90
 
 "_ZN4core3ptr43drop_in_place$LT$tracing..span..Entered$GT$17haf63ce16f07affc8E.exit.i": ; preds = %216, %.body505.i, %212
   %.pn437.i = phi { ptr, i32 } [ %213, %212 ], [ %.pn435.i, %216 ], [ %.pn435.i, %.body505.i ]
@@ -2331,7 +2331,7 @@ define hidden { i64, ptr } @_ZN2h25proto7streams10prioritize10Prioritize13poll_c
           cleanup
   br label %"_ZN4core3ptr43drop_in_place$LT$tracing..span..Entered$GT$17haf63ce16f07affc8E.exit.i"
 
-214:                                              ; preds = %.preheader254, %"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h4f58a8a783da0f0bE.exit507.i"
+214:                                              ; preds = %.preheader288, %"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h4f58a8a783da0f0bE.exit507.i"
   call void @llvm.lifetime.start.p0(ptr nonnull %73), !noalias !85
   invoke void @"_ZN2h25proto7streams5store14Queue$LT$N$GT$3pop17hcebf2d7aa9a0204cE"(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %73, ptr noalias noundef nonnull align 4 dereferenceable(20) %112, ptr noalias noundef nonnull align 8 dereferenceable(112) %3)
           to label %217 unwind label %.loopexit.i, !noalias !90
@@ -4708,9 +4708,9 @@ _ZN2h25proto7streams10prioritize10Prioritize19reclaim_frame_inner17h3efa56206f13
   unreachable
 
 "_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h4f58a8a783da0f0bE.exit45": ; preds = %"_ZN4core3ptr43drop_in_place$LT$tracing..span..Entered$GT$17haf63ce16f07affc8E.exit", %"_ZN61_$LT$tracing..span..Span$u20$as$u20$core..ops..drop..Drop$GT$4drop17hdeba549399232177E.exit.i41"
-  %.pr54 = load i8, ptr %44, align 1
+  %.pr59 = load i8, ptr %44, align 1
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
-  %.not17 = icmp eq i8 %.pr54, 2
+  %.not17 = icmp eq i8 %.pr59, 2
   br i1 %.not17, label %188, label %198
 
 198:                                              ; preds = %"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h4f58a8a783da0f0bE.exit45"
@@ -6650,14 +6650,14 @@ define hidden void @_ZN8arc_swap4debt7helping5Slots4help17h2d8e69b46d0bf67aE(ptr
 .backedge:                                        ; preds = %.backedge.backedge, %4
   %19 = phi i64 [ %13, %4 ], [ %.be, %.backedge.backedge ]
   %20 = and i64 %19, 3
-  switch i64 %20, label %default.unreachable30 [
+  switch i64 %20, label %default.unreachable31 [
     i64 0, label %25
     i64 1, label %.loopexit
     i64 2, label %27
     i64 3, label %.loopexit8
   ], !prof !277
 
-default.unreachable30:                            ; preds = %.backedge
+default.unreachable31:                            ; preds = %.backedge
   unreachable
 
 .loopexit8:                                       ; preds = %.backedge, %25
@@ -6864,14 +6864,14 @@ define hidden void @_ZN8arc_swap4debt7helping5Slots4help17h87e00bf7e6d26d9fE(ptr
 .backedge:                                        ; preds = %.backedge.backedge, %4
   %19 = phi i64 [ %13, %4 ], [ %.be, %.backedge.backedge ]
   %20 = and i64 %19, 3
-  switch i64 %20, label %default.unreachable30 [
+  switch i64 %20, label %default.unreachable31 [
     i64 0, label %25
     i64 1, label %.loopexit
     i64 2, label %27
     i64 3, label %.loopexit8
   ], !prof !277
 
-default.unreachable30:                            ; preds = %.backedge
+default.unreachable31:                            ; preds = %.backedge
   unreachable
 
 .loopexit8:                                       ; preds = %.backedge, %25

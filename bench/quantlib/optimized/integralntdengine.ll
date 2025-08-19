@@ -1227,8 +1227,8 @@ cond.false.i144:                                  ; preds = %if.end241
           to label %invoke.cont246 unwind label %lpad245
 
 invoke.cont246:                                   ; preds = %invoke.cont222, %invoke.cont237, %cond.false.i144, %if.end241
-  %.pre.i145409 = phi ptr [ %.pre405, %if.end241 ], [ null, %cond.false.i144 ], [ %97, %invoke.cont237 ], [ %97, %invoke.cont222 ]
-  %accrualEndDate_.i148 = getelementptr inbounds nuw i8, ptr %.pre.i145409, i64 48
+  %.pre.i145452 = phi ptr [ %.pre405, %if.end241 ], [ null, %cond.false.i144 ], [ %97, %invoke.cont237 ], [ %97, %invoke.cont222 ]
+  %accrualEndDate_.i148 = getelementptr inbounds nuw i8, ptr %.pre.i145452, i64 48
   %103 = load i64, ptr %d, align 8, !tbaa !39
   %104 = load i64, ptr %accrualEndDate_.i148, align 8, !tbaa !39
   %cmp.i149.not = icmp sgt i64 %103, %104
@@ -1364,9 +1364,9 @@ cond.false.i210:                                  ; preds = %dynamic_cast.end3.i
           to label %invoke.cont295 unwind label %lpad294
 
 invoke.cont295:                                   ; preds = %cond.true.i201, %if.then.i.i.i205, %cond.false.i210
-  %.pre.i211412 = phi ptr [ null, %cond.false.i210 ], [ %121, %if.then.i.i.i205 ], [ %121, %cond.true.i201 ]
+  %.pre.i211455 = phi ptr [ null, %cond.false.i210 ], [ %121, %if.then.i.i.i205 ], [ %121, %cond.true.i201 ]
   %124 = phi ptr [ null, %cond.false.i210 ], [ %122, %if.then.i.i.i205 ], [ null, %cond.true.i201 ]
-  %accrualStartDate_.i214 = getelementptr inbounds nuw i8, ptr %.pre.i211412, i64 40
+  %accrualStartDate_.i214 = getelementptr inbounds nuw i8, ptr %.pre.i211455, i64 40
   %call.i216 = invoke noundef double @_ZNK8QuantLib13TermStructure17timeFromReferenceERKNS_4DateE(ptr noundef nonnull align 8 dereferenceable(152) %117, ptr noundef nonnull align 8 dereferenceable(8) %accrualStartDate_.i214)
           to label %call.i.noexc215 unwind label %lpad294
 
@@ -3860,18 +3860,18 @@ while.end:                                        ; preds = %_ZNKSt4lessINSt7__c
   br i1 %cmp.i.i, label %if.then, label %if.end12
 
 if.then:                                          ; preds = %entry, %while.end
-  %__y.0.lcssa38 = phi ptr [ %__x.034, %while.end ], [ %add.ptr.i, %entry ]
+  %__y.0.lcssa39 = phi ptr [ %__x.034, %while.end ], [ %add.ptr.i, %entry ]
   %_M_left.i3 = getelementptr inbounds nuw i8, ptr %this, i64 24
   %4 = load ptr, ptr %_M_left.i3, align 8, !tbaa !14
-  %cmp.i = icmp eq ptr %__y.0.lcssa38, %4
+  %cmp.i = icmp eq ptr %__y.0.lcssa39, %4
   br i1 %cmp.i, label %cleanup, label %if.else
 
 if.else:                                          ; preds = %if.then
-  %call.i = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa38) #31
+  %call.i = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa39) #31
   br label %if.end12
 
 if.end12:                                         ; preds = %if.else, %while.end
-  %__y.0.lcssa39 = phi ptr [ %__y.0.lcssa38, %if.else ], [ %__x.034, %while.end ]
+  %__y.0.lcssa38 = phi ptr [ %__y.0.lcssa39, %if.else ], [ %__x.034, %while.end ]
   %__j.sroa.0.0 = phi ptr [ %call.i, %if.else ], [ %__x.034, %while.end ]
   %_M_string_length.i.i.i.i4 = getelementptr inbounds nuw i8, ptr %__j.sroa.0.0, i64 40
   %5 = load i64, ptr %_M_string_length.i.i.i.i4, align 8, !tbaa !34
@@ -3900,12 +3900,12 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   %__r.0.i.i.i11 = phi i32 [ %call.i.i.i.i9, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i8 ], [ %retval.0.i5.i.i.i17, %if.then.i.i.i13 ]
   %cmp.i.i12 = icmp slt i32 %__r.0.i.i.i11, 0
   %spec.select = select i1 %cmp.i.i12, ptr null, ptr %__j.sroa.0.0
-  %spec.select31 = select i1 %cmp.i.i12, ptr %__y.0.lcssa39, ptr null
+  %spec.select31 = select i1 %cmp.i.i12, ptr %__y.0.lcssa38, ptr null
   br label %cleanup
 
 cleanup:                                          ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit18, %if.then
   %retval.sroa.0.0 = phi ptr [ null, %if.then ], [ %spec.select, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit18 ]
-  %retval.sroa.4.0 = phi ptr [ %__y.0.lcssa38, %if.then ], [ %spec.select31, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit18 ]
+  %retval.sroa.4.0 = phi ptr [ %__y.0.lcssa39, %if.then ], [ %spec.select31, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit18 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %retval.sroa.4.0, 1
   ret { ptr, ptr } %.fca.1.insert

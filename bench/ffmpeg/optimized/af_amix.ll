@@ -1378,8 +1378,8 @@ frame_list_remove_samples.exit:                   ; preds = %100, %.preheader.i,
   %.not94 = icmp eq i32 %134, 0
   %135 = load i32, ptr %117, align 4, !tbaa !98
   %. = select i1 %.not94, i32 1, i32 %135
-  %.162 = select i1 %.not94, i32 %135, i32 1
-  %136 = mul nsw i32 %.162, %.2
+  %.173 = select i1 %.not94, i32 %135, i32 1
+  %136 = mul nsw i32 %.173, %.2
   %137 = add nsw i32 %136, 15
   %138 = and i32 %137, -16
   %139 = load i32, ptr %118, align 4, !tbaa !110
@@ -1529,7 +1529,7 @@ define internal fastcc i32 @request_samples(ptr noundef readonly captures(none) 
   br i1 %20, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %9, %11, %15
-  %.01929 = phi i32 [ %19, %15 ], [ %1, %9 ], [ 1, %11 ]
+  %.01931 = phi i32 [ %19, %15 ], [ %1, %9 ], [ 1, %11 ]
   %21 = phi i32 [ %.pre, %15 ], [ %6, %9 ], [ %6, %11 ]
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 56
@@ -1550,7 +1550,7 @@ define internal fastcc i32 @request_samples(ptr noundef readonly captures(none) 
   %32 = getelementptr inbounds nuw ptr, ptr %31, i64 %indvars.iv
   %33 = load ptr, ptr %32, align 8, !tbaa !43
   %34 = tail call i32 @av_audio_fifo_size(ptr noundef %33) #9
-  %.not22 = icmp slt i32 %34, %.01929
+  %.not22 = icmp slt i32 %34, %.01931
   br i1 %.not22, label %35, label %._crit_edge26
 
 ._crit_edge26:                                    ; preds = %30

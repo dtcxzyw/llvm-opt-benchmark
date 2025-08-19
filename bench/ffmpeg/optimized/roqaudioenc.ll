@@ -94,9 +94,9 @@ define internal range(i32 -2147483648, 1) i32 @roq_dpcm_encode_frame(ptr noundef
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 4
   %22 = load i32, ptr %21, align 4, !tbaa !36
   %23 = icmp sgt i32 %22, 7
-  br i1 %23, label %169, label %.thread98
+  br i1 %23, label %169, label %.thread106
 
-.thread98:                                        ; preds = %17
+.thread106:                                       ; preds = %17
   %24 = getelementptr inbounds nuw i8, ptr %19, i64 4
   %25 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %26 = load ptr, ptr %25, align 8, !tbaa !31
@@ -106,9 +106,9 @@ define internal range(i32 -2147483648, 1) i32 @roq_dpcm_encode_frame(ptr noundef
   %27 = getelementptr inbounds nuw i8, ptr %15, i64 4
   %28 = load i32, ptr %27, align 4, !tbaa !36
   %29 = icmp slt i32 %28, 8
-  br i1 %29, label %31, label %.thread99
+  br i1 %29, label %31, label %.thread107
 
-.thread99:                                        ; preds = %.critedge
+.thread107:                                       ; preds = %.critedge
   %30 = getelementptr inbounds nuw i8, ptr %15, i64 4
   br i1 %16, label %63, label %73
 
@@ -163,12 +163,12 @@ define internal range(i32 -2147483648, 1) i32 @roq_dpcm_encode_frame(ptr noundef
 62:                                               ; preds = %56
   br i1 %16, label %63, label %73
 
-63:                                               ; preds = %.thread98, %.thread99, %59, %62
-  %.065101 = phi ptr [ %61, %59 ], [ %11, %62 ], [ %11, %.thread99 ], [ %26, %.thread98 ]
-  %64 = phi i32 [ 7, %59 ], [ %47, %62 ], [ %28, %.thread99 ], [ %22, %.thread98 ]
-  %65 = phi ptr [ %15, %59 ], [ %15, %62 ], [ %15, %.thread99 ], [ %19, %.thread98 ]
-  %66 = phi i32 [ %13, %59 ], [ %13, %62 ], [ 2, %.thread99 ], [ %20, %.thread98 ]
-  %67 = phi ptr [ %57, %59 ], [ %57, %62 ], [ %30, %.thread99 ], [ %24, %.thread98 ]
+63:                                               ; preds = %.thread106, %.thread107, %59, %62
+  %.065109 = phi ptr [ %61, %59 ], [ %11, %62 ], [ %11, %.thread107 ], [ %26, %.thread106 ]
+  %64 = phi i32 [ 7, %59 ], [ %47, %62 ], [ %28, %.thread107 ], [ %22, %.thread106 ]
+  %65 = phi ptr [ %15, %59 ], [ %15, %62 ], [ %15, %.thread107 ], [ %19, %.thread106 ]
+  %66 = phi i32 [ %13, %59 ], [ %13, %62 ], [ 2, %.thread107 ], [ %20, %.thread106 ]
+  %67 = phi ptr [ %57, %59 ], [ %57, %62 ], [ %30, %.thread107 ], [ %24, %.thread106 ]
   %68 = load i16, ptr %65, align 8, !tbaa !33
   %69 = and i16 %68, -256
   store i16 %69, ptr %65, align 8, !tbaa !33
@@ -178,13 +178,13 @@ define internal range(i32 -2147483648, 1) i32 @roq_dpcm_encode_frame(ptr noundef
   store i16 %72, ptr %70, align 2, !tbaa !33
   br label %73
 
-73:                                               ; preds = %.thread98, %.thread99, %59, %63, %62
-  %.065100 = phi ptr [ %61, %59 ], [ %.065101, %63 ], [ %11, %62 ], [ %11, %.thread99 ], [ %26, %.thread98 ]
-  %74 = phi i32 [ 7, %59 ], [ %64, %63 ], [ %47, %62 ], [ %28, %.thread99 ], [ %22, %.thread98 ]
-  %75 = phi i1 [ false, %59 ], [ true, %63 ], [ false, %62 ], [ false, %.thread99 ], [ false, %.thread98 ]
-  %76 = phi ptr [ %15, %59 ], [ %65, %63 ], [ %15, %62 ], [ %15, %.thread99 ], [ %19, %.thread98 ]
-  %77 = phi i32 [ %13, %59 ], [ %66, %63 ], [ %13, %62 ], [ %13, %.thread99 ], [ %20, %.thread98 ]
-  %78 = phi ptr [ %57, %59 ], [ %67, %63 ], [ %57, %62 ], [ %30, %.thread99 ], [ %24, %.thread98 ]
+73:                                               ; preds = %.thread106, %.thread107, %59, %63, %62
+  %.065108 = phi ptr [ %61, %59 ], [ %.065109, %63 ], [ %11, %62 ], [ %11, %.thread107 ], [ %26, %.thread106 ]
+  %74 = phi i32 [ 7, %59 ], [ %64, %63 ], [ %47, %62 ], [ %28, %.thread107 ], [ %22, %.thread106 ]
+  %75 = phi i1 [ false, %59 ], [ true, %63 ], [ false, %62 ], [ false, %.thread107 ], [ false, %.thread106 ]
+  %76 = phi ptr [ %15, %59 ], [ %65, %63 ], [ %15, %62 ], [ %15, %.thread107 ], [ %19, %.thread106 ]
+  %77 = phi i32 [ %13, %59 ], [ %66, %63 ], [ %13, %62 ], [ %13, %.thread107 ], [ %20, %.thread106 ]
+  %78 = phi ptr [ %57, %59 ], [ %67, %63 ], [ %57, %62 ], [ %30, %.thread107 ], [ %24, %.thread106 ]
   %79 = icmp eq i32 %74, 7
   %80 = getelementptr inbounds nuw i8, ptr %76, i64 8
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 376
@@ -237,7 +237,7 @@ define internal range(i32 -2147483648, 1) i32 @roq_dpcm_encode_frame(ptr noundef
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %dpcm_predict.exit
   %.06494 = phi i32 [ %159, %dpcm_predict.exit ], [ 0, %.lr.ph.preheader ]
-  %.193 = phi ptr [ %110, %dpcm_predict.exit ], [ %.065100, %.lr.ph.preheader ]
+  %.193 = phi ptr [ %110, %dpcm_predict.exit ], [ %.065108, %.lr.ph.preheader ]
   %.18792 = phi ptr [ %158, %dpcm_predict.exit ], [ %.086, %.lr.ph.preheader ]
   %106 = and i32 %.06494, 1
   %107 = zext nneg i32 %106 to i64
@@ -332,7 +332,7 @@ dpcm_predict.exit:                                ; preds = %.split.i, %.split.u
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !48
 
 ._crit_edge:                                      ; preds = %dpcm_predict.exit, %104
-  %.1.lcssa = phi ptr [ %.065100, %104 ], [ %110, %dpcm_predict.exit ]
+  %.1.lcssa = phi ptr [ %.065108, %104 ], [ %110, %dpcm_predict.exit ]
   %160 = load i32, ptr %78, align 4, !tbaa !36
   %161 = icmp slt i32 %160, 8
   %162 = getelementptr inbounds nuw i8, ptr %76, i64 24

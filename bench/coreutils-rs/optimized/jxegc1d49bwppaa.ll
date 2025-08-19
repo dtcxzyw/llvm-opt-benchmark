@@ -903,9 +903,9 @@ _ZN9hashbrown3raw13RawTableInner15rehash_in_place17h782a8b650e027c37E.exit.threa
 
 ._crit_edge.i.i10:                                ; preds = %172
   %spec.select.i = tail call i64 @llvm.umax.i64(i64 %23, i64 16)
-  %spec.select28.i = tail call i64 @llvm.umin.i64(i64 %23, i64 16)
+  %spec.select32.i = tail call i64 @llvm.umin.i64(i64 %23, i64 16)
   %158 = getelementptr inbounds i8, ptr %.val16.i, i64 %spec.select.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %158, ptr nonnull align 1 %.val16.i, i64 %spec.select28.i, i1 false), !noalias !132
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %158, ptr nonnull align 1 %.val16.i, i64 %spec.select32.i, i1 false), !noalias !132
   call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !132
   %159 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr @"_ZN4core3ptr106drop_in_place$LT$$LP$$LP$uucore..features..fs..FileInformation$C$std..path..PathBuf$RP$$C$$LP$$RP$$RP$$GT$17h377974a996a6d18cE.llvm.12042661208332269800", ptr %159, align 8, !noalias !132

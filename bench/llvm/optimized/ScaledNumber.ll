@@ -199,8 +199,8 @@ define dso_local { i64, i16 } @_ZN4llvm13ScaledNumbers8divide64Emm(i64 noundef %
   %14 = shl i64 %0, %11
   %15 = udiv i64 %14, %6
   %16 = urem i64 %14, %6
-  %.not55 = icmp eq i64 %16, 0
-  br i1 %.not55, label %._crit_edge, label %.lr.ph
+  %.not57 = icmp eq i64 %16, 0
+  br i1 %.not57, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %10, %.lr.ph
   %.02352 = phi i64 [ %.1, %.lr.ph ], [ %15, %10 ]
@@ -223,7 +223,7 @@ define dso_local { i64, i16 } @_ZN4llvm13ScaledNumbers8divide64Emm(i64 noundef %
 
 ._crit_edge:                                      ; preds = %.lr.ph, %10
   %.248.lcssa = phi i32 [ %13, %10 ], [ %18, %.lr.ph ]
-  %.145.lcssa = phi i64 [ %16, %10 ], [ %.2, %.lr.ph ]
+  %.145.lcssa = phi i64 [ 0, %10 ], [ %.2, %.lr.ph ]
   %.023.lcssa = phi i64 [ %15, %10 ], [ %.1, %.lr.ph ]
   %24 = trunc i32 %.248.lcssa to i16
   %25 = lshr i64 %6, 1
@@ -345,7 +345,7 @@ define dso_local void @_ZN4llvm16ScaledNumberBase8toStringB5cxx11Emsij(ptr dead_
 
 45:                                               ; preds = %36
   %46 = icmp eq i16 %2, -64
-  br i1 %46, label %.thread176.thread, label %47
+  br i1 %46, label %.thread194.thread, label %47
 
 47:                                               ; preds = %45
   %48 = icmp samesign ugt i16 %2, -120
@@ -361,7 +361,7 @@ define dso_local void @_ZN4llvm16ScaledNumberBase8toStringB5cxx11Emsij(ptr dead_
   %56 = lshr i64 %55, 8
   br label %60
 
-.thread176.thread:                                ; preds = %45
+.thread194.thread:                                ; preds = %45
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %57 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store ptr %57, ptr %14, align 8, !tbaa !5
@@ -531,7 +531,7 @@ _ZL15toStringAPFloatB5cxx11mij.exit:              ; preds = %112, %113
   %116 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store i64 0, ptr %116, align 8, !tbaa !11
   store i8 0, ptr %115, align 8, !tbaa !14
-  br i1 %61, label %117, label %.thread176
+  br i1 %61, label %117, label %.thread194
 
 117:                                              ; preds = %.thread.thread, %114
   %118 = phi ptr [ %116, %114 ], [ %26, %.thread.thread ]
@@ -582,14 +582,14 @@ _ZL11appendDigitRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEj.exit.i: ;
   %.not.i = icmp ult i64 %.03.i, 10
   br i1 %.not.i, label %143, label %121, !llvm.loop !27
 
-.thread176:                                       ; preds = %114
+.thread194:                                       ; preds = %114
   store i8 48, ptr %115, align 8, !tbaa !14
   store i64 1, ptr %116, align 8, !tbaa !11
   %140 = getelementptr inbounds nuw i8, ptr %14, i64 17
   store i8 0, ptr %140, align 1, !tbaa !14
   br i1 %62, label %178, label %._crit_edge.i.i.i101.thread
 
-._crit_edge.i.i.i101.thread:                      ; preds = %.thread176
+._crit_edge.i.i.i101.thread:                      ; preds = %.thread194
   call void @llvm.experimental.noalias.scope.decl(metadata !28)
   %141 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %141, ptr %0, align 8, !tbaa !5, !alias.scope !28
@@ -685,13 +685,13 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
   %177 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.1, i64 noundef 2) #16
   br label %333
 
-178:                                              ; preds = %.thread176.thread, %.thread176, %_ZSt7reverseIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvT_SA_.exit
-  %179 = phi ptr [ %116, %.thread176 ], [ %118, %_ZSt7reverseIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvT_SA_.exit ], [ %58, %.thread176.thread ]
-  %180 = phi ptr [ %115, %.thread176 ], [ %119, %_ZSt7reverseIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvT_SA_.exit ], [ %57, %.thread176.thread ]
-  %.074147158181188 = phi i32 [ %.074, %.thread176 ], [ %.074147160, %_ZSt7reverseIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvT_SA_.exit ], [ 0, %.thread176.thread ]
-  %.072148155182187 = phi i64 [ %.072, %.thread176 ], [ %.072148157, %_ZSt7reverseIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvT_SA_.exit ], [ 0, %.thread176.thread ]
-  %.067149152183186 = phi i64 [ %.067, %.thread176 ], [ %.067149154, %_ZSt7reverseIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvT_SA_.exit ], [ %1, %.thread176.thread ]
-  %.076184185 = phi i64 [ 0, %.thread176 ], [ %144, %_ZSt7reverseIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvT_SA_.exit ], [ 0, %.thread176.thread ]
+178:                                              ; preds = %.thread194.thread, %.thread194, %_ZSt7reverseIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvT_SA_.exit
+  %179 = phi ptr [ %116, %.thread194 ], [ %118, %_ZSt7reverseIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvT_SA_.exit ], [ %58, %.thread194.thread ]
+  %180 = phi ptr [ %115, %.thread194 ], [ %119, %_ZSt7reverseIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvT_SA_.exit ], [ %57, %.thread194.thread ]
+  %.074147158199206 = phi i32 [ %.074, %.thread194 ], [ %.074147160, %_ZSt7reverseIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvT_SA_.exit ], [ 0, %.thread194.thread ]
+  %.072148155200205 = phi i64 [ %.072, %.thread194 ], [ %.072148157, %_ZSt7reverseIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvT_SA_.exit ], [ 0, %.thread194.thread ]
+  %.067149152201204 = phi i64 [ %.067, %.thread194 ], [ %.067149154, %_ZSt7reverseIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvT_SA_.exit ], [ %1, %.thread194.thread ]
+  %.076202203 = phi i64 [ 0, %.thread194 ], [ %144, %_ZSt7reverseIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvT_SA_.exit ], [ 0, %.thread194.thread ]
   %181 = load i64, ptr %179, align 8, !tbaa !11
   %182 = add i64 %181, 1
   %183 = load ptr, ptr %14, align 8, !tbaa !26
@@ -725,18 +725,18 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit: ; preds = %_ZNKS
   %195 = sub nsw i32 64, %3
   %196 = zext nneg i32 %195 to i64
   %197 = shl nuw i64 1, %196
-  %198 = shl i64 %.067149152183186, 56
+  %198 = shl i64 %.067149152201204, 56
   %199 = and i64 %198, 1080863910568919040
-  %200 = or disjoint i64 %199, %.072148155182187
-  %201 = lshr i64 %.067149152183186, 4
+  %200 = or disjoint i64 %199, %.072148155200205
+  %201 = lshr i64 %.067149152201204, 4
   %202 = load i64, ptr %179, align 8, !tbaa !11
   %.not94 = icmp eq i32 %4, 0
   %203 = zext i32 %4 to i64
   br label %.critedge3
 
 .critedge3:                                       ; preds = %241, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit
-  %.177 = phi i64 [ %.076184185, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit ], [ %.278, %241 ]
-  %.175 = phi i32 [ %.074147158181188, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit ], [ %.2, %241 ]
+  %.177 = phi i64 [ %.076202203, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit ], [ %.278, %241 ]
+  %.175 = phi i32 [ %.074147158199206, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit ], [ %.2, %241 ]
   %.173 = phi i64 [ %200, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit ], [ %209, %241 ]
   %.070 = phi i64 [ %197, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit ], [ %204, %241 ]
   %.069 = phi i64 [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit ], [ %237, %241 ]
@@ -821,8 +821,8 @@ _ZL11appendDigitRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEj.exit104: 
 
 .critedge:                                        ; preds = %238, %236
   %.not97 = icmp ule i64 %.278, %203
-  %or.cond203.not = select i1 %.not94, i1 true, i1 %.not97
-  br i1 %or.cond203.not, label %243, label %.critedge.thread
+  %or.cond221.not = select i1 %.not94, i1 true, i1 %.not97
+  br i1 %or.cond221.not, label %243, label %.critedge.thread
 
 243:                                              ; preds = %.critedge
   call void @llvm.experimental.noalias.scope.decl(metadata !35)

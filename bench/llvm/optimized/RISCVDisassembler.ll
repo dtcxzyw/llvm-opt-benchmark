@@ -14592,10 +14592,10 @@ _ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit.sink.split: ; preds = %.critedge
   br label %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit
 
 _ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit:  ; preds = %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit.sink.split, %.critedge, %89
-  %.sink73 = phi i32 [ %87, %89 ], [ %87, %.critedge ], [ %.pre.i.i54, %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit.sink.split ]
+  %.sink82 = phi i32 [ %87, %89 ], [ %87, %.critedge ], [ %.pre.i.i54, %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit.sink.split ]
   %.sink = phi i64 [ 4, %89 ], [ 3, %.critedge ], [ %.sink.ph, %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit.sink.split ]
   %95 = load ptr, ptr %73, align 8, !tbaa !54
-  %96 = zext i32 %.sink73 to i64
+  %96 = zext i32 %.sink82 to i64
   %97 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %95, i64 %96
   store i8 2, ptr %97, align 1
   %.sroa.22.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %97, i64 8

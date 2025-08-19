@@ -1296,8 +1296,8 @@ define internal i32 @dissect_ipxrip(ptr noundef %0, ptr noundef readonly capture
   br i1 %.not5.i41, label %proto_item_set_hidden.exit, label %proto_item_set_hidden.exit.sink.split
 
 proto_item_set_hidden.exit.sink.split:            ; preds = %28, %22
-  %.sink48 = phi ptr [ %24, %22 ], [ %30, %28 ]
-  %31 = getelementptr inbounds nuw i8, ptr %.sink48, i64 28
+  %.sink53 = phi ptr [ %24, %22 ], [ %30, %28 ]
+  %31 = getelementptr inbounds nuw i8, ptr %.sink53, i64 28
   %32 = load i32, ptr %31, align 4
   %33 = or i32 %32, 1
   store i32 %33, ptr %31, align 4
@@ -1469,8 +1469,8 @@ define internal i32 @dissect_ipxsap(ptr noundef %0, ptr noundef readonly capture
   br i1 %.not5.i55, label %proto_item_set_hidden.exit, label %proto_item_set_hidden.exit.sink.split
 
 proto_item_set_hidden.exit.sink.split:            ; preds = %30, %24
-  %.sink60 = phi ptr [ %26, %24 ], [ %32, %30 ]
-  %33 = getelementptr inbounds nuw i8, ptr %.sink60, i64 28
+  %.sink65 = phi ptr [ %26, %24 ], [ %32, %30 ]
+  %33 = getelementptr inbounds nuw i8, ptr %.sink65, i64 28
   %34 = load i32, ptr %33, align 4
   %35 = or i32 %34, 1
   store i32 %35, ptr %33, align 4

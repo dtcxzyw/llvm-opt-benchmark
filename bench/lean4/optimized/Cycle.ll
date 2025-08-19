@@ -3276,18 +3276,18 @@ _init_l_Lake_guardCycle___rarg___lambda__1___closed__1.exit: ; preds = %_init_l_
   unreachable
 
 .sink.split:                                      ; preds = %_init_l_Lake_guardCycle___rarg___lambda__1___closed__1.exit, %3
-  %.sink25 = phi ptr [ %4, %3 ], [ %54, %_init_l_Lake_guardCycle___rarg___lambda__1___closed__1.exit ]
-  %57 = getelementptr inbounds nuw i8, ptr %.sink25, i64 4
-  store i32 1, ptr %.sink25, align 4, !tbaa !4
+  %.sink34 = phi ptr [ %4, %3 ], [ %54, %_init_l_Lake_guardCycle___rarg___lambda__1___closed__1.exit ]
+  %57 = getelementptr inbounds nuw i8, ptr %.sink34, i64 4
+  store i32 1, ptr %.sink34, align 4, !tbaa !4
   store i32 131096, ptr %57, align 4
-  %58 = getelementptr inbounds nuw i8, ptr %.sink25, i64 8
+  %58 = getelementptr inbounds nuw i8, ptr %.sink34, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %58, align 8, !tbaa !10
-  %59 = getelementptr inbounds nuw i8, ptr %.sink25, i64 16
+  %59 = getelementptr inbounds nuw i8, ptr %.sink34, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %59, align 8, !tbaa !10
   br label %60
 
 60:                                               ; preds = %.sink.split, %lean_dec_ref.exit14, %lean_dec_ref.exit16, %7
-  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit16 ], [ %28, %lean_dec_ref.exit14 ], [ %.sink25, %.sink.split ]
+  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit16 ], [ %28, %lean_dec_ref.exit14 ], [ %.sink34, %.sink.split ]
   ret ptr %.0
 }
 

@@ -1346,15 +1346,15 @@ Abc_Clock.exit:                                   ; preds = %3, %8
   br i1 %186, label %._crit_edge290.thread, label %189
 
 ._crit_edge290.thread:                            ; preds = %184, %._crit_edge290
-  %.0193.lcssa382 = phi i32 [ %.0193.lcssa, %._crit_edge290 ], [ %176, %184 ]
+  %.0193.lcssa391 = phi i32 [ %.0193.lcssa, %._crit_edge290 ], [ %176, %184 ]
   %187 = load i32, ptr %73, align 8, !tbaa !51
   %188 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, i32 noundef %187, i32 noundef %83)
   br label %189
 
 189:                                              ; preds = %._crit_edge290.thread, %._crit_edge290
-  %.0193.lcssa381 = phi i32 [ %.0193.lcssa382, %._crit_edge290.thread ], [ %.0193.lcssa, %._crit_edge290 ]
+  %.0193.lcssa390 = phi i32 [ %.0193.lcssa391, %._crit_edge290.thread ], [ %.0193.lcssa, %._crit_edge290 ]
   %190 = load ptr, ptr %75, align 8, !tbaa !18
-  %191 = zext i32 %.0193.lcssa381 to i64
+  %191 = zext i32 %.0193.lcssa390 to i64
   %192 = getelementptr inbounds nuw i32, ptr %190, i64 %191
   %193 = load i32, ptr %192, align 4, !tbaa !26
   %194 = getelementptr inbounds nuw i8, ptr %91, i64 32
@@ -1372,7 +1372,7 @@ Abc_Clock.exit:                                   ; preds = %3, %8
   %201 = load i32, ptr %76, align 8, !tbaa !68
   %202 = add nsw i32 %201, -1
   store i32 %202, ptr %76, align 8, !tbaa !68
-  %203 = icmp slt i32 %.0193.lcssa381, %202
+  %203 = icmp slt i32 %.0193.lcssa390, %202
   br i1 %203, label %.lr.ph298, label %.preheader268
 
 .lr.ph298:                                        ; preds = %200

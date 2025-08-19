@@ -153,7 +153,7 @@ define void @_ZN10CmdExtractC2EP11CommandData(ptr noundef nonnull align 8 derefe
   br i1 %27, label %_ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE11_M_is_localEv.exit.i.i
 
 _ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE11_M_is_localEv.exit.thread.i.i: ; preds = %.thread, %25
-  %.pn9 = phi { ptr, i32 } [ %24, %.thread ], [ %26, %25 ]
+  %.pn10 = phi { ptr, i32 } [ %24, %.thread ], [ %26, %25 ]
   %28 = load i64, ptr %8, align 8, !tbaa !12
   %29 = icmp ult i64 %28, 4
   tail call void @llvm.assume(i1 %29)
@@ -164,12 +164,12 @@ _ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE11_M_is_localEv.exit.i.i: 
   br label %_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE11_M_is_localEv.exit.i.i
-  %.pn8 = phi { ptr, i32 } [ %.pn9, %_ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE11_M_is_localEv.exit.thread.i.i ], [ %26, %_ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE11_M_is_localEv.exit.i.i ]
+  %.pn9 = phi { ptr, i32 } [ %.pn10, %_ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE11_M_is_localEv.exit.thread.i.i ], [ %26, %_ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE11_M_is_localEv.exit.i.i ]
   tail call void @_ZN11ComprDataIOD1Ev(ptr noundef nonnull align 8 dereferenceable(266) %4) #24
   br label %30
 
 30:                                               ; preds = %_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEED2Ev.exit, %22
-  %.pn.pn = phi { ptr, i32 } [ %.pn8, %_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEED2Ev.exit ], [ %23, %22 ]
+  %.pn.pn = phi { ptr, i32 } [ %.pn9, %_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEED2Ev.exit ], [ %23, %22 ]
   %31 = load ptr, ptr %0, align 8, !tbaa !41
   %.not.i = icmp eq ptr %31, null
   br i1 %.not.i, label %_ZN5ArrayIN10CmdExtract10ExtractRefEED2Ev.exit, label %32
@@ -596,7 +596,7 @@ define noundef range(i32 0, 2) i32 @_ZN10CmdExtract14ExtractArchiveEv(ptr nounde
           to label %19 unwind label %14
 
 19:                                               ; preds = %16
-  br i1 %18, label %20, label %.loopexit52
+  br i1 %18, label %20, label %.loopexit53
 
 20:                                               ; preds = %19, %11
   %21 = invoke noundef zeroext i1 @_ZN7Archive9IsArchiveEb(ptr noundef nonnull align 8 dereferenceable(57108) %2, i1 noundef zeroext true)
@@ -611,17 +611,17 @@ define noundef range(i32 0, 2) i32 @_ZN10CmdExtract14ExtractArchiveEv(ptr nounde
           to label %26 unwind label %14
 
 26:                                               ; preds = %23
-  br i1 %25, label %27, label %.loopexit52
+  br i1 %25, label %27, label %.loopexit53
 
 27:                                               ; preds = %26
   invoke void @_ZN12ErrorHandler12SetErrorCodeE8RAR_EXIT(ptr noundef nonnull align 4 dereferenceable(14) @ErrHandler, i32 noundef 1)
-          to label %.loopexit52 unwind label %14
+          to label %.loopexit53 unwind label %14
 
 28:                                               ; preds = %22
   %29 = getelementptr inbounds nuw i8, ptr %2, i64 48865
   %30 = load i8, ptr %29, align 1, !tbaa !115, !range !67, !noundef !68
   %31 = trunc nuw i8 %30 to i1
-  br i1 %31, label %.loopexit52, label %32
+  br i1 %31, label %.loopexit53, label %32
 
 32:                                               ; preds = %28
   %33 = getelementptr inbounds nuw i8, ptr %2, i64 48845
@@ -683,7 +683,7 @@ define noundef range(i32 0, 2) i32 @_ZN10CmdExtract14ExtractArchiveEv(ptr nounde
 
 61:                                               ; preds = %58
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %.loopexit52
+  br label %.loopexit53
 
 62:                                               ; preds = %.critedge, %32
   invoke void @_ZN7Archive11ViewCommentEv(ptr noundef nonnull align 8 dereferenceable(57108) %2)
@@ -742,7 +742,7 @@ define noundef range(i32 0, 2) i32 @_ZN10CmdExtract14ExtractArchiveEv(ptr nounde
   %92 = load ptr, ptr %86, align 8, !tbaa !36
   store i32 0, ptr %92, align 8, !tbaa !14
   store i8 1, ptr %39, align 1, !tbaa !70
-  br label %.loopexit52
+  br label %.loopexit53
 
 93:                                               ; preds = %85
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -890,7 +890,7 @@ define noundef range(i32 0, 2) i32 @_ZN10CmdExtract14ExtractArchiveEv(ptr nounde
   %152 = getelementptr inbounds nuw i8, ptr %151, i64 8192
   %153 = load i64, ptr %152, align 8, !tbaa !132
   %.not32 = icmp eq i64 %153, 0
-  br i1 %.not32, label %.preheader55, label %154
+  br i1 %.not32, label %.preheader56, label %154
 
 154:                                              ; preds = %149
   invoke void @_ZN7Archive4SeekEli(ptr noundef nonnull align 8 dereferenceable(57108) %2, i64 noundef %153, i32 noundef 0)
@@ -900,12 +900,12 @@ define noundef range(i32 0, 2) i32 @_ZN10CmdExtract14ExtractArchiveEv(ptr nounde
   %156 = load ptr, ptr %150, align 8, !tbaa !36
   %157 = getelementptr inbounds nuw i8, ptr %156, i64 8192
   store i64 0, ptr %157, align 8, !tbaa !132
-  br label %.preheader55
+  br label %.preheader56
 
-.preheader55:                                     ; preds = %155, %149
+.preheader56:                                     ; preds = %155, %149
   br label %158
 
-158:                                              ; preds = %.preheader55, %162
+158:                                              ; preds = %.preheader56, %162
   %159 = invoke noundef i64 @_ZN7Archive10ReadHeaderEv(ptr noundef nonnull align 8 dereferenceable(57108) %2)
           to label %160 unwind label %163
 
@@ -914,7 +914,7 @@ define noundef range(i32 0, 2) i32 @_ZN10CmdExtract14ExtractArchiveEv(ptr nounde
           to label %162 unwind label %165
 
 162:                                              ; preds = %160
-  br i1 %161, label %158, label %.loopexit52
+  br i1 %161, label %158, label %.loopexit53
 
 163:                                              ; preds = %158
   %164 = landingpad { ptr, i32 }
@@ -926,7 +926,7 @@ define noundef range(i32 0, 2) i32 @_ZN10CmdExtract14ExtractArchiveEv(ptr nounde
           cleanup
   br label %167
 
-.loopexit52:                                      ; preds = %162, %91, %61, %28, %26, %27, %19
+.loopexit53:                                      ; preds = %162, %91, %61, %28, %26, %27, %19
   %.0 = phi i32 [ 0, %61 ], [ 0, %19 ], [ 0, %27 ], [ 0, %26 ], [ 0, %28 ], [ 1, %91 ], [ 0, %162 ]
   call void @_ZN7ArchiveD1Ev(ptr noundef nonnull align 8 dereferenceable(57108) %2) #24
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
@@ -1756,9 +1756,9 @@ define noundef zeroext i1 @_ZN10CmdExtract18ExtractCurrentFileER7ArchivemRb(ptr 
   store ptr @.str, ptr %194, align 8, !tbaa !77
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 8
-  br i1 %exitcond.not.i.i, label %.thread517, label %193, !llvm.loop !78
+  br i1 %exitcond.not.i.i, label %.thread523, label %193, !llvm.loop !78
 
-.thread517:                                       ; preds = %193
+.thread523:                                       ; preds = %193
   %195 = getelementptr inbounds nuw i8, ptr %1, i64 52
   %196 = getelementptr inbounds nuw i8, ptr %13, i64 64
   %197 = getelementptr inbounds nuw i8, ptr %13, i64 104
@@ -1784,7 +1784,7 @@ define noundef zeroext i1 @_ZN10CmdExtract18ExtractCurrentFileER7ArchivemRb(ptr 
   %203 = trunc nuw i8 %.3277 to i1
   br i1 %203, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %.thread517, %202
+.preheader:                                       ; preds = %.thread523, %202
   %204 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %205 = load i64, ptr %204, align 8, !tbaa !42
   %.not509 = icmp eq i64 %205, 0
@@ -1831,7 +1831,7 @@ define noundef zeroext i1 @_ZN10CmdExtract18ExtractCurrentFileER7ArchivemRb(ptr 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %207, %.preheader, %219, %214, %202
-  %.3277520 = phi i8 [ 1, %202 ], [ 0, %214 ], [ 0, %219 ], [ 0, %.preheader ], [ 0, %207 ]
+  %.3277526 = phi i8 [ 1, %202 ], [ 0, %214 ], [ 0, %219 ], [ 0, %.preheader ], [ 0, %207 ]
   %.0295 = phi i1 [ false, %202 ], [ true, %214 ], [ true, %219 ], [ false, %.preheader ], [ false, %207 ]
   %228 = getelementptr inbounds nuw i8, ptr %1, i64 22331
   %229 = load i8, ptr %228, align 1, !tbaa !164, !range !67, !noundef !68
@@ -1852,7 +1852,7 @@ define noundef zeroext i1 @_ZN10CmdExtract18ExtractCurrentFileER7ArchivemRb(ptr 
   br i1 %239, label %805, label %240
 
 240:                                              ; preds = %236, %231, %.loopexit
-  %.4278 = phi i8 [ %.3277520, %231 ], [ %.3277520, %.loopexit ], [ 0, %236 ]
+  %.4278 = phi i8 [ %.3277526, %231 ], [ %.3277526, %.loopexit ], [ 0, %236 ]
   %241 = trunc nuw i8 %.4278 to i1
   %or.cond8 = or i1 %.0295, %241
   br i1 %or.cond8, label %246, label %242
@@ -3112,24 +3112,24 @@ _ZN10uiMsgStoreC2E14UIMESSAGE_CODE.exit.i454:     ; preds = %777
 .thread486.thread:                                ; preds = %242
   %795 = load i8, ptr %173, align 2, !tbaa !160, !range !67, !noundef !68
   %796 = trunc nuw i8 %795 to i1
-  br i1 %796, label %805, label %.thread525
+  br i1 %796, label %805, label %.thread531
 
 797:                                              ; preds = %.thread486
-  br i1 %.8.ph, label %804, label %.thread525
+  br i1 %.8.ph, label %804, label %.thread531
 
-.thread525:                                       ; preds = %.thread486.thread, %797
-  %.1292489524528 = phi i8 [ %.2293.ph, %797 ], [ 0, %.thread486.thread ]
+.thread531:                                       ; preds = %.thread486.thread, %797
+  %.1292489530534 = phi i8 [ %.2293.ph, %797 ], [ 0, %.thread486.thread ]
   %798 = getelementptr inbounds nuw i8, ptr %1, i64 48844
   %799 = load i8, ptr %798, align 4, !tbaa !166, !range !67, !noundef !68
   %800 = trunc nuw i8 %799 to i1
   br i1 %800, label %802, label %801
 
-801:                                              ; preds = %.thread525
+801:                                              ; preds = %.thread531
   call void @_ZN7Archive10SeekToNextEv(ptr noundef nonnull align 8 dereferenceable(57108) %1)
   br label %804
 
-802:                                              ; preds = %.thread525
-  %803 = trunc nuw i8 %.1292489524528 to i1
+802:                                              ; preds = %.thread531
+  %803 = trunc nuw i8 %.1292489530534 to i1
   br i1 %803, label %804, label %805
 
 804:                                              ; preds = %801, %802, %797
@@ -3506,7 +3506,7 @@ define noundef zeroext i1 @_ZN10CmdExtract18ExtrDllGetPasswordEv(ptr noundef non
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 83440
   %11 = load ptr, ptr %10, align 8, !tbaa !223
   %.not = icmp eq ptr %11, null
-  br i1 %.not, label %.thread2, label %12
+  br i1 %.not, label %.thread3, label %12
 
 12:                                               ; preds = %9
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
@@ -3562,12 +3562,12 @@ define noundef zeroext i1 @_ZN10CmdExtract18ExtrDllGetPasswordEv(ptr noundef non
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %35, i64 100872
   %.pre = load i8, ptr %.phi.trans.insert, align 8, !tbaa !119, !range !67
   %37 = trunc nuw i8 %.pre to i1
-  br i1 %37, label %38, label %.thread2
+  br i1 %37, label %38, label %.thread3
 
 38:                                               ; preds = %32, %1
-  br label %.thread2
+  br label %.thread3
 
-.thread2:                                         ; preds = %9, %32, %38
+.thread3:                                         ; preds = %9, %32, %38
   %.0 = phi i1 [ true, %38 ], [ false, %32 ], [ false, %9 ]
   ret i1 %.0
 }
@@ -4209,8 +4209,8 @@ define noundef zeroext i1 @_ZN10CmdExtract15ExtractFileCopyER4FilePwPKwS2_S2_ml(
   br i1 %59, label %82, label %.loopexit.thread
 
 .loopexit.thread:                                 ; preds = %60, %.preheader, %.loopexit
-  %.085123 = phi ptr [ %26, %.loopexit ], [ %5, %.preheader ], [ %5, %60 ]
-  invoke void @_ZN12ErrorHandler12OpenErrorMsgEPKw(ptr noundef nonnull align 4 dereferenceable(14) @ErrHandler, ptr noundef %.085123)
+  %.085126 = phi ptr [ %26, %.loopexit ], [ %5, %.preheader ], [ %5, %60 ]
+  invoke void @_ZN12ErrorHandler12OpenErrorMsgEPKw(ptr noundef nonnull align 4 dereferenceable(14) @ErrHandler, ptr noundef %.085126)
           to label %62 unwind label %80
 
 62:                                               ; preds = %.loopexit.thread
@@ -4233,7 +4233,7 @@ _ZN10uiMsgStoreC2E14UIMESSAGE_CODE.exit.i:        ; preds = %63
   %67 = getelementptr inbounds nuw i8, ptr %10, i64 96
   store ptr %2, ptr %10, align 8, !tbaa !77
   %68 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store ptr %.085123, ptr %68, align 8, !tbaa !77
+  store ptr %.085126, ptr %68, align 8, !tbaa !77
   store i32 3, ptr %67, align 8, !tbaa !82
   %69 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store ptr %4, ptr %69, align 8, !tbaa !77

@@ -181,8 +181,8 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__20UsdStageCacheContext18_GetRe
 
 11:                                               ; preds = %1
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.not34 = icmp eq ptr %4, %5
-  br i1 %.not34, label %_ZNSt6vectorIPKN32pxrInternal_v0_24__pxrReserved__13UsdStageCacheESaIS3_EE7reserveEm.exit, label %_ZNSt12_Vector_baseIPKN32pxrInternal_v0_24__pxrReserved__13UsdStageCacheESaIS3_EE11_M_allocateEm.exit.i
+  %.not42 = icmp eq ptr %4, %5
+  br i1 %.not42, label %_ZNSt6vectorIPKN32pxrInternal_v0_24__pxrReserved__13UsdStageCacheESaIS3_EE7reserveEm.exit, label %_ZNSt12_Vector_baseIPKN32pxrInternal_v0_24__pxrReserved__13UsdStageCacheESaIS3_EE11_M_allocateEm.exit.i
 
 _ZNSt12_Vector_baseIPKN32pxrInternal_v0_24__pxrReserved__13UsdStageCacheESaIS3_EE11_M_allocateEm.exit.i: ; preds = %11
   %13 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %8) #22
@@ -362,8 +362,8 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__20UsdStageCacheContext18_GetRe
 
 11:                                               ; preds = %1
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.not35 = icmp eq ptr %4, %5
-  br i1 %.not35, label %_ZNSt6vectorIPKN32pxrInternal_v0_24__pxrReserved__13UsdStageCacheESaIS3_EE7reserveEm.exit, label %_ZNSt12_Vector_baseIPKN32pxrInternal_v0_24__pxrReserved__13UsdStageCacheESaIS3_EE11_M_allocateEm.exit.i
+  %.not43 = icmp eq ptr %4, %5
+  br i1 %.not43, label %_ZNSt6vectorIPKN32pxrInternal_v0_24__pxrReserved__13UsdStageCacheESaIS3_EE7reserveEm.exit, label %_ZNSt12_Vector_baseIPKN32pxrInternal_v0_24__pxrReserved__13UsdStageCacheESaIS3_EE11_M_allocateEm.exit.i
 
 _ZNSt12_Vector_baseIPKN32pxrInternal_v0_24__pxrReserved__13UsdStageCacheESaIS3_EE11_M_allocateEm.exit.i: ; preds = %11
   %13 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %8) #22
@@ -535,8 +535,8 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__20UsdStageCacheContext18_GetWr
 
 11:                                               ; preds = %1
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.not34 = icmp eq ptr %4, %5
-  br i1 %.not34, label %_ZNSt6vectorIPN32pxrInternal_v0_24__pxrReserved__13UsdStageCacheESaIS2_EE7reserveEm.exit, label %_ZNSt12_Vector_baseIPN32pxrInternal_v0_24__pxrReserved__13UsdStageCacheESaIS2_EE11_M_allocateEm.exit.i
+  %.not42 = icmp eq ptr %4, %5
+  br i1 %.not42, label %_ZNSt6vectorIPN32pxrInternal_v0_24__pxrReserved__13UsdStageCacheESaIS2_EE7reserveEm.exit, label %_ZNSt12_Vector_baseIPN32pxrInternal_v0_24__pxrReserved__13UsdStageCacheESaIS2_EE11_M_allocateEm.exit.i
 
 _ZNSt12_Vector_baseIPN32pxrInternal_v0_24__pxrReserved__13UsdStageCacheESaIS2_EE11_M_allocateEm.exit.i: ; preds = %11
   %13 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %8) #22
@@ -927,8 +927,8 @@ define linkonce_odr void @_ZN3tbb6detail2d126enumerable_thread_specificIN32pxrIn
 
 29:                                               ; preds = %.noexc.i.i, %.loopexit1
   %.07.i.i.i.i = phi i64 [ %28, %.loopexit1 ], [ %30, %.noexc.i.i ]
-  %30 = add i64 %.07.i.i.i.i, -1
-  %31 = getelementptr inbounds %"struct.std::atomic.16", ptr %.0.i.i.i.i.i.i, i64 %30
+  %30 = add nsw i64 %.07.i.i.i.i, -1
+  %31 = getelementptr inbounds nuw %"struct.std::atomic.16", ptr %.0.i.i.i.i.i.i, i64 %30
   %32 = load atomic i64, ptr %31 monotonic, align 8
   %.not6.i.i.i.i = icmp eq i64 %32, 0
   br i1 %.not6.i.i.i.i, label %.noexc.i.i, label %33

@@ -836,7 +836,7 @@ define hidden void @_ZN3rsa10algorithms3rsa5blind17hbb9f3631005c13ecE(ptr dead_o
   br label %.thread135.thread
 
 .thread115.loopexit:                              ; preds = %.backedge
-  %lpad.thr_comm.split-lp236 = landingpad { ptr, i32 }
+  %lpad.thr_comm.split-lp262 = landingpad { ptr, i32 }
           cleanup
   br i1 %.sroa.0.0, label %.thread102.thread141, label %.thread135
 
@@ -1676,7 +1676,7 @@ default.unreachable:                              ; preds = %188
           to label %.thread135.thread unwind label %334
 
 .thread102.thread141:                             ; preds = %.thread115.loopexit, %.thread115.loopexit.split-lp, %.thread96, %151, %163, %186, %100, %.thread102
-  %.pn1882134 = phi { ptr, i32 } [ %160, %.thread102 ], [ %187, %186 ], [ %101, %100 ], [ %164, %163 ], [ %152, %151 ], [ %113, %.thread96 ], [ %lpad.loopexit.split-lp, %.thread115.loopexit.split-lp ], [ %lpad.thr_comm.split-lp236, %.thread115.loopexit ]
+  %.pn1882134 = phi { ptr, i32 } [ %160, %.thread102 ], [ %187, %186 ], [ %101, %100 ], [ %164, %163 ], [ %152, %151 ], [ %113, %.thread96 ], [ %lpad.loopexit.split-lp, %.thread115.loopexit.split-lp ], [ %lpad.thr_comm.split-lp262, %.thread115.loopexit ]
   %.sroa.010.283132 = phi i8 [ %.sroa.010.0, %.thread102 ], [ 1, %186 ], [ %.sroa.010.0, %100 ], [ %.sroa.010.0, %163 ], [ %.sroa.010.0, %151 ], [ %.sroa.010.0, %.thread96 ], [ %.sroa.010.0, %.thread115.loopexit.split-lp ], [ %.sroa.010.0, %.thread115.loopexit ]
   %336 = load i8, ptr %67, align 8, !range !266, !noundef !9
   %337 = icmp ne i8 %336, 3
@@ -1689,7 +1689,7 @@ default.unreachable:                              ; preds = %188
           to label %.thread135.thread unwind label %334
 
 .thread135:                                       ; preds = %.thread115.loopexit, %.thread135.thread
-  %.pn1882133148 = phi { ptr, i32 } [ %.pn1882133149, %.thread135.thread ], [ %lpad.thr_comm.split-lp236, %.thread115.loopexit ]
+  %.pn1882133148 = phi { ptr, i32 } [ %.pn1882133149, %.thread135.thread ], [ %lpad.thr_comm.split-lp262, %.thread115.loopexit ]
   resume { ptr, i32 } %.pn1882133148
 
 .thread135.thread:                                ; preds = %.thread102.thread141.thread, %.thread115.loopexit.split-lp, %.thread96, %151, %163, %.thread102, %.thread102.thread141, %339, %.thread86, %"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$u32$GT$$GT$17h6bd9365b9c8cd3d0E.exit.i.i39"

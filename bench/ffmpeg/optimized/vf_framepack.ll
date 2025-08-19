@@ -1006,8 +1006,8 @@ define internal range(i32 -1094995529, 1) i32 @config_output(ptr noundef capture
   %18 = getelementptr inbounds nuw i8, ptr %9, i64 44
   %19 = load i32, ptr %18, align 4, !tbaa !51
   %.not57 = icmp eq i32 %13, %19
-  %or.cond82 = select i1 %.not, i1 %.not57, i1 false
-  br i1 %or.cond82, label %20, label %._crit_edge
+  %or.cond86 = select i1 %.not, i1 %.not57, i1 false
+  br i1 %or.cond86, label %20, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %1
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %2, i32 noundef 16, ptr noundef nonnull @.str.5, i32 noundef %11, i32 noundef %13, i32 noundef %17, i32 noundef %19) #6

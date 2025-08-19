@@ -309,12 +309,12 @@ define noalias noundef ptr @Pdr_SetCreateSubset(ptr noundef readonly captures(no
   br i1 %exitcond36.not.i, label %Vec_IntSelectSort.exit, label %.lr.ph.preheader.i, !llvm.loop !21
 
 Vec_IntSelectSort.exit:                           ; preds = %._crit_edge.i, %3, %29
-  %.0.lcssa52 = phi i64 [ %32, %29 ], [ 20, %3 ], [ %32, %._crit_edge.i ]
+  %.0.lcssa54 = phi i64 [ %32, %29 ], [ 20, %3 ], [ %32, %._crit_edge.i ]
   %48 = icmp slt i32 %8, %5
   br i1 %48, label %.lr.ph37, label %._crit_edge38
 
 .lr.ph37:                                         ; preds = %Vec_IntSelectSort.exit
-  %scevgep = getelementptr i8, ptr %13, i64 %.0.lcssa52
+  %scevgep = getelementptr i8, ptr %13, i64 %.0.lcssa54
   %49 = sext i32 %8 to i64
   %50 = shl nsw i64 %49, 2
   %51 = getelementptr i8, ptr %0, i64 %50
@@ -723,14 +723,14 @@ Vec_IntFree.exit62:                               ; preds = %Hash_IntExists.exit
   br label %Vec_IntPush.exit.sink.split
 
 Vec_IntPush.exit.sink.split:                      ; preds = %82, %84, %74, %76
-  %.sink82 = phi ptr [ %75, %74 ], [ %77, %76 ], [ %83, %82 ], [ %85, %84 ]
+  %.sink91 = phi ptr [ %75, %74 ], [ %77, %76 ], [ %83, %82 ], [ %85, %84 ]
   %.sink = phi i32 [ 16, %74 ], [ 16, %76 ], [ %79, %82 ], [ %79, %84 ]
-  store ptr %.sink82, ptr %16, align 8, !tbaa !16
+  store ptr %.sink91, ptr %16, align 8, !tbaa !16
   store i32 %.sink, ptr %8, align 8, !tbaa !29
   br label %Vec_IntPush.exit
 
 Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.sink.split, %67
-  %.pre.i79 = phi ptr [ %28, %67 ], [ %.sink82, %Vec_IntPush.exit.sink.split ]
+  %.pre.i79 = phi ptr [ %28, %67 ], [ %.sink91, %Vec_IntPush.exit.sink.split ]
   %86 = add nsw i32 %68, 1
   store i32 %86, ptr %10, align 4, !tbaa !3
   %87 = sext i32 %68 to i64
@@ -1319,22 +1319,22 @@ define range(i32 -1, 2) i32 @Pdr_SetCompare(ptr noundef readonly captures(none) 
   br i1 %22, label %.critedge.thread, label %26
 
 .critedge.thread:                                 ; preds = %21, %.critedge
-  %.lcssa45 = phi i1 [ %7, %.critedge ], [ false, %21 ]
-  %.0.lcssa43 = phi i32 [ %.0.lcssa, %.critedge ], [ %6, %21 ]
+  %.lcssa47 = phi i1 [ %7, %.critedge ], [ false, %21 ]
+  %.0.lcssa45 = phi i32 [ %.0.lcssa, %.critedge ], [ %6, %21 ]
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %24 = load i32, ptr %23, align 8, !tbaa !10
   %25 = icmp slt i32 %6, %24
   br i1 %25, label %.loopexit, label %26
 
 26:                                               ; preds = %.critedge.thread, %.critedge
-  %.lcssa44 = phi i1 [ %.lcssa45, %.critedge.thread ], [ %7, %.critedge ]
-  %.0.lcssa42 = phi i32 [ %.0.lcssa43, %.critedge.thread ], [ %.0.lcssa, %.critedge ]
-  br i1 %.lcssa44, label %27, label %31
+  %.lcssa46 = phi i1 [ %.lcssa47, %.critedge.thread ], [ %7, %.critedge ]
+  %.0.lcssa44 = phi i32 [ %.0.lcssa45, %.critedge.thread ], [ %.0.lcssa, %.critedge ]
+  br i1 %.lcssa46, label %27, label %31
 
 27:                                               ; preds = %26
   %28 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %29 = load i32, ptr %28, align 8, !tbaa !10
-  %30 = icmp eq i32 %.0.lcssa42, %29
+  %30 = icmp eq i32 %.0.lcssa44, %29
   br i1 %30, label %.loopexit, label %31
 
 31:                                               ; preds = %27, %26
@@ -1522,30 +1522,30 @@ define void @Pdr_QueuePush(ptr noundef captures(none) %0, ptr noundef %1) local_
 
 .lr.ph:                                           ; preds = %.preheader, %23
   %26 = phi i32 [ %24, %23 ], [ %20, %.preheader ]
-  %.0242831 = phi ptr [ %35, %23 ], [ %16, %.preheader ]
-  %.02930 = phi ptr [ %34, %23 ], [ %15, %.preheader ]
+  %.0242834 = phi ptr [ %35, %23 ], [ %16, %.preheader ]
+  %.02933 = phi ptr [ %34, %23 ], [ %15, %.preheader ]
   %27 = icmp eq i32 %26, %18
   br i1 %27, label %28, label %33
 
 28:                                               ; preds = %.lr.ph
-  %29 = getelementptr inbounds nuw i8, ptr %.0242831, i64 4
+  %29 = getelementptr inbounds nuw i8, ptr %.0242834, i64 4
   %30 = load i32, ptr %29, align 4, !tbaa !57
   %31 = load i32, ptr %19, align 4, !tbaa !57
   %32 = icmp sgt i32 %30, %31
   br i1 %32, label %._crit_edge, label %33
 
 33:                                               ; preds = %.lr.ph, %28
-  %34 = getelementptr inbounds nuw i8, ptr %.0242831, i64 32
+  %34 = getelementptr inbounds nuw i8, ptr %.0242834, i64 32
   %35 = load ptr, ptr %34, align 8, !tbaa !61
   %.not = icmp eq ptr %35, null
-  br i1 %.not, label %._crit_edge36, label %23, !llvm.loop !80
+  br i1 %.not, label %._crit_edge39, label %23, !llvm.loop !80
 
-._crit_edge36:                                    ; preds = %33
+._crit_edge39:                                    ; preds = %33
   br label %._crit_edge, !llvm.loop !80
 
-._crit_edge:                                      ; preds = %28, %23, %._crit_edge36, %.preheader
-  %.024.lcssa = phi ptr [ null, %._crit_edge36 ], [ %16, %.preheader ], [ %.0242831, %28 ], [ %35, %23 ]
-  %.0.lcssa = phi ptr [ %34, %._crit_edge36 ], [ %15, %.preheader ], [ %.02930, %28 ], [ %34, %23 ]
+._crit_edge:                                      ; preds = %28, %23, %._crit_edge39, %.preheader
+  %.024.lcssa = phi ptr [ null, %._crit_edge39 ], [ %16, %.preheader ], [ %.0242834, %28 ], [ %35, %23 ]
+  %.0.lcssa = phi ptr [ %34, %._crit_edge39 ], [ %15, %.preheader ], [ %.02933, %28 ], [ %34, %23 ]
   store ptr %1, ptr %.0.lcssa, align 8, !tbaa !81
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store ptr %.024.lcssa, ptr %36, align 8, !tbaa !61

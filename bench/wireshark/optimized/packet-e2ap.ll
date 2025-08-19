@@ -5188,8 +5188,8 @@ register_e2ap_ran_function_dissector.exit5:       ; preds = %register_e2ap_ran_f
   %297 = zext nneg i32 %292 to i64
   %298 = getelementptr [8 x ptr], ptr getelementptr inbounds nuw (i8, ptr @g_ran_functions_available_dissectors, i64 224), i64 0, i64 %297
   store ptr @proto_reg_handoff_e2ap.ccc_v3, ptr %298, align 8
-  %.not12 = icmp eq i32 %287, 5
-  br i1 %.not12, label %register_e2ap_ran_function_dissector.exit7, label %register_e2ap_ran_function_dissector.exit6
+  %.not18 = icmp eq i32 %287, 5
+  br i1 %.not18, label %register_e2ap_ran_function_dissector.exit7, label %register_e2ap_ran_function_dissector.exit6
 
 register_e2ap_ran_function_dissector.exit6:       ; preds = %register_e2ap_ran_function_dissector.exit5
   %299 = add nuw nsw i32 %287, 4
@@ -9447,16 +9447,16 @@ proto_item_set_generated.exit64:                  ; preds = %proto_item_set_gene
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %55 = load i32, ptr %32, align 8
   %56 = icmp ult i32 %55, 4
-  br i1 %56, label %switch.lookup82, label %ran_function_to_str.exit66
+  br i1 %56, label %switch.lookup92, label %ran_function_to_str.exit66
 
-switch.lookup82:                                  ; preds = %proto_item_set_generated.exit64
+switch.lookup92:                                  ; preds = %proto_item_set_generated.exit64
   %57 = zext nneg i32 %55 to i64
-  %switch.gep83 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table.lookup_ranfunction_dissector.3, i64 0, i64 %57
-  %switch.load84 = load ptr, ptr %switch.gep83, align 8
+  %switch.gep93 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table.lookup_ranfunction_dissector.3, i64 0, i64 %57
+  %switch.load94 = load ptr, ptr %switch.gep93, align 8
   br label %ran_function_to_str.exit66
 
-ran_function_to_str.exit66:                       ; preds = %proto_item_set_generated.exit64, %switch.lookup82
-  %.0.i65 = phi ptr [ %switch.load84, %switch.lookup82 ], [ @.str.1887, %proto_item_set_generated.exit64 ]
+ran_function_to_str.exit66:                       ; preds = %proto_item_set_generated.exit64, %switch.lookup92
+  %.0.i65 = phi ptr [ %switch.load94, %switch.lookup92 ], [ @.str.1887, %proto_item_set_generated.exit64 ]
   %58 = getelementptr inbounds nuw i8, ptr %21, i64 1016
   %59 = load ptr, ptr %58, align 8
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 1009

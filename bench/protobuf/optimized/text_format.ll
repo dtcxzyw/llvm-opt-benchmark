@@ -6007,8 +6007,8 @@ for.inc:                                          ; preds = %for.body, %_ZN6goog
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %64 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %65 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
-  %sext181 = shl i64 %sub.ptr.sub.i.i, 28
-  %66 = ashr i64 %sext181, 32
+  %sext182 = shl i64 %sub.ptr.sub.i.i, 28
+  %66 = ashr i64 %sext182, 32
   %cmp = icmp slt i64 %indvars.iv.next, %66
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !89
 
@@ -7449,8 +7449,8 @@ invoke.cont80:                                    ; preds = %invoke.cont79
   %vtable.i130 = load ptr, ptr %generator, align 8
   %vfn.i131 = getelementptr inbounds nuw i8, ptr %vtable.i130, i64 40
   %72 = load ptr, ptr %vfn.i131, align 8
-  %.str.19..str.20157 = select i1 %tobool82, ptr @.str.19, ptr @.str.20
-  invoke void %72(ptr noundef nonnull align 8 dereferenceable(8) %generator, ptr noundef nonnull %.str.19..str.20157, i64 noundef 1)
+  %.str.19..str.20164 = select i1 %tobool82, ptr @.str.19, ptr @.str.20
+  invoke void %72(ptr noundef nonnull align 8 dereferenceable(8) %generator, ptr noundef nonnull %.str.19..str.20164, i64 noundef 1)
           to label %for.inc unwind label %lpad.loopexit
 
 for.inc:                                          ; preds = %invoke.cont80, %invoke.cont69
@@ -15902,9 +15902,9 @@ return:                                           ; preds = %if.end42, %invoke.c
   ret i1 %retval.0
 
 eh.resume:                                        ; preds = %lpad10, %lpad25, %lpad36, %lpad
-  %delimiter.sink16 = phi ptr [ %ref.tmp, %lpad ], [ %delimiter, %lpad36 ], [ %delimiter, %lpad25 ], [ %delimiter, %lpad10 ]
+  %delimiter.sink17 = phi ptr [ %ref.tmp, %lpad ], [ %delimiter, %lpad36 ], [ %delimiter, %lpad25 ], [ %delimiter, %lpad10 ]
   %.pn12 = phi { ptr, i32 } [ %8, %lpad ], [ %15, %lpad36 ], [ %14, %lpad25 ], [ %10, %lpad10 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %delimiter.sink16) #36
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %delimiter.sink17) #36
   resume { ptr, i32 } %.pn12
 }
 
@@ -19385,7 +19385,7 @@ if.end18.i.i:                                     ; preds = %for.end.i.i
 
 for.inc22.i.i:                                    ; preds = %if.end18.i.i, %if.end.i.i
   %i.1.i.i = phi i64 [ %add20.i.i, %if.end18.i.i ], [ %i.031.i.i, %if.end.i.i ]
-  %inc23.i.i = add i64 %i.1.i.i, 1
+  %inc23.i.i = add nuw i64 %i.1.i.i, 1
   %cmp.i4.i = icmp ult i64 %inc23.i.i, %src.sroa.0.034.i
   br i1 %cmp.i4.i, label %for.body.i.i, label %if.then.i, !llvm.loop !175
 
@@ -21791,7 +21791,7 @@ while.body.lr.ph:                                 ; preds = %entry
 while.body:                                       ; preds = %while.body.lr.ph, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf15FieldDescriptorESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS3_12_GLOBAL__N_116FieldIndexSorterEEEET_SH_SH_T0_.exit
   %sub.ptr.div.i22 = phi i64 [ %sub.ptr.div.i18, %while.body.lr.ph ], [ %sub.ptr.div.i, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf15FieldDescriptorESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS3_12_GLOBAL__N_116FieldIndexSorterEEEET_SH_SH_T0_.exit ]
   %__depth_limit.addr.021 = phi i64 [ %__depth_limit, %while.body.lr.ph ], [ %dec, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf15FieldDescriptorESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS3_12_GLOBAL__N_116FieldIndexSorterEEEET_SH_SH_T0_.exit ]
-  %storemerge20 = phi ptr [ %__last.coerce, %while.body.lr.ph ], [ %.us-phi.i37.i, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf15FieldDescriptorESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS3_12_GLOBAL__N_116FieldIndexSorterEEEET_SH_SH_T0_.exit ]
+  %storemerge20 = phi ptr [ %__last.coerce, %while.body.lr.ph ], [ %.us-phi.i41.i, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf15FieldDescriptorESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS3_12_GLOBAL__N_116FieldIndexSorterEEEET_SH_SH_T0_.exit ]
   %cmp2 = icmp eq i64 %__depth_limit.addr.021, 0
   br i1 %cmp2, label %if.end.i.i.i, label %if.end
 
@@ -22131,8 +22131,8 @@ while.end.i.i:                                    ; preds = %land.lhs.true.i.i.i
   br i1 %bf.cast.i16.not.i.i.i7.i, label %while.cond10.us.i.preheader.i, label %while.end.split51.i.i
 
 while.cond10.us.i.preheader.i:                    ; preds = %while.end.i.i, %while.cond3.us.i.preheader.i
-  %.us-phi48.i40.i = phi ptr [ %.us-phi48.i.i, %while.end.i.i ], [ %32, %while.cond3.us.i.preheader.i ]
-  %.us-phi.i38.i = phi ptr [ %.us-phi.i.i, %while.end.i.i ], [ %__first.sroa.0.0.i.i, %while.cond3.us.i.preheader.i ]
+  %.us-phi48.i44.i = phi ptr [ %.us-phi48.i.i, %while.end.i.i ], [ %32, %while.cond3.us.i.preheader.i ]
+  %.us-phi.i42.i = phi ptr [ %.us-phi.i.i, %while.end.i.i ], [ %__first.sroa.0.0.i.i, %while.cond3.us.i.preheader.i ]
   br label %while.cond10.us.i.i
 
 while.cond10.us.i.i:                              ; preds = %while.cond10.us.i.i.backedge, %while.cond10.us.i.preheader.i
@@ -22199,22 +22199,22 @@ if.then.i.i9.i.i:                                 ; preds = %while.cond10.i.i, %
   br i1 %cmp.i.i12.i.i, label %while.cond10.i.i, label %while.end18.i.i
 
 while.end18.i.i:                                  ; preds = %if.then.i.i9.i.i, %while.cond10.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN6google8protobuf12_GLOBAL__N_116FieldIndexSorterEEclINS_17__normal_iteratorIPPKNS3_15FieldDescriptorESt6vectorISB_SaISB_EEEESG_EEbT_T0_.exit33.us.i.i, %while.end.split51.i.i
-  %.us-phi48.i39.i = phi ptr [ %.us-phi48.i.i, %while.end.split51.i.i ], [ %.us-phi48.i40.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN6google8protobuf12_GLOBAL__N_116FieldIndexSorterEEclINS_17__normal_iteratorIPPKNS3_15FieldDescriptorESt6vectorISB_SaISB_EEEESG_EEbT_T0_.exit33.us.i.i ], [ %.us-phi48.i.i, %while.cond10.i.i ], [ %.us-phi48.i.i, %if.then.i.i9.i.i ]
-  %.us-phi.i37.i = phi ptr [ %.us-phi.i.i, %while.end.split51.i.i ], [ %.us-phi.i38.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN6google8protobuf12_GLOBAL__N_116FieldIndexSorterEEclINS_17__normal_iteratorIPPKNS3_15FieldDescriptorESt6vectorISB_SaISB_EEEESG_EEbT_T0_.exit33.us.i.i ], [ %.us-phi.i.i, %while.cond10.i.i ], [ %.us-phi.i.i, %if.then.i.i9.i.i ]
+  %.us-phi48.i43.i = phi ptr [ %.us-phi48.i.i, %while.end.split51.i.i ], [ %.us-phi48.i44.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN6google8protobuf12_GLOBAL__N_116FieldIndexSorterEEclINS_17__normal_iteratorIPPKNS3_15FieldDescriptorESt6vectorISB_SaISB_EEEESG_EEbT_T0_.exit33.us.i.i ], [ %.us-phi48.i.i, %while.cond10.i.i ], [ %.us-phi48.i.i, %if.then.i.i9.i.i ]
+  %.us-phi.i41.i = phi ptr [ %.us-phi.i.i, %while.end.split51.i.i ], [ %.us-phi.i42.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN6google8protobuf12_GLOBAL__N_116FieldIndexSorterEEclINS_17__normal_iteratorIPPKNS3_15FieldDescriptorESt6vectorISB_SaISB_EEEESG_EEbT_T0_.exit33.us.i.i ], [ %.us-phi.i.i, %while.cond10.i.i ], [ %.us-phi.i.i, %if.then.i.i9.i.i ]
   %.us-phi52.i.i = phi ptr [ %__last.sroa.0.155.i.i, %while.end.split51.i.i ], [ %__last.sroa.0.1.us.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN6google8protobuf12_GLOBAL__N_116FieldIndexSorterEEclINS_17__normal_iteratorIPPKNS3_15FieldDescriptorESt6vectorISB_SaISB_EEEESG_EEbT_T0_.exit33.us.i.i ], [ %__last.sroa.0.159.i.i, %if.then.i.i9.i.i ], [ %__last.sroa.0.1.i.i, %while.cond10.i.i ]
   %.us-phi53.i.i = phi ptr [ %47, %while.end.split51.i.i ], [ %43, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN6google8protobuf12_GLOBAL__N_116FieldIndexSorterEEclINS_17__normal_iteratorIPPKNS3_15FieldDescriptorESt6vectorISB_SaISB_EEEESG_EEbT_T0_.exit33.us.i.i ], [ %52, %if.then.i.i9.i.i ], [ %50, %while.cond10.i.i ]
-  %cmp.i.i.i6 = icmp ult ptr %.us-phi.i37.i, %.us-phi52.i.i
+  %cmp.i.i.i6 = icmp ult ptr %.us-phi.i41.i, %.us-phi52.i.i
   br i1 %cmp.i.i.i6, label %if.end.i.i, label %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf15FieldDescriptorESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS3_12_GLOBAL__N_116FieldIndexSorterEEEET_SH_SH_T0_.exit
 
 if.end.i.i:                                       ; preds = %while.end18.i.i
-  store ptr %.us-phi53.i.i, ptr %.us-phi.i37.i, align 8
-  store ptr %.us-phi48.i39.i, ptr %.us-phi52.i.i, align 8
-  %incdec.ptr.i35.i.i = getelementptr inbounds nuw i8, ptr %.us-phi.i37.i, i64 8
+  store ptr %.us-phi53.i.i, ptr %.us-phi.i41.i, align 8
+  store ptr %.us-phi48.i43.i, ptr %.us-phi52.i.i, align 8
+  %incdec.ptr.i35.i.i = getelementptr inbounds nuw i8, ptr %.us-phi.i41.i, i64 8
   br label %while.body.i.i5, !llvm.loop !190
 
 _ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf15FieldDescriptorESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterINS3_12_GLOBAL__N_116FieldIndexSorterEEEET_SH_SH_T0_.exit: ; preds = %while.end18.i.i
-  tail call fastcc void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf15FieldDescriptorESt6vectorIS6_SaIS6_EEEElNS0_5__ops15_Iter_comp_iterINS3_12_GLOBAL__N_116FieldIndexSorterEEEEvT_SH_T0_T1_(ptr %.us-phi.i37.i, ptr %storemerge20, i64 noundef %dec)
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %.us-phi.i37.i to i64
+  tail call fastcc void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf15FieldDescriptorESt6vectorIS6_SaIS6_EEEElNS0_5__ops15_Iter_comp_iterINS3_12_GLOBAL__N_116FieldIndexSorterEEEEvT_SH_T0_T1_(ptr %.us-phi.i41.i, ptr %storemerge20, i64 noundef %dec)
+  %sub.ptr.lhs.cast.i = ptrtoint ptr %.us-phi.i41.i to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
   %cmp = icmp sgt i64 %sub.ptr.div.i, 16

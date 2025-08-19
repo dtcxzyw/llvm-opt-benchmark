@@ -366,7 +366,7 @@ define dso_local noundef range(i32 0, 2000001) i32 @intel_bios_dp_max_link_rate(
   br i1 %9, label %14, label %22
 
 14:                                               ; preds = %8
-  switch i16 %13, label %default.unreachable2 [
+  switch i16 %13, label %default.unreachable3 [
     i16 1, label %21
     i16 7, label %15
     i16 6, label %16
@@ -414,7 +414,7 @@ define dso_local noundef range(i32 0, 2000001) i32 @intel_bios_dp_max_link_rate(
 25:                                               ; preds = %22
   br label %26
 
-default.unreachable2:                             ; preds = %14
+default.unreachable3:                             ; preds = %14
   unreachable
 
 26:                                               ; preds = %14, %25, %24, %23, %22, %21, %20, %19, %18, %17, %16, %15, %3, %1
@@ -1258,7 +1258,7 @@ define dso_local void @intel_bios_init(ptr noundef %0) local_unnamed_addr #4 ali
   br label %354
 
 354:                                              ; preds = %351, %349
-  %355 = trunc i32 %268 to i16
+  %355 = trunc nuw i32 %268 to i16
   br label %356
 
 356:                                              ; preds = %356, %354
@@ -1493,7 +1493,7 @@ define dso_local void @intel_bios_init(ptr noundef %0) local_unnamed_addr #4 ali
   %499 = getelementptr i8, ptr %421, i64 170
   %500 = load i8, ptr %499, align 2
   %501 = icmp eq i8 %500, 0
-  br i1 %501, label %.preheader300, label %502
+  br i1 %501, label %.preheader394, label %502
 
 502:                                              ; preds = %497
   %503 = load i16, ptr %498, align 8
@@ -1504,13 +1504,13 @@ define dso_local void @intel_bios_init(ptr noundef %0) local_unnamed_addr #4 ali
 506:                                              ; preds = %502
   %507 = sub i16 %503, %474
   store i16 %507, ptr %498, align 8
-  br label %.preheader300
+  br label %.preheader394
 
-.preheader300:                                    ; preds = %506, %497
+.preheader394:                                    ; preds = %506, %497
   br label %508
 
-508:                                              ; preds = %.preheader300, %532
-  %509 = phi i32 [ %530, %532 ], [ %435, %.preheader300 ]
+508:                                              ; preds = %.preheader394, %532
+  %509 = phi i32 [ %530, %532 ], [ %435, %.preheader394 ]
   %510 = add nuw nsw i32 %509, 3
   %511 = icmp ult i32 %510, %437
   br i1 %511, label %512, label %.thread113
@@ -1692,8 +1692,8 @@ define dso_local void @intel_bios_init(ptr noundef %0) local_unnamed_addr #4 ali
 
 .preheader155.preheader:                          ; preds = %631
   %invariant.op = sub nsw i32 %541, %622
-  %invariant.op260 = sub nsw i32 %541, %553
-  %invariant.op261 = sub nsw i32 %541, %557
+  %invariant.op354 = sub nsw i32 %541, %553
+  %invariant.op355 = sub nsw i32 %541, %557
   br label %.preheader155
 
 639:                                              ; preds = %652
@@ -1713,14 +1713,14 @@ define dso_local void @intel_bios_init(ptr noundef %0) local_unnamed_addr #4 ali
   %648 = getelementptr inbounds nuw i8, ptr %643, i64 3
   %649 = load i16, ptr %648, align 1
   %650 = zext i16 %649 to i32
-  %651 = icmp slt i32 %invariant.op260, %650
+  %651 = icmp slt i32 %invariant.op354, %650
   br i1 %651, label %.thread113, label %652
 
 652:                                              ; preds = %647
   %653 = getelementptr inbounds nuw i8, ptr %643, i64 6
   %654 = load i16, ptr %653, align 1
   %655 = zext i16 %654 to i32
-  %656 = icmp slt i32 %invariant.op261, %655
+  %656 = icmp slt i32 %invariant.op355, %655
   br i1 %656, label %.thread113, label %639
 
 657:                                              ; preds = %639
@@ -1976,7 +1976,7 @@ define dso_local void @intel_bios_init(ptr noundef %0) local_unnamed_addr #4 ali
 811:                                              ; preds = %809, %.thread116
   %812 = phi ptr [ %810, %809 ], [ null, %.thread116 ]
   call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %812, i32 noundef 2, ptr noundef nonnull @.str.22) #17
-  br label %.preheader292
+  br label %.preheader386
 
 813:                                              ; preds = %806
   %814 = getelementptr i8, ptr %800, i64 20
@@ -2017,7 +2017,7 @@ define dso_local void @intel_bios_init(ptr noundef %0) local_unnamed_addr #4 ali
 835:                                              ; preds = %833, %832
   %836 = phi ptr [ %834, %833 ], [ null, %832 ]
   call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %836, i32 noundef 2, ptr noundef nonnull @.str.23, i32 noundef %829) #17
-  br label %.preheader292
+  br label %.preheader386
 
 837:                                              ; preds = %827
   %838 = load i8, ptr %807, align 1
@@ -2115,7 +2115,7 @@ define dso_local void @intel_bios_init(ptr noundef %0) local_unnamed_addr #4 ali
   %885 = phi ptr [ %883, %882 ], [ null, %881 ]
   %886 = zext nneg i8 %879 to i32
   call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %885, i32 noundef 2, ptr noundef nonnull @.str.27, i32 noundef %886) #17
-  br label %.preheader292
+  br label %.preheader386
 
 887:                                              ; preds = %878
   %888 = add nsw i64 %830, -5
@@ -2181,7 +2181,7 @@ define dso_local void @intel_bios_init(ptr noundef %0) local_unnamed_addr #4 ali
 .loopexit153:                                     ; preds = %922, %908, %887
   %925 = load volatile ptr, ptr %6, align 8
   %926 = icmp eq ptr %925, %6
-  br i1 %926, label %927, label %.preheader292
+  br i1 %926, label %927, label %.preheader386
 
 927:                                              ; preds = %.loopexit153
   br i1 %39, label %930, label %928
@@ -2193,13 +2193,13 @@ define dso_local void @intel_bios_init(ptr noundef %0) local_unnamed_addr #4 ali
 930:                                              ; preds = %928, %927
   %931 = phi ptr [ %929, %928 ], [ null, %927 ]
   call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %931, i32 noundef 2, ptr noundef nonnull @.str.29) #17
-  br label %.preheader292
+  br label %.preheader386
 
-.preheader292:                                    ; preds = %930, %.loopexit153, %884, %835, %811
+.preheader386:                                    ; preds = %930, %.loopexit153, %884, %835, %811
   br label %932
 
-932:                                              ; preds = %.preheader292, %936
-  %933 = phi ptr [ %934, %936 ], [ %8, %.preheader292 ]
+932:                                              ; preds = %.preheader386, %936
+  %933 = phi ptr [ %934, %936 ], [ %8, %.preheader386 ]
   %934 = load ptr, ptr %933, align 8
   %935 = icmp eq ptr %934, %8
   br i1 %935, label %.thread117, label %936
@@ -2406,20 +2406,20 @@ define dso_local void @intel_bios_init(ptr noundef %0) local_unnamed_addr #4 ali
   %1046 = load i16, ptr %1045, align 4
   %1047 = and i16 %1046, 8
   %1048 = icmp eq i16 %1047, 0
-  br i1 %1048, label %1049, label %.preheader289
+  br i1 %1048, label %1049, label %.preheader383
 
 1049:                                             ; preds = %1041
   %1050 = getelementptr inbounds nuw i8, ptr %0, i64 7184
   %1051 = load i32, ptr %1050, align 4
   %1052 = and i32 %1051, 16777216
   %1053 = icmp eq i32 %1052, 0
-  br i1 %1053, label %.thread119, label %.preheader289
+  br i1 %1053, label %.thread119, label %.preheader383
 
-.preheader289:                                    ; preds = %1049, %1041
+.preheader383:                                    ; preds = %1049, %1041
   br label %1054
 
-1054:                                             ; preds = %.preheader289, %1089
-  %1055 = phi i32 [ %1090, %1089 ], [ 0, %.preheader289 ]
+1054:                                             ; preds = %.preheader383, %1089
+  %1055 = phi i32 [ %1090, %1089 ], [ 0, %.preheader383 ]
   %1056 = icmp samesign ugt i32 %1055, 5
   br i1 %1056, label %1089, label %1057
 
@@ -3185,7 +3185,7 @@ define dso_local void @intel_bios_init(ptr noundef %0) local_unnamed_addr #4 ali
   br i1 %1466, label %1471, label %1478
 
 1471:                                             ; preds = %1465
-  switch i16 %1470, label %default.unreachable232 [
+  switch i16 %1470, label %default.unreachable326 [
     i16 1, label %1477
     i16 7, label %1482
     i16 6, label %1472
@@ -3230,7 +3230,7 @@ define dso_local void @intel_bios_init(ptr noundef %0) local_unnamed_addr #4 ali
 1481:                                             ; preds = %1478
   br label %1482
 
-default.unreachable232:                           ; preds = %1471
+default.unreachable326:                           ; preds = %1471
   unreachable
 
 1482:                                             ; preds = %1471, %1472, %1473, %1474, %1475, %1476, %1477, %1478, %1479, %1480, %1481
@@ -4574,7 +4574,7 @@ define internal fastcc void @intel_bios_init_panel(ptr noundef %0, ptr noundef %
   %805 = shl i32 %734, 1
   %806 = lshr i32 %804, %805
   %807 = and i32 %806, 3
-  switch i32 %807, label %default.unreachable218 [
+  switch i32 %807, label %default.unreachable279 [
     i32 0, label %810
     i32 1, label %808
     i32 2, label %809
@@ -4593,7 +4593,7 @@ define internal fastcc void @intel_bios_init_panel(ptr noundef %0, ptr noundef %
   store i32 %811, ptr %812, align 4
   br label %813
 
-default.unreachable218:                           ; preds = %1148, %1016, %802
+default.unreachable279:                           ; preds = %1148, %1016, %802
   unreachable
 
 813:                                              ; preds = %802, %810
@@ -4997,7 +4997,7 @@ default.unreachable218:                           ; preds = %1148, %1016, %802
   %1019 = shl i32 %931, 1
   %1020 = lshr i32 %1018, %1019
   %1021 = and i32 %1020, 3
-  switch i32 %1021, label %default.unreachable218 [
+  switch i32 %1021, label %default.unreachable279 [
     i32 0, label %1025
     i32 1, label %1022
     i32 3, label %1023
@@ -5237,7 +5237,7 @@ default.unreachable218:                           ; preds = %1148, %1016, %802
   %1151 = trunc i48 %1150 to i32
   %1152 = lshr i32 %1151, 14
   %1153 = and i32 %1152, 3
-  switch i32 %1153, label %default.unreachable218 [
+  switch i32 %1153, label %default.unreachable279 [
     i32 0, label %1157
     i32 1, label %1154
     i32 2, label %1155
@@ -5335,15 +5335,15 @@ default.unreachable218:                           ; preds = %1148, %1016, %802
 
 1197:                                             ; preds = %1190
   %1198 = icmp ugt i8 %.pr89.pre.fr, 2
-  br i1 %1198, label %.thread224, label %.thread226
+  br i1 %1198, label %.thread285, label %.thread287
 
-.thread226:                                       ; preds = %1197
+.thread287:                                       ; preds = %1197
   %1199 = getelementptr i8, ptr %1165, i64 21
   %1200 = load i16, ptr %1199, align 2
   %1201 = zext i16 %1200 to i32
   br label %1210
 
-.thread224:                                       ; preds = %1197
+.thread285:                                       ; preds = %1197
   %1202 = getelementptr i8, ptr %1165, i64 24
   %1203 = load i32, ptr %1202, align 4
   br label %1210
@@ -5358,11 +5358,11 @@ default.unreachable218:                           ; preds = %1148, %1016, %802
 1209:                                             ; preds = %1204
   br label %1210
 
-1210:                                             ; preds = %1209, %.thread224, %1204, %.thread226
-  %1211 = phi i32 [ 3, %.thread226 ], [ 5, %.thread224 ], [ 5, %1204 ], [ 3, %1209 ]
-  %1212 = phi i1 [ false, %.thread226 ], [ true, %.thread224 ], [ true, %1204 ], [ false, %1209 ]
-  %1213 = phi i32 [ %1201, %.thread226 ], [ %1203, %.thread224 ], [ %1207, %1204 ], [ %1207, %1209 ]
-  %1214 = phi i64 [ 1, %.thread226 ], [ 5, %.thread224 ], [ 5, %1204 ], [ 1, %1209 ]
+1210:                                             ; preds = %1209, %.thread285, %1204, %.thread287
+  %1211 = phi i32 [ 3, %.thread287 ], [ 5, %.thread285 ], [ 5, %1204 ], [ 3, %1209 ]
+  %1212 = phi i1 [ false, %.thread287 ], [ true, %.thread285 ], [ true, %1204 ], [ false, %1209 ]
+  %1213 = phi i32 [ %1201, %.thread287 ], [ %1203, %.thread285 ], [ %1207, %1204 ], [ %1207, %1209 ]
+  %1214 = phi i64 [ 1, %.thread287 ], [ 5, %.thread285 ], [ 5, %1204 ], [ 1, %1209 ]
   %1215 = getelementptr i8, ptr %1172, i64 %1214
   %1216 = icmp eq i32 %1213, 0
   br i1 %1216, label %.loopexit, label %.preheader109

@@ -206,7 +206,7 @@ define internal fastcc range(i32 0, 2) i32 @output_pass_setup(ptr noundef %0) un
   br i1 %49, label %.sink.split, label %55
 
 .sink.split:                                      ; preds = %46, %42, %34
-  %.sink75 = phi i64 [ 8, %34 ], [ 16, %42 ], [ 24, %46 ]
+  %.sink82 = phi i64 [ 8, %34 ], [ 16, %42 ], [ 24, %46 ]
   %50 = load ptr, ptr %0, align 8, !tbaa !44
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 40
   store i32 15, ptr %51, align 8, !tbaa !45
@@ -216,7 +216,7 @@ define internal fastcc range(i32 0, 2) i32 @output_pass_setup(ptr noundef %0) un
   %54 = load ptr, ptr %53, align 8, !tbaa !48
   tail call void %54(ptr noundef nonnull %0) #5
   %.pre66 = load ptr, ptr %18, align 8, !tbaa !56
-  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre66, i64 %.sink75
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre66, i64 %.sink82
   %.pre67 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !61
   br label %55
 
@@ -746,8 +746,8 @@ define i32 @jpeg_skip_scanlines(ptr noundef %0, i32 noundef %1) local_unnamed_ad
 50:                                               ; preds = %44, %41
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %52 = load i32, ptr %51, align 8, !tbaa !52
-  %.fr237 = freeze i32 %52
-  %53 = zext i32 %.fr237 to i64
+  %.fr260 = freeze i32 %52
+  %53 = zext i32 %.fr260 to i64
   %54 = zext i32 %1 to i64
   %55 = add nuw nsw i64 %53, %54
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 140
@@ -757,7 +757,7 @@ define i32 @jpeg_skip_scanlines(ptr noundef %0, i32 noundef %1) local_unnamed_ad
   br i1 %.not177, label %67, label %59
 
 59:                                               ; preds = %50
-  %60 = sub i32 %57, %.fr237
+  %60 = sub i32 %57, %.fr260
   store i32 %57, ptr %51, align 8, !tbaa !52
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 576
   %62 = load ptr, ptr %61, align 8, !tbaa !31
@@ -780,7 +780,7 @@ define i32 @jpeg_skip_scanlines(ptr noundef %0, i32 noundef %1) local_unnamed_ad
   %73 = load i32, ptr %72, align 4, !tbaa !75
   %74 = mul nsw i32 %73, %71
   %.fr227 = freeze i32 %74
-  %75 = urem i32 %.fr237, %.fr227
+  %75 = urem i32 %.fr260, %.fr227
   %76 = sub i32 %.fr227, %75
   %77 = urem i32 %76, %.fr227
   %78 = sub i32 %1, %77
@@ -894,14 +894,14 @@ read_and_discard_scanlines.exit:                  ; preds = %115, %116
   br i1 %.not181, label %.critedge, label %120
 
 120:                                              ; preds = %119
-  %121 = add i32 %77, %.fr237
+  %121 = add i32 %77, %.fr260
   %122 = add i32 %121, %.fr227
   store i32 %122, ptr %51, align 8, !tbaa !52
   %123 = sub i32 %78, %.fr227
   br label %125
 
 .critedge:                                        ; preds = %83, %119
-  %124 = add i32 %77, %.fr237
+  %124 = add i32 %77, %.fr260
   store i32 %124, ptr %51, align 8, !tbaa !52
   br label %125
 
@@ -1022,7 +1022,7 @@ set_wraparound_pointers.exit:                     ; preds = %._crit_edge.i193, %
   br label %342
 
 192:                                              ; preds = %189
-  %193 = add i32 %77, %.fr237
+  %193 = add i32 %77, %.fr260
   store i32 %193, ptr %51, align 8, !tbaa !52
   %194 = getelementptr inbounds nuw i8, ptr %8, i64 112
   store i32 0, ptr %194, align 8, !tbaa !98
@@ -1046,12 +1046,12 @@ set_wraparound_pointers.exit:                     ; preds = %._crit_edge.i193, %
   br label %.thread
 
 .thread:                                          ; preds = %198, %192, %202
-  %.sink239 = phi i32 [ %203, %202 ], [ %78, %192 ], [ %78, %198 ]
+  %.sink262 = phi i32 [ %203, %202 ], [ %78, %192 ], [ %78, %198 ]
   %204 = phi i32 [ %126, %202 ], [ %193, %192 ], [ %193, %198 ]
   %.1.fr216 = phi i32 [ %.0165, %202 ], [ %78, %192 ], [ %78, %198 ]
-  %205 = urem i32 %.sink239, %.fr227
-  %206 = udiv i32 %.sink239, %.fr227
-  %207 = sub nuw i32 %.sink239, %205
+  %205 = urem i32 %.sink262, %.fr227
+  %206 = udiv i32 %.sink262, %.fr227
+  %207 = sub nuw i32 %.sink262, %205
   %208 = sub i32 %.1.fr216, %207
   %209 = getelementptr inbounds nuw i8, ptr %0, i64 576
   %210 = load ptr, ptr %209, align 8, !tbaa !31
@@ -1067,7 +1067,7 @@ set_wraparound_pointers.exit:                     ; preds = %._crit_edge.i193, %
   br i1 %.not185, label %.preheader221, label %224
 
 .preheader221:                                    ; preds = %213
-  %.not228 = icmp eq i32 %.sink239, %205
+  %.not228 = icmp eq i32 %.sink262, %205
   br i1 %.not228, label %._crit_edge226, label %.preheader220.lr.ph
 
 .preheader220.lr.ph:                              ; preds = %.preheader221
@@ -1084,7 +1084,7 @@ set_wraparound_pointers.exit:                     ; preds = %._crit_edge.i193, %
 224:                                              ; preds = %213, %.thread
   %225 = add i32 %204, %207
   store i32 %225, ptr %51, align 8, !tbaa !52
-  %226 = udiv i32 %.sink239, %.fr227
+  %226 = udiv i32 %.sink262, %.fr227
   %227 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %228 = load i32, ptr %227, align 8, !tbaa !120
   %229 = add i32 %228, %226
@@ -1467,8 +1467,8 @@ define internal fastcc void @increment_simple_rowgroup_ctr(ptr noundef %0, i32 n
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 412
   %10 = load i32, ptr %9, align 4, !tbaa !75
   %11 = icmp eq i32 %10, 2
-  %or.cond32 = select i1 %.not, i1 %11, i1 false
-  br i1 %or.cond32, label %12, label %._crit_edge
+  %or.cond42 = select i1 %.not, i1 %11, i1 false
+  br i1 %or.cond42, label %12, label %._crit_edge
 
 12:                                               ; preds = %2
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 616

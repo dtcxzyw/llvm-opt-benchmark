@@ -1107,9 +1107,9 @@ define i32 @Mig_ManSuppSize2_rec(ptr noundef %0, i32 noundef %1) local_unnamed_a
   br label %Vec_IntGrow.exit.sink.split.i.i.i
 
 Vec_IntGrow.exit.sink.split.i.i.i:                ; preds = %29, %31, %20, %22
-  %storemerge46 = phi ptr [ %21, %20 ], [ %23, %22 ], [ %30, %29 ], [ %32, %31 ]
+  %storemerge57 = phi ptr [ %21, %20 ], [ %23, %22 ], [ %30, %29 ], [ %32, %31 ]
   %.sink.i.i.i = phi i32 [ %10, %20 ], [ %10, %22 ], [ %14, %29 ], [ %14, %31 ]
-  store ptr %storemerge46, ptr %6, align 8, !tbaa !3
+  store ptr %storemerge57, ptr %6, align 8, !tbaa !3
   store i32 %.sink.i.i.i, ptr %4, align 8, !tbaa !10
   %.pre.i.i = load i32, ptr %5, align 4, !tbaa !36
   br label %Vec_IntGrow.exit.i.i.i

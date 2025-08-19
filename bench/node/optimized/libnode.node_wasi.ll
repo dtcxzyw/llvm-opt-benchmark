@@ -1611,10 +1611,10 @@ _ZNK4node13MemoryTracker11CurrentNodeEv.exit.i.i11: ; preds = %if.end.i.i.i8
   br i1 %cmp.not.i3.i, label %_ZN4node13MemoryTracker7AddNodeEPKcmS2_.exit.i, label %_ZNK4node13MemoryTracker11CurrentNodeEv.exit16.i.i
 
 _ZNK4node13MemoryTracker11CurrentNodeEv.exit.thread.i.i: ; preds = %if.end.i.i.i8
-  %incdec.ptr.i.i.i.i19.i.i = getelementptr inbounds i8, ptr %20, i64 -8
-  %26 = load ptr, ptr %incdec.ptr.i.i.i.i19.i.i, align 8
-  %cmp.not20.i.i = icmp eq ptr %26, null
-  br i1 %cmp.not20.i.i, label %_ZN4node13MemoryTracker7AddNodeEPKcmS2_.exit.i, label %_ZNK4node13MemoryTracker11CurrentNodeEv.exit16.i.i
+  %incdec.ptr.i.i.i.i20.i.i = getelementptr inbounds i8, ptr %20, i64 -8
+  %26 = load ptr, ptr %incdec.ptr.i.i.i.i20.i.i, align 8
+  %cmp.not21.i.i = icmp eq ptr %26, null
+  br i1 %cmp.not21.i.i, label %_ZN4node13MemoryTracker7AddNodeEPKcmS2_.exit.i, label %_ZNK4node13MemoryTracker11CurrentNodeEv.exit16.i.i
 
 _ZNK4node13MemoryTracker11CurrentNodeEv.exit16.i.i: ; preds = %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.thread.i.i, %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.i.i11
   %27 = phi ptr [ %26, %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.thread.i.i ], [ %25, %_ZNK4node13MemoryTracker11CurrentNodeEv.exit.i.i11 ]
@@ -1982,8 +1982,8 @@ _ZNO2v85MaybeIiE8FromJustEv.exit:                 ; preds = %if.then.i822, %_ZN2
   br i1 %cmp186, label %cond.end.thread, label %for.body.lr.ph
 
 cond.end.thread:                                  ; preds = %_ZNO2v85MaybeIiE8FromJustEv.exit
-  %argv188154 = getelementptr inbounds nuw i8, ptr %options, i64 40
-  store ptr null, ptr %argv188154, align 8
+  %argv188161 = getelementptr inbounds nuw i8, ptr %options, i64 40
+  store ptr null, ptr %argv188161, align 8
   br label %lor.lhs.false.i547
 
 for.body.lr.ph:                                   ; preds = %_ZNO2v85MaybeIiE8FromJustEv.exit
@@ -2066,7 +2066,7 @@ _ZN4node9Utf8ValueD2Ev.exit:                      ; preds = %do.end239, %if.then
   br i1 %exitcond.not, label %lor.lhs.false.i547, label %for.body, !llvm.loop !11
 
 lor.lhs.false.i547:                               ; preds = %_ZN4node9Utf8ValueD2Ev.exit, %cond.end.thread
-  %argv188155 = phi ptr [ %argv188154, %cond.end.thread ], [ %argv188, %_ZN4node9Utf8ValueD2Ev.exit ]
+  %argv188162 = phi ptr [ %argv188161, %cond.end.thread ], [ %argv188, %_ZN4node9Utf8ValueD2Ev.exit ]
   %68 = load i32, ptr %length_.i, align 8
   %cmp2.i549 = icmp slt i32 %68, 2
   br i1 %cmp2.i549, label %if.then.i555, label %if.end.i550
@@ -2379,7 +2379,7 @@ for.end473:                                       ; preds = %_ZN4node9Utf8ValueD
   %118 = load ptr, ptr %values_.i659, align 8
   %add.ptr.i857 = getelementptr inbounds i8, ptr %118, i64 -8
   call void @_ZN4node4wasi4WASIC2EPNS_11EnvironmentEN2v85LocalINS4_6ObjectEEEP16uvwasi_options_s(ptr noundef nonnull align 8 dereferenceable(176) %call474, ptr noundef nonnull %retval.0.i.i, ptr nonnull %add.ptr.i857, ptr noundef nonnull %options)
-  %119 = load ptr, ptr %argv188155, align 8
+  %119 = load ptr, ptr %argv188162, align 8
   %cmp484.not = icmp eq ptr %119, null
   br i1 %cmp484.not, label %if.end497, label %for.cond487.preheader
 
@@ -2392,7 +2392,7 @@ for.body489.preheader:                            ; preds = %for.cond487.prehead
 
 for.body489:                                      ; preds = %for.body489.preheader, %for.body489
   %indvars.iv142 = phi i64 [ 0, %for.body489.preheader ], [ %indvars.iv.next143, %for.body489 ]
-  %120 = load ptr, ptr %argv188155, align 8
+  %120 = load ptr, ptr %argv188162, align 8
   %arrayidx492 = getelementptr inbounds nuw ptr, ptr %120, i64 %indvars.iv142
   %121 = load ptr, ptr %arrayidx492, align 8
   call void @free(ptr noundef %121) #22
@@ -2401,7 +2401,7 @@ for.body489:                                      ; preds = %for.body489.prehead
   br i1 %exitcond146.not, label %for.end495, label %for.body489, !llvm.loop !15
 
 for.end495:                                       ; preds = %for.body489
-  %.pre150 = load ptr, ptr %argv188155, align 8
+  %.pre150 = load ptr, ptr %argv188162, align 8
   %isnull = icmp eq ptr %.pre150, null
   br i1 %isnull, label %if.end497, label %delete.notnull
 

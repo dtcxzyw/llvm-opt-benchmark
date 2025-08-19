@@ -515,14 +515,14 @@ _ZN14core_hashtableIN7obj_mapI4exprjE13obj_map_entryE8obj_hashINS2_8key_dataEE10
           to label %.loopexit unwind label %.loopexit.split-lp
 
 .loopexit.sink.split.sink.split:                  ; preds = %181, %172
-  %.048.i.sink199.ph = phi ptr [ %.04971.i, %172 ], [ %.274.i, %181 ]
+  %.048.i.sink229.ph = phi ptr [ %.04971.i, %172 ], [ %.274.i, %181 ]
   store i32 %157, ptr %88, align 8, !tbaa !43
   br label %.loopexit.sink.split
 
 .loopexit.sink.split:                             ; preds = %.loopexit.sink.split.sink.split, %181, %172
-  %.048.i.sink199 = phi ptr [ %.05070.i, %172 ], [ %.15173.i, %181 ], [ %.048.i.sink199.ph, %.loopexit.sink.split.sink.split ]
-  store ptr %107, ptr %.048.i.sink199, align 8, !tbaa !24
-  %.sroa.6.0..048.i.sroa_idx = getelementptr inbounds nuw i8, ptr %.048.i.sink199, i64 8
+  %.048.i.sink229 = phi ptr [ %.05070.i, %172 ], [ %.15173.i, %181 ], [ %.048.i.sink229.ph, %.loopexit.sink.split.sink.split ]
+  store ptr %107, ptr %.048.i.sink229, align 8, !tbaa !24
+  %.sroa.6.0..048.i.sroa_idx = getelementptr inbounds nuw i8, ptr %.048.i.sink229, i64 8
   store i32 0, ptr %.sroa.6.0..048.i.sroa_idx, align 8, !tbaa !26
   %184 = load i32, ptr %87, align 4, !tbaa !42
   %185 = add i32 %184, 1
@@ -530,7 +530,7 @@ _ZN14core_hashtableIN7obj_mapI4exprjE13obj_map_entryE8obj_hashINS2_8key_dataEE10
   br label %.loopexit
 
 .loopexit:                                        ; preds = %167, %176, %.loopexit.sink.split, %.noexc122
-  %.0149 = phi ptr [ null, %.noexc122 ], [ %.048.i.sink199, %.loopexit.sink.split ], [ %.15173.i, %176 ], [ %.05070.i, %167 ]
+  %.0149 = phi ptr [ null, %.noexc122 ], [ %.048.i.sink229, %.loopexit.sink.split ], [ %.15173.i, %176 ], [ %.05070.i, %167 ]
   %186 = getelementptr inbounds nuw i8, ptr %.0149, i64 8
   %187 = load i32, ptr %186, align 4, !tbaa !26
   %188 = add i32 %187, 1

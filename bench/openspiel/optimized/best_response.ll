@@ -2585,7 +2585,7 @@ _ZNSt6vectorISt4pairIPN10open_spiel10algorithms11HistoryNodeEdESaIS5_EEC2ERKS7_.
   %.0.lcssa.i.i.i.i.i = phi ptr [ %48, %.noexc58 ], [ %50, %.lr.ph.i.i.i.i.i ]
   %51 = load ptr, ptr %48, align 8
   invoke void @_ZNK10open_spiel10algorithms11HistoryNode15GetChildActionsEv(ptr dead_on_unwind nonnull writable sret(%"class.std::vector.92") align 8 %6, ptr noundef nonnull align 8 dereferenceable(152) %51)
-          to label %52 unwind label %.thread243
+          to label %52 unwind label %.thread275
 
 52:                                               ; preds = %_ZNSt6vectorISt4pairIPN10open_spiel10algorithms11HistoryNodeEdESaIS5_EEC2ERKS7_.exit
   %53 = load ptr, ptr %6, align 8
@@ -2647,7 +2647,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %._crit_edge209, %58
           cleanup
   br label %283
 
-.thread243:                                       ; preds = %_ZNSt6vectorISt4pairIPN10open_spiel10algorithms11HistoryNodeEdESaIS5_EEC2ERKS7_.exit
+.thread275:                                       ; preds = %_ZNSt6vectorISt4pairIPN10open_spiel10algorithms11HistoryNodeEdESaIS5_EEC2ERKS7_.exit
   %lpad.loopexit.split-lp159 = landingpad { ptr, i32 }
           cleanup
   call void @_ZdlPvm(ptr noundef nonnull %48, i64 noundef %42) #26
@@ -3238,8 +3238,8 @@ _ZNSt6vectorIlSaIlEED2Ev.exit74:                  ; preds = %252, %249, %210, %2
   call void @_ZdlPvm(ptr noundef nonnull %.sroa.0138.3, i64 noundef %287) #26
   br label %_ZNSt6vectorISt4pairIldESaIS1_EED2Ev.exit103
 
-_ZNSt6vectorISt4pairIldESaIS1_EED2Ev.exit103:     ; preds = %.thread243, %.thread, %283, %284
-  %.pn51.pn.pn151 = phi { ptr, i32 } [ %65, %.thread ], [ %.pn51.pn, %283 ], [ %.pn51.pn, %284 ], [ %lpad.loopexit.split-lp159, %.thread243 ]
+_ZNSt6vectorISt4pairIldESaIS1_EED2Ev.exit103:     ; preds = %.thread275, %.thread, %283, %284
+  %.pn51.pn.pn151 = phi { ptr, i32 } [ %65, %.thread ], [ %.pn51.pn, %283 ], [ %.pn51.pn, %284 ], [ %lpad.loopexit.split-lp159, %.thread275 ]
   call void @_ZN4absl7debian29btree_setIlSt4lessIlESaIlEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #23
   resume { ptr, i32 } %.pn51.pn.pn151
 }
@@ -4338,8 +4338,8 @@ _ZNK4absl7debian218container_internal10btree_nodeINS1_10set_paramsIlSt4lessIlESa
 _ZNK4absl7debian218container_internal10btree_nodeINS1_10set_paramsIlSt4lessIlESaIlELi256ELb0EEEE11lower_boundIlEENS1_12SearchResultIiLb0EEERKT_RKS5_.exit.i.i.i.i.thread.i: ; preds = %4
   %17 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i.i.i, i64 11
   %18 = load i8, ptr %17, align 1, !noalias !64
-  %.not.i.i.i.i24.i = icmp eq i8 %18, 0
-  br i1 %.not.i.i.i.i24.i, label %20, label %.lr.ph.i.preheader
+  %.not.i.i.i.i27.i = icmp eq i8 %18, 0
+  br i1 %.not.i.i.i.i27.i, label %20, label %.lr.ph.i.preheader
 
 _ZNK4absl7debian218container_internal5btreeINS1_10set_paramsIlSt4lessIlESaIlELi256ELb0EEEE15internal_locateIlEENS1_12SearchResultINS1_14btree_iteratorINS1_10btree_nodeIS7_EERlPlEELb0EEERKT_.exit.i.i.i.preheader.i: ; preds = %_ZNK4absl7debian218container_internal10btree_nodeINS1_10set_paramsIlSt4lessIlESaIlELi256ELb0EEEE11lower_boundIlEENS1_12SearchResultIiLb0EEERKT_RKS5_.exit.i.i.i.i.i
   %19 = icmp eq i32 %.0.lcssa.i.i.i.i.i.i.i.i, %7
@@ -4349,9 +4349,9 @@ _ZNK4absl7debian218container_internal5btreeINS1_10set_paramsIlSt4lessIlESaIlELi2
   br label %.lr.ph.i
 
 20:                                               ; preds = %_ZNK4absl7debian218container_internal10btree_nodeINS1_10set_paramsIlSt4lessIlESaIlELi256ELb0EEEE11lower_boundIlEENS1_12SearchResultIiLb0EEERKT_RKS5_.exit.i.i.i.i.thread.i, %_ZNK4absl7debian218container_internal10btree_nodeINS1_10set_paramsIlSt4lessIlESaIlELi256ELb0EEEE11lower_boundIlEENS1_12SearchResultIiLb0EEERKT_RKS5_.exit.i.i.i.i.i
-  %.0.lcssa.i.i.i.i.i.i.i25.i = phi i32 [ 0, %_ZNK4absl7debian218container_internal10btree_nodeINS1_10set_paramsIlSt4lessIlESaIlELi256ELb0EEEE11lower_boundIlEENS1_12SearchResultIiLb0EEERKT_RKS5_.exit.i.i.i.i.thread.i ], [ %.0.lcssa.i.i.i.i.i.i.i.i, %_ZNK4absl7debian218container_internal10btree_nodeINS1_10set_paramsIlSt4lessIlESaIlELi256ELb0EEEE11lower_boundIlEENS1_12SearchResultIiLb0EEERKT_RKS5_.exit.i.i.i.i.i ]
+  %.0.lcssa.i.i.i.i.i.i.i28.i = phi i32 [ 0, %_ZNK4absl7debian218container_internal10btree_nodeINS1_10set_paramsIlSt4lessIlESaIlELi256ELb0EEEE11lower_boundIlEENS1_12SearchResultIiLb0EEERKT_RKS5_.exit.i.i.i.i.thread.i ], [ %.0.lcssa.i.i.i.i.i.i.i.i, %_ZNK4absl7debian218container_internal10btree_nodeINS1_10set_paramsIlSt4lessIlESaIlELi256ELb0EEEE11lower_boundIlEENS1_12SearchResultIiLb0EEERKT_RKS5_.exit.i.i.i.i.i ]
   %21 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i.i.i, i64 256
-  %22 = sext i32 %.0.lcssa.i.i.i.i.i.i.i25.i to i64
+  %22 = sext i32 %.0.lcssa.i.i.i.i.i.i.i28.i to i64
   %23 = getelementptr inbounds ptr, ptr %21, i64 %22
   br label %4, !llvm.loop !41
 
@@ -4461,16 +4461,16 @@ _ZNK4absl7debian218container_internal5btreeINS1_10set_paramsIlSt4lessIlESaIlELi2
   br i1 %69, label %.lr.ph.i.i.preheader, label %_ZSt8distanceIN4absl7debian218container_internal14btree_iteratorIKNS2_10btree_nodeINS2_10set_paramsIlSt4lessIlESaIlELi256ELb0EEEEERKlPSC_EEENSt15iterator_traitsIT_E15difference_typeESH_SH_.exit
 
 .lr.ph.i.i.preheader:                             ; preds = %47, %_ZNK4absl7debian218container_internal5btreeINS1_10set_paramsIlSt4lessIlESaIlELi256ELb0EEEE11equal_rangeIlEESt4pairINS1_14btree_iteratorIKNS1_10btree_nodeIS7_EERKlPSF_EESI_ERKT_.exit
-  %.sroa.9.2.sink.i.i45 = phi i32 [ %.sroa.9.2.sink.i.i, %_ZNK4absl7debian218container_internal5btreeINS1_10set_paramsIlSt4lessIlESaIlELi256ELb0EEEE11equal_rangeIlEESt4pairINS1_14btree_iteratorIKNS1_10btree_nodeIS7_EERKlPSF_EESI_ERKT_.exit ], [ %48, %47 ]
-  %.sroa.025.2.sink.i.i44 = phi ptr [ %.sroa.025.2.sink.i.i, %_ZNK4absl7debian218container_internal5btreeINS1_10set_paramsIlSt4lessIlESaIlELi256ELb0EEEE11equal_rangeIlEESt4pairINS1_14btree_iteratorIKNS1_10btree_nodeIS7_EERKlPSF_EESI_ERKT_.exit ], [ %.sroa.0.0.i8.i.i.i.lcssa.i, %47 ]
-  %.sroa.8.0.i.i.i.lcssa.sink.i.i43 = phi i32 [ %.sroa.8.0.i.i.i.lcssa.sink.i.i, %_ZNK4absl7debian218container_internal5btreeINS1_10set_paramsIlSt4lessIlESaIlELi256ELb0EEEE11equal_rangeIlEESt4pairINS1_14btree_iteratorIKNS1_10btree_nodeIS7_EERKlPSF_EESI_ERKT_.exit ], [ %.sroa.8.0.i.i.i.i.lcssa.i, %47 ]
-  %.sroa.0.0.i8.i.i.lcssa.sink.i.i42 = phi ptr [ %.sroa.0.0.i8.i.i.lcssa.sink.i.i, %_ZNK4absl7debian218container_internal5btreeINS1_10set_paramsIlSt4lessIlESaIlELi256ELb0EEEE11equal_rangeIlEESt4pairINS1_14btree_iteratorIKNS1_10btree_nodeIS7_EERKlPSF_EESI_ERKT_.exit ], [ %.sroa.0.0.i8.i.i.i.lcssa.i, %47 ]
+  %.sroa.9.2.sink.i.i52 = phi i32 [ %.sroa.9.2.sink.i.i, %_ZNK4absl7debian218container_internal5btreeINS1_10set_paramsIlSt4lessIlESaIlELi256ELb0EEEE11equal_rangeIlEESt4pairINS1_14btree_iteratorIKNS1_10btree_nodeIS7_EERKlPSF_EESI_ERKT_.exit ], [ %48, %47 ]
+  %.sroa.025.2.sink.i.i51 = phi ptr [ %.sroa.025.2.sink.i.i, %_ZNK4absl7debian218container_internal5btreeINS1_10set_paramsIlSt4lessIlESaIlELi256ELb0EEEE11equal_rangeIlEESt4pairINS1_14btree_iteratorIKNS1_10btree_nodeIS7_EERKlPSF_EESI_ERKT_.exit ], [ %.sroa.0.0.i8.i.i.i.lcssa.i, %47 ]
+  %.sroa.8.0.i.i.i.lcssa.sink.i.i50 = phi i32 [ %.sroa.8.0.i.i.i.lcssa.sink.i.i, %_ZNK4absl7debian218container_internal5btreeINS1_10set_paramsIlSt4lessIlESaIlELi256ELb0EEEE11equal_rangeIlEESt4pairINS1_14btree_iteratorIKNS1_10btree_nodeIS7_EERKlPSF_EESI_ERKT_.exit ], [ %.sroa.8.0.i.i.i.i.lcssa.i, %47 ]
+  %.sroa.0.0.i8.i.i.lcssa.sink.i.i49 = phi ptr [ %.sroa.0.0.i8.i.i.lcssa.sink.i.i, %_ZNK4absl7debian218container_internal5btreeINS1_10set_paramsIlSt4lessIlESaIlELi256ELb0EEEE11equal_rangeIlEESt4pairINS1_14btree_iteratorIKNS1_10btree_nodeIS7_EERKlPSF_EESI_ERKT_.exit ], [ %.sroa.0.0.i8.i.i.i.lcssa.i, %47 ]
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i.preheader, %_ZN4absl7debian218container_internal14btree_iteratorIKNS1_10btree_nodeINS1_10set_paramsIlSt4lessIlESaIlELi256ELb0EEEEERKlPSB_EppEv.exit.i.i
   %.017.i.i = phi i64 [ %97, %_ZN4absl7debian218container_internal14btree_iteratorIKNS1_10btree_nodeINS1_10set_paramsIlSt4lessIlESaIlELi256ELb0EEEEERKlPSB_EppEv.exit.i.i ], [ 0, %.lr.ph.i.i.preheader ]
-  %.sroa.7.016.i.i = phi i32 [ %.sroa.7.2.i.i, %_ZN4absl7debian218container_internal14btree_iteratorIKNS1_10btree_nodeINS1_10set_paramsIlSt4lessIlESaIlELi256ELb0EEEEERKlPSB_EppEv.exit.i.i ], [ %.sroa.8.0.i.i.i.lcssa.sink.i.i43, %.lr.ph.i.i.preheader ]
-  %.sroa.02.015.i.i = phi ptr [ %.sroa.02.2.i.i, %_ZN4absl7debian218container_internal14btree_iteratorIKNS1_10btree_nodeINS1_10set_paramsIlSt4lessIlESaIlELi256ELb0EEEEERKlPSB_EppEv.exit.i.i ], [ %.sroa.0.0.i8.i.i.lcssa.sink.i.i42, %.lr.ph.i.i.preheader ]
+  %.sroa.7.016.i.i = phi i32 [ %.sroa.7.2.i.i, %_ZN4absl7debian218container_internal14btree_iteratorIKNS1_10btree_nodeINS1_10set_paramsIlSt4lessIlESaIlELi256ELb0EEEEERKlPSB_EppEv.exit.i.i ], [ %.sroa.8.0.i.i.i.lcssa.sink.i.i50, %.lr.ph.i.i.preheader ]
+  %.sroa.02.015.i.i = phi ptr [ %.sroa.02.2.i.i, %_ZN4absl7debian218container_internal14btree_iteratorIKNS1_10btree_nodeINS1_10set_paramsIlSt4lessIlESaIlELi256ELb0EEEEERKlPSB_EppEv.exit.i.i ], [ %.sroa.0.0.i8.i.i.lcssa.sink.i.i49, %.lr.ph.i.i.preheader ]
   %70 = getelementptr inbounds nuw i8, ptr %.sroa.02.015.i.i, i64 11
   %71 = load i8, ptr %70, align 1
   %.not.i.i.i.i = icmp eq i8 %71, 0
@@ -4524,8 +4524,8 @@ _ZN4absl7debian218container_internal14btree_iteratorIKNS1_10btree_nodeINS1_10set
   %.sroa.02.2.i.i = phi ptr [ %.sroa.02.015.i.i, %72 ], [ %79, %_ZN4absl7debian218container_internal14btree_iteratorIKNS1_10btree_nodeINS1_10set_paramsIlSt4lessIlESaIlELi256ELb0EEEEERKlPSB_EppEv.exit.loopexit10.split.loop.exit11.i.i ], [ %storemerge.i.i.i.i.i, %92 ], [ %.sroa.02.015.i.i, %.lr.ph.i.i.i.i.i ]
   %.sroa.7.2.i.i = phi i32 [ %73, %72 ], [ %96, %_ZN4absl7debian218container_internal14btree_iteratorIKNS1_10btree_nodeINS1_10set_paramsIlSt4lessIlESaIlELi256ELb0EEEEERKlPSB_EppEv.exit.loopexit10.split.loop.exit11.i.i ], [ 0, %92 ], [ %73, %.lr.ph.i.i.i.i.i ]
   %97 = add nuw nsw i64 %.017.i.i, 1
-  %.not.i.i.i = icmp ne ptr %.sroa.02.2.i.i, %.sroa.025.2.sink.i.i44
-  %98 = icmp ne i32 %.sroa.7.2.i.i, %.sroa.9.2.sink.i.i45
+  %.not.i.i.i = icmp ne ptr %.sroa.02.2.i.i, %.sroa.025.2.sink.i.i51
+  %98 = icmp ne i32 %.sroa.7.2.i.i, %.sroa.9.2.sink.i.i52
   %99 = select i1 %.not.i.i.i, i1 true, i1 %98
   br i1 %99, label %.lr.ph.i.i, label %_ZSt8distanceIN4absl7debian218container_internal14btree_iteratorIKNS2_10btree_nodeINS2_10set_paramsIlSt4lessIlESaIlELi256ELb0EEEEERKlPSC_EEENSt15iterator_traitsIT_E15difference_typeESH_SH_.exit, !llvm.loop !76
 
@@ -4679,8 +4679,8 @@ _ZNSt6vectorISt4pairIPN10open_spiel10algorithms11HistoryNodeEdESaIS5_EEC2ERKS7_.
 
 58:                                               ; preds = %48
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.not123 = icmp eq ptr %50, %51
-  br i1 %.not123, label %_ZNSt6vectorISt4pairIldESaIS1_EE7reserveEm.exit, label %_ZNSt12_Vector_baseISt4pairIldESaIS1_EE11_M_allocateEm.exit.i
+  %.not147 = icmp eq ptr %50, %51
+  br i1 %.not147, label %_ZNSt6vectorISt4pairIldESaIS1_EE7reserveEm.exit, label %_ZNSt12_Vector_baseISt4pairIldESaIS1_EE11_M_allocateEm.exit.i
 
 _ZNSt12_Vector_baseISt4pairIldESaIS1_EE11_M_allocateEm.exit.i: ; preds = %58
   %60 = shl nuw nsw i64 %54, 1
@@ -4765,7 +4765,7 @@ _ZNSt6vectorISt4pairIPN10open_spiel10algorithms11HistoryNodeEdESaIS5_EED2Ev.exit
           cleanup
   %89 = load ptr, ptr %4, align 8
   %.not.i.i.i41 = icmp eq ptr %89, null
-  br i1 %.not.i.i.i41, label %.thread129, label %90
+  br i1 %.not.i.i.i41, label %.thread153, label %90
 
 90:                                               ; preds = %87
   %91 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -4774,7 +4774,7 @@ _ZNSt6vectorISt4pairIPN10open_spiel10algorithms11HistoryNodeEdESaIS5_EED2Ev.exit
   %94 = ptrtoint ptr %89 to i64
   %95 = sub i64 %93, %94
   call void @_ZdlPvm(ptr noundef nonnull %89, i64 noundef %95) #26
-  br label %.thread129
+  br label %.thread153
 
 96:                                               ; preds = %.lr.ph100, %_ZNSt6vectorISt4pairIldESaIS1_EE9push_backEOS1_.exit
   %97 = phi ptr [ %.promoted90, %.lr.ph100 ], [ %154, %_ZNSt6vectorISt4pairIldESaIS1_EE9push_backEOS1_.exit ]
@@ -4787,7 +4787,7 @@ _ZNSt6vectorISt4pairIPN10open_spiel10algorithms11HistoryNodeEdESaIS5_EED2Ev.exit
 ._crit_edge.thread:                               ; preds = %96
   store double 0.000000e+00, ptr %8, align 8
   store i32 0, ptr %9, align 4
-  br label %.loopexit132
+  br label %.loopexit156
 
 .lr.ph:                                           ; preds = %96, %124
   %.02482 = phi double [ %.125, %124 ], [ 0.000000e+00, %96 ]
@@ -4838,7 +4838,7 @@ _ZNSt6vectorISt4pairIPN10open_spiel10algorithms11HistoryNodeEdESaIS5_EED2Ev.exit
   store ptr %99, ptr %0, align 8
   br label %.loopexit.split-lp
 
-.loopexit.split-lp.loopexit.split-lp:             ; preds = %140, %.loopexit132, %111
+.loopexit.split-lp.loopexit.split-lp:             ; preds = %140, %.loopexit156, %111
   %lpad.loopexit.split-lp72 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
@@ -4872,16 +4872,16 @@ _ZNSt6vectorISt4pairIPN10open_spiel10algorithms11HistoryNodeEdESaIS5_EED2Ev.exit
   store double %.127, ptr %8, align 8
   store i32 0, ptr %9, align 4
   %126 = fcmp ogt double %.127, 0.000000e+00
-  br i1 %126, label %131, label %.loopexit132
+  br i1 %126, label %131, label %.loopexit156
 
-.loopexit132:                                     ; preds = %._crit_edge, %._crit_edge.thread
+.loopexit156:                                     ; preds = %._crit_edge, %._crit_edge.thread
   store ptr %98, ptr %59, align 8
   store ptr %99, ptr %0, align 8
   store i32 286, ptr %11, align 4
   invoke void @_ZN10open_spiel8internal11SpielStrCatIJRA137_KcRA2_S2_iS6_RA15_S2_RA12_S2_RA4_S2_RdRA7_S2_RiEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEDpOT_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %10, ptr noundef nonnull align 1 dereferenceable(137) @.str.13, ptr noundef nonnull align 1 dereferenceable(2) @.str.14, ptr noundef nonnull align 4 dereferenceable(4) %11, ptr noundef nonnull align 1 dereferenceable(2) @.str.7, ptr noundef nonnull align 1 dereferenceable(15) @.str.32, ptr noundef nonnull align 1 dereferenceable(12) @.str.33, ptr noundef nonnull align 1 dereferenceable(4) @.str.17, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 1 dereferenceable(7) @.str.34, ptr noundef nonnull align 4 dereferenceable(4) %9)
           to label %127 unwind label %.loopexit.split-lp.loopexit.split-lp
 
-127:                                              ; preds = %.loopexit132
+127:                                              ; preds = %.loopexit156
   invoke void @_ZN10open_spiel15SpielFatalErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %10) #25
           to label %128 unwind label %129
 
@@ -4992,7 +4992,7 @@ _ZNSt6vectorISt4pairIldESaIS1_EE9push_backEOS1_.exit: ; preds = %_ZNSt6vectorISt
   call void @_ZdlPvm(ptr noundef nonnull %159, i64 noundef %165) #26
   br label %166
 
-.thread129:                                       ; preds = %87, %90
+.thread153:                                       ; preds = %87, %90
   call void @_ZdlPvm(ptr noundef nonnull %44, i64 noundef %38) #26
   br label %_ZNSt6vectorISt4pairIldESaIS1_EED2Ev.exit
 
@@ -5011,9 +5011,9 @@ _ZNSt6vectorISt4pairIldESaIS1_EE9push_backEOS1_.exit: ; preds = %_ZNSt6vectorISt
   call void @_ZdlPvm(ptr noundef nonnull %168, i64 noundef %172) #26
   br label %_ZNSt6vectorISt4pairIldESaIS1_EED2Ev.exit
 
-_ZNSt6vectorISt4pairIldESaIS1_EED2Ev.exit:        ; preds = %.thread129, %166, %169
-  %.pn.pn.pn128 = phi { ptr, i32 } [ %.pn.pn, %166 ], [ %.pn.pn, %169 ], [ %88, %.thread129 ]
-  resume { ptr, i32 } %.pn.pn.pn128
+_ZNSt6vectorISt4pairIldESaIS1_EED2Ev.exit:        ; preds = %.thread153, %166, %169
+  %.pn.pn.pn152 = phi { ptr, i32 } [ %.pn.pn, %166 ], [ %.pn.pn, %169 ], [ %88, %.thread153 ]
+  resume { ptr, i32 } %.pn.pn.pn152
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -6211,10 +6211,10 @@ _ZN4absl7debian211string_viewC2EPKc.exit32:       ; preds = %78
   br label %.body29
 
 _ZN4absl7debian27StrJoinISt6vectorISt4pairIldESaIS4_EENS0_16strings_internal17PairFormatterImplINS7_21AlphaNumFormatterImplEN10open_spiel18HexDoubleFormatterEEEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_NS0_11string_viewEOT0_.exit: ; preds = %91, %81
-  %.sink60 = phi ptr [ %19, %81 ], [ %21, %91 ]
+  %.sink64 = phi ptr [ %19, %81 ], [ %21, %91 ]
   %.sink = phi ptr [ %60, %81 ], [ %58, %91 ]
-  %97 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull align 8 dereferenceable(32) %.sink60) #23
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink60) #23
+  %97 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull align 8 dereferenceable(32) %.sink64) #23
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink64) #23
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink) #23
   %98 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %66) #23
   %99 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %66) #23
@@ -7830,8 +7830,8 @@ define linkonce_odr void @_ZNK10open_spiel5State7HistoryEv(ptr dead_on_unwind no
 
 13:                                               ; preds = %2
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.not32 = icmp eq ptr %5, %6
-  br i1 %.not32, label %_ZNSt6vectorIlSaIlEE7reserveEm.exit, label %_ZNSt12_Vector_baseIlSaIlEE11_M_allocateEm.exit.i
+  %.not41 = icmp eq ptr %5, %6
+  br i1 %.not41, label %_ZNSt6vectorIlSaIlEE7reserveEm.exit, label %_ZNSt12_Vector_baseIlSaIlEE11_M_allocateEm.exit.i
 
 _ZNSt12_Vector_baseIlSaIlEE11_M_allocateEm.exit.i: ; preds = %13
   %15 = ashr exact i64 %9, 1
@@ -9492,7 +9492,7 @@ define linkonce_odr noundef i64 @_ZN4absl7debian213hash_internal9HashState21Comb
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 %39
   %41 = load i8, ptr %40, align 1
   %42 = add nsw i64 %2, -1
-  %43 = getelementptr inbounds i8, ptr %1, i64 %42
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 %42
   %44 = load i8, ptr %43, align 1
   %45 = zext i8 %38 to i32
   %46 = zext i8 %41 to i32
@@ -10771,9 +10771,9 @@ define linkonce_odr void @_ZN4absl7debian218container_internal5btreeINS1_10set_p
   br label %.sink.split
 
 .sink.split:                                      ; preds = %108, %34, %68
-  %.sink94 = phi i32 [ %70, %68 ], [ %38, %34 ], [ %110, %108 ]
+  %.sink104 = phi i32 [ %70, %68 ], [ %38, %34 ], [ %110, %108 ]
   %.sink = phi ptr [ %47, %68 ], [ %17, %34 ], [ %.0, %108 ]
-  store i32 %.sink94, ptr %4, align 4
+  store i32 %.sink104, ptr %4, align 4
   store ptr %.sink, ptr %1, align 8
   br label %111
 

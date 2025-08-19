@@ -100,8 +100,8 @@ define internal void @horiz_filter(ptr noundef writeonly captures(none) %0, i64 
   %66 = add nsw i32 %65, %62
   %67 = add nsw i32 %66, %60
   %68 = lshr i32 %67, 1
-  %.idx28 = shl nuw nsw i64 %indvars.iv, 2
-  %69 = getelementptr inbounds nuw i8, ptr %.01222, i64 %.idx28
+  %.idx29 = shl nuw nsw i64 %indvars.iv, 2
+  %69 = getelementptr inbounds nuw i8, ptr %.01222, i64 %.idx29
   %storemerge144.i = trunc i32 %68 to i16
   store i16 %storemerge144.i, ptr %69, align 2, !tbaa !11
   %70 = load i16, ptr %54, align 2, !tbaa !11

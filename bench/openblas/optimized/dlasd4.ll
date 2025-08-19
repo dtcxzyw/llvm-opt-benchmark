@@ -253,15 +253,15 @@ define void @dlasd4_(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr
   br label %.sink.split
 
 .sink.split:                                      ; preds = %169, %177, %137, %145
-  %.0.sink1993 = phi double [ %144, %137 ], [ %152, %145 ], [ %176, %169 ], [ %184, %177 ]
+  %.0.sink2047 = phi double [ %144, %137 ], [ %152, %145 ], [ %176, %169 ], [ %184, %177 ]
   %185 = load i32, ptr %0, align 4, !tbaa !3
   %186 = sext i32 %185 to i64
   %187 = getelementptr inbounds double, ptr %20, i64 %186
   %188 = load double, ptr %187, align 8, !tbaa !7
-  %189 = tail call double @llvm.fmuladd.f64(double %188, double %188, double %.0.sink1993)
+  %189 = tail call double @llvm.fmuladd.f64(double %188, double %188, double %.0.sink2047)
   %190 = tail call double @sqrt(double noundef %189) #6, !tbaa !3
   %191 = fadd double %188, %190
-  %192 = fdiv double %.0.sink1993, %191
+  %192 = fdiv double %.0.sink2047, %191
   br label %193
 
 193:                                              ; preds = %.sink.split, %101
@@ -1451,13 +1451,13 @@ thread-pre-split:                                 ; preds = %._crit_edge1786
 
 972:                                              ; preds = %971
   %973 = fcmp ogt double %.21481, 0.000000e+00
-  br i1 %973, label %.sink.split1996, label %979
+  br i1 %973, label %.sink.split2050, label %979
 
 974:                                              ; preds = %971
   %975 = fcmp ogt double %.11548, 0.000000e+00
-  br i1 %975, label %.sink.split1996, label %979
+  br i1 %975, label %.sink.split2050, label %979
 
-.sink.split1996:                                  ; preds = %974, %972
+.sink.split2050:                                  ; preds = %974, %972
   %.11548.sink = phi double [ %.11532, %972 ], [ %.11548, %974 ]
   %976 = fmul double %.21481, %.11548.sink
   %977 = call double @sqrt(double noundef %976) #6, !tbaa !3
@@ -1465,8 +1465,8 @@ thread-pre-split:                                 ; preds = %._crit_edge1786
   store double %978, ptr %16, align 8, !tbaa !7
   br label %979
 
-979:                                              ; preds = %.sink.split1996, %953, %969, %974, %972
-  %980 = phi double [ %965, %953 ], [ %storemerge1610, %969 ], [ %storemerge1610, %974 ], [ %storemerge1610, %972 ], [ %978, %.sink.split1996 ]
+979:                                              ; preds = %.sink.split2050, %953, %969, %974, %972
+  %980 = phi double [ %965, %953 ], [ %storemerge1610, %969 ], [ %storemerge1610, %974 ], [ %storemerge1610, %972 ], [ %978, %.sink.split2050 ]
   %981 = fadd double %.21481, %980
   %982 = fadd double %961, %980
   store double %982, ptr %6, align 8, !tbaa !7
@@ -1890,8 +1890,8 @@ thread-pre-split:                                 ; preds = %._crit_edge1786
   br label %1240
 
 1240:                                             ; preds = %1222, %1218, %1216, %1188
-  %.sink2000 = phi double [ %1239, %1222 ], [ %1221, %1218 ], [ %1217, %1216 ], [ %1196, %1188 ]
-  store double %.sink2000, ptr %1059, align 16, !tbaa !7
+  %.sink2054 = phi double [ %1239, %1222 ], [ %1221, %1218 ], [ %1217, %1216 ], [ %1196, %1188 ]
+  store double %.sink2054, ptr %1059, align 16, !tbaa !7
   store double %1182, ptr %13, align 16, !tbaa !7
   %1241 = fmul double %1070, %1069
   store double %1241, ptr %1064, align 8, !tbaa !7
@@ -2089,13 +2089,13 @@ thread-pre-split:                                 ; preds = %._crit_edge1786
 
 1367:                                             ; preds = %1366
   %1368 = fcmp ogt double %.314821759, 0.000000e+00
-  br i1 %1368, label %.sink.split2001, label %1374
+  br i1 %1368, label %.sink.split2055, label %1374
 
 1369:                                             ; preds = %1366
   %1370 = fcmp ogt double %.31550, 0.000000e+00
-  br i1 %1370, label %.sink.split2001, label %1374
+  br i1 %1370, label %.sink.split2055, label %1374
 
-.sink.split2001:                                  ; preds = %1369, %1367
+.sink.split2055:                                  ; preds = %1369, %1367
   %.31550.sink = phi double [ %.31534, %1367 ], [ %.31550, %1369 ]
   %1371 = fmul double %.314821759, %.31550.sink
   %1372 = call double @sqrt(double noundef %1371) #6, !tbaa !3
@@ -2103,8 +2103,8 @@ thread-pre-split:                                 ; preds = %._crit_edge1786
   store double %1373, ptr %16, align 8, !tbaa !7
   br label %1374
 
-1374:                                             ; preds = %.sink.split2001, %1348, %1364, %1369, %1367
-  %1375 = phi double [ %1360, %1348 ], [ %storemerge1629, %1364 ], [ %storemerge1629, %1369 ], [ %storemerge1629, %1367 ], [ %1373, %.sink.split2001 ]
+1374:                                             ; preds = %.sink.split2055, %1348, %1364, %1369, %1367
+  %1375 = phi double [ %1360, %1348 ], [ %storemerge1629, %1364 ], [ %storemerge1629, %1369 ], [ %storemerge1629, %1367 ], [ %1373, %.sink.split2055 ]
   %1376 = fadd double %.314821759, %1375
   %1377 = fadd double %1356, %1375
   store double %1377, ptr %6, align 8, !tbaa !7

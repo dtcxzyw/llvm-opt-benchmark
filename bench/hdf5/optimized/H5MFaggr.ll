@@ -479,10 +479,10 @@ define internal fastcc i64 @H5MF__aggr_alloc(ptr noundef %0, ptr noundef capture
   br label %.thread306
 
 228:                                              ; preds = %.thread, %220, %218
-  %.2195315 = phi i1 [ true, %.thread ], [ %.2195, %220 ], [ %.2195, %218 ]
-  %.4202314 = phi i64 [ %93, %.thread ], [ %.4202, %220 ], [ %.4202, %218 ]
+  %.2195339 = phi i1 [ true, %.thread ], [ %.2195, %220 ], [ %.2195, %218 ]
+  %.4202338 = phi i64 [ %93, %.thread ], [ %.4202, %220 ], [ %.4202, %218 ]
   %229 = icmp ne i64 %.0204, 0
-  %or.cond6 = and i1 %229, %.2195315
+  %or.cond6 = and i1 %229, %.2195339
   br i1 %or.cond6, label %230, label %.thread297
 
 230:                                              ; preds = %228
@@ -547,7 +547,7 @@ define internal fastcc i64 @H5MF__aggr_alloc(ptr noundef %0, ptr noundef capture
   br label %.thread306
 
 .thread297:                                       ; preds = %228, %230, %243, %237, %256, %258
-  %.9 = phi i64 [ %250, %258 ], [ %250, %256 ], [ %240, %237 ], [ %240, %243 ], [ %.4202314, %230 ], [ %.4202314, %228 ]
+  %.9 = phi i64 [ %250, %258 ], [ %250, %256 ], [ %240, %237 ], [ %240, %243 ], [ %.4202338, %230 ], [ %.4202338, %228 ]
   %266 = call i64 @H5F_get_alignment(ptr noundef nonnull %0) #6
   %.not264 = icmp eq i64 %266, 0
   br i1 %.not264, label %.thread306, label %267
@@ -707,10 +707,10 @@ define range(i32 0, 2) i32 @H5MF__aggr_can_absorb(ptr noundef readonly captures(
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 32
   %.pre = load i64, ptr %.phi.trans.insert, align 8, !tbaa !46
   %23 = icmp eq i64 %22, %.pre
-  %or.cond25 = select i1 %.not19, i1 %23, i1 false
+  %or.cond27 = select i1 %.not19, i1 %23, i1 false
   %.phi.trans.insert23 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.pre24 = load i64, ptr %.phi.trans.insert23, align 8, !tbaa !47
-  br i1 %or.cond25, label %._crit_edge22, label %._crit_edge
+  br i1 %or.cond27, label %._crit_edge22, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %18
   %24 = add i64 %.pre24, %.pre

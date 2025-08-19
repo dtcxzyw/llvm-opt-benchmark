@@ -213,34 +213,34 @@ define dso_local void @lolwut5Command(ptr noundef %0) local_unnamed_addr #1 {
   %34 = phi i64 [ %29, %31 ], [ %.sink, %.sink.split ]
   %35 = load i64, ptr %4, align 8, !tbaa !11
   %36 = icmp slt i64 %35, 1
-  br i1 %36, label %.sink.split26, label %37
+  br i1 %36, label %.sink.split31, label %37
 
 37:                                               ; preds = %33
   %38 = icmp samesign ugt i64 %35, 200
-  br i1 %38, label %.sink.split26, label %39
+  br i1 %38, label %.sink.split31, label %39
 
-.sink.split26:                                    ; preds = %37, %33
-  %.sink28 = phi i64 [ 1, %33 ], [ 200, %37 ]
-  store i64 %.sink28, ptr %4, align 8, !tbaa !11
+.sink.split31:                                    ; preds = %37, %33
+  %.sink33 = phi i64 [ 1, %33 ], [ 200, %37 ]
+  store i64 %.sink33, ptr %4, align 8, !tbaa !11
   br label %39
 
-39:                                               ; preds = %.sink.split26, %37
-  %40 = phi i64 [ %35, %37 ], [ %.sink28, %.sink.split26 ]
+39:                                               ; preds = %.sink.split31, %37
+  %40 = phi i64 [ %35, %37 ], [ %.sink33, %.sink.split31 ]
   %41 = load i64, ptr %5, align 8, !tbaa !11
   %42 = icmp slt i64 %41, 1
-  br i1 %42, label %.sink.split29, label %43
+  br i1 %42, label %.sink.split34, label %43
 
 43:                                               ; preds = %39
   %44 = icmp samesign ugt i64 %41, 200
-  br i1 %44, label %.sink.split29, label %45
+  br i1 %44, label %.sink.split34, label %45
 
-.sink.split29:                                    ; preds = %43, %39
-  %.sink31 = phi i64 [ 1, %39 ], [ 200, %43 ]
-  store i64 %.sink31, ptr %5, align 8, !tbaa !11
+.sink.split34:                                    ; preds = %43, %39
+  %.sink36 = phi i64 [ 1, %39 ], [ 200, %43 ]
+  store i64 %.sink36, ptr %5, align 8, !tbaa !11
   br label %45
 
-45:                                               ; preds = %.sink.split29, %43
-  %46 = phi i64 [ %41, %43 ], [ %.sink31, %.sink.split29 ]
+45:                                               ; preds = %.sink.split34, %43
+  %46 = phi i64 [ %41, %43 ], [ %.sink36, %.sink.split34 ]
   %47 = trunc nuw nsw i64 %34 to i32
   %48 = trunc nuw nsw i64 %40 to i32
   %49 = trunc nuw nsw i64 %46 to i32

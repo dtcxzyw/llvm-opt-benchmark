@@ -704,7 +704,7 @@ _ZN11ConvI2LNodeC2EP4NodePK8TypeLong.exit:        ; preds = %23, %30, %41
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN16PhaseMacroExpand14make_leaf_callEP4NodeS1_PK8TypeFuncPhPKcPK7TypePtrS1_S1_S1_S1_S1_S1_S1_S1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(97) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef %11, ptr noundef %12, ptr noundef %13, ptr noundef %14) local_unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN16PhaseMacroExpand14make_leaf_callEP4NodeS1_PK8TypeFuncPhPKcPK7TypePtrS1_S1_S1_S1_S1_S1_S1_S1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(97) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef %11, ptr noundef %12, ptr noundef %13, ptr noundef %14) local_unnamed_addr #0 align 2 {
   %16 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 1808
@@ -6143,7 +6143,7 @@ define hidden noundef ptr @_ZN16PhaseMacroExpand26generate_generic_arraycopyEPP4
   %20 = load ptr, ptr %1, align 8
   %21 = load ptr, ptr %2, align 8
   %22 = tail call noundef ptr @_ZN16PhaseMacroExpand14make_leaf_callEP4NodeS1_PK8TypeFuncPhPKcPK7TypePtrS1_S1_S1_S1_S1_S1_S1_S1_(ptr noundef nonnull align 8 dereferenceable(97) %0, ptr noundef %20, ptr noundef %21, ptr noundef %19, ptr noundef nonnull %16, ptr noundef nonnull @.str.6, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef null, ptr noundef null, ptr noundef null)
-  tail call void @_ZN16PhaseMacroExpand21finish_arraycopy_callEP4NodePS1_PP12MergeMemNodePK7TypePtr(ptr noundef nonnull align 8 dereferenceable(97) %0, ptr noundef %22, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef %3)
+  tail call void @_ZN16PhaseMacroExpand21finish_arraycopy_callEP4NodePS1_PP12MergeMemNodePK7TypePtr(ptr noundef nonnull align 8 dereferenceable(97) %0, ptr noundef nonnull %22, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef %3)
   %23 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %24 = load ptr, ptr %23, align 8
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 1808
@@ -6177,7 +6177,7 @@ _ZN4NodenwEm.exit:                                ; preds = %38, %40
   br i1 %42, label %50, label %43
 
 43:                                               ; preds = %_ZN4NodenwEm.exit
-  tail call void @_ZN4NodeC2EPS_(ptr noundef nonnull align 8 dereferenceable(57) %.0.i.i.i, ptr noundef %22) #6
+  tail call void @_ZN4NodeC2EPS_(ptr noundef nonnull align 8 dereferenceable(57) %.0.i.i.i, ptr noundef nonnull %22) #6
   store ptr getelementptr inbounds nuw inrange(-16, 192) (i8, ptr @_ZTV8ProjNode, i64 16), ptr %.0.i.i.i, align 8
   %44 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 52
   store i32 5, ptr %44, align 4
@@ -7412,7 +7412,7 @@ _ZN4NodenwEm.exit:                                ; preds = %63, %65
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 744
   %88 = load ptr, ptr %87, align 8
   %89 = tail call noundef ptr @_ZN16PhaseMacroExpand14make_leaf_callEP4NodeS1_PK8TypeFuncPhPKcPK7TypePtrS1_S1_S1_S1_S1_S1_S1_S1_(ptr noundef nonnull align 8 dereferenceable(97) %0, ptr noundef %83, ptr noundef %84, ptr noundef %82, ptr noundef nonnull %19, ptr noundef nonnull @.str.5, ptr noundef %3, ptr noundef %80, ptr noundef %81, ptr noundef %9, ptr noundef %88, ptr noundef %79, ptr noundef %88, ptr noundef %4, ptr noundef null)
-  tail call void @_ZN16PhaseMacroExpand21finish_arraycopy_callEP4NodePS1_PP12MergeMemNodePK7TypePtr(ptr noundef nonnull align 8 dereferenceable(97) %0, ptr noundef %89, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef %3)
+  tail call void @_ZN16PhaseMacroExpand21finish_arraycopy_callEP4NodePS1_PP12MergeMemNodePK7TypePtr(ptr noundef nonnull align 8 dereferenceable(97) %0, ptr noundef nonnull %89, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef %3)
   %90 = load ptr, ptr %25, align 8
   %91 = getelementptr inbounds nuw i8, ptr %90, i64 1808
   %92 = load ptr, ptr %91, align 8
@@ -7445,7 +7445,7 @@ _ZN4NodenwEm.exit37:                              ; preds = %104, %106
   br i1 %108, label %116, label %109
 
 109:                                              ; preds = %_ZN4NodenwEm.exit37
-  tail call void @_ZN4NodeC2EPS_(ptr noundef nonnull align 8 dereferenceable(57) %.0.i.i.i36, ptr noundef %89) #6
+  tail call void @_ZN4NodeC2EPS_(ptr noundef nonnull align 8 dereferenceable(57) %.0.i.i.i36, ptr noundef nonnull %89) #6
   store ptr getelementptr inbounds nuw inrange(-16, 192) (i8, ptr @_ZTV8ProjNode, i64 16), ptr %.0.i.i.i36, align 8
   %110 = getelementptr inbounds nuw i8, ptr %.0.i.i.i36, i64 52
   store i32 5, ptr %110, align 4
@@ -7529,7 +7529,7 @@ define hidden noundef zeroext i1 @_ZN16PhaseMacroExpand28generate_unchecked_arra
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 744
   %45 = load ptr, ptr %44, align 8
   %46 = call noundef ptr @_ZN16PhaseMacroExpand14make_leaf_callEP4NodeS1_PK8TypeFuncPhPKcPK7TypePtrS1_S1_S1_S1_S1_S1_S1_S1_(ptr noundef nonnull align 8 dereferenceable(97) %0, ptr noundef %39, ptr noundef %40, ptr noundef %38, ptr noundef %27, ptr noundef %41, ptr noundef %3, ptr noundef %.050, ptr noundef %.051, ptr noundef %10, ptr noundef %45, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null)
-  call void @_ZN16PhaseMacroExpand21finish_arraycopy_callEP4NodePS1_PP12MergeMemNodePK7TypePtr(ptr noundef nonnull align 8 dereferenceable(97) %0, ptr noundef %46, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef %3)
+  call void @_ZN16PhaseMacroExpand21finish_arraycopy_callEP4NodePS1_PP12MergeMemNodePK7TypePtr(ptr noundef nonnull align 8 dereferenceable(97) %0, ptr noundef nonnull %46, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef %3)
   %.not = icmp eq ptr %37, null
   br i1 %.not, label %104, label %47
 
@@ -8342,7 +8342,7 @@ _ZN17AllocateArrayNode22Ideal_array_allocationEP4Node.exit140: ; preds = %84, %8
   %102 = icmp ne i32 %101, 22
   %103 = getelementptr inbounds nuw i8, ptr %99, i64 16
   %104 = load i32, ptr %103, align 8
-  %.not148 = icmp eq i32 %104, 22
+  %.not159 = icmp eq i32 %104, 22
   %.not146 = icmp eq ptr %94, null
   %.not = or i1 %.not146, %102
   br i1 %.not, label %113, label %105
@@ -8362,7 +8362,7 @@ _ZN17AllocateArrayNode22Ideal_array_allocationEP4Node.exit140: ; preds = %84, %8
 
 113:                                              ; preds = %111, %105, %_ZN17AllocateArrayNode22Ideal_array_allocationEP4Node.exit140
   %.0121 = phi i8 [ %112, %111 ], [ 19, %105 ], [ 19, %_ZN17AllocateArrayNode22Ideal_array_allocationEP4Node.exit140 ]
-  br i1 %.not148, label %114, label %122
+  br i1 %.not159, label %114, label %122
 
 114:                                              ; preds = %113
   %115 = getelementptr inbounds nuw i8, ptr %99, i64 80

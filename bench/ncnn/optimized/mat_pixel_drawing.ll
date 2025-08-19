@@ -2179,7 +2179,7 @@ define hidden void @_ZN4ncnn12draw_line_c1EPhiiiiiiiji(ptr noundef writeonly cap
   %45 = trunc i64 %indvars.iv to i32
   %46 = sub i32 %45, %5
   %47 = mul nsw i32 %46, %28
-  %48 = trunc nsw i64 %indvars.iv to i32
+  %48 = trunc nuw nsw i64 %indvars.iv to i32
   %49 = uitofp nneg i32 %48 to float
   br label %50
 
@@ -2308,7 +2308,7 @@ define hidden void @_ZN4ncnn12draw_line_c2EPhiiiiiiiji(ptr noundef writeonly cap
   %46 = trunc i64 %indvars.iv to i32
   %47 = sub i32 %46, %5
   %48 = mul nsw i32 %47, %28
-  %49 = trunc nsw i64 %indvars.iv to i32
+  %49 = trunc nuw nsw i64 %indvars.iv to i32
   %50 = uitofp nneg i32 %49 to float
   br label %51
 
@@ -2442,7 +2442,7 @@ define hidden void @_ZN4ncnn12draw_line_c3EPhiiiiiiiji(ptr noundef writeonly cap
   %45 = trunc i64 %indvars.iv to i32
   %46 = sub i32 %45, %5
   %47 = mul nsw i32 %46, %28
-  %48 = trunc nsw i64 %indvars.iv to i32
+  %48 = trunc nuw nsw i64 %indvars.iv to i32
   %49 = uitofp nneg i32 %48 to float
   br label %50
 
@@ -2575,7 +2575,7 @@ define hidden void @_ZN4ncnn12draw_line_c4EPhiiiiiiiji(ptr noundef writeonly cap
   %45 = trunc i64 %indvars.iv to i32
   %46 = sub i32 %45, %5
   %47 = mul nsw i32 %46, %28
-  %48 = trunc nsw i64 %indvars.iv to i32
+  %48 = trunc nuw nsw i64 %indvars.iv to i32
   %49 = uitofp nneg i32 %48 to float
   br label %50
 
@@ -3406,8 +3406,8 @@ define hidden void @_ZN4ncnn20resize_bilinear_fontEPKhPhi(ptr noundef readonly c
   %64 = select fast i1 %63, float 5.000000e-01, float -5.000000e-01
   %65 = fadd fast float %64, %62
   %66 = tail call i16 @llvm.fptosi.sat.i16.f32(float %65)
-  %.idx700 = shl nuw nsw i64 %indvars.iv670, 2
-  %67 = getelementptr inbounds nuw i8, ptr %19, i64 %.idx700
+  %.idx714 = shl nuw nsw i64 %indvars.iv670, 2
+  %67 = getelementptr inbounds nuw i8, ptr %19, i64 %.idx714
   store i16 %66, ptr %67, align 2, !tbaa !87
   %68 = fcmp fast oge float %61, 0.000000e+00
   %69 = select fast i1 %68, float 5.000000e-01, float -5.000000e-01

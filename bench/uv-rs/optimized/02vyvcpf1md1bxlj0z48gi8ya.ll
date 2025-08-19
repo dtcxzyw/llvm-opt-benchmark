@@ -1061,9 +1061,9 @@ _ZN8smallvec10infallible17h5571726c9e93648bE.llvm.9724254067853043990.exit: ; pr
   tail call void @llvm.experimental.noalias.scope.decl(metadata !244)
   %51 = load i64, ptr %50, align 8, !range !70, !alias.scope !246, !noalias !247, !noundef !8
   %switch3.i = icmp samesign ult i64 %51, 2
-  br i1 %switch3.i, label %.invoke.i, label %"_ZN104_$LT$core..iter..adapters..cloned..Cloned$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h805004c18623d42cE.exit.thread79"
+  br i1 %switch3.i, label %.invoke.i, label %"_ZN104_$LT$core..iter..adapters..cloned..Cloned$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h805004c18623d42cE.exit.thread85"
 
-"_ZN104_$LT$core..iter..adapters..cloned..Cloned$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h805004c18623d42cE.exit.thread79": ; preds = %"_ZN71_$LT$core..ops..range..Bound$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h09f4f3a77477582cE.llvm.6142476940176993551.exit.i.i"
+"_ZN104_$LT$core..iter..adapters..cloned..Cloned$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h805004c18623d42cE.exit.thread85": ; preds = %"_ZN71_$LT$core..ops..range..Bound$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h09f4f3a77477582cE.llvm.6142476940176993551.exit.i.i"
   store i64 %51, ptr %39, align 8, !alias.scope !248, !noalias !249
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.7, ptr noundef nonnull align 8 dereferenceable(40) %37, i64 40, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !223
@@ -1110,9 +1110,9 @@ _ZN8smallvec10infallible17h5571726c9e93648bE.llvm.9724254067853043990.exit: ; pr
   tail call void @llvm.experimental.noalias.scope.decl(metadata !271)
   %62 = load i64, ptr %61, align 8, !range !70, !alias.scope !273, !noalias !274, !noundef !8
   %switch3.i10 = icmp samesign ult i64 %62, 2
-  br i1 %switch3.i10, label %.invoke.i12, label %"_ZN104_$LT$core..iter..adapters..cloned..Cloned$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h805004c18623d42cE.exit14.thread76"
+  br i1 %switch3.i10, label %.invoke.i12, label %"_ZN104_$LT$core..iter..adapters..cloned..Cloned$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h805004c18623d42cE.exit14.thread82"
 
-"_ZN104_$LT$core..iter..adapters..cloned..Cloned$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h805004c18623d42cE.exit14.thread76": ; preds = %"_ZN71_$LT$core..ops..range..Bound$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h09f4f3a77477582cE.llvm.6142476940176993551.exit.i.i9"
+"_ZN104_$LT$core..iter..adapters..cloned..Cloned$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h805004c18623d42cE.exit14.thread82": ; preds = %"_ZN71_$LT$core..ops..range..Bound$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h09f4f3a77477582cE.llvm.6142476940176993551.exit.i.i9"
   store i64 %62, ptr %43, align 8, !alias.scope !275, !noalias !276
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.734, ptr noundef nonnull align 8 dereferenceable(40) %41, i64 40, i1 false), !noalias !277
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !250
@@ -1151,9 +1151,9 @@ common.resume:                                    ; preds = %75, %64, %95
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.734)
   br label %87
 
-69:                                               ; preds = %"_ZN104_$LT$core..iter..adapters..cloned..Cloned$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h805004c18623d42cE.exit14.thread76", %"_ZN104_$LT$core..iter..adapters..cloned..Cloned$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h805004c18623d42cE.exit14"
-  %.sroa.032.0.copyload3378 = phi i64 [ %59, %"_ZN104_$LT$core..iter..adapters..cloned..Cloned$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h805004c18623d42cE.exit14.thread76" ], [ %.sroa.032.0.copyload33.pre, %"_ZN104_$LT$core..iter..adapters..cloned..Cloned$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h805004c18623d42cE.exit14" ]
-  store i64 %.sroa.032.0.copyload3378, ptr %6, align 8
+69:                                               ; preds = %"_ZN104_$LT$core..iter..adapters..cloned..Cloned$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h805004c18623d42cE.exit14.thread82", %"_ZN104_$LT$core..iter..adapters..cloned..Cloned$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h805004c18623d42cE.exit14"
+  %.sroa.032.0.copyload3384 = phi i64 [ %59, %"_ZN104_$LT$core..iter..adapters..cloned..Cloned$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h805004c18623d42cE.exit14.thread82" ], [ %.sroa.032.0.copyload33.pre, %"_ZN104_$LT$core..iter..adapters..cloned..Cloned$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h805004c18623d42cE.exit14" ]
+  store i64 %.sroa.032.0.copyload3384, ptr %6, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.734.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.734, i64 40, i1 false)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !278)
   %70 = load i64, ptr %12, align 8, !alias.scope !281, !noalias !284, !noundef !8
@@ -1217,10 +1217,10 @@ common.resume:                                    ; preds = %75, %64, %95
   %90 = icmp eq i64 %.sroa.0.0.copyload70.pre, 3
   br i1 %90, label %.loopexit, label %91
 
-91:                                               ; preds = %"_ZN104_$LT$core..iter..adapters..cloned..Cloned$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h805004c18623d42cE.exit.thread79", %"_ZN104_$LT$core..iter..adapters..cloned..Cloned$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h805004c18623d42cE.exit"
-  %.sroa.0.0.copyload7081 = phi i64 [ %48, %"_ZN104_$LT$core..iter..adapters..cloned..Cloned$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h805004c18623d42cE.exit.thread79" ], [ %.sroa.0.0.copyload70.pre, %"_ZN104_$LT$core..iter..adapters..cloned..Cloned$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h805004c18623d42cE.exit" ]
+91:                                               ; preds = %"_ZN104_$LT$core..iter..adapters..cloned..Cloned$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h805004c18623d42cE.exit.thread85", %"_ZN104_$LT$core..iter..adapters..cloned..Cloned$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h805004c18623d42cE.exit"
+  %.sroa.0.0.copyload7087 = phi i64 [ %48, %"_ZN104_$LT$core..iter..adapters..cloned..Cloned$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h805004c18623d42cE.exit.thread85" ], [ %.sroa.0.0.copyload70.pre, %"_ZN104_$LT$core..iter..adapters..cloned..Cloned$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h805004c18623d42cE.exit" ]
   %92 = getelementptr inbounds { { i64, [2 x i64] }, { i64, [2 x i64] } }, ptr %.sink10.i, i64 %.sroa.7.054
-  store i64 %.sroa.0.0.copyload7081, ptr %92, align 8
+  store i64 %.sroa.0.0.copyload7087, ptr %92, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %92, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.2.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.7, i64 40, i1 false)
   %93 = add nuw i64 %.sroa.7.054, 1

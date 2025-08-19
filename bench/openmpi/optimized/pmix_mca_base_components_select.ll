@@ -48,9 +48,9 @@ define range(i32 -63, 1) i32 @pmix_mca_base_select(ptr noundef %0, i32 noundef %
 .thread:                                          ; preds = %6
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 120
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 240
-  %.0788895 = load ptr, ptr %19, align 8, !tbaa !16
-  %.not8996 = icmp eq ptr %.0788895, %18
-  br i1 %.not8996, label %._crit_edge, label %.lr.ph.split
+  %.07888105 = load ptr, ptr %19, align 8, !tbaa !16
+  %.not89106 = icmp eq ptr %.07888105, %18
+  br i1 %.not89106, label %._crit_edge, label %.lr.ph.split
 
 .lr.ph:                                           ; preds = %15
   %20 = zext nneg i32 %1 to i64
@@ -137,7 +137,7 @@ define range(i32 -63, 1) i32 @pmix_mca_base_select(ptr noundef %0, i32 noundef %
   br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !26
 
 .lr.ph.split:                                     ; preds = %.thread, %71
-  %.07891 = phi ptr [ %.078, %71 ], [ %.0788895, %.thread ]
+  %.07891 = phi ptr [ %.078, %71 ], [ %.07888105, %.thread ]
   %.07790 = phi i32 [ %.1, %71 ], [ -2147483648, %.thread ]
   %57 = getelementptr inbounds nuw i8, ptr %.07891, i64 144
   %58 = load ptr, ptr %57, align 8, !tbaa !22

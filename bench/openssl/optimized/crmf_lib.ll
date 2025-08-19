@@ -744,8 +744,8 @@ define range(i32 0, 2) i32 @OSSL_CRMF_MSG_set1_regInfo_utf8Pairs(ptr noundef cap
 
 .thread.thread.i:                                 ; preds = %15
   %23 = tail call i32 @OPENSSL_sk_push(ptr noundef nonnull %17, ptr noundef nonnull %6) #7
-  %.not25.i = icmp eq i32 %23, 0
-  br i1 %.not25.i, label %OSSL_CRMF_MSG_push0_regInfo.exit, label %OSSL_CRMF_MSG_push0_regInfo.exit.thread
+  %.not26.i = icmp eq i32 %23, 0
+  br i1 %.not26.i, label %OSSL_CRMF_MSG_push0_regInfo.exit, label %OSSL_CRMF_MSG_push0_regInfo.exit.thread
 
 .split13.i:                                       ; preds = %.thread.i
   store ptr null, ptr %16, align 8, !tbaa !40
@@ -851,8 +851,8 @@ define range(i32 0, 2) i32 @OSSL_CRMF_MSG_set1_regInfo_certReq(ptr noundef captu
 
 .thread.thread.i:                                 ; preds = %15
   %23 = tail call i32 @OPENSSL_sk_push(ptr noundef nonnull %17, ptr noundef nonnull %6) #7
-  %.not25.i = icmp eq i32 %23, 0
-  br i1 %.not25.i, label %OSSL_CRMF_MSG_push0_regInfo.exit, label %OSSL_CRMF_MSG_push0_regInfo.exit.thread
+  %.not26.i = icmp eq i32 %23, 0
+  br i1 %.not26.i, label %OSSL_CRMF_MSG_push0_regInfo.exit, label %OSSL_CRMF_MSG_push0_regInfo.exit.thread
 
 .split13.i:                                       ; preds = %.thread.i
   store ptr null, ptr %16, align 8, !tbaa !40
@@ -1865,12 +1865,12 @@ define ptr @OSSL_CRMF_ENCRYPTEDKEY_get1_pkey(ptr noundef readonly captures(addre
   br i1 %55, label %.sink.split, label %56
 
 .sink.split:                                      ; preds = %53, %51, %48, %45, %27
-  %.sink60 = phi i32 [ 712, %27 ], [ 731, %45 ], [ 739, %48 ], [ 744, %51 ], [ 750, %53 ]
+  %.sink68 = phi i32 [ 712, %27 ], [ 731, %45 ], [ 739, %48 ], [ 744, %51 ], [ 750, %53 ]
   %.sink = phi i32 [ 124, %27 ], [ 126, %45 ], [ 126, %48 ], [ 127, %51 ], [ 123, %53 ]
   %.044.ph = phi ptr [ null, %27 ], [ null, %45 ], [ %49, %48 ], [ null, %51 ], [ %49, %53 ]
   %.042.ph = phi ptr [ null, %27 ], [ %34, %45 ], [ %34, %48 ], [ %34, %51 ], [ %34, %53 ]
   tail call void @ERR_new() #7
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink60, ptr noundef nonnull @__func__.OSSL_CRMF_ENCRYPTEDKEY_get1_pkey) #7
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink68, ptr noundef nonnull @__func__.OSSL_CRMF_ENCRYPTEDKEY_get1_pkey) #7
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 56, i32 noundef %.sink, ptr noundef null) #7
   br label %56
 

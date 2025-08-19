@@ -519,9 +519,9 @@ _ZN14regex_automata4util4iter8Searcher7advance17hbb80c6008fa93334E.exit.i: ; pre
   br label %200
 
 200:                                              ; preds = %_ZN14regex_automata4util4iter8Searcher7advance17hbb80c6008fa93334E.exit.i, %192
-  %.sink46 = phi i64 [ 72, %192 ], [ 8, %_ZN14regex_automata4util4iter8Searcher7advance17hbb80c6008fa93334E.exit.i ]
+  %.sink55 = phi i64 [ 72, %192 ], [ 8, %_ZN14regex_automata4util4iter8Searcher7advance17hbb80c6008fa93334E.exit.i ]
   %.sink = phi i64 [ %196, %192 ], [ 2, %_ZN14regex_automata4util4iter8Searcher7advance17hbb80c6008fa93334E.exit.i ]
-  %.sroa.4.sroa.10.0..sroa.4.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 %.sink46
+  %.sroa.4.sroa.10.0..sroa.4.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 %.sink55
   store i64 %.sink, ptr %.sroa.4.sroa.10.0..sroa.4.0..sroa_idx.sroa_idx, align 8
   ret void
 }
@@ -1030,8 +1030,8 @@ define internal fastcc noundef zeroext i1 @"_ZN4core3str7pattern13simd_contains2
 
 22:                                               ; preds = %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17hc82777fdd5617a27E.exit.i.us", %.preheader.split.us
   %.sroa.615.0.i.us = phi i64 [ %.sroa.615.0.copyload.i.us, %.preheader.split.us ], [ %25, %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17hc82777fdd5617a27E.exit.i.us" ]
-  %.not25.i.us = icmp ult i64 %.sroa.615.0.i.us, %.sroa.8.0.copyload.i.us
-  br i1 %.not25.i.us, label %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17hc82777fdd5617a27E.exit.i.us", label %_ZN4core3str7pattern14small_slice_eq17h27efa1f7c4096f35E.exit.thread9
+  %.not28.i.us = icmp ult i64 %.sroa.615.0.i.us, %.sroa.8.0.copyload.i.us
+  br i1 %.not28.i.us, label %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17hc82777fdd5617a27E.exit.i.us", label %_ZN4core3str7pattern14small_slice_eq17h27efa1f7c4096f35E.exit.thread9
 
 "_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17hc82777fdd5617a27E.exit.i.us": ; preds = %22
   tail call void @llvm.assume(i1 %20)
@@ -2484,12 +2484,12 @@ _ZN4core4iter6traits8iterator8Iterator7collect17h3356ddd442abad0dE.exit33: ; pre
   br i1 %.not45.i.i.i.i, label %.thread80.i, label %388
 
 388:                                              ; preds = %"_ZN7ty_test7matcher7Matcher7matches28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hc4727e2fc1e7d15dE.exit.i.us.thread.i.i.i", %.noexc32.i
-  %.sroa.0.0.i.i.us.not67.i.i.i = phi i1 [ true, %"_ZN7ty_test7matcher7Matcher7matches28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hc4727e2fc1e7d15dE.exit.i.us.thread.i.i.i" ], [ %387, %.noexc32.i ]
+  %.sroa.0.0.i.i.us.not77.i.i.i = phi i1 [ true, %"_ZN7ty_test7matcher7Matcher7matches28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hc4727e2fc1e7d15dE.exit.i.us.thread.i.i.i" ], [ %387, %.noexc32.i ]
   %389 = invoke fastcc noundef zeroext i1 @"_ZN7ty_test7matcher7Matcher7matches28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hac33d4e0fe307751E"(ptr noalias noundef readonly align 8 dereferenceable(8) %.val9.us20.i.i.i, ptr noalias noundef nonnull readonly align 1 %.fr49.i.i.i, i64 noundef %.sroa.15.0.i.i.i.i)
           to label %.noexc33.i unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 .noexc33.i:                                       ; preds = %388
-  %brmerge46.not.i.i.i = and i1 %.sroa.0.0.i.i.us.not67.i.i.i, %389
+  %brmerge46.not.i.i.i = and i1 %.sroa.0.0.i.i.us.not77.i.i.i, %389
   br i1 %brmerge46.not.i.i.i, label %.thread80.i, label %"_ZN7ty_test7matcher7Matcher7matches28_$u7b$$u7b$closure$u7d$$u7d$17he8bb0fe5d5658f36E.exit.thread14.us23.i.i.i"
 
 390:                                              ; preds = %.noexc32.i
@@ -3617,7 +3617,7 @@ _ZN7ty_test7matcher21discard_todo_metadata17hcb370254f1553faeE.exit.i.i: ; preds
   br label %705
 
 705:                                              ; preds = %704, %703, %698, %678
-  %706 = phi i64 [ %671, %678 ], [ 1, %704 ], [ %671, %698 ], [ 0, %703 ]
+  %706 = phi i64 [ 1, %678 ], [ 1, %704 ], [ %671, %698 ], [ 0, %703 ]
   %707 = phi i64 [ %672, %678 ], [ %672, %704 ], [ 1, %698 ], [ %672, %703 ]
   %708 = icmp ne i64 %707, 0
   %709 = icmp ne i64 %706, 0
@@ -4555,7 +4555,7 @@ _ZN4core3str7pattern13simd_contains17h3d353a735ba2a5d2E.exit.i: ; preds = %251, 
   br label %146
 
 146:                                              ; preds = %.sink.split.i.i, %.lr.ph.i36.i
-  %147 = phi i64 [ %.promoted.i33.i, %.lr.ph.i36.i ], [ %.ph69.i.i, %.sink.split.i.i ]
+  %147 = phi i64 [ %.promoted.i33.i, %.lr.ph.i36.i ], [ %.ph76.i.i, %.sink.split.i.i ]
   %148 = phi i64 [ %62, %.lr.ph.i36.i ], [ %.sink.i.i, %.sink.split.i.i ]
   %149 = phi i64 [ %138, %.lr.ph.i36.i ], [ %160, %.sink.split.i.i ]
   %150 = getelementptr inbounds nuw i8, ptr %65, i64 %149
@@ -4577,8 +4577,8 @@ _ZN4core3str7pattern13simd_contains17h3d353a735ba2a5d2E.exit.i: ; preds = %251, 
 
 .sink.split.i.i:                                  ; preds = %192, %182, %157
   %.sink.i.i = phi i64 [ %145, %182 ], [ 0, %192 ], [ 0, %157 ]
-  %.ph69.i.i = phi i64 [ %183, %182 ], [ %194, %192 ], [ %158, %157 ]
-  %160 = add i64 %.ph69.i.i, %73
+  %.ph76.i.i = phi i64 [ %183, %182 ], [ %194, %192 ], [ %158, %157 ]
+  %160 = add i64 %.ph76.i.i, %73
   %161 = icmp ult i64 %160, %67
   br i1 %161, label %146, label %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h3cb23c7047c105e7E.exit.i"
 

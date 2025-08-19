@@ -225,9 +225,9 @@ define internal range(i32 0, 2) i32 @int_def_cb(ptr noundef readonly captures(ad
   br i1 %38, label %.sink.split, label %41
 
 .sink.split:                                      ; preds = %36, %33, %30, %27, %24, %21, %18, %15, %12, %9, %5
-  %.sink37 = phi i32 [ 65535, %5 ], [ 1, %9 ], [ 2, %12 ], [ 4, %15 ], [ 2048, %18 ], [ 8, %21 ], [ 64, %24 ], [ 128, %27 ], [ 1536, %30 ], [ 512, %33 ], [ 1024, %36 ]
+  %.sink38 = phi i32 [ 65535, %5 ], [ 1, %9 ], [ 2, %12 ], [ 4, %15 ], [ 2048, %18 ], [ 8, %21 ], [ 64, %24 ], [ 128, %27 ], [ 1536, %30 ], [ 512, %33 ], [ 1024, %36 ]
   %39 = load i32, ptr %2, align 4, !tbaa !3
-  %40 = or i32 %39, %.sink37
+  %40 = or i32 %39, %.sink38
   store i32 %40, ptr %2, align 4, !tbaa !3
   br label %41
 

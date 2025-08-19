@@ -114,15 +114,15 @@ define dso_local signext i16 @pg_strtoint16_safe(ptr noundef %0, ptr noundef %1)
   %.3 = phi ptr [ %36, %38 ], [ %36, %39 ], [ %.2, %37 ]
   %41 = load i8, ptr %.3, align 1
   %42 = icmp eq i8 %41, 48
-  br i1 %42, label %43, label %.preheader270
+  br i1 %42, label %43, label %.preheader276
 
-.preheader270:                                    ; preds = %43, %40
+.preheader276:                                    ; preds = %43, %40
   br label %.outer
 
 43:                                               ; preds = %40
   %44 = getelementptr inbounds nuw i8, ptr %.3, i64 1
   %45 = load i8, ptr %44, align 1
-  switch i8 %45, label %.preheader270 [
+  switch i8 %45, label %.preheader276 [
     i8 120, label %46
     i8 88, label %46
     i8 111, label %74
@@ -133,15 +133,15 @@ define dso_local signext i16 @pg_strtoint16_safe(ptr noundef %0, ptr noundef %1)
 
 46:                                               ; preds = %43, %43
   %47 = getelementptr inbounds nuw i8, ptr %.3, i64 2
-  br label %.outer281
+  br label %.outer287
 
-.outer281:                                        ; preds = %56, %46
+.outer287:                                        ; preds = %56, %46
   %.198.ph = phi i16 [ %62, %56 ], [ 0, %46 ]
   %.4.ph = phi ptr [ %58, %56 ], [ %47, %46 ]
   br label %48
 
-48:                                               ; preds = %.outer281, %69
-  %.4 = phi ptr [ %66, %69 ], [ %.4.ph, %.outer281 ]
+48:                                               ; preds = %.outer287, %69
+  %.4 = phi ptr [ %66, %69 ], [ %.4.ph, %.outer287 ]
   %49 = load i8, ptr %.4, align 1
   %50 = zext i8 %49 to i64
   %51 = getelementptr inbounds nuw i16, ptr %29, i64 %50
@@ -161,7 +161,7 @@ define dso_local signext i16 @pg_strtoint16_safe(ptr noundef %0, ptr noundef %1)
   %60 = load i8, ptr %59, align 1
   %61 = sext i8 %60 to i16
   %62 = add i16 %57, %61
-  br label %.outer281
+  br label %.outer287
 
 63:                                               ; preds = %48
   %64 = icmp eq i8 %49, 95
@@ -183,15 +183,15 @@ define dso_local signext i16 @pg_strtoint16_safe(ptr noundef %0, ptr noundef %1)
 
 74:                                               ; preds = %43, %43
   %75 = getelementptr inbounds nuw i8, ptr %.3, i64 2
-  br label %.outer292
+  br label %.outer298
 
-.outer292:                                        ; preds = %81, %74
+.outer298:                                        ; preds = %81, %74
   %.4101.ph = phi i16 [ %85, %81 ], [ 0, %74 ]
   %.7.ph = phi ptr [ %83, %81 ], [ %75, %74 ]
   br label %76
 
-76:                                               ; preds = %.outer292, %88
-  %.7 = phi ptr [ %89, %88 ], [ %.7.ph, %.outer292 ]
+76:                                               ; preds = %.outer298, %88
+  %.7 = phi ptr [ %89, %88 ], [ %.7.ph, %.outer298 ]
   %77 = load i8, ptr %.7, align 1
   %78 = and i8 %77, -8
   %or.cond = icmp eq i8 %78, 48
@@ -207,7 +207,7 @@ define dso_local signext i16 @pg_strtoint16_safe(ptr noundef %0, ptr noundef %1)
   %narrow128 = add nsw i8 %77, -48
   %84 = zext nneg i8 %narrow128 to i16
   %85 = or disjoint i16 %82, %84
-  br label %.outer292
+  br label %.outer298
 
 86:                                               ; preds = %76
   %87 = icmp eq i8 %77, 95
@@ -222,15 +222,15 @@ define dso_local signext i16 @pg_strtoint16_safe(ptr noundef %0, ptr noundef %1)
 
 92:                                               ; preds = %43, %43
   %93 = getelementptr inbounds nuw i8, ptr %.3, i64 2
-  br label %.outer303
+  br label %.outer309
 
-.outer303:                                        ; preds = %99, %92
+.outer309:                                        ; preds = %99, %92
   %.6103.ph = phi i16 [ %103, %99 ], [ 0, %92 ]
   %.9.ph = phi ptr [ %101, %99 ], [ %93, %92 ]
   br label %94
 
-94:                                               ; preds = %.outer303, %106
-  %.9 = phi ptr [ %107, %106 ], [ %.9.ph, %.outer303 ]
+94:                                               ; preds = %.outer309, %106
+  %.9 = phi ptr [ %107, %106 ], [ %.9.ph, %.outer309 ]
   %95 = load i8, ptr %.9, align 1
   %96 = and i8 %95, -2
   %or.cond136 = icmp eq i8 %96, 48
@@ -246,7 +246,7 @@ define dso_local signext i16 @pg_strtoint16_safe(ptr noundef %0, ptr noundef %1)
   %narrow127 = add nsw i8 %95, -48
   %102 = zext nneg i8 %narrow127 to i16
   %103 = or disjoint i16 %100, %102
-  br label %.outer303
+  br label %.outer309
 
 104:                                              ; preds = %94
   %105 = icmp eq i8 %95, 95
@@ -278,10 +278,10 @@ define dso_local signext i16 @pg_strtoint16_safe(ptr noundef %0, ptr noundef %1)
   %.pre.pre = load i8, ptr %116, align 1
   br label %.outer
 
-.outer:                                           ; preds = %.preheader270, %115
-  %.ph = phi i8 [ %41, %.preheader270 ], [ %.pre.pre, %115 ]
-  %.8105.ph = phi i16 [ 0, %.preheader270 ], [ %118, %115 ]
-  %.11.ph = phi ptr [ %.3, %.preheader270 ], [ %116, %115 ]
+.outer:                                           ; preds = %.preheader276, %115
+  %.ph = phi i8 [ %41, %.preheader276 ], [ %.pre.pre, %115 ]
+  %.8105.ph = phi i16 [ 0, %.preheader276 ], [ %118, %115 ]
+  %.11.ph = phi ptr [ %.3, %.preheader276 ], [ %116, %115 ]
   br label %110
 
 119:                                              ; preds = %110
@@ -477,15 +477,15 @@ define dso_local i32 @pg_strtoint32_safe(ptr noundef %0, ptr noundef %1) local_u
   %.3 = phi ptr [ %38, %40 ], [ %38, %41 ], [ %.2, %39 ]
   %43 = load i8, ptr %.3, align 1
   %44 = icmp eq i8 %43, 48
-  br i1 %44, label %45, label %.preheader265
+  br i1 %44, label %45, label %.preheader271
 
-.preheader265:                                    ; preds = %45, %42
+.preheader271:                                    ; preds = %45, %42
   br label %.outer
 
 45:                                               ; preds = %42
   %46 = getelementptr inbounds nuw i8, ptr %.3, i64 1
   %47 = load i8, ptr %46, align 1
-  switch i8 %47, label %.preheader265 [
+  switch i8 %47, label %.preheader271 [
     i8 120, label %48
     i8 88, label %48
     i8 111, label %76
@@ -496,15 +496,15 @@ define dso_local i32 @pg_strtoint32_safe(ptr noundef %0, ptr noundef %1) local_u
 
 48:                                               ; preds = %45, %45
   %49 = getelementptr inbounds nuw i8, ptr %.3, i64 2
-  br label %.outer276
+  br label %.outer282
 
-.outer276:                                        ; preds = %58, %48
+.outer282:                                        ; preds = %58, %48
   %.198.ph = phi i32 [ %64, %58 ], [ 0, %48 ]
   %.4.ph = phi ptr [ %60, %58 ], [ %49, %48 ]
   br label %50
 
-50:                                               ; preds = %.outer276, %71
-  %.4 = phi ptr [ %68, %71 ], [ %.4.ph, %.outer276 ]
+50:                                               ; preds = %.outer282, %71
+  %.4 = phi ptr [ %68, %71 ], [ %.4.ph, %.outer282 ]
   %51 = load i8, ptr %.4, align 1
   %52 = zext i8 %51 to i64
   %53 = getelementptr inbounds nuw i16, ptr %31, i64 %52
@@ -524,7 +524,7 @@ define dso_local i32 @pg_strtoint32_safe(ptr noundef %0, ptr noundef %1) local_u
   %62 = load i8, ptr %61, align 1
   %63 = sext i8 %62 to i32
   %64 = add i32 %59, %63
-  br label %.outer276
+  br label %.outer282
 
 65:                                               ; preds = %50
   %66 = icmp eq i8 %51, 95
@@ -546,15 +546,15 @@ define dso_local i32 @pg_strtoint32_safe(ptr noundef %0, ptr noundef %1) local_u
 
 76:                                               ; preds = %45, %45
   %77 = getelementptr inbounds nuw i8, ptr %.3, i64 2
-  br label %.outer287
+  br label %.outer293
 
-.outer287:                                        ; preds = %83, %76
+.outer293:                                        ; preds = %83, %76
   %.4101.ph = phi i32 [ %87, %83 ], [ 0, %76 ]
   %.7.ph = phi ptr [ %85, %83 ], [ %77, %76 ]
   br label %78
 
-78:                                               ; preds = %.outer287, %90
-  %.7 = phi ptr [ %91, %90 ], [ %.7.ph, %.outer287 ]
+78:                                               ; preds = %.outer293, %90
+  %.7 = phi ptr [ %91, %90 ], [ %.7.ph, %.outer293 ]
   %79 = load i8, ptr %.7, align 1
   %80 = and i8 %79, -8
   %or.cond = icmp eq i8 %80, 48
@@ -570,7 +570,7 @@ define dso_local i32 @pg_strtoint32_safe(ptr noundef %0, ptr noundef %1) local_u
   %narrow122 = add nsw i8 %79, -48
   %86 = zext nneg i8 %narrow122 to i32
   %87 = or disjoint i32 %84, %86
-  br label %.outer287
+  br label %.outer293
 
 88:                                               ; preds = %78
   %89 = icmp eq i8 %79, 95
@@ -585,15 +585,15 @@ define dso_local i32 @pg_strtoint32_safe(ptr noundef %0, ptr noundef %1) local_u
 
 94:                                               ; preds = %45, %45
   %95 = getelementptr inbounds nuw i8, ptr %.3, i64 2
-  br label %.outer298
+  br label %.outer304
 
-.outer298:                                        ; preds = %101, %94
+.outer304:                                        ; preds = %101, %94
   %.6103.ph = phi i32 [ %105, %101 ], [ 0, %94 ]
   %.9.ph = phi ptr [ %103, %101 ], [ %95, %94 ]
   br label %96
 
-96:                                               ; preds = %.outer298, %108
-  %.9 = phi ptr [ %109, %108 ], [ %.9.ph, %.outer298 ]
+96:                                               ; preds = %.outer304, %108
+  %.9 = phi ptr [ %109, %108 ], [ %.9.ph, %.outer304 ]
   %97 = load i8, ptr %.9, align 1
   %98 = and i8 %97, -2
   %or.cond130 = icmp eq i8 %98, 48
@@ -609,7 +609,7 @@ define dso_local i32 @pg_strtoint32_safe(ptr noundef %0, ptr noundef %1) local_u
   %narrow121 = add nsw i8 %97, -48
   %104 = zext nneg i8 %narrow121 to i32
   %105 = or disjoint i32 %102, %104
-  br label %.outer298
+  br label %.outer304
 
 106:                                              ; preds = %96
   %107 = icmp eq i8 %97, 95
@@ -641,10 +641,10 @@ define dso_local i32 @pg_strtoint32_safe(ptr noundef %0, ptr noundef %1) local_u
   %.pre.pre = load i8, ptr %119, align 1
   br label %.outer
 
-.outer:                                           ; preds = %.preheader265, %117
-  %.ph = phi i8 [ %43, %.preheader265 ], [ %.pre.pre, %117 ]
-  %.8105.ph = phi i32 [ 0, %.preheader265 ], [ %121, %117 ]
-  %.11.ph = phi ptr [ %.3, %.preheader265 ], [ %119, %117 ]
+.outer:                                           ; preds = %.preheader271, %117
+  %.ph = phi i8 [ %43, %.preheader271 ], [ %.pre.pre, %117 ]
+  %.8105.ph = phi i32 [ 0, %.preheader271 ], [ %121, %117 ]
+  %.11.ph = phi ptr [ %.3, %.preheader271 ], [ %119, %117 ]
   br label %112
 
 122:                                              ; preds = %112
@@ -830,15 +830,15 @@ define dso_local i64 @pg_strtoint64_safe(ptr noundef %0, ptr noundef %1) local_u
   %.3 = phi ptr [ %39, %41 ], [ %39, %42 ], [ %.2, %40 ]
   %44 = load i8, ptr %.3, align 1
   %45 = icmp eq i8 %44, 48
-  br i1 %45, label %46, label %.preheader263
+  br i1 %45, label %46, label %.preheader269
 
-.preheader263:                                    ; preds = %46, %43
+.preheader269:                                    ; preds = %46, %43
   br label %.outer
 
 46:                                               ; preds = %43
   %47 = getelementptr inbounds nuw i8, ptr %.3, i64 1
   %48 = load i8, ptr %47, align 1
-  switch i8 %48, label %.preheader263 [
+  switch i8 %48, label %.preheader269 [
     i8 120, label %49
     i8 88, label %49
     i8 111, label %77
@@ -849,15 +849,15 @@ define dso_local i64 @pg_strtoint64_safe(ptr noundef %0, ptr noundef %1) local_u
 
 49:                                               ; preds = %46, %46
   %50 = getelementptr inbounds nuw i8, ptr %.3, i64 2
-  br label %.outer274
+  br label %.outer280
 
-.outer274:                                        ; preds = %59, %49
+.outer280:                                        ; preds = %59, %49
   %.198.ph = phi i64 [ %65, %59 ], [ 0, %49 ]
   %.4.ph = phi ptr [ %61, %59 ], [ %50, %49 ]
   br label %51
 
-51:                                               ; preds = %.outer274, %72
-  %.4 = phi ptr [ %69, %72 ], [ %.4.ph, %.outer274 ]
+51:                                               ; preds = %.outer280, %72
+  %.4 = phi ptr [ %69, %72 ], [ %.4.ph, %.outer280 ]
   %52 = load i8, ptr %.4, align 1
   %53 = zext i8 %52 to i64
   %54 = getelementptr inbounds nuw i16, ptr %32, i64 %53
@@ -877,7 +877,7 @@ define dso_local i64 @pg_strtoint64_safe(ptr noundef %0, ptr noundef %1) local_u
   %63 = load i8, ptr %62, align 1
   %64 = sext i8 %63 to i64
   %65 = add i64 %60, %64
-  br label %.outer274
+  br label %.outer280
 
 66:                                               ; preds = %51
   %67 = icmp eq i8 %52, 95
@@ -899,15 +899,15 @@ define dso_local i64 @pg_strtoint64_safe(ptr noundef %0, ptr noundef %1) local_u
 
 77:                                               ; preds = %46, %46
   %78 = getelementptr inbounds nuw i8, ptr %.3, i64 2
-  br label %.outer285
+  br label %.outer291
 
-.outer285:                                        ; preds = %84, %77
+.outer291:                                        ; preds = %84, %77
   %.4101.ph = phi i64 [ %88, %84 ], [ 0, %77 ]
   %.7.ph = phi ptr [ %86, %84 ], [ %78, %77 ]
   br label %79
 
-79:                                               ; preds = %.outer285, %91
-  %.7 = phi ptr [ %92, %91 ], [ %.7.ph, %.outer285 ]
+79:                                               ; preds = %.outer291, %91
+  %.7 = phi ptr [ %92, %91 ], [ %.7.ph, %.outer291 ]
   %80 = load i8, ptr %.7, align 1
   %81 = and i8 %80, -8
   %or.cond = icmp eq i8 %81, 48
@@ -923,7 +923,7 @@ define dso_local i64 @pg_strtoint64_safe(ptr noundef %0, ptr noundef %1) local_u
   %narrow120 = add nsw i8 %80, -48
   %87 = zext nneg i8 %narrow120 to i64
   %88 = or disjoint i64 %85, %87
-  br label %.outer285
+  br label %.outer291
 
 89:                                               ; preds = %79
   %90 = icmp eq i8 %80, 95
@@ -938,15 +938,15 @@ define dso_local i64 @pg_strtoint64_safe(ptr noundef %0, ptr noundef %1) local_u
 
 95:                                               ; preds = %46, %46
   %96 = getelementptr inbounds nuw i8, ptr %.3, i64 2
-  br label %.outer296
+  br label %.outer302
 
-.outer296:                                        ; preds = %102, %95
+.outer302:                                        ; preds = %102, %95
   %.6103.ph = phi i64 [ %106, %102 ], [ 0, %95 ]
   %.9.ph = phi ptr [ %104, %102 ], [ %96, %95 ]
   br label %97
 
-97:                                               ; preds = %.outer296, %109
-  %.9 = phi ptr [ %110, %109 ], [ %.9.ph, %.outer296 ]
+97:                                               ; preds = %.outer302, %109
+  %.9 = phi ptr [ %110, %109 ], [ %.9.ph, %.outer302 ]
   %98 = load i8, ptr %.9, align 1
   %99 = and i8 %98, -2
   %or.cond128 = icmp eq i8 %99, 48
@@ -962,7 +962,7 @@ define dso_local i64 @pg_strtoint64_safe(ptr noundef %0, ptr noundef %1) local_u
   %narrow119 = add nsw i8 %98, -48
   %105 = zext nneg i8 %narrow119 to i64
   %106 = or disjoint i64 %103, %105
-  br label %.outer296
+  br label %.outer302
 
 107:                                              ; preds = %97
   %108 = icmp eq i8 %98, 95
@@ -994,10 +994,10 @@ define dso_local i64 @pg_strtoint64_safe(ptr noundef %0, ptr noundef %1) local_u
   %.pre.pre = load i8, ptr %120, align 1
   br label %.outer
 
-.outer:                                           ; preds = %.preheader263, %118
-  %.ph = phi i8 [ %44, %.preheader263 ], [ %.pre.pre, %118 ]
-  %.8105.ph = phi i64 [ 0, %.preheader263 ], [ %122, %118 ]
-  %.11.ph = phi ptr [ %.3, %.preheader263 ], [ %120, %118 ]
+.outer:                                           ; preds = %.preheader269, %118
+  %.ph = phi i8 [ %44, %.preheader269 ], [ %.pre.pre, %118 ]
+  %.8105.ph = phi i64 [ 0, %.preheader269 ], [ %122, %118 ]
+  %.11.ph = phi ptr [ %.3, %.preheader269 ], [ %120, %118 ]
   br label %113
 
 123:                                              ; preds = %113
@@ -1456,7 +1456,7 @@ define dso_local range(i32 0, 12) i32 @pg_ltoa(i32 noundef %0, ptr noundef write
   %.03643.i = phi i32 [ %.01115, %.lr.ph.i ], [ %26, %25 ]
   %.03742.i = phi i32 [ 0, %.lr.ph.i ], [ %43, %25 ]
   %26 = udiv i32 %.03643.i, 10000
-  %.neg.i = mul i32 %26, -10000
+  %.neg.i = mul nsw i32 %26, -10000
   %27 = add i32 %.neg.i, %.03643.i
   %28 = urem i32 %27, 100
   %29 = shl nuw nsw i32 %28, 1

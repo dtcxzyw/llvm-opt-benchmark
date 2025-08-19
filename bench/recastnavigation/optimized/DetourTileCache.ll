@@ -795,15 +795,15 @@ define noundef range(i32 1073741824, -2147483639) i32 @_ZN11dtTileCache10removeT
 
 .lr.ph.preheader:                                 ; preds = %23
   %40 = icmp eq ptr %.067, %21
-  br i1 %40, label %.lr.ph._crit_edge, label %.lr.ph78
+  br i1 %40, label %.lr.ph._crit_edge, label %.lr.ph83
 
-.lr.ph:                                           ; preds = %.lr.ph78
+.lr.ph:                                           ; preds = %.lr.ph83
   %41 = icmp eq ptr %.0, %21
-  br i1 %41, label %.lr.ph._crit_edge, label %.lr.ph78, !llvm.loop !10
+  br i1 %41, label %.lr.ph._crit_edge, label %.lr.ph83, !llvm.loop !10
 
 .lr.ph._crit_edge:                                ; preds = %.lr.ph, %.lr.ph.preheader
   %.070.lcssa = phi ptr [ %.067, %.lr.ph.preheader ], [ %.0, %.lr.ph ]
-  %.04769.lcssa = phi ptr [ null, %.lr.ph.preheader ], [ %.07077, %.lr.ph ]
+  %.04769.lcssa = phi ptr [ null, %.lr.ph.preheader ], [ %.07082, %.lr.ph ]
   %.not58 = icmp eq ptr %.04769.lcssa, null
   %42 = getelementptr inbounds nuw i8, ptr %.070.lcssa, i64 48
   %43 = load ptr, ptr %42, align 8
@@ -818,14 +818,14 @@ define noundef range(i32 1073741824, -2147483639) i32 @_ZN11dtTileCache10removeT
   store ptr %43, ptr %39, align 8
   br label %.loopexit
 
-.lr.ph78:                                         ; preds = %.lr.ph.preheader, %.lr.ph
-  %.07077 = phi ptr [ %.0, %.lr.ph ], [ %.067, %.lr.ph.preheader ]
-  %47 = getelementptr inbounds nuw i8, ptr %.07077, i64 48
+.lr.ph83:                                         ; preds = %.lr.ph.preheader, %.lr.ph
+  %.07082 = phi ptr [ %.0, %.lr.ph ], [ %.067, %.lr.ph.preheader ]
+  %47 = getelementptr inbounds nuw i8, ptr %.07082, i64 48
   %.0 = load ptr, ptr %47, align 8
   %.not57 = icmp eq ptr %.0, null
   br i1 %.not57, label %.loopexit, label %.lr.ph, !llvm.loop !10
 
-.loopexit:                                        ; preds = %.lr.ph78, %23, %44, %46
+.loopexit:                                        ; preds = %.lr.ph83, %23, %44, %46
   %48 = getelementptr inbounds nuw i8, ptr %21, i64 44
   %49 = load i32, ptr %48, align 4
   %50 = and i32 %49, 1
@@ -1617,11 +1617,11 @@ _ZNK11dtTileCache17getObstacleBoundsEPK19dtTileCacheObstaclePfS3_.exit: ; preds 
   br i1 %98, label %.lr.ph113.split, label %.loopexit102
 
 .lr.ph113.splitthread-pre-split:                  ; preds = %118
-  %.pr147 = load i32, ptr %8, align 4
+  %.pr153 = load i32, ptr %8, align 4
   br label %.lr.ph113.split
 
 .lr.ph113.split:                                  ; preds = %.lr.ph113, %.lr.ph113.splitthread-pre-split
-  %99 = phi i32 [ %.pr147, %.lr.ph113.splitthread-pre-split ], [ %97, %.lr.ph113 ]
+  %99 = phi i32 [ %.pr153, %.lr.ph113.splitthread-pre-split ], [ %97, %.lr.ph113 ]
   %100 = phi i8 [ %119, %.lr.ph113.splitthread-pre-split ], [ %92, %.lr.ph113 ]
   %indvars.iv131 = phi i64 [ %indvars.iv.next132, %.lr.ph113.splitthread-pre-split ], [ 0, %.lr.ph113 ]
   %101 = icmp slt i32 %99, 64
@@ -1694,11 +1694,11 @@ _ZL8containsPKjij.exit:                           ; preds = %.lr.ph.i, %.loopexi
   br i1 %130, label %.lr.ph.split, label %.loopexit102
 
 .lr.ph.splitthread-pre-split:                     ; preds = %150
-  %.pr148 = load i32, ptr %8, align 4
+  %.pr154 = load i32, ptr %8, align 4
   br label %.lr.ph.split
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.splitthread-pre-split
-  %131 = phi i32 [ %.pr148, %.lr.ph.splitthread-pre-split ], [ %129, %.lr.ph ]
+  %131 = phi i32 [ %.pr154, %.lr.ph.splitthread-pre-split ], [ %129, %.lr.ph ]
   %132 = phi i8 [ %151, %.lr.ph.splitthread-pre-split ], [ %126, %.lr.ph ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph.splitthread-pre-split ], [ 0, %.lr.ph ]
   %133 = icmp slt i32 %131, 64
@@ -1794,13 +1794,13 @@ _ZL8containsPKjij.exit95:                         ; preds = %.lr.ph.i91, %.loope
   %173 = getelementptr inbounds nuw i8, ptr %0, i64 128
   br label %174
 
-174:                                              ; preds = %.lr.ph122, %.loopexit.thread150
-  %indvars.iv140 = phi i64 [ 0, %.lr.ph122 ], [ %indvars.iv.next141, %.loopexit.thread150 ]
+174:                                              ; preds = %.lr.ph122, %.loopexit.thread156
+  %indvars.iv140 = phi i64 [ 0, %.lr.ph122 ], [ %indvars.iv.next141, %.loopexit.thread156 ]
   %175 = load ptr, ptr %172, align 8
   %176 = getelementptr inbounds nuw %struct.dtTileCacheObstacle, ptr %175, i64 %indvars.iv140
   %177 = getelementptr inbounds nuw i8, ptr %176, i64 99
   %178 = load i8, ptr %177, align 1
-  switch i8 %178, label %.loopexit.thread150 [
+  switch i8 %178, label %.loopexit.thread156 [
     i8 1, label %179
     i8 3, label %179
   ]
@@ -1820,7 +1820,7 @@ _ZL8containsPKjij.exit95:                         ; preds = %.lr.ph.i91, %.loope
 184:                                              ; preds = %185
   %indvars.iv.next138 = add nuw nsw i64 %indvars.iv137, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next138, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit.thread150, label %185, !llvm.loop !19
+  br i1 %exitcond.not, label %.loopexit.thread156, label %185, !llvm.loop !19
 
 185:                                              ; preds = %.lr.ph119, %184
   %indvars.iv137 = phi i64 [ 0, %.lr.ph119 ], [ %indvars.iv.next138, %184 ]
@@ -1840,18 +1840,18 @@ _ZL8containsPKjij.exit95:                         ; preds = %.lr.ph.i91, %.loope
   %195 = add i8 %194, -1
   store i8 %195, ptr %180, align 1
   %196 = icmp eq i8 %195, 0
-  br i1 %196, label %.loopexit.thread, label %.loopexit.thread150
+  br i1 %196, label %.loopexit.thread, label %.loopexit.thread156
 
 .loopexit.thread:                                 ; preds = %179, %.loopexit
   %197 = load i8, ptr %177, align 1
-  switch i8 %197, label %.loopexit.thread150 [
+  switch i8 %197, label %.loopexit.thread156 [
     i8 1, label %198
     i8 3, label %199
   ]
 
 198:                                              ; preds = %.loopexit.thread
   store i8 2, ptr %177, align 1
-  br label %.loopexit.thread150
+  br label %.loopexit.thread156
 
 199:                                              ; preds = %.loopexit.thread
   store i8 0, ptr %177, align 1
@@ -1866,17 +1866,17 @@ _ZL8containsPKjij.exit95:                         ; preds = %.lr.ph.i91, %.loope
   %206 = getelementptr inbounds nuw i8, ptr %176, i64 104
   store ptr %205, ptr %206, align 8
   store ptr %176, ptr %173, align 8
-  br label %.loopexit.thread150
+  br label %.loopexit.thread156
 
-.loopexit.thread150:                              ; preds = %184, %.loopexit.thread, %174, %198, %199, %.loopexit
+.loopexit.thread156:                              ; preds = %184, %.loopexit.thread, %174, %198, %199, %.loopexit
   %indvars.iv.next141 = add nuw nsw i64 %indvars.iv140, 1
   %207 = load i32, ptr %169, align 8
   %208 = sext i32 %207 to i64
   %209 = icmp slt i64 %indvars.iv.next141, %208
   br i1 %209, label %174, label %.loopexit99, !llvm.loop !20
 
-.loopexit99:                                      ; preds = %.loopexit.thread150, %._crit_edge.thread, %168, %._crit_edge
-  %.074 = phi i32 [ 1073741824, %._crit_edge ], [ %160, %168 ], [ 1073741824, %._crit_edge.thread ], [ %160, %.loopexit.thread150 ]
+.loopexit99:                                      ; preds = %.loopexit.thread156, %._crit_edge.thread, %168, %._crit_edge
+  %.074 = phi i32 [ 1073741824, %._crit_edge ], [ %160, %168 ], [ 1073741824, %._crit_edge.thread ], [ %160, %.loopexit.thread156 ]
   %.not85 = icmp eq ptr %3, null
   br i1 %.not85, label %217, label %210
 

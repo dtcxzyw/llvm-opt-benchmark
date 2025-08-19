@@ -804,9 +804,9 @@ strbuf_setlen.exit355:                            ; preds = %276, %_.exit352
   br label %.thread
 
 strbuf_setlen.exit.sink.split:                    ; preds = %300, %293, %266, %261
-  %.sink475 = phi i64 [ %258, %261 ], [ %263, %266 ], [ %290, %293 ], [ %297, %300 ]
+  %.sink503 = phi i64 [ %258, %261 ], [ %263, %266 ], [ %290, %293 ], [ %297, %300 ]
   %.not303.ph = phi i1 [ false, %261 ], [ true, %266 ], [ false, %293 ], [ true, %300 ]
-  %301 = getelementptr inbounds nuw i8, ptr %247, i64 %.sink475
+  %301 = getelementptr inbounds nuw i8, ptr %247, i64 %.sink503
   store i8 0, ptr %301, align 1, !tbaa !4
   br label %strbuf_setlen.exit
 

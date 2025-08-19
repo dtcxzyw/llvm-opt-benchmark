@@ -203,7 +203,7 @@ define internal i32 @dissect_opus(ptr noundef %0, ptr noundef %1, ptr noundef %2
 17:                                               ; preds = %4
   %18 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 0)
   %19 = and i8 %18, 3
-  switch i8 %19, label %default.unreachable342 [
+  switch i8 %19, label %default.unreachable348 [
     i8 0, label %20
     i8 1, label %24
     i8 2, label %36
@@ -297,7 +297,7 @@ parse_size_field.exit.thread:                     ; preds = %.split224, %parse_s
   store i16 -1, ptr %63, align 2
   br label %.loopexit
 
-default.unreachable342:                           ; preds = %17
+default.unreachable348:                           ; preds = %17
   unreachable
 
 64:                                               ; preds = %17

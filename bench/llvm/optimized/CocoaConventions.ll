@@ -651,8 +651,8 @@ define dso_local noundef zeroext i1 @_ZN5clang4ento14coreFoundation17followsCrea
   %11 = load i64, ptr %10, align 8, !tbaa !24
   %12 = and i64 %11, 4294967295
   %13 = add nuw nsw i64 %12, 16
-  %.not367587 = icmp eq i64 %12, 0
-  br i1 %.not367587, label %.thread60, label %.lr.ph
+  %.not367589 = icmp eq i64 %12, 0
+  br i1 %.not367589, label %.thread60, label %.lr.ph
 
 .lr.ph:                                           ; preds = %7, %.lr.ph.backedge
   %.131.idx76 = phi i64 [ %.131.idx76.be, %.lr.ph.backedge ], [ 16, %7 ]

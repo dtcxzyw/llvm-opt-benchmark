@@ -1488,7 +1488,7 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !223)
-  %89 = getelementptr inbounds { [4 x i64] }, ptr %.sroa.06.0.i, i64 %.sroa.726.0.i
+  %89 = getelementptr inbounds nuw { [4 x i64] }, ptr %.sroa.06.0.i, i64 %.sroa.726.0.i
   %90 = getelementptr inbounds nuw { [4 x i64] }, ptr %.sroa.06.0.i, i64 %85
   %91 = shl nuw nsw i64 %87, 5
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %90, ptr nonnull align 8 %89, i64 %91, i1 false), !alias.scope !226, !noalias !228
@@ -2002,7 +2002,7 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
   %279 = mul nuw nsw i64 %278, 24
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %277, ptr nonnull align 8 %273, i64 %279, i1 false), !alias.scope !316, !noalias !319
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %273, ptr noundef nonnull align 8 dereferenceable(24) %18, i64 24, i1 false), !noalias !262
-  %280 = getelementptr inbounds { [4 x i64] }, ptr %spec.select.i, i64 %.sroa.7.0.i
+  %280 = getelementptr inbounds nuw { [4 x i64] }, ptr %spec.select.i, i64 %.sroa.7.0.i
   %281 = getelementptr inbounds nuw { [4 x i64] }, ptr %spec.select.i, i64 %272
   %282 = shl nuw nsw i64 %278, 5
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %281, ptr nonnull align 8 %280, i64 %282, i1 false), !alias.scope !321, !noalias !324
@@ -4364,11 +4364,11 @@ _ZN6diesel2pg10connection3raw13RawConnection18transaction_status17h93f1059108214
   br label %_ZN6diesel2pg10connection33update_transaction_manager_status17non_generic_inner17h92be8ab2152cf4c0E.exit.thread
 
 25:                                               ; preds = %14
-  br i1 %or.cond.not.i, label %_ZN6diesel2pg10connection33update_transaction_manager_status17non_generic_inner17h92be8ab2152cf4c0E.exit.thread8, label %.critedge.i
+  br i1 %or.cond.not.i, label %_ZN6diesel2pg10connection33update_transaction_manager_status17non_generic_inner17h92be8ab2152cf4c0E.exit.thread9, label %.critedge.i
 
 .critedge.i:                                      ; preds = %25
   store i8 3, ptr %15, align 1, !alias.scope !853, !noalias !842
-  br label %_ZN6diesel2pg10connection33update_transaction_manager_status17non_generic_inner17h92be8ab2152cf4c0E.exit.thread8
+  br label %_ZN6diesel2pg10connection33update_transaction_manager_status17non_generic_inner17h92be8ab2152cf4c0E.exit.thread9
 
 26:                                               ; preds = %44, %35, %3
   %27 = landingpad { ptr, i32 }
@@ -4382,9 +4382,9 @@ _ZN6diesel2pg10connection3raw13RawConnection18transaction_status17h93f1059108214
           to label %"_ZN4core3ptr78drop_in_place$LT$core..result..Result$LT$usize$C$diesel..result..Error$GT$$GT$17h534871a0c3091dc2E.llvm.15333852395482688744.exit" unwind label %49
 
 _ZN6diesel2pg10connection33update_transaction_manager_status17non_generic_inner17h92be8ab2152cf4c0E.exit: ; preds = %_ZN6diesel2pg10connection3raw13RawConnection18transaction_status17h93f1059108214522E.exit.i, %20, %17, %13, %.noexc
-  br i1 %.not, label %_ZN6diesel2pg10connection33update_transaction_manager_status17non_generic_inner17h92be8ab2152cf4c0E.exit.thread, label %_ZN6diesel2pg10connection33update_transaction_manager_status17non_generic_inner17h92be8ab2152cf4c0E.exit.thread8
+  br i1 %.not, label %_ZN6diesel2pg10connection33update_transaction_manager_status17non_generic_inner17h92be8ab2152cf4c0E.exit.thread, label %_ZN6diesel2pg10connection33update_transaction_manager_status17non_generic_inner17h92be8ab2152cf4c0E.exit.thread9
 
-_ZN6diesel2pg10connection33update_transaction_manager_status17non_generic_inner17h92be8ab2152cf4c0E.exit.thread8: ; preds = %25, %.critedge.i, %_ZN6diesel2pg10connection33update_transaction_manager_status17non_generic_inner17h92be8ab2152cf4c0E.exit
+_ZN6diesel2pg10connection33update_transaction_manager_status17non_generic_inner17h92be8ab2152cf4c0E.exit.thread9: ; preds = %25, %.critedge.i, %_ZN6diesel2pg10connection33update_transaction_manager_status17non_generic_inner17h92be8ab2152cf4c0E.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !859
   %31 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %6, ptr %31, align 8, !noalias !859
@@ -4398,7 +4398,7 @@ _ZN6diesel2pg10connection33update_transaction_manager_status17non_generic_inner1
   %.not.i2 = icmp eq ptr %34, null
   br i1 %.not.i2, label %"_ZN102_$LT$core..option..Option$LT$T$GT$$u20$as$u20$diesel..connection..instrumentation..Instrumentation$GT$19on_connection_event17h9b332ca96cea57a6E.exit", label %35
 
-35:                                               ; preds = %_ZN6diesel2pg10connection33update_transaction_manager_status17non_generic_inner17h92be8ab2152cf4c0E.exit.thread8
+35:                                               ; preds = %_ZN6diesel2pg10connection33update_transaction_manager_status17non_generic_inner17h92be8ab2152cf4c0E.exit.thread9
   call void @llvm.experimental.noalias.scope.decl(metadata !865), !noalias !829
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %37 = load ptr, ptr %36, align 8, !alias.scope !868, !noalias !869, !nonnull !21, !align !89, !noundef !21
@@ -4430,7 +4430,7 @@ _ZN6diesel2pg10connection33update_transaction_manager_status17non_generic_inner1
   invoke void %48(ptr noundef nonnull align 1 %43, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %4)
           to label %"_ZN102_$LT$core..option..Option$LT$T$GT$$u20$as$u20$diesel..connection..instrumentation..Instrumentation$GT$19on_connection_event17h9b332ca96cea57a6E.exit6" unwind label %26
 
-"_ZN102_$LT$core..option..Option$LT$T$GT$$u20$as$u20$diesel..connection..instrumentation..Instrumentation$GT$19on_connection_event17h9b332ca96cea57a6E.exit": ; preds = %_ZN6diesel2pg10connection33update_transaction_manager_status17non_generic_inner17h92be8ab2152cf4c0E.exit.thread8, %35
+"_ZN102_$LT$core..option..Option$LT$T$GT$$u20$as$u20$diesel..connection..instrumentation..Instrumentation$GT$19on_connection_event17h9b332ca96cea57a6E.exit": ; preds = %_ZN6diesel2pg10connection33update_transaction_manager_status17non_generic_inner17h92be8ab2152cf4c0E.exit.thread9, %35
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !859
   br label %_ZN6diesel2pg10connection33update_transaction_manager_status17h2d3abd208b75fb38E.llvm.15333852395482688744.exit
 
@@ -4525,11 +4525,11 @@ _ZN6diesel2pg10connection3raw13RawConnection18transaction_status17h93f1059108214
   br label %_ZN6diesel2pg10connection33update_transaction_manager_status17non_generic_inner17h92be8ab2152cf4c0E.exit.thread
 
 25:                                               ; preds = %14
-  br i1 %or.cond.not.i, label %_ZN6diesel2pg10connection33update_transaction_manager_status17non_generic_inner17h92be8ab2152cf4c0E.exit.thread8, label %.critedge.i
+  br i1 %or.cond.not.i, label %_ZN6diesel2pg10connection33update_transaction_manager_status17non_generic_inner17h92be8ab2152cf4c0E.exit.thread9, label %.critedge.i
 
 .critedge.i:                                      ; preds = %25
   store i8 3, ptr %15, align 1, !alias.scope !901
-  br label %_ZN6diesel2pg10connection33update_transaction_manager_status17non_generic_inner17h92be8ab2152cf4c0E.exit.thread8
+  br label %_ZN6diesel2pg10connection33update_transaction_manager_status17non_generic_inner17h92be8ab2152cf4c0E.exit.thread9
 
 26:                                               ; preds = %46, %35, %6
   %27 = landingpad { ptr, i32 }
@@ -4543,9 +4543,9 @@ _ZN6diesel2pg10connection3raw13RawConnection18transaction_status17h93f1059108214
           to label %"_ZN4core3ptr78drop_in_place$LT$core..result..Result$LT$usize$C$diesel..result..Error$GT$$GT$17h534871a0c3091dc2E.llvm.15333852395482688744.exit" unwind label %51
 
 _ZN6diesel2pg10connection33update_transaction_manager_status17non_generic_inner17h92be8ab2152cf4c0E.exit: ; preds = %_ZN6diesel2pg10connection3raw13RawConnection18transaction_status17h93f1059108214522E.exit.i, %20, %17, %13, %.noexc
-  br i1 %.not6, label %_ZN6diesel2pg10connection33update_transaction_manager_status17non_generic_inner17h92be8ab2152cf4c0E.exit.thread, label %_ZN6diesel2pg10connection33update_transaction_manager_status17non_generic_inner17h92be8ab2152cf4c0E.exit.thread8
+  br i1 %.not6, label %_ZN6diesel2pg10connection33update_transaction_manager_status17non_generic_inner17h92be8ab2152cf4c0E.exit.thread, label %_ZN6diesel2pg10connection33update_transaction_manager_status17non_generic_inner17h92be8ab2152cf4c0E.exit.thread9
 
-_ZN6diesel2pg10connection33update_transaction_manager_status17non_generic_inner17h92be8ab2152cf4c0E.exit.thread8: ; preds = %25, %.critedge.i, %_ZN6diesel2pg10connection33update_transaction_manager_status17non_generic_inner17h92be8ab2152cf4c0E.exit
+_ZN6diesel2pg10connection33update_transaction_manager_status17non_generic_inner17h92be8ab2152cf4c0E.exit.thread9: ; preds = %25, %.critedge.i, %_ZN6diesel2pg10connection33update_transaction_manager_status17non_generic_inner17h92be8ab2152cf4c0E.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %31 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %3, ptr %31, align 8
@@ -4559,7 +4559,7 @@ _ZN6diesel2pg10connection33update_transaction_manager_status17non_generic_inner1
   %.not.i = icmp eq ptr %34, null
   br i1 %.not.i, label %"_ZN102_$LT$core..option..Option$LT$T$GT$$u20$as$u20$diesel..connection..instrumentation..Instrumentation$GT$19on_connection_event17h9b332ca96cea57a6E.exit", label %35
 
-35:                                               ; preds = %_ZN6diesel2pg10connection33update_transaction_manager_status17non_generic_inner17h92be8ab2152cf4c0E.exit.thread8
+35:                                               ; preds = %_ZN6diesel2pg10connection33update_transaction_manager_status17non_generic_inner17h92be8ab2152cf4c0E.exit.thread9
   tail call void @llvm.experimental.noalias.scope.decl(metadata !912)
   %36 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %37 = load ptr, ptr %36, align 8, !alias.scope !915, !noalias !916, !nonnull !21, !align !89, !noundef !21
@@ -4571,7 +4571,7 @@ _ZN6diesel2pg10connection33update_transaction_manager_status17non_generic_inner1
 _ZN6diesel2pg10connection33update_transaction_manager_status17non_generic_inner17h92be8ab2152cf4c0E.exit.thread: ; preds = %22, %23, %_ZN6diesel2pg10connection33update_transaction_manager_status17non_generic_inner17h92be8ab2152cf4c0E.exit
   br i1 %5, label %41, label %40
 
-"_ZN102_$LT$core..option..Option$LT$T$GT$$u20$as$u20$diesel..connection..instrumentation..Instrumentation$GT$19on_connection_event17h9b332ca96cea57a6E.exit": ; preds = %_ZN6diesel2pg10connection33update_transaction_manager_status17non_generic_inner17h92be8ab2152cf4c0E.exit.thread8, %35
+"_ZN102_$LT$core..option..Option$LT$T$GT$$u20$as$u20$diesel..connection..instrumentation..Instrumentation$GT$19on_connection_event17h9b332ca96cea57a6E.exit": ; preds = %_ZN6diesel2pg10connection33update_transaction_manager_status17non_generic_inner17h92be8ab2152cf4c0E.exit.thread9, %35
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %40
 
@@ -5646,9 +5646,9 @@ _ZN6diesel2pg10connection33update_transaction_manager_status17non_generic_inner1
   call void @llvm.experimental.noalias.scope.decl(metadata !1204)
   %118 = load ptr, ptr %32, align 8, !alias.scope !1207, !noalias !1208, !noundef !21
   %.not.i21.i = icmp eq ptr %118, null
-  br i1 %.not.i21.i, label %.thread45.i, label %119
+  br i1 %.not.i21.i, label %.thread50.i, label %119
 
-.thread45.i:                                      ; preds = %113
+.thread50.i:                                      ; preds = %113
   call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !1203
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.433.i, ptr noundef nonnull align 8 dereferenceable(32) %114, i64 32, i1 false), !alias.scope !1202, !noalias !1201
   call void @llvm.lifetime.end.p0(ptr nonnull %17), !noalias !1161
@@ -5757,11 +5757,11 @@ _ZN6diesel2pg10connection3raw13RawConnection18transaction_status17h93f1059108214
   br label %_ZN6diesel2pg10connection33update_transaction_manager_status17non_generic_inner17h92be8ab2152cf4c0E.exit.thread.i.i
 
 144:                                              ; preds = %133
-  br i1 %or.cond.not.i.i.i, label %_ZN6diesel2pg10connection33update_transaction_manager_status17non_generic_inner17h92be8ab2152cf4c0E.exit.thread7.i.i, label %.critedge.i.i.i
+  br i1 %or.cond.not.i.i.i, label %_ZN6diesel2pg10connection33update_transaction_manager_status17non_generic_inner17h92be8ab2152cf4c0E.exit.thread8.i.i, label %.critedge.i.i.i
 
 .critedge.i.i.i:                                  ; preds = %144
   store i8 3, ptr %134, align 1, !alias.scope !1250, !noalias !1238
-  br label %_ZN6diesel2pg10connection33update_transaction_manager_status17non_generic_inner17h92be8ab2152cf4c0E.exit.thread7.i.i
+  br label %_ZN6diesel2pg10connection33update_transaction_manager_status17non_generic_inner17h92be8ab2152cf4c0E.exit.thread8.i.i
 
 145:                                              ; preds = %160, %151, %.noexc24.i
   %146 = landingpad { ptr, i32 }
@@ -5770,9 +5770,9 @@ _ZN6diesel2pg10connection3raw13RawConnection18transaction_status17h93f1059108214
           to label %.body.i unwind label %165, !noalias !1253
 
 _ZN6diesel2pg10connection33update_transaction_manager_status17non_generic_inner17h92be8ab2152cf4c0E.exit.i.i: ; preds = %_ZN6diesel2pg10connection3raw13RawConnection18transaction_status17h93f1059108214522E.exit.i.i.i, %139, %136, %132, %.noexc.i.i
-  br i1 %.not.i23.i, label %_ZN6diesel2pg10connection33update_transaction_manager_status17non_generic_inner17h92be8ab2152cf4c0E.exit.thread.i.i, label %_ZN6diesel2pg10connection33update_transaction_manager_status17non_generic_inner17h92be8ab2152cf4c0E.exit.thread7.i.i
+  br i1 %.not.i23.i, label %_ZN6diesel2pg10connection33update_transaction_manager_status17non_generic_inner17h92be8ab2152cf4c0E.exit.thread.i.i, label %_ZN6diesel2pg10connection33update_transaction_manager_status17non_generic_inner17h92be8ab2152cf4c0E.exit.thread8.i.i
 
-_ZN6diesel2pg10connection33update_transaction_manager_status17non_generic_inner17h92be8ab2152cf4c0E.exit.thread7.i.i: ; preds = %_ZN6diesel2pg10connection33update_transaction_manager_status17non_generic_inner17h92be8ab2152cf4c0E.exit.i.i, %.critedge.i.i.i, %144
+_ZN6diesel2pg10connection33update_transaction_manager_status17non_generic_inner17h92be8ab2152cf4c0E.exit.thread8.i.i: ; preds = %_ZN6diesel2pg10connection33update_transaction_manager_status17non_generic_inner17h92be8ab2152cf4c0E.exit.i.i, %.critedge.i.i.i, %144
   call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !1254
   %147 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store ptr %11, ptr %147, align 8, !noalias !1254
@@ -5786,7 +5786,7 @@ _ZN6diesel2pg10connection33update_transaction_manager_status17non_generic_inner1
   %.not.i1.i.i = icmp eq ptr %150, null
   br i1 %.not.i1.i.i, label %"_ZN102_$LT$core..option..Option$LT$T$GT$$u20$as$u20$diesel..connection..instrumentation..Instrumentation$GT$19on_connection_event17h9b332ca96cea57a6E.exit.i.i", label %151
 
-151:                                              ; preds = %_ZN6diesel2pg10connection33update_transaction_manager_status17non_generic_inner17h92be8ab2152cf4c0E.exit.thread7.i.i
+151:                                              ; preds = %_ZN6diesel2pg10connection33update_transaction_manager_status17non_generic_inner17h92be8ab2152cf4c0E.exit.thread8.i.i
   call void @llvm.experimental.noalias.scope.decl(metadata !1261), !noalias !1225
   %152 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %153 = load ptr, ptr %152, align 8, !alias.scope !1264, !noalias !1265, !nonnull !21, !align !89, !noundef !21
@@ -5795,7 +5795,7 @@ _ZN6diesel2pg10connection33update_transaction_manager_status17non_generic_inner1
   invoke void %155(ptr noundef nonnull align 1 %150, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %10)
           to label %"_ZN102_$LT$core..option..Option$LT$T$GT$$u20$as$u20$diesel..connection..instrumentation..Instrumentation$GT$19on_connection_event17h9b332ca96cea57a6E.exit.i.i" unwind label %145, !noalias !1239
 
-"_ZN102_$LT$core..option..Option$LT$T$GT$$u20$as$u20$diesel..connection..instrumentation..Instrumentation$GT$19on_connection_event17h9b332ca96cea57a6E.exit.i.i": ; preds = %151, %_ZN6diesel2pg10connection33update_transaction_manager_status17non_generic_inner17h92be8ab2152cf4c0E.exit.thread7.i.i
+"_ZN102_$LT$core..option..Option$LT$T$GT$$u20$as$u20$diesel..connection..instrumentation..Instrumentation$GT$19on_connection_event17h9b332ca96cea57a6E.exit.i.i": ; preds = %151, %_ZN6diesel2pg10connection33update_transaction_manager_status17non_generic_inner17h92be8ab2152cf4c0E.exit.thread8.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !1254
   br label %168
 
@@ -5832,7 +5832,7 @@ _ZN6diesel2pg10connection33update_transaction_manager_status17non_generic_inner1
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #39, !noalias !1253
   unreachable
 
-167:                                              ; preds = %126, %.thread45.i
+167:                                              ; preds = %126, %.thread50.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.7.i, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.433.i, i64 32, i1 false), !noalias !1161
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.433.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.7.i, i64 32, i1 false), !noalias !1282
@@ -6442,9 +6442,9 @@ _ZN6diesel2pg10connection33update_transaction_manager_status17non_generic_inner1
   call void @llvm.experimental.noalias.scope.decl(metadata !1430)
   %120 = load ptr, ptr %32, align 8, !alias.scope !1433, !noalias !1434, !noundef !21
   %.not.i21.i = icmp eq ptr %120, null
-  br i1 %.not.i21.i, label %.thread60.i, label %121
+  br i1 %.not.i21.i, label %.thread65.i, label %121
 
-.thread60.i:                                      ; preds = %115
+.thread65.i:                                      ; preds = %115
   call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !1429
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.440.i, ptr noundef nonnull align 8 dereferenceable(32) %116, i64 32, i1 false), !alias.scope !1428, !noalias !1427
   call void @llvm.lifetime.end.p0(ptr nonnull %17), !noalias !1388
@@ -6563,11 +6563,11 @@ _ZN6diesel2pg10connection3raw13RawConnection18transaction_status17h93f1059108214
   br label %_ZN6diesel2pg10connection33update_transaction_manager_status17non_generic_inner17h92be8ab2152cf4c0E.exit.thread.i.i
 
 149:                                              ; preds = %138
-  br i1 %or.cond.not.i.i.i, label %_ZN6diesel2pg10connection33update_transaction_manager_status17non_generic_inner17h92be8ab2152cf4c0E.exit.thread7.i.i, label %.critedge.i.i.i
+  br i1 %or.cond.not.i.i.i, label %_ZN6diesel2pg10connection33update_transaction_manager_status17non_generic_inner17h92be8ab2152cf4c0E.exit.thread8.i.i, label %.critedge.i.i.i
 
 .critedge.i.i.i:                                  ; preds = %149
   store i8 3, ptr %139, align 1, !alias.scope !1477, !noalias !1466
-  br label %_ZN6diesel2pg10connection33update_transaction_manager_status17non_generic_inner17h92be8ab2152cf4c0E.exit.thread7.i.i
+  br label %_ZN6diesel2pg10connection33update_transaction_manager_status17non_generic_inner17h92be8ab2152cf4c0E.exit.thread8.i.i
 
 150:                                              ; preds = %165, %156, %133
   %151 = landingpad { ptr, i32 }
@@ -6576,9 +6576,9 @@ _ZN6diesel2pg10connection3raw13RawConnection18transaction_status17h93f1059108214
           to label %.body.i.i unwind label %170, !noalias !1480
 
 _ZN6diesel2pg10connection33update_transaction_manager_status17non_generic_inner17h92be8ab2152cf4c0E.exit.i.i: ; preds = %_ZN6diesel2pg10connection3raw13RawConnection18transaction_status17h93f1059108214522E.exit.i.i.i, %144, %141, %137, %.noexc.i.i
-  br i1 %.not.i23.i, label %_ZN6diesel2pg10connection33update_transaction_manager_status17non_generic_inner17h92be8ab2152cf4c0E.exit.thread.i.i, label %_ZN6diesel2pg10connection33update_transaction_manager_status17non_generic_inner17h92be8ab2152cf4c0E.exit.thread7.i.i
+  br i1 %.not.i23.i, label %_ZN6diesel2pg10connection33update_transaction_manager_status17non_generic_inner17h92be8ab2152cf4c0E.exit.thread.i.i, label %_ZN6diesel2pg10connection33update_transaction_manager_status17non_generic_inner17h92be8ab2152cf4c0E.exit.thread8.i.i
 
-_ZN6diesel2pg10connection33update_transaction_manager_status17non_generic_inner17h92be8ab2152cf4c0E.exit.thread7.i.i: ; preds = %_ZN6diesel2pg10connection33update_transaction_manager_status17non_generic_inner17h92be8ab2152cf4c0E.exit.i.i, %.critedge.i.i.i, %149
+_ZN6diesel2pg10connection33update_transaction_manager_status17non_generic_inner17h92be8ab2152cf4c0E.exit.thread8.i.i: ; preds = %_ZN6diesel2pg10connection33update_transaction_manager_status17non_generic_inner17h92be8ab2152cf4c0E.exit.i.i, %.critedge.i.i.i, %149
   call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !1481
   %152 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store ptr %11, ptr %152, align 8, !noalias !1481
@@ -6592,7 +6592,7 @@ _ZN6diesel2pg10connection33update_transaction_manager_status17non_generic_inner1
   %.not.i1.i.i = icmp eq ptr %155, null
   br i1 %.not.i1.i.i, label %"_ZN102_$LT$core..option..Option$LT$T$GT$$u20$as$u20$diesel..connection..instrumentation..Instrumentation$GT$19on_connection_event17h9b332ca96cea57a6E.exit.i.i", label %156
 
-156:                                              ; preds = %_ZN6diesel2pg10connection33update_transaction_manager_status17non_generic_inner17h92be8ab2152cf4c0E.exit.thread7.i.i
+156:                                              ; preds = %_ZN6diesel2pg10connection33update_transaction_manager_status17non_generic_inner17h92be8ab2152cf4c0E.exit.thread8.i.i
   call void @llvm.experimental.noalias.scope.decl(metadata !1488), !noalias !1453
   %157 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %158 = load ptr, ptr %157, align 8, !alias.scope !1491, !noalias !1492, !nonnull !21, !align !89, !noundef !21
@@ -6601,7 +6601,7 @@ _ZN6diesel2pg10connection33update_transaction_manager_status17non_generic_inner1
   invoke void %160(ptr noundef nonnull align 1 %155, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %10)
           to label %"_ZN102_$LT$core..option..Option$LT$T$GT$$u20$as$u20$diesel..connection..instrumentation..Instrumentation$GT$19on_connection_event17h9b332ca96cea57a6E.exit.i.i" unwind label %150, !noalias !1452
 
-"_ZN102_$LT$core..option..Option$LT$T$GT$$u20$as$u20$diesel..connection..instrumentation..Instrumentation$GT$19on_connection_event17h9b332ca96cea57a6E.exit.i.i": ; preds = %156, %_ZN6diesel2pg10connection33update_transaction_manager_status17non_generic_inner17h92be8ab2152cf4c0E.exit.thread7.i.i
+"_ZN102_$LT$core..option..Option$LT$T$GT$$u20$as$u20$diesel..connection..instrumentation..Instrumentation$GT$19on_connection_event17h9b332ca96cea57a6E.exit.i.i": ; preds = %156, %_ZN6diesel2pg10connection33update_transaction_manager_status17non_generic_inner17h92be8ab2152cf4c0E.exit.thread8.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !1481
   br label %172
 
@@ -6651,7 +6651,7 @@ _ZN6diesel2pg10connection33update_transaction_manager_status17non_generic_inner1
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #39, !noalias !1452
   unreachable
 
-175:                                              ; preds = %128, %.thread60.i
+175:                                              ; preds = %128, %.thread65.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.7.i, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.440.i, i64 32, i1 false), !noalias !1388
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.440.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.7.i, i64 32, i1 false), !noalias !1510

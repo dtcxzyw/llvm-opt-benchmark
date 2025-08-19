@@ -1113,7 +1113,7 @@ define hidden void @"_ZN94_$LT$core..ops..try_trait..NeverShortCircuit$LT$T$GT$$
 ; Function Attrs: inlinehint nonlazybind uwtable
 define hidden void @"_ZN61_$LT$tokio_test..io..Action$u20$as$u20$core..clone..Clone$GT$5clone17h8d18f1e445e56009E.llvm.14770070883568428368"(ptr noalias noundef writeonly sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   %3 = load i64, ptr %1, align 8, !range !112, !noundef !4
-  switch i64 %3, label %default.unreachable10 [
+  switch i64 %3, label %default.unreachable11 [
     i64 0, label %4
     i64 1, label %14
     i64 2, label %24
@@ -1121,7 +1121,7 @@ define hidden void @"_ZN61_$LT$tokio_test..io..Action$u20$as$u20$core..clone..Cl
     i64 4, label %35
   ]
 
-default.unreachable10:                            ; preds = %2
+default.unreachable11:                            ; preds = %2
   unreachable
 
 4:                                                ; preds = %2

@@ -162,7 +162,7 @@ define internal fastcc void @lzogeneric1x_1_compress(ptr noundef %0, i64 noundef
   %93 = phi ptr [ %88, %._crit_edge.i ], [ %94, %96 ]
   %94 = getelementptr i8, ptr %93, i64 32
   %95 = icmp ugt ptr %94, %91
-  br i1 %95, label %.preheader224, label %96
+  br i1 %95, label %.preheader262, label %96
 
 96:                                               ; preds = %92
   %97 = load i64, ptr %93, align 1
@@ -176,13 +176,13 @@ define internal fastcc void @lzogeneric1x_1_compress(ptr noundef %0, i64 noundef
   %105 = load i64, ptr %104, align 1
   %106 = or i64 %103, %105
   %107 = icmp eq i64 %106, 0
-  br i1 %107, label %92, label %.preheader224, !llvm.loop !9
+  br i1 %107, label %92, label %.preheader262, !llvm.loop !9
 
-.preheader224:                                    ; preds = %96, %92
+.preheader262:                                    ; preds = %96, %92
   br label %108
 
-108:                                              ; preds = %.preheader224, %112
-  %109 = phi ptr [ %110, %112 ], [ %93, %.preheader224 ]
+108:                                              ; preds = %.preheader262, %112
+  %109 = phi ptr [ %110, %112 ], [ %93, %.preheader262 ]
   %110 = getelementptr i8, ptr %109, i64 8
   %111 = icmp ugt ptr %110, %91
   br i1 %111, label %.loopexit30.i, label %112
@@ -300,7 +300,7 @@ define internal fastcc void @lzogeneric1x_1_compress(ptr noundef %0, i64 noundef
   %181 = trunc nuw nsw i64 %154 to i8
   %182 = add nsw i8 %181, -3
   store i8 %182, ptr %37, align 1
-  br label %.preheader221
+  br label %.preheader259
 
 183:                                              ; preds = %177
   %184 = add i64 %154, -18
@@ -332,16 +332,16 @@ define internal fastcc void @lzogeneric1x_1_compress(ptr noundef %0, i64 noundef
   %204 = trunc i64 %201 to i8
   %205 = getelementptr i8, ptr %202, i64 2
   store i8 %204, ptr %203, align 1
-  br label %.preheader221
+  br label %.preheader259
 
-.preheader221:                                    ; preds = %200, %180
-  %.ph222 = phi ptr [ %179, %180 ], [ %205, %200 ]
+.preheader259:                                    ; preds = %200, %180
+  %.ph260 = phi ptr [ %179, %180 ], [ %205, %200 ]
   br label %206
 
-206:                                              ; preds = %.preheader221, %206
-  %207 = phi i64 [ %216, %206 ], [ %154, %.preheader221 ]
-  %208 = phi ptr [ %215, %206 ], [ %152, %.preheader221 ]
-  %209 = phi ptr [ %214, %206 ], [ %.ph222, %.preheader221 ]
+206:                                              ; preds = %.preheader259, %206
+  %207 = phi i64 [ %216, %206 ], [ %154, %.preheader259 ]
+  %208 = phi ptr [ %215, %206 ], [ %152, %.preheader259 ]
+  %209 = phi ptr [ %214, %206 ], [ %.ph260, %.preheader259 ]
   %210 = load i64, ptr %208, align 1
   store i64 %210, ptr %209, align 1
   %211 = getelementptr i8, ptr %209, i64 8
@@ -670,7 +670,7 @@ define internal fastcc void @lzogeneric1x_1_compress(ptr noundef %0, i64 noundef
   %421 = add i64 %395, -18
   store i8 0, ptr %.lcssa59, align 1
   %422 = icmp ugt i64 %421, 255
-  br i1 %422, label %423, label %.thread120
+  br i1 %422, label %423, label %.thread158
 
 423:                                              ; preds = %420
   %424 = add i64 %395, -274
@@ -683,9 +683,9 @@ define internal fastcc void @lzogeneric1x_1_compress(ptr noundef %0, i64 noundef
   %430 = add i64 %429, %427
   %431 = getelementptr i8, ptr %.lcssa59, i64 %425
   %432 = getelementptr i8, ptr %431, i64 2
-  br label %.thread120
+  br label %.thread158
 
-.thread120:                                       ; preds = %420, %423
+.thread158:                                       ; preds = %420, %423
   %433 = phi i64 [ %421, %420 ], [ %430, %423 ]
   %434 = phi ptr [ %.lcssa59, %420 ], [ %428, %423 ]
   %435 = phi ptr [ %416, %420 ], [ %432, %423 ]
@@ -699,14 +699,14 @@ define internal fastcc void @lzogeneric1x_1_compress(ptr noundef %0, i64 noundef
   %440 = icmp samesign ugt i64 %395, 15
   br i1 %440, label %.preheader10.preheader, label %.preheader.preheader
 
-.preheader10.preheader:                           ; preds = %.thread120, %438
-  %.ph217 = phi ptr [ %439, %438 ], [ %437, %.thread120 ]
+.preheader10.preheader:                           ; preds = %.thread158, %438
+  %.ph255 = phi ptr [ %439, %438 ], [ %437, %.thread158 ]
   br label %.preheader10
 
 .preheader10:                                     ; preds = %.preheader10.preheader, %.preheader10
   %441 = phi ptr [ %449, %.preheader10 ], [ %400, %.preheader10.preheader ]
   %442 = phi i64 [ %450, %.preheader10 ], [ %395, %.preheader10.preheader ]
-  %443 = phi ptr [ %448, %.preheader10 ], [ %.ph217, %.preheader10.preheader ]
+  %443 = phi ptr [ %448, %.preheader10 ], [ %.ph255, %.preheader10.preheader ]
   %444 = load i64, ptr %441, align 1
   store i64 %444, ptr %443, align 1
   %445 = getelementptr i8, ptr %443, i64 8
@@ -725,14 +725,14 @@ define internal fastcc void @lzogeneric1x_1_compress(ptr noundef %0, i64 noundef
 
 .preheader.preheader:                             ; preds = %.thread9, %438, %.loopexit11
   %.ph = phi ptr [ %400, %438 ], [ %400, %.thread9 ], [ %449, %.loopexit11 ]
-  %.ph215 = phi i64 [ %395, %438 ], [ %395, %.thread9 ], [ %450, %.loopexit11 ]
-  %.ph216 = phi ptr [ %439, %438 ], [ %.lcssa59, %.thread9 ], [ %448, %.loopexit11 ]
+  %.ph253 = phi i64 [ %395, %438 ], [ %395, %.thread9 ], [ %450, %.loopexit11 ]
+  %.ph254 = phi ptr [ %439, %438 ], [ %.lcssa59, %.thread9 ], [ %448, %.loopexit11 ]
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
   %453 = phi ptr [ %456, %.preheader ], [ %.ph, %.preheader.preheader ]
-  %454 = phi i64 [ %459, %.preheader ], [ %.ph215, %.preheader.preheader ]
-  %455 = phi ptr [ %458, %.preheader ], [ %.ph216, %.preheader.preheader ]
+  %454 = phi i64 [ %459, %.preheader ], [ %.ph253, %.preheader.preheader ]
+  %455 = phi ptr [ %458, %.preheader ], [ %.ph254, %.preheader.preheader ]
   %456 = getelementptr i8, ptr %453, i64 1
   %457 = load i8, ptr %453, align 1
   %458 = getelementptr i8, ptr %455, i64 1

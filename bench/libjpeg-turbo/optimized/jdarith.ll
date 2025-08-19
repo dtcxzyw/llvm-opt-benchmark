@@ -364,7 +364,7 @@ define internal void @start_pass(ptr noundef %0) #0 {
 160:                                              ; preds = %156
   %161 = load i32, ptr %149, align 4, !tbaa !44
   %162 = icmp eq i32 %161, 0
-  br i1 %162, label %163, label %.thread.thread203
+  br i1 %162, label %163, label %.thread.thread213
 
 163:                                              ; preds = %160
   %164 = load i32, ptr %150, align 4, !tbaa !47
@@ -411,20 +411,20 @@ define internal void @start_pass(ptr noundef %0) #0 {
   store i32 0, ptr %187, align 4, !tbaa !41
   %.pre200 = load i32, ptr %4, align 8, !tbaa !38
   %188 = icmp eq i32 %.pre200, 0
-  br i1 %188, label %.thread.thread203, label %.thread
+  br i1 %188, label %.thread.thread213, label %.thread
 
 .thread:                                          ; preds = %184
   %.pr = load i32, ptr %149, align 4, !tbaa !44
   %.not161 = icmp eq i32 %.pr, 0
-  br i1 %.not161, label %.thread.thread, label %.thread.thread203
+  br i1 %.not161, label %.thread.thread, label %.thread.thread213
 
-.thread.thread203:                                ; preds = %160, %.thread, %184
+.thread.thread213:                                ; preds = %160, %.thread, %184
   %189 = getelementptr inbounds nuw i8, ptr %158, i64 24
   %190 = load i32, ptr %189, align 8, !tbaa !64
   %or.cond3 = icmp ugt i32 %190, 15
   br i1 %or.cond3, label %191, label %197
 
-191:                                              ; preds = %.thread.thread203
+191:                                              ; preds = %.thread.thread213
   %192 = load ptr, ptr %0, align 8, !tbaa !49
   %193 = getelementptr inbounds nuw i8, ptr %192, i64 40
   store i32 125, ptr %193, align 8, !tbaa !50
@@ -435,7 +435,7 @@ define internal void @start_pass(ptr noundef %0) #0 {
   tail call void %196(ptr noundef nonnull %0) #3
   br label %197
 
-197:                                              ; preds = %.thread.thread203, %191
+197:                                              ; preds = %.thread.thread213, %191
   %198 = sext i32 %190 to i64
   %199 = getelementptr inbounds [16 x ptr], ptr %155, i64 0, i64 %198
   %200 = load ptr, ptr %199, align 8, !tbaa !63
@@ -956,9 +956,9 @@ process_restart.exit:                             ; preds = %.thread.thread.i, %
   %112 = getelementptr inbounds nuw i8, ptr %108, i64 %111
   %113 = tail call fastcc i32 @arith_decode(ptr noundef nonnull %0, ptr noundef nonnull %112)
   %.not8192 = icmp eq i32 %113, 0
-  br i1 %.not8192, label %.loopexit.thread113, label %.lr.ph
+  br i1 %.not8192, label %.loopexit.thread116, label %.lr.ph
 
-.loopexit.thread113:                              ; preds = %107
+.loopexit.thread116:                              ; preds = %107
   %114 = getelementptr inbounds nuw i8, ptr %112, i64 14
   br label %.lr.ph99.preheader
 
@@ -980,14 +980,14 @@ process_restart.exit:                             ; preds = %.thread.thread.i, %
   %.not8296 = icmp eq i32 %115, 0
   br i1 %.not8296, label %._crit_edge, label %.lr.ph99.preheader
 
-.lr.ph99.preheader:                               ; preds = %.loopexit.thread113, %.loopexit
-  %121 = phi ptr [ %114, %.loopexit.thread113 ], [ %120, %.loopexit ]
-  %.0117 = phi i32 [ 2, %.loopexit.thread113 ], [ %115, %.loopexit ]
+.lr.ph99.preheader:                               ; preds = %.loopexit.thread116, %.loopexit
+  %121 = phi ptr [ %114, %.loopexit.thread116 ], [ %120, %.loopexit ]
+  %.0120 = phi i32 [ 2, %.loopexit.thread116 ], [ %115, %.loopexit ]
   br label %.lr.ph99
 
 .lr.ph99:                                         ; preds = %.lr.ph99.preheader, %.lr.ph99
-  %.298 = phi i32 [ %122, %.lr.ph99 ], [ %.0117, %.lr.ph99.preheader ]
-  %.06297 = phi i32 [ %spec.select, %.lr.ph99 ], [ %.0117, %.lr.ph99.preheader ]
+  %.298 = phi i32 [ %122, %.lr.ph99 ], [ %.0120, %.lr.ph99.preheader ]
+  %.06297 = phi i32 [ %spec.select, %.lr.ph99 ], [ %.0120, %.lr.ph99.preheader ]
   %122 = ashr i32 %.298, 1
   %123 = tail call fastcc i32 @arith_decode(ptr noundef nonnull %0, ptr noundef nonnull %121)
   %.not84 = icmp eq i32 %123, 0
@@ -1792,9 +1792,9 @@ process_restart.exit:                             ; preds = %.thread.thread.i, %
   %188 = getelementptr inbounds nuw i8, ptr %184, i64 %187
   %189 = tail call fastcc i32 @arith_decode(ptr noundef %0, ptr noundef nonnull %188)
   %.not165190 = icmp eq i32 %189, 0
-  br i1 %.not165190, label %.loopexit.thread217, label %.lr.ph194
+  br i1 %.not165190, label %.loopexit.thread223, label %.lr.ph194
 
-.loopexit.thread217:                              ; preds = %183
+.loopexit.thread223:                              ; preds = %183
   %190 = getelementptr inbounds nuw i8, ptr %188, i64 14
   br label %.lr.ph201.preheader
 
@@ -1816,14 +1816,14 @@ process_restart.exit:                             ; preds = %.thread.thread.i, %
   %.not166197 = icmp eq i32 %191, 0
   br i1 %.not166197, label %._crit_edge202, label %.lr.ph201.preheader
 
-.lr.ph201.preheader:                              ; preds = %.loopexit.thread217, %.loopexit
-  %197 = phi ptr [ %190, %.loopexit.thread217 ], [ %196, %.loopexit ]
-  %.3221 = phi i32 [ 2, %.loopexit.thread217 ], [ %191, %.loopexit ]
+.lr.ph201.preheader:                              ; preds = %.loopexit.thread223, %.loopexit
+  %197 = phi ptr [ %190, %.loopexit.thread223 ], [ %196, %.loopexit ]
+  %.3227 = phi i32 [ 2, %.loopexit.thread223 ], [ %191, %.loopexit ]
   br label %.lr.ph201
 
 .lr.ph201:                                        ; preds = %.lr.ph201.preheader, %.lr.ph201
-  %.5199 = phi i32 [ %198, %.lr.ph201 ], [ %.3221, %.lr.ph201.preheader ]
-  %.3130198 = phi i32 [ %spec.select170, %.lr.ph201 ], [ %.3221, %.lr.ph201.preheader ]
+  %.5199 = phi i32 [ %198, %.lr.ph201 ], [ %.3227, %.lr.ph201.preheader ]
+  %.3130198 = phi i32 [ %spec.select170, %.lr.ph201 ], [ %.3227, %.lr.ph201.preheader ]
   %198 = ashr i32 %.5199, 1
   %199 = tail call fastcc i32 @arith_decode(ptr noundef %0, ptr noundef nonnull %197)
   %.not168 = icmp eq i32 %199, 0

@@ -779,8 +779,8 @@ define dso_local i32 @getCount(ptr noundef %0, i32 noundef %1, i32 noundef %2, p
   %41 = load i32, ptr %3, align 4, !tbaa !4
   %42 = icmp slt i32 %41, 1
   %43 = icmp sgt i32 %34, 0
-  %or.cond58 = and i1 %42, %43
-  br i1 %or.cond58, label %.lr.ph.preheader, label %._crit_edge.thread
+  %or.cond59 = and i1 %42, %43
+  br i1 %or.cond59, label %.lr.ph.preheader, label %._crit_edge.thread
 
 .lr.ph.preheader:                                 ; preds = %40
   %wide.trip.count = zext nneg i32 %34 to i64

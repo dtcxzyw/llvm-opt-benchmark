@@ -326,7 +326,7 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc void @prettyprint_node(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3) unnamed_addr #0 {
   %5 = load i16, ptr %2, align 8, !tbaa !7
-  switch i16 %5, label %common.ret9452 [
+  switch i16 %5, label %common.ret9488 [
     i16 151, label %4625
     i16 1, label %6
     i16 2, label %21
@@ -480,7 +480,7 @@ define internal fastcc void @prettyprint_node(ptr noundef %0, ptr noundef %1, pt
     i16 150, label %4591
   ]
 
-common.ret9452:                                   ; preds = %4657, %4658, %4587, %4539, %4496, %4444, %4445, %4310, %4182, %4049, %3998, %3585, %3318, %3319, %2950, %2798, %2799, %2758, %2759, %2376, %2042, %2043, %1999, %2000, %1943, %1944, %1766, %1666, %1667, %1550, %1551, %1486, %1487, %679, %481, %482, %322, %323, %244, %245, %225, %226, %154, %155, %.thread9442, %._crit_edge9147, %4375, %4371, %4262, %4168, %4164, %4134, %4126, %4053, %4035, %4027, %3925, %3909, %3878, %3799, %3796, %3760, %3691, %3660, %3598, %3440, %3435, %3419, %3417, %3409, %3253, %3212, %3137, %3031, %3025, %2888, %2839, %2837, %._crit_edge9212, %._crit_edge9224, %._crit_edge9228, %2502, %2449, %2445, %2017, %._crit_edge9236, %1839, %1835, %1759, %1757, %1749, %1704, %1696, %1618, %1610, %1574, %1522, %1348, %1344, %1314, %1251, %1130, %1126, %1051, %977, %930, %498, %433, %393, %353, %339, %269, %261, %4, %101, %2847, %3192, %4186, %107, %2853, %3202, %4193, %4588, %4540, %4497, %4311, %4183, %4076, %4050, %3999, %3928, %._crit_edge9162, %3639, %3613, %3586, %3489, %3469, %3450, %3389, %3177, %3162, %3037, %3002, %2977, %2954, %2951, %2453, %2424, %2401, %2380, %2377, %2308, %2217, %2128, %2012, %2007, %1843, %1814, %1791, %1770, %1767, %1582, %1352, %1329, %1283, %1266, %1220, %1199, %1176, %1155, %1134, %1105, %1082, %1061, %883, %863, %820, %743, %680, %566, %51, %36, %21, %6
+common.ret9488:                                   ; preds = %4657, %4658, %4587, %4539, %4496, %4444, %4445, %4310, %4182, %4049, %3998, %3585, %3318, %3319, %2950, %2798, %2799, %2758, %2759, %2376, %2042, %2043, %1999, %2000, %1943, %1944, %1766, %1666, %1667, %1550, %1551, %1486, %1487, %679, %481, %482, %322, %323, %244, %245, %225, %226, %154, %155, %.thread9478, %._crit_edge9147, %4375, %4371, %4262, %4168, %4164, %4134, %4126, %4053, %4035, %4027, %3925, %3909, %3878, %3799, %3796, %3760, %3691, %3660, %3598, %3440, %3435, %3419, %3417, %3409, %3253, %3212, %3137, %3031, %3025, %2888, %2839, %2837, %._crit_edge9212, %._crit_edge9224, %._crit_edge9228, %2502, %2449, %2445, %2017, %._crit_edge9236, %1839, %1835, %1759, %1757, %1749, %1704, %1696, %1618, %1610, %1574, %1522, %1348, %1344, %1314, %1251, %1130, %1126, %1051, %977, %930, %498, %433, %393, %353, %339, %269, %261, %4, %101, %2847, %3192, %4186, %107, %2853, %3202, %4193, %4588, %4540, %4497, %4311, %4183, %4076, %4050, %3999, %3928, %._crit_edge9162, %3639, %3613, %3586, %3489, %3469, %3450, %3389, %3177, %3162, %3037, %3002, %2977, %2954, %2951, %2453, %2424, %2401, %2380, %2377, %2308, %2217, %2128, %2012, %2007, %1843, %1814, %1791, %1770, %1767, %1582, %1352, %1329, %1283, %1266, %1220, %1199, %1176, %1155, %1134, %1105, %1082, %1061, %883, %863, %820, %743, %680, %566, %51, %36, %21, %6
   ret void
 
 6:                                                ; preds = %4
@@ -522,7 +522,7 @@ common.ret9452:                                   ; preds = %4657, %4658, %4587,
   %20 = sub i64 %18, %19
   tail call void @pm_buffer_append_source(ptr noundef %0, ptr noundef %15, i64 noundef %20, i32 noundef 0) #5
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.7, i64 noundef 2) #5
-  br label %common.ret9452
+  br label %common.ret9488
 
 21:                                               ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.8, i64 noundef 29) #5
@@ -563,7 +563,7 @@ common.ret9452:                                   ; preds = %4657, %4658, %4587,
   %35 = sub i64 %33, %34
   tail call void @pm_buffer_append_source(ptr noundef %0, ptr noundef %30, i64 noundef %35, i32 noundef 0) #5
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.7, i64 noundef 2) #5
-  br label %common.ret9452
+  br label %common.ret9488
 
 36:                                               ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.9, i64 noundef 36) #5
@@ -604,7 +604,7 @@ common.ret9452:                                   ; preds = %4657, %4658, %4587,
   %50 = sub i64 %48, %49
   tail call void @pm_buffer_append_source(ptr noundef %0, ptr noundef %45, i64 noundef %50, i32 noundef 0) #5
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.7, i64 noundef 2) #5
-  br label %common.ret9452
+  br label %common.ret9488
 
 51:                                               ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.13, i64 noundef 21) #5
@@ -645,7 +645,7 @@ common.ret9452:                                   ; preds = %4657, %4658, %4587,
   %65 = sub i64 %63, %64
   tail call void @pm_buffer_append_source(ptr noundef %0, ptr noundef %60, i64 noundef %65, i32 noundef 0) #5
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.7, i64 noundef 2) #5
-  br label %common.ret9452
+  br label %common.ret9488
 
 66:                                               ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.14, i64 noundef 27) #5
@@ -760,7 +760,7 @@ common.ret9452:                                   ; preds = %4657, %4658, %4587,
   tail call void (ptr, ptr, ...) @pm_buffer_append_format(ptr noundef %0, ptr noundef nonnull @.str.23, i64 noundef %103) #5
   %104 = load i64, ptr %102, align 8, !tbaa !38
   %.not9314 = icmp eq i64 %104, 0
-  br i1 %.not9314, label %common.ret9452, label %.lr.ph9279
+  br i1 %.not9314, label %common.ret9488, label %.lr.ph9279
 
 .lr.ph9279:                                       ; preds = %101
   %105 = add i64 %104, -1
@@ -785,7 +785,7 @@ common.ret9452:                                   ; preds = %4657, %4658, %4587,
   %114 = add i32 %.087259277, 1
   %115 = zext i32 %114 to i64
   %116 = icmp ugt i64 %104, %115
-  br i1 %116, label %107, label %common.ret9452, !llvm.loop !41
+  br i1 %116, label %107, label %common.ret9488, !llvm.loop !41
 
 117:                                              ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.26, i64 noundef 23) #5
@@ -880,7 +880,7 @@ common.ret9452:                                   ; preds = %4657, %4658, %4587,
 
 154:                                              ; preds = %150
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.30, i64 noundef 5) #5
-  br label %common.ret9452
+  br label %common.ret9488
 
 155:                                              ; preds = %150
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #5
@@ -894,7 +894,7 @@ common.ret9452:                                   ; preds = %4657, %4658, %4587,
   %161 = sub i64 %159, %160
   tail call void @pm_buffer_append_source(ptr noundef %0, ptr noundef %156, i64 noundef %161, i32 noundef 0) #5
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.7, i64 noundef 2) #5
-  br label %common.ret9452
+  br label %common.ret9488
 
 162:                                              ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.32, i64 noundef 30) #5
@@ -1050,7 +1050,7 @@ common.ret9452:                                   ; preds = %4657, %4658, %4587,
 
 225:                                              ; preds = %221
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.30, i64 noundef 5) #5
-  br label %common.ret9452
+  br label %common.ret9488
 
 226:                                              ; preds = %221
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #5
@@ -1064,7 +1064,7 @@ common.ret9452:                                   ; preds = %4657, %4658, %4587,
   %232 = sub i64 %230, %231
   tail call void @pm_buffer_append_source(ptr noundef %0, ptr noundef %227, i64 noundef %232, i32 noundef 0) #5
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.7, i64 noundef 2) #5
-  br label %common.ret9452
+  br label %common.ret9488
 
 233:                                              ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.37, i64 noundef 23) #5
@@ -1100,7 +1100,7 @@ common.ret9452:                                   ; preds = %4657, %4658, %4587,
 
 244:                                              ; preds = %233
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.30, i64 noundef 5) #5
-  br label %common.ret9452
+  br label %common.ret9488
 
 245:                                              ; preds = %233
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #5
@@ -1114,7 +1114,7 @@ common.ret9452:                                   ; preds = %4657, %4658, %4587,
   %251 = sub i64 %249, %250
   tail call void @pm_buffer_append_source(ptr noundef %0, ptr noundef %246, i64 noundef %251, i32 noundef 0) #5
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.7, i64 noundef 2) #5
-  br label %common.ret9452
+  br label %common.ret9488
 
 252:                                              ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.40, i64 noundef 28) #5
@@ -1157,7 +1157,7 @@ common.ret9452:                                   ; preds = %4657, %4658, %4587,
   %268 = sub i64 %266, %267
   tail call void @pm_buffer_append_source(ptr noundef %0, ptr noundef %263, i64 noundef %268, i32 noundef 0) #5
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.7, i64 noundef 2) #5
-  br label %common.ret9452
+  br label %common.ret9488
 
 269:                                              ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.41, i64 noundef 35) #5
@@ -1171,7 +1171,7 @@ common.ret9452:                                   ; preds = %4657, %4658, %4587,
   %272 = load i32, ptr %271, align 8, !tbaa !62
   tail call fastcc void @prettyprint_constant(ptr noundef %0, ptr noundef %1, i32 noundef %272)
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 10) #5
-  br label %common.ret9452
+  br label %common.ret9488
 
 273:                                              ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.43, i64 noundef 23) #5
@@ -1301,7 +1301,7 @@ common.ret9452:                                   ; preds = %4657, %4658, %4587,
 
 322:                                              ; preds = %318
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.30, i64 noundef 5) #5
-  br label %common.ret9452
+  br label %common.ret9488
 
 323:                                              ; preds = %318
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #5
@@ -1315,7 +1315,7 @@ common.ret9452:                                   ; preds = %4657, %4658, %4587,
   %329 = sub i64 %327, %328
   tail call void @pm_buffer_append_source(ptr noundef %0, ptr noundef %324, i64 noundef %329, i32 noundef 0) #5
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.7, i64 noundef 2) #5
-  br label %common.ret9452
+  br label %common.ret9488
 
 330:                                              ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.50, i64 noundef 31) #5
@@ -1358,7 +1358,7 @@ common.ret9452:                                   ; preds = %4657, %4658, %4587,
   %346 = sub i64 %344, %345
   tail call void @pm_buffer_append_source(ptr noundef %0, ptr noundef %341, i64 noundef %346, i32 noundef 0) #5
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.7, i64 noundef 2) #5
-  br label %common.ret9452
+  br label %common.ret9488
 
 347:                                              ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.52, i64 noundef 36) #5
@@ -1390,7 +1390,7 @@ common.ret9452:                                   ; preds = %4657, %4658, %4587,
   %355 = load i32, ptr %354, align 8, !tbaa !77
   tail call fastcc void @prettyprint_constant(ptr noundef %0, ptr noundef %1, i32 noundef %355)
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 10) #5
-  br label %common.ret9452
+  br label %common.ret9488
 
 356:                                              ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.55, i64 noundef 23) #5
@@ -1510,7 +1510,7 @@ common.ret9452:                                   ; preds = %4657, %4658, %4587,
   %407 = sub i64 %405, %406
   tail call void @pm_buffer_append_source(ptr noundef %0, ptr noundef %402, i64 noundef %407, i32 noundef 0) #5
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.7, i64 noundef 2) #5
-  br label %common.ret9452
+  br label %common.ret9488
 
 408:                                              ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.62, i64 noundef 32) #5
@@ -1594,7 +1594,7 @@ common.ret9452:                                   ; preds = %4657, %4658, %4587,
   %440 = sub i64 %438, %439
   tail call void @pm_buffer_append_source(ptr noundef %0, ptr noundef %435, i64 noundef %440, i32 noundef 0) #5
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.7, i64 noundef 2) #5
-  br label %common.ret9452
+  br label %common.ret9488
 
 441:                                              ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.64, i64 noundef 33) #5
@@ -1693,7 +1693,7 @@ common.ret9452:                                   ; preds = %4657, %4658, %4587,
 
 481:                                              ; preds = %477
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.30, i64 noundef 5) #5
-  br label %common.ret9452
+  br label %common.ret9488
 
 482:                                              ; preds = %477
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #5
@@ -1707,7 +1707,7 @@ common.ret9452:                                   ; preds = %4657, %4658, %4587,
   %488 = sub i64 %486, %487
   tail call void @pm_buffer_append_source(ptr noundef %0, ptr noundef %483, i64 noundef %488, i32 noundef 0) #5
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.7, i64 noundef 2) #5
-  br label %common.ret9452
+  br label %common.ret9488
 
 489:                                              ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.65, i64 noundef 23) #5
@@ -1750,7 +1750,7 @@ common.ret9452:                                   ; preds = %4657, %4658, %4587,
   %505 = sub i64 %503, %504
   tail call void @pm_buffer_append_source(ptr noundef %0, ptr noundef %500, i64 noundef %505, i32 noundef 0) #5
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.7, i64 noundef 2) #5
-  br label %common.ret9452
+  br label %common.ret9488
 
 506:                                              ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.66, i64 noundef 30) #5
@@ -1950,7 +1950,7 @@ common.ret9452:                                   ; preds = %4657, %4658, %4587,
   %580 = load ptr, ptr %579, align 8, !tbaa !107
   tail call fastcc void @prettyprint_node(ptr noundef %0, ptr noundef %1, ptr noundef %580, ptr noundef %3)
   store i64 %578, ptr %3, align 8, !tbaa !16
-  br label %common.ret9452
+  br label %common.ret9488
 
 581:                                              ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.77, i64 noundef 22) #5
@@ -2202,7 +2202,7 @@ common.ret9452:                                   ; preds = %4657, %4658, %4587,
 
 679:                                              ; preds = %675
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.30, i64 noundef 5) #5
-  br label %common.ret9452
+  br label %common.ret9488
 
 680:                                              ; preds = %675
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 10) #5
@@ -2212,7 +2212,7 @@ common.ret9452:                                   ; preds = %4657, %4658, %4587,
   %682 = load ptr, ptr %676, align 8, !tbaa !113
   tail call fastcc void @prettyprint_node(ptr noundef %0, ptr noundef %1, ptr noundef %682, ptr noundef %3)
   store i64 %681, ptr %3, align 8, !tbaa !16
-  br label %common.ret9452
+  br label %common.ret9488
 
 683:                                              ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.79, i64 noundef 35) #5
@@ -2419,7 +2419,7 @@ common.ret9452:                                   ; preds = %4657, %4658, %4587,
   %759 = load ptr, ptr %758, align 8, !tbaa !120
   tail call fastcc void @prettyprint_node(ptr noundef %0, ptr noundef %1, ptr noundef %759, ptr noundef %3)
   store i64 %757, ptr %3, align 8, !tbaa !16
-  br label %common.ret9452
+  br label %common.ret9488
 
 760:                                              ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.82, i64 noundef 29) #5
@@ -2619,7 +2619,7 @@ common.ret9452:                                   ; preds = %4657, %4658, %4587,
   %834 = load ptr, ptr %833, align 8, !tbaa !126
   tail call fastcc void @prettyprint_node(ptr noundef %0, ptr noundef %1, ptr noundef %834, ptr noundef %3)
   store i64 %832, ptr %3, align 8, !tbaa !16
-  br label %common.ret9452
+  br label %common.ret9488
 
 835:                                              ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.83, i64 noundef 28) #5
@@ -2752,7 +2752,7 @@ common.ret9452:                                   ; preds = %4657, %4658, %4587,
   %882 = sub i64 %880, %881
   tail call void @pm_buffer_append_source(ptr noundef %0, ptr noundef %877, i64 noundef %882, i32 noundef 0) #5
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.7, i64 noundef 2) #5
-  br label %common.ret9452
+  br label %common.ret9488
 
 883:                                              ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.84, i64 noundef 32) #5
@@ -2793,7 +2793,7 @@ common.ret9452:                                   ; preds = %4657, %4658, %4587,
   %897 = sub i64 %895, %896
   tail call void @pm_buffer_append_source(ptr noundef %0, ptr noundef %892, i64 noundef %897, i32 noundef 0) #5
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.7, i64 noundef 2) #5
-  br label %common.ret9452
+  br label %common.ret9488
 
 898:                                              ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.86, i64 noundef 27) #5
@@ -2907,7 +2907,7 @@ common.ret9452:                                   ; preds = %4657, %4658, %4587,
   %944 = sub i64 %942, %943
   tail call void @pm_buffer_append_source(ptr noundef %0, ptr noundef %939, i64 noundef %944, i32 noundef 0) #5
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.7, i64 noundef 2) #5
-  br label %common.ret9452
+  br label %common.ret9488
 
 945:                                              ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.90, i64 noundef 22) #5
@@ -3021,7 +3021,7 @@ common.ret9452:                                   ; preds = %4657, %4658, %4587,
   %991 = sub i64 %989, %990
   tail call void @pm_buffer_append_source(ptr noundef %0, ptr noundef %986, i64 noundef %991, i32 noundef 0) #5
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.7, i64 noundef 2) #5
-  br label %common.ret9452
+  br label %common.ret9488
 
 992:                                              ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.91, i64 noundef 23) #5
@@ -3184,7 +3184,7 @@ common.ret9452:                                   ; preds = %4657, %4658, %4587,
   %1060 = load i32, ptr %1059, align 8, !tbaa !154
   tail call fastcc void @prettyprint_constant(ptr noundef %0, ptr noundef %1, i32 noundef %1060)
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 10) #5
-  br label %common.ret9452
+  br label %common.ret9488
 
 1061:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.96, i64 noundef 39) #5
@@ -3236,7 +3236,7 @@ common.ret9452:                                   ; preds = %4657, %4658, %4587,
   %1081 = load ptr, ptr %1080, align 8, !tbaa !157
   tail call fastcc void @prettyprint_node(ptr noundef %0, ptr noundef %1, ptr noundef %1081, ptr noundef %3)
   store i64 %1079, ptr %3, align 8, !tbaa !16
-  br label %common.ret9452
+  br label %common.ret9488
 
 1082:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.97, i64 noundef 44) #5
@@ -3295,7 +3295,7 @@ common.ret9452:                                   ; preds = %4657, %4658, %4587,
   %1104 = load i32, ptr %1103, align 8, !tbaa !161
   tail call fastcc void @prettyprint_constant(ptr noundef %0, ptr noundef %1, i32 noundef %1104)
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 10) #5
-  br label %common.ret9452
+  br label %common.ret9488
 
 1105:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.98, i64 noundef 38) #5
@@ -3347,7 +3347,7 @@ common.ret9452:                                   ; preds = %4657, %4658, %4587,
   %1125 = load ptr, ptr %1124, align 8, !tbaa !164
   tail call fastcc void @prettyprint_node(ptr noundef %0, ptr noundef %1, ptr noundef %1125, ptr noundef %3)
   store i64 %1123, ptr %3, align 8, !tbaa !16
-  br label %common.ret9452
+  br label %common.ret9488
 
 1126:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.99, i64 noundef 35) #5
@@ -3361,7 +3361,7 @@ common.ret9452:                                   ; preds = %4657, %4658, %4587,
   %1129 = load i32, ptr %1128, align 8, !tbaa !165
   tail call fastcc void @prettyprint_constant(ptr noundef %0, ptr noundef %1, i32 noundef %1129)
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 10) #5
-  br label %common.ret9452
+  br label %common.ret9488
 
 1130:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.100, i64 noundef 37) #5
@@ -3375,7 +3375,7 @@ common.ret9452:                                   ; preds = %4657, %4658, %4587,
   %1133 = load i32, ptr %1132, align 8, !tbaa !167
   tail call fastcc void @prettyprint_constant(ptr noundef %0, ptr noundef %1, i32 noundef %1133)
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 10) #5
-  br label %common.ret9452
+  br label %common.ret9488
 
 1134:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.101, i64 noundef 36) #5
@@ -3427,7 +3427,7 @@ common.ret9452:                                   ; preds = %4657, %4658, %4587,
   %1154 = sub i64 %1152, %1153
   tail call void @pm_buffer_append_source(ptr noundef %0, ptr noundef %1149, i64 noundef %1154, i32 noundef 0) #5
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.7, i64 noundef 2) #5
-  br label %common.ret9452
+  br label %common.ret9488
 
 1155:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.102, i64 noundef 34) #5
@@ -3479,7 +3479,7 @@ common.ret9452:                                   ; preds = %4657, %4658, %4587,
   %1175 = load ptr, ptr %1174, align 8, !tbaa !174
   tail call fastcc void @prettyprint_node(ptr noundef %0, ptr noundef %1, ptr noundef %1175, ptr noundef %3)
   store i64 %1173, ptr %3, align 8, !tbaa !16
-  br label %common.ret9452
+  br label %common.ret9488
 
 1176:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.103, i64 noundef 39) #5
@@ -3538,7 +3538,7 @@ common.ret9452:                                   ; preds = %4657, %4658, %4587,
   %1198 = load i32, ptr %1197, align 8, !tbaa !178
   tail call fastcc void @prettyprint_constant(ptr noundef %0, ptr noundef %1, i32 noundef %1198)
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 10) #5
-  br label %common.ret9452
+  br label %common.ret9488
 
 1199:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.104, i64 noundef 33) #5
@@ -3590,7 +3590,7 @@ common.ret9452:                                   ; preds = %4657, %4658, %4587,
   %1219 = load ptr, ptr %1218, align 8, !tbaa !181
   tail call fastcc void @prettyprint_node(ptr noundef %0, ptr noundef %1, ptr noundef %1219, ptr noundef %3)
   store i64 %1217, ptr %3, align 8, !tbaa !16
-  br label %common.ret9452
+  br label %common.ret9488
 
 1220:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.105, i64 noundef 38) #5
@@ -3631,7 +3631,7 @@ common.ret9452:                                   ; preds = %4657, %4658, %4587,
   %1234 = load ptr, ptr %1233, align 8, !tbaa !185
   tail call fastcc void @prettyprint_node(ptr noundef %0, ptr noundef %1, ptr noundef %1234, ptr noundef %3)
   store i64 %1232, ptr %3, align 8, !tbaa !16
-  br label %common.ret9452
+  br label %common.ret9488
 
 1235:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.106, i64 noundef 30) #5
@@ -3707,7 +3707,7 @@ common.ret9452:                                   ; preds = %4657, %4658, %4587,
   %1265 = sub i64 %1263, %1264
   tail call void @pm_buffer_append_source(ptr noundef %0, ptr noundef %1260, i64 noundef %1265, i32 noundef 0) #5
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.7, i64 noundef 2) #5
-  br label %common.ret9452
+  br label %common.ret9488
 
 1266:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.109, i64 noundef 43) #5
@@ -3755,7 +3755,7 @@ common.ret9452:                                   ; preds = %4657, %4658, %4587,
   %1282 = load i32, ptr %1281, align 8, !tbaa !192
   tail call fastcc void @prettyprint_constant(ptr noundef %0, ptr noundef %1, i32 noundef %1282)
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 10) #5
-  br label %common.ret9452
+  br label %common.ret9488
 
 1283:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.110, i64 noundef 37) #5
@@ -3796,7 +3796,7 @@ common.ret9452:                                   ; preds = %4657, %4658, %4587,
   %1297 = load ptr, ptr %1296, align 8, !tbaa !195
   tail call fastcc void @prettyprint_node(ptr noundef %0, ptr noundef %1, ptr noundef %1297, ptr noundef %3)
   store i64 %1295, ptr %3, align 8, !tbaa !16
-  br label %common.ret9452
+  br label %common.ret9488
 
 1298:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.111, i64 noundef 36) #5
@@ -3872,7 +3872,7 @@ common.ret9452:                                   ; preds = %4657, %4658, %4587,
   %1328 = sub i64 %1326, %1327
   tail call void @pm_buffer_append_source(ptr noundef %0, ptr noundef %1323, i64 noundef %1328, i32 noundef 0) #5
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.7, i64 noundef 2) #5
-  br label %common.ret9452
+  br label %common.ret9488
 
 1329:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.112, i64 noundef 35) #5
@@ -3913,7 +3913,7 @@ common.ret9452:                                   ; preds = %4657, %4658, %4587,
   %1343 = load ptr, ptr %1342, align 8, !tbaa !201
   tail call fastcc void @prettyprint_node(ptr noundef %0, ptr noundef %1, ptr noundef %1343, ptr noundef %3)
   store i64 %1341, ptr %3, align 8, !tbaa !16
-  br label %common.ret9452
+  br label %common.ret9488
 
 1344:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.113, i64 noundef 30) #5
@@ -3927,7 +3927,7 @@ common.ret9452:                                   ; preds = %4657, %4658, %4587,
   %1347 = load i32, ptr %1346, align 8, !tbaa !202
   tail call fastcc void @prettyprint_constant(ptr noundef %0, ptr noundef %1, i32 noundef %1347)
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 10) #5
-  br label %common.ret9452
+  br label %common.ret9488
 
 1348:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.114, i64 noundef 32) #5
@@ -3941,7 +3941,7 @@ common.ret9452:                                   ; preds = %4657, %4658, %4587,
   %1351 = load i32, ptr %1350, align 8, !tbaa !204
   tail call fastcc void @prettyprint_constant(ptr noundef %0, ptr noundef %1, i32 noundef %1351)
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 10) #5
-  br label %common.ret9452
+  br label %common.ret9488
 
 1352:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.115, i64 noundef 31) #5
@@ -3993,7 +3993,7 @@ common.ret9452:                                   ; preds = %4657, %4658, %4587,
   %1372 = sub i64 %1370, %1371
   tail call void @pm_buffer_append_source(ptr noundef %0, ptr noundef %1367, i64 noundef %1372, i32 noundef 0) #5
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.7, i64 noundef 2) #5
-  br label %common.ret9452
+  br label %common.ret9488
 
 1373:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.116, i64 noundef 21) #5
@@ -4255,7 +4255,7 @@ common.ret9452:                                   ; preds = %4657, %4658, %4587,
 
 1486:                                             ; preds = %1482
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.30, i64 noundef 5) #5
-  br label %common.ret9452
+  br label %common.ret9488
 
 1487:                                             ; preds = %1482
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #5
@@ -4269,7 +4269,7 @@ common.ret9452:                                   ; preds = %4657, %4658, %4587,
   %1493 = sub i64 %1491, %1492
   tail call void @pm_buffer_append_source(ptr noundef %0, ptr noundef %1488, i64 noundef %1493, i32 noundef 0) #5
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.7, i64 noundef 2) #5
-  br label %common.ret9452
+  br label %common.ret9488
 
 1494:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.121, i64 noundef 25) #5
@@ -4352,7 +4352,7 @@ common.ret9452:                                   ; preds = %4657, %4658, %4587,
   %1529 = sub i64 %1527, %1528
   tail call void @pm_buffer_append_source(ptr noundef %0, ptr noundef %1524, i64 noundef %1529, i32 noundef 0) #5
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.7, i64 noundef 2) #5
-  br label %common.ret9452
+  br label %common.ret9488
 
 1530:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.122, i64 noundef 22) #5
@@ -4404,7 +4404,7 @@ common.ret9452:                                   ; preds = %4657, %4658, %4587,
 
 1550:                                             ; preds = %1546
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.30, i64 noundef 5) #5
-  br label %common.ret9452
+  br label %common.ret9488
 
 1551:                                             ; preds = %1546
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #5
@@ -4418,7 +4418,7 @@ common.ret9452:                                   ; preds = %4657, %4658, %4587,
   %1557 = sub i64 %1555, %1556
   tail call void @pm_buffer_append_source(ptr noundef %0, ptr noundef %1552, i64 noundef %1557, i32 noundef 0) #5
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.7, i64 noundef 2) #5
-  br label %common.ret9452
+  br label %common.ret9488
 
 1558:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.124, i64 noundef 36) #5
@@ -4475,7 +4475,7 @@ common.ret9452:                                   ; preds = %4657, %4658, %4587,
   %1581 = sub i64 %1579, %1580
   tail call void @pm_buffer_append_source(ptr noundef %0, ptr noundef %1576, i64 noundef %1581, i32 noundef 0) #5
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.7, i64 noundef 2) #5
-  br label %common.ret9452
+  br label %common.ret9488
 
 1582:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.125, i64 noundef 34) #5
@@ -4506,7 +4506,7 @@ common.ret9452:                                   ; preds = %4657, %4658, %4587,
   %1593 = load ptr, ptr %1592, align 8, !tbaa !223
   tail call fastcc void @prettyprint_node(ptr noundef %0, ptr noundef %1, ptr noundef %1593, ptr noundef %3)
   store i64 %1591, ptr %3, align 8, !tbaa !16
-  br label %common.ret9452
+  br label %common.ret9488
 
 1594:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.127, i64 noundef 24) #5
@@ -4563,14 +4563,14 @@ common.ret9452:                                   ; preds = %4657, %4658, %4587,
   %1617 = sub i64 %1615, %1616
   tail call void @pm_buffer_append_source(ptr noundef %0, ptr noundef %1612, i64 noundef %1617, i32 noundef 0) #5
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.7, i64 noundef 2) #5
-  br label %common.ret9452
+  br label %common.ret9488
 
 1618:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.129, i64 noundef 23) #5
   %1619 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %1619)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.1, i64 noundef 2) #5
-  br label %common.ret9452
+  br label %common.ret9488
 
 1620:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.130, i64 noundef 29) #5
@@ -4689,7 +4689,7 @@ common.ret9452:                                   ; preds = %4657, %4658, %4587,
 
 1666:                                             ; preds = %1662
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.30, i64 noundef 5) #5
-  br label %common.ret9452
+  br label %common.ret9488
 
 1667:                                             ; preds = %1662
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #5
@@ -4703,7 +4703,7 @@ common.ret9452:                                   ; preds = %4657, %4658, %4587,
   %1673 = sub i64 %1671, %1672
   tail call void @pm_buffer_append_source(ptr noundef %0, ptr noundef %1668, i64 noundef %1673, i32 noundef 0) #5
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.7, i64 noundef 2) #5
-  br label %common.ret9452
+  br label %common.ret9488
 
 1674:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.131, i64 noundef 26) #5
@@ -4786,7 +4786,7 @@ common.ret9452:                                   ; preds = %4657, %4658, %4587,
   %1703 = sub i64 %1701, %1702
   tail call void @pm_buffer_append_source(ptr noundef %0, ptr noundef %1698, i64 noundef %1703, i32 noundef 0) #5
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.7, i64 noundef 2) #5
-  br label %common.ret9452
+  br label %common.ret9488
 
 1704:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.134, i64 noundef 23) #5
@@ -4798,7 +4798,7 @@ common.ret9452:                                   ; preds = %4657, %4658, %4587,
   %1706 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %1707 = load double, ptr %1706, align 8, !tbaa !239
   tail call void (ptr, ptr, ...) @pm_buffer_append_format(ptr noundef %0, ptr noundef nonnull @.str.135, double noundef %1707) #5
-  br label %common.ret9452
+  br label %common.ret9488
 
 1708:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.136, i64 noundef 21) #5
@@ -4915,21 +4915,21 @@ common.ret9452:                                   ; preds = %4657, %4658, %4587,
   %1756 = sub i64 %1754, %1755
   tail call void @pm_buffer_append_source(ptr noundef %0, ptr noundef %1751, i64 noundef %1756, i32 noundef 0) #5
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.7, i64 noundef 2) #5
-  br label %common.ret9452
+  br label %common.ret9488
 
 1757:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.142, i64 noundef 37) #5
   %1758 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %1758)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.1, i64 noundef 2) #5
-  br label %common.ret9452
+  br label %common.ret9488
 
 1759:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.143, i64 noundef 37) #5
   %1760 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %1760)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.1, i64 noundef 2) #5
-  br label %common.ret9452
+  br label %common.ret9488
 
 1761:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.144, i64 noundef 33) #5
@@ -4945,7 +4945,7 @@ common.ret9452:                                   ; preds = %4657, %4658, %4587,
 
 1766:                                             ; preds = %1761
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.30, i64 noundef 5) #5
-  br label %common.ret9452
+  br label %common.ret9488
 
 1767:                                             ; preds = %1761
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 10) #5
@@ -4955,7 +4955,7 @@ common.ret9452:                                   ; preds = %4657, %4658, %4587,
   %1769 = load ptr, ptr %1763, align 8, !tbaa !246
   tail call fastcc void @prettyprint_node(ptr noundef %0, ptr noundef %1, ptr noundef %1769, ptr noundef %3)
   store i64 %1768, ptr %3, align 8, !tbaa !16
-  br label %common.ret9452
+  br label %common.ret9488
 
 1770:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.145, i64 noundef 40) #5
@@ -5007,7 +5007,7 @@ common.ret9452:                                   ; preds = %4657, %4658, %4587,
   %1790 = load ptr, ptr %1789, align 8, !tbaa !251
   tail call fastcc void @prettyprint_node(ptr noundef %0, ptr noundef %1, ptr noundef %1790, ptr noundef %3)
   store i64 %1788, ptr %3, align 8, !tbaa !16
-  br label %common.ret9452
+  br label %common.ret9488
 
 1791:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.146, i64 noundef 45) #5
@@ -5066,7 +5066,7 @@ common.ret9452:                                   ; preds = %4657, %4658, %4587,
   %1813 = load i32, ptr %1812, align 8, !tbaa !255
   tail call fastcc void @prettyprint_constant(ptr noundef %0, ptr noundef %1, i32 noundef %1813)
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 10) #5
-  br label %common.ret9452
+  br label %common.ret9488
 
 1814:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.147, i64 noundef 39) #5
@@ -5118,7 +5118,7 @@ common.ret9452:                                   ; preds = %4657, %4658, %4587,
   %1834 = load ptr, ptr %1833, align 8, !tbaa !258
   tail call fastcc void @prettyprint_node(ptr noundef %0, ptr noundef %1, ptr noundef %1834, ptr noundef %3)
   store i64 %1832, ptr %3, align 8, !tbaa !16
-  br label %common.ret9452
+  br label %common.ret9488
 
 1835:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.148, i64 noundef 36) #5
@@ -5132,7 +5132,7 @@ common.ret9452:                                   ; preds = %4657, %4658, %4587,
   %1838 = load i32, ptr %1837, align 8, !tbaa !259
   tail call fastcc void @prettyprint_constant(ptr noundef %0, ptr noundef %1, i32 noundef %1838)
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 10) #5
-  br label %common.ret9452
+  br label %common.ret9488
 
 1839:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.149, i64 noundef 38) #5
@@ -5146,7 +5146,7 @@ common.ret9452:                                   ; preds = %4657, %4658, %4587,
   %1842 = load i32, ptr %1841, align 8, !tbaa !261
   tail call fastcc void @prettyprint_constant(ptr noundef %0, ptr noundef %1, i32 noundef %1842)
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 10) #5
-  br label %common.ret9452
+  br label %common.ret9488
 
 1843:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.150, i64 noundef 37) #5
@@ -5198,7 +5198,7 @@ common.ret9452:                                   ; preds = %4657, %4658, %4587,
   %1863 = sub i64 %1861, %1862
   tail call void @pm_buffer_append_source(ptr noundef %0, ptr noundef %1858, i64 noundef %1863, i32 noundef 0) #5
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.7, i64 noundef 2) #5
-  br label %common.ret9452
+  br label %common.ret9488
 
 1864:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.151, i64 noundef 22) #5
@@ -5249,7 +5249,7 @@ common.ret9452:                                   ; preds = %4657, %4658, %4587,
   %1884 = sub i64 %1882, %1883
   tail call void @pm_buffer_append_source(ptr noundef %0, ptr noundef %1879, i64 noundef %1884, i32 noundef 0) #5
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.7, i64 noundef 2) #5
-  br label %common.ret9452
+  br label %common.ret9488
 
 1885:                                             ; preds = %.lr.ph9235, %1885
   %1886 = phi i64 [ 0, %.lr.ph9235 ], [ %1893, %1885 ]
@@ -5389,7 +5389,7 @@ common.ret9452:                                   ; preds = %4657, %4658, %4587,
 
 1943:                                             ; preds = %1939
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.30, i64 noundef 5) #5
-  br label %common.ret9452
+  br label %common.ret9488
 
 1944:                                             ; preds = %1939
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #5
@@ -5403,7 +5403,7 @@ common.ret9452:                                   ; preds = %4657, %4658, %4587,
   %1950 = sub i64 %1948, %1949
   tail call void @pm_buffer_append_source(ptr noundef %0, ptr noundef %1945, i64 noundef %1950, i32 noundef 0) #5
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.7, i64 noundef 2) #5
-  br label %common.ret9452
+  br label %common.ret9488
 
 1951:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.153, i64 noundef 20) #5
@@ -5525,7 +5525,7 @@ common.ret9452:                                   ; preds = %4657, %4658, %4587,
 
 1999:                                             ; preds = %1995
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.30, i64 noundef 5) #5
-  br label %common.ret9452
+  br label %common.ret9488
 
 2000:                                             ; preds = %1995
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #5
@@ -5539,7 +5539,7 @@ common.ret9452:                                   ; preds = %4657, %4658, %4587,
   %2006 = sub i64 %2004, %2005
   tail call void @pm_buffer_append_source(ptr noundef %0, ptr noundef %2001, i64 noundef %2006, i32 noundef 0) #5
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.7, i64 noundef 2) #5
-  br label %common.ret9452
+  br label %common.ret9488
 
 2007:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.157, i64 noundef 27) #5
@@ -5556,7 +5556,7 @@ common.ret9452:                                   ; preds = %4657, %4658, %4587,
   %2011 = load ptr, ptr %2010, align 8, !tbaa !280
   tail call fastcc void @prettyprint_node(ptr noundef %0, ptr noundef %1, ptr noundef %2011, ptr noundef %3)
   store i64 %2009, ptr %3, align 8, !tbaa !16
-  br label %common.ret9452
+  br label %common.ret9488
 
 2012:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.159, i64 noundef 26) #5
@@ -5573,14 +5573,14 @@ common.ret9452:                                   ; preds = %4657, %4658, %4587,
   %2016 = load ptr, ptr %2015, align 8, !tbaa !282
   tail call fastcc void @prettyprint_node(ptr noundef %0, ptr noundef %1, ptr noundef %2016, ptr noundef %3)
   store i64 %2014, ptr %3, align 8, !tbaa !16
-  br label %common.ret9452
+  br label %common.ret9488
 
 2017:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.160, i64 noundef 30) #5
   %2018 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2018)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.1, i64 noundef 2) #5
-  br label %common.ret9452
+  br label %common.ret9488
 
 2019:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.161, i64 noundef 20) #5
@@ -5642,7 +5642,7 @@ common.ret9452:                                   ; preds = %4657, %4658, %4587,
 
 2042:                                             ; preds = %2031
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.30, i64 noundef 5) #5
-  br label %common.ret9452
+  br label %common.ret9488
 
 2043:                                             ; preds = %2031
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #5
@@ -5656,7 +5656,7 @@ common.ret9452:                                   ; preds = %4657, %4658, %4587,
   %2049 = sub i64 %2047, %2048
   tail call void @pm_buffer_append_source(ptr noundef %0, ptr noundef %2044, i64 noundef %2049, i32 noundef 0) #5
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.7, i64 noundef 2) #5
-  br label %common.ret9452
+  br label %common.ret9488
 
 2050:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.165, i64 noundef 31) #5
@@ -5888,7 +5888,7 @@ common.ret9452:                                   ; preds = %4657, %4658, %4587,
   %2138 = load ptr, ptr %2137, align 8, !tbaa !293
   tail call fastcc void @prettyprint_node(ptr noundef %0, ptr noundef %1, ptr noundef %2138, ptr noundef %3)
   store i64 %2136, ptr %3, align 8, !tbaa !16
-  br label %common.ret9452
+  br label %common.ret9488
 
 2139:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.166, i64 noundef 36) #5
@@ -6127,7 +6127,7 @@ common.ret9452:                                   ; preds = %4657, %4658, %4587,
   %2229 = load ptr, ptr %2228, align 8, !tbaa !300
   tail call fastcc void @prettyprint_node(ptr noundef %0, ptr noundef %1, ptr noundef %2229, ptr noundef %3)
   store i64 %2227, ptr %3, align 8, !tbaa !16
-  br label %common.ret9452
+  br label %common.ret9488
 
 2230:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.167, i64 noundef 30) #5
@@ -6359,7 +6359,7 @@ common.ret9452:                                   ; preds = %4657, %4658, %4587,
   %2318 = load ptr, ptr %2317, align 8, !tbaa !306
   tail call fastcc void @prettyprint_node(ptr noundef %0, ptr noundef %1, ptr noundef %2318, ptr noundef %3)
   store i64 %2316, ptr %3, align 8, !tbaa !16
-  br label %common.ret9452
+  br label %common.ret9488
 
 2319:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.168, i64 noundef 29) #5
@@ -6516,7 +6516,7 @@ common.ret9452:                                   ; preds = %4657, %4658, %4587,
 
 2376:                                             ; preds = %2365
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.30, i64 noundef 5) #5
-  br label %common.ret9452
+  br label %common.ret9488
 
 2377:                                             ; preds = %2365
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 10) #5
@@ -6526,7 +6526,7 @@ common.ret9452:                                   ; preds = %4657, %4658, %4587,
   %2379 = load ptr, ptr %2373, align 8, !tbaa !311
   tail call fastcc void @prettyprint_node(ptr noundef %0, ptr noundef %1, ptr noundef %2379, ptr noundef %3)
   store i64 %2378, ptr %3, align 8, !tbaa !16
-  br label %common.ret9452
+  br label %common.ret9488
 
 2380:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.169, i64 noundef 42) #5
@@ -6578,7 +6578,7 @@ common.ret9452:                                   ; preds = %4657, %4658, %4587,
   %2400 = load ptr, ptr %2399, align 8, !tbaa !314
   tail call fastcc void @prettyprint_node(ptr noundef %0, ptr noundef %1, ptr noundef %2400, ptr noundef %3)
   store i64 %2398, ptr %3, align 8, !tbaa !16
-  br label %common.ret9452
+  br label %common.ret9488
 
 2401:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.170, i64 noundef 47) #5
@@ -6637,7 +6637,7 @@ common.ret9452:                                   ; preds = %4657, %4658, %4587,
   %2423 = load i32, ptr %2422, align 8, !tbaa !318
   tail call fastcc void @prettyprint_constant(ptr noundef %0, ptr noundef %1, i32 noundef %2423)
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 10) #5
-  br label %common.ret9452
+  br label %common.ret9488
 
 2424:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.171, i64 noundef 41) #5
@@ -6689,7 +6689,7 @@ common.ret9452:                                   ; preds = %4657, %4658, %4587,
   %2444 = load ptr, ptr %2443, align 8, !tbaa !321
   tail call fastcc void @prettyprint_node(ptr noundef %0, ptr noundef %1, ptr noundef %2444, ptr noundef %3)
   store i64 %2442, ptr %3, align 8, !tbaa !16
-  br label %common.ret9452
+  br label %common.ret9488
 
 2445:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.172, i64 noundef 38) #5
@@ -6703,7 +6703,7 @@ common.ret9452:                                   ; preds = %4657, %4658, %4587,
   %2448 = load i32, ptr %2447, align 8, !tbaa !322
   tail call fastcc void @prettyprint_constant(ptr noundef %0, ptr noundef %1, i32 noundef %2448)
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 10) #5
-  br label %common.ret9452
+  br label %common.ret9488
 
 2449:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.173, i64 noundef 40) #5
@@ -6717,7 +6717,7 @@ common.ret9452:                                   ; preds = %4657, %4658, %4587,
   %2452 = load i32, ptr %2451, align 8, !tbaa !324
   tail call fastcc void @prettyprint_constant(ptr noundef %0, ptr noundef %1, i32 noundef %2452)
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 10) #5
-  br label %common.ret9452
+  br label %common.ret9488
 
 2453:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.174, i64 noundef 39) #5
@@ -6769,7 +6769,7 @@ common.ret9452:                                   ; preds = %4657, %4658, %4587,
   %2473 = sub i64 %2471, %2472
   tail call void @pm_buffer_append_source(ptr noundef %0, ptr noundef %2468, i64 noundef %2473, i32 noundef 0) #5
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.7, i64 noundef 2) #5
-  br label %common.ret9452
+  br label %common.ret9488
 
 2474:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.175, i64 noundef 25) #5
@@ -6863,7 +6863,7 @@ common.ret9452:                                   ; preds = %4657, %4658, %4587,
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #5
   tail call void @pm_integer_string(ptr noundef %0, ptr noundef nonnull %2503) #5
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 10) #5
-  br label %common.ret9452
+  br label %common.ret9488
 
 2504:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.181, i64 noundef 43) #5
@@ -7135,7 +7135,7 @@ common.ret9452:                                   ; preds = %4657, %4658, %4587,
   %2600 = sub i64 %2598, %2599
   tail call void @pm_buffer_append_source(ptr noundef %0, ptr noundef %2595, i64 noundef %2600, i32 noundef 0) #5
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.7, i64 noundef 2) #5
-  br label %common.ret9452
+  br label %common.ret9488
 
 2601:                                             ; preds = %.lr.ph9227, %2601
   %2602 = phi i64 [ 0, %.lr.ph9227 ], [ %2609, %2601 ]
@@ -7426,7 +7426,7 @@ common.ret9452:                                   ; preds = %4657, %4658, %4587,
   %2707 = sub i64 %2705, %2706
   tail call void @pm_buffer_append_source(ptr noundef %0, ptr noundef %2702, i64 noundef %2707, i32 noundef 0) #5
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.7, i64 noundef 2) #5
-  br label %common.ret9452
+  br label %common.ret9488
 
 2708:                                             ; preds = %.lr.ph9223, %2708
   %2709 = phi i64 [ 0, %.lr.ph9223 ], [ %2716, %2708 ]
@@ -7458,33 +7458,33 @@ common.ret9452:                                   ; preds = %4657, %4658, %4587,
   %2721 = load i16, ptr %2720, align 2, !tbaa !343
   %2722 = and i16 %2721, 4
   %.not8995.not = icmp eq i16 %2722, 0
-  br i1 %.not8995.not, label %2723, label %.thread9435
+  br i1 %.not8995.not, label %2723, label %.thread9471
 
 2723:                                             ; preds = %2718
   %2724 = and i16 %2721, 8
   %.not8996 = icmp eq i16 %2724, 0
   br i1 %.not8996, label %2727, label %.thread9122
 
-.thread9435:                                      ; preds = %2718
+.thread9471:                                      ; preds = %2718
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.198, i64 noundef 7) #5
   %.pre9367 = load i16, ptr %2720, align 2, !tbaa !343
   %2725 = and i16 %.pre9367, 8
-  %.not89969436 = icmp eq i16 %2725, 0
-  br i1 %.not89969436, label %.thread9438, label %2726
+  %.not89969472 = icmp eq i16 %2725, 0
+  br i1 %.not89969472, label %.thread9474, label %2726
 
-2726:                                             ; preds = %.thread9435
+2726:                                             ; preds = %.thread9471
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #5
   br label %.thread9122
 
 .thread9122:                                      ; preds = %2723, %2726
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.199, i64 noundef 8) #5
-  br label %.thread9438
+  br label %.thread9474
 
 2727:                                             ; preds = %2723
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.21, i64 noundef 4) #5
-  br label %.thread9438
+  br label %.thread9474
 
-.thread9438:                                      ; preds = %.thread9435, %.thread9122, %2727
+.thread9474:                                      ; preds = %.thread9471, %.thread9122, %2727
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 10) #5
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #5
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.29, i64 noundef 16) #5
@@ -7493,11 +7493,11 @@ common.ret9452:                                   ; preds = %4657, %4658, %4587,
   %2730 = icmp eq ptr %2729, null
   br i1 %2730, label %2731, label %2732
 
-2731:                                             ; preds = %.thread9438
+2731:                                             ; preds = %.thread9474
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.30, i64 noundef 5) #5
   br label %2739
 
-2732:                                             ; preds = %.thread9438
+2732:                                             ; preds = %.thread9474
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #5
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2728)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef 4) #5
@@ -7556,7 +7556,7 @@ common.ret9452:                                   ; preds = %4657, %4658, %4587,
 
 2758:                                             ; preds = %._crit_edge9220
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.30, i64 noundef 5) #5
-  br label %common.ret9452
+  br label %common.ret9488
 
 2759:                                             ; preds = %._crit_edge9220
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #5
@@ -7570,7 +7570,7 @@ common.ret9452:                                   ; preds = %4657, %4658, %4587,
   %2765 = sub i64 %2763, %2764
   tail call void @pm_buffer_append_source(ptr noundef %0, ptr noundef %2760, i64 noundef %2765, i32 noundef 0) #5
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.7, i64 noundef 2) #5
-  br label %common.ret9452
+  br label %common.ret9488
 
 2766:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.200, i64 noundef 36) #5
@@ -7647,7 +7647,7 @@ common.ret9452:                                   ; preds = %4657, %4658, %4587,
 
 2798:                                             ; preds = %._crit_edge9216
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.30, i64 noundef 5) #5
-  br label %common.ret9452
+  br label %common.ret9488
 
 2799:                                             ; preds = %._crit_edge9216
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #5
@@ -7661,7 +7661,7 @@ common.ret9452:                                   ; preds = %4657, %4658, %4587,
   %2805 = sub i64 %2803, %2804
   tail call void @pm_buffer_append_source(ptr noundef %0, ptr noundef %2800, i64 noundef %2805, i32 noundef 0) #5
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.7, i64 noundef 2) #5
-  br label %common.ret9452
+  br label %common.ret9488
 
 2806:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.201, i64 noundef 37) #5
@@ -7712,7 +7712,7 @@ common.ret9452:                                   ; preds = %4657, %4658, %4587,
   %2826 = sub i64 %2824, %2825
   tail call void @pm_buffer_append_source(ptr noundef %0, ptr noundef %2821, i64 noundef %2826, i32 noundef 0) #5
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.7, i64 noundef 2) #5
-  br label %common.ret9452
+  br label %common.ret9488
 
 2827:                                             ; preds = %.lr.ph9211, %2827
   %2828 = phi i64 [ 0, %.lr.ph9211 ], [ %2835, %2827 ]
@@ -7738,14 +7738,14 @@ common.ret9452:                                   ; preds = %4657, %4658, %4587,
   %2838 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2838)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.1, i64 noundef 2) #5
-  br label %common.ret9452
+  br label %common.ret9488
 
 2839:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.203, i64 noundef 30) #5
   %2840 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2840)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.1, i64 noundef 2) #5
-  br label %common.ret9452
+  br label %common.ret9488
 
 2841:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.204, i64 noundef 29) #5
@@ -7777,7 +7777,7 @@ common.ret9452:                                   ; preds = %4657, %4658, %4587,
   tail call void (ptr, ptr, ...) @pm_buffer_append_format(ptr noundef %0, ptr noundef nonnull @.str.23, i64 noundef %2849) #5
   %2850 = load i64, ptr %2848, align 8, !tbaa !358
   %.not9296 = icmp eq i64 %2850, 0
-  br i1 %.not9296, label %common.ret9452, label %.lr.ph9208
+  br i1 %.not9296, label %common.ret9488, label %.lr.ph9208
 
 .lr.ph9208:                                       ; preds = %2847
   %2851 = add i64 %2850, -1
@@ -7802,7 +7802,7 @@ common.ret9452:                                   ; preds = %4657, %4658, %4587,
   %2860 = add i32 %.088129206, 1
   %2861 = zext i32 %2860 to i64
   %2862 = icmp ugt i64 %2850, %2861
-  br i1 %2862, label %2853, label %common.ret9452, !llvm.loop !360
+  br i1 %2862, label %2853, label %common.ret9488, !llvm.loop !360
 
 2863:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.207, i64 noundef 38) #5
@@ -7886,7 +7886,7 @@ common.ret9452:                                   ; preds = %4657, %4658, %4587,
   %2895 = sub i64 %2893, %2894
   tail call void @pm_buffer_append_source(ptr noundef %0, ptr noundef %2890, i64 noundef %2895, i32 noundef 0) #5
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.7, i64 noundef 2) #5
-  br label %common.ret9452
+  br label %common.ret9488
 
 2896:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.208, i64 noundef 24) #5
@@ -8007,7 +8007,7 @@ common.ret9452:                                   ; preds = %4657, %4658, %4587,
 
 2950:                                             ; preds = %2946
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.30, i64 noundef 5) #5
-  br label %common.ret9452
+  br label %common.ret9488
 
 2951:                                             ; preds = %2946
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 10) #5
@@ -8017,7 +8017,7 @@ common.ret9452:                                   ; preds = %4657, %4658, %4587,
   %2953 = load ptr, ptr %2947, align 8, !tbaa !369
   tail call fastcc void @prettyprint_node(ptr noundef %0, ptr noundef %1, ptr noundef %2953, ptr noundef %3)
   store i64 %2952, ptr %3, align 8, !tbaa !16
-  br label %common.ret9452
+  br label %common.ret9488
 
 2954:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.209, i64 noundef 39) #5
@@ -8074,7 +8074,7 @@ common.ret9452:                                   ; preds = %4657, %4658, %4587,
   %2975 = getelementptr inbounds nuw i8, ptr %2, i64 68
   %2976 = load i32, ptr %2975, align 4, !tbaa !373
   tail call void (ptr, ptr, ...) @pm_buffer_append_format(ptr noundef %0, ptr noundef nonnull @.str.211, i32 noundef %2976) #5
-  br label %common.ret9452
+  br label %common.ret9488
 
 2977:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.212, i64 noundef 44) #5
@@ -8138,7 +8138,7 @@ common.ret9452:                                   ; preds = %4657, %4658, %4587,
   %3000 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %3001 = load i32, ptr %3000, align 8, !tbaa !378
   tail call void (ptr, ptr, ...) @pm_buffer_append_format(ptr noundef %0, ptr noundef nonnull @.str.211, i32 noundef %3001) #5
-  br label %common.ret9452
+  br label %common.ret9488
 
 3002:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.213, i64 noundef 38) #5
@@ -8195,7 +8195,7 @@ common.ret9452:                                   ; preds = %4657, %4658, %4587,
   %3023 = getelementptr inbounds nuw i8, ptr %2, i64 68
   %3024 = load i32, ptr %3023, align 4, !tbaa !382
   tail call void (ptr, ptr, ...) @pm_buffer_append_format(ptr noundef %0, ptr noundef nonnull @.str.211, i32 noundef %3024) #5
-  br label %common.ret9452
+  br label %common.ret9488
 
 3025:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.214, i64 noundef 35) #5
@@ -8214,7 +8214,7 @@ common.ret9452:                                   ; preds = %4657, %4658, %4587,
   %3029 = getelementptr inbounds nuw i8, ptr %2, i64 28
   %3030 = load i32, ptr %3029, align 4, !tbaa !385
   tail call void (ptr, ptr, ...) @pm_buffer_append_format(ptr noundef %0, ptr noundef nonnull @.str.211, i32 noundef %3030) #5
-  br label %common.ret9452
+  br label %common.ret9488
 
 3031:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.215, i64 noundef 37) #5
@@ -8233,7 +8233,7 @@ common.ret9452:                                   ; preds = %4657, %4658, %4587,
   %3035 = getelementptr inbounds nuw i8, ptr %2, i64 28
   %3036 = load i32, ptr %3035, align 4, !tbaa !388
   tail call void (ptr, ptr, ...) @pm_buffer_append_format(ptr noundef %0, ptr noundef nonnull @.str.211, i32 noundef %3036) #5
-  br label %common.ret9452
+  br label %common.ret9488
 
 3037:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.216, i64 noundef 36) #5
@@ -8290,7 +8290,7 @@ common.ret9452:                                   ; preds = %4657, %4658, %4587,
   %3059 = sub i64 %3057, %3058
   tail call void @pm_buffer_append_source(ptr noundef %0, ptr noundef %3054, i64 noundef %3059, i32 noundef 0) #5
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.7, i64 noundef 2) #5
-  br label %common.ret9452
+  br label %common.ret9488
 
 3060:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.217, i64 noundef 31) #5
@@ -8568,7 +8568,7 @@ common.ret9452:                                   ; preds = %4657, %4658, %4587,
   %3161 = tail call i64 @pm_string_length(ptr noundef nonnull %3159) #5
   tail call void @pm_buffer_append_source(ptr noundef %0, ptr noundef %3160, i64 noundef %3161, i32 noundef 0) #5
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.7, i64 noundef 2) #5
-  br label %common.ret9452
+  br label %common.ret9488
 
 3162:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.221, i64 noundef 32) #5
@@ -8609,7 +8609,7 @@ common.ret9452:                                   ; preds = %4657, %4658, %4587,
   %3176 = sub i64 %3174, %3175
   tail call void @pm_buffer_append_source(ptr noundef %0, ptr noundef %3171, i64 noundef %3176, i32 noundef 0) #5
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.7, i64 noundef 2) #5
-  br label %common.ret9452
+  br label %common.ret9488
 
 3177:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.222, i64 noundef 31) #5
@@ -8650,7 +8650,7 @@ common.ret9452:                                   ; preds = %4657, %4658, %4587,
   %3191 = sub i64 %3189, %3190
   tail call void @pm_buffer_append_source(ptr noundef %0, ptr noundef %3186, i64 noundef %3191, i32 noundef 0) #5
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.7, i64 noundef 2) #5
-  br label %common.ret9452
+  br label %common.ret9488
 
 3192:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.223, i64 noundef 28) #5
@@ -8674,7 +8674,7 @@ common.ret9452:                                   ; preds = %4657, %4658, %4587,
   tail call void (ptr, ptr, ...) @pm_buffer_append_format(ptr noundef %0, ptr noundef nonnull @.str.23, i64 noundef %3198) #5
   %3199 = load i64, ptr %3197, align 8, !tbaa !405
   %.not9294 = icmp eq i64 %3199, 0
-  br i1 %.not9294, label %common.ret9452, label %.lr.ph9201
+  br i1 %.not9294, label %common.ret9488, label %.lr.ph9201
 
 .lr.ph9201:                                       ; preds = %3192
   %3200 = add i64 %3199, -1
@@ -8699,14 +8699,14 @@ common.ret9452:                                   ; preds = %4657, %4658, %4587,
   %3209 = add i32 %.088299199, 1
   %3210 = zext i32 %3209 to i64
   %3211 = icmp ugt i64 %3199, %3210
-  br i1 %3211, label %3202, label %common.ret9452, !llvm.loop !407
+  br i1 %3211, label %3202, label %common.ret9488, !llvm.loop !407
 
 3212:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.226, i64 noundef 25) #5
   %3213 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %3213)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.1, i64 noundef 2) #5
-  br label %common.ret9452
+  br label %common.ret9488
 
 3214:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.227, i64 noundef 24) #5
@@ -8821,7 +8821,7 @@ common.ret9452:                                   ; preds = %4657, %4658, %4587,
   %3262 = load i32, ptr %3261, align 8, !tbaa !414
   tail call fastcc void @prettyprint_constant(ptr noundef %0, ptr noundef %1, i32 noundef %3262)
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 10) #5
-  br label %common.ret9452
+  br label %common.ret9488
 
 3263:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.229, i64 noundef 29) #5
@@ -8955,7 +8955,7 @@ common.ret9452:                                   ; preds = %4657, %4658, %4587,
 
 3318:                                             ; preds = %3314
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.30, i64 noundef 5) #5
-  br label %common.ret9452
+  br label %common.ret9488
 
 3319:                                             ; preds = %3314
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #5
@@ -8969,7 +8969,7 @@ common.ret9452:                                   ; preds = %4657, %4658, %4587,
   %3325 = sub i64 %3323, %3324
   tail call void @pm_buffer_append_source(ptr noundef %0, ptr noundef %3320, i64 noundef %3325, i32 noundef 0) #5
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.7, i64 noundef 2) #5
-  br label %common.ret9452
+  br label %common.ret9488
 
 3326:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.232, i64 noundef 28) #5
@@ -9144,7 +9144,7 @@ common.ret9452:                                   ; preds = %4657, %4658, %4587,
   %3399 = load ptr, ptr %3398, align 8, !tbaa !431
   tail call fastcc void @prettyprint_node(ptr noundef %0, ptr noundef %1, ptr noundef %3399, ptr noundef %3)
   store i64 %3397, ptr %3, align 8, !tbaa !16
-  br label %common.ret9452
+  br label %common.ret9488
 
 3400:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.233, i64 noundef 22) #5
@@ -9187,14 +9187,14 @@ common.ret9452:                                   ; preds = %4657, %4658, %4587,
   %3416 = sub i64 %3414, %3415
   tail call void @pm_buffer_append_source(ptr noundef %0, ptr noundef %3411, i64 noundef %3416, i32 noundef 0) #5
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.7, i64 noundef 2) #5
-  br label %common.ret9452
+  br label %common.ret9488
 
 3417:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.234, i64 noundef 21) #5
   %3418 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %3418)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.1, i64 noundef 2) #5
-  br label %common.ret9452
+  br label %common.ret9488
 
 3419:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.235, i64 noundef 37) #5
@@ -9229,7 +9229,7 @@ common.ret9452:                                   ; preds = %4657, %4658, %4587,
   %3434 = sub i64 %3432, %3433
   tail call void @pm_buffer_append_source(ptr noundef %0, ptr noundef %3429, i64 noundef %3434, i32 noundef 0) #5
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.7, i64 noundef 2) #5
-  br label %common.ret9452
+  br label %common.ret9488
 
 3435:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.236, i64 noundef 36) #5
@@ -9242,7 +9242,7 @@ common.ret9452:                                   ; preds = %4657, %4658, %4587,
   %3438 = load i8, ptr %3437, align 8, !tbaa !434
   %3439 = zext i8 %3438 to i32
   tail call void (ptr, ptr, ...) @pm_buffer_append_format(ptr noundef %0, ptr noundef nonnull @.str.211, i32 noundef %3439) #5
-  br label %common.ret9452
+  br label %common.ret9488
 
 3440:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.238, i64 noundef 39) #5
@@ -9254,7 +9254,7 @@ common.ret9452:                                   ; preds = %4657, %4658, %4587,
   %3442 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %3443 = load i32, ptr %3442, align 8, !tbaa !436
   tail call void (ptr, ptr, ...) @pm_buffer_append_format(ptr noundef %0, ptr noundef nonnull @.str.211, i32 noundef %3443) #5
-  br label %common.ret9452
+  br label %common.ret9488
 
 3444:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.240, i64 noundef 42) #5
@@ -9310,7 +9310,7 @@ common.ret9452:                                   ; preds = %4657, %4658, %4587,
   %3462 = load ptr, ptr %3461, align 8, !tbaa !441
   tail call fastcc void @prettyprint_node(ptr noundef %0, ptr noundef %1, ptr noundef %3462, ptr noundef %3)
   store i64 %3460, ptr %3, align 8, !tbaa !16
-  br label %common.ret9452
+  br label %common.ret9488
 
 3463:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.241, i64 noundef 35) #5
@@ -9380,7 +9380,7 @@ common.ret9452:                                   ; preds = %4657, %4658, %4587,
   %3488 = load ptr, ptr %3487, align 8, !tbaa !445
   tail call fastcc void @prettyprint_node(ptr noundef %0, ptr noundef %1, ptr noundef %3488, ptr noundef %3)
   store i64 %3486, ptr %3, align 8, !tbaa !16
-  br label %common.ret9452
+  br label %common.ret9488
 
 3489:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.242, i64 noundef 20) #5
@@ -9421,7 +9421,7 @@ common.ret9452:                                   ; preds = %4657, %4658, %4587,
   %3503 = sub i64 %3501, %3502
   tail call void @pm_buffer_append_source(ptr noundef %0, ptr noundef %3498, i64 noundef %3503, i32 noundef 0) #5
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.7, i64 noundef 2) #5
-  br label %common.ret9452
+  br label %common.ret9488
 
 3504:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.243, i64 noundef 28) #5
@@ -9621,7 +9621,7 @@ common.ret9452:                                   ; preds = %4657, %4658, %4587,
 
 3585:                                             ; preds = %3581
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.30, i64 noundef 5) #5
-  br label %common.ret9452
+  br label %common.ret9488
 
 3586:                                             ; preds = %3581
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 10) #5
@@ -9631,7 +9631,7 @@ common.ret9452:                                   ; preds = %4657, %4658, %4587,
   %3588 = load ptr, ptr %3582, align 8, !tbaa !465
   tail call fastcc void @prettyprint_node(ptr noundef %0, ptr noundef %1, ptr noundef %3588, ptr noundef %3)
   store i64 %3587, ptr %3, align 8, !tbaa !16
-  br label %common.ret9452
+  br label %common.ret9488
 
 3589:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.247, i64 noundef 29) #5
@@ -9688,7 +9688,7 @@ common.ret9452:                                   ; preds = %4657, %4658, %4587,
   %3612 = sub i64 %3610, %3611
   tail call void @pm_buffer_append_source(ptr noundef %0, ptr noundef %3607, i64 noundef %3612, i32 noundef 0) #5
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.7, i64 noundef 2) #5
-  br label %common.ret9452
+  br label %common.ret9488
 
 3613:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.248, i64 noundef 34) #5
@@ -9747,7 +9747,7 @@ common.ret9452:                                   ; preds = %4657, %4658, %4587,
   %3638 = sub i64 %3636, %3637
   tail call void @pm_buffer_append_source(ptr noundef %0, ptr noundef %3633, i64 noundef %3638, i32 noundef 0) #5
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.7, i64 noundef 2) #5
-  br label %common.ret9452
+  br label %common.ret9488
 
 3639:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.249, i64 noundef 32) #5
@@ -9778,7 +9778,7 @@ common.ret9452:                                   ; preds = %4657, %4658, %4587,
   %3650 = sub i64 %3648, %3649
   tail call void @pm_buffer_append_source(ptr noundef %0, ptr noundef %3645, i64 noundef %3650, i32 noundef 0) #5
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.7, i64 noundef 2) #5
-  br label %common.ret9452
+  br label %common.ret9488
 
 3651:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.250, i64 noundef 31) #5
@@ -9849,7 +9849,7 @@ common.ret9452:                                   ; preds = %4657, %4658, %4587,
   %3681 = sub i64 %3679, %3680
   tail call void @pm_buffer_append_source(ptr noundef %0, ptr noundef %3676, i64 noundef %3681, i32 noundef 0) #5
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.7, i64 noundef 2) #5
-  br label %common.ret9452
+  br label %common.ret9488
 
 3682:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.251, i64 noundef 30) #5
@@ -9920,7 +9920,7 @@ common.ret9452:                                   ; preds = %4657, %4658, %4587,
   %3712 = sub i64 %3710, %3711
   tail call void @pm_buffer_append_source(ptr noundef %0, ptr noundef %3707, i64 noundef %3712, i32 noundef 0) #5
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.7, i64 noundef 2) #5
-  br label %common.ret9452
+  br label %common.ret9488
 
 3713:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.252, i64 noundef 25) #5
@@ -9952,7 +9952,7 @@ common.ret9452:                                   ; preds = %4657, %4658, %4587,
   %3721 = load ptr, ptr %3720, align 8, !tbaa !478
   tail call fastcc void @prettyprint_node(ptr noundef %0, ptr noundef %1, ptr noundef %3721, ptr noundef %3)
   store i64 %3719, ptr %3, align 8, !tbaa !16
-  br label %common.ret9452
+  br label %common.ret9488
 
 3722:                                             ; preds = %.lr.ph9161, %3725
   %3723 = phi i64 [ 0, %.lr.ph9161 ], [ %3735, %3725 ]
@@ -10061,7 +10061,7 @@ common.ret9452:                                   ; preds = %4657, %4658, %4587,
   %3767 = sub i64 %3765, %3766
   tail call void @pm_buffer_append_source(ptr noundef %0, ptr noundef %3762, i64 noundef %3767, i32 noundef 0) #5
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.7, i64 noundef 2) #5
-  br label %common.ret9452
+  br label %common.ret9488
 
 3768:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.254, i64 noundef 26) #5
@@ -10161,14 +10161,14 @@ common.ret9452:                                   ; preds = %4657, %4658, %4587,
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #5
   tail call void @pm_integer_string(ptr noundef %0, ptr noundef nonnull %3798) #5
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 10) #5
-  br label %common.ret9452
+  br label %common.ret9488
 
 3799:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.257, i64 noundef 22) #5
   %3800 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %3800)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.1, i64 noundef 2) #5
-  br label %common.ret9452
+  br label %common.ret9488
 
 3801:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.258, i64 noundef 35) #5
@@ -10446,7 +10446,7 @@ common.ret9452:                                   ; preds = %4657, %4658, %4587,
   %3902 = tail call i64 @pm_string_length(ptr noundef nonnull %3900) #5
   tail call void @pm_buffer_append_source(ptr noundef %0, ptr noundef %3901, i64 noundef %3902, i32 noundef 0) #5
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.7, i64 noundef 2) #5
-  br label %common.ret9452
+  br label %common.ret9488
 
 3903:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.259, i64 noundef 42) #5
@@ -10492,7 +10492,7 @@ common.ret9452:                                   ; preds = %4657, %4658, %4587,
   %3918 = sub i64 %3916, %3917
   tail call void @pm_buffer_append_source(ptr noundef %0, ptr noundef %3913, i64 noundef %3918, i32 noundef 0) #5
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.7, i64 noundef 2) #5
-  br label %common.ret9452
+  br label %common.ret9488
 
 3919:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.260, i64 noundef 35) #5
@@ -10524,7 +10524,7 @@ common.ret9452:                                   ; preds = %4657, %4658, %4587,
   %3927 = load i32, ptr %3926, align 8, !tbaa !494
   tail call fastcc void @prettyprint_constant(ptr noundef %0, ptr noundef %1, i32 noundef %3927)
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 10) #5
-  br label %common.ret9452
+  br label %common.ret9488
 
 3928:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.261, i64 noundef 32) #5
@@ -10565,7 +10565,7 @@ common.ret9452:                                   ; preds = %4657, %4658, %4587,
   %3942 = load ptr, ptr %3941, align 8, !tbaa !497
   tail call fastcc void @prettyprint_node(ptr noundef %0, ptr noundef %1, ptr noundef %3942, ptr noundef %3)
   store i64 %3940, ptr %3, align 8, !tbaa !16
-  br label %common.ret9452
+  br label %common.ret9488
 
 3943:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.263, i64 noundef 24) #5
@@ -10700,7 +10700,7 @@ common.ret9452:                                   ; preds = %4657, %4658, %4587,
 
 3998:                                             ; preds = %3994
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.30, i64 noundef 5) #5
-  br label %common.ret9452
+  br label %common.ret9488
 
 3999:                                             ; preds = %3994
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 10) #5
@@ -10710,7 +10710,7 @@ common.ret9452:                                   ; preds = %4657, %4658, %4587,
   %4001 = load ptr, ptr %3995, align 8, !tbaa !504
   tail call fastcc void @prettyprint_node(ptr noundef %0, ptr noundef %1, ptr noundef %4001, ptr noundef %3)
   store i64 %4000, ptr %3, align 8, !tbaa !16
-  br label %common.ret9452
+  br label %common.ret9488
 
 4002:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.266, i64 noundef 31) #5
@@ -10794,14 +10794,14 @@ common.ret9452:                                   ; preds = %4657, %4658, %4587,
   %4034 = sub i64 %4032, %4033
   tail call void @pm_buffer_append_source(ptr noundef %0, ptr noundef %4029, i64 noundef %4034, i32 noundef 0) #5
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.7, i64 noundef 2) #5
-  br label %common.ret9452
+  br label %common.ret9488
 
 4035:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.267, i64 noundef 23) #5
   %4036 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %4036)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.1, i64 noundef 2) #5
-  br label %common.ret9452
+  br label %common.ret9488
 
 4037:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.268, i64 noundef 24) #5
@@ -10831,7 +10831,7 @@ common.ret9452:                                   ; preds = %4657, %4658, %4587,
 
 4049:                                             ; preds = %4037
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.30, i64 noundef 5) #5
-  br label %common.ret9452
+  br label %common.ret9488
 
 4050:                                             ; preds = %4037
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 10) #5
@@ -10841,14 +10841,14 @@ common.ret9452:                                   ; preds = %4657, %4658, %4587,
   %4052 = load ptr, ptr %4046, align 8, !tbaa !508
   tail call fastcc void @prettyprint_node(ptr noundef %0, ptr noundef %1, ptr noundef %4052, ptr noundef %3)
   store i64 %4051, ptr %3, align 8, !tbaa !16
-  br label %common.ret9452
+  br label %common.ret9488
 
 4053:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.269, i64 noundef 22) #5
   %4054 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %4054)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.1, i64 noundef 2) #5
-  br label %common.ret9452
+  br label %common.ret9488
 
 4055:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.270, i64 noundef 35) #5
@@ -10926,7 +10926,7 @@ common.ret9452:                                   ; preds = %4657, %4658, %4587,
   %4079 = load ptr, ptr %4078, align 8, !tbaa !512
   tail call fastcc void @prettyprint_node(ptr noundef %0, ptr noundef %1, ptr noundef %4079, ptr noundef %3)
   store i64 %4077, ptr %3, align 8, !tbaa !16
-  br label %common.ret9452
+  br label %common.ret9488
 
 4080:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.276, i64 noundef 32) #5
@@ -11048,14 +11048,14 @@ common.ret9452:                                   ; preds = %4657, %4658, %4587,
   %4133 = sub i64 %4131, %4132
   tail call void @pm_buffer_append_source(ptr noundef %0, ptr noundef %4128, i64 noundef %4133, i32 noundef 0) #5
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.7, i64 noundef 2) #5
-  br label %common.ret9452
+  br label %common.ret9488
 
 4134:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.277, i64 noundef 32) #5
   %4135 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %4135)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.1, i64 noundef 2) #5
-  br label %common.ret9452
+  br label %common.ret9488
 
 4136:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.278, i64 noundef 28) #5
@@ -11151,14 +11151,14 @@ common.ret9452:                                   ; preds = %4657, %4658, %4587,
   %4167 = tail call i64 @pm_string_length(ptr noundef nonnull %4165) #5
   tail call void @pm_buffer_append_source(ptr noundef %0, ptr noundef %4166, i64 noundef %4167, i32 noundef 0) #5
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.7, i64 noundef 2) #5
-  br label %common.ret9452
+  br label %common.ret9488
 
 4168:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.281, i64 noundef 28) #5
   %4169 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %4169)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.1, i64 noundef 2) #5
-  br label %common.ret9452
+  br label %common.ret9488
 
 4170:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.282, i64 noundef 23) #5
@@ -11188,7 +11188,7 @@ common.ret9452:                                   ; preds = %4657, %4658, %4587,
 
 4182:                                             ; preds = %4170
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.30, i64 noundef 5) #5
-  br label %common.ret9452
+  br label %common.ret9488
 
 4183:                                             ; preds = %4170
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 10) #5
@@ -11198,7 +11198,7 @@ common.ret9452:                                   ; preds = %4657, %4658, %4587,
   %4185 = load ptr, ptr %4179, align 8, !tbaa !521
   tail call fastcc void @prettyprint_node(ptr noundef %0, ptr noundef %1, ptr noundef %4185, ptr noundef %3)
   store i64 %4184, ptr %3, align 8, !tbaa !16
-  br label %common.ret9452
+  br label %common.ret9488
 
 4186:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.283, i64 noundef 28) #5
@@ -11212,7 +11212,7 @@ common.ret9452:                                   ; preds = %4657, %4658, %4587,
   tail call void (ptr, ptr, ...) @pm_buffer_append_format(ptr noundef %0, ptr noundef nonnull @.str.23, i64 noundef %4189) #5
   %4190 = load i64, ptr %4188, align 8, !tbaa !523
   %.not9281 = icmp eq i64 %4190, 0
-  br i1 %.not9281, label %common.ret9452, label %.lr.ph9150
+  br i1 %.not9281, label %common.ret9488, label %.lr.ph9150
 
 .lr.ph9150:                                       ; preds = %4186
   %4191 = add i64 %4190, -1
@@ -11237,7 +11237,7 @@ common.ret9452:                                   ; preds = %4657, %4658, %4587,
   %4200 = add i32 %.088459148, 1
   %4201 = zext i32 %4200 to i64
   %4202 = icmp ugt i64 %4190, %4201
-  br i1 %4202, label %4193, label %common.ret9452, !llvm.loop !526
+  br i1 %4202, label %4193, label %common.ret9488, !llvm.loop !526
 
 4203:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.284, i64 noundef 24) #5
@@ -11399,7 +11399,7 @@ common.ret9452:                                   ; preds = %4657, %4658, %4587,
   %4265 = tail call i64 @pm_string_length(ptr noundef nonnull %4263) #5
   tail call void @pm_buffer_append_source(ptr noundef %0, ptr noundef %4264, i64 noundef %4265, i32 noundef 0) #5
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.7, i64 noundef 2) #5
-  br label %common.ret9452
+  br label %common.ret9488
 
 4266:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.285, i64 noundef 23) #5
@@ -11503,7 +11503,7 @@ common.ret9452:                                   ; preds = %4657, %4658, %4587,
 
 4310:                                             ; preds = %4306
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.30, i64 noundef 5) #5
-  br label %common.ret9452
+  br label %common.ret9488
 
 4311:                                             ; preds = %4306
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 10) #5
@@ -11513,7 +11513,7 @@ common.ret9452:                                   ; preds = %4657, %4658, %4587,
   %4313 = load ptr, ptr %4307, align 8, !tbaa !531
   tail call fastcc void @prettyprint_node(ptr noundef %0, ptr noundef %1, ptr noundef %4313, ptr noundef %3)
   store i64 %4312, ptr %3, align 8, !tbaa !16
-  br label %common.ret9452
+  br label %common.ret9488
 
 4314:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.286, i64 noundef 24) #5
@@ -11667,14 +11667,14 @@ common.ret9452:                                   ; preds = %4657, %4658, %4587,
   %4374 = tail call i64 @pm_string_length(ptr noundef nonnull %4372) #5
   tail call void @pm_buffer_append_source(ptr noundef %0, ptr noundef %4373, i64 noundef %4374, i32 noundef 0) #5
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.7, i64 noundef 2) #5
-  br label %common.ret9452
+  br label %common.ret9488
 
 4375:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.289, i64 noundef 22) #5
   %4376 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call fastcc void @prettyprint_location(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %4376)
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.1, i64 noundef 2) #5
-  br label %common.ret9452
+  br label %common.ret9488
 
 4377:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.290, i64 noundef 23) #5
@@ -11711,7 +11711,7 @@ common.ret9452:                                   ; preds = %4657, %4658, %4587,
   %4390 = sub i64 %4388, %4389
   tail call void @pm_buffer_append_source(ptr noundef %0, ptr noundef %4385, i64 noundef %4390, i32 noundef 0) #5
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.7, i64 noundef 2) #5
-  br label %common.ret9452
+  br label %common.ret9488
 
 4391:                                             ; preds = %.lr.ph9146, %4391
   %4392 = phi i64 [ 0, %.lr.ph9146 ], [ %4399, %4391 ]
@@ -11840,7 +11840,7 @@ common.ret9452:                                   ; preds = %4657, %4658, %4587,
 
 4444:                                             ; preds = %4440
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.30, i64 noundef 5) #5
-  br label %common.ret9452
+  br label %common.ret9488
 
 4445:                                             ; preds = %4440
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #5
@@ -11854,7 +11854,7 @@ common.ret9452:                                   ; preds = %4657, %4658, %4587,
   %4451 = sub i64 %4449, %4450
   tail call void @pm_buffer_append_source(ptr noundef %0, ptr noundef %4446, i64 noundef %4451, i32 noundef 0) #5
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.7, i64 noundef 2) #5
-  br label %common.ret9452
+  br label %common.ret9488
 
 4452:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.293, i64 noundef 23) #5
@@ -11964,7 +11964,7 @@ common.ret9452:                                   ; preds = %4657, %4658, %4587,
 
 4496:                                             ; preds = %4489
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.30, i64 noundef 5) #5
-  br label %common.ret9452
+  br label %common.ret9488
 
 4497:                                             ; preds = %4489
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 10) #5
@@ -11974,7 +11974,7 @@ common.ret9452:                                   ; preds = %4657, %4658, %4587,
   %4499 = load ptr, ptr %4493, align 8, !tbaa !545
   tail call fastcc void @prettyprint_node(ptr noundef %0, ptr noundef %1, ptr noundef %4499, ptr noundef %3)
   store i64 %4498, ptr %3, align 8, !tbaa !16
-  br label %common.ret9452
+  br label %common.ret9488
 
 4500:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.296, i64 noundef 22) #5
@@ -12065,7 +12065,7 @@ common.ret9452:                                   ; preds = %4657, %4658, %4587,
 
 4539:                                             ; preds = %4535
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.30, i64 noundef 5) #5
-  br label %common.ret9452
+  br label %common.ret9488
 
 4540:                                             ; preds = %4535
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 10) #5
@@ -12075,7 +12075,7 @@ common.ret9452:                                   ; preds = %4657, %4658, %4587,
   %4542 = load ptr, ptr %4536, align 8, !tbaa !550
   tail call fastcc void @prettyprint_node(ptr noundef %0, ptr noundef %1, ptr noundef %4542, ptr noundef %3)
   store i64 %4541, ptr %3, align 8, !tbaa !16
-  br label %common.ret9452
+  br label %common.ret9488
 
 4543:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.297, i64 noundef 23) #5
@@ -12185,7 +12185,7 @@ common.ret9452:                                   ; preds = %4657, %4658, %4587,
 
 4587:                                             ; preds = %4580
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.30, i64 noundef 5) #5
-  br label %common.ret9452
+  br label %common.ret9488
 
 4588:                                             ; preds = %4580
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 10) #5
@@ -12195,7 +12195,7 @@ common.ret9452:                                   ; preds = %4657, %4658, %4587,
   %4590 = load ptr, ptr %4584, align 8, !tbaa !554
   tail call fastcc void @prettyprint_node(ptr noundef %0, ptr noundef %1, ptr noundef %4590, ptr noundef %3)
   store i64 %4589, ptr %3, align 8, !tbaa !16
-  br label %common.ret9452
+  br label %common.ret9488
 
 4591:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.298, i64 noundef 25) #5
@@ -12208,33 +12208,33 @@ common.ret9452:                                   ; preds = %4657, %4658, %4587,
   %4594 = load i16, ptr %4593, align 2, !tbaa !555
   %4595 = and i16 %4594, 4
   %.not.not = icmp eq i16 %4595, 0
-  br i1 %.not.not, label %4596, label %.thread9439
+  br i1 %.not.not, label %4596, label %.thread9475
 
 4596:                                             ; preds = %4591
   %4597 = and i16 %4594, 8
   %.not8940 = icmp eq i16 %4597, 0
   br i1 %.not8940, label %4600, label %.thread9138
 
-.thread9439:                                      ; preds = %4591
+.thread9475:                                      ; preds = %4591
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.191, i64 noundef 21) #5
   %.pre = load i16, ptr %4593, align 2, !tbaa !555
   %4598 = and i16 %.pre, 8
-  %.not89409440 = icmp eq i16 %4598, 0
-  br i1 %.not89409440, label %.thread9442, label %4599
+  %.not89409476 = icmp eq i16 %4598, 0
+  br i1 %.not89409476, label %.thread9478, label %4599
 
-4599:                                             ; preds = %.thread9439
+4599:                                             ; preds = %.thread9475
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 44) #5
   br label %.thread9138
 
 .thread9138:                                      ; preds = %4596, %4599
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.192, i64 noundef 23) #5
-  br label %.thread9442
+  br label %.thread9478
 
 4600:                                             ; preds = %4596
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.21, i64 noundef 4) #5
-  br label %.thread9442
+  br label %.thread9478
 
-.thread9442:                                      ; preds = %.thread9439, %.thread9138, %4600
+.thread9478:                                      ; preds = %.thread9475, %.thread9138, %4600
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 10) #5
   tail call void @pm_buffer_concat(ptr noundef %0, ptr noundef nonnull %3) #5
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.29, i64 noundef 16) #5
@@ -12286,7 +12286,7 @@ common.ret9452:                                   ; preds = %4657, %4658, %4587,
   %4624 = tail call i64 @pm_string_length(ptr noundef nonnull %4622) #5
   tail call void @pm_buffer_append_source(ptr noundef %0, ptr noundef %4623, i64 noundef %4624, i32 noundef 0) #5
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.7, i64 noundef 2) #5
-  br label %common.ret9452
+  br label %common.ret9488
 
 4625:                                             ; preds = %4
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.300, i64 noundef 23) #5
@@ -12364,7 +12364,7 @@ common.ret9452:                                   ; preds = %4657, %4658, %4587,
 
 4657:                                             ; preds = %4653
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.30, i64 noundef 5) #5
-  br label %common.ret9452
+  br label %common.ret9488
 
 4658:                                             ; preds = %4653
   tail call void @pm_buffer_append_byte(ptr noundef %0, i8 noundef zeroext 32) #5
@@ -12378,7 +12378,7 @@ common.ret9452:                                   ; preds = %4657, %4658, %4587,
   %4664 = sub i64 %4662, %4663
   tail call void @pm_buffer_append_source(ptr noundef %0, ptr noundef %4659, i64 noundef %4664, i32 noundef 0) #5
   tail call void @pm_buffer_append_string(ptr noundef %0, ptr noundef nonnull @.str.7, i64 noundef 2) #5
-  br label %common.ret9452
+  br label %common.ret9488
 }
 
 declare void @pm_buffer_free(ptr noundef) local_unnamed_addr #2

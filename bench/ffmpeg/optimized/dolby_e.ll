@@ -1468,12 +1468,12 @@ parse_exponents.exit.i:                           ; preds = %239
   %410 = getelementptr inbounds nuw [3 x i8], ptr @band_low_tab, i64 0, i64 %383
   %411 = load i8, ptr %410, align 1, !tbaa !30
   %412 = zext i8 %411 to i32
-  %.294128.i.i.i = add nsw i32 %352, -1
-  %413 = icmp samesign ugt i32 %.294128.i.i.i, %412
+  %.294129.i.i.i = add nsw i32 %352, -1
+  %413 = icmp samesign ugt i32 %.294129.i.i.i, %412
   br i1 %413, label %.lr.ph97.preheader.i.i.i, label %.lr.ph99.i.i.i.preheader
 
 .lr.ph97.preheader.i.i.i:                         ; preds = %.preheader87.thread.i.i.i
-  %414 = zext nneg i32 %.294128.i.i.i to i64
+  %414 = zext nneg i32 %.294129.i.i.i to i64
   %415 = zext i8 %411 to i64
   br label %.lr.ph97.i.i.i
 

@@ -211,14 +211,14 @@ define void @process(ptr noundef readnone captures(none) %0, ptr noundef readonl
 .preheader371.preheader.i:                        ; preds = %.preheader371.lr.ph.i
   %88 = sext i32 %80 to i64
   %wide.trip.count.i = zext nneg i32 %82 to i64
-  %invariant.gep502.i = getelementptr float, ptr %87, i64 %88
+  %invariant.gep510.i = getelementptr float, ptr %87, i64 %88
   br label %.preheader371.i
 
 .preheader371.lr.ph.split.us.i:                   ; preds = %.preheader371.lr.ph.i
   %89 = zext i32 %81 to i64
   %90 = zext nneg i32 %80 to i64
   %wide.trip.count428.i = zext nneg i32 %82 to i64
-  %invariant.gep504.i = getelementptr inbounds nuw float, ptr %87, i64 %90
+  %invariant.gep512.i = getelementptr inbounds nuw float, ptr %87, i64 %90
   br label %.preheader371.us.i
 
 .preheader371.us.i:                               ; preds = %._crit_edge.us.i, %.preheader371.lr.ph.split.us.i
@@ -248,8 +248,8 @@ define void @process(ptr noundef readnone captures(none) %0, ptr noundef readonl
 
 ._crit_edge.us.i:                                 ; preds = %97
   %105 = mul nuw nsw i64 %indvars.iv425.i, %89
-  %gep505.i = getelementptr inbounds nuw float, ptr %invariant.gep504.i, i64 %105
-  store float 0.000000e+00, ptr %gep505.i, align 4, !tbaa !33
+  %gep513.i = getelementptr inbounds nuw float, ptr %invariant.gep512.i, i64 %105
+  store float 0.000000e+00, ptr %gep513.i, align 4, !tbaa !33
   %indvars.iv.next426.i = add nuw nsw i64 %indvars.iv425.i, 1
   %exitcond429.not.i = icmp eq i64 %indvars.iv.next426.i, %wide.trip.count428.i
   br i1 %exitcond429.not.i, label %.preheader370.i, label %.preheader371.us.i
@@ -257,8 +257,8 @@ define void @process(ptr noundef readnone captures(none) %0, ptr noundef readonl
 .preheader371.i:                                  ; preds = %.preheader371.i, %.preheader371.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader371.preheader.i ], [ %indvars.iv.next.i, %.preheader371.i ]
   %106 = mul nsw i64 %indvars.iv.i, %85
-  %gep503.i = getelementptr float, ptr %invariant.gep502.i, i64 %106
-  store float 0.000000e+00, ptr %gep503.i, align 4, !tbaa !33
+  %gep511.i = getelementptr float, ptr %invariant.gep510.i, i64 %106
+  store float 0.000000e+00, ptr %gep511.i, align 4, !tbaa !33
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %.preheader370.i, label %.preheader371.i
@@ -472,8 +472,8 @@ define void @process(ptr noundef readnone captures(none) %0, ptr noundef readonl
   %.idx345.i = shl i64 %217, 4
   %218 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx345.i
   %219 = getelementptr inbounds float, ptr %117, i64 %indvars.iv455.i
-  %.reass507.i = add i64 %indvars.iv455.i, %205
-  %.idx346.i = shl i64 %.reass507.i, 4
+  %.reass515.i = add i64 %indvars.iv455.i, %205
+  %.idx346.i = shl i64 %.reass515.i, 4
   %220 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx346.i
   %221 = add nsw i64 %indvars.iv455.i, %145
   %.idx347.i = shl i64 %221, 4
@@ -1459,8 +1459,8 @@ dt_draw_curve_calc_value.exit:                    ; preds = %._crit_edge.i169, %
   %.idx301.i = shl i64 %741, 4
   %742 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx301.i
   %743 = getelementptr inbounds float, ptr %512, i64 %indvars.iv428.i
-  %.reass441.i = add i64 %indvars.iv428.i, %664
-  %.idx302.i = shl i64 %.reass441.i, 4
+  %.reass445.i = add i64 %indvars.iv428.i, %664
+  %.idx302.i = shl i64 %.reass445.i, 4
   %744 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx302.i
   %745 = add nsw i64 %indvars.iv428.i, %663
   %.idx303.i = shl i64 %745, 4

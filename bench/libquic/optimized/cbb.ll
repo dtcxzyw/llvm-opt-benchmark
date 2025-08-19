@@ -281,8 +281,8 @@ define hidden range(i32 0, 2) i32 @CBB_flush(ptr noundef captures(none) %0) loca
   %62 = phi i8 [ %.05074, %.critedge ], [ %.pre87, %._crit_edge85 ]
   %63 = phi ptr [ %59, %.critedge ], [ %19, %._crit_edge85 ]
   %.053 = phi i64 [ %.25572, %.critedge ], [ %29, %._crit_edge85 ]
-  %.not88 = icmp eq i8 %62, 0
-  br i1 %.not88, label %._crit_edge, label %.lr.ph.preheader
+  %.not94 = icmp eq i8 %62, 0
+  br i1 %.not94, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %61
   %64 = zext i8 %62 to i64
@@ -1346,7 +1346,7 @@ CBB_add_u8.exit:                                  ; preds = %.cbb_buffer_add.exi
 
 .cbb_buffer_add.exit_crit_edge.i.i25:             ; preds = %51
   %.pre.i.i26 = load ptr, ptr %44, align 8, !tbaa !6
-  br label %.thread61
+  br label %.thread79
 
 55:                                               ; preds = %51
   %56 = getelementptr inbounds nuw i8, ptr %44, i64 24
@@ -1369,19 +1369,19 @@ CBB_add_u8.exit:                                  ; preds = %.cbb_buffer_add.exi
   store i64 %.026.i.i.i.i32, ptr %52, align 8, !tbaa !14
   %.pre.pre.i.i.i34 = load i64, ptr %47, align 8, !tbaa !13
   %.pre20.i.i35 = add i64 %.pre.pre.i.i.i34, 1
-  br label %.thread61
+  br label %.thread79
 
 65:                                               ; preds = %9
   %66 = add nuw nsw i64 %.01659, 1
   %exitcond.not = icmp eq i64 %66, 8
   br i1 %exitcond.not, label %70, label %.preheader.backedge
 
-.preheader.backedge:                              ; preds = %65, %.thread61
-  %.not20.be = phi i1 [ true, %65 ], [ false, %.thread61 ]
-  %.01659.be = phi i64 [ %66, %65 ], [ %69, %.thread61 ]
+.preheader.backedge:                              ; preds = %65, %.thread79
+  %.not20.be = phi i1 [ true, %65 ], [ false, %.thread79 ]
+  %.01659.be = phi i64 [ %66, %65 ], [ %69, %.thread79 ]
   br label %.preheader, !llvm.loop !31
 
-.thread61:                                        ; preds = %.critedge.i.i.i.i33, %.cbb_buffer_add.exit_crit_edge.i.i25
+.thread79:                                        ; preds = %.critedge.i.i.i.i33, %.cbb_buffer_add.exit_crit_edge.i.i25
   %.pre-phi.i.i28 = phi i64 [ %49, %.cbb_buffer_add.exit_crit_edge.i.i25 ], [ %.pre20.i.i35, %.critedge.i.i.i.i33 ]
   %67 = phi ptr [ %.pre.i.i26, %.cbb_buffer_add.exit_crit_edge.i.i25 ], [ %63, %.critedge.i.i.i.i33 ]
   %.pre.i.i.i29 = phi i64 [ %48, %.cbb_buffer_add.exit_crit_edge.i.i25 ], [ %.pre.pre.i.i.i34, %.critedge.i.i.i.i33 ]
@@ -1389,8 +1389,8 @@ CBB_add_u8.exit:                                  ; preds = %.cbb_buffer_add.exi
   store i64 %.pre-phi.i.i28, ptr %47, align 8, !tbaa !13
   store i8 %8, ptr %68, align 1, !tbaa !27
   %69 = add nuw nsw i64 %.01659, 1
-  %exitcond.not64 = icmp eq i64 %69, 8
-  br i1 %exitcond.not64, label %.thread66, label %.preheader.backedge
+  %exitcond.not82 = icmp eq i64 %69, 8
+  br i1 %exitcond.not82, label %.thread84, label %.preheader.backedge
 
 70:                                               ; preds = %65
   %71 = call i32 @CBB_flush(ptr noundef nonnull %3)
@@ -1449,14 +1449,14 @@ CBB_add_u8.exit49:                                ; preds = %.cbb_buffer_add.exi
   %95 = getelementptr inbounds nuw i8, ptr %94, i64 %.pre.i.i.i42
   store i64 %.pre-phi.i.i41, ptr %76, align 8, !tbaa !13
   store i8 0, ptr %95, align 1, !tbaa !27
-  br label %.thread66
+  br label %.thread84
 
-.thread66:                                        ; preds = %.thread61, %CBB_add_u8.exit49
+.thread84:                                        ; preds = %.thread79, %CBB_add_u8.exit49
   %96 = call i32 @CBB_flush(ptr noundef %0)
   br label %.thread
 
-.thread:                                          ; preds = %29, %32, %20, %17, %15, %55, %58, %46, %43, %41, %84, %87, %75, %72, %70, %2, %.thread66
-  %.0 = phi i32 [ %96, %.thread66 ], [ 0, %2 ], [ 0, %70 ], [ 0, %72 ], [ 0, %75 ], [ 0, %87 ], [ 0, %84 ], [ 0, %41 ], [ 0, %43 ], [ 0, %46 ], [ 0, %58 ], [ 0, %55 ], [ 0, %15 ], [ 0, %17 ], [ 0, %20 ], [ 0, %32 ], [ 0, %29 ]
+.thread:                                          ; preds = %29, %32, %20, %17, %15, %55, %58, %46, %43, %41, %84, %87, %75, %72, %70, %2, %.thread84
+  %.0 = phi i32 [ %96, %.thread84 ], [ 0, %2 ], [ 0, %70 ], [ 0, %72 ], [ 0, %75 ], [ 0, %87 ], [ 0, %84 ], [ 0, %41 ], [ 0, %43 ], [ 0, %46 ], [ 0, %58 ], [ 0, %55 ], [ 0, %15 ], [ 0, %17 ], [ 0, %20 ], [ 0, %32 ], [ 0, %29 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }

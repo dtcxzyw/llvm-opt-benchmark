@@ -5310,8 +5310,8 @@ js_new_message_pipe.exit78.thread:                ; preds = %62, %47
   br label %JS_FreeValue.exit
 
 .sink.split:                                      ; preds = %js_new_message_pipe.exit.thread, %js_new_message_pipe.exit78.thread
-  %.sink83 = phi i64 [ 24, %js_new_message_pipe.exit78.thread ], [ 16, %js_new_message_pipe.exit.thread ]
-  %91 = getelementptr inbounds nuw i8, ptr %calloc, i64 %.sink83
+  %.sink89 = phi i64 [ 24, %js_new_message_pipe.exit78.thread ], [ 16, %js_new_message_pipe.exit.thread ]
+  %91 = getelementptr inbounds nuw i8, ptr %calloc, i64 %.sink89
   store ptr null, ptr %91, align 8, !tbaa !23
   br label %92
 
@@ -9290,7 +9290,7 @@ JS_FreeValue.exit:                                ; preds = %21, %25, %30
   br i1 %57, label %.lr.ph86, label %._crit_edge87, !llvm.loop !151
 
 ._crit_edge87:                                    ; preds = %.lr.ph86, %.preheader, %.critedge
-  %.067106 = phi ptr [ %.067, %.critedge ], [ %13, %.preheader ], [ %.067, %.lr.ph86 ]
+  %.067110 = phi ptr [ %.067, %.critedge ], [ %13, %.preheader ], [ %.067, %.lr.ph86 ]
   %58 = load ptr, ptr %5, align 8, !tbaa !146
   call void @js_free(ptr noundef %0, ptr noundef %58) #30
   br label %65
@@ -9321,7 +9321,7 @@ JS_FreeValue.exit:                                ; preds = %21, %25, %30
   br label %.critedge
 
 65:                                               ; preds = %3, %._crit_edge87
-  %.0 = phi ptr [ %.067106, %._crit_edge87 ], [ null, %3 ]
+  %.0 = phi ptr [ %.067110, %._crit_edge87 ], [ null, %3 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0
@@ -9426,8 +9426,8 @@ select.unfold:                                    ; preds = %29, %29, %25
   br i1 %.not37, label %36, label %16, !llvm.loop !153
 
 select.unfold.thread:                             ; preds = %29
-  %.not3744 = icmp eq ptr %.033, null
-  br i1 %.not3744, label %.thread, label %.outer, !llvm.loop !153
+  %.not3745 = icmp eq ptr %.033, null
+  br i1 %.not3745, label %.thread, label %.outer, !llvm.loop !153
 
 36:                                               ; preds = %select.unfold
   br i1 %.not38, label %.loopexit, label %.thread

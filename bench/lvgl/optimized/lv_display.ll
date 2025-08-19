@@ -2147,8 +2147,8 @@ lv_display_get_vertical_resolution.exit139:       ; preds = %.thread.i136, %.thr
   br label %.critedge80
 
 .critedge80:                                      ; preds = %140, %141
-  %.sink140 = phi ptr [ %7, %141 ], [ %6, %140 ]
-  %144 = call ptr @lv_anim_start(ptr noundef nonnull %.sink140) #13
+  %.sink144 = phi ptr [ %7, %141 ], [ %6, %140 ]
+  %144 = call ptr @lv_anim_start(ptr noundef nonnull %.sink144) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %145
@@ -2970,18 +2970,18 @@ lv_display_get_color_format.exit:                 ; preds = %16, %14, %.thread
   %23 = getelementptr inbounds nuw i8, ptr %.01735, i64 32
   %24 = load ptr, ptr %23, align 8, !tbaa !81
   %.not25 = icmp eq ptr %24, null
-  br i1 %.not25, label %.preheader36, label %25
+  br i1 %.not25, label %.preheader41, label %25
 
 25:                                               ; preds = %lv_display_get_color_format.exit
   %26 = getelementptr inbounds nuw i8, ptr %24, i64 12
   %27 = load i32, ptr %26, align 4, !tbaa !104
   %.not26 = icmp ult i32 %27, %22
-  br i1 %.not26, label %.preheader36, label %29
+  br i1 %.not26, label %.preheader41, label %29
 
-.preheader36:                                     ; preds = %lv_display_get_color_format.exit, %25
+.preheader41:                                     ; preds = %lv_display_get_color_format.exit, %25
   br label %28
 
-28:                                               ; preds = %.preheader36, %28
+28:                                               ; preds = %.preheader41, %28
   br label %28
 
 29:                                               ; preds = %25

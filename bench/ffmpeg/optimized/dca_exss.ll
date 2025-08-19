@@ -1081,12 +1081,12 @@ get_bits_long.exit.i:                             ; preds = %.lr.ph247.i, %get_b
   br label %.loopexit.sink.split.i
 
 .loopexit.sink.split.i:                           ; preds = %719, %728
-  %.lcssa315.sink.i = phi i32 [ %733, %728 ], [ %727, %719 ]
-  store i32 %.lcssa315.sink.i, ptr %16, align 8, !tbaa !14
+  %.lcssa324.sink.i = phi i32 [ %733, %728 ], [ %727, %719 ]
+  store i32 %.lcssa324.sink.i, ptr %16, align 8, !tbaa !14
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %.loopexit.sink.split.i, %.preheader242.i
-  %.promoted261.us299.i = phi i32 [ %spec.select.i222.i, %.preheader242.i ], [ %.lcssa315.sink.i, %.loopexit.sink.split.i ]
+  %.promoted261.us299.i = phi i32 [ %spec.select.i222.i, %.preheader242.i ], [ %.lcssa324.sink.i, %.loopexit.sink.split.i ]
   %734 = getelementptr inbounds nuw i8, ptr %286, i64 20
   %735 = load i32, ptr %734, align 4, !tbaa !69
   %736 = getelementptr inbounds nuw i8, ptr %286, i64 32
@@ -1450,7 +1450,7 @@ get_bits_long.exit.i:                             ; preds = %.lr.ph247.i, %get_b
   %953 = tail call i32 @llvm.umin.i32(i32 %285, i32 %952)
   %storemerge.i232.i = select i1 %.not.i231.i, i32 %spec.select.i.i230.i, i32 %953
   store i32 %storemerge.i232.i, ptr %16, align 8, !tbaa !14
-  br label %.thread309.i
+  br label %.thread318.i
 
 954:                                              ; preds = %.critedge208.i
   %955 = getelementptr inbounds nuw i8, ptr %286, i64 52
@@ -1473,13 +1473,13 @@ get_bits_long.exit.i:                             ; preds = %.lr.ph247.i, %get_b
   %968 = lshr exact i32 128, %967
   %969 = and i32 %968, %966
   %.not194.i = icmp eq i32 %969, 0
-  br i1 %.not194.i, label %.thread309.i, label %970
+  br i1 %.not194.i, label %.thread318.i, label %970
 
 970:                                              ; preds = %954
   %971 = add i32 %spec.select.i233.i, 3
   %972 = tail call i32 @llvm.umin.i32(i32 %285, i32 %971)
   store i32 %972, ptr %16, align 8, !tbaa !14
-  br label %.thread309.i
+  br label %.thread318.i
 
 default.unreachable:                              ; preds = %.critedge208.i
   unreachable
@@ -1489,7 +1489,7 @@ default.unreachable:                              ; preds = %.critedge208.i
   %974 = phi i32 [ %914, %920 ], [ %914, %922 ], [ %.pre300.i, %926 ]
   %975 = and i32 %974, 512
   %.not204.i = icmp eq i32 %975, 0
-  br i1 %.not204.i, label %.thread309.i, label %976
+  br i1 %.not204.i, label %.thread318.i, label %976
 
 976:                                              ; preds = %973
   %977 = load i32, ptr %12, align 8, !tbaa !12
@@ -1507,9 +1507,9 @@ default.unreachable:                              ; preds = %.critedge208.i
   store i32 %988, ptr %16, align 8, !tbaa !14
   %989 = getelementptr inbounds nuw i8, ptr %286, i64 116
   store i32 %986, ptr %989, align 4, !tbaa !89
-  br label %.thread309.i
+  br label %.thread318.i
 
-.thread309.i:                                     ; preds = %976, %973, %970, %954, %928
+.thread318.i:                                     ; preds = %976, %973, %970, %954, %928
   %990 = phi i32 [ %974, %976 ], [ %974, %973 ], [ 256, %928 ], [ 0, %970 ], [ 0, %954 ]
   %.val.i.i = phi i32 [ %988, %976 ], [ %.val.i.pre.i, %973 ], [ %storemerge.i232.i, %928 ], [ %972, %970 ], [ %spec.select.i233.i, %954 ]
   %991 = lshr i32 %294, 20
@@ -1519,12 +1519,12 @@ default.unreachable:                              ; preds = %.critedge208.i
   %995 = icmp slt i32 %994, %.val.i.i
   br i1 %995, label %999, label %996
 
-996:                                              ; preds = %.thread309.i
+996:                                              ; preds = %.thread318.i
   %997 = load i32, ptr %10, align 4, !tbaa !11
   %998 = icmp sgt i32 %994, %997
   br i1 %998, label %999, label %1002
 
-999:                                              ; preds = %996, %.thread309.i
+999:                                              ; preds = %996, %.thread318.i
   %1000 = load ptr, ptr %0, align 8, !tbaa !19
   %.not206.i = icmp eq ptr %1000, null
   br i1 %.not206.i, label %parse_descriptor.exit.thread, label %1001

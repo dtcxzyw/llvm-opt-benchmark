@@ -421,7 +421,7 @@ _ZTW22softfloat_roundingMode.exit:                ; preds = %134, %145
 _ZTW24softfloat_exceptionFlags.exit:              ; preds = %173
   %177 = load i8, ptr %156, align 1, !tbaa !156
   %.not116 = icmp eq i8 %177, 0
-  br i1 %.not116, label %_ZTW24softfloat_exceptionFlags.exit132, label %.thread200
+  br i1 %.not116, label %_ZTW24softfloat_exceptionFlags.exit132, label %.thread210
 
 _ZTW24softfloat_exceptionFlags.exit.thread:       ; preds = %173
   call void @_ZTH24softfloat_exceptionFlags()
@@ -429,7 +429,7 @@ _ZTW24softfloat_exceptionFlags.exit.thread:       ; preds = %173
   %.not116172 = icmp eq i8 %178, 0
   br i1 %.not116172, label %.thread174, label %184
 
-.thread200:                                       ; preds = %_ZTW24softfloat_exceptionFlags.exit
+.thread210:                                       ; preds = %_ZTW24softfloat_exceptionFlags.exit
   %179 = load ptr, ptr %65, align 8, !tbaa !139
   %180 = getelementptr inbounds nuw i8, ptr %179, i64 40
   %181 = load i64, ptr %180, align 8, !tbaa !152
@@ -464,7 +464,7 @@ _ZTW24softfloat_exceptionFlags.exit.thread:       ; preds = %173
 _ZTW24softfloat_exceptionFlags.exit134:           ; preds = %190
   %194 = load i8, ptr %156, align 1, !tbaa !156
   %.not115 = icmp eq i8 %194, 0
-  br i1 %.not115, label %_ZTW24softfloat_exceptionFlags.exit132, label %.thread202
+  br i1 %.not115, label %_ZTW24softfloat_exceptionFlags.exit132, label %.thread212
 
 _ZTW24softfloat_exceptionFlags.exit134.thread:    ; preds = %190
   call void @_ZTH24softfloat_exceptionFlags()
@@ -472,7 +472,7 @@ _ZTW24softfloat_exceptionFlags.exit134.thread:    ; preds = %190
   %.not115175 = icmp eq i8 %195, 0
   br i1 %.not115175, label %.thread177, label %201
 
-.thread202:                                       ; preds = %_ZTW24softfloat_exceptionFlags.exit134
+.thread212:                                       ; preds = %_ZTW24softfloat_exceptionFlags.exit134
   %196 = load ptr, ptr %65, align 8, !tbaa !139
   %197 = getelementptr inbounds nuw i8, ptr %196, i64 40
   %198 = load i64, ptr %197, align 8, !tbaa !152
@@ -507,7 +507,7 @@ _ZTW24softfloat_exceptionFlags.exit134.thread:    ; preds = %190
 _ZTW24softfloat_exceptionFlags.exit140:           ; preds = %207
   %211 = load i8, ptr %156, align 1, !tbaa !156
   %.not114 = icmp eq i8 %211, 0
-  br i1 %.not114, label %_ZTW24softfloat_exceptionFlags.exit132, label %.thread204
+  br i1 %.not114, label %_ZTW24softfloat_exceptionFlags.exit132, label %.thread214
 
 _ZTW24softfloat_exceptionFlags.exit140.thread:    ; preds = %207
   call void @_ZTH24softfloat_exceptionFlags()
@@ -515,7 +515,7 @@ _ZTW24softfloat_exceptionFlags.exit140.thread:    ; preds = %207
   %.not114178 = icmp eq i8 %212, 0
   br i1 %.not114178, label %.thread180, label %218
 
-.thread204:                                       ; preds = %_ZTW24softfloat_exceptionFlags.exit140
+.thread214:                                       ; preds = %_ZTW24softfloat_exceptionFlags.exit140
   %213 = load ptr, ptr %65, align 8, !tbaa !139
   %214 = getelementptr inbounds nuw i8, ptr %213, i64 40
   %215 = load i64, ptr %214, align 8, !tbaa !152
@@ -551,8 +551,8 @@ _ZTW24softfloat_exceptionFlags.exit140.thread:    ; preds = %207
   call void @__cxa_throw(ptr nonnull %225, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #18
   unreachable
 
-_ZTW24softfloat_exceptionFlags.exit132:           ; preds = %.thread180, %.thread204, %_ZTW24softfloat_exceptionFlags.exit140, %.thread177, %.thread202, %_ZTW24softfloat_exceptionFlags.exit134, %.thread174, %.thread200, %_ZTW24softfloat_exceptionFlags.exit
-  %.0109.in = phi i1 [ %176, %_ZTW24softfloat_exceptionFlags.exit ], [ %176, %.thread200 ], [ %176, %.thread174 ], [ %193, %_ZTW24softfloat_exceptionFlags.exit134 ], [ %193, %.thread202 ], [ %193, %.thread177 ], [ %210, %_ZTW24softfloat_exceptionFlags.exit140 ], [ %210, %.thread204 ], [ %210, %.thread180 ]
+_ZTW24softfloat_exceptionFlags.exit132:           ; preds = %.thread180, %.thread214, %_ZTW24softfloat_exceptionFlags.exit140, %.thread177, %.thread212, %_ZTW24softfloat_exceptionFlags.exit134, %.thread174, %.thread210, %_ZTW24softfloat_exceptionFlags.exit
+  %.0109.in = phi i1 [ %176, %_ZTW24softfloat_exceptionFlags.exit ], [ %176, %.thread210 ], [ %176, %.thread174 ], [ %193, %_ZTW24softfloat_exceptionFlags.exit134 ], [ %193, %.thread212 ], [ %193, %.thread177 ], [ %210, %_ZTW24softfloat_exceptionFlags.exit140 ], [ %210, %.thread214 ], [ %210, %.thread180 ]
   store i8 0, ptr %156, align 1, !tbaa !156
   %229 = load i64, ptr %67, align 8, !tbaa !140
   switch i64 %229, label %236 [
@@ -1062,7 +1062,7 @@ _ZTW22softfloat_roundingMode.exit:                ; preds = %134, %145
 _ZTW24softfloat_exceptionFlags.exit:              ; preds = %171
   %175 = load i8, ptr %156, align 1, !tbaa !156
   %.not116 = icmp eq i8 %175, 0
-  br i1 %.not116, label %_ZTW24softfloat_exceptionFlags.exit132, label %.thread200
+  br i1 %.not116, label %_ZTW24softfloat_exceptionFlags.exit132, label %.thread210
 
 _ZTW24softfloat_exceptionFlags.exit.thread:       ; preds = %171
   call void @_ZTH24softfloat_exceptionFlags()
@@ -1070,7 +1070,7 @@ _ZTW24softfloat_exceptionFlags.exit.thread:       ; preds = %171
   %.not116172 = icmp eq i8 %176, 0
   br i1 %.not116172, label %.thread174, label %182
 
-.thread200:                                       ; preds = %_ZTW24softfloat_exceptionFlags.exit
+.thread210:                                       ; preds = %_ZTW24softfloat_exceptionFlags.exit
   %177 = load ptr, ptr %65, align 8, !tbaa !139
   %178 = getelementptr inbounds nuw i8, ptr %177, i64 40
   %179 = load i64, ptr %178, align 8, !tbaa !152
@@ -1105,7 +1105,7 @@ _ZTW24softfloat_exceptionFlags.exit.thread:       ; preds = %171
 _ZTW24softfloat_exceptionFlags.exit134:           ; preds = %188
   %192 = load i8, ptr %156, align 1, !tbaa !156
   %.not115 = icmp eq i8 %192, 0
-  br i1 %.not115, label %_ZTW24softfloat_exceptionFlags.exit132, label %.thread202
+  br i1 %.not115, label %_ZTW24softfloat_exceptionFlags.exit132, label %.thread212
 
 _ZTW24softfloat_exceptionFlags.exit134.thread:    ; preds = %188
   call void @_ZTH24softfloat_exceptionFlags()
@@ -1113,7 +1113,7 @@ _ZTW24softfloat_exceptionFlags.exit134.thread:    ; preds = %188
   %.not115175 = icmp eq i8 %193, 0
   br i1 %.not115175, label %.thread177, label %199
 
-.thread202:                                       ; preds = %_ZTW24softfloat_exceptionFlags.exit134
+.thread212:                                       ; preds = %_ZTW24softfloat_exceptionFlags.exit134
   %194 = load ptr, ptr %65, align 8, !tbaa !139
   %195 = getelementptr inbounds nuw i8, ptr %194, i64 40
   %196 = load i64, ptr %195, align 8, !tbaa !152
@@ -1148,7 +1148,7 @@ _ZTW24softfloat_exceptionFlags.exit134.thread:    ; preds = %188
 _ZTW24softfloat_exceptionFlags.exit140:           ; preds = %205
   %209 = load i8, ptr %156, align 1, !tbaa !156
   %.not114 = icmp eq i8 %209, 0
-  br i1 %.not114, label %_ZTW24softfloat_exceptionFlags.exit132, label %.thread204
+  br i1 %.not114, label %_ZTW24softfloat_exceptionFlags.exit132, label %.thread214
 
 _ZTW24softfloat_exceptionFlags.exit140.thread:    ; preds = %205
   call void @_ZTH24softfloat_exceptionFlags()
@@ -1156,7 +1156,7 @@ _ZTW24softfloat_exceptionFlags.exit140.thread:    ; preds = %205
   %.not114178 = icmp eq i8 %210, 0
   br i1 %.not114178, label %.thread180, label %216
 
-.thread204:                                       ; preds = %_ZTW24softfloat_exceptionFlags.exit140
+.thread214:                                       ; preds = %_ZTW24softfloat_exceptionFlags.exit140
   %211 = load ptr, ptr %65, align 8, !tbaa !139
   %212 = getelementptr inbounds nuw i8, ptr %211, i64 40
   %213 = load i64, ptr %212, align 8, !tbaa !152
@@ -1192,8 +1192,8 @@ _ZTW24softfloat_exceptionFlags.exit140.thread:    ; preds = %205
   call void @__cxa_throw(ptr nonnull %223, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #18
   unreachable
 
-_ZTW24softfloat_exceptionFlags.exit132:           ; preds = %.thread180, %.thread204, %_ZTW24softfloat_exceptionFlags.exit140, %.thread177, %.thread202, %_ZTW24softfloat_exceptionFlags.exit134, %.thread174, %.thread200, %_ZTW24softfloat_exceptionFlags.exit
-  %.0109.in = phi i1 [ %174, %_ZTW24softfloat_exceptionFlags.exit ], [ %174, %.thread200 ], [ %174, %.thread174 ], [ %191, %_ZTW24softfloat_exceptionFlags.exit134 ], [ %191, %.thread202 ], [ %191, %.thread177 ], [ %208, %_ZTW24softfloat_exceptionFlags.exit140 ], [ %208, %.thread204 ], [ %208, %.thread180 ]
+_ZTW24softfloat_exceptionFlags.exit132:           ; preds = %.thread180, %.thread214, %_ZTW24softfloat_exceptionFlags.exit140, %.thread177, %.thread212, %_ZTW24softfloat_exceptionFlags.exit134, %.thread174, %.thread210, %_ZTW24softfloat_exceptionFlags.exit
+  %.0109.in = phi i1 [ %174, %_ZTW24softfloat_exceptionFlags.exit ], [ %174, %.thread210 ], [ %174, %.thread174 ], [ %191, %_ZTW24softfloat_exceptionFlags.exit134 ], [ %191, %.thread212 ], [ %191, %.thread177 ], [ %208, %_ZTW24softfloat_exceptionFlags.exit140 ], [ %208, %.thread214 ], [ %208, %.thread180 ]
   store i8 0, ptr %156, align 1, !tbaa !156
   %227 = load i64, ptr %67, align 8, !tbaa !140
   switch i64 %227, label %234 [
@@ -1581,7 +1581,7 @@ _ZTW22softfloat_roundingMode.exit:                ; preds = %134, %145
 _ZTW24softfloat_exceptionFlags.exit:              ; preds = %173
   %177 = load i8, ptr %156, align 1, !tbaa !156
   %.not116 = icmp eq i8 %177, 0
-  br i1 %.not116, label %_ZTW24softfloat_exceptionFlags.exit132, label %.thread200
+  br i1 %.not116, label %_ZTW24softfloat_exceptionFlags.exit132, label %.thread210
 
 _ZTW24softfloat_exceptionFlags.exit.thread:       ; preds = %173
   call void @_ZTH24softfloat_exceptionFlags()
@@ -1589,7 +1589,7 @@ _ZTW24softfloat_exceptionFlags.exit.thread:       ; preds = %173
   %.not116172 = icmp eq i8 %178, 0
   br i1 %.not116172, label %.thread174, label %184
 
-.thread200:                                       ; preds = %_ZTW24softfloat_exceptionFlags.exit
+.thread210:                                       ; preds = %_ZTW24softfloat_exceptionFlags.exit
   %179 = load ptr, ptr %65, align 8, !tbaa !139
   %180 = getelementptr inbounds nuw i8, ptr %179, i64 40
   %181 = load i64, ptr %180, align 8, !tbaa !152
@@ -1624,7 +1624,7 @@ _ZTW24softfloat_exceptionFlags.exit.thread:       ; preds = %173
 _ZTW24softfloat_exceptionFlags.exit134:           ; preds = %190
   %194 = load i8, ptr %156, align 1, !tbaa !156
   %.not115 = icmp eq i8 %194, 0
-  br i1 %.not115, label %_ZTW24softfloat_exceptionFlags.exit132, label %.thread202
+  br i1 %.not115, label %_ZTW24softfloat_exceptionFlags.exit132, label %.thread212
 
 _ZTW24softfloat_exceptionFlags.exit134.thread:    ; preds = %190
   call void @_ZTH24softfloat_exceptionFlags()
@@ -1632,7 +1632,7 @@ _ZTW24softfloat_exceptionFlags.exit134.thread:    ; preds = %190
   %.not115175 = icmp eq i8 %195, 0
   br i1 %.not115175, label %.thread177, label %201
 
-.thread202:                                       ; preds = %_ZTW24softfloat_exceptionFlags.exit134
+.thread212:                                       ; preds = %_ZTW24softfloat_exceptionFlags.exit134
   %196 = load ptr, ptr %65, align 8, !tbaa !139
   %197 = getelementptr inbounds nuw i8, ptr %196, i64 40
   %198 = load i64, ptr %197, align 8, !tbaa !152
@@ -1667,7 +1667,7 @@ _ZTW24softfloat_exceptionFlags.exit134.thread:    ; preds = %190
 _ZTW24softfloat_exceptionFlags.exit140:           ; preds = %207
   %211 = load i8, ptr %156, align 1, !tbaa !156
   %.not114 = icmp eq i8 %211, 0
-  br i1 %.not114, label %_ZTW24softfloat_exceptionFlags.exit132, label %.thread204
+  br i1 %.not114, label %_ZTW24softfloat_exceptionFlags.exit132, label %.thread214
 
 _ZTW24softfloat_exceptionFlags.exit140.thread:    ; preds = %207
   call void @_ZTH24softfloat_exceptionFlags()
@@ -1675,7 +1675,7 @@ _ZTW24softfloat_exceptionFlags.exit140.thread:    ; preds = %207
   %.not114178 = icmp eq i8 %212, 0
   br i1 %.not114178, label %.thread180, label %218
 
-.thread204:                                       ; preds = %_ZTW24softfloat_exceptionFlags.exit140
+.thread214:                                       ; preds = %_ZTW24softfloat_exceptionFlags.exit140
   %213 = load ptr, ptr %65, align 8, !tbaa !139
   %214 = getelementptr inbounds nuw i8, ptr %213, i64 40
   %215 = load i64, ptr %214, align 8, !tbaa !152
@@ -1711,8 +1711,8 @@ _ZTW24softfloat_exceptionFlags.exit140.thread:    ; preds = %207
   call void @__cxa_throw(ptr nonnull %225, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #18
   unreachable
 
-_ZTW24softfloat_exceptionFlags.exit132:           ; preds = %.thread180, %.thread204, %_ZTW24softfloat_exceptionFlags.exit140, %.thread177, %.thread202, %_ZTW24softfloat_exceptionFlags.exit134, %.thread174, %.thread200, %_ZTW24softfloat_exceptionFlags.exit
-  %.0109.in = phi i1 [ %176, %_ZTW24softfloat_exceptionFlags.exit ], [ %176, %.thread200 ], [ %176, %.thread174 ], [ %193, %_ZTW24softfloat_exceptionFlags.exit134 ], [ %193, %.thread202 ], [ %193, %.thread177 ], [ %210, %_ZTW24softfloat_exceptionFlags.exit140 ], [ %210, %.thread204 ], [ %210, %.thread180 ]
+_ZTW24softfloat_exceptionFlags.exit132:           ; preds = %.thread180, %.thread214, %_ZTW24softfloat_exceptionFlags.exit140, %.thread177, %.thread212, %_ZTW24softfloat_exceptionFlags.exit134, %.thread174, %.thread210, %_ZTW24softfloat_exceptionFlags.exit
+  %.0109.in = phi i1 [ %176, %_ZTW24softfloat_exceptionFlags.exit ], [ %176, %.thread210 ], [ %176, %.thread174 ], [ %193, %_ZTW24softfloat_exceptionFlags.exit134 ], [ %193, %.thread212 ], [ %193, %.thread177 ], [ %210, %_ZTW24softfloat_exceptionFlags.exit140 ], [ %210, %.thread214 ], [ %210, %.thread180 ]
   store i8 0, ptr %156, align 1, !tbaa !156
   %229 = load i64, ptr %67, align 8, !tbaa !140
   switch i64 %229, label %236 [
@@ -2098,7 +2098,7 @@ _ZTW22softfloat_roundingMode.exit:                ; preds = %134, %145
 _ZTW24softfloat_exceptionFlags.exit:              ; preds = %171
   %175 = load i8, ptr %156, align 1, !tbaa !156
   %.not116 = icmp eq i8 %175, 0
-  br i1 %.not116, label %_ZTW24softfloat_exceptionFlags.exit132, label %.thread200
+  br i1 %.not116, label %_ZTW24softfloat_exceptionFlags.exit132, label %.thread210
 
 _ZTW24softfloat_exceptionFlags.exit.thread:       ; preds = %171
   call void @_ZTH24softfloat_exceptionFlags()
@@ -2106,7 +2106,7 @@ _ZTW24softfloat_exceptionFlags.exit.thread:       ; preds = %171
   %.not116172 = icmp eq i8 %176, 0
   br i1 %.not116172, label %.thread174, label %182
 
-.thread200:                                       ; preds = %_ZTW24softfloat_exceptionFlags.exit
+.thread210:                                       ; preds = %_ZTW24softfloat_exceptionFlags.exit
   %177 = load ptr, ptr %65, align 8, !tbaa !139
   %178 = getelementptr inbounds nuw i8, ptr %177, i64 40
   %179 = load i64, ptr %178, align 8, !tbaa !152
@@ -2141,7 +2141,7 @@ _ZTW24softfloat_exceptionFlags.exit.thread:       ; preds = %171
 _ZTW24softfloat_exceptionFlags.exit134:           ; preds = %188
   %192 = load i8, ptr %156, align 1, !tbaa !156
   %.not115 = icmp eq i8 %192, 0
-  br i1 %.not115, label %_ZTW24softfloat_exceptionFlags.exit132, label %.thread202
+  br i1 %.not115, label %_ZTW24softfloat_exceptionFlags.exit132, label %.thread212
 
 _ZTW24softfloat_exceptionFlags.exit134.thread:    ; preds = %188
   call void @_ZTH24softfloat_exceptionFlags()
@@ -2149,7 +2149,7 @@ _ZTW24softfloat_exceptionFlags.exit134.thread:    ; preds = %188
   %.not115175 = icmp eq i8 %193, 0
   br i1 %.not115175, label %.thread177, label %199
 
-.thread202:                                       ; preds = %_ZTW24softfloat_exceptionFlags.exit134
+.thread212:                                       ; preds = %_ZTW24softfloat_exceptionFlags.exit134
   %194 = load ptr, ptr %65, align 8, !tbaa !139
   %195 = getelementptr inbounds nuw i8, ptr %194, i64 40
   %196 = load i64, ptr %195, align 8, !tbaa !152
@@ -2184,7 +2184,7 @@ _ZTW24softfloat_exceptionFlags.exit134.thread:    ; preds = %188
 _ZTW24softfloat_exceptionFlags.exit140:           ; preds = %205
   %209 = load i8, ptr %156, align 1, !tbaa !156
   %.not114 = icmp eq i8 %209, 0
-  br i1 %.not114, label %_ZTW24softfloat_exceptionFlags.exit132, label %.thread204
+  br i1 %.not114, label %_ZTW24softfloat_exceptionFlags.exit132, label %.thread214
 
 _ZTW24softfloat_exceptionFlags.exit140.thread:    ; preds = %205
   call void @_ZTH24softfloat_exceptionFlags()
@@ -2192,7 +2192,7 @@ _ZTW24softfloat_exceptionFlags.exit140.thread:    ; preds = %205
   %.not114178 = icmp eq i8 %210, 0
   br i1 %.not114178, label %.thread180, label %216
 
-.thread204:                                       ; preds = %_ZTW24softfloat_exceptionFlags.exit140
+.thread214:                                       ; preds = %_ZTW24softfloat_exceptionFlags.exit140
   %211 = load ptr, ptr %65, align 8, !tbaa !139
   %212 = getelementptr inbounds nuw i8, ptr %211, i64 40
   %213 = load i64, ptr %212, align 8, !tbaa !152
@@ -2228,8 +2228,8 @@ _ZTW24softfloat_exceptionFlags.exit140.thread:    ; preds = %205
   call void @__cxa_throw(ptr nonnull %223, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #18
   unreachable
 
-_ZTW24softfloat_exceptionFlags.exit132:           ; preds = %.thread180, %.thread204, %_ZTW24softfloat_exceptionFlags.exit140, %.thread177, %.thread202, %_ZTW24softfloat_exceptionFlags.exit134, %.thread174, %.thread200, %_ZTW24softfloat_exceptionFlags.exit
-  %.0109.in = phi i1 [ %174, %_ZTW24softfloat_exceptionFlags.exit ], [ %174, %.thread200 ], [ %174, %.thread174 ], [ %191, %_ZTW24softfloat_exceptionFlags.exit134 ], [ %191, %.thread202 ], [ %191, %.thread177 ], [ %208, %_ZTW24softfloat_exceptionFlags.exit140 ], [ %208, %.thread204 ], [ %208, %.thread180 ]
+_ZTW24softfloat_exceptionFlags.exit132:           ; preds = %.thread180, %.thread214, %_ZTW24softfloat_exceptionFlags.exit140, %.thread177, %.thread212, %_ZTW24softfloat_exceptionFlags.exit134, %.thread174, %.thread210, %_ZTW24softfloat_exceptionFlags.exit
+  %.0109.in = phi i1 [ %174, %_ZTW24softfloat_exceptionFlags.exit ], [ %174, %.thread210 ], [ %174, %.thread174 ], [ %191, %_ZTW24softfloat_exceptionFlags.exit134 ], [ %191, %.thread212 ], [ %191, %.thread177 ], [ %208, %_ZTW24softfloat_exceptionFlags.exit140 ], [ %208, %.thread214 ], [ %208, %.thread180 ]
   store i8 0, ptr %156, align 1, !tbaa !156
   %227 = load i64, ptr %67, align 8, !tbaa !140
   switch i64 %227, label %234 [
@@ -2617,7 +2617,7 @@ _ZTW22softfloat_roundingMode.exit:                ; preds = %134, %145
 _ZTW24softfloat_exceptionFlags.exit:              ; preds = %173
   %177 = load i8, ptr %156, align 1, !tbaa !156
   %.not116 = icmp eq i8 %177, 0
-  br i1 %.not116, label %_ZTW24softfloat_exceptionFlags.exit132, label %.thread200
+  br i1 %.not116, label %_ZTW24softfloat_exceptionFlags.exit132, label %.thread210
 
 _ZTW24softfloat_exceptionFlags.exit.thread:       ; preds = %173
   call void @_ZTH24softfloat_exceptionFlags()
@@ -2625,7 +2625,7 @@ _ZTW24softfloat_exceptionFlags.exit.thread:       ; preds = %173
   %.not116172 = icmp eq i8 %178, 0
   br i1 %.not116172, label %.thread174, label %184
 
-.thread200:                                       ; preds = %_ZTW24softfloat_exceptionFlags.exit
+.thread210:                                       ; preds = %_ZTW24softfloat_exceptionFlags.exit
   %179 = load ptr, ptr %65, align 8, !tbaa !139
   %180 = getelementptr inbounds nuw i8, ptr %179, i64 40
   %181 = load i64, ptr %180, align 8, !tbaa !152
@@ -2660,7 +2660,7 @@ _ZTW24softfloat_exceptionFlags.exit.thread:       ; preds = %173
 _ZTW24softfloat_exceptionFlags.exit134:           ; preds = %190
   %194 = load i8, ptr %156, align 1, !tbaa !156
   %.not115 = icmp eq i8 %194, 0
-  br i1 %.not115, label %_ZTW24softfloat_exceptionFlags.exit132, label %.thread202
+  br i1 %.not115, label %_ZTW24softfloat_exceptionFlags.exit132, label %.thread212
 
 _ZTW24softfloat_exceptionFlags.exit134.thread:    ; preds = %190
   call void @_ZTH24softfloat_exceptionFlags()
@@ -2668,7 +2668,7 @@ _ZTW24softfloat_exceptionFlags.exit134.thread:    ; preds = %190
   %.not115175 = icmp eq i8 %195, 0
   br i1 %.not115175, label %.thread177, label %201
 
-.thread202:                                       ; preds = %_ZTW24softfloat_exceptionFlags.exit134
+.thread212:                                       ; preds = %_ZTW24softfloat_exceptionFlags.exit134
   %196 = load ptr, ptr %65, align 8, !tbaa !139
   %197 = getelementptr inbounds nuw i8, ptr %196, i64 40
   %198 = load i64, ptr %197, align 8, !tbaa !152
@@ -2703,7 +2703,7 @@ _ZTW24softfloat_exceptionFlags.exit134.thread:    ; preds = %190
 _ZTW24softfloat_exceptionFlags.exit140:           ; preds = %207
   %211 = load i8, ptr %156, align 1, !tbaa !156
   %.not114 = icmp eq i8 %211, 0
-  br i1 %.not114, label %_ZTW24softfloat_exceptionFlags.exit132, label %.thread204
+  br i1 %.not114, label %_ZTW24softfloat_exceptionFlags.exit132, label %.thread214
 
 _ZTW24softfloat_exceptionFlags.exit140.thread:    ; preds = %207
   call void @_ZTH24softfloat_exceptionFlags()
@@ -2711,7 +2711,7 @@ _ZTW24softfloat_exceptionFlags.exit140.thread:    ; preds = %207
   %.not114178 = icmp eq i8 %212, 0
   br i1 %.not114178, label %.thread180, label %218
 
-.thread204:                                       ; preds = %_ZTW24softfloat_exceptionFlags.exit140
+.thread214:                                       ; preds = %_ZTW24softfloat_exceptionFlags.exit140
   %213 = load ptr, ptr %65, align 8, !tbaa !139
   %214 = getelementptr inbounds nuw i8, ptr %213, i64 40
   %215 = load i64, ptr %214, align 8, !tbaa !152
@@ -2747,8 +2747,8 @@ _ZTW24softfloat_exceptionFlags.exit140.thread:    ; preds = %207
   call void @__cxa_throw(ptr nonnull %225, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #18
   unreachable
 
-_ZTW24softfloat_exceptionFlags.exit132:           ; preds = %.thread180, %.thread204, %_ZTW24softfloat_exceptionFlags.exit140, %.thread177, %.thread202, %_ZTW24softfloat_exceptionFlags.exit134, %.thread174, %.thread200, %_ZTW24softfloat_exceptionFlags.exit
-  %.0109.in = phi i1 [ %176, %_ZTW24softfloat_exceptionFlags.exit ], [ %176, %.thread200 ], [ %176, %.thread174 ], [ %193, %_ZTW24softfloat_exceptionFlags.exit134 ], [ %193, %.thread202 ], [ %193, %.thread177 ], [ %210, %_ZTW24softfloat_exceptionFlags.exit140 ], [ %210, %.thread204 ], [ %210, %.thread180 ]
+_ZTW24softfloat_exceptionFlags.exit132:           ; preds = %.thread180, %.thread214, %_ZTW24softfloat_exceptionFlags.exit140, %.thread177, %.thread212, %_ZTW24softfloat_exceptionFlags.exit134, %.thread174, %.thread210, %_ZTW24softfloat_exceptionFlags.exit
+  %.0109.in = phi i1 [ %176, %_ZTW24softfloat_exceptionFlags.exit ], [ %176, %.thread210 ], [ %176, %.thread174 ], [ %193, %_ZTW24softfloat_exceptionFlags.exit134 ], [ %193, %.thread212 ], [ %193, %.thread177 ], [ %210, %_ZTW24softfloat_exceptionFlags.exit140 ], [ %210, %.thread214 ], [ %210, %.thread180 ]
   store i8 0, ptr %156, align 1, !tbaa !156
   %229 = load i64, ptr %67, align 8, !tbaa !140
   switch i64 %229, label %236 [
@@ -3134,7 +3134,7 @@ _ZTW22softfloat_roundingMode.exit:                ; preds = %134, %145
 _ZTW24softfloat_exceptionFlags.exit:              ; preds = %171
   %175 = load i8, ptr %156, align 1, !tbaa !156
   %.not116 = icmp eq i8 %175, 0
-  br i1 %.not116, label %_ZTW24softfloat_exceptionFlags.exit132, label %.thread200
+  br i1 %.not116, label %_ZTW24softfloat_exceptionFlags.exit132, label %.thread210
 
 _ZTW24softfloat_exceptionFlags.exit.thread:       ; preds = %171
   call void @_ZTH24softfloat_exceptionFlags()
@@ -3142,7 +3142,7 @@ _ZTW24softfloat_exceptionFlags.exit.thread:       ; preds = %171
   %.not116172 = icmp eq i8 %176, 0
   br i1 %.not116172, label %.thread174, label %182
 
-.thread200:                                       ; preds = %_ZTW24softfloat_exceptionFlags.exit
+.thread210:                                       ; preds = %_ZTW24softfloat_exceptionFlags.exit
   %177 = load ptr, ptr %65, align 8, !tbaa !139
   %178 = getelementptr inbounds nuw i8, ptr %177, i64 40
   %179 = load i64, ptr %178, align 8, !tbaa !152
@@ -3177,7 +3177,7 @@ _ZTW24softfloat_exceptionFlags.exit.thread:       ; preds = %171
 _ZTW24softfloat_exceptionFlags.exit134:           ; preds = %188
   %192 = load i8, ptr %156, align 1, !tbaa !156
   %.not115 = icmp eq i8 %192, 0
-  br i1 %.not115, label %_ZTW24softfloat_exceptionFlags.exit132, label %.thread202
+  br i1 %.not115, label %_ZTW24softfloat_exceptionFlags.exit132, label %.thread212
 
 _ZTW24softfloat_exceptionFlags.exit134.thread:    ; preds = %188
   call void @_ZTH24softfloat_exceptionFlags()
@@ -3185,7 +3185,7 @@ _ZTW24softfloat_exceptionFlags.exit134.thread:    ; preds = %188
   %.not115175 = icmp eq i8 %193, 0
   br i1 %.not115175, label %.thread177, label %199
 
-.thread202:                                       ; preds = %_ZTW24softfloat_exceptionFlags.exit134
+.thread212:                                       ; preds = %_ZTW24softfloat_exceptionFlags.exit134
   %194 = load ptr, ptr %65, align 8, !tbaa !139
   %195 = getelementptr inbounds nuw i8, ptr %194, i64 40
   %196 = load i64, ptr %195, align 8, !tbaa !152
@@ -3220,7 +3220,7 @@ _ZTW24softfloat_exceptionFlags.exit134.thread:    ; preds = %188
 _ZTW24softfloat_exceptionFlags.exit140:           ; preds = %205
   %209 = load i8, ptr %156, align 1, !tbaa !156
   %.not114 = icmp eq i8 %209, 0
-  br i1 %.not114, label %_ZTW24softfloat_exceptionFlags.exit132, label %.thread204
+  br i1 %.not114, label %_ZTW24softfloat_exceptionFlags.exit132, label %.thread214
 
 _ZTW24softfloat_exceptionFlags.exit140.thread:    ; preds = %205
   call void @_ZTH24softfloat_exceptionFlags()
@@ -3228,7 +3228,7 @@ _ZTW24softfloat_exceptionFlags.exit140.thread:    ; preds = %205
   %.not114178 = icmp eq i8 %210, 0
   br i1 %.not114178, label %.thread180, label %216
 
-.thread204:                                       ; preds = %_ZTW24softfloat_exceptionFlags.exit140
+.thread214:                                       ; preds = %_ZTW24softfloat_exceptionFlags.exit140
   %211 = load ptr, ptr %65, align 8, !tbaa !139
   %212 = getelementptr inbounds nuw i8, ptr %211, i64 40
   %213 = load i64, ptr %212, align 8, !tbaa !152
@@ -3264,8 +3264,8 @@ _ZTW24softfloat_exceptionFlags.exit140.thread:    ; preds = %205
   call void @__cxa_throw(ptr nonnull %223, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #18
   unreachable
 
-_ZTW24softfloat_exceptionFlags.exit132:           ; preds = %.thread180, %.thread204, %_ZTW24softfloat_exceptionFlags.exit140, %.thread177, %.thread202, %_ZTW24softfloat_exceptionFlags.exit134, %.thread174, %.thread200, %_ZTW24softfloat_exceptionFlags.exit
-  %.0109.in = phi i1 [ %174, %_ZTW24softfloat_exceptionFlags.exit ], [ %174, %.thread200 ], [ %174, %.thread174 ], [ %191, %_ZTW24softfloat_exceptionFlags.exit134 ], [ %191, %.thread202 ], [ %191, %.thread177 ], [ %208, %_ZTW24softfloat_exceptionFlags.exit140 ], [ %208, %.thread204 ], [ %208, %.thread180 ]
+_ZTW24softfloat_exceptionFlags.exit132:           ; preds = %.thread180, %.thread214, %_ZTW24softfloat_exceptionFlags.exit140, %.thread177, %.thread212, %_ZTW24softfloat_exceptionFlags.exit134, %.thread174, %.thread210, %_ZTW24softfloat_exceptionFlags.exit
+  %.0109.in = phi i1 [ %174, %_ZTW24softfloat_exceptionFlags.exit ], [ %174, %.thread210 ], [ %174, %.thread174 ], [ %191, %_ZTW24softfloat_exceptionFlags.exit134 ], [ %191, %.thread212 ], [ %191, %.thread177 ], [ %208, %_ZTW24softfloat_exceptionFlags.exit140 ], [ %208, %.thread214 ], [ %208, %.thread180 ]
   store i8 0, ptr %156, align 1, !tbaa !156
   %227 = load i64, ptr %67, align 8, !tbaa !140
   switch i64 %227, label %234 [
@@ -3653,7 +3653,7 @@ _ZTW22softfloat_roundingMode.exit:                ; preds = %134, %145
 _ZTW24softfloat_exceptionFlags.exit:              ; preds = %173
   %177 = load i8, ptr %156, align 1, !tbaa !156
   %.not116 = icmp eq i8 %177, 0
-  br i1 %.not116, label %_ZTW24softfloat_exceptionFlags.exit132, label %.thread200
+  br i1 %.not116, label %_ZTW24softfloat_exceptionFlags.exit132, label %.thread210
 
 _ZTW24softfloat_exceptionFlags.exit.thread:       ; preds = %173
   call void @_ZTH24softfloat_exceptionFlags()
@@ -3661,7 +3661,7 @@ _ZTW24softfloat_exceptionFlags.exit.thread:       ; preds = %173
   %.not116172 = icmp eq i8 %178, 0
   br i1 %.not116172, label %.thread174, label %184
 
-.thread200:                                       ; preds = %_ZTW24softfloat_exceptionFlags.exit
+.thread210:                                       ; preds = %_ZTW24softfloat_exceptionFlags.exit
   %179 = load ptr, ptr %65, align 8, !tbaa !139
   %180 = getelementptr inbounds nuw i8, ptr %179, i64 40
   %181 = load i64, ptr %180, align 8, !tbaa !152
@@ -3696,7 +3696,7 @@ _ZTW24softfloat_exceptionFlags.exit.thread:       ; preds = %173
 _ZTW24softfloat_exceptionFlags.exit134:           ; preds = %190
   %194 = load i8, ptr %156, align 1, !tbaa !156
   %.not115 = icmp eq i8 %194, 0
-  br i1 %.not115, label %_ZTW24softfloat_exceptionFlags.exit132, label %.thread202
+  br i1 %.not115, label %_ZTW24softfloat_exceptionFlags.exit132, label %.thread212
 
 _ZTW24softfloat_exceptionFlags.exit134.thread:    ; preds = %190
   call void @_ZTH24softfloat_exceptionFlags()
@@ -3704,7 +3704,7 @@ _ZTW24softfloat_exceptionFlags.exit134.thread:    ; preds = %190
   %.not115175 = icmp eq i8 %195, 0
   br i1 %.not115175, label %.thread177, label %201
 
-.thread202:                                       ; preds = %_ZTW24softfloat_exceptionFlags.exit134
+.thread212:                                       ; preds = %_ZTW24softfloat_exceptionFlags.exit134
   %196 = load ptr, ptr %65, align 8, !tbaa !139
   %197 = getelementptr inbounds nuw i8, ptr %196, i64 40
   %198 = load i64, ptr %197, align 8, !tbaa !152
@@ -3739,7 +3739,7 @@ _ZTW24softfloat_exceptionFlags.exit134.thread:    ; preds = %190
 _ZTW24softfloat_exceptionFlags.exit140:           ; preds = %207
   %211 = load i8, ptr %156, align 1, !tbaa !156
   %.not114 = icmp eq i8 %211, 0
-  br i1 %.not114, label %_ZTW24softfloat_exceptionFlags.exit132, label %.thread204
+  br i1 %.not114, label %_ZTW24softfloat_exceptionFlags.exit132, label %.thread214
 
 _ZTW24softfloat_exceptionFlags.exit140.thread:    ; preds = %207
   call void @_ZTH24softfloat_exceptionFlags()
@@ -3747,7 +3747,7 @@ _ZTW24softfloat_exceptionFlags.exit140.thread:    ; preds = %207
   %.not114178 = icmp eq i8 %212, 0
   br i1 %.not114178, label %.thread180, label %218
 
-.thread204:                                       ; preds = %_ZTW24softfloat_exceptionFlags.exit140
+.thread214:                                       ; preds = %_ZTW24softfloat_exceptionFlags.exit140
   %213 = load ptr, ptr %65, align 8, !tbaa !139
   %214 = getelementptr inbounds nuw i8, ptr %213, i64 40
   %215 = load i64, ptr %214, align 8, !tbaa !152
@@ -3783,8 +3783,8 @@ _ZTW24softfloat_exceptionFlags.exit140.thread:    ; preds = %207
   call void @__cxa_throw(ptr nonnull %225, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #18
   unreachable
 
-_ZTW24softfloat_exceptionFlags.exit132:           ; preds = %.thread180, %.thread204, %_ZTW24softfloat_exceptionFlags.exit140, %.thread177, %.thread202, %_ZTW24softfloat_exceptionFlags.exit134, %.thread174, %.thread200, %_ZTW24softfloat_exceptionFlags.exit
-  %.0109.in = phi i1 [ %176, %_ZTW24softfloat_exceptionFlags.exit ], [ %176, %.thread200 ], [ %176, %.thread174 ], [ %193, %_ZTW24softfloat_exceptionFlags.exit134 ], [ %193, %.thread202 ], [ %193, %.thread177 ], [ %210, %_ZTW24softfloat_exceptionFlags.exit140 ], [ %210, %.thread204 ], [ %210, %.thread180 ]
+_ZTW24softfloat_exceptionFlags.exit132:           ; preds = %.thread180, %.thread214, %_ZTW24softfloat_exceptionFlags.exit140, %.thread177, %.thread212, %_ZTW24softfloat_exceptionFlags.exit134, %.thread174, %.thread210, %_ZTW24softfloat_exceptionFlags.exit
+  %.0109.in = phi i1 [ %176, %_ZTW24softfloat_exceptionFlags.exit ], [ %176, %.thread210 ], [ %176, %.thread174 ], [ %193, %_ZTW24softfloat_exceptionFlags.exit134 ], [ %193, %.thread212 ], [ %193, %.thread177 ], [ %210, %_ZTW24softfloat_exceptionFlags.exit140 ], [ %210, %.thread214 ], [ %210, %.thread180 ]
   store i8 0, ptr %156, align 1, !tbaa !156
   %229 = load i64, ptr %67, align 8, !tbaa !140
   switch i64 %229, label %236 [
@@ -4170,7 +4170,7 @@ _ZTW22softfloat_roundingMode.exit:                ; preds = %134, %145
 _ZTW24softfloat_exceptionFlags.exit:              ; preds = %171
   %175 = load i8, ptr %156, align 1, !tbaa !156
   %.not116 = icmp eq i8 %175, 0
-  br i1 %.not116, label %_ZTW24softfloat_exceptionFlags.exit132, label %.thread200
+  br i1 %.not116, label %_ZTW24softfloat_exceptionFlags.exit132, label %.thread210
 
 _ZTW24softfloat_exceptionFlags.exit.thread:       ; preds = %171
   call void @_ZTH24softfloat_exceptionFlags()
@@ -4178,7 +4178,7 @@ _ZTW24softfloat_exceptionFlags.exit.thread:       ; preds = %171
   %.not116172 = icmp eq i8 %176, 0
   br i1 %.not116172, label %.thread174, label %182
 
-.thread200:                                       ; preds = %_ZTW24softfloat_exceptionFlags.exit
+.thread210:                                       ; preds = %_ZTW24softfloat_exceptionFlags.exit
   %177 = load ptr, ptr %65, align 8, !tbaa !139
   %178 = getelementptr inbounds nuw i8, ptr %177, i64 40
   %179 = load i64, ptr %178, align 8, !tbaa !152
@@ -4213,7 +4213,7 @@ _ZTW24softfloat_exceptionFlags.exit.thread:       ; preds = %171
 _ZTW24softfloat_exceptionFlags.exit134:           ; preds = %188
   %192 = load i8, ptr %156, align 1, !tbaa !156
   %.not115 = icmp eq i8 %192, 0
-  br i1 %.not115, label %_ZTW24softfloat_exceptionFlags.exit132, label %.thread202
+  br i1 %.not115, label %_ZTW24softfloat_exceptionFlags.exit132, label %.thread212
 
 _ZTW24softfloat_exceptionFlags.exit134.thread:    ; preds = %188
   call void @_ZTH24softfloat_exceptionFlags()
@@ -4221,7 +4221,7 @@ _ZTW24softfloat_exceptionFlags.exit134.thread:    ; preds = %188
   %.not115175 = icmp eq i8 %193, 0
   br i1 %.not115175, label %.thread177, label %199
 
-.thread202:                                       ; preds = %_ZTW24softfloat_exceptionFlags.exit134
+.thread212:                                       ; preds = %_ZTW24softfloat_exceptionFlags.exit134
   %194 = load ptr, ptr %65, align 8, !tbaa !139
   %195 = getelementptr inbounds nuw i8, ptr %194, i64 40
   %196 = load i64, ptr %195, align 8, !tbaa !152
@@ -4256,7 +4256,7 @@ _ZTW24softfloat_exceptionFlags.exit134.thread:    ; preds = %188
 _ZTW24softfloat_exceptionFlags.exit140:           ; preds = %205
   %209 = load i8, ptr %156, align 1, !tbaa !156
   %.not114 = icmp eq i8 %209, 0
-  br i1 %.not114, label %_ZTW24softfloat_exceptionFlags.exit132, label %.thread204
+  br i1 %.not114, label %_ZTW24softfloat_exceptionFlags.exit132, label %.thread214
 
 _ZTW24softfloat_exceptionFlags.exit140.thread:    ; preds = %205
   call void @_ZTH24softfloat_exceptionFlags()
@@ -4264,7 +4264,7 @@ _ZTW24softfloat_exceptionFlags.exit140.thread:    ; preds = %205
   %.not114178 = icmp eq i8 %210, 0
   br i1 %.not114178, label %.thread180, label %216
 
-.thread204:                                       ; preds = %_ZTW24softfloat_exceptionFlags.exit140
+.thread214:                                       ; preds = %_ZTW24softfloat_exceptionFlags.exit140
   %211 = load ptr, ptr %65, align 8, !tbaa !139
   %212 = getelementptr inbounds nuw i8, ptr %211, i64 40
   %213 = load i64, ptr %212, align 8, !tbaa !152
@@ -4300,8 +4300,8 @@ _ZTW24softfloat_exceptionFlags.exit140.thread:    ; preds = %205
   call void @__cxa_throw(ptr nonnull %223, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #18
   unreachable
 
-_ZTW24softfloat_exceptionFlags.exit132:           ; preds = %.thread180, %.thread204, %_ZTW24softfloat_exceptionFlags.exit140, %.thread177, %.thread202, %_ZTW24softfloat_exceptionFlags.exit134, %.thread174, %.thread200, %_ZTW24softfloat_exceptionFlags.exit
-  %.0109.in = phi i1 [ %174, %_ZTW24softfloat_exceptionFlags.exit ], [ %174, %.thread200 ], [ %174, %.thread174 ], [ %191, %_ZTW24softfloat_exceptionFlags.exit134 ], [ %191, %.thread202 ], [ %191, %.thread177 ], [ %208, %_ZTW24softfloat_exceptionFlags.exit140 ], [ %208, %.thread204 ], [ %208, %.thread180 ]
+_ZTW24softfloat_exceptionFlags.exit132:           ; preds = %.thread180, %.thread214, %_ZTW24softfloat_exceptionFlags.exit140, %.thread177, %.thread212, %_ZTW24softfloat_exceptionFlags.exit134, %.thread174, %.thread210, %_ZTW24softfloat_exceptionFlags.exit
+  %.0109.in = phi i1 [ %174, %_ZTW24softfloat_exceptionFlags.exit ], [ %174, %.thread210 ], [ %174, %.thread174 ], [ %191, %_ZTW24softfloat_exceptionFlags.exit134 ], [ %191, %.thread212 ], [ %191, %.thread177 ], [ %208, %_ZTW24softfloat_exceptionFlags.exit140 ], [ %208, %.thread214 ], [ %208, %.thread180 ]
   store i8 0, ptr %156, align 1, !tbaa !156
   %227 = load i64, ptr %67, align 8, !tbaa !140
   switch i64 %227, label %234 [
@@ -4454,14 +4454,14 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeImSt4pairIKm10float128_tESt10_Se
   br i1 %22, label %._crit_edge.thread.i, label %28
 
 ._crit_edge.thread.i:                             ; preds = %._crit_edge.i, %16
-  %.019.lcssa28.i = phi ptr [ %.02024.i, %._crit_edge.i ], [ %4, %16 ]
+  %.019.lcssa29.i = phi ptr [ %.02024.i, %._crit_edge.i ], [ %4, %16 ]
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %24 = load ptr, ptr %23, align 8, !tbaa !179
-  %25 = icmp eq ptr %.019.lcssa28.i, %24
+  %25 = icmp eq ptr %.019.lcssa29.i, %24
   br i1 %25, label %_ZNSt8_Rb_treeImSt4pairIKm10float128_tESt10_Select1stIS3_ESt4lessImESaIS3_EE24_M_get_insert_unique_posERS1_.exit, label %26
 
 26:                                               ; preds = %._crit_edge.thread.i
-  %27 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa28.i) #21
+  %27 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa29.i) #21
   %.phi.trans.insert80 = getelementptr inbounds nuw i8, ptr %27, i64 32
   %.pre81 = load i64, ptr %.phi.trans.insert80, align 8, !tbaa !141
   %.pre82 = load i64, ptr %2, align 8, !tbaa !141
@@ -4470,11 +4470,11 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeImSt4pairIKm10float128_tESt10_Se
 28:                                               ; preds = %26, %._crit_edge.i
   %29 = phi i64 [ %.pre82, %26 ], [ %18, %._crit_edge.i ]
   %30 = phi i64 [ %.pre81, %26 ], [ %21, %._crit_edge.i ]
-  %.019.lcssa29.i = phi ptr [ %.019.lcssa28.i, %26 ], [ %.02024.i, %._crit_edge.i ]
+  %.019.lcssa28.i = phi ptr [ %.019.lcssa29.i, %26 ], [ %.02024.i, %._crit_edge.i ]
   %.sroa.05.0.i = phi ptr [ %27, %26 ], [ %.02024.i, %._crit_edge.i ]
   %31 = icmp ult i64 %30, %29
   %spec.select.i = select i1 %31, ptr null, ptr %.sroa.05.0.i
-  %spec.select21.i = select i1 %31, ptr %.019.lcssa29.i, ptr null
+  %spec.select21.i = select i1 %31, ptr %.019.lcssa28.i, ptr null
   br label %_ZNSt8_Rb_treeImSt4pairIKm10float128_tESt10_Select1stIS3_ESt4lessImESaIS3_EE24_M_get_insert_unique_posERS1_.exit
 
 32:                                               ; preds = %3
@@ -4526,23 +4526,23 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeImSt4pairIKm10float128_tESt10_Se
   br i1 %54, label %._crit_edge.thread.i27, label %58
 
 ._crit_edge.thread.i27:                           ; preds = %._crit_edge.i18, %50
-  %.019.lcssa28.i28 = phi ptr [ %.02024.i13, %._crit_edge.i18 ], [ %4, %50 ]
-  %55 = icmp eq ptr %.019.lcssa28.i28, %39
+  %.019.lcssa29.i28 = phi ptr [ %.02024.i13, %._crit_edge.i18 ], [ %4, %50 ]
+  %55 = icmp eq ptr %.019.lcssa29.i28, %39
   br i1 %55, label %_ZNSt8_Rb_treeImSt4pairIKm10float128_tESt10_Select1stIS3_ESt4lessImESaIS3_EE24_M_get_insert_unique_posERS1_.exit, label %56
 
 56:                                               ; preds = %._crit_edge.thread.i27
-  %57 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa28.i28) #21
+  %57 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa29.i28) #21
   %.phi.trans.insert78 = getelementptr inbounds nuw i8, ptr %57, i64 32
   %.pre79 = load i64, ptr %.phi.trans.insert78, align 8, !tbaa !141
   br label %58
 
 58:                                               ; preds = %56, %._crit_edge.i18
   %59 = phi i64 [ %.pre79, %56 ], [ %53, %._crit_edge.i18 ]
-  %.019.lcssa29.i19 = phi ptr [ %.019.lcssa28.i28, %56 ], [ %.02024.i13, %._crit_edge.i18 ]
+  %.019.lcssa28.i19 = phi ptr [ %.019.lcssa29.i28, %56 ], [ %.02024.i13, %._crit_edge.i18 ]
   %.sroa.05.0.i20 = phi ptr [ %57, %56 ], [ %.02024.i13, %._crit_edge.i18 ]
   %60 = icmp ult i64 %59, %34
   %spec.select.i21 = select i1 %60, ptr null, ptr %.sroa.05.0.i20
-  %spec.select21.i22 = select i1 %60, ptr %.019.lcssa29.i19, ptr null
+  %spec.select21.i22 = select i1 %60, ptr %.019.lcssa28.i19, ptr null
   br label %_ZNSt8_Rb_treeImSt4pairIKm10float128_tESt10_Select1stIS3_ESt4lessImESaIS3_EE24_M_get_insert_unique_posERS1_.exit
 
 61:                                               ; preds = %32
@@ -4591,30 +4591,30 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeImSt4pairIKm10float128_tESt10_Se
   br i1 %80, label %._crit_edge.thread.i47, label %86
 
 ._crit_edge.thread.i47:                           ; preds = %._crit_edge.i38, %76
-  %.019.lcssa28.i48 = phi ptr [ %.02024.i33, %._crit_edge.i38 ], [ %4, %76 ]
+  %.019.lcssa29.i48 = phi ptr [ %.02024.i33, %._crit_edge.i38 ], [ %4, %76 ]
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %82 = load ptr, ptr %81, align 8, !tbaa !179
-  %83 = icmp eq ptr %.019.lcssa28.i48, %82
+  %83 = icmp eq ptr %.019.lcssa29.i48, %82
   br i1 %83, label %_ZNSt8_Rb_treeImSt4pairIKm10float128_tESt10_Select1stIS3_ESt4lessImESaIS3_EE24_M_get_insert_unique_posERS1_.exit, label %84
 
 84:                                               ; preds = %._crit_edge.thread.i47
-  %85 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa28.i48) #21
+  %85 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa29.i48) #21
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %85, i64 32
   %.pre = load i64, ptr %.phi.trans.insert, align 8, !tbaa !141
   br label %86
 
 86:                                               ; preds = %84, %._crit_edge.i38
   %87 = phi i64 [ %.pre, %84 ], [ %79, %._crit_edge.i38 ]
-  %.019.lcssa29.i39 = phi ptr [ %.019.lcssa28.i48, %84 ], [ %.02024.i33, %._crit_edge.i38 ]
+  %.019.lcssa28.i39 = phi ptr [ %.019.lcssa29.i48, %84 ], [ %.02024.i33, %._crit_edge.i38 ]
   %.sroa.05.0.i40 = phi ptr [ %85, %84 ], [ %.02024.i33, %._crit_edge.i38 ]
   %88 = icmp ult i64 %87, %34
   %spec.select.i41 = select i1 %88, ptr null, ptr %.sroa.05.0.i40
-  %spec.select21.i42 = select i1 %88, ptr %.019.lcssa29.i39, ptr null
+  %spec.select21.i42 = select i1 %88, ptr %.019.lcssa28.i39, ptr null
   br label %_ZNSt8_Rb_treeImSt4pairIKm10float128_tESt10_Select1stIS3_ESt4lessImESaIS3_EE24_M_get_insert_unique_posERS1_.exit
 
 _ZNSt8_Rb_treeImSt4pairIKm10float128_tESt10_Select1stIS3_ESt4lessImESaIS3_EE24_M_get_insert_unique_posERS1_.exit: ; preds = %86, %._crit_edge.thread.i47, %58, %._crit_edge.thread.i27, %28, %._crit_edge.thread.i, %72, %46, %61, %63, %37, %9
   %.sroa.070.0 = phi ptr [ null, %9 ], [ %39, %37 ], [ null, %63 ], [ %1, %61 ], [ %spec.select, %46 ], [ %spec.select72, %72 ], [ null, %._crit_edge.thread.i ], [ %spec.select.i, %28 ], [ null, %._crit_edge.thread.i27 ], [ %spec.select.i21, %58 ], [ null, %._crit_edge.thread.i47 ], [ %spec.select.i41, %86 ]
-  %.sroa.12.0 = phi ptr [ %11, %9 ], [ %39, %37 ], [ %65, %63 ], [ null, %61 ], [ %spec.select71, %46 ], [ %spec.select73, %72 ], [ %.019.lcssa28.i, %._crit_edge.thread.i ], [ %spec.select21.i, %28 ], [ %.019.lcssa28.i28, %._crit_edge.thread.i27 ], [ %spec.select21.i22, %58 ], [ %.019.lcssa28.i48, %._crit_edge.thread.i47 ], [ %spec.select21.i42, %86 ]
+  %.sroa.12.0 = phi ptr [ %11, %9 ], [ %39, %37 ], [ %65, %63 ], [ null, %61 ], [ %spec.select71, %46 ], [ %spec.select73, %72 ], [ %.019.lcssa29.i, %._crit_edge.thread.i ], [ %spec.select21.i, %28 ], [ %.019.lcssa29.i28, %._crit_edge.thread.i27 ], [ %spec.select21.i22, %58 ], [ %.019.lcssa29.i48, %._crit_edge.thread.i47 ], [ %spec.select21.i42, %86 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.070.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.12.0, 1
   ret { ptr, ptr } %.fca.1.insert

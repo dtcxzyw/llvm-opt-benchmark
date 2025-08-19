@@ -2412,10 +2412,10 @@ for.body85:                                       ; preds = %for.body85.lr.ph, %
   br i1 %cmp91158.not, label %for.cond.cleanup92.thread, label %for.body93.lr.ph
 
 for.cond.cleanup92.thread:                        ; preds = %for.body85
-  %add.ptr.i96170 = getelementptr inbounds nuw double, ptr %58, i64 %j80.0165
-  %66 = load double, ptr %add.ptr.i96170, align 8, !tbaa !40
-  %add108171 = fadd double %66, %call88
-  store double %add108171, ptr %add.ptr.i95, align 8, !tbaa !40
+  %add.ptr.i96189 = getelementptr inbounds nuw double, ptr %58, i64 %j80.0165
+  %66 = load double, ptr %add.ptr.i96189, align 8, !tbaa !40
+  %add108190 = fadd double %66, %call88
+  store double %add108190, ptr %add.ptr.i95, align 8, !tbaa !40
   br label %for.cond.cleanup113
 
 for.body93.lr.ph:                                 ; preds = %for.body85
@@ -2449,7 +2449,7 @@ for.body93:                                       ; preds = %for.body93.lr.ph, %
   br i1 %exitcond.not, label %for.body114.lr.ph, label %for.body93, !llvm.loop !64
 
 for.cond.cleanup113:                              ; preds = %for.body114, %for.cond.cleanup92.thread
-  %75 = phi double [ %add108171, %for.cond.cleanup92.thread ], [ %81, %for.body114 ]
+  %75 = phi double [ %add108190, %for.cond.cleanup92.thread ], [ %81, %for.body114 ]
   %call126 = tail call double @exp(double noundef %75) #23, !tbaa !62
   store double %call126, ptr %add.ptr.i95, align 8, !tbaa !40
   %76 = load double, ptr %add.ptr.i94, align 8, !tbaa !40
@@ -4254,8 +4254,8 @@ for.body95.lr.ph:                                 ; preds = %for.cond92.preheade
 
 for.body104.us.lver.check.preheader:              ; preds = %for.body95.lr.ph
   %ident.check = icmp ne i64 %57, 1
-  %ident.check311 = icmp ne i64 %60, 1
-  %61 = or i1 %ident.check, %ident.check311
+  %ident.check331 = icmp ne i64 %60, 1
+  %61 = or i1 %ident.check, %ident.check331
   br label %for.body104.us.lver.check
 
 for.body95.preheader:                             ; preds = %for.body95.lr.ph
@@ -4293,8 +4293,8 @@ for.body104.us.lver.orig:                         ; preds = %for.body104.us.lver
 for.body104.us.ph:                                ; preds = %for.body104.us.lver.check
   %67 = add i64 %50, %f.0253.us
   %68 = shl i64 %67, 3
-  %scevgep313 = getelementptr i8, ptr %56, i64 %68
-  %load_initial = load double, ptr %scevgep313, align 8
+  %scevgep333 = getelementptr i8, ptr %56, i64 %68
+  %load_initial = load double, ptr %scevgep333, align 8
   br label %for.body104.us
 
 for.body104.us:                                   ; preds = %for.body104.us.ph, %for.body104.us
@@ -5832,8 +5832,8 @@ for.body123.lr.ph:                                ; preds = %for.cond119.prehead
 
 for.body132.us.lver.check.preheader:              ; preds = %for.body123.lr.ph
   %ident.check = icmp ne i64 %61, 1
-  %ident.check327 = icmp ne i64 %64, 1
-  %65 = or i1 %ident.check, %ident.check327
+  %ident.check347 = icmp ne i64 %64, 1
+  %65 = or i1 %ident.check, %ident.check347
   br label %for.body132.us.lver.check
 
 for.body123.preheader:                            ; preds = %for.body123.lr.ph
@@ -5871,8 +5871,8 @@ for.body132.us.lver.orig:                         ; preds = %for.body132.us.lver
 for.body132.us.ph:                                ; preds = %for.body132.us.lver.check
   %71 = add i64 %28, %f.0273.us
   %72 = shl i64 %71, 3
-  %scevgep329 = getelementptr i8, ptr %60, i64 %72
-  %load_initial = load double, ptr %scevgep329, align 8
+  %scevgep349 = getelementptr i8, ptr %60, i64 %72
+  %load_initial = load double, ptr %scevgep349, align 8
   br label %for.body132.us
 
 for.body132.us:                                   ; preds = %for.body132.us.ph, %for.body132.us

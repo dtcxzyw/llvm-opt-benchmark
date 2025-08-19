@@ -3511,9 +3511,9 @@ for.body18:                                       ; preds = %if.end, %for.inc29
   %rem.i67 = and i32 %i15.0116, 63
   %sh_prom.i = zext nneg i32 %rem.i67 to i64
   %cmp.i49 = icmp samesign ult i32 %i15.0116, 64
-  %this.val147 = load i64, ptr %this, align 8
+  %this.val150 = load i64, ptr %this, align 8
   %mPart1.i.val = load i64, ptr %mPart1.i, align 8
-  %.pn = select i1 %cmp.i49, i64 %this.val147, i64 %mPart1.i.val
+  %.pn = select i1 %cmp.i49, i64 %this.val150, i64 %mPart1.i.val
   %3 = shl nuw i64 1, %sh_prom.i
   %4 = and i64 %.pn, %3
   %tobool20.not = icmp ne i64 %4, 0
@@ -3564,8 +3564,8 @@ if.else44:                                        ; preds = %if.then34
   br i1 %cmp.i55, label %if.end50, label %if.end50.thread
 
 if.end50.thread:                                  ; preds = %if.else44
-  %mPart1.i.i59138 = getelementptr inbounds nuw i8, ptr %ten, i64 8
-  store i64 0, ptr %mPart1.i.i59138, align 8
+  %mPart1.i.i59141 = getelementptr inbounds nuw i8, ptr %ten, i64 8
+  store i64 0, ptr %mPart1.i.i59141, align 8
   store i64 10, ptr %ten, align 8
   br label %if.end.i.i.lr.ph
 
@@ -3585,7 +3585,7 @@ if.end50:                                         ; preds = %if.else44
   br i1 %14, label %while.end, label %if.end.i.i.lr.ph
 
 if.end.i.i.lr.ph:                                 ; preds = %if.end50.thread, %if.end50
-  %pValue.addr.6139 = phi ptr [ %pValue, %if.end50.thread ], [ %incdec.ptr49, %if.end50 ]
+  %pValue.addr.6142 = phi ptr [ %pValue, %if.end50.thread ], [ %incdec.ptr49, %if.end50 ]
   %15 = phi i64 [ %5, %if.end50.thread ], [ %not3.i3.i, %if.end50 ]
   %16 = phi i64 [ %7, %if.end50.thread ], [ %not.i2.i, %if.end50 ]
   %mPart1.i.i61 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
@@ -3593,7 +3593,7 @@ if.end.i.i.lr.ph:                                 ; preds = %if.end50.thread, %i
   br label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.end.i.i.lr.ph, %while.body
-  %pValue.addr.7107 = phi ptr [ %pValue.addr.6139, %if.end.i.i.lr.ph ], [ %incdec.ptr52, %while.body ]
+  %pValue.addr.7107 = phi ptr [ %pValue.addr.6142, %if.end.i.i.lr.ph ], [ %incdec.ptr52, %while.body ]
   %17 = phi i64 [ %15, %if.end.i.i.lr.ph ], [ %22, %while.body ]
   %18 = phi i64 [ %16, %if.end.i.i.lr.ph ], [ %21, %while.body ]
   %cmp7.i.i = icmp eq i64 %18, 0

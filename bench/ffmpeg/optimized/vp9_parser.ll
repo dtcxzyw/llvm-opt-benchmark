@@ -53,14 +53,14 @@ define internal noundef i32 @parse(ptr noundef writeonly captures(none) %0, ptr 
   %27 = and i32 %26, %22
   %.not54 = icmp eq i32 %27, 0
   %spec.select = select i1 %.not54, i32 1, i32 2
-  %spec.select58 = zext i1 %.not54 to i32
+  %spec.select59 = zext i1 %.not54 to i32
   br label %.sink.split
 
 .sink.split:                                      ; preds = %25, %.thread
-  %.sink56 = phi i32 [ 2, %.thread ], [ %spec.select, %25 ]
-  %.sink = phi i32 [ 0, %.thread ], [ %spec.select58, %25 ]
+  %.sink57 = phi i32 [ 2, %.thread ], [ %spec.select, %25 ]
+  %.sink = phi i32 [ 0, %.thread ], [ %spec.select59, %25 ]
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i32 %.sink56, ptr %28, align 8, !tbaa !30
+  store i32 %.sink57, ptr %28, align 8, !tbaa !30
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 232
   store i32 %.sink, ptr %29, align 8, !tbaa !33
   br label %30

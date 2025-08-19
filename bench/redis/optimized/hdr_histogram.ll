@@ -277,12 +277,12 @@ define dso_local void @hdr_reset_internal_counters(ptr noundef captures(none) %0
   br label %73
 
 73:                                               ; preds = %54, %.thread, %57
-  %.028.lcssa4754 = phi i64 [ %.129, %57 ], [ 0, %.thread ], [ %.129, %54 ]
+  %.028.lcssa4855 = phi i64 [ %.129, %57 ], [ 0, %.thread ], [ %.129, %54 ]
   %.sink43 = phi i64 [ %72, %57 ], [ 9223372036854775807, %.thread ], [ 9223372036854775807, %54 ]
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i64 %.sink43, ptr %74, align 8, !tbaa !21
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store i64 %.028.lcssa4754, ptr %75, align 8, !tbaa !22
+  store i64 %.028.lcssa4855, ptr %75, align 8, !tbaa !22
   ret void
 }
 
@@ -1074,8 +1074,8 @@ define dso_local noundef zeroext i1 @hdr_record_corrected_values(ptr noundef cap
   %71 = add i32 %70, %67
   %72 = icmp sgt i32 %71, -1
   %.not.i21 = icmp samesign ugt i32 %30, %71
-  %or.cond41 = select i1 %72, i1 %.not.i21, i1 false
-  br i1 %or.cond41, label %73, label %hdr_record_values.exit.thread
+  %or.cond47 = select i1 %72, i1 %.not.i21, i1 false
+  br i1 %or.cond47, label %73, label %hdr_record_values.exit.thread
 
 73:                                               ; preds = %58
   br i1 %34, label %hdr_record_values.exit30, label %74
@@ -1110,7 +1110,7 @@ hdr_record_values.exit30:                         ; preds = %73, %74
   br i1 %.not18, label %hdr_record_values.exit.thread, label %58
 
 hdr_record_values.exit.thread:                    ; preds = %hdr_record_values.exit30, %58, %.preheader, %6, %28, %4, %40
-  %.015 = phi i1 [ true, %40 ], [ false, %4 ], [ false, %28 ], [ false, %6 ], [ true, %.preheader ], [ %or.cond41, %58 ], [ %or.cond41, %hdr_record_values.exit30 ]
+  %.015 = phi i1 [ true, %40 ], [ false, %4 ], [ false, %28 ], [ false, %6 ], [ true, %.preheader ], [ %or.cond47, %58 ], [ %or.cond47, %hdr_record_values.exit30 ]
   ret i1 %.015
 }
 
@@ -1217,11 +1217,11 @@ counts_inc_normalised_atomic.exit.i:              ; preds = %35, %31
 hdr_record_values_atomic.exit:                    ; preds = %56, %54
   %59 = icmp slt i64 %3, 1
   %.not = icmp sle i64 %1, %3
-  %or.cond.not47 = or i1 %59, %.not
+  %or.cond.not59 = or i1 %59, %.not
   %.038 = sub nsw i64 %1, %3
   %.not1839 = icmp slt i64 %.038, %3
-  %or.cond45 = select i1 %or.cond.not47, i1 true, i1 %.not1839
-  br i1 %or.cond45, label %hdr_record_values_atomic.exit.thread, label %.lr.ph
+  %or.cond57 = select i1 %or.cond.not59, i1 true, i1 %.not1839
+  br i1 %or.cond57, label %hdr_record_values_atomic.exit.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %hdr_record_values_atomic.exit, %hdr_record_values_atomic.exit34
   %.040 = phi i64 [ %.0, %hdr_record_values_atomic.exit34 ], [ %.038, %hdr_record_values_atomic.exit ]

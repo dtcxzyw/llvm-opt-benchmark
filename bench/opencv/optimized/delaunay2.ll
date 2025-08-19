@@ -928,7 +928,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit52.i:                ; preds = %281, %278
   br i1 %.not28.i.i.i, label %310, label %_ZSt27__uninitialized_default_n_aIPN2cv6Point_IiEEmS2_ET_S4_T0_RSaIT1_E.exit.i.i.i
 
 _ZSt27__uninitialized_default_n_aIPN2cv6Point_IiEEmS2_ET_S4_T0_RSaIT1_E.exit.i.i.i: ; preds = %300
-  %309 = shl nuw i64 %301, 3
+  %309 = shl nuw nsw i64 %301, 3
   call void @llvm.memset.p0.i64(ptr align 4 %293, i8 0, i64 %309, i1 false), !tbaa !36
   %scevgep.i.i.i.i.i53.i = getelementptr i8, ptr %293, i64 %309
   store ptr %scevgep.i.i.i.i.i53.i, ptr %244, align 8, !tbaa !71
@@ -1188,12 +1188,12 @@ _ZNSt6vectorIN2cv6Point_IiEESaIS2_EE6resizeEm.exit.i: ; preds = %329, %327, %325
   br label %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit60.i
 
 _ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit60.i: ; preds = %396, %395, %.thread.i
-  %.pn37.pn84.i = phi { ptr, i32 } [ %282, %.thread.i ], [ %.pn37.i, %395 ], [ %.pn37.i, %396 ]
+  %.pn37.pn112.i = phi { ptr, i32 } [ %282, %.thread.i ], [ %.pn37.i, %395 ], [ %.pn37.i, %396 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %397
 
 397:                                              ; preds = %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit60.i, %_ZNSt6vectorIiSaIiEED2Ev.exit52.i
-  %.pn37.pn.pn.i = phi { ptr, i32 } [ %.pn37.pn84.i, %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit60.i ], [ %279, %_ZNSt6vectorIiSaIiEED2Ev.exit52.i ]
+  %.pn37.pn.pn.i = phi { ptr, i32 } [ %.pn37.pn112.i, %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit60.i ], [ %279, %_ZNSt6vectorIiSaIiEED2Ev.exit52.i ]
   %398 = load ptr, ptr %3, align 8, !tbaa !66
   %.not.i.i.i61.i = icmp eq ptr %398, null
   br i1 %.not.i.i.i61.i, label %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit62.i, label %399

@@ -156,7 +156,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit: ; preds = %_ZNKS
   unreachable
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_.exit.i: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit38, %.critedge
-  %.034.lcssa71 = phi i32 [ %.034.lcssa.ph, %.critedge ], [ %.sroa.speculated, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit38 ]
+  %.034.lcssa79 = phi i32 [ %.034.lcssa.ph, %.critedge ], [ %.sroa.speculated, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit38 ]
   %67 = phi i64 [ %.pre, %.critedge ], [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit38 ]
   %68 = load ptr, ptr %3, align 8, !tbaa !16
   %69 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef %68, i64 noundef %67)
@@ -197,7 +197,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit44: ; preds = %_ZN
   %83 = load ptr, ptr %4, align 8, !tbaa !16
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 %71
   store i8 0, ptr %84, align 1, !tbaa !12
-  %85 = icmp slt i32 %.034.lcssa71, %27
+  %85 = icmp slt i32 %.034.lcssa79, %27
   br i1 %85, label %.lr.ph67, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %108, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit44
@@ -232,7 +232,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i45: ; 
   br label %128
 
 .lr.ph67:                                         ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit44, %108
-  %.066 = phi i32 [ %113, %108 ], [ %.034.lcssa71, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit44 ]
+  %.066 = phi i32 [ %113, %108 ], [ %.034.lcssa79, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit44 ]
   %98 = load i64, ptr %5, align 8, !tbaa !3
   %99 = add i64 %98, 1
   %100 = load ptr, ptr %4, align 8, !tbaa !16

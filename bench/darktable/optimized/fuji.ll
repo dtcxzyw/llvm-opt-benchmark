@@ -116,7 +116,7 @@ define noundef range(i32 0, 9) i32 @_ZN6LibRaw23guess_RAFDataGenerationEPh(ptr n
 
 20:                                               ; preds = %19
   %spec.select = select i1 %8, i32 4, i32 3
-  %spec.select19 = select i1 %8, i32 8, i32 4
+  %spec.select20 = select i1 %8, i32 8, i32 4
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 2916
   store i32 %spec.select, ptr %21, align 4, !tbaa !6
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 2920
@@ -124,7 +124,7 @@ define noundef range(i32 0, 9) i32 @_ZN6LibRaw23guess_RAFDataGenerationEPh(ptr n
   br label %23
 
 23:                                               ; preds = %16, %20, %19, %12
-  %.0 = phi i32 [ 0, %12 ], [ 0, %19 ], [ %spec.select19, %20 ], [ 4, %16 ]
+  %.0 = phi i32 [ 0, %12 ], [ 0, %19 ], [ %spec.select20, %20 ], [ 4, %16 ]
   ret i32 %.0
 }
 
@@ -368,7 +368,7 @@ define void @_ZN6LibRaw22parseAdobeRAFMakernoteEv(ptr noundef nonnull align 8 de
   %.in = phi i32 [ %90, %.lr.ph769 ], [ %113, %.thread ]
   %.0299767 = phi i32 [ %95, %.lr.ph769 ], [ %853, %.thread ]
   %.0309766 = phi i32 [ 0, %.lr.ph769 ], [ %.1310, %.thread ]
-  %113 = add i32 %.in, -1
+  %113 = add nsw i32 %.in, -1
   store i16 19789, ptr %2, align 8, !tbaa !88
   store i16 19789, ptr %23, align 8, !tbaa !73
   %114 = invoke noundef zeroext i16 @_ZN16checked_buffer_t5sget2Ei(ptr noundef nonnull align 8 dereferenceable(48) %2, i32 noundef %.0299767)
@@ -2280,13 +2280,13 @@ _ZN16checked_buffer_tD2Ev.exit636:                ; preds = %.loopexit.split-lp7
   br i1 %.not.i.i.i.i637, label %.sink.split, label %.sink.split.sink.split
 
 .sink.split.sink.split:                           ; preds = %.critedge, %._crit_edge770
-  %.sink862 = phi ptr [ %855, %._crit_edge770 ], [ %865, %.critedge ]
+  %.sink888 = phi ptr [ %855, %._crit_edge770 ], [ %865, %.critedge ]
   %866 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %867 = load ptr, ptr %866, align 8, !tbaa !121
   %868 = ptrtoint ptr %867 to i64
-  %869 = ptrtoint ptr %.sink862 to i64
+  %869 = ptrtoint ptr %.sink888 to i64
   %870 = sub i64 %868, %869
-  call void @_ZdlPvm(ptr noundef nonnull %.sink862, i64 noundef %870) #15
+  call void @_ZdlPvm(ptr noundef nonnull %.sink888, i64 noundef %870) #15
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.sink.split.sink.split, %.critedge, %._crit_edge770
@@ -3142,7 +3142,7 @@ define void @_ZN6LibRaw10parse_fujiEi(ptr noundef nonnull align 8 dereferenceabl
 71:                                               ; preds = %.lr.ph, %.thread.thread
   %.in = phi i32 [ %15, %.lr.ph ], [ %72, %.thread.thread ]
   %.0185272 = phi i16 [ 0, %.lr.ph ], [ %.1186227, %.thread.thread ]
-  %72 = add i32 %.in, -1
+  %72 = add nsw i32 %.in, -1
   %73 = call noundef zeroext i16 @_ZN6LibRaw4get2Ev(ptr noundef nonnull align 8 dereferenceable(767680) %0)
   %74 = zext i16 %73 to i32
   %75 = call noundef zeroext i16 @_ZN6LibRaw4get2Ev(ptr noundef nonnull align 8 dereferenceable(767680) %0)
@@ -3314,7 +3314,7 @@ define void @_ZN6LibRaw10parse_fujiEi(ptr noundef nonnull align 8 dereferenceabl
   br i1 %exitcond289.not, label %.loopexit243, label %.preheader242, !llvm.loop !175
 
 .loopexit243:                                     ; preds = %.preheader242, %147
-  br i1 %.not213, label %.preheader355, label %158
+  br i1 %.not213, label %.preheader368, label %158
 
 158:                                              ; preds = %.loopexit243
   %159 = load i32, ptr %42, align 4, !tbaa !93
@@ -3327,13 +3327,13 @@ define void @_ZN6LibRaw10parse_fujiEi(ptr noundef nonnull align 8 dereferenceabl
   %165 = fmul reassoc nsz arcp contract afn double %.0191, %164
   %166 = fptosi double %165 to i32
   store i32 %166, ptr %43, align 4, !tbaa !93
-  br label %.preheader355
+  br label %.preheader368
 
-.preheader355:                                    ; preds = %158, %.loopexit243
+.preheader368:                                    ; preds = %158, %.loopexit243
   br label %167
 
-167:                                              ; preds = %.preheader355, %167
-  %indvars.iv290 = phi i64 [ %indvars.iv.next291, %167 ], [ 0, %.preheader355 ]
+167:                                              ; preds = %.preheader368, %167
+  %indvars.iv290 = phi i64 [ %indvars.iv.next291, %167 ], [ 0, %.preheader368 ]
   %168 = getelementptr inbounds nuw [4 x i32], ptr %42, i64 0, i64 %indvars.iv290
   %169 = load i32, ptr %168, align 4, !tbaa !93
   %170 = sitofp i32 %169 to float

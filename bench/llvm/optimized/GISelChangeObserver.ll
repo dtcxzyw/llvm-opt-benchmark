@@ -352,13 +352,13 @@ define dso_local void @_ZN4llvm30RAIITemporaryObserverInstallerD2Ev(ptr noundef 
   %21 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i, i64 16
   %22 = load ptr, ptr %21, align 8, !tbaa !160
   %23 = icmp eq ptr %22, %4
-  br i1 %23, label %_ZN4llvm4findIRNS_11SmallVectorIPNS_19GISelChangeObserverELj4EEES3_EEDaOT_RKT0_.exit.i.loopexit.split.loop.exit13, label %24
+  br i1 %23, label %_ZN4llvm4findIRNS_11SmallVectorIPNS_19GISelChangeObserverELj4EEES3_EEDaOT_RKT0_.exit.i.loopexit.split.loop.exit16, label %24
 
 24:                                               ; preds = %20
   %25 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i, i64 24
   %26 = load ptr, ptr %25, align 8, !tbaa !160
   %27 = icmp eq ptr %26, %4
-  br i1 %27, label %_ZN4llvm4findIRNS_11SmallVectorIPNS_19GISelChangeObserverELj4EEES3_EEDaOT_RKT0_.exit.i.loopexit.split.loop.exit15, label %28
+  br i1 %27, label %_ZN4llvm4findIRNS_11SmallVectorIPNS_19GISelChangeObserverELj4EEES3_EEDaOT_RKT0_.exit.i.loopexit.split.loop.exit18, label %28
 
 28:                                               ; preds = %24
   %29 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i, i64 32
@@ -373,7 +373,7 @@ define dso_local void @_ZN4llvm30RAIITemporaryObserverInstallerD2Ev(ptr noundef 
 ._crit_edge.i.i.i.i.i:                            ; preds = %._crit_edge.loopexit.i.i.i.i.i, %1
   %.pre-phi56.i.i.i.i.i = phi i32 [ %32, %._crit_edge.loopexit.i.i.i.i.i ], [ %8, %1 ]
   %.029.lcssa.i.i.i.i.i = phi ptr [ %scevgep.i.i.i.i.i, %._crit_edge.loopexit.i.i.i.i.i ], [ %6, %1 ]
-  switch i32 %.pre-phi56.i.i.i.i.i, label %._crit_edge.i.i.i.unreachabledefault.i.i [
+  switch i32 %.pre-phi56.i.i.i.i.i, label %default.unreachable [
     i32 3, label %33
     i32 2, label %._crit_edge._crit_edge.i.i.i.i.i
     i32 1, label %._crit_edge._crit_edge52.i.i.i.i.i
@@ -405,7 +405,7 @@ define dso_local void @_ZN4llvm30RAIITemporaryObserverInstallerD2Ev(ptr noundef 
   %43 = icmp eq ptr %42, %4
   br i1 %43, label %_ZN4llvm4findIRNS_11SmallVectorIPNS_19GISelChangeObserverELj4EEES3_EEDaOT_RKT0_.exit.i, label %44
 
-._crit_edge.i.i.i.unreachabledefault.i.i:         ; preds = %._crit_edge.i.i.i.i.i
+default.unreachable:                              ; preds = %._crit_edge.i.i.i.i.i
   unreachable
 
 44:                                               ; preds = %._crit_edge._crit_edge52.i.i.i.i.i, %._crit_edge.i.i.i.i.i
@@ -415,16 +415,16 @@ _ZN4llvm4findIRNS_11SmallVectorIPNS_19GISelChangeObserverELj4EEES3_EEDaOT_RKT0_.
   %45 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i, i64 8
   br label %_ZN4llvm4findIRNS_11SmallVectorIPNS_19GISelChangeObserverELj4EEES3_EEDaOT_RKT0_.exit.i
 
-_ZN4llvm4findIRNS_11SmallVectorIPNS_19GISelChangeObserverELj4EEES3_EEDaOT_RKT0_.exit.i.loopexit.split.loop.exit13: ; preds = %20
+_ZN4llvm4findIRNS_11SmallVectorIPNS_19GISelChangeObserverELj4EEES3_EEDaOT_RKT0_.exit.i.loopexit.split.loop.exit16: ; preds = %20
   %46 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i, i64 16
   br label %_ZN4llvm4findIRNS_11SmallVectorIPNS_19GISelChangeObserverELj4EEES3_EEDaOT_RKT0_.exit.i
 
-_ZN4llvm4findIRNS_11SmallVectorIPNS_19GISelChangeObserverELj4EEES3_EEDaOT_RKT0_.exit.i.loopexit.split.loop.exit15: ; preds = %24
+_ZN4llvm4findIRNS_11SmallVectorIPNS_19GISelChangeObserverELj4EEES3_EEDaOT_RKT0_.exit.i.loopexit.split.loop.exit18: ; preds = %24
   %47 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i, i64 24
   br label %_ZN4llvm4findIRNS_11SmallVectorIPNS_19GISelChangeObserverELj4EEES3_EEDaOT_RKT0_.exit.i
 
-_ZN4llvm4findIRNS_11SmallVectorIPNS_19GISelChangeObserverELj4EEES3_EEDaOT_RKT0_.exit.i: ; preds = %13, %_ZN4llvm4findIRNS_11SmallVectorIPNS_19GISelChangeObserverELj4EEES3_EEDaOT_RKT0_.exit.i.loopexit.split.loop.exit, %_ZN4llvm4findIRNS_11SmallVectorIPNS_19GISelChangeObserverELj4EEES3_EEDaOT_RKT0_.exit.i.loopexit.split.loop.exit13, %_ZN4llvm4findIRNS_11SmallVectorIPNS_19GISelChangeObserverELj4EEES3_EEDaOT_RKT0_.exit.i.loopexit.split.loop.exit15, %44, %._crit_edge._crit_edge52.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i, %33
-  %.028.i.i.i.i.i = phi ptr [ %10, %44 ], [ %.029.lcssa.i.i.i.i.i, %33 ], [ %.1.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i ], [ %.2.i.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i.i ], [ %45, %_ZN4llvm4findIRNS_11SmallVectorIPNS_19GISelChangeObserverELj4EEES3_EEDaOT_RKT0_.exit.i.loopexit.split.loop.exit ], [ %46, %_ZN4llvm4findIRNS_11SmallVectorIPNS_19GISelChangeObserverELj4EEES3_EEDaOT_RKT0_.exit.i.loopexit.split.loop.exit13 ], [ %47, %_ZN4llvm4findIRNS_11SmallVectorIPNS_19GISelChangeObserverELj4EEES3_EEDaOT_RKT0_.exit.i.loopexit.split.loop.exit15 ], [ %.02946.i.i.i.i.i, %13 ]
+_ZN4llvm4findIRNS_11SmallVectorIPNS_19GISelChangeObserverELj4EEES3_EEDaOT_RKT0_.exit.i: ; preds = %13, %_ZN4llvm4findIRNS_11SmallVectorIPNS_19GISelChangeObserverELj4EEES3_EEDaOT_RKT0_.exit.i.loopexit.split.loop.exit, %_ZN4llvm4findIRNS_11SmallVectorIPNS_19GISelChangeObserverELj4EEES3_EEDaOT_RKT0_.exit.i.loopexit.split.loop.exit16, %_ZN4llvm4findIRNS_11SmallVectorIPNS_19GISelChangeObserverELj4EEES3_EEDaOT_RKT0_.exit.i.loopexit.split.loop.exit18, %44, %._crit_edge._crit_edge52.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i, %33
+  %.028.i.i.i.i.i = phi ptr [ %10, %44 ], [ %.029.lcssa.i.i.i.i.i, %33 ], [ %.1.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i ], [ %.2.i.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i.i ], [ %45, %_ZN4llvm4findIRNS_11SmallVectorIPNS_19GISelChangeObserverELj4EEES3_EEDaOT_RKT0_.exit.i.loopexit.split.loop.exit ], [ %46, %_ZN4llvm4findIRNS_11SmallVectorIPNS_19GISelChangeObserverELj4EEES3_EEDaOT_RKT0_.exit.i.loopexit.split.loop.exit16 ], [ %47, %_ZN4llvm4findIRNS_11SmallVectorIPNS_19GISelChangeObserverELj4EEES3_EEDaOT_RKT0_.exit.i.loopexit.split.loop.exit18 ], [ %.02946.i.i.i.i.i, %13 ]
   %48 = getelementptr inbounds nuw ptr, ptr %6, i64 %9
   %.not.i = icmp eq ptr %.028.i.i.i.i.i, %48
   br i1 %.not.i, label %_ZN4llvm20GISelObserverWrapper14removeObserverEPNS_19GISelChangeObserverE.exit, label %49

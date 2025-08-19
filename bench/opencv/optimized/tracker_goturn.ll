@@ -893,7 +893,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit116: ; preds = %_Z
   %249 = load i64, ptr %248, align 8, !tbaa !59
   %250 = shl i64 %249, 1
   %251 = getelementptr inbounds nuw i8, ptr %189, i64 %250
-  br label %.thread286
+  br label %.thread296
 
 252:                                              ; preds = %242
   %253 = getelementptr inbounds nuw i8, ptr %38, i64 12
@@ -909,9 +909,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit116: ; preds = %_Z
   %262 = getelementptr inbounds nuw i8, ptr %189, i64 %261
   %263 = sext i32 %.recomposed to i64
   %264 = getelementptr inbounds float, ptr %262, i64 %263
-  br label %.thread286
+  br label %.thread296
 
-.thread286:                                       ; preds = %252, %246
+.thread296:                                       ; preds = %252, %246
   %.in.ph = phi ptr [ %251, %246 ], [ %264, %252 ]
   %265 = load float, ptr %.in.ph, align 4, !tbaa !55
   %266 = fsub float %265, %190
@@ -930,16 +930,16 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit116: ; preds = %_Z
   %276 = fdiv float %275, 2.270000e+02
   %277 = insertelement <4 x float> poison, float %276, i64 0
   %278 = call noundef i32 @llvm.x86.sse.cvtss2si(<4 x float> %277)
-  %.sroa.9236.8.insert.ext284 = zext i32 %278 to i64
+  %.sroa.9236.8.insert.ext294 = zext i32 %278 to i64
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %38, i64 64
   %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !57
   %.pre281 = load i32, ptr %.pre, align 4, !tbaa !26
   %279 = icmp eq i32 %.pre281, 1
   br i1 %279, label %_ZN2cv3Mat2atIfEERT_i.exit128.thread, label %280
 
-280:                                              ; preds = %.thread286, %271
-  %.sroa.9236.8.insert.ext253289 = phi i64 [ %.sroa.9236.8.insert.ext250, %.thread286 ], [ %.sroa.9236.8.insert.ext284, %271 ]
-  %281 = phi ptr [ %239, %.thread286 ], [ %.pre, %271 ]
+280:                                              ; preds = %.thread296, %271
+  %.sroa.9236.8.insert.ext253299 = phi i64 [ %.sroa.9236.8.insert.ext250, %.thread296 ], [ %.sroa.9236.8.insert.ext294, %271 ]
+  %281 = phi ptr [ %239, %.thread296 ], [ %.pre, %271 ]
   %282 = getelementptr inbounds nuw i8, ptr %281, i64 4
   %283 = load i32, ptr %282, align 4, !tbaa !26
   %284 = icmp eq i32 %283, 1
@@ -958,14 +958,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit116: ; preds = %_Z
   %293 = load i32, ptr %292, align 4, !tbaa !35
   %294 = sdiv i32 3, %293
   %295 = mul nsw i32 %294, %293
-  %.recomposed293 = srem i32 3, %293
+  %.recomposed303 = srem i32 3, %293
   %296 = getelementptr inbounds nuw i8, ptr %38, i64 72
   %297 = load ptr, ptr %296, align 8, !tbaa !58
   %298 = load i64, ptr %297, align 8, !tbaa !59
   %299 = sext i32 %294 to i64
   %300 = mul i64 %298, %299
   %301 = getelementptr inbounds nuw i8, ptr %189, i64 %300
-  %302 = sext i32 %.recomposed293 to i64
+  %302 = sext i32 %.recomposed303 to i64
   %303 = getelementptr inbounds float, ptr %301, i64 %302
   br label %314
 
@@ -981,7 +981,7 @@ _ZN2cv3Mat2atIfEERT_i.exit128:                    ; preds = %229
   br label %_ZN2cv3Mat2atIfEERT_i.exit128.thread
 
 _ZN2cv3Mat2atIfEERT_i.exit128.thread:             ; preds = %271, %_ZN2cv3Mat2atIfEERT_i.exit128
-  %.sroa.9236.8.insert.ext251257 = phi i64 [ %.sroa.9236.8.insert.ext, %_ZN2cv3Mat2atIfEERT_i.exit128 ], [ %.sroa.9236.8.insert.ext284, %271 ]
+  %.sroa.9236.8.insert.ext251257 = phi i64 [ %.sroa.9236.8.insert.ext, %_ZN2cv3Mat2atIfEERT_i.exit128 ], [ %.sroa.9236.8.insert.ext294, %271 ]
   %311 = getelementptr inbounds nuw i8, ptr %189, i64 12
   %312 = load float, ptr %311, align 4, !tbaa !55
   %313 = getelementptr inbounds nuw i8, ptr %189, i64 4
@@ -1023,7 +1023,7 @@ _ZN2cv3Mat2atIfEERT_i.exit128.thread:             ; preds = %271, %_ZN2cv3Mat2at
 
 340:                                              ; preds = %324, %319, %_ZN2cv3Mat2atIfEERT_i.exit128.thread
   %341 = phi float [ %312, %_ZN2cv3Mat2atIfEERT_i.exit128.thread ], [ %315, %319 ], [ %315, %324 ]
-  %.sroa.9236.8.insert.ext251256 = phi i64 [ %.sroa.9236.8.insert.ext251257, %_ZN2cv3Mat2atIfEERT_i.exit128.thread ], [ %.sroa.9236.8.insert.ext253289, %319 ], [ %.sroa.9236.8.insert.ext253289, %324 ]
+  %.sroa.9236.8.insert.ext251256 = phi i64 [ %.sroa.9236.8.insert.ext251257, %_ZN2cv3Mat2atIfEERT_i.exit128.thread ], [ %.sroa.9236.8.insert.ext253299, %319 ], [ %.sroa.9236.8.insert.ext253299, %324 ]
   %.0.i130 = phi ptr [ %313, %_ZN2cv3Mat2atIfEERT_i.exit128.thread ], [ %323, %319 ], [ %339, %324 ]
   %342 = load float, ptr %.0.i130, align 4, !tbaa !55
   %343 = fsub float %341, %342

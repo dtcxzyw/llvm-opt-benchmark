@@ -1741,18 +1741,18 @@ _init_l_Lean_Elab_throwAbortTactic___rarg___closed__2.exit: ; preds = %_init_l_L
   unreachable
 
 .sink.split:                                      ; preds = %_init_l_Lean_Elab_throwAbortTactic___rarg___closed__2.exit, %3
-  %.sink85 = phi ptr [ %4, %3 ], [ %190, %_init_l_Lean_Elab_throwAbortTactic___rarg___closed__2.exit ]
-  %193 = getelementptr inbounds nuw i8, ptr %.sink85, i64 4
-  store i32 1, ptr %.sink85, align 4, !tbaa !8
+  %.sink107 = phi ptr [ %4, %3 ], [ %190, %_init_l_Lean_Elab_throwAbortTactic___rarg___closed__2.exit ]
+  %193 = getelementptr inbounds nuw i8, ptr %.sink107, i64 4
+  store i32 1, ptr %.sink107, align 4, !tbaa !8
   store i32 131096, ptr %193, align 4
-  %194 = getelementptr inbounds nuw i8, ptr %.sink85, i64 8
+  %194 = getelementptr inbounds nuw i8, ptr %.sink107, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %194, align 8, !tbaa !4
-  %195 = getelementptr inbounds nuw i8, ptr %.sink85, i64 16
+  %195 = getelementptr inbounds nuw i8, ptr %.sink107, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %195, align 8, !tbaa !4
   br label %196
 
 196:                                              ; preds = %.sink.split, %114, %101, %79, %66, %44, %31, %lean_dec_ref.exit, %7
-  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit ], [ %33, %31 ], [ %49, %44 ], [ %68, %66 ], [ %84, %79 ], [ %103, %101 ], [ %119, %114 ], [ %.sink85, %.sink.split ]
+  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit ], [ %33, %31 ], [ %49, %44 ], [ %68, %66 ], [ %84, %79 ], [ %103, %101 ], [ %119, %114 ], [ %.sink107, %.sink.split ]
   ret ptr %.0
 }
 

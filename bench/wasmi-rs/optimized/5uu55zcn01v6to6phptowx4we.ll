@@ -48958,14 +48958,14 @@ define internal fastcc noundef align 8 ptr @_ZN5wasmi6engine10translator14FuncTr
   %9 = load i64, ptr %0, align 8, !range !1776, !alias.scope !4739, !noalias !4734, !noundef !14
   %10 = trunc nuw i64 %9 to i1
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.sink63.sroa.gep = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %.sink63.sroa.gep67 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %.sink63.sroa.gep69 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  %.sink63.sroa.gep70 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %.sink63.sroa.gep72 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %.sink63.sroa.gep73 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %.sink63.sroa.gep75 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %.sink63.sroa.gep76 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %.sink65.sroa.gep = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %.sink65.sroa.gep69 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %.sink65.sroa.gep71 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  %.sink65.sroa.gep72 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  %.sink65.sroa.gep74 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %.sink65.sroa.gep75 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %.sink65.sroa.gep77 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  %.sink65.sroa.gep78 = getelementptr inbounds nuw i8, ptr %3, i64 24
   br i1 %10, label %12, label %_ZN5wasmi6engine10translator14FuncTranslator9fuel_info17h9b17200746cc50baE.exit
 
 12:                                               ; preds = %1
@@ -49105,7 +49105,7 @@ _ZN5wasmi6engine10translator14FuncTranslator9fuel_info17h9b17200746cc50baE.exit:
   %.sroa.0.032 = phi ptr [ %62, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17hfbad04350e19a67dE.exit" ], [ %96, %.backedge ]
   switch i64 %.sroa.6.0, label %.lr.ph.i [
     i64 0, label %.thread
-    i64 1, label %.thread52
+    i64 1, label %.thread54
   ]
 
 .lr.ph.i:                                         ; preds = %68, %75
@@ -49140,7 +49140,7 @@ _ZN5wasmi6engine10translator14FuncTranslator9fuel_info17h9b17200746cc50baE.exit:
   %.not5.i26 = icmp ugt i64 %.sroa.01.0.lcssa.i, %.sroa.6.0
   br i1 %.not5.i26, label %81, label %83, !prof !1897
 
-.thread52:                                        ; preds = %68
+.thread54:                                        ; preds = %68
   %80 = getelementptr inbounds nuw i8, ptr %.sroa.0.032, i64 4
   br label %93
 
@@ -49150,20 +49150,20 @@ _ZN5wasmi6engine10translator14FuncTranslator9fuel_info17h9b17200746cc50baE.exit:
   br label %.invoke
 
 .invoke:                                          ; preds = %91, %81
-  %.sink63.sroa.phi = phi ptr [ %.sink63.sroa.gep, %91 ], [ %.sink63.sroa.gep67, %81 ]
-  %.sink63.sroa.phi68 = phi ptr [ %.sink63.sroa.gep69, %91 ], [ %.sink63.sroa.gep70, %81 ]
-  %.sink63.sroa.phi71 = phi ptr [ %.sink63.sroa.gep72, %91 ], [ %.sink63.sroa.gep73, %81 ]
-  %.sink63.sroa.phi74 = phi ptr [ %.sink63.sroa.gep75, %91 ], [ %.sink63.sroa.gep76, %81 ]
-  %.sink63 = phi ptr [ %6, %91 ], [ %3, %81 ]
-  %.sink61 = phi i64 [ 2, %91 ], [ 1, %81 ]
-  %.sink56 = phi ptr [ %5, %91 ], [ inttoptr (i64 8 to ptr), %81 ]
+  %.sink65.sroa.phi = phi ptr [ %.sink65.sroa.gep, %91 ], [ %.sink65.sroa.gep69, %81 ]
+  %.sink65.sroa.phi70 = phi ptr [ %.sink65.sroa.gep71, %91 ], [ %.sink65.sroa.gep72, %81 ]
+  %.sink65.sroa.phi73 = phi ptr [ %.sink65.sroa.gep74, %91 ], [ %.sink65.sroa.gep75, %81 ]
+  %.sink65.sroa.phi76 = phi ptr [ %.sink65.sroa.gep77, %91 ], [ %.sink65.sroa.gep78, %81 ]
+  %.sink65 = phi ptr [ %6, %91 ], [ %3, %81 ]
+  %.sink63 = phi i64 [ 2, %91 ], [ 1, %81 ]
+  %.sink58 = phi ptr [ %5, %91 ], [ inttoptr (i64 8 to ptr), %81 ]
   %.sink = phi i64 [ 2, %91 ], [ 0, %81 ]
   %82 = phi ptr [ @anon.37cda214e03cfa4f88bb617cc324d1fc.100, %91 ], [ @anon.37cda214e03cfa4f88bb617cc324d1fc.37, %81 ]
-  store i64 %.sink61, ptr %.sink63.sroa.phi, align 8
-  store ptr null, ptr %.sink63.sroa.phi68, align 8
-  store ptr %.sink56, ptr %.sink63.sroa.phi71, align 8
-  store i64 %.sink, ptr %.sink63.sroa.phi74, align 8
-  invoke void @_ZN4core9panicking9panic_fmt17h8d16370d7cdeaf7bE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %.sink63, ptr noalias noundef readonly align 8 dereferenceable(24) %82) #18
+  store i64 %.sink63, ptr %.sink65.sroa.phi, align 8
+  store ptr null, ptr %.sink65.sroa.phi70, align 8
+  store ptr %.sink58, ptr %.sink65.sroa.phi73, align 8
+  store i64 %.sink, ptr %.sink65.sroa.phi76, align 8
+  invoke void @_ZN4core9panicking9panic_fmt17h8d16370d7cdeaf7bE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %.sink65, ptr noalias noundef readonly align 8 dereferenceable(24) %82) #18
           to label %.cont unwind label %.loopexit.split-lp.loopexit.split-lp
 
 .cont:                                            ; preds = %.invoke
@@ -49207,10 +49207,10 @@ _ZN5wasmi6engine10translator14FuncTranslator9fuel_info17h9b17200746cc50baE.exit:
   store ptr @anon.37cda214e03cfa4f88bb617cc324d1fc.99, ptr %6, align 8
   br label %.invoke
 
-93:                                               ; preds = %.thread52, %83
-  %94 = phi i16 [ 1, %.thread52 ], [ %87, %83 ]
-  %95 = phi i64 [ 0, %.thread52 ], [ %85, %83 ]
-  %96 = phi ptr [ %80, %.thread52 ], [ %84, %83 ]
+93:                                               ; preds = %.thread54, %83
+  %94 = phi i16 [ 1, %.thread54 ], [ %87, %83 ]
+  %95 = phi i64 [ 0, %.thread54 ], [ %85, %83 ]
+  %96 = phi ptr [ %80, %.thread54 ], [ %84, %83 ]
   %97 = getelementptr inbounds nuw i8, ptr %.sroa.0.032, i64 2
   %98 = load i16, ptr %97, align 2, !noundef !14
   %99 = invoke noundef i16 @_ZN8wasmi_ir4span7RegSpan3new17h2e0d12b5ffb4f6ceE(i16 noundef %98)
@@ -50925,7 +50925,7 @@ _ZN5wasmi6engine10translator14FuncTranslator9fuel_info17h9b17200746cc50baE.exit:
           to label %119 unwind label %45
 
 68:                                               ; preds = %63
-  switch i8 %64, label %default.unreachable58 [
+  switch i8 %64, label %default.unreachable59 [
     i8 0, label %69
     i8 1, label %71
     i8 2, label %69
@@ -50935,7 +50935,7 @@ _ZN5wasmi6engine10translator14FuncTranslator9fuel_info17h9b17200746cc50baE.exit:
     i8 6, label %75
   ]
 
-default.unreachable58:                            ; preds = %68
+default.unreachable59:                            ; preds = %68
   unreachable
 
 69:                                               ; preds = %68, %68

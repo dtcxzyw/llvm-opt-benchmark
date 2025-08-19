@@ -184,7 +184,7 @@ _ZL13isPackageNamePKc.exit:                       ; preds = %56
 .thread:                                          ; preds = %_ZL13isPackageNamePKc.exit, %56
   tail call void @_ZN6icu_777Package7addFileEPKcS2_(ptr noundef nonnull align 8 dereferenceable(201237) %15, ptr noundef %.0134, ptr noundef nonnull %47)
   %67 = icmp samesign ugt i32 %7, 2
-  br i1 %67, label %68, label %.thread285
+  br i1 %67, label %68, label %.thread287
 
 68:                                               ; preds = %65, %.thread
   %.not169206 = phi i1 [ true, %.thread ], [ false, %65 ]
@@ -199,23 +199,23 @@ _ZL13isPackageNamePKc.exit:                       ; preds = %56
   %.not171 = icmp eq i8 %73, 0
   br i1 %.not171, label %92, label %77
 
-.thread285:                                       ; preds = %.thread
+.thread287:                                       ; preds = %.thread
   %74 = icmp ne ptr %.0134, %.0145
-  %.0148290 = zext i1 %74 to i8
+  %.0148292 = zext i1 %74 to i8
   %75 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL7options, i64 114), align 2, !tbaa !9
-  %.not171291 = icmp eq i8 %75, 0
-  br i1 %.not171291, label %.thread244, label %77
+  %.not171293 = icmp eq i8 %75, 0
+  br i1 %.not171293, label %.thread244, label %77
 
 .thread219:                                       ; preds = %65
   %76 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL7options, i64 114), align 2, !tbaa !9
   %.not171224 = icmp eq i8 %76, 0
   br i1 %.not171224, label %.thread257, label %77
 
-77:                                               ; preds = %.thread285, %.thread219, %68
-  %.0148234 = phi i8 [ 0, %.thread219 ], [ %.0148, %68 ], [ %.0148290, %.thread285 ]
-  %.0158231 = phi ptr [ null, %.thread219 ], [ %70, %68 ], [ %47, %.thread285 ]
-  %.0154201228 = phi ptr [ %.0154, %.thread219 ], [ %.0154203, %68 ], [ %47, %.thread285 ]
-  %.not169205226 = phi i1 [ false, %.thread219 ], [ %.not169206, %68 ], [ true, %.thread285 ]
+77:                                               ; preds = %.thread287, %.thread219, %68
+  %.0148234 = phi i8 [ 0, %.thread219 ], [ %.0148, %68 ], [ %.0148292, %.thread287 ]
+  %.0158231 = phi ptr [ null, %.thread219 ], [ %70, %68 ], [ %47, %.thread287 ]
+  %.0154201228 = phi ptr [ %.0154, %.thread219 ], [ %.0154203, %68 ], [ %47, %.thread287 ]
+  %.not169205226 = phi i1 [ false, %.thread219 ], [ %.not169206, %68 ], [ true, %.thread287 ]
   %78 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL7options, i64 88), align 8, !tbaa !18
   %79 = load i8, ptr %78, align 1, !tbaa !19
   %80 = icmp eq i8 %79, 0
@@ -250,12 +250,12 @@ _ZL13isPackageNamePKc.exit:                       ; preds = %56
 92:                                               ; preds = %68
   br i1 %.not169206, label %.thread244, label %.thread257
 
-.thread244:                                       ; preds = %.thread285, %92
-  %.0158294304 = phi ptr [ %70, %92 ], [ %47, %.thread285 ]
-  %.0148.in295303 = phi i1 [ %.not170, %92 ], [ %74, %.thread285 ]
+.thread244:                                       ; preds = %.thread287, %92
+  %.0158296306 = phi ptr [ %70, %92 ], [ %47, %.thread287 ]
+  %.0148.in297305 = phi i1 [ %.not170, %92 ], [ %74, %.thread287 ]
   %93 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL7options, i64 314), align 2, !tbaa !9
   %.not175251 = icmp eq i8 %93, 0
-  %94 = xor i1 %.0148.in295303, true
+  %94 = xor i1 %.0148.in297305, true
   %95 = select i1 %.not175251, i1 %94, i1 false
   br label %.thread271
 
@@ -276,7 +276,7 @@ _ZL13isPackageNamePKc.exit:                       ; preds = %56
 .thread271:                                       ; preds = %91, %.thread244
   %spec.select196256 = phi i1 [ %95, %.thread244 ], [ false, %91 ]
   %.1156255 = phi i8 [ 0, %.thread244 ], [ %79, %91 ]
-  %.0158230253 = phi ptr [ %.0158294304, %.thread244 ], [ %.0158231, %91 ]
+  %.0158230253 = phi ptr [ %.0158296306, %.thread244 ], [ %.0158231, %91 ]
   %102 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL7options, i64 194), align 2, !tbaa !9
   %103 = icmp ne i8 %102, 0
   %104 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL7options, i64 154), align 2
@@ -599,9 +599,9 @@ _ZL13isPackageNamePKc.exit:                       ; preds = %56
   ret i32 %.0
 
 236:                                              ; preds = %140, %153, %166, %16
-  %.sink306 = phi ptr [ %139, %140 ], [ %152, %153 ], [ %165, %166 ], [ %15, %16 ]
+  %.sink308 = phi ptr [ %139, %140 ], [ %152, %153 ], [ %165, %166 ], [ %15, %16 ]
   %.pn.pn = phi { ptr, i32 } [ %141, %140 ], [ %154, %153 ], [ %167, %166 ], [ %17, %16 ]
-  tail call void @_ZdlPvm(ptr noundef nonnull %.sink306, i64 noundef 201240) #19
+  tail call void @_ZdlPvm(ptr noundef nonnull %.sink308, i64 noundef 201240) #19
   resume { ptr, i32 } %.pn.pn
 }
 

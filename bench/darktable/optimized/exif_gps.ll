@@ -562,8 +562,8 @@ define void @_ZN6LibRaw10parse_exifEi(ptr noundef nonnull align 8 dereferenceabl
   br i1 %or.cond120, label %248, label %.loopexit132
 
 248:                                              ; preds = %242
-  %narrow162 = mul nuw nsw i32 %247, 33408
-  %.idx113 = zext nneg i32 %narrow162 to i64
+  %narrow174 = mul nuw nsw i32 %247, 33408
+  %.idx113 = zext nneg i32 %narrow174 to i64
   %249 = getelementptr inbounds nuw i8, ptr %60, i64 %.idx113
   store float %245, ptr %249, align 4, !tbaa !104
   br label %.loopexit132
@@ -1060,13 +1060,13 @@ define void @_ZN6LibRaw16parse_gps_librawEi(ptr noundef nonnull align 8 derefere
   br i1 %34, label %.backedge, label %42
 
 .backedge:                                        ; preds = %31, %52, %.loopexit
-  %.sink51 = phi ptr [ %53, %52 ], [ %124, %.loopexit ], [ %35, %31 ]
+  %.sink53 = phi ptr [ %53, %52 ], [ %124, %.loopexit ], [ %35, %31 ]
   %36 = load i32, ptr %6, align 4, !tbaa !73
   %37 = zext i32 %36 to i64
-  %38 = load ptr, ptr %.sink51, align 8, !tbaa !71
+  %38 = load ptr, ptr %.sink53, align 8, !tbaa !71
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 32
   %40 = load ptr, ptr %39, align 8
-  %41 = call noundef i32 %40(ptr noundef nonnull align 8 dereferenceable(8) %.sink51, i64 noundef %37, i32 noundef 0)
+  %41 = call noundef i32 %40(ptr noundef nonnull align 8 dereferenceable(8) %.sink53, i64 noundef %37, i32 noundef 0)
   %.not21 = icmp eq i32 %32, 0
   br i1 %.not21, label %.loopexit27, label %31, !llvm.loop !122
 
@@ -1286,15 +1286,15 @@ define void @_ZN6LibRaw9parse_gpsEi(ptr noundef nonnull align 8 dereferenceable(
     i32 1, label %28
     i32 3, label %28
     i32 5, label %28
-    i32 2, label %.preheader27
-    i32 4, label %.preheader27
-    i32 7, label %.preheader27
+    i32 2, label %.preheader29
+    i32 4, label %.preheader29
+    i32 7, label %.preheader29
     i32 6, label %.preheader
     i32 18, label %50
     i32 29, label %50
   ]
 
-.preheader27:                                     ; preds = %26, %26, %26
+.preheader29:                                     ; preds = %26, %26, %26
   br label %39
 
 28:                                               ; preds = %26, %26, %26
@@ -1311,8 +1311,8 @@ define void @_ZN6LibRaw9parse_gpsEi(ptr noundef nonnull align 8 dereferenceable(
   store i32 %33, ptr %38, align 4, !tbaa !73
   br label %.backedge
 
-39:                                               ; preds = %.preheader27, %39
-  %.015 = phi i32 [ %47, %39 ], [ 0, %.preheader27 ]
+39:                                               ; preds = %.preheader29, %39
+  %.015 = phi i32 [ %47, %39 ], [ 0, %.preheader29 ]
   %40 = call noundef i32 @_ZN6LibRaw4get4Ev(ptr noundef nonnull align 8 dereferenceable(767680) %0)
   %41 = load i32, ptr %3, align 4, !tbaa !73
   %42 = udiv i32 %41, 3

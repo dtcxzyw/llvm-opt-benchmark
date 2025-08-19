@@ -1746,8 +1746,8 @@ ole2_list_pop.exit.i320:                          ; preds = %209, %ole2_list_pop
   %.not254 = icmp ult i64 %215, %217
   %.pre575 = load i64, ptr %7, align 8, !tbaa !63
   %.not255 = icmp ult i64 %.pre575, %217
-  %or.cond658 = select i1 %.not254, i1 %.not255, i1 false
-  br i1 %or.cond658, label %228, label %218
+  %or.cond701 = select i1 %.not254, i1 %.not255, i1 false
+  br i1 %or.cond701, label %228, label %218
 
 218:                                              ; preds = %._crit_edge573, %216
   %.pre-phi = phi i64 [ %.pre576, %._crit_edge573 ], [ %217, %216 ]
@@ -2112,7 +2112,7 @@ define internal range(i32 0, 21) i32 @handler_enum(ptr noundef captures(none) %0
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 552
   %47 = load i8, ptr %46, align 8, !tbaa !75, !range !81, !noundef !82
   %48 = trunc nuw i8 %47 to i1
-  br i1 %48, label %.thread169, label %.thread120
+  br i1 %48, label %.thread187, label %.thread120
 
 .thread120:                                       ; preds = %.thread
   %49 = load i16, ptr %8, align 1, !tbaa !108
@@ -2154,11 +2154,11 @@ define internal range(i32 0, 21) i32 @handler_enum(ptr noundef captures(none) %0
   %.not110 = icmp eq ptr %63, null
   br i1 %.not110, label %.thread132, label %125
 
-.thread169:                                       ; preds = %.thread
+.thread187:                                       ; preds = %.thread
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 560
   %65 = load ptr, ptr %64, align 8, !tbaa !22
-  %.not110171 = icmp eq ptr %65, null
-  br i1 %.not110171, label %.thread129, label %125
+  %.not110189 = icmp eq ptr %65, null
+  br i1 %.not110189, label %.thread129, label %125
 
 .thread125:                                       ; preds = %.thread120
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 560
@@ -2166,8 +2166,8 @@ define internal range(i32 0, 21) i32 @handler_enum(ptr noundef captures(none) %0
   %.not110127 = icmp eq ptr %67, null
   br i1 %.not110127, label %.thread129, label %125
 
-.thread129:                                       ; preds = %.thread169, %.thread125
-  %68 = phi ptr [ %66, %.thread125 ], [ %64, %.thread169 ]
+.thread129:                                       ; preds = %.thread187, %.thread125
+  %68 = phi ptr [ %66, %.thread125 ], [ %64, %.thread187 ]
   %69 = load i16, ptr %8, align 1, !tbaa !108
   %70 = zext i16 %69 to i32
   %71 = tail call ptr @cli_ole2_get_property_name2(ptr noundef nonnull %1, i32 noundef %70)
@@ -2260,9 +2260,9 @@ define internal range(i32 0, 21) i32 @handler_enum(ptr noundef captures(none) %0
   store ptr %123, ptr %72, align 8, !tbaa !22
   br label %125
 
-125:                                              ; preds = %.thread169, %.thread136, %.thread125, %.thread129, %82, %86, %96, %98, %110, %116, %.thread132, %61
-  %.2 = phi ptr [ %.087, %61 ], [ %.3135, %.thread132 ], [ %.3135, %82 ], [ %.3135, %86 ], [ %.3135, %98 ], [ %.3135, %116 ], [ %.3135, %96 ], [ %.3135, %110 ], [ null, %.thread129 ], [ null, %.thread125 ], [ %.3135, %.thread136 ], [ null, %.thread169 ]
-  %.086 = phi ptr [ null, %61 ], [ null, %.thread132 ], [ %80, %82 ], [ %80, %86 ], [ %80, %98 ], [ %80, %116 ], [ %80, %96 ], [ %80, %110 ], [ null, %.thread129 ], [ null, %.thread125 ], [ %80, %.thread136 ], [ null, %.thread169 ]
+125:                                              ; preds = %.thread187, %.thread136, %.thread125, %.thread129, %82, %86, %96, %98, %110, %116, %.thread132, %61
+  %.2 = phi ptr [ %.087, %61 ], [ %.3135, %.thread132 ], [ %.3135, %82 ], [ %.3135, %86 ], [ %.3135, %98 ], [ %.3135, %116 ], [ %.3135, %96 ], [ %.3135, %110 ], [ null, %.thread129 ], [ null, %.thread125 ], [ %.3135, %.thread136 ], [ null, %.thread187 ]
+  %.086 = phi ptr [ null, %61 ], [ null, %.thread132 ], [ %80, %82 ], [ %80, %86 ], [ %80, %98 ], [ %80, %116 ], [ %80, %96 ], [ %80, %110 ], [ null, %.thread129 ], [ null, %.thread125 ], [ %80, %.thread136 ], [ null, %.thread187 ]
   %126 = getelementptr inbounds nuw i8, ptr %0, i64 553
   %127 = load i8, ptr %126, align 1, !tbaa !76, !range !81, !noundef !82
   %128 = trunc nuw i8 %127 to i1
@@ -3337,11 +3337,11 @@ ole2_get_next_sbat_block.exit:                    ; preds = %101, %._crit_edge.i
 176:                                              ; preds = %171
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %147, ptr nonnull align 1 %175, i64 %.029.i, i1 false)
   %177 = icmp eq i32 %.0183374, 0
-  %178 = add i32 %.0173377, %145
+  %178 = add nuw i32 %.0173377, %145
   %179 = add i32 %178, -16
-  br i1 %177, label %181, label %.thread390
+  br i1 %177, label %181, label %.thread412
 
-.thread390:                                       ; preds = %176
+.thread412:                                       ; preds = %176
   %180 = add i32 %.0183374, %47
   br label %.lr.ph.preheader
 
@@ -3350,15 +3350,15 @@ ole2_get_next_sbat_block.exit:                    ; preds = %101, %._crit_edge.i
   %.not225367 = icmp ult i32 %179, 8
   br i1 %.not225367, label %._crit_edge, label %.lr.ph.preheader
 
-.lr.ph.preheader:                                 ; preds = %.thread390, %181
-  %182 = phi i32 [ %180, %.thread390 ], [ %47, %181 ]
-  %.0165396 = phi i32 [ 0, %.thread390 ], [ 8, %181 ]
-  %.3182394 = phi i64 [ %.0179375, %.thread390 ], [ %.0.copyload, %181 ]
+.lr.ph.preheader:                                 ; preds = %.thread412, %181
+  %182 = phi i32 [ %180, %.thread412 ], [ %47, %181 ]
+  %.0165418 = phi i32 [ 0, %.thread412 ], [ 8, %181 ]
+  %.3182416 = phi i64 [ %.0179375, %.thread412 ], [ %.0.copyload, %181 ]
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %.0164369 = phi i32 [ %188, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %.1166368 = phi i32 [ %187, %.lr.ph ], [ %.0165396, %.lr.ph.preheader ]
+  %.1166368 = phi i32 [ %187, %.lr.ph ], [ %.0165418, %.lr.ph.preheader ]
   %183 = zext i32 %.1166368 to i64
   %184 = getelementptr inbounds nuw i8, ptr %50, i64 %183
   %185 = zext i32 %.0164369 to i64
@@ -3371,7 +3371,7 @@ ole2_get_next_sbat_block.exit:                    ; preds = %101, %._crit_edge.i
 
 ._crit_edge:                                      ; preds = %.lr.ph, %181
   %189 = phi i32 [ %47, %181 ], [ %182, %.lr.ph ]
-  %.3182395 = phi i64 [ %.0.copyload, %181 ], [ %.3182394, %.lr.ph ]
+  %.3182417 = phi i64 [ %.0.copyload, %181 ], [ %.3182416, %.lr.ph ]
   %.1166.lcssa = phi i32 [ 8, %181 ], [ %187, %.lr.ph ]
   %.0164.lcssa = phi i32 [ 0, %181 ], [ %188, %.lr.ph ]
   %190 = sub i32 %178, %.1166.lcssa
@@ -3381,8 +3381,8 @@ ole2_get_next_sbat_block.exit:                    ; preds = %101, %._crit_edge.i
 192:                                              ; preds = %._crit_edge
   %193 = zext i32 %.0164.lcssa to i64
   %194 = add i64 %.0176376, %193
-  %195 = icmp ugt i64 %194, %.3182395
-  %196 = sub i64 %.3182395, %.0176376
+  %195 = icmp ugt i64 %194, %.3182417
+  %196 = sub i64 %.3182417, %.0176376
   %197 = trunc i64 %196 to i32
   %.1 = select i1 %195, i32 %197, i32 %.0164.lcssa
   %198 = zext i32 %.1 to i64
@@ -3414,7 +3414,7 @@ ole2_read_block.exit.thread:                      ; preds = %201, %203
   %.1194 = phi i32 [ %.011.i, %ole2_get_next_sbat_block.exit ], [ %207, %ole2_read_block.exit.thread ]
   %.1192 = phi i64 [ %102, %ole2_get_next_sbat_block.exit ], [ %.0191373, %ole2_read_block.exit.thread ]
   %.1184 = phi i32 [ %.0183374, %ole2_get_next_sbat_block.exit ], [ %189, %ole2_read_block.exit.thread ]
-  %.1180 = phi i64 [ %.0179375, %ole2_get_next_sbat_block.exit ], [ %.3182395, %ole2_read_block.exit.thread ]
+  %.1180 = phi i64 [ %.0179375, %ole2_get_next_sbat_block.exit ], [ %.3182417, %ole2_read_block.exit.thread ]
   %.1177 = phi i64 [ %.0176376, %ole2_get_next_sbat_block.exit ], [ %202, %ole2_read_block.exit.thread ]
   %.1174 = phi i32 [ %.0173377, %ole2_get_next_sbat_block.exit ], [ %190, %ole2_read_block.exit.thread ]
   %.1171 = phi i32 [ %.0170378, %ole2_get_next_sbat_block.exit ], [ %190, %ole2_read_block.exit.thread ]
@@ -5093,11 +5093,11 @@ switch.lookup:                                    ; preds = %43
   %53 = load i8, ptr %52, align 1, !tbaa !125
   %switch.selectcmp = icmp eq i8 %53, 1
   %switch.select = select i1 %switch.selectcmp, ptr @.str.105, ptr @.str.106
-  %switch.selectcmp14 = icmp eq i8 %53, 0
-  %switch.select15 = select i1 %switch.selectcmp14, ptr @.str.104, ptr %switch.select
+  %switch.selectcmp18 = icmp eq i8 %53, 0
+  %switch.select19 = select i1 %switch.selectcmp18, ptr @.str.104, ptr %switch.select
   %54 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #24
   %55 = sub i64 127, %54
-  %56 = call ptr @strncat(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull %switch.select15, i64 noundef %55) #22
+  %56 = call ptr @strncat(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull %switch.select19, i64 noundef %55) #22
   store i8 0, ptr %41, align 1, !tbaa !14
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %58 = load i32, ptr %57, align 1, !tbaa !110
@@ -5183,12 +5183,12 @@ define internal fastcc noundef zeroext i1 @ole2_get_sbat_data_block(ptr noundef 
   br i1 %21, label %ole2_read_block.exit, label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %10, %._crit_edge
-  %.0.lcssa24 = phi i32 [ %18, %._crit_edge ], [ %7, %10 ]
+  %.0.lcssa29 = phi i32 [ %18, %._crit_edge ], [ %7, %10 ]
   %22 = phi i16 [ %.pre, %._crit_edge ], [ %12, %10 ]
-  %.pre-phi23 = phi i32 [ %.pre20, %._crit_edge ], [ %13, %10 ]
-  %23 = shl nuw i32 1, %.pre-phi23
+  %.pre-phi28 = phi i32 [ %.pre20, %._crit_edge ], [ %13, %10 ]
+  %23 = shl nuw i32 1, %.pre-phi28
   %24 = sext i32 %23 to i64
-  %25 = zext nneg i32 %.0.lcssa24 to i64
+  %25 = zext nneg i32 %.0.lcssa29 to i64
   %26 = zext i16 %22 to i64
   %27 = shl i64 %25, %26
   %28 = icmp ult i16 %22, 9
@@ -5203,7 +5203,7 @@ define internal fastcc noundef zeroext i1 @ole2_get_sbat_data_block(ptr noundef 
   br label %38
 
 32:                                               ; preds = %._crit_edge.thread
-  %33 = shl i32 %.0.lcssa24, %.pre-phi23
+  %33 = shl i32 %.0.lcssa29, %.pre-phi28
   %spec.select.i = tail call i32 @llvm.smax.i32(i32 %23, i32 512)
   %34 = add nsw i32 %spec.select.i, %33
   %35 = sext i32 %34 to i64
@@ -5490,8 +5490,8 @@ thread-pre-split:                                 ; preds = %58, %54, %64, %62
   br i1 %.not90, label %107, label %.sink.split
 
 .sink.split:                                      ; preds = %103, %41, %26, %19, %15
-  %.sink96 = phi i32 [ 1, %15 ], [ 2, %19 ], [ 3, %26 ], [ 0, %41 ], [ 0, %103 ]
-  store i32 %.sink96, ptr %0, align 4, !tbaa !127
+  %.sink102 = phi i32 [ 1, %15 ], [ 2, %19 ], [ 3, %26 ], [ 0, %41 ], [ 0, %103 ]
+  store i32 %.sink102, ptr %0, align 4, !tbaa !127
   br label %107
 
 107:                                              ; preds = %.sink.split, %41, %103

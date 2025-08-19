@@ -447,8 +447,8 @@ define range(i32 -1, 1) i32 @H5T__conv_ref(ptr noundef readonly captures(address
 
 .loopexit279:                                     ; preds = %.lr.ph358, %233, %231
   %.not249359 = icmp eq i64 %.2190344, 0
-  %or.cond452 = or i1 %74, %.not249359
-  br i1 %or.cond452, label %.loopexit, label %.lr.ph362.preheader
+  %or.cond463 = or i1 %74, %.not249359
+  br i1 %or.cond463, label %.loopexit, label %.lr.ph362.preheader
 
 .lr.ph362.preheader:                              ; preds = %.loopexit279
   %240 = icmp sgt i64 %.3210, 0

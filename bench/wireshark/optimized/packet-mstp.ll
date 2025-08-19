@@ -282,7 +282,7 @@ calc_data_crc32.exit.i:                           ; preds = %76
   br i1 %100, label %.lr.ph38.i.i, label %cobs_decode.exit.i, !llvm.loop !11
 
 cobs_decode.exit.i:                               ; preds = %104, %87, %.lr.ph38.i.i, %72
-  %.025.lcssa71.i = phi i32 [ -1, %72 ], [ %.1.i.i, %.lr.ph38.i.i ], [ %.1.i.i, %87 ], [ %.1.i.i, %104 ]
+  %.025.lcssa77.i = phi i32 [ -1, %72 ], [ %.1.i.i, %.lr.ph38.i.i ], [ %.1.i.i, %87 ], [ %.1.i.i, %104 ]
   %.0.i.i = phi i64 [ 0, %72 ], [ %.2.i.i, %104 ], [ 0, %87 ], [ 0, %.lr.ph38.i.i ]
   %105 = getelementptr i8, ptr %70, i64 %.0.i.i
   %106 = getelementptr i8, ptr %70, i64 %69
@@ -349,7 +349,7 @@ cobs_decode.exit52.i:                             ; preds = %128
 
 .preheader.i:                                     ; preds = %cobs_decode.exit52.i, %calc_data_crc32.exit59.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %calc_data_crc32.exit59.i ], [ 0, %cobs_decode.exit52.i ]
-  %.12665.i = phi i32 [ %.1.i57.i, %calc_data_crc32.exit59.i ], [ %.025.lcssa71.i, %cobs_decode.exit52.i ]
+  %.12665.i = phi i32 [ %.1.i57.i, %calc_data_crc32.exit59.i ], [ %.025.lcssa77.i, %cobs_decode.exit52.i ]
   %129 = getelementptr i8, ptr %105, i64 %indvars.iv.i
   %130 = load i8, ptr %129, align 1
   br label %131

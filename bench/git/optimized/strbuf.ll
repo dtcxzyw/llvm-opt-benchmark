@@ -3147,30 +3147,30 @@ define dso_local range(i32 -1, 1) i32 @strbuf_readlink(ptr noundef captures(none
   %8 = load i64, ptr %6, align 8, !tbaa !16
   %9 = sub nuw nsw i64 -2, %spec.store.select
   %10 = icmp ult i64 %9, %8
-  br i1 %10, label %._crit_edge44, label %.lr.ph43
+  br i1 %10, label %._crit_edge49, label %.lr.ph48
 
-._crit_edge44:                                    ; preds = %.backedge, %.lr.ph
+._crit_edge49:                                    ; preds = %.backedge, %.lr.ph
   tail call void (ptr, ...) @die(ptr noundef nonnull @.str) #24
   unreachable
 
-.lr.ph43:                                         ; preds = %.lr.ph, %.backedge
+.lr.ph48:                                         ; preds = %.lr.ph, %.backedge
   %11 = phi i64 [ %41, %.backedge ], [ %8, %.lr.ph ]
-  %.0183041 = phi i64 [ %.01830.be, %.backedge ], [ %spec.store.select, %.lr.ph ]
+  %.0183046 = phi i64 [ %.01830.be, %.backedge ], [ %spec.store.select, %.lr.ph ]
   %12 = phi i64 [ %.pre, %.backedge ], [ %4, %.lr.ph ]
-  %.not.i42 = icmp eq i64 %12, 0
-  br i1 %.not.i42, label %13, label %._crit_edge
+  %.not.i47 = icmp eq i64 %12, 0
+  br i1 %.not.i47, label %13, label %._crit_edge
 
-._crit_edge:                                      ; preds = %.lr.ph43
+._crit_edge:                                      ; preds = %.lr.ph48
   %.pre35.pre.pre = load ptr, ptr %7, align 8, !tbaa !12
   br label %14
 
-13:                                               ; preds = %.lr.ph43
+13:                                               ; preds = %.lr.ph48
   store ptr null, ptr %7, align 8, !tbaa !12
   br label %14
 
 14:                                               ; preds = %._crit_edge, %13
   %.pre35.pre = phi ptr [ %.pre35.pre.pre, %._crit_edge ], [ null, %13 ]
-  %15 = add nuw nsw i64 %.0183041, 1
+  %15 = add nuw nsw i64 %.0183046, 1
   %16 = add i64 %15, %11
   %17 = icmp ugt i64 %16, %12
   br i1 %17, label %st_mult.exit.i, label %22
@@ -3187,7 +3187,7 @@ st_mult.exit.i:                                   ; preds = %14
 
 22:                                               ; preds = %st_mult.exit.i, %14
   %.pre35 = phi ptr [ %21, %st_mult.exit.i ], [ %.pre35.pre, %14 ]
-  br i1 %.not.i42, label %23, label %strbuf_grow.exit
+  br i1 %.not.i47, label %23, label %strbuf_grow.exit
 
 23:                                               ; preds = %22
   store i8 0, ptr %.pre35, align 1, !tbaa !4
@@ -3196,7 +3196,7 @@ st_mult.exit.i:                                   ; preds = %14
 
 strbuf_grow.exit:                                 ; preds = %22, %23
   %24 = phi ptr [ %.pre35, %22 ], [ %.pre34, %23 ]
-  %25 = tail call i64 @readlink(ptr noundef %1, ptr noundef %24, i64 noundef %.0183041) #25
+  %25 = tail call i64 @readlink(ptr noundef %1, ptr noundef %24, i64 noundef %.0183046) #25
   %26 = icmp slt i64 %25, 0
   br i1 %26, label %27, label %31
 
@@ -3204,12 +3204,12 @@ strbuf_grow.exit:                                 ; preds = %22, %23
   %28 = tail call ptr @__errno_location() #27
   %29 = load i32, ptr %28, align 4, !tbaa !33
   %.not = icmp eq i32 %29, 34
-  %30 = icmp ult i64 %.0183041, 4096
+  %30 = icmp ult i64 %.0183046, 4096
   %or.cond = and i1 %.not, %30
   br i1 %or.cond, label %.backedge, label %strbuf_setlen.exit.thread24
 
 31:                                               ; preds = %strbuf_grow.exit
-  %32 = icmp ult i64 %25, %.0183041
+  %32 = icmp ult i64 %25, %.0183046
   br i1 %32, label %33, label %strbuf_setlen.exit
 
 33:                                               ; preds = %31
@@ -3234,16 +3234,16 @@ strbuf_grow.exit:                                 ; preds = %22, %23
   br label %strbuf_release.exit
 
 strbuf_setlen.exit:                               ; preds = %31
-  %.old32 = icmp samesign ult i64 %.0183041, 4096
+  %.old32 = icmp samesign ult i64 %.0183046, 4096
   br i1 %.old32, label %.backedge, label %strbuf_setlen.exit.thread24
 
 .backedge:                                        ; preds = %strbuf_setlen.exit, %27
-  %.01830.be = shl nuw nsw i64 %.0183041, 1
+  %.01830.be = shl nuw nsw i64 %.0183046, 1
   %.pre = load i64, ptr %0, align 8, !tbaa !15
   %41 = load i64, ptr %6, align 8, !tbaa !16
   %42 = sub nuw nsw i64 -2, %.01830.be
   %43 = icmp ult i64 %42, %41
-  br i1 %43, label %._crit_edge44, label %.lr.ph43
+  br i1 %43, label %._crit_edge49, label %.lr.ph48
 
 strbuf_setlen.exit.thread24:                      ; preds = %strbuf_setlen.exit, %27, %3
   %44 = icmp eq i64 %4, 0
@@ -4743,7 +4743,7 @@ skip_prefix.exit44:                               ; preds = %93, %skip_prefix.ex
   br i1 %.not.i.i, label %strbuf_avail.exit.thread.i, label %strbuf_avail.exit.i
 
 strbuf_avail.exit.i:                              ; preds = %skip_prefix.exit44
-  %.neg.i = add i64 %40, 1
+  %.neg.i = add nuw i64 %40, 1
   %.not.i45 = icmp eq i64 %37, %.neg.i
   br i1 %.not.i45, label %.thread.i, label %strbuf_addch.exit
 
@@ -4785,7 +4785,7 @@ strbuf_avail.exit.thread.i:                       ; preds = %skip_prefix.exit44
 
 strbuf_addch.exit:                                ; preds = %strbuf_avail.exit.i, %.thread8.i, %105, %110
   %111 = phi ptr [ %.pre, %strbuf_avail.exit.i ], [ %102, %.thread8.i ], [ %109, %105 ], [ %109, %110 ]
-  %112 = add i64 %40, 1
+  %112 = add nuw i64 %40, 1
   store i64 %112, ptr %13, align 8, !tbaa !16
   %113 = getelementptr inbounds nuw i8, ptr %111, i64 %40
   store i8 37, ptr %113, align 1, !tbaa !4
@@ -5255,15 +5255,15 @@ starts_with.exit.thread:                          ; preds = %75, %71, %93, %101
   unreachable
 
 ._crit_edge.thread:                               ; preds = %strbuf_grow.exit, %._crit_edge
-  %.045.lcssa77 = phi i64 [ %.045.lcssa, %._crit_edge ], [ 0, %strbuf_grow.exit ]
-  store i64 %.045.lcssa77, ptr %4, align 8, !tbaa !16
+  %.045.lcssa88 = phi i64 [ %.045.lcssa, %._crit_edge ], [ 0, %strbuf_grow.exit ]
+  store i64 %.045.lcssa88, ptr %4, align 8, !tbaa !16
   %110 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %111 = load ptr, ptr %110, align 8, !tbaa !12
   %.not9.i57 = icmp eq ptr %111, @strbuf_slopbuf
   br i1 %.not9.i57, label %strbuf_setlen.exit, label %112
 
 112:                                              ; preds = %._crit_edge.thread
-  %113 = getelementptr inbounds nuw i8, ptr %111, i64 %.045.lcssa77
+  %113 = getelementptr inbounds nuw i8, ptr %111, i64 %.045.lcssa88
   store i8 0, ptr %113, align 1, !tbaa !4
   br label %strbuf_setlen.exit
 

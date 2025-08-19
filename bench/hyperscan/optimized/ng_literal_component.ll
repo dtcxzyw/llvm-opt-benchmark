@@ -462,8 +462,8 @@ define internal fastcc noundef zeroext i1 @_ZN3ue2L15splitOffLiteralERNS_2NGERNS
   %or.cond = select i1 %65, i1 true, i1 %67
   %68 = load i64, ptr %37, align 8
   %.not117 = icmp ne i64 %68, 1
-  %or.cond157.not = select i1 %or.cond, i1 %.not117, i1 false
-  br i1 %or.cond157.not, label %129, label %_ZNSt3setIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESt4lessIS8_ESaIS8_EE6insertERKS8_.exit
+  %or.cond167.not = select i1 %or.cond, i1 %.not117, i1 false
+  br i1 %or.cond167.not, label %129, label %_ZNSt3setIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESt4lessIS8_ESaIS8_EE6insertERKS8_.exit
 
 69:                                               ; preds = %53
   %70 = getelementptr inbounds nuw i8, ptr %57, i64 16

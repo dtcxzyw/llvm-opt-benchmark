@@ -374,7 +374,7 @@ _ZNSt6vectorIN5logos10MatchPointESaIS1_EE9push_backERKS1_.exit: ; preds = %83, %
   br label %139
 
 _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN5logos10MatchPointESt6vectorIS3_SaIS3_EEEEPFbRKS3_SA_EEvT_SD_T0_.exit: ; preds = %69, %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN5logos10MatchPointESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i11.i, %16, %._crit_edge, %51, %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN5logos10MatchPointESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_T0_.exit.i
-  %.sroa.047.0.lcssa102 = phi ptr [ %.sroa.047.2, %._crit_edge ], [ %.sroa.047.2, %51 ], [ %.sroa.047.2, %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN5logos10MatchPointESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_T0_.exit.i ], [ null, %16 ], [ %.sroa.047.2, %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN5logos10MatchPointESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i11.i ], [ %.sroa.047.2, %69 ]
+  %.sroa.047.0.lcssa115 = phi ptr [ %.sroa.047.2, %._crit_edge ], [ %.sroa.047.2, %51 ], [ %.sroa.047.2, %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN5logos10MatchPointESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_T0_.exit.i ], [ null, %16 ], [ %.sroa.047.2, %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN5logos10MatchPointESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIPFbRKS3_SC_EEEEvT_T0_.exit.i11.i ], [ %.sroa.047.2, %69 ]
   %108 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %109 = sext i32 %3 to i64
   %110 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -417,22 +417,22 @@ _ZNSt6vectorIPN5logos5PointESaIS2_EE6resizeEm.exit: ; preds = %124, %122, %120, 
 
 ._crit_edge92:                                    ; preds = %131, %_ZNSt6vectorIPN5logos5PointESaIS2_EE6resizeEm.exit
   store i8 1, ptr %5, align 8, !tbaa !21
-  %.not.i.i.i30 = icmp eq ptr %.sroa.047.0.lcssa102, null
+  %.not.i.i.i30 = icmp eq ptr %.sroa.047.0.lcssa115, null
   br i1 %.not.i.i.i30, label %_ZNSt6vectorIN5logos10MatchPointESaIS1_EED2Ev.exit, label %128
 
 128:                                              ; preds = %._crit_edge92
-  tail call void @_ZdlPv(ptr noundef nonnull %.sroa.047.0.lcssa102) #20
+  tail call void @_ZdlPv(ptr noundef nonnull %.sroa.047.0.lcssa115) #20
   br label %_ZNSt6vectorIN5logos10MatchPointESaIS1_EED2Ev.exit
 
 129:                                              ; preds = %118, %20
-  %.sroa.047.0.lcssa103 = phi ptr [ %.sroa.047.0.lcssa102, %118 ], [ %.sroa.047.2, %20 ]
+  %.sroa.047.0.lcssa116 = phi ptr [ %.sroa.047.0.lcssa115, %118 ], [ %.sroa.047.2, %20 ]
   %130 = landingpad { ptr, i32 }
           cleanup
   br label %139
 
 131:                                              ; preds = %.lr.ph91, %131
   %indvars.iv = phi i64 [ 0, %.lr.ph91 ], [ %indvars.iv.next, %131 ]
-  %.sroa.034.089 = phi ptr [ %.sroa.047.0.lcssa102, %.lr.ph91 ], [ %138, %131 ]
+  %.sroa.034.089 = phi ptr [ %.sroa.047.0.lcssa115, %.lr.ph91 ], [ %138, %131 ]
   %132 = getelementptr inbounds nuw i8, ptr %.sroa.034.089, i64 4
   %133 = load i32, ptr %132, align 4, !tbaa !42
   %134 = sext i32 %133 to i64
@@ -449,7 +449,7 @@ _ZNSt6vectorIN5logos10MatchPointESaIS1_EED2Ev.exit: ; preds = %128, %._crit_edge
   ret void
 
 139:                                              ; preds = %.loopexit, %.loopexit.split-lp, %129
-  %.sroa.047.077 = phi ptr [ %.sroa.047.0.lcssa103, %129 ], [ %.sroa.047.086, %.loopexit ], [ %.sroa.047.086, %.loopexit.split-lp ]
+  %.sroa.047.077 = phi ptr [ %.sroa.047.0.lcssa116, %129 ], [ %.sroa.047.086, %.loopexit ], [ %.sroa.047.086, %.loopexit.split-lp ]
   %.pn.pn = phi { ptr, i32 } [ %130, %129 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %.not.i.i.i31 = icmp eq ptr %.sroa.047.077, null
   br i1 %.not.i.i.i31, label %_ZNSt6vectorIN5logos10MatchPointESaIS1_EED2Ev.exit32, label %140
@@ -923,7 +923,7 @@ define linkonce_odr hidden void @_ZSt11__make_heapIN9__gnu_cxx17__normal_iterato
 
 .split.preheader:                                 ; preds = %10
   %18 = or disjoint i64 %11, 1
-  %19 = getelementptr inbounds %"struct.logos::MatchPoint", ptr %0, i64 %18
+  %19 = getelementptr inbounds nuw %"struct.logos::MatchPoint", ptr %0, i64 %18
   %20 = getelementptr inbounds nuw %"struct.logos::MatchPoint", ptr %0, i64 %17
   br label %.split
 
@@ -965,12 +965,12 @@ define linkonce_odr hidden void @_ZSt11__make_heapIN9__gnu_cxx17__normal_iterato
   %.018.i.i.us = phi i64 [ %.0919.i.i.us, %36 ], [ %spec.select.i.us, %._crit_edge.i.us ]
   %.0919.in.i.i.us = add nsw i64 %.018.i.i.us, -1
   %.0919.i.i.us = sdiv i64 %.0919.in.i.i.us, 2
-  %34 = getelementptr inbounds %"struct.logos::MatchPoint", ptr %0, i64 %.0919.i.i.us
+  %34 = getelementptr inbounds nuw %"struct.logos::MatchPoint", ptr %0, i64 %.0919.i.i.us
   %35 = call noundef zeroext i1 %.sroa.0.0.copyload.us(ptr noundef nonnull align 4 dereferenceable(8) %34, ptr noundef nonnull align 4 dereferenceable(8) %4)
   br i1 %35, label %36, label %.critedge.loopexit.i.i.us
 
 36:                                               ; preds = %.lr.ph.i.i.us
-  %37 = getelementptr inbounds %"struct.logos::MatchPoint", ptr %0, i64 %.018.i.i.us
+  %37 = getelementptr inbounds nuw %"struct.logos::MatchPoint", ptr %0, i64 %.018.i.i.us
   %38 = load i64, ptr %34, align 4
   store i64 %38, ptr %37, align 4
   %39 = icmp sgt i64 %.0919.i.i.us, %.010.us
@@ -984,7 +984,7 @@ define linkonce_odr hidden void @_ZSt11__make_heapIN9__gnu_cxx17__normal_iterato
 _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN5logos10MatchPointESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_T0_SH_T1_T2_.exit.us: ; preds = %._crit_edge.i.us.thread, %.critedge.loopexit.i.i.us, %._crit_edge.i.us
   %40 = phi i64 [ %.sroa.03.0.copyload.us, %._crit_edge.i.us ], [ %.pre.i.i.us, %.critedge.loopexit.i.i.us ], [ %.sroa.03.0.copyload.us, %._crit_edge.i.us.thread ]
   %.0.lcssa.i.i.us = phi i64 [ %spec.select.i.us, %._crit_edge.i.us ], [ %.0.lcssa.ph.i.i.us, %.critedge.loopexit.i.i.us ], [ %.010.us, %._crit_edge.i.us.thread ]
-  %41 = getelementptr inbounds %"struct.logos::MatchPoint", ptr %0, i64 %.0.lcssa.i.i.us
+  %41 = getelementptr inbounds nuw %"struct.logos::MatchPoint", ptr %0, i64 %.0.lcssa.i.i.us
   store i64 %40, ptr %41, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.not.us = icmp eq i64 %.010.us, 0
@@ -1036,12 +1036,12 @@ _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN5logos10MatchPointESt6vecto
   %.018.i.i = phi i64 [ %.0919.i.i, %62 ], [ %.1.i, %58 ]
   %.0919.in.i.i = add nsw i64 %.018.i.i, -1
   %.0919.i.i = sdiv i64 %.0919.in.i.i, 2
-  %60 = getelementptr inbounds %"struct.logos::MatchPoint", ptr %0, i64 %.0919.i.i
+  %60 = getelementptr inbounds nuw %"struct.logos::MatchPoint", ptr %0, i64 %.0919.i.i
   %61 = call noundef zeroext i1 %.sroa.0.0.copyload(ptr noundef nonnull align 4 dereferenceable(8) %60, ptr noundef nonnull align 4 dereferenceable(8) %4)
   br i1 %61, label %62, label %.critedge.loopexit.i.i
 
 62:                                               ; preds = %.lr.ph.i.i
-  %63 = getelementptr inbounds %"struct.logos::MatchPoint", ptr %0, i64 %.018.i.i
+  %63 = getelementptr inbounds nuw %"struct.logos::MatchPoint", ptr %0, i64 %.018.i.i
   %64 = load i64, ptr %60, align 4
   store i64 %64, ptr %63, align 4
   %65 = icmp sgt i64 %.0919.i.i, %.010
@@ -1055,7 +1055,7 @@ _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN5logos10MatchPointESt6vecto
 _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN5logos10MatchPointESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_T0_SH_T1_T2_.exit: ; preds = %58, %.critedge.loopexit.i.i
   %66 = phi i64 [ %.sroa.03.0.copyload, %58 ], [ %.pre.i.i, %.critedge.loopexit.i.i ]
   %.0.lcssa.i.i = phi i64 [ %.1.i, %58 ], [ %.0.lcssa.ph.i.i, %.critedge.loopexit.i.i ]
-  %67 = getelementptr inbounds %"struct.logos::MatchPoint", ptr %0, i64 %.0.lcssa.i.i
+  %67 = getelementptr inbounds nuw %"struct.logos::MatchPoint", ptr %0, i64 %.0.lcssa.i.i
   store i64 %66, ptr %67, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.not = icmp eq i64 %.010, 0
@@ -1101,13 +1101,13 @@ define linkonce_odr hidden void @_ZNSt6vectorIPN5logos5PointESaIS2_EE17_M_defaul
 19:                                               ; preds = %3
   store ptr null, ptr %5, align 8, !tbaa !32
   %20 = getelementptr i8, ptr %5, i64 8
-  %21 = add i64 %1, -1
+  %21 = add nsw i64 %1, -1
   %22 = icmp eq i64 %21, 0
   br i1 %22, label %_ZSt27__uninitialized_default_n_aIPPN5logos5PointEmS2_ET_S4_T0_RSaIT1_E.exit, label %_ZSt6fill_nIPPN5logos5PointEmS2_ET_S4_T0_RKT1_.exit.loopexit.i.i.i
 
 _ZSt6fill_nIPPN5logos5PointEmS2_ET_S4_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
-  %23 = shl i64 %1, 3
-  %24 = add i64 %23, -8
+  %23 = shl nuw nsw i64 %1, 3
+  %24 = add nsw i64 %23, -8
   tail call void @llvm.memset.p0.i64(ptr align 8 %20, i8 0, i64 %24, i1 false), !tbaa !32
   %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 3
   %25 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i

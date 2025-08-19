@@ -1054,9 +1054,9 @@ _outgoing_buf_free.exit:                          ; preds = %18
   %215 = trunc nuw i8 %214 to i1
   %216 = getelementptr inbounds nuw i8, ptr %212, i64 8
   %217 = getelementptr inbounds nuw i8, ptr %209, i64 256
-  %.sink106.in = select i1 %215, ptr %217, ptr %216
-  %.sink106 = load ptr, ptr %.sink106.in, align 8
-  tail call void @list_enqueue(ptr noundef %.sink106, ptr noundef nonnull %205) #10
+  %.sink115.in = select i1 %215, ptr %217, ptr %216
+  %.sink115 = load ptr, ptr %.sink115.in, align 8
+  tail call void @list_enqueue(ptr noundef %.sink115, ptr noundef nonnull %205) #10
   store ptr null, ptr %9, align 8
   br label %.loopexit
 

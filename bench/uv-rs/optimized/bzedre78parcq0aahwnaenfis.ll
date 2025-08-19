@@ -3016,13 +3016,13 @@ _ZN3std3env3var17h49e4fd77749ece05E.exit:         ; preds = %274
   %276 = load i64, ptr %73, align 8, !range !182, !noundef !3
   %trunc = trunc nuw i64 %276 to i1
   %277 = getelementptr inbounds nuw i8, ptr %73, i64 8
-  br i1 %trunc, label %279, label %.thread143
+  br i1 %trunc, label %279, label %.thread162
 
-.thread143:                                       ; preds = %_ZN3std3env3var17h49e4fd77749ece05E.exit
+.thread162:                                       ; preds = %_ZN3std3env3var17h49e4fd77749ece05E.exit
   %278 = getelementptr inbounds nuw i8, ptr %74, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %278, ptr noundef nonnull align 8 dereferenceable(24) %277, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %73)
-  br label %.thread145
+  br label %.thread164
 
 279:                                              ; preds = %_ZN3std3env3var17h49e4fd77749ece05E.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %61)
@@ -3077,9 +3077,9 @@ _ZN3std3env3var17h49e4fd77749ece05E.exit.i:       ; preds = %279
   %.pre = load i64, ptr %74, align 8, !range !182
   %296 = trunc nuw i64 %.pre to i1
   call void @llvm.lifetime.end.p0(ptr nonnull %73)
-  br i1 %296, label %299, label %.thread145
+  br i1 %296, label %299, label %.thread164
 
-.thread145:                                       ; preds = %295, %.thread143
+.thread164:                                       ; preds = %295, %.thread162
   %297 = getelementptr inbounds nuw i8, ptr %74, i64 8
   %298 = getelementptr inbounds nuw i8, ptr %75, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %298, ptr noundef nonnull align 8 dereferenceable(24) %297, i64 24, i1 false)
@@ -3143,7 +3143,7 @@ _ZN3std3env3var17h49e4fd77749ece05E.exit.i86:     ; preds = %299
   call void @llvm.lifetime.end.p0(ptr nonnull %74)
   br i1 %317, label %462, label %318
 
-318:                                              ; preds = %.thread145, %316
+318:                                              ; preds = %.thread164, %316
   %319 = getelementptr inbounds nuw i8, ptr %75, i64 8
   call void @llvm.lifetime.start.p0(ptr nonnull %59)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %59, ptr noundef nonnull align 8 dereferenceable(24) %319, i64 24, i1 false)
@@ -4189,16 +4189,16 @@ define internal fastcc noundef nonnull ptr @_ZN9uv_client11base_client17BaseClie
   %92 = getelementptr inbounds nuw i8, ptr %57, i64 40
   %93 = getelementptr inbounds nuw i8, ptr %57, i64 32
   %94 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  br label %.outer270
+  br label %.outer288
 
-.outer270:                                        ; preds = %"_ZN71_$LT$http..header..name..HeaderName$u20$as$u20$core..cmp..PartialEq$GT$2eq17h050d5fedf4443b39E.exit.thread.i.i", %85
+.outer288:                                        ; preds = %"_ZN71_$LT$http..header..name..HeaderName$u20$as$u20$core..cmp..PartialEq$GT$2eq17h050d5fedf4443b39E.exit.thread.i.i", %85
   %.sroa.011.0.i.i.ph = phi i64 [ %129, %"_ZN71_$LT$http..header..name..HeaderName$u20$as$u20$core..cmp..PartialEq$GT$2eq17h050d5fedf4443b39E.exit.thread.i.i" ], [ 0, %85 ]
   %.sroa.022.0.i.i.ph = phi i64 [ %130, %"_ZN71_$LT$http..header..name..HeaderName$u20$as$u20$core..cmp..PartialEq$GT$2eq17h050d5fedf4443b39E.exit.thread.i.i" ], [ %89, %85 ]
   %95 = load i64, ptr %91, align 8, !alias.scope !756, !noalias !757, !noundef !3
   br label %96
 
-96:                                               ; preds = %.outer270, %96
-  %.sroa.022.0.i.i = phi i64 [ 0, %96 ], [ %.sroa.022.0.i.i.ph, %.outer270 ]
+96:                                               ; preds = %.outer288, %96
+  %.sroa.022.0.i.i = phi i64 [ 0, %96 ], [ %.sroa.022.0.i.i.ph, %.outer288 ]
   %97 = icmp ult i64 %.sroa.022.0.i.i, %95
   br i1 %97, label %98, label %96
 
@@ -4269,7 +4269,7 @@ define internal fastcc noundef nonnull ptr @_ZN9uv_client11base_client17BaseClie
 "_ZN71_$LT$http..header..name..HeaderName$u20$as$u20$core..cmp..PartialEq$GT$2eq17h050d5fedf4443b39E.exit.thread.i.i": ; preds = %"_ZN71_$LT$http..header..name..HeaderName$u20$as$u20$core..cmp..PartialEq$GT$2eq17h050d5fedf4443b39E.exit.i.i", %143, %134, %127
   %129 = add nuw nsw i64 %.sroa.011.0.i.i.ph, 1
   %130 = add i64 %.sroa.022.0.i.i, 1
-  br label %.outer270
+  br label %.outer288
 
 131:                                              ; preds = %127
   %132 = load i64, ptr %92, align 8, !alias.scope !756, !noalias !757, !noundef !3
@@ -4788,7 +4788,7 @@ _ZN7reqwest10async_impl6client13ClientBuilder10user_agent17h91937027ace28459E.ex
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(38) %.sroa.12.0..sroa_idx, ptr noundef nonnull align 2 dereferenceable(38) %.sroa.12.0..sroa_idx155, i64 38, i1 false)
   %not.brmerge = xor i1 %brmerge, true
   %. = zext i1 %not.brmerge to i8
-  %.249 = zext i1 %brmerge to i8
+  %.267 = zext i1 %brmerge to i8
   %315 = getelementptr inbounds nuw i8, ptr %56, i64 720
   store i64 %3, ptr %315, align 8
   %316 = getelementptr inbounds nuw i8, ptr %56, i64 728
@@ -4804,7 +4804,7 @@ _ZN7reqwest10async_impl6client13ClientBuilder10user_agent17h91937027ace28459E.ex
   %321 = getelementptr inbounds nuw i8, ptr %56, i64 872
   store i8 %., ptr %321, align 8
   %322 = getelementptr inbounds nuw i8, ptr %56, i64 873
-  store i8 %.249, ptr %322, align 1
+  store i8 %.267, ptr %322, align 1
   call void @llvm.lifetime.start.p0(ptr nonnull %55)
   call void @llvm.lifetime.start.p0(ptr nonnull %54)
   invoke void @_ZN3std3env7_var_os17hdbaf84f7fd796c40E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %54, ptr noalias noundef nonnull readonly align 1 @anon.737b9b45cb1467f0a7857b9890fa19bc.122, i64 noundef 15)
@@ -5522,7 +5522,7 @@ define internal fastcc void @_ZN9uv_client11base_client17BaseClientBuilder16appl
   %trunc = trunc nuw i8 %24 to i1
   br i1 %trunc, label %29, label %25
 
-default.unreachable72:                            ; preds = %37
+default.unreachable77:                            ; preds = %37
   unreachable
 
 25:                                               ; preds = %3
@@ -5601,7 +5601,7 @@ _ZN18reqwest_middleware6client13ClientBuilder4with17h7b6809a6ff3e367dE.exit: ; p
 37:                                               ; preds = %25, %46
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 143
   %39 = load i8, ptr %38, align 1, !range !42, !noundef !3
-  switch i8 %39, label %default.unreachable72 [
+  switch i8 %39, label %default.unreachable77 [
     i8 0, label %50
     i8 1, label %51
     i8 2, label %52

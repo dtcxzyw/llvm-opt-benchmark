@@ -89,12 +89,12 @@ sz_size2index.exit.i:                             ; preds = %22, %20, %14
 tsdn_witness_tsdp_get.exit.i:                     ; preds = %sz_size2index.exit.i
   %40 = tail call ptr @je_arena_malloc_hard(ptr noundef nonnull %0, ptr noundef %.0.i.i7.i, i64 noundef %5, i32 noundef range(i32 0, 256) %.0.i.i, i1 noundef zeroext false) #8
   %.not.i.i = icmp eq ptr %40, null
-  br i1 %.not.i.i, label %.thread37, label %42, !prof !15
+  br i1 %.not.i.i, label %.thread45, label %42, !prof !15
 
 tsdn_witness_tsdp_get.exit.thread.i:              ; preds = %sz_size2index.exit.i
   %41 = tail call ptr @je_arena_malloc_hard(ptr noundef null, ptr noundef %.0.i.i7.i, i64 noundef %5, i32 noundef range(i32 0, 256) %.0.i.i, i1 noundef zeroext false) #8
   %.not.i17.i = icmp eq ptr %41, null
-  br i1 %.not.i17.i, label %.thread37, label %.thread.i, !prof !15
+  br i1 %.not.i17.i, label %.thread45, label %.thread.i, !prof !15
 
 .thread.i:                                        ; preds = %tsdn_witness_tsdp_get.exit.thread.i
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -281,7 +281,7 @@ emap_alloc_ctx_lookup.exit.i:                     ; preds = %99, %98
   %141 = call ptr @je_rtree_leaf_elm_lookup_hard(ptr noundef %0, ptr noundef nonnull @je_arena_emap_global, ptr noundef nonnull %.0.i.i.i, i64 noundef %45, i1 noundef zeroext true, i1 noundef zeroext false) #8
   br label %144
 
-.thread37:                                        ; preds = %tsdn_witness_tsdp_get.exit.thread.i, %tsdn_witness_tsdp_get.exit.i
+.thread45:                                        ; preds = %tsdn_witness_tsdp_get.exit.thread.i, %tsdn_witness_tsdp_get.exit.i
   %142 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store ptr null, ptr %142, align 8, !tbaa !31
   %143 = getelementptr inbounds nuw i8, ptr %1, i64 40
@@ -300,23 +300,23 @@ emap_alloc_ctx_lookup.exit.i:                     ; preds = %99, %98
   br label %.thread
 
 .thread:                                          ; preds = %6, %144
-  %.sink50 = phi ptr [ %44, %144 ], [ %4, %6 ]
-  %.sink48 = phi i8 [ 1, %144 ], [ 0, %6 ]
+  %.sink58 = phi ptr [ %44, %144 ], [ %4, %6 ]
+  %.sink56 = phi i8 [ 1, %144 ], [ 0, %6 ]
   %151 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store ptr %.sink50, ptr %151, align 8, !tbaa !31
+  store ptr %.sink58, ptr %151, align 8, !tbaa !31
   %152 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  store i8 %.sink48, ptr %152, align 8, !tbaa !32
+  store i8 %.sink56, ptr %152, align 8, !tbaa !32
   %153 = add i64 %5, -1
   br label %154
 
-154:                                              ; preds = %.thread37, %.thread
-  %.not2335 = phi i1 [ false, %.thread ], [ true, %.thread37 ]
-  %.sink = phi i64 [ %153, %.thread ], [ 0, %.thread37 ]
+154:                                              ; preds = %.thread45, %.thread
+  %.not2343 = phi i1 [ false, %.thread ], [ true, %.thread45 ]
+  %.sink = phi i64 [ %153, %.thread ], [ 0, %.thread45 ]
   %155 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i64 %.sink, ptr %155, align 8, !tbaa !37
   %156 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store i64 0, ptr %156, align 8, !tbaa !38
-  ret i1 %.not2335
+  ret i1 %.not2343
 }
 
 declare void @je_wrtmessage(ptr noundef, ptr noundef) #1

@@ -3989,7 +3989,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %_ZS
   %241 = getelementptr inbounds nuw i8, ptr %39, i64 40
   store i8 1, ptr %241, align 8, !tbaa !446, !alias.scope !465
   call void @llvm.lifetime.end.p0(ptr nonnull %15), !noalias !465
-  br label %_ZL24getOffsetAndDataFragmentB5cxx11RKN4llvm8MCSymbolERjRPNS_14MCDataFragmentE.exit.thread110
+  br label %_ZL24getOffsetAndDataFragmentB5cxx11RKN4llvm8MCSymbolERjRPNS_14MCDataFragmentE.exit.thread169
 
 242:                                              ; preds = %221
   %243 = load ptr, ptr %14, align 8, !tbaa !452, !noalias !465
@@ -4075,7 +4075,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit52.i: ; preds = %_
   %274 = getelementptr inbounds nuw i8, ptr %39, i64 40
   store i8 1, ptr %274, align 8, !tbaa !446, !alias.scope !465
   call void @llvm.lifetime.end.p0(ptr nonnull %16), !noalias !465
-  br label %_ZL24getOffsetAndDataFragmentB5cxx11RKN4llvm8MCSymbolERjRPNS_14MCDataFragmentE.exit.thread110
+  br label %_ZL24getOffsetAndDataFragmentB5cxx11RKN4llvm8MCSymbolERjRPNS_14MCDataFragmentE.exit.thread169
 
 275:                                              ; preds = %242
   br i1 %.not1.i.i, label %292, label %._crit_edge.i.i53.i
@@ -4126,7 +4126,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit66.i: ; preds = %_
   %291 = getelementptr inbounds nuw i8, ptr %39, i64 40
   store i8 1, ptr %291, align 8, !tbaa !446, !alias.scope !465
   call void @llvm.lifetime.end.p0(ptr nonnull %17), !noalias !465
-  br label %_ZL24getOffsetAndDataFragmentB5cxx11RKN4llvm8MCSymbolERjRPNS_14MCDataFragmentE.exit.thread110
+  br label %_ZL24getOffsetAndDataFragmentB5cxx11RKN4llvm8MCSymbolERjRPNS_14MCDataFragmentE.exit.thread169
 
 292:                                              ; preds = %275
   %293 = getelementptr inbounds nuw i8, ptr %243, i64 16
@@ -4202,7 +4202,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit80.i: ; preds = %_
   %319 = getelementptr inbounds nuw i8, ptr %39, i64 40
   store i8 1, ptr %319, align 8, !tbaa !446, !alias.scope !465
   call void @llvm.lifetime.end.p0(ptr nonnull %18), !noalias !465
-  br label %_ZL24getOffsetAndDataFragmentB5cxx11RKN4llvm8MCSymbolERjRPNS_14MCDataFragmentE.exit.thread110
+  br label %_ZL24getOffsetAndDataFragmentB5cxx11RKN4llvm8MCSymbolERjRPNS_14MCDataFragmentE.exit.thread169
 
 _ZNK4llvm8MCSymbol9isDefinedEv.exit.thread.i:     ; preds = %_ZNK4llvm8MCSymbol9isDefinedEv.exit._ZNK4llvm8MCSymbol9isDefinedEv.exit.thread_crit_edge.i, %292
   %320 = phi ptr [ %.pre.i67, %_ZNK4llvm8MCSymbol9isDefinedEv.exit._ZNK4llvm8MCSymbol9isDefinedEv.exit.thread_crit_edge.i ], [ %294, %292 ]
@@ -4250,7 +4250,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit92.i: ; preds = %_
   store i8 1, ptr %338, align 8, !tbaa !446, !alias.scope !465
   call void @llvm.lifetime.end.p0(ptr nonnull %20), !noalias !465
   call void @llvm.lifetime.end.p0(ptr nonnull %19), !noalias !465
-  br label %_ZL24getOffsetAndDataFragmentB5cxx11RKN4llvm8MCSymbolERjRPNS_14MCDataFragmentE.exit.thread110
+  br label %_ZL24getOffsetAndDataFragmentB5cxx11RKN4llvm8MCSymbolERjRPNS_14MCDataFragmentE.exit.thread169
 
 339:                                              ; preds = %_ZNK4llvm8MCSymbol9isDefinedEv.exit.thread.i
   %340 = call noundef ptr @_ZNK4llvm8MCSymbol11getFragmentEb(ptr noundef nonnull align 8 dereferenceable(32) %320, i1 noundef zeroext true), !noalias !465
@@ -4301,7 +4301,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit104.i: ; preds = %
   store i8 1, ptr %357, align 8, !tbaa !446, !alias.scope !465
   call void @llvm.lifetime.end.p0(ptr nonnull %22), !noalias !465
   call void @llvm.lifetime.end.p0(ptr nonnull %21), !noalias !465
-  br label %_ZL24getOffsetAndDataFragmentB5cxx11RKN4llvm8MCSymbolERjRPNS_14MCDataFragmentE.exit.thread110
+  br label %_ZL24getOffsetAndDataFragmentB5cxx11RKN4llvm8MCSymbolERjRPNS_14MCDataFragmentE.exit.thread169
 
 358:                                              ; preds = %341
   %359 = load ptr, ptr %293, align 8, !tbaa !367, !noalias !465
@@ -4312,7 +4312,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit104.i: ; preds = %
   %364 = add i64 %363, %361
   store ptr %340, ptr %30, align 8, !tbaa !448, !noalias !465
   call void @llvm.lifetime.end.p0(ptr nonnull %14), !noalias !465
-  br label %_ZL24getOffsetAndDataFragmentB5cxx11RKN4llvm8MCSymbolERjRPNS_14MCDataFragmentE.exit.thread107
+  br label %_ZL24getOffsetAndDataFragmentB5cxx11RKN4llvm8MCSymbolERjRPNS_14MCDataFragmentE.exit.thread166
 
 _ZNK4llvm8MCSymbol11getFragmentEb.exit109.thread147.i: ; preds = %_ZNK4llvm8MCSymbol9isDefinedEv.exit.thread
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %216, i64 28
@@ -4359,7 +4359,7 @@ _ZSt9make_pairIbNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt4pairINSt
   %377 = getelementptr inbounds nuw i8, ptr %206, i64 24
   %378 = load i64, ptr %377, align 8, !tbaa !276, !noalias !465
   store ptr %216, ptr %30, align 8, !tbaa !448, !noalias !465
-  br label %_ZL24getOffsetAndDataFragmentB5cxx11RKN4llvm8MCSymbolERjRPNS_14MCDataFragmentE.exit.thread107
+  br label %_ZL24getOffsetAndDataFragmentB5cxx11RKN4llvm8MCSymbolERjRPNS_14MCDataFragmentE.exit.thread166
 
 _ZL24getOffsetAndDataFragmentB5cxx11RKN4llvm8MCSymbolERjRPNS_14MCDataFragmentE.exit.thread: ; preds = %_ZSt9make_pairIbNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt4pairINSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENS7_INS8_IT0_E4typeEE6__typeEEOS9_OSE_.exit115.i.thread, %_ZSt9make_pairIbNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt4pairINSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENS7_INS8_IT0_E4typeEE6__typeEEOS9_OSE_.exit115.i
   %.sink101 = phi ptr [ %372, %_ZSt9make_pairIbNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt4pairINSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENS7_INS8_IT0_E4typeEE6__typeEEOS9_OSE_.exit115.i.thread ], [ %370, %_ZSt9make_pairIbNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt4pairINSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENS7_INS8_IT0_E4typeEE6__typeEEOS9_OSE_.exit115.i ]
@@ -4374,14 +4374,14 @@ _ZL24getOffsetAndDataFragmentB5cxx11RKN4llvm8MCSymbolERjRPNS_14MCDataFragmentE.e
   call void @llvm.lifetime.end.p0(ptr nonnull %23), !noalias !465
   br label %386
 
-_ZL24getOffsetAndDataFragmentB5cxx11RKN4llvm8MCSymbolERjRPNS_14MCDataFragmentE.exit.thread107: ; preds = %358, %.thread151.i
+_ZL24getOffsetAndDataFragmentB5cxx11RKN4llvm8MCSymbolERjRPNS_14MCDataFragmentE.exit.thread166: ; preds = %358, %.thread151.i
   %383 = phi ptr [ %340, %358 ], [ %216, %.thread151.i ]
   %.078.in = phi i64 [ %364, %358 ], [ %378, %.thread151.i ]
   %384 = getelementptr inbounds nuw i8, ptr %39, i64 40
   store i8 0, ptr %384, align 8, !tbaa !446, !alias.scope !465
   br label %405
 
-_ZL24getOffsetAndDataFragmentB5cxx11RKN4llvm8MCSymbolERjRPNS_14MCDataFragmentE.exit.thread110: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit52.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit80.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit92.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit104.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit66.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
+_ZL24getOffsetAndDataFragmentB5cxx11RKN4llvm8MCSymbolERjRPNS_14MCDataFragmentE.exit.thread169: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit52.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit80.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit92.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit104.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit66.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
   call void @llvm.lifetime.end.p0(ptr nonnull %14), !noalias !465
   br label %386
 
@@ -4392,7 +4392,7 @@ _ZL24getOffsetAndDataFragmentB5cxx11RKN4llvm8MCSymbolERjRPNS_14MCDataFragmentE.e
   call void @llvm.lifetime.end.p0(ptr nonnull %14), !noalias !465
   br label %405
 
-386:                                              ; preds = %_ZL24getOffsetAndDataFragmentB5cxx11RKN4llvm8MCSymbolERjRPNS_14MCDataFragmentE.exit.thread110, %_ZL24getOffsetAndDataFragmentB5cxx11RKN4llvm8MCSymbolERjRPNS_14MCDataFragmentE.exit.thread
+386:                                              ; preds = %_ZL24getOffsetAndDataFragmentB5cxx11RKN4llvm8MCSymbolERjRPNS_14MCDataFragmentE.exit.thread169, %_ZL24getOffsetAndDataFragmentB5cxx11RKN4llvm8MCSymbolERjRPNS_14MCDataFragmentE.exit.thread
   %387 = getelementptr inbounds nuw i8, ptr %39, i64 40
   %388 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %389 = load i8, ptr %39, align 8, !tbaa !444, !range !265, !noundef !266
@@ -4434,17 +4434,17 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   store i8 1, ptr %388, align 8, !tbaa !446
   br label %418
 
-405:                                              ; preds = %_ZL24getOffsetAndDataFragmentB5cxx11RKN4llvm8MCSymbolERjRPNS_14MCDataFragmentE.exit.thread107, %_ZL24getOffsetAndDataFragmentB5cxx11RKN4llvm8MCSymbolERjRPNS_14MCDataFragmentE.exit
-  %.2109.in = phi i64 [ %.078.in, %_ZL24getOffsetAndDataFragmentB5cxx11RKN4llvm8MCSymbolERjRPNS_14MCDataFragmentE.exit.thread107 ], [ %249, %_ZL24getOffsetAndDataFragmentB5cxx11RKN4llvm8MCSymbolERjRPNS_14MCDataFragmentE.exit ]
-  %406 = phi ptr [ %383, %_ZL24getOffsetAndDataFragmentB5cxx11RKN4llvm8MCSymbolERjRPNS_14MCDataFragmentE.exit.thread107 ], [ %.0.i139.i, %_ZL24getOffsetAndDataFragmentB5cxx11RKN4llvm8MCSymbolERjRPNS_14MCDataFragmentE.exit ]
-  %.2109 = trunc i64 %.2109.in to i32
+405:                                              ; preds = %_ZL24getOffsetAndDataFragmentB5cxx11RKN4llvm8MCSymbolERjRPNS_14MCDataFragmentE.exit.thread166, %_ZL24getOffsetAndDataFragmentB5cxx11RKN4llvm8MCSymbolERjRPNS_14MCDataFragmentE.exit
+  %.2168.in = phi i64 [ %.078.in, %_ZL24getOffsetAndDataFragmentB5cxx11RKN4llvm8MCSymbolERjRPNS_14MCDataFragmentE.exit.thread166 ], [ %249, %_ZL24getOffsetAndDataFragmentB5cxx11RKN4llvm8MCSymbolERjRPNS_14MCDataFragmentE.exit ]
+  %406 = phi ptr [ %383, %_ZL24getOffsetAndDataFragmentB5cxx11RKN4llvm8MCSymbolERjRPNS_14MCDataFragmentE.exit.thread166 ], [ %.0.i139.i, %_ZL24getOffsetAndDataFragmentB5cxx11RKN4llvm8MCSymbolERjRPNS_14MCDataFragmentE.exit ]
+  %.2168 = trunc i64 %.2168.in to i32
   %407 = getelementptr inbounds nuw i8, ptr %39, i64 40
   %408 = getelementptr inbounds nuw i8, ptr %406, i64 96
   call void @llvm.lifetime.start.p0(ptr nonnull %40)
   %409 = getelementptr inbounds nuw i8, ptr %31, i64 16
   %410 = load i64, ptr %409, align 8, !tbaa !455
   %411 = trunc i64 %410 to i32
-  %412 = add i32 %.2109, %411
+  %412 = add i32 %.2168, %411
   store ptr %.0, ptr %40, align 8, !tbaa !331, !alias.scope !489
   %413 = getelementptr inbounds nuw i8, ptr %40, i64 8
   store i32 %412, ptr %413, align 8, !tbaa !277, !alias.scope !489

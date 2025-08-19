@@ -3917,7 +3917,7 @@ define internal fastcc void @validate_no_submodules(ptr noundef nonnull %0) unna
   %7 = tail call ptr (ptr, ptr, ptr, ...) @worktree_git_path(ptr noundef %6, ptr noundef nonnull %0, ptr noundef nonnull @.str.159) #18
   %8 = tail call i32 @is_directory(ptr noundef %7) #18
   %.not = icmp eq i32 %8, 0
-  br i1 %.not, label %9, label %.critedge25
+  br i1 %.not, label %9, label %.critedge26
 
 9:                                                ; preds = %1
   %10 = load ptr, ptr @the_repository, align 8, !tbaa !17
@@ -3974,7 +3974,7 @@ define internal fastcc void @validate_no_submodules(ptr noundef nonnull %0) unna
   %36 = call i32 @is_submodule_populated_gently(ptr noundef %35, ptr noundef nonnull %4) #18
   %.not12 = icmp eq i32 %36, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br i1 %.not12, label %._crit_edge, label %.critedge25
+  br i1 %.not12, label %._crit_edge, label %.critedge26
 
 ._crit_edge:                                      ; preds = %32
   %.pre = load i32, ptr %15, align 4, !tbaa !107
@@ -3987,7 +3987,7 @@ define internal fastcc void @validate_no_submodules(ptr noundef nonnull %0) unna
   %40 = icmp samesign ult i64 %indvars.iv.next, %39
   br i1 %40, label %20, label %.loopexit.loopexit, !llvm.loop !111
 
-.critedge25:                                      ; preds = %32, %1
+.critedge26:                                      ; preds = %32, %1
   call void @discard_index(ptr noundef nonnull %2) #18
   call void @strbuf_release(ptr noundef nonnull %3) #18
   %41 = call fastcc ptr @_(ptr noundef nonnull @.str.162)

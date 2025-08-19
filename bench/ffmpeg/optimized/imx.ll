@@ -91,7 +91,7 @@ bytestream2_get_byte.exit:                        ; preds = %31
   %36 = zext i8 %35 to i32
   %37 = and i32 %36, 63
   %38 = lshr i32 %36, 6
-  switch i32 %38, label %default.unreachable193 [
+  switch i32 %38, label %default.unreachable197 [
     i32 3, label %39
     i32 0, label %49
     i32 1, label %56
@@ -296,7 +296,7 @@ bytestream2_get_byte.exit154:                     ; preds = %115, %119
   %or.cond14 = select i1 %132, i1 %133, i1 false
   br i1 %or.cond14, label %.preheader185, label %.loopexit, !llvm.loop !49
 
-default.unreachable193:                           ; preds = %bytestream2_get_byte.exit
+default.unreachable197:                           ; preds = %bytestream2_get_byte.exit
   unreachable
 
 .loopexit.sink.split:                             ; preds = %72, %76, %.preheader, %49, %31

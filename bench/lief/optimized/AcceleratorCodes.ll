@@ -252,16 +252,16 @@ _ZN6frozen4bits10LowerBoundIN4LIEF2PE17ACCELERATOR_CODESENS_4impl10CompareKeyISt
 
 _ZNK6frozen3mapIN4LIEF2PE17ACCELERATOR_CODESEPKcLm171ESt4lessIS3_EE11lower_boundIS3_EEPKSt4pairIS3_S5_ERKT_.exit.i.i: ; preds = %9, %4, %_ZN6frozen4bits10LowerBoundIN4LIEF2PE17ACCELERATOR_CODESENS_4impl10CompareKeyISt4lessIS4_EEEE9doitfirstIPKSt4pairIS4_PKcELm11EEET_SI_St17integral_constantImXT0_EESJ_IbLb0EE.exit.i.i.i.i.i.i.i
   %.sink.in.i.i.i.i.i.i = phi ptr [ %17, %9 ], [ %8, %4 ], [ %.sink.in.i.i.i.i.i.i.i.i, %_ZN6frozen4bits10LowerBoundIN4LIEF2PE17ACCELERATOR_CODESENS_4impl10CompareKeyISt4lessIS4_EEEE9doitfirstIPKSt4pairIS4_PKcELm11EEET_SI_St17integral_constantImXT0_EESJ_IbLb0EE.exit.i.i.i.i.i.i.i ]
-  %.sink19.i.i.i.i.idx.i.i = phi i64 [ %.add20.i.i, %9 ], [ %.add15.i.i, %4 ], [ %.add12.i.i, %_ZN6frozen4bits10LowerBoundIN4LIEF2PE17ACCELERATOR_CODESENS_4impl10CompareKeyISt4lessIS4_EEEE9doitfirstIPKSt4pairIS4_PKcELm11EEET_SI_St17integral_constantImXT0_EESJ_IbLb0EE.exit.i.i.i.i.i.i.i ]
+  %.sink20.i.i.i.i.idx.i.i = phi i64 [ %.add20.i.i, %9 ], [ %.add15.i.i, %4 ], [ %.add12.i.i, %_ZN6frozen4bits10LowerBoundIN4LIEF2PE17ACCELERATOR_CODESENS_4impl10CompareKeyISt4lessIS4_EEEE9doitfirstIPKSt4pairIS4_PKcELm11EEET_SI_St17integral_constantImXT0_EESJ_IbLb0EE.exit.i.i.i.i.i.i.i ]
   %.sink.i.i.i.i.i.i = load i32, ptr %.sink.in.i.i.i.i.i.i, align 4, !tbaa !3
   %.not.i.i.i.i.i.i15.i.i.i.i.i.i = icmp ult i32 %.sink.i.i.i.i.i.i, %0
   %.idx.i.i.i.i.i.i16.i.i.i.i.i.i = select i1 %.not.i.i.i.i.i.i15.i.i.i.i.i.i, i64 32, i64 0
-  %.sink19.i.i.i.i.add.i.i = add nuw nsw i64 %.idx.i.i.i.i.i.i16.i.i.i.i.i.i, %.sink19.i.i.i.i.idx.i.i
-  %.ptr.i.i = getelementptr inbounds nuw i8, ptr @__const._ZN4LIEF2PE9to_stringENS0_17ACCELERATOR_CODESE.enums2str, i64 %.sink19.i.i.i.i.add.i.i
+  %.sink20.i.i.i.i.add.i.i = add nuw nsw i64 %.idx.i.i.i.i.i.i16.i.i.i.i.i.i, %.sink20.i.i.i.i.idx.i.i
+  %.ptr.i.i = getelementptr inbounds nuw i8, ptr @__const._ZN4LIEF2PE9to_stringENS0_17ACCELERATOR_CODESE.enums2str, i64 %.sink20.i.i.i.i.add.i.i
   %18 = load i32, ptr %.ptr.i.i, align 4, !tbaa !3
   %.not.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp ult i32 %18, %0
   %.idx.i.i.i.i.i.i.i.i.i.i.i.i.i = select i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 16, i64 0
-  %.add.i.i = add nuw nsw i64 %.sink19.i.i.i.i.add.i.i, %.idx.i.i.i.i.i.i.i.i.i.i.i.i.i
+  %.add.i.i = add nuw nsw i64 %.sink20.i.i.i.i.add.i.i, %.idx.i.i.i.i.i.i.i.i.i.i.i.i.i
   %.not.i.i = icmp eq i64 %.add.i.i, 2744
   br i1 %.not.i.i, label %_ZNK6frozen3mapIN4LIEF2PE17ACCELERATOR_CODESEPKcLm171ESt4lessIS3_EE4findIS3_EEPKSt4pairIS3_S5_ERKT_.exit.thread, label %19
 

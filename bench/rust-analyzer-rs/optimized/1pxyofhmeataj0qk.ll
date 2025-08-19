@@ -616,7 +616,7 @@ tailrecurse:                                      ; preds = %168, %2
   %9 = xor i64 %8, %7
   %10 = mul i64 %9, 5871781006564002453
   store i64 %10, ptr %1, align 8, !alias.scope !195
-  switch i8 %6, label %common.ret211 [
+  switch i8 %6, label %common.ret216 [
     i8 2, label %11
     i8 3, label %23
     i8 4, label %25
@@ -629,7 +629,7 @@ tailrecurse:                                      ; preds = %168, %2
     i8 11, label %250
   ]
 
-common.ret211:                                    ; preds = %._crit_edge.i32, %231, %._crit_edge.i, %212, %155, %"_ZN59_$LT$hir_expand..name..Repr$u20$as$u20$core..hash..Hash$GT$4hash17h428f1e113237a3ecE.exit.i", %88, %81, %_ZN4core4hash6Hasher10write_u12817hc318fbc774223361E.exit.i.i, %_ZN4core4hash6Hasher10write_i12817hdada8746d585b256E.exit.i.i, %61, %11, %_ZN4core4hash4Hash10hash_slice17hbad0210ef49ead14E.exit, %329, %321, %250, %23, %.lr.ph.i, %tailrecurse, %25
+common.ret216:                                    ; preds = %._crit_edge.i32, %231, %._crit_edge.i, %212, %155, %"_ZN59_$LT$hir_expand..name..Repr$u20$as$u20$core..hash..Hash$GT$4hash17h428f1e113237a3ecE.exit.i", %88, %81, %_ZN4core4hash6Hasher10write_u12817hc318fbc774223361E.exit.i.i, %_ZN4core4hash6Hasher10write_i12817hdada8746d585b256E.exit.i.i, %61, %11, %_ZN4core4hash4Hash10hash_slice17hbad0210ef49ead14E.exit, %329, %321, %250, %23, %.lr.ph.i, %tailrecurse, %25
   ret void
 
 11:                                               ; preds = %tailrecurse
@@ -644,19 +644,19 @@ common.ret211:                                    ; preds = %._crit_edge.i32, %2
   %.idx.i = mul nsw i64 %15, 48
   %19 = getelementptr inbounds i8, ptr %13, i64 %.idx.i
   %20 = icmp eq i64 %15, 0
-  br i1 %20, label %common.ret211, label %.lr.ph.i
+  br i1 %20, label %common.ret216, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %11, %.lr.ph.i
   %.sroa.0.06.i = phi ptr [ %21, %.lr.ph.i ], [ %13, %11 ]
   %21 = getelementptr inbounds nuw i8, ptr %.sroa.0.06.i, i64 48
   tail call void @"_ZN68_$LT$hir_def..hir..type_ref..TypeRef$u20$as$u20$core..hash..Hash$GT$4hash17h541b78ed40789622E.llvm.1761934296405320924"(ptr noalias noundef nonnull readonly align 16 dereferenceable(48) %.sroa.0.06.i, ptr noalias noundef nonnull align 8 dereferenceable(8) %1)
   %22 = icmp eq ptr %21, %19
-  br i1 %22, label %common.ret211, label %.lr.ph.i
+  br i1 %22, label %common.ret216, label %.lr.ph.i
 
 23:                                               ; preds = %tailrecurse
   %24 = getelementptr inbounds nuw i8, ptr %.tr, i64 8
   tail call fastcc void @"_ZN56_$LT$hir_def..path..Path$u20$as$u20$core..hash..Hash$GT$4hash17hd8960038129b908eE"(ptr noalias noundef readonly align 8 dereferenceable(40) %24, ptr noalias noundef align 8 dereferenceable(8) %1)
-  br label %common.ret211
+  br label %common.ret216
 
 25:                                               ; preds = %tailrecurse
   %26 = getelementptr inbounds nuw i8, ptr %.tr, i64 8
@@ -670,7 +670,7 @@ common.ret211:                                    ; preds = %._crit_edge.i32, %2
   %33 = xor i64 %32, %30
   %34 = mul i64 %33, 5871781006564002453
   store i64 %34, ptr %1, align 8, !alias.scope !207
-  br label %common.ret211
+  br label %common.ret216
 
 35:                                               ; preds = %tailrecurse
   %36 = getelementptr inbounds nuw i8, ptr %.tr, i64 8
@@ -721,7 +721,7 @@ common.ret211:                                    ; preds = %._crit_edge.i32, %2
   %63 = xor i64 %62, %53
   %64 = mul i64 %63, 5871781006564002453
   store i64 %64, ptr %1, align 8, !alias.scope !233, !noalias !238
-  switch i8 %50, label %common.ret211 [
+  switch i8 %50, label %common.ret216 [
     i8 0, label %65
     i8 1, label %73
     i8 2, label %81
@@ -755,7 +755,7 @@ common.ret211:                                    ; preds = %._crit_edge.i32, %2
 _ZN4core4hash6Hasher10write_i12817hdada8746d585b256E.exit.i.i: ; preds = %.lr.ph.i.i.i.i.i
   store i64 %70, ptr %1, align 8, !alias.scope !259, !noalias !260
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !246
-  br label %common.ret211
+  br label %common.ret216
 
 73:                                               ; preds = %61
   %74 = getelementptr inbounds nuw i8, ptr %.tr, i64 32
@@ -783,7 +783,7 @@ _ZN4core4hash6Hasher10write_i12817hdada8746d585b256E.exit.i.i: ; preds = %.lr.ph
 _ZN4core4hash6Hasher10write_u12817hc318fbc774223361E.exit.i.i: ; preds = %.lr.ph.i.i.i.i
   store i64 %78, ptr %1, align 8, !alias.scope !277, !noalias !278
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !264
-  br label %common.ret211
+  br label %common.ret216
 
 81:                                               ; preds = %61
   %82 = getelementptr inbounds nuw i8, ptr %.tr, i64 17
@@ -793,7 +793,7 @@ _ZN4core4hash6Hasher10write_u12817hc318fbc774223361E.exit.i.i: ; preds = %.lr.ph
   %86 = xor i64 %85, %84
   %87 = mul i64 %86, 5871781006564002453
   store i64 %87, ptr %1, align 8, !alias.scope !279, !noalias !238
-  br label %common.ret211
+  br label %common.ret216
 
 88:                                               ; preds = %61
   %89 = getelementptr inbounds nuw i8, ptr %.tr, i64 20
@@ -803,7 +803,7 @@ _ZN4core4hash6Hasher10write_u12817hc318fbc774223361E.exit.i.i: ; preds = %.lr.ph
   %93 = xor i64 %92, %91
   %94 = mul i64 %93, 5871781006564002453
   store i64 %94, ptr %1, align 8, !alias.scope !283, !noalias !238
-  br label %common.ret211
+  br label %common.ret216
 
 95:                                               ; preds = %46
   %96 = getelementptr inbounds nuw i8, ptr %.tr, i64 24
@@ -936,7 +936,7 @@ _ZN4core4hash6Hasher9write_str17h2fa84d2c908ea84eE.exit.i.i: ; preds = %142, %14
   %storemerge.in.i.i = phi i64 [ %149, %_ZN4core4hash6Hasher9write_str17h2fa84d2c908ea84eE.exit.i.i ], [ %154, %150 ]
   %storemerge.i.i = mul i64 %storemerge.in.i.i, 5871781006564002453
   store i64 %storemerge.i.i, ptr %1, align 8, !alias.scope !293, !noalias !292
-  br label %common.ret211
+  br label %common.ret216
 
 155:                                              ; preds = %46
   %156 = getelementptr inbounds nuw i8, ptr %.tr, i64 20
@@ -954,7 +954,7 @@ _ZN4core4hash6Hasher9write_str17h2fa84d2c908ea84eE.exit.i.i: ; preds = %142, %14
   %166 = xor i64 %165, %164
   %167 = mul i64 %166, 5871781006564002453
   store i64 %167, ptr %1, align 8, !alias.scope !325, !noalias !323
-  br label %common.ret211
+  br label %common.ret216
 
 168:                                              ; preds = %tailrecurse
   %169 = getelementptr inbounds nuw i8, ptr %.tr, i64 8
@@ -1034,7 +1034,7 @@ _ZN4core4hash4Hash10hash_slice17hbad0210ef49ead14E.exit: ; preds = %_ZN4core4has
   %211 = mul i64 %210, 5871781006564002453
   store i64 %211, ptr %1, align 8, !alias.scope !361
   %.not = icmp eq ptr %206, null
-  br i1 %.not, label %common.ret211, label %329
+  br i1 %.not, label %common.ret216, label %329
 
 212:                                              ; preds = %tailrecurse
   %213 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
@@ -1050,11 +1050,11 @@ _ZN4core4hash4Hash10hash_slice17hbad0210ef49ead14E.exit: ; preds = %_ZN4core4has
   %.idx.i24 = shl nsw i64 %216, 3
   %220 = getelementptr inbounds i8, ptr %214, i64 %.idx.i24
   %221 = icmp eq i64 %216, 0
-  br i1 %221, label %common.ret211, label %.lr.ph.i25
+  br i1 %221, label %common.ret216, label %.lr.ph.i25
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i25
   store i64 %229, ptr %1, align 8, !alias.scope !376, !noalias !381
-  br label %common.ret211
+  br label %common.ret216
 
 .lr.ph.i25:                                       ; preds = %212, %.lr.ph.i25
   %.sroa.0.06.i26 = phi ptr [ %223, %.lr.ph.i25 ], [ %214, %212 ]
@@ -1085,11 +1085,11 @@ _ZN4core4hash4Hash10hash_slice17hbad0210ef49ead14E.exit: ; preds = %_ZN4core4has
   %.idx.i27 = shl nsw i64 %235, 3
   %239 = getelementptr inbounds i8, ptr %233, i64 %.idx.i27
   %240 = icmp eq i64 %235, 0
-  br i1 %240, label %common.ret211, label %.lr.ph.i30
+  br i1 %240, label %common.ret216, label %.lr.ph.i30
 
 ._crit_edge.i32:                                  ; preds = %.lr.ph.i30
   store i64 %248, ptr %1, align 8, !alias.scope !396, !noalias !401
-  br label %common.ret211
+  br label %common.ret216
 
 .lr.ph.i30:                                       ; preds = %231, %.lr.ph.i30
   %.sroa.0.06.i31 = phi ptr [ %242, %.lr.ph.i30 ], [ %233, %231 ]
@@ -1123,7 +1123,7 @@ _ZN4core4hash4Hash10hash_slice17hbad0210ef49ead14E.exit: ; preds = %_ZN4core4has
   %261 = xor i64 %260, %259
   %262 = mul i64 %261, 5871781006564002453
   store i64 %262, ptr %1, align 8, !alias.scope !414, !noalias !409
-  br label %common.ret211
+  br label %common.ret216
 
 263:                                              ; preds = %35
   tail call void @llvm.experimental.noalias.scope.decl(metadata !417)
@@ -1263,7 +1263,7 @@ _ZN4core4hash6Hasher9write_str17h2fa84d2c908ea84eE.exit.i: ; preds = %308, %307
   %327 = xor i64 %326, %325
   %328 = mul i64 %327, 5871781006564002453
   store i64 %328, ptr %1, align 8, !alias.scope !451
-  br label %common.ret211
+  br label %common.ret216
 
 329:                                              ; preds = %_ZN4core4hash4Hash10hash_slice17hbad0210ef49ead14E.exit
   %330 = getelementptr inbounds nuw i8, ptr %206, i64 8
@@ -1272,7 +1272,7 @@ _ZN4core4hash6Hasher9write_str17h2fa84d2c908ea84eE.exit.i: ; preds = %308, %307
   %333 = xor i64 %332, %331
   %334 = mul i64 %333, 5871781006564002453
   store i64 %334, ptr %1, align 8, !alias.scope !456, !noalias !461
-  br label %common.ret211
+  br label %common.ret216
 }
 
 ; Function Attrs: cold nonlazybind uwtable

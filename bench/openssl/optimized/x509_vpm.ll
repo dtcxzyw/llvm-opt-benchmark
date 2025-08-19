@@ -372,16 +372,16 @@ define range(i32 0, 2) i32 @X509_VERIFY_PARAM_inherit(ptr noundef captures(addre
   br i1 %.not92131, label %.thread124, label %.thread132
 
 135:                                              ; preds = %.thread120
-  br i1 %.not80, label %.thread132, label %.thread138
+  br i1 %.not80, label %.thread132, label %.thread155
 
 .thread132:                                       ; preds = %.thread120.thread, %135
   %136 = phi ptr [ %134, %.thread120.thread ], [ %132, %135 ]
   %137 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %138 = load ptr, ptr %137, align 8, !tbaa !18
   %139 = icmp eq ptr %138, null
-  br i1 %139, label %.thread138, label %.thread124
+  br i1 %139, label %.thread155, label %.thread124
 
-.thread138:                                       ; preds = %.thread132, %135
+.thread155:                                       ; preds = %.thread132, %135
   %.ph = phi ptr [ %132, %135 ], [ %136, %.thread132 ]
   %140 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %141 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -395,10 +395,10 @@ define range(i32 0, 2) i32 @X509_VERIFY_PARAM_inherit(ptr noundef captures(addre
   %.not.i.i = icmp eq ptr %.pre134, null
   br i1 %.not.i.i, label %160, label %145
 
-145:                                              ; preds = %.thread138, %142
-  %146 = phi ptr [ %141, %.thread138 ], [ %144, %142 ]
-  %147 = phi ptr [ %140, %.thread138 ], [ %143, %142 ]
-  %148 = phi ptr [ %.ph, %.thread138 ], [ %.pre134, %142 ]
+145:                                              ; preds = %.thread155, %142
+  %146 = phi ptr [ %141, %.thread155 ], [ %144, %142 ]
+  %147 = phi ptr [ %140, %.thread155 ], [ %143, %142 ]
+  %148 = phi ptr [ %.ph, %.thread155 ], [ %.pre134, %142 ]
   %149 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %150 = load i64, ptr %149, align 8, !tbaa !25
   %151 = icmp eq i64 %150, 0

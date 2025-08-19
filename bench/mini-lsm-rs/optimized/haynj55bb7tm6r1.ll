@@ -816,7 +816,7 @@ define hidden noundef zeroext i1 @"_ZN18crossbeam_skiplist4base17Node$LT$K$C$V$G
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc noalias noundef ptr @"_ZN18crossbeam_skiplist4base17Node$LT$K$C$V$GT$5alloc17h2a0f6f4f50f5bafcE"(i64 noundef %0) unnamed_addr #3 {
+define internal fastcc noalias noundef nonnull ptr @"_ZN18crossbeam_skiplist4base17Node$LT$K$C$V$GT$5alloc17h2a0f6f4f50f5bafcE"(i64 noundef %0) unnamed_addr #3 {
   %2 = add i64 %0, -1
   %or.cond.i = icmp ult i64 %2, 32
   br i1 %or.cond.i, label %"_ZN18crossbeam_skiplist4base17Node$LT$K$C$V$GT$10get_layout17h6b495f88010d7c6eE.llvm.15192800734258360407.exit", label %_ZN4core3ops5range11RangeBounds8contains17h568513fb5ea7a6b4E.llvm.15192800734258360407.exit.thread.i
@@ -847,7 +847,7 @@ _ZN4core3ops5range11RangeBounds8contains17h568513fb5ea7a6b4E.llvm.15192800734258
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc noalias noundef ptr @"_ZN18crossbeam_skiplist4base17Node$LT$K$C$V$GT$5alloc17h4d88756bc97002e8E"(i64 noundef %0) unnamed_addr #3 {
+define internal fastcc noalias noundef nonnull ptr @"_ZN18crossbeam_skiplist4base17Node$LT$K$C$V$GT$5alloc17h4d88756bc97002e8E"(i64 noundef %0) unnamed_addr #3 {
   %2 = add i64 %0, -1
   %or.cond.i = icmp ult i64 %2, 32
   br i1 %or.cond.i, label %"_ZN18crossbeam_skiplist4base17Node$LT$K$C$V$GT$10get_layout17h188b99784bb4657aE.llvm.15192800734258360407.exit", label %_ZN4core3ops5range11RangeBounds8contains17h568513fb5ea7a6b4E.llvm.15192800734258360407.exit.thread.i
@@ -2383,14 +2383,14 @@ define internal fastcc void @"_ZN4core3ptr60drop_in_place$LT$mini_lsm_mvcc..mani
 8:                                                ; preds = %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !603)
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  switch i64 %6, label %default.unreachable4.i [
+  switch i64 %6, label %default.unreachable6.i [
     i64 0, label %18
     i64 1, label %19
     i64 2, label %34
     i64 3, label %10
   ]
 
-default.unreachable4.i:                           ; preds = %8
+default.unreachable6.i:                           ; preds = %8
   unreachable
 
 10:                                               ; preds = %8
@@ -6479,7 +6479,7 @@ define hidden noundef ptr @_ZN13mini_lsm_mvcc12lsm_iterator11LsmIterator10next_i
   %6 = icmp eq ptr %5, null
   br i1 %6, label %7, label %39
 
-default.unreachable40:                            ; preds = %"_ZN137_$LT$mini_lsm_mvcc..iterators..two_merge_iterator..TwoMergeIterator$LT$A$C$B$GT$$u20$as$u20$mini_lsm_mvcc..iterators..StorageIterator$GT$8is_valid17h55d7986ceec006a7E.exit.thread33"
+default.unreachable42:                            ; preds = %"_ZN137_$LT$mini_lsm_mvcc..iterators..two_merge_iterator..TwoMergeIterator$LT$A$C$B$GT$$u20$as$u20$mini_lsm_mvcc..iterators..StorageIterator$GT$8is_valid17h55d7986ceec006a7E.exit.thread33"
   unreachable
 
 7:                                                ; preds = %1
@@ -6548,7 +6548,7 @@ default.unreachable40:                            ; preds = %"_ZN137_$LT$mini_ls
 
 "_ZN137_$LT$mini_lsm_mvcc..iterators..two_merge_iterator..TwoMergeIterator$LT$A$C$B$GT$$u20$as$u20$mini_lsm_mvcc..iterators..StorageIterator$GT$8is_valid17h55d7986ceec006a7E.exit.thread33": ; preds = %18, %29, %"_ZN137_$LT$mini_lsm_mvcc..iterators..two_merge_iterator..TwoMergeIterator$LT$A$C$B$GT$$u20$as$u20$mini_lsm_mvcc..iterators..StorageIterator$GT$8is_valid17h55d7986ceec006a7E.exit"
   %38 = load i64, ptr %0, align 8, !range !1470, !noundef !4
-  switch i64 %38, label %default.unreachable40 [
+  switch i64 %38, label %default.unreachable42 [
     i64 0, label %40
     i64 1, label %54
     i64 2, label %39

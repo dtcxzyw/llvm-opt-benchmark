@@ -747,25 +747,25 @@ Vec_IntAlloc.exit:                                ; preds = %2, %7
   br label %.sink.split.sink.split
 
 .sink.split.sink.split:                           ; preds = %77, %75, %85, %83, %58, %56, %66, %64, %39, %37, %47, %45
-  %.sink61.sink = phi ptr [ %38, %37 ], [ %40, %39 ], [ %46, %45 ], [ %48, %47 ], [ %57, %56 ], [ %59, %58 ], [ %65, %64 ], [ %67, %66 ], [ %76, %75 ], [ %78, %77 ], [ %84, %83 ], [ %86, %85 ]
-  %.sink60.sink = phi i32 [ 16, %37 ], [ 16, %39 ], [ %42, %45 ], [ %42, %47 ], [ 16, %56 ], [ 16, %58 ], [ %61, %64 ], [ %61, %66 ], [ 16, %75 ], [ 16, %77 ], [ %80, %83 ], [ %80, %85 ]
-  %.sink67.ph = phi i32 [ %31, %37 ], [ %31, %39 ], [ %31, %45 ], [ %31, %47 ], [ %50, %56 ], [ %50, %58 ], [ %50, %64 ], [ %50, %66 ], [ %69, %75 ], [ %69, %77 ], [ %69, %83 ], [ %69, %85 ]
-  %.sink62.ph = phi i32 [ 3, %37 ], [ 3, %39 ], [ 3, %45 ], [ 3, %47 ], [ 2, %56 ], [ 2, %58 ], [ 2, %64 ], [ 2, %66 ], [ 1, %75 ], [ 1, %77 ], [ 1, %83 ], [ 1, %85 ]
-  store ptr %.sink61.sink, ptr %12, align 8, !tbaa !26
-  store i32 %.sink60.sink, ptr %4, align 8, !tbaa !59
+  %.sink68.sink = phi ptr [ %38, %37 ], [ %40, %39 ], [ %46, %45 ], [ %48, %47 ], [ %57, %56 ], [ %59, %58 ], [ %65, %64 ], [ %67, %66 ], [ %76, %75 ], [ %78, %77 ], [ %84, %83 ], [ %86, %85 ]
+  %.sink67.sink = phi i32 [ 16, %37 ], [ 16, %39 ], [ %42, %45 ], [ %42, %47 ], [ 16, %56 ], [ 16, %58 ], [ %61, %64 ], [ %61, %66 ], [ 16, %75 ], [ 16, %77 ], [ %80, %83 ], [ %80, %85 ]
+  %.sink74.ph = phi i32 [ %31, %37 ], [ %31, %39 ], [ %31, %45 ], [ %31, %47 ], [ %50, %56 ], [ %50, %58 ], [ %50, %64 ], [ %50, %66 ], [ %69, %75 ], [ %69, %77 ], [ %69, %83 ], [ %69, %85 ]
+  %.sink69.ph = phi i32 [ 3, %37 ], [ 3, %39 ], [ 3, %45 ], [ 3, %47 ], [ 2, %56 ], [ 2, %58 ], [ 2, %64 ], [ 2, %66 ], [ 1, %75 ], [ 1, %77 ], [ 1, %83 ], [ 1, %85 ]
+  store ptr %.sink68.sink, ptr %12, align 8, !tbaa !26
+  store i32 %.sink67.sink, ptr %4, align 8, !tbaa !59
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.sink.split.sink.split, %68, %49, %30
-  %.sink67 = phi i32 [ %31, %30 ], [ %50, %49 ], [ %69, %68 ], [ %.sink67.ph, %.sink.split.sink.split ]
-  %.pre.i2649.sink = phi ptr [ %18, %30 ], [ %19, %49 ], [ %20, %68 ], [ %.sink61.sink, %.sink.split.sink.split ]
-  %.sink62 = phi i32 [ 3, %30 ], [ 2, %49 ], [ 1, %68 ], [ %.sink62.ph, %.sink.split.sink.split ]
-  %.pre.i55.ph = phi ptr [ %18, %30 ], [ %18, %49 ], [ %18, %68 ], [ %.sink61.sink, %.sink.split.sink.split ]
-  %.pre.i2651.ph = phi ptr [ %18, %30 ], [ %19, %49 ], [ %19, %68 ], [ %.sink61.sink, %.sink.split.sink.split ]
-  %87 = add nsw i32 %.sink67, 1
+  %.sink74 = phi i32 [ %31, %30 ], [ %50, %49 ], [ %69, %68 ], [ %.sink74.ph, %.sink.split.sink.split ]
+  %.pre.i2649.sink = phi ptr [ %18, %30 ], [ %19, %49 ], [ %20, %68 ], [ %.sink68.sink, %.sink.split.sink.split ]
+  %.sink69 = phi i32 [ 3, %30 ], [ 2, %49 ], [ 1, %68 ], [ %.sink69.ph, %.sink.split.sink.split ]
+  %.pre.i55.ph = phi ptr [ %18, %30 ], [ %18, %49 ], [ %18, %68 ], [ %.sink68.sink, %.sink.split.sink.split ]
+  %.pre.i2651.ph = phi ptr [ %18, %30 ], [ %19, %49 ], [ %19, %68 ], [ %.sink68.sink, %.sink.split.sink.split ]
+  %87 = add nsw i32 %.sink74, 1
   store i32 %87, ptr %6, align 4, !tbaa !58
-  %88 = sext i32 %.sink67 to i64
+  %88 = sext i32 %.sink74 to i64
   %89 = getelementptr inbounds i32, ptr %.pre.i2649.sink, i64 %88
-  store i32 %.sink62, ptr %89, align 4, !tbaa !25
+  store i32 %.sink69, ptr %89, align 4, !tbaa !25
   br label %90
 
 90:                                               ; preds = %.sink.split, %28, %17

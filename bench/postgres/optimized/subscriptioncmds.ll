@@ -2422,9 +2422,9 @@ parse_subscription_options.specialized.5.exit.thread: ; preds = %206, %245, %par
   %399 = getelementptr inbounds nuw i8, ptr %7, i64 26
   %400 = load i8, ptr %399, align 2, !range !9, !noundef !10
   %401 = trunc nuw i8 %400 to i1
-  br i1 %401, label %404, label %.thread312
+  br i1 %401, label %404, label %.thread326
 
-.thread312:                                       ; preds = %398
+.thread326:                                       ; preds = %398
   %402 = getelementptr inbounds nuw i8, ptr %6, i64 40
   store i64 0, ptr %402, align 8
   %403 = getelementptr inbounds nuw i8, ptr %5, i64 5
@@ -3135,9 +3135,9 @@ parse_subscription_options.specialized.4.exit.thread: ; preds = %.lr.ph.i184, %6
   call fastcc void @AlterSubscription_refresh(ptr noundef nonnull %35, i1 noundef zeroext %764, ptr noundef null)
   br label %770
 
-765:                                              ; preds = %.thread312, %439, %493, %publicationListToArray.exit, %parse_subscription_options.specialized.4.exit.thread, %350, %347, %425, %421, %593, %publicationListToArray.exit168
-  %.1129.ph = phi i1 [ false, %publicationListToArray.exit168 ], [ false, %593 ], [ false, %421 ], [ false, %425 ], [ %.0128, %347 ], [ %.0128, %350 ], [ false, %parse_subscription_options.specialized.4.exit.thread ], [ false, %publicationListToArray.exit ], [ false, %493 ], [ false, %439 ], [ false, %.thread312 ]
-  %.1.ph = phi i1 [ false, %publicationListToArray.exit168 ], [ false, %593 ], [ false, %421 ], [ false, %425 ], [ %.not146, %347 ], [ %.not146, %350 ], [ false, %parse_subscription_options.specialized.4.exit.thread ], [ false, %publicationListToArray.exit ], [ false, %493 ], [ false, %439 ], [ false, %.thread312 ]
+765:                                              ; preds = %.thread326, %439, %493, %publicationListToArray.exit, %parse_subscription_options.specialized.4.exit.thread, %350, %347, %425, %421, %593, %publicationListToArray.exit168
+  %.1129.ph = phi i1 [ false, %publicationListToArray.exit168 ], [ false, %593 ], [ false, %421 ], [ false, %425 ], [ %.0128, %347 ], [ %.0128, %350 ], [ false, %parse_subscription_options.specialized.4.exit.thread ], [ false, %publicationListToArray.exit ], [ false, %493 ], [ false, %439 ], [ false, %.thread326 ]
+  %.1.ph = phi i1 [ false, %publicationListToArray.exit168 ], [ false, %593 ], [ false, %421 ], [ false, %425 ], [ %.not146, %347 ], [ %.not146, %350 ], [ false, %parse_subscription_options.specialized.4.exit.thread ], [ false, %publicationListToArray.exit ], [ false, %493 ], [ false, %439 ], [ false, %.thread326 ]
   %766 = getelementptr inbounds nuw i8, ptr %11, i64 64
   %767 = load ptr, ptr %766, align 8
   %768 = call ptr @heap_modify_tuple(ptr noundef nonnull %17, ptr noundef %767, ptr noundef nonnull %6, ptr noundef nonnull %4, ptr noundef nonnull %5) #10
@@ -3447,12 +3447,12 @@ list_length.exit127.thread:                       ; preds = %.critedge
   %82 = load i32, ptr %79, align 4
   %83 = sext i32 %82 to i64
   %84 = icmp sgt i32 %82, 0
-  br i1 %84, label %.lr.ph183, label %list_length.exit130
+  br i1 %84, label %.lr.ph191, label %list_length.exit130
 
-.lr.ph183:                                        ; preds = %.lr.ph155, %bsearch.exit
-  %indvars.iv166182 = phi i64 [ %indvars.iv.next167, %bsearch.exit ], [ 0, %.lr.ph155 ]
+.lr.ph191:                                        ; preds = %.lr.ph155, %bsearch.exit
+  %indvars.iv166190 = phi i64 [ %indvars.iv.next167, %bsearch.exit ], [ 0, %.lr.ph155 ]
   %85 = load ptr, ptr %80, align 8
-  %86 = getelementptr inbounds nuw %union.ListCell, ptr %85, i64 %indvars.iv166182
+  %86 = getelementptr inbounds nuw %union.ListCell, ptr %85, i64 %indvars.iv166190
   %87 = load ptr, ptr %86, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %88 = call i32 @RangeVarGetRelidExtended(ptr noundef %87, i32 noundef 1, i32 noundef 0, ptr noundef null, ptr noundef null) #10
@@ -3464,14 +3464,14 @@ list_length.exit127.thread:                       ; preds = %.critedge
   %93 = load ptr, ptr %92, align 8
   call void @CheckSubscriptionRelkind(i8 noundef signext %89, ptr noundef %91, ptr noundef %93) #10
   %94 = load i32, ptr %6, align 4
-  %indvars.iv.next167 = add nuw nsw i64 %indvars.iv166182, 1
-  %95 = getelementptr inbounds nuw i32, ptr %78, i64 %indvars.iv166182
+  %indvars.iv.next167 = add nuw nsw i64 %indvars.iv166190, 1
+  %95 = getelementptr inbounds nuw i32, ptr %78, i64 %indvars.iv166190
   store i32 %94, ptr %95, align 4
   br i1 %.not24.i, label %.loopexit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %.lr.ph183, %105
-  %.01621.i = phi i64 [ %.1.i, %105 ], [ 0, %.lr.ph183 ]
-  %.01720.i = phi i64 [ %.118.i, %105 ], [ %65, %.lr.ph183 ]
+.lr.ph.i:                                         ; preds = %.lr.ph191, %105
+  %.01621.i = phi i64 [ %.1.i, %105 ], [ 0, %.lr.ph191 ]
+  %.01720.i = phi i64 [ %.118.i, %105 ], [ %65, %.lr.ph191 ]
   %96 = add i64 %.01720.i, %.01621.i
   %97 = lshr i64 %96, 1
   %98 = shl i64 %97, 2
@@ -3510,8 +3510,8 @@ list_length.exit130:                              ; preds = %bsearch.exit, %.lr.
   %.pre = load i32, ptr %6, align 4
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.loopexit.loopexit, %.lr.ph183
-  %111 = phi i32 [ %.pre, %.loopexit.loopexit ], [ %94, %.lr.ph183 ]
+.loopexit:                                        ; preds = %.loopexit.loopexit, %.lr.ph191
+  %111 = phi i32 [ %.pre, %.loopexit.loopexit ], [ %94, %.lr.ph191 ]
   %112 = load i32, ptr %0, align 8
   call void @AddSubscriptionRelState(i32 noundef %112, i32 noundef %111, i8 noundef signext %81, i64 noundef 0, i1 noundef zeroext true) #10
   %113 = call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #10
@@ -3530,7 +3530,7 @@ bsearch.exit:                                     ; preds = %102, %.loopexit, %1
   %119 = load i32, ptr %79, align 4
   %120 = sext i32 %119 to i64
   %121 = icmp slt i64 %indvars.iv.next167, %120
-  br i1 %121, label %.lr.ph183, label %list_length.exit130
+  br i1 %121, label %.lr.ph191, label %list_length.exit130
 
 .preheader:                                       ; preds = %bsearch.exit141
   %122 = icmp sgt i32 %.198, 0
@@ -3684,7 +3684,7 @@ bsearch.exit141:                                  ; preds = %134, %166
   unreachable
 
 ._crit_edge:                                      ; preds = %174, %list_length.exit130, %.preheader
-  %.099.lcssa181 = phi ptr [ %.1100, %.preheader ], [ null, %list_length.exit130 ], [ %.1100, %174 ]
+  %.099.lcssa189 = phi ptr [ %.1100, %.preheader ], [ null, %list_length.exit130 ], [ %.1100, %174 ]
   store ptr %35, ptr @PG_exception_stack, align 8
   store ptr %36, ptr @error_context_stack, align 8
   %179 = load ptr, ptr @WalReceiverFunctions, align 8
@@ -3694,11 +3694,11 @@ bsearch.exit141:                                  ; preds = %134, %166
   store ptr %35, ptr @PG_exception_stack, align 8
   store ptr %36, ptr @error_context_stack, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %.not115 = icmp eq ptr %.099.lcssa181, null
+  %.not115 = icmp eq ptr %.099.lcssa189, null
   br i1 %.not115, label %183, label %182
 
 182:                                              ; preds = %._crit_edge
-  call void @table_close(ptr noundef nonnull %.099.lcssa181, i32 noundef 0) #10
+  call void @table_close(ptr noundef nonnull %.099.lcssa189, i32 noundef 0) #10
   br label %183
 
 183:                                              ; preds = %182, %._crit_edge

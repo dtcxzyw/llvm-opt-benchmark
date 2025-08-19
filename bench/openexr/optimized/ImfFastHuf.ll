@@ -167,15 +167,15 @@ _ZN7Imf_3_414FastHufDecoder8readBitsEiRmRiRPKc.exit: ; preds = %.lr.ph.i, %37
 _ZN7Imf_3_414FastHufDecoder8readBitsEiRmRiRPKc.exit132.loopexit: ; preds = %64
   %66 = add nuw nsw i32 %.lcssa.i, 2
   %67 = shl i64 %.2, 8
-  %68 = getelementptr inbounds nuw i8, ptr %.2161, i64 1
-  %69 = load i8, ptr %.2161, align 1, !tbaa !18
-  %70 = zext i8 %69 to i64
-  %71 = or disjoint i64 %67, %70
+  %68 = load i8, ptr %.2161, align 1, !tbaa !18
+  %69 = zext i8 %68 to i64
+  %70 = or disjoint i64 %67, %69
+  %71 = getelementptr inbounds nuw i8, ptr %.2161, i64 1
   br label %_ZN7Imf_3_414FastHufDecoder8readBitsEiRmRiRPKc.exit132
 
 _ZN7Imf_3_414FastHufDecoder8readBitsEiRmRiRPKc.exit132: ; preds = %_ZN7Imf_3_414FastHufDecoder8readBitsEiRmRiRPKc.exit132.loopexit, %64
-  %.3162 = phi ptr [ %.2161, %64 ], [ %68, %_ZN7Imf_3_414FastHufDecoder8readBitsEiRmRiRPKc.exit132.loopexit ]
-  %.3 = phi i64 [ %.2, %64 ], [ %71, %_ZN7Imf_3_414FastHufDecoder8readBitsEiRmRiRPKc.exit132.loopexit ]
+  %.3162 = phi ptr [ %.2161, %64 ], [ %71, %_ZN7Imf_3_414FastHufDecoder8readBitsEiRmRiRPKc.exit132.loopexit ]
+  %.3 = phi i64 [ %.2, %64 ], [ %70, %_ZN7Imf_3_414FastHufDecoder8readBitsEiRmRiRPKc.exit132.loopexit ]
   %.lcssa.i128 = phi i32 [ %49, %64 ], [ %66, %_ZN7Imf_3_414FastHufDecoder8readBitsEiRmRiRPKc.exit132.loopexit ]
   %72 = add nsw i32 %.lcssa.i128, -8
   %73 = zext nneg i32 %72 to i64
@@ -990,9 +990,9 @@ define hidden void @_ZN7Imf_3_414FastHufDecoder6decodeEPKhiPti(ptr noundef nonnu
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %57, %._crit_edge.i.loopexit, %52
-  %.7197 = phi i32 [ %56, %52 ], [ 0, %._crit_edge.i.loopexit ], [ 0, %57 ]
-  %.7179 = phi ptr [ %55, %52 ], [ %scevgep242, %._crit_edge.i.loopexit ], [ %.0172223, %57 ]
-  %73 = phi i64 [ %54, %52 ], [ %65, %._crit_edge.i.loopexit ], [ 0, %57 ]
+  %.7197 = phi i32 [ %56, %52 ], [ 0, %57 ], [ 0, %._crit_edge.i.loopexit ]
+  %.7179 = phi ptr [ %55, %52 ], [ %.0172223, %57 ], [ %scevgep242, %._crit_edge.i.loopexit ]
+  %73 = phi i64 [ %54, %52 ], [ 0, %57 ], [ %65, %._crit_edge.i.loopexit ]
   %74 = sub nsw i32 64, %50
   %75 = zext nneg i32 %74 to i64
   %76 = lshr i64 %73, %75
@@ -1152,9 +1152,9 @@ _ZN7Imf_3_414FastHufDecoder6refillERmiS1_RiRPKhS2_.exit: ; preds = %._ZN7Imf_3_4
   br label %.sink.split.i85
 
 .sink.split.i85:                                  ; preds = %130, %._crit_edge.i82.loopexit, %125
-  %.10200 = phi i32 [ %129, %125 ], [ 0, %._crit_edge.i82.loopexit ], [ 0, %130 ]
-  %.11183 = phi ptr [ %128, %125 ], [ %scevgep245, %._crit_edge.i82.loopexit ], [ %.1173, %130 ]
-  %146 = phi i64 [ %127, %125 ], [ %138, %._crit_edge.i82.loopexit ], [ 0, %130 ]
+  %.10200 = phi i32 [ %129, %125 ], [ 0, %130 ], [ 0, %._crit_edge.i82.loopexit ]
+  %.11183 = phi ptr [ %128, %125 ], [ %.1173, %130 ], [ %scevgep245, %._crit_edge.i82.loopexit ]
+  %146 = phi i64 [ %127, %125 ], [ 0, %130 ], [ %138, %._crit_edge.i82.loopexit ]
   %147 = sub nsw i32 64, %123
   %148 = zext nneg i32 %147 to i64
   %149 = lshr i64 %146, %148
@@ -1330,9 +1330,9 @@ _ZN7Imf_3_414FastHufDecoder6refillERmiS1_RiRPKhS2_.exit92: ; preds = %._ZN7Imf_3
   br label %.sink.split.i101
 
 .sink.split.i101:                                 ; preds = %205, %._crit_edge.i98.loopexit, %200
-  %.13203 = phi i32 [ %204, %200 ], [ 0, %._crit_edge.i98.loopexit ], [ 0, %205 ]
-  %.15187 = phi ptr [ %203, %200 ], [ %scevgep250, %._crit_edge.i98.loopexit ], [ %.4176, %205 ]
-  %221 = phi i64 [ %202, %200 ], [ %213, %._crit_edge.i98.loopexit ], [ 0, %205 ]
+  %.13203 = phi i32 [ %204, %200 ], [ 0, %205 ], [ 0, %._crit_edge.i98.loopexit ]
+  %.15187 = phi ptr [ %203, %200 ], [ %.4176, %205 ], [ %scevgep250, %._crit_edge.i98.loopexit ]
+  %221 = phi i64 [ %202, %200 ], [ 0, %205 ], [ %213, %._crit_edge.i98.loopexit ]
   %222 = sub nsw i32 64, %198
   %223 = zext nneg i32 %222 to i64
   %224 = lshr i64 %221, %223

@@ -734,20 +734,20 @@ define dso_local noundef range(i32 -22, 1) i32 @drm_plane_create_color_propertie
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 1240
   %51 = load ptr, ptr %50, align 8
   %52 = icmp eq ptr %51, null
-  br i1 %52, label %.preheader9, label %53
+  br i1 %52, label %.preheader13, label %53
 
 53:                                               ; preds = %47
   %54 = getelementptr inbounds nuw i8, ptr %51, i64 88
   store i32 %3, ptr %54, align 8
-  br label %.preheader9
+  br label %.preheader13
 
-.preheader9:                                      ; preds = %53, %47
+.preheader13:                                     ; preds = %53, %47
   br label %55
 
-55:                                               ; preds = %.preheader9, %70
-  %56 = phi i1 [ false, %70 ], [ true, %.preheader9 ]
-  %57 = phi i64 [ 1, %70 ], [ 0, %.preheader9 ]
-  %58 = phi i32 [ %71, %70 ], [ 0, %.preheader9 ]
+55:                                               ; preds = %.preheader13, %70
+  %56 = phi i1 [ false, %70 ], [ true, %.preheader13 ]
+  %57 = phi i64 [ 1, %70 ], [ 0, %.preheader13 ]
+  %58 = phi i32 [ %71, %70 ], [ 0, %.preheader13 ]
   %59 = shl nuw nsw i64 1, %57
   %60 = and i64 %59, %21
   %61 = icmp eq i64 %60, 0

@@ -73,9 +73,9 @@ define dso_local range(i32 -1, 1) i32 @mcs_p_set_mcs_label(ptr noundef %0, ptr n
   br label %.sink.split
 
 .sink.split:                                      ; preds = %4, %18
-  %.sink15.in = phi ptr [ %19, %18 ], [ %5, %4 ]
-  %.sink15 = load ptr, ptr %.sink15.in, align 8
-  %20 = tail call ptr @xstrdup(ptr noundef %.sink15) #5
+  %.sink17.in = phi ptr [ %19, %18 ], [ %5, %4 ]
+  %.sink17 = load ptr, ptr %.sink17.in, align 8
+  %20 = tail call ptr @xstrdup(ptr noundef %.sink17) #5
   store ptr %20, ptr %3, align 8
   br label %21
 

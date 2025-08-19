@@ -778,8 +778,8 @@ _ZN4llvm5ErrorD2Ev.exit34:                        ; preds = %23
   %.0.copyload.i.i.i44 = load i32, ptr %55, align 1
   %58 = zext i32 %.0.copyload.i.i.i44 to i64
   %59 = add nuw nsw i64 %58, %57
-  %.not201 = icmp ugt i64 %59, %.sroa.2.0.copyload.i
-  br i1 %.not201, label %_ZN4llvm5ErrorD2Ev.exit49, label %61
+  %.not202 = icmp ugt i64 %59, %.sroa.2.0.copyload.i
+  br i1 %.not202, label %_ZN4llvm5ErrorD2Ev.exit49, label %61
 
 _ZN4llvm5ErrorD2Ev.exit49:                        ; preds = %54
   %60 = call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #15, !noalias !167
@@ -1128,13 +1128,13 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapINS_8minidump10StreamTypeEmNS_12DenseMapInfoI
   br label %.loopexit
 
 .loopexit:                                        ; preds = %23, %10, %55
-  %.sink28 = phi i32 [ %60, %55 ], [ %8, %10 ], [ %8, %23 ]
-  %.sink26 = phi ptr [ %59, %55 ], [ %6, %10 ], [ %6, %23 ]
-  %.sink25 = phi ptr [ %46, %55 ], [ %15, %10 ], [ %29, %23 ]
+  %.sink32 = phi i32 [ %60, %55 ], [ %8, %10 ], [ %8, %23 ]
+  %.sink30 = phi ptr [ %59, %55 ], [ %6, %10 ], [ %6, %23 ]
+  %.sink29 = phi ptr [ %46, %55 ], [ %15, %10 ], [ %29, %23 ]
   %.sink = phi i8 [ 1, %55 ], [ 0, %10 ], [ 0, %23 ]
-  %61 = zext i32 %.sink28 to i64
-  %62 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %.sink26, i64 %61
-  store ptr %.sink25, ptr %0, align 8
+  %61 = zext i32 %.sink32 to i64
+  %62 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %.sink30, i64 %61
+  store ptr %.sink29, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %62, ptr %.sroa.4.0..sroa_idx, align 8
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1160,9 +1160,9 @@ define dso_local void @_ZNK4llvm6object12MinidumpFile15getMemory64ListERNS_5Erro
   br i1 %11, label %_ZN4llvm8ExpectedINS_8ArrayRefINS_8minidump19MemoryDescriptor_64EEEED2Ev.exit.thread, label %14
 
 _ZN4llvm8ExpectedINS_8ArrayRefINS_8minidump19MemoryDescriptor_64EEEED2Ev.exit.thread: ; preds = %3
-  %.sroa.068.1193 = load i64, ptr %8, align 8, !tbaa !41
+  %.sroa.068.1195 = load i64, ptr %8, align 8, !tbaa !41
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !237
-  %12 = inttoptr i64 %.sroa.068.1193 to ptr
+  %12 = inttoptr i64 %.sroa.068.1195 to ptr
   store ptr %12, ptr %2, align 8, !tbaa !240
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %0, i8 0, i64 64, i1 false)
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -1368,10 +1368,10 @@ _ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i26: ;
   br label %_ZN4llvm8ExpectedINS_8minidump18Memory64ListHeaderEED2Ev.exit
 
 _ZN4llvm8ExpectedINS_8minidump18Memory64ListHeaderEED2Ev.exit: ; preds = %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i26, %_ZN4llvm5ErrorD2Ev.exit11, %.critedge, %_ZN4llvm5ErrorD2Ev.exit19, %_ZN4llvm8ExpectedINS_8ArrayRefINS_8minidump19MemoryDescriptor_64EEEED2Ev.exit.thread
-  %.sink198.sink = phi i8 [ 1, %_ZN4llvm8ExpectedINS_8ArrayRefINS_8minidump19MemoryDescriptor_64EEEED2Ev.exit.thread ], [ 1, %_ZN4llvm5ErrorD2Ev.exit19 ], [ 0, %.critedge ], [ 1, %_ZN4llvm5ErrorD2Ev.exit11 ], [ 1, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i26 ]
+  %.sink200.sink = phi i8 [ 1, %_ZN4llvm8ExpectedINS_8ArrayRefINS_8minidump19MemoryDescriptor_64EEEED2Ev.exit.thread ], [ 1, %_ZN4llvm5ErrorD2Ev.exit19 ], [ 0, %.critedge ], [ 1, %_ZN4llvm5ErrorD2Ev.exit11 ], [ 1, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i26 ]
   %.sink.sink = phi i64 [ 0, %_ZN4llvm8ExpectedINS_8ArrayRefINS_8minidump19MemoryDescriptor_64EEEED2Ev.exit.thread ], [ 0, %_ZN4llvm5ErrorD2Ev.exit19 ], [ %85, %.critedge ], [ 0, %_ZN4llvm5ErrorD2Ev.exit11 ], [ 0, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i26 ]
   %.sroa.4147.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store i8 %.sink198.sink, ptr %.sroa.4147.0..sroa_idx, align 8
+  store i8 %.sink200.sink, ptr %.sroa.4147.0..sroa_idx, align 8
   %.sroa.6149.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i64 %.sink.sink, ptr %.sroa.6149.0..sroa_idx, align 8
   %.sroa.4151.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 144

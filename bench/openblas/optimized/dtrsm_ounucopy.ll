@@ -143,9 +143,9 @@ define noundef i32 @dtrsm_ounucopy(i64 noundef %0, i64 noundef %1, ptr noundef r
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.lr.ph95.split.split, %65
-  %.sink135 = phi double [ %66, %65 ], [ 1.000000e+00, %.lr.ph95.split.split ]
+  %.sink138 = phi double [ %66, %65 ], [ 1.000000e+00, %.lr.ph95.split.split ]
   %67 = load double, ptr %61, align 8, !tbaa !3
-  store double %.sink135, ptr %.07990, align 8, !tbaa !3
+  store double %.sink138, ptr %.07990, align 8, !tbaa !3
   %68 = getelementptr inbounds nuw i8, ptr %.07990, i64 8
   store double %67, ptr %68, align 8, !tbaa !3
   br label %69

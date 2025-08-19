@@ -597,10 +597,10 @@ define i32 @do_server(ptr noundef writeonly captures(address_is_null) %0, ptr no
   br i1 %75, label %.critedge157, label %.thread
 
 .thread:                                          ; preds = %70, %.thread143
-  %.1110180 = phi ptr [ %48, %.thread143 ], [ %71, %70 ]
-  %.0114179 = phi i32 [ %74, %.thread143 ], [ %72, %70 ]
-  %.2106150178 = phi i32 [ %.2106150, %.thread143 ], [ %.1105, %70 ]
-  %76 = call i32 @BIO_listen(i32 noundef %.0114179, ptr noundef %.1110180, i32 noundef %.2106150178) #9
+  %.1110191 = phi ptr [ %48, %.thread143 ], [ %71, %70 ]
+  %.0114190 = phi i32 [ %74, %.thread143 ], [ %72, %70 ]
+  %.2106150189 = phi i32 [ %.2106150, %.thread143 ], [ %.1105, %70 ]
+  %76 = call i32 @BIO_listen(i32 noundef %.0114190, ptr noundef %.1110191, i32 noundef %.2106150189) #9
   %.not132 = icmp eq i32 %76, 0
   br i1 %.not132, label %77, label %81
 
@@ -609,22 +609,22 @@ define i32 @do_server(ptr noundef writeonly captures(address_is_null) %0, ptr no
   call void @BIO_ADDRINFO_free(ptr noundef %78) #9
   %79 = load ptr, ptr @bio_err, align 8, !tbaa !8
   call void @ERR_print_errors(ptr noundef %79) #9
-  %80 = call i32 @BIO_closesocket(i32 noundef %.0114179) #9
+  %80 = call i32 @BIO_closesocket(i32 noundef %.0114190) #9
   br label %148
 
 81:                                               ; preds = %.thread
-  %82 = call zeroext i16 @BIO_ADDR_rawport(ptr noundef %.1110180) #9
+  %82 = call zeroext i16 @BIO_ADDR_rawport(ptr noundef %.1110191) #9
   %83 = load ptr, ptr %12, align 8, !tbaa !3
   call void @BIO_ADDRINFO_free(ptr noundef %83) #9
   store ptr null, ptr %12, align 8, !tbaa !3
   %84 = icmp eq i16 %82, 0
   %85 = zext i1 %84 to i32
-  %86 = call i32 @report_server_accept(ptr noundef %9, i32 noundef %.0114179, i32 noundef %85, i32 noundef 0)
+  %86 = call i32 @report_server_accept(ptr noundef %9, i32 noundef %.0114190, i32 noundef %85, i32 noundef 0)
   %.not133 = icmp eq i32 %86, 0
   br i1 %.not133, label %87, label %90
 
 87:                                               ; preds = %81
-  %88 = call i32 @BIO_closesocket(i32 noundef %.0114179) #9
+  %88 = call i32 @BIO_closesocket(i32 noundef %.0114190) #9
   %89 = load ptr, ptr @bio_err, align 8, !tbaa !8
   call void @ERR_print_errors(ptr noundef %89) #9
   br label %148
@@ -634,7 +634,7 @@ define i32 @do_server(ptr noundef writeonly captures(address_is_null) %0, ptr no
   br i1 %.not134, label %92, label %91
 
 91:                                               ; preds = %90
-  store i32 %.0114179, ptr %0, align 4, !tbaa !12
+  store i32 %.0114190, ptr %0, align 4, !tbaa !12
   br label %92
 
 92:                                               ; preds = %91, %90
@@ -655,7 +655,7 @@ define i32 @do_server(ptr noundef writeonly captures(address_is_null) %0, ptr no
 
 98:                                               ; preds = %.preheader.us, %131
   %99 = load ptr, ptr @ourpeer, align 8, !tbaa !14
-  %100 = call i32 @BIO_accept_ex(i32 noundef %.0114179, ptr noundef %99, i32 noundef 0) #9
+  %100 = call i32 @BIO_accept_ex(i32 noundef %.0114190, ptr noundef %99, i32 noundef 0) #9
   %101 = icmp slt i32 %100, 0
   br i1 %101, label %131, label %.critedge140.us
 
@@ -667,7 +667,7 @@ define i32 @do_server(ptr noundef writeonly captures(address_is_null) %0, ptr no
   br i1 %103, label %104, label %106
 
 104:                                              ; preds = %.critedge140.us
-  %105 = call i32 @BIO_closesocket(i32 noundef %.0114179) #9
+  %105 = call i32 @BIO_closesocket(i32 noundef %.0114190) #9
   br label %106
 
 106:                                              ; preds = %104, %.critedge140.us
@@ -732,14 +732,14 @@ define i32 @do_server(ptr noundef writeonly captures(address_is_null) %0, ptr no
   %.not135164 = icmp eq i32 %8, -1
   %133 = add nsw i32 %8, -1
   %spec.select142165 = select i1 %.not135164, i32 -1, i32 %133
-  %134 = call i32 %6(i32 noundef %.0114179, i32 noundef %4, i32 noundef %5, ptr noundef %7) #9
+  %134 = call i32 %6(i32 noundef %.0114190, i32 noundef %4, i32 noundef %5, ptr noundef %7) #9
   %135 = icmp slt i32 %134, 0
   %136 = icmp eq i32 %spec.select142165, 0
   %or.cond7166 = select i1 %135, i1 true, i1 %136
   br i1 %or.cond7166, label %.split163.us, label %.lr.ph
 
 .split161.us:                                     ; preds = %127, %.split.us
-  %137 = call i32 @BIO_closesocket(i32 noundef %.0114179) #9
+  %137 = call i32 @BIO_closesocket(i32 noundef %.0114190) #9
   %138 = load ptr, ptr @bio_err, align 8, !tbaa !8
   call void @ERR_print_errors(ptr noundef %138) #9
   br label %.thread152
@@ -747,12 +747,12 @@ define i32 @do_server(ptr noundef writeonly captures(address_is_null) %0, ptr no
 .critedge:                                        ; preds = %131
   %139 = load ptr, ptr @bio_err, align 8, !tbaa !8
   call void @ERR_print_errors(ptr noundef %139) #9
-  %140 = call i32 @BIO_closesocket(i32 noundef %.0114179) #9
+  %140 = call i32 @BIO_closesocket(i32 noundef %.0114190) #9
   br label %.thread152
 
 .split163.us:                                     ; preds = %.lr.ph, %.critedge5.us, %.split
   %.us-phi = phi i32 [ %134, %.split ], [ %108, %.critedge5.us ], [ %143, %.lr.ph ]
-  %141 = call i32 @BIO_closesocket(i32 noundef %.0114179) #9
+  %141 = call i32 @BIO_closesocket(i32 noundef %.0114190) #9
   br label %.thread152
 
 .thread152:                                       ; preds = %.split161.us, %.critedge, %.split163.us
@@ -773,7 +773,7 @@ define i32 @do_server(ptr noundef writeonly captures(address_is_null) %0, ptr no
   %.not135 = icmp eq i32 %spec.select142167, -1
   %142 = add nsw i32 %spec.select142167, -1
   %spec.select142 = select i1 %.not135, i32 -1, i32 %142
-  %143 = call i32 %6(i32 noundef %.0114179, i32 noundef %4, i32 noundef %5, ptr noundef %7) #9
+  %143 = call i32 %6(i32 noundef %.0114190, i32 noundef %4, i32 noundef %5, ptr noundef %7) #9
   %144 = icmp slt i32 %143, 0
   %145 = icmp eq i32 %spec.select142, 0
   %or.cond7 = select i1 %144, i1 true, i1 %145

@@ -1364,9 +1364,9 @@ kobject_get.exit.thread:                          ; preds = %10
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %35 = load ptr, ptr %34, align 8
   %36 = icmp eq ptr %35, null
-  br i1 %36, label %.thread30, label %.thread
+  br i1 %36, label %.thread48, label %.thread
 
-.thread30:                                        ; preds = %kobject_get.exit.thread
+.thread48:                                        ; preds = %kobject_get.exit.thread
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %38 = load ptr, ptr %37, align 8
   br label %.thread23
@@ -1407,14 +1407,14 @@ kobject_get.exit.thread:                          ; preds = %10
   br label %kobject_get.exit18
 
 kobject_get.exit18:                               ; preds = %54, %50
-  %.pr29 = load ptr, ptr %34, align 8
-  %56 = icmp eq ptr %.pr29, null
+  %.pr47 = load ptr, ptr %34, align 8
+  %56 = icmp eq ptr %.pr47, null
   br i1 %56, label %.thread20, label %kobject_get.exit18.thread
 
 kobject_get.exit18.thread:                        ; preds = %kobject_get.exit, %kobject_get.exit18
   %57 = phi ptr [ %39, %kobject_get.exit18 ], [ %12, %kobject_get.exit ]
   %58 = phi ptr [ %34, %kobject_get.exit18 ], [ %31, %kobject_get.exit ]
-  %59 = phi ptr [ %.pr29, %kobject_get.exit18 ], [ %32, %kobject_get.exit ]
+  %59 = phi ptr [ %.pr47, %kobject_get.exit18 ], [ %32, %kobject_get.exit ]
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 84
   %61 = load i8, ptr %60, align 4
   %62 = and i8 %61, 1
@@ -1514,11 +1514,11 @@ kobject_get.exit19:                               ; preds = %71, %75
   %115 = tail call ptr %114(ptr noundef nonnull %0) #13
   br label %.thread23
 
-.thread23:                                        ; preds = %.thread30, %89, %93, %101, %111, %108, %105
-  %116 = phi ptr [ %96, %111 ], [ %96, %108 ], [ %96, %105 ], [ %12, %89 ], [ %96, %93 ], [ %96, %101 ], [ null, %.thread30 ]
-  %117 = phi ptr [ %95, %111 ], [ %95, %108 ], [ %95, %105 ], [ %90, %89 ], [ %95, %93 ], [ %95, %101 ], [ %37, %.thread30 ]
-  %118 = phi ptr [ %94, %111 ], [ %94, %108 ], [ %94, %105 ], [ %91, %89 ], [ %94, %93 ], [ %94, %101 ], [ %38, %.thread30 ]
-  %119 = phi ptr [ %115, %111 ], [ null, %108 ], [ null, %105 ], [ null, %89 ], [ null, %93 ], [ null, %101 ], [ null, %.thread30 ]
+.thread23:                                        ; preds = %.thread48, %89, %93, %101, %111, %108, %105
+  %116 = phi ptr [ %96, %111 ], [ %96, %108 ], [ %96, %105 ], [ %12, %89 ], [ %96, %93 ], [ %96, %101 ], [ null, %.thread48 ]
+  %117 = phi ptr [ %95, %111 ], [ %95, %108 ], [ %95, %105 ], [ %90, %89 ], [ %95, %93 ], [ %95, %101 ], [ %37, %.thread48 ]
+  %118 = phi ptr [ %94, %111 ], [ %94, %108 ], [ %94, %105 ], [ %91, %89 ], [ %94, %93 ], [ %94, %101 ], [ %38, %.thread48 ]
+  %119 = phi ptr [ %115, %111 ], [ null, %108 ], [ null, %105 ], [ null, %89 ], [ null, %93 ], [ null, %101 ], [ null, %.thread48 ]
   %120 = tail call i32 @sysfs_create_dir_ns(ptr noundef nonnull %0, ptr noundef %119) #13
   %121 = icmp eq i32 %120, 0
   br i1 %121, label %122, label %165

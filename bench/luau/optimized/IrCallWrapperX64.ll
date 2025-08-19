@@ -731,8 +731,8 @@ _ZN4Luau7CodeGen3X6416IrCallWrapperX6426findNonInterferingArgumentEv.exit: ; pre
 
 .loopexit.thread:                                 ; preds = %145
   %183 = call i8 @_ZNK4Luau7CodeGen3X6416IrCallWrapperX6421findConflictingTargetEv(ptr noundef nonnull align 8 dereferenceable(240) %0)
-  %.not154 = icmp eq i8 %183, -128
-  br i1 %.not154, label %._crit_edge, label %.thread
+  %.not161 = icmp eq i8 %183, -128
+  br i1 %.not161, label %._crit_edge, label %.thread
 
 .thread:                                          ; preds = %.loopexit.thread, %.loopexit
   %184 = phi i8 [ %183, %.loopexit.thread ], [ %182, %.loopexit ]

@@ -124,12 +124,12 @@ define i32 @RSA_padding_check_X931(ptr noundef writeonly captures(none) %0, i32 
 20:                                               ; preds = %.lr.ph
   %21 = add nuw nsw i32 %.02941, 1
   %exitcond.not = icmp eq i32 %21, %14
-  br i1 %exitcond.not, label %._crit_edge.thread50, label %.lr.ph, !llvm.loop !6
+  br i1 %exitcond.not, label %._crit_edge.thread53, label %.lr.ph, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %22 = sub nsw i32 %14, %.02941
   %23 = icmp eq i32 %.02941, 0
-  br i1 %23, label %._crit_edge.thread, label %._crit_edge.thread50
+  br i1 %23, label %._crit_edge.thread, label %._crit_edge.thread53
 
 ._crit_edge.thread:                               ; preds = %13, %._crit_edge
   tail call void @ERR_new() #5
@@ -139,9 +139,9 @@ define i32 @RSA_padding_check_X931(ptr noundef writeonly captures(none) %0, i32 
 
 24:                                               ; preds = %10
   %25 = add nsw i32 %4, -2
-  br label %._crit_edge.thread50
+  br label %._crit_edge.thread53
 
-._crit_edge.thread50:                             ; preds = %20, %._crit_edge, %24
+._crit_edge.thread53:                             ; preds = %20, %._crit_edge, %24
   %.028 = phi i32 [ %22, %._crit_edge ], [ %25, %24 ], [ 0, %20 ]
   %.227 = phi ptr [ %18, %._crit_edge ], [ %11, %24 ], [ %scevgep, %20 ]
   %26 = sext i32 %.028 to i64
@@ -150,13 +150,13 @@ define i32 @RSA_padding_check_X931(ptr noundef writeonly captures(none) %0, i32 
   %.not36 = icmp eq i8 %28, -52
   br i1 %.not36, label %30, label %29
 
-29:                                               ; preds = %._crit_edge.thread50
+29:                                               ; preds = %._crit_edge.thread53
   tail call void @ERR_new() #5
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 115, ptr noundef nonnull @__func__.RSA_padding_check_X931) #5
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 4, i32 noundef 139, ptr noundef null) #5
   br label %32
 
-30:                                               ; preds = %._crit_edge.thread50
+30:                                               ; preds = %._crit_edge.thread53
   %31 = zext i32 %.028 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %0, ptr nonnull align 1 %.227, i64 %31, i1 false)
   br label %32

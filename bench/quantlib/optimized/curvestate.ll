@@ -1647,12 +1647,12 @@ do.end109:                                        ; preds = %do.body68
 for.body.lver.check:                              ; preds = %do.end109
   %75 = shl i64 %firstValidIndex, 3
   %scevgep = getelementptr i8, ptr %26, i64 %75
-  %scevgep198 = getelementptr i8, ptr %26, i64 %sub.ptr.sub.i
-  %scevgep199 = getelementptr i8, ptr %1, i64 %75
+  %scevgep221 = getelementptr i8, ptr %26, i64 %sub.ptr.sub.i
+  %scevgep222 = getelementptr i8, ptr %1, i64 %75
   %76 = getelementptr i8, ptr %1, i64 %sub.ptr.sub.i
-  %scevgep200 = getelementptr i8, ptr %76, i64 -8
-  %bound0 = icmp ult ptr %scevgep, %scevgep200
-  %bound1 = icmp ult ptr %scevgep199, %scevgep198
+  %scevgep223 = getelementptr i8, ptr %76, i64 -8
+  %bound0 = icmp ult ptr %scevgep, %scevgep223
+  %bound1 = icmp ult ptr %scevgep222, %scevgep221
   %found.conflict = and i1 %bound0, %bound1
   br i1 %found.conflict, label %for.body.lver.orig, label %for.body.ph
 
@@ -1680,8 +1680,8 @@ for.body.lver.orig:                               ; preds = %for.body.lver.check
 
 for.body.ph:                                      ; preds = %for.body.lver.check
   %83 = getelementptr i8, ptr %26, i64 %sub.ptr.sub.i
-  %scevgep202 = getelementptr i8, ptr %83, i64 -8
-  %load_initial = load double, ptr %scevgep202, align 8
+  %scevgep225 = getelementptr i8, ptr %83, i64 -8
+  %load_initial = load double, ptr %scevgep225, align 8
   br label %for.body
 
 for.cond.cleanup:                                 ; preds = %for.body, %for.body.lver.orig, %do.end109

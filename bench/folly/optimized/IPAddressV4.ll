@@ -690,8 +690,8 @@ define linkonce_odr noundef ptr @_ZN5folly13fbstring_coreIcE12expandNoinitEmbb(p
 
 21:                                               ; preds = %11
   %22 = icmp ult i64 %14, 46
-  %.0..val23 = load i64, ptr %5, align 8
-  %.pre = select i1 %22, i64 46, i64 %.0..val23
+  %.0..val25 = load i64, ptr %5, align 8
+  %.pre = select i1 %22, i64 46, i64 %.0..val25
   %23 = select i1 %2, i64 %.pre, i64 %14
   tail call void @_ZN5folly13fbstring_coreIcE12reserveSmallEmb(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %23, i1 noundef zeroext %3)
   br label %60
@@ -2144,18 +2144,18 @@ thread-pre-split:                                 ; preds = %16, %24, %.thread-p
   %39 = load i8, ptr %.130.i, align 1, !tbaa !7
   switch i8 %39, label %.critedge.i [
     i8 60, label %.loopexit.i.loopexit
-    i8 62, label %.loopexit.i.loopexit57
+    i8 62, label %.loopexit.i.loopexit74
     i8 94, label %.loopexit.i
   ]
 
 .loopexit.i.loopexit:                             ; preds = %38
   br label %.loopexit.i
 
-.loopexit.i.loopexit57:                           ; preds = %38
+.loopexit.i.loopexit74:                           ; preds = %38
   br label %.loopexit.i
 
-.loopexit.i:                                      ; preds = %38, %.loopexit.i.loopexit57, %.loopexit.i.loopexit
-  %.132.i = phi i16 [ 1, %.loopexit.i.loopexit ], [ 2, %.loopexit.i.loopexit57 ], [ 3, %38 ]
+.loopexit.i:                                      ; preds = %38, %.loopexit.i.loopexit74, %.loopexit.i.loopexit
+  %.132.i = phi i16 [ 1, %.loopexit.i.loopexit ], [ 2, %.loopexit.i.loopexit74 ], [ 3, %38 ]
   %.not40.i = icmp eq ptr %.130.i, %5
   br i1 %.not40.i, label %54, label %40
 
@@ -2315,10 +2315,10 @@ thread-pre-split30:                               ; preds = %74
   unreachable
 
 _ZN3fmt2v86detail18parse_format_specsIcRNS1_13specs_checkerINS1_21dynamic_specs_handlerINS0_26basic_format_parse_contextIcNS1_13error_handlerEEEEEEEEEPKT_SD_SD_OT0_.exit.sink.split: ; preds = %25, %.split68.i
-  %.sink52 = phi ptr [ %97, %.split68.i ], [ %0, %25 ]
+  %.sink69 = phi ptr [ %97, %.split68.i ], [ %0, %25 ]
   %.sink = phi i8 [ %94, %.split68.i ], [ %26, %25 ]
   %.0.i.ph = phi ptr [ %96, %.split68.i ], [ %17, %25 ]
-  %99 = getelementptr inbounds nuw i8, ptr %.sink52, i64 8
+  %99 = getelementptr inbounds nuw i8, ptr %.sink69, i64 8
   store i8 %.sink, ptr %99, align 4, !tbaa !83
   br label %_ZN3fmt2v86detail18parse_format_specsIcRNS1_13specs_checkerINS1_21dynamic_specs_handlerINS0_26basic_format_parse_contextIcNS1_13error_handlerEEEEEEEEEPKT_SD_SD_OT0_.exit
 
@@ -4553,12 +4553,12 @@ _ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.e
   br i1 %21, label %.lr.ph.preheader.i.i.i.i, label %._crit_edge.i.i.i.i, !prof !163
 
 .lr.ph.preheader.i.i.i.i:                         ; preds = %18, %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i
-  %spec.select.i.i10.i.i.i.i = phi i64 [ %20, %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i ], [ 20, %18 ]
+  %spec.select.i.i11.i.i.i.i = phi i64 [ %20, %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i ], [ 20, %18 ]
   br label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %.lr.ph.i.i.i.i, %.lr.ph.preheader.i.i.i.i
   %.0.i4.i.i.i.i = phi i64 [ %23, %.lr.ph.i.i.i.i ], [ %13, %.lr.ph.preheader.i.i.i.i ]
-  %.014.i3.i.i.i.i = phi i64 [ %22, %.lr.ph.i.i.i.i ], [ %spec.select.i.i10.i.i.i.i, %.lr.ph.preheader.i.i.i.i ]
+  %.014.i3.i.i.i.i = phi i64 [ %22, %.lr.ph.i.i.i.i ], [ %spec.select.i.i11.i.i.i.i, %.lr.ph.preheader.i.i.i.i ]
   %22 = add i64 %.014.i3.i.i.i.i, -2
   %23 = udiv i64 %.0.i4.i.i.i.i, 100
   %24 = urem i64 %.0.i4.i.i.i.i, 100
@@ -4570,7 +4570,7 @@ _ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.e
   br i1 %28, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i, !prof !166, !llvm.loop !167
 
 ._crit_edge.i.i.i.i:                              ; preds = %.lr.ph.i.i.i.i, %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i
-  %spec.select.i.i9.i.i.i.i = phi i64 [ %20, %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i ], [ %spec.select.i.i10.i.i.i.i, %.lr.ph.i.i.i.i ]
+  %spec.select.i.i10.i.i.i.i = phi i64 [ %20, %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i ], [ %spec.select.i.i11.i.i.i.i, %.lr.ph.i.i.i.i ]
   %.014.i.lcssa.i.i.i.i = phi i64 [ %20, %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i ], [ %22, %.lr.ph.i.i.i.i ]
   %.0.i.lcssa.i.i.i.i = phi i64 [ %13, %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i ], [ %23, %.lr.ph.i.i.i.i ]
   %29 = getelementptr inbounds nuw [100 x i16], ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 0, i64 %.0.i.lcssa.i.i.i.i
@@ -4591,7 +4591,7 @@ _ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.e
 _ZN5folly16to_ascii_decimalILm20EEEmRAT__cm.exit.i: ; preds = %33, %32
   %36 = load i64, ptr %7, align 8, !tbaa !18
   %37 = sub i64 4611686018427387903, %36
-  %38 = icmp ult i64 %37, %spec.select.i.i9.i.i.i.i
+  %38 = icmp ult i64 %37, %spec.select.i.i10.i.i.i.i
   br i1 %38, label %39, label %_ZN5folly8toAppendINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmEENSt9enable_ifIXaaaaaa13is_integral_vIT0_Ent11is_signed_vIS8_Esr12IsSomeStringIT_EE5valuegestS8_Li4EEvE4typeES8_PS9_.exit
 
 39:                                               ; preds = %_ZN5folly16to_ascii_decimalILm20EEEmRAT__cm.exit.i
@@ -4599,7 +4599,7 @@ _ZN5folly16to_ascii_decimalILm20EEEmRAT__cm.exit.i: ; preds = %33, %32
   unreachable
 
 _ZN5folly8toAppendINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmEENSt9enable_ifIXaaaaaa13is_integral_vIT0_Ent11is_signed_vIS8_Esr12IsSomeStringIT_EE5valuegestS8_Li4EEvE4typeES8_PS9_.exit: ; preds = %_ZN5folly16to_ascii_decimalILm20EEEmRAT__cm.exit.i
-  %40 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull %4, i64 noundef %spec.select.i.i9.i.i.i.i)
+  %40 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull %4, i64 noundef %spec.select.i.i10.i.i.i.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
@@ -7086,30 +7086,30 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %15
   %28 = load i8, ptr %0, align 1, !tbaa !7
   %29 = load i8, ptr %2, align 1, !tbaa !7
   %30 = icmp eq i8 %28, %29
-  br i1 %30, label %.lr.ph77, label %.critedge
+  br i1 %30, label %.lr.ph85, label %.critedge
 
-.lr.ph:                                           ; preds = %.lr.ph77
+.lr.ph:                                           ; preds = %.lr.ph85
   %31 = zext i8 %40 to i64
   %32 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 0, i64 %31
   %33 = load i8, ptr %32, align 1, !tbaa !7
   %34 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 0, i64 %31
   %35 = load i8, ptr %34, align 1, !tbaa !7
   %36 = icmp eq i8 %33, %35
-  br i1 %36, label %.lr.ph77, label %.critedge, !llvm.loop !266
+  br i1 %36, label %.lr.ph85, label %.critedge, !llvm.loop !266
 
-.lr.ph77:                                         ; preds = %.lr.ph.preheader, %.lr.ph
+.lr.ph85:                                         ; preds = %.lr.ph.preheader, %.lr.ph
   %37 = phi i8 [ %33, %.lr.ph ], [ %28, %.lr.ph.preheader ]
   %38 = phi i64 [ %31, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %.0296676 = phi i8 [ %40, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %.0296684 = phi i8 [ %40, %.lr.ph ], [ 0, %.lr.ph.preheader ]
   %39 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 0, i64 %38
   store i8 %37, ptr %39, align 1, !tbaa !7
-  %40 = add i8 %.0296676, 1
+  %40 = add i8 %.0296684, 1
   %41 = zext i8 %40 to i32
   %42 = shl nuw nsw i32 %41, 3
   %43 = icmp samesign ult i32 %42, %27
   br i1 %43, label %.lr.ph, label %..critedge_crit_edge, !llvm.loop !266
 
-..critedge_crit_edge:                             ; preds = %.lr.ph77
+..critedge_crit_edge:                             ; preds = %.lr.ph85
   br label %.critedge, !llvm.loop !266
 
 .critedge:                                        ; preds = %.lr.ph, %..critedge_crit_edge, %.lr.ph.preheader

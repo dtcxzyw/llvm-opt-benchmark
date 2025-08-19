@@ -733,7 +733,7 @@ Vec_PtrPush.exit106:                              ; preds = %.Vec_PtrGrow.exit11
 
 .preheader118:                                    ; preds = %.preheader118.preheader, %.critedge2.thread
   %indvars.iv145 = phi i64 [ 0, %.preheader118.preheader ], [ %indvars.iv.next146, %.critedge2.thread ]
-  %.066126 = phi i32 [ -1, %.preheader118.preheader ], [ %.167.lcssa165, %.critedge2.thread ]
+  %.066126 = phi i32 [ -1, %.preheader118.preheader ], [ %.167.lcssa177, %.critedge2.thread ]
   %.val92 = load i32, ptr %5, align 4, !tbaa !19
   %102 = icmp sgt i32 %.val92, 0
   br i1 %102, label %.lr.ph124, label %.critedge2.thread
@@ -913,16 +913,16 @@ Vec_IntPush.exit116:                              ; preds = %.Vec_IntGrow.exit10
   br label %.critedge2.thread.sink.split
 
 .critedge2.thread.sink.split:                     ; preds = %Vec_IntPush.exit116, %Vec_IntPush.exit
-  %.sink169 = phi i32 [ %144, %Vec_IntPush.exit ], [ %179, %Vec_IntPush.exit116 ]
+  %.sink181 = phi i32 [ %144, %Vec_IntPush.exit ], [ %179, %Vec_IntPush.exit116 ]
   %.sink = phi ptr [ %143, %Vec_IntPush.exit ], [ %178, %Vec_IntPush.exit116 ]
-  %181 = sext i32 %.sink169 to i64
+  %181 = sext i32 %.sink181 to i64
   %182 = getelementptr inbounds i32, ptr %.sink, i64 %181
   %183 = trunc nuw nsw i64 %indvars.iv145 to i32
   store i32 %183, ptr %182, align 4, !tbaa !16
   br label %.critedge2.thread
 
 .critedge2.thread:                                ; preds = %.critedge2.thread.sink.split, %.preheader118, %.critedge2
-  %.167.lcssa165 = phi i32 [ %spec.select73, %.critedge2 ], [ %.066126, %.preheader118 ], [ %spec.select73, %.critedge2.thread.sink.split ]
+  %.167.lcssa177 = phi i32 [ %spec.select73, %.critedge2 ], [ %.066126, %.preheader118 ], [ %spec.select73, %.critedge2.thread.sink.split ]
   %indvars.iv.next146 = add nuw nsw i64 %indvars.iv145, 1
   %exitcond149.not = icmp eq i64 %indvars.iv.next146, %wide.trip.count148
   br i1 %exitcond149.not, label %._crit_edge, label %.preheader118, !llvm.loop !63
@@ -1579,9 +1579,9 @@ Abc_Clock.exit:                                   ; preds = %11, %18
   br label %.loopexit
 
 32:                                               ; preds = %25, %22
-  %.sink169 = phi ptr [ %24, %22 ], [ %29, %25 ]
+  %.sink172 = phi ptr [ %24, %22 ], [ %29, %25 ]
   %.sink = phi ptr [ %23, %22 ], [ %28, %25 ]
-  call void @Cudd_Ref(ptr noundef %.sink169) #13
+  call void @Cudd_Ref(ptr noundef %.sink172) #13
   call void @Cudd_RecursiveDeref(ptr noundef %2, ptr noundef %3) #13
   call void @Cudd_RecursiveDeref(ptr noundef %2, ptr noundef %.sink) #13
   %33 = getelementptr i8, ptr %1, i64 4
@@ -1599,7 +1599,7 @@ Abc_Clock.exit:                                   ; preds = %11, %18
 
 39:                                               ; preds = %.lr.ph, %.critedge124
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %.critedge124 ]
-  %.1151 = phi ptr [ %.sink169, %.lr.ph ], [ %65, %.critedge124 ]
+  %.1151 = phi ptr [ %.sink172, %.lr.ph ], [ %65, %.critedge124 ]
   %.val130 = load ptr, ptr %35, align 8, !tbaa !3
   %40 = getelementptr inbounds nuw ptr, ptr %.val130, i64 %indvars.iv
   %41 = load ptr, ptr %40, align 8, !tbaa !9
@@ -1710,7 +1710,7 @@ Abc_Clock.exit136:                                ; preds = %69, %77
   br i1 %87, label %39, label %.critedge, !llvm.loop !87
 
 .critedge:                                        ; preds = %.critedge124, %32
-  %.1.lcssa = phi ptr [ %.sink169, %32 ], [ %65, %.critedge124 ]
+  %.1.lcssa = phi ptr [ %.sink172, %32 ], [ %65, %.critedge124 ]
   br i1 %.not, label %88, label %91
 
 88:                                               ; preds = %.critedge
@@ -1729,11 +1729,11 @@ Abc_Clock.exit136:                                ; preds = %69, %77
   br label %96
 
 96:                                               ; preds = %91, %88
-  %.sink171 = phi ptr [ %95, %91 ], [ %90, %88 ]
-  %.sink170 = phi ptr [ %94, %91 ], [ %89, %88 ]
-  call void @Cudd_Ref(ptr noundef %.sink171) #13
+  %.sink174 = phi ptr [ %95, %91 ], [ %90, %88 ]
+  %.sink173 = phi ptr [ %94, %91 ], [ %89, %88 ]
+  call void @Cudd_Ref(ptr noundef %.sink174) #13
   call void @Cudd_RecursiveDeref(ptr noundef %2, ptr noundef %.1.lcssa) #13
-  call void @Cudd_RecursiveDeref(ptr noundef %2, ptr noundef %.sink170) #13
+  call void @Cudd_RecursiveDeref(ptr noundef %2, ptr noundef %.sink173) #13
   %.not118 = icmp eq i32 %9, 0
   br i1 %.not118, label %.critedge128, label %97
 
@@ -1746,10 +1746,10 @@ Abc_Clock.exit136:                                ; preds = %69, %77
   br label %.critedge128
 
 99:                                               ; preds = %97
-  %100 = call i32 @Cudd_DagSize(ptr noundef %.sink171) #13
+  %100 = call i32 @Cudd_DagSize(ptr noundef %.sink174) #13
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.21, i32 noundef %100)
   %101 = call i32 @Cudd_ReduceHeap(ptr noundef %2, i32 noundef 6, i32 noundef 100) #13
-  %102 = call i32 @Cudd_DagSize(ptr noundef %.sink171) #13
+  %102 = call i32 @Cudd_DagSize(ptr noundef %.sink174) #13
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.22, i32 noundef %102)
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %103 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %12) #13
@@ -1776,11 +1776,11 @@ Abc_Clock.exit138:                                ; preds = %99, %105
   br label %.critedge128
 
 .critedge128:                                     ; preds = %.thread139, %Abc_Clock.exit138, %96
-  call void @Cudd_Deref(ptr noundef %.sink171) #13
+  call void @Cudd_Deref(ptr noundef %.sink174) #13
   br label %.loopexit
 
 .loopexit:                                        ; preds = %50, %.critedge128, %67, %31
-  %.0 = phi ptr [ null, %67 ], [ %.sink171, %.critedge128 ], [ null, %31 ], [ null, %50 ]
+  %.0 = phi ptr [ null, %67 ], [ %.sink174, %.critedge128 ], [ null, %31 ], [ null, %50 ]
   ret ptr %.0
 }
 

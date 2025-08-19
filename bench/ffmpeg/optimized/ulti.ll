@@ -312,7 +312,7 @@ bytestream2_get_byte.exit219:                     ; preds = %124, %123, %115
   %132 = getelementptr inbounds nuw [8 x i32], ptr @block_coords, i64 0, i64 %131
   %133 = load i32, ptr %132, align 4, !tbaa !50
   %134 = add nsw i32 %133, %.0172
-  switch i32 %114, label %default.unreachable [
+  switch i32 %114, label %default.unreachable278 [
     i32 1, label %135
     i32 2, label %153
     i32 3, label %207
@@ -802,7 +802,7 @@ ulti_pattern.exit:                                ; preds = %448
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %450
 
-default.unreachable:                              ; preds = %bytestream2_get_byte.exit219
+default.unreachable278:                           ; preds = %bytestream2_get_byte.exit219
   unreachable
 
 .thread:                                          ; preds = %151, %149, %bytestream2_get_be16.exit, %bytestream2_get_be24.exit

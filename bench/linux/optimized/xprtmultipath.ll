@@ -1176,19 +1176,19 @@ define internal ptr @xprt_iter_current_entry_offline(ptr noundef %0) #8 align 16
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
-  br i1 %8, label %.preheader13, label %9
+  br i1 %8, label %.preheader18, label %9
 
 9:                                                ; preds = %4
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %11 = load i32, ptr %10, align 4
   %12 = icmp ult i32 %11, 2
-  br i1 %12, label %.preheader13, label %26
+  br i1 %12, label %.preheader18, label %26
 
-.preheader13:                                     ; preds = %9, %4
+.preheader18:                                     ; preds = %9, %4
   br label %13
 
-13:                                               ; preds = %.preheader13, %21
-  %14 = phi ptr [ %15, %21 ], [ %5, %.preheader13 ]
+13:                                               ; preds = %.preheader18, %21
+  %14 = phi ptr [ %15, %21 ], [ %5, %.preheader18 ]
   %15 = load volatile ptr, ptr %14, align 8
   %16 = getelementptr i8, ptr %15, i64 -1056
   %17 = icmp eq ptr %15, %5

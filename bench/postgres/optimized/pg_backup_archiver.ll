@@ -857,10 +857,10 @@ _discoverArchiveFormat.exit:                      ; preds = %.thread.i, %150, %1
   br label %156
 
 156:                                              ; preds = %52, %_discoverArchiveFormat.exit
-  %.sink52 = phi i32 [ %.148.i, %_discoverArchiveFormat.exit ], [ %1, %52 ]
+  %.sink58 = phi i32 [ %.148.i, %_discoverArchiveFormat.exit ], [ %1, %52 ]
   %157 = getelementptr inbounds nuw i8, ptr %21, i64 144
-  store i32 %.sink52, ptr %157, align 8
-  switch i32 %.sink52, label %162 [
+  store i32 %.sink58, ptr %157, align 8
+  switch i32 %.sink58, label %162 [
     i32 1, label %158
     i32 4, label %159
     i32 5, label %160
@@ -3450,7 +3450,7 @@ restore_toc_entries_postfork.exit:                ; preds = %.lr.ph.i259, %716
 
 733:                                              ; preds = %.lr.ph304
   %734 = call fastcc i32 @_tocEntryRestorePass(ptr noundef nonnull %.3302)
-  switch i32 %734, label %default.unreachable336 [
+  switch i32 %734, label %default.unreachable400 [
     i32 0, label %735
     i32 1, label %738
     i32 2, label %737
@@ -3464,7 +3464,7 @@ restore_toc_entries_postfork.exit:                ; preds = %.lr.ph.i259, %716
 737:                                              ; preds = %733
   br label %738
 
-default.unreachable336:                           ; preds = %733
+default.unreachable400:                           ; preds = %733
   unreachable
 
 738:                                              ; preds = %733, %735, %737, %.lr.ph304
@@ -4495,9 +4495,9 @@ _becomeOwner.exit:                                ; preds = %_disableTriggersIfN
   br label %195
 
 195:                                              ; preds = %.thread, %192, %193
-  %.sink146 = phi i32 [ 1, %193 ], [ 2, %192 ], [ 2, %.thread ]
+  %.sink156 = phi i32 [ 1, %193 ], [ 2, %192 ], [ 2, %.thread ]
   %196 = getelementptr inbounds nuw i8, ptr %0, i64 460
-  store i32 %.sink146, ptr %196, align 4
+  store i32 %.sink156, ptr %196, align 4
   %197 = load ptr, ptr %128, align 8
   call void %197(ptr noundef nonnull %0, ptr noundef nonnull %1) #23
   %198 = getelementptr inbounds nuw i8, ptr %0, i64 460
@@ -6532,7 +6532,7 @@ define dso_local void @WriteDataChunks(ptr noundef %0, ptr noundef %1) local_unn
   br i1 %32, label %.lr.ph48.preheader, label %._crit_edge49
 
 .lr.ph48.preheader:                               ; preds = %.thread, %31
-  %.032.lcssa5961 = phi i64 [ %30, %.thread ], [ 1, %31 ]
+  %.032.lcssa6365 = phi i64 [ %30, %.thread ], [ 1, %31 ]
   br label %.lr.ph48
 
 ._crit_edge49:                                    ; preds = %.lr.ph48, %6, %31
@@ -6546,7 +6546,7 @@ define dso_local void @WriteDataChunks(ptr noundef %0, ptr noundef %1) local_unn
   %34 = load ptr, ptr %33, align 8
   tail call void @DispatchJobForTocEntry(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %34, i32 noundef 0, ptr noundef nonnull @mark_dump_job_done, ptr noundef null) #23
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %.032.lcssa5961
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %.032.lcssa6365
   br i1 %exitcond.not, label %._crit_edge49, label %.lr.ph48, !llvm.loop !49
 
 35:                                               ; preds = %3, %2
@@ -6766,13 +6766,13 @@ define dso_local void @WriteToc(ptr noundef %0) local_unnamed_addr #0 {
 17:                                               ; preds = %._crit_edge.thread, %._crit_edge
   %18 = phi ptr [ %6, %._crit_edge.thread ], [ %13, %._crit_edge ]
   %19 = phi ptr [ %5, %._crit_edge.thread ], [ %12, %._crit_edge ]
-  %.054.lcssa142 = phi i32 [ 0, %._crit_edge.thread ], [ %spec.select, %._crit_edge ]
+  %.054.lcssa152 = phi i32 [ 0, %._crit_edge.thread ], [ %spec.select, %._crit_edge ]
   %20 = tail call i32 %18(ptr noundef nonnull %0, i32 noundef 0) #23
   br label %21
 
 21:                                               ; preds = %17, %14
   %22 = phi ptr [ %12, %14 ], [ %19, %17 ]
-  %.013.i = phi i32 [ %16, %14 ], [ %.054.lcssa142, %17 ]
+  %.013.i = phi i32 [ %16, %14 ], [ %.054.lcssa152, %17 ]
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %24 = load i64, ptr %23, align 8
   %.not.i = icmp eq i64 %24, 0
@@ -8242,10 +8242,10 @@ ReadInt.exit.i334:                                ; preds = %.lr.ph.i.i328, %507
   br label %545
 
 545:                                              ; preds = %495, %540, %544
-  %.sink383 = phi ptr [ %543, %540 ], [ null, %544 ], [ null, %495 ]
+  %.sink390 = phi ptr [ %543, %540 ], [ null, %544 ], [ null, %495 ]
   %.0129.lcssa.sink = phi i32 [ %.0129, %540 ], [ 0, %544 ], [ 0, %495 ]
   %546 = getelementptr inbounds nuw i8, ptr %37, i64 120
-  store ptr %.sink383, ptr %546, align 8
+  store ptr %.sink390, ptr %546, align 8
   %547 = getelementptr inbounds nuw i8, ptr %37, i64 128
   store i32 %.0129.lcssa.sink, ptr %547, align 8
   %548 = getelementptr inbounds nuw i8, ptr %37, i64 160
@@ -8880,9 +8880,9 @@ ReadInt.exit:                                     ; preds = %.lr.ph.i, %74
   br i1 %.not89, label %91, label %.sink.split
 
 .sink.split:                                      ; preds = %68, %88, %65
-  %.sink208 = phi i32 [ %67, %65 ], [ 1, %88 ], [ 1, %68 ]
+  %.sink219 = phi i32 [ %67, %65 ], [ 1, %88 ], [ 1, %68 ]
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 544
-  store i32 %.sink208, ptr %90, align 8
+  store i32 %.sink219, ptr %90, align 8
   br label %91
 
 91:                                               ; preds = %.sink.split, %88

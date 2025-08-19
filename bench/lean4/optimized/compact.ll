@@ -1173,7 +1173,7 @@ _ZNSt6vectorIP11lean_objectSaIS1_EE6resizeEm.exit: ; preds = %17, %19, %_ZSt8_De
   br i1 %spec.select, label %96, label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %_ZNSt6vectorIP11lean_objectSaIS1_EE6resizeEm.exit, %._crit_edge
-  %.not354447 = phi i1 [ false, %._crit_edge ], [ true, %_ZNSt6vectorIP11lean_objectSaIS1_EE6resizeEm.exit ]
+  %.not354750 = phi i1 [ false, %._crit_edge ], [ true, %_ZNSt6vectorIP11lean_objectSaIS1_EE6resizeEm.exit ]
   %31 = shl i64 %.val.i, 3
   %32 = add i64 %31, 24
   %.biased.i = add i64 %31, 31
@@ -1228,7 +1228,7 @@ _ZN4lean16object_compactor5allocEm.exit:          ; preds = %40, %._crit_edge.th
   store i64 %.val.i, ptr %60, align 8, !tbaa !71
   %61 = getelementptr inbounds nuw i8, ptr %.lcssa.i, i64 16
   store i64 %.val.i, ptr %61, align 8, !tbaa !71
-  br i1 %.not354447, label %._crit_edge40, label %.lr.ph39
+  br i1 %.not354750, label %._crit_edge40, label %.lr.ph39
 
 .lr.ph39:                                         ; preds = %_ZN4lean16object_compactor5allocEm.exit
   %62 = getelementptr inbounds nuw i8, ptr %.lcssa.i, i64 24
@@ -3519,13 +3519,13 @@ define linkonce_odr hidden void @_ZNSt6vectorIP11lean_objectSaIS1_EE17_M_default
 19:                                               ; preds = %3
   store ptr null, ptr %5, align 8, !tbaa !63
   %20 = getelementptr i8, ptr %5, i64 8
-  %21 = add i64 %1, -1
+  %21 = add nsw i64 %1, -1
   %22 = icmp eq i64 %21, 0
   br i1 %22, label %_ZSt27__uninitialized_default_n_aIPP11lean_objectmS1_ET_S3_T0_RSaIT1_E.exit, label %_ZSt6fill_nIPP11lean_objectmS1_ET_S3_T0_RKT1_.exit.loopexit.i.i.i
 
 _ZSt6fill_nIPP11lean_objectmS1_ET_S3_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
-  %23 = shl i64 %1, 3
-  %24 = add i64 %23, -8
+  %23 = shl nuw nsw i64 %1, 3
+  %24 = add nsw i64 %23, -8
   tail call void @llvm.memset.p0.i64(ptr align 8 %20, i8 0, i64 %24, i1 false), !tbaa !63
   %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 3
   %25 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i

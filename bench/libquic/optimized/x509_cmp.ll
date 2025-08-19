@@ -1050,24 +1050,24 @@ check_suite_b.exit67:                             ; preds = %65, %62
   tail call void @EVP_PKEY_free(ptr noundef nonnull %.1150.sink) #8
   %.not56 = icmp eq i64 %3, %.080103121
   %spec.select58 = select i1 %.not56, i32 60, i32 61
-  %spec.select207 = select i1 %87, i32 %spec.select58, i32 %.041105120
+  %spec.select216 = select i1 %87, i32 %spec.select58, i32 %.041105120
   %88 = add nsw i32 %.041105120, -59
   %89 = icmp ult i32 %88, 2
   %90 = select i1 %87, i1 true, i1 %89
   br label %.thread.thread
 
 .thread.thread:                                   ; preds = %X509_get_pubkey.exit61, %43, %.thread, %14, %X509_get_pubkey.exit, %10
-  %.139107119190 = phi i64 [ 0, %14 ], [ 0, %X509_get_pubkey.exit ], [ 0, %10 ], [ %.139107119, %.thread ], [ %.2164, %43 ], [ %.2164, %X509_get_pubkey.exit61 ]
-  %.041105120189 = phi i1 [ false, %14 ], [ false, %X509_get_pubkey.exit ], [ false, %10 ], [ %90, %.thread ], [ false, %43 ], [ false, %X509_get_pubkey.exit61 ]
-  %91 = phi i32 [ 57, %14 ], [ 57, %X509_get_pubkey.exit ], [ 56, %10 ], [ %spec.select207, %.thread ], [ 57, %43 ], [ 57, %X509_get_pubkey.exit61 ]
+  %.139107119199 = phi i64 [ 0, %14 ], [ 0, %X509_get_pubkey.exit ], [ 0, %10 ], [ %.139107119, %.thread ], [ %.2164, %43 ], [ %.2164, %X509_get_pubkey.exit61 ]
+  %.041105120198 = phi i1 [ false, %14 ], [ false, %X509_get_pubkey.exit ], [ false, %10 ], [ %90, %.thread ], [ false, %43 ], [ false, %X509_get_pubkey.exit61 ]
+  %91 = phi i32 [ 57, %14 ], [ 57, %X509_get_pubkey.exit ], [ 56, %10 ], [ %spec.select216, %.thread ], [ 57, %43 ], [ 57, %X509_get_pubkey.exit61 ]
   %.not57 = icmp eq ptr %0, null
   br i1 %.not57, label %96, label %92
 
 92:                                               ; preds = %.thread.thread
-  %93 = icmp ne i64 %.139107119190, 0
-  %or.cond3 = select i1 %.041105120189, i1 %93, i1 false
+  %93 = icmp ne i64 %.139107119199, 0
+  %or.cond3 = select i1 %.041105120198, i1 %93, i1 false
   %94 = sext i1 %or.cond3 to i64
-  %spec.select = add i64 %.139107119190, %94
+  %spec.select = add i64 %.139107119199, %94
   %95 = trunc i64 %spec.select to i32
   store i32 %95, ptr %0, align 4, !tbaa !72
   br label %96

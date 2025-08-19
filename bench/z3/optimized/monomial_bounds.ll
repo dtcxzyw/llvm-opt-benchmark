@@ -426,7 +426,7 @@ _ZNK3nla6mon_eq4sizeEv.exit:                      ; preds = %_ZNK3nla6mon_eq4siz
   %77 = getelementptr inbounds nuw i32, ptr %63, i64 %indvars.iv
   %78 = load i32, ptr %77, align 4, !tbaa !44
   %79 = icmp eq i32 %72, %78
-  br i1 %79, label %80, label %.critedge.loopexit.split.loop.exit90
+  br i1 %79, label %80, label %.critedge.loopexit.split.loop.exit93
 
 80:                                               ; preds = %.lr.ph
   %81 = add i32 %storemerge71, 1
@@ -439,13 +439,13 @@ _ZNK3nla6mon_eq4sizeEv.exit:                      ; preds = %_ZNK3nla6mon_eq4siz
           cleanup
   br label %143
 
-.critedge.loopexit.split.loop.exit90:             ; preds = %.lr.ph
+.critedge.loopexit.split.loop.exit93:             ; preds = %.lr.ph
   %85 = trunc nuw i64 %indvars.iv to i32
   br label %.critedge
 
-.critedge:                                        ; preds = %80, %.critedge.loopexit.split.loop.exit90, %69
-  %storemerge.lcssa69 = phi i32 [ 1, %69 ], [ %storemerge71, %.critedge.loopexit.split.loop.exit90 ], [ %76, %80 ]
-  %.133.lcssa = phi i32 [ %.13370, %69 ], [ %85, %.critedge.loopexit.split.loop.exit90 ], [ %65, %80 ]
+.critedge:                                        ; preds = %80, %.critedge.loopexit.split.loop.exit93, %69
+  %storemerge.lcssa69 = phi i32 [ 1, %69 ], [ %storemerge71, %.critedge.loopexit.split.loop.exit93 ], [ %76, %80 ]
+  %.133.lcssa = phi i32 [ %.13370, %69 ], [ %85, %.critedge.loopexit.split.loop.exit93 ], [ %65, %80 ]
   invoke void @_ZN3nla15monomial_bounds12var2intervalEjR16_scoped_intervalI13dep_intervalsE(ptr noundef nonnull align 8 dereferenceable(208) %0, i32 noundef %72, ptr noundef nonnull align 8 dereferenceable(96) %9)
           to label %86 unwind label %83
 
@@ -1850,7 +1850,7 @@ _ZNK3nla6mon_eq4sizeEv.exit.lr.ph:                ; preds = %4
 
 _ZNK3nla6mon_eq4sizeEv.exit:                      ; preds = %_ZNK3nla6mon_eq4sizeEv.exit.lr.ph, %_ZN13dep_intervals3mulILNS_11with_deps_tE0EEEvRKNS_9im_config8intervalES5_RS3_.exit
   %25 = phi ptr [ %18, %_ZNK3nla6mon_eq4sizeEv.exit.lr.ph ], [ %76, %_ZN13dep_intervals3mulILNS_11with_deps_tE0EEEvRKNS_9im_config8intervalES5_RS3_.exit ]
-  %.02148 = phi i32 [ %1, %_ZNK3nla6mon_eq4sizeEv.exit.lr.ph ], [ %.1.lcssa53, %_ZN13dep_intervals3mulILNS_11with_deps_tE0EEEvRKNS_9im_config8intervalES5_RS3_.exit ]
+  %.02148 = phi i32 [ %1, %_ZNK3nla6mon_eq4sizeEv.exit.lr.ph ], [ %.1.lcssa56, %_ZN13dep_intervals3mulILNS_11with_deps_tE0EEEvRKNS_9im_config8intervalES5_RS3_.exit ]
   %26 = getelementptr inbounds i8, ptr %25, i64 -4
   %27 = load i32, ptr %26, align 4, !tbaa !44
   %28 = icmp ult i32 %.02148, %27
@@ -1955,7 +1955,7 @@ _ZNK3nla6mon_eq4sizeEv.exit24:                    ; preds = %.lr.ph
   br label %_ZN13dep_intervals5powerILNS_11with_deps_tE0EEEvRKNS_9im_config8intervalEjRS3_.exit
 
 _ZN13dep_intervals5powerILNS_11with_deps_tE0EEEvRKNS_9im_config8intervalEjRS3_.exit: ; preds = %.critedge.thread, %.noexc25, %.critedge
-  %.1.lcssa53 = phi i32 [ %.1.lcssa, %.noexc25 ], [ %.1.lcssa, %.critedge ], [ %.131, %.critedge.thread ]
+  %.1.lcssa56 = phi i32 [ %.1.lcssa, %.noexc25 ], [ %.1.lcssa, %.critedge ], [ %.131, %.critedge.thread ]
   %60 = phi ptr [ %.pre, %.noexc25 ], [ %55, %.critedge ], [ %53, %.critedge.thread ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 752
@@ -5489,7 +5489,7 @@ _ZNK6vectorIjLb0EjE4sizeEv.exit:                  ; preds = %5, %_ZNK3nla15monom
   %21 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv
   %22 = load i32, ptr %21, align 4, !tbaa !44
   %23 = icmp eq i32 %22, %16
-  br i1 %23, label %_ZNK6vectorIjLb0EjE4sizeEv.exit31, label %.critedge.loopexit.split.loop.exit41
+  br i1 %23, label %_ZNK6vectorIjLb0EjE4sizeEv.exit31, label %.critedge.loopexit.split.loop.exit43
 
 _ZNK6vectorIjLb0EjE4sizeEv.exit31:                ; preds = %.lr.ph
   %24 = add i32 %.034, 1
@@ -5497,13 +5497,13 @@ _ZNK6vectorIjLb0EjE4sizeEv.exit31:                ; preds = %.lr.ph
   %25 = icmp samesign ult i64 %indvars.iv.next, %19
   br i1 %25, label %.lr.ph, label %.critedge, !llvm.loop !348
 
-.critedge.loopexit.split.loop.exit41:             ; preds = %.lr.ph
+.critedge.loopexit.split.loop.exit43:             ; preds = %.lr.ph
   %26 = trunc nuw i64 %indvars.iv to i32
   br label %.critedge
 
-.critedge:                                        ; preds = %_ZNK6vectorIjLb0EjE4sizeEv.exit31, %.critedge.loopexit.split.loop.exit41, %13
-  %.0.lcssa = phi i32 [ 1, %13 ], [ %.034, %.critedge.loopexit.split.loop.exit41 ], [ %20, %_ZNK6vectorIjLb0EjE4sizeEv.exit31 ]
-  %.129.lcssa = phi i32 [ %.12933, %13 ], [ %26, %.critedge.loopexit.split.loop.exit41 ], [ %11, %_ZNK6vectorIjLb0EjE4sizeEv.exit31 ]
+.critedge:                                        ; preds = %_ZNK6vectorIjLb0EjE4sizeEv.exit31, %.critedge.loopexit.split.loop.exit43, %13
+  %.0.lcssa = phi i32 [ 1, %13 ], [ %.034, %.critedge.loopexit.split.loop.exit43 ], [ %20, %_ZNK6vectorIjLb0EjE4sizeEv.exit31 ]
+  %.129.lcssa = phi i32 [ %.12933, %13 ], [ %26, %.critedge.loopexit.split.loop.exit43 ], [ %11, %_ZNK6vectorIjLb0EjE4sizeEv.exit31 ]
   %27 = load ptr, ptr %0, align 8, !tbaa !41
   %28 = tail call noundef zeroext i1 @_ZNK3nla4core15has_lower_boundEj(ptr noundef nonnull align 8 dereferenceable(4736) %27, i32 noundef %16)
   br i1 %28, label %29, label %_ZNK3nla15monomial_bounds7is_zeroEj.exit.thread
@@ -7268,7 +7268,7 @@ _ZN6vectorIjLb0EjE3endEv.exit:                    ; preds = %_ZNK25scoped_depend
   %45 = shl nuw nsw i64 %44, 2
   %46 = getelementptr inbounds nuw i8, ptr %.pr, i64 %45
   %.not20 = icmp eq i32 %43, 0
-  br i1 %.not20, label %._crit_edge.thread25, label %_ZN11mpq_managerILb1EE3setER3mpzRKS1_.exit.i.i.lr.ph
+  br i1 %.not20, label %._crit_edge.thread31, label %_ZN11mpq_managerILb1EE3setER3mpzRKS1_.exit.i.i.lr.ph
 
 _ZN11mpq_managerILb1EE3setER3mpzRKS1_.exit.i.i.lr.ph: ; preds = %_ZN6vectorIjLb0EjE3endEv.exit
   %47 = getelementptr inbounds nuw i8, ptr %5, i64 4
@@ -7281,22 +7281,22 @@ _ZN11mpq_managerILb1EE3setER3mpzRKS1_.exit.i.i.lr.ph: ; preds = %_ZN6vectorIjLb0
 ._crit_edge:                                      ; preds = %_ZN8rationalD2Ev.exit
   %.pre = load ptr, ptr %4, align 8, !tbaa !40
   %.not.i.i17 = icmp eq ptr %.pre, null
-  br i1 %.not.i.i17, label %_ZN6vectorIjLb0EjED2Ev.exit, label %._crit_edge.thread25
+  br i1 %.not.i.i17, label %_ZN6vectorIjLb0EjED2Ev.exit, label %._crit_edge.thread31
 
-._crit_edge.thread25:                             ; preds = %_ZN6vectorIjLb0EjE3endEv.exit, %._crit_edge
+._crit_edge.thread31:                             ; preds = %_ZN6vectorIjLb0EjE3endEv.exit, %._crit_edge
   %52 = phi ptr [ %.pre, %._crit_edge ], [ %.pr, %_ZN6vectorIjLb0EjE3endEv.exit ]
   %53 = getelementptr inbounds i8, ptr %52, i64 -8
   invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %53)
           to label %_ZN6vectorIjLb0EjED2Ev.exit unwind label %54
 
-54:                                               ; preds = %._crit_edge.thread25
+54:                                               ; preds = %._crit_edge.thread31
   %55 = landingpad { ptr, i32 }
           catch ptr null
   %56 = extractvalue { ptr, i32 } %55, 0
   call void @__clang_call_terminate(ptr %56) #20
   unreachable
 
-_ZN6vectorIjLb0EjED2Ev.exit:                      ; preds = %_ZNK25scoped_dependency_managerIjE9linearizeEPN18dependency_managerINS0_6configEE10dependencyER6vectorIjLb0EjE.exit, %_ZN2lp11explanationC2Ev.exit, %._crit_edge, %._crit_edge.thread25
+_ZN6vectorIjLb0EjED2Ev.exit:                      ; preds = %_ZNK25scoped_dependency_managerIjE9linearizeEPN18dependency_managerINS0_6configEE10dependencyER6vectorIjLb0EjE.exit, %_ZN2lp11explanationC2Ev.exit, %._crit_edge, %._crit_edge.thread31
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 
@@ -7998,7 +7998,7 @@ _ZN18dependency_managerIN25scoped_dependency_managerIjE6configEE7inc_refEPNS3_10
 
 _ZN25scoped_dependency_managerIjE7mk_joinEPN18dependency_managerINS0_6configEE10dependencyES5_.exit.thread: ; preds = %_ZN18dependency_managerIN25scoped_dependency_managerIjE6configEE7inc_refEPNS3_10dependencyE.exit17.i.i, %12
   %.ph = phi ptr [ %7, %12 ], [ %.pre3, %_ZN18dependency_managerIN25scoped_dependency_managerIjE6configEE7inc_refEPNS3_10dependencyE.exit17.i.i ]
-  %.ph4 = phi ptr [ %4, %12 ], [ %.pre1, %_ZN18dependency_managerIN25scoped_dependency_managerIjE6configEE7inc_refEPNS3_10dependencyE.exit17.i.i ]
+  %.ph6 = phi ptr [ %4, %12 ], [ %.pre1, %_ZN18dependency_managerIN25scoped_dependency_managerIjE6configEE7inc_refEPNS3_10dependencyE.exit17.i.i ]
   %.0.i.i.ph = phi ptr [ %5, %12 ], [ %17, %_ZN18dependency_managerIN25scoped_dependency_managerIjE6configEE7inc_refEPNS3_10dependencyE.exit17.i.i ]
   store ptr %.0.i.i.ph, ptr %.0.val, align 8, !tbaa !258
   %30 = getelementptr inbounds nuw %"class.lp::column", ptr %.ph, i64 %8, i32 1
@@ -8014,10 +8014,10 @@ _ZN25scoped_dependency_managerIjE7mk_joinEPN18dependency_managerINS0_6configEE10
 
 35:                                               ; preds = %_ZN25scoped_dependency_managerIjE7mk_joinEPN18dependency_managerINS0_6configEE10dependencyES5_.exit.thread, %_ZN25scoped_dependency_managerIjE7mk_joinEPN18dependency_managerINS0_6configEE10dependencyES5_.exit
   %36 = phi ptr [ %31, %_ZN25scoped_dependency_managerIjE7mk_joinEPN18dependency_managerINS0_6configEE10dependencyES5_.exit.thread ], [ %33, %_ZN25scoped_dependency_managerIjE7mk_joinEPN18dependency_managerINS0_6configEE10dependencyES5_.exit ]
-  %.0.i.i6 = phi ptr [ %.0.i.i.ph, %_ZN25scoped_dependency_managerIjE7mk_joinEPN18dependency_managerINS0_6configEE10dependencyES5_.exit.thread ], [ %10, %_ZN25scoped_dependency_managerIjE7mk_joinEPN18dependency_managerINS0_6configEE10dependencyES5_.exit ]
-  %37 = phi ptr [ %.ph4, %_ZN25scoped_dependency_managerIjE7mk_joinEPN18dependency_managerINS0_6configEE10dependencyES5_.exit.thread ], [ %4, %_ZN25scoped_dependency_managerIjE7mk_joinEPN18dependency_managerINS0_6configEE10dependencyES5_.exit ]
+  %.0.i.i8 = phi ptr [ %.0.i.i.ph, %_ZN25scoped_dependency_managerIjE7mk_joinEPN18dependency_managerINS0_6configEE10dependencyES5_.exit.thread ], [ %10, %_ZN25scoped_dependency_managerIjE7mk_joinEPN18dependency_managerINS0_6configEE10dependencyES5_.exit ]
+  %37 = phi ptr [ %.ph6, %_ZN25scoped_dependency_managerIjE7mk_joinEPN18dependency_managerINS0_6configEE10dependencyES5_.exit.thread ], [ %4, %_ZN25scoped_dependency_managerIjE7mk_joinEPN18dependency_managerINS0_6configEE10dependencyES5_.exit ]
   %38 = icmp eq ptr %36, null
-  %39 = icmp eq ptr %.0.i.i6, %36
+  %39 = icmp eq ptr %.0.i.i8, %36
   %or.cond.i.i2 = or i1 %38, %39
   br i1 %or.cond.i.i2, label %_ZN25scoped_dependency_managerIjE7mk_joinEPN18dependency_managerINS0_6configEE10dependencyES5_.exit5, label %_ZN18dependency_managerIN25scoped_dependency_managerIjE6configEE7inc_refEPNS3_10dependencyE.exit17.i.i3
 
@@ -8025,12 +8025,12 @@ _ZN18dependency_managerIN25scoped_dependency_managerIjE6configEE7inc_refEPNS3_10
   %40 = getelementptr inbounds nuw i8, ptr %37, i64 1544
   %41 = load ptr, ptr %40, align 8, !tbaa !251
   %42 = tail call noundef ptr @_ZN6region8allocateEm(ptr noundef nonnull align 8 dereferenceable(40) %41, i64 noundef 24)
-  %43 = load i32, ptr %.0.i.i6, align 4
+  %43 = load i32, ptr %.0.i.i8, align 4
   %44 = add i32 %43, 1
   %45 = and i32 %44, 1073741823
   %46 = and i32 %43, -1073741824
   %47 = or disjoint i32 %45, %46
-  store i32 %47, ptr %.0.i.i6, align 4
+  store i32 %47, ptr %.0.i.i8, align 4
   %48 = load i32, ptr %36, align 4
   %49 = add i32 %48, 1
   %50 = and i32 %49, 1073741823
@@ -8039,13 +8039,13 @@ _ZN18dependency_managerIN25scoped_dependency_managerIjE6configEE7inc_refEPNS3_10
   store i32 %52, ptr %36, align 4
   store i32 0, ptr %42, align 4
   %53 = getelementptr inbounds nuw i8, ptr %42, i64 8
-  store ptr %.0.i.i6, ptr %53, align 8, !tbaa !258
+  store ptr %.0.i.i8, ptr %53, align 8, !tbaa !258
   %54 = getelementptr inbounds nuw i8, ptr %42, i64 16
   store ptr %36, ptr %54, align 8, !tbaa !258
   br label %_ZN25scoped_dependency_managerIjE7mk_joinEPN18dependency_managerINS0_6configEE10dependencyES5_.exit5
 
 _ZN25scoped_dependency_managerIjE7mk_joinEPN18dependency_managerINS0_6configEE10dependencyES5_.exit5: ; preds = %_ZN25scoped_dependency_managerIjE7mk_joinEPN18dependency_managerINS0_6configEE10dependencyES5_.exit, %35, %_ZN18dependency_managerIN25scoped_dependency_managerIjE6configEE7inc_refEPNS3_10dependencyE.exit17.i.i3
-  %.0.i.i4 = phi ptr [ %42, %_ZN18dependency_managerIN25scoped_dependency_managerIjE6configEE7inc_refEPNS3_10dependencyE.exit17.i.i3 ], [ %33, %_ZN25scoped_dependency_managerIjE7mk_joinEPN18dependency_managerINS0_6configEE10dependencyES5_.exit ], [ %.0.i.i6, %35 ]
+  %.0.i.i4 = phi ptr [ %42, %_ZN18dependency_managerIN25scoped_dependency_managerIjE6configEE7inc_refEPNS3_10dependencyE.exit17.i.i3 ], [ %33, %_ZN25scoped_dependency_managerIjE7mk_joinEPN18dependency_managerINS0_6configEE10dependencyES5_.exit ], [ %.0.i.i8, %35 ]
   store ptr %.0.i.i4, ptr %.0.val, align 8, !tbaa !258
   ret ptr %.0.i.i4
 }
@@ -12913,7 +12913,7 @@ _ZN6vectorIjLb0EjE3endEv.exit:                    ; preds = %_ZNK25scoped_depend
   %33 = shl nuw nsw i64 %32, 2
   %34 = getelementptr inbounds nuw i8, ptr %.pr, i64 %33
   %.not17 = icmp eq i32 %31, 0
-  br i1 %.not17, label %._crit_edge.thread22, label %.lr.ph
+  br i1 %.not17, label %._crit_edge.thread27, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN6vectorIjLb0EjE3endEv.exit
   %35 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -12922,22 +12922,22 @@ _ZN6vectorIjLb0EjE3endEv.exit:                    ; preds = %_ZNK25scoped_depend
 ._crit_edge:                                      ; preds = %45
   %.pre = load ptr, ptr %5, align 8, !tbaa !40
   %.not.i.i15 = icmp eq ptr %.pre, null
-  br i1 %.not.i.i15, label %_ZN6vectorIjLb0EjED2Ev.exit, label %._crit_edge.thread22
+  br i1 %.not.i.i15, label %_ZN6vectorIjLb0EjED2Ev.exit, label %._crit_edge.thread27
 
-._crit_edge.thread22:                             ; preds = %_ZN6vectorIjLb0EjE3endEv.exit, %._crit_edge
+._crit_edge.thread27:                             ; preds = %_ZN6vectorIjLb0EjE3endEv.exit, %._crit_edge
   %36 = phi ptr [ %.pre, %._crit_edge ], [ %.pr, %_ZN6vectorIjLb0EjE3endEv.exit ]
   %37 = getelementptr inbounds i8, ptr %36, i64 -8
   invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %37)
           to label %_ZN6vectorIjLb0EjED2Ev.exit unwind label %38
 
-38:                                               ; preds = %._crit_edge.thread22
+38:                                               ; preds = %._crit_edge.thread27
   %39 = landingpad { ptr, i32 }
           catch ptr null
   %40 = extractvalue { ptr, i32 } %39, 0
   call void @__clang_call_terminate(ptr %40) #20
   unreachable
 
-_ZN6vectorIjLb0EjED2Ev.exit:                      ; preds = %_ZNK25scoped_dependency_managerIjE9linearizeEPN18dependency_managerINS0_6configEE10dependencyER6vectorIjLb0EjE.exit, %3, %._crit_edge, %._crit_edge.thread22
+_ZN6vectorIjLb0EjED2Ev.exit:                      ; preds = %_ZNK25scoped_dependency_managerIjE9linearizeEPN18dependency_managerINS0_6configEE10dependencyER6vectorIjLb0EjE.exit, %3, %._crit_edge, %._crit_edge.thread27
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 

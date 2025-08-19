@@ -114,7 +114,7 @@ define void @_ZN5boost6fibers15recursive_mutex4lockEv(ptr noundef nonnull align 
   br label %.thread
 
 .thread:                                          ; preds = %.thread.sink.split, %17
-  %switch13 = phi i1 [ true, %17 ], [ false, %.thread.sink.split ]
+  %switch16 = phi i1 [ true, %17 ], [ false, %.thread.sink.split ]
   %19 = load ptr, ptr %2, align 8, !tbaa !3
   %.not.i.i = icmp eq ptr %19, null
   br i1 %.not.i.i, label %_ZNSt11unique_lockIN5boost6fibers6detail13spinlock_ttasEED2Ev.exit, label %20
@@ -122,11 +122,11 @@ define void @_ZN5boost6fibers15recursive_mutex4lockEv(ptr noundef nonnull align 
 20:                                               ; preds = %.thread
   store atomic i32 1, ptr %19 release, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br i1 %switch13, label %.backedge.backedge, label %28
+  br i1 %switch16, label %.backedge.backedge, label %28
 
 _ZNSt11unique_lockIN5boost6fibers6detail13spinlock_ttasEED2Ev.exit: ; preds = %.thread
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br i1 %switch13, label %.backedge.backedge, label %28
+  br i1 %switch16, label %.backedge.backedge, label %28
 
 .backedge.critedge:                               ; preds = %17
   call void @llvm.lifetime.end.p0(ptr nonnull %2)

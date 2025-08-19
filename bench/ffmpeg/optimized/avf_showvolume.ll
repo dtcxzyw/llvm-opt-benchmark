@@ -826,8 +826,8 @@ draw_max_line.exit.i:                             ; preds = %.lr.ph.i291.i, %388
   %430 = call nsz double @llvm.log10.f64(double %429)
   %431 = fmul nsz double %430, 2.000000e+01
   %432 = load ptr, ptr %213, align 8, !tbaa !79
-  %.idx459.i = mul nuw nsw i64 %indvars.iv449.i, 24
-  %433 = getelementptr inbounds nuw i8, ptr %432, i64 %.idx459.i
+  %.idx499.i = mul nuw nsw i64 %indvars.iv449.i, 24
+  %433 = getelementptr inbounds nuw i8, ptr %432, i64 %.idx499.i
   store double %431, ptr %433, align 8, !tbaa !80
   %434 = fcmp nsz ogt float %428, 0.000000e+00
   %435 = select nsz i1 %434, float %428, float 0.000000e+00
@@ -873,8 +873,8 @@ calc_max_draw.exit299.i:                          ; preds = %454, %449
   %458 = load i32, ptr %216, align 4, !tbaa !82
   %459 = icmp sgt i32 %458, 0
   %460 = icmp sgt i32 %.09.i298.i, 0
-  %or.cond478.i = select i1 %459, i1 %460, i1 false
-  br i1 %or.cond478.i, label %.lr.ph411.us.i, label %._crit_edge415.i
+  %or.cond518.i = select i1 %459, i1 %460, i1 false
+  br i1 %or.cond518.i, label %.lr.ph411.us.i, label %._crit_edge415.i
 
 .lr.ph411.us.i:                                   ; preds = %calc_max_draw.exit299.i, %._crit_edge412.us.i
   %461 = phi i32 [ %485, %._crit_edge412.us.i ], [ %458, %calc_max_draw.exit299.i ]
@@ -1128,8 +1128,8 @@ draw_max_line.exit322.i:                          ; preds = %.lr.ph.i316.i, %573
 
 .lr.ph.preheader:                                 ; preds = %.lr.ph420.i
   %608 = load i32, ptr %600, align 8, !tbaa !96
-  %.not257.i107 = icmp eq i32 %608, 0
-  br i1 %.not257.i107, label %.critedge.i, label %.lr.ph109
+  %.not257.i148 = icmp eq i32 %608, 0
+  br i1 %.not257.i148, label %.critedge.i, label %.lr.ph150
 
 609:                                              ; preds = %596
   call void @av_frame_free(ptr noundef nonnull %4) #10
@@ -1143,18 +1143,18 @@ draw_max_line.exit322.i:                          ; preds = %.lr.ph.i316.i, %573
 .lr.ph:                                           ; preds = %610
   %613 = load i32, ptr %600, align 8, !tbaa !96
   %.not257.i = icmp eq i32 %613, 0
-  br i1 %.not257.i, label %.critedge.i, label %.lr.ph109, !llvm.loop !97
+  br i1 %.not257.i, label %.critedge.i, label %.lr.ph150, !llvm.loop !97
 
-.lr.ph109:                                        ; preds = %.lr.ph.preheader, %.lr.ph
-  %.2419.i52108 = phi i32 [ %717, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+.lr.ph150:                                        ; preds = %.lr.ph.preheader, %.lr.ph
+  %.2419.i52149 = phi i32 [ %717, %.lr.ph ], [ 0, %.lr.ph.preheader ]
   %614 = load i32, ptr %190, align 8, !tbaa !70
   %.not260.i = icmp eq i32 %614, 0
-  %615 = call i32 @av_channel_layout_channel_from_index(ptr noundef nonnull %601, i32 noundef %.2419.i52108) #10
+  %615 = call i32 @av_channel_layout_channel_from_index(ptr noundef nonnull %601, i32 noundef %.2419.i52149) #10
   %616 = call i32 @av_channel_name(ptr noundef nonnull %3, i64 noundef 64, i32 noundef %615) #10
   %617 = icmp slt i32 %616, 0
   br i1 %.not260.i, label %670, label %618
 
-618:                                              ; preds = %.lr.ph109
+618:                                              ; preds = %.lr.ph150
   br i1 %617, label %drawtext.exit.i, label %619
 
 619:                                              ; preds = %618
@@ -1169,7 +1169,7 @@ draw_max_line.exit322.i:                          ; preds = %.lr.ph.i316.i, %573
   %624 = load i32, ptr %599, align 4, !tbaa !82
   %625 = load i32, ptr %605, align 8, !tbaa !83
   %626 = add nsw i32 %625, %624
-  %627 = mul nsw i32 %626, %.2419.i52108
+  %627 = mul nsw i32 %626, %.2419.i52149
   %628 = add nsw i32 %624, -10
   %629 = sdiv i32 %628, 2
   %630 = add nsw i32 %627, %629
@@ -1248,7 +1248,7 @@ draw_max_line.exit322.i:                          ; preds = %.lr.ph.i316.i, %573
   %.not.i327.i = icmp eq i8 %669, 0
   br i1 %.not.i327.i, label %drawtext.exit.i, label %.preheader58.i.i, !llvm.loop !100
 
-670:                                              ; preds = %.lr.ph109
+670:                                              ; preds = %.lr.ph150
   br i1 %617, label %drawtext.exit.i, label %671
 
 671:                                              ; preds = %670
@@ -1256,7 +1256,7 @@ draw_max_line.exit322.i:                          ; preds = %.lr.ph.i316.i, %573
   %673 = load i32, ptr %599, align 4, !tbaa !82
   %674 = load i32, ptr %605, align 8, !tbaa !83
   %675 = add nsw i32 %674, %673
-  %676 = mul nsw i32 %675, %.2419.i52108
+  %676 = mul nsw i32 %675, %.2419.i52149
   %677 = add nsw i32 %673, -8
   %678 = sdiv i32 %677, 2
   %679 = add nsw i32 %676, %678
@@ -1333,7 +1333,7 @@ draw_max_line.exit322.i:                          ; preds = %.lr.ph.i316.i, %573
   br i1 %.not.us.i.i, label %drawtext.exit.i, label %.lr.ph.split.us.i.i, !llvm.loop !100
 
 drawtext.exit.i:                                  ; preds = %.loopexit59.i.i, %.loopexit.us.i.i, %671, %670, %619, %618
-  %717 = add nuw nsw i32 %.2419.i52108, 1
+  %717 = add nuw nsw i32 %.2419.i52149, 1
   %718 = load i32, ptr %192, align 4, !tbaa !71
   %719 = icmp slt i32 %717, %718
   br i1 %719, label %610, label %drawtext.exit.i..critedge.i_crit_edge, !llvm.loop !97
@@ -1371,8 +1371,8 @@ drawtext.exit.i..critedge.i_crit_edge:            ; preds = %drawtext.exit.i
   %731 = load i32, ptr %190, align 8, !tbaa !70
   %.not259.i = icmp eq i32 %731, 0
   %732 = load ptr, ptr %723, align 8, !tbaa !79
-  %.idx461.i = mul nuw nsw i64 %indvars.iv452.i, 24
-  %733 = getelementptr inbounds nuw i8, ptr %732, i64 %.idx461.i
+  %.idx501.i = mul nuw nsw i64 %indvars.iv452.i, 24
+  %733 = getelementptr inbounds nuw i8, ptr %732, i64 %.idx501.i
   %734 = load double, ptr %733, align 8, !tbaa !80
   %735 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 16, ptr noundef nonnull @.str.52, double noundef %734) #10
   %736 = load ptr, ptr %4, align 8, !tbaa !36
@@ -1824,11 +1824,11 @@ define internal noundef i32 @config_output(ptr noundef captures(none) initialize
   %20 = mul nsw i32 %17, %19
   %21 = add nsw i32 %20, %16
   %. = select i1 %.not, i32 %11, i32 %21
-  %.55 = select i1 %.not, i32 %21, i32 %11
+  %.58 = select i1 %.not, i32 %21, i32 %11
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i32 %., ptr %22, align 8, !tbaa !54
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  store i32 %.55, ptr %23, align 4, !tbaa !56
+  store i32 %.58, ptr %23, align 4, !tbaa !56
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i32 1, ptr %24, align 8, !tbaa !59
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 52

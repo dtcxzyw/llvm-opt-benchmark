@@ -967,7 +967,7 @@ define linkonce_odr dso_local void @_ZNSt6vectorIN3ozz9animation7offline16RawTra
   br i1 %.not37, label %20, label %_ZSt27__uninitialized_default_n_aIPN3ozz9animation7offline16RawTrackKeyframeIfEEmNS0_12StdAllocatorIS4_EEET_S8_T0_RT1_.exit
 
 _ZSt27__uninitialized_default_n_aIPN3ozz9animation7offline16RawTrackKeyframeIfEEmNS0_12StdAllocatorIS4_EEET_S8_T0_RT1_.exit: ; preds = %3
-  %19 = mul nuw i64 %1, 12
+  %19 = mul nuw nsw i64 %1, 12
   tail call void @llvm.memset.p0.i64(ptr align 4 %5, i8 0, i64 %19, i1 false)
   %scevgep.i = getelementptr i8, ptr %5, i64 %19
   store ptr %scevgep.i, ptr %4, align 8, !tbaa !4
@@ -1223,7 +1223,7 @@ define linkonce_odr dso_local void @_ZNSt6vectorIN3ozz9animation7offline16RawTra
   br i1 %.not37, label %20, label %_ZSt27__uninitialized_default_n_aIPN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float2EEEmNS0_12StdAllocatorIS6_EEET_SA_T0_RT1_.exit
 
 _ZSt27__uninitialized_default_n_aIPN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float2EEEmNS0_12StdAllocatorIS6_EEET_SA_T0_RT1_.exit: ; preds = %3
-  %19 = shl nuw i64 %1, 4
+  %19 = shl nuw nsw i64 %1, 4
   tail call void @llvm.memset.p0.i64(ptr align 4 %5, i8 0, i64 %19, i1 false)
   %scevgep.i = getelementptr i8, ptr %5, i64 %19
   store ptr %scevgep.i, ptr %4, align 8, !tbaa !17
@@ -1454,7 +1454,7 @@ define linkonce_odr dso_local void @_ZNSt6vectorIN3ozz9animation7offline16RawTra
   br i1 %.not37, label %20, label %_ZSt27__uninitialized_default_n_aIPN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float3EEEmNS0_12StdAllocatorIS6_EEET_SA_T0_RT1_.exit
 
 _ZSt27__uninitialized_default_n_aIPN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float3EEEmNS0_12StdAllocatorIS6_EEET_SA_T0_RT1_.exit: ; preds = %3
-  %19 = mul nuw i64 %1, 20
+  %19 = mul nuw nsw i64 %1, 20
   tail call void @llvm.memset.p0.i64(ptr align 4 %5, i8 0, i64 %19, i1 false)
   %scevgep.i = getelementptr i8, ptr %5, i64 %19
   store ptr %scevgep.i, ptr %4, align 8, !tbaa !40
@@ -1685,7 +1685,7 @@ define linkonce_odr dso_local void @_ZNSt6vectorIN3ozz9animation7offline16RawTra
   br i1 %.not37, label %20, label %_ZSt27__uninitialized_default_n_aIPN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float4EEEmNS0_12StdAllocatorIS6_EEET_SA_T0_RT1_.exit
 
 _ZSt27__uninitialized_default_n_aIPN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float4EEEmNS0_12StdAllocatorIS6_EEET_SA_T0_RT1_.exit: ; preds = %3
-  %19 = mul nuw i64 %1, 24
+  %19 = mul nuw nsw i64 %1, 24
   tail call void @llvm.memset.p0.i64(ptr align 4 %5, i8 0, i64 %19, i1 false)
   %scevgep.i = getelementptr i8, ptr %5, i64 %19
   store ptr %scevgep.i, ptr %4, align 8, !tbaa !50
@@ -1916,7 +1916,7 @@ define linkonce_odr dso_local void @_ZNSt6vectorIN3ozz9animation7offline16RawTra
   br i1 %.not37, label %20, label %_ZSt27__uninitialized_default_n_aIPN3ozz9animation7offline16RawTrackKeyframeINS0_4math10QuaternionEEEmNS0_12StdAllocatorIS6_EEET_SA_T0_RT1_.exit
 
 _ZSt27__uninitialized_default_n_aIPN3ozz9animation7offline16RawTrackKeyframeINS0_4math10QuaternionEEEmNS0_12StdAllocatorIS6_EEET_SA_T0_RT1_.exit: ; preds = %3
-  %19 = mul nuw i64 %1, 24
+  %19 = mul nuw nsw i64 %1, 24
   tail call void @llvm.memset.p0.i64(ptr align 4 %5, i8 0, i64 %19, i1 false)
   %scevgep.i = getelementptr i8, ptr %5, i64 %19
   store ptr %scevgep.i, ptr %4, align 8, !tbaa !60

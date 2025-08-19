@@ -268,10 +268,10 @@ select.unfold.i:                                  ; preds = %._crit_edge.i.i.i, 
   br label %114
 
 "_ZN10file_icons9FileIcons8get_icon28_$u7b$$u7b$closure$u7d$$u7d$17h20710504ae1c8e89E.exit": ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17hd39bc058b658fc2dE.exit.i.i.i", %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17hd39bc058b658fc2dE.exit.i.i25.i"
-  %.lcssa12.sink17 = phi ptr [ %97, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17hd39bc058b658fc2dE.exit.i.i25.i" ], [ %61, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17hd39bc058b658fc2dE.exit.i.i.i" ]
-  %109 = getelementptr inbounds i8, ptr %.lcssa12.sink17, i64 -16
+  %.lcssa18.sink23 = phi ptr [ %97, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17hd39bc058b658fc2dE.exit.i.i25.i" ], [ %61, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17hd39bc058b658fc2dE.exit.i.i.i" ]
+  %109 = getelementptr inbounds i8, ptr %.lcssa18.sink23, i64 -16
   %110 = load ptr, ptr %109, align 8, !noalias !31, !nonnull !5, !noundef !5
-  %111 = getelementptr inbounds i8, ptr %.lcssa12.sink17, i64 -8
+  %111 = getelementptr inbounds i8, ptr %.lcssa18.sink23, i64 -8
   %112 = load i64, ptr %111, align 8, !noalias !31, !noundef !5
   call void @_ZN10file_icons9FileIcons13get_type_icon17hd49fd1aef0b5176bE(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(96) %20, ptr noalias noundef nonnull readonly align 1 %110, i64 noundef %112)
   %.pr = load i64, ptr %8, align 8, !alias.scope !148, !noalias !151

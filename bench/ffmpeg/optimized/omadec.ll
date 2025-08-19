@@ -730,11 +730,11 @@ define internal i32 @oma_read_seek(ptr noundef %0, i32 noundef %1, i64 noundef %
 36:                                               ; preds = %31
   %37 = icmp sgt i32 %34, -1
   %narrow = select i1 %37, i32 -541478725, i32 %34
-  %spec.store.select25 = zext i32 %narrow to i64
+  %spec.store.select27 = zext i32 %narrow to i64
   br label %38
 
 38:                                               ; preds = %27, %19, %21, %36
-  %.0 = phi i64 [ %20, %19 ], [ 0, %21 ], [ %29, %27 ], [ %spec.store.select25, %36 ]
+  %.0 = phi i64 [ %20, %19 ], [ 0, %21 ], [ %29, %27 ], [ %spec.store.select27, %36 ]
   %39 = getelementptr inbounds nuw i8, ptr %6, i64 104
   store i64 0, ptr %39, align 8
   %40 = trunc i64 %.0 to i32

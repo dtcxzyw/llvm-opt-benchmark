@@ -219,20 +219,20 @@ define internal fastcc noundef ptr @_ZN4absl13time_internal4cctz12_GLOBAL__N_111
 
 .lr.ph:                                           ; preds = %.lr.ph.i.preheader, %26
   %20 = phi i32 [ %33, %26 ], [ %18, %.lr.ph.i.preheader ]
-  %.02764.i79 = phi i32 [ %27, %26 ], [ 0, %.lr.ph.i.preheader ]
-  %.02565.i78 = phi ptr [ %28, %26 ], [ %.019, %.lr.ph.i.preheader ]
-  %21 = icmp sgt i32 %.02764.i79, 214748364
+  %.02764.i86 = phi i32 [ %27, %26 ], [ 0, %.lr.ph.i.preheader ]
+  %.02565.i85 = phi ptr [ %28, %26 ], [ %.019, %.lr.ph.i.preheader ]
+  %21 = icmp sgt i32 %.02764.i86, 214748364
   br i1 %21, label %_ZN4absl13time_internal4cctz12_GLOBAL__N_18ParseIntEPKciiPi.exit.thread, label %22
 
 22:                                               ; preds = %.lr.ph
-  %23 = mul nsw i32 %.02764.i79, 10
+  %23 = mul nsw i32 %.02764.i86, 10
   %24 = sub nsw i32 2147483647, %20
   %25 = icmp sgt i32 %23, %24
   br i1 %25, label %_ZN4absl13time_internal4cctz12_GLOBAL__N_18ParseIntEPKciiPi.exit.thread, label %26
 
 26:                                               ; preds = %22
   %27 = add nsw i32 %20, %23
-  %28 = getelementptr inbounds nuw i8, ptr %.02565.i78, i64 1
+  %28 = getelementptr inbounds nuw i8, ptr %.02565.i85, i64 1
   %29 = load i8, ptr %28, align 1, !tbaa !12
   %30 = sext i8 %29 to i32
   %memchr.i = tail call ptr @memchr(ptr noundef nonnull dereferenceable(1) @_ZN4absl13time_internal4cctz12_GLOBAL__N_17kDigitsE, i32 %30, i64 11)

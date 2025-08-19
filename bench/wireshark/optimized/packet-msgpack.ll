@@ -427,10 +427,10 @@ dissect_msgpack_float.exit:                       ; preds = %112, %120
   br label %dissect_msgpack_string.exit
 
 dissect_msgpack_string.exit:                      ; preds = %164, %169
-  %.sink3 = phi i32 [ 1, %164 ], [ %152, %169 ]
+  %.sink5 = phi i32 [ 1, %164 ], [ %152, %169 ]
   %175 = load i32, ptr @hf_msgpack_string, align 4
   %176 = load i32, ptr %4, align 4
-  %177 = add i32 %176, %.sink3
+  %177 = add i32 %176, %.sink5
   %178 = tail call ptr @proto_tree_add_item(ptr noundef %161, i32 noundef %175, ptr noundef %0, i32 noundef %177, i32 noundef %.3.i, i32 noundef 0)
   %179 = load i32, ptr %4, align 4
   %180 = add i32 %179, %158

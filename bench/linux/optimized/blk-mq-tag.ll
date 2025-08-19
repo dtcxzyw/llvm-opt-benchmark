@@ -322,15 +322,15 @@ define dso_local i32 @blk_mq_get_tag(ptr noundef captures(none) %0) local_unname
   call void @sbitmap_prepare_to_wait(ptr noundef nonnull %34, ptr noundef %61, ptr noundef nonnull %2, i32 noundef 2) #9
   %66 = call fastcc i32 @__blk_mq_get_tag(ptr noundef %0, ptr noundef nonnull %34)
   %67 = icmp eq i32 %66, -1
-  br i1 %67, label %.lr.ph18, label %._crit_edge
+  br i1 %67, label %.lr.ph24, label %._crit_edge
 
 .lr.ph:                                           ; preds = %122
   call void @sbitmap_prepare_to_wait(ptr noundef nonnull %102, ptr noundef %124, ptr noundef nonnull %2, i32 noundef 2) #9
   %68 = call fastcc i32 @__blk_mq_get_tag(ptr noundef %0, ptr noundef nonnull %102)
   %69 = icmp eq i32 %68, -1
-  br i1 %69, label %.lr.ph18, label %._crit_edge
+  br i1 %69, label %.lr.ph24, label %._crit_edge
 
-.lr.ph18:                                         ; preds = %.lr.ph.preheader, %.lr.ph
+.lr.ph24:                                         ; preds = %.lr.ph.preheader, %.lr.ph
   %70 = phi ptr [ %102, %.lr.ph ], [ %34, %.lr.ph.preheader ]
   %71 = phi ptr [ %124, %.lr.ph ], [ %61, %.lr.ph.preheader ]
   call void @io_schedule() #9
@@ -371,13 +371,13 @@ define dso_local i32 @blk_mq_get_tag(ptr noundef captures(none) %0) local_unname
   %103 = icmp eq ptr %102, %70
   br i1 %103, label %105, label %104
 
-104:                                              ; preds = %.lr.ph18
+104:                                              ; preds = %.lr.ph24
   call void @sbitmap_queue_wake_up(ptr noundef nonnull %70, i32 noundef 1) #9
   %.pre16 = load ptr, ptr %7, align 8
   br label %105
 
-105:                                              ; preds = %104, %.lr.ph18
-  %106 = phi ptr [ %.pre16, %104 ], [ %91, %.lr.ph18 ]
+105:                                              ; preds = %104, %.lr.ph24
+  %106 = phi ptr [ %.pre16, %104 ], [ %91, %.lr.ph24 ]
   %107 = icmp eq ptr %106, null
   br i1 %107, label %108, label %111
 
@@ -1063,7 +1063,7 @@ define dso_local void @blk_mq_queue_tag_busy_iter(ptr noundef %0, ptr noundef re
 9:                                                ; preds = %3
   %10 = inttoptr i64 %6 to ptr
   tail call void asm sideeffect "incq %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %10, ptr elementtype(i64) %10) #9, !srcloc !29
-  br label %.loopexit5
+  br label %.loopexit9
 
 11:                                               ; preds = %3
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -1084,14 +1084,14 @@ define dso_local void @blk_mq_queue_tag_busy_iter(ptr noundef %0, ptr noundef re
   %20 = icmp ult i8 %19, 2
   tail call void @llvm.assume(i1 %20)
   %21 = icmp eq i8 %19, 0
-  br i1 %21, label %22, label %.loopexit5, !prof !8
+  br i1 %21, label %22, label %.loopexit9, !prof !8
 
 22:                                               ; preds = %.lr.ph
   %23 = extractvalue { i8, i64 } %18, 1
   %24 = icmp eq i64 %23, 0
   br i1 %24, label %.thread4, label %.lr.ph, !prof !25, !llvm.loop !31
 
-.loopexit5:                                       ; preds = %.lr.ph, %9
+.loopexit9:                                       ; preds = %.lr.ph, %9
   tail call void @__rcu_read_unlock() #9
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 792
   %26 = load ptr, ptr %25, align 8
@@ -1101,7 +1101,7 @@ define dso_local void @blk_mq_queue_tag_busy_iter(ptr noundef %0, ptr noundef re
   %30 = icmp eq i32 %29, 0
   br i1 %30, label %41, label %31
 
-31:                                               ; preds = %.loopexit5
+31:                                               ; preds = %.loopexit9
   %32 = getelementptr inbounds nuw i8, ptr %26, i64 104
   %33 = load ptr, ptr %32, align 8
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 16
@@ -1119,7 +1119,7 @@ define dso_local void @blk_mq_queue_tag_busy_iter(ptr noundef %0, ptr noundef re
   tail call fastcc void @bt_for_each(ptr noundef null, ptr noundef %0, ptr noundef nonnull %34, ptr noundef %1, ptr noundef %2, i1 noundef zeroext false)
   br label %64
 
-41:                                               ; preds = %.loopexit5
+41:                                               ; preds = %.loopexit9
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 0, ptr %4, align 8
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 56

@@ -498,8 +498,8 @@ define internal fastcc noundef i32 @nmas_string(ptr %.408.val, ptr noundef %0, i
   %35 = icmp ne i32 %34, 1
   %36 = add i32 %.2, 1
   %37 = icmp ult i32 %36, %.263
-  %or.cond16 = select i1 %35, i1 %37, i1 false
-  br i1 %or.cond16, label %.preheader, label %.loopexit, !llvm.loop !8
+  %or.cond18 = select i1 %35, i1 %37, i1 false
+  br i1 %or.cond18, label %.preheader, label %.loopexit, !llvm.loop !8
 
 .loopexit:                                        ; preds = %32
   %38 = zext i32 %36 to i64

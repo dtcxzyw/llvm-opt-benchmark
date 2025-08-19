@@ -1728,9 +1728,9 @@ get_label.exit:                                   ; preds = %2, %10
   br label %.sink.split
 
 .sink.split:                                      ; preds = %86, %.thread, %88, %.thread93
-  %.sink98 = phi i32 [ 10, %.thread93 ], [ 19, %88 ], [ 13, %.thread ], [ 16, %86 ]
+  %.sink101 = phi i32 [ 10, %.thread93 ], [ 19, %88 ], [ 13, %.thread ], [ 16, %86 ]
   %89 = load ptr, ptr %3, align 8, !tbaa !3
-  tail call void @lv_obj_align_to(ptr noundef %89, ptr noundef nonnull %0, i32 noundef %.sink98, i32 noundef 0, i32 noundef 0) #7
+  tail call void @lv_obj_align_to(ptr noundef %89, ptr noundef nonnull %0, i32 noundef %.sink101, i32 noundef 0, i32 noundef 0) #7
   br label %90
 
 90:                                               ; preds = %.sink.split, %86
@@ -1767,9 +1767,9 @@ get_label.exit:                                   ; preds = %2, %10
   %110 = tail call i32 @lv_obj_calculate_style_text_align(ptr noundef %.0.i, i32 noundef 0, ptr noundef %109) #7
   %switch.selectcmp = icmp eq i32 %110, 3
   %switch.select = select i1 %switch.selectcmp, i32 3, i32 1
-  %switch.selectcmp99 = icmp eq i32 %110, 2
-  %switch.select100 = select i1 %switch.selectcmp99, i32 2, i32 %switch.select
-  tail call void @lv_obj_align(ptr noundef %.0.i, i32 noundef %switch.select100, i32 noundef 0, i32 noundef 0) #7
+  %switch.selectcmp102 = icmp eq i32 %110, 2
+  %switch.select103 = select i1 %switch.selectcmp102, i32 2, i32 %switch.select
+  tail call void @lv_obj_align(ptr noundef %.0.i, i32 noundef %switch.select103, i32 noundef 0, i32 noundef 0) #7
   ret void
 }
 

@@ -848,7 +848,7 @@ define dso_local range(i32 -110, 1) i32 @xhci_reset(ptr noundef %0, i64 noundef 
   br i1 %71, label %72, label %73
 
 72:                                               ; preds = %.loopexit5
-  br i1 %70, label %.thread4, label %.thread18
+  br i1 %70, label %.thread4, label %.thread23
 
 73:                                               ; preds = %.loopexit5
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 2448
@@ -858,27 +858,27 @@ define dso_local range(i32 -110, 1) i32 @xhci_reset(ptr noundef %0, i64 noundef 
   %spec.select = select i1 %77, i32 -110, i32 -19
   br label %.thread4
 
-.thread18:                                        ; preds = %72
+.thread23:                                        ; preds = %72
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 2448
   %.pre = load i32, ptr %.phi.trans.insert, align 8
   %78 = and i32 %.pre, 4
   %79 = icmp eq i32 %78, 0
-  br i1 %79, label %.thread19, label %.thread4
+  br i1 %79, label %.thread24, label %.thread4
 
-.thread19:                                        ; preds = %.thread18
+.thread24:                                        ; preds = %.thread23
   %80 = load i64, ptr %22, align 8
   %81 = and i64 %80, 268435456
   %82 = icmp eq i64 %81, 0
   br i1 %82, label %87, label %83
 
-83:                                               ; preds = %.thread19
+83:                                               ; preds = %.thread24
   %84 = load ptr, ptr %0, align 8
   %85 = load ptr, ptr %84, align 8
   %86 = getelementptr i8, ptr %85, i64 -184
   tail call void @usb_asmedia_modifyflowcontrol(ptr noundef %86) #21
   br label %87
 
-87:                                               ; preds = %83, %.thread19
+87:                                               ; preds = %83, %.thread24
   tail call void (ptr, ptr, ptr, ...) @xhci_dbg_trace(ptr noundef %0, ptr noundef nonnull @trace_xhci_dbg_init, ptr noundef nonnull @.str.7) #21
   %88 = load ptr, ptr %3, align 8
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 4
@@ -949,8 +949,8 @@ define dso_local range(i32 -110, 1) i32 @xhci_reset(ptr noundef %0, i64 noundef 
   store i64 0, ptr %123, align 8
   br label %.thread4
 
-.thread4:                                         ; preds = %73, %.thread18, %72, %.loopexit, %14, %8
-  %124 = phi i32 [ -19, %8 ], [ 0, %14 ], [ %117, %.loopexit ], [ -19, %72 ], [ -19, %.thread18 ], [ %spec.select, %73 ]
+.thread4:                                         ; preds = %73, %.thread23, %72, %.loopexit, %14, %8
+  %124 = phi i32 [ -19, %8 ], [ 0, %14 ], [ %117, %.loopexit ], [ -19, %72 ], [ -19, %.thread23 ], [ %spec.select, %73 ]
   ret i32 %124
 }
 
@@ -6625,7 +6625,7 @@ define internal i32 @xhci_urb_enqueue(ptr noundef %0, ptr noundef %1, i32 nounde
   %164 = getelementptr inbounds nuw i8, ptr %163, i64 3
   %165 = load i8, ptr %164, align 1
   %166 = and i8 %165, 3
-  switch i8 %166, label %default.unreachable13 [
+  switch i8 %166, label %default.unreachable21 [
     i8 0, label %167
     i8 2, label %169
     i8 3, label %171
@@ -6648,7 +6648,7 @@ define internal i32 @xhci_urb_enqueue(ptr noundef %0, ptr noundef %1, i32 nounde
   %174 = tail call i32 @xhci_queue_isoc_tx_prepare(ptr noundef nonnull %11, i32 noundef 2080, ptr noundef %1, i32 noundef %127, i32 noundef %49) #21
   br label %175
 
-default.unreachable13:                            ; preds = %162
+default.unreachable21:                            ; preds = %162
   unreachable
 
 175:                                              ; preds = %173, %171, %169, %167
@@ -6846,7 +6846,7 @@ define internal i32 @xhci_urb_dequeue(ptr noundef %0, ptr noundef %1, i32 nounde
 118:                                              ; preds = %129, %116
   %119 = phi i32 [ %114, %116 ], [ %130, %129 ]
   %120 = phi i64 [ %117, %116 ], [ %131, %129 ]
-  %.idx = mul i64 %120, 96
+  %.idx = mul nsw i64 %120, 96
   %121 = getelementptr i8, ptr %97, i64 %.idx
   %122 = getelementptr i8, ptr %121, i64 16
   %123 = load volatile ptr, ptr %122, align 8
@@ -7997,7 +7997,7 @@ define internal void @xhci_free_dev(ptr noundef %0, ptr noundef readonly capture
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i32 1, 0) i32 @xhci_alloc_streams(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) #0 align 16 {
+define internal range(i32 1, -1) i32 @xhci_alloc_streams(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) #0 align 16 {
   %7 = icmp eq ptr %2, null
   br i1 %7, label %401, label %8
 
@@ -10878,7 +10878,7 @@ define internal fastcc noundef range(i32 -7, 1) i32 @xhci_update_timeout_for_end
   br i1 %26, label %61, label %27
 
 27:                                               ; preds = %22
-  switch i8 %9, label %default.unreachable7 [
+  switch i8 %9, label %default.unreachable9 [
     i8 0, label %28
     i8 2, label %33
     i8 3, label %38
@@ -10928,7 +10928,7 @@ define internal fastcc noundef range(i32 -7, 1) i32 @xhci_update_timeout_for_end
   %60 = tail call i64 @llvm.umax.i64(i64 %55, i64 %59)
   br label %65
 
-default.unreachable7:                             ; preds = %27
+default.unreachable9:                             ; preds = %27
   unreachable
 
 61:                                               ; preds = %22
@@ -10945,8 +10945,8 @@ default.unreachable7:                             ; preds = %27
 
 69:                                               ; preds = %65
   %70 = trunc i64 %67 to i32
-  %.lhs.trunc8 = add i32 %70, 999
-  %71 = udiv i32 %.lhs.trunc8, 1000
+  %.lhs.trunc10 = add i32 %70, 999
+  %71 = udiv i32 %.lhs.trunc10, 1000
   %.zext = trunc i32 %71 to i16
   %72 = icmp samesign ult i64 %67, 127001
   br i1 %72, label %.thread6, label %73

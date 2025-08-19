@@ -968,8 +968,8 @@ _ZN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEEC2EPKc.exit.i: ; 
   %41 = getelementptr inbounds nuw i16, ptr %.sroa.032.0.i, i64 %40
   store i16 %38, ptr %41, align 2, !tbaa !15
   %.02350.i.add = add nuw nsw i64 %.02350.i.idx, 16
-  %.not53.i = icmp eq i64 %.02350.i.add, 64
-  br i1 %.not53.i, label %._crit_edge.thread.i, label %.outer.i
+  %.not55.i = icmp eq i64 %.02350.i.add, 64
+  br i1 %.not55.i, label %._crit_edge.thread.i, label %.outer.i
 
 ._crit_edge.thread.i:                             ; preds = %.thread.i, %._crit_edge.i
   %42 = ashr exact i64 %20, 1
@@ -1189,8 +1189,8 @@ _ZN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEEC2EPKc.exit: ; pr
   %44 = getelementptr inbounds nuw i16, ptr %.sroa.032.0, i64 %43
   store i16 %41, ptr %44, align 2, !tbaa !15
   %45 = getelementptr inbounds nuw i8, ptr %.02350, i64 16
-  %.not53 = icmp eq ptr %45, %9
-  br i1 %.not53, label %._crit_edge.thread, label %.outer
+  %.not55 = icmp eq ptr %45, %9
+  br i1 %.not55, label %._crit_edge.thread, label %.outer
 
 ._crit_edge.thread:                               ; preds = %.thread, %._crit_edge
   %46 = ashr exact i64 %22, 1

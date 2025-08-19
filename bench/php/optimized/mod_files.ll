@@ -901,24 +901,24 @@ zend_string_equals.exit.thread37:                 ; preds = %zend_string_equals.
   br i1 %.not25, label %.thread, label %zend_string_equals.exit.thread37.thread
 
 zend_string_equals.exit.thread37.thread:          ; preds = %11, %zend_string_equals.exit.thread37
-  %.pr47 = phi ptr [ %.pr, %zend_string_equals.exit.thread37 ], [ %.pr.pre43, %11 ]
-  %18 = getelementptr inbounds nuw i8, ptr %.pr47, i64 4
+  %.pr53 = phi ptr [ %.pr, %zend_string_equals.exit.thread37 ], [ %.pr.pre43, %11 ]
+  %18 = getelementptr inbounds nuw i8, ptr %.pr53, i64 4
   %19 = load i32, ptr %18, align 4, !tbaa !4
   %20 = and i32 %19, 64
   %.not.i = icmp eq i32 %20, 0
   br i1 %.not.i, label %21, label %zend_string_release_ex.exit
 
 21:                                               ; preds = %zend_string_equals.exit.thread37.thread
-  %22 = load i32, ptr %.pr47, align 4, !tbaa !18
+  %22 = load i32, ptr %.pr53, align 4, !tbaa !18
   %23 = icmp ne i32 %22, 0
   tail call void @llvm.assume(i1 %23)
   %24 = add i32 %22, -1
-  store i32 %24, ptr %.pr47, align 4, !tbaa !18
+  store i32 %24, ptr %.pr53, align 4, !tbaa !18
   %25 = icmp eq i32 %24, 0
   br i1 %25, label %26, label %zend_string_release_ex.exit
 
 26:                                               ; preds = %21
-  tail call void @_efree(ptr noundef nonnull %.pr47) #15
+  tail call void @_efree(ptr noundef nonnull %.pr53) #15
   br label %zend_string_release_ex.exit
 
 zend_string_release_ex.exit:                      ; preds = %zend_string_equals.exit.thread37.thread, %21, %26

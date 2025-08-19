@@ -1442,11 +1442,11 @@ init_file.exit.thread:                            ; preds = %92, %76
   %115 = getelementptr inbounds nuw i8, ptr %7, i64 12
   %116 = load i32, ptr %115, align 4, !tbaa !112
   %117 = add i32 %112, %116
-  %spec.select77 = select i1 %.not62, i32 %117, i32 0
+  %spec.select84 = select i1 %.not62, i32 %117, i32 0
   br label %.thread67.thread
 
 .thread67.thread:                                 ; preds = %.thread66, %.thread67
-  %118 = phi i32 [ %spec.select77, %.thread67 ], [ 0, %.thread66 ]
+  %118 = phi i32 [ %spec.select84, %.thread67 ], [ 0, %.thread66 ]
   %119 = load i32, ptr %45, align 4, !tbaa !94
   %spec.select = sub i32 %119, %118
   br label %126

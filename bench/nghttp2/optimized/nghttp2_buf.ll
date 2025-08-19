@@ -666,19 +666,19 @@ nghttp2_buf_wrap_init.exit:                       ; preds = %.preheader, %27
   br label %nghttp2_bufs_wrap_init.exit.sink.split
 
 nghttp2_bufs_wrap_init.exit.sink.split:           ; preds = %30, %10
-  %.sink46 = phi ptr [ %8, %10 ], [ %.0..0..0..0.34, %30 ]
-  %.sink41 = phi i64 [ 1, %10 ], [ %2, %30 ]
-  store ptr %.sink46, ptr %0, align 8, !tbaa !18
+  %.sink49 = phi ptr [ %8, %10 ], [ %.0..0..0..0.34, %30 ]
+  %.sink44 = phi i64 [ 1, %10 ], [ %2, %30 ]
+  store ptr %.sink49, ptr %0, align 8, !tbaa !18
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sink46, ptr %33, align 8, !tbaa !19
+  store ptr %.sink49, ptr %33, align 8, !tbaa !19
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 0, ptr %34, align 8, !tbaa !23
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i64 %.sink41, ptr %35, align 8, !tbaa !24
+  store i64 %.sink44, ptr %35, align 8, !tbaa !24
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i64 %.sink41, ptr %36, align 8, !tbaa !25
+  store i64 %.sink44, ptr %36, align 8, !tbaa !25
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i64 %.sink41, ptr %37, align 8, !tbaa !26
+  store i64 %.sink44, ptr %37, align 8, !tbaa !26
   br label %nghttp2_bufs_wrap_init.exit
 
 nghttp2_bufs_wrap_init.exit:                      ; preds = %nghttp2_bufs_wrap_init.exit.sink.split, %7, %13
@@ -762,12 +762,12 @@ define hidden i64 @nghttp2_bufs_len(ptr noundef readonly captures(none) %0) loca
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 -901, 1) i32 @nghttp2_bufs_add(ptr noundef captures(none) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.not48 = icmp eq i64 %2, 0
-  br i1 %.not48, label %.split, label %.outer.split.preheader
+  %.not50 = icmp eq i64 %2, 0
+  br i1 %.not50, label %.split, label %.outer.split.preheader
 
 .outer.split.preheader:                           ; preds = %3, %.outer
-  %.0.ph50 = phi ptr [ %19, %.outer ], [ %1, %3 ]
-  %.019.ph49 = phi i64 [ %20, %.outer ], [ %2, %3 ]
+  %.0.ph52 = phi ptr [ %19, %.outer ], [ %1, %3 ]
+  %.019.ph51 = phi i64 [ %20, %.outer ], [ %2, %3 ]
   br label %.outer.split
 
 .outer.split:                                     ; preds = %.outer.split.preheader, %11
@@ -789,11 +789,11 @@ define hidden range(i32 -901, 1) i32 @nghttp2_bufs_add(ptr noundef captures(none
   %14 = ptrtoint ptr %9 to i64
   %15 = ptrtoint ptr %7 to i64
   %16 = sub i64 %15, %14
-  %17 = tail call noundef i64 @llvm.umin.i64(i64 %16, i64 range(i64 1, 0) %.019.ph49)
-  %18 = tail call ptr @nghttp2_cpymem(ptr noundef %9, ptr noundef %.0.ph50, i64 noundef %17) #10
+  %17 = tail call noundef i64 @llvm.umin.i64(i64 %16, i64 range(i64 1, 0) %.019.ph51)
+  %18 = tail call ptr @nghttp2_cpymem(ptr noundef %9, ptr noundef %.0.ph52, i64 noundef %17) #10
   store ptr %18, ptr %13, align 8, !tbaa !10
-  %19 = getelementptr inbounds nuw i8, ptr %.0.ph50, i64 %17
-  %20 = sub i64 %.019.ph49, %17
+  %19 = getelementptr inbounds nuw i8, ptr %.0.ph52, i64 %17
+  %20 = sub i64 %.019.ph51, %17
   %.not = icmp eq i64 %20, 0
   br i1 %.not, label %.split, label %.outer.split.preheader, !llvm.loop !37
 

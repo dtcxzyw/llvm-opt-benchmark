@@ -766,7 +766,7 @@ Abc_PrimeCudd.exit:                               ; preds = %18
   br label %Vec_IntFill.exit
 
 Vec_IntFill.exit:                                 ; preds = %Abc_PrimeCudd.exit, %.lr.ph.i39
-  %.val23.i80 = phi ptr [ %25, %.lr.ph.i39 ], [ null, %Abc_PrimeCudd.exit ]
+  %.val23.i86 = phi ptr [ %25, %.lr.ph.i39 ], [ null, %Abc_PrimeCudd.exit ]
   store i32 %16, ptr %.sroa.4.0..sroa_idx, align 4, !tbaa !3
   %28 = icmp sgt i32 %.sroa.4.0.copyload, 0
   br i1 %28, label %.lr.ph62, label %.critedge
@@ -842,7 +842,7 @@ Gia_ObjFaninLit2p.exit:                           ; preds = %36, %54
   %69 = add i32 %68, %59
   %70 = urem i32 %69, %.val.i42
   %71 = sext i32 %70 to i64
-  %72 = getelementptr inbounds i32, ptr %.val23.i80, i64 %71
+  %72 = getelementptr inbounds i32, ptr %.val23.i86, i64 %71
   %73 = load i32, ptr %72, align 4, !tbaa !11
   %.not30.i = icmp eq i32 %73, 0
   br i1 %.not30.i, label %Gia_ManHashFind.exit, label %.lr.ph.i43
@@ -1199,9 +1199,9 @@ Gia_ManHashFind.exit.thread:                      ; preds = %Gia_ManHashFind.exi
   br label %99
 
 99:                                               ; preds = %Gia_ManHashFind.exit.thread, %97
-  %.sink84 = phi ptr [ %98, %97 ], [ %.021.lcssa.i75, %Gia_ManHashFind.exit.thread ]
+  %.sink91 = phi ptr [ %98, %97 ], [ %.021.lcssa.i75, %Gia_ManHashFind.exit.thread ]
   %100 = ashr i32 %96, 1
-  store i32 %100, ptr %.sink84, align 4, !tbaa !11
+  store i32 %100, ptr %.sink91, align 4, !tbaa !11
   %101 = and i32 %96, -2
   %102 = or disjoint i32 %101, %.156
   br label %103
@@ -1424,9 +1424,9 @@ define i32 @Gia_ManHashMuxReal(ptr noundef %0, i32 noundef %1, i32 noundef %2, i
   br label %70
 
 70:                                               ; preds = %60, %68
-  %.sink101 = phi ptr [ %69, %68 ], [ %52, %60 ]
+  %.sink108 = phi ptr [ %69, %68 ], [ %52, %60 ]
   %71 = ashr i32 %67, 1
-  store i32 %71, ptr %.sink101, align 4, !tbaa !11
+  store i32 %71, ptr %.sink108, align 4, !tbaa !11
   %72 = and i32 %67, -2
   %73 = or disjoint i32 %72, %51
   br label %74
@@ -1589,9 +1589,9 @@ define i32 @Gia_ManHashAnd(ptr noundef %0, i32 noundef %1, i32 noundef %2) local
   br label %90
 
 90:                                               ; preds = %80, %88
-  %.sink81 = phi ptr [ %89, %88 ], [ %73, %80 ]
+  %.sink86 = phi ptr [ %89, %88 ], [ %73, %80 ]
   %91 = ashr i32 %87, 1
-  store i32 %91, ptr %.sink81, align 4, !tbaa !11
+  store i32 %91, ptr %.sink86, align 4, !tbaa !11
   %92 = and i32 %87, -2
   br label %93
 

@@ -1298,8 +1298,8 @@ _ZN4ncnn3MatD2Ev.exit:                            ; preds = %._crit_edge139, %.l
   %117 = insertelement <4 x float> poison, float %116, i64 0
   %118 = shufflevector <4 x float> %117, <4 x float> poison, <4 x i32> zeroinitializer
   %119 = fmul fast <4 x float> %118, %.062.lcssa
-  %.idx163 = shl nsw i64 %indvars.iv156, 4
-  %120 = getelementptr inbounds nuw i8, ptr %.054142, i64 %.idx163
+  %.idx176 = shl nsw i64 %indvars.iv156, 4
+  %120 = getelementptr inbounds nuw i8, ptr %.054142, i64 %.idx176
   store <4 x float> %119, ptr %120, align 1, !tbaa !67
   %indvars.iv.next157 = add nuw nsw i64 %indvars.iv156, 1
   %121 = load i32, ptr %7, align 4, !tbaa !31

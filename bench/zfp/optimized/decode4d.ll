@@ -76,8 +76,8 @@ stream_read_bit.exit47.thread.i:                  ; preds = %25
   %32 = lshr i64 %.pre.i, 1
   store i64 %32, ptr %20, align 8, !tbaa !19
   %33 = and i64 %.pre.i, 1
-  %.not4152.i = icmp eq i64 %33, 0
-  br i1 %.not4152.i, label %.thread.i, label %34
+  %.not4158.i = icmp eq i64 %33, 0
+  br i1 %.not4158.i, label %.thread.i, label %34
 
 34:                                               ; preds = %stream_read_bit.exit47.thread.i, %stream_read_bit.exit47.i
   %35 = load i32, ptr %0, align 8, !tbaa !22
@@ -136,12 +136,12 @@ rev_inv_reinterpret_double.exit.i:                ; preds = %47
   br label %stream_read_bits.exit.i
 
 stream_read_bits.exit.i:                          ; preds = %.thread.i, %51
-  %.sink28.i.i = phi i64 [ %57, %51 ], [ %63, %.thread.i ]
+  %.sink31.i.i = phi i64 [ %57, %51 ], [ %63, %.thread.i ]
   %.sink27.i.i = phi i64 [ %58, %51 ], [ %64, %.thread.i ]
   %.sink.i.i = phi i64 [ %60, %51 ], [ %65, %.thread.i ]
   store i64 %.sink27.i.i, ptr %11, align 8, !tbaa !13
   store i64 %.sink.i.i, ptr %20, align 8, !tbaa !19
-  %66 = trunc i64 %.sink28.i.i to i32
+  %66 = trunc i64 %.sink31.i.i to i32
   %67 = and i32 %66, 2047
   %68 = load i32, ptr %0, align 8, !tbaa !22
   %69 = tail call i32 @llvm.usub.sat.i32(i32 %68, i32 13)
@@ -277,12 +277,12 @@ stream_read_bit.exit.i8:                          ; preds = %111, %._crit_edge.i
   br label %stream_read_bits.exit.i11
 
 stream_read_bits.exit.i11:                        ; preds = %134, %124
-  %.sink28.i.i12 = phi i64 [ %130, %124 ], [ %118, %134 ]
+  %.sink31.i.i12 = phi i64 [ %130, %124 ], [ %118, %134 ]
   %.sink27.i.i13 = phi i64 [ %131, %124 ], [ %135, %134 ]
   %.sink.i.i14 = phi i64 [ %133, %124 ], [ %136, %134 ]
   store i64 %.sink27.i.i13, ptr %108, align 8, !tbaa !13
   store i64 %.sink.i.i14, ptr %117, align 8, !tbaa !19
-  %137 = trunc i64 %.sink28.i.i12 to i32
+  %137 = trunc i64 %.sink31.i.i12 to i32
   %138 = and i32 %137, 2047
   %139 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %140 = load i32, ptr %139, align 8, !tbaa !26
@@ -662,12 +662,12 @@ define internal fastcc i32 @rev_decode_block_int64_4(ptr noundef captures(none) 
   br label %stream_read_bits.exit
 
 stream_read_bits.exit:                            ; preds = %10, %20
-  %.sink28.i = phi i64 [ %16, %10 ], [ %7, %20 ]
+  %.sink31.i = phi i64 [ %16, %10 ], [ %7, %20 ]
   %.sink27.i = phi i64 [ %17, %10 ], [ %21, %20 ]
   %.sink.i = phi i64 [ %19, %10 ], [ %22, %20 ]
   store i64 %.sink27.i, ptr %0, align 8, !tbaa !13
   store i64 %.sink.i, ptr %6, align 8, !tbaa !19
-  %23 = trunc i64 %.sink28.i to i32
+  %23 = trunc i64 %.sink31.i to i32
   %24 = and i32 %23, 63
   %25 = add nuw nsw i32 %24, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %5)

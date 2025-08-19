@@ -4258,8 +4258,8 @@ _ZNK20b3AlignedObjectArrayIiE4copyEiiPi.exit.i.i: ; preds = %.noexc523, %.split.
   br i1 %.not.i16.i.i513.not, label %_ZN20b3AlignedObjectArrayIiE10deallocateEv.exit.i.i, label %_ZNK20b3AlignedObjectArrayIiE4copyEiiPi.exit.i.i.thread
 
 _ZNK20b3AlignedObjectArrayIiE4copyEiiPi.exit.i.i.thread: ; preds = %623, %_ZNK20b3AlignedObjectArrayIiE4copyEiiPi.exit.i.i
-  %.0.i.i512840 = phi i32 [ %.0.i.i512, %_ZNK20b3AlignedObjectArrayIiE4copyEiiPi.exit.i.i ], [ %615, %623 ]
-  %.0.i18.i.i511838 = phi ptr [ %.0.i18.i.i511, %_ZNK20b3AlignedObjectArrayIiE4copyEiiPi.exit.i.i ], [ %620, %623 ]
+  %.0.i.i512918 = phi i32 [ %.0.i.i512, %_ZNK20b3AlignedObjectArrayIiE4copyEiiPi.exit.i.i ], [ %615, %623 ]
+  %.0.i18.i.i511916 = phi ptr [ %.0.i18.i.i511, %_ZNK20b3AlignedObjectArrayIiE4copyEiiPi.exit.i.i ], [ %620, %623 ]
   invoke void @_Z21b3AlignedFreeInternalPv(ptr noundef nonnull %585)
           to label %._ZN20b3AlignedObjectArrayIiE10deallocateEv.exit.i.i_crit_edge unwind label %634
 
@@ -4268,17 +4268,17 @@ _ZNK20b3AlignedObjectArrayIiE4copyEiiPi.exit.i.i.thread: ; preds = %623, %_ZNK20
   br label %_ZN20b3AlignedObjectArrayIiE10deallocateEv.exit.i.i
 
 _ZN20b3AlignedObjectArrayIiE10deallocateEv.exit.i.i: ; preds = %._ZN20b3AlignedObjectArrayIiE10deallocateEv.exit.i.i_crit_edge, %_ZNK20b3AlignedObjectArrayIiE4copyEiiPi.exit.i.i
-  %.0.i.i512841 = phi i32 [ %.0.i.i512840, %._ZN20b3AlignedObjectArrayIiE10deallocateEv.exit.i.i_crit_edge ], [ %.0.i.i512, %_ZNK20b3AlignedObjectArrayIiE4copyEiiPi.exit.i.i ]
-  %.0.i18.i.i511839 = phi ptr [ %.0.i18.i.i511838, %._ZN20b3AlignedObjectArrayIiE10deallocateEv.exit.i.i_crit_edge ], [ %.0.i18.i.i511, %_ZNK20b3AlignedObjectArrayIiE4copyEiiPi.exit.i.i ]
+  %.0.i.i512919 = phi i32 [ %.0.i.i512918, %._ZN20b3AlignedObjectArrayIiE10deallocateEv.exit.i.i_crit_edge ], [ %.0.i.i512, %_ZNK20b3AlignedObjectArrayIiE4copyEiiPi.exit.i.i ]
+  %.0.i18.i.i511917 = phi ptr [ %.0.i18.i.i511916, %._ZN20b3AlignedObjectArrayIiE10deallocateEv.exit.i.i_crit_edge ], [ %.0.i18.i.i511, %_ZNK20b3AlignedObjectArrayIiE4copyEiiPi.exit.i.i ]
   %.pre.i515 = phi i32 [ %.pre.i515.pre, %._ZN20b3AlignedObjectArrayIiE10deallocateEv.exit.i.i_crit_edge ], [ %.pre.i515825, %_ZNK20b3AlignedObjectArrayIiE4copyEiiPi.exit.i.i ]
   store i8 1, ptr %552, align 8, !tbaa !79
-  store ptr %.0.i18.i.i511839, ptr %553, align 8, !tbaa !80
-  store i32 %.0.i.i512841, ptr %555, align 8, !tbaa !82
+  store ptr %.0.i18.i.i511917, ptr %553, align 8, !tbaa !80
+  store i32 %.0.i.i512919, ptr %555, align 8, !tbaa !82
   br label %_ZN20b3AlignedObjectArrayIiE9push_backERKi.exit
 
 _ZN20b3AlignedObjectArrayIiE9push_backERKi.exit:  ; preds = %610, %613, %_ZN20b3AlignedObjectArrayIiE10deallocateEv.exit.i.i
-  %627 = phi ptr [ %.0.i18.i.i511839, %_ZN20b3AlignedObjectArrayIiE10deallocateEv.exit.i.i ], [ %584, %613 ], [ %584, %610 ]
-  %628 = phi i32 [ %.0.i.i512841, %_ZN20b3AlignedObjectArrayIiE10deallocateEv.exit.i.i ], [ %586, %613 ], [ %586, %610 ]
+  %627 = phi ptr [ %.0.i18.i.i511917, %_ZN20b3AlignedObjectArrayIiE10deallocateEv.exit.i.i ], [ %584, %613 ], [ %584, %610 ]
+  %628 = phi i32 [ %.0.i.i512919, %_ZN20b3AlignedObjectArrayIiE10deallocateEv.exit.i.i ], [ %586, %613 ], [ %586, %610 ]
   %629 = phi i32 [ %.pre.i515, %_ZN20b3AlignedObjectArrayIiE10deallocateEv.exit.i.i ], [ %586, %613 ], [ %587, %610 ]
   %630 = sext i32 %629 to i64
   %631 = getelementptr inbounds i32, ptr %627, i64 %630
@@ -4643,8 +4643,8 @@ _ZNK20b3AlignedObjectArrayI6b3Int4E4copyEiiPS0_.exit.i.i591: ; preds = %.noexc60
   br i1 %.not.i16.i.i594.not, label %_ZN20b3AlignedObjectArrayI6b3Int4E10deallocateEv.exit.i.i596, label %_ZNK20b3AlignedObjectArrayI6b3Int4E4copyEiiPS0_.exit.i.i591.thread
 
 _ZNK20b3AlignedObjectArrayI6b3Int4E4copyEiiPS0_.exit.i.i591.thread: ; preds = %744, %_ZNK20b3AlignedObjectArrayI6b3Int4E4copyEiiPS0_.exit.i.i591
-  %.0.i.i593851 = phi i32 [ %.0.i.i593, %_ZNK20b3AlignedObjectArrayI6b3Int4E4copyEiiPS0_.exit.i.i591 ], [ %736, %744 ]
-  %.0.i18.i.i592849 = phi ptr [ %.0.i18.i.i592, %_ZNK20b3AlignedObjectArrayI6b3Int4E4copyEiiPS0_.exit.i.i591 ], [ %741, %744 ]
+  %.0.i.i593929 = phi i32 [ %.0.i.i593, %_ZNK20b3AlignedObjectArrayI6b3Int4E4copyEiiPS0_.exit.i.i591 ], [ %736, %744 ]
+  %.0.i18.i.i592927 = phi ptr [ %.0.i18.i.i592, %_ZNK20b3AlignedObjectArrayI6b3Int4E4copyEiiPS0_.exit.i.i591 ], [ %741, %744 ]
   invoke void @_Z21b3AlignedFreeInternalPv(ptr noundef nonnull %705)
           to label %._ZN20b3AlignedObjectArrayI6b3Int4E10deallocateEv.exit.i.i596_crit_edge unwind label %730
 
@@ -4653,17 +4653,17 @@ _ZNK20b3AlignedObjectArrayI6b3Int4E4copyEiiPS0_.exit.i.i591.thread: ; preds = %7
   br label %_ZN20b3AlignedObjectArrayI6b3Int4E10deallocateEv.exit.i.i596
 
 _ZN20b3AlignedObjectArrayI6b3Int4E10deallocateEv.exit.i.i596: ; preds = %._ZN20b3AlignedObjectArrayI6b3Int4E10deallocateEv.exit.i.i596_crit_edge, %_ZNK20b3AlignedObjectArrayI6b3Int4E4copyEiiPS0_.exit.i.i591
-  %.0.i.i593852 = phi i32 [ %.0.i.i593851, %._ZN20b3AlignedObjectArrayI6b3Int4E10deallocateEv.exit.i.i596_crit_edge ], [ %.0.i.i593, %_ZNK20b3AlignedObjectArrayI6b3Int4E4copyEiiPS0_.exit.i.i591 ]
-  %.0.i18.i.i592850 = phi ptr [ %.0.i18.i.i592849, %._ZN20b3AlignedObjectArrayI6b3Int4E10deallocateEv.exit.i.i596_crit_edge ], [ %.0.i18.i.i592, %_ZNK20b3AlignedObjectArrayI6b3Int4E4copyEiiPS0_.exit.i.i591 ]
+  %.0.i.i593930 = phi i32 [ %.0.i.i593929, %._ZN20b3AlignedObjectArrayI6b3Int4E10deallocateEv.exit.i.i596_crit_edge ], [ %.0.i.i593, %_ZNK20b3AlignedObjectArrayI6b3Int4E4copyEiiPS0_.exit.i.i591 ]
+  %.0.i18.i.i592928 = phi ptr [ %.0.i18.i.i592927, %._ZN20b3AlignedObjectArrayI6b3Int4E10deallocateEv.exit.i.i596_crit_edge ], [ %.0.i18.i.i592, %_ZNK20b3AlignedObjectArrayI6b3Int4E4copyEiiPS0_.exit.i.i591 ]
   %.pre.i597 = phi i32 [ %.pre.i597.pre, %._ZN20b3AlignedObjectArrayI6b3Int4E10deallocateEv.exit.i.i596_crit_edge ], [ %.pre.i597829, %_ZNK20b3AlignedObjectArrayI6b3Int4E4copyEiiPS0_.exit.i.i591 ]
   store i8 1, ptr %690, align 8, !tbaa !120
-  store ptr %.0.i18.i.i592850, ptr %691, align 8, !tbaa !116
-  store i32 %.0.i.i593852, ptr %693, align 8, !tbaa !122
+  store ptr %.0.i18.i.i592928, ptr %691, align 8, !tbaa !116
+  store i32 %.0.i.i593930, ptr %693, align 8, !tbaa !122
   br label %_ZN20b3AlignedObjectArrayI6b3Int4E9push_backERKS0_.exit608
 
 _ZN20b3AlignedObjectArrayI6b3Int4E9push_backERKS0_.exit608: ; preds = %_ZNK20b3AlignedObjectArrayI6b3Int4E16findLinearSearchERKS0_.exit586.thread.thread, %734, %_ZN20b3AlignedObjectArrayI6b3Int4E10deallocateEv.exit.i.i596
-  %747 = phi ptr [ %.0.i18.i.i592850, %_ZN20b3AlignedObjectArrayI6b3Int4E10deallocateEv.exit.i.i596 ], [ %704, %734 ], [ %704, %_ZNK20b3AlignedObjectArrayI6b3Int4E16findLinearSearchERKS0_.exit586.thread.thread ]
-  %748 = phi i32 [ %.0.i.i593852, %_ZN20b3AlignedObjectArrayI6b3Int4E10deallocateEv.exit.i.i596 ], [ %706, %734 ], [ %706, %_ZNK20b3AlignedObjectArrayI6b3Int4E16findLinearSearchERKS0_.exit586.thread.thread ]
+  %747 = phi ptr [ %.0.i18.i.i592928, %_ZN20b3AlignedObjectArrayI6b3Int4E10deallocateEv.exit.i.i596 ], [ %704, %734 ], [ %704, %_ZNK20b3AlignedObjectArrayI6b3Int4E16findLinearSearchERKS0_.exit586.thread.thread ]
+  %748 = phi i32 [ %.0.i.i593930, %_ZN20b3AlignedObjectArrayI6b3Int4E10deallocateEv.exit.i.i596 ], [ %706, %734 ], [ %706, %_ZNK20b3AlignedObjectArrayI6b3Int4E16findLinearSearchERKS0_.exit586.thread.thread ]
   %749 = phi i32 [ %.pre.i597, %_ZN20b3AlignedObjectArrayI6b3Int4E10deallocateEv.exit.i.i596 ], [ %706, %734 ], [ %707, %_ZNK20b3AlignedObjectArrayI6b3Int4E16findLinearSearchERKS0_.exit586.thread.thread ]
   %750 = sext i32 %749 to i64
   %751 = getelementptr inbounds %struct.b3Int4, ptr %747, i64 %750
@@ -9104,7 +9104,7 @@ _ZN13b3OpenCLArrayIiE7reserveEmb.exit:            ; preds = %10, %3
   br i1 %.not.i6, label %64, label %_ZN13b3OpenCLArrayIiE7reserveEmb.exit.thread
 
 _ZN13b3OpenCLArrayIiE7reserveEmb.exit.thread:     ; preds = %_ZN13b3OpenCLArrayIiE10deallocateEv.exit.i, %_ZN13b3OpenCLArrayIiE10deallocateEv.exit14.i, %_ZN13b3OpenCLArrayIiE7reserveEmb.exit
-  %.010 = phi i1 [ true, %_ZN13b3OpenCLArrayIiE7reserveEmb.exit ], [ false, %_ZN13b3OpenCLArrayIiE10deallocateEv.exit14.i ], [ %.not.i5, %_ZN13b3OpenCLArrayIiE10deallocateEv.exit.i ]
+  %.015 = phi i1 [ true, %_ZN13b3OpenCLArrayIiE7reserveEmb.exit ], [ false, %_ZN13b3OpenCLArrayIiE10deallocateEv.exit14.i ], [ %.not.i5, %_ZN13b3OpenCLArrayIiE10deallocateEv.exit.i ]
   %53 = load ptr, ptr @__clewEnqueueWriteBuffer, align 8, !tbaa !94
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %55 = load ptr, ptr %54, align 8, !tbaa !63
@@ -9126,11 +9126,11 @@ _ZN13b3OpenCLArrayIiE7reserveEmb.exit.thread:     ; preds = %_ZN13b3OpenCLArrayI
   br label %_ZN13b3OpenCLArrayIiE19copyFromHostPointerEPKimmb.exit
 
 _ZN13b3OpenCLArrayIiE19copyFromHostPointerEPKimmb.exit: ; preds = %_ZN13b3OpenCLArrayIiE7reserveEmb.exit.thread, %60, %64
-  %.09 = phi i1 [ %.010, %_ZN13b3OpenCLArrayIiE7reserveEmb.exit.thread ], [ %.010, %60 ], [ true, %64 ]
+  %.014 = phi i1 [ %.015, %_ZN13b3OpenCLArrayIiE7reserveEmb.exit.thread ], [ %.015, %60 ], [ true, %64 ]
   %65 = load i64, ptr %5, align 8, !tbaa !155
   %66 = add i64 %65, 1
   store i64 %66, ptr %5, align 8, !tbaa !155
-  ret i1 %.09
+  ret i1 %.014
 }
 
 ; Function Attrs: mustprogress uwtable

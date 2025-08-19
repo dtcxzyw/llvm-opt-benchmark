@@ -170,7 +170,8 @@ select.unfold.preheader:                          ; preds = %5, %select.unfold
   br label %18
 
 18:                                               ; preds = %16, %32
-  %indvars.iv = phi i64 [ 0, %16 ], [ %indvars.iv.next, %32 ]
+  %.not53 = phi i1 [ false, %16 ], [ true, %32 ]
+  %indvars.iv = phi i64 [ 0, %16 ], [ 1, %32 ]
   %19 = getelementptr inbounds nuw [3 x ptr], ptr @userbootstrap, i64 0, i64 %indvars.iv
   %20 = load ptr, ptr %19, align 8
   %21 = load ptr, ptr %20, align 8
@@ -191,8 +192,6 @@ select.unfold.preheader:                          ; preds = %5, %select.unfold
   br label %select.unfold
 
 32:                                               ; preds = %18, %24
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %.not53 = icmp eq i64 %indvars.iv.next, 2
   br i1 %.not53, label %select.unfold, label %18, !llvm.loop !3
 
 select.unfold:                                    ; preds = %32, %28
@@ -201,12 +200,11 @@ select.unfold:                                    ; preds = %32, %28
   br i1 %.not52, label %.critedge, label %select.unfold.preheader
 
 34:                                               ; preds = %35
-  %indvars.iv.next71 = add nuw nsw i64 %indvars.iv70, 1
-  %.not46 = icmp eq i64 %indvars.iv.next71, 2
   br i1 %.not46, label %.critedge.thread, label %35, !llvm.loop !5
 
 35:                                               ; preds = %.preheader, %34
-  %indvars.iv70 = phi i64 [ %indvars.iv.next71, %34 ], [ 0, %.preheader ]
+  %.not46 = phi i1 [ true, %34 ], [ false, %.preheader ]
+  %indvars.iv70 = phi i64 [ 1, %34 ], [ 0, %.preheader ]
   %36 = getelementptr inbounds nuw [3 x ptr], ptr @userbootstrap, i64 0, i64 %indvars.iv70
   %37 = load ptr, ptr %36, align 8
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 16

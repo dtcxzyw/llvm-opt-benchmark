@@ -119,10 +119,10 @@ define hidden noundef nonnull align 8 dereferenceable(40) ptr @"_ZN8indexmap3map
   unreachable
 
 "_ZN8indexmap3map4core3raw26OccupiedEntry$LT$K$C$V$GT$8into_mut17h05f0c6143d412a40E.exit": ; preds = %12, %5
-  %.sink6 = phi i64 [ %7, %5 ], [ %13, %12 ]
+  %.sink10 = phi i64 [ %7, %5 ], [ %13, %12 ]
   %18 = getelementptr inbounds nuw i8, ptr %.sroa.03.0.copyload, i64 8
   %19 = load ptr, ptr %18, align 8, !noalias !4, !nonnull !4, !noundef !4
-  %20 = getelementptr inbounds [0 x { i64, { i64, i64, i64, i64, i64 }, i32, [1 x i32] }], ptr %19, i64 0, i64 %.sink6, i32 1
+  %20 = getelementptr inbounds [0 x { i64, { i64, i64, i64, i64, i64 }, i32, [1 x i32] }], ptr %19, i64 0, i64 %.sink10, i32 1
   ret ptr %20
 }
 

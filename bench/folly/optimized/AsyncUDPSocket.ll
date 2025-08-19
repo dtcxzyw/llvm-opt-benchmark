@@ -1603,7 +1603,7 @@ define noundef i64 @_ZN5folly14AsyncUDPSocket10writeChainERKNS_13SocketAddressEO
   %17 = load i64, ptr %16, align 16, !tbaa !123
   %18 = icmp eq i64 %17, 0
   %.sroa.gep = getelementptr inbounds nuw i8, ptr %13, i64 48
-  %.sroa.gep69 = getelementptr inbounds nuw i8, ptr %13, i64 24
+  %.sroa.gep76 = getelementptr inbounds nuw i8, ptr %13, i64 24
   br i1 %18, label %.critedge, label %19, !prof !103
 
 19:                                               ; preds = %5
@@ -1832,7 +1832,7 @@ _ZNK5folly13SocketAddress10getAddressEP16sockaddr_storage.exit: ; preds = %_ZNK5
   br label %106
 
 106:                                              ; preds = %101, %93
-  %.sroa.phi = phi ptr [ %.sroa.gep, %101 ], [ %.sroa.gep69, %93 ]
+  %.sroa.phi = phi ptr [ %.sroa.gep, %101 ], [ %.sroa.gep76, %93 ]
   %107 = phi i64 [ 48, %101 ], [ 24, %93 ]
   %.041 = phi ptr [ %13, %101 ], [ null, %93 ]
   %108 = icmp sgt i64 %4, 0
@@ -6383,28 +6383,28 @@ define linkonce_odr void @_ZN5folly29InvalidAddressFamilyExceptionC2Et(ptr nound
   ]
 
 ._crit_edge.i.i.i:                                ; preds = %2
-  %.sink14.sroa.gep18 = getelementptr inbounds nuw i8, ptr %5, i64 23
+  %.sink24.sroa.gep28 = getelementptr inbounds nuw i8, ptr %5, i64 23
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %6, ptr %5, align 8, !tbaa !29, !alias.scope !220
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(7) %6, ptr noundef nonnull align 1 dereferenceable(7) @.str.22, i64 7, i1 false)
   br label %_ZN5folly6detail13familyNameStrB5cxx11Et.exit.sink.split
 
 ._crit_edge.i.i5.i:                               ; preds = %2
-  %.sink14.sroa.gep17 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %.sink24.sroa.gep27 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %7, ptr %5, align 8, !tbaa !29, !alias.scope !220
   store i64 3914830178632549953, ptr %7, align 8, !alias.scope !220
   br label %_ZN5folly6detail13familyNameStrB5cxx11Et.exit.sink.split
 
 ._crit_edge.i.i9.i:                               ; preds = %2
-  %.sink14.sroa.gep16 = getelementptr inbounds nuw i8, ptr %5, i64 25
+  %.sink24.sroa.gep26 = getelementptr inbounds nuw i8, ptr %5, i64 25
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %8, ptr %5, align 8, !tbaa !29, !alias.scope !220
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %8, ptr noundef nonnull align 1 dereferenceable(9) @.str.24, i64 9, i1 false)
   br label %_ZN5folly6detail13familyNameStrB5cxx11Et.exit.sink.split
 
 ._crit_edge.i.i13.i:                              ; preds = %2
-  %.sink14.sroa.gep = getelementptr inbounds nuw i8, ptr %5, i64 23
+  %.sink24.sroa.gep = getelementptr inbounds nuw i8, ptr %5, i64 23
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %9, ptr %5, align 8, !tbaa !29, !alias.scope !220
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(7) %9, ptr noundef nonnull align 1 dereferenceable(7) @.str.25, i64 7, i1 false)
@@ -6416,10 +6416,10 @@ define linkonce_odr void @_ZN5folly29InvalidAddressFamilyExceptionC2Et(ptr nound
 
 _ZN5folly6detail13familyNameStrB5cxx11Et.exit.sink.split: ; preds = %._crit_edge.i.i.i, %._crit_edge.i.i5.i, %._crit_edge.i.i9.i, %._crit_edge.i.i13.i
   %.sink = phi i64 [ 7, %._crit_edge.i.i13.i ], [ 9, %._crit_edge.i.i9.i ], [ 8, %._crit_edge.i.i5.i ], [ 7, %._crit_edge.i.i.i ]
-  %.sink14.sroa.phi = phi ptr [ %.sink14.sroa.gep, %._crit_edge.i.i13.i ], [ %.sink14.sroa.gep16, %._crit_edge.i.i9.i ], [ %.sink14.sroa.gep17, %._crit_edge.i.i5.i ], [ %.sink14.sroa.gep18, %._crit_edge.i.i.i ]
+  %.sink24.sroa.phi = phi ptr [ %.sink24.sroa.gep, %._crit_edge.i.i13.i ], [ %.sink24.sroa.gep26, %._crit_edge.i.i9.i ], [ %.sink24.sroa.gep27, %._crit_edge.i.i5.i ], [ %.sink24.sroa.gep28, %._crit_edge.i.i.i ]
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %.sink, ptr %11, align 8, !tbaa !31, !alias.scope !220
-  store i8 0, ptr %.sink14.sroa.phi, align 1, !tbaa !33, !alias.scope !220
+  store i8 0, ptr %.sink24.sroa.phi, align 1, !tbaa !33, !alias.scope !220
   br label %_ZN5folly6detail13familyNameStrB5cxx11Et.exit
 
 _ZN5folly6detail13familyNameStrB5cxx11Et.exit:    ; preds = %_ZN5folly6detail13familyNameStrB5cxx11Et.exit.sink.split, %10
@@ -8484,8 +8484,8 @@ _ZN5folly14AsyncUDPSocket18failErrMessageReadERKNS_20AsyncSocketExceptionE.exit:
   %97 = load i64, ptr %24, align 8, !tbaa !144
   %98 = icmp ult i64 %97, 16
   %99 = load ptr, ptr %23, align 8
-  %.not316683 = icmp eq ptr %99, null
-  %.not3166 = select i1 %98, i1 true, i1 %.not316683
+  %.not316695 = icmp eq ptr %99, null
+  %.not3166 = select i1 %98, i1 true, i1 %.not316695
   br i1 %.not3166, label %.critedgethread-pre-split, label %.lr.ph
 
 .lr.ph:                                           ; preds = %96, %139
@@ -10235,15 +10235,15 @@ _ZNSt8_Rb_treeIN5folly15SocketOptionKeyESt4pairIKS1_iESt10_Select1stIS4_ESt4less
   br label %_ZNSt8_Rb_treeIN5folly15SocketOptionKeyESt4pairIKS1_iESt10_Select1stIS4_ESt4lessIS1_ESaIS4_EE13_M_clone_nodeILb0ENSA_20_Reuse_or_alloc_nodeEEEPSt13_Rb_tree_nodeIS4_ESF_RT0_.exit
 
 _ZNSt8_Rb_treeIN5folly15SocketOptionKeyESt4pairIKS1_iESt10_Select1stIS4_ESt4lessIS1_ESaIS4_EE13_M_clone_nodeILb0ENSA_20_Reuse_or_alloc_nodeEEEPSt13_Rb_tree_nodeIS4_ESF_RT0_.exit: ; preds = %14, %19, %22, %24, %_ZNSt8_Rb_treeIN5folly15SocketOptionKeyESt4pairIKS1_iESt10_Select1stIS4_ESt4lessIS1_ESaIS4_EE20_Reuse_or_alloc_node10_M_extractEv.exit.i.i
-  %.sink9.i.i = phi ptr [ %25, %_ZNSt8_Rb_treeIN5folly15SocketOptionKeyESt4pairIKS1_iESt10_Select1stIS4_ESt4lessIS1_ESaIS4_EE20_Reuse_or_alloc_node10_M_extractEv.exit.i.i ], [ %6, %14 ], [ %6, %19 ], [ %6, %22 ], [ %6, %24 ]
+  %.sink12.i.i = phi ptr [ %25, %_ZNSt8_Rb_treeIN5folly15SocketOptionKeyESt4pairIKS1_iESt10_Select1stIS4_ESt4lessIS1_ESaIS4_EE20_Reuse_or_alloc_node10_M_extractEv.exit.i.i ], [ %6, %14 ], [ %6, %19 ], [ %6, %22 ], [ %6, %24 ]
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %27 = getelementptr inbounds nuw i8, ptr %.sink9.i.i, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %.sink12.i.i, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %27, ptr noundef nonnull align 4 dereferenceable(16) %26, i64 16, i1 false)
   %28 = load i32, ptr %1, align 8, !tbaa !305
-  store i32 %28, ptr %.sink9.i.i, align 8, !tbaa !305
-  %29 = getelementptr inbounds nuw i8, ptr %.sink9.i.i, i64 16
+  store i32 %28, ptr %.sink12.i.i, align 8, !tbaa !305
+  %29 = getelementptr inbounds nuw i8, ptr %.sink12.i.i, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %29, i8 0, i64 16, i1 false)
-  %30 = getelementptr inbounds nuw i8, ptr %.sink9.i.i, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %.sink12.i.i, i64 8
   store ptr %2, ptr %30, align 8, !tbaa !263
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %32 = load ptr, ptr %31, align 8, !tbaa !213
@@ -10251,11 +10251,11 @@ _ZNSt8_Rb_treeIN5folly15SocketOptionKeyESt4pairIKS1_iESt10_Select1stIS4_ESt4less
   br i1 %.not, label %39, label %33
 
 33:                                               ; preds = %_ZNSt8_Rb_treeIN5folly15SocketOptionKeyESt4pairIKS1_iESt10_Select1stIS4_ESt4lessIS1_ESaIS4_EE13_M_clone_nodeILb0ENSA_20_Reuse_or_alloc_nodeEEEPSt13_Rb_tree_nodeIS4_ESF_RT0_.exit
-  %34 = invoke noundef ptr @_ZNSt8_Rb_treeIN5folly15SocketOptionKeyESt4pairIKS1_iESt10_Select1stIS4_ESt4lessIS1_ESaIS4_EE7_M_copyILb0ENSA_20_Reuse_or_alloc_nodeEEEPSt13_Rb_tree_nodeIS4_ESF_PSt18_Rb_tree_node_baseRT0_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull %32, ptr noundef nonnull %.sink9.i.i, ptr noundef nonnull align 8 dereferenceable(24) %3)
+  %34 = invoke noundef ptr @_ZNSt8_Rb_treeIN5folly15SocketOptionKeyESt4pairIKS1_iESt10_Select1stIS4_ESt4lessIS1_ESaIS4_EE7_M_copyILb0ENSA_20_Reuse_or_alloc_nodeEEEPSt13_Rb_tree_nodeIS4_ESF_PSt18_Rb_tree_node_baseRT0_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull %32, ptr noundef nonnull %.sink12.i.i, ptr noundef nonnull align 8 dereferenceable(24) %3)
           to label %35 unwind label %37
 
 35:                                               ; preds = %33
-  %36 = getelementptr inbounds nuw i8, ptr %.sink9.i.i, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %.sink12.i.i, i64 24
   store ptr %34, ptr %36, align 8, !tbaa !213
   br label %39
 
@@ -10272,7 +10272,7 @@ _ZNSt8_Rb_treeIN5folly15SocketOptionKeyESt4pairIKS1_iESt10_Select1stIS4_ESt4less
 
 .lr.ph:                                           ; preds = %39, %78
   %.050 = phi ptr [ %.0, %78 ], [ %.047, %39 ]
-  %.03149 = phi ptr [ %.sink9.i.i36, %78 ], [ %.sink9.i.i, %39 ]
+  %.03149 = phi ptr [ %.sink12.i.i36, %78 ], [ %.sink12.i.i, %39 ]
   %40 = load ptr, ptr %5, align 8, !tbaa !299
   %.not.i.i.i34 = icmp eq ptr %40, null
   br i1 %.not.i.i.i34, label %_ZNSt8_Rb_treeIN5folly15SocketOptionKeyESt4pairIKS1_iESt10_Select1stIS4_ESt4lessIS1_ESaIS4_EE20_Reuse_or_alloc_node10_M_extractEv.exit.i.i43, label %41
@@ -10326,17 +10326,17 @@ _ZNSt8_Rb_treeIN5folly15SocketOptionKeyESt4pairIKS1_iESt10_Select1stIS4_ESt4less
           to label %60 unwind label %73
 
 60:                                               ; preds = %58, %56, %53, %48, %_ZNSt8_Rb_treeIN5folly15SocketOptionKeyESt4pairIKS1_iESt10_Select1stIS4_ESt4lessIS1_ESaIS4_EE20_Reuse_or_alloc_node10_M_extractEv.exit.i.i43
-  %.sink9.i.i36 = phi ptr [ %40, %48 ], [ %40, %53 ], [ %40, %56 ], [ %40, %58 ], [ %59, %_ZNSt8_Rb_treeIN5folly15SocketOptionKeyESt4pairIKS1_iESt10_Select1stIS4_ESt4lessIS1_ESaIS4_EE20_Reuse_or_alloc_node10_M_extractEv.exit.i.i43 ]
+  %.sink12.i.i36 = phi ptr [ %40, %48 ], [ %40, %53 ], [ %40, %56 ], [ %40, %58 ], [ %59, %_ZNSt8_Rb_treeIN5folly15SocketOptionKeyESt4pairIKS1_iESt10_Select1stIS4_ESt4lessIS1_ESaIS4_EE20_Reuse_or_alloc_node10_M_extractEv.exit.i.i43 ]
   %61 = getelementptr inbounds nuw i8, ptr %.050, i64 32
-  %62 = getelementptr inbounds nuw i8, ptr %.sink9.i.i36, i64 32
+  %62 = getelementptr inbounds nuw i8, ptr %.sink12.i.i36, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %62, ptr noundef nonnull align 4 dereferenceable(16) %61, i64 16, i1 false)
   %63 = load i32, ptr %.050, align 8, !tbaa !305
-  store i32 %63, ptr %.sink9.i.i36, align 8, !tbaa !305
-  %64 = getelementptr inbounds nuw i8, ptr %.sink9.i.i36, i64 16
+  store i32 %63, ptr %.sink12.i.i36, align 8, !tbaa !305
+  %64 = getelementptr inbounds nuw i8, ptr %.sink12.i.i36, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %64, i8 0, i64 16, i1 false)
   %65 = getelementptr inbounds nuw i8, ptr %.03149, i64 16
-  store ptr %.sink9.i.i36, ptr %65, align 8, !tbaa !214
-  %66 = getelementptr inbounds nuw i8, ptr %.sink9.i.i36, i64 8
+  store ptr %.sink12.i.i36, ptr %65, align 8, !tbaa !214
+  %66 = getelementptr inbounds nuw i8, ptr %.sink12.i.i36, i64 8
   store ptr %.03149, ptr %66, align 8, !tbaa !263
   %67 = getelementptr inbounds nuw i8, ptr %.050, i64 24
   %68 = load ptr, ptr %67, align 8, !tbaa !213
@@ -10344,11 +10344,11 @@ _ZNSt8_Rb_treeIN5folly15SocketOptionKeyESt4pairIKS1_iESt10_Select1stIS4_ESt4less
   br i1 %.not33, label %78, label %69
 
 69:                                               ; preds = %60
-  %70 = invoke noundef ptr @_ZNSt8_Rb_treeIN5folly15SocketOptionKeyESt4pairIKS1_iESt10_Select1stIS4_ESt4lessIS1_ESaIS4_EE7_M_copyILb0ENSA_20_Reuse_or_alloc_nodeEEEPSt13_Rb_tree_nodeIS4_ESF_PSt18_Rb_tree_node_baseRT0_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull %68, ptr noundef nonnull %.sink9.i.i36, ptr noundef nonnull align 8 dereferenceable(24) %3)
+  %70 = invoke noundef ptr @_ZNSt8_Rb_treeIN5folly15SocketOptionKeyESt4pairIKS1_iESt10_Select1stIS4_ESt4lessIS1_ESaIS4_EE7_M_copyILb0ENSA_20_Reuse_or_alloc_nodeEEEPSt13_Rb_tree_nodeIS4_ESF_PSt18_Rb_tree_node_baseRT0_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull %68, ptr noundef nonnull %.sink12.i.i36, ptr noundef nonnull align 8 dereferenceable(24) %3)
           to label %71 unwind label %73
 
 71:                                               ; preds = %69
-  %72 = getelementptr inbounds nuw i8, ptr %.sink9.i.i36, i64 24
+  %72 = getelementptr inbounds nuw i8, ptr %.sink12.i.i36, i64 24
   store ptr %70, ptr %72, align 8, !tbaa !213
   br label %78
 
@@ -10361,7 +10361,7 @@ _ZNSt8_Rb_treeIN5folly15SocketOptionKeyESt4pairIKS1_iESt10_Select1stIS4_ESt4less
   %.pn = phi { ptr, i32 } [ %74, %73 ], [ %38, %37 ]
   %.030 = extractvalue { ptr, i32 } %.pn, 0
   %76 = tail call ptr @__cxa_begin_catch(ptr %.030) #36
-  invoke void @_ZNSt8_Rb_treeIN5folly15SocketOptionKeyESt4pairIKS1_iESt10_Select1stIS4_ESt4lessIS1_ESaIS4_EE8_M_eraseEPSt13_Rb_tree_nodeIS4_E(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull %.sink9.i.i)
+  invoke void @_ZNSt8_Rb_treeIN5folly15SocketOptionKeyESt4pairIKS1_iESt10_Select1stIS4_ESt4lessIS1_ESaIS4_EE8_M_eraseEPSt13_Rb_tree_nodeIS4_E(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull %.sink12.i.i)
           to label %77 unwind label %79
 
 77:                                               ; preds = %75
@@ -10384,7 +10384,7 @@ _ZNSt8_Rb_treeIN5folly15SocketOptionKeyESt4pairIKS1_iESt10_Select1stIS4_ESt4less
   resume { ptr, i32 } %80
 
 ._crit_edge:                                      ; preds = %78, %39
-  ret ptr %.sink9.i.i
+  ret ptr %.sink12.i.i
 
 82:                                               ; preds = %79
   %83 = landingpad { ptr, i32 }
@@ -10926,14 +10926,14 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeIN5folly15SocketOptionKeyESt4pai
   br i1 %.0.i.i.i, label %._crit_edge.thread.i, label %40
 
 ._crit_edge.thread.i:                             ; preds = %._crit_edge.i, %22
-  %.020.lcssa29.i = phi ptr [ %.02125.i, %._crit_edge.i ], [ %4, %22 ]
+  %.020.lcssa30.i = phi ptr [ %.02125.i, %._crit_edge.i ], [ %4, %22 ]
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %36 = load ptr, ptr %35, align 8, !tbaa !105
-  %37 = icmp eq ptr %.020.lcssa29.i, %36
+  %37 = icmp eq ptr %.020.lcssa30.i, %36
   br i1 %37, label %_ZNSt8_Rb_treeIN5folly15SocketOptionKeyESt4pairIKS1_iESt10_Select1stIS4_ESt4lessIS1_ESaIS4_EE24_M_get_insert_unique_posERS3_.exit, label %38
 
 38:                                               ; preds = %._crit_edge.thread.i
-  %39 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.020.lcssa29.i) #42
+  %39 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.020.lcssa30.i) #42
   %.phi.trans.insert88 = getelementptr inbounds nuw i8, ptr %39, i64 32
   %.pre89 = load i32, ptr %.phi.trans.insert88, align 4, !tbaa !111
   %.pre90 = load i32, ptr %2, align 4, !tbaa !111
@@ -10948,14 +10948,14 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeIN5folly15SocketOptionKeyESt4pai
   %42 = phi i32 [ %.pre92, %38 ], [ %32, %._crit_edge.i ]
   %43 = phi i32 [ %.pre90, %38 ], [ %24, %._crit_edge.i ]
   %44 = phi i32 [ %.pre89, %38 ], [ %29, %._crit_edge.i ]
-  %.020.lcssa30.i = phi ptr [ %.020.lcssa29.i, %38 ], [ %.02125.i, %._crit_edge.i ]
+  %.020.lcssa29.i = phi ptr [ %.020.lcssa30.i, %38 ], [ %.02125.i, %._crit_edge.i ]
   %.sroa.06.0.i = phi ptr [ %39, %38 ], [ %.02125.i, %._crit_edge.i ]
   %45 = icmp eq i32 %44, %43
   %46 = icmp slt i32 %42, %41
   %47 = icmp slt i32 %44, %43
   %.0.i.i5.i = select i1 %45, i1 %46, i1 %47
   %spec.select.i = select i1 %.0.i.i5.i, ptr null, ptr %.sroa.06.0.i
-  %spec.select22.i = select i1 %.0.i.i5.i, ptr %.020.lcssa30.i, ptr null
+  %spec.select22.i = select i1 %.0.i.i5.i, ptr %.020.lcssa29.i, ptr null
   br label %_ZNSt8_Rb_treeIN5folly15SocketOptionKeyESt4pairIKS1_iESt10_Select1stIS4_ESt4lessIS1_ESaIS4_EE24_M_get_insert_unique_posERS3_.exit
 
 48:                                               ; preds = %3
@@ -11024,12 +11024,12 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeIN5folly15SocketOptionKeyESt4pai
   br i1 %.0.i.i.i16, label %._crit_edge.thread.i31, label %88
 
 ._crit_edge.thread.i31:                           ; preds = %._crit_edge.i21, %76
-  %.020.lcssa29.i32 = phi ptr [ %.02125.i15, %._crit_edge.i21 ], [ %4, %76 ]
-  %85 = icmp eq ptr %.020.lcssa29.i32, %61
+  %.020.lcssa30.i32 = phi ptr [ %.02125.i15, %._crit_edge.i21 ], [ %4, %76 ]
+  %85 = icmp eq ptr %.020.lcssa30.i32, %61
   br i1 %85, label %_ZNSt8_Rb_treeIN5folly15SocketOptionKeyESt4pairIKS1_iESt10_Select1stIS4_ESt4lessIS1_ESaIS4_EE24_M_get_insert_unique_posERS3_.exit, label %86
 
 86:                                               ; preds = %._crit_edge.thread.i31
-  %87 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.020.lcssa29.i32) #42
+  %87 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.020.lcssa30.i32) #42
   %.phi.trans.insert84 = getelementptr inbounds nuw i8, ptr %87, i64 32
   %.pre85 = load i32, ptr %.phi.trans.insert84, align 4, !tbaa !111
   %.phi.trans.insert86 = getelementptr inbounds nuw i8, ptr %87, i64 36
@@ -11039,14 +11039,14 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeIN5folly15SocketOptionKeyESt4pai
 88:                                               ; preds = %86, %._crit_edge.i21
   %89 = phi i32 [ %.pre87, %86 ], [ %82, %._crit_edge.i21 ]
   %90 = phi i32 [ %.pre85, %86 ], [ %79, %._crit_edge.i21 ]
-  %.020.lcssa30.i22 = phi ptr [ %.020.lcssa29.i32, %86 ], [ %.02125.i15, %._crit_edge.i21 ]
+  %.020.lcssa29.i22 = phi ptr [ %.020.lcssa30.i32, %86 ], [ %.02125.i15, %._crit_edge.i21 ]
   %.sroa.06.0.i23 = phi ptr [ %87, %86 ], [ %.02125.i15, %._crit_edge.i21 ]
   %91 = icmp eq i32 %90, %50
   %92 = icmp slt i32 %89, %54
   %93 = icmp slt i32 %90, %50
   %.0.i.i5.i24 = select i1 %91, i1 %92, i1 %93
   %spec.select.i25 = select i1 %.0.i.i5.i24, ptr null, ptr %.sroa.06.0.i23
-  %spec.select22.i26 = select i1 %.0.i.i5.i24, ptr %.020.lcssa30.i22, ptr null
+  %spec.select22.i26 = select i1 %.0.i.i5.i24, ptr %.020.lcssa29.i22, ptr null
   br label %_ZNSt8_Rb_treeIN5folly15SocketOptionKeyESt4pairIKS1_iESt10_Select1stIS4_ESt4lessIS1_ESaIS4_EE24_M_get_insert_unique_posERS3_.exit
 
 94:                                               ; preds = %48
@@ -11107,14 +11107,14 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeIN5folly15SocketOptionKeyESt4pai
   br i1 %.0.i.i.i40, label %._crit_edge.thread.i55, label %128
 
 ._crit_edge.thread.i55:                           ; preds = %._crit_edge.i45, %114
-  %.020.lcssa29.i56 = phi ptr [ %.02125.i39, %._crit_edge.i45 ], [ %4, %114 ]
+  %.020.lcssa30.i56 = phi ptr [ %.02125.i39, %._crit_edge.i45 ], [ %4, %114 ]
   %123 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %124 = load ptr, ptr %123, align 8, !tbaa !105
-  %125 = icmp eq ptr %.020.lcssa29.i56, %124
+  %125 = icmp eq ptr %.020.lcssa30.i56, %124
   br i1 %125, label %_ZNSt8_Rb_treeIN5folly15SocketOptionKeyESt4pairIKS1_iESt10_Select1stIS4_ESt4lessIS1_ESaIS4_EE24_M_get_insert_unique_posERS3_.exit, label %126
 
 126:                                              ; preds = %._crit_edge.thread.i55
-  %127 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.020.lcssa29.i56) #42
+  %127 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.020.lcssa30.i56) #42
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %127, i64 32
   %.pre = load i32, ptr %.phi.trans.insert, align 4, !tbaa !111
   %.phi.trans.insert82 = getelementptr inbounds nuw i8, ptr %127, i64 36
@@ -11124,19 +11124,19 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeIN5folly15SocketOptionKeyESt4pai
 128:                                              ; preds = %126, %._crit_edge.i45
   %129 = phi i32 [ %.pre83, %126 ], [ %120, %._crit_edge.i45 ]
   %130 = phi i32 [ %.pre, %126 ], [ %117, %._crit_edge.i45 ]
-  %.020.lcssa30.i46 = phi ptr [ %.020.lcssa29.i56, %126 ], [ %.02125.i39, %._crit_edge.i45 ]
+  %.020.lcssa29.i46 = phi ptr [ %.020.lcssa30.i56, %126 ], [ %.02125.i39, %._crit_edge.i45 ]
   %.sroa.06.0.i47 = phi ptr [ %127, %126 ], [ %.02125.i39, %._crit_edge.i45 ]
   %131 = icmp eq i32 %130, %50
   %132 = icmp slt i32 %129, %54
   %133 = icmp slt i32 %130, %50
   %.0.i.i5.i48 = select i1 %131, i1 %132, i1 %133
   %spec.select.i49 = select i1 %.0.i.i5.i48, ptr null, ptr %.sroa.06.0.i47
-  %spec.select22.i50 = select i1 %.0.i.i5.i48, ptr %.020.lcssa30.i46, ptr null
+  %spec.select22.i50 = select i1 %.0.i.i5.i48, ptr %.020.lcssa29.i46, ptr null
   br label %_ZNSt8_Rb_treeIN5folly15SocketOptionKeyESt4pairIKS1_iESt10_Select1stIS4_ESt4lessIS1_ESaIS4_EE24_M_get_insert_unique_posERS3_.exit
 
 _ZNSt8_Rb_treeIN5folly15SocketOptionKeyESt4pairIKS1_iESt10_Select1stIS4_ESt4lessIS1_ESaIS4_EE24_M_get_insert_unique_posERS3_.exit: ; preds = %128, %._crit_edge.thread.i55, %88, %._crit_edge.thread.i31, %40, %._crit_edge.thread.i, %110, %72, %94, %97, %59, %9
   %.sroa.078.0 = phi ptr [ null, %9 ], [ %61, %59 ], [ null, %97 ], [ %1, %94 ], [ %spec.select, %72 ], [ %spec.select80, %110 ], [ null, %._crit_edge.thread.i ], [ %spec.select.i, %40 ], [ null, %._crit_edge.thread.i31 ], [ %spec.select.i25, %88 ], [ null, %._crit_edge.thread.i55 ], [ %spec.select.i49, %128 ]
-  %.sroa.12.0 = phi ptr [ %11, %9 ], [ %61, %59 ], [ %99, %97 ], [ null, %94 ], [ %spec.select79, %72 ], [ %spec.select81, %110 ], [ %.020.lcssa29.i, %._crit_edge.thread.i ], [ %spec.select22.i, %40 ], [ %.020.lcssa29.i32, %._crit_edge.thread.i31 ], [ %spec.select22.i26, %88 ], [ %.020.lcssa29.i56, %._crit_edge.thread.i55 ], [ %spec.select22.i50, %128 ]
+  %.sroa.12.0 = phi ptr [ %11, %9 ], [ %61, %59 ], [ %99, %97 ], [ null, %94 ], [ %spec.select79, %72 ], [ %spec.select81, %110 ], [ %.020.lcssa30.i, %._crit_edge.thread.i ], [ %spec.select22.i, %40 ], [ %.020.lcssa30.i32, %._crit_edge.thread.i31 ], [ %spec.select22.i26, %88 ], [ %.020.lcssa30.i56, %._crit_edge.thread.i55 ], [ %spec.select22.i50, %128 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.078.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.12.0, 1
   ret { ptr, ptr } %.fca.1.insert
@@ -11218,13 +11218,13 @@ define linkonce_odr void @_ZNSt3mapIN5folly15SocketOptionKeyEiSt4lessIS1_ESaISt4
   br i1 %.0.i.i.i.i, label %._crit_edge.thread.i.i, label %40
 
 ._crit_edge.thread.i.i:                           ; preds = %._crit_edge.i.i, %24
-  %.020.lcssa29.i.i = phi ptr [ %.02125.i.i, %._crit_edge.i.i ], [ %4, %24 ]
+  %.020.lcssa30.i.i = phi ptr [ %.02125.i.i, %._crit_edge.i.i ], [ %4, %24 ]
   %36 = load ptr, ptr %8, align 8, !tbaa !105
-  %37 = icmp eq ptr %.020.lcssa29.i.i, %36
+  %37 = icmp eq ptr %.020.lcssa30.i.i, %36
   br i1 %37, label %select.unfold, label %38
 
 38:                                               ; preds = %._crit_edge.thread.i.i
-  %39 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.020.lcssa29.i.i) #42
+  %39 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.020.lcssa30.i.i) #42
   %.phi.trans.insert88.i = getelementptr inbounds nuw i8, ptr %39, i64 32
   %.pre89.i = load i32, ptr %.phi.trans.insert88.i, align 4, !tbaa !111
   %.pre90.i = load i32, ptr %11, align 4, !tbaa !111
@@ -11239,7 +11239,7 @@ define linkonce_odr void @_ZNSt3mapIN5folly15SocketOptionKeyEiSt4lessIS1_ESaISt4
   %42 = phi i32 [ %.pre92.i, %38 ], [ %33, %._crit_edge.i.i ]
   %43 = phi i32 [ %.pre90.i, %38 ], [ %25, %._crit_edge.i.i ]
   %44 = phi i32 [ %.pre89.i, %38 ], [ %30, %._crit_edge.i.i ]
-  %.020.lcssa30.i.i = phi ptr [ %.020.lcssa29.i.i, %38 ], [ %.02125.i.i, %._crit_edge.i.i ]
+  %.020.lcssa29.i.i = phi ptr [ %.020.lcssa30.i.i, %38 ], [ %.02125.i.i, %._crit_edge.i.i ]
   %45 = icmp eq i32 %44, %43
   %46 = icmp slt i32 %42, %41
   %47 = icmp slt i32 %44, %43
@@ -11247,7 +11247,7 @@ define linkonce_odr void @_ZNSt3mapIN5folly15SocketOptionKeyEiSt4lessIS1_ESaISt4
   br i1 %.0.i.i5.i.i, label %select.unfold, label %_ZNSt8_Rb_treeIN5folly15SocketOptionKeyESt4pairIKS1_iESt10_Select1stIS4_ESt4lessIS1_ESaIS4_EE17_M_insert_unique_IRS4_NSA_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS4_ESt23_Rb_tree_const_iteratorIS4_EOT_RT0_.exit.i
 
 select.unfold:                                    ; preds = %40, %12, %._crit_edge.thread.i.i
-  %.sroa.12.0.i.ph = phi ptr [ %.020.lcssa29.i.i, %._crit_edge.thread.i.i ], [ %13, %12 ], [ %.020.lcssa30.i.i, %40 ]
+  %.sroa.12.0.i.ph = phi ptr [ %.020.lcssa30.i.i, %._crit_edge.thread.i.i ], [ %13, %12 ], [ %.020.lcssa29.i.i, %40 ]
   %48 = icmp eq ptr %.sroa.12.0.i.ph, %4
   br i1 %48, label %_ZNSt8_Rb_treeIN5folly15SocketOptionKeyESt4pairIKS1_iESt10_Select1stIS4_ESt4lessIS1_ESaIS4_EE10_M_insert_IRS4_NSA_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS4_EPSt18_Rb_tree_node_baseSH_OT_RT0_.exit.i.i, label %49
 
@@ -11437,14 +11437,14 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeIN5folly15SocketOptionKeyESt4pai
   br i1 %.0.i.i.i, label %._crit_edge.thread.i, label %40
 
 ._crit_edge.thread.i:                             ; preds = %._crit_edge.i, %22
-  %.020.lcssa29.i = phi ptr [ %.02125.i, %._crit_edge.i ], [ %4, %22 ]
+  %.020.lcssa30.i = phi ptr [ %.02125.i, %._crit_edge.i ], [ %4, %22 ]
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %36 = load ptr, ptr %35, align 8, !tbaa !105
-  %37 = icmp eq ptr %.020.lcssa29.i, %36
+  %37 = icmp eq ptr %.020.lcssa30.i, %36
   br i1 %37, label %_ZNSt8_Rb_treeIN5folly15SocketOptionKeyESt4pairIKS1_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt10_Select1stISA_ESt4lessIS1_ESaISA_EE24_M_get_insert_unique_posERS3_.exit, label %38
 
 38:                                               ; preds = %._crit_edge.thread.i
-  %39 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.020.lcssa29.i) #42
+  %39 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.020.lcssa30.i) #42
   %.phi.trans.insert88 = getelementptr inbounds nuw i8, ptr %39, i64 32
   %.pre89 = load i32, ptr %.phi.trans.insert88, align 4, !tbaa !111
   %.pre90 = load i32, ptr %2, align 4, !tbaa !111
@@ -11459,14 +11459,14 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeIN5folly15SocketOptionKeyESt4pai
   %42 = phi i32 [ %.pre92, %38 ], [ %32, %._crit_edge.i ]
   %43 = phi i32 [ %.pre90, %38 ], [ %24, %._crit_edge.i ]
   %44 = phi i32 [ %.pre89, %38 ], [ %29, %._crit_edge.i ]
-  %.020.lcssa30.i = phi ptr [ %.020.lcssa29.i, %38 ], [ %.02125.i, %._crit_edge.i ]
+  %.020.lcssa29.i = phi ptr [ %.020.lcssa30.i, %38 ], [ %.02125.i, %._crit_edge.i ]
   %.sroa.06.0.i = phi ptr [ %39, %38 ], [ %.02125.i, %._crit_edge.i ]
   %45 = icmp eq i32 %44, %43
   %46 = icmp slt i32 %42, %41
   %47 = icmp slt i32 %44, %43
   %.0.i.i5.i = select i1 %45, i1 %46, i1 %47
   %spec.select.i = select i1 %.0.i.i5.i, ptr null, ptr %.sroa.06.0.i
-  %spec.select22.i = select i1 %.0.i.i5.i, ptr %.020.lcssa30.i, ptr null
+  %spec.select22.i = select i1 %.0.i.i5.i, ptr %.020.lcssa29.i, ptr null
   br label %_ZNSt8_Rb_treeIN5folly15SocketOptionKeyESt4pairIKS1_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt10_Select1stISA_ESt4lessIS1_ESaISA_EE24_M_get_insert_unique_posERS3_.exit
 
 48:                                               ; preds = %3
@@ -11535,12 +11535,12 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeIN5folly15SocketOptionKeyESt4pai
   br i1 %.0.i.i.i16, label %._crit_edge.thread.i31, label %88
 
 ._crit_edge.thread.i31:                           ; preds = %._crit_edge.i21, %76
-  %.020.lcssa29.i32 = phi ptr [ %.02125.i15, %._crit_edge.i21 ], [ %4, %76 ]
-  %85 = icmp eq ptr %.020.lcssa29.i32, %61
+  %.020.lcssa30.i32 = phi ptr [ %.02125.i15, %._crit_edge.i21 ], [ %4, %76 ]
+  %85 = icmp eq ptr %.020.lcssa30.i32, %61
   br i1 %85, label %_ZNSt8_Rb_treeIN5folly15SocketOptionKeyESt4pairIKS1_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt10_Select1stISA_ESt4lessIS1_ESaISA_EE24_M_get_insert_unique_posERS3_.exit, label %86
 
 86:                                               ; preds = %._crit_edge.thread.i31
-  %87 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.020.lcssa29.i32) #42
+  %87 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.020.lcssa30.i32) #42
   %.phi.trans.insert84 = getelementptr inbounds nuw i8, ptr %87, i64 32
   %.pre85 = load i32, ptr %.phi.trans.insert84, align 4, !tbaa !111
   %.phi.trans.insert86 = getelementptr inbounds nuw i8, ptr %87, i64 36
@@ -11550,14 +11550,14 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeIN5folly15SocketOptionKeyESt4pai
 88:                                               ; preds = %86, %._crit_edge.i21
   %89 = phi i32 [ %.pre87, %86 ], [ %82, %._crit_edge.i21 ]
   %90 = phi i32 [ %.pre85, %86 ], [ %79, %._crit_edge.i21 ]
-  %.020.lcssa30.i22 = phi ptr [ %.020.lcssa29.i32, %86 ], [ %.02125.i15, %._crit_edge.i21 ]
+  %.020.lcssa29.i22 = phi ptr [ %.020.lcssa30.i32, %86 ], [ %.02125.i15, %._crit_edge.i21 ]
   %.sroa.06.0.i23 = phi ptr [ %87, %86 ], [ %.02125.i15, %._crit_edge.i21 ]
   %91 = icmp eq i32 %90, %50
   %92 = icmp slt i32 %89, %54
   %93 = icmp slt i32 %90, %50
   %.0.i.i5.i24 = select i1 %91, i1 %92, i1 %93
   %spec.select.i25 = select i1 %.0.i.i5.i24, ptr null, ptr %.sroa.06.0.i23
-  %spec.select22.i26 = select i1 %.0.i.i5.i24, ptr %.020.lcssa30.i22, ptr null
+  %spec.select22.i26 = select i1 %.0.i.i5.i24, ptr %.020.lcssa29.i22, ptr null
   br label %_ZNSt8_Rb_treeIN5folly15SocketOptionKeyESt4pairIKS1_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt10_Select1stISA_ESt4lessIS1_ESaISA_EE24_M_get_insert_unique_posERS3_.exit
 
 94:                                               ; preds = %48
@@ -11618,14 +11618,14 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeIN5folly15SocketOptionKeyESt4pai
   br i1 %.0.i.i.i40, label %._crit_edge.thread.i55, label %128
 
 ._crit_edge.thread.i55:                           ; preds = %._crit_edge.i45, %114
-  %.020.lcssa29.i56 = phi ptr [ %.02125.i39, %._crit_edge.i45 ], [ %4, %114 ]
+  %.020.lcssa30.i56 = phi ptr [ %.02125.i39, %._crit_edge.i45 ], [ %4, %114 ]
   %123 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %124 = load ptr, ptr %123, align 8, !tbaa !105
-  %125 = icmp eq ptr %.020.lcssa29.i56, %124
+  %125 = icmp eq ptr %.020.lcssa30.i56, %124
   br i1 %125, label %_ZNSt8_Rb_treeIN5folly15SocketOptionKeyESt4pairIKS1_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt10_Select1stISA_ESt4lessIS1_ESaISA_EE24_M_get_insert_unique_posERS3_.exit, label %126
 
 126:                                              ; preds = %._crit_edge.thread.i55
-  %127 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.020.lcssa29.i56) #42
+  %127 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.020.lcssa30.i56) #42
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %127, i64 32
   %.pre = load i32, ptr %.phi.trans.insert, align 4, !tbaa !111
   %.phi.trans.insert82 = getelementptr inbounds nuw i8, ptr %127, i64 36
@@ -11635,19 +11635,19 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeIN5folly15SocketOptionKeyESt4pai
 128:                                              ; preds = %126, %._crit_edge.i45
   %129 = phi i32 [ %.pre83, %126 ], [ %120, %._crit_edge.i45 ]
   %130 = phi i32 [ %.pre, %126 ], [ %117, %._crit_edge.i45 ]
-  %.020.lcssa30.i46 = phi ptr [ %.020.lcssa29.i56, %126 ], [ %.02125.i39, %._crit_edge.i45 ]
+  %.020.lcssa29.i46 = phi ptr [ %.020.lcssa30.i56, %126 ], [ %.02125.i39, %._crit_edge.i45 ]
   %.sroa.06.0.i47 = phi ptr [ %127, %126 ], [ %.02125.i39, %._crit_edge.i45 ]
   %131 = icmp eq i32 %130, %50
   %132 = icmp slt i32 %129, %54
   %133 = icmp slt i32 %130, %50
   %.0.i.i5.i48 = select i1 %131, i1 %132, i1 %133
   %spec.select.i49 = select i1 %.0.i.i5.i48, ptr null, ptr %.sroa.06.0.i47
-  %spec.select22.i50 = select i1 %.0.i.i5.i48, ptr %.020.lcssa30.i46, ptr null
+  %spec.select22.i50 = select i1 %.0.i.i5.i48, ptr %.020.lcssa29.i46, ptr null
   br label %_ZNSt8_Rb_treeIN5folly15SocketOptionKeyESt4pairIKS1_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt10_Select1stISA_ESt4lessIS1_ESaISA_EE24_M_get_insert_unique_posERS3_.exit
 
 _ZNSt8_Rb_treeIN5folly15SocketOptionKeyESt4pairIKS1_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt10_Select1stISA_ESt4lessIS1_ESaISA_EE24_M_get_insert_unique_posERS3_.exit: ; preds = %128, %._crit_edge.thread.i55, %88, %._crit_edge.thread.i31, %40, %._crit_edge.thread.i, %110, %72, %94, %97, %59, %9
   %.sroa.078.0 = phi ptr [ null, %9 ], [ %61, %59 ], [ null, %97 ], [ %1, %94 ], [ %spec.select, %72 ], [ %spec.select80, %110 ], [ null, %._crit_edge.thread.i ], [ %spec.select.i, %40 ], [ null, %._crit_edge.thread.i31 ], [ %spec.select.i25, %88 ], [ null, %._crit_edge.thread.i55 ], [ %spec.select.i49, %128 ]
-  %.sroa.12.0 = phi ptr [ %11, %9 ], [ %61, %59 ], [ %99, %97 ], [ null, %94 ], [ %spec.select79, %72 ], [ %spec.select81, %110 ], [ %.020.lcssa29.i, %._crit_edge.thread.i ], [ %spec.select22.i, %40 ], [ %.020.lcssa29.i32, %._crit_edge.thread.i31 ], [ %spec.select22.i26, %88 ], [ %.020.lcssa29.i56, %._crit_edge.thread.i55 ], [ %spec.select22.i50, %128 ]
+  %.sroa.12.0 = phi ptr [ %11, %9 ], [ %61, %59 ], [ %99, %97 ], [ null, %94 ], [ %spec.select79, %72 ], [ %spec.select81, %110 ], [ %.020.lcssa30.i, %._crit_edge.thread.i ], [ %spec.select22.i, %40 ], [ %.020.lcssa30.i32, %._crit_edge.thread.i31 ], [ %spec.select22.i26, %88 ], [ %.020.lcssa30.i56, %._crit_edge.thread.i55 ], [ %spec.select22.i50, %128 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.078.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.12.0, 1
   ret { ptr, ptr } %.fca.1.insert

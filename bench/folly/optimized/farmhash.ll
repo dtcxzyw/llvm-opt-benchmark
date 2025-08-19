@@ -2679,10 +2679,10 @@ _ZN5folly8external8farmhash10farmhashccL10CityMurmurEPKcmSt4pairImmE.exit: ; pre
   br i1 %338, label %310, label %._crit_edge, !llvm.loop !24
 
 339:                                              ; preds = %._crit_edge, %_ZN5folly8external8farmhash10farmhashccL10CityMurmurEPKcmSt4pairImmE.exit
-  %.sink256 = phi i64 [ %309, %._crit_edge ], [ %148, %_ZN5folly8external8farmhash10farmhashccL10CityMurmurEPKcmSt4pairImmE.exit ]
+  %.sink257 = phi i64 [ %309, %._crit_edge ], [ %148, %_ZN5folly8external8farmhash10farmhashccL10CityMurmurEPKcmSt4pairImmE.exit ]
   %.sink = phi i64 [ %308, %._crit_edge ], [ %138, %_ZN5folly8external8farmhash10farmhashccL10CityMurmurEPKcmSt4pairImmE.exit ]
   %.pn187 = phi i64 [ %306, %._crit_edge ], [ %148, %_ZN5folly8external8farmhash10farmhashccL10CityMurmurEPKcmSt4pairImmE.exit ]
-  %340 = mul i64 %.sink256, -7070675565921424023
+  %340 = mul i64 %.sink257, -7070675565921424023
   %341 = lshr i64 %340, 47
   %342 = xor i64 %.sink, %341
   %343 = xor i64 %342, %340

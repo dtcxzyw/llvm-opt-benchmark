@@ -142,7 +142,7 @@ define dso_local range(i32 -2147483648, 1) i32 @merged_table_init_iter(ptr nound
   br i1 %20, label %.lr.ph67.split, label %10
 
 ._crit_edge:                                      ; preds = %10, %3, %8
-  %.04277 = phi ptr [ %7, %8 ], [ null, %3 ], [ %7, %10 ]
+  %.04281 = phi ptr [ %7, %8 ], [ null, %3 ], [ %7, %10 ]
   %21 = tail call ptr @reftable_calloc(i64 noundef 1, i64 noundef 56) #6
   %.not53 = icmp eq ptr %21, null
   br i1 %.not53, label %.loopexit, label %.thread59
@@ -154,7 +154,7 @@ define dso_local range(i32 -2147483648, 1) i32 @merged_table_init_iter(ptr nound
   %24 = load i32, ptr %23, align 4, !tbaa !28
   %25 = getelementptr inbounds nuw i8, ptr %21, i64 40
   store i32 %24, ptr %25, align 8, !tbaa !29
-  store ptr %.04277, ptr %21, align 8, !tbaa !30
+  store ptr %.04281, ptr %21, align 8, !tbaa !30
   %26 = load i64, ptr %4, align 8, !tbaa !16
   %27 = getelementptr inbounds nuw i8, ptr %21, i64 32
   store i64 %26, ptr %27, align 8, !tbaa !31
@@ -164,26 +164,26 @@ define dso_local range(i32 -2147483648, 1) i32 @merged_table_init_iter(ptr nound
   br label %35
 
 .loopexit:                                        ; preds = %._crit_edge
-  %.not54 = icmp eq ptr %.04277, null
+  %.not54 = icmp eq ptr %.04281, null
   br i1 %.not54, label %.critedge, label %.lr.ph67.split
 
 .lr.ph67.split:                                   ; preds = %.lr.ph, %.loopexit
-  %.04088 = phi i32 [ -13, %.loopexit ], [ %19, %.lr.ph ]
-  %.14387 = phi ptr [ %.04277, %.loopexit ], [ %7, %.lr.ph ]
+  %.04092 = phi i32 [ -13, %.loopexit ], [ %19, %.lr.ph ]
+  %.14391 = phi ptr [ %.04281, %.loopexit ], [ %7, %.lr.ph ]
   %29 = load i64, ptr %4, align 8, !tbaa !16
   %.not72 = icmp eq i64 %29, 0
   br i1 %.not72, label %.critedge, label %.lr.ph70
 
 .critedge:                                        ; preds = %.lr.ph70, %6, %.lr.ph67.split, %.loopexit
-  %.04082 = phi i32 [ %.04088, %.lr.ph67.split ], [ -13, %.loopexit ], [ -13, %6 ], [ %.04088, %.lr.ph70 ]
-  %.14381 = phi ptr [ %.14387, %.lr.ph67.split ], [ null, %.loopexit ], [ null, %6 ], [ %.14387, %.lr.ph70 ]
-  tail call void @reftable_free(ptr noundef %.14381) #6
+  %.04086 = phi i32 [ %.04092, %.lr.ph67.split ], [ -13, %.loopexit ], [ -13, %6 ], [ %.04092, %.lr.ph70 ]
+  %.14385 = phi ptr [ %.14391, %.lr.ph67.split ], [ null, %.loopexit ], [ null, %6 ], [ %.14391, %.lr.ph70 ]
+  tail call void @reftable_free(ptr noundef %.14385) #6
   tail call void @reftable_free(ptr noundef null) #6
   br label %35
 
 .lr.ph70:                                         ; preds = %.lr.ph67.split, %.lr.ph70
   %.06569 = phi i64 [ %32, %.lr.ph70 ], [ 0, %.lr.ph67.split ]
-  %30 = getelementptr inbounds nuw %struct.merged_subiter, ptr %.14387, i64 %.06569
+  %30 = getelementptr inbounds nuw %struct.merged_subiter, ptr %.14391, i64 %.06569
   tail call void @reftable_iterator_destroy(ptr noundef nonnull %30) #6
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 16
   tail call void @reftable_record_release(ptr noundef nonnull %31) #6
@@ -193,7 +193,7 @@ define dso_local range(i32 -2147483648, 1) i32 @merged_table_init_iter(ptr nound
   br i1 %34, label %.lr.ph70, label %.critedge
 
 35:                                               ; preds = %.thread59, %.critedge
-  %.04063 = phi i32 [ 0, %.thread59 ], [ %.04082, %.critedge ]
+  %.04063 = phi i32 [ 0, %.thread59 ], [ %.04086, %.critedge ]
   ret i32 %.04063
 }
 

@@ -396,7 +396,7 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
   br i1 %.not.i32.not.i, label %66, label %76
 
 66:                                               ; preds = %57
-  %67 = getelementptr inbounds { [3 x i64] }, ptr %65, i64 %.sroa.725.0.i
+  %67 = getelementptr inbounds nuw { [3 x i64] }, ptr %65, i64 %.sroa.725.0.i
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 24
   %69 = sub nuw nsw i64 %64, %.sroa.725.0.i
   %70 = mul nuw nsw i64 %69, 24

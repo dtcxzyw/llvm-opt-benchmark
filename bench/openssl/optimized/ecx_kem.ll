@@ -876,11 +876,11 @@ ecx_pubkey.exit.thread:                           ; preds = %31, %34
   br label %48
 
 48:                                               ; preds = %44, %45
-  %.sink73 = phi i64 [ %20, %44 ], [ %41, %45 ]
-  %.sink72 = phi ptr [ %7, %44 ], [ %46, %45 ]
+  %.sink78 = phi i64 [ %20, %44 ], [ %41, %45 ]
+  %.sink77 = phi ptr [ %7, %44 ], [ %46, %45 ]
   %49 = phi i64 [ %39, %44 ], [ %42, %45 ]
-  %50 = getelementptr inbounds nuw i8, ptr %14, i64 %.sink73
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %50, ptr nonnull align 1 %.sink72, i64 %20, i1 false)
+  %50 = getelementptr inbounds nuw i8, ptr %14, i64 %.sink78
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %50, ptr nonnull align 1 %.sink77, i64 %20, i1 false)
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %52 = load ptr, ptr %51, align 8, !tbaa !27
   %53 = getelementptr inbounds nuw i8, ptr %16, i64 24
@@ -909,7 +909,7 @@ ecx_pubkey.exit.thread:                           ; preds = %31, %34
   %69 = trunc i16 %64 to i8
   %70 = getelementptr inbounds nuw i8, ptr %9, i64 1
   store i8 %69, ptr %70, align 1, !tbaa !20
-  %71 = call i32 @ossl_hpke_labeled_extract(ptr noundef nonnull %59, ptr noundef nonnull %10, i64 noundef %63, ptr noundef null, i64 noundef 0, ptr noundef nonnull @LABEL_KEM, ptr noundef nonnull %9, i64 noundef 2, ptr noundef nonnull @.str.9, ptr noundef nonnull %13, i64 noundef %.sink73) #5
+  %71 = call i32 @ossl_hpke_labeled_extract(ptr noundef nonnull %59, ptr noundef nonnull %10, i64 noundef %63, ptr noundef null, i64 noundef 0, ptr noundef nonnull @LABEL_KEM, ptr noundef nonnull %9, i64 noundef 2, ptr noundef nonnull @.str.9, ptr noundef nonnull %13, i64 noundef %.sink78) #5
   %.not.i52 = icmp eq i32 %71, 0
   br i1 %.not.i52, label %dhkem_extract_and_expand.exit.thread68, label %dhkem_extract_and_expand.exit
 
@@ -935,7 +935,7 @@ dhkem_extract_and_expand.exit:                    ; preds = %66
   br label %74
 
 74:                                               ; preds = %73, %dhkem_extract_and_expand.exit, %.thread, %ecx_pubkey.exit.thread, %48, %38, %25, %8
-  %.044 = phi i64 [ %20, %38 ], [ %.sink73, %48 ], [ %20, %25 ], [ 0, %8 ], [ %20, %ecx_pubkey.exit.thread ], [ %41, %.thread ], [ %.sink73, %dhkem_extract_and_expand.exit ], [ %.sink73, %73 ]
+  %.044 = phi i64 [ %20, %38 ], [ %.sink78, %48 ], [ %20, %25 ], [ 0, %8 ], [ %20, %ecx_pubkey.exit.thread ], [ %41, %.thread ], [ %.sink78, %dhkem_extract_and_expand.exit ], [ %.sink78, %73 ]
   %.042 = phi ptr [ null, %38 ], [ null, %48 ], [ null, %25 ], [ null, %8 ], [ null, %ecx_pubkey.exit.thread ], [ null, %.thread ], [ %59, %dhkem_extract_and_expand.exit ], [ %59, %73 ]
   %.0 = phi i32 [ 0, %38 ], [ 0, %48 ], [ 0, %25 ], [ 0, %8 ], [ 0, %ecx_pubkey.exit.thread ], [ 0, %.thread ], [ 1, %dhkem_extract_and_expand.exit ], [ 0, %73 ]
   call void @OPENSSL_cleanse(ptr noundef nonnull %13, i64 noundef %.044) #5

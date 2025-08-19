@@ -1090,8 +1090,8 @@ define internal fastcc range(i32 0, 237) i32 @llhttp__internal__run(ptr noundef 
   %18 = icmp eq ptr %.933648.ph, %2
   br i1 %18, label %.thread, label %.lr.ph6832
 
-.preheader6568:                                   ; preds = %.thread7081, %3
-  %.863641.ph = phi ptr [ %1, %3 ], [ %461, %.thread7081 ]
+.preheader6568:                                   ; preds = %.thread7284, %3
+  %.863641.ph = phi ptr [ %1, %3 ], [ %461, %.thread7284 ]
   %19 = icmp eq ptr %.863641.ph, %2
   br i1 %19, label %.thread, label %.lr.ph6836
 
@@ -2388,7 +2388,7 @@ llparse__match_sequence_to_lower.exit4551:        ; preds = %.lr.ph.i4531, %.loo
 456:                                              ; preds = %.lr.ph.i4554
   %457 = add i32 %.0157.i, 1
   %458 = icmp eq i32 %457, 7
-  br i1 %458, label %.thread7081, label %459
+  br i1 %458, label %.thread7284, label %459
 
 459:                                              ; preds = %456
   %460 = getelementptr inbounds nuw i8, ptr %.0166.i, i64 1
@@ -2399,7 +2399,7 @@ llparse__match_sequence_to_lower_unsafe.exit.thread5801: ; preds = %459
   store i32 %449, ptr %0, align 8, !tbaa !30
   br label %.thread
 
-.thread7081:                                      ; preds = %456
+.thread7284:                                      ; preds = %456
   store i32 0, ptr %0, align 8, !tbaa !30
   %461 = getelementptr inbounds nuw i8, ptr %scevgep18.i, i64 1
   br label %.preheader6568
@@ -3236,8 +3236,8 @@ llparse__match_sequence_to_lower.exit4703:        ; preds = %.lr.ph.i4683, %.loo
   store ptr null, ptr %4, align 8, !tbaa !23
   br label %.thread
 
-733:                                              ; preds = %3, %switch.lookup7541
-  %.1293684 = phi ptr [ %.1323687, %switch.lookup7541 ], [ %1, %3 ]
+733:                                              ; preds = %3, %switch.lookup7744
+  %.1293684 = phi ptr [ %.1323687, %switch.lookup7744 ], [ %1, %3 ]
   %734 = icmp eq ptr %.1293684, %2
   br i1 %734, label %.thread, label %735
 
@@ -3268,9 +3268,9 @@ llparse__match_sequence_to_lower.exit4703:        ; preds = %.lr.ph.i4683, %.loo
 
 744:                                              ; preds = %742
   %745 = load i8, ptr %.1313686, align 1, !tbaa !28
-  %switch.tableidx7542 = add i8 %745, -48
-  %746 = icmp ult i8 %switch.tableidx7542, 10
-  br i1 %746, label %switch.lookup7541, label %2932
+  %switch.tableidx7745 = add i8 %745, -48
+  %746 = icmp ult i8 %switch.tableidx7745, 10
+  br i1 %746, label %switch.lookup7744, label %2932
 
 747:                                              ; preds = %2958, %2958, %2958, %2958, %2958, %2958, %2958, %2958, %2958, %2958, %2958, %2958, %2958, %2958, %2950, %2939, %2939, %2939, %2939, %2939, %2939, %2939, %2939, %2939, %2939, %2939, %2939, %2939, %2939, %2939, %2939, %2939, %2939, %2939, %2939, %2939, %2939, %2939, %2939, %2939, %2939, %2939, %2939, %2939, %2939, %2939, %2939, %2939, %2939, %2939, %2939, %3
   %.1333688 = phi ptr [ %2940, %2939 ], [ %2940, %2939 ], [ %2940, %2939 ], [ %2940, %2939 ], [ %2940, %2939 ], [ %2940, %2939 ], [ %2940, %2939 ], [ %2940, %2939 ], [ %2940, %2939 ], [ %2940, %2939 ], [ %2940, %2939 ], [ %2940, %2939 ], [ %2940, %2939 ], [ %2940, %2939 ], [ %2940, %2939 ], [ %2940, %2939 ], [ %2940, %2939 ], [ %2940, %2939 ], [ %2940, %2939 ], [ %2940, %2939 ], [ %2940, %2939 ], [ %2940, %2939 ], [ %2940, %2939 ], [ %2940, %2939 ], [ %2940, %2939 ], [ %2940, %2939 ], [ %2940, %2939 ], [ %2940, %2939 ], [ %2940, %2939 ], [ %2940, %2939 ], [ %2940, %2939 ], [ %2940, %2939 ], [ %2940, %2939 ], [ %2940, %2939 ], [ %2940, %2939 ], [ %2940, %2939 ], [ %2951, %2950 ], [ %2959, %2958 ], [ %2959, %2958 ], [ %2959, %2958 ], [ %2959, %2958 ], [ %2959, %2958 ], [ %2959, %2958 ], [ %2959, %2958 ], [ %2959, %2958 ], [ %2959, %2958 ], [ %2959, %2958 ], [ %2959, %2958 ], [ %2959, %2958 ], [ %2959, %2958 ], [ %2959, %2958 ], [ %1, %3 ]
@@ -7291,9 +7291,9 @@ llparse__match_sequence_id.exit5666:              ; preds = %.lr.ph.i5648, %.loo
 
 1994:                                             ; preds = %1992
   %1995 = load i8, ptr %.2883843, align 1, !tbaa !28
-  %switch.tableidx7544 = add i8 %1995, -48
-  %1996 = icmp ult i8 %switch.tableidx7544, 10
-  br i1 %1996, label %switch.lookup7543, label %3189
+  %switch.tableidx7747 = add i8 %1995, -48
+  %1996 = icmp ult i8 %switch.tableidx7747, 10
+  br i1 %1996, label %switch.lookup7746, label %3189
 
 1997:                                             ; preds = %llhttp__internal__c_mul_add_status_code.exit5762, %3
   %.2903845 = phi ptr [ %.2933848, %llhttp__internal__c_mul_add_status_code.exit5762 ], [ %1, %3 ]
@@ -7302,9 +7302,9 @@ llparse__match_sequence_id.exit5666:              ; preds = %.lr.ph.i5648, %.loo
 
 1999:                                             ; preds = %1997
   %2000 = load i8, ptr %.2903845, align 1, !tbaa !28
-  %switch.tableidx7547 = add i8 %2000, -48
-  %2001 = icmp ult i8 %switch.tableidx7547, 10
-  br i1 %2001, label %switch.lookup7546, label %3207
+  %switch.tableidx7750 = add i8 %2000, -48
+  %2001 = icmp ult i8 %switch.tableidx7750, 10
+  br i1 %2001, label %switch.lookup7749, label %3207
 
 2002:                                             ; preds = %3, %2011
   %.2923847 = phi ptr [ %2012, %2011 ], [ %1, %3 ]
@@ -7313,9 +7313,9 @@ llparse__match_sequence_id.exit5666:              ; preds = %.lr.ph.i5648, %.loo
 
 2004:                                             ; preds = %2002
   %2005 = load i8, ptr %.2923847, align 1, !tbaa !28
-  %switch.tableidx7550 = add i8 %2005, -48
-  %2006 = icmp ult i8 %switch.tableidx7550, 10
-  br i1 %2006, label %switch.lookup7549, label %3225
+  %switch.tableidx7753 = add i8 %2005, -48
+  %2006 = icmp ult i8 %switch.tableidx7753, 10
+  br i1 %2006, label %switch.lookup7752, label %3225
 
 2007:                                             ; preds = %.thread6524, %3
   %.2943849 = phi ptr [ %.2953850, %.thread6524 ], [ %1, %3 ]
@@ -7421,8 +7421,8 @@ llparse__match_sequence_id.exit5666:              ; preds = %.lr.ph.i5648, %.loo
   store ptr null, ptr %4, align 8, !tbaa !23
   br label %.thread
 
-2037:                                             ; preds = %3, %switch.lookup7552
-  %.3013856 = phi ptr [ %.3043859, %switch.lookup7552 ], [ %1, %3 ]
+2037:                                             ; preds = %3, %switch.lookup7755
+  %.3013856 = phi ptr [ %.3043859, %switch.lookup7755 ], [ %1, %3 ]
   %2038 = icmp eq ptr %.3013856, %2
   br i1 %2038, label %.thread, label %2039
 
@@ -7453,9 +7453,9 @@ llparse__match_sequence_id.exit5666:              ; preds = %.lr.ph.i5648, %.loo
 
 2048:                                             ; preds = %2046
   %2049 = load i8, ptr %.3033858, align 1, !tbaa !28
-  %switch.tableidx7553 = add i8 %2049, -48
-  %2050 = icmp ult i8 %switch.tableidx7553, 10
-  br i1 %2050, label %switch.lookup7552, label %3281
+  %switch.tableidx7756 = add i8 %2049, -48
+  %2050 = icmp ult i8 %switch.tableidx7756, 10
+  br i1 %2050, label %switch.lookup7755, label %3281
 
 2051:                                             ; preds = %.thread6369, %3, %.thread6536
   %.3053860 = phi ptr [ %.3123867, %.thread6536 ], [ %1, %3 ], [ %2071, %.thread6369 ]
@@ -8799,10 +8799,10 @@ llhttp__internal__c_mul_add_content_length.exit:  ; preds = %2431
   br label %.thread
 
 2570:                                             ; preds = %2580, %2575, %2574
-  %.sink7308 = phi i16 [ 4, %2575 ], [ 2, %2574 ], [ 1, %2580 ]
+  %.sink7511 = phi i16 [ 4, %2575 ], [ 2, %2574 ], [ 1, %2580 ]
   %2571 = getelementptr inbounds nuw i8, ptr %0, i64 82
   %2572 = load i16, ptr %2571, align 2, !tbaa !18
-  %2573 = or i16 %2572, %.sink7308
+  %2573 = or i16 %2572, %.sink7511
   store i16 %2573, ptr %2571, align 2, !tbaa !18
   store i8 1, ptr %2581, align 4, !tbaa !21
   br label %275
@@ -8896,10 +8896,10 @@ llhttp__internal__c_mul_add_content_length.exit:  ; preds = %2431
   br label %.thread
 
 2611:                                             ; preds = %2615, %2619, %2618
-  %.sink7313 = phi i16 [ 4, %2619 ], [ 2, %2618 ], [ 1, %2615 ]
+  %.sink7516 = phi i16 [ 4, %2619 ], [ 2, %2618 ], [ 1, %2615 ]
   %2612 = getelementptr inbounds nuw i8, ptr %0, i64 82
   %2613 = load i16, ptr %2612, align 2, !tbaa !18
-  %2614 = or i16 %2613, %.sink7313
+  %2614 = or i16 %2613, %.sink7516
   store i16 %2614, ptr %2612, align 2, !tbaa !18
   store i8 1, ptr %2616, align 4, !tbaa !21
   br label %.thread6438
@@ -9050,10 +9050,10 @@ llhttp__internal__c_mul_add_content_length.exit:  ; preds = %2431
   br i1 %.not4492, label %.thread6450, label %2664
 
 2676:                                             ; preds = %326, %2681, %2680
-  %.sink7318 = phi i16 [ 4, %2681 ], [ 2, %2680 ], [ 1, %326 ]
+  %.sink7521 = phi i16 [ 4, %2681 ], [ 2, %2680 ], [ 1, %326 ]
   %2677 = getelementptr inbounds nuw i8, ptr %0, i64 82
   %2678 = load i16, ptr %2677, align 2, !tbaa !18
-  %2679 = or i16 %2678, %.sink7318
+  %2679 = or i16 %2678, %.sink7521
   store i16 %2679, ptr %2677, align 2, !tbaa !18
   store i8 1, ptr %328, align 4, !tbaa !21
   br label %.preheader6554
@@ -9650,10 +9650,10 @@ llhttp__internal__c_mul_add_content_length_1.exit: ; preds = %2693
   store ptr inttoptr (i64 102 to ptr), ptr %4, align 8, !tbaa !23
   br label %.thread
 
-switch.lookup7541:                                ; preds = %744
+switch.lookup7744:                                ; preds = %744
   %.1323687 = getelementptr inbounds nuw i8, ptr %.1313686, i64 1
   %2931 = getelementptr inbounds nuw i8, ptr %0, i64 74
-  store i8 %switch.tableidx7542, ptr %2931, align 2, !tbaa !15
+  store i8 %switch.tableidx7745, ptr %2931, align 2, !tbaa !15
   br label %733
 
 2932:                                             ; preds = %744
@@ -10289,29 +10289,29 @@ switch.lookup7541:                                ; preds = %744
   store ptr null, ptr %4, align 8, !tbaa !23
   br label %.thread
 
-switch.lookup7543:                                ; preds = %1994
+switch.lookup7746:                                ; preds = %1994
   %.2893844 = getelementptr inbounds nuw i8, ptr %.2883843, i64 1
   %3175 = getelementptr inbounds nuw i8, ptr %0, i64 84
   %3176 = load i16, ptr %3175, align 4, !tbaa !22
   %3177 = icmp ugt i16 %3176, 6553
   br i1 %3177, label %3185, label %3178
 
-3178:                                             ; preds = %switch.lookup7543
-  %switch.idx.cast7545 = zext nneg i8 %switch.tableidx7544 to i32
+3178:                                             ; preds = %switch.lookup7746
+  %switch.idx.cast7748 = zext nneg i8 %switch.tableidx7747 to i32
   %3179 = mul nuw i16 %3176, 10
   store i16 %3179, ptr %3175, align 4, !tbaa !22
   %3180 = zext i16 %3179 to i32
-  %3181 = xor i32 %switch.idx.cast7545, 65535
+  %3181 = xor i32 %switch.idx.cast7748, 65535
   %3182 = icmp samesign ult i32 %3181, %3180
   br i1 %3182, label %3185, label %llhttp__internal__c_mul_add_status_code.exit
 
 llhttp__internal__c_mul_add_status_code.exit:     ; preds = %3178
-  %3183 = zext nneg i8 %switch.tableidx7544 to i16
+  %3183 = zext nneg i8 %switch.tableidx7747 to i16
   %3184 = add i16 %3179, %3183
   store i16 %3184, ptr %3175, align 4, !tbaa !22
   br label %1979
 
-3185:                                             ; preds = %switch.lookup7543, %3178
+3185:                                             ; preds = %switch.lookup7746, %3178
   %3186 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 13, ptr %3186, align 8, !tbaa !24
   %3187 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -10331,29 +10331,29 @@ llhttp__internal__c_mul_add_status_code.exit:     ; preds = %3178
   store ptr null, ptr %4, align 8, !tbaa !23
   br label %.thread
 
-switch.lookup7546:                                ; preds = %1999
+switch.lookup7749:                                ; preds = %1999
   %.2913846 = getelementptr inbounds nuw i8, ptr %.2903845, i64 1
   %3193 = getelementptr inbounds nuw i8, ptr %0, i64 84
   %3194 = load i16, ptr %3193, align 4, !tbaa !22
   %3195 = icmp ugt i16 %3194, 6553
   br i1 %3195, label %3203, label %3196
 
-3196:                                             ; preds = %switch.lookup7546
-  %switch.idx.cast7548 = zext nneg i8 %switch.tableidx7547 to i32
+3196:                                             ; preds = %switch.lookup7749
+  %switch.idx.cast7751 = zext nneg i8 %switch.tableidx7750 to i32
   %3197 = mul nuw i16 %3194, 10
   store i16 %3197, ptr %3193, align 4, !tbaa !22
   %3198 = zext i16 %3197 to i32
-  %3199 = xor i32 %switch.idx.cast7548, 65535
+  %3199 = xor i32 %switch.idx.cast7751, 65535
   %3200 = icmp samesign ult i32 %3199, %3198
   br i1 %3200, label %3203, label %llhttp__internal__c_mul_add_status_code.exit5760
 
 llhttp__internal__c_mul_add_status_code.exit5760: ; preds = %3196
-  %3201 = zext nneg i8 %switch.tableidx7547 to i16
+  %3201 = zext nneg i8 %switch.tableidx7750 to i16
   %3202 = add i16 %3197, %3201
   store i16 %3202, ptr %3193, align 4, !tbaa !22
   br label %1992
 
-3203:                                             ; preds = %switch.lookup7546, %3196
+3203:                                             ; preds = %switch.lookup7749, %3196
   %3204 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 13, ptr %3204, align 8, !tbaa !24
   %3205 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -10373,29 +10373,29 @@ llhttp__internal__c_mul_add_status_code.exit5760: ; preds = %3196
   store ptr null, ptr %4, align 8, !tbaa !23
   br label %.thread
 
-switch.lookup7549:                                ; preds = %2004
+switch.lookup7752:                                ; preds = %2004
   %.2933848 = getelementptr inbounds nuw i8, ptr %.2923847, i64 1
   %3211 = getelementptr inbounds nuw i8, ptr %0, i64 84
   %3212 = load i16, ptr %3211, align 4, !tbaa !22
   %3213 = icmp ugt i16 %3212, 6553
   br i1 %3213, label %3221, label %3214
 
-3214:                                             ; preds = %switch.lookup7549
-  %switch.idx.cast7551 = zext nneg i8 %switch.tableidx7550 to i32
+3214:                                             ; preds = %switch.lookup7752
+  %switch.idx.cast7754 = zext nneg i8 %switch.tableidx7753 to i32
   %3215 = mul nuw i16 %3212, 10
   store i16 %3215, ptr %3211, align 4, !tbaa !22
   %3216 = zext i16 %3215 to i32
-  %3217 = xor i32 %switch.idx.cast7551, 65535
+  %3217 = xor i32 %switch.idx.cast7754, 65535
   %3218 = icmp samesign ult i32 %3217, %3216
   br i1 %3218, label %3221, label %llhttp__internal__c_mul_add_status_code.exit5762
 
 llhttp__internal__c_mul_add_status_code.exit5762: ; preds = %3214
-  %3219 = zext nneg i8 %switch.tableidx7550 to i16
+  %3219 = zext nneg i8 %switch.tableidx7753 to i16
   %3220 = add i16 %3215, %3219
   store i16 %3220, ptr %3211, align 4, !tbaa !22
   br label %1997
 
-3221:                                             ; preds = %switch.lookup7549, %3214
+3221:                                             ; preds = %switch.lookup7752, %3214
   %3222 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 13, ptr %3222, align 8, !tbaa !24
   %3223 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -10541,10 +10541,10 @@ llhttp__internal__c_mul_add_status_code.exit5762: ; preds = %3214
   store ptr inttoptr (i64 220 to ptr), ptr %4, align 8, !tbaa !23
   br label %.thread
 
-switch.lookup7552:                                ; preds = %2048
+switch.lookup7755:                                ; preds = %2048
   %.3043859 = getelementptr inbounds nuw i8, ptr %.3033858, i64 1
   %3280 = getelementptr inbounds nuw i8, ptr %0, i64 74
-  store i8 %switch.tableidx7553, ptr %3280, align 2, !tbaa !15
+  store i8 %switch.tableidx7756, ptr %3280, align 2, !tbaa !15
   br label %2037
 
 3281:                                             ; preds = %2048

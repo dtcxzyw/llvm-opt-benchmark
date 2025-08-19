@@ -123,10 +123,10 @@ define ptr @Nwk_ManStrashNode(ptr noundef %0, ptr noundef readonly captures(none
   br label %30
 
 30:                                               ; preds = %.critedge, %17
-  %.sink26.in = phi ptr [ %10, %.critedge ], [ %18, %17 ]
-  %.sink26 = load ptr, ptr %.sink26.in, align 8, !tbaa !11
+  %.sink27.in = phi ptr [ %10, %.critedge ], [ %18, %17 ]
+  %.sink27 = load ptr, ptr %.sink27.in, align 8, !tbaa !11
   %31 = and i64 %8, 1
-  %32 = ptrtoint ptr %.sink26 to i64
+  %32 = ptrtoint ptr %.sink27 to i64
   %33 = xor i64 %31, %32
   %.019 = inttoptr i64 %33 to ptr
   ret ptr %.019
@@ -322,10 +322,10 @@ Abc_UtilStrsav.exit59:                            ; preds = %Abc_UtilStrsav.exit
   br label %Nwk_ManStrashNode.exit
 
 Nwk_ManStrashNode.exit:                           ; preds = %79, %.critedge.i
-  %.sink26.in.i = phi ptr [ %87, %.critedge.i ], [ %40, %79 ]
-  %.sink26.i = load ptr, ptr %.sink26.in.i, align 8, !tbaa !11
+  %.sink27.in.i = phi ptr [ %87, %.critedge.i ], [ %40, %79 ]
+  %.sink27.i = load ptr, ptr %.sink27.in.i, align 8, !tbaa !11
   %105 = and i64 %85, 1
-  %106 = ptrtoint ptr %.sink26.i to i64
+  %106 = ptrtoint ptr %.sink27.i to i64
   %107 = xor i64 %105, %106
   %.019.i = inttoptr i64 %107 to ptr
   br label %108

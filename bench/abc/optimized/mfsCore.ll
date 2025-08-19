@@ -1066,15 +1066,15 @@ Abc_Clock.exit79:                                 ; preds = %Abc_Clock.exit77, %
   %106 = getelementptr inbounds nuw i8, ptr %105, i64 44
   %107 = load i32, ptr %106, align 4, !tbaa !90
   %.not62 = icmp eq i32 %107, 0
-  br i1 %.not62, label %.thread94, label %108
+  br i1 %.not62, label %.thread96, label %108
 
 108:                                              ; preds = %104
   %109 = call i32 @Abc_NtkAddOneHotness(ptr noundef nonnull %0) #11
   %.pr.pre = load ptr, ptr %103, align 8, !tbaa !50
   %110 = icmp eq ptr %.pr.pre, null
-  br i1 %110, label %.thread, label %.thread94
+  br i1 %110, label %.thread, label %.thread96
 
-.thread94:                                        ; preds = %104, %108
+.thread96:                                        ; preds = %104, %108
   %111 = call i32 @Abc_NtkMfsSolveSat(ptr noundef nonnull %0, ptr noundef nonnull %1) #11
   %112 = load ptr, ptr %103, align 8, !tbaa !50
   %113 = getelementptr inbounds nuw i8, ptr %112, i64 440
@@ -1089,7 +1089,7 @@ Abc_Clock.exit79:                                 ; preds = %Abc_Clock.exit77, %
   %120 = icmp slt i32 %119, 0
   br i1 %120, label %Abc_Clock.exit81, label %121
 
-121:                                              ; preds = %.thread94
+121:                                              ; preds = %.thread96
   %122 = load i64, ptr %3, align 8, !tbaa !78
   %123 = mul nsw i64 %122, 1000000
   %124 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -1098,8 +1098,8 @@ Abc_Clock.exit79:                                 ; preds = %Abc_Clock.exit77, %
   %127 = add nsw i64 %126, %123
   br label %Abc_Clock.exit81
 
-Abc_Clock.exit81:                                 ; preds = %.thread94, %121
-  %.0.i80 = phi i64 [ %127, %121 ], [ -1, %.thread94 ]
+Abc_Clock.exit81:                                 ; preds = %.thread96, %121
+  %.0.i80 = phi i64 [ %127, %121 ], [ -1, %.thread96 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %128 = add i64 %.0.i80, %.0.i78.neg
   %129 = getelementptr inbounds nuw i8, ptr %0, i64 880
@@ -1235,12 +1235,12 @@ Abc_Clock.exit:                                   ; preds = %2, %9
   br i1 %21, label %.sink.split, label %23
 
 .sink.split:                                      ; preds = %20, %18
-  %.sink249 = phi i32 [ 8, %18 ], [ 12, %20 ]
-  %22 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %.sink249)
+  %.sink259 = phi i32 [ 8, %18 ], [ 12, %20 ]
+  %22 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %.sink259)
   br label %23
 
 23:                                               ; preds = %.sink.split, %20, %18
-  %.0147 = phi i32 [ %15, %18 ], [ %15, %20 ], [ %.sink249, %.sink.split ]
+  %.0147 = phi i32 [ %15, %18 ], [ %15, %20 ], [ %.sink259, %.sink.split ]
   %24 = call i32 @Abc_NtkToAig(ptr noundef nonnull %0) #11
   %.not156 = icmp eq i32 %24, 0
   br i1 %.not156, label %25, label %28

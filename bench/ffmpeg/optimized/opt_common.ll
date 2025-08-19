@@ -1040,18 +1040,18 @@ define internal fastcc void @show_help_filter(ptr noundef %0) unnamed_addr #2 {
   %45 = load i32, ptr %14, align 8, !tbaa !50
   %46 = and i32 %45, 2
   %.not47 = icmp eq i32 %46, 0
-  br i1 %.not47, label %47, label %.sink.split60
+  br i1 %.not47, label %47, label %.sink.split65
 
 47:                                               ; preds = %._crit_edge58
   %.not48 = icmp eq i32 %34, 0
-  br i1 %.not48, label %.sink.split60, label %48
+  br i1 %.not48, label %.sink.split65, label %48
 
-.sink.split60:                                    ; preds = %47, %._crit_edge58
+.sink.split65:                                    ; preds = %47, %._crit_edge58
   %str.5.sink = phi ptr [ @str.6, %._crit_edge58 ], [ @str.5, %47 ]
   %puts49 = tail call i32 @puts(ptr nonnull dereferenceable(1) %str.5.sink)
   br label %48
 
-48:                                               ; preds = %.sink.split60, %47
+48:                                               ; preds = %.sink.split65, %47
   %49 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %50 = load ptr, ptr %49, align 8, !tbaa !55
   %.not51 = icmp eq ptr %50, null
@@ -1411,7 +1411,7 @@ next_codec_for_id.exit.loopexit.us:               ; preds = %11
   br i1 %.not11.i.us, label %.loopexit, label %.lr.ph.split.us.i.us.backedge
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i.lr.ph, %.lr.ph.split.i.backedge
-  %18 = phi ptr [ %.be32, %.lr.ph.split.i.backedge ], [ %6, %.lr.ph.i.lr.ph ]
+  %18 = phi ptr [ %.be36, %.lr.ph.split.i.backedge ], [ %6, %.lr.ph.i.lr.ph ]
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 20
   %20 = load i32, ptr %19, align 4, !tbaa !39
   %21 = icmp eq i32 %20, %0
@@ -1428,7 +1428,7 @@ next_codec_for_id.exit.loopexit.us:               ; preds = %11
   br i1 %.not.i, label %.loopexit, label %.lr.ph.split.i.backedge
 
 .lr.ph.split.i.backedge:                          ; preds = %24, %next_codec_for_id.exit.loopexit6
-  %.be32 = phi ptr [ %25, %24 ], [ %28, %next_codec_for_id.exit.loopexit6 ]
+  %.be36 = phi ptr [ %25, %24 ], [ %28, %next_codec_for_id.exit.loopexit6 ]
   br label %.lr.ph.split.i, !llvm.loop !74
 
 next_codec_for_id.exit.loopexit6:                 ; preds = %22
@@ -1613,16 +1613,16 @@ next_codec_for_id.exit.loopexit.us.us:            ; preds = %22
 next_codec_for_id.exit.loopexit35:                ; preds = %67
   %71 = load i32, ptr %59, align 4, !tbaa !65
   %72 = icmp ult i32 %71, 5
-  br i1 %72, label %switch.lookup68, label %get_media_type_char.exit
+  br i1 %72, label %switch.lookup75, label %get_media_type_char.exit
 
-switch.lookup68:                                  ; preds = %next_codec_for_id.exit.loopexit35
+switch.lookup75:                                  ; preds = %next_codec_for_id.exit.loopexit35
   %73 = zext nneg i32 %71 to i64
-  %switch.gep69 = getelementptr inbounds nuw [5 x i32], ptr @switch.table.print_codecs.21, i64 0, i64 %73
-  %switch.load70 = load i32, ptr %switch.gep69, align 4
+  %switch.gep76 = getelementptr inbounds nuw [5 x i32], ptr @switch.table.print_codecs.21, i64 0, i64 %73
+  %switch.load77 = load i32, ptr %switch.gep76, align 4
   br label %get_media_type_char.exit
 
-get_media_type_char.exit:                         ; preds = %next_codec_for_id.exit.loopexit35, %switch.lookup68
-  %.0.i = phi i32 [ %switch.load70, %switch.lookup68 ], [ 63, %next_codec_for_id.exit.loopexit35 ]
+get_media_type_char.exit:                         ; preds = %next_codec_for_id.exit.loopexit35, %switch.lookup75
+  %.0.i = phi i32 [ %switch.load77, %switch.lookup75 ], [ 63, %next_codec_for_id.exit.loopexit35 ]
   %74 = getelementptr inbounds nuw i8, ptr %63, i64 24
   %75 = load i32, ptr %74, align 8, !tbaa !76
   %76 = and i32 %75, 4096
@@ -1780,15 +1780,15 @@ define noundef i32 @show_filters(ptr noundef readnone captures(none) %0, ptr nou
   br i1 %16, label %._crit_edge.thread, label %24
 
 ._crit_edge.thread:                               ; preds = %12, %._crit_edge
-  %.2.ptr.lcssa59 = phi ptr [ %.2.ptr, %._crit_edge ], [ %.2.ptr43, %12 ]
-  %.2.idx.lcssa58 = phi i64 [ %.2.add, %._crit_edge ], [ %.1.idx, %12 ]
+  %.2.ptr.lcssa62 = phi ptr [ %.2.ptr, %._crit_edge ], [ %.2.ptr43, %12 ]
+  %.2.idx.lcssa61 = phi i64 [ %.2.add, %._crit_edge ], [ %.1.idx, %12 ]
   %22 = load i32, ptr %8, align 8, !tbaa !50
   %. = select i1 %.not36, i32 1, i32 2
   %23 = and i32 %22, %.
   %.not41.not = icmp eq i32 %23, 0
   %.mux = select i1 %.not41.not, i8 124, i8 78
-  %.2.add37 = add nuw nsw i64 %.2.idx.lcssa58, 1
-  store i8 %.mux, ptr %.2.ptr.lcssa59, align 1, !tbaa !8
+  %.2.add37 = add nuw nsw i64 %.2.idx.lcssa61, 1
+  store i8 %.mux, ptr %.2.ptr.lcssa62, align 1, !tbaa !8
   br label %24
 
 24:                                               ; preds = %._crit_edge.thread, %._crit_edge
@@ -1848,134 +1848,140 @@ define internal fastcc void @show_formats_devices(i32 noundef range(i32 0, 2) %0
   %.not72 = icmp eq i32 %1, 2
   br label %9
 
-9:                                                ; preds = %77, %2
-  %.067 = phi ptr [ @.str.170, %2 ], [ %.349, %77 ]
+9:                                                ; preds = %80, %2
+  %.067 = phi ptr [ @.str.170, %2 ], [ %.349, %80 ]
   br i1 %.not, label %.thread, label %10
 
 10:                                               ; preds = %9
   store ptr null, ptr %4, align 8, !tbaa !37
-  br i1 %.not82, label %.split41, label %.outer33.us.outer
+  %11 = call ptr @av_muxer_iterate(ptr noundef nonnull %4) #17
+  %.not71.us57 = icmp eq ptr %11, null
+  br i1 %.not82, label %.split41, label %.outer33.us.preheader
 
-.outer33.us.outer:                                ; preds = %10, %23
-  %.153.ph.us.ph = phi i32 [ 1, %23 ], [ 0, %10 ]
-  %.147.ph.us.ph = phi ptr [ %.pre, %23 ], [ null, %10 ]
-  %.1.ph.us.ph = phi ptr [ %25, %23 ], [ null, %10 ]
-  %.not81.us = icmp eq ptr %.147.ph.us.ph, null
+.outer33.us.preheader:                            ; preds = %10
+  br i1 %.not71.us57, label %.split.split.us, label %.lr.ph11
+
+.lr.ph11:                                         ; preds = %.outer33.us.preheader, %.outer33.us
+  %12 = phi ptr [ %30, %.outer33.us ], [ %11, %.outer33.us.preheader ]
+  %.1.ph.us23 = phi ptr [ %.2.us, %.outer33.us ], [ null, %.outer33.us.preheader ]
+  %.147.ph.us22 = phi ptr [ %.248.us, %.outer33.us ], [ null, %.outer33.us.preheader ]
+  %.153.ph.us21 = phi i32 [ %.254.us, %.outer33.us ], [ 0, %.outer33.us.preheader ]
+  %.159.ph.us20 = phi i32 [ %.260.us, %.outer33.us ], [ 0, %.outer33.us.preheader ]
+  br label %13
+
+13:                                               ; preds = %.lr.ph11, %.backedge
+  %14 = phi ptr [ %12, %.lr.ph11 ], [ %20, %.backedge ]
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 56
+  %16 = load ptr, ptr %15, align 8, !tbaa !36
+  %.not.i.us42 = icmp eq ptr %16, null
+  br i1 %.not.i.us42, label %.backedge, label %17
+
+17:                                               ; preds = %13
+  %18 = getelementptr inbounds nuw i8, ptr %16, i64 36
+  %19 = load i32, ptr %18, align 4, !tbaa !84
+  %.off = add i32 %19, -40
+  %switch = icmp ult i32 %.off, 6
+  br i1 %switch, label %is_device.exit.thread.split.us45, label %.backedge
+
+.backedge:                                        ; preds = %17, %13
+  %20 = call ptr @av_muxer_iterate(ptr noundef nonnull %4) #17
+  %.not71.us47 = icmp eq ptr %20, null
+  br i1 %.not71.us47, label %.split.split.us, label %13, !llvm.loop !87
+
+is_device.exit.thread.split.us45:                 ; preds = %17
+  %.not81.us = icmp eq ptr %.147.ph.us22, null
+  %.pre = load ptr, ptr %14, align 8, !tbaa !24
+  br i1 %.not81.us, label %24, label %21
+
+21:                                               ; preds = %is_device.exit.thread.split.us45
+  %22 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.pre, ptr noundef nonnull dereferenceable(1) %.147.ph.us22) #18
+  %23 = icmp slt i32 %22, 0
+  br i1 %23, label %24, label %.outer33.us
+
+24:                                               ; preds = %is_device.exit.thread.split.us45, %21
+  %25 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.pre, ptr noundef nonnull dereferenceable(1) %.067) #18
+  %26 = icmp sgt i32 %25, 0
+  br i1 %26, label %27, label %.outer33.us
+
+27:                                               ; preds = %24
+  %28 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %29 = load ptr, ptr %28, align 8, !tbaa !26
   br label %.outer33.us
 
-.outer33.us:                                      ; preds = %.outer33.us.backedge, %.outer33.us.outer
-  br label %.critedge
-
-11:                                               ; preds = %.critedge
-  %12 = getelementptr inbounds nuw i8, ptr %26, i64 56
-  %13 = load ptr, ptr %12, align 8, !tbaa !36
-  %.not.i.us42 = icmp eq ptr %13, null
-  br i1 %.not.i.us42, label %.critedge.backedge, label %14
-
-.critedge.backedge:                               ; preds = %11, %14
-  br label %.critedge
-
-14:                                               ; preds = %11
-  %15 = getelementptr inbounds nuw i8, ptr %13, i64 36
-  %16 = load i32, ptr %15, align 4, !tbaa !84
-  %.off = add i32 %16, -40
-  %switch = icmp ult i32 %.off, 6
-  br i1 %switch, label %is_device.exit.thread.split.us45, label %.critedge.backedge
-
-is_device.exit.thread.split.us45:                 ; preds = %14
-  %.pre = load ptr, ptr %26, align 8, !tbaa !24
-  br i1 %.not81.us, label %20, label %17
-
-17:                                               ; preds = %is_device.exit.thread.split.us45
-  %18 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.pre, ptr noundef nonnull dereferenceable(1) %.147.ph.us.ph) #18
-  %19 = icmp slt i32 %18, 0
-  br i1 %19, label %20, label %.outer33.us.backedge
-
-20:                                               ; preds = %is_device.exit.thread.split.us45, %17
-  %21 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.pre, ptr noundef nonnull dereferenceable(1) %.067) #18
-  %22 = icmp sgt i32 %21, 0
-  br i1 %22, label %23, label %.outer33.us.backedge
-
-.outer33.us.backedge:                             ; preds = %20, %17
-  br label %.outer33.us, !llvm.loop !87
-
-23:                                               ; preds = %20
-  %24 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  %25 = load ptr, ptr %24, align 8, !tbaa !26
-  br label %.outer33.us.outer, !llvm.loop !87
-
-.critedge:                                        ; preds = %.critedge.backedge, %.outer33.us
-  %26 = call ptr @av_muxer_iterate(ptr noundef nonnull %4) #17
-  %.not71.us47 = icmp eq ptr %26, null
-  br i1 %.not71.us47, label %.split.split.us, label %11
+.outer33.us:                                      ; preds = %27, %24, %21
+  %.260.us = phi i32 [ 1, %27 ], [ %.159.ph.us20, %24 ], [ %.159.ph.us20, %21 ]
+  %.254.us = phi i32 [ 1, %27 ], [ %.153.ph.us21, %24 ], [ %.153.ph.us21, %21 ]
+  %.248.us = phi ptr [ %.pre, %27 ], [ %.147.ph.us22, %24 ], [ %.147.ph.us22, %21 ]
+  %.2.us = phi ptr [ %29, %27 ], [ %.1.ph.us23, %24 ], [ %.1.ph.us23, %21 ]
+  %30 = call ptr @av_muxer_iterate(ptr noundef nonnull %4) #17
+  %.not71.us4710 = icmp eq ptr %30, null
+  br i1 %.not71.us4710, label %.split.split.us, label %.lr.ph11, !llvm.loop !87
 
 .split41:                                         ; preds = %10
-  %27 = call ptr @av_muxer_iterate(ptr noundef nonnull %4) #17
-  %.not71.us57 = icmp eq ptr %27, null
   br i1 %.not71.us57, label %.split.split.us, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.split41, %.outer33
-  %28 = phi ptr [ %47, %.outer33 ], [ %27, %.split41 ]
+  %31 = phi ptr [ %50, %.outer33 ], [ %11, %.split41 ]
   %.1.ph61 = phi ptr [ %.2, %.outer33 ], [ null, %.split41 ]
   %.147.ph60 = phi ptr [ %.248, %.outer33 ], [ null, %.split41 ]
   %.153.ph59 = phi i32 [ %.254, %.outer33 ], [ 0, %.split41 ]
   %.159.ph58 = phi i32 [ %.260, %.outer33 ], [ 0, %.split41 ]
-  %29 = getelementptr inbounds nuw i8, ptr %28, i64 56
-  %30 = load ptr, ptr %29, align 8, !tbaa !36
-  %.not.i.us = icmp eq ptr %30, null
-  br i1 %.not.i.us, label %is_device.exit.thread.split.us, label %31
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 56
+  %33 = load ptr, ptr %32, align 8, !tbaa !36
+  %.not.i.us = icmp eq ptr %33, null
+  br i1 %.not.i.us, label %is_device.exit.thread.split.us, label %34
 
-31:                                               ; preds = %.lr.ph
-  %32 = getelementptr inbounds nuw i8, ptr %30, i64 36
-  %33 = load i32, ptr %32, align 4, !tbaa !84
-  %switch.tableidx = add i32 %33, -40
-  %34 = icmp ult i32 %switch.tableidx, 6
+34:                                               ; preds = %.lr.ph
+  %35 = getelementptr inbounds nuw i8, ptr %33, i64 36
+  %36 = load i32, ptr %35, align 4, !tbaa !84
+  %switch.tableidx = add i32 %36, -40
+  %37 = icmp ult i32 %switch.tableidx, 6
   %switch.maskindex = trunc i32 %switch.tableidx to i8
   %switch.shifted = lshr i8 47, %switch.maskindex
   %switch.lobit = trunc i8 %switch.shifted to i1
-  %or.cond = select i1 %34, i1 %switch.lobit, i1 false
-  br i1 %or.cond, label %is_device.exit.thread.split.us, label %35
+  %or.cond = select i1 %37, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %is_device.exit.thread.split.us, label %38
 
-35:                                               ; preds = %31
-  %36 = icmp eq i32 %33, 44
-  %37 = zext i1 %36 to i32
+38:                                               ; preds = %34
+  %39 = icmp eq i32 %36, 44
+  %40 = zext i1 %39 to i32
   br label %is_device.exit.thread.split.us
 
-is_device.exit.thread.split.us:                   ; preds = %31, %.lr.ph, %35
-  %.0.i3.us = phi i32 [ 0, %.lr.ph ], [ %37, %35 ], [ 1, %31 ]
+is_device.exit.thread.split.us:                   ; preds = %34, %.lr.ph, %38
+  %.0.i3.us = phi i32 [ 0, %.lr.ph ], [ %40, %38 ], [ 1, %34 ]
   %.not81 = icmp eq ptr %.147.ph60, null
-  %.pre92 = load ptr, ptr %28, align 8, !tbaa !24
-  br i1 %.not81, label %41, label %38
+  %.pre92 = load ptr, ptr %31, align 8, !tbaa !24
+  br i1 %.not81, label %44, label %41
 
-38:                                               ; preds = %is_device.exit.thread.split.us
-  %39 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.pre92, ptr noundef nonnull dereferenceable(1) %.147.ph60) #18
-  %40 = icmp slt i32 %39, 0
-  br i1 %40, label %41, label %.outer33
-
-41:                                               ; preds = %38, %is_device.exit.thread.split.us
-  %42 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.pre92, ptr noundef nonnull dereferenceable(1) %.067) #18
-  %43 = icmp sgt i32 %42, 0
+41:                                               ; preds = %is_device.exit.thread.split.us
+  %42 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.pre92, ptr noundef nonnull dereferenceable(1) %.147.ph60) #18
+  %43 = icmp slt i32 %42, 0
   br i1 %43, label %44, label %.outer33
 
-44:                                               ; preds = %41
-  %45 = getelementptr inbounds nuw i8, ptr %28, i64 8
-  %46 = load ptr, ptr %45, align 8, !tbaa !26
+44:                                               ; preds = %41, %is_device.exit.thread.split.us
+  %45 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.pre92, ptr noundef nonnull dereferenceable(1) %.067) #18
+  %46 = icmp sgt i32 %45, 0
+  br i1 %46, label %47, label %.outer33
+
+47:                                               ; preds = %44
+  %48 = getelementptr inbounds nuw i8, ptr %31, i64 8
+  %49 = load ptr, ptr %48, align 8, !tbaa !26
   br label %.outer33
 
-.outer33:                                         ; preds = %44, %41, %38
-  %.260 = phi i32 [ 1, %44 ], [ %.159.ph58, %41 ], [ %.159.ph58, %38 ]
-  %.254 = phi i32 [ %.0.i3.us, %44 ], [ %.153.ph59, %41 ], [ %.153.ph59, %38 ]
-  %.248 = phi ptr [ %.pre92, %44 ], [ %.147.ph60, %41 ], [ %.147.ph60, %38 ]
-  %.2 = phi ptr [ %46, %44 ], [ %.1.ph61, %41 ], [ %.1.ph61, %38 ]
-  %47 = call ptr @av_muxer_iterate(ptr noundef nonnull %4) #17
-  %.not71.us = icmp eq ptr %47, null
+.outer33:                                         ; preds = %47, %44, %41
+  %.260 = phi i32 [ 1, %47 ], [ %.159.ph58, %44 ], [ %.159.ph58, %41 ]
+  %.254 = phi i32 [ %.0.i3.us, %47 ], [ %.153.ph59, %44 ], [ %.153.ph59, %41 ]
+  %.248 = phi ptr [ %.pre92, %47 ], [ %.147.ph60, %44 ], [ %.147.ph60, %41 ]
+  %.2 = phi ptr [ %49, %47 ], [ %.1.ph61, %44 ], [ %.1.ph61, %41 ]
+  %50 = call ptr @av_muxer_iterate(ptr noundef nonnull %4) #17
+  %.not71.us = icmp eq ptr %50, null
   br i1 %.not71.us, label %.split.split.us, label %.lr.ph, !llvm.loop !87
 
-.split.split.us:                                  ; preds = %.outer33, %.critedge, %.split41
-  %.us-phi = phi i32 [ 0, %.split41 ], [ %.153.ph.us.ph, %.critedge ], [ %.260, %.outer33 ]
-  %.us-phi36 = phi i32 [ 0, %.split41 ], [ %.153.ph.us.ph, %.critedge ], [ %.254, %.outer33 ]
-  %.us-phi37 = phi ptr [ null, %.split41 ], [ %.147.ph.us.ph, %.critedge ], [ %.248, %.outer33 ]
-  %.us-phi38 = phi ptr [ null, %.split41 ], [ %.1.ph.us.ph, %.critedge ], [ %.2, %.outer33 ]
+.split.split.us:                                  ; preds = %.outer33.us, %.outer33, %.backedge, %.outer33.us.preheader, %.split41
+  %.us-phi = phi i32 [ 0, %.split41 ], [ 0, %.outer33.us.preheader ], [ %.159.ph.us20, %.backedge ], [ %.260, %.outer33 ], [ %.260.us, %.outer33.us ]
+  %.us-phi36 = phi i32 [ 0, %.split41 ], [ 0, %.outer33.us.preheader ], [ %.153.ph.us21, %.backedge ], [ %.254, %.outer33 ], [ %.254.us, %.outer33.us ]
+  %.us-phi37 = phi ptr [ null, %.split41 ], [ null, %.outer33.us.preheader ], [ %.147.ph.us22, %.backedge ], [ %.248, %.outer33 ], [ %.248.us, %.outer33.us ]
+  %.us-phi38 = phi ptr [ null, %.split41 ], [ null, %.outer33.us.preheader ], [ %.1.ph.us23, %.backedge ], [ %.2, %.outer33 ], [ %.2.us, %.outer33.us ]
   br i1 %.not72, label %.loopexit, label %.thread
 
 .thread:                                          ; preds = %9, %.split.split.us
@@ -1994,25 +2000,28 @@ is_device.exit.thread.split.us:                   ; preds = %31, %.lr.ph, %35
   %.4.ph.ph = phi ptr [ %.527, %.thread16 ], [ %.04512, %.thread ]
   br label %.outer
 
-.outer:                                           ; preds = %.outer.outer, %68
-  %.450.ph = phi ptr [ null, %68 ], [ %.450.ph.ph, %.outer.outer ]
-  br i1 %.not82, label %.outer.split.us, label %.outer.split
+.outer:                                           ; preds = %.outer.outer, %71
+  %.450.ph = phi ptr [ null, %71 ], [ %.450.ph.ph, %.outer.outer ]
+  %51 = call ptr @av_demuxer_iterate(ptr noundef nonnull %3) #17
+  %.not73.us = icmp eq ptr %51, null
+  br i1 %.not82, label %.outer.split.us, label %.outer.split.preheader
+
+.outer.split.preheader:                           ; preds = %.outer
+  br i1 %.not73.us, label %.loopexit, label %.lr.ph29
 
 .outer.split.us:                                  ; preds = %.outer
-  %48 = call ptr @av_demuxer_iterate(ptr noundef nonnull %3) #17
-  %.not73.us = icmp eq ptr %48, null
-  br i1 %.not73.us, label %.loopexit, label %49
+  br i1 %.not73.us, label %.loopexit, label %52
 
-49:                                               ; preds = %.outer.split.us
-  %50 = getelementptr inbounds nuw i8, ptr %48, i64 40
-  %51 = load ptr, ptr %50, align 8, !tbaa !23
-  %.not.i83.us = icmp eq ptr %51, null
-  br i1 %.not.i83.us, label %is_device.exit85.thread, label %52
+52:                                               ; preds = %.outer.split.us
+  %53 = getelementptr inbounds nuw i8, ptr %51, i64 40
+  %54 = load ptr, ptr %53, align 8, !tbaa !23
+  %.not.i83.us = icmp eq ptr %54, null
+  br i1 %.not.i83.us, label %is_device.exit85.thread, label %55
 
-52:                                               ; preds = %49
-  %53 = getelementptr inbounds nuw i8, ptr %51, i64 36
-  %54 = load i32, ptr %53, align 4, !tbaa !84
-  switch i32 %54, label %55 [
+55:                                               ; preds = %52
+  %56 = getelementptr inbounds nuw i8, ptr %54, i64 36
+  %57 = load i32, ptr %56, align 4, !tbaa !84
+  switch i32 %57, label %58 [
     i32 41, label %is_device.exit85.thread
     i32 43, label %is_device.exit85.thread
     i32 45, label %is_device.exit85.thread
@@ -2020,93 +2029,91 @@ is_device.exit.thread.split.us:                   ; preds = %31, %.lr.ph, %35
     i32 42, label %is_device.exit85.thread
   ]
 
-55:                                               ; preds = %52
-  %56 = icmp eq i32 %54, 44
-  %57 = zext i1 %56 to i32
+58:                                               ; preds = %55
+  %59 = icmp eq i32 %57, 44
+  %60 = zext i1 %59 to i32
   br label %is_device.exit85.thread
 
-.outer.split:                                     ; preds = %.outer, %.outer.split.backedge
-  %58 = call ptr @av_demuxer_iterate(ptr noundef nonnull %3) #17
-  %.not73 = icmp eq ptr %58, null
-  br i1 %.not73, label %.loopexit, label %59
+.lr.ph29:                                         ; preds = %.outer.split.preheader, %.outer.split.backedge
+  %61 = phi ptr [ %67, %.outer.split.backedge ], [ %51, %.outer.split.preheader ]
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 40
+  %63 = load ptr, ptr %62, align 8, !tbaa !23
+  %.not.i83 = icmp eq ptr %63, null
+  br i1 %.not.i83, label %.outer.split.backedge, label %64
 
-59:                                               ; preds = %.outer.split
-  %60 = getelementptr inbounds nuw i8, ptr %58, i64 40
-  %61 = load ptr, ptr %60, align 8, !tbaa !23
-  %.not.i83 = icmp eq ptr %61, null
-  br i1 %.not.i83, label %.outer.split.backedge, label %62
+64:                                               ; preds = %.lr.ph29
+  %65 = getelementptr inbounds nuw i8, ptr %63, i64 36
+  %66 = load i32, ptr %65, align 4, !tbaa !84
+  %.off113 = add i32 %66, -40
+  %switch114 = icmp ult i32 %.off113, 6
+  br i1 %switch114, label %is_device.exit85.thread, label %.outer.split.backedge
 
-.outer.split.backedge:                            ; preds = %59, %62
-  br label %.outer.split
+.outer.split.backedge:                            ; preds = %64, %.lr.ph29
+  %67 = call ptr @av_demuxer_iterate(ptr noundef nonnull %3) #17
+  %.not73 = icmp eq ptr %67, null
+  br i1 %.not73, label %.loopexit, label %.lr.ph29, !llvm.loop !88
 
-62:                                               ; preds = %59
-  %63 = getelementptr inbounds nuw i8, ptr %61, i64 36
-  %64 = load i32, ptr %63, align 4, !tbaa !84
-  %.off11 = add i32 %64, -40
-  %switch12 = icmp ult i32 %.off11, 6
-  br i1 %switch12, label %is_device.exit85.thread, label %.outer.split.backedge
-
-is_device.exit85.thread:                          ; preds = %62, %52, %52, %52, %52, %52, %55, %49
-  %.us-phi70 = phi ptr [ %48, %49 ], [ %48, %55 ], [ %48, %52 ], [ %48, %52 ], [ %48, %52 ], [ %48, %52 ], [ %48, %52 ], [ %58, %62 ]
-  %.us-phi71 = phi i32 [ 0, %49 ], [ %57, %55 ], [ 1, %52 ], [ 1, %52 ], [ 1, %52 ], [ 1, %52 ], [ 1, %52 ], [ 1, %62 ]
+is_device.exit85.thread:                          ; preds = %64, %55, %55, %55, %55, %55, %58, %52
+  %.us-phi70 = phi ptr [ %51, %52 ], [ %51, %58 ], [ %51, %55 ], [ %51, %55 ], [ %51, %55 ], [ %51, %55 ], [ %51, %55 ], [ %61, %64 ]
+  %.us-phi71 = phi i32 [ 0, %52 ], [ %60, %58 ], [ 1, %55 ], [ 1, %55 ], [ 1, %55 ], [ 1, %55 ], [ 1, %55 ], [ 1, %64 ]
   %.not79 = icmp eq ptr %.450.ph, null
   %.pre93 = load ptr, ptr %.us-phi70, align 8, !tbaa !16
-  br i1 %.not79, label %68, label %65
-
-65:                                               ; preds = %is_device.exit85.thread
-  %66 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.pre93, ptr noundef nonnull dereferenceable(1) %.450.ph) #18
-  %67 = icmp slt i32 %66, 0
-  br i1 %67, label %.thread94, label %.thread16
+  br i1 %.not79, label %71, label %68
 
 68:                                               ; preds = %is_device.exit85.thread
-  %69 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.pre93, ptr noundef nonnull dereferenceable(1) %.067) #18
-  %70 = icmp sgt i32 %69, 0
-  br i1 %70, label %.loopexit14, label %.outer, !llvm.loop !88
+  %69 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.pre93, ptr noundef nonnull dereferenceable(1) %.450.ph) #18
+  %70 = icmp slt i32 %69, 0
+  br i1 %70, label %.thread102, label %.thread16
 
-.thread94:                                        ; preds = %65
-  %71 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.pre93, ptr noundef nonnull dereferenceable(1) %.067) #18
-  %72 = icmp sgt i32 %71, 0
-  br i1 %72, label %.loopexit14, label %.thread16
+71:                                               ; preds = %is_device.exit85.thread
+  %72 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.pre93, ptr noundef nonnull dereferenceable(1) %.067) #18
+  %73 = icmp sgt i32 %72, 0
+  br i1 %73, label %.loopexit41, label %.outer, !llvm.loop !88
 
-.loopexit14:                                      ; preds = %68, %.thread94
-  %73 = getelementptr inbounds nuw i8, ptr %.us-phi70, i64 8
-  %74 = load ptr, ptr %73, align 8, !tbaa !21
+.thread102:                                       ; preds = %68
+  %74 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.pre93, ptr noundef nonnull dereferenceable(1) %.067) #18
+  %75 = icmp sgt i32 %74, 0
+  br i1 %75, label %.loopexit41, label %.thread16
+
+.loopexit41:                                      ; preds = %71, %.thread102
+  %76 = getelementptr inbounds nuw i8, ptr %.us-phi70, i64 8
+  %77 = load ptr, ptr %76, align 8, !tbaa !21
   br label %.thread16
 
-.thread16:                                        ; preds = %.thread94, %65, %.loopexit14
-  %.527 = phi ptr [ %.4.ph.ph, %65 ], [ %74, %.loopexit14 ], [ %.4.ph.ph, %.thread94 ]
-  %.55125 = phi ptr [ %.450.ph, %65 ], [ %.pre93, %.loopexit14 ], [ %.450.ph, %.thread94 ]
-  %.55724 = phi i32 [ %.456.ph.ph, %65 ], [ %.us-phi71, %.loopexit14 ], [ %.456.ph.ph, %.thread94 ]
-  %.56322 = phi i32 [ %.462.ph.ph, %65 ], [ 0, %.loopexit14 ], [ %.462.ph.ph, %.thread94 ]
-  %75 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.pre93, ptr noundef nonnull dereferenceable(1) %.55125) #18
-  %76 = icmp eq i32 %75, 0
-  %spec.select = select i1 %76, i32 1, i32 %.165.ph.ph
-  %spec.select82 = select i1 %76, i32 %.us-phi71, i32 %.55724
+.thread16:                                        ; preds = %.thread102, %68, %.loopexit41
+  %.527 = phi ptr [ %.4.ph.ph, %68 ], [ %77, %.loopexit41 ], [ %.4.ph.ph, %.thread102 ]
+  %.55125 = phi ptr [ %.450.ph, %68 ], [ %.pre93, %.loopexit41 ], [ %.450.ph, %.thread102 ]
+  %.55724 = phi i32 [ %.456.ph.ph, %68 ], [ %.us-phi71, %.loopexit41 ], [ %.456.ph.ph, %.thread102 ]
+  %.56322 = phi i32 [ %.462.ph.ph, %68 ], [ 0, %.loopexit41 ], [ %.462.ph.ph, %.thread102 ]
+  %78 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.pre93, ptr noundef nonnull dereferenceable(1) %.55125) #18
+  %79 = icmp eq i32 %78, 0
+  %spec.select = select i1 %79, i32 1, i32 %.165.ph.ph
+  %spec.select82 = select i1 %79, i32 %.us-phi71, i32 %.55724
   br label %.outer.outer, !llvm.loop !88
 
-.loopexit:                                        ; preds = %.outer.split.us, %.outer.split, %.split.split.us
-  %.064 = phi i32 [ 0, %.split.split.us ], [ %.165.ph.ph, %.outer.split ], [ %.165.ph.ph, %.outer.split.us ]
-  %.361 = phi i32 [ %.us-phi, %.split.split.us ], [ %.462.ph.ph, %.outer.split ], [ %.462.ph.ph, %.outer.split.us ]
-  %.355 = phi i32 [ %.us-phi36, %.split.split.us ], [ %.456.ph.ph, %.outer.split ], [ %.456.ph.ph, %.outer.split.us ]
-  %.349 = phi ptr [ %.us-phi37, %.split.split.us ], [ %.450.ph, %.outer.split ], [ %.450.ph, %.outer.split.us ]
-  %.3 = phi ptr [ %.us-phi38, %.split.split.us ], [ %.4.ph.ph, %.outer.split ], [ %.4.ph.ph, %.outer.split.us ]
+.loopexit:                                        ; preds = %.outer.split.us, %.outer.split.preheader, %.outer.split.backedge, %.split.split.us
+  %.064 = phi i32 [ 0, %.split.split.us ], [ %.165.ph.ph, %.outer.split.backedge ], [ %.165.ph.ph, %.outer.split.preheader ], [ %.165.ph.ph, %.outer.split.us ]
+  %.361 = phi i32 [ %.us-phi, %.split.split.us ], [ %.462.ph.ph, %.outer.split.backedge ], [ %.462.ph.ph, %.outer.split.preheader ], [ %.462.ph.ph, %.outer.split.us ]
+  %.355 = phi i32 [ %.us-phi36, %.split.split.us ], [ %.456.ph.ph, %.outer.split.backedge ], [ %.456.ph.ph, %.outer.split.preheader ], [ %.456.ph.ph, %.outer.split.us ]
+  %.349 = phi ptr [ %.us-phi37, %.split.split.us ], [ %.450.ph, %.outer.split.backedge ], [ %.450.ph, %.outer.split.preheader ], [ %.450.ph, %.outer.split.us ]
+  %.3 = phi ptr [ %.us-phi38, %.split.split.us ], [ %.4.ph.ph, %.outer.split.backedge ], [ %.4.ph.ph, %.outer.split.preheader ], [ %.4.ph.ph, %.outer.split.us ]
   %.not74 = icmp eq ptr %.349, null
-  br i1 %.not74, label %84, label %77
+  br i1 %.not74, label %87, label %80
 
-77:                                               ; preds = %.loopexit
+80:                                               ; preds = %.loopexit
   %.not75 = icmp eq i32 %.064, 0
-  %78 = select i1 %.not75, i32 32, i32 68
+  %81 = select i1 %.not75, i32 32, i32 68
   %.not76 = icmp eq i32 %.361, 0
-  %79 = select i1 %.not76, i32 32, i32 69
+  %82 = select i1 %.not76, i32 32, i32 69
   %.not77 = icmp eq i32 %.355, 0
-  %80 = select i1 %.not77, ptr @.str.173, ptr @.str.172
-  %81 = select i1 %.not82, ptr %80, ptr @.str.2
+  %83 = select i1 %.not77, ptr @.str.173, ptr @.str.172
+  %84 = select i1 %.not82, ptr %83, ptr @.str.2
   %.not78 = icmp eq ptr %.3, null
-  %82 = select i1 %.not78, ptr @.str.173, ptr %.3
-  %83 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.171, i32 noundef %78, i32 noundef %79, ptr noundef nonnull %81, ptr noundef nonnull %.349, ptr noundef nonnull %82)
+  %85 = select i1 %.not78, ptr @.str.173, ptr %.3
+  %86 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.171, i32 noundef %81, i32 noundef %82, ptr noundef nonnull %84, ptr noundef nonnull %.349, ptr noundef nonnull %85)
   br label %9
 
-84:                                               ; preds = %.loopexit
+87:                                               ; preds = %.loopexit
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void

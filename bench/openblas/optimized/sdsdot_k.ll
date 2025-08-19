@@ -61,8 +61,8 @@ define double @sdsdot_k(i64 noundef %0, ptr noundef readonly captures(none) %1, 
 
 .loopexit:                                        ; preds = %.preheader, %10
   %.064 = phi double [ 0.000000e+00, %10 ], [ %40, %.preheader ]
-  %.not111 = icmp eq i64 %11, %0
-  br i1 %.not111, label %._crit_edge, label %.lr.ph97
+  %.not114 = icmp eq i64 %11, %0
+  br i1 %.not114, label %._crit_edge, label %.lr.ph97
 
 .lr.ph97:                                         ; preds = %.loopexit, %.lr.ph97
   %.06596 = phi double [ %51, %.lr.ph97 ], [ 0.000000e+00, %.loopexit ]

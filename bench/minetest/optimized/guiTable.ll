@@ -5042,9 +5042,9 @@ for.body.i.i.i.i.i1389.preheader:                 ; preds = %invoke.cont.i.i1386
   %172 = sub i64 %cond.i49.i.i1979, %165
   %diff.check = icmp ult i64 %172, 32
   %or.cond = or i1 %min.iters.check, %diff.check
-  br i1 %or.cond, label %for.body.i.i.i.i.i1389.preheader117, label %vector.ph
+  br i1 %or.cond, label %for.body.i.i.i.i.i1389.preheader170, label %vector.ph
 
-for.body.i.i.i.i.i1389.preheader117:              ; preds = %middle.block, %for.body.i.i.i.i.i1389.preheader
+for.body.i.i.i.i.i1389.preheader170:              ; preds = %middle.block, %for.body.i.i.i.i.i1389.preheader
   %__cur.08.i.i.i.i.i1390.ph = phi ptr [ %ind.end, %middle.block ], [ %call5.i.i.i.i.i1401, %for.body.i.i.i.i.i1389.preheader ]
   %__first.addr.07.i.i.i.i.i1391.ph = phi ptr [ %ind.end1980, %middle.block ], [ %164, %for.body.i.i.i.i.i1389.preheader ]
   br label %for.body.i.i.i.i.i1389
@@ -5075,15 +5075,15 @@ middle.block:                                     ; preds = %vector.body
   %ind.end = getelementptr i8, ptr %call5.i.i.i.i.i1401, i64 %176
   %ind.end1980 = getelementptr i8, ptr %164, i64 %176
   %cmp.n = icmp eq i64 %171, %n.vec
-  br i1 %cmp.n, label %_ZNSt6vectorISt4pairIN3irr5video6SColorEiESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit58.i.i.thread, label %for.body.i.i.i.i.i1389.preheader117
+  br i1 %cmp.n, label %_ZNSt6vectorISt4pairIN3irr5video6SColorEiESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit58.i.i.thread, label %for.body.i.i.i.i.i1389.preheader170
 
 _ZNSt6vectorISt4pairIN3irr5video6SColorEiESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit58.i.i.thread: ; preds = %middle.block
   %incdec.ptr.i.i139657 = getelementptr i8, ptr %ind.end, i64 8
   br label %if.then.i59.i.i
 
-for.body.i.i.i.i.i1389:                           ; preds = %for.body.i.i.i.i.i1389.preheader117, %for.body.i.i.i.i.i1389
-  %__cur.08.i.i.i.i.i1390 = phi ptr [ %incdec.ptr1.i.i.i.i.i1393, %for.body.i.i.i.i.i1389 ], [ %__cur.08.i.i.i.i.i1390.ph, %for.body.i.i.i.i.i1389.preheader117 ]
-  %__first.addr.07.i.i.i.i.i1391 = phi ptr [ %incdec.ptr.i.i.i.i.i1392, %for.body.i.i.i.i.i1389 ], [ %__first.addr.07.i.i.i.i.i1391.ph, %for.body.i.i.i.i.i1389.preheader117 ]
+for.body.i.i.i.i.i1389:                           ; preds = %for.body.i.i.i.i.i1389.preheader170, %for.body.i.i.i.i.i1389
+  %__cur.08.i.i.i.i.i1390 = phi ptr [ %incdec.ptr1.i.i.i.i.i1393, %for.body.i.i.i.i.i1389 ], [ %__cur.08.i.i.i.i.i1390.ph, %for.body.i.i.i.i.i1389.preheader170 ]
+  %__first.addr.07.i.i.i.i.i1391 = phi ptr [ %incdec.ptr.i.i.i.i.i1392, %for.body.i.i.i.i.i1389 ], [ %__first.addr.07.i.i.i.i.i1391.ph, %for.body.i.i.i.i.i1389.preheader170 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !241)
   call void @llvm.experimental.noalias.scope.decl(metadata !244)
   %177 = load i64, ptr %__first.addr.07.i.i.i.i.i1391, align 4, !alias.scope !244, !noalias !241
@@ -10702,7 +10702,7 @@ for.body.i.i30.preheader:                         ; preds = %if.then4
   %25 = and i64 %24, 4611686018427387903
   %26 = add nuw nsw i64 %25, 1
   %min.iters.check = icmp samesign ult i64 %25, 7
-  br i1 %min.iters.check, label %for.body.i.i30.preheader6, label %vector.ph
+  br i1 %min.iters.check, label %for.body.i.i30.preheader11, label %vector.ph
 
 vector.ph:                                        ; preds = %for.body.i.i30.preheader
   %n.vec = and i64 %26, 9223372036854775800
@@ -10733,14 +10733,14 @@ middle.block:                                     ; preds = %vector.body
   %37 = shl i64 %n.vec, 2
   %ind.end = getelementptr i8, ptr %22, i64 %37
   %cmp.n = icmp eq i64 %26, %n.vec
-  br i1 %cmp.n, label %return, label %for.body.i.i30.preheader6
+  br i1 %cmp.n, label %return, label %for.body.i.i30.preheader11
 
-for.body.i.i30.preheader6:                        ; preds = %middle.block, %for.body.i.i30.preheader
+for.body.i.i30.preheader11:                       ; preds = %middle.block, %for.body.i.i30.preheader
   %__result.sroa.0.015.i.i.ph = phi ptr [ %ind.end, %middle.block ], [ %22, %for.body.i.i30.preheader ]
   br label %for.body.i.i30
 
-for.body.i.i30:                                   ; preds = %for.body.i.i30.preheader6, %for.body.i.i30
-  %__result.sroa.0.015.i.i = phi ptr [ %incdec.ptr.i9.i.i, %for.body.i.i30 ], [ %__result.sroa.0.015.i.i.ph, %for.body.i.i30.preheader6 ]
+for.body.i.i30:                                   ; preds = %for.body.i.i30.preheader11, %for.body.i.i30
+  %__result.sroa.0.015.i.i = phi ptr [ %incdec.ptr.i9.i.i, %for.body.i.i30 ], [ %__result.sroa.0.015.i.i.ph, %for.body.i.i30.preheader11 ]
   %38 = load i32, ptr %__result.sroa.0.015.i.i, align 4, !tbaa !67
   %39 = add i32 %38, -65
   %or.cond.i.i.i.i = icmp ult i32 %39, 26

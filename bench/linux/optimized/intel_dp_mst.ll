@@ -1311,7 +1311,7 @@ define internal i32 @intel_dp_mst_atomic_check(ptr noundef %0, ptr noundef %1) #
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 2424
   %12 = call ptr @drm_connector_list_iter_next(ptr noundef nonnull %3) #12
   %13 = icmp eq ptr %12, null
-  br i1 %13, label %.thread.thread19, label %.lr.ph
+  br i1 %13, label %.thread.thread28, label %.lr.ph
 
 .lr.ph:                                           ; preds = %10, %38
   %14 = phi ptr [ %39, %38 ], [ %12, %10 ]
@@ -1359,22 +1359,22 @@ define internal i32 @intel_dp_mst_atomic_check(ptr noundef %0, ptr noundef %1) #
 38:                                               ; preds = %34, %24, %.lr.ph
   %39 = call ptr @drm_connector_list_iter_next(ptr noundef nonnull %3) #12
   %40 = icmp eq ptr %39, null
-  br i1 %40, label %.thread.thread19, label %.lr.ph
+  br i1 %40, label %.thread.thread28, label %.lr.ph
 
-.thread.thread19:                                 ; preds = %38, %10
+.thread.thread28:                                 ; preds = %38, %10
   call void @drm_connector_list_iter_end(ptr noundef nonnull %3) #12
   br label %.sink.split
 
 .thread:                                          ; preds = %28, %21
-  %.lcssa22.sink = phi ptr [ %22, %21 ], [ %29, %28 ]
-  %41 = ptrtoint ptr %.lcssa22.sink to i64
+  %.lcssa31.sink = phi ptr [ %22, %21 ], [ %29, %28 ]
+  %41 = ptrtoint ptr %.lcssa31.sink to i64
   %42 = trunc i64 %41 to i32
   call void @drm_connector_list_iter_end(ptr noundef nonnull %3) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %43 = icmp eq i32 %42, 0
   br i1 %43, label %44, label %51
 
-.sink.split:                                      ; preds = %6, %.thread.thread19
+.sink.split:                                      ; preds = %6, %.thread.thread28
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %44
 

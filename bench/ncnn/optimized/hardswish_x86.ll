@@ -234,7 +234,7 @@ define internal void @_ZNK4ncnn13HardSwish_x8615forward_inplaceERNS_3MatERKNS_6O
   %79 = load float, ptr %.154, align 4, !tbaa !43
   %80 = load float, ptr %23, align 8, !tbaa !45
   %81 = fcmp fast olt float %79, %80
-  br i1 %81, label %.sink.split75, label %82
+  br i1 %81, label %.sink.split85, label %82
 
 82:                                               ; preds = %.lr.ph55
   %83 = load float, ptr %24, align 4, !tbaa !47
@@ -247,14 +247,14 @@ define internal void @_ZNK4ncnn13HardSwish_x8615forward_inplaceERNS_3MatERKNS_6O
   %88 = load float, ptr %21, align 4, !tbaa !49
   %89 = fadd fast float %87, %88
   %90 = fmul fast float %89, %79
-  br label %.sink.split75
+  br label %.sink.split85
 
-.sink.split75:                                    ; preds = %.lr.ph55, %85
-  %.sink76 = phi float [ %90, %85 ], [ 0.000000e+00, %.lr.ph55 ]
-  store float %.sink76, ptr %.154, align 4, !tbaa !43
+.sink.split85:                                    ; preds = %.lr.ph55, %85
+  %.sink86 = phi float [ %90, %85 ], [ 0.000000e+00, %.lr.ph55 ]
+  store float %.sink86, ptr %.154, align 4, !tbaa !43
   br label %91
 
-91:                                               ; preds = %.sink.split75, %82
+91:                                               ; preds = %.sink.split85, %82
   %92 = getelementptr inbounds nuw i8, ptr %.154, i64 4
   %93 = add nuw nsw i32 %.14053, 1
   %exitcond66.not = icmp eq i32 %93, %60

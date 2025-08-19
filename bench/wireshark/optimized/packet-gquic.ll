@@ -1962,8 +1962,8 @@ switch.lookup:                                    ; preds = %315, %318
   %327 = tail call ptr @proto_tree_add_item(ptr noundef %171, i32 noundef %326, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef 0)
   %328 = and i8 %30, 3
   %329 = zext nneg i8 %328 to i64
-  %switch.gep519 = getelementptr inbounds nuw [4 x i32], ptr @switch.table.is_gquic_unencrypt.5, i64 0, i64 %329
-  %switch.load520 = load i32, ptr %switch.gep519, align 4
+  %switch.gep528 = getelementptr inbounds nuw [4 x i32], ptr @switch.table.is_gquic_unencrypt.5, i64 0, i64 %329
+  %switch.load529 = load i32, ptr %switch.gep528, align 4
   %330 = add i32 %3, 1
   %331 = load i8, ptr %312, align 1, !range !15, !noundef !16
   %332 = trunc nuw i8 %331 to i1
@@ -2044,8 +2044,8 @@ switch.lookup:                                    ; preds = %315, %318
   %377 = load i32, ptr @hf_gquic_frame_type_ack_missing_packet, align 4
   %378 = load i8, ptr %341, align 2, !range !15, !noundef !16
   %379 = zext nneg i8 %378 to i32
-  %380 = tail call ptr @proto_tree_add_item(ptr noundef %27, i32 noundef %377, ptr noundef %0, i32 noundef %.8488, i32 noundef %switch.load520, i32 noundef %379)
-  %381 = add i32 %.8488, %switch.load520
+  %380 = tail call ptr @proto_tree_add_item(ptr noundef %27, i32 noundef %377, ptr noundef %0, i32 noundef %.8488, i32 noundef %switch.load529, i32 noundef %379)
+  %381 = add i32 %.8488, %switch.load529
   %382 = load i32, ptr @hf_gquic_frame_type_ack_range_length, align 4
   %383 = tail call ptr @proto_tree_add_item(ptr noundef %27, i32 noundef %382, ptr noundef %0, i32 noundef %381, i32 noundef 1, i32 noundef 0)
   %384 = add i8 %.0431487, -1
@@ -2104,8 +2104,8 @@ switch.lookup:                                    ; preds = %315, %318
   %414 = load i32, ptr @hf_gquic_frame_type_ack_first_ack_block_length, align 4
   %415 = load i8, ptr %397, align 2, !range !15, !noundef !16
   %416 = zext nneg i8 %415 to i32
-  %417 = tail call ptr @proto_tree_add_item(ptr noundef %27, i32 noundef %414, ptr noundef %0, i32 noundef %.10, i32 noundef %switch.load520, i32 noundef %416)
-  %.11467 = add i32 %.10, %switch.load520
+  %417 = tail call ptr @proto_tree_add_item(ptr noundef %27, i32 noundef %414, ptr noundef %0, i32 noundef %.10, i32 noundef %switch.load529, i32 noundef %416)
+  %.11467 = add i32 %.10, %switch.load529
   %.not447468 = icmp eq i8 %.0433, 0
   br i1 %.not447468, label %._crit_edge, label %.lr.ph
 
@@ -2118,9 +2118,9 @@ switch.lookup:                                    ; preds = %315, %318
   %421 = load i32, ptr @hf_gquic_frame_type_ack_ack_block_length, align 4
   %422 = load i8, ptr %397, align 2, !range !15, !noundef !16
   %423 = zext nneg i8 %422 to i32
-  %424 = tail call ptr @proto_tree_add_item(ptr noundef %27, i32 noundef %421, ptr noundef %0, i32 noundef %420, i32 noundef %switch.load520, i32 noundef %423)
+  %424 = tail call ptr @proto_tree_add_item(ptr noundef %27, i32 noundef %421, ptr noundef %0, i32 noundef %420, i32 noundef %switch.load529, i32 noundef %423)
   %425 = add i8 %.1434469, -1
-  %.11 = add i32 %420, %switch.load520
+  %.11 = add i32 %420, %switch.load529
   %.not447 = icmp eq i8 %425, 0
   br i1 %.not447, label %._crit_edge, label %.lr.ph, !llvm.loop !20
 
@@ -3031,31 +3031,31 @@ switch.lookup:                                    ; preds = %68
 
 90:                                               ; preds = %68
   %.not152 = icmp samesign ult i8 %26, 64
-  br i1 %.not152, label %160, label %switch.lookup203
+  br i1 %.not152, label %160, label %switch.lookup205
 
-switch.lookup203:                                 ; preds = %90
+switch.lookup205:                                 ; preds = %90
   %91 = lshr i8 %26, 2
   %92 = and i8 %91, 3
   %93 = zext nneg i8 %92 to i64
-  %switch.gep204 = getelementptr inbounds nuw [4 x i32], ptr @switch.table.is_gquic_unencrypt.5, i64 0, i64 %93
-  %switch.load205 = load i32, ptr %switch.gep204, align 4
+  %switch.gep206 = getelementptr inbounds nuw [4 x i32], ptr @switch.table.is_gquic_unencrypt.5, i64 0, i64 %93
+  %switch.load207 = load i32, ptr %switch.gep206, align 4
   %94 = and i8 %26, 3
   %95 = zext nneg i8 %94 to i64
-  %switch.gep208 = getelementptr inbounds nuw [4 x i32], ptr @switch.table.is_gquic_unencrypt.5, i64 0, i64 %95
-  %switch.load209 = load i32, ptr %switch.gep208, align 4
+  %switch.gep210 = getelementptr inbounds nuw [4 x i32], ptr @switch.table.is_gquic_unencrypt.5, i64 0, i64 %95
+  %switch.load211 = load i32, ptr %switch.gep210, align 4
   %96 = add i32 %.1138176, 1
   %97 = load i8, ptr %10, align 1, !range !15, !noundef !16
   %98 = trunc nuw i8 %97 to i1
   br i1 %98, label %99, label %134
 
-99:                                               ; preds = %switch.lookup203
+99:                                               ; preds = %switch.lookup205
   %100 = load i8, ptr %4, align 2
   %101 = icmp ult i8 %100, 34
   br i1 %101, label %102, label %134
 
 102:                                              ; preds = %99
   %103 = add i32 %.1138176, 2
-  %104 = add i32 %103, %switch.load205
+  %104 = add i32 %103, %switch.load207
   %105 = add i32 %104, 2
   %106 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %105)
   %107 = icmp slt i32 %106, 2
@@ -3083,7 +3083,7 @@ switch.lookup203:                                 ; preds = %90
   %120 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.6)
   %121 = add i32 %.6, 1
   %122 = zext i8 %120 to i32
-  %123 = add nuw nsw i32 %switch.load209, 1
+  %123 = add nuw nsw i32 %switch.load211, 1
   %124 = mul nuw nsw i32 %123, %122
   %125 = add i32 %121, %124
   %126 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %125)
@@ -3094,12 +3094,12 @@ switch.lookup203:                                 ; preds = %90
   %129 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %125)
   %130 = add i32 %125, 1
   %131 = zext i8 %129 to i32
-  %132 = mul nuw nsw i32 %switch.load205, %131
+  %132 = mul nuw nsw i32 %switch.load207, %131
   %133 = add i32 %130, %132
   br label %162
 
-134:                                              ; preds = %99, %switch.lookup203
-  %135 = add i32 %96, %switch.load205
+134:                                              ; preds = %99, %switch.lookup205
+  %135 = add i32 %96, %switch.load207
   %136 = add i32 %135, 2
   %137 = and i32 %27, 32
   %.not153 = icmp eq i32 %137, 0
@@ -3118,10 +3118,10 @@ switch.lookup203:                                 ; preds = %90
 144:                                              ; preds = %141, %134
   %.2146 = phi i8 [ %142, %141 ], [ %.0144175, %134 ]
   %.7 = phi i32 [ %143, %141 ], [ %136, %134 ]
-  %145 = add i32 %.7, %switch.load209
+  %145 = add i32 %.7, %switch.load211
   %.not154 = icmp eq i8 %.2146, 0
   %146 = zext i8 %.2146 to i32
-  %147 = add nuw nsw i32 %switch.load209, 1
+  %147 = add nuw nsw i32 %switch.load211, 1
   %148 = mul nuw nsw i32 %147, %146
   %149 = select i1 %.not154, i32 0, i32 %148
   %.8 = add i32 %145, %149

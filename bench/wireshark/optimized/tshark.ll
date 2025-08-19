@@ -572,21 +572,21 @@ print_current_user.exit:                          ; preds = %2, %46
   store i32 0, ptr @ws_opterr, align 4
   br label %56
 
-56:                                               ; preds = %.backedge510, %55
+56:                                               ; preds = %.backedge531, %55
   %57 = load i32, ptr %4, align 4
   %58 = call i32 @ws_getopt_long(i32 noundef %57, ptr noundef %1, ptr noundef nonnull @main.optstring, ptr noundef nonnull @main.long_options, ptr noundef null)
-  switch i32 %58, label %.backedge510 [
+  switch i32 %58, label %.backedge531 [
     i32 -1, label %61
     i32 3010, label %59
   ]
 
-.backedge510:                                     ; preds = %56, %59
+.backedge531:                                     ; preds = %56, %59
   br label %56, !llvm.loop !7
 
 59:                                               ; preds = %56
   %60 = call ptr @get_datafile_dir()
   call void @set_persconffile_dir(ptr noundef %60)
-  br label %.backedge510
+  br label %.backedge531
 
 61:                                               ; preds = %56
   store i32 1, ptr @ws_optreset, align 4
@@ -667,8 +667,8 @@ print_current_user.exit:                          ; preds = %2, %46
   br label %.thread
 
 .thread:                                          ; preds = %76, %85
-  %.sink479 = phi ptr [ %25, %76 ], [ %26, %85 ]
-  %94 = load ptr, ptr %.sink479, align 8
+  %.sink500 = phi ptr [ %25, %76 ], [ %26, %85 ]
+  %94 = load ptr, ptr %.sink500, align 8
   call void @g_free(ptr noundef %94)
   store volatile i32 3, ptr %11, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %27)
@@ -1579,8 +1579,8 @@ sub_1308:                                         ; preds = %sub_0307
   %switch.maskindex = trunc i32 %switch.tableidx to i8
   %switch.shifted = lshr i8 23, %switch.maskindex
   %switch.lobit = trunc i8 %switch.shifted to i1
-  %or.cond495 = select i1 %392, i1 %switch.lobit, i1 false
-  br i1 %or.cond495, label %switch.lookup, label %393
+  %or.cond516 = select i1 %392, i1 %switch.lobit, i1 false
+  br i1 %or.cond516, label %switch.lookup, label %393
 
 393:                                              ; preds = %391
   %394 = load ptr, ptr @output_fields, align 8
@@ -1758,9 +1758,9 @@ sub_0316:                                         ; preds = %422
   br i1 %.2174, label %452, label %453
 
 452:                                              ; preds = %449, %451
-  %.4464 = phi i1 [ %spec.select288, %449 ], [ %.0168.lcssa, %451 ]
+  %.4485 = phi i1 [ %spec.select288, %449 ], [ %.0168.lcssa, %451 ]
   call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.102)
-  br i1 %.4464, label %454, label %456
+  br i1 %.4485, label %454, label %456
 
 453:                                              ; preds = %449, %451
   br i1 %.0168.lcssa, label %454, label %456
@@ -2197,8 +2197,8 @@ must_do_dissection.exit:                          ; preds = %584, %589, %590
   %595 = call i32 @_setjmp(ptr noundef nonnull %594) #23
   %.not264 = icmp eq i32 %595, 0
   %596 = getelementptr inbounds nuw i8, ptr %32, i64 16
-  %.sink480 = select i1 %.not264, ptr null, ptr %596
-  store volatile ptr %.sink480, ptr %29, align 8
+  %.sink501 = select i1 %.not264, ptr null, ptr %596
+  store volatile ptr %.sink501, ptr %29, align 8
   %.0..0..0..0.28 = load volatile i32, ptr %30, align 4
   %597 = and i32 %.0..0..0..0.28, 1
   %.not265 = icmp eq i32 %597, 0
@@ -4459,8 +4459,8 @@ process_cap_file_second_pass.exit:                ; preds = %process_new_idbs.ex
   %.pre.i = load i32, ptr getelementptr inbounds nuw (i8, ptr @cfile, i64 72), align 8
   %385 = load i32, ptr @epan_auto_reset_count, align 4
   %386 = icmp uge i32 %.pre.i, %385
-  %or.cond40.not.i = select i1 %.b9.i.i, i1 %386, i1 false
-  br i1 %or.cond40.not.i, label %387, label %reset_epan_mem.exit.i
+  %or.cond49.not.i = select i1 %.b9.i.i, i1 %386, i1 false
+  br i1 %or.cond49.not.i, label %387, label %reset_epan_mem.exit.i
 
 387:                                              ; preds = %.loopexit.i99
   %.b81.i = load i1, ptr @print_packet_info, align 1
@@ -4719,12 +4719,12 @@ process_cap_file_single_pass.exit:                ; preds = %.thread.i, %473
   br label %474
 
 474:                                              ; preds = %process_cap_file_second_pass.exit, %process_cap_file_single_pass.exit
-  %.sink65 = phi i64 [ %223, %process_cap_file_second_pass.exit ], [ %112, %process_cap_file_single_pass.exit ]
+  %.sink88 = phi i64 [ %223, %process_cap_file_second_pass.exit ], [ %112, %process_cap_file_single_pass.exit ]
   %tshark_elapsed.9.sink = phi ptr [ @tshark_elapsed.9, %process_cap_file_second_pass.exit ], [ @tshark_elapsed.5, %process_cap_file_single_pass.exit ]
   %.060 = phi i32 [ %spec.select37.i, %process_cap_file_second_pass.exit ], [ 0, %process_cap_file_single_pass.exit ]
   %.059 = phi i32 [ %.0.i80, %process_cap_file_second_pass.exit ], [ %.1.i, %process_cap_file_single_pass.exit ]
   %475 = call i64 @g_get_monotonic_time()
-  %476 = sub i64 %475, %.sink65
+  %476 = sub i64 %475, %.sink88
   store i64 %476, ptr %tshark_elapsed.9.sink, align 8
   %477 = or i32 %.059, %.060
   %or.cond.not = icmp eq i32 %477, 0
@@ -4799,7 +4799,7 @@ process_cap_file_single_pass.exit:                ; preds = %.thread.i, %473
   switch i32 %.0596, label %default.unreachable [
     i32 3, label %513
     i32 1, label %509
-    i32 2, label %.thread43
+    i32 2, label %.thread66
     i32 0, label %514
   ]
 
@@ -4820,7 +4820,7 @@ default.unreachable:                              ; preds = %508
   %.163 = phi i32 [ %.2, %508 ], [ 3, %513 ], [ 2, %509 ], [ 0, %474 ]
   br i1 %.not, label %534, label %519
 
-.thread43:                                        ; preds = %508
+.thread66:                                        ; preds = %508
   %515 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @cfile, i64 16), align 8
   %516 = load i32, ptr %15, align 4
   %517 = load ptr, ptr %17, align 8
@@ -4854,14 +4854,14 @@ default.unreachable:                              ; preds = %508
   call void @cfile_close_failure_message(ptr noundef nonnull %0, i32 noundef %529, ptr noundef %530)
   br label %show_print_file_io_error.exit
 
-531:                                              ; preds = %.thread43
+531:                                              ; preds = %.thread66
   %532 = call zeroext i1 @wtap_dump_close(ptr noundef %.1, ptr noundef null, ptr noundef nonnull %15, ptr noundef nonnull %17)
   %533 = load ptr, ptr %17, align 8
   call void @g_free(ptr noundef %533)
   br label %show_print_file_io_error.exit
 
-534:                                              ; preds = %.thread43, %514
-  %.16348 = phi i32 [ 2, %.thread43 ], [ %.163, %514 ]
+534:                                              ; preds = %.thread66, %514
+  %.16371 = phi i32 [ 2, %.thread66 ], [ %.163, %514 ]
   %.b6876 = load i1, ptr @print_packet_info, align 1
   br i1 %.b6876, label %535, label %show_print_file_io_error.exit
 
@@ -4943,7 +4943,7 @@ write_finale.exit:                                ; preds = %535, %535
   br label %show_print_file_io_error.exit
 
 show_print_file_io_error.exit:                    ; preds = %535, %560, %559, %558, %555, %547, %544, %537, %98, %97, %96, %93, %526, %528, %531, %write_finale.exit, %534, %65
-  %.062 = phi i32 [ 1, %65 ], [ %.163, %526 ], [ 2, %528 ], [ 2, %531 ], [ %.16348, %write_finale.exit ], [ %.16348, %534 ], [ 1, %93 ], [ 1, %96 ], [ 1, %97 ], [ 1, %98 ], [ %.16348, %537 ], [ %.16348, %544 ], [ %.16348, %547 ], [ 2, %555 ], [ 2, %558 ], [ 2, %559 ], [ 2, %560 ], [ %.16348, %535 ]
+  %.062 = phi i32 [ 1, %65 ], [ %.163, %526 ], [ 2, %528 ], [ 2, %531 ], [ %.16371, %write_finale.exit ], [ %.16371, %534 ], [ 1, %93 ], [ 1, %96 ], [ 1, %97 ], [ 1, %98 ], [ %.16371, %537 ], [ %.16371, %544 ], [ %.16371, %547 ], [ 2, %555 ], [ 2, %558 ], [ 2, %559 ], [ 2, %560 ], [ %.16371, %535 ]
   %562 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @cfile, i64 224), align 8
   call void @wtap_close(ptr noundef %562)
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @cfile, i64 224), align 8

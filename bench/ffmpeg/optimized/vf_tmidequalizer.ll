@@ -1015,8 +1015,8 @@ define internal void @compute_histogram8(ptr noundef readonly captures(none) %0,
   br label %20
 
 .preheader:                                       ; preds = %20
-  %.not51 = icmp eq i64 %5, 1
-  br i1 %.not51, label %._crit_edge, label %.lr.ph39.preheader
+  %.not54 = icmp eq i64 %5, 1
+  br i1 %.not54, label %._crit_edge, label %.lr.ph39.preheader
 
 .lr.ph39.preheader:                               ; preds = %.preheader
   %load_initial = load float, ptr %4, align 4
@@ -1096,8 +1096,8 @@ define internal void @compute_histogram16(ptr noundef readonly captures(none) %0
   br label %21
 
 .preheader:                                       ; preds = %21
-  %.not52 = icmp eq i64 %5, 1
-  br i1 %.not52, label %._crit_edge, label %.lr.ph40.preheader
+  %.not55 = icmp eq i64 %5, 1
+  br i1 %.not55, label %._crit_edge, label %.lr.ph40.preheader
 
 .lr.ph40.preheader:                               ; preds = %.preheader
   %load_initial = load float, ptr %4, align 4

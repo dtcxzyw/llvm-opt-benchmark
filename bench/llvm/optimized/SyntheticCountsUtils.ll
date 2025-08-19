@@ -1567,12 +1567,12 @@ _ZN4llvm18GlobalValueSummary13getBaseObjectEv.exit.i6.i: ; preds = %68, %61
 
 _ZN4llvm14children_edgesIPNS_18ModuleSummaryIndexEEENS_14iterator_rangeINS_11GraphTraitsIT_E21ChildEdgeIteratorTypeEEERKNS6_7NodeRefE.exit: ; preds = %67, %_ZN4llvm18GlobalValueSummary13getBaseObjectEv.exit.i6.i
   %.sink.i.i = phi ptr [ %.sink.i.pre.i, %_ZN4llvm18GlobalValueSummary13getBaseObjectEv.exit.i6.i ], [ %.0.i9.i, %67 ]
-  %.sink9.in.i.i = phi ptr [ %70, %_ZN4llvm18GlobalValueSummary13getBaseObjectEv.exit.i6.i ], [ getelementptr inbounds nuw (i8, ptr @_ZN4llvm15FunctionSummary12ExternalNodeE, i64 72), %67 ]
-  %.sink9.i.i = load i32, ptr %.sink9.in.i.i, align 8, !tbaa !90
-  %71 = zext i32 %.sink9.i.i to i64
-  %.idx137 = shl nuw nsw i64 %71, 4
-  %72 = getelementptr inbounds nuw i8, ptr %.sink.i.i, i64 %.idx137
-  %.not55105 = icmp eq i32 %.sink9.i.i, 0
+  %.sink10.in.i.i = phi ptr [ %70, %_ZN4llvm18GlobalValueSummary13getBaseObjectEv.exit.i6.i ], [ getelementptr inbounds nuw (i8, ptr @_ZN4llvm15FunctionSummary12ExternalNodeE, i64 72), %67 ]
+  %.sink10.i.i = load i32, ptr %.sink10.in.i.i, align 8, !tbaa !90
+  %71 = zext i32 %.sink10.i.i to i64
+  %.idx169 = shl nuw nsw i64 %71, 4
+  %72 = getelementptr inbounds nuw i8, ptr %.sink.i.i, i64 %.idx169
+  %.not55105 = icmp eq i32 %.sink10.i.i, 0
   br i1 %.not55105, label %._crit_edge108, label %.lr.ph107
 
 ._crit_edge108:                                   ; preds = %_ZN4llvm15SmallVectorImplISt4pairINS_9ValueInfoERS1_IS2_NS_10CalleeInfoEEEE12emplace_backIJRKS2_S5_EEERS6_DpOT_.exit, %_ZN4llvm14children_edgesIPNS_18ModuleSummaryIndexEEENS_14iterator_rangeINS_11GraphTraitsIT_E21ChildEdgeIteratorTypeEEERKNS6_7NodeRefE.exit
@@ -3372,13 +3372,13 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_13CallGraphNodeENS_6detail13DenseSetEmp
   br label %.loopexit
 
 .loopexit:                                        ; preds = %27, %10, %59
-  %.sink28 = phi i32 [ %62, %59 ], [ %8, %10 ], [ %8, %27 ]
-  %.sink26 = phi ptr [ %61, %59 ], [ %6, %10 ], [ %6, %27 ]
-  %.sink25 = phi ptr [ %50, %59 ], [ %19, %10 ], [ %33, %27 ]
+  %.sink32 = phi i32 [ %62, %59 ], [ %8, %10 ], [ %8, %27 ]
+  %.sink30 = phi ptr [ %61, %59 ], [ %6, %10 ], [ %6, %27 ]
+  %.sink29 = phi ptr [ %50, %59 ], [ %19, %10 ], [ %33, %27 ]
   %.sink = phi i8 [ 1, %59 ], [ 0, %10 ], [ 0, %27 ]
-  %63 = zext i32 %.sink28 to i64
-  %64 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair", ptr %.sink26, i64 %63
-  store ptr %.sink25, ptr %0, align 8
+  %63 = zext i32 %.sink32 to i64
+  %64 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair", ptr %.sink30, i64 %63
+  store ptr %.sink29, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %64, ptr %.sroa.4.0..sroa_idx, align 8
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -5085,14 +5085,14 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeIN4llvm9ValueInfoESt4pairIKS1_bE
   br i1 %30, label %._crit_edge.thread.i, label %36
 
 ._crit_edge.thread.i:                             ; preds = %._crit_edge.i, %20
-  %.021.lcssa30.i = phi ptr [ %.02226.i, %._crit_edge.i ], [ %4, %20 ]
+  %.021.lcssa31.i = phi ptr [ %.02226.i, %._crit_edge.i ], [ %4, %20 ]
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %32 = load ptr, ptr %31, align 8, !tbaa !371
-  %33 = icmp eq ptr %.021.lcssa30.i, %32
+  %33 = icmp eq ptr %.021.lcssa31.i, %32
   br i1 %33, label %_ZNSt8_Rb_treeIN4llvm9ValueInfoESt4pairIKS1_bESt10_Select1stIS4_ESt4lessIS1_ESaIS4_EE24_M_get_insert_unique_posERS3_.exit, label %34
 
 34:                                               ; preds = %._crit_edge.thread.i
-  %35 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.021.lcssa30.i) #21
+  %35 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.021.lcssa31.i) #21
   %.phi.trans.insert97 = getelementptr inbounds nuw i8, ptr %35, i64 32
   %.0.copyload.i.i.i.i.i.i.i5.i.pre = load i64, ptr %.phi.trans.insert97, align 8
   %.0.copyload.i.i.i.i.i2.i.i6.i.pre = load i64, ptr %2, align 8
@@ -5105,13 +5105,13 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeIN4llvm9ValueInfoESt4pairIKS1_bE
 36:                                               ; preds = %34, %._crit_edge.i
   %.pre-phi105 = phi ptr [ %.pre104, %34 ], [ %23, %._crit_edge.i ]
   %.pre-phi101 = phi ptr [ %.pre100, %34 ], [ %28, %._crit_edge.i ]
-  %.021.lcssa31.i = phi ptr [ %.021.lcssa30.i, %34 ], [ %.02226.i, %._crit_edge.i ]
+  %.021.lcssa30.i = phi ptr [ %.021.lcssa31.i, %34 ], [ %.02226.i, %._crit_edge.i ]
   %.sroa.07.0.i = phi ptr [ %35, %34 ], [ %.02226.i, %._crit_edge.i ]
   %37 = load i64, ptr %.pre-phi101, align 8, !tbaa !362
   %38 = load i64, ptr %.pre-phi105, align 8, !tbaa !362
   %39 = icmp ult i64 %37, %38
   %spec.select.i = select i1 %39, ptr null, ptr %.sroa.07.0.i
-  %spec.select23.i = select i1 %39, ptr %.021.lcssa31.i, ptr null
+  %spec.select23.i = select i1 %39, ptr %.021.lcssa30.i, ptr null
   br label %_ZNSt8_Rb_treeIN4llvm9ValueInfoESt4pairIKS1_bESt10_Select1stIS4_ESt4lessIS1_ESaIS4_EE24_M_get_insert_unique_posERS3_.exit
 
 40:                                               ; preds = %3
@@ -5175,12 +5175,12 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeIN4llvm9ValueInfoESt4pairIKS1_bE
   br i1 %70, label %._crit_edge.thread.i35, label %74
 
 ._crit_edge.thread.i35:                           ; preds = %._crit_edge.i24, %64
-  %.021.lcssa30.i36 = phi ptr [ %.02226.i18, %._crit_edge.i24 ], [ %4, %64 ]
-  %71 = icmp eq ptr %.021.lcssa30.i36, %51
+  %.021.lcssa31.i36 = phi ptr [ %.02226.i18, %._crit_edge.i24 ], [ %4, %64 ]
+  %71 = icmp eq ptr %.021.lcssa31.i36, %51
   br i1 %71, label %_ZNSt8_Rb_treeIN4llvm9ValueInfoESt4pairIKS1_bESt10_Select1stIS4_ESt4lessIS1_ESaIS4_EE24_M_get_insert_unique_posERS3_.exit, label %72
 
 72:                                               ; preds = %._crit_edge.thread.i35
-  %73 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.021.lcssa30.i36) #21
+  %73 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.021.lcssa31.i36) #21
   %.phi.trans.insert95 = getelementptr inbounds nuw i8, ptr %73, i64 32
   %.0.copyload.i.i.i.i.i.i.i5.i27.pre = load i64, ptr %.phi.trans.insert95, align 8
   %.pre106 = and i64 %.0.copyload.i.i.i.i.i.i.i5.i27.pre, -8
@@ -5189,12 +5189,12 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeIN4llvm9ValueInfoESt4pairIKS1_bE
 
 74:                                               ; preds = %72, %._crit_edge.i24
   %.pre-phi109 = phi ptr [ %.pre108, %72 ], [ %68, %._crit_edge.i24 ]
-  %.021.lcssa31.i25 = phi ptr [ %.021.lcssa30.i36, %72 ], [ %.02226.i18, %._crit_edge.i24 ]
+  %.021.lcssa30.i25 = phi ptr [ %.021.lcssa31.i36, %72 ], [ %.02226.i18, %._crit_edge.i24 ]
   %.sroa.07.0.i26 = phi ptr [ %73, %72 ], [ %.02226.i18, %._crit_edge.i24 ]
   %75 = load i64, ptr %.pre-phi109, align 8, !tbaa !362
   %76 = icmp ult i64 %75, %44
   %spec.select.i29 = select i1 %76, ptr null, ptr %.sroa.07.0.i26
-  %spec.select23.i30 = select i1 %76, ptr %.021.lcssa31.i25, ptr null
+  %spec.select23.i30 = select i1 %76, ptr %.021.lcssa30.i25, ptr null
   br label %_ZNSt8_Rb_treeIN4llvm9ValueInfoESt4pairIKS1_bESt10_Select1stIS4_ESt4lessIS1_ESaIS4_EE24_M_get_insert_unique_posERS3_.exit
 
 77:                                               ; preds = %40
@@ -5249,14 +5249,14 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeIN4llvm9ValueInfoESt4pairIKS1_bE
   br i1 %100, label %._crit_edge.thread.i63, label %106
 
 ._crit_edge.thread.i63:                           ; preds = %._crit_edge.i52, %94
-  %.021.lcssa30.i64 = phi ptr [ %.02226.i46, %._crit_edge.i52 ], [ %4, %94 ]
+  %.021.lcssa31.i64 = phi ptr [ %.02226.i46, %._crit_edge.i52 ], [ %4, %94 ]
   %101 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %102 = load ptr, ptr %101, align 8, !tbaa !371
-  %103 = icmp eq ptr %.021.lcssa30.i64, %102
+  %103 = icmp eq ptr %.021.lcssa31.i64, %102
   br i1 %103, label %_ZNSt8_Rb_treeIN4llvm9ValueInfoESt4pairIKS1_bESt10_Select1stIS4_ESt4lessIS1_ESaIS4_EE24_M_get_insert_unique_posERS3_.exit, label %104
 
 104:                                              ; preds = %._crit_edge.thread.i63
-  %105 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.021.lcssa30.i64) #21
+  %105 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.021.lcssa31.i64) #21
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %105, i64 32
   %.0.copyload.i.i.i.i.i.i.i5.i55.pre = load i64, ptr %.phi.trans.insert, align 8
   %.pre110 = and i64 %.0.copyload.i.i.i.i.i.i.i5.i55.pre, -8
@@ -5265,17 +5265,17 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeIN4llvm9ValueInfoESt4pairIKS1_bE
 
 106:                                              ; preds = %104, %._crit_edge.i52
   %.pre-phi113 = phi ptr [ %.pre112, %104 ], [ %98, %._crit_edge.i52 ]
-  %.021.lcssa31.i53 = phi ptr [ %.021.lcssa30.i64, %104 ], [ %.02226.i46, %._crit_edge.i52 ]
+  %.021.lcssa30.i53 = phi ptr [ %.021.lcssa31.i64, %104 ], [ %.02226.i46, %._crit_edge.i52 ]
   %.sroa.07.0.i54 = phi ptr [ %105, %104 ], [ %.02226.i46, %._crit_edge.i52 ]
   %107 = load i64, ptr %.pre-phi113, align 8, !tbaa !362
   %108 = icmp ult i64 %107, %44
   %spec.select.i57 = select i1 %108, ptr null, ptr %.sroa.07.0.i54
-  %spec.select23.i58 = select i1 %108, ptr %.021.lcssa31.i53, ptr null
+  %spec.select23.i58 = select i1 %108, ptr %.021.lcssa30.i53, ptr null
   br label %_ZNSt8_Rb_treeIN4llvm9ValueInfoESt4pairIKS1_bESt10_Select1stIS4_ESt4lessIS1_ESaIS4_EE24_M_get_insert_unique_posERS3_.exit
 
 _ZNSt8_Rb_treeIN4llvm9ValueInfoESt4pairIKS1_bESt10_Select1stIS4_ESt4lessIS1_ESaIS4_EE24_M_get_insert_unique_posERS3_.exit: ; preds = %106, %._crit_edge.thread.i63, %74, %._crit_edge.thread.i35, %36, %._crit_edge.thread.i, %90, %60, %77, %79, %49, %9
   %.sroa.086.0 = phi ptr [ null, %9 ], [ %51, %49 ], [ null, %79 ], [ %1, %77 ], [ %spec.select, %60 ], [ %spec.select88, %90 ], [ null, %._crit_edge.thread.i ], [ %spec.select.i, %36 ], [ null, %._crit_edge.thread.i35 ], [ %spec.select.i29, %74 ], [ null, %._crit_edge.thread.i63 ], [ %spec.select.i57, %106 ]
-  %.sroa.12.0 = phi ptr [ %11, %9 ], [ %51, %49 ], [ %81, %79 ], [ null, %77 ], [ %spec.select87, %60 ], [ %spec.select89, %90 ], [ %.021.lcssa30.i, %._crit_edge.thread.i ], [ %spec.select23.i, %36 ], [ %.021.lcssa30.i36, %._crit_edge.thread.i35 ], [ %spec.select23.i30, %74 ], [ %.021.lcssa30.i64, %._crit_edge.thread.i63 ], [ %spec.select23.i58, %106 ]
+  %.sroa.12.0 = phi ptr [ %11, %9 ], [ %51, %49 ], [ %81, %79 ], [ null, %77 ], [ %spec.select87, %60 ], [ %spec.select89, %90 ], [ %.021.lcssa31.i, %._crit_edge.thread.i ], [ %spec.select23.i, %36 ], [ %.021.lcssa31.i36, %._crit_edge.thread.i35 ], [ %spec.select23.i30, %74 ], [ %.021.lcssa31.i64, %._crit_edge.thread.i63 ], [ %spec.select23.i58, %106 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.086.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.12.0, 1
   ret { ptr, ptr } %.fca.1.insert

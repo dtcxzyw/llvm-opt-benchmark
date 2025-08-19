@@ -360,7 +360,7 @@ validate_metamako_timestamp.exit.thread.i:        ; preds = %.loopexit4.i, %46, 
 76:                                               ; preds = %validate_metamako_timestamp.exit.thread.i
   %77 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 %26, ptr %77, align 8
-  %.not41.i = icmp eq i32 %.018817.i, 0
+  %.not55.i = icmp eq i32 %.018817.i, 0
   store i64 %29, ptr %5, align 8
   br i1 %.1213.i, label %78, label %dissect_metamako.exit
 
@@ -586,7 +586,7 @@ proto_item_set_generated.exit232.i:               ; preds = %185, %182, %proto_i
   %202 = zext i8 %199 to i32
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %83, ptr noundef nonnull @.str.94, i32 noundef %202)
   %203 = add i32 %.2.i, 12
-  br i1 %.not41.i, label %dissect_metamako.exit, label %204
+  br i1 %.not55.i, label %dissect_metamako.exit, label %204
 
 204:                                              ; preds = %proto_item_set_generated.exit232.i
   %205 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %203)

@@ -559,13 +559,13 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
 
 83:                                               ; preds = %71
   %84 = add nuw nsw i64 %.sroa.726.0.i, 1
-  %85 = getelementptr inbounds i64, ptr %82, i64 %.sroa.726.0.i
+  %85 = getelementptr inbounds nuw i64, ptr %82, i64 %.sroa.726.0.i
   %86 = getelementptr inbounds nuw i64, ptr %82, i64 %84
   %87 = sub nuw nsw i64 %81, %.sroa.726.0.i
   %88 = shl nuw nsw i64 %87, 3
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %86, ptr nonnull align 8 %85, i64 %88, i1 false), !alias.scope !92, !noalias !88
   %89 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i, i64 96
-  %90 = getelementptr inbounds i64, ptr %89, i64 %.sroa.726.0.i
+  %90 = getelementptr inbounds nuw i64, ptr %89, i64 %.sroa.726.0.i
   %91 = getelementptr inbounds nuw i64, ptr %89, i64 %84
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %91, ptr nonnull align 8 %90, i64 %88, i1 false), !alias.scope !95, !noalias !88
   br label %101
@@ -1046,7 +1046,7 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
   %279 = shl nuw nsw i64 %278, 3
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %277, ptr nonnull align 8 %272, i64 %279, i1 false), !alias.scope !160, !noalias !157
   %280 = getelementptr inbounds nuw i8, ptr %spec.select.i, i64 96
-  %281 = getelementptr inbounds i64, ptr %280, i64 %.sroa.7.0.i
+  %281 = getelementptr inbounds nuw i64, ptr %280, i64 %.sroa.7.0.i
   %282 = getelementptr inbounds nuw i64, ptr %280, i64 %271
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %282, ptr nonnull align 8 %281, i64 %279, i1 false), !alias.scope !163, !noalias !157
   store i64 %152, ptr %272, align 8, !alias.scope !160, !noalias !157

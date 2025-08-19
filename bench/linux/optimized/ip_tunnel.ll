@@ -330,8 +330,8 @@ define dso_local ptr @ip_tunnel_lookup(ptr noundef %0, i32 noundef %1, i16 nound
   %or.cond = select i1 %133, i1 %136, i1 false
   %137 = icmp eq i32 %135, %4
   %138 = and i1 %125, %137
-  %or.cond69 = select i1 %or.cond, i1 true, i1 %138
-  br i1 %or.cond69, label %139, label %164
+  %or.cond81 = select i1 %or.cond, i1 true, i1 %138
+  br i1 %or.cond81, label %139, label %164
 
 139:                                              ; preds = %128
   %140 = getelementptr inbounds nuw i8, ptr %129, i64 24
@@ -804,7 +804,7 @@ define dso_local noundef i32 @ip_tunnel_rcv(ptr noundef %0, ptr noundef %1, ptr 
   br i1 %144, label %146, label %148
 
 146:                                              ; preds = %139
-  switch i8 %145, label %default.unreachable81 [
+  switch i8 %145, label %default.unreachable94 [
     i8 0, label %.thread35
     i8 2, label %385
     i8 1, label %385
@@ -814,7 +814,7 @@ define dso_local noundef i32 @ip_tunnel_rcv(ptr noundef %0, ptr noundef %1, ptr 
 147:                                              ; preds = %146
   br label %385
 
-default.unreachable81:                            ; preds = %146
+default.unreachable94:                            ; preds = %146
   unreachable
 
 148:                                              ; preds = %139
@@ -1717,7 +1717,7 @@ define dso_local void @ip_md_tunnel_xmit(ptr noundef %0, ptr noundef %1, i8 noun
   %134 = load i16, ptr %133, align 8
   %135 = and i16 %134, 32
   %136 = icmp eq i16 %135, 0
-  br i1 %136, label %137, label %.thread29.thread31
+  br i1 %136, label %137, label %.thread29.thread47
 
 137:                                              ; preds = %132
   %138 = getelementptr inbounds nuw i8, ptr %31, i64 72
@@ -1732,7 +1732,7 @@ define dso_local void @ip_md_tunnel_xmit(ptr noundef %0, ptr noundef %1, i8 noun
   %144 = icmp ugt ptr %143, inttoptr (i64 -4096 to ptr)
   br i1 %144, label %153, label %155
 
-.thread29.thread31:                               ; preds = %132
+.thread29.thread47:                               ; preds = %132
   %145 = getelementptr i8, ptr %1, i64 2336
   %146 = load ptr, ptr %145, align 8
   %147 = call ptr @ip_route_output_flow(ptr noundef %146, ptr noundef nonnull %6, ptr noundef null) #16
@@ -1746,7 +1746,7 @@ define dso_local void @ip_md_tunnel_xmit(ptr noundef %0, ptr noundef %1, i8 noun
   %152 = icmp ugt ptr %151, inttoptr (i64 -4096 to ptr)
   br i1 %152, label %153, label %.thread30
 
-153:                                              ; preds = %.thread29.thread31, %.thread29.thread, %.thread29
+153:                                              ; preds = %.thread29.thread47, %.thread29.thread, %.thread29
   %154 = getelementptr inbounds nuw i8, ptr %1, i64 696
   call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incq $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %154, ptr nonnull elementtype(i64) %154) #16, !srcloc !11
   br label %.critedge21
@@ -1757,8 +1757,8 @@ define dso_local void @ip_md_tunnel_xmit(ptr noundef %0, ptr noundef %1, i8 noun
   call void @dst_cache_set_ip4(ptr noundef nonnull %156, ptr noundef %143, i32 noundef %157) #16
   br label %.thread30
 
-.thread30:                                        ; preds = %.thread29.thread31, %.thread29.thread, %155, %137
-  %158 = phi ptr [ %139, %137 ], [ %143, %155 ], [ %151, %.thread29.thread ], [ %147, %.thread29.thread31 ]
+.thread30:                                        ; preds = %.thread29.thread47, %.thread29.thread, %155, %137
+  %158 = phi ptr [ %139, %137 ], [ %143, %155 ], [ %151, %.thread29.thread ], [ %147, %.thread29.thread47 ]
   %159 = load ptr, ptr %158, align 8
   %160 = icmp eq ptr %159, %1
   br i1 %160, label %161, label %163

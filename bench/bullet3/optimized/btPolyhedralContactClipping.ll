@@ -1438,20 +1438,20 @@ define dso_local noundef zeroext i1 @_ZN27btPolyhedralContactClipping18findSepar
   %..i205 = select i1 %601, float %599, float %600
   %.val = load float, ptr %12, align 4
   %.val601 = load float, ptr %11, align 4
-  %.25.i206.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %601, ptr %12, ptr %11
-  %.25.i206.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %.25.i206.sroa.sel.v.sroa.sel.v.sroa.sel.v, i64 4
-  %.sroa.0254.sroa.4.0.copyload = load float, ptr %.25.i206.sroa.sel.v.sroa.sel.v.sroa.sel, align 4
-  %.25.i206.sroa.sel371.v.sroa.sel.v.sroa.sel.v = select i1 %601, ptr %12, ptr %11
-  %.25.i206.sroa.sel371.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %.25.i206.sroa.sel371.v.sroa.sel.v.sroa.sel.v, i64 8
-  %.sroa.0254.sroa.5.0.copyload = load float, ptr %.25.i206.sroa.sel371.v.sroa.sel.v.sroa.sel, align 4
+  %.31.i206.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %601, ptr %12, ptr %11
+  %.31.i206.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %.31.i206.sroa.sel.v.sroa.sel.v.sroa.sel.v, i64 4
+  %.sroa.0254.sroa.4.0.copyload = load float, ptr %.31.i206.sroa.sel.v.sroa.sel.v.sroa.sel, align 4
+  %.31.i206.sroa.sel371.v.sroa.sel.v.sroa.sel.v = select i1 %601, ptr %12, ptr %11
+  %.31.i206.sroa.sel371.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %.31.i206.sroa.sel371.v.sroa.sel.v.sroa.sel.v, i64 8
+  %.sroa.0254.sroa.5.0.copyload = load float, ptr %.31.i206.sroa.sel371.v.sroa.sel.v.sroa.sel, align 4
   %.val602 = load float, ptr %13, align 4
   %.val603 = load float, ptr %14, align 4
-  %.26.i207.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %601, ptr %13, ptr %14
-  %.26.i207.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %.26.i207.sroa.sel.v.sroa.sel.v.sroa.sel.v, i64 4
-  %.sroa.0253.sroa.4.0.copyload = load float, ptr %.26.i207.sroa.sel.v.sroa.sel.v.sroa.sel, align 4
-  %.26.i207.sroa.sel363.v.sroa.sel.v.sroa.sel.v = select i1 %601, ptr %13, ptr %14
-  %.26.i207.sroa.sel363.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %.26.i207.sroa.sel363.v.sroa.sel.v.sroa.sel.v, i64 8
-  %.sroa.0253.sroa.5.0.copyload = load float, ptr %.26.i207.sroa.sel363.v.sroa.sel.v.sroa.sel, align 4
+  %.32.i207.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %601, ptr %13, ptr %14
+  %.32.i207.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %.32.i207.sroa.sel.v.sroa.sel.v.sroa.sel.v, i64 4
+  %.sroa.0253.sroa.4.0.copyload = load float, ptr %.32.i207.sroa.sel.v.sroa.sel.v.sroa.sel, align 4
+  %.32.i207.sroa.sel363.v.sroa.sel.v.sroa.sel.v = select i1 %601, ptr %13, ptr %14
+  %.32.i207.sroa.sel363.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %.32.i207.sroa.sel363.v.sroa.sel.v.sroa.sel.v, i64 8
+  %.sroa.0253.sroa.5.0.copyload = load float, ptr %.32.i207.sroa.sel363.v.sroa.sel.v.sroa.sel, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
@@ -1777,7 +1777,7 @@ _ZN20btAlignedObjectArrayI9btVector3E8allocateEi.exit.i: ; preds = %28
   br i1 %exitcond.not.i.i, label %_ZNK20btAlignedObjectArrayI9btVector3E4copyEiiPS0_.exit.i, label %34, !llvm.loop !19
 
 _ZNK20btAlignedObjectArrayI9btVector3E4copyEiiPS0_.exit.i: ; preds = %34, %28, %_ZN20btAlignedObjectArrayI9btVector3E8allocateEi.exit.i
-  %.0.i.i185 = phi ptr [ %31, %_ZN20btAlignedObjectArrayI9btVector3E8allocateEi.exit.i ], [ null, %28 ], [ %31, %34 ]
+  %.0.i.i194 = phi ptr [ %31, %_ZN20btAlignedObjectArrayI9btVector3E8allocateEi.exit.i ], [ null, %28 ], [ %31, %34 ]
   %38 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %39 = load ptr, ptr %38, align 8, !tbaa !13
   %.not.i5.i = icmp ne ptr %39, null
@@ -1793,7 +1793,7 @@ _ZNK20btAlignedObjectArrayI9btVector3E4copyEiiPS0_.exit.i: ; preds = %34, %28, %
 
 _ZN20btAlignedObjectArrayI9btVector3E10deallocateEv.exit.i: ; preds = %43, %_ZNK20btAlignedObjectArrayI9btVector3E4copyEiiPS0_.exit.i
   store i8 1, ptr %40, align 8, !tbaa !22
-  store ptr %.0.i.i185, ptr %38, align 8, !tbaa !13
+  store ptr %.0.i.i194, ptr %38, align 8, !tbaa !13
   store i32 %25, ptr %26, align 8, !tbaa !17
   br label %_ZN20btAlignedObjectArrayI9btVector3E7reserveEi.exit
 

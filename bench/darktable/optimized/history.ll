@@ -1591,24 +1591,24 @@ define internal range(i32 -128, 128) i32 @_changes_tooltip_callback(ptr readnone
 .lr.ph546:                                        ; preds = %495
   %.not451 = icmp eq i64 %indvars.iv562, 0
   %497 = load ptr, ptr %496, align 8, !tbaa !167
-  %.not447609 = icmp eq ptr %497, null
-  br i1 %.not447609, label %.critedge15, label %.lr.ph613.preheader
+  %.not447630 = icmp eq ptr %497, null
+  br i1 %.not447630, label %.critedge15, label %.lr.ph634.preheader
 
-.lr.ph613.preheader:                              ; preds = %.lr.ph546
+.lr.ph634.preheader:                              ; preds = %.lr.ph546
   %.str.71..str.70 = select i1 %.not451, ptr @.str.71, ptr @.str.70
-  br label %.lr.ph613
+  br label %.lr.ph634
 
 .critedge15:                                      ; preds = %558, %.lr.ph546, %494, %495
   %.18.lcssa = phi i32 [ %.17551, %495 ], [ %.17551, %494 ], [ %.17551, %.lr.ph546 ], [ %.19, %558 ]
   %indvars.iv.next563 = add nsw i64 %indvars.iv562, -1
-  %.not586 = icmp eq i64 %indvars.iv562, 0
-  br i1 %.not586, label %.loopexit, label %494
+  %.not607 = icmp eq i64 %indvars.iv562, 0
+  br i1 %.not607, label %.loopexit, label %494
 
-.lr.ph613:                                        ; preds = %.lr.ph613.preheader, %558
-  %.0380542612 = phi i32 [ %.1381, %558 ], [ 1, %.lr.ph613.preheader ]
-  %.0379543611 = phi ptr [ %559, %558 ], [ %496, %.lr.ph613.preheader ]
-  %.18544610 = phi i32 [ %.19, %558 ], [ %.17551, %.lr.ph613.preheader ]
-  %498 = getelementptr inbounds nuw i8, ptr %.0379543611, i64 40
+.lr.ph634:                                        ; preds = %.lr.ph634.preheader, %558
+  %.0380542633 = phi i32 [ %.1381, %558 ], [ 1, %.lr.ph634.preheader ]
+  %.0379543632 = phi ptr [ %559, %558 ], [ %496, %.lr.ph634.preheader ]
+  %.18544631 = phi i32 [ %.19, %558 ], [ %.17551, %.lr.ph634.preheader ]
+  %498 = getelementptr inbounds nuw i8, ptr %.0379543632, i64 40
   %499 = getelementptr inbounds nuw [2 x i32], ptr %498, i64 0, i64 %indvars.iv562
   %500 = load i32, ptr %499, align 4, !tbaa !69
   %501 = load i32, ptr %484, align 4, !tbaa !170
@@ -1640,7 +1640,7 @@ define internal range(i32 -128, 128) i32 @_changes_tooltip_callback(ptr readnone
   %or.cond17 = select i1 %525, i1 true, i1 %526
   br i1 %or.cond17, label %527, label %558
 
-527:                                              ; preds = %.lr.ph613
+527:                                              ; preds = %.lr.ph634
   %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %514, ptr noundef nonnull dereferenceable(16) %516, i64 16)
   %.not448 = icmp eq i32 %bcmp, 0
   %.not449 = icmp eq i32 %510, %511
@@ -1648,22 +1648,22 @@ define internal range(i32 -128, 128) i32 @_changes_tooltip_callback(ptr readnone
   br i1 %or.cond460, label %558, label %528
 
 528:                                              ; preds = %527
-  %.not450 = icmp eq i32 %.0380542612, 0
+  %.not450 = icmp eq i32 %.0380542633, 0
   br i1 %.not450, label %535, label %529
 
 529:                                              ; preds = %528
   %530 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull %.str.71..str.70, i32 noundef 5) #17
   %531 = call noalias ptr @g_strdup(ptr noundef %530) #17
-  %532 = add nsw i32 %.18544610, 1
-  %533 = sext i32 %.18544610 to i64
+  %532 = add nsw i32 %.18544631, 1
+  %533 = sext i32 %.18544631 to i64
   %534 = getelementptr inbounds ptr, ptr %17, i64 %533
   store ptr %531, ptr %534, align 8, !tbaa !135
   br label %535
 
 535:                                              ; preds = %529, %528
-  %.20 = phi i32 [ %532, %529 ], [ %.18544610, %528 ]
+  %.20 = phi i32 [ %532, %529 ], [ %.18544631, %528 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %536 = getelementptr inbounds nuw i8, ptr %.0379543611, i64 56
+  %536 = getelementptr inbounds nuw i8, ptr %.0379543632, i64 56
   br label %549
 
 537:                                              ; preds = %549
@@ -1673,7 +1673,7 @@ define internal range(i32 -128, 128) i32 @_changes_tooltip_callback(ptr readnone
   %.not453 = icmp eq i32 %511, 0
   %540 = select i1 %.not453, ptr @.str.73, ptr @.str.72
   %541 = select i1 %526, ptr %540, ptr @.str.32
-  %542 = getelementptr inbounds nuw i8, ptr %.0379543611, i64 72
+  %542 = getelementptr inbounds nuw i8, ptr %.0379543632, i64 72
   %543 = load ptr, ptr %542, align 8, !tbaa !172
   %544 = call ptr @dcgettext(ptr noundef null, ptr noundef %543, i32 noundef 5) #17
   %545 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.74, ptr noundef %544, ptr noundef nonnull %7, ptr noundef nonnull %487, ptr noundef nonnull %488, ptr noundef nonnull %489, ptr noundef nonnull %539, ptr noundef nonnull %490, ptr noundef nonnull %491, ptr noundef nonnull %492, ptr noundef nonnull %493, ptr noundef nonnull %541) #17
@@ -1700,13 +1700,13 @@ define internal range(i32 -128, 128) i32 @_changes_tooltip_callback(ptr readnone
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
   br i1 %exitcond.not, label %537, label %549
 
-558:                                              ; preds = %527, %.lr.ph613, %537
-  %.1381 = phi i32 [ 0, %537 ], [ %.0380542612, %.lr.ph613 ], [ %.0380542612, %527 ]
-  %.19 = phi i32 [ %546, %537 ], [ %.18544610, %.lr.ph613 ], [ %.18544610, %527 ]
-  %559 = getelementptr inbounds nuw i8, ptr %.0379543611, i64 80
+558:                                              ; preds = %527, %.lr.ph634, %537
+  %.1381 = phi i32 [ 0, %537 ], [ %.0380542633, %.lr.ph634 ], [ %.0380542633, %527 ]
+  %.19 = phi i32 [ %546, %537 ], [ %.18544631, %.lr.ph634 ], [ %.18544631, %527 ]
+  %559 = getelementptr inbounds nuw i8, ptr %.0379543632, i64 80
   %560 = load ptr, ptr %559, align 8, !tbaa !167
   %.not447 = icmp eq ptr %560, null
-  br i1 %.not447, label %.critedge15, label %.lr.ph613
+  br i1 %.not447, label %.critedge15, label %.lr.ph634
 
 .loopexit:                                        ; preds = %.critedge15, %40
   %561 = call noalias ptr @g_strjoinv(ptr noundef nonnull @.str.75, ptr noundef nonnull %17) #17
@@ -1966,8 +1966,8 @@ define internal void @_pop_undo(ptr noundef readonly captures(none) %0, i32 noun
   tail call void @dt_iop_update_multi_priority(ptr noundef nonnull %21, i32 noundef %26) #17
   %30 = getelementptr inbounds nuw i8, ptr %.01016.i, i64 8
   %31 = load ptr, ptr %30, align 8, !tbaa !178
-  %.not.i132 = icmp eq ptr %31, null
-  br i1 %.not.i132, label %_rebuild_multi_priority.exit.thread, label %.lr.ph.i.outer
+  %.not.i152 = icmp eq ptr %31, null
+  br i1 %.not.i152, label %_rebuild_multi_priority.exit.thread, label %.lr.ph.i.outer
 
 _rebuild_multi_priority.exit:                     ; preds = %27
   br i1 %.not, label %.lr.ph.i49, label %_rebuild_multi_priority.exit.thread
@@ -2139,8 +2139,8 @@ _create_deleted_modules.exit.thread:              ; preds = %45, %_create_delete
   br i1 %.not111.i, label %211, label %.lr.ph.i51
 
 _create_deleted_modules.exit.thread.thread:       ; preds = %8
-  %.not111.i137 = icmp eq ptr %19, null
-  br i1 %.not111.i137, label %211, label %.lr.ph.i51.thread
+  %.not111.i157 = icmp eq ptr %19, null
+  br i1 %.not111.i157, label %211, label %.lr.ph.i51.thread
 
 .lr.ph.i51.thread:                                ; preds = %_create_deleted_modules.exit.thread.thread
   %104 = getelementptr inbounds nuw i8, ptr %11, i64 2064
@@ -3128,8 +3128,8 @@ define internal fastcc noalias ptr @_lib_history_change_text(ptr noundef readonl
 
 .lr.ph.preheader:                                 ; preds = %173
   %176 = load ptr, ptr %175, align 8, !tbaa !144
-  %.not185240 = icmp eq ptr %176, null
-  br i1 %.not185240, label %.critedge, label %.lr.ph244
+  %.not185263 = icmp eq ptr %176, null
+  br i1 %.not185263, label %.critedge, label %.lr.ph267
 
 .critedge:                                        ; preds = %.lr.ph, %.lr.ph.preheader, %173
   %.0148.lcssa = phi ptr [ @.str.89, %173 ], [ @.str.89, %.lr.ph.preheader ], [ %.1149, %.lr.ph ]
@@ -3139,31 +3139,31 @@ define internal fastcc noalias ptr @_lib_history_change_text(ptr noundef readonl
   %179 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.45, ptr noundef %1, ptr noundef %177, ptr noundef %178) #17
   br label %.critedge205.thread
 
-.lr.ph244:                                        ; preds = %.lr.ph.preheader, %.lr.ph
+.lr.ph267:                                        ; preds = %.lr.ph.preheader, %.lr.ph
   %180 = phi ptr [ %195, %.lr.ph ], [ %176, %.lr.ph.preheader ]
-  %.0148212243 = phi ptr [ %.1149, %.lr.ph ], [ @.str.89, %.lr.ph.preheader ]
-  %.0146213242 = phi ptr [ %.1147, %.lr.ph ], [ @.str.89, %.lr.ph.preheader ]
-  %.0145214241 = phi ptr [ %194, %.lr.ph ], [ %175, %.lr.ph.preheader ]
-  %181 = getelementptr inbounds nuw i8, ptr %.0145214241, i64 8
+  %.0148212266 = phi ptr [ %.1149, %.lr.ph ], [ @.str.89, %.lr.ph.preheader ]
+  %.0146213265 = phi ptr [ %.1147, %.lr.ph ], [ @.str.89, %.lr.ph.preheader ]
+  %.0145214264 = phi ptr [ %194, %.lr.ph ], [ %175, %.lr.ph.preheader ]
+  %181 = getelementptr inbounds nuw i8, ptr %.0145214264, i64 8
   %182 = load i32, ptr %181, align 8, !tbaa !146
   %183 = icmp eq i32 %182, %171
   br i1 %183, label %184, label %188
 
-184:                                              ; preds = %.lr.ph244
-  %185 = getelementptr inbounds nuw i8, ptr %.0145214241, i64 16
+184:                                              ; preds = %.lr.ph267
+  %185 = getelementptr inbounds nuw i8, ptr %.0145214264, i64 16
   %186 = load ptr, ptr %185, align 8, !tbaa !203
   %187 = load i8, ptr %186, align 1, !tbaa !124
   %.not186 = icmp eq i8 %187, 0
   %spec.select = select i1 %.not186, ptr %180, ptr %186
   br label %188
 
-188:                                              ; preds = %184, %.lr.ph244
-  %.1149 = phi ptr [ %.0148212243, %.lr.ph244 ], [ %spec.select, %184 ]
+188:                                              ; preds = %184, %.lr.ph267
+  %.1149 = phi ptr [ %.0148212266, %.lr.ph267 ], [ %spec.select, %184 ]
   %189 = icmp eq i32 %182, %172
   br i1 %189, label %190, label %.lr.ph
 
 190:                                              ; preds = %188
-  %191 = getelementptr inbounds nuw i8, ptr %.0145214241, i64 16
+  %191 = getelementptr inbounds nuw i8, ptr %.0145214264, i64 16
   %192 = load ptr, ptr %191, align 8, !tbaa !203
   %193 = load i8, ptr %192, align 1, !tbaa !124
   %.not187 = icmp eq i8 %193, 0
@@ -3171,11 +3171,11 @@ define internal fastcc noalias ptr @_lib_history_change_text(ptr noundef readonl
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %190, %188
-  %.1147 = phi ptr [ %.0146213242, %188 ], [ %spec.select208, %190 ]
-  %194 = getelementptr inbounds nuw i8, ptr %.0145214241, i64 24
+  %.1147 = phi ptr [ %.0146213265, %188 ], [ %spec.select208, %190 ]
+  %194 = getelementptr inbounds nuw i8, ptr %.0145214264, i64 24
   %195 = load ptr, ptr %194, align 8, !tbaa !144
   %.not185 = icmp eq ptr %195, null
-  br i1 %.not185, label %.critedge, label %.lr.ph244
+  br i1 %.not185, label %.critedge, label %.lr.ph267
 
 196:                                              ; preds = %4
   %197 = load i32, ptr %8, align 4, !tbaa !69

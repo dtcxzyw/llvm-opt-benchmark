@@ -1008,7 +1008,7 @@ _ZN8smallvec10infallible17hfa75c51ff270d6b1E.exit:
 
 .lr.ph.i.i.i.i.i.i13:                             ; preds = %.lr.ph.i.i.i.i.i.i13.backedge, %.lr.ph.i.i.i.i.i.i13.lr.ph
   %47 = phi ptr [ %23, %.lr.ph.i.i.i.i.i.i13.lr.ph ], [ %.be, %.lr.ph.i.i.i.i.i.i13.backedge ]
-  %48 = phi { i64, ptr } [ %22, %.lr.ph.i.i.i.i.i.i13.lr.ph ], [ %.be113, %.lr.ph.i.i.i.i.i.i13.backedge ]
+  %48 = phi { i64, ptr } [ %22, %.lr.ph.i.i.i.i.i.i13.lr.ph ], [ %.be120, %.lr.ph.i.i.i.i.i.i13.backedge ]
   %49 = extractvalue { i64, ptr } %48, 0
   call void @llvm.experimental.noalias.scope.decl(metadata !194)
   %50 = getelementptr inbounds nuw i8, ptr %47, i64 16
@@ -1060,7 +1060,7 @@ _ZN8smallvec10infallible17hfa75c51ff270d6b1E.exit:
 
 .lr.ph.i.i.i.i.i.i13.backedge:                    ; preds = %"_ZN4core4iter8adapters6filter15filter_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h70d976e70f1fd3a5E.exit.i.i.i.i.i.i21", %"_ZN8smallvec17SmallVec$LT$A$GT$4push17h8a29847f742cfe01E.exit"
   %.be = phi ptr [ %65, %"_ZN4core4iter8adapters6filter15filter_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h70d976e70f1fd3a5E.exit.i.i.i.i.i.i21" ], [ %80, %"_ZN8smallvec17SmallVec$LT$A$GT$4push17h8a29847f742cfe01E.exit" ]
-  %.be113 = phi { i64, ptr } [ %64, %"_ZN4core4iter8adapters6filter15filter_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h70d976e70f1fd3a5E.exit.i.i.i.i.i.i21" ], [ %79, %"_ZN8smallvec17SmallVec$LT$A$GT$4push17h8a29847f742cfe01E.exit" ]
+  %.be120 = phi { i64, ptr } [ %64, %"_ZN4core4iter8adapters6filter15filter_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h70d976e70f1fd3a5E.exit.i.i.i.i.i.i21" ], [ %79, %"_ZN8smallvec17SmallVec$LT$A$GT$4push17h8a29847f742cfe01E.exit" ]
   br label %.lr.ph.i.i.i.i.i.i13
 
 "_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h46d9a507ddfa131dE.exit27.thread": ; preds = %"_ZN8smallvec17SmallVec$LT$A$GT$4push17h8a29847f742cfe01E.exit", %"_ZN4core4iter8adapters6filter15filter_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h70d976e70f1fd3a5E.exit.i.i.i.i.i.i21", %._crit_edge

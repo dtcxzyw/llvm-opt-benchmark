@@ -1013,7 +1013,7 @@ _ZN8rawspeed23PanasonicV5Decompressor11ProxyStreamD2Ev.exit: ; preds = %._crit_e
   br label %92
 
 .loopexit.i:                                      ; preds = %113
-  %86 = trunc nuw i64 %indvars.iv.next.i to i32
+  %86 = trunc nuw nsw i64 %indvars.iv.next.i to i32
   %87 = add nsw i32 %.047.i, 1
   %88 = trunc nuw nsw i32 %.lcssa404245.i to i8
   %.lhs.trunc.i = add nuw nsw i8 %88, 20
@@ -1574,7 +1574,7 @@ _ZN8rawspeed23PanasonicV5Decompressor11ProxyStreamD2Ev.exit: ; preds = %._crit_e
   br label %92
 
 .loopexit.i:                                      ; preds = %113
-  %86 = trunc nuw i64 %indvars.iv.next.i to i32
+  %86 = trunc nuw nsw i64 %indvars.iv.next.i to i32
   %87 = add nsw i32 %.047.i, 1
   %88 = trunc nuw nsw i32 %.lcssa404245.i to i8
   %.lhs.trunc.i = add nuw nsw i8 %88, 18

@@ -509,10 +509,10 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit:   ; preds = %_ZNSt6vectorIN4cvc5
   br i1 %.not45, label %.loopexit, label %._crit_edge197.thread
 
 ._crit_edge197.thread:                            ; preds = %61, %._crit_edge197
-  %.041.lcssa225 = phi i32 [ %.142.lcssa, %._crit_edge197 ], [ %53, %61 ]
-  %.sroa.0154.0.lcssa224 = phi ptr [ %.sroa.0154.1.lcssa, %._crit_edge197 ], [ %48, %61 ]
-  %160 = icmp ult i32 %.041.lcssa225, %46
-  %.not166204 = icmp eq ptr %.sroa.0154.0.lcssa224, %47
+  %.041.lcssa281 = phi i32 [ %.142.lcssa, %._crit_edge197 ], [ %53, %61 ]
+  %.sroa.0154.0.lcssa280 = phi ptr [ %.sroa.0154.1.lcssa, %._crit_edge197 ], [ %48, %61 ]
+  %160 = icmp ult i32 %.041.lcssa281, %46
+  %.not166204 = icmp eq ptr %.sroa.0154.0.lcssa280, %47
   br i1 %160, label %.preheader, label %.preheader169
 
 .preheader169:                                    ; preds = %._crit_edge197.thread
@@ -532,7 +532,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit:   ; preds = %_ZNSt6vectorIN4cvc5
   br label %165
 
 165:                                              ; preds = %.lr.ph206, %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE9push_backERKS3_.exit79
-  %.sroa.0154.2205 = phi ptr [ %.sroa.0154.0.lcssa224, %.lr.ph206 ], [ %188, %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE9push_backERKS3_.exit79 ]
+  %.sroa.0154.2205 = phi ptr [ %.sroa.0154.0.lcssa280, %.lr.ph206 ], [ %188, %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE9push_backERKS3_.exit79 ]
   %166 = load ptr, ptr %163, align 8, !tbaa !3
   %167 = load ptr, ptr %164, align 8, !tbaa !28
   %.not.i75 = icmp eq ptr %166, %167
@@ -598,7 +598,7 @@ _ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE9push_backERKS3_.exit79
   br label %.body134
 
 189:                                              ; preds = %.lr.ph202, %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE9push_backERKS3_.exit84
-  %.sroa.0154.3201 = phi ptr [ %.sroa.0154.0.lcssa224, %.lr.ph202 ], [ %212, %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE9push_backERKS3_.exit84 ]
+  %.sroa.0154.3201 = phi ptr [ %.sroa.0154.0.lcssa280, %.lr.ph202 ], [ %212, %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE9push_backERKS3_.exit84 ]
   %190 = load ptr, ptr %161, align 8, !tbaa !3
   %191 = load ptr, ptr %162, align 8, !tbaa !28
   %.not.i80 = icmp eq ptr %190, %191

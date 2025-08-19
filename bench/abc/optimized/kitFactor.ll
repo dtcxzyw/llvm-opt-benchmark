@@ -184,7 +184,7 @@ common.ret:                                       ; preds = %._crit_edge
   %13 = shl nsw i32 %11, 1
   %14 = and i32 %13, 2147483646
   %15 = or disjoint i32 %14, %12
-  br label %common.ret59
+  br label %common.ret62
 
 .lr.ph49.preheader:                               ; preds = %._crit_edge
   %16 = lshr i32 %spec.select, 1
@@ -212,16 +212,16 @@ common.ret:                                       ; preds = %._crit_edge
   %exitcond54.not = icmp eq i32 %24, %3
   br i1 %exitcond54.not, label %._crit_edge50, label %.lr.ph49, !llvm.loop !19
 
-common.ret59:                                     ; preds = %._crit_edge50, %common.ret
-  %common.ret59.op = phi i32 [ %15, %common.ret ], [ %27, %._crit_edge50 ]
-  ret i32 %common.ret59.op
+common.ret62:                                     ; preds = %._crit_edge50, %common.ret
+  %common.ret62.op = phi i32 [ %15, %common.ret ], [ %27, %._crit_edge50 ]
+  ret i32 %common.ret62.op
 
 ._crit_edge50:                                    ; preds = %23, %19, %4
   %.1.lcssa = phi i32 [ %2, %4 ], [ %.147, %19 ], [ %3, %23 ]
   %25 = tail call i32 @Kit_SopFactorTrivialCube_rec(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %.1.lcssa)
   %26 = tail call i32 @Kit_SopFactorTrivialCube_rec(ptr noundef %0, i32 noundef %1, i32 noundef %.1.lcssa, i32 noundef %3)
   %27 = tail call i32 @Kit_GraphAddNodeAnd(ptr noundef %0, i32 %25, i32 %26) #8
-  br label %common.ret59
+  br label %common.ret62
 }
 
 declare i32 @Kit_GraphAddNodeAnd(ptr noundef, i32, i32) local_unnamed_addr #1

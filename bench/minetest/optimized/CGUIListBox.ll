@@ -2799,7 +2799,7 @@ for.body.i.i25.preheader:                         ; preds = %if.then4
   %22 = and i64 %21, 4611686018427387903
   %23 = add nuw nsw i64 %22, 1
   %min.iters.check = icmp samesign ult i64 %22, 7
-  br i1 %min.iters.check, label %for.body.i.i25.preheader4, label %vector.ph
+  br i1 %min.iters.check, label %for.body.i.i25.preheader7, label %vector.ph
 
 vector.ph:                                        ; preds = %for.body.i.i25.preheader
   %n.vec = and i64 %23, 9223372036854775800
@@ -2830,14 +2830,14 @@ middle.block:                                     ; preds = %vector.body
   %34 = shl i64 %n.vec, 2
   %ind.end = getelementptr i8, ptr %19, i64 %34
   %cmp.n = icmp eq i64 %23, %n.vec
-  br i1 %cmp.n, label %return, label %for.body.i.i25.preheader4
+  br i1 %cmp.n, label %return, label %for.body.i.i25.preheader7
 
-for.body.i.i25.preheader4:                        ; preds = %middle.block, %for.body.i.i25.preheader
+for.body.i.i25.preheader7:                        ; preds = %middle.block, %for.body.i.i25.preheader
   %__result.sroa.0.015.i.i.ph = phi ptr [ %ind.end, %middle.block ], [ %19, %for.body.i.i25.preheader ]
   br label %for.body.i.i25
 
-for.body.i.i25:                                   ; preds = %for.body.i.i25.preheader4, %for.body.i.i25
-  %__result.sroa.0.015.i.i = phi ptr [ %incdec.ptr.i9.i.i, %for.body.i.i25 ], [ %__result.sroa.0.015.i.i.ph, %for.body.i.i25.preheader4 ]
+for.body.i.i25:                                   ; preds = %for.body.i.i25.preheader7, %for.body.i.i25
+  %__result.sroa.0.015.i.i = phi ptr [ %incdec.ptr.i9.i.i, %for.body.i.i25 ], [ %__result.sroa.0.015.i.i.ph, %for.body.i.i25.preheader7 ]
   %35 = load i32, ptr %__result.sroa.0.015.i.i, align 4, !tbaa !44
   %36 = add i32 %35, -65
   %or.cond.i.i.i.i = icmp ult i32 %36, 26

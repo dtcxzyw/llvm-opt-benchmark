@@ -894,7 +894,7 @@ switch.lookup:                                    ; preds = %4
 53:                                               ; preds = %51
   %54 = add nsw i32 %.029.i.i, -1
   %55 = icmp sgt i32 %.029.i.i, 1
-  br i1 %55, label %.lr.ph.i.i, label %.loopexit.thread56.i.i
+  br i1 %55, label %.lr.ph.i.i, label %.loopexit.thread61.i.i
 
 .lr.ph.i.i:                                       ; preds = %53, %57
   %.0.pn47.i.i = phi ptr [ %.148.i.i, %57 ], [ %.0.i.i, %53 ]
@@ -916,7 +916,7 @@ switch.lookup:                                    ; preds = %4
   %60 = icmp eq i32 %.02746.i.i, %54
   br i1 %60, label %.sink.split.i, label %62
 
-.loopexit.thread56.i.i:                           ; preds = %53
+.loopexit.thread61.i.i:                           ; preds = %53
   %61 = icmp eq i32 %54, 0
   br i1 %61, label %.sink.split.i, label %.thread.i.i
 
@@ -924,11 +924,11 @@ switch.lookup:                                    ; preds = %4
   %63 = icmp samesign ult i32 %.02746.i.i, 8
   br i1 %63, label %.thread.i.i, label %65
 
-.thread.i.i:                                      ; preds = %62, %.loopexit.thread56.i.i
+.thread.i.i:                                      ; preds = %62, %.loopexit.thread61.i.i
   br label %.sink.split.i
 
-.sink.split.i:                                    ; preds = %57, %.lr.ph.i.i, %.thread.i.i, %.loopexit.thread56.i.i, %.loopexit.i.i, %51, %49, %44
-  %.str.25.sink.i = phi ptr [ @.str.25, %.thread.i.i ], [ @.str.25, %44 ], [ @.str.26, %51 ], [ @.str.26, %49 ], [ @.str.27, %.loopexit.thread56.i.i ], [ @.str.27, %.loopexit.i.i ], [ @.str.27, %.lr.ph.i.i ], [ @.str.27, %57 ]
+.sink.split.i:                                    ; preds = %57, %.lr.ph.i.i, %.thread.i.i, %.loopexit.thread61.i.i, %.loopexit.i.i, %51, %49, %44
+  %.str.25.sink.i = phi ptr [ @.str.25, %.thread.i.i ], [ @.str.25, %44 ], [ @.str.26, %51 ], [ @.str.26, %49 ], [ @.str.27, %.loopexit.thread61.i.i ], [ @.str.27, %.loopexit.i.i ], [ @.str.27, %.lr.ph.i.i ], [ @.str.27, %57 ]
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull %.str.25.sink.i, ptr noundef nonnull @__func__._padding_check_PKCS1_type_1) #10
   br label %64
 

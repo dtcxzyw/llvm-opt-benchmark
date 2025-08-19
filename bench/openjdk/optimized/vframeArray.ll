@@ -378,11 +378,11 @@ _ZNK6HandleclEv.exit:                             ; preds = %103, %108
   unreachable
 
 _ZNK20StackValueCollection3addEP10StackValue.exit.sink.split: ; preds = %129, %119, %_ZNK6HandleclEv.exit
-  %.sink118 = phi i32 [ %115, %_ZNK6HandleclEv.exit ], [ %125, %119 ], [ %137, %129 ]
-  %.sink107 = phi ptr [ %114, %_ZNK6HandleclEv.exit ], [ %124, %119 ], [ %136, %129 ]
+  %.sink133 = phi i32 [ %115, %_ZNK6HandleclEv.exit ], [ %125, %119 ], [ %137, %129 ]
+  %.sink122 = phi ptr [ %114, %_ZNK6HandleclEv.exit ], [ %124, %119 ], [ %136, %129 ]
   %.sink.ph = phi ptr [ %105, %_ZNK6HandleclEv.exit ], [ %121, %119 ], [ %131, %129 ]
-  %143 = add nsw i32 %.sink118, 1
-  %144 = icmp sgt i32 %.sink118, -1
+  %143 = add nsw i32 %.sink133, 1
+  %144 = icmp sgt i32 %.sink133, -1
   %145 = call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %143)
   %146 = icmp samesign ult i32 %145, 2
   %or.cond.i.i.i.i.i.i49 = select i1 %144, i1 %146, i1 false
@@ -390,19 +390,19 @@ _ZNK20StackValueCollection3addEP10StackValue.exit.sink.split: ; preds = %129, %1
   %148 = sub nuw nsw i32 32, %147
   %149 = shl nuw i32 1, %148
   %.0.i.i.i.i.i.i50 = select i1 %or.cond.i.i.i.i.i.i49, i32 %143, i32 %149
-  call void @_ZN26GrowableArrayWithAllocatorIP10StackValue13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %.sink107, i32 noundef %.0.i.i.i.i.i.i50)
-  %.pre.i.i.i51 = load i32, ptr %.sink107, align 8
+  call void @_ZN26GrowableArrayWithAllocatorIP10StackValue13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %.sink122, i32 noundef %.0.i.i.i.i.i.i50)
+  %.pre.i.i.i51 = load i32, ptr %.sink122, align 8
   br label %_ZNK20StackValueCollection3addEP10StackValue.exit
 
 _ZNK20StackValueCollection3addEP10StackValue.exit: ; preds = %_ZNK20StackValueCollection3addEP10StackValue.exit.sink.split, %129, %119, %_ZNK6HandleclEv.exit
-  %.sink95 = phi i32 [ %115, %_ZNK6HandleclEv.exit ], [ %125, %119 ], [ %137, %129 ], [ %.pre.i.i.i51, %_ZNK20StackValueCollection3addEP10StackValue.exit.sink.split ]
-  %.sink94 = phi ptr [ %114, %_ZNK6HandleclEv.exit ], [ %124, %119 ], [ %136, %129 ], [ %.sink107, %_ZNK20StackValueCollection3addEP10StackValue.exit.sink.split ]
+  %.sink110 = phi i32 [ %115, %_ZNK6HandleclEv.exit ], [ %125, %119 ], [ %137, %129 ], [ %.pre.i.i.i51, %_ZNK20StackValueCollection3addEP10StackValue.exit.sink.split ]
+  %.sink109 = phi ptr [ %114, %_ZNK6HandleclEv.exit ], [ %124, %119 ], [ %136, %129 ], [ %.sink122, %_ZNK20StackValueCollection3addEP10StackValue.exit.sink.split ]
   %.sink = phi ptr [ %105, %_ZNK6HandleclEv.exit ], [ %121, %119 ], [ %131, %129 ], [ %.sink.ph, %_ZNK20StackValueCollection3addEP10StackValue.exit.sink.split ]
-  %150 = add nsw i32 %.sink95, 1
-  store i32 %150, ptr %.sink94, align 8
-  %151 = getelementptr inbounds nuw i8, ptr %.sink94, i64 8
+  %150 = add nsw i32 %.sink110, 1
+  store i32 %150, ptr %.sink109, align 8
+  %151 = getelementptr inbounds nuw i8, ptr %.sink109, i64 8
   %152 = load ptr, ptr %151, align 8
-  %153 = sext i32 %.sink95 to i64
+  %153 = sext i32 %.sink110 to i64
   %154 = getelementptr inbounds ptr, ptr %152, i64 %153
   store ptr %.sink, ptr %154, align 8
   %indvars.iv.next82 = add nuw nsw i64 %indvars.iv81, 1
@@ -527,11 +527,11 @@ _ZNK6HandleclEv.exit56:                           ; preds = %184, %189
   unreachable
 
 _ZNK20StackValueCollection3addEP10StackValue.exit60.sink.split: ; preds = %210, %200, %_ZNK6HandleclEv.exit56
-  %.sink131 = phi i32 [ %196, %_ZNK6HandleclEv.exit56 ], [ %206, %200 ], [ %218, %210 ]
-  %.sink120 = phi ptr [ %195, %_ZNK6HandleclEv.exit56 ], [ %205, %200 ], [ %217, %210 ]
-  %.sink96.ph = phi ptr [ %186, %_ZNK6HandleclEv.exit56 ], [ %202, %200 ], [ %212, %210 ]
-  %224 = add nsw i32 %.sink131, 1
-  %225 = icmp sgt i32 %.sink131, -1
+  %.sink146 = phi i32 [ %196, %_ZNK6HandleclEv.exit56 ], [ %206, %200 ], [ %218, %210 ]
+  %.sink135 = phi ptr [ %195, %_ZNK6HandleclEv.exit56 ], [ %205, %200 ], [ %217, %210 ]
+  %.sink111.ph = phi ptr [ %186, %_ZNK6HandleclEv.exit56 ], [ %202, %200 ], [ %212, %210 ]
+  %224 = add nsw i32 %.sink146, 1
+  %225 = icmp sgt i32 %.sink146, -1
   %226 = call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %224)
   %227 = icmp samesign ult i32 %226, 2
   %or.cond.i.i.i.i.i.i65 = select i1 %225, i1 %227, i1 false
@@ -539,21 +539,21 @@ _ZNK20StackValueCollection3addEP10StackValue.exit60.sink.split: ; preds = %210, 
   %229 = sub nuw nsw i32 32, %228
   %230 = shl nuw i32 1, %229
   %.0.i.i.i.i.i.i66 = select i1 %or.cond.i.i.i.i.i.i65, i32 %224, i32 %230
-  call void @_ZN26GrowableArrayWithAllocatorIP10StackValue13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %.sink120, i32 noundef %.0.i.i.i.i.i.i66)
-  %.pre.i.i.i67 = load i32, ptr %.sink120, align 8
+  call void @_ZN26GrowableArrayWithAllocatorIP10StackValue13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %.sink135, i32 noundef %.0.i.i.i.i.i.i66)
+  %.pre.i.i.i67 = load i32, ptr %.sink135, align 8
   br label %_ZNK20StackValueCollection3addEP10StackValue.exit60
 
 _ZNK20StackValueCollection3addEP10StackValue.exit60: ; preds = %_ZNK20StackValueCollection3addEP10StackValue.exit60.sink.split, %210, %200, %_ZNK6HandleclEv.exit56
-  %.sink105 = phi i32 [ %196, %_ZNK6HandleclEv.exit56 ], [ %206, %200 ], [ %218, %210 ], [ %.pre.i.i.i67, %_ZNK20StackValueCollection3addEP10StackValue.exit60.sink.split ]
-  %.sink104 = phi ptr [ %195, %_ZNK6HandleclEv.exit56 ], [ %205, %200 ], [ %217, %210 ], [ %.sink120, %_ZNK20StackValueCollection3addEP10StackValue.exit60.sink.split ]
-  %.sink96 = phi ptr [ %186, %_ZNK6HandleclEv.exit56 ], [ %202, %200 ], [ %212, %210 ], [ %.sink96.ph, %_ZNK20StackValueCollection3addEP10StackValue.exit60.sink.split ]
-  %231 = add nsw i32 %.sink105, 1
-  store i32 %231, ptr %.sink104, align 8
-  %232 = getelementptr inbounds nuw i8, ptr %.sink104, i64 8
+  %.sink120 = phi i32 [ %196, %_ZNK6HandleclEv.exit56 ], [ %206, %200 ], [ %218, %210 ], [ %.pre.i.i.i67, %_ZNK20StackValueCollection3addEP10StackValue.exit60.sink.split ]
+  %.sink119 = phi ptr [ %195, %_ZNK6HandleclEv.exit56 ], [ %205, %200 ], [ %217, %210 ], [ %.sink135, %_ZNK20StackValueCollection3addEP10StackValue.exit60.sink.split ]
+  %.sink111 = phi ptr [ %186, %_ZNK6HandleclEv.exit56 ], [ %202, %200 ], [ %212, %210 ], [ %.sink111.ph, %_ZNK20StackValueCollection3addEP10StackValue.exit60.sink.split ]
+  %231 = add nsw i32 %.sink120, 1
+  store i32 %231, ptr %.sink119, align 8
+  %232 = getelementptr inbounds nuw i8, ptr %.sink119, i64 8
   %233 = load ptr, ptr %232, align 8
-  %234 = sext i32 %.sink105 to i64
+  %234 = sext i32 %.sink120 to i64
   %235 = getelementptr inbounds ptr, ptr %233, i64 %234
-  store ptr %.sink96, ptr %235, align 8
+  store ptr %.sink111, ptr %235, align 8
   %indvars.iv.next85 = add nuw nsw i64 %indvars.iv84, 1
   %236 = load ptr, ptr %162, align 8
   %237 = load i32, ptr %236, align 4
@@ -883,8 +883,8 @@ define hidden void @_ZN18vframeArrayElement15unpack_on_stackEiiiP5framebbi(ptr n
   %167 = tail call noundef ptr @_ZNK5frame26interpreter_frame_local_atEi(ptr noundef nonnull align 8 dereferenceable(56) %0, i32 noundef %166) #13
   %168 = load i8, ptr %165, align 8
   switch i8 %168, label %169 [
-    i8 10, label %.sink.split131
-    i8 12, label %.sink.split131
+    i8 10, label %.sink.split136
+    i8 12, label %.sink.split136
     i8 19, label %173
   ]
 
@@ -894,14 +894,14 @@ define hidden void @_ZN18vframeArrayElement15unpack_on_stackEiiiP5framebbi(ptr n
   tail call void @_Z28report_should_not_reach_herePKci(ptr noundef nonnull @.str, i32 noundef 426) #14
   unreachable
 
-.sink.split131:                                   ; preds = %.lr.ph120, %.lr.ph120
+.sink.split136:                                   ; preds = %.lr.ph120, %.lr.ph120
   %171 = getelementptr inbounds nuw i8, ptr %165, i64 8
   %172 = load i64, ptr %171, align 8
   br label %173
 
-173:                                              ; preds = %.sink.split131, %.lr.ph120
-  %.sink129 = phi i64 [ 0, %.lr.ph120 ], [ %172, %.sink.split131 ]
-  store i64 %.sink129, ptr %167, align 8
+173:                                              ; preds = %.sink.split136, %.lr.ph120
+  %.sink134 = phi i64 [ 0, %.lr.ph120 ], [ %172, %.sink.split136 ]
+  store i64 %.sink134, ptr %167, align 8
   %indvars.iv.next127 = add nuw nsw i64 %indvars.iv126, 1
   %174 = load ptr, ptr %138, align 8
   %175 = load ptr, ptr %174, align 8

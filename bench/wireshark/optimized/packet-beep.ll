@@ -1011,8 +1011,8 @@ dissect_beep_mime_header.exit:                    ; preds = %header_len.exit.i, 
   br i1 %.not313, label %.thread332, label %.thread332.sink.split
 
 .thread332.sink.split:                            ; preds = %318, %316
-  %.sink346 = phi ptr [ %4, %316 ], [ %5, %318 ]
-  %319 = getelementptr inbounds nuw i8, ptr %.sink346, i64 4
+  %.sink370 = phi ptr [ %4, %316 ], [ %5, %318 ]
+  %319 = getelementptr inbounds nuw i8, ptr %.sink370, i64 4
   %320 = load i32, ptr %319, align 4
   %321 = sub i32 %320, %.1
   %spec.store.select317 = tail call i32 @llvm.smax.i32(i32 %321, i32 0)

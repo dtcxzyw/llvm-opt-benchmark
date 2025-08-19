@@ -276,12 +276,12 @@ switch.lookup:                                    ; preds = %98
   %switch.gep = getelementptr inbounds nuw [3 x i64], ptr @switch.table.tta_encode_frame, i64 0, i64 %102
   %switch.load = load i64, ptr %switch.gep, align 8
   %103 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep319 = getelementptr inbounds nuw [3 x i64], ptr @switch.table.tta_encode_frame.2, i64 0, i64 %103
-  %switch.load320 = load i64, ptr %switch.gep319, align 8
+  %switch.gep333 = getelementptr inbounds nuw [3 x i64], ptr @switch.table.tta_encode_frame.2, i64 0, i64 %103
+  %switch.load334 = load i64, ptr %switch.gep333, align 8
   %104 = load i32, ptr %59, align 4, !tbaa !46
   %105 = sext i32 %104 to i64
   %106 = mul nsw i64 %switch.load, %105
-  %107 = lshr i64 %106, %switch.load320
+  %107 = lshr i64 %106, %switch.load334
   %108 = trunc i64 %107 to i32
   %109 = sub nsw i32 %99, %108
   store i32 %109, ptr %5, align 4, !tbaa !56
@@ -323,7 +323,7 @@ switch.lookup:                                    ; preds = %98
 
 135:                                              ; preds = %130
   %136 = add i32 %124, -1
-  br label %.sink.split302
+  br label %.sink.split316
 
 137:                                              ; preds = %130, %110
   %138 = add i32 %124, 1
@@ -331,14 +331,14 @@ switch.lookup:                                    ; preds = %98
   %140 = getelementptr inbounds nuw i32, ptr %27, i64 %139
   %141 = load i32, ptr %140, align 4, !tbaa !56
   %142 = icmp ugt i32 %129, %141
-  br i1 %142, label %.sink.split302, label %143
+  br i1 %142, label %.sink.split316, label %143
 
-.sink.split302:                                   ; preds = %137, %135
-  %.sink303 = phi i32 [ %136, %135 ], [ %138, %137 ]
-  store i32 %.sink303, ptr %61, align 4, !tbaa !60
+.sink.split316:                                   ; preds = %137, %135
+  %.sink317 = phi i32 [ %136, %135 ], [ %138, %137 ]
+  store i32 %.sink317, ptr %61, align 4, !tbaa !60
   br label %143
 
-143:                                              ; preds = %.sink.split302, %137
+143:                                              ; preds = %.sink.split316, %137
   %144 = zext i32 %124 to i64
   %145 = getelementptr inbounds nuw [0 x i32], ptr @ff_tta_shift_1, i64 0, i64 %144
   %146 = load i32, ptr %145, align 4, !tbaa !56
@@ -367,7 +367,7 @@ switch.lookup:                                    ; preds = %98
 
 161:                                              ; preds = %156
   %162 = add i32 %150, -1
-  br label %.sink.split304
+  br label %.sink.split318
 
 163:                                              ; preds = %156, %147
   %164 = add i32 %150, 1
@@ -375,14 +375,14 @@ switch.lookup:                                    ; preds = %98
   %166 = getelementptr inbounds nuw i32, ptr %27, i64 %165
   %167 = load i32, ptr %166, align 4, !tbaa !56
   %168 = icmp ugt i32 %155, %167
-  br i1 %168, label %.sink.split304, label %169
+  br i1 %168, label %.sink.split318, label %169
 
-.sink.split304:                                   ; preds = %163, %161
-  %.sink305 = phi i32 [ %162, %161 ], [ %164, %163 ]
-  store i32 %.sink305, ptr %149, align 4, !tbaa !62
+.sink.split318:                                   ; preds = %163, %161
+  %.sink319 = phi i32 [ %162, %161 ], [ %164, %163 ]
+  store i32 %.sink319, ptr %149, align 4, !tbaa !62
   br label %169
 
-169:                                              ; preds = %.sink.split304, %163
+169:                                              ; preds = %.sink.split318, %163
   %170 = lshr i32 %148, %150
   %171 = add i32 %170, 1
   %172 = zext i32 %171 to i64

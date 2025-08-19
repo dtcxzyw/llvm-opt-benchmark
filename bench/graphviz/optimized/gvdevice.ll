@@ -744,8 +744,8 @@ agxblen.exit.i:                                   ; preds = %2
   br i1 %.not.i.i.i, label %22, label %19
 
 19:                                               ; preds = %.thread, %18
-  %.val.i.i.i10 = phi i8 [ 0, %.thread ], [ %.val.i.i.pre.i, %18 ]
-  %20 = zext i8 %.val.i.i.i10 to i64
+  %.val.i.i.i13 = phi i8 [ 0, %.thread ], [ %.val.i.i.pre.i, %18 ]
+  %20 = zext i8 %.val.i.i.i13 to i64
   %21 = getelementptr inbounds nuw [31 x i8], ptr %5, i64 0, i64 %20
   br label %agxbnext.exit.i
 
@@ -1698,11 +1698,11 @@ sub_146:                                          ; preds = %agxbdisown.exit
   br label %.tail.thread.sink.split
 
 .tail.thread.sink.split:                          ; preds = %agxbdisown.exit.tail, %141
-  %.sink64 = phi i64 [ 2, %141 ], [ 1, %agxbdisown.exit.tail ]
-  %.sink63 = phi ptr [ %142, %141 ], [ %.0.i33, %agxbdisown.exit.tail ]
-  %143 = getelementptr inbounds nuw i8, ptr %.0.i33, i64 %.sink64
-  %144 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.sink63) #22
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %.sink63, ptr nonnull align 1 %143, i64 %144, i1 false)
+  %.sink69 = phi i64 [ 2, %141 ], [ 1, %agxbdisown.exit.tail ]
+  %.sink68 = phi ptr [ %142, %141 ], [ %.0.i33, %agxbdisown.exit.tail ]
+  %143 = getelementptr inbounds nuw i8, ptr %.0.i33, i64 %.sink69
+  %144 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.sink68) #22
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %.sink68, ptr nonnull align 1 %143, i64 %144, i1 false)
   br label %.tail.thread
 
 .tail.thread:                                     ; preds = %.tail.thread.sink.split, %agxbdisown.exit, %agxbdisown.exit.tail, %sub_146, %.tail

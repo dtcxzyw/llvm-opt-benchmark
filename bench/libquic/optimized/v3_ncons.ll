@@ -44,12 +44,12 @@ target triple = "x86_64-pc-linux-gnu"
 define internal ptr @v2i_NAME_CONSTRAINTS(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = alloca %struct.conf_value_st, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %5 = tail call ptr @ASN1_item_new(ptr noundef nonnull @NAME_CONSTRAINTS_it) #6
+  %5 = tail call ptr @ASN1_item_new(ptr noundef nonnull @NAME_CONSTRAINTS_it) #5
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %.loopexit44, label %.preheader
 
 .preheader:                                       ; preds = %3
-  %6 = tail call i64 @sk_num(ptr noundef %2) #6
+  %6 = tail call i64 @sk_num(ptr noundef %2) #5
   %.not47 = icmp eq i64 %6, 0
   br i1 %.not47, label %.loopexit, label %.lr.ph
 
@@ -61,16 +61,16 @@ define internal ptr @v2i_NAME_CONSTRAINTS(ptr noundef %0, ptr noundef %1, ptr no
 
 10:                                               ; preds = %.thread
   %11 = add nuw i64 %.03046, 1
-  %12 = call i64 @sk_num(ptr noundef %2) #6
+  %12 = call i64 @sk_num(ptr noundef %2) #5
   %13 = icmp ult i64 %11, %12
   br i1 %13, label %14, label %.loopexit, !llvm.loop !6
 
 14:                                               ; preds = %.lr.ph, %10
   %.03046 = phi i64 [ 0, %.lr.ph ], [ %11, %10 ]
-  %15 = call ptr @sk_value(ptr noundef %2, i64 noundef %.03046) #6
+  %15 = call ptr @sk_value(ptr noundef %2, i64 noundef %.03046) #5
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %17 = load ptr, ptr %16, align 8, !tbaa !8
-  %18 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull dereferenceable(10) @.str.8, i64 noundef 9) #7
+  %18 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull dereferenceable(10) @.str.8, i64 noundef 9) #6
   %.not33 = icmp eq i32 %18, 0
   br i1 %.not33, label %19, label %22
 
@@ -81,7 +81,7 @@ define internal ptr @v2i_NAME_CONSTRAINTS(ptr noundef %0, ptr noundef %1, ptr no
   br i1 %.not34, label %22, label %28
 
 22:                                               ; preds = %19, %14
-  %23 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull dereferenceable(9) @.str.9, i64 noundef 8) #7
+  %23 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull dereferenceable(9) @.str.9, i64 noundef 8) #6
   %.not35 = icmp eq i32 %23, 0
   br i1 %.not35, label %24, label %27
 
@@ -92,7 +92,7 @@ define internal ptr @v2i_NAME_CONSTRAINTS(ptr noundef %0, ptr noundef %1, ptr no
   br i1 %.not36, label %27, label %28
 
 27:                                               ; preds = %24, %22
-  call void @ERR_put_error(i32 noundef 20, i32 noundef 0, i32 noundef 135, ptr noundef nonnull @.str.10, i32 noundef 132) #6
+  call void @ERR_put_error(i32 noundef 20, i32 noundef 0, i32 noundef 135, ptr noundef nonnull @.str.10, i32 noundef 132) #5
   br label %.loopexit43
 
 28:                                               ; preds = %24, %19
@@ -103,9 +103,9 @@ define internal ptr @v2i_NAME_CONSTRAINTS(ptr noundef %0, ptr noundef %1, ptr no
   %30 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %31 = load ptr, ptr %30, align 8, !tbaa !15
   store ptr %31, ptr %9, align 8, !tbaa !15
-  %32 = call ptr @ASN1_item_new(ptr noundef nonnull @GENERAL_SUBTREE_it) #6
+  %32 = call ptr @ASN1_item_new(ptr noundef nonnull @GENERAL_SUBTREE_it) #5
   %33 = load ptr, ptr %32, align 8, !tbaa !16
-  %34 = call ptr @v2i_GENERAL_NAME_ex(ptr noundef %33, ptr noundef %0, ptr noundef %1, ptr noundef nonnull %4, i32 noundef 1) #6
+  %34 = call ptr @v2i_GENERAL_NAME_ex(ptr noundef %33, ptr noundef %0, ptr noundef %1, ptr noundef nonnull %4, i32 noundef 1) #5
   %.not37 = icmp eq ptr %34, null
   br i1 %.not37, label %.loopexit43, label %35
 
@@ -115,20 +115,20 @@ define internal ptr @v2i_NAME_CONSTRAINTS(ptr noundef %0, ptr noundef %1, ptr no
   br i1 %.not38, label %37, label %.thread
 
 37:                                               ; preds = %35
-  %38 = call ptr @sk_new_null() #6
+  %38 = call ptr @sk_new_null() #5
   store ptr %38, ptr %.028, align 8, !tbaa !20
   %.not39 = icmp eq ptr %38, null
   br i1 %.not39, label %.loopexit44, label %.thread
 
 .thread:                                          ; preds = %35, %37
   %39 = phi ptr [ %38, %37 ], [ %36, %35 ]
-  %40 = call i64 @sk_push(ptr noundef nonnull %39, ptr noundef nonnull %32) #6
+  %40 = call i64 @sk_push(ptr noundef nonnull %39, ptr noundef nonnull %32) #5
   %.not40 = icmp eq i64 %40, 0
   br i1 %.not40, label %.loopexit44, label %10
 
 .loopexit44:                                      ; preds = %37, %.thread, %3
   %.0 = phi ptr [ null, %3 ], [ %32, %.thread ], [ %32, %37 ]
-  call void @ERR_put_error(i32 noundef 20, i32 noundef 0, i32 noundef 65, ptr noundef nonnull @.str.10, i32 noundef 149) #6
+  call void @ERR_put_error(i32 noundef 20, i32 noundef 0, i32 noundef 65, ptr noundef nonnull @.str.10, i32 noundef 149) #5
   br label %.loopexit43
 
 .loopexit43:                                      ; preds = %28, %.loopexit44, %27
@@ -136,7 +136,7 @@ define internal ptr @v2i_NAME_CONSTRAINTS(ptr noundef %0, ptr noundef %1, ptr no
   br i1 %.not, label %42, label %41
 
 41:                                               ; preds = %.loopexit43
-  call void @ASN1_item_free(ptr noundef nonnull %5, ptr noundef nonnull @NAME_CONSTRAINTS_it) #6
+  call void @ASN1_item_free(ptr noundef nonnull %5, ptr noundef nonnull @NAME_CONSTRAINTS_it) #5
   br label %42
 
 42:                                               ; preds = %41, %.loopexit43
@@ -144,7 +144,7 @@ define internal ptr @v2i_NAME_CONSTRAINTS(ptr noundef %0, ptr noundef %1, ptr no
   br i1 %.not41, label %.loopexit, label %43
 
 43:                                               ; preds = %42
-  call void @ASN1_item_free(ptr noundef nonnull %.2, ptr noundef nonnull @GENERAL_SUBTREE_it) #6
+  call void @ASN1_item_free(ptr noundef nonnull %.2, ptr noundef nonnull @GENERAL_SUBTREE_it) #5
   br label %.loopexit
 
 .loopexit:                                        ; preds = %10, %.preheader, %42, %43
@@ -165,7 +165,7 @@ define internal noundef i32 @i2r_NAME_CONSTRAINTS(ptr readnone captures(none) %0
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @GENERAL_SUBTREE_new() local_unnamed_addr #0 {
-  %1 = tail call ptr @ASN1_item_new(ptr noundef nonnull @GENERAL_SUBTREE_it) #6
+  %1 = tail call ptr @ASN1_item_new(ptr noundef nonnull @GENERAL_SUBTREE_it) #5
   ret ptr %1
 }
 
@@ -173,7 +173,7 @@ declare ptr @ASN1_item_new(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden void @GENERAL_SUBTREE_free(ptr noundef %0) local_unnamed_addr #0 {
-  tail call void @ASN1_item_free(ptr noundef %0, ptr noundef nonnull @GENERAL_SUBTREE_it) #6
+  tail call void @ASN1_item_free(ptr noundef %0, ptr noundef nonnull @GENERAL_SUBTREE_it) #5
   ret void
 }
 
@@ -181,21 +181,21 @@ declare void @ASN1_item_free(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @NAME_CONSTRAINTS_new() local_unnamed_addr #0 {
-  %1 = tail call ptr @ASN1_item_new(ptr noundef nonnull @NAME_CONSTRAINTS_it) #6
+  %1 = tail call ptr @ASN1_item_new(ptr noundef nonnull @NAME_CONSTRAINTS_it) #5
   ret ptr %1
 }
 
 ; Function Attrs: nounwind uwtable
 define hidden void @NAME_CONSTRAINTS_free(ptr noundef %0) local_unnamed_addr #0 {
-  tail call void @ASN1_item_free(ptr noundef %0, ptr noundef nonnull @NAME_CONSTRAINTS_it) #6
+  tail call void @ASN1_item_free(ptr noundef %0, ptr noundef nonnull @NAME_CONSTRAINTS_it) #5
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 0, 54) i32 @NAME_CONSTRAINTS_check(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca %struct.GENERAL_NAME_st, align 8
-  %4 = tail call ptr @X509_get_subject_name(ptr noundef %0) #6
-  %5 = tail call i32 @X509_NAME_entry_count(ptr noundef %4) #6
+  %4 = tail call ptr @X509_get_subject_name(ptr noundef %0) #5
+  %5 = tail call i32 @X509_NAME_entry_count(ptr noundef %4) #5
   %6 = icmp sgt i32 %5, 0
   br i1 %6, label %7, label %22
 
@@ -214,13 +214,13 @@ define hidden range(i32 0, 54) i32 @NAME_CONSTRAINTS_check(ptr noundef %0, ptr n
 
 11:                                               ; preds = %19, %10
   %.031 = phi i32 [ -1, %10 ], [ %12, %19 ]
-  %12 = tail call i32 @X509_NAME_get_index_by_NID(ptr noundef %4, i32 noundef 48, i32 noundef %.031) #6
+  %12 = tail call i32 @X509_NAME_get_index_by_NID(ptr noundef %4, i32 noundef 48, i32 noundef %.031) #5
   %13 = icmp eq i32 %12, -1
   br i1 %13, label %21, label %14
 
 14:                                               ; preds = %11
-  %15 = tail call ptr @X509_NAME_get_entry(ptr noundef %4, i32 noundef %12) #6
-  %16 = tail call ptr @X509_NAME_ENTRY_get_data(ptr noundef %15) #6
+  %15 = tail call ptr @X509_NAME_get_entry(ptr noundef %4, i32 noundef %12) #5
+  %16 = tail call ptr @X509_NAME_ENTRY_get_data(ptr noundef %15) #5
   store ptr %16, ptr %8, align 8, !tbaa !14
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 4
   %18 = load i32, ptr %17, align 4, !tbaa !28
@@ -244,21 +244,21 @@ define hidden range(i32 0, 54) i32 @NAME_CONSTRAINTS_check(ptr noundef %0, ptr n
 22:                                               ; preds = %21, %2
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %24 = load ptr, ptr %23, align 8, !tbaa !31
-  %25 = tail call i64 @sk_num(ptr noundef %24) #6
+  %25 = tail call i64 @sk_num(ptr noundef %24) #5
   %.not54 = icmp eq i64 %25, 0
   br i1 %.not54, label %.loopexit, label %.lr.ph
 
 26:                                               ; preds = %.lr.ph
   %27 = add nuw i64 %.03251, 1
   %28 = load ptr, ptr %23, align 8, !tbaa !31
-  %29 = tail call i64 @sk_num(ptr noundef %28) #6
+  %29 = tail call i64 @sk_num(ptr noundef %28) #5
   %30 = icmp ult i64 %27, %29
   br i1 %30, label %.lr.ph, label %.loopexit, !llvm.loop !43
 
 .lr.ph:                                           ; preds = %22, %26
   %.03251 = phi i64 [ %27, %26 ], [ 0, %22 ]
   %31 = load ptr, ptr %23, align 8, !tbaa !31
-  %32 = tail call ptr @sk_value(ptr noundef %31, i64 noundef %.03251) #6
+  %32 = tail call ptr @sk_value(ptr noundef %31, i64 noundef %.03251) #5
   %33 = tail call fastcc i32 @nc_match(ptr noundef %32, ptr noundef %1)
   %.not39 = icmp eq i32 %33, 0
   br i1 %.not39, label %26, label %.loopexit
@@ -275,20 +275,20 @@ declare i32 @X509_NAME_entry_count(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 54) i32 @nc_match(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 {
   %3 = load ptr, ptr %1, align 8, !tbaa !22
-  %4 = tail call i64 @sk_num(ptr noundef %3) #6
+  %4 = tail call i64 @sk_num(ptr noundef %3) #5
   %.not57 = icmp eq i64 %4, 0
   br i1 %.not57, label %.preheader, label %.lr.ph
 
-.lr.ph:                                           ; preds = %2, %22
-  %.047 = phi i64 [ %23, %22 ], [ 0, %2 ]
-  %.03146 = phi i32 [ %.132, %22 ], [ 0, %2 ]
+.lr.ph:                                           ; preds = %2, %20
+  %.047 = phi i64 [ %21, %20 ], [ 0, %2 ]
+  %.03146 = phi i32 [ %.132, %20 ], [ 0, %2 ]
   %5 = load ptr, ptr %1, align 8, !tbaa !22
-  %6 = tail call ptr @sk_value(ptr noundef %5, i64 noundef %.047) #6
+  %6 = tail call ptr @sk_value(ptr noundef %5, i64 noundef %.047) #5
   %7 = load i32, ptr %0, align 8, !tbaa !25
   %8 = load ptr, ptr %6, align 8, !tbaa !16
   %9 = load i32, ptr %8, align 8, !tbaa !25
   %.not39 = icmp eq i32 %7, %9
-  br i1 %.not39, label %10, label %22
+  br i1 %.not39, label %10, label %20
 
 10:                                               ; preds = %.lr.ph
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -304,78 +304,78 @@ define internal fastcc range(i32 0, 54) i32 @nc_match(ptr noundef readonly captu
 
 16:                                               ; preds = %13
   %17 = icmp eq i32 %.03146, 2
-  br i1 %17, label %22, label %18
+  br i1 %17, label %20, label %18
 
 18:                                               ; preds = %16
   %19 = tail call fastcc i32 @nc_match_single(ptr noundef nonnull %0, ptr noundef nonnull %8)
-  %20 = icmp eq i32 %19, 0
-  br i1 %20, label %22, label %21
-
-21:                                               ; preds = %18
-  %spec.store.select = tail call i32 @llvm.umax.i32(i32 %.03146, i32 1)
-  %.not42 = icmp eq i32 %19, 47
-  br i1 %.not42, label %22, label %.loopexit43
-
-22:                                               ; preds = %18, %21, %16, %.lr.ph
-  %.132 = phi i32 [ %.03146, %.lr.ph ], [ 2, %16 ], [ %spec.store.select, %21 ], [ 2, %18 ]
-  %23 = add nuw i64 %.047, 1
-  %24 = load ptr, ptr %1, align 8, !tbaa !22
-  %25 = tail call i64 @sk_num(ptr noundef %24) #6
-  %26 = icmp ult i64 %23, %25
-  br i1 %26, label %.lr.ph, label %._crit_edge, !llvm.loop !46
-
-._crit_edge:                                      ; preds = %22
-  %27 = icmp eq i32 %.132, 1
-  br i1 %27, label %.loopexit43, label %.preheader
-
-.preheader:                                       ; preds = %2, %._crit_edge
-  %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %29 = load ptr, ptr %28, align 8, !tbaa !24
-  %30 = tail call i64 @sk_num(ptr noundef %29) #6
-  %.not58 = icmp eq i64 %30, 0
-  br i1 %.not58, label %.loopexit43, label %.lr.ph49
-
-.lr.ph49:                                         ; preds = %.preheader, %44
-  %.148 = phi i64 [ %45, %44 ], [ 0, %.preheader ]
-  %31 = load ptr, ptr %28, align 8, !tbaa !24
-  %32 = tail call ptr @sk_value(ptr noundef %31, i64 noundef %.148) #6
-  %33 = load i32, ptr %0, align 8, !tbaa !25
-  %34 = load ptr, ptr %32, align 8, !tbaa !16
-  %35 = load i32, ptr %34, align 8, !tbaa !25
-  %.not = icmp eq i32 %33, %35
-  br i1 %.not, label %36, label %44
-
-36:                                               ; preds = %.lr.ph49
-  %37 = getelementptr inbounds nuw i8, ptr %32, i64 8
-  %38 = load ptr, ptr %37, align 8, !tbaa !44
-  %.not36 = icmp eq ptr %38, null
-  br i1 %.not36, label %39, label %.loopexit43
-
-39:                                               ; preds = %36
-  %40 = getelementptr inbounds nuw i8, ptr %32, i64 16
-  %41 = load ptr, ptr %40, align 8, !tbaa !45
-  %.not37 = icmp eq ptr %41, null
-  br i1 %.not37, label %42, label %.loopexit43
-
-42:                                               ; preds = %39
-  %43 = tail call fastcc i32 @nc_match_single(ptr noundef nonnull %0, ptr noundef nonnull %34)
-  switch i32 %43, label %.loopexit43 [
-    i32 0, label %.loopexit43.loopexit67
-    i32 47, label %44
+  switch i32 %19, label %.loopexit43 [
+    i32 0, label %20
+    i32 47, label %.fold.split
   ]
 
-44:                                               ; preds = %42, %.lr.ph49
-  %45 = add nuw i64 %.148, 1
-  %46 = load ptr, ptr %28, align 8, !tbaa !24
-  %47 = tail call i64 @sk_num(ptr noundef %46) #6
-  %48 = icmp ult i64 %45, %47
-  br i1 %48, label %.lr.ph49, label %.loopexit43, !llvm.loop !47
+.fold.split:                                      ; preds = %18
+  br label %20
 
-.loopexit43.loopexit67:                           ; preds = %42
+20:                                               ; preds = %18, %.fold.split, %16, %.lr.ph
+  %.132 = phi i32 [ %.03146, %.lr.ph ], [ 2, %16 ], [ 2, %18 ], [ 1, %.fold.split ]
+  %21 = add nuw i64 %.047, 1
+  %22 = load ptr, ptr %1, align 8, !tbaa !22
+  %23 = tail call i64 @sk_num(ptr noundef %22) #5
+  %24 = icmp ult i64 %21, %23
+  br i1 %24, label %.lr.ph, label %._crit_edge, !llvm.loop !46
+
+._crit_edge:                                      ; preds = %20
+  %25 = icmp eq i32 %.132, 1
+  br i1 %25, label %.loopexit43, label %.preheader
+
+.preheader:                                       ; preds = %2, %._crit_edge
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %27 = load ptr, ptr %26, align 8, !tbaa !24
+  %28 = tail call i64 @sk_num(ptr noundef %27) #5
+  %.not58 = icmp eq i64 %28, 0
+  br i1 %.not58, label %.loopexit43, label %.lr.ph49
+
+.lr.ph49:                                         ; preds = %.preheader, %42
+  %.148 = phi i64 [ %43, %42 ], [ 0, %.preheader ]
+  %29 = load ptr, ptr %26, align 8, !tbaa !24
+  %30 = tail call ptr @sk_value(ptr noundef %29, i64 noundef %.148) #5
+  %31 = load i32, ptr %0, align 8, !tbaa !25
+  %32 = load ptr, ptr %30, align 8, !tbaa !16
+  %33 = load i32, ptr %32, align 8, !tbaa !25
+  %.not = icmp eq i32 %31, %33
+  br i1 %.not, label %34, label %42
+
+34:                                               ; preds = %.lr.ph49
+  %35 = getelementptr inbounds nuw i8, ptr %30, i64 8
+  %36 = load ptr, ptr %35, align 8, !tbaa !44
+  %.not36 = icmp eq ptr %36, null
+  br i1 %.not36, label %37, label %.loopexit43
+
+37:                                               ; preds = %34
+  %38 = getelementptr inbounds nuw i8, ptr %30, i64 16
+  %39 = load ptr, ptr %38, align 8, !tbaa !45
+  %.not37 = icmp eq ptr %39, null
+  br i1 %.not37, label %40, label %.loopexit43
+
+40:                                               ; preds = %37
+  %41 = tail call fastcc i32 @nc_match_single(ptr noundef nonnull %0, ptr noundef nonnull %32)
+  switch i32 %41, label %.loopexit43 [
+    i32 0, label %.loopexit43.loopexit69
+    i32 47, label %42
+  ]
+
+42:                                               ; preds = %40, %.lr.ph49
+  %43 = add nuw i64 %.148, 1
+  %44 = load ptr, ptr %26, align 8, !tbaa !24
+  %45 = tail call i64 @sk_num(ptr noundef %44) #5
+  %46 = icmp ult i64 %43, %45
+  br i1 %46, label %.lr.ph49, label %.loopexit43, !llvm.loop !47
+
+.loopexit43.loopexit69:                           ; preds = %40
   br label %.loopexit43
 
-.loopexit43:                                      ; preds = %21, %10, %13, %39, %36, %44, %42, %.loopexit43.loopexit67, %.preheader, %._crit_edge
-  %.033 = phi i32 [ 47, %._crit_edge ], [ 0, %.preheader ], [ %43, %42 ], [ 49, %39 ], [ 49, %36 ], [ 0, %44 ], [ 48, %.loopexit43.loopexit67 ], [ %19, %21 ], [ 49, %10 ], [ 49, %13 ]
+.loopexit43:                                      ; preds = %10, %13, %18, %37, %34, %42, %40, %.loopexit43.loopexit69, %.preheader, %._crit_edge
+  %.033 = phi i32 [ 47, %._crit_edge ], [ 0, %.preheader ], [ %41, %40 ], [ 49, %37 ], [ 49, %34 ], [ 0, %42 ], [ 48, %.loopexit43.loopexit69 ], [ 49, %10 ], [ 49, %13 ], [ %19, %18 ]
   ret i32 %.033
 }
 
@@ -402,16 +402,16 @@ declare i64 @sk_push(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @do_i2r_name_constraints(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #0 {
-  %5 = tail call i64 @sk_num(ptr noundef %0) #6
+  %5 = tail call i64 @sk_num(ptr noundef %0) #5
   %.not = icmp eq i64 %5, 0
   br i1 %.not, label %8, label %6
 
 6:                                                ; preds = %4
-  %7 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %1, ptr noundef nonnull @.str.13, i32 noundef %2, ptr noundef nonnull @.str.14, ptr noundef %3) #6
+  %7 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %1, ptr noundef nonnull @.str.13, i32 noundef %2, ptr noundef nonnull @.str.14, ptr noundef %3) #5
   br label %8
 
 8:                                                ; preds = %6, %4
-  %9 = tail call i64 @sk_num(ptr noundef %0) #6
+  %9 = tail call i64 @sk_num(ptr noundef %0) #5
   %.not2 = icmp eq i64 %9, 0
   br i1 %.not2, label %._crit_edge, label %.lr.ph
 
@@ -421,8 +421,8 @@ define internal fastcc void @do_i2r_name_constraints(ptr noundef %0, ptr noundef
 
 11:                                               ; preds = %.lr.ph, %print_nc_ipadd.exit
   %.01 = phi i64 [ 0, %.lr.ph ], [ %65, %print_nc_ipadd.exit ]
-  %12 = tail call ptr @sk_value(ptr noundef %0, i64 noundef %.01) #6
-  %13 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %1, ptr noundef nonnull @.str.15, i32 noundef %10, ptr noundef nonnull @.str.14) #6
+  %12 = tail call ptr @sk_value(ptr noundef %0, i64 noundef %.01) #5
+  %13 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %1, ptr noundef nonnull @.str.15, i32 noundef %10, ptr noundef nonnull @.str.14) #5
   %14 = load ptr, ptr %12, align 8, !tbaa !16
   %15 = load i32, ptr %14, align 8, !tbaa !25
   %16 = icmp eq i32 %15, 7
@@ -434,7 +434,7 @@ define internal fastcc void @do_i2r_name_constraints(ptr noundef %0, ptr noundef
   %.val = load i32, ptr %19, align 8, !tbaa !48
   %20 = getelementptr i8, ptr %19, i64 8
   %.val16 = load ptr, ptr %20, align 8, !tbaa !49
-  %21 = tail call i32 @BIO_puts(ptr noundef %1, ptr noundef nonnull @.str.17) #6
+  %21 = tail call i32 @BIO_puts(ptr noundef %1, ptr noundef nonnull @.str.17) #5
   switch i32 %.val, label %60 [
     i32 8, label %22
     i32 32, label %.preheader.i
@@ -464,7 +464,7 @@ define internal fastcc void @do_i2r_name_constraints(ptr noundef %0, ptr noundef
   %43 = getelementptr inbounds nuw i8, ptr %.val16, i64 7
   %44 = load i8, ptr %43, align 1, !tbaa !14
   %45 = zext i8 %44 to i32
-  %46 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %1, ptr noundef nonnull @.str.18, i32 noundef %24, i32 noundef %27, i32 noundef %30, i32 noundef %33, i32 noundef %36, i32 noundef %39, i32 noundef %42, i32 noundef %45) #6
+  %46 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %1, ptr noundef nonnull @.str.18, i32 noundef %24, i32 noundef %27, i32 noundef %30, i32 noundef %33, i32 noundef %36, i32 noundef %39, i32 noundef %42, i32 noundef %45) #5
   br label %print_nc_ipadd.exit
 
 .preheader.i:                                     ; preds = %17, %57
@@ -477,7 +477,7 @@ define internal fastcc void @do_i2r_name_constraints(ptr noundef %0, ptr noundef
   %51 = load i8, ptr %50, align 1, !tbaa !14
   %52 = zext i8 %51 to i32
   %53 = or disjoint i32 %49, %52
-  %54 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %1, ptr noundef nonnull @.str.19, i32 noundef %53) #6
+  %54 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %1, ptr noundef nonnull @.str.19, i32 noundef %53) #5
   %55 = getelementptr inbounds nuw i8, ptr %.02.i, i64 2
   switch i32 %.0241.i, label %56 [
     i32 7, label %57
@@ -489,22 +489,22 @@ define internal fastcc void @do_i2r_name_constraints(ptr noundef %0, ptr noundef
 
 57:                                               ; preds = %56, %.preheader.i
   %.str.20.sink.i = phi ptr [ @.str.21, %56 ], [ @.str.20, %.preheader.i ]
-  %58 = tail call i32 @BIO_puts(ptr noundef %1, ptr noundef nonnull %.str.20.sink.i) #6
+  %58 = tail call i32 @BIO_puts(ptr noundef %1, ptr noundef nonnull %.str.20.sink.i) #5
   %59 = add nuw nsw i32 %.0241.i, 1
   br label %.preheader.i
 
 60:                                               ; preds = %17
-  %61 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %1, ptr noundef nonnull @.str.22) #6
+  %61 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %1, ptr noundef nonnull @.str.22) #5
   br label %print_nc_ipadd.exit
 
 62:                                               ; preds = %11
-  %63 = tail call i32 @GENERAL_NAME_print(ptr noundef %1, ptr noundef nonnull %14) #6
+  %63 = tail call i32 @GENERAL_NAME_print(ptr noundef %1, ptr noundef nonnull %14) #5
   br label %print_nc_ipadd.exit
 
 print_nc_ipadd.exit:                              ; preds = %.preheader.i, %60, %22, %62
-  %64 = tail call i32 @BIO_puts(ptr noundef %1, ptr noundef nonnull @.str.16) #6
+  %64 = tail call i32 @BIO_puts(ptr noundef %1, ptr noundef nonnull @.str.16) #5
   %65 = add nuw i64 %.01, 1
-  %66 = tail call i64 @sk_num(ptr noundef %0) #6
+  %66 = tail call i64 @sk_num(ptr noundef %0) #5
   %67 = icmp ult i64 %65, %66
   br i1 %67, label %11, label %._crit_edge, !llvm.loop !50
 
@@ -539,7 +539,7 @@ define internal fastcc range(i32 0, 54) i32 @nc_match_single(ptr noundef readonl
   br i1 %.not.i, label %14, label %11
 
 11:                                               ; preds = %4
-  %12 = tail call i32 @i2d_X509_NAME(ptr noundef nonnull %6, ptr noundef null) #6
+  %12 = tail call i32 @i2d_X509_NAME(ptr noundef nonnull %6, ptr noundef null) #5
   %13 = icmp slt i32 %12, 0
   br i1 %13, label %nc_dn.exit, label %14
 
@@ -550,7 +550,7 @@ define internal fastcc range(i32 0, 54) i32 @nc_match_single(ptr noundef readonl
   br i1 %.not10.i, label %20, label %17
 
 17:                                               ; preds = %14
-  %18 = tail call i32 @i2d_X509_NAME(ptr noundef nonnull %8, ptr noundef null) #6
+  %18 = tail call i32 @i2d_X509_NAME(ptr noundef nonnull %8, ptr noundef null) #5
   %19 = icmp slt i32 %18, 0
   br i1 %19, label %nc_dn.exit, label %20
 
@@ -607,7 +607,7 @@ define internal fastcc range(i32 0, 54) i32 @nc_match_single(ptr noundef readonl
 
 53:                                               ; preds = %50, %46, %42
   %.0.i10 = phi ptr [ %49, %50 ], [ %49, %46 ], [ %40, %42 ]
-  %54 = tail call i32 @OPENSSL_strcasecmp(ptr noundef nonnull %38, ptr noundef %.0.i10) #6
+  %54 = tail call i32 @OPENSSL_strcasecmp(ptr noundef nonnull %38, ptr noundef %.0.i10) #5
   %.not18.i = icmp eq i32 %54, 0
   %..i11 = select i1 %.not18.i, i32 0, i32 47
   br label %nc_dn.exit
@@ -621,8 +621,8 @@ define internal fastcc range(i32 0, 54) i32 @nc_match_single(ptr noundef readonl
   %61 = load ptr, ptr %60, align 8, !tbaa !49
   %62 = getelementptr inbounds nuw i8, ptr %57, i64 8
   %63 = load ptr, ptr %62, align 8, !tbaa !49
-  %64 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %61, i32 noundef 64) #7
-  %65 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %63, i32 noundef 64) #7
+  %64 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %61, i32 noundef 64) #6
+  %65 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %63, i32 noundef 64) #6
   %.not.i12 = icmp eq ptr %65, null
   br i1 %.not.i12, label %nc_dn.exit, label %66
 
@@ -645,7 +645,7 @@ define internal fastcc range(i32 0, 54) i32 @nc_match_single(ptr noundef readonl
   %75 = sub nsw i32 %71, %72
   %76 = zext nneg i32 %75 to i64
   %77 = getelementptr inbounds nuw i8, ptr %63, i64 %76
-  %78 = tail call i32 @OPENSSL_strcasecmp(ptr noundef nonnull %61, ptr noundef nonnull %77) #6
+  %78 = tail call i32 @OPENSSL_strcasecmp(ptr noundef nonnull %61, ptr noundef nonnull %77) #5
   %.not37.i = icmp eq i32 %78, 0
   br i1 %.not37.i, label %nc_dn.exit, label %79
 
@@ -667,7 +667,7 @@ define internal fastcc range(i32 0, 54) i32 @nc_match_single(ptr noundef readonl
   br i1 %.not39.i, label %87, label %nc_dn.exit
 
 87:                                               ; preds = %80
-  %88 = tail call i32 @strncmp(ptr noundef nonnull %61, ptr noundef nonnull %63, i64 noundef %83) #7
+  %88 = tail call i32 @strncmp(ptr noundef nonnull %61, ptr noundef nonnull %63, i64 noundef %83) #6
   %.not40.i = icmp eq i32 %88, 0
   br i1 %.not40.i, label %89, label %nc_dn.exit
 
@@ -678,7 +678,7 @@ define internal fastcc range(i32 0, 54) i32 @nc_match_single(ptr noundef readonl
 91:                                               ; preds = %89, %67
   %.029.i = phi ptr [ %90, %89 ], [ %61, %67 ]
   %92 = getelementptr inbounds nuw i8, ptr %65, i64 1
-  %93 = tail call i32 @OPENSSL_strcasecmp(ptr noundef nonnull %.029.i, ptr noundef nonnull %92) #6
+  %93 = tail call i32 @OPENSSL_strcasecmp(ptr noundef nonnull %.029.i, ptr noundef nonnull %92) #5
   %.not41.i = icmp eq i32 %93, 0
   %..i14 = select i1 %.not41.i, i32 0, i32 47
   br label %nc_dn.exit
@@ -692,7 +692,7 @@ define internal fastcc range(i32 0, 54) i32 @nc_match_single(ptr noundef readonl
   %.val = load ptr, ptr %99, align 8, !tbaa !49
   %100 = getelementptr inbounds nuw i8, ptr %98, i64 8
   %101 = load ptr, ptr %100, align 8, !tbaa !49
-  %102 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.val, i32 noundef 58) #7
+  %102 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.val, i32 noundef 58) #6
   %.not.i15 = icmp eq ptr %102, null
   br i1 %.not.i15, label %nc_dn.exit, label %103
 
@@ -710,17 +710,17 @@ define internal fastcc range(i32 0, 54) i32 @nc_match_single(ptr noundef readonl
 
 109:                                              ; preds = %106
   %110 = getelementptr inbounds nuw i8, ptr %102, i64 3
-  %111 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %110, i32 noundef 58) #7
+  %111 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %110, i32 noundef 58) #6
   %.not36.i16 = icmp eq ptr %111, null
   br i1 %.not36.i16, label %112, label %.thread.i
 
 112:                                              ; preds = %109
-  %113 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %110, i32 noundef 47) #7
+  %113 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %110, i32 noundef 47) #6
   %.not37.i21 = icmp eq ptr %113, null
   br i1 %.not37.i21, label %114, label %.thread.i
 
 114:                                              ; preds = %112
-  %115 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %110) #7
+  %115 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %110) #6
   br label %119
 
 .thread.i:                                        ; preds = %112, %109
@@ -753,7 +753,7 @@ define internal fastcc range(i32 0, 54) i32 @nc_match_single(ptr noundef readonl
   %130 = sext i32 %124 to i64
   %131 = sub nsw i64 0, %130
   %132 = getelementptr inbounds i8, ptr %129, i64 %131
-  %133 = tail call i32 @OPENSSL_strncasecmp(ptr noundef nonnull %132, ptr noundef nonnull %101, i64 noundef %130) #6
+  %133 = tail call i32 @OPENSSL_strncasecmp(ptr noundef nonnull %132, ptr noundef nonnull %101, i64 noundef %130) #5
   %.not41.i20 = icmp eq i32 %133, 0
   br i1 %.not41.i20, label %nc_dn.exit, label %134
 
@@ -767,7 +767,7 @@ define internal fastcc range(i32 0, 54) i32 @nc_match_single(ptr noundef readonl
 136:                                              ; preds = %135
   %sext.i = shl i64 %.0.in.i, 32
   %137 = ashr exact i64 %sext.i, 32
-  %138 = tail call i32 @OPENSSL_strncasecmp(ptr noundef nonnull %110, ptr noundef nonnull %101, i64 noundef %137) #6
+  %138 = tail call i32 @OPENSSL_strncasecmp(ptr noundef nonnull %110, ptr noundef nonnull %101, i64 noundef %137) #5
   %.not39.i19 = icmp eq i32 %138, 0
   %spec.select.i = select i1 %.not39.i19, i32 0, i32 47
   br label %nc_dn.exit
@@ -795,20 +795,16 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #4
-
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #5
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #4
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: read) }
-attributes #6 = { nounwind }
-attributes #7 = { nounwind willreturn memory(read) }
+attributes #4 = { nocallback nofree nounwind willreturn memory(argmem: read) }
+attributes #5 = { nounwind }
+attributes #6 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

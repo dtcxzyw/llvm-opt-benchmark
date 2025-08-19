@@ -601,19 +601,19 @@ step_collect_psy_metrics.exit:                    ; preds = %281, %.loopexit.thr
   %328 = getelementptr inbounds nuw i8, ptr %327, i64 4
   %329 = load i32, ptr %328, align 4, !tbaa !76
   %.not.i12.i = icmp eq i32 %329, 0
-  br i1 %.not.i12.i, label %._crit_edge.split.loop.exit37.i.i, label %330
+  br i1 %.not.i12.i, label %._crit_edge.split.loop.exit38.i.i, label %330
 
 330:                                              ; preds = %.lr.ph.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
   br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !93
 
-._crit_edge.split.loop.exit37.i.i:                ; preds = %.lr.ph.i.i
+._crit_edge.split.loop.exit38.i.i:                ; preds = %.lr.ph.i.i
   %331 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   br label %._crit_edge.i.i
 
-._crit_edge.i.i:                                  ; preds = %330, %._crit_edge.split.loop.exit37.i.i
-  %.0.lcssa.i.i = phi i32 [ %331, %._crit_edge.split.loop.exit37.i.i ], [ %324, %330 ]
+._crit_edge.i.i:                                  ; preds = %330, %._crit_edge.split.loop.exit38.i.i
+  %.0.lcssa.i.i = phi i32 [ %331, %._crit_edge.split.loop.exit38.i.i ], [ %324, %330 ]
   %332 = add nsw i32 %.0.lcssa.i.i, -1
   %333 = icmp eq i32 %.0.lcssa.i.i, 0
   br i1 %333, label %flush_silent_frames.exit.thread.i, label %.preheader.i.i

@@ -21349,14 +21349,14 @@ define hidden void @"_ZN165_$LT$polars_arrow..array..dictionary..mutable..Mutabl
 
 .thread.i:                                        ; preds = %29
   %32 = getelementptr inbounds nuw i8, ptr %.sroa.6.0.ph, i64 2
-  br label %.loopexit75
+  br label %.loopexit80
 
 33:                                               ; preds = %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i"
   %34 = extractvalue { i8, ptr } %27, 1
   %35 = trunc nuw i8 %28 to i1
   %36 = icmp ne ptr %34, null
   tail call void @llvm.assume(i1 %36)
-  br i1 %35, label %.loopexit75, label %41
+  br i1 %35, label %.loopexit80, label %41
 
 .loopexit:                                        ; preds = %29, %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i"
   store i64 17, ptr %0, align 8
@@ -21365,7 +21365,7 @@ define hidden void @"_ZN165_$LT$polars_arrow..array..dictionary..mutable..Mutabl
 37:                                               ; preds = %76, %.loopexit
   ret void
 
-.loopexit75:                                      ; preds = %33, %.thread.i
+.loopexit80:                                      ; preds = %33, %.thread.i
   %.sroa.18.3 = phi i64 [ %.sroa.18.0, %.thread.i ], [ %.sroa.18.2, %33 ]
   %.sroa.16.2 = phi i64 [ %.sroa.16.0, %.thread.i ], [ %.sroa.16.1, %33 ]
   %.sroa.14.2 = phi i64 [ %.sroa.14.0, %.thread.i ], [ %.sroa.14.1, %33 ]
@@ -21452,7 +21452,7 @@ _ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i:
 "_ZN12polars_arrow5array9primitive7mutable30MutablePrimitiveArray$LT$T$GT$4push17hf14144fd23629265E.exit.backedge": ; preds = %75, %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i
   br label %"_ZN12polars_arrow5array9primitive7mutable30MutablePrimitiveArray$LT$T$GT$4push17hf14144fd23629265E.exit"
 
-76:                                               ; preds = %.loopexit75
+76:                                               ; preds = %.loopexit80
   %.sroa.622.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 10
   %.sroa.325.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 10
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(54) %.sroa.325.0..sroa_idx, ptr noundef nonnull align 2 dereferenceable(54) %.sroa.622.0..sroa_idx, i64 54, i1 false)
@@ -21462,7 +21462,7 @@ _ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i:
   store i16 %40, ptr %.sroa.224.0..sroa_idx, align 8
   br label %37
 
-77:                                               ; preds = %.loopexit75
+77:                                               ; preds = %.loopexit80
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %78 = load i64, ptr %6, align 8, !alias.scope !2212, !noalias !6, !noundef !6
   %79 = load i64, ptr %5, align 8, !range !2013, !alias.scope !2212, !noalias !6, !noundef !6
@@ -21947,14 +21947,14 @@ define hidden void @"_ZN165_$LT$polars_arrow..array..dictionary..mutable..Mutabl
 
 .thread.i:                                        ; preds = %29
   %32 = getelementptr inbounds nuw i8, ptr %.sroa.6.0.ph, i64 4
-  br label %.loopexit75
+  br label %.loopexit80
 
 33:                                               ; preds = %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i"
   %34 = extractvalue { i8, ptr } %27, 1
   %35 = trunc nuw i8 %28 to i1
   %36 = icmp ne ptr %34, null
   tail call void @llvm.assume(i1 %36)
-  br i1 %35, label %.loopexit75, label %41
+  br i1 %35, label %.loopexit80, label %41
 
 .loopexit:                                        ; preds = %29, %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i"
   store i64 17, ptr %0, align 8
@@ -21963,7 +21963,7 @@ define hidden void @"_ZN165_$LT$polars_arrow..array..dictionary..mutable..Mutabl
 37:                                               ; preds = %76, %.loopexit
   ret void
 
-.loopexit75:                                      ; preds = %33, %.thread.i
+.loopexit80:                                      ; preds = %33, %.thread.i
   %.sroa.18.3 = phi i64 [ %.sroa.18.0, %.thread.i ], [ %.sroa.18.2, %33 ]
   %.sroa.16.2 = phi i64 [ %.sroa.16.0, %.thread.i ], [ %.sroa.16.1, %33 ]
   %.sroa.14.2 = phi i64 [ %.sroa.14.0, %.thread.i ], [ %.sroa.14.1, %33 ]
@@ -22050,7 +22050,7 @@ _ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i:
 "_ZN12polars_arrow5array9primitive7mutable30MutablePrimitiveArray$LT$T$GT$4push17h1596243c76c69125E.exit.backedge": ; preds = %75, %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i
   br label %"_ZN12polars_arrow5array9primitive7mutable30MutablePrimitiveArray$LT$T$GT$4push17h1596243c76c69125E.exit"
 
-76:                                               ; preds = %.loopexit75
+76:                                               ; preds = %.loopexit80
   %.sroa.622.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 16
   %.sroa.325.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.325.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.622.0..sroa_idx, i64 48, i1 false)
@@ -22060,7 +22060,7 @@ _ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i:
   store i64 %40, ptr %.sroa.224.0..sroa_idx, align 8
   br label %37
 
-77:                                               ; preds = %.loopexit75
+77:                                               ; preds = %.loopexit80
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %78 = load i64, ptr %6, align 8, !alias.scope !2315, !noalias !6, !noundef !6
   %79 = load i64, ptr %5, align 8, !range !2013, !alias.scope !2315, !noalias !6, !noundef !6
@@ -22223,14 +22223,14 @@ define hidden void @"_ZN165_$LT$polars_arrow..array..dictionary..mutable..Mutabl
 
 .thread.i:                                        ; preds = %29
   %32 = getelementptr inbounds nuw i8, ptr %.sroa.6.0.ph, i64 1
-  br label %.loopexit75
+  br label %.loopexit80
 
 33:                                               ; preds = %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i"
   %34 = extractvalue { i8, ptr } %27, 1
   %35 = trunc nuw i8 %28 to i1
   %36 = icmp ne ptr %34, null
   tail call void @llvm.assume(i1 %36)
-  br i1 %35, label %.loopexit75, label %41
+  br i1 %35, label %.loopexit80, label %41
 
 .loopexit:                                        ; preds = %29, %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i"
   store i64 17, ptr %0, align 8
@@ -22239,7 +22239,7 @@ define hidden void @"_ZN165_$LT$polars_arrow..array..dictionary..mutable..Mutabl
 37:                                               ; preds = %76, %.loopexit
   ret void
 
-.loopexit75:                                      ; preds = %33, %.thread.i
+.loopexit80:                                      ; preds = %33, %.thread.i
   %.sroa.18.3 = phi i64 [ %.sroa.18.0, %.thread.i ], [ %.sroa.18.2, %33 ]
   %.sroa.16.2 = phi i64 [ %.sroa.16.0, %.thread.i ], [ %.sroa.16.1, %33 ]
   %.sroa.14.2 = phi i64 [ %.sroa.14.0, %.thread.i ], [ %.sroa.14.1, %33 ]
@@ -22326,7 +22326,7 @@ _ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i:
 "_ZN12polars_arrow5array9primitive7mutable30MutablePrimitiveArray$LT$T$GT$4push17h4ee0d8065cd9c4e0E.exit.backedge": ; preds = %75, %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i
   br label %"_ZN12polars_arrow5array9primitive7mutable30MutablePrimitiveArray$LT$T$GT$4push17h4ee0d8065cd9c4e0E.exit"
 
-76:                                               ; preds = %.loopexit75
+76:                                               ; preds = %.loopexit80
   %.sroa.622.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 12
   %.sroa.325.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(52) %.sroa.325.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(52) %.sroa.622.0..sroa_idx, i64 52, i1 false)
@@ -22336,7 +22336,7 @@ _ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i:
   store i32 %40, ptr %.sroa.224.0..sroa_idx, align 8
   br label %37
 
-77:                                               ; preds = %.loopexit75
+77:                                               ; preds = %.loopexit80
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %78 = load i64, ptr %6, align 8, !alias.scope !2365, !noalias !6, !noundef !6
   %79 = load i64, ptr %5, align 8, !range !2013, !alias.scope !2365, !noalias !6, !noundef !6
@@ -22500,14 +22500,14 @@ define hidden void @"_ZN165_$LT$polars_arrow..array..dictionary..mutable..Mutabl
 
 .thread.i:                                        ; preds = %29
   %32 = getelementptr inbounds nuw i8, ptr %.sroa.6.0.ph, i64 1
-  br label %.loopexit81
+  br label %.loopexit86
 
 33:                                               ; preds = %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i"
   %34 = extractvalue { i8, ptr } %27, 1
   %35 = trunc nuw i8 %28 to i1
   %36 = icmp ne ptr %34, null
   tail call void @llvm.assume(i1 %36)
-  br i1 %35, label %.loopexit81, label %40
+  br i1 %35, label %.loopexit86, label %40
 
 .loopexit:                                        ; preds = %29, %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i"
   store i64 17, ptr %0, align 8
@@ -22516,7 +22516,7 @@ define hidden void @"_ZN165_$LT$polars_arrow..array..dictionary..mutable..Mutabl
 37:                                               ; preds = %75, %.loopexit
   ret void
 
-.loopexit81:                                      ; preds = %33, %.thread.i
+.loopexit86:                                      ; preds = %33, %.thread.i
   %.sroa.18.3 = phi i64 [ %.sroa.18.0, %.thread.i ], [ %.sroa.18.2, %33 ]
   %.sroa.16.2 = phi i64 [ %.sroa.16.0, %.thread.i ], [ %.sroa.16.1, %33 ]
   %.sroa.14.2 = phi i64 [ %.sroa.14.0, %.thread.i ], [ %.sroa.14.1, %33 ]
@@ -22602,7 +22602,7 @@ _ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i:
 "_ZN12polars_arrow5array9primitive7mutable30MutablePrimitiveArray$LT$T$GT$4push17hf9858ade1900cd59E.exit.backedge": ; preds = %74, %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i
   br label %"_ZN12polars_arrow5array9primitive7mutable30MutablePrimitiveArray$LT$T$GT$4push17hf9858ade1900cd59E.exit"
 
-75:                                               ; preds = %.loopexit81
+75:                                               ; preds = %.loopexit86
   %.sroa.526.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
   %.sroa.526.0.copyload = load i64, ptr %.sroa.526.0..sroa_idx, align 8
   %.sroa.627.0.copyload = load i128, ptr %12, align 16
@@ -22618,7 +22618,7 @@ _ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i:
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.432.0..sroa_idx, ptr noundef nonnull align 16 dereferenceable(32) %.sroa.432, i64 32, i1 false)
   br label %37
 
-76:                                               ; preds = %.loopexit81
+76:                                               ; preds = %.loopexit86
   %77 = load i128, ptr %12, align 16, !noundef !6
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %78 = load i64, ptr %6, align 8, !alias.scope !2415, !noalias !6, !noundef !6
@@ -23104,14 +23104,14 @@ define hidden void @"_ZN165_$LT$polars_arrow..array..dictionary..mutable..Mutabl
 
 .thread.i:                                        ; preds = %29
   %32 = getelementptr inbounds nuw i8, ptr %.sroa.6.0.ph, i64 2
-  br label %.loopexit75
+  br label %.loopexit80
 
 33:                                               ; preds = %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i"
   %34 = extractvalue { i8, ptr } %27, 1
   %35 = trunc nuw i8 %28 to i1
   %36 = icmp ne ptr %34, null
   tail call void @llvm.assume(i1 %36)
-  br i1 %35, label %.loopexit75, label %41
+  br i1 %35, label %.loopexit80, label %41
 
 .loopexit:                                        ; preds = %29, %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i"
   store i64 17, ptr %0, align 8
@@ -23120,7 +23120,7 @@ define hidden void @"_ZN165_$LT$polars_arrow..array..dictionary..mutable..Mutabl
 37:                                               ; preds = %76, %.loopexit
   ret void
 
-.loopexit75:                                      ; preds = %33, %.thread.i
+.loopexit80:                                      ; preds = %33, %.thread.i
   %.sroa.18.3 = phi i64 [ %.sroa.18.0, %.thread.i ], [ %.sroa.18.2, %33 ]
   %.sroa.16.2 = phi i64 [ %.sroa.16.0, %.thread.i ], [ %.sroa.16.1, %33 ]
   %.sroa.14.2 = phi i64 [ %.sroa.14.0, %.thread.i ], [ %.sroa.14.1, %33 ]
@@ -23207,7 +23207,7 @@ _ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i:
 "_ZN12polars_arrow5array9primitive7mutable30MutablePrimitiveArray$LT$T$GT$4push17h37189fe9ccb0e64fE.exit.backedge": ; preds = %75, %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i
   br label %"_ZN12polars_arrow5array9primitive7mutable30MutablePrimitiveArray$LT$T$GT$4push17h37189fe9ccb0e64fE.exit"
 
-76:                                               ; preds = %.loopexit75
+76:                                               ; preds = %.loopexit80
   %.sroa.622.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 9
   %.sroa.325.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(55) %.sroa.325.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(55) %.sroa.622.0..sroa_idx, i64 55, i1 false)
@@ -23217,7 +23217,7 @@ _ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i:
   store i8 %40, ptr %.sroa.224.0..sroa_idx, align 8
   br label %37
 
-77:                                               ; preds = %.loopexit75
+77:                                               ; preds = %.loopexit80
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %78 = load i64, ptr %6, align 8, !alias.scope !2517, !noalias !6, !noundef !6
   %79 = load i64, ptr %5, align 8, !range !2013, !alias.scope !2517, !noalias !6, !noundef !6
@@ -24451,14 +24451,14 @@ define hidden void @"_ZN165_$LT$polars_arrow..array..dictionary..mutable..Mutabl
 
 .thread.i:                                        ; preds = %29
   %32 = getelementptr inbounds nuw i8, ptr %.sroa.6.0.ph, i64 8
-  br label %.loopexit75
+  br label %.loopexit80
 
 33:                                               ; preds = %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i"
   %34 = extractvalue { i8, ptr } %27, 1
   %35 = trunc nuw i8 %28 to i1
   %36 = icmp ne ptr %34, null
   tail call void @llvm.assume(i1 %36)
-  br i1 %35, label %.loopexit75, label %41
+  br i1 %35, label %.loopexit80, label %41
 
 .loopexit:                                        ; preds = %29, %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i"
   store i64 17, ptr %0, align 8
@@ -24467,7 +24467,7 @@ define hidden void @"_ZN165_$LT$polars_arrow..array..dictionary..mutable..Mutabl
 37:                                               ; preds = %76, %.loopexit
   ret void
 
-.loopexit75:                                      ; preds = %33, %.thread.i
+.loopexit80:                                      ; preds = %33, %.thread.i
   %.sroa.18.3 = phi i64 [ %.sroa.18.0, %.thread.i ], [ %.sroa.18.2, %33 ]
   %.sroa.16.2 = phi i64 [ %.sroa.16.0, %.thread.i ], [ %.sroa.16.1, %33 ]
   %.sroa.14.2 = phi i64 [ %.sroa.14.0, %.thread.i ], [ %.sroa.14.1, %33 ]
@@ -24554,7 +24554,7 @@ _ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i:
 "_ZN12polars_arrow5array9primitive7mutable30MutablePrimitiveArray$LT$T$GT$4push17ha00ace499038bc0bE.exit.backedge": ; preds = %75, %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i
   br label %"_ZN12polars_arrow5array9primitive7mutable30MutablePrimitiveArray$LT$T$GT$4push17ha00ace499038bc0bE.exit"
 
-76:                                               ; preds = %.loopexit75
+76:                                               ; preds = %.loopexit80
   %.sroa.622.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 10
   %.sroa.325.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 10
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(54) %.sroa.325.0..sroa_idx, ptr noundef nonnull align 2 dereferenceable(54) %.sroa.622.0..sroa_idx, i64 54, i1 false)
@@ -24564,7 +24564,7 @@ _ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i:
   store i16 %40, ptr %.sroa.224.0..sroa_idx, align 8
   br label %37
 
-77:                                               ; preds = %.loopexit75
+77:                                               ; preds = %.loopexit80
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %78 = load i64, ptr %6, align 8, !alias.scope !2763, !noalias !6, !noundef !6
   %79 = load i64, ptr %5, align 8, !range !2013, !alias.scope !2763, !noalias !6, !noundef !6
@@ -25469,14 +25469,14 @@ define hidden void @"_ZN165_$LT$polars_arrow..array..dictionary..mutable..Mutabl
 
 .thread.i:                                        ; preds = %29
   %32 = getelementptr inbounds nuw i8, ptr %.sroa.6.0.ph, i64 2
-  br label %.loopexit75
+  br label %.loopexit80
 
 33:                                               ; preds = %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i"
   %34 = extractvalue { i8, ptr } %27, 1
   %35 = trunc nuw i8 %28 to i1
   %36 = icmp ne ptr %34, null
   tail call void @llvm.assume(i1 %36)
-  br i1 %35, label %.loopexit75, label %41
+  br i1 %35, label %.loopexit80, label %41
 
 .loopexit:                                        ; preds = %29, %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i"
   store i64 17, ptr %0, align 8
@@ -25485,7 +25485,7 @@ define hidden void @"_ZN165_$LT$polars_arrow..array..dictionary..mutable..Mutabl
 37:                                               ; preds = %76, %.loopexit
   ret void
 
-.loopexit75:                                      ; preds = %33, %.thread.i
+.loopexit80:                                      ; preds = %33, %.thread.i
   %.sroa.18.3 = phi i64 [ %.sroa.18.0, %.thread.i ], [ %.sroa.18.2, %33 ]
   %.sroa.16.2 = phi i64 [ %.sroa.16.0, %.thread.i ], [ %.sroa.16.1, %33 ]
   %.sroa.14.2 = phi i64 [ %.sroa.14.0, %.thread.i ], [ %.sroa.14.1, %33 ]
@@ -25572,7 +25572,7 @@ _ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i:
 "_ZN12polars_arrow5array9primitive7mutable30MutablePrimitiveArray$LT$T$GT$4push17h3ed8801134f38e72E.exit.backedge": ; preds = %75, %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i
   br label %"_ZN12polars_arrow5array9primitive7mutable30MutablePrimitiveArray$LT$T$GT$4push17h3ed8801134f38e72E.exit"
 
-76:                                               ; preds = %.loopexit75
+76:                                               ; preds = %.loopexit80
   %.sroa.622.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 16
   %.sroa.325.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.325.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.622.0..sroa_idx, i64 48, i1 false)
@@ -25582,7 +25582,7 @@ _ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i:
   store i64 %40, ptr %.sroa.224.0..sroa_idx, align 8
   br label %37
 
-77:                                               ; preds = %.loopexit75
+77:                                               ; preds = %.loopexit80
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %78 = load i64, ptr %6, align 8, !alias.scope !2957, !noalias !6, !noundef !6
   %79 = load i64, ptr %5, align 8, !range !2013, !alias.scope !2957, !noalias !6, !noundef !6
@@ -26445,14 +26445,14 @@ define hidden void @"_ZN165_$LT$polars_arrow..array..dictionary..mutable..Mutabl
 
 .thread.i:                                        ; preds = %29
   %32 = getelementptr inbounds nuw i8, ptr %.sroa.6.0.ph, i64 2
-  br label %.loopexit75
+  br label %.loopexit80
 
 33:                                               ; preds = %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i"
   %34 = extractvalue { i8, ptr } %27, 1
   %35 = trunc nuw i8 %28 to i1
   %36 = icmp ne ptr %34, null
   tail call void @llvm.assume(i1 %36)
-  br i1 %35, label %.loopexit75, label %41
+  br i1 %35, label %.loopexit80, label %41
 
 .loopexit:                                        ; preds = %29, %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i"
   store i64 17, ptr %0, align 8
@@ -26461,7 +26461,7 @@ define hidden void @"_ZN165_$LT$polars_arrow..array..dictionary..mutable..Mutabl
 37:                                               ; preds = %76, %.loopexit
   ret void
 
-.loopexit75:                                      ; preds = %33, %.thread.i
+.loopexit80:                                      ; preds = %33, %.thread.i
   %.sroa.18.3 = phi i64 [ %.sroa.18.0, %.thread.i ], [ %.sroa.18.2, %33 ]
   %.sroa.16.2 = phi i64 [ %.sroa.16.0, %.thread.i ], [ %.sroa.16.1, %33 ]
   %.sroa.14.2 = phi i64 [ %.sroa.14.0, %.thread.i ], [ %.sroa.14.1, %33 ]
@@ -26548,7 +26548,7 @@ _ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i:
 "_ZN12polars_arrow5array9primitive7mutable30MutablePrimitiveArray$LT$T$GT$4push17h37189fe9ccb0e64fE.exit.backedge": ; preds = %75, %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i
   br label %"_ZN12polars_arrow5array9primitive7mutable30MutablePrimitiveArray$LT$T$GT$4push17h37189fe9ccb0e64fE.exit"
 
-76:                                               ; preds = %.loopexit75
+76:                                               ; preds = %.loopexit80
   %.sroa.622.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 9
   %.sroa.325.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(55) %.sroa.325.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(55) %.sroa.622.0..sroa_idx, i64 55, i1 false)
@@ -26558,7 +26558,7 @@ _ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i:
   store i8 %40, ptr %.sroa.224.0..sroa_idx, align 8
   br label %37
 
-77:                                               ; preds = %.loopexit75
+77:                                               ; preds = %.loopexit80
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %78 = load i64, ptr %6, align 8, !alias.scope !3131, !noalias !6, !noundef !6
   %79 = load i64, ptr %5, align 8, !range !2013, !alias.scope !3131, !noalias !6, !noundef !6
@@ -26721,14 +26721,14 @@ define hidden void @"_ZN165_$LT$polars_arrow..array..dictionary..mutable..Mutabl
 
 .thread.i:                                        ; preds = %29
   %32 = getelementptr inbounds nuw i8, ptr %.sroa.6.0.ph, i64 2
-  br label %.loopexit75
+  br label %.loopexit80
 
 33:                                               ; preds = %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i"
   %34 = extractvalue { i8, ptr } %27, 1
   %35 = trunc nuw i8 %28 to i1
   %36 = icmp ne ptr %34, null
   tail call void @llvm.assume(i1 %36)
-  br i1 %35, label %.loopexit75, label %41
+  br i1 %35, label %.loopexit80, label %41
 
 .loopexit:                                        ; preds = %29, %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i"
   store i64 17, ptr %0, align 8
@@ -26737,7 +26737,7 @@ define hidden void @"_ZN165_$LT$polars_arrow..array..dictionary..mutable..Mutabl
 37:                                               ; preds = %76, %.loopexit
   ret void
 
-.loopexit75:                                      ; preds = %33, %.thread.i
+.loopexit80:                                      ; preds = %33, %.thread.i
   %.sroa.18.3 = phi i64 [ %.sroa.18.0, %.thread.i ], [ %.sroa.18.2, %33 ]
   %.sroa.16.2 = phi i64 [ %.sroa.16.0, %.thread.i ], [ %.sroa.16.1, %33 ]
   %.sroa.14.2 = phi i64 [ %.sroa.14.0, %.thread.i ], [ %.sroa.14.1, %33 ]
@@ -26824,7 +26824,7 @@ _ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i:
 "_ZN12polars_arrow5array9primitive7mutable30MutablePrimitiveArray$LT$T$GT$4push17ha00ace499038bc0bE.exit.backedge": ; preds = %75, %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i
   br label %"_ZN12polars_arrow5array9primitive7mutable30MutablePrimitiveArray$LT$T$GT$4push17ha00ace499038bc0bE.exit"
 
-76:                                               ; preds = %.loopexit75
+76:                                               ; preds = %.loopexit80
   %.sroa.622.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 10
   %.sroa.325.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 10
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(54) %.sroa.325.0..sroa_idx, ptr noundef nonnull align 2 dereferenceable(54) %.sroa.622.0..sroa_idx, i64 54, i1 false)
@@ -26834,7 +26834,7 @@ _ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i:
   store i16 %40, ptr %.sroa.224.0..sroa_idx, align 8
   br label %37
 
-77:                                               ; preds = %.loopexit75
+77:                                               ; preds = %.loopexit80
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %78 = load i64, ptr %6, align 8, !alias.scope !3181, !noalias !6, !noundef !6
   %79 = load i64, ptr %5, align 8, !range !2013, !alias.scope !3181, !noalias !6, !noundef !6
@@ -26997,14 +26997,14 @@ define hidden void @"_ZN165_$LT$polars_arrow..array..dictionary..mutable..Mutabl
 
 .thread.i:                                        ; preds = %29
   %32 = getelementptr inbounds nuw i8, ptr %.sroa.6.0.ph, i64 8
-  br label %.loopexit75
+  br label %.loopexit80
 
 33:                                               ; preds = %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i"
   %34 = extractvalue { i8, ptr } %27, 1
   %35 = trunc nuw i8 %28 to i1
   %36 = icmp ne ptr %34, null
   tail call void @llvm.assume(i1 %36)
-  br i1 %35, label %.loopexit75, label %41
+  br i1 %35, label %.loopexit80, label %41
 
 .loopexit:                                        ; preds = %29, %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i"
   store i64 17, ptr %0, align 8
@@ -27013,7 +27013,7 @@ define hidden void @"_ZN165_$LT$polars_arrow..array..dictionary..mutable..Mutabl
 37:                                               ; preds = %76, %.loopexit
   ret void
 
-.loopexit75:                                      ; preds = %33, %.thread.i
+.loopexit80:                                      ; preds = %33, %.thread.i
   %.sroa.18.3 = phi i64 [ %.sroa.18.0, %.thread.i ], [ %.sroa.18.2, %33 ]
   %.sroa.16.2 = phi i64 [ %.sroa.16.0, %.thread.i ], [ %.sroa.16.1, %33 ]
   %.sroa.14.2 = phi i64 [ %.sroa.14.0, %.thread.i ], [ %.sroa.14.1, %33 ]
@@ -27100,7 +27100,7 @@ _ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i:
 "_ZN12polars_arrow5array9primitive7mutable30MutablePrimitiveArray$LT$T$GT$4push17ha00ace499038bc0bE.exit.backedge": ; preds = %75, %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i
   br label %"_ZN12polars_arrow5array9primitive7mutable30MutablePrimitiveArray$LT$T$GT$4push17ha00ace499038bc0bE.exit"
 
-76:                                               ; preds = %.loopexit75
+76:                                               ; preds = %.loopexit80
   %.sroa.622.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 10
   %.sroa.325.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 10
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(54) %.sroa.325.0..sroa_idx, ptr noundef nonnull align 2 dereferenceable(54) %.sroa.622.0..sroa_idx, i64 54, i1 false)
@@ -27110,7 +27110,7 @@ _ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i:
   store i16 %40, ptr %.sroa.224.0..sroa_idx, align 8
   br label %37
 
-77:                                               ; preds = %.loopexit75
+77:                                               ; preds = %.loopexit80
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %78 = load i64, ptr %6, align 8, !alias.scope !3231, !noalias !6, !noundef !6
   %79 = load i64, ptr %5, align 8, !range !2013, !alias.scope !3231, !noalias !6, !noundef !6
@@ -27273,14 +27273,14 @@ define hidden void @"_ZN165_$LT$polars_arrow..array..dictionary..mutable..Mutabl
 
 .thread.i:                                        ; preds = %29
   %32 = getelementptr inbounds nuw i8, ptr %.sroa.6.0.ph, i64 8
-  br label %.loopexit75
+  br label %.loopexit80
 
 33:                                               ; preds = %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i"
   %34 = extractvalue { i8, ptr } %27, 1
   %35 = trunc nuw i8 %28 to i1
   %36 = icmp ne ptr %34, null
   tail call void @llvm.assume(i1 %36)
-  br i1 %35, label %.loopexit75, label %41
+  br i1 %35, label %.loopexit80, label %41
 
 .loopexit:                                        ; preds = %29, %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i"
   store i64 17, ptr %0, align 8
@@ -27289,7 +27289,7 @@ define hidden void @"_ZN165_$LT$polars_arrow..array..dictionary..mutable..Mutabl
 37:                                               ; preds = %76, %.loopexit
   ret void
 
-.loopexit75:                                      ; preds = %33, %.thread.i
+.loopexit80:                                      ; preds = %33, %.thread.i
   %.sroa.18.3 = phi i64 [ %.sroa.18.0, %.thread.i ], [ %.sroa.18.2, %33 ]
   %.sroa.16.2 = phi i64 [ %.sroa.16.0, %.thread.i ], [ %.sroa.16.1, %33 ]
   %.sroa.14.2 = phi i64 [ %.sroa.14.0, %.thread.i ], [ %.sroa.14.1, %33 ]
@@ -27376,7 +27376,7 @@ _ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i:
 "_ZN12polars_arrow5array9primitive7mutable30MutablePrimitiveArray$LT$T$GT$4push17hf14144fd23629265E.exit.backedge": ; preds = %75, %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i
   br label %"_ZN12polars_arrow5array9primitive7mutable30MutablePrimitiveArray$LT$T$GT$4push17hf14144fd23629265E.exit"
 
-76:                                               ; preds = %.loopexit75
+76:                                               ; preds = %.loopexit80
   %.sroa.622.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 10
   %.sroa.325.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 10
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(54) %.sroa.325.0..sroa_idx, ptr noundef nonnull align 2 dereferenceable(54) %.sroa.622.0..sroa_idx, i64 54, i1 false)
@@ -27386,7 +27386,7 @@ _ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i:
   store i16 %40, ptr %.sroa.224.0..sroa_idx, align 8
   br label %37
 
-77:                                               ; preds = %.loopexit75
+77:                                               ; preds = %.loopexit80
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %78 = load i64, ptr %6, align 8, !alias.scope !3281, !noalias !6, !noundef !6
   %79 = load i64, ptr %5, align 8, !range !2013, !alias.scope !3281, !noalias !6, !noundef !6
@@ -27549,14 +27549,14 @@ define hidden void @"_ZN165_$LT$polars_arrow..array..dictionary..mutable..Mutabl
 
 .thread.i:                                        ; preds = %29
   %32 = getelementptr inbounds nuw i8, ptr %.sroa.6.0.ph, i64 1
-  br label %.loopexit75
+  br label %.loopexit80
 
 33:                                               ; preds = %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i"
   %34 = extractvalue { i8, ptr } %27, 1
   %35 = trunc nuw i8 %28 to i1
   %36 = icmp ne ptr %34, null
   tail call void @llvm.assume(i1 %36)
-  br i1 %35, label %.loopexit75, label %41
+  br i1 %35, label %.loopexit80, label %41
 
 .loopexit:                                        ; preds = %29, %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i"
   store i64 17, ptr %0, align 8
@@ -27565,7 +27565,7 @@ define hidden void @"_ZN165_$LT$polars_arrow..array..dictionary..mutable..Mutabl
 37:                                               ; preds = %76, %.loopexit
   ret void
 
-.loopexit75:                                      ; preds = %33, %.thread.i
+.loopexit80:                                      ; preds = %33, %.thread.i
   %.sroa.18.3 = phi i64 [ %.sroa.18.0, %.thread.i ], [ %.sroa.18.2, %33 ]
   %.sroa.16.2 = phi i64 [ %.sroa.16.0, %.thread.i ], [ %.sroa.16.1, %33 ]
   %.sroa.14.2 = phi i64 [ %.sroa.14.0, %.thread.i ], [ %.sroa.14.1, %33 ]
@@ -27652,7 +27652,7 @@ _ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i:
 "_ZN12polars_arrow5array9primitive7mutable30MutablePrimitiveArray$LT$T$GT$4push17h37189fe9ccb0e64fE.exit.backedge": ; preds = %75, %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i
   br label %"_ZN12polars_arrow5array9primitive7mutable30MutablePrimitiveArray$LT$T$GT$4push17h37189fe9ccb0e64fE.exit"
 
-76:                                               ; preds = %.loopexit75
+76:                                               ; preds = %.loopexit80
   %.sroa.622.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 9
   %.sroa.325.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(55) %.sroa.325.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(55) %.sroa.622.0..sroa_idx, i64 55, i1 false)
@@ -27662,7 +27662,7 @@ _ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i:
   store i8 %40, ptr %.sroa.224.0..sroa_idx, align 8
   br label %37
 
-77:                                               ; preds = %.loopexit75
+77:                                               ; preds = %.loopexit80
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %78 = load i64, ptr %6, align 8, !alias.scope !3331, !noalias !6, !noundef !6
   %79 = load i64, ptr %5, align 8, !range !2013, !alias.scope !3331, !noalias !6, !noundef !6
@@ -27825,14 +27825,14 @@ define hidden void @"_ZN165_$LT$polars_arrow..array..dictionary..mutable..Mutabl
 
 .thread.i:                                        ; preds = %29
   %32 = getelementptr inbounds nuw i8, ptr %.sroa.6.0.ph, i64 1
-  br label %.loopexit75
+  br label %.loopexit80
 
 33:                                               ; preds = %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i"
   %34 = extractvalue { i8, ptr } %27, 1
   %35 = trunc nuw i8 %28 to i1
   %36 = icmp ne ptr %34, null
   tail call void @llvm.assume(i1 %36)
-  br i1 %35, label %.loopexit75, label %41
+  br i1 %35, label %.loopexit80, label %41
 
 .loopexit:                                        ; preds = %29, %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i"
   store i64 17, ptr %0, align 8
@@ -27841,7 +27841,7 @@ define hidden void @"_ZN165_$LT$polars_arrow..array..dictionary..mutable..Mutabl
 37:                                               ; preds = %76, %.loopexit
   ret void
 
-.loopexit75:                                      ; preds = %33, %.thread.i
+.loopexit80:                                      ; preds = %33, %.thread.i
   %.sroa.18.3 = phi i64 [ %.sroa.18.0, %.thread.i ], [ %.sroa.18.2, %33 ]
   %.sroa.16.2 = phi i64 [ %.sroa.16.0, %.thread.i ], [ %.sroa.16.1, %33 ]
   %.sroa.14.2 = phi i64 [ %.sroa.14.0, %.thread.i ], [ %.sroa.14.1, %33 ]
@@ -27928,7 +27928,7 @@ _ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i:
 "_ZN12polars_arrow5array9primitive7mutable30MutablePrimitiveArray$LT$T$GT$4push17hf14144fd23629265E.exit.backedge": ; preds = %75, %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i
   br label %"_ZN12polars_arrow5array9primitive7mutable30MutablePrimitiveArray$LT$T$GT$4push17hf14144fd23629265E.exit"
 
-76:                                               ; preds = %.loopexit75
+76:                                               ; preds = %.loopexit80
   %.sroa.622.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 10
   %.sroa.325.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 10
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(54) %.sroa.325.0..sroa_idx, ptr noundef nonnull align 2 dereferenceable(54) %.sroa.622.0..sroa_idx, i64 54, i1 false)
@@ -27938,7 +27938,7 @@ _ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i:
   store i16 %40, ptr %.sroa.224.0..sroa_idx, align 8
   br label %37
 
-77:                                               ; preds = %.loopexit75
+77:                                               ; preds = %.loopexit80
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %78 = load i64, ptr %6, align 8, !alias.scope !3381, !noalias !6, !noundef !6
   %79 = load i64, ptr %5, align 8, !range !2013, !alias.scope !3381, !noalias !6, !noundef !6
@@ -28101,14 +28101,14 @@ define hidden void @"_ZN165_$LT$polars_arrow..array..dictionary..mutable..Mutabl
 
 .thread.i:                                        ; preds = %29
   %32 = getelementptr inbounds nuw i8, ptr %.sroa.6.0.ph, i64 1
-  br label %.loopexit75
+  br label %.loopexit80
 
 33:                                               ; preds = %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i"
   %34 = extractvalue { i8, ptr } %27, 1
   %35 = trunc nuw i8 %28 to i1
   %36 = icmp ne ptr %34, null
   tail call void @llvm.assume(i1 %36)
-  br i1 %35, label %.loopexit75, label %41
+  br i1 %35, label %.loopexit80, label %41
 
 .loopexit:                                        ; preds = %29, %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i"
   store i64 17, ptr %0, align 8
@@ -28117,7 +28117,7 @@ define hidden void @"_ZN165_$LT$polars_arrow..array..dictionary..mutable..Mutabl
 37:                                               ; preds = %76, %.loopexit
   ret void
 
-.loopexit75:                                      ; preds = %33, %.thread.i
+.loopexit80:                                      ; preds = %33, %.thread.i
   %.sroa.18.3 = phi i64 [ %.sroa.18.0, %.thread.i ], [ %.sroa.18.2, %33 ]
   %.sroa.16.2 = phi i64 [ %.sroa.16.0, %.thread.i ], [ %.sroa.16.1, %33 ]
   %.sroa.14.2 = phi i64 [ %.sroa.14.0, %.thread.i ], [ %.sroa.14.1, %33 ]
@@ -28204,7 +28204,7 @@ _ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i:
 "_ZN12polars_arrow5array9primitive7mutable30MutablePrimitiveArray$LT$T$GT$4push17h74d5fd10b2bf0ff4E.exit.backedge": ; preds = %75, %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i
   br label %"_ZN12polars_arrow5array9primitive7mutable30MutablePrimitiveArray$LT$T$GT$4push17h74d5fd10b2bf0ff4E.exit"
 
-76:                                               ; preds = %.loopexit75
+76:                                               ; preds = %.loopexit80
   %.sroa.622.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 12
   %.sroa.325.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(52) %.sroa.325.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(52) %.sroa.622.0..sroa_idx, i64 52, i1 false)
@@ -28214,7 +28214,7 @@ _ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i:
   store i32 %40, ptr %.sroa.224.0..sroa_idx, align 8
   br label %37
 
-77:                                               ; preds = %.loopexit75
+77:                                               ; preds = %.loopexit80
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %78 = load i64, ptr %6, align 8, !alias.scope !3431, !noalias !6, !noundef !6
   %79 = load i64, ptr %5, align 8, !range !2013, !alias.scope !3431, !noalias !6, !noundef !6
@@ -28377,14 +28377,14 @@ define hidden void @"_ZN165_$LT$polars_arrow..array..dictionary..mutable..Mutabl
 
 .thread.i:                                        ; preds = %29
   %32 = getelementptr inbounds nuw i8, ptr %.sroa.6.0.ph, i64 8
-  br label %.loopexit75
+  br label %.loopexit80
 
 33:                                               ; preds = %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i"
   %34 = extractvalue { i8, ptr } %27, 1
   %35 = trunc nuw i8 %28 to i1
   %36 = icmp ne ptr %34, null
   tail call void @llvm.assume(i1 %36)
-  br i1 %35, label %.loopexit75, label %41
+  br i1 %35, label %.loopexit80, label %41
 
 .loopexit:                                        ; preds = %29, %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i"
   store i64 17, ptr %0, align 8
@@ -28393,7 +28393,7 @@ define hidden void @"_ZN165_$LT$polars_arrow..array..dictionary..mutable..Mutabl
 37:                                               ; preds = %76, %.loopexit
   ret void
 
-.loopexit75:                                      ; preds = %33, %.thread.i
+.loopexit80:                                      ; preds = %33, %.thread.i
   %.sroa.18.3 = phi i64 [ %.sroa.18.0, %.thread.i ], [ %.sroa.18.2, %33 ]
   %.sroa.16.2 = phi i64 [ %.sroa.16.0, %.thread.i ], [ %.sroa.16.1, %33 ]
   %.sroa.14.2 = phi i64 [ %.sroa.14.0, %.thread.i ], [ %.sroa.14.1, %33 ]
@@ -28480,7 +28480,7 @@ _ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i:
 "_ZN12polars_arrow5array9primitive7mutable30MutablePrimitiveArray$LT$T$GT$4push17h74d5fd10b2bf0ff4E.exit.backedge": ; preds = %75, %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i
   br label %"_ZN12polars_arrow5array9primitive7mutable30MutablePrimitiveArray$LT$T$GT$4push17h74d5fd10b2bf0ff4E.exit"
 
-76:                                               ; preds = %.loopexit75
+76:                                               ; preds = %.loopexit80
   %.sroa.622.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 12
   %.sroa.325.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(52) %.sroa.325.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(52) %.sroa.622.0..sroa_idx, i64 52, i1 false)
@@ -28490,7 +28490,7 @@ _ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i:
   store i32 %40, ptr %.sroa.224.0..sroa_idx, align 8
   br label %37
 
-77:                                               ; preds = %.loopexit75
+77:                                               ; preds = %.loopexit80
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %78 = load i64, ptr %6, align 8, !alias.scope !3481, !noalias !6, !noundef !6
   %79 = load i64, ptr %5, align 8, !range !2013, !alias.scope !3481, !noalias !6, !noundef !6
@@ -28654,14 +28654,14 @@ define hidden void @"_ZN165_$LT$polars_arrow..array..dictionary..mutable..Mutabl
 
 .thread.i:                                        ; preds = %29
   %32 = getelementptr inbounds nuw i8, ptr %.sroa.6.0.ph, i64 2
-  br label %.loopexit81
+  br label %.loopexit86
 
 33:                                               ; preds = %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i"
   %34 = extractvalue { i8, ptr } %27, 1
   %35 = trunc nuw i8 %28 to i1
   %36 = icmp ne ptr %34, null
   tail call void @llvm.assume(i1 %36)
-  br i1 %35, label %.loopexit81, label %40
+  br i1 %35, label %.loopexit86, label %40
 
 .loopexit:                                        ; preds = %29, %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i"
   store i64 17, ptr %0, align 8
@@ -28670,7 +28670,7 @@ define hidden void @"_ZN165_$LT$polars_arrow..array..dictionary..mutable..Mutabl
 37:                                               ; preds = %75, %.loopexit
   ret void
 
-.loopexit81:                                      ; preds = %33, %.thread.i
+.loopexit86:                                      ; preds = %33, %.thread.i
   %.sroa.18.3 = phi i64 [ %.sroa.18.0, %.thread.i ], [ %.sroa.18.2, %33 ]
   %.sroa.16.2 = phi i64 [ %.sroa.16.0, %.thread.i ], [ %.sroa.16.1, %33 ]
   %.sroa.14.2 = phi i64 [ %.sroa.14.0, %.thread.i ], [ %.sroa.14.1, %33 ]
@@ -28756,7 +28756,7 @@ _ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i:
 "_ZN12polars_arrow5array9primitive7mutable30MutablePrimitiveArray$LT$T$GT$4push17hf9858ade1900cd59E.exit.backedge": ; preds = %74, %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i
   br label %"_ZN12polars_arrow5array9primitive7mutable30MutablePrimitiveArray$LT$T$GT$4push17hf9858ade1900cd59E.exit"
 
-75:                                               ; preds = %.loopexit81
+75:                                               ; preds = %.loopexit86
   %.sroa.526.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
   %.sroa.526.0.copyload = load i64, ptr %.sroa.526.0..sroa_idx, align 8
   %.sroa.627.0.copyload = load i128, ptr %12, align 16
@@ -28772,7 +28772,7 @@ _ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i:
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.432.0..sroa_idx, ptr noundef nonnull align 16 dereferenceable(32) %.sroa.432, i64 32, i1 false)
   br label %37
 
-76:                                               ; preds = %.loopexit81
+76:                                               ; preds = %.loopexit86
   %77 = load i128, ptr %12, align 16, !noundef !6
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %78 = load i64, ptr %6, align 8, !alias.scope !3531, !noalias !6, !noundef !6
@@ -28936,14 +28936,14 @@ define hidden void @"_ZN165_$LT$polars_arrow..array..dictionary..mutable..Mutabl
 
 .thread.i:                                        ; preds = %29
   %32 = getelementptr inbounds nuw i8, ptr %.sroa.6.0.ph, i64 2
-  br label %.loopexit75
+  br label %.loopexit80
 
 33:                                               ; preds = %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i"
   %34 = extractvalue { i8, ptr } %27, 1
   %35 = trunc nuw i8 %28 to i1
   %36 = icmp ne ptr %34, null
   tail call void @llvm.assume(i1 %36)
-  br i1 %35, label %.loopexit75, label %41
+  br i1 %35, label %.loopexit80, label %41
 
 .loopexit:                                        ; preds = %29, %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i"
   store i64 17, ptr %0, align 8
@@ -28952,7 +28952,7 @@ define hidden void @"_ZN165_$LT$polars_arrow..array..dictionary..mutable..Mutabl
 37:                                               ; preds = %76, %.loopexit
   ret void
 
-.loopexit75:                                      ; preds = %33, %.thread.i
+.loopexit80:                                      ; preds = %33, %.thread.i
   %.sroa.18.3 = phi i64 [ %.sroa.18.0, %.thread.i ], [ %.sroa.18.2, %33 ]
   %.sroa.16.2 = phi i64 [ %.sroa.16.0, %.thread.i ], [ %.sroa.16.1, %33 ]
   %.sroa.14.2 = phi i64 [ %.sroa.14.0, %.thread.i ], [ %.sroa.14.1, %33 ]
@@ -29039,7 +29039,7 @@ _ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i:
 "_ZN12polars_arrow5array9primitive7mutable30MutablePrimitiveArray$LT$T$GT$4push17h4ee0d8065cd9c4e0E.exit.backedge": ; preds = %75, %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i
   br label %"_ZN12polars_arrow5array9primitive7mutable30MutablePrimitiveArray$LT$T$GT$4push17h4ee0d8065cd9c4e0E.exit"
 
-76:                                               ; preds = %.loopexit75
+76:                                               ; preds = %.loopexit80
   %.sroa.622.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 12
   %.sroa.325.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(52) %.sroa.325.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(52) %.sroa.622.0..sroa_idx, i64 52, i1 false)
@@ -29049,7 +29049,7 @@ _ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i:
   store i32 %40, ptr %.sroa.224.0..sroa_idx, align 8
   br label %37
 
-77:                                               ; preds = %.loopexit75
+77:                                               ; preds = %.loopexit80
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %78 = load i64, ptr %6, align 8, !alias.scope !3581, !noalias !6, !noundef !6
   %79 = load i64, ptr %5, align 8, !range !2013, !alias.scope !3581, !noalias !6, !noundef !6
@@ -29584,14 +29584,14 @@ define hidden void @"_ZN165_$LT$polars_arrow..array..dictionary..mutable..Mutabl
 
 .thread.i:                                        ; preds = %29
   %32 = getelementptr inbounds nuw i8, ptr %.sroa.6.0.ph, i64 2
-  br label %.loopexit81
+  br label %.loopexit86
 
 33:                                               ; preds = %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i"
   %34 = extractvalue { i8, ptr } %27, 1
   %35 = trunc nuw i8 %28 to i1
   %36 = icmp ne ptr %34, null
   tail call void @llvm.assume(i1 %36)
-  br i1 %35, label %.loopexit81, label %40
+  br i1 %35, label %.loopexit86, label %40
 
 .loopexit:                                        ; preds = %29, %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i"
   store i64 17, ptr %0, align 8
@@ -29600,7 +29600,7 @@ define hidden void @"_ZN165_$LT$polars_arrow..array..dictionary..mutable..Mutabl
 37:                                               ; preds = %75, %.loopexit
   ret void
 
-.loopexit81:                                      ; preds = %33, %.thread.i
+.loopexit86:                                      ; preds = %33, %.thread.i
   %.sroa.18.3 = phi i64 [ %.sroa.18.0, %.thread.i ], [ %.sroa.18.2, %33 ]
   %.sroa.16.2 = phi i64 [ %.sroa.16.0, %.thread.i ], [ %.sroa.16.1, %33 ]
   %.sroa.14.2 = phi i64 [ %.sroa.14.0, %.thread.i ], [ %.sroa.14.1, %33 ]
@@ -29686,7 +29686,7 @@ _ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i:
 "_ZN12polars_arrow5array9primitive7mutable30MutablePrimitiveArray$LT$T$GT$4push17hf9858ade1900cd59E.exit.backedge": ; preds = %74, %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i
   br label %"_ZN12polars_arrow5array9primitive7mutable30MutablePrimitiveArray$LT$T$GT$4push17hf9858ade1900cd59E.exit"
 
-75:                                               ; preds = %.loopexit81
+75:                                               ; preds = %.loopexit86
   %.sroa.526.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
   %.sroa.526.0.copyload = load i64, ptr %.sroa.526.0..sroa_idx, align 8
   %.sroa.627.0.copyload = load i128, ptr %12, align 16
@@ -29702,7 +29702,7 @@ _ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i:
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.432.0..sroa_idx, ptr noundef nonnull align 16 dereferenceable(32) %.sroa.432, i64 32, i1 false)
   br label %37
 
-76:                                               ; preds = %.loopexit81
+76:                                               ; preds = %.loopexit86
   %77 = load i128, ptr %12, align 16, !noundef !6
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %78 = load i64, ptr %6, align 8, !alias.scope !3703, !noalias !6, !noundef !6
@@ -29866,14 +29866,14 @@ define hidden void @"_ZN165_$LT$polars_arrow..array..dictionary..mutable..Mutabl
 
 .thread.i:                                        ; preds = %29
   %32 = getelementptr inbounds nuw i8, ptr %.sroa.6.0.ph, i64 4
-  br label %.loopexit75
+  br label %.loopexit80
 
 33:                                               ; preds = %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i"
   %34 = extractvalue { i8, ptr } %27, 1
   %35 = trunc nuw i8 %28 to i1
   %36 = icmp ne ptr %34, null
   tail call void @llvm.assume(i1 %36)
-  br i1 %35, label %.loopexit75, label %41
+  br i1 %35, label %.loopexit80, label %41
 
 .loopexit:                                        ; preds = %29, %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i"
   store i64 17, ptr %0, align 8
@@ -29882,7 +29882,7 @@ define hidden void @"_ZN165_$LT$polars_arrow..array..dictionary..mutable..Mutabl
 37:                                               ; preds = %76, %.loopexit
   ret void
 
-.loopexit75:                                      ; preds = %33, %.thread.i
+.loopexit80:                                      ; preds = %33, %.thread.i
   %.sroa.18.3 = phi i64 [ %.sroa.18.0, %.thread.i ], [ %.sroa.18.2, %33 ]
   %.sroa.16.2 = phi i64 [ %.sroa.16.0, %.thread.i ], [ %.sroa.16.1, %33 ]
   %.sroa.14.2 = phi i64 [ %.sroa.14.0, %.thread.i ], [ %.sroa.14.1, %33 ]
@@ -29969,7 +29969,7 @@ _ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i:
 "_ZN12polars_arrow5array9primitive7mutable30MutablePrimitiveArray$LT$T$GT$4push17h74d5fd10b2bf0ff4E.exit.backedge": ; preds = %75, %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i
   br label %"_ZN12polars_arrow5array9primitive7mutable30MutablePrimitiveArray$LT$T$GT$4push17h74d5fd10b2bf0ff4E.exit"
 
-76:                                               ; preds = %.loopexit75
+76:                                               ; preds = %.loopexit80
   %.sroa.622.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 12
   %.sroa.325.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(52) %.sroa.325.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(52) %.sroa.622.0..sroa_idx, i64 52, i1 false)
@@ -29979,7 +29979,7 @@ _ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i:
   store i32 %40, ptr %.sroa.224.0..sroa_idx, align 8
   br label %37
 
-77:                                               ; preds = %.loopexit75
+77:                                               ; preds = %.loopexit80
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %78 = load i64, ptr %6, align 8, !alias.scope !3753, !noalias !6, !noundef !6
   %79 = load i64, ptr %5, align 8, !range !2013, !alias.scope !3753, !noalias !6, !noundef !6
@@ -30142,14 +30142,14 @@ define hidden void @"_ZN165_$LT$polars_arrow..array..dictionary..mutable..Mutabl
 
 .thread.i:                                        ; preds = %29
   %32 = getelementptr inbounds nuw i8, ptr %.sroa.6.0.ph, i64 8
-  br label %.loopexit75
+  br label %.loopexit80
 
 33:                                               ; preds = %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i"
   %34 = extractvalue { i8, ptr } %27, 1
   %35 = trunc nuw i8 %28 to i1
   %36 = icmp ne ptr %34, null
   tail call void @llvm.assume(i1 %36)
-  br i1 %35, label %.loopexit75, label %41
+  br i1 %35, label %.loopexit80, label %41
 
 .loopexit:                                        ; preds = %29, %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i"
   store i64 17, ptr %0, align 8
@@ -30158,7 +30158,7 @@ define hidden void @"_ZN165_$LT$polars_arrow..array..dictionary..mutable..Mutabl
 37:                                               ; preds = %76, %.loopexit
   ret void
 
-.loopexit75:                                      ; preds = %33, %.thread.i
+.loopexit80:                                      ; preds = %33, %.thread.i
   %.sroa.18.3 = phi i64 [ %.sroa.18.0, %.thread.i ], [ %.sroa.18.2, %33 ]
   %.sroa.16.2 = phi i64 [ %.sroa.16.0, %.thread.i ], [ %.sroa.16.1, %33 ]
   %.sroa.14.2 = phi i64 [ %.sroa.14.0, %.thread.i ], [ %.sroa.14.1, %33 ]
@@ -30245,7 +30245,7 @@ _ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i:
 "_ZN12polars_arrow5array9primitive7mutable30MutablePrimitiveArray$LT$T$GT$4push17h37189fe9ccb0e64fE.exit.backedge": ; preds = %75, %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i
   br label %"_ZN12polars_arrow5array9primitive7mutable30MutablePrimitiveArray$LT$T$GT$4push17h37189fe9ccb0e64fE.exit"
 
-76:                                               ; preds = %.loopexit75
+76:                                               ; preds = %.loopexit80
   %.sroa.622.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 9
   %.sroa.325.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(55) %.sroa.325.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(55) %.sroa.622.0..sroa_idx, i64 55, i1 false)
@@ -30255,7 +30255,7 @@ _ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i:
   store i8 %40, ptr %.sroa.224.0..sroa_idx, align 8
   br label %37
 
-77:                                               ; preds = %.loopexit75
+77:                                               ; preds = %.loopexit80
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %78 = load i64, ptr %6, align 8, !alias.scope !3803, !noalias !6, !noundef !6
   %79 = load i64, ptr %5, align 8, !range !2013, !alias.scope !3803, !noalias !6, !noundef !6
@@ -30740,14 +30740,14 @@ define hidden void @"_ZN165_$LT$polars_arrow..array..dictionary..mutable..Mutabl
 
 .thread.i:                                        ; preds = %29
   %32 = getelementptr inbounds nuw i8, ptr %.sroa.6.0.ph, i64 4
-  br label %.loopexit75
+  br label %.loopexit80
 
 33:                                               ; preds = %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i"
   %34 = extractvalue { i8, ptr } %27, 1
   %35 = trunc nuw i8 %28 to i1
   %36 = icmp ne ptr %34, null
   tail call void @llvm.assume(i1 %36)
-  br i1 %35, label %.loopexit75, label %41
+  br i1 %35, label %.loopexit80, label %41
 
 .loopexit:                                        ; preds = %29, %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i"
   store i64 17, ptr %0, align 8
@@ -30756,7 +30756,7 @@ define hidden void @"_ZN165_$LT$polars_arrow..array..dictionary..mutable..Mutabl
 37:                                               ; preds = %76, %.loopexit
   ret void
 
-.loopexit75:                                      ; preds = %33, %.thread.i
+.loopexit80:                                      ; preds = %33, %.thread.i
   %.sroa.18.3 = phi i64 [ %.sroa.18.0, %.thread.i ], [ %.sroa.18.2, %33 ]
   %.sroa.16.2 = phi i64 [ %.sroa.16.0, %.thread.i ], [ %.sroa.16.1, %33 ]
   %.sroa.14.2 = phi i64 [ %.sroa.14.0, %.thread.i ], [ %.sroa.14.1, %33 ]
@@ -30843,7 +30843,7 @@ _ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i:
 "_ZN12polars_arrow5array9primitive7mutable30MutablePrimitiveArray$LT$T$GT$4push17h37189fe9ccb0e64fE.exit.backedge": ; preds = %75, %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i
   br label %"_ZN12polars_arrow5array9primitive7mutable30MutablePrimitiveArray$LT$T$GT$4push17h37189fe9ccb0e64fE.exit"
 
-76:                                               ; preds = %.loopexit75
+76:                                               ; preds = %.loopexit80
   %.sroa.622.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 9
   %.sroa.325.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(55) %.sroa.325.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(55) %.sroa.622.0..sroa_idx, i64 55, i1 false)
@@ -30853,7 +30853,7 @@ _ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i:
   store i8 %40, ptr %.sroa.224.0..sroa_idx, align 8
   br label %37
 
-77:                                               ; preds = %.loopexit75
+77:                                               ; preds = %.loopexit80
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %78 = load i64, ptr %6, align 8, !alias.scope !3905, !noalias !6, !noundef !6
   %79 = load i64, ptr %5, align 8, !range !2013, !alias.scope !3905, !noalias !6, !noundef !6
@@ -31016,14 +31016,14 @@ define hidden void @"_ZN165_$LT$polars_arrow..array..dictionary..mutable..Mutabl
 
 .thread.i:                                        ; preds = %29
   %32 = getelementptr inbounds nuw i8, ptr %.sroa.6.0.ph, i64 8
-  br label %.loopexit75
+  br label %.loopexit80
 
 33:                                               ; preds = %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i"
   %34 = extractvalue { i8, ptr } %27, 1
   %35 = trunc nuw i8 %28 to i1
   %36 = icmp ne ptr %34, null
   tail call void @llvm.assume(i1 %36)
-  br i1 %35, label %.loopexit75, label %41
+  br i1 %35, label %.loopexit80, label %41
 
 .loopexit:                                        ; preds = %29, %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i"
   store i64 17, ptr %0, align 8
@@ -31032,7 +31032,7 @@ define hidden void @"_ZN165_$LT$polars_arrow..array..dictionary..mutable..Mutabl
 37:                                               ; preds = %76, %.loopexit
   ret void
 
-.loopexit75:                                      ; preds = %33, %.thread.i
+.loopexit80:                                      ; preds = %33, %.thread.i
   %.sroa.18.3 = phi i64 [ %.sroa.18.0, %.thread.i ], [ %.sroa.18.2, %33 ]
   %.sroa.16.2 = phi i64 [ %.sroa.16.0, %.thread.i ], [ %.sroa.16.1, %33 ]
   %.sroa.14.2 = phi i64 [ %.sroa.14.0, %.thread.i ], [ %.sroa.14.1, %33 ]
@@ -31119,7 +31119,7 @@ _ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i:
 "_ZN12polars_arrow5array9primitive7mutable30MutablePrimitiveArray$LT$T$GT$4push17h1596243c76c69125E.exit.backedge": ; preds = %75, %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i
   br label %"_ZN12polars_arrow5array9primitive7mutable30MutablePrimitiveArray$LT$T$GT$4push17h1596243c76c69125E.exit"
 
-76:                                               ; preds = %.loopexit75
+76:                                               ; preds = %.loopexit80
   %.sroa.622.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 16
   %.sroa.325.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.325.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.622.0..sroa_idx, i64 48, i1 false)
@@ -31129,7 +31129,7 @@ _ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i:
   store i64 %40, ptr %.sroa.224.0..sroa_idx, align 8
   br label %37
 
-77:                                               ; preds = %.loopexit75
+77:                                               ; preds = %.loopexit80
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %78 = load i64, ptr %6, align 8, !alias.scope !3955, !noalias !6, !noundef !6
   %79 = load i64, ptr %5, align 8, !range !2013, !alias.scope !3955, !noalias !6, !noundef !6
@@ -31292,14 +31292,14 @@ define hidden void @"_ZN165_$LT$polars_arrow..array..dictionary..mutable..Mutabl
 
 .thread.i:                                        ; preds = %29
   %32 = getelementptr inbounds nuw i8, ptr %.sroa.6.0.ph, i64 8
-  br label %.loopexit75
+  br label %.loopexit80
 
 33:                                               ; preds = %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i"
   %34 = extractvalue { i8, ptr } %27, 1
   %35 = trunc nuw i8 %28 to i1
   %36 = icmp ne ptr %34, null
   tail call void @llvm.assume(i1 %36)
-  br i1 %35, label %.loopexit75, label %41
+  br i1 %35, label %.loopexit80, label %41
 
 .loopexit:                                        ; preds = %29, %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i"
   store i64 17, ptr %0, align 8
@@ -31308,7 +31308,7 @@ define hidden void @"_ZN165_$LT$polars_arrow..array..dictionary..mutable..Mutabl
 37:                                               ; preds = %76, %.loopexit
   ret void
 
-.loopexit75:                                      ; preds = %33, %.thread.i
+.loopexit80:                                      ; preds = %33, %.thread.i
   %.sroa.18.3 = phi i64 [ %.sroa.18.0, %.thread.i ], [ %.sroa.18.2, %33 ]
   %.sroa.16.2 = phi i64 [ %.sroa.16.0, %.thread.i ], [ %.sroa.16.1, %33 ]
   %.sroa.14.2 = phi i64 [ %.sroa.14.0, %.thread.i ], [ %.sroa.14.1, %33 ]
@@ -31395,7 +31395,7 @@ _ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i:
 "_ZN12polars_arrow5array9primitive7mutable30MutablePrimitiveArray$LT$T$GT$4push17hf14144fd23629265E.exit.backedge": ; preds = %75, %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i
   br label %"_ZN12polars_arrow5array9primitive7mutable30MutablePrimitiveArray$LT$T$GT$4push17hf14144fd23629265E.exit"
 
-76:                                               ; preds = %.loopexit75
+76:                                               ; preds = %.loopexit80
   %.sroa.622.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 10
   %.sroa.325.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 10
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(54) %.sroa.325.0..sroa_idx, ptr noundef nonnull align 2 dereferenceable(54) %.sroa.622.0..sroa_idx, i64 54, i1 false)
@@ -31405,7 +31405,7 @@ _ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i:
   store i16 %40, ptr %.sroa.224.0..sroa_idx, align 8
   br label %37
 
-77:                                               ; preds = %.loopexit75
+77:                                               ; preds = %.loopexit80
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %78 = load i64, ptr %6, align 8, !alias.scope !4005, !noalias !6, !noundef !6
   %79 = load i64, ptr %5, align 8, !range !2013, !alias.scope !4005, !noalias !6, !noundef !6
@@ -31940,14 +31940,14 @@ define hidden void @"_ZN165_$LT$polars_arrow..array..dictionary..mutable..Mutabl
 
 .thread.i:                                        ; preds = %29
   %32 = getelementptr inbounds nuw i8, ptr %.sroa.6.0.ph, i64 4
-  br label %.loopexit81
+  br label %.loopexit86
 
 33:                                               ; preds = %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i"
   %34 = extractvalue { i8, ptr } %27, 1
   %35 = trunc nuw i8 %28 to i1
   %36 = icmp ne ptr %34, null
   tail call void @llvm.assume(i1 %36)
-  br i1 %35, label %.loopexit81, label %40
+  br i1 %35, label %.loopexit86, label %40
 
 .loopexit:                                        ; preds = %29, %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i"
   store i64 17, ptr %0, align 8
@@ -31956,7 +31956,7 @@ define hidden void @"_ZN165_$LT$polars_arrow..array..dictionary..mutable..Mutabl
 37:                                               ; preds = %75, %.loopexit
   ret void
 
-.loopexit81:                                      ; preds = %33, %.thread.i
+.loopexit86:                                      ; preds = %33, %.thread.i
   %.sroa.18.3 = phi i64 [ %.sroa.18.0, %.thread.i ], [ %.sroa.18.2, %33 ]
   %.sroa.16.2 = phi i64 [ %.sroa.16.0, %.thread.i ], [ %.sroa.16.1, %33 ]
   %.sroa.14.2 = phi i64 [ %.sroa.14.0, %.thread.i ], [ %.sroa.14.1, %33 ]
@@ -32042,7 +32042,7 @@ _ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i:
 "_ZN12polars_arrow5array9primitive7mutable30MutablePrimitiveArray$LT$T$GT$4push17hf9858ade1900cd59E.exit.backedge": ; preds = %74, %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i
   br label %"_ZN12polars_arrow5array9primitive7mutable30MutablePrimitiveArray$LT$T$GT$4push17hf9858ade1900cd59E.exit"
 
-75:                                               ; preds = %.loopexit81
+75:                                               ; preds = %.loopexit86
   %.sroa.526.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
   %.sroa.526.0.copyload = load i64, ptr %.sroa.526.0..sroa_idx, align 8
   %.sroa.627.0.copyload = load i128, ptr %12, align 16
@@ -32058,7 +32058,7 @@ _ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i:
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.432.0..sroa_idx, ptr noundef nonnull align 16 dereferenceable(32) %.sroa.432, i64 32, i1 false)
   br label %37
 
-76:                                               ; preds = %.loopexit81
+76:                                               ; preds = %.loopexit86
   %77 = load i128, ptr %12, align 16, !noundef !6
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %78 = load i64, ptr %6, align 8, !alias.scope !4127, !noalias !6, !noundef !6
@@ -32545,14 +32545,14 @@ define hidden void @"_ZN165_$LT$polars_arrow..array..dictionary..mutable..Mutabl
 
 .thread.i:                                        ; preds = %29
   %32 = getelementptr inbounds nuw i8, ptr %.sroa.6.0.ph, i64 1
-  br label %.loopexit81
+  br label %.loopexit86
 
 33:                                               ; preds = %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i"
   %34 = extractvalue { i8, ptr } %27, 1
   %35 = trunc nuw i8 %28 to i1
   %36 = icmp ne ptr %34, null
   tail call void @llvm.assume(i1 %36)
-  br i1 %35, label %.loopexit81, label %40
+  br i1 %35, label %.loopexit86, label %40
 
 .loopexit:                                        ; preds = %29, %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i"
   store i64 17, ptr %0, align 8
@@ -32561,7 +32561,7 @@ define hidden void @"_ZN165_$LT$polars_arrow..array..dictionary..mutable..Mutabl
 37:                                               ; preds = %75, %.loopexit
   ret void
 
-.loopexit81:                                      ; preds = %33, %.thread.i
+.loopexit86:                                      ; preds = %33, %.thread.i
   %.sroa.18.3 = phi i64 [ %.sroa.18.0, %.thread.i ], [ %.sroa.18.2, %33 ]
   %.sroa.16.2 = phi i64 [ %.sroa.16.0, %.thread.i ], [ %.sroa.16.1, %33 ]
   %.sroa.14.2 = phi i64 [ %.sroa.14.0, %.thread.i ], [ %.sroa.14.1, %33 ]
@@ -32647,7 +32647,7 @@ _ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i:
 "_ZN12polars_arrow5array9primitive7mutable30MutablePrimitiveArray$LT$T$GT$4push17hf9858ade1900cd59E.exit.backedge": ; preds = %74, %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i
   br label %"_ZN12polars_arrow5array9primitive7mutable30MutablePrimitiveArray$LT$T$GT$4push17hf9858ade1900cd59E.exit"
 
-75:                                               ; preds = %.loopexit81
+75:                                               ; preds = %.loopexit86
   %.sroa.526.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
   %.sroa.526.0.copyload = load i64, ptr %.sroa.526.0..sroa_idx, align 8
   %.sroa.627.0.copyload = load i128, ptr %12, align 16
@@ -32663,7 +32663,7 @@ _ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i:
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.432.0..sroa_idx, ptr noundef nonnull align 16 dereferenceable(32) %.sroa.432, i64 32, i1 false)
   br label %37
 
-76:                                               ; preds = %.loopexit81
+76:                                               ; preds = %.loopexit86
   %77 = load i128, ptr %12, align 16, !noundef !6
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %78 = load i64, ptr %6, align 8, !alias.scope !4229, !noalias !6, !noundef !6
@@ -32827,14 +32827,14 @@ define hidden void @"_ZN165_$LT$polars_arrow..array..dictionary..mutable..Mutabl
 
 .thread.i:                                        ; preds = %29
   %32 = getelementptr inbounds nuw i8, ptr %.sroa.6.0.ph, i64 4
-  br label %.loopexit75
+  br label %.loopexit80
 
 33:                                               ; preds = %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i"
   %34 = extractvalue { i8, ptr } %27, 1
   %35 = trunc nuw i8 %28 to i1
   %36 = icmp ne ptr %34, null
   tail call void @llvm.assume(i1 %36)
-  br i1 %35, label %.loopexit75, label %41
+  br i1 %35, label %.loopexit80, label %41
 
 .loopexit:                                        ; preds = %29, %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i"
   store i64 17, ptr %0, align 8
@@ -32843,7 +32843,7 @@ define hidden void @"_ZN165_$LT$polars_arrow..array..dictionary..mutable..Mutabl
 37:                                               ; preds = %76, %.loopexit
   ret void
 
-.loopexit75:                                      ; preds = %33, %.thread.i
+.loopexit80:                                      ; preds = %33, %.thread.i
   %.sroa.18.3 = phi i64 [ %.sroa.18.0, %.thread.i ], [ %.sroa.18.2, %33 ]
   %.sroa.16.2 = phi i64 [ %.sroa.16.0, %.thread.i ], [ %.sroa.16.1, %33 ]
   %.sroa.14.2 = phi i64 [ %.sroa.14.0, %.thread.i ], [ %.sroa.14.1, %33 ]
@@ -32930,7 +32930,7 @@ _ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i:
 "_ZN12polars_arrow5array9primitive7mutable30MutablePrimitiveArray$LT$T$GT$4push17h3ed8801134f38e72E.exit.backedge": ; preds = %75, %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i
   br label %"_ZN12polars_arrow5array9primitive7mutable30MutablePrimitiveArray$LT$T$GT$4push17h3ed8801134f38e72E.exit"
 
-76:                                               ; preds = %.loopexit75
+76:                                               ; preds = %.loopexit80
   %.sroa.622.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 16
   %.sroa.325.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.325.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.622.0..sroa_idx, i64 48, i1 false)
@@ -32940,7 +32940,7 @@ _ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i:
   store i64 %40, ptr %.sroa.224.0..sroa_idx, align 8
   br label %37
 
-77:                                               ; preds = %.loopexit75
+77:                                               ; preds = %.loopexit80
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %78 = load i64, ptr %6, align 8, !alias.scope !4279, !noalias !6, !noundef !6
   %79 = load i64, ptr %5, align 8, !range !2013, !alias.scope !4279, !noalias !6, !noundef !6
@@ -33103,14 +33103,14 @@ define hidden void @"_ZN165_$LT$polars_arrow..array..dictionary..mutable..Mutabl
 
 .thread.i:                                        ; preds = %29
   %32 = getelementptr inbounds nuw i8, ptr %.sroa.6.0.ph, i64 2
-  br label %.loopexit75
+  br label %.loopexit80
 
 33:                                               ; preds = %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i"
   %34 = extractvalue { i8, ptr } %27, 1
   %35 = trunc nuw i8 %28 to i1
   %36 = icmp ne ptr %34, null
   tail call void @llvm.assume(i1 %36)
-  br i1 %35, label %.loopexit75, label %41
+  br i1 %35, label %.loopexit80, label %41
 
 .loopexit:                                        ; preds = %29, %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i"
   store i64 17, ptr %0, align 8
@@ -33119,7 +33119,7 @@ define hidden void @"_ZN165_$LT$polars_arrow..array..dictionary..mutable..Mutabl
 37:                                               ; preds = %76, %.loopexit
   ret void
 
-.loopexit75:                                      ; preds = %33, %.thread.i
+.loopexit80:                                      ; preds = %33, %.thread.i
   %.sroa.18.3 = phi i64 [ %.sroa.18.0, %.thread.i ], [ %.sroa.18.2, %33 ]
   %.sroa.16.2 = phi i64 [ %.sroa.16.0, %.thread.i ], [ %.sroa.16.1, %33 ]
   %.sroa.14.2 = phi i64 [ %.sroa.14.0, %.thread.i ], [ %.sroa.14.1, %33 ]
@@ -33206,7 +33206,7 @@ _ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i:
 "_ZN12polars_arrow5array9primitive7mutable30MutablePrimitiveArray$LT$T$GT$4push17h3ed8801134f38e72E.exit.backedge": ; preds = %75, %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i
   br label %"_ZN12polars_arrow5array9primitive7mutable30MutablePrimitiveArray$LT$T$GT$4push17h3ed8801134f38e72E.exit"
 
-76:                                               ; preds = %.loopexit75
+76:                                               ; preds = %.loopexit80
   %.sroa.622.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 16
   %.sroa.325.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.325.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.622.0..sroa_idx, i64 48, i1 false)
@@ -33216,7 +33216,7 @@ _ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i:
   store i64 %40, ptr %.sroa.224.0..sroa_idx, align 8
   br label %37
 
-77:                                               ; preds = %.loopexit75
+77:                                               ; preds = %.loopexit80
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %78 = load i64, ptr %6, align 8, !alias.scope !4329, !noalias !6, !noundef !6
   %79 = load i64, ptr %5, align 8, !range !2013, !alias.scope !4329, !noalias !6, !noundef !6
@@ -33379,14 +33379,14 @@ define hidden void @"_ZN165_$LT$polars_arrow..array..dictionary..mutable..Mutabl
 
 .thread.i:                                        ; preds = %29
   %32 = getelementptr inbounds nuw i8, ptr %.sroa.6.0.ph, i64 2
-  br label %.loopexit75
+  br label %.loopexit80
 
 33:                                               ; preds = %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i"
   %34 = extractvalue { i8, ptr } %27, 1
   %35 = trunc nuw i8 %28 to i1
   %36 = icmp ne ptr %34, null
   tail call void @llvm.assume(i1 %36)
-  br i1 %35, label %.loopexit75, label %41
+  br i1 %35, label %.loopexit80, label %41
 
 .loopexit:                                        ; preds = %29, %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i"
   store i64 17, ptr %0, align 8
@@ -33395,7 +33395,7 @@ define hidden void @"_ZN165_$LT$polars_arrow..array..dictionary..mutable..Mutabl
 37:                                               ; preds = %76, %.loopexit
   ret void
 
-.loopexit75:                                      ; preds = %33, %.thread.i
+.loopexit80:                                      ; preds = %33, %.thread.i
   %.sroa.18.3 = phi i64 [ %.sroa.18.0, %.thread.i ], [ %.sroa.18.2, %33 ]
   %.sroa.16.2 = phi i64 [ %.sroa.16.0, %.thread.i ], [ %.sroa.16.1, %33 ]
   %.sroa.14.2 = phi i64 [ %.sroa.14.0, %.thread.i ], [ %.sroa.14.1, %33 ]
@@ -33482,7 +33482,7 @@ _ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i:
 "_ZN12polars_arrow5array9primitive7mutable30MutablePrimitiveArray$LT$T$GT$4push17hf14144fd23629265E.exit.backedge": ; preds = %75, %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i
   br label %"_ZN12polars_arrow5array9primitive7mutable30MutablePrimitiveArray$LT$T$GT$4push17hf14144fd23629265E.exit"
 
-76:                                               ; preds = %.loopexit75
+76:                                               ; preds = %.loopexit80
   %.sroa.622.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 10
   %.sroa.325.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 10
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(54) %.sroa.325.0..sroa_idx, ptr noundef nonnull align 2 dereferenceable(54) %.sroa.622.0..sroa_idx, i64 54, i1 false)
@@ -33492,7 +33492,7 @@ _ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i:
   store i16 %40, ptr %.sroa.224.0..sroa_idx, align 8
   br label %37
 
-77:                                               ; preds = %.loopexit75
+77:                                               ; preds = %.loopexit80
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %78 = load i64, ptr %6, align 8, !alias.scope !4379, !noalias !6, !noundef !6
   %79 = load i64, ptr %5, align 8, !range !2013, !alias.scope !4379, !noalias !6, !noundef !6
@@ -34026,14 +34026,14 @@ define hidden void @"_ZN165_$LT$polars_arrow..array..dictionary..mutable..Mutabl
 
 .thread.i:                                        ; preds = %29
   %32 = getelementptr inbounds nuw i8, ptr %.sroa.6.0.ph, i64 2
-  br label %.loopexit75
+  br label %.loopexit80
 
 33:                                               ; preds = %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i"
   %34 = extractvalue { i8, ptr } %27, 1
   %35 = trunc nuw i8 %28 to i1
   %36 = icmp ne ptr %34, null
   tail call void @llvm.assume(i1 %36)
-  br i1 %35, label %.loopexit75, label %41
+  br i1 %35, label %.loopexit80, label %41
 
 .loopexit:                                        ; preds = %29, %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i"
   store i64 17, ptr %0, align 8
@@ -34042,7 +34042,7 @@ define hidden void @"_ZN165_$LT$polars_arrow..array..dictionary..mutable..Mutabl
 37:                                               ; preds = %76, %.loopexit
   ret void
 
-.loopexit75:                                      ; preds = %33, %.thread.i
+.loopexit80:                                      ; preds = %33, %.thread.i
   %.sroa.18.3 = phi i64 [ %.sroa.18.0, %.thread.i ], [ %.sroa.18.2, %33 ]
   %.sroa.16.2 = phi i64 [ %.sroa.16.0, %.thread.i ], [ %.sroa.16.1, %33 ]
   %.sroa.14.2 = phi i64 [ %.sroa.14.0, %.thread.i ], [ %.sroa.14.1, %33 ]
@@ -34129,7 +34129,7 @@ _ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i:
 "_ZN12polars_arrow5array9primitive7mutable30MutablePrimitiveArray$LT$T$GT$4push17h5abcd1ec4e336c20E.exit.backedge": ; preds = %75, %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i
   br label %"_ZN12polars_arrow5array9primitive7mutable30MutablePrimitiveArray$LT$T$GT$4push17h5abcd1ec4e336c20E.exit"
 
-76:                                               ; preds = %.loopexit75
+76:                                               ; preds = %.loopexit80
   %.sroa.622.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 9
   %.sroa.325.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(55) %.sroa.325.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(55) %.sroa.622.0..sroa_idx, i64 55, i1 false)
@@ -34139,7 +34139,7 @@ _ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i:
   store i8 %40, ptr %.sroa.224.0..sroa_idx, align 8
   br label %37
 
-77:                                               ; preds = %.loopexit75
+77:                                               ; preds = %.loopexit80
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %78 = load i64, ptr %6, align 8, !alias.scope !4501, !noalias !6, !noundef !6
   %79 = load i64, ptr %5, align 8, !range !2013, !alias.scope !4501, !noalias !6, !noundef !6
@@ -34302,14 +34302,14 @@ define hidden void @"_ZN165_$LT$polars_arrow..array..dictionary..mutable..Mutabl
 
 .thread.i:                                        ; preds = %29
   %32 = getelementptr inbounds nuw i8, ptr %.sroa.6.0.ph, i64 2
-  br label %.loopexit75
+  br label %.loopexit80
 
 33:                                               ; preds = %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i"
   %34 = extractvalue { i8, ptr } %27, 1
   %35 = trunc nuw i8 %28 to i1
   %36 = icmp ne ptr %34, null
   tail call void @llvm.assume(i1 %36)
-  br i1 %35, label %.loopexit75, label %41
+  br i1 %35, label %.loopexit80, label %41
 
 .loopexit:                                        ; preds = %29, %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i"
   store i64 17, ptr %0, align 8
@@ -34318,7 +34318,7 @@ define hidden void @"_ZN165_$LT$polars_arrow..array..dictionary..mutable..Mutabl
 37:                                               ; preds = %76, %.loopexit
   ret void
 
-.loopexit75:                                      ; preds = %33, %.thread.i
+.loopexit80:                                      ; preds = %33, %.thread.i
   %.sroa.18.3 = phi i64 [ %.sroa.18.0, %.thread.i ], [ %.sroa.18.2, %33 ]
   %.sroa.16.2 = phi i64 [ %.sroa.16.0, %.thread.i ], [ %.sroa.16.1, %33 ]
   %.sroa.14.2 = phi i64 [ %.sroa.14.0, %.thread.i ], [ %.sroa.14.1, %33 ]
@@ -34405,7 +34405,7 @@ _ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i:
 "_ZN12polars_arrow5array9primitive7mutable30MutablePrimitiveArray$LT$T$GT$4push17h1596243c76c69125E.exit.backedge": ; preds = %75, %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i
   br label %"_ZN12polars_arrow5array9primitive7mutable30MutablePrimitiveArray$LT$T$GT$4push17h1596243c76c69125E.exit"
 
-76:                                               ; preds = %.loopexit75
+76:                                               ; preds = %.loopexit80
   %.sroa.622.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 16
   %.sroa.325.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.325.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.622.0..sroa_idx, i64 48, i1 false)
@@ -34415,7 +34415,7 @@ _ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i:
   store i64 %40, ptr %.sroa.224.0..sroa_idx, align 8
   br label %37
 
-77:                                               ; preds = %.loopexit75
+77:                                               ; preds = %.loopexit80
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %78 = load i64, ptr %6, align 8, !alias.scope !4551, !noalias !6, !noundef !6
   %79 = load i64, ptr %5, align 8, !range !2013, !alias.scope !4551, !noalias !6, !noundef !6
@@ -36335,14 +36335,14 @@ define hidden void @"_ZN165_$LT$polars_arrow..array..dictionary..mutable..Mutabl
 
 .thread.i:                                        ; preds = %29
   %32 = getelementptr inbounds nuw i8, ptr %.sroa.6.0.ph, i64 2
-  br label %.loopexit75
+  br label %.loopexit80
 
 33:                                               ; preds = %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i"
   %34 = extractvalue { i8, ptr } %27, 1
   %35 = trunc nuw i8 %28 to i1
   %36 = icmp ne ptr %34, null
   tail call void @llvm.assume(i1 %36)
-  br i1 %35, label %.loopexit75, label %41
+  br i1 %35, label %.loopexit80, label %41
 
 .loopexit:                                        ; preds = %29, %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i"
   store i64 17, ptr %0, align 8
@@ -36351,7 +36351,7 @@ define hidden void @"_ZN165_$LT$polars_arrow..array..dictionary..mutable..Mutabl
 37:                                               ; preds = %76, %.loopexit
   ret void
 
-.loopexit75:                                      ; preds = %33, %.thread.i
+.loopexit80:                                      ; preds = %33, %.thread.i
   %.sroa.18.3 = phi i64 [ %.sroa.18.0, %.thread.i ], [ %.sroa.18.2, %33 ]
   %.sroa.16.2 = phi i64 [ %.sroa.16.0, %.thread.i ], [ %.sroa.16.1, %33 ]
   %.sroa.14.2 = phi i64 [ %.sroa.14.0, %.thread.i ], [ %.sroa.14.1, %33 ]
@@ -36438,7 +36438,7 @@ _ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i:
 "_ZN12polars_arrow5array9primitive7mutable30MutablePrimitiveArray$LT$T$GT$4push17h74d5fd10b2bf0ff4E.exit.backedge": ; preds = %75, %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i
   br label %"_ZN12polars_arrow5array9primitive7mutable30MutablePrimitiveArray$LT$T$GT$4push17h74d5fd10b2bf0ff4E.exit"
 
-76:                                               ; preds = %.loopexit75
+76:                                               ; preds = %.loopexit80
   %.sroa.622.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 12
   %.sroa.325.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(52) %.sroa.325.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(52) %.sroa.622.0..sroa_idx, i64 52, i1 false)
@@ -36448,7 +36448,7 @@ _ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i:
   store i32 %40, ptr %.sroa.224.0..sroa_idx, align 8
   br label %37
 
-77:                                               ; preds = %.loopexit75
+77:                                               ; preds = %.loopexit80
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %78 = load i64, ptr %6, align 8, !alias.scope !4921, !noalias !6, !noundef !6
   %79 = load i64, ptr %5, align 8, !range !2013, !alias.scope !4921, !noalias !6, !noundef !6
@@ -37353,14 +37353,14 @@ define hidden void @"_ZN165_$LT$polars_arrow..array..dictionary..mutable..Mutabl
 
 .thread.i:                                        ; preds = %29
   %32 = getelementptr inbounds nuw i8, ptr %.sroa.6.0.ph, i64 1
-  br label %.loopexit75
+  br label %.loopexit80
 
 33:                                               ; preds = %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i"
   %34 = extractvalue { i8, ptr } %27, 1
   %35 = trunc nuw i8 %28 to i1
   %36 = icmp ne ptr %34, null
   tail call void @llvm.assume(i1 %36)
-  br i1 %35, label %.loopexit75, label %41
+  br i1 %35, label %.loopexit80, label %41
 
 .loopexit:                                        ; preds = %29, %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i"
   store i64 17, ptr %0, align 8
@@ -37369,7 +37369,7 @@ define hidden void @"_ZN165_$LT$polars_arrow..array..dictionary..mutable..Mutabl
 37:                                               ; preds = %76, %.loopexit
   ret void
 
-.loopexit75:                                      ; preds = %33, %.thread.i
+.loopexit80:                                      ; preds = %33, %.thread.i
   %.sroa.18.3 = phi i64 [ %.sroa.18.0, %.thread.i ], [ %.sroa.18.2, %33 ]
   %.sroa.16.2 = phi i64 [ %.sroa.16.0, %.thread.i ], [ %.sroa.16.1, %33 ]
   %.sroa.14.2 = phi i64 [ %.sroa.14.0, %.thread.i ], [ %.sroa.14.1, %33 ]
@@ -37456,7 +37456,7 @@ _ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i:
 "_ZN12polars_arrow5array9primitive7mutable30MutablePrimitiveArray$LT$T$GT$4push17ha00ace499038bc0bE.exit.backedge": ; preds = %75, %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i
   br label %"_ZN12polars_arrow5array9primitive7mutable30MutablePrimitiveArray$LT$T$GT$4push17ha00ace499038bc0bE.exit"
 
-76:                                               ; preds = %.loopexit75
+76:                                               ; preds = %.loopexit80
   %.sroa.622.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 10
   %.sroa.325.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 10
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(54) %.sroa.325.0..sroa_idx, ptr noundef nonnull align 2 dereferenceable(54) %.sroa.622.0..sroa_idx, i64 54, i1 false)
@@ -37466,7 +37466,7 @@ _ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i:
   store i16 %40, ptr %.sroa.224.0..sroa_idx, align 8
   br label %37
 
-77:                                               ; preds = %.loopexit75
+77:                                               ; preds = %.loopexit80
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %78 = load i64, ptr %6, align 8, !alias.scope !5115, !noalias !6, !noundef !6
   %79 = load i64, ptr %5, align 8, !range !2013, !alias.scope !5115, !noalias !6, !noundef !6
@@ -37629,14 +37629,14 @@ define hidden void @"_ZN165_$LT$polars_arrow..array..dictionary..mutable..Mutabl
 
 .thread.i:                                        ; preds = %29
   %32 = getelementptr inbounds nuw i8, ptr %.sroa.6.0.ph, i64 4
-  br label %.loopexit75
+  br label %.loopexit80
 
 33:                                               ; preds = %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i"
   %34 = extractvalue { i8, ptr } %27, 1
   %35 = trunc nuw i8 %28 to i1
   %36 = icmp ne ptr %34, null
   tail call void @llvm.assume(i1 %36)
-  br i1 %35, label %.loopexit75, label %41
+  br i1 %35, label %.loopexit80, label %41
 
 .loopexit:                                        ; preds = %29, %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i"
   store i64 17, ptr %0, align 8
@@ -37645,7 +37645,7 @@ define hidden void @"_ZN165_$LT$polars_arrow..array..dictionary..mutable..Mutabl
 37:                                               ; preds = %76, %.loopexit
   ret void
 
-.loopexit75:                                      ; preds = %33, %.thread.i
+.loopexit80:                                      ; preds = %33, %.thread.i
   %.sroa.18.3 = phi i64 [ %.sroa.18.0, %.thread.i ], [ %.sroa.18.2, %33 ]
   %.sroa.16.2 = phi i64 [ %.sroa.16.0, %.thread.i ], [ %.sroa.16.1, %33 ]
   %.sroa.14.2 = phi i64 [ %.sroa.14.0, %.thread.i ], [ %.sroa.14.1, %33 ]
@@ -37732,7 +37732,7 @@ _ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i:
 "_ZN12polars_arrow5array9primitive7mutable30MutablePrimitiveArray$LT$T$GT$4push17h4ee0d8065cd9c4e0E.exit.backedge": ; preds = %75, %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i
   br label %"_ZN12polars_arrow5array9primitive7mutable30MutablePrimitiveArray$LT$T$GT$4push17h4ee0d8065cd9c4e0E.exit"
 
-76:                                               ; preds = %.loopexit75
+76:                                               ; preds = %.loopexit80
   %.sroa.622.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 12
   %.sroa.325.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(52) %.sroa.325.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(52) %.sroa.622.0..sroa_idx, i64 52, i1 false)
@@ -37742,7 +37742,7 @@ _ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i:
   store i32 %40, ptr %.sroa.224.0..sroa_idx, align 8
   br label %37
 
-77:                                               ; preds = %.loopexit75
+77:                                               ; preds = %.loopexit80
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %78 = load i64, ptr %6, align 8, !alias.scope !5165, !noalias !6, !noundef !6
   %79 = load i64, ptr %5, align 8, !range !2013, !alias.scope !5165, !noalias !6, !noundef !6
@@ -37905,14 +37905,14 @@ define hidden void @"_ZN165_$LT$polars_arrow..array..dictionary..mutable..Mutabl
 
 .thread.i:                                        ; preds = %29
   %32 = getelementptr inbounds nuw i8, ptr %.sroa.6.0.ph, i64 4
-  br label %.loopexit75
+  br label %.loopexit80
 
 33:                                               ; preds = %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i"
   %34 = extractvalue { i8, ptr } %27, 1
   %35 = trunc nuw i8 %28 to i1
   %36 = icmp ne ptr %34, null
   tail call void @llvm.assume(i1 %36)
-  br i1 %35, label %.loopexit75, label %41
+  br i1 %35, label %.loopexit80, label %41
 
 .loopexit:                                        ; preds = %29, %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i"
   store i64 17, ptr %0, align 8
@@ -37921,7 +37921,7 @@ define hidden void @"_ZN165_$LT$polars_arrow..array..dictionary..mutable..Mutabl
 37:                                               ; preds = %76, %.loopexit
   ret void
 
-.loopexit75:                                      ; preds = %33, %.thread.i
+.loopexit80:                                      ; preds = %33, %.thread.i
   %.sroa.18.3 = phi i64 [ %.sroa.18.0, %.thread.i ], [ %.sroa.18.2, %33 ]
   %.sroa.16.2 = phi i64 [ %.sroa.16.0, %.thread.i ], [ %.sroa.16.1, %33 ]
   %.sroa.14.2 = phi i64 [ %.sroa.14.0, %.thread.i ], [ %.sroa.14.1, %33 ]
@@ -38008,7 +38008,7 @@ _ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i:
 "_ZN12polars_arrow5array9primitive7mutable30MutablePrimitiveArray$LT$T$GT$4push17ha00ace499038bc0bE.exit.backedge": ; preds = %75, %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i
   br label %"_ZN12polars_arrow5array9primitive7mutable30MutablePrimitiveArray$LT$T$GT$4push17ha00ace499038bc0bE.exit"
 
-76:                                               ; preds = %.loopexit75
+76:                                               ; preds = %.loopexit80
   %.sroa.622.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 10
   %.sroa.325.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 10
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(54) %.sroa.325.0..sroa_idx, ptr noundef nonnull align 2 dereferenceable(54) %.sroa.622.0..sroa_idx, i64 54, i1 false)
@@ -38018,7 +38018,7 @@ _ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i:
   store i16 %40, ptr %.sroa.224.0..sroa_idx, align 8
   br label %37
 
-77:                                               ; preds = %.loopexit75
+77:                                               ; preds = %.loopexit80
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %78 = load i64, ptr %6, align 8, !alias.scope !5215, !noalias !6, !noundef !6
   %79 = load i64, ptr %5, align 8, !range !2013, !alias.scope !5215, !noalias !6, !noundef !6
@@ -38181,14 +38181,14 @@ define hidden void @"_ZN165_$LT$polars_arrow..array..dictionary..mutable..Mutabl
 
 .thread.i:                                        ; preds = %29
   %32 = getelementptr inbounds nuw i8, ptr %.sroa.6.0.ph, i64 8
-  br label %.loopexit75
+  br label %.loopexit80
 
 33:                                               ; preds = %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i"
   %34 = extractvalue { i8, ptr } %27, 1
   %35 = trunc nuw i8 %28 to i1
   %36 = icmp ne ptr %34, null
   tail call void @llvm.assume(i1 %36)
-  br i1 %35, label %.loopexit75, label %41
+  br i1 %35, label %.loopexit80, label %41
 
 .loopexit:                                        ; preds = %29, %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i"
   store i64 17, ptr %0, align 8
@@ -38197,7 +38197,7 @@ define hidden void @"_ZN165_$LT$polars_arrow..array..dictionary..mutable..Mutabl
 37:                                               ; preds = %76, %.loopexit
   ret void
 
-.loopexit75:                                      ; preds = %33, %.thread.i
+.loopexit80:                                      ; preds = %33, %.thread.i
   %.sroa.18.3 = phi i64 [ %.sroa.18.0, %.thread.i ], [ %.sroa.18.2, %33 ]
   %.sroa.16.2 = phi i64 [ %.sroa.16.0, %.thread.i ], [ %.sroa.16.1, %33 ]
   %.sroa.14.2 = phi i64 [ %.sroa.14.0, %.thread.i ], [ %.sroa.14.1, %33 ]
@@ -38284,7 +38284,7 @@ _ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i:
 "_ZN12polars_arrow5array9primitive7mutable30MutablePrimitiveArray$LT$T$GT$4push17h74d5fd10b2bf0ff4E.exit.backedge": ; preds = %75, %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i
   br label %"_ZN12polars_arrow5array9primitive7mutable30MutablePrimitiveArray$LT$T$GT$4push17h74d5fd10b2bf0ff4E.exit"
 
-76:                                               ; preds = %.loopexit75
+76:                                               ; preds = %.loopexit80
   %.sroa.622.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 12
   %.sroa.325.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(52) %.sroa.325.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(52) %.sroa.622.0..sroa_idx, i64 52, i1 false)
@@ -38294,7 +38294,7 @@ _ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i:
   store i32 %40, ptr %.sroa.224.0..sroa_idx, align 8
   br label %37
 
-77:                                               ; preds = %.loopexit75
+77:                                               ; preds = %.loopexit80
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %78 = load i64, ptr %6, align 8, !alias.scope !5265, !noalias !6, !noundef !6
   %79 = load i64, ptr %5, align 8, !range !2013, !alias.scope !5265, !noalias !6, !noundef !6
@@ -38457,14 +38457,14 @@ define hidden void @"_ZN165_$LT$polars_arrow..array..dictionary..mutable..Mutabl
 
 .thread.i:                                        ; preds = %29
   %32 = getelementptr inbounds nuw i8, ptr %.sroa.6.0.ph, i64 1
-  br label %.loopexit75
+  br label %.loopexit80
 
 33:                                               ; preds = %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i"
   %34 = extractvalue { i8, ptr } %27, 1
   %35 = trunc nuw i8 %28 to i1
   %36 = icmp ne ptr %34, null
   tail call void @llvm.assume(i1 %36)
-  br i1 %35, label %.loopexit75, label %41
+  br i1 %35, label %.loopexit80, label %41
 
 .loopexit:                                        ; preds = %29, %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i"
   store i64 17, ptr %0, align 8
@@ -38473,7 +38473,7 @@ define hidden void @"_ZN165_$LT$polars_arrow..array..dictionary..mutable..Mutabl
 37:                                               ; preds = %76, %.loopexit
   ret void
 
-.loopexit75:                                      ; preds = %33, %.thread.i
+.loopexit80:                                      ; preds = %33, %.thread.i
   %.sroa.18.3 = phi i64 [ %.sroa.18.0, %.thread.i ], [ %.sroa.18.2, %33 ]
   %.sroa.16.2 = phi i64 [ %.sroa.16.0, %.thread.i ], [ %.sroa.16.1, %33 ]
   %.sroa.14.2 = phi i64 [ %.sroa.14.0, %.thread.i ], [ %.sroa.14.1, %33 ]
@@ -38560,7 +38560,7 @@ _ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i:
 "_ZN12polars_arrow5array9primitive7mutable30MutablePrimitiveArray$LT$T$GT$4push17hf14144fd23629265E.exit.backedge": ; preds = %75, %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i
   br label %"_ZN12polars_arrow5array9primitive7mutable30MutablePrimitiveArray$LT$T$GT$4push17hf14144fd23629265E.exit"
 
-76:                                               ; preds = %.loopexit75
+76:                                               ; preds = %.loopexit80
   %.sroa.622.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 10
   %.sroa.325.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 10
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(54) %.sroa.325.0..sroa_idx, ptr noundef nonnull align 2 dereferenceable(54) %.sroa.622.0..sroa_idx, i64 54, i1 false)
@@ -38570,7 +38570,7 @@ _ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i:
   store i16 %40, ptr %.sroa.224.0..sroa_idx, align 8
   br label %37
 
-77:                                               ; preds = %.loopexit75
+77:                                               ; preds = %.loopexit80
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %78 = load i64, ptr %6, align 8, !alias.scope !5315, !noalias !6, !noundef !6
   %79 = load i64, ptr %5, align 8, !range !2013, !alias.scope !5315, !noalias !6, !noundef !6
@@ -39104,14 +39104,14 @@ define hidden void @"_ZN165_$LT$polars_arrow..array..dictionary..mutable..Mutabl
 
 .thread.i:                                        ; preds = %29
   %32 = getelementptr inbounds nuw i8, ptr %.sroa.6.0.ph, i64 2
-  br label %.loopexit75
+  br label %.loopexit80
 
 33:                                               ; preds = %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i"
   %34 = extractvalue { i8, ptr } %27, 1
   %35 = trunc nuw i8 %28 to i1
   %36 = icmp ne ptr %34, null
   tail call void @llvm.assume(i1 %36)
-  br i1 %35, label %.loopexit75, label %41
+  br i1 %35, label %.loopexit80, label %41
 
 .loopexit:                                        ; preds = %29, %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i"
   store i64 17, ptr %0, align 8
@@ -39120,7 +39120,7 @@ define hidden void @"_ZN165_$LT$polars_arrow..array..dictionary..mutable..Mutabl
 37:                                               ; preds = %76, %.loopexit
   ret void
 
-.loopexit75:                                      ; preds = %33, %.thread.i
+.loopexit80:                                      ; preds = %33, %.thread.i
   %.sroa.18.3 = phi i64 [ %.sroa.18.0, %.thread.i ], [ %.sroa.18.2, %33 ]
   %.sroa.16.2 = phi i64 [ %.sroa.16.0, %.thread.i ], [ %.sroa.16.1, %33 ]
   %.sroa.14.2 = phi i64 [ %.sroa.14.0, %.thread.i ], [ %.sroa.14.1, %33 ]
@@ -39207,7 +39207,7 @@ _ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i:
 "_ZN12polars_arrow5array9primitive7mutable30MutablePrimitiveArray$LT$T$GT$4push17h5abcd1ec4e336c20E.exit.backedge": ; preds = %75, %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i
   br label %"_ZN12polars_arrow5array9primitive7mutable30MutablePrimitiveArray$LT$T$GT$4push17h5abcd1ec4e336c20E.exit"
 
-76:                                               ; preds = %.loopexit75
+76:                                               ; preds = %.loopexit80
   %.sroa.622.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 9
   %.sroa.325.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(55) %.sroa.325.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(55) %.sroa.622.0..sroa_idx, i64 55, i1 false)
@@ -39217,7 +39217,7 @@ _ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i:
   store i8 %40, ptr %.sroa.224.0..sroa_idx, align 8
   br label %37
 
-77:                                               ; preds = %.loopexit75
+77:                                               ; preds = %.loopexit80
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %78 = load i64, ptr %6, align 8, !alias.scope !5437, !noalias !6, !noundef !6
   %79 = load i64, ptr %5, align 8, !range !2013, !alias.scope !5437, !noalias !6, !noundef !6
@@ -39380,14 +39380,14 @@ define hidden void @"_ZN165_$LT$polars_arrow..array..dictionary..mutable..Mutabl
 
 .thread.i:                                        ; preds = %29
   %32 = getelementptr inbounds nuw i8, ptr %.sroa.6.0.ph, i64 1
-  br label %.loopexit75
+  br label %.loopexit80
 
 33:                                               ; preds = %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i"
   %34 = extractvalue { i8, ptr } %27, 1
   %35 = trunc nuw i8 %28 to i1
   %36 = icmp ne ptr %34, null
   tail call void @llvm.assume(i1 %36)
-  br i1 %35, label %.loopexit75, label %41
+  br i1 %35, label %.loopexit80, label %41
 
 .loopexit:                                        ; preds = %29, %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i"
   store i64 17, ptr %0, align 8
@@ -39396,7 +39396,7 @@ define hidden void @"_ZN165_$LT$polars_arrow..array..dictionary..mutable..Mutabl
 37:                                               ; preds = %76, %.loopexit
   ret void
 
-.loopexit75:                                      ; preds = %33, %.thread.i
+.loopexit80:                                      ; preds = %33, %.thread.i
   %.sroa.18.3 = phi i64 [ %.sroa.18.0, %.thread.i ], [ %.sroa.18.2, %33 ]
   %.sroa.16.2 = phi i64 [ %.sroa.16.0, %.thread.i ], [ %.sroa.16.1, %33 ]
   %.sroa.14.2 = phi i64 [ %.sroa.14.0, %.thread.i ], [ %.sroa.14.1, %33 ]
@@ -39483,7 +39483,7 @@ _ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i:
 "_ZN12polars_arrow5array9primitive7mutable30MutablePrimitiveArray$LT$T$GT$4push17h5abcd1ec4e336c20E.exit.backedge": ; preds = %75, %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i
   br label %"_ZN12polars_arrow5array9primitive7mutable30MutablePrimitiveArray$LT$T$GT$4push17h5abcd1ec4e336c20E.exit"
 
-76:                                               ; preds = %.loopexit75
+76:                                               ; preds = %.loopexit80
   %.sroa.622.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 9
   %.sroa.325.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(55) %.sroa.325.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(55) %.sroa.622.0..sroa_idx, i64 55, i1 false)
@@ -39493,7 +39493,7 @@ _ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i:
   store i8 %40, ptr %.sroa.224.0..sroa_idx, align 8
   br label %37
 
-77:                                               ; preds = %.loopexit75
+77:                                               ; preds = %.loopexit80
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %78 = load i64, ptr %6, align 8, !alias.scope !5487, !noalias !6, !noundef !6
   %79 = load i64, ptr %5, align 8, !range !2013, !alias.scope !5487, !noalias !6, !noundef !6
@@ -40300,14 +40300,14 @@ define hidden void @"_ZN165_$LT$polars_arrow..array..dictionary..mutable..Mutabl
 
 .thread.i:                                        ; preds = %29
   %32 = getelementptr inbounds nuw i8, ptr %.sroa.6.0.ph, i64 1
-  br label %.loopexit75
+  br label %.loopexit80
 
 33:                                               ; preds = %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i"
   %34 = extractvalue { i8, ptr } %27, 1
   %35 = trunc nuw i8 %28 to i1
   %36 = icmp ne ptr %34, null
   tail call void @llvm.assume(i1 %36)
-  br i1 %35, label %.loopexit75, label %41
+  br i1 %35, label %.loopexit80, label %41
 
 .loopexit:                                        ; preds = %29, %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i"
   store i64 17, ptr %0, align 8
@@ -40316,7 +40316,7 @@ define hidden void @"_ZN165_$LT$polars_arrow..array..dictionary..mutable..Mutabl
 37:                                               ; preds = %76, %.loopexit
   ret void
 
-.loopexit75:                                      ; preds = %33, %.thread.i
+.loopexit80:                                      ; preds = %33, %.thread.i
   %.sroa.18.3 = phi i64 [ %.sroa.18.0, %.thread.i ], [ %.sroa.18.2, %33 ]
   %.sroa.16.2 = phi i64 [ %.sroa.16.0, %.thread.i ], [ %.sroa.16.1, %33 ]
   %.sroa.14.2 = phi i64 [ %.sroa.14.0, %.thread.i ], [ %.sroa.14.1, %33 ]
@@ -40403,7 +40403,7 @@ _ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i:
 "_ZN12polars_arrow5array9primitive7mutable30MutablePrimitiveArray$LT$T$GT$4push17h1596243c76c69125E.exit.backedge": ; preds = %75, %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i
   br label %"_ZN12polars_arrow5array9primitive7mutable30MutablePrimitiveArray$LT$T$GT$4push17h1596243c76c69125E.exit"
 
-76:                                               ; preds = %.loopexit75
+76:                                               ; preds = %.loopexit80
   %.sroa.622.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 16
   %.sroa.325.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.325.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.622.0..sroa_idx, i64 48, i1 false)
@@ -40413,7 +40413,7 @@ _ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i:
   store i64 %40, ptr %.sroa.224.0..sroa_idx, align 8
   br label %37
 
-77:                                               ; preds = %.loopexit75
+77:                                               ; preds = %.loopexit80
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %78 = load i64, ptr %6, align 8, !alias.scope !5641, !noalias !6, !noundef !6
   %79 = load i64, ptr %5, align 8, !range !2013, !alias.scope !5641, !noalias !6, !noundef !6
@@ -40905,14 +40905,14 @@ define hidden void @"_ZN165_$LT$polars_arrow..array..dictionary..mutable..Mutabl
 
 .thread.i:                                        ; preds = %29
   %32 = getelementptr inbounds nuw i8, ptr %.sroa.6.0.ph, i64 4
-  br label %.loopexit75
+  br label %.loopexit80
 
 33:                                               ; preds = %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i"
   %34 = extractvalue { i8, ptr } %27, 1
   %35 = trunc nuw i8 %28 to i1
   %36 = icmp ne ptr %34, null
   tail call void @llvm.assume(i1 %36)
-  br i1 %35, label %.loopexit75, label %41
+  br i1 %35, label %.loopexit80, label %41
 
 .loopexit:                                        ; preds = %29, %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i"
   store i64 17, ptr %0, align 8
@@ -40921,7 +40921,7 @@ define hidden void @"_ZN165_$LT$polars_arrow..array..dictionary..mutable..Mutabl
 37:                                               ; preds = %76, %.loopexit
   ret void
 
-.loopexit75:                                      ; preds = %33, %.thread.i
+.loopexit80:                                      ; preds = %33, %.thread.i
   %.sroa.18.3 = phi i64 [ %.sroa.18.0, %.thread.i ], [ %.sroa.18.2, %33 ]
   %.sroa.16.2 = phi i64 [ %.sroa.16.0, %.thread.i ], [ %.sroa.16.1, %33 ]
   %.sroa.14.2 = phi i64 [ %.sroa.14.0, %.thread.i ], [ %.sroa.14.1, %33 ]
@@ -41008,7 +41008,7 @@ _ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i:
 "_ZN12polars_arrow5array9primitive7mutable30MutablePrimitiveArray$LT$T$GT$4push17h37189fe9ccb0e64fE.exit.backedge": ; preds = %75, %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i
   br label %"_ZN12polars_arrow5array9primitive7mutable30MutablePrimitiveArray$LT$T$GT$4push17h37189fe9ccb0e64fE.exit"
 
-76:                                               ; preds = %.loopexit75
+76:                                               ; preds = %.loopexit80
   %.sroa.622.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 9
   %.sroa.325.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(55) %.sroa.325.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(55) %.sroa.622.0..sroa_idx, i64 55, i1 false)
@@ -41018,7 +41018,7 @@ _ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i:
   store i8 %40, ptr %.sroa.224.0..sroa_idx, align 8
   br label %37
 
-77:                                               ; preds = %.loopexit75
+77:                                               ; preds = %.loopexit80
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %78 = load i64, ptr %6, align 8, !alias.scope !5743, !noalias !6, !noundef !6
   %79 = load i64, ptr %5, align 8, !range !2013, !alias.scope !5743, !noalias !6, !noundef !6
@@ -41181,14 +41181,14 @@ define hidden void @"_ZN165_$LT$polars_arrow..array..dictionary..mutable..Mutabl
 
 .thread.i:                                        ; preds = %29
   %32 = getelementptr inbounds nuw i8, ptr %.sroa.6.0.ph, i64 1
-  br label %.loopexit75
+  br label %.loopexit80
 
 33:                                               ; preds = %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i"
   %34 = extractvalue { i8, ptr } %27, 1
   %35 = trunc nuw i8 %28 to i1
   %36 = icmp ne ptr %34, null
   tail call void @llvm.assume(i1 %36)
-  br i1 %35, label %.loopexit75, label %41
+  br i1 %35, label %.loopexit80, label %41
 
 .loopexit:                                        ; preds = %29, %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i"
   store i64 17, ptr %0, align 8
@@ -41197,7 +41197,7 @@ define hidden void @"_ZN165_$LT$polars_arrow..array..dictionary..mutable..Mutabl
 37:                                               ; preds = %76, %.loopexit
   ret void
 
-.loopexit75:                                      ; preds = %33, %.thread.i
+.loopexit80:                                      ; preds = %33, %.thread.i
   %.sroa.18.3 = phi i64 [ %.sroa.18.0, %.thread.i ], [ %.sroa.18.2, %33 ]
   %.sroa.16.2 = phi i64 [ %.sroa.16.0, %.thread.i ], [ %.sroa.16.1, %33 ]
   %.sroa.14.2 = phi i64 [ %.sroa.14.0, %.thread.i ], [ %.sroa.14.1, %33 ]
@@ -41284,7 +41284,7 @@ _ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i:
 "_ZN12polars_arrow5array9primitive7mutable30MutablePrimitiveArray$LT$T$GT$4push17h37189fe9ccb0e64fE.exit.backedge": ; preds = %75, %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i
   br label %"_ZN12polars_arrow5array9primitive7mutable30MutablePrimitiveArray$LT$T$GT$4push17h37189fe9ccb0e64fE.exit"
 
-76:                                               ; preds = %.loopexit75
+76:                                               ; preds = %.loopexit80
   %.sroa.622.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 9
   %.sroa.325.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(55) %.sroa.325.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(55) %.sroa.622.0..sroa_idx, i64 55, i1 false)
@@ -41294,7 +41294,7 @@ _ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i:
   store i8 %40, ptr %.sroa.224.0..sroa_idx, align 8
   br label %37
 
-77:                                               ; preds = %.loopexit75
+77:                                               ; preds = %.loopexit80
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %78 = load i64, ptr %6, align 8, !alias.scope !5793, !noalias !6, !noundef !6
   %79 = load i64, ptr %5, align 8, !range !2013, !alias.scope !5793, !noalias !6, !noundef !6
@@ -41457,14 +41457,14 @@ define hidden void @"_ZN165_$LT$polars_arrow..array..dictionary..mutable..Mutabl
 
 .thread.i:                                        ; preds = %29
   %32 = getelementptr inbounds nuw i8, ptr %.sroa.6.0.ph, i64 8
-  br label %.loopexit75
+  br label %.loopexit80
 
 33:                                               ; preds = %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i"
   %34 = extractvalue { i8, ptr } %27, 1
   %35 = trunc nuw i8 %28 to i1
   %36 = icmp ne ptr %34, null
   tail call void @llvm.assume(i1 %36)
-  br i1 %35, label %.loopexit75, label %41
+  br i1 %35, label %.loopexit80, label %41
 
 .loopexit:                                        ; preds = %29, %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i"
   store i64 17, ptr %0, align 8
@@ -41473,7 +41473,7 @@ define hidden void @"_ZN165_$LT$polars_arrow..array..dictionary..mutable..Mutabl
 37:                                               ; preds = %76, %.loopexit
   ret void
 
-.loopexit75:                                      ; preds = %33, %.thread.i
+.loopexit80:                                      ; preds = %33, %.thread.i
   %.sroa.18.3 = phi i64 [ %.sroa.18.0, %.thread.i ], [ %.sroa.18.2, %33 ]
   %.sroa.16.2 = phi i64 [ %.sroa.16.0, %.thread.i ], [ %.sroa.16.1, %33 ]
   %.sroa.14.2 = phi i64 [ %.sroa.14.0, %.thread.i ], [ %.sroa.14.1, %33 ]
@@ -41560,7 +41560,7 @@ _ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i:
 "_ZN12polars_arrow5array9primitive7mutable30MutablePrimitiveArray$LT$T$GT$4push17h1596243c76c69125E.exit.backedge": ; preds = %75, %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i
   br label %"_ZN12polars_arrow5array9primitive7mutable30MutablePrimitiveArray$LT$T$GT$4push17h1596243c76c69125E.exit"
 
-76:                                               ; preds = %.loopexit75
+76:                                               ; preds = %.loopexit80
   %.sroa.622.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 16
   %.sroa.325.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.325.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.622.0..sroa_idx, i64 48, i1 false)
@@ -41570,7 +41570,7 @@ _ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i:
   store i64 %40, ptr %.sroa.224.0..sroa_idx, align 8
   br label %37
 
-77:                                               ; preds = %.loopexit75
+77:                                               ; preds = %.loopexit80
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %78 = load i64, ptr %6, align 8, !alias.scope !5843, !noalias !6, !noundef !6
   %79 = load i64, ptr %5, align 8, !range !2013, !alias.scope !5843, !noalias !6, !noundef !6
@@ -42056,14 +42056,14 @@ define hidden void @"_ZN165_$LT$polars_arrow..array..dictionary..mutable..Mutabl
 
 .thread.i:                                        ; preds = %29
   %32 = getelementptr inbounds nuw i8, ptr %.sroa.6.0.ph, i64 8
-  br label %.loopexit81
+  br label %.loopexit86
 
 33:                                               ; preds = %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i"
   %34 = extractvalue { i8, ptr } %27, 1
   %35 = trunc nuw i8 %28 to i1
   %36 = icmp ne ptr %34, null
   tail call void @llvm.assume(i1 %36)
-  br i1 %35, label %.loopexit81, label %40
+  br i1 %35, label %.loopexit86, label %40
 
 .loopexit:                                        ; preds = %29, %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i"
   store i64 17, ptr %0, align 8
@@ -42072,7 +42072,7 @@ define hidden void @"_ZN165_$LT$polars_arrow..array..dictionary..mutable..Mutabl
 37:                                               ; preds = %75, %.loopexit
   ret void
 
-.loopexit81:                                      ; preds = %33, %.thread.i
+.loopexit86:                                      ; preds = %33, %.thread.i
   %.sroa.18.3 = phi i64 [ %.sroa.18.0, %.thread.i ], [ %.sroa.18.2, %33 ]
   %.sroa.16.2 = phi i64 [ %.sroa.16.0, %.thread.i ], [ %.sroa.16.1, %33 ]
   %.sroa.14.2 = phi i64 [ %.sroa.14.0, %.thread.i ], [ %.sroa.14.1, %33 ]
@@ -42158,7 +42158,7 @@ _ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i:
 "_ZN12polars_arrow5array9primitive7mutable30MutablePrimitiveArray$LT$T$GT$4push17hf9858ade1900cd59E.exit.backedge": ; preds = %74, %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i
   br label %"_ZN12polars_arrow5array9primitive7mutable30MutablePrimitiveArray$LT$T$GT$4push17hf9858ade1900cd59E.exit"
 
-75:                                               ; preds = %.loopexit81
+75:                                               ; preds = %.loopexit86
   %.sroa.526.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
   %.sroa.526.0.copyload = load i64, ptr %.sroa.526.0..sroa_idx, align 8
   %.sroa.627.0.copyload = load i128, ptr %12, align 16
@@ -42174,7 +42174,7 @@ _ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i:
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.432.0..sroa_idx, ptr noundef nonnull align 16 dereferenceable(32) %.sroa.432, i64 32, i1 false)
   br label %37
 
-76:                                               ; preds = %.loopexit81
+76:                                               ; preds = %.loopexit86
   %77 = load i128, ptr %12, align 16, !noundef !6
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %78 = load i64, ptr %6, align 8, !alias.scope !5945, !noalias !6, !noundef !6
@@ -42338,14 +42338,14 @@ define hidden void @"_ZN165_$LT$polars_arrow..array..dictionary..mutable..Mutabl
 
 .thread.i:                                        ; preds = %29
   %32 = getelementptr inbounds nuw i8, ptr %.sroa.6.0.ph, i64 8
-  br label %.loopexit75
+  br label %.loopexit80
 
 33:                                               ; preds = %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i"
   %34 = extractvalue { i8, ptr } %27, 1
   %35 = trunc nuw i8 %28 to i1
   %36 = icmp ne ptr %34, null
   tail call void @llvm.assume(i1 %36)
-  br i1 %35, label %.loopexit75, label %41
+  br i1 %35, label %.loopexit80, label %41
 
 .loopexit:                                        ; preds = %29, %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i"
   store i64 17, ptr %0, align 8
@@ -42354,7 +42354,7 @@ define hidden void @"_ZN165_$LT$polars_arrow..array..dictionary..mutable..Mutabl
 37:                                               ; preds = %76, %.loopexit
   ret void
 
-.loopexit75:                                      ; preds = %33, %.thread.i
+.loopexit80:                                      ; preds = %33, %.thread.i
   %.sroa.18.3 = phi i64 [ %.sroa.18.0, %.thread.i ], [ %.sroa.18.2, %33 ]
   %.sroa.16.2 = phi i64 [ %.sroa.16.0, %.thread.i ], [ %.sroa.16.1, %33 ]
   %.sroa.14.2 = phi i64 [ %.sroa.14.0, %.thread.i ], [ %.sroa.14.1, %33 ]
@@ -42441,7 +42441,7 @@ _ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i:
 "_ZN12polars_arrow5array9primitive7mutable30MutablePrimitiveArray$LT$T$GT$4push17h3ed8801134f38e72E.exit.backedge": ; preds = %75, %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i
   br label %"_ZN12polars_arrow5array9primitive7mutable30MutablePrimitiveArray$LT$T$GT$4push17h3ed8801134f38e72E.exit"
 
-76:                                               ; preds = %.loopexit75
+76:                                               ; preds = %.loopexit80
   %.sroa.622.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 16
   %.sroa.325.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.325.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.622.0..sroa_idx, i64 48, i1 false)
@@ -42451,7 +42451,7 @@ _ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i:
   store i64 %40, ptr %.sroa.224.0..sroa_idx, align 8
   br label %37
 
-77:                                               ; preds = %.loopexit75
+77:                                               ; preds = %.loopexit80
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %78 = load i64, ptr %6, align 8, !alias.scope !5995, !noalias !6, !noundef !6
   %79 = load i64, ptr %5, align 8, !range !2013, !alias.scope !5995, !noalias !6, !noundef !6
@@ -43958,14 +43958,14 @@ define hidden void @"_ZN165_$LT$polars_arrow..array..dictionary..mutable..Mutabl
 
 .thread.i:                                        ; preds = %29
   %32 = getelementptr inbounds nuw i8, ptr %.sroa.6.0.ph, i64 4
-  br label %.loopexit75
+  br label %.loopexit80
 
 33:                                               ; preds = %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i"
   %34 = extractvalue { i8, ptr } %27, 1
   %35 = trunc nuw i8 %28 to i1
   %36 = icmp ne ptr %34, null
   tail call void @llvm.assume(i1 %36)
-  br i1 %35, label %.loopexit75, label %41
+  br i1 %35, label %.loopexit80, label %41
 
 .loopexit:                                        ; preds = %29, %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i"
   store i64 17, ptr %0, align 8
@@ -43974,7 +43974,7 @@ define hidden void @"_ZN165_$LT$polars_arrow..array..dictionary..mutable..Mutabl
 37:                                               ; preds = %76, %.loopexit
   ret void
 
-.loopexit75:                                      ; preds = %33, %.thread.i
+.loopexit80:                                      ; preds = %33, %.thread.i
   %.sroa.18.3 = phi i64 [ %.sroa.18.0, %.thread.i ], [ %.sroa.18.2, %33 ]
   %.sroa.16.2 = phi i64 [ %.sroa.16.0, %.thread.i ], [ %.sroa.16.1, %33 ]
   %.sroa.14.2 = phi i64 [ %.sroa.14.0, %.thread.i ], [ %.sroa.14.1, %33 ]
@@ -44061,7 +44061,7 @@ _ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i:
 "_ZN12polars_arrow5array9primitive7mutable30MutablePrimitiveArray$LT$T$GT$4push17h4ee0d8065cd9c4e0E.exit.backedge": ; preds = %75, %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i
   br label %"_ZN12polars_arrow5array9primitive7mutable30MutablePrimitiveArray$LT$T$GT$4push17h4ee0d8065cd9c4e0E.exit"
 
-76:                                               ; preds = %.loopexit75
+76:                                               ; preds = %.loopexit80
   %.sroa.622.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 12
   %.sroa.325.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(52) %.sroa.325.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(52) %.sroa.622.0..sroa_idx, i64 52, i1 false)
@@ -44071,7 +44071,7 @@ _ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i:
   store i32 %40, ptr %.sroa.224.0..sroa_idx, align 8
   br label %37
 
-77:                                               ; preds = %.loopexit75
+77:                                               ; preds = %.loopexit80
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %78 = load i64, ptr %6, align 8, !alias.scope !6273, !noalias !6, !noundef !6
   %79 = load i64, ptr %5, align 8, !range !2013, !alias.scope !6273, !noalias !6, !noundef !6
@@ -44234,14 +44234,14 @@ define hidden void @"_ZN165_$LT$polars_arrow..array..dictionary..mutable..Mutabl
 
 .thread.i:                                        ; preds = %29
   %32 = getelementptr inbounds nuw i8, ptr %.sroa.6.0.ph, i64 2
-  br label %.loopexit75
+  br label %.loopexit80
 
 33:                                               ; preds = %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i"
   %34 = extractvalue { i8, ptr } %27, 1
   %35 = trunc nuw i8 %28 to i1
   %36 = icmp ne ptr %34, null
   tail call void @llvm.assume(i1 %36)
-  br i1 %35, label %.loopexit75, label %41
+  br i1 %35, label %.loopexit80, label %41
 
 .loopexit:                                        ; preds = %29, %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i"
   store i64 17, ptr %0, align 8
@@ -44250,7 +44250,7 @@ define hidden void @"_ZN165_$LT$polars_arrow..array..dictionary..mutable..Mutabl
 37:                                               ; preds = %76, %.loopexit
   ret void
 
-.loopexit75:                                      ; preds = %33, %.thread.i
+.loopexit80:                                      ; preds = %33, %.thread.i
   %.sroa.18.3 = phi i64 [ %.sroa.18.0, %.thread.i ], [ %.sroa.18.2, %33 ]
   %.sroa.16.2 = phi i64 [ %.sroa.16.0, %.thread.i ], [ %.sroa.16.1, %33 ]
   %.sroa.14.2 = phi i64 [ %.sroa.14.0, %.thread.i ], [ %.sroa.14.1, %33 ]
@@ -44337,7 +44337,7 @@ _ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i:
 "_ZN12polars_arrow5array9primitive7mutable30MutablePrimitiveArray$LT$T$GT$4push17h74d5fd10b2bf0ff4E.exit.backedge": ; preds = %75, %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i
   br label %"_ZN12polars_arrow5array9primitive7mutable30MutablePrimitiveArray$LT$T$GT$4push17h74d5fd10b2bf0ff4E.exit"
 
-76:                                               ; preds = %.loopexit75
+76:                                               ; preds = %.loopexit80
   %.sroa.622.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 12
   %.sroa.325.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(52) %.sroa.325.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(52) %.sroa.622.0..sroa_idx, i64 52, i1 false)
@@ -44347,7 +44347,7 @@ _ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i:
   store i32 %40, ptr %.sroa.224.0..sroa_idx, align 8
   br label %37
 
-77:                                               ; preds = %.loopexit75
+77:                                               ; preds = %.loopexit80
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %78 = load i64, ptr %6, align 8, !alias.scope !6323, !noalias !6, !noundef !6
   %79 = load i64, ptr %5, align 8, !range !2013, !alias.scope !6323, !noalias !6, !noundef !6
@@ -44510,14 +44510,14 @@ define hidden void @"_ZN165_$LT$polars_arrow..array..dictionary..mutable..Mutabl
 
 .thread.i:                                        ; preds = %29
   %32 = getelementptr inbounds nuw i8, ptr %.sroa.6.0.ph, i64 8
-  br label %.loopexit75
+  br label %.loopexit80
 
 33:                                               ; preds = %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i"
   %34 = extractvalue { i8, ptr } %27, 1
   %35 = trunc nuw i8 %28 to i1
   %36 = icmp ne ptr %34, null
   tail call void @llvm.assume(i1 %36)
-  br i1 %35, label %.loopexit75, label %41
+  br i1 %35, label %.loopexit80, label %41
 
 .loopexit:                                        ; preds = %29, %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i"
   store i64 17, ptr %0, align 8
@@ -44526,7 +44526,7 @@ define hidden void @"_ZN165_$LT$polars_arrow..array..dictionary..mutable..Mutabl
 37:                                               ; preds = %76, %.loopexit
   ret void
 
-.loopexit75:                                      ; preds = %33, %.thread.i
+.loopexit80:                                      ; preds = %33, %.thread.i
   %.sroa.18.3 = phi i64 [ %.sroa.18.0, %.thread.i ], [ %.sroa.18.2, %33 ]
   %.sroa.16.2 = phi i64 [ %.sroa.16.0, %.thread.i ], [ %.sroa.16.1, %33 ]
   %.sroa.14.2 = phi i64 [ %.sroa.14.0, %.thread.i ], [ %.sroa.14.1, %33 ]
@@ -44613,7 +44613,7 @@ _ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i:
 "_ZN12polars_arrow5array9primitive7mutable30MutablePrimitiveArray$LT$T$GT$4push17h5abcd1ec4e336c20E.exit.backedge": ; preds = %75, %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i
   br label %"_ZN12polars_arrow5array9primitive7mutable30MutablePrimitiveArray$LT$T$GT$4push17h5abcd1ec4e336c20E.exit"
 
-76:                                               ; preds = %.loopexit75
+76:                                               ; preds = %.loopexit80
   %.sroa.622.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 9
   %.sroa.325.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(55) %.sroa.325.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(55) %.sroa.622.0..sroa_idx, i64 55, i1 false)
@@ -44623,7 +44623,7 @@ _ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i:
   store i8 %40, ptr %.sroa.224.0..sroa_idx, align 8
   br label %37
 
-77:                                               ; preds = %.loopexit75
+77:                                               ; preds = %.loopexit80
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %78 = load i64, ptr %6, align 8, !alias.scope !6373, !noalias !6, !noundef !6
   %79 = load i64, ptr %5, align 8, !range !2013, !alias.scope !6373, !noalias !6, !noundef !6
@@ -44786,14 +44786,14 @@ define hidden void @"_ZN165_$LT$polars_arrow..array..dictionary..mutable..Mutabl
 
 .thread.i:                                        ; preds = %29
   %32 = getelementptr inbounds nuw i8, ptr %.sroa.6.0.ph, i64 2
-  br label %.loopexit75
+  br label %.loopexit80
 
 33:                                               ; preds = %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i"
   %34 = extractvalue { i8, ptr } %27, 1
   %35 = trunc nuw i8 %28 to i1
   %36 = icmp ne ptr %34, null
   tail call void @llvm.assume(i1 %36)
-  br i1 %35, label %.loopexit75, label %41
+  br i1 %35, label %.loopexit80, label %41
 
 .loopexit:                                        ; preds = %29, %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i"
   store i64 17, ptr %0, align 8
@@ -44802,7 +44802,7 @@ define hidden void @"_ZN165_$LT$polars_arrow..array..dictionary..mutable..Mutabl
 37:                                               ; preds = %76, %.loopexit
   ret void
 
-.loopexit75:                                      ; preds = %33, %.thread.i
+.loopexit80:                                      ; preds = %33, %.thread.i
   %.sroa.18.3 = phi i64 [ %.sroa.18.0, %.thread.i ], [ %.sroa.18.2, %33 ]
   %.sroa.16.2 = phi i64 [ %.sroa.16.0, %.thread.i ], [ %.sroa.16.1, %33 ]
   %.sroa.14.2 = phi i64 [ %.sroa.14.0, %.thread.i ], [ %.sroa.14.1, %33 ]
@@ -44889,7 +44889,7 @@ _ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i:
 "_ZN12polars_arrow5array9primitive7mutable30MutablePrimitiveArray$LT$T$GT$4push17h1596243c76c69125E.exit.backedge": ; preds = %75, %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i
   br label %"_ZN12polars_arrow5array9primitive7mutable30MutablePrimitiveArray$LT$T$GT$4push17h1596243c76c69125E.exit"
 
-76:                                               ; preds = %.loopexit75
+76:                                               ; preds = %.loopexit80
   %.sroa.622.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 16
   %.sroa.325.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.325.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.622.0..sroa_idx, i64 48, i1 false)
@@ -44899,7 +44899,7 @@ _ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i:
   store i64 %40, ptr %.sroa.224.0..sroa_idx, align 8
   br label %37
 
-77:                                               ; preds = %.loopexit75
+77:                                               ; preds = %.loopexit80
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %78 = load i64, ptr %6, align 8, !alias.scope !6423, !noalias !6, !noundef !6
   %79 = load i64, ptr %5, align 8, !range !2013, !alias.scope !6423, !noalias !6, !noundef !6
@@ -45062,14 +45062,14 @@ define hidden void @"_ZN165_$LT$polars_arrow..array..dictionary..mutable..Mutabl
 
 .thread.i:                                        ; preds = %29
   %32 = getelementptr inbounds nuw i8, ptr %.sroa.6.0.ph, i64 8
-  br label %.loopexit75
+  br label %.loopexit80
 
 33:                                               ; preds = %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i"
   %34 = extractvalue { i8, ptr } %27, 1
   %35 = trunc nuw i8 %28 to i1
   %36 = icmp ne ptr %34, null
   tail call void @llvm.assume(i1 %36)
-  br i1 %35, label %.loopexit75, label %41
+  br i1 %35, label %.loopexit80, label %41
 
 .loopexit:                                        ; preds = %29, %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i"
   store i64 17, ptr %0, align 8
@@ -45078,7 +45078,7 @@ define hidden void @"_ZN165_$LT$polars_arrow..array..dictionary..mutable..Mutabl
 37:                                               ; preds = %76, %.loopexit
   ret void
 
-.loopexit75:                                      ; preds = %33, %.thread.i
+.loopexit80:                                      ; preds = %33, %.thread.i
   %.sroa.18.3 = phi i64 [ %.sroa.18.0, %.thread.i ], [ %.sroa.18.2, %33 ]
   %.sroa.16.2 = phi i64 [ %.sroa.16.0, %.thread.i ], [ %.sroa.16.1, %33 ]
   %.sroa.14.2 = phi i64 [ %.sroa.14.0, %.thread.i ], [ %.sroa.14.1, %33 ]
@@ -45165,7 +45165,7 @@ _ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i:
 "_ZN12polars_arrow5array9primitive7mutable30MutablePrimitiveArray$LT$T$GT$4push17h4ee0d8065cd9c4e0E.exit.backedge": ; preds = %75, %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i
   br label %"_ZN12polars_arrow5array9primitive7mutable30MutablePrimitiveArray$LT$T$GT$4push17h4ee0d8065cd9c4e0E.exit"
 
-76:                                               ; preds = %.loopexit75
+76:                                               ; preds = %.loopexit80
   %.sroa.622.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 12
   %.sroa.325.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(52) %.sroa.325.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(52) %.sroa.622.0..sroa_idx, i64 52, i1 false)
@@ -45175,7 +45175,7 @@ _ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i:
   store i32 %40, ptr %.sroa.224.0..sroa_idx, align 8
   br label %37
 
-77:                                               ; preds = %.loopexit75
+77:                                               ; preds = %.loopexit80
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %78 = load i64, ptr %6, align 8, !alias.scope !6473, !noalias !6, !noundef !6
   %79 = load i64, ptr %5, align 8, !range !2013, !alias.scope !6473, !noalias !6, !noundef !6
@@ -45338,14 +45338,14 @@ define hidden void @"_ZN165_$LT$polars_arrow..array..dictionary..mutable..Mutabl
 
 .thread.i:                                        ; preds = %29
   %32 = getelementptr inbounds nuw i8, ptr %.sroa.6.0.ph, i64 4
-  br label %.loopexit75
+  br label %.loopexit80
 
 33:                                               ; preds = %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i"
   %34 = extractvalue { i8, ptr } %27, 1
   %35 = trunc nuw i8 %28 to i1
   %36 = icmp ne ptr %34, null
   tail call void @llvm.assume(i1 %36)
-  br i1 %35, label %.loopexit75, label %41
+  br i1 %35, label %.loopexit80, label %41
 
 .loopexit:                                        ; preds = %29, %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i"
   store i64 17, ptr %0, align 8
@@ -45354,7 +45354,7 @@ define hidden void @"_ZN165_$LT$polars_arrow..array..dictionary..mutable..Mutabl
 37:                                               ; preds = %76, %.loopexit
   ret void
 
-.loopexit75:                                      ; preds = %33, %.thread.i
+.loopexit80:                                      ; preds = %33, %.thread.i
   %.sroa.18.3 = phi i64 [ %.sroa.18.0, %.thread.i ], [ %.sroa.18.2, %33 ]
   %.sroa.16.2 = phi i64 [ %.sroa.16.0, %.thread.i ], [ %.sroa.16.1, %33 ]
   %.sroa.14.2 = phi i64 [ %.sroa.14.0, %.thread.i ], [ %.sroa.14.1, %33 ]
@@ -45441,7 +45441,7 @@ _ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i:
 "_ZN12polars_arrow5array9primitive7mutable30MutablePrimitiveArray$LT$T$GT$4push17h5abcd1ec4e336c20E.exit.backedge": ; preds = %75, %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i
   br label %"_ZN12polars_arrow5array9primitive7mutable30MutablePrimitiveArray$LT$T$GT$4push17h5abcd1ec4e336c20E.exit"
 
-76:                                               ; preds = %.loopexit75
+76:                                               ; preds = %.loopexit80
   %.sroa.622.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 9
   %.sroa.325.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(55) %.sroa.325.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(55) %.sroa.622.0..sroa_idx, i64 55, i1 false)
@@ -45451,7 +45451,7 @@ _ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i:
   store i8 %40, ptr %.sroa.224.0..sroa_idx, align 8
   br label %37
 
-77:                                               ; preds = %.loopexit75
+77:                                               ; preds = %.loopexit80
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %78 = load i64, ptr %6, align 8, !alias.scope !6523, !noalias !6, !noundef !6
   %79 = load i64, ptr %5, align 8, !range !2013, !alias.scope !6523, !noalias !6, !noundef !6
@@ -45614,14 +45614,14 @@ define hidden void @"_ZN165_$LT$polars_arrow..array..dictionary..mutable..Mutabl
 
 .thread.i:                                        ; preds = %29
   %32 = getelementptr inbounds nuw i8, ptr %.sroa.6.0.ph, i64 4
-  br label %.loopexit75
+  br label %.loopexit80
 
 33:                                               ; preds = %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i"
   %34 = extractvalue { i8, ptr } %27, 1
   %35 = trunc nuw i8 %28 to i1
   %36 = icmp ne ptr %34, null
   tail call void @llvm.assume(i1 %36)
-  br i1 %35, label %.loopexit75, label %41
+  br i1 %35, label %.loopexit80, label %41
 
 .loopexit:                                        ; preds = %29, %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i"
   store i64 17, ptr %0, align 8
@@ -45630,7 +45630,7 @@ define hidden void @"_ZN165_$LT$polars_arrow..array..dictionary..mutable..Mutabl
 37:                                               ; preds = %76, %.loopexit
   ret void
 
-.loopexit75:                                      ; preds = %33, %.thread.i
+.loopexit80:                                      ; preds = %33, %.thread.i
   %.sroa.18.3 = phi i64 [ %.sroa.18.0, %.thread.i ], [ %.sroa.18.2, %33 ]
   %.sroa.16.2 = phi i64 [ %.sroa.16.0, %.thread.i ], [ %.sroa.16.1, %33 ]
   %.sroa.14.2 = phi i64 [ %.sroa.14.0, %.thread.i ], [ %.sroa.14.1, %33 ]
@@ -45717,7 +45717,7 @@ _ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i:
 "_ZN12polars_arrow5array9primitive7mutable30MutablePrimitiveArray$LT$T$GT$4push17h74d5fd10b2bf0ff4E.exit.backedge": ; preds = %75, %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i
   br label %"_ZN12polars_arrow5array9primitive7mutable30MutablePrimitiveArray$LT$T$GT$4push17h74d5fd10b2bf0ff4E.exit"
 
-76:                                               ; preds = %.loopexit75
+76:                                               ; preds = %.loopexit80
   %.sroa.622.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 12
   %.sroa.325.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(52) %.sroa.325.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(52) %.sroa.622.0..sroa_idx, i64 52, i1 false)
@@ -45727,7 +45727,7 @@ _ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i:
   store i32 %40, ptr %.sroa.224.0..sroa_idx, align 8
   br label %37
 
-77:                                               ; preds = %.loopexit75
+77:                                               ; preds = %.loopexit80
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %78 = load i64, ptr %6, align 8, !alias.scope !6573, !noalias !6, !noundef !6
   %79 = load i64, ptr %5, align 8, !range !2013, !alias.scope !6573, !noalias !6, !noundef !6
@@ -45890,14 +45890,14 @@ define hidden void @"_ZN165_$LT$polars_arrow..array..dictionary..mutable..Mutabl
 
 .thread.i:                                        ; preds = %29
   %32 = getelementptr inbounds nuw i8, ptr %.sroa.6.0.ph, i64 4
-  br label %.loopexit75
+  br label %.loopexit80
 
 33:                                               ; preds = %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i"
   %34 = extractvalue { i8, ptr } %27, 1
   %35 = trunc nuw i8 %28 to i1
   %36 = icmp ne ptr %34, null
   tail call void @llvm.assume(i1 %36)
-  br i1 %35, label %.loopexit75, label %41
+  br i1 %35, label %.loopexit80, label %41
 
 .loopexit:                                        ; preds = %29, %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i"
   store i64 17, ptr %0, align 8
@@ -45906,7 +45906,7 @@ define hidden void @"_ZN165_$LT$polars_arrow..array..dictionary..mutable..Mutabl
 37:                                               ; preds = %76, %.loopexit
   ret void
 
-.loopexit75:                                      ; preds = %33, %.thread.i
+.loopexit80:                                      ; preds = %33, %.thread.i
   %.sroa.18.3 = phi i64 [ %.sroa.18.0, %.thread.i ], [ %.sroa.18.2, %33 ]
   %.sroa.16.2 = phi i64 [ %.sroa.16.0, %.thread.i ], [ %.sroa.16.1, %33 ]
   %.sroa.14.2 = phi i64 [ %.sroa.14.0, %.thread.i ], [ %.sroa.14.1, %33 ]
@@ -45993,7 +45993,7 @@ _ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i:
 "_ZN12polars_arrow5array9primitive7mutable30MutablePrimitiveArray$LT$T$GT$4push17ha00ace499038bc0bE.exit.backedge": ; preds = %75, %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i
   br label %"_ZN12polars_arrow5array9primitive7mutable30MutablePrimitiveArray$LT$T$GT$4push17ha00ace499038bc0bE.exit"
 
-76:                                               ; preds = %.loopexit75
+76:                                               ; preds = %.loopexit80
   %.sroa.622.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 10
   %.sroa.325.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 10
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(54) %.sroa.325.0..sroa_idx, ptr noundef nonnull align 2 dereferenceable(54) %.sroa.622.0..sroa_idx, i64 54, i1 false)
@@ -46003,7 +46003,7 @@ _ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i:
   store i16 %40, ptr %.sroa.224.0..sroa_idx, align 8
   br label %37
 
-77:                                               ; preds = %.loopexit75
+77:                                               ; preds = %.loopexit80
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %78 = load i64, ptr %6, align 8, !alias.scope !6623, !noalias !6, !noundef !6
   %79 = load i64, ptr %5, align 8, !range !2013, !alias.scope !6623, !noalias !6, !noundef !6
@@ -46166,14 +46166,14 @@ define hidden void @"_ZN165_$LT$polars_arrow..array..dictionary..mutable..Mutabl
 
 .thread.i:                                        ; preds = %29
   %32 = getelementptr inbounds nuw i8, ptr %.sroa.6.0.ph, i64 2
-  br label %.loopexit75
+  br label %.loopexit80
 
 33:                                               ; preds = %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i"
   %34 = extractvalue { i8, ptr } %27, 1
   %35 = trunc nuw i8 %28 to i1
   %36 = icmp ne ptr %34, null
   tail call void @llvm.assume(i1 %36)
-  br i1 %35, label %.loopexit75, label %41
+  br i1 %35, label %.loopexit80, label %41
 
 .loopexit:                                        ; preds = %29, %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i"
   store i64 17, ptr %0, align 8
@@ -46182,7 +46182,7 @@ define hidden void @"_ZN165_$LT$polars_arrow..array..dictionary..mutable..Mutabl
 37:                                               ; preds = %76, %.loopexit
   ret void
 
-.loopexit75:                                      ; preds = %33, %.thread.i
+.loopexit80:                                      ; preds = %33, %.thread.i
   %.sroa.18.3 = phi i64 [ %.sroa.18.0, %.thread.i ], [ %.sroa.18.2, %33 ]
   %.sroa.16.2 = phi i64 [ %.sroa.16.0, %.thread.i ], [ %.sroa.16.1, %33 ]
   %.sroa.14.2 = phi i64 [ %.sroa.14.0, %.thread.i ], [ %.sroa.14.1, %33 ]
@@ -46269,7 +46269,7 @@ _ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i:
 "_ZN12polars_arrow5array9primitive7mutable30MutablePrimitiveArray$LT$T$GT$4push17ha00ace499038bc0bE.exit.backedge": ; preds = %75, %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i
   br label %"_ZN12polars_arrow5array9primitive7mutable30MutablePrimitiveArray$LT$T$GT$4push17ha00ace499038bc0bE.exit"
 
-76:                                               ; preds = %.loopexit75
+76:                                               ; preds = %.loopexit80
   %.sroa.622.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 10
   %.sroa.325.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 10
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(54) %.sroa.325.0..sroa_idx, ptr noundef nonnull align 2 dereferenceable(54) %.sroa.622.0..sroa_idx, i64 54, i1 false)
@@ -46279,7 +46279,7 @@ _ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i:
   store i16 %40, ptr %.sroa.224.0..sroa_idx, align 8
   br label %37
 
-77:                                               ; preds = %.loopexit75
+77:                                               ; preds = %.loopexit80
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %78 = load i64, ptr %6, align 8, !alias.scope !6673, !noalias !6, !noundef !6
   %79 = load i64, ptr %5, align 8, !range !2013, !alias.scope !6673, !noalias !6, !noundef !6
@@ -47135,14 +47135,14 @@ define hidden void @"_ZN165_$LT$polars_arrow..array..dictionary..mutable..Mutabl
 
 .thread.i:                                        ; preds = %29
   %32 = getelementptr inbounds nuw i8, ptr %.sroa.6.0.ph, i64 2
-  br label %.loopexit75
+  br label %.loopexit80
 
 33:                                               ; preds = %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i"
   %34 = extractvalue { i8, ptr } %27, 1
   %35 = trunc nuw i8 %28 to i1
   %36 = icmp ne ptr %34, null
   tail call void @llvm.assume(i1 %36)
-  br i1 %35, label %.loopexit75, label %41
+  br i1 %35, label %.loopexit80, label %41
 
 .loopexit:                                        ; preds = %29, %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i"
   store i64 17, ptr %0, align 8
@@ -47151,7 +47151,7 @@ define hidden void @"_ZN165_$LT$polars_arrow..array..dictionary..mutable..Mutabl
 37:                                               ; preds = %76, %.loopexit
   ret void
 
-.loopexit75:                                      ; preds = %33, %.thread.i
+.loopexit80:                                      ; preds = %33, %.thread.i
   %.sroa.18.3 = phi i64 [ %.sroa.18.0, %.thread.i ], [ %.sroa.18.2, %33 ]
   %.sroa.16.2 = phi i64 [ %.sroa.16.0, %.thread.i ], [ %.sroa.16.1, %33 ]
   %.sroa.14.2 = phi i64 [ %.sroa.14.0, %.thread.i ], [ %.sroa.14.1, %33 ]
@@ -47238,7 +47238,7 @@ _ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i:
 "_ZN12polars_arrow5array9primitive7mutable30MutablePrimitiveArray$LT$T$GT$4push17h4ee0d8065cd9c4e0E.exit.backedge": ; preds = %75, %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i
   br label %"_ZN12polars_arrow5array9primitive7mutable30MutablePrimitiveArray$LT$T$GT$4push17h4ee0d8065cd9c4e0E.exit"
 
-76:                                               ; preds = %.loopexit75
+76:                                               ; preds = %.loopexit80
   %.sroa.622.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 12
   %.sroa.325.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(52) %.sroa.325.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(52) %.sroa.622.0..sroa_idx, i64 52, i1 false)
@@ -47248,7 +47248,7 @@ _ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i:
   store i32 %40, ptr %.sroa.224.0..sroa_idx, align 8
   br label %37
 
-77:                                               ; preds = %.loopexit75
+77:                                               ; preds = %.loopexit80
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %78 = load i64, ptr %6, align 8, !alias.scope !6847, !noalias !6, !noundef !6
   %79 = load i64, ptr %5, align 8, !range !2013, !alias.scope !6847, !noalias !6, !noundef !6
@@ -47411,14 +47411,14 @@ define hidden void @"_ZN165_$LT$polars_arrow..array..dictionary..mutable..Mutabl
 
 .thread.i:                                        ; preds = %29
   %32 = getelementptr inbounds nuw i8, ptr %.sroa.6.0.ph, i64 1
-  br label %.loopexit75
+  br label %.loopexit80
 
 33:                                               ; preds = %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i"
   %34 = extractvalue { i8, ptr } %27, 1
   %35 = trunc nuw i8 %28 to i1
   %36 = icmp ne ptr %34, null
   tail call void @llvm.assume(i1 %36)
-  br i1 %35, label %.loopexit75, label %41
+  br i1 %35, label %.loopexit80, label %41
 
 .loopexit:                                        ; preds = %29, %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i"
   store i64 17, ptr %0, align 8
@@ -47427,7 +47427,7 @@ define hidden void @"_ZN165_$LT$polars_arrow..array..dictionary..mutable..Mutabl
 37:                                               ; preds = %76, %.loopexit
   ret void
 
-.loopexit75:                                      ; preds = %33, %.thread.i
+.loopexit80:                                      ; preds = %33, %.thread.i
   %.sroa.18.3 = phi i64 [ %.sroa.18.0, %.thread.i ], [ %.sroa.18.2, %33 ]
   %.sroa.16.2 = phi i64 [ %.sroa.16.0, %.thread.i ], [ %.sroa.16.1, %33 ]
   %.sroa.14.2 = phi i64 [ %.sroa.14.0, %.thread.i ], [ %.sroa.14.1, %33 ]
@@ -47514,7 +47514,7 @@ _ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i:
 "_ZN12polars_arrow5array9primitive7mutable30MutablePrimitiveArray$LT$T$GT$4push17h3ed8801134f38e72E.exit.backedge": ; preds = %75, %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i
   br label %"_ZN12polars_arrow5array9primitive7mutable30MutablePrimitiveArray$LT$T$GT$4push17h3ed8801134f38e72E.exit"
 
-76:                                               ; preds = %.loopexit75
+76:                                               ; preds = %.loopexit80
   %.sroa.622.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 16
   %.sroa.325.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.325.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.622.0..sroa_idx, i64 48, i1 false)
@@ -47524,7 +47524,7 @@ _ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i:
   store i64 %40, ptr %.sroa.224.0..sroa_idx, align 8
   br label %37
 
-77:                                               ; preds = %.loopexit75
+77:                                               ; preds = %.loopexit80
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %78 = load i64, ptr %6, align 8, !alias.scope !6897, !noalias !6, !noundef !6
   %79 = load i64, ptr %5, align 8, !range !2013, !alias.scope !6897, !noalias !6, !noundef !6
@@ -48009,14 +48009,14 @@ define hidden void @"_ZN165_$LT$polars_arrow..array..dictionary..mutable..Mutabl
 
 .thread.i:                                        ; preds = %29
   %32 = getelementptr inbounds nuw i8, ptr %.sroa.6.0.ph, i64 1
-  br label %.loopexit75
+  br label %.loopexit80
 
 33:                                               ; preds = %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i"
   %34 = extractvalue { i8, ptr } %27, 1
   %35 = trunc nuw i8 %28 to i1
   %36 = icmp ne ptr %34, null
   tail call void @llvm.assume(i1 %36)
-  br i1 %35, label %.loopexit75, label %41
+  br i1 %35, label %.loopexit80, label %41
 
 .loopexit:                                        ; preds = %29, %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i"
   store i64 17, ptr %0, align 8
@@ -48025,7 +48025,7 @@ define hidden void @"_ZN165_$LT$polars_arrow..array..dictionary..mutable..Mutabl
 37:                                               ; preds = %76, %.loopexit
   ret void
 
-.loopexit75:                                      ; preds = %33, %.thread.i
+.loopexit80:                                      ; preds = %33, %.thread.i
   %.sroa.18.3 = phi i64 [ %.sroa.18.0, %.thread.i ], [ %.sroa.18.2, %33 ]
   %.sroa.16.2 = phi i64 [ %.sroa.16.0, %.thread.i ], [ %.sroa.16.1, %33 ]
   %.sroa.14.2 = phi i64 [ %.sroa.14.0, %.thread.i ], [ %.sroa.14.1, %33 ]
@@ -48112,7 +48112,7 @@ _ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i:
 "_ZN12polars_arrow5array9primitive7mutable30MutablePrimitiveArray$LT$T$GT$4push17ha00ace499038bc0bE.exit.backedge": ; preds = %75, %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i
   br label %"_ZN12polars_arrow5array9primitive7mutable30MutablePrimitiveArray$LT$T$GT$4push17ha00ace499038bc0bE.exit"
 
-76:                                               ; preds = %.loopexit75
+76:                                               ; preds = %.loopexit80
   %.sroa.622.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 10
   %.sroa.325.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 10
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(54) %.sroa.325.0..sroa_idx, ptr noundef nonnull align 2 dereferenceable(54) %.sroa.622.0..sroa_idx, i64 54, i1 false)
@@ -48122,7 +48122,7 @@ _ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i:
   store i16 %40, ptr %.sroa.224.0..sroa_idx, align 8
   br label %37
 
-77:                                               ; preds = %.loopexit75
+77:                                               ; preds = %.loopexit80
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %78 = load i64, ptr %6, align 8, !alias.scope !6999, !noalias !6, !noundef !6
   %79 = load i64, ptr %5, align 8, !range !2013, !alias.scope !6999, !noalias !6, !noundef !6
@@ -48285,14 +48285,14 @@ define hidden void @"_ZN165_$LT$polars_arrow..array..dictionary..mutable..Mutabl
 
 .thread.i:                                        ; preds = %29
   %32 = getelementptr inbounds nuw i8, ptr %.sroa.6.0.ph, i64 4
-  br label %.loopexit75
+  br label %.loopexit80
 
 33:                                               ; preds = %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i"
   %34 = extractvalue { i8, ptr } %27, 1
   %35 = trunc nuw i8 %28 to i1
   %36 = icmp ne ptr %34, null
   tail call void @llvm.assume(i1 %36)
-  br i1 %35, label %.loopexit75, label %41
+  br i1 %35, label %.loopexit80, label %41
 
 .loopexit:                                        ; preds = %29, %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i"
   store i64 17, ptr %0, align 8
@@ -48301,7 +48301,7 @@ define hidden void @"_ZN165_$LT$polars_arrow..array..dictionary..mutable..Mutabl
 37:                                               ; preds = %76, %.loopexit
   ret void
 
-.loopexit75:                                      ; preds = %33, %.thread.i
+.loopexit80:                                      ; preds = %33, %.thread.i
   %.sroa.18.3 = phi i64 [ %.sroa.18.0, %.thread.i ], [ %.sroa.18.2, %33 ]
   %.sroa.16.2 = phi i64 [ %.sroa.16.0, %.thread.i ], [ %.sroa.16.1, %33 ]
   %.sroa.14.2 = phi i64 [ %.sroa.14.0, %.thread.i ], [ %.sroa.14.1, %33 ]
@@ -48388,7 +48388,7 @@ _ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i:
 "_ZN12polars_arrow5array9primitive7mutable30MutablePrimitiveArray$LT$T$GT$4push17h1596243c76c69125E.exit.backedge": ; preds = %75, %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i
   br label %"_ZN12polars_arrow5array9primitive7mutable30MutablePrimitiveArray$LT$T$GT$4push17h1596243c76c69125E.exit"
 
-76:                                               ; preds = %.loopexit75
+76:                                               ; preds = %.loopexit80
   %.sroa.622.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 16
   %.sroa.325.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.325.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.622.0..sroa_idx, i64 48, i1 false)
@@ -48398,7 +48398,7 @@ _ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i:
   store i64 %40, ptr %.sroa.224.0..sroa_idx, align 8
   br label %37
 
-77:                                               ; preds = %.loopexit75
+77:                                               ; preds = %.loopexit80
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %78 = load i64, ptr %6, align 8, !alias.scope !7049, !noalias !6, !noundef !6
   %79 = load i64, ptr %5, align 8, !range !2013, !alias.scope !7049, !noalias !6, !noundef !6
@@ -48561,14 +48561,14 @@ define hidden void @"_ZN165_$LT$polars_arrow..array..dictionary..mutable..Mutabl
 
 .thread.i:                                        ; preds = %29
   %32 = getelementptr inbounds nuw i8, ptr %.sroa.6.0.ph, i64 8
-  br label %.loopexit75
+  br label %.loopexit80
 
 33:                                               ; preds = %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i"
   %34 = extractvalue { i8, ptr } %27, 1
   %35 = trunc nuw i8 %28 to i1
   %36 = icmp ne ptr %34, null
   tail call void @llvm.assume(i1 %36)
-  br i1 %35, label %.loopexit75, label %41
+  br i1 %35, label %.loopexit80, label %41
 
 .loopexit:                                        ; preds = %29, %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i"
   store i64 17, ptr %0, align 8
@@ -48577,7 +48577,7 @@ define hidden void @"_ZN165_$LT$polars_arrow..array..dictionary..mutable..Mutabl
 37:                                               ; preds = %76, %.loopexit
   ret void
 
-.loopexit75:                                      ; preds = %33, %.thread.i
+.loopexit80:                                      ; preds = %33, %.thread.i
   %.sroa.18.3 = phi i64 [ %.sroa.18.0, %.thread.i ], [ %.sroa.18.2, %33 ]
   %.sroa.16.2 = phi i64 [ %.sroa.16.0, %.thread.i ], [ %.sroa.16.1, %33 ]
   %.sroa.14.2 = phi i64 [ %.sroa.14.0, %.thread.i ], [ %.sroa.14.1, %33 ]
@@ -48664,7 +48664,7 @@ _ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i:
 "_ZN12polars_arrow5array9primitive7mutable30MutablePrimitiveArray$LT$T$GT$4push17h4ee0d8065cd9c4e0E.exit.backedge": ; preds = %75, %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i
   br label %"_ZN12polars_arrow5array9primitive7mutable30MutablePrimitiveArray$LT$T$GT$4push17h4ee0d8065cd9c4e0E.exit"
 
-76:                                               ; preds = %.loopexit75
+76:                                               ; preds = %.loopexit80
   %.sroa.622.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 12
   %.sroa.325.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(52) %.sroa.325.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(52) %.sroa.622.0..sroa_idx, i64 52, i1 false)
@@ -48674,7 +48674,7 @@ _ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i:
   store i32 %40, ptr %.sroa.224.0..sroa_idx, align 8
   br label %37
 
-77:                                               ; preds = %.loopexit75
+77:                                               ; preds = %.loopexit80
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %78 = load i64, ptr %6, align 8, !alias.scope !7099, !noalias !6, !noundef !6
   %79 = load i64, ptr %5, align 8, !range !2013, !alias.scope !7099, !noalias !6, !noundef !6
@@ -48837,14 +48837,14 @@ define hidden void @"_ZN165_$LT$polars_arrow..array..dictionary..mutable..Mutabl
 
 .thread.i:                                        ; preds = %29
   %32 = getelementptr inbounds nuw i8, ptr %.sroa.6.0.ph, i64 4
-  br label %.loopexit75
+  br label %.loopexit80
 
 33:                                               ; preds = %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i"
   %34 = extractvalue { i8, ptr } %27, 1
   %35 = trunc nuw i8 %28 to i1
   %36 = icmp ne ptr %34, null
   tail call void @llvm.assume(i1 %36)
-  br i1 %35, label %.loopexit75, label %41
+  br i1 %35, label %.loopexit80, label %41
 
 .loopexit:                                        ; preds = %29, %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i"
   store i64 17, ptr %0, align 8
@@ -48853,7 +48853,7 @@ define hidden void @"_ZN165_$LT$polars_arrow..array..dictionary..mutable..Mutabl
 37:                                               ; preds = %76, %.loopexit
   ret void
 
-.loopexit75:                                      ; preds = %33, %.thread.i
+.loopexit80:                                      ; preds = %33, %.thread.i
   %.sroa.18.3 = phi i64 [ %.sroa.18.0, %.thread.i ], [ %.sroa.18.2, %33 ]
   %.sroa.16.2 = phi i64 [ %.sroa.16.0, %.thread.i ], [ %.sroa.16.1, %33 ]
   %.sroa.14.2 = phi i64 [ %.sroa.14.0, %.thread.i ], [ %.sroa.14.1, %33 ]
@@ -48940,7 +48940,7 @@ _ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i:
 "_ZN12polars_arrow5array9primitive7mutable30MutablePrimitiveArray$LT$T$GT$4push17h3ed8801134f38e72E.exit.backedge": ; preds = %75, %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i
   br label %"_ZN12polars_arrow5array9primitive7mutable30MutablePrimitiveArray$LT$T$GT$4push17h3ed8801134f38e72E.exit"
 
-76:                                               ; preds = %.loopexit75
+76:                                               ; preds = %.loopexit80
   %.sroa.622.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 16
   %.sroa.325.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.325.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.622.0..sroa_idx, i64 48, i1 false)
@@ -48950,7 +48950,7 @@ _ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i:
   store i64 %40, ptr %.sroa.224.0..sroa_idx, align 8
   br label %37
 
-77:                                               ; preds = %.loopexit75
+77:                                               ; preds = %.loopexit80
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %78 = load i64, ptr %6, align 8, !alias.scope !7149, !noalias !6, !noundef !6
   %79 = load i64, ptr %5, align 8, !range !2013, !alias.scope !7149, !noalias !6, !noundef !6
@@ -49113,14 +49113,14 @@ define hidden void @"_ZN165_$LT$polars_arrow..array..dictionary..mutable..Mutabl
 
 .thread.i:                                        ; preds = %29
   %32 = getelementptr inbounds nuw i8, ptr %.sroa.6.0.ph, i64 1
-  br label %.loopexit75
+  br label %.loopexit80
 
 33:                                               ; preds = %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i"
   %34 = extractvalue { i8, ptr } %27, 1
   %35 = trunc nuw i8 %28 to i1
   %36 = icmp ne ptr %34, null
   tail call void @llvm.assume(i1 %36)
-  br i1 %35, label %.loopexit75, label %41
+  br i1 %35, label %.loopexit80, label %41
 
 .loopexit:                                        ; preds = %29, %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i"
   store i64 17, ptr %0, align 8
@@ -49129,7 +49129,7 @@ define hidden void @"_ZN165_$LT$polars_arrow..array..dictionary..mutable..Mutabl
 37:                                               ; preds = %76, %.loopexit
   ret void
 
-.loopexit75:                                      ; preds = %33, %.thread.i
+.loopexit80:                                      ; preds = %33, %.thread.i
   %.sroa.18.3 = phi i64 [ %.sroa.18.0, %.thread.i ], [ %.sroa.18.2, %33 ]
   %.sroa.16.2 = phi i64 [ %.sroa.16.0, %.thread.i ], [ %.sroa.16.1, %33 ]
   %.sroa.14.2 = phi i64 [ %.sroa.14.0, %.thread.i ], [ %.sroa.14.1, %33 ]
@@ -49216,7 +49216,7 @@ _ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i:
 "_ZN12polars_arrow5array9primitive7mutable30MutablePrimitiveArray$LT$T$GT$4push17h3ed8801134f38e72E.exit.backedge": ; preds = %75, %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i
   br label %"_ZN12polars_arrow5array9primitive7mutable30MutablePrimitiveArray$LT$T$GT$4push17h3ed8801134f38e72E.exit"
 
-76:                                               ; preds = %.loopexit75
+76:                                               ; preds = %.loopexit80
   %.sroa.622.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 16
   %.sroa.325.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.325.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.622.0..sroa_idx, i64 48, i1 false)
@@ -49226,7 +49226,7 @@ _ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i:
   store i64 %40, ptr %.sroa.224.0..sroa_idx, align 8
   br label %37
 
-77:                                               ; preds = %.loopexit75
+77:                                               ; preds = %.loopexit80
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %78 = load i64, ptr %6, align 8, !alias.scope !7199, !noalias !6, !noundef !6
   %79 = load i64, ptr %5, align 8, !range !2013, !alias.scope !7199, !noalias !6, !noundef !6
@@ -49389,14 +49389,14 @@ define hidden void @"_ZN165_$LT$polars_arrow..array..dictionary..mutable..Mutabl
 
 .thread.i:                                        ; preds = %29
   %32 = getelementptr inbounds nuw i8, ptr %.sroa.6.0.ph, i64 8
-  br label %.loopexit75
+  br label %.loopexit80
 
 33:                                               ; preds = %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i"
   %34 = extractvalue { i8, ptr } %27, 1
   %35 = trunc nuw i8 %28 to i1
   %36 = icmp ne ptr %34, null
   tail call void @llvm.assume(i1 %36)
-  br i1 %35, label %.loopexit75, label %41
+  br i1 %35, label %.loopexit80, label %41
 
 .loopexit:                                        ; preds = %29, %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i"
   store i64 17, ptr %0, align 8
@@ -49405,7 +49405,7 @@ define hidden void @"_ZN165_$LT$polars_arrow..array..dictionary..mutable..Mutabl
 37:                                               ; preds = %76, %.loopexit
   ret void
 
-.loopexit75:                                      ; preds = %33, %.thread.i
+.loopexit80:                                      ; preds = %33, %.thread.i
   %.sroa.18.3 = phi i64 [ %.sroa.18.0, %.thread.i ], [ %.sroa.18.2, %33 ]
   %.sroa.16.2 = phi i64 [ %.sroa.16.0, %.thread.i ], [ %.sroa.16.1, %33 ]
   %.sroa.14.2 = phi i64 [ %.sroa.14.0, %.thread.i ], [ %.sroa.14.1, %33 ]
@@ -49492,7 +49492,7 @@ _ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i:
 "_ZN12polars_arrow5array9primitive7mutable30MutablePrimitiveArray$LT$T$GT$4push17h37189fe9ccb0e64fE.exit.backedge": ; preds = %75, %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i
   br label %"_ZN12polars_arrow5array9primitive7mutable30MutablePrimitiveArray$LT$T$GT$4push17h37189fe9ccb0e64fE.exit"
 
-76:                                               ; preds = %.loopexit75
+76:                                               ; preds = %.loopexit80
   %.sroa.622.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 9
   %.sroa.325.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(55) %.sroa.325.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(55) %.sroa.622.0..sroa_idx, i64 55, i1 false)
@@ -49502,7 +49502,7 @@ _ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i:
   store i8 %40, ptr %.sroa.224.0..sroa_idx, align 8
   br label %37
 
-77:                                               ; preds = %.loopexit75
+77:                                               ; preds = %.loopexit80
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %78 = load i64, ptr %6, align 8, !alias.scope !7249, !noalias !6, !noundef !6
   %79 = load i64, ptr %5, align 8, !range !2013, !alias.scope !7249, !noalias !6, !noundef !6
@@ -49665,14 +49665,14 @@ define hidden void @"_ZN165_$LT$polars_arrow..array..dictionary..mutable..Mutabl
 
 .thread.i:                                        ; preds = %29
   %32 = getelementptr inbounds nuw i8, ptr %.sroa.6.0.ph, i64 8
-  br label %.loopexit75
+  br label %.loopexit80
 
 33:                                               ; preds = %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i"
   %34 = extractvalue { i8, ptr } %27, 1
   %35 = trunc nuw i8 %28 to i1
   %36 = icmp ne ptr %34, null
   tail call void @llvm.assume(i1 %36)
-  br i1 %35, label %.loopexit75, label %41
+  br i1 %35, label %.loopexit80, label %41
 
 .loopexit:                                        ; preds = %29, %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i"
   store i64 17, ptr %0, align 8
@@ -49681,7 +49681,7 @@ define hidden void @"_ZN165_$LT$polars_arrow..array..dictionary..mutable..Mutabl
 37:                                               ; preds = %76, %.loopexit
   ret void
 
-.loopexit75:                                      ; preds = %33, %.thread.i
+.loopexit80:                                      ; preds = %33, %.thread.i
   %.sroa.18.3 = phi i64 [ %.sroa.18.0, %.thread.i ], [ %.sroa.18.2, %33 ]
   %.sroa.16.2 = phi i64 [ %.sroa.16.0, %.thread.i ], [ %.sroa.16.1, %33 ]
   %.sroa.14.2 = phi i64 [ %.sroa.14.0, %.thread.i ], [ %.sroa.14.1, %33 ]
@@ -49768,7 +49768,7 @@ _ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i:
 "_ZN12polars_arrow5array9primitive7mutable30MutablePrimitiveArray$LT$T$GT$4push17h3ed8801134f38e72E.exit.backedge": ; preds = %75, %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i
   br label %"_ZN12polars_arrow5array9primitive7mutable30MutablePrimitiveArray$LT$T$GT$4push17h3ed8801134f38e72E.exit"
 
-76:                                               ; preds = %.loopexit75
+76:                                               ; preds = %.loopexit80
   %.sroa.622.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 16
   %.sroa.325.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.325.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.622.0..sroa_idx, i64 48, i1 false)
@@ -49778,7 +49778,7 @@ _ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i:
   store i64 %40, ptr %.sroa.224.0..sroa_idx, align 8
   br label %37
 
-77:                                               ; preds = %.loopexit75
+77:                                               ; preds = %.loopexit80
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %78 = load i64, ptr %6, align 8, !alias.scope !7299, !noalias !6, !noundef !6
   %79 = load i64, ptr %5, align 8, !range !2013, !alias.scope !7299, !noalias !6, !noundef !6
@@ -49941,14 +49941,14 @@ define hidden void @"_ZN165_$LT$polars_arrow..array..dictionary..mutable..Mutabl
 
 .thread.i:                                        ; preds = %29
   %32 = getelementptr inbounds nuw i8, ptr %.sroa.6.0.ph, i64 1
-  br label %.loopexit75
+  br label %.loopexit80
 
 33:                                               ; preds = %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i"
   %34 = extractvalue { i8, ptr } %27, 1
   %35 = trunc nuw i8 %28 to i1
   %36 = icmp ne ptr %34, null
   tail call void @llvm.assume(i1 %36)
-  br i1 %35, label %.loopexit75, label %41
+  br i1 %35, label %.loopexit80, label %41
 
 .loopexit:                                        ; preds = %29, %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i"
   store i64 17, ptr %0, align 8
@@ -49957,7 +49957,7 @@ define hidden void @"_ZN165_$LT$polars_arrow..array..dictionary..mutable..Mutabl
 37:                                               ; preds = %76, %.loopexit
   ret void
 
-.loopexit75:                                      ; preds = %33, %.thread.i
+.loopexit80:                                      ; preds = %33, %.thread.i
   %.sroa.18.3 = phi i64 [ %.sroa.18.0, %.thread.i ], [ %.sroa.18.2, %33 ]
   %.sroa.16.2 = phi i64 [ %.sroa.16.0, %.thread.i ], [ %.sroa.16.1, %33 ]
   %.sroa.14.2 = phi i64 [ %.sroa.14.0, %.thread.i ], [ %.sroa.14.1, %33 ]
@@ -50044,7 +50044,7 @@ _ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i:
 "_ZN12polars_arrow5array9primitive7mutable30MutablePrimitiveArray$LT$T$GT$4push17h5abcd1ec4e336c20E.exit.backedge": ; preds = %75, %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i
   br label %"_ZN12polars_arrow5array9primitive7mutable30MutablePrimitiveArray$LT$T$GT$4push17h5abcd1ec4e336c20E.exit"
 
-76:                                               ; preds = %.loopexit75
+76:                                               ; preds = %.loopexit80
   %.sroa.622.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 9
   %.sroa.325.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(55) %.sroa.325.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(55) %.sroa.622.0..sroa_idx, i64 55, i1 false)
@@ -50054,7 +50054,7 @@ _ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i:
   store i8 %40, ptr %.sroa.224.0..sroa_idx, align 8
   br label %37
 
-77:                                               ; preds = %.loopexit75
+77:                                               ; preds = %.loopexit80
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %78 = load i64, ptr %6, align 8, !alias.scope !7349, !noalias !6, !noundef !6
   %79 = load i64, ptr %5, align 8, !range !2013, !alias.scope !7349, !noalias !6, !noundef !6
@@ -50588,14 +50588,14 @@ define hidden void @"_ZN165_$LT$polars_arrow..array..dictionary..mutable..Mutabl
 
 .thread.i:                                        ; preds = %29
   %32 = getelementptr inbounds nuw i8, ptr %.sroa.6.0.ph, i64 4
-  br label %.loopexit75
+  br label %.loopexit80
 
 33:                                               ; preds = %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i"
   %34 = extractvalue { i8, ptr } %27, 1
   %35 = trunc nuw i8 %28 to i1
   %36 = icmp ne ptr %34, null
   tail call void @llvm.assume(i1 %36)
-  br i1 %35, label %.loopexit75, label %41
+  br i1 %35, label %.loopexit80, label %41
 
 .loopexit:                                        ; preds = %29, %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i"
   store i64 17, ptr %0, align 8
@@ -50604,7 +50604,7 @@ define hidden void @"_ZN165_$LT$polars_arrow..array..dictionary..mutable..Mutabl
 37:                                               ; preds = %76, %.loopexit
   ret void
 
-.loopexit75:                                      ; preds = %33, %.thread.i
+.loopexit80:                                      ; preds = %33, %.thread.i
   %.sroa.18.3 = phi i64 [ %.sroa.18.0, %.thread.i ], [ %.sroa.18.2, %33 ]
   %.sroa.16.2 = phi i64 [ %.sroa.16.0, %.thread.i ], [ %.sroa.16.1, %33 ]
   %.sroa.14.2 = phi i64 [ %.sroa.14.0, %.thread.i ], [ %.sroa.14.1, %33 ]
@@ -50691,7 +50691,7 @@ _ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i:
 "_ZN12polars_arrow5array9primitive7mutable30MutablePrimitiveArray$LT$T$GT$4push17hf14144fd23629265E.exit.backedge": ; preds = %75, %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i
   br label %"_ZN12polars_arrow5array9primitive7mutable30MutablePrimitiveArray$LT$T$GT$4push17hf14144fd23629265E.exit"
 
-76:                                               ; preds = %.loopexit75
+76:                                               ; preds = %.loopexit80
   %.sroa.622.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 10
   %.sroa.325.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 10
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(54) %.sroa.325.0..sroa_idx, ptr noundef nonnull align 2 dereferenceable(54) %.sroa.622.0..sroa_idx, i64 54, i1 false)
@@ -50701,7 +50701,7 @@ _ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i:
   store i16 %40, ptr %.sroa.224.0..sroa_idx, align 8
   br label %37
 
-77:                                               ; preds = %.loopexit75
+77:                                               ; preds = %.loopexit80
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %78 = load i64, ptr %6, align 8, !alias.scope !7471, !noalias !6, !noundef !6
   %79 = load i64, ptr %5, align 8, !range !2013, !alias.scope !7471, !noalias !6, !noundef !6
@@ -51187,14 +51187,14 @@ define hidden void @"_ZN165_$LT$polars_arrow..array..dictionary..mutable..Mutabl
 
 .thread.i:                                        ; preds = %29
   %32 = getelementptr inbounds nuw i8, ptr %.sroa.6.0.ph, i64 4
-  br label %.loopexit81
+  br label %.loopexit86
 
 33:                                               ; preds = %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i"
   %34 = extractvalue { i8, ptr } %27, 1
   %35 = trunc nuw i8 %28 to i1
   %36 = icmp ne ptr %34, null
   tail call void @llvm.assume(i1 %36)
-  br i1 %35, label %.loopexit81, label %40
+  br i1 %35, label %.loopexit86, label %40
 
 .loopexit:                                        ; preds = %29, %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i"
   store i64 17, ptr %0, align 8
@@ -51203,7 +51203,7 @@ define hidden void @"_ZN165_$LT$polars_arrow..array..dictionary..mutable..Mutabl
 37:                                               ; preds = %75, %.loopexit
   ret void
 
-.loopexit81:                                      ; preds = %33, %.thread.i
+.loopexit86:                                      ; preds = %33, %.thread.i
   %.sroa.18.3 = phi i64 [ %.sroa.18.0, %.thread.i ], [ %.sroa.18.2, %33 ]
   %.sroa.16.2 = phi i64 [ %.sroa.16.0, %.thread.i ], [ %.sroa.16.1, %33 ]
   %.sroa.14.2 = phi i64 [ %.sroa.14.0, %.thread.i ], [ %.sroa.14.1, %33 ]
@@ -51289,7 +51289,7 @@ _ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i:
 "_ZN12polars_arrow5array9primitive7mutable30MutablePrimitiveArray$LT$T$GT$4push17hf9858ade1900cd59E.exit.backedge": ; preds = %74, %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i
   br label %"_ZN12polars_arrow5array9primitive7mutable30MutablePrimitiveArray$LT$T$GT$4push17hf9858ade1900cd59E.exit"
 
-75:                                               ; preds = %.loopexit81
+75:                                               ; preds = %.loopexit86
   %.sroa.526.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
   %.sroa.526.0.copyload = load i64, ptr %.sroa.526.0..sroa_idx, align 8
   %.sroa.627.0.copyload = load i128, ptr %12, align 16
@@ -51305,7 +51305,7 @@ _ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i:
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.432.0..sroa_idx, ptr noundef nonnull align 16 dereferenceable(32) %.sroa.432, i64 32, i1 false)
   br label %37
 
-76:                                               ; preds = %.loopexit81
+76:                                               ; preds = %.loopexit86
   %77 = load i128, ptr %12, align 16, !noundef !6
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %78 = load i64, ptr %6, align 8, !alias.scope !7573, !noalias !6, !noundef !6
@@ -51470,14 +51470,14 @@ define hidden void @"_ZN165_$LT$polars_arrow..array..dictionary..mutable..Mutabl
 
 .thread.i:                                        ; preds = %29
   %32 = getelementptr inbounds nuw i8, ptr %.sroa.6.0.ph, i64 8
-  br label %.loopexit81
+  br label %.loopexit86
 
 33:                                               ; preds = %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i"
   %34 = extractvalue { i8, ptr } %27, 1
   %35 = trunc nuw i8 %28 to i1
   %36 = icmp ne ptr %34, null
   tail call void @llvm.assume(i1 %36)
-  br i1 %35, label %.loopexit81, label %40
+  br i1 %35, label %.loopexit86, label %40
 
 .loopexit:                                        ; preds = %29, %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i"
   store i64 17, ptr %0, align 8
@@ -51486,7 +51486,7 @@ define hidden void @"_ZN165_$LT$polars_arrow..array..dictionary..mutable..Mutabl
 37:                                               ; preds = %75, %.loopexit
   ret void
 
-.loopexit81:                                      ; preds = %33, %.thread.i
+.loopexit86:                                      ; preds = %33, %.thread.i
   %.sroa.18.3 = phi i64 [ %.sroa.18.0, %.thread.i ], [ %.sroa.18.2, %33 ]
   %.sroa.16.2 = phi i64 [ %.sroa.16.0, %.thread.i ], [ %.sroa.16.1, %33 ]
   %.sroa.14.2 = phi i64 [ %.sroa.14.0, %.thread.i ], [ %.sroa.14.1, %33 ]
@@ -51572,7 +51572,7 @@ _ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i:
 "_ZN12polars_arrow5array9primitive7mutable30MutablePrimitiveArray$LT$T$GT$4push17hf9858ade1900cd59E.exit.backedge": ; preds = %74, %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i
   br label %"_ZN12polars_arrow5array9primitive7mutable30MutablePrimitiveArray$LT$T$GT$4push17hf9858ade1900cd59E.exit"
 
-75:                                               ; preds = %.loopexit81
+75:                                               ; preds = %.loopexit86
   %.sroa.526.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
   %.sroa.526.0.copyload = load i64, ptr %.sroa.526.0..sroa_idx, align 8
   %.sroa.627.0.copyload = load i128, ptr %12, align 16
@@ -51588,7 +51588,7 @@ _ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i:
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.432.0..sroa_idx, ptr noundef nonnull align 16 dereferenceable(32) %.sroa.432, i64 32, i1 false)
   br label %37
 
-76:                                               ; preds = %.loopexit81
+76:                                               ; preds = %.loopexit86
   %77 = load i128, ptr %12, align 16, !noundef !6
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %78 = load i64, ptr %6, align 8, !alias.scope !7623, !noalias !6, !noundef !6
@@ -52123,14 +52123,14 @@ define hidden void @"_ZN165_$LT$polars_arrow..array..dictionary..mutable..Mutabl
 
 .thread.i:                                        ; preds = %29
   %32 = getelementptr inbounds nuw i8, ptr %.sroa.6.0.ph, i64 1
-  br label %.loopexit75
+  br label %.loopexit80
 
 33:                                               ; preds = %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i"
   %34 = extractvalue { i8, ptr } %27, 1
   %35 = trunc nuw i8 %28 to i1
   %36 = icmp ne ptr %34, null
   tail call void @llvm.assume(i1 %36)
-  br i1 %35, label %.loopexit75, label %41
+  br i1 %35, label %.loopexit80, label %41
 
 .loopexit:                                        ; preds = %29, %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i"
   store i64 17, ptr %0, align 8
@@ -52139,7 +52139,7 @@ define hidden void @"_ZN165_$LT$polars_arrow..array..dictionary..mutable..Mutabl
 37:                                               ; preds = %76, %.loopexit
   ret void
 
-.loopexit75:                                      ; preds = %33, %.thread.i
+.loopexit80:                                      ; preds = %33, %.thread.i
   %.sroa.18.3 = phi i64 [ %.sroa.18.0, %.thread.i ], [ %.sroa.18.2, %33 ]
   %.sroa.16.2 = phi i64 [ %.sroa.16.0, %.thread.i ], [ %.sroa.16.1, %33 ]
   %.sroa.14.2 = phi i64 [ %.sroa.14.0, %.thread.i ], [ %.sroa.14.1, %33 ]
@@ -52226,7 +52226,7 @@ _ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i:
 "_ZN12polars_arrow5array9primitive7mutable30MutablePrimitiveArray$LT$T$GT$4push17h74d5fd10b2bf0ff4E.exit.backedge": ; preds = %75, %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i
   br label %"_ZN12polars_arrow5array9primitive7mutable30MutablePrimitiveArray$LT$T$GT$4push17h74d5fd10b2bf0ff4E.exit"
 
-76:                                               ; preds = %.loopexit75
+76:                                               ; preds = %.loopexit80
   %.sroa.622.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 12
   %.sroa.325.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(52) %.sroa.325.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(52) %.sroa.622.0..sroa_idx, i64 52, i1 false)
@@ -52236,7 +52236,7 @@ _ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i:
   store i32 %40, ptr %.sroa.224.0..sroa_idx, align 8
   br label %37
 
-77:                                               ; preds = %.loopexit75
+77:                                               ; preds = %.loopexit80
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %78 = load i64, ptr %6, align 8, !alias.scope !7745, !noalias !6, !noundef !6
   %79 = load i64, ptr %5, align 8, !range !2013, !alias.scope !7745, !noalias !6, !noundef !6
@@ -52399,14 +52399,14 @@ define hidden void @"_ZN165_$LT$polars_arrow..array..dictionary..mutable..Mutabl
 
 .thread.i:                                        ; preds = %29
   %32 = getelementptr inbounds nuw i8, ptr %.sroa.6.0.ph, i64 4
-  br label %.loopexit75
+  br label %.loopexit80
 
 33:                                               ; preds = %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i"
   %34 = extractvalue { i8, ptr } %27, 1
   %35 = trunc nuw i8 %28 to i1
   %36 = icmp ne ptr %34, null
   tail call void @llvm.assume(i1 %36)
-  br i1 %35, label %.loopexit75, label %41
+  br i1 %35, label %.loopexit80, label %41
 
 .loopexit:                                        ; preds = %29, %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i"
   store i64 17, ptr %0, align 8
@@ -52415,7 +52415,7 @@ define hidden void @"_ZN165_$LT$polars_arrow..array..dictionary..mutable..Mutabl
 37:                                               ; preds = %76, %.loopexit
   ret void
 
-.loopexit75:                                      ; preds = %33, %.thread.i
+.loopexit80:                                      ; preds = %33, %.thread.i
   %.sroa.18.3 = phi i64 [ %.sroa.18.0, %.thread.i ], [ %.sroa.18.2, %33 ]
   %.sroa.16.2 = phi i64 [ %.sroa.16.0, %.thread.i ], [ %.sroa.16.1, %33 ]
   %.sroa.14.2 = phi i64 [ %.sroa.14.0, %.thread.i ], [ %.sroa.14.1, %33 ]
@@ -52502,7 +52502,7 @@ _ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i:
 "_ZN12polars_arrow5array9primitive7mutable30MutablePrimitiveArray$LT$T$GT$4push17h5abcd1ec4e336c20E.exit.backedge": ; preds = %75, %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i
   br label %"_ZN12polars_arrow5array9primitive7mutable30MutablePrimitiveArray$LT$T$GT$4push17h5abcd1ec4e336c20E.exit"
 
-76:                                               ; preds = %.loopexit75
+76:                                               ; preds = %.loopexit80
   %.sroa.622.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 9
   %.sroa.325.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(55) %.sroa.325.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(55) %.sroa.622.0..sroa_idx, i64 55, i1 false)
@@ -52512,7 +52512,7 @@ _ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i:
   store i8 %40, ptr %.sroa.224.0..sroa_idx, align 8
   br label %37
 
-77:                                               ; preds = %.loopexit75
+77:                                               ; preds = %.loopexit80
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %78 = load i64, ptr %6, align 8, !alias.scope !7795, !noalias !6, !noundef !6
   %79 = load i64, ptr %5, align 8, !range !2013, !alias.scope !7795, !noalias !6, !noundef !6
@@ -52675,14 +52675,14 @@ define hidden void @"_ZN165_$LT$polars_arrow..array..dictionary..mutable..Mutabl
 
 .thread.i:                                        ; preds = %29
   %32 = getelementptr inbounds nuw i8, ptr %.sroa.6.0.ph, i64 8
-  br label %.loopexit75
+  br label %.loopexit80
 
 33:                                               ; preds = %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i"
   %34 = extractvalue { i8, ptr } %27, 1
   %35 = trunc nuw i8 %28 to i1
   %36 = icmp ne ptr %34, null
   tail call void @llvm.assume(i1 %36)
-  br i1 %35, label %.loopexit75, label %41
+  br i1 %35, label %.loopexit80, label %41
 
 .loopexit:                                        ; preds = %29, %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i"
   store i64 17, ptr %0, align 8
@@ -52691,7 +52691,7 @@ define hidden void @"_ZN165_$LT$polars_arrow..array..dictionary..mutable..Mutabl
 37:                                               ; preds = %76, %.loopexit
   ret void
 
-.loopexit75:                                      ; preds = %33, %.thread.i
+.loopexit80:                                      ; preds = %33, %.thread.i
   %.sroa.18.3 = phi i64 [ %.sroa.18.0, %.thread.i ], [ %.sroa.18.2, %33 ]
   %.sroa.16.2 = phi i64 [ %.sroa.16.0, %.thread.i ], [ %.sroa.16.1, %33 ]
   %.sroa.14.2 = phi i64 [ %.sroa.14.0, %.thread.i ], [ %.sroa.14.1, %33 ]
@@ -52778,7 +52778,7 @@ _ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i:
 "_ZN12polars_arrow5array9primitive7mutable30MutablePrimitiveArray$LT$T$GT$4push17h5abcd1ec4e336c20E.exit.backedge": ; preds = %75, %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i
   br label %"_ZN12polars_arrow5array9primitive7mutable30MutablePrimitiveArray$LT$T$GT$4push17h5abcd1ec4e336c20E.exit"
 
-76:                                               ; preds = %.loopexit75
+76:                                               ; preds = %.loopexit80
   %.sroa.622.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 9
   %.sroa.325.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(55) %.sroa.325.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(55) %.sroa.622.0..sroa_idx, i64 55, i1 false)
@@ -52788,7 +52788,7 @@ _ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i:
   store i8 %40, ptr %.sroa.224.0..sroa_idx, align 8
   br label %37
 
-77:                                               ; preds = %.loopexit75
+77:                                               ; preds = %.loopexit80
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %78 = load i64, ptr %6, align 8, !alias.scope !7845, !noalias !6, !noundef !6
   %79 = load i64, ptr %5, align 8, !range !2013, !alias.scope !7845, !noalias !6, !noundef !6
@@ -52951,14 +52951,14 @@ define hidden void @"_ZN165_$LT$polars_arrow..array..dictionary..mutable..Mutabl
 
 .thread.i:                                        ; preds = %29
   %32 = getelementptr inbounds nuw i8, ptr %.sroa.6.0.ph, i64 1
-  br label %.loopexit75
+  br label %.loopexit80
 
 33:                                               ; preds = %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i"
   %34 = extractvalue { i8, ptr } %27, 1
   %35 = trunc nuw i8 %28 to i1
   %36 = icmp ne ptr %34, null
   tail call void @llvm.assume(i1 %36)
-  br i1 %35, label %.loopexit75, label %41
+  br i1 %35, label %.loopexit80, label %41
 
 .loopexit:                                        ; preds = %29, %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i"
   store i64 17, ptr %0, align 8
@@ -52967,7 +52967,7 @@ define hidden void @"_ZN165_$LT$polars_arrow..array..dictionary..mutable..Mutabl
 37:                                               ; preds = %76, %.loopexit
   ret void
 
-.loopexit75:                                      ; preds = %33, %.thread.i
+.loopexit80:                                      ; preds = %33, %.thread.i
   %.sroa.18.3 = phi i64 [ %.sroa.18.0, %.thread.i ], [ %.sroa.18.2, %33 ]
   %.sroa.16.2 = phi i64 [ %.sroa.16.0, %.thread.i ], [ %.sroa.16.1, %33 ]
   %.sroa.14.2 = phi i64 [ %.sroa.14.0, %.thread.i ], [ %.sroa.14.1, %33 ]
@@ -53054,7 +53054,7 @@ _ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i:
 "_ZN12polars_arrow5array9primitive7mutable30MutablePrimitiveArray$LT$T$GT$4push17h1596243c76c69125E.exit.backedge": ; preds = %75, %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i
   br label %"_ZN12polars_arrow5array9primitive7mutable30MutablePrimitiveArray$LT$T$GT$4push17h1596243c76c69125E.exit"
 
-76:                                               ; preds = %.loopexit75
+76:                                               ; preds = %.loopexit80
   %.sroa.622.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 16
   %.sroa.325.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.325.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.622.0..sroa_idx, i64 48, i1 false)
@@ -53064,7 +53064,7 @@ _ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i:
   store i64 %40, ptr %.sroa.224.0..sroa_idx, align 8
   br label %37
 
-77:                                               ; preds = %.loopexit75
+77:                                               ; preds = %.loopexit80
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %78 = load i64, ptr %6, align 8, !alias.scope !7895, !noalias !6, !noundef !6
   %79 = load i64, ptr %5, align 8, !range !2013, !alias.scope !7895, !noalias !6, !noundef !6
@@ -53227,14 +53227,14 @@ define hidden void @"_ZN165_$LT$polars_arrow..array..dictionary..mutable..Mutabl
 
 .thread.i:                                        ; preds = %29
   %32 = getelementptr inbounds nuw i8, ptr %.sroa.6.0.ph, i64 1
-  br label %.loopexit75
+  br label %.loopexit80
 
 33:                                               ; preds = %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i"
   %34 = extractvalue { i8, ptr } %27, 1
   %35 = trunc nuw i8 %28 to i1
   %36 = icmp ne ptr %34, null
   tail call void @llvm.assume(i1 %36)
-  br i1 %35, label %.loopexit75, label %41
+  br i1 %35, label %.loopexit80, label %41
 
 .loopexit:                                        ; preds = %29, %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i"
   store i64 17, ptr %0, align 8
@@ -53243,7 +53243,7 @@ define hidden void @"_ZN165_$LT$polars_arrow..array..dictionary..mutable..Mutabl
 37:                                               ; preds = %76, %.loopexit
   ret void
 
-.loopexit75:                                      ; preds = %33, %.thread.i
+.loopexit80:                                      ; preds = %33, %.thread.i
   %.sroa.18.3 = phi i64 [ %.sroa.18.0, %.thread.i ], [ %.sroa.18.2, %33 ]
   %.sroa.16.2 = phi i64 [ %.sroa.16.0, %.thread.i ], [ %.sroa.16.1, %33 ]
   %.sroa.14.2 = phi i64 [ %.sroa.14.0, %.thread.i ], [ %.sroa.14.1, %33 ]
@@ -53330,7 +53330,7 @@ _ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i:
 "_ZN12polars_arrow5array9primitive7mutable30MutablePrimitiveArray$LT$T$GT$4push17h4ee0d8065cd9c4e0E.exit.backedge": ; preds = %75, %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i
   br label %"_ZN12polars_arrow5array9primitive7mutable30MutablePrimitiveArray$LT$T$GT$4push17h4ee0d8065cd9c4e0E.exit"
 
-76:                                               ; preds = %.loopexit75
+76:                                               ; preds = %.loopexit80
   %.sroa.622.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 12
   %.sroa.325.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(52) %.sroa.325.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(52) %.sroa.622.0..sroa_idx, i64 52, i1 false)
@@ -53340,7 +53340,7 @@ _ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i:
   store i32 %40, ptr %.sroa.224.0..sroa_idx, align 8
   br label %37
 
-77:                                               ; preds = %.loopexit75
+77:                                               ; preds = %.loopexit80
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %78 = load i64, ptr %6, align 8, !alias.scope !7945, !noalias !6, !noundef !6
   %79 = load i64, ptr %5, align 8, !range !2013, !alias.scope !7945, !noalias !6, !noundef !6
@@ -53503,14 +53503,14 @@ define hidden void @"_ZN165_$LT$polars_arrow..array..dictionary..mutable..Mutabl
 
 .thread.i:                                        ; preds = %29
   %32 = getelementptr inbounds nuw i8, ptr %.sroa.6.0.ph, i64 4
-  br label %.loopexit75
+  br label %.loopexit80
 
 33:                                               ; preds = %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i"
   %34 = extractvalue { i8, ptr } %27, 1
   %35 = trunc nuw i8 %28 to i1
   %36 = icmp ne ptr %34, null
   tail call void @llvm.assume(i1 %36)
-  br i1 %35, label %.loopexit75, label %41
+  br i1 %35, label %.loopexit80, label %41
 
 .loopexit:                                        ; preds = %29, %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i"
   store i64 17, ptr %0, align 8
@@ -53519,7 +53519,7 @@ define hidden void @"_ZN165_$LT$polars_arrow..array..dictionary..mutable..Mutabl
 37:                                               ; preds = %76, %.loopexit
   ret void
 
-.loopexit75:                                      ; preds = %33, %.thread.i
+.loopexit80:                                      ; preds = %33, %.thread.i
   %.sroa.18.3 = phi i64 [ %.sroa.18.0, %.thread.i ], [ %.sroa.18.2, %33 ]
   %.sroa.16.2 = phi i64 [ %.sroa.16.0, %.thread.i ], [ %.sroa.16.1, %33 ]
   %.sroa.14.2 = phi i64 [ %.sroa.14.0, %.thread.i ], [ %.sroa.14.1, %33 ]
@@ -53606,7 +53606,7 @@ _ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i:
 "_ZN12polars_arrow5array9primitive7mutable30MutablePrimitiveArray$LT$T$GT$4push17hf14144fd23629265E.exit.backedge": ; preds = %75, %_ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i
   br label %"_ZN12polars_arrow5array9primitive7mutable30MutablePrimitiveArray$LT$T$GT$4push17hf14144fd23629265E.exit"
 
-76:                                               ; preds = %.loopexit75
+76:                                               ; preds = %.loopexit80
   %.sroa.622.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 10
   %.sroa.325.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 10
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(54) %.sroa.325.0..sroa_idx, ptr noundef nonnull align 2 dereferenceable(54) %.sroa.622.0..sroa_idx, i64 54, i1 false)
@@ -53616,7 +53616,7 @@ _ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i:
   store i16 %40, ptr %.sroa.224.0..sroa_idx, align 8
   br label %37
 
-77:                                               ; preds = %.loopexit75
+77:                                               ; preds = %.loopexit80
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %78 = load i64, ptr %6, align 8, !alias.scope !7995, !noalias !6, !noundef !6
   %79 = load i64, ptr %5, align 8, !range !2013, !alias.scope !7995, !noalias !6, !noundef !6
@@ -54645,8 +54645,8 @@ define hidden noundef i64 @_ZN4core4hash11BuildHasher8hash_one17h19917d3b781d7d8
   br label %46
 
 "_ZN68_$LT$foldhash..quality..FoldHasher$u20$as$u20$core..hash..Hasher$GT$6finish17hcb2b74a370351cc7E.exit": ; preds = %46, %20, %16
-  %.sink3.i.i.i = phi i64 [ %19, %16 ], [ %21, %20 ], [ %52, %46 ]
-  %57 = xor i64 %.sink3.i.i.i, 255
+  %.sink4.i.i.i = phi i64 [ %19, %16 ], [ %21, %20 ], [ %52, %46 ]
+  %57 = xor i64 %.sink4.i.i.i, 255
   %58 = zext i64 %57 to i128
   %59 = zext i64 %5 to i128
   %60 = mul nuw i128 %58, %59
@@ -55533,7 +55533,7 @@ define internal fastcc void @"_ZN77_$LT$polars_arrow..datatypes..ArrowDataType$u
   %22 = alloca [24 x i8], align 8
   %.sroa.0 = alloca [23 x i8], align 8
   %23 = load i8, ptr %1, align 8, !range !1647, !noundef !6
-  switch i8 %23, label %default.unreachable61 [
+  switch i8 %23, label %default.unreachable66 [
     i8 0, label %24
     i8 1, label %25
     i8 2, label %26
@@ -55575,7 +55575,7 @@ define internal fastcc void @"_ZN77_$LT$polars_arrow..datatypes..ArrowDataType$u
     i8 38, label %228
   ]
 
-default.unreachable61:                            ; preds = %2
+default.unreachable66:                            ; preds = %2
   unreachable
 
 24:                                               ; preds = %2
@@ -65666,7 +65666,7 @@ define hidden void @_ZN14polars_compute15propagate_nulls20propagate_nulls_list17
   unreachable
 
 common.resume:                                    ; preds = %211, %202, %244, %.critedge, %233, %.thread, %275, %61, %66
-  %common.resume.op = phi { ptr, i32 } [ %67, %66 ], [ %62, %61 ], [ %.pn47125213, %275 ], [ %.pn47126, %.thread ], [ %234, %233 ], [ %240, %.critedge ], [ %245, %244 ], [ %203, %202 ], [ %203, %211 ]
+  %common.resume.op = phi { ptr, i32 } [ %67, %66 ], [ %62, %61 ], [ %.pn47125222, %275 ], [ %.pn47126, %.thread ], [ %234, %233 ], [ %240, %.critedge ], [ %245, %244 ], [ %203, %202 ], [ %203, %211 ]
   resume { ptr, i32 } %common.resume.op
 
 66:                                               ; preds = %40
@@ -65696,7 +65696,7 @@ common.resume:                                    ; preds = %211, %202, %244, %.
 71:                                               ; preds = %"_ZN14polars_compute15propagate_nulls20propagate_nulls_list28_$u7b$$u7b$closure$u7d$$u7d$17h5a676fc0a4ac34b7E.exit", %70, %249, %238
   ret void
 
-.thread210:                                       ; preds = %248
+.thread219:                                       ; preds = %248
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %275
@@ -65708,10 +65708,10 @@ common.resume:                                    ; preds = %211, %202, %244, %.
 
 73:                                               ; preds = %33
   invoke void @_ZN12polars_arrow6bitmap9immutable6Bitmap13true_idx_iter17h2fccf27d6485733bE(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %24, ptr noundef nonnull align 8 %25)
-          to label %74 unwind label %.body78.thread225
+          to label %74 unwind label %.body78.thread234
 
-.body78.thread225:                                ; preds = %.split.us.invoke, %144, %.split154, %130, %73
-  %lpad.thr_comm222 = landingpad { ptr, i32 }
+.body78.thread234:                                ; preds = %.split.us.invoke, %144, %.split154, %130, %73
+  %lpad.thr_comm231 = landingpad { ptr, i32 }
           cleanup
   br label %274
 
@@ -65719,7 +65719,7 @@ common.resume:                                    ; preds = %211, %202, %244, %.
   %.sroa.10.5.ph = phi ptr [ undef, %147 ], [ %183, %181 ], [ %183, %184 ]
   %.sroa.0.5.ph = phi ptr [ null, %147 ], [ %182, %181 ], [ %182, %184 ]
   %.sroa.025.2.ph.ph = phi i1 [ true, %147 ], [ false, %181 ], [ false, %184 ]
-  %lpad.thr_comm.split-lp223 = landingpad { ptr, i32 }
+  %lpad.thr_comm.split-lp232 = landingpad { ptr, i32 }
           cleanup
   br label %.thread.thread
 
@@ -65795,7 +65795,7 @@ common.resume:                                    ; preds = %211, %202, %244, %.
   %107 = phi i64 [ 42, %88 ], [ 42, %.lr.ph.split ], [ 65, %128 ]
   %108 = phi ptr [ @anon.b1f0ac1e253f2a4064c61b0db2d4d543.76, %88 ], [ @anon.b1f0ac1e253f2a4064c61b0db2d4d543.76, %.lr.ph.split ], [ @anon.b1f0ac1e253f2a4064c61b0db2d4d543.47, %128 ]
   invoke void @_ZN4core9panicking5panic17h25f8e3deb94c81bfE(ptr noalias noundef nonnull readonly align 1 %106, i64 noundef %107, ptr noalias noundef readonly align 8 dereferenceable(24) %108) #31
-          to label %.split.us.cont unwind label %.body78.thread225
+          to label %.split.us.cont unwind label %.body78.thread234
 
 .split.us.cont:                                   ; preds = %.split.us.invoke
   unreachable
@@ -65850,7 +65850,7 @@ common.resume:                                    ; preds = %211, %202, %244, %.
 
 130:                                              ; preds = %.noexc66
   invoke void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.b1f0ac1e253f2a4064c61b0db2d4d543.48) #31
-          to label %.noexc67 unwind label %.body78.thread225
+          to label %.noexc67 unwind label %.body78.thread234
 
 .noexc67:                                         ; preds = %130
   unreachable
@@ -65872,7 +65872,7 @@ _ZN12polars_arrow6bitmap7bitmask7BitMask6sliced17h3f17c45d8e442ebfE.exit.i: ; pr
   %.us-phi155 = phi i64 [ %98, %.split154.us ], [ %118, %136 ]
   %.us-phi156 = phi i64 [ %89, %.split154.us ], [ %103, %136 ]
   invoke void @_ZN12polars_arrow6bitmap7builder13BitmapBuilder33subslice_extend_from_opt_validity17hbaad38163517f7fbE(ptr noalias noundef nonnull align 8 dereferenceable(56) %26, ptr noundef align 8 %36, i64 noundef 0, i64 noundef %.us-phi)
-          to label %137 unwind label %.body78.thread225
+          to label %137 unwind label %.body78.thread234
 
 136:                                              ; preds = %_ZN12polars_arrow6bitmap7bitmask7BitMask6sliced17h3f17c45d8e442ebfE.exit.i
   %.not127 = icmp eq i64 %135, 0
@@ -65891,7 +65891,7 @@ _ZN12polars_arrow6bitmap7bitmask7BitMask6sliced17h3f17c45d8e442ebfE.exit.i: ; pr
 
 144:                                              ; preds = %137
   invoke void @_ZN12polars_arrow6bitmap7builder13BitmapBuilder20extend_constant_slow17h6b1eb0ecaf954308E(ptr noalias noundef nonnull align 8 dereferenceable(56) %26, i64 noundef %138, i1 noundef zeroext false)
-          to label %.loopexit128 unwind label %.body78.thread225
+          to label %.loopexit128 unwind label %.body78.thread234
 
 145:                                              ; preds = %137
   %146 = add i64 %140, %138
@@ -66174,7 +66174,7 @@ thread-pre-split:                                 ; preds = %181
 248:                                              ; preds = %.loopexit128
   store i8 39, ptr %0, align 8
   invoke void @"_ZN4core3ptr60drop_in_place$LT$polars_arrow..bitmap..immutable..Bitmap$GT$17hce9122253bbababcE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %25)
-          to label %250 unwind label %.thread210
+          to label %250 unwind label %.thread219
 
 249:                                              ; preds = %247, %250
   call void @llvm.lifetime.end.p0(ptr nonnull %26)
@@ -66228,8 +66228,8 @@ thread-pre-split:                                 ; preds = %181
   %273 = trunc nuw i64 %272 to i1
   br i1 %273, label %159, label %._crit_edge
 
-274:                                              ; preds = %.body78.thread225, %.body78.thread
-  %.pn44.pn202 = phi { ptr, i32 } [ %lpad.loopexit131, %.body78.thread ], [ %lpad.thr_comm222, %.body78.thread225 ]
+274:                                              ; preds = %.body78.thread234, %.body78.thread
+  %.pn44.pn211 = phi { ptr, i32 } [ %lpad.loopexit131, %.body78.thread ], [ %lpad.thr_comm231, %.body78.thread234 ]
   invoke void @"_ZN4core3ptr60drop_in_place$LT$polars_arrow..bitmap..immutable..Bitmap$GT$17hce9122253bbababcE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %25) #28
           to label %.thread.thread unwind label %241
 
@@ -66239,13 +66239,13 @@ thread-pre-split:                                 ; preds = %181
 .thread.thread:                                   ; preds = %.body78, %274, %72, %153
   %.sroa.10.2 = phi ptr [ undef, %153 ], [ undef, %72 ], [ %.sroa.10.5.ph, %.body78 ], [ undef, %274 ]
   %.sroa.0.2 = phi ptr [ null, %153 ], [ null, %72 ], [ %.sroa.0.5.ph, %.body78 ], [ null, %274 ]
-  %.pn47126 = phi { ptr, i32 } [ %lpad.phi, %153 ], [ %lpad.thr_comm.split-lp, %72 ], [ %lpad.thr_comm.split-lp223, %.body78 ], [ %.pn44.pn202, %274 ]
+  %.pn47126 = phi { ptr, i32 } [ %lpad.phi, %153 ], [ %lpad.thr_comm.split-lp, %72 ], [ %lpad.thr_comm.split-lp232, %.body78 ], [ %.pn44.pn211, %274 ]
   %.sroa.025.1124 = phi i1 [ %.sroa.025.5, %153 ], [ true, %72 ], [ %.sroa.025.2.ph.ph, %.body78 ], [ true, %274 ]
   invoke fastcc void @"_ZN4core3ptr108drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$dyn$u20$polars_arrow..array..Array$GT$$GT$$GT$17h3c803b28b552b883E"(ptr %.sroa.0.2, ptr %.sroa.10.2) #28
           to label %.thread unwind label %241
 
-275:                                              ; preds = %.thread210, %.thread
-  %.pn47125213 = phi { ptr, i32 } [ %lpad.thr_comm, %.thread210 ], [ %.pn47126, %.thread ]
+275:                                              ; preds = %.thread219, %.thread
+  %.pn47125222 = phi { ptr, i32 } [ %lpad.thr_comm, %.thread219 ], [ %.pn47126, %.thread ]
   invoke void @"_ZN4core3ptr65drop_in_place$LT$polars_arrow..bitmap..builder..BitmapBuilder$GT$17h1bce6210ed303053E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %26) #28
           to label %common.resume unwind label %241
 }
@@ -66366,7 +66366,7 @@ define hidden void @_ZN14polars_compute15propagate_nulls20propagate_nulls_list17
   unreachable
 
 common.resume:                                    ; preds = %207, %198, %240, %.critedge, %229, %.thread, %269, %61, %66
-  %common.resume.op = phi { ptr, i32 } [ %67, %66 ], [ %62, %61 ], [ %.pn47125208, %269 ], [ %.pn47126, %.thread ], [ %230, %229 ], [ %236, %.critedge ], [ %241, %240 ], [ %199, %198 ], [ %199, %207 ]
+  %common.resume.op = phi { ptr, i32 } [ %67, %66 ], [ %62, %61 ], [ %.pn47125216, %269 ], [ %.pn47126, %.thread ], [ %230, %229 ], [ %236, %.critedge ], [ %241, %240 ], [ %199, %198 ], [ %199, %207 ]
   resume { ptr, i32 } %common.resume.op
 
 66:                                               ; preds = %40
@@ -66396,7 +66396,7 @@ common.resume:                                    ; preds = %207, %198, %240, %.
 71:                                               ; preds = %"_ZN14polars_compute15propagate_nulls20propagate_nulls_list28_$u7b$$u7b$closure$u7d$$u7d$17h4b2946fc3f860891E.exit", %70, %245, %234
   ret void
 
-.thread205:                                       ; preds = %244
+.thread213:                                       ; preds = %244
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %269
@@ -66408,10 +66408,10 @@ common.resume:                                    ; preds = %207, %198, %240, %.
 
 73:                                               ; preds = %33
   invoke void @_ZN12polars_arrow6bitmap9immutable6Bitmap13true_idx_iter17h2fccf27d6485733bE(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %24, ptr noundef nonnull align 8 %25)
-          to label %74 unwind label %.body78.thread220
+          to label %74 unwind label %.body78.thread228
 
-.body78.thread220:                                ; preds = %.split.us.invoke, %140, %.split152.us, %126, %73
-  %lpad.thr_comm217 = landingpad { ptr, i32 }
+.body78.thread228:                                ; preds = %.split.us.invoke, %140, %.split152.us, %126, %73
+  %lpad.thr_comm225 = landingpad { ptr, i32 }
           cleanup
   br label %268
 
@@ -66419,7 +66419,7 @@ common.resume:                                    ; preds = %207, %198, %240, %.
   %.sroa.10.5.ph = phi ptr [ undef, %143 ], [ %179, %177 ], [ %179, %180 ]
   %.sroa.0.5.ph = phi ptr [ null, %143 ], [ %178, %177 ], [ %178, %180 ]
   %.sroa.025.2.ph.ph = phi i1 [ true, %143 ], [ false, %177 ], [ false, %180 ]
-  %lpad.thr_comm.split-lp218 = landingpad { ptr, i32 }
+  %lpad.thr_comm.split-lp226 = landingpad { ptr, i32 }
           cleanup
   br label %.thread.thread
 
@@ -66490,7 +66490,7 @@ common.resume:                                    ; preds = %207, %198, %240, %.
   %105 = phi i64 [ 42, %88 ], [ 42, %.lr.ph.split ], [ 65, %124 ]
   %106 = phi ptr [ @anon.b1f0ac1e253f2a4064c61b0db2d4d543.76, %88 ], [ @anon.b1f0ac1e253f2a4064c61b0db2d4d543.76, %.lr.ph.split ], [ @anon.b1f0ac1e253f2a4064c61b0db2d4d543.47, %124 ]
   invoke void @_ZN4core9panicking5panic17h25f8e3deb94c81bfE(ptr noalias noundef nonnull readonly align 1 %104, i64 noundef %105, ptr noalias noundef readonly align 8 dereferenceable(24) %106) #31
-          to label %.split.us.cont unwind label %.body78.thread220
+          to label %.split.us.cont unwind label %.body78.thread228
 
 .split.us.cont:                                   ; preds = %.split.us.invoke
   unreachable
@@ -66543,7 +66543,7 @@ common.resume:                                    ; preds = %207, %198, %240, %.
 
 126:                                              ; preds = %.noexc66
   invoke void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.b1f0ac1e253f2a4064c61b0db2d4d543.48) #31
-          to label %.noexc67 unwind label %.body78.thread220
+          to label %.noexc67 unwind label %.body78.thread228
 
 .noexc67:                                         ; preds = %126
   unreachable
@@ -66565,7 +66565,7 @@ _ZN12polars_arrow6bitmap7bitmask7BitMask6sliced17h3f17c45d8e442ebfE.exit.i: ; pr
   %.us-phi153 = phi i64 [ %.val1.i.us, %91 ], [ %.val1.i, %132 ]
   %.us-phi154 = phi i64 [ %89, %91 ], [ %101, %132 ]
   invoke void @_ZN12polars_arrow6bitmap7builder13BitmapBuilder33subslice_extend_from_opt_validity17hbaad38163517f7fbE(ptr noalias noundef nonnull align 8 dereferenceable(56) %26, ptr noundef align 8 %36, i64 noundef 0, i64 noundef %.us-phi)
-          to label %133 unwind label %.body78.thread220
+          to label %133 unwind label %.body78.thread228
 
 132:                                              ; preds = %_ZN12polars_arrow6bitmap7bitmask7BitMask6sliced17h3f17c45d8e442ebfE.exit.i
   %.not127 = icmp eq i64 %131, 0
@@ -66584,7 +66584,7 @@ _ZN12polars_arrow6bitmap7bitmask7BitMask6sliced17h3f17c45d8e442ebfE.exit.i: ; pr
 
 140:                                              ; preds = %133
   invoke void @_ZN12polars_arrow6bitmap7builder13BitmapBuilder20extend_constant_slow17h6b1eb0ecaf954308E(ptr noalias noundef nonnull align 8 dereferenceable(56) %26, i64 noundef %134, i1 noundef zeroext false)
-          to label %.loopexit128 unwind label %.body78.thread220
+          to label %.loopexit128 unwind label %.body78.thread228
 
 141:                                              ; preds = %133
   %142 = add i64 %136, %134
@@ -66867,7 +66867,7 @@ thread-pre-split:                                 ; preds = %177
 244:                                              ; preds = %.loopexit128
   store i8 39, ptr %0, align 8
   invoke void @"_ZN4core3ptr60drop_in_place$LT$polars_arrow..bitmap..immutable..Bitmap$GT$17hce9122253bbababcE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %25)
-          to label %246 unwind label %.thread205
+          to label %246 unwind label %.thread213
 
 245:                                              ; preds = %243, %246
   call void @llvm.lifetime.end.p0(ptr nonnull %26)
@@ -66919,8 +66919,8 @@ thread-pre-split:                                 ; preds = %177
   %267 = trunc nuw i64 %266 to i1
   br i1 %267, label %155, label %._crit_edge
 
-268:                                              ; preds = %.body78.thread220, %.body78.thread
-  %.pn44.pn197 = phi { ptr, i32 } [ %lpad.loopexit131, %.body78.thread ], [ %lpad.thr_comm217, %.body78.thread220 ]
+268:                                              ; preds = %.body78.thread228, %.body78.thread
+  %.pn44.pn205 = phi { ptr, i32 } [ %lpad.loopexit131, %.body78.thread ], [ %lpad.thr_comm225, %.body78.thread228 ]
   invoke void @"_ZN4core3ptr60drop_in_place$LT$polars_arrow..bitmap..immutable..Bitmap$GT$17hce9122253bbababcE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %25) #28
           to label %.thread.thread unwind label %237
 
@@ -66930,13 +66930,13 @@ thread-pre-split:                                 ; preds = %177
 .thread.thread:                                   ; preds = %.body78, %268, %72, %149
   %.sroa.10.2 = phi ptr [ undef, %149 ], [ undef, %72 ], [ %.sroa.10.5.ph, %.body78 ], [ undef, %268 ]
   %.sroa.0.2 = phi ptr [ null, %149 ], [ null, %72 ], [ %.sroa.0.5.ph, %.body78 ], [ null, %268 ]
-  %.pn47126 = phi { ptr, i32 } [ %lpad.phi, %149 ], [ %lpad.thr_comm.split-lp, %72 ], [ %lpad.thr_comm.split-lp218, %.body78 ], [ %.pn44.pn197, %268 ]
+  %.pn47126 = phi { ptr, i32 } [ %lpad.phi, %149 ], [ %lpad.thr_comm.split-lp, %72 ], [ %lpad.thr_comm.split-lp226, %.body78 ], [ %.pn44.pn205, %268 ]
   %.sroa.025.1124 = phi i1 [ %.sroa.025.5, %149 ], [ true, %72 ], [ %.sroa.025.2.ph.ph, %.body78 ], [ true, %268 ]
   invoke fastcc void @"_ZN4core3ptr108drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$dyn$u20$polars_arrow..array..Array$GT$$GT$$GT$17h3c803b28b552b883E"(ptr %.sroa.0.2, ptr %.sroa.10.2) #28
           to label %.thread unwind label %237
 
-269:                                              ; preds = %.thread205, %.thread
-  %.pn47125208 = phi { ptr, i32 } [ %lpad.thr_comm, %.thread205 ], [ %.pn47126, %.thread ]
+269:                                              ; preds = %.thread213, %.thread
+  %.pn47125216 = phi { ptr, i32 } [ %lpad.thr_comm, %.thread213 ], [ %.pn47126, %.thread ]
   invoke void @"_ZN4core3ptr65drop_in_place$LT$polars_arrow..bitmap..builder..BitmapBuilder$GT$17h1bce6210ed303053E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %26) #28
           to label %common.resume unwind label %237
 }

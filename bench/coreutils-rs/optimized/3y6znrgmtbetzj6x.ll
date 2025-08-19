@@ -1200,8 +1200,8 @@ _ZN3std4path7PathBuf4push17h7f94e92ddc62df35E.exit188: ; preds = %309, %272
   %.sroa.6252.1 = phi ptr [ %.sroa.12.0, %283 ], [ %.sroa.6252.0, %_ZN3std4path7PathBuf4push17h7f94e92ddc62df35E.exit188 ]
   %.sroa.9.1 = phi ptr [ %.sroa.0251.0, %283 ], [ %.sroa.9.0269, %_ZN3std4path7PathBuf4push17h7f94e92ddc62df35E.exit188 ]
   %.sroa.12.1 = phi ptr [ %.sroa.0251.0, %283 ], [ %.sroa.12.0, %_ZN3std4path7PathBuf4push17h7f94e92ddc62df35E.exit188 ]
-  %.sink6.i = phi ptr [ %.sroa.9.0269, %283 ], [ %.sroa.0251.0, %_ZN3std4path7PathBuf4push17h7f94e92ddc62df35E.exit188 ]
-  %288 = invoke { ptr, i64 } @_ZN6uucore8features2fs15OwningComponent9as_os_str17h93119f5e81ebdc3eE(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %.sink6.i)
+  %.sink9.i = phi ptr [ %.sroa.9.0269, %283 ], [ %.sroa.0251.0, %_ZN3std4path7PathBuf4push17h7f94e92ddc62df35E.exit188 ]
+  %288 = invoke { ptr, i64 } @_ZN6uucore8features2fs15OwningComponent9as_os_str17h93119f5e81ebdc3eE(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %.sink9.i)
           to label %309 unwind label %.loopexit
 
 289:                                              ; preds = %285
@@ -1269,7 +1269,7 @@ _ZN3std4path7PathBuf4push17h7f94e92ddc62df35E.exit188: ; preds = %309, %272
           to label %314 unwind label %.loopexit.split-lp348.loopexit
 
 309:                                              ; preds = %287
-  %310 = getelementptr inbounds nuw i8, ptr %.sink6.i, i64 32
+  %310 = getelementptr inbounds nuw i8, ptr %.sink9.i, i64 32
   %311 = extractvalue { ptr, i64 } %288, 0
   %312 = extractvalue { ptr, i64 } %288, 1
   invoke void @_ZN3std4path7PathBuf5_push17h98f2c6a7c69395cbE(ptr noalias noundef nonnull align 8 dereferenceable(24) %39, ptr noalias noundef nonnull readonly align 1 %311, i64 noundef %312)
@@ -2047,7 +2047,7 @@ define hidden void @_ZN6uucore8features2fs21make_path_relative_to17h3bac13a615e7
   br i1 %49, label %50, label %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hd530fee883cb652aE.exit"
 
 50:                                               ; preds = %48
-  switch i8 %31, label %default.unreachable25.i.i.i.i.i.i.i [
+  switch i8 %31, label %default.unreachable [
     i8 0, label %51
     i8 1, label %56
     i8 2, label %60
@@ -2056,7 +2056,7 @@ define hidden void @_ZN6uucore8features2fs21make_path_relative_to17h3bac13a615e7
     i8 5, label %71
   ]
 
-default.unreachable25.i.i.i.i.i.i.i:              ; preds = %50
+default.unreachable:                              ; preds = %50
   unreachable
 
 51:                                               ; preds = %50

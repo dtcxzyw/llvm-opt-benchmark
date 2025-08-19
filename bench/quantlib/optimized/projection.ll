@@ -89,17 +89,17 @@ if.then.i:                                        ; preds = %entry
   store i64 %0, ptr %n_46.i, align 8, !tbaa !25
   %4 = load i64, ptr %n_.i, align 8, !tbaa !25
   %tobool.not.i.i.i.i.i.i = icmp eq i64 %4, 0
-  br i1 %tobool.not.i.i.i.i.i.i, label %_ZN8QuantLib5ArrayC2ERKS0_.exit.thread, label %_ZN8QuantLib5ArrayC2ERKS0_.exit.thread177
+  br i1 %tobool.not.i.i.i.i.i.i, label %_ZN8QuantLib5ArrayC2ERKS0_.exit.thread, label %_ZN8QuantLib5ArrayC2ERKS0_.exit.thread199
 
 _ZN8QuantLib5ArrayC2ERKS0_.exit.thread:           ; preds = %if.then.i
   %actualParameters_125 = getelementptr inbounds nuw i8, ptr %this, i64 32
   br label %cond.end.i26
 
-_ZN8QuantLib5ArrayC2ERKS0_.exit.thread177:        ; preds = %if.then.i
+_ZN8QuantLib5ArrayC2ERKS0_.exit.thread199:        ; preds = %if.then.i
   %5 = load ptr, ptr %parameterValues, align 8, !tbaa !26
   %add.ptr.i.idx.i = shl nuw nsw i64 %4, 3
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %call.i, ptr align 8 %5, i64 %add.ptr.i.idx.i, i1 false)
-  %actualParameters_179 = getelementptr inbounds nuw i8, ptr %this, i64 32
+  %actualParameters_201 = getelementptr inbounds nuw i8, ptr %this, i64 32
   br label %if.then.i20
 
 _ZN8QuantLib5ArrayC2ERKS0_.exit:                  ; preds = %entry
@@ -114,20 +114,20 @@ cond.end.i26:                                     ; preds = %_ZN8QuantLib5ArrayC
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %actualParameters_127, i8 0, i64 16, i1 false)
   br label %invoke.cont
 
-if.then.i20:                                      ; preds = %_ZN8QuantLib5ArrayC2ERKS0_.exit.thread177, %_ZN8QuantLib5ArrayC2ERKS0_.exit
-  %actualParameters_182 = phi ptr [ %actualParameters_179, %_ZN8QuantLib5ArrayC2ERKS0_.exit.thread177 ], [ %actualParameters_, %_ZN8QuantLib5ArrayC2ERKS0_.exit ]
-  %.pr181 = phi i64 [ %4, %_ZN8QuantLib5ArrayC2ERKS0_.exit.thread177 ], [ %.pr.pre, %_ZN8QuantLib5ArrayC2ERKS0_.exit ]
-  %6 = phi ptr [ %call.i, %_ZN8QuantLib5ArrayC2ERKS0_.exit.thread177 ], [ null, %_ZN8QuantLib5ArrayC2ERKS0_.exit ]
-  %7 = icmp ugt i64 %.pr181, 2305843009213693951
-  %8 = shl i64 %.pr181, 3
+if.then.i20:                                      ; preds = %_ZN8QuantLib5ArrayC2ERKS0_.exit.thread199, %_ZN8QuantLib5ArrayC2ERKS0_.exit
+  %actualParameters_204 = phi ptr [ %actualParameters_201, %_ZN8QuantLib5ArrayC2ERKS0_.exit.thread199 ], [ %actualParameters_, %_ZN8QuantLib5ArrayC2ERKS0_.exit ]
+  %.pr203 = phi i64 [ %4, %_ZN8QuantLib5ArrayC2ERKS0_.exit.thread199 ], [ %.pr.pre, %_ZN8QuantLib5ArrayC2ERKS0_.exit ]
+  %6 = phi ptr [ %call.i, %_ZN8QuantLib5ArrayC2ERKS0_.exit.thread199 ], [ null, %_ZN8QuantLib5ArrayC2ERKS0_.exit ]
+  %7 = icmp ugt i64 %.pr203, 2305843009213693951
+  %8 = shl i64 %.pr203, 3
   %9 = select i1 %7, i64 -1, i64 %8
   %call.i2127 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %9) #16
           to label %call.i21.noexc unwind label %lpad
 
 call.i21.noexc:                                   ; preds = %if.then.i20
-  store ptr %call.i2127, ptr %actualParameters_182, align 8, !tbaa !26
+  store ptr %call.i2127, ptr %actualParameters_204, align 8, !tbaa !26
   %n_46.i22 = getelementptr inbounds nuw i8, ptr %this, i64 40
-  store i64 %.pr181, ptr %n_46.i22, align 8, !tbaa !25
+  store i64 %.pr203, ptr %n_46.i22, align 8, !tbaa !25
   %10 = load i64, ptr %n_.i, align 8, !tbaa !25
   %tobool.not.i.i.i.i.i.i23 = icmp eq i64 %10, 0
   br i1 %tobool.not.i.i.i.i.i.i23, label %invoke.cont, label %if.then.i.i.i.i.i.i24
@@ -139,7 +139,7 @@ if.then.i.i.i.i.i.i24:                            ; preds = %call.i21.noexc
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %if.then.i.i.i.i.i.i24, %call.i21.noexc, %cond.end.i26
-  %actualParameters_128 = phi ptr [ %actualParameters_127, %cond.end.i26 ], [ %actualParameters_182, %call.i21.noexc ], [ %actualParameters_182, %if.then.i.i.i.i.i.i24 ]
+  %actualParameters_128 = phi ptr [ %actualParameters_127, %cond.end.i26 ], [ %actualParameters_204, %call.i21.noexc ], [ %actualParameters_204, %if.then.i.i.i.i.i.i24 ]
   %fixParameters_ = getelementptr inbounds nuw i8, ptr %this, i64 48
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %fixParameters_, ptr noundef nonnull align 8 dereferenceable(40) %fixParameters, i64 40, i1 false)
   store ptr null, ptr %fixParameters, align 8

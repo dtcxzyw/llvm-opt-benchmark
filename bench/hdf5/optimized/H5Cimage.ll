@@ -1157,9 +1157,9 @@ H5C__decode_cache_image_header.exit.preheader.i:  ; preds = %H5C__cache_image_bl
   store i64 %255, ptr %250, align 8, !tbaa !94
   %256 = getelementptr inbounds nuw i8, ptr %.0332.i, i64 8
   store ptr %256, ptr %2, align 8, !tbaa !71
-  br i1 %221, label %257, label %.thread105.i.i
+  br i1 %221, label %257, label %.thread109.i.i
 
-.thread105.i.i:                                   ; preds = %220
+.thread109.i.i:                                   ; preds = %220
   store i64 0, ptr %250, align 8, !tbaa !94
   br label %263
 
@@ -1173,7 +1173,7 @@ H5C__decode_cache_image_header.exit.preheader.i:  ; preds = %H5C__cache_image_bl
   %262 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5C__reconstruct_cache_entry, i32 noundef 2643, i64 noundef %260, i64 noundef %261, ptr noundef nonnull @.str.54) #15
   br label %.thread.i.i
 
-263:                                              ; preds = %257, %.thread105.i.i
+263:                                              ; preds = %257, %.thread109.i.i
   %264 = load i16, ptr %256, align 1
   %265 = zext i16 %264 to i64
   %266 = getelementptr inbounds nuw i8, ptr %214, i64 168
@@ -1838,7 +1838,7 @@ H5C__cache_image_block_entry_header_size.exit.i.i: ; preds = %345, %334
   store i64 %621, ptr %196, align 8, !tbaa !144
   %622 = getelementptr inbounds nuw i8, ptr %.0262323.i, i64 50
   store i8 1, ptr %622, align 2, !tbaa !145
-  %623 = call i32 @H5C_create_flush_dependency(ptr noundef nonnull %.0262323.i, ptr noundef %214) #15
+  %623 = call i32 @H5C_create_flush_dependency(ptr noundef nonnull %.0262323.i, ptr noundef nonnull %214) #15
   %624 = icmp slt i32 %623, 0
   br i1 %624, label %625, label %629
 

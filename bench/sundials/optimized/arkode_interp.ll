@@ -813,9 +813,9 @@ define range(i32 -28, 1) i32 @arkInterpEvaluate_Hermite(ptr noundef %0, ptr noun
   br label %133
 
 133:                                              ; preds = %103, %127, %115, %91
-  %.sink355 = phi double [ %114, %103 ], [ %131, %127 ], [ %126, %115 ], [ %102, %91 ]
+  %.sink356 = phi double [ %114, %103 ], [ %131, %127 ], [ %126, %115 ], [ %102, %91 ]
   %134 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  store double %.sink355, ptr %134, align 8, !tbaa !47
+  store double %.sink356, ptr %134, align 8, !tbaa !47
   %135 = load ptr, ptr %1, align 8, !tbaa !17
   %136 = getelementptr inbounds nuw i8, ptr %135, i64 16
   %137 = load ptr, ptr %136, align 8, !tbaa !37
@@ -983,9 +983,9 @@ arkInterpEvaluate.exit:                           ; preds = %41
   br label %250
 
 250:                                              ; preds = %189, %229, %242, %211, %165
-  %.sink357 = phi double [ %210, %189 ], [ %241, %229 ], [ %249, %242 ], [ %228, %211 ], [ %188, %165 ]
+  %.sink358 = phi double [ %210, %189 ], [ %241, %229 ], [ %249, %242 ], [ %228, %211 ], [ %188, %165 ]
   %251 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  store double %.sink357, ptr %251, align 16, !tbaa !47
+  store double %.sink358, ptr %251, align 16, !tbaa !47
   %252 = load ptr, ptr %1, align 8, !tbaa !17
   %253 = getelementptr inbounds nuw i8, ptr %252, i64 16
   %254 = load ptr, ptr %253, align 8, !tbaa !37
@@ -1254,9 +1254,9 @@ arkInterpEvaluate.exit353:                        ; preds = %273
   br label %447
 
 447:                                              ; preds = %332, %395, %438, %422, %364, %300
-  %.sink359 = phi double [ %363, %332 ], [ %421, %395 ], [ %445, %438 ], [ %437, %422 ], [ %394, %364 ], [ %331, %300 ]
+  %.sink360 = phi double [ %363, %332 ], [ %421, %395 ], [ %445, %438 ], [ %437, %422 ], [ %394, %364 ], [ %331, %300 ]
   %448 = getelementptr inbounds nuw i8, ptr %7, i64 40
-  store double %.sink359, ptr %448, align 8, !tbaa !47
+  store double %.sink360, ptr %448, align 8, !tbaa !47
   %449 = load ptr, ptr %1, align 8, !tbaa !17
   %450 = getelementptr inbounds nuw i8, ptr %449, i64 16
   %451 = load ptr, ptr %450, align 8, !tbaa !37
@@ -2194,7 +2194,7 @@ LBasis.exit93:                                    ; preds = %86, %56, %57, %37
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader153
-  switch i32 %3, label %default.unreachable [
+  switch i32 %3, label %default.unreachable198 [
     i32 0, label %.preheader
     i32 1, label %.preheader147
     i32 2, label %.preheader149
@@ -2415,7 +2415,7 @@ LBasis.exit123.loopexit.us:                       ; preds = %164
   %exitcond179.not = icmp eq i64 %indvars.iv.next176, %wide.trip.count178
   br i1 %exitcond179.not, label %.loopexit, label %.lr.ph158
 
-default.unreachable:                              ; preds = %._crit_edge
+default.unreachable198:                           ; preds = %._crit_edge
   unreachable
 
 .loopexit:                                        ; preds = %.lr.ph158, %LBasisD2.exit.loopexit.us, %LBasisD.exit141.loopexit.us, %LBasis.exit123.loopexit.us, %.preheader151, %.preheader149, %.preheader147, %.preheader

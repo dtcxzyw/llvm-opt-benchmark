@@ -755,7 +755,7 @@ for.body.lr.ph:                                   ; preds = %invoke.cont136
   %capacity_.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %dim_.i225 = getelementptr inbounds nuw i8, ptr %__begin1, i64 8
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %__begin1, i64 16
-  br label %for.body
+  br label %for.body172.lr.ph
 
 _ZN8QuantLib19FdmLinearOpIteratorD2Ev.exit:       ; preds = %_ZN8QuantLib19FdmLinearOpIteratorppEv.exit, %invoke.cont136
   %coordinates_.i152.phi.trans.insert = getelementptr inbounds nuw i8, ptr %__begin1, i64 32
@@ -850,7 +850,7 @@ lpad135:                                          ; preds = %invoke.cont133
           cleanup
   br label %ehcleanup255
 
-for.body:                                         ; preds = %for.body.lr.ph, %_ZN8QuantLib19FdmLinearOpIteratorppEv.exit
+for.body172.lr.ph:                                ; preds = %_ZN8QuantLib19FdmLinearOpIteratorppEv.exit, %for.body.lr.ph
   %96 = load ptr, ptr %coordinates_.i176, align 8, !tbaa !41
   %add.ptr.i177 = getelementptr inbounds nuw i64, ptr %96, i64 %direction
   %97 = load i64, ptr %add.ptr.i177, align 8, !tbaa !40
@@ -906,8 +906,8 @@ terminate.lpad.i.i184:                            ; preds = %if.then.i.i182
   call void @__clang_call_terminate(ptr %107) #28
   unreachable
 
-for.body172:                                      ; preds = %for.body, %for.body172
-  %indvars.iv = phi i64 [ 0, %for.body ], [ %indvars.iv.next, %for.body172 ]
+for.body172:                                      ; preds = %for.body172.lr.ph, %for.body172
+  %indvars.iv = phi i64 [ 0, %for.body172.lr.ph ], [ %indvars.iv.next, %for.body172 ]
   %gep = getelementptr double, ptr %invariant.gep, i64 %indvars.iv
   %108 = load double, ptr %gep, align 8, !tbaa !37
   %109 = load double, ptr %arrayidx.i186, align 8, !tbaa !37
@@ -997,11 +997,11 @@ _ZN8QuantLib5ArrayD2Ev.exit214:                   ; preds = %_ZN8QuantLib24Numer
   store ptr null, ptr %agg.tmp191, align 8, !tbaa !22
   %122 = load ptr, ptr %_M_manager.i.i, align 8, !tbaa !53
   %tobool.not.i216 = icmp eq ptr %122, null
-  br i1 %tobool.not.i216, label %_ZNSt14_Function_baseD2Ev.exit220, label %if.then.i217
+  br i1 %tobool.not.i216, label %for.body211.lr.ph, label %if.then.i217
 
 if.then.i217:                                     ; preds = %_ZN8QuantLib5ArrayD2Ev.exit214
   %call.i218 = invoke noundef zeroext i1 %122(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp188, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp188, i32 noundef 3)
-          to label %_ZNSt14_Function_baseD2Ev.exit220 unwind label %terminate.lpad.i219
+          to label %for.body211.lr.ph unwind label %terminate.lpad.i219
 
 terminate.lpad.i219:                              ; preds = %if.then.i217
   %123 = landingpad { ptr, i32 }
@@ -1010,14 +1010,14 @@ terminate.lpad.i219:                              ; preds = %if.then.i217
   call void @__clang_call_terminate(ptr %124) #28
   unreachable
 
-_ZNSt14_Function_baseD2Ev.exit220:                ; preds = %_ZN8QuantLib5ArrayD2Ev.exit214, %if.then.i217
+for.body211.lr.ph:                                ; preds = %if.then.i217, %_ZN8QuantLib5ArrayD2Ev.exit214
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp187)
   %125 = load i64, ptr %__begin1, align 8, !tbaa !50
   %sub219 = sub i32 %add, %conv149
   %add.i.i.i.i = add i64 %125, 1
   br label %for.body211
 
-_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i222: ; preds = %invoke.cont233
+_ZN8QuantLib5ArrayD2Ev.exit224:                   ; preds = %invoke.cont233
   call void @_ZdaPv(ptr noundef nonnull %weights.sroa.0.1) #25
   %126 = load i64, ptr %__begin1, align 8, !tbaa !50
   %inc.i = add i64 %126, 1
@@ -1027,7 +1027,7 @@ _ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5v
   %cmp7.not.i = icmp eq ptr %127, %128
   br i1 %cmp7.not.i, label %_ZN8QuantLib19FdmLinearOpIteratorppEv.exit, label %for.body.lr.ph.i
 
-for.body.lr.ph.i:                                 ; preds = %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i222
+for.body.lr.ph.i:                                 ; preds = %_ZN8QuantLib5ArrayD2Ev.exit224
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %127 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %128 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
@@ -1056,10 +1056,10 @@ _ZN8QuantLib19FdmLinearOpIteratorppEv.exit.loopexit: ; preds = %if.then.i228, %f
   %.pre376 = load i64, ptr %__begin1, align 8, !tbaa !50
   br label %_ZN8QuantLib19FdmLinearOpIteratorppEv.exit
 
-_ZN8QuantLib19FdmLinearOpIteratorppEv.exit:       ; preds = %_ZN8QuantLib19FdmLinearOpIteratorppEv.exit.loopexit, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i222
-  %132 = phi i64 [ %.pre376, %_ZN8QuantLib19FdmLinearOpIteratorppEv.exit.loopexit ], [ %inc.i, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i222 ]
+_ZN8QuantLib19FdmLinearOpIteratorppEv.exit:       ; preds = %_ZN8QuantLib19FdmLinearOpIteratorppEv.exit.loopexit, %_ZN8QuantLib5ArrayD2Ev.exit224
+  %132 = phi i64 [ %.pre376, %_ZN8QuantLib19FdmLinearOpIteratorppEv.exit.loopexit ], [ %inc.i, %_ZN8QuantLib5ArrayD2Ev.exit224 ]
   %cmp.i.not = icmp eq i64 %132, %81
-  br i1 %cmp.i.not, label %_ZN8QuantLib19FdmLinearOpIteratorD2Ev.exit, label %for.body
+  br i1 %cmp.i.not, label %_ZN8QuantLib19FdmLinearOpIteratorD2Ev.exit, label %for.body172.lr.ph
 
 lpad192:                                          ; preds = %invoke.cont190
   %133 = landingpad { ptr, i32 }
@@ -1114,8 +1114,8 @@ ehcleanup203:                                     ; preds = %if.then.i235, %ehcl
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp187)
   br label %ehcleanup245
 
-for.body211:                                      ; preds = %_ZNSt14_Function_baseD2Ev.exit220, %invoke.cont233
-  %indvars.iv368 = phi i64 [ 0, %_ZNSt14_Function_baseD2Ev.exit220 ], [ %indvars.iv.next369, %invoke.cont233 ]
+for.body211:                                      ; preds = %for.body211.lr.ph, %invoke.cont233
+  %indvars.iv368 = phi i64 [ 0, %for.body211.lr.ph ], [ %indvars.iv.next369, %invoke.cont233 ]
   %140 = load ptr, ptr %mesher, align 8, !tbaa !6
   %cmp.not.i239 = icmp eq ptr %140, null
   br i1 %cmp.not.i239, label %cond.false.i241, label %invoke.cont213, !prof !11
@@ -1373,7 +1373,7 @@ if.else.i.i:                                      ; preds = %_ZN5boost7numeric5u
 invoke.cont233:                                   ; preds = %while.body56.i, %if.else.i.i, %_ZSt13copy_backwardIPdS0_ET0_T_S2_S1_.exit.i
   %indvars.iv.next369 = add nuw nsw i64 %indvars.iv368, 1
   %exitcond373.not = icmp eq i64 %indvars.iv.next369, %conv125
-  br i1 %exitcond373.not, label %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i222, label %for.body211, !llvm.loop !75
+  br i1 %exitcond373.not, label %_ZN8QuantLib5ArrayD2Ev.exit224, label %for.body211, !llvm.loop !75
 
 lpad212:                                          ; preds = %cond.false.i248, %cond.false.i241, %invoke.cont217
   %178 = landingpad { ptr, i32 }

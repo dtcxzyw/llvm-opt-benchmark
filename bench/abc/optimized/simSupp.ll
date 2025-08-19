@@ -587,7 +587,7 @@ Vec_VecSizeSize.exit51:                           ; preds = %182
 
 .lr.ph.i91.lr.ph:                                 ; preds = %255, %.preheader
   %196 = phi ptr [ %.pre, %.preheader ], [ %244, %255 ]
-  %.val.i89145159 = phi i32 [ %.val.i89145.pre, %.preheader ], [ %.val.i69, %255 ]
+  %.val.i89145176 = phi i32 [ %.val.i89145.pre, %.preheader ], [ %.val.i69, %255 ]
   %197 = getelementptr inbounds nuw i8, ptr %16, i64 52
   %198 = getelementptr inbounds nuw i8, ptr %16, i64 112
   %199 = getelementptr inbounds nuw i8, ptr %8, i64 12
@@ -718,7 +718,7 @@ Vec_VecSizeSize.exit78:                           ; preds = %248
   br i1 %264, label %.lr.ph.i91.lr.ph, label %Vec_VecSizeSize.exit51.thread
 
 .lr.ph.i91:                                       ; preds = %.lr.ph.i91.lr.ph, %519
-  %.val6178.i = phi i32 [ %.val.i89145159, %.lr.ph.i91.lr.ph ], [ %.val.i89, %519 ]
+  %.val6178.i = phi i32 [ %.val.i89145176, %.lr.ph.i91.lr.ph ], [ %.val.i89, %519 ]
   %265 = phi ptr [ %196, %.lr.ph.i91.lr.ph ], [ %520, %519 ]
   %266 = getelementptr i8, ptr %265, i64 8
   %.val8.i92 = load ptr, ptr %266, align 8, !tbaa !64
@@ -1380,7 +1380,7 @@ common.ret:                                       ; preds = %1
   %4 = load ptr, ptr %3, align 8, !tbaa !95
   %5 = ptrtoint ptr %4 to i64
   %6 = trunc i64 %5 to i32
-  br label %common.ret27
+  br label %common.ret32
 
 7:                                                ; preds = %1
   %.val21 = load ptr, ptr %0, align 8, !tbaa !96
@@ -1479,9 +1479,9 @@ Vec_IntGrow.exit.i.i.i.i:                         ; preds = %Vec_IntGrow.exit.si
   %.val.pre = load ptr, ptr %0, align 8, !tbaa !96
   br label %Abc_NodeSetTravIdCurrent.exit
 
-common.ret27:                                     ; preds = %Abc_NodeSetTravIdCurrent.exit, %common.ret
-  %common.ret27.op = phi i32 [ %6, %common.ret ], [ %71, %Abc_NodeSetTravIdCurrent.exit ]
-  ret i32 %common.ret27.op
+common.ret32:                                     ; preds = %Abc_NodeSetTravIdCurrent.exit, %common.ret
+  %common.ret32.op = phi i32 [ %6, %common.ret ], [ %71, %Abc_NodeSetTravIdCurrent.exit ]
+  ret i32 %common.ret32.op
 
 Abc_NodeSetTravIdCurrent.exit:                    ; preds = %7, %._crit_edge.i.i.i.i
   %.val = phi ptr [ %.val21, %7 ], [ %.val.pre, %._crit_edge.i.i.i.i ]
@@ -1526,7 +1526,7 @@ Abc_NodeSetTravIdCurrent.exit:                    ; preds = %7, %._crit_edge.i.i
   %73 = inttoptr i64 %72 to ptr
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %73, ptr %74, align 8, !tbaa !95
-  br label %common.ret27
+  br label %common.ret32
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind willreturn uwtable

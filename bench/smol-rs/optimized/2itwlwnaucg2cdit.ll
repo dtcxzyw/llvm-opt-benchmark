@@ -170,7 +170,7 @@ define hidden void @_ZN14async_executor5steal17hea30ce606c5b969cE(ptr noundef no
 
 8:                                                ; preds = %2
   %9 = load i64, ptr %1, align 128, !range !11, !noundef !10
-  switch i64 %9, label %default.unreachable14 [
+  switch i64 %9, label %default.unreachable15 [
     i64 0, label %13
     i64 1, label %10
     i64 2, label %.critedge
@@ -179,7 +179,7 @@ define hidden void @_ZN14async_executor5steal17hea30ce606c5b969cE(ptr noundef no
 .thread:                                          ; preds = %"_ZN4core3ptr125drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$concurrent_queue..PushError$LT$async_task..runnable..Runnable$GT$$GT$$GT$17h9643a667c588e5feE.exit", %.critedge, %"_ZN4core3ptr108drop_in_place$LT$core..result..Result$LT$async_task..runnable..Runnable$C$concurrent_queue..PopError$GT$$GT$17hf50c87e0f66de8ebE.exit", %2
   ret void
 
-default.unreachable14:                            ; preds = %23, %8
+default.unreachable15:                            ; preds = %23, %8
   unreachable
 
 10:                                               ; preds = %8
@@ -219,7 +219,7 @@ default.unreachable14:                            ; preds = %23, %8
   %24 = load ptr, ptr %16, align 8, !nonnull !10, !noundef !10
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %25 = load i64, ptr %1, align 128, !range !11, !noundef !10
-  switch i64 %25, label %default.unreachable14 [
+  switch i64 %25, label %default.unreachable15 [
     i64 0, label %26
     i64 1, label %28
     i64 2, label %30

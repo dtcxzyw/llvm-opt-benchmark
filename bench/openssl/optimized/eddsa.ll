@@ -360,8 +360,8 @@ define i32 @ossl_c448_ed448_verify(ptr noundef %0, ptr noundef %1, ptr noundef %
 
 15:                                               ; preds = %25
   %16 = add nsw i32 %.03547, -1
-  %.not48 = icmp eq i32 %.03547, 0
-  br i1 %.not48, label %.thread, label %17, !llvm.loop !11
+  %.not53 = icmp eq i32 %.03547, 0
+  br i1 %.not53, label %.thread, label %17, !llvm.loop !11
 
 17:                                               ; preds = %9, %15
   %.03547 = phi i32 [ 56, %9 ], [ %16, %15 ]

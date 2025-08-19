@@ -296,8 +296,8 @@ getDatumCopy.exit.i:                              ; preds = %58, %49
 ginInsertBAEntry.exit:                            ; preds = %38, %68
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %indvars.iv.next = add nuw i64 %indvars.iv, %37
-  %78 = icmp ult i64 %indvars.iv.next, %31
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, %37
+  %78 = icmp samesign ult i64 %indvars.iv.next, %31
   br i1 %78, label %38, label %._crit_edge, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %ginInsertBAEntry.exit, %32

@@ -2769,8 +2769,8 @@ define internal fastcc { ptr, ptr } @"_ZN7slotmap9secondary25SecondaryMap$LT$K$C
   %25 = sub nuw nsw i64 %23, %22
   %26 = load i64, ptr %0, align 8, !alias.scope !504, !noalias !505, !noundef !5
   %27 = sub i64 %26, %22
-  %.not10.i.i = icmp ult i64 %25, %27
-  br i1 %.not10.i.i, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17h8c4a87812ea6ff0fE.exit.i", label %28
+  %.not11.i.i = icmp ult i64 %25, %27
+  br i1 %.not11.i.i, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17h8c4a87812ea6ff0fE.exit.i", label %28
 
 28:                                               ; preds = %24
   %29 = add nuw nsw i64 %25, 1
@@ -3180,13 +3180,13 @@ define hidden { i64, ptr } @"_ZN19dev_server_projects5Store33handle_dev_server_p
   %19 = alloca [32 x i8], align 8
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %21 = load i8, ptr %20, align 8, !range !133, !noundef !5
-  switch i8 %21, label %default.unreachable18 [
+  switch i8 %21, label %default.unreachable29 [
     i8 0, label %22
     i8 1, label %270
     i8 2, label %271
   ]
 
-default.unreachable18:                            ; preds = %2
+default.unreachable29:                            ; preds = %2
   unreachable
 
 22:                                               ; preds = %2
@@ -3857,9 +3857,9 @@ default.unreachable18:                            ; preds = %2
   resume { ptr, i32 } %.pn8
 
 "_ZN4core3ptr83drop_in_place$LT$gpui..app..entity_map..Model$LT$dev_server_projects..Store$GT$$GT$17hcd745f4f27229dddE.exit15.sink.split": ; preds = %266, %242
-  %.sink19 = phi ptr [ %243, %242 ], [ %267, %266 ]
+  %.sink30 = phi ptr [ %243, %242 ], [ %267, %266 ]
   %.sroa.03.0.ph = phi ptr [ null, %242 ], [ %40, %266 ]
-  call void @__rust_dealloc(ptr noundef nonnull %.sink19, i64 noundef 80, i64 noundef 8) #26, !noalias !5
+  call void @__rust_dealloc(ptr noundef nonnull %.sink30, i64 noundef 80, i64 noundef 8) #26, !noalias !5
   br label %"_ZN4core3ptr83drop_in_place$LT$gpui..app..entity_map..Model$LT$dev_server_projects..Store$GT$$GT$17hcd745f4f27229dddE.exit15"
 
 "_ZN4core3ptr83drop_in_place$LT$gpui..app..entity_map..Model$LT$dev_server_projects..Store$GT$$GT$17hcd745f4f27229dddE.exit15": ; preds = %"_ZN4core3ptr83drop_in_place$LT$gpui..app..entity_map..Model$LT$dev_server_projects..Store$GT$$GT$17hcd745f4f27229dddE.exit15.sink.split", %234, %238, %258, %262

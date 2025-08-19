@@ -9542,13 +9542,13 @@ define void @_ZN8Paintbox19refreshBrushPreviewEv(ptr noundef nonnull align 8 cap
   %30 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i, i64 8
   %31 = load ptr, ptr %30, align 8
   %32 = icmp eq ptr %31, %12
-  br i1 %32, label %.loopexit.loopexit.split.loop.exit27, label %33
+  br i1 %32, label %.loopexit.loopexit.split.loop.exit28, label %33
 
 33:                                               ; preds = %29
   %34 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i, i64 16
   %35 = load ptr, ptr %34, align 8
   %36 = icmp eq ptr %35, %12
-  br i1 %36, label %.loopexit.loopexit.split.loop.exit25, label %37
+  br i1 %36, label %.loopexit.loopexit.split.loop.exit26, label %37
 
 37:                                               ; preds = %33
   %38 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i, i64 24
@@ -9609,16 +9609,16 @@ define void @_ZN8Paintbox19refreshBrushPreviewEv(ptr noundef nonnull align 8 cap
   %59 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i, i64 24
   br label %.loopexit
 
-.loopexit.loopexit.split.loop.exit25:             ; preds = %33
+.loopexit.loopexit.split.loop.exit26:             ; preds = %33
   %60 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i, i64 16
   br label %.loopexit
 
-.loopexit.loopexit.split.loop.exit27:             ; preds = %29
+.loopexit.loopexit.split.loop.exit28:             ; preds = %29
   %61 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i, i64 8
   br label %.loopexit
 
-.loopexit:                                        ; preds = %26, %.loopexit.loopexit.split.loop.exit, %.loopexit.loopexit.split.loop.exit25, %.loopexit.loopexit.split.loop.exit27, %58, %._crit_edge._crit_edge52.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i, %47
-  %.028.i.i.i.i.i = phi ptr [ %22, %58 ], [ %.029.lcssa.i.i.i.i.i, %47 ], [ %.1.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i ], [ %.2.i.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i.i ], [ %59, %.loopexit.loopexit.split.loop.exit ], [ %60, %.loopexit.loopexit.split.loop.exit25 ], [ %61, %.loopexit.loopexit.split.loop.exit27 ], [ %.02946.i.i.i.i.i, %26 ]
+.loopexit:                                        ; preds = %26, %.loopexit.loopexit.split.loop.exit, %.loopexit.loopexit.split.loop.exit26, %.loopexit.loopexit.split.loop.exit28, %58, %._crit_edge._crit_edge52.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i, %47
+  %.028.i.i.i.i.i = phi ptr [ %22, %58 ], [ %.029.lcssa.i.i.i.i.i, %47 ], [ %.1.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i ], [ %.2.i.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i.i ], [ %59, %.loopexit.loopexit.split.loop.exit ], [ %60, %.loopexit.loopexit.split.loop.exit26 ], [ %61, %.loopexit.loopexit.split.loop.exit28 ], [ %.02946.i.i.i.i.i, %26 ]
   %.not = icmp eq ptr %.028.i.i.i.i.i, %22
   %62 = load atomic i32, ptr %13 monotonic, align 4
   switch i32 %62, label %_ZN9QtPrivate8RefCount5derefEv.exit.i [
@@ -12253,7 +12253,7 @@ _ZNK5QHashIP7QWidgetP10QUndoStackE8findNodeERKS1_Pj.exit: ; preds = %31, %33
   br i1 %41, label %_ZNK5QHashIP7QWidgetP10QUndoStackE8findNodeERKS1_Pj.exit.thread, label %80
 
 _ZNK5QHashIP7QWidgetP10QUndoStackE8findNodeERKS1_Pj.exit.thread: ; preds = %_ZN5QHashIP7QWidgetP10QUndoStackE6detachEv.exit, %_ZNK5QHashIP7QWidgetP10QUndoStackE8findNodeERKS1_Pj.exit
-  %.1.i.i15 = phi ptr [ %.0.i.i, %_ZNK5QHashIP7QWidgetP10QUndoStackE8findNodeERKS1_Pj.exit ], [ %0, %_ZN5QHashIP7QWidgetP10QUndoStackE6detachEv.exit ]
+  %.1.i.i21 = phi ptr [ %.0.i.i, %_ZNK5QHashIP7QWidgetP10QUndoStackE8findNodeERKS1_Pj.exit ], [ %0, %_ZN5QHashIP7QWidgetP10QUndoStackE6detachEv.exit ]
   %42 = getelementptr inbounds nuw i8, ptr %14, i64 20
   %43 = load i32, ptr %42, align 4
   %.not.i.not = icmp slt i32 %43, %16
@@ -12298,7 +12298,7 @@ _ZNK5QHashIP7QWidgetP10QUndoStackE8findNodeERKS1_Pj.exit.thread: ; preds = %_ZN5
 
 _ZN9QHashData8willGrowEv.exit:                    ; preds = %61, %59, %44, %_ZNK5QHashIP7QWidgetP10QUndoStackE8findNodeERKS1_Pj.exit.thread
   %69 = phi ptr [ %14, %_ZNK5QHashIP7QWidgetP10QUndoStackE8findNodeERKS1_Pj.exit.thread ], [ %49, %44 ], [ %49, %59 ], [ %49, %61 ]
-  %.0 = phi ptr [ %.1.i.i15, %_ZNK5QHashIP7QWidgetP10QUndoStackE8findNodeERKS1_Pj.exit.thread ], [ %0, %44 ], [ %.0.i, %59 ], [ %.0.i, %61 ]
+  %.0 = phi ptr [ %.1.i.i21, %_ZNK5QHashIP7QWidgetP10QUndoStackE8findNodeERKS1_Pj.exit.thread ], [ %0, %44 ], [ %.0.i, %59 ], [ %.0.i, %61 ]
   %70 = tail call noundef ptr @_ZN9QHashData12allocateNodeEi(ptr noundef nonnull align 8 dereferenceable(44) %69, i32 noundef 8)
   %71 = load ptr, ptr %.0, align 8
   store ptr %71, ptr %70, align 8
@@ -12403,7 +12403,7 @@ _ZNK5QHashIP7QWidgetP10QUndoStackE8findNodeERKS1_Pj.exit: ; preds = %32, %34
   br i1 %42, label %_ZNK5QHashIP7QWidgetP10QUndoStackE8findNodeERKS1_Pj.exit.thread, label %82
 
 _ZNK5QHashIP7QWidgetP10QUndoStackE8findNodeERKS1_Pj.exit.thread: ; preds = %_ZN5QHashIP7QWidgetP10QUndoStackE6detachEv.exit, %_ZNK5QHashIP7QWidgetP10QUndoStackE8findNodeERKS1_Pj.exit
-  %.1.i.i16 = phi ptr [ %.0.i.i, %_ZNK5QHashIP7QWidgetP10QUndoStackE8findNodeERKS1_Pj.exit ], [ %0, %_ZN5QHashIP7QWidgetP10QUndoStackE6detachEv.exit ]
+  %.1.i.i22 = phi ptr [ %.0.i.i, %_ZNK5QHashIP7QWidgetP10QUndoStackE8findNodeERKS1_Pj.exit ], [ %0, %_ZN5QHashIP7QWidgetP10QUndoStackE6detachEv.exit ]
   %43 = getelementptr inbounds nuw i8, ptr %15, i64 20
   %44 = load i32, ptr %43, align 4
   %.not.i.not = icmp slt i32 %44, %17
@@ -12448,7 +12448,7 @@ _ZNK5QHashIP7QWidgetP10QUndoStackE8findNodeERKS1_Pj.exit.thread: ; preds = %_ZN5
 
 _ZN9QHashData8willGrowEv.exit:                    ; preds = %62, %60, %45, %_ZNK5QHashIP7QWidgetP10QUndoStackE8findNodeERKS1_Pj.exit.thread
   %70 = phi ptr [ %15, %_ZNK5QHashIP7QWidgetP10QUndoStackE8findNodeERKS1_Pj.exit.thread ], [ %50, %45 ], [ %50, %60 ], [ %50, %62 ]
-  %.0 = phi ptr [ %.1.i.i16, %_ZNK5QHashIP7QWidgetP10QUndoStackE8findNodeERKS1_Pj.exit.thread ], [ %0, %45 ], [ %.0.i, %60 ], [ %.0.i, %62 ]
+  %.0 = phi ptr [ %.1.i.i22, %_ZNK5QHashIP7QWidgetP10QUndoStackE8findNodeERKS1_Pj.exit.thread ], [ %0, %45 ], [ %.0.i, %60 ], [ %.0.i, %62 ]
   %71 = tail call noundef ptr @_ZN9QHashData12allocateNodeEi(ptr noundef nonnull align 8 dereferenceable(44) %70, i32 noundef 8)
   %72 = load ptr, ptr %.0, align 8
   store ptr %72, ptr %71, align 8
@@ -12709,13 +12709,13 @@ define void @_ZN8Paintbox14setClonePixmapER6QImage(ptr noundef nonnull align 8 c
   %31 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i, i64 8
   %32 = load ptr, ptr %31, align 8
   %33 = icmp eq ptr %32, %13
-  br i1 %33, label %.loopexit.loopexit.split.loop.exit24, label %34
+  br i1 %33, label %.loopexit.loopexit.split.loop.exit25, label %34
 
 34:                                               ; preds = %30
   %35 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i, i64 16
   %36 = load ptr, ptr %35, align 8
   %37 = icmp eq ptr %36, %13
-  br i1 %37, label %.loopexit.loopexit.split.loop.exit22, label %38
+  br i1 %37, label %.loopexit.loopexit.split.loop.exit23, label %38
 
 38:                                               ; preds = %34
   %39 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i, i64 24
@@ -12776,16 +12776,16 @@ define void @_ZN8Paintbox14setClonePixmapER6QImage(ptr noundef nonnull align 8 c
   %60 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i, i64 24
   br label %.loopexit
 
-.loopexit.loopexit.split.loop.exit22:             ; preds = %34
+.loopexit.loopexit.split.loop.exit23:             ; preds = %34
   %61 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i, i64 16
   br label %.loopexit
 
-.loopexit.loopexit.split.loop.exit24:             ; preds = %30
+.loopexit.loopexit.split.loop.exit25:             ; preds = %30
   %62 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i, i64 8
   br label %.loopexit
 
-.loopexit:                                        ; preds = %27, %.loopexit.loopexit.split.loop.exit, %.loopexit.loopexit.split.loop.exit22, %.loopexit.loopexit.split.loop.exit24, %59, %._crit_edge._crit_edge52.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i, %48
-  %.028.i.i.i.i.i = phi ptr [ %23, %59 ], [ %.029.lcssa.i.i.i.i.i, %48 ], [ %.1.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i ], [ %.2.i.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i.i ], [ %60, %.loopexit.loopexit.split.loop.exit ], [ %61, %.loopexit.loopexit.split.loop.exit22 ], [ %62, %.loopexit.loopexit.split.loop.exit24 ], [ %.02946.i.i.i.i.i, %27 ]
+.loopexit:                                        ; preds = %27, %.loopexit.loopexit.split.loop.exit, %.loopexit.loopexit.split.loop.exit23, %.loopexit.loopexit.split.loop.exit25, %59, %._crit_edge._crit_edge52.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i, %48
+  %.028.i.i.i.i.i = phi ptr [ %23, %59 ], [ %.029.lcssa.i.i.i.i.i, %48 ], [ %.1.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i ], [ %.2.i.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i.i ], [ %60, %.loopexit.loopexit.split.loop.exit ], [ %61, %.loopexit.loopexit.split.loop.exit23 ], [ %62, %.loopexit.loopexit.split.loop.exit25 ], [ %.02946.i.i.i.i.i, %27 ]
   %.not = icmp eq ptr %.028.i.i.i.i.i, %23
   %63 = load atomic i32, ptr %14 monotonic, align 4
   switch i32 %63, label %_ZN9QtPrivate8RefCount5derefEv.exit.i [
@@ -13197,13 +13197,13 @@ _ZN8Paintbox13getCloneSceneEv.exit:               ; preds = %33
   %56 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i, i64 8
   %57 = load ptr, ptr %56, align 8
   %58 = icmp eq ptr %57, %38
-  br i1 %58, label %.loopexit.loopexit.split.loop.exit63, label %59
+  br i1 %58, label %.loopexit.loopexit.split.loop.exit64, label %59
 
 59:                                               ; preds = %55
   %60 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i, i64 16
   %61 = load ptr, ptr %60, align 8
   %62 = icmp eq ptr %61, %38
-  br i1 %62, label %.loopexit.loopexit.split.loop.exit61, label %63
+  br i1 %62, label %.loopexit.loopexit.split.loop.exit62, label %63
 
 63:                                               ; preds = %59
   %64 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i, i64 24
@@ -13264,16 +13264,16 @@ _ZN8Paintbox13getCloneSceneEv.exit:               ; preds = %33
   %85 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i, i64 24
   br label %.loopexit
 
-.loopexit.loopexit.split.loop.exit61:             ; preds = %59
+.loopexit.loopexit.split.loop.exit62:             ; preds = %59
   %86 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i, i64 16
   br label %.loopexit
 
-.loopexit.loopexit.split.loop.exit63:             ; preds = %55
+.loopexit.loopexit.split.loop.exit64:             ; preds = %55
   %87 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i, i64 8
   br label %.loopexit
 
-.loopexit:                                        ; preds = %52, %.loopexit.loopexit.split.loop.exit, %.loopexit.loopexit.split.loop.exit61, %.loopexit.loopexit.split.loop.exit63, %84, %._crit_edge._crit_edge52.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i, %73
-  %.028.i.i.i.i.i = phi ptr [ %48, %84 ], [ %.029.lcssa.i.i.i.i.i, %73 ], [ %.1.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i ], [ %.2.i.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i.i ], [ %85, %.loopexit.loopexit.split.loop.exit ], [ %86, %.loopexit.loopexit.split.loop.exit61 ], [ %87, %.loopexit.loopexit.split.loop.exit63 ], [ %.02946.i.i.i.i.i, %52 ]
+.loopexit:                                        ; preds = %52, %.loopexit.loopexit.split.loop.exit, %.loopexit.loopexit.split.loop.exit62, %.loopexit.loopexit.split.loop.exit64, %84, %._crit_edge._crit_edge52.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i, %73
+  %.028.i.i.i.i.i = phi ptr [ %48, %84 ], [ %.029.lcssa.i.i.i.i.i, %73 ], [ %.1.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i ], [ %.2.i.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i.i ], [ %85, %.loopexit.loopexit.split.loop.exit ], [ %86, %.loopexit.loopexit.split.loop.exit62 ], [ %87, %.loopexit.loopexit.split.loop.exit64 ], [ %.02946.i.i.i.i.i, %52 ]
   %.not = icmp eq ptr %.028.i.i.i.i.i, %48
   %88 = load atomic i32, ptr %39 monotonic, align 4
   switch i32 %88, label %_ZN9QtPrivate8RefCount5derefEv.exit.i29 [

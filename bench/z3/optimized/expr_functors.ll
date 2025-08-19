@@ -128,9 +128,9 @@ _ZNK6vectorIP4exprLb0EjE5emptyEv.exit.lr.ph:      ; preds = %_ZNK6vectorIP4exprL
   %.phi.trans.insert = getelementptr inbounds i8, ptr %.pr56, i64 -4
   %.pre = load i32, ptr %.phi.trans.insert, align 4, !tbaa !13
   %10 = icmp eq i32 %.pre, 0
-  br i1 %10, label %_ZNK6vectorIP4exprLb0EjE5emptyEv.exit.lr.ph._crit_edge, label %.lr.ph96
+  br i1 %10, label %_ZNK6vectorIP4exprLb0EjE5emptyEv.exit.lr.ph._crit_edge, label %.lr.ph102
 
-.lr.ph96:                                         ; preds = %_ZNK6vectorIP4exprLb0EjE5emptyEv.exit.lr.ph, %_ZNK6vectorIP4exprLb0EjE5emptyEv.exit
+.lr.ph102:                                        ; preds = %_ZNK6vectorIP4exprLb0EjE5emptyEv.exit.lr.ph, %_ZNK6vectorIP4exprLb0EjE5emptyEv.exit
   %11 = phi ptr [ %26, %_ZNK6vectorIP4exprLb0EjE5emptyEv.exit ], [ %.pr56, %_ZNK6vectorIP4exprLb0EjE5emptyEv.exit.lr.ph ]
   %12 = phi i32 [ %29, %_ZNK6vectorIP4exprLb0EjE5emptyEv.exit ], [ %.pre, %_ZNK6vectorIP4exprLb0EjE5emptyEv.exit.lr.ph ]
   %13 = add i32 %12, -1
@@ -143,14 +143,14 @@ _ZNK6vectorIP4exprLb0EjE5emptyEv.exit.lr.ph:      ; preds = %_ZNK6vectorIP4exprL
   %20 = invoke noundef zeroext i1 %19(ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef %16)
           to label %21 unwind label %.loopexit
 
-21:                                               ; preds = %.lr.ph96
+21:                                               ; preds = %.lr.ph102
   br i1 %20, label %22, label %23
 
 22:                                               ; preds = %21
   invoke void @_ZN8ast_mark4markEP3astb(ptr noundef nonnull align 8 dereferenceable(56) %7, ptr noundef %16, i1 noundef zeroext true)
           to label %23 unwind label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph96, %22, %23
+.loopexit:                                        ; preds = %.lr.ph102, %22, %23
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
@@ -179,7 +179,7 @@ _ZNK6vectorIP4exprLb0EjE5emptyEv.exit:            ; preds = %25
   %29 = add i32 %28, -1
   store i32 %29, ptr %27, align 4, !tbaa !13
   %30 = icmp eq i32 %29, 0
-  br i1 %30, label %_ZNK6vectorIP4exprLb0EjE5emptyEv.exit.lr.ph._crit_edge, label %.lr.ph96, !llvm.loop !34
+  br i1 %30, label %_ZNK6vectorIP4exprLb0EjE5emptyEv.exit.lr.ph._crit_edge, label %.lr.ph102, !llvm.loop !34
 
 31:                                               ; preds = %25
   %32 = getelementptr inbounds nuw i8, ptr %16, i64 4
@@ -203,7 +203,7 @@ _ZNK6vectorIP4exprLb0EjE5emptyEv.exit:            ; preds = %25
   br label %.outer
 
 .outer:                                           ; preds = %.thread, %.lr.ph
-  %indvars.iv.ph = phi i64 [ %indvars.iv.next65, %.thread ], [ 0, %.lr.ph ]
+  %indvars.iv.ph = phi i64 [ %indvars.iv.next71, %.thread ], [ 0, %.lr.ph ]
   %.01353.ph = phi i1 [ false, %.thread ], [ true, %.lr.ph ]
   br label %40
 
@@ -220,7 +220,7 @@ _ZNK6vectorIP4exprLb0EjE5emptyEv.exit:            ; preds = %25
   %41 = getelementptr inbounds nuw [0 x ptr], ptr %37, i64 0, i64 %indvars.iv
   %42 = load ptr, ptr %41, align 8, !tbaa !14
   %43 = invoke noundef zeroext i1 @_ZNK8ast_mark9is_markedEP3ast(ptr noundef nonnull align 8 dereferenceable(56) %8, ptr noundef %42)
-          to label %44 unwind label %.loopexit69
+          to label %44 unwind label %.loopexit75
 
 44:                                               ; preds = %40
   br i1 %43, label %55, label %45
@@ -240,7 +240,7 @@ _ZNK6vectorIP4exprLb0EjE5emptyEv.exit:            ; preds = %25
 
 54:                                               ; preds = %48, %45
   invoke void @_ZN6vectorIP4exprLb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %3)
-          to label %.noexc21 unwind label %.loopexit.split-lp70
+          to label %.noexc21 unwind label %.loopexit.split-lp76
 
 .noexc21:                                         ; preds = %54
   %.pre.i18 = load ptr, ptr %3, align 8, !tbaa !8
@@ -248,26 +248,26 @@ _ZNK6vectorIP4exprLb0EjE5emptyEv.exit:            ; preds = %25
   %.pre2.i20 = load i32, ptr %.phi.trans.insert.i19, align 4, !tbaa !13
   br label %.thread
 
-.loopexit69:                                      ; preds = %40, %55, %58
-  %lpad.loopexit71 = landingpad { ptr, i32 }
+.loopexit75:                                      ; preds = %40, %55, %58
+  %lpad.loopexit77 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
 
-.loopexit.split-lp70:                             ; preds = %54
+.loopexit.split-lp76:                             ; preds = %54
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
 
 55:                                               ; preds = %44
   %56 = invoke noundef zeroext i1 @_ZNK8ast_mark9is_markedEP3ast(ptr noundef nonnull align 8 dereferenceable(56) %7, ptr noundef %42)
-          to label %57 unwind label %.loopexit69
+          to label %57 unwind label %.loopexit75
 
 57:                                               ; preds = %55
   br i1 %56, label %58, label %59
 
 58:                                               ; preds = %57
   invoke void @_ZN8ast_mark4markEP3astb(ptr noundef nonnull align 8 dereferenceable(56) %7, ptr noundef nonnull %16, i1 noundef zeroext true)
-          to label %59 unwind label %.loopexit69
+          to label %59 unwind label %.loopexit75
 
 59:                                               ; preds = %57, %58
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -283,9 +283,9 @@ _ZNK6vectorIP4exprLb0EjE5emptyEv.exit:            ; preds = %25
   store ptr %42, ptr %64, align 8, !tbaa !14
   %65 = add i32 %60, 1
   store i32 %65, ptr %62, align 4, !tbaa !13
-  %indvars.iv.next65 = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not66 = icmp eq i64 %indvars.iv.next65, %wide.trip.count
-  br i1 %exitcond.not66, label %thread-pre-split.backedgethread-pre-split, label %.outer, !llvm.loop !41
+  %indvars.iv.next71 = add nuw nsw i64 %indvars.iv, 1
+  %exitcond.not72 = icmp eq i64 %indvars.iv.next71, %wide.trip.count
+  br i1 %exitcond.not72, label %thread-pre-split.backedgethread-pre-split, label %.outer, !llvm.loop !41
 
 .critedge:                                        ; preds = %34, %._crit_edge
   invoke void @_ZN8ast_mark4markEP3astb(ptr noundef nonnull align 8 dereferenceable(56) %8, ptr noundef nonnull %16, i1 noundef zeroext true)
@@ -422,8 +422,8 @@ _ZN6vectorIP4exprLb0EjED2Ev.exit:                 ; preds = %thread-pre-split.ba
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
-.loopexit.split-lp:                               ; preds = %.loopexit69, %.loopexit.split-lp70, %.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %38, %82
-  %.pn16 = phi { ptr, i32 } [ %83, %82 ], [ %39, %38 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit43, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp44, %.loopexit.split-lp.loopexit.split-lp ], [ %lpad.loopexit71, %.loopexit69 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp70 ]
+.loopexit.split-lp:                               ; preds = %.loopexit75, %.loopexit.split-lp76, %.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %38, %82
+  %.pn16 = phi { ptr, i32 } [ %83, %82 ], [ %39, %38 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit43, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp44, %.loopexit.split-lp.loopexit.split-lp ], [ %lpad.loopexit77, %.loopexit75 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp76 ]
   call void @_ZN6vectorIP4exprLb0EjED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %.pn16

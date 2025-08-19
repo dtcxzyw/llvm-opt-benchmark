@@ -123,8 +123,8 @@ _ZN6frozen4bits10LowerBoundIN4LIEF3ELF15PROCESSOR_FLAGSENS_4impl10CompareKeyISt4
 _ZNK6frozen3mapIN4LIEF3ELF15PROCESSOR_FLAGSEPKcLm69ESt4lessIS3_EE11lower_boundIS3_EEPKSt4pairIS3_S5_ERKT_.exit.i.i: ; preds = %3, %_ZN6frozen4bits10LowerBoundIN4LIEF3ELF15PROCESSOR_FLAGSENS_4impl10CompareKeyISt4lessIS4_EEEE9doitfirstIPKSt4pairIS4_PKcELm5EEET_SI_St17integral_constantImXT0_EESJ_IbLb0EE.exit.i.i.i.i.i.i
   %.sink.i.i.i.i.idx.i.i = phi i64 [ %.add16.i.i, %3 ], [ %.add.i.i, %_ZN6frozen4bits10LowerBoundIN4LIEF3ELF15PROCESSOR_FLAGSENS_4impl10CompareKeyISt4lessIS4_EEEE9doitfirstIPKSt4pairIS4_PKcELm5EEET_SI_St17integral_constantImXT0_EESJ_IbLb0EE.exit.i.i.i.i.i.i ]
   %.sink.i.i.i.i.ptr.i.i = getelementptr inbounds nuw i8, ptr @__const._ZN4LIEF3ELF9to_stringENS0_15PROCESSOR_FLAGSE.enums2str, i64 %.sink.i.i.i.i.idx.i.i
-  %.sink9.i.i.i.i.i.i = load i64, ptr %.sink.i.i.i.i.ptr.i.i, align 8, !tbaa !3
-  %.not.i.i.i.i.i.i.i.i.i.i.i.i = icmp ult i64 %.sink9.i.i.i.i.i.i, %0
+  %.sink10.i.i.i.i.i.i = load i64, ptr %.sink.i.i.i.i.ptr.i.i, align 8, !tbaa !3
+  %.not.i.i.i.i.i.i.i.i.i.i.i.i = icmp ult i64 %.sink10.i.i.i.i.i.i, %0
   %.idx.i.i.i.i.i.i.i.i.i.i.i.i = select i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i, i64 16, i64 0
   %.sink.i.i.i.i.add.i.i = add nuw nsw i64 %.idx.i.i.i.i.i.i.i.i.i.i.i.i, %.sink.i.i.i.i.idx.i.i
   %.not.i.i = icmp eq i64 %.sink.i.i.i.i.add.i.i, 1112

@@ -368,8 +368,8 @@ _dead_image_f.exit:                               ; preds = %_mipmap_cache_get_f
   %62 = getelementptr inbounds nuw [11 x i32], ptr %53, i64 0, i64 %indvars.iv
   store i32 %61, ptr %62, align 4, !tbaa !77
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %.not72 = icmp eq i64 %indvars.iv, 0
-  br i1 %.not72, label %.preheader, label %56
+  %.not74 = icmp eq i64 %indvars.iv, 0
+  br i1 %.not74, label %.preheader, label %56
 
 63:                                               ; preds = %99
   %64 = call i64 @llvm.umax.i64(i64 %38, i64 104857600)
@@ -449,8 +449,8 @@ _nearest_power_of_two.exit:                       ; preds = %76
   %109 = getelementptr inbounds nuw [11 x i64], ptr %55, i64 0, i64 %indvars.iv69
   store i64 %108, ptr %109, align 8, !tbaa !85
   %indvars.iv.next70 = add nsw i64 %indvars.iv69, -1
-  %.not73 = icmp eq i64 %indvars.iv69, 0
-  br i1 %.not73, label %63, label %99
+  %.not75 = icmp eq i64 %indvars.iv69, 0
+  br i1 %.not75, label %63, label %99
 }
 
 declare ptr @dt_conf_get_string_const(ptr noundef) local_unnamed_addr #3
@@ -603,7 +603,7 @@ define internal void @_mipmap_cache_allocate_dynamic(ptr noundef %0, ptr noundef
   %80 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 4096, ptr noundef nonnull @.str.11, ptr noundef nonnull %66, i32 noundef %10, i32 noundef %79) #19
   %81 = call noalias ptr @fopen(ptr noundef nonnull %5, ptr noundef nonnull @.str.39)
   %.not101 = icmp eq ptr %81, null
-  br i1 %.not101, label %.thread115.sink.split120, label %82
+  br i1 %.not101, label %.thread115.sink.split127, label %82
 
 82:                                               ; preds = %76
   %83 = call i32 @fseek(ptr noundef nonnull %81, i64 noundef 0, i32 noundef 2)
@@ -688,12 +688,12 @@ define internal void @_mipmap_cache_allocate_dynamic(ptr noundef %0, ptr noundef
   store float 1.000000e+00, ptr %128, align 8, !tbaa !19
   %129 = getelementptr inbounds nuw i8, ptr %.0, i64 24
   store i32 %108, ptr %129, align 8, !tbaa !20
-  br label %.thread115.sink.split120.sink.split
+  br label %.thread115.sink.split127.sink.split
 
 .critedge.critedge:                               ; preds = %114, %88, %86, %82
   %.086 = phi ptr [ null, %82 ], [ %87, %88 ], [ %87, %114 ], [ null, %86 ]
   %130 = call i32 @g_unlink(ptr noundef nonnull %5) #19
-  br label %.thread115.sink.split120.sink.split
+  br label %.thread115.sink.split127.sink.split
 
 131:                                              ; preds = %.thread, %63
   %.0112 = phi ptr [ %42, %.thread ], [ %.0, %63 ]
@@ -701,20 +701,20 @@ define internal void @_mipmap_cache_allocate_dynamic(ptr noundef %0, ptr noundef
   store i32 1, ptr %132, align 4, !tbaa !39
   br label %144
 
-.thread115.sink.split120.sink.split:              ; preds = %.thread114, %.critedge.critedge
+.thread115.sink.split127.sink.split:              ; preds = %.thread114, %.critedge.critedge
   %.086.sink = phi ptr [ %.086, %.critedge.critedge ], [ %87, %.thread114 ]
   %.sink.ph.ph = phi i32 [ 1, %.critedge.critedge ], [ 0, %.thread114 ]
   call void @free(ptr noundef %.086.sink) #19
   %133 = call i32 @fclose(ptr noundef nonnull %81)
-  br label %.thread115.sink.split120
+  br label %.thread115.sink.split127
 
-.thread115.sink.split120:                         ; preds = %.thread115.sink.split120.sink.split, %76
-  %.sink.ph = phi i32 [ 1, %76 ], [ %.sink.ph.ph, %.thread115.sink.split120.sink.split ]
+.thread115.sink.split127:                         ; preds = %.thread115.sink.split127.sink.split, %76
+  %.sink.ph = phi i32 [ 1, %76 ], [ %.sink.ph.ph, %.thread115.sink.split127.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.thread115
 
-.thread115:                                       ; preds = %.thread115.sink.split120, %72, %65
-  %.sink = phi i32 [ 1, %65 ], [ 1, %72 ], [ %.sink.ph, %.thread115.sink.split120 ]
+.thread115:                                       ; preds = %.thread115.sink.split127, %72, %65
+  %.sink = phi i32 [ 1, %65 ], [ 1, %72 ], [ %.sink.ph, %.thread115.sink.split127 ]
   %134 = getelementptr inbounds nuw i8, ptr %.0, i64 20
   store i32 %.sink, ptr %134, align 4, !tbaa !39
   %135 = icmp eq i32 %10, 8
@@ -733,9 +733,9 @@ define internal void @_mipmap_cache_allocate_dynamic(ptr noundef %0, ptr noundef
   br label %144
 
 144:                                              ; preds = %136, %139, %131
-  %.sink118 = phi i64 [ %138, %136 ], [ %143, %139 ], [ 1, %131 ]
+  %.sink125 = phi i64 [ %138, %136 ], [ %143, %139 ], [ 1, %131 ]
   %145 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store i64 %.sink118, ptr %145, align 8, !tbaa !122
+  store i64 %.sink125, ptr %145, align 8, !tbaa !122
   ret void
 }
 
@@ -1267,12 +1267,12 @@ define void @dt_mipmap_cache_get_with_caller(ptr noundef %0, ptr noundef %1, i32
   br label %106
 
 106:                                              ; preds = %103, %92
-  %.sink325 = phi ptr [ %105, %103 ], [ %94, %92 ]
+  %.sink338 = phi ptr [ %105, %103 ], [ %94, %92 ]
   %.sink = phi i32 [ %87, %103 ], [ 0, %92 ]
-  %107 = getelementptr inbounds nuw i8, ptr %.sink325, i64 1844
+  %107 = getelementptr inbounds nuw i8, ptr %.sink338, i64 1844
   store i32 %.sink, ptr %107, align 4, !tbaa !165
   %108 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 120), align 8, !tbaa !156
-  call void @dt_image_cache_write_release(ptr noundef %108, ptr noundef %.sink325, i32 noundef 1) #19
+  call void @dt_image_cache_write_release(ptr noundef %108, ptr noundef %.sink338, i32 noundef 1) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)

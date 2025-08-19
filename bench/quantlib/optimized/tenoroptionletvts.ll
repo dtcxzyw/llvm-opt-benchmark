@@ -5743,28 +5743,28 @@ for.cond.cleanup:                                 ; preds = %entry
   br i1 %cmp.i.i, label %if.then.i.i, label %invoke.cont
 
 for.cond.cleanup.thread:                          ; preds = %for.body
-  %sub.ptr.lhs.cast.i104 = ptrtoint ptr %1 to i64
-  %sub.ptr.rhs.cast.i105 = ptrtoint ptr %0 to i64
-  %sub.ptr.sub.i106 = sub i64 %sub.ptr.lhs.cast.i104, %sub.ptr.rhs.cast.i105
-  %sub.ptr.div.i107 = ashr exact i64 %sub.ptr.sub.i106, 3
-  %cmp.i.i108 = icmp ugt i64 %sub.ptr.div.i107, 1152921504606846975
-  br i1 %cmp.i.i108, label %if.then.i.i, label %if.then.i.i.i.i.i
+  %sub.ptr.lhs.cast.i108 = ptrtoint ptr %1 to i64
+  %sub.ptr.rhs.cast.i109 = ptrtoint ptr %0 to i64
+  %sub.ptr.sub.i110 = sub i64 %sub.ptr.lhs.cast.i108, %sub.ptr.rhs.cast.i109
+  %sub.ptr.div.i111 = ashr exact i64 %sub.ptr.sub.i110, 3
+  %cmp.i.i112 = icmp ugt i64 %sub.ptr.div.i111, 1152921504606846975
+  br i1 %cmp.i.i112, label %if.then.i.i, label %if.then.i.i.i.i.i
 
 if.then.i.i:                                      ; preds = %for.cond.cleanup.thread, %for.cond.cleanup
   tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.33) #29
   unreachable
 
 if.then.i.i.i.i.i:                                ; preds = %for.cond.cleanup.thread
-  %call5.i.i.i.i2.i.i26 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %sub.ptr.sub.i106) #31
-  %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i2.i.i26, i64 %sub.ptr.sub.i106
+  %call5.i.i.i.i2.i.i26 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %sub.ptr.sub.i110) #31
+  %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i2.i.i26, i64 %sub.ptr.sub.i110
   store double 0.000000e+00, ptr %call5.i.i.i.i2.i.i26, align 8, !tbaa !111
   %incdec.ptr.i.i.i.i.i = getelementptr i8, ptr %call5.i.i.i.i2.i.i26, i64 8
-  %sub.i.i.i.i.i = add nsw i64 %sub.ptr.div.i107, -1
+  %sub.i.i.i.i.i = add nsw i64 %sub.ptr.div.i111, -1
   %cmp.i.i.i.i.i.i.i = icmp eq i64 %sub.i.i.i.i.i, 0
   br i1 %cmp.i.i.i.i.i.i.i, label %invoke.cont, label %if.end.i.i.i.i.i.i.i
 
 if.end.i.i.i.i.i.i.i:                             ; preds = %if.then.i.i.i.i.i
-  %2 = add nsw i64 %sub.ptr.sub.i106, -8
+  %2 = add nsw i64 %sub.ptr.sub.i110, -8
   tail call void @llvm.memset.p0.i64(ptr align 8 %incdec.ptr.i.i.i.i.i, i8 0, i64 %2, i1 false), !tbaa !111
   %add.ptr.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %sub.i.i.i.i.i, 3
   %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %incdec.ptr.i.i.i.i.i, i64 %add.ptr.idx.i.i.i.i.i.i.i
@@ -5780,7 +5780,7 @@ for.body:                                         ; preds = %entry, %for.body
   br i1 %cmp.i.not, label %for.cond.cleanup.thread, label %for.body
 
 invoke.cont:                                      ; preds = %for.cond.cleanup, %if.end.i.i.i.i.i.i.i, %if.then.i.i.i.i.i
-  %sum_v.0.lcssa109118 = phi double [ %add, %if.then.i.i.i.i.i ], [ %add, %if.end.i.i.i.i.i.i.i ], [ 0.000000e+00, %for.cond.cleanup ]
+  %sum_v.0.lcssa113122 = phi double [ %add, %if.then.i.i.i.i.i ], [ %add, %if.end.i.i.i.i.i.i.i ], [ 0.000000e+00, %for.cond.cleanup ]
   %volBase.sroa.0.0 = phi ptr [ %call5.i.i.i.i2.i.i26, %if.then.i.i.i.i.i ], [ %call5.i.i.i.i2.i.i26, %if.end.i.i.i.i.i.i.i ], [ null, %for.cond.cleanup ]
   %volBase.sroa.18.0 = phi ptr [ %add.ptr.i.i.i, %if.then.i.i.i.i.i ], [ %add.ptr.i.i.i, %if.end.i.i.i.i.i.i.i ], [ null, %for.cond.cleanup ]
   %__first.addr.0.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %if.then.i.i.i.i.i ], [ %add.ptr.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i ], [ null, %for.cond.cleanup ]
@@ -5794,7 +5794,7 @@ invoke.cont:                                      ; preds = %for.cond.cleanup, %
 for.body13.lr.ph:                                 ; preds = %invoke.cont
   %fraRateTarg_ = getelementptr inbounds nuw i8, ptr %this, i64 160
   %baseSmileSection_ = getelementptr inbounds nuw i8, ptr %this, i64 88
-  %neg = fneg double %sum_v.0.lcssa109118
+  %neg = fneg double %sum_v.0.lcssa113122
   br label %for.body13
 
 for.cond25.preheader:                             ; preds = %invoke.cont20, %invoke.cont
@@ -5835,7 +5835,7 @@ invoke.cont18:                                    ; preds = %.noexc33, %for.body
   %11 = phi ptr [ %10, %for.body13 ], [ %.pre.i, %.noexc33 ]
   %12 = tail call double @llvm.fmuladd.f64(double %neg, double %8, double %7)
   %sub = fsub double %strike, %12
-  %div = fdiv double %sub, %sum_v.0.lcssa109118
+  %div = fdiv double %sub, %sum_v.0.lcssa113122
   %call21 = invoke noundef double @_ZNK8QuantLib12SmileSection10volatilityEdNS_14VolatilityTypeEd(ptr noundef nonnull align 8 dereferenceable(72) %11, double noundef %div, i32 noundef 1, double noundef 0.000000e+00)
           to label %invoke.cont20 unwind label %lpad17
 
@@ -5864,7 +5864,7 @@ for.cond25.loopexit:                              ; preds = %invoke.cont50, %for
   br i1 %exitcond102.not, label %for.cond.cleanup28.thread, label %for.body29, !llvm.loop !125
 
 for.cond.cleanup28.thread:                        ; preds = %for.cond25.loopexit
-  %call69120 = tail call double @sqrt(double noundef %var.1.lcssa) #27, !tbaa !126
+  %call69124 = tail call double @sqrt(double noundef %var.1.lcssa) #27, !tbaa !126
   br label %if.then.i.i.i
 
 for.cond.cleanup28:                               ; preds = %for.cond25.preheader
@@ -5872,15 +5872,15 @@ for.cond.cleanup28:                               ; preds = %for.cond25.preheade
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIdSaIdEED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %for.cond.cleanup28.thread, %for.cond.cleanup28
-  %call69122 = phi double [ %call69120, %for.cond.cleanup28.thread ], [ 0.000000e+00, %for.cond.cleanup28 ]
+  %call69126 = phi double [ %call69124, %for.cond.cleanup28.thread ], [ 0.000000e+00, %for.cond.cleanup28 ]
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %volBase.sroa.18.0 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i37
   tail call void @_ZdlPvm(ptr noundef nonnull %volBase.sroa.0.0, i64 noundef %sub.ptr.sub.i.i) #30
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit
 
 _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %for.cond.cleanup28, %if.then.i.i.i
-  %call69123 = phi double [ 0.000000e+00, %for.cond.cleanup28 ], [ %call69122, %if.then.i.i.i ]
-  ret double %call69123
+  %call69127 = phi double [ 0.000000e+00, %for.cond.cleanup28 ], [ %call69126, %if.then.i.i.i ]
+  ret double %call69127
 
 for.body29:                                       ; preds = %for.body29.lr.ph, %for.cond25.loopexit
   %17 = phi ptr [ %.pre, %for.body29.lr.ph ], [ %16, %for.cond25.loopexit ]

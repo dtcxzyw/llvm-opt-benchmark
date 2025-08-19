@@ -231,9 +231,9 @@ define range(i32 -31, 1) i32 @pmix_ptl_base_set_peer(ptr noundef captures(none) 
 57:                                               ; preds = %53
   %58 = load i8, ptr %9, align 1, !tbaa !28
   %59 = icmp eq i8 %58, 118
-  %.sink137.idx = zext i1 %59 to i64
-  %.sink137 = getelementptr inbounds nuw i8, ptr %9, i64 %.sink137.idx
-  %60 = call i64 @strtoul(ptr noundef nonnull %.sink137, ptr noundef nonnull %4, i32 noundef 10) #20
+  %.sink150.idx = zext i1 %59 to i64
+  %.sink150 = getelementptr inbounds nuw i8, ptr %9, i64 %.sink150.idx
+  %60 = call i64 @strtoul(ptr noundef nonnull %.sink150, ptr noundef nonnull %4, i32 noundef 10) #20
   %61 = load ptr, ptr %4, align 8, !tbaa !29
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 1
   store ptr %62, ptr %4, align 8, !tbaa !29
@@ -303,9 +303,9 @@ define range(i32 -31, 1) i32 @pmix_ptl_base_set_peer(ptr noundef captures(none) 
 98:                                               ; preds = %94
   %99 = load i8, ptr %9, align 1, !tbaa !28
   %100 = icmp eq i8 %99, 118
-  %.sink138.idx = zext i1 %100 to i64
-  %.sink138 = getelementptr inbounds nuw i8, ptr %9, i64 %.sink138.idx
-  %101 = call i64 @strtoul(ptr noundef nonnull %.sink138, ptr noundef nonnull %5, i32 noundef 10) #20
+  %.sink151.idx = zext i1 %100 to i64
+  %.sink151 = getelementptr inbounds nuw i8, ptr %9, i64 %.sink151.idx
+  %101 = call i64 @strtoul(ptr noundef nonnull %.sink151, ptr noundef nonnull %5, i32 noundef 10) #20
   %102 = load ptr, ptr %5, align 8, !tbaa !29
   %103 = getelementptr inbounds nuw i8, ptr %102, i64 1
   store ptr %103, ptr %5, align 8, !tbaa !29
@@ -375,9 +375,9 @@ define range(i32 -31, 1) i32 @pmix_ptl_base_set_peer(ptr noundef captures(none) 
 139:                                              ; preds = %135
   %140 = load i8, ptr %9, align 1, !tbaa !28
   %141 = icmp eq i8 %140, 118
-  %.sink139.idx = zext i1 %141 to i64
-  %.sink139 = getelementptr inbounds nuw i8, ptr %9, i64 %.sink139.idx
-  %142 = call i64 @strtoul(ptr noundef nonnull %.sink139, ptr noundef nonnull %6, i32 noundef 10) #20
+  %.sink152.idx = zext i1 %141 to i64
+  %.sink152 = getelementptr inbounds nuw i8, ptr %9, i64 %.sink152.idx
+  %142 = call i64 @strtoul(ptr noundef nonnull %.sink152, ptr noundef nonnull %6, i32 noundef 10) #20
   %143 = load ptr, ptr %6, align 8, !tbaa !29
   %144 = getelementptr inbounds nuw i8, ptr %143, i64 1
   store ptr %144, ptr %6, align 8, !tbaa !29
@@ -447,9 +447,9 @@ define range(i32 -31, 1) i32 @pmix_ptl_base_set_peer(ptr noundef captures(none) 
 180:                                              ; preds = %176
   %181 = load i8, ptr %9, align 1, !tbaa !28
   %182 = icmp eq i8 %181, 118
-  %.sink140.idx = zext i1 %182 to i64
-  %.sink140 = getelementptr inbounds nuw i8, ptr %9, i64 %.sink140.idx
-  %183 = call i64 @strtoul(ptr noundef nonnull %.sink140, ptr noundef nonnull %7, i32 noundef 10) #20
+  %.sink153.idx = zext i1 %182 to i64
+  %.sink153 = getelementptr inbounds nuw i8, ptr %9, i64 %.sink153.idx
+  %183 = call i64 @strtoul(ptr noundef nonnull %.sink153, ptr noundef nonnull %7, i32 noundef 10) #20
   %184 = load ptr, ptr %7, align 8, !tbaa !29
   %185 = getelementptr inbounds nuw i8, ptr %184, i64 1
   store ptr %185, ptr %7, align 8, !tbaa !29
@@ -519,9 +519,9 @@ define range(i32 -31, 1) i32 @pmix_ptl_base_set_peer(ptr noundef captures(none) 
 221:                                              ; preds = %217
   %222 = load i8, ptr %9, align 1, !tbaa !28
   %223 = icmp eq i8 %222, 118
-  %.sink141.idx = zext i1 %223 to i64
-  %.sink141 = getelementptr inbounds nuw i8, ptr %9, i64 %.sink141.idx
-  %224 = call i64 @strtoul(ptr noundef nonnull %.sink141, ptr noundef nonnull %8, i32 noundef 10) #20
+  %.sink154.idx = zext i1 %223 to i64
+  %.sink154 = getelementptr inbounds nuw i8, ptr %9, i64 %.sink154.idx
+  %224 = call i64 @strtoul(ptr noundef nonnull %.sink154, ptr noundef nonnull %8, i32 noundef 10) #20
   %225 = load ptr, ptr %8, align 8, !tbaa !29
   %226 = getelementptr inbounds nuw i8, ptr %225, i64 1
   store ptr %226, ptr %8, align 8, !tbaa !29
@@ -575,13 +575,13 @@ define range(i32 -31, 1) i32 @pmix_ptl_base_set_peer(ptr noundef captures(none) 
   br i1 %254, label %259, label %.sink.split
 
 .sink.split:                                      ; preds = %248, %207, %166, %125, %84, %43
-  %.sink144 = phi ptr [ %44, %43 ], [ %85, %84 ], [ %126, %125 ], [ %167, %166 ], [ %208, %207 ], [ %249, %248 ]
-  %.sink143 = phi ptr [ %45, %43 ], [ %86, %84 ], [ %127, %125 ], [ %168, %166 ], [ %209, %207 ], [ %250, %248 ]
+  %.sink157 = phi ptr [ %44, %43 ], [ %85, %84 ], [ %126, %125 ], [ %167, %166 ], [ %208, %207 ], [ %249, %248 ]
+  %.sink156 = phi ptr [ %45, %43 ], [ %86, %84 ], [ %127, %125 ], [ %168, %166 ], [ %209, %207 ], [ %250, %248 ]
   %255 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %256 = load ptr, ptr %255, align 8, !tbaa !53
   %257 = getelementptr inbounds nuw i8, ptr %256, i64 488
-  store ptr %.sink144, ptr %257, align 8, !tbaa !54
-  %258 = getelementptr inbounds nuw i8, ptr %.sink143, i64 144
+  store ptr %.sink157, ptr %257, align 8, !tbaa !54
+  %258 = getelementptr inbounds nuw i8, ptr %.sink156, i64 144
   store i16 2, ptr %258, align 8, !tbaa !58
   br label %259
 
@@ -1244,9 +1244,9 @@ pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %36
   %43 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_ptl_base, i64 1052), align 4, !tbaa !74
   %44 = icmp sgt i32 %43, 0
   %narrow = call i32 @llvm.smax.i32(i32 %43, i32 0)
-  %.sink90 = zext nneg i32 %narrow to i64
+  %.sink106 = zext nneg i32 %narrow to i64
   %.sink = select i1 %44, i64 0, i64 10000
-  store i64 %.sink90, ptr %6, align 8, !tbaa !88
+  store i64 %.sink106, ptr %6, align 8, !tbaa !88
   store i64 %.sink, ptr %21, align 8, !tbaa !89
   %45 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pmix_globals, i64 376), align 8, !tbaa !90
   %46 = call i32 @pmix_event_assign(ptr noundef nonnull %5, ptr noundef %45, i32 noundef -1, i16 noundef signext 0, ptr noundef nonnull @timeout, ptr noundef nonnull %4) #20
@@ -2082,13 +2082,13 @@ pmix_obj_run_constructors.exit.i.i:               ; preds = %.lr.ph.i.i.i, %82
 
 141:                                              ; preds = %133
   store i8 %140, ptr %24, align 8, !tbaa !131
-  br label %.sink.split159.i.i
+  br label %.sink.split172.i.i
 
 142:                                              ; preds = %133
   %143 = icmp eq i8 %134, %140
-  br i1 %143, label %.sink.split159.i.i, label %151
+  br i1 %143, label %.sink.split172.i.i, label %151
 
-.sink.split159.i.i:                               ; preds = %142, %141
+.sink.split172.i.i:                               ; preds = %142, %141
   %144 = getelementptr inbounds nuw i8, ptr %138, i64 488
   %145 = load ptr, ptr %144, align 8, !tbaa !54
   %146 = getelementptr inbounds nuw i8, ptr %145, i64 24
@@ -2098,7 +2098,7 @@ pmix_obj_run_constructors.exit.i.i:               ; preds = %.lr.ph.i.i.i, %82
   %150 = call i32 %147(ptr noundef nonnull %11, ptr noundef nonnull %2, i32 noundef %149, i16 noundef zeroext 24) #20
   br label %151
 
-151:                                              ; preds = %.sink.split159.i.i, %142
+151:                                              ; preds = %.sink.split172.i.i, %142
   %152 = load i64, ptr %25, align 8, !tbaa !134
   %153 = add i64 %152, %77
   br label %154
@@ -2422,8 +2422,8 @@ pmix_ptl_base_set_timeout.exit.thread.i:          ; preds = %287, %284
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %294 = load i32, ptr %17, align 4, !tbaa !138
   %295 = call i32 @pmix_ptl_base_recv_blocking(i32 noundef %294, ptr noundef nonnull %9, i64 noundef 4) #20
-  %.not32.i = icmp eq i32 %295, 0
-  br i1 %.not32.i, label %307, label %recv_connect_ack.exit.thread47
+  %.not35.i = icmp eq i32 %295, 0
+  br i1 %.not35.i, label %307, label %recv_connect_ack.exit.thread47
 
 296:                                              ; preds = %pmix_ptl_base_set_timeout.exit.i
   %297 = load i32, ptr %17, align 4, !tbaa !138
@@ -2445,7 +2445,7 @@ pmix_ptl_base_set_timeout.exit.thread.i:          ; preds = %287, %284
   br i1 %306, label %recv_connect_ack.exit, label %recv_connect_ack.exit.thread47
 
 307:                                              ; preds = %pmix_ptl_base_set_timeout.exit.thread.i, %pmix_ptl_base_set_timeout.exit.i
-  %.03033.i = phi i1 [ false, %pmix_ptl_base_set_timeout.exit.thread.i ], [ true, %pmix_ptl_base_set_timeout.exit.i ]
+  %.03036.i = phi i1 [ false, %pmix_ptl_base_set_timeout.exit.thread.i ], [ true, %pmix_ptl_base_set_timeout.exit.i ]
   %308 = load i32, ptr %9, align 4, !tbaa !77
   %309 = call noundef i32 @llvm.bswap.i32(i32 %308)
   %310 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pmix_globals, i64 328), align 8, !tbaa !39
@@ -2510,7 +2510,7 @@ pmix_ptl_base_set_timeout.exit.thread.i:          ; preds = %287, %284
   br label %pmix_ptl_base_client_handshake.exit.i
 
 pmix_ptl_base_client_handshake.exit.i:            ; preds = %338, %337, %315, %314
-  br i1 %.03033.i, label %340, label %recv_connect_ack.exit.thread
+  br i1 %.03036.i, label %340, label %recv_connect_ack.exit.thread
 
 340:                                              ; preds = %pmix_ptl_base_client_handshake.exit.i
   %341 = load i32, ptr %17, align 4, !tbaa !138
@@ -3592,9 +3592,9 @@ pmix_obj_run_constructors.exit.i:                 ; preds = %.lr.ph.i.i, %99
   %106 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_ptl_base, i64 1052), align 4, !tbaa !74
   %107 = icmp sgt i32 %106, 0
   %narrow.i = call i32 @llvm.smax.i32(i32 %106, i32 0)
-  %.sink226.i = zext nneg i32 %narrow.i to i64
+  %.sink261.i = zext nneg i32 %narrow.i to i64
   %.sink.i = select i1 %107, i64 0, i64 10000
-  store i64 %.sink226.i, ptr %5, align 8, !tbaa !88
+  store i64 %.sink261.i, ptr %5, align 8, !tbaa !88
   store i64 %.sink.i, ptr %32, align 8, !tbaa !89
   %108 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pmix_globals, i64 376), align 8, !tbaa !90
   %109 = call i32 @pmix_event_assign(ptr noundef nonnull %4, ptr noundef %108, i32 noundef -1, i16 noundef signext 0, ptr noundef nonnull @timeout, ptr noundef nonnull %3) #20
@@ -4136,8 +4136,8 @@ pmix_obj_new_tma.exit165.i:                       ; preds = %.lr.ph.i.i162.i, %3
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %356, %327
-  %.sink227.i = phi ptr [ %354, %356 ], [ %325, %327 ]
-  call void @free(ptr noundef nonnull %.sink227.i) #20
+  %.sink262.i = phi ptr [ %354, %356 ], [ %325, %327 ]
+  call void @free(ptr noundef nonnull %.sink262.i) #20
   br label %366
 
 366:                                              ; preds = %.sink.split.i, %330, %pmix_obj_new_tma.exit165.i, %pmix_obj_new_tma.exit158.i

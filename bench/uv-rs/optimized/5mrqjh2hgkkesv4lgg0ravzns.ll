@@ -191,7 +191,7 @@ define hidden void @"_ZN14version_ranges15Ranges$LT$V$GT$10complement17h35f4cd69
 
 15:                                               ; preds = %2
   %16 = load i64, ptr %.sink12.i, align 8, !range !3, !noundef !4
-  switch i64 %16, label %default.unreachable70 [
+  switch i64 %16, label %default.unreachable71 [
     i64 0, label %18
     i64 1, label %21
     i64 2, label %24
@@ -200,7 +200,7 @@ define hidden void @"_ZN14version_ranges15Ranges$LT$V$GT$10complement17h35f4cd69
 17:                                               ; preds = %107, %112, %108, %59, %"_ZN66_$LT$uv_pep440..version..Version$u20$as$u20$core..clone..Clone$GT$5clone17hd389432b57081c68E.exit23", %"_ZN66_$LT$uv_pep440..version..Version$u20$as$u20$core..clone..Clone$GT$5clone17hd389432b57081c68E.exit", %14
   ret void
 
-default.unreachable70:                            ; preds = %24, %15
+default.unreachable71:                            ; preds = %24, %15
   unreachable
 
 18:                                               ; preds = %15
@@ -218,7 +218,7 @@ default.unreachable70:                            ; preds = %24, %15
 24:                                               ; preds = %15
   %25 = getelementptr inbounds nuw i8, ptr %.sink12.i, i64 24
   %26 = load i64, ptr %25, align 8, !range !3, !noundef !4
-  switch i64 %26, label %default.unreachable70 [
+  switch i64 %26, label %default.unreachable71 [
     i64 0, label %63
     i64 1, label %85
     i64 2, label %107
@@ -598,14 +598,14 @@ define hidden void @"_ZN14version_ranges15Ranges$LT$V$GT$12intersection17h68e296
   %36 = or i1 %31, %35
   br i1 %36, label %41, label %37
 
-default.unreachable201:                           ; preds = %.sink.split.i, %111, %109, %107, %105, %48, %37
+default.unreachable206:                           ; preds = %.sink.split.i, %111, %109, %107, %105, %48, %37
   unreachable
 
 37:                                               ; preds = %23
   %38 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i135, i64 24
   %39 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i50146, i64 24
   %40 = load i64, ptr %38, align 8, !range !3, !noundef !4
-  switch i64 %40, label %default.unreachable201 [
+  switch i64 %40, label %default.unreachable206 [
     i64 0, label %42
     i64 1, label %44
     i64 2, label %46
@@ -632,7 +632,7 @@ default.unreachable201:                           ; preds = %.sink.split.i, %111
 
 48:                                               ; preds = %46
   %.sroa.66.0.ph = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i50146, i64 32
-  switch i64 %40, label %default.unreachable201 [
+  switch i64 %40, label %default.unreachable206 [
     i64 0, label %49
     i64 1, label %53
     i64 2, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3cebf636592f1901E.exit"
@@ -782,7 +782,7 @@ _ZN14version_ranges19left_end_is_smaller17ha5afba84d3401f16E.exit.thread: ; pred
 
 105:                                              ; preds = %104
   %106 = load i64, ptr %.sroa.0.0.i.i.i135, align 8, !range !3, !noundef !4
-  switch i64 %106, label %default.unreachable201 [
+  switch i64 %106, label %default.unreachable206 [
     i64 0, label %107
     i64 1, label %109
     i64 2, label %111
@@ -790,7 +790,7 @@ _ZN14version_ranges19left_end_is_smaller17ha5afba84d3401f16E.exit.thread: ; pred
 
 107:                                              ; preds = %105
   %108 = load i64, ptr %.sroa.0.0.i.i.i50146, align 8, !range !3, !noundef !4
-  switch i64 %108, label %default.unreachable201 [
+  switch i64 %108, label %default.unreachable206 [
     i64 0, label %114
     i64 1, label %160
     i64 2, label %.thread
@@ -798,10 +798,10 @@ _ZN14version_ranges19left_end_is_smaller17ha5afba84d3401f16E.exit.thread: ; pred
 
 109:                                              ; preds = %105
   %110 = load i64, ptr %.sroa.0.0.i.i.i50146, align 8, !range !3, !noundef !4
-  switch i64 %110, label %default.unreachable201 [
+  switch i64 %110, label %default.unreachable206 [
     i64 0, label %160
     i64 1, label %170
-    i64 2, label %.thread204
+    i64 2, label %.thread209
   ]
 
 111:                                              ; preds = %105
@@ -809,9 +809,9 @@ _ZN14version_ranges19left_end_is_smaller17ha5afba84d3401f16E.exit.thread: ; pred
   %112 = icmp eq i64 %.pre, 2
   %113 = select i1 %112, ptr %.sroa.0.0.i.i.i135, ptr %.sroa.0.0.i.i.i50146
   %.pr = load i64, ptr %113, align 8
-  switch i64 %.pr, label %default.unreachable201 [
+  switch i64 %.pr, label %default.unreachable206 [
     i64 0, label %.thread
-    i64 1, label %.thread204
+    i64 1, label %.thread209
     i64 2, label %130
   ]
 
@@ -888,8 +888,8 @@ _ZN4core3cmp3Ord3max17h320a53dcb995d2d1E.exit:    ; preds = %.noexc59, %126
   call void @llvm.trap()
   unreachable
 
-select.unfold:                                    ; preds = %.noexc63, %186, %.thread204, %_ZN4core3cmp3Ord3max17h320a53dcb995d2d1E.exit68
-  %.sroa.8.0.ph101 = phi ptr [ %.sroa.0.0.sroa.speculated.i66, %_ZN4core3cmp3Ord3max17h320a53dcb995d2d1E.exit68 ], [ %191, %.thread204 ], [ %.sroa.09.0, %186 ], [ %.sroa.09.0, %.noexc63 ]
+select.unfold:                                    ; preds = %.noexc63, %186, %.thread209, %_ZN4core3cmp3Ord3max17h320a53dcb995d2d1E.exit68
+  %.sroa.8.0.ph101 = phi ptr [ %.sroa.0.0.sroa.speculated.i66, %_ZN4core3cmp3Ord3max17h320a53dcb995d2d1E.exit68 ], [ %191, %.thread209 ], [ %.sroa.09.0, %186 ], [ %.sroa.09.0, %.noexc63 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.experimental.noalias.scope.decl(metadata !259)
   call void @llvm.experimental.noalias.scope.decl(metadata !262)
@@ -992,13 +992,13 @@ _ZN4core3cmp3Ord3max17h320a53dcb995d2d1E.exit68:  ; preds = %.noexc67, %182
   br i1 %189, label %131, label %select.unfold
 
 .thread:                                          ; preds = %107, %111
-  %spec.select203 = phi ptr [ %113, %111 ], [ %.sroa.0.0.i.i.i135, %107 ]
-  %190 = getelementptr inbounds nuw i8, ptr %spec.select203, i64 8
+  %spec.select208 = phi ptr [ %113, %111 ], [ %.sroa.0.0.i.i.i135, %107 ]
+  %190 = getelementptr inbounds nuw i8, ptr %spec.select208, i64 8
   br label %131
 
-.thread204:                                       ; preds = %109, %111
-  %spec.select206 = phi ptr [ %113, %111 ], [ %.sroa.0.0.i.i.i135, %109 ]
-  %191 = getelementptr inbounds nuw i8, ptr %spec.select206, i64 8
+.thread209:                                       ; preds = %109, %111
+  %spec.select211 = phi ptr [ %113, %111 ], [ %.sroa.0.0.i.i.i135, %109 ]
+  %191 = getelementptr inbounds nuw i8, ptr %spec.select211, i64 8
   br label %select.unfold
 
 .sink.split.i:                                    ; preds = %135, %143, %149, %157, %130
@@ -1007,7 +1007,7 @@ _ZN4core3cmp3Ord3max17h320a53dcb995d2d1E.exit68:  ; preds = %.noexc67, %182
   %.sroa.8.0 = phi i8 [ %.sroa.8.1, %130 ], [ 0, %143 ], [ %133, %135 ], [ 0, %157 ], [ %147, %149 ]
   %.sink.i60 = phi i64 [ 2, %130 ], [ 0, %143 ], [ 0, %135 ], [ 1, %157 ], [ 1, %149 ]
   %192 = load i64, ptr %.sroa.031.0, align 8, !range !3, !noundef !4
-  switch i64 %192, label %default.unreachable201 [
+  switch i64 %192, label %default.unreachable206 [
     i64 0, label %193
     i64 1, label %209
     i64 2, label %"_ZN66_$LT$uv_pep440..version..Version$u20$as$u20$core..clone..Clone$GT$5clone17hd389432b57081c68E.exit"
@@ -1173,7 +1173,7 @@ define internal fastcc void @"_ZN14version_ranges15Ranges$LT$V$GT$15negate_segme
 14:                                               ; preds = %71
   unreachable
 
-default.unreachable89:                            ; preds = %86, %16
+default.unreachable95:                            ; preds = %86, %16
   unreachable
 
 ._crit_edge:                                      ; preds = %"_ZN66_$LT$uv_pep440..version..Version$u20$as$u20$core..clone..Clone$GT$5clone17hd389432b57081c68E.exit34", %4
@@ -1202,7 +1202,7 @@ default.unreachable89:                            ; preds = %86, %16
   store i8 %.sroa.9.1, ptr %.sroa.9.0..sroa_idx80, align 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %.sroa.10.0..sroa_idx84, ptr noundef nonnull align 2 dereferenceable(6) %.sroa.10.0..sroa_idx, i64 6, i1 false)
   %18 = load i64, ptr %.sroa.0.069, align 8, !range !3, !noundef !4
-  switch i64 %18, label %default.unreachable89 [
+  switch i64 %18, label %default.unreachable95 [
     i64 0, label %39
     i64 1, label %55
     i64 2, label %71
@@ -1392,7 +1392,7 @@ default.unreachable89:                            ; preds = %86, %16
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %91 = getelementptr inbounds nuw i8, ptr %.sroa.0.069, i64 24
   %92 = load i64, ptr %91, align 8, !range !3, !noundef !4
-  switch i64 %92, label %default.unreachable89 [
+  switch i64 %92, label %default.unreachable95 [
     i64 0, label %93
     i64 1, label %109
     i64 2, label %"_ZN66_$LT$uv_pep440..version..Version$u20$as$u20$core..clone..Clone$GT$5clone17hd389432b57081c68E.exit34"

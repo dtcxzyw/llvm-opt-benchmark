@@ -216,8 +216,8 @@ define void @dlaqps_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
   %152 = zext nneg i32 %147 to i64
   %153 = shl nuw nsw i64 %152, 3
   call void @llvm.memset.p0.i64(ptr align 8 %scevgep252, i8 0, i64 %153, i1 false), !tbaa !7
-  %.not258 = icmp eq i32 %147, 1
-  br i1 %.not258, label %._crit_edge.thread, label %154
+  %.not278 = icmp eq i32 %147, 1
+  br i1 %.not278, label %._crit_edge.thread, label %154
 
 154:                                              ; preds = %._crit_edge
   %155 = load i32, ptr %0, align 4, !tbaa !3

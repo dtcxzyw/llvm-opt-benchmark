@@ -598,7 +598,7 @@ define hidden { ptr, ptr } @"_ZN15crossbeam_deque5deque15Worker$LT$T$GT$3pop17h8
 
 42:                                               ; preds = %59, %64, %68, %40, %23, %1, %57, %37
   %.sroa.7.0 = phi ptr [ undef, %37 ], [ undef, %57 ], [ undef, %1 ], [ %33, %40 ], [ %33, %23 ], [ %55, %68 ], [ %55, %64 ], [ %., %59 ]
-  %.sroa.0.0 = phi ptr [ null, %37 ], [ null, %57 ], [ null, %1 ], [ %32, %40 ], [ %32, %23 ], [ %54, %68 ], [ %54, %64 ], [ %.28, %59 ]
+  %.sroa.0.0 = phi ptr [ null, %37 ], [ null, %57 ], [ null, %1 ], [ %32, %40 ], [ %32, %23 ], [ %54, %68 ], [ %54, %64 ], [ %.32, %59 ]
   %43 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %44 = insertvalue { ptr, ptr } %43, ptr %.sroa.7.0, 1
   ret { ptr, ptr } %44
@@ -631,7 +631,7 @@ define hidden { ptr, ptr } @"_ZN15crossbeam_deque5deque15Worker$LT$T$GT$3pop17h8
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 264
   store atomic i64 %4, ptr %63 monotonic, align 8
   %. = select i1 %61, ptr %55, ptr undef
-  %.28 = select i1 %61, ptr %54, ptr null
+  %.32 = select i1 %61, ptr %54, ptr null
   br label %42
 
 64:                                               ; preds = %45
@@ -1415,13 +1415,13 @@ define hidden void @"_ZN182_$LT$uv_distribution..archive.._..$LT$impl$u20$serde.
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef zeroext i1 @_ZN21uv_distribution_types4hash6Hashed9satisfies17hf0b3370ea1cc5ffbE(ptr noalias noundef readonly align 8 dereferenceable(96) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #3 personality ptr @rust_eh_personality {
   %3 = load i8, ptr %1, align 8, !range !60, !noundef !3
-  switch i8 %3, label %default.unreachable9 [
+  switch i8 %3, label %default.unreachable11 [
     i8 0, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17hfe4eda01de4f56edE.llvm.14237793921444769281.exit"
     i8 1, label %4
     i8 2, label %17
   ]
 
-default.unreachable9:                             ; preds = %2
+default.unreachable11:                            ; preds = %2
   unreachable
 
 4:                                                ; preds = %2

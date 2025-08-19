@@ -770,25 +770,25 @@ _ZN7rocksdb27OptimisticTransactionDBImpl13GetLockBucketERKNS_5SliceEm.exit: ; pr
   br i1 %70, label %._crit_edge.thread.i.i.i, label %75
 
 ._crit_edge.thread.i.i.i:                         ; preds = %._crit_edge.i.i.i, %_ZN7rocksdb27OptimisticTransactionDBImpl13GetLockBucketERKNS_5SliceEm.exit
-  %.019.lcssa28.i.i.i = phi ptr [ %.02024.i.i.i, %._crit_edge.i.i.i ], [ %15, %_ZN7rocksdb27OptimisticTransactionDBImpl13GetLockBucketERKNS_5SliceEm.exit ]
+  %.019.lcssa29.i.i.i = phi ptr [ %.02024.i.i.i, %._crit_edge.i.i.i ], [ %15, %_ZN7rocksdb27OptimisticTransactionDBImpl13GetLockBucketERKNS_5SliceEm.exit ]
   %71 = load ptr, ptr %17, align 8, !tbaa !142
-  %72 = icmp eq ptr %.019.lcssa28.i.i.i, %71
+  %72 = icmp eq ptr %.019.lcssa29.i.i.i, %71
   br i1 %72, label %select.unfold.i.i, label %73
 
 73:                                               ; preds = %._crit_edge.thread.i.i.i
-  %74 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa28.i.i.i) #23
+  %74 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa29.i.i.i) #23
   %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %74, i64 32
   %.pre.i.i = load ptr, ptr %.phi.trans.insert.i.i, align 8, !tbaa !148
   br label %75
 
 75:                                               ; preds = %73, %._crit_edge.i.i.i
   %76 = phi ptr [ %.pre.i.i, %73 ], [ %69, %._crit_edge.i.i.i ]
-  %.019.lcssa29.i.i.i = phi ptr [ %.019.lcssa28.i.i.i, %73 ], [ %.02024.i.i.i, %._crit_edge.i.i.i ]
+  %.019.lcssa28.i.i.i = phi ptr [ %.019.lcssa29.i.i.i, %73 ], [ %.02024.i.i.i, %._crit_edge.i.i.i ]
   %77 = icmp ult ptr %76, %67
   br i1 %77, label %select.unfold.i.i, label %.preheader.backedge
 
 select.unfold.i.i:                                ; preds = %75, %._crit_edge.thread.i.i.i
-  %.sroa.4.0.i.ph.i.i = phi ptr [ %.019.lcssa28.i.i.i, %._crit_edge.thread.i.i.i ], [ %.019.lcssa29.i.i.i, %75 ]
+  %.sroa.4.0.i.ph.i.i = phi ptr [ %.019.lcssa29.i.i.i, %._crit_edge.thread.i.i.i ], [ %.019.lcssa28.i.i.i, %75 ]
   %78 = icmp eq ptr %.sroa.4.0.i.ph.i.i, %15
   br i1 %78, label %_ZNSt8_Rb_treeIPN7rocksdb4port5MutexES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE10_M_insert_IRKS3_NS9_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS3_EPSt18_Rb_tree_node_baseSH_OT_RT0_.exit.i.i, label %79
 

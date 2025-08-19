@@ -550,10 +550,10 @@ _ZN4llvm9BitVectorC2Ejb.exit:                     ; preds = %_ZN4llvm9BitVectorC
 .lr.ph:                                           ; preds = %25
   %29 = load ptr, ptr %0, align 8
   %30 = load i16, ptr %28, align 2, !tbaa !210
-  %.not1745 = icmp eq i16 %30, 0
-  br i1 %.not1745, label %.critedge, label %.lr.ph47
+  %.not1750 = icmp eq i16 %30, 0
+  br i1 %.not1750, label %.critedge, label %.lr.ph52
 
-.critedge:                                        ; preds = %.lr.ph47, %.lr.ph, %25
+.critedge:                                        ; preds = %.lr.ph52, %.lr.ph, %25
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %32 = load ptr, ptr %31, align 8, !tbaa !212
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 104
@@ -570,9 +570,9 @@ _ZN4llvm9BitVectorC2Ejb.exit:                     ; preds = %_ZN4llvm9BitVectorC
   %.not3237 = icmp eq ptr %36, null
   br label %52
 
-.lr.ph47:                                         ; preds = %.lr.ph, %.lr.ph47
-  %40 = phi i16 [ %51, %.lr.ph47 ], [ %30, %.lr.ph ]
-  %.0163546 = phi ptr [ %50, %.lr.ph47 ], [ %28, %.lr.ph ]
+.lr.ph52:                                         ; preds = %.lr.ph, %.lr.ph52
+  %40 = phi i16 [ %51, %.lr.ph52 ], [ %30, %.lr.ph ]
+  %.0163551 = phi ptr [ %50, %.lr.ph52 ], [ %28, %.lr.ph ]
   %41 = zext i16 %40 to i32
   %42 = and i32 %41, 63
   %43 = zext nneg i32 %42 to i64
@@ -583,10 +583,10 @@ _ZN4llvm9BitVectorC2Ejb.exit:                     ; preds = %_ZN4llvm9BitVectorC
   %48 = load i64, ptr %47, align 8, !tbaa !34
   %49 = or i64 %48, %44
   store i64 %49, ptr %47, align 8, !tbaa !34
-  %50 = getelementptr inbounds nuw i8, ptr %.0163546, i64 2
+  %50 = getelementptr inbounds nuw i8, ptr %.0163551, i64 2
   %51 = load i16, ptr %50, align 2, !tbaa !210
   %.not17 = icmp eq i16 %51, 0
-  br i1 %.not17, label %.critedge, label %.lr.ph47
+  br i1 %.not17, label %.critedge, label %.lr.ph52
 
 52:                                               ; preds = %.lr.ph42, %._crit_edge
   %.sroa.028.041 = phi ptr [ %32, %.lr.ph42 ], [ %58, %._crit_edge ]

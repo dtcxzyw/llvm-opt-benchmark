@@ -1331,8 +1331,8 @@ array_to_jsonb_internal.exit:                     ; preds = %45, %49
   %94 = load i16, ptr %93, align 2
   %95 = and i16 %94, 2047
   %96 = zext nneg i16 %95 to i64
-  %.not113 = icmp ult i64 %indvars.iv, %96
-  br i1 %.not113, label %100, label %97
+  %.not116 = icmp ult i64 %indvars.iv, %96
+  br i1 %.not116, label %100, label %97
 
 97:                                               ; preds = %86
   %98 = trunc nuw nsw i64 %91 to i32
@@ -2992,7 +2992,7 @@ define internal fastcc i64 @jsonb_object_agg_transfn_worker(ptr noundef %0, i1 n
   store i32 0, ptr %7, align 8
   %113 = call ptr @pushJsonbValue(ptr noundef nonnull %.072, i32 noundef 2, ptr noundef nonnull %7) #11
   store ptr %113, ptr %97, align 8
-  br label %.sink.split100
+  br label %.sink.split102
 
 114:                                              ; preds = %.split.us
   %115 = load i8, ptr %98, align 8, !range !7, !noundef !8
@@ -3071,7 +3071,7 @@ define internal fastcc i64 @jsonb_object_agg_transfn_worker(ptr noundef %0, i1 n
   %.073 = phi i8 [ 0, %.split87.us ], [ %.073.be, %.backedge ]
   %145 = call i32 @JsonbIteratorNext(ptr noundef nonnull %6, ptr noundef nonnull %7, i1 noundef zeroext false) #11
   switch i32 %145, label %179 [
-    i32 0, label %.sink.split100
+    i32 0, label %.sink.split102
     i32 4, label %146
     i32 5, label %151
     i32 6, label %155
@@ -3154,11 +3154,11 @@ define internal fastcc i64 @jsonb_object_agg_transfn_worker(ptr noundef %0, i1 n
   %.073.be = phi i8 [ 1, %151 ], [ 1, %146 ], [ %.1.ph, %.sink.split ]
   br label %144, !llvm.loop !19
 
-.sink.split100:                                   ; preds = %144, %.split91.us
+.sink.split102:                                   ; preds = %144, %.split91.us
   store ptr %94, ptr @CurrentMemoryContext, align 8
   br label %182
 
-182:                                              ; preds = %.sink.split100, %64
+182:                                              ; preds = %.sink.split102, %64
   %.0 = ptrtoint ptr %.071 to i64
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)

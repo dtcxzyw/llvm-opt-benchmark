@@ -780,11 +780,11 @@ define hidden { ptr, i64 } @"_ZN4ring10arithmetic6bigint47One$LT$M$C$ring..arith
 _ZN4ring4limb16limbs_double_mod17h71070c20d182365eE.exit.preheader: ; preds = %1
   %13 = load ptr, ptr %0, align 8, !nonnull !4, !align !7
   %14 = icmp eq i64 %.fca.1.extract, %9
-  %exitcond.not35 = icmp eq i64 %9, 0
-  br i1 %exitcond.not35, label %.preheader, label %.lr.ph
+  %exitcond.not36 = icmp eq i64 %9, 0
+  br i1 %exitcond.not36, label %.preheader, label %.lr.ph
 
 _ZN4ring4limb16limbs_double_mod17h71070c20d182365eE.exit: ; preds = %19
-  %15 = add i64 %.sroa.03.036, 1
+  %15 = add i64 %.sroa.03.037, 1
   %exitcond.not = icmp eq i64 %15, %9
   br i1 %exitcond.not, label %.preheader, label %.lr.ph
 
@@ -795,7 +795,7 @@ _ZN4ring4limb16limbs_double_mod17h71070c20d182365eE.exit: ; preds = %19
   br label %22
 
 .lr.ph:                                           ; preds = %_ZN4ring4limb16limbs_double_mod17h71070c20d182365eE.exit.preheader, %_ZN4ring4limb16limbs_double_mod17h71070c20d182365eE.exit
-  %.sroa.03.036 = phi i64 [ %15, %_ZN4ring4limb16limbs_double_mod17h71070c20d182365eE.exit ], [ 0, %_ZN4ring4limb16limbs_double_mod17h71070c20d182365eE.exit.preheader ]
+  %.sroa.03.037 = phi i64 [ %15, %_ZN4ring4limb16limbs_double_mod17h71070c20d182365eE.exit ], [ 0, %_ZN4ring4limb16limbs_double_mod17h71070c20d182365eE.exit.preheader ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !43
   store i64 %.fca.1.extract, ptr %5, align 8, !noalias !43
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !43
@@ -902,11 +902,11 @@ define hidden { ptr, i64 } @"_ZN4ring10arithmetic6bigint47One$LT$M$C$ring..arith
 _ZN4ring4limb16limbs_double_mod17h71070c20d182365eE.exit.preheader: ; preds = %1
   %13 = load ptr, ptr %0, align 8, !nonnull !4, !align !7
   %14 = icmp eq i64 %.fca.1.extract, %9
-  %exitcond.not35 = icmp eq i64 %9, 0
-  br i1 %exitcond.not35, label %.preheader, label %.lr.ph
+  %exitcond.not36 = icmp eq i64 %9, 0
+  br i1 %exitcond.not36, label %.preheader, label %.lr.ph
 
 _ZN4ring4limb16limbs_double_mod17h71070c20d182365eE.exit: ; preds = %19
-  %15 = add i64 %.sroa.03.036, 1
+  %15 = add i64 %.sroa.03.037, 1
   %exitcond.not = icmp eq i64 %15, %9
   br i1 %exitcond.not, label %.preheader, label %.lr.ph
 
@@ -917,7 +917,7 @@ _ZN4ring4limb16limbs_double_mod17h71070c20d182365eE.exit: ; preds = %19
   br label %22
 
 .lr.ph:                                           ; preds = %_ZN4ring4limb16limbs_double_mod17h71070c20d182365eE.exit.preheader, %_ZN4ring4limb16limbs_double_mod17h71070c20d182365eE.exit
-  %.sroa.03.036 = phi i64 [ %15, %_ZN4ring4limb16limbs_double_mod17h71070c20d182365eE.exit ], [ 0, %_ZN4ring4limb16limbs_double_mod17h71070c20d182365eE.exit.preheader ]
+  %.sroa.03.037 = phi i64 [ %15, %_ZN4ring4limb16limbs_double_mod17h71070c20d182365eE.exit ], [ 0, %_ZN4ring4limb16limbs_double_mod17h71070c20d182365eE.exit.preheader ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !54
   store i64 %.fca.1.extract, ptr %5, align 8, !noalias !54
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !54
@@ -1024,11 +1024,11 @@ define hidden { ptr, i64 } @"_ZN4ring10arithmetic6bigint47One$LT$M$C$ring..arith
 _ZN4ring4limb16limbs_double_mod17h71070c20d182365eE.exit.preheader: ; preds = %1
   %13 = load ptr, ptr %0, align 8, !nonnull !4, !align !7
   %14 = icmp eq i64 %.fca.1.extract, %9
-  %exitcond.not35 = icmp eq i64 %9, 0
-  br i1 %exitcond.not35, label %.preheader, label %.lr.ph
+  %exitcond.not36 = icmp eq i64 %9, 0
+  br i1 %exitcond.not36, label %.preheader, label %.lr.ph
 
 _ZN4ring4limb16limbs_double_mod17h71070c20d182365eE.exit: ; preds = %19
-  %15 = add i64 %.sroa.03.036, 1
+  %15 = add i64 %.sroa.03.037, 1
   %exitcond.not = icmp eq i64 %15, %9
   br i1 %exitcond.not, label %.preheader, label %.lr.ph
 
@@ -1039,7 +1039,7 @@ _ZN4ring4limb16limbs_double_mod17h71070c20d182365eE.exit: ; preds = %19
   br label %22
 
 .lr.ph:                                           ; preds = %_ZN4ring4limb16limbs_double_mod17h71070c20d182365eE.exit.preheader, %_ZN4ring4limb16limbs_double_mod17h71070c20d182365eE.exit
-  %.sroa.03.036 = phi i64 [ %15, %_ZN4ring4limb16limbs_double_mod17h71070c20d182365eE.exit ], [ 0, %_ZN4ring4limb16limbs_double_mod17h71070c20d182365eE.exit.preheader ]
+  %.sroa.03.037 = phi i64 [ %15, %_ZN4ring4limb16limbs_double_mod17h71070c20d182365eE.exit ], [ 0, %_ZN4ring4limb16limbs_double_mod17h71070c20d182365eE.exit.preheader ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !65
   store i64 %.fca.1.extract, ptr %5, align 8, !noalias !65
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !65
@@ -1460,7 +1460,7 @@ define hidden { ptr, i64 } @_ZN4ring10arithmetic6bigint18elem_exp_consttime17ha6
 
 .preheader:                                       ; preds = %.noexc33, %_ZN4ring10arithmetic6bigint18elem_exp_consttime19scatter_powers_of_217h22efa0d9a4185a2dE.exit45
   %.sroa.01.174 = phi i64 [ %116, %_ZN4ring10arithmetic6bigint18elem_exp_consttime19scatter_powers_of_217h22efa0d9a4185a2dE.exit45 ], [ 5, %.noexc33 ]
-  %.sroa.5.173 = phi i64 [ %.sroa.5.175, %_ZN4ring10arithmetic6bigint18elem_exp_consttime19scatter_powers_of_217h22efa0d9a4185a2dE.exit45 ], [ 14, %.noexc33 ]
+  %.sroa.5.173 = phi i64 [ %.sroa.5.187, %_ZN4ring10arithmetic6bigint18elem_exp_consttime19scatter_powers_of_217h22efa0d9a4185a2dE.exit45 ], [ 14, %.noexc33 ]
   %.sroa.01.071 = phi i64 [ %.sroa.01.174, %_ZN4ring10arithmetic6bigint18elem_exp_consttime19scatter_powers_of_217h22efa0d9a4185a2dE.exit45 ], [ 3, %.noexc33 ]
   %82 = add i64 %.sroa.01.071, -1
   invoke void @ring_core_0_17_8__bn_mul_mont_gather5(ptr noundef nonnull align 8 %46, ptr noundef nonnull readonly align 8 %50, ptr noundef nonnull readonly align 8 %37, ptr noundef nonnull readonly align 8 %53, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %64, i64 noundef %1, i64 noundef %82)
@@ -1585,7 +1585,7 @@ _ZN4ring10arithmetic6bigint18elem_exp_consttime26limbs_mul_mont_gather5_amm17h87
 _ZN4ring10arithmetic6bigint18elem_exp_consttime19scatter_powers_of_217h22efa0d9a4185a2dE.exit45: ; preds = %.noexc44, %.noexc42
   %.not.not = icmp eq i64 %.sroa.5.173, 0
   %116 = add i64 %.sroa.01.174, 2
-  %.sroa.5.175 = add i64 %.sroa.5.173, -1
+  %.sroa.5.187 = add i64 %.sroa.5.173, -1
   br i1 %.not.not, label %68, label %.preheader
 
 117:                                              ; preds = %44
@@ -1814,7 +1814,7 @@ define hidden { ptr, i64 } @_ZN4ring10arithmetic6bigint18elem_exp_consttime17hdb
 
 .preheader:                                       ; preds = %.noexc33, %_ZN4ring10arithmetic6bigint18elem_exp_consttime19scatter_powers_of_217h22efa0d9a4185a2dE.exit45
   %.sroa.01.174 = phi i64 [ %116, %_ZN4ring10arithmetic6bigint18elem_exp_consttime19scatter_powers_of_217h22efa0d9a4185a2dE.exit45 ], [ 5, %.noexc33 ]
-  %.sroa.5.173 = phi i64 [ %.sroa.5.175, %_ZN4ring10arithmetic6bigint18elem_exp_consttime19scatter_powers_of_217h22efa0d9a4185a2dE.exit45 ], [ 14, %.noexc33 ]
+  %.sroa.5.173 = phi i64 [ %.sroa.5.187, %_ZN4ring10arithmetic6bigint18elem_exp_consttime19scatter_powers_of_217h22efa0d9a4185a2dE.exit45 ], [ 14, %.noexc33 ]
   %.sroa.01.071 = phi i64 [ %.sroa.01.174, %_ZN4ring10arithmetic6bigint18elem_exp_consttime19scatter_powers_of_217h22efa0d9a4185a2dE.exit45 ], [ 3, %.noexc33 ]
   %82 = add i64 %.sroa.01.071, -1
   invoke void @ring_core_0_17_8__bn_mul_mont_gather5(ptr noundef nonnull align 8 %46, ptr noundef nonnull readonly align 8 %50, ptr noundef nonnull readonly align 8 %37, ptr noundef nonnull readonly align 8 %53, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %64, i64 noundef %1, i64 noundef %82)
@@ -1939,7 +1939,7 @@ _ZN4ring10arithmetic6bigint18elem_exp_consttime26limbs_mul_mont_gather5_amm17h87
 _ZN4ring10arithmetic6bigint18elem_exp_consttime19scatter_powers_of_217h22efa0d9a4185a2dE.exit45: ; preds = %.noexc44, %.noexc42
   %.not.not = icmp eq i64 %.sroa.5.173, 0
   %116 = add i64 %.sroa.01.174, 2
-  %.sroa.5.175 = add i64 %.sroa.5.173, -1
+  %.sroa.5.187 = add i64 %.sroa.5.173, -1
   br i1 %.not.not, label %68, label %.preheader
 
 117:                                              ; preds = %44

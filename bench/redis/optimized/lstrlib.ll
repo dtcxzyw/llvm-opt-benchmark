@@ -2263,8 +2263,8 @@ matchbracketclass.exit.i148.loopexit:             ; preds = %359, %368, %370, %3
   br i1 %.022.in.i.i149.ph, label %singlematch.exit159.thread, label %.critedge.i
 
 375:                                              ; preds = %340
-  %.not421 = icmp eq i8 %342, %331
-  br i1 %.not421, label %singlematch.exit159.thread, label %.critedge.i
+  %.not480 = icmp eq i8 %342, %331
+  br i1 %.not480, label %singlematch.exit159.thread, label %.critedge.i
 
 singlematch.exit159:                              ; preds = %349
   br i1 %351, label %singlematch.exit159.thread, label %.critedge.i
@@ -2383,8 +2383,8 @@ matchbracketclass.exit.i162.loopexit:             ; preds = %411, %420, %422, %4
   br i1 %.022.in.i.i163.ph, label %singlematch.exit173.thread, label %.critedge.i133
 
 427:                                              ; preds = %392
-  %.not420 = icmp eq i8 %394, %388
-  br i1 %.not420, label %singlematch.exit173.thread, label %.critedge.i133
+  %.not479 = icmp eq i8 %394, %388
+  br i1 %.not479, label %singlematch.exit173.thread, label %.critedge.i133
 
 singlematch.exit173:                              ; preds = %401
   br i1 %403, label %singlematch.exit173.thread, label %.critedge.i133
@@ -2491,8 +2491,8 @@ matchbracketclass.exit.i176.loopexit:             ; preds = %458, %467, %469, %4
   br i1 %.022.in.i.i177.ph, label %singlematch.exit187.thread, label %start_capture.exit
 
 474:                                              ; preds = %439
-  %.not419 = icmp eq i8 %440, %442
-  br i1 %.not419, label %singlematch.exit187.thread, label %start_capture.exit
+  %.not478 = icmp eq i8 %440, %442
+  br i1 %.not478, label %singlematch.exit187.thread, label %start_capture.exit
 
 singlematch.exit187:                              ; preds = %448
   br i1 %450, label %singlematch.exit187.thread, label %start_capture.exit

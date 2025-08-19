@@ -1023,7 +1023,7 @@ define void @_ZN5arrow8internal25ComputeColumnMajorStridesERKNS_14FixedWidthType
   %23 = sext i32 %9 to i64
   %24 = add nsw i64 %16, -1
   %.not41.not = icmp eq i64 %24, 0
-  br i1 %.not41.not, label %.critedge.thread56, label %.lr.ph
+  br i1 %.not41.not, label %.critedge.thread69, label %.lr.ph
 
 .lr.ph:                                           ; preds = %22, %30
   %.02243 = phi i64 [ %32, %30 ], [ 0, %22 ]
@@ -1048,11 +1048,11 @@ define void @_ZN5arrow8internal25ComputeColumnMajorStridesERKNS_14FixedWidthType
   %33 = icmp eq i64 %31, 0
   br i1 %33, label %.critedge.thread, label %.lr.ph46
 
-.critedge.thread56:                               ; preds = %22
+.critedge.thread69:                               ; preds = %22
   %34 = icmp eq i32 %9, 0
   br i1 %34, label %.critedge.thread, label %.._crit_edge_crit_edge
 
-.critedge.thread:                                 ; preds = %.critedge.thread56, %18, %4, %.critedge
+.critedge.thread:                                 ; preds = %.critedge.thread69, %18, %4, %.critedge
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %35 = sext i32 %9 to i64
   store i64 %35, ptr %5, align 8, !tbaa !12
@@ -1061,7 +1061,7 @@ define void @_ZN5arrow8internal25ComputeColumnMajorStridesERKNS_14FixedWidthType
   store ptr null, ptr %0, align 8, !tbaa !16, !alias.scope !28
   br label %97
 
-.._crit_edge_crit_edge:                           ; preds = %.critedge.thread56
+.._crit_edge_crit_edge:                           ; preds = %.critedge.thread69
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.pre53 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !6
   %.phi.trans.insert54 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -1631,13 +1631,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit10.i: ; preds = %_
   %85 = getelementptr inbounds nuw i8, ptr %.sroa.025.044.i.i.i.i.i, i64 16
   %86 = load i64, ptr %85, align 8, !tbaa !12, !noalias !69
   %87 = icmp slt i64 %86, 0
-  br i1 %87, label %_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow12_GLOBAL__N_119CheckTensorValidityERKSt10shared_ptrINS8_8DataTypeEERKSA_INS8_6BufferEERKS6_EUllE_EbT_SM_T0_.exit.i.loopexit.split.loop.exit75, label %88
+  br i1 %87, label %_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow12_GLOBAL__N_119CheckTensorValidityERKSt10shared_ptrINS8_8DataTypeEERKSA_INS8_6BufferEERKS6_EUllE_EbT_SM_T0_.exit.i.loopexit.split.loop.exit92, label %88
 
 88:                                               ; preds = %84
   %89 = getelementptr inbounds nuw i8, ptr %.sroa.025.044.i.i.i.i.i, i64 24
   %90 = load i64, ptr %89, align 8, !tbaa !12, !noalias !69
   %91 = icmp slt i64 %90, 0
-  br i1 %91, label %_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow12_GLOBAL__N_119CheckTensorValidityERKSt10shared_ptrINS8_8DataTypeEERKSA_INS8_6BufferEERKS6_EUllE_EbT_SM_T0_.exit.i.loopexit.split.loop.exit77, label %92
+  br i1 %91, label %_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow12_GLOBAL__N_119CheckTensorValidityERKSt10shared_ptrINS8_8DataTypeEERKSA_INS8_6BufferEERKS6_EUllE_EbT_SM_T0_.exit.i.loopexit.split.loop.exit94, label %92
 
 92:                                               ; preds = %88
   %93 = getelementptr inbounds nuw i8, ptr %.sroa.025.044.i.i.i.i.i, i64 32
@@ -1690,16 +1690,16 @@ _ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow12_GLOB
   %110 = getelementptr inbounds nuw i8, ptr %.sroa.025.044.i.i.i.i.i, i64 8
   br label %_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow12_GLOBAL__N_119CheckTensorValidityERKSt10shared_ptrINS8_8DataTypeEERKSA_INS8_6BufferEERKS6_EUllE_EbT_SM_T0_.exit.i
 
-_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow12_GLOBAL__N_119CheckTensorValidityERKSt10shared_ptrINS8_8DataTypeEERKSA_INS8_6BufferEERKS6_EUllE_EbT_SM_T0_.exit.i.loopexit.split.loop.exit75: ; preds = %84
+_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow12_GLOBAL__N_119CheckTensorValidityERKSt10shared_ptrINS8_8DataTypeEERKSA_INS8_6BufferEERKS6_EUllE_EbT_SM_T0_.exit.i.loopexit.split.loop.exit92: ; preds = %84
   %111 = getelementptr inbounds nuw i8, ptr %.sroa.025.044.i.i.i.i.i, i64 16
   br label %_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow12_GLOBAL__N_119CheckTensorValidityERKSt10shared_ptrINS8_8DataTypeEERKSA_INS8_6BufferEERKS6_EUllE_EbT_SM_T0_.exit.i
 
-_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow12_GLOBAL__N_119CheckTensorValidityERKSt10shared_ptrINS8_8DataTypeEERKSA_INS8_6BufferEERKS6_EUllE_EbT_SM_T0_.exit.i.loopexit.split.loop.exit77: ; preds = %88
+_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow12_GLOBAL__N_119CheckTensorValidityERKSt10shared_ptrINS8_8DataTypeEERKSA_INS8_6BufferEERKS6_EUllE_EbT_SM_T0_.exit.i.loopexit.split.loop.exit94: ; preds = %88
   %112 = getelementptr inbounds nuw i8, ptr %.sroa.025.044.i.i.i.i.i, i64 24
   br label %_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow12_GLOBAL__N_119CheckTensorValidityERKSt10shared_ptrINS8_8DataTypeEERKSA_INS8_6BufferEERKS6_EUllE_EbT_SM_T0_.exit.i
 
-_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow12_GLOBAL__N_119CheckTensorValidityERKSt10shared_ptrINS8_8DataTypeEERKSA_INS8_6BufferEERKS6_EUllE_EbT_SM_T0_.exit.i: ; preds = %.lr.ph.i.i.i.i.i, %_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow12_GLOBAL__N_119CheckTensorValidityERKSt10shared_ptrINS8_8DataTypeEERKSA_INS8_6BufferEERKS6_EUllE_EbT_SM_T0_.exit.i.loopexit.split.loop.exit, %_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow12_GLOBAL__N_119CheckTensorValidityERKSt10shared_ptrINS8_8DataTypeEERKSA_INS8_6BufferEERKS6_EUllE_EbT_SM_T0_.exit.i.loopexit.split.loop.exit75, %_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow12_GLOBAL__N_119CheckTensorValidityERKSt10shared_ptrINS8_8DataTypeEERKSA_INS8_6BufferEERKS6_EUllE_EbT_SM_T0_.exit.i.loopexit.split.loop.exit77, %107, %102, %97
-  %.sroa.08.0.in.sroa.speculated.i.i.i.i.i = phi ptr [ %.sroa.025.0.lcssa.i.i.i.i.i, %97 ], [ %.sroa.025.1.i.i.i.i.i, %102 ], [ %spec.select.i.i.i.i.i, %107 ], [ %110, %_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow12_GLOBAL__N_119CheckTensorValidityERKSt10shared_ptrINS8_8DataTypeEERKSA_INS8_6BufferEERKS6_EUllE_EbT_SM_T0_.exit.i.loopexit.split.loop.exit ], [ %111, %_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow12_GLOBAL__N_119CheckTensorValidityERKSt10shared_ptrINS8_8DataTypeEERKSA_INS8_6BufferEERKS6_EUllE_EbT_SM_T0_.exit.i.loopexit.split.loop.exit75 ], [ %112, %_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow12_GLOBAL__N_119CheckTensorValidityERKSt10shared_ptrINS8_8DataTypeEERKSA_INS8_6BufferEERKS6_EUllE_EbT_SM_T0_.exit.i.loopexit.split.loop.exit77 ], [ %.sroa.025.044.i.i.i.i.i, %.lr.ph.i.i.i.i.i ]
+_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow12_GLOBAL__N_119CheckTensorValidityERKSt10shared_ptrINS8_8DataTypeEERKSA_INS8_6BufferEERKS6_EUllE_EbT_SM_T0_.exit.i: ; preds = %.lr.ph.i.i.i.i.i, %_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow12_GLOBAL__N_119CheckTensorValidityERKSt10shared_ptrINS8_8DataTypeEERKSA_INS8_6BufferEERKS6_EUllE_EbT_SM_T0_.exit.i.loopexit.split.loop.exit, %_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow12_GLOBAL__N_119CheckTensorValidityERKSt10shared_ptrINS8_8DataTypeEERKSA_INS8_6BufferEERKS6_EUllE_EbT_SM_T0_.exit.i.loopexit.split.loop.exit92, %_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow12_GLOBAL__N_119CheckTensorValidityERKSt10shared_ptrINS8_8DataTypeEERKSA_INS8_6BufferEERKS6_EUllE_EbT_SM_T0_.exit.i.loopexit.split.loop.exit94, %107, %102, %97
+  %.sroa.08.0.in.sroa.speculated.i.i.i.i.i = phi ptr [ %.sroa.025.0.lcssa.i.i.i.i.i, %97 ], [ %.sroa.025.1.i.i.i.i.i, %102 ], [ %spec.select.i.i.i.i.i, %107 ], [ %110, %_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow12_GLOBAL__N_119CheckTensorValidityERKSt10shared_ptrINS8_8DataTypeEERKSA_INS8_6BufferEERKS6_EUllE_EbT_SM_T0_.exit.i.loopexit.split.loop.exit ], [ %111, %_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow12_GLOBAL__N_119CheckTensorValidityERKSt10shared_ptrINS8_8DataTypeEERKSA_INS8_6BufferEERKS6_EUllE_EbT_SM_T0_.exit.i.loopexit.split.loop.exit92 ], [ %112, %_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEZN5arrow12_GLOBAL__N_119CheckTensorValidityERKSt10shared_ptrINS8_8DataTypeEERKSA_INS8_6BufferEERKS6_EUllE_EbT_SM_T0_.exit.i.loopexit.split.loop.exit94 ], [ %.sroa.025.044.i.i.i.i.i, %.lr.ph.i.i.i.i.i ]
   %113 = icmp eq ptr %.val29, %.sroa.08.0.in.sroa.speculated.i.i.i.i.i
   br i1 %113, label %_ZN5arrow6StatusD2Ev.exit36.thread, label %114
 
@@ -1779,13 +1779,13 @@ _ZN5arrow6StatusD2Ev.exit:                        ; preds = %114, %70, %_ZNSt7__
   %147 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i.i, i64 16
   %148 = load i64, ptr %147, align 8, !tbaa !12, !noalias !103
   %149 = icmp eq i64 %148, 0
-  br i1 %149, label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEiET_S8_S8_RKT0_.exit.i.loopexit.split.loop.exit83, label %150
+  br i1 %149, label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEiET_S8_S8_RKT0_.exit.i.loopexit.split.loop.exit100, label %150
 
 150:                                              ; preds = %146
   %151 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i.i, i64 24
   %152 = load i64, ptr %151, align 8, !tbaa !12, !noalias !103
   %153 = icmp eq i64 %152, 0
-  br i1 %153, label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEiET_S8_S8_RKT0_.exit.i.loopexit.split.loop.exit85, label %154
+  br i1 %153, label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEiET_S8_S8_RKT0_.exit.i.loopexit.split.loop.exit102, label %154
 
 154:                                              ; preds = %150
   %155 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i.i, i64 32
@@ -1838,16 +1838,16 @@ _ZSt4findIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEiET_S8_S8_RKT0_.e
   %170 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i.i, i64 8
   br label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEiET_S8_S8_RKT0_.exit.i
 
-_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEiET_S8_S8_RKT0_.exit.i.loopexit.split.loop.exit83: ; preds = %146
+_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEiET_S8_S8_RKT0_.exit.i.loopexit.split.loop.exit100: ; preds = %146
   %171 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i.i, i64 16
   br label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEiET_S8_S8_RKT0_.exit.i
 
-_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEiET_S8_S8_RKT0_.exit.i.loopexit.split.loop.exit85: ; preds = %150
+_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEiET_S8_S8_RKT0_.exit.i.loopexit.split.loop.exit102: ; preds = %150
   %172 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i.i, i64 24
   br label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEiET_S8_S8_RKT0_.exit.i
 
-_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEiET_S8_S8_RKT0_.exit.i: ; preds = %139, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEiET_S8_S8_RKT0_.exit.i.loopexit.split.loop.exit, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEiET_S8_S8_RKT0_.exit.i.loopexit.split.loop.exit83, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEiET_S8_S8_RKT0_.exit.i.loopexit.split.loop.exit85, %._crit_edge._crit_edge57.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i, %159
-  %.sroa.08.0.in.sroa.speculated.i.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i, %159 ], [ %.sroa.032.1.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ], [ %spec.select.i.i.i.i, %._crit_edge._crit_edge57.i.i.i.i ], [ %170, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEiET_S8_S8_RKT0_.exit.i.loopexit.split.loop.exit ], [ %171, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEiET_S8_S8_RKT0_.exit.i.loopexit.split.loop.exit83 ], [ %172, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEiET_S8_S8_RKT0_.exit.i.loopexit.split.loop.exit85 ], [ %.sroa.032.051.i.i.i.i, %139 ]
+_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEiET_S8_S8_RKT0_.exit.i: ; preds = %139, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEiET_S8_S8_RKT0_.exit.i.loopexit.split.loop.exit, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEiET_S8_S8_RKT0_.exit.i.loopexit.split.loop.exit100, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEiET_S8_S8_RKT0_.exit.i.loopexit.split.loop.exit102, %._crit_edge._crit_edge57.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i, %159
+  %.sroa.08.0.in.sroa.speculated.i.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i, %159 ], [ %.sroa.032.1.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ], [ %spec.select.i.i.i.i, %._crit_edge._crit_edge57.i.i.i.i ], [ %170, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEiET_S8_S8_RKT0_.exit.i.loopexit.split.loop.exit ], [ %171, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEiET_S8_S8_RKT0_.exit.i.loopexit.split.loop.exit100 ], [ %172, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKlSt6vectorIlSaIlEEEEiET_S8_S8_RKT0_.exit.i.loopexit.split.loop.exit102 ], [ %.sroa.032.051.i.i.i.i, %139 ]
   %.not14.i = icmp eq ptr %.sroa.08.0.in.sroa.speculated.i.i.i.i, %.val31
   br i1 %.not14.i, label %.lr.ph.preheader.i, label %_ZN5arrow6StatusD2Ev.exit41.thread
 
@@ -11261,8 +11261,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %78
   %88 = getelementptr inbounds nuw i8, ptr %60, i64 24
   %89 = load atomic i64, ptr %88 seq_cst, align 8
   %90 = load i64, ptr %59, align 8, !tbaa !389
-  %.not20 = icmp eq i64 %89, %90
-  br i1 %.not20, label %94, label %91
+  %.not24 = icmp eq i64 %89, %90
+  br i1 %.not24, label %94, label %91
 
 91:                                               ; preds = %86, %84, %82, %64, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %92 = getelementptr inbounds nuw i8, ptr %16, i64 %.015
@@ -11453,8 +11453,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %78
   %88 = getelementptr inbounds nuw i8, ptr %60, i64 24
   %89 = load atomic i64, ptr %88 seq_cst, align 8
   %90 = load i64, ptr %59, align 8, !tbaa !389
-  %.not20 = icmp eq i64 %89, %90
-  br i1 %.not20, label %94, label %91
+  %.not24 = icmp eq i64 %89, %90
+  br i1 %.not24, label %94, label %91
 
 91:                                               ; preds = %86, %84, %82, %64, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %92 = getelementptr inbounds nuw i8, ptr %16, i64 %.015
@@ -11646,8 +11646,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %79
   %89 = getelementptr inbounds nuw i8, ptr %61, i64 24
   %90 = load atomic i64, ptr %89 seq_cst, align 8
   %91 = load i64, ptr %60, align 8, !tbaa !389
-  %.not20 = icmp eq i64 %90, %91
-  br i1 %.not20, label %96, label %92
+  %.not24 = icmp eq i64 %90, %91
+  br i1 %.not24, label %96, label %92
 
 92:                                               ; preds = %87, %85, %83, %65, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %93 = getelementptr inbounds nuw i16, ptr %16, i64 %.015
@@ -11840,8 +11840,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %79
   %89 = getelementptr inbounds nuw i8, ptr %61, i64 24
   %90 = load atomic i64, ptr %89 seq_cst, align 8
   %91 = load i64, ptr %60, align 8, !tbaa !389
-  %.not20 = icmp eq i64 %90, %91
-  br i1 %.not20, label %96, label %92
+  %.not24 = icmp eq i64 %90, %91
+  br i1 %.not24, label %96, label %92
 
 92:                                               ; preds = %87, %85, %83, %65, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %93 = getelementptr inbounds nuw i16, ptr %16, i64 %.015
@@ -12034,8 +12034,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %79
   %89 = getelementptr inbounds nuw i8, ptr %61, i64 24
   %90 = load atomic i64, ptr %89 seq_cst, align 8
   %91 = load i64, ptr %60, align 8, !tbaa !389
-  %.not20 = icmp eq i64 %90, %91
-  br i1 %.not20, label %96, label %92
+  %.not24 = icmp eq i64 %90, %91
+  br i1 %.not24, label %96, label %92
 
 92:                                               ; preds = %87, %85, %83, %65, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %93 = getelementptr inbounds nuw i32, ptr %16, i64 %.015
@@ -12228,8 +12228,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %79
   %89 = getelementptr inbounds nuw i8, ptr %61, i64 24
   %90 = load atomic i64, ptr %89 seq_cst, align 8
   %91 = load i64, ptr %60, align 8, !tbaa !389
-  %.not20 = icmp eq i64 %90, %91
-  br i1 %.not20, label %96, label %92
+  %.not24 = icmp eq i64 %90, %91
+  br i1 %.not24, label %96, label %92
 
 92:                                               ; preds = %87, %85, %83, %65, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %93 = getelementptr inbounds nuw i32, ptr %16, i64 %.015
@@ -12422,8 +12422,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %79
   %89 = getelementptr inbounds nuw i8, ptr %61, i64 24
   %90 = load atomic i64, ptr %89 seq_cst, align 8
   %91 = load i64, ptr %60, align 8, !tbaa !389
-  %.not20 = icmp eq i64 %90, %91
-  br i1 %.not20, label %96, label %92
+  %.not24 = icmp eq i64 %90, %91
+  br i1 %.not24, label %96, label %92
 
 92:                                               ; preds = %87, %85, %83, %65, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %93 = getelementptr inbounds nuw i64, ptr %16, i64 %.015
@@ -12616,8 +12616,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %79
   %89 = getelementptr inbounds nuw i8, ptr %61, i64 24
   %90 = load atomic i64, ptr %89 seq_cst, align 8
   %91 = load i64, ptr %60, align 8, !tbaa !389
-  %.not20 = icmp eq i64 %90, %91
-  br i1 %.not20, label %96, label %92
+  %.not24 = icmp eq i64 %90, %91
+  br i1 %.not24, label %96, label %92
 
 92:                                               ; preds = %87, %85, %83, %65, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %93 = getelementptr inbounds nuw i64, ptr %16, i64 %.015
@@ -12810,8 +12810,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %79
   %89 = getelementptr inbounds nuw i8, ptr %61, i64 24
   %90 = load atomic i64, ptr %89 seq_cst, align 8
   %91 = load i64, ptr %60, align 8, !tbaa !389
-  %.not20 = icmp eq i64 %90, %91
-  br i1 %.not20, label %96, label %92
+  %.not24 = icmp eq i64 %90, %91
+  br i1 %.not24, label %96, label %92
 
 92:                                               ; preds = %87, %85, %83, %65, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %93 = getelementptr inbounds nuw i16, ptr %16, i64 %.015
@@ -13004,8 +13004,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %79
   %89 = getelementptr inbounds nuw i8, ptr %61, i64 24
   %90 = load atomic i64, ptr %89 seq_cst, align 8
   %91 = load i64, ptr %60, align 8, !tbaa !389
-  %.not20 = icmp eq i64 %90, %91
-  br i1 %.not20, label %96, label %92
+  %.not24 = icmp eq i64 %90, %91
+  br i1 %.not24, label %96, label %92
 
 92:                                               ; preds = %87, %85, %83, %65, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %93 = getelementptr inbounds nuw float, ptr %16, i64 %.015
@@ -13198,8 +13198,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %79
   %89 = getelementptr inbounds nuw i8, ptr %61, i64 24
   %90 = load atomic i64, ptr %89 seq_cst, align 8
   %91 = load i64, ptr %60, align 8, !tbaa !389
-  %.not20 = icmp eq i64 %90, %91
-  br i1 %.not20, label %96, label %92
+  %.not24 = icmp eq i64 %90, %91
+  br i1 %.not24, label %96, label %92
 
 92:                                               ; preds = %87, %85, %83, %65, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %93 = getelementptr inbounds nuw double, ptr %16, i64 %.015
@@ -13517,8 +13517,8 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %63 = and i32 %62, 7
   %64 = shl nuw nsw i32 1, %63
   %65 = and i32 %64, %61
-  %.not23 = icmp eq i32 %65, 0
-  br i1 %.not23, label %82, label %79
+  %.not27 = icmp eq i32 %65, 0
+  br i1 %.not27, label %82, label %79
 
 66:                                               ; preds = %.lr.ph
   %67 = load ptr, ptr %48, align 8, !tbaa !35
@@ -13546,8 +13546,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %66
   %76 = getelementptr inbounds nuw i8, ptr %48, i64 24
   %77 = load atomic i64, ptr %76 seq_cst, align 8
   %78 = load i64, ptr %47, align 8, !tbaa !389
-  %.not24 = icmp eq i64 %77, %78
-  br i1 %.not24, label %82, label %79
+  %.not28 = icmp eq i64 %77, %78
+  br i1 %.not28, label %82, label %79
 
 79:                                               ; preds = %74, %72, %70, %52, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %80 = getelementptr inbounds nuw i8, ptr %19, i64 %.017
@@ -13712,8 +13712,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %65
   %75 = getelementptr inbounds nuw i8, ptr %47, i64 24
   %76 = load atomic i64, ptr %75 seq_cst, align 8
   %77 = load i64, ptr %46, align 8, !tbaa !389
-  %.not9 = icmp eq i64 %76, %77
-  br i1 %.not9, label %81, label %78
+  %.not13 = icmp eq i64 %76, %77
+  br i1 %.not13, label %81, label %78
 
 78:                                               ; preds = %73, %71, %69, %51, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %79 = getelementptr inbounds nuw i8, ptr %19, i64 %.08
@@ -13858,8 +13858,8 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %64 = and i32 %63, 7
   %65 = shl nuw nsw i32 1, %64
   %66 = and i32 %65, %62
-  %.not23 = icmp eq i32 %66, 0
-  br i1 %.not23, label %84, label %80
+  %.not27 = icmp eq i32 %66, 0
+  br i1 %.not27, label %84, label %80
 
 67:                                               ; preds = %.lr.ph
   %68 = load ptr, ptr %49, align 8, !tbaa !35
@@ -13887,8 +13887,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %67
   %77 = getelementptr inbounds nuw i8, ptr %49, i64 24
   %78 = load atomic i64, ptr %77 seq_cst, align 8
   %79 = load i64, ptr %48, align 8, !tbaa !389
-  %.not24 = icmp eq i64 %78, %79
-  br i1 %.not24, label %84, label %80
+  %.not28 = icmp eq i64 %78, %79
+  br i1 %.not28, label %84, label %80
 
 80:                                               ; preds = %75, %73, %71, %53, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %81 = getelementptr inbounds nuw i16, ptr %19, i64 %.017
@@ -14034,8 +14034,8 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %64 = and i32 %63, 7
   %65 = shl nuw nsw i32 1, %64
   %66 = and i32 %65, %62
-  %.not23 = icmp eq i32 %66, 0
-  br i1 %.not23, label %84, label %80
+  %.not27 = icmp eq i32 %66, 0
+  br i1 %.not27, label %84, label %80
 
 67:                                               ; preds = %.lr.ph
   %68 = load ptr, ptr %49, align 8, !tbaa !35
@@ -14063,8 +14063,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %67
   %77 = getelementptr inbounds nuw i8, ptr %49, i64 24
   %78 = load atomic i64, ptr %77 seq_cst, align 8
   %79 = load i64, ptr %48, align 8, !tbaa !389
-  %.not24 = icmp eq i64 %78, %79
-  br i1 %.not24, label %84, label %80
+  %.not28 = icmp eq i64 %78, %79
+  br i1 %.not28, label %84, label %80
 
 80:                                               ; preds = %75, %73, %71, %53, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %81 = getelementptr inbounds nuw i16, ptr %19, i64 %.017
@@ -14210,8 +14210,8 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %64 = and i32 %63, 7
   %65 = shl nuw nsw i32 1, %64
   %66 = and i32 %65, %62
-  %.not23 = icmp eq i32 %66, 0
-  br i1 %.not23, label %84, label %80
+  %.not27 = icmp eq i32 %66, 0
+  br i1 %.not27, label %84, label %80
 
 67:                                               ; preds = %.lr.ph
   %68 = load ptr, ptr %49, align 8, !tbaa !35
@@ -14239,8 +14239,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %67
   %77 = getelementptr inbounds nuw i8, ptr %49, i64 24
   %78 = load atomic i64, ptr %77 seq_cst, align 8
   %79 = load i64, ptr %48, align 8, !tbaa !389
-  %.not24 = icmp eq i64 %78, %79
-  br i1 %.not24, label %84, label %80
+  %.not28 = icmp eq i64 %78, %79
+  br i1 %.not28, label %84, label %80
 
 80:                                               ; preds = %75, %73, %71, %53, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %81 = getelementptr inbounds nuw i32, ptr %19, i64 %.017
@@ -14386,8 +14386,8 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %64 = and i32 %63, 7
   %65 = shl nuw nsw i32 1, %64
   %66 = and i32 %65, %62
-  %.not23 = icmp eq i32 %66, 0
-  br i1 %.not23, label %84, label %80
+  %.not27 = icmp eq i32 %66, 0
+  br i1 %.not27, label %84, label %80
 
 67:                                               ; preds = %.lr.ph
   %68 = load ptr, ptr %49, align 8, !tbaa !35
@@ -14415,8 +14415,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %67
   %77 = getelementptr inbounds nuw i8, ptr %49, i64 24
   %78 = load atomic i64, ptr %77 seq_cst, align 8
   %79 = load i64, ptr %48, align 8, !tbaa !389
-  %.not24 = icmp eq i64 %78, %79
-  br i1 %.not24, label %84, label %80
+  %.not28 = icmp eq i64 %78, %79
+  br i1 %.not28, label %84, label %80
 
 80:                                               ; preds = %75, %73, %71, %53, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %81 = getelementptr inbounds nuw i32, ptr %19, i64 %.017
@@ -14562,8 +14562,8 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %64 = and i32 %63, 7
   %65 = shl nuw nsw i32 1, %64
   %66 = and i32 %65, %62
-  %.not23 = icmp eq i32 %66, 0
-  br i1 %.not23, label %84, label %80
+  %.not27 = icmp eq i32 %66, 0
+  br i1 %.not27, label %84, label %80
 
 67:                                               ; preds = %.lr.ph
   %68 = load ptr, ptr %49, align 8, !tbaa !35
@@ -14591,8 +14591,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %67
   %77 = getelementptr inbounds nuw i8, ptr %49, i64 24
   %78 = load atomic i64, ptr %77 seq_cst, align 8
   %79 = load i64, ptr %48, align 8, !tbaa !389
-  %.not24 = icmp eq i64 %78, %79
-  br i1 %.not24, label %84, label %80
+  %.not28 = icmp eq i64 %78, %79
+  br i1 %.not28, label %84, label %80
 
 80:                                               ; preds = %75, %73, %71, %53, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %81 = getelementptr inbounds nuw i64, ptr %19, i64 %.017
@@ -14738,8 +14738,8 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %64 = and i32 %63, 7
   %65 = shl nuw nsw i32 1, %64
   %66 = and i32 %65, %62
-  %.not23 = icmp eq i32 %66, 0
-  br i1 %.not23, label %84, label %80
+  %.not27 = icmp eq i32 %66, 0
+  br i1 %.not27, label %84, label %80
 
 67:                                               ; preds = %.lr.ph
   %68 = load ptr, ptr %49, align 8, !tbaa !35
@@ -14767,8 +14767,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %67
   %77 = getelementptr inbounds nuw i8, ptr %49, i64 24
   %78 = load atomic i64, ptr %77 seq_cst, align 8
   %79 = load i64, ptr %48, align 8, !tbaa !389
-  %.not24 = icmp eq i64 %78, %79
-  br i1 %.not24, label %84, label %80
+  %.not28 = icmp eq i64 %78, %79
+  br i1 %.not28, label %84, label %80
 
 80:                                               ; preds = %75, %73, %71, %53, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %81 = getelementptr inbounds nuw i64, ptr %19, i64 %.017
@@ -14914,8 +14914,8 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %64 = and i32 %63, 7
   %65 = shl nuw nsw i32 1, %64
   %66 = and i32 %65, %62
-  %.not23 = icmp eq i32 %66, 0
-  br i1 %.not23, label %84, label %80
+  %.not27 = icmp eq i32 %66, 0
+  br i1 %.not27, label %84, label %80
 
 67:                                               ; preds = %.lr.ph
   %68 = load ptr, ptr %49, align 8, !tbaa !35
@@ -14943,8 +14943,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %67
   %77 = getelementptr inbounds nuw i8, ptr %49, i64 24
   %78 = load atomic i64, ptr %77 seq_cst, align 8
   %79 = load i64, ptr %48, align 8, !tbaa !389
-  %.not24 = icmp eq i64 %78, %79
-  br i1 %.not24, label %84, label %80
+  %.not28 = icmp eq i64 %78, %79
+  br i1 %.not28, label %84, label %80
 
 80:                                               ; preds = %75, %73, %71, %53, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %81 = getelementptr inbounds nuw i16, ptr %19, i64 %.017
@@ -15090,8 +15090,8 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %64 = and i32 %63, 7
   %65 = shl nuw nsw i32 1, %64
   %66 = and i32 %65, %62
-  %.not23 = icmp eq i32 %66, 0
-  br i1 %.not23, label %84, label %80
+  %.not27 = icmp eq i32 %66, 0
+  br i1 %.not27, label %84, label %80
 
 67:                                               ; preds = %.lr.ph
   %68 = load ptr, ptr %49, align 8, !tbaa !35
@@ -15119,8 +15119,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %67
   %77 = getelementptr inbounds nuw i8, ptr %49, i64 24
   %78 = load atomic i64, ptr %77 seq_cst, align 8
   %79 = load i64, ptr %48, align 8, !tbaa !389
-  %.not24 = icmp eq i64 %78, %79
-  br i1 %.not24, label %84, label %80
+  %.not28 = icmp eq i64 %78, %79
+  br i1 %.not28, label %84, label %80
 
 80:                                               ; preds = %75, %73, %71, %53, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %81 = getelementptr inbounds nuw float, ptr %19, i64 %.017
@@ -15266,8 +15266,8 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %64 = and i32 %63, 7
   %65 = shl nuw nsw i32 1, %64
   %66 = and i32 %65, %62
-  %.not23 = icmp eq i32 %66, 0
-  br i1 %.not23, label %84, label %80
+  %.not27 = icmp eq i32 %66, 0
+  br i1 %.not27, label %84, label %80
 
 67:                                               ; preds = %.lr.ph
   %68 = load ptr, ptr %49, align 8, !tbaa !35
@@ -15295,8 +15295,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %67
   %77 = getelementptr inbounds nuw i8, ptr %49, i64 24
   %78 = load atomic i64, ptr %77 seq_cst, align 8
   %79 = load i64, ptr %48, align 8, !tbaa !389
-  %.not24 = icmp eq i64 %78, %79
-  br i1 %.not24, label %84, label %80
+  %.not28 = icmp eq i64 %78, %79
+  br i1 %.not28, label %84, label %80
 
 80:                                               ; preds = %75, %73, %71, %53, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %81 = getelementptr inbounds nuw double, ptr %19, i64 %.017
@@ -15961,8 +15961,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %73
   %83 = getelementptr inbounds nuw i8, ptr %55, i64 24
   %84 = load atomic i64, ptr %83 seq_cst, align 8
   %85 = load i64, ptr %54, align 8, !tbaa !389
-  %.not20 = icmp eq i64 %84, %85
-  br i1 %.not20, label %90, label %86
+  %.not25 = icmp eq i64 %84, %85
+  br i1 %.not25, label %90, label %86
 
 86:                                               ; preds = %81, %79, %77, %59, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %87 = getelementptr inbounds nuw i8, ptr %16, i64 %.015
@@ -16152,8 +16152,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %73
   %83 = getelementptr inbounds nuw i8, ptr %55, i64 24
   %84 = load atomic i64, ptr %83 seq_cst, align 8
   %85 = load i64, ptr %54, align 8, !tbaa !389
-  %.not20 = icmp eq i64 %84, %85
-  br i1 %.not20, label %90, label %86
+  %.not25 = icmp eq i64 %84, %85
+  br i1 %.not25, label %90, label %86
 
 86:                                               ; preds = %81, %79, %77, %59, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %87 = getelementptr inbounds nuw i8, ptr %16, i64 %.015
@@ -16342,8 +16342,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %72
   %82 = getelementptr inbounds nuw i8, ptr %54, i64 24
   %83 = load atomic i64, ptr %82 seq_cst, align 8
   %84 = load i64, ptr %53, align 8, !tbaa !389
-  %.not20 = icmp eq i64 %83, %84
-  br i1 %.not20, label %88, label %85
+  %.not25 = icmp eq i64 %83, %84
+  br i1 %.not25, label %88, label %85
 
 85:                                               ; preds = %80, %78, %76, %58, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %86 = getelementptr inbounds nuw i16, ptr %16, i64 %.015
@@ -16531,8 +16531,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %72
   %82 = getelementptr inbounds nuw i8, ptr %54, i64 24
   %83 = load atomic i64, ptr %82 seq_cst, align 8
   %84 = load i64, ptr %53, align 8, !tbaa !389
-  %.not20 = icmp eq i64 %83, %84
-  br i1 %.not20, label %88, label %85
+  %.not25 = icmp eq i64 %83, %84
+  br i1 %.not25, label %88, label %85
 
 85:                                               ; preds = %80, %78, %76, %58, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %86 = getelementptr inbounds nuw i16, ptr %16, i64 %.015
@@ -16721,8 +16721,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %73
   %83 = getelementptr inbounds nuw i8, ptr %55, i64 24
   %84 = load atomic i64, ptr %83 seq_cst, align 8
   %85 = load i64, ptr %54, align 8, !tbaa !389
-  %.not20 = icmp eq i64 %84, %85
-  br i1 %.not20, label %90, label %86
+  %.not25 = icmp eq i64 %84, %85
+  br i1 %.not25, label %90, label %86
 
 86:                                               ; preds = %81, %79, %77, %59, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %87 = getelementptr inbounds nuw i32, ptr %16, i64 %.015
@@ -16912,8 +16912,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %73
   %83 = getelementptr inbounds nuw i8, ptr %55, i64 24
   %84 = load atomic i64, ptr %83 seq_cst, align 8
   %85 = load i64, ptr %54, align 8, !tbaa !389
-  %.not20 = icmp eq i64 %84, %85
-  br i1 %.not20, label %90, label %86
+  %.not25 = icmp eq i64 %84, %85
+  br i1 %.not25, label %90, label %86
 
 86:                                               ; preds = %81, %79, %77, %59, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %87 = getelementptr inbounds nuw i32, ptr %16, i64 %.015
@@ -17103,8 +17103,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %73
   %83 = getelementptr inbounds nuw i8, ptr %55, i64 24
   %84 = load atomic i64, ptr %83 seq_cst, align 8
   %85 = load i64, ptr %54, align 8, !tbaa !389
-  %.not20 = icmp eq i64 %84, %85
-  br i1 %.not20, label %90, label %86
+  %.not25 = icmp eq i64 %84, %85
+  br i1 %.not25, label %90, label %86
 
 86:                                               ; preds = %81, %79, %77, %59, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %87 = getelementptr inbounds nuw i64, ptr %16, i64 %.015
@@ -17294,8 +17294,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %73
   %83 = getelementptr inbounds nuw i8, ptr %55, i64 24
   %84 = load atomic i64, ptr %83 seq_cst, align 8
   %85 = load i64, ptr %54, align 8, !tbaa !389
-  %.not20 = icmp eq i64 %84, %85
-  br i1 %.not20, label %90, label %86
+  %.not25 = icmp eq i64 %84, %85
+  br i1 %.not25, label %90, label %86
 
 86:                                               ; preds = %81, %79, %77, %59, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %87 = getelementptr inbounds nuw i64, ptr %16, i64 %.015
@@ -17484,8 +17484,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %72
   %82 = getelementptr inbounds nuw i8, ptr %54, i64 24
   %83 = load atomic i64, ptr %82 seq_cst, align 8
   %84 = load i64, ptr %53, align 8, !tbaa !389
-  %.not20 = icmp eq i64 %83, %84
-  br i1 %.not20, label %88, label %85
+  %.not25 = icmp eq i64 %83, %84
+  br i1 %.not25, label %88, label %85
 
 85:                                               ; preds = %80, %78, %76, %58, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %86 = getelementptr inbounds nuw i16, ptr %16, i64 %.015
@@ -17674,8 +17674,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %73
   %83 = getelementptr inbounds nuw i8, ptr %55, i64 24
   %84 = load atomic i64, ptr %83 seq_cst, align 8
   %85 = load i64, ptr %54, align 8, !tbaa !389
-  %.not20 = icmp eq i64 %84, %85
-  br i1 %.not20, label %90, label %86
+  %.not25 = icmp eq i64 %84, %85
+  br i1 %.not25, label %90, label %86
 
 86:                                               ; preds = %81, %79, %77, %59, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %87 = getelementptr inbounds nuw float, ptr %16, i64 %.015
@@ -17865,8 +17865,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %73
   %83 = getelementptr inbounds nuw i8, ptr %55, i64 24
   %84 = load atomic i64, ptr %83 seq_cst, align 8
   %85 = load i64, ptr %54, align 8, !tbaa !389
-  %.not20 = icmp eq i64 %84, %85
-  br i1 %.not20, label %90, label %86
+  %.not25 = icmp eq i64 %84, %85
+  br i1 %.not25, label %90, label %86
 
 86:                                               ; preds = %81, %79, %77, %59, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %87 = getelementptr inbounds nuw double, ptr %16, i64 %.015
@@ -18020,8 +18020,8 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %65 = and i32 %64, 7
   %66 = shl nuw nsw i32 1, %65
   %67 = and i32 %66, %63
-  %.not23 = icmp eq i32 %67, 0
-  br i1 %.not23, label %85, label %81
+  %.not27 = icmp eq i32 %67, 0
+  br i1 %.not27, label %85, label %81
 
 68:                                               ; preds = %.lr.ph
   %69 = load ptr, ptr %50, align 8, !tbaa !35
@@ -18049,8 +18049,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %68
   %78 = getelementptr inbounds nuw i8, ptr %50, i64 24
   %79 = load atomic i64, ptr %78 seq_cst, align 8
   %80 = load i64, ptr %49, align 8, !tbaa !389
-  %.not24 = icmp eq i64 %79, %80
-  br i1 %.not24, label %85, label %81
+  %.not28 = icmp eq i64 %79, %80
+  br i1 %.not28, label %85, label %81
 
 81:                                               ; preds = %76, %74, %72, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %82 = getelementptr inbounds nuw i8, ptr %19, i64 %.017
@@ -18199,8 +18199,8 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %65 = and i32 %64, 7
   %66 = shl nuw nsw i32 1, %65
   %67 = and i32 %66, %63
-  %.not23 = icmp eq i32 %67, 0
-  br i1 %.not23, label %85, label %81
+  %.not27 = icmp eq i32 %67, 0
+  br i1 %.not27, label %85, label %81
 
 68:                                               ; preds = %.lr.ph
   %69 = load ptr, ptr %50, align 8, !tbaa !35
@@ -18228,8 +18228,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %68
   %78 = getelementptr inbounds nuw i8, ptr %50, i64 24
   %79 = load atomic i64, ptr %78 seq_cst, align 8
   %80 = load i64, ptr %49, align 8, !tbaa !389
-  %.not24 = icmp eq i64 %79, %80
-  br i1 %.not24, label %85, label %81
+  %.not28 = icmp eq i64 %79, %80
+  br i1 %.not28, label %85, label %81
 
 81:                                               ; preds = %76, %74, %72, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %82 = getelementptr inbounds nuw i8, ptr %19, i64 %.017
@@ -18377,8 +18377,8 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %64 = and i32 %63, 7
   %65 = shl nuw nsw i32 1, %64
   %66 = and i32 %65, %62
-  %.not21 = icmp eq i32 %66, 0
-  br i1 %.not21, label %83, label %80
+  %.not25 = icmp eq i32 %66, 0
+  br i1 %.not25, label %83, label %80
 
 67:                                               ; preds = %.lr.ph
   %68 = load ptr, ptr %49, align 8, !tbaa !35
@@ -18406,8 +18406,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %67
   %77 = getelementptr inbounds nuw i8, ptr %49, i64 24
   %78 = load atomic i64, ptr %77 seq_cst, align 8
   %79 = load i64, ptr %48, align 8, !tbaa !389
-  %.not22 = icmp eq i64 %78, %79
-  br i1 %.not22, label %83, label %80
+  %.not26 = icmp eq i64 %78, %79
+  br i1 %.not26, label %83, label %80
 
 80:                                               ; preds = %75, %73, %71, %53, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %81 = getelementptr inbounds nuw i16, ptr %19, i64 %.017
@@ -18577,8 +18577,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %66
   %76 = getelementptr inbounds nuw i8, ptr %48, i64 24
   %77 = load atomic i64, ptr %76 seq_cst, align 8
   %78 = load i64, ptr %47, align 8, !tbaa !389
-  %.not9 = icmp eq i64 %77, %78
-  br i1 %.not9, label %82, label %79
+  %.not13 = icmp eq i64 %77, %78
+  br i1 %.not13, label %82, label %79
 
 79:                                               ; preds = %74, %72, %70, %52, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %80 = getelementptr inbounds nuw i16, ptr %19, i64 %.08
@@ -18726,8 +18726,8 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %65 = and i32 %64, 7
   %66 = shl nuw nsw i32 1, %65
   %67 = and i32 %66, %63
-  %.not21 = icmp eq i32 %67, 0
-  br i1 %.not21, label %85, label %81
+  %.not25 = icmp eq i32 %67, 0
+  br i1 %.not25, label %85, label %81
 
 68:                                               ; preds = %.lr.ph
   %69 = load ptr, ptr %50, align 8, !tbaa !35
@@ -18755,8 +18755,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %68
   %78 = getelementptr inbounds nuw i8, ptr %50, i64 24
   %79 = load atomic i64, ptr %78 seq_cst, align 8
   %80 = load i64, ptr %49, align 8, !tbaa !389
-  %.not22 = icmp eq i64 %79, %80
-  br i1 %.not22, label %85, label %81
+  %.not26 = icmp eq i64 %79, %80
+  br i1 %.not26, label %85, label %81
 
 81:                                               ; preds = %76, %74, %72, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %82 = getelementptr inbounds nuw i32, ptr %19, i64 %.017
@@ -18909,8 +18909,8 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %65 = and i32 %64, 7
   %66 = shl nuw nsw i32 1, %65
   %67 = and i32 %66, %63
-  %.not21 = icmp eq i32 %67, 0
-  br i1 %.not21, label %85, label %81
+  %.not25 = icmp eq i32 %67, 0
+  br i1 %.not25, label %85, label %81
 
 68:                                               ; preds = %.lr.ph
   %69 = load ptr, ptr %50, align 8, !tbaa !35
@@ -18938,8 +18938,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %68
   %78 = getelementptr inbounds nuw i8, ptr %50, i64 24
   %79 = load atomic i64, ptr %78 seq_cst, align 8
   %80 = load i64, ptr %49, align 8, !tbaa !389
-  %.not22 = icmp eq i64 %79, %80
-  br i1 %.not22, label %85, label %81
+  %.not26 = icmp eq i64 %79, %80
+  br i1 %.not26, label %85, label %81
 
 81:                                               ; preds = %76, %74, %72, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %82 = getelementptr inbounds nuw i32, ptr %19, i64 %.017
@@ -19092,8 +19092,8 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %65 = and i32 %64, 7
   %66 = shl nuw nsw i32 1, %65
   %67 = and i32 %66, %63
-  %.not21 = icmp eq i32 %67, 0
-  br i1 %.not21, label %85, label %81
+  %.not25 = icmp eq i32 %67, 0
+  br i1 %.not25, label %85, label %81
 
 68:                                               ; preds = %.lr.ph
   %69 = load ptr, ptr %50, align 8, !tbaa !35
@@ -19121,8 +19121,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %68
   %78 = getelementptr inbounds nuw i8, ptr %50, i64 24
   %79 = load atomic i64, ptr %78 seq_cst, align 8
   %80 = load i64, ptr %49, align 8, !tbaa !389
-  %.not22 = icmp eq i64 %79, %80
-  br i1 %.not22, label %85, label %81
+  %.not26 = icmp eq i64 %79, %80
+  br i1 %.not26, label %85, label %81
 
 81:                                               ; preds = %76, %74, %72, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %82 = getelementptr inbounds nuw i64, ptr %19, i64 %.017
@@ -19275,8 +19275,8 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %65 = and i32 %64, 7
   %66 = shl nuw nsw i32 1, %65
   %67 = and i32 %66, %63
-  %.not21 = icmp eq i32 %67, 0
-  br i1 %.not21, label %85, label %81
+  %.not25 = icmp eq i32 %67, 0
+  br i1 %.not25, label %85, label %81
 
 68:                                               ; preds = %.lr.ph
   %69 = load ptr, ptr %50, align 8, !tbaa !35
@@ -19304,8 +19304,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %68
   %78 = getelementptr inbounds nuw i8, ptr %50, i64 24
   %79 = load atomic i64, ptr %78 seq_cst, align 8
   %80 = load i64, ptr %49, align 8, !tbaa !389
-  %.not22 = icmp eq i64 %79, %80
-  br i1 %.not22, label %85, label %81
+  %.not26 = icmp eq i64 %79, %80
+  br i1 %.not26, label %85, label %81
 
 81:                                               ; preds = %76, %74, %72, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %82 = getelementptr inbounds nuw i64, ptr %19, i64 %.017
@@ -19476,8 +19476,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %66
   %76 = getelementptr inbounds nuw i8, ptr %48, i64 24
   %77 = load atomic i64, ptr %76 seq_cst, align 8
   %78 = load i64, ptr %47, align 8, !tbaa !389
-  %.not9 = icmp eq i64 %77, %78
-  br i1 %.not9, label %82, label %79
+  %.not13 = icmp eq i64 %77, %78
+  br i1 %.not13, label %82, label %79
 
 79:                                               ; preds = %74, %72, %70, %52, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %80 = getelementptr inbounds nuw i16, ptr %19, i64 %.08
@@ -19625,8 +19625,8 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %65 = and i32 %64, 7
   %66 = shl nuw nsw i32 1, %65
   %67 = and i32 %66, %63
-  %.not21 = icmp eq i32 %67, 0
-  br i1 %.not21, label %85, label %81
+  %.not25 = icmp eq i32 %67, 0
+  br i1 %.not25, label %85, label %81
 
 68:                                               ; preds = %.lr.ph
   %69 = load ptr, ptr %50, align 8, !tbaa !35
@@ -19654,8 +19654,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %68
   %78 = getelementptr inbounds nuw i8, ptr %50, i64 24
   %79 = load atomic i64, ptr %78 seq_cst, align 8
   %80 = load i64, ptr %49, align 8, !tbaa !389
-  %.not22 = icmp eq i64 %79, %80
-  br i1 %.not22, label %85, label %81
+  %.not26 = icmp eq i64 %79, %80
+  br i1 %.not26, label %85, label %81
 
 81:                                               ; preds = %76, %74, %72, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %82 = getelementptr inbounds nuw float, ptr %19, i64 %.017
@@ -19808,8 +19808,8 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %65 = and i32 %64, 7
   %66 = shl nuw nsw i32 1, %65
   %67 = and i32 %66, %63
-  %.not21 = icmp eq i32 %67, 0
-  br i1 %.not21, label %85, label %81
+  %.not25 = icmp eq i32 %67, 0
+  br i1 %.not25, label %85, label %81
 
 68:                                               ; preds = %.lr.ph
   %69 = load ptr, ptr %50, align 8, !tbaa !35
@@ -19837,8 +19837,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %68
   %78 = getelementptr inbounds nuw i8, ptr %50, i64 24
   %79 = load atomic i64, ptr %78 seq_cst, align 8
   %80 = load i64, ptr %49, align 8, !tbaa !389
-  %.not22 = icmp eq i64 %79, %80
-  br i1 %.not22, label %85, label %81
+  %.not26 = icmp eq i64 %79, %80
+  br i1 %.not26, label %85, label %81
 
 81:                                               ; preds = %76, %74, %72, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %82 = getelementptr inbounds nuw double, ptr %19, i64 %.017
@@ -20507,8 +20507,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %75
   %85 = getelementptr inbounds nuw i8, ptr %57, i64 24
   %86 = load atomic i64, ptr %85 seq_cst, align 8
   %87 = load i64, ptr %56, align 8, !tbaa !389
-  %.not20 = icmp eq i64 %86, %87
-  br i1 %.not20, label %92, label %88
+  %.not25 = icmp eq i64 %86, %87
+  br i1 %.not25, label %92, label %88
 
 88:                                               ; preds = %83, %81, %79, %61, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %89 = getelementptr inbounds nuw i8, ptr %16, i64 %.015
@@ -20698,8 +20698,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %75
   %85 = getelementptr inbounds nuw i8, ptr %57, i64 24
   %86 = load atomic i64, ptr %85 seq_cst, align 8
   %87 = load i64, ptr %56, align 8, !tbaa !389
-  %.not20 = icmp eq i64 %86, %87
-  br i1 %.not20, label %92, label %88
+  %.not25 = icmp eq i64 %86, %87
+  br i1 %.not25, label %92, label %88
 
 88:                                               ; preds = %83, %81, %79, %61, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %89 = getelementptr inbounds nuw i8, ptr %16, i64 %.015
@@ -20889,8 +20889,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %75
   %85 = getelementptr inbounds nuw i8, ptr %57, i64 24
   %86 = load atomic i64, ptr %85 seq_cst, align 8
   %87 = load i64, ptr %56, align 8, !tbaa !389
-  %.not20 = icmp eq i64 %86, %87
-  br i1 %.not20, label %92, label %88
+  %.not25 = icmp eq i64 %86, %87
+  br i1 %.not25, label %92, label %88
 
 88:                                               ; preds = %83, %81, %79, %61, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %89 = getelementptr inbounds nuw i16, ptr %16, i64 %.015
@@ -21080,8 +21080,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %75
   %85 = getelementptr inbounds nuw i8, ptr %57, i64 24
   %86 = load atomic i64, ptr %85 seq_cst, align 8
   %87 = load i64, ptr %56, align 8, !tbaa !389
-  %.not20 = icmp eq i64 %86, %87
-  br i1 %.not20, label %92, label %88
+  %.not25 = icmp eq i64 %86, %87
+  br i1 %.not25, label %92, label %88
 
 88:                                               ; preds = %83, %81, %79, %61, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %89 = getelementptr inbounds nuw i16, ptr %16, i64 %.015
@@ -21270,8 +21270,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %74
   %84 = getelementptr inbounds nuw i8, ptr %56, i64 24
   %85 = load atomic i64, ptr %84 seq_cst, align 8
   %86 = load i64, ptr %55, align 8, !tbaa !389
-  %.not20 = icmp eq i64 %85, %86
-  br i1 %.not20, label %90, label %87
+  %.not25 = icmp eq i64 %85, %86
+  br i1 %.not25, label %90, label %87
 
 87:                                               ; preds = %82, %80, %78, %60, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %88 = getelementptr inbounds nuw i32, ptr %16, i64 %.015
@@ -21459,8 +21459,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %74
   %84 = getelementptr inbounds nuw i8, ptr %56, i64 24
   %85 = load atomic i64, ptr %84 seq_cst, align 8
   %86 = load i64, ptr %55, align 8, !tbaa !389
-  %.not20 = icmp eq i64 %85, %86
-  br i1 %.not20, label %90, label %87
+  %.not25 = icmp eq i64 %85, %86
+  br i1 %.not25, label %90, label %87
 
 87:                                               ; preds = %82, %80, %78, %60, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %88 = getelementptr inbounds nuw i32, ptr %16, i64 %.015
@@ -21649,8 +21649,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %75
   %85 = getelementptr inbounds nuw i8, ptr %57, i64 24
   %86 = load atomic i64, ptr %85 seq_cst, align 8
   %87 = load i64, ptr %56, align 8, !tbaa !389
-  %.not20 = icmp eq i64 %86, %87
-  br i1 %.not20, label %92, label %88
+  %.not25 = icmp eq i64 %86, %87
+  br i1 %.not25, label %92, label %88
 
 88:                                               ; preds = %83, %81, %79, %61, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %89 = getelementptr inbounds nuw i64, ptr %16, i64 %.015
@@ -21840,8 +21840,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %75
   %85 = getelementptr inbounds nuw i8, ptr %57, i64 24
   %86 = load atomic i64, ptr %85 seq_cst, align 8
   %87 = load i64, ptr %56, align 8, !tbaa !389
-  %.not20 = icmp eq i64 %86, %87
-  br i1 %.not20, label %92, label %88
+  %.not25 = icmp eq i64 %86, %87
+  br i1 %.not25, label %92, label %88
 
 88:                                               ; preds = %83, %81, %79, %61, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %89 = getelementptr inbounds nuw i64, ptr %16, i64 %.015
@@ -22031,8 +22031,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %75
   %85 = getelementptr inbounds nuw i8, ptr %57, i64 24
   %86 = load atomic i64, ptr %85 seq_cst, align 8
   %87 = load i64, ptr %56, align 8, !tbaa !389
-  %.not20 = icmp eq i64 %86, %87
-  br i1 %.not20, label %92, label %88
+  %.not25 = icmp eq i64 %86, %87
+  br i1 %.not25, label %92, label %88
 
 88:                                               ; preds = %83, %81, %79, %61, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %89 = getelementptr inbounds nuw i16, ptr %16, i64 %.015
@@ -22222,8 +22222,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %75
   %85 = getelementptr inbounds nuw i8, ptr %57, i64 24
   %86 = load atomic i64, ptr %85 seq_cst, align 8
   %87 = load i64, ptr %56, align 8, !tbaa !389
-  %.not20 = icmp eq i64 %86, %87
-  br i1 %.not20, label %92, label %88
+  %.not25 = icmp eq i64 %86, %87
+  br i1 %.not25, label %92, label %88
 
 88:                                               ; preds = %83, %81, %79, %61, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %89 = getelementptr inbounds nuw float, ptr %16, i64 %.015
@@ -22413,8 +22413,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %75
   %85 = getelementptr inbounds nuw i8, ptr %57, i64 24
   %86 = load atomic i64, ptr %85 seq_cst, align 8
   %87 = load i64, ptr %56, align 8, !tbaa !389
-  %.not20 = icmp eq i64 %86, %87
-  br i1 %.not20, label %92, label %88
+  %.not25 = icmp eq i64 %86, %87
+  br i1 %.not25, label %92, label %88
 
 88:                                               ; preds = %83, %81, %79, %61, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %89 = getelementptr inbounds nuw double, ptr %16, i64 %.015
@@ -22568,8 +22568,8 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %65 = and i32 %64, 7
   %66 = shl nuw nsw i32 1, %65
   %67 = and i32 %66, %63
-  %.not23 = icmp eq i32 %67, 0
-  br i1 %.not23, label %85, label %81
+  %.not27 = icmp eq i32 %67, 0
+  br i1 %.not27, label %85, label %81
 
 68:                                               ; preds = %.lr.ph
   %69 = load ptr, ptr %50, align 8, !tbaa !35
@@ -22597,8 +22597,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %68
   %78 = getelementptr inbounds nuw i8, ptr %50, i64 24
   %79 = load atomic i64, ptr %78 seq_cst, align 8
   %80 = load i64, ptr %49, align 8, !tbaa !389
-  %.not24 = icmp eq i64 %79, %80
-  br i1 %.not24, label %85, label %81
+  %.not28 = icmp eq i64 %79, %80
+  br i1 %.not28, label %85, label %81
 
 81:                                               ; preds = %76, %74, %72, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %82 = getelementptr inbounds nuw i8, ptr %19, i64 %.017
@@ -22747,8 +22747,8 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %65 = and i32 %64, 7
   %66 = shl nuw nsw i32 1, %65
   %67 = and i32 %66, %63
-  %.not23 = icmp eq i32 %67, 0
-  br i1 %.not23, label %85, label %81
+  %.not27 = icmp eq i32 %67, 0
+  br i1 %.not27, label %85, label %81
 
 68:                                               ; preds = %.lr.ph
   %69 = load ptr, ptr %50, align 8, !tbaa !35
@@ -22776,8 +22776,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %68
   %78 = getelementptr inbounds nuw i8, ptr %50, i64 24
   %79 = load atomic i64, ptr %78 seq_cst, align 8
   %80 = load i64, ptr %49, align 8, !tbaa !389
-  %.not24 = icmp eq i64 %79, %80
-  br i1 %.not24, label %85, label %81
+  %.not28 = icmp eq i64 %79, %80
+  br i1 %.not28, label %85, label %81
 
 81:                                               ; preds = %76, %74, %72, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %82 = getelementptr inbounds nuw i8, ptr %19, i64 %.017
@@ -22926,8 +22926,8 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %65 = and i32 %64, 7
   %66 = shl nuw nsw i32 1, %65
   %67 = and i32 %66, %63
-  %.not21 = icmp eq i32 %67, 0
-  br i1 %.not21, label %85, label %81
+  %.not25 = icmp eq i32 %67, 0
+  br i1 %.not25, label %85, label %81
 
 68:                                               ; preds = %.lr.ph
   %69 = load ptr, ptr %50, align 8, !tbaa !35
@@ -22955,8 +22955,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %68
   %78 = getelementptr inbounds nuw i8, ptr %50, i64 24
   %79 = load atomic i64, ptr %78 seq_cst, align 8
   %80 = load i64, ptr %49, align 8, !tbaa !389
-  %.not22 = icmp eq i64 %79, %80
-  br i1 %.not22, label %85, label %81
+  %.not26 = icmp eq i64 %79, %80
+  br i1 %.not26, label %85, label %81
 
 81:                                               ; preds = %76, %74, %72, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %82 = getelementptr inbounds nuw i16, ptr %19, i64 %.017
@@ -23109,8 +23109,8 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %65 = and i32 %64, 7
   %66 = shl nuw nsw i32 1, %65
   %67 = and i32 %66, %63
-  %.not21 = icmp eq i32 %67, 0
-  br i1 %.not21, label %85, label %81
+  %.not25 = icmp eq i32 %67, 0
+  br i1 %.not25, label %85, label %81
 
 68:                                               ; preds = %.lr.ph
   %69 = load ptr, ptr %50, align 8, !tbaa !35
@@ -23138,8 +23138,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %68
   %78 = getelementptr inbounds nuw i8, ptr %50, i64 24
   %79 = load atomic i64, ptr %78 seq_cst, align 8
   %80 = load i64, ptr %49, align 8, !tbaa !389
-  %.not22 = icmp eq i64 %79, %80
-  br i1 %.not22, label %85, label %81
+  %.not26 = icmp eq i64 %79, %80
+  br i1 %.not26, label %85, label %81
 
 81:                                               ; preds = %76, %74, %72, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %82 = getelementptr inbounds nuw i16, ptr %19, i64 %.017
@@ -23291,8 +23291,8 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %64 = and i32 %63, 7
   %65 = shl nuw nsw i32 1, %64
   %66 = and i32 %65, %62
-  %.not21 = icmp eq i32 %66, 0
-  br i1 %.not21, label %83, label %80
+  %.not25 = icmp eq i32 %66, 0
+  br i1 %.not25, label %83, label %80
 
 67:                                               ; preds = %.lr.ph
   %68 = load ptr, ptr %49, align 8, !tbaa !35
@@ -23320,8 +23320,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %67
   %77 = getelementptr inbounds nuw i8, ptr %49, i64 24
   %78 = load atomic i64, ptr %77 seq_cst, align 8
   %79 = load i64, ptr %48, align 8, !tbaa !389
-  %.not22 = icmp eq i64 %78, %79
-  br i1 %.not22, label %83, label %80
+  %.not26 = icmp eq i64 %78, %79
+  br i1 %.not26, label %83, label %80
 
 80:                                               ; preds = %75, %73, %71, %53, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %81 = getelementptr inbounds nuw i32, ptr %19, i64 %.017
@@ -23491,8 +23491,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %66
   %76 = getelementptr inbounds nuw i8, ptr %48, i64 24
   %77 = load atomic i64, ptr %76 seq_cst, align 8
   %78 = load i64, ptr %47, align 8, !tbaa !389
-  %.not9 = icmp eq i64 %77, %78
-  br i1 %.not9, label %82, label %79
+  %.not13 = icmp eq i64 %77, %78
+  br i1 %.not13, label %82, label %79
 
 79:                                               ; preds = %74, %72, %70, %52, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %80 = getelementptr inbounds nuw i32, ptr %19, i64 %.08
@@ -23640,8 +23640,8 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %65 = and i32 %64, 7
   %66 = shl nuw nsw i32 1, %65
   %67 = and i32 %66, %63
-  %.not21 = icmp eq i32 %67, 0
-  br i1 %.not21, label %85, label %81
+  %.not25 = icmp eq i32 %67, 0
+  br i1 %.not25, label %85, label %81
 
 68:                                               ; preds = %.lr.ph
   %69 = load ptr, ptr %50, align 8, !tbaa !35
@@ -23669,8 +23669,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %68
   %78 = getelementptr inbounds nuw i8, ptr %50, i64 24
   %79 = load atomic i64, ptr %78 seq_cst, align 8
   %80 = load i64, ptr %49, align 8, !tbaa !389
-  %.not22 = icmp eq i64 %79, %80
-  br i1 %.not22, label %85, label %81
+  %.not26 = icmp eq i64 %79, %80
+  br i1 %.not26, label %85, label %81
 
 81:                                               ; preds = %76, %74, %72, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %82 = getelementptr inbounds nuw i64, ptr %19, i64 %.017
@@ -23823,8 +23823,8 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %65 = and i32 %64, 7
   %66 = shl nuw nsw i32 1, %65
   %67 = and i32 %66, %63
-  %.not21 = icmp eq i32 %67, 0
-  br i1 %.not21, label %85, label %81
+  %.not25 = icmp eq i32 %67, 0
+  br i1 %.not25, label %85, label %81
 
 68:                                               ; preds = %.lr.ph
   %69 = load ptr, ptr %50, align 8, !tbaa !35
@@ -23852,8 +23852,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %68
   %78 = getelementptr inbounds nuw i8, ptr %50, i64 24
   %79 = load atomic i64, ptr %78 seq_cst, align 8
   %80 = load i64, ptr %49, align 8, !tbaa !389
-  %.not22 = icmp eq i64 %79, %80
-  br i1 %.not22, label %85, label %81
+  %.not26 = icmp eq i64 %79, %80
+  br i1 %.not26, label %85, label %81
 
 81:                                               ; preds = %76, %74, %72, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %82 = getelementptr inbounds nuw i64, ptr %19, i64 %.017
@@ -24006,8 +24006,8 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %65 = and i32 %64, 7
   %66 = shl nuw nsw i32 1, %65
   %67 = and i32 %66, %63
-  %.not21 = icmp eq i32 %67, 0
-  br i1 %.not21, label %85, label %81
+  %.not25 = icmp eq i32 %67, 0
+  br i1 %.not25, label %85, label %81
 
 68:                                               ; preds = %.lr.ph
   %69 = load ptr, ptr %50, align 8, !tbaa !35
@@ -24035,8 +24035,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %68
   %78 = getelementptr inbounds nuw i8, ptr %50, i64 24
   %79 = load atomic i64, ptr %78 seq_cst, align 8
   %80 = load i64, ptr %49, align 8, !tbaa !389
-  %.not22 = icmp eq i64 %79, %80
-  br i1 %.not22, label %85, label %81
+  %.not26 = icmp eq i64 %79, %80
+  br i1 %.not26, label %85, label %81
 
 81:                                               ; preds = %76, %74, %72, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %82 = getelementptr inbounds nuw i16, ptr %19, i64 %.017
@@ -24189,8 +24189,8 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %65 = and i32 %64, 7
   %66 = shl nuw nsw i32 1, %65
   %67 = and i32 %66, %63
-  %.not21 = icmp eq i32 %67, 0
-  br i1 %.not21, label %85, label %81
+  %.not25 = icmp eq i32 %67, 0
+  br i1 %.not25, label %85, label %81
 
 68:                                               ; preds = %.lr.ph
   %69 = load ptr, ptr %50, align 8, !tbaa !35
@@ -24218,8 +24218,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %68
   %78 = getelementptr inbounds nuw i8, ptr %50, i64 24
   %79 = load atomic i64, ptr %78 seq_cst, align 8
   %80 = load i64, ptr %49, align 8, !tbaa !389
-  %.not22 = icmp eq i64 %79, %80
-  br i1 %.not22, label %85, label %81
+  %.not26 = icmp eq i64 %79, %80
+  br i1 %.not26, label %85, label %81
 
 81:                                               ; preds = %76, %74, %72, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %82 = getelementptr inbounds nuw float, ptr %19, i64 %.017
@@ -24372,8 +24372,8 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %65 = and i32 %64, 7
   %66 = shl nuw nsw i32 1, %65
   %67 = and i32 %66, %63
-  %.not21 = icmp eq i32 %67, 0
-  br i1 %.not21, label %85, label %81
+  %.not25 = icmp eq i32 %67, 0
+  br i1 %.not25, label %85, label %81
 
 68:                                               ; preds = %.lr.ph
   %69 = load ptr, ptr %50, align 8, !tbaa !35
@@ -24401,8 +24401,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %68
   %78 = getelementptr inbounds nuw i8, ptr %50, i64 24
   %79 = load atomic i64, ptr %78 seq_cst, align 8
   %80 = load i64, ptr %49, align 8, !tbaa !389
-  %.not22 = icmp eq i64 %79, %80
-  br i1 %.not22, label %85, label %81
+  %.not26 = icmp eq i64 %79, %80
+  br i1 %.not26, label %85, label %81
 
 81:                                               ; preds = %76, %74, %72, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %82 = getelementptr inbounds nuw double, ptr %19, i64 %.017
@@ -25072,8 +25072,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %75
   %85 = getelementptr inbounds nuw i8, ptr %57, i64 24
   %86 = load atomic i64, ptr %85 seq_cst, align 8
   %87 = load i64, ptr %56, align 8, !tbaa !389
-  %.not20 = icmp eq i64 %86, %87
-  br i1 %.not20, label %92, label %88
+  %.not24 = icmp eq i64 %86, %87
+  br i1 %.not24, label %92, label %88
 
 88:                                               ; preds = %83, %81, %79, %61, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %89 = getelementptr inbounds nuw i8, ptr %16, i64 %.015
@@ -25264,8 +25264,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %75
   %85 = getelementptr inbounds nuw i8, ptr %57, i64 24
   %86 = load atomic i64, ptr %85 seq_cst, align 8
   %87 = load i64, ptr %56, align 8, !tbaa !389
-  %.not20 = icmp eq i64 %86, %87
-  br i1 %.not20, label %92, label %88
+  %.not24 = icmp eq i64 %86, %87
+  br i1 %.not24, label %92, label %88
 
 88:                                               ; preds = %83, %81, %79, %61, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %89 = getelementptr inbounds nuw i8, ptr %16, i64 %.015
@@ -25456,8 +25456,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %75
   %85 = getelementptr inbounds nuw i8, ptr %57, i64 24
   %86 = load atomic i64, ptr %85 seq_cst, align 8
   %87 = load i64, ptr %56, align 8, !tbaa !389
-  %.not20 = icmp eq i64 %86, %87
-  br i1 %.not20, label %92, label %88
+  %.not24 = icmp eq i64 %86, %87
+  br i1 %.not24, label %92, label %88
 
 88:                                               ; preds = %83, %81, %79, %61, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %89 = getelementptr inbounds nuw i16, ptr %16, i64 %.015
@@ -25648,8 +25648,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %75
   %85 = getelementptr inbounds nuw i8, ptr %57, i64 24
   %86 = load atomic i64, ptr %85 seq_cst, align 8
   %87 = load i64, ptr %56, align 8, !tbaa !389
-  %.not20 = icmp eq i64 %86, %87
-  br i1 %.not20, label %92, label %88
+  %.not24 = icmp eq i64 %86, %87
+  br i1 %.not24, label %92, label %88
 
 88:                                               ; preds = %83, %81, %79, %61, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %89 = getelementptr inbounds nuw i16, ptr %16, i64 %.015
@@ -25840,8 +25840,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %75
   %85 = getelementptr inbounds nuw i8, ptr %57, i64 24
   %86 = load atomic i64, ptr %85 seq_cst, align 8
   %87 = load i64, ptr %56, align 8, !tbaa !389
-  %.not20 = icmp eq i64 %86, %87
-  br i1 %.not20, label %92, label %88
+  %.not24 = icmp eq i64 %86, %87
+  br i1 %.not24, label %92, label %88
 
 88:                                               ; preds = %83, %81, %79, %61, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %89 = getelementptr inbounds nuw i32, ptr %16, i64 %.015
@@ -26032,8 +26032,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %75
   %85 = getelementptr inbounds nuw i8, ptr %57, i64 24
   %86 = load atomic i64, ptr %85 seq_cst, align 8
   %87 = load i64, ptr %56, align 8, !tbaa !389
-  %.not20 = icmp eq i64 %86, %87
-  br i1 %.not20, label %92, label %88
+  %.not24 = icmp eq i64 %86, %87
+  br i1 %.not24, label %92, label %88
 
 88:                                               ; preds = %83, %81, %79, %61, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %89 = getelementptr inbounds nuw i32, ptr %16, i64 %.015
@@ -26223,8 +26223,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %74
   %84 = getelementptr inbounds nuw i8, ptr %56, i64 24
   %85 = load atomic i64, ptr %84 seq_cst, align 8
   %86 = load i64, ptr %55, align 8, !tbaa !389
-  %.not20 = icmp eq i64 %85, %86
-  br i1 %.not20, label %90, label %87
+  %.not24 = icmp eq i64 %85, %86
+  br i1 %.not24, label %90, label %87
 
 87:                                               ; preds = %82, %80, %78, %60, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %88 = getelementptr inbounds nuw i64, ptr %16, i64 %.015
@@ -26413,8 +26413,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %74
   %84 = getelementptr inbounds nuw i8, ptr %56, i64 24
   %85 = load atomic i64, ptr %84 seq_cst, align 8
   %86 = load i64, ptr %55, align 8, !tbaa !389
-  %.not20 = icmp eq i64 %85, %86
-  br i1 %.not20, label %90, label %87
+  %.not24 = icmp eq i64 %85, %86
+  br i1 %.not24, label %90, label %87
 
 87:                                               ; preds = %82, %80, %78, %60, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %88 = getelementptr inbounds nuw i64, ptr %16, i64 %.015
@@ -26604,8 +26604,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %75
   %85 = getelementptr inbounds nuw i8, ptr %57, i64 24
   %86 = load atomic i64, ptr %85 seq_cst, align 8
   %87 = load i64, ptr %56, align 8, !tbaa !389
-  %.not20 = icmp eq i64 %86, %87
-  br i1 %.not20, label %92, label %88
+  %.not24 = icmp eq i64 %86, %87
+  br i1 %.not24, label %92, label %88
 
 88:                                               ; preds = %83, %81, %79, %61, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %89 = getelementptr inbounds nuw i16, ptr %16, i64 %.015
@@ -26796,8 +26796,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %75
   %85 = getelementptr inbounds nuw i8, ptr %57, i64 24
   %86 = load atomic i64, ptr %85 seq_cst, align 8
   %87 = load i64, ptr %56, align 8, !tbaa !389
-  %.not20 = icmp eq i64 %86, %87
-  br i1 %.not20, label %92, label %88
+  %.not24 = icmp eq i64 %86, %87
+  br i1 %.not24, label %92, label %88
 
 88:                                               ; preds = %83, %81, %79, %61, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %89 = getelementptr inbounds nuw float, ptr %16, i64 %.015
@@ -26988,8 +26988,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %75
   %85 = getelementptr inbounds nuw i8, ptr %57, i64 24
   %86 = load atomic i64, ptr %85 seq_cst, align 8
   %87 = load i64, ptr %56, align 8, !tbaa !389
-  %.not20 = icmp eq i64 %86, %87
-  br i1 %.not20, label %92, label %88
+  %.not24 = icmp eq i64 %86, %87
+  br i1 %.not24, label %92, label %88
 
 88:                                               ; preds = %83, %81, %79, %61, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %89 = getelementptr inbounds nuw double, ptr %16, i64 %.015
@@ -27143,8 +27143,8 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %65 = and i32 %64, 7
   %66 = shl nuw nsw i32 1, %65
   %67 = and i32 %66, %63
-  %.not23 = icmp eq i32 %67, 0
-  br i1 %.not23, label %85, label %81
+  %.not27 = icmp eq i32 %67, 0
+  br i1 %.not27, label %85, label %81
 
 68:                                               ; preds = %.lr.ph
   %69 = load ptr, ptr %50, align 8, !tbaa !35
@@ -27172,8 +27172,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %68
   %78 = getelementptr inbounds nuw i8, ptr %50, i64 24
   %79 = load atomic i64, ptr %78 seq_cst, align 8
   %80 = load i64, ptr %49, align 8, !tbaa !389
-  %.not24 = icmp eq i64 %79, %80
-  br i1 %.not24, label %85, label %81
+  %.not28 = icmp eq i64 %79, %80
+  br i1 %.not28, label %85, label %81
 
 81:                                               ; preds = %76, %74, %72, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %82 = getelementptr inbounds nuw i8, ptr %19, i64 %.017
@@ -27322,8 +27322,8 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %65 = and i32 %64, 7
   %66 = shl nuw nsw i32 1, %65
   %67 = and i32 %66, %63
-  %.not23 = icmp eq i32 %67, 0
-  br i1 %.not23, label %85, label %81
+  %.not27 = icmp eq i32 %67, 0
+  br i1 %.not27, label %85, label %81
 
 68:                                               ; preds = %.lr.ph
   %69 = load ptr, ptr %50, align 8, !tbaa !35
@@ -27351,8 +27351,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %68
   %78 = getelementptr inbounds nuw i8, ptr %50, i64 24
   %79 = load atomic i64, ptr %78 seq_cst, align 8
   %80 = load i64, ptr %49, align 8, !tbaa !389
-  %.not24 = icmp eq i64 %79, %80
-  br i1 %.not24, label %85, label %81
+  %.not28 = icmp eq i64 %79, %80
+  br i1 %.not28, label %85, label %81
 
 81:                                               ; preds = %76, %74, %72, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %82 = getelementptr inbounds nuw i8, ptr %19, i64 %.017
@@ -27501,8 +27501,8 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %65 = and i32 %64, 7
   %66 = shl nuw nsw i32 1, %65
   %67 = and i32 %66, %63
-  %.not21 = icmp eq i32 %67, 0
-  br i1 %.not21, label %85, label %81
+  %.not25 = icmp eq i32 %67, 0
+  br i1 %.not25, label %85, label %81
 
 68:                                               ; preds = %.lr.ph
   %69 = load ptr, ptr %50, align 8, !tbaa !35
@@ -27530,8 +27530,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %68
   %78 = getelementptr inbounds nuw i8, ptr %50, i64 24
   %79 = load atomic i64, ptr %78 seq_cst, align 8
   %80 = load i64, ptr %49, align 8, !tbaa !389
-  %.not22 = icmp eq i64 %79, %80
-  br i1 %.not22, label %85, label %81
+  %.not26 = icmp eq i64 %79, %80
+  br i1 %.not26, label %85, label %81
 
 81:                                               ; preds = %76, %74, %72, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %82 = getelementptr inbounds nuw i16, ptr %19, i64 %.017
@@ -27684,8 +27684,8 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %65 = and i32 %64, 7
   %66 = shl nuw nsw i32 1, %65
   %67 = and i32 %66, %63
-  %.not21 = icmp eq i32 %67, 0
-  br i1 %.not21, label %85, label %81
+  %.not25 = icmp eq i32 %67, 0
+  br i1 %.not25, label %85, label %81
 
 68:                                               ; preds = %.lr.ph
   %69 = load ptr, ptr %50, align 8, !tbaa !35
@@ -27713,8 +27713,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %68
   %78 = getelementptr inbounds nuw i8, ptr %50, i64 24
   %79 = load atomic i64, ptr %78 seq_cst, align 8
   %80 = load i64, ptr %49, align 8, !tbaa !389
-  %.not22 = icmp eq i64 %79, %80
-  br i1 %.not22, label %85, label %81
+  %.not26 = icmp eq i64 %79, %80
+  br i1 %.not26, label %85, label %81
 
 81:                                               ; preds = %76, %74, %72, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %82 = getelementptr inbounds nuw i16, ptr %19, i64 %.017
@@ -27867,8 +27867,8 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %65 = and i32 %64, 7
   %66 = shl nuw nsw i32 1, %65
   %67 = and i32 %66, %63
-  %.not21 = icmp eq i32 %67, 0
-  br i1 %.not21, label %85, label %81
+  %.not25 = icmp eq i32 %67, 0
+  br i1 %.not25, label %85, label %81
 
 68:                                               ; preds = %.lr.ph
   %69 = load ptr, ptr %50, align 8, !tbaa !35
@@ -27896,8 +27896,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %68
   %78 = getelementptr inbounds nuw i8, ptr %50, i64 24
   %79 = load atomic i64, ptr %78 seq_cst, align 8
   %80 = load i64, ptr %49, align 8, !tbaa !389
-  %.not22 = icmp eq i64 %79, %80
-  br i1 %.not22, label %85, label %81
+  %.not26 = icmp eq i64 %79, %80
+  br i1 %.not26, label %85, label %81
 
 81:                                               ; preds = %76, %74, %72, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %82 = getelementptr inbounds nuw i32, ptr %19, i64 %.017
@@ -28050,8 +28050,8 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %65 = and i32 %64, 7
   %66 = shl nuw nsw i32 1, %65
   %67 = and i32 %66, %63
-  %.not21 = icmp eq i32 %67, 0
-  br i1 %.not21, label %85, label %81
+  %.not25 = icmp eq i32 %67, 0
+  br i1 %.not25, label %85, label %81
 
 68:                                               ; preds = %.lr.ph
   %69 = load ptr, ptr %50, align 8, !tbaa !35
@@ -28079,8 +28079,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %68
   %78 = getelementptr inbounds nuw i8, ptr %50, i64 24
   %79 = load atomic i64, ptr %78 seq_cst, align 8
   %80 = load i64, ptr %49, align 8, !tbaa !389
-  %.not22 = icmp eq i64 %79, %80
-  br i1 %.not22, label %85, label %81
+  %.not26 = icmp eq i64 %79, %80
+  br i1 %.not26, label %85, label %81
 
 81:                                               ; preds = %76, %74, %72, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %82 = getelementptr inbounds nuw i32, ptr %19, i64 %.017
@@ -28232,8 +28232,8 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %64 = and i32 %63, 7
   %65 = shl nuw nsw i32 1, %64
   %66 = and i32 %65, %62
-  %.not21 = icmp eq i32 %66, 0
-  br i1 %.not21, label %83, label %80
+  %.not25 = icmp eq i32 %66, 0
+  br i1 %.not25, label %83, label %80
 
 67:                                               ; preds = %.lr.ph
   %68 = load ptr, ptr %49, align 8, !tbaa !35
@@ -28261,8 +28261,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %67
   %77 = getelementptr inbounds nuw i8, ptr %49, i64 24
   %78 = load atomic i64, ptr %77 seq_cst, align 8
   %79 = load i64, ptr %48, align 8, !tbaa !389
-  %.not22 = icmp eq i64 %78, %79
-  br i1 %.not22, label %83, label %80
+  %.not26 = icmp eq i64 %78, %79
+  br i1 %.not26, label %83, label %80
 
 80:                                               ; preds = %75, %73, %71, %53, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %81 = getelementptr inbounds nuw i64, ptr %19, i64 %.017
@@ -28432,8 +28432,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %66
   %76 = getelementptr inbounds nuw i8, ptr %48, i64 24
   %77 = load atomic i64, ptr %76 seq_cst, align 8
   %78 = load i64, ptr %47, align 8, !tbaa !389
-  %.not9 = icmp eq i64 %77, %78
-  br i1 %.not9, label %82, label %79
+  %.not13 = icmp eq i64 %77, %78
+  br i1 %.not13, label %82, label %79
 
 79:                                               ; preds = %74, %72, %70, %52, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %80 = getelementptr inbounds nuw i64, ptr %19, i64 %.08
@@ -28581,8 +28581,8 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %65 = and i32 %64, 7
   %66 = shl nuw nsw i32 1, %65
   %67 = and i32 %66, %63
-  %.not21 = icmp eq i32 %67, 0
-  br i1 %.not21, label %85, label %81
+  %.not25 = icmp eq i32 %67, 0
+  br i1 %.not25, label %85, label %81
 
 68:                                               ; preds = %.lr.ph
   %69 = load ptr, ptr %50, align 8, !tbaa !35
@@ -28610,8 +28610,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %68
   %78 = getelementptr inbounds nuw i8, ptr %50, i64 24
   %79 = load atomic i64, ptr %78 seq_cst, align 8
   %80 = load i64, ptr %49, align 8, !tbaa !389
-  %.not22 = icmp eq i64 %79, %80
-  br i1 %.not22, label %85, label %81
+  %.not26 = icmp eq i64 %79, %80
+  br i1 %.not26, label %85, label %81
 
 81:                                               ; preds = %76, %74, %72, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %82 = getelementptr inbounds nuw i16, ptr %19, i64 %.017
@@ -28764,8 +28764,8 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %65 = and i32 %64, 7
   %66 = shl nuw nsw i32 1, %65
   %67 = and i32 %66, %63
-  %.not21 = icmp eq i32 %67, 0
-  br i1 %.not21, label %85, label %81
+  %.not25 = icmp eq i32 %67, 0
+  br i1 %.not25, label %85, label %81
 
 68:                                               ; preds = %.lr.ph
   %69 = load ptr, ptr %50, align 8, !tbaa !35
@@ -28793,8 +28793,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %68
   %78 = getelementptr inbounds nuw i8, ptr %50, i64 24
   %79 = load atomic i64, ptr %78 seq_cst, align 8
   %80 = load i64, ptr %49, align 8, !tbaa !389
-  %.not22 = icmp eq i64 %79, %80
-  br i1 %.not22, label %85, label %81
+  %.not26 = icmp eq i64 %79, %80
+  br i1 %.not26, label %85, label %81
 
 81:                                               ; preds = %76, %74, %72, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %82 = getelementptr inbounds nuw float, ptr %19, i64 %.017
@@ -28947,8 +28947,8 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %65 = and i32 %64, 7
   %66 = shl nuw nsw i32 1, %65
   %67 = and i32 %66, %63
-  %.not21 = icmp eq i32 %67, 0
-  br i1 %.not21, label %85, label %81
+  %.not25 = icmp eq i32 %67, 0
+  br i1 %.not25, label %85, label %81
 
 68:                                               ; preds = %.lr.ph
   %69 = load ptr, ptr %50, align 8, !tbaa !35
@@ -28976,8 +28976,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %68
   %78 = getelementptr inbounds nuw i8, ptr %50, i64 24
   %79 = load atomic i64, ptr %78 seq_cst, align 8
   %80 = load i64, ptr %49, align 8, !tbaa !389
-  %.not22 = icmp eq i64 %79, %80
-  br i1 %.not22, label %85, label %81
+  %.not26 = icmp eq i64 %79, %80
+  br i1 %.not26, label %85, label %81
 
 81:                                               ; preds = %76, %74, %72, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %82 = getelementptr inbounds nuw double, ptr %19, i64 %.017
@@ -29648,8 +29648,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %78
   %88 = getelementptr inbounds nuw i8, ptr %60, i64 24
   %89 = load atomic i64, ptr %88 seq_cst, align 8
   %90 = load i64, ptr %59, align 8, !tbaa !389
-  %.not20 = icmp eq i64 %89, %90
-  br i1 %.not20, label %94, label %91
+  %.not24 = icmp eq i64 %89, %90
+  br i1 %.not24, label %94, label %91
 
 91:                                               ; preds = %86, %84, %82, %64, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %92 = getelementptr inbounds nuw i8, ptr %16, i64 %.015
@@ -29840,8 +29840,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %78
   %88 = getelementptr inbounds nuw i8, ptr %60, i64 24
   %89 = load atomic i64, ptr %88 seq_cst, align 8
   %90 = load i64, ptr %59, align 8, !tbaa !389
-  %.not20 = icmp eq i64 %89, %90
-  br i1 %.not20, label %94, label %91
+  %.not24 = icmp eq i64 %89, %90
+  br i1 %.not24, label %94, label %91
 
 91:                                               ; preds = %86, %84, %82, %64, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %92 = getelementptr inbounds nuw i8, ptr %16, i64 %.015
@@ -30033,8 +30033,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %79
   %89 = getelementptr inbounds nuw i8, ptr %61, i64 24
   %90 = load atomic i64, ptr %89 seq_cst, align 8
   %91 = load i64, ptr %60, align 8, !tbaa !389
-  %.not20 = icmp eq i64 %90, %91
-  br i1 %.not20, label %96, label %92
+  %.not24 = icmp eq i64 %90, %91
+  br i1 %.not24, label %96, label %92
 
 92:                                               ; preds = %87, %85, %83, %65, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %93 = getelementptr inbounds nuw i16, ptr %16, i64 %.015
@@ -30227,8 +30227,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %79
   %89 = getelementptr inbounds nuw i8, ptr %61, i64 24
   %90 = load atomic i64, ptr %89 seq_cst, align 8
   %91 = load i64, ptr %60, align 8, !tbaa !389
-  %.not20 = icmp eq i64 %90, %91
-  br i1 %.not20, label %96, label %92
+  %.not24 = icmp eq i64 %90, %91
+  br i1 %.not24, label %96, label %92
 
 92:                                               ; preds = %87, %85, %83, %65, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %93 = getelementptr inbounds nuw i16, ptr %16, i64 %.015
@@ -30421,8 +30421,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %79
   %89 = getelementptr inbounds nuw i8, ptr %61, i64 24
   %90 = load atomic i64, ptr %89 seq_cst, align 8
   %91 = load i64, ptr %60, align 8, !tbaa !389
-  %.not20 = icmp eq i64 %90, %91
-  br i1 %.not20, label %96, label %92
+  %.not24 = icmp eq i64 %90, %91
+  br i1 %.not24, label %96, label %92
 
 92:                                               ; preds = %87, %85, %83, %65, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %93 = getelementptr inbounds nuw i32, ptr %16, i64 %.015
@@ -30615,8 +30615,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %79
   %89 = getelementptr inbounds nuw i8, ptr %61, i64 24
   %90 = load atomic i64, ptr %89 seq_cst, align 8
   %91 = load i64, ptr %60, align 8, !tbaa !389
-  %.not20 = icmp eq i64 %90, %91
-  br i1 %.not20, label %96, label %92
+  %.not24 = icmp eq i64 %90, %91
+  br i1 %.not24, label %96, label %92
 
 92:                                               ; preds = %87, %85, %83, %65, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %93 = getelementptr inbounds nuw i32, ptr %16, i64 %.015
@@ -30809,8 +30809,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %79
   %89 = getelementptr inbounds nuw i8, ptr %61, i64 24
   %90 = load atomic i64, ptr %89 seq_cst, align 8
   %91 = load i64, ptr %60, align 8, !tbaa !389
-  %.not20 = icmp eq i64 %90, %91
-  br i1 %.not20, label %96, label %92
+  %.not24 = icmp eq i64 %90, %91
+  br i1 %.not24, label %96, label %92
 
 92:                                               ; preds = %87, %85, %83, %65, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %93 = getelementptr inbounds nuw i64, ptr %16, i64 %.015
@@ -31003,8 +31003,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %79
   %89 = getelementptr inbounds nuw i8, ptr %61, i64 24
   %90 = load atomic i64, ptr %89 seq_cst, align 8
   %91 = load i64, ptr %60, align 8, !tbaa !389
-  %.not20 = icmp eq i64 %90, %91
-  br i1 %.not20, label %96, label %92
+  %.not24 = icmp eq i64 %90, %91
+  br i1 %.not24, label %96, label %92
 
 92:                                               ; preds = %87, %85, %83, %65, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %93 = getelementptr inbounds nuw i64, ptr %16, i64 %.015
@@ -31197,8 +31197,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %79
   %89 = getelementptr inbounds nuw i8, ptr %61, i64 24
   %90 = load atomic i64, ptr %89 seq_cst, align 8
   %91 = load i64, ptr %60, align 8, !tbaa !389
-  %.not20 = icmp eq i64 %90, %91
-  br i1 %.not20, label %96, label %92
+  %.not24 = icmp eq i64 %90, %91
+  br i1 %.not24, label %96, label %92
 
 92:                                               ; preds = %87, %85, %83, %65, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %93 = getelementptr inbounds nuw i16, ptr %16, i64 %.015
@@ -31391,8 +31391,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %79
   %89 = getelementptr inbounds nuw i8, ptr %61, i64 24
   %90 = load atomic i64, ptr %89 seq_cst, align 8
   %91 = load i64, ptr %60, align 8, !tbaa !389
-  %.not20 = icmp eq i64 %90, %91
-  br i1 %.not20, label %96, label %92
+  %.not24 = icmp eq i64 %90, %91
+  br i1 %.not24, label %96, label %92
 
 92:                                               ; preds = %87, %85, %83, %65, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %93 = getelementptr inbounds nuw float, ptr %16, i64 %.015
@@ -31585,8 +31585,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %79
   %89 = getelementptr inbounds nuw i8, ptr %61, i64 24
   %90 = load atomic i64, ptr %89 seq_cst, align 8
   %91 = load i64, ptr %60, align 8, !tbaa !389
-  %.not20 = icmp eq i64 %90, %91
-  br i1 %.not20, label %96, label %92
+  %.not24 = icmp eq i64 %90, %91
+  br i1 %.not24, label %96, label %92
 
 92:                                               ; preds = %87, %85, %83, %65, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %93 = getelementptr inbounds nuw double, ptr %16, i64 %.015
@@ -31757,8 +31757,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %65
   %75 = getelementptr inbounds nuw i8, ptr %47, i64 24
   %76 = load atomic i64, ptr %75 seq_cst, align 8
   %77 = load i64, ptr %46, align 8, !tbaa !389
-  %.not9 = icmp eq i64 %76, %77
-  br i1 %.not9, label %81, label %78
+  %.not13 = icmp eq i64 %76, %77
+  br i1 %.not13, label %81, label %78
 
 78:                                               ; preds = %73, %71, %69, %51, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %79 = getelementptr inbounds nuw i8, ptr %19, i64 %.08
@@ -31901,8 +31901,8 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %63 = and i32 %62, 7
   %64 = shl nuw nsw i32 1, %63
   %65 = and i32 %64, %61
-  %.not23 = icmp eq i32 %65, 0
-  br i1 %.not23, label %82, label %79
+  %.not27 = icmp eq i32 %65, 0
+  br i1 %.not27, label %82, label %79
 
 66:                                               ; preds = %.lr.ph
   %67 = load ptr, ptr %48, align 8, !tbaa !35
@@ -31930,8 +31930,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %66
   %76 = getelementptr inbounds nuw i8, ptr %48, i64 24
   %77 = load atomic i64, ptr %76 seq_cst, align 8
   %78 = load i64, ptr %47, align 8, !tbaa !389
-  %.not24 = icmp eq i64 %77, %78
-  br i1 %.not24, label %82, label %79
+  %.not28 = icmp eq i64 %77, %78
+  br i1 %.not28, label %82, label %79
 
 79:                                               ; preds = %74, %72, %70, %52, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %80 = getelementptr inbounds nuw i8, ptr %19, i64 %.017
@@ -32076,8 +32076,8 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %64 = and i32 %63, 7
   %65 = shl nuw nsw i32 1, %64
   %66 = and i32 %65, %62
-  %.not23 = icmp eq i32 %66, 0
-  br i1 %.not23, label %84, label %80
+  %.not27 = icmp eq i32 %66, 0
+  br i1 %.not27, label %84, label %80
 
 67:                                               ; preds = %.lr.ph
   %68 = load ptr, ptr %49, align 8, !tbaa !35
@@ -32105,8 +32105,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %67
   %77 = getelementptr inbounds nuw i8, ptr %49, i64 24
   %78 = load atomic i64, ptr %77 seq_cst, align 8
   %79 = load i64, ptr %48, align 8, !tbaa !389
-  %.not24 = icmp eq i64 %78, %79
-  br i1 %.not24, label %84, label %80
+  %.not28 = icmp eq i64 %78, %79
+  br i1 %.not28, label %84, label %80
 
 80:                                               ; preds = %75, %73, %71, %53, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %81 = getelementptr inbounds nuw i16, ptr %19, i64 %.017
@@ -32252,8 +32252,8 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %64 = and i32 %63, 7
   %65 = shl nuw nsw i32 1, %64
   %66 = and i32 %65, %62
-  %.not23 = icmp eq i32 %66, 0
-  br i1 %.not23, label %84, label %80
+  %.not27 = icmp eq i32 %66, 0
+  br i1 %.not27, label %84, label %80
 
 67:                                               ; preds = %.lr.ph
   %68 = load ptr, ptr %49, align 8, !tbaa !35
@@ -32281,8 +32281,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %67
   %77 = getelementptr inbounds nuw i8, ptr %49, i64 24
   %78 = load atomic i64, ptr %77 seq_cst, align 8
   %79 = load i64, ptr %48, align 8, !tbaa !389
-  %.not24 = icmp eq i64 %78, %79
-  br i1 %.not24, label %84, label %80
+  %.not28 = icmp eq i64 %78, %79
+  br i1 %.not28, label %84, label %80
 
 80:                                               ; preds = %75, %73, %71, %53, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %81 = getelementptr inbounds nuw i16, ptr %19, i64 %.017
@@ -32428,8 +32428,8 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %64 = and i32 %63, 7
   %65 = shl nuw nsw i32 1, %64
   %66 = and i32 %65, %62
-  %.not23 = icmp eq i32 %66, 0
-  br i1 %.not23, label %84, label %80
+  %.not27 = icmp eq i32 %66, 0
+  br i1 %.not27, label %84, label %80
 
 67:                                               ; preds = %.lr.ph
   %68 = load ptr, ptr %49, align 8, !tbaa !35
@@ -32457,8 +32457,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %67
   %77 = getelementptr inbounds nuw i8, ptr %49, i64 24
   %78 = load atomic i64, ptr %77 seq_cst, align 8
   %79 = load i64, ptr %48, align 8, !tbaa !389
-  %.not24 = icmp eq i64 %78, %79
-  br i1 %.not24, label %84, label %80
+  %.not28 = icmp eq i64 %78, %79
+  br i1 %.not28, label %84, label %80
 
 80:                                               ; preds = %75, %73, %71, %53, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %81 = getelementptr inbounds nuw i32, ptr %19, i64 %.017
@@ -32604,8 +32604,8 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %64 = and i32 %63, 7
   %65 = shl nuw nsw i32 1, %64
   %66 = and i32 %65, %62
-  %.not23 = icmp eq i32 %66, 0
-  br i1 %.not23, label %84, label %80
+  %.not27 = icmp eq i32 %66, 0
+  br i1 %.not27, label %84, label %80
 
 67:                                               ; preds = %.lr.ph
   %68 = load ptr, ptr %49, align 8, !tbaa !35
@@ -32633,8 +32633,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %67
   %77 = getelementptr inbounds nuw i8, ptr %49, i64 24
   %78 = load atomic i64, ptr %77 seq_cst, align 8
   %79 = load i64, ptr %48, align 8, !tbaa !389
-  %.not24 = icmp eq i64 %78, %79
-  br i1 %.not24, label %84, label %80
+  %.not28 = icmp eq i64 %78, %79
+  br i1 %.not28, label %84, label %80
 
 80:                                               ; preds = %75, %73, %71, %53, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %81 = getelementptr inbounds nuw i32, ptr %19, i64 %.017
@@ -32780,8 +32780,8 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %64 = and i32 %63, 7
   %65 = shl nuw nsw i32 1, %64
   %66 = and i32 %65, %62
-  %.not23 = icmp eq i32 %66, 0
-  br i1 %.not23, label %84, label %80
+  %.not27 = icmp eq i32 %66, 0
+  br i1 %.not27, label %84, label %80
 
 67:                                               ; preds = %.lr.ph
   %68 = load ptr, ptr %49, align 8, !tbaa !35
@@ -32809,8 +32809,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %67
   %77 = getelementptr inbounds nuw i8, ptr %49, i64 24
   %78 = load atomic i64, ptr %77 seq_cst, align 8
   %79 = load i64, ptr %48, align 8, !tbaa !389
-  %.not24 = icmp eq i64 %78, %79
-  br i1 %.not24, label %84, label %80
+  %.not28 = icmp eq i64 %78, %79
+  br i1 %.not28, label %84, label %80
 
 80:                                               ; preds = %75, %73, %71, %53, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %81 = getelementptr inbounds nuw i64, ptr %19, i64 %.017
@@ -32956,8 +32956,8 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %64 = and i32 %63, 7
   %65 = shl nuw nsw i32 1, %64
   %66 = and i32 %65, %62
-  %.not23 = icmp eq i32 %66, 0
-  br i1 %.not23, label %84, label %80
+  %.not27 = icmp eq i32 %66, 0
+  br i1 %.not27, label %84, label %80
 
 67:                                               ; preds = %.lr.ph
   %68 = load ptr, ptr %49, align 8, !tbaa !35
@@ -32985,8 +32985,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %67
   %77 = getelementptr inbounds nuw i8, ptr %49, i64 24
   %78 = load atomic i64, ptr %77 seq_cst, align 8
   %79 = load i64, ptr %48, align 8, !tbaa !389
-  %.not24 = icmp eq i64 %78, %79
-  br i1 %.not24, label %84, label %80
+  %.not28 = icmp eq i64 %78, %79
+  br i1 %.not28, label %84, label %80
 
 80:                                               ; preds = %75, %73, %71, %53, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %81 = getelementptr inbounds nuw i64, ptr %19, i64 %.017
@@ -33132,8 +33132,8 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %64 = and i32 %63, 7
   %65 = shl nuw nsw i32 1, %64
   %66 = and i32 %65, %62
-  %.not23 = icmp eq i32 %66, 0
-  br i1 %.not23, label %84, label %80
+  %.not27 = icmp eq i32 %66, 0
+  br i1 %.not27, label %84, label %80
 
 67:                                               ; preds = %.lr.ph
   %68 = load ptr, ptr %49, align 8, !tbaa !35
@@ -33161,8 +33161,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %67
   %77 = getelementptr inbounds nuw i8, ptr %49, i64 24
   %78 = load atomic i64, ptr %77 seq_cst, align 8
   %79 = load i64, ptr %48, align 8, !tbaa !389
-  %.not24 = icmp eq i64 %78, %79
-  br i1 %.not24, label %84, label %80
+  %.not28 = icmp eq i64 %78, %79
+  br i1 %.not28, label %84, label %80
 
 80:                                               ; preds = %75, %73, %71, %53, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %81 = getelementptr inbounds nuw i16, ptr %19, i64 %.017
@@ -33308,8 +33308,8 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %64 = and i32 %63, 7
   %65 = shl nuw nsw i32 1, %64
   %66 = and i32 %65, %62
-  %.not23 = icmp eq i32 %66, 0
-  br i1 %.not23, label %84, label %80
+  %.not27 = icmp eq i32 %66, 0
+  br i1 %.not27, label %84, label %80
 
 67:                                               ; preds = %.lr.ph
   %68 = load ptr, ptr %49, align 8, !tbaa !35
@@ -33337,8 +33337,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %67
   %77 = getelementptr inbounds nuw i8, ptr %49, i64 24
   %78 = load atomic i64, ptr %77 seq_cst, align 8
   %79 = load i64, ptr %48, align 8, !tbaa !389
-  %.not24 = icmp eq i64 %78, %79
-  br i1 %.not24, label %84, label %80
+  %.not28 = icmp eq i64 %78, %79
+  br i1 %.not28, label %84, label %80
 
 80:                                               ; preds = %75, %73, %71, %53, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %81 = getelementptr inbounds nuw float, ptr %19, i64 %.017
@@ -33484,8 +33484,8 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %64 = and i32 %63, 7
   %65 = shl nuw nsw i32 1, %64
   %66 = and i32 %65, %62
-  %.not23 = icmp eq i32 %66, 0
-  br i1 %.not23, label %84, label %80
+  %.not27 = icmp eq i32 %66, 0
+  br i1 %.not27, label %84, label %80
 
 67:                                               ; preds = %.lr.ph
   %68 = load ptr, ptr %49, align 8, !tbaa !35
@@ -33513,8 +33513,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %67
   %77 = getelementptr inbounds nuw i8, ptr %49, i64 24
   %78 = load atomic i64, ptr %77 seq_cst, align 8
   %79 = load i64, ptr %48, align 8, !tbaa !389
-  %.not24 = icmp eq i64 %78, %79
-  br i1 %.not24, label %84, label %80
+  %.not28 = icmp eq i64 %78, %79
+  br i1 %.not28, label %84, label %80
 
 80:                                               ; preds = %75, %73, %71, %53, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %81 = getelementptr inbounds nuw double, ptr %19, i64 %.017
@@ -34179,8 +34179,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %73
   %83 = getelementptr inbounds nuw i8, ptr %55, i64 24
   %84 = load atomic i64, ptr %83 seq_cst, align 8
   %85 = load i64, ptr %54, align 8, !tbaa !389
-  %.not20 = icmp eq i64 %84, %85
-  br i1 %.not20, label %90, label %86
+  %.not25 = icmp eq i64 %84, %85
+  br i1 %.not25, label %90, label %86
 
 86:                                               ; preds = %81, %79, %77, %59, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %87 = getelementptr inbounds nuw i8, ptr %16, i64 %.015
@@ -34370,8 +34370,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %73
   %83 = getelementptr inbounds nuw i8, ptr %55, i64 24
   %84 = load atomic i64, ptr %83 seq_cst, align 8
   %85 = load i64, ptr %54, align 8, !tbaa !389
-  %.not20 = icmp eq i64 %84, %85
-  br i1 %.not20, label %90, label %86
+  %.not25 = icmp eq i64 %84, %85
+  br i1 %.not25, label %90, label %86
 
 86:                                               ; preds = %81, %79, %77, %59, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %87 = getelementptr inbounds nuw i8, ptr %16, i64 %.015
@@ -34560,8 +34560,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %72
   %82 = getelementptr inbounds nuw i8, ptr %54, i64 24
   %83 = load atomic i64, ptr %82 seq_cst, align 8
   %84 = load i64, ptr %53, align 8, !tbaa !389
-  %.not20 = icmp eq i64 %83, %84
-  br i1 %.not20, label %88, label %85
+  %.not25 = icmp eq i64 %83, %84
+  br i1 %.not25, label %88, label %85
 
 85:                                               ; preds = %80, %78, %76, %58, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %86 = getelementptr inbounds nuw i16, ptr %16, i64 %.015
@@ -34749,8 +34749,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %72
   %82 = getelementptr inbounds nuw i8, ptr %54, i64 24
   %83 = load atomic i64, ptr %82 seq_cst, align 8
   %84 = load i64, ptr %53, align 8, !tbaa !389
-  %.not20 = icmp eq i64 %83, %84
-  br i1 %.not20, label %88, label %85
+  %.not25 = icmp eq i64 %83, %84
+  br i1 %.not25, label %88, label %85
 
 85:                                               ; preds = %80, %78, %76, %58, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %86 = getelementptr inbounds nuw i16, ptr %16, i64 %.015
@@ -34939,8 +34939,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %73
   %83 = getelementptr inbounds nuw i8, ptr %55, i64 24
   %84 = load atomic i64, ptr %83 seq_cst, align 8
   %85 = load i64, ptr %54, align 8, !tbaa !389
-  %.not20 = icmp eq i64 %84, %85
-  br i1 %.not20, label %90, label %86
+  %.not25 = icmp eq i64 %84, %85
+  br i1 %.not25, label %90, label %86
 
 86:                                               ; preds = %81, %79, %77, %59, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %87 = getelementptr inbounds nuw i32, ptr %16, i64 %.015
@@ -35130,8 +35130,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %73
   %83 = getelementptr inbounds nuw i8, ptr %55, i64 24
   %84 = load atomic i64, ptr %83 seq_cst, align 8
   %85 = load i64, ptr %54, align 8, !tbaa !389
-  %.not20 = icmp eq i64 %84, %85
-  br i1 %.not20, label %90, label %86
+  %.not25 = icmp eq i64 %84, %85
+  br i1 %.not25, label %90, label %86
 
 86:                                               ; preds = %81, %79, %77, %59, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %87 = getelementptr inbounds nuw i32, ptr %16, i64 %.015
@@ -35321,8 +35321,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %73
   %83 = getelementptr inbounds nuw i8, ptr %55, i64 24
   %84 = load atomic i64, ptr %83 seq_cst, align 8
   %85 = load i64, ptr %54, align 8, !tbaa !389
-  %.not20 = icmp eq i64 %84, %85
-  br i1 %.not20, label %90, label %86
+  %.not25 = icmp eq i64 %84, %85
+  br i1 %.not25, label %90, label %86
 
 86:                                               ; preds = %81, %79, %77, %59, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %87 = getelementptr inbounds nuw i64, ptr %16, i64 %.015
@@ -35512,8 +35512,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %73
   %83 = getelementptr inbounds nuw i8, ptr %55, i64 24
   %84 = load atomic i64, ptr %83 seq_cst, align 8
   %85 = load i64, ptr %54, align 8, !tbaa !389
-  %.not20 = icmp eq i64 %84, %85
-  br i1 %.not20, label %90, label %86
+  %.not25 = icmp eq i64 %84, %85
+  br i1 %.not25, label %90, label %86
 
 86:                                               ; preds = %81, %79, %77, %59, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %87 = getelementptr inbounds nuw i64, ptr %16, i64 %.015
@@ -35702,8 +35702,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %72
   %82 = getelementptr inbounds nuw i8, ptr %54, i64 24
   %83 = load atomic i64, ptr %82 seq_cst, align 8
   %84 = load i64, ptr %53, align 8, !tbaa !389
-  %.not20 = icmp eq i64 %83, %84
-  br i1 %.not20, label %88, label %85
+  %.not25 = icmp eq i64 %83, %84
+  br i1 %.not25, label %88, label %85
 
 85:                                               ; preds = %80, %78, %76, %58, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %86 = getelementptr inbounds nuw i16, ptr %16, i64 %.015
@@ -35892,8 +35892,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %73
   %83 = getelementptr inbounds nuw i8, ptr %55, i64 24
   %84 = load atomic i64, ptr %83 seq_cst, align 8
   %85 = load i64, ptr %54, align 8, !tbaa !389
-  %.not20 = icmp eq i64 %84, %85
-  br i1 %.not20, label %90, label %86
+  %.not25 = icmp eq i64 %84, %85
+  br i1 %.not25, label %90, label %86
 
 86:                                               ; preds = %81, %79, %77, %59, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %87 = getelementptr inbounds nuw float, ptr %16, i64 %.015
@@ -36083,8 +36083,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %73
   %83 = getelementptr inbounds nuw i8, ptr %55, i64 24
   %84 = load atomic i64, ptr %83 seq_cst, align 8
   %85 = load i64, ptr %54, align 8, !tbaa !389
-  %.not20 = icmp eq i64 %84, %85
-  br i1 %.not20, label %90, label %86
+  %.not25 = icmp eq i64 %84, %85
+  br i1 %.not25, label %90, label %86
 
 86:                                               ; preds = %81, %79, %77, %59, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %87 = getelementptr inbounds nuw double, ptr %16, i64 %.015
@@ -36238,8 +36238,8 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %65 = and i32 %64, 7
   %66 = shl nuw nsw i32 1, %65
   %67 = and i32 %66, %63
-  %.not23 = icmp eq i32 %67, 0
-  br i1 %.not23, label %85, label %81
+  %.not27 = icmp eq i32 %67, 0
+  br i1 %.not27, label %85, label %81
 
 68:                                               ; preds = %.lr.ph
   %69 = load ptr, ptr %50, align 8, !tbaa !35
@@ -36267,8 +36267,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %68
   %78 = getelementptr inbounds nuw i8, ptr %50, i64 24
   %79 = load atomic i64, ptr %78 seq_cst, align 8
   %80 = load i64, ptr %49, align 8, !tbaa !389
-  %.not24 = icmp eq i64 %79, %80
-  br i1 %.not24, label %85, label %81
+  %.not28 = icmp eq i64 %79, %80
+  br i1 %.not28, label %85, label %81
 
 81:                                               ; preds = %76, %74, %72, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %82 = getelementptr inbounds nuw i8, ptr %19, i64 %.017
@@ -36417,8 +36417,8 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %65 = and i32 %64, 7
   %66 = shl nuw nsw i32 1, %65
   %67 = and i32 %66, %63
-  %.not23 = icmp eq i32 %67, 0
-  br i1 %.not23, label %85, label %81
+  %.not27 = icmp eq i32 %67, 0
+  br i1 %.not27, label %85, label %81
 
 68:                                               ; preds = %.lr.ph
   %69 = load ptr, ptr %50, align 8, !tbaa !35
@@ -36446,8 +36446,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %68
   %78 = getelementptr inbounds nuw i8, ptr %50, i64 24
   %79 = load atomic i64, ptr %78 seq_cst, align 8
   %80 = load i64, ptr %49, align 8, !tbaa !389
-  %.not24 = icmp eq i64 %79, %80
-  br i1 %.not24, label %85, label %81
+  %.not28 = icmp eq i64 %79, %80
+  br i1 %.not28, label %85, label %81
 
 81:                                               ; preds = %76, %74, %72, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %82 = getelementptr inbounds nuw i8, ptr %19, i64 %.017
@@ -36614,8 +36614,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %66
   %76 = getelementptr inbounds nuw i8, ptr %48, i64 24
   %77 = load atomic i64, ptr %76 seq_cst, align 8
   %78 = load i64, ptr %47, align 8, !tbaa !389
-  %.not9 = icmp eq i64 %77, %78
-  br i1 %.not9, label %82, label %79
+  %.not13 = icmp eq i64 %77, %78
+  br i1 %.not13, label %82, label %79
 
 79:                                               ; preds = %74, %72, %70, %52, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %80 = getelementptr inbounds nuw i16, ptr %19, i64 %.08
@@ -36762,8 +36762,8 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %64 = and i32 %63, 7
   %65 = shl nuw nsw i32 1, %64
   %66 = and i32 %65, %62
-  %.not21 = icmp eq i32 %66, 0
-  br i1 %.not21, label %83, label %80
+  %.not25 = icmp eq i32 %66, 0
+  br i1 %.not25, label %83, label %80
 
 67:                                               ; preds = %.lr.ph
   %68 = load ptr, ptr %49, align 8, !tbaa !35
@@ -36791,8 +36791,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %67
   %77 = getelementptr inbounds nuw i8, ptr %49, i64 24
   %78 = load atomic i64, ptr %77 seq_cst, align 8
   %79 = load i64, ptr %48, align 8, !tbaa !389
-  %.not22 = icmp eq i64 %78, %79
-  br i1 %.not22, label %83, label %80
+  %.not26 = icmp eq i64 %78, %79
+  br i1 %.not26, label %83, label %80
 
 80:                                               ; preds = %75, %73, %71, %53, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %81 = getelementptr inbounds nuw i16, ptr %19, i64 %.017
@@ -36944,8 +36944,8 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %65 = and i32 %64, 7
   %66 = shl nuw nsw i32 1, %65
   %67 = and i32 %66, %63
-  %.not21 = icmp eq i32 %67, 0
-  br i1 %.not21, label %85, label %81
+  %.not25 = icmp eq i32 %67, 0
+  br i1 %.not25, label %85, label %81
 
 68:                                               ; preds = %.lr.ph
   %69 = load ptr, ptr %50, align 8, !tbaa !35
@@ -36973,8 +36973,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %68
   %78 = getelementptr inbounds nuw i8, ptr %50, i64 24
   %79 = load atomic i64, ptr %78 seq_cst, align 8
   %80 = load i64, ptr %49, align 8, !tbaa !389
-  %.not22 = icmp eq i64 %79, %80
-  br i1 %.not22, label %85, label %81
+  %.not26 = icmp eq i64 %79, %80
+  br i1 %.not26, label %85, label %81
 
 81:                                               ; preds = %76, %74, %72, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %82 = getelementptr inbounds nuw i32, ptr %19, i64 %.017
@@ -37127,8 +37127,8 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %65 = and i32 %64, 7
   %66 = shl nuw nsw i32 1, %65
   %67 = and i32 %66, %63
-  %.not21 = icmp eq i32 %67, 0
-  br i1 %.not21, label %85, label %81
+  %.not25 = icmp eq i32 %67, 0
+  br i1 %.not25, label %85, label %81
 
 68:                                               ; preds = %.lr.ph
   %69 = load ptr, ptr %50, align 8, !tbaa !35
@@ -37156,8 +37156,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %68
   %78 = getelementptr inbounds nuw i8, ptr %50, i64 24
   %79 = load atomic i64, ptr %78 seq_cst, align 8
   %80 = load i64, ptr %49, align 8, !tbaa !389
-  %.not22 = icmp eq i64 %79, %80
-  br i1 %.not22, label %85, label %81
+  %.not26 = icmp eq i64 %79, %80
+  br i1 %.not26, label %85, label %81
 
 81:                                               ; preds = %76, %74, %72, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %82 = getelementptr inbounds nuw i32, ptr %19, i64 %.017
@@ -37310,8 +37310,8 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %65 = and i32 %64, 7
   %66 = shl nuw nsw i32 1, %65
   %67 = and i32 %66, %63
-  %.not21 = icmp eq i32 %67, 0
-  br i1 %.not21, label %85, label %81
+  %.not25 = icmp eq i32 %67, 0
+  br i1 %.not25, label %85, label %81
 
 68:                                               ; preds = %.lr.ph
   %69 = load ptr, ptr %50, align 8, !tbaa !35
@@ -37339,8 +37339,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %68
   %78 = getelementptr inbounds nuw i8, ptr %50, i64 24
   %79 = load atomic i64, ptr %78 seq_cst, align 8
   %80 = load i64, ptr %49, align 8, !tbaa !389
-  %.not22 = icmp eq i64 %79, %80
-  br i1 %.not22, label %85, label %81
+  %.not26 = icmp eq i64 %79, %80
+  br i1 %.not26, label %85, label %81
 
 81:                                               ; preds = %76, %74, %72, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %82 = getelementptr inbounds nuw i64, ptr %19, i64 %.017
@@ -37493,8 +37493,8 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %65 = and i32 %64, 7
   %66 = shl nuw nsw i32 1, %65
   %67 = and i32 %66, %63
-  %.not21 = icmp eq i32 %67, 0
-  br i1 %.not21, label %85, label %81
+  %.not25 = icmp eq i32 %67, 0
+  br i1 %.not25, label %85, label %81
 
 68:                                               ; preds = %.lr.ph
   %69 = load ptr, ptr %50, align 8, !tbaa !35
@@ -37522,8 +37522,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %68
   %78 = getelementptr inbounds nuw i8, ptr %50, i64 24
   %79 = load atomic i64, ptr %78 seq_cst, align 8
   %80 = load i64, ptr %49, align 8, !tbaa !389
-  %.not22 = icmp eq i64 %79, %80
-  br i1 %.not22, label %85, label %81
+  %.not26 = icmp eq i64 %79, %80
+  br i1 %.not26, label %85, label %81
 
 81:                                               ; preds = %76, %74, %72, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %82 = getelementptr inbounds nuw i64, ptr %19, i64 %.017
@@ -37675,8 +37675,8 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %64 = and i32 %63, 7
   %65 = shl nuw nsw i32 1, %64
   %66 = and i32 %65, %62
-  %.not21 = icmp eq i32 %66, 0
-  br i1 %.not21, label %83, label %80
+  %.not25 = icmp eq i32 %66, 0
+  br i1 %.not25, label %83, label %80
 
 67:                                               ; preds = %.lr.ph
   %68 = load ptr, ptr %49, align 8, !tbaa !35
@@ -37704,8 +37704,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %67
   %77 = getelementptr inbounds nuw i8, ptr %49, i64 24
   %78 = load atomic i64, ptr %77 seq_cst, align 8
   %79 = load i64, ptr %48, align 8, !tbaa !389
-  %.not22 = icmp eq i64 %78, %79
-  br i1 %.not22, label %83, label %80
+  %.not26 = icmp eq i64 %78, %79
+  br i1 %.not26, label %83, label %80
 
 80:                                               ; preds = %75, %73, %71, %53, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %81 = getelementptr inbounds nuw i16, ptr %19, i64 %.017
@@ -37857,8 +37857,8 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %65 = and i32 %64, 7
   %66 = shl nuw nsw i32 1, %65
   %67 = and i32 %66, %63
-  %.not21 = icmp eq i32 %67, 0
-  br i1 %.not21, label %85, label %81
+  %.not25 = icmp eq i32 %67, 0
+  br i1 %.not25, label %85, label %81
 
 68:                                               ; preds = %.lr.ph
   %69 = load ptr, ptr %50, align 8, !tbaa !35
@@ -37886,8 +37886,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %68
   %78 = getelementptr inbounds nuw i8, ptr %50, i64 24
   %79 = load atomic i64, ptr %78 seq_cst, align 8
   %80 = load i64, ptr %49, align 8, !tbaa !389
-  %.not22 = icmp eq i64 %79, %80
-  br i1 %.not22, label %85, label %81
+  %.not26 = icmp eq i64 %79, %80
+  br i1 %.not26, label %85, label %81
 
 81:                                               ; preds = %76, %74, %72, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %82 = getelementptr inbounds nuw float, ptr %19, i64 %.017
@@ -38040,8 +38040,8 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %65 = and i32 %64, 7
   %66 = shl nuw nsw i32 1, %65
   %67 = and i32 %66, %63
-  %.not21 = icmp eq i32 %67, 0
-  br i1 %.not21, label %85, label %81
+  %.not25 = icmp eq i32 %67, 0
+  br i1 %.not25, label %85, label %81
 
 68:                                               ; preds = %.lr.ph
   %69 = load ptr, ptr %50, align 8, !tbaa !35
@@ -38069,8 +38069,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %68
   %78 = getelementptr inbounds nuw i8, ptr %50, i64 24
   %79 = load atomic i64, ptr %78 seq_cst, align 8
   %80 = load i64, ptr %49, align 8, !tbaa !389
-  %.not22 = icmp eq i64 %79, %80
-  br i1 %.not22, label %85, label %81
+  %.not26 = icmp eq i64 %79, %80
+  br i1 %.not26, label %85, label %81
 
 81:                                               ; preds = %76, %74, %72, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %82 = getelementptr inbounds nuw double, ptr %19, i64 %.017
@@ -38739,8 +38739,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %75
   %85 = getelementptr inbounds nuw i8, ptr %57, i64 24
   %86 = load atomic i64, ptr %85 seq_cst, align 8
   %87 = load i64, ptr %56, align 8, !tbaa !389
-  %.not20 = icmp eq i64 %86, %87
-  br i1 %.not20, label %92, label %88
+  %.not25 = icmp eq i64 %86, %87
+  br i1 %.not25, label %92, label %88
 
 88:                                               ; preds = %83, %81, %79, %61, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %89 = getelementptr inbounds nuw i8, ptr %16, i64 %.015
@@ -38930,8 +38930,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %75
   %85 = getelementptr inbounds nuw i8, ptr %57, i64 24
   %86 = load atomic i64, ptr %85 seq_cst, align 8
   %87 = load i64, ptr %56, align 8, !tbaa !389
-  %.not20 = icmp eq i64 %86, %87
-  br i1 %.not20, label %92, label %88
+  %.not25 = icmp eq i64 %86, %87
+  br i1 %.not25, label %92, label %88
 
 88:                                               ; preds = %83, %81, %79, %61, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %89 = getelementptr inbounds nuw i8, ptr %16, i64 %.015
@@ -39121,8 +39121,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %75
   %85 = getelementptr inbounds nuw i8, ptr %57, i64 24
   %86 = load atomic i64, ptr %85 seq_cst, align 8
   %87 = load i64, ptr %56, align 8, !tbaa !389
-  %.not20 = icmp eq i64 %86, %87
-  br i1 %.not20, label %92, label %88
+  %.not25 = icmp eq i64 %86, %87
+  br i1 %.not25, label %92, label %88
 
 88:                                               ; preds = %83, %81, %79, %61, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %89 = getelementptr inbounds nuw i16, ptr %16, i64 %.015
@@ -39312,8 +39312,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %75
   %85 = getelementptr inbounds nuw i8, ptr %57, i64 24
   %86 = load atomic i64, ptr %85 seq_cst, align 8
   %87 = load i64, ptr %56, align 8, !tbaa !389
-  %.not20 = icmp eq i64 %86, %87
-  br i1 %.not20, label %92, label %88
+  %.not25 = icmp eq i64 %86, %87
+  br i1 %.not25, label %92, label %88
 
 88:                                               ; preds = %83, %81, %79, %61, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %89 = getelementptr inbounds nuw i16, ptr %16, i64 %.015
@@ -39502,8 +39502,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %74
   %84 = getelementptr inbounds nuw i8, ptr %56, i64 24
   %85 = load atomic i64, ptr %84 seq_cst, align 8
   %86 = load i64, ptr %55, align 8, !tbaa !389
-  %.not20 = icmp eq i64 %85, %86
-  br i1 %.not20, label %90, label %87
+  %.not25 = icmp eq i64 %85, %86
+  br i1 %.not25, label %90, label %87
 
 87:                                               ; preds = %82, %80, %78, %60, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %88 = getelementptr inbounds nuw i32, ptr %16, i64 %.015
@@ -39691,8 +39691,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %74
   %84 = getelementptr inbounds nuw i8, ptr %56, i64 24
   %85 = load atomic i64, ptr %84 seq_cst, align 8
   %86 = load i64, ptr %55, align 8, !tbaa !389
-  %.not20 = icmp eq i64 %85, %86
-  br i1 %.not20, label %90, label %87
+  %.not25 = icmp eq i64 %85, %86
+  br i1 %.not25, label %90, label %87
 
 87:                                               ; preds = %82, %80, %78, %60, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %88 = getelementptr inbounds nuw i32, ptr %16, i64 %.015
@@ -39881,8 +39881,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %75
   %85 = getelementptr inbounds nuw i8, ptr %57, i64 24
   %86 = load atomic i64, ptr %85 seq_cst, align 8
   %87 = load i64, ptr %56, align 8, !tbaa !389
-  %.not20 = icmp eq i64 %86, %87
-  br i1 %.not20, label %92, label %88
+  %.not25 = icmp eq i64 %86, %87
+  br i1 %.not25, label %92, label %88
 
 88:                                               ; preds = %83, %81, %79, %61, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %89 = getelementptr inbounds nuw i64, ptr %16, i64 %.015
@@ -40072,8 +40072,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %75
   %85 = getelementptr inbounds nuw i8, ptr %57, i64 24
   %86 = load atomic i64, ptr %85 seq_cst, align 8
   %87 = load i64, ptr %56, align 8, !tbaa !389
-  %.not20 = icmp eq i64 %86, %87
-  br i1 %.not20, label %92, label %88
+  %.not25 = icmp eq i64 %86, %87
+  br i1 %.not25, label %92, label %88
 
 88:                                               ; preds = %83, %81, %79, %61, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %89 = getelementptr inbounds nuw i64, ptr %16, i64 %.015
@@ -40263,8 +40263,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %75
   %85 = getelementptr inbounds nuw i8, ptr %57, i64 24
   %86 = load atomic i64, ptr %85 seq_cst, align 8
   %87 = load i64, ptr %56, align 8, !tbaa !389
-  %.not20 = icmp eq i64 %86, %87
-  br i1 %.not20, label %92, label %88
+  %.not25 = icmp eq i64 %86, %87
+  br i1 %.not25, label %92, label %88
 
 88:                                               ; preds = %83, %81, %79, %61, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %89 = getelementptr inbounds nuw i16, ptr %16, i64 %.015
@@ -40454,8 +40454,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %75
   %85 = getelementptr inbounds nuw i8, ptr %57, i64 24
   %86 = load atomic i64, ptr %85 seq_cst, align 8
   %87 = load i64, ptr %56, align 8, !tbaa !389
-  %.not20 = icmp eq i64 %86, %87
-  br i1 %.not20, label %92, label %88
+  %.not25 = icmp eq i64 %86, %87
+  br i1 %.not25, label %92, label %88
 
 88:                                               ; preds = %83, %81, %79, %61, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %89 = getelementptr inbounds nuw float, ptr %16, i64 %.015
@@ -40645,8 +40645,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %75
   %85 = getelementptr inbounds nuw i8, ptr %57, i64 24
   %86 = load atomic i64, ptr %85 seq_cst, align 8
   %87 = load i64, ptr %56, align 8, !tbaa !389
-  %.not20 = icmp eq i64 %86, %87
-  br i1 %.not20, label %92, label %88
+  %.not25 = icmp eq i64 %86, %87
+  br i1 %.not25, label %92, label %88
 
 88:                                               ; preds = %83, %81, %79, %61, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %89 = getelementptr inbounds nuw double, ptr %16, i64 %.015
@@ -40800,8 +40800,8 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %65 = and i32 %64, 7
   %66 = shl nuw nsw i32 1, %65
   %67 = and i32 %66, %63
-  %.not23 = icmp eq i32 %67, 0
-  br i1 %.not23, label %85, label %81
+  %.not27 = icmp eq i32 %67, 0
+  br i1 %.not27, label %85, label %81
 
 68:                                               ; preds = %.lr.ph
   %69 = load ptr, ptr %50, align 8, !tbaa !35
@@ -40829,8 +40829,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %68
   %78 = getelementptr inbounds nuw i8, ptr %50, i64 24
   %79 = load atomic i64, ptr %78 seq_cst, align 8
   %80 = load i64, ptr %49, align 8, !tbaa !389
-  %.not24 = icmp eq i64 %79, %80
-  br i1 %.not24, label %85, label %81
+  %.not28 = icmp eq i64 %79, %80
+  br i1 %.not28, label %85, label %81
 
 81:                                               ; preds = %76, %74, %72, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %82 = getelementptr inbounds nuw i8, ptr %19, i64 %.017
@@ -40979,8 +40979,8 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %65 = and i32 %64, 7
   %66 = shl nuw nsw i32 1, %65
   %67 = and i32 %66, %63
-  %.not23 = icmp eq i32 %67, 0
-  br i1 %.not23, label %85, label %81
+  %.not27 = icmp eq i32 %67, 0
+  br i1 %.not27, label %85, label %81
 
 68:                                               ; preds = %.lr.ph
   %69 = load ptr, ptr %50, align 8, !tbaa !35
@@ -41008,8 +41008,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %68
   %78 = getelementptr inbounds nuw i8, ptr %50, i64 24
   %79 = load atomic i64, ptr %78 seq_cst, align 8
   %80 = load i64, ptr %49, align 8, !tbaa !389
-  %.not24 = icmp eq i64 %79, %80
-  br i1 %.not24, label %85, label %81
+  %.not28 = icmp eq i64 %79, %80
+  br i1 %.not28, label %85, label %81
 
 81:                                               ; preds = %76, %74, %72, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %82 = getelementptr inbounds nuw i8, ptr %19, i64 %.017
@@ -41158,8 +41158,8 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %65 = and i32 %64, 7
   %66 = shl nuw nsw i32 1, %65
   %67 = and i32 %66, %63
-  %.not21 = icmp eq i32 %67, 0
-  br i1 %.not21, label %85, label %81
+  %.not25 = icmp eq i32 %67, 0
+  br i1 %.not25, label %85, label %81
 
 68:                                               ; preds = %.lr.ph
   %69 = load ptr, ptr %50, align 8, !tbaa !35
@@ -41187,8 +41187,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %68
   %78 = getelementptr inbounds nuw i8, ptr %50, i64 24
   %79 = load atomic i64, ptr %78 seq_cst, align 8
   %80 = load i64, ptr %49, align 8, !tbaa !389
-  %.not22 = icmp eq i64 %79, %80
-  br i1 %.not22, label %85, label %81
+  %.not26 = icmp eq i64 %79, %80
+  br i1 %.not26, label %85, label %81
 
 81:                                               ; preds = %76, %74, %72, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %82 = getelementptr inbounds nuw i16, ptr %19, i64 %.017
@@ -41341,8 +41341,8 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %65 = and i32 %64, 7
   %66 = shl nuw nsw i32 1, %65
   %67 = and i32 %66, %63
-  %.not21 = icmp eq i32 %67, 0
-  br i1 %.not21, label %85, label %81
+  %.not25 = icmp eq i32 %67, 0
+  br i1 %.not25, label %85, label %81
 
 68:                                               ; preds = %.lr.ph
   %69 = load ptr, ptr %50, align 8, !tbaa !35
@@ -41370,8 +41370,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %68
   %78 = getelementptr inbounds nuw i8, ptr %50, i64 24
   %79 = load atomic i64, ptr %78 seq_cst, align 8
   %80 = load i64, ptr %49, align 8, !tbaa !389
-  %.not22 = icmp eq i64 %79, %80
-  br i1 %.not22, label %85, label %81
+  %.not26 = icmp eq i64 %79, %80
+  br i1 %.not26, label %85, label %81
 
 81:                                               ; preds = %76, %74, %72, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %82 = getelementptr inbounds nuw i16, ptr %19, i64 %.017
@@ -41542,8 +41542,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %66
   %76 = getelementptr inbounds nuw i8, ptr %48, i64 24
   %77 = load atomic i64, ptr %76 seq_cst, align 8
   %78 = load i64, ptr %47, align 8, !tbaa !389
-  %.not9 = icmp eq i64 %77, %78
-  br i1 %.not9, label %82, label %79
+  %.not13 = icmp eq i64 %77, %78
+  br i1 %.not13, label %82, label %79
 
 79:                                               ; preds = %74, %72, %70, %52, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %80 = getelementptr inbounds nuw i32, ptr %19, i64 %.08
@@ -41690,8 +41690,8 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %64 = and i32 %63, 7
   %65 = shl nuw nsw i32 1, %64
   %66 = and i32 %65, %62
-  %.not21 = icmp eq i32 %66, 0
-  br i1 %.not21, label %83, label %80
+  %.not25 = icmp eq i32 %66, 0
+  br i1 %.not25, label %83, label %80
 
 67:                                               ; preds = %.lr.ph
   %68 = load ptr, ptr %49, align 8, !tbaa !35
@@ -41719,8 +41719,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %67
   %77 = getelementptr inbounds nuw i8, ptr %49, i64 24
   %78 = load atomic i64, ptr %77 seq_cst, align 8
   %79 = load i64, ptr %48, align 8, !tbaa !389
-  %.not22 = icmp eq i64 %78, %79
-  br i1 %.not22, label %83, label %80
+  %.not26 = icmp eq i64 %78, %79
+  br i1 %.not26, label %83, label %80
 
 80:                                               ; preds = %75, %73, %71, %53, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %81 = getelementptr inbounds nuw i32, ptr %19, i64 %.017
@@ -41872,8 +41872,8 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %65 = and i32 %64, 7
   %66 = shl nuw nsw i32 1, %65
   %67 = and i32 %66, %63
-  %.not21 = icmp eq i32 %67, 0
-  br i1 %.not21, label %85, label %81
+  %.not25 = icmp eq i32 %67, 0
+  br i1 %.not25, label %85, label %81
 
 68:                                               ; preds = %.lr.ph
   %69 = load ptr, ptr %50, align 8, !tbaa !35
@@ -41901,8 +41901,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %68
   %78 = getelementptr inbounds nuw i8, ptr %50, i64 24
   %79 = load atomic i64, ptr %78 seq_cst, align 8
   %80 = load i64, ptr %49, align 8, !tbaa !389
-  %.not22 = icmp eq i64 %79, %80
-  br i1 %.not22, label %85, label %81
+  %.not26 = icmp eq i64 %79, %80
+  br i1 %.not26, label %85, label %81
 
 81:                                               ; preds = %76, %74, %72, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %82 = getelementptr inbounds nuw i64, ptr %19, i64 %.017
@@ -42055,8 +42055,8 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %65 = and i32 %64, 7
   %66 = shl nuw nsw i32 1, %65
   %67 = and i32 %66, %63
-  %.not21 = icmp eq i32 %67, 0
-  br i1 %.not21, label %85, label %81
+  %.not25 = icmp eq i32 %67, 0
+  br i1 %.not25, label %85, label %81
 
 68:                                               ; preds = %.lr.ph
   %69 = load ptr, ptr %50, align 8, !tbaa !35
@@ -42084,8 +42084,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %68
   %78 = getelementptr inbounds nuw i8, ptr %50, i64 24
   %79 = load atomic i64, ptr %78 seq_cst, align 8
   %80 = load i64, ptr %49, align 8, !tbaa !389
-  %.not22 = icmp eq i64 %79, %80
-  br i1 %.not22, label %85, label %81
+  %.not26 = icmp eq i64 %79, %80
+  br i1 %.not26, label %85, label %81
 
 81:                                               ; preds = %76, %74, %72, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %82 = getelementptr inbounds nuw i64, ptr %19, i64 %.017
@@ -42238,8 +42238,8 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %65 = and i32 %64, 7
   %66 = shl nuw nsw i32 1, %65
   %67 = and i32 %66, %63
-  %.not21 = icmp eq i32 %67, 0
-  br i1 %.not21, label %85, label %81
+  %.not25 = icmp eq i32 %67, 0
+  br i1 %.not25, label %85, label %81
 
 68:                                               ; preds = %.lr.ph
   %69 = load ptr, ptr %50, align 8, !tbaa !35
@@ -42267,8 +42267,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %68
   %78 = getelementptr inbounds nuw i8, ptr %50, i64 24
   %79 = load atomic i64, ptr %78 seq_cst, align 8
   %80 = load i64, ptr %49, align 8, !tbaa !389
-  %.not22 = icmp eq i64 %79, %80
-  br i1 %.not22, label %85, label %81
+  %.not26 = icmp eq i64 %79, %80
+  br i1 %.not26, label %85, label %81
 
 81:                                               ; preds = %76, %74, %72, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %82 = getelementptr inbounds nuw i16, ptr %19, i64 %.017
@@ -42421,8 +42421,8 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %65 = and i32 %64, 7
   %66 = shl nuw nsw i32 1, %65
   %67 = and i32 %66, %63
-  %.not21 = icmp eq i32 %67, 0
-  br i1 %.not21, label %85, label %81
+  %.not25 = icmp eq i32 %67, 0
+  br i1 %.not25, label %85, label %81
 
 68:                                               ; preds = %.lr.ph
   %69 = load ptr, ptr %50, align 8, !tbaa !35
@@ -42450,8 +42450,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %68
   %78 = getelementptr inbounds nuw i8, ptr %50, i64 24
   %79 = load atomic i64, ptr %78 seq_cst, align 8
   %80 = load i64, ptr %49, align 8, !tbaa !389
-  %.not22 = icmp eq i64 %79, %80
-  br i1 %.not22, label %85, label %81
+  %.not26 = icmp eq i64 %79, %80
+  br i1 %.not26, label %85, label %81
 
 81:                                               ; preds = %76, %74, %72, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %82 = getelementptr inbounds nuw float, ptr %19, i64 %.017
@@ -42604,8 +42604,8 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %65 = and i32 %64, 7
   %66 = shl nuw nsw i32 1, %65
   %67 = and i32 %66, %63
-  %.not21 = icmp eq i32 %67, 0
-  br i1 %.not21, label %85, label %81
+  %.not25 = icmp eq i32 %67, 0
+  br i1 %.not25, label %85, label %81
 
 68:                                               ; preds = %.lr.ph
   %69 = load ptr, ptr %50, align 8, !tbaa !35
@@ -42633,8 +42633,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %68
   %78 = getelementptr inbounds nuw i8, ptr %50, i64 24
   %79 = load atomic i64, ptr %78 seq_cst, align 8
   %80 = load i64, ptr %49, align 8, !tbaa !389
-  %.not22 = icmp eq i64 %79, %80
-  br i1 %.not22, label %85, label %81
+  %.not26 = icmp eq i64 %79, %80
+  br i1 %.not26, label %85, label %81
 
 81:                                               ; preds = %76, %74, %72, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %82 = getelementptr inbounds nuw double, ptr %19, i64 %.017
@@ -43304,8 +43304,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %75
   %85 = getelementptr inbounds nuw i8, ptr %57, i64 24
   %86 = load atomic i64, ptr %85 seq_cst, align 8
   %87 = load i64, ptr %56, align 8, !tbaa !389
-  %.not20 = icmp eq i64 %86, %87
-  br i1 %.not20, label %92, label %88
+  %.not24 = icmp eq i64 %86, %87
+  br i1 %.not24, label %92, label %88
 
 88:                                               ; preds = %83, %81, %79, %61, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %89 = getelementptr inbounds nuw i8, ptr %16, i64 %.015
@@ -43496,8 +43496,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %75
   %85 = getelementptr inbounds nuw i8, ptr %57, i64 24
   %86 = load atomic i64, ptr %85 seq_cst, align 8
   %87 = load i64, ptr %56, align 8, !tbaa !389
-  %.not20 = icmp eq i64 %86, %87
-  br i1 %.not20, label %92, label %88
+  %.not24 = icmp eq i64 %86, %87
+  br i1 %.not24, label %92, label %88
 
 88:                                               ; preds = %83, %81, %79, %61, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %89 = getelementptr inbounds nuw i8, ptr %16, i64 %.015
@@ -43688,8 +43688,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %75
   %85 = getelementptr inbounds nuw i8, ptr %57, i64 24
   %86 = load atomic i64, ptr %85 seq_cst, align 8
   %87 = load i64, ptr %56, align 8, !tbaa !389
-  %.not20 = icmp eq i64 %86, %87
-  br i1 %.not20, label %92, label %88
+  %.not24 = icmp eq i64 %86, %87
+  br i1 %.not24, label %92, label %88
 
 88:                                               ; preds = %83, %81, %79, %61, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %89 = getelementptr inbounds nuw i16, ptr %16, i64 %.015
@@ -43880,8 +43880,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %75
   %85 = getelementptr inbounds nuw i8, ptr %57, i64 24
   %86 = load atomic i64, ptr %85 seq_cst, align 8
   %87 = load i64, ptr %56, align 8, !tbaa !389
-  %.not20 = icmp eq i64 %86, %87
-  br i1 %.not20, label %92, label %88
+  %.not24 = icmp eq i64 %86, %87
+  br i1 %.not24, label %92, label %88
 
 88:                                               ; preds = %83, %81, %79, %61, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %89 = getelementptr inbounds nuw i16, ptr %16, i64 %.015
@@ -44072,8 +44072,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %75
   %85 = getelementptr inbounds nuw i8, ptr %57, i64 24
   %86 = load atomic i64, ptr %85 seq_cst, align 8
   %87 = load i64, ptr %56, align 8, !tbaa !389
-  %.not20 = icmp eq i64 %86, %87
-  br i1 %.not20, label %92, label %88
+  %.not24 = icmp eq i64 %86, %87
+  br i1 %.not24, label %92, label %88
 
 88:                                               ; preds = %83, %81, %79, %61, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %89 = getelementptr inbounds nuw i32, ptr %16, i64 %.015
@@ -44264,8 +44264,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %75
   %85 = getelementptr inbounds nuw i8, ptr %57, i64 24
   %86 = load atomic i64, ptr %85 seq_cst, align 8
   %87 = load i64, ptr %56, align 8, !tbaa !389
-  %.not20 = icmp eq i64 %86, %87
-  br i1 %.not20, label %92, label %88
+  %.not24 = icmp eq i64 %86, %87
+  br i1 %.not24, label %92, label %88
 
 88:                                               ; preds = %83, %81, %79, %61, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %89 = getelementptr inbounds nuw i32, ptr %16, i64 %.015
@@ -44455,8 +44455,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %74
   %84 = getelementptr inbounds nuw i8, ptr %56, i64 24
   %85 = load atomic i64, ptr %84 seq_cst, align 8
   %86 = load i64, ptr %55, align 8, !tbaa !389
-  %.not20 = icmp eq i64 %85, %86
-  br i1 %.not20, label %90, label %87
+  %.not24 = icmp eq i64 %85, %86
+  br i1 %.not24, label %90, label %87
 
 87:                                               ; preds = %82, %80, %78, %60, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %88 = getelementptr inbounds nuw i64, ptr %16, i64 %.015
@@ -44645,8 +44645,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %74
   %84 = getelementptr inbounds nuw i8, ptr %56, i64 24
   %85 = load atomic i64, ptr %84 seq_cst, align 8
   %86 = load i64, ptr %55, align 8, !tbaa !389
-  %.not20 = icmp eq i64 %85, %86
-  br i1 %.not20, label %90, label %87
+  %.not24 = icmp eq i64 %85, %86
+  br i1 %.not24, label %90, label %87
 
 87:                                               ; preds = %82, %80, %78, %60, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %88 = getelementptr inbounds nuw i64, ptr %16, i64 %.015
@@ -44836,8 +44836,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %75
   %85 = getelementptr inbounds nuw i8, ptr %57, i64 24
   %86 = load atomic i64, ptr %85 seq_cst, align 8
   %87 = load i64, ptr %56, align 8, !tbaa !389
-  %.not20 = icmp eq i64 %86, %87
-  br i1 %.not20, label %92, label %88
+  %.not24 = icmp eq i64 %86, %87
+  br i1 %.not24, label %92, label %88
 
 88:                                               ; preds = %83, %81, %79, %61, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %89 = getelementptr inbounds nuw i16, ptr %16, i64 %.015
@@ -45028,8 +45028,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %75
   %85 = getelementptr inbounds nuw i8, ptr %57, i64 24
   %86 = load atomic i64, ptr %85 seq_cst, align 8
   %87 = load i64, ptr %56, align 8, !tbaa !389
-  %.not20 = icmp eq i64 %86, %87
-  br i1 %.not20, label %92, label %88
+  %.not24 = icmp eq i64 %86, %87
+  br i1 %.not24, label %92, label %88
 
 88:                                               ; preds = %83, %81, %79, %61, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %89 = getelementptr inbounds nuw float, ptr %16, i64 %.015
@@ -45220,8 +45220,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %75
   %85 = getelementptr inbounds nuw i8, ptr %57, i64 24
   %86 = load atomic i64, ptr %85 seq_cst, align 8
   %87 = load i64, ptr %56, align 8, !tbaa !389
-  %.not20 = icmp eq i64 %86, %87
-  br i1 %.not20, label %92, label %88
+  %.not24 = icmp eq i64 %86, %87
+  br i1 %.not24, label %92, label %88
 
 88:                                               ; preds = %83, %81, %79, %61, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %89 = getelementptr inbounds nuw double, ptr %16, i64 %.015
@@ -45375,8 +45375,8 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %65 = and i32 %64, 7
   %66 = shl nuw nsw i32 1, %65
   %67 = and i32 %66, %63
-  %.not23 = icmp eq i32 %67, 0
-  br i1 %.not23, label %85, label %81
+  %.not27 = icmp eq i32 %67, 0
+  br i1 %.not27, label %85, label %81
 
 68:                                               ; preds = %.lr.ph
   %69 = load ptr, ptr %50, align 8, !tbaa !35
@@ -45404,8 +45404,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %68
   %78 = getelementptr inbounds nuw i8, ptr %50, i64 24
   %79 = load atomic i64, ptr %78 seq_cst, align 8
   %80 = load i64, ptr %49, align 8, !tbaa !389
-  %.not24 = icmp eq i64 %79, %80
-  br i1 %.not24, label %85, label %81
+  %.not28 = icmp eq i64 %79, %80
+  br i1 %.not28, label %85, label %81
 
 81:                                               ; preds = %76, %74, %72, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %82 = getelementptr inbounds nuw i8, ptr %19, i64 %.017
@@ -45554,8 +45554,8 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %65 = and i32 %64, 7
   %66 = shl nuw nsw i32 1, %65
   %67 = and i32 %66, %63
-  %.not23 = icmp eq i32 %67, 0
-  br i1 %.not23, label %85, label %81
+  %.not27 = icmp eq i32 %67, 0
+  br i1 %.not27, label %85, label %81
 
 68:                                               ; preds = %.lr.ph
   %69 = load ptr, ptr %50, align 8, !tbaa !35
@@ -45583,8 +45583,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %68
   %78 = getelementptr inbounds nuw i8, ptr %50, i64 24
   %79 = load atomic i64, ptr %78 seq_cst, align 8
   %80 = load i64, ptr %49, align 8, !tbaa !389
-  %.not24 = icmp eq i64 %79, %80
-  br i1 %.not24, label %85, label %81
+  %.not28 = icmp eq i64 %79, %80
+  br i1 %.not28, label %85, label %81
 
 81:                                               ; preds = %76, %74, %72, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %82 = getelementptr inbounds nuw i8, ptr %19, i64 %.017
@@ -45733,8 +45733,8 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %65 = and i32 %64, 7
   %66 = shl nuw nsw i32 1, %65
   %67 = and i32 %66, %63
-  %.not21 = icmp eq i32 %67, 0
-  br i1 %.not21, label %85, label %81
+  %.not25 = icmp eq i32 %67, 0
+  br i1 %.not25, label %85, label %81
 
 68:                                               ; preds = %.lr.ph
   %69 = load ptr, ptr %50, align 8, !tbaa !35
@@ -45762,8 +45762,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %68
   %78 = getelementptr inbounds nuw i8, ptr %50, i64 24
   %79 = load atomic i64, ptr %78 seq_cst, align 8
   %80 = load i64, ptr %49, align 8, !tbaa !389
-  %.not22 = icmp eq i64 %79, %80
-  br i1 %.not22, label %85, label %81
+  %.not26 = icmp eq i64 %79, %80
+  br i1 %.not26, label %85, label %81
 
 81:                                               ; preds = %76, %74, %72, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %82 = getelementptr inbounds nuw i16, ptr %19, i64 %.017
@@ -45916,8 +45916,8 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %65 = and i32 %64, 7
   %66 = shl nuw nsw i32 1, %65
   %67 = and i32 %66, %63
-  %.not21 = icmp eq i32 %67, 0
-  br i1 %.not21, label %85, label %81
+  %.not25 = icmp eq i32 %67, 0
+  br i1 %.not25, label %85, label %81
 
 68:                                               ; preds = %.lr.ph
   %69 = load ptr, ptr %50, align 8, !tbaa !35
@@ -45945,8 +45945,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %68
   %78 = getelementptr inbounds nuw i8, ptr %50, i64 24
   %79 = load atomic i64, ptr %78 seq_cst, align 8
   %80 = load i64, ptr %49, align 8, !tbaa !389
-  %.not22 = icmp eq i64 %79, %80
-  br i1 %.not22, label %85, label %81
+  %.not26 = icmp eq i64 %79, %80
+  br i1 %.not26, label %85, label %81
 
 81:                                               ; preds = %76, %74, %72, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %82 = getelementptr inbounds nuw i16, ptr %19, i64 %.017
@@ -46099,8 +46099,8 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %65 = and i32 %64, 7
   %66 = shl nuw nsw i32 1, %65
   %67 = and i32 %66, %63
-  %.not21 = icmp eq i32 %67, 0
-  br i1 %.not21, label %85, label %81
+  %.not25 = icmp eq i32 %67, 0
+  br i1 %.not25, label %85, label %81
 
 68:                                               ; preds = %.lr.ph
   %69 = load ptr, ptr %50, align 8, !tbaa !35
@@ -46128,8 +46128,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %68
   %78 = getelementptr inbounds nuw i8, ptr %50, i64 24
   %79 = load atomic i64, ptr %78 seq_cst, align 8
   %80 = load i64, ptr %49, align 8, !tbaa !389
-  %.not22 = icmp eq i64 %79, %80
-  br i1 %.not22, label %85, label %81
+  %.not26 = icmp eq i64 %79, %80
+  br i1 %.not26, label %85, label %81
 
 81:                                               ; preds = %76, %74, %72, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %82 = getelementptr inbounds nuw i32, ptr %19, i64 %.017
@@ -46282,8 +46282,8 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %65 = and i32 %64, 7
   %66 = shl nuw nsw i32 1, %65
   %67 = and i32 %66, %63
-  %.not21 = icmp eq i32 %67, 0
-  br i1 %.not21, label %85, label %81
+  %.not25 = icmp eq i32 %67, 0
+  br i1 %.not25, label %85, label %81
 
 68:                                               ; preds = %.lr.ph
   %69 = load ptr, ptr %50, align 8, !tbaa !35
@@ -46311,8 +46311,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %68
   %78 = getelementptr inbounds nuw i8, ptr %50, i64 24
   %79 = load atomic i64, ptr %78 seq_cst, align 8
   %80 = load i64, ptr %49, align 8, !tbaa !389
-  %.not22 = icmp eq i64 %79, %80
-  br i1 %.not22, label %85, label %81
+  %.not26 = icmp eq i64 %79, %80
+  br i1 %.not26, label %85, label %81
 
 81:                                               ; preds = %76, %74, %72, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %82 = getelementptr inbounds nuw i32, ptr %19, i64 %.017
@@ -46483,8 +46483,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %66
   %76 = getelementptr inbounds nuw i8, ptr %48, i64 24
   %77 = load atomic i64, ptr %76 seq_cst, align 8
   %78 = load i64, ptr %47, align 8, !tbaa !389
-  %.not9 = icmp eq i64 %77, %78
-  br i1 %.not9, label %82, label %79
+  %.not13 = icmp eq i64 %77, %78
+  br i1 %.not13, label %82, label %79
 
 79:                                               ; preds = %74, %72, %70, %52, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %80 = getelementptr inbounds nuw i64, ptr %19, i64 %.08
@@ -46631,8 +46631,8 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %64 = and i32 %63, 7
   %65 = shl nuw nsw i32 1, %64
   %66 = and i32 %65, %62
-  %.not21 = icmp eq i32 %66, 0
-  br i1 %.not21, label %83, label %80
+  %.not25 = icmp eq i32 %66, 0
+  br i1 %.not25, label %83, label %80
 
 67:                                               ; preds = %.lr.ph
   %68 = load ptr, ptr %49, align 8, !tbaa !35
@@ -46660,8 +46660,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %67
   %77 = getelementptr inbounds nuw i8, ptr %49, i64 24
   %78 = load atomic i64, ptr %77 seq_cst, align 8
   %79 = load i64, ptr %48, align 8, !tbaa !389
-  %.not22 = icmp eq i64 %78, %79
-  br i1 %.not22, label %83, label %80
+  %.not26 = icmp eq i64 %78, %79
+  br i1 %.not26, label %83, label %80
 
 80:                                               ; preds = %75, %73, %71, %53, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %81 = getelementptr inbounds nuw i64, ptr %19, i64 %.017
@@ -46813,8 +46813,8 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %65 = and i32 %64, 7
   %66 = shl nuw nsw i32 1, %65
   %67 = and i32 %66, %63
-  %.not21 = icmp eq i32 %67, 0
-  br i1 %.not21, label %85, label %81
+  %.not25 = icmp eq i32 %67, 0
+  br i1 %.not25, label %85, label %81
 
 68:                                               ; preds = %.lr.ph
   %69 = load ptr, ptr %50, align 8, !tbaa !35
@@ -46842,8 +46842,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %68
   %78 = getelementptr inbounds nuw i8, ptr %50, i64 24
   %79 = load atomic i64, ptr %78 seq_cst, align 8
   %80 = load i64, ptr %49, align 8, !tbaa !389
-  %.not22 = icmp eq i64 %79, %80
-  br i1 %.not22, label %85, label %81
+  %.not26 = icmp eq i64 %79, %80
+  br i1 %.not26, label %85, label %81
 
 81:                                               ; preds = %76, %74, %72, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %82 = getelementptr inbounds nuw i16, ptr %19, i64 %.017
@@ -46996,8 +46996,8 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %65 = and i32 %64, 7
   %66 = shl nuw nsw i32 1, %65
   %67 = and i32 %66, %63
-  %.not21 = icmp eq i32 %67, 0
-  br i1 %.not21, label %85, label %81
+  %.not25 = icmp eq i32 %67, 0
+  br i1 %.not25, label %85, label %81
 
 68:                                               ; preds = %.lr.ph
   %69 = load ptr, ptr %50, align 8, !tbaa !35
@@ -47025,8 +47025,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %68
   %78 = getelementptr inbounds nuw i8, ptr %50, i64 24
   %79 = load atomic i64, ptr %78 seq_cst, align 8
   %80 = load i64, ptr %49, align 8, !tbaa !389
-  %.not22 = icmp eq i64 %79, %80
-  br i1 %.not22, label %85, label %81
+  %.not26 = icmp eq i64 %79, %80
+  br i1 %.not26, label %85, label %81
 
 81:                                               ; preds = %76, %74, %72, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %82 = getelementptr inbounds nuw float, ptr %19, i64 %.017
@@ -47179,8 +47179,8 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %65 = and i32 %64, 7
   %66 = shl nuw nsw i32 1, %65
   %67 = and i32 %66, %63
-  %.not21 = icmp eq i32 %67, 0
-  br i1 %.not21, label %85, label %81
+  %.not25 = icmp eq i32 %67, 0
+  br i1 %.not25, label %85, label %81
 
 68:                                               ; preds = %.lr.ph
   %69 = load ptr, ptr %50, align 8, !tbaa !35
@@ -47208,8 +47208,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %68
   %78 = getelementptr inbounds nuw i8, ptr %50, i64 24
   %79 = load atomic i64, ptr %78 seq_cst, align 8
   %80 = load i64, ptr %49, align 8, !tbaa !389
-  %.not22 = icmp eq i64 %79, %80
-  br i1 %.not22, label %85, label %81
+  %.not26 = icmp eq i64 %79, %80
+  br i1 %.not26, label %85, label %81
 
 81:                                               ; preds = %76, %74, %72, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %82 = getelementptr inbounds nuw double, ptr %19, i64 %.017
@@ -47878,8 +47878,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %73
   %83 = getelementptr inbounds nuw i8, ptr %55, i64 24
   %84 = load atomic i64, ptr %83 seq_cst, align 8
   %85 = load i64, ptr %54, align 8, !tbaa !389
-  %.not20 = icmp eq i64 %84, %85
-  br i1 %.not20, label %90, label %86
+  %.not25 = icmp eq i64 %84, %85
+  br i1 %.not25, label %90, label %86
 
 86:                                               ; preds = %81, %79, %77, %59, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %87 = getelementptr inbounds nuw i8, ptr %16, i64 %.015
@@ -48069,8 +48069,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %73
   %83 = getelementptr inbounds nuw i8, ptr %55, i64 24
   %84 = load atomic i64, ptr %83 seq_cst, align 8
   %85 = load i64, ptr %54, align 8, !tbaa !389
-  %.not20 = icmp eq i64 %84, %85
-  br i1 %.not20, label %90, label %86
+  %.not25 = icmp eq i64 %84, %85
+  br i1 %.not25, label %90, label %86
 
 86:                                               ; preds = %81, %79, %77, %59, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %87 = getelementptr inbounds nuw i8, ptr %16, i64 %.015
@@ -48260,8 +48260,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %73
   %83 = getelementptr inbounds nuw i8, ptr %55, i64 24
   %84 = load atomic i64, ptr %83 seq_cst, align 8
   %85 = load i64, ptr %54, align 8, !tbaa !389
-  %.not20 = icmp eq i64 %84, %85
-  br i1 %.not20, label %90, label %86
+  %.not25 = icmp eq i64 %84, %85
+  br i1 %.not25, label %90, label %86
 
 86:                                               ; preds = %81, %79, %77, %59, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %87 = getelementptr inbounds nuw i16, ptr %16, i64 %.015
@@ -48451,8 +48451,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %73
   %83 = getelementptr inbounds nuw i8, ptr %55, i64 24
   %84 = load atomic i64, ptr %83 seq_cst, align 8
   %85 = load i64, ptr %54, align 8, !tbaa !389
-  %.not20 = icmp eq i64 %84, %85
-  br i1 %.not20, label %90, label %86
+  %.not25 = icmp eq i64 %84, %85
+  br i1 %.not25, label %90, label %86
 
 86:                                               ; preds = %81, %79, %77, %59, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %87 = getelementptr inbounds nuw i16, ptr %16, i64 %.015
@@ -48642,8 +48642,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %73
   %83 = getelementptr inbounds nuw i8, ptr %55, i64 24
   %84 = load atomic i64, ptr %83 seq_cst, align 8
   %85 = load i64, ptr %54, align 8, !tbaa !389
-  %.not20 = icmp eq i64 %84, %85
-  br i1 %.not20, label %90, label %86
+  %.not25 = icmp eq i64 %84, %85
+  br i1 %.not25, label %90, label %86
 
 86:                                               ; preds = %81, %79, %77, %59, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %87 = getelementptr inbounds nuw i32, ptr %16, i64 %.015
@@ -48833,8 +48833,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %73
   %83 = getelementptr inbounds nuw i8, ptr %55, i64 24
   %84 = load atomic i64, ptr %83 seq_cst, align 8
   %85 = load i64, ptr %54, align 8, !tbaa !389
-  %.not20 = icmp eq i64 %84, %85
-  br i1 %.not20, label %90, label %86
+  %.not25 = icmp eq i64 %84, %85
+  br i1 %.not25, label %90, label %86
 
 86:                                               ; preds = %81, %79, %77, %59, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %87 = getelementptr inbounds nuw i32, ptr %16, i64 %.015
@@ -49024,8 +49024,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %73
   %83 = getelementptr inbounds nuw i8, ptr %55, i64 24
   %84 = load atomic i64, ptr %83 seq_cst, align 8
   %85 = load i64, ptr %54, align 8, !tbaa !389
-  %.not20 = icmp eq i64 %84, %85
-  br i1 %.not20, label %90, label %86
+  %.not25 = icmp eq i64 %84, %85
+  br i1 %.not25, label %90, label %86
 
 86:                                               ; preds = %81, %79, %77, %59, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %87 = getelementptr inbounds nuw i64, ptr %16, i64 %.015
@@ -49215,8 +49215,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %73
   %83 = getelementptr inbounds nuw i8, ptr %55, i64 24
   %84 = load atomic i64, ptr %83 seq_cst, align 8
   %85 = load i64, ptr %54, align 8, !tbaa !389
-  %.not20 = icmp eq i64 %84, %85
-  br i1 %.not20, label %90, label %86
+  %.not25 = icmp eq i64 %84, %85
+  br i1 %.not25, label %90, label %86
 
 86:                                               ; preds = %81, %79, %77, %59, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %87 = getelementptr inbounds nuw i64, ptr %16, i64 %.015
@@ -49406,8 +49406,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %73
   %83 = getelementptr inbounds nuw i8, ptr %55, i64 24
   %84 = load atomic i64, ptr %83 seq_cst, align 8
   %85 = load i64, ptr %54, align 8, !tbaa !389
-  %.not20 = icmp eq i64 %84, %85
-  br i1 %.not20, label %90, label %86
+  %.not25 = icmp eq i64 %84, %85
+  br i1 %.not25, label %90, label %86
 
 86:                                               ; preds = %81, %79, %77, %59, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %87 = getelementptr inbounds nuw i16, ptr %16, i64 %.015
@@ -49596,8 +49596,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %72
   %82 = getelementptr inbounds nuw i8, ptr %54, i64 24
   %83 = load atomic i64, ptr %82 seq_cst, align 8
   %84 = load i64, ptr %53, align 8, !tbaa !389
-  %.not20 = icmp eq i64 %83, %84
-  br i1 %.not20, label %88, label %85
+  %.not25 = icmp eq i64 %83, %84
+  br i1 %.not25, label %88, label %85
 
 85:                                               ; preds = %80, %78, %76, %58, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %86 = getelementptr inbounds nuw float, ptr %16, i64 %.015
@@ -49786,8 +49786,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %73
   %83 = getelementptr inbounds nuw i8, ptr %55, i64 24
   %84 = load atomic i64, ptr %83 seq_cst, align 8
   %85 = load i64, ptr %54, align 8, !tbaa !389
-  %.not20 = icmp eq i64 %84, %85
-  br i1 %.not20, label %90, label %86
+  %.not25 = icmp eq i64 %84, %85
+  br i1 %.not25, label %90, label %86
 
 86:                                               ; preds = %81, %79, %77, %59, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %87 = getelementptr inbounds nuw double, ptr %16, i64 %.015
@@ -49941,8 +49941,8 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %65 = and i32 %64, 7
   %66 = shl nuw nsw i32 1, %65
   %67 = and i32 %66, %63
-  %.not23 = icmp eq i32 %67, 0
-  br i1 %.not23, label %85, label %81
+  %.not27 = icmp eq i32 %67, 0
+  br i1 %.not27, label %85, label %81
 
 68:                                               ; preds = %.lr.ph
   %69 = load ptr, ptr %50, align 8, !tbaa !35
@@ -49970,8 +49970,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %68
   %78 = getelementptr inbounds nuw i8, ptr %50, i64 24
   %79 = load atomic i64, ptr %78 seq_cst, align 8
   %80 = load i64, ptr %49, align 8, !tbaa !389
-  %.not24 = icmp eq i64 %79, %80
-  br i1 %.not24, label %85, label %81
+  %.not28 = icmp eq i64 %79, %80
+  br i1 %.not28, label %85, label %81
 
 81:                                               ; preds = %76, %74, %72, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %82 = getelementptr inbounds nuw i8, ptr %19, i64 %.017
@@ -50120,8 +50120,8 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %65 = and i32 %64, 7
   %66 = shl nuw nsw i32 1, %65
   %67 = and i32 %66, %63
-  %.not23 = icmp eq i32 %67, 0
-  br i1 %.not23, label %85, label %81
+  %.not27 = icmp eq i32 %67, 0
+  br i1 %.not27, label %85, label %81
 
 68:                                               ; preds = %.lr.ph
   %69 = load ptr, ptr %50, align 8, !tbaa !35
@@ -50149,8 +50149,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %68
   %78 = getelementptr inbounds nuw i8, ptr %50, i64 24
   %79 = load atomic i64, ptr %78 seq_cst, align 8
   %80 = load i64, ptr %49, align 8, !tbaa !389
-  %.not24 = icmp eq i64 %79, %80
-  br i1 %.not24, label %85, label %81
+  %.not28 = icmp eq i64 %79, %80
+  br i1 %.not28, label %85, label %81
 
 81:                                               ; preds = %76, %74, %72, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %82 = getelementptr inbounds nuw i8, ptr %19, i64 %.017
@@ -50299,8 +50299,8 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %65 = and i32 %64, 7
   %66 = shl nuw nsw i32 1, %65
   %67 = and i32 %66, %63
-  %.not21 = icmp eq i32 %67, 0
-  br i1 %.not21, label %85, label %81
+  %.not25 = icmp eq i32 %67, 0
+  br i1 %.not25, label %85, label %81
 
 68:                                               ; preds = %.lr.ph
   %69 = load ptr, ptr %50, align 8, !tbaa !35
@@ -50328,8 +50328,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %68
   %78 = getelementptr inbounds nuw i8, ptr %50, i64 24
   %79 = load atomic i64, ptr %78 seq_cst, align 8
   %80 = load i64, ptr %49, align 8, !tbaa !389
-  %.not22 = icmp eq i64 %79, %80
-  br i1 %.not22, label %85, label %81
+  %.not26 = icmp eq i64 %79, %80
+  br i1 %.not26, label %85, label %81
 
 81:                                               ; preds = %76, %74, %72, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %82 = getelementptr inbounds nuw i16, ptr %19, i64 %.017
@@ -50482,8 +50482,8 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %65 = and i32 %64, 7
   %66 = shl nuw nsw i32 1, %65
   %67 = and i32 %66, %63
-  %.not21 = icmp eq i32 %67, 0
-  br i1 %.not21, label %85, label %81
+  %.not25 = icmp eq i32 %67, 0
+  br i1 %.not25, label %85, label %81
 
 68:                                               ; preds = %.lr.ph
   %69 = load ptr, ptr %50, align 8, !tbaa !35
@@ -50511,8 +50511,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %68
   %78 = getelementptr inbounds nuw i8, ptr %50, i64 24
   %79 = load atomic i64, ptr %78 seq_cst, align 8
   %80 = load i64, ptr %49, align 8, !tbaa !389
-  %.not22 = icmp eq i64 %79, %80
-  br i1 %.not22, label %85, label %81
+  %.not26 = icmp eq i64 %79, %80
+  br i1 %.not26, label %85, label %81
 
 81:                                               ; preds = %76, %74, %72, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %82 = getelementptr inbounds nuw i16, ptr %19, i64 %.017
@@ -50665,8 +50665,8 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %65 = and i32 %64, 7
   %66 = shl nuw nsw i32 1, %65
   %67 = and i32 %66, %63
-  %.not21 = icmp eq i32 %67, 0
-  br i1 %.not21, label %85, label %81
+  %.not25 = icmp eq i32 %67, 0
+  br i1 %.not25, label %85, label %81
 
 68:                                               ; preds = %.lr.ph
   %69 = load ptr, ptr %50, align 8, !tbaa !35
@@ -50694,8 +50694,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %68
   %78 = getelementptr inbounds nuw i8, ptr %50, i64 24
   %79 = load atomic i64, ptr %78 seq_cst, align 8
   %80 = load i64, ptr %49, align 8, !tbaa !389
-  %.not22 = icmp eq i64 %79, %80
-  br i1 %.not22, label %85, label %81
+  %.not26 = icmp eq i64 %79, %80
+  br i1 %.not26, label %85, label %81
 
 81:                                               ; preds = %76, %74, %72, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %82 = getelementptr inbounds nuw i32, ptr %19, i64 %.017
@@ -50848,8 +50848,8 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %65 = and i32 %64, 7
   %66 = shl nuw nsw i32 1, %65
   %67 = and i32 %66, %63
-  %.not21 = icmp eq i32 %67, 0
-  br i1 %.not21, label %85, label %81
+  %.not25 = icmp eq i32 %67, 0
+  br i1 %.not25, label %85, label %81
 
 68:                                               ; preds = %.lr.ph
   %69 = load ptr, ptr %50, align 8, !tbaa !35
@@ -50877,8 +50877,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %68
   %78 = getelementptr inbounds nuw i8, ptr %50, i64 24
   %79 = load atomic i64, ptr %78 seq_cst, align 8
   %80 = load i64, ptr %49, align 8, !tbaa !389
-  %.not22 = icmp eq i64 %79, %80
-  br i1 %.not22, label %85, label %81
+  %.not26 = icmp eq i64 %79, %80
+  br i1 %.not26, label %85, label %81
 
 81:                                               ; preds = %76, %74, %72, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %82 = getelementptr inbounds nuw i32, ptr %19, i64 %.017
@@ -51031,8 +51031,8 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %65 = and i32 %64, 7
   %66 = shl nuw nsw i32 1, %65
   %67 = and i32 %66, %63
-  %.not21 = icmp eq i32 %67, 0
-  br i1 %.not21, label %85, label %81
+  %.not25 = icmp eq i32 %67, 0
+  br i1 %.not25, label %85, label %81
 
 68:                                               ; preds = %.lr.ph
   %69 = load ptr, ptr %50, align 8, !tbaa !35
@@ -51060,8 +51060,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %68
   %78 = getelementptr inbounds nuw i8, ptr %50, i64 24
   %79 = load atomic i64, ptr %78 seq_cst, align 8
   %80 = load i64, ptr %49, align 8, !tbaa !389
-  %.not22 = icmp eq i64 %79, %80
-  br i1 %.not22, label %85, label %81
+  %.not26 = icmp eq i64 %79, %80
+  br i1 %.not26, label %85, label %81
 
 81:                                               ; preds = %76, %74, %72, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %82 = getelementptr inbounds nuw i64, ptr %19, i64 %.017
@@ -51214,8 +51214,8 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %65 = and i32 %64, 7
   %66 = shl nuw nsw i32 1, %65
   %67 = and i32 %66, %63
-  %.not21 = icmp eq i32 %67, 0
-  br i1 %.not21, label %85, label %81
+  %.not25 = icmp eq i32 %67, 0
+  br i1 %.not25, label %85, label %81
 
 68:                                               ; preds = %.lr.ph
   %69 = load ptr, ptr %50, align 8, !tbaa !35
@@ -51243,8 +51243,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %68
   %78 = getelementptr inbounds nuw i8, ptr %50, i64 24
   %79 = load atomic i64, ptr %78 seq_cst, align 8
   %80 = load i64, ptr %49, align 8, !tbaa !389
-  %.not22 = icmp eq i64 %79, %80
-  br i1 %.not22, label %85, label %81
+  %.not26 = icmp eq i64 %79, %80
+  br i1 %.not26, label %85, label %81
 
 81:                                               ; preds = %76, %74, %72, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %82 = getelementptr inbounds nuw i64, ptr %19, i64 %.017
@@ -51397,8 +51397,8 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %65 = and i32 %64, 7
   %66 = shl nuw nsw i32 1, %65
   %67 = and i32 %66, %63
-  %.not21 = icmp eq i32 %67, 0
-  br i1 %.not21, label %85, label %81
+  %.not25 = icmp eq i32 %67, 0
+  br i1 %.not25, label %85, label %81
 
 68:                                               ; preds = %.lr.ph
   %69 = load ptr, ptr %50, align 8, !tbaa !35
@@ -51426,8 +51426,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %68
   %78 = getelementptr inbounds nuw i8, ptr %50, i64 24
   %79 = load atomic i64, ptr %78 seq_cst, align 8
   %80 = load i64, ptr %49, align 8, !tbaa !389
-  %.not22 = icmp eq i64 %79, %80
-  br i1 %.not22, label %85, label %81
+  %.not26 = icmp eq i64 %79, %80
+  br i1 %.not26, label %85, label %81
 
 81:                                               ; preds = %76, %74, %72, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %82 = getelementptr inbounds nuw i16, ptr %19, i64 %.017
@@ -51598,8 +51598,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %66
   %76 = getelementptr inbounds nuw i8, ptr %48, i64 24
   %77 = load atomic i64, ptr %76 seq_cst, align 8
   %78 = load i64, ptr %47, align 8, !tbaa !389
-  %.not9 = icmp eq i64 %77, %78
-  br i1 %.not9, label %82, label %79
+  %.not13 = icmp eq i64 %77, %78
+  br i1 %.not13, label %82, label %79
 
 79:                                               ; preds = %74, %72, %70, %52, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %80 = getelementptr inbounds nuw float, ptr %19, i64 %.08
@@ -51747,8 +51747,8 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %65 = and i32 %64, 7
   %66 = shl nuw nsw i32 1, %65
   %67 = and i32 %66, %63
-  %.not21 = icmp eq i32 %67, 0
-  br i1 %.not21, label %85, label %81
+  %.not25 = icmp eq i32 %67, 0
+  br i1 %.not25, label %85, label %81
 
 68:                                               ; preds = %.lr.ph
   %69 = load ptr, ptr %50, align 8, !tbaa !35
@@ -51776,8 +51776,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %68
   %78 = getelementptr inbounds nuw i8, ptr %50, i64 24
   %79 = load atomic i64, ptr %78 seq_cst, align 8
   %80 = load i64, ptr %49, align 8, !tbaa !389
-  %.not22 = icmp eq i64 %79, %80
-  br i1 %.not22, label %85, label %81
+  %.not26 = icmp eq i64 %79, %80
+  br i1 %.not26, label %85, label %81
 
 81:                                               ; preds = %76, %74, %72, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %82 = getelementptr inbounds nuw double, ptr %19, i64 %.017
@@ -52446,8 +52446,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %73
   %83 = getelementptr inbounds nuw i8, ptr %55, i64 24
   %84 = load atomic i64, ptr %83 seq_cst, align 8
   %85 = load i64, ptr %54, align 8, !tbaa !389
-  %.not20 = icmp eq i64 %84, %85
-  br i1 %.not20, label %90, label %86
+  %.not25 = icmp eq i64 %84, %85
+  br i1 %.not25, label %90, label %86
 
 86:                                               ; preds = %81, %79, %77, %59, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %87 = getelementptr inbounds nuw i8, ptr %16, i64 %.015
@@ -52637,8 +52637,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %73
   %83 = getelementptr inbounds nuw i8, ptr %55, i64 24
   %84 = load atomic i64, ptr %83 seq_cst, align 8
   %85 = load i64, ptr %54, align 8, !tbaa !389
-  %.not20 = icmp eq i64 %84, %85
-  br i1 %.not20, label %90, label %86
+  %.not25 = icmp eq i64 %84, %85
+  br i1 %.not25, label %90, label %86
 
 86:                                               ; preds = %81, %79, %77, %59, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %87 = getelementptr inbounds nuw i8, ptr %16, i64 %.015
@@ -52828,8 +52828,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %73
   %83 = getelementptr inbounds nuw i8, ptr %55, i64 24
   %84 = load atomic i64, ptr %83 seq_cst, align 8
   %85 = load i64, ptr %54, align 8, !tbaa !389
-  %.not20 = icmp eq i64 %84, %85
-  br i1 %.not20, label %90, label %86
+  %.not25 = icmp eq i64 %84, %85
+  br i1 %.not25, label %90, label %86
 
 86:                                               ; preds = %81, %79, %77, %59, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %87 = getelementptr inbounds nuw i16, ptr %16, i64 %.015
@@ -53019,8 +53019,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %73
   %83 = getelementptr inbounds nuw i8, ptr %55, i64 24
   %84 = load atomic i64, ptr %83 seq_cst, align 8
   %85 = load i64, ptr %54, align 8, !tbaa !389
-  %.not20 = icmp eq i64 %84, %85
-  br i1 %.not20, label %90, label %86
+  %.not25 = icmp eq i64 %84, %85
+  br i1 %.not25, label %90, label %86
 
 86:                                               ; preds = %81, %79, %77, %59, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %87 = getelementptr inbounds nuw i16, ptr %16, i64 %.015
@@ -53210,8 +53210,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %73
   %83 = getelementptr inbounds nuw i8, ptr %55, i64 24
   %84 = load atomic i64, ptr %83 seq_cst, align 8
   %85 = load i64, ptr %54, align 8, !tbaa !389
-  %.not20 = icmp eq i64 %84, %85
-  br i1 %.not20, label %90, label %86
+  %.not25 = icmp eq i64 %84, %85
+  br i1 %.not25, label %90, label %86
 
 86:                                               ; preds = %81, %79, %77, %59, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %87 = getelementptr inbounds nuw i32, ptr %16, i64 %.015
@@ -53401,8 +53401,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %73
   %83 = getelementptr inbounds nuw i8, ptr %55, i64 24
   %84 = load atomic i64, ptr %83 seq_cst, align 8
   %85 = load i64, ptr %54, align 8, !tbaa !389
-  %.not20 = icmp eq i64 %84, %85
-  br i1 %.not20, label %90, label %86
+  %.not25 = icmp eq i64 %84, %85
+  br i1 %.not25, label %90, label %86
 
 86:                                               ; preds = %81, %79, %77, %59, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %87 = getelementptr inbounds nuw i32, ptr %16, i64 %.015
@@ -53592,8 +53592,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %73
   %83 = getelementptr inbounds nuw i8, ptr %55, i64 24
   %84 = load atomic i64, ptr %83 seq_cst, align 8
   %85 = load i64, ptr %54, align 8, !tbaa !389
-  %.not20 = icmp eq i64 %84, %85
-  br i1 %.not20, label %90, label %86
+  %.not25 = icmp eq i64 %84, %85
+  br i1 %.not25, label %90, label %86
 
 86:                                               ; preds = %81, %79, %77, %59, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %87 = getelementptr inbounds nuw i64, ptr %16, i64 %.015
@@ -53783,8 +53783,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %73
   %83 = getelementptr inbounds nuw i8, ptr %55, i64 24
   %84 = load atomic i64, ptr %83 seq_cst, align 8
   %85 = load i64, ptr %54, align 8, !tbaa !389
-  %.not20 = icmp eq i64 %84, %85
-  br i1 %.not20, label %90, label %86
+  %.not25 = icmp eq i64 %84, %85
+  br i1 %.not25, label %90, label %86
 
 86:                                               ; preds = %81, %79, %77, %59, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %87 = getelementptr inbounds nuw i64, ptr %16, i64 %.015
@@ -53974,8 +53974,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %73
   %83 = getelementptr inbounds nuw i8, ptr %55, i64 24
   %84 = load atomic i64, ptr %83 seq_cst, align 8
   %85 = load i64, ptr %54, align 8, !tbaa !389
-  %.not20 = icmp eq i64 %84, %85
-  br i1 %.not20, label %90, label %86
+  %.not25 = icmp eq i64 %84, %85
+  br i1 %.not25, label %90, label %86
 
 86:                                               ; preds = %81, %79, %77, %59, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %87 = getelementptr inbounds nuw i16, ptr %16, i64 %.015
@@ -54165,8 +54165,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %73
   %83 = getelementptr inbounds nuw i8, ptr %55, i64 24
   %84 = load atomic i64, ptr %83 seq_cst, align 8
   %85 = load i64, ptr %54, align 8, !tbaa !389
-  %.not20 = icmp eq i64 %84, %85
-  br i1 %.not20, label %90, label %86
+  %.not25 = icmp eq i64 %84, %85
+  br i1 %.not25, label %90, label %86
 
 86:                                               ; preds = %81, %79, %77, %59, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %87 = getelementptr inbounds nuw float, ptr %16, i64 %.015
@@ -54355,8 +54355,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %72
   %82 = getelementptr inbounds nuw i8, ptr %54, i64 24
   %83 = load atomic i64, ptr %82 seq_cst, align 8
   %84 = load i64, ptr %53, align 8, !tbaa !389
-  %.not20 = icmp eq i64 %83, %84
-  br i1 %.not20, label %88, label %85
+  %.not25 = icmp eq i64 %83, %84
+  br i1 %.not25, label %88, label %85
 
 85:                                               ; preds = %80, %78, %76, %58, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %86 = getelementptr inbounds nuw double, ptr %16, i64 %.015
@@ -54509,8 +54509,8 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %65 = and i32 %64, 7
   %66 = shl nuw nsw i32 1, %65
   %67 = and i32 %66, %63
-  %.not23 = icmp eq i32 %67, 0
-  br i1 %.not23, label %85, label %81
+  %.not27 = icmp eq i32 %67, 0
+  br i1 %.not27, label %85, label %81
 
 68:                                               ; preds = %.lr.ph
   %69 = load ptr, ptr %50, align 8, !tbaa !35
@@ -54538,8 +54538,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %68
   %78 = getelementptr inbounds nuw i8, ptr %50, i64 24
   %79 = load atomic i64, ptr %78 seq_cst, align 8
   %80 = load i64, ptr %49, align 8, !tbaa !389
-  %.not24 = icmp eq i64 %79, %80
-  br i1 %.not24, label %85, label %81
+  %.not28 = icmp eq i64 %79, %80
+  br i1 %.not28, label %85, label %81
 
 81:                                               ; preds = %76, %74, %72, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %82 = getelementptr inbounds nuw i8, ptr %19, i64 %.017
@@ -54688,8 +54688,8 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %65 = and i32 %64, 7
   %66 = shl nuw nsw i32 1, %65
   %67 = and i32 %66, %63
-  %.not23 = icmp eq i32 %67, 0
-  br i1 %.not23, label %85, label %81
+  %.not27 = icmp eq i32 %67, 0
+  br i1 %.not27, label %85, label %81
 
 68:                                               ; preds = %.lr.ph
   %69 = load ptr, ptr %50, align 8, !tbaa !35
@@ -54717,8 +54717,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %68
   %78 = getelementptr inbounds nuw i8, ptr %50, i64 24
   %79 = load atomic i64, ptr %78 seq_cst, align 8
   %80 = load i64, ptr %49, align 8, !tbaa !389
-  %.not24 = icmp eq i64 %79, %80
-  br i1 %.not24, label %85, label %81
+  %.not28 = icmp eq i64 %79, %80
+  br i1 %.not28, label %85, label %81
 
 81:                                               ; preds = %76, %74, %72, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %82 = getelementptr inbounds nuw i8, ptr %19, i64 %.017
@@ -54867,8 +54867,8 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %65 = and i32 %64, 7
   %66 = shl nuw nsw i32 1, %65
   %67 = and i32 %66, %63
-  %.not21 = icmp eq i32 %67, 0
-  br i1 %.not21, label %85, label %81
+  %.not25 = icmp eq i32 %67, 0
+  br i1 %.not25, label %85, label %81
 
 68:                                               ; preds = %.lr.ph
   %69 = load ptr, ptr %50, align 8, !tbaa !35
@@ -54896,8 +54896,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %68
   %78 = getelementptr inbounds nuw i8, ptr %50, i64 24
   %79 = load atomic i64, ptr %78 seq_cst, align 8
   %80 = load i64, ptr %49, align 8, !tbaa !389
-  %.not22 = icmp eq i64 %79, %80
-  br i1 %.not22, label %85, label %81
+  %.not26 = icmp eq i64 %79, %80
+  br i1 %.not26, label %85, label %81
 
 81:                                               ; preds = %76, %74, %72, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %82 = getelementptr inbounds nuw i16, ptr %19, i64 %.017
@@ -55050,8 +55050,8 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %65 = and i32 %64, 7
   %66 = shl nuw nsw i32 1, %65
   %67 = and i32 %66, %63
-  %.not21 = icmp eq i32 %67, 0
-  br i1 %.not21, label %85, label %81
+  %.not25 = icmp eq i32 %67, 0
+  br i1 %.not25, label %85, label %81
 
 68:                                               ; preds = %.lr.ph
   %69 = load ptr, ptr %50, align 8, !tbaa !35
@@ -55079,8 +55079,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %68
   %78 = getelementptr inbounds nuw i8, ptr %50, i64 24
   %79 = load atomic i64, ptr %78 seq_cst, align 8
   %80 = load i64, ptr %49, align 8, !tbaa !389
-  %.not22 = icmp eq i64 %79, %80
-  br i1 %.not22, label %85, label %81
+  %.not26 = icmp eq i64 %79, %80
+  br i1 %.not26, label %85, label %81
 
 81:                                               ; preds = %76, %74, %72, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %82 = getelementptr inbounds nuw i16, ptr %19, i64 %.017
@@ -55233,8 +55233,8 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %65 = and i32 %64, 7
   %66 = shl nuw nsw i32 1, %65
   %67 = and i32 %66, %63
-  %.not21 = icmp eq i32 %67, 0
-  br i1 %.not21, label %85, label %81
+  %.not25 = icmp eq i32 %67, 0
+  br i1 %.not25, label %85, label %81
 
 68:                                               ; preds = %.lr.ph
   %69 = load ptr, ptr %50, align 8, !tbaa !35
@@ -55262,8 +55262,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %68
   %78 = getelementptr inbounds nuw i8, ptr %50, i64 24
   %79 = load atomic i64, ptr %78 seq_cst, align 8
   %80 = load i64, ptr %49, align 8, !tbaa !389
-  %.not22 = icmp eq i64 %79, %80
-  br i1 %.not22, label %85, label %81
+  %.not26 = icmp eq i64 %79, %80
+  br i1 %.not26, label %85, label %81
 
 81:                                               ; preds = %76, %74, %72, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %82 = getelementptr inbounds nuw i32, ptr %19, i64 %.017
@@ -55416,8 +55416,8 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %65 = and i32 %64, 7
   %66 = shl nuw nsw i32 1, %65
   %67 = and i32 %66, %63
-  %.not21 = icmp eq i32 %67, 0
-  br i1 %.not21, label %85, label %81
+  %.not25 = icmp eq i32 %67, 0
+  br i1 %.not25, label %85, label %81
 
 68:                                               ; preds = %.lr.ph
   %69 = load ptr, ptr %50, align 8, !tbaa !35
@@ -55445,8 +55445,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %68
   %78 = getelementptr inbounds nuw i8, ptr %50, i64 24
   %79 = load atomic i64, ptr %78 seq_cst, align 8
   %80 = load i64, ptr %49, align 8, !tbaa !389
-  %.not22 = icmp eq i64 %79, %80
-  br i1 %.not22, label %85, label %81
+  %.not26 = icmp eq i64 %79, %80
+  br i1 %.not26, label %85, label %81
 
 81:                                               ; preds = %76, %74, %72, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %82 = getelementptr inbounds nuw i32, ptr %19, i64 %.017
@@ -55599,8 +55599,8 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %65 = and i32 %64, 7
   %66 = shl nuw nsw i32 1, %65
   %67 = and i32 %66, %63
-  %.not21 = icmp eq i32 %67, 0
-  br i1 %.not21, label %85, label %81
+  %.not25 = icmp eq i32 %67, 0
+  br i1 %.not25, label %85, label %81
 
 68:                                               ; preds = %.lr.ph
   %69 = load ptr, ptr %50, align 8, !tbaa !35
@@ -55628,8 +55628,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %68
   %78 = getelementptr inbounds nuw i8, ptr %50, i64 24
   %79 = load atomic i64, ptr %78 seq_cst, align 8
   %80 = load i64, ptr %49, align 8, !tbaa !389
-  %.not22 = icmp eq i64 %79, %80
-  br i1 %.not22, label %85, label %81
+  %.not26 = icmp eq i64 %79, %80
+  br i1 %.not26, label %85, label %81
 
 81:                                               ; preds = %76, %74, %72, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %82 = getelementptr inbounds nuw i64, ptr %19, i64 %.017
@@ -55782,8 +55782,8 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %65 = and i32 %64, 7
   %66 = shl nuw nsw i32 1, %65
   %67 = and i32 %66, %63
-  %.not21 = icmp eq i32 %67, 0
-  br i1 %.not21, label %85, label %81
+  %.not25 = icmp eq i32 %67, 0
+  br i1 %.not25, label %85, label %81
 
 68:                                               ; preds = %.lr.ph
   %69 = load ptr, ptr %50, align 8, !tbaa !35
@@ -55811,8 +55811,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %68
   %78 = getelementptr inbounds nuw i8, ptr %50, i64 24
   %79 = load atomic i64, ptr %78 seq_cst, align 8
   %80 = load i64, ptr %49, align 8, !tbaa !389
-  %.not22 = icmp eq i64 %79, %80
-  br i1 %.not22, label %85, label %81
+  %.not26 = icmp eq i64 %79, %80
+  br i1 %.not26, label %85, label %81
 
 81:                                               ; preds = %76, %74, %72, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %82 = getelementptr inbounds nuw i64, ptr %19, i64 %.017
@@ -55965,8 +55965,8 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %65 = and i32 %64, 7
   %66 = shl nuw nsw i32 1, %65
   %67 = and i32 %66, %63
-  %.not21 = icmp eq i32 %67, 0
-  br i1 %.not21, label %85, label %81
+  %.not25 = icmp eq i32 %67, 0
+  br i1 %.not25, label %85, label %81
 
 68:                                               ; preds = %.lr.ph
   %69 = load ptr, ptr %50, align 8, !tbaa !35
@@ -55994,8 +55994,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %68
   %78 = getelementptr inbounds nuw i8, ptr %50, i64 24
   %79 = load atomic i64, ptr %78 seq_cst, align 8
   %80 = load i64, ptr %49, align 8, !tbaa !389
-  %.not22 = icmp eq i64 %79, %80
-  br i1 %.not22, label %85, label %81
+  %.not26 = icmp eq i64 %79, %80
+  br i1 %.not26, label %85, label %81
 
 81:                                               ; preds = %76, %74, %72, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %82 = getelementptr inbounds nuw i16, ptr %19, i64 %.017
@@ -56148,8 +56148,8 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZSt8_DestroyIPN5ar
   %65 = and i32 %64, 7
   %66 = shl nuw nsw i32 1, %65
   %67 = and i32 %66, %63
-  %.not21 = icmp eq i32 %67, 0
-  br i1 %.not21, label %85, label %81
+  %.not25 = icmp eq i32 %67, 0
+  br i1 %.not25, label %85, label %81
 
 68:                                               ; preds = %.lr.ph
   %69 = load ptr, ptr %50, align 8, !tbaa !35
@@ -56177,8 +56177,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %68
   %78 = getelementptr inbounds nuw i8, ptr %50, i64 24
   %79 = load atomic i64, ptr %78 seq_cst, align 8
   %80 = load i64, ptr %49, align 8, !tbaa !389
-  %.not22 = icmp eq i64 %79, %80
-  br i1 %.not22, label %85, label %81
+  %.not26 = icmp eq i64 %79, %80
+  br i1 %.not26, label %85, label %81
 
 81:                                               ; preds = %76, %74, %72, %54, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %82 = getelementptr inbounds nuw float, ptr %19, i64 %.017
@@ -56349,8 +56349,8 @@ _ZNK5arrow9ArrayData6IsNullEl.exit:               ; preds = %66
   %76 = getelementptr inbounds nuw i8, ptr %48, i64 24
   %77 = load atomic i64, ptr %76 seq_cst, align 8
   %78 = load i64, ptr %47, align 8, !tbaa !389
-  %.not9 = icmp eq i64 %77, %78
-  br i1 %.not9, label %82, label %79
+  %.not13 = icmp eq i64 %77, %78
+  br i1 %.not13, label %82, label %79
 
 79:                                               ; preds = %74, %72, %70, %52, %_ZNK5arrow9ArrayData6IsNullEl.exit
   %80 = getelementptr inbounds nuw double, ptr %19, i64 %.08

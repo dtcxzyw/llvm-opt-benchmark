@@ -131,8 +131,8 @@ _ZNSt8functionIFSt10unique_ptrIN4llvm9sandboxir10RegionPassESt14default_deleteIS
   store ptr @_ZNSt17_Function_handlerIFSt10unique_ptrIN4llvm9sandboxir10RegionPassESt14default_deleteIS3_EENS1_9StringRefES7_EPS8_E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation, ptr %23, align 8, !tbaa !26
   call void @_ZN4llvm9sandboxir11PassManagerINS0_10RegionPassES2_E15setPassPipelineENS_9StringRefESt8functionIFSt10unique_ptrIS2_St14default_deleteIS2_EES4_S4_EE(ptr noundef nonnull align 8 dereferenceable(104) %12, ptr %1, i64 %2, ptr noundef nonnull %3)
   %24 = load ptr, ptr %23, align 8, !tbaa !26
-  %.not.i.i5 = icmp eq ptr %24, null
-  br i1 %.not.i.i5, label %_ZNSt14_Function_baseD2Ev.exit, label %25
+  %.not.i.i6 = icmp eq ptr %24, null
+  br i1 %.not.i.i6, label %_ZNSt14_Function_baseD2Ev.exit, label %25
 
 25:                                               ; preds = %_ZNSt8functionIFSt10unique_ptrIN4llvm9sandboxir10RegionPassESt14default_deleteIS3_EENS1_9StringRefES7_EEC2ERKS9_.exit.i
   %26 = call noundef zeroext i1 %24(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3) #16
@@ -880,7 +880,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit52: ; preds = %_ZN
   %.sroa.7.0101 = phi i64 [ %119, %118 ], [ 0, %_ZNSt8functionIFSt10unique_ptrIN4llvm9sandboxir10RegionPassESt14default_deleteIS3_EENS1_9StringRefES7_EEC2ERKS9_.exit ]
   %.sroa.068.0100 = phi ptr [ %120, %118 ], [ %47, %_ZNSt8functionIFSt10unique_ptrIN4llvm9sandboxir10RegionPassESt14default_deleteIS3_EENS1_9StringRefES7_EEC2ERKS9_.exit ]
   %70 = load i8, ptr %.sroa.068.0100, align 1, !tbaa !15
-  switch i32 %.0107, label %default.unreachable118 [
+  switch i32 %.0107, label %default.unreachable131 [
     i32 0, label %71
     i32 1, label %90
     i32 2, label %111
@@ -988,7 +988,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit52: ; preds = %_ZN
   call void @exit(i32 noundef 1) #19
   unreachable
 
-default.unreachable118:                           ; preds = %.lr.ph
+default.unreachable131:                           ; preds = %.lr.ph
   unreachable
 
 118:                                              ; preds = %90, %71, %96, %101, %83, %112, %91, %72

@@ -1905,8 +1905,8 @@ define void @_ZN16uv_configuration15config_settings14ConfigSettings5merge17h09bb
   %41 = getelementptr inbounds nuw i8, ptr %19, i64 32
   br label %44
 
-"_ZN4core3ptr146drop_in_place$LT$alloc..collections..btree..map..IntoIter$LT$alloc..string..String$C$uv_configuration..config_settings..ConfigSettingValue$GT$$GT$17h47d1515ec42db1a8E.exit": ; preds = %.thread121, %42
-  %.pn16 = phi { ptr, i32 } [ %43, %42 ], [ %.pn.pn.pn, %.thread121 ]
+"_ZN4core3ptr146drop_in_place$LT$alloc..collections..btree..map..IntoIter$LT$alloc..string..String$C$uv_configuration..config_settings..ConfigSettingValue$GT$$GT$17h47d1515ec42db1a8E.exit": ; preds = %.thread125, %42
+  %.pn16 = phi { ptr, i32 } [ %43, %42 ], [ %.pn.pn.pn, %.thread125 ]
   invoke void @"_ZN4core3ptr146drop_in_place$LT$alloc..collections..btree..map..BTreeMap$LT$alloc..string..String$C$uv_configuration..config_settings..ConfigSettingValue$GT$$GT$17ha141482421a8ae7dE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %21) #35
           to label %163 unwind label %103
 
@@ -1920,7 +1920,7 @@ define void @_ZN16uv_configuration15config_settings14ConfigSettings5merge17h09bb
   invoke void @"_ZN116_$LT$alloc..collections..btree..map..IntoIter$LT$K$C$V$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4f58ffc4d64fbe67E"(ptr noalias noundef nonnull sret([56 x i8]) align 8 captures(none) dereferenceable(56) %19, ptr noalias noundef nonnull align 8 dereferenceable(72) %20)
           to label %47 unwind label %45
 
-.thread121:                                       ; preds = %138, %.body, %117, %.thread90, %118, %125, %52, %162, %161, %160, %45
+.thread125:                                       ; preds = %138, %.body, %117, %.thread90, %118, %125, %52, %162, %161, %160, %45
   %.pn.pn.pn = phi { ptr, i32 } [ %lpad.thr_comm, %161 ], [ %lpad.thr_comm, %162 ], [ %lpad.thr_comm, %160 ], [ %lpad.thr_comm.split-lp, %52 ], [ %46, %45 ], [ %lpad.thr_comm88, %.thread90 ], [ %lpad.thr_comm.split-lp89, %118 ], [ %126, %125 ], [ %78, %117 ], [ %105, %.body ], [ %139, %138 ]
   invoke void @"_ZN99_$LT$alloc..collections..btree..map..IntoIter$LT$K$C$V$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17he000319c7126f213E.llvm.14648455939613165642"(ptr noalias noundef nonnull align 8 dereferenceable(72) %20)
           to label %"_ZN4core3ptr146drop_in_place$LT$alloc..collections..btree..map..IntoIter$LT$alloc..string..String$C$uv_configuration..config_settings..ConfigSettingValue$GT$$GT$17h47d1515ec42db1a8E.exit" unwind label %103
@@ -1928,7 +1928,7 @@ define void @_ZN16uv_configuration15config_settings14ConfigSettings5merge17h09bb
 45:                                               ; preds = %44
   %46 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread121
+  br label %.thread125
 
 47:                                               ; preds = %44
   %48 = load i64, ptr %23, align 8, !range !254, !noundef !4
@@ -1957,7 +1957,7 @@ define void @_ZN16uv_configuration15config_settings14ConfigSettings5merge17h09bb
 52:                                               ; preds = %56
   %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %.thread121
+  br label %.thread125
 
 53:                                               ; preds = %51
   %54 = load i64, ptr %16, align 8, !range !82, !noundef !4
@@ -2050,7 +2050,7 @@ define void @_ZN16uv_configuration15config_settings14ConfigSettings5merge17h09bb
 .thread90:                                        ; preds = %93, %96, %99
   %lpad.thr_comm88 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread121
+  br label %.thread125
 
 84:                                               ; preds = %67
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
@@ -2123,7 +2123,7 @@ define void @_ZN16uv_configuration15config_settings14ConfigSettings5merge17h09bb
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17he37a5e5a121d0c88E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %12) #35
           to label %118 unwind label %103
 
-103:                                              ; preds = %.thread121, %162, %161, %118, %117, %102, %"_ZN4core3ptr146drop_in_place$LT$alloc..collections..btree..map..IntoIter$LT$alloc..string..String$C$uv_configuration..config_settings..ConfigSettingValue$GT$$GT$17h47d1515ec42db1a8E.exit"
+103:                                              ; preds = %.thread125, %162, %161, %118, %117, %102, %"_ZN4core3ptr146drop_in_place$LT$alloc..collections..btree..map..IntoIter$LT$alloc..string..String$C$uv_configuration..config_settings..ConfigSettingValue$GT$$GT$17h47d1515ec42db1a8E.exit"
   %104 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h7e5529b9cf989fd4E() #36
@@ -2132,7 +2132,7 @@ define void @_ZN16uv_configuration15config_settings14ConfigSettings5merge17h09bb
 .body:                                            ; preds = %110, %113, %116
   %105 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread121
+  br label %.thread125
 
 106:                                              ; preds = %75, %79
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %76, ptr noundef nonnull align 8 dereferenceable(24) %13, i64 24, i1 false)
@@ -2182,11 +2182,11 @@ define void @_ZN16uv_configuration15config_settings14ConfigSettings5merge17h09bb
 
 117:                                              ; preds = %77
   invoke void @"_ZN4core3ptr65drop_in_place$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$17h26e321ea2bd34a22E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %10) #35
-          to label %.thread121 unwind label %103
+          to label %.thread125 unwind label %103
 
 118:                                              ; preds = %102
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17he37a5e5a121d0c88E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %13) #35
-          to label %.thread121 unwind label %103
+          to label %.thread125 unwind label %103
 
 119:                                              ; preds = %64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %41, i64 24, i1 false)
@@ -2204,7 +2204,7 @@ define void @_ZN16uv_configuration15config_settings14ConfigSettings5merge17h09bb
   %126 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17he37a5e5a121d0c88E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %7) #35
-          to label %.thread121 unwind label %127
+          to label %.thread125 unwind label %127
 
 127:                                              ; preds = %125
   %128 = landingpad { ptr, i32 }
@@ -2244,7 +2244,7 @@ define void @_ZN16uv_configuration15config_settings14ConfigSettings5merge17h09bb
   %139 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hcdc5b775da59c7e6E.llvm.14648455939613165642"(ptr noalias noundef nonnull align 8 dereferenceable(32) %5)
-          to label %.thread121 unwind label %157
+          to label %.thread125 unwind label %157
 
 140:                                              ; preds = %133
   %141 = getelementptr inbounds nuw i8, ptr %60, i64 24
@@ -2298,15 +2298,15 @@ define void @_ZN16uv_configuration15config_settings14ConfigSettings5merge17h09bb
   br i1 %159, label %161, label %160
 
 160:                                              ; preds = %.thread70
-  br i1 %.sroa.06.0.ph, label %162, label %.thread121
+  br i1 %.sroa.06.0.ph, label %162, label %.thread125
 
 161:                                              ; preds = %.thread70
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17he37a5e5a121d0c88E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %25) #35
-          to label %.thread121 unwind label %103
+          to label %.thread125 unwind label %103
 
 162:                                              ; preds = %160
   invoke void @"_ZN4core3ptr65drop_in_place$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$17h26e321ea2bd34a22E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %25) #35
-          to label %.thread121 unwind label %103
+          to label %.thread125 unwind label %103
 
 163:                                              ; preds = %"_ZN4core3ptr146drop_in_place$LT$alloc..collections..btree..map..IntoIter$LT$alloc..string..String$C$uv_configuration..config_settings..ConfigSettingValue$GT$$GT$17h47d1515ec42db1a8E.exit"
   resume { ptr, i32 } %.pn16

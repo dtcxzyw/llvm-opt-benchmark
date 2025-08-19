@@ -1525,7 +1525,7 @@ _ZNK4ncnn3Mat5emptyEv.exit.thread:                ; preds = %.preheader, %212, %
   br i1 %.not.i.i.i94, label %_ZNSt6vectorIN4ncnn21Yolov3DetectionOutput8BBoxRectESaIS2_EED2Ev.exit, label %_ZNK4ncnn3Mat5emptyEv.exit.thread.thread
 
 _ZNK4ncnn3Mat5emptyEv.exit.thread.thread:         ; preds = %230, %_ZNK4ncnn3Mat5emptyEv.exit.thread
-  %.4194 = phi i32 [ %.4, %_ZNK4ncnn3Mat5emptyEv.exit.thread ], [ 0, %230 ]
+  %.4228 = phi i32 [ %.4, %_ZNK4ncnn3Mat5emptyEv.exit.thread ], [ 0, %230 ]
   %251 = ptrtoint ptr %.sroa.15.0.lcssa to i64
   %252 = sub i64 %251, %168
   call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.0.lcssa, i64 noundef %252) #19
@@ -1533,7 +1533,7 @@ _ZNK4ncnn3Mat5emptyEv.exit.thread.thread:         ; preds = %230, %_ZNK4ncnn3Mat
   br label %_ZNSt6vectorIN4ncnn21Yolov3DetectionOutput8BBoxRectESaIS2_EED2Ev.exit
 
 _ZNSt6vectorIN4ncnn21Yolov3DetectionOutput8BBoxRectESaIS2_EED2Ev.exit: ; preds = %_ZNK4ncnn3Mat5emptyEv.exit.thread, %_ZNK4ncnn3Mat5emptyEv.exit.thread.thread
-  %.4195 = phi i32 [ %.4, %_ZNK4ncnn3Mat5emptyEv.exit.thread ], [ %.4194, %_ZNK4ncnn3Mat5emptyEv.exit.thread.thread ]
+  %.4229 = phi i32 [ %.4, %_ZNK4ncnn3Mat5emptyEv.exit.thread ], [ %.4228, %_ZNK4ncnn3Mat5emptyEv.exit.thread.thread ]
   %253 = phi ptr [ %167, %_ZNK4ncnn3Mat5emptyEv.exit.thread ], [ %.pre185, %_ZNK4ncnn3Mat5emptyEv.exit.thread.thread ]
   %.not.i.i.i95 = icmp eq ptr %253, null
   br i1 %.not.i.i.i95, label %_ZNSt6vectorImSaImEED2Ev.exit, label %254
@@ -1586,7 +1586,7 @@ _ZNSt6vectorImSaImEED2Ev.exit99:                  ; preds = %_ZNSt6vectorIN4ncnn
   br label %280
 
 272:                                              ; preds = %152, %_ZNSt6vectorImSaImEED2Ev.exit
-  %.3 = phi i32 [ %.4195, %_ZNSt6vectorImSaImEED2Ev.exit ], [ -1, %152 ]
+  %.3 = phi i32 [ %.4229, %_ZNSt6vectorImSaImEED2Ev.exit ], [ -1, %152 ]
   %273 = load ptr, ptr %5, align 8, !tbaa !58
   %.not.i.i.i100 = icmp eq ptr %273, null
   br i1 %.not.i.i.i100, label %_ZNSt6vectorIN4ncnn21Yolov3DetectionOutput8BBoxRectESaIS2_EED2Ev.exit101, label %274

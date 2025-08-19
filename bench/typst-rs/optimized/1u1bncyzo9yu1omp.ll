@@ -4200,8 +4200,8 @@ define hidden void @_ZN12typst_syntax6parser6markup17hb3d844f7eaa9aa67E(ptr noal
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 73
   %18 = load i8, ptr %9, align 1, !range !17, !alias.scope !726, !noundef !4
-  %cond15 = icmp eq i8 %18, -127
-  br i1 %cond15, label %._crit_edge, label %.lr.ph
+  %cond19 = icmp eq i8 %18, -127
+  br i1 %cond19, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3, %.backedge
   %19 = phi i8 [ %36, %.backedge ], [ %18, %3 ]
@@ -5002,8 +5002,8 @@ define hidden void @_ZN12typst_syntax6parser14reparse_markup17h13767a8a82cd7ff0E
   br i1 %34, label %._crit_edge, label %36
 
 .sink.split:                                      ; preds = %32, %28
-  %.sink32 = phi i64 [ 1, %28 ], [ -1, %32 ]
-  %35 = add i64 %31, %.sink32
+  %.sink38 = phi i64 [ 1, %28 ], [ -1, %32 ]
+  %35 = add i64 %31, %.sink38
   store i64 %35, ptr %6, align 8
   br label %36
 

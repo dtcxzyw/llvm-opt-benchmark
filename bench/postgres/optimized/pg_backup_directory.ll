@@ -923,7 +923,7 @@ define internal void @_PrepParallelRestore(ptr noundef readonly captures(none) %
   call fastcc void @setFilePath(ptr %.val.val, ptr noundef %2, ptr noundef nonnull %12)
   %20 = call i32 @stat(ptr noundef nonnull %2, ptr noundef nonnull %3) #14
   %21 = icmp eq i32 %20, 0
-  br i1 %21, label %.sink.split24, label %22
+  br i1 %21, label %.sink.split25, label %22
 
 22:                                               ; preds = %19
   %23 = load i32, ptr %7, align 8
@@ -948,15 +948,15 @@ define internal void @_PrepParallelRestore(ptr noundef readonly captures(none) %
 27:                                               ; preds = %.sink.split, %22
   %28 = call i32 @stat(ptr noundef nonnull %2, ptr noundef nonnull %3) #14
   %29 = icmp eq i32 %28, 0
-  br i1 %29, label %.sink.split24, label %32
+  br i1 %29, label %.sink.split25, label %32
 
-.sink.split24:                                    ; preds = %27, %19
+.sink.split25:                                    ; preds = %27, %19
   %30 = load i64, ptr %8, align 8
   %31 = getelementptr inbounds nuw i8, ptr %.023, i64 160
   store i64 %30, ptr %31, align 8
   br label %32
 
-32:                                               ; preds = %.sink.split24, %22, %27
+32:                                               ; preds = %.sink.split25, %22, %27
   %33 = getelementptr inbounds nuw i8, ptr %.023, i64 88
   %34 = load ptr, ptr %33, align 8
   %35 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %34, ptr noundef nonnull dereferenceable(6) @.str.11) #17

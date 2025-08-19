@@ -906,7 +906,7 @@ if.end13.i:                                       ; preds = %if.end8.i, %if.end4
   %.in.i = getelementptr inbounds nuw i8, ptr %add.ptr50.pn.i, i64 4
   %14 = load i16, ptr %.in.i, align 2
   %conv.i62 = zext i16 %14 to i32
-  %sub14.i = sub nuw i32 %shr.i, %fstart.0.copyload40.i
+  %sub14.i = sub nuw nsw i32 %shr.i, %fstart.0.copyload40.i
   %div32.i = lshr i32 %sub14.i, 4
   %cmp15.i = icmp samesign ult i32 %div32.i, %conv.i62
   br i1 %cmp15.i, label %if.then17.i, label %if.end47.i
@@ -1102,7 +1102,7 @@ if.end13.i:                                       ; preds = %if.end8.i, %if.end4
   %.in.i = getelementptr inbounds nuw i8, ptr %add.ptr50.pn.i, i64 4
   %15 = load i16, ptr %.in.i, align 2
   %conv.i72 = zext i16 %15 to i32
-  %sub14.i = sub nuw i32 %shr.i, %fstart.0.copyload40.i
+  %sub14.i = sub nuw nsw i32 %shr.i, %fstart.0.copyload40.i
   %div32.i = lshr i32 %sub14.i, 4
   %cmp15.i = icmp samesign ult i32 %div32.i, %conv.i72
   br i1 %cmp15.i, label %if.then17.i, label %if.end47.i
@@ -11822,7 +11822,7 @@ if.end13.i:                                       ; preds = %if.end8.i, %if.end4
   %.in.i = getelementptr inbounds nuw i8, ptr %add.ptr50.pn.i, i64 4
   %6 = load i16, ptr %.in.i, align 2
   %conv.i = zext i16 %6 to i32
-  %sub14.i = sub nuw i32 %shr, %fstart.0.copyload40.i
+  %sub14.i = sub nuw nsw i32 %shr, %fstart.0.copyload40.i
   %div32.i = lshr i32 %sub14.i, 4
   %cmp15.i = icmp samesign ult i32 %div32.i, %conv.i
   br i1 %cmp15.i, label %if.then17.i, label %if.end47.i
@@ -28003,7 +28003,7 @@ if.then20:                                        ; preds = %if.else18
   %arrayidx1.i = getelementptr inbounds nuw i8, ptr %first, i64 %div6.i
   %1 = load i8, ptr %arrayidx1.i, align 1
   %sub.i31 = add nsw i64 %len, -1
-  %arrayidx2.i = getelementptr inbounds i8, ptr %first, i64 %sub.i31
+  %arrayidx2.i = getelementptr inbounds nuw i8, ptr %first, i64 %sub.i31
   %2 = load i8, ptr %arrayidx2.i, align 1
   %conv.i32 = zext i8 %0 to i32
   %conv3.i33 = zext i8 %1 to i32
@@ -30506,11 +30506,11 @@ if.then35:                                        ; preds = %if.else
   %and.i = and i32 %conv36, 1
   %add.i137 = sub nsw i32 0, %and.i
   %xor.i = xor i32 %shr.i136, %add.i137
-  %conv38222 = zext i32 %xor.i to i64
+  %conv38233 = zext i32 %xor.i to i64
   br label %if.end40
 
 if.end40:                                         ; preds = %if.else.i, %if.then.i, %if.else, %if.then35
-  %tmp.0 = phi i64 [ %conv38222, %if.then35 ], [ %res.i.0.ph, %if.else ], [ %res.i.0.ph, %if.then.i ], [ %res.i.0.ph, %if.else.i ]
+  %tmp.0 = phi i64 [ %conv38233, %if.then35 ], [ %res.i.0.ph, %if.else ], [ %res.i.0.ph, %if.then.i ], [ %res.i.0.ph, %if.else.i ]
   %conv41 = trunc i64 %tmp.0 to i32
   %43 = load i32, ptr %total_size_.i, align 4
   %44 = load i32, ptr %20, align 8
@@ -35515,12 +35515,12 @@ if.then.i.i86:                                    ; preds = %if.then
   br label %common.ret.sink.split
 
 common.ret.sink.split:                            ; preds = %if.then.i, %if.then.i.i86
-  %.sink122 = phi i64 [ %14, %if.then.i.i86 ], [ %20, %if.then.i ]
-  %.sink121 = phi i16 [ %13, %if.then.i.i86 ], [ %22, %if.then.i ]
+  %.sink124 = phi i64 [ %14, %if.then.i.i86 ], [ %20, %if.then.i ]
+  %.sink123 = phi i16 [ %13, %if.then.i.i86 ], [ %22, %if.then.i ]
   %.sink = phi ptr [ %15, %if.then.i.i86 ], [ %18, %if.then.i ]
   %common.ret.op.ph = phi ptr [ null, %if.then.i.i86 ], [ %p.addr.i39.0, %if.then.i ]
-  %conv2.i.i = trunc i64 %.sink122 to i32
-  %conv3.i.i = zext i16 %.sink121 to i64
+  %conv2.i.i = trunc i64 %.sink124 to i32
+  %conv3.i.i = zext i16 %.sink123 to i64
   %add.ptr.i92 = getelementptr inbounds nuw i8, ptr %.sink, i64 %conv3.i.i
   %16 = load i32, ptr %add.ptr.i92, align 4
   %or.i.i = or i32 %16, %conv2.i.i
@@ -35708,12 +35708,12 @@ if.then.i.i86:                                    ; preds = %if.then
   br label %common.ret.sink.split
 
 common.ret.sink.split:                            ; preds = %if.then.i, %if.then.i.i86
-  %.sink122 = phi i64 [ %14, %if.then.i.i86 ], [ %20, %if.then.i ]
-  %.sink121 = phi i16 [ %13, %if.then.i.i86 ], [ %22, %if.then.i ]
+  %.sink124 = phi i64 [ %14, %if.then.i.i86 ], [ %20, %if.then.i ]
+  %.sink123 = phi i16 [ %13, %if.then.i.i86 ], [ %22, %if.then.i ]
   %.sink = phi ptr [ %15, %if.then.i.i86 ], [ %18, %if.then.i ]
   %common.ret.op.ph = phi ptr [ null, %if.then.i.i86 ], [ %p.addr.i40.0, %if.then.i ]
-  %conv2.i.i = trunc i64 %.sink122 to i32
-  %conv3.i.i = zext i16 %.sink121 to i64
+  %conv2.i.i = trunc i64 %.sink124 to i32
+  %conv3.i.i = zext i16 %.sink123 to i64
   %add.ptr.i92 = getelementptr inbounds nuw i8, ptr %.sink, i64 %conv3.i.i
   %16 = load i32, ptr %add.ptr.i92, align 4
   %or.i.i = or i32 %16, %conv2.i.i
@@ -35900,12 +35900,12 @@ if.then.i.i86:                                    ; preds = %if.then
   br label %common.ret.sink.split
 
 common.ret.sink.split:                            ; preds = %if.then.i, %if.then.i.i86
-  %.sink122 = phi i64 [ %14, %if.then.i.i86 ], [ %20, %if.then.i ]
-  %.sink121 = phi i16 [ %13, %if.then.i.i86 ], [ %22, %if.then.i ]
+  %.sink124 = phi i64 [ %14, %if.then.i.i86 ], [ %20, %if.then.i ]
+  %.sink123 = phi i16 [ %13, %if.then.i.i86 ], [ %22, %if.then.i ]
   %.sink = phi ptr [ %15, %if.then.i.i86 ], [ %18, %if.then.i ]
   %common.ret.op.ph = phi ptr [ null, %if.then.i.i86 ], [ %p.addr.i39.0, %if.then.i ]
-  %conv2.i.i = trunc i64 %.sink122 to i32
-  %conv3.i.i = zext i16 %.sink121 to i64
+  %conv2.i.i = trunc i64 %.sink124 to i32
+  %conv3.i.i = zext i16 %.sink123 to i64
   %add.ptr.i92 = getelementptr inbounds nuw i8, ptr %.sink, i64 %conv3.i.i
   %16 = load i32, ptr %add.ptr.i92, align 4
   %or.i.i = or i32 %16, %conv2.i.i
@@ -36091,12 +36091,12 @@ if.then.i.i86:                                    ; preds = %if.then
   br label %common.ret.sink.split
 
 common.ret.sink.split:                            ; preds = %if.then.i, %if.then.i.i86
-  %.sink123 = phi i64 [ %14, %if.then.i.i86 ], [ %20, %if.then.i ]
-  %.sink122 = phi i16 [ %13, %if.then.i.i86 ], [ %22, %if.then.i ]
+  %.sink125 = phi i64 [ %14, %if.then.i.i86 ], [ %20, %if.then.i ]
+  %.sink124 = phi i16 [ %13, %if.then.i.i86 ], [ %22, %if.then.i ]
   %.sink = phi ptr [ %15, %if.then.i.i86 ], [ %18, %if.then.i ]
   %common.ret.op.ph = phi ptr [ null, %if.then.i.i86 ], [ %p.addr.i40.0, %if.then.i ]
-  %conv2.i.i = trunc i64 %.sink123 to i32
-  %conv3.i.i = zext i16 %.sink122 to i64
+  %conv2.i.i = trunc i64 %.sink125 to i32
+  %conv3.i.i = zext i16 %.sink124 to i64
   %add.ptr.i93 = getelementptr inbounds nuw i8, ptr %.sink, i64 %conv3.i.i
   %16 = load i32, ptr %add.ptr.i93, align 4
   %or.i.i = or i32 %16, %conv2.i.i
@@ -36287,12 +36287,12 @@ if.then.i.i86:                                    ; preds = %if.then
   br label %common.ret.sink.split
 
 common.ret.sink.split:                            ; preds = %if.then.i, %if.then.i.i86
-  %.sink123 = phi i64 [ %14, %if.then.i.i86 ], [ %20, %if.then.i ]
-  %.sink122 = phi i16 [ %13, %if.then.i.i86 ], [ %22, %if.then.i ]
+  %.sink125 = phi i64 [ %14, %if.then.i.i86 ], [ %20, %if.then.i ]
+  %.sink124 = phi i16 [ %13, %if.then.i.i86 ], [ %22, %if.then.i ]
   %.sink = phi ptr [ %15, %if.then.i.i86 ], [ %18, %if.then.i ]
   %common.ret.op.ph = phi ptr [ null, %if.then.i.i86 ], [ %p.addr.i40.0, %if.then.i ]
-  %conv2.i.i = trunc i64 %.sink123 to i32
-  %conv3.i.i = zext i16 %.sink122 to i64
+  %conv2.i.i = trunc i64 %.sink125 to i32
+  %conv3.i.i = zext i16 %.sink124 to i64
   %add.ptr.i93 = getelementptr inbounds nuw i8, ptr %.sink, i64 %conv3.i.i
   %16 = load i32, ptr %add.ptr.i93, align 4
   %or.i.i = or i32 %16, %conv2.i.i
@@ -36483,12 +36483,12 @@ if.then.i.i86:                                    ; preds = %if.then
   br label %common.ret.sink.split
 
 common.ret.sink.split:                            ; preds = %if.then.i, %if.then.i.i86
-  %.sink123 = phi i64 [ %14, %if.then.i.i86 ], [ %20, %if.then.i ]
-  %.sink122 = phi i16 [ %13, %if.then.i.i86 ], [ %22, %if.then.i ]
+  %.sink125 = phi i64 [ %14, %if.then.i.i86 ], [ %20, %if.then.i ]
+  %.sink124 = phi i16 [ %13, %if.then.i.i86 ], [ %22, %if.then.i ]
   %.sink = phi ptr [ %15, %if.then.i.i86 ], [ %18, %if.then.i ]
   %common.ret.op.ph = phi ptr [ null, %if.then.i.i86 ], [ %p.addr.i39.0, %if.then.i ]
-  %conv2.i.i = trunc i64 %.sink123 to i32
-  %conv3.i.i = zext i16 %.sink122 to i64
+  %conv2.i.i = trunc i64 %.sink125 to i32
+  %conv3.i.i = zext i16 %.sink124 to i64
   %add.ptr.i93 = getelementptr inbounds nuw i8, ptr %.sink, i64 %conv3.i.i
   %16 = load i32, ptr %add.ptr.i93, align 4
   %or.i.i = or i32 %16, %conv2.i.i
@@ -36678,12 +36678,12 @@ if.then.i.i86:                                    ; preds = %if.then
   br label %common.ret.sink.split
 
 common.ret.sink.split:                            ; preds = %if.then.i, %if.then.i.i86
-  %.sink123 = phi i64 [ %14, %if.then.i.i86 ], [ %20, %if.then.i ]
-  %.sink122 = phi i16 [ %13, %if.then.i.i86 ], [ %22, %if.then.i ]
+  %.sink125 = phi i64 [ %14, %if.then.i.i86 ], [ %20, %if.then.i ]
+  %.sink124 = phi i16 [ %13, %if.then.i.i86 ], [ %22, %if.then.i ]
   %.sink = phi ptr [ %15, %if.then.i.i86 ], [ %18, %if.then.i ]
   %common.ret.op.ph = phi ptr [ null, %if.then.i.i86 ], [ %p.addr.i39.0, %if.then.i ]
-  %conv2.i.i = trunc i64 %.sink123 to i32
-  %conv3.i.i = zext i16 %.sink122 to i64
+  %conv2.i.i = trunc i64 %.sink125 to i32
+  %conv3.i.i = zext i16 %.sink124 to i64
   %add.ptr.i93 = getelementptr inbounds nuw i8, ptr %.sink, i64 %conv3.i.i
   %16 = load i32, ptr %add.ptr.i93, align 4
   %or.i.i = or i32 %16, %conv2.i.i

@@ -465,10 +465,10 @@ _ZN5Yosys10FfInitValsC2EPKNS_6SigMapEPNS_5RTLIL6ModuleE.exit: ; preds = %_ZN5Yos
 
 .lr.ph.outer:                                     ; preds = %.preheader, %.thread
   %.ph = phi ptr [ %.pre73, %.thread ], [ %87, %.preheader ]
-  %.ph83 = phi ptr [ %.pre, %.thread ], [ %86, %.preheader ]
-  %indvars.iv.ph = phi i64 [ %indvars.iv.next79, %.thread ], [ 0, %.preheader ]
+  %.ph111 = phi ptr [ %.pre, %.thread ], [ %86, %.preheader ]
+  %indvars.iv.ph = phi i64 [ %indvars.iv.next107, %.thread ], [ 0, %.preheader ]
   %.02363.ph = phi i1 [ true, %.thread ], [ false, %.preheader ]
-  %94 = ptrtoint ptr %.ph83 to i64
+  %94 = ptrtoint ptr %.ph111 to i64
   %95 = ptrtoint ptr %.ph to i64
   %96 = sub i64 %94, %95
   %97 = sdiv exact i64 %96, 616
@@ -612,14 +612,14 @@ _ZN5Yosys6SigMapD2Ev.exit:                        ; preds = %_ZNSt6vectorIN5Yosy
 .thread:                                          ; preds = %144
   %.pre = load ptr, ptr %85, align 8, !tbaa !34
   %.pre73 = load ptr, ptr %84, align 8, !tbaa !37
-  %indvars.iv.next79 = add nuw nsw i64 %indvars.iv, 1
+  %indvars.iv.next107 = add nuw nsw i64 %indvars.iv, 1
   %149 = ptrtoint ptr %.pre to i64
   %150 = ptrtoint ptr %.pre73 to i64
   %151 = sub i64 %149, %150
   %152 = sdiv exact i64 %151, 616
-  %sext80 = shl i64 %152, 32
-  %153 = ashr exact i64 %sext80, 32
-  %154 = icmp slt i64 %indvars.iv.next79, %153
+  %sext108 = shl i64 %152, 32
+  %153 = ashr exact i64 %sext108, 32
+  %154 = icmp slt i64 %indvars.iv.next107, %153
   br i1 %154, label %.lr.ph.outer, label %._crit_edge.thread, !llvm.loop !94
 
 ._crit_edge.thread:                               ; preds = %.thread, %._crit_edge

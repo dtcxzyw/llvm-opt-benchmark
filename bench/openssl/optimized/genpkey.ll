@@ -205,10 +205,10 @@ switch.lookup:                                    ; preds = %.lr.ph.i
   %switch.gep = getelementptr inbounds nuw [5 x ptr], ptr @switch.table.genpkey_main, i64 0, i64 %34
   %switch.load = load ptr, ptr %switch.gep, align 8
   %35 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep370 = getelementptr inbounds nuw [5 x ptr], ptr @switch.table.genpkey_main.1, i64 0, i64 %35
-  %switch.load371 = load ptr, ptr %switch.gep370, align 8
+  %switch.gep381 = getelementptr inbounds nuw [5 x ptr], ptr @switch.table.genpkey_main.1, i64 0, i64 %35
+  %switch.load382 = load ptr, ptr %switch.gep381, align 8
   %36 = load ptr, ptr @bio_err, align 8, !tbaa !17
-  %37 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %36, ptr noundef nonnull @.str.61, ptr noundef nonnull %switch.load371, ptr noundef nonnull %30, ptr noundef nonnull %switch.load) #5
+  %37 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %36, ptr noundef nonnull @.str.61, ptr noundef nonnull %switch.load382, ptr noundef nonnull %30, ptr noundef nonnull %switch.load) #5
   br label %param_datatype_2name.exit.i
 
 param_datatype_2name.exit.i:                      ; preds = %.lr.ph.i, %switch.lookup

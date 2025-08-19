@@ -1103,7 +1103,7 @@ define internal fastcc void @run_permutation(i32 noundef %0, ptr noundef readonl
   %107 = phi ptr [ %103, %.lr.ph33 ], [ %.pre96, %193 ]
   %.212431 = phi i32 [ %.012239, %.lr.ph33 ], [ %.125.lcssa7.i, %193 ]
   %108 = call fastcc zeroext i1 @try_complete_step(ptr noundef nonnull %107, i32 noundef 2)
-  br i1 %108, label %.preheader149, label %.preheader2
+  br i1 %108, label %.preheader165, label %.preheader2
 
 .preheader2:                                      ; preds = %106
   %109 = icmp sgt i32 %.212431, 0
@@ -1142,14 +1142,14 @@ define internal fastcc void @run_permutation(i32 noundef %0, ptr noundef readonl
 
 125:                                              ; preds = %118, %116
   %126 = add nsw i32 %.212431, -1
-  br label %.preheader149
+  br label %.preheader165
 
-.preheader149:                                    ; preds = %125, %106
+.preheader165:                                    ; preds = %125, %106
   %.024.i.ph = phi i32 [ %126, %125 ], [ %.212431, %106 ]
   br label %127
 
-127:                                              ; preds = %.preheader149, %152
-  %.024.i = phi i32 [ %.226.i, %152 ], [ %.024.i.ph, %.preheader149 ]
+127:                                              ; preds = %.preheader165, %152
+  %.024.i = phi i32 [ %.226.i, %152 ], [ %.024.i.ph, %.preheader165 ]
   store i1 false, ptr @any_new_notice, align 1
   %128 = icmp sgt i32 %.024.i, 0
   br i1 %128, label %.lr.ph.i, label %try_complete_steps.exit
@@ -2177,9 +2177,9 @@ define internal fastcc void @run_all_permutations_recurse(ptr noundef captures(n
 
 .outer:                                           ; preds = %.thread, %.lr.ph
   %.ph = phi i32 [ %.pre4, %.thread ], [ %4, %.lr.ph ]
-  %indvars.iv.ph = phi i64 [ %indvars.iv.next6, %.thread ], [ 0, %.lr.ph ]
+  %indvars.iv.ph = phi i64 [ %indvars.iv.next7, %.thread ], [ 0, %.lr.ph ]
   %.0281.ph = phi i1 [ true, %.thread ], [ false, %.lr.ph ]
-  %.ph9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @parseresult, i64 24), align 8
+  %.ph10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @parseresult, i64 24), align 8
   %9 = sext i32 %.ph to i64
   br label %10
 
@@ -2187,7 +2187,7 @@ define internal fastcc void @run_all_permutations_recurse(ptr noundef captures(n
   %indvars.iv = phi i64 [ %indvars.iv.next, %18 ], [ %indvars.iv.ph, %.outer ]
   %11 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
   %12 = load i32, ptr %11, align 4
-  %13 = getelementptr inbounds nuw ptr, ptr %.ph9, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw ptr, ptr %.ph10, i64 %indvars.iv
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 32
   %16 = load i32, ptr %15, align 8
@@ -2220,9 +2220,9 @@ define internal fastcc void @run_all_permutations_recurse(ptr noundef captures(n
   %33 = add i32 %32, -1
   store i32 %33, ptr %20, align 4
   %.pre4 = load i32, ptr getelementptr inbounds nuw (i8, ptr @parseresult, i64 32), align 8
-  %indvars.iv.next6 = add nuw nsw i64 %indvars.iv, 1
+  %indvars.iv.next7 = add nuw nsw i64 %indvars.iv, 1
   %34 = sext i32 %.pre4 to i64
-  %35 = icmp slt i64 %indvars.iv.next6, %34
+  %35 = icmp slt i64 %indvars.iv.next7, %34
   br i1 %35, label %.outer, label %._crit_edge.thread, !llvm.loop !44
 
 ._crit_edge:                                      ; preds = %18

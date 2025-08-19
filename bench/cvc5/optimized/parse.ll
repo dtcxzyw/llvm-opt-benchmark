@@ -5196,9 +5196,9 @@ define hidden void @_ZN4cvc58internal6theory2ff5parse7bitSumsERKNS0_12NodeTempla
   %28 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %29 = load i8, ptr %28, align 8, !tbaa !85, !range !8, !noundef !9
   %30 = trunc nuw i8 %29 to i1
-  br i1 %30, label %_ZNRSt8optionalISt4pairISt6vectorIS0_IN4cvc58internal12NodeTemplateILb1EEENS3_16FiniteFieldValueEESaIS7_EES1_IS5_SaIS5_EEEE5valueEv.exit, label %.thread782
+  br i1 %30, label %_ZNRSt8optionalISt4pairISt6vectorIS0_IN4cvc58internal12NodeTemplateILb1EEENS3_16FiniteFieldValueEESaIS7_EES1_IS5_SaIS5_EEEE5valueEv.exit, label %.thread849
 
-.thread782:                                       ; preds = %3
+.thread849:                                       ; preds = %3
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i8 0, ptr %31, align 8, !tbaa !101
   br label %_ZNSt14_Optional_baseISt4pairISt6vectorIS0_IN4cvc58internal12NodeTemplateILb1EEENS3_16FiniteFieldValueEESaIS7_EES1_IS5_SaIS5_EEELb0ELb0EED2Ev.exit475
@@ -5209,9 +5209,9 @@ _ZNRSt8optionalISt4pairISt6vectorIS0_IN4cvc58internal12NodeTemplateILb1EEENS3_16
   %34 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %35 = load ptr, ptr %34, align 8, !tbaa !103
   %36 = icmp eq ptr %33, %35
-  br i1 %36, label %.thread781, label %_ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit
+  br i1 %36, label %.thread848, label %_ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit
 
-.thread781:                                       ; preds = %_ZNRSt8optionalISt4pairISt6vectorIS0_IN4cvc58internal12NodeTemplateILb1EEENS3_16FiniteFieldValueEESaIS7_EES1_IS5_SaIS5_EEEE5valueEv.exit
+.thread848:                                       ; preds = %_ZNRSt8optionalISt4pairISt6vectorIS0_IN4cvc58internal12NodeTemplateILb1EEENS3_16FiniteFieldValueEESaIS7_EES1_IS5_SaIS5_EEEE5valueEv.exit
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i8 0, ptr %37, align 8, !tbaa !101
   br label %772
@@ -7233,7 +7233,7 @@ _ZNSt14_Optional_baseISt4pairISt6vectorIS0_IN4cvc58internal12NodeTemplateILb1EEE
   %771 = trunc nuw i8 %.pre780 to i1
   br i1 %771, label %772, label %_ZNSt14_Optional_baseISt4pairISt6vectorIS0_IN4cvc58internal12NodeTemplateILb1EEENS3_16FiniteFieldValueEESaIS7_EES1_IS5_SaIS5_EEELb0ELb0EED2Ev.exit475
 
-772:                                              ; preds = %.thread781, %770
+772:                                              ; preds = %.thread848, %770
   store i8 0, ptr %28, align 8, !tbaa !85
   %773 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %774 = load ptr, ptr %773, align 8, !tbaa !92
@@ -7321,7 +7321,7 @@ _ZSt8_DestroyIPSt4pairIN4cvc58internal12NodeTemplateILb1EEENS2_16FiniteFieldValu
   call void @__clang_call_terminate(ptr %810) #21
   unreachable
 
-_ZNSt14_Optional_baseISt4pairISt6vectorIS0_IN4cvc58internal12NodeTemplateILb1EEENS3_16FiniteFieldValueEESaIS7_EES1_IS5_SaIS5_EEELb0ELb0EED2Ev.exit475: ; preds = %.thread782, %802, %_ZSt8_DestroyIPSt4pairIN4cvc58internal12NodeTemplateILb1EEENS2_16FiniteFieldValueEES6_EvT_S8_RSaIT0_E.exit.i.i, %770
+_ZNSt14_Optional_baseISt4pairISt6vectorIS0_IN4cvc58internal12NodeTemplateILb1EEENS3_16FiniteFieldValueEESaIS7_EES1_IS5_SaIS5_EEELb0ELb0EED2Ev.exit475: ; preds = %.thread849, %802, %_ZSt8_DestroyIPSt4pairIN4cvc58internal12NodeTemplateILb1EEENS2_16FiniteFieldValueEES6_EvT_S8_RSaIT0_E.exit.i.i, %770
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }

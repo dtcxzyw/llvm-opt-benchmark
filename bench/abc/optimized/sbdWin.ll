@@ -421,14 +421,14 @@ Gia_ObjIsXor.exit258.thread:                      ; preds = %129
   br label %Vec_IntPush.exit.sink.split
 
 Vec_IntPush.exit.sink.split:                      ; preds = %250, %252, %242, %244
-  %.sink294 = phi ptr [ %243, %242 ], [ %245, %244 ], [ %251, %250 ], [ %253, %252 ]
+  %.sink298 = phi ptr [ %243, %242 ], [ %245, %244 ], [ %251, %250 ], [ %253, %252 ]
   %.sink = phi i32 [ 16, %242 ], [ 16, %244 ], [ %247, %250 ], [ %247, %252 ]
-  store ptr %.sink294, ptr %222, align 8, !tbaa !11
+  store ptr %.sink298, ptr %222, align 8, !tbaa !11
   store i32 %.sink, ptr %217, align 8, !tbaa !34
   br label %Vec_IntPush.exit
 
 Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.sink.split, %228
-  %.pre.i290 = phi ptr [ %229, %228 ], [ %.sink294, %Vec_IntPush.exit.sink.split ]
+  %.pre.i290 = phi ptr [ %229, %228 ], [ %.sink298, %Vec_IntPush.exit.sink.split ]
   %254 = add nsw i32 %236, 1
   store i32 %254, ptr %218, align 4, !tbaa !7
   %255 = sext i32 %236 to i64
@@ -478,9 +478,9 @@ Vec_IntFree.exit:                                 ; preds = %Vec_IntPush.exit
 
 273:                                              ; preds = %.critedge2
   %.not = icmp eq i32 %8, 0
-  br i1 %.not, label %.critedge202, label %.critedge297
+  br i1 %.not, label %.critedge202, label %.critedge301
 
-.critedge297:                                     ; preds = %273
+.critedge301:                                     ; preds = %273
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %274 = shl nsw i32 %23, 1
   %275 = shl nsw i32 %26, 1
@@ -497,7 +497,7 @@ Vec_IntFree.exit:                                 ; preds = %Vec_IntPush.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %.critedge202
 
-.critedge202:                                     ; preds = %Vec_IntFree.exit, %273, %.critedge297
+.critedge202:                                     ; preds = %Vec_IntFree.exit, %273, %.critedge301
   %282 = call i32 @sat_solver_simplify(ptr noundef %.0178) #12
   %283 = icmp eq i32 %282, 0
   br i1 %283, label %.sink.split, label %284
@@ -550,7 +550,7 @@ define i64 @Sbd_ManSolve(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nou
   %.075 = phi i64 [ 0, %7 ], [ %145, %._crit_edge ]
   %23 = call i32 @sat_solver_solve(ptr noundef %0, ptr noundef nonnull %8, ptr noundef nonnull %12, i64 noundef 0, i64 noundef 0, i64 noundef 0, i64 noundef 0) #12
   switch i32 %23, label %.preheader124 [
-    i32 0, label %.loopexit.loopexit184
+    i32 0, label %.loopexit.loopexit192
     i32 -1, label %.loopexit
   ]
 
@@ -647,9 +647,9 @@ Vec_IntPush.exit107.sink.split:                   ; preds = %.lr.ph134
   %67 = shl nuw nsw i32 %63, 1
   %68 = zext nneg i32 %67 to i64
   %69 = shl nuw nsw i64 %68, 2
-  %.sink176 = select i1 %66, i64 64, i64 %69
+  %.sink184 = select i1 %66, i64 64, i64 %69
   %.sink = select i1 %66, i32 16, i32 %67
-  %70 = call ptr @realloc(ptr noundef nonnull %53, i64 noundef %.sink176) #14
+  %70 = call ptr @realloc(ptr noundef nonnull %53, i64 noundef %.sink184) #14
   store ptr %70, ptr %.phi.trans.insert.i, align 8, !tbaa !11
   store i32 %.sink, ptr %6, align 8, !tbaa !34
   br label %Vec_IntPush.exit107
@@ -675,7 +675,7 @@ Vec_IntPush.exit107:                              ; preds = %Vec_IntPush.exit107
   %78 = getelementptr inbounds i32, ptr %.val92, i64 %77
   %79 = call i32 @sat_solver_solve(ptr noundef %0, ptr noundef nonnull %.val92, ptr noundef %78, i64 noundef 0, i64 noundef 0, i64 noundef 0, i64 noundef 0) #12
   switch i32 %79, label %81 [
-    i32 0, label %.loopexit.loopexit184
+    i32 0, label %.loopexit.loopexit192
     i32 1, label %.preheader
   ]
 
@@ -784,14 +784,14 @@ Vec_IntPush.exit114:                              ; preds = %81, %Vec_IntGrow.ex
   br label %Vec_IntPush.exit121.sink.split
 
 Vec_IntPush.exit121.sink.split:                   ; preds = %119, %121, %111, %113
-  %.sink178 = phi ptr [ %112, %111 ], [ %114, %113 ], [ %120, %119 ], [ %122, %121 ]
-  %.sink177 = phi i32 [ 16, %111 ], [ 16, %113 ], [ %116, %119 ], [ %116, %121 ]
-  store ptr %.sink178, ptr %.phi.trans.insert.i, align 8, !tbaa !11
-  store i32 %.sink177, ptr %6, align 8, !tbaa !34
+  %.sink186 = phi ptr [ %112, %111 ], [ %114, %113 ], [ %120, %119 ], [ %122, %121 ]
+  %.sink185 = phi i32 [ 16, %111 ], [ 16, %113 ], [ %116, %119 ], [ %116, %121 ]
+  store ptr %.sink186, ptr %.phi.trans.insert.i, align 8, !tbaa !11
+  store i32 %.sink185, ptr %6, align 8, !tbaa !34
   br label %Vec_IntPush.exit121
 
 Vec_IntPush.exit121:                              ; preds = %Vec_IntPush.exit121.sink.split, %104
-  %.pre.i117167 = phi ptr [ %99, %104 ], [ %.sink178, %Vec_IntPush.exit121.sink.split ]
+  %.pre.i117167 = phi ptr [ %99, %104 ], [ %.sink186, %Vec_IntPush.exit121.sink.split ]
   %123 = load i32, ptr %17, align 4, !tbaa !7
   %124 = add nsw i32 %123, 1
   store i32 %124, ptr %17, align 4, !tbaa !7
@@ -831,8 +831,8 @@ Vec_IntFind.exit:                                 ; preds = %136, %Vec_IntPush.e
   %138 = and i32 %127, 1
   %139 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 %.07.i
   %140 = load i64, ptr %139, align 8, !tbaa !53
-  %sext179 = add nsw i32 %138, -1
-  %141 = sext i32 %sext179 to i64
+  %sext187 = add nsw i32 %138, -1
+  %141 = sext i32 %sext187 to i64
   %142 = xor i64 %140, %141
   %143 = and i64 %142, %.076135
   br label %144
@@ -895,11 +895,11 @@ Vec_IntFind.exit:                                 ; preds = %136, %Vec_IntPush.e
   %168 = icmp slt i64 %indvars.iv.next159, %167
   br i1 %168, label %.critedge4, label %.loopexit, !llvm.loop !56
 
-.loopexit.loopexit184:                            ; preds = %22, %.critedge2
+.loopexit.loopexit192:                            ; preds = %22, %.critedge2
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.critedge4, %22, %.loopexit.loopexit184, %.critedge4.preheader
-  %.073 = phi i64 [ -8690466094656961759, %.critedge4.preheader ], [ 1311768465173141112, %.loopexit.loopexit184 ], [ %.075, %22 ], [ -8690466094656961759, %.critedge4 ]
+.loopexit:                                        ; preds = %.critedge4, %22, %.loopexit.loopexit192, %.critedge4.preheader
+  %.073 = phi i64 [ -8690466094656961759, %.critedge4.preheader ], [ 1311768465173141112, %.loopexit.loopexit192 ], [ %.075, %22 ], [ -8690466094656961759, %.critedge4 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i64 %.073
 }
@@ -1000,9 +1000,9 @@ Vec_IntPush.exit65.sink.split:                    ; preds = %.lr.ph
   %54 = shl nuw nsw i32 %50, 1
   %55 = zext nneg i32 %54 to i64
   %56 = shl nuw nsw i64 %55, 2
-  %.sink115 = select i1 %53, i64 64, i64 %56
+  %.sink129 = select i1 %53, i64 64, i64 %56
   %.sink = select i1 %53, i32 16, i32 %54
-  %57 = call ptr @realloc(ptr noundef nonnull %40, i64 noundef %.sink115) #14
+  %57 = call ptr @realloc(ptr noundef nonnull %40, i64 noundef %.sink129) #14
   store ptr %57, ptr %.phi.trans.insert.i, align 8, !tbaa !11
   store i32 %.sink, ptr %5, align 8, !tbaa !34
   br label %Vec_IntPush.exit65
@@ -1801,7 +1801,7 @@ sat_solver_random_polarity.exit.us:               ; preds = %.critedge.i.us, %.l
 sat_solver_random_polarity.exit:                  ; preds = %.critedge.i, %.lr.ph44.split
   %65 = call i32 @sat_solver_solve(ptr noundef nonnull %0, ptr noundef nonnull %6, ptr noundef nonnull %12, i64 noundef 0, i64 noundef 0, i64 noundef 0, i64 noundef 0) #12
   switch i32 %65, label %.preheader [
-    i32 0, label %.thread.loopexit89
+    i32 0, label %.thread.loopexit94
     i32 -1, label %.thread
   ]
 
@@ -1841,11 +1841,11 @@ sat_solver_random_polarity.exit:                  ; preds = %.critedge.i, %.lr.p
 .thread.loopexit:                                 ; preds = %sat_solver_random_polarity.exit.us
   br label %.thread
 
-.thread.loopexit89:                               ; preds = %sat_solver_random_polarity.exit
+.thread.loopexit94:                               ; preds = %sat_solver_random_polarity.exit
   br label %.thread
 
-.thread:                                          ; preds = %sat_solver_random_polarity.exit, %sat_solver_random_polarity.exit.us, %.thread.loopexit89, %.thread.loopexit
-  %.1.ph = phi i32 [ -2, %.thread.loopexit ], [ -2, %.thread.loopexit89 ], [ %17, %sat_solver_random_polarity.exit.us ], [ %45, %sat_solver_random_polarity.exit ]
+.thread:                                          ; preds = %sat_solver_random_polarity.exit, %sat_solver_random_polarity.exit.us, %.thread.loopexit94, %.thread.loopexit
+  %.1.ph = phi i32 [ -2, %.thread.loopexit ], [ -2, %.thread.loopexit94 ], [ %17, %sat_solver_random_polarity.exit.us ], [ %45, %sat_solver_random_polarity.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.critedge
 

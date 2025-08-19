@@ -716,12 +716,12 @@ proto_item_set_generated.exit229:                 ; preds = %proto_item_set_gene
   br label %172
 
 161:                                              ; preds = %137, %156, %157
-  %.sink234 = phi i32 [ 4, %156 ], [ 6, %157 ], [ 2, %137 ]
+  %.sink245 = phi i32 [ 4, %156 ], [ 6, %157 ], [ 2, %137 ]
   %162 = load i32, ptr @hf_toi64, align 4
-  %163 = add nuw nsw i32 %.1, %.sink234
+  %163 = add nuw nsw i32 %.1, %.sink245
   %164 = tail call ptr @proto_tree_add_item(ptr noundef %.0205, i32 noundef %162, ptr noundef %0, i32 noundef %163, i32 noundef 8, i32 noundef 0)
   %165 = load i32, ptr @hf_toi_extended, align 4
-  %166 = tail call ptr @proto_tree_add_item(ptr noundef %.0205, i32 noundef %165, ptr noundef %0, i32 noundef %.1, i32 noundef %.sink234, i32 noundef 0)
+  %166 = tail call ptr @proto_tree_add_item(ptr noundef %.0205, i32 noundef %165, ptr noundef %0, i32 noundef %.1, i32 noundef %.sink245, i32 noundef 0)
   %167 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %168 = load ptr, ptr %167, align 8
   %169 = getelementptr inbounds nuw i8, ptr %1, i64 408

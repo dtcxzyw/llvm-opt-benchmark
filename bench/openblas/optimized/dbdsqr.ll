@@ -154,8 +154,8 @@ define void @dbdsqr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 83:                                               ; preds = %82
   %84 = or i32 %53, %56
   %85 = or i32 %84, %59
-  %or.cond1586 = icmp eq i32 %85, 0
-  br i1 %or.cond1586, label %86, label %.critedge
+  %or.cond1612 = icmp eq i32 %85, 0
+  br i1 %or.cond1612, label %86, label %.critedge
 
 86:                                               ; preds = %83
   tail call void @dlasq1_(ptr noundef nonnull %1, ptr noundef %5, ptr noundef %6, ptr noundef %13, ptr noundef nonnull %14) #6
@@ -310,8 +310,8 @@ define void @dbdsqr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %156 = select i1 %154, double %155, double %153
   %157 = fcmp oeq double %153, 0.000000e+00
   %.not9011096 = icmp slt i32 %132, 2
-  %or.cond1587 = or i1 %157, %.not9011096
-  br i1 %or.cond1587, label %.loopexit983, label %.lr.ph1101.preheader
+  %or.cond1613 = or i1 %157, %.not9011096
+  br i1 %or.cond1613, label %.loopexit983, label %.lr.ph1101.preheader
 
 .lr.ph1101.preheader:                             ; preds = %152
   %158 = add nuw i32 %132, 1
@@ -341,8 +341,8 @@ define void @dbdsqr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %175 = fcmp oeq double %174, 0.000000e+00
   %indvars.iv.next1374 = add nuw nsw i64 %indvars.iv1373, 1
   %exitcond1377.not = icmp eq i64 %indvars.iv.next1374, %wide.trip.count1376
-  %or.cond1601 = select i1 %175, i1 true, i1 %exitcond1377.not
-  br i1 %or.cond1601, label %.loopexit983, label %.lr.ph1101, !llvm.loop !13
+  %or.cond1627 = select i1 %175, i1 true, i1 %exitcond1377.not
+  br i1 %or.cond1627, label %.loopexit983, label %.lr.ph1101, !llvm.loop !13
 
 .loopexit983:                                     ; preds = %.lr.ph1101, %152
   %.0837 = phi double [ %156, %152 ], [ %174, %.lr.ph1101 ]
@@ -361,17 +361,17 @@ define void @dbdsqr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br label %184
 
 184:                                              ; preds = %181, %.loopexit983
-  %.sink1598 = phi i32 [ %132, %181 ], [ %180, %.loopexit983 ]
-  %.sink1591 = phi double [ %183, %181 ], [ %179, %.loopexit983 ]
-  %185 = sitofp i32 %.sink1598 to double
+  %.sink1624 = phi i32 [ %132, %181 ], [ %180, %.loopexit983 ]
+  %.sink1617 = phi double [ %183, %181 ], [ %179, %.loopexit983 ]
+  %185 = sitofp i32 %.sink1624 to double
   %186 = fmul double %94, %185
   %187 = fmul double %186, %185
   %188 = fmul double %187, 6.000000e+00
   store double %188, ptr %18, align 8, !tbaa !7
-  %189 = fcmp oge double %.sink1591, %188
-  %190 = select i1 %189, double %.sink1591, double %188
-  %191 = mul nsw i32 %.sink1598, 6
-  %192 = icmp slt i32 %.sink1598, 2
+  %189 = fcmp oge double %.sink1617, %188
+  %190 = select i1 %189, double %.sink1617, double %188
+  %191 = mul nsw i32 %.sink1624, 6
+  %192 = icmp slt i32 %.sink1624, 2
   br i1 %192, label %.loopexit976, label %.lr.ph1194.lr.ph.lr.ph
 
 .lr.ph1194.lr.ph.lr.ph:                           ; preds = %184
@@ -388,23 +388,23 @@ define void @dbdsqr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %203 = getelementptr double, ptr %44, i64 %202
   %204 = getelementptr i8, ptr %203, i64 8
   %205 = sext i32 %90 to i64
-  %invariant.gep1562 = getelementptr double, ptr %44, i64 %205
-  %invariant.gep1564 = getelementptr double, ptr %44, i64 %199
-  %invariant.gep1566 = getelementptr double, ptr %44, i64 %202
-  %invariant.gep1568 = getelementptr double, ptr %13, i64 %199
-  %invariant.gep1570 = getelementptr double, ptr %13, i64 %202
-  %invariant.gep1572 = getelementptr double, ptr %44, i64 %205
-  %invariant.gep1574 = getelementptr double, ptr %44, i64 %199
-  %invariant.gep1576 = getelementptr double, ptr %44, i64 %202
-  %invariant.gep1578 = getelementptr double, ptr %13, i64 %199
-  %invariant.gep1580 = getelementptr double, ptr %13, i64 %202
+  %invariant.gep1588 = getelementptr double, ptr %44, i64 %205
+  %invariant.gep1590 = getelementptr double, ptr %44, i64 %199
+  %invariant.gep1592 = getelementptr double, ptr %44, i64 %202
+  %invariant.gep1594 = getelementptr double, ptr %13, i64 %199
+  %invariant.gep1596 = getelementptr double, ptr %13, i64 %202
+  %invariant.gep1598 = getelementptr double, ptr %44, i64 %205
+  %invariant.gep1600 = getelementptr double, ptr %44, i64 %199
+  %invariant.gep1602 = getelementptr double, ptr %44, i64 %202
+  %invariant.gep1604 = getelementptr double, ptr %13, i64 %199
+  %invariant.gep1606 = getelementptr double, ptr %13, i64 %202
   br label %.lr.ph1194.lr.ph
 
 .lr.ph1194.lr.ph:                                 ; preds = %.lr.ph1194.lr.ph.lr.ph, %.outer.backedge
   %.0843.ph1225 = phi i32 [ 0, %.lr.ph1194.lr.ph.lr.ph ], [ %.08431193, %.outer.backedge ]
   %.0845.ph1224 = phi i32 [ -1, %.lr.ph1194.lr.ph.lr.ph ], [ %.0845.ph9811218, %.outer.backedge ]
   %.0849.ph1223 = phi i32 [ -1, %.lr.ph1194.lr.ph.lr.ph ], [ %.0849.ph9801217, %.outer.backedge ]
-  %.0850.ph1222 = phi i32 [ %.sink1598, %.lr.ph1194.lr.ph.lr.ph ], [ %.0850.ph.be, %.outer.backedge ]
+  %.0850.ph1222 = phi i32 [ %.sink1624, %.lr.ph1194.lr.ph.lr.ph ], [ %.0850.ph.be, %.outer.backedge ]
   %.0856.ph1221 = phi i32 [ 0, %.lr.ph1194.lr.ph.lr.ph ], [ %.1857, %.outer.backedge ]
   %.0866.ph1220 = phi i32 [ -1, %.lr.ph1194.lr.ph.lr.ph ], [ %.1867, %.outer.backedge ]
   %206 = zext nneg i32 %.0850.ph1222 to i64
@@ -448,8 +448,8 @@ define void @dbdsqr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %.pre1417 = load double, ptr %207, align 8, !tbaa !7
   %221 = call double @llvm.fabs.f64(double %.pre1417)
   %222 = fcmp ugt double %221, %190
-  %or.cond1600 = select i1 %193, i1 true, i1 %222
-  br i1 %or.cond1600, label %.lr.ph1115, label %223
+  %or.cond1626 = select i1 %193, i1 true, i1 %222
+  br i1 %or.cond1626, label %.lr.ph1115, label %223
 
 223:                                              ; preds = %220
   store double 0.000000e+00, ptr %207, align 8, !tbaa !7
@@ -779,11 +779,11 @@ define void @dbdsqr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 
 .loopexit973.thread:                              ; preds = %315, %357
   %.ph = phi double [ %318, %315 ], [ %345, %357 ]
-  %.ph1443 = phi double [ %304, %315 ], [ %358, %357 ]
-  %.ph1444 = phi i1 [ true, %315 ], [ false, %357 ]
+  %.ph1469 = phi double [ %304, %315 ], [ %358, %357 ]
+  %.ph1470 = phi i1 [ true, %315 ], [ false, %357 ]
   %.1844929.ph = phi i32 [ 1, %315 ], [ %.1844933, %357 ]
   %.2848.ph = phi double [ %321, %315 ], [ %361, %357 ]
-  %.neg10541447 = xor i32 %.0842, -1
+  %.neg10541473 = xor i32 %.0842, -1
   store double %93, ptr %17, align 8, !tbaa !7
   store double %196, ptr %18, align 8, !tbaa !7
   br label %387
@@ -800,15 +800,15 @@ define void @dbdsqr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br i1 %151, label %387, label %399
 
 387:                                              ; preds = %.loopexit973.thread, %.loopexit973
-  %.neg10541451 = phi i32 [ %.neg10541447, %.loopexit973.thread ], [ %.neg1054, %.loopexit973 ]
-  %.28481450 = phi double [ %.2848.ph, %.loopexit973.thread ], [ %.2848, %.loopexit973 ]
-  %.18449291448 = phi i32 [ %.1844929.ph, %.loopexit973.thread ], [ %.1844929, %.loopexit973 ]
-  %388 = phi i1 [ %.ph1444, %.loopexit973.thread ], [ %386, %.loopexit973 ]
-  %389 = phi double [ %.ph1443, %.loopexit973.thread ], [ %385, %.loopexit973 ]
+  %.neg10541477 = phi i32 [ %.neg10541473, %.loopexit973.thread ], [ %.neg1054, %.loopexit973 ]
+  %.28481476 = phi double [ %.2848.ph, %.loopexit973.thread ], [ %.2848, %.loopexit973 ]
+  %.18449291474 = phi i32 [ %.1844929.ph, %.loopexit973.thread ], [ %.1844929, %.loopexit973 ]
+  %388 = phi i1 [ %.ph1470, %.loopexit973.thread ], [ %386, %.loopexit973 ]
+  %389 = phi double [ %.ph1469, %.loopexit973.thread ], [ %385, %.loopexit973 ]
   %390 = phi double [ %.ph, %.loopexit973.thread ], [ %384, %.loopexit973 ]
   %391 = sitofp i32 %215 to double
   %392 = fmul double %131, %391
-  %393 = fdiv double %.28481450, %.2860985
+  %393 = fdiv double %.28481476, %.2860985
   %394 = fmul double %392, %393
   %395 = fcmp ugt double %394, %198
   br i1 %395, label %399, label %396
@@ -816,12 +816,12 @@ define void @dbdsqr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 396:                                              ; preds = %387
   store double 0.000000e+00, ptr %27, align 8, !tbaa !7
   %397 = add nsw i32 %.1867, %.0850.ph1222
-  %398 = add i32 %397, %.neg10541451
+  %398 = add i32 %397, %.neg10541477
   br i1 %388, label %432, label %503
 
 399:                                              ; preds = %387, %.loopexit973
-  %.neg10541452 = phi i32 [ %.neg10541451, %387 ], [ %.neg1054, %.loopexit973 ]
-  %.18449291449 = phi i32 [ %.18449291448, %387 ], [ %.1844929, %.loopexit973 ]
+  %.neg10541478 = phi i32 [ %.neg10541477, %387 ], [ %.neg1054, %.loopexit973 ]
+  %.18449291475 = phi i32 [ %.18449291474, %387 ], [ %.1844929, %.loopexit973 ]
   %400 = phi i1 [ %388, %387 ], [ %386, %.loopexit973 ]
   %401 = phi double [ %389, %387 ], [ %385, %.loopexit973 ]
   %402 = phi double [ %390, %387 ], [ %384, %.loopexit973 ]
@@ -829,8 +829,8 @@ define void @dbdsqr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 
 ._crit_edge1433:                                  ; preds = %399, %.thread936.thread
   %403 = phi double [ %.pre1424, %.thread936.thread ], [ %402, %399 ]
-  %.neg1053 = phi i32 [ %.neg.le1189, %.thread936.thread ], [ %.neg10541452, %399 ]
-  %.1844929940948 = phi i32 [ 1, %.thread936.thread ], [ %.18449291449, %399 ]
+  %.neg1053 = phi i32 [ %.neg.le1189, %.thread936.thread ], [ %.neg10541478, %399 ]
+  %.1844929940948 = phi i32 [ 1, %.thread936.thread ], [ %.18449291475, %399 ]
   store double %403, ptr %17, align 8, !tbaa !7
   %404 = fcmp oge double %403, 0.000000e+00
   %405 = fneg double %403
@@ -840,8 +840,8 @@ define void @dbdsqr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 
 407:                                              ; preds = %.thread936, %399
   %408 = phi double [ %.pre1421, %.thread936 ], [ %401, %399 ]
-  %.neg1052 = phi i32 [ %.neg.le1187, %.thread936 ], [ %.neg10541452, %399 ]
-  %.1844929940947 = phi i32 [ %.1844933, %.thread936 ], [ %.18449291449, %399 ]
+  %.neg1052 = phi i32 [ %.neg.le1187, %.thread936 ], [ %.neg10541478, %399 ]
+  %.1844929940947 = phi i32 [ %.1844933, %.thread936 ], [ %.18449291475, %399 ]
   store double %408, ptr %17, align 8, !tbaa !7
   %409 = fcmp oge double %408, 0.000000e+00
   %410 = fneg double %408
@@ -887,8 +887,8 @@ thread-pre-split949:                              ; preds = %418, %422
   br i1 %419, label %432, label %503
 
 432:                                              ; preds = %396, %.thread953, %431
-  %.neg1050 = phi i32 [ %.neg1051, %.thread953 ], [ %.neg1051, %431 ], [ %.neg10541451, %396 ]
-  %.1844929939959960 = phi i32 [ %.1844929940946, %.thread953 ], [ %.1844929940946, %431 ], [ %.18449291448, %396 ]
+  %.neg1050 = phi i32 [ %.neg1051, %.thread953 ], [ %.neg1051, %431 ], [ %.neg10541477, %396 ]
+  %.1844929939959960 = phi i32 [ %.1844929940946, %.thread953 ], [ %.1844929940946, %431 ], [ %.18449291474, %396 ]
   %433 = phi i32 [ %427, %.thread953 ], [ %429, %431 ], [ %398, %396 ]
   store double 1.000000e+00, ptr %31, align 8, !tbaa !7
   store double 1.000000e+00, ptr %26, align 8, !tbaa !7
@@ -946,11 +946,11 @@ thread-pre-split949:                              ; preds = %418, %422
   %459 = getelementptr inbounds double, ptr %44, i64 %458
   store double %455, ptr %459, align 8, !tbaa !7
   %460 = load double, ptr %26, align 8, !tbaa !7
-  %gep1579 = getelementptr double, ptr %invariant.gep1578, i64 %453
-  store double %460, ptr %gep1579, align 8, !tbaa !7
+  %gep1605 = getelementptr double, ptr %invariant.gep1604, i64 %453
+  store double %460, ptr %gep1605, align 8, !tbaa !7
   %461 = load double, ptr %29, align 8, !tbaa !7
-  %gep1581 = getelementptr double, ptr %invariant.gep1580, i64 %453
-  store double %461, ptr %gep1581, align 8, !tbaa !7
+  %gep1607 = getelementptr double, ptr %invariant.gep1606, i64 %453
+  store double %461, ptr %gep1607, align 8, !tbaa !7
   %462 = load i32, ptr %16, align 4, !tbaa !3
   %463 = sext i32 %462 to i64
   %.not911.not = icmp slt i64 %indvars.iv1399, %463
@@ -1023,8 +1023,8 @@ thread-pre-split949:                              ; preds = %418, %422
   br label %.lr.ph1194.backedge
 
 503:                                              ; preds = %396, %.thread953, %431
-  %.neg1055 = phi i32 [ %.neg1051, %.thread953 ], [ %.neg1051, %431 ], [ %.neg10541451, %396 ]
-  %.1844929939959961 = phi i32 [ %.1844929940946, %.thread953 ], [ %.1844929940946, %431 ], [ %.18449291448, %396 ]
+  %.neg1055 = phi i32 [ %.neg1051, %.thread953 ], [ %.neg1051, %431 ], [ %.neg10541477, %396 ]
+  %.1844929939959961 = phi i32 [ %.1844929940946, %.thread953 ], [ %.1844929940946, %431 ], [ %.18449291474, %396 ]
   %504 = phi i32 [ %427, %.thread953 ], [ %429, %431 ], [ %398, %396 ]
   store double 1.000000e+00, ptr %31, align 8, !tbaa !7
   store double 1.000000e+00, ptr %26, align 8, !tbaa !7
@@ -1079,15 +1079,15 @@ thread-pre-split949:                              ; preds = %418, %422
   store double %524, ptr %526, align 8, !tbaa !7
   %527 = load double, ptr %32, align 8, !tbaa !7
   %528 = fneg double %527
-  %gep1573 = getelementptr double, ptr %invariant.gep1572, i64 %525
-  store double %528, ptr %gep1573, align 8, !tbaa !7
+  %gep1599 = getelementptr double, ptr %invariant.gep1598, i64 %525
+  store double %528, ptr %gep1599, align 8, !tbaa !7
   %529 = load double, ptr %26, align 8, !tbaa !7
-  %gep1575 = getelementptr double, ptr %invariant.gep1574, i64 %525
-  store double %529, ptr %gep1575, align 8, !tbaa !7
+  %gep1601 = getelementptr double, ptr %invariant.gep1600, i64 %525
+  store double %529, ptr %gep1601, align 8, !tbaa !7
   %530 = load double, ptr %29, align 8, !tbaa !7
   %531 = fneg double %530
-  %gep1577 = getelementptr double, ptr %invariant.gep1576, i64 %525
-  store double %531, ptr %gep1577, align 8, !tbaa !7
+  %gep1603 = getelementptr double, ptr %invariant.gep1602, i64 %525
+  store double %531, ptr %gep1603, align 8, !tbaa !7
   %532 = load i32, ptr %16, align 4, !tbaa !3
   %533 = sext i32 %532 to i64
   %.not910.not = icmp sgt i64 %indvars.iv1396, %533
@@ -1261,10 +1261,10 @@ thread-pre-split949:                              ; preds = %418, %422
   %637 = sext i32 %636 to i64
   %638 = getelementptr inbounds double, ptr %44, i64 %637
   store double %634, ptr %638, align 8, !tbaa !7
-  %gep1569 = getelementptr double, ptr %invariant.gep1568, i64 %632
-  store double %615, ptr %gep1569, align 8, !tbaa !7
-  %gep1571 = getelementptr double, ptr %invariant.gep1570, i64 %632
-  store double %617, ptr %gep1571, align 8, !tbaa !7
+  %gep1595 = getelementptr double, ptr %invariant.gep1594, i64 %632
+  store double %615, ptr %gep1595, align 8, !tbaa !7
+  %gep1597 = getelementptr double, ptr %invariant.gep1596, i64 %632
+  store double %617, ptr %gep1597, align 8, !tbaa !7
   %639 = load i32, ptr %16, align 4, !tbaa !3
   %640 = sext i32 %639 to i64
   %.not909.not = icmp slt i64 %indvars.iv1393, %640
@@ -1430,13 +1430,13 @@ thread-pre-split949:                              ; preds = %418, %422
   store double %726, ptr %728, align 8, !tbaa !7
   %729 = load double, ptr %22, align 8, !tbaa !7
   %730 = fneg double %729
-  %gep1563 = getelementptr double, ptr %invariant.gep1562, i64 %727
-  store double %730, ptr %gep1563, align 8, !tbaa !7
-  %gep1565 = getelementptr double, ptr %invariant.gep1564, i64 %727
-  store double %709, ptr %gep1565, align 8, !tbaa !7
+  %gep1589 = getelementptr double, ptr %invariant.gep1588, i64 %727
+  store double %730, ptr %gep1589, align 8, !tbaa !7
+  %gep1591 = getelementptr double, ptr %invariant.gep1590, i64 %727
+  store double %709, ptr %gep1591, align 8, !tbaa !7
   %731 = fneg double %711
-  %gep1567 = getelementptr double, ptr %invariant.gep1566, i64 %727
-  store double %731, ptr %gep1567, align 8, !tbaa !7
+  %gep1593 = getelementptr double, ptr %invariant.gep1592, i64 %727
+  store double %731, ptr %gep1593, align 8, !tbaa !7
   %732 = load i32, ptr %16, align 4, !tbaa !3
   %733 = sext i32 %732 to i64
   %.not908.not = icmp sgt i64 %indvars.iv1390, %733
@@ -1513,7 +1513,7 @@ thread-pre-split949:                              ; preds = %418, %422
 
 .lr.ph1233.preheader:                             ; preds = %.loopexit976
   %771 = sext i32 %35 to i64
-  %invariant.gep1582 = getelementptr double, ptr %37, i64 %771
+  %invariant.gep1608 = getelementptr double, ptr %37, i64 %771
   br label %.lr.ph1233
 
 .lr.ph1233:                                       ; preds = %.lr.ph1233.preheader, %781
@@ -1532,8 +1532,8 @@ thread-pre-split949:                              ; preds = %418, %422
   br i1 %779, label %780, label %781
 
 780:                                              ; preds = %776
-  %gep1583 = getelementptr double, ptr %invariant.gep1582, i64 %indvars.iv1407
-  call void @dscal_(ptr noundef nonnull %2, ptr noundef nonnull @c_b72, ptr noundef %gep1583, ptr noundef nonnull %8) #6
+  %gep1609 = getelementptr double, ptr %invariant.gep1608, i64 %indvars.iv1407
+  call void @dscal_(ptr noundef nonnull %2, ptr noundef nonnull @c_b72, ptr noundef %gep1609, ptr noundef nonnull %8) #6
   %.pre1430 = load i32, ptr %16, align 4, !tbaa !3
   br label %781
 

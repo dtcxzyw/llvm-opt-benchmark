@@ -938,8 +938,8 @@ bytestream2_get_le64.exit.us.i:                   ; preds = %448, %441
 
 463:                                              ; preds = %.preheader741.us.i, %463
   %indvars.iv868.i = phi i64 [ 0, %.preheader741.us.i ], [ %indvars.iv.next869.i, %463 ]
-  %gep1009.i = getelementptr i16, ptr %invariant.gep1008.i, i64 %indvars.iv868.i
-  store i16 %488, ptr %gep1009.i, align 2, !tbaa !71
+  %gep1031.i = getelementptr i16, ptr %invariant.gep1030.i, i64 %indvars.iv868.i
+  store i16 %488, ptr %gep1031.i, align 2, !tbaa !71
   %indvars.iv.next869.i = add nuw nsw i64 %indvars.iv868.i, 1
   %exitcond871.not.i = icmp eq i64 %indvars.iv.next869.i, 4
   br i1 %exitcond871.not.i, label %462, label %463, !llvm.loop !79
@@ -951,8 +951,8 @@ bytestream2_get_le64.exit.us.i:                   ; preds = %448, %441
 
 465:                                              ; preds = %.preheader740.us.i, %465
   %indvars.iv876.i = phi i64 [ 0, %.preheader740.us.i ], [ %indvars.iv.next877.i, %465 ]
-  %gep1011.i = getelementptr i16, ptr %invariant.gep1010.i, i64 %indvars.iv876.i
-  store i16 4095, ptr %gep1011.i, align 2, !tbaa !71
+  %gep1033.i = getelementptr i16, ptr %invariant.gep1032.i, i64 %indvars.iv876.i
+  store i16 4095, ptr %gep1033.i, align 2, !tbaa !71
   %indvars.iv.next877.i = add nuw nsw i64 %indvars.iv876.i, 1
   %exitcond879.not.i = icmp eq i64 %indvars.iv.next877.i, 4
   br i1 %exitcond879.not.i, label %464, label %465, !llvm.loop !81
@@ -990,7 +990,7 @@ bytestream2_get_le64.exit.us.i:                   ; preds = %448, %441
   %476 = mul i32 %250, %475
   %477 = add i32 %484, %476
   %478 = sext i32 %477 to i64
-  %invariant.gep1010.i = getelementptr i16, ptr %.1444794.us.i, i64 %478
+  %invariant.gep1032.i = getelementptr i16, ptr %.1444794.us.i, i64 %478
   br label %465
 
 .preheader741.us.i:                               ; preds = %.preheader746.us.i, %462
@@ -1000,7 +1000,7 @@ bytestream2_get_le64.exit.us.i:                   ; preds = %448, %441
   %481 = mul i32 %250, %480
   %482 = add i32 %489, %481
   %483 = sext i32 %482 to i64
-  %invariant.gep1008.i = getelementptr i16, ptr %.1444794.us.i, i64 %483
+  %invariant.gep1030.i = getelementptr i16, ptr %.1444794.us.i, i64 %483
   br label %463
 
 .preheader744.us.i:                               ; preds = %458
@@ -1235,7 +1235,7 @@ bytestream2_get_le32.exit483.us.i:                ; preds = %577, %bytestream2_g
   %591 = add nsw i32 %590, %586
   %592 = sub nsw i32 %589, %585
   %593 = add nsw i32 %592, %588
-  %invariant.op181 = or i64 %indvars.iv927.i, 1
+  %invariant.op209 = or i64 %indvars.iv927.i, 1
   br label %.preheader725.us.i
 
 594:                                              ; preds = %596
@@ -1473,8 +1473,8 @@ bytestream2_get_le32.exit485.us.i:                ; preds = %693, %bytestream2_g
   br label %.preheader730.us.i
 
 .loopexit732.us.i:                                ; preds = %545, %721
-  %invariant.gep1012.i = getelementptr i16, ptr %.0435837.us.i, i64 %indvars.iv955.i
-  %invariant.gep1014.i = getelementptr i16, ptr %.0436836.us.i, i64 %indvars.iv955.i
+  %invariant.gep1034.i = getelementptr i16, ptr %.0435837.us.i, i64 %indvars.iv955.i
+  %invariant.gep1036.i = getelementptr i16, ptr %.0436836.us.i, i64 %indvars.iv955.i
   br label %.preheader729.us.i
 
 709:                                              ; preds = %711
@@ -1494,12 +1494,12 @@ bytestream2_get_le32.exit485.us.i:                ; preds = %693, %bytestream2_g
   %713 = getelementptr inbounds nuw [16 x i32], ptr %764, i64 0, i64 %indvars.iv947.i
   %714 = load i32, ptr %713, align 4, !tbaa !68
   %715 = trunc i32 %714 to i16
-  %716 = getelementptr i16, ptr %gep1013.i, i64 %indvars.iv947.i
+  %716 = getelementptr i16, ptr %gep1035.i, i64 %indvars.iv947.i
   store i16 %715, ptr %716, align 2, !tbaa !71
   %717 = getelementptr inbounds nuw [16 x i32], ptr %766, i64 0, i64 %indvars.iv947.i
   %718 = load i32, ptr %717, align 4, !tbaa !68
   %719 = trunc i32 %718 to i16
-  %720 = getelementptr i16, ptr %gep1015.i, i64 %indvars.iv947.i
+  %720 = getelementptr i16, ptr %gep1037.i, i64 %indvars.iv947.i
   store i16 %719, ptr %720, align 2, !tbaa !71
   %indvars.iv.next948.i = add nuw nsw i64 %indvars.iv947.i, 1
   %exitcond950.not.i = icmp eq i64 %indvars.iv.next948.i, 16
@@ -1543,9 +1543,9 @@ bytestream2_get_le32.exit485.us.i:                ; preds = %693, %bytestream2_g
 .preheader721.us.i:                               ; preds = %.preheader722.us.i, %.preheader721.us.i
   %734 = phi i1 [ true, %.preheader722.us.i ], [ false, %.preheader721.us.i ]
   %indvars.iv904.i = phi i64 [ 0, %.preheader722.us.i ], [ 1, %.preheader721.us.i ]
-  %.reass137.reass = or i64 %indvars.iv904.i, %invariant.op
-  %735 = getelementptr inbounds nuw [16 x [16 x i32]], ptr %6, i64 0, i64 %.reass137.reass
-  %736 = getelementptr inbounds nuw [16 x [16 x i32]], ptr %7, i64 0, i64 %.reass137.reass
+  %.reass165.reass = or i64 %indvars.iv904.i, %invariant.op
+  %735 = getelementptr inbounds nuw [16 x [16 x i32]], ptr %6, i64 0, i64 %.reass165.reass
+  %736 = getelementptr inbounds nuw [16 x [16 x i32]], ptr %7, i64 0, i64 %.reass165.reass
   %737 = getelementptr inbounds nuw [16 x i32], ptr %735, i64 0, i64 %.reass
   store i32 %745, ptr %737, align 8, !tbaa !68
   %738 = getelementptr inbounds nuw [16 x i32], ptr %736, i64 0, i64 %.reass
@@ -1569,7 +1569,7 @@ bytestream2_get_le32.exit485.us.i:                ; preds = %693, %bytestream2_g
   %748 = sdiv i32 %747, 3
   %749 = add nsw i32 %748, %585
   %.reass = or i64 %indvars.iv907.i, %indvars.iv927.i
-  %.reass.c.reass = or i64 %indvars.iv907.i, %invariant.op181
+  %.reass.c.reass = or i64 %indvars.iv907.i, %invariant.op209
   br label %.preheader721.us.i
 
 .preheader723.us.i:                               ; preds = %.preheader726.us.i, %726
@@ -1612,8 +1612,8 @@ bytestream2_get_le32.exit485.us.i:                ; preds = %693, %bytestream2_g
   %765 = mul nsw i64 %indvars.iv951.i, %516
   %766 = getelementptr inbounds nuw [16 x [16 x i32]], ptr %7, i64 0, i64 %indvars.iv951.i
   %767 = mul nsw i64 %indvars.iv951.i, %517
-  %gep1013.i = getelementptr i16, ptr %invariant.gep1012.i, i64 %765
-  %gep1015.i = getelementptr i16, ptr %invariant.gep1014.i, i64 %767
+  %gep1035.i = getelementptr i16, ptr %invariant.gep1034.i, i64 %765
+  %gep1037.i = getelementptr i16, ptr %invariant.gep1036.i, i64 %767
   br label %712
 
 .preheader730.us.i:                               ; preds = %721, %bytestream2_get_le32.exit485.us.i
@@ -1885,15 +1885,15 @@ bytestream2_get_byte.exit96:                      ; preds = %.preheader14
   %108 = sub i32 %.3.pn, %91
   %109 = add i32 %.074, %.3
   %110 = icmp ult i32 %109, 65536
-  br i1 %110, label %111, label %.preheader65
+  br i1 %110, label %111, label %.preheader72
 
-.preheader65:                                     ; preds = %111, %.loopexit15
+.preheader72:                                     ; preds = %111, %.loopexit15
   br label %130
 
 111:                                              ; preds = %.loopexit15
   %112 = add i32 %.074, %108
   %113 = icmp ult i32 %112, 65536
-  br i1 %113, label %114, label %.preheader65
+  br i1 %113, label %114, label %.preheader72
 
 114:                                              ; preds = %111
   %.not89 = icmp ult i32 %.3, %112
@@ -1926,10 +1926,10 @@ bytestream2_get_byte.exit96:                      ; preds = %.preheader14
   %129 = icmp sgt i32 %.27628, 1
   br i1 %129, label %.preheader, label %.loopexit, !llvm.loop !106
 
-130:                                              ; preds = %.preheader65, %bytestream2_put_buffer.exit101
-  %.in36 = phi i32 [ %131, %bytestream2_put_buffer.exit101 ], [ %.074, %.preheader65 ]
-  %.16727 = phi i32 [ %154, %bytestream2_put_buffer.exit101 ], [ %108, %.preheader65 ]
-  %.826 = phi i32 [ %.9, %bytestream2_put_buffer.exit101 ], [ %.3, %.preheader65 ]
+130:                                              ; preds = %.preheader72, %bytestream2_put_buffer.exit101
+  %.in36 = phi i32 [ %131, %bytestream2_put_buffer.exit101 ], [ %.074, %.preheader72 ]
+  %.16727 = phi i32 [ %154, %bytestream2_put_buffer.exit101 ], [ %108, %.preheader72 ]
+  %.826 = phi i32 [ %.9, %bytestream2_put_buffer.exit101 ], [ %.3, %.preheader72 ]
   %131 = add nsw i32 %.in36, -1
   %132 = add i32 %.16727, 1
   %133 = zext i32 %.16727 to i64

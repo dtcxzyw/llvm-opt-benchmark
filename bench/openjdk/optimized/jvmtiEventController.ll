@@ -1403,7 +1403,7 @@ _ZN28JavaThreadIteratorWithHandle4nextEv.exit.thread: ; preds = %_ZN28JavaThread
   br i1 %.not.i, label %_ZN28JavaThreadIteratorWithHandle4nextEv.exit, label %_ZN28JavaThreadIteratorWithHandle4nextEv.exit.thread, !llvm.loop !16
 
 ._crit_edge.thread:                               ; preds = %_ZN16JvmtiEnvIteratorC2Ev.exit, %_ZN28JavaThreadIteratorWithHandle4nextEv.exit.thread, %._crit_edge
-  %.0.lcssa103 = phi i64 [ %64, %_ZN28JavaThreadIteratorWithHandle4nextEv.exit.thread ], [ %64, %._crit_edge ], [ 0, %_ZN16JvmtiEnvIteratorC2Ev.exit ]
+  %.0.lcssa112 = phi i64 [ %64, %_ZN28JavaThreadIteratorWithHandle4nextEv.exit.thread ], [ %64, %._crit_edge ], [ 0, %_ZN16JvmtiEnvIteratorC2Ev.exit ]
   %99 = load ptr, ptr @_ZN16JvmtiThreadState5_headE, align 8
   %.not62 = icmp eq ptr %99, null
   br i1 %.not62, label %109, label %100
@@ -1415,7 +1415,7 @@ _ZN28JavaThreadIteratorWithHandle4nextEv.exit.thread: ; preds = %_ZN28JavaThread
   br label %103
 
 103:                                              ; preds = %100, %103
-  %.298 = phi i64 [ %.0.lcssa103, %100 ], [ %105, %103 ]
+  %.298 = phi i64 [ %.0.lcssa112, %100 ], [ %105, %103 ]
   %.05497 = phi ptr [ %99, %100 ], [ %107, %103 ]
   %104 = call noundef i64 @_ZN27JvmtiEventControllerPrivate24recompute_thread_enabledEP16JvmtiThreadState(ptr noundef nonnull %.05497)
   %105 = or i64 %104, %.298
@@ -1429,7 +1429,7 @@ _ZN28JavaThreadIteratorWithHandle4nextEv.exit.thread: ; preds = %_ZN28JavaThread
   br label %109
 
 109:                                              ; preds = %108, %._crit_edge.thread
-  %.1 = phi i64 [ %105, %108 ], [ %.0.lcssa103, %._crit_edge.thread ]
+  %.1 = phi i64 [ %105, %108 ], [ %.0.lcssa112, %._crit_edge.thread ]
   %.not64 = icmp eq i64 %.1, %4
   br i1 %.not64, label %202, label %110
 

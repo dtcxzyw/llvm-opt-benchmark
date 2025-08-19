@@ -652,9 +652,9 @@ sha1_update.exit421:                              ; preds = %266, %267
   br i1 %344, label %._crit_edge471.thread, label %380
 
 ._crit_edge471.thread:                            ; preds = %._crit_edge465, %._crit_edge471
-  %.1352.lcssa484 = phi i64 [ %343, %._crit_edge471 ], [ %.1342, %._crit_edge465 ]
+  %.1352.lcssa513 = phi i64 [ %343, %._crit_edge471 ], [ %.1342, %._crit_edge465 ]
   %345 = add i64 %.0350, 8
-  %346 = sub i64 %345, %.1352.lcssa484
+  %346 = sub i64 %345, %.1352.lcssa513
   %.neg = ashr i64 %346, 63
   %347 = getelementptr inbounds nuw i8, ptr %0, i64 784
   %348 = load i32, ptr %347, align 4, !tbaa !8
@@ -663,7 +663,7 @@ sha1_update.exit421:                              ; preds = %266, %267
   %351 = or i32 %348, %350
   store i32 %351, ptr %347, align 4, !tbaa !8
   call void @sha1_block_data_order(ptr noundef nonnull %8, ptr noundef nonnull %152, i64 noundef 1) #9
-  %reass.sub477 = sub i64 %.1352.lcssa484, %.0350
+  %reass.sub477 = sub i64 %.1352.lcssa513, %.0350
   %352 = add i64 %reass.sub477, -73
   %.neg374 = and i64 %346, %352
   %353 = ashr i64 %.neg374, 63
@@ -698,7 +698,7 @@ sha1_update.exit421:                              ; preds = %266, %267
   %378 = or i32 %377, %376
   store i32 %378, ptr %281, align 16, !tbaa !8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %152, i8 0, i64 60, i1 false)
-  %379 = add i64 %.1352.lcssa484, 64
+  %379 = add i64 %.1352.lcssa513, 64
   br label %380
 
 380:                                              ; preds = %._crit_edge471.thread, %._crit_edge471
@@ -1676,12 +1676,12 @@ define internal i32 @aesni_cbc_hmac_sha1_tls1_multiblock_encrypt(ptr noundef %0,
   %175 = add i32 %174, 616
   %176 = icmp ult i32 %170, 56
   %177 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %175) #10
-  %.404.i = select i1 %176, i32 1, i32 2
+  %.410.i = select i1 %176, i32 1, i32 2
   %..i.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %176, i64 60, i64 124
   %..i.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %171, i64 %..i.sroa.sel.v.sroa.sel.v.sroa.sel.v
   store i32 %177, ptr %..i.sroa.sel.v.sroa.sel.v.sroa.sel, align 4, !tbaa !8
   %178 = getelementptr inbounds nuw [8 x %struct.HASH_DESC], ptr %4, i64 0, i64 %indvars.iv380.i, i32 1
-  store i32 %.404.i, ptr %178, align 8, !tbaa !64
+  store i32 %.410.i, ptr %178, align 8, !tbaa !64
   %179 = getelementptr inbounds nuw [8 x %struct.HASH_DESC], ptr %4, i64 0, i64 %indvars.iv380.i
   store ptr %171, ptr %179, align 16, !tbaa !56
   %indvars.iv.next381.i = add nuw nsw i64 %indvars.iv380.i, 1

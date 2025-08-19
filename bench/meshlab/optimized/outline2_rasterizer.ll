@@ -1315,7 +1315,7 @@ _ZNSt6vectorI7QPointFSaIS0_EE9push_backERKS0_.exit237: ; preds = %325, %344, %_Z
   br i1 %.not28.i, label %469, label %_ZSt27__uninitialized_default_n_aIPSt6vectorIiSaIiEEmS2_ET_S4_T0_RSaIT1_E.exit.i
 
 _ZSt27__uninitialized_default_n_aIPSt6vectorIiSaIiEEmS2_ET_S4_T0_RSaIT1_E.exit.i: ; preds = %458
-  %468 = mul nuw i64 %459, 24
+  %468 = mul nuw nsw i64 %459, 24
   call void @llvm.memset.p0.i64(ptr align 8 %451, i8 0, i64 %468, i1 false)
   %scevgep.i.i.i.i = getelementptr i8, ptr %451, i64 %468
   store ptr %scevgep.i.i.i.i, ptr %450, align 8
@@ -1766,13 +1766,13 @@ _ZNSt6vectorI7QPointFSaIS0_EED2Ev.exit271:        ; preds = %595, %.loopexit.spl
   br i1 %.not.i.i.i272, label %600, label %598
 
 598:                                              ; preds = %.thread, %597
-  %.pn155511 = phi { ptr, i32 } [ %lpad.loopexit382, %.thread ], [ %.pn155, %597 ]
+  %.pn155566 = phi { ptr, i32 } [ %lpad.loopexit382, %.thread ], [ %.pn155, %597 ]
   %599 = phi ptr [ %80, %.thread ], [ %121, %597 ]
   call void @_ZdlPv(ptr noundef nonnull %599) #23
   br label %600
 
 600:                                              ; preds = %119, %597, %598
-  %.pn155.pn = phi { ptr, i32 } [ %120, %119 ], [ %.pn155, %597 ], [ %.pn155511, %598 ]
+  %.pn155.pn = phi { ptr, i32 } [ %120, %119 ], [ %.pn155, %597 ], [ %.pn155566, %598 ]
   call void @_ZN7QVectorI7QPointFED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #22
   %.not.i.i.i274 = icmp eq ptr %75, null
   br i1 %.not.i.i.i274, label %_ZNSt6vectorIN3vcg6Point2IfEESaIS2_EED2Ev.exit275, label %.thread341
@@ -3299,7 +3299,7 @@ _ZSt24__uninitialized_fill_n_aIPimiiET_S1_T0_RKT1_RSaIT2_E.exit80: ; preds = %.l
   br label %_ZSt34__uninitialized_move_if_noexcept_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit
 
 _ZSt34__uninitialized_move_if_noexcept_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit: ; preds = %67, %_ZSt24__uninitialized_fill_n_aIPimiiET_S1_T0_RKT1_RSaIT2_E.exit80
-  %68 = getelementptr inbounds i32, ptr %63, i64 %2
+  %68 = getelementptr inbounds nuw i32, ptr %63, i64 %2
   %69 = sub i64 %11, %56
   %.not.i.i.i.i.i.i.i.i.i82 = icmp eq ptr %9, %1
   br i1 %.not.i.i.i.i.i.i.i.i.i82, label %71, label %70

@@ -1633,29 +1633,19 @@ _ZN7meshoptL13finishMeshletER15meshopt_MeshletPh.exit: ; preds = %27, %.lr.ph.pr
 ._crit_edge.thread:                               ; preds = %13, %_ZN7meshoptL13finishMeshletER15meshopt_MeshletPh.exit, %._crit_edge
   %.1 = phi i64 [ %39, %_ZN7meshoptL13finishMeshletER15meshopt_MeshletPh.exit ], [ %24, %._crit_edge ], [ 0, %13 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  br label %41
+  %41 = load ptr, ptr @_ZN17meshopt_Allocator8StorageTIvE10deallocateE, align 8, !tbaa !4
+  %42 = load ptr, ptr %9, align 8, !tbaa !4
+  invoke void %41(ptr noundef %42)
+          to label %_ZN17meshopt_AllocatorD2Ev.exit unwind label %43, !llvm.loop !50
 
-41:                                               ; preds = %42, %._crit_edge.thread
-  %.0.i = phi i64 [ 1, %._crit_edge.thread ], [ %44, %42 ]
-  %.not.i = icmp eq i64 %.0.i, 0
-  br i1 %.not.i, label %_ZN17meshopt_AllocatorD2Ev.exit, label %42
-
-42:                                               ; preds = %41
-  %43 = load ptr, ptr @_ZN17meshopt_Allocator8StorageTIvE10deallocateE, align 8, !tbaa !4
-  %44 = add i64 %.0.i, -1
-  %45 = getelementptr inbounds nuw [24 x ptr], ptr %9, i64 0, i64 %44
-  %46 = load ptr, ptr %45, align 8, !tbaa !4
-  invoke void %43(ptr noundef %46)
-          to label %41 unwind label %47, !llvm.loop !50
-
-47:                                               ; preds = %42
-  %48 = landingpad { ptr, i32 }
+43:                                               ; preds = %._crit_edge.thread
+  %44 = landingpad { ptr, i32 }
           catch ptr null
-  %49 = extractvalue { ptr, i32 } %48, 0
-  tail call void @__clang_call_terminate(ptr %49) #18
+  %45 = extractvalue { ptr, i32 } %44, 0
+  tail call void @__clang_call_terminate(ptr %45) #18
   unreachable
 
-_ZN17meshopt_AllocatorD2Ev.exit:                  ; preds = %41
+_ZN17meshopt_AllocatorD2Ev.exit:                  ; preds = %._crit_edge.thread
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i64 %.1
 }

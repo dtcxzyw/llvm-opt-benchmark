@@ -22,7 +22,7 @@ define hidden noundef ptr @SDL_memset4_REAL(ptr noundef returned writeonly captu
   %6 = add i64 %2, 3
   %7 = lshr i64 %6, 2
   %8 = and i64 %2, 3
-  switch i64 %8, label %default.unreachable22 [
+  switch i64 %8, label %default.unreachable23 [
     i64 0, label %9
     i64 3, label %11
     i64 2, label %13
@@ -59,7 +59,7 @@ define hidden noundef ptr @SDL_memset4_REAL(ptr noundef returned writeonly captu
   %.not = icmp eq i64 %17, 0
   br i1 %.not, label %18, label %9, !llvm.loop !3
 
-default.unreachable22:                            ; preds = %5
+default.unreachable23:                            ; preds = %5
   unreachable
 
 18:                                               ; preds = %15, %3

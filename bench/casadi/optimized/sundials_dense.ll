@@ -81,8 +81,8 @@ define i64 @denseGETRF(ptr noundef readonly captures(none) %0, i64 noundef %1, i
   br i1 %9, label %.lr.ph84, label %.loopexit75
 
 .preheader74:                                     ; preds = %.lr.ph84
-  %.not106 = icmp slt i64 %8, %2
-  br i1 %.not106, label %.lr.ph88.split.us, label %.loopexit75
+  %.not112 = icmp slt i64 %8, %2
+  br i1 %.not112, label %.lr.ph88.split.us, label %.loopexit75
 
 .lr.ph88.split.us:                                ; preds = %.preheader74, %..loopexit_crit_edge.us
   %.06787.us = phi i64 [ %38, %..loopexit_crit_edge.us ], [ %8, %.preheader74 ]
@@ -140,8 +140,8 @@ define void @DenseGETRS(ptr noundef readonly captures(none) %0, ptr noundef read
 
 .preheader55.i:                                   ; preds = %17
   %9 = add nsw i64 %7, -1
-  %.not68.i = icmp eq i64 %7, 1
-  br i1 %.not68.i, label %denseGETRS.exit, label %.lr.ph58.i
+  %.not71.i = icmp eq i64 %7, 1
+  br i1 %.not71.i, label %denseGETRS.exit, label %.lr.ph58.i
 
 .lr.ph.i:                                         ; preds = %3, %17
   %.05056.i = phi i64 [ %18, %17 ], [ 0, %3 ]
@@ -237,8 +237,8 @@ define void @denseGETRS(ptr noundef readonly captures(none) %0, i64 noundef %1, 
 
 .preheader55:                                     ; preds = %14
   %6 = add nsw i64 %1, -1
-  %.not68 = icmp eq i64 %1, 1
-  br i1 %.not68, label %._crit_edge, label %.lr.ph58
+  %.not71 = icmp eq i64 %1, 1
+  br i1 %.not71, label %._crit_edge, label %.lr.ph58
 
 .lr.ph:                                           ; preds = %4, %14
   %.05056 = phi i64 [ %15, %14 ], [ 0, %4 ]
@@ -900,11 +900,11 @@ define noundef i32 @DenseORMQR(ptr noundef readonly captures(none) %0, ptr nound
   br i1 %39, label %.lr.ph63.i, label %.loopexit.i
 
 .lr.ph63.i:                                       ; preds = %.lr.ph59.i, %._crit_edge.i
-  %.049.lcssa71.i = phi double [ %27, %._crit_edge.i ], [ %36, %.lr.ph59.i ]
+  %.049.lcssa73.i = phi double [ %27, %._crit_edge.i ], [ %36, %.lr.ph59.i ]
   %40 = getelementptr inbounds nuw double, ptr %1, i64 %.065.i
   %41 = load double, ptr %40, align 8, !tbaa !17
   %42 = fneg double %41
-  %43 = fmul double %.049.lcssa71.i, %42
+  %43 = fmul double %.049.lcssa73.i, %42
   br label %44
 
 44:                                               ; preds = %44, %.lr.ph63.i
@@ -996,11 +996,11 @@ define noundef i32 @denseORMQR(ptr noundef readonly captures(none) %0, i64 nound
   br i1 %35, label %.lr.ph63, label %.loopexit
 
 .lr.ph63:                                         ; preds = %.lr.ph59, %._crit_edge
-  %.049.lcssa71 = phi double [ %23, %._crit_edge ], [ %32, %.lr.ph59 ]
+  %.049.lcssa73 = phi double [ %23, %._crit_edge ], [ %32, %.lr.ph59 ]
   %36 = getelementptr inbounds nuw double, ptr %3, i64 %.065
   %37 = load double, ptr %36, align 8, !tbaa !17
   %38 = fneg double %37
-  %39 = fmul double %.049.lcssa71, %38
+  %39 = fmul double %.049.lcssa73, %38
   br label %40
 
 40:                                               ; preds = %.lr.ph63, %40

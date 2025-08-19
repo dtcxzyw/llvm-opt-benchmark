@@ -483,8 +483,8 @@ dither_output_.exit.us:                           ; preds = %298, %281, %123
   %exitcond103.not = icmp eq i32 %333, %5
   br i1 %exitcond103.not, label %._crit_edge98, label %.lr.ph.us, !llvm.loop !28
 
-._crit_edge98:                                    ; preds = %._crit_edge.us, %12, %.lr.ph97
-  %.pre-phi = phi i32 [ %28, %.lr.ph97 ], [ 0, %12 ], [ %28, %._crit_edge.us ]
+._crit_edge98:                                    ; preds = %._crit_edge.us, %.lr.ph97, %12
+  %.pre-phi = phi i32 [ 0, %12 ], [ %28, %.lr.ph97 ], [ %28, %._crit_edge.us ]
   %334 = add i32 %22, %4
   %335 = and i32 %334, 31
   store i32 %335, ptr %21, align 4, !tbaa !20

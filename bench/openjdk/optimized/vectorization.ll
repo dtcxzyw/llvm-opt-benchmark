@@ -624,8 +624,8 @@ define hidden void @_ZN20VLoopDependencyGraph9constructEv(ptr noundef nonnull al
 
 .lr.ph107:                                        ; preds = %.lr.ph107.preheader, %._crit_edge.thread
   %indvars.iv118 = phi i64 [ %43, %.lr.ph107.preheader ], [ %indvars.iv.next119, %._crit_edge.thread ]
-  %.sroa.19.1103 = phi ptr [ %.sroa.19.0112, %.lr.ph107.preheader ], [ %.sroa.19.2.lcssa132, %._crit_edge.thread ]
-  %.sroa.12.1102 = phi i32 [ %.sroa.12.0111, %.lr.ph107.preheader ], [ %.sroa.12.2.lcssa131, %._crit_edge.thread ]
+  %.sroa.19.1103 = phi ptr [ %.sroa.19.0112, %.lr.ph107.preheader ], [ %.sroa.19.2.lcssa144, %._crit_edge.thread ]
+  %.sroa.12.1102 = phi i32 [ %.sroa.12.0111, %.lr.ph107.preheader ], [ %.sroa.12.2.lcssa143, %._crit_edge.thread ]
   %indvars.iv.next119 = add nsw i64 %indvars.iv118, -1
   %44 = load ptr, ptr %20, align 8
   %45 = getelementptr inbounds nuw ptr, ptr %44, i64 %indvars.iv.next119
@@ -1042,14 +1042,14 @@ _ZN20VLoopDependencyGraph8add_nodeEP7MemNodeR13GrowableArrayIiE.exit: ; preds = 
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %.lr.ph107, %._crit_edge, %_ZN20VLoopDependencyGraph8add_nodeEP7MemNodeR13GrowableArrayIiE.exit
-  %.sroa.19.2.lcssa132 = phi ptr [ %.sroa.19.3, %._crit_edge ], [ %.sroa.19.3, %_ZN20VLoopDependencyGraph8add_nodeEP7MemNodeR13GrowableArrayIiE.exit ], [ %.sroa.19.1103, %.lr.ph107 ]
-  %.sroa.12.2.lcssa131 = phi i32 [ %.sroa.12.3, %._crit_edge ], [ %.sroa.12.3, %_ZN20VLoopDependencyGraph8add_nodeEP7MemNodeR13GrowableArrayIiE.exit ], [ %.sroa.12.1102, %.lr.ph107 ]
+  %.sroa.19.2.lcssa144 = phi ptr [ %.sroa.19.3, %._crit_edge ], [ %.sroa.19.3, %_ZN20VLoopDependencyGraph8add_nodeEP7MemNodeR13GrowableArrayIiE.exit ], [ %.sroa.19.1103, %.lr.ph107 ]
+  %.sroa.12.2.lcssa143 = phi i32 [ %.sroa.12.3, %._crit_edge ], [ %.sroa.12.3, %_ZN20VLoopDependencyGraph8add_nodeEP7MemNodeR13GrowableArrayIiE.exit ], [ %.sroa.12.1102, %.lr.ph107 ]
   %276 = icmp sgt i64 %indvars.iv118, 1
   br i1 %276, label %.lr.ph107, label %._crit_edge108, !llvm.loop !15
 
 ._crit_edge108:                                   ; preds = %._crit_edge.thread, %33
-  %.sroa.12.1.lcssa = phi i32 [ %.sroa.12.0111, %33 ], [ %.sroa.12.2.lcssa131, %._crit_edge.thread ]
-  %.sroa.19.1.lcssa = phi ptr [ %.sroa.19.0112, %33 ], [ %.sroa.19.2.lcssa132, %._crit_edge.thread ]
+  %.sroa.12.1.lcssa = phi i32 [ %.sroa.12.0111, %33 ], [ %.sroa.12.2.lcssa143, %._crit_edge.thread ]
+  %.sroa.19.1.lcssa = phi ptr [ %.sroa.19.0112, %33 ], [ %.sroa.19.2.lcssa144, %._crit_edge.thread ]
   store i32 0, ptr %2, align 8
   %indvars.iv.next122 = add nuw nsw i64 %indvars.iv121, 1
   %277 = load i32, ptr %5, align 4
@@ -4198,22 +4198,22 @@ _ZNK4Node7get_intEv.exit:                         ; preds = %27
   %68 = tail call i32 @llvm.abs.i32(i32 %42, i1 true)
   %.not.i28 = icmp slt i32 %68, %47
   %..i = tail call i32 @llvm.smin.i32(i32 %68, i32 %47)
-  %.8.i = zext i1 %.not.i28 to i32
+  %.9.i = zext i1 %.not.i28 to i32
   %69 = srem i32 %40, %..i
   %70 = icmp slt i32 %69, 0
   %71 = select i1 %70, i32 %..i, i32 0
   %72 = sub nsw i32 0, %69
   %73 = icmp ne i32 %71, %72
-  %74 = select i1 %73, i32 2, i32 %.8.i
+  %74 = select i1 %73, i32 2, i32 %.9.i
   %75 = srem i32 %67, %..i
   %76 = icmp ne i32 %75, 0
-  %77 = select i1 %76, i32 2, i32 %.8.i
+  %77 = select i1 %76, i32 2, i32 %.9.i
   %78 = srem i32 %61, %..i
   %79 = icmp slt i32 %78, 0
   %80 = select i1 %79, i32 %..i, i32 0
   %81 = sub nsw i32 0, %78
   %82 = icmp ne i32 %80, %81
-  %83 = select i1 %82, i32 2, i32 %.8.i
+  %83 = select i1 %82, i32 2, i32 %.9.i
   %84 = or i32 %74, %77
   %85 = or i32 %84, %83
   %or.cond3 = icmp eq i32 %85, 0

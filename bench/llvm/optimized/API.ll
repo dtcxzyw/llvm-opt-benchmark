@@ -530,8 +530,8 @@ define dso_local noundef ptr @_ZNK5clang10extractapi6APISet16findRecordForUSREN4
 11:                                               ; preds = %5
   %12 = tail call noundef i32 @_ZN4llvm12DenseMapInfoINS_9StringRefEvE12getHashValueES1_(ptr %.fr35, i64 %2) #19
   %13 = add i32 %9, -1
-  %magicptr57 = ptrtoint ptr %.fr35 to i64
-  switch i64 %magicptr57, label %.split.split [
+  %magicptr59 = ptrtoint ptr %.fr35 to i64
+  switch i64 %magicptr59, label %.split.split [
     i64 -2, label %.split.us.split
     i64 -1, label %.split.split.us
   ], !prof !61
@@ -556,7 +556,7 @@ define dso_local noundef ptr @_ZNK5clang10extractapi6APISet16findRecordForUSREN4
   br i1 %.not.i.i.i.us, label %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit.i.us, label %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit.thread29.i.us, !prof !63
 
 _ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit.i.us: ; preds = %16
-  %bcmp.i.i.i.us = tail call i32 @bcmp(ptr %.fr35, ptr %.sroa.03.0.copyload.i.us, i64 %2)
+  %bcmp.i.i.i.us = tail call i32 @bcmp(ptr nonnull inttoptr (i64 -2 to ptr), ptr %.sroa.03.0.copyload.i.us, i64 %2)
   %17 = icmp eq i32 %bcmp.i.i.i.us, 0
   br i1 %17, label %_ZN4llvm12DenseMapBaseINS_8DenseMapINS_9StringRefESt10unique_ptrIN5clang10extractapi9APIRecordENS5_6APISet16APIRecordDeleterEENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S9_EEEES2_S9_SB_SE_E6doFindIS2_EEPSE_RKT_.exit, label %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit.thread29.i.us, !prof !64
 
@@ -589,7 +589,7 @@ _ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit.thread29.i.us: ; pre
   br i1 %.not.i.i.i.us17, label %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit.i.us18, label %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit.thread29.i.us20, !prof !63
 
 _ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit.i.us18: ; preds = %24
-  %bcmp.i.i.i.us19 = tail call i32 @bcmp(ptr %.fr35, ptr %.sroa.03.0.copyload.i.us13, i64 %2)
+  %bcmp.i.i.i.us19 = tail call i32 @bcmp(ptr nonnull inttoptr (i64 -1 to ptr), ptr %.sroa.03.0.copyload.i.us13, i64 %2)
   %25 = icmp eq i32 %bcmp.i.i.i.us19, 0
   br i1 %25, label %_ZN4llvm12DenseMapBaseINS_8DenseMapINS_9StringRefESt10unique_ptrIN5clang10extractapi9APIRecordENS5_6APISet16APIRecordDeleterEENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S9_EEEES2_S9_SB_SE_E6doFindIS2_EEPSE_RKT_.exit, label %_ZN4llvm12DenseMapInfoINS_9StringRefEvE7isEqualES1_S1_.exit.thread29.i.us20, !prof !64
 
@@ -680,8 +680,8 @@ define dso_local { ptr, i64 } @_ZN5clang10extractapi6APISet10copyStringEN4llvm9S
   %.pre82.i = shl nuw nsw i64 4096, %.pre81.i
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 %.pre82.i
   %15 = icmp ult ptr %1, %14
-  %or.cond90.i = select i1 %.not.i, i1 %15, i1 false
-  br i1 %or.cond90.i, label %.critedge.i, label %._crit_edge.i
+  %or.cond94.i = select i1 %.not.i, i1 %15, i1 false
+  br i1 %or.cond94.i, label %.critedge.i, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %11
   %16 = add nuw nsw i64 %.03765.i, 1
@@ -786,8 +786,8 @@ define dso_local void @_ZN5clang10extractapi6APISet21createSymbolReferenceEN4llv
   %.pre82.i.i = shl nuw nsw i64 4096, %.pre81.i.i
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 %.pre82.i.i
   %19 = icmp ult ptr %2, %18
-  %or.cond90.i.i = select i1 %.not.i.i, i1 %19, i1 false
-  br i1 %or.cond90.i.i, label %_ZN5clang10extractapi6APISet10copyStringEN4llvm9StringRefE.exit, label %._crit_edge.i.i
+  %or.cond94.i.i = select i1 %.not.i.i, i1 %19, i1 false
+  br i1 %or.cond94.i.i, label %_ZN5clang10extractapi6APISet10copyStringEN4llvm9StringRefE.exit, label %._crit_edge.i.i
 
 ._crit_edge.i.i:                                  ; preds = %15
   %20 = add nuw nsw i64 %.03765.i.i, 1
@@ -882,8 +882,8 @@ _ZN5clang10extractapi6APISet10copyStringEN4llvm9StringRefE.exit: ; preds = %15, 
   %.pre82.i.i21 = shl nuw nsw i64 4096, %.pre81.i.i20
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 %.pre82.i.i21
   %61 = icmp ult ptr %4, %60
-  %or.cond90.i.i22 = select i1 %.not.i.i16, i1 %61, i1 false
-  br i1 %or.cond90.i.i22, label %_ZN5clang10extractapi6APISet10copyStringEN4llvm9StringRefE.exit39, label %._crit_edge.i.i23
+  %or.cond94.i.i22 = select i1 %.not.i.i16, i1 %61, i1 false
+  br i1 %or.cond94.i.i22, label %_ZN5clang10extractapi6APISet10copyStringEN4llvm9StringRefE.exit39, label %._crit_edge.i.i23
 
 ._crit_edge.i.i23:                                ; preds = %57
   %62 = add nuw nsw i64 %.03765.i.i15, 1
@@ -981,8 +981,8 @@ _ZN5clang10extractapi6APISet10copyStringEN4llvm9StringRefE.exit39: ; preds = %57
   %.pre82.i.i48 = shl nuw nsw i64 4096, %.pre81.i.i47
   %102 = getelementptr inbounds nuw i8, ptr %101, i64 %.pre82.i.i48
   %103 = icmp ult ptr %.sroa.0.0.copyload, %102
-  %or.cond90.i.i49 = select i1 %.not.i.i43, i1 %103, i1 false
-  br i1 %or.cond90.i.i49, label %_ZN5clang10extractapi6APISet10copyStringEN4llvm9StringRefE.exit66, label %._crit_edge.i.i50
+  %or.cond94.i.i49 = select i1 %.not.i.i43, i1 %103, i1 false
+  br i1 %or.cond94.i.i49, label %_ZN5clang10extractapi6APISet10copyStringEN4llvm9StringRefE.exit66, label %._crit_edge.i.i50
 
 ._crit_edge.i.i50:                                ; preds = %99
   %104 = add nuw nsw i64 %.03765.i.i42, 1
@@ -1380,13 +1380,13 @@ _ZN4llvm15cast_if_presentIN5clang10extractapi13RecordContextENS2_9APIRecordEEEDa
   %114 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i, i64 16
   %115 = load ptr, ptr %114, align 8, !tbaa !52
   %116 = icmp eq ptr %115, %54
-  br i1 %116, label %_ZN4llvm4findIRNS_11SmallVectorIPKN5clang10extractapi9APIRecordELj32EEEPS4_EEDaOT_RKT0_.exit.loopexit.split.loop.exit120, label %117
+  br i1 %116, label %_ZN4llvm4findIRNS_11SmallVectorIPKN5clang10extractapi9APIRecordELj32EEEPS4_EEDaOT_RKT0_.exit.loopexit.split.loop.exit130, label %117
 
 117:                                              ; preds = %113
   %118 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i, i64 24
   %119 = load ptr, ptr %118, align 8, !tbaa !52
   %120 = icmp eq ptr %119, %54
-  br i1 %120, label %_ZN4llvm4findIRNS_11SmallVectorIPKN5clang10extractapi9APIRecordELj32EEEPS4_EEDaOT_RKT0_.exit.loopexit.split.loop.exit122, label %121
+  br i1 %120, label %_ZN4llvm4findIRNS_11SmallVectorIPKN5clang10extractapi9APIRecordELj32EEEPS4_EEDaOT_RKT0_.exit.loopexit.split.loop.exit132, label %121
 
 121:                                              ; preds = %117
   %122 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i, i64 32
@@ -1401,7 +1401,7 @@ _ZN4llvm15cast_if_presentIN5clang10extractapi13RecordContextENS2_9APIRecordEEEDa
 ._crit_edge.i.i.i.i:                              ; preds = %._crit_edge.loopexit.i.i.i.i, %_ZN4llvm15cast_if_presentIN5clang10extractapi13RecordContextENS2_9APIRecordEEEDaPT0_.exit
   %.pre-phi56.i.i.i.i = phi i32 [ %125, %._crit_edge.loopexit.i.i.i.i ], [ %101, %_ZN4llvm15cast_if_presentIN5clang10extractapi13RecordContextENS2_9APIRecordEEEDaPT0_.exit ]
   %.029.lcssa.i.i.i.i = phi ptr [ %scevgep.i.i.i.i, %._crit_edge.loopexit.i.i.i.i ], [ %99, %_ZN4llvm15cast_if_presentIN5clang10extractapi13RecordContextENS2_9APIRecordEEEDaPT0_.exit ]
-  switch i32 %.pre-phi56.i.i.i.i, label %._crit_edge.i.i.i.unreachabledefault.i [
+  switch i32 %.pre-phi56.i.i.i.i, label %default.unreachable [
     i32 3, label %126
     i32 2, label %._crit_edge._crit_edge.i.i.i.i
     i32 1, label %._crit_edge._crit_edge52.i.i.i.i
@@ -1433,7 +1433,7 @@ _ZN4llvm15cast_if_presentIN5clang10extractapi13RecordContextENS2_9APIRecordEEEDa
   %136 = icmp eq ptr %135, %54
   br i1 %136, label %_ZN4llvm4findIRNS_11SmallVectorIPKN5clang10extractapi9APIRecordELj32EEEPS4_EEDaOT_RKT0_.exit, label %137
 
-._crit_edge.i.i.i.unreachabledefault.i:           ; preds = %._crit_edge.i.i.i.i
+default.unreachable:                              ; preds = %._crit_edge.i.i.i.i
   unreachable
 
 137:                                              ; preds = %._crit_edge._crit_edge52.i.i.i.i, %._crit_edge.i.i.i.i
@@ -1443,16 +1443,16 @@ _ZN4llvm4findIRNS_11SmallVectorIPKN5clang10extractapi9APIRecordELj32EEEPS4_EEDaO
   %138 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i, i64 8
   br label %_ZN4llvm4findIRNS_11SmallVectorIPKN5clang10extractapi9APIRecordELj32EEEPS4_EEDaOT_RKT0_.exit
 
-_ZN4llvm4findIRNS_11SmallVectorIPKN5clang10extractapi9APIRecordELj32EEEPS4_EEDaOT_RKT0_.exit.loopexit.split.loop.exit120: ; preds = %113
+_ZN4llvm4findIRNS_11SmallVectorIPKN5clang10extractapi9APIRecordELj32EEEPS4_EEDaOT_RKT0_.exit.loopexit.split.loop.exit130: ; preds = %113
   %139 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i, i64 16
   br label %_ZN4llvm4findIRNS_11SmallVectorIPKN5clang10extractapi9APIRecordELj32EEEPS4_EEDaOT_RKT0_.exit
 
-_ZN4llvm4findIRNS_11SmallVectorIPKN5clang10extractapi9APIRecordELj32EEEPS4_EEDaOT_RKT0_.exit.loopexit.split.loop.exit122: ; preds = %117
+_ZN4llvm4findIRNS_11SmallVectorIPKN5clang10extractapi9APIRecordELj32EEEPS4_EEDaOT_RKT0_.exit.loopexit.split.loop.exit132: ; preds = %117
   %140 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i, i64 24
   br label %_ZN4llvm4findIRNS_11SmallVectorIPKN5clang10extractapi9APIRecordELj32EEEPS4_EEDaOT_RKT0_.exit
 
-_ZN4llvm4findIRNS_11SmallVectorIPKN5clang10extractapi9APIRecordELj32EEEPS4_EEDaOT_RKT0_.exit: ; preds = %106, %_ZN4llvm4findIRNS_11SmallVectorIPKN5clang10extractapi9APIRecordELj32EEEPS4_EEDaOT_RKT0_.exit.loopexit.split.loop.exit, %_ZN4llvm4findIRNS_11SmallVectorIPKN5clang10extractapi9APIRecordELj32EEEPS4_EEDaOT_RKT0_.exit.loopexit.split.loop.exit120, %_ZN4llvm4findIRNS_11SmallVectorIPKN5clang10extractapi9APIRecordELj32EEEPS4_EEDaOT_RKT0_.exit.loopexit.split.loop.exit122, %126, %._crit_edge._crit_edge.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i, %137
-  %.028.i.i.i.i = phi ptr [ %103, %137 ], [ %.029.lcssa.i.i.i.i, %126 ], [ %.1.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ], [ %.2.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i ], [ %138, %_ZN4llvm4findIRNS_11SmallVectorIPKN5clang10extractapi9APIRecordELj32EEEPS4_EEDaOT_RKT0_.exit.loopexit.split.loop.exit ], [ %139, %_ZN4llvm4findIRNS_11SmallVectorIPKN5clang10extractapi9APIRecordELj32EEEPS4_EEDaOT_RKT0_.exit.loopexit.split.loop.exit120 ], [ %140, %_ZN4llvm4findIRNS_11SmallVectorIPKN5clang10extractapi9APIRecordELj32EEEPS4_EEDaOT_RKT0_.exit.loopexit.split.loop.exit122 ], [ %.02946.i.i.i.i, %106 ]
+_ZN4llvm4findIRNS_11SmallVectorIPKN5clang10extractapi9APIRecordELj32EEEPS4_EEDaOT_RKT0_.exit: ; preds = %106, %_ZN4llvm4findIRNS_11SmallVectorIPKN5clang10extractapi9APIRecordELj32EEEPS4_EEDaOT_RKT0_.exit.loopexit.split.loop.exit, %_ZN4llvm4findIRNS_11SmallVectorIPKN5clang10extractapi9APIRecordELj32EEEPS4_EEDaOT_RKT0_.exit.loopexit.split.loop.exit130, %_ZN4llvm4findIRNS_11SmallVectorIPKN5clang10extractapi9APIRecordELj32EEEPS4_EEDaOT_RKT0_.exit.loopexit.split.loop.exit132, %126, %._crit_edge._crit_edge.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i, %137
+  %.028.i.i.i.i = phi ptr [ %103, %137 ], [ %.029.lcssa.i.i.i.i, %126 ], [ %.1.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ], [ %.2.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i ], [ %138, %_ZN4llvm4findIRNS_11SmallVectorIPKN5clang10extractapi9APIRecordELj32EEEPS4_EEDaOT_RKT0_.exit.loopexit.split.loop.exit ], [ %139, %_ZN4llvm4findIRNS_11SmallVectorIPKN5clang10extractapi9APIRecordELj32EEEPS4_EEDaOT_RKT0_.exit.loopexit.split.loop.exit130 ], [ %140, %_ZN4llvm4findIRNS_11SmallVectorIPKN5clang10extractapi9APIRecordELj32EEEPS4_EEDaOT_RKT0_.exit.loopexit.split.loop.exit132 ], [ %.02946.i.i.i.i, %106 ]
   %141 = getelementptr inbounds nuw ptr, ptr %99, i64 %102
   %.not26 = icmp eq ptr %.028.i.i.i.i, %141
   br i1 %.not26, label %150, label %142

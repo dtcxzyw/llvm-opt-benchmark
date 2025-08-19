@@ -201,23 +201,23 @@ define internal i32 @dlopen_foreachfile(ptr noundef %0, ptr noundef readonly cap
   store ptr null, ptr %4, align 8, !tbaa !21
   %7 = tail call ptr @PMIx_Argv_split(ptr noundef %0, i32 noundef 58) #8
   %.not = icmp eq ptr %7, null
-  br i1 %.not, label %.thread140, label %.lr.ph114
+  br i1 %.not, label %.thread154, label %.lr.ph114
 
 .lr.ph114:                                        ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %9 = load ptr, ptr %7, align 8, !tbaa !15
-  %.not65150 = icmp eq ptr %9, null
-  br i1 %.not65150, label %._crit_edge115, label %.lr.ph152
+  %.not65164 = icmp eq ptr %9, null
+  br i1 %.not65164, label %._crit_edge115, label %.lr.ph166
 
-.lr.ph152:                                        ; preds = %.lr.ph114, %._crit_edge
+.lr.ph166:                                        ; preds = %.lr.ph114, %._crit_edge
   %10 = phi ptr [ %52, %._crit_edge ], [ %9, %.lr.ph114 ]
-  %indvars.iv127151 = phi i64 [ %indvars.iv.next128, %._crit_edge ], [ 0, %.lr.ph114 ]
-  %11 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv127151
+  %indvars.iv127165 = phi i64 [ %indvars.iv.next128, %._crit_edge ], [ 0, %.lr.ph114 ]
+  %11 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv127165
   %12 = call ptr @opendir(ptr noundef nonnull %10)
   %13 = icmp eq ptr %12, null
   br i1 %13, label %.thread97, label %.preheader99
 
-.preheader99:                                     ; preds = %.lr.ph152
+.preheader99:                                     ; preds = %.lr.ph166
   %14 = call ptr @readdir(ptr noundef nonnull %12) #8
   %.not66110 = icmp eq ptr %14, null
   br i1 %.not66110, label %._crit_edge, label %.lr.ph111
@@ -313,11 +313,11 @@ define internal i32 @dlopen_foreachfile(ptr noundef %0, ptr noundef readonly cap
 
 ._crit_edge:                                      ; preds = %.critedge2, %.preheader99
   %50 = call i32 @closedir(ptr noundef nonnull %12)
-  %indvars.iv.next128 = add nuw nsw i64 %indvars.iv127151, 1
+  %indvars.iv.next128 = add nuw nsw i64 %indvars.iv127165, 1
   %51 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv.next128
   %52 = load ptr, ptr %51, align 8, !tbaa !15
   %.not65 = icmp eq ptr %52, null
-  br i1 %.not65, label %._crit_edge115, label %.lr.ph152
+  br i1 %.not65, label %._crit_edge115, label %.lr.ph166
 
 ._crit_edge115:                                   ; preds = %._crit_edge, %.lr.ph114
   %.pre134 = load ptr, ptr %4, align 8, !tbaa !21
@@ -349,21 +349,21 @@ define internal i32 @dlopen_foreachfile(ptr noundef %0, ptr noundef readonly cap
   %60 = call i32 @closedir(ptr noundef nonnull %12)
   br label %.thread97
 
-.thread97:                                        ; preds = %.lr.ph152, %54, %.lr.ph120, %._crit_edge115, %.preheader, %.thread93
-  %.69295 = phi i32 [ -11, %.thread93 ], [ 0, %.preheader ], [ 0, %._crit_edge115 ], [ %59, %.lr.ph120 ], [ %59, %54 ], [ -11, %.lr.ph152 ]
+.thread97:                                        ; preds = %.lr.ph166, %54, %.lr.ph120, %._crit_edge115, %.preheader, %.thread93
+  %.69295 = phi i32 [ -11, %.thread93 ], [ 0, %.preheader ], [ 0, %._crit_edge115 ], [ %59, %.lr.ph120 ], [ %59, %54 ], [ -11, %.lr.ph166 ]
   call void @PMIx_Argv_free(ptr noundef nonnull %7) #8
   %.pr = load ptr, ptr %4, align 8, !tbaa !21
   %.not74 = icmp eq ptr %.pr, null
-  br i1 %.not74, label %.thread140, label %61
+  br i1 %.not74, label %.thread154, label %61
 
 61:                                               ; preds = %.thread97
   call void @PMIx_Argv_free(ptr noundef nonnull %.pr) #8
-  br label %.thread140
+  br label %.thread154
 
-.thread140:                                       ; preds = %3, %.thread97, %61
-  %.69296143 = phi i32 [ %.69295, %.thread97 ], [ %.69295, %61 ], [ 0, %3 ]
+.thread154:                                       ; preds = %3, %.thread97, %61
+  %.69296157 = phi i32 [ %.69295, %.thread97 ], [ %.69295, %61 ], [ 0, %3 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  ret i32 %.69296143
+  ret i32 %.69296157
 }
 
 declare i32 @pmix_asprintf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1

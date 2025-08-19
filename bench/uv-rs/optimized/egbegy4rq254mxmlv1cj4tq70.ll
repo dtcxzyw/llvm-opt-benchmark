@@ -352,9 +352,9 @@ _ZN4core3ops8function6FnOnce9call_once17h7386ee76d34b4f96E.exit.thread.i6.i: ; p
   br label %46
 
 "_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9b7f9b9d4a21ce54E.llvm.8176271670893179138.exit.thread": ; preds = %_ZN4core3ops8function6FnOnce9call_once17h7386ee76d34b4f96E.exit.i1.i, %_ZN4core3ops8function6FnOnce9call_once17h7386ee76d34b4f96E.exit.i.i
-  %.sink17 = phi ptr [ %14, %_ZN4core3ops8function6FnOnce9call_once17h7386ee76d34b4f96E.exit.i.i ], [ %33, %_ZN4core3ops8function6FnOnce9call_once17h7386ee76d34b4f96E.exit.i1.i ]
+  %.sink19 = phi ptr [ %14, %_ZN4core3ops8function6FnOnce9call_once17h7386ee76d34b4f96E.exit.i.i ], [ %33, %_ZN4core3ops8function6FnOnce9call_once17h7386ee76d34b4f96E.exit.i1.i ]
   %.sroa.0.15 = phi ptr [ %.sroa.023.0.copyload.i, %_ZN4core3ops8function6FnOnce9call_once17h7386ee76d34b4f96E.exit.i.i ], [ %.sroa.027.0.copyload.i, %_ZN4core3ops8function6FnOnce9call_once17h7386ee76d34b4f96E.exit.i1.i ]
-  %.sroa.625.0..sroa_idx.le.i = getelementptr inbounds nuw i8, ptr %.sink17, i64 8
+  %.sroa.625.0..sroa_idx.le.i = getelementptr inbounds nuw i8, ptr %.sink19, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.7, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.625.0..sroa_idx.le.i, i64 24, i1 false)
   %.sroa.43.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !104
@@ -523,9 +523,9 @@ _ZN4core3ops8function6FnOnce9call_once17h7386ee76d34b4f96E.exit.thread.i6.i: ; p
   br label %46
 
 "_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9b7f9b9d4a21ce54E.llvm.8176271670893179138.exit.thread": ; preds = %_ZN4core3ops8function6FnOnce9call_once17h7386ee76d34b4f96E.exit.i1.i, %_ZN4core3ops8function6FnOnce9call_once17h7386ee76d34b4f96E.exit.i.i
-  %.sink17 = phi ptr [ %14, %_ZN4core3ops8function6FnOnce9call_once17h7386ee76d34b4f96E.exit.i.i ], [ %33, %_ZN4core3ops8function6FnOnce9call_once17h7386ee76d34b4f96E.exit.i1.i ]
+  %.sink19 = phi ptr [ %14, %_ZN4core3ops8function6FnOnce9call_once17h7386ee76d34b4f96E.exit.i.i ], [ %33, %_ZN4core3ops8function6FnOnce9call_once17h7386ee76d34b4f96E.exit.i1.i ]
   %.sroa.0.15 = phi ptr [ %.sroa.023.0.copyload.i, %_ZN4core3ops8function6FnOnce9call_once17h7386ee76d34b4f96E.exit.i.i ], [ %.sroa.027.0.copyload.i, %_ZN4core3ops8function6FnOnce9call_once17h7386ee76d34b4f96E.exit.i1.i ]
-  %.sroa.625.0..sroa_idx.le.i = getelementptr inbounds nuw i8, ptr %.sink17, i64 8
+  %.sroa.625.0..sroa_idx.le.i = getelementptr inbounds nuw i8, ptr %.sink19, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.7, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.625.0..sroa_idx.le.i, i64 24, i1 false)
   %.sroa.43.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !171
@@ -694,9 +694,9 @@ _ZN4core3ops8function6FnOnce9call_once17h7386ee76d34b4f96E.exit.thread.i6.i: ; p
   br label %46
 
 "_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9b7f9b9d4a21ce54E.llvm.8176271670893179138.exit.thread": ; preds = %_ZN4core3ops8function6FnOnce9call_once17h7386ee76d34b4f96E.exit.i1.i, %_ZN4core3ops8function6FnOnce9call_once17h7386ee76d34b4f96E.exit.i.i
-  %.sink17 = phi ptr [ %14, %_ZN4core3ops8function6FnOnce9call_once17h7386ee76d34b4f96E.exit.i.i ], [ %33, %_ZN4core3ops8function6FnOnce9call_once17h7386ee76d34b4f96E.exit.i1.i ]
+  %.sink19 = phi ptr [ %14, %_ZN4core3ops8function6FnOnce9call_once17h7386ee76d34b4f96E.exit.i.i ], [ %33, %_ZN4core3ops8function6FnOnce9call_once17h7386ee76d34b4f96E.exit.i1.i ]
   %.sroa.0.15 = phi ptr [ %.sroa.023.0.copyload.i, %_ZN4core3ops8function6FnOnce9call_once17h7386ee76d34b4f96E.exit.i.i ], [ %.sroa.027.0.copyload.i, %_ZN4core3ops8function6FnOnce9call_once17h7386ee76d34b4f96E.exit.i1.i ]
-  %.sroa.625.0..sroa_idx.le.i = getelementptr inbounds nuw i8, ptr %.sink17, i64 8
+  %.sroa.625.0..sroa_idx.le.i = getelementptr inbounds nuw i8, ptr %.sink19, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.7, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.625.0..sroa_idx.le.i, i64 24, i1 false)
   %.sroa.43.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !238
@@ -865,9 +865,9 @@ _ZN4core3ops8function6FnOnce9call_once17h7386ee76d34b4f96E.exit.thread.i6.i: ; p
   br label %46
 
 "_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9b7f9b9d4a21ce54E.llvm.8176271670893179138.exit.thread": ; preds = %_ZN4core3ops8function6FnOnce9call_once17h7386ee76d34b4f96E.exit.i1.i, %_ZN4core3ops8function6FnOnce9call_once17h7386ee76d34b4f96E.exit.i.i
-  %.sink17 = phi ptr [ %14, %_ZN4core3ops8function6FnOnce9call_once17h7386ee76d34b4f96E.exit.i.i ], [ %33, %_ZN4core3ops8function6FnOnce9call_once17h7386ee76d34b4f96E.exit.i1.i ]
+  %.sink19 = phi ptr [ %14, %_ZN4core3ops8function6FnOnce9call_once17h7386ee76d34b4f96E.exit.i.i ], [ %33, %_ZN4core3ops8function6FnOnce9call_once17h7386ee76d34b4f96E.exit.i1.i ]
   %.sroa.0.15 = phi ptr [ %.sroa.023.0.copyload.i, %_ZN4core3ops8function6FnOnce9call_once17h7386ee76d34b4f96E.exit.i.i ], [ %.sroa.027.0.copyload.i, %_ZN4core3ops8function6FnOnce9call_once17h7386ee76d34b4f96E.exit.i1.i ]
-  %.sroa.625.0..sroa_idx.le.i = getelementptr inbounds nuw i8, ptr %.sink17, i64 8
+  %.sroa.625.0..sroa_idx.le.i = getelementptr inbounds nuw i8, ptr %.sink19, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.7, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.625.0..sroa_idx.le.i, i64 24, i1 false)
   %.sroa.43.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !305
@@ -1346,9 +1346,9 @@ _ZN4core3ops8function6FnOnce9call_once17h7386ee76d34b4f96E.exit.thread.i6.i: ; p
   br label %46
 
 "_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9b7f9b9d4a21ce54E.llvm.8176271670893179138.exit.thread": ; preds = %_ZN4core3ops8function6FnOnce9call_once17h7386ee76d34b4f96E.exit.i1.i, %_ZN4core3ops8function6FnOnce9call_once17h7386ee76d34b4f96E.exit.i.i
-  %.sink17 = phi ptr [ %14, %_ZN4core3ops8function6FnOnce9call_once17h7386ee76d34b4f96E.exit.i.i ], [ %33, %_ZN4core3ops8function6FnOnce9call_once17h7386ee76d34b4f96E.exit.i1.i ]
+  %.sink19 = phi ptr [ %14, %_ZN4core3ops8function6FnOnce9call_once17h7386ee76d34b4f96E.exit.i.i ], [ %33, %_ZN4core3ops8function6FnOnce9call_once17h7386ee76d34b4f96E.exit.i1.i ]
   %.sroa.0.15 = phi ptr [ %.sroa.023.0.copyload.i, %_ZN4core3ops8function6FnOnce9call_once17h7386ee76d34b4f96E.exit.i.i ], [ %.sroa.027.0.copyload.i, %_ZN4core3ops8function6FnOnce9call_once17h7386ee76d34b4f96E.exit.i1.i ]
-  %.sroa.625.0..sroa_idx.le.i = getelementptr inbounds nuw i8, ptr %.sink17, i64 8
+  %.sroa.625.0..sroa_idx.le.i = getelementptr inbounds nuw i8, ptr %.sink19, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.7, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.625.0..sroa_idx.le.i, i64 24, i1 false)
   %.sroa.43.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !500
@@ -1517,9 +1517,9 @@ _ZN4core3ops8function6FnOnce9call_once17h7386ee76d34b4f96E.exit.thread.i6.i: ; p
   br label %46
 
 "_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9b7f9b9d4a21ce54E.llvm.8176271670893179138.exit.thread": ; preds = %_ZN4core3ops8function6FnOnce9call_once17h7386ee76d34b4f96E.exit.i1.i, %_ZN4core3ops8function6FnOnce9call_once17h7386ee76d34b4f96E.exit.i.i
-  %.sink17 = phi ptr [ %14, %_ZN4core3ops8function6FnOnce9call_once17h7386ee76d34b4f96E.exit.i.i ], [ %33, %_ZN4core3ops8function6FnOnce9call_once17h7386ee76d34b4f96E.exit.i1.i ]
+  %.sink19 = phi ptr [ %14, %_ZN4core3ops8function6FnOnce9call_once17h7386ee76d34b4f96E.exit.i.i ], [ %33, %_ZN4core3ops8function6FnOnce9call_once17h7386ee76d34b4f96E.exit.i1.i ]
   %.sroa.0.15 = phi ptr [ %.sroa.023.0.copyload.i, %_ZN4core3ops8function6FnOnce9call_once17h7386ee76d34b4f96E.exit.i.i ], [ %.sroa.027.0.copyload.i, %_ZN4core3ops8function6FnOnce9call_once17h7386ee76d34b4f96E.exit.i1.i ]
-  %.sroa.625.0..sroa_idx.le.i = getelementptr inbounds nuw i8, ptr %.sink17, i64 8
+  %.sroa.625.0..sroa_idx.le.i = getelementptr inbounds nuw i8, ptr %.sink19, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.7, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.625.0..sroa_idx.le.i, i64 24, i1 false)
   %.sroa.43.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !567
@@ -1688,9 +1688,9 @@ _ZN4core3ops8function6FnOnce9call_once17h7386ee76d34b4f96E.exit.thread.i6.i: ; p
   br label %46
 
 "_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9b7f9b9d4a21ce54E.llvm.8176271670893179138.exit.thread": ; preds = %_ZN4core3ops8function6FnOnce9call_once17h7386ee76d34b4f96E.exit.i1.i, %_ZN4core3ops8function6FnOnce9call_once17h7386ee76d34b4f96E.exit.i.i
-  %.sink17 = phi ptr [ %14, %_ZN4core3ops8function6FnOnce9call_once17h7386ee76d34b4f96E.exit.i.i ], [ %33, %_ZN4core3ops8function6FnOnce9call_once17h7386ee76d34b4f96E.exit.i1.i ]
+  %.sink19 = phi ptr [ %14, %_ZN4core3ops8function6FnOnce9call_once17h7386ee76d34b4f96E.exit.i.i ], [ %33, %_ZN4core3ops8function6FnOnce9call_once17h7386ee76d34b4f96E.exit.i1.i ]
   %.sroa.0.15 = phi ptr [ %.sroa.023.0.copyload.i, %_ZN4core3ops8function6FnOnce9call_once17h7386ee76d34b4f96E.exit.i.i ], [ %.sroa.027.0.copyload.i, %_ZN4core3ops8function6FnOnce9call_once17h7386ee76d34b4f96E.exit.i1.i ]
-  %.sroa.625.0..sroa_idx.le.i = getelementptr inbounds nuw i8, ptr %.sink17, i64 8
+  %.sroa.625.0..sroa_idx.le.i = getelementptr inbounds nuw i8, ptr %.sink19, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.7, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.625.0..sroa_idx.le.i, i64 24, i1 false)
   %.sroa.43.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !634
@@ -1859,9 +1859,9 @@ _ZN4core3ops8function6FnOnce9call_once17h7386ee76d34b4f96E.exit.thread.i6.i: ; p
   br label %46
 
 "_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9b7f9b9d4a21ce54E.llvm.8176271670893179138.exit.thread": ; preds = %_ZN4core3ops8function6FnOnce9call_once17h7386ee76d34b4f96E.exit.i1.i, %_ZN4core3ops8function6FnOnce9call_once17h7386ee76d34b4f96E.exit.i.i
-  %.sink17 = phi ptr [ %14, %_ZN4core3ops8function6FnOnce9call_once17h7386ee76d34b4f96E.exit.i.i ], [ %33, %_ZN4core3ops8function6FnOnce9call_once17h7386ee76d34b4f96E.exit.i1.i ]
+  %.sink19 = phi ptr [ %14, %_ZN4core3ops8function6FnOnce9call_once17h7386ee76d34b4f96E.exit.i.i ], [ %33, %_ZN4core3ops8function6FnOnce9call_once17h7386ee76d34b4f96E.exit.i1.i ]
   %.sroa.0.15 = phi ptr [ %.sroa.023.0.copyload.i, %_ZN4core3ops8function6FnOnce9call_once17h7386ee76d34b4f96E.exit.i.i ], [ %.sroa.027.0.copyload.i, %_ZN4core3ops8function6FnOnce9call_once17h7386ee76d34b4f96E.exit.i1.i ]
-  %.sroa.625.0..sroa_idx.le.i = getelementptr inbounds nuw i8, ptr %.sink17, i64 8
+  %.sroa.625.0..sroa_idx.le.i = getelementptr inbounds nuw i8, ptr %.sink19, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.7, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.625.0..sroa_idx.le.i, i64 24, i1 false)
   %.sroa.43.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !701
@@ -2030,9 +2030,9 @@ _ZN4core3ops8function6FnOnce9call_once17h7386ee76d34b4f96E.exit.thread.i6.i: ; p
   br label %46
 
 "_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9b7f9b9d4a21ce54E.llvm.8176271670893179138.exit.thread": ; preds = %_ZN4core3ops8function6FnOnce9call_once17h7386ee76d34b4f96E.exit.i1.i, %_ZN4core3ops8function6FnOnce9call_once17h7386ee76d34b4f96E.exit.i.i
-  %.sink17 = phi ptr [ %14, %_ZN4core3ops8function6FnOnce9call_once17h7386ee76d34b4f96E.exit.i.i ], [ %33, %_ZN4core3ops8function6FnOnce9call_once17h7386ee76d34b4f96E.exit.i1.i ]
+  %.sink19 = phi ptr [ %14, %_ZN4core3ops8function6FnOnce9call_once17h7386ee76d34b4f96E.exit.i.i ], [ %33, %_ZN4core3ops8function6FnOnce9call_once17h7386ee76d34b4f96E.exit.i1.i ]
   %.sroa.0.15 = phi ptr [ %.sroa.023.0.copyload.i, %_ZN4core3ops8function6FnOnce9call_once17h7386ee76d34b4f96E.exit.i.i ], [ %.sroa.027.0.copyload.i, %_ZN4core3ops8function6FnOnce9call_once17h7386ee76d34b4f96E.exit.i1.i ]
-  %.sroa.625.0..sroa_idx.le.i = getelementptr inbounds nuw i8, ptr %.sink17, i64 8
+  %.sroa.625.0..sroa_idx.le.i = getelementptr inbounds nuw i8, ptr %.sink19, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.7, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.625.0..sroa_idx.le.i, i64 24, i1 false)
   %.sroa.43.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !768
@@ -2201,9 +2201,9 @@ _ZN4core3ops8function6FnOnce9call_once17h7386ee76d34b4f96E.exit.thread.i6.i: ; p
   br label %46
 
 "_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9b7f9b9d4a21ce54E.llvm.8176271670893179138.exit.thread": ; preds = %_ZN4core3ops8function6FnOnce9call_once17h7386ee76d34b4f96E.exit.i1.i, %_ZN4core3ops8function6FnOnce9call_once17h7386ee76d34b4f96E.exit.i.i
-  %.sink17 = phi ptr [ %14, %_ZN4core3ops8function6FnOnce9call_once17h7386ee76d34b4f96E.exit.i.i ], [ %33, %_ZN4core3ops8function6FnOnce9call_once17h7386ee76d34b4f96E.exit.i1.i ]
+  %.sink19 = phi ptr [ %14, %_ZN4core3ops8function6FnOnce9call_once17h7386ee76d34b4f96E.exit.i.i ], [ %33, %_ZN4core3ops8function6FnOnce9call_once17h7386ee76d34b4f96E.exit.i1.i ]
   %.sroa.0.15 = phi ptr [ %.sroa.023.0.copyload.i, %_ZN4core3ops8function6FnOnce9call_once17h7386ee76d34b4f96E.exit.i.i ], [ %.sroa.027.0.copyload.i, %_ZN4core3ops8function6FnOnce9call_once17h7386ee76d34b4f96E.exit.i1.i ]
-  %.sroa.625.0..sroa_idx.le.i = getelementptr inbounds nuw i8, ptr %.sink17, i64 8
+  %.sroa.625.0..sroa_idx.le.i = getelementptr inbounds nuw i8, ptr %.sink19, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.7, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.625.0..sroa_idx.le.i, i64 24, i1 false)
   %.sroa.43.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !835
@@ -2372,9 +2372,9 @@ _ZN4core3ops8function6FnOnce9call_once17h7386ee76d34b4f96E.exit.thread.i6.i: ; p
   br label %46
 
 "_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9b7f9b9d4a21ce54E.llvm.8176271670893179138.exit.thread": ; preds = %_ZN4core3ops8function6FnOnce9call_once17h7386ee76d34b4f96E.exit.i1.i, %_ZN4core3ops8function6FnOnce9call_once17h7386ee76d34b4f96E.exit.i.i
-  %.sink17 = phi ptr [ %14, %_ZN4core3ops8function6FnOnce9call_once17h7386ee76d34b4f96E.exit.i.i ], [ %33, %_ZN4core3ops8function6FnOnce9call_once17h7386ee76d34b4f96E.exit.i1.i ]
+  %.sink19 = phi ptr [ %14, %_ZN4core3ops8function6FnOnce9call_once17h7386ee76d34b4f96E.exit.i.i ], [ %33, %_ZN4core3ops8function6FnOnce9call_once17h7386ee76d34b4f96E.exit.i1.i ]
   %.sroa.0.15 = phi ptr [ %.sroa.023.0.copyload.i, %_ZN4core3ops8function6FnOnce9call_once17h7386ee76d34b4f96E.exit.i.i ], [ %.sroa.027.0.copyload.i, %_ZN4core3ops8function6FnOnce9call_once17h7386ee76d34b4f96E.exit.i1.i ]
-  %.sroa.625.0..sroa_idx.le.i = getelementptr inbounds nuw i8, ptr %.sink17, i64 8
+  %.sroa.625.0..sroa_idx.le.i = getelementptr inbounds nuw i8, ptr %.sink19, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.7, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.625.0..sroa_idx.le.i, i64 24, i1 false)
   %.sroa.43.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !902
@@ -2543,9 +2543,9 @@ _ZN4core3ops8function6FnOnce9call_once17h7386ee76d34b4f96E.exit.thread.i6.i: ; p
   br label %46
 
 "_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9b7f9b9d4a21ce54E.llvm.8176271670893179138.exit.thread": ; preds = %_ZN4core3ops8function6FnOnce9call_once17h7386ee76d34b4f96E.exit.i1.i, %_ZN4core3ops8function6FnOnce9call_once17h7386ee76d34b4f96E.exit.i.i
-  %.sink17 = phi ptr [ %14, %_ZN4core3ops8function6FnOnce9call_once17h7386ee76d34b4f96E.exit.i.i ], [ %33, %_ZN4core3ops8function6FnOnce9call_once17h7386ee76d34b4f96E.exit.i1.i ]
+  %.sink19 = phi ptr [ %14, %_ZN4core3ops8function6FnOnce9call_once17h7386ee76d34b4f96E.exit.i.i ], [ %33, %_ZN4core3ops8function6FnOnce9call_once17h7386ee76d34b4f96E.exit.i1.i ]
   %.sroa.0.15 = phi ptr [ %.sroa.023.0.copyload.i, %_ZN4core3ops8function6FnOnce9call_once17h7386ee76d34b4f96E.exit.i.i ], [ %.sroa.027.0.copyload.i, %_ZN4core3ops8function6FnOnce9call_once17h7386ee76d34b4f96E.exit.i1.i ]
-  %.sroa.625.0..sroa_idx.le.i = getelementptr inbounds nuw i8, ptr %.sink17, i64 8
+  %.sroa.625.0..sroa_idx.le.i = getelementptr inbounds nuw i8, ptr %.sink19, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.7, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.625.0..sroa_idx.le.i, i64 24, i1 false)
   %.sroa.43.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !969

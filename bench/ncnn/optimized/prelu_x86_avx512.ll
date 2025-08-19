@@ -956,8 +956,8 @@ define internal void @_ZNK4ncnn16PReLU_x86_avx51215forward_inplaceERNS_3MatERKNS
   br i1 %44, label %.thread65, label %47
 
 .thread65:                                        ; preds = %40
-  %.idx111 = shl nsw i64 %indvars.iv, 4
-  %45 = getelementptr inbounds i8, ptr %36, i64 %.idx111
+  %.idx122 = shl nsw i64 %indvars.iv, 4
+  %45 = getelementptr inbounds i8, ptr %36, i64 %.idx122
   %46 = load <4 x float>, ptr %45, align 1, !tbaa !47
   br label %.thread73
 
@@ -968,8 +968,8 @@ define internal void @_ZNK4ncnn16PReLU_x86_avx51215forward_inplaceERNS_3MatERKNS
   br i1 %50, label %.thread69, label %54
 
 .thread69:                                        ; preds = %47
-  %.idx110 = shl nsw i64 %indvars.iv, 5
-  %51 = getelementptr inbounds i8, ptr %36, i64 %.idx110
+  %.idx121 = shl nsw i64 %indvars.iv, 5
+  %51 = getelementptr inbounds i8, ptr %36, i64 %.idx121
   %52 = load <8 x float>, ptr %51, align 1, !tbaa !47
   br label %60
 
@@ -1178,8 +1178,8 @@ define internal void @_ZNK4ncnn16PReLU_x86_avx51215forward_inplaceERNS_3MatERKNS
   br i1 %42, label %.thread72, label %45
 
 .thread72:                                        ; preds = %38
-  %.idx116 = shl nsw i64 %indvars.iv, 4
-  %43 = getelementptr inbounds i8, ptr %34, i64 %.idx116
+  %.idx127 = shl nsw i64 %indvars.iv, 4
+  %43 = getelementptr inbounds i8, ptr %34, i64 %.idx127
   %44 = load <4 x float>, ptr %43, align 1, !tbaa !47
   br label %.thread80
 
@@ -1190,8 +1190,8 @@ define internal void @_ZNK4ncnn16PReLU_x86_avx51215forward_inplaceERNS_3MatERKNS
   br i1 %48, label %.thread76, label %52
 
 .thread76:                                        ; preds = %45
-  %.idx115 = shl nsw i64 %indvars.iv, 5
-  %49 = getelementptr inbounds i8, ptr %34, i64 %.idx115
+  %.idx126 = shl nsw i64 %indvars.iv, 5
+  %49 = getelementptr inbounds i8, ptr %34, i64 %.idx126
   %50 = load <8 x float>, ptr %49, align 1, !tbaa !47
   br label %58
 

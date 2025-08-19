@@ -1502,7 +1502,6 @@ thread-pre-split:                                 ; preds = %137, %142
   br label %166
 
 166:                                              ; preds = %165, %164
-  %.5568 = phi i32 [ %.35661209, %164 ], [ 1, %165 ]
   %167 = load i32, ptr %38, align 8, !tbaa !88
   %168 = icmp slt i32 %167, 0
   br i1 %168, label %s_checked_out_p.exit.i819, label %169
@@ -1537,7 +1536,7 @@ s_lock.exit:                                      ; preds = %s_checked_out_p.exi
   br label %182
 
 182:                                              ; preds = %157, %.lr.ph1210, %s_lock.exit
-  %.4567 = phi i32 [ %.35661209, %.lr.ph1210 ], [ %.35661209, %157 ], [ %.5568, %s_lock.exit ]
+  %.4567 = phi i32 [ %.35661209, %.lr.ph1210 ], [ %.35661209, %157 ], [ 1, %s_lock.exit ]
   %183 = add nuw i64 %.05751208, 1
   %184 = load i64, ptr %71, align 8, !tbaa !77
   %185 = icmp ult i64 %183, %184
@@ -4022,8 +4021,8 @@ s_unlock.exit955:                                 ; preds = %s_checked_out_p.exi
   %1314 = icmp ne ptr %1313, null
   %1315 = load i32, ptr %38, align 8
   %1316 = icmp sgt i32 %1315, -1
-  %or.cond1387 = select i1 %1314, i1 %1316, i1 false
-  br i1 %or.cond1387, label %1317, label %helper_local_cleanup.exit
+  %or.cond1458 = select i1 %1314, i1 %1316, i1 false
+  br i1 %or.cond1458, label %1317, label %helper_local_cleanup.exit
 
 1317:                                             ; preds = %.thread1092
   %1318 = load ptr, ptr %37, align 8, !tbaa !132
@@ -8247,15 +8246,15 @@ define internal range(i32 0, 2) i32 @script_85_poll(ptr noundef readonly capture
   br label %35
 
 35:                                               ; preds = %17, %34
-  %.sink75 = phi i64 [ 192, %34 ], [ 128, %17 ]
-  %.sink73 = phi i64 [ 144, %34 ], [ 128, %17 ]
-  %.sink71 = phi i64 [ 32, %34 ], [ 128, %17 ]
+  %.sink76 = phi i64 [ 192, %34 ], [ 128, %17 ]
+  %.sink74 = phi i64 [ 144, %34 ], [ 128, %17 ]
+  %.sink72 = phi i64 [ 32, %34 ], [ 128, %17 ]
   %.sink = phi i64 [ 6656, %34 ], [ 6144, %17 ]
-  store i64 %.sink75, ptr %5, align 16, !tbaa !16
+  store i64 %.sink76, ptr %5, align 16, !tbaa !16
   %36 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i64 %.sink73, ptr %36, align 8, !tbaa !16
+  store i64 %.sink74, ptr %36, align 8, !tbaa !16
   %37 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store i64 %.sink71, ptr %37, align 16, !tbaa !16
+  store i64 %.sink72, ptr %37, align 16, !tbaa !16
   %38 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i64 128, ptr %38, align 8, !tbaa !16
   %39 = getelementptr inbounds nuw i8, ptr %5, i64 32

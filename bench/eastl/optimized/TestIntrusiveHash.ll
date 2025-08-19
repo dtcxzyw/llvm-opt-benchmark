@@ -1801,10 +1801,10 @@ if.end11.i:                                       ; preds = %for.inc.i.i995, %_Z
   br label %_ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE11equal_rangeERKS2_.exit
 
 _ZN5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE11equal_rangeERKS2_.exit: ; preds = %for.body.i997, %while.cond.i.i999, %if.end11.i
-  %.sink14.i = phi ptr [ %211, %if.end11.i ], [ %pNode.addr.02.i.i992, %while.cond.i.i999 ], [ %pNode.addr.02.i.i992, %for.body.i997 ]
+  %.sink16.i = phi ptr [ %211, %if.end11.i ], [ %pNode.addr.02.i.i992, %while.cond.i.i999 ], [ %pNode.addr.02.i.i992, %for.body.i997 ]
   %.sink.i = phi ptr [ %211, %if.end11.i ], [ %210, %while.cond.i.i999 ], [ %p1.0.i, %for.body.i997 ]
   %212 = load ptr, ptr %arrayidx.i.i155, align 8
-  %cmp.i1006 = icmp ne ptr %.sink14.i, %212
+  %cmp.i1006 = icmp ne ptr %.sink16.i, %212
   %call343 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp.i1006, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 399, ptr noundef nonnull @.str.44)
   %213 = load ptr, ptr %arrayidx.i.i155, align 8
   %cmp.i1010 = icmp ne ptr %.sink.i, %213
@@ -1849,10 +1849,10 @@ if.end11.i1022:                                   ; preds = %for.inc.i.i1020, %_
   br label %_ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE11equal_rangeERKS2_.exit
 
 _ZNK5eastl19intrusive_hashtableIN12_GLOBAL__N_19SetWidgetES2_NS1_6SWHashENS_8equal_toIS2_EELm37ELb1ELb1EE11equal_rangeERKS2_.exit: ; preds = %for.body.i1036, %while.cond.i.i1039, %if.end11.i1022
-  %.sink14.i1024 = phi ptr [ %219, %if.end11.i1022 ], [ %pNode.addr.02.i.i1017, %while.cond.i.i1039 ], [ %pNode.addr.02.i.i1017, %for.body.i1036 ]
+  %.sink16.i1024 = phi ptr [ %219, %if.end11.i1022 ], [ %pNode.addr.02.i.i1017, %while.cond.i.i1039 ], [ %pNode.addr.02.i.i1017, %for.body.i1036 ]
   %.sink.i1026 = phi ptr [ %219, %if.end11.i1022 ], [ %218, %while.cond.i.i1039 ], [ %p1.0.i1034, %for.body.i1036 ]
   %220 = load ptr, ptr %arrayidx.i.i155, align 8
-  %cmp.i1046 = icmp ne ptr %.sink14.i1024, %220
+  %cmp.i1046 = icmp ne ptr %.sink16.i1024, %220
   %call356 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp.i1046, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 403, ptr noundef nonnull @.str.46)
   %221 = load ptr, ptr %arrayidx.i.i155, align 8
   %cmp.i1050 = icmp ne ptr %.sink.i1026, %221
@@ -3901,10 +3901,10 @@ if.end11.i2290:                                   ; preds = %for.inc.i.i2288, %_
   br label %_ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE11equal_rangeERKi.exit
 
 _ZN5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE11equal_rangeERKi.exit: ; preds = %for.body.i2301, %while.cond.i.i2304, %if.end11.i2290
-  %.sink14.i2292 = phi ptr [ %481, %if.end11.i2290 ], [ %pNode.addr.02.i.i2285, %while.cond.i.i2304 ], [ %pNode.addr.02.i.i2285, %for.body.i2301 ]
+  %.sink16.i2292 = phi ptr [ %481, %if.end11.i2290 ], [ %pNode.addr.02.i.i2285, %while.cond.i.i2304 ], [ %pNode.addr.02.i.i2285, %for.body.i2301 ]
   %.sink.i2294 = phi ptr [ %481, %if.end11.i2290 ], [ %480, %while.cond.i.i2304 ], [ %p1.0.i2299, %for.body.i2301 ]
   %482 = load ptr, ptr %arrayidx.i.i1260, align 8, !noalias !196
-  %cmp.i2309 = icmp ne ptr %.sink14.i2292, %482
+  %cmp.i2309 = icmp ne ptr %.sink16.i2292, %482
   %call757 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp.i2309, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 679, ptr noundef nonnull @.str.83)
   %483 = load ptr, ptr %arrayidx.i.i1260, align 8, !noalias !199
   %cmp.i2312 = icmp ne ptr %.sink.i2294, %483
@@ -3949,10 +3949,10 @@ if.end11.i2323:                                   ; preds = %for.inc.i.i2321, %_
   br label %_ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE11equal_rangeERKi.exit
 
 _ZNK5eastl19intrusive_hashtableIiN12_GLOBAL__N_19MapWidgetENS_4hashIiEENS_8equal_toIiEELm37ELb0ELb1EE11equal_rangeERKi.exit: ; preds = %for.body.i2335, %while.cond.i.i2338, %if.end11.i2323
-  %.sink14.i2325 = phi ptr [ %489, %if.end11.i2323 ], [ %pNode.addr.02.i.i2318, %while.cond.i.i2338 ], [ %pNode.addr.02.i.i2318, %for.body.i2335 ]
+  %.sink16.i2325 = phi ptr [ %489, %if.end11.i2323 ], [ %pNode.addr.02.i.i2318, %while.cond.i.i2338 ], [ %pNode.addr.02.i.i2318, %for.body.i2335 ]
   %.sink.i2327 = phi ptr [ %489, %if.end11.i2323 ], [ %488, %while.cond.i.i2338 ], [ %p1.0.i2333, %for.body.i2335 ]
   %490 = load ptr, ptr %arrayidx.i.i1260, align 8
-  %cmp.i2345 = icmp ne ptr %.sink14.i2325, %490
+  %cmp.i2345 = icmp ne ptr %.sink16.i2325, %490
   %call769 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp.i2345, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 683, ptr noundef nonnull @.str.85)
   %491 = load ptr, ptr %arrayidx.i.i1260, align 8
   %cmp.i2349 = icmp ne ptr %.sink.i2327, %491

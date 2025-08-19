@@ -2218,9 +2218,9 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i263: ; preds = %684, 
   br label %702
 
 702:                                              ; preds = %700, %701
-  %.sink423 = phi i32 [ 1, %701 ], [ %693, %700 ]
+  %.sink497 = phi i32 [ 1, %701 ], [ %693, %700 ]
   %703 = getelementptr inbounds nuw i8, ptr %0, i64 1492
-  store i32 %.sink423, ptr %703, align 4, !tbaa !222
+  store i32 %.sink497, ptr %703, align 4, !tbaa !222
   %704 = getelementptr inbounds nuw i8, ptr %271, i64 64
   %705 = invoke noundef i32 @_ZNK8rawspeed16ColorFilterArray14getDcrawFilterEv(ptr noundef nonnull align 8 dereferenceable(32) %704)
           to label %706 unwind label %713
@@ -3211,7 +3211,7 @@ define linkonce_odr void @_ZN8rawspeed12RawImageData32getByteDataAsUncroppedArra
   %18 = icmp eq i32 %11, 0
   %19 = icmp ne i32 %13, 0
   %20 = xor i1 %18, %19
-  br i1 %switch, label %21, label %33
+  br i1 %switch, label %21, label %32
 
 21:                                               ; preds = %2
   %22 = ashr i32 %15, 1
@@ -3226,55 +3226,51 @@ define linkonce_odr void @_ZN8rawspeed12RawImageData32getByteDataAsUncroppedArra
   %27 = mul i32 %26, %22
   %28 = icmp sgt i32 %27, -1
   tail call void @llvm.assume(i1 %28)
-  %29 = shl nuw i32 %11, 1
+  %29 = shl nuw nsw i32 %11, 1
   %30 = and i32 %15, -2
   store ptr %6, ptr %0, align 8, !tbaa !273
-  %31 = icmp sgt i32 %29, -1
-  tail call void @llvm.assume(i1 %31)
-  %32 = icmp samesign uge i32 %30, %29
-  br label %47
+  %31 = icmp samesign uge i32 %30, %29
+  br label %45
 
-33:                                               ; preds = %2
-  %34 = ashr i32 %15, 2
-  %35 = icmp ugt i32 %15, 3
+32:                                               ; preds = %2
+  %33 = ashr i32 %15, 2
+  %34 = icmp ugt i32 %15, 3
+  tail call void @llvm.assume(i1 %34)
+  %35 = icmp sgt i32 %33, -1
   tail call void @llvm.assume(i1 %35)
-  %36 = icmp sgt i32 %34, -1
+  %36 = icmp samesign uge i32 %33, %11
   tail call void @llvm.assume(i1 %36)
-  %37 = icmp samesign uge i32 %34, %11
-  tail call void @llvm.assume(i1 %37)
   tail call void @llvm.assume(i1 %20)
-  %38 = shl i32 %13, 2
-  %39 = mul i32 %38, %34
-  %40 = icmp sgt i32 %39, -1
-  tail call void @llvm.assume(i1 %40)
-  %41 = shl i32 %11, 2
-  %42 = and i32 %15, -4
+  %37 = shl i32 %13, 2
+  %38 = mul i32 %37, %33
+  %39 = icmp sgt i32 %38, -1
+  tail call void @llvm.assume(i1 %39)
+  %40 = shl nuw nsw i32 %11, 2
+  %41 = and i32 %15, -4
   store ptr %6, ptr %0, align 8, !tbaa !273
-  %43 = icmp sgt i32 %41, -1
-  tail call void @llvm.assume(i1 %43)
-  %44 = icmp samesign uge i32 %42, %41
-  tail call void @llvm.assume(i1 %44)
-  %45 = icmp eq i32 %41, 0
-  %46 = xor i1 %19, %45
-  br label %47
+  %42 = icmp samesign uge i32 %41, %40
+  tail call void @llvm.assume(i1 %42)
+  %43 = icmp eq i32 %11, 0
+  %44 = xor i1 %19, %43
+  br label %45
 
-47:                                               ; preds = %33, %21
-  %.sink31 = phi i1 [ %46, %33 ], [ %32, %21 ]
-  %.sink30 = phi i32 [ %42, %33 ], [ %30, %21 ]
-  %.sink28 = phi i32 [ %39, %33 ], [ %27, %21 ]
-  %.sink24 = phi i32 [ %41, %33 ], [ %29, %21 ]
+45:                                               ; preds = %32, %21
+  %.sink31 = phi i1 [ %44, %32 ], [ %31, %21 ]
+  %.sink30 = phi i32 [ %41, %32 ], [ %30, %21 ]
+  %.sink28 = phi i32 [ %38, %32 ], [ %27, %21 ]
+  %.sink24 = phi i32 [ %40, %32 ], [ %29, %21 ]
   tail call void @llvm.assume(i1 %.sink31)
-  %48 = mul nuw nsw i32 %.sink30, %13
-  %49 = icmp eq i32 %.sink28, %48
-  tail call void @llvm.assume(i1 %49)
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 %.sink28, ptr %50, align 8, !tbaa !82
-  %51 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 %.sink30, ptr %51, align 8, !tbaa !271
-  %52 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i32 %.sink24, ptr %52, align 4, !tbaa !268
-  %53 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 %13, ptr %53, align 8, !tbaa !270
+  %46 = mul nuw nsw i32 %.sink30, %13
+  %47 = icmp eq i32 %.sink28, %46
+  tail call void @llvm.assume(i1 %47)
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i32 %.sink28, ptr %48, align 8, !tbaa !82
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i32 %.sink30, ptr %49, align 8, !tbaa !271
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  store i32 %.sink24, ptr %50, align 4, !tbaa !268
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i32 %13, ptr %51, align 8, !tbaa !270
   ret void
 }
 

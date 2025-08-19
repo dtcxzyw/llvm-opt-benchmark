@@ -142,7 +142,7 @@ pkcs12_remove_bag.exit.thread:                    ; preds = %46
   br i1 %.not125, label %.lr.ph.split.us.preheader, label %.lr.ph.split
 
 .lr.ph.split.us.preheader:                        ; preds = %pkcs12_remove_bag.exit.thread, %.lr.ph
-  %.087151154 = phi ptr [ %.087, %.lr.ph ], [ %.1, %pkcs12_remove_bag.exit.thread ]
+  %.087174177 = phi ptr [ %.087, %.lr.ph ], [ %.1, %pkcs12_remove_bag.exit.thread ]
   br label %.lr.ph.split.us
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph.split.us.preheader, %pkcs12_remove_bag.exit129.us
@@ -215,7 +215,7 @@ pkcs12_remove_bag.exit129:                        ; preds = %86, %83, %80
   br i1 %89, label %.lr.ph.split, label %._crit_edge, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %pkcs12_remove_bag.exit129, %pkcs12_remove_bag.exit129.us, %pkcs12_remove_bag.exit.thread, %pkcs12_remove_bag.exit
-  %.087150 = phi ptr [ %.1, %pkcs12_remove_bag.exit.thread ], [ %.087, %pkcs12_remove_bag.exit ], [ %.087151154, %pkcs12_remove_bag.exit129.us ], [ %.087, %pkcs12_remove_bag.exit129 ]
+  %.087173 = phi ptr [ %.1, %pkcs12_remove_bag.exit.thread ], [ %.087, %pkcs12_remove_bag.exit ], [ %.087174177, %pkcs12_remove_bag.exit129.us ], [ %.087, %pkcs12_remove_bag.exit129 ]
   %90 = load ptr, ptr %18, align 8, !tbaa !8
   %.not111 = icmp eq ptr %90, null
   br i1 %.not111, label %93, label %91
@@ -260,11 +260,11 @@ copy_bag_attr.exit132:                            ; preds = %copy_bag_attr.exit.
   br i1 %.not145, label %PKCS12_add_safe_ex.exit.thread, label %copy_bag_attr.exit132.thread
 
 copy_bag_attr.exit132.thread:                     ; preds = %copy_bag_attr.exit.thread, %copy_bag_attr.exit132
-  %.not116 = icmp eq ptr %.087150, null
+  %.not116 = icmp eq ptr %.087173, null
   br i1 %.not116, label %109, label %107
 
 107:                                              ; preds = %copy_bag_attr.exit132.thread
-  %108 = call i32 @PKCS12_add_friendlyname_utf8(ptr noundef nonnull %95, ptr noundef nonnull %.087150, i32 noundef -1) #3
+  %108 = call i32 @PKCS12_add_friendlyname_utf8(ptr noundef nonnull %95, ptr noundef nonnull %.087173, i32 noundef -1) #3
   %.not117 = icmp eq i32 %108, 0
   br i1 %.not117, label %PKCS12_add_safe_ex.exit.thread, label %109
 
@@ -443,8 +443,8 @@ define internal fastcc ptr @pkcs12_add_cert_bag(ptr noundef captures(address_is_
 
 .thread:                                          ; preds = %17
   %19 = tail call i32 @OPENSSL_sk_push(ptr noundef nonnull %18, ptr noundef nonnull %7) #3
-  %.not.i25.not = icmp eq i32 %19, 0
-  br i1 %.not.i25.not, label %pkcs12_add_bag.exit.thread, label %pkcs12_add_bag.exit.thread22
+  %.not.i31.not = icmp eq i32 %19, 0
+  br i1 %.not.i31.not, label %pkcs12_add_bag.exit.thread, label %pkcs12_add_bag.exit.thread22
 
 20:                                               ; preds = %17
   %21 = tail call ptr @OPENSSL_sk_new_null() #3
@@ -621,8 +621,8 @@ define ptr @PKCS12_add_key_ex(ptr noundef captures(address_is_null) %0, ptr noun
 
 .thread:                                          ; preds = %22
   %24 = tail call i32 @OPENSSL_sk_push(ptr noundef nonnull %23, ptr noundef nonnull %.13842) #3
-  %.not.i50.not = icmp eq i32 %24, 0
-  br i1 %.not.i50.not, label %pkcs12_add_bag.exit.thread, label %pkcs12_add_bag.exit.thread47
+  %.not.i57.not = icmp eq i32 %24, 0
+  br i1 %.not.i57.not, label %pkcs12_add_bag.exit.thread, label %pkcs12_add_bag.exit.thread47
 
 25:                                               ; preds = %22
   %26 = tail call ptr @OPENSSL_sk_new_null() #3
@@ -734,8 +734,8 @@ define ptr @PKCS12_add_secret(ptr noundef captures(address_is_null) %0, i32 noun
 
 .thread:                                          ; preds = %9
   %11 = tail call i32 @OPENSSL_sk_push(ptr noundef nonnull %10, ptr noundef nonnull %5) #3
-  %.not.i13.not = icmp eq i32 %11, 0
-  br i1 %.not.i13.not, label %pkcs12_add_bag.exit.thread, label %pkcs12_add_bag.exit.thread10
+  %.not.i17.not = icmp eq i32 %11, 0
+  br i1 %.not.i17.not, label %pkcs12_add_bag.exit.thread, label %pkcs12_add_bag.exit.thread10
 
 12:                                               ; preds = %9
   %13 = tail call ptr @OPENSSL_sk_new_null() #3

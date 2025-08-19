@@ -149,8 +149,8 @@ define ptr @ws_iana_ipv6_special_block_lookup(ptr noundef readonly captures(none
 
 compare_ipv6_block.exit:                          ; preds = %.lr.ph.i2, %21
   %.lcssa.sink = phi i8 [ %29, %21 ], [ %18, %.lr.ph.i2 ]
-  %.lcssa17.sink = phi i8 [ %27, %21 ], [ %16, %.lr.ph.i2 ]
-  %30 = icmp ult i8 %.lcssa17.sink, %.lcssa.sink
+  %.lcssa21.sink = phi i8 [ %27, %21 ], [ %16, %.lr.ph.i2 ]
+  %30 = icmp ult i8 %.lcssa21.sink, %.lcssa.sink
   %31 = add nuw i64 %3, 1
   %.118.i = select i1 %30, i64 %3, i64 %.01720.i
   %.1.i = select i1 %30, i64 %.01621.i, i64 %31

@@ -139,8 +139,8 @@ _ZN4llvm9StringRefC2EPKc.exit.thread:             ; preds = %1
   %6 = tail call { ptr, ptr } @_ZN4llvm14TargetRegistry7targetsEv() #20
   %7 = extractvalue { ptr, ptr } %6, 0
   %8 = extractvalue { ptr, ptr } %6, 1
-  %.not8.i.i.i.i14 = icmp eq ptr %7, %8
-  br i1 %.not8.i.i.i.i14, label %"_ZN4llvm7find_ifINS_14iterator_rangeINS_14TargetRegistry8iteratorEEEZ21LLVMGetTargetFromNameE3$_0EEDaOT_T0_.exit", label %.lr.ph.i.i.i.us.i.preheader
+  %.not8.i.i.i.i21 = icmp eq ptr %7, %8
+  br i1 %.not8.i.i.i.i21, label %"_ZN4llvm7find_ifINS_14iterator_rangeINS_14TargetRegistry8iteratorEEEZ21LLVMGetTargetFromNameE3$_0EEDaOT_T0_.exit", label %.lr.ph.i.i.i.us.i.preheader
 
 .lr.ph.i.i.i.preheader.i:                         ; preds = %_ZN4llvm9StringRefC2EPKc.exit
   %.not.i24.i.i.i.i.i.i = icmp eq i64 %2, 0
@@ -752,13 +752,13 @@ LLVMTargetMachineOptionsSetCodeGenOptLevel.exit:
   %21 = icmp ult i32 %switch.tableidx, 3
   %spec.select = select i1 %21, i32 %4, i32 0
   store i32 %spec.select, ptr %14, align 8, !tbaa !30
-  %switch.tableidx14 = add i32 %5, -1
-  %22 = icmp ult i32 %switch.tableidx14, 6
-  %narrow = select i1 %22, i32 %switch.tableidx14, i32 0
-  %spec.select15 = zext nneg i32 %narrow to i64
-  %spec.select16 = select i1 %22, i64 4294967296, i64 0
+  %switch.tableidx19 = add i32 %5, -1
+  %22 = icmp ult i32 %switch.tableidx19, 6
+  %narrow = select i1 %22, i32 %switch.tableidx19, i32 0
+  %spec.select20 = zext nneg i32 %narrow to i64
+  %spec.select21 = select i1 %22, i64 4294967296, i64 0
   %23 = getelementptr inbounds nuw i8, ptr %7, i64 100
-  %.sroa.041.0.insert.insert.i = or disjoint i64 %spec.select16, %spec.select15
+  %.sroa.041.0.insert.insert.i = or disjoint i64 %spec.select21, %spec.select20
   store i64 %.sroa.041.0.insert.insert.i, ptr %23, align 4
   %24 = getelementptr inbounds nuw i8, ptr %7, i64 116
   store i8 0, ptr %24, align 4, !tbaa !42

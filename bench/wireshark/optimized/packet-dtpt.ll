@@ -949,7 +949,7 @@ define internal fastcc noundef i32 @dissect_dtpt_sockaddr(ptr noundef %0, i32 no
   %13 = load i32, ptr @ett_dtpt_sockaddr, align 4
   %14 = tail call ptr @proto_registrar_get_name(i32 noundef %4)
   %15 = tail call ptr @proto_tree_add_subtree(ptr noundef nonnull %2, ptr noundef %0, i32 noundef %1, i32 noundef %12, i32 noundef %13, ptr noundef null, ptr noundef %14)
-  br i1 %switch, label %16, label %.thread84
+  br i1 %switch, label %16, label %.thread86
 
 16:                                               ; preds = %11
   %17 = load i32, ptr @hf_dtpt_sockaddr_length, align 4
@@ -958,9 +958,9 @@ define internal fastcc noundef i32 @dissect_dtpt_sockaddr(ptr noundef %0, i32 no
   %.not78 = icmp eq ptr %15, null
   br i1 %.not78, label %61, label %20
 
-.thread84:                                        ; preds = %11
-  %.not7885 = icmp eq ptr %15, null
-  br i1 %.not7885, label %61, label %.thread86
+.thread86:                                        ; preds = %11
+  %.not7887 = icmp eq ptr %15, null
+  br i1 %.not7887, label %61, label %.thread88
 
 20:                                               ; preds = %16
   %21 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %19)
@@ -988,14 +988,14 @@ define internal fastcc noundef i32 @dissect_dtpt_sockaddr(ptr noundef %0, i32 no
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef null, ptr noundef nonnull @.str.210, ptr noundef %39, i32 noundef %29)
   br label %61
 
-.thread86:                                        ; preds = %.thread84
+.thread88:                                        ; preds = %.thread86
   %40 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %1)
   %41 = load i32, ptr @hf_dtpt_sockaddr_family, align 4
   %42 = tail call ptr @proto_tree_add_uint(ptr noundef nonnull %15, i32 noundef %41, ptr noundef %0, i32 noundef %1, i32 noundef 4, i32 noundef %40)
   %cond = icmp eq i32 %40, 2
   br i1 %cond, label %43, label %61
 
-43:                                               ; preds = %.thread86
+43:                                               ; preds = %.thread88
   %44 = load i32, ptr @hf_dtpt_padding, align 4
   %45 = add i32 %1, 4
   %46 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %15, i32 noundef %44, ptr noundef %0, i32 noundef %45, i32 noundef 4, i32 noundef 0)
@@ -1016,8 +1016,8 @@ define internal fastcc noundef i32 @dissect_dtpt_sockaddr(ptr noundef %0, i32 no
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef null, ptr noundef nonnull @.str.210, ptr noundef %60, i32 noundef %50)
   br label %61
 
-61:                                               ; preds = %.thread84, %.thread, %43, %.thread86, %25, %20, %16
-  %62 = phi i32 [ %10, %.thread ], [ %1, %43 ], [ %1, %.thread86 ], [ %19, %25 ], [ %19, %20 ], [ %19, %16 ], [ %1, %.thread84 ]
+61:                                               ; preds = %.thread86, %.thread, %43, %.thread88, %25, %20, %16
+  %62 = phi i32 [ %10, %.thread ], [ %1, %43 ], [ %1, %.thread88 ], [ %19, %25 ], [ %19, %20 ], [ %19, %16 ], [ %1, %.thread86 ]
   %. = select i1 %switch, i32 16, i32 30
   %63 = add i32 %62, %.
   ret i32 %63

@@ -318,7 +318,7 @@ pm_strpbrk_explicit_encoding_set.exit.i:          ; preds = %81, %78, %76
   %153 = zext i8 %152 to i32
   %154 = tail call ptr @strchr(ptr noundef nonnull readonly dereferenceable(1) %2, i32 noundef %153) #3
   %.not.us.i43 = icmp eq ptr %154, null
-  br i1 %.not.us.i43, label %155, label %pm_strpbrk_utf8.exit.loopexit99.split.loop.exit
+  br i1 %.not.us.i43, label %155, label %pm_strpbrk_utf8.exit.loopexit115.split.loop.exit
 
 155:                                              ; preds = %.split.us.i42
   %156 = add nuw nsw i64 %.03843.us.i, 1
@@ -401,12 +401,12 @@ pm_strpbrk_explicit_encoding_set.exit.i51:        ; preds = %173, %170, %165
   %194 = icmp ult i64 %.1.i48, %3
   br i1 %194, label %.split.i46, label %pm_strpbrk_utf8.exit, !llvm.loop !45
 
-pm_strpbrk_utf8.exit.loopexit99.split.loop.exit:  ; preds = %.split.us.i42
+pm_strpbrk_utf8.exit.loopexit115.split.loop.exit: ; preds = %.split.us.i42
   %195 = getelementptr i8, ptr %1, i64 %.03843.us.i
   br label %pm_strpbrk_utf8.exit
 
-pm_strpbrk_utf8.exit:                             ; preds = %54, %.split.i, %37, %.split.us.i, %155, %193, %.split.i46, %148, %.split.i31, %132, %.split.us.i35, %68, %85, %pm_strpbrk_utf8.exit.loopexit99.split.loop.exit, %.split.loop.exit14.i, %5
-  %.0 = phi ptr [ null, %5 ], [ %87, %.split.loop.exit14.i ], [ %195, %pm_strpbrk_utf8.exit.loopexit99.split.loop.exit ], [ null, %85 ], [ null, %68 ], [ null, %132 ], [ %95, %.split.us.i35 ], [ null, %148 ], [ %134, %.split.i31 ], [ null, %193 ], [ %157, %.split.i46 ], [ null, %155 ], [ null, %37 ], [ %13, %.split.us.i ], [ null, %54 ], [ %39, %.split.i ]
+pm_strpbrk_utf8.exit:                             ; preds = %54, %.split.i, %37, %.split.us.i, %155, %193, %.split.i46, %148, %.split.i31, %132, %.split.us.i35, %68, %85, %pm_strpbrk_utf8.exit.loopexit115.split.loop.exit, %.split.loop.exit14.i, %5
+  %.0 = phi ptr [ null, %5 ], [ %87, %.split.loop.exit14.i ], [ %195, %pm_strpbrk_utf8.exit.loopexit115.split.loop.exit ], [ null, %85 ], [ null, %68 ], [ null, %132 ], [ %95, %.split.us.i35 ], [ null, %148 ], [ %134, %.split.i31 ], [ null, %193 ], [ %157, %.split.i46 ], [ null, %155 ], [ null, %37 ], [ %13, %.split.us.i ], [ null, %54 ], [ %39, %.split.i ]
   ret ptr %.0
 }
 

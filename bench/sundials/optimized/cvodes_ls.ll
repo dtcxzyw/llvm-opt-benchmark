@@ -414,9 +414,9 @@ switch.early.test:                                ; preds = %56
   br label %143
 
 143:                                              ; preds = %.thread, %142
-  %.sink127 = phi i32 [ 0, %142 ], [ 1, %.thread ]
+  %.sink134 = phi i32 [ 0, %142 ], [ 1, %.thread ]
   %144 = getelementptr inbounds nuw i8, ptr %calloc, i64 48
-  store i32 %.sink127, ptr %144, align 8, !tbaa !71
+  store i32 %.sink134, ptr %144, align 8, !tbaa !71
   %145 = getelementptr inbounds nuw i8, ptr %0, i64 2016
   store ptr %calloc, ptr %145, align 8, !tbaa !72
   br label %146
@@ -504,9 +504,9 @@ define i32 @cvLsInitialize(ptr noundef %0) #0 {
   br label %37
 
 37:                                               ; preds = %.critedge, %34
-  %.sink60 = phi ptr [ %0, %.critedge ], [ %36, %34 ]
+  %.sink61 = phi ptr [ %0, %.critedge ], [ %36, %34 ]
   %38 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store ptr %.sink60, ptr %38, align 8, !tbaa !46
+  store ptr %.sink61, ptr %38, align 8, !tbaa !46
   %39 = getelementptr inbounds nuw i8, ptr %3, i64 88
   %40 = load ptr, ptr %39, align 8, !tbaa !65
   %41 = icmp eq ptr %40, null
@@ -3438,16 +3438,16 @@ define range(i32 -102, 1) i32 @cvLs_AccessLMemB(ptr noundef %0, i32 noundef %1, 
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph, %21
-  %storemerge.sink35.in = phi ptr [ %25, %.lr.ph ], [ %22, %21 ]
-  %storemerge.sink35 = load ptr, ptr %storemerge.sink35.in, align 8, !tbaa !133, !nonnull !144, !noundef !144
-  store ptr %storemerge.sink35, ptr %5, align 8, !tbaa !133
-  %23 = load i32, ptr %storemerge.sink35, align 8, !tbaa !134
+  %storemerge.sink38.in = phi ptr [ %25, %.lr.ph ], [ %22, %21 ]
+  %storemerge.sink38 = load ptr, ptr %storemerge.sink38.in, align 8, !tbaa !133, !nonnull !144, !noundef !144
+  store ptr %storemerge.sink38, ptr %5, align 8, !tbaa !133
+  %23 = load i32, ptr %storemerge.sink38, align 8, !tbaa !134
   %24 = icmp eq i32 %1, %23
-  %25 = getelementptr inbounds nuw i8, ptr %storemerge.sink35, i64 120
+  %25 = getelementptr inbounds nuw i8, ptr %storemerge.sink38, i64 120
   br i1 %24, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  %26 = getelementptr inbounds nuw i8, ptr %storemerge.sink35, i64 72
+  %26 = getelementptr inbounds nuw i8, ptr %storemerge.sink38, i64 72
   %27 = load ptr, ptr %26, align 8, !tbaa !137
   %28 = icmp eq ptr %27, null
   br i1 %28, label %29, label %30

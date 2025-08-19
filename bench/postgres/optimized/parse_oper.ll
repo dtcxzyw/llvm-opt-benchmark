@@ -377,8 +377,8 @@ binary_oper_exact.exit.thread59:                  ; preds = %36, %.thread42.i, %
   br label %.thread88
 
 49:                                               ; preds = %44, %46
-  %.sink13.i = phi ptr [ %45, %44 ], [ %48, %46 ]
-  %50 = getelementptr inbounds nuw i8, ptr %.sink13.i, i64 12
+  %.sink14.i = phi ptr [ %45, %44 ], [ %48, %46 ]
+  %50 = getelementptr inbounds nuw i8, ptr %.sink14.i, i64 12
   %51 = load i32, ptr %50, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
@@ -681,8 +681,8 @@ find_oper_cache_entry.exit.thread:                ; preds = %18, %find_oper_cach
   br label %.thread59
 
 41:                                               ; preds = %36, %38
-  %.sink13.i = phi ptr [ %37, %36 ], [ %40, %38 ]
-  %42 = getelementptr inbounds nuw i8, ptr %.sink13.i, i64 12
+  %.sink14.i = phi ptr [ %37, %36 ], [ %40, %38 ]
+  %42 = getelementptr inbounds nuw i8, ptr %.sink14.i, i64 12
   %43 = load i32, ptr %42, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.not36 = icmp eq i32 %43, 0

@@ -978,12 +978,12 @@ mbedtls_internal_sha256_process_many.exit:        ; preds = %28
   br i1 %.not53, label %39, label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %19, %._crit_edge
-  %.141.lcssa69 = phi ptr [ %.141.lcssa, %._crit_edge ], [ %1, %19 ]
-  %.144.lcssa68 = phi i64 [ %.144.lcssa, %._crit_edge ], [ %2, %19 ]
-  %.0396267 = phi i32 [ 0, %._crit_edge ], [ %8, %19 ]
-  %37 = zext nneg i32 %.0396267 to i64
+  %.141.lcssa72 = phi ptr [ %.141.lcssa, %._crit_edge ], [ %1, %19 ]
+  %.144.lcssa71 = phi i64 [ %.144.lcssa, %._crit_edge ], [ %2, %19 ]
+  %.0396570 = phi i32 [ 0, %._crit_edge ], [ %8, %19 ]
+  %37 = zext nneg i32 %.0396570 to i64
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 %37
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %38, ptr align 1 %.141.lcssa69, i64 %.144.lcssa68, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %38, ptr align 1 %.141.lcssa72, i64 %.144.lcssa71, i1 false)
   br label %39
 
 39:                                               ; preds = %._crit_edge, %._crit_edge.thread, %3
@@ -1162,9 +1162,9 @@ mbedtls_internal_sha256_process_many.exit.i:      ; preds = %24
   br i1 %.not53.i, label %33, label %._crit_edge.thread.i
 
 ._crit_edge.thread.i:                             ; preds = %21, %._crit_edge.i
-  %.141.lcssa.i20 = phi ptr [ %30, %._crit_edge.i ], [ %0, %21 ]
-  %.144.lcssa.i19 = phi i64 [ %31, %._crit_edge.i ], [ %1, %21 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %5, ptr align 1 %.141.lcssa.i20, i64 %.144.lcssa.i19, i1 false)
+  %.141.lcssa.i22 = phi ptr [ %30, %._crit_edge.i ], [ %0, %21 ]
+  %.144.lcssa.i21 = phi i64 [ %31, %._crit_edge.i ], [ %1, %21 ]
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %5, ptr align 1 %.141.lcssa.i22, i64 %.144.lcssa.i21, i1 false)
   br label %33
 
 33:                                               ; preds = %10, %._crit_edge.i, %._crit_edge.thread.i
@@ -1363,14 +1363,14 @@ mbedtls_sha256_update.exit64:                     ; preds = %mbedtls_sha256_upda
   br i1 %exitcond77.not, label %.loopexit, label %.backedge.backedge
 
 .backedge.backedge:                               ; preds = %70, %.thread
-  %indvars.iv.be = phi i64 [ %indvars.iv.next, %70 ], [ %indvars.iv.next78, %.thread ]
+  %indvars.iv.be = phi i64 [ %indvars.iv.next, %70 ], [ %indvars.iv.next81, %.thread ]
   br label %.backedge, !llvm.loop !24
 
 .thread:                                          ; preds = %69
   %puts = call i32 @puts(ptr nonnull dereferenceable(1) @str)
-  %indvars.iv.next78 = add nuw nsw i64 %indvars.iv, 1
-  %exitcond77.not79 = icmp eq i64 %indvars.iv.next78, 3
-  br i1 %exitcond77.not79, label %71, label %.backedge.backedge
+  %indvars.iv.next81 = add nuw nsw i64 %indvars.iv, 1
+  %exitcond77.not82 = icmp eq i64 %indvars.iv.next81, 3
+  br i1 %exitcond77.not82, label %71, label %.backedge.backedge
 
 71:                                               ; preds = %.thread
   %putchar = call i32 @putchar(i32 10)

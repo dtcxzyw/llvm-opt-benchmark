@@ -1457,18 +1457,18 @@ lean_dec_ref.exit16:                              ; preds = %29, %28, %26
   unreachable
 
 .sink.split:                                      ; preds = %.critedge, %3
-  %.sink29 = phi ptr [ %4, %3 ], [ %43, %.critedge ]
-  %46 = getelementptr inbounds nuw i8, ptr %.sink29, i64 4
-  store i32 1, ptr %.sink29, align 4, !tbaa !4
+  %.sink36 = phi ptr [ %4, %3 ], [ %43, %.critedge ]
+  %46 = getelementptr inbounds nuw i8, ptr %.sink36, i64 4
+  store i32 1, ptr %.sink36, align 4, !tbaa !4
   store i32 131096, ptr %46, align 4
-  %47 = getelementptr inbounds nuw i8, ptr %.sink29, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %.sink36, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %47, align 8, !tbaa !9
-  %48 = getelementptr inbounds nuw i8, ptr %.sink29, i64 16
+  %48 = getelementptr inbounds nuw i8, ptr %.sink36, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %48, align 8, !tbaa !9
   br label %49
 
 49:                                               ; preds = %.sink.split, %lean_dec_ref.exit16, %18, %7
-  %.0 = phi ptr [ %8, %7 ], [ %19, %18 ], [ %30, %lean_dec_ref.exit16 ], [ %.sink29, %.sink.split ]
+  %.0 = phi ptr [ %8, %7 ], [ %19, %18 ], [ %30, %lean_dec_ref.exit16 ], [ %.sink36, %.sink.split ]
   ret ptr %.0
 }
 

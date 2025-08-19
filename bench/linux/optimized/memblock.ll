@@ -1074,14 +1074,14 @@ define dso_local void @__next_mem_range(ptr noundef captures(none) %0, i32 nound
   %94 = getelementptr inbounds nuw i8, ptr %88, i64 16
   %95 = load i32, ptr %94, align 8
   %96 = and i32 %95, 6
-  %or.cond299 = icmp eq i32 %96, 2
-  br i1 %or.cond299, label %97, label %100
+  %or.cond330 = icmp eq i32 %96, 2
+  br i1 %or.cond330, label %97, label %100
 
 97:                                               ; preds = %93
   %98 = and i32 %95, 8
   %99 = icmp eq i32 %98, 0
-  %or.cond302 = or i1 %33, %99
-  br i1 %or.cond302, label %.split70.us, label %100
+  %or.cond333 = or i1 %33, %99
+  br i1 %or.cond333, label %.split70.us, label %100
 
 100:                                              ; preds = %97, %93, %.split.us.split.us.split.split.us
   %101 = add i32 %87, 1
@@ -1106,8 +1106,8 @@ define dso_local void @__next_mem_range(ptr noundef captures(none) %0, i32 nound
   %112 = getelementptr inbounds nuw i8, ptr %106, i64 16
   %113 = load i32, ptr %112, align 8
   %114 = and i32 %113, 10
-  %or.cond304 = icmp eq i32 %114, 2
-  br i1 %or.cond304, label %.split70.us, label %115
+  %or.cond335 = icmp eq i32 %114, 2
+  br i1 %or.cond335, label %.split70.us, label %115
 
 115:                                              ; preds = %111, %.split.us.split.us.split.split.split.us
   %116 = add i32 %105, 1
@@ -1161,14 +1161,14 @@ define dso_local void @__next_mem_range(ptr noundef captures(none) %0, i32 nound
   br label %.split70.us.sink.split
 
 .split70.us.sink.split:                           ; preds = %.split.us.split.us.split.split.split.split.us, %.split.us.split, %.split.us.split.us.split.us.split.split.split.us
-  %.sink305 = phi ptr [ %75, %.split.us.split.us.split.us.split.split.split.us ], [ %145, %.split.us.split ], [ %121, %.split.us.split.us.split.split.split.split.us ]
+  %.sink336 = phi ptr [ %75, %.split.us.split.us.split.us.split.split.split.us ], [ %145, %.split.us.split ], [ %121, %.split.us.split.us.split.split.split.split.us ]
   %.us-phi74.ph = phi i32 [ %10, %.split.us.split.us.split.us.split.split.split.us ], [ %10, %.split.us.split ], [ %120, %.split.us.split.us.split.split.split.split.us ]
-  %146 = getelementptr inbounds nuw i8, ptr %.sink305, i64 20
+  %146 = getelementptr inbounds nuw i8, ptr %.sink336, i64 20
   %147 = load i32, ptr %146, align 4
   br label %.split70.us
 
 .split70.us:                                      ; preds = %111, %136, %97, %66, %.split.us.split.us.split.us.split.split.split, %52, %.split70.us.sink.split
-  %.us-phi72 = phi ptr [ %.sink305, %.split70.us.sink.split ], [ %42, %52 ], [ %78, %.split.us.split.us.split.us.split.split.split ], [ %61, %66 ], [ %88, %97 ], [ %132, %136 ], [ %106, %111 ]
+  %.us-phi72 = phi ptr [ %.sink336, %.split70.us.sink.split ], [ %42, %52 ], [ %78, %.split.us.split.us.split.us.split.split.split ], [ %61, %66 ], [ %88, %97 ], [ %132, %136 ], [ %106, %111 ]
   %.us-phi74 = phi i32 [ %.us-phi74.ph, %.split70.us.sink.split ], [ %41, %52 ], [ %77, %.split.us.split.us.split.us.split.split.split ], [ %60, %66 ], [ %87, %97 ], [ %131, %136 ], [ %105, %111 ]
   %.us-phi76 = phi i32 [ %147, %.split70.us.sink.split ], [ %44, %52 ], [ %18, %.split.us.split.us.split.us.split.split.split ], [ %63, %66 ], [ %90, %97 ], [ %18, %136 ], [ %108, %111 ]
   %148 = load i64, ptr %.us-phi72, align 8
@@ -3491,20 +3491,20 @@ define internal fastcc void @__free_pages_memory(i64 noundef range(i64 0, 450359
 .preheader:                                       ; preds = %2, %17
   %4 = phi i64 [ %14, %17 ], [ %0, %2 ]
   %5 = icmp eq i64 %4, 0
-  br i1 %5, label %.preheader8, label %6
+  br i1 %5, label %.preheader11, label %6
 
 6:                                                ; preds = %.preheader
   %7 = tail call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %4) #25, !srcloc !81
   %8 = trunc i64 %7 to i32
   %9 = tail call i32 @llvm.smin.i32(i32 %8, i32 10)
-  br label %.preheader8
+  br label %.preheader11
 
-.preheader8:                                      ; preds = %6, %.preheader
+.preheader11:                                     ; preds = %6, %.preheader
   %.ph = phi i32 [ %9, %6 ], [ 10, %.preheader ]
   br label %10
 
-10:                                               ; preds = %.preheader8, %10
-  %11 = phi i32 [ %16, %10 ], [ %.ph, %.preheader8 ]
+10:                                               ; preds = %.preheader11, %10
+  %11 = phi i32 [ %16, %10 ], [ %.ph, %.preheader11 ]
   %12 = zext nneg i32 %11 to i64
   %13 = shl nuw i64 1, %12
   %14 = add nuw i64 %13, %4

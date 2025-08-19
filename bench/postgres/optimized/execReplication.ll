@@ -658,7 +658,7 @@ CheckCmdReplicaIdentity.exit:
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 29
   %21 = load i8, ptr %20, align 1, !range !4, !noundef !5
   %22 = trunc nuw i8 %21 to i1
-  br i1 %22, label %23, label %.thread46
+  br i1 %22, label %23, label %.thread47
 
 23:                                               ; preds = %19
   tail call void @ExecComputeStoredGenerated(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, i32 noundef 3) #5
@@ -666,13 +666,13 @@ CheckCmdReplicaIdentity.exit:
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 16
   %.pre43 = load ptr, ptr %.phi.trans.insert, align 8
   %24 = icmp eq ptr %.pre43, null
-  br i1 %24, label %.thread, label %.thread46
+  br i1 %24, label %.thread, label %.thread47
 
-.thread46:                                        ; preds = %19, %23
+.thread47:                                        ; preds = %19, %23
   tail call void @ExecConstraints(ptr noundef nonnull %0, ptr noundef %2, ptr noundef %1) #5
   br label %.thread
 
-.thread:                                          ; preds = %.critedge, %.thread46, %23
+.thread:                                          ; preds = %.critedge, %.thread47, %23
   %25 = load ptr, ptr %6, align 8
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 127
   %27 = load i8, ptr %26, align 1, !range !4, !noundef !5
@@ -689,7 +689,7 @@ CheckCmdReplicaIdentity.exit:
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %34 = load i32, ptr %33, align 8
   %35 = icmp sgt i32 %34, 0
-  br i1 %35, label %36, label %.thread48
+  br i1 %35, label %36, label %.thread49
 
 36:                                               ; preds = %31
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 272
@@ -698,20 +698,20 @@ CheckCmdReplicaIdentity.exit:
   %40 = call ptr @ExecInsertIndexTuples(ptr noundef nonnull %0, ptr noundef %2, ptr noundef %1, i1 noundef zeroext false, i1 noundef zeroext %39, ptr noundef nonnull %3, ptr noundef %38, i1 noundef zeroext false) #5
   %.pre44 = load i8, ptr %3, align 1, !range !4
   %41 = trunc nuw i8 %.pre44 to i1
-  br i1 %41, label %42, label %.thread48
+  br i1 %41, label %42, label %.thread49
 
 42:                                               ; preds = %36
   call fastcc void @CheckAndReportConflict(ptr noundef nonnull %0, ptr noundef %1, i32 noundef 0, ptr noundef %40, ptr noundef null, ptr noundef %2)
-  br label %.thread48
+  br label %.thread49
 
-.thread48:                                        ; preds = %31, %42, %36
-  %.03850 = phi ptr [ %40, %42 ], [ %40, %36 ], [ null, %31 ]
-  call void @ExecARInsertTriggers(ptr noundef %1, ptr noundef nonnull %0, ptr noundef %2, ptr noundef %.03850, ptr noundef null) #5
-  call void @list_free(ptr noundef %.03850) #5
+.thread49:                                        ; preds = %31, %42, %36
+  %.03851 = phi ptr [ %40, %42 ], [ %40, %36 ], [ null, %31 ]
+  call void @ExecARInsertTriggers(ptr noundef %1, ptr noundef nonnull %0, ptr noundef %2, ptr noundef %.03851, ptr noundef null) #5
+  call void @list_free(ptr noundef %.03851) #5
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %43
 
-43:                                               ; preds = %.thread48, %13
+43:                                               ; preds = %.thread49, %13
   ret void
 }
 
@@ -1051,7 +1051,7 @@ define dso_local void @ExecSimpleRelationUpdate(ptr noundef %0, ptr noundef %1, 
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 29
   %25 = load i8, ptr %24, align 1, !range !4, !noundef !5
   %26 = trunc nuw i8 %25 to i1
-  br i1 %26, label %27, label %.thread55
+  br i1 %26, label %27, label %.thread57
 
 27:                                               ; preds = %23
   tail call void @ExecComputeStoredGenerated(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %4, i32 noundef 2) #5
@@ -1059,13 +1059,13 @@ define dso_local void @ExecSimpleRelationUpdate(ptr noundef %0, ptr noundef %1, 
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 16
   %.pre52 = load ptr, ptr %.phi.trans.insert, align 8
   %28 = icmp eq ptr %.pre52, null
-  br i1 %28, label %.thread, label %.thread55
+  br i1 %28, label %.thread, label %.thread57
 
-.thread55:                                        ; preds = %23, %27
+.thread57:                                        ; preds = %23, %27
   tail call void @ExecConstraints(ptr noundef nonnull %0, ptr noundef %4, ptr noundef %1) #5
   br label %.thread
 
-.thread:                                          ; preds = %.critedge, %.thread55, %27
+.thread:                                          ; preds = %.critedge, %.thread57, %27
   %29 = getelementptr inbounds nuw i8, ptr %9, i64 56
   %30 = load ptr, ptr %29, align 8
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 127
@@ -1087,7 +1087,7 @@ define dso_local void @ExecSimpleRelationUpdate(ptr noundef %0, ptr noundef %1, 
   %42 = load i32, ptr %6, align 4
   %43 = icmp ne i32 %42, 0
   %or.cond = select i1 %41, i1 %43, i1 false
-  br i1 %or.cond, label %44, label %.thread57
+  br i1 %or.cond, label %44, label %.thread59
 
 44:                                               ; preds = %36
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 272
@@ -1097,21 +1097,21 @@ define dso_local void @ExecSimpleRelationUpdate(ptr noundef %0, ptr noundef %1, 
   %49 = call ptr @ExecInsertIndexTuples(ptr noundef nonnull %0, ptr noundef %4, ptr noundef nonnull %1, i1 noundef zeroext true, i1 noundef zeroext %47, ptr noundef nonnull %7, ptr noundef %46, i1 noundef zeroext %48) #5
   %.pre53 = load i8, ptr %7, align 1, !range !4
   %50 = trunc nuw i8 %.pre53 to i1
-  br i1 %50, label %51, label %.thread57
+  br i1 %50, label %51, label %.thread59
 
 51:                                               ; preds = %44
   call fastcc void @CheckAndReportConflict(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef 2, ptr noundef %49, ptr noundef nonnull %3, ptr noundef %4)
-  br label %.thread57
+  br label %.thread59
 
-.thread57:                                        ; preds = %36, %51, %44
-  %.04659 = phi ptr [ %49, %51 ], [ %49, %44 ], [ null, %36 ]
-  call void @ExecARUpdateTriggers(ptr noundef nonnull %1, ptr noundef nonnull %0, ptr noundef null, ptr noundef null, ptr noundef nonnull %10, ptr noundef null, ptr noundef %4, ptr noundef %.04659, ptr noundef null, i1 noundef zeroext false) #5
-  call void @list_free(ptr noundef %.04659) #5
+.thread59:                                        ; preds = %36, %51, %44
+  %.04661 = phi ptr [ %49, %51 ], [ %49, %44 ], [ null, %36 ]
+  call void @ExecARUpdateTriggers(ptr noundef nonnull %1, ptr noundef nonnull %0, ptr noundef null, ptr noundef null, ptr noundef nonnull %10, ptr noundef null, ptr noundef %4, ptr noundef %.04661, ptr noundef null, i1 noundef zeroext false) #5
+  call void @list_free(ptr noundef %.04661) #5
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %52
 
-52:                                               ; preds = %.thread57, %17
+52:                                               ; preds = %.thread59, %17
   ret void
 }
 

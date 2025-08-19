@@ -1937,14 +1937,14 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit236: ; preds = %417, %421, %427
 
 444:                                              ; preds = %442
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.39) #27
-          to label %.noexc381 unwind label %.thread613
+          to label %.noexc381 unwind label %.thread667
 
 .noexc381:                                        ; preds = %444
   unreachable
 
 _ZNKSt6vectorImSaImEE12_M_check_lenEmPKc.exit.i:  ; preds = %442
   %445 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %440) #24
-          to label %.noexc382 unwind label %.thread613
+          to label %.noexc382 unwind label %.thread667
 
 .noexc382:                                        ; preds = %_ZNKSt6vectorImSaImEE12_M_check_lenEmPKc.exit.i
   store i64 0, ptr %445, align 8, !tbaa !64
@@ -1961,7 +1961,7 @@ _ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i: ; preds = %.noexc382
   %449 = getelementptr inbounds nuw i8, ptr %445, i64 %440
   br label %451
 
-.thread613:                                       ; preds = %444, %_ZNKSt6vectorImSaImEE12_M_check_lenEmPKc.exit.i
+.thread667:                                       ; preds = %444, %_ZNKSt6vectorImSaImEE12_M_check_lenEmPKc.exit.i
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt6vectorImSaImEED2Ev.exit339
@@ -1969,7 +1969,7 @@ _ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i: ; preds = %.noexc382
 450:                                              ; preds = %_ZNSt6vectorImSaImEE5clearEv.exit.i
   %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
           cleanup
-  %.not.i.i.i338 = icmp eq ptr %.sroa.0417.2612, null
+  %.not.i.i.i338 = icmp eq ptr %.sroa.0417.2666, null
   br i1 %.not.i.i.i338, label %_ZNSt6vectorImSaImEED2Ev.exit339, label %477
 
 451:                                              ; preds = %.lr.ph567, %451
@@ -1983,8 +1983,8 @@ _ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i: ; preds = %.noexc382
   br i1 %exitcond603.not, label %.critedge144, label %451, !llvm.loop !101
 
 .critedge144:                                     ; preds = %451, %.critedge140
-  %.sroa.0417.2612 = phi ptr [ null, %.critedge140 ], [ %445, %451 ]
-  %.sroa.20.2611 = phi ptr [ null, %.critedge140 ], [ %449, %451 ]
+  %.sroa.0417.2666 = phi ptr [ null, %.critedge140 ], [ %445, %451 ]
+  %.sroa.20.2665 = phi ptr [ null, %.critedge140 ], [ %449, %451 ]
   %456 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %457 = load ptr, ptr %456, align 8, !tbaa !63
   %458 = getelementptr inbounds nuw i8, ptr %0, i64 128
@@ -1997,7 +1997,7 @@ _ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i: ; preds = %.noexc382
   br label %_ZNSt6vectorImSaImEE5clearEv.exit.i
 
 _ZNSt6vectorImSaImEE5clearEv.exit.i:              ; preds = %460, %.critedge144
-  invoke void @_ZNSt6vectorImSaImEE15_M_range_insertIN9__gnu_cxx17__normal_iteratorIPmS1_EEEEvS6_T_S7_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %456, ptr %457, ptr %.sroa.0417.2612, ptr %.sroa.20.2611)
+  invoke void @_ZNSt6vectorImSaImEE15_M_range_insertIN9__gnu_cxx17__normal_iteratorIPmS1_EEEEvS6_T_S7_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %456, ptr %457, ptr %.sroa.0417.2666, ptr %.sroa.20.2665)
           to label %.noexc336 unwind label %450
 
 .noexc336:                                        ; preds = %_ZNSt6vectorImSaImEE5clearEv.exit.i
@@ -2025,21 +2025,21 @@ _ZNSt6vectorImSaImEE5clearEv.exit.i:              ; preds = %460, %.critedge144
   br i1 %exitcond.not.i335, label %_ZN4cvc58internal6theory14RepSetIterator13setIndexOrderERSt6vectorImSaImEE.exit, label %468, !llvm.loop !103
 
 _ZN4cvc58internal6theory14RepSetIterator13setIndexOrderERSt6vectorImSaImEE.exit: ; preds = %468, %.noexc336
-  %.not.i.i.i337 = icmp eq ptr %.sroa.0417.2612, null
+  %.not.i.i.i337 = icmp eq ptr %.sroa.0417.2666, null
   br i1 %.not.i.i.i337, label %_ZNSt6vectorImSaImEED2Ev.exit, label %473
 
 473:                                              ; preds = %_ZN4cvc58internal6theory14RepSetIterator13setIndexOrderERSt6vectorImSaImEE.exit
-  %474 = ptrtoint ptr %.sroa.20.2611 to i64
-  %475 = ptrtoint ptr %.sroa.0417.2612 to i64
+  %474 = ptrtoint ptr %.sroa.20.2665 to i64
+  %475 = ptrtoint ptr %.sroa.0417.2666 to i64
   %476 = sub i64 %474, %475
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0417.2612, i64 noundef %476) #25
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0417.2666, i64 noundef %476) #25
   br label %_ZNSt6vectorImSaImEED2Ev.exit
 
 477:                                              ; preds = %450
-  %478 = ptrtoint ptr %.sroa.20.2611 to i64
-  %479 = ptrtoint ptr %.sroa.0417.2612 to i64
+  %478 = ptrtoint ptr %.sroa.20.2665 to i64
+  %479 = ptrtoint ptr %.sroa.0417.2666 to i64
   %480 = sub i64 %478, %479
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0417.2612, i64 noundef %480) #25
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0417.2666, i64 noundef %480) #25
   br label %_ZNSt6vectorImSaImEED2Ev.exit339
 
 _ZNSt6vectorImSaImEED2Ev.exit:                    ; preds = %473, %_ZN4cvc58internal6theory14RepSetIterator13setIndexOrderERSt6vectorImSaImEE.exit, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit236
@@ -2060,8 +2060,8 @@ _ZNSt6vectorImSaImEED2Ev.exit341:                 ; preds = %_ZNSt6vectorImSaImE
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %495
 
-_ZNSt6vectorImSaImEED2Ev.exit339:                 ; preds = %.thread613, %477, %450, %433, %431
-  %.pn131.pn = phi { ptr, i32 } [ %434, %433 ], [ %432, %431 ], [ %lpad.thr_comm.split-lp, %450 ], [ %lpad.thr_comm.split-lp, %477 ], [ %lpad.thr_comm, %.thread613 ]
+_ZNSt6vectorImSaImEED2Ev.exit339:                 ; preds = %.thread667, %477, %450, %433, %431
+  %.pn131.pn = phi { ptr, i32 } [ %434, %433 ], [ %432, %431 ], [ %lpad.thr_comm.split-lp, %450 ], [ %lpad.thr_comm.split-lp, %477 ], [ %lpad.thr_comm, %.thread667 ]
   %488 = load ptr, ptr %7, align 8, !tbaa !63
   %.not.i.i.i342 = icmp eq ptr %488, null
   br i1 %.not.i.i.i342, label %_ZNSt6vectorImSaImEED2Ev.exit343, label %489
@@ -2767,18 +2767,18 @@ define hidden noundef i32 @_ZN4cvc58internal6theory14RepSetIterator16incrementAt
 26:                                               ; preds = %10
   %27 = add nsw i32 %.0210214, -1
   %28 = icmp sgt i32 %.0210214, 0
-  br i1 %28, label %10, label %.critedge.thread216, !llvm.loop !109
+  br i1 %28, label %10, label %.critedge.thread218, !llvm.loop !109
 
 .critedge:                                        ; preds = %2
   %29 = icmp eq i32 %1, -1
-  br i1 %29, label %.critedge.thread216, label %.critedge..critedge.thread_crit_edge
+  br i1 %29, label %.critedge.thread218, label %.critedge..critedge.thread_crit_edge
 
 .critedge..critedge.thread_crit_edge:             ; preds = %.critedge
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !40
   br label %.critedge.thread
 
-.critedge.thread216:                              ; preds = %26, %.critedge
+.critedge.thread218:                              ; preds = %26, %.critedge
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %31 = load ptr, ptr %30, align 8, !tbaa !40
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -2786,7 +2786,7 @@ define hidden noundef i32 @_ZN4cvc58internal6theory14RepSetIterator16incrementAt
   %.not.i.i = icmp eq ptr %33, %31
   br i1 %.not.i.i, label %_ZNSt6vectorIiSaIiEE5clearEv.exit, label %34
 
-34:                                               ; preds = %.critedge.thread216
+34:                                               ; preds = %.critedge.thread218
   store ptr %31, ptr %32, align 8, !tbaa !82
   br label %_ZNSt6vectorIiSaIiEE5clearEv.exit
 
@@ -2801,8 +2801,8 @@ define hidden noundef i32 @_ZN4cvc58internal6theory14RepSetIterator16incrementAt
   %40 = tail call noundef i32 @_ZN4cvc58internal6theory14RepSetIterator16doResetIncrementEib(ptr noundef nonnull align 8 dereferenceable(169) %0, i32 noundef %.0210213, i1 noundef zeroext false)
   br label %_ZNSt6vectorIiSaIiEE5clearEv.exit
 
-_ZNSt6vectorIiSaIiEE5clearEv.exit:                ; preds = %34, %.critedge.thread216, %.critedge.thread
-  %.0 = phi i32 [ %40, %.critedge.thread ], [ -1, %.critedge.thread216 ], [ -1, %34 ]
+_ZNSt6vectorIiSaIiEE5clearEv.exit:                ; preds = %34, %.critedge.thread218, %.critedge.thread
+  %.0 = phi i32 [ %40, %.critedge.thread ], [ -1, %.critedge.thread218 ], [ -1, %34 ]
   ret i32 %.0
 }
 
@@ -2855,13 +2855,13 @@ define hidden noundef i32 @_ZN4cvc58internal6theory14RepSetIterator9incrementEv(
 35:                                               ; preds = %19
   %36 = add nsw i32 %.0210214.i, -1
   %37 = icmp sgt i32 %.0210214.i, 0
-  br i1 %37, label %19, label %.critedge.thread216.i, !llvm.loop !109
+  br i1 %37, label %19, label %.critedge.thread218.i, !llvm.loop !109
 
 .critedge.i:                                      ; preds = %7
   %38 = icmp eq i32 %12, 0
-  br i1 %38, label %.critedge.thread216.i, label %.critedge.thread.i
+  br i1 %38, label %.critedge.thread218.i, label %.critedge.thread.i
 
-.critedge.thread216.i:                            ; preds = %35, %.critedge.i
+.critedge.thread218.i:                            ; preds = %35, %.critedge.i
   store ptr %3, ptr %4, align 8, !tbaa !82
   br label %_ZN4cvc58internal6theory14RepSetIterator16incrementAtIndexEi.exit
 
@@ -2875,8 +2875,8 @@ define hidden noundef i32 @_ZN4cvc58internal6theory14RepSetIterator9incrementEv(
   %43 = tail call noundef i32 @_ZN4cvc58internal6theory14RepSetIterator16doResetIncrementEib(ptr noundef nonnull align 8 dereferenceable(169) %0, i32 noundef %.0210213.i, i1 noundef zeroext false) #28
   br label %_ZN4cvc58internal6theory14RepSetIterator16incrementAtIndexEi.exit
 
-_ZN4cvc58internal6theory14RepSetIterator16incrementAtIndexEi.exit: ; preds = %.critedge.thread.i, %.critedge.thread216.i, %1
-  %.0 = phi i32 [ -1, %1 ], [ %43, %.critedge.thread.i ], [ -1, %.critedge.thread216.i ]
+_ZN4cvc58internal6theory14RepSetIterator16incrementAtIndexEi.exit: ; preds = %.critedge.thread.i, %.critedge.thread218.i, %1
+  %.0 = phi i32 [ -1, %1 ], [ %43, %.critedge.thread.i ], [ -1, %.critedge.thread218.i ]
   ret i32 %.0
 }
 
@@ -3784,13 +3784,13 @@ define linkonce_odr void @_ZNSt6vectorImSaImEE17_M_default_appendEm(ptr noundef 
 19:                                               ; preds = %3
   store i64 0, ptr %5, align 8, !tbaa !64
   %20 = getelementptr i8, ptr %5, i64 8
-  %21 = add i64 %1, -1
+  %21 = add nsw i64 %1, -1
   %22 = icmp eq i64 %21, 0
   br i1 %22, label %_ZSt27__uninitialized_default_n_aIPmmmET_S1_T0_RSaIT1_E.exit, label %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i
 
 _ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
-  %23 = shl i64 %1, 3
-  %24 = add i64 %23, -8
+  %23 = shl nuw nsw i64 %1, 3
+  %24 = add nsw i64 %23, -8
   tail call void @llvm.memset.p0.i64(ptr align 8 %20, i8 0, i64 %24, i1 false), !tbaa !64
   %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 3
   %25 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i

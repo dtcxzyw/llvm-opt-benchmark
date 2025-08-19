@@ -2502,7 +2502,7 @@ define dso_local i32 @drm_atomic_check_only(ptr noundef %0) #0 align 16 {
   %465 = getelementptr inbounds nuw i8, ptr %444, i64 64
   %466 = load ptr, ptr %465, align 8
   %467 = icmp eq ptr %466, null
-  br i1 %467, label %.thread247, label %468
+  br i1 %467, label %.thread299, label %468
 
 468:                                              ; preds = %464
   %469 = getelementptr inbounds nuw i8, ptr %442, i64 8
@@ -2565,13 +2565,13 @@ define dso_local i32 @drm_atomic_check_only(ptr noundef %0) #0 align 16 {
   tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %504, i32 noundef 4, ptr noundef nonnull @.str.39, i32 noundef %506, ptr noundef %508, i32 noundef %510) #10
   br label %527
 
-.thread247:                                       ; preds = %464
+.thread299:                                       ; preds = %464
   %511 = getelementptr inbounds nuw i8, ptr %444, i64 72
   %512 = load ptr, ptr %511, align 8
   %513 = icmp eq ptr %512, null
   br i1 %513, label %526, label %514
 
-514:                                              ; preds = %.thread247
+514:                                              ; preds = %.thread299
   %515 = load ptr, ptr %438, align 8
   %516 = icmp eq ptr %515, null
   br i1 %516, label %520, label %517
@@ -2590,7 +2590,7 @@ define dso_local i32 @drm_atomic_check_only(ptr noundef %0) #0 align 16 {
   tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %521, i32 noundef 4, ptr noundef nonnull @.str.40, i32 noundef %523, ptr noundef %525) #10
   br label %527
 
-526:                                              ; preds = %.thread247
+526:                                              ; preds = %.thread299
   tail call void @drm_writeback_cleanup_job(ptr noundef nonnull %444) #10
   store ptr null, ptr %443, align 8
   br label %.thread54
@@ -3741,7 +3741,7 @@ define internal fastcc void @__drm_state_dump(ptr noundef %0, ptr noundef %1, i1
   tail call void @drm_modeset_unlock(ptr noundef %27) #10
   %31 = load ptr, ptr %26, align 8
   %32 = icmp eq ptr %31, %23
-  br i1 %32, label %.loopexit15.thread19, label %.preheader14.split.us, !llvm.loop !91
+  br i1 %32, label %.loopexit15.thread30, label %.preheader14.split.us, !llvm.loop !91
 
 .preheader14.split:                               ; preds = %.preheader14, %.preheader14.split
   %33 = phi ptr [ %36, %.preheader14.split ], [ %24, %.preheader14 ]
@@ -3758,7 +3758,7 @@ define internal fastcc void @__drm_state_dump(ptr noundef %0, ptr noundef %1, i1
   %40 = icmp eq ptr %39, %38
   br i1 %40, label %.loopexit13, label %.preheader12
 
-.loopexit15.thread19:                             ; preds = %.preheader14.split.us
+.loopexit15.thread30:                             ; preds = %.preheader14.split.us
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 736
   %42 = load ptr, ptr %41, align 8
   %43 = icmp eq ptr %42, %41
@@ -3768,7 +3768,7 @@ define internal fastcc void @__drm_state_dump(ptr noundef %0, ptr noundef %1, i1
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 736
   %45 = load ptr, ptr %44, align 8
   %46 = icmp eq ptr %45, %44
-  br i1 %46, label %.loopexit13.thread22, label %.preheader12.split.preheader
+  br i1 %46, label %.loopexit13.thread33, label %.preheader12.split.preheader
 
 .preheader12:                                     ; preds = %.loopexit15
   br i1 %2, label %.preheader12.split.us.preheader, label %.preheader12.split.preheader
@@ -3778,9 +3778,9 @@ define internal fastcc void @__drm_state_dump(ptr noundef %0, ptr noundef %1, i1
   %48 = phi ptr [ %39, %.preheader12 ], [ %45, %.loopexit15.thread ]
   br label %.preheader12.split
 
-.preheader12.split.us.preheader:                  ; preds = %.loopexit15.thread19, %.preheader12
-  %49 = phi ptr [ %38, %.preheader12 ], [ %41, %.loopexit15.thread19 ]
-  %50 = phi ptr [ %39, %.preheader12 ], [ %42, %.loopexit15.thread19 ]
+.preheader12.split.us.preheader:                  ; preds = %.loopexit15.thread30, %.preheader12
+  %49 = phi ptr [ %38, %.preheader12 ], [ %41, %.loopexit15.thread30 ]
+  %50 = phi ptr [ %39, %.preheader12 ], [ %42, %.loopexit15.thread30 ]
   br label %.preheader12.split.us
 
 .preheader12.split.us:                            ; preds = %.preheader12.split.us.preheader, %.preheader12.split.us
@@ -3802,13 +3802,13 @@ define internal fastcc void @__drm_state_dump(ptr noundef %0, ptr noundef %1, i1
   tail call fastcc void @drm_atomic_crtc_print_state(ptr noundef %1, ptr noundef %60)
   %61 = load ptr, ptr %58, align 8
   %62 = icmp eq ptr %61, %47
-  br i1 %62, label %.loopexit13.thread22, label %.preheader12.split, !llvm.loop !92
+  br i1 %62, label %.loopexit13.thread33, label %.preheader12.split, !llvm.loop !92
 
-.loopexit13.thread:                               ; preds = %.preheader12.split.us, %.loopexit15.thread19
+.loopexit13.thread:                               ; preds = %.preheader12.split.us, %.loopexit15.thread30
   call void @drm_connector_list_iter_begin(ptr noundef %0, ptr noundef nonnull %4) #10
   br label %63
 
-.loopexit13.thread22:                             ; preds = %.preheader12.split, %.loopexit15.thread
+.loopexit13.thread33:                             ; preds = %.preheader12.split, %.loopexit15.thread
   call void @drm_connector_list_iter_begin(ptr noundef %0, ptr noundef nonnull %4) #10
   br label %66
 
@@ -3821,7 +3821,7 @@ define internal fastcc void @__drm_state_dump(ptr noundef %0, ptr noundef %1, i1
   %65 = call i32 @drm_modeset_lock(ptr noundef nonnull %64, ptr noundef null) #10
   br label %66
 
-66:                                               ; preds = %.loopexit13.thread22, %63, %.loopexit13
+66:                                               ; preds = %.loopexit13.thread33, %63, %.loopexit13
   %67 = call ptr @drm_connector_list_iter_next(ptr noundef nonnull %4) #10
   %68 = icmp eq ptr %67, null
   br i1 %68, label %.loopexit11, label %.preheader10

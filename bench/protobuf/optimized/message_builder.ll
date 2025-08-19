@@ -1210,7 +1210,7 @@ for.end86:                                        ; preds = %invoke.cont83
 
 for.body91.preheader:                             ; preds = %for.end86
   %add87 = add nuw nsw i32 %add, 31
-  %div226244 = lshr i32 %add87, 5
+  %div234252 = lshr i32 %add87, 5
   br label %for.body91
 
 for.cond102.preheader.loopexit:                   ; preds = %invoke.cont96
@@ -1243,7 +1243,7 @@ invoke.cont94:                                    ; preds = %for.body91
 invoke.cont96:                                    ; preds = %invoke.cont94
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp93) #26
   %inc99 = add nuw nsw i32 %i88.0200, 1
-  %exitcond.not = icmp eq i32 %inc99, %div226244
+  %exitcond.not = icmp eq i32 %inc99, %div234252
   br i1 %exitcond.not, label %for.cond102.preheader.loopexit, label %for.body91, !llvm.loop !36
 
 lpad95:                                           ; preds = %invoke.cont94
@@ -2684,7 +2684,7 @@ _ZN6google8protobuf2io7Printer5PrintIJEEEvSt17basic_string_viewIcSt11char_traits
 
 for.body55.preheader:                             ; preds = %_ZN6google8protobuf2io7Printer5PrintIJEEEvSt17basic_string_viewIcSt11char_traitsIcEEDpRKT_.exit108
   %add = add nuw nsw i32 %54, 31
-  %div919956 = lshr i32 %add, 5
+  %div957994 = lshr i32 %add, 5
   br label %for.body55
 
 for.cond65.preheader:                             ; preds = %invoke.cont59
@@ -2708,7 +2708,7 @@ for.body55:                                       ; preds = %for.body55.preheade
 invoke.cont59:                                    ; preds = %for.body55
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp57) #26
   %inc62 = add nuw nsw i32 %i52.0838, 1
-  %exitcond.not = icmp eq i32 %inc62, %div919956
+  %exitcond.not = icmp eq i32 %inc62, %div957994
   br i1 %exitcond.not, label %for.cond65.preheader, label %for.body55, !llvm.loop !64
 
 lpad58:                                           ; preds = %for.body55
@@ -5948,8 +5948,8 @@ invoke.cont:                                      ; preds = %entry
   br i1 %cmp178, label %for.body, label %for.end.thread
 
 for.end.thread:                                   ; preds = %invoke.cont
-  %add218 = add nsw i32 %5, 31
-  %div219 = sdiv i32 %add218, 32
+  %add226 = add nsw i32 %5, 31
+  %div227 = sdiv i32 %add226, 32
   br label %if.end27
 
 for.cond:                                         ; preds = %for.body
@@ -6087,9 +6087,9 @@ ehcleanup:                                        ; preds = %lpad19, %lpad.i46, 
   br label %common.resume
 
 if.end27:                                         ; preds = %invoke.cont23, %for.end.thread, %for.end
-  %cmp13181223 = phi i1 [ false, %for.end.thread ], [ false, %for.end ], [ true, %invoke.cont23 ]
-  %div222 = phi i32 [ %div219, %for.end.thread ], [ %div, %for.end ], [ %div, %invoke.cont23 ]
-  %cmp176221 = phi i1 [ false, %for.end.thread ], [ %call5, %for.end ], [ %call5, %invoke.cont23 ]
+  %cmp13181231 = phi i1 [ false, %for.end.thread ], [ false, %for.end ], [ true, %invoke.cont23 ]
+  %div230 = phi i32 [ %div227, %for.end.thread ], [ %div, %for.end ], [ %div, %invoke.cont23 ]
+  %cmp176229 = phi i1 [ false, %for.end.thread ], [ %call5, %for.end ], [ %call5, %invoke.cont23 ]
   %oneofs_ = getelementptr inbounds nuw i8, ptr %this, i64 64
   %size_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 80
   %21 = load i64, ptr %size_.i.i, align 8
@@ -6144,7 +6144,7 @@ if.end31:                                         ; preds = %_ZN6google8protobuf
 
 invoke.cont37:                                    ; preds = %if.end31
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp33) #26
-  br i1 %cmp176221, label %if.then39, label %if.end65
+  br i1 %cmp176229, label %if.then39, label %if.end65
 
 if.then39:                                        ; preds = %invoke.cont37
   %29 = load ptr, ptr %name_resolver_, align 8
@@ -6307,10 +6307,10 @@ _ZN6google8protobuf2io7Printer5PrintIJEEEvSt17basic_string_viewIcSt11char_traits
   br label %if.end65
 
 if.end65:                                         ; preds = %_ZN6google8protobuf2io7Printer5PrintIJEEEvSt17basic_string_viewIcSt11char_traitsIcEEDpRKT_.exit94, %invoke.cont37
-  br i1 %cmp13181223, label %for.body69.preheader, label %for.end73
+  br i1 %cmp13181231, label %for.body69.preheader, label %for.end73
 
 for.body69.preheader:                             ; preds = %if.end65
-  %smax211 = call i32 @llvm.smax.i32(i32 %div222, i32 1)
+  %smax211 = call i32 @llvm.smax.i32(i32 %div230, i32 1)
   br label %for.body69
 
 for.body69:                                       ; preds = %for.body69.preheader, %for.body69
@@ -9915,7 +9915,7 @@ if.then20:                                        ; preds = %if.else18
   %arrayidx1.i = getelementptr inbounds nuw i8, ptr %first, i64 %div6.i
   %1 = load i8, ptr %arrayidx1.i, align 1
   %sub.i31 = add nsw i64 %len, -1
-  %arrayidx2.i = getelementptr inbounds i8, ptr %first, i64 %sub.i31
+  %arrayidx2.i = getelementptr inbounds nuw i8, ptr %first, i64 %sub.i31
   %2 = load i8, ptr %arrayidx2.i, align 1
   %conv.i32 = zext i8 %0 to i32
   %conv3.i33 = zext i8 %1 to i32

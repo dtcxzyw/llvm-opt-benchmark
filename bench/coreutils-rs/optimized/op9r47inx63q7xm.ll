@@ -959,7 +959,7 @@ _ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.9555640969677938857.exit.
   switch i64 %63, label %.loopexit136 [
     i64 0, label %64
     i64 1, label %.thread.loopexit26.i
-    i64 2, label %.thread.loopexit36.i
+    i64 2, label %.thread.loopexit38.i
   ]
 
 64:                                               ; preds = %.split.us.i
@@ -971,7 +971,7 @@ _ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.9555640969677938857.exit.
   switch i64 %65, label %.loopexit136 [
     i64 0, label %.noexc20
     i64 1, label %.thread.loopexit26.i
-    i64 2, label %.thread.loopexit36.i
+    i64 2, label %.thread.loopexit38.i
   ]
 
 .noexc20:                                         ; preds = %.split.i
@@ -997,7 +997,7 @@ _ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.9555640969677938857.exit.
   switch i64 %76, label %.loopexit136 [
     i64 0, label %80
     i64 1, label %.thread.loopexit26.i
-    i64 2, label %.thread.loopexit36.i
+    i64 2, label %.thread.loopexit38.i
   ]
 
 "_ZN77_$LT$std..sys..pal..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h6e44c7c4099b6ff7E.exit.thread.i": ; preds = %70, %.noexc20
@@ -1025,7 +1025,7 @@ _ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.9555640969677938857.exit.
   call void @_ZN3std3sys3pal4unix5locks11futex_mutex5Mutex14lock_contended17hf70df39e402d52e1E(ptr noundef nonnull align 4 %82)
   br label %_ZN3std3sys3pal4unix5locks11futex_mutex5Mutex4lock17h985bdbb4640079dbE.llvm.9555640969677938857.exit
 
-.thread.loopexit36.i:                             ; preds = %.split.i, %.split.us.i, %75
+.thread.loopexit38.i:                             ; preds = %.split.i, %.split.us.i, %75
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.671)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
@@ -1035,7 +1035,7 @@ _ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.9555640969677938857.exit.
   %.sroa.18.0.in.i.i24 = extractvalue { i32, i1 } %87, 1
   br i1 %.sroa.18.0.in.i.i24, label %_ZN3std3sys3pal4unix5locks11futex_mutex5Mutex4lock17h985bdbb4640079dbE.llvm.9555640969677938857.exit26, label %88
 
-88:                                               ; preds = %.thread.loopexit36.i
+88:                                               ; preds = %.thread.loopexit38.i
   call void @_ZN3std3sys3pal4unix5locks11futex_mutex5Mutex14lock_contended17hf70df39e402d52e1E(ptr noundef nonnull align 4 %86)
   br label %_ZN3std3sys3pal4unix5locks11futex_mutex5Mutex4lock17h985bdbb4640079dbE.llvm.9555640969677938857.exit26
 
@@ -1238,7 +1238,7 @@ _ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.9555640969677938857.exit.
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #18
   unreachable
 
-_ZN3std3sys3pal4unix5locks11futex_mutex5Mutex4lock17h985bdbb4640079dbE.llvm.9555640969677938857.exit26: ; preds = %88, %.thread.loopexit36.i
+_ZN3std3sys3pal4unix5locks11futex_mutex5Mutex4lock17h985bdbb4640079dbE.llvm.9555640969677938857.exit26: ; preds = %88, %.thread.loopexit38.i
   %160 = call noundef i64 @_ZN4core4sync6atomic11atomic_load17hbbb682351badd959E.llvm.6180704580393161520(ptr noundef nonnull @_ZN3std9panicking11panic_count18GLOBAL_PANIC_COUNT17hc804604804a6cbf8E, i8 noundef 0)
   %161 = and i64 %160, 9223372036854775807
   %162 = icmp eq i64 %161, 0
@@ -2047,7 +2047,7 @@ _ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.9555640969677938857.exit.
   switch i64 %63, label %.loopexit [
     i64 0, label %64
     i64 1, label %.thread.loopexit26.i
-    i64 2, label %.thread.loopexit36.i
+    i64 2, label %.thread.loopexit38.i
   ]
 
 64:                                               ; preds = %.split.us.i
@@ -2059,7 +2059,7 @@ _ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.9555640969677938857.exit.
   switch i64 %65, label %.loopexit [
     i64 0, label %.noexc24
     i64 1, label %.thread.loopexit26.i
-    i64 2, label %.thread.loopexit36.i
+    i64 2, label %.thread.loopexit38.i
   ]
 
 .noexc24:                                         ; preds = %.split.i
@@ -2085,7 +2085,7 @@ _ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.9555640969677938857.exit.
   switch i64 %76, label %.loopexit [
     i64 0, label %80
     i64 1, label %.thread.loopexit26.i
-    i64 2, label %.thread.loopexit36.i
+    i64 2, label %.thread.loopexit38.i
   ]
 
 "_ZN77_$LT$std..sys..pal..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h6e44c7c4099b6ff7E.exit.thread.i": ; preds = %70, %.noexc24
@@ -2113,7 +2113,7 @@ _ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.9555640969677938857.exit.
   call void @_ZN3std3sys3pal4unix5locks11futex_mutex5Mutex14lock_contended17hf70df39e402d52e1E(ptr noundef nonnull align 4 %82)
   br label %_ZN3std3sys3pal4unix5locks11futex_mutex5Mutex4lock17h985bdbb4640079dbE.llvm.9555640969677938857.exit
 
-.thread.loopexit36.i:                             ; preds = %.split.i, %.split.us.i, %75
+.thread.loopexit38.i:                             ; preds = %.split.i, %.split.us.i, %75
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.688)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
@@ -2123,7 +2123,7 @@ _ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.9555640969677938857.exit.
   %.sroa.18.0.in.i.i28 = extractvalue { i32, i1 } %87, 1
   br i1 %.sroa.18.0.in.i.i28, label %_ZN3std3sys3pal4unix5locks11futex_mutex5Mutex4lock17h985bdbb4640079dbE.llvm.9555640969677938857.exit30, label %88
 
-88:                                               ; preds = %.thread.loopexit36.i
+88:                                               ; preds = %.thread.loopexit38.i
   call void @_ZN3std3sys3pal4unix5locks11futex_mutex5Mutex14lock_contended17hf70df39e402d52e1E(ptr noundef nonnull align 4 %86)
   br label %_ZN3std3sys3pal4unix5locks11futex_mutex5Mutex4lock17h985bdbb4640079dbE.llvm.9555640969677938857.exit30
 
@@ -2343,7 +2343,7 @@ _ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.9555640969677938857.exit.
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #18
   unreachable
 
-_ZN3std3sys3pal4unix5locks11futex_mutex5Mutex4lock17h985bdbb4640079dbE.llvm.9555640969677938857.exit30: ; preds = %88, %.thread.loopexit36.i
+_ZN3std3sys3pal4unix5locks11futex_mutex5Mutex4lock17h985bdbb4640079dbE.llvm.9555640969677938857.exit30: ; preds = %88, %.thread.loopexit38.i
   %163 = call noundef i64 @_ZN4core4sync6atomic11atomic_load17hbbb682351badd959E.llvm.6180704580393161520(ptr noundef nonnull @_ZN3std9panicking11panic_count18GLOBAL_PANIC_COUNT17hc804604804a6cbf8E, i8 noundef 0)
   %164 = and i64 %163, 9223372036854775807
   %165 = icmp eq i64 %164, 0

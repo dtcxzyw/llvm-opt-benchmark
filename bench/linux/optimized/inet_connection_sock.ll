@@ -3609,7 +3609,7 @@ define internal void @reqsk_timer_handler(ptr noundef %0) #0 align 16 {
   %64 = lshr i8 %63, 1
   %65 = zext nneg i8 %64 to i32
   %.not = icmp samesign ugt i32 %58, %65
-  br i1 %61, label %.thread9, label %66
+  br i1 %61, label %.thread16, label %66
 
 66:                                               ; preds = %.loopexit
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %28, i64 232
@@ -3619,23 +3619,23 @@ define internal void @reqsk_timer_handler(ptr noundef %0) #0 align 16 {
   br i1 %.not, label %69, label %68
 
 68:                                               ; preds = %66
-  br i1 %67, label %.critedge14, label %.thread11
+  br i1 %67, label %.critedge21, label %.thread18
 
-.thread11:                                        ; preds = %68
-  %.not13 = icmp ult i8 %64, %60
+.thread18:                                        ; preds = %68
+  %.not20 = icmp ult i8 %64, %60
   br label %70
 
 69:                                               ; preds = %66
-  br i1 %67, label %.thread9, label %70
+  br i1 %67, label %.thread16, label %70
 
-70:                                               ; preds = %.thread11, %69
-  %71 = phi i1 [ %.not13, %.thread11 ], [ true, %69 ]
+70:                                               ; preds = %.thread18, %69
+  %71 = phi i1 [ %.not20, %.thread18 ], [ true, %69 ]
   %72 = zext i8 %60 to i32
   %73 = add nsw i32 %72, -1
   %74 = icmp samesign ugt i32 %73, %65
-  br label %.thread9
+  br label %.thread16
 
-.thread9:                                         ; preds = %.loopexit, %70, %69
+.thread16:                                        ; preds = %.loopexit, %70, %69
   %75 = phi i1 [ true, %69 ], [ %71, %70 ], [ %.not, %.loopexit ]
   %76 = phi i1 [ false, %69 ], [ %74, %70 ], [ false, %.loopexit ]
   %77 = getelementptr inbounds nuw i8, ptr %28, i64 192
@@ -3645,7 +3645,7 @@ define internal void @reqsk_timer_handler(ptr noundef %0) #0 align 16 {
   tail call void %80(ptr noundef %28) #12
   br i1 %75, label %81, label %142
 
-81:                                               ; preds = %.thread9
+81:                                               ; preds = %.thread16
   br i1 %76, label %97, label %82
 
 82:                                               ; preds = %81
@@ -3736,7 +3736,7 @@ define internal void @reqsk_timer_handler(ptr noundef %0) #0 align 16 {
   tail call fastcc void @reqsk_put(ptr noundef %3)
   br label %.sink.split
 
-.critedge14:                                      ; preds = %68
+.critedge21:                                      ; preds = %68
   %138 = getelementptr inbounds nuw i8, ptr %28, i64 192
   %139 = load ptr, ptr %138, align 8
   %140 = getelementptr inbounds nuw i8, ptr %139, i64 56
@@ -3744,7 +3744,7 @@ define internal void @reqsk_timer_handler(ptr noundef %0) #0 align 16 {
   tail call void %141(ptr noundef %28) #12
   br label %142
 
-142:                                              ; preds = %.critedge14, %92, %.thread9
+142:                                              ; preds = %.critedge21, %92, %.thread16
   %143 = icmp eq ptr %27, null
   br i1 %143, label %.critedge, label %144
 

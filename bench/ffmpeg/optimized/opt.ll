@@ -333,7 +333,7 @@ define internal fastcc range(i32 -1414549496, 1) i32 @opt_set_init(ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @opt_set_array(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(address) %3, ptr noundef %4) unnamed_addr #1 {
+define internal range(i32 -2147483648, 1) i32 @opt_set_array(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(address) %3, ptr noundef %4) unnamed_addr #1 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 24
@@ -383,34 +383,34 @@ opt_array_sep.exit:                               ; preds = %5, %16
   br i1 %.not.i, label %.split.us.preheader, label %.split
 
 .split.us.preheader:                              ; preds = %27
-  %.not66.us163 = icmp eq ptr %3, null
-  br i1 %.not66.us163, label %.critedge, label %.lr.ph
+  %.not66.us176 = icmp eq ptr %3, null
+  br i1 %.not66.us176, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.split.us.preheader, %48
-  %.053.us165 = phi ptr [ %.3.us, %48 ], [ %3, %.split.us.preheader ]
-  %.085.us164 = phi i32 [ %45, %48 ], [ 0, %.split.us.preheader ]
+  %.053.us178 = phi ptr [ %.3.us, %48 ], [ %3, %.split.us.preheader ]
+  %.085.us177 = phi i32 [ %45, %48 ], [ 0, %.split.us.preheader ]
   %30 = phi ptr [ %56, %48 ], [ %28, %.split.us.preheader ]
   %31 = phi ptr [ %47, %48 ], [ null, %.split.us.preheader ]
-  %32 = load i8, ptr %.053.us165, align 1, !tbaa !29
+  %32 = load i8, ptr %.053.us178, align 1, !tbaa !29
   %.not67.us = icmp eq i8 %32, 0
-  br i1 %.not67.us, label %.critedge, label %.preheader143
+  br i1 %.not67.us, label %.critedge, label %.preheader156
 
-.preheader143:                                    ; preds = %.lr.ph, %._crit_edge116
+.preheader156:                                    ; preds = %.lr.ph, %._crit_edge116
   %.pre117 = phi i8 [ %.pre115, %._crit_edge116 ], [ %32, %.lr.ph ]
-  %.2.us = phi ptr [ %40, %._crit_edge116 ], [ %.053.us165, %.lr.ph ]
+  %.2.us = phi ptr [ %40, %._crit_edge116 ], [ %.053.us178, %.lr.ph ]
   %.0.us = phi ptr [ %41, %._crit_edge116 ], [ %30, %.lr.ph ]
   switch i8 %.pre117, label %36 [
     i8 0, label %.loopexit.us
     i8 92, label %33
   ]
 
-33:                                               ; preds = %.preheader143
+33:                                               ; preds = %.preheader156
   %34 = getelementptr inbounds nuw i8, ptr %.2.us, i64 1
   %35 = load i8, ptr %34, align 1, !tbaa !29
   %.not73.us = icmp eq i8 %35, 0
   br i1 %.not73.us, label %36, label %._crit_edge116
 
-36:                                               ; preds = %33, %.preheader143
+36:                                               ; preds = %33, %.preheader156
   %37 = sext i8 %.pre117 to i32
   %38 = icmp eq i32 %20, %37
   br i1 %38, label %42, label %._crit_edge116
@@ -422,17 +422,17 @@ opt_array_sep.exit:                               ; preds = %5, %16
   %40 = getelementptr inbounds nuw i8, ptr %.4.us, i64 1
   %41 = getelementptr inbounds nuw i8, ptr %.0.us, i64 1
   %.pre115 = load i8, ptr %40, align 1, !tbaa !29
-  br label %.preheader143, !llvm.loop !34
+  br label %.preheader156, !llvm.loop !34
 
 42:                                               ; preds = %36
   %43 = getelementptr inbounds nuw i8, ptr %.2.us, i64 1
   br label %.loopexit.us
 
-.loopexit.us:                                     ; preds = %.preheader143, %42
-  %.3.us = phi ptr [ %43, %42 ], [ %.2.us, %.preheader143 ]
+.loopexit.us:                                     ; preds = %.preheader156, %42
+  %.3.us = phi ptr [ %43, %42 ], [ %.2.us, %.preheader156 ]
   store i8 0, ptr %.0.us, align 1, !tbaa !29
   %44 = load ptr, ptr %7, align 8, !tbaa !19
-  %45 = add i32 %.085.us164, 1
+  %45 = add i32 %.085.us177, 1
   %46 = zext i32 %45 to i64
   %47 = tail call ptr @av_realloc_array(ptr noundef %44, i64 noundef %46, i64 noundef %15) #18
   %.not74.us = icmp eq ptr %47, null
@@ -441,7 +441,7 @@ opt_array_sep.exit:                               ; preds = %5, %16
 48:                                               ; preds = %.loopexit.us
   store ptr %47, ptr %7, align 8, !tbaa !19
   %.val76.us = load i32, ptr %10, align 4, !tbaa !18
-  %49 = zext i32 %.085.us164 to i64
+  %49 = zext i32 %.085.us177 to i64
   %50 = and i32 %.val76.us, -65537
   %51 = zext i32 %50 to i64
   %52 = getelementptr inbounds nuw [21 x %struct.anon], ptr @opt_type_desc, i64 0, i64 %51
@@ -540,7 +540,7 @@ opt_array_sep.exit:                               ; preds = %5, %16
 
 .critedge:                                        ; preds = %61, %.split, %.lr.ph, %.split.us.preheader
   %93 = phi ptr [ null, %.split.us.preheader ], [ %31, %.lr.ph ], [ %59, %.split ], [ %59, %61 ]
-  %.us-phi = phi i32 [ 0, %.split.us.preheader ], [ %.085.us164, %.lr.ph ], [ %.085, %.split ], [ %.085, %61 ]
+  %.us-phi = phi i32 [ 0, %.split.us.preheader ], [ %.085.us177, %.lr.ph ], [ %.085, %.split ], [ %.085, %61 ]
   call void @av_freep(ptr noundef nonnull %6) #18
   %94 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call fastcc void @opt_free_array(ptr noundef nonnull %2, ptr noundef %4, ptr noundef nonnull %94)
@@ -564,17 +564,17 @@ opt_array_sep.exit:                               ; preds = %5, %16
 
 .thread:                                          ; preds = %.loopexit, %82, %48, %.loopexit.us, %99
   %102 = phi ptr [ %93, %99 ], [ %44, %.loopexit.us ], [ %47, %48 ], [ %78, %.loopexit ], [ %81, %82 ]
-  %.08598 = phi i32 [ %.us-phi, %99 ], [ %.085.us164, %.loopexit.us ], [ %.085.us164, %48 ], [ %.085, %82 ], [ %.085, %.loopexit ]
+  %.08598 = phi i32 [ %.us-phi, %99 ], [ %.085.us177, %.loopexit.us ], [ %.085.us177, %48 ], [ %.085, %82 ], [ %.085, %.loopexit ]
   %.1 = phi i32 [ -22, %99 ], [ -12, %.loopexit.us ], [ %57, %48 ], [ -12, %.loopexit ], [ %91, %82 ]
   call void @av_freep(ptr noundef nonnull %6) #18
   %.not.i77 = icmp eq i32 %.08598, 0
   br i1 %.not.i77, label %opt_free_array.exit, label %.lr.ph.i.preheader
 
 .lr.ph.i.preheader:                               ; preds = %.thread.thread, %.thread
-  %.1122 = phi i32 [ -22, %.thread.thread ], [ %.1, %.thread ]
-  %.08598121 = phi i32 [ %.085, %.thread.thread ], [ %.08598, %.thread ]
+  %.1135 = phi i32 [ -22, %.thread.thread ], [ %.1, %.thread ]
+  %.08598134 = phi i32 [ %.085, %.thread.thread ], [ %.08598, %.thread ]
   %103 = phi ptr [ %59, %.thread.thread ], [ %102, %.thread ]
-  %104 = zext i32 %.08598121 to i64
+  %104 = zext i32 %.08598134 to i64
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %opt_free_elem.exit.i
@@ -611,12 +611,12 @@ opt_free_elem.exit.i:                             ; preds = %114, %113, %112, %.
   br i1 %exitcond.not, label %opt_free_array.exit, label %.lr.ph.i, !llvm.loop !38
 
 opt_free_array.exit:                              ; preds = %opt_free_elem.exit.i, %.thread
-  %.1123 = phi i32 [ %.1, %.thread ], [ %.1122, %opt_free_elem.exit.i ]
+  %.1136 = phi i32 [ %.1, %.thread ], [ %.1135, %opt_free_elem.exit.i ]
   call void @av_freep(ptr noundef nonnull %7) #18
   br label %115
 
 115:                                              ; preds = %23, %opt_free_array.exit, %101
-  %.052 = phi i32 [ %.1123, %opt_free_array.exit ], [ 0, %101 ], [ -12, %23 ]
+  %.052 = phi i32 [ %.1136, %opt_free_array.exit ], [ 0, %101 ], [ -12, %23 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.052

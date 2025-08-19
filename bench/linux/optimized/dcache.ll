@@ -317,18 +317,18 @@ define internal fastcc void @___d_drop(ptr noundef readonly captures(address) %0
   %23 = icmp ult i8 %22, 2
   tail call void @llvm.assume(i1 %23)
   %24 = icmp eq i8 %22, 0
-  br i1 %24, label %.preheader2, label %25, !prof !6
+  br i1 %24, label %.preheader3, label %25, !prof !6
 
 25:                                               ; preds = %.preheader
   %26 = tail call i64 @llvm.read_register.i64(metadata !0)
   %27 = tail call i64 asm sideeffect "call __SCT__preempt_schedule", "={rsp},{rsp},~{dirflag},~{fpsr},~{flags}"(i64 %26) #17, !srcloc !17
   tail call void @llvm.write_register.i64(metadata !0, i64 %27)
-  br label %.preheader2
+  br label %.preheader3
 
-.preheader2:                                      ; preds = %25, %.preheader
+.preheader3:                                      ; preds = %25, %.preheader
   br label %28
 
-28:                                               ; preds = %.preheader2, %28
+28:                                               ; preds = %.preheader3, %28
   tail call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !18
   %29 = load volatile i64, ptr %18, align 8
   %30 = and i64 %29, 1
@@ -1801,326 +1801,325 @@ define internal fastcc void @d_walk(ptr noundef %0, ptr noundef %1, ptr noundef 
 5:                                                ; preds = %.loopexit11.split.us.split.us.split.us, %3
   %6 = phi i1 [ true, %3 ], [ false, %.loopexit11.split.us.split.us.split.us ]
   %7 = phi i32 [ 0, %3 ], [ 1, %.loopexit11.split.us.split.us.split.us ]
-  %8 = phi i8 [ 1, %3 ], [ %155, %.loopexit11.split.us.split.us.split.us ]
-  br i1 %6, label %9, label %18
+  br i1 %6, label %8, label %17
 
-9:                                                ; preds = %5
-  %10 = load volatile i32, ptr @rename_lock, align 64
-  %11 = and i32 %10, 1
-  %12 = icmp eq i32 %11, 0
-  br i1 %12, label %.loopexit17, label %.preheader16
+8:                                                ; preds = %5
+  %9 = load volatile i32, ptr @rename_lock, align 64
+  %10 = and i32 %9, 1
+  %11 = icmp eq i32 %10, 0
+  br i1 %11, label %.loopexit17, label %.preheader16
 
-.preheader16:                                     ; preds = %9, %.preheader16
+.preheader16:                                     ; preds = %8, %.preheader16
   tail call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !18
-  %13 = load volatile i32, ptr @rename_lock, align 64
-  %14 = and i32 %13, 1
-  %15 = icmp eq i32 %14, 0
-  br i1 %15, label %.loopexit17, label %.preheader16, !llvm.loop !81
+  %12 = load volatile i32, ptr @rename_lock, align 64
+  %13 = and i32 %12, 1
+  %14 = icmp eq i32 %13, 0
+  br i1 %14, label %.loopexit17, label %.preheader16, !llvm.loop !81
 
-.loopexit17:                                      ; preds = %.preheader16, %9
-  %16 = phi i32 [ %10, %9 ], [ %13, %.preheader16 ]
+.loopexit17:                                      ; preds = %.preheader16, %8
+  %15 = phi i32 [ %9, %8 ], [ %12, %.preheader16 ]
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !82
-  %17 = freeze i32 %16
-  br label %19
+  %16 = freeze i32 %15
+  br label %18
 
-18:                                               ; preds = %5
+17:                                               ; preds = %5
   tail call void @_raw_spin_lock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @rename_lock, i64 4)) #17
-  br label %19
+  br label %18
 
-19:                                               ; preds = %18, %.loopexit17
-  %.fr = phi i32 [ %17, %.loopexit17 ], [ %7, %18 ]
+18:                                               ; preds = %17, %.loopexit17
+  %.fr = phi i32 [ %16, %.loopexit17 ], [ %7, %17 ]
   tail call void @_raw_spin_lock(ptr noundef nonnull %4) #17
-  %20 = tail call i32 %2(ptr noundef %1, ptr noundef %0) #17
-  switch i32 %20, label %22 [
-    i32 2, label %21
+  %19 = tail call i32 %2(ptr noundef %1, ptr noundef %0) #17
+  switch i32 %19, label %21 [
+    i32 2, label %20
     i32 1, label %.loopexit18.loopexit
     i32 3, label %.loopexit18.loopexit
   ]
 
-21:                                               ; preds = %19
-  br label %22
+20:                                               ; preds = %18
+  br label %21
 
-22:                                               ; preds = %21, %19
-  %23 = phi i8 [ %8, %19 ], [ 0, %21 ]
-  %24 = and i32 %.fr, 1
-  %25 = icmp eq i32 %24, 0
-  br i1 %25, label %.split50.us.us, label %.split50
+21:                                               ; preds = %20, %18
+  %22 = phi i8 [ 1, %18 ], [ 0, %20 ]
+  %23 = and i32 %.fr, 1
+  %24 = icmp eq i32 %23, 0
+  br i1 %24, label %.split50.us.us, label %.split50
 
-.split50.us.us:                                   ; preds = %22, %.split56.us.us
-  %26 = phi i8 [ %46, %.split56.us.us ], [ %23, %22 ]
-  %27 = phi ptr [ %36, %.split56.us.us ], [ %0, %22 ]
-  %28 = getelementptr inbounds nuw i8, ptr %27, i64 168
-  %29 = load ptr, ptr %28, align 8
-  %30 = icmp eq ptr %29, null
-  %31 = getelementptr i8, ptr %29, i64 -152
-  %spec.select = select i1 %30, ptr null, ptr %31
+.split50.us.us:                                   ; preds = %21, %.split56.us.us
+  %25 = phi i8 [ %45, %.split56.us.us ], [ %22, %21 ]
+  %26 = phi ptr [ %35, %.split56.us.us ], [ %0, %21 ]
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 168
+  %28 = load ptr, ptr %27, align 8
+  %29 = icmp eq ptr %28, null
+  %30 = getelementptr i8, ptr %28, i64 -152
+  %spec.select = select i1 %29, ptr null, ptr %30
   br label %select.unfold.us.us
 
 select.unfold.us.us:                              ; preds = %.split50.us.us, %.split.us.us.us
-  %32 = phi i8 [ %60, %.split.us.us.us ], [ %26, %.split50.us.us ]
-  %33 = phi ptr [ %74, %.split.us.us.us ], [ %spec.select, %.split50.us.us ]
-  %34 = phi ptr [ %64, %.split.us.us.us ], [ %27, %.split50.us.us ]
-  %35 = icmp eq ptr %33, null
-  br i1 %35, label %.loopexit14.us.us, label %.preheader13.us.us
+  %31 = phi i8 [ %59, %.split.us.us.us ], [ %25, %.split50.us.us ]
+  %32 = phi ptr [ %73, %.split.us.us.us ], [ %spec.select, %.split50.us.us ]
+  %33 = phi ptr [ %63, %.split.us.us.us ], [ %26, %.split50.us.us ]
+  %34 = icmp eq ptr %32, null
+  br i1 %34, label %.loopexit14.us.us, label %.preheader13.us.us
 
-.preheader13.us.us:                               ; preds = %select.unfold.us.us, %52
-  %36 = phi ptr [ %57, %52 ], [ %33, %select.unfold.us.us ]
-  %37 = phi i8 [ %53, %52 ], [ %32, %select.unfold.us.us ]
-  %38 = load i32, ptr %36, align 8
-  %39 = and i32 %38, 536870912
-  %40 = icmp eq i32 %39, 0
-  br i1 %40, label %41, label %52, !prof !6
+.preheader13.us.us:                               ; preds = %select.unfold.us.us, %51
+  %35 = phi ptr [ %56, %51 ], [ %32, %select.unfold.us.us ]
+  %36 = phi i8 [ %52, %51 ], [ %31, %select.unfold.us.us ]
+  %37 = load i32, ptr %35, align 8
+  %38 = and i32 %37, 536870912
+  %39 = icmp eq i32 %38, 0
+  br i1 %39, label %40, label %51, !prof !6
 
-41:                                               ; preds = %.preheader13.us.us
-  %42 = getelementptr inbounds nuw i8, ptr %36, i64 96
-  tail call void @_raw_spin_lock(ptr noundef nonnull %42) #17
-  %43 = tail call i32 %2(ptr noundef %1, ptr noundef nonnull %36) #17
-  switch i32 %43, label %45 [
-    i32 3, label %50
+40:                                               ; preds = %.preheader13.us.us
+  %41 = getelementptr inbounds nuw i8, ptr %35, i64 96
+  tail call void @_raw_spin_lock(ptr noundef nonnull %41) #17
+  %42 = tail call i32 %2(ptr noundef %1, ptr noundef nonnull %35) #17
+  switch i32 %42, label %44 [
+    i32 3, label %49
     i32 1, label %.split52.us
-    i32 2, label %44
+    i32 2, label %43
   ]
 
-44:                                               ; preds = %41
-  br label %45
+43:                                               ; preds = %40
+  br label %44
 
-45:                                               ; preds = %44, %41
-  %46 = phi i8 [ %37, %41 ], [ 0, %44 ]
-  %47 = getelementptr inbounds nuw i8, ptr %36, i64 168
-  %48 = load volatile ptr, ptr %47, align 8
-  %49 = icmp eq ptr %48, null
-  br i1 %49, label %50, label %.split56.us.us
+44:                                               ; preds = %43, %40
+  %45 = phi i8 [ %36, %40 ], [ 0, %43 ]
+  %46 = getelementptr inbounds nuw i8, ptr %35, i64 168
+  %47 = load volatile ptr, ptr %46, align 8
+  %48 = icmp eq ptr %47, null
+  br i1 %48, label %49, label %.split56.us.us
 
-50:                                               ; preds = %45, %41
-  %51 = phi i8 [ %37, %41 ], [ %46, %45 ]
-  tail call void @_raw_spin_unlock(ptr noundef nonnull %42) #17
-  br label %52
+49:                                               ; preds = %44, %40
+  %50 = phi i8 [ %36, %40 ], [ %45, %44 ]
+  tail call void @_raw_spin_unlock(ptr noundef nonnull %41) #17
+  br label %51
 
-52:                                               ; preds = %50, %.preheader13.us.us
-  %53 = phi i8 [ %37, %.preheader13.us.us ], [ %51, %50 ]
-  %54 = getelementptr inbounds nuw i8, ptr %36, i64 152
-  %55 = load ptr, ptr %54, align 8
-  %56 = icmp eq ptr %55, null
-  %57 = getelementptr i8, ptr %55, i64 -152
-  %58 = icmp eq ptr %57, null
-  %59 = or i1 %56, %58
-  br i1 %59, label %.loopexit14.us.us, label %.preheader13.us.us, !llvm.loop !83
+51:                                               ; preds = %49, %.preheader13.us.us
+  %52 = phi i8 [ %36, %.preheader13.us.us ], [ %50, %49 ]
+  %53 = getelementptr inbounds nuw i8, ptr %35, i64 152
+  %54 = load ptr, ptr %53, align 8
+  %55 = icmp eq ptr %54, null
+  %56 = getelementptr i8, ptr %54, i64 -152
+  %57 = icmp eq ptr %56, null
+  %58 = or i1 %55, %57
+  br i1 %58, label %.loopexit14.us.us, label %.preheader13.us.us, !llvm.loop !83
 
-.loopexit14.us.us:                                ; preds = %52, %select.unfold.us.us
-  %60 = phi i8 [ %32, %select.unfold.us.us ], [ %53, %52 ]
+.loopexit14.us.us:                                ; preds = %51, %select.unfold.us.us
+  %59 = phi i8 [ %31, %select.unfold.us.us ], [ %52, %51 ]
   tail call void @__rcu_read_lock() #17
-  %61 = icmp eq ptr %34, %0
-  br i1 %61, label %.loopexit12, label %.preheader10.us.us
+  %60 = icmp eq ptr %33, %0
+  br i1 %60, label %.loopexit12, label %.preheader10.us.us
 
 .preheader10.us.us:                               ; preds = %.loopexit14.us.us, %.loopexit.us.us.us
-  %62 = phi ptr [ %64, %.loopexit.us.us.us ], [ %34, %.loopexit14.us.us ]
-  %63 = getelementptr inbounds nuw i8, ptr %62, i64 24
-  %64 = load ptr, ptr %63, align 8
-  %65 = getelementptr inbounds nuw i8, ptr %62, i64 96
-  tail call void @_raw_spin_unlock(ptr noundef nonnull %65) #17
-  %66 = getelementptr inbounds nuw i8, ptr %64, i64 96
-  tail call void @_raw_spin_lock(ptr noundef nonnull %66) #17
+  %61 = phi ptr [ %63, %.loopexit.us.us.us ], [ %33, %.loopexit14.us.us ]
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 24
+  %63 = load ptr, ptr %62, align 8
+  %64 = getelementptr inbounds nuw i8, ptr %61, i64 96
+  tail call void @_raw_spin_unlock(ptr noundef nonnull %64) #17
+  %65 = getelementptr inbounds nuw i8, ptr %63, i64 96
+  tail call void @_raw_spin_lock(ptr noundef nonnull %65) #17
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !55
-  %67 = load volatile i32, ptr @rename_lock, align 64
-  %.not.us.us.us = icmp eq i32 %67, %.fr
+  %66 = load volatile i32, ptr @rename_lock, align 64
+  %.not.us.us.us = icmp eq i32 %66, %.fr
   br i1 %.not.us.us.us, label %.critedge.us.us.us, label %.loopexit11.split.us.split.us.split.us
 
 .critedge.us.us.us:                               ; preds = %.preheader10.us.us
-  %68 = getelementptr inbounds nuw i8, ptr %62, i64 152
-  %69 = load ptr, ptr %68, align 8
-  %70 = icmp eq ptr %69, null
-  %71 = getelementptr i8, ptr %69, i64 -152
-  %72 = icmp eq ptr %71, null
-  %73 = or i1 %70, %72
-  br i1 %73, label %.loopexit.us.us.us, label %.preheader.us.us.us
+  %67 = getelementptr inbounds nuw i8, ptr %61, i64 152
+  %68 = load ptr, ptr %67, align 8
+  %69 = icmp eq ptr %68, null
+  %70 = getelementptr i8, ptr %68, i64 -152
+  %71 = icmp eq ptr %70, null
+  %72 = or i1 %69, %71
+  br i1 %72, label %.loopexit.us.us.us, label %.preheader.us.us.us
 
-.preheader.us.us.us:                              ; preds = %.critedge.us.us.us, %78
-  %74 = phi ptr [ %82, %78 ], [ %71, %.critedge.us.us.us ]
-  %75 = load i32, ptr %74, align 8
-  %76 = and i32 %75, 32768
-  %77 = icmp eq i32 %76, 0
-  br i1 %77, label %.split.us.us.us, label %78, !prof !6
+.preheader.us.us.us:                              ; preds = %.critedge.us.us.us, %77
+  %73 = phi ptr [ %81, %77 ], [ %70, %.critedge.us.us.us ]
+  %74 = load i32, ptr %73, align 8
+  %75 = and i32 %74, 32768
+  %76 = icmp eq i32 %75, 0
+  br i1 %76, label %.split.us.us.us, label %77, !prof !6
 
-78:                                               ; preds = %.preheader.us.us.us
-  %79 = getelementptr inbounds nuw i8, ptr %74, i64 152
-  %80 = load ptr, ptr %79, align 8
-  %81 = icmp eq ptr %80, null
-  %82 = getelementptr i8, ptr %80, i64 -152
-  %83 = icmp eq ptr %82, null
-  %84 = or i1 %81, %83
-  br i1 %84, label %.loopexit.us.us.us, label %.preheader.us.us.us, !llvm.loop !84
+77:                                               ; preds = %.preheader.us.us.us
+  %78 = getelementptr inbounds nuw i8, ptr %73, i64 152
+  %79 = load ptr, ptr %78, align 8
+  %80 = icmp eq ptr %79, null
+  %81 = getelementptr i8, ptr %79, i64 -152
+  %82 = icmp eq ptr %81, null
+  %83 = or i1 %80, %82
+  br i1 %83, label %.loopexit.us.us.us, label %.preheader.us.us.us, !llvm.loop !84
 
-.loopexit.us.us.us:                               ; preds = %78, %.critedge.us.us.us
-  %85 = icmp eq ptr %64, %0
-  br i1 %85, label %.loopexit12, label %.preheader10.us.us
+.loopexit.us.us.us:                               ; preds = %77, %.critedge.us.us.us
+  %84 = icmp eq ptr %63, %0
+  br i1 %84, label %.loopexit12, label %.preheader10.us.us
 
 .split.us.us.us:                                  ; preds = %.preheader.us.us.us
   tail call void @__rcu_read_unlock() #17
   br label %select.unfold.us.us
 
-.split56.us.us:                                   ; preds = %45
-  %86 = getelementptr inbounds nuw i8, ptr %34, i64 96
-  tail call void @_raw_spin_unlock(ptr noundef nonnull %86) #17
+.split56.us.us:                                   ; preds = %44
+  %85 = getelementptr inbounds nuw i8, ptr %33, i64 96
+  tail call void @_raw_spin_unlock(ptr noundef nonnull %85) #17
   br label %.split50.us.us
 
-.split50:                                         ; preds = %22, %.split56
-  %87 = phi i8 [ %107, %.split56 ], [ %23, %22 ]
-  %88 = phi ptr [ %97, %.split56 ], [ %0, %22 ]
-  %89 = getelementptr inbounds nuw i8, ptr %88, i64 168
-  %90 = load ptr, ptr %89, align 8
-  %91 = icmp eq ptr %90, null
-  %92 = getelementptr i8, ptr %90, i64 -152
-  %spec.select178 = select i1 %91, ptr null, ptr %92
+.split50:                                         ; preds = %21, %.split56
+  %86 = phi i8 [ %106, %.split56 ], [ %22, %21 ]
+  %87 = phi ptr [ %96, %.split56 ], [ %0, %21 ]
+  %88 = getelementptr inbounds nuw i8, ptr %87, i64 168
+  %89 = load ptr, ptr %88, align 8
+  %90 = icmp eq ptr %89, null
+  %91 = getelementptr i8, ptr %89, i64 -152
+  %spec.select195 = select i1 %90, ptr null, ptr %91
   br label %select.unfold
 
 select.unfold:                                    ; preds = %.split50, %.split
-  %93 = phi i8 [ %122, %.split ], [ %87, %.split50 ]
-  %94 = phi ptr [ %136, %.split ], [ %spec.select178, %.split50 ]
-  %95 = phi ptr [ %127, %.split ], [ %88, %.split50 ]
-  %96 = icmp eq ptr %94, null
-  br i1 %96, label %.loopexit14, label %.preheader13
+  %92 = phi i8 [ %121, %.split ], [ %86, %.split50 ]
+  %93 = phi ptr [ %135, %.split ], [ %spec.select195, %.split50 ]
+  %94 = phi ptr [ %126, %.split ], [ %87, %.split50 ]
+  %95 = icmp eq ptr %93, null
+  br i1 %95, label %.loopexit14, label %.preheader13
 
-.preheader13:                                     ; preds = %select.unfold, %114
-  %97 = phi ptr [ %119, %114 ], [ %94, %select.unfold ]
-  %98 = phi i8 [ %115, %114 ], [ %93, %select.unfold ]
-  %99 = load i32, ptr %97, align 8
-  %100 = and i32 %99, 536870912
-  %101 = icmp eq i32 %100, 0
-  br i1 %101, label %102, label %114, !prof !6
+.preheader13:                                     ; preds = %select.unfold, %113
+  %96 = phi ptr [ %118, %113 ], [ %93, %select.unfold ]
+  %97 = phi i8 [ %114, %113 ], [ %92, %select.unfold ]
+  %98 = load i32, ptr %96, align 8
+  %99 = and i32 %98, 536870912
+  %100 = icmp eq i32 %99, 0
+  br i1 %100, label %101, label %113, !prof !6
 
-102:                                              ; preds = %.preheader13
-  %103 = getelementptr inbounds nuw i8, ptr %97, i64 96
-  tail call void @_raw_spin_lock(ptr noundef nonnull %103) #17
-  %104 = tail call i32 %2(ptr noundef %1, ptr noundef nonnull %97) #17
-  switch i32 %104, label %106 [
-    i32 3, label %112
+101:                                              ; preds = %.preheader13
+  %102 = getelementptr inbounds nuw i8, ptr %96, i64 96
+  tail call void @_raw_spin_lock(ptr noundef nonnull %102) #17
+  %103 = tail call i32 %2(ptr noundef %1, ptr noundef nonnull %96) #17
+  switch i32 %103, label %105 [
+    i32 3, label %111
     i32 1, label %.split52.us
-    i32 2, label %105
+    i32 2, label %104
   ]
 
-.split52.us:                                      ; preds = %102, %41
-  %.us-phi53 = phi ptr [ %34, %41 ], [ %95, %102 ]
-  %.us-phi54 = phi ptr [ %42, %41 ], [ %103, %102 ]
+.split52.us:                                      ; preds = %101, %40
+  %.us-phi53 = phi ptr [ %33, %40 ], [ %94, %101 ]
+  %.us-phi54 = phi ptr [ %41, %40 ], [ %102, %101 ]
   tail call void @_raw_spin_unlock(ptr noundef nonnull %.us-phi54) #17
   br label %.loopexit18
 
-105:                                              ; preds = %102
-  br label %106
+104:                                              ; preds = %101
+  br label %105
 
-106:                                              ; preds = %105, %102
-  %107 = phi i8 [ %98, %102 ], [ 0, %105 ]
-  %108 = getelementptr inbounds nuw i8, ptr %97, i64 168
-  %109 = load volatile ptr, ptr %108, align 8
-  %110 = icmp eq ptr %109, null
-  br i1 %110, label %112, label %.split56
+105:                                              ; preds = %104, %101
+  %106 = phi i8 [ %97, %101 ], [ 0, %104 ]
+  %107 = getelementptr inbounds nuw i8, ptr %96, i64 168
+  %108 = load volatile ptr, ptr %107, align 8
+  %109 = icmp eq ptr %108, null
+  br i1 %109, label %111, label %.split56
 
-.split56:                                         ; preds = %106
-  %111 = getelementptr inbounds nuw i8, ptr %95, i64 96
-  tail call void @_raw_spin_unlock(ptr noundef nonnull %111) #17
+.split56:                                         ; preds = %105
+  %110 = getelementptr inbounds nuw i8, ptr %94, i64 96
+  tail call void @_raw_spin_unlock(ptr noundef nonnull %110) #17
   br label %.split50
 
-112:                                              ; preds = %106, %102
-  %113 = phi i8 [ %98, %102 ], [ %107, %106 ]
-  tail call void @_raw_spin_unlock(ptr noundef nonnull %103) #17
-  br label %114
+111:                                              ; preds = %105, %101
+  %112 = phi i8 [ %97, %101 ], [ %106, %105 ]
+  tail call void @_raw_spin_unlock(ptr noundef nonnull %102) #17
+  br label %113
 
-114:                                              ; preds = %112, %.preheader13
-  %115 = phi i8 [ %98, %.preheader13 ], [ %113, %112 ]
-  %116 = getelementptr inbounds nuw i8, ptr %97, i64 152
-  %117 = load ptr, ptr %116, align 8
-  %118 = icmp eq ptr %117, null
-  %119 = getelementptr i8, ptr %117, i64 -152
-  %120 = icmp eq ptr %119, null
-  %121 = or i1 %118, %120
-  br i1 %121, label %.loopexit14, label %.preheader13, !llvm.loop !83
+113:                                              ; preds = %111, %.preheader13
+  %114 = phi i8 [ %97, %.preheader13 ], [ %112, %111 ]
+  %115 = getelementptr inbounds nuw i8, ptr %96, i64 152
+  %116 = load ptr, ptr %115, align 8
+  %117 = icmp eq ptr %116, null
+  %118 = getelementptr i8, ptr %116, i64 -152
+  %119 = icmp eq ptr %118, null
+  %120 = or i1 %117, %119
+  br i1 %120, label %.loopexit14, label %.preheader13, !llvm.loop !83
 
-.loopexit14:                                      ; preds = %114, %select.unfold
-  %122 = phi i8 [ %93, %select.unfold ], [ %115, %114 ]
+.loopexit14:                                      ; preds = %113, %select.unfold
+  %121 = phi i8 [ %92, %select.unfold ], [ %114, %113 ]
   tail call void @__rcu_read_lock() #17
-  %123 = icmp eq ptr %95, %0
+  %122 = icmp eq ptr %94, %0
+  br i1 %122, label %.loopexit12, label %.critedge
+
+.loopexit:                                        ; preds = %139, %.critedge
+  %123 = icmp eq ptr %126, %0
   br i1 %123, label %.loopexit12, label %.critedge
 
-.loopexit:                                        ; preds = %140, %.critedge
-  %124 = icmp eq ptr %127, %0
-  br i1 %124, label %.loopexit12, label %.critedge
-
 .critedge:                                        ; preds = %.loopexit14, %.loopexit
-  %125 = phi ptr [ %127, %.loopexit ], [ %95, %.loopexit14 ]
-  %126 = getelementptr inbounds nuw i8, ptr %125, i64 24
-  %127 = load ptr, ptr %126, align 8
-  %128 = getelementptr inbounds nuw i8, ptr %125, i64 96
-  tail call void @_raw_spin_unlock(ptr noundef nonnull %128) #17
-  %129 = getelementptr inbounds nuw i8, ptr %127, i64 96
-  tail call void @_raw_spin_lock(ptr noundef nonnull %129) #17
-  %130 = getelementptr inbounds nuw i8, ptr %125, i64 152
-  %131 = load ptr, ptr %130, align 8
-  %132 = icmp eq ptr %131, null
-  %133 = getelementptr i8, ptr %131, i64 -152
-  %134 = icmp eq ptr %133, null
-  %135 = or i1 %132, %134
-  br i1 %135, label %.loopexit, label %.preheader
+  %124 = phi ptr [ %126, %.loopexit ], [ %94, %.loopexit14 ]
+  %125 = getelementptr inbounds nuw i8, ptr %124, i64 24
+  %126 = load ptr, ptr %125, align 8
+  %127 = getelementptr inbounds nuw i8, ptr %124, i64 96
+  tail call void @_raw_spin_unlock(ptr noundef nonnull %127) #17
+  %128 = getelementptr inbounds nuw i8, ptr %126, i64 96
+  tail call void @_raw_spin_lock(ptr noundef nonnull %128) #17
+  %129 = getelementptr inbounds nuw i8, ptr %124, i64 152
+  %130 = load ptr, ptr %129, align 8
+  %131 = icmp eq ptr %130, null
+  %132 = getelementptr i8, ptr %130, i64 -152
+  %133 = icmp eq ptr %132, null
+  %134 = or i1 %131, %133
+  br i1 %134, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %.critedge, %140
-  %136 = phi ptr [ %144, %140 ], [ %133, %.critedge ]
-  %137 = load i32, ptr %136, align 8
-  %138 = and i32 %137, 32768
-  %139 = icmp eq i32 %138, 0
-  br i1 %139, label %.split, label %140, !prof !6
+.preheader:                                       ; preds = %.critedge, %139
+  %135 = phi ptr [ %143, %139 ], [ %132, %.critedge ]
+  %136 = load i32, ptr %135, align 8
+  %137 = and i32 %136, 32768
+  %138 = icmp eq i32 %137, 0
+  br i1 %138, label %.split, label %139, !prof !6
 
 .split:                                           ; preds = %.preheader
   tail call void @__rcu_read_unlock() #17
   br label %select.unfold
 
-140:                                              ; preds = %.preheader
-  %141 = getelementptr inbounds nuw i8, ptr %136, i64 152
-  %142 = load ptr, ptr %141, align 8
-  %143 = icmp eq ptr %142, null
-  %144 = getelementptr i8, ptr %142, i64 -152
-  %145 = icmp eq ptr %144, null
-  %146 = or i1 %143, %145
-  br i1 %146, label %.loopexit, label %.preheader, !llvm.loop !84
+139:                                              ; preds = %.preheader
+  %140 = getelementptr inbounds nuw i8, ptr %135, i64 152
+  %141 = load ptr, ptr %140, align 8
+  %142 = icmp eq ptr %141, null
+  %143 = getelementptr i8, ptr %141, i64 -152
+  %144 = icmp eq ptr %143, null
+  %145 = or i1 %142, %144
+  br i1 %145, label %.loopexit, label %.preheader, !llvm.loop !84
 
 .loopexit12:                                      ; preds = %.loopexit14, %.loopexit14.us.us, %.loopexit, %.loopexit.us.us.us
-  %147 = phi i8 [ %60, %.loopexit.us.us.us ], [ %122, %.loopexit ], [ %60, %.loopexit14.us.us ], [ %122, %.loopexit14 ]
-  %148 = phi ptr [ %64, %.loopexit.us.us.us ], [ %127, %.loopexit ], [ %34, %.loopexit14.us.us ], [ %95, %.loopexit14 ]
-  br i1 %25, label %149, label %.critedge9
+  %146 = phi i8 [ %59, %.loopexit.us.us.us ], [ %121, %.loopexit ], [ %59, %.loopexit14.us.us ], [ %121, %.loopexit14 ]
+  %147 = phi ptr [ %63, %.loopexit.us.us.us ], [ %126, %.loopexit ], [ %33, %.loopexit14.us.us ], [ %94, %.loopexit14 ]
+  br i1 %24, label %148, label %.critedge9
 
-149:                                              ; preds = %.loopexit12
+148:                                              ; preds = %.loopexit12
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !55
-  %150 = load volatile i32, ptr @rename_lock, align 64
-  %.not7 = icmp eq i32 %150, %.fr
+  %149 = load volatile i32, ptr @rename_lock, align 64
+  %.not7 = icmp eq i32 %149, %.fr
   br i1 %.not7, label %.critedge9, label %.loopexit11.split.us.split.us.split.us
 
-.critedge9:                                       ; preds = %.loopexit12, %149
+.critedge9:                                       ; preds = %.loopexit12, %148
   tail call void @__rcu_read_unlock() #17
   br label %.loopexit18
 
-.loopexit18.loopexit:                             ; preds = %19, %19
+.loopexit18.loopexit:                             ; preds = %18, %18
   %.pre = and i32 %.fr, 1
   br label %.loopexit18
 
 .loopexit18:                                      ; preds = %.loopexit18.loopexit, %.critedge9, %.split52.us
-  %.pre-phi = phi i32 [ %.pre, %.loopexit18.loopexit ], [ %24, %.critedge9 ], [ %24, %.split52.us ]
-  %151 = phi ptr [ %0, %.loopexit18.loopexit ], [ %148, %.critedge9 ], [ %.us-phi53, %.split52.us ]
-  %152 = getelementptr inbounds nuw i8, ptr %151, i64 96
-  tail call void @_raw_spin_unlock(ptr noundef nonnull %152) #17
-  %153 = icmp eq i32 %.pre-phi, 0
-  br i1 %153, label %.loopexit19, label %154
+  %.pre-phi = phi i32 [ %.pre, %.loopexit18.loopexit ], [ %23, %.critedge9 ], [ %23, %.split52.us ]
+  %150 = phi ptr [ %0, %.loopexit18.loopexit ], [ %147, %.critedge9 ], [ %.us-phi53, %.split52.us ]
+  %151 = getelementptr inbounds nuw i8, ptr %150, i64 96
+  tail call void @_raw_spin_unlock(ptr noundef nonnull %151) #17
+  %152 = icmp eq i32 %.pre-phi, 0
+  br i1 %152, label %.loopexit19, label %153
 
-154:                                              ; preds = %.loopexit18
+153:                                              ; preds = %.loopexit18
   tail call void @_raw_spin_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @rename_lock, i64 4)) #17
   br label %.loopexit19
 
-.loopexit11.split.us.split.us.split.us:           ; preds = %.preheader10.us.us, %149
-  %155 = phi i8 [ %147, %149 ], [ %60, %.preheader10.us.us ]
-  %156 = phi ptr [ %148, %149 ], [ %64, %.preheader10.us.us ]
-  %157 = getelementptr inbounds nuw i8, ptr %156, i64 96
-  tail call void @_raw_spin_unlock(ptr noundef nonnull %157) #17
+.loopexit11.split.us.split.us.split.us:           ; preds = %.preheader10.us.us, %148
+  %154 = phi i8 [ %146, %148 ], [ %59, %.preheader10.us.us ]
+  %155 = phi ptr [ %147, %148 ], [ %63, %.preheader10.us.us ]
+  %156 = getelementptr inbounds nuw i8, ptr %155, i64 96
+  tail call void @_raw_spin_unlock(ptr noundef nonnull %156) #17
   tail call void @__rcu_read_unlock() #17
-  %158 = icmp eq i8 %155, 0
-  br i1 %158, label %.loopexit19, label %5
+  %157 = icmp eq i8 %154, 0
+  br i1 %157, label %.loopexit19, label %5
 
-.loopexit19:                                      ; preds = %.loopexit11.split.us.split.us.split.us, %154, %.loopexit18
+.loopexit19:                                      ; preds = %.loopexit11.split.us.split.us.split.us, %153, %.loopexit18
   ret void
 }
 
@@ -3509,18 +3508,18 @@ define internal fastcc ptr @__d_obtain_alias(ptr noundef %0, i1 noundef zeroext 
   %86 = icmp ult i8 %85, 2
   tail call void @llvm.assume(i1 %86)
   %87 = icmp eq i8 %85, 0
-  br i1 %87, label %.preheader9, label %88, !prof !6
+  br i1 %87, label %.preheader15, label %88, !prof !6
 
 88:                                               ; preds = %.preheader
   %89 = tail call i64 @llvm.read_register.i64(metadata !0)
   %90 = tail call i64 asm sideeffect "call __SCT__preempt_schedule", "={rsp},{rsp},~{dirflag},~{fpsr},~{flags}"(i64 %89) #17, !srcloc !17
   tail call void @llvm.write_register.i64(metadata !0, i64 %90)
-  br label %.preheader9
+  br label %.preheader15
 
-.preheader9:                                      ; preds = %88, %.preheader
+.preheader15:                                     ; preds = %88, %.preheader
   br label %91
 
-91:                                               ; preds = %.preheader9, %91
+91:                                               ; preds = %.preheader15, %91
   tail call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !18
   %92 = load volatile i64, ptr %81, align 8
   %93 = and i64 %92, 1
@@ -4056,18 +4055,18 @@ __d_lookup_rcu.exit.thread:                       ; preds = %.loopexit.i, %58, %
   %142 = icmp ult i8 %141, 2
   call void @llvm.assume(i1 %142)
   %143 = icmp eq i8 %141, 0
-  br i1 %143, label %.preheader176, label %144, !prof !6
+  br i1 %143, label %.preheader194, label %144, !prof !6
 
 144:                                              ; preds = %.preheader
   %145 = call i64 @llvm.read_register.i64(metadata !0)
   %146 = call i64 asm sideeffect "call __SCT__preempt_schedule", "={rsp},{rsp},~{dirflag},~{fpsr},~{flags}"(i64 %145) #17, !srcloc !17
   call void @llvm.write_register.i64(metadata !0, i64 %146)
-  br label %.preheader176
+  br label %.preheader194
 
-.preheader176:                                    ; preds = %144, %.preheader
+.preheader194:                                    ; preds = %144, %.preheader
   br label %147
 
-147:                                              ; preds = %.preheader176, %147
+147:                                              ; preds = %.preheader194, %147
   call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !18
   %148 = load volatile i64, ptr %14, align 8
   %149 = and i64 %148, 1

@@ -691,7 +691,7 @@ define zeroext range(i8 0, 2) i8 @Java_sun_awt_X11_XInputMethod_createXICNative(
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
   %117 = load ptr, ptr @X11im, align 8
   %118 = icmp eq ptr %117, null
-  br i1 %118, label %.thread99, label %119
+  br i1 %118, label %.thread118, label %119
 
 119:                                              ; preds = %110
   %120 = call ptr (ptr, ...) @XGetIMValues(ptr noundef nonnull %117, ptr noundef nonnull @.str.14, ptr noundef nonnull %22, ptr noundef null) #14
@@ -702,7 +702,7 @@ define zeroext range(i8 0, 2) i8 @Java_sun_awt_X11_XInputMethod_createXICNative(
   %121 = load ptr, ptr %22, align 8
   %122 = load i16, ptr %121, align 8
   %.not27.i = icmp eq i16 %122, 0
-  br i1 %.not27.i, label %.thread50.i, label %.lr.ph.i
+  br i1 %.not27.i, label %.thread66.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i
   %123 = getelementptr inbounds nuw i8, ptr %121, i64 8
@@ -713,7 +713,7 @@ define zeroext range(i8 0, 2) i8 @Java_sun_awt_X11_XInputMethod_createXICNative(
 125:                                              ; preds = %119
   %126 = load ptr, ptr @stderr, align 8
   %127 = call i32 (ptr, ptr, ...) @jio_fprintf(ptr noundef %126, ptr noundef nonnull @.str.15, ptr noundef nonnull %120) #14
-  br label %.thread99
+  br label %.thread118
 
 128:                                              ; preds = %129
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -748,7 +748,7 @@ define zeroext range(i8 0, 2) i8 @Java_sun_awt_X11_XInputMethod_createXICNative(
   %exitcond37.not.i = icmp eq i64 %indvars.iv.next34.i, %wide.trip.count.i
   br i1 %exitcond37.not.i, label %._crit_edge21.i, label %133, !llvm.loop !9
 
-.thread50.i:                                      ; preds = %.preheader.i
+.thread66.i:                                      ; preds = %.preheader.i
   %142 = call i32 @XFree(ptr noundef nonnull %121) #14
   br label %.thread.i
 
@@ -774,7 +774,7 @@ define zeroext range(i8 0, 2) i8 @Java_sun_awt_X11_XInputMethod_createXICNative(
   store ptr %152, ptr %153, align 8
   %154 = call noalias dereferenceable_or_null(112) ptr @malloc(i64 noundef 112) #15
   %155 = icmp eq ptr %154, null
-  br i1 %155, label %.thread99, label %156
+  br i1 %155, label %.thread118, label %156
 
 156:                                              ; preds = %150
   %157 = getelementptr inbounds nuw i8, ptr %77, i64 24
@@ -1047,8 +1047,8 @@ createStatusWindow.exit.i:                        ; preds = %269, %258
   %314 = call i32 @XFree(ptr noundef nonnull %167) #14
   br label %319
 
-.thread.i:                                        ; preds = %149, %148, %.thread50.i
-  %.1903.i = phi i64 [ 0, %.thread50.i ], [ %146, %149 ], [ %spec.select.i, %148 ]
+.thread.i:                                        ; preds = %149, %148, %.thread66.i
+  %.1903.i = phi i64 [ 0, %.thread66.i ], [ %146, %149 ], [ %spec.select.i, %148 ]
   %315 = load ptr, ptr @X11im, align 8
   %316 = call ptr (ptr, ...) @XCreateIC(ptr noundef %315, ptr noundef nonnull @.str.16, i64 noundef range(i64 1, 0) %2, ptr noundef nonnull @.str.6, i64 noundef range(i64 1, 0) %2, ptr noundef nonnull @.str.17, i64 noundef %.1903.i, ptr noundef null) #14
   %317 = getelementptr inbounds nuw i8, ptr %77, i64 8
@@ -1061,7 +1061,7 @@ createStatusWindow.exit.i:                        ; preds = %269, %258
   %320 = phi ptr [ %316, %.thread.i ], [ %152, %createStatusWindow.exit.i ]
   %321 = phi ptr [ %316, %.thread.i ], [ %311, %createStatusWindow.exit.i ]
   %322 = icmp eq ptr %321, null
-  br i1 %322, label %.thread99, label %323
+  br i1 %322, label %.thread118, label %323
 
 323:                                              ; preds = %319
   %324 = icmp eq ptr %320, null
@@ -1131,14 +1131,14 @@ setXICFocus.exit.i:                               ; preds = %.lr.ph.i.i.i, %340,
   %346 = load ptr, ptr @jvm, align 8
   %347 = call ptr @JNU_GetEnv(ptr noundef %346, i32 noundef 65538) #14
   call void @JNU_ThrowOutOfMemoryError(ptr noundef %347, ptr noundef null) #14
-  br label %.thread99
+  br label %.thread118
 
 createXIC.exit:                                   ; preds = %setXICFocus.exit.i, %342
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   br label %360
 
-.thread99:                                        ; preds = %125, %345, %110, %150, %319
+.thread118:                                       ; preds = %125, %345, %110, %150, %319
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   br label %destroyX11InputMethodData.exit
@@ -1169,7 +1169,7 @@ createXIC.exit:                                   ; preds = %setXICFocus.exit.i,
   store ptr null, ptr %77, align 8
   br label %destroyX11InputMethodData.exit
 
-destroyX11InputMethodData.exit:                   ; preds = %.thread99, %348, %355
+destroyX11InputMethodData.exit:                   ; preds = %.thread118, %348, %355
   call fastcc void @freeX11InputMethodData(ptr noundef null, ptr noundef nonnull %77)
   %356 = load ptr, ptr %0, align 8
   %357 = getelementptr inbounds nuw i8, ptr %356, i64 1824
@@ -3260,7 +3260,7 @@ define internal fastcc void @freeX11InputMethodData(ptr noundef %0, ptr noundef 
   br i1 %47, label %.preheader.i._crit_edge.thread, label %50
 
 .preheader.i._crit_edge.thread:                   ; preds = %.preheader.i.preheader, %.preheader.i._crit_edge
-  %.018.i.lcssa37 = phi ptr [ %46, %.preheader.i._crit_edge ], [ %38, %.preheader.i.preheader ]
+  %.018.i.lcssa44 = phi ptr [ %46, %.preheader.i._crit_edge ], [ %38, %.preheader.i.preheader ]
   %48 = getelementptr inbounds nuw i8, ptr %38, i64 8
   %49 = load ptr, ptr %48, align 8
   store ptr %49, ptr @x11InputMethodGRefListHead, align 8
@@ -3274,8 +3274,8 @@ define internal fastcc void @freeX11InputMethodData(ptr noundef %0, ptr noundef 
   br label %54
 
 54:                                               ; preds = %50, %.preheader.i._crit_edge.thread
-  %.018.i.lcssa36 = phi ptr [ %46, %50 ], [ %.018.i.lcssa37, %.preheader.i._crit_edge.thread ]
-  tail call void @free(ptr noundef nonnull %.018.i.lcssa36) #14
+  %.018.i.lcssa43 = phi ptr [ %46, %50 ], [ %.018.i.lcssa44, %.preheader.i._crit_edge.thread ]
+  tail call void @free(ptr noundef nonnull %.018.i.lcssa43) #14
   %.pre = load ptr, ptr %36, align 8
   br label %removeX11InputMethodGRefFromList.exit
 

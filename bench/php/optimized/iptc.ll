@@ -331,7 +331,7 @@ php_iptc_get1.exit161:                            ; preds = %120, %121
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %126 = call i32 @getc(ptr noundef nonnull %64)
   %127 = icmp eq i32 %126, -1
-  br i1 %127, label %php_iptc_get1.exit.thread.i, label %.lr.ph389
+  br i1 %127, label %php_iptc_get1.exit.thread.i, label %.lr.ph412
 
 128:                                              ; preds = %php_iptc_get1.exit161.thread, %php_iptc_get1.exit161
   %129 = call i32 @fclose(ptr noundef nonnull %64)
@@ -351,25 +351,25 @@ php_iptc_get1.exit.thread.i:                      ; preds = %.preheader, %.prehe
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %php_iptc_next_marker.exit.thread
 
-.lr.ph389:                                        ; preds = %.preheader.preheader, %.preheader
+.lr.ph412:                                        ; preds = %.preheader.preheader, %.preheader
   %133 = phi i32 [ %269, %.preheader ], [ %126, %.preheader.preheader ]
   %134 = phi ptr [ %268, %.preheader ], [ %125, %.preheader.preheader ]
   %135 = phi i64 [ %267, %.preheader ], [ %124, %.preheader.preheader ]
-  %.1202289386 = phi i64 [ %.2203, %.preheader ], [ %31, %.preheader.preheader ]
-  %.0126290385 = phi i1 [ %.1127, %.preheader ], [ false, %.preheader.preheader ]
-  %.not138387 = icmp eq ptr %134, null
+  %.1202289409 = phi i64 [ %.2203, %.preheader ], [ %31, %.preheader.preheader ]
+  %.0126290408 = phi i1 [ %.1127, %.preheader ], [ false, %.preheader.preheader ]
+  %.not138410 = icmp eq ptr %134, null
   %136 = trunc i64 %135 to i32
   %137 = icmp sgt i32 %136, 0
   br i1 %137, label %138, label %141
 
-138:                                              ; preds = %.lr.ph389
+138:                                              ; preds = %.lr.ph412
   %139 = trunc i32 %133 to i8
   store i8 %139, ptr %10, align 1, !tbaa !11
   %140 = call i64 @php_output_write(ptr noundef nonnull %10, i64 noundef 1) #10
   br label %141
 
-141:                                              ; preds = %138, %.lr.ph389
-  br i1 %.not138387, label %php_iptc_get1.exit.i, label %142
+141:                                              ; preds = %138, %.lr.ph412
+  br i1 %.not138410, label %php_iptc_get1.exit.i, label %142
 
 142:                                              ; preds = %141
   %143 = trunc i32 %133 to i8
@@ -388,7 +388,7 @@ php_iptc_get1.exit.i:                             ; preds = %142, %141
   br i1 %137, label %.lr.ph.split.us.i, label %.lr.ph.split.i
 
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.i
-  br i1 %.not138387, label %.lr.ph.split.us.split.us.i, label %.lr.ph.split.us.split.i
+  br i1 %.not138410, label %.lr.ph.split.us.split.us.i, label %.lr.ph.split.us.split.i
 
 .lr.ph.split.us.split.us.i:                       ; preds = %.lr.ph.split.us.i, %php_iptc_get1.exit22.us.us.i
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
@@ -422,7 +422,7 @@ php_iptc_get1.exit22.us.i:                        ; preds = %.lr.ph.split.us.spl
   br i1 %.not.us.i, label %php_iptc_get1.exit23.preheader.i.sink.split, label %.lr.ph.split.us.split.i
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i
-  br i1 %.not138387, label %.lr.ph.split.split.us.i, label %.lr.ph.split.split.i
+  br i1 %.not138410, label %.lr.ph.split.split.us.i, label %.lr.ph.split.split.i
 
 .lr.ph.split.split.us.i:                          ; preds = %.lr.ph.split.i, %php_iptc_get1.exit22.us27.i
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
@@ -436,17 +436,17 @@ php_iptc_get1.exit22.us27.i:                      ; preds = %.lr.ph.split.split.
   br i1 %.not.us28.i, label %php_iptc_get1.exit23.preheader.i, label %.lr.ph.split.split.us.i
 
 php_iptc_get1.exit23.preheader.i.sink.split:      ; preds = %php_iptc_get1.exit22.i, %php_iptc_get1.exit22.us.i
-  %.lcssa333.sink = phi ptr [ %154, %php_iptc_get1.exit22.us.i ], [ %168, %php_iptc_get1.exit22.i ]
-  store ptr %.lcssa333.sink, ptr %16, align 8
+  %.lcssa356.sink = phi ptr [ %154, %php_iptc_get1.exit22.us.i ], [ %168, %php_iptc_get1.exit22.i ]
+  store ptr %.lcssa356.sink, ptr %16, align 8
   br label %php_iptc_get1.exit23.preheader.i
 
 php_iptc_get1.exit23.preheader.i:                 ; preds = %php_iptc_get1.exit22.us27.i, %php_iptc_get1.exit22.us.us.i, %php_iptc_get1.exit23.preheader.i.sink.split, %php_iptc_get1.exit.i
-  %.not138388 = phi i1 [ %.not138387, %php_iptc_get1.exit.i ], [ %.not138387, %php_iptc_get1.exit23.preheader.i.sink.split ], [ true, %php_iptc_get1.exit22.us.us.i ], [ true, %php_iptc_get1.exit22.us27.i ]
-  %.promoted280 = phi ptr [ %.promoted274, %php_iptc_get1.exit.i ], [ %.lcssa333.sink, %php_iptc_get1.exit23.preheader.i.sink.split ], [ %.promoted274, %php_iptc_get1.exit22.us.us.i ], [ %.promoted274, %php_iptc_get1.exit22.us27.i ]
+  %.not138411 = phi i1 [ %.not138410, %php_iptc_get1.exit.i ], [ %.not138410, %php_iptc_get1.exit23.preheader.i.sink.split ], [ true, %php_iptc_get1.exit22.us.us.i ], [ true, %php_iptc_get1.exit22.us27.i ]
+  %.promoted280 = phi ptr [ %.promoted274, %php_iptc_get1.exit.i ], [ %.lcssa356.sink, %php_iptc_get1.exit23.preheader.i.sink.split ], [ %.promoted274, %php_iptc_get1.exit22.us.us.i ], [ %.promoted274, %php_iptc_get1.exit22.us27.i ]
   br i1 %137, label %php_iptc_get1.exit23.preheader.split.us.i, label %php_iptc_get1.exit23.preheader.split.i
 
 php_iptc_get1.exit23.preheader.split.us.i:        ; preds = %php_iptc_get1.exit23.preheader.i
-  br i1 %.not138388, label %php_iptc_get1.exit23.us.us.i, label %php_iptc_get1.exit23.us.i
+  br i1 %.not138411, label %php_iptc_get1.exit23.us.us.i, label %php_iptc_get1.exit23.us.i
 
 php_iptc_get1.exit23.us.us.i:                     ; preds = %php_iptc_get1.exit23.preheader.split.us.i, %php_iptc_put1.exit.us.us.i
   %157 = call i32 @getc(ptr noundef nonnull %64)
@@ -481,7 +481,7 @@ php_iptc_put1.exit.us.i:                          ; preds = %php_iptc_get1.exit2
   br label %php_iptc_get1.exit23.us.i
 
 php_iptc_get1.exit23.preheader.split.i:           ; preds = %php_iptc_get1.exit23.preheader.i
-  br i1 %.not138388, label %php_iptc_get1.exit23.us29.i, label %php_iptc_get1.exit23.i
+  br i1 %.not138411, label %php_iptc_get1.exit23.us29.i, label %php_iptc_get1.exit23.i
 
 php_iptc_get1.exit23.us29.i:                      ; preds = %php_iptc_get1.exit23.preheader.split.i, %php_iptc_get1.exit23.us29.i
   %163 = call i32 @getc(ptr noundef nonnull %64)
@@ -530,13 +530,13 @@ php_iptc_put1.exit.i:                             ; preds = %php_iptc_get1.exit2
   br label %php_iptc_get1.exit23.i
 
 php_iptc_next_marker.exit.sink.split:             ; preds = %php_iptc_get1.exit23.i, %php_iptc_get1.exit23.us.i
-  %.lcssa339.sink = phi ptr [ %159, %php_iptc_get1.exit23.us.i ], [ %169, %php_iptc_get1.exit23.i ]
+  %.lcssa362.sink = phi ptr [ %159, %php_iptc_get1.exit23.us.i ], [ %169, %php_iptc_get1.exit23.i ]
   %.017.i.ph = phi i32 [ %160, %php_iptc_get1.exit23.us.i ], [ %170, %php_iptc_get1.exit23.i ]
-  store ptr %.lcssa339.sink, ptr %16, align 8
+  store ptr %.lcssa362.sink, ptr %16, align 8
   br label %php_iptc_next_marker.exit
 
 php_iptc_next_marker.exit:                        ; preds = %php_iptc_get1.exit23.us29.i, %php_iptc_get1.exit23.us.us.i, %php_iptc_next_marker.exit.sink.split
-  %172 = phi ptr [ %.lcssa339.sink, %php_iptc_next_marker.exit.sink.split ], [ %.promoted280, %php_iptc_get1.exit23.us.us.i ], [ %.promoted280, %php_iptc_get1.exit23.us29.i ]
+  %172 = phi ptr [ %.lcssa362.sink, %php_iptc_next_marker.exit.sink.split ], [ %.promoted280, %php_iptc_get1.exit23.us.us.i ], [ %.promoted280, %php_iptc_get1.exit23.us29.i ]
   %.017.i = phi i32 [ %.017.i.ph, %php_iptc_next_marker.exit.sink.split ], [ %157, %php_iptc_get1.exit23.us.us.i ], [ %163, %php_iptc_get1.exit23.us29.i ]
   switch i32 %.017.i, label %173 [
     i32 217, label %php_iptc_next_marker.exit.thread
@@ -614,7 +614,7 @@ php_iptc_skip_variable.exit:                      ; preds = %.lr.ph.split.split.
   br label %php_iptc_next_marker.exit.thread
 
 201:                                              ; preds = %php_iptc_put1.exit, %php_iptc_put1.exit
-  br i1 %.0126290385, label %.preheader, label %202
+  br i1 %.0126290408, label %.preheader, label %202
 
 202:                                              ; preds = %201
   %203 = load i64, ptr %15, align 8, !tbaa !4
@@ -623,8 +623,8 @@ php_iptc_skip_variable.exit:                      ; preds = %.lr.ph.split.split.
   %.not142 = icmp eq ptr %205, null
   %.5 = select i1 %.not142, ptr null, ptr %16
   call fastcc void @php_iptc_skip_variable(ptr noundef %64, i32 noundef %204, ptr noundef %.5)
-  %206 = and i64 %.1202289386, 1
-  %spec.select = add i64 %206, %.1202289386
+  %206 = and i64 %.1202289409, 1
+  %spec.select = add i64 %206, %.1202289409
   %207 = add i64 %spec.select, 28
   %208 = lshr i64 %207, 8
   %209 = trunc i64 %208 to i8
@@ -785,14 +785,14 @@ php_iptc_put1.exit184:                            ; preds = %254, %255
   br label %.preheader
 
 .preheader:                                       ; preds = %.loopexit, %201, %263
-  %.2203 = phi i64 [ %.1202289386, %263 ], [ %.1202289386, %201 ], [ %spec.select, %.loopexit ]
-  %.1127 = phi i1 [ %.0126290385, %263 ], [ true, %201 ], [ true, %.loopexit ]
+  %.2203 = phi i64 [ %.1202289409, %263 ], [ %.1202289409, %201 ], [ %spec.select, %.loopexit ]
+  %.1127 = phi i1 [ %.0126290408, %263 ], [ true, %201 ], [ true, %.loopexit ]
   %267 = load i64, ptr %15, align 8, !tbaa !4
   %268 = load ptr, ptr %16, align 8, !tbaa !8
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %269 = call i32 @getc(ptr noundef nonnull %64)
   %270 = icmp eq i32 %269, -1
-  br i1 %270, label %php_iptc_get1.exit.thread.i, label %.lr.ph389
+  br i1 %270, label %php_iptc_get1.exit.thread.i, label %.lr.ph412
 
 php_iptc_next_marker.exit.thread.loopexit253:     ; preds = %php_iptc_get1.exit23.us.i
   store ptr %159, ptr %16, align 8
@@ -1279,10 +1279,10 @@ zend_parse_arg_str_ex.exit:                       ; preds = %8
   br label %62
 
 62:                                               ; preds = %59, %44
-  %.sink164 = phi i64 [ 4, %59 ], [ 8, %44 ]
+  %.sink170 = phi i64 [ 4, %59 ], [ 8, %44 ]
   %.sink = phi i64 [ %61, %59 ], [ %58, %44 ]
   %.2 = phi i64 [ %34, %59 ], [ %43, %44 ]
-  %63 = getelementptr i8, ptr %32, i64 %.sink164
+  %63 = getelementptr i8, ptr %32, i64 %.sink170
   %64 = load i8, ptr %63, align 1, !tbaa !11
   %65 = zext i8 %64 to i64
   %66 = or disjoint i64 %.sink, %65

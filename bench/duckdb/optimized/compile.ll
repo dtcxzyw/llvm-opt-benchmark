@@ -706,8 +706,8 @@ define hidden { i64, i64 } @_ZN10duckdb_re28Compiler3AltENS_4FragES1_(ptr nounde
   %8 = alloca %"struct.duckdb_re2::Frag", align 8
   %9 = alloca %"struct.duckdb_re2::Frag", align 8
   store i64 %1, ptr %8, align 8
-  %.8..8..8..8..sroa_idx29 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store i64 %2, ptr %.8..8..8..8..sroa_idx29, align 8
+  %.8..8..8..8..sroa_idx30 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  store i64 %2, ptr %.8..8..8..8..sroa_idx30, align 8
   store i64 %3, ptr %9, align 8
   %.8..8..8..8..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i64 %4, ptr %.8..8..8..8..sroa_idx, align 8
@@ -761,10 +761,10 @@ define hidden { i64, i64 } @_ZN10duckdb_re28Compiler3AltENS_4FragES1_(ptr nounde
   %29 = getelementptr inbounds nuw %"class.duckdb_re2::Prog::Inst", ptr %28, i64 %26
   tail call void @_ZN10duckdb_re24Prog4Inst7InitAltEjj(ptr noundef nonnull align 4 dereferenceable(8) %29, i32 noundef %12, i32 noundef %13)
   %30 = load ptr, ptr %27, align 8, !tbaa !55
-  %.4..4..4..4..sroa_idx28 = getelementptr inbounds nuw i8, ptr %8, i64 4
-  %.4..4..4..4..sroa.01.0.copyload = load i64, ptr %.4..4..4..4..sroa_idx28, align 4
-  %.4..4..4..4..sroa_idx27 = getelementptr inbounds nuw i8, ptr %9, i64 4
-  %.4..4..4..4..sroa.0.0.copyload = load i64, ptr %.4..4..4..4..sroa_idx27, align 4
+  %.4..4..4..4..sroa_idx29 = getelementptr inbounds nuw i8, ptr %8, i64 4
+  %.4..4..4..4..sroa.01.0.copyload = load i64, ptr %.4..4..4..4..sroa_idx29, align 4
+  %.4..4..4..4..sroa_idx28 = getelementptr inbounds nuw i8, ptr %9, i64 4
+  %.4..4..4..4..sroa.0.0.copyload = load i64, ptr %.4..4..4..4..sroa_idx28, align 4
   %.sroa.0.0.extract.trunc.i = trunc i64 %.4..4..4..4..sroa.0.0.copyload to i32
   %31 = and i64 %.4..4..4..4..sroa.01.0.copyload, 4294967295
   %32 = icmp eq i64 %31, 0
@@ -1070,8 +1070,8 @@ define hidden { i64, i64 } @_ZN10duckdb_re28Compiler5QuestENS_4FragEb(ptr nounde
   %8 = alloca %"struct.duckdb_re2::Frag", align 8
   %9 = alloca %"struct.duckdb_re2::Frag", align 8
   store i64 %1, ptr %9, align 8
-  %.8..8..8..8..sroa_idx43 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store i64 %2, ptr %.8..8..8..8..sroa_idx43, align 8
+  %.8..8..8..8..sroa_idx45 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  store i64 %2, ptr %.8..8..8..8..sroa_idx45, align 8
   %10 = and i64 %1, 4294967295
   %11 = icmp eq i64 %10, 0
   %12 = trunc i64 %1 to i32
@@ -1122,8 +1122,8 @@ _ZN10duckdb_re28Compiler3NopEv.exit:              ; preds = %16, %17
   %.8..8..8..8..8..fca.1.load.i = load i64, ptr %.8..8..8..8..8..fca.1.gep.sroa_idx, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.sroa.215.0.extract.trunc = trunc i64 %.8..8..8..8..8..fca.1.load.i to i40
-  %.8..8..8..sroa_idx44 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store i40 %.sroa.215.0.extract.trunc, ptr %.8..8..8..sroa_idx44, align 8
+  %.8..8..8..sroa_idx46 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  store i40 %.sroa.215.0.extract.trunc, ptr %.8..8..8..sroa_idx46, align 8
   br label %54
 
 23:                                               ; preds = %4
@@ -1134,13 +1134,13 @@ _ZN10duckdb_re28Compiler3NopEv.exit:              ; preds = %16, %17
 26:                                               ; preds = %23
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 0, ptr %5, align 8, !tbaa !71
-  %.4..4..4..4..4..sroa_idx45 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  store i64 0, ptr %.4..4..4..4..4..sroa_idx45, align 4
-  %.12..12..12..12..12..sroa_idx47 = getelementptr inbounds nuw i8, ptr %5, i64 12
-  store i8 0, ptr %.12..12..12..12..12..sroa_idx47, align 4, !tbaa !72
+  %.4..4..4..4..4..sroa_idx47 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  store i64 0, ptr %.4..4..4..4..4..sroa_idx47, align 4
+  %.12..12..12..12..12..sroa_idx49 = getelementptr inbounds nuw i8, ptr %5, i64 12
+  store i8 0, ptr %.12..12..12..12..12..sroa_idx49, align 4, !tbaa !72
   %.0..0..0..0..0..fca.0.load.i24 = load i64, ptr %5, align 8
-  %.8..8..8..8..8..fca.1.gep.sroa_idx46 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %.8..8..8..8..8..fca.1.load.i27 = load i64, ptr %.8..8..8..8..8..fca.1.gep.sroa_idx46, align 8
+  %.8..8..8..8..8..fca.1.gep.sroa_idx48 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %.8..8..8..8..8..fca.1.load.i27 = load i64, ptr %.8..8..8..8..8..fca.1.gep.sroa_idx48, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.sroa.2.0.extract.trunc = trunc i64 %.8..8..8..8..8..fca.1.load.i27 to i40
   %.8..8..8..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -1170,8 +1170,8 @@ _ZN10duckdb_re28Compiler3NopEv.exit:              ; preds = %16, %17
   %.sroa.05.0 = mul nuw i64 %.sroa.05.0.in, 4294967297
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %38 = load ptr, ptr %37, align 8, !tbaa !55
-  %.4..4..4..4..sroa_idx42 = getelementptr inbounds nuw i8, ptr %9, i64 4
-  %.4..4..4..4..sroa.0.0.copyload = load i64, ptr %.4..4..4..4..sroa_idx42, align 4
+  %.4..4..4..4..sroa_idx44 = getelementptr inbounds nuw i8, ptr %9, i64 4
+  %.4..4..4..4..sroa.0.0.copyload = load i64, ptr %.4..4..4..4..sroa_idx44, align 4
   %.sroa.0.0.extract.trunc.i = trunc i64 %.4..4..4..4..sroa.0.0.copyload to i32
   %39 = and i64 %.sroa.05.0, 4294967295
   %40 = icmp eq i64 %39, 0
@@ -1694,8 +1694,8 @@ _ZN10duckdb_re28Compiler9ByteRangeEiib.exit:      ; preds = %10, %11
 38:                                               ; preds = %_ZN10duckdb_re28Compiler9ByteRangeEiib.exit
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 212
   %.sroa.01.0.copyload = load i64, ptr %39, align 4
-  %.sroa.05.4..sroa_idx20 = getelementptr inbounds nuw i8, ptr %.sroa.05, i64 4
-  %.sroa.05.4..sroa.05.4..sroa.05.4..sroa.05.4..sroa.05.4..sroa.0.0.copyload = load i64, ptr %.sroa.05.4..sroa_idx20, align 4
+  %.sroa.05.4..sroa_idx22 = getelementptr inbounds nuw i8, ptr %.sroa.05, i64 4
+  %.sroa.05.4..sroa.05.4..sroa.05.4..sroa.05.4..sroa.05.4..sroa.0.0.copyload = load i64, ptr %.sroa.05.4..sroa_idx22, align 4
   %.sroa.0.0.extract.trunc.i14 = trunc i64 %.sroa.05.4..sroa.05.4..sroa.05.4..sroa.05.4..sroa.05.4..sroa.0.0.copyload to i32
   %40 = and i64 %.sroa.01.0.copyload, 4294967295
   %41 = icmp eq i64 %40, 0
@@ -2445,8 +2445,8 @@ _ZN10duckdb_re28Compiler14ByteRangeEqualEii.exit.thread: ; preds = %56, %64, %_Z
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   store i64 %.0..0..0..0..0..fca.0.load.i, ptr %8, align 8
   %.sroa.219.0.extract.trunc = trunc i64 %.8..8..8..8..8..fca.1.load.i to i40
-  %.8..8..8..sroa_idx139 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store i40 %.sroa.219.0.extract.trunc, ptr %.8..8..8..sroa_idx139, align 8
+  %.8..8..8..sroa_idx140 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  store i40 %.sroa.219.0.extract.trunc, ptr %.8..8..8..sroa_idx140, align 8
   br label %.thread
 
 .preheader.split:                                 ; preds = %.preheader
@@ -2487,27 +2487,27 @@ _ZN10duckdb_re28Compiler14ByteRangeEqualEii.exit37: ; preds = %88
   %.sroa.2.0.insert.ext.i = zext i32 %100 to i64
   %.sroa.0.0.insert.insert.i = mul nuw i64 %.sroa.2.0.insert.ext.i, 4294967297
   store i32 %.us-phi, ptr %8, align 8, !tbaa !71
-  %.4..4..4..sroa_idx135 = getelementptr inbounds nuw i8, ptr %8, i64 4
-  store i64 %.sroa.0.0.insert.insert.i, ptr %.4..4..4..sroa_idx135, align 4
-  %.12..12..12..sroa_idx140 = getelementptr inbounds nuw i8, ptr %8, i64 12
-  store i8 0, ptr %.12..12..12..sroa_idx140, align 4, !tbaa !72
+  %.4..4..4..sroa_idx136 = getelementptr inbounds nuw i8, ptr %8, i64 4
+  store i64 %.sroa.0.0.insert.insert.i, ptr %.4..4..4..sroa_idx136, align 4
+  %.12..12..12..sroa_idx141 = getelementptr inbounds nuw i8, ptr %8, i64 12
+  store i8 0, ptr %.12..12..12..sroa_idx141, align 4, !tbaa !72
   br label %.thread
 
 _ZN10duckdb_re28Compiler14ByteRangeEqualEii.exit37.thread: ; preds = %_ZN10duckdb_re28Compiler14ByteRangeEqualEii.exit37, %88, %79
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 0, ptr %6, align 8, !tbaa !71
-  %.4..4..4..4..4..sroa_idx142 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  store i64 0, ptr %.4..4..4..4..4..sroa_idx142, align 4
-  %.12..12..12..12..12..sroa_idx144 = getelementptr inbounds nuw i8, ptr %6, i64 12
-  store i8 0, ptr %.12..12..12..12..12..sroa_idx144, align 4, !tbaa !72
+  %.4..4..4..4..4..sroa_idx143 = getelementptr inbounds nuw i8, ptr %6, i64 4
+  store i64 0, ptr %.4..4..4..4..4..sroa_idx143, align 4
+  %.12..12..12..12..12..sroa_idx145 = getelementptr inbounds nuw i8, ptr %6, i64 12
+  store i8 0, ptr %.12..12..12..12..12..sroa_idx145, align 4, !tbaa !72
   %.0..0..0..0..0..fca.0.load.i40 = load i64, ptr %6, align 8
-  %.8..8..8..8..8..fca.1.gep.sroa_idx143 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %.8..8..8..8..8..fca.1.load.i43 = load i64, ptr %.8..8..8..8..8..fca.1.gep.sroa_idx143, align 8
+  %.8..8..8..8..8..fca.1.gep.sroa_idx144 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %.8..8..8..8..8..fca.1.load.i43 = load i64, ptr %.8..8..8..8..8..fca.1.gep.sroa_idx144, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   store i64 %.0..0..0..0..0..fca.0.load.i40, ptr %8, align 8
   %.sroa.212.0.extract.trunc = trunc i64 %.8..8..8..8..8..fca.1.load.i43 to i40
-  %.8..8..8..sroa_idx138 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store i40 %.sroa.212.0.extract.trunc, ptr %.8..8..8..sroa_idx138, align 8
+  %.8..8..8..sroa_idx139 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  store i40 %.sroa.212.0.extract.trunc, ptr %.8..8..8..sroa_idx139, align 8
   br label %.thread
 
 .split96.us:                                      ; preds = %_ZN10duckdb_re28Compiler14ByteRangeEqualEii.exit37.thread.us
@@ -2538,27 +2538,27 @@ _ZN10duckdb_re28Compiler14ByteRangeEqualEii.exit45: ; preds = %105
   %.sroa.2.0.insert.ext.i46 = zext i32 %117 to i64
   %.sroa.0.0.insert.insert.i47 = mul nuw i64 %.sroa.2.0.insert.ext.i46, 4294967297
   store i32 %.0.us, ptr %8, align 8, !tbaa !71
-  %.4..4..4..sroa_idx136 = getelementptr inbounds nuw i8, ptr %8, i64 4
-  store i64 %.sroa.0.0.insert.insert.i47, ptr %.4..4..4..sroa_idx136, align 4
-  %.12..12..12..sroa_idx141 = getelementptr inbounds nuw i8, ptr %8, i64 12
-  store i8 0, ptr %.12..12..12..sroa_idx141, align 4, !tbaa !72
+  %.4..4..4..sroa_idx137 = getelementptr inbounds nuw i8, ptr %8, i64 4
+  store i64 %.sroa.0.0.insert.insert.i47, ptr %.4..4..4..sroa_idx137, align 4
+  %.12..12..12..sroa_idx142 = getelementptr inbounds nuw i8, ptr %8, i64 12
+  store i8 0, ptr %.12..12..12..sroa_idx142, align 4, !tbaa !72
   br label %.thread
 
 _ZN10duckdb_re28Compiler14ByteRangeEqualEii.exit45.thread: ; preds = %.split96.us, %105, %_ZN10duckdb_re28Compiler14ByteRangeEqualEii.exit45
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 0, ptr %5, align 8, !tbaa !71
-  %.4..4..4..4..4..sroa_idx145 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  store i64 0, ptr %.4..4..4..4..4..sroa_idx145, align 4
-  %.12..12..12..12..12..sroa_idx147 = getelementptr inbounds nuw i8, ptr %5, i64 12
-  store i8 0, ptr %.12..12..12..12..12..sroa_idx147, align 4, !tbaa !72
+  %.4..4..4..4..4..sroa_idx146 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  store i64 0, ptr %.4..4..4..4..4..sroa_idx146, align 4
+  %.12..12..12..12..12..sroa_idx148 = getelementptr inbounds nuw i8, ptr %5, i64 12
+  store i8 0, ptr %.12..12..12..12..12..sroa_idx148, align 4, !tbaa !72
   %.0..0..0..0..0..fca.0.load.i50 = load i64, ptr %5, align 8
-  %.8..8..8..8..8..fca.1.gep.sroa_idx146 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %.8..8..8..8..8..fca.1.load.i53 = load i64, ptr %.8..8..8..8..8..fca.1.gep.sroa_idx146, align 8
+  %.8..8..8..8..8..fca.1.gep.sroa_idx147 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %.8..8..8..8..8..fca.1.load.i53 = load i64, ptr %.8..8..8..8..8..fca.1.gep.sroa_idx147, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   store i64 %.0..0..0..0..0..fca.0.load.i50, ptr %8, align 8
   %.sroa.24.0.extract.trunc = trunc i64 %.8..8..8..8..8..fca.1.load.i53 to i40
-  %.8..8..8..sroa_idx137 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store i40 %.sroa.24.0.extract.trunc, ptr %.8..8..8..sroa_idx137, align 8
+  %.8..8..8..sroa_idx138 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  store i40 %.sroa.24.0.extract.trunc, ptr %.8..8..8..sroa_idx138, align 8
   br label %.thread
 
 .split.us:                                        ; preds = %.preheader.split.us, %.preheader.split
@@ -2605,13 +2605,13 @@ _ZN10LogMessageD2Ev.exit:                         ; preds = %_ZNKSt7__cxx1112bas
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 8, !tbaa !71
-  %.4..4..4..4..4..sroa_idx148 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  store i64 0, ptr %.4..4..4..4..4..sroa_idx148, align 4
-  %.12..12..12..12..12..sroa_idx150 = getelementptr inbounds nuw i8, ptr %4, i64 12
-  store i8 0, ptr %.12..12..12..12..12..sroa_idx150, align 4, !tbaa !72
+  %.4..4..4..4..4..sroa_idx149 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  store i64 0, ptr %.4..4..4..4..4..sroa_idx149, align 4
+  %.12..12..12..12..12..sroa_idx151 = getelementptr inbounds nuw i8, ptr %4, i64 12
+  store i8 0, ptr %.12..12..12..12..12..sroa_idx151, align 4, !tbaa !72
   %.0..0..0..0..0..fca.0.load.i57 = load i64, ptr %4, align 8
-  %.8..8..8..8..8..fca.1.gep.sroa_idx149 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %.8..8..8..8..8..fca.1.load.i60 = load i64, ptr %.8..8..8..8..8..fca.1.gep.sroa_idx149, align 8
+  %.8..8..8..8..8..fca.1.gep.sroa_idx150 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %.8..8..8..8..8..fca.1.load.i60 = load i64, ptr %.8..8..8..8..8..fca.1.gep.sroa_idx150, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   store i64 %.0..0..0..0..0..fca.0.load.i57, ptr %8, align 8
   %.sroa.2.0.extract.trunc = trunc i64 %.8..8..8..8..8..fca.1.load.i60 to i40
@@ -3596,8 +3596,8 @@ _ZN10duckdb_re28Compiler9ByteRangeEiib.exit:      ; preds = %21, %22
   %.8..8..8..8..8..fca.1.load.i = load i64, ptr %.8..8..8..8..8..fca.1.gep.sroa_idx, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %.sroa.225.0.extract.trunc = trunc i64 %.8..8..8..8..8..fca.1.load.i to i40
-  %.8..8..8..sroa_idx141 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  store i40 %.sroa.225.0.extract.trunc, ptr %.8..8..8..sroa_idx141, align 8
+  %.8..8..8..sroa_idx146 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  store i40 %.sroa.225.0.extract.trunc, ptr %.8..8..8..sroa_idx146, align 8
   br label %70
 
 29:                                               ; preds = %3
@@ -3613,17 +3613,17 @@ _ZN10duckdb_re28Compiler9ByteRangeEiib.exit:      ; preds = %21, %22
 34:                                               ; preds = %31
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 0, ptr %8, align 8, !tbaa !71
-  %.4..4..4..4..4..4..4..sroa_idx146 = getelementptr inbounds nuw i8, ptr %8, i64 4
-  store i64 0, ptr %.4..4..4..4..4..4..4..sroa_idx146, align 4
-  %.12..12..12..12..12..12..12..sroa_idx148 = getelementptr inbounds nuw i8, ptr %8, i64 12
-  store i8 0, ptr %.12..12..12..12..12..12..12..sroa_idx148, align 4, !tbaa !72
+  %.4..4..4..4..4..4..4..sroa_idx151 = getelementptr inbounds nuw i8, ptr %8, i64 4
+  store i64 0, ptr %.4..4..4..4..4..4..4..sroa_idx151, align 4
+  %.12..12..12..12..12..12..12..sroa_idx153 = getelementptr inbounds nuw i8, ptr %8, i64 12
+  store i8 0, ptr %.12..12..12..12..12..12..12..sroa_idx153, align 4, !tbaa !72
   %.0..0..0..0..0..0..0..fca.0.load.i.i41 = load i64, ptr %8, align 8
-  %.8..8..8..8..8..8..8..fca.1.gep.sroa_idx147 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %.8..8..8..8..8..8..8..fca.1.load.i.i43 = load i64, ptr %.8..8..8..8..8..8..8..fca.1.gep.sroa_idx147, align 8
+  %.8..8..8..8..8..8..8..fca.1.gep.sroa_idx152 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %.8..8..8..8..8..8..8..fca.1.load.i.i43 = load i64, ptr %.8..8..8..8..8..8..8..fca.1.gep.sroa_idx152, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %.sroa.2.0.extract.trunc.i44 = trunc i64 %.8..8..8..8..8..8..8..fca.1.load.i.i43 to i40
-  %.8..8..8..8..8..sroa_idx144 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store i40 %.sroa.2.0.extract.trunc.i44, ptr %.8..8..8..8..8..sroa_idx144, align 8
+  %.8..8..8..8..8..sroa_idx149 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  store i40 %.sroa.2.0.extract.trunc.i44, ptr %.8..8..8..8..8..sroa_idx149, align 8
   br label %_ZN10duckdb_re28Compiler9ByteRangeEiib.exit46
 
 35:                                               ; preds = %31
@@ -3637,21 +3637,21 @@ _ZN10duckdb_re28Compiler9ByteRangeEiib.exit:      ; preds = %21, %22
   %.sroa.2.0.insert.ext.i.i29 = zext i32 %41 to i64
   %.sroa.0.0.insert.insert.i.i30 = mul nuw i64 %.sroa.2.0.insert.ext.i.i29, 4294967297
   store i32 %32, ptr %9, align 8, !tbaa !71
-  %.4..4..4..4..4..sroa_idx142 = getelementptr inbounds nuw i8, ptr %9, i64 4
-  store i64 %.sroa.0.0.insert.insert.i.i30, ptr %.4..4..4..4..4..sroa_idx142, align 4
-  %.12..12..12..12..12..sroa_idx145 = getelementptr inbounds nuw i8, ptr %9, i64 12
-  store i8 0, ptr %.12..12..12..12..12..sroa_idx145, align 4, !tbaa !72
+  %.4..4..4..4..4..sroa_idx147 = getelementptr inbounds nuw i8, ptr %9, i64 4
+  store i64 %.sroa.0.0.insert.insert.i.i30, ptr %.4..4..4..4..4..sroa_idx147, align 4
+  %.12..12..12..12..12..sroa_idx150 = getelementptr inbounds nuw i8, ptr %9, i64 12
+  store i8 0, ptr %.12..12..12..12..12..sroa_idx150, align 4, !tbaa !72
   %.0..0..0..0..0..fca.0.load.pre.i33 = load i64, ptr %9, align 8
   br label %_ZN10duckdb_re28Compiler9ByteRangeEiib.exit46
 
 _ZN10duckdb_re28Compiler9ByteRangeEiib.exit46:    ; preds = %34, %35
   %.0..0..fca.0.load.i34 = phi i64 [ %.0..0..0..0..0..fca.0.load.pre.i33, %35 ], [ %.0..0..0..0..0..0..0..fca.0.load.i.i41, %34 ]
-  %.8..8..8..8..8..fca.1.gep.sroa_idx143 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %.8..8..8..8..8..fca.1.load.i37 = load i64, ptr %.8..8..8..8..8..fca.1.gep.sroa_idx143, align 8
+  %.8..8..8..8..8..fca.1.gep.sroa_idx148 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %.8..8..8..8..8..fca.1.load.i37 = load i64, ptr %.8..8..8..8..8..fca.1.gep.sroa_idx148, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %.sroa.221.0.extract.trunc = trunc i64 %.8..8..8..8..8..fca.1.load.i37 to i40
-  %.8..8..8..sroa_idx140 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  store i40 %.sroa.221.0.extract.trunc, ptr %.8..8..8..sroa_idx140, align 8
+  %.8..8..8..sroa_idx145 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  store i40 %.sroa.221.0.extract.trunc, ptr %.8..8..8..sroa_idx145, align 8
   br label %70
 
 42:                                               ; preds = %29
@@ -3666,17 +3666,17 @@ _ZN10duckdb_re28Compiler9ByteRangeEiib.exit46:    ; preds = %34, %35
 47:                                               ; preds = %42
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 0, ptr %6, align 8, !tbaa !71
-  %.4..4..4..4..4..4..4..sroa_idx153 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  store i64 0, ptr %.4..4..4..4..4..4..4..sroa_idx153, align 4
-  %.12..12..12..12..12..12..12..sroa_idx155 = getelementptr inbounds nuw i8, ptr %6, i64 12
-  store i8 0, ptr %.12..12..12..12..12..12..12..sroa_idx155, align 4, !tbaa !72
+  %.4..4..4..4..4..4..4..sroa_idx158 = getelementptr inbounds nuw i8, ptr %6, i64 4
+  store i64 0, ptr %.4..4..4..4..4..4..4..sroa_idx158, align 4
+  %.12..12..12..12..12..12..12..sroa_idx160 = getelementptr inbounds nuw i8, ptr %6, i64 12
+  store i8 0, ptr %.12..12..12..12..12..12..12..sroa_idx160, align 4, !tbaa !72
   %.0..0..0..0..0..0..0..fca.0.load.i.i59 = load i64, ptr %6, align 8
-  %.8..8..8..8..8..8..8..fca.1.gep.sroa_idx154 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %.8..8..8..8..8..8..8..fca.1.load.i.i61 = load i64, ptr %.8..8..8..8..8..8..8..fca.1.gep.sroa_idx154, align 8
+  %.8..8..8..8..8..8..8..fca.1.gep.sroa_idx159 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %.8..8..8..8..8..8..8..fca.1.load.i.i61 = load i64, ptr %.8..8..8..8..8..8..8..fca.1.gep.sroa_idx159, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.sroa.2.0.extract.trunc.i62 = trunc i64 %.8..8..8..8..8..8..8..fca.1.load.i.i61 to i40
-  %.8..8..8..8..8..sroa_idx151 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store i40 %.sroa.2.0.extract.trunc.i62, ptr %.8..8..8..8..8..sroa_idx151, align 8
+  %.8..8..8..8..8..sroa_idx156 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  store i40 %.sroa.2.0.extract.trunc.i62, ptr %.8..8..8..8..8..sroa_idx156, align 8
   br label %_ZN10duckdb_re28Compiler9ByteRangeEiib.exit64
 
 48:                                               ; preds = %42
@@ -3690,21 +3690,21 @@ _ZN10duckdb_re28Compiler9ByteRangeEiib.exit46:    ; preds = %34, %35
   %.sroa.2.0.insert.ext.i.i47 = zext i32 %54 to i64
   %.sroa.0.0.insert.insert.i.i48 = mul nuw i64 %.sroa.2.0.insert.ext.i.i47, 4294967297
   store i32 %45, ptr %7, align 8, !tbaa !71
-  %.4..4..4..4..4..sroa_idx149 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  store i64 %.sroa.0.0.insert.insert.i.i48, ptr %.4..4..4..4..4..sroa_idx149, align 4
-  %.12..12..12..12..12..sroa_idx152 = getelementptr inbounds nuw i8, ptr %7, i64 12
-  store i8 0, ptr %.12..12..12..12..12..sroa_idx152, align 4, !tbaa !72
+  %.4..4..4..4..4..sroa_idx154 = getelementptr inbounds nuw i8, ptr %7, i64 4
+  store i64 %.sroa.0.0.insert.insert.i.i48, ptr %.4..4..4..4..4..sroa_idx154, align 4
+  %.12..12..12..12..12..sroa_idx157 = getelementptr inbounds nuw i8, ptr %7, i64 12
+  store i8 0, ptr %.12..12..12..12..12..sroa_idx157, align 4, !tbaa !72
   %.0..0..0..0..0..fca.0.load.pre.i51 = load i64, ptr %7, align 8
   br label %_ZN10duckdb_re28Compiler9ByteRangeEiib.exit64
 
 _ZN10duckdb_re28Compiler9ByteRangeEiib.exit64:    ; preds = %47, %48
   %.0..0..fca.0.load.i52 = phi i64 [ %.0..0..0..0..0..fca.0.load.pre.i51, %48 ], [ %.0..0..0..0..0..0..0..fca.0.load.i.i59, %47 ]
-  %.8..8..8..8..8..fca.1.gep.sroa_idx150 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %.8..8..8..8..8..fca.1.load.i55 = load i64, ptr %.8..8..8..8..8..fca.1.gep.sroa_idx150, align 8
+  %.8..8..8..8..8..fca.1.gep.sroa_idx155 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %.8..8..8..8..8..fca.1.load.i55 = load i64, ptr %.8..8..8..8..8..fca.1.gep.sroa_idx155, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.sroa.216.0.extract.trunc = trunc i64 %.8..8..8..8..8..fca.1.load.i55 to i40
-  %.8..8..8..sroa_idx138 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  store i40 %.sroa.216.0.extract.trunc, ptr %.8..8..8..sroa_idx138, align 8
+  %.8..8..8..sroa_idx143 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  store i40 %.sroa.216.0.extract.trunc, ptr %.8..8..8..sroa_idx143, align 8
   %55 = icmp sgt i32 %43, 1
   br i1 %55, label %.lr.ph, label %._crit_edge
 
@@ -3712,14 +3712,14 @@ _ZN10duckdb_re28Compiler9ByteRangeEiib.exit64:    ; preds = %47, %48
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %wide.trip.count = zext nneg i32 %43 to i64
   %.8..8..8..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %.4..4..4..4..4..sroa_idx156 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  %.12..12..12..12..12..sroa_idx159 = getelementptr inbounds nuw i8, ptr %5, i64 12
-  %.4..4..4..4..4..4..4..sroa_idx160 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  %.12..12..12..12..12..12..12..sroa_idx162 = getelementptr inbounds nuw i8, ptr %4, i64 12
-  %.8..8..8..8..8..8..8..fca.1.gep.sroa_idx161 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %.8..8..8..8..8..sroa_idx158 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %.8..8..8..8..8..fca.1.gep.sroa_idx157 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %.8..8..8..sroa_idx139 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %.4..4..4..4..4..sroa_idx161 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  %.12..12..12..12..12..sroa_idx164 = getelementptr inbounds nuw i8, ptr %5, i64 12
+  %.4..4..4..4..4..4..4..sroa_idx165 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  %.12..12..12..12..12..12..12..sroa_idx167 = getelementptr inbounds nuw i8, ptr %4, i64 12
+  %.8..8..8..8..8..8..8..fca.1.gep.sroa_idx166 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %.8..8..8..8..8..sroa_idx163 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %.8..8..8..8..8..fca.1.gep.sroa_idx162 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %.8..8..8..sroa_idx144 = getelementptr inbounds nuw i8, ptr %12, i64 8
   br label %57
 
 ._crit_edge:                                      ; preds = %_ZN10duckdb_re28Compiler9ByteRangeEiib.exit82, %_ZN10duckdb_re28Compiler9ByteRangeEiib.exit64
@@ -3741,13 +3741,13 @@ _ZN10duckdb_re28Compiler9ByteRangeEiib.exit64:    ; preds = %47, %48
 62:                                               ; preds = %57
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 8, !tbaa !71
-  store i64 0, ptr %.4..4..4..4..4..4..4..sroa_idx160, align 4
-  store i8 0, ptr %.12..12..12..12..12..12..12..sroa_idx162, align 4, !tbaa !72
+  store i64 0, ptr %.4..4..4..4..4..4..4..sroa_idx165, align 4
+  store i8 0, ptr %.12..12..12..12..12..12..12..sroa_idx167, align 4, !tbaa !72
   %.0..0..0..0..0..0..0..fca.0.load.i.i77 = load i64, ptr %4, align 8
-  %.8..8..8..8..8..8..8..fca.1.load.i.i79 = load i64, ptr %.8..8..8..8..8..8..8..fca.1.gep.sroa_idx161, align 8
+  %.8..8..8..8..8..8..8..fca.1.load.i.i79 = load i64, ptr %.8..8..8..8..8..8..8..fca.1.gep.sroa_idx166, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.sroa.2.0.extract.trunc.i80 = trunc i64 %.8..8..8..8..8..8..8..fca.1.load.i.i79 to i40
-  store i40 %.sroa.2.0.extract.trunc.i80, ptr %.8..8..8..8..8..sroa_idx158, align 8
+  store i40 %.sroa.2.0.extract.trunc.i80, ptr %.8..8..8..8..8..sroa_idx163, align 8
   br label %_ZN10duckdb_re28Compiler9ByteRangeEiib.exit82
 
 63:                                               ; preds = %57
@@ -3760,21 +3760,21 @@ _ZN10duckdb_re28Compiler9ByteRangeEiib.exit64:    ; preds = %47, %48
   %.sroa.2.0.insert.ext.i.i65 = zext i32 %68 to i64
   %.sroa.0.0.insert.insert.i.i66 = mul nuw i64 %.sroa.2.0.insert.ext.i.i65, 4294967297
   store i32 %60, ptr %5, align 8, !tbaa !71
-  store i64 %.sroa.0.0.insert.insert.i.i66, ptr %.4..4..4..4..4..sroa_idx156, align 4
-  store i8 0, ptr %.12..12..12..12..12..sroa_idx159, align 4, !tbaa !72
+  store i64 %.sroa.0.0.insert.insert.i.i66, ptr %.4..4..4..4..4..sroa_idx161, align 4
+  store i8 0, ptr %.12..12..12..12..12..sroa_idx164, align 4, !tbaa !72
   %.0..0..0..0..0..fca.0.load.pre.i69 = load i64, ptr %5, align 8
   br label %_ZN10duckdb_re28Compiler9ByteRangeEiib.exit82
 
 _ZN10duckdb_re28Compiler9ByteRangeEiib.exit82:    ; preds = %62, %63
   %.0..0..fca.0.load.i70 = phi i64 [ %.0..0..0..0..0..fca.0.load.pre.i69, %63 ], [ %.0..0..0..0..0..0..0..fca.0.load.i.i77, %62 ]
-  %.8..8..8..8..8..fca.1.load.i73 = load i64, ptr %.8..8..8..8..8..fca.1.gep.sroa_idx157, align 8
+  %.8..8..8..8..8..fca.1.load.i73 = load i64, ptr %.8..8..8..8..8..fca.1.gep.sroa_idx162, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.sroa.26.8.insert.ext = and i64 %.8..8..8..8..8..fca.1.load.i73, 1099511627775
   %69 = call { i64, i64 } @_ZN10duckdb_re28Compiler3CatENS_4FragES1_(ptr noundef nonnull align 8 dereferenceable(228) %0, i64 %.fca.0.extract108109, i64 %.8..8..8..sroa.28.0.copyload, i64 %.0..0..fca.0.load.i70, i64 %.sroa.26.8.insert.ext)
   %.fca.0.extract = extractvalue { i64, i64 } %69, 0
   %.fca.1.extract = extractvalue { i64, i64 } %69, 1
   %.sroa.2.0.extract.trunc = trunc i64 %.fca.1.extract to i40
-  store i40 %.sroa.2.0.extract.trunc, ptr %.8..8..8..sroa_idx139, align 8
+  store i40 %.sroa.2.0.extract.trunc, ptr %.8..8..8..sroa_idx144, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %57, !llvm.loop !106
@@ -3832,8 +3832,8 @@ define hidden { i64, i64 } @_ZN10duckdb_re28Compiler9PostVisitEPNS_6RegexpENS_4F
   %.8..8..8..8..8..fca.1.load.i = load i64, ptr %.8..8..8..8..8..fca.1.gep.sroa_idx, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %30)
   %.sroa.2170.0.extract.trunc = trunc i64 %.8..8..8..8..8..fca.1.load.i to i40
-  %.8..8..8..sroa_idx652 = getelementptr inbounds nuw i8, ptr %31, i64 8
-  store i40 %.sroa.2170.0.extract.trunc, ptr %.8..8..8..sroa_idx652, align 8
+  %.8..8..8..sroa_idx670 = getelementptr inbounds nuw i8, ptr %31, i64 8
+  store i40 %.sroa.2170.0.extract.trunc, ptr %.8..8..8..sroa_idx670, align 8
   br label %.loopexit
 
 38:                                               ; preds = %8
@@ -3864,17 +3864,17 @@ define hidden { i64, i64 } @_ZN10duckdb_re28Compiler9PostVisitEPNS_6RegexpENS_4F
 40:                                               ; preds = %38
   call void @llvm.lifetime.start.p0(ptr nonnull %29)
   store i32 0, ptr %29, align 8, !tbaa !71
-  %.4..4..4..4..4..sroa_idx653 = getelementptr inbounds nuw i8, ptr %29, i64 4
-  store i64 0, ptr %.4..4..4..4..4..sroa_idx653, align 4
-  %.12..12..12..12..12..sroa_idx655 = getelementptr inbounds nuw i8, ptr %29, i64 12
-  store i8 0, ptr %.12..12..12..12..12..sroa_idx655, align 4, !tbaa !72
+  %.4..4..4..4..4..sroa_idx671 = getelementptr inbounds nuw i8, ptr %29, i64 4
+  store i64 0, ptr %.4..4..4..4..4..sroa_idx671, align 4
+  %.12..12..12..12..12..sroa_idx673 = getelementptr inbounds nuw i8, ptr %29, i64 12
+  store i8 0, ptr %.12..12..12..12..12..sroa_idx673, align 4, !tbaa !72
   %.0..0..0..0..0..fca.0.load.i212 = load i64, ptr %29, align 8
-  %.8..8..8..8..8..fca.1.gep.sroa_idx654 = getelementptr inbounds nuw i8, ptr %29, i64 8
-  %.8..8..8..8..8..fca.1.load.i215 = load i64, ptr %.8..8..8..8..8..fca.1.gep.sroa_idx654, align 8
+  %.8..8..8..8..8..fca.1.gep.sroa_idx672 = getelementptr inbounds nuw i8, ptr %29, i64 8
+  %.8..8..8..8..8..fca.1.load.i215 = load i64, ptr %.8..8..8..8..8..fca.1.gep.sroa_idx672, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %29)
   %.sroa.2166.0.extract.trunc = trunc i64 %.8..8..8..8..8..fca.1.load.i215 to i40
-  %.8..8..8..sroa_idx651 = getelementptr inbounds nuw i8, ptr %31, i64 8
-  store i40 %.sroa.2166.0.extract.trunc, ptr %.8..8..8..sroa_idx651, align 8
+  %.8..8..8..sroa_idx669 = getelementptr inbounds nuw i8, ptr %31, i64 8
+  store i40 %.sroa.2166.0.extract.trunc, ptr %.8..8..8..sroa_idx669, align 8
   br label %.loopexit
 
 41:                                               ; preds = %38
@@ -3909,21 +3909,21 @@ define hidden { i64, i64 } @_ZN10duckdb_re28Compiler9PostVisitEPNS_6RegexpENS_4F
   %.sroa.2.0.insert.ext.i.i = zext i32 %50 to i64
   %.sroa.0.0.insert.insert.i.i = mul nuw i64 %.sroa.2.0.insert.ext.i.i, 4294967297
   store i32 %42, ptr %28, align 8, !tbaa !71
-  %.4..4..4..4..4..sroa_idx656 = getelementptr inbounds nuw i8, ptr %28, i64 4
-  store i64 %.sroa.0.0.insert.insert.i.i, ptr %.4..4..4..4..4..sroa_idx656, align 4
-  %.12..12..12..12..12..sroa_idx658 = getelementptr inbounds nuw i8, ptr %28, i64 12
-  store i8 1, ptr %.12..12..12..12..12..sroa_idx658, align 4, !tbaa !72
+  %.4..4..4..4..4..sroa_idx674 = getelementptr inbounds nuw i8, ptr %28, i64 4
+  store i64 %.sroa.0.0.insert.insert.i.i, ptr %.4..4..4..4..4..sroa_idx674, align 4
+  %.12..12..12..12..12..sroa_idx676 = getelementptr inbounds nuw i8, ptr %28, i64 12
+  store i8 1, ptr %.12..12..12..12..12..sroa_idx676, align 4, !tbaa !72
   %.0..0..0..0..0..fca.0.load.pre.i = load i64, ptr %28, align 8
   br label %_ZN10duckdb_re28Compiler3NopEv.exit
 
 _ZN10duckdb_re28Compiler3NopEv.exit:              ; preds = %44, %45
   %.0..0..fca.0.load.i219 = phi i64 [ %.0..0..0..0..0..fca.0.load.pre.i, %45 ], [ %.0..0..0..0..0..0..0..fca.0.load.i.i, %44 ]
-  %.8..8..8..8..8..fca.1.gep.sroa_idx657 = getelementptr inbounds nuw i8, ptr %28, i64 8
-  %.8..8..8..8..8..fca.1.load.i222 = load i64, ptr %.8..8..8..8..8..fca.1.gep.sroa_idx657, align 8
+  %.8..8..8..8..8..fca.1.gep.sroa_idx675 = getelementptr inbounds nuw i8, ptr %28, i64 8
+  %.8..8..8..8..8..fca.1.load.i222 = load i64, ptr %.8..8..8..8..8..fca.1.gep.sroa_idx675, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %28)
   %.sroa.2162.0.extract.trunc = trunc i64 %.8..8..8..8..8..fca.1.load.i222 to i40
-  %.8..8..8..sroa_idx650 = getelementptr inbounds nuw i8, ptr %31, i64 8
-  store i40 %.sroa.2162.0.extract.trunc, ptr %.8..8..8..sroa_idx650, align 8
+  %.8..8..8..sroa_idx668 = getelementptr inbounds nuw i8, ptr %31, i64 8
+  store i40 %.sroa.2162.0.extract.trunc, ptr %.8..8..8..sroa_idx668, align 8
   br label %.loopexit
 
 51:                                               ; preds = %38
@@ -3937,17 +3937,17 @@ _ZN10duckdb_re28Compiler3NopEv.exit:              ; preds = %44, %45
 56:                                               ; preds = %51
   call void @llvm.lifetime.start.p0(ptr nonnull %25)
   store i32 0, ptr %25, align 8, !tbaa !71
-  %.4..4..4..4..4..4..4..sroa_idx663 = getelementptr inbounds nuw i8, ptr %25, i64 4
-  store i64 0, ptr %.4..4..4..4..4..4..4..sroa_idx663, align 4
-  %.12..12..12..12..12..12..12..sroa_idx665 = getelementptr inbounds nuw i8, ptr %25, i64 12
-  store i8 0, ptr %.12..12..12..12..12..12..12..sroa_idx665, align 4, !tbaa !72
+  %.4..4..4..4..4..4..4..sroa_idx681 = getelementptr inbounds nuw i8, ptr %25, i64 4
+  store i64 0, ptr %.4..4..4..4..4..4..4..sroa_idx681, align 4
+  %.12..12..12..12..12..12..12..sroa_idx683 = getelementptr inbounds nuw i8, ptr %25, i64 12
+  store i8 0, ptr %.12..12..12..12..12..12..12..sroa_idx683, align 4, !tbaa !72
   %.0..0..0..0..0..0..0..fca.0.load.i.i234 = load i64, ptr %25, align 8
-  %.8..8..8..8..8..8..8..fca.1.gep.sroa_idx664 = getelementptr inbounds nuw i8, ptr %25, i64 8
-  %.8..8..8..8..8..8..8..fca.1.load.i.i236 = load i64, ptr %.8..8..8..8..8..8..8..fca.1.gep.sroa_idx664, align 8
+  %.8..8..8..8..8..8..8..fca.1.gep.sroa_idx682 = getelementptr inbounds nuw i8, ptr %25, i64 8
+  %.8..8..8..8..8..8..8..fca.1.load.i.i236 = load i64, ptr %.8..8..8..8..8..8..8..fca.1.gep.sroa_idx682, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
   %.sroa.2.0.extract.trunc.i237 = trunc i64 %.8..8..8..8..8..8..8..fca.1.load.i.i236 to i40
-  %.8..8..8..8..8..sroa_idx661 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  store i40 %.sroa.2.0.extract.trunc.i237, ptr %.8..8..8..8..8..sroa_idx661, align 8
+  %.8..8..8..8..8..sroa_idx679 = getelementptr inbounds nuw i8, ptr %26, i64 8
+  store i40 %.sroa.2.0.extract.trunc.i237, ptr %.8..8..8..8..8..sroa_idx679, align 8
   br label %_ZN10duckdb_re28Compiler5MatchEi.exit
 
 57:                                               ; preds = %51
@@ -3957,21 +3957,21 @@ _ZN10duckdb_re28Compiler3NopEv.exit:              ; preds = %44, %45
   %61 = getelementptr inbounds nuw %"class.duckdb_re2::Prog::Inst", ptr %60, i64 %58
   tail call void @_ZN10duckdb_re24Prog4Inst9InitMatchEi(ptr noundef nonnull align 4 dereferenceable(8) %61, i32 noundef %53)
   store i32 %54, ptr %26, align 8, !tbaa !71
-  %.4..4..4..4..4..sroa_idx659 = getelementptr inbounds nuw i8, ptr %26, i64 4
-  store i64 0, ptr %.4..4..4..4..4..sroa_idx659, align 4
-  %.12..12..12..12..12..sroa_idx662 = getelementptr inbounds nuw i8, ptr %26, i64 12
-  store i8 0, ptr %.12..12..12..12..12..sroa_idx662, align 4, !tbaa !72
+  %.4..4..4..4..4..sroa_idx677 = getelementptr inbounds nuw i8, ptr %26, i64 4
+  store i64 0, ptr %.4..4..4..4..4..sroa_idx677, align 4
+  %.12..12..12..12..12..sroa_idx680 = getelementptr inbounds nuw i8, ptr %26, i64 12
+  store i8 0, ptr %.12..12..12..12..12..sroa_idx680, align 4, !tbaa !72
   %.0..0..0..0..0..fca.0.load.pre.i226 = load i64, ptr %26, align 8
   br label %_ZN10duckdb_re28Compiler5MatchEi.exit
 
 _ZN10duckdb_re28Compiler5MatchEi.exit:            ; preds = %56, %57
   %.0..0..sroa.0143.0.copyload = phi i64 [ %.0..0..0..0..0..fca.0.load.pre.i226, %57 ], [ %.0..0..0..0..0..0..0..fca.0.load.i.i234, %56 ]
-  %.8..8..8..8..8..fca.1.gep.sroa_idx660 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  %.8..8..8..8..8..fca.1.load.i230 = load i64, ptr %.8..8..8..8..8..fca.1.gep.sroa_idx660, align 8
+  %.8..8..8..8..8..fca.1.gep.sroa_idx678 = getelementptr inbounds nuw i8, ptr %26, i64 8
+  %.8..8..8..8..8..fca.1.load.i230 = load i64, ptr %.8..8..8..8..8..fca.1.gep.sroa_idx678, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %26)
   %.sroa.2158.0.extract.trunc = trunc i64 %.8..8..8..8..8..fca.1.load.i230 to i40
-  %.8..8..8..sroa_idx648 = getelementptr inbounds nuw i8, ptr %31, i64 8
-  store i40 %.sroa.2158.0.extract.trunc, ptr %.8..8..8..sroa_idx648, align 8
+  %.8..8..8..sroa_idx666 = getelementptr inbounds nuw i8, ptr %31, i64 8
+  store i40 %.sroa.2158.0.extract.trunc, ptr %.8..8..8..sroa_idx666, align 8
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %63 = load i32, ptr %62, align 8, !tbaa !111
   %64 = icmp eq i32 %63, 2
@@ -3981,15 +3981,15 @@ _ZN10duckdb_re28Compiler5MatchEi.exit:            ; preds = %56, %57
   %66 = tail call { i64, i64 } @_ZN10duckdb_re28Compiler10EmptyWidthENS_7EmptyOpE(ptr noundef nonnull align 8 dereferenceable(228) %0, i32 noundef 8)
   %.fca.0.extract145 = extractvalue { i64, i64 } %66, 0
   %.fca.1.extract146 = extractvalue { i64, i64 } %66, 1
-  %.8..8..8..sroa_idx628 = getelementptr inbounds nuw i8, ptr %31, i64 8
-  %.8..8..8..sroa.2144.0.copyload = load i64, ptr %.8..8..8..sroa_idx628, align 8
+  %.8..8..8..sroa_idx646 = getelementptr inbounds nuw i8, ptr %31, i64 8
+  %.8..8..8..sroa.2144.0.copyload = load i64, ptr %.8..8..8..sroa_idx646, align 8
   %.sroa.2150.8.insert.ext = and i64 %.fca.1.extract146, 1099511627775
   %67 = tail call { i64, i64 } @_ZN10duckdb_re28Compiler3CatENS_4FragES1_(ptr noundef nonnull align 8 dereferenceable(228) %0, i64 %.fca.0.extract145, i64 %.sroa.2150.8.insert.ext, i64 %.0..0..sroa.0143.0.copyload, i64 %.8..8..8..sroa.2144.0.copyload)
   %.fca.0.extract139 = extractvalue { i64, i64 } %67, 0
   %.fca.1.extract140 = extractvalue { i64, i64 } %67, 1
   %.sroa.2142.0.extract.trunc = trunc i64 %.fca.1.extract140 to i40
-  %.8..8..8..sroa_idx649 = getelementptr inbounds nuw i8, ptr %31, i64 8
-  store i40 %.sroa.2142.0.extract.trunc, ptr %.8..8..8..sroa_idx649, align 8
+  %.8..8..8..sroa_idx667 = getelementptr inbounds nuw i8, ptr %31, i64 8
+  store i40 %.sroa.2142.0.extract.trunc, ptr %.8..8..8..sroa_idx667, align 8
   br label %.loopexit
 
 68:                                               ; preds = %38
@@ -4000,14 +4000,14 @@ _ZN10duckdb_re28Compiler5MatchEi.exit:            ; preds = %56, %57
 
 .lr.ph510:                                        ; preds = %68
   %wide.trip.count519 = zext nneg i32 %7 to i64
-  %.8..8..8..sroa_idx627 = getelementptr inbounds nuw i8, ptr %31, i64 8
-  %.8..8..8..sroa_idx630 = getelementptr inbounds nuw i8, ptr %31, i64 8
+  %.8..8..8..sroa_idx645 = getelementptr inbounds nuw i8, ptr %31, i64 8
+  %.8..8..8..sroa_idx648 = getelementptr inbounds nuw i8, ptr %31, i64 8
   br label %70
 
 70:                                               ; preds = %.lr.ph510, %70
   %indvars.iv516 = phi i64 [ 1, %.lr.ph510 ], [ %indvars.iv.next517, %70 ]
   %.fca.0.extract125506507 = phi i64 [ %.0..0..promoted505, %.lr.ph510 ], [ %.fca.0.extract125, %70 ]
-  %.8..8..8..sroa.2132.0.copyload = load i64, ptr %.8..8..8..sroa_idx627, align 8
+  %.8..8..8..sroa.2132.0.copyload = load i64, ptr %.8..8..8..sroa_idx645, align 8
   %71 = getelementptr inbounds nuw %"struct.duckdb_re2::Frag", ptr %6, i64 %indvars.iv516
   %.sroa.0129.0.copyload = load i64, ptr %71, align 4
   %.sroa.2130.0..sroa_idx = getelementptr inbounds nuw i8, ptr %71, i64 8
@@ -4016,7 +4016,7 @@ _ZN10duckdb_re28Compiler5MatchEi.exit:            ; preds = %56, %57
   %.fca.0.extract125 = extractvalue { i64, i64 } %72, 0
   %.fca.1.extract126 = extractvalue { i64, i64 } %72, 1
   %.sroa.2128.0.extract.trunc = trunc i64 %.fca.1.extract126 to i40
-  store i40 %.sroa.2128.0.extract.trunc, ptr %.8..8..8..sroa_idx630, align 8
+  store i40 %.sroa.2128.0.extract.trunc, ptr %.8..8..8..sroa_idx648, align 8
   %indvars.iv.next517 = add nuw nsw i64 %indvars.iv516, 1
   %exitcond520.not = icmp eq i64 %indvars.iv.next517, %wide.trip.count519
   br i1 %exitcond520.not, label %.loopexit, label %70, !llvm.loop !112
@@ -4029,14 +4029,14 @@ _ZN10duckdb_re28Compiler5MatchEi.exit:            ; preds = %56, %57
 
 .lr.ph503:                                        ; preds = %73
   %wide.trip.count = zext nneg i32 %7 to i64
-  %.8..8..8..sroa_idx626 = getelementptr inbounds nuw i8, ptr %31, i64 8
-  %.8..8..8..sroa_idx629 = getelementptr inbounds nuw i8, ptr %31, i64 8
+  %.8..8..8..sroa_idx644 = getelementptr inbounds nuw i8, ptr %31, i64 8
+  %.8..8..8..sroa_idx647 = getelementptr inbounds nuw i8, ptr %31, i64 8
   br label %75
 
 75:                                               ; preds = %.lr.ph503, %75
   %indvars.iv513 = phi i64 [ 1, %.lr.ph503 ], [ %indvars.iv.next514, %75 ]
   %.fca.0.extract111499500 = phi i64 [ %.0..0..promoted498, %.lr.ph503 ], [ %.fca.0.extract111, %75 ]
-  %.8..8..8..sroa.2118.0.copyload = load i64, ptr %.8..8..8..sroa_idx626, align 8
+  %.8..8..8..sroa.2118.0.copyload = load i64, ptr %.8..8..8..sroa_idx644, align 8
   %76 = getelementptr inbounds nuw %"struct.duckdb_re2::Frag", ptr %6, i64 %indvars.iv513
   %.sroa.0115.0.copyload = load i64, ptr %76, align 4
   %.sroa.2116.0..sroa_idx = getelementptr inbounds nuw i8, ptr %76, i64 8
@@ -4045,7 +4045,7 @@ _ZN10duckdb_re28Compiler5MatchEi.exit:            ; preds = %56, %57
   %.fca.0.extract111 = extractvalue { i64, i64 } %77, 0
   %.fca.1.extract112 = extractvalue { i64, i64 } %77, 1
   %.sroa.2114.0.extract.trunc = trunc i64 %.fca.1.extract112 to i40
-  store i40 %.sroa.2114.0.extract.trunc, ptr %.8..8..8..sroa_idx629, align 8
+  store i40 %.sroa.2114.0.extract.trunc, ptr %.8..8..8..sroa_idx647, align 8
   %indvars.iv.next514 = add nuw nsw i64 %indvars.iv513, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next514, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %75, !llvm.loop !113
@@ -4062,8 +4062,8 @@ _ZN10duckdb_re28Compiler5MatchEi.exit:            ; preds = %56, %57
   %.fca.0.extract105 = extractvalue { i64, i64 } %83, 0
   %.fca.1.extract106 = extractvalue { i64, i64 } %83, 1
   %.sroa.2108.0.extract.trunc = trunc i64 %.fca.1.extract106 to i40
-  %.8..8..8..sroa_idx647 = getelementptr inbounds nuw i8, ptr %31, i64 8
-  store i40 %.sroa.2108.0.extract.trunc, ptr %.8..8..8..sroa_idx647, align 8
+  %.8..8..8..sroa_idx665 = getelementptr inbounds nuw i8, ptr %31, i64 8
+  store i40 %.sroa.2108.0.extract.trunc, ptr %.8..8..8..sroa_idx665, align 8
   br label %.loopexit
 
 84:                                               ; preds = %38
@@ -4078,8 +4078,8 @@ _ZN10duckdb_re28Compiler5MatchEi.exit:            ; preds = %56, %57
   %.fca.0.extract99 = extractvalue { i64, i64 } %89, 0
   %.fca.1.extract100 = extractvalue { i64, i64 } %89, 1
   %.sroa.2102.0.extract.trunc = trunc i64 %.fca.1.extract100 to i40
-  %.8..8..8..sroa_idx646 = getelementptr inbounds nuw i8, ptr %31, i64 8
-  store i40 %.sroa.2102.0.extract.trunc, ptr %.8..8..8..sroa_idx646, align 8
+  %.8..8..8..sroa_idx664 = getelementptr inbounds nuw i8, ptr %31, i64 8
+  store i40 %.sroa.2102.0.extract.trunc, ptr %.8..8..8..sroa_idx664, align 8
   br label %.loopexit
 
 90:                                               ; preds = %38
@@ -4094,8 +4094,8 @@ _ZN10duckdb_re28Compiler5MatchEi.exit:            ; preds = %56, %57
   %.fca.0.extract93 = extractvalue { i64, i64 } %95, 0
   %.fca.1.extract94 = extractvalue { i64, i64 } %95, 1
   %.sroa.296.0.extract.trunc = trunc i64 %.fca.1.extract94 to i40
-  %.8..8..8..sroa_idx645 = getelementptr inbounds nuw i8, ptr %31, i64 8
-  store i40 %.sroa.296.0.extract.trunc, ptr %.8..8..8..sroa_idx645, align 8
+  %.8..8..8..sroa_idx663 = getelementptr inbounds nuw i8, ptr %31, i64 8
+  store i40 %.sroa.296.0.extract.trunc, ptr %.8..8..8..sroa_idx663, align 8
   br label %.loopexit
 
 96:                                               ; preds = %38
@@ -4109,8 +4109,8 @@ _ZN10duckdb_re28Compiler5MatchEi.exit:            ; preds = %56, %57
   %.fca.0.extract89 = extractvalue { i64, i64 } %103, 0
   %.fca.1.extract90 = extractvalue { i64, i64 } %103, 1
   %.sroa.292.0.extract.trunc = trunc i64 %.fca.1.extract90 to i40
-  %.8..8..8..sroa_idx644 = getelementptr inbounds nuw i8, ptr %31, i64 8
-  store i40 %.sroa.292.0.extract.trunc, ptr %.8..8..8..sroa_idx644, align 8
+  %.8..8..8..sroa_idx662 = getelementptr inbounds nuw i8, ptr %31, i64 8
+  store i40 %.sroa.292.0.extract.trunc, ptr %.8..8..8..sroa_idx662, align 8
   br label %.loopexit
 
 104:                                              ; preds = %38
@@ -4124,8 +4124,8 @@ _ZN10duckdb_re28Compiler5MatchEi.exit:            ; preds = %56, %57
   %.fca.0.extract85 = extractvalue { i64, i64 } %109, 0
   %.fca.1.extract86 = extractvalue { i64, i64 } %109, 1
   %.sroa.288.0.extract.trunc = trunc i64 %.fca.1.extract86 to i40
-  %.8..8..8..sroa_idx643 = getelementptr inbounds nuw i8, ptr %31, i64 8
-  store i40 %.sroa.288.0.extract.trunc, ptr %.8..8..8..sroa_idx643, align 8
+  %.8..8..8..sroa_idx661 = getelementptr inbounds nuw i8, ptr %31, i64 8
+  store i40 %.sroa.288.0.extract.trunc, ptr %.8..8..8..sroa_idx661, align 8
   br label %.loopexit
 
 110:                                              ; preds = %104
@@ -4209,8 +4209,8 @@ _ZN10duckdb_re28Compiler10BeginRangeEv.exit:      ; preds = %.lr.ph.i.i.i.i, %12
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 216
   %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8
   %.sroa.265.0.extract.trunc = trunc i64 %.sroa.2.0.copyload.i to i40
-  %.8..8..8..sroa_idx642 = getelementptr inbounds nuw i8, ptr %31, i64 8
-  store i40 %.sroa.265.0.extract.trunc, ptr %.8..8..8..sroa_idx642, align 8
+  %.8..8..8..sroa_idx660 = getelementptr inbounds nuw i8, ptr %31, i64 8
+  store i40 %.sroa.265.0.extract.trunc, ptr %.8..8..8..sroa_idx660, align 8
   br label %.loopexit
 
 140:                                              ; preds = %38
@@ -4222,17 +4222,17 @@ _ZN10duckdb_re28Compiler10BeginRangeEv.exit:      ; preds = %.lr.ph.i.i.i.i, %12
 143:                                              ; preds = %140
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
   store i32 0, ptr %23, align 8, !tbaa !71
-  %.4..4..4..4..4..4..4..sroa_idx670 = getelementptr inbounds nuw i8, ptr %23, i64 4
-  store i64 0, ptr %.4..4..4..4..4..4..4..sroa_idx670, align 4
-  %.12..12..12..12..12..12..12..sroa_idx672 = getelementptr inbounds nuw i8, ptr %23, i64 12
-  store i8 0, ptr %.12..12..12..12..12..12..12..sroa_idx672, align 4, !tbaa !72
+  %.4..4..4..4..4..4..4..sroa_idx688 = getelementptr inbounds nuw i8, ptr %23, i64 4
+  store i64 0, ptr %.4..4..4..4..4..4..4..sroa_idx688, align 4
+  %.12..12..12..12..12..12..12..sroa_idx690 = getelementptr inbounds nuw i8, ptr %23, i64 12
+  store i8 0, ptr %.12..12..12..12..12..12..12..sroa_idx690, align 4, !tbaa !72
   %.0..0..0..0..0..0..0..fca.0.load.i.i253 = load i64, ptr %23, align 8
-  %.8..8..8..8..8..8..8..fca.1.gep.sroa_idx671 = getelementptr inbounds nuw i8, ptr %23, i64 8
-  %.8..8..8..8..8..8..8..fca.1.load.i.i255 = load i64, ptr %.8..8..8..8..8..8..8..fca.1.gep.sroa_idx671, align 8
+  %.8..8..8..8..8..8..8..fca.1.gep.sroa_idx689 = getelementptr inbounds nuw i8, ptr %23, i64 8
+  %.8..8..8..8..8..8..8..fca.1.load.i.i255 = load i64, ptr %.8..8..8..8..8..8..8..fca.1.gep.sroa_idx689, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   %.sroa.2.0.extract.trunc.i256 = trunc i64 %.8..8..8..8..8..8..8..fca.1.load.i.i255 to i40
-  %.8..8..8..8..8..sroa_idx668 = getelementptr inbounds nuw i8, ptr %24, i64 8
-  store i40 %.sroa.2.0.extract.trunc.i256, ptr %.8..8..8..8..8..sroa_idx668, align 8
+  %.8..8..8..8..8..sroa_idx686 = getelementptr inbounds nuw i8, ptr %24, i64 8
+  store i40 %.sroa.2.0.extract.trunc.i256, ptr %.8..8..8..8..8..sroa_idx686, align 8
   br label %_ZN10duckdb_re28Compiler9ByteRangeEiib.exit
 
 144:                                              ; preds = %140
@@ -4245,21 +4245,21 @@ _ZN10duckdb_re28Compiler10BeginRangeEv.exit:      ; preds = %.lr.ph.i.i.i.i, %12
   %.sroa.2.0.insert.ext.i.i241 = zext i32 %149 to i64
   %.sroa.0.0.insert.insert.i.i242 = mul nuw i64 %.sroa.2.0.insert.ext.i.i241, 4294967297
   store i32 %141, ptr %24, align 8, !tbaa !71
-  %.4..4..4..4..4..sroa_idx666 = getelementptr inbounds nuw i8, ptr %24, i64 4
-  store i64 %.sroa.0.0.insert.insert.i.i242, ptr %.4..4..4..4..4..sroa_idx666, align 4
-  %.12..12..12..12..12..sroa_idx669 = getelementptr inbounds nuw i8, ptr %24, i64 12
-  store i8 0, ptr %.12..12..12..12..12..sroa_idx669, align 4, !tbaa !72
+  %.4..4..4..4..4..sroa_idx684 = getelementptr inbounds nuw i8, ptr %24, i64 4
+  store i64 %.sroa.0.0.insert.insert.i.i242, ptr %.4..4..4..4..4..sroa_idx684, align 4
+  %.12..12..12..12..12..sroa_idx687 = getelementptr inbounds nuw i8, ptr %24, i64 12
+  store i8 0, ptr %.12..12..12..12..12..sroa_idx687, align 4, !tbaa !72
   %.0..0..0..0..0..fca.0.load.pre.i245 = load i64, ptr %24, align 8
   br label %_ZN10duckdb_re28Compiler9ByteRangeEiib.exit
 
 _ZN10duckdb_re28Compiler9ByteRangeEiib.exit:      ; preds = %143, %144
   %.0..0..fca.0.load.i246 = phi i64 [ %.0..0..0..0..0..fca.0.load.pre.i245, %144 ], [ %.0..0..0..0..0..0..0..fca.0.load.i.i253, %143 ]
-  %.8..8..8..8..8..fca.1.gep.sroa_idx667 = getelementptr inbounds nuw i8, ptr %24, i64 8
-  %.8..8..8..8..8..fca.1.load.i249 = load i64, ptr %.8..8..8..8..8..fca.1.gep.sroa_idx667, align 8
+  %.8..8..8..8..8..fca.1.gep.sroa_idx685 = getelementptr inbounds nuw i8, ptr %24, i64 8
+  %.8..8..8..8..8..fca.1.load.i249 = load i64, ptr %.8..8..8..8..8..fca.1.gep.sroa_idx685, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
   %.sroa.261.0.extract.trunc = trunc i64 %.8..8..8..8..8..fca.1.load.i249 to i40
-  %.8..8..8..sroa_idx641 = getelementptr inbounds nuw i8, ptr %31, i64 8
-  store i40 %.sroa.261.0.extract.trunc, ptr %.8..8..8..sroa_idx641, align 8
+  %.8..8..8..sroa_idx659 = getelementptr inbounds nuw i8, ptr %31, i64 8
+  store i40 %.sroa.261.0.extract.trunc, ptr %.8..8..8..sroa_idx659, align 8
   br label %.loopexit
 
 150:                                              ; preds = %38
@@ -4284,17 +4284,17 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %156
   call void @llvm.lifetime.end.p0(ptr nonnull %32)
   call void @llvm.lifetime.start.p0(ptr nonnull %22)
   store i32 0, ptr %22, align 8, !tbaa !71
-  %.4..4..4..4..4..sroa_idx673 = getelementptr inbounds nuw i8, ptr %22, i64 4
-  store i64 0, ptr %.4..4..4..4..4..sroa_idx673, align 4
-  %.12..12..12..12..12..sroa_idx675 = getelementptr inbounds nuw i8, ptr %22, i64 12
-  store i8 0, ptr %.12..12..12..12..12..sroa_idx675, align 4, !tbaa !72
+  %.4..4..4..4..4..sroa_idx691 = getelementptr inbounds nuw i8, ptr %22, i64 4
+  store i64 0, ptr %.4..4..4..4..4..sroa_idx691, align 4
+  %.12..12..12..12..12..sroa_idx693 = getelementptr inbounds nuw i8, ptr %22, i64 12
+  store i8 0, ptr %.12..12..12..12..12..sroa_idx693, align 4, !tbaa !72
   %.0..0..0..0..0..fca.0.load.i260 = load i64, ptr %22, align 8
-  %.8..8..8..8..8..fca.1.gep.sroa_idx674 = getelementptr inbounds nuw i8, ptr %22, i64 8
-  %.8..8..8..8..8..fca.1.load.i263 = load i64, ptr %.8..8..8..8..8..fca.1.gep.sroa_idx674, align 8
+  %.8..8..8..8..8..fca.1.gep.sroa_idx692 = getelementptr inbounds nuw i8, ptr %22, i64 8
+  %.8..8..8..8..8..fca.1.load.i263 = load i64, ptr %.8..8..8..8..8..fca.1.gep.sroa_idx692, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   %.sroa.251.0.extract.trunc = trunc i64 %.8..8..8..8..8..fca.1.load.i263 to i40
-  %.8..8..8..sroa_idx640 = getelementptr inbounds nuw i8, ptr %31, i64 8
-  store i40 %.sroa.251.0.extract.trunc, ptr %.8..8..8..sroa_idx640, align 8
+  %.8..8..8..sroa_idx658 = getelementptr inbounds nuw i8, ptr %31, i64 8
+  store i40 %.sroa.251.0.extract.trunc, ptr %.8..8..8..sroa_idx658, align 8
   br label %.loopexit
 
 159:                                              ; preds = %156
@@ -4324,8 +4324,8 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %156
   %.sroa.2.0..sroa_idx.i266 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %.sroa.2.0.copyload.i267 = load i64, ptr %.sroa.2.0..sroa_idx.i266, align 8
   %.sroa.234.0.extract.trunc = trunc i64 %.sroa.2.0.copyload.i267 to i40
-  %.8..8..8..sroa_idx639 = getelementptr inbounds nuw i8, ptr %31, i64 8
-  store i40 %.sroa.234.0.extract.trunc, ptr %.8..8..8..sroa_idx639, align 8
+  %.8..8..8..sroa_idx657 = getelementptr inbounds nuw i8, ptr %31, i64 8
+  store i40 %.sroa.234.0.extract.trunc, ptr %.8..8..8..sroa_idx657, align 8
   br label %.loopexit
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %191
@@ -4410,8 +4410,8 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %156
   %.fca.0.extract25 = extractvalue { i64, i64 } %203, 0
   %.fca.1.extract26 = extractvalue { i64, i64 } %203, 1
   %.sroa.228.0.extract.trunc = trunc i64 %.fca.1.extract26 to i40
-  %.8..8..8..sroa_idx638 = getelementptr inbounds nuw i8, ptr %31, i64 8
-  store i40 %.sroa.228.0.extract.trunc, ptr %.8..8..8..sroa_idx638, align 8
+  %.8..8..8..sroa_idx656 = getelementptr inbounds nuw i8, ptr %31, i64 8
+  store i40 %.sroa.228.0.extract.trunc, ptr %.8..8..8..sroa_idx656, align 8
   br label %.loopexit
 
 204:                                              ; preds = %38
@@ -4425,17 +4425,17 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %156
 209:                                              ; preds = %204
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
   store i32 0, ptr %20, align 8, !tbaa !71
-  %.4..4..4..4..4..4..4..sroa_idx680 = getelementptr inbounds nuw i8, ptr %20, i64 4
-  store i64 0, ptr %.4..4..4..4..4..4..4..sroa_idx680, align 4
-  %.12..12..12..12..12..12..12..sroa_idx682 = getelementptr inbounds nuw i8, ptr %20, i64 12
-  store i8 0, ptr %.12..12..12..12..12..12..12..sroa_idx682, align 4, !tbaa !72
+  %.4..4..4..4..4..4..4..sroa_idx698 = getelementptr inbounds nuw i8, ptr %20, i64 4
+  store i64 0, ptr %.4..4..4..4..4..4..4..sroa_idx698, align 4
+  %.12..12..12..12..12..12..12..sroa_idx700 = getelementptr inbounds nuw i8, ptr %20, i64 12
+  store i8 0, ptr %.12..12..12..12..12..12..12..sroa_idx700, align 4, !tbaa !72
   %.0..0..0..0..0..0..0..fca.0.load.i.i282 = load i64, ptr %20, align 8
-  %.8..8..8..8..8..8..8..fca.1.gep.sroa_idx681 = getelementptr inbounds nuw i8, ptr %20, i64 8
-  %.8..8..8..8..8..8..8..fca.1.load.i.i284 = load i64, ptr %.8..8..8..8..8..8..8..fca.1.gep.sroa_idx681, align 8
+  %.8..8..8..8..8..8..8..fca.1.gep.sroa_idx699 = getelementptr inbounds nuw i8, ptr %20, i64 8
+  %.8..8..8..8..8..8..8..fca.1.load.i.i284 = load i64, ptr %.8..8..8..8..8..8..8..fca.1.gep.sroa_idx699, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   %.sroa.2.0.extract.trunc.i285 = trunc i64 %.8..8..8..8..8..8..8..fca.1.load.i.i284 to i40
-  %.8..8..8..8..8..sroa_idx678 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  store i40 %.sroa.2.0.extract.trunc.i285, ptr %.8..8..8..8..8..sroa_idx678, align 8
+  %.8..8..8..8..8..sroa_idx696 = getelementptr inbounds nuw i8, ptr %21, i64 8
+  store i40 %.sroa.2.0.extract.trunc.i285, ptr %.8..8..8..8..8..sroa_idx696, align 8
   br label %_ZN10duckdb_re28Compiler10EmptyWidthENS_7EmptyOpE.exit
 
 210:                                              ; preds = %204
@@ -4450,21 +4450,21 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %156
   %.sroa.2.0.insert.ext.i.i270 = zext i32 %217 to i64
   %.sroa.0.0.insert.insert.i.i271 = mul nuw i64 %.sroa.2.0.insert.ext.i.i270, 4294967297
   store i32 %207, ptr %21, align 8, !tbaa !71
-  %.4..4..4..4..4..sroa_idx676 = getelementptr inbounds nuw i8, ptr %21, i64 4
-  store i64 %.sroa.0.0.insert.insert.i.i271, ptr %.4..4..4..4..4..sroa_idx676, align 4
-  %.12..12..12..12..12..sroa_idx679 = getelementptr inbounds nuw i8, ptr %21, i64 12
-  store i8 1, ptr %.12..12..12..12..12..sroa_idx679, align 4, !tbaa !72
+  %.4..4..4..4..4..sroa_idx694 = getelementptr inbounds nuw i8, ptr %21, i64 4
+  store i64 %.sroa.0.0.insert.insert.i.i271, ptr %.4..4..4..4..4..sroa_idx694, align 4
+  %.12..12..12..12..12..sroa_idx697 = getelementptr inbounds nuw i8, ptr %21, i64 12
+  store i8 1, ptr %.12..12..12..12..12..sroa_idx697, align 4, !tbaa !72
   %.0..0..0..0..0..fca.0.load.pre.i274 = load i64, ptr %21, align 8
   br label %_ZN10duckdb_re28Compiler10EmptyWidthENS_7EmptyOpE.exit
 
 _ZN10duckdb_re28Compiler10EmptyWidthENS_7EmptyOpE.exit: ; preds = %209, %210
   %.0..0..fca.0.load.i275 = phi i64 [ %.0..0..0..0..0..fca.0.load.pre.i274, %210 ], [ %.0..0..0..0..0..0..0..fca.0.load.i.i282, %209 ]
-  %.8..8..8..8..8..fca.1.gep.sroa_idx677 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  %.8..8..8..8..8..fca.1.load.i278 = load i64, ptr %.8..8..8..8..8..fca.1.gep.sroa_idx677, align 8
+  %.8..8..8..8..8..fca.1.gep.sroa_idx695 = getelementptr inbounds nuw i8, ptr %21, i64 8
+  %.8..8..8..8..8..fca.1.load.i278 = load i64, ptr %.8..8..8..8..8..fca.1.gep.sroa_idx695, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   %.sroa.224.0.extract.trunc = trunc i64 %.8..8..8..8..8..fca.1.load.i278 to i40
-  %.8..8..8..sroa_idx637 = getelementptr inbounds nuw i8, ptr %31, i64 8
-  store i40 %.sroa.224.0.extract.trunc, ptr %.8..8..8..sroa_idx637, align 8
+  %.8..8..8..sroa_idx655 = getelementptr inbounds nuw i8, ptr %31, i64 8
+  store i40 %.sroa.224.0.extract.trunc, ptr %.8..8..8..sroa_idx655, align 8
   br label %.loopexit
 
 218:                                              ; preds = %38
@@ -4478,17 +4478,17 @@ _ZN10duckdb_re28Compiler10EmptyWidthENS_7EmptyOpE.exit: ; preds = %209, %210
 223:                                              ; preds = %218
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
   store i32 0, ptr %18, align 8, !tbaa !71
-  %.4..4..4..4..4..4..4..sroa_idx687 = getelementptr inbounds nuw i8, ptr %18, i64 4
-  store i64 0, ptr %.4..4..4..4..4..4..4..sroa_idx687, align 4
-  %.12..12..12..12..12..12..12..sroa_idx689 = getelementptr inbounds nuw i8, ptr %18, i64 12
-  store i8 0, ptr %.12..12..12..12..12..12..12..sroa_idx689, align 4, !tbaa !72
+  %.4..4..4..4..4..4..4..sroa_idx705 = getelementptr inbounds nuw i8, ptr %18, i64 4
+  store i64 0, ptr %.4..4..4..4..4..4..4..sroa_idx705, align 4
+  %.12..12..12..12..12..12..12..sroa_idx707 = getelementptr inbounds nuw i8, ptr %18, i64 12
+  store i8 0, ptr %.12..12..12..12..12..12..12..sroa_idx707, align 4, !tbaa !72
   %.0..0..0..0..0..0..0..fca.0.load.i.i299 = load i64, ptr %18, align 8
-  %.8..8..8..8..8..8..8..fca.1.gep.sroa_idx688 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %.8..8..8..8..8..8..8..fca.1.load.i.i301 = load i64, ptr %.8..8..8..8..8..8..8..fca.1.gep.sroa_idx688, align 8
+  %.8..8..8..8..8..8..8..fca.1.gep.sroa_idx706 = getelementptr inbounds nuw i8, ptr %18, i64 8
+  %.8..8..8..8..8..8..8..fca.1.load.i.i301 = load i64, ptr %.8..8..8..8..8..8..8..fca.1.gep.sroa_idx706, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   %.sroa.2.0.extract.trunc.i302 = trunc i64 %.8..8..8..8..8..8..8..fca.1.load.i.i301 to i40
-  %.8..8..8..8..8..sroa_idx685 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  store i40 %.sroa.2.0.extract.trunc.i302, ptr %.8..8..8..8..8..sroa_idx685, align 8
+  %.8..8..8..8..8..sroa_idx703 = getelementptr inbounds nuw i8, ptr %19, i64 8
+  store i40 %.sroa.2.0.extract.trunc.i302, ptr %.8..8..8..8..8..sroa_idx703, align 8
   br label %_ZN10duckdb_re28Compiler10EmptyWidthENS_7EmptyOpE.exit304
 
 224:                                              ; preds = %218
@@ -4503,21 +4503,21 @@ _ZN10duckdb_re28Compiler10EmptyWidthENS_7EmptyOpE.exit: ; preds = %209, %210
   %.sroa.2.0.insert.ext.i.i287 = zext i32 %231 to i64
   %.sroa.0.0.insert.insert.i.i288 = mul nuw i64 %.sroa.2.0.insert.ext.i.i287, 4294967297
   store i32 %221, ptr %19, align 8, !tbaa !71
-  %.4..4..4..4..4..sroa_idx683 = getelementptr inbounds nuw i8, ptr %19, i64 4
-  store i64 %.sroa.0.0.insert.insert.i.i288, ptr %.4..4..4..4..4..sroa_idx683, align 4
-  %.12..12..12..12..12..sroa_idx686 = getelementptr inbounds nuw i8, ptr %19, i64 12
-  store i8 1, ptr %.12..12..12..12..12..sroa_idx686, align 4, !tbaa !72
+  %.4..4..4..4..4..sroa_idx701 = getelementptr inbounds nuw i8, ptr %19, i64 4
+  store i64 %.sroa.0.0.insert.insert.i.i288, ptr %.4..4..4..4..4..sroa_idx701, align 4
+  %.12..12..12..12..12..sroa_idx704 = getelementptr inbounds nuw i8, ptr %19, i64 12
+  store i8 1, ptr %.12..12..12..12..12..sroa_idx704, align 4, !tbaa !72
   %.0..0..0..0..0..fca.0.load.pre.i291 = load i64, ptr %19, align 8
   br label %_ZN10duckdb_re28Compiler10EmptyWidthENS_7EmptyOpE.exit304
 
 _ZN10duckdb_re28Compiler10EmptyWidthENS_7EmptyOpE.exit304: ; preds = %223, %224
   %.0..0..fca.0.load.i292 = phi i64 [ %.0..0..0..0..0..fca.0.load.pre.i291, %224 ], [ %.0..0..0..0..0..0..0..fca.0.load.i.i299, %223 ]
-  %.8..8..8..8..8..fca.1.gep.sroa_idx684 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %.8..8..8..8..8..fca.1.load.i295 = load i64, ptr %.8..8..8..8..8..fca.1.gep.sroa_idx684, align 8
+  %.8..8..8..8..8..fca.1.gep.sroa_idx702 = getelementptr inbounds nuw i8, ptr %19, i64 8
+  %.8..8..8..8..8..fca.1.load.i295 = load i64, ptr %.8..8..8..8..8..fca.1.gep.sroa_idx702, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   %.sroa.220.0.extract.trunc = trunc i64 %.8..8..8..8..8..fca.1.load.i295 to i40
-  %.8..8..8..sroa_idx636 = getelementptr inbounds nuw i8, ptr %31, i64 8
-  store i40 %.sroa.220.0.extract.trunc, ptr %.8..8..8..sroa_idx636, align 8
+  %.8..8..8..sroa_idx654 = getelementptr inbounds nuw i8, ptr %31, i64 8
+  store i40 %.sroa.220.0.extract.trunc, ptr %.8..8..8..sroa_idx654, align 8
   br label %.loopexit
 
 232:                                              ; preds = %38
@@ -4531,17 +4531,17 @@ _ZN10duckdb_re28Compiler10EmptyWidthENS_7EmptyOpE.exit304: ; preds = %223, %224
 237:                                              ; preds = %232
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store i32 0, ptr %16, align 8, !tbaa !71
-  %.4..4..4..4..4..4..4..sroa_idx694 = getelementptr inbounds nuw i8, ptr %16, i64 4
-  store i64 0, ptr %.4..4..4..4..4..4..4..sroa_idx694, align 4
-  %.12..12..12..12..12..12..12..sroa_idx696 = getelementptr inbounds nuw i8, ptr %16, i64 12
-  store i8 0, ptr %.12..12..12..12..12..12..12..sroa_idx696, align 4, !tbaa !72
+  %.4..4..4..4..4..4..4..sroa_idx712 = getelementptr inbounds nuw i8, ptr %16, i64 4
+  store i64 0, ptr %.4..4..4..4..4..4..4..sroa_idx712, align 4
+  %.12..12..12..12..12..12..12..sroa_idx714 = getelementptr inbounds nuw i8, ptr %16, i64 12
+  store i8 0, ptr %.12..12..12..12..12..12..12..sroa_idx714, align 4, !tbaa !72
   %.0..0..0..0..0..0..0..fca.0.load.i.i317 = load i64, ptr %16, align 8
-  %.8..8..8..8..8..8..8..fca.1.gep.sroa_idx695 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %.8..8..8..8..8..8..8..fca.1.load.i.i319 = load i64, ptr %.8..8..8..8..8..8..8..fca.1.gep.sroa_idx695, align 8
+  %.8..8..8..8..8..8..8..fca.1.gep.sroa_idx713 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  %.8..8..8..8..8..8..8..fca.1.load.i.i319 = load i64, ptr %.8..8..8..8..8..8..8..fca.1.gep.sroa_idx713, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   %.sroa.2.0.extract.trunc.i320 = trunc i64 %.8..8..8..8..8..8..8..fca.1.load.i.i319 to i40
-  %.8..8..8..8..8..sroa_idx692 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  store i40 %.sroa.2.0.extract.trunc.i320, ptr %.8..8..8..8..8..sroa_idx692, align 8
+  %.8..8..8..8..8..sroa_idx710 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  store i40 %.sroa.2.0.extract.trunc.i320, ptr %.8..8..8..8..8..sroa_idx710, align 8
   br label %_ZN10duckdb_re28Compiler10EmptyWidthENS_7EmptyOpE.exit322
 
 238:                                              ; preds = %232
@@ -4556,21 +4556,21 @@ _ZN10duckdb_re28Compiler10EmptyWidthENS_7EmptyOpE.exit304: ; preds = %223, %224
   %.sroa.2.0.insert.ext.i.i305 = zext i32 %245 to i64
   %.sroa.0.0.insert.insert.i.i306 = mul nuw i64 %.sroa.2.0.insert.ext.i.i305, 4294967297
   store i32 %235, ptr %17, align 8, !tbaa !71
-  %.4..4..4..4..4..sroa_idx690 = getelementptr inbounds nuw i8, ptr %17, i64 4
-  store i64 %.sroa.0.0.insert.insert.i.i306, ptr %.4..4..4..4..4..sroa_idx690, align 4
-  %.12..12..12..12..12..sroa_idx693 = getelementptr inbounds nuw i8, ptr %17, i64 12
-  store i8 1, ptr %.12..12..12..12..12..sroa_idx693, align 4, !tbaa !72
+  %.4..4..4..4..4..sroa_idx708 = getelementptr inbounds nuw i8, ptr %17, i64 4
+  store i64 %.sroa.0.0.insert.insert.i.i306, ptr %.4..4..4..4..4..sroa_idx708, align 4
+  %.12..12..12..12..12..sroa_idx711 = getelementptr inbounds nuw i8, ptr %17, i64 12
+  store i8 1, ptr %.12..12..12..12..12..sroa_idx711, align 4, !tbaa !72
   %.0..0..0..0..0..fca.0.load.pre.i309 = load i64, ptr %17, align 8
   br label %_ZN10duckdb_re28Compiler10EmptyWidthENS_7EmptyOpE.exit322
 
 _ZN10duckdb_re28Compiler10EmptyWidthENS_7EmptyOpE.exit322: ; preds = %237, %238
   %.0..0..fca.0.load.i310 = phi i64 [ %.0..0..0..0..0..fca.0.load.pre.i309, %238 ], [ %.0..0..0..0..0..0..0..fca.0.load.i.i317, %237 ]
-  %.8..8..8..8..8..fca.1.gep.sroa_idx691 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  %.8..8..8..8..8..fca.1.load.i313 = load i64, ptr %.8..8..8..8..8..fca.1.gep.sroa_idx691, align 8
+  %.8..8..8..8..8..fca.1.gep.sroa_idx709 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  %.8..8..8..8..8..fca.1.load.i313 = load i64, ptr %.8..8..8..8..8..fca.1.gep.sroa_idx709, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   %.sroa.216.0.extract.trunc = trunc i64 %.8..8..8..8..8..fca.1.load.i313 to i40
-  %.8..8..8..sroa_idx635 = getelementptr inbounds nuw i8, ptr %31, i64 8
-  store i40 %.sroa.216.0.extract.trunc, ptr %.8..8..8..sroa_idx635, align 8
+  %.8..8..8..sroa_idx653 = getelementptr inbounds nuw i8, ptr %31, i64 8
+  store i40 %.sroa.216.0.extract.trunc, ptr %.8..8..8..sroa_idx653, align 8
   br label %.loopexit
 
 246:                                              ; preds = %38
@@ -4584,17 +4584,17 @@ _ZN10duckdb_re28Compiler10EmptyWidthENS_7EmptyOpE.exit322: ; preds = %237, %238
 251:                                              ; preds = %246
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store i32 0, ptr %14, align 8, !tbaa !71
-  %.4..4..4..4..4..4..4..sroa_idx701 = getelementptr inbounds nuw i8, ptr %14, i64 4
-  store i64 0, ptr %.4..4..4..4..4..4..4..sroa_idx701, align 4
-  %.12..12..12..12..12..12..12..sroa_idx703 = getelementptr inbounds nuw i8, ptr %14, i64 12
-  store i8 0, ptr %.12..12..12..12..12..12..12..sroa_idx703, align 4, !tbaa !72
+  %.4..4..4..4..4..4..4..sroa_idx719 = getelementptr inbounds nuw i8, ptr %14, i64 4
+  store i64 0, ptr %.4..4..4..4..4..4..4..sroa_idx719, align 4
+  %.12..12..12..12..12..12..12..sroa_idx721 = getelementptr inbounds nuw i8, ptr %14, i64 12
+  store i8 0, ptr %.12..12..12..12..12..12..12..sroa_idx721, align 4, !tbaa !72
   %.0..0..0..0..0..0..0..fca.0.load.i.i335 = load i64, ptr %14, align 8
-  %.8..8..8..8..8..8..8..fca.1.gep.sroa_idx702 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %.8..8..8..8..8..8..8..fca.1.load.i.i337 = load i64, ptr %.8..8..8..8..8..8..8..fca.1.gep.sroa_idx702, align 8
+  %.8..8..8..8..8..8..8..fca.1.gep.sroa_idx720 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %.8..8..8..8..8..8..8..fca.1.load.i.i337 = load i64, ptr %.8..8..8..8..8..8..8..fca.1.gep.sroa_idx720, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %.sroa.2.0.extract.trunc.i338 = trunc i64 %.8..8..8..8..8..8..8..fca.1.load.i.i337 to i40
-  %.8..8..8..8..8..sroa_idx699 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  store i40 %.sroa.2.0.extract.trunc.i338, ptr %.8..8..8..8..8..sroa_idx699, align 8
+  %.8..8..8..8..8..sroa_idx717 = getelementptr inbounds nuw i8, ptr %15, i64 8
+  store i40 %.sroa.2.0.extract.trunc.i338, ptr %.8..8..8..8..8..sroa_idx717, align 8
   br label %_ZN10duckdb_re28Compiler10EmptyWidthENS_7EmptyOpE.exit340
 
 252:                                              ; preds = %246
@@ -4609,21 +4609,21 @@ _ZN10duckdb_re28Compiler10EmptyWidthENS_7EmptyOpE.exit322: ; preds = %237, %238
   %.sroa.2.0.insert.ext.i.i323 = zext i32 %259 to i64
   %.sroa.0.0.insert.insert.i.i324 = mul nuw i64 %.sroa.2.0.insert.ext.i.i323, 4294967297
   store i32 %249, ptr %15, align 8, !tbaa !71
-  %.4..4..4..4..4..sroa_idx697 = getelementptr inbounds nuw i8, ptr %15, i64 4
-  store i64 %.sroa.0.0.insert.insert.i.i324, ptr %.4..4..4..4..4..sroa_idx697, align 4
-  %.12..12..12..12..12..sroa_idx700 = getelementptr inbounds nuw i8, ptr %15, i64 12
-  store i8 1, ptr %.12..12..12..12..12..sroa_idx700, align 4, !tbaa !72
+  %.4..4..4..4..4..sroa_idx715 = getelementptr inbounds nuw i8, ptr %15, i64 4
+  store i64 %.sroa.0.0.insert.insert.i.i324, ptr %.4..4..4..4..4..sroa_idx715, align 4
+  %.12..12..12..12..12..sroa_idx718 = getelementptr inbounds nuw i8, ptr %15, i64 12
+  store i8 1, ptr %.12..12..12..12..12..sroa_idx718, align 4, !tbaa !72
   %.0..0..0..0..0..fca.0.load.pre.i327 = load i64, ptr %15, align 8
   br label %_ZN10duckdb_re28Compiler10EmptyWidthENS_7EmptyOpE.exit340
 
 _ZN10duckdb_re28Compiler10EmptyWidthENS_7EmptyOpE.exit340: ; preds = %251, %252
   %.0..0..fca.0.load.i328 = phi i64 [ %.0..0..0..0..0..fca.0.load.pre.i327, %252 ], [ %.0..0..0..0..0..0..0..fca.0.load.i.i335, %251 ]
-  %.8..8..8..8..8..fca.1.gep.sroa_idx698 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %.8..8..8..8..8..fca.1.load.i331 = load i64, ptr %.8..8..8..8..8..fca.1.gep.sroa_idx698, align 8
+  %.8..8..8..8..8..fca.1.gep.sroa_idx716 = getelementptr inbounds nuw i8, ptr %15, i64 8
+  %.8..8..8..8..8..fca.1.load.i331 = load i64, ptr %.8..8..8..8..8..fca.1.gep.sroa_idx716, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   %.sroa.212.0.extract.trunc = trunc i64 %.8..8..8..8..8..fca.1.load.i331 to i40
-  %.8..8..8..sroa_idx634 = getelementptr inbounds nuw i8, ptr %31, i64 8
-  store i40 %.sroa.212.0.extract.trunc, ptr %.8..8..8..sroa_idx634, align 8
+  %.8..8..8..sroa_idx652 = getelementptr inbounds nuw i8, ptr %31, i64 8
+  store i40 %.sroa.212.0.extract.trunc, ptr %.8..8..8..sroa_idx652, align 8
   br label %.loopexit
 
 260:                                              ; preds = %38
@@ -4635,17 +4635,17 @@ _ZN10duckdb_re28Compiler10EmptyWidthENS_7EmptyOpE.exit340: ; preds = %251, %252
 263:                                              ; preds = %260
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i32 0, ptr %12, align 8, !tbaa !71
-  %.4..4..4..4..4..4..4..sroa_idx708 = getelementptr inbounds nuw i8, ptr %12, i64 4
-  store i64 0, ptr %.4..4..4..4..4..4..4..sroa_idx708, align 4
-  %.12..12..12..12..12..12..12..sroa_idx710 = getelementptr inbounds nuw i8, ptr %12, i64 12
-  store i8 0, ptr %.12..12..12..12..12..12..12..sroa_idx710, align 4, !tbaa !72
+  %.4..4..4..4..4..4..4..sroa_idx726 = getelementptr inbounds nuw i8, ptr %12, i64 4
+  store i64 0, ptr %.4..4..4..4..4..4..4..sroa_idx726, align 4
+  %.12..12..12..12..12..12..12..sroa_idx728 = getelementptr inbounds nuw i8, ptr %12, i64 12
+  store i8 0, ptr %.12..12..12..12..12..12..12..sroa_idx728, align 4, !tbaa !72
   %.0..0..0..0..0..0..0..fca.0.load.i.i353 = load i64, ptr %12, align 8
-  %.8..8..8..8..8..8..8..fca.1.gep.sroa_idx709 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %.8..8..8..8..8..8..8..fca.1.load.i.i355 = load i64, ptr %.8..8..8..8..8..8..8..fca.1.gep.sroa_idx709, align 8
+  %.8..8..8..8..8..8..8..fca.1.gep.sroa_idx727 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %.8..8..8..8..8..8..8..fca.1.load.i.i355 = load i64, ptr %.8..8..8..8..8..8..8..fca.1.gep.sroa_idx727, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %.sroa.2.0.extract.trunc.i356 = trunc i64 %.8..8..8..8..8..8..8..fca.1.load.i.i355 to i40
-  %.8..8..8..8..8..sroa_idx706 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  store i40 %.sroa.2.0.extract.trunc.i356, ptr %.8..8..8..8..8..sroa_idx706, align 8
+  %.8..8..8..8..8..sroa_idx724 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  store i40 %.sroa.2.0.extract.trunc.i356, ptr %.8..8..8..8..8..sroa_idx724, align 8
   br label %_ZN10duckdb_re28Compiler10EmptyWidthENS_7EmptyOpE.exit358
 
 264:                                              ; preds = %260
@@ -4658,21 +4658,21 @@ _ZN10duckdb_re28Compiler10EmptyWidthENS_7EmptyOpE.exit340: ; preds = %251, %252
   %.sroa.2.0.insert.ext.i.i341 = zext i32 %269 to i64
   %.sroa.0.0.insert.insert.i.i342 = mul nuw i64 %.sroa.2.0.insert.ext.i.i341, 4294967297
   store i32 %261, ptr %13, align 8, !tbaa !71
-  %.4..4..4..4..4..sroa_idx704 = getelementptr inbounds nuw i8, ptr %13, i64 4
-  store i64 %.sroa.0.0.insert.insert.i.i342, ptr %.4..4..4..4..4..sroa_idx704, align 4
-  %.12..12..12..12..12..sroa_idx707 = getelementptr inbounds nuw i8, ptr %13, i64 12
-  store i8 1, ptr %.12..12..12..12..12..sroa_idx707, align 4, !tbaa !72
+  %.4..4..4..4..4..sroa_idx722 = getelementptr inbounds nuw i8, ptr %13, i64 4
+  store i64 %.sroa.0.0.insert.insert.i.i342, ptr %.4..4..4..4..4..sroa_idx722, align 4
+  %.12..12..12..12..12..sroa_idx725 = getelementptr inbounds nuw i8, ptr %13, i64 12
+  store i8 1, ptr %.12..12..12..12..12..sroa_idx725, align 4, !tbaa !72
   %.0..0..0..0..0..fca.0.load.pre.i345 = load i64, ptr %13, align 8
   br label %_ZN10duckdb_re28Compiler10EmptyWidthENS_7EmptyOpE.exit358
 
 _ZN10duckdb_re28Compiler10EmptyWidthENS_7EmptyOpE.exit358: ; preds = %263, %264
   %.0..0..fca.0.load.i346 = phi i64 [ %.0..0..0..0..0..fca.0.load.pre.i345, %264 ], [ %.0..0..0..0..0..0..0..fca.0.load.i.i353, %263 ]
-  %.8..8..8..8..8..fca.1.gep.sroa_idx705 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %.8..8..8..8..8..fca.1.load.i349 = load i64, ptr %.8..8..8..8..8..fca.1.gep.sroa_idx705, align 8
+  %.8..8..8..8..8..fca.1.gep.sroa_idx723 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %.8..8..8..8..8..fca.1.load.i349 = load i64, ptr %.8..8..8..8..8..fca.1.gep.sroa_idx723, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %.sroa.28.0.extract.trunc = trunc i64 %.8..8..8..8..8..fca.1.load.i349 to i40
-  %.8..8..8..sroa_idx633 = getelementptr inbounds nuw i8, ptr %31, i64 8
-  store i40 %.sroa.28.0.extract.trunc, ptr %.8..8..8..sroa_idx633, align 8
+  %.8..8..8..sroa_idx651 = getelementptr inbounds nuw i8, ptr %31, i64 8
+  store i40 %.sroa.28.0.extract.trunc, ptr %.8..8..8..sroa_idx651, align 8
   br label %.loopexit
 
 270:                                              ; preds = %38
@@ -4684,17 +4684,17 @@ _ZN10duckdb_re28Compiler10EmptyWidthENS_7EmptyOpE.exit358: ; preds = %263, %264
 273:                                              ; preds = %270
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i32 0, ptr %10, align 8, !tbaa !71
-  %.4..4..4..4..4..4..4..sroa_idx715 = getelementptr inbounds nuw i8, ptr %10, i64 4
-  store i64 0, ptr %.4..4..4..4..4..4..4..sroa_idx715, align 4
-  %.12..12..12..12..12..12..12..sroa_idx717 = getelementptr inbounds nuw i8, ptr %10, i64 12
-  store i8 0, ptr %.12..12..12..12..12..12..12..sroa_idx717, align 4, !tbaa !72
+  %.4..4..4..4..4..4..4..sroa_idx733 = getelementptr inbounds nuw i8, ptr %10, i64 4
+  store i64 0, ptr %.4..4..4..4..4..4..4..sroa_idx733, align 4
+  %.12..12..12..12..12..12..12..sroa_idx735 = getelementptr inbounds nuw i8, ptr %10, i64 12
+  store i8 0, ptr %.12..12..12..12..12..12..12..sroa_idx735, align 4, !tbaa !72
   %.0..0..0..0..0..0..0..fca.0.load.i.i371 = load i64, ptr %10, align 8
-  %.8..8..8..8..8..8..8..fca.1.gep.sroa_idx716 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %.8..8..8..8..8..8..8..fca.1.load.i.i373 = load i64, ptr %.8..8..8..8..8..8..8..fca.1.gep.sroa_idx716, align 8
+  %.8..8..8..8..8..8..8..fca.1.gep.sroa_idx734 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %.8..8..8..8..8..8..8..fca.1.load.i.i373 = load i64, ptr %.8..8..8..8..8..8..8..fca.1.gep.sroa_idx734, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %.sroa.2.0.extract.trunc.i374 = trunc i64 %.8..8..8..8..8..8..8..fca.1.load.i.i373 to i40
-  %.8..8..8..8..8..sroa_idx713 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  store i40 %.sroa.2.0.extract.trunc.i374, ptr %.8..8..8..8..8..sroa_idx713, align 8
+  %.8..8..8..8..8..sroa_idx731 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  store i40 %.sroa.2.0.extract.trunc.i374, ptr %.8..8..8..8..8..sroa_idx731, align 8
   br label %_ZN10duckdb_re28Compiler10EmptyWidthENS_7EmptyOpE.exit376
 
 274:                                              ; preds = %270
@@ -4707,21 +4707,21 @@ _ZN10duckdb_re28Compiler10EmptyWidthENS_7EmptyOpE.exit358: ; preds = %263, %264
   %.sroa.2.0.insert.ext.i.i359 = zext i32 %279 to i64
   %.sroa.0.0.insert.insert.i.i360 = mul nuw i64 %.sroa.2.0.insert.ext.i.i359, 4294967297
   store i32 %271, ptr %11, align 8, !tbaa !71
-  %.4..4..4..4..4..sroa_idx711 = getelementptr inbounds nuw i8, ptr %11, i64 4
-  store i64 %.sroa.0.0.insert.insert.i.i360, ptr %.4..4..4..4..4..sroa_idx711, align 4
-  %.12..12..12..12..12..sroa_idx714 = getelementptr inbounds nuw i8, ptr %11, i64 12
-  store i8 1, ptr %.12..12..12..12..12..sroa_idx714, align 4, !tbaa !72
+  %.4..4..4..4..4..sroa_idx729 = getelementptr inbounds nuw i8, ptr %11, i64 4
+  store i64 %.sroa.0.0.insert.insert.i.i360, ptr %.4..4..4..4..4..sroa_idx729, align 4
+  %.12..12..12..12..12..sroa_idx732 = getelementptr inbounds nuw i8, ptr %11, i64 12
+  store i8 1, ptr %.12..12..12..12..12..sroa_idx732, align 4, !tbaa !72
   %.0..0..0..0..0..fca.0.load.pre.i363 = load i64, ptr %11, align 8
   br label %_ZN10duckdb_re28Compiler10EmptyWidthENS_7EmptyOpE.exit376
 
 _ZN10duckdb_re28Compiler10EmptyWidthENS_7EmptyOpE.exit376: ; preds = %273, %274
   %.0..0..fca.0.load.i364 = phi i64 [ %.0..0..0..0..0..fca.0.load.pre.i363, %274 ], [ %.0..0..0..0..0..0..0..fca.0.load.i.i371, %273 ]
-  %.8..8..8..8..8..fca.1.gep.sroa_idx712 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %.8..8..8..8..8..fca.1.load.i367 = load i64, ptr %.8..8..8..8..8..fca.1.gep.sroa_idx712, align 8
+  %.8..8..8..8..8..fca.1.gep.sroa_idx730 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %.8..8..8..8..8..fca.1.load.i367 = load i64, ptr %.8..8..8..8..8..fca.1.gep.sroa_idx730, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %.sroa.24.0.extract.trunc = trunc i64 %.8..8..8..8..8..fca.1.load.i367 to i40
-  %.8..8..8..sroa_idx632 = getelementptr inbounds nuw i8, ptr %31, i64 8
-  store i40 %.sroa.24.0.extract.trunc, ptr %.8..8..8..sroa_idx632, align 8
+  %.8..8..8..sroa_idx650 = getelementptr inbounds nuw i8, ptr %31, i64 8
+  store i40 %.sroa.24.0.extract.trunc, ptr %.8..8..8..sroa_idx650, align 8
   br label %.loopexit
 
 280:                                              ; preds = %38
@@ -4775,17 +4775,17 @@ _ZN10LogMessageD2Ev.exit:                         ; preds = %_ZNKSt7__cxx1112bas
   call void @llvm.lifetime.end.p0(ptr nonnull %33)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 0, ptr %9, align 8, !tbaa !71
-  %.4..4..4..4..4..sroa_idx718 = getelementptr inbounds nuw i8, ptr %9, i64 4
-  store i64 0, ptr %.4..4..4..4..4..sroa_idx718, align 4
-  %.12..12..12..12..12..sroa_idx720 = getelementptr inbounds nuw i8, ptr %9, i64 12
-  store i8 0, ptr %.12..12..12..12..12..sroa_idx720, align 4, !tbaa !72
+  %.4..4..4..4..4..sroa_idx736 = getelementptr inbounds nuw i8, ptr %9, i64 4
+  store i64 0, ptr %.4..4..4..4..4..sroa_idx736, align 4
+  %.12..12..12..12..12..sroa_idx738 = getelementptr inbounds nuw i8, ptr %9, i64 12
+  store i8 0, ptr %.12..12..12..12..12..sroa_idx738, align 4, !tbaa !72
   %.0..0..0..0..0..fca.0.load.i380 = load i64, ptr %9, align 8
-  %.8..8..8..8..8..fca.1.gep.sroa_idx719 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %.8..8..8..8..8..fca.1.load.i383 = load i64, ptr %.8..8..8..8..8..fca.1.gep.sroa_idx719, align 8
+  %.8..8..8..8..8..fca.1.gep.sroa_idx737 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %.8..8..8..8..8..fca.1.load.i383 = load i64, ptr %.8..8..8..8..8..fca.1.gep.sroa_idx737, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %.sroa.2.0.extract.trunc = trunc i64 %.8..8..8..8..8..fca.1.load.i383 to i40
-  %.8..8..8..sroa_idx631 = getelementptr inbounds nuw i8, ptr %31, i64 8
-  store i40 %.sroa.2.0.extract.trunc, ptr %.8..8..8..sroa_idx631, align 8
+  %.8..8..8..sroa_idx649 = getelementptr inbounds nuw i8, ptr %31, i64 8
+  store i40 %.sroa.2.0.extract.trunc, ptr %.8..8..8..sroa_idx649, align 8
   br label %.loopexit
 
 302:                                              ; preds = %280, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit377
@@ -5111,10 +5111,10 @@ _ZN10duckdb_re28PODArrayINS_4Prog4InstEED2Ev.exit.i: ; preds = %80, %.thread.i
   br label %156
 
 103:                                              ; preds = %94
-  %.sink117 = zext i1 %38 to i8
-  %.sink115118 = zext i1 %36 to i8
-  store i8 %.sink115118, ptr %97, align 8, !tbaa !153
-  store i8 %.sink117, ptr %99, align 1, !tbaa !154
+  %.sink126 = zext i1 %38 to i8
+  %.sink115127 = zext i1 %36 to i8
+  store i8 %.sink115127, ptr %97, align 8, !tbaa !153
+  store i8 %.sink126, ptr %99, align 1, !tbaa !154
   store i32 %.sroa.034.0.extract.trunc, ptr %100, align 8, !tbaa !155
   br i1 %36, label %151, label %105
 
@@ -5249,17 +5249,17 @@ _ZN10duckdb_re28PODArrayINS_4Prog4InstEED2Ev.exit.i94: ; preds = %131, %.thread.
   %.sroa.2.0.insert.ext.i.i.i = zext i32 %145 to i64
   %.sroa.0.0.insert.insert.i.i.i = mul nuw i64 %.sroa.2.0.insert.ext.i.i.i, 4294967297
   store i32 %137, ptr %5, align 8, !tbaa !71
-  %.4..4..4..4..4..4..4..sroa_idx120 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  store i64 %.sroa.0.0.insert.insert.i.i.i, ptr %.4..4..4..4..4..4..4..sroa_idx120, align 4
-  %.12..12..12..12..12..12..12..sroa_idx122 = getelementptr inbounds nuw i8, ptr %5, i64 12
-  store i8 0, ptr %.12..12..12..12..12..12..12..sroa_idx122, align 4, !tbaa !72
+  %.4..4..4..4..4..4..4..sroa_idx129 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  store i64 %.sroa.0.0.insert.insert.i.i.i, ptr %.4..4..4..4..4..4..4..sroa_idx129, align 4
+  %.12..12..12..12..12..12..12..sroa_idx131 = getelementptr inbounds nuw i8, ptr %5, i64 12
+  store i8 0, ptr %.12..12..12..12..12..12..12..sroa_idx131, align 4, !tbaa !72
   %.0..0..0..0..0..0..0..fca.0.load.pre.i.i = load i64, ptr %5, align 8
   br label %_ZN10duckdb_re28Compiler9ByteRangeEiib.exit.i
 
 _ZN10duckdb_re28Compiler9ByteRangeEiib.exit.i:    ; preds = %.noexc80, %139
   %.0..0..fca.0.load.i.i = phi i64 [ %.0..0..0..0..0..0..0..fca.0.load.pre.i.i, %.noexc80 ], [ %.0..0..0..0..0..0..0..0..0..fca.0.load.i.i.i, %139 ]
-  %.8..8..8..8..8..8..8..fca.1.gep.sroa_idx121 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %.8..8..8..8..8..8..8..fca.1.load.i.i76 = load i64, ptr %.8..8..8..8..8..8..8..fca.1.gep.sroa_idx121, align 8
+  %.8..8..8..8..8..8..8..fca.1.gep.sroa_idx130 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %.8..8..8..8..8..8..8..fca.1.load.i.i76 = load i64, ptr %.8..8..8..8..8..8..8..fca.1.gep.sroa_idx130, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.sroa.26.8.insert.ext.i = and i64 %.8..8..8..8..8..8..8..fca.1.load.i.i76, 1099511627775
   %146 = invoke { i64, i64 } @_ZN10duckdb_re28Compiler4StarENS_4FragEb(ptr noundef nonnull align 8 dereferenceable(228) %8, i64 %.0..0..fca.0.load.i.i, i64 %.sroa.26.8.insert.ext.i, i1 noundef zeroext true)
@@ -6900,7 +6900,7 @@ _ZNSt5stackIN10duckdb_re29WalkStateINS0_4FragEEESt5dequeIS3_SaIS3_EEE4pushEOS3_.
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.4..4..4..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 4
   %.8..8..8..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %.8..8..8..sroa_idx124 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %.8..8..8..sroa_idx135 = getelementptr inbounds nuw i8, ptr %6, i64 8
   br label %66
 
 66:                                               ; preds = %.backedge, %_ZNSt5stackIN10duckdb_re29WalkStateINS0_4FragEEESt5dequeIS3_SaIS3_EEE4pushEOS3_.exit
@@ -6948,7 +6948,7 @@ _ZNSt5stackIN10duckdb_re29WalkStateINS0_4FragEEESt5dequeIS3_SaIS3_EEE3topEv.exit
   %.fca.1.extract30 = extractvalue { i64, i64 } %89, 1
   %.sroa.232.0.extract.trunc = trunc i64 %.fca.1.extract30 to i40
   store i64 %.fca.0.extract29, ptr %6, align 8
-  store i40 %.sroa.232.0.extract.trunc, ptr %.8..8..8..sroa_idx124, align 8
+  store i40 %.sroa.232.0.extract.trunc, ptr %.8..8..8..sroa_idx135, align 8
   br label %175
 
 90:                                               ; preds = %80

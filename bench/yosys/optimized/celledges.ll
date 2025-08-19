@@ -1371,12 +1371,12 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit138:             ; preds = %_ZN5Yosys5RTLIL8IdS
   unreachable
 
 _ZN5Yosys5RTLIL8IdStringD2Ev.exit.i140:           ; preds = %499, %497, %"_ZZN12_GLOBAL__N_117bitwise_binary_opEPN5Yosys25AbstractCellEdgesDatabaseEPNS0_5RTLIL4CellEENK3$_0clEv.exit.i", %"_ZZN12_GLOBAL__N_117bitwise_binary_opEPN5Yosys25AbstractCellEdgesDatabaseEPNS0_5RTLIL4CellEENK3$_0clEv.exit.thread.i"
-  %.pn99.i = phi i32 [ %486, %"_ZZN12_GLOBAL__N_117bitwise_binary_opEPN5Yosys25AbstractCellEdgesDatabaseEPNS0_5RTLIL4CellEENK3$_0clEv.exit.thread.i" ], [ %494, %"_ZZN12_GLOBAL__N_117bitwise_binary_opEPN5Yosys25AbstractCellEdgesDatabaseEPNS0_5RTLIL4CellEENK3$_0clEv.exit.i" ], [ %494, %497 ], [ %494, %499 ]
-  %.pn.i = icmp ne i32 %.pn99.i, %485
-  %.not9198.i = or i1 %469, %.pn.i
+  %.pn117.i = phi i32 [ %486, %"_ZZN12_GLOBAL__N_117bitwise_binary_opEPN5Yosys25AbstractCellEdgesDatabaseEPNS0_5RTLIL4CellEENK3$_0clEv.exit.thread.i" ], [ %494, %"_ZZN12_GLOBAL__N_117bitwise_binary_opEPN5Yosys25AbstractCellEdgesDatabaseEPNS0_5RTLIL4CellEENK3$_0clEv.exit.i" ], [ %494, %497 ], [ %494, %499 ]
+  %.pn.i = icmp ne i32 %.pn117.i, %485
+  %.not91116.i = or i1 %469, %.pn.i
   %..i = tail call i32 @llvm.smin.i32(i32 %471, i32 %473)
-  %.048.i = select i1 %.not9198.i, i32 %473, i32 %..i
-  %.047.i = select i1 %.not9198.i, i32 %471, i32 %..i
+  %.048.i = select i1 %.not91116.i, i32 %473, i32 %..i
+  %.047.i = select i1 %.not91116.i, i32 %471, i32 %..i
   %503 = icmp sgt i32 %475, 0
   br i1 %503, label %.lr.ph.i141, label %_ZN12_GLOBAL__N_117bitwise_binary_opEPN5Yosys25AbstractCellEdgesDatabaseEPNS0_5RTLIL4CellE.exit
 
@@ -1941,8 +1941,8 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit154:             ; preds = %"_ZZN5Yosys25Abstra
   %.0.i = select i1 %or.cond.i155, i32 %.sroa.speculated.i, i32 %762
   %764 = icmp sgt i32 %.0.i, 0
   %765 = icmp sgt i32 %760, 0
-  %or.cond41.i = select i1 %764, i1 %765, i1 false
-  br i1 %or.cond41.i, label %.preheader.us.preheader.i, label %_ZN12_GLOBAL__N_112arith_neg_opEPN5Yosys25AbstractCellEdgesDatabaseEPNS0_5RTLIL4CellE.exit
+  %or.cond48.i = select i1 %764, i1 %765, i1 false
+  br i1 %or.cond48.i, label %.preheader.us.preheader.i, label %_ZN12_GLOBAL__N_112arith_neg_opEPN5Yosys25AbstractCellEdgesDatabaseEPNS0_5RTLIL4CellE.exit
 
 .preheader.us.preheader.i:                        ; preds = %756
   %766 = add nsw i32 %760, -1
@@ -7579,10 +7579,10 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit35:              ; preds = %_ZN5Yosys5RTLIL8IdS
   br label %117
 
 117:                                              ; preds = %115, %63
-  %.sink41 = phi ptr [ %6, %115 ], [ %4, %63 ]
+  %.sink52 = phi ptr [ %6, %115 ], [ %4, %63 ]
   %.sink = phi ptr [ %5, %115 ], [ %3, %63 ]
   %.pn21.pn = phi { ptr, i32 } [ %116, %115 ], [ %64, %63 ]
-  call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %.sink41) #23
+  call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %.sink52) #23
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %.sink) #23
   resume { ptr, i32 } %.pn21.pn
 }
@@ -8041,10 +8041,10 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit60:              ; preds = %_ZN5Yosys5RTLIL8IdS
   br label %176
 
 176:                                              ; preds = %174, %121, %68
-  %.sink71 = phi ptr [ %8, %174 ], [ %6, %121 ], [ %4, %68 ]
+  %.sink88 = phi ptr [ %8, %174 ], [ %6, %121 ], [ %4, %68 ]
   %.sink = phi ptr [ %7, %174 ], [ %5, %121 ], [ %3, %68 ]
   %.pn38.pn = phi { ptr, i32 } [ %175, %174 ], [ %122, %121 ], [ %69, %68 ]
-  call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %.sink71) #23
+  call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %.sink88) #23
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %.sink) #23
   resume { ptr, i32 } %.pn38.pn
 }
@@ -8351,10 +8351,10 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit45:              ; preds = %_ZN5Yosys5RTLIL8IdS
   br label %122
 
 122:                                              ; preds = %120, %67
-  %.sink54 = phi ptr [ %6, %120 ], [ %4, %67 ]
+  %.sink67 = phi ptr [ %6, %120 ], [ %4, %67 ]
   %.sink = phi ptr [ %5, %120 ], [ %3, %67 ]
   %.pn31.pn = phi { ptr, i32 } [ %121, %120 ], [ %68, %67 ]
-  call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %.sink54) #23
+  call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %.sink67) #23
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %.sink) #23
   resume { ptr, i32 } %.pn31.pn
 }
@@ -8652,10 +8652,10 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit39:              ; preds = %_ZN5Yosys5RTLIL8IdS
   br label %121
 
 121:                                              ; preds = %119, %67
-  %.sink47 = phi ptr [ %6, %119 ], [ %4, %67 ]
+  %.sink58 = phi ptr [ %6, %119 ], [ %4, %67 ]
   %.sink = phi ptr [ %5, %119 ], [ %3, %67 ]
   %.pn25.pn = phi { ptr, i32 } [ %120, %119 ], [ %68, %67 ]
-  call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %.sink47) #23
+  call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %.sink58) #23
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %.sink) #23
   resume { ptr, i32 } %.pn25.pn
 }
@@ -9568,8 +9568,8 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit24:              ; preds = %_ZN5Yosys5RTLIL8IdS
 .preheader49.i:                                   ; preds = %275
   %282 = icmp sgt i32 %277, 0
   %283 = icmp sgt i32 %279, 0
-  %or.cond68.i = and i1 %282, %283
-  br i1 %or.cond68.i, label %.preheader48.us.i, label %_ZN12_GLOBAL__N_18memrd_opEPN5Yosys25AbstractCellEdgesDatabaseEPNS0_5RTLIL4CellE.exit
+  %or.cond81.i = and i1 %282, %283
+  br i1 %or.cond81.i, label %.preheader48.us.i, label %_ZN12_GLOBAL__N_18memrd_opEPN5Yosys25AbstractCellEdgesDatabaseEPNS0_5RTLIL4CellE.exit
 
 .preheader48.us.i:                                ; preds = %.preheader49.i, %._crit_edge.us.i28
   %.02152.us.i = phi i32 [ %329, %._crit_edge.us.i28 ], [ 0, %.preheader49.i ]

@@ -252,8 +252,8 @@ if.end.i:                                         ; preds = %_ZNK8facebook5velox
   br i1 %cmp.i.i.i28, label %if.then2.i, label %if.else.i
 
 if.then2.i:                                       ; preds = %if.end.i
-  %retval.4.retval.4.retval.4.prefix_.i.sroa_idx46 = getelementptr inbounds nuw i8, ptr %retval, i64 4
-  store i32 0, ptr %retval.4.retval.4.retval.4.prefix_.i.sroa_idx46, align 4
+  %retval.4.retval.4.retval.4.prefix_.i.sroa_idx48 = getelementptr inbounds nuw i8, ptr %retval, i64 4
+  store i32 0, ptr %retval.4.retval.4.retval.4.prefix_.i.sroa_idx48, align 4
   %cmp4.i = icmp eq i32 %size, 0
   br i1 %cmp4.i, label %_ZN8facebook5velox10StringViewC2EPKci.exit, label %if.end6.i
 
@@ -267,8 +267,8 @@ if.end6.i:                                        ; preds = %if.then2.i
 
 if.else.i:                                        ; preds = %if.end.i
   %29 = load i32, ptr %add.ptr, align 1
-  %retval.4.retval.4.retval.4.prefix_.i.sroa_idx45 = getelementptr inbounds nuw i8, ptr %retval, i64 4
-  store i32 %29, ptr %retval.4.retval.4.retval.4.prefix_.i.sroa_idx45, align 4
+  %retval.4.retval.4.retval.4.prefix_.i.sroa_idx47 = getelementptr inbounds nuw i8, ptr %retval, i64 4
+  store i32 %29, ptr %retval.4.retval.4.retval.4.prefix_.i.sroa_idx47, align 4
   %retval.8.retval.8.retval.8.value_13.i.sroa_idx = getelementptr inbounds nuw i8, ptr %retval, i64 8
   store ptr %add.ptr, ptr %retval.8.retval.8.retval.8.value_13.i.sroa_idx, align 8
   br label %_ZN8facebook5velox10StringViewC2EPKci.exit

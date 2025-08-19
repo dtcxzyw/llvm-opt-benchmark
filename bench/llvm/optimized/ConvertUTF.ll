@@ -302,7 +302,7 @@ define dso_local noundef range(i32 0, 4) i32 @_ZN4llvm18ConvertUTF16toUTF8EPPKtS
   br i1 %33, label %.thread95, label %34
 
 34:                                               ; preds = %30
-  switch i16 %.080.us, label %default.unreachable211 [
+  switch i16 %.080.us, label %default.unreachable216 [
     i16 4, label %35
     i16 3, label %41
     i16 2, label %47
@@ -406,7 +406,7 @@ define dso_local noundef range(i32 0, 4) i32 @_ZN4llvm18ConvertUTF16toUTF8EPPKtS
   br i1 %84, label %.thread95, label %85
 
 85:                                               ; preds = %81
-  switch i16 %.080.us142, label %default.unreachable211 [
+  switch i16 %.080.us142, label %default.unreachable216 [
     i16 4, label %86
     i16 3, label %92
     i16 2, label %98
@@ -457,7 +457,7 @@ define dso_local noundef range(i32 0, 4) i32 @_ZN4llvm18ConvertUTF16toUTF8EPPKtS
   %111 = icmp ult ptr %.5.us140, %1
   br i1 %111, label %.lr.ph.split.split.us, label %.thread95
 
-default.unreachable211:                           ; preds = %34, %85
+default.unreachable216:                           ; preds = %34, %85
   unreachable
 
 .thread95:                                        ; preds = %53, %14, %30, %104, %65, %.lr.ph.split.split.us, %81, %67, %5
@@ -514,7 +514,7 @@ define dso_local noundef range(i32 0, 4) i32 @_ZN4llvm18ConvertUTF32toUTF8EPPKjS
   br i1 %22, label %.thread, label %23
 
 23:                                               ; preds = %19
-  switch i16 %.045.us, label %default.unreachable90 [
+  switch i16 %.045.us, label %default.unreachable102 [
     i16 4, label %24
     i16 3, label %30
     i16 2, label %36
@@ -604,7 +604,7 @@ define dso_local noundef range(i32 0, 4) i32 @_ZN4llvm18ConvertUTF32toUTF8EPPKjS
   br i1 %64, label %.thread, label %65
 
 65:                                               ; preds = %61
-  switch i16 %.045, label %default.unreachable90 [
+  switch i16 %.045, label %default.unreachable102 [
     i16 4, label %66
     i16 3, label %72
     i16 2, label %78
@@ -642,7 +642,7 @@ define dso_local noundef range(i32 0, 4) i32 @_ZN4llvm18ConvertUTF32toUTF8EPPKjS
   %83 = lshr i32 %.248, 6
   br label %84
 
-default.unreachable90:                            ; preds = %23, %65
+default.unreachable102:                           ; preds = %23, %65
   unreachable
 
 84:                                               ; preds = %65, %78

@@ -5865,11 +5865,11 @@ define dso_local range(i64 0, 2) i64 @in_range_timetz_interval(ptr noundef reado
 46:                                               ; preds = %45
   %47 = icmp sge i64 %36, %39
   %48 = icmp sge i32 %.val21, %32
-  %spec.select30 = select i1 %47, i1 %48, i1 false
+  %spec.select36 = select i1 %47, i1 %48, i1 false
   br label %timetz_cmp_internal.exit
 
 timetz_cmp_internal.exit:                         ; preds = %46, %42, %26, %45, %41
-  %.0.shrunk = phi i1 [ false, %41 ], [ true, %45 ], [ %13, %26 ], [ %spec.select, %42 ], [ %spec.select30, %46 ]
+  %.0.shrunk = phi i1 [ false, %41 ], [ true, %45 ], [ %13, %26 ], [ %spec.select, %42 ], [ %spec.select36, %46 ]
   %.0 = zext i1 %.0.shrunk to i64
   ret i64 %.0
 }

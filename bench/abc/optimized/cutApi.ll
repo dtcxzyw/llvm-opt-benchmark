@@ -134,10 +134,10 @@ Cut_NodeReadCutsNew.exit.i:                       ; preds = %.split8
   br i1 %18, label %Cut_NodeFreeCuts.exit, label %.preheader
 
 .preheader:                                       ; preds = %Cut_NodeReadCutsNew.exit.i, %.preheader
-  %.sink20.i = phi ptr [ %20, %.preheader ], [ %17, %Cut_NodeReadCutsNew.exit.i ]
-  %19 = getelementptr inbounds nuw i8, ptr %.sink20.i, i64 16
+  %.sink21.i = phi ptr [ %20, %.preheader ], [ %17, %Cut_NodeReadCutsNew.exit.i ]
+  %19 = getelementptr inbounds nuw i8, ptr %.sink21.i, i64 16
   %20 = load ptr, ptr %19, align 8, !tbaa !26
-  tail call void @Cut_CutRecycle(ptr noundef nonnull %0, ptr noundef nonnull %.sink20.i) #4
+  tail call void @Cut_CutRecycle(ptr noundef nonnull %0, ptr noundef nonnull %.sink21.i) #4
   %.not15.i = icmp eq ptr %20, null
   br i1 %.not15.i, label %21, label %.preheader, !llvm.loop !28
 
@@ -181,10 +181,10 @@ Cut_NodeReadCutsNew.exit:                         ; preds = %2
   br i1 %11, label %Cut_NodeReadCutsNew.exit.thread, label %.preheader
 
 .preheader:                                       ; preds = %Cut_NodeReadCutsNew.exit, %.preheader
-  %.sink20 = phi ptr [ %13, %.preheader ], [ %10, %Cut_NodeReadCutsNew.exit ]
-  %12 = getelementptr inbounds nuw i8, ptr %.sink20, i64 16
+  %.sink21 = phi ptr [ %13, %.preheader ], [ %10, %Cut_NodeReadCutsNew.exit ]
+  %12 = getelementptr inbounds nuw i8, ptr %.sink21, i64 16
   %13 = load ptr, ptr %12, align 8, !tbaa !26
-  tail call void @Cut_CutRecycle(ptr noundef %0, ptr noundef nonnull %.sink20) #4
+  tail call void @Cut_CutRecycle(ptr noundef %0, ptr noundef nonnull %.sink21) #4
   %.not15 = icmp eq ptr %13, null
   br i1 %.not15, label %14, label %.preheader, !llvm.loop !28
 

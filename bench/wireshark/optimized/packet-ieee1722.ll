@@ -906,9 +906,9 @@ switch.lookup:                                    ; preds = %.sink.split, %56, %
   %switch.cast = trunc nuw nsw i8 %65 to i4
   %switch.downshift = lshr exact i4 -8, %switch.cast
   %switch.masked = trunc i4 %switch.downshift to i1
-  %switch.cast262 = trunc nuw nsw i8 %65 to i4
-  %switch.downshift264 = lshr i4 1, %switch.cast262
-  %switch.masked265 = trunc nuw i4 %switch.downshift264 to i1
+  %switch.cast263 = trunc nuw nsw i8 %65 to i4
+  %switch.downshift265 = lshr i4 1, %switch.cast263
+  %switch.masked266 = trunc nuw i4 %switch.downshift265 to i1
   %66 = load i32, ptr @hf_1722_61883_cip_qpc, align 4
   %67 = call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %66, ptr noundef %0, i32 noundef 26, i32 noundef 1, i32 noundef 0)
   %68 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 26)
@@ -983,7 +983,7 @@ switch.lookup:                                    ; preds = %.sink.split, %56, %
   ]
 
 110:                                              ; preds = %105
-  br i1 %switch.masked265, label %113, label %111
+  br i1 %switch.masked266, label %113, label %111
 
 111:                                              ; preds = %110
   %112 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %63, ptr noundef nonnull @ei_1722_61883_6_incorrect_cip_fn)

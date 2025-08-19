@@ -394,11 +394,11 @@ define internal void @trace_event_raw_event_rpm_internal(ptr noundef %0, ptr nou
 34:                                               ; preds = %28
   %35 = load ptr, ptr %1, align 8
   %36 = icmp eq ptr %35, null
-  %spec.select9 = select i1 %36, ptr @.str, ptr %35
+  %spec.select13 = select i1 %36, ptr @.str, ptr %35
   br label %.thread6
 
 .thread6:                                         ; preds = %34, %28
-  %37 = phi ptr [ %33, %28 ], [ %spec.select9, %34 ]
+  %37 = phi ptr [ %33, %28 ], [ %spec.select13, %34 ]
   %38 = call ptr @strcpy(ptr noundef %32, ptr noundef nonnull dereferenceable(1) %37) #8
   %39 = getelementptr inbounds nuw i8, ptr %26, i64 12
   store i32 %2, ptr %39, align 4
@@ -513,11 +513,11 @@ define internal void @perf_trace_rpm_internal(ptr noundef %0, ptr noundef %1, i3
 45:                                               ; preds = %32
   %46 = load ptr, ptr %1, align 8
   %47 = icmp eq ptr %46, null
-  %spec.select9 = select i1 %47, ptr @.str, ptr %46
+  %spec.select13 = select i1 %47, ptr @.str, ptr %46
   br label %.thread6
 
 .thread6:                                         ; preds = %45, %32
-  %48 = phi ptr [ %44, %32 ], [ %spec.select9, %45 ]
+  %48 = phi ptr [ %44, %32 ], [ %spec.select13, %45 ]
   %49 = call ptr @strcpy(ptr noundef %43, ptr noundef nonnull dereferenceable(1) %48) #8
   %50 = getelementptr inbounds nuw i8, ptr %30, i64 12
   store i32 %2, ptr %50, align 4
@@ -626,11 +626,11 @@ define internal void @trace_event_raw_event_rpm_return_int(ptr noundef %0, ptr n
 35:                                               ; preds = %29
   %36 = load ptr, ptr %1, align 8
   %37 = icmp eq ptr %36, null
-  %spec.select9 = select i1 %37, ptr @.str, ptr %36
+  %spec.select13 = select i1 %37, ptr @.str, ptr %36
   br label %.thread6
 
 .thread6:                                         ; preds = %35, %29
-  %38 = phi ptr [ %34, %29 ], [ %spec.select9, %35 ]
+  %38 = phi ptr [ %34, %29 ], [ %spec.select13, %35 ]
   %39 = call ptr @strcpy(ptr noundef %33, ptr noundef nonnull dereferenceable(1) %38) #8
   %40 = getelementptr inbounds nuw i8, ptr %27, i64 16
   store i64 %2, ptr %40, align 8
@@ -715,11 +715,11 @@ define internal void @perf_trace_rpm_return_int(ptr noundef %0, ptr noundef read
 46:                                               ; preds = %33
   %47 = load ptr, ptr %1, align 8
   %48 = icmp eq ptr %47, null
-  %spec.select9 = select i1 %48, ptr @.str, ptr %47
+  %spec.select13 = select i1 %48, ptr @.str, ptr %47
   br label %.thread6
 
 .thread6:                                         ; preds = %46, %33
-  %49 = phi ptr [ %45, %33 ], [ %spec.select9, %46 ]
+  %49 = phi ptr [ %45, %33 ], [ %spec.select13, %46 ]
   %50 = call ptr @strcpy(ptr noundef %44, ptr noundef nonnull dereferenceable(1) %49) #8
   %51 = getelementptr inbounds nuw i8, ptr %31, i64 16
   store i64 %2, ptr %51, align 8

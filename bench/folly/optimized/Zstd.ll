@@ -1290,7 +1290,7 @@ _ZN5folly11compression4zstd12_GLOBAL__N_118zstdTranslateFlushENS0_11StreamCodec7
           to label %66 unwind label %67
 
 66:                                               ; preds = %64
-  switch i32 %3, label %default.unreachable [
+  switch i32 %3, label %default.unreachable30 [
     i32 0, label %"_ZN5folly6detail14ScopeGuardImplIZNS_11compression4zstd12_GLOBAL__N_115ZSTDStreamCodec16doCompressStreamERNS_5RangeIPKhEERNS6_IPhEENS2_11StreamCodec7FlushOpEE3$_0Lb1EED2Ev.exit"
     i32 1, label %69
     i32 2, label %71
@@ -1349,7 +1349,7 @@ _ZNSt10unique_ptrI11ZSTD_CCtx_sN5folly11compression31CompressionCoreLocalContext
   call void @__clang_call_terminate(ptr %87) #26
   unreachable
 
-default.unreachable:                              ; preds = %66
+default.unreachable30:                            ; preds = %66
   unreachable
 
 "_ZN5folly6detail14ScopeGuardImplIZNS_11compression4zstd12_GLOBAL__N_115ZSTDStreamCodec16doCompressStreamERNS_5RangeIPKhEERNS6_IPhEENS2_11StreamCodec7FlushOpEE3$_0Lb1EED2Ev.exit": ; preds = %82, %_ZNSt10unique_ptrI11ZSTD_CCtx_sN5folly11compression31CompressionCoreLocalContextPoolIS0_NS2_8contexts17ZSTD_CCtx_CreatorENS4_17ZSTD_CCtx_DeleterENS4_18ZSTD_CCtx_ResetterELm4EE19ReturnToPoolDeleterEE5resetEPS0_.exit.i, %71, %66, %69

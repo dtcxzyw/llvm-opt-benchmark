@@ -1368,7 +1368,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit361: ; preds = %423,
   %438 = getelementptr inbounds nuw i8, ptr %437, i64 240
   %439 = load ptr, ptr %438, align 8, !tbaa !19
   %.not.i.i.i491 = icmp eq ptr %439, null
-  br i1 %.not.i.i.i491, label %.invoke622, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i492
+  br i1 %.not.i.i.i491, label %.invoke687, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i492
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i492: ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit361
   %440 = getelementptr inbounds nuw i8, ptr %439, i64 56
@@ -1422,13 +1422,13 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit365: ; preds = %_ZNS
   %462 = getelementptr inbounds nuw i8, ptr %461, i64 240
   %463 = load ptr, ptr %462, align 8, !tbaa !19
   %.not.i.i.i502 = icmp eq ptr %463, null
-  br i1 %.not.i.i.i502, label %.invoke622, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i503
+  br i1 %.not.i.i.i502, label %.invoke687, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i503
 
-.invoke622:                                       ; preds = %457, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit361
+.invoke687:                                       ; preds = %457, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit361
   invoke void @_ZSt16__throw_bad_castv() #16
-          to label %.cont623 unwind label %476
+          to label %.cont688 unwind label %476
 
-.cont623:                                         ; preds = %.invoke622
+.cont688:                                         ; preds = %.invoke687
   unreachable
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i503: ; preds = %457
@@ -1462,7 +1462,7 @@ _ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i505: ; preds = %.noexc508, %
   %475 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5flushEv(ptr noundef nonnull align 8 dereferenceable(8) %474)
           to label %_ZNSolsEPFRSoS_E.exit367 unwind label %476
 
-476:                                              ; preds = %.invoke622, %.noexc510, %_ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i505, %.noexc508, %469, %.noexc499, %_ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i494, %.noexc497, %445, %_ZNSolsEPFRSoS_E.exit363, %431, %423, %419, %454, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit365
+476:                                              ; preds = %.invoke687, %.noexc510, %_ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i505, %.noexc508, %469, %.noexc499, %_ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i494, %.noexc497, %445, %_ZNSolsEPFRSoS_E.exit363, %431, %423, %419, %454, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit365
   %477 = landingpad { ptr, i32 }
           cleanup
   br label %785

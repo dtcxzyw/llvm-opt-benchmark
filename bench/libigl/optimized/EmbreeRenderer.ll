@@ -449,7 +449,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit23:                  ; preds = %_ZNKSt6vectorIiSaIi
   br label %_ZNSt6vectorIPKN5Eigen6MatrixIiLin1ELi3ELi0ELin1ELi3EEESaIS4_EED2Ev.exit25.thread
 
 _ZNSt6vectorIPKN5Eigen6MatrixIiLin1ELi3ELi0ELin1ELi3EEESaIS4_EED2Ev.exit25.thread: ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit23.thread, %_ZNSt6vectorIiSaIiEED2Ev.exit23
-  %.pn3740 = phi { ptr, i32 } [ %19, %_ZNSt6vectorIiSaIiEED2Ev.exit23.thread ], [ %20, %_ZNSt6vectorIiSaIiEED2Ev.exit23 ]
+  %.pn4144 = phi { ptr, i32 } [ %19, %_ZNSt6vectorIiSaIiEED2Ev.exit23.thread ], [ %20, %_ZNSt6vectorIiSaIiEED2Ev.exit23 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   tail call void @_ZdlPvm(ptr noundef nonnull %11, i64 noundef 8) #27
   br label %_ZNSt6vectorIPKN5Eigen6MatrixIfLin1ELi3ELi0ELin1ELi3EEESaIS4_EED2Ev.exit27
@@ -461,11 +461,11 @@ _ZNSt6vectorIPKN5Eigen6MatrixIiLin1ELi3ELi0ELin1ELi3EEESaIS4_EED2Ev.exit25: ; pr
   br label %_ZNSt6vectorIPKN5Eigen6MatrixIfLin1ELi3ELi0ELin1ELi3EEESaIS4_EED2Ev.exit27
 
 _ZNSt6vectorIPKN5Eigen6MatrixIfLin1ELi3ELi0ELin1ELi3EEESaIS4_EED2Ev.exit27: ; preds = %_ZNSt6vectorIPKN5Eigen6MatrixIiLin1ELi3ELi0ELin1ELi3EEESaIS4_EED2Ev.exit25, %_ZNSt6vectorIPKN5Eigen6MatrixIiLin1ELi3ELi0ELin1ELi3EEESaIS4_EED2Ev.exit25.thread
-  %.pn374151 = phi { ptr, i32 } [ %.pn3740, %_ZNSt6vectorIPKN5Eigen6MatrixIiLin1ELi3ELi0ELin1ELi3EEESaIS4_EED2Ev.exit25.thread ], [ %21, %_ZNSt6vectorIPKN5Eigen6MatrixIiLin1ELi3ELi0ELin1ELi3EEESaIS4_EED2Ev.exit25 ]
+  %.pn414555 = phi { ptr, i32 } [ %.pn4144, %_ZNSt6vectorIPKN5Eigen6MatrixIiLin1ELi3ELi0ELin1ELi3EEESaIS4_EED2Ev.exit25.thread ], [ %21, %_ZNSt6vectorIPKN5Eigen6MatrixIiLin1ELi3ELi0ELin1ELi3EEESaIS4_EED2Ev.exit25 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   tail call void @_ZdlPvm(ptr noundef nonnull %9, i64 noundef 8) #27
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  resume { ptr, i32 } %.pn374151
+  resume { ptr, i32 } %.pn414555
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1560,20 +1560,20 @@ _ZN5Eigen10MatrixBaseINS_6MatrixIfLi1ELi3ELi1ELi1ELi3EEEE9normalizeEv.exit67.us:
   br label %"_ZZN3igl6embree14EmbreeRenderer13render_bufferERN5Eigen6MatrixIhLin1ELin1ELi0ELin1ELin1EEES5_S5_S5_ENK3$_0clEf.exit70.us"
 
 "_ZZN3igl6embree14EmbreeRenderer13render_bufferERN5Eigen6MatrixIhLin1ELin1ELi0ELin1ELin1EEES5_S5_S5_ENK3$_0clEf.exit70.us": ; preds = %302, %431, %"_ZZN3igl6embree14EmbreeRenderer13render_bufferERN5Eigen6MatrixIhLin1ELin1ELi0ELin1ELin1EEES5_S5_S5_ENK3$_0clEf.exit69.us", %436
-  %.sink284 = phi i8 [ 0, %436 ], [ 0, %302 ], [ %435, %431 ], [ 0, %"_ZZN3igl6embree14EmbreeRenderer13render_bufferERN5Eigen6MatrixIhLin1ELin1ELi0ELin1ELin1EEES5_S5_S5_ENK3$_0clEf.exit69.us" ]
-  %.sink278 = phi i8 [ 0, %436 ], [ -1, %302 ], [ -1, %431 ], [ -1, %"_ZZN3igl6embree14EmbreeRenderer13render_bufferERN5Eigen6MatrixIhLin1ELin1ELi0ELin1ELin1EEES5_S5_S5_ENK3$_0clEf.exit69.us" ]
+  %.sink290 = phi i8 [ 0, %436 ], [ 0, %302 ], [ %435, %431 ], [ 0, %"_ZZN3igl6embree14EmbreeRenderer13render_bufferERN5Eigen6MatrixIhLin1ELin1ELi0ELin1ELin1EEES5_S5_S5_ENK3$_0clEf.exit69.us" ]
+  %.sink284 = phi i8 [ 0, %436 ], [ -1, %302 ], [ -1, %431 ], [ -1, %"_ZZN3igl6embree14EmbreeRenderer13render_bufferERN5Eigen6MatrixIhLin1ELin1ELi0ELin1ELin1EEES5_S5_S5_ENK3$_0clEf.exit69.us" ]
   %447 = load ptr, ptr %3, align 8, !tbaa !158
   %448 = load i64, ptr %246, align 8, !tbaa !151
   %449 = mul nsw i64 %448, %indvars.iv
   %450 = getelementptr i8, ptr %447, i64 %indvars.iv229
   %451 = getelementptr i8, ptr %450, i64 %449
-  store i8 %.sink284, ptr %451, align 1, !tbaa !122
+  store i8 %.sink290, ptr %451, align 1, !tbaa !122
   %452 = load ptr, ptr %4, align 8, !tbaa !158
   %453 = load i64, ptr %256, align 8, !tbaa !151
   %454 = mul nsw i64 %453, %indvars.iv
   %455 = getelementptr i8, ptr %452, i64 %indvars.iv229
   %456 = getelementptr i8, ptr %455, i64 %454
-  store i8 %.sink278, ptr %456, align 1, !tbaa !122
+  store i8 %.sink284, ptr %456, align 1, !tbaa !122
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)

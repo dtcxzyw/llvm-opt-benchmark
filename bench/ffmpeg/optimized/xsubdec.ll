@@ -23,7 +23,7 @@ define internal noundef i32 @decode_init(ptr noundef writeonly captures(none) in
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 53, 0) i32 @decode_frame(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noundef readonly captures(none) %3) #1 {
+define internal range(i32 -12, -1094995528) i32 @decode_frame(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noundef readonly captures(none) %3) #1 {
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %6 = load ptr, ptr %5, align 8, !tbaa !27
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 32
@@ -289,8 +289,8 @@ parse_timecode.exit136:                           ; preds = %75
   br i1 %13, label %.lr.ph177.preheader, label %.preheader167
 
 .preheader167:                                    ; preds = %._crit_edge
-  %.not225 = icmp eq i32 %129, 1
-  br i1 %.not225, label %.loopexit, label %.lr.ph174.preheader
+  %.not235 = icmp eq i32 %129, 1
+  br i1 %.not235, label %.loopexit, label %.lr.ph174.preheader
 
 .lr.ph174.preheader:                              ; preds = %.preheader167
   %wide.trip.count205 = zext nneg i32 %129 to i64

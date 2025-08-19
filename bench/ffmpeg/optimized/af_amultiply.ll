@@ -170,12 +170,12 @@ define internal range(i32 -2147483648, 1) i32 @activate(ptr noundef readonly cap
   br label %78
 
 78:                                               ; preds = %72, %69
-  %.sink169 = phi i32 [ %77, %72 ], [ %68, %69 ]
-  %.sink168 = phi i32 [ %75, %72 ], [ %71, %69 ]
-  %.sink166 = phi i32 [ %77, %72 ], [ %71, %69 ]
-  %79 = add i32 %.sink169, -1
-  %80 = add i32 %79, %.sink168
-  %81 = sub i32 0, %.sink166
+  %.sink172 = phi i32 [ %77, %72 ], [ %68, %69 ]
+  %.sink171 = phi i32 [ %75, %72 ], [ %71, %69 ]
+  %.sink169 = phi i32 [ %77, %72 ], [ %71, %69 ]
+  %79 = add i32 %.sink172, -1
+  %80 = add i32 %79, %.sink171
+  %81 = sub i32 0, %.sink169
   %82 = and i32 %80, %81
   %83 = load ptr, ptr %6, align 8, !tbaa !23
   %84 = load ptr, ptr %83, align 8, !tbaa !24

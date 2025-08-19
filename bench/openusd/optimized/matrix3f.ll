@@ -1710,9 +1710,9 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__10GfMatrix3f25ExtractRotation
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %9 = load float, ptr %8, align 4
   %. = select i1 %7, float %6, float %4
-  %.36 = zext i1 %7 to i32
+  %.40 = zext i1 %7 to i32
   %10 = fcmp ogt float %., %9
-  %11 = select i1 %10, i32 %.36, i32 2
+  %11 = select i1 %10, i32 %.40, i32 2
   %.0.fr = freeze i32 %11
   %12 = fadd float %4, %6
   %13 = fadd float %12, %9

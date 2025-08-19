@@ -712,10 +712,10 @@ Abc_InfoRandomBytes.exit:                         ; preds = %.lr.ph.i15, %.lr.ph
 
 ; Function Attrs: nounwind uwtable
 define void @Res_SimSetDerivedBytes(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #3 {
-  %.sroa.0392 = alloca ptr, align 16
-  %.sroa.4393 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0392)
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.4393)
+  %.sroa.0412 = alloca ptr, align 16
+  %.sroa.4413 = alloca ptr, align 8
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0412)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.4413)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %4 = load i32, ptr %3, align 4, !tbaa !15
   %.fr208 = freeze i32 %4
@@ -748,11 +748,11 @@ define void @Res_SimSetDerivedBytes(ptr noundef readonly captures(none) %0, i32 
   br i1 %19, label %.critedge, label %.lr.ph.preheader.i.us, !llvm.loop !67
 
 .lr.ph.preheader.i.us:                            ; preds = %.lr.ph.split.us.preheader, %.lr.ph.split.us
-  %.val137164.us328 = phi ptr [ %.val137.us, %.lr.ph.split.us ], [ %.val137161, %.lr.ph.split.us.preheader ]
-  %indvars.iv327 = phi i64 [ %indvars.iv.next, %.lr.ph.split.us ], [ 0, %.lr.ph.split.us.preheader ]
-  %20 = getelementptr i8, ptr %.val137164.us328, i64 8
+  %.val137164.us348 = phi ptr [ %.val137.us, %.lr.ph.split.us ], [ %.val137161, %.lr.ph.split.us.preheader ]
+  %indvars.iv347 = phi i64 [ %indvars.iv.next, %.lr.ph.split.us ], [ 0, %.lr.ph.split.us.preheader ]
+  %20 = getelementptr i8, ptr %.val137164.us348, i64 8
   %.val142.val.us = load ptr, ptr %20, align 8, !tbaa !25
-  %21 = getelementptr inbounds nuw ptr, ptr %.val142.val.us, i64 %indvars.iv327
+  %21 = getelementptr inbounds nuw ptr, ptr %.val142.val.us, i64 %indvars.iv347
   %22 = load ptr, ptr %21, align 8, !tbaa !19
   %23 = load ptr, ptr %11, align 8, !tbaa !26
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 16
@@ -789,7 +789,7 @@ define void @Res_SimSetDerivedBytes(ptr noundef readonly captures(none) %0, i32 
   br i1 %43, label %.lr.ph.i.us, label %Abc_InfoRandomBytes.exit.loopexit.us, !llvm.loop !60
 
 Abc_InfoRandomBytes.exit.loopexit.us:             ; preds = %.lr.ph.i.us
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv327, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv347, 1
   %44 = load ptr, ptr %0, align 8, !tbaa !36
   %45 = getelementptr i8, ptr %44, i64 40
   %.val137.us = load ptr, ptr %45, align 8, !tbaa !61
@@ -831,20 +831,20 @@ Abc_InfoRandomBytes.exit.loopexit.us..critedge.loopexit_crit_edge: ; preds = %Ab
   %60 = sext i32 %.1182 to i64
   %61 = load i32, ptr %6, align 8, !tbaa !37
   %62 = icmp eq i32 %61, 0
-  br i1 %62, label %.critedge2, label %.lr.ph332
+  br i1 %62, label %.critedge2, label %.lr.ph352
 
-63:                                               ; preds = %.lr.ph332
+63:                                               ; preds = %.lr.ph352
   %64 = load i32, ptr %6, align 8, !tbaa !37
   %65 = zext i32 %64 to i64
   %66 = icmp eq i64 %indvars.iv.next225, %65
-  br i1 %66, label %.critedge2, label %.lr.ph332, !llvm.loop !68
+  br i1 %66, label %.critedge2, label %.lr.ph352, !llvm.loop !68
 
-.lr.ph332:                                        ; preds = %.lr.ph170, %63
-  %.val136169331 = phi ptr [ %.val136, %63 ], [ %.val136166, %.lr.ph170 ]
-  %indvars.iv224330 = phi i64 [ %indvars.iv.next225, %63 ], [ 0, %.lr.ph170 ]
-  %67 = getelementptr i8, ptr %.val136169331, i64 8
+.lr.ph352:                                        ; preds = %.lr.ph170, %63
+  %.val136169351 = phi ptr [ %.val136, %63 ], [ %.val136166, %.lr.ph170 ]
+  %indvars.iv224350 = phi i64 [ %indvars.iv.next225, %63 ], [ 0, %.lr.ph170 ]
+  %67 = getelementptr i8, ptr %.val136169351, i64 8
   %.val141.val = load ptr, ptr %67, align 8, !tbaa !25
-  %68 = getelementptr inbounds nuw ptr, ptr %.val141.val, i64 %indvars.iv224330
+  %68 = getelementptr inbounds nuw ptr, ptr %.val141.val, i64 %indvars.iv224350
   %69 = load ptr, ptr %68, align 8, !tbaa !19
   %70 = load ptr, ptr %50, align 8, !tbaa !26
   %71 = getelementptr inbounds nuw i8, ptr %69, i64 16
@@ -856,7 +856,7 @@ Abc_InfoRandomBytes.exit.loopexit.us..critedge.loopexit_crit_edge: ; preds = %Ab
   %76 = load ptr, ptr %75, align 8, !tbaa !19
   %77 = getelementptr inbounds i8, ptr %76, i64 %60
   store i8 %59, ptr %77, align 1, !tbaa !69
-  %indvars.iv.next225 = add nuw nsw i64 %indvars.iv224330, 1
+  %indvars.iv.next225 = add nuw nsw i64 %indvars.iv224350, 1
   %78 = load ptr, ptr %0, align 8, !tbaa !36
   %79 = getelementptr i8, ptr %78, i64 40
   %.val136 = load ptr, ptr %79, align 8, !tbaa !61
@@ -866,7 +866,7 @@ Abc_InfoRandomBytes.exit.loopexit.us..critedge.loopexit_crit_edge: ; preds = %Ab
   %82 = icmp slt i64 %indvars.iv.next225, %81
   br i1 %82, label %63, label %..critedge2.loopexit_crit_edge, !llvm.loop !68
 
-..critedge2.loopexit_crit_edge:                   ; preds = %.lr.ph332
+..critedge2.loopexit_crit_edge:                   ; preds = %.lr.ph352
   br label %.critedge2, !llvm.loop !68
 
 .critedge2:                                       ; preds = %63, %.lr.ph170, %..critedge2.loopexit_crit_edge, %.preheader151
@@ -929,20 +929,20 @@ Abc_InfoRandomBytes.exit.loopexit.us..critedge.loopexit_crit_edge: ; preds = %Ab
 .lr.ph176.preheader:                              ; preds = %.preheader148
   %111 = load i32, ptr %6, align 8, !tbaa !37
   %112 = icmp eq i32 %111, 0
-  br i1 %112, label %.critedge4.loopexit, label %.lr.ph342
+  br i1 %112, label %.critedge4.loopexit, label %.lr.ph362
 
-.lr.ph176:                                        ; preds = %.lr.ph342
+.lr.ph176:                                        ; preds = %.lr.ph362
   %113 = load i32, ptr %6, align 8, !tbaa !37
   %114 = zext i32 %113 to i64
   %115 = icmp eq i64 %indvars.iv.next228, %114
-  br i1 %115, label %.critedge4.loopexit, label %.lr.ph342, !llvm.loop !73
+  br i1 %115, label %.critedge4.loopexit, label %.lr.ph362, !llvm.loop !73
 
-.lr.ph342:                                        ; preds = %.lr.ph176.preheader, %.lr.ph176
-  %.val135175341 = phi ptr [ %.val135, %.lr.ph176 ], [ %.val135172, %.lr.ph176.preheader ]
-  %indvars.iv227340 = phi i64 [ %indvars.iv.next228, %.lr.ph176 ], [ 0, %.lr.ph176.preheader ]
-  %116 = getelementptr i8, ptr %.val135175341, i64 8
+.lr.ph362:                                        ; preds = %.lr.ph176.preheader, %.lr.ph176
+  %.val135175361 = phi ptr [ %.val135, %.lr.ph176 ], [ %.val135172, %.lr.ph176.preheader ]
+  %indvars.iv227360 = phi i64 [ %indvars.iv.next228, %.lr.ph176 ], [ 0, %.lr.ph176.preheader ]
+  %116 = getelementptr i8, ptr %.val135175361, i64 8
   %.val140.val = load ptr, ptr %116, align 8, !tbaa !25
-  %117 = getelementptr inbounds nuw ptr, ptr %.val140.val, i64 %indvars.iv227340
+  %117 = getelementptr inbounds nuw ptr, ptr %.val140.val, i64 %indvars.iv227360
   %118 = load ptr, ptr %117, align 8, !tbaa !19
   %119 = load ptr, ptr %50, align 8, !tbaa !26
   %120 = getelementptr inbounds nuw i8, ptr %118, i64 16
@@ -952,13 +952,13 @@ Abc_InfoRandomBytes.exit.loopexit.us..critedge.loopexit_crit_edge: ; preds = %Ab
   %123 = sext i32 %121 to i64
   %124 = getelementptr inbounds ptr, ptr %.val130, i64 %123
   %125 = load ptr, ptr %124, align 8, !tbaa !19
-  %126 = icmp eq i64 %indvars.iv227340, %indvars.iv232
+  %126 = icmp eq i64 %indvars.iv227360, %indvars.iv232
   %127 = zext i1 %126 to i32
   %.not127 = icmp ne i32 %.0110180, %127
   %128 = sext i1 %.not127 to i8
   %129 = getelementptr inbounds i8, ptr %125, i64 %indvars.iv230
   store i8 %128, ptr %129, align 1, !tbaa !69
-  %indvars.iv.next228 = add nuw nsw i64 %indvars.iv227340, 1
+  %indvars.iv.next228 = add nuw nsw i64 %indvars.iv227360, 1
   %130 = load ptr, ptr %0, align 8, !tbaa !36
   %131 = getelementptr i8, ptr %130, i64 40
   %.val135 = load ptr, ptr %131, align 8, !tbaa !61
@@ -968,7 +968,7 @@ Abc_InfoRandomBytes.exit.loopexit.us..critedge.loopexit_crit_edge: ; preds = %Ab
   %134 = icmp slt i64 %indvars.iv.next228, %133
   br i1 %134, label %.lr.ph176, label %..critedge4.loopexit_crit_edge, !llvm.loop !73
 
-..critedge4.loopexit_crit_edge:                   ; preds = %.lr.ph342
+..critedge4.loopexit_crit_edge:                   ; preds = %.lr.ph362
   br label %.critedge4.loopexit, !llvm.loop !73
 
 .critedge4.loopexit:                              ; preds = %.lr.ph176, %..critedge4.loopexit_crit_edge, %.lr.ph176.preheader
@@ -1000,15 +1000,15 @@ Abc_InfoRandomBytes.exit.loopexit.us..critedge.loopexit_crit_edge: ; preds = %Ab
   %147 = load i32, ptr %146, align 4, !tbaa !55
   %148 = icmp slt i32 %145, %147
   %. = select i1 %148, i64 56, i64 64
-  %.293 = select i1 %148, i64 64, i64 56
-  %.294 = tail call i32 @llvm.smin.i32(i32 %145, i32 %147)
-  %.295 = tail call i32 @llvm.smax.i32(i32 %145, i32 %147)
+  %.313 = select i1 %148, i64 64, i64 56
+  %.314 = tail call i32 @llvm.smin.i32(i32 %145, i32 %147)
+  %.315 = tail call i32 @llvm.smax.i32(i32 %145, i32 %147)
   %149 = getelementptr inbounds nuw i8, ptr %0, i64 %.
-  %150 = getelementptr inbounds nuw i8, ptr %0, i64 %.293
+  %150 = getelementptr inbounds nuw i8, ptr %0, i64 %.313
   %.sink = load ptr, ptr %150, align 8, !tbaa !75
   %.sink254 = load ptr, ptr %149, align 8, !tbaa !75
-  store ptr %.sink254, ptr %.sroa.0392, align 16, !tbaa !75
-  store ptr %.sink, ptr %.sroa.4393, align 8, !tbaa !75
+  store ptr %.sink254, ptr %.sroa.0412, align 16, !tbaa !75
+  store ptr %.sink, ptr %.sroa.4413, align 8, !tbaa !75
   %151 = getelementptr inbounds nuw i8, ptr %0, i64 48
   br label %160
 
@@ -1030,8 +1030,8 @@ Abc_InfoRandomBytes.exit.loopexit.us..critedge.loopexit_crit_edge: ; preds = %Ab
   %161 = phi ptr [ %143, %.loopexit153 ], [ %234, %._crit_edge196 ]
   %162 = phi ptr [ %143, %.loopexit153 ], [ %235, %._crit_edge196 ]
   %163 = phi i1 [ true, %.loopexit153 ], [ false, %._crit_edge196 ]
-  %indvars.iv247.sroa.phi.sroa.speculated = phi i32 [ %.294, %.loopexit153 ], [ %.295, %._crit_edge196 ]
-  %indvars.iv247.sroa.phi = phi ptr [ %.sroa.0392, %.loopexit153 ], [ %.sroa.4393, %._crit_edge196 ]
+  %indvars.iv247.sroa.phi.sroa.speculated = phi i32 [ %.314, %.loopexit153 ], [ %.315, %._crit_edge196 ]
+  %indvars.iv247.sroa.phi = phi ptr [ %.sroa.0412, %.loopexit153 ], [ %.sroa.4413, %._crit_edge196 ]
   %.3200 = phi i32 [ %.0, %.loopexit153 ], [ %.4.lcssa, %._crit_edge196 ]
   %164 = icmp sgt i32 %indvars.iv247.sroa.phi.sroa.speculated, 0
   br i1 %164, label %.preheader145.lr.ph, label %._crit_edge196
@@ -1113,25 +1113,25 @@ Abc_InfoRandomBytes.exit.loopexit.us..critedge.loopexit_crit_edge: ; preds = %Ab
 .lr.ph187.preheader:                              ; preds = %.preheader144
   %200 = load i32, ptr %6, align 8, !tbaa !37
   %201 = icmp eq i32 %200, 0
-  br i1 %201, label %.critedge6, label %.lr.ph347.preheader
+  br i1 %201, label %.critedge6, label %.lr.ph367.preheader
 
-.lr.ph347.preheader:                              ; preds = %.lr.ph187.preheader
+.lr.ph367.preheader:                              ; preds = %.lr.ph187.preheader
   %202 = load ptr, ptr %indvars.iv247.sroa.phi, align 8, !tbaa !75
   %203 = getelementptr i8, ptr %202, i64 8
-  br label %.lr.ph347
+  br label %.lr.ph367
 
-.lr.ph187:                                        ; preds = %.lr.ph347
+.lr.ph187:                                        ; preds = %.lr.ph367
   %204 = load i32, ptr %6, align 8, !tbaa !37
   %205 = zext i32 %204 to i64
   %206 = icmp eq i64 %indvars.iv.next238, %205
-  br i1 %206, label %.critedge6, label %.lr.ph347, !llvm.loop !79
+  br i1 %206, label %.critedge6, label %.lr.ph367, !llvm.loop !79
 
-.lr.ph347:                                        ; preds = %.lr.ph347.preheader, %.lr.ph187
-  %.val134186346 = phi ptr [ %.val134, %.lr.ph187 ], [ %.val134183, %.lr.ph347.preheader ]
-  %indvars.iv237345 = phi i64 [ %indvars.iv.next238, %.lr.ph187 ], [ 0, %.lr.ph347.preheader ]
-  %207 = getelementptr i8, ptr %.val134186346, i64 8
+.lr.ph367:                                        ; preds = %.lr.ph367.preheader, %.lr.ph187
+  %.val134186366 = phi ptr [ %.val134, %.lr.ph187 ], [ %.val134183, %.lr.ph367.preheader ]
+  %indvars.iv237365 = phi i64 [ %indvars.iv.next238, %.lr.ph187 ], [ 0, %.lr.ph367.preheader ]
+  %207 = getelementptr i8, ptr %.val134186366, i64 8
   %.val139.val = load ptr, ptr %207, align 8, !tbaa !25
-  %208 = getelementptr inbounds nuw ptr, ptr %.val139.val, i64 %indvars.iv237345
+  %208 = getelementptr inbounds nuw ptr, ptr %.val139.val, i64 %indvars.iv237365
   %209 = load ptr, ptr %208, align 8, !tbaa !19
   %210 = load ptr, ptr %151, align 8, !tbaa !26
   %211 = getelementptr inbounds nuw i8, ptr %209, i64 16
@@ -1142,18 +1142,18 @@ Abc_InfoRandomBytes.exit.loopexit.us..critedge.loopexit_crit_edge: ; preds = %Ab
   %215 = getelementptr inbounds ptr, ptr %.val129, i64 %214
   %216 = load ptr, ptr %215, align 8, !tbaa !19
   %.val128 = load ptr, ptr %203, align 8, !tbaa !25
-  %217 = getelementptr inbounds nuw ptr, ptr %.val128, i64 %indvars.iv237345
+  %217 = getelementptr inbounds nuw ptr, ptr %.val128, i64 %indvars.iv237365
   %218 = load ptr, ptr %217, align 8, !tbaa !19
   %219 = getelementptr inbounds nuw i32, ptr %218, i64 %178
   %220 = load i32, ptr %219, align 4, !tbaa !59
   %221 = lshr i32 %220, %179
   %222 = trunc i32 %221 to i1
-  %223 = icmp eq i64 %indvars.iv237345, %indvars.iv242
+  %223 = icmp eq i64 %indvars.iv237365, %indvars.iv242
   %not..not125 = xor i1 %223, %222
   %spec.select = sext i1 %not..not125 to i8
   %224 = getelementptr inbounds i8, ptr %216, i64 %indvars.iv240
   store i8 %spec.select, ptr %224, align 1, !tbaa !69
-  %indvars.iv.next238 = add nuw nsw i64 %indvars.iv237345, 1
+  %indvars.iv.next238 = add nuw nsw i64 %indvars.iv237365, 1
   %225 = load ptr, ptr %0, align 8, !tbaa !36
   %226 = getelementptr i8, ptr %225, i64 40
   %.val134 = load ptr, ptr %226, align 8, !tbaa !61
@@ -1163,7 +1163,7 @@ Abc_InfoRandomBytes.exit.loopexit.us..critedge.loopexit_crit_edge: ; preds = %Ab
   %229 = icmp slt i64 %indvars.iv.next238, %228
   br i1 %229, label %.lr.ph187, label %..critedge6.loopexit_crit_edge, !llvm.loop !79
 
-..critedge6.loopexit_crit_edge:                   ; preds = %.lr.ph347
+..critedge6.loopexit_crit_edge:                   ; preds = %.lr.ph367
   br label %.critedge6, !llvm.loop !79
 
 .critedge6:                                       ; preds = %.lr.ph187, %.lr.ph187.preheader, %..critedge6.loopexit_crit_edge, %.preheader144
@@ -1194,23 +1194,23 @@ Abc_InfoRandomBytes.exit.loopexit.us..critedge.loopexit_crit_edge: ; preds = %Ab
 .lr.ph205.preheader:                              ; preds = %.preheader
   %241 = load i32, ptr %6, align 8, !tbaa !37
   %242 = icmp eq i32 %241, 0
-  %.pre257.pre258350 = load i32, ptr %3, align 4, !tbaa !15
-  br i1 %242, label %.critedge8, label %.lr.ph354
+  %.pre257.pre258370 = load i32, ptr %3, align 4, !tbaa !15
+  br i1 %242, label %.critedge8, label %.lr.ph374
 
-.lr.ph205:                                        ; preds = %.lr.ph354
+.lr.ph205:                                        ; preds = %.lr.ph374
   %243 = load i32, ptr %6, align 8, !tbaa !37
   %244 = zext i32 %243 to i64
   %245 = icmp eq i64 %indvars.iv.next251, %244
   %.pre257.pre258 = load i32, ptr %3, align 4, !tbaa !15
-  br i1 %245, label %.critedge8, label %.lr.ph354, !llvm.loop !81
+  br i1 %245, label %.critedge8, label %.lr.ph374, !llvm.loop !81
 
-.lr.ph354:                                        ; preds = %.lr.ph205.preheader, %.lr.ph205
-  %.pre257.pre258353 = phi i32 [ %.pre257.pre258, %.lr.ph205 ], [ %.pre257.pre258350, %.lr.ph205.preheader ]
-  %.val133204352 = phi ptr [ %.val133, %.lr.ph205 ], [ %.val133201, %.lr.ph205.preheader ]
-  %indvars.iv250351 = phi i64 [ %indvars.iv.next251, %.lr.ph205 ], [ 0, %.lr.ph205.preheader ]
-  %246 = getelementptr i8, ptr %.val133204352, i64 8
+.lr.ph374:                                        ; preds = %.lr.ph205.preheader, %.lr.ph205
+  %.pre257.pre258373 = phi i32 [ %.pre257.pre258, %.lr.ph205 ], [ %.pre257.pre258370, %.lr.ph205.preheader ]
+  %.val133204372 = phi ptr [ %.val133, %.lr.ph205 ], [ %.val133201, %.lr.ph205.preheader ]
+  %indvars.iv250371 = phi i64 [ %indvars.iv.next251, %.lr.ph205 ], [ 0, %.lr.ph205.preheader ]
+  %246 = getelementptr i8, ptr %.val133204372, i64 8
   %.val138.val = load ptr, ptr %246, align 8, !tbaa !25
-  %247 = getelementptr inbounds nuw ptr, ptr %.val138.val, i64 %indvars.iv250351
+  %247 = getelementptr inbounds nuw ptr, ptr %.val138.val, i64 %indvars.iv250371
   %248 = load ptr, ptr %247, align 8, !tbaa !19
   %249 = load ptr, ptr %151, align 8, !tbaa !26
   %250 = getelementptr inbounds nuw i8, ptr %248, i64 16
@@ -1221,10 +1221,10 @@ Abc_InfoRandomBytes.exit.loopexit.us..critedge.loopexit_crit_edge: ; preds = %Ab
   %254 = getelementptr inbounds ptr, ptr %.val, i64 %253
   %255 = load ptr, ptr %254, align 8, !tbaa !19
   %256 = getelementptr inbounds i8, ptr %255, i64 %154
-  %257 = sub nsw i32 %.pre257.pre258353, %.4.lcssa
+  %257 = sub nsw i32 %.pre257.pre258373, %.4.lcssa
   %258 = sext i32 %257 to i64
   tail call void @llvm.memset.p0.i64(ptr align 1 %256, i8 0, i64 %258, i1 false)
-  %indvars.iv.next251 = add nuw nsw i64 %indvars.iv250351, 1
+  %indvars.iv.next251 = add nuw nsw i64 %indvars.iv250371, 1
   %259 = load ptr, ptr %0, align 8, !tbaa !36
   %260 = getelementptr i8, ptr %259, i64 40
   %.val133 = load ptr, ptr %260, align 8, !tbaa !61
@@ -1234,20 +1234,20 @@ Abc_InfoRandomBytes.exit.loopexit.us..critedge.loopexit_crit_edge: ; preds = %Ab
   %263 = icmp slt i64 %indvars.iv.next251, %262
   br i1 %263, label %.lr.ph205, label %..critedge8.loopexit_crit_edge, !llvm.loop !81
 
-..critedge8.loopexit_crit_edge:                   ; preds = %.lr.ph354
+..critedge8.loopexit_crit_edge:                   ; preds = %.lr.ph374
   %.pre257.pre = load i32, ptr %3, align 4, !tbaa !15
   br label %.critedge8, !llvm.loop !81
 
 .critedge8:                                       ; preds = %.lr.ph205, %.lr.ph205.preheader, %..critedge8.loopexit_crit_edge, %.preheader
-  %264 = phi i32 [ %236, %.preheader ], [ %.pre257.pre, %..critedge8.loopexit_crit_edge ], [ %.pre257.pre258350, %.lr.ph205.preheader ], [ %.pre257.pre258, %.lr.ph205 ]
+  %264 = phi i32 [ %236, %.preheader ], [ %.pre257.pre, %..critedge8.loopexit_crit_edge ], [ %.pre257.pre258370, %.lr.ph205.preheader ], [ %.pre257.pre258, %.lr.ph205 ]
   %265 = phi ptr [ %237, %.preheader ], [ %259, %..critedge8.loopexit_crit_edge ], [ %237, %.lr.ph205.preheader ], [ %259, %.lr.ph205 ]
   %266 = add nsw i32 %.2112207, 1
   %267 = icmp slt i32 %266, %264
   br i1 %267, label %.preheader, label %.loopexit, !llvm.loop !82
 
 .loopexit:                                        ; preds = %.critedge2, %.preheader148.us, %.critedge4, %.preheader144.us, %.critedge6, %.critedge8, %.preheader.lr.ph, %.preheader143
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0392)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.4393)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0412)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.4413)
   ret void
 }
 

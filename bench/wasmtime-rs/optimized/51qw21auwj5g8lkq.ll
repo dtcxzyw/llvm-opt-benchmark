@@ -463,8 +463,8 @@ define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$
   %12 = trunc i32 %1 to i8
   %13 = and i8 %12, 63
   %14 = or disjoint i8 %13, -128
-  %.sroa.0.i.1.i.1.i.1..sroa_idx8 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 1
-  store i8 %14, ptr %.sroa.0.i.1.i.1.i.1..sroa_idx8, align 1, !alias.scope !91, !noalias !88
+  %.sroa.0.i.1.i.1.i.1..sroa_idx11 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 1
+  store i8 %14, ptr %.sroa.0.i.1.i.1.i.1..sroa_idx11, align 1, !alias.scope !91, !noalias !88
   br label %_ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit.i
 
 15:                                               ; preds = %6
@@ -476,13 +476,13 @@ define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$
   %20 = trunc i32 %19 to i8
   %21 = and i8 %20, 63
   %22 = or disjoint i8 %21, -128
-  %.sroa.0.i.1.i.1.i.1..sroa_idx7 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 1
-  store i8 %22, ptr %.sroa.0.i.1.i.1.i.1..sroa_idx7, align 1, !alias.scope !91, !noalias !88
+  %.sroa.0.i.1.i.1.i.1..sroa_idx10 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 1
+  store i8 %22, ptr %.sroa.0.i.1.i.1.i.1..sroa_idx10, align 1, !alias.scope !91, !noalias !88
   %23 = trunc i32 %1 to i8
   %24 = and i8 %23, 63
   %25 = or disjoint i8 %24, -128
-  %.sroa.0.i.2.i.2.i.2..sroa_idx9 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 2
-  store i8 %25, ptr %.sroa.0.i.2.i.2.i.2..sroa_idx9, align 2, !alias.scope !91, !noalias !88
+  %.sroa.0.i.2.i.2.i.2..sroa_idx12 = getelementptr inbounds nuw i8, ptr %.sroa.0.i, i64 2
+  store i8 %25, ptr %.sroa.0.i.2.i.2.i.2..sroa_idx12, align 2, !alias.scope !91, !noalias !88
   br label %_ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.exit.i
 
 26:                                               ; preds = %6
@@ -765,7 +765,7 @@ define void @_ZN13wasmtime_wast9component3val17h0d748178638b9e2cE(ptr noalias no
   %31 = alloca { { { { i64, ptr, {} }, i64 } }, [1 x i64], { i32, [11 x i32] } }, align 16
   %32 = alloca { { i64, ptr, {} }, i64 }, align 8
   %33 = load i8, ptr %1, align 8, !range !155, !noundef !8
-  switch i8 %33, label %default.unreachable349 [
+  switch i8 %33, label %default.unreachable365 [
     i8 0, label %34
     i8 1, label %37
     i8 2, label %40
@@ -789,7 +789,7 @@ define void @_ZN13wasmtime_wast9component3val17h0d748178638b9e2cE(ptr noalias no
     i8 20, label %153
   ]
 
-default.unreachable349:                           ; preds = %2
+default.unreachable365:                           ; preds = %2
   unreachable
 
 34:                                               ; preds = %2
@@ -1806,7 +1806,7 @@ tailrecurse:                                      ; preds = %434, %2
   %.tr = phi ptr [ %0, %2 ], [ %427, %434 ]
   %.tr268 = phi ptr [ %1, %2 ], [ %429, %434 ]
   %73 = load i8, ptr %.tr, align 8, !range !155, !noundef !8
-  switch i8 %73, label %default.unreachable442 [
+  switch i8 %73, label %default.unreachable478 [
     i8 0, label %74
     i8 1, label %77
     i8 2, label %80
@@ -1830,7 +1830,7 @@ tailrecurse:                                      ; preds = %434, %2
     i8 20, label %136
   ]
 
-default.unreachable442:                           ; preds = %tailrecurse
+default.unreachable478:                           ; preds = %tailrecurse
   unreachable
 
 74:                                               ; preds = %tailrecurse

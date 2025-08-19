@@ -287,10 +287,10 @@ define internal i32 @b64_read(ptr noundef %0, ptr noundef writeonly captures(add
   %.1180.ph275 = phi i32 [ %.0179, %.lr.ph261.lr.ph ], [ %157, %.outer ]
   %48 = load i32, ptr %41, align 4, !tbaa !27
   %49 = icmp slt i32 %48, 1
-  br i1 %49, label %.loopexit223, label %.lr.ph353
+  br i1 %49, label %.loopexit223, label %.lr.ph366
 
-.lr.ph353:                                        ; preds = %.lr.ph261, %.backedge
-  %.0174260352 = phi i32 [ %.2, %.backedge ], [ %.0174.ph278, %.lr.ph261 ]
+.lr.ph366:                                        ; preds = %.lr.ph261, %.backedge
+  %.0174260365 = phi i32 [ %.2, %.backedge ], [ %.0174.ph278, %.lr.ph261 ]
   %50 = load ptr, ptr %11, align 8, !tbaa !22
   %51 = load i32, ptr %42, align 4, !tbaa !21
   %52 = sext i32 %51 to i64
@@ -300,11 +300,11 @@ define internal i32 @b64_read(ptr noundef %0, ptr noundef writeonly captures(add
   %56 = icmp slt i32 %55, 1
   br i1 %56, label %57, label %._crit_edge307
 
-._crit_edge307:                                   ; preds = %.lr.ph353
+._crit_edge307:                                   ; preds = %.lr.ph366
   %.pre = load i32, ptr %42, align 4, !tbaa !21
   br label %63
 
-57:                                               ; preds = %.lr.ph353
+57:                                               ; preds = %.lr.ph366
   %58 = load ptr, ptr %11, align 8, !tbaa !22
   %59 = call i32 @BIO_should_retry(ptr noundef %58) #11
   %.not204 = icmp eq i32 %59, 0
@@ -319,7 +319,7 @@ define internal i32 @b64_read(ptr noundef %0, ptr noundef writeonly captures(add
 63:                                               ; preds = %._crit_edge307, %60
   %64 = phi i32 [ %.pre, %._crit_edge307 ], [ %61, %60 ]
   %.1184 = phi i32 [ %55, %._crit_edge307 ], [ 0, %60 ]
-  %.2 = phi i32 [ %.0174260352, %._crit_edge307 ], [ %55, %60 ]
+  %.2 = phi i32 [ %.0174260365, %._crit_edge307 ], [ %55, %60 ]
   %65 = add i32 %64, %.1184
   store i32 %65, ptr %42, align 4, !tbaa !21
   %66 = load i32, ptr %43, align 4, !tbaa !28
@@ -442,8 +442,8 @@ define internal i32 @b64_read(ptr noundef %0, ptr noundef writeonly captures(add
   %100 = icmp eq i32 %65, 0
   %101 = load i32, ptr %4, align 4
   %102 = icmp eq i32 %101, 0
-  %or.cond3313 = select i1 %100, i1 %102, i1 false
-  br i1 %or.cond3313, label %.backedge, label %.loopexit224.sink.split
+  %or.cond3326 = select i1 %100, i1 %102, i1 false
+  br i1 %or.cond3326, label %.backedge, label %.loopexit224.sink.split
 
 103:                                              ; preds = %.loopexit222
   %104 = icmp samesign eq i64 %.0170.idx229, 1626
@@ -491,7 +491,7 @@ define internal i32 @b64_read(ptr noundef %0, ptr noundef writeonly captures(add
 .backedge:                                        ; preds = %.backedge.sink.split, %.loopexit222.thread, %105, %108, %121
   %118 = load i32, ptr %41, align 4, !tbaa !27
   %119 = icmp slt i32 %118, 1
-  br i1 %119, label %.loopexit223, label %.lr.ph353
+  br i1 %119, label %.loopexit223, label %.lr.ph366
 
 .thread:                                          ; preds = %63, %69
   %120 = icmp slt i32 %65, 1024

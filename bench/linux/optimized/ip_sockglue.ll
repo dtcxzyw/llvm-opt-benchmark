@@ -447,10 +447,10 @@ define dso_local i32 @ip_cmsg_send(ptr noundef %0, ptr noundef readonly captures
   %21 = getelementptr inbounds nuw i8, ptr %2, i64 24
   br label %22
 
-22:                                               ; preds = %.thread9, %14
-  %23 = phi ptr [ %12, %14 ], [ %118, %.thread9 ]
-  %24 = phi i64 [ %8, %14 ], [ %119, %.thread9 ]
-  %25 = phi ptr [ %12, %14 ], [ %123, %.thread9 ]
+22:                                               ; preds = %.thread19, %14
+  %23 = phi ptr [ %12, %14 ], [ %118, %.thread19 ]
+  %24 = phi i64 [ %8, %14 ], [ %119, %.thread19 ]
+  %25 = phi ptr [ %12, %14 ], [ %123, %.thread19 ]
   %26 = load i64, ptr %25, align 8
   %27 = icmp ugt i64 %26, 15
   br i1 %27, label %28, label %.thread
@@ -474,7 +474,7 @@ define dso_local i32 @ip_cmsg_send(ptr noundef %0, ptr noundef readonly captures
   %39 = getelementptr inbounds nuw i8, ptr %25, i64 12
   %40 = load i32, ptr %39, align 4
   %41 = icmp eq i32 %40, 50
-  br i1 %41, label %42, label %.thread9
+  br i1 %41, label %42, label %.thread19
 
 42:                                               ; preds = %38
   %43 = icmp ult i64 %26, 36
@@ -505,10 +505,10 @@ define dso_local i32 @ip_cmsg_send(ptr noundef %0, ptr noundef readonly captures
   %59 = getelementptr i8, ptr %25, i64 28
   %60 = load i32, ptr %59, align 4
   store i32 %60, ptr %20, align 8
-  br label %.thread9
+  br label %.thread19
 
 ._crit_edge:                                      ; preds = %34
-  switch i32 %36, label %.thread9 [
+  switch i32 %36, label %.thread19 [
     i32 1, label %61
     i32 0, label %64
   ]
@@ -516,7 +516,7 @@ define dso_local i32 @ip_cmsg_send(ptr noundef %0, ptr noundef readonly captures
 61:                                               ; preds = %._crit_edge
   %62 = tail call i32 @__sock_cmsg_send(ptr noundef %0, ptr noundef nonnull %25, ptr noundef %2) #14
   %63 = icmp eq i32 %62, 0
-  br i1 %63, label %.thread9, label %.thread
+  br i1 %63, label %.thread19, label %.thread
 
 64:                                               ; preds = %._crit_edge
   %65 = getelementptr inbounds nuw i8, ptr %25, i64 12
@@ -536,7 +536,7 @@ define dso_local i32 @ip_cmsg_send(ptr noundef %0, ptr noundef readonly captures
   %71 = tail call i32 @llvm.smin.i32(i32 %69, i32 40)
   %72 = tail call i32 @ip_options_get(ptr noundef %6, ptr noundef nonnull %21, ptr %70, i8 1, i32 noundef %71) #14
   %73 = icmp eq i32 %72, 0
-  br i1 %73, label %.thread9, label %.thread
+  br i1 %73, label %.thread19, label %.thread
 
 74:                                               ; preds = %64
   %75 = icmp eq i64 %26, 28
@@ -556,7 +556,7 @@ define dso_local i32 @ip_cmsg_send(ptr noundef %0, ptr noundef readonly captures
   %82 = getelementptr i8, ptr %25, i64 20
   %83 = load i32, ptr %82, align 4
   store i32 %83, ptr %20, align 8
-  br label %.thread9
+  br label %.thread19
 
 84:                                               ; preds = %64
   %85 = icmp eq i64 %26, 20
@@ -572,7 +572,7 @@ define dso_local i32 @ip_cmsg_send(ptr noundef %0, ptr noundef readonly captures
 91:                                               ; preds = %86
   %92 = trunc nuw i32 %88 to i8
   store i8 %92, ptr %18, align 1
-  br label %.thread9
+  br label %.thread19
 
 93:                                               ; preds = %64
   switch i64 %26, label %.thread [
@@ -602,7 +602,7 @@ define dso_local i32 @ip_cmsg_send(ptr noundef %0, ptr noundef readonly captures
   %107 = getelementptr [16 x i8], ptr @ip_tos2prio, i64 0, i64 %106
   %108 = load i8, ptr %107, align 1
   store i8 %108, ptr %17, align 4
-  br label %.thread9
+  br label %.thread19
 
 109:                                              ; preds = %64
   %110 = icmp eq i64 %26, 20
@@ -618,9 +618,9 @@ define dso_local i32 @ip_cmsg_send(ptr noundef %0, ptr noundef readonly captures
 116:                                              ; preds = %111
   %117 = trunc nuw i32 %113 to i8
   store i8 %117, ptr %15, align 8
-  br label %.thread9
+  br label %.thread19
 
-.thread9:                                         ; preds = %38, %116, %101, %91, %81, %67, %61, %._crit_edge, %58
+.thread19:                                        ; preds = %38, %116, %101, %91, %81, %67, %61, %._crit_edge, %58
   %118 = load ptr, ptr %11, align 8
   %119 = load i64, ptr %7, align 8
   %120 = load i64, ptr %25, align 8
@@ -636,8 +636,8 @@ define dso_local i32 @ip_cmsg_send(ptr noundef %0, ptr noundef readonly captures
   %130 = or i1 %129, %128
   br i1 %130, label %.thread, label %22, !llvm.loop !10
 
-.thread:                                          ; preds = %.thread9, %111, %109, %97, %93, %86, %84, %74, %67, %64, %61, %44, %42, %28, %22, %4, %10
-  %131 = phi i32 [ 0, %10 ], [ 0, %4 ], [ -22, %74 ], [ 0, %.thread9 ], [ -22, %64 ], [ -22, %111 ], [ -22, %109 ], [ -22, %97 ], [ -22, %93 ], [ -22, %86 ], [ -22, %84 ], [ %72, %67 ], [ %62, %61 ], [ -22, %42 ], [ -22, %44 ], [ -22, %22 ], [ -22, %28 ]
+.thread:                                          ; preds = %.thread19, %111, %109, %97, %93, %86, %84, %74, %67, %64, %61, %44, %42, %28, %22, %4, %10
+  %131 = phi i32 [ 0, %10 ], [ 0, %4 ], [ -22, %74 ], [ 0, %.thread19 ], [ -22, %64 ], [ -22, %111 ], [ -22, %109 ], [ -22, %97 ], [ -22, %93 ], [ -22, %86 ], [ -22, %84 ], [ %72, %67 ], [ %62, %61 ], [ -22, %42 ], [ -22, %44 ], [ -22, %22 ], [ -22, %28 ]
   ret i32 %131
 }
 
@@ -1501,68 +1501,68 @@ define dso_local i32 @do_ip_setsockopt(ptr noundef %0, i32 %1, i32 noundef %2, p
 
 .thread:                                          ; preds = %44
   switch i32 %2, label %257 [
-    i32 8, label %.thread76
-    i32 12, label %.thread77
-    i32 13, label %.thread78
-    i32 6, label %.thread79
-    i32 7, label %.thread80
-    i32 18, label %.thread81
-    i32 20, label %.thread82
+    i32 8, label %.thread93
+    i32 12, label %.thread94
+    i32 13, label %.thread95
+    i32 6, label %.thread96
+    i32 7, label %.thread97
+    i32 18, label %.thread98
+    i32 20, label %.thread99
     i32 25, label %101
-    i32 11, label %.thread83
-    i32 26, label %.thread85
+    i32 11, label %.thread100
+    i32 26, label %.thread102
     i32 15, label %131
     i32 3, label %139
     i32 34, label %149
     i32 49, label %157
-    i32 19, label %.thread86
+    i32 19, label %.thread103
     i32 22, label %186
-    i32 24, label %.thread87
+    i32 24, label %.thread104
     i32 2, label %202
     i32 21, label %213
     i32 33, label %225
-    i32 10, label %.thread88
+    i32 10, label %.thread105
     i32 1, label %244
     i32 51, label %246
   ]
 
-.thread87:                                        ; preds = %.thread
+.thread104:                                       ; preds = %.thread
   %49 = getelementptr i8, ptr %0, i64 754
   br label %200
 
-.thread85:                                        ; preds = %.thread
+.thread102:                                       ; preds = %.thread
   %50 = getelementptr i8, ptr %0, i64 753
   br label %129
 
-.thread83:                                        ; preds = %.thread
+.thread100:                                       ; preds = %.thread
   %51 = getelementptr i8, ptr %0, i64 753
   br label %116
 
-.thread82:                                        ; preds = %.thread
+.thread99:                                        ; preds = %.thread
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 752
   br label %99
 
-.thread81:                                        ; preds = %.thread
+.thread98:                                        ; preds = %.thread
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 752
   br label %93
 
-.thread80:                                        ; preds = %.thread
+.thread97:                                        ; preds = %.thread
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 752
   br label %87
 
-.thread79:                                        ; preds = %.thread
+.thread96:                                        ; preds = %.thread
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 752
   br label %81
 
-.thread78:                                        ; preds = %.thread
+.thread95:                                        ; preds = %.thread
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 752
   br label %75
 
-.thread77:                                        ; preds = %.thread
+.thread94:                                        ; preds = %.thread
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 752
   br label %69
 
-.thread76:                                        ; preds = %.thread
+.thread93:                                        ; preds = %.thread
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 752
   br label %63
 
@@ -1576,8 +1576,8 @@ define dso_local i32 @do_ip_setsockopt(ptr noundef %0, i32 %1, i32 noundef %2, p
   call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %61, i32 1, ptr nonnull elementtype(i8) %61) #14, !srcloc !21
   br label %559
 
-63:                                               ; preds = %.thread76, %59
-  %64 = phi ptr [ %58, %.thread76 ], [ %61, %59 ]
+63:                                               ; preds = %.thread93, %59
+  %64 = phi ptr [ %58, %.thread93 ], [ %61, %59 ]
   call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andb ${1:b},$0", "=*m,iq,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %64, i32 -2, ptr nonnull elementtype(i8) %64) #14, !srcloc !23
   br label %559
 
@@ -1591,8 +1591,8 @@ define dso_local i32 @do_ip_setsockopt(ptr noundef %0, i32 %1, i32 noundef %2, p
   call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %67, i32 2, ptr nonnull elementtype(i8) %67) #14, !srcloc !21
   br label %559
 
-69:                                               ; preds = %.thread77, %65
-  %70 = phi ptr [ %57, %.thread77 ], [ %67, %65 ]
+69:                                               ; preds = %.thread94, %65
+  %70 = phi ptr [ %57, %.thread94 ], [ %67, %65 ]
   call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andb ${1:b},$0", "=*m,iq,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %70, i32 -3, ptr nonnull elementtype(i8) %70) #14, !srcloc !23
   br label %559
 
@@ -1606,8 +1606,8 @@ define dso_local i32 @do_ip_setsockopt(ptr noundef %0, i32 %1, i32 noundef %2, p
   call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %73, i32 4, ptr nonnull elementtype(i8) %73) #14, !srcloc !21
   br label %559
 
-75:                                               ; preds = %.thread78, %71
-  %76 = phi ptr [ %56, %.thread78 ], [ %73, %71 ]
+75:                                               ; preds = %.thread95, %71
+  %76 = phi ptr [ %56, %.thread95 ], [ %73, %71 ]
   call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andb ${1:b},$0", "=*m,iq,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %76, i32 -5, ptr nonnull elementtype(i8) %76) #14, !srcloc !23
   br label %559
 
@@ -1621,8 +1621,8 @@ define dso_local i32 @do_ip_setsockopt(ptr noundef %0, i32 %1, i32 noundef %2, p
   call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %79, i32 8, ptr nonnull elementtype(i8) %79) #14, !srcloc !21
   br label %559
 
-81:                                               ; preds = %.thread79, %77
-  %82 = phi ptr [ %55, %.thread79 ], [ %79, %77 ]
+81:                                               ; preds = %.thread96, %77
+  %82 = phi ptr [ %55, %.thread96 ], [ %79, %77 ]
   call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andb ${1:b},$0", "=*m,iq,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %82, i32 -9, ptr nonnull elementtype(i8) %82) #14, !srcloc !23
   br label %559
 
@@ -1636,8 +1636,8 @@ define dso_local i32 @do_ip_setsockopt(ptr noundef %0, i32 %1, i32 noundef %2, p
   call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %85, i32 16, ptr nonnull elementtype(i8) %85) #14, !srcloc !21
   br label %559
 
-87:                                               ; preds = %.thread80, %83
-  %88 = phi ptr [ %54, %.thread80 ], [ %85, %83 ]
+87:                                               ; preds = %.thread97, %83
+  %88 = phi ptr [ %54, %.thread97 ], [ %85, %83 ]
   call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andb ${1:b},$0", "=*m,iq,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %88, i32 -17, ptr nonnull elementtype(i8) %88) #14, !srcloc !23
   br label %559
 
@@ -1651,8 +1651,8 @@ define dso_local i32 @do_ip_setsockopt(ptr noundef %0, i32 %1, i32 noundef %2, p
   call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %91, i32 32, ptr nonnull elementtype(i8) %91) #14, !srcloc !21
   br label %559
 
-93:                                               ; preds = %.thread81, %89
-  %94 = phi ptr [ %53, %.thread81 ], [ %91, %89 ]
+93:                                               ; preds = %.thread98, %89
+  %94 = phi ptr [ %53, %.thread98 ], [ %91, %89 ]
   call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andb ${1:b},$0", "=*m,iq,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %94, i32 -33, ptr nonnull elementtype(i8) %94) #14, !srcloc !23
   br label %559
 
@@ -1666,8 +1666,8 @@ define dso_local i32 @do_ip_setsockopt(ptr noundef %0, i32 %1, i32 noundef %2, p
   call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %97, i32 64, ptr nonnull elementtype(i8) %97) #14, !srcloc !21
   br label %559
 
-99:                                               ; preds = %.thread82, %95
-  %100 = phi ptr [ %52, %.thread82 ], [ %97, %95 ]
+99:                                               ; preds = %.thread99, %95
+  %100 = phi ptr [ %52, %.thread99 ], [ %97, %95 ]
   call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andb ${1:b},$0", "=*m,iq,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %100, i32 -65, ptr nonnull elementtype(i8) %100) #14, !srcloc !23
   br label %559
 
@@ -1702,8 +1702,8 @@ define dso_local i32 @do_ip_setsockopt(ptr noundef %0, i32 %1, i32 noundef %2, p
   call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %114, i32 2, ptr elementtype(i8) %114) #14, !srcloc !21
   br label %118
 
-116:                                              ; preds = %.thread83, %112
-  %117 = phi ptr [ %51, %.thread83 ], [ %114, %112 ]
+116:                                              ; preds = %.thread100, %112
+  %117 = phi ptr [ %51, %.thread100 ], [ %114, %112 ]
   call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andb ${1:b},$0", "=*m,iq,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %117, i32 -3, ptr elementtype(i8) %117) #14, !srcloc !23
   br label %118
 
@@ -1731,8 +1731,8 @@ define dso_local i32 @do_ip_setsockopt(ptr noundef %0, i32 %1, i32 noundef %2, p
   call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %127, i32 4, ptr elementtype(i8) %127) #14, !srcloc !21
   br label %559
 
-129:                                              ; preds = %.thread85, %125
-  %130 = phi ptr [ %50, %.thread85 ], [ %127, %125 ]
+129:                                              ; preds = %.thread102, %125
+  %130 = phi ptr [ %50, %.thread102 ], [ %127, %125 ]
   call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andb ${1:b},$0", "=*m,iq,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %130, i32 -5, ptr elementtype(i8) %130) #14, !srcloc !23
   br label %559
 
@@ -1817,27 +1817,27 @@ define dso_local i32 @do_ip_setsockopt(ptr noundef %0, i32 %1, i32 noundef %2, p
 167:                                              ; preds = %38
   %.pre57 = load i32, ptr %7, align 4
   %168 = icmp eq i32 %.pre57, 0
-  br i1 %168, label %.thread86, label %169
+  br i1 %168, label %.thread103, label %169
 
 169:                                              ; preds = %167
   %170 = load ptr, ptr %14, align 8
   %171 = getelementptr inbounds nuw i8, ptr %170, i64 80
   %172 = load ptr, ptr %171, align 16
   %173 = call zeroext i1 @sockopt_ns_capable(ptr noundef %172, i32 noundef 13) #14
-  br i1 %173, label %.thread86, label %174
+  br i1 %173, label %.thread103, label %174
 
 174:                                              ; preds = %169
   %175 = load ptr, ptr %14, align 8
   %176 = getelementptr inbounds nuw i8, ptr %175, i64 80
   %177 = load ptr, ptr %176, align 16
   %178 = call zeroext i1 @sockopt_ns_capable(ptr noundef %177, i32 noundef 12) #14
-  br i1 %178, label %.thread86, label %559
+  br i1 %178, label %.thread103, label %559
 
-.thread86:                                        ; preds = %.thread, %174, %169, %167
+.thread103:                                       ; preds = %.thread, %174, %169, %167
   %179 = icmp eq i32 %5, 0
   br i1 %179, label %559, label %180
 
-180:                                              ; preds = %.thread86
+180:                                              ; preds = %.thread103
   %181 = load i32, ptr %7, align 4
   %182 = icmp eq i32 %181, 0
   %183 = getelementptr i8, ptr %0, i64 753
@@ -1881,8 +1881,8 @@ define dso_local i32 @do_ip_setsockopt(ptr noundef %0, i32 %1, i32 noundef %2, p
   call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %198, i32 4, ptr elementtype(i8) %198) #14, !srcloc !21
   br label %559
 
-200:                                              ; preds = %.thread87, %196
-  %201 = phi ptr [ %49, %.thread87 ], [ %198, %196 ]
+200:                                              ; preds = %.thread104, %196
+  %201 = phi ptr [ %49, %.thread104 ], [ %198, %196 ]
   call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andb ${1:b},$0", "=*m,iq,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %201, i32 -5, ptr elementtype(i8) %201) #14, !srcloc !23
   br label %559
 
@@ -1956,9 +1956,9 @@ define dso_local i32 @do_ip_setsockopt(ptr noundef %0, i32 %1, i32 noundef %2, p
 239:                                              ; preds = %38
   %.pre52 = load i32, ptr %7, align 4
   %240 = icmp ugt i32 %.pre52, 5
-  br i1 %240, label %559, label %.thread88
+  br i1 %240, label %559, label %.thread105
 
-.thread88:                                        ; preds = %.thread, %239
+.thread105:                                       ; preds = %.thread, %239
   %241 = phi i32 [ %.pre52, %239 ], [ 0, %.thread ]
   %242 = trunc nuw nsw i32 %241 to i8
   %243 = getelementptr inbounds nuw i8, ptr %0, i64 783
@@ -2607,8 +2607,8 @@ define dso_local i32 @do_ip_setsockopt(ptr noundef %0, i32 %1, i32 noundef %2, p
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %559
 
-559:                                              ; preds = %521, %556, %.thread46, %558, %557, %554, %553, %255, %248, %246, %244, %.thread88, %239, %.thread21, %234, %225, %222, %215, %213, %210, %204, %202, %200, %199, %195, %194, %186, %185, %184, %.thread86, %174, %166, %165, %159, %157, %156, %155, %149, %148, %147, %139, %138, %137, %131, %129, %128, %123, %121, %118, %111, %110, %101, %99, %98, %93, %92, %87, %86, %81, %80, %75, %74, %69, %68, %63, %62, %47, %39, %23
-  %560 = phi i32 [ %43, %39 ], [ %48, %47 ], [ -14, %521 ], [ 0, %244 ], [ 0, %.thread21 ], [ 0, %222 ], [ 0, %210 ], [ -14, %23 ], [ -14, %558 ], [ -22, %101 ], [ 0, %121 ], [ 0, %118 ], [ -22, %123 ], [ -22, %131 ], [ -92, %139 ], [ -22, %149 ], [ -22, %157 ], [ -22, %159 ], [ -1, %174 ], [ -22, %.thread86 ], [ -92, %186 ], [ -22, %202 ], [ -22, %204 ], [ -22, %213 ], [ -22, %215 ], [ -22, %225 ], [ -22, %234 ], [ 0, %255 ], [ -22, %246 ], [ -22, %248 ], [ %555, %554 ], [ -92, %553 ], [ -22, %557 ], [ -22, %556 ], [ 0, %62 ], [ 0, %63 ], [ 0, %68 ], [ 0, %69 ], [ 0, %74 ], [ 0, %75 ], [ 0, %80 ], [ 0, %81 ], [ 0, %86 ], [ 0, %87 ], [ 0, %92 ], [ 0, %93 ], [ 0, %98 ], [ 0, %99 ], [ 0, %110 ], [ 0, %111 ], [ 0, %128 ], [ 0, %129 ], [ 0, %137 ], [ 0, %138 ], [ 0, %147 ], [ 0, %148 ], [ 0, %155 ], [ 0, %156 ], [ 0, %165 ], [ 0, %166 ], [ 0, %184 ], [ 0, %185 ], [ 0, %194 ], [ 0, %195 ], [ 0, %199 ], [ 0, %200 ], [ 0, %.thread88 ], [ -22, %239 ], [ %.ph45, %.thread46 ]
+559:                                              ; preds = %521, %556, %.thread46, %558, %557, %554, %553, %255, %248, %246, %244, %.thread105, %239, %.thread21, %234, %225, %222, %215, %213, %210, %204, %202, %200, %199, %195, %194, %186, %185, %184, %.thread103, %174, %166, %165, %159, %157, %156, %155, %149, %148, %147, %139, %138, %137, %131, %129, %128, %123, %121, %118, %111, %110, %101, %99, %98, %93, %92, %87, %86, %81, %80, %75, %74, %69, %68, %63, %62, %47, %39, %23
+  %560 = phi i32 [ %43, %39 ], [ %48, %47 ], [ -14, %521 ], [ 0, %244 ], [ 0, %.thread21 ], [ 0, %222 ], [ 0, %210 ], [ -14, %23 ], [ -14, %558 ], [ -22, %101 ], [ 0, %121 ], [ 0, %118 ], [ -22, %123 ], [ -22, %131 ], [ -92, %139 ], [ -22, %149 ], [ -22, %157 ], [ -22, %159 ], [ -1, %174 ], [ -22, %.thread103 ], [ -92, %186 ], [ -22, %202 ], [ -22, %204 ], [ -22, %213 ], [ -22, %215 ], [ -22, %225 ], [ -22, %234 ], [ 0, %255 ], [ -22, %246 ], [ -22, %248 ], [ %555, %554 ], [ -92, %553 ], [ -22, %557 ], [ -22, %556 ], [ 0, %62 ], [ 0, %63 ], [ 0, %68 ], [ 0, %69 ], [ 0, %74 ], [ 0, %75 ], [ 0, %80 ], [ 0, %81 ], [ 0, %86 ], [ 0, %87 ], [ 0, %92 ], [ 0, %93 ], [ 0, %98 ], [ 0, %99 ], [ 0, %110 ], [ 0, %111 ], [ 0, %128 ], [ 0, %129 ], [ 0, %137 ], [ 0, %138 ], [ 0, %147 ], [ 0, %148 ], [ 0, %155 ], [ 0, %156 ], [ 0, %165 ], [ 0, %166 ], [ 0, %184 ], [ 0, %185 ], [ 0, %194 ], [ 0, %195 ], [ 0, %199 ], [ 0, %200 ], [ 0, %.thread105 ], [ -22, %239 ], [ %.ph45, %.thread46 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %560
 }
@@ -3317,7 +3317,7 @@ define dso_local i32 @do_ip_getsockopt(ptr noundef %0, i32 noundef %1, i32 nound
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %17 = icmp eq i32 %1, 0
-  br i1 %17, label %18, label %.thread8
+  br i1 %17, label %18, label %.thread12
 
 18:                                               ; preds = %6
   %19 = add i32 %2, -213
@@ -3329,7 +3329,7 @@ define dso_local i32 @do_ip_getsockopt(ptr noundef %0, i32 noundef %1, i32 nound
 
 24:                                               ; preds = %18
   %25 = tail call i32 @ip_mroute_getsockopt(ptr noundef %0, i32 noundef %2, ptr %3, i8 %4, ptr %21, i8 %23) #14
-  br label %.thread8
+  br label %.thread12
 
 26:                                               ; preds = %18
   store i32 0, ptr %7, align 4, !annotation !6
@@ -3342,7 +3342,7 @@ define dso_local i32 @do_ip_getsockopt(ptr noundef %0, i32 noundef %1, i32 nound
   %30 = call i64 @_copy_from_user(ptr noundef nonnull %8, ptr noundef %21, i64 noundef 4) #14
   %31 = and i64 %30, 4294967295
   %32 = icmp eq i64 %31, 0
-  br i1 %32, label %thread-pre-split, label %.thread8
+  br i1 %32, label %thread-pre-split, label %.thread12
 
 .critedge:                                        ; preds = %26
   %33 = load i32, ptr %21, align 1
@@ -3356,7 +3356,7 @@ thread-pre-split:                                 ; preds = %29
 34:                                               ; preds = %thread-pre-split, %.critedge
   %35 = phi i32 [ %.pr, %thread-pre-split ], [ %33, %.critedge ]
   %36 = icmp slt i32 %35, 0
-  br i1 %36, label %.thread8, label %37
+  br i1 %36, label %.thread12, label %37
 
 37:                                               ; preds = %34
   switch i32 %2, label %299 [
@@ -3670,19 +3670,19 @@ thread-pre-split:                                 ; preds = %29
 206:                                              ; preds = %199, %194, %188, %185
   %207 = phi i32 [ -14, %194 ], [ %205, %199 ], [ 0, %188 ], [ %187, %185 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  br label %.thread8
+  br label %.thread12
 
 208:                                              ; preds = %37
   %209 = call fastcc ptr @sk_dst_get(ptr noundef %0)
   %210 = icmp eq ptr %209, null
-  br i1 %210, label %.thread8, label %211
+  br i1 %210, label %.thread12, label %211
 
 211:                                              ; preds = %208
   %212 = call fastcc i32 @dst_mtu(ptr noundef nonnull %209)
   store i32 %212, ptr %7, align 4
   call void @dst_release(ptr noundef nonnull %209) #14
   %213 = icmp eq i32 %212, 0
-  br i1 %213, label %.thread8, label %332
+  br i1 %213, label %.thread12, label %332
 
 214:                                              ; preds = %37
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
@@ -3784,7 +3784,7 @@ thread-pre-split:                                 ; preds = %29
 272:                                              ; preds = %271, %268, %214
   %273 = phi i32 [ -92, %214 ], [ 0, %271 ], [ %270, %268 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  br label %.thread8
+  br label %.thread12
 
 274:                                              ; preds = %37
   %275 = getelementptr inbounds nuw i8, ptr %0, i64 788
@@ -3823,7 +3823,7 @@ thread-pre-split:                                 ; preds = %29
 293:                                              ; preds = %287, %282
   %294 = phi i32 [ -14, %282 ], [ %292, %287 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
-  br label %.thread8
+  br label %.thread12
 
 295:                                              ; preds = %37
   %296 = getelementptr inbounds nuw i8, ptr %0, i64 800
@@ -3902,7 +3902,7 @@ thread-pre-split:                                 ; preds = %29
 
 331:                                              ; preds = %299
   call void @sockopt_release_sock(ptr noundef %0) #14
-  br label %.thread8
+  br label %.thread12
 
 332:                                              ; preds = %327, %295, %274, %211, %168, %164, %160, %156, %150, %145, %139, %133, %127, %121, %115, %109, %103, %97, %91, %85, %79, %73, %67, %61, %55, %49, %43, %38
   %333 = phi i32 [ %330, %327 ], [ %297, %295 ], [ %277, %274 ], [ %212, %211 ], [ %171, %168 ], [ %167, %164 ], [ %163, %160 ], [ %159, %156 ], [ %155, %150 ], [ %148, %145 ], [ %144, %139 ], [ %138, %133 ], [ %132, %127 ], [ %126, %121 ], [ %120, %115 ], [ %114, %109 ], [ %108, %103 ], [ %102, %97 ], [ %96, %91 ], [ %90, %85 ], [ %84, %79 ], [ %78, %73 ], [ %72, %67 ], [ %66, %61 ], [ %60, %55 ], [ %54, %49 ], [ %48, %43 ], [ %42, %38 ]
@@ -3928,7 +3928,7 @@ thread-pre-split:                                 ; preds = %29
 
 .thread6:                                         ; preds = %341
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
-  br label %.thread8
+  br label %.thread12
 
 345:                                              ; preds = %339
   store i32 1, ptr %21, align 1
@@ -3949,7 +3949,7 @@ thread-pre-split:                                 ; preds = %29
   %351 = and i64 %350, 4294967295
   %352 = icmp eq i64 %351, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
-  br i1 %352, label %370, label %.thread8
+  br i1 %352, label %370, label %.thread12
 
 353:                                              ; preds = %332
   %354 = call i32 @llvm.umin.i32(i32 %334, i32 4)
@@ -3960,7 +3960,7 @@ thread-pre-split:                                 ; preds = %29
   %356 = call i64 @_copy_to_user(ptr noundef %21, ptr noundef nonnull %8, i64 noundef 4) #14
   %357 = and i64 %356, 4294967295
   %358 = icmp eq i64 %357, 0
-  br i1 %358, label %360, label %.thread8
+  br i1 %358, label %360, label %.thread12
 
 359:                                              ; preds = %353
   store i32 %354, ptr %21, align 1
@@ -3981,28 +3981,28 @@ thread-pre-split:                                 ; preds = %29
   call void asm sideeffect "42: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 42b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 42) #14, !srcloc !27
   call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.2, i32 249, i32 2307, i64 12) #14, !srcloc !28
   call void asm sideeffect "43: nop\0A\09.pushsection .discard.instr_end\0A\09.long 43b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 43) #14, !srcloc !29
-  br label %.thread8
+  br label %.thread12
 
 copy_to_sockptr.exit:                             ; preds = %365
   %367 = call i64 @_copy_to_user(ptr noundef %3, ptr noundef nonnull %7, i64 noundef range(i64 -2147483648, 2147483648) %362) #14
   %368 = and i64 %367, 4294967295
   %369 = icmp eq i64 %368, 0
-  br i1 %369, label %370, label %.thread8
+  br i1 %369, label %370, label %.thread12
 
 copy_to_sockptr.exit.thread:                      ; preds = %360
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %3, ptr nonnull align 4 %7, i64 range(i64 -2147483648, 2147483648) %362, i1 false)
   br label %370
 
 370:                                              ; preds = %349, %copy_to_sockptr.exit.thread, %.thread5, %copy_to_sockptr.exit
-  br label %.thread8
+  br label %.thread12
 
 371:                                              ; preds = %313, %323, %325
   %372 = phi i32 [ %324, %323 ], [ %326, %325 ], [ %314, %313 ]
   call void @sockopt_release_sock(ptr noundef %0) #14
   call void @rtnl_unlock() #14
-  br label %.thread8
+  br label %.thread12
 
-.thread8:                                         ; preds = %208, %.critedge7, %349, %.thread6, %371, %370, %copy_to_sockptr.exit, %355, %331, %293, %272, %211, %206, %34, %29, %24, %6
+.thread12:                                        ; preds = %208, %.critedge7, %349, %.thread6, %371, %370, %copy_to_sockptr.exit, %355, %331, %293, %272, %211, %206, %34, %29, %24, %6
   %373 = phi i32 [ %25, %24 ], [ -92, %331 ], [ 0, %370 ], [ %294, %293 ], [ %273, %272 ], [ -107, %211 ], [ %207, %206 ], [ -95, %6 ], [ -14, %29 ], [ -22, %34 ], [ -14, %355 ], [ -14, %copy_to_sockptr.exit ], [ %372, %371 ], [ -14, %.thread6 ], [ -14, %349 ], [ -14, %.critedge7 ], [ -107, %208 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)

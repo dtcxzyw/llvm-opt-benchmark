@@ -131,8 +131,8 @@ define dso_local noundef ptr @get_host_by_name(ptr noundef %0, ptr noundef %1, i
 ._crit_edge110.thread.i:                          ; preds = %.lr.ph109.i
   %.neg136.i = xor i32 %.173105.i, -1
   %43 = shl i32 %.neg136.i, 3
-  %.neg91145.i = add nsw i32 %30, -8
-  %44 = add i32 %.neg91145.i, %43
+  %.neg91152.i = add nsw i32 %30, -8
+  %44 = add i32 %.neg91152.i, %43
   %45 = icmp slt i32 %44, 0
   br i1 %45, label %copy_hostent.exit, label %.lr.ph119.preheader.i
 
@@ -531,8 +531,8 @@ define dso_local range(i32 -1, 1) i32 @host_has_addr_family(ptr noundef %0, ptr 
   br label %.sink.split
 
 .sink.split:                                      ; preds = %8, %11
-  %.sink23 = phi ptr [ %2, %11 ], [ %3, %8 ]
-  store i8 1, ptr %.sink23, align 1
+  %.sink25 = phi ptr [ %2, %11 ], [ %3, %8 ]
+  store i8 1, ptr %.sink25, align 1
   br label %12
 
 12:                                               ; preds = %.sink.split, %8

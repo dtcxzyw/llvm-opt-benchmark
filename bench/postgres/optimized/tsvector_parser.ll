@@ -246,8 +246,8 @@ define dso_local noundef zeroext i1 @gettoken_tsvector(ptr noundef %0, ptr nound
   %.pre559 = load ptr, ptr %0, align 8
   %.pre560 = load i8, ptr %.pre559, align 1
   %100 = icmp ne i8 %.pre560, 92
-  %or.cond638.not = select i1 %99, i1 true, i1 %100
-  br i1 %or.cond638.not, label %101, label %499
+  %or.cond669.not = select i1 %99, i1 true, i1 %100
+  br i1 %or.cond669.not, label %101, label %499
 
 101:                                              ; preds = %97
   %102 = tail call ptr @__ctype_b_loc() #9
@@ -289,8 +289,8 @@ define dso_local noundef zeroext i1 @gettoken_tsvector(ptr noundef %0, ptr nound
   %117 = load i8, ptr %9, align 2, !range !4, !noundef !5
   %118 = trunc nuw i8 %117 to i1
   %119 = icmp eq i8 %.pre562, 34
-  %or.cond639 = select i1 %118, i1 %119, i1 false
-  br i1 %or.cond639, label %120, label %167
+  %or.cond670 = select i1 %118, i1 %119, i1 false
+  br i1 %or.cond670, label %120, label %167
 
 120:                                              ; preds = %._crit_edge568, %116, %116, %116, %116, %116, %116, %101
   %121 = load ptr, ptr %7, align 8

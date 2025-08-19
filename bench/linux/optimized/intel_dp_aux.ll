@@ -901,7 +901,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @intel_dp_aux_transfer(pt
 
 .sink.split:                                      ; preds = %.thread, %.thread9
   %.sink = phi i8 [ %23, %.thread9 ], [ 7, %.thread ]
-  %.ph11 = phi i32 [ 0, %.thread9 ], [ 32768, %.thread ]
+  %.ph21 = phi i32 [ 0, %.thread9 ], [ 32768, %.thread ]
   %44 = getelementptr inbounds nuw i8, ptr %3, i64 2
   store i8 %.sink, ptr %44, align 2
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -915,7 +915,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @intel_dp_aux_transfer(pt
 50:                                               ; preds = %.sink.split, %26, %26
   %51 = phi i64 [ %40, %26 ], [ %40, %26 ], [ %46, %.sink.split ]
   %52 = phi ptr [ %39, %26 ], [ %39, %26 ], [ %45, %.sink.split ]
-  %53 = phi i32 [ 0, %26 ], [ 0, %26 ], [ %.ph11, %.sink.split ]
+  %53 = phi i32 [ 0, %26 ], [ 0, %26 ], [ %.ph21, %.sink.split ]
   %54 = icmp eq i64 %51, 0
   %55 = add i64 %51, 4
   %56 = select i1 %54, i64 3, i64 %55

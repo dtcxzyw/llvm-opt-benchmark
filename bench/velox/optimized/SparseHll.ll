@@ -952,7 +952,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp9.not, label %if.else, label %_ZSt27__uninitialized_default_n_aIPjmN8facebook5velox12StlAllocatorIjEEET_S5_T0_RT1_.exit
 
 _ZSt27__uninitialized_default_n_aIPjmN8facebook5velox12StlAllocatorIjEEET_S5_T0_RT1_.exit: ; preds = %if.then
-  %3 = shl nuw i64 %__n, 2
+  %3 = shl nuw nsw i64 %__n, 2
   tail call void @llvm.memset.p0.i64(ptr align 4 %0, i8 0, i64 %3, i1 false)
   %scevgep.i = getelementptr i8, ptr %0, i64 %3
   store ptr %scevgep.i, ptr %_M_finish.i, align 8
@@ -1047,7 +1047,7 @@ terminate.lpad.i.i.i:                             ; preds = %if.end.i.i.i26, %if
 
 _ZNSt12_Vector_baseIjN8facebook5velox12StlAllocatorIjEEE13_M_deallocateEPjm.exit: ; preds = %_ZNSt6vectorIjN8facebook5velox12StlAllocatorIjEEE11_S_relocateEPjS5_S5_RS3_.exit, %if.then.i.i.i28, %if.end.i.i.i26
   store ptr %cond.i17, ptr %add.ptr.i, align 8
-  %add.ptr45 = getelementptr inbounds i32, ptr %add.ptr26, i64 %__n
+  %add.ptr45 = getelementptr inbounds nuw i32, ptr %add.ptr26, i64 %__n
   store ptr %add.ptr45, ptr %_M_finish.i, align 8
   %add.ptr49 = getelementptr inbounds nuw i32, ptr %cond.i17, i64 %4
   store ptr %add.ptr49, ptr %_M_end_of_storage, align 8

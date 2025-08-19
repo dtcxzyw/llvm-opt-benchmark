@@ -130,11 +130,11 @@ sub_1122:                                         ; preds = %sub_1, %sub_0121.th
 43:                                               ; preds = %.tail120
   %puts93 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.2)
   %44 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.10, i32 noundef 11)
-  %.not195 = icmp eq i32 %0, 2
+  %.not202 = icmp eq i32 %0, 2
   %45 = add nsw i32 %0, -2
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %wide.trip.count.i = zext nneg i32 %45 to i64
-  br i1 %.not195, label %_ZN12_GLOBAL__N_113isTestSkippedEPKciPPc.exit.thread, label %.split.us
+  br i1 %.not202, label %_ZN12_GLOBAL__N_113isTestSkippedEPKciPPc.exit.thread, label %.split.us
 
 .split.us:                                        ; preds = %43, %58
   %indvars.iv156 = phi i64 [ %indvars.iv.next157.pre-phi, %58 ], [ 0, %43 ]
@@ -189,7 +189,7 @@ _ZN12_GLOBAL__N_113isTestSkippedEPKciPPc.exit.thread: ; preds = %43, %_ZN12_GLOB
   %74 = tail call i64 @clock() #12
   %75 = getelementptr inbounds nuw i8, ptr %72, i64 8
   %76 = load ptr, ptr %75, align 8, !tbaa !19
-  %77 = tail call noundef i32 %76(i32 noundef %0, ptr noundef nonnull %1)
+  %77 = tail call noundef i32 %76(i32 noundef 2, ptr noundef nonnull %1)
   %78 = tail call i64 @clock() #12
   %79 = sub nsw i64 %78, %74
   %80 = icmp eq i32 %77, -1
@@ -207,13 +207,13 @@ _ZN12_GLOBAL__N_113isTestSkippedEPKciPPc.exit.thread: ; preds = %43, %_ZN12_GLOB
   br label %164
 
 .thread115:                                       ; preds = %sub_0, %sub_1122, %.thread, %.tail120
-  %.071171 = phi i32 [ %0, %.tail120 ], [ %22, %.thread ], [ %0, %sub_1122 ], [ %0, %sub_0 ]
-  %.073167 = phi ptr [ %1, %.tail120 ], [ %23, %.thread ], [ %1, %sub_1122 ], [ %1, %sub_0 ]
+  %.071178 = phi i32 [ %0, %.tail120 ], [ %22, %.thread ], [ %0, %sub_1122 ], [ %0, %sub_0 ]
+  %.073174 = phi ptr [ %1, %.tail120 ], [ %23, %.thread ], [ %1, %sub_1122 ], [ %1, %sub_0 ]
   %86 = phi i32 [ 0, %.tail120 ], [ -1, %.thread ], [ 0, %sub_1122 ], [ 0, %sub_0 ]
   %87 = phi i1 [ %37, %.tail120 ], [ false, %.thread ], [ %37, %sub_1122 ], [ false, %sub_0 ]
   %.079108112118 = phi i32 [ %36, %.tail120 ], [ 0, %.thread ], [ %36, %sub_1122 ], [ 0, %sub_0 ]
   %88 = zext nneg i32 %.079108112118 to i64
-  %89 = getelementptr inbounds nuw ptr, ptr %.073167, i64 %88
+  %89 = getelementptr inbounds nuw ptr, ptr %.073174, i64 %88
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 8
   %91 = load ptr, ptr %90, align 8, !tbaa !16
   %92 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %91) #11
@@ -252,8 +252,8 @@ tolower.exit.i:                                   ; preds = %tolower.exit.i, %to
 
 109:                                              ; preds = %.lr.ph, %141
   %indvars.iv145 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next146, %141 ]
-  %.172129 = phi i32 [ %.071171, %.lr.ph ], [ %.2, %141 ]
-  %.174128 = phi ptr [ %.073167, %.lr.ph ], [ %.275, %141 ]
+  %.172129 = phi i32 [ %.071178, %.lr.ph ], [ %.2, %141 ]
+  %.174128 = phi ptr [ %.073174, %.lr.ph ], [ %.275, %141 ]
   %110 = getelementptr inbounds nuw [12 x %"struct.(anonymous namespace)::functionMapEntry"], ptr @_ZN12_GLOBAL__N_132cmakeGeneratedFunctionMapEntriesE, i64 0, i64 %indvars.iv145
   %111 = load ptr, ptr %110, align 16, !tbaa !8
   %112 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %111) #11
@@ -329,11 +329,11 @@ _ZN12_GLOBAL__N_19lowercaseEPKc.exit103:          ; preds = %tolower.exit.i100, 
   br i1 %143, label %154, label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %.thread, %._crit_edge
-  %.172.lcssa193 = phi i32 [ %.2, %._crit_edge ], [ %22, %.thread ]
-  %.174.lcssa192 = phi ptr [ %.275, %._crit_edge ], [ %23, %.thread ]
-  %.181.lcssa191 = phi i32 [ %.282, %._crit_edge ], [ %18, %.thread ]
+  %.172.lcssa200 = phi i32 [ %.2, %._crit_edge ], [ %22, %.thread ]
+  %.174.lcssa199 = phi ptr [ %.275, %._crit_edge ], [ %23, %.thread ]
+  %.181.lcssa198 = phi i32 [ %.282, %._crit_edge ], [ %18, %.thread ]
   %145 = phi i32 [ %86, %._crit_edge ], [ %18, %.thread ]
-  %146 = icmp slt i32 %.181.lcssa191, 0
+  %146 = icmp slt i32 %.181.lcssa198, 0
   br i1 %146, label %147, label %149
 
 147:                                              ; preds = %._crit_edge.thread
@@ -341,10 +341,10 @@ _ZN12_GLOBAL__N_19lowercaseEPKc.exit103:          ; preds = %tolower.exit.i100, 
   br label %164
 
 149:                                              ; preds = %._crit_edge.thread
-  %150 = zext nneg i32 %.181.lcssa191 to i64
+  %150 = zext nneg i32 %.181.lcssa198 to i64
   %151 = getelementptr inbounds nuw [12 x %"struct.(anonymous namespace)::functionMapEntry"], ptr @_ZN12_GLOBAL__N_132cmakeGeneratedFunctionMapEntriesE, i64 0, i64 %150, i32 1
   %152 = load ptr, ptr %151, align 8, !tbaa !19
-  %153 = call noundef i32 %152(i32 noundef %.172.lcssa193, ptr noundef %.174.lcssa192)
+  %153 = call noundef i32 %152(i32 noundef %.172.lcssa200, ptr noundef %.174.lcssa199)
   br label %164
 
 154:                                              ; preds = %._crit_edge

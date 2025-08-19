@@ -1841,14 +1841,14 @@ Gia_AigerReadInt.exit:                            ; preds = %16
   br label %Vec_IntPush.exit.sink.split
 
 Vec_IntPush.exit.sink.split:                      ; preds = %37, %39, %29, %31
-  %.sink10 = phi ptr [ %30, %29 ], [ %32, %31 ], [ %38, %37 ], [ %40, %39 ]
+  %.sink12 = phi ptr [ %30, %29 ], [ %32, %31 ], [ %38, %37 ], [ %40, %39 ]
   %.sink = phi i32 [ 16, %29 ], [ 16, %31 ], [ %34, %37 ], [ %34, %39 ]
-  store ptr %.sink10, ptr %12, align 8, !tbaa !52
+  store ptr %.sink12, ptr %12, align 8, !tbaa !52
   store i32 %.sink, ptr %4, align 8, !tbaa !59
   br label %Vec_IntPush.exit
 
 Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.sink.split, %Gia_AigerReadInt.exit
-  %.pre.i8 = phi ptr [ %14, %Gia_AigerReadInt.exit ], [ %.sink10, %Vec_IntPush.exit.sink.split ]
+  %.pre.i8 = phi ptr [ %14, %Gia_AigerReadInt.exit ], [ %.sink12, %Vec_IntPush.exit.sink.split ]
   %41 = add nsw i32 %23, 1
   store i32 %41, ptr %6, align 4, !tbaa !56
   %42 = sext i32 %23 to i64

@@ -1136,11 +1136,11 @@ define dso_local range(i32 -2147483648, 1) i32 @php_pcre2_substring_list_get(ptr
 
 .thread:                                          ; preds = %7
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %.not100 = icmp eq ptr %2, null
+  %.not104 = icmp eq ptr %2, null
   %10 = zext nneg i32 %5 to i64
   %11 = shl nuw nsw i64 %10, 3
   %12 = add nuw nsw i64 %11, 32
-  %.067101 = select i1 %.not100, i64 32, i64 %12
+  %.067105 = select i1 %.not104, i64 32, i64 %12
   br label %.lr.ph.preheader
 
 13:                                               ; preds = %7
@@ -1157,19 +1157,19 @@ define dso_local range(i32 -2147483648, 1) i32 @php_pcre2_substring_list_get(ptr
   br i1 %.not93, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %.thread, %13
-  %.067107 = phi i64 [ %.067101, %.thread ], [ %.067, %13 ]
+  %.067111 = phi i64 [ %.067105, %.thread ], [ %.067, %13 ]
   %21 = phi i64 [ %11, %.thread ], [ %19, %13 ]
-  %.not105 = phi i1 [ %.not100, %.thread ], [ %.not, %13 ]
+  %.not109 = phi i1 [ %.not104, %.thread ], [ %.not, %13 ]
   %22 = phi ptr [ %9, %.thread ], [ %17, %13 ]
-  %.070103 = phi i32 [ %5, %.thread ], [ %16, %13 ]
-  %23 = shl nuw nsw i32 %.070103, 1
+  %.070107 = phi i32 [ %5, %.thread ], [ %16, %13 ]
+  %23 = shl nuw nsw i32 %.070107, 1
   %24 = zext nneg i32 %23 to i64
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 104
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.16883 = phi i64 [ %.067107, %.lr.ph.preheader ], [ %.269, %.lr.ph ]
+  %.16883 = phi i64 [ %.067111, %.lr.ph.preheader ], [ %.269, %.lr.ph ]
   %26 = add i64 %.16883, 9
   %27 = getelementptr inbounds nuw i64, ptr %25, i64 %indvars.iv
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
@@ -1182,19 +1182,19 @@ define dso_local range(i32 -2147483648, 1) i32 @php_pcre2_substring_list_get(ptr
   br i1 %32, label %.lr.ph, label %._crit_edge.loopexit
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
-  %33 = add nuw nsw i32 %.070103, 1
+  %33 = add nuw nsw i32 %.070107, 1
   %34 = zext nneg i32 %33 to i64
   %35 = shl nuw nsw i64 %34, 3
   %36 = zext nneg i32 %23 to i64
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %13
-  %.not93109 = phi i1 [ true, %13 ], [ false, %._crit_edge.loopexit ]
+  %.not93113 = phi i1 [ true, %13 ], [ false, %._crit_edge.loopexit ]
   %37 = phi i64 [ %19, %13 ], [ %21, %._crit_edge.loopexit ]
-  %.not106 = phi i1 [ %.not, %13 ], [ %.not105, %._crit_edge.loopexit ]
+  %.not110 = phi i1 [ %.not, %13 ], [ %.not109, %._crit_edge.loopexit ]
   %38 = phi ptr [ %17, %13 ], [ %22, %._crit_edge.loopexit ]
   %39 = phi i64 [ 0, %13 ], [ %36, %._crit_edge.loopexit ]
-  %.070104 = phi i64 [ 8, %13 ], [ %35, %._crit_edge.loopexit ]
+  %.070108 = phi i64 [ 8, %13 ], [ %35, %._crit_edge.loopexit ]
   %.168.lcssa = phi i64 [ %.067, %13 ], [ %.269, %._crit_edge.loopexit ]
   %40 = tail call ptr @_pcre2_memctl_malloc_8(i64 noundef %.168.lcssa, ptr noundef nonnull %0) #6
   %41 = icmp eq ptr %40, null
@@ -1203,8 +1203,8 @@ define dso_local range(i32 -2147483648, 1) i32 @php_pcre2_substring_list_get(ptr
 42:                                               ; preds = %._crit_edge
   %43 = getelementptr inbounds nuw i8, ptr %40, i64 24
   store ptr %43, ptr %1, align 8, !tbaa !30
-  %44 = getelementptr inbounds nuw i8, ptr %43, i64 %.070104
-  br i1 %.not106, label %47, label %45
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 %.070108
+  br i1 %.not110, label %47, label %45
 
 45:                                               ; preds = %42
   store ptr %44, ptr %2, align 8, !tbaa !32
@@ -1214,7 +1214,7 @@ define dso_local range(i32 -2147483648, 1) i32 @php_pcre2_substring_list_get(ptr
 47:                                               ; preds = %42, %45
   %.065 = phi ptr [ %44, %45 ], [ null, %42 ]
   %.061 = phi ptr [ %46, %45 ], [ %44, %42 ]
-  br i1 %.not93109, label %._crit_edge91, label %.lr.ph90
+  br i1 %.not93113, label %._crit_edge91, label %.lr.ph90
 
 .lr.ph90:                                         ; preds = %47
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 32

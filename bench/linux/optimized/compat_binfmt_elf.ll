@@ -302,7 +302,7 @@ define internal i32 @load_elf_binary(ptr noundef %0) #2 align 16 {
 .preheader.preheader:                             ; preds = %113, %.loopexit68
   %118 = phi ptr [ %94, %.loopexit68 ], [ null, %113 ]
   %119 = phi ptr [ %101, %.loopexit68 ], [ null, %113 ]
-  %.pre-phi101 = phi i32 [ %.pre96, %.loopexit68 ], [ %58, %113 ]
+  %.pre-phi133 = phi i32 [ %.pre96, %.loopexit68 ], [ %58, %113 ]
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %130
@@ -324,7 +324,7 @@ define internal i32 @load_elf_binary(ptr noundef %0) #2 align 16 {
   %131 = phi i32 [ %129, %125 ], [ %120, %.preheader ]
   %132 = add nuw nsw i32 %121, 1
   %133 = getelementptr i8, ptr %122, i64 32
-  %134 = icmp eq i32 %132, %.pre-phi101
+  %134 = icmp eq i32 %132, %.pre-phi133
   br i1 %134, label %.loopexit66, label %.preheader, !llvm.loop !12
 
 .loopexit66:                                      ; preds = %130, %.loopexit68

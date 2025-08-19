@@ -757,7 +757,7 @@ _ZNSt6vectorIN2cv6DMatchESaIS1_EE9push_backERKS1_.exit: ; preds = %_ZNSt6vectorI
   br i1 %200, label %.lr.ph, label %._crit_edge, !llvm.loop !58
 
 ._crit_edge184:                                   ; preds = %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE9push_backERKS2_.exit113, %._crit_edge.thread, %._crit_edge
-  %.sroa.0129.0.lcssa193 = phi ptr [ null, %._crit_edge.thread ], [ %.sroa.0129.1, %._crit_edge ], [ %.sroa.0129.1, %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE9push_backERKS2_.exit113 ]
+  %.sroa.0129.0.lcssa210 = phi ptr [ null, %._crit_edge.thread ], [ %.sroa.0129.1, %._crit_edge ], [ %.sroa.0129.1, %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE9push_backERKS2_.exit113 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %61)
   call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %61) #22
   %201 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1935,11 +1935,11 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit:    ; preds = %589, %591
 
 _ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit117: ; preds = %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit, %593
   call void @llvm.lifetime.end.p0(ptr nonnull %59)
-  %.not.i.i.i118 = icmp eq ptr %.sroa.0129.0.lcssa193, null
+  %.not.i.i.i118 = icmp eq ptr %.sroa.0129.0.lcssa210, null
   br i1 %.not.i.i.i118, label %_ZNSt6vectorIN2cv6DMatchESaIS1_EED2Ev.exit, label %594
 
 594:                                              ; preds = %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit117
-  call void @_ZdlPv(ptr noundef nonnull %.sroa.0129.0.lcssa193) #21
+  call void @_ZdlPv(ptr noundef nonnull %.sroa.0129.0.lcssa210) #21
   br label %_ZNSt6vectorIN2cv6DMatchESaIS1_EED2Ev.exit
 
 _ZNSt6vectorIN2cv6DMatchESaIS1_EED2Ev.exit:       ; preds = %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit117, %594
@@ -1974,7 +1974,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZNSt6vectorIN2cv6D
   br label %602
 
 602:                                              ; preds = %.loopexit137, %.loopexit.split-lp138, %.loopexit, %.loopexit.split-lp, %601
-  %.sroa.0129.0.lcssa194 = phi ptr [ %.sroa.0129.0.lcssa193, %601 ], [ %.sroa.0129.1, %.loopexit ], [ %.sroa.0129.1, %.loopexit.split-lp ], [ %.sroa.0129.1, %.loopexit137 ], [ %.sroa.0129.1, %.loopexit.split-lp138 ]
+  %.sroa.0129.0.lcssa211 = phi ptr [ %.sroa.0129.0.lcssa210, %601 ], [ %.sroa.0129.1, %.loopexit ], [ %.sroa.0129.1, %.loopexit.split-lp ], [ %.sroa.0129.1, %.loopexit137 ], [ %.sroa.0129.1, %.loopexit.split-lp138 ]
   %.pn67.pn = phi { ptr, i32 } [ %.pn65, %601 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit139, %.loopexit137 ], [ %lpad.loopexit.split-lp140, %.loopexit.split-lp138 ]
   %603 = load ptr, ptr %60, align 8, !tbaa !72
   %.not.i.i.i120 = icmp eq ptr %603, null
@@ -1999,7 +1999,7 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit123: ; preds = %_ZNSt6vectorIN2cv6P
   br label %607
 
 607:                                              ; preds = %.loopexit142, %.loopexit.split-lp143, %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit123
-  %.sroa.0129.0151 = phi ptr [ %.sroa.0129.0.lcssa194, %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit123 ], [ %.sroa.0129.0178, %.loopexit142 ], [ %.sroa.0129.0178, %.loopexit.split-lp143 ]
+  %.sroa.0129.0151 = phi ptr [ %.sroa.0129.0.lcssa211, %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit123 ], [ %.sroa.0129.0178, %.loopexit142 ], [ %.sroa.0129.0178, %.loopexit.split-lp143 ]
   %.pn70 = phi { ptr, i32 } [ %.pn67.pn, %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit123 ], [ %lpad.loopexit144, %.loopexit142 ], [ %lpad.loopexit.split-lp145, %.loopexit.split-lp143 ]
   %.not.i.i.i124 = icmp eq ptr %.sroa.0129.0151, null
   br i1 %.not.i.i.i124, label %_ZNSt6vectorIN2cv6DMatchESaIS1_EED2Ev.exit125, label %608

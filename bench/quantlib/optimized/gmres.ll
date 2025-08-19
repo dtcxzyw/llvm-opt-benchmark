@@ -2880,9 +2880,9 @@ while.body.i.i:                                   ; preds = %cleanup, %while.bod
   br i1 %cmp.not.i.i, label %_ZNSt7__cxx1110_List_baseIdSaIdEED2Ev.exit, label %while.body.i.i, !llvm.loop !47
 
 _ZNSt7__cxx1110_List_baseIdSaIdEED2Ev.exit:       ; preds = %while.body.i.i, %entry, %cleanup
-  %retval.sroa.0.05 = phi ptr [ %retval.sroa.0.0, %cleanup ], [ %__position.coerce, %entry ], [ %retval.sroa.0.0, %while.body.i.i ]
+  %retval.sroa.0.08 = phi ptr [ %retval.sroa.0.0, %cleanup ], [ %__position.coerce, %entry ], [ %retval.sroa.0.0, %while.body.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %__tmp)
-  ret ptr %retval.sroa.0.05
+  ret ptr %retval.sroa.0.08
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
@@ -4079,9 +4079,9 @@ while.body.i.i:                                   ; preds = %cleanup, %while.bod
   br i1 %cmp.not.i.i, label %_ZNSt7__cxx1110_List_baseIdSaIdEED2Ev.exit, label %while.body.i.i, !llvm.loop !47
 
 _ZNSt7__cxx1110_List_baseIdSaIdEED2Ev.exit:       ; preds = %while.body.i.i, %entry, %cleanup
-  %retval.sroa.0.05 = phi ptr [ %retval.sroa.0.0, %cleanup ], [ %__position.coerce, %entry ], [ %retval.sroa.0.0, %while.body.i.i ]
+  %retval.sroa.0.08 = phi ptr [ %retval.sroa.0.0, %cleanup ], [ %__position.coerce, %entry ], [ %retval.sroa.0.0, %while.body.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %__tmp)
-  ret ptr %retval.sroa.0.05
+  ret ptr %retval.sroa.0.08
 }
 
 ; Function Attrs: nounwind

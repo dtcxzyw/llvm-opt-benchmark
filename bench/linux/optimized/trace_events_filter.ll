@@ -3210,18 +3210,18 @@ sub_1:                                            ; preds = %sub_0
   %495 = getelementptr inbounds nuw i8, ptr %204, i64 32
   %496 = load i32, ptr %495, align 8
   switch i32 %496, label %.thread80.sink.split [
-    i32 2, label %.preheader904
-    i32 3, label %.preheader904
-    i32 1, label %.preheader904
-    i32 4, label %.preheader904
-    i32 7, label %.preheader904
+    i32 2, label %.preheader956
+    i32 3, label %.preheader956
+    i32 1, label %.preheader956
+    i32 4, label %.preheader956
+    i32 7, label %.preheader956
   ]
 
-.preheader904:                                    ; preds = %494, %494, %494, %494, %494
+.preheader956:                                    ; preds = %494, %494, %494, %494, %494
   br label %497
 
-497:                                              ; preds = %.preheader904, %497
-  %498 = phi i32 [ %505, %497 ], [ %260, %.preheader904 ]
+497:                                              ; preds = %.preheader956, %497
+  %498 = phi i32 [ %505, %497 ], [ %260, %.preheader956 ]
   %499 = sext i32 %498 to i64
   %500 = getelementptr i8, ptr %136, i64 %499
   %501 = load i8, ptr %500, align 1
@@ -3411,26 +3411,26 @@ sub_1:                                            ; preds = %sub_0
   br label %.thread71
 
 .thread74:                                        ; preds = %272, %276, %296, %299, %323, %327, %.tail, %.loopexit109, %544, %549, %549, %549, %549, %549, %552, %568, %582, %sub_0, %sub_1, %430, %414, %.preheader112, %.preheader111
-  %.lcssa633.lcssa636.sink = phi i32 [ %408, %.preheader111 ], [ %223, %.preheader112 ], [ %403, %414 ], [ %408, %430 ], [ %251, %sub_1 ], [ %251, %sub_0 ], [ %251, %272 ], [ %251, %276 ], [ %286, %296 ], [ %286, %299 ], [ %318, %323 ], [ %329, %327 ], [ %251, %.tail ], [ %378, %.loopexit109 ], [ %251, %549 ], [ %251, %549 ], [ %251, %549 ], [ %251, %549 ], [ %251, %549 ], [ %251, %552 ], [ %558, %568 ], [ %251, %582 ], [ %251, %544 ]
-  %.sink767 = phi i32 [ 6, %.preheader111 ], [ 1, %.preheader112 ], [ 16, %414 ], [ 16, %430 ], [ 17, %sub_1 ], [ 17, %sub_0 ], [ 10, %272 ], [ 1, %276 ], [ 7, %296 ], [ 18, %299 ], [ 19, %323 ], [ 19, %327 ], [ 17, %.tail ], [ 7, %.loopexit109 ], [ 8, %549 ], [ 8, %549 ], [ 8, %549 ], [ 8, %549 ], [ 8, %549 ], [ 10, %552 ], [ 7, %568 ], [ 12, %582 ], [ 18, %544 ]
+  %.lcssa685.lcssa688.sink = phi i32 [ %408, %.preheader111 ], [ %223, %.preheader112 ], [ %403, %414 ], [ %408, %430 ], [ %251, %sub_1 ], [ %251, %sub_0 ], [ %251, %272 ], [ %251, %276 ], [ %286, %296 ], [ %286, %299 ], [ %318, %323 ], [ %329, %327 ], [ %251, %.tail ], [ %378, %.loopexit109 ], [ %251, %549 ], [ %251, %549 ], [ %251, %549 ], [ %251, %549 ], [ %251, %549 ], [ %251, %552 ], [ %558, %568 ], [ %251, %582 ], [ %251, %544 ]
+  %.sink819 = phi i32 [ 6, %.preheader111 ], [ 1, %.preheader112 ], [ 16, %414 ], [ 16, %430 ], [ 17, %sub_1 ], [ 17, %sub_0 ], [ 10, %272 ], [ 1, %276 ], [ 7, %296 ], [ 18, %299 ], [ 19, %323 ], [ 19, %327 ], [ 17, %.tail ], [ 7, %.loopexit109 ], [ 8, %549 ], [ 8, %549 ], [ 8, %549 ], [ 8, %549 ], [ 8, %549 ], [ 10, %552 ], [ 7, %568 ], [ 12, %582 ], [ 18, %544 ]
   %603 = phi ptr [ %264, %.preheader111 ], [ null, %.preheader112 ], [ %264, %414 ], [ %264, %430 ], [ %264, %sub_1 ], [ %264, %sub_0 ], [ %264, %582 ], [ %264, %568 ], [ %264, %552 ], [ %264, %549 ], [ %264, %549 ], [ %264, %549 ], [ %264, %549 ], [ %264, %549 ], [ %264, %544 ], [ %264, %.loopexit109 ], [ %264, %.tail ], [ %264, %327 ], [ %264, %323 ], [ %264, %299 ], [ %264, %296 ], [ %264, %276 ], [ %264, %272 ]
   %604 = ptrtoint ptr %137 to i64
   %605 = sub i64 %604, %128
   %606 = trunc i64 %605 to i32
-  %607 = add i32 %.lcssa633.lcssa636.sink, %606
-  store i32 %.sink767, ptr %3, align 4
+  %607 = add i32 %.lcssa685.lcssa688.sink, %606
+  store i32 %.sink819, ptr %3, align 4
   store i32 %607, ptr %129, align 4
   %608 = icmp eq ptr %603, null
   br i1 %608, label %.thread83, label %.thread80
 
 .thread80.sink.split:                             ; preds = %507, %506, %494, %491, %401, %400, %397
-  %.lcssa665.sink = phi i32 [ %251, %397 ], [ %251, %400 ], [ %403, %401 ], [ %251, %491 ], [ %251, %494 ], [ %498, %506 ], [ %498, %507 ]
-  %.sink770 = phi i32 [ 10, %397 ], [ 10, %400 ], [ 5, %401 ], [ 10, %491 ], [ 9, %494 ], [ 4, %506 ], [ 7, %507 ]
+  %.lcssa717.sink = phi i32 [ %251, %397 ], [ %251, %400 ], [ %403, %401 ], [ %251, %491 ], [ %251, %494 ], [ %498, %506 ], [ %498, %507 ]
+  %.sink822 = phi i32 [ 10, %397 ], [ 10, %400 ], [ 5, %401 ], [ 10, %491 ], [ 9, %494 ], [ 4, %506 ], [ 7, %507 ]
   %609 = ptrtoint ptr %137 to i64
   %610 = sub i64 %609, %128
   %611 = trunc i64 %610 to i32
-  %612 = add i32 %.lcssa665.sink, %611
-  store i32 %.sink770, ptr %3, align 4
+  %612 = add i32 %.lcssa717.sink, %611
+  store i32 %.sink822, ptr %3, align 4
   store i32 %612, ptr %129, align 4
   br label %.thread80
 
@@ -4089,7 +4089,7 @@ select.unfold.thread:                             ; preds = %24
   %57 = add i64 %56, 4294967296
   %58 = ashr exact i64 %57, 32
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %2, ptr align 1 %53, i64 %58, i1 false)
-  br i1 %50, label %select.unfold.thread24, label %select.unfold.thread23
+  br i1 %50, label %select.unfold.thread27, label %select.unfold.thread26
 
 59:                                               ; preds = %36
   %60 = zext i8 %40 to i32
@@ -4114,17 +4114,17 @@ select.unfold:                                    ; preds = %63
   %73 = add i64 %72, 4294967296
   %74 = ashr exact i64 %73, 32
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %2, ptr align 1 %69, i64 %74, i1 false)
-  switch i32 %64, label %default.unreachable21 [
+  switch i32 %64, label %default.unreachable24 [
     i32 3, label %75
     i32 0, label %.thread
-    i32 1, label %select.unfold.thread23
-    i32 2, label %select.unfold.thread24
+    i32 1, label %select.unfold.thread26
+    i32 2, label %select.unfold.thread27
   ]
 
-select.unfold.thread23:                           ; preds = %48, %select.unfold
+select.unfold.thread26:                           ; preds = %48, %select.unfold
   br label %.thread
 
-select.unfold.thread24:                           ; preds = %48, %select.unfold
+select.unfold.thread27:                           ; preds = %48, %select.unfold
   br label %.thread
 
 75:                                               ; preds = %select.unfold
@@ -4140,11 +4140,11 @@ select.unfold.thread24:                           ; preds = %48, %select.unfold
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %2, ptr align 1 %14, i64 %80, i1 false)
   br label %.thread
 
-default.unreachable21:                            ; preds = %select.unfold
+default.unreachable24:                            ; preds = %select.unfold
   unreachable
 
-.thread:                                          ; preds = %select.unfold.thread, %1, %.thread5, %.loopexit, %75, %select.unfold.thread24, %select.unfold.thread23, %select.unfold
-  %81 = phi ptr [ @regex_match_glob, %.loopexit ], [ @regex_match_end, %75 ], [ @regex_match_middle, %select.unfold.thread24 ], [ @regex_match_front, %select.unfold.thread23 ], [ @regex_match_full, %select.unfold ], [ @regex_match_full, %.thread5 ], [ @regex_match_full, %1 ], [ @regex_match_full, %select.unfold.thread ]
+.thread:                                          ; preds = %select.unfold.thread, %1, %.thread5, %.loopexit, %75, %select.unfold.thread27, %select.unfold.thread26, %select.unfold
+  %81 = phi ptr [ @regex_match_glob, %.loopexit ], [ @regex_match_end, %75 ], [ @regex_match_middle, %select.unfold.thread27 ], [ @regex_match_front, %select.unfold.thread26 ], [ @regex_match_full, %select.unfold ], [ @regex_match_full, %.thread5 ], [ @regex_match_full, %1 ], [ @regex_match_full, %select.unfold.thread ]
   %82 = getelementptr inbounds nuw i8, ptr %2, i64 264
   store ptr %81, ptr %82, align 8
   ret void

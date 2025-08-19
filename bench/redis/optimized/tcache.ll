@@ -1130,7 +1130,7 @@ define hidden void @je_tcache_bin_flush_stashed(ptr noundef %0, ptr noundef read
 51:                                               ; preds = %.lr.ph, %arena_decay_ticks.exit
   %.0.i86 = phi i32 [ %27, %.lr.ph ], [ %.us-phi81, %arena_decay_ticks.exit ]
   %.0126.i85 = phi i32 [ 0, %.lr.ph ], [ %.us-phi82, %arena_decay_ticks.exit ]
-  %.0128.i84 = phi i8 [ 0, %.lr.ph ], [ %.1129.i68113, %arena_decay_ticks.exit ]
+  %.0128.i84 = phi i8 [ 0, %.lr.ph ], [ %.1129.i68116, %arena_decay_ticks.exit ]
   %52 = load ptr, ptr %36, align 16, !tbaa !40
   %.val37 = load i64, ptr %52, align 8, !tbaa !54
   %53 = trunc i64 %.val37 to i32
@@ -1263,7 +1263,7 @@ malloc_mutex_lock.exit:                           ; preds = %100, %94, %81, %75,
   br i1 %4, label %.critedge139.i.thread, label %.preheader75.preheader
 
 .preheader75.preheader:                           ; preds = %.thread, %117
-  %.1129.i110 = phi i8 [ 1, %.thread ], [ %.0128.i84, %117 ]
+  %.1129.i113 = phi i8 [ 1, %.thread ], [ %.0128.i84, %117 ]
   %wide.trip.count = zext i32 %.0.i86 to i64
   br label %.preheader75
 
@@ -1315,8 +1315,8 @@ malloc_mutex_lock.exit:                           ; preds = %100, %94, %81, %75,
   br label %.critedge139.i.split
 
 .critedge139.i.split.us.preheader:                ; preds = %.critedge139.i.thread, %.critedge139.i
-  %.sroa.0.1115 = phi i64 [ %134, %.critedge139.i.thread ], [ 0, %.critedge139.i ]
-  %.1129.i68114 = phi i8 [ %.1129.i69, %.critedge139.i.thread ], [ %.1129.i110, %.critedge139.i ]
+  %.sroa.0.1118 = phi i64 [ %134, %.critedge139.i.thread ], [ 0, %.critedge139.i ]
+  %.1129.i68117 = phi i8 [ %.1129.i69, %.critedge139.i.thread ], [ %.1129.i113, %.critedge139.i ]
   %135 = getelementptr inbounds nuw i8, ptr %.0134.i64, i64 192
   %umax101 = tail call i32 @llvm.umax.i32(i32 %.0.i86, i32 1)
   %wide.trip.count102 = zext i32 %umax101 to i64
@@ -1359,7 +1359,7 @@ tcache_bin_flush_match.exit.thread.us:            ; preds = %tcache_bin_flush_ma
   %.val42.us = load ptr, ptr %153, align 8, !tbaa !81
   %154 = ptrtoint ptr %.val42.us to i64
   %155 = sub i64 %152, %154
-  %156 = mul i64 %155, %.sroa.0.1115
+  %156 = mul i64 %155, %.sroa.0.1118
   %157 = lshr i64 %156, 32
   %158 = getelementptr inbounds nuw i8, ptr %139, i64 64
   %159 = lshr i64 %156, 38
@@ -1409,7 +1409,7 @@ arena_dalloc_bin_locked_step.exit.thread.us:      ; preds = %177, %176, %174, %1
   br i1 %exitcond103.not, label %.split.us, label %.critedge139.i.split.us, !llvm.loop !87
 
 .split.us:                                        ; preds = %arena_dalloc_bin_locked_step.exit.thread, %arena_dalloc_bin_locked_step.exit.thread.us
-  %.1129.i68113 = phi i8 [ %.1129.i68114, %arena_dalloc_bin_locked_step.exit.thread.us ], [ %.1129.i110, %arena_dalloc_bin_locked_step.exit.thread ]
+  %.1129.i68116 = phi i8 [ %.1129.i68117, %arena_dalloc_bin_locked_step.exit.thread.us ], [ %.1129.i113, %arena_dalloc_bin_locked_step.exit.thread ]
   %.us-phi = phi i64 [ %.sroa.8.3.us, %arena_dalloc_bin_locked_step.exit.thread.us ], [ 0, %arena_dalloc_bin_locked_step.exit.thread ]
   %.us-phi81 = phi i32 [ %.1132.i.us, %arena_dalloc_bin_locked_step.exit.thread.us ], [ %.1132.i, %arena_dalloc_bin_locked_step.exit.thread ]
   %.us-phi82 = phi i32 [ %.2.i.us, %arena_dalloc_bin_locked_step.exit.thread.us ], [ %.0126.i85, %arena_dalloc_bin_locked_step.exit.thread ]
@@ -1496,7 +1496,7 @@ arena_decay_ticks.exit:                           ; preds = %204, %203, %208
   br i1 %.not.i, label %.preheader, label %51, !llvm.loop !80
 
 ._crit_edge:                                      ; preds = %.lr.ph89, %.preheader
-  %221 = trunc nuw i8 %.1129.i68113 to i1
+  %221 = trunc nuw i8 %.1129.i68116 to i1
   br i1 %221, label %tcache_bin_flush_impl.exit, label %227
 
 .lr.ph89:                                         ; preds = %.lr.ph89.preheader, %.lr.ph89
@@ -1773,15 +1773,15 @@ malloc_mutex_lock.exit:                           ; preds = %10, %16
   %37 = load ptr, ptr %36, align 8, !tbaa !137
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %39 = icmp eq ptr %37, %38
-  br i1 %39, label %40, label %.thread2
+  br i1 %39, label %40, label %.thread7
 
 40:                                               ; preds = %35
   %41 = load ptr, ptr %37, align 8, !tbaa !134
   store ptr %41, ptr %36, align 8, !tbaa !137
   %42 = icmp eq ptr %41, %38
-  br i1 %42, label %51, label %.thread2
+  br i1 %42, label %51, label %.thread7
 
-.thread2:                                         ; preds = %35, %40
+.thread7:                                         ; preds = %35, %40
   %43 = load ptr, ptr %38, align 8, !tbaa !139
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %45 = load ptr, ptr %44, align 8, !tbaa !135
@@ -1801,7 +1801,7 @@ malloc_mutex_lock.exit:                           ; preds = %10, %16
   store ptr null, ptr %36, align 8, !tbaa !137
   br label %52
 
-52:                                               ; preds = %51, %.thread2
+52:                                               ; preds = %51, %.thread7
   %53 = getelementptr inbounds nuw i8, ptr %1, i64 184
   %54 = load ptr, ptr %53, align 8, !tbaa !140
   tail call void @je_tcache_stats_merge(ptr noundef %0, ptr noundef %54, ptr noundef nonnull %4)

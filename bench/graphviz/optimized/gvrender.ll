@@ -2064,13 +2064,13 @@ get_imagepos.exit:                                ; preds = %get_imagescale.exit
 
 .sink.split:                                      ; preds = %108, %104, %102
   %.sink = phi double [ %103, %102 ], [ %107, %104 ], [ %112, %108 ]
-  %.ph146 = phi double [ %.lcssa, %102 ], [ %106, %104 ], [ %111, %108 ]
+  %.ph158 = phi double [ %.lcssa, %102 ], [ %106, %104 ], [ %111, %108 ]
   store double %.sink, ptr %30, align 8, !tbaa !139
   br label %113
 
 113:                                              ; preds = %.sink.split, %get_imagepos.exit
   %114 = phi double [ %.lcssa121, %get_imagepos.exit ], [ %.sink, %.sink.split ]
-  %115 = phi double [ %.lcssa, %get_imagepos.exit ], [ %.ph146, %.sink.split ]
+  %115 = phi double [ %.lcssa, %get_imagepos.exit ], [ %.ph158, %.sink.split ]
   %116 = fcmp olt double %.083, %40
   br i1 %116, label %117, label %128
 
@@ -2150,16 +2150,16 @@ get_imagepos.exit:                                ; preds = %get_imagescale.exit
   %156 = fmul double %155, %140
   %157 = fadd double %130, %.sroa.55.0.copyload.i
   %158 = fmul double %137, %142
-  %.sroa.316.0.i137 = fmul double %158, %157
+  %.sroa.316.0.i149 = fmul double %158, %157
   store double %156, ptr %8, align 8, !tbaa !70
-  store double %.sroa.316.0.i137, ptr %39, align 8, !tbaa !70
+  store double %.sroa.316.0.i149, ptr %39, align 8, !tbaa !70
   %159 = fadd double %.sroa.03.0.copyload.i, %114
   br label %gvrender_ptf.exit112
 
 gvrender_ptf.exit112:                             ; preds = %146, %154
-  %.sroa.316.0.i140 = phi double [ %.sroa.316.0.i, %146 ], [ %.sroa.316.0.i137, %154 ]
+  %.sroa.316.0.i152 = phi double [ %.sroa.316.0.i, %146 ], [ %.sroa.316.0.i149, %154 ]
   %160 = phi double [ %151, %146 ], [ %158, %154 ]
-  %.sroa.015.0.i138 = phi double [ %149, %146 ], [ %156, %154 ]
+  %.sroa.015.0.i150 = phi double [ %149, %146 ], [ %156, %154 ]
   %.pn = phi double [ %152, %146 ], [ %159, %154 ]
   %.pn.i108 = phi double [ %153, %146 ], [ %145, %154 ]
   %.sroa.015.0.i107 = fmul double %140, %.pn
@@ -2170,9 +2170,9 @@ gvrender_ptf.exit112:                             ; preds = %146, %154
 
 161:                                              ; preds = %gvrender_ptf.exit112, %128
   %162 = phi double [ %.sroa.316.0.i109, %gvrender_ptf.exit112 ], [ %129, %128 ]
-  %163 = phi double [ %.sroa.316.0.i140, %gvrender_ptf.exit112 ], [ %130, %128 ]
+  %163 = phi double [ %.sroa.316.0.i152, %gvrender_ptf.exit112 ], [ %130, %128 ]
   %164 = phi double [ %.sroa.015.0.i107, %gvrender_ptf.exit112 ], [ %114, %128 ]
-  %165 = phi double [ %.sroa.015.0.i138, %gvrender_ptf.exit112 ], [ %115, %128 ]
+  %165 = phi double [ %.sroa.015.0.i150, %gvrender_ptf.exit112 ], [ %115, %128 ]
   %166 = fcmp ogt double %165, %164
   br i1 %166, label %167, label %168
 

@@ -2772,8 +2772,8 @@ define dso_local noundef zeroext i1 @SDLTest_CommonInit(ptr noundef %0) local_un
   %.not268 = icmp eq i32 %375, 0
   %.pre316 = load i32, ptr %297, align 8
   %.not269 = icmp eq i32 %.pre316, 0
-  %or.cond330 = select i1 %.not268, i1 %.not269, i1 false
-  br i1 %or.cond330, label %378, label %376
+  %or.cond349 = select i1 %.not268, i1 %.not269, i1 false
+  br i1 %or.cond349, label %378, label %376
 
 376:                                              ; preds = %374
   %377 = call zeroext i1 @SDL_SetWindowMinimumSize(ptr noundef nonnull %373, i32 noundef %375, i32 noundef %.pre316) #9
@@ -2784,8 +2784,8 @@ define dso_local noundef zeroext i1 @SDLTest_CommonInit(ptr noundef %0) local_un
   %.not270 = icmp eq i32 %379, 0
   %.pre317 = load i32, ptr %299, align 8
   %.not271 = icmp eq i32 %.pre317, 0
-  %or.cond331 = select i1 %.not270, i1 %.not271, i1 false
-  br i1 %or.cond331, label %385, label %380
+  %or.cond350 = select i1 %.not270, i1 %.not271, i1 false
+  br i1 %or.cond350, label %385, label %380
 
 380:                                              ; preds = %378
   %381 = load ptr, ptr %274, align 8
@@ -2799,8 +2799,8 @@ define dso_local noundef zeroext i1 @SDLTest_CommonInit(ptr noundef %0) local_un
   %387 = fcmp une float %386, 0.000000e+00
   %.pre318 = load float, ptr %301, align 8
   %388 = fcmp une float %.pre318, 0.000000e+00
-  %or.cond332 = select i1 %387, i1 true, i1 %388
-  br i1 %or.cond332, label %389, label %394
+  %or.cond351 = select i1 %387, i1 true, i1 %388
+  br i1 %or.cond351, label %389, label %394
 
 389:                                              ; preds = %385
   %390 = load ptr, ptr %274, align 8
@@ -2826,8 +2826,8 @@ define dso_local noundef zeroext i1 @SDLTest_CommonInit(ptr noundef %0) local_un
   %.pre319 = load i32, ptr %293, align 4
   %.pre320 = load i32, ptr %6, align 4
   %.not274 = icmp eq i32 %.pre320, %.pre319
-  %or.cond333 = select i1 %.not273, i1 %.not274, i1 false
-  br i1 %or.cond333, label %407, label %404
+  %or.cond352 = select i1 %.not273, i1 %.not274, i1 false
+  br i1 %or.cond352, label %407, label %404
 
 404:                                              ; preds = %401
   call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.39, i32 noundef %403, i32 noundef %.pre319, i32 noundef %402, i32 noundef %.pre320) #9
@@ -3390,7 +3390,7 @@ define internal range(i32 0, 10) i32 @SDLTest_ExampleHitTestCallback(ptr noundef
   %25 = add nsw i32 %24, -8
   %.not15 = icmp slt i32 %20, %25
   %.str.348..str.347 = select i1 %.not15, ptr @.str.348, ptr @.str.347
-  %.17 = select i1 %.not15, i32 5, i32 6
+  %.21 = select i1 %.not15, i32 5, i32 6
   br label %.sink.split
 
 26:                                               ; preds = %16
@@ -3409,7 +3409,7 @@ define internal range(i32 0, 10) i32 @SDLTest_ExampleHitTestCallback(ptr noundef
 
 .sink.split:                                      ; preds = %31, %29, %26, %23, %21, %13, %9
   %.str.351.sink = phi ptr [ @.str.343, %9 ], [ %.str.345..str.344, %13 ], [ @.str.346, %21 ], [ %.str.348..str.347, %23 ], [ @.str.349, %26 ], [ @.str.350, %29 ], [ @.str.351, %31 ]
-  %.0.ph = phi i32 [ 2, %9 ], [ %., %13 ], [ 4, %21 ], [ %.17, %23 ], [ 7, %26 ], [ 3, %29 ], [ 1, %31 ]
+  %.0.ph = phi i32 [ 2, %9 ], [ %., %13 ], [ 4, %21 ], [ %.21, %23 ], [ 7, %26 ], [ 3, %29 ], [ 1, %31 ]
   call void (ptr, ...) @SDL_Log(ptr noundef nonnull %.str.351.sink) #9
   br label %33
 
@@ -3617,16 +3617,16 @@ SystemThemeName.exit:                             ; preds = %5, %switch.lookup
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %40 = load i32, ptr %39, align 4
   %41 = icmp ult i32 %40, 5
-  br i1 %41, label %switch.lookup184, label %DisplayOrientationName.exit
+  br i1 %41, label %switch.lookup185, label %DisplayOrientationName.exit
 
-switch.lookup184:                                 ; preds = %36
+switch.lookup185:                                 ; preds = %36
   %42 = zext nneg i32 %40 to i64
-  %switch.gep185 = getelementptr inbounds nuw [5 x ptr], ptr @switch.table.SDLTest_PrintEvent.1, i64 0, i64 %42
-  %switch.load186 = load ptr, ptr %switch.gep185, align 8
+  %switch.gep186 = getelementptr inbounds nuw [5 x ptr], ptr @switch.table.SDLTest_PrintEvent.1, i64 0, i64 %42
+  %switch.load187 = load ptr, ptr %switch.gep186, align 8
   br label %DisplayOrientationName.exit
 
-DisplayOrientationName.exit:                      ; preds = %36, %switch.lookup184
-  %.0.i182 = phi ptr [ %switch.load186, %switch.lookup184 ], [ @.str.368, %36 ]
+DisplayOrientationName.exit:                      ; preds = %36, %switch.lookup185
+  %.0.i182 = phi ptr [ %switch.load187, %switch.lookup185 ], [ @.str.368, %36 ]
   tail call void (ptr, ...) @SDL_Log(ptr noundef nonnull @.str.54, i32 noundef %38, ptr noundef nonnull %.0.i182) #9
   br label %530
 
@@ -4012,16 +4012,16 @@ DisplayOrientationName.exit:                      ; preds = %36, %switch.lookup1
   %279 = getelementptr inbounds nuw i8, ptr %0, i64 21
   %280 = load i8, ptr %279, align 1
   %281 = icmp ult i8 %280, 13
-  br i1 %281, label %switch.lookup187, label %283
+  br i1 %281, label %switch.lookup188, label %283
 
-switch.lookup187:                                 ; preds = %278
+switch.lookup188:                                 ; preds = %278
   %282 = zext nneg i8 %280 to i64
-  %switch.gep188 = getelementptr inbounds nuw [13 x ptr], ptr @switch.table.SDLTest_PrintEvent.2, i64 0, i64 %282
-  %switch.load189 = load ptr, ptr %switch.gep188, align 8
+  %switch.gep189 = getelementptr inbounds nuw [13 x ptr], ptr @switch.table.SDLTest_PrintEvent.2, i64 0, i64 %282
+  %switch.load190 = load ptr, ptr %switch.gep189, align 8
   br label %283
 
-283:                                              ; preds = %switch.lookup187, %278
-  %.0 = phi ptr [ @.str.103, %278 ], [ %switch.load189, %switch.lookup187 ]
+283:                                              ; preds = %switch.lookup188, %278
+  %.0 = phi ptr [ @.str.103, %278 ], [ %switch.load190, %switch.lookup188 ]
   %284 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %285 = load i32, ptr %284, align 8
   %286 = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -4081,16 +4081,16 @@ switch.lookup187:                                 ; preds = %278
   %319 = load i8, ptr %318, align 4
   %320 = zext i8 %319 to i32
   %321 = icmp ult i8 %319, 6
-  br i1 %321, label %switch.lookup190, label %GamepadAxisName.exit
+  br i1 %321, label %switch.lookup191, label %GamepadAxisName.exit
 
-switch.lookup190:                                 ; preds = %315
+switch.lookup191:                                 ; preds = %315
   %322 = zext nneg i8 %319 to i64
-  %switch.gep191 = getelementptr inbounds nuw [6 x ptr], ptr @switch.table.SDLTest_PrintEvent.3, i64 0, i64 %322
-  %switch.load192 = load ptr, ptr %switch.gep191, align 8
+  %switch.gep192 = getelementptr inbounds nuw [6 x ptr], ptr @switch.table.SDLTest_PrintEvent.3, i64 0, i64 %322
+  %switch.load193 = load ptr, ptr %switch.gep192, align 8
   br label %GamepadAxisName.exit
 
-GamepadAxisName.exit:                             ; preds = %315, %switch.lookup190
-  %.0.i183 = phi ptr [ %switch.load192, %switch.lookup190 ], [ @.str.368, %315 ]
+GamepadAxisName.exit:                             ; preds = %315, %switch.lookup191
+  %.0.i183 = phi ptr [ %switch.load193, %switch.lookup191 ], [ @.str.368, %315 ]
   %323 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %324 = load i16, ptr %323, align 8
   %325 = sext i16 %324 to i32
@@ -4880,9 +4880,9 @@ define dso_local range(i32 0, 2) i32 @SDLTest_CommonEventMainCallbacks(ptr nound
 
 .thread310.sink.split:                            ; preds = %133, %138, %137, %136
   %.sink = phi ptr [ %9, %136 ], [ %8, %137 ], [ %8, %138 ], [ %9, %133 ]
-  %.sink337 = phi i32 [ 100, %136 ], [ -100, %137 ], [ 100, %138 ], [ -100, %133 ]
+  %.sink364 = phi i32 [ 100, %136 ], [ -100, %137 ], [ 100, %138 ], [ -100, %133 ]
   %139 = load i32, ptr %.sink, align 4
-  %140 = add nsw i32 %139, %.sink337
+  %140 = add nsw i32 %139, %.sink364
   store i32 %140, ptr %.sink, align 4
   br label %.thread310
 

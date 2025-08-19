@@ -108,14 +108,14 @@ define dso_local range(i32 0, 2) i32 @nc_send(i32 noundef %0, ptr noundef %1, i6
   store i64 %36, ptr %13, align 8, !tbaa !12
   %37 = call i32 @select(i32 noundef %14, ptr noundef null, ptr noundef nonnull %6, ptr noundef null, ptr noundef nonnull %4) #15
   %38 = icmp slt i32 %37, 1
-  br i1 %38, label %.lr.ph61, label %._crit_edge
+  br i1 %38, label %.lr.ph65, label %._crit_edge
 
-.lr.ph61:                                         ; preds = %34, %49
+.lr.ph65:                                         ; preds = %34, %49
   %39 = phi i32 [ %53, %49 ], [ %37, %34 ]
   %40 = icmp eq i32 %39, -1
   br i1 %40, label %41, label %.thread
 
-41:                                               ; preds = %.lr.ph61
+41:                                               ; preds = %.lr.ph65
   %42 = load i32, ptr %28, align 4, !tbaa !4
   %43 = icmp eq i32 %42, 4
   br i1 %43, label %44, label %.thread
@@ -125,7 +125,7 @@ define dso_local range(i32 0, 2) i32 @nc_send(i32 noundef %0, ptr noundef %1, i6
   %46 = icmp slt i64 %45, %19
   br i1 %46, label %49, label %.thread
 
-.thread:                                          ; preds = %.lr.ph61, %41, %44
+.thread:                                          ; preds = %.lr.ph65, %41, %44
   %47 = call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.2) #15
   %48 = call i32 @close(i32 noundef %0) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -143,7 +143,7 @@ define dso_local range(i32 0, 2) i32 @nc_send(i32 noundef %0, ptr noundef %1, i6
   store i64 %52, ptr %13, align 8, !tbaa !12
   %53 = call i32 @select(i32 noundef %14, ptr noundef null, ptr noundef nonnull %6, ptr noundef null, ptr noundef nonnull %4) #15
   %54 = icmp slt i32 %53, 1
-  br i1 %54, label %.lr.ph61, label %._crit_edge
+  br i1 %54, label %.lr.ph65, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %49, %34
   call void @llvm.lifetime.end.p0(ptr nonnull %6)

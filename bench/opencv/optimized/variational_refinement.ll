@@ -1154,9 +1154,9 @@ define hidden void @_ZN2cv25VariationalRefinementImpl17mergeCheckerboardERNS_3Ma
   %64 = and i64 %indvars.iv103, 1
   %65 = icmp eq i64 %64, 0
   %spec.select = select i1 %65, i64 %12, i64 %17
-  %spec.select151 = select i1 %65, ptr %9, ptr %14
+  %spec.select153 = select i1 %65, ptr %9, ptr %14
   %66 = mul i64 %spec.select, %indvars.iv.next104
-  %67 = getelementptr inbounds nuw i8, ptr %spec.select151, i64 %66
+  %67 = getelementptr inbounds nuw i8, ptr %spec.select153, i64 %66
   %storemerge.in = getelementptr inbounds nuw i8, ptr %67, i64 4
   %storemerge = load float, ptr %storemerge.in, align 4, !tbaa !42
   store float %storemerge, ptr %63, align 4, !tbaa !42
@@ -2369,12 +2369,12 @@ _ZNKSt6vectorIPvSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %104
   %105 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %106 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %107 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #21
-          to label %_ZNKSt6vectorIPvSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i147 unwind label %.thread857
+          to label %_ZNKSt6vectorIPvSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i147 unwind label %.thread910
 
 _ZNKSt6vectorIPvSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i147: ; preds = %_ZNKSt6vectorIPvSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i
   store ptr %1, ptr %107, align 8, !tbaa !72
   %108 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #21
-          to label %_ZNKSt6vectorIPvSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i157 unwind label %.thread861
+          to label %_ZNKSt6vectorIPvSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i157 unwind label %.thread914
 
 _ZNKSt6vectorIPvSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i157: ; preds = %_ZNKSt6vectorIPvSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i147
   %109 = getelementptr inbounds nuw i8, ptr %108, i64 8
@@ -2396,7 +2396,7 @@ _ZNKSt6vectorIPvSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i157: ; preds = %_ZNKSt6vec
 _ZNKSt6vectorIPvSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i167: ; preds = %_ZNKSt6vectorIPvSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i157
   store ptr %12, ptr %115, align 8, !tbaa !72
   %116 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #21
-          to label %_ZNKSt6vectorIPvSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i177 unwind label %.thread849
+          to label %_ZNKSt6vectorIPvSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i177 unwind label %.thread902
 
 _ZNKSt6vectorIPvSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i177: ; preds = %_ZNKSt6vectorIPvSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i167
   %117 = getelementptr inbounds nuw i8, ptr %116, i64 8
@@ -2413,7 +2413,7 @@ _ZNKSt6vectorIPvSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i177: ; preds = %_ZNKSt6vec
   %121 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %122 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %123 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #21
-          to label %_ZNKSt6vectorIPvSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i187 unwind label %.thread853
+          to label %_ZNKSt6vectorIPvSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i187 unwind label %.thread906
 
 _ZNKSt6vectorIPvSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i187: ; preds = %_ZNKSt6vectorIPvSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i177
   store ptr %14, ptr %123, align 8, !tbaa !72
@@ -2534,7 +2534,7 @@ _ZNKSt6vectorIPvSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i232: ; preds = %_ZNSt6vect
   %153 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %154 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %155 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #21
-          to label %_ZNKSt6vectorIPvSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i242 unwind label %.thread886
+          to label %_ZNKSt6vectorIPvSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i242 unwind label %.thread939
 
 _ZNKSt6vectorIPvSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i242: ; preds = %_ZNKSt6vectorIPvSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i232
   store ptr %14, ptr %155, align 8, !tbaa !72
@@ -2568,7 +2568,7 @@ _ZNSt6vectorIPvSaIS0_EE9push_backEOS0_.exit260:   ; preds = %_ZNKSt6vectorIPvSaI
   %165 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %166 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %167 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #21
-          to label %_ZNKSt6vectorIPvSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i282 unwind label %.thread876
+          to label %_ZNKSt6vectorIPvSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i282 unwind label %.thread929
 
 _ZNKSt6vectorIPvSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i282: ; preds = %_ZNSt6vectorIPvSaIS0_EE9push_backEOS0_.exit260
   store ptr %75, ptr %167, align 8, !tbaa !72
@@ -2750,7 +2750,7 @@ _ZNSt6vectorIPvSaIS0_EED2Ev.exit443:              ; preds = %_ZNSt6vectorIPvSaIS
   %216 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %217 = getelementptr inbounds nuw i8, ptr %27, i64 16
   %218 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #21
-          to label %_ZNKSt6vectorIPvSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i459 unwind label %.thread915
+          to label %_ZNKSt6vectorIPvSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i459 unwind label %.thread968
 
 _ZNKSt6vectorIPvSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i459: ; preds = %_ZNSt6vectorIPvSaIS0_EED2Ev.exit443
   store ptr %75, ptr %218, align 8, !tbaa !72
@@ -2780,7 +2780,7 @@ _ZNKSt6vectorIPvSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i479: ; preds = %_ZNKSt6vec
   %226 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %227 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %228 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #21
-          to label %_ZNKSt6vectorIPvSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i489 unwind label %.thread901
+          to label %_ZNKSt6vectorIPvSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i489 unwind label %.thread954
 
 _ZNKSt6vectorIPvSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i489: ; preds = %_ZNKSt6vectorIPvSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i479
   store ptr %78, ptr %228, align 8, !tbaa !72
@@ -2810,7 +2810,7 @@ _ZNKSt6vectorIPvSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i509: ; preds = %_ZNKSt6vec
   %236 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %237 = getelementptr inbounds nuw i8, ptr %29, i64 16
   %238 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #21
-          to label %_ZNKSt6vectorIPvSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i519 unwind label %.thread904
+          to label %_ZNKSt6vectorIPvSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i519 unwind label %.thread957
 
 _ZNKSt6vectorIPvSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i519: ; preds = %_ZNKSt6vectorIPvSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i509
   store ptr %89, ptr %238, align 8, !tbaa !72
@@ -2995,12 +2995,12 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZNSt6vectorIPvSaIS
           cleanup
   br label %382
 
-.thread857:                                       ; preds = %_ZNKSt6vectorIPvSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i
+.thread910:                                       ; preds = %_ZNKSt6vectorIPvSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i
   %287 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt6vectorIPvSaIS0_EED2Ev.exit626
 
-.thread861:                                       ; preds = %_ZNKSt6vectorIPvSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i147
+.thread914:                                       ; preds = %_ZNKSt6vectorIPvSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i147
   %288 = landingpad { ptr, i32 }
           cleanup
   br label %310
@@ -3010,7 +3010,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZNSt6vectorIPvSaIS
           cleanup
   br label %309
 
-.thread849:                                       ; preds = %_ZNKSt6vectorIPvSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i167
+.thread902:                                       ; preds = %_ZNKSt6vectorIPvSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i167
   %290 = landingpad { ptr, i32 }
           cleanup
   br label %307
@@ -3063,7 +3063,7 @@ _ZNSt6vectorIMN2cv25VariationalRefinementImplEFvPvS2_S2_ESaIS4_EED2Ev.exit618: ;
   call void @_ZdlPv(ptr noundef nonnull %.sroa.0758.0.ph) #22
   br label %306
 
-.thread853:                                       ; preds = %_ZNKSt6vectorIPvSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i177
+.thread906:                                       ; preds = %_ZNKSt6vectorIPvSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i177
   %305 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
@@ -3076,25 +3076,25 @@ _ZNSt6vectorIMN2cv25VariationalRefinementImplEFvPvS2_S2_ESaIS4_EED2Ev.exit618: ;
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %307
 
-307:                                              ; preds = %306, %.thread853, %.thread849
-  %.pn112.pn.pn.pn.pn852 = phi { ptr, i32 } [ %290, %.thread849 ], [ %.pn112.pn.pn.pn.ph, %306 ], [ %305, %.thread853 ]
-  %308 = phi ptr [ %115, %.thread849 ], [ %116, %306 ], [ %116, %.thread853 ]
+307:                                              ; preds = %306, %.thread906, %.thread902
+  %.pn112.pn.pn.pn.pn905 = phi { ptr, i32 } [ %290, %.thread902 ], [ %.pn112.pn.pn.pn.ph, %306 ], [ %305, %.thread906 ]
+  %308 = phi ptr [ %115, %.thread902 ], [ %116, %306 ], [ %116, %.thread906 ]
   call void @_ZdlPv(ptr noundef nonnull %308) #22
   br label %309
 
 309:                                              ; preds = %307, %.thread
-  %.pn112.pn.pn.pn.pn848 = phi { ptr, i32 } [ %289, %.thread ], [ %.pn112.pn.pn.pn.pn852, %307 ]
+  %.pn112.pn.pn.pn.pn901 = phi { ptr, i32 } [ %289, %.thread ], [ %.pn112.pn.pn.pn.pn905, %307 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %310
 
-310:                                              ; preds = %309, %.thread861
-  %.pn112.pn.pn.pn.pn.pn864 = phi { ptr, i32 } [ %288, %.thread861 ], [ %.pn112.pn.pn.pn.pn848, %309 ]
-  %311 = phi ptr [ %107, %.thread861 ], [ %108, %309 ]
+310:                                              ; preds = %309, %.thread914
+  %.pn112.pn.pn.pn.pn.pn917 = phi { ptr, i32 } [ %288, %.thread914 ], [ %.pn112.pn.pn.pn.pn901, %309 ]
+  %311 = phi ptr [ %107, %.thread914 ], [ %108, %309 ]
   call void @_ZdlPv(ptr noundef nonnull %311) #22
   br label %_ZNSt6vectorIPvSaIS0_EED2Ev.exit626
 
-_ZNSt6vectorIPvSaIS0_EED2Ev.exit626:              ; preds = %.thread857, %310
-  %.pn112.pn.pn.pn.pn.pn860 = phi { ptr, i32 } [ %287, %.thread857 ], [ %.pn112.pn.pn.pn.pn.pn864, %310 ]
+_ZNSt6vectorIPvSaIS0_EED2Ev.exit626:              ; preds = %.thread910, %310
+  %.pn112.pn.pn.pn.pn.pn913 = phi { ptr, i32 } [ %287, %.thread910 ], [ %.pn112.pn.pn.pn.pn.pn917, %310 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %381
 
@@ -3103,7 +3103,7 @@ _ZNSt6vectorIPvSaIS0_EED2Ev.exit626:              ; preds = %.thread857, %310
           cleanup
   br label %381
 
-.thread886:                                       ; preds = %_ZNKSt6vectorIPvSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i232
+.thread939:                                       ; preds = %_ZNKSt6vectorIPvSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i232
   %314 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt6vectorIPvSaIS0_EED2Ev.exit636
@@ -3111,14 +3111,14 @@ _ZNSt6vectorIPvSaIS0_EED2Ev.exit626:              ; preds = %.thread857, %310
 315:                                              ; preds = %_ZNKSt6vectorIPvSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i242
   %316 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread881
+  br label %.thread934
 
 317:                                              ; preds = %_ZNKSt6vectorIPvSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i252
   %318 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread881
+  br label %.thread934
 
-.thread876:                                       ; preds = %_ZNSt6vectorIPvSaIS0_EE9push_backEOS0_.exit260
+.thread929:                                       ; preds = %_ZNSt6vectorIPvSaIS0_EE9push_backEOS0_.exit260
   %319 = landingpad { ptr, i32 }
           cleanup
   br label %346
@@ -3126,12 +3126,12 @@ _ZNSt6vectorIPvSaIS0_EED2Ev.exit626:              ; preds = %.thread857, %310
 320:                                              ; preds = %_ZNKSt6vectorIPvSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i282
   %321 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread871
+  br label %.thread924
 
 322:                                              ; preds = %_ZNKSt6vectorIPvSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i292
   %323 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread871
+  br label %.thread924
 
 324:                                              ; preds = %_ZNKSt6vectorIPvSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i322
   %325 = landingpad { ptr, i32 }
@@ -3197,39 +3197,39 @@ _ZNSt6vectorIMN2cv25VariationalRefinementImplEFvPvS2_S2_ESaIS4_EED2Ev.exit630: ;
   br label %344
 
 343:                                              ; preds = %326, %324, %339, %341
-  %.ph865 = phi ptr [ %185, %341 ], [ %185, %339 ], [ %178, %324 ], [ %180, %326 ]
+  %.ph918 = phi ptr [ %185, %341 ], [ %185, %339 ], [ %178, %324 ], [ %180, %326 ]
   %.pn119.pn.pn.pn.ph = phi { ptr, i32 } [ %.pn119.pn.pn.ph, %341 ], [ %340, %339 ], [ %325, %324 ], [ %327, %326 ]
-  call void @_ZdlPv(ptr noundef nonnull %.ph865) #22
+  call void @_ZdlPv(ptr noundef nonnull %.ph918) #22
   br label %344
 
 344:                                              ; preds = %343, %_ZNSt6vectorIMN2cv25VariationalRefinementImplEFvPvS2_S2_ESaIS4_EED2Ev.exit630
-  %.pn119.pn.pn.pn869 = phi { ptr, i32 } [ %342, %_ZNSt6vectorIMN2cv25VariationalRefinementImplEFvPvS2_S2_ESaIS4_EED2Ev.exit630 ], [ %.pn119.pn.pn.pn.ph, %343 ]
+  %.pn119.pn.pn.pn922 = phi { ptr, i32 } [ %342, %_ZNSt6vectorIMN2cv25VariationalRefinementImplEFvPvS2_S2_ESaIS4_EED2Ev.exit630 ], [ %.pn119.pn.pn.pn.ph, %343 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
-  br label %.thread871
+  br label %.thread924
 
-.thread871:                                       ; preds = %344, %320, %322
-  %.pn119.pn.pn.pn.pn874 = phi { ptr, i32 } [ %.pn119.pn.pn.pn869, %344 ], [ %321, %320 ], [ %323, %322 ]
+.thread924:                                       ; preds = %344, %320, %322
+  %.pn119.pn.pn.pn.pn927 = phi { ptr, i32 } [ %.pn119.pn.pn.pn922, %344 ], [ %321, %320 ], [ %323, %322 ]
   %345 = phi ptr [ %171, %344 ], [ %167, %320 ], [ %168, %322 ]
   call void @_ZdlPv(ptr noundef nonnull %345) #22
   br label %346
 
-346:                                              ; preds = %.thread871, %.thread876
-  %.pn119.pn.pn.pn.pn875 = phi { ptr, i32 } [ %.pn119.pn.pn.pn.pn874, %.thread871 ], [ %319, %.thread876 ]
+346:                                              ; preds = %.thread924, %.thread929
+  %.pn119.pn.pn.pn.pn928 = phi { ptr, i32 } [ %.pn119.pn.pn.pn.pn927, %.thread924 ], [ %319, %.thread929 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
-  br label %.thread881
+  br label %.thread934
 
-.thread881:                                       ; preds = %346, %315, %317
-  %.pn119.pn.pn.pn.pn.pn884 = phi { ptr, i32 } [ %.pn119.pn.pn.pn.pn875, %346 ], [ %316, %315 ], [ %318, %317 ]
+.thread934:                                       ; preds = %346, %315, %317
+  %.pn119.pn.pn.pn.pn.pn937 = phi { ptr, i32 } [ %.pn119.pn.pn.pn.pn928, %346 ], [ %316, %315 ], [ %318, %317 ]
   %347 = phi ptr [ %159, %346 ], [ %155, %315 ], [ %156, %317 ]
   call void @_ZdlPv(ptr noundef nonnull %347) #22
   br label %_ZNSt6vectorIPvSaIS0_EED2Ev.exit636
 
-_ZNSt6vectorIPvSaIS0_EED2Ev.exit636:              ; preds = %.thread886, %.thread881
-  %.pn119.pn.pn.pn.pn.pn885 = phi { ptr, i32 } [ %.pn119.pn.pn.pn.pn.pn884, %.thread881 ], [ %314, %.thread886 ]
+_ZNSt6vectorIPvSaIS0_EED2Ev.exit636:              ; preds = %.thread939, %.thread934
+  %.pn119.pn.pn.pn.pn.pn938 = phi { ptr, i32 } [ %.pn119.pn.pn.pn.pn.pn937, %.thread934 ], [ %314, %.thread939 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   br label %381
 
-.thread915:                                       ; preds = %_ZNSt6vectorIPvSaIS0_EED2Ev.exit443
+.thread968:                                       ; preds = %_ZNSt6vectorIPvSaIS0_EED2Ev.exit443
   %348 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt6vectorIPvSaIS0_EED2Ev.exit646
@@ -3237,14 +3237,14 @@ _ZNSt6vectorIPvSaIS0_EED2Ev.exit636:              ; preds = %.thread886, %.threa
 349:                                              ; preds = %_ZNKSt6vectorIPvSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i459
   %350 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread910
+  br label %.thread963
 
 351:                                              ; preds = %_ZNKSt6vectorIPvSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i469
   %352 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread910
+  br label %.thread963
 
-.thread901:                                       ; preds = %_ZNKSt6vectorIPvSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i479
+.thread954:                                       ; preds = %_ZNKSt6vectorIPvSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i479
   %353 = landingpad { ptr, i32 }
           cleanup
   br label %379
@@ -3252,12 +3252,12 @@ _ZNSt6vectorIPvSaIS0_EED2Ev.exit636:              ; preds = %.thread886, %.threa
 354:                                              ; preds = %_ZNKSt6vectorIPvSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i489
   %355 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread896
+  br label %.thread949
 
 356:                                              ; preds = %_ZNKSt6vectorIPvSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i499
   %357 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread896
+  br label %.thread949
 
 358:                                              ; preds = %_ZNKSt6vectorIPvSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i519
   %359 = landingpad { ptr, i32 }
@@ -3317,43 +3317,43 @@ _ZNSt6vectorIMN2cv25VariationalRefinementImplEFvPvS2_S2_ESaIS4_EED2Ev.exit638: ;
   call void @_ZdlPv(ptr noundef nonnull %.sroa.0657.0.ph) #22
   br label %377
 
-.thread904:                                       ; preds = %_ZNKSt6vectorIPvSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i509
+.thread957:                                       ; preds = %_ZNKSt6vectorIPvSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i509
   %376 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %29)
-  br label %.thread896
+  br label %.thread949
 
 377:                                              ; preds = %375, %373, %358, %360
-  %.ph889 = phi ptr [ %242, %375 ], [ %242, %373 ], [ %238, %358 ], [ %239, %360 ]
+  %.ph942 = phi ptr [ %242, %375 ], [ %242, %373 ], [ %238, %358 ], [ %239, %360 ]
   %.pn126.pn.pn.pn.ph = phi { ptr, i32 } [ %.pn126.pn.pn.ph, %375 ], [ %374, %373 ], [ %359, %358 ], [ %361, %360 ]
-  call void @_ZdlPv(ptr noundef nonnull %.ph889) #22
+  call void @_ZdlPv(ptr noundef nonnull %.ph942) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %29)
-  br label %.thread896
+  br label %.thread949
 
-.thread896:                                       ; preds = %377, %354, %356, %.thread904
-  %.pn126.pn.pn.pn.pn899 = phi { ptr, i32 } [ %.pn126.pn.pn.pn.ph, %377 ], [ %376, %.thread904 ], [ %355, %354 ], [ %357, %356 ]
-  %378 = phi ptr [ %232, %377 ], [ %232, %.thread904 ], [ %228, %354 ], [ %229, %356 ]
+.thread949:                                       ; preds = %377, %354, %356, %.thread957
+  %.pn126.pn.pn.pn.pn952 = phi { ptr, i32 } [ %.pn126.pn.pn.pn.ph, %377 ], [ %376, %.thread957 ], [ %355, %354 ], [ %357, %356 ]
+  %378 = phi ptr [ %232, %377 ], [ %232, %.thread957 ], [ %228, %354 ], [ %229, %356 ]
   call void @_ZdlPv(ptr noundef nonnull %378) #22
   br label %379
 
-379:                                              ; preds = %.thread896, %.thread901
-  %.pn126.pn.pn.pn.pn900 = phi { ptr, i32 } [ %.pn126.pn.pn.pn.pn899, %.thread896 ], [ %353, %.thread901 ]
+379:                                              ; preds = %.thread949, %.thread954
+  %.pn126.pn.pn.pn.pn953 = phi { ptr, i32 } [ %.pn126.pn.pn.pn.pn952, %.thread949 ], [ %353, %.thread954 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %28)
-  br label %.thread910
+  br label %.thread963
 
-.thread910:                                       ; preds = %379, %349, %351
-  %.pn126.pn.pn.pn.pn.pn913 = phi { ptr, i32 } [ %.pn126.pn.pn.pn.pn900, %379 ], [ %350, %349 ], [ %352, %351 ]
+.thread963:                                       ; preds = %379, %349, %351
+  %.pn126.pn.pn.pn.pn.pn966 = phi { ptr, i32 } [ %.pn126.pn.pn.pn.pn953, %379 ], [ %350, %349 ], [ %352, %351 ]
   %380 = phi ptr [ %222, %379 ], [ %218, %349 ], [ %219, %351 ]
   call void @_ZdlPv(ptr noundef nonnull %380) #22
   br label %_ZNSt6vectorIPvSaIS0_EED2Ev.exit646
 
-_ZNSt6vectorIPvSaIS0_EED2Ev.exit646:              ; preds = %.thread915, %.thread910
-  %.pn126.pn.pn.pn.pn.pn914 = phi { ptr, i32 } [ %.pn126.pn.pn.pn.pn.pn913, %.thread910 ], [ %348, %.thread915 ]
+_ZNSt6vectorIPvSaIS0_EED2Ev.exit646:              ; preds = %.thread968, %.thread963
+  %.pn126.pn.pn.pn.pn.pn967 = phi { ptr, i32 } [ %.pn126.pn.pn.pn.pn.pn966, %.thread963 ], [ %348, %.thread968 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %27)
   br label %381
 
 381:                                              ; preds = %_ZNSt6vectorIPvSaIS0_EED2Ev.exit646, %_ZNSt6vectorIPvSaIS0_EED2Ev.exit636, %312, %_ZNSt6vectorIPvSaIS0_EED2Ev.exit626
-  %.pn126.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn126.pn.pn.pn.pn.pn914, %_ZNSt6vectorIPvSaIS0_EED2Ev.exit646 ], [ %.pn119.pn.pn.pn.pn.pn885, %_ZNSt6vectorIPvSaIS0_EED2Ev.exit636 ], [ %313, %312 ], [ %.pn112.pn.pn.pn.pn.pn860, %_ZNSt6vectorIPvSaIS0_EED2Ev.exit626 ]
+  %.pn126.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn126.pn.pn.pn.pn.pn967, %_ZNSt6vectorIPvSaIS0_EED2Ev.exit646 ], [ %.pn119.pn.pn.pn.pn.pn938, %_ZNSt6vectorIPvSaIS0_EED2Ev.exit636 ], [ %313, %312 ], [ %.pn112.pn.pn.pn.pn.pn913, %_ZNSt6vectorIPvSaIS0_EED2Ev.exit626 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %14) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %382

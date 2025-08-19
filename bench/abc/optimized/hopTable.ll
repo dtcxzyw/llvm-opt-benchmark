@@ -198,17 +198,17 @@ Abc_PrimeCudd.exit.i:                             ; preds = %.preheader.i.i, %26
   br i1 %.not32.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph50.i, %Hop_TableFind.exit.i
-  %.sink59.i = phi ptr [ %37, %Hop_TableFind.exit.i ], [ %35, %.lr.ph50.i ]
-  %36 = getelementptr inbounds nuw i8, ptr %.sink59.i, i64 8
+  %.sink62.i = phi ptr [ %37, %Hop_TableFind.exit.i ], [ %35, %.lr.ph50.i ]
+  %36 = getelementptr inbounds nuw i8, ptr %.sink62.i, i64 8
   %37 = load ptr, ptr %36, align 8, !tbaa !19
   %.val38.i = load ptr, ptr %18, align 8, !tbaa !16
   %.val39.i = load i32, ptr %9, align 8, !tbaa !17
-  %38 = getelementptr i8, ptr %.sink59.i, i64 32
+  %38 = getelementptr i8, ptr %.sink62.i, i64 32
   %.val11.i.i.i = load i32, ptr %38, align 8
   %39 = and i32 %.val11.i.i.i, 7
   %40 = icmp eq i32 %39, 5
   %41 = select i1 %40, i64 1699, i64 0
-  %42 = getelementptr i8, ptr %.sink59.i, i64 16
+  %42 = getelementptr i8, ptr %.sink62.i, i64 16
   %.val.i.i.i = load ptr, ptr %42, align 8, !tbaa !14
   %43 = ptrtoint ptr %.val.i.i.i to i64
   %44 = and i64 %43, -2
@@ -218,7 +218,7 @@ Abc_PrimeCudd.exit.i:                             ; preds = %.preheader.i.i, %26
   %48 = mul nsw i32 %47, 7937
   %49 = sext i32 %48 to i64
   %50 = xor i64 %41, %49
-  %51 = getelementptr i8, ptr %.sink59.i, i64 24
+  %51 = getelementptr i8, ptr %.sink62.i, i64 24
   %.val10.i.i.i = load ptr, ptr %51, align 8, !tbaa !15
   %52 = ptrtoint ptr %.val10.i.i.i to i64
   %53 = and i64 %52, -2
@@ -243,13 +243,13 @@ Abc_PrimeCudd.exit.i:                             ; preds = %.preheader.i.i, %26
   %.0.i40.i = phi ptr [ %68, %.lr.ph.i ], [ %72, %69 ]
   %70 = load ptr, ptr %.0.i40.i, align 8, !tbaa !25
   %.not.i41.i = icmp eq ptr %70, null
-  %71 = icmp eq ptr %70, %.sink59.i
+  %71 = icmp eq ptr %70, %.sink62.i
   %or.cond.i.i = or i1 %.not.i41.i, %71
   %72 = getelementptr inbounds nuw i8, ptr %70, i64 8
   br i1 %or.cond.i.i, label %Hop_TableFind.exit.i, label %69, !llvm.loop !26
 
 Hop_TableFind.exit.i:                             ; preds = %69
-  store ptr %.sink59.i, ptr %.0.i40.i, align 8, !tbaa !25
+  store ptr %.sink62.i, ptr %.0.i40.i, align 8, !tbaa !25
   store ptr null, ptr %36, align 8, !tbaa !19
   %.not34.i = icmp eq ptr %37, null
   br i1 %.not34.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !27

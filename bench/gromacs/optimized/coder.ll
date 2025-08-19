@@ -562,8 +562,8 @@ define ptr @Ptngc_pack_array(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32
   store i32 %25, ptr %15, align 1
   %26 = icmp sgt i32 %5, 0
   %27 = icmp sgt i32 %20, 2
-  %or.cond315 = and i1 %26, %27
-  br i1 %or.cond315, label %.preheader195.us.preheader, label %._crit_edge242
+  %or.cond341 = and i1 %26, %27
+  br i1 %or.cond341, label %.preheader195.us.preheader, label %._crit_edge242
 
 .preheader195.us.preheader:                       ; preds = %._crit_edge
   %wide.trip.count285 = zext nneg i32 %21 to i64
@@ -786,9 +786,9 @@ Ptngc_out8bits.exit:                              ; preds = %Ptngc_out8bits.exit
 
 .sink.split:                                      ; preds = %97, %103
   %.sink = phi i32 [ %104, %103 ], [ %98, %97 ]
-  %.sink317 = phi i32 [ 2, %103 ], [ -1, %97 ]
+  %.sink343 = phi i32 [ 2, %103 ], [ -1, %97 ]
   %105 = shl nuw i32 %.sink, 1
-  %106 = add i32 %105, %.sink317
+  %106 = add i32 %105, %.sink343
   store i32 %106, ptr %99, align 4, !tbaa !19
   br label %107
 

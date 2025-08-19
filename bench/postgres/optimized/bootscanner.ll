@@ -205,7 +205,7 @@ boot_yyensure_buffer_stack.exit:                  ; preds = %31, %34, %42
   %80 = getelementptr inbounds nuw i8, ptr %1, i64 80
   br label %81
 
-81:                                               ; preds = %.backedge1063, %68
+81:                                               ; preds = %.backedge1119, %68
   %82 = load ptr, ptr %69, align 8
   %83 = load i8, ptr %70, align 8
   store i8 %83, ptr %82, align 1
@@ -289,18 +289,18 @@ boot_yyensure_buffer_stack.exit:                  ; preds = %31, %34, %42
   %129 = sext i16 %128 to i32
   %130 = getelementptr inbounds nuw i8, ptr %.1302, i64 1
   %.not354 = icmp eq i16 %128, 127
-  br i1 %.not354, label %.backedge.sink.split1062, label %92, !llvm.loop !6
+  br i1 %.not354, label %.backedge.sink.split1118, label %92, !llvm.loop !6
 
-.backedge.sink.split1062:                         ; preds = %._crit_edge, %.backedge.sink.split1062.backedge
-  %.1310.ph = phi ptr [ %.1310.ph.be, %.backedge.sink.split1062.backedge ], [ %.0309, %._crit_edge ]
+.backedge.sink.split1118:                         ; preds = %._crit_edge, %.backedge.sink.split1118.backedge
+  %.1310.ph = phi ptr [ %.1310.ph.be, %.backedge.sink.split1118.backedge ], [ %.0309, %._crit_edge ]
   %131 = load ptr, ptr %75, align 8
   %132 = load i32, ptr %74, align 8
   br label %.backedge
 
-.backedge:                                        ; preds = %.backedge.backedge, %.backedge.sink.split1062
-  %.1310 = phi ptr [ %.1310.ph, %.backedge.sink.split1062 ], [ %1086, %.backedge.backedge ]
-  %.2303 = phi ptr [ %131, %.backedge.sink.split1062 ], [ %1091, %.backedge.backedge ]
-  %.3 = phi i32 [ %132, %.backedge.sink.split1062 ], [ %.3.be, %.backedge.backedge ]
+.backedge:                                        ; preds = %.backedge.backedge, %.backedge.sink.split1118
+  %.1310 = phi ptr [ %.1310.ph, %.backedge.sink.split1118 ], [ %1086, %.backedge.backedge ]
+  %.2303 = phi ptr [ %131, %.backedge.sink.split1118 ], [ %1091, %.backedge.backedge ]
+  %.3 = phi i32 [ %132, %.backedge.sink.split1118 ], [ %.3.be, %.backedge.backedge ]
   %133 = sext i32 %.3 to i64
   %134 = getelementptr inbounds [128 x i16], ptr @yy_accept, i64 0, i64 %133
   %135 = load i16, ptr %134, align 2
@@ -359,7 +359,7 @@ boot_yyensure_buffer_stack.exit:                  ; preds = %31, %34, %42
 143:                                              ; preds = %142
   %144 = load i8, ptr %70, align 8
   store i8 %144, ptr %.2303, align 1
-  br label %.backedge.sink.split1062.backedge
+  br label %.backedge.sink.split1118.backedge
 
 145:                                              ; preds = %142
   %146 = load i32, ptr %77, align 8
@@ -706,12 +706,12 @@ boot_yyensure_buffer_stack.exit:                  ; preds = %31, %34, %42
   %389 = load i32, ptr %388, align 4
   %390 = add i32 %389, 1
   store i32 %390, ptr %388, align 4
-  br label %.backedge1063
+  br label %.backedge1119
 
 391:                                              ; preds = %142
   %392 = load i32, ptr %77, align 8
   %393 = icmp sgt i32 %392, 0
-  br i1 %393, label %394, label %.backedge1063
+  br i1 %393, label %394, label %.backedge1119
 
 394:                                              ; preds = %391
   %395 = load ptr, ptr %76, align 8
@@ -727,14 +727,14 @@ boot_yyensure_buffer_stack.exit:                  ; preds = %31, %34, %42
   %405 = load ptr, ptr %404, align 8
   %406 = getelementptr inbounds nuw i8, ptr %405, i64 40
   store i32 %401, ptr %406, align 8
-  br label %.backedge1063
+  br label %.backedge1119
 
 407:                                              ; preds = %142
   %408 = load i32, ptr %77, align 8
   %409 = icmp sgt i32 %408, 0
-  br i1 %409, label %410, label %.backedge1063
+  br i1 %409, label %410, label %.backedge1119
 
-.backedge1063:                                    ; preds = %407, %410, %391, %394, %383
+.backedge1119:                                    ; preds = %407, %410, %391, %394, %383
   br label %81
 
 410:                                              ; preds = %407
@@ -751,7 +751,7 @@ boot_yyensure_buffer_stack.exit:                  ; preds = %31, %34, %42
   %421 = load ptr, ptr %420, align 8
   %422 = getelementptr inbounds nuw i8, ptr %421, i64 40
   store i32 %417, ptr %422, align 8
-  br label %.backedge1063
+  br label %.backedge1119
 
 423:                                              ; preds = %142
   %424 = load i32, ptr %77, align 8
@@ -1340,11 +1340,11 @@ yy_try_NUL_trans.exit:                            ; preds = %.lr.ph.i360, %793
   %813 = icmp eq i16 %812, 127
   %.not356401 = icmp eq i64 %.lcssa.i362, 0
   %.not356 = or i1 %.not356401, %813
-  br i1 %.not356, label %.backedge.sink.split1062.backedge, label %814
+  br i1 %.not356, label %.backedge.sink.split1118.backedge, label %814
 
-.backedge.sink.split1062.backedge:                ; preds = %yy_try_NUL_trans.exit, %143
+.backedge.sink.split1118.backedge:                ; preds = %yy_try_NUL_trans.exit, %143
   %.1310.ph.be = phi ptr [ %.1310, %143 ], [ %739, %yy_try_NUL_trans.exit ]
-  br label %.backedge.sink.split1062
+  br label %.backedge.sink.split1118
 
 814:                                              ; preds = %yy_try_NUL_trans.exit
   %815 = sext i16 %812 to i32
@@ -1645,10 +1645,10 @@ boot_yyrealloc.exit.i365:                         ; preds = %875, %873
   br label %956
 
 956:                                              ; preds = %.critedge2.i, %848
-  %.sink198.in.i = phi ptr [ %955, %.critedge2.i ], [ %849, %848 ]
+  %.sink206.in.i = phi ptr [ %955, %.critedge2.i ], [ %849, %848 ]
   %.sink.i = phi i32 [ %952, %.critedge2.i ], [ 0, %848 ]
-  %.sink198.i = load ptr, ptr %.sink198.in.i, align 8
-  %957 = getelementptr inbounds nuw i8, ptr %.sink198.i, i64 28
+  %.sink206.i = load ptr, ptr %.sink206.in.i, align 8
+  %957 = getelementptr inbounds nuw i8, ptr %.sink206.i, i64 28
   store i32 %.sink.i, ptr %957, align 4
   %958 = load i32, ptr %78, align 4
   %959 = icmp eq i32 %958, 0
@@ -1763,7 +1763,7 @@ yy_get_next_buffer.exit:                          ; preds = %970, %1002
   %1027 = getelementptr inbounds nuw i8, ptr %1026, i64 8
   %1028 = load ptr, ptr %1027, align 8
   store ptr %1028, ptr %76, align 8
-  switch i32 %.0135.i, label %default.unreachable801 [
+  switch i32 %.0135.i, label %default.unreachable857 [
     i32 1, label %yy_get_previous_state.exit382
     i32 0, label %1030
     i32 2, label %yy_get_next_buffer.exit.yy_get_next_buffer.exit.thread399_crit_edge
@@ -1965,7 +1965,7 @@ yy_get_next_buffer.exit.thread399:                ; preds = %830, %yy_get_next_b
   %exitcond.not.i396 = icmp eq ptr %1138, %1091
   br i1 %exitcond.not.i396, label %.backedge.backedge, label %.lr.ph34.i384, !llvm.loop !8
 
-default.unreachable801:                           ; preds = %yy_get_next_buffer.exit
+default.unreachable857:                           ; preds = %yy_get_next_buffer.exit
   unreachable
 
 yy_get_previous_state.exit382:                    ; preds = %yy_get_next_buffer.exit, %830
@@ -2664,9 +2664,9 @@ boot_yyensure_buffer_stack.exit:                  ; preds = %10, %13, %23
   br label %.thread
 
 .thread:                                          ; preds = %boot_yyensure_buffer_stack.exit, %50, %31
-  %.pr36 = phi ptr [ %.pr.pre, %50 ], [ %.pr.pre, %31 ], [ %27, %boot_yyensure_buffer_stack.exit ]
+  %.pr40 = phi ptr [ %.pr.pre, %50 ], [ %.pr.pre, %31 ], [ %27, %boot_yyensure_buffer_stack.exit ]
   %52 = phi i64 [ %51, %50 ], [ %.pre30, %31 ], [ %26, %boot_yyensure_buffer_stack.exit ]
-  %53 = getelementptr inbounds nuw ptr, ptr %.pr36, i64 %52
+  %53 = getelementptr inbounds nuw ptr, ptr %.pr40, i64 %52
   store ptr %0, ptr %53, align 8
   %54 = load ptr, ptr %5, align 8
   %55 = load i64, ptr %28, align 8

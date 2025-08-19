@@ -369,8 +369,8 @@ define dso_local noundef ptr @zip_file_read(ptr noundef captures(none) %0, ptr n
   %59 = call i32 @mz_inflate(ptr noundef nonnull %6, i32 noundef 0) #7
   switch i32 %59, label %60 [
     i32 -2, label %.thread.loopexit
-    i32 2, label %.thread.loopexit64
-    i32 -3, label %.thread.loopexit64
+    i32 2, label %.thread.loopexit66
+    i32 -3, label %.thread.loopexit66
     i32 -4, label %.thread
     i32 1, label %._crit_edge
   ]
@@ -394,11 +394,11 @@ define dso_local noundef ptr @zip_file_read(ptr noundef captures(none) %0, ptr n
 .thread.loopexit:                                 ; preds = %57
   br label %.thread
 
-.thread.loopexit64:                               ; preds = %57, %57
+.thread.loopexit66:                               ; preds = %57, %57
   br label %.thread
 
-.thread:                                          ; preds = %57, %.thread.loopexit64, %.thread.loopexit, %13, %10, %3, %34, %36, %30, %16, %._crit_edge, %55
-  %.050 = phi ptr [ @.str.16, %55 ], [ null, %._crit_edge ], [ @.str.29, %16 ], [ @.str.14, %30 ], [ @.str.15, %36 ], [ %spec.select, %34 ], [ @.str.28, %13 ], [ @.str.27, %10 ], [ @.str.26, %3 ], [ @.str.17, %.thread.loopexit ], [ @.str.18, %.thread.loopexit64 ], [ @.str.19, %57 ]
+.thread:                                          ; preds = %57, %.thread.loopexit66, %.thread.loopexit, %13, %10, %3, %34, %36, %30, %16, %._crit_edge, %55
+  %.050 = phi ptr [ @.str.16, %55 ], [ null, %._crit_edge ], [ @.str.29, %16 ], [ @.str.14, %30 ], [ @.str.15, %36 ], [ %spec.select, %34 ], [ @.str.28, %13 ], [ @.str.27, %10 ], [ @.str.26, %3 ], [ @.str.17, %.thread.loopexit ], [ @.str.18, %.thread.loopexit66 ], [ @.str.19, %57 ]
   ret ptr %.050
 }
 

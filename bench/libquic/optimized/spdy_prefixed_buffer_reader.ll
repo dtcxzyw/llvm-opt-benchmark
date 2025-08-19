@@ -81,20 +81,20 @@ _ZSt4copyIPKcPcET0_T_S4_S3_.exit:                 ; preds = %11, %12
 
 26:                                               ; preds = %.thread, %20
   %27 = phi ptr [ %19, %.thread ], [ %25, %20 ]
-  %.027 = phi ptr [ %2, %.thread ], [ %22, %20 ]
-  %.01325 = phi i64 [ %1, %.thread ], [ %24, %20 ]
+  %.029 = phi ptr [ %2, %.thread ], [ %22, %20 ]
+  %.01327 = phi i64 [ %1, %.thread ], [ %24, %20 ]
   %28 = load ptr, ptr %27, align 8, !tbaa !10
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %.027, ptr align 1 %28, i64 %.01325, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %.029, ptr align 1 %28, i64 %.01327, i1 false)
   br label %_ZSt4copyIPKcPcET0_T_S4_S3_.exit21
 
 _ZSt4copyIPKcPcET0_T_S4_S3_.exit21:               ; preds = %20, %26
   %29 = phi ptr [ %25, %20 ], [ %27, %26 ]
-  %.01326 = phi i64 [ 0, %20 ], [ %.01325, %26 ]
+  %.01328 = phi i64 [ 0, %20 ], [ %.01327, %26 ]
   %30 = load ptr, ptr %29, align 8, !tbaa !10
-  %31 = getelementptr inbounds nuw i8, ptr %30, i64 %.01326
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 %.01328
   store ptr %31, ptr %29, align 8, !tbaa !10
   %32 = load i64, ptr %6, align 8, !tbaa !12
-  %33 = sub i64 %32, %.01326
+  %33 = sub i64 %32, %.01328
   store i64 %33, ptr %6, align 8, !tbaa !12
   br label %34
 
@@ -202,20 +202,20 @@ _ZSt4copyIPKcPcET0_T_S4_S3_.exit.i:               ; preds = %27
 
 40:                                               ; preds = %34, %.thread.i
   %41 = phi ptr [ %33, %.thread.i ], [ %39, %34 ]
-  %.027.i = phi ptr [ %24, %.thread.i ], [ %36, %34 ]
-  %.01325.i = phi i64 [ %1, %.thread.i ], [ %38, %34 ]
+  %.029.i = phi ptr [ %24, %.thread.i ], [ %36, %34 ]
+  %.01327.i = phi i64 [ %1, %.thread.i ], [ %38, %34 ]
   %42 = load ptr, ptr %41, align 8, !tbaa !10
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %.027.i, ptr align 1 %42, i64 %.01325.i, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %.029.i, ptr align 1 %42, i64 %.01327.i, i1 false)
   br label %_ZSt4copyIPKcPcET0_T_S4_S3_.exit21.i
 
 _ZSt4copyIPKcPcET0_T_S4_S3_.exit21.i:             ; preds = %40, %34
   %43 = phi ptr [ %39, %34 ], [ %41, %40 ]
-  %.01326.i = phi i64 [ 0, %34 ], [ %.01325.i, %40 ]
+  %.01328.i = phi i64 [ 0, %34 ], [ %.01327.i, %40 ]
   %44 = load ptr, ptr %43, align 8, !tbaa !10
-  %45 = getelementptr inbounds nuw i8, ptr %44, i64 %.01326.i
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 %.01328.i
   store ptr %45, ptr %43, align 8, !tbaa !10
   %46 = load i64, ptr %6, align 8, !tbaa !12
-  %47 = sub i64 %46, %.01326.i
+  %47 = sub i64 %46, %.01328.i
   store i64 %47, ptr %6, align 8, !tbaa !12
   br label %_ZN3net24SpdyPrefixedBufferReader5ReadNEmPc.exit
 

@@ -3204,12 +3204,12 @@ define internal fastcc void @list(ptr noundef %0, ptr noundef readonly captures(
   %25 = srem i32 %24, %22
   %.not27.us = icmp eq i32 %25, 0
   %spec.select = select i1 %.not27.us, i32 10, i32 9
-  %spec.select46 = zext i1 %.not27.us to i32
+  %spec.select50 = zext i1 %.not27.us to i32
   br label %.lr.ph.split.us._crit_edge
 
 .lr.ph.split.us._crit_edge:                       ; preds = %23, %.lr.ph.split.us
   %.sink = phi i32 [ 10, %.lr.ph.split.us ], [ %spec.select, %23 ]
-  %.1.us = phi i32 [ 1, %.lr.ph.split.us ], [ %spec.select46, %23 ]
+  %.1.us = phi i32 [ 1, %.lr.ph.split.us ], [ %spec.select50, %23 ]
   %26 = load ptr, ptr @stdout, align 8, !tbaa !18
   %27 = tail call i32 @putc(i32 noundef %.sink, ptr noundef %26)
   %28 = load i64, ptr %5, align 8, !tbaa !68
@@ -3235,15 +3235,15 @@ define internal fastcc void @list(ptr noundef %0, ptr noundef readonly captures(
   %39 = trunc nuw i64 %.pre38 to i32
   %40 = srem i32 %39, %37
   %.not27 = icmp eq i32 %40, 0
-  %spec.select47 = select i1 %.not27, i32 10, i32 9
-  %spec.select48 = zext i1 %.not27 to i32
+  %spec.select51 = select i1 %.not27, i32 10, i32 9
+  %spec.select52 = zext i1 %.not27 to i32
   br label %.lr.ph.split._crit_edge
 
 .lr.ph.split._crit_edge:                          ; preds = %38, %.lr.ph.split
-  %.sink44 = phi i32 [ 10, %.lr.ph.split ], [ %spec.select47, %38 ]
-  %.1 = phi i32 [ 1, %.lr.ph.split ], [ %spec.select48, %38 ]
+  %.sink48 = phi i32 [ 10, %.lr.ph.split ], [ %spec.select51, %38 ]
+  %.1 = phi i32 [ 1, %.lr.ph.split ], [ %spec.select52, %38 ]
   %41 = load ptr, ptr @stdout, align 8, !tbaa !18
-  %42 = tail call i32 @putc(i32 noundef %.sink44, ptr noundef %41)
+  %42 = tail call i32 @putc(i32 noundef %.sink48, ptr noundef %41)
   %43 = load i64, ptr %5, align 8, !tbaa !68
   %44 = icmp ugt i64 %43, %.pre38
   br i1 %44, label %.lr.ph.split, label %._crit_edge, !llvm.loop !72

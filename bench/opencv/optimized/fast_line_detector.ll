@@ -1182,9 +1182,9 @@ _ZNSt6vectorIN2cv6Point_IiEESaIS2_EE9push_backERKS2_.exit: ; preds = %_ZNSt6vect
   br i1 %.not.i98, label %247, label %246
 
 246:                                              ; preds = %245
-  %.sroa.13.0.insert.ext177 = zext i32 %.sroa.13.2.ph to i64
-  %.sroa.13.0.insert.shift178 = shl nuw i64 %.sroa.13.0.insert.ext177, 32
-  %.sroa.0149.0.insert.ext160 = zext i32 %.sroa.0149.2.ph to i64
+  %.sroa.13.0.insert.ext177 = zext nneg i32 %.sroa.13.2.ph to i64
+  %.sroa.13.0.insert.shift178 = shl nuw nsw i64 %.sroa.13.0.insert.ext177, 32
+  %.sroa.0149.0.insert.ext160 = zext nneg i32 %.sroa.0149.2.ph to i64
   %.sroa.0149.0.insert.insert162 = or disjoint i64 %.sroa.13.0.insert.shift178, %.sroa.0149.0.insert.ext160
   store i64 %.sroa.0149.0.insert.insert162, ptr %169, align 4
   br label %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EE9push_backERKS2_.exit113
@@ -1219,9 +1219,9 @@ _ZNKSt6vectorIN2cv6Point_IiEESaIS2_EE12_M_check_lenEmPKc.exit.i.i99: ; preds = %
 
 .noexc112:                                        ; preds = %_ZNKSt6vectorIN2cv6Point_IiEESaIS2_EE12_M_check_lenEmPKc.exit.i.i99
   %260 = getelementptr inbounds nuw i8, ptr %259, i64 %250
-  %.sroa.13.0.insert.ext182 = zext i32 %.sroa.13.2.ph to i64
-  %.sroa.13.0.insert.shift183 = shl nuw i64 %.sroa.13.0.insert.ext182, 32
-  %.sroa.0149.0.insert.ext164 = zext i32 %.sroa.0149.2.ph to i64
+  %.sroa.13.0.insert.ext182 = zext nneg i32 %.sroa.13.2.ph to i64
+  %.sroa.13.0.insert.shift183 = shl nuw nsw i64 %.sroa.13.0.insert.ext182, 32
+  %.sroa.0149.0.insert.ext164 = zext nneg i32 %.sroa.0149.2.ph to i64
   %.sroa.0149.0.insert.insert166 = or disjoint i64 %.sroa.13.0.insert.shift183, %.sroa.0149.0.insert.ext164
   store i64 %.sroa.0149.0.insert.insert166, ptr %260, align 4
   %.not10.i.i.i.i.i.i102 = icmp eq ptr %167, %168
@@ -1261,11 +1261,11 @@ _ZNSt6vectorIN2cv6Point_IiEESaIS2_EE9push_backERKS2_.exit113: ; preds = %_ZNSt6v
   %270 = load ptr, ptr %83, align 8, !tbaa !65
   %271 = load ptr, ptr %84, align 8, !tbaa !97
   %272 = load i64, ptr %271, align 8, !tbaa !64
-  %273 = sext i32 %.sroa.13.2.ph to i64
+  %273 = zext nneg i32 %.sroa.13.2.ph to i64
   %274 = mul i64 %272, %273
   %275 = getelementptr inbounds nuw i8, ptr %270, i64 %274
-  %276 = sext i32 %.sroa.0149.2.ph to i64
-  %277 = getelementptr inbounds i8, ptr %275, i64 %276
+  %276 = zext nneg i32 %.sroa.0149.2.ph to i64
+  %277 = getelementptr inbounds nuw i8, ptr %275, i64 %276
   store i8 0, ptr %277, align 1, !tbaa !98
   br label %166, !llvm.loop !117
 
@@ -2231,7 +2231,7 @@ define hidden void @_ZN2cv8ximgproc20FastLineDetectorImpl10mergeLinesERK7SEGMENT
   br label %42
 
 42:                                               ; preds = %34, %38
-  %.sink133 = phi double [ %41, %38 ], [ %.0108, %34 ]
+  %.sink135 = phi double [ %41, %38 ], [ %.0108, %34 ]
   %43 = fmul float %21, %21
   %44 = fpext float %43 to double
   %45 = fmul float %22, %22
@@ -2244,7 +2244,7 @@ define hidden void @_ZN2cv8ximgproc20FastLineDetectorImpl10mergeLinesERK7SEGMENT
   %51 = fpext float %50 to double
   %52 = fadd double %49, %51
   %sqrt132 = tail call double @llvm.sqrt.f64(double %52)
-  %53 = fmul double %sqrt, %.sink133
+  %53 = fmul double %sqrt, %.sink135
   %54 = tail call double @llvm.fmuladd.f64(double %sqrt132, double %.0109, double %53)
   %55 = fadd double %sqrt132, %sqrt
   %.0 = fdiv double %54, %55

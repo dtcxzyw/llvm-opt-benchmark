@@ -633,8 +633,8 @@ define hidden { i64, i64 } @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$14res
   br i1 %44, label %54, label %.thread.thread.i.i
 
 .thread.thread.i.i:                               ; preds = %.thread.i.i, %32, %30
-  %.sroa.67.05773.i.i = phi i64 [ %.sroa.67.057.i.i, %.thread.i.i ], [ %..i.i.i, %30 ], [ 1, %32 ]
-  %45 = shl nuw i64 %.sroa.67.05773.i.i, 3
+  %.sroa.67.05776.i.i = phi i64 [ %.sroa.67.057.i.i, %.thread.i.i ], [ %..i.i.i, %30 ], [ 1, %32 ]
+  %45 = shl nuw i64 %.sroa.67.05776.i.i, 3
   %46 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %45, i64 15)
   %47 = extractvalue { i64, i1 } %46, 1
   br i1 %47, label %54, label %48
@@ -642,7 +642,7 @@ define hidden { i64, i64 } @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$14res
 48:                                               ; preds = %.thread.thread.i.i
   %49 = extractvalue { i64, i1 } %46, 0
   %50 = and i64 %49, -16
-  %51 = add nuw nsw i64 %.sroa.67.05773.i.i, 16
+  %51 = add nuw nsw i64 %.sroa.67.05776.i.i, 16
   %52 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %50, i64 %51)
   %53 = extractvalue { i64, i1 } %52, 1
   br i1 %53, label %54, label %56
@@ -671,9 +671,9 @@ define hidden { i64, i64 } @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$14res
 "_ZN9hashbrown3raw5inner22RawTableInner$LT$A$GT$14prepare_resize17h0668aad5c537136eE.exit": ; preds = %56
   %63 = getelementptr inbounds i8, ptr %59, i64 %50
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %63, i8 -1, i64 %51, i1 false), !noalias !90
-  %64 = add nsw i64 %.sroa.67.05773.i.i, -1
+  %64 = add nsw i64 %.sroa.67.05776.i.i, -1
   %65 = icmp ult i64 %64, 8
-  %66 = lshr i64 %.sroa.67.05773.i.i, 3
+  %66 = lshr i64 %.sroa.67.05776.i.i, 3
   %67 = mul nuw nsw i64 %66, 7
   %.0.i.i.i = select i1 %65, i64 %64, i64 %67
   %68 = sub i64 %.0.i.i.i, %8
@@ -869,9 +869,9 @@ common.resume:                                    ; preds = %152, %70
 
 ._crit_edge.i.i12:                                ; preds = %145
   %spec.select.i = tail call i64 @llvm.umax.i64(i64 %20, i64 16)
-  %spec.select66.i = tail call i64 @llvm.umin.i64(i64 %20, i64 16)
+  %spec.select70.i = tail call i64 @llvm.umin.i64(i64 %20, i64 16)
   %144 = getelementptr inbounds i8, ptr %.val.i10, i64 %spec.select.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %144, ptr nonnull align 1 %.val.i10, i64 %spec.select66.i, i1 false), !noalias !122
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %144, ptr nonnull align 1 %.val.i10, i64 %spec.select70.i, i1 false), !noalias !122
   br label %156
 
 145:                                              ; preds = %145, %.lr.ph.i.i11
@@ -1096,8 +1096,8 @@ define hidden void @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$22fallible_wi
   br i1 %24, label %34, label %.thread.thread.i
 
 .thread.thread.i:                                 ; preds = %.thread.i, %12, %10
-  %.sroa.67.05773.i = phi i64 [ %.sroa.67.057.i, %.thread.i ], [ %..i.i, %10 ], [ 1, %12 ]
-  %25 = shl nuw i64 %.sroa.67.05773.i, 3
+  %.sroa.67.05776.i = phi i64 [ %.sroa.67.057.i, %.thread.i ], [ %..i.i, %10 ], [ 1, %12 ]
+  %25 = shl nuw i64 %.sroa.67.05776.i, 3
   %26 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %25, i64 15)
   %27 = extractvalue { i64, i1 } %26, 1
   br i1 %27, label %34, label %28
@@ -1105,7 +1105,7 @@ define hidden void @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$22fallible_wi
 28:                                               ; preds = %.thread.thread.i
   %29 = extractvalue { i64, i1 } %26, 0
   %30 = and i64 %29, -16
-  %31 = add nuw nsw i64 %.sroa.67.05773.i, 16
+  %31 = add nuw nsw i64 %.sroa.67.05776.i, 16
   %32 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %30, i64 %31)
   %33 = extractvalue { i64, i1 } %32, 1
   br i1 %33, label %34, label %36
@@ -1132,9 +1132,9 @@ define hidden void @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$22fallible_wi
   br label %"_ZN9hashbrown3raw5inner22RawTableInner$LT$A$GT$22fallible_with_capacity17h92a3b99bb4e40ce6E.exit.thread"
 
 "_ZN9hashbrown3raw5inner22RawTableInner$LT$A$GT$22fallible_with_capacity17h92a3b99bb4e40ce6E.exit": ; preds = %36
-  %43 = add nsw i64 %.sroa.67.05773.i, -1
+  %43 = add nsw i64 %.sroa.67.05776.i, -1
   %44 = icmp ult i64 %43, 8
-  %45 = lshr i64 %.sroa.67.05773.i, 3
+  %45 = lshr i64 %.sroa.67.05776.i, 3
   %46 = mul nuw nsw i64 %45, 7
   %.0.i.i = select i1 %44, i64 %43, i64 %46
   %47 = getelementptr inbounds i8, ptr %39, i64 %30

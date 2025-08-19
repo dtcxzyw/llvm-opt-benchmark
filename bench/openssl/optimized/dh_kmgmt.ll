@@ -226,7 +226,7 @@ define internal ptr @dh_gen(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   %.not = icmp eq i32 %9, 0
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 60
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 60
-  br i1 %.not, label %11, label %.thread118
+  br i1 %.not, label %11, label %.thread132
 
 11:                                               ; preds = %7
   %.pre = load i32, ptr %.phi.trans.insert, align 4, !tbaa !17
@@ -250,7 +250,7 @@ define internal ptr @dh_gen(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   %19 = icmp eq ptr %18, null
   br i1 %19, label %thread-pre-split, label %34
 
-.thread118:                                       ; preds = %7
+.thread132:                                       ; preds = %7
   store i32 3, ptr %.phi.trans.insert, align 4, !tbaa !17
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %21 = load ptr, ptr %20, align 8, !tbaa !23
@@ -266,8 +266,8 @@ thread-pre-split:                                 ; preds = %16
   %27 = icmp eq i32 %26, 0
   br i1 %27, label %121, label %thread-pre-split.thread
 
-thread-pre-split.thread:                          ; preds = %.thread118, %thread-pre-split
-  %28 = phi i32 [ %26, %thread-pre-split ], [ %9, %.thread118 ]
+thread-pre-split.thread:                          ; preds = %.thread132, %thread-pre-split
+  %28 = phi i32 [ %26, %thread-pre-split ], [ %9, %.thread132 ]
   %29 = load ptr, ptr %0, align 8, !tbaa !13
   %30 = tail call ptr @ossl_dh_new_by_nid_ex(ptr noundef %29, i32 noundef %28) #8
   %31 = icmp eq ptr %30, null
@@ -277,7 +277,7 @@ thread-pre-split.thread:                          ; preds = %.thread118, %thread
   %33 = tail call ptr @ossl_dh_get0_params(ptr noundef nonnull %30) #8
   br label %93
 
-34:                                               ; preds = %.thread118, %16, %14
+34:                                               ; preds = %.thread132, %16, %14
   %35 = load ptr, ptr %0, align 8, !tbaa !13
   %36 = tail call ptr @ossl_dh_new_ex(ptr noundef %35) #8
   %37 = icmp eq ptr %36, null
@@ -957,7 +957,7 @@ define internal i32 @dh_export(ptr noundef %0, i32 noundef %1, ptr noundef reado
 
 15:                                               ; preds = %13
   %16 = tail call i32 @ossl_dh_params_todata(ptr noundef nonnull %0, ptr noundef nonnull %11, ptr noundef null) #8
-  %.not45 = icmp eq i32 %16, 0
+  %.not48 = icmp eq i32 %16, 0
   %17 = and i32 %1, 3
   %.not27 = icmp eq i32 %17, 0
   br i1 %.not27, label %22, label %19
@@ -968,16 +968,16 @@ define internal i32 @dh_export(ptr noundef %0, i32 noundef %1, ptr noundef reado
   br i1 %.not2734, label %.thread42, label %.thread36
 
 19:                                               ; preds = %15
-  br i1 %.not45, label %.thread39, label %.thread36
+  br i1 %.not48, label %.thread39, label %.thread36
 
 .thread36:                                        ; preds = %.thread, %19
   %20 = and i32 %1, 1
   %21 = tail call i32 @ossl_dh_key_todata(ptr noundef nonnull %0, ptr noundef nonnull %11, ptr noundef null, i32 noundef %20) #8
-  %.not46 = icmp eq i32 %21, 0
-  br i1 %.not46, label %.thread39, label %.thread42
+  %.not49 = icmp eq i32 %21, 0
+  br i1 %.not49, label %.thread39, label %.thread42
 
 22:                                               ; preds = %15
-  br i1 %.not45, label %.thread39, label %.thread42
+  br i1 %.not48, label %.thread39, label %.thread42
 
 .thread42:                                        ; preds = %.thread36, %.thread, %22
   %23 = tail call ptr @OSSL_PARAM_BLD_to_param(ptr noundef nonnull %11) #8

@@ -144,8 +144,8 @@ define dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZN9Stockfishls
   %25 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %22, i32 noundef %24) #18
   %26 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %25, ptr noundef nonnull @.str) #18
   %indvars.iv.next38 = add nsw i64 %indvars.iv37, -1
-  %.not40 = icmp eq i64 %indvars.iv37, 0
-  br i1 %.not40, label %27, label %.preheader, !llvm.loop !7
+  %.not41 = icmp eq i64 %indvars.iv37, 0
+  br i1 %.not41, label %27, label %.preheader, !llvm.loop !7
 
 27:                                               ; preds = %21
   %28 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.2) #18
@@ -2406,13 +2406,13 @@ define dso_local noundef zeroext i1 @_ZNK9Stockfish8Position12pseudo_legalENS_4M
   %37 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i, i64 16
   %38 = load i16, ptr %37, align 2
   %39 = icmp eq i16 %38, %1
-  br i1 %39, label %_ZNK9Stockfish8MoveListILNS_7GenTypeE3EE8containsENS_4MoveE.exit.loopexit.split.loop.exit95, label %40
+  br i1 %39, label %_ZNK9Stockfish8MoveListILNS_7GenTypeE3EE8containsENS_4MoveE.exit.loopexit.split.loop.exit103, label %40
 
 40:                                               ; preds = %36
   %41 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i, i64 24
   %42 = load i16, ptr %41, align 2
   %43 = icmp eq i16 %42, %1
-  br i1 %43, label %_ZNK9Stockfish8MoveListILNS_7GenTypeE3EE8containsENS_4MoveE.exit.loopexit.split.loop.exit97, label %44
+  br i1 %43, label %_ZNK9Stockfish8MoveListILNS_7GenTypeE3EE8containsENS_4MoveE.exit.loopexit.split.loop.exit105, label %44
 
 44:                                               ; preds = %40
   %45 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i, i64 32
@@ -2467,16 +2467,16 @@ _ZNK9Stockfish8MoveListILNS_7GenTypeE3EE8containsENS_4MoveE.exit.loopexit.split.
   %61 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i, i64 8
   br label %_ZNK9Stockfish8MoveListILNS_7GenTypeE3EE8containsENS_4MoveE.exit
 
-_ZNK9Stockfish8MoveListILNS_7GenTypeE3EE8containsENS_4MoveE.exit.loopexit.split.loop.exit95: ; preds = %36
+_ZNK9Stockfish8MoveListILNS_7GenTypeE3EE8containsENS_4MoveE.exit.loopexit.split.loop.exit103: ; preds = %36
   %62 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i, i64 16
   br label %_ZNK9Stockfish8MoveListILNS_7GenTypeE3EE8containsENS_4MoveE.exit
 
-_ZNK9Stockfish8MoveListILNS_7GenTypeE3EE8containsENS_4MoveE.exit.loopexit.split.loop.exit97: ; preds = %40
+_ZNK9Stockfish8MoveListILNS_7GenTypeE3EE8containsENS_4MoveE.exit.loopexit.split.loop.exit105: ; preds = %40
   %63 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i, i64 24
   br label %_ZNK9Stockfish8MoveListILNS_7GenTypeE3EE8containsENS_4MoveE.exit
 
-_ZNK9Stockfish8MoveListILNS_7GenTypeE3EE8containsENS_4MoveE.exit: ; preds = %29, %_ZNK9Stockfish8MoveListILNS_7GenTypeE3EE8containsENS_4MoveE.exit.loopexit.split.loop.exit, %_ZNK9Stockfish8MoveListILNS_7GenTypeE3EE8containsENS_4MoveE.exit.loopexit.split.loop.exit95, %_ZNK9Stockfish8MoveListILNS_7GenTypeE3EE8containsENS_4MoveE.exit.loopexit.split.loop.exit97, %49, %._crit_edge._crit_edge.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i, %60
-  %.028.i.i.i.i = phi ptr [ %22, %60 ], [ %.029.lcssa.i.i.i.i, %49 ], [ %.1.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ], [ %.2.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i ], [ %61, %_ZNK9Stockfish8MoveListILNS_7GenTypeE3EE8containsENS_4MoveE.exit.loopexit.split.loop.exit ], [ %62, %_ZNK9Stockfish8MoveListILNS_7GenTypeE3EE8containsENS_4MoveE.exit.loopexit.split.loop.exit95 ], [ %63, %_ZNK9Stockfish8MoveListILNS_7GenTypeE3EE8containsENS_4MoveE.exit.loopexit.split.loop.exit97 ], [ %.02946.i.i.i.i, %29 ]
+_ZNK9Stockfish8MoveListILNS_7GenTypeE3EE8containsENS_4MoveE.exit: ; preds = %29, %_ZNK9Stockfish8MoveListILNS_7GenTypeE3EE8containsENS_4MoveE.exit.loopexit.split.loop.exit, %_ZNK9Stockfish8MoveListILNS_7GenTypeE3EE8containsENS_4MoveE.exit.loopexit.split.loop.exit103, %_ZNK9Stockfish8MoveListILNS_7GenTypeE3EE8containsENS_4MoveE.exit.loopexit.split.loop.exit105, %49, %._crit_edge._crit_edge.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i, %60
+  %.028.i.i.i.i = phi ptr [ %22, %60 ], [ %.029.lcssa.i.i.i.i, %49 ], [ %.1.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ], [ %.2.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i ], [ %61, %_ZNK9Stockfish8MoveListILNS_7GenTypeE3EE8containsENS_4MoveE.exit.loopexit.split.loop.exit ], [ %62, %_ZNK9Stockfish8MoveListILNS_7GenTypeE3EE8containsENS_4MoveE.exit.loopexit.split.loop.exit103 ], [ %63, %_ZNK9Stockfish8MoveListILNS_7GenTypeE3EE8containsENS_4MoveE.exit.loopexit.split.loop.exit105 ], [ %.02946.i.i.i.i, %29 ]
   %64 = icmp ne ptr %.028.i.i.i.i, %22
   br label %268
 
@@ -2513,13 +2513,13 @@ _ZNK9Stockfish8MoveListILNS_7GenTypeE3EE8containsENS_4MoveE.exit: ; preds = %29,
   %82 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i59, i64 16
   %83 = load i16, ptr %82, align 2
   %84 = icmp eq i16 %83, %1
-  br i1 %84, label %_ZNK9Stockfish8MoveListILNS_7GenTypeE4EE8containsENS_4MoveE.exit.loopexit.split.loop.exit103, label %85
+  br i1 %84, label %_ZNK9Stockfish8MoveListILNS_7GenTypeE4EE8containsENS_4MoveE.exit.loopexit.split.loop.exit111, label %85
 
 85:                                               ; preds = %81
   %86 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i59, i64 24
   %87 = load i16, ptr %86, align 2
   %88 = icmp eq i16 %87, %1
-  br i1 %88, label %_ZNK9Stockfish8MoveListILNS_7GenTypeE4EE8containsENS_4MoveE.exit.loopexit.split.loop.exit105, label %89
+  br i1 %88, label %_ZNK9Stockfish8MoveListILNS_7GenTypeE4EE8containsENS_4MoveE.exit.loopexit.split.loop.exit113, label %89
 
 89:                                               ; preds = %85
   %90 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i59, i64 32
@@ -2574,16 +2574,16 @@ _ZNK9Stockfish8MoveListILNS_7GenTypeE4EE8containsENS_4MoveE.exit.loopexit.split.
   %106 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i59, i64 8
   br label %_ZNK9Stockfish8MoveListILNS_7GenTypeE4EE8containsENS_4MoveE.exit
 
-_ZNK9Stockfish8MoveListILNS_7GenTypeE4EE8containsENS_4MoveE.exit.loopexit.split.loop.exit103: ; preds = %81
+_ZNK9Stockfish8MoveListILNS_7GenTypeE4EE8containsENS_4MoveE.exit.loopexit.split.loop.exit111: ; preds = %81
   %107 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i59, i64 16
   br label %_ZNK9Stockfish8MoveListILNS_7GenTypeE4EE8containsENS_4MoveE.exit
 
-_ZNK9Stockfish8MoveListILNS_7GenTypeE4EE8containsENS_4MoveE.exit.loopexit.split.loop.exit105: ; preds = %85
+_ZNK9Stockfish8MoveListILNS_7GenTypeE4EE8containsENS_4MoveE.exit.loopexit.split.loop.exit113: ; preds = %85
   %108 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i59, i64 24
   br label %_ZNK9Stockfish8MoveListILNS_7GenTypeE4EE8containsENS_4MoveE.exit
 
-_ZNK9Stockfish8MoveListILNS_7GenTypeE4EE8containsENS_4MoveE.exit: ; preds = %74, %_ZNK9Stockfish8MoveListILNS_7GenTypeE4EE8containsENS_4MoveE.exit.loopexit.split.loop.exit, %_ZNK9Stockfish8MoveListILNS_7GenTypeE4EE8containsENS_4MoveE.exit.loopexit.split.loop.exit103, %_ZNK9Stockfish8MoveListILNS_7GenTypeE4EE8containsENS_4MoveE.exit.loopexit.split.loop.exit105, %94, %._crit_edge._crit_edge.i.i.i.i54, %._crit_edge._crit_edge52.i.i.i.i51, %105
-  %.028.i.i.i.i53 = phi ptr [ %67, %105 ], [ %.029.lcssa.i.i.i.i50, %94 ], [ %.1.i.i.i.i55, %._crit_edge._crit_edge.i.i.i.i54 ], [ %.2.i.i.i.i52, %._crit_edge._crit_edge52.i.i.i.i51 ], [ %106, %_ZNK9Stockfish8MoveListILNS_7GenTypeE4EE8containsENS_4MoveE.exit.loopexit.split.loop.exit ], [ %107, %_ZNK9Stockfish8MoveListILNS_7GenTypeE4EE8containsENS_4MoveE.exit.loopexit.split.loop.exit103 ], [ %108, %_ZNK9Stockfish8MoveListILNS_7GenTypeE4EE8containsENS_4MoveE.exit.loopexit.split.loop.exit105 ], [ %.02946.i.i.i.i59, %74 ]
+_ZNK9Stockfish8MoveListILNS_7GenTypeE4EE8containsENS_4MoveE.exit: ; preds = %74, %_ZNK9Stockfish8MoveListILNS_7GenTypeE4EE8containsENS_4MoveE.exit.loopexit.split.loop.exit, %_ZNK9Stockfish8MoveListILNS_7GenTypeE4EE8containsENS_4MoveE.exit.loopexit.split.loop.exit111, %_ZNK9Stockfish8MoveListILNS_7GenTypeE4EE8containsENS_4MoveE.exit.loopexit.split.loop.exit113, %94, %._crit_edge._crit_edge.i.i.i.i54, %._crit_edge._crit_edge52.i.i.i.i51, %105
+  %.028.i.i.i.i53 = phi ptr [ %67, %105 ], [ %.029.lcssa.i.i.i.i50, %94 ], [ %.1.i.i.i.i55, %._crit_edge._crit_edge.i.i.i.i54 ], [ %.2.i.i.i.i52, %._crit_edge._crit_edge52.i.i.i.i51 ], [ %106, %_ZNK9Stockfish8MoveListILNS_7GenTypeE4EE8containsENS_4MoveE.exit.loopexit.split.loop.exit ], [ %107, %_ZNK9Stockfish8MoveListILNS_7GenTypeE4EE8containsENS_4MoveE.exit.loopexit.split.loop.exit111 ], [ %108, %_ZNK9Stockfish8MoveListILNS_7GenTypeE4EE8containsENS_4MoveE.exit.loopexit.split.loop.exit113 ], [ %.02946.i.i.i.i59, %74 ]
   %109 = icmp ne ptr %.028.i.i.i.i53, %67
   br label %268
 
@@ -4908,8 +4908,8 @@ define dso_local void @_ZN9Stockfish8Position4flipEv(ptr noundef nonnull align 8
   %13 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmRKS4_(ptr noundef nonnull align 8 dereferenceable(32) %2, i64 noundef 0, ptr noundef nonnull align 8 dereferenceable(32) %6) #18
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #18
   %14 = add nsw i32 %.05, -1
-  %.not6 = icmp eq i32 %.05, 0
-  br i1 %.not6, label %15, label %8, !llvm.loop !56
+  %.not8 = icmp eq i32 %.05, 0
+  br i1 %.not8, label %15, label %8, !llvm.loop !56
 
 15:                                               ; preds = %8
   %16 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZStrsIcSt11char_traitsIcESaIcEERSt13basic_istreamIT_T0_ES7_RNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(32) %3) #18

@@ -480,18 +480,18 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLi1ELi3ELi1ELi1ELi3EEEE11setConstantEllRK
   store double %135, ptr %47, align 8, !tbaa !4, !noalias !53
   %136 = load <2 x double>, ptr %50, align 8, !tbaa !51, !noalias !53
   %137 = fmul <2 x double> %128, %136
-  %shift65 = shufflevector <2 x double> %137, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop66 = fadd <2 x double> %137, %shift65
-  %138 = extractelement <2 x double> %foldExtExtBinop66, i64 0
+  %shift69 = shufflevector <2 x double> %137, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop70 = fadd <2 x double> %137, %shift69
+  %138 = extractelement <2 x double> %foldExtExtBinop70, i64 0
   %139 = load double, ptr %51, align 8, !tbaa !4, !noalias !53
   %140 = fmul double %132, %139
   %141 = fadd double %140, %138
   store double %141, ptr %49, align 8, !tbaa !4, !noalias !53
   %142 = load <2 x double>, ptr %52, align 16, !tbaa !51, !noalias !53
   %143 = fmul <2 x double> %128, %142
-  %shift68 = shufflevector <2 x double> %143, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop69 = fadd <2 x double> %143, %shift68
-  %144 = extractelement <2 x double> %foldExtExtBinop69, i64 0
+  %shift72 = shufflevector <2 x double> %143, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop73 = fadd <2 x double> %143, %shift72
+  %144 = extractelement <2 x double> %foldExtExtBinop73, i64 0
   %145 = load double, ptr %53, align 16, !tbaa !4, !noalias !53
   %146 = fmul double %132, %145
   %147 = fadd double %146, %144

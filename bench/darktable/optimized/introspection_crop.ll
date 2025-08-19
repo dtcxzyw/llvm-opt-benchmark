@@ -1827,14 +1827,14 @@ define internal fastcc float @_aspect_ratio_get(ptr noundef %0, ptr noundef %1) 
   %145 = fsub reassoc nsz arcp contract afn float %86, %89
   %146 = tail call reassoc nsz arcp contract afn float @llvm.fabs.f32(float %145)
   %147 = fcmp reassoc nsz arcp contract afn olt float %146, 0x3F33A92A40000000
-  br i1 %147, label %.thread.thread127, label %.thread125
+  br i1 %147, label %.thread.thread131, label %.thread129
 
-.thread.thread127:                                ; preds = %144
+.thread.thread131:                                ; preds = %144
   store i32 1, ptr %43, align 4, !tbaa !97
   store i32 0, ptr %46, align 4, !tbaa !98
   br label %152
 
-.thread125:                                       ; preds = %144
+.thread129:                                       ; preds = %144
   store i32 0, ptr %43, align 4, !tbaa !97
   store i32 0, ptr %46, align 4, !tbaa !98
   br label %167
@@ -1852,8 +1852,8 @@ define internal fastcc float @_aspect_ratio_get(ptr noundef %0, ptr noundef %1) 
   %151 = icmp eq i32 %.pre124, 0
   br i1 %151, label %152, label %.thread.thread
 
-152:                                              ; preds = %.thread.thread127, %.thread
-  %153 = phi float [ 1.000000e+00, %.thread.thread127 ], [ %150, %.thread ]
+152:                                              ; preds = %.thread.thread131, %.thread
+  %153 = phi float [ 1.000000e+00, %.thread.thread131 ], [ %150, %.thread ]
   %154 = sitofp i32 %40 to float
   %155 = tail call reassoc nsz arcp contract afn float @llvm.copysign.f32(float %154, float %153)
   br label %.thread.thread
@@ -1877,8 +1877,8 @@ define internal fastcc float @_aspect_ratio_get(ptr noundef %0, ptr noundef %1) 
   %.4 = select nsz i1 %163, float %165, float %166
   br label %167
 
-167:                                              ; preds = %.thread125, %32, %148, %.thread.thread, %9, %30, %.critedge
-  %.1 = phi nsz float [ 0.000000e+00, %9 ], [ %29, %.critedge ], [ %31, %30 ], [ 0.000000e+00, %32 ], [ %.4, %.thread.thread ], [ -1.000000e+00, %148 ], [ -1.000000e+00, %.thread125 ]
+167:                                              ; preds = %.thread129, %32, %148, %.thread.thread, %9, %30, %.critedge
+  %.1 = phi nsz float [ 0.000000e+00, %9 ], [ %29, %.critedge ], [ %31, %30 ], [ 0.000000e+00, %32 ], [ %.4, %.thread.thread ], [ -1.000000e+00, %148 ], [ -1.000000e+00, %.thread129 ]
   ret float %.1
 }
 
@@ -2605,7 +2605,7 @@ _aspect_format.exit183:                           ; preds = %152
   %.not = icmp eq ptr %183, null
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
-.thread206:                                       ; preds = %197, %204
+.thread213:                                       ; preds = %197, %204
   %184 = tail call ptr @dt_bauhaus_combobox_new(ptr noundef %0) #25
   %185 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store ptr %184, ptr %185, align 8, !tbaa !164
@@ -2643,7 +2643,7 @@ _aspect_format.exit183:                           ; preds = %152
   %.not177 = icmp eq ptr %200, null
   %203 = select i1 %.not177, ptr %202, ptr %200
   %.not178 = icmp eq ptr %203, null
-  br i1 %.not178, label %.thread206, label %204
+  br i1 %.not178, label %.thread213, label %204
 
 204:                                              ; preds = %197, %188
   %.1191 = phi i32 [ %.0162198, %197 ], [ %., %188 ]
@@ -2652,9 +2652,9 @@ _aspect_format.exit183:                           ; preds = %152
   %205 = getelementptr inbounds nuw i8, ptr %.1164190, i64 8
   %206 = load ptr, ptr %205, align 8, !tbaa !191
   %.not175 = icmp eq ptr %206, null
-  br i1 %.not175, label %.thread206, label %188
+  br i1 %.not175, label %.thread213, label %188
 
-._crit_edge204:                                   ; preds = %.lr.ph203, %.thread206
+._crit_edge204:                                   ; preds = %.lr.ph203, %.thread213
   %207 = load ptr, ptr %185, align 8, !tbaa !164
   tail call void @dt_bauhaus_combobox_set(ptr noundef %207, i32 noundef 0) #25
   %208 = load ptr, ptr %185, align 8, !tbaa !164
@@ -2734,8 +2734,8 @@ _aspect_format.exit183:                           ; preds = %152
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 
-.lr.ph203:                                        ; preds = %.thread206, %.lr.ph203
-  %.0158201 = phi ptr [ %.0158, %.lr.ph203 ], [ %.0158199, %.thread206 ]
+.lr.ph203:                                        ; preds = %.thread213, %.lr.ph203
+  %.0158201 = phi ptr [ %.0158, %.lr.ph203 ], [ %.0158199, %.thread213 ]
   %254 = load ptr, ptr %.0158201, align 8, !tbaa !170
   %255 = load ptr, ptr %185, align 8, !tbaa !164
   %256 = load ptr, ptr %254, align 8, !tbaa !180
@@ -4283,7 +4283,7 @@ _gui_get_grab.exit:                               ; preds = %20, %34, %39, %43, 
   %304 = load i32, ptr %303, align 8, !tbaa !145
   %305 = add nsw i32 %304, -1
   store i32 %305, ptr %303, align 8, !tbaa !145
-  br label %.sink.split308
+  br label %.sink.split316
 
 306:                                              ; preds = %74, %_gui_get_grab.exit
   switch i32 %.047.i, label %.thread [
@@ -4323,18 +4323,18 @@ _gui_get_grab.exit:                               ; preds = %20, %34, %39, %43, 
 314:                                              ; preds = %306
   call void @dt_control_hinter_message(ptr noundef nonnull %71, ptr noundef nonnull @.str.9) #25
   call void @dt_control_change_cursor(i32 noundef 68) #25
-  br label %.sink.split308
+  br label %.sink.split316
 
 .thread.sink.split:                               ; preds = %306, %307, %309, %311, %313, %312, %310, %308
-  %.sink307 = phi i32 [ 96, %308 ], [ 134, %310 ], [ 14, %312 ], [ 12, %313 ], [ 136, %311 ], [ 16, %309 ], [ 138, %307 ], [ 70, %306 ]
-  call void @dt_control_change_cursor(i32 noundef %.sink307) #25
+  %.sink315 = phi i32 [ 96, %308 ], [ 134, %310 ], [ 14, %312 ], [ 12, %313 ], [ 136, %311 ], [ 16, %309 ], [ 138, %307 ], [ 70, %306 ]
+  call void @dt_control_change_cursor(i32 noundef %.sink315) #25
   br label %.thread
 
 .thread:                                          ; preds = %.thread.sink.split, %306
   %315 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 88), align 8, !tbaa !203
   %316 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.60, i32 noundef 5) #25
   call void @dt_control_hinter_message(ptr noundef %315, ptr noundef %316) #25
-  br label %.sink.split308
+  br label %.sink.split316
 
 317:                                              ; preds = %306
   call void @dt_control_change_cursor(i32 noundef 52) #25
@@ -4343,15 +4343,15 @@ _gui_get_grab.exit:                               ; preds = %20, %34, %39, %43, 
   %319 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 88), align 8, !tbaa !203
   %320 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.61, i32 noundef 5) #25
   call void @dt_control_hinter_message(ptr noundef %319, ptr noundef %320) #25
-  br label %.sink.split308
+  br label %.sink.split316
 
-.sink.split308:                                   ; preds = %.thread, %314, %297, %317
+.sink.split316:                                   ; preds = %.thread, %314, %297, %317
   %.2.ph = phi i32 [ 0, %317 ], [ 1, %297 ], [ 0, %314 ], [ 0, %.thread ]
   call void (...) @dt_control_queue_redraw_center() #25
   br label %321
 
-321:                                              ; preds = %.sink.split308, %78
-  %.2 = phi i32 [ 0, %78 ], [ %.2.ph, %.sink.split308 ]
+321:                                              ; preds = %.sink.split316, %78
+  %.2 = phi i32 [ 0, %78 ], [ %.2.ph, %.sink.split316 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %322

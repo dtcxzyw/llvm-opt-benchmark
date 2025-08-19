@@ -135,9 +135,9 @@ define i32 @avcodec_default_get_buffer2(ptr noundef %0, ptr noundef %1, i32 noun
   %81 = getelementptr inbounds nuw i8, ptr %50, i64 100
   %82 = load i32, ptr %81, align 4, !tbaa !63
   %83 = icmp eq i32 %80, %82
-  br i1 %83, label %.thread56, label %.thread.i
+  br i1 %83, label %.thread68, label %.thread.i
 
-.thread56:                                        ; preds = %78
+.thread68:                                        ; preds = %78
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %216
 
@@ -452,8 +452,8 @@ update_frame_pool.exit:                           ; preds = %.thread.i, %171
   call void @av_frame_unref(ptr noundef nonnull %1) #6
   br label %video_get_buffer.exit
 
-216:                                              ; preds = %.thread56, %172
-  %217 = phi ptr [ %50, %.thread56 ], [ %84, %172 ]
+216:                                              ; preds = %.thread68, %172
+  %217 = phi ptr [ %50, %.thread68 ], [ %84, %172 ]
   %218 = getelementptr inbounds nuw i8, ptr %217, i64 92
   %219 = load i32, ptr %218, align 4, !tbaa !74
   %220 = getelementptr inbounds nuw i8, ptr %217, i64 76

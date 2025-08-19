@@ -2642,27 +2642,27 @@ define internal fastcc noundef ptr @dissect_isup_digits_common(ptr noundef %0, i
   br i1 %22, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph:                                           ; preds = %34
-  %23 = add nuw i32 %.073108150, 1
+  %23 = add nuw i32 %.073108160, 1
   %24 = icmp eq i32 %32, 32
-  br i1 %24, label %._crit_edge.loopexit.split.loop.exit176, label %.lr.ph.preheader, !llvm.loop !6
+  br i1 %24, label %._crit_edge.loopexit.split.loop.exit186, label %.lr.ph.preheader, !llvm.loop !6
 
 .lr.ph.preheader:                                 ; preds = %17, %.lr.ph
-  %.079105152 = phi i32 [ %30, %.lr.ph ], [ %21, %17 ]
-  %.074107151 = phi i32 [ %32, %.lr.ph ], [ 0, %17 ]
-  %.073108150 = phi i32 [ %23, %.lr.ph ], [ %1, %17 ]
-  %25 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.073108150)
+  %.079105162 = phi i32 [ %30, %.lr.ph ], [ %21, %17 ]
+  %.074107161 = phi i32 [ %32, %.lr.ph ], [ 0, %17 ]
+  %.073108160 = phi i32 [ %23, %.lr.ph ], [ %1, %17 ]
+  %25 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.073108160)
   %26 = and i8 %25, 15
   %27 = icmp samesign ult i8 %26, 10
   %28 = or disjoint i8 %26, 48
   %29 = add nuw nsw i8 %26, 55
   %.0.i = select i1 %27, i8 %28, i8 %29
   tail call void @wmem_strbuf_append_c(ptr noundef %20, i8 noundef signext %.0.i)
-  %30 = add nsw i32 %.079105152, -1
-  %.not = icmp eq i32 %.079105152, 1
+  %30 = add nsw i32 %.079105162, -1
+  %.not = icmp eq i32 %.079105162, 1
   br i1 %.not, label %._crit_edge.loopexit.split.loop.exit, label %31
 
 31:                                               ; preds = %.lr.ph.preheader
-  %32 = add i32 %.074107151, 2
+  %32 = add i32 %.074107161, 2
   %33 = icmp sgt i32 %32, 32
   br i1 %33, label %._crit_edge.loopexit, label %34
 
@@ -2673,19 +2673,19 @@ define internal fastcc noundef ptr @dissect_isup_digits_common(ptr noundef %0, i
   %38 = add nuw nsw i8 %35, 55
   %.0.i97 = select i1 %36, i8 %37, i8 %38
   tail call void @wmem_strbuf_append_c(ptr noundef %20, i8 noundef signext %.0.i97)
-  %39 = icmp sgt i32 %.079105152, 1
+  %39 = icmp sgt i32 %.079105162, 1
   br i1 %39, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !6
 
 ._crit_edge.loopexit.split.loop.exit:             ; preds = %.lr.ph.preheader
-  %40 = or disjoint i32 %.074107151, 1
+  %40 = or disjoint i32 %.074107161, 1
   br label %._crit_edge.loopexit
 
-._crit_edge.loopexit.split.loop.exit176:          ; preds = %.lr.ph
+._crit_edge.loopexit.split.loop.exit186:          ; preds = %.lr.ph
   %41 = or disjoint i32 %32, 1
   br label %._crit_edge.loopexit
 
-._crit_edge.loopexit:                             ; preds = %34, %31, %._crit_edge.loopexit.split.loop.exit176, %._crit_edge.loopexit.split.loop.exit
-  %.175.ph = phi i32 [ %40, %._crit_edge.loopexit.split.loop.exit ], [ %41, %._crit_edge.loopexit.split.loop.exit176 ], [ 33, %31 ], [ %32, %34 ]
+._crit_edge.loopexit:                             ; preds = %34, %31, %._crit_edge.loopexit.split.loop.exit186, %._crit_edge.loopexit.split.loop.exit
+  %.175.ph = phi i32 [ %40, %._crit_edge.loopexit.split.loop.exit ], [ %41, %._crit_edge.loopexit.split.loop.exit186 ], [ 33, %31 ], [ %32, %34 ]
   %42 = add i32 %.175.ph, 1
   %43 = icmp slt i32 %42, 32
   br label %._crit_edge
@@ -2734,9 +2734,9 @@ define internal fastcc noundef ptr @dissect_isup_digits_common(ptr noundef %0, i
   %62 = tail call ptr @proto_tree_add_item(ptr noundef %55, i32 noundef %6, ptr noundef %0, i32 noundef %.1118, i32 noundef 1, i32 noundef 0)
   %63 = add nsw i32 %.078116, -1
   %.not93 = icmp eq i32 %.078116, 1
-  br i1 %.not93, label %.thread129, label %66
+  br i1 %.not93, label %.thread139, label %66
 
-.thread129:                                       ; preds = %61
+.thread139:                                       ; preds = %61
   %64 = or disjoint i32 %.3117, 1
   %65 = add nuw i32 %.1118, 1
   br label %.loopexit
@@ -2756,9 +2756,9 @@ define internal fastcc noundef ptr @dissect_isup_digits_common(ptr noundef %0, i
   %74 = icmp sgt i32 %.078116, 1
   br i1 %74, label %.lr.ph120, label %.loopexit, !llvm.loop !8
 
-.loopexit:                                        ; preds = %71, %.thread129, %51, %69, %58
-  %.1101 = phi i32 [ %.1118, %58 ], [ %.1118, %69 ], [ %1, %51 ], [ %65, %.thread129 ], [ %73, %71 ]
-  %.4 = phi i32 [ %59, %58 ], [ 33, %69 ], [ 0, %51 ], [ %64, %.thread129 ], [ %67, %71 ]
+.loopexit:                                        ; preds = %71, %.thread139, %51, %69, %58
+  %.1101 = phi i32 [ %.1118, %58 ], [ %.1118, %69 ], [ %1, %51 ], [ %65, %.thread139 ], [ %73, %71 ]
+  %.4 = phi i32 [ %59, %58 ], [ 33, %69 ], [ 0, %51 ], [ %64, %.thread139 ], [ %67, %71 ]
   br i1 %8, label %75, label %85
 
 75:                                               ; preds = %.loopexit
@@ -3707,13 +3707,13 @@ switch.lookup:                                    ; preds = %4
   %switch.gep = getelementptr inbounds nuw [5 x ptr], ptr @switch.table.dissect_bicc, i64 0, i64 %7
   %switch.load = load ptr, ptr %switch.gep, align 8
   %8 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep36 = getelementptr inbounds nuw [5 x ptr], ptr @switch.table.dissect_bicc.38, i64 0, i64 %8
-  %switch.load37 = load ptr, ptr %switch.gep36, align 8
+  %switch.gep37 = getelementptr inbounds nuw [5 x ptr], ptr @switch.table.dissect_bicc.38, i64 0, i64 %8
+  %switch.load38 = load ptr, ptr %switch.gep37, align 8
   br label %9
 
 9:                                                ; preds = %4, %switch.lookup
   %.str.2022.sink = phi ptr [ %switch.load, %switch.lookup ], [ @.str.2022, %4 ]
-  %.0 = phi ptr [ %switch.load37, %switch.lookup ], [ @isup_message_type_value_acro_ext, %4 ]
+  %.0 = phi ptr [ %switch.load38, %switch.lookup ], [ @isup_message_type_value_acro_ext, %4 ]
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load ptr, ptr %10, align 8
   tail call void @col_set_str(ptr noundef %11, i32 noundef 35, ptr noundef nonnull %.str.2022.sink)
@@ -8819,9 +8819,9 @@ define internal fastcc void @dissect_japan_isup_carrier_information(ptr noundef 
 
 64:                                               ; preds = %.lr.ph, %96
   %65 = phi i32 [ %60, %.lr.ph ], [ %103, %96 ]
-  %.0128166225.in = phi i32 [ %58, %.lr.ph ], [ %.0128166225, %96 ]
-  %.0165224 = phi i32 [ 0, %.lr.ph ], [ %91, %96 ]
-  %.0128166225 = add nsw i32 %.0128166225.in, -1
+  %.0128166236.in = phi i32 [ %58, %.lr.ph ], [ %.0128166236, %96 ]
+  %.0165235 = phi i32 [ 0, %.lr.ph ], [ %91, %96 ]
+  %.0128166236 = add nsw i32 %.0128166236.in, -1
   %66 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %65)
   %67 = load i32, ptr @hf_isup_carrier_info_ca_odd_no_digits, align 4
   %68 = zext i8 %66 to i32
@@ -8833,14 +8833,14 @@ define internal fastcc void @dissect_japan_isup_carrier_information(ptr noundef 
   %74 = add nuw nsw i8 %72, 55
   %.0.i = select i1 %71, i8 %73, i8 %74
   call void @wmem_strbuf_append_c(ptr noundef %56, i8 noundef signext %.0.i)
-  %75 = icmp eq i32 %.0128166225, 1
+  %75 = icmp eq i32 %.0128166236, 1
   br i1 %75, label %76, label %90
 
 76:                                               ; preds = %64
   br i1 %59, label %77, label %.loopexit150
 
 77:                                               ; preds = %76
-  %78 = add i32 %.0165224, 2
+  %78 = add i32 %.0165235, 2
   %79 = icmp sgt i32 %78, 32
   br i1 %79, label %80, label %83
 
@@ -8861,7 +8861,7 @@ define internal fastcc void @dissect_japan_isup_carrier_information(ptr noundef 
   br label %.loopexit150
 
 90:                                               ; preds = %64
-  %91 = add i32 %.0165224, 2
+  %91 = add i32 %.0165235, 2
   %92 = icmp sgt i32 %91, 32
   br i1 %92, label %93, label %96
 
@@ -8921,9 +8921,9 @@ define internal fastcc void @dissect_japan_isup_carrier_information(ptr noundef 
 
 126:                                              ; preds = %.lr.ph171, %158
   %127 = phi i32 [ %122, %.lr.ph171 ], [ %165, %158 ]
-  %.1129170228.in = phi i32 [ %120, %.lr.ph171 ], [ %.1129170228, %158 ]
-  %.2169227 = phi i32 [ 0, %.lr.ph171 ], [ %153, %158 ]
-  %.1129170228 = add nsw i32 %.1129170228.in, -1
+  %.1129170239.in = phi i32 [ %120, %.lr.ph171 ], [ %.1129170239, %158 ]
+  %.2169238 = phi i32 [ 0, %.lr.ph171 ], [ %153, %158 ]
+  %.1129170239 = add nsw i32 %.1129170239.in, -1
   %128 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %127)
   %129 = load i32, ptr @hf_isup_carrier_info_odd_no_digits, align 4
   %130 = zext i8 %128 to i32
@@ -8935,14 +8935,14 @@ define internal fastcc void @dissect_japan_isup_carrier_information(ptr noundef 
   %136 = add nuw nsw i8 %134, 55
   %.0.i144 = select i1 %133, i8 %135, i8 %136
   call void @wmem_strbuf_append_c(ptr noundef %118, i8 noundef signext %.0.i144)
-  %137 = icmp eq i32 %.1129170228, 1
+  %137 = icmp eq i32 %.1129170239, 1
   br i1 %137, label %138, label %152
 
 138:                                              ; preds = %126
   br i1 %121, label %139, label %.loopexit
 
 139:                                              ; preds = %138
-  %140 = add i32 %.2169227, 2
+  %140 = add i32 %.2169238, 2
   %141 = icmp sgt i32 %140, 32
   br i1 %141, label %142, label %145
 
@@ -8963,7 +8963,7 @@ define internal fastcc void @dissect_japan_isup_carrier_information(ptr noundef 
   br label %.loopexit
 
 152:                                              ; preds = %126
-  %153 = add i32 %.2169227, 2
+  %153 = add i32 %.2169238, 2
   %154 = icmp sgt i32 %153, 32
   br i1 %154, label %155, label %158
 
@@ -9225,12 +9225,12 @@ define internal fastcc void @dissect_japan_isup_charge_area_info(ptr noundef %0,
 
 .lr.ph11.split.us:                                ; preds = %.lr.ph11.split.us.preheader, %.lr.ph11.split.us
   %86 = phi i32 [ %93, %.lr.ph11.split.us ], [ %83, %.lr.ph11.split.us.preheader ]
-  %.1879.us33 = phi i32 [ %90, %.lr.ph11.split.us ], [ %78, %.lr.ph11.split.us.preheader ]
-  %.210.us32 = phi i32 [ %89, %.lr.ph11.split.us ], [ %77, %.lr.ph11.split.us.preheader ]
+  %.1879.us39 = phi i32 [ %90, %.lr.ph11.split.us ], [ %78, %.lr.ph11.split.us.preheader ]
+  %.210.us38 = phi i32 [ %89, %.lr.ph11.split.us ], [ %77, %.lr.ph11.split.us.preheader ]
   %87 = load i32, ptr @hf_isup_charging_info_maca_even_digits, align 4
   %88 = call ptr @proto_tree_add_uint(ptr noundef %63, i32 noundef %87, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef %86)
-  %89 = add i32 %.210.us32, 1
-  %90 = add nsw i32 %.1879.us33, -1
+  %89 = add i32 %.210.us38, 1
+  %90 = add nsw i32 %.1879.us39, -1
   %91 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %89)
   %92 = load i32, ptr @hf_isup_charging_info_maca_odd_digits, align 4
   %93 = zext i8 %91 to i32
@@ -9240,12 +9240,12 @@ define internal fastcc void @dissect_japan_isup_charge_area_info(ptr noundef %0,
 
 .lr.ph11.split:                                   ; preds = %.lr.ph11.split.preheader, %.lr.ph11.split
   %96 = phi i32 [ %103, %.lr.ph11.split ], [ %83, %.lr.ph11.split.preheader ]
-  %.187930 = phi i32 [ %100, %.lr.ph11.split ], [ %78, %.lr.ph11.split.preheader ]
-  %.21029 = phi i32 [ %99, %.lr.ph11.split ], [ %77, %.lr.ph11.split.preheader ]
+  %.187936 = phi i32 [ %100, %.lr.ph11.split ], [ %78, %.lr.ph11.split.preheader ]
+  %.21035 = phi i32 [ %99, %.lr.ph11.split ], [ %77, %.lr.ph11.split.preheader ]
   %97 = load i32, ptr @hf_isup_charging_info_maca_even_digits, align 4
   %98 = call ptr @proto_tree_add_uint(ptr noundef %63, i32 noundef %97, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef %96)
-  %99 = add i32 %.21029, 1
-  %100 = add nsw i32 %.187930, -1
+  %99 = add i32 %.21035, 1
+  %100 = add nsw i32 %.187936, -1
   %101 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %99)
   %102 = load i32, ptr @hf_isup_charging_info_maca_odd_digits, align 4
   %103 = zext i8 %101 to i32

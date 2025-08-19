@@ -3010,20 +3010,20 @@ define internal void @_ZN12_GLOBAL__N_119Time_UnixEpoch_Test8TestBodyEv(ptr nonn
   %23 = getelementptr inbounds nuw i8, ptr %2, i64 9
   %24 = load i8, ptr %23, align 1
   %25 = icmp eq i8 %24, 1
-  %or.cond62 = select i1 %or.cond, i1 %25, i1 false
+  %or.cond79 = select i1 %or.cond, i1 %25, i1 false
   %26 = getelementptr inbounds nuw i8, ptr %2, i64 10
   %27 = load i8, ptr %26, align 2
   %28 = icmp eq i8 %27, 0
-  %or.cond65 = select i1 %or.cond62, i1 %28, i1 false
+  %or.cond82 = select i1 %or.cond79, i1 %28, i1 false
   %29 = getelementptr inbounds nuw i8, ptr %2, i64 11
   %30 = load i8, ptr %29, align 1
   %31 = icmp eq i8 %30, 0
-  %or.cond68 = select i1 %or.cond65, i1 %31, i1 false
+  %or.cond85 = select i1 %or.cond82, i1 %31, i1 false
   %32 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %33 = load i8, ptr %32, align 4
   %34 = icmp eq i8 %33, 0
-  %or.cond71 = select i1 %or.cond68, i1 %34, i1 false
-  br i1 %or.cond71, label %35, label %_ZN4absl13time_internal4cctz6detaileqINS0_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit.thread.i.i
+  %or.cond88 = select i1 %or.cond85, i1 %34, i1 false
+  br i1 %or.cond88, label %35, label %_ZN4absl13time_internal4cctz6detaileqINS0_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit.thread.i.i
 
 35:                                               ; preds = %1
   call void @_ZN7testing16AssertionSuccessEv(ptr dead_on_unwind nonnull writable sret(%"class.testing::AssertionResult") align 8 %4)
@@ -3786,19 +3786,19 @@ _ZN4absl13time_internal4cctz6detail4impl13days_per_yearEla.exit: ; preds = %29, 
   %58 = icmp sgt i32 %56, 300
   %59 = or i1 %57, %58
   %60 = select i1 %59, i64 36525, i64 36524
-  %.not147 = icmp samesign ugt i64 %.072, %60
-  br i1 %.not147, label %.lr.ph, label %.preheader133.preheader
+  %.not151 = icmp samesign ugt i64 %.072, %60
+  br i1 %.not151, label %.lr.ph, label %.preheader133.preheader
 
 .lr.ph:                                           ; preds = %48, %.lr.ph
   %61 = phi i64 [ %68, %.lr.ph ], [ %60, %48 ]
-  %.274150 = phi i64 [ %62, %.lr.ph ], [ %.072, %48 ]
-  %.384149 = phi i64 [ %63, %.lr.ph ], [ %.182, %48 ]
-  %.092148 = phi i32 [ %spec.select, %.lr.ph ], [ %56, %48 ]
-  %62 = sub nuw nsw i64 %.274150, %61
-  %63 = add nsw i64 %.384149, 100
-  %64 = icmp sgt i32 %.092148, 299
+  %.274154 = phi i64 [ %62, %.lr.ph ], [ %.072, %48 ]
+  %.384153 = phi i64 [ %63, %.lr.ph ], [ %.182, %48 ]
+  %.092152 = phi i32 [ %spec.select, %.lr.ph ], [ %56, %48 ]
+  %62 = sub nuw nsw i64 %.274154, %61
+  %63 = add nsw i64 %.384153, 100
+  %64 = icmp sgt i32 %.092152, 299
   %spec.select.v = select i1 %64, i32 -300, i32 100
-  %spec.select = add nsw i32 %spec.select.v, %.092148
+  %spec.select = add nsw i32 %spec.select.v, %.092152
   %65 = icmp eq i32 %spec.select, 0
   %66 = icmp sgt i32 %spec.select, 300
   %67 = or i1 %65, %66
@@ -10187,9 +10187,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit9.thread: ; preds 
 .body:                                            ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   %77 = load ptr, ptr %4, align 8, !tbaa !43
   %78 = icmp eq ptr %77, %6
-  br i1 %78, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i8, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit9.thread25
+  br i1 %78, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i8, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit9.thread29
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit9.thread25: ; preds = %.body
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit9.thread29: ; preds = %.body
   %79 = load i64, ptr %6, align 8, !tbaa !50
   %80 = add i64 %79, 1
   call void @_ZdlPvm(ptr noundef %77, i64 noundef %80) #31
@@ -10220,8 +10220,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit9: ; preds = %.bod
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %90
 
-89:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit9.thread25, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i8, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit9.thread
-  %.pn16 = phi { ptr, i32 } [ %76, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit9.thread ], [ %24, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i8 ], [ %24, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit9.thread25 ]
+89:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit9.thread29, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i8, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit9.thread
+  %.pn16 = phi { ptr, i32 } [ %76, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit9.thread ], [ %24, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i8 ], [ %24, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit9.thread29 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @_ZdlPvm(ptr noundef nonnull %5, i64 noundef 168) #31
   br label %90
@@ -28461,7 +28461,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   br i1 %.not.i.i.i10, label %_ZNSt6vectorIPKcSaIS1_EED2Ev.exit11, label %61
 
 61:                                               ; preds = %.body.thread, %.body
-  %.pn19 = phi { ptr, i32 } [ %31, %.body.thread ], [ %60, %.body ]
+  %.pn32 = phi { ptr, i32 } [ %31, %.body.thread ], [ %60, %.body ]
   %62 = phi ptr [ %25, %.body.thread ], [ %.pre, %.body ]
   %63 = load ptr, ptr %28, align 8, !tbaa !609
   %64 = ptrtoint ptr %63 to i64
@@ -28471,7 +28471,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   br label %_ZNSt6vectorIPKcSaIS1_EED2Ev.exit11
 
 _ZNSt6vectorIPKcSaIS1_EED2Ev.exit11:              ; preds = %61, %.body, %58
-  %.pn.pn = phi { ptr, i32 } [ %59, %58 ], [ %60, %.body ], [ %.pn19, %61 ]
+  %.pn.pn = phi { ptr, i32 } [ %59, %58 ], [ %60, %.body ], [ %.pn32, %61 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %73
 
@@ -29985,7 +29985,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   br i1 %.not.i.i.i10, label %_ZNSt6vectorIPKcSaIS1_EED2Ev.exit11, label %61
 
 61:                                               ; preds = %.body.thread, %.body
-  %.pn19 = phi { ptr, i32 } [ %31, %.body.thread ], [ %60, %.body ]
+  %.pn32 = phi { ptr, i32 } [ %31, %.body.thread ], [ %60, %.body ]
   %62 = phi ptr [ %25, %.body.thread ], [ %.pre, %.body ]
   %63 = load ptr, ptr %28, align 8, !tbaa !609
   %64 = ptrtoint ptr %63 to i64
@@ -29995,7 +29995,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   br label %_ZNSt6vectorIPKcSaIS1_EED2Ev.exit11
 
 _ZNSt6vectorIPKcSaIS1_EED2Ev.exit11:              ; preds = %61, %.body, %58
-  %.pn.pn = phi { ptr, i32 } [ %59, %58 ], [ %60, %.body ], [ %.pn19, %61 ]
+  %.pn.pn = phi { ptr, i32 } [ %59, %58 ], [ %60, %.body ], [ %.pn32, %61 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %73
 
@@ -82963,20 +82963,20 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %_ZNSt7__cxx1112basi
   %132 = icmp eq i64 %131, 2018
   %133 = load i8, ptr %53, align 8
   %134 = icmp eq i8 %133, 11
-  %or.cond351 = select i1 %132, i1 %134, i1 false
+  %or.cond407 = select i1 %132, i1 %134, i1 false
   %135 = load i8, ptr %54, align 1
   %136 = icmp eq i8 %135, 4
-  %or.cond353 = select i1 %or.cond351, i1 %136, i1 false
+  %or.cond409 = select i1 %or.cond407, i1 %136, i1 false
   %137 = load i8, ptr %55, align 2
   %138 = icmp eq i8 %137, 2
-  %or.cond355 = select i1 %or.cond353, i1 %138, i1 false
+  %or.cond411 = select i1 %or.cond409, i1 %138, i1 false
   %139 = load i8, ptr %56, align 1
   %140 = icmp eq i8 %139, 0
-  %or.cond357 = select i1 %or.cond355, i1 %140, i1 false
+  %or.cond413 = select i1 %or.cond411, i1 %140, i1 false
   %141 = load i8, ptr %57, align 4
   %142 = icmp eq i8 %141, 0
-  %or.cond359 = select i1 %or.cond357, i1 %142, i1 false
-  br i1 %or.cond359, label %143, label %_ZN4absl13time_internal4cctz6detaileqINS0_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit.thread.i.i
+  %or.cond415 = select i1 %or.cond413, i1 %142, i1 false
+  br i1 %or.cond415, label %143, label %_ZN4absl13time_internal4cctz6detaileqINS0_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit.thread.i.i
 
 143:                                              ; preds = %_ZN7testing15AssertionResultD2Ev.exit
   call void @_ZN7testing16AssertionSuccessEv(ptr dead_on_unwind nonnull writable sret(%"class.testing::AssertionResult") align 8 %11)
@@ -83112,20 +83112,20 @@ _ZN7testing15AssertionResultD2Ev.exit110:         ; preds = %170, %_ZNKSt14defau
   %183 = icmp eq i64 %182, 2018
   %184 = load i8, ptr %59, align 8
   %185 = icmp eq i8 %184, 11
-  %or.cond361 = select i1 %183, i1 %185, i1 false
+  %or.cond417 = select i1 %183, i1 %185, i1 false
   %186 = load i8, ptr %60, align 1
   %187 = icmp eq i8 %186, 4
-  %or.cond363 = select i1 %or.cond361, i1 %187, i1 false
+  %or.cond419 = select i1 %or.cond417, i1 %187, i1 false
   %188 = load i8, ptr %61, align 2
   %189 = icmp eq i8 %188, 1
-  %or.cond365 = select i1 %or.cond363, i1 %189, i1 false
+  %or.cond421 = select i1 %or.cond419, i1 %189, i1 false
   %190 = load i8, ptr %62, align 1
   %191 = icmp eq i8 %190, 0
-  %or.cond367 = select i1 %or.cond365, i1 %191, i1 false
+  %or.cond423 = select i1 %or.cond421, i1 %191, i1 false
   %192 = load i8, ptr %63, align 4
   %193 = icmp eq i8 %192, 0
-  %or.cond369 = select i1 %or.cond367, i1 %193, i1 false
-  br i1 %or.cond369, label %194, label %_ZN4absl13time_internal4cctz6detaileqINS0_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit.thread.i.i115
+  %or.cond425 = select i1 %or.cond423, i1 %193, i1 false
+  br i1 %or.cond425, label %194, label %_ZN4absl13time_internal4cctz6detaileqINS0_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit.thread.i.i115
 
 194:                                              ; preds = %_ZN7testing15AssertionResultD2Ev.exit110
   call void @_ZN7testing16AssertionSuccessEv(ptr dead_on_unwind nonnull writable sret(%"class.testing::AssertionResult") align 8 %15)
@@ -83627,20 +83627,20 @@ _ZN4absl13time_internal4cctz6detaileqINS0_10second_tagES4_EEbRKNS2_10civil_timeI
   %366 = trunc i64 %.fca.1.extract.i.i282 to i8
   %367 = load i8, ptr %59, align 8
   %368 = icmp eq i8 %367, %366
-  %or.cond372 = select i1 %357, i1 %368, i1 false
+  %or.cond428 = select i1 %357, i1 %368, i1 false
   %369 = load i8, ptr %60, align 1
   %370 = icmp eq i8 %369, %359
-  %or.cond374 = select i1 %or.cond372, i1 %370, i1 false
+  %or.cond430 = select i1 %or.cond428, i1 %370, i1 false
   %371 = load i8, ptr %61, align 2
   %372 = icmp eq i8 %371, %361
-  %or.cond376 = select i1 %or.cond374, i1 %372, i1 false
+  %or.cond432 = select i1 %or.cond430, i1 %372, i1 false
   %373 = load i8, ptr %62, align 1
   %374 = icmp eq i8 %373, %363
-  %or.cond378 = select i1 %or.cond376, i1 %374, i1 false
+  %or.cond434 = select i1 %or.cond432, i1 %374, i1 false
   %375 = load i8, ptr %63, align 4
   %376 = icmp eq i8 %375, %365
-  %or.cond380 = select i1 %or.cond378, i1 %376, i1 false
-  br i1 %or.cond380, label %377, label %_ZN4absl13time_internal4cctz6detaileqINS0_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit.thread.i.i173
+  %or.cond436 = select i1 %or.cond434, i1 %376, i1 false
+  br i1 %or.cond436, label %377, label %_ZN4absl13time_internal4cctz6detaileqINS0_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit.thread.i.i173
 
 377:                                              ; preds = %354
   call void @_ZN7testing16AssertionSuccessEv(ptr dead_on_unwind nonnull writable sret(%"class.testing::AssertionResult") align 8 %27)
@@ -83777,20 +83777,20 @@ _ZN4absl13time_internal4cctz6detaileqINS0_10second_tagES4_EEbRKNS2_10civil_timeI
   store i40 249159225867, ptr %.sroa.2.0..sroa_idx.i.i191, align 8
   %416 = icmp eq i64 %339, 1883
   %417 = icmp eq i8 %341, 11
-  %or.cond381 = select i1 %416, i1 %417, i1 false
+  %or.cond437 = select i1 %416, i1 %417, i1 false
   %418 = load i8, ptr %54, align 1
   %419 = icmp eq i8 %418, 18
-  %or.cond383 = select i1 %or.cond381, i1 %419, i1 false
+  %or.cond439 = select i1 %or.cond437, i1 %419, i1 false
   %420 = load i8, ptr %55, align 2
   %421 = icmp eq i8 %420, 12
-  %or.cond385 = select i1 %or.cond383, i1 %421, i1 false
+  %or.cond441 = select i1 %or.cond439, i1 %421, i1 false
   %422 = load i8, ptr %56, align 1
   %423 = icmp eq i8 %422, 3
-  %or.cond387 = select i1 %or.cond385, i1 %423, i1 false
+  %or.cond443 = select i1 %or.cond441, i1 %423, i1 false
   %424 = load i8, ptr %57, align 4
   %425 = icmp eq i8 %424, 58
-  %or.cond389 = select i1 %or.cond387, i1 %425, i1 false
-  br i1 %or.cond389, label %426, label %_ZN4absl13time_internal4cctz6detaileqINS0_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit.thread.i.i193
+  %or.cond445 = select i1 %or.cond443, i1 %425, i1 false
+  br i1 %or.cond445, label %426, label %_ZN4absl13time_internal4cctz6detaileqINS0_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit.thread.i.i193
 
 426:                                              ; preds = %_ZN4absl13time_internal4cctz6detaileqINS0_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit.thread
   call void @_ZN7testing16AssertionSuccessEv(ptr dead_on_unwind nonnull writable sret(%"class.testing::AssertionResult") align 8 %31)
@@ -83926,20 +83926,20 @@ _ZN7testing15AssertionResultD2Ev.exit208:         ; preds = %453, %_ZNKSt14defau
   %466 = icmp eq i64 %465, 1883
   %467 = load i8, ptr %59, align 8
   %468 = icmp eq i8 %467, 11
-  %or.cond391 = select i1 %466, i1 %468, i1 false
+  %or.cond447 = select i1 %466, i1 %468, i1 false
   %469 = load i8, ptr %60, align 1
   %470 = icmp eq i8 %469, 18
-  %or.cond393 = select i1 %or.cond391, i1 %470, i1 false
+  %or.cond449 = select i1 %or.cond447, i1 %470, i1 false
   %471 = load i8, ptr %61, align 2
   %472 = icmp eq i8 %471, 12
-  %or.cond395 = select i1 %or.cond393, i1 %472, i1 false
+  %or.cond451 = select i1 %or.cond449, i1 %472, i1 false
   %473 = load i8, ptr %62, align 1
   %474 = icmp eq i8 %473, 0
-  %or.cond397 = select i1 %or.cond395, i1 %474, i1 false
+  %or.cond453 = select i1 %or.cond451, i1 %474, i1 false
   %475 = load i8, ptr %63, align 4
   %476 = icmp eq i8 %475, 0
-  %or.cond399 = select i1 %or.cond397, i1 %476, i1 false
-  br i1 %or.cond399, label %477, label %_ZN4absl13time_internal4cctz6detaileqINS0_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit.thread.i.i213
+  %or.cond455 = select i1 %or.cond453, i1 %476, i1 false
+  br i1 %or.cond455, label %477, label %_ZN4absl13time_internal4cctz6detaileqINS0_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit.thread.i.i213
 
 477:                                              ; preds = %_ZN7testing15AssertionResultD2Ev.exit208
   call void @_ZN7testing16AssertionSuccessEv(ptr dead_on_unwind nonnull writable sret(%"class.testing::AssertionResult") align 8 %35)
@@ -84430,17 +84430,17 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %_ZNSt7__cxx1112basi
   %or.cond = select i1 %120, i1 %122, i1 false
   %123 = load i8, ptr %42, align 1
   %124 = icmp eq i8 %123, 11
-  %or.cond194 = select i1 %or.cond, i1 %124, i1 false
+  %or.cond232 = select i1 %or.cond, i1 %124, i1 false
   %125 = load i8, ptr %43, align 2
   %126 = icmp eq i8 %125, 2
-  %or.cond196 = select i1 %or.cond194, i1 %126, i1 false
+  %or.cond234 = select i1 %or.cond232, i1 %126, i1 false
   %127 = load i8, ptr %44, align 1
   %128 = icmp eq i8 %127, 0
-  %or.cond198 = select i1 %or.cond196, i1 %128, i1 false
+  %or.cond236 = select i1 %or.cond234, i1 %128, i1 false
   %129 = load i8, ptr %45, align 4
   %130 = icmp eq i8 %129, 0
-  %or.cond200 = select i1 %or.cond198, i1 %130, i1 false
-  br i1 %or.cond200, label %131, label %_ZN4absl13time_internal4cctz6detaileqINS0_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit.thread.i.i
+  %or.cond238 = select i1 %or.cond236, i1 %130, i1 false
+  br i1 %or.cond238, label %131, label %_ZN4absl13time_internal4cctz6detaileqINS0_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit.thread.i.i
 
 131:                                              ; preds = %_ZN7testing15AssertionResultD2Ev.exit
   call void @_ZN7testing16AssertionSuccessEv(ptr dead_on_unwind nonnull writable sret(%"class.testing::AssertionResult") align 8 %11)
@@ -84576,20 +84576,20 @@ _ZN7testing15AssertionResultD2Ev.exit95:          ; preds = %158, %_ZNKSt14defau
   %171 = icmp eq i64 %170, 2018
   %172 = load i8, ptr %47, align 8
   %173 = icmp eq i8 %172, 3
-  %or.cond202 = select i1 %171, i1 %173, i1 false
+  %or.cond240 = select i1 %171, i1 %173, i1 false
   %174 = load i8, ptr %48, align 1
   %175 = icmp eq i8 %174, 11
-  %or.cond204 = select i1 %or.cond202, i1 %175, i1 false
+  %or.cond242 = select i1 %or.cond240, i1 %175, i1 false
   %176 = load i8, ptr %49, align 2
   %177 = icmp eq i8 %176, 3
-  %or.cond206 = select i1 %or.cond204, i1 %177, i1 false
+  %or.cond244 = select i1 %or.cond242, i1 %177, i1 false
   %178 = load i8, ptr %50, align 1
   %179 = icmp eq i8 %178, 0
-  %or.cond208 = select i1 %or.cond206, i1 %179, i1 false
+  %or.cond246 = select i1 %or.cond244, i1 %179, i1 false
   %180 = load i8, ptr %51, align 4
   %181 = icmp eq i8 %180, 0
-  %or.cond210 = select i1 %or.cond208, i1 %181, i1 false
-  br i1 %or.cond210, label %182, label %_ZN4absl13time_internal4cctz6detaileqINS0_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit.thread.i.i100
+  %or.cond248 = select i1 %or.cond246, i1 %181, i1 false
+  br i1 %or.cond248, label %182, label %_ZN4absl13time_internal4cctz6detaileqINS0_10second_tagES4_EEbRKNS2_10civil_timeIT_EERKNS5_IT0_EE.exit.thread.i.i100
 
 182:                                              ; preds = %_ZN7testing15AssertionResultD2Ev.exit95
   call void @_ZN7testing16AssertionSuccessEv(ptr dead_on_unwind nonnull writable sret(%"class.testing::AssertionResult") align 8 %15)

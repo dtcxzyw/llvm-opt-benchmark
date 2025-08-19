@@ -555,18 +555,18 @@ _init_l_panic___at_Lean_Compiler_LCNF_getOtherDeclType___spec__1___closed__3.exi
   unreachable
 
 .sink.split:                                      ; preds = %_init_l_panic___at_Lean_Compiler_LCNF_getOtherDeclType___spec__1___closed__3.exit, %3
-  %.sink17 = phi ptr [ %4, %3 ], [ %49, %_init_l_panic___at_Lean_Compiler_LCNF_getOtherDeclType___spec__1___closed__3.exit ]
-  %52 = getelementptr inbounds nuw i8, ptr %.sink17, i64 4
-  store i32 1, ptr %.sink17, align 4, !tbaa !8
+  %.sink23 = phi ptr [ %4, %3 ], [ %49, %_init_l_panic___at_Lean_Compiler_LCNF_getOtherDeclType___spec__1___closed__3.exit ]
+  %52 = getelementptr inbounds nuw i8, ptr %.sink23, i64 4
+  store i32 1, ptr %.sink23, align 4, !tbaa !8
   store i32 131096, ptr %52, align 4
-  %53 = getelementptr inbounds nuw i8, ptr %.sink17, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %.sink23, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %53, align 8, !tbaa !4
-  %54 = getelementptr inbounds nuw i8, ptr %.sink17, i64 16
+  %54 = getelementptr inbounds nuw i8, ptr %.sink23, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %54, align 8, !tbaa !4
   br label %55
 
 55:                                               ; preds = %.sink.split, %lean_dec_ref.exit, %7
-  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit ], [ %.sink17, %.sink.split ]
+  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit ], [ %.sink23, %.sink.split ]
   ret ptr %.0
 }
 

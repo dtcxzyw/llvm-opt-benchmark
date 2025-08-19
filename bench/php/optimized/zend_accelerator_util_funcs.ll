@@ -1242,7 +1242,7 @@ _zend_accel_class_hash_copy.exit:                 ; preds = %._crit_edge, %160, 
   %246 = load i32, ptr %245, align 4, !tbaa !156
   %247 = and i32 %246, 8
   %.not75.i = icmp eq i32 %247, 0
-  br i1 %.not75.i, label %248, label %.thread93.i
+  br i1 %.not75.i, label %248, label %.thread98.i
 
 248:                                              ; preds = %243
   %249 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 464), align 8, !tbaa !162
@@ -1254,22 +1254,22 @@ _zend_accel_class_hash_copy.exit:                 ; preds = %._crit_edge, %160, 
 
 zend_hash_find_ex_ptr.exit82.i:                   ; preds = %248
   %253 = load ptr, ptr %252, align 8, !tbaa !34, !nonnull !146, !noundef !146
-  br label %.thread93.i
+  br label %.thread98.i
 
 254:                                              ; preds = %248
   %.pre.i = load i32, ptr %245, align 4, !tbaa !156
   %.pre92.i = and i32 %.pre.i, 8
   %255 = icmp eq i32 %.pre92.i, 0
-  br i1 %255, label %.thread.i, label %.thread93.i
+  br i1 %255, label %.thread.i, label %.thread98.i
 
-.thread93.i:                                      ; preds = %254, %zend_hash_find_ex_ptr.exit82.i, %243
+.thread98.i:                                      ; preds = %254, %zend_hash_find_ex_ptr.exit82.i, %243
   %256 = phi ptr [ null, %254 ], [ %253, %zend_hash_find_ex_ptr.exit82.i ], [ null, %243 ]
   %257 = load ptr, ptr %234, align 8, !tbaa !45
   %258 = tail call ptr @zend_try_early_bind(ptr noundef nonnull %244, ptr noundef %256, ptr noundef %257, ptr noundef nonnull %242) #12
   %.not78.i = icmp eq ptr %258, null
   br i1 %.not78.i, label %.thread.i, label %259
 
-259:                                              ; preds = %.thread93.i
+259:                                              ; preds = %.thread98.i
   %260 = getelementptr inbounds nuw i8, ptr %234, i64 24
   %261 = load i32, ptr %260, align 8, !tbaa !79
   %.not79.i = icmp eq i32 %261, -1
@@ -1281,7 +1281,7 @@ zend_hash_find_ex_ptr.exit82.i:                   ; preds = %248
   store ptr %258, ptr %264, align 8, !tbaa !88
   br label %.thread.i
 
-.thread.i:                                        ; preds = %262, %259, %.thread93.i, %254, %238, %232
+.thread.i:                                        ; preds = %262, %259, %.thread98.i, %254, %238, %232
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %265 = load i32, ptr %213, align 8, !tbaa !43
   %266 = zext i32 %265 to i64

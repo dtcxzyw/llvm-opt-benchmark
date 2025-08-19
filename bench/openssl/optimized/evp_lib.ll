@@ -238,11 +238,11 @@ EVP_CIPHER_get_mode.exit:                         ; preds = %EVP_CIPHER_get_flag
   br i1 %33, label %.thread.thread34.sink.split, label %.thread.thread34
 
 .thread.thread34.sink.split:                      ; preds = %.thread, %22, %6, %3, %31, %25, %EVP_CIPHER_get_mode.exit, %EVP_CIPHER_get_mode.exit, %EVP_CIPHER_get_mode.exit
-  %.sink36 = phi i32 [ 213, %EVP_CIPHER_get_mode.exit ], [ 213, %EVP_CIPHER_get_mode.exit ], [ 213, %EVP_CIPHER_get_mode.exit ], [ 213, %25 ], [ 213, %31 ], [ 215, %3 ], [ 215, %6 ], [ 215, %22 ], [ 215, %.thread ]
+  %.sink39 = phi i32 [ 213, %EVP_CIPHER_get_mode.exit ], [ 213, %EVP_CIPHER_get_mode.exit ], [ 213, %EVP_CIPHER_get_mode.exit ], [ 213, %25 ], [ 213, %31 ], [ 215, %3 ], [ 215, %6 ], [ 215, %22 ], [ 215, %.thread ]
   %.sink = phi i32 [ 107, %EVP_CIPHER_get_mode.exit ], [ 107, %EVP_CIPHER_get_mode.exit ], [ 107, %EVP_CIPHER_get_mode.exit ], [ 107, %25 ], [ 107, %31 ], [ 122, %3 ], [ 122, %6 ], [ 122, %22 ], [ 122, %.thread ]
   %.026.ph = phi i32 [ -2, %EVP_CIPHER_get_mode.exit ], [ -2, %EVP_CIPHER_get_mode.exit ], [ -2, %EVP_CIPHER_get_mode.exit ], [ -2, %25 ], [ -2, %31 ], [ -1, %3 ], [ -1, %6 ], [ -1, %22 ], [ %.025, %.thread ]
   tail call void @ERR_new() #13
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str.1, i32 noundef %.sink36, ptr noundef nonnull @__func__.evp_cipher_asn1_to_param_ex) #13
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str.1, i32 noundef %.sink39, ptr noundef nonnull @__func__.evp_cipher_asn1_to_param_ex) #13
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef %.sink, ptr noundef null) #13
   br label %.thread.thread34
 

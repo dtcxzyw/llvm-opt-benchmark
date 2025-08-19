@@ -712,13 +712,13 @@ for.end:                                          ; preds = %_ZN6hermes2vm15Hand
   br i1 %19, label %if.then.i.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %if.end22, %for.end
-  %callSiteIndex.0.lcssa42 = phi double [ %18, %for.end ], [ 0.000000e+00, %if.end22 ]
+  %callSiteIndex.0.lcssa44 = phi double [ %18, %for.end ], [ 0.000000e+00, %if.end22 ]
   %20 = phi ptr [ %.pre, %for.end ], [ %gcScope, %if.end22 ]
   %21 = phi ptr [ %.pre38, %for.end ], [ %inlineStorage_.i, %if.end22 ]
   %next_.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %20, i64 192
   %incdec.ptr.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %21, i64 8
   store ptr %incdec.ptr.i.i.i.i.i.i.i, ptr %next_.i.i.i.i.i.i.i.i, align 8
-  store double %callSiteIndex.0.lcssa42, ptr %21, align 8
+  store double %callSiteIndex.0.lcssa44, ptr %21, align 8
   br label %_ZN6hermes2vm7JSArray17setLengthPropertyENS0_6HandleIS1_EERNS0_7RuntimeEjNS0_11PropOpFlagsE.exit
 
 if.end.i.i.i.i.i.i.i:                             ; preds = %for.end
@@ -1355,7 +1355,7 @@ if.end120:                                        ; preds = %_ZN4llvh12DenseMapB
   br label %if.end128
 
 if.end128:                                        ; preds = %if.end120, %if.then107
-  %tobool.i297555 = phi i1 [ true, %if.then107 ], [ false, %if.end120 ]
+  %tobool.i297564 = phi i1 [ true, %if.then107 ], [ false, %if.end120 ]
   %lineNo.0 = phi i32 [ %65, %if.then107 ], [ %add125, %if.end120 ]
   %columnNo.0 = phi i32 [ %66, %if.then107 ], [ %add127, %if.end120 ]
   %84 = load i32, ptr %Capacity.i.i.i220, align 4
@@ -1381,7 +1381,7 @@ _ZN6hermes2vm12SmallXStringIDsLj32EE6appendEPKDs.exit325: ; preds = %if.end.i.th
   %.pre.i.i319 = load i32, ptr %Size.i.i.i222, align 8
   %conv.i12.i.i320 = add i32 %.pre.i.i319, 2
   store i32 %conv.i12.i.i320, ptr %Size.i.i.i222, align 8
-  br i1 %tobool.i297555, label %if.end133, label %while.cond.i.i326.preheader
+  br i1 %tobool.i297564, label %if.end133, label %while.cond.i.i326.preheader
 
 while.cond.i.i326.preheader:                      ; preds = %_ZN6hermes2vm12SmallXStringIDsLj32EE6appendEPKDs.exit325
   %87 = load i32, ptr %Capacity.i.i.i220, align 4
@@ -1701,10 +1701,10 @@ _ZN4llvh23SmallVectorTemplateBaseIDsLb1EE9push_backERKDs.exit501: ; preds = %_ZN
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body.i.i.i.i.i.i.i.i.i.i186, %_ZN4llvh23SmallVectorTemplateBaseIDsLb1EE9push_backERKDs.exit501, %_ZN6hermes2vm12SmallXStringIDsLj32EE6appendEPKDs.exit291
-  %.sink559 = phi i32 [ 1, %_ZN4llvh23SmallVectorTemplateBaseIDsLb1EE9push_backERKDs.exit501 ], [ 9, %_ZN6hermes2vm12SmallXStringIDsLj32EE6appendEPKDs.exit291 ], [ 7, %for.body.i.i.i.i.i.i.i.i.i.i186 ]
+  %.sink568 = phi i32 [ 1, %_ZN4llvh23SmallVectorTemplateBaseIDsLb1EE9push_backERKDs.exit501 ], [ 9, %_ZN6hermes2vm12SmallXStringIDsLj32EE6appendEPKDs.exit291 ], [ 7, %for.body.i.i.i.i.i.i.i.i.i.i186 ]
   %index.2 = phi i64 [ %index.1, %_ZN4llvh23SmallVectorTemplateBaseIDsLb1EE9push_backERKDs.exit501 ], [ %index.1, %_ZN6hermes2vm12SmallXStringIDsLj32EE6appendEPKDs.exit291 ], [ 50, %for.body.i.i.i.i.i.i.i.i.i.i186 ]
   %137 = load i32, ptr %Size.i.i.i222, align 8
-  %add.i500 = add i32 %137, %.sink559
+  %add.i500 = add i32 %137, %.sink568
   store i32 %add.i500, ptr %Size.i.i.i222, align 8
   %inc = add i64 %index.2, 1
   %cmp = icmp ult i64 %inc, %sub

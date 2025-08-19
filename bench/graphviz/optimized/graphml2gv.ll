@@ -240,9 +240,9 @@ initargs.exit:                                    ; preds = %47, %49
   store i32 %74, ptr @getFile.cnt, align 4, !tbaa !9
   %75 = call noalias ptr @fopen(ptr noundef nonnull %72, ptr noundef nonnull @.str.7)
   %.not6.i = icmp eq ptr %75, null
-  br i1 %.not6.i, label %76, label %getFile.exit.thread64
+  br i1 %.not6.i, label %76, label %getFile.exit.thread79
 
-getFile.exit.thread64:                            ; preds = %.lr.ph.i
+getFile.exit.thread79:                            ; preds = %.lr.ph.i
   store ptr %75, ptr @getFile.savef, align 8, !tbaa !11
   br label %.preheader.preheader
 
@@ -273,8 +273,8 @@ getFile.exit:                                     ; preds = %58
   %.not = icmp eq ptr %90, null
   br i1 %.not, label %.loopexit34, label %.preheader.preheader
 
-.preheader.preheader:                             ; preds = %getFile.exit.thread64, %getFile.exit
-  %.0.i67 = phi ptr [ %75, %getFile.exit.thread64 ], [ %90, %getFile.exit ]
+.preheader.preheader:                             ; preds = %getFile.exit.thread79, %getFile.exit
+  %.0.i82 = phi ptr [ %75, %getFile.exit.thread79 ], [ %90, %getFile.exit ]
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %167
@@ -419,7 +419,7 @@ nameOf.exit:                                      ; preds = %.preheader, %agxbcl
   br label %134
 
 134:                                              ; preds = %149, %nameOf.exit
-  %135 = call i64 @fread(ptr noundef nonnull %3, i64 noundef 1, i64 noundef 8192, ptr noundef nonnull %.0.i67)
+  %135 = call i64 @fread(ptr noundef nonnull %3, i64 noundef 1, i64 noundef 8192, ptr noundef nonnull %.0.i82)
   %136 = icmp eq i64 %135, 0
   br i1 %136, label %.thread.i, label %137
 

@@ -1057,7 +1057,7 @@ indent.exit:                                      ; preds = %.lr.ph.i, %8
 
 17:                                               ; preds = %indent.exit, %2
   %.not = icmp eq i32 %1, 0
-  br i1 %.not, label %.loopexit.thread66, label %18
+  br i1 %.not, label %.loopexit.thread69, label %18
 
 18:                                               ; preds = %17
   %19 = tail call ptr @agfstnode(ptr noundef nonnull %0) #15
@@ -1159,19 +1159,19 @@ indent.exit50:                                    ; preds = %52
   %.not4656 = icmp slt i32 %73, 1
   br i1 %.not4656, label %._crit_edge, label %.lr.ph58.split.preheader
 
-.loopexit.thread66:                               ; preds = %17
+.loopexit.thread69:                               ; preds = %17
   %74 = load ptr, ptr %3, align 8, !tbaa !3
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 236
   %76 = load i32, ptr %75, align 4, !tbaa !61
-  %.not465667 = icmp slt i32 %76, 1
-  br i1 %.not465667, label %._crit_edge, label %.lr.ph58.split.us
+  %.not465670 = icmp slt i32 %76, 1
+  br i1 %.not465670, label %._crit_edge, label %.lr.ph58.split.us
 
 .loopexit.thread:                                 ; preds = %18
   %77 = load ptr, ptr %3, align 8, !tbaa !3
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 236
   %79 = load i32, ptr %78, align 4, !tbaa !61
-  %.not465665 = icmp slt i32 %79, 1
-  br i1 %.not465665, label %._crit_edge, label %.lr.ph58.split.preheader
+  %.not465668 = icmp slt i32 %79, 1
+  br i1 %.not465668, label %._crit_edge, label %.lr.ph58.split.preheader
 
 .lr.ph58.split.preheader:                         ; preds = %.loopexit, %.loopexit.thread
   %80 = phi ptr [ %77, %.loopexit.thread ], [ %71, %.loopexit ]
@@ -1179,9 +1179,9 @@ indent.exit50:                                    ; preds = %52
   %82 = add nsw i32 %1, 1
   br label %.lr.ph58.split
 
-.lr.ph58.split.us:                                ; preds = %.loopexit.thread66, %.lr.ph58.split.us
-  %indvars.iv62 = phi i64 [ %indvars.iv.next63, %.lr.ph58.split.us ], [ 1, %.loopexit.thread66 ]
-  %83 = phi ptr [ %88, %.lr.ph58.split.us ], [ %74, %.loopexit.thread66 ]
+.lr.ph58.split.us:                                ; preds = %.loopexit.thread69, %.lr.ph58.split.us
+  %indvars.iv62 = phi i64 [ %indvars.iv.next63, %.lr.ph58.split.us ], [ 1, %.loopexit.thread69 ]
+  %83 = phi ptr [ %88, %.lr.ph58.split.us ], [ %74, %.loopexit.thread69 ]
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 240
   %85 = load ptr, ptr %84, align 8, !tbaa !64
   %86 = getelementptr inbounds nuw ptr, ptr %85, i64 %indvars.iv62
@@ -1257,7 +1257,7 @@ indent.exit53:                                    ; preds = %.lr.ph.i51, %106
   %.not46.not = icmp slt i64 %indvars.iv, %120
   br i1 %.not46.not, label %.lr.ph58.split, label %._crit_edge, !llvm.loop !99
 
-._crit_edge:                                      ; preds = %114, %.lr.ph58.split.us, %.loopexit.thread66, %.loopexit.thread, %.loopexit
+._crit_edge:                                      ; preds = %114, %.lr.ph58.split.us, %.loopexit.thread69, %.loopexit.thread, %.loopexit
   ret void
 }
 

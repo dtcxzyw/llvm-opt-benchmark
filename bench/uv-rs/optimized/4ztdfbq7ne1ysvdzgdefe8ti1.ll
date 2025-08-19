@@ -2635,10 +2635,10 @@ define internal fastcc noundef zeroext i1 @"_ZN82_$LT$uv_pypi_types..conflicts..
   br i1 %trunc, label %15, label %9
 
 "_ZN64_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h669109e18a59e9a8E.exit.sink.split": ; preds = %16, %10
-  %.sink6 = phi i64 [ %12, %10 ], [ %18, %16 ]
+  %.sink10 = phi i64 [ %12, %10 ], [ %18, %16 ]
   %6 = getelementptr inbounds nuw i8, ptr %.8.val3, i64 16
   %7 = getelementptr inbounds nuw i8, ptr %.8.val, i64 16
-  %bcmp.i.i7 = tail call i32 @bcmp(ptr nonnull readonly align 1 %7, ptr nonnull readonly align 1 %6, i64 %.sink6)
+  %bcmp.i.i7 = tail call i32 @bcmp(ptr nonnull readonly align 1 %7, ptr nonnull readonly align 1 %6, i64 %.sink10)
   %8 = icmp eq i32 %bcmp.i.i7, 0
   br label %"_ZN64_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h669109e18a59e9a8E.exit"
 
@@ -7048,7 +7048,7 @@ define void @"_ZN158_$LT$uv_distribution_types..requirement..RequirementSourceWi
     i64 4, label %71
   ]
 
-default.unreachable119:                           ; preds = %223
+default.unreachable134:                           ; preds = %223
   unreachable
 
 42:                                               ; preds = %92, %2
@@ -7532,7 +7532,7 @@ _ZN15form_urlencoded6string17ha69f486c9e195705E.llvm.16679439562553428002.exit.i
 
 223:                                              ; preds = %.thread113
   %224 = load i64, ptr %222, align 8, !range !60, !noundef !4
-  switch i64 %224, label %default.unreachable119 [
+  switch i64 %224, label %default.unreachable134 [
     i64 0, label %225
     i64 1, label %226
     i64 2, label %300
@@ -8334,8 +8334,8 @@ common.resume:                                    ; preds = %.invoke, %"_ZN4core
   br label %.invoke
 
 .invoke:                                          ; preds = %"_ZN4core3ptr68drop_in_place$LT$uv_pep440..version_specifier..VersionSpecifiers$GT$17h651d4bebcf7ad3abE.exit", %525, %526
-  %.sink120 = phi i64 [ 96, %525 ], [ 176, %526 ], [ 8, %"_ZN4core3ptr68drop_in_place$LT$uv_pep440..version_specifier..VersionSpecifiers$GT$17h651d4bebcf7ad3abE.exit" ]
-  %527 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink120
+  %.sink135 = phi i64 [ 96, %525 ], [ 176, %526 ], [ 8, %"_ZN4core3ptr68drop_in_place$LT$uv_pep440..version_specifier..VersionSpecifiers$GT$17h651d4bebcf7ad3abE.exit" ]
+  %527 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink135
   invoke void @"_ZN4core3ptr57drop_in_place$LT$uv_pep508..verbatim_url..VerbatimUrl$GT$17h3602600f0d85d021E"(ptr noalias noundef nonnull align 8 dereferenceable(96) %527) #27
           to label %common.resume unwind label %97
 }
@@ -9669,12 +9669,12 @@ _ZN4core3ops8function6FnOnce9call_once17h40391de32cdb0542E.exit: ; preds = %283
   br i1 %.sroa.0243.4, label %621, label %"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$uv_fs..path..PortablePathBuf$GT$$GT$17h20534932f2267123E.exit537"
 
 .thread:                                          ; preds = %572, %576, %604, %608
-  %lpad.thr_comm811 = landingpad { ptr, i32 }
+  %lpad.thr_comm836 = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$uv_fs..path..PortablePathBuf$GT$$GT$17h20534932f2267123E.exit537"
 
 463:                                              ; preds = %426
-  %lpad.thr_comm.split-lp812 = landingpad { ptr, i32 }
+  %lpad.thr_comm.split-lp837 = landingpad { ptr, i32 }
           cleanup
   br label %621
 
@@ -10128,17 +10128,17 @@ _ZN4core3ops8function6FnOnce9call_once17h40391de32cdb0542E.exit507: ; preds = %5
   br label %"_ZN4core3ptr61drop_in_place$LT$alloc..boxed..Box$LT$std..path..Path$GT$$GT$17h8d13447eba32b3caE.exit547"
 
 621:                                              ; preds = %463, %462
-  %.pn395810 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp812, %463 ], [ %.pn392.pn, %462 ]
+  %.pn395835 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp837, %463 ], [ %.pn392.pn, %462 ]
   invoke void @"_ZN4core3ptr29drop_in_place$LT$url..Url$GT$17h10990ebf33999bddE"(ptr noalias noundef nonnull align 8 dereferenceable(88) %61) #27
           to label %622 unwind label %259
 
 "_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$uv_fs..path..PortablePathBuf$GT$$GT$17h20534932f2267123E.exit537": ; preds = %.thread, %622, %625, %462
-  %.pn395.pn758 = phi { ptr, i32 } [ %.pn392.pn, %462 ], [ %.pn395.pn.ph, %625 ], [ %.pn395.pn.ph, %622 ], [ %lpad.thr_comm811, %.thread ]
+  %.pn395.pn758 = phi { ptr, i32 } [ %.pn392.pn, %462 ], [ %.pn395.pn.ph, %625 ], [ %.pn395.pn.ph, %622 ], [ %lpad.thr_comm836, %.thread ]
   invoke void @"_ZN4core3ptr29drop_in_place$LT$url..Url$GT$17h10990ebf33999bddE"(ptr noalias noundef nonnull align 8 dereferenceable(88) %63) #27
           to label %"_ZN4core3ptr61drop_in_place$LT$alloc..boxed..Box$LT$std..path..Path$GT$$GT$17h8d13447eba32b3caE.exit" unwind label %259
 
 622:                                              ; preds = %621, %424
-  %.pn395.pn.ph = phi { ptr, i32 } [ %425, %424 ], [ %.pn395810, %621 ]
+  %.pn395.pn.ph = phi { ptr, i32 } [ %425, %424 ], [ %.pn395835, %621 ]
   %623 = load ptr, ptr %62, align 8, !alias.scope !1500, !noundef !4
   %624 = icmp eq ptr %623, null
   br i1 %624, label %"_ZN4core3ptr77drop_in_place$LT$core..option..Option$LT$uv_fs..path..PortablePathBuf$GT$$GT$17h20534932f2267123E.exit537", label %625

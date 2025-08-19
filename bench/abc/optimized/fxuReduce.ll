@@ -153,12 +153,12 @@ Fxu_CountPairDiffs.exit:                          ; preds = %.split.i, %.split.u
 ._crit_edge:                                      ; preds = %59
   %63 = icmp eq i32 %.1109, -1
   %64 = shl nsw i32 %.1109, 1
-  %spec.select220 = select i1 %63, i32 0, i32 %64
+  %spec.select234 = select i1 %63, i32 0, i32 %64
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %._crit_edge, %4
   %65 = phi i32 [ %8, %4 ], [ %60, %._crit_edge ]
-  %66 = phi i32 [ 0, %4 ], [ %spec.select220, %._crit_edge ]
+  %66 = phi i32 [ 0, %4 ], [ %spec.select234, %._crit_edge ]
   %67 = sext i32 %66 to i64
   %68 = tail call noalias ptr @calloc(i64 noundef %67, i64 noundef 4) #10
   %69 = icmp sgt i32 %2, 0

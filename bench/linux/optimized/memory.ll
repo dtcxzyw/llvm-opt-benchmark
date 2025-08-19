@@ -6334,25 +6334,25 @@ define internal fastcc i32 @__apply_to_page_range(ptr noundef %0, i64 noundef %1
   call void asm sideeffect "714: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 714b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 714) #18, !srcloc !126
   call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 2694, i32 2307, i64 12) #18, !srcloc !127
   call void asm sideeffect "715: nop\0A\09.pushsection .discard.instr_end\0A\09.long 715b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 715) #18, !srcloc !128
-  br i1 %5, label %.thread58, label %.loopexit39
+  br i1 %5, label %.thread75, label %.loopexit39
 
 154:                                              ; preds = %147, %146
   %155 = call i32 @pud_huge(i64 %138) #18
   %156 = icmp eq i32 %155, 0
   br i1 %156, label %161, label %160, !prof !13
 
-.thread58:                                        ; preds = %153
+.thread75:                                        ; preds = %153
   call void @pud_clear_bad(ptr noundef %131) #18
   %.pre53 = load i64, ptr %131, align 8
   %157 = call i32 @pud_huge(i64 %.pre53) #18
   %158 = icmp eq i32 %157, 0
-  br i1 %158, label %.thread59, label %160, !prof !13
+  br i1 %158, label %.thread76, label %160, !prof !13
 
-.thread59:                                        ; preds = %.thread58
+.thread76:                                        ; preds = %.thread75
   %159 = load i64, ptr %131, align 8
   br label %163
 
-160:                                              ; preds = %.thread58, %154
+160:                                              ; preds = %.thread75, %154
   call void asm sideeffect "707: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 707b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 707) #18, !srcloc !129
   call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 2643, i32 0, i64 12) #18, !srcloc !130
   unreachable
@@ -6361,8 +6361,8 @@ define internal fastcc i32 @__apply_to_page_range(ptr noundef %0, i64 noundef %1
   %162 = load i64, ptr %131, align 8
   br i1 %5, label %163, label %183
 
-163:                                              ; preds = %.thread59, %161
-  %164 = phi i64 [ %159, %.thread59 ], [ %162, %161 ]
+163:                                              ; preds = %.thread76, %161
+  %164 = phi i64 [ %159, %.thread76 ], [ %162, %161 ]
   %165 = and i64 %164, -97
   %166 = icmp eq i64 %165, 0
   br i1 %166, label %167, label %170, !prof !23
@@ -6530,19 +6530,19 @@ define internal fastcc i32 @__apply_to_page_range(ptr noundef %0, i64 noundef %1
 263:                                              ; preds = %261, %249
   %264 = phi ptr [ %260, %249 ], [ %262, %261 ]
   %265 = icmp eq ptr %264, null
-  br i1 %265, label %.thread27, label %.thread60
+  br i1 %265, label %.thread27, label %.thread77
 
 266:                                              ; preds = %245
   br i1 %22, label %.loopexit, label %.preheader
 
-.thread60:                                        ; preds = %263
+.thread77:                                        ; preds = %263
   br i1 %22, label %.loopexit, label %.preheader.split.preheader
 
 .preheader:                                       ; preds = %266
   br i1 %5, label %.preheader.split.us, label %.preheader.split.preheader
 
-.preheader.split.preheader:                       ; preds = %.thread60, %.preheader
-  %.ph76 = phi ptr [ %264, %.thread60 ], [ %246, %.preheader ]
+.preheader.split.preheader:                       ; preds = %.thread77, %.preheader
+  %.ph93 = phi ptr [ %264, %.thread77 ], [ %246, %.preheader ]
   br label %.preheader.split
 
 .preheader.split.us:                              ; preds = %.preheader, %271
@@ -6559,7 +6559,7 @@ define internal fastcc i32 @__apply_to_page_range(ptr noundef %0, i64 noundef %1
   br i1 %274, label %.loopexit, label %.preheader.split.us, !llvm.loop !137
 
 .preheader.split:                                 ; preds = %.preheader.split.preheader, %284
-  %275 = phi ptr [ %285, %284 ], [ %.ph76, %.preheader.split.preheader ]
+  %275 = phi ptr [ %285, %284 ], [ %.ph93, %.preheader.split.preheader ]
   %276 = phi i64 [ %286, %284 ], [ %199, %.preheader.split.preheader ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %277 = load volatile i64, ptr %275, align 8
@@ -6581,8 +6581,8 @@ define internal fastcc i32 @__apply_to_page_range(ptr noundef %0, i64 noundef %1
   %287 = icmp eq i64 %286, %204
   br i1 %287, label %.loopexit, label %.preheader.split, !llvm.loop !137
 
-.loopexit:                                        ; preds = %280, %284, %271, %.preheader.split.us, %.thread60, %266
-  %288 = phi i32 [ 0, %266 ], [ 0, %.thread60 ], [ 0, %271 ], [ %269, %.preheader.split.us ], [ 0, %284 ], [ %282, %280 ]
+.loopexit:                                        ; preds = %280, %284, %271, %.preheader.split.us, %.thread77, %266
+  %288 = phi i32 [ 0, %266 ], [ 0, %.thread77 ], [ 0, %271 ], [ %269, %.preheader.split.us ], [ 0, %284 ], [ %282, %280 ]
   br i1 %21, label %291, label %289
 
 289:                                              ; preds = %.loopexit
@@ -7443,8 +7443,8 @@ define dso_local i32 @do_swap_page(ptr noundef initializes((88, 96)) %0) local_u
   br i1 %407, label %.thread28, label %408
 
 408:                                              ; preds = %.thread, %406
-  %.ph2747 = phi i8 [ %104, %.thread ], [ %123, %406 ]
-  %.ph2646 = phi i32 [ %116, %.thread ], [ %136, %406 ]
+  %.ph2759 = phi i8 [ %104, %.thread ], [ %123, %406 ]
+  %.ph2658 = phi i32 [ %116, %.thread ], [ %136, %406 ]
   %409 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %410 = load ptr, ptr %409, align 8
   tail call void @_raw_spin_unlock(ptr noundef %410) #18
@@ -7452,8 +7452,8 @@ define dso_local i32 @do_swap_page(ptr noundef initializes((88, 96)) %0) local_u
   br label %.thread28
 
 .thread28:                                        ; preds = %.thread24, %408, %406, %400
-  %411 = phi i32 [ %.ph2646, %408 ], [ %136, %406 ], [ %405, %400 ], [ 0, %.thread24 ]
-  %412 = phi i8 [ %.ph2747, %408 ], [ %123, %406 ], [ %123, %400 ], [ %104, %.thread24 ]
+  %411 = phi i32 [ %.ph2658, %408 ], [ %136, %406 ], [ %405, %400 ], [ 0, %.thread24 ]
+  %412 = phi i8 [ %.ph2759, %408 ], [ %123, %406 ], [ %123, %400 ], [ %104, %.thread24 ]
   %413 = icmp eq i8 %412, 0
   br i1 %413, label %.thread34, label %414
 
@@ -8077,8 +8077,8 @@ vm_normal_page.exit:                              ; preds = %39, %54
   %.pre = load i32, ptr %7, align 8
   %173 = and i32 %.pre, 4096
   %174 = icmp eq i32 %173, 0
-  %or.cond39 = select i1 %172, i1 true, i1 %174
-  br i1 %or.cond39, label %181, label %175
+  %or.cond56 = select i1 %172, i1 true, i1 %174
+  br i1 %or.cond56, label %181, label %175
 
 175:                                              ; preds = %164
   tail call void @__rcu_read_lock() #18

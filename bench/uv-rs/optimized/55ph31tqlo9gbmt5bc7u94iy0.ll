@@ -2463,8 +2463,8 @@ define internal noundef zeroext i1 @"_ZN80_$LT$std..io..Write..write_fmt..Adapte
   br label %9
 
 9:                                                ; preds = %37, %.lr.ph.i
-  %.sroa.0.016.i = phi ptr [ %1, %.lr.ph.i ], [ %.sroa.0.124.i, %37 ]
-  %.sroa.4.015.i = phi i64 [ %2, %.lr.ph.i ], [ %.sroa.4.123.i, %37 ]
+  %.sroa.0.016.i = phi ptr [ %1, %.lr.ph.i ], [ %.sroa.0.125.i, %37 ]
+  %.sroa.4.015.i = phi i64 [ %2, %.lr.ph.i ], [ %.sroa.4.124.i, %37 ]
   %10 = call { i64, ptr } @"_ZN69_$LT$std..sys..pal..unix..stdio..Stderr$u20$as$u20$std..io..Write$GT$5write17hb57121c90ff8fb05E"(ptr noalias noundef nonnull align 1 %6, ptr noalias noundef nonnull readonly align 1 %.sroa.0.016.i, i64 noundef %.sroa.4.015.i)
   %11 = extractvalue { i64, ptr } %10, 0
   %12 = extractvalue { i64, ptr } %10, 1
@@ -2542,9 +2542,9 @@ _ZN3std2io5error5Error14is_interrupted17h7eca20d7cd17b577E.exit.i: ; preds = %16
   br label %37
 
 37:                                               ; preds = %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17he02b9aa2543ecf63E.exit.i", %.thread.i
-  %.sroa.0.124.i = phi ptr [ %33, %.thread.i ], [ %.sroa.0.016.i, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17he02b9aa2543ecf63E.exit.i" ]
-  %.sroa.4.123.i = phi i64 [ %32, %.thread.i ], [ %.sroa.4.015.i, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17he02b9aa2543ecf63E.exit.i" ]
-  %38 = icmp eq i64 %.sroa.4.123.i, 0
+  %.sroa.0.125.i = phi ptr [ %33, %.thread.i ], [ %.sroa.0.016.i, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17he02b9aa2543ecf63E.exit.i" ]
+  %.sroa.4.124.i = phi i64 [ %32, %.thread.i ], [ %.sroa.4.015.i, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17he02b9aa2543ecf63E.exit.i" ]
+  %38 = icmp eq i64 %.sroa.4.124.i, 0
   br i1 %38, label %_ZN3std2io5Write9write_all17h8f6f0950b09de66fE.exit.thread12, label %9
 
 _ZN3std2io5Write9write_all17h8f6f0950b09de66fE.exit: ; preds = %18, %_ZN3std2io5error5Error14is_interrupted17h7eca20d7cd17b577E.exit.i
@@ -2682,7 +2682,7 @@ define hidden void @"_ZN6uv_git3git16github_fast_path28_$u7b$$u7b$closure$u7d$$u
   %50 = alloca [24 x i8], align 8
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %52 = load i8, ptr %51, align 8, !range !588, !noundef !3
-  switch i8 %52, label %default.unreachable230 [
+  switch i8 %52, label %default.unreachable248 [
     i8 0, label %53
     i8 1, label %198
     i8 2, label %199
@@ -2690,7 +2690,7 @@ define hidden void @"_ZN6uv_git3git16github_fast_path28_$u7b$$u7b$closure$u7d$$u
     i8 4, label %423
   ]
 
-default.unreachable230:                           ; preds = %431, %423, %260, %203, %3
+default.unreachable248:                           ; preds = %431, %423, %260, %203, %3
   unreachable
 
 53:                                               ; preds = %3
@@ -2999,7 +2999,7 @@ default.unreachable230:                           ; preds = %431, %423, %260, %2
   call void @llvm.lifetime.end.p0(ptr nonnull %44)
   %153 = load i64, ptr %1, align 8, !range !80, !noundef !3
   %trunc = trunc nuw i64 %153 to i1
-  br i1 %trunc, label %154, label %.thread231
+  br i1 %trunc, label %154, label %.thread249
 
 154:                                              ; preds = %142
   call void @llvm.lifetime.start.p0(ptr nonnull %39)
@@ -3114,7 +3114,7 @@ default.unreachable230:                           ; preds = %431, %423, %260, %2
   call void @llvm.lifetime.end.p0(ptr nonnull %37)
   call void @llvm.lifetime.end.p0(ptr nonnull %38)
   call void @llvm.lifetime.end.p0(ptr nonnull %39)
-  br label %.thread231
+  br label %.thread249
 
 186:                                              ; preds = %.body64, %187
   %.pn22195 = phi { ptr, i32 } [ %160, %187 ], [ %167, %.body64 ]
@@ -3139,7 +3139,7 @@ default.unreachable230:                           ; preds = %431, %423, %260, %2
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h73b4fd85428071daE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %191) #19
           to label %610 unwind label %188
 
-.thread231:                                       ; preds = %175, %142
+.thread249:                                       ; preds = %175, %142
   %192 = getelementptr inbounds nuw i8, ptr %1, i64 96
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(320) %192, ptr noundef nonnull align 8 dereferenceable(320) %36, i64 320, i1 false)
   %.sroa.8137.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 1368
@@ -3198,7 +3198,7 @@ default.unreachable230:                           ; preds = %431, %423, %260, %2
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.848.sroa.7.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.4.i)
   %205 = getelementptr inbounds nuw i8, ptr %1, i64 1368
-  switch i8 %.pre, label %default.unreachable230 [
+  switch i8 %.pre, label %default.unreachable248 [
     i8 0, label %211
     i8 1, label %258
     i8 2, label %259
@@ -3214,9 +3214,9 @@ default.unreachable230:                           ; preds = %431, %423, %260, %2
   %210 = trunc nuw i8 %209 to i1
   br i1 %210, label %364, label %363
 
-211:                                              ; preds = %.thread231, %203
-  %212 = phi ptr [ %194, %.thread231 ], [ %205, %203 ]
-  %213 = phi ptr [ %193, %.thread231 ], [ %204, %203 ]
+211:                                              ; preds = %.thread249, %203
+  %212 = phi ptr [ %194, %.thread249 ], [ %205, %203 ]
+  %213 = phi ptr [ %193, %.thread249 ], [ %204, %203 ]
   %214 = getelementptr inbounds nuw i8, ptr %1, i64 1369
   %215 = getelementptr inbounds nuw i8, ptr %1, i64 416
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(320) %215, ptr noundef nonnull align 8 dereferenceable(320) %213, i64 320, i1 false), !noalias !668
@@ -3397,7 +3397,7 @@ default.unreachable230:                           ; preds = %431, %423, %260, %2
   %261 = getelementptr inbounds nuw i8, ptr %1, i64 1056
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.655.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %20), !noalias !668
-  switch i8 %.pre.i, label %default.unreachable230 [
+  switch i8 %.pre.i, label %default.unreachable248 [
     i8 0, label %._crit_edge
     i8 1, label %292
     i8 2, label %293
@@ -3779,10 +3779,10 @@ common.ret:                                       ; preds = %613, %565, %369
   store i16 %.val49, ptr %368, align 8
   switch i16 %.val49, label %.fold.split [
     i16 304, label %394
-    i16 200, label %.thread232
+    i16 200, label %.thread250
   ]
 
-.thread232:                                       ; preds = %388
+.thread250:                                       ; preds = %388
   call void @llvm.lifetime.start.p0(ptr nonnull %35)
   call void @llvm.lifetime.start.p0(ptr nonnull %34)
   store i8 0, ptr %375, align 1
@@ -3887,16 +3887,16 @@ common.ret:                                       ; preds = %613, %565, %369
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.7.sroa.7.i)
   %425 = getelementptr inbounds nuw i8, ptr %1, i64 696
-  switch i8 %.pre229, label %default.unreachable230 [
+  switch i8 %.pre229, label %default.unreachable248 [
     i8 0, label %.thread.i89
     i8 1, label %429
     i8 2, label %430
     i8 3, label %431
   ]
 
-.thread.i89:                                      ; preds = %.thread232, %423
-  %426 = phi ptr [ %392, %.thread232 ], [ %425, %423 ]
-  %427 = phi ptr [ %391, %.thread232 ], [ %424, %423 ]
+.thread.i89:                                      ; preds = %.thread250, %423
+  %426 = phi ptr [ %392, %.thread250 ], [ %425, %423 ]
+  %427 = phi ptr [ %391, %.thread250 ], [ %424, %423 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %16), !noalias !781
   %428 = getelementptr inbounds nuw i8, ptr %1, i64 248
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %428, ptr noundef nonnull align 8 dereferenceable(144) %427, i64 144, i1 false), !noalias !781
@@ -3927,7 +3927,7 @@ common.ret:                                       ; preds = %613, %565, %369
   %432 = getelementptr inbounds nuw i8, ptr %1, i64 248
   call void @llvm.lifetime.start.p0(ptr nonnull %11), !noalias !781
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.4.i.i)
-  switch i8 %.pre.i81, label %default.unreachable230 [
+  switch i8 %.pre.i81, label %default.unreachable248 [
     i8 0, label %433
     i8 1, label %461
     i8 2, label %462

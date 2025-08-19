@@ -729,7 +729,7 @@ define hidden void @rlc_lte_reset_ue_bearers(ptr noundef readonly captures(none)
   %7 = load i16, ptr %6, align 1
   %8 = and i16 %7, 8
   %.not = icmp eq i16 %8, 0
-  br i1 %.not, label %9, label %49
+  br i1 %.not, label %9, label %47
 
 9:                                                ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -738,89 +738,87 @@ define hidden void @rlc_lte_reset_ue_bearers(ptr noundef readonly captures(none)
   store i32 %11, ptr %3, align 4
   br label %.preheader28
 
-.preheader28:                                     ; preds = %9, %17
-  %.02330 = phi i32 [ 1, %9 ], [ %18, %17 ]
-  %12 = shl nuw nsw i32 %.02330, 19
-  br label %19
+.preheader28:                                     ; preds = %9, %16
+  %exitcond.not = phi i1 [ false, %9 ], [ true, %16 ]
+  %.02330 = phi i32 [ 524288, %9 ], [ 1048576, %16 ]
+  br label %17
 
-13:                                               ; preds = %17
-  %14 = load i32, ptr %3, align 4
-  %15 = and i32 %14, -458753
-  %16 = or disjoint i32 %15, 327680
-  store i32 %16, ptr %3, align 4
+12:                                               ; preds = %16
+  %13 = load i32, ptr %3, align 4
+  %14 = and i32 %13, -458753
+  %15 = or disjoint i32 %14, 327680
+  store i32 %15, ptr %3, align 4
   br label %.preheader
 
-17:                                               ; preds = %31
-  %18 = add nuw nsw i32 %.02330, 1
-  %exitcond.not = icmp eq i32 %18, 3
-  br i1 %exitcond.not, label %13, label %.preheader28, !llvm.loop !6
+16:                                               ; preds = %29
+  br i1 %exitcond.not, label %12, label %.preheader28, !llvm.loop !6
 
-19:                                               ; preds = %.preheader28, %31
-  %20 = phi i1 [ true, %.preheader28 ], [ false, %31 ]
-  %.02229 = phi i32 [ 0, %.preheader28 ], [ 16777216, %31 ]
-  %21 = load i32, ptr %3, align 4
-  %22 = and i32 %21, -33030145
-  %23 = add nuw nsw i32 %22, %12
-  %24 = add nuw nsw i32 %23, %.02229
-  store i32 %24, ptr %3, align 4
-  %25 = load ptr, ptr @sequence_analysis_channel_hash, align 8
-  %26 = call ptr @wmem_map_lookup(ptr noundef %25, ptr noundef nonnull %3)
-  %.not27 = icmp eq ptr %26, null
-  br i1 %.not27, label %31, label %27
+17:                                               ; preds = %.preheader28, %29
+  %18 = phi i1 [ true, %.preheader28 ], [ false, %29 ]
+  %.02229 = phi i32 [ 0, %.preheader28 ], [ 16777216, %29 ]
+  %19 = load i32, ptr %3, align 4
+  %20 = and i32 %19, -33030145
+  %21 = or disjoint i32 %20, %.02330
+  %22 = or disjoint i32 %21, %.02229
+  store i32 %22, ptr %3, align 4
+  %23 = load ptr, ptr @sequence_analysis_channel_hash, align 8
+  %24 = call ptr @wmem_map_lookup(ptr noundef %23, ptr noundef nonnull %3)
+  %.not27 = icmp eq ptr %24, null
+  br i1 %.not27, label %29, label %25
 
-27:                                               ; preds = %19
-  %28 = getelementptr inbounds nuw i8, ptr %26, i64 2
-  store i16 -1, ptr %28, align 2
-  %29 = getelementptr inbounds nuw i8, ptr %26, i64 4
-  store i32 0, ptr %29, align 4
-  %30 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  store i8 0, ptr %30, align 8
-  br label %31
+25:                                               ; preds = %17
+  %26 = getelementptr inbounds nuw i8, ptr %24, i64 2
+  store i16 -1, ptr %26, align 2
+  %27 = getelementptr inbounds nuw i8, ptr %24, i64 4
+  store i32 0, ptr %27, align 4
+  %28 = getelementptr inbounds nuw i8, ptr %24, i64 8
+  store i8 0, ptr %28, align 8
+  br label %29
 
-31:                                               ; preds = %19, %27
-  br i1 %20, label %19, label %17, !llvm.loop !8
+29:                                               ; preds = %17, %25
+  br i1 %18, label %17, label %16, !llvm.loop !8
 
-.preheader:                                       ; preds = %13, %34
-  %.02132 = phi i32 [ 1, %13 ], [ %35, %34 ]
-  %32 = shl nuw nsw i32 %.02132, 19
-  %.masked = and i32 %32, 16252928
-  br label %36
+.preheader:                                       ; preds = %12, %32
+  %.02132 = phi i32 [ 1, %12 ], [ %33, %32 ]
+  %30 = shl nuw nsw i32 %.02132, 19
+  %.masked = and i32 %30, 16252928
+  br label %34
 
-33:                                               ; preds = %34
+31:                                               ; preds = %32
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %49
+  br label %47
 
-34:                                               ; preds = %48
-  %35 = add nuw nsw i32 %.02132, 1
-  %exitcond33.not = icmp eq i32 %35, 33
-  br i1 %exitcond33.not, label %33, label %.preheader, !llvm.loop !9
+32:                                               ; preds = %46
+  %33 = add nuw nsw i32 %.02132, 1
+  %exitcond33.not = icmp eq i32 %33, 33
+  br i1 %exitcond33.not, label %31, label %.preheader, !llvm.loop !9
 
-36:                                               ; preds = %.preheader, %48
-  %37 = phi i1 [ true, %.preheader ], [ false, %48 ]
-  %.031 = phi i32 [ 0, %.preheader ], [ 16777216, %48 ]
-  %38 = load i32, ptr %3, align 4
-  %39 = and i32 %38, -33030145
-  %40 = or disjoint i32 %.masked, %39
-  %41 = or disjoint i32 %40, %.031
-  store i32 %41, ptr %3, align 4
-  %42 = load ptr, ptr @sequence_analysis_channel_hash, align 8
-  %43 = call ptr @wmem_map_lookup(ptr noundef %42, ptr noundef nonnull %3)
-  %.not26 = icmp eq ptr %43, null
-  br i1 %.not26, label %48, label %44
+34:                                               ; preds = %.preheader, %46
+  %35 = phi i1 [ true, %.preheader ], [ false, %46 ]
+  %.031 = phi i32 [ 0, %.preheader ], [ 16777216, %46 ]
+  %36 = load i32, ptr %3, align 4
+  %37 = and i32 %36, -33030145
+  %38 = or disjoint i32 %.masked, %37
+  %39 = or disjoint i32 %38, %.031
+  store i32 %39, ptr %3, align 4
+  %40 = load ptr, ptr @sequence_analysis_channel_hash, align 8
+  %41 = call ptr @wmem_map_lookup(ptr noundef %40, ptr noundef nonnull %3)
+  %.not26 = icmp eq ptr %41, null
+  br i1 %.not26, label %46, label %42
 
-44:                                               ; preds = %36
-  %45 = getelementptr inbounds nuw i8, ptr %43, i64 2
-  store i16 -1, ptr %45, align 2
-  %46 = getelementptr inbounds nuw i8, ptr %43, i64 4
-  store i32 0, ptr %46, align 4
-  %47 = getelementptr inbounds nuw i8, ptr %43, i64 8
-  store i8 0, ptr %47, align 8
-  br label %48
+42:                                               ; preds = %34
+  %43 = getelementptr inbounds nuw i8, ptr %41, i64 2
+  store i16 -1, ptr %43, align 2
+  %44 = getelementptr inbounds nuw i8, ptr %41, i64 4
+  store i32 0, ptr %44, align 4
+  %45 = getelementptr inbounds nuw i8, ptr %41, i64 8
+  store i8 0, ptr %45, align 8
+  br label %46
 
-48:                                               ; preds = %36, %44
-  br i1 %37, label %36, label %34, !llvm.loop !10
+46:                                               ; preds = %34, %42
+  br i1 %35, label %34, label %32, !llvm.loop !10
 
-49:                                               ; preds = %2, %33
+47:                                               ; preds = %2, %31
   ret void
 }
 
@@ -3382,12 +3380,12 @@ proto_item_set_hidden.exit:                       ; preds = %5, %13, %16
 36:                                               ; preds = %.thread, %30, %35, %34
   %lte_rrc_ul_ccch_nb.sink = phi ptr [ @lte_rrc_pcch_nb, %35 ], [ @lte_rrc_bcch_dl_sch_nb, %34 ], [ %lte_rrc_ul_ccch_nb.lte_rrc_dl_ccch_nb, %30 ], [ @lte_rrc_bcch_bch_nb, %.thread ]
   %lte_rrc_ul_ccch.sink = phi ptr [ @lte_rrc_pcch, %35 ], [ @lte_rrc_bcch_dl_sch, %34 ], [ %lte_rrc_ul_ccch.lte_rrc_dl_ccch, %30 ], [ @lte_rrc_bcch_bch, %.thread ]
-  %.sink43.in.in = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %.sink43.in = load i32, ptr %.sink43.in.in, align 4
-  %.sink43 = icmp eq i32 %.sink43.in, 1
+  %.sink46.in.in = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %.sink46.in = load i32, ptr %.sink46.in.in, align 4
+  %.sink46 = icmp eq i32 %.sink46.in, 1
   %37 = load ptr, ptr %lte_rrc_ul_ccch_nb.sink, align 8
   %38 = load ptr, ptr %lte_rrc_ul_ccch.sink, align 8
-  %39 = select i1 %.sink43, ptr %37, ptr %38
+  %39 = select i1 %.sink46, ptr %37, ptr %38
   store volatile ptr %39, ptr %6, align 8
   %.not.i40 = icmp eq ptr %21, null
   br i1 %.not.i40, label %proto_item_set_hidden.exit42, label %40
@@ -4358,8 +4356,8 @@ reassembly_add_segment.exit307:                   ; preds = %323, %324
   br label %.sink.split
 
 .sink.split:                                      ; preds = %44, %430
-  %.sink312 = phi ptr [ %80, %430 ], [ %43, %44 ]
-  %455 = getelementptr inbounds nuw i8, ptr %.sink312, i64 20
+  %.sink327 = phi ptr [ %80, %430 ], [ %43, %44 ]
+  %455 = getelementptr inbounds nuw i8, ptr %.sink327, i64 20
   %456 = load i32, ptr %455, align 4
   br label %457
 
@@ -4719,8 +4717,8 @@ define internal fastcc void @show_PDU_in_tree(ptr noundef %0, ptr noundef %1, pt
   %177 = call i32 @_setjmp(ptr noundef nonnull %176) #19
   %.not135 = icmp eq i32 %177, 0
   %178 = getelementptr inbounds nuw i8, ptr %19, i64 16
-  %.sink156 = select i1 %.not135, ptr null, ptr %178
-  store volatile ptr %.sink156, ptr %16, align 8
+  %.sink165 = select i1 %.not135, ptr null, ptr %178
+  store volatile ptr %.sink165, ptr %16, align 8
   %.0..0..0..0.12 = load volatile i32, ptr %17, align 4
   %179 = and i32 %.0..0..0..0.12, 1
   %.not136 = icmp eq i32 %179, 0
@@ -4838,8 +4836,8 @@ define internal fastcc void @show_PDU_in_tree(ptr noundef %0, ptr noundef %1, pt
   %222 = call i32 @_setjmp(ptr noundef nonnull %221) #19
   %.not130 = icmp eq i32 %222, 0
   %223 = getelementptr inbounds nuw i8, ptr %23, i64 16
-  %.sink157 = select i1 %.not130, ptr null, ptr %223
-  store volatile ptr %.sink157, ptr %20, align 8
+  %.sink166 = select i1 %.not130, ptr null, ptr %223
+  store volatile ptr %.sink166, ptr %20, align 8
   %.0..0..0..0. = load volatile i32, ptr %21, align 4
   %224 = and i32 %.0..0..0..0., 1
   %.not131 = icmp eq i32 %224, 0
@@ -4921,8 +4919,8 @@ define internal fastcc void @show_PDU_in_tree(ptr noundef %0, ptr noundef %1, pt
   br i1 %.not5.i152, label %proto_item_set_hidden.exit, label %proto_item_set_hidden.exit.sink.split
 
 proto_item_set_hidden.exit.sink.split:            ; preds = %249, %204, %159
-  %.sink162 = phi ptr [ %161, %159 ], [ %206, %204 ], [ %251, %249 ]
-  %252 = getelementptr inbounds nuw i8, ptr %.sink162, i64 28
+  %.sink171 = phi ptr [ %161, %159 ], [ %206, %204 ], [ %251, %249 ]
+  %252 = getelementptr inbounds nuw i8, ptr %.sink171, i64 28
   %253 = load i32, ptr %252, align 4
   %254 = or i32 %253, 1
   store i32 %254, ptr %252, align 4
@@ -5809,9 +5807,9 @@ proto_item_set_hidden.exit.i:                     ; preds = %520, %501
   br i1 %.not.i26.i, label %checkFIconsistency.exit, label %proto_item_set_hidden.exit.thread.i
 
 proto_item_set_hidden.exit.thread.sink.split.i:   ; preds = %535, %516
-  %.sink11.i = phi ptr [ %518, %516 ], [ %537, %535 ]
+  %.sink16.i = phi ptr [ %518, %516 ], [ %537, %535 ]
   %.03.ph.i = phi ptr [ %515, %516 ], [ %534, %535 ]
-  %538 = getelementptr inbounds nuw i8, ptr %.sink11.i, i64 28
+  %538 = getelementptr inbounds nuw i8, ptr %.sink16.i, i64 28
   %539 = load i32, ptr %538, align 4
   %540 = or i32 %539, 1
   store i32 %540, ptr %538, align 4

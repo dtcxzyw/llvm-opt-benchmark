@@ -128,20 +128,20 @@ define range(i32 -2147483648, 2147483646) i32 @Llb_MtrFindBestColumn(ptr noundef
   br i1 %43, label %44, label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %.preheader102, %._crit_edge
-  %.278.lcssa160 = phi i32 [ %spec.select, %._crit_edge ], [ %.076114, %.preheader102 ]
+  %.278.lcssa165 = phi i32 [ %spec.select, %._crit_edge ], [ %.076114, %.preheader102 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str)
   %.pre = load i32, ptr %3, align 8, !tbaa !20
   br label %44
 
 44:                                               ; preds = %._crit_edge.thread, %._crit_edge
-  %.278.lcssa161 = phi i32 [ %.278.lcssa160, %._crit_edge.thread ], [ %spec.select, %._crit_edge ]
+  %.278.lcssa166 = phi i32 [ %.278.lcssa165, %._crit_edge.thread ], [ %spec.select, %._crit_edge ]
   %45 = phi i32 [ %.pre, %._crit_edge.thread ], [ %16, %._crit_edge ]
   %46 = icmp sgt i32 %45, 0
   br i1 %46, label %.lr.ph110, label %._crit_edge111
 
 .lr.ph110:                                        ; preds = %44
   %47 = load ptr, ptr %9, align 8, !tbaa !23
-  %48 = sext i32 %.278.lcssa161 to i64
+  %48 = sext i32 %.278.lcssa166 to i64
   %wide.trip.count141 = zext nneg i32 %45 to i64
   br label %49
 
@@ -196,7 +196,7 @@ define range(i32 -2147483648, 2147483646) i32 @Llb_MtrFindBestColumn(ptr noundef
   %74 = icmp slt i32 %.080113, %.082.lcssa
   %or.cond = select i1 %73, i1 %74, i1 false
   %spec.select98 = select i1 %or.cond, i32 %.082.lcssa, i32 %.080113
-  %spec.select99 = select i1 %or.cond, i32 %.278.lcssa161, i32 %.074115
+  %spec.select99 = select i1 %or.cond, i32 %.278.lcssa166, i32 %.074115
   %.pre157 = load i32, ptr %4, align 4, !tbaa !21
   br label %75
 
@@ -204,7 +204,7 @@ define range(i32 -2147483648, 2147483646) i32 @Llb_MtrFindBestColumn(ptr noundef
   %76 = phi i32 [ %15, %14 ], [ %15, %26 ], [ %15, %21 ], [ %.pre157, %._crit_edge111 ]
   %77 = phi i32 [ %16, %14 ], [ %16, %26 ], [ %16, %21 ], [ %45, %._crit_edge111 ]
   %.181 = phi i32 [ %.080113, %14 ], [ %.080113, %26 ], [ %.080113, %21 ], [ %spec.select98, %._crit_edge111 ]
-  %.177 = phi i32 [ %.076114, %14 ], [ %.076114, %26 ], [ %.076114, %21 ], [ %.278.lcssa161, %._crit_edge111 ]
+  %.177 = phi i32 [ %.076114, %14 ], [ %.076114, %26 ], [ %.076114, %21 ], [ %.278.lcssa166, %._crit_edge111 ]
   %.175 = phi i32 [ %.074115, %14 ], [ %.074115, %26 ], [ %.074115, %21 ], [ %spec.select99, %._crit_edge111 ]
   %indvars.iv.next144 = add nuw nsw i64 %indvars.iv143, 1
   %78 = sub nsw i32 %77, %76
@@ -217,8 +217,8 @@ define range(i32 -2147483648, 2147483646) i32 @Llb_MtrFindBestColumn(ptr noundef
   br i1 %81, label %.loopexit, label %.preheader101
 
 .preheader101:                                    ; preds = %2, %._crit_edge119
-  %.lcssa165 = phi i32 [ %77, %._crit_edge119 ], [ %5, %2 ]
-  %.074.lcssa164 = phi i32 [ %.175, %._crit_edge119 ], [ -1, %2 ]
+  %.lcssa170 = phi i32 [ %77, %._crit_edge119 ], [ %5, %2 ]
+  %.074.lcssa169 = phi i32 [ %.175, %._crit_edge119 ], [ -1, %2 ]
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %83 = load i32, ptr %82, align 4, !tbaa !26
   %84 = add nsw i32 %83, -1
@@ -226,7 +226,7 @@ define range(i32 -2147483648, 2147483646) i32 @Llb_MtrFindBestColumn(ptr noundef
   br i1 %85, label %.preheader.lr.ph, label %.loopexit
 
 .preheader.lr.ph:                                 ; preds = %.preheader101
-  %86 = icmp sgt i32 %.lcssa165, 0
+  %86 = icmp sgt i32 %.lcssa170, 0
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 64
   br i1 %86, label %.preheader.lr.ph.split.us, label %.loopexit
@@ -236,12 +236,12 @@ define range(i32 -2147483648, 2147483646) i32 @Llb_MtrFindBestColumn(ptr noundef
   %90 = load ptr, ptr %89, align 8, !tbaa !23
   %91 = sext i32 %1 to i64
   %wide.trip.count155 = sext i32 %84 to i64
-  %wide.trip.count150 = zext nneg i32 %.lcssa165 to i64
+  %wide.trip.count150 = zext nneg i32 %.lcssa170 to i64
   br label %.preheader.us
 
 .preheader.us:                                    ; preds = %97, %.preheader.lr.ph.split.us
   %indvars.iv152 = phi i64 [ %indvars.iv.next153, %97 ], [ %91, %.preheader.lr.ph.split.us ]
-  %.2132.us = phi i32 [ %.3.us, %97 ], [ %.074.lcssa164, %.preheader.lr.ph.split.us ]
+  %.2132.us = phi i32 [ %.3.us, %97 ], [ %.074.lcssa169, %.preheader.lr.ph.split.us ]
   %.085130.us = phi i32 [ %.186.us, %97 ], [ 1000000000, %.preheader.lr.ph.split.us ]
   %.087129.us = phi i32 [ %.188.us, %97 ], [ 1000000000, %.preheader.lr.ph.split.us ]
   br label %98
@@ -302,7 +302,7 @@ define range(i32 -2147483648, 2147483646) i32 @Llb_MtrFindBestColumn(ptr noundef
   br i1 %116, label %95, label %92
 
 .loopexit:                                        ; preds = %97, %.preheader.lr.ph, %.preheader101, %._crit_edge119
-  %.093 = phi i32 [ %.175, %._crit_edge119 ], [ %.074.lcssa164, %.preheader101 ], [ %1, %.preheader.lr.ph ], [ %.3.us, %97 ]
+  %.093 = phi i32 [ %.175, %._crit_edge119 ], [ %.074.lcssa169, %.preheader101 ], [ %1, %.preheader.lr.ph ], [ %.3.us, %97 ]
   ret i32 %.093
 }
 

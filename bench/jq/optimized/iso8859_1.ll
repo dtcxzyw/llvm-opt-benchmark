@@ -296,10 +296,10 @@ switch.early.test:                                ; preds = %101
   br label %.loopexit.sink.split
 
 .loopexit.sink.split:                             ; preds = %43, %60, %70, %76, %91, %96, %103
-  %.sink120 = phi i64 [ 8, %103 ], [ 8, %96 ], [ 8, %91 ], [ 72, %76 ], [ 8, %70 ], [ 8, %60 ], [ 8, %43 ]
+  %.sink123 = phi i64 [ 8, %103 ], [ 8, %96 ], [ 8, %91 ], [ 72, %76 ], [ 8, %70 ], [ 8, %60 ], [ 8, %43 ]
   %.sink = phi i32 [ %107, %103 ], [ %100, %96 ], [ %95, %91 ], [ 115, %76 ], [ %74, %70 ], [ %64, %60 ], [ %47, %43 ]
   %.092.ph = phi i32 [ 1, %103 ], [ 1, %96 ], [ 1, %91 ], [ 4, %76 ], [ 1, %70 ], [ 1, %60 ], [ 1, %43 ]
-  %108 = getelementptr inbounds nuw i8, ptr %3, i64 %.sink120
+  %108 = getelementptr inbounds nuw i8, ptr %3, i64 %.sink123
   store i32 %.sink, ptr %108, align 4, !tbaa !14
   br label %.loopexit
 

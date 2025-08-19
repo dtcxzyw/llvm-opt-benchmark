@@ -1700,7 +1700,7 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %418
   br i1 %.not284, label %440, label %439
 
 439:                                              ; preds = %._crit_edge
-  call void %438(ptr noundef %26) #11
+  call void %438(ptr noundef nonnull %26) #11
   br label %440
 
 440:                                              ; preds = %439, %._crit_edge
@@ -2321,17 +2321,17 @@ pmix_pointer_array_get_item.exit:                 ; preds = %.preheader, %41
   ]
 
 pack_state_for_proc.exit:                         ; preds = %34, %31, %28, %25
-  %.sink42 = phi i32 [ %27, %25 ], [ %30, %28 ], [ %33, %31 ], [ %36, %34 ]
-  %.sink41 = phi i32 [ 631, %25 ], [ 637, %28 ], [ 643, %31 ], [ 649, %34 ]
-  %37 = tail call ptr @PMIx_Error_string(i32 noundef %.sink42) #11
-  tail call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.3, ptr noundef %37, ptr noundef nonnull @.str.1, i32 noundef %.sink41) #11
-  switch i32 %.sink42, label %pack_state_for_proc.exit.thread [
+  %.sink43 = phi i32 [ %27, %25 ], [ %30, %28 ], [ %33, %31 ], [ %36, %34 ]
+  %.sink42 = phi i32 [ 631, %25 ], [ 637, %28 ], [ 643, %31 ], [ 649, %34 ]
+  %37 = tail call ptr @PMIx_Error_string(i32 noundef %.sink43) #11
+  tail call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.3, ptr noundef %37, ptr noundef nonnull @.str.1, i32 noundef %.sink42) #11
+  switch i32 %.sink43, label %pack_state_for_proc.exit.thread [
     i32 0, label %pack_state_for_proc.exit.thread37
     i32 -43, label %.loopexit
   ]
 
 pack_state_for_proc.exit.thread:                  ; preds = %34, %31, %28, %25, %pack_state_for_proc.exit
-  %.0.i3436 = phi i32 [ %.sink42, %pack_state_for_proc.exit ], [ %27, %25 ], [ %30, %28 ], [ %33, %31 ], [ %36, %34 ]
+  %.0.i3436 = phi i32 [ %.sink43, %pack_state_for_proc.exit ], [ %27, %25 ], [ %30, %28 ], [ %33, %31 ], [ %36, %34 ]
   %38 = tail call ptr @prte_strerror(i32 noundef %.0.i3436) #11
   tail call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str, ptr noundef %38, ptr noundef nonnull @.str.1, i32 noundef 677) #11
   br label %.loopexit
@@ -2364,7 +2364,7 @@ pack_state_for_proc.exit.thread37:                ; preds = %34, %pack_state_for
   br label %.loopexit
 
 .loopexit:                                        ; preds = %pack_state_for_proc.exit, %._crit_edge, %48, %._crit_edge, %pack_state_for_proc.exit.thread, %10, %2
-  %.0 = phi i32 [ %5, %2 ], [ %5, %10 ], [ %.0.i3436, %pack_state_for_proc.exit.thread ], [ %47, %._crit_edge ], [ %47, %48 ], [ %47, %._crit_edge ], [ %.sink42, %pack_state_for_proc.exit ]
+  %.0 = phi i32 [ %5, %2 ], [ %5, %10 ], [ %.0.i3436, %pack_state_for_proc.exit.thread ], [ %47, %._crit_edge ], [ %47, %48 ], [ %47, %._crit_edge ], [ %.sink43, %pack_state_for_proc.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }

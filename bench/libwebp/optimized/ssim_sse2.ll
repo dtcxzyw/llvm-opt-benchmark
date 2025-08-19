@@ -97,11 +97,11 @@ define internal i32 @AccumulateSSE_SSE2(ptr noundef readonly captures(none) %0, 
   %53 = add <4 x i32> %52, %51
   %shift = shufflevector <4 x i32> %53, <4 x i32> poison, <4 x i32> <i32 poison, i32 poison, i32 3, i32 poison>
   %foldExtExtBinop = add nsw <4 x i32> %shift, %53
-  %shift87 = shufflevector <4 x i32> %foldExtExtBinop, <4 x i32> poison, <4 x i32> <i32 poison, i32 2, i32 poison, i32 poison>
-  %foldExtExtBinop88 = add nsw <4 x i32> %shift87, %53
-  %shift90 = shufflevector <4 x i32> %foldExtExtBinop88, <4 x i32> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %foldExtExtBinop91 = add nsw <4 x i32> %shift90, %53
-  %54 = extractelement <4 x i32> %foldExtExtBinop91, i64 0
+  %shift88 = shufflevector <4 x i32> %foldExtExtBinop, <4 x i32> poison, <4 x i32> <i32 poison, i32 2, i32 poison, i32 poison>
+  %foldExtExtBinop89 = add nsw <4 x i32> %shift88, %53
+  %shift91 = shufflevector <4 x i32> %foldExtExtBinop89, <4 x i32> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %foldExtExtBinop92 = add nsw <4 x i32> %shift91, %53
+  %54 = extractelement <4 x i32> %foldExtExtBinop92, i64 0
   br label %55
 
 55:                                               ; preds = %._crit_edge, %3

@@ -724,14 +724,14 @@ define range(i32 0, 2) i32 @tls_parse_ctos_status_request(ptr noundef %0, ptr no
   %50 = load i8, ptr %49, align 1, !tbaa !11
   %51 = zext i8 %50 to i64
   %52 = or disjoint i64 %48, %51
-  %53 = add i64 %.sroa.577.0101, -2
+  %53 = add nsw i64 %.sroa.577.0101, -2
   %54 = icmp ult i64 %53, %52
   br i1 %54, label %PACKET_get_length_prefixed_2.exit66.thread, label %55
 
 55:                                               ; preds = %45
   %56 = getelementptr inbounds nuw i8, ptr %.sroa.076.0102, i64 2
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 %52
-  %58 = sub nuw i64 %53, %52
+  %58 = sub nuw nsw i64 %53, %52
   %59 = icmp eq i64 %52, 0
   br i1 %59, label %PACKET_get_length_prefixed_2.exit66.thread, label %60
 
@@ -935,7 +935,7 @@ PACKET_as_length_prefixed_2.exit.thread:          ; preds = %15, %13, %24
   %.sroa.024.0 = phi ptr [ %36, %33 ], [ %25, %24 ]
   %.sroa.6.0 = phi i64 [ %34, %33 ], [ %22, %24 ]
   %28 = load i8, ptr %.sroa.024.0, align 1, !tbaa !11
-  %29 = add i64 %.sroa.6.0, -1
+  %29 = add nsw i64 %.sroa.6.0, -1
   %30 = zext i8 %28 to i64
   %31 = icmp ult i64 %29, %30
   %32 = icmp eq i8 %28, 0
@@ -949,7 +949,7 @@ PACKET_get_length_prefixed_1.exit.thread:         ; preds = %.preheader
   br label %44
 
 33:                                               ; preds = %.preheader
-  %34 = sub nuw i64 %29, %30
+  %34 = sub nuw nsw i64 %29, %30
   %35 = getelementptr inbounds nuw i8, ptr %.sroa.024.0, i64 1
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 %30
   %.not12 = icmp eq i64 %34, 0
@@ -1095,10 +1095,10 @@ PACKET_get_net_2.exit39:                          ; preds = %26, %.loopexit
   br i1 %.not32, label %59, label %.sink.split
 
 .sink.split:                                      ; preds = %56, %49, %._crit_edge, %11, %8, %20
-  %.sink80 = phi i32 [ 497, %20 ], [ 497, %8 ], [ 497, %11 ], [ 534, %._crit_edge ], [ 540, %49 ], [ 540, %56 ]
+  %.sink86 = phi i32 [ 497, %20 ], [ 497, %8 ], [ 497, %11 ], [ 534, %._crit_edge ], [ 540, %49 ], [ 540, %56 ]
   %.sink = phi i32 [ 353, %20 ], [ 353, %8 ], [ 353, %11 ], [ 353, %._crit_edge ], [ 352, %49 ], [ 352, %56 ]
   tail call void @ERR_new() #12
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink80, ptr noundef nonnull @__func__.tls_parse_ctos_use_srtp) #12
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink86, ptr noundef nonnull @__func__.tls_parse_ctos_use_srtp) #12
   tail call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef %0, i32 noundef 50, i32 noundef %.sink, ptr noundef null) #12
   br label %59
 
@@ -1168,7 +1168,7 @@ PACKET_as_length_prefixed_1.exit.thread:          ; preds = %6, %5, %10
   %.sroa.5.026 = phi i64 [ %8, %.preheader ], [ %17, %23 ]
   %.sroa.0.027 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.pn, i64 1
   %16 = load i8, ptr %.sroa.0.027, align 1, !tbaa !11
-  %17 = add i64 %.sroa.5.026, -1
+  %17 = add nsw i64 %.sroa.5.026, -1
   switch i8 %16, label %23 [
     i8 1, label %.sink.split
     i8 0, label %18
@@ -1181,9 +1181,9 @@ PACKET_as_length_prefixed_1.exit.thread:          ; preds = %6, %5, %10
   br i1 %.not12, label %23, label %.sink.split
 
 .sink.split:                                      ; preds = %18, %15
-  %.sink29 = phi i32 [ 2, %15 ], [ 1, %18 ]
+  %.sink31 = phi i32 [ 2, %15 ], [ 1, %18 ]
   %21 = load i32, ptr %14, align 8, !tbaa !112
-  %22 = or i32 %21, %.sink29
+  %22 = or i32 %21, %.sink31
   store i32 %22, ptr %14, align 8, !tbaa !112
   br label %23
 
@@ -1346,7 +1346,7 @@ define range(i32 0, 2) i32 @tls_parse_ctos_key_share(ptr noundef initializes((12
   %.0131.ph = phi i64 [ %.0129.ph, %126 ], [ 0, %.preheader.i ]
   %.0129.ph = phi i64 [ %127, %126 ], [ 32, %.preheader.i ]
   %.049.i.ph = phi i64 [ %98, %126 ], [ 0, %.preheader.i ]
-  br label %.backedge.i.outer261
+  br label %.backedge.i.outer282
 
 62:                                               ; preds = %58
   call void @ERR_new() #12
@@ -1354,10 +1354,10 @@ define range(i32 0, 2) i32 @tls_parse_ctos_key_share(ptr noundef initializes((12
   call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef nonnull %0, i32 noundef 80, i32 noundef 786691, ptr noundef null) #12
   br label %extract_keyshares.exit.thread158
 
-.backedge.i:                                      ; preds = %.backedge.i.backedge, %.backedge.i.outer261
-  %.sroa.0.1 = phi ptr [ %.sroa.0.1.ph262, %.backedge.i.outer261 ], [ %86, %.backedge.i.backedge ]
-  %.sroa.6.1 = phi i64 [ %.sroa.6.1.ph263, %.backedge.i.outer261 ], [ %87, %.backedge.i.backedge ]
-  %.049.i = phi i64 [ %.049.i.ph266, %.backedge.i.outer261 ], [ %98, %.backedge.i.backedge ]
+.backedge.i:                                      ; preds = %.backedge.i.backedge, %.backedge.i.outer282
+  %.sroa.0.1 = phi ptr [ %.sroa.0.1.ph283, %.backedge.i.outer282 ], [ %86, %.backedge.i.backedge ]
+  %.sroa.6.1 = phi i64 [ %.sroa.6.1.ph284, %.backedge.i.outer282 ], [ %87, %.backedge.i.backedge ]
+  %.049.i = phi i64 [ %.049.i.ph287, %.backedge.i.outer282 ], [ %98, %.backedge.i.backedge ]
   switch i64 %.sroa.6.1, label %63 [
     i64 0, label %128
     i64 1, label %PACKET_get_net_2.exit.thread.i
@@ -1467,19 +1467,19 @@ PACKET_get_net_2.exit.thread.i:                   ; preds = %84, %73, %63, %.bac
   br label %.backedge.i, !llvm.loop !120
 
 111:                                              ; preds = %109
-  %112 = getelementptr inbounds nuw i16, ptr %.0135.ph, i64 %.0131.ph264
+  %112 = getelementptr inbounds nuw i16, ptr %.0135.ph, i64 %.0131.ph285
   store i16 %95, ptr %112, align 2, !tbaa !121
-  %113 = add i64 %.0131.ph264, 1
-  %114 = getelementptr inbounds nuw %struct.PACKET, ptr %.0139.ph, i64 %.0131.ph264
+  %113 = add i64 %.0131.ph285, 1
+  %114 = getelementptr inbounds nuw %struct.PACKET, ptr %.0139.ph, i64 %.0131.ph285
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %114, ptr noundef nonnull align 8 dereferenceable(16) %10, i64 16, i1 false), !tbaa.struct !122
   %115 = icmp eq i64 %113, %.0129.ph
-  br i1 %115, label %116, label %.backedge.i.outer261, !llvm.loop !120
+  br i1 %115, label %116, label %.backedge.i.outer282, !llvm.loop !120
 
-.backedge.i.outer261:                             ; preds = %.backedge.i.outer, %111
-  %.sroa.0.1.ph262 = phi ptr [ %.sroa.0.1.ph, %.backedge.i.outer ], [ %86, %111 ]
-  %.sroa.6.1.ph263 = phi i64 [ %.sroa.6.1.ph, %.backedge.i.outer ], [ %87, %111 ]
-  %.0131.ph264 = phi i64 [ %.0131.ph, %.backedge.i.outer ], [ %113, %111 ]
-  %.049.i.ph266 = phi i64 [ %.049.i.ph, %.backedge.i.outer ], [ %98, %111 ]
+.backedge.i.outer282:                             ; preds = %.backedge.i.outer, %111
+  %.sroa.0.1.ph283 = phi ptr [ %.sroa.0.1.ph, %.backedge.i.outer ], [ %86, %111 ]
+  %.sroa.6.1.ph284 = phi i64 [ %.sroa.6.1.ph, %.backedge.i.outer ], [ %87, %111 ]
+  %.0131.ph285 = phi i64 [ %.0131.ph, %.backedge.i.outer ], [ %113, %111 ]
+  %.049.i.ph287 = phi i64 [ %.049.i.ph, %.backedge.i.outer ], [ %98, %111 ]
   br label %.backedge.i
 
 116:                                              ; preds = %111
@@ -1524,7 +1524,7 @@ extract_keyshares.exit:                           ; preds = %103
 .lr.ph:                                           ; preds = %128
   %130 = load ptr, ptr %12, align 8, !tbaa !119
   %131 = getelementptr inbounds nuw i8, ptr %0, i64 2480
-  %.not32.i = icmp eq i64 %.0131.ph264, 0
+  %.not32.i = icmp eq i64 %.0131.ph285, 0
   br label %132
 
 132:                                              ; preds = %.lr.ph, %232
@@ -1588,7 +1588,7 @@ check_overlap.exit.thread:                        ; preds = %138
   %.1.i = phi i64 [ %.031.i, %.lr.ph.i ], [ %.031.i, %143 ], [ %.031.i, %146 ], [ %150, %152 ], [ %.031.i, %149 ]
   %157 = add i16 %.02530.i, 1
   %158 = zext i16 %157 to i64
-  %159 = icmp ugt i64 %.0131.ph264, %158
+  %159 = icmp ugt i64 %.0131.ph285, %158
   br i1 %159, label %.lr.ph.i, label %check_overlap.exit, !llvm.loop !124
 
 check_overlap.exit:                               ; preds = %156
@@ -1668,11 +1668,11 @@ check_overlap.exit87.thread:                      ; preds = %185
   %.6 = phi i16 [ %.7, %203 ], [ 0, %185 ]
   %.0123 = phi i32 [ %.1124, %203 ], [ 0, %185 ]
   %186 = phi i64 [ %205, %203 ], [ 0, %185 ]
-  %.031.i72 = phi i64 [ %.1.i77, %203 ], [ %.0131.ph264, %185 ]
+  %.031.i72 = phi i64 [ %.1.i77, %203 ], [ %.0131.ph285, %185 ]
   %.02530.i73 = phi i16 [ %204, %203 ], [ 0, %185 ]
   %187 = getelementptr inbounds nuw i16, ptr %.045200, i64 %186
   %188 = load i16, ptr %187, align 2, !tbaa !121
-  %189 = call i32 @check_in_list(ptr noundef %0, i16 noundef zeroext %188, ptr noundef nonnull %.0135.ph, i64 noundef %.0131.ph264, i32 noundef 1, ptr noundef nonnull %7) #12
+  %189 = call i32 @check_in_list(ptr noundef %0, i16 noundef zeroext %188, ptr noundef nonnull %.0135.ph, i64 noundef %.0131.ph285, i32 noundef 1, ptr noundef nonnull %7) #12
   %.not.i74 = icmp eq i32 %189, 0
   br i1 %.not.i74, label %203, label %190
 
@@ -3060,7 +3060,7 @@ PACKET_get_length_prefixed_2.exit186:             ; preds = %198
 
 213:                                              ; preds = %212
   %214 = load i8, ptr %.sroa.0197.0319, align 1, !tbaa !11
-  %215 = add i64 %.sroa.5.0318, -1
+  %215 = add nsw i64 %.sroa.5.0318, -1
   %216 = zext i8 %214 to i64
   %217 = icmp ult i64 %215, %216
   br i1 %217, label %218, label %219
@@ -3074,7 +3074,7 @@ PACKET_get_length_prefixed_2.exit186:             ; preds = %198
 219:                                              ; preds = %213
   %220 = getelementptr inbounds nuw i8, ptr %.sroa.0197.0319, i64 1
   %221 = getelementptr inbounds nuw i8, ptr %220, i64 %216
-  %222 = sub nuw i64 %215, %216
+  %222 = sub nuw nsw i64 %215, %216
   %223 = add i32 %.0113320, 1
   %.not155 = icmp ugt i32 %223, %.0112
   br i1 %.not155, label %224, label %212, !llvm.loop !170
@@ -4141,12 +4141,12 @@ define range(i32 0, 3) i32 @tls_construct_stoc_key_share(ptr noundef %0, ptr nou
 
 .critedge.sink.split:                             ; preds = %86, %89, %83
   %.sink = phi i32 [ 2010, %83 ], [ 2017, %89 ], [ 2017, %86 ]
-  %.sink75 = phi i32 [ 2011, %83 ], [ 2018, %89 ], [ 2018, %86 ]
+  %.sink79 = phi i32 [ 2011, %83 ], [ 2018, %89 ], [ 2018, %86 ]
   call void @ERR_new() #12
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink, ptr noundef nonnull @__func__.tls_construct_stoc_key_share) #12
   call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef nonnull %0, i32 noundef 80, i32 noundef 786691, ptr noundef null) #12
   %100 = load ptr, ptr %7, align 8, !tbaa !75
-  call void @CRYPTO_free(ptr noundef %100, ptr noundef nonnull @.str, i32 noundef %.sink75) #12
+  call void @CRYPTO_free(ptr noundef %100, ptr noundef nonnull @.str, i32 noundef %.sink79) #12
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.sink.split, %80
@@ -4480,10 +4480,10 @@ define range(i32 0, 3) i32 @tls_construct_stoc_cookie(ptr noundef %0, ptr nounde
   br i1 %.not89, label %.sink.split, label %161
 
 .sink.split:                                      ; preds = %145, %147, %151, %157, %159, %140, %129, %134, %118
-  %.sink90 = phi i32 [ 2130, %118 ], [ 2138, %134 ], [ 2138, %129 ], [ 2143, %140 ], [ 2152, %159 ], [ 2152, %157 ], [ 2152, %151 ], [ 2152, %147 ], [ 2152, %145 ]
+  %.sink93 = phi i32 [ 2130, %118 ], [ 2138, %134 ], [ 2138, %129 ], [ 2143, %140 ], [ 2152, %159 ], [ 2152, %157 ], [ 2152, %151 ], [ 2152, %147 ], [ 2152, %145 ]
   %.sink = phi i32 [ 524294, %118 ], [ 786691, %134 ], [ 786691, %129 ], [ 786691, %140 ], [ 786691, %159 ], [ 786691, %157 ], [ 786691, %151 ], [ 786691, %147 ], [ 786691, %145 ]
   call void @ERR_new() #12
-  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink90, ptr noundef nonnull @__func__.tls_construct_stoc_cookie) #12
+  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink93, ptr noundef nonnull @__func__.tls_construct_stoc_cookie) #12
   call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef nonnull %0, i32 noundef 80, i32 noundef %.sink, ptr noundef null) #12
   br label %161
 

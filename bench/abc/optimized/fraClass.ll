@@ -1582,9 +1582,9 @@ Vec_PtrPush.exit87:                               ; preds = %.Vec_PtrGrow.exit11
 
 124:                                              ; preds = %Vec_PtrPush.exit80, %Vec_PtrPush.exit87
   %.sink = phi i32 [ %91, %Vec_PtrPush.exit80 ], [ %122, %Vec_PtrPush.exit87 ]
-  %.sink108 = phi ptr [ %90, %Vec_PtrPush.exit80 ], [ %121, %Vec_PtrPush.exit87 ]
+  %.sink120 = phi ptr [ %90, %Vec_PtrPush.exit80 ], [ %121, %Vec_PtrPush.exit87 ]
   %125 = sext i32 %.sink to i64
-  %126 = getelementptr inbounds ptr, ptr %.sink108, i64 %125
+  %126 = getelementptr inbounds ptr, ptr %.sink120, i64 %125
   store ptr %58, ptr %126, align 8, !tbaa !41
   %127 = getelementptr inbounds nuw i8, ptr %.15592, i64 8
   %128 = load ptr, ptr %127, align 8, !tbaa !42
@@ -1637,7 +1637,7 @@ Vec_PtrPush.exit87:                               ; preds = %.Vec_PtrGrow.exit11
   %149 = getelementptr i8, ptr %146, i64 8
   %.val68 = load ptr, ptr %149, align 8, !tbaa !27
   %150 = zext nneg i32 %.val64 to i64
-  %invariant.gep106 = getelementptr inbounds nuw ptr, ptr %145, i64 %150
+  %invariant.gep118 = getelementptr inbounds nuw ptr, ptr %145, i64 %150
   br label %151
 
 151:                                              ; preds = %.lr.ph97, %157
@@ -1646,8 +1646,8 @@ Vec_PtrPush.exit87:                               ; preds = %.Vec_PtrGrow.exit11
   %153 = load ptr, ptr %152, align 8, !tbaa !41
   %154 = getelementptr inbounds nuw ptr, ptr %145, i64 %indvars.iv100
   store ptr %153, ptr %154, align 8, !tbaa !42
-  %gep107 = getelementptr inbounds nuw ptr, ptr %invariant.gep106, i64 %indvars.iv100
-  store ptr null, ptr %gep107, align 8, !tbaa !42
+  %gep119 = getelementptr inbounds nuw ptr, ptr %invariant.gep118, i64 %indvars.iv100
+  store ptr null, ptr %gep119, align 8, !tbaa !42
   %.not61 = icmp eq i64 %indvars.iv100, 0
   br i1 %.not61, label %157, label %155
 

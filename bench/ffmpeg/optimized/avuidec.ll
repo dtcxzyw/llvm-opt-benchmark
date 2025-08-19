@@ -192,7 +192,7 @@ define internal i32 @avui_decode_frame(ptr noundef %0, ptr noundef %1, ptr nound
   br label %105
 
 105:                                              ; preds = %86, %74
-  %.sink244 = phi i32 [ %104, %86 ], [ %85, %74 ]
+  %.sink254 = phi i32 [ %104, %86 ], [ %85, %74 ]
   %.sink = phi ptr [ %88, %86 ], [ %.pre218, %74 ]
   %106 = phi i32 [ %87, %86 ], [ %.pre220, %74 ]
   %107 = phi i32 [ %89, %86 ], [ %.pre216, %74 ]
@@ -207,7 +207,7 @@ define internal i32 @avui_decode_frame(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %112, label %.preheader.lr.ph, label %._crit_edge182
 
 .preheader.lr.ph:                                 ; preds = %105
-  %113 = sext i32 %.sink244 to i64
+  %113 = sext i32 %.sink254 to i64
   %114 = getelementptr inbounds i8, ptr %.sink, i64 %113
   br i1 %.fr, label %.preheader.us, label %.preheader
 

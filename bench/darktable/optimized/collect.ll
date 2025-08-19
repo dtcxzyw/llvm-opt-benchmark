@@ -1379,8 +1379,8 @@ tag_collate_key.exit:                             ; preds = %146
   %190 = call ptr @g_type_check_instance_cast(ptr noundef %189, i64 noundef %57) #16
   %191 = call ptr @gtk_tree_view_get_selection(ptr noundef %190) #16
   %or.cond338 = icmp ult i32 %.pre-phi, -6
-  %.412 = select i1 %or.cond338, i32 1, i32 3
-  call void @gtk_tree_selection_set_mode(ptr noundef %191, i32 noundef %.412) #16
+  %.428 = select i1 %or.cond338, i32 1, i32 3
+  call void @gtk_tree_selection_set_mode(ptr noundef %191, i32 noundef %.428) #16
   %192 = load ptr, ptr %55, align 8, !tbaa !73
   %193 = call ptr @g_type_check_instance_cast(ptr noundef %192, i64 noundef %57) #16
   %194 = load ptr, ptr %43, align 8, !tbaa !121
@@ -1560,8 +1560,8 @@ string_array_length.exit:                         ; preds = %259
   br i1 %.not294, label %.loopexit, label %.critedge
 
 string_array_length.exit.thread:                  ; preds = %.lr.ph.i
-  %.not294394 = icmp eq ptr %.0229370, null
-  br i1 %.not294394, label %.loopexit, label %.lr.ph342
+  %.not294410 = icmp eq ptr %.0229370, null
+  br i1 %.not294410, label %.loopexit, label %.lr.ph342
 
 .lr.ph342:                                        ; preds = %string_array_length.exit.thread, %269
   %indvars.iv = phi i64 [ %indvars.iv.next, %269 ], [ 0, %string_array_length.exit.thread ]
@@ -1589,7 +1589,7 @@ string_array_length.exit.thread:                  ; preds = %.lr.ph.i
   br label %.critedge
 
 .critedge:                                        ; preds = %string_array_length.exit, %.critedge.loopexit
-  %.0.lcssa.i395404 = phi i32 [ %261, %.critedge.loopexit ], [ 0, %string_array_length.exit ]
+  %.0.lcssa.i411420 = phi i32 [ %261, %.critedge.loopexit ], [ 0, %string_array_length.exit ]
   %.1234.lcssa = phi i32 [ %.1234.lcssa.ph, %.critedge.loopexit ], [ 0, %string_array_length.exit ]
   %272 = icmp slt i32 %.1234.lcssa, %.0236369
   br i1 %272, label %.lr.ph349, label %.loopexit
@@ -1603,8 +1603,8 @@ string_array_length.exit.thread:                  ; preds = %.lr.ph.i
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph349
 
 .loopexit:                                        ; preds = %.lr.ph349, %string_array_length.exit.thread, %.critedge, %string_array_length.exit
-  %.not294398 = phi i1 [ true, %string_array_length.exit ], [ false, %.critedge ], [ true, %string_array_length.exit.thread ], [ false, %.lr.ph349 ]
-  %.0.lcssa.i396 = phi i32 [ 0, %string_array_length.exit ], [ %.0.lcssa.i395404, %.critedge ], [ %261, %string_array_length.exit.thread ], [ %.0.lcssa.i395404, %.lr.ph349 ]
+  %.not294414 = phi i1 [ true, %string_array_length.exit ], [ false, %.critedge ], [ true, %string_array_length.exit.thread ], [ false, %.lr.ph349 ]
+  %.0.lcssa.i412 = phi i32 [ 0, %string_array_length.exit ], [ %.0.lcssa.i411420, %.critedge ], [ %261, %string_array_length.exit.thread ], [ %.0.lcssa.i411420, %.lr.ph349 ]
   %.0233 = phi i32 [ 0, %string_array_length.exit ], [ %.1234.lcssa, %.critedge ], [ 0, %string_array_length.exit.thread ], [ %.1234.lcssa, %.lr.ph349 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr null, ptr %10, align 8, !tbaa !98
@@ -1647,7 +1647,7 @@ string_array_length.exit.thread:                  ; preds = %.lr.ph.i
   %.7.lcssa = phi i32 [ %.0245368, %._crit_edge353 ], [ %302, %311 ]
   %282 = load ptr, ptr %10, align 8, !tbaa !98
   call void @g_free(ptr noundef %282) #16
-  br i1 %.not294398, label %315, label %314
+  br i1 %.not294414, label %315, label %314
 
 283:                                              ; preds = %.lr.ph363, %311
   %284 = phi ptr [ %279, %.lr.ph363 ], [ %313, %311 ]
@@ -1747,7 +1747,7 @@ string_array_length.exit.thread:                  ; preds = %.lr.ph.i
 
 split_path.exit.thread:                           ; preds = %242, %239, %315, %split_path.exit, %199
   %.1246 = phi i32 [ %.0245368, %199 ], [ %241, %239 ], [ %.7.lcssa, %315 ], [ %.0245368, %split_path.exit ], [ %.0245368, %242 ]
-  %.1237 = phi i32 [ %.0236369, %199 ], [ %.0236369, %239 ], [ %.0.lcssa.i396, %315 ], [ %.0236369, %split_path.exit ], [ %.0236369, %242 ]
+  %.1237 = phi i32 [ %.0236369, %199 ], [ %.0236369, %239 ], [ %.0.lcssa.i412, %315 ], [ %.0236369, %split_path.exit ], [ %.0236369, %242 ]
   %.1 = phi ptr [ %.0229370, %199 ], [ %.0229370, %239 ], [ %.0240, %315 ], [ %.0229370, %split_path.exit ], [ %.0229370, %242 ]
   %316 = getelementptr inbounds nuw i8, ptr %.0251367, i64 8
   %317 = load ptr, ptr %316, align 8, !tbaa !135
@@ -1790,21 +1790,21 @@ split_path.exit.thread:                           ; preds = %242, %239, %315, %s
   %333 = getelementptr i8, ptr %332, i64 -1
   %334 = load i8, ptr %333, align 1, !tbaa !127
   %335 = icmp eq i8 %334, 37
-  br i1 %335, label %336, label %.thread405
+  br i1 %335, label %336, label %.thread421
 
 336:                                              ; preds = %330
   store i8 0, ptr %333, align 1, !tbaa !127
   %.pr.pre = load ptr, ptr %15, align 8, !tbaa !98
   %.not274 = icmp eq ptr %.pr.pre, null
-  br i1 %.not274, label %.thread330, label %.thread405
+  br i1 %.not274, label %.thread330, label %.thread421
 
-.thread405:                                       ; preds = %330, %336
-  %.pr408 = phi ptr [ %.pr.pre, %336 ], [ %329, %330 ]
-  %337 = call i64 @dt_datetime_exif_to_gtimespan(ptr noundef nonnull %.pr408) #16
+.thread421:                                       ; preds = %330, %336
+  %.pr424 = phi ptr [ %.pr.pre, %336 ], [ %329, %330 ]
+  %337 = call i64 @dt_datetime_exif_to_gtimespan(ptr noundef nonnull %.pr424) #16
   br label %.thread330
 
-.thread330:                                       ; preds = %323, %336, %.thread405
-  %338 = phi i64 [ %337, %.thread405 ], [ 0, %336 ], [ 0, %323 ]
+.thread330:                                       ; preds = %323, %336, %.thread421
+  %338 = phi i64 [ %337, %.thread421 ], [ 0, %336 ], [ 0, %323 ]
   store i64 %338, ptr %327, align 8, !tbaa !140
   %339 = load ptr, ptr %16, align 8, !tbaa !98
   %.not275 = icmp eq ptr %339, null
@@ -3587,7 +3587,7 @@ define internal range(i32 0, 2) i32 @popup_button_callback(ptr readnone captures
 
 .sink.split:                                      ; preds = %20, %6
   %.str.178.sink = phi ptr [ @.str.174, %6 ], [ @.str.178, %20 ]
-  %menuitem_mode_change.sink54 = phi ptr [ @menuitem_mode, %6 ], [ @menuitem_mode_change, %20 ]
+  %menuitem_mode_change.sink56 = phi ptr [ @menuitem_mode, %6 ], [ @menuitem_mode_change, %20 ]
   %.str.179.sink = phi ptr [ @.str.176, %6 ], [ @.str.179, %20 ]
   %.str.180.sink = phi ptr [ @.str.177, %6 ], [ @.str.180, %20 ]
   %22 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull %.str.178.sink, i32 noundef 5) #16
@@ -3597,7 +3597,7 @@ define internal range(i32 0, 2) i32 @popup_button_callback(ptr readnone captures
   %25 = tail call ptr @g_type_check_instance_cast(ptr noundef %7, i64 noundef %13) #16
   tail call void @gtk_menu_shell_append(ptr noundef %25, ptr noundef %23) #16
   %26 = tail call ptr @g_type_check_instance_cast(ptr noundef %23, i64 noundef 80) #16
-  %27 = tail call i64 @g_signal_connect_data(ptr noundef %26, ptr noundef nonnull @.str.18, ptr noundef nonnull %menuitem_mode_change.sink54, ptr noundef nonnull %2, ptr noundef null, i32 noundef 0) #16
+  %27 = tail call i64 @g_signal_connect_data(ptr noundef %26, ptr noundef nonnull @.str.18, ptr noundef nonnull %menuitem_mode_change.sink56, ptr noundef nonnull %2, ptr noundef null, i32 noundef 0) #16
   %28 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull %.str.179.sink, i32 noundef 5) #16
   %29 = tail call ptr @gtk_menu_item_new_with_label(ptr noundef %28) #16
   %30 = tail call ptr @g_type_check_instance_cast(ptr noundef %29, i64 noundef 80) #16
@@ -3605,7 +3605,7 @@ define internal range(i32 0, 2) i32 @popup_button_callback(ptr readnone captures
   %31 = tail call ptr @g_type_check_instance_cast(ptr noundef %7, i64 noundef %13) #16
   tail call void @gtk_menu_shell_append(ptr noundef %31, ptr noundef %29) #16
   %32 = tail call ptr @g_type_check_instance_cast(ptr noundef %29, i64 noundef 80) #16
-  %33 = tail call i64 @g_signal_connect_data(ptr noundef %32, ptr noundef nonnull @.str.18, ptr noundef nonnull %menuitem_mode_change.sink54, ptr noundef nonnull %2, ptr noundef null, i32 noundef 0) #16
+  %33 = tail call i64 @g_signal_connect_data(ptr noundef %32, ptr noundef nonnull @.str.18, ptr noundef nonnull %menuitem_mode_change.sink56, ptr noundef nonnull %2, ptr noundef null, i32 noundef 0) #16
   %34 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull %.str.180.sink, i32 noundef 5) #16
   %35 = tail call ptr @gtk_menu_item_new_with_label(ptr noundef %34) #16
   %36 = tail call ptr @g_type_check_instance_cast(ptr noundef %35, i64 noundef 80) #16
@@ -3613,7 +3613,7 @@ define internal range(i32 0, 2) i32 @popup_button_callback(ptr readnone captures
   %37 = tail call ptr @g_type_check_instance_cast(ptr noundef %7, i64 noundef %13) #16
   tail call void @gtk_menu_shell_append(ptr noundef %37, ptr noundef %35) #16
   %38 = tail call ptr @g_type_check_instance_cast(ptr noundef %35, i64 noundef 80) #16
-  %39 = tail call i64 @g_signal_connect_data(ptr noundef %38, ptr noundef nonnull @.str.18, ptr noundef nonnull %menuitem_mode_change.sink54, ptr noundef nonnull %2, ptr noundef null, i32 noundef 0) #16
+  %39 = tail call i64 @g_signal_connect_data(ptr noundef %38, ptr noundef nonnull @.str.18, ptr noundef nonnull %menuitem_mode_change.sink56, ptr noundef nonnull %2, ptr noundef null, i32 noundef 0) #16
   br label %40
 
 40:                                               ; preds = %.sink.split, %20
@@ -4068,9 +4068,9 @@ define internal void @_history_show(ptr noundef %0, ptr noundef %1) #1 {
   %40 = load i32, ptr %5, align 4, !tbaa !11
   %switch.selectcmp.i = icmp eq i32 %40, 1
   %switch.select.i = select i1 %switch.selectcmp.i, ptr @.str.202, ptr @.str.203
-  %switch.selectcmp110.i = icmp eq i32 %40, 0
-  %switch.select111.i = select i1 %switch.selectcmp110.i, ptr @.str.201, ptr %switch.select.i
-  %41 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull %switch.select111.i, i32 noundef 5) #16
+  %switch.selectcmp112.i = icmp eq i32 %40, 0
+  %switch.select113.i = select i1 %switch.selectcmp112.i, ptr @.str.201, ptr %switch.select.i
+  %41 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull %switch.select113.i, i32 noundef 5) #16
   %42 = call i64 @g_strlcpy(ptr noundef %38, ptr noundef %41, i64 noundef %39) #16
   %sext86.i = shl i64 %42, 32
   %43 = ashr exact i64 %sext86.i, 32

@@ -378,9 +378,9 @@ find_first_boundary.exit.i:                       ; preds = %90, %86
   %104 = icmp sgt i32 %74, 0
   %105 = icmp sgt i32 %storemerge21.i.i, 0
   %or.cond.i54 = select i1 %104, i1 %105, i1 false
-  br i1 %or.cond.i54, label %process_preamble.exit.thread123, label %process_preamble.exit.thread
+  br i1 %or.cond.i54, label %process_preamble.exit.thread146, label %process_preamble.exit.thread
 
-process_preamble.exit.thread123:                  ; preds = %103
+process_preamble.exit.thread146:                  ; preds = %103
   %106 = add nuw i32 %storemerge21.i.i, %74
   %107 = load i32, ptr @hf_multipart_preamble, align 4
   %108 = call ptr @proto_tree_add_item(ptr noundef %57, i32 noundef %107, ptr noundef %0, i32 noundef 0, i32 noundef %74, i32 noundef 0)
@@ -394,8 +394,8 @@ process_preamble.exit:                            ; preds = %find_first_boundary
   %113 = icmp eq i32 %storemerge21.i.i, -1
   br i1 %113, label %process_preamble.exit.thread, label %.preheader
 
-.preheader:                                       ; preds = %process_preamble.exit.thread123, %process_preamble.exit
-  %.0.i53125 = phi i32 [ %106, %process_preamble.exit.thread123 ], [ %101, %process_preamble.exit ]
+.preheader:                                       ; preds = %process_preamble.exit.thread146, %process_preamble.exit
+  %.0.i53148 = phi i32 [ %106, %process_preamble.exit.thread146 ], [ %101, %process_preamble.exit ]
   %114 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %115 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %116 = getelementptr inbounds nuw i8, ptr %36, i64 48
@@ -410,7 +410,7 @@ process_preamble.exit.thread:                     ; preds = %.thread.i, %103, %p
 
 121:                                              ; preds = %.preheader, %process_body_part.exit
   %.061 = phi i8 [ %.2, %process_body_part.exit ], [ %storemerge.i.i, %.preheader ]
-  %.045 = phi i32 [ %374, %process_body_part.exit ], [ %.0.i53125, %.preheader ]
+  %.045 = phi i32 [ %374, %process_body_part.exit ], [ %.0.i53148, %.preheader ]
   %.0 = phi i32 [ %124, %process_body_part.exit ], [ 0, %.preheader ]
   %122 = icmp eq i8 %.061, 0
   br i1 %122, label %123, label %377

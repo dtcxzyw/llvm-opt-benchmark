@@ -142,12 +142,12 @@ SuiteSparse_malloc.exit:                          ; preds = %12
   %21 = icmp ne ptr %20, null
   %22 = icmp ugt i64 %1, %spec.store.select2
   %spec.select = or i1 %21, %22
-  %spec.select30 = select i1 %21, ptr %20, ptr %3
+  %spec.select32 = select i1 %21, ptr %20, ptr %3
   br label %23
 
 23:                                               ; preds = %19, %17, %5, %SuiteSparse_malloc.exit
   %.sink.shrunk = phi i1 [ %16, %SuiteSparse_malloc.exit ], [ false, %5 ], [ true, %17 ], [ %spec.select, %19 ]
-  %.0 = phi ptr [ %15, %SuiteSparse_malloc.exit ], [ %3, %5 ], [ %3, %17 ], [ %spec.select30, %19 ]
+  %.0 = phi ptr [ %15, %SuiteSparse_malloc.exit ], [ %3, %5 ], [ %3, %17 ], [ %spec.select32, %19 ]
   %.sink = zext i1 %.sink.shrunk to i32
   store i32 %.sink, ptr %4, align 4, !tbaa !10
   ret ptr %.0

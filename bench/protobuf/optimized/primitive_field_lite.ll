@@ -1840,10 +1840,10 @@ call.i.i.i514.noexc:                              ; preds = %if.else
   br i1 %tobool.i.i.i515, label %invoke.cont283.invoke.sink.split, label %invoke.cont283.invoke
 
 invoke.cont283.invoke.sink.split:                 ; preds = %call.i.i.i514.noexc, %call.i.i.i502.noexc
-  %.sink772 = phi i64 [ %257, %call.i.i.i502.noexc ], [ %259, %call.i.i.i514.noexc ]
+  %.sink773 = phi i64 [ %257, %call.i.i.i502.noexc ], [ %259, %call.i.i.i514.noexc ]
   %.ph = phi ptr [ @.str.93, %call.i.i.i502.noexc ], [ @.str.95, %call.i.i.i514.noexc ]
   %261 = load ptr, ptr %slots_.i.i.i3.i.i.i, align 8, !noalias !175
-  %add.ptr.i.i.i.i520 = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %261, i64 %.sink772
+  %add.ptr.i.i.i.i520 = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %261, i64 %.sink773
   store i64 10, ptr %add.ptr.i.i.i.i520, align 8, !noalias !175
   %_M_str.i.i.i.i.i.i.i.i.i.i.i.i522 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i520, i64 8
   store ptr @.str.94, ptr %_M_str.i.i.i.i.i.i.i.i.i.i.i.i522, align 8, !noalias !175
@@ -1852,10 +1852,10 @@ invoke.cont283.invoke.sink.split:                 ; preds = %call.i.i.i514.noexc
   br label %invoke.cont283.invoke
 
 invoke.cont283.invoke:                            ; preds = %invoke.cont283.invoke.sink.split, %call.i.i.i514.noexc, %call.i.i.i502.noexc
-  %.sink769 = phi i64 [ %257, %call.i.i.i502.noexc ], [ %259, %call.i.i.i514.noexc ], [ %.sink772, %invoke.cont283.invoke.sink.split ]
+  %.sink770 = phi i64 [ %257, %call.i.i.i502.noexc ], [ %259, %call.i.i.i514.noexc ], [ %.sink773, %invoke.cont283.invoke.sink.split ]
   %262 = phi ptr [ @.str.93, %call.i.i.i502.noexc ], [ @.str.95, %call.i.i.i514.noexc ], [ %.ph, %invoke.cont283.invoke.sink.split ]
   %263 = load ptr, ptr %slots_.i.i.i3.i.i.i, align 8, !noalias !175
-  %second.i.i505 = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %263, i64 %.sink769, i32 0, i32 1
+  %second.i.i505 = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %263, i64 %.sink770, i32 0, i32 1
   %264 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %second.i.i505, ptr noundef nonnull %262)
           to label %invoke.cont290 unwind label %lpad93
 
@@ -7048,7 +7048,7 @@ if.then20:                                        ; preds = %if.else18
   %arrayidx1.i = getelementptr inbounds nuw i8, ptr %first, i64 %div6.i
   %1 = load i8, ptr %arrayidx1.i, align 1
   %sub.i31 = add nsw i64 %len, -1
-  %arrayidx2.i = getelementptr inbounds i8, ptr %first, i64 %sub.i31
+  %arrayidx2.i = getelementptr inbounds nuw i8, ptr %first, i64 %sub.i31
   %2 = load i8, ptr %arrayidx2.i, align 1
   %conv.i32 = zext i8 %0 to i32
   %conv3.i33 = zext i8 %1 to i32

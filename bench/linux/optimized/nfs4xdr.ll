@@ -220,7 +220,7 @@ define dso_local noundef range(i32 -523, 1) i32 @nfs4_decode_dirent(ptr noundef 
   br i1 %51, label %.thread, label %.preheader.preheader
 
 .preheader.preheader:                             ; preds = %46, %44, %48
-  %.fr14 = phi i64 [ %40, %48 ], [ 3, %46 ], [ -90, %44 ]
+  %.fr20 = phi i64 [ %40, %48 ], [ 3, %46 ], [ -90, %44 ]
   %52 = phi i64 [ %40, %48 ], [ 3, %46 ], [ 3, %44 ]
   br label %.preheader
 
@@ -238,16 +238,16 @@ define dso_local noundef range(i32 -523, 1) i32 @nfs4_decode_dirent(ptr noundef 
   br i1 %61, label %.critedge, label %.preheader, !llvm.loop !7
 
 .critedge:                                        ; preds = %.preheader
-  %62 = icmp sgt i64 %.fr14, -1
+  %62 = icmp sgt i64 %.fr20, -1
   br i1 %62, label %.thread, label %63, !prof !10
 
 63:                                               ; preds = %.critedge
-  %64 = icmp eq i64 %.fr14, -90
+  %64 = icmp eq i64 %.fr20, -90
   %spec.select = select i1 %64, i64 3, i64 -5
   br label %.thread
 
 .thread:                                          ; preds = %48, %63, %37, %31, %.critedge
-  %65 = phi i64 [ %.fr14, %.critedge ], [ -5, %31 ], [ -5, %37 ], [ %spec.select, %63 ], [ 0, %48 ]
+  %65 = phi i64 [ %.fr20, %.critedge ], [ -5, %31 ], [ -5, %37 ], [ %spec.select, %63 ], [ 0, %48 ]
   %66 = tail call i64 @llvm.smin.i64(i64 %65, i64 0)
   %67 = and i64 %66, 2147483648
   %68 = icmp eq i64 %67, 0
@@ -821,8 +821,8 @@ define internal fastcc range(i32 -121, 33554433) i32 @decode_getfattr_attrs(ptr 
 
 .loopexit:                                        ; preds = %.critedge.i, %293
   %296 = load i32, ptr %205, align 8
-  %.fr99 = freeze i32 %296
-  %297 = add i32 %.fr99, 1
+  %.fr151 = freeze i32 %296
+  %297 = add i32 %.fr151, 1
   store i32 %297, ptr %205, align 8
   %298 = icmp slt i32 %297, %204
   br i1 %298, label %209, label %decode_pathname.exit.loopexit, !llvm.loop !24
@@ -7740,7 +7740,7 @@ define internal i32 @nfs4_xdr_dec_pathconf(ptr readnone captures(none) %0, ptr n
   br i1 %91, label %.critedge.thread, label %.preheader.preheader
 
 .preheader.preheader:                             ; preds = %86, %84, %88
-  %.fr44 = phi i64 [ %80, %88 ], [ 3, %86 ], [ -90, %84 ]
+  %.fr60 = phi i64 [ %80, %88 ], [ 3, %86 ], [ -90, %84 ]
   %92 = phi i64 [ %80, %88 ], [ 3, %86 ], [ 3, %84 ]
   br label %.preheader
 
@@ -7758,11 +7758,11 @@ define internal i32 @nfs4_xdr_dec_pathconf(ptr readnone captures(none) %0, ptr n
   br i1 %101, label %.critedge, label %.preheader, !llvm.loop !7
 
 .critedge:                                        ; preds = %.preheader
-  %102 = icmp sgt i64 %.fr44, -1
+  %102 = icmp sgt i64 %.fr60, -1
   br i1 %102, label %.critedge.thread, label %103, !prof !10
 
 103:                                              ; preds = %.critedge
-  %104 = icmp eq i64 %.fr44, -90
+  %104 = icmp eq i64 %.fr60, -90
   br i1 %104, label %.critedge.thread, label %decode_attr_maxname.exit
 
 .critedge.thread:                                 ; preds = %88, %103, %.critedge
@@ -8074,7 +8074,7 @@ define internal i32 @nfs4_xdr_dec_statfs(ptr readnone captures(none) %0, ptr nou
   br i1 %91, label %.critedge.thread, label %.preheader.preheader
 
 .preheader.preheader:                             ; preds = %86, %84, %88
-  %.fr48 = phi i64 [ %80, %88 ], [ 3, %86 ], [ -90, %84 ]
+  %.fr68 = phi i64 [ %80, %88 ], [ 3, %86 ], [ -90, %84 ]
   %92 = phi i64 [ %80, %88 ], [ 3, %86 ], [ 3, %84 ]
   br label %.preheader
 
@@ -8092,11 +8092,11 @@ define internal i32 @nfs4_xdr_dec_statfs(ptr readnone captures(none) %0, ptr nou
   br i1 %101, label %.critedge, label %.preheader, !llvm.loop !7
 
 .critedge:                                        ; preds = %.preheader
-  %102 = icmp sgt i64 %.fr48, -1
+  %102 = icmp sgt i64 %.fr68, -1
   br i1 %102, label %.critedge.thread, label %103, !prof !10
 
 103:                                              ; preds = %.critedge
-  %104 = icmp eq i64 %.fr48, -90
+  %104 = icmp eq i64 %.fr68, -90
   br i1 %104, label %.critedge.thread, label %decode_attr_files_free.exit
 
 .critedge.thread:                                 ; preds = %88, %103, %.critedge
@@ -9041,7 +9041,7 @@ define internal i32 @nfs4_xdr_dec_server_caps(ptr readnone captures(none) %0, pt
   br i1 %89, label %.critedge.thread, label %.preheader61.preheader
 
 .preheader61.preheader:                           ; preds = %84, %82, %86
-  %.fr70 = phi i64 [ %78, %86 ], [ 3, %84 ], [ -90, %82 ]
+  %.fr94 = phi i64 [ %78, %86 ], [ 3, %84 ], [ -90, %82 ]
   %90 = phi i64 [ %78, %86 ], [ 3, %84 ], [ 3, %82 ]
   br label %.preheader61
 
@@ -9059,11 +9059,11 @@ define internal i32 @nfs4_xdr_dec_server_caps(ptr readnone captures(none) %0, pt
   br i1 %99, label %.critedge, label %.preheader61, !llvm.loop !7
 
 .critedge:                                        ; preds = %.preheader61
-  %100 = icmp sgt i64 %.fr70, -1
+  %100 = icmp sgt i64 %.fr94, -1
   br i1 %100, label %.critedge.thread, label %101, !prof !10
 
 101:                                              ; preds = %.critedge
-  %102 = icmp eq i64 %.fr70, -90
+  %102 = icmp eq i64 %.fr94, -90
   br i1 %102, label %.critedge.thread, label %.thread40
 
 .critedge.thread:                                 ; preds = %86, %101, %.critedge
@@ -9113,7 +9113,7 @@ define internal i32 @nfs4_xdr_dec_server_caps(ptr readnone captures(none) %0, pt
   br i1 %131, label %.critedge35.thread, label %.preheader.preheader
 
 .preheader.preheader:                             ; preds = %126, %124, %128
-  %.fr5876 = phi i64 [ %120, %128 ], [ 3, %126 ], [ -90, %124 ]
+  %.fr58100 = phi i64 [ %120, %128 ], [ 3, %126 ], [ -90, %124 ]
   %132 = phi i64 [ %120, %128 ], [ 3, %126 ], [ 3, %124 ]
   br label %.preheader
 
@@ -9131,11 +9131,11 @@ define internal i32 @nfs4_xdr_dec_server_caps(ptr readnone captures(none) %0, pt
   br i1 %141, label %.critedge35, label %.preheader, !llvm.loop !7
 
 .critedge35:                                      ; preds = %.preheader
-  %142 = icmp sgt i64 %.fr5876, -1
+  %142 = icmp sgt i64 %.fr58100, -1
   br i1 %142, label %.critedge35.thread, label %143, !prof !10
 
 143:                                              ; preds = %.critedge35
-  %144 = icmp eq i64 %.fr5876, -90
+  %144 = icmp eq i64 %.fr58100, -90
   br i1 %144, label %.critedge35.thread, label %.thread40
 
 .critedge35.thread:                               ; preds = %128, %143, %.critedge35
@@ -9757,7 +9757,7 @@ define internal i32 @nfs4_xdr_dec_getacl(ptr readnone captures(none) %0, ptr nou
   br i1 %110, label %.critedge.thread, label %.preheader.preheader
 
 .preheader.preheader:                             ; preds = %105, %103, %107
-  %.fr42 = phi i64 [ %99, %107 ], [ 3, %105 ], [ -90, %103 ]
+  %.fr57 = phi i64 [ %99, %107 ], [ 3, %105 ], [ -90, %103 ]
   %111 = phi i64 [ %99, %107 ], [ 3, %105 ], [ 3, %103 ]
   br label %.preheader
 
@@ -9775,11 +9775,11 @@ define internal i32 @nfs4_xdr_dec_getacl(ptr readnone captures(none) %0, ptr nou
   br i1 %120, label %.critedge, label %.preheader, !llvm.loop !7
 
 .critedge:                                        ; preds = %.preheader
-  %121 = icmp sgt i64 %.fr42, -1
+  %121 = icmp sgt i64 %.fr57, -1
   br i1 %121, label %.critedge.thread, label %122, !prof !10
 
 122:                                              ; preds = %.critedge
-  %123 = icmp eq i64 %.fr42, -90
+  %123 = icmp eq i64 %.fr57, -90
   br i1 %123, label %.critedge.thread, label %.thread24
 
 .critedge.thread:                                 ; preds = %107, %122, %.critedge
@@ -12119,7 +12119,7 @@ define internal fastcc range(i32 -121, 1) i32 @decode_attr_mdsthreshold(ptr noun
   br i1 %46, label %.critedge.thread, label %.preheader.preheader
 
 .preheader.preheader:                             ; preds = %41, %39, %43
-  %.fr29 = phi i64 [ %35, %43 ], [ 3, %41 ], [ -90, %39 ]
+  %.fr39 = phi i64 [ %35, %43 ], [ 3, %41 ], [ -90, %39 ]
   %47 = phi i64 [ %35, %43 ], [ 3, %41 ], [ 3, %39 ]
   br label %.preheader
 
@@ -12137,11 +12137,11 @@ define internal fastcc range(i32 -121, 1) i32 @decode_attr_mdsthreshold(ptr noun
   br i1 %56, label %.critedge, label %.preheader, !llvm.loop !7
 
 .critedge:                                        ; preds = %.preheader
-  %57 = icmp sgt i64 %.fr29, -1
+  %57 = icmp sgt i64 %.fr39, -1
   br i1 %57, label %.critedge.thread, label %58, !prof !10
 
 58:                                               ; preds = %.critedge
-  %59 = icmp eq i64 %.fr29, -90
+  %59 = icmp eq i64 %.fr39, -90
   br i1 %59, label %.critedge.thread, label %.thread16
 
 .critedge.thread:                                 ; preds = %43, %58, %.critedge
@@ -12899,7 +12899,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @decode_getfattr_generic(pt
   br i1 %54, label %.critedge.thread, label %.preheader.preheader
 
 .preheader.preheader:                             ; preds = %49, %47, %51
-  %.fr25 = phi i64 [ %43, %51 ], [ 3, %49 ], [ -90, %47 ]
+  %.fr34 = phi i64 [ %43, %51 ], [ 3, %49 ], [ -90, %47 ]
   %55 = phi i64 [ %43, %51 ], [ 3, %49 ], [ 3, %47 ]
   br label %.preheader
 
@@ -12917,11 +12917,11 @@ define internal fastcc range(i32 -2147483648, 1) i32 @decode_getfattr_generic(pt
   br i1 %64, label %.critedge, label %.preheader, !llvm.loop !7
 
 .critedge:                                        ; preds = %.preheader
-  %65 = icmp sgt i64 %.fr25, -1
+  %65 = icmp sgt i64 %.fr34, -1
   br i1 %65, label %.critedge.thread, label %66, !prof !10
 
 66:                                               ; preds = %.critedge
-  %67 = icmp eq i64 %.fr25, -90
+  %67 = icmp eq i64 %.fr34, -90
   br i1 %67, label %.critedge.thread, label %.thread
 
 .critedge.thread:                                 ; preds = %51, %66, %.critedge
@@ -14516,7 +14516,7 @@ define internal fastcc i32 @decode_fsinfo(ptr noundef %0, ptr noundef captures(n
   br i1 %52, label %.critedge.thread, label %.preheader.preheader
 
 .preheader.preheader:                             ; preds = %47, %45, %49
-  %.fr38 = phi i64 [ %41, %49 ], [ 3, %47 ], [ -90, %45 ]
+  %.fr56 = phi i64 [ %41, %49 ], [ 3, %47 ], [ -90, %45 ]
   %53 = phi i64 [ %41, %49 ], [ 3, %47 ], [ 3, %45 ]
   br label %.preheader
 
@@ -14534,11 +14534,11 @@ define internal fastcc i32 @decode_fsinfo(ptr noundef %0, ptr noundef captures(n
   br i1 %62, label %.critedge, label %.preheader, !llvm.loop !7
 
 .critedge:                                        ; preds = %.preheader
-  %63 = icmp sgt i64 %.fr38, -1
+  %63 = icmp sgt i64 %.fr56, -1
   br i1 %63, label %.critedge.thread, label %64, !prof !10
 
 64:                                               ; preds = %.critedge
-  %65 = icmp eq i64 %.fr38, -90
+  %65 = icmp eq i64 %.fr56, -90
   br i1 %65, label %.critedge.thread, label %decode_attr_maxfilesize.exit
 
 .critedge.thread:                                 ; preds = %49, %64, %.critedge
@@ -15671,7 +15671,7 @@ define internal fastcc range(i32 -5, 1) i32 @decode_attr_exclcreat_supported(ptr
   br i1 %27, label %.thread8, label %.preheader.preheader
 
 .preheader.preheader:                             ; preds = %22, %20, %24
-  %.fr16 = phi i64 [ %14, %24 ], [ 3, %22 ], [ -90, %20 ]
+  %.fr19 = phi i64 [ %14, %24 ], [ 3, %22 ], [ -90, %20 ]
   %28 = phi i64 [ %14, %24 ], [ 3, %22 ], [ 3, %20 ]
   br label %.preheader
 
@@ -15689,11 +15689,11 @@ define internal fastcc range(i32 -5, 1) i32 @decode_attr_exclcreat_supported(ptr
   br i1 %37, label %.loopexit, label %.preheader, !llvm.loop !7
 
 .loopexit:                                        ; preds = %.preheader
-  %38 = icmp sgt i64 %.fr16, -1
+  %38 = icmp sgt i64 %.fr19, -1
   br i1 %38, label %.thread8, label %39, !prof !10
 
 39:                                               ; preds = %.loopexit
-  %40 = icmp eq i64 %.fr16, -90
+  %40 = icmp eq i64 %.fr19, -90
   br i1 %40, label %.thread8, label %.thread9
 
 .thread8:                                         ; preds = %24, %39, %18, %.loopexit

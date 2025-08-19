@@ -662,13 +662,13 @@ Vec_StrGrow.exit.i61:                             ; preds = %142, %140
   br label %.sink.split
 
 .sink.split:                                      ; preds = %153, %Vec_StrGrow.exit.i61, %.Vec_StrGrow.exit10_crit_edge.i56, %130, %Vec_StrGrow.exit.i54, %.Vec_StrGrow.exit10_crit_edge.i49, %106, %Vec_StrGrow.exit.i47, %.Vec_StrGrow.exit10_crit_edge.i42, %82, %Vec_StrGrow.exit.i40, %.Vec_StrGrow.exit10_crit_edge.i35, %59, %Vec_StrGrow.exit.i33, %.Vec_StrGrow.exit10_crit_edge.i28, %36, %Vec_StrGrow.exit.i, %.Vec_StrGrow.exit10_crit_edge.i
-  %.sink71 = phi i32 [ %16, %.Vec_StrGrow.exit10_crit_edge.i ], [ %16, %Vec_StrGrow.exit.i ], [ %16, %36 ], [ %39, %.Vec_StrGrow.exit10_crit_edge.i28 ], [ %39, %Vec_StrGrow.exit.i33 ], [ %39, %59 ], [ %62, %.Vec_StrGrow.exit10_crit_edge.i35 ], [ %62, %Vec_StrGrow.exit.i40 ], [ %62, %82 ], [ %86, %.Vec_StrGrow.exit10_crit_edge.i42 ], [ %86, %Vec_StrGrow.exit.i47 ], [ %86, %106 ], [ %110, %.Vec_StrGrow.exit10_crit_edge.i49 ], [ %110, %Vec_StrGrow.exit.i54 ], [ %110, %130 ], [ %133, %.Vec_StrGrow.exit10_crit_edge.i56 ], [ %133, %Vec_StrGrow.exit.i61 ], [ %133, %153 ]
-  %.sink67 = phi ptr [ %.pre.i, %.Vec_StrGrow.exit10_crit_edge.i ], [ %27, %Vec_StrGrow.exit.i ], [ %37, %36 ], [ %.pre.i30, %.Vec_StrGrow.exit10_crit_edge.i28 ], [ %50, %Vec_StrGrow.exit.i33 ], [ %60, %59 ], [ %.pre.i37, %.Vec_StrGrow.exit10_crit_edge.i35 ], [ %73, %Vec_StrGrow.exit.i40 ], [ %83, %82 ], [ %.pre.i44, %.Vec_StrGrow.exit10_crit_edge.i42 ], [ %97, %Vec_StrGrow.exit.i47 ], [ %107, %106 ], [ %.pre.i51, %.Vec_StrGrow.exit10_crit_edge.i49 ], [ %121, %Vec_StrGrow.exit.i54 ], [ %131, %130 ], [ %.pre.i58, %.Vec_StrGrow.exit10_crit_edge.i56 ], [ %144, %Vec_StrGrow.exit.i61 ], [ %154, %153 ]
+  %.sink93 = phi i32 [ %16, %.Vec_StrGrow.exit10_crit_edge.i ], [ %16, %Vec_StrGrow.exit.i ], [ %16, %36 ], [ %39, %.Vec_StrGrow.exit10_crit_edge.i28 ], [ %39, %Vec_StrGrow.exit.i33 ], [ %39, %59 ], [ %62, %.Vec_StrGrow.exit10_crit_edge.i35 ], [ %62, %Vec_StrGrow.exit.i40 ], [ %62, %82 ], [ %86, %.Vec_StrGrow.exit10_crit_edge.i42 ], [ %86, %Vec_StrGrow.exit.i47 ], [ %86, %106 ], [ %110, %.Vec_StrGrow.exit10_crit_edge.i49 ], [ %110, %Vec_StrGrow.exit.i54 ], [ %110, %130 ], [ %133, %.Vec_StrGrow.exit10_crit_edge.i56 ], [ %133, %Vec_StrGrow.exit.i61 ], [ %133, %153 ]
+  %.sink89 = phi ptr [ %.pre.i, %.Vec_StrGrow.exit10_crit_edge.i ], [ %27, %Vec_StrGrow.exit.i ], [ %37, %36 ], [ %.pre.i30, %.Vec_StrGrow.exit10_crit_edge.i28 ], [ %50, %Vec_StrGrow.exit.i33 ], [ %60, %59 ], [ %.pre.i37, %.Vec_StrGrow.exit10_crit_edge.i35 ], [ %73, %Vec_StrGrow.exit.i40 ], [ %83, %82 ], [ %.pre.i44, %.Vec_StrGrow.exit10_crit_edge.i42 ], [ %97, %Vec_StrGrow.exit.i47 ], [ %107, %106 ], [ %.pre.i51, %.Vec_StrGrow.exit10_crit_edge.i49 ], [ %121, %Vec_StrGrow.exit.i54 ], [ %131, %130 ], [ %.pre.i58, %.Vec_StrGrow.exit10_crit_edge.i56 ], [ %144, %Vec_StrGrow.exit.i61 ], [ %154, %153 ]
   %.sink = phi i8 [ 1, %.Vec_StrGrow.exit10_crit_edge.i ], [ 1, %Vec_StrGrow.exit.i ], [ 1, %36 ], [ 2, %.Vec_StrGrow.exit10_crit_edge.i28 ], [ 2, %Vec_StrGrow.exit.i33 ], [ 2, %59 ], [ 0, %.Vec_StrGrow.exit10_crit_edge.i35 ], [ 0, %Vec_StrGrow.exit.i40 ], [ 0, %82 ], [ 1, %.Vec_StrGrow.exit10_crit_edge.i42 ], [ 1, %Vec_StrGrow.exit.i47 ], [ 1, %106 ], [ 0, %.Vec_StrGrow.exit10_crit_edge.i49 ], [ 0, %Vec_StrGrow.exit.i54 ], [ 0, %130 ], [ 3, %.Vec_StrGrow.exit10_crit_edge.i56 ], [ 3, %Vec_StrGrow.exit.i61 ], [ 3, %153 ]
-  %155 = add nsw i32 %.sink71, 1
+  %155 = add nsw i32 %.sink93, 1
   store i32 %155, ptr %5, align 4, !tbaa !15
-  %156 = sext i32 %.sink71 to i64
-  %157 = getelementptr inbounds i8, ptr %.sink67, i64 %156
+  %156 = sext i32 %.sink93 to i64
+  %157 = getelementptr inbounds i8, ptr %.sink89, i64 %156
   store i8 %.sink, ptr %157, align 1, !tbaa !3
   br label %158
 
@@ -1052,8 +1052,8 @@ Vec_WrdFillExtra.exit74:                          ; preds = %Vec_WrdFillExtra.ex
   %.04781.us = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next108, %..critedge2.preheader_crit_edge.us ]
   %173 = mul nsw i64 %indvars.iv111, %135
   %174 = getelementptr inbounds i64, ptr %.val56, i64 %173
-  %sext132 = shl i64 %.04781.us, 32
-  %175 = ashr exact i64 %sext132, 32
+  %sext147 = shl i64 %.04781.us, 32
+  %175 = ashr exact i64 %sext147, 32
   br label %176
 
 176:                                              ; preds = %.lr.ph.us, %176

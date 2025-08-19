@@ -442,7 +442,7 @@ define internal fastcc i64 @date__strptime_internal(ptr noundef %0, i64 noundef 
 
 42:                                               ; preds = %45, %.critedge
   %.1838 = phi i64 [ %.08372003, %.critedge ], [ %43, %45 ]
-  %43 = add i64 %.1838, 1
+  %43 = add nuw i64 %.1838, 1
   %44 = icmp ult i64 %43, %3
   br i1 %44, label %45, label %.thread1733
 
@@ -574,7 +574,8 @@ rbimpl_intern_const.exit:                         ; preds = %.lr.ph.i, %54
   br i1 %.not1017, label %.loopexit1799.loopexit, label %.preheader1798.backedge
 
 .preheader:                                       ; preds = %.preheader1798, %80
-  %indvars.iv = phi i64 [ %indvars.iv.next, %80 ], [ 1, %.preheader1798 ]
+  %exitcond2217.not = phi i1 [ true, %80 ], [ false, %.preheader1798 ]
+  %indvars.iv = phi i64 [ 2, %80 ], [ 1, %.preheader1798 ]
   %74 = add i64 %59, %indvars.iv
   %75 = icmp ult i64 %74, %3
   br i1 %75, label %76, label %.critedge63.split.loop.exit
@@ -583,23 +584,21 @@ rbimpl_intern_const.exit:                         ; preds = %.lr.ph.i, %54
   %77 = getelementptr inbounds nuw i8, ptr %2, i64 %74
   %78 = load i8, ptr %77, align 1, !tbaa !15
   %79 = icmp eq i8 %78, 58
-  br i1 %79, label %80, label %.critedge63.split.loop.exit2427
+  br i1 %79, label %80, label %.critedge63.split.loop.exit2549
 
 80:                                               ; preds = %76
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond2217.not = icmp eq i64 %indvars.iv.next, 3
   br i1 %exitcond2217.not, label %.critedge63, label %.preheader, !llvm.loop !21
 
 .critedge63.split.loop.exit:                      ; preds = %.preheader
   %81 = trunc nuw nsw i64 %indvars.iv to i32
   br label %.critedge63
 
-.critedge63.split.loop.exit2427:                  ; preds = %76
+.critedge63.split.loop.exit2549:                  ; preds = %76
   %82 = trunc nuw nsw i64 %indvars.iv to i32
   br label %.critedge63
 
-.critedge63:                                      ; preds = %80, %.critedge63.split.loop.exit2427, %.critedge63.split.loop.exit
-  %.0910.lcssa = phi i32 [ %81, %.critedge63.split.loop.exit ], [ %82, %.critedge63.split.loop.exit2427 ], [ 3, %80 ]
+.critedge63:                                      ; preds = %80, %.critedge63.split.loop.exit2549, %.critedge63.split.loop.exit
+  %.0910.lcssa = phi i32 [ %81, %.critedge63.split.loop.exit ], [ %82, %.critedge63.split.loop.exit2549 ], [ 3, %80 ]
   %83 = zext nneg i32 %.0910.lcssa to i64
   %84 = getelementptr i8, ptr %60, i64 %83
   %85 = load i8, ptr %84, align 1, !tbaa !15

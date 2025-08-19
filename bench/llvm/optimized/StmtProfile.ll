@@ -2704,11 +2704,11 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEi.exit.sink.split: ; preds = %2
   br label %_ZN4llvm16FoldingSetNodeID10AddIntegerEi.exit
 
 _ZN4llvm16FoldingSetNodeID10AddIntegerEi.exit:    ; preds = %2, %_ZN4llvm16FoldingSetNodeID10AddIntegerEi.exit.sink.split
-  %.sink9 = phi i32 [ %.pre.i.i3, %_ZN4llvm16FoldingSetNodeID10AddIntegerEi.exit.sink.split ], [ %6, %2 ]
+  %.sink12 = phi i32 [ %.pre.i.i3, %_ZN4llvm16FoldingSetNodeID10AddIntegerEi.exit.sink.split ], [ %6, %2 ]
   %12 = icmp eq i32 %1, 26
   %. = select i1 %12, i32 73, i32 %1
   %13 = load ptr, ptr %4, align 8, !tbaa !83
-  %14 = zext i32 %.sink9 to i64
+  %14 = zext i32 %.sink12 to i64
   %15 = getelementptr inbounds nuw i32, ptr %13, i64 %14
   store i32 %., ptr %15, align 1
   %16 = load i32, ptr %5, align 8, !tbaa !79
@@ -4088,10 +4088,10 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEi.exit:    ; preds = %12, %23
   br label %.sink.split
 
 .sink.split:                                      ; preds = %36, %39
-  %.sink17 = phi i64 [ 48, %39 ], [ 24, %36 ]
+  %.sink18 = phi i64 [ 48, %39 ], [ 24, %36 ]
   %.sink = phi ptr [ %40, %39 ], [ %38, %36 ]
   %41 = load ptr, ptr %0, align 8, !tbaa !12
-  %42 = getelementptr inbounds nuw i8, ptr %41, i64 %.sink17
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 %.sink18
   %43 = load ptr, ptr %42, align 8
   tail call void %43(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef %.sink) #12
   br label %44
@@ -4645,7 +4645,7 @@ _ZNK5clang13LambdaCapture16capturesVariableEv.exit.thread: ; preds = %_ZN4llvm16
   %.not = icmp eq ptr %80, %40
   br i1 %.not, label %._crit_edge, label %52
 
-._crit_edge61:                                    ; preds = %.thread66, %._crit_edge
+._crit_edge61:                                    ; preds = %.thread75, %._crit_edge
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %82 = load ptr, ptr %81, align 8, !tbaa !78
   %83 = call noundef i32 @_ZN5clang7ODRHash13CalculateHashEv(ptr noundef nonnull align 8 dereferenceable(320) %3) #12
@@ -4700,8 +4700,8 @@ _ZN5clang7ODRHashD2Ev.exit:                       ; preds = %_ZN4llvm16FoldingSe
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %122
 
-.lr.ph60:                                         ; preds = %._crit_edge, %.thread66
-  %.sroa.0.058 = phi ptr [ %121, %.thread66 ], [ %51, %._crit_edge ]
+.lr.ph60:                                         ; preds = %._crit_edge, %.thread75
+  %.sroa.0.058 = phi ptr [ %121, %.thread75 ], [ %51, %._crit_edge ]
   %109 = getelementptr inbounds nuw i8, ptr %.sroa.0.058, i64 28
   %110 = load i32, ptr %109, align 4
   %111 = and i32 %110, 127
@@ -4712,20 +4712,20 @@ _ZN5clang7ODRHashD2Ev.exit:                       ; preds = %_ZN4llvm16FoldingSe
   %113 = and i32 %110, 126
   %114 = add nsw i32 %113, -32
   %115 = icmp ult i32 %114, 6
-  br i1 %115, label %.thread69, label %.thread66
+  br i1 %115, label %.thread78, label %.thread75
 
 116:                                              ; preds = %.lr.ph60
   %117 = getelementptr inbounds nuw i8, ptr %.sroa.0.058, i64 48
   %118 = load ptr, ptr %117, align 8, !tbaa !238
   %.not33 = icmp eq ptr %118, null
-  br i1 %.not33, label %.thread66, label %.thread69
+  br i1 %.not33, label %.thread75, label %.thread78
 
-.thread69:                                        ; preds = %112, %116
-  %.02872 = phi ptr [ %118, %116 ], [ %.sroa.0.058, %112 ]
-  call void @_ZN5clang7ODRHash15AddFunctionDeclEPKNS_12FunctionDeclEb(ptr noundef nonnull align 8 dereferenceable(320) %3, ptr noundef nonnull %.02872, i1 noundef zeroext true) #12
-  br label %.thread66
+.thread78:                                        ; preds = %112, %116
+  %.02881 = phi ptr [ %118, %116 ], [ %.sroa.0.058, %112 ]
+  call void @_ZN5clang7ODRHash15AddFunctionDeclEPKNS_12FunctionDeclEb(ptr noundef nonnull align 8 dereferenceable(320) %3, ptr noundef nonnull %.02881, i1 noundef zeroext true) #12
+  br label %.thread75
 
-.thread66:                                        ; preds = %112, %116, %.thread69
+.thread75:                                        ; preds = %112, %116, %.thread78
   %119 = getelementptr inbounds nuw i8, ptr %.sroa.0.058, i64 8
   %.0.copyload.i.i.i.i.i = load i64, ptr %119, align 8
   %120 = and i64 %.0.copyload.i.i.i.i.i, -8
@@ -5484,10 +5484,10 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEi.exit16.sink.split: ; preds = %51, %50
   br label %_ZN4llvm16FoldingSetNodeID10AddIntegerEi.exit16
 
 _ZN4llvm16FoldingSetNodeID10AddIntegerEi.exit16:  ; preds = %_ZN4llvm16FoldingSetNodeID10AddIntegerEi.exit16.sink.split, %51, %50
-  %.sink30 = phi i32 [ %31, %50 ], [ %31, %51 ], [ %.pre.i.i18, %_ZN4llvm16FoldingSetNodeID10AddIntegerEi.exit16.sink.split ]
+  %.sink39 = phi i32 [ %31, %50 ], [ %31, %51 ], [ %.pre.i.i18, %_ZN4llvm16FoldingSetNodeID10AddIntegerEi.exit16.sink.split ]
   %.sink = phi i32 [ 1, %50 ], [ 2, %51 ], [ %.sink.ph, %_ZN4llvm16FoldingSetNodeID10AddIntegerEi.exit16.sink.split ]
   %55 = load ptr, ptr %29, align 8, !tbaa !83
-  %56 = zext i32 %.sink30 to i64
+  %56 = zext i32 %.sink39 to i64
   %57 = getelementptr inbounds nuw i32, ptr %55, i64 %56
   store i32 %.sink, ptr %57, align 1
   %58 = load i32, ptr %30, align 8, !tbaa !79

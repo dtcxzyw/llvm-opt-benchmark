@@ -765,11 +765,11 @@ define dso_local i32 @i915_gem_set_tiling_ioctl(ptr noundef readonly captures(no
   br label %.thread20
 
 .thread20:                                        ; preds = %88, %.thread19, %.thread12
-  %.sink22 = phi i64 [ 820, %.thread12 ], [ 816, %.thread19 ], [ 816, %88 ]
+  %.sink28 = phi i64 [ 820, %.thread12 ], [ 816, %.thread19 ], [ 816, %88 ]
   %91 = load ptr, ptr %4, align 8
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 32
   %93 = load ptr, ptr %92, align 8
-  %94 = getelementptr inbounds nuw i8, ptr %93, i64 %.sink22
+  %94 = getelementptr inbounds nuw i8, ptr %93, i64 %.sink28
   %95 = load i32, ptr %94, align 4
   %96 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %97 = icmp eq i32 %95, 6

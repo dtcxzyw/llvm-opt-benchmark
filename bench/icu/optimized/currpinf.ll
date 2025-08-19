@@ -469,7 +469,7 @@ define noundef ptr @_ZN6icu_7718CurrencyPluralInfo8initHashER10UErrorCode(ptr no
   store ptr null, ptr %7, align 8, !tbaa !24
   %10 = load i32, ptr %1, align 4, !tbaa !6
   %11 = icmp slt i32 %10, 1
-  br i1 %11, label %12, label %_ZN6icu_7712LocalPointerINS_9HashtableEEC2EPS1_R10UErrorCode.exit.thread21
+  br i1 %11, label %12, label %_ZN6icu_7712LocalPointerINS_9HashtableEEC2EPS1_R10UErrorCode.exit.thread26
 
 12:                                               ; preds = %9
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -479,7 +479,7 @@ define noundef ptr @_ZN6icu_7718CurrencyPluralInfo8initHashER10UErrorCode(ptr no
 .noexc:                                           ; preds = %12
   %15 = load i32, ptr %1, align 4, !tbaa !6
   %16 = icmp sgt i32 %15, 0
-  br i1 %16, label %_ZN6icu_7712LocalPointerINS_9HashtableEEC2EPS1_R10UErrorCode.exit.thread21, label %17
+  br i1 %16, label %_ZN6icu_7712LocalPointerINS_9HashtableEEC2EPS1_R10UErrorCode.exit.thread26, label %17
 
 17:                                               ; preds = %.noexc
   store ptr %13, ptr %7, align 8, !tbaa !24
@@ -499,7 +499,7 @@ _ZN6icu_7712LocalPointerINS_9HashtableEEC2EPS1_R10UErrorCode.exit: ; preds = %17
   %.pre.pre = load i32, ptr %1, align 4, !tbaa !6
   %22 = icmp slt i32 %.pre.pre, 1
   store ptr %7, ptr %3, align 8, !tbaa !33
-  br i1 %22, label %27, label %_ZN6icu_7712LocalPointerINS_9HashtableEEC2EPS1_R10UErrorCode.exit.thread21
+  br i1 %22, label %27, label %_ZN6icu_7712LocalPointerINS_9HashtableEEC2EPS1_R10UErrorCode.exit.thread26
 
 23:                                               ; preds = %17, %12
   %24 = landingpad { ptr, i32 }
@@ -518,12 +518,12 @@ _ZN6icu_7712LocalPointerINS_9HashtableEEC2EPS1_R10UErrorCode.exit: ; preds = %17
   %29 = invoke noundef ptr @uhash_setValueComparator_77(ptr noundef %28, ptr noundef nonnull @_ZN6icu_77L15ValueComparatorE8UElementS0_)
           to label %_ZN6icu_7712LocalPointerINS_9HashtableEED2Ev.exit unwind label %25
 
-_ZN6icu_7712LocalPointerINS_9HashtableEEC2EPS1_R10UErrorCode.exit.thread21: ; preds = %.noexc, %9, %_ZN6icu_7712LocalPointerINS_9HashtableEEC2EPS1_R10UErrorCode.exit
+_ZN6icu_7712LocalPointerINS_9HashtableEEC2EPS1_R10UErrorCode.exit.thread26: ; preds = %.noexc, %9, %_ZN6icu_7712LocalPointerINS_9HashtableEEC2EPS1_R10UErrorCode.exit
   %30 = load ptr, ptr %7, align 8, !tbaa !24
   %.not.i.i = icmp eq ptr %30, null
   br i1 %.not.i.i, label %_ZN6icu_779HashtableD2Ev.exit.i, label %31
 
-31:                                               ; preds = %_ZN6icu_7712LocalPointerINS_9HashtableEEC2EPS1_R10UErrorCode.exit.thread21
+31:                                               ; preds = %_ZN6icu_7712LocalPointerINS_9HashtableEEC2EPS1_R10UErrorCode.exit.thread26
   invoke void @uhash_close_77(ptr noundef nonnull %30)
           to label %_ZN6icu_779HashtableD2Ev.exit.i unwind label %32
 
@@ -534,7 +534,7 @@ _ZN6icu_7712LocalPointerINS_9HashtableEEC2EPS1_R10UErrorCode.exit.thread21: ; pr
   tail call void @__clang_call_terminate(ptr %34) #13
   unreachable
 
-_ZN6icu_779HashtableD2Ev.exit.i:                  ; preds = %31, %_ZN6icu_7712LocalPointerINS_9HashtableEEC2EPS1_R10UErrorCode.exit.thread21
+_ZN6icu_779HashtableD2Ev.exit.i:                  ; preds = %31, %_ZN6icu_7712LocalPointerINS_9HashtableEEC2EPS1_R10UErrorCode.exit.thread26
   tail call void @_ZN6icu_777UMemorydlEPv(ptr noundef nonnull %7) #12
   br label %_ZN6icu_7712LocalPointerINS_9HashtableEED2Ev.exit
 
@@ -1317,7 +1317,7 @@ thread-pre-split:                                 ; preds = %62, %68
   %.068 = phi ptr [ %.068.ph, %thread-pre-split ], [ %56, %57 ]
   %80 = load i32, ptr %8, align 4, !tbaa !23
   %81 = icmp sgt i32 %79, 0
-  br i1 %81, label %._crit_edge.thread237, label %.preheader147
+  br i1 %81, label %._crit_edge.thread250, label %.preheader147
 
 .preheader147:                                    ; preds = %78
   %82 = icmp sgt i32 %80, 0
@@ -1358,19 +1358,19 @@ thread-pre-split:                                 ; preds = %62, %68
   %92 = icmp eq i8 %.272, 0
   br label %._crit_edge.thread
 
-._crit_edge.thread237:                            ; preds = %78
+._crit_edge.thread250:                            ; preds = %78
   %93 = icmp eq i32 %79, 7
   br i1 %93, label %94, label %248
 
-94:                                               ; preds = %._crit_edge.thread237
+94:                                               ; preds = %._crit_edge.thread250
   store i32 7, ptr %2, align 4, !tbaa !6
   br label %248
 
 ._crit_edge.thread:                               ; preds = %._crit_edge, %.preheader147
-  %.070236 = phi i1 [ %92, %._crit_edge ], [ true, %.preheader147 ]
-  %.073235 = phi i32 [ %.275, %._crit_edge ], [ 0, %.preheader147 ]
-  %.076234 = phi ptr [ %.278, %._crit_edge ], [ null, %.preheader147 ]
-  %.079233 = phi i32 [ %.281, %._crit_edge ], [ %80, %.preheader147 ]
+  %.070249 = phi i1 [ %92, %._crit_edge ], [ true, %.preheader147 ]
+  %.073248 = phi i32 [ %.275, %._crit_edge ], [ 0, %.preheader147 ]
+  %.076247 = phi ptr [ %.278, %._crit_edge ], [ null, %.preheader147 ]
+  %.079246 = phi i32 [ %.281, %._crit_edge ], [ %80, %.preheader147 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %95 = load ptr, ptr %44, align 8, !tbaa !40
   %96 = invoke ptr @ures_open_77(ptr noundef nonnull @.str, ptr noundef %95, ptr noundef nonnull %5)
@@ -1420,8 +1420,8 @@ _ZN6icu_7712LocalPointerINS_17StringEnumerationEEC2EPS1_R10UErrorCode.exit: ; pr
   %.not96 = icmp eq ptr %114, null
   %.pr146.pre = load i32, ptr %5, align 4, !tbaa !6
   %116 = icmp sgt i32 %.pr146.pre, 0
-  %or.cond278 = select i1 %.not96, i1 true, i1 %116
-  br i1 %or.cond278, label %.critedge, label %117
+  %or.cond291 = select i1 %.not96, i1 true, i1 %116
+  br i1 %or.cond291, label %.critedge, label %117
 
 117:                                              ; preds = %115
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
@@ -1494,7 +1494,7 @@ _ZN6icu_7712LocalPointerINS_17StringEnumerationEEC2EPS1_R10UErrorCode.exit: ; pr
 
 146:                                              ; preds = %145
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
-  invoke void @_ZN6icu_7713UnicodeStringC1EPKDsi(ptr noundef nonnull align 8 dereferenceable(64) %15, ptr noundef %.068, i32 noundef %.079233)
+  invoke void @_ZN6icu_7713UnicodeStringC1EPKDsi(ptr noundef nonnull align 8 dereferenceable(64) %15, ptr noundef %.068, i32 noundef %.079246)
           to label %147 unwind label %182
 
 147:                                              ; preds = %146
@@ -1532,7 +1532,7 @@ _ZN6icu_7712LocalPointerINS_17StringEnumerationEEC2EPS1_R10UErrorCode.exit: ; pr
   %156 = load ptr, ptr %17, align 8, !tbaa !37
   call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %156) #12, !srcloc !36
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
-  br i1 %.070236, label %224, label %157
+  br i1 %.070249, label %224, label %157
 
 157:                                              ; preds = %154
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
@@ -1548,7 +1548,7 @@ _ZN6icu_7712LocalPointerINS_17StringEnumerationEEC2EPS1_R10UErrorCode.exit: ; pr
 
 160:                                              ; preds = %159
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
-  invoke void @_ZN6icu_7713UnicodeStringC1EPKDsi(ptr noundef nonnull align 8 dereferenceable(64) %23, ptr noundef %.076234, i32 noundef %.073235)
+  invoke void @_ZN6icu_7713UnicodeStringC1EPKDsi(ptr noundef nonnull align 8 dereferenceable(64) %23, ptr noundef %.076247, i32 noundef %.073248)
           to label %161 unwind label %203
 
 161:                                              ; preds = %160
@@ -1832,8 +1832,8 @@ _ZN6icu_7712LocalPointerINS_17StringEnumerationEED2Ev.exit127: ; preds = %242, %
   %.pre = load ptr, ptr %7, align 8, !tbaa !41
   br label %248
 
-248:                                              ; preds = %._crit_edge.thread237, %94, %_ZN6icu_7712LocalPointerINS_17StringEnumerationEED2Ev.exit127
-  %249 = phi ptr [ %48, %._crit_edge.thread237 ], [ %48, %94 ], [ %.pre, %_ZN6icu_7712LocalPointerINS_17StringEnumerationEED2Ev.exit127 ]
+248:                                              ; preds = %._crit_edge.thread250, %94, %_ZN6icu_7712LocalPointerINS_17StringEnumerationEED2Ev.exit127
+  %249 = phi ptr [ %48, %._crit_edge.thread250 ], [ %48, %94 ], [ %.pre, %_ZN6icu_7712LocalPointerINS_17StringEnumerationEED2Ev.exit127 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %.not.i = icmp eq ptr %249, null
   br i1 %.not.i, label %_ZN6icu_778internal16LocalOpenPointerI15UResourceBundleXadL_Z13ures_close_77EEED2Ev.exit, label %250

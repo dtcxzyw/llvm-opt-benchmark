@@ -763,9 +763,8 @@ plugrack_read_dir.exit:                           ; preds = %30
   br i1 %.not85, label %.thread, label %41
 
 41:                                               ; preds = %plugrack_read_dir.exit, %plugrack_read_dir.exit.thread
-  %.017.i96 = phi i32 [ -1, %plugrack_read_dir.exit.thread ], [ %.0.i, %plugrack_read_dir.exit ]
   %42 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 776), align 8
-  %43 = call ptr @slurm_strerror(i32 noundef %.017.i96) #11
+  %43 = call ptr @slurm_strerror(i32 noundef -1) #11
   %44 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.15, ptr noundef nonnull @__func__.load_plugins, ptr noundef %42, ptr noundef %43) #11
   br label %.thread109
 
@@ -985,7 +984,7 @@ plugrack_read_dir.exit:                           ; preds = %30
 
 .thread109:                                       ; preds = %130, %41, %145
   %.076114 = phi ptr [ %.1, %145 ], [ %16, %41 ], [ %.1, %130 ]
-  %.077113 = phi i32 [ %.2, %145 ], [ %.017.i96, %41 ], [ 8003, %130 ]
+  %.077113 = phi i32 [ %.2, %145 ], [ -1, %41 ], [ 8003, %130 ]
   call void @unload_plugins(ptr noundef %.076114)
   br label %146
 

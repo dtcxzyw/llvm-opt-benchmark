@@ -11547,9 +11547,9 @@ define internal fastcc void @"_ZN4core3ptr164drop_in_place$LT$h2..codec..framed_
   br label %"_ZN4core3ptr189drop_in_place$LT$core..option..Option$LT$h2..codec..framed_write..Next$LT$h2..proto..streams..prioritize..Prioritized$LT$hyper..proto..h2..SendBuf$LT$bytes..bytes..Bytes$GT$$GT$$GT$$GT$$GT$17h63f34392b834dd82E.exit"
 
 .invoke:                                          ; preds = %19, %20
-  %.sink6.in = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %.sink6 = load ptr, ptr %.sink6.in, align 8, !alias.scope !2110, !nonnull !7, !align !44, !noundef !7
-  %25 = getelementptr inbounds nuw i8, ptr %.sink6, i64 32
+  %.sink7.in = getelementptr inbounds nuw i8, ptr %0, i64 192
+  %.sink7 = load ptr, ptr %.sink7.in, align 8, !alias.scope !2110, !nonnull !7, !align !44, !noundef !7
+  %25 = getelementptr inbounds nuw i8, ptr %.sink7, i64 32
   %26 = load ptr, ptr %25, align 8, !noalias !2110, !nonnull !7, !noundef !7
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 200
@@ -16469,8 +16469,8 @@ define hidden void @"_ZN4core3ptr208drop_in_place$LT$tokio..sync..oneshot..Recei
   br i1 %45, label %"_ZN4core3ptr257drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$tokio..sync..oneshot..Inner$LT$core..result..Result$LT$alloc..string..String$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$$GT$$GT$$GT$$GT$17h6da7405e1587dc04E.exit3", label %"_ZN81_$LT$tokio..sync..oneshot..Receiver$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hdb1e802c9efbb43bE.exit.thread"
 
 "_ZN81_$LT$tokio..sync..oneshot..Receiver$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hdb1e802c9efbb43bE.exit.thread": ; preds = %.noexc, %"_ZN81_$LT$tokio..sync..oneshot..Receiver$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hdb1e802c9efbb43bE.exit"
-  %.pr6 = phi ptr [ %.pr.pre, %"_ZN81_$LT$tokio..sync..oneshot..Receiver$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hdb1e802c9efbb43bE.exit" ], [ %.val, %.noexc ]
-  %46 = atomicrmw sub ptr %.pr6, i64 1 release, align 8, !noalias !3115
+  %.pr10 = phi ptr [ %.pr.pre, %"_ZN81_$LT$tokio..sync..oneshot..Receiver$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hdb1e802c9efbb43bE.exit" ], [ %.val, %.noexc ]
+  %46 = atomicrmw sub ptr %.pr10, i64 1 release, align 8, !noalias !3115
   %47 = icmp eq i64 %46, 1
   br i1 %47, label %48, label %"_ZN4core3ptr257drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$tokio..sync..oneshot..Inner$LT$core..result..Result$LT$alloc..string..String$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$$GT$$GT$$GT$$GT$17h6da7405e1587dc04E.exit3"
 
@@ -36300,8 +36300,8 @@ common.resume.i.i:                                ; preds = %57, %54, %50, %"_ZN
   br i1 %58, label %"_ZN4core3ptr734drop_in_place$LT$tower..buffer..future..ResponseFuture$LT$tower..util..either..Either$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$http..response..Response$LT$hyper..body..body..Body$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$$u2b$core..marker..Send$GT$$GT$$C$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$http..response..Response$LT$hyper..body..body..Body$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$$u2b$core..marker..Send$GT$$GT$$GT$$GT$$GT$17h5601e852b3f868d2E.exit", label %"_ZN81_$LT$tokio..sync..oneshot..Receiver$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h9268e0f68196b1c5E.exit.thread.i.i.i"
 
 "_ZN81_$LT$tokio..sync..oneshot..Receiver$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h9268e0f68196b1c5E.exit.thread.i.i.i": ; preds = %"_ZN81_$LT$tokio..sync..oneshot..Receiver$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h9268e0f68196b1c5E.exit.i.i.i", %.noexc.i.i.i
-  %.pr7.i.i.i = phi ptr [ %.pr.pre.i.i.i, %"_ZN81_$LT$tokio..sync..oneshot..Receiver$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h9268e0f68196b1c5E.exit.i.i.i" ], [ %.val.i.i.i, %.noexc.i.i.i ]
-  %59 = atomicrmw sub ptr %.pr7.i.i.i, i64 1 release, align 8, !noalias !7438
+  %.pr8.i.i.i = phi ptr [ %.pr.pre.i.i.i, %"_ZN81_$LT$tokio..sync..oneshot..Receiver$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h9268e0f68196b1c5E.exit.i.i.i" ], [ %.val.i.i.i, %.noexc.i.i.i ]
+  %59 = atomicrmw sub ptr %.pr8.i.i.i, i64 1 release, align 8, !noalias !7438
   %60 = icmp eq i64 %59, 1
   br i1 %60, label %61, label %"_ZN4core3ptr734drop_in_place$LT$tower..buffer..future..ResponseFuture$LT$tower..util..either..Either$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$http..response..Response$LT$hyper..body..body..Body$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$$u2b$core..marker..Send$GT$$GT$$C$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$http..response..Response$LT$hyper..body..body..Body$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$$u2b$core..marker..Send$GT$$GT$$GT$$GT$$GT$17h5601e852b3f868d2E.exit"
 

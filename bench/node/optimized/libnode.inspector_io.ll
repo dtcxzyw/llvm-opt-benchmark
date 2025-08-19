@@ -1310,12 +1310,12 @@ if.then.i.i.i.i.thread:                           ; preds = %if.then.i.i.i11
   %6 = load i32, ptr %_M_use_count.i.i.i.i12, align 4
   %add.i.i.i.i.i15 = add nsw i32 %6, 1
   store i32 %add.i.i.i.i.i15, ptr %_M_use_count.i.i.i.i12, align 4
-  %id_267 = getelementptr inbounds nuw i8, ptr %this, i64 184
+  %id_274 = getelementptr inbounds nuw i8, ptr %this, i64 184
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node9inspector19InspectorIoDelegateE, i64 16), ptr %call7, align 8
-  %request_queue_.i268 = getelementptr inbounds nuw i8, ptr %call7, i64 8
-  store ptr %call6, ptr %request_queue_.i268, align 8
-  %_M_refcount.i.i.i269 = getelementptr inbounds nuw i8, ptr %call7, i64 16
-  store ptr %call5.i.i.i.i.i.i.i5, ptr %_M_refcount.i.i.i269, align 8
+  %request_queue_.i275 = getelementptr inbounds nuw i8, ptr %call7, i64 8
+  store ptr %call6, ptr %request_queue_.i275, align 8
+  %_M_refcount.i.i.i276 = getelementptr inbounds nuw i8, ptr %call7, i64 16
+  store ptr %call5.i.i.i.i.i.i.i5, ptr %_M_refcount.i.i.i276, align 8
   br label %if.then.i.i.i.i.i.i
 
 if.else.i.i.i.i.i16:                              ; preds = %if.then.i.i.i11
@@ -1335,7 +1335,7 @@ if.then.i.i.i.i:                                  ; preds = %if.else.i.i.i.i.i16
   br i1 %tobool.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %if.then.i.i.i.i.thread, %if.then.i.i.i.i
-  %id_272 = phi ptr [ %id_267, %if.then.i.i.i.i.thread ], [ %id_, %if.then.i.i.i.i ]
+  %id_279 = phi ptr [ %id_274, %if.then.i.i.i.i.thread ], [ %id_, %if.then.i.i.i.i ]
   %9 = load i32, ptr %_M_use_count.i.i.i.i.i.i, align 4
   %add.i.i.i.i.i.i = add nsw i32 %9, 1
   store i32 %add.i.i.i.i.i.i, ptr %_M_use_count.i.i.i.i.i.i, align 4
@@ -1346,7 +1346,7 @@ if.else.i.i.i.i.i.i:                              ; preds = %if.then.i.i.i.i
   br label %_ZNSt10shared_ptrIN4node9inspector12_GLOBAL__N_116RequestQueueDataEEC2ERKS4_.exit.i
 
 _ZNSt10shared_ptrIN4node9inspector12_GLOBAL__N_116RequestQueueDataEEC2ERKS4_.exit.i: ; preds = %if.else.i.i.i.i.i.i, %if.then.i.i.i.i.i.i
-  %id_271 = phi ptr [ %id_, %if.else.i.i.i.i.i.i ], [ %id_272, %if.then.i.i.i.i.i.i ]
+  %id_278 = phi ptr [ %id_, %if.else.i.i.i.i.i.i ], [ %id_279, %if.then.i.i.i.i.i.i ]
   %main_thread_.i = getelementptr inbounds nuw i8, ptr %call7, i64 24
   store ptr %4, ptr %main_thread_.i, align 8
   %_M_refcount.i.i1.i = getelementptr inbounds nuw i8, ptr %call7, i64 32
@@ -1386,7 +1386,7 @@ _ZN4node9inspector19InspectorIoDelegateC2ESt10shared_ptrINS0_12_GLOBAL__N_116Req
   %script_path_.i = getelementptr inbounds nuw i8, ptr %call7, i64 128
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %script_path_.i, ptr noundef nonnull align 8 dereferenceable(32) %script_path) #18
   %target_id_.i = getelementptr inbounds nuw i8, ptr %call7, i64 160
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %target_id_.i, ptr noundef nonnull align 8 dereferenceable(32) %id_271) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %target_id_.i, ptr noundef nonnull align 8 dereferenceable(32) %id_278) #18
   br i1 %cmp.not.i.i.i10, label %if.then.i.i.i27, label %if.then.i.i.i19
 
 if.then.i.i.i19:                                  ; preds = %_ZN4node9inspector19InspectorIoDelegateC2ESt10shared_ptrINS0_12_GLOBAL__N_116RequestQueueDataEES2_INS0_16MainThreadHandleEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESF_SF_.exit
@@ -2191,10 +2191,10 @@ if.then.i.i.i.i4.thread:                          ; preds = %if.then.i.i.i.i
   %add.i.i.i.i.i.i = add nsw i32 %3, 1
   store i32 %add.i.i.i.i.i.i, ptr %_M_use_count.i.i.i.i.i, align 4, !noalias !23
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node9inspector17IoSessionDelegateE, i64 16), ptr %call2, align 8
-  %request_queue_.i1520 = getelementptr inbounds nuw i8, ptr %call2, i64 8
-  store ptr %call4.val, ptr %request_queue_.i1520, align 8
-  %_M_refcount.i.i.i21621 = getelementptr inbounds nuw i8, ptr %call2, i64 16
-  store ptr %call4.val1, ptr %_M_refcount.i.i.i21621, align 8
+  %request_queue_.i1522 = getelementptr inbounds nuw i8, ptr %call2, i64 8
+  store ptr %call4.val, ptr %request_queue_.i1522, align 8
+  %_M_refcount.i.i.i21623 = getelementptr inbounds nuw i8, ptr %call2, i64 16
+  store ptr %call4.val1, ptr %_M_refcount.i.i.i21623, align 8
   br label %if.then.i.i.i.i.i.i7
 
 _ZN4node9inspector12_GLOBAL__N_116RequestQueueData6handleEv.exit: ; preds = %entry
@@ -3831,8 +3831,8 @@ if.end.i:                                         ; preds = %if.else
 
 if.end13.thread:                                  ; preds = %if.end.i
   %14 = load ptr, ptr %12, align 8
-  %tobool.not.i1643 = icmp eq ptr %14, null
-  br i1 %tobool.not.i1643, label %if.end.i.i, label %cond.end.i
+  %tobool.not.i1651 = icmp eq ptr %14, null
+  br i1 %tobool.not.i1651, label %if.end.i.i, label %cond.end.i
 
 for.cond.i:                                       ; preds = %lor.lhs.false.i
   %cmp.i.i.i.i = icmp eq i32 %8, %16
@@ -3874,34 +3874,34 @@ cond.end.i:                                       ; preds = %if.end13.thread, %i
   %21 = phi i64 [ %9, %if.end13.thread ], [ %17, %if.then.i ]
   %22 = phi ptr [ %11, %if.end13.thread ], [ %18, %if.then.i ]
   %23 = phi ptr [ %10, %if.end13.thread ], [ %19, %if.then.i ]
-  %__n.04554 = phi ptr [ %12, %if.end13.thread ], [ %__n.0, %if.then.i ]
-  %__bkt.04652 = phi i64 [ %rem.i.i.i11, %if.end13.thread ], [ %__bkt.0, %if.then.i ]
-  %__prev_n.04850 = phi ptr [ %11, %if.end13.thread ], [ %__prev_n.0, %if.then.i ]
+  %__n.05362 = phi ptr [ %12, %if.end13.thread ], [ %__n.0, %if.then.i ]
+  %__bkt.05460 = phi i64 [ %rem.i.i.i11, %if.end13.thread ], [ %__bkt.0, %if.then.i ]
+  %__prev_n.05658 = phi ptr [ %11, %if.end13.thread ], [ %__prev_n.0, %if.then.i ]
   %24 = phi ptr [ %14, %if.end13.thread ], [ %20, %if.then.i ]
   %add.ptr.i19 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %25 = load i32, ptr %add.ptr.i19, align 4
   %conv.i.i.i.i.i21 = sext i32 %25 to i64
   %rem.i.i.i.i22 = urem i64 %conv.i.i.i.i.i21, %21
-  %cmp.not.i.i = icmp eq i64 %rem.i.i.i.i22, %__bkt.04652
+  %cmp.not.i.i = icmp eq i64 %rem.i.i.i.i22, %__bkt.05460
   br i1 %cmp.not.i.i, label %if.end15.i, label %if.then3.i.i
 
 if.then3.i.i:                                     ; preds = %cond.end.i
   %arrayidx5.i.i = getelementptr inbounds ptr, ptr %23, i64 %rem.i.i.i.i22
   store ptr %22, ptr %arrayidx5.i.i, align 8
   %.pre.i = load ptr, ptr %this, align 8
-  %arrayidx7.i.phi.trans.insert.i = getelementptr inbounds ptr, ptr %.pre.i, i64 %__bkt.04652
+  %arrayidx7.i.phi.trans.insert.i = getelementptr inbounds ptr, ptr %.pre.i, i64 %__bkt.05460
   %.pre24.i = load ptr, ptr %arrayidx7.i.phi.trans.insert.i, align 8
   br label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.end13.thread, %if.then3.i.i, %if.then.i
-  %__n.04555 = phi ptr [ %__n.0, %if.then.i ], [ %__n.04554, %if.then3.i.i ], [ %12, %if.end13.thread ]
-  %__bkt.04653 = phi i64 [ %__bkt.0, %if.then.i ], [ %__bkt.04652, %if.then3.i.i ], [ %rem.i.i.i11, %if.end13.thread ]
-  %__prev_n.04851 = phi ptr [ %__prev_n.0, %if.then.i ], [ %__prev_n.04850, %if.then3.i.i ], [ %11, %if.end13.thread ]
+  %__n.05363 = phi ptr [ %__n.0, %if.then.i ], [ %__n.05362, %if.then3.i.i ], [ %12, %if.end13.thread ]
+  %__bkt.05461 = phi i64 [ %__bkt.0, %if.then.i ], [ %__bkt.05460, %if.then3.i.i ], [ %rem.i.i.i11, %if.end13.thread ]
+  %__prev_n.05659 = phi ptr [ %__prev_n.0, %if.then.i ], [ %__prev_n.05658, %if.then3.i.i ], [ %11, %if.end13.thread ]
   %26 = phi ptr [ null, %if.then.i ], [ %24, %if.then3.i.i ], [ null, %if.end13.thread ]
   %27 = phi ptr [ %18, %if.then.i ], [ %.pre24.i, %if.then3.i.i ], [ %11, %if.end13.thread ]
   %28 = phi ptr [ %19, %if.then.i ], [ %.pre.i, %if.then3.i.i ], [ %10, %if.end13.thread ]
   %_M_before_begin.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %arrayidx7.i.i = getelementptr inbounds ptr, ptr %28, i64 %__bkt.04653
+  %arrayidx7.i.i = getelementptr inbounds ptr, ptr %28, i64 %__bkt.05461
   %cmp8.i.i = icmp eq ptr %_M_before_begin.i.i, %27
   br i1 %cmp8.i.i, label %if.then9.i.i, label %if.end11.i.i
 
@@ -3930,11 +3930,11 @@ if.then11.i:                                      ; preds = %if.then6.i
   br label %if.end15.i
 
 if.end15.i:                                       ; preds = %if.then11.i, %if.then6.i, %if.else.i, %if.end11.i.i, %cond.end.i
-  %__prev_n.047 = phi ptr [ %__prev_n.0, %if.then11.i ], [ %__prev_n.0, %if.then6.i ], [ %__prev_n.0, %if.else.i ], [ %__prev_n.04851, %if.end11.i.i ], [ %__prev_n.04850, %cond.end.i ]
-  %__n.044 = phi ptr [ %__n.0, %if.then11.i ], [ %__n.0, %if.then6.i ], [ %__n.0, %if.else.i ], [ %__n.04555, %if.end11.i.i ], [ %__n.04554, %cond.end.i ]
-  %30 = load ptr, ptr %__n.044, align 8
-  store ptr %30, ptr %__prev_n.047, align 8
-  %second.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__n.044, i64 16
+  %__prev_n.055 = phi ptr [ %__prev_n.0, %if.then11.i ], [ %__prev_n.0, %if.then6.i ], [ %__prev_n.0, %if.else.i ], [ %__prev_n.05659, %if.end11.i.i ], [ %__prev_n.05658, %cond.end.i ]
+  %__n.052 = phi ptr [ %__n.0, %if.then11.i ], [ %__n.0, %if.then6.i ], [ %__n.0, %if.else.i ], [ %__n.05363, %if.end11.i.i ], [ %__n.05362, %cond.end.i ]
+  %30 = load ptr, ptr %__n.052, align 8
+  store ptr %30, ptr %__prev_n.055, align 8
+  %second.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__n.052, i64 16
   %31 = load ptr, ptr %second.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i = icmp eq ptr %31, null
   br i1 %cmp.not.i.i.i.i.i.i, label %_ZNSt10_HashtableIiSt4pairIKiSt10unique_ptrIN4node9inspector16InspectorSessionESt14default_deleteIS5_EEESaIS9_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENSB_18_Mod_range_hashingENSB_20_Default_ranged_hashENSB_20_Prime_rehash_policyENSB_17_Hashtable_traitsILb0ELb0ELb1EEEE8_M_eraseEmPNSB_15_Hash_node_baseEPNSB_10_Hash_nodeIS9_Lb0EEE.exit, label %_ZNKSt14default_deleteIN4node9inspector16InspectorSessionEEclEPS2_.exit.i.i.i.i.i.i
@@ -3947,7 +3947,7 @@ _ZNKSt14default_deleteIN4node9inspector16InspectorSessionEEclEPS2_.exit.i.i.i.i.
   br label %_ZNSt10_HashtableIiSt4pairIKiSt10unique_ptrIN4node9inspector16InspectorSessionESt14default_deleteIS5_EEESaIS9_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENSB_18_Mod_range_hashingENSB_20_Default_ranged_hashENSB_20_Prime_rehash_policyENSB_17_Hashtable_traitsILb0ELb0ELb1EEEE8_M_eraseEmPNSB_15_Hash_node_baseEPNSB_10_Hash_nodeIS9_Lb0EEE.exit
 
 _ZNSt10_HashtableIiSt4pairIKiSt10unique_ptrIN4node9inspector16InspectorSessionESt14default_deleteIS5_EEESaIS9_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENSB_18_Mod_range_hashingENSB_20_Default_ranged_hashENSB_20_Prime_rehash_policyENSB_17_Hashtable_traitsILb0ELb0ELb1EEEE8_M_eraseEmPNSB_15_Hash_node_baseEPNSB_10_Hash_nodeIS9_Lb0EEE.exit: ; preds = %if.end15.i, %_ZNKSt14default_deleteIN4node9inspector16InspectorSessionEEclEPS2_.exit.i.i.i.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %__n.044) #19
+  tail call void @_ZdlPv(ptr noundef nonnull %__n.052) #19
   %33 = load i64, ptr %_M_element_count.i, align 8
   %dec.i = add i64 %33, -1
   store i64 %dec.i, ptr %_M_element_count.i, align 8

@@ -60695,7 +60695,7 @@ define hidden void @_ZN10rayon_core8registry8Registry9in_worker17h35be5f5129b6da
   %.sroa.028.0121.i.i = phi i64 [ 0, %.lr.ph125.i.i ], [ %.sroa.028.1123.i.i, %.loopexit.i.i ]
   %123 = load i64, ptr %116, align 8, !noalias !1837, !noundef !3
   %124 = icmp ult i64 %.sroa.028.0121.i.i, %123
-  br i1 %124, label %173, label %.invoke209.i.i
+  br i1 %124, label %173, label %.invoke228.i.i
 
 ._crit_edge126.i.i:                               ; preds = %.loopexit.i.i, %113
   call void @llvm.lifetime.start.p0(ptr nonnull %15), !noalias !1837
@@ -60725,8 +60725,8 @@ define hidden void @_ZN10rayon_core8registry8Registry9in_worker17h35be5f5129b6da
   invoke void @"_ZN4core3ptr49drop_in_place$LT$alloc..vec..Vec$LT$usize$GT$$GT$17h31bbedd59de2cd87E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %16) #17
           to label %99 unwind label %171, !noalias !1837
 
-133:                                              ; preds = %.invoke209.i.i, %167, %130, %._crit_edge126.i.i
-  %.sroa.023.8.i.i = phi i1 [ false, %167 ], [ true, %._crit_edge126.i.i ], [ true, %130 ], [ true, %.invoke209.i.i ]
+133:                                              ; preds = %.invoke228.i.i, %167, %130, %._crit_edge126.i.i
+  %.sroa.023.8.i.i = phi i1 [ false, %167 ], [ true, %._crit_edge126.i.i ], [ true, %130 ], [ true, %.invoke228.i.i ]
   %134 = landingpad { ptr, i32 }
           cleanup
   br label %132
@@ -60883,7 +60883,7 @@ define hidden void @_ZN10rayon_core8registry8Registry9in_worker17h35be5f5129b6da
   %179 = load ptr, ptr %119, align 8, !noalias !1837, !nonnull !3
   %180 = getelementptr inbounds nuw { { { i64, ptr, {} }, {} }, i64 }, ptr %179, i64 %.sroa.028.0121.i.i
   %181 = getelementptr inbounds nuw i8, ptr %180, i64 8
-  br i1 %178, label %.lr.ph119.split.i.i, label %.invoke209.i.i
+  br i1 %178, label %.lr.ph119.split.i.i, label %.invoke228.i.i
 
 .lr.ph119.split.i.i:                              ; preds = %.lr.ph119.i.i
   %182 = getelementptr inbounds nuw i8, ptr %180, i64 16
@@ -60910,16 +60910,16 @@ define hidden void @_ZN10rayon_core8registry8Registry9in_worker17h35be5f5129b6da
 193:                                              ; preds = %185
   %194 = add i64 %176, -1
   %umin.le.i.i = tail call i64 @llvm.umin.i64(i64 %183, i64 %194)
-  br label %.invoke209.i.i
+  br label %.invoke228.i.i
 
-.invoke209.i.i:                                   ; preds = %.lr.ph119.i.i, %122, %193
+.invoke228.i.i:                                   ; preds = %.lr.ph119.i.i, %122, %193
   %195 = phi i64 [ %umin.le.i.i, %193 ], [ %.sroa.028.0121.i.i, %122 ], [ %.sroa.028.0121.i.i, %.lr.ph119.i.i ]
   %196 = phi i64 [ %183, %193 ], [ %177, %.lr.ph119.i.i ], [ %123, %122 ]
   %197 = phi ptr [ @anon.35408a3de4e741928d60ef9dc0595d01.11, %193 ], [ @anon.35408a3de4e741928d60ef9dc0595d01.10, %.lr.ph119.i.i ], [ @anon.35408a3de4e741928d60ef9dc0595d01.9, %122 ]
   invoke void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %195, i64 noundef %196, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %197) #16
-          to label %.cont210.i.i unwind label %133, !noalias !1837
+          to label %.cont229.i.i unwind label %133, !noalias !1837
 
-.cont210.i.i:                                     ; preds = %.invoke209.i.i
+.cont229.i.i:                                     ; preds = %.invoke228.i.i
   unreachable
 
 198:                                              ; preds = %85
@@ -61561,7 +61561,7 @@ define hidden void @_ZN10rayon_core8registry8Registry9in_worker17h56c61284d99785
   %.sroa.028.0121.i.i = phi i64 [ 0, %.lr.ph125.i.i ], [ %.sroa.028.1123.i.i, %.loopexit.i.i ]
   %123 = load i64, ptr %116, align 8, !noalias !1924, !noundef !3
   %124 = icmp ult i64 %.sroa.028.0121.i.i, %123
-  br i1 %124, label %173, label %.invoke209.i.i
+  br i1 %124, label %173, label %.invoke228.i.i
 
 ._crit_edge126.i.i:                               ; preds = %.loopexit.i.i, %113
   call void @llvm.lifetime.start.p0(ptr nonnull %15), !noalias !1924
@@ -61591,8 +61591,8 @@ define hidden void @_ZN10rayon_core8registry8Registry9in_worker17h56c61284d99785
   invoke void @"_ZN4core3ptr49drop_in_place$LT$alloc..vec..Vec$LT$usize$GT$$GT$17h31bbedd59de2cd87E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %16) #17
           to label %99 unwind label %171, !noalias !1924
 
-133:                                              ; preds = %.invoke209.i.i, %167, %130, %._crit_edge126.i.i
-  %.sroa.023.8.i.i = phi i1 [ false, %167 ], [ true, %._crit_edge126.i.i ], [ true, %130 ], [ true, %.invoke209.i.i ]
+133:                                              ; preds = %.invoke228.i.i, %167, %130, %._crit_edge126.i.i
+  %.sroa.023.8.i.i = phi i1 [ false, %167 ], [ true, %._crit_edge126.i.i ], [ true, %130 ], [ true, %.invoke228.i.i ]
   %134 = landingpad { ptr, i32 }
           cleanup
   br label %132
@@ -61749,7 +61749,7 @@ define hidden void @_ZN10rayon_core8registry8Registry9in_worker17h56c61284d99785
   %179 = load ptr, ptr %119, align 8, !noalias !1924, !nonnull !3
   %180 = getelementptr inbounds nuw { { { i64, ptr, {} }, {} }, i64 }, ptr %179, i64 %.sroa.028.0121.i.i
   %181 = getelementptr inbounds nuw i8, ptr %180, i64 8
-  br i1 %178, label %.lr.ph119.split.i.i, label %.invoke209.i.i
+  br i1 %178, label %.lr.ph119.split.i.i, label %.invoke228.i.i
 
 .lr.ph119.split.i.i:                              ; preds = %.lr.ph119.i.i
   %182 = getelementptr inbounds nuw i8, ptr %180, i64 16
@@ -61776,16 +61776,16 @@ define hidden void @_ZN10rayon_core8registry8Registry9in_worker17h56c61284d99785
 193:                                              ; preds = %185
   %194 = add i64 %176, -1
   %umin.le.i.i = tail call i64 @llvm.umin.i64(i64 %183, i64 %194)
-  br label %.invoke209.i.i
+  br label %.invoke228.i.i
 
-.invoke209.i.i:                                   ; preds = %.lr.ph119.i.i, %122, %193
+.invoke228.i.i:                                   ; preds = %.lr.ph119.i.i, %122, %193
   %195 = phi i64 [ %umin.le.i.i, %193 ], [ %.sroa.028.0121.i.i, %122 ], [ %.sroa.028.0121.i.i, %.lr.ph119.i.i ]
   %196 = phi i64 [ %183, %193 ], [ %177, %.lr.ph119.i.i ], [ %123, %122 ]
   %197 = phi ptr [ @anon.35408a3de4e741928d60ef9dc0595d01.11, %193 ], [ @anon.35408a3de4e741928d60ef9dc0595d01.10, %.lr.ph119.i.i ], [ @anon.35408a3de4e741928d60ef9dc0595d01.9, %122 ]
   invoke void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %195, i64 noundef %196, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %197) #16
-          to label %.cont210.i.i unwind label %133, !noalias !1924
+          to label %.cont229.i.i unwind label %133, !noalias !1924
 
-.cont210.i.i:                                     ; preds = %.invoke209.i.i
+.cont229.i.i:                                     ; preds = %.invoke228.i.i
   unreachable
 
 198:                                              ; preds = %85
@@ -62266,7 +62266,7 @@ define hidden void @_ZN10rayon_core8registry8Registry9in_worker17h6294f34938dbd1
   %.sroa.028.0121.i.i = phi i64 [ 0, %.lr.ph125.i.i ], [ %.sroa.028.1123.i.i, %.loopexit.i.i ]
   %123 = load i64, ptr %116, align 8, !noalias !1984, !noundef !3
   %124 = icmp ult i64 %.sroa.028.0121.i.i, %123
-  br i1 %124, label %173, label %.invoke209.i.i
+  br i1 %124, label %173, label %.invoke228.i.i
 
 ._crit_edge126.i.i:                               ; preds = %.loopexit.i.i, %113
   call void @llvm.lifetime.start.p0(ptr nonnull %15), !noalias !1984
@@ -62296,8 +62296,8 @@ define hidden void @_ZN10rayon_core8registry8Registry9in_worker17h6294f34938dbd1
   invoke void @"_ZN4core3ptr49drop_in_place$LT$alloc..vec..Vec$LT$usize$GT$$GT$17h31bbedd59de2cd87E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %16) #17
           to label %99 unwind label %171, !noalias !1984
 
-133:                                              ; preds = %.invoke209.i.i, %167, %130, %._crit_edge126.i.i
-  %.sroa.023.8.i.i = phi i1 [ false, %167 ], [ true, %._crit_edge126.i.i ], [ true, %130 ], [ true, %.invoke209.i.i ]
+133:                                              ; preds = %.invoke228.i.i, %167, %130, %._crit_edge126.i.i
+  %.sroa.023.8.i.i = phi i1 [ false, %167 ], [ true, %._crit_edge126.i.i ], [ true, %130 ], [ true, %.invoke228.i.i ]
   %134 = landingpad { ptr, i32 }
           cleanup
   br label %132
@@ -62454,7 +62454,7 @@ define hidden void @_ZN10rayon_core8registry8Registry9in_worker17h6294f34938dbd1
   %179 = load ptr, ptr %119, align 8, !noalias !1984, !nonnull !3
   %180 = getelementptr inbounds nuw { { { i64, ptr, {} }, {} }, i64 }, ptr %179, i64 %.sroa.028.0121.i.i
   %181 = getelementptr inbounds nuw i8, ptr %180, i64 8
-  br i1 %178, label %.lr.ph119.split.i.i, label %.invoke209.i.i
+  br i1 %178, label %.lr.ph119.split.i.i, label %.invoke228.i.i
 
 .lr.ph119.split.i.i:                              ; preds = %.lr.ph119.i.i
   %182 = getelementptr inbounds nuw i8, ptr %180, i64 16
@@ -62481,16 +62481,16 @@ define hidden void @_ZN10rayon_core8registry8Registry9in_worker17h6294f34938dbd1
 193:                                              ; preds = %185
   %194 = add i64 %176, -1
   %umin.le.i.i = tail call i64 @llvm.umin.i64(i64 %183, i64 %194)
-  br label %.invoke209.i.i
+  br label %.invoke228.i.i
 
-.invoke209.i.i:                                   ; preds = %.lr.ph119.i.i, %122, %193
+.invoke228.i.i:                                   ; preds = %.lr.ph119.i.i, %122, %193
   %195 = phi i64 [ %umin.le.i.i, %193 ], [ %.sroa.028.0121.i.i, %122 ], [ %.sroa.028.0121.i.i, %.lr.ph119.i.i ]
   %196 = phi i64 [ %183, %193 ], [ %177, %.lr.ph119.i.i ], [ %123, %122 ]
   %197 = phi ptr [ @anon.35408a3de4e741928d60ef9dc0595d01.11, %193 ], [ @anon.35408a3de4e741928d60ef9dc0595d01.10, %.lr.ph119.i.i ], [ @anon.35408a3de4e741928d60ef9dc0595d01.9, %122 ]
   invoke void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %195, i64 noundef %196, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %197) #16
-          to label %.cont210.i.i unwind label %133, !noalias !1984
+          to label %.cont229.i.i unwind label %133, !noalias !1984
 
-.cont210.i.i:                                     ; preds = %.invoke209.i.i
+.cont229.i.i:                                     ; preds = %.invoke228.i.i
   unreachable
 
 198:                                              ; preds = %85
@@ -63269,7 +63269,7 @@ define hidden void @_ZN10rayon_core8registry8Registry9in_worker17h73609f55de7728
   %.sroa.028.0121.i.i = phi i64 [ 0, %.lr.ph125.i.i ], [ %.sroa.028.1123.i.i, %.loopexit.i.i ]
   %123 = load i64, ptr %116, align 8, !noalias !2089, !noundef !3
   %124 = icmp ult i64 %.sroa.028.0121.i.i, %123
-  br i1 %124, label %173, label %.invoke209.i.i
+  br i1 %124, label %173, label %.invoke228.i.i
 
 ._crit_edge126.i.i:                               ; preds = %.loopexit.i.i, %113
   call void @llvm.lifetime.start.p0(ptr nonnull %15), !noalias !2089
@@ -63299,8 +63299,8 @@ define hidden void @_ZN10rayon_core8registry8Registry9in_worker17h73609f55de7728
   invoke void @"_ZN4core3ptr49drop_in_place$LT$alloc..vec..Vec$LT$usize$GT$$GT$17h31bbedd59de2cd87E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %16) #17
           to label %99 unwind label %171, !noalias !2089
 
-133:                                              ; preds = %.invoke209.i.i, %167, %130, %._crit_edge126.i.i
-  %.sroa.023.8.i.i = phi i1 [ false, %167 ], [ true, %._crit_edge126.i.i ], [ true, %130 ], [ true, %.invoke209.i.i ]
+133:                                              ; preds = %.invoke228.i.i, %167, %130, %._crit_edge126.i.i
+  %.sroa.023.8.i.i = phi i1 [ false, %167 ], [ true, %._crit_edge126.i.i ], [ true, %130 ], [ true, %.invoke228.i.i ]
   %134 = landingpad { ptr, i32 }
           cleanup
   br label %132
@@ -63457,7 +63457,7 @@ define hidden void @_ZN10rayon_core8registry8Registry9in_worker17h73609f55de7728
   %179 = load ptr, ptr %119, align 8, !noalias !2089, !nonnull !3
   %180 = getelementptr inbounds nuw { { { i64, ptr, {} }, {} }, i64 }, ptr %179, i64 %.sroa.028.0121.i.i
   %181 = getelementptr inbounds nuw i8, ptr %180, i64 8
-  br i1 %178, label %.lr.ph119.split.i.i, label %.invoke209.i.i
+  br i1 %178, label %.lr.ph119.split.i.i, label %.invoke228.i.i
 
 .lr.ph119.split.i.i:                              ; preds = %.lr.ph119.i.i
   %182 = getelementptr inbounds nuw i8, ptr %180, i64 16
@@ -63484,16 +63484,16 @@ define hidden void @_ZN10rayon_core8registry8Registry9in_worker17h73609f55de7728
 193:                                              ; preds = %185
   %194 = add i64 %176, -1
   %umin.le.i.i = tail call i64 @llvm.umin.i64(i64 %183, i64 %194)
-  br label %.invoke209.i.i
+  br label %.invoke228.i.i
 
-.invoke209.i.i:                                   ; preds = %.lr.ph119.i.i, %122, %193
+.invoke228.i.i:                                   ; preds = %.lr.ph119.i.i, %122, %193
   %195 = phi i64 [ %umin.le.i.i, %193 ], [ %.sroa.028.0121.i.i, %122 ], [ %.sroa.028.0121.i.i, %.lr.ph119.i.i ]
   %196 = phi i64 [ %183, %193 ], [ %177, %.lr.ph119.i.i ], [ %123, %122 ]
   %197 = phi ptr [ @anon.35408a3de4e741928d60ef9dc0595d01.11, %193 ], [ @anon.35408a3de4e741928d60ef9dc0595d01.10, %.lr.ph119.i.i ], [ @anon.35408a3de4e741928d60ef9dc0595d01.9, %122 ]
   invoke void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %195, i64 noundef %196, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %197) #16
-          to label %.cont210.i.i unwind label %133, !noalias !2089
+          to label %.cont229.i.i unwind label %133, !noalias !2089
 
-.cont210.i.i:                                     ; preds = %.invoke209.i.i
+.cont229.i.i:                                     ; preds = %.invoke228.i.i
   unreachable
 
 198:                                              ; preds = %85
@@ -63985,7 +63985,7 @@ define hidden void @_ZN10rayon_core8registry8Registry9in_worker17h74ae3c691dadda
   %.sroa.028.0121.i.i = phi i64 [ 0, %.lr.ph125.i.i ], [ %.sroa.028.1123.i.i, %.loopexit.i.i ]
   %123 = load i64, ptr %116, align 8, !noalias !2142, !noundef !3
   %124 = icmp ult i64 %.sroa.028.0121.i.i, %123
-  br i1 %124, label %173, label %.invoke209.i.i
+  br i1 %124, label %173, label %.invoke228.i.i
 
 ._crit_edge126.i.i:                               ; preds = %.loopexit.i.i, %113
   call void @llvm.lifetime.start.p0(ptr nonnull %15), !noalias !2142
@@ -64015,8 +64015,8 @@ define hidden void @_ZN10rayon_core8registry8Registry9in_worker17h74ae3c691dadda
   invoke void @"_ZN4core3ptr49drop_in_place$LT$alloc..vec..Vec$LT$usize$GT$$GT$17h31bbedd59de2cd87E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %16) #17
           to label %99 unwind label %171, !noalias !2142
 
-133:                                              ; preds = %.invoke209.i.i, %167, %130, %._crit_edge126.i.i
-  %.sroa.023.8.i.i = phi i1 [ false, %167 ], [ true, %._crit_edge126.i.i ], [ true, %130 ], [ true, %.invoke209.i.i ]
+133:                                              ; preds = %.invoke228.i.i, %167, %130, %._crit_edge126.i.i
+  %.sroa.023.8.i.i = phi i1 [ false, %167 ], [ true, %._crit_edge126.i.i ], [ true, %130 ], [ true, %.invoke228.i.i ]
   %134 = landingpad { ptr, i32 }
           cleanup
   br label %132
@@ -64173,7 +64173,7 @@ define hidden void @_ZN10rayon_core8registry8Registry9in_worker17h74ae3c691dadda
   %179 = load ptr, ptr %119, align 8, !noalias !2142, !nonnull !3
   %180 = getelementptr inbounds nuw { { { i64, ptr, {} }, {} }, i64 }, ptr %179, i64 %.sroa.028.0121.i.i
   %181 = getelementptr inbounds nuw i8, ptr %180, i64 8
-  br i1 %178, label %.lr.ph119.split.i.i, label %.invoke209.i.i
+  br i1 %178, label %.lr.ph119.split.i.i, label %.invoke228.i.i
 
 .lr.ph119.split.i.i:                              ; preds = %.lr.ph119.i.i
   %182 = getelementptr inbounds nuw i8, ptr %180, i64 16
@@ -64200,16 +64200,16 @@ define hidden void @_ZN10rayon_core8registry8Registry9in_worker17h74ae3c691dadda
 193:                                              ; preds = %185
   %194 = add i64 %176, -1
   %umin.le.i.i = tail call i64 @llvm.umin.i64(i64 %183, i64 %194)
-  br label %.invoke209.i.i
+  br label %.invoke228.i.i
 
-.invoke209.i.i:                                   ; preds = %.lr.ph119.i.i, %122, %193
+.invoke228.i.i:                                   ; preds = %.lr.ph119.i.i, %122, %193
   %195 = phi i64 [ %umin.le.i.i, %193 ], [ %.sroa.028.0121.i.i, %122 ], [ %.sroa.028.0121.i.i, %.lr.ph119.i.i ]
   %196 = phi i64 [ %183, %193 ], [ %177, %.lr.ph119.i.i ], [ %123, %122 ]
   %197 = phi ptr [ @anon.35408a3de4e741928d60ef9dc0595d01.11, %193 ], [ @anon.35408a3de4e741928d60ef9dc0595d01.10, %.lr.ph119.i.i ], [ @anon.35408a3de4e741928d60ef9dc0595d01.9, %122 ]
   invoke void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %195, i64 noundef %196, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %197) #16
-          to label %.cont210.i.i unwind label %133, !noalias !2142
+          to label %.cont229.i.i unwind label %133, !noalias !2142
 
-.cont210.i.i:                                     ; preds = %.invoke209.i.i
+.cont229.i.i:                                     ; preds = %.invoke228.i.i
   unreachable
 
 198:                                              ; preds = %85
@@ -64707,7 +64707,7 @@ define hidden void @_ZN10rayon_core8registry8Registry9in_worker17h7fc3f5e2eef1aa
   %.sroa.028.0121.i.i = phi i64 [ 0, %.lr.ph125.i.i ], [ %.sroa.028.1123.i.i, %.loopexit.i.i ]
   %123 = load i64, ptr %116, align 8, !noalias !2200, !noundef !3
   %124 = icmp ult i64 %.sroa.028.0121.i.i, %123
-  br i1 %124, label %173, label %.invoke209.i.i
+  br i1 %124, label %173, label %.invoke228.i.i
 
 ._crit_edge126.i.i:                               ; preds = %.loopexit.i.i, %113
   call void @llvm.lifetime.start.p0(ptr nonnull %15), !noalias !2200
@@ -64737,8 +64737,8 @@ define hidden void @_ZN10rayon_core8registry8Registry9in_worker17h7fc3f5e2eef1aa
   invoke void @"_ZN4core3ptr49drop_in_place$LT$alloc..vec..Vec$LT$usize$GT$$GT$17h31bbedd59de2cd87E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %16) #17
           to label %99 unwind label %171, !noalias !2200
 
-133:                                              ; preds = %.invoke209.i.i, %167, %130, %._crit_edge126.i.i
-  %.sroa.023.8.i.i = phi i1 [ false, %167 ], [ true, %._crit_edge126.i.i ], [ true, %130 ], [ true, %.invoke209.i.i ]
+133:                                              ; preds = %.invoke228.i.i, %167, %130, %._crit_edge126.i.i
+  %.sroa.023.8.i.i = phi i1 [ false, %167 ], [ true, %._crit_edge126.i.i ], [ true, %130 ], [ true, %.invoke228.i.i ]
   %134 = landingpad { ptr, i32 }
           cleanup
   br label %132
@@ -64895,7 +64895,7 @@ define hidden void @_ZN10rayon_core8registry8Registry9in_worker17h7fc3f5e2eef1aa
   %179 = load ptr, ptr %119, align 8, !noalias !2200, !nonnull !3
   %180 = getelementptr inbounds nuw { { { i64, ptr, {} }, {} }, i64 }, ptr %179, i64 %.sroa.028.0121.i.i
   %181 = getelementptr inbounds nuw i8, ptr %180, i64 8
-  br i1 %178, label %.lr.ph119.split.i.i, label %.invoke209.i.i
+  br i1 %178, label %.lr.ph119.split.i.i, label %.invoke228.i.i
 
 .lr.ph119.split.i.i:                              ; preds = %.lr.ph119.i.i
   %182 = getelementptr inbounds nuw i8, ptr %180, i64 16
@@ -64922,16 +64922,16 @@ define hidden void @_ZN10rayon_core8registry8Registry9in_worker17h7fc3f5e2eef1aa
 193:                                              ; preds = %185
   %194 = add i64 %176, -1
   %umin.le.i.i = tail call i64 @llvm.umin.i64(i64 %183, i64 %194)
-  br label %.invoke209.i.i
+  br label %.invoke228.i.i
 
-.invoke209.i.i:                                   ; preds = %.lr.ph119.i.i, %122, %193
+.invoke228.i.i:                                   ; preds = %.lr.ph119.i.i, %122, %193
   %195 = phi i64 [ %umin.le.i.i, %193 ], [ %.sroa.028.0121.i.i, %122 ], [ %.sroa.028.0121.i.i, %.lr.ph119.i.i ]
   %196 = phi i64 [ %183, %193 ], [ %177, %.lr.ph119.i.i ], [ %123, %122 ]
   %197 = phi ptr [ @anon.35408a3de4e741928d60ef9dc0595d01.11, %193 ], [ @anon.35408a3de4e741928d60ef9dc0595d01.10, %.lr.ph119.i.i ], [ @anon.35408a3de4e741928d60ef9dc0595d01.9, %122 ]
   invoke void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %195, i64 noundef %196, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %197) #16
-          to label %.cont210.i.i unwind label %133, !noalias !2200
+          to label %.cont229.i.i unwind label %133, !noalias !2200
 
-.cont210.i.i:                                     ; preds = %.invoke209.i.i
+.cont229.i.i:                                     ; preds = %.invoke228.i.i
   unreachable
 
 198:                                              ; preds = %85
@@ -65475,7 +65475,7 @@ define hidden void @_ZN10rayon_core8registry8Registry9in_worker17h8c65ef05949fcf
   %.sroa.028.0121.i.i = phi i64 [ 0, %.lr.ph125.i.i ], [ %.sroa.028.1123.i.i, %.loopexit.i.i ]
   %123 = load i64, ptr %116, align 8, !noalias !2267, !noundef !3
   %124 = icmp ult i64 %.sroa.028.0121.i.i, %123
-  br i1 %124, label %173, label %.invoke209.i.i
+  br i1 %124, label %173, label %.invoke228.i.i
 
 ._crit_edge126.i.i:                               ; preds = %.loopexit.i.i, %113
   call void @llvm.lifetime.start.p0(ptr nonnull %15), !noalias !2267
@@ -65505,8 +65505,8 @@ define hidden void @_ZN10rayon_core8registry8Registry9in_worker17h8c65ef05949fcf
   invoke void @"_ZN4core3ptr49drop_in_place$LT$alloc..vec..Vec$LT$usize$GT$$GT$17h31bbedd59de2cd87E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %16) #17
           to label %99 unwind label %171, !noalias !2267
 
-133:                                              ; preds = %.invoke209.i.i, %167, %130, %._crit_edge126.i.i
-  %.sroa.023.8.i.i = phi i1 [ false, %167 ], [ true, %._crit_edge126.i.i ], [ true, %130 ], [ true, %.invoke209.i.i ]
+133:                                              ; preds = %.invoke228.i.i, %167, %130, %._crit_edge126.i.i
+  %.sroa.023.8.i.i = phi i1 [ false, %167 ], [ true, %._crit_edge126.i.i ], [ true, %130 ], [ true, %.invoke228.i.i ]
   %134 = landingpad { ptr, i32 }
           cleanup
   br label %132
@@ -65663,7 +65663,7 @@ define hidden void @_ZN10rayon_core8registry8Registry9in_worker17h8c65ef05949fcf
   %179 = load ptr, ptr %119, align 8, !noalias !2267, !nonnull !3
   %180 = getelementptr inbounds nuw { { { i64, ptr, {} }, {} }, i64 }, ptr %179, i64 %.sroa.028.0121.i.i
   %181 = getelementptr inbounds nuw i8, ptr %180, i64 8
-  br i1 %178, label %.lr.ph119.split.i.i, label %.invoke209.i.i
+  br i1 %178, label %.lr.ph119.split.i.i, label %.invoke228.i.i
 
 .lr.ph119.split.i.i:                              ; preds = %.lr.ph119.i.i
   %182 = getelementptr inbounds nuw i8, ptr %180, i64 16
@@ -65690,16 +65690,16 @@ define hidden void @_ZN10rayon_core8registry8Registry9in_worker17h8c65ef05949fcf
 193:                                              ; preds = %185
   %194 = add i64 %176, -1
   %umin.le.i.i = tail call i64 @llvm.umin.i64(i64 %183, i64 %194)
-  br label %.invoke209.i.i
+  br label %.invoke228.i.i
 
-.invoke209.i.i:                                   ; preds = %.lr.ph119.i.i, %122, %193
+.invoke228.i.i:                                   ; preds = %.lr.ph119.i.i, %122, %193
   %195 = phi i64 [ %umin.le.i.i, %193 ], [ %.sroa.028.0121.i.i, %122 ], [ %.sroa.028.0121.i.i, %.lr.ph119.i.i ]
   %196 = phi i64 [ %183, %193 ], [ %177, %.lr.ph119.i.i ], [ %123, %122 ]
   %197 = phi ptr [ @anon.35408a3de4e741928d60ef9dc0595d01.11, %193 ], [ @anon.35408a3de4e741928d60ef9dc0595d01.10, %.lr.ph119.i.i ], [ @anon.35408a3de4e741928d60ef9dc0595d01.9, %122 ]
   invoke void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %195, i64 noundef %196, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %197) #16
-          to label %.cont210.i.i unwind label %133, !noalias !2267
+          to label %.cont229.i.i unwind label %133, !noalias !2267
 
-.cont210.i.i:                                     ; preds = %.invoke209.i.i
+.cont229.i.i:                                     ; preds = %.invoke228.i.i
   unreachable
 
 198:                                              ; preds = %85
@@ -66366,7 +66366,7 @@ define hidden void @_ZN10rayon_core8registry8Registry9in_worker17haadba41b8df975
   %.sroa.028.0121.i.i = phi i64 [ 0, %.lr.ph125.i.i ], [ %.sroa.028.1123.i.i, %.loopexit.i.i ]
   %123 = load i64, ptr %116, align 8, !noalias !2348, !noundef !3
   %124 = icmp ult i64 %.sroa.028.0121.i.i, %123
-  br i1 %124, label %173, label %.invoke209.i.i
+  br i1 %124, label %173, label %.invoke228.i.i
 
 ._crit_edge126.i.i:                               ; preds = %.loopexit.i.i, %113
   call void @llvm.lifetime.start.p0(ptr nonnull %15), !noalias !2348
@@ -66396,8 +66396,8 @@ define hidden void @_ZN10rayon_core8registry8Registry9in_worker17haadba41b8df975
   invoke void @"_ZN4core3ptr49drop_in_place$LT$alloc..vec..Vec$LT$usize$GT$$GT$17h31bbedd59de2cd87E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %16) #17
           to label %99 unwind label %171, !noalias !2348
 
-133:                                              ; preds = %.invoke209.i.i, %167, %130, %._crit_edge126.i.i
-  %.sroa.023.8.i.i = phi i1 [ false, %167 ], [ true, %._crit_edge126.i.i ], [ true, %130 ], [ true, %.invoke209.i.i ]
+133:                                              ; preds = %.invoke228.i.i, %167, %130, %._crit_edge126.i.i
+  %.sroa.023.8.i.i = phi i1 [ false, %167 ], [ true, %._crit_edge126.i.i ], [ true, %130 ], [ true, %.invoke228.i.i ]
   %134 = landingpad { ptr, i32 }
           cleanup
   br label %132
@@ -66554,7 +66554,7 @@ define hidden void @_ZN10rayon_core8registry8Registry9in_worker17haadba41b8df975
   %179 = load ptr, ptr %119, align 8, !noalias !2348, !nonnull !3
   %180 = getelementptr inbounds nuw { { { i64, ptr, {} }, {} }, i64 }, ptr %179, i64 %.sroa.028.0121.i.i
   %181 = getelementptr inbounds nuw i8, ptr %180, i64 8
-  br i1 %178, label %.lr.ph119.split.i.i, label %.invoke209.i.i
+  br i1 %178, label %.lr.ph119.split.i.i, label %.invoke228.i.i
 
 .lr.ph119.split.i.i:                              ; preds = %.lr.ph119.i.i
   %182 = getelementptr inbounds nuw i8, ptr %180, i64 16
@@ -66581,16 +66581,16 @@ define hidden void @_ZN10rayon_core8registry8Registry9in_worker17haadba41b8df975
 193:                                              ; preds = %185
   %194 = add i64 %176, -1
   %umin.le.i.i = tail call i64 @llvm.umin.i64(i64 %183, i64 %194)
-  br label %.invoke209.i.i
+  br label %.invoke228.i.i
 
-.invoke209.i.i:                                   ; preds = %.lr.ph119.i.i, %122, %193
+.invoke228.i.i:                                   ; preds = %.lr.ph119.i.i, %122, %193
   %195 = phi i64 [ %umin.le.i.i, %193 ], [ %.sroa.028.0121.i.i, %122 ], [ %.sroa.028.0121.i.i, %.lr.ph119.i.i ]
   %196 = phi i64 [ %183, %193 ], [ %177, %.lr.ph119.i.i ], [ %123, %122 ]
   %197 = phi ptr [ @anon.35408a3de4e741928d60ef9dc0595d01.11, %193 ], [ @anon.35408a3de4e741928d60ef9dc0595d01.10, %.lr.ph119.i.i ], [ @anon.35408a3de4e741928d60ef9dc0595d01.9, %122 ]
   invoke void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %195, i64 noundef %196, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %197) #16
-          to label %.cont210.i.i unwind label %133, !noalias !2348
+          to label %.cont229.i.i unwind label %133, !noalias !2348
 
-.cont210.i.i:                                     ; preds = %.invoke209.i.i
+.cont229.i.i:                                     ; preds = %.invoke228.i.i
   unreachable
 
 198:                                              ; preds = %85
@@ -68230,7 +68230,7 @@ define hidden void @_ZN10rayon_core8registry8Registry9in_worker17hfccf357419b162
   %.sroa.028.0121.i.i = phi i64 [ 0, %.lr.ph125.i.i ], [ %.sroa.028.1123.i.i, %.loopexit.i.i ]
   %123 = load i64, ptr %116, align 8, !noalias !2604, !noundef !3
   %124 = icmp ult i64 %.sroa.028.0121.i.i, %123
-  br i1 %124, label %173, label %.invoke209.i.i
+  br i1 %124, label %173, label %.invoke228.i.i
 
 ._crit_edge126.i.i:                               ; preds = %.loopexit.i.i, %113
   call void @llvm.lifetime.start.p0(ptr nonnull %15), !noalias !2604
@@ -68260,8 +68260,8 @@ define hidden void @_ZN10rayon_core8registry8Registry9in_worker17hfccf357419b162
   invoke void @"_ZN4core3ptr49drop_in_place$LT$alloc..vec..Vec$LT$usize$GT$$GT$17h31bbedd59de2cd87E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %16) #17
           to label %99 unwind label %171, !noalias !2604
 
-133:                                              ; preds = %.invoke209.i.i, %167, %130, %._crit_edge126.i.i
-  %.sroa.023.8.i.i = phi i1 [ false, %167 ], [ true, %._crit_edge126.i.i ], [ true, %130 ], [ true, %.invoke209.i.i ]
+133:                                              ; preds = %.invoke228.i.i, %167, %130, %._crit_edge126.i.i
+  %.sroa.023.8.i.i = phi i1 [ false, %167 ], [ true, %._crit_edge126.i.i ], [ true, %130 ], [ true, %.invoke228.i.i ]
   %134 = landingpad { ptr, i32 }
           cleanup
   br label %132
@@ -68418,7 +68418,7 @@ define hidden void @_ZN10rayon_core8registry8Registry9in_worker17hfccf357419b162
   %179 = load ptr, ptr %119, align 8, !noalias !2604, !nonnull !3
   %180 = getelementptr inbounds nuw { { { i64, ptr, {} }, {} }, i64 }, ptr %179, i64 %.sroa.028.0121.i.i
   %181 = getelementptr inbounds nuw i8, ptr %180, i64 8
-  br i1 %178, label %.lr.ph119.split.i.i, label %.invoke209.i.i
+  br i1 %178, label %.lr.ph119.split.i.i, label %.invoke228.i.i
 
 .lr.ph119.split.i.i:                              ; preds = %.lr.ph119.i.i
   %182 = getelementptr inbounds nuw i8, ptr %180, i64 16
@@ -68445,16 +68445,16 @@ define hidden void @_ZN10rayon_core8registry8Registry9in_worker17hfccf357419b162
 193:                                              ; preds = %185
   %194 = add i64 %176, -1
   %umin.le.i.i = tail call i64 @llvm.umin.i64(i64 %183, i64 %194)
-  br label %.invoke209.i.i
+  br label %.invoke228.i.i
 
-.invoke209.i.i:                                   ; preds = %.lr.ph119.i.i, %122, %193
+.invoke228.i.i:                                   ; preds = %.lr.ph119.i.i, %122, %193
   %195 = phi i64 [ %umin.le.i.i, %193 ], [ %.sroa.028.0121.i.i, %122 ], [ %.sroa.028.0121.i.i, %.lr.ph119.i.i ]
   %196 = phi i64 [ %183, %193 ], [ %177, %.lr.ph119.i.i ], [ %123, %122 ]
   %197 = phi ptr [ @anon.35408a3de4e741928d60ef9dc0595d01.11, %193 ], [ @anon.35408a3de4e741928d60ef9dc0595d01.10, %.lr.ph119.i.i ], [ @anon.35408a3de4e741928d60ef9dc0595d01.9, %122 ]
   invoke void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %195, i64 noundef %196, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %197) #16
-          to label %.cont210.i.i unwind label %133, !noalias !2604
+          to label %.cont229.i.i unwind label %133, !noalias !2604
 
-.cont210.i.i:                                     ; preds = %.invoke209.i.i
+.cont229.i.i:                                     ; preds = %.invoke228.i.i
   unreachable
 
 198:                                              ; preds = %85

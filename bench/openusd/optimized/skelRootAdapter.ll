@@ -442,7 +442,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__29UsdSkelImagingSkelRootAdapte
           to label %40 unwind label %.loopexit.split-lp104
 
 40:                                               ; preds = %38
-  br i1 %39, label %45, label %.loopexit119
+  br i1 %39, label %45, label %.loopexit148
 
 41:                                               ; preds = %.critedge
   %42 = landingpad { ptr, i32 }
@@ -469,7 +469,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__29UsdSkelImagingSkelRootAdapte
   %47 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %48 = load ptr, ptr %47, align 8
   %49 = icmp eq ptr %46, %48
-  br i1 %49, label %.loopexit119, label %.preheader
+  br i1 %49, label %.loopexit148, label %.preheader
 
 .preheader:                                       ; preds = %45
   %50 = getelementptr inbounds nuw i8, ptr %13, i64 8
@@ -1423,7 +1423,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
 _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__21UsdImagingPrimAdapterEED2Ev.exit73: ; preds = %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__29UsdSkelImagingSkeletonAdapterEED2Ev.exit, %458, %471, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i72
   %476 = getelementptr inbounds nuw i8, ptr %.sroa.082.0111, i64 64
   %.not98 = icmp eq ptr %476, %48
-  br i1 %.not98, label %.loopexit119, label %75
+  br i1 %.not98, label %.loopexit148, label %75
 
 477:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__14UsdSkelBindingC2ERKNS_15UsdSkelSkeletonERKNS_7VtArrayINS_20UsdSkelSkinningQueryEEE.exit
   %478 = landingpad { ptr, i32 }
@@ -1446,7 +1446,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__21UsdImagingPrimAdapterEED2
   call void @_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__21UsdImagingPrimAdapterEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #18
   br label %529
 
-.loopexit119:                                     ; preds = %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__21UsdImagingPrimAdapterEED2Ev.exit73, %45, %40
+.loopexit148:                                     ; preds = %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__21UsdImagingPrimAdapterEED2Ev.exit73, %45, %40
   store i64 0, ptr %0, align 4
   %482 = load ptr, ptr %11, align 8
   %483 = getelementptr inbounds nuw i8, ptr %11, i64 8
@@ -1454,8 +1454,8 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__21UsdImagingPrimAdapterEED2
   %.not4.i.i.i.i = icmp eq ptr %482, %484
   br i1 %.not4.i.i.i.i, label %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__14UsdSkelBindingES1_EvT_S3_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i
 
-.lr.ph.i.i.i.i:                                   ; preds = %.loopexit119, %.lr.ph.i.i.i.i
-  %.05.i.i.i.i = phi ptr [ %485, %.lr.ph.i.i.i.i ], [ %482, %.loopexit119 ]
+.lr.ph.i.i.i.i:                                   ; preds = %.loopexit148, %.lr.ph.i.i.i.i
+  %.05.i.i.i.i = phi ptr [ %485, %.lr.ph.i.i.i.i ], [ %482, %.loopexit148 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__14UsdSkelBindingD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %.05.i.i.i.i) #18
   %485 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 64
   %.not.i.i.i.i74 = icmp eq ptr %485, %484
@@ -1465,8 +1465,8 @@ _ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__14UsdSkelBindingES1_EvT_S3_RSa
   %.pr.i = load ptr, ptr %11, align 8
   br label %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__14UsdSkelBindingES1_EvT_S3_RSaIT0_E.exit.i
 
-_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__14UsdSkelBindingES1_EvT_S3_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__14UsdSkelBindingES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i, %.loopexit119
-  %486 = phi ptr [ %.pr.i, %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__14UsdSkelBindingES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i ], [ %482, %.loopexit119 ]
+_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__14UsdSkelBindingES1_EvT_S3_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__14UsdSkelBindingES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i, %.loopexit148
+  %486 = phi ptr [ %.pr.i, %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__14UsdSkelBindingES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i ], [ %482, %.loopexit148 ]
   %.not.i.i.i75 = icmp eq ptr %486, null
   br i1 %.not.i.i.i75, label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__14UsdSkelBindingESaIS1_EED2Ev.exit, label %487
 

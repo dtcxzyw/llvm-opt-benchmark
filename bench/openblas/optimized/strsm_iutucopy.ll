@@ -46,7 +46,7 @@ define noundef i32 @strsm_iutucopy(i64 noundef %0, i64 noundef %1, ptr noundef r
   %17 = icmp slt i64 %.pre, 16
   br i1 %17, label %.preheader252.us, label %.thread
 
-.thread344:                                       ; preds = %.lr.ph.us, %.preheader252.us
+.thread358:                                       ; preds = %.lr.ph.us, %.preheader252.us
   %18 = getelementptr inbounds nuw float, ptr %.1227254.us, i64 %.0216256.us
   %19 = getelementptr inbounds float, ptr %18, i64 %14
   store float 1.000000e+00, ptr %19, align 4, !tbaa !3
@@ -60,7 +60,7 @@ define noundef i32 @strsm_iutucopy(i64 noundef %0, i64 noundef %1, ptr noundef r
   store float %21, ptr %22, align 4, !tbaa !3
   %23 = add nuw nsw i64 %.0206253.us, 1
   %exitcond.not = icmp eq i64 %23, %indvars.iv320
-  br i1 %exitcond.not, label %.thread344, label %.lr.ph.us, !llvm.loop !7
+  br i1 %exitcond.not, label %.thread358, label %.lr.ph.us, !llvm.loop !7
 
 24:                                               ; preds = %15
   %25 = icmp sgt i64 %.pre, 15
@@ -131,7 +131,7 @@ define noundef i32 @strsm_iutucopy(i64 noundef %0, i64 noundef %1, ptr noundef r
   store float %70, ptr %71, align 4, !tbaa !3
   br label %72
 
-72:                                               ; preds = %.thread344, %.thread, %24
+72:                                               ; preds = %.thread358, %.thread, %24
   %73 = getelementptr inbounds nuw i8, ptr %.1227254.us, i64 64
   %74 = getelementptr inbounds float, ptr %.0257.us, i64 %3
   %75 = add nuw nsw i64 %.0216256.us, 1
@@ -141,7 +141,7 @@ define noundef i32 @strsm_iutucopy(i64 noundef %0, i64 noundef %1, ptr noundef r
 
 .preheader252.us:                                 ; preds = %16
   %76 = icmp sgt i64 %.pre, 0
-  br i1 %76, label %.lr.ph.us, label %.thread344
+  br i1 %76, label %.lr.ph.us, label %.thread358
 
 ._crit_edge260.us:                                ; preds = %72
   %77 = getelementptr inbounds nuw i8, ptr %.0231261.us, i64 64
@@ -179,11 +179,11 @@ define noundef i32 @strsm_iutucopy(i64 noundef %0, i64 noundef %1, ptr noundef r
 
 87:                                               ; preds = %86
   %88 = icmp slt i64 %.pre341, 8
-  br i1 %88, label %.preheader251, label %.thread346
+  br i1 %88, label %.preheader251, label %.thread360
 
 .preheader251:                                    ; preds = %87
   %89 = icmp sgt i64 %.pre341, 0
-  br i1 %89, label %.lr.ph, label %.thread348
+  br i1 %89, label %.lr.ph, label %.thread362
 
 .lr.ph:                                           ; preds = %.preheader251, %.lr.ph
   %.1207273 = phi i64 [ %93, %.lr.ph ], [ 0, %.preheader251 ]
@@ -193,9 +193,9 @@ define noundef i32 @strsm_iutucopy(i64 noundef %0, i64 noundef %1, ptr noundef r
   store float %91, ptr %92, align 4, !tbaa !3
   %93 = add nuw nsw i64 %.1207273, 1
   %exitcond325.not = icmp eq i64 %93, %indvars.iv323
-  br i1 %exitcond325.not, label %.thread348, label %.lr.ph, !llvm.loop !11
+  br i1 %exitcond325.not, label %.thread362, label %.lr.ph, !llvm.loop !11
 
-.thread348:                                       ; preds = %.lr.ph, %.preheader251
+.thread362:                                       ; preds = %.lr.ph, %.preheader251
   %94 = getelementptr inbounds nuw float, ptr %.3229274, i64 %.1217276
   %95 = getelementptr inbounds float, ptr %94, i64 %85
   store float 1.000000e+00, ptr %95, align 4, !tbaa !3
@@ -203,9 +203,9 @@ define noundef i32 @strsm_iutucopy(i64 noundef %0, i64 noundef %1, ptr noundef r
 
 96:                                               ; preds = %86
   %97 = icmp sgt i64 %.pre341, 7
-  br i1 %97, label %.thread346, label %120
+  br i1 %97, label %.thread360, label %120
 
-.thread346:                                       ; preds = %87, %96
+.thread360:                                       ; preds = %87, %96
   %98 = load float, ptr %.1277, align 4, !tbaa !3
   store float %98, ptr %.3229274, align 4, !tbaa !3
   %99 = getelementptr inbounds nuw i8, ptr %.1277, i64 4
@@ -238,7 +238,7 @@ define noundef i32 @strsm_iutucopy(i64 noundef %0, i64 noundef %1, ptr noundef r
   store float %118, ptr %119, align 4, !tbaa !3
   br label %120
 
-120:                                              ; preds = %.thread348, %.thread346, %96
+120:                                              ; preds = %.thread362, %.thread360, %96
   %121 = getelementptr inbounds nuw i8, ptr %.3229274, i64 32
   %122 = getelementptr inbounds float, ptr %.1277, i64 %3
   %123 = add nuw nsw i64 %.1217276, 1
@@ -279,11 +279,11 @@ define noundef i32 @strsm_iutucopy(i64 noundef %0, i64 noundef %1, ptr noundef r
 
 132:                                              ; preds = %131
   %133 = icmp slt i64 %.pre339, 4
-  br i1 %133, label %.preheader250, label %.thread350
+  br i1 %133, label %.preheader250, label %.thread364
 
 .preheader250:                                    ; preds = %132
   %134 = icmp sgt i64 %.pre339, 0
-  br i1 %134, label %.lr.ph282, label %.thread352
+  br i1 %134, label %.lr.ph282, label %.thread366
 
 .lr.ph282:                                        ; preds = %.preheader250, %.lr.ph282
   %.2208281 = phi i64 [ %138, %.lr.ph282 ], [ 0, %.preheader250 ]
@@ -293,9 +293,9 @@ define noundef i32 @strsm_iutucopy(i64 noundef %0, i64 noundef %1, ptr noundef r
   store float %136, ptr %137, align 4, !tbaa !3
   %138 = add nuw nsw i64 %.2208281, 1
   %exitcond329.not = icmp eq i64 %138, %indvars.iv327
-  br i1 %exitcond329.not, label %.thread352, label %.lr.ph282, !llvm.loop !13
+  br i1 %exitcond329.not, label %.thread366, label %.lr.ph282, !llvm.loop !13
 
-.thread352:                                       ; preds = %.lr.ph282, %.preheader250
+.thread366:                                       ; preds = %.lr.ph282, %.preheader250
   %139 = getelementptr inbounds nuw float, ptr %.5284, i64 %.2218286
   %140 = getelementptr inbounds float, ptr %139, i64 %130
   store float 1.000000e+00, ptr %140, align 4, !tbaa !3
@@ -303,9 +303,9 @@ define noundef i32 @strsm_iutucopy(i64 noundef %0, i64 noundef %1, ptr noundef r
 
 141:                                              ; preds = %131
   %142 = icmp sgt i64 %.pre339, 3
-  br i1 %142, label %.thread350, label %153
+  br i1 %142, label %.thread364, label %153
 
-.thread350:                                       ; preds = %132, %141
+.thread364:                                       ; preds = %132, %141
   %143 = load float, ptr %.2287, align 4, !tbaa !3
   store float %143, ptr %.5284, align 4, !tbaa !3
   %144 = getelementptr inbounds nuw i8, ptr %.2287, i64 4
@@ -322,7 +322,7 @@ define noundef i32 @strsm_iutucopy(i64 noundef %0, i64 noundef %1, ptr noundef r
   store float %151, ptr %152, align 4, !tbaa !3
   br label %153
 
-153:                                              ; preds = %.thread352, %.thread350, %141
+153:                                              ; preds = %.thread366, %.thread364, %141
   %154 = getelementptr inbounds nuw i8, ptr %.5284, i64 16
   %155 = getelementptr inbounds float, ptr %.2287, i64 %3
   %156 = add nuw nsw i64 %.2218286, 1
@@ -362,18 +362,18 @@ define noundef i32 @strsm_iutucopy(i64 noundef %0, i64 noundef %1, ptr noundef r
 
 165:                                              ; preds = %164
   %166 = icmp slt i64 %.pre337, 2
-  br i1 %166, label %.preheader249, label %.thread354
+  br i1 %166, label %.preheader249, label %.thread368
 
 .preheader249:                                    ; preds = %165
   %167 = icmp eq i64 %.pre337, 1
-  br i1 %167, label %.lr.ph292.split, label %.thread356
+  br i1 %167, label %.lr.ph292.split, label %.thread370
 
 .lr.ph292.split:                                  ; preds = %.preheader249
   %168 = load float, ptr %.3301, align 4, !tbaa !3
   store float %168, ptr %.7297, align 4, !tbaa !3
-  br label %.thread356
+  br label %.thread370
 
-.thread356:                                       ; preds = %.preheader249, %.lr.ph292.split
+.thread370:                                       ; preds = %.preheader249, %.lr.ph292.split
   %169 = getelementptr inbounds nuw float, ptr %.7297, i64 %.3219300
   %170 = getelementptr inbounds float, ptr %169, i64 %163
   store float 1.000000e+00, ptr %170, align 4, !tbaa !3
@@ -381,9 +381,9 @@ define noundef i32 @strsm_iutucopy(i64 noundef %0, i64 noundef %1, ptr noundef r
 
 171:                                              ; preds = %164
   %172 = icmp sgt i64 %.pre337, 1
-  br i1 %172, label %.thread354, label %177
+  br i1 %172, label %.thread368, label %177
 
-.thread354:                                       ; preds = %165, %171
+.thread368:                                       ; preds = %165, %171
   %173 = load float, ptr %.3301, align 4, !tbaa !3
   store float %173, ptr %.7297, align 4, !tbaa !3
   %174 = getelementptr inbounds nuw i8, ptr %.3301, i64 4
@@ -392,7 +392,7 @@ define noundef i32 @strsm_iutucopy(i64 noundef %0, i64 noundef %1, ptr noundef r
   store float %175, ptr %176, align 4, !tbaa !3
   br label %177
 
-177:                                              ; preds = %.thread356, %.thread354, %171
+177:                                              ; preds = %.thread370, %.thread368, %171
   %178 = getelementptr inbounds nuw i8, ptr %.7297, i64 8
   %179 = getelementptr inbounds float, ptr %.3301, i64 %3
   %180 = add nuw nsw i64 %.3219300, 1

@@ -345,31 +345,31 @@ define internal fastcc ptr @tuplehash_insert_hash_internal(ptr noundef captures(
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %27 = load i32, ptr %26, align 8
   %28 = icmp eq i32 %27, 0
-  br i1 %28, label %._crit_edge246, label %.lr.ph245
+  br i1 %28, label %._crit_edge252, label %.lr.ph251
 
-._crit_edge246:                                   ; preds = %21, %106
-  %.lcssa219 = phi ptr [ %108, %106 ], [ %25, %21 ]
-  %29 = getelementptr inbounds nuw i8, ptr %.lcssa219, i64 16
+._crit_edge252:                                   ; preds = %21, %106
+  %.lcssa225 = phi ptr [ %108, %106 ], [ %25, %21 ]
+  %29 = getelementptr inbounds nuw i8, ptr %.lcssa225, i64 16
   %30 = load i32, ptr %6, align 8
   %31 = add i32 %30, 1
   store i32 %31, ptr %6, align 8
-  store ptr %1, ptr %.lcssa219, align 8
-  %32 = getelementptr inbounds nuw i8, ptr %.lcssa219, i64 20
+  store ptr %1, ptr %.lcssa225, align 8
+  %32 = getelementptr inbounds nuw i8, ptr %.lcssa225, i64 20
   store i32 %2, ptr %32, align 4
   store i32 1, ptr %29, align 8
   br label %.thread106
 
-.lr.ph245:                                        ; preds = %21, %106
+.lr.ph251:                                        ; preds = %21, %106
   %33 = phi ptr [ %108, %106 ], [ %25, %21 ]
-  %.078243 = phi i32 [ %68, %106 ], [ %23, %21 ]
-  %.090242 = phi i32 [ %97, %106 ], [ 0, %21 ]
-  %.val96177241 = phi i32 [ %.val96, %106 ], [ %.val97, %21 ]
+  %.078249 = phi i32 [ %68, %106 ], [ %23, %21 ]
+  %.090248 = phi i32 [ %97, %106 ], [ 0, %21 ]
+  %.val96177247 = phi i32 [ %.val96, %106 ], [ %.val97, %21 ]
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 20
   %35 = load i32, ptr %34, align 4
   %36 = icmp eq i32 %2, %35
   br i1 %36, label %37, label %60
 
-37:                                               ; preds = %.lr.ph245
+37:                                               ; preds = %.lr.ph251
   %38 = load ptr, ptr %33, align 8
   %.val100 = load ptr, ptr %10, align 8
   %39 = getelementptr inbounds nuw i8, ptr %.val100, i64 96
@@ -416,24 +416,24 @@ TupleHashTableMatch.exit._crit_edge:              ; preds = %TupleHashTableMatch
   %.val96.pre = load i32, ptr %9, align 4
   br label %60
 
-60:                                               ; preds = %TupleHashTableMatch.exit._crit_edge, %.lr.ph245
-  %.val96 = phi i32 [ %.val96.pre, %TupleHashTableMatch.exit._crit_edge ], [ %.val96177241, %.lr.ph245 ]
-  %.val = phi i32 [ %.val.pre, %TupleHashTableMatch.exit._crit_edge ], [ %35, %.lr.ph245 ]
+60:                                               ; preds = %TupleHashTableMatch.exit._crit_edge, %.lr.ph251
+  %.val96 = phi i32 [ %.val96.pre, %TupleHashTableMatch.exit._crit_edge ], [ %.val96177247, %.lr.ph251 ]
+  %.val = phi i32 [ %.val.pre, %TupleHashTableMatch.exit._crit_edge ], [ %35, %.lr.ph251 ]
   %61 = and i32 %.val96, %.val
-  %.not.i = icmp ugt i32 %61, %.078243
+  %.not.i = icmp ugt i32 %61, %.078249
   br i1 %.not.i, label %62, label %tuplehash_distance.exit
 
 62:                                               ; preds = %60
   %63 = load i64, ptr %0, align 8
   %64 = trunc i64 %63 to i32
-  %65 = add i32 %.078243, %64
+  %65 = add i32 %.078249, %64
   br label %tuplehash_distance.exit
 
 tuplehash_distance.exit:                          ; preds = %60, %62
-  %.pn.i = phi i32 [ %65, %62 ], [ %.078243, %60 ]
+  %.pn.i = phi i32 [ %65, %62 ], [ %.078249, %60 ]
   %.0.i = sub i32 %.pn.i, %61
-  %66 = icmp ugt i32 %.090242, %.0.i
-  %67 = add i32 %.078243, 1
+  %66 = icmp ugt i32 %.090248, %.0.i
+  %67 = add i32 %.078249, 1
   %68 = and i32 %67, %.val96
   br i1 %66, label %.preheader117.preheader, label %96
 
@@ -442,17 +442,17 @@ tuplehash_distance.exit:                          ; preds = %60, %62
   %70 = getelementptr inbounds nuw %struct.TupleHashEntryData, ptr %22, i64 %69
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 16
   %72 = load i32, ptr %71, align 8
-  %.not116249 = icmp eq i32 %72, 0
-  br i1 %.not116249, label %.preheader, label %.lr.ph251
+  %.not116255 = icmp eq i32 %72, 0
+  br i1 %.not116255, label %.preheader, label %.lr.ph257
 
-.lr.ph251:                                        ; preds = %.preheader117.preheader, %.preheader117
+.lr.ph257:                                        ; preds = %.preheader117.preheader, %.preheader117
   %73 = phi i32 [ %84, %.preheader117 ], [ %68, %.preheader117.preheader ]
-  %.080250 = phi i32 [ %74, %.preheader117 ], [ 0, %.preheader117.preheader ]
-  %74 = add i32 %.080250, 1
+  %.080256 = phi i32 [ %74, %.preheader117 ], [ 0, %.preheader117.preheader ]
+  %74 = add i32 %.080256, 1
   %75 = icmp sgt i32 %74, 150
   br i1 %75, label %76, label %.preheader117, !prof !4
 
-76:                                               ; preds = %.lr.ph251
+76:                                               ; preds = %.lr.ph257
   %77 = load i32, ptr %6, align 8
   %78 = uitofp i32 %77 to double
   %79 = load i64, ptr %0, align 8
@@ -461,7 +461,7 @@ tuplehash_distance.exit:                          ; preds = %60, %62
   %82 = fcmp ult double %81, 1.000000e-01
   br i1 %82, label %.preheader117, label %.loopexit118.loopexit
 
-.preheader117:                                    ; preds = %.lr.ph251, %76
+.preheader117:                                    ; preds = %.lr.ph257, %76
   %83 = add i32 %73, 1
   %84 = and i32 %83, %.val96
   %85 = zext i32 %84 to i64
@@ -469,25 +469,25 @@ tuplehash_distance.exit:                          ; preds = %60, %62
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 16
   %88 = load i32, ptr %87, align 8
   %.not116 = icmp eq i32 %88, 0
-  br i1 %.not116, label %.preheader, label %.lr.ph251
+  br i1 %.not116, label %.preheader, label %.lr.ph257
 
 .preheader:                                       ; preds = %.preheader117.preheader, %.preheader117
-  %.lcssa235 = phi i32 [ %84, %.preheader117 ], [ %68, %.preheader117.preheader ]
-  %.lcssa233 = phi ptr [ %86, %.preheader117 ], [ %70, %.preheader117.preheader ]
+  %.lcssa241 = phi i32 [ %84, %.preheader117 ], [ %68, %.preheader117.preheader ]
+  %.lcssa239 = phi ptr [ %86, %.preheader117 ], [ %70, %.preheader117.preheader ]
   %89 = getelementptr inbounds nuw i8, ptr %33, i64 16
-  %.not95154 = icmp eq i32 %.lcssa235, %.078243
+  %.not95154 = icmp eq i32 %.lcssa241, %.078249
   br i1 %.not95154, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
-  %.082156 = phi i32 [ %91, %.lr.ph ], [ %.lcssa235, %.preheader ]
-  %.286155 = phi ptr [ %93, %.lr.ph ], [ %.lcssa233, %.preheader ]
+  %.082156 = phi i32 [ %91, %.lr.ph ], [ %.lcssa241, %.preheader ]
+  %.286155 = phi ptr [ %93, %.lr.ph ], [ %.lcssa239, %.preheader ]
   %.val101 = load i32, ptr %9, align 4
   %90 = add i32 %.082156, -1
   %91 = and i32 %.val101, %90
   %92 = zext i32 %91 to i64
   %93 = getelementptr inbounds nuw %struct.TupleHashEntryData, ptr %22, i64 %92
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.286155, ptr noundef nonnull align 8 dereferenceable(24) %93, i64 24, i1 false)
-  %.not95 = icmp eq i32 %91, %.078243
+  %.not95 = icmp eq i32 %91, %.078249
   br i1 %.not95, label %._crit_edge, label %.lr.ph, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
@@ -500,7 +500,7 @@ tuplehash_distance.exit:                          ; preds = %60, %62
   br label %.thread106
 
 96:                                               ; preds = %tuplehash_distance.exit
-  %97 = add i32 %.090242, 1
+  %97 = add i32 %.090248, 1
   %98 = icmp ugt i32 %97, 25
   br i1 %98, label %99, label %106, !prof !4
 
@@ -519,11 +519,11 @@ tuplehash_distance.exit:                          ; preds = %60, %62
   %109 = getelementptr inbounds nuw i8, ptr %108, i64 16
   %110 = load i32, ptr %109, align 8
   %111 = icmp eq i32 %110, 0
-  br i1 %111, label %._crit_edge246, label %.lr.ph245
+  br i1 %111, label %._crit_edge252, label %.lr.ph251
 
-.thread106:                                       ; preds = %TupleHashTableMatch.exit, %TupleHashTableMatch.exit.thread, %._crit_edge, %._crit_edge246
-  %112 = phi ptr [ %33, %._crit_edge ], [ %.lcssa219, %._crit_edge246 ], [ %33, %TupleHashTableMatch.exit.thread ], [ %33, %TupleHashTableMatch.exit ]
-  %.sink = phi i8 [ 0, %._crit_edge ], [ 0, %._crit_edge246 ], [ 1, %TupleHashTableMatch.exit.thread ], [ 1, %TupleHashTableMatch.exit ]
+.thread106:                                       ; preds = %TupleHashTableMatch.exit, %TupleHashTableMatch.exit.thread, %._crit_edge, %._crit_edge252
+  %112 = phi ptr [ %33, %._crit_edge ], [ %.lcssa225, %._crit_edge252 ], [ %33, %TupleHashTableMatch.exit.thread ], [ %33, %TupleHashTableMatch.exit ]
+  %.sink = phi i8 [ 0, %._crit_edge ], [ 0, %._crit_edge252 ], [ 1, %TupleHashTableMatch.exit.thread ], [ 1, %TupleHashTableMatch.exit ]
   store i8 %.sink, ptr %3, align 1
   ret ptr %112
 }
@@ -1157,8 +1157,8 @@ tuplehash_distance.exit:                          ; preds = %8
   br i1 %37, label %.lr.ph78, label %._crit_edge, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %.lr.ph78, %1, %.preheader
-  %.0.lcssa89 = phi i32 [ %.1, %.preheader ], [ 0, %1 ], [ %.1, %.lr.ph78 ]
-  %.049.lcssa88 = phi i32 [ %.150, %.preheader ], [ 0, %1 ], [ %.150, %.lr.ph78 ]
+  %.0.lcssa93 = phi i32 [ %.1, %.preheader ], [ 0, %1 ], [ %.1, %.lr.ph78 ]
+  %.049.lcssa92 = phi i32 [ %.150, %.preheader ], [ 0, %1 ], [ %.150, %.lr.ph78 ]
   %.057.lcssa = phi i32 [ 0, %.preheader ], [ 0, %1 ], [ %.158, %.lr.ph78 ]
   %.054.lcssa = phi i32 [ 0, %.preheader ], [ 0, %1 ], [ %.155, %.lr.ph78 ]
   tail call void @pfree(ptr noundef %4) #15
@@ -1172,7 +1172,7 @@ tuplehash_distance.exit:                          ; preds = %8
   %42 = load i64, ptr %0, align 8
   %43 = uitofp i64 %42 to double
   %44 = fdiv double %41, %43
-  %45 = uitofp i32 %.049.lcssa88 to double
+  %45 = uitofp i32 %.049.lcssa92 to double
   %46 = fdiv double %45, %41
   %47 = uitofp i32 %.057.lcssa to double
   %48 = fdiv double %47, %41
@@ -1188,7 +1188,7 @@ tuplehash_distance.exit:                          ; preds = %8
 51:                                               ; preds = %49
   %52 = load i64, ptr %0, align 8
   %53 = load i32, ptr %38, align 8
-  %54 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i64 noundef %52, i32 noundef %53, double noundef %.052, i32 noundef %.049.lcssa88, i32 noundef %.0.lcssa89, double noundef %.051, i32 noundef %.057.lcssa, i32 noundef %.054.lcssa, double noundef %.053) #15
+  %54 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str, i64 noundef %52, i32 noundef %53, double noundef %.052, i32 noundef %.049.lcssa92, i32 noundef %.0.lcssa93, double noundef %.051, i32 noundef %.057.lcssa, i32 noundef %.054.lcssa, double noundef %.053) #15
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1140, ptr noundef nonnull @__func__.tuplehash_stat) #15
   br label %55
 

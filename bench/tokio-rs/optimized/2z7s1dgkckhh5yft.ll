@@ -4486,14 +4486,14 @@ define hidden void @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$4poll17
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = call noundef i8 @"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner17habd205ec1145c153E.llvm.4698933542364062918"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %2), !range !49
-  switch i8 %3, label %default.unreachable1 [
+  switch i8 %3, label %default.unreachable3 [
     i8 0, label %4
     i8 1, label %5
     i8 2, label %19
     i8 3, label %20
   ]
 
-default.unreachable1:                             ; preds = %1
+default.unreachable3:                             ; preds = %1
   unreachable
 
 4:                                                ; preds = %1
@@ -5191,14 +5191,14 @@ define hidden noundef range(i8 0, 4) i8 @"_ZN5tokio7runtime4task7harness20Harnes
   %8 = alloca { ptr, ptr }, align 8
   %9 = load ptr, ptr %0, align 8, !nonnull !5, !noundef !5
   %10 = tail call noundef i8 @_ZN5tokio7runtime4task5state5State19fetch_update_action17hac1d33260ed9d350E(ptr noundef nonnull align 8 %9), !range !49
-  switch i8 %10, label %default.unreachable17 [
+  switch i8 %10, label %default.unreachable18 [
     i8 0, label %11
     i8 1, label %46
     i8 2, label %70
     i8 3, label %70
   ]
 
-default.unreachable17:                            ; preds = %56, %1
+default.unreachable18:                            ; preds = %56, %1
   unreachable
 
 11:                                               ; preds = %1
@@ -5361,7 +5361,7 @@ _ZN5tokio7runtime4task7harness11cancel_task17h06974ec4697f2f4fE.llvm.46989335423
 
 56:                                               ; preds = %_ZN3std9panicking3try17h667560cdac503ed7E.exit.i
   %57 = call noundef i8 @_ZN5tokio7runtime4task5state5State19fetch_update_action17h80e5d9228223bc1cE(ptr noundef nonnull align 8 %9), !range !49
-  switch i8 %57, label %default.unreachable17 [
+  switch i8 %57, label %default.unreachable18 [
     i8 3, label %59
     i8 0, label %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner32transition_result_to_poll_future17h5549376261b0e7fbE.exit"
     i8 1, label %68
@@ -5435,14 +5435,14 @@ define hidden noundef range(i8 0, 4) i8 @"_ZN5tokio7runtime4task7harness20Harnes
   %8 = alloca { ptr, ptr }, align 8
   %9 = load ptr, ptr %0, align 8, !nonnull !5, !noundef !5
   %10 = tail call noundef i8 @_ZN5tokio7runtime4task5state5State19fetch_update_action17hac1d33260ed9d350E(ptr noundef nonnull align 8 %9), !range !49
-  switch i8 %10, label %default.unreachable17 [
+  switch i8 %10, label %default.unreachable18 [
     i8 0, label %11
     i8 1, label %47
     i8 2, label %71
     i8 3, label %71
   ]
 
-default.unreachable17:                            ; preds = %57, %1
+default.unreachable18:                            ; preds = %57, %1
   unreachable
 
 11:                                               ; preds = %1
@@ -5608,7 +5608,7 @@ _ZN5tokio7runtime4task7harness11cancel_task17h260336ba39b599bbE.llvm.46989335423
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.11.sroa.5.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7.i)
   %58 = call noundef i8 @_ZN5tokio7runtime4task5state5State19fetch_update_action17h80e5d9228223bc1cE(ptr noundef nonnull align 8 %9), !range !49
-  switch i8 %58, label %default.unreachable17 [
+  switch i8 %58, label %default.unreachable18 [
     i8 3, label %60
     i8 0, label %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner32transition_result_to_poll_future17h5549376261b0e7fbE.exit"
     i8 1, label %69
@@ -5684,14 +5684,14 @@ define hidden noundef range(i8 0, 4) i8 @"_ZN5tokio7runtime4task7harness20Harnes
   %8 = alloca { ptr, ptr }, align 8
   %9 = load ptr, ptr %0, align 8, !nonnull !5, !noundef !5
   %10 = tail call noundef i8 @_ZN5tokio7runtime4task5state5State19fetch_update_action17hac1d33260ed9d350E(ptr noundef nonnull align 8 %9), !range !49
-  switch i8 %10, label %default.unreachable17 [
+  switch i8 %10, label %default.unreachable18 [
     i8 0, label %11
     i8 1, label %47
     i8 2, label %71
     i8 3, label %71
   ]
 
-default.unreachable17:                            ; preds = %57, %1
+default.unreachable18:                            ; preds = %57, %1
   unreachable
 
 11:                                               ; preds = %1
@@ -5857,7 +5857,7 @@ _ZN5tokio7runtime4task7harness11cancel_task17hbfd7074c3d76a374E.llvm.46989335423
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.11.sroa.5.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7.i)
   %58 = call noundef i8 @_ZN5tokio7runtime4task5state5State19fetch_update_action17h80e5d9228223bc1cE(ptr noundef nonnull align 8 %9), !range !49
-  switch i8 %58, label %default.unreachable17 [
+  switch i8 %58, label %default.unreachable18 [
     i8 3, label %60
     i8 0, label %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner32transition_result_to_poll_future17h5549376261b0e7fbE.exit"
     i8 1, label %69
@@ -5933,14 +5933,14 @@ define hidden noundef range(i8 0, 4) i8 @"_ZN5tokio7runtime4task7harness20Harnes
   %8 = alloca { ptr, ptr }, align 8
   %9 = load ptr, ptr %0, align 8, !nonnull !5, !noundef !5
   %10 = tail call noundef i8 @_ZN5tokio7runtime4task5state5State19fetch_update_action17hac1d33260ed9d350E(ptr noundef nonnull align 8 %9), !range !49
-  switch i8 %10, label %default.unreachable17 [
+  switch i8 %10, label %default.unreachable18 [
     i8 0, label %11
     i8 1, label %47
     i8 2, label %71
     i8 3, label %71
   ]
 
-default.unreachable17:                            ; preds = %57, %1
+default.unreachable18:                            ; preds = %57, %1
   unreachable
 
 11:                                               ; preds = %1
@@ -6106,7 +6106,7 @@ _ZN5tokio7runtime4task7harness11cancel_task17h3ac5a9473e6e85fcE.llvm.46989335423
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.11.sroa.5.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7.i)
   %58 = call noundef i8 @_ZN5tokio7runtime4task5state5State19fetch_update_action17h80e5d9228223bc1cE(ptr noundef nonnull align 8 %9), !range !49
-  switch i8 %58, label %default.unreachable17 [
+  switch i8 %58, label %default.unreachable18 [
     i8 3, label %60
     i8 0, label %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner32transition_result_to_poll_future17h5549376261b0e7fbE.exit"
     i8 1, label %69
@@ -6182,14 +6182,14 @@ define hidden noundef range(i8 0, 4) i8 @"_ZN5tokio7runtime4task7harness20Harnes
   %8 = alloca { ptr, ptr }, align 8
   %9 = load ptr, ptr %0, align 8, !nonnull !5, !noundef !5
   %10 = tail call noundef i8 @_ZN5tokio7runtime4task5state5State19fetch_update_action17hac1d33260ed9d350E(ptr noundef nonnull align 8 %9), !range !49
-  switch i8 %10, label %default.unreachable17 [
+  switch i8 %10, label %default.unreachable18 [
     i8 0, label %11
     i8 1, label %47
     i8 2, label %71
     i8 3, label %71
   ]
 
-default.unreachable17:                            ; preds = %57, %1
+default.unreachable18:                            ; preds = %57, %1
   unreachable
 
 11:                                               ; preds = %1
@@ -6355,7 +6355,7 @@ _ZN5tokio7runtime4task7harness11cancel_task17hf7f892d90501bcfcE.llvm.46989335423
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.11.sroa.5.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7.i)
   %58 = call noundef i8 @_ZN5tokio7runtime4task5state5State19fetch_update_action17h80e5d9228223bc1cE(ptr noundef nonnull align 8 %9), !range !49
-  switch i8 %58, label %default.unreachable17 [
+  switch i8 %58, label %default.unreachable18 [
     i8 3, label %60
     i8 0, label %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner32transition_result_to_poll_future17h5549376261b0e7fbE.exit"
     i8 1, label %69
@@ -6429,14 +6429,14 @@ define hidden noundef range(i8 0, 4) i8 @"_ZN5tokio7runtime4task7harness20Harnes
   %8 = alloca { ptr, ptr }, align 8
   %9 = load ptr, ptr %0, align 8, !nonnull !5, !noundef !5
   %10 = tail call noundef i8 @_ZN5tokio7runtime4task5state5State19fetch_update_action17hac1d33260ed9d350E(ptr noundef nonnull align 8 %9), !range !49
-  switch i8 %10, label %default.unreachable17 [
+  switch i8 %10, label %default.unreachable18 [
     i8 0, label %11
     i8 1, label %46
     i8 2, label %70
     i8 3, label %70
   ]
 
-default.unreachable17:                            ; preds = %56, %1
+default.unreachable18:                            ; preds = %56, %1
   unreachable
 
 11:                                               ; preds = %1
@@ -6599,7 +6599,7 @@ _ZN5tokio7runtime4task7harness11cancel_task17hbb707af238b58236E.llvm.46989335423
 
 56:                                               ; preds = %_ZN3std9panicking3try17h9f1e59da756ff864E.exit.i
   %57 = call noundef i8 @_ZN5tokio7runtime4task5state5State19fetch_update_action17h80e5d9228223bc1cE(ptr noundef nonnull align 8 %9), !range !49
-  switch i8 %57, label %default.unreachable17 [
+  switch i8 %57, label %default.unreachable18 [
     i8 3, label %59
     i8 0, label %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner32transition_result_to_poll_future17h5549376261b0e7fbE.exit"
     i8 1, label %68
@@ -6673,14 +6673,14 @@ define hidden noundef range(i8 0, 4) i8 @"_ZN5tokio7runtime4task7harness20Harnes
   %8 = alloca { ptr, ptr }, align 8
   %9 = load ptr, ptr %0, align 8, !nonnull !5, !noundef !5
   %10 = tail call noundef i8 @_ZN5tokio7runtime4task5state5State19fetch_update_action17hac1d33260ed9d350E(ptr noundef nonnull align 8 %9), !range !49
-  switch i8 %10, label %default.unreachable17 [
+  switch i8 %10, label %default.unreachable18 [
     i8 0, label %11
     i8 1, label %47
     i8 2, label %71
     i8 3, label %71
   ]
 
-default.unreachable17:                            ; preds = %57, %1
+default.unreachable18:                            ; preds = %57, %1
   unreachable
 
 11:                                               ; preds = %1
@@ -6846,7 +6846,7 @@ _ZN5tokio7runtime4task7harness11cancel_task17h860e7923070757bcE.llvm.46989335423
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.11.sroa.5.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7.i)
   %58 = call noundef i8 @_ZN5tokio7runtime4task5state5State19fetch_update_action17h80e5d9228223bc1cE(ptr noundef nonnull align 8 %9), !range !49
-  switch i8 %58, label %default.unreachable17 [
+  switch i8 %58, label %default.unreachable18 [
     i8 3, label %60
     i8 0, label %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner32transition_result_to_poll_future17h5549376261b0e7fbE.exit"
     i8 1, label %69
@@ -6922,14 +6922,14 @@ define hidden noundef range(i8 0, 4) i8 @"_ZN5tokio7runtime4task7harness20Harnes
   %8 = alloca { ptr, ptr }, align 8
   %9 = load ptr, ptr %0, align 8, !nonnull !5, !noundef !5
   %10 = tail call noundef i8 @_ZN5tokio7runtime4task5state5State19fetch_update_action17hac1d33260ed9d350E(ptr noundef nonnull align 8 %9), !range !49
-  switch i8 %10, label %default.unreachable17 [
+  switch i8 %10, label %default.unreachable18 [
     i8 0, label %11
     i8 1, label %47
     i8 2, label %73
     i8 3, label %73
   ]
 
-default.unreachable17:                            ; preds = %58, %1
+default.unreachable18:                            ; preds = %58, %1
   unreachable
 
 11:                                               ; preds = %1
@@ -7097,7 +7097,7 @@ _ZN5tokio7runtime4task7harness11cancel_task17hfac85b161a7af106E.llvm.46989335423
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.11.sroa.5.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7.i)
   %59 = call noundef i8 @_ZN5tokio7runtime4task5state5State19fetch_update_action17h80e5d9228223bc1cE(ptr noundef nonnull align 8 %9), !range !49
-  switch i8 %59, label %default.unreachable17 [
+  switch i8 %59, label %default.unreachable18 [
     i8 3, label %61
     i8 0, label %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner32transition_result_to_poll_future17h5549376261b0e7fbE.exit"
     i8 1, label %71
@@ -7173,14 +7173,14 @@ define hidden noundef range(i8 0, 4) i8 @"_ZN5tokio7runtime4task7harness20Harnes
   %8 = alloca { ptr, ptr }, align 8
   %9 = load ptr, ptr %0, align 8, !nonnull !5, !noundef !5
   %10 = tail call noundef i8 @_ZN5tokio7runtime4task5state5State19fetch_update_action17hac1d33260ed9d350E(ptr noundef nonnull align 8 %9), !range !49
-  switch i8 %10, label %default.unreachable17 [
+  switch i8 %10, label %default.unreachable18 [
     i8 0, label %11
     i8 1, label %47
     i8 2, label %71
     i8 3, label %71
   ]
 
-default.unreachable17:                            ; preds = %57, %1
+default.unreachable18:                            ; preds = %57, %1
   unreachable
 
 11:                                               ; preds = %1
@@ -7320,7 +7320,7 @@ _ZN5tokio7runtime4task7harness11cancel_task17had0f2103c201905aE.llvm.46989335423
 
 57:                                               ; preds = %15
   %58 = call noundef i8 @_ZN5tokio7runtime4task5state5State19fetch_update_action17h80e5d9228223bc1cE(ptr noundef nonnull align 8 %9), !range !49
-  switch i8 %58, label %default.unreachable17 [
+  switch i8 %58, label %default.unreachable18 [
     i8 3, label %60
     i8 0, label %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner32transition_result_to_poll_future17h5549376261b0e7fbE.exit"
     i8 1, label %69
@@ -7394,14 +7394,14 @@ define hidden noundef range(i8 0, 4) i8 @"_ZN5tokio7runtime4task7harness20Harnes
   %8 = alloca { ptr, ptr }, align 8
   %9 = load ptr, ptr %0, align 8, !nonnull !5, !noundef !5
   %10 = tail call noundef i8 @_ZN5tokio7runtime4task5state5State19fetch_update_action17hac1d33260ed9d350E(ptr noundef nonnull align 8 %9), !range !49
-  switch i8 %10, label %default.unreachable17 [
+  switch i8 %10, label %default.unreachable18 [
     i8 0, label %11
     i8 1, label %47
     i8 2, label %73
     i8 3, label %73
   ]
 
-default.unreachable17:                            ; preds = %58, %1
+default.unreachable18:                            ; preds = %58, %1
   unreachable
 
 11:                                               ; preds = %1
@@ -7569,7 +7569,7 @@ _ZN5tokio7runtime4task7harness11cancel_task17h6a2ec16c0e5e2789E.llvm.46989335423
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.11.sroa.5.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7.i)
   %59 = call noundef i8 @_ZN5tokio7runtime4task5state5State19fetch_update_action17h80e5d9228223bc1cE(ptr noundef nonnull align 8 %9), !range !49
-  switch i8 %59, label %default.unreachable17 [
+  switch i8 %59, label %default.unreachable18 [
     i8 3, label %61
     i8 0, label %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner32transition_result_to_poll_future17h5549376261b0e7fbE.exit"
     i8 1, label %71
@@ -7647,14 +7647,14 @@ define hidden noundef range(i8 0, 4) i8 @"_ZN5tokio7runtime4task7harness20Harnes
   %8 = alloca { ptr, ptr }, align 8
   %9 = load ptr, ptr %0, align 8, !nonnull !5, !noundef !5
   %10 = tail call noundef i8 @_ZN5tokio7runtime4task5state5State19fetch_update_action17hac1d33260ed9d350E(ptr noundef nonnull align 8 %9), !range !49
-  switch i8 %10, label %default.unreachable17 [
+  switch i8 %10, label %default.unreachable18 [
     i8 0, label %11
     i8 1, label %47
     i8 2, label %71
     i8 3, label %71
   ]
 
-default.unreachable17:                            ; preds = %57, %1
+default.unreachable18:                            ; preds = %57, %1
   unreachable
 
 11:                                               ; preds = %1
@@ -7820,7 +7820,7 @@ _ZN5tokio7runtime4task7harness11cancel_task17h6fd4e19f4b712c33E.llvm.46989335423
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.11.sroa.5.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7.i)
   %58 = call noundef i8 @_ZN5tokio7runtime4task5state5State19fetch_update_action17h80e5d9228223bc1cE(ptr noundef nonnull align 8 %9), !range !49
-  switch i8 %58, label %default.unreachable17 [
+  switch i8 %58, label %default.unreachable18 [
     i8 3, label %60
     i8 0, label %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner32transition_result_to_poll_future17h5549376261b0e7fbE.exit"
     i8 1, label %69
@@ -7896,14 +7896,14 @@ define hidden noundef range(i8 0, 4) i8 @"_ZN5tokio7runtime4task7harness20Harnes
   %8 = alloca { ptr, ptr }, align 8
   %9 = load ptr, ptr %0, align 8, !nonnull !5, !noundef !5
   %10 = tail call noundef i8 @_ZN5tokio7runtime4task5state5State19fetch_update_action17hac1d33260ed9d350E(ptr noundef nonnull align 8 %9), !range !49
-  switch i8 %10, label %default.unreachable17 [
+  switch i8 %10, label %default.unreachable18 [
     i8 0, label %11
     i8 1, label %47
     i8 2, label %71
     i8 3, label %71
   ]
 
-default.unreachable17:                            ; preds = %57, %1
+default.unreachable18:                            ; preds = %57, %1
   unreachable
 
 11:                                               ; preds = %1
@@ -8069,7 +8069,7 @@ _ZN5tokio7runtime4task7harness11cancel_task17h8ab5750281941d2aE.llvm.46989335423
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.11.sroa.5.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7.i)
   %58 = call noundef i8 @_ZN5tokio7runtime4task5state5State19fetch_update_action17h80e5d9228223bc1cE(ptr noundef nonnull align 8 %9), !range !49
-  switch i8 %58, label %default.unreachable17 [
+  switch i8 %58, label %default.unreachable18 [
     i8 3, label %60
     i8 0, label %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner32transition_result_to_poll_future17h5549376261b0e7fbE.exit"
     i8 1, label %69
@@ -8145,14 +8145,14 @@ define hidden noundef range(i8 0, 4) i8 @"_ZN5tokio7runtime4task7harness20Harnes
   %8 = alloca { ptr, ptr }, align 8
   %9 = load ptr, ptr %0, align 8, !nonnull !5, !noundef !5
   %10 = tail call noundef i8 @_ZN5tokio7runtime4task5state5State19fetch_update_action17hac1d33260ed9d350E(ptr noundef nonnull align 8 %9), !range !49
-  switch i8 %10, label %default.unreachable17 [
+  switch i8 %10, label %default.unreachable18 [
     i8 0, label %11
     i8 1, label %47
     i8 2, label %73
     i8 3, label %73
   ]
 
-default.unreachable17:                            ; preds = %58, %1
+default.unreachable18:                            ; preds = %58, %1
   unreachable
 
 11:                                               ; preds = %1
@@ -8320,7 +8320,7 @@ _ZN5tokio7runtime4task7harness11cancel_task17h77d4567c2570fe73E.llvm.46989335423
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.11.sroa.5.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7.i)
   %59 = call noundef i8 @_ZN5tokio7runtime4task5state5State19fetch_update_action17h80e5d9228223bc1cE(ptr noundef nonnull align 8 %9), !range !49
-  switch i8 %59, label %default.unreachable17 [
+  switch i8 %59, label %default.unreachable18 [
     i8 3, label %61
     i8 0, label %"_ZN5tokio7runtime4task7harness20Harness$LT$T$C$S$GT$10poll_inner32transition_result_to_poll_future17h5549376261b0e7fbE.exit"
     i8 1, label %71

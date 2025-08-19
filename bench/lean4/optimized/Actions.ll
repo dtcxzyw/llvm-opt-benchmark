@@ -15855,18 +15855,18 @@ _init_l_Lake_Package_uploadRelease___closed__4.exit: ; preds = %_init_l_Lake_exe
   unreachable
 
 .sink.split:                                      ; preds = %_init_l_Lake_Package_uploadRelease___closed__4.exit, %3
-  %.sink33 = phi ptr [ %4, %3 ], [ %104, %_init_l_Lake_Package_uploadRelease___closed__4.exit ]
-  %107 = getelementptr inbounds nuw i8, ptr %.sink33, i64 4
-  store i32 1, ptr %.sink33, align 4, !tbaa !10
+  %.sink46 = phi ptr [ %4, %3 ], [ %104, %_init_l_Lake_Package_uploadRelease___closed__4.exit ]
+  %107 = getelementptr inbounds nuw i8, ptr %.sink46, i64 4
+  store i32 1, ptr %.sink46, align 4, !tbaa !10
   store i32 131096, ptr %107, align 4
-  %108 = getelementptr inbounds nuw i8, ptr %.sink33, i64 8
+  %108 = getelementptr inbounds nuw i8, ptr %.sink46, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %108, align 8, !tbaa !4
-  %109 = getelementptr inbounds nuw i8, ptr %.sink33, i64 16
+  %109 = getelementptr inbounds nuw i8, ptr %.sink46, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %109, align 8, !tbaa !4
   br label %110
 
 110:                                              ; preds = %.sink.split, %lean_dec_ref.exit18, %lean_dec_ref.exit20, %lean_dec_ref.exit22, %7
-  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit22 ], [ %28, %lean_dec_ref.exit20 ], [ %38, %lean_dec_ref.exit18 ], [ %.sink33, %.sink.split ]
+  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit22 ], [ %28, %lean_dec_ref.exit20 ], [ %38, %lean_dec_ref.exit18 ], [ %.sink46, %.sink.split ]
   ret ptr %.0
 }
 

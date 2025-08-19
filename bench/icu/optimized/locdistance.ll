@@ -453,7 +453,7 @@ _ZN6icu_7714LocaleDistance8trieNextERNS_9BytesTrieEPKcb.exit.thread: ; preds = %
 
 .lr.ph:                                           ; preds = %_ZN6icu_7714LocaleDistance8trieNextERNS_9BytesTrieEPKcb.exit.thread.thread, %_ZN6icu_7714LocaleDistance8trieNextERNS_9BytesTrieEPKcb.exit.thread
   %47 = phi i64 [ %45, %_ZN6icu_7714LocaleDistance8trieNextERNS_9BytesTrieEPKcb.exit.thread.thread ], [ 0, %_ZN6icu_7714LocaleDistance8trieNextERNS_9BytesTrieEPKcb.exit.thread ]
-  %.017.i178245 = phi i32 [ 0, %_ZN6icu_7714LocaleDistance8trieNextERNS_9BytesTrieEPKcb.exit.thread.thread ], [ %.017.i178, %_ZN6icu_7714LocaleDistance8trieNextERNS_9BytesTrieEPKcb.exit.thread ]
+  %.017.i178255 = phi i32 [ 0, %_ZN6icu_7714LocaleDistance8trieNextERNS_9BytesTrieEPKcb.exit.thread.thread ], [ %.017.i178, %_ZN6icu_7714LocaleDistance8trieNextERNS_9BytesTrieEPKcb.exit.thread ]
   %48 = phi i1 [ true, %_ZN6icu_7714LocaleDistance8trieNextERNS_9BytesTrieEPKcb.exit.thread.thread ], [ %46, %_ZN6icu_7714LocaleDistance8trieNextERNS_9BytesTrieEPKcb.exit.thread ]
   %49 = lshr i64 %47, 59
   %50 = trunc nuw nsw i64 %49 to i32
@@ -564,7 +564,7 @@ _ZN6icu_7714LocaleDistance8trieNextERNS_9BytesTrieEPKcb.exit.thread: ; preds = %
   br i1 %.not25.not.i165, label %_ZN6icu_7714LocaleDistance8trieNextERNS_9BytesTrieEPKcb.exit170.thread, label %.preheader.i161, !llvm.loop !55
 
 _ZN6icu_7714LocaleDistance8trieNextERNS_9BytesTrieEPKcb.exit170: ; preds = %.noexc168, %64
-  %.0110 = phi i32 [ %.017.i178245, %64 ], [ %spec.select.i, %.noexc168 ]
+  %.0110 = phi i32 [ %.017.i178255, %64 ], [ %spec.select.i, %.noexc168 ]
   %95 = icmp slt i32 %.0110, 0
   br i1 %95, label %_ZN6icu_7714LocaleDistance8trieNextERNS_9BytesTrieEPKcb.exit170.thread, label %96
 
@@ -1210,10 +1210,10 @@ define noundef i32 @_ZN6icu_7714LocaleDistance27getRegionPartitionsDistanceERNS_
   br label %44
 
 .thread123.sink.split:                            ; preds = %33, %31
-  %.sink160.in = phi ptr [ %32, %31 ], [ %42, %33 ]
-  %.sink160 = load ptr, ptr %.sink160.in, align 8, !tbaa !30
-  %110 = getelementptr inbounds nuw i8, ptr %.sink160, i64 1
-  %111 = load i8, ptr %.sink160, align 1, !tbaa !54
+  %.sink162.in = phi ptr [ %32, %31 ], [ %42, %33 ]
+  %.sink162 = load ptr, ptr %.sink162.in, align 8, !tbaa !30
+  %110 = getelementptr inbounds nuw i8, ptr %.sink162, i64 1
+  %111 = load i8, ptr %.sink162, align 1, !tbaa !54
   %112 = lshr i8 %111, 1
   %113 = zext nneg i8 %112 to i32
   %114 = tail call noundef i32 @_ZN6icu_779BytesTrie9readValueEPKhi(ptr noundef nonnull %110, i32 noundef %113)

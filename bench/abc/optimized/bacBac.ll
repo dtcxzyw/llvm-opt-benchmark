@@ -388,9 +388,9 @@ Vec_IntPush.exit38:                               ; preds = %.Vec_IntGrow.exit10
   br label %.sink.split
 
 .sink.split:                                      ; preds = %Vec_IntPush.exit38, %Vec_IntPush.exit
-  %.sink44 = phi i32 [ %69, %Vec_IntPush.exit ], [ %96, %Vec_IntPush.exit38 ]
+  %.sink49 = phi i32 [ %69, %Vec_IntPush.exit ], [ %96, %Vec_IntPush.exit38 ]
   %.sink = phi ptr [ %68, %Vec_IntPush.exit ], [ %95, %Vec_IntPush.exit38 ]
-  %98 = sext i32 %.sink44 to i64
+  %98 = sext i32 %.sink49 to i64
   %99 = getelementptr inbounds i32, ptr %.sink, i64 %98
   %100 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %100, ptr %99, align 4, !tbaa !3
@@ -476,7 +476,7 @@ BacManReadBacLine.exit:                           ; preds = %.lr.ph.i
   br i1 %23, label %10, label %._crit_edge, !llvm.loop !26
 
 ._crit_edge:                                      ; preds = %.backedge, %.backedge.thread
-  %.lcssa535684 = phi i32 [ %11, %.backedge.thread ], [ %22, %.backedge ]
+  %.lcssa535695 = phi i32 [ %11, %.backedge.thread ], [ %22, %.backedge ]
   %24 = call i32 @BacManReadBacNameAndNums(ptr noundef nonnull %2, ptr noundef nonnull %4, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8)
   %.not = icmp eq i32 %24, 0
   br i1 %.not, label %.critedge2, label %25
@@ -541,7 +541,7 @@ Bac_ManNtk.exit.lr.ph:                            ; preds = %Bac_ManAlloc.exit
 
 Bac_ManNtk.exit:                                  ; preds = %Bac_ManNtk.exit.lr.ph, %Vec_IntFill.exit
   %indvars.iv76 = phi i64 [ 1, %Bac_ManNtk.exit.lr.ph ], [ %indvars.iv.next77, %Vec_IntFill.exit ]
-  %.lcssa586064 = phi i32 [ %.lcssa535684, %Bac_ManNtk.exit.lr.ph ], [ %.lcssa5861, %Vec_IntFill.exit ]
+  %.lcssa586064 = phi i32 [ %.lcssa535695, %Bac_ManNtk.exit.lr.ph ], [ %.lcssa5861, %Vec_IntFill.exit ]
   %49 = load ptr, ptr %43, align 8, !tbaa !37
   %50 = getelementptr inbounds nuw %struct.Bac_Ntk_t_, ptr %49, i64 %indvars.iv76
   %51 = add i32 %.lcssa586064, 1

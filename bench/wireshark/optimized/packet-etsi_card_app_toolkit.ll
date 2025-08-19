@@ -1505,21 +1505,21 @@ define internal i32 @dissect_cat(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %225 = trunc i32 %224 to i8
   %trunc = and i8 %225, -16
   switch i8 %trunc, label %228 [
-    i8 0, label %.sink.split707
+    i8 0, label %.sink.split715
     i8 -16, label %226
   ]
 
 226:                                              ; preds = %221
-  br label %.sink.split707
+  br label %.sink.split715
 
-.sink.split707:                                   ; preds = %221, %226
-  %.sink709 = phi i32 [ 4, %226 ], [ 12, %221 ]
-  %227 = and i32 %224, %.sink709
+.sink.split715:                                   ; preds = %221, %226
+  %.sink717 = phi i32 [ 4, %226 ], [ 12, %221 ]
+  %227 = and i32 %224, %.sink717
   store i32 %227, ptr %7, align 4
   br label %228
 
-228:                                              ; preds = %.sink.split707, %221
-  %229 = phi i32 [ %224, %221 ], [ %227, %.sink.split707 ]
+228:                                              ; preds = %.sink.split715, %221
+  %229 = phi i32 [ %224, %221 ], [ %227, %.sink.split715 ]
   switch i32 %229, label %dissect_cat_efadn_coding.exit [
     i32 0, label %230
     i32 4, label %235

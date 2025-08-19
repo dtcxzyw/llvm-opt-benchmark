@@ -602,8 +602,8 @@ define range(i32 -1094995529, 1) i32 @ff_h264_decode_seq_parameter_set(ptr nound
   br i1 %344, label %346, label %.preheader
 
 .preheader:                                       ; preds = %341
-  %.not257 = icmp eq i32 %342, 0
-  br i1 %.not257, label %.loopexit247, label %.lr.ph
+  %.not276 = icmp eq i32 %342, 0
+  br i1 %.not276, label %.loopexit247, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
   %345 = getelementptr inbounds nuw i8, ptr %6, i64 184

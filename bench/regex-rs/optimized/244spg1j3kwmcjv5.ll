@@ -1241,10 +1241,10 @@ define hidden void @"_ZN4core3ptr52drop_in_place$LT$regex_syntax..ast..ClassSetI
 
 "_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hcccdbadb9bd6e4e3E.exit2.sink.split.i.i": ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hcccdbadb9bd6e4e3E.exit.i.i", %37
   %.sink.i.i = phi i64 [ 8, %37 ], [ 32, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hcccdbadb9bd6e4e3E.exit.i.i" ]
-  %.sink7.i.i = phi i64 [ %38, %37 ], [ %27, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hcccdbadb9bd6e4e3E.exit.i.i" ]
+  %.sink9.i.i = phi i64 [ %38, %37 ], [ %27, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hcccdbadb9bd6e4e3E.exit.i.i" ]
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink.i.i
   %36 = load ptr, ptr %35, align 8, !alias.scope !233, !noalias !4, !nonnull !4, !noundef !4
-  tail call void @__rust_dealloc(ptr noundef nonnull %36, i64 noundef %.sink7.i.i, i64 noundef 1) #23, !noalias !233
+  tail call void @__rust_dealloc(ptr noundef nonnull %36, i64 noundef %.sink9.i.i, i64 noundef 1) #23, !noalias !233
   br label %"_ZN4core3ptr52drop_in_place$LT$regex_syntax..ast..ClassUnicode$GT$17hace7d63f5f412924E.exit"
 
 37:                                               ; preds = %25
@@ -2054,10 +2054,10 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17h620a5b9ce30e
           to label %37 unwind label %22
 
 ._crit_edge.thread:                               ; preds = %37, %._crit_edge
-  %.0.lcssa39 = phi ptr [ %16, %._crit_edge ], [ %43, %37 ]
-  %storemerge.lcssa38 = phi i64 [ %13, %._crit_edge ], [ %21, %37 ]
-  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.0.lcssa39, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
-  %26 = add i64 %storemerge.lcssa38, 1
+  %.0.lcssa42 = phi ptr [ %16, %._crit_edge ], [ %43, %37 ]
+  %storemerge.lcssa41 = phi i64 [ %13, %._crit_edge ], [ %21, %37 ]
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.0.lcssa42, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
+  %26 = add i64 %storemerge.lcssa41, 1
   store i64 %26, ptr %5, align 8
   br label %27
 

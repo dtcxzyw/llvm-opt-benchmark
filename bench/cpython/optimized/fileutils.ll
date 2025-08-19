@@ -2334,8 +2334,8 @@ define dso_local noalias noundef ptr @Py_fopen(ptr noundef %0, ptr noundef %1) l
 
 16:                                               ; preds = %11
   %17 = load i32, ptr %15, align 4, !tbaa !180
-  %.not25.not = icmp eq i32 %17, 4
-  br i1 %.not25.not, label %18, label %.critedge
+  %.not27.not = icmp eq i32 %17, 4
+  br i1 %.not27.not, label %18, label %.critedge
 
 18:                                               ; preds = %16
   %19 = call i32 @PyErr_CheckSignals() #17
@@ -3139,7 +3139,7 @@ _Py_skiproot.exit:                                ; preds = %5, %.split, %22
   %30 = getelementptr i8, ptr %.096, i64 4
   %31 = load i32, ptr %30, align 4, !tbaa !180
   %32 = icmp eq i32 %31, 47
-  br i1 %32, label %.preheader157, label %33
+  br i1 %32, label %.preheader167, label %33
 
 33:                                               ; preds = %29
   %.not = icmp eq ptr %27, null
@@ -3147,17 +3147,17 @@ _Py_skiproot.exit:                                ; preds = %5, %.split, %22
 
 34:                                               ; preds = %33
   %35 = icmp eq ptr %30, %27
-  br i1 %35, label %.preheader157, label %.loopexit
+  br i1 %35, label %.preheader167, label %.loopexit
 
 36:                                               ; preds = %33
   %.not126 = icmp eq i32 %31, 0
-  br i1 %.not126, label %.preheader157, label %.loopexit
+  br i1 %.not126, label %.preheader167, label %.loopexit
 
-.preheader157:                                    ; preds = %36, %34, %29
+.preheader167:                                    ; preds = %36, %34, %29
   br label %37
 
-37:                                               ; preds = %.preheader157, %37
-  %.298 = phi ptr [ %40, %37 ], [ %30, %.preheader157 ]
+37:                                               ; preds = %.preheader167, %37
+  %.298 = phi ptr [ %40, %37 ], [ %30, %.preheader167 ]
   %38 = load i32, ptr %.298, align 4, !tbaa !180
   %39 = icmp eq i32 %38, 47
   %40 = getelementptr i8, ptr %.298, i64 4
@@ -3644,9 +3644,9 @@ define internal fastcc range(i32 -3, 1) i32 @encode_current_locale(ptr noundef r
 .thread:                                          ; preds = %6
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 4
   store i32 0, ptr %10, align 4, !tbaa !180
-  %.not134154 = icmp eq i64 %8, 0
-  %.not56155 = icmp eq i32 %4, 0
-  br i1 %.not134154, label %.split92, label %.lr.ph.us
+  %.not134165 = icmp eq i64 %8, 0
+  %.not56166 = icmp eq i32 %4, 0
+  br i1 %.not134165, label %.split92, label %.lr.ph.us
 
 .lr.ph.us.us:                                     ; preds = %.sink.split.i, %17
   %.048.us.us = phi ptr [ %.152.us.us, %17 ], [ null, %.sink.split.i ]
@@ -3722,7 +3722,7 @@ define internal fastcc range(i32 -3, 1) i32 @encode_current_locale(ptr noundef r
 
 35:                                               ; preds = %._crit_edge.split.us102
   %36 = add i64 %.2.us101, 1
-  br i1 %.not56155, label %39, label %37
+  br i1 %.not56166, label %39, label %37
 
 37:                                               ; preds = %35
   %38 = call ptr @PyMem_RawMalloc(i64 noundef %36) #17
@@ -3798,8 +3798,8 @@ define internal fastcc range(i32 -3, 1) i32 @encode_current_locale(ptr noundef r
   br i1 %.not.us, label %35, label %.split107.us
 
 .split92:                                         ; preds = %.thread, %.sink.split.i
-  %.not56158 = phi i1 [ %.not56155, %.thread ], [ %.not56, %.sink.split.i ]
-  br i1 %.not56158, label %.split92.split.us, label %.split92.split
+  %.not56169 = phi i1 [ %.not56166, %.thread ], [ %.not56, %.sink.split.i ]
+  br i1 %.not56169, label %.split92.split.us, label %.split92.split
 
 .split92.split.us:                                ; preds = %.split92, %66
   %.048.us120 = phi ptr [ %68, %66 ], [ null, %.split92 ]
@@ -3833,10 +3833,10 @@ define internal fastcc range(i32 -3, 1) i32 @encode_current_locale(ptr noundef r
   br i1 %73, label %get_surrogateescape.exit, label %.split92.split
 
 .split.us:                                        ; preds = %52, %.thread.us98, %19, %28, %.thread.us.us.us
-  %.not56159 = phi i1 [ %.not56, %.thread.us.us.us ], [ %.not56, %28 ], [ %.not56, %19 ], [ %.not56155, %.thread.us98 ], [ %.not56155, %52 ]
+  %.not56170 = phi i1 [ %.not56, %.thread.us.us.us ], [ %.not56, %28 ], [ %.not56, %19 ], [ %.not56166, %.thread.us98 ], [ %.not56166, %52 ]
   %.us-phi = phi ptr [ %.048.us.us, %.thread.us.us.us ], [ %.048.us.us, %28 ], [ %.048.us.us, %19 ], [ %.048.us, %.thread.us98 ], [ %.048.us, %52 ]
   %.us-phi82 = phi i64 [ %.04779.us.us.us, %.thread.us.us.us ], [ %.04779.us.us.us, %28 ], [ %.04779.us.us.us, %19 ], [ %.04779.us94, %.thread.us98 ], [ %.04779.us94, %52 ]
-  br i1 %.not56159, label %75, label %74
+  br i1 %.not56170, label %75, label %74
 
 74:                                               ; preds = %.split.us
   call void @PyMem_RawFree(ptr noundef %.us-phi) #17

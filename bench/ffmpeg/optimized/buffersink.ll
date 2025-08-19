@@ -802,7 +802,7 @@ define internal range(i32 -2147483648, 1) i32 @vsink_query_formats(ptr noundef %
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 88
   %13 = load i32, ptr %12, align 8, !tbaa !77
   %.not84 = icmp eq i32 %13, 0
-  br i1 %.not84, label %14, label %.thread.thread134
+  br i1 %.not84, label %14, label %.thread.thread147
 
 14:                                               ; preds = %11
   %15 = getelementptr inbounds nuw i8, ptr %8, i64 104
@@ -821,16 +821,16 @@ define internal range(i32 -2147483648, 1) i32 @vsink_query_formats(ptr noundef %
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %8, i64 88
   %.pre = load i32, ptr %.phi.trans.insert, align 8, !tbaa !77
   %22 = icmp eq i32 %.pre, 0
-  br i1 %22, label %.thread.thread, label %.thread.thread134
+  br i1 %22, label %.thread.thread, label %.thread.thread147
 
-.thread.thread134:                                ; preds = %11, %.thread
+.thread.thread147:                                ; preds = %11, %.thread
   %23 = getelementptr inbounds nuw i8, ptr %8, i64 80
   %24 = load ptr, ptr %23, align 8, !tbaa !76
   %25 = tail call i32 @ff_set_common_color_spaces_from_list2(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef %24) #10
   %26 = icmp slt i32 %25, 0
   br i1 %26, label %.thread102, label %.thread.thread
 
-.thread.thread:                                   ; preds = %14, %.thread.thread134, %.thread
+.thread.thread:                                   ; preds = %14, %.thread.thread147, %.thread
   %27 = getelementptr inbounds nuw i8, ptr %8, i64 104
   %28 = load i32, ptr %27, align 8, !tbaa !75
   %.not91 = icmp eq i32 %28, 0
@@ -999,8 +999,8 @@ define internal range(i32 -2147483648, 1) i32 @vsink_query_formats(ptr noundef %
 .thread105:                                       ; preds = %80, %._crit_edge121, %.thread.thread, %29
   br label %.thread102
 
-.thread102:                                       ; preds = %.thread98, %.thread95, %._crit_edge, %._crit_edge117, %.thread108, %29, %.thread.thread134, %17, %._crit_edge121, %.thread105
-  %.068 = phi i32 [ 0, %.thread105 ], [ %101, %._crit_edge121 ], [ %20, %17 ], [ %25, %.thread.thread134 ], [ %32, %29 ], [ %98, %.thread108 ], [ %75, %.thread98 ], [ %52, %.thread95 ], [ %55, %._crit_edge ], [ %78, %._crit_edge117 ]
+.thread102:                                       ; preds = %.thread98, %.thread95, %._crit_edge, %._crit_edge117, %.thread108, %29, %.thread.thread147, %17, %._crit_edge121, %.thread105
+  %.068 = phi i32 [ 0, %.thread105 ], [ %101, %._crit_edge121 ], [ %20, %17 ], [ %25, %.thread.thread147 ], [ %32, %29 ], [ %98, %.thread108 ], [ %75, %.thread98 ], [ %52, %.thread95 ], [ %55, %._crit_edge ], [ %78, %._crit_edge117 ]
   ret i32 %.068
 }
 
@@ -1099,7 +1099,7 @@ define internal range(i32 -2147483648, 1) i32 @asink_query_formats(ptr noundef %
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 184
   %11 = load i32, ptr %10, align 8, !tbaa !92
   %.not68 = icmp eq i32 %11, 0
-  br i1 %.not68, label %12, label %.thread.thread97
+  br i1 %.not68, label %12, label %.thread.thread109
 
 12:                                               ; preds = %9
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 200
@@ -1118,16 +1118,16 @@ define internal range(i32 -2147483648, 1) i32 @asink_query_formats(ptr noundef %
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %6, i64 184
   %.pre = load i32, ptr %.phi.trans.insert, align 8, !tbaa !92
   %20 = icmp eq i32 %.pre, 0
-  br i1 %20, label %.thread.thread, label %.thread.thread97
+  br i1 %20, label %.thread.thread, label %.thread.thread109
 
-.thread.thread97:                                 ; preds = %9, %.thread
+.thread.thread109:                                ; preds = %9, %.thread
   %21 = getelementptr inbounds nuw i8, ptr %6, i64 176
   %22 = load ptr, ptr %21, align 8, !tbaa !91
   %23 = tail call i32 @ff_set_common_samplerates_from_list2(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef %22) #10
   %24 = icmp slt i32 %23, 0
   br i1 %24, label %85, label %.thread.thread
 
-.thread.thread:                                   ; preds = %12, %.thread.thread97, %.thread
+.thread.thread:                                   ; preds = %12, %.thread.thread109, %.thread
   %25 = getelementptr inbounds nuw i8, ptr %6, i64 200
   %26 = load i32, ptr %25, align 8, !tbaa !94
   %.not75 = icmp eq i32 %26, 0
@@ -1146,7 +1146,7 @@ define internal range(i32 -2147483648, 1) i32 @asink_query_formats(ptr noundef %
   %33 = getelementptr inbounds nuw i8, ptr %6, i64 120
   %34 = load i32, ptr %33, align 8, !tbaa !95
   %.not70 = icmp eq i32 %34, 0
-  br i1 %.not70, label %.thread99, label %.preheader
+  br i1 %.not70, label %.thread111, label %.preheader
 
 .preheader:                                       ; preds = %32
   %.not87 = icmp ult i32 %34, 4
@@ -1189,22 +1189,22 @@ define internal range(i32 -2147483648, 1) i32 @asink_query_formats(ptr noundef %
 54:                                               ; preds = %._crit_edge
   %.pre94 = load i32, ptr %13, align 8, !tbaa !94
   %55 = icmp eq i32 %.pre94, 0
-  br i1 %55, label %.thread99, label %56
+  br i1 %55, label %.thread111, label %56
 
 56:                                               ; preds = %54
   %57 = getelementptr inbounds nuw i8, ptr %6, i64 192
   %58 = load ptr, ptr %57, align 8, !tbaa !93
   %59 = call i32 @ff_set_common_channel_layouts_from_list2(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %58) #10
   %60 = icmp slt i32 %59, 0
-  br i1 %60, label %.thread77, label %.thread99
+  br i1 %60, label %.thread77, label %.thread111
 
-.thread99:                                        ; preds = %32, %56, %54
+.thread111:                                       ; preds = %32, %56, %54
   %61 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %62 = load i32, ptr %61, align 8, !tbaa !98
   %.not72 = icmp eq i32 %62, 0
   br i1 %.not72, label %83, label %63
 
-63:                                               ; preds = %.thread99
+63:                                               ; preds = %.thread111
   store ptr null, ptr %4, align 8, !tbaa !79
   %.not88 = icmp ult i32 %62, 4
   br i1 %.not88, label %._crit_edge86, label %.lr.ph85
@@ -1248,15 +1248,15 @@ define internal range(i32 -2147483648, 1) i32 @asink_query_formats(ptr noundef %
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %85
 
-83:                                               ; preds = %.thread99, %._crit_edge86
+83:                                               ; preds = %.thread111, %._crit_edge86
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %84
 
 84:                                               ; preds = %83, %.thread.thread, %27
   br label %85
 
-85:                                               ; preds = %.thread77, %27, %.thread.thread97, %15, %84
-  %.056 = phi i32 [ 0, %84 ], [ %18, %15 ], [ %23, %.thread.thread97 ], [ %30, %27 ], [ %.157.ph, %.thread77 ]
+85:                                               ; preds = %.thread77, %27, %.thread.thread109, %15, %84
+  %.056 = phi i32 [ 0, %84 ], [ %18, %15 ], [ %23, %.thread.thread109 ], [ %30, %27 ], [ %.157.ph, %.thread77 ]
   ret i32 %.056
 }
 

@@ -82,9 +82,9 @@ define internal void @expert_stat_init(ptr noundef %0, ptr readnone captures(non
   br i1 %21, label %22, label %.thread49
 
 22:                                               ; preds = %19, %16, %13, %10, %7
-  %.sink55 = phi i32 [ 4, %7 ], [ 3, %10 ], [ 2, %13 ], [ 1, %16 ], [ 0, %19 ]
+  %.sink56 = phi i32 [ 4, %7 ], [ 3, %10 ], [ 2, %13 ], [ 1, %16 ], [ 0, %19 ]
   %.sink = phi i64 [ 12, %7 ], [ 11, %10 ], [ 11, %13 ], [ 11, %16 ], [ 14, %19 ]
-  store i32 %.sink55, ptr @lowest_report_level, align 4
+  store i32 %.sink56, ptr @lowest_report_level, align 4
   %23 = getelementptr i8, ptr %0, i64 %.sink
   %.not42 = icmp eq ptr %23, null
   br i1 %.not42, label %.thread46, label %.thread49

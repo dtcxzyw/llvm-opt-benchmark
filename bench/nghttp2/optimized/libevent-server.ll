@@ -969,9 +969,9 @@ hex_to_uint.exit41.i:                             ; preds = %71, %69, %hex_to_ui
 
 81:                                               ; preds = %.critedge.thread, %.critedge
   %82 = phi ptr [ %25, %.critedge.thread ], [ %31, %.critedge ]
-  %.0.lcssa26 = phi i64 [ 0, %.critedge.thread ], [ %.0.lcssa, %.critedge ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %82, ptr readonly align 1 %4, i64 %.0.lcssa26, i1 false)
-  %83 = getelementptr inbounds nuw i8, ptr %82, i64 %.0.lcssa26
+  %.0.lcssa30 = phi i64 [ 0, %.critedge.thread ], [ %.0.lcssa, %.critedge ]
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %82, ptr readonly align 1 %4, i64 %.0.lcssa30, i1 false)
+  %83 = getelementptr inbounds nuw i8, ptr %82, i64 %.0.lcssa30
   store i8 0, ptr %83, align 1, !tbaa !9
   br label %percent_decode.exit
 

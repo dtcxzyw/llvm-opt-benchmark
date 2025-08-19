@@ -168,9 +168,9 @@ ttml_get_display_alignment.exit.i.i:              ; preds = %37, %36, %35, %34, 
   %.0.i.i.i = phi ptr [ null, %37 ], [ @.str.24, %35 ], [ @.str.25, %36 ], [ @.str.23, %34 ], [ @.str.23, %34 ], [ @.str.23, %34 ]
   %switch.tableidx = add i32 %.sroa.649.0.copyload.i, -1
   %39 = icmp ult i32 %switch.tableidx, 9
-  %.not156 = xor i1 %39, true
-  %.not157 = xor i1 %38, true
-  %brmerge = or i1 %.not156, %.not157
+  %.not157 = xor i1 %39, true
+  %.not158 = xor i1 %38, true
+  %brmerge = or i1 %.not157, %.not158
   br i1 %brmerge, label %ttml_get_text_alignment.exit.thread.i.i, label %40
 
 ttml_get_text_alignment.exit.thread.i.i:          ; preds = %ttml_get_display_alignment.exit.i.i

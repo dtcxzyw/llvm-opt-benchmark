@@ -157,7 +157,7 @@ define hidden i32 @hwloc_decode_from_base64(ptr noundef readonly captures(none) 
   %.not74 = icmp eq ptr %1, null
   br label %.outer.outer
 
-.unreachabledefault171:                           ; preds = %18
+.unreachabledefault177:                           ; preds = %18
   unreachable
 
 .outer:                                           ; preds = %.outer.backedge, %.outer.outer
@@ -194,7 +194,7 @@ define hidden i32 @hwloc_decode_from_base64(ptr noundef readonly captures(none) 
   br i1 %17, label %.loopexit, label %18
 
 18:                                               ; preds = %15
-  switch i32 %.056.ph, label %.unreachabledefault171 [
+  switch i32 %.056.ph, label %.unreachabledefault177 [
     i32 0, label %19
     i32 1, label %26
     i32 2, label %40

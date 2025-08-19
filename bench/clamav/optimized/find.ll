@@ -222,14 +222,14 @@ _Z5uiMsgIJPwRA2048_wEEv14UIMESSAGE_CODEDpOT_.exit: ; preds = %58
 71:                                               ; preds = %62
   call void @_Z8wcsncatzPwPKwm(ptr noundef nonnull %9, ptr noundef nonnull %8, i64 noundef 2048)
   %72 = call noundef zeroext i1 @_ZN8FindFile8FastFindEPKwP8FindDatab(ptr noundef nonnull %9, ptr noundef %1, i1 noundef zeroext %2)
-  br i1 %72, label %76, label %.thread40
+  br i1 %72, label %76, label %.thread43
 
-.thread40:                                        ; preds = %71
+.thread43:                                        ; preds = %71
   call void @_ZN12ErrorHandler12OpenErrorMsgEPKw(ptr noundef nonnull align 4 dereferenceable(14) @ErrHandler, ptr noundef nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %.backedge
 
-.backedge:                                        ; preds = %60, %.tail, %.tail31, %.thread40
+.backedge:                                        ; preds = %60, %.tail, %.tail31, %.thread43
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %73 = load ptr, ptr %33, align 8, !tbaa !12

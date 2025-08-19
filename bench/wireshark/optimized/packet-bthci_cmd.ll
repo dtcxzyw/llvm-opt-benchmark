@@ -4529,9 +4529,9 @@ define internal i32 @dissect_bthci_cmd(ptr noundef %0, ptr noundef %1, ptr nound
   %40 = load ptr, ptr %39, align 8
   %switch.selectcmp = icmp eq i32 %38, 1
   %switch.select = select i1 %switch.selectcmp, ptr @.str.2994, ptr @.str.2995
-  %switch.selectcmp252 = icmp eq i32 %38, 0
-  %switch.select253 = select i1 %switch.selectcmp252, ptr @.str.2993, ptr %switch.select
-  tail call void @col_set_str(ptr noundef %40, i32 noundef 25, ptr noundef nonnull %switch.select253)
+  %switch.selectcmp268 = icmp eq i32 %38, 0
+  %switch.select269 = select i1 %switch.selectcmp268, ptr @.str.2993, ptr %switch.select
+  tail call void @col_set_str(ptr noundef %40, i32 noundef 25, ptr noundef nonnull %switch.select269)
   %41 = getelementptr inbounds nuw i8, ptr %1, i64 208
   store i32 7, ptr %41, align 8
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 212
@@ -4783,8 +4783,8 @@ define internal i32 @dissect_bthci_cmd(ptr noundef %0, ptr noundef %1, ptr nound
   br label %177
 
 177:                                              ; preds = %170, %174
-  %.sink251 = phi i32 [ %176, %174 ], [ 224, %170 ]
-  %178 = call i32 @dissector_try_uint_with_data(ptr noundef %173, i32 noundef %.sink251, ptr noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext true, ptr noundef nonnull %3)
+  %.sink267 = phi i32 [ %176, %174 ], [ 224, %170 ]
+  %178 = call i32 @dissector_try_uint_with_data(ptr noundef %173, i32 noundef %.sink267, ptr noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext true, ptr noundef nonnull %3)
   %179 = icmp sgt i32 %178, 0
   br i1 %179, label %180, label %187
 
@@ -10538,12 +10538,12 @@ define internal fastcc i32 @dissect_eir_ad_data(ptr noundef %0, ptr noundef %1, 
   %127 = call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %39)
   %128 = add i32 %.0870, 4
   %switch.selectcmp = icmp eq i16 %127, 2
-  %switch.selectcmp906 = icmp eq i16 %127, 1
+  %switch.selectcmp942 = icmp eq i16 %127, 1
   %hf_btcommon_eir_ad_did_vendor_id_bluetooth_sig.val = load i32, ptr @hf_btcommon_eir_ad_did_vendor_id_bluetooth_sig, align 4
   %hf_btcommon_eir_ad_did_vendor_id_usb_forum.val = load i32, ptr @hf_btcommon_eir_ad_did_vendor_id_usb_forum, align 4
   %hf_btcommon_eir_ad_did_vendor_id.val = load i32, ptr @hf_btcommon_eir_ad_did_vendor_id, align 4
   %switch.select.val = select i1 %switch.selectcmp, i32 %hf_btcommon_eir_ad_did_vendor_id_usb_forum.val, i32 %hf_btcommon_eir_ad_did_vendor_id.val
-  %129 = select i1 %switch.selectcmp906, i32 %hf_btcommon_eir_ad_did_vendor_id_bluetooth_sig.val, i32 %switch.select.val
+  %129 = select i1 %switch.selectcmp942, i32 %hf_btcommon_eir_ad_did_vendor_id_bluetooth_sig.val, i32 %switch.select.val
   %130 = call ptr @proto_tree_add_item(ptr noundef %34, i32 noundef %129, ptr noundef %0, i32 noundef %128, i32 noundef 2, i32 noundef -2147483648)
   %131 = call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %128)
   %132 = add i32 %.0870, 6
@@ -10984,8 +10984,8 @@ define internal fastcc i32 @dissect_eir_ad_data(ptr noundef %0, ptr noundef %1, 
   %416 = zext i8 %412 to i32
   %417 = add nsw i32 %414, -3
   %418 = icmp slt i32 %417, %416
-  %or.cond905 = select i1 %415, i1 %418, i1 false
-  br i1 %or.cond905, label %419, label %._crit_edge893
+  %or.cond941 = select i1 %415, i1 %418, i1 false
+  br i1 %or.cond941, label %419, label %._crit_edge893
 
 419:                                              ; preds = %405
   %420 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %411, ptr noundef nonnull @ei_eir_ad_invalid_length)

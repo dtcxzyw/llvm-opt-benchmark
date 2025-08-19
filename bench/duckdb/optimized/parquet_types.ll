@@ -5546,8 +5546,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
           to label %_ZN13duckdb_apache6thrift8protocol9TProtocol4skipENS1_5TTypeE.exit.sink.split unwind label %.loopexit
 
 .invoke:                                          ; preds = %49, %101, %94, %87, %80, %73, %66, %59, %108
-  %.sink64 = phi ptr [ %109, %108 ], [ %61, %59 ], [ %68, %66 ], [ %75, %73 ], [ %82, %80 ], [ %89, %87 ], [ %96, %94 ], [ %103, %101 ], [ %51, %49 ]
-  %56 = getelementptr inbounds nuw i8, ptr %.sink64, i64 352
+  %.sink67 = phi ptr [ %109, %108 ], [ %61, %59 ], [ %68, %66 ], [ %75, %73 ], [ %82, %80 ], [ %89, %87 ], [ %96, %94 ], [ %103, %101 ], [ %51, %49 ]
+  %56 = getelementptr inbounds nuw i8, ptr %.sink67, i64 352
   %57 = load ptr, ptr %56, align 8
   %58 = invoke noundef i32 %57(ptr noundef nonnull align 8 dereferenceable(36) %1, i32 noundef %38)
           to label %_ZN13duckdb_apache6thrift8protocol9TProtocol4skipENS1_5TTypeE.exit unwind label %.loopexit
@@ -5634,10 +5634,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   br label %.invoke
 
 _ZN13duckdb_apache6thrift8protocol9TProtocol4skipENS1_5TTypeE.exit.sink.split: ; preds = %104, %97, %90, %83, %76, %69, %62, %52
-  %.sink66 = phi i8 [ 1, %52 ], [ 2, %62 ], [ 4, %69 ], [ 8, %76 ], [ 16, %83 ], [ 32, %90 ], [ 64, %97 ], [ -128, %104 ]
+  %.sink69 = phi i8 [ 1, %52 ], [ 2, %62 ], [ 4, %69 ], [ 8, %76 ], [ 16, %83 ], [ 32, %90 ], [ 64, %97 ], [ -128, %104 ]
   %.pn.ph = phi i32 [ %55, %52 ], [ %65, %62 ], [ %72, %69 ], [ %79, %76 ], [ %86, %83 ], [ %93, %90 ], [ %100, %97 ], [ %107, %104 ]
   %110 = load i8, ptr %25, align 2
-  %111 = or i8 %110, %.sink66
+  %111 = or i8 %110, %.sink69
   store i8 %111, ptr %25, align 2
   br label %_ZN13duckdb_apache6thrift8protocol9TProtocol4skipENS1_5TTypeE.exit
 
@@ -10286,7 +10286,7 @@ _ZN13duckdb_apache6thrift8protocol9TProtocol14readFieldBeginERNSt7__cxx1112basic
           cleanup
   br label %80
 
-.loopexit.split-lp:                               ; preds = %.invoke49, %61
+.loopexit.split-lp:                               ; preds = %.invoke52, %61
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %80
@@ -10310,8 +10310,8 @@ _ZN13duckdb_apache6thrift8protocol9TProtocol14readFieldBeginERNSt7__cxx1112basic
           to label %_ZN13duckdb_apache6thrift8protocol9TProtocol7readI32ERi.exit unwind label %.loopexit
 
 .invoke:                                          ; preds = %37, %47, %54
-  %.sink50 = phi ptr [ %55, %54 ], [ %49, %47 ], [ %39, %37 ]
-  %44 = getelementptr inbounds nuw i8, ptr %.sink50, i64 352
+  %.sink53 = phi ptr [ %55, %54 ], [ %49, %47 ], [ %39, %37 ]
+  %44 = getelementptr inbounds nuw i8, ptr %.sink53, i64 352
   %45 = load ptr, ptr %44, align 8
   %46 = invoke noundef i32 %45(ptr noundef nonnull align 8 dereferenceable(36) %1, i32 noundef %31)
           to label %_ZN13duckdb_apache6thrift8protocol9TProtocol7readI32ERi.exit unwind label %.loopexit
@@ -10355,9 +10355,9 @@ _ZN13duckdb_apache6thrift8protocol9TProtocol12readFieldEndEv.exit: ; preds = %_Z
 
 _ZN13duckdb_apache6thrift8protocol9TProtocol13readStructEndEv.exit: ; preds = %61
   %66 = select i1 %.024, i1 %.0, i1 false
-  br i1 %66, label %72, label %.invoke49
+  br i1 %66, label %72, label %.invoke52
 
-.invoke49:                                        ; preds = %_ZN13duckdb_apache6thrift8protocol9TProtocol13readStructEndEv.exit
+.invoke52:                                        ; preds = %_ZN13duckdb_apache6thrift8protocol9TProtocol13readStructEndEv.exit
   %67 = call ptr @__cxa_allocate_exception(i64 48) #26
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 8
   %69 = getelementptr inbounds nuw i8, ptr %67, i64 24
@@ -10371,7 +10371,7 @@ _ZN13duckdb_apache6thrift8protocol9TProtocol13readStructEndEv.exit: ; preds = %6
   invoke void @__cxa_throw(ptr nonnull %67, ptr nonnull @_ZTIN13duckdb_apache6thrift8protocol18TProtocolExceptionE, ptr nonnull @_ZN13duckdb_apache6thrift10TExceptionD2Ev) #27
           to label %.cont unwind label %.loopexit.split-lp
 
-.cont:                                            ; preds = %.invoke49
+.cont:                                            ; preds = %.invoke52
   unreachable
 
 72:                                               ; preds = %_ZN13duckdb_apache6thrift8protocol9TProtocol13readStructEndEv.exit
@@ -12230,10 +12230,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
           to label %_ZN13duckdb_apache6thrift8protocol9TProtocol4skipENS1_5TTypeE.exit.sink.split unwind label %.loopexit
 
 _ZN13duckdb_apache6thrift8protocol9TProtocol4skipENS1_5TTypeE.exit.sink.split: ; preds = %55, %51, %43
-  %.sink36 = phi i8 [ 1, %43 ], [ 2, %51 ], [ 4, %55 ]
+  %.sink39 = phi i8 [ 1, %43 ], [ 2, %51 ], [ 4, %55 ]
   %.pn.ph = phi i32 [ %44, %43 ], [ %52, %51 ], [ %56, %55 ]
   %57 = load i8, ptr %24, align 8
-  %58 = or i8 %57, %.sink36
+  %58 = or i8 %57, %.sink39
   store i8 %58, ptr %24, align 8
   br label %_ZN13duckdb_apache6thrift8protocol9TProtocol4skipENS1_5TTypeE.exit
 
@@ -13372,7 +13372,7 @@ _ZN13duckdb_apache6thrift8protocol9TProtocol14readFieldBeginERNSt7__cxx1112basic
           cleanup
   br label %76
 
-.loopexit.split-lp:                               ; preds = %.invoke48, %57
+.loopexit.split-lp:                               ; preds = %.invoke51, %57
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %76
@@ -13400,8 +13400,8 @@ _ZN13duckdb_apache6thrift8protocol9TProtocol14readFieldBeginERNSt7__cxx1112basic
   br label %.invoke
 
 .invoke:                                          ; preds = %.invoke.sink.split, %37
-  %.sink49 = phi ptr [ %39, %37 ], [ %44, %.invoke.sink.split ]
-  %45 = getelementptr inbounds nuw i8, ptr %.sink49, i64 352
+  %.sink52 = phi ptr [ %39, %37 ], [ %44, %.invoke.sink.split ]
+  %45 = getelementptr inbounds nuw i8, ptr %.sink52, i64 352
   %46 = load ptr, ptr %45, align 8
   %47 = invoke noundef i32 %46(ptr noundef nonnull align 8 dereferenceable(36) %1, i32 noundef %31)
           to label %_ZN13duckdb_apache6thrift8protocol9TProtocol8readBoolERb.exit unwind label %.loopexit
@@ -13438,9 +13438,9 @@ _ZN13duckdb_apache6thrift8protocol9TProtocol12readFieldEndEv.exit: ; preds = %_Z
 
 _ZN13duckdb_apache6thrift8protocol9TProtocol13readStructEndEv.exit: ; preds = %57
   %62 = select i1 %.024, i1 %.0, i1 false
-  br i1 %62, label %68, label %.invoke48
+  br i1 %62, label %68, label %.invoke51
 
-.invoke48:                                        ; preds = %_ZN13duckdb_apache6thrift8protocol9TProtocol13readStructEndEv.exit
+.invoke51:                                        ; preds = %_ZN13duckdb_apache6thrift8protocol9TProtocol13readStructEndEv.exit
   %63 = call ptr @__cxa_allocate_exception(i64 48) #26
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 8
   %65 = getelementptr inbounds nuw i8, ptr %63, i64 24
@@ -13454,7 +13454,7 @@ _ZN13duckdb_apache6thrift8protocol9TProtocol13readStructEndEv.exit: ; preds = %5
   invoke void @__cxa_throw(ptr nonnull %63, ptr nonnull @_ZTIN13duckdb_apache6thrift8protocol18TProtocolExceptionE, ptr nonnull @_ZN13duckdb_apache6thrift10TExceptionD2Ev) #27
           to label %.cont unwind label %.loopexit.split-lp
 
-.cont:                                            ; preds = %.invoke48
+.cont:                                            ; preds = %.invoke51
   unreachable
 
 68:                                               ; preds = %_ZN13duckdb_apache6thrift8protocol9TProtocol13readStructEndEv.exit
@@ -14128,7 +14128,7 @@ _ZN13duckdb_apache6thrift8protocol9TProtocol14readFieldBeginERNSt7__cxx1112basic
           cleanup
   br label %76
 
-.loopexit.split-lp:                               ; preds = %.invoke48, %57
+.loopexit.split-lp:                               ; preds = %.invoke51, %57
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %76
@@ -14156,8 +14156,8 @@ _ZN13duckdb_apache6thrift8protocol9TProtocol14readFieldBeginERNSt7__cxx1112basic
   br label %.invoke
 
 .invoke:                                          ; preds = %.invoke.sink.split, %37
-  %.sink49 = phi ptr [ %39, %37 ], [ %44, %.invoke.sink.split ]
-  %45 = getelementptr inbounds nuw i8, ptr %.sink49, i64 352
+  %.sink52 = phi ptr [ %39, %37 ], [ %44, %.invoke.sink.split ]
+  %45 = getelementptr inbounds nuw i8, ptr %.sink52, i64 352
   %46 = load ptr, ptr %45, align 8
   %47 = invoke noundef i32 %46(ptr noundef nonnull align 8 dereferenceable(36) %1, i32 noundef %31)
           to label %_ZN13duckdb_apache6thrift8protocol9TProtocol8readBoolERb.exit unwind label %.loopexit
@@ -14194,9 +14194,9 @@ _ZN13duckdb_apache6thrift8protocol9TProtocol12readFieldEndEv.exit: ; preds = %_Z
 
 _ZN13duckdb_apache6thrift8protocol9TProtocol13readStructEndEv.exit: ; preds = %57
   %62 = select i1 %.024, i1 %.0, i1 false
-  br i1 %62, label %68, label %.invoke48
+  br i1 %62, label %68, label %.invoke51
 
-.invoke48:                                        ; preds = %_ZN13duckdb_apache6thrift8protocol9TProtocol13readStructEndEv.exit
+.invoke51:                                        ; preds = %_ZN13duckdb_apache6thrift8protocol9TProtocol13readStructEndEv.exit
   %63 = call ptr @__cxa_allocate_exception(i64 48) #26
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 8
   %65 = getelementptr inbounds nuw i8, ptr %63, i64 24
@@ -14210,7 +14210,7 @@ _ZN13duckdb_apache6thrift8protocol9TProtocol13readStructEndEv.exit: ; preds = %5
   invoke void @__cxa_throw(ptr nonnull %63, ptr nonnull @_ZTIN13duckdb_apache6thrift8protocol18TProtocolExceptionE, ptr nonnull @_ZN13duckdb_apache6thrift10TExceptionD2Ev) #27
           to label %.cont unwind label %.loopexit.split-lp
 
-.cont:                                            ; preds = %.invoke48
+.cont:                                            ; preds = %.invoke51
   unreachable
 
 68:                                               ; preds = %_ZN13duckdb_apache6thrift8protocol9TProtocol13readStructEndEv.exit
@@ -14753,7 +14753,7 @@ _ZN13duckdb_apache6thrift8protocol9TProtocol14readFieldBeginERNSt7__cxx1112basic
           cleanup
   br label %80
 
-.loopexit.split-lp:                               ; preds = %.invoke48, %61
+.loopexit.split-lp:                               ; preds = %.invoke51, %61
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %80
@@ -14777,8 +14777,8 @@ _ZN13duckdb_apache6thrift8protocol9TProtocol14readFieldBeginERNSt7__cxx1112basic
           to label %_ZN13duckdb_apache6thrift8protocol9TProtocol8readByteERa.exit unwind label %.loopexit
 
 .invoke:                                          ; preds = %37, %47, %54
-  %.sink49 = phi ptr [ %55, %54 ], [ %49, %47 ], [ %39, %37 ]
-  %44 = getelementptr inbounds nuw i8, ptr %.sink49, i64 352
+  %.sink52 = phi ptr [ %55, %54 ], [ %49, %47 ], [ %39, %37 ]
+  %44 = getelementptr inbounds nuw i8, ptr %.sink52, i64 352
   %45 = load ptr, ptr %44, align 8
   %46 = invoke noundef i32 %45(ptr noundef nonnull align 8 dereferenceable(36) %1, i32 noundef %31)
           to label %_ZN13duckdb_apache6thrift8protocol9TProtocol8readByteERa.exit unwind label %.loopexit
@@ -14822,9 +14822,9 @@ _ZN13duckdb_apache6thrift8protocol9TProtocol12readFieldEndEv.exit: ; preds = %_Z
 
 _ZN13duckdb_apache6thrift8protocol9TProtocol13readStructEndEv.exit: ; preds = %61
   %66 = select i1 %.024, i1 %.0, i1 false
-  br i1 %66, label %72, label %.invoke48
+  br i1 %66, label %72, label %.invoke51
 
-.invoke48:                                        ; preds = %_ZN13duckdb_apache6thrift8protocol9TProtocol13readStructEndEv.exit
+.invoke51:                                        ; preds = %_ZN13duckdb_apache6thrift8protocol9TProtocol13readStructEndEv.exit
   %67 = call ptr @__cxa_allocate_exception(i64 48) #26
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 8
   %69 = getelementptr inbounds nuw i8, ptr %67, i64 24
@@ -14838,7 +14838,7 @@ _ZN13duckdb_apache6thrift8protocol9TProtocol13readStructEndEv.exit: ; preds = %6
   invoke void @__cxa_throw(ptr nonnull %67, ptr nonnull @_ZTIN13duckdb_apache6thrift8protocol18TProtocolExceptionE, ptr nonnull @_ZN13duckdb_apache6thrift10TExceptionD2Ev) #27
           to label %.cont unwind label %.loopexit.split-lp
 
-.cont:                                            ; preds = %.invoke48
+.cont:                                            ; preds = %.invoke51
   unreachable
 
 72:                                               ; preds = %_ZN13duckdb_apache6thrift8protocol9TProtocol13readStructEndEv.exit
@@ -16664,10 +16664,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
           to label %_ZN13duckdb_apache6thrift8protocol9TProtocol4skipENS1_5TTypeE.exit.sink.split unwind label %.loopexit
 
 _ZN13duckdb_apache6thrift8protocol9TProtocol4skipENS1_5TTypeE.exit.sink.split: ; preds = %103, %99, %95, %91, %87, %83, %79, %75, %71, %67, %63, %59, %55, %47
-  %.sink91 = phi i16 [ 1, %47 ], [ 2, %55 ], [ 4, %59 ], [ 8, %63 ], [ 16, %67 ], [ 32, %71 ], [ 64, %75 ], [ 128, %79 ], [ 256, %83 ], [ 512, %87 ], [ 1024, %91 ], [ 2048, %95 ], [ 4096, %99 ], [ 8192, %103 ]
+  %.sink94 = phi i16 [ 1, %47 ], [ 2, %55 ], [ 4, %59 ], [ 8, %63 ], [ 16, %67 ], [ 32, %71 ], [ 64, %75 ], [ 128, %79 ], [ 256, %83 ], [ 512, %87 ], [ 1024, %91 ], [ 2048, %95 ], [ 4096, %99 ], [ 8192, %103 ]
   %.pn.ph = phi i32 [ %48, %47 ], [ %56, %55 ], [ %60, %59 ], [ %64, %63 ], [ %68, %67 ], [ %72, %71 ], [ %76, %75 ], [ %80, %79 ], [ %84, %83 ], [ %88, %87 ], [ %92, %91 ], [ %96, %95 ], [ %100, %99 ], [ %104, %103 ]
   %105 = load i16, ptr %24, align 8
-  %106 = or i16 %105, %.sink91
+  %106 = or i16 %105, %.sink94
   store i16 %106, ptr %24, align 8
   br label %_ZN13duckdb_apache6thrift8protocol9TProtocol4skipENS1_5TTypeE.exit
 
@@ -23701,7 +23701,7 @@ _ZN13duckdb_apache6thrift8protocol9TProtocol14readFieldBeginERNSt7__cxx1112basic
           cleanup
   br label %118
 
-.loopexit.split-lp:                               ; preds = %.invoke123, %97
+.loopexit.split-lp:                               ; preds = %.invoke126, %97
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %118
@@ -23732,8 +23732,8 @@ _ZN13duckdb_apache6thrift8protocol9TProtocol14readFieldBeginERNSt7__cxx1112basic
   br label %.invoke
 
 .invoke:                                          ; preds = %.invoke.sink.split, %44
-  %.sink124 = phi ptr [ %46, %44 ], [ %51, %.invoke.sink.split ]
-  %52 = getelementptr inbounds nuw i8, ptr %.sink124, i64 352
+  %.sink127 = phi ptr [ %46, %44 ], [ %51, %.invoke.sink.split ]
+  %52 = getelementptr inbounds nuw i8, ptr %.sink127, i64 352
   %53 = load ptr, ptr %52, align 8
   %54 = invoke noundef i32 %53(ptr noundef nonnull align 8 dereferenceable(36) %1, i32 noundef %38)
           to label %_ZN13duckdb_apache6thrift8protocol9TProtocol7readI32ERi.exit unwind label %.loopexit
@@ -23852,9 +23852,9 @@ _ZN13duckdb_apache6thrift8protocol9TProtocol13readStructEndEv.exit: ; preds = %9
   %102 = select i1 %.042, i1 %.040, i1 false
   %103 = select i1 %102, i1 %.038, i1 false
   %104 = select i1 %103, i1 %.0, i1 false
-  br i1 %104, label %110, label %.invoke123
+  br i1 %104, label %110, label %.invoke126
 
-.invoke123:                                       ; preds = %_ZN13duckdb_apache6thrift8protocol9TProtocol13readStructEndEv.exit
+.invoke126:                                       ; preds = %_ZN13duckdb_apache6thrift8protocol9TProtocol13readStructEndEv.exit
   %105 = call ptr @__cxa_allocate_exception(i64 48) #26
   %106 = getelementptr inbounds nuw i8, ptr %105, i64 8
   %107 = getelementptr inbounds nuw i8, ptr %105, i64 24
@@ -23868,7 +23868,7 @@ _ZN13duckdb_apache6thrift8protocol9TProtocol13readStructEndEv.exit: ; preds = %9
   invoke void @__cxa_throw(ptr nonnull %105, ptr nonnull @_ZTIN13duckdb_apache6thrift8protocol18TProtocolExceptionE, ptr nonnull @_ZN13duckdb_apache6thrift10TExceptionD2Ev) #27
           to label %.cont unwind label %.loopexit.split-lp
 
-.cont:                                            ; preds = %.invoke123
+.cont:                                            ; preds = %.invoke126
   unreachable
 
 110:                                              ; preds = %_ZN13duckdb_apache6thrift8protocol9TProtocol13readStructEndEv.exit
@@ -25428,7 +25428,7 @@ _ZN13duckdb_apache6thrift8protocol9TProtocol14readFieldBeginERNSt7__cxx1112basic
           cleanup
   br label %94
 
-.loopexit.split-lp:                               ; preds = %.invoke63, %75
+.loopexit.split-lp:                               ; preds = %.invoke66, %75
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %94
@@ -25457,8 +25457,8 @@ _ZN13duckdb_apache6thrift8protocol9TProtocol14readFieldBeginERNSt7__cxx1112basic
   br label %.invoke
 
 .invoke:                                          ; preds = %.invoke.sink.split, %40, %61
-  %.sink64 = phi ptr [ %63, %61 ], [ %42, %40 ], [ %47, %.invoke.sink.split ]
-  %48 = getelementptr inbounds nuw i8, ptr %.sink64, i64 352
+  %.sink67 = phi ptr [ %63, %61 ], [ %42, %40 ], [ %47, %.invoke.sink.split ]
+  %48 = getelementptr inbounds nuw i8, ptr %.sink67, i64 352
   %49 = load ptr, ptr %48, align 8
   %50 = invoke noundef i32 %49(ptr noundef nonnull align 8 dereferenceable(36) %1, i32 noundef %34)
           to label %_ZN13duckdb_apache6thrift8protocol9TProtocol7readI32ERi.exit unwind label %.loopexit
@@ -25528,9 +25528,9 @@ _ZN13duckdb_apache6thrift8protocol9TProtocol12readFieldEndEv.exit: ; preds = %_Z
 
 _ZN13duckdb_apache6thrift8protocol9TProtocol13readStructEndEv.exit: ; preds = %75
   %80 = select i1 %.028, i1 %.0, i1 false
-  br i1 %80, label %86, label %.invoke63
+  br i1 %80, label %86, label %.invoke66
 
-.invoke63:                                        ; preds = %_ZN13duckdb_apache6thrift8protocol9TProtocol13readStructEndEv.exit
+.invoke66:                                        ; preds = %_ZN13duckdb_apache6thrift8protocol9TProtocol13readStructEndEv.exit
   %81 = call ptr @__cxa_allocate_exception(i64 48) #26
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 8
   %83 = getelementptr inbounds nuw i8, ptr %81, i64 24
@@ -25544,7 +25544,7 @@ _ZN13duckdb_apache6thrift8protocol9TProtocol13readStructEndEv.exit: ; preds = %7
   invoke void @__cxa_throw(ptr nonnull %81, ptr nonnull @_ZTIN13duckdb_apache6thrift8protocol18TProtocolExceptionE, ptr nonnull @_ZN13duckdb_apache6thrift10TExceptionD2Ev) #27
           to label %.cont unwind label %.loopexit.split-lp
 
-.cont:                                            ; preds = %.invoke63
+.cont:                                            ; preds = %.invoke66
   unreachable
 
 86:                                               ; preds = %_ZN13duckdb_apache6thrift8protocol9TProtocol13readStructEndEv.exit
@@ -26768,7 +26768,7 @@ _ZN13duckdb_apache6thrift8protocol9TProtocol14readFieldBeginERNSt7__cxx1112basic
           cleanup
   br label %138
 
-.loopexit.split-lp:                               ; preds = %.invoke128, %115
+.loopexit.split-lp:                               ; preds = %.invoke131, %115
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %138
@@ -26802,8 +26802,8 @@ _ZN13duckdb_apache6thrift8protocol9TProtocol14readFieldBeginERNSt7__cxx1112basic
   br label %.invoke
 
 .invoke:                                          ; preds = %.invoke.sink.split, %45, %94, %87, %80, %63, %56
-  %.sink129 = phi ptr [ %58, %56 ], [ %65, %63 ], [ %82, %80 ], [ %89, %87 ], [ %96, %94 ], [ %47, %45 ], [ %52, %.invoke.sink.split ]
-  %53 = getelementptr inbounds nuw i8, ptr %.sink129, i64 352
+  %.sink132 = phi ptr [ %58, %56 ], [ %65, %63 ], [ %82, %80 ], [ %89, %87 ], [ %96, %94 ], [ %47, %45 ], [ %52, %.invoke.sink.split ]
+  %53 = getelementptr inbounds nuw i8, ptr %.sink132, i64 352
   %54 = load ptr, ptr %53, align 8
   %55 = invoke noundef i32 %54(ptr noundef nonnull align 8 dereferenceable(36) %1, i32 noundef %39)
           to label %_ZN13duckdb_apache6thrift8protocol9TProtocol7readI32ERi.exit unwind label %.loopexit
@@ -26939,9 +26939,9 @@ _ZN13duckdb_apache6thrift8protocol9TProtocol13readStructEndEv.exit: ; preds = %1
   %122 = select i1 %121, i1 %.054, i1 false
   %123 = select i1 %122, i1 %.052, i1 false
   %124 = select i1 %123, i1 %.0, i1 false
-  br i1 %124, label %130, label %.invoke128
+  br i1 %124, label %130, label %.invoke131
 
-.invoke128:                                       ; preds = %_ZN13duckdb_apache6thrift8protocol9TProtocol13readStructEndEv.exit
+.invoke131:                                       ; preds = %_ZN13duckdb_apache6thrift8protocol9TProtocol13readStructEndEv.exit
   %125 = call ptr @__cxa_allocate_exception(i64 48) #26
   %126 = getelementptr inbounds nuw i8, ptr %125, i64 8
   %127 = getelementptr inbounds nuw i8, ptr %125, i64 24
@@ -26955,7 +26955,7 @@ _ZN13duckdb_apache6thrift8protocol9TProtocol13readStructEndEv.exit: ; preds = %1
   invoke void @__cxa_throw(ptr nonnull %125, ptr nonnull @_ZTIN13duckdb_apache6thrift8protocol18TProtocolExceptionE, ptr nonnull @_ZN13duckdb_apache6thrift10TExceptionD2Ev) #27
           to label %.cont unwind label %.loopexit.split-lp
 
-.cont:                                            ; preds = %.invoke128
+.cont:                                            ; preds = %.invoke131
   unreachable
 
 130:                                              ; preds = %_ZN13duckdb_apache6thrift8protocol9TProtocol13readStructEndEv.exit
@@ -31481,7 +31481,7 @@ _ZN13duckdb_apache6thrift8protocol9TProtocol14readFieldBeginERNSt7__cxx1112basic
           cleanup
   br label %88
 
-.loopexit.split-lp:                               ; preds = %.invoke70, %67
+.loopexit.split-lp:                               ; preds = %.invoke73, %67
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %88
@@ -31511,8 +31511,8 @@ _ZN13duckdb_apache6thrift8protocol9TProtocol14readFieldBeginERNSt7__cxx1112basic
   br label %.invoke
 
 .invoke:                                          ; preds = %.invoke.sink.split, %39
-  %.sink71 = phi ptr [ %41, %39 ], [ %46, %.invoke.sink.split ]
-  %47 = getelementptr inbounds nuw i8, ptr %.sink71, i64 352
+  %.sink74 = phi ptr [ %41, %39 ], [ %46, %.invoke.sink.split ]
+  %47 = getelementptr inbounds nuw i8, ptr %.sink74, i64 352
   %48 = load ptr, ptr %47, align 8
   %49 = invoke noundef i32 %48(ptr noundef nonnull align 8 dereferenceable(36) %1, i32 noundef %33)
           to label %_ZN13duckdb_apache6thrift8protocol9TProtocol7readI32ERi.exit unwind label %.loopexit
@@ -31569,9 +31569,9 @@ _ZN13duckdb_apache6thrift8protocol9TProtocol13readStructEndEv.exit: ; preds = %6
   %72 = select i1 %.038, i1 %.036, i1 false
   %73 = select i1 %72, i1 %.034, i1 false
   %74 = select i1 %73, i1 %.0, i1 false
-  br i1 %74, label %80, label %.invoke70
+  br i1 %74, label %80, label %.invoke73
 
-.invoke70:                                        ; preds = %_ZN13duckdb_apache6thrift8protocol9TProtocol13readStructEndEv.exit
+.invoke73:                                        ; preds = %_ZN13duckdb_apache6thrift8protocol9TProtocol13readStructEndEv.exit
   %75 = call ptr @__cxa_allocate_exception(i64 48) #26
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 8
   %77 = getelementptr inbounds nuw i8, ptr %75, i64 24
@@ -31585,7 +31585,7 @@ _ZN13duckdb_apache6thrift8protocol9TProtocol13readStructEndEv.exit: ; preds = %6
   invoke void @__cxa_throw(ptr nonnull %75, ptr nonnull @_ZTIN13duckdb_apache6thrift8protocol18TProtocolExceptionE, ptr nonnull @_ZN13duckdb_apache6thrift10TExceptionD2Ev) #27
           to label %.cont unwind label %.loopexit.split-lp
 
-.cont:                                            ; preds = %.invoke70
+.cont:                                            ; preds = %.invoke73
   unreachable
 
 80:                                               ; preds = %_ZN13duckdb_apache6thrift8protocol9TProtocol13readStructEndEv.exit
@@ -33217,7 +33217,7 @@ _ZN13duckdb_apache6thrift8protocol9TProtocol14readFieldBeginERNSt7__cxx1112basic
           cleanup
   br label %134
 
-.loopexit.split-lp:                               ; preds = %.invoke99, %114
+.loopexit.split-lp:                               ; preds = %.invoke102, %114
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %134
@@ -33387,9 +33387,9 @@ _ZN13duckdb_apache6thrift8protocol9TProtocol12readFieldEndEv.exit: ; preds = %_Z
 _ZN13duckdb_apache6thrift8protocol9TProtocol13readStructEndEv.exit: ; preds = %114
   %119 = select i1 %.051, i1 %.049, i1 false
   %120 = select i1 %119, i1 %.0, i1 false
-  br i1 %120, label %126, label %.invoke99
+  br i1 %120, label %126, label %.invoke102
 
-.invoke99:                                        ; preds = %_ZN13duckdb_apache6thrift8protocol9TProtocol13readStructEndEv.exit
+.invoke102:                                       ; preds = %_ZN13duckdb_apache6thrift8protocol9TProtocol13readStructEndEv.exit
   %121 = call ptr @__cxa_allocate_exception(i64 48) #26
   %122 = getelementptr inbounds nuw i8, ptr %121, i64 8
   %123 = getelementptr inbounds nuw i8, ptr %121, i64 24
@@ -33403,7 +33403,7 @@ _ZN13duckdb_apache6thrift8protocol9TProtocol13readStructEndEv.exit: ; preds = %1
   invoke void @__cxa_throw(ptr nonnull %121, ptr nonnull @_ZTIN13duckdb_apache6thrift8protocol18TProtocolExceptionE, ptr nonnull @_ZN13duckdb_apache6thrift10TExceptionD2Ev) #27
           to label %.cont unwind label %.loopexit.split-lp
 
-.cont:                                            ; preds = %.invoke99
+.cont:                                            ; preds = %.invoke102
   unreachable
 
 126:                                              ; preds = %_ZN13duckdb_apache6thrift8protocol9TProtocol13readStructEndEv.exit
@@ -36005,8 +36005,8 @@ _ZN13duckdb_apache6thrift8protocol9TProtocol14readFieldBeginERNSt7__cxx1112basic
           to label %_ZN13duckdb_apache6thrift8protocol9TProtocol10readStringERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit unwind label %.loopexit
 
 .invoke:                                          ; preds = %38, %48, %57
-  %.sink43 = phi ptr [ %58, %57 ], [ %50, %48 ], [ %40, %38 ]
-  %45 = getelementptr inbounds nuw i8, ptr %.sink43, i64 352
+  %.sink46 = phi ptr [ %58, %57 ], [ %50, %48 ], [ %40, %38 ]
+  %45 = getelementptr inbounds nuw i8, ptr %.sink46, i64 352
   %46 = load ptr, ptr %45, align 8
   %47 = invoke noundef i32 %46(ptr noundef nonnull align 8 dereferenceable(36) %1, i32 noundef %32)
           to label %_ZN13duckdb_apache6thrift8protocol9TProtocol10readStringERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit unwind label %.loopexit
@@ -36743,7 +36743,7 @@ _ZN13duckdb_apache6thrift8protocol9TProtocol14readFieldBeginERNSt7__cxx1112basic
           cleanup
   br label %89
 
-.loopexit.split-lp:                               ; preds = %.invoke60, %69
+.loopexit.split-lp:                               ; preds = %.invoke63, %69
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %89
@@ -36768,8 +36768,8 @@ _ZN13duckdb_apache6thrift8protocol9TProtocol14readFieldBeginERNSt7__cxx1112basic
           to label %_ZN13duckdb_apache6thrift8protocol9TProtocol7readI32ERi.exit unwind label %.loopexit
 
 .invoke:                                          ; preds = %38, %55, %48, %62
-  %.sink61 = phi ptr [ %63, %62 ], [ %50, %48 ], [ %57, %55 ], [ %40, %38 ]
-  %45 = getelementptr inbounds nuw i8, ptr %.sink61, i64 352
+  %.sink64 = phi ptr [ %63, %62 ], [ %50, %48 ], [ %57, %55 ], [ %40, %38 ]
+  %45 = getelementptr inbounds nuw i8, ptr %.sink64, i64 352
   %46 = load ptr, ptr %45, align 8
   %47 = invoke noundef i32 %46(ptr noundef nonnull align 8 dereferenceable(36) %1, i32 noundef %32)
           to label %_ZN13duckdb_apache6thrift8protocol9TProtocol7readI32ERi.exit unwind label %.loopexit
@@ -36826,9 +36826,9 @@ _ZN13duckdb_apache6thrift8protocol9TProtocol12readFieldEndEv.exit: ; preds = %_Z
 _ZN13duckdb_apache6thrift8protocol9TProtocol13readStructEndEv.exit: ; preds = %69
   %74 = select i1 %.031, i1 %.029, i1 false
   %75 = select i1 %74, i1 %.0, i1 false
-  br i1 %75, label %81, label %.invoke60
+  br i1 %75, label %81, label %.invoke63
 
-.invoke60:                                        ; preds = %_ZN13duckdb_apache6thrift8protocol9TProtocol13readStructEndEv.exit
+.invoke63:                                        ; preds = %_ZN13duckdb_apache6thrift8protocol9TProtocol13readStructEndEv.exit
   %76 = call ptr @__cxa_allocate_exception(i64 48) #26
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 8
   %78 = getelementptr inbounds nuw i8, ptr %76, i64 24
@@ -36842,7 +36842,7 @@ _ZN13duckdb_apache6thrift8protocol9TProtocol13readStructEndEv.exit: ; preds = %6
   invoke void @__cxa_throw(ptr nonnull %76, ptr nonnull @_ZTIN13duckdb_apache6thrift8protocol18TProtocolExceptionE, ptr nonnull @_ZN13duckdb_apache6thrift10TExceptionD2Ev) #27
           to label %.cont unwind label %.loopexit.split-lp
 
-.cont:                                            ; preds = %.invoke60
+.cont:                                            ; preds = %.invoke63
   unreachable
 
 81:                                               ; preds = %_ZN13duckdb_apache6thrift8protocol9TProtocol13readStructEndEv.exit
@@ -37478,7 +37478,7 @@ _ZN13duckdb_apache6thrift8protocol9TProtocol14readFieldBeginERNSt7__cxx1112basic
           cleanup
   br label %96
 
-.loopexit.split-lp:                               ; preds = %.invoke85, %76
+.loopexit.split-lp:                               ; preds = %.invoke88, %76
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %96
@@ -37583,9 +37583,9 @@ _ZN13duckdb_apache6thrift8protocol9TProtocol12readFieldEndEv.exit: ; preds = %_Z
 _ZN13duckdb_apache6thrift8protocol9TProtocol13readStructEndEv.exit: ; preds = %76
   %81 = select i1 %.031, i1 %.029, i1 false
   %82 = select i1 %81, i1 %.0, i1 false
-  br i1 %82, label %88, label %.invoke85
+  br i1 %82, label %88, label %.invoke88
 
-.invoke85:                                        ; preds = %_ZN13duckdb_apache6thrift8protocol9TProtocol13readStructEndEv.exit
+.invoke88:                                        ; preds = %_ZN13duckdb_apache6thrift8protocol9TProtocol13readStructEndEv.exit
   %83 = call ptr @__cxa_allocate_exception(i64 48) #26
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 8
   %85 = getelementptr inbounds nuw i8, ptr %83, i64 24
@@ -37599,7 +37599,7 @@ _ZN13duckdb_apache6thrift8protocol9TProtocol13readStructEndEv.exit: ; preds = %7
   invoke void @__cxa_throw(ptr nonnull %83, ptr nonnull @_ZTIN13duckdb_apache6thrift8protocol18TProtocolExceptionE, ptr nonnull @_ZN13duckdb_apache6thrift10TExceptionD2Ev) #27
           to label %.cont unwind label %.loopexit.split-lp
 
-.cont:                                            ; preds = %.invoke85
+.cont:                                            ; preds = %.invoke88
   unreachable
 
 88:                                               ; preds = %_ZN13duckdb_apache6thrift8protocol9TProtocol13readStructEndEv.exit
@@ -45756,10 +45756,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
           to label %_ZN13duckdb_apache6thrift8protocol9TProtocol4skipENS1_5TTypeE.exit.sink.split unwind label %.loopexit
 
 _ZN13duckdb_apache6thrift8protocol9TProtocol4skipENS1_5TTypeE.exit.sink.split: ; preds = %52, %44
-  %.sink31 = phi i8 [ 1, %44 ], [ 2, %52 ]
+  %.sink34 = phi i8 [ 1, %44 ], [ 2, %52 ]
   %.pn.ph = phi i32 [ %45, %44 ], [ %53, %52 ]
   %54 = load i8, ptr %25, align 8
-  %55 = or i8 %54, %.sink31
+  %55 = or i8 %54, %.sink34
   store i8 %55, ptr %25, align 8
   br label %_ZN13duckdb_apache6thrift8protocol9TProtocol4skipENS1_5TTypeE.exit
 
@@ -47137,8 +47137,8 @@ _ZN13duckdb_apache6thrift8protocol9TProtocol14readFieldBeginERNSt7__cxx1112basic
   br label %.invoke
 
 .invoke:                                          ; preds = %.invoke.sink.split, %45, %99, %88, %81, %74, %67, %56
-  %.sink80 = phi ptr [ %58, %56 ], [ %69, %67 ], [ %76, %74 ], [ %83, %81 ], [ %90, %88 ], [ %101, %99 ], [ %47, %45 ], [ %52, %.invoke.sink.split ]
-  %53 = getelementptr inbounds nuw i8, ptr %.sink80, i64 352
+  %.sink83 = phi ptr [ %58, %56 ], [ %69, %67 ], [ %76, %74 ], [ %83, %81 ], [ %90, %88 ], [ %101, %99 ], [ %47, %45 ], [ %52, %.invoke.sink.split ]
+  %53 = getelementptr inbounds nuw i8, ptr %.sink83, i64 352
   %54 = load ptr, ptr %53, align 8
   %55 = invoke noundef i32 %54(ptr noundef nonnull align 8 dereferenceable(36) %1, i32 noundef %39)
           to label %_ZN13duckdb_apache6thrift8protocol9TProtocol4skipENS1_5TTypeE.exit unwind label %.loopexit
@@ -47226,10 +47226,10 @@ _ZN13duckdb_apache6thrift8protocol9TProtocol14readFieldBeginERNSt7__cxx1112basic
           to label %_ZN13duckdb_apache6thrift8protocol9TProtocol4skipENS1_5TTypeE.exit.sink.split unwind label %.loopexit
 
 _ZN13duckdb_apache6thrift8protocol9TProtocol4skipENS1_5TTypeE.exit.sink.split: ; preds = %102, %97, %91, %84, %77, %70, %65, %48
-  %.sink82 = phi i8 [ 1, %48 ], [ 2, %65 ], [ 4, %70 ], [ 8, %77 ], [ 16, %84 ], [ 32, %91 ], [ 64, %97 ], [ -128, %102 ]
+  %.sink85 = phi i8 [ 1, %48 ], [ 2, %65 ], [ 4, %70 ], [ 8, %77 ], [ 16, %84 ], [ 32, %91 ], [ 64, %97 ], [ -128, %102 ]
   %.pn.ph = phi i32 [ %51, %48 ], [ %66, %65 ], [ %73, %70 ], [ %80, %77 ], [ %87, %84 ], [ %94, %91 ], [ %98, %97 ], [ %105, %102 ]
   %106 = load i8, ptr %25, align 8
-  %107 = or i8 %106, %.sink82
+  %107 = or i8 %106, %.sink85
   store i8 %107, ptr %25, align 8
   br label %_ZN13duckdb_apache6thrift8protocol9TProtocol4skipENS1_5TTypeE.exit
 
@@ -52987,7 +52987,7 @@ _ZN13duckdb_apache6thrift8protocol9TProtocol14readFieldBeginERNSt7__cxx1112basic
           cleanup
   br label %89
 
-.loopexit.split-lp:                               ; preds = %.invoke60, %69
+.loopexit.split-lp:                               ; preds = %.invoke63, %69
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %89
@@ -53012,8 +53012,8 @@ _ZN13duckdb_apache6thrift8protocol9TProtocol14readFieldBeginERNSt7__cxx1112basic
           to label %_ZN13duckdb_apache6thrift8protocol9TProtocol7readI64ERl.exit unwind label %.loopexit
 
 .invoke:                                          ; preds = %38, %55, %48, %62
-  %.sink61 = phi ptr [ %63, %62 ], [ %50, %48 ], [ %57, %55 ], [ %40, %38 ]
-  %45 = getelementptr inbounds nuw i8, ptr %.sink61, i64 352
+  %.sink64 = phi ptr [ %63, %62 ], [ %50, %48 ], [ %57, %55 ], [ %40, %38 ]
+  %45 = getelementptr inbounds nuw i8, ptr %.sink64, i64 352
   %46 = load ptr, ptr %45, align 8
   %47 = invoke noundef i32 %46(ptr noundef nonnull align 8 dereferenceable(36) %1, i32 noundef %32)
           to label %_ZN13duckdb_apache6thrift8protocol9TProtocol7readI64ERl.exit unwind label %.loopexit
@@ -53070,9 +53070,9 @@ _ZN13duckdb_apache6thrift8protocol9TProtocol12readFieldEndEv.exit: ; preds = %_Z
 _ZN13duckdb_apache6thrift8protocol9TProtocol13readStructEndEv.exit: ; preds = %69
   %74 = select i1 %.031, i1 %.029, i1 false
   %75 = select i1 %74, i1 %.0, i1 false
-  br i1 %75, label %81, label %.invoke60
+  br i1 %75, label %81, label %.invoke63
 
-.invoke60:                                        ; preds = %_ZN13duckdb_apache6thrift8protocol9TProtocol13readStructEndEv.exit
+.invoke63:                                        ; preds = %_ZN13duckdb_apache6thrift8protocol9TProtocol13readStructEndEv.exit
   %76 = call ptr @__cxa_allocate_exception(i64 48) #26
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 8
   %78 = getelementptr inbounds nuw i8, ptr %76, i64 24
@@ -53086,7 +53086,7 @@ _ZN13duckdb_apache6thrift8protocol9TProtocol13readStructEndEv.exit: ; preds = %6
   invoke void @__cxa_throw(ptr nonnull %76, ptr nonnull @_ZTIN13duckdb_apache6thrift8protocol18TProtocolExceptionE, ptr nonnull @_ZN13duckdb_apache6thrift10TExceptionD2Ev) #27
           to label %.cont unwind label %.loopexit.split-lp
 
-.cont:                                            ; preds = %.invoke60
+.cont:                                            ; preds = %.invoke63
   unreachable
 
 81:                                               ; preds = %_ZN13duckdb_apache6thrift8protocol9TProtocol13readStructEndEv.exit
@@ -59104,8 +59104,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
           to label %_ZN13duckdb_apache6thrift8protocol9TProtocol4skipENS1_5TTypeE.exit.sink.split unwind label %.loopexit
 
 .invoke:                                          ; preds = %44, %61, %54, %68
-  %.sink35 = phi ptr [ %69, %68 ], [ %56, %54 ], [ %63, %61 ], [ %46, %44 ]
-  %51 = getelementptr inbounds nuw i8, ptr %.sink35, i64 352
+  %.sink38 = phi ptr [ %69, %68 ], [ %56, %54 ], [ %63, %61 ], [ %46, %44 ]
+  %51 = getelementptr inbounds nuw i8, ptr %.sink38, i64 352
   %52 = load ptr, ptr %51, align 8
   %53 = invoke noundef i32 %52(ptr noundef nonnull align 8 dereferenceable(36) %1, i32 noundef %33)
           to label %_ZN13duckdb_apache6thrift8protocol9TProtocol4skipENS1_5TTypeE.exit unwind label %.loopexit
@@ -59137,10 +59137,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   br label %.invoke
 
 _ZN13duckdb_apache6thrift8protocol9TProtocol4skipENS1_5TTypeE.exit.sink.split: ; preds = %64, %57, %47
-  %.sink37 = phi i8 [ 1, %47 ], [ 2, %57 ], [ 4, %64 ]
+  %.sink40 = phi i8 [ 1, %47 ], [ 2, %57 ], [ 4, %64 ]
   %.pn.ph = phi i32 [ %50, %47 ], [ %60, %57 ], [ %67, %64 ]
   %70 = load i8, ptr %25, align 1
-  %71 = or i8 %70, %.sink37
+  %71 = or i8 %70, %.sink40
   store i8 %71, ptr %25, align 1
   br label %_ZN13duckdb_apache6thrift8protocol9TProtocol4skipENS1_5TTypeE.exit
 
@@ -60228,8 +60228,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
           to label %_ZN13duckdb_apache6thrift8protocol9TProtocol4skipENS1_5TTypeE.exit.sink.split unwind label %.loopexit
 
 .invoke:                                          ; preds = %44, %61, %54, %68
-  %.sink35 = phi ptr [ %69, %68 ], [ %56, %54 ], [ %63, %61 ], [ %46, %44 ]
-  %51 = getelementptr inbounds nuw i8, ptr %.sink35, i64 352
+  %.sink38 = phi ptr [ %69, %68 ], [ %56, %54 ], [ %63, %61 ], [ %46, %44 ]
+  %51 = getelementptr inbounds nuw i8, ptr %.sink38, i64 352
   %52 = load ptr, ptr %51, align 8
   %53 = invoke noundef i32 %52(ptr noundef nonnull align 8 dereferenceable(36) %1, i32 noundef %33)
           to label %_ZN13duckdb_apache6thrift8protocol9TProtocol4skipENS1_5TTypeE.exit unwind label %.loopexit
@@ -60261,10 +60261,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   br label %.invoke
 
 _ZN13duckdb_apache6thrift8protocol9TProtocol4skipENS1_5TTypeE.exit.sink.split: ; preds = %64, %57, %47
-  %.sink37 = phi i8 [ 1, %47 ], [ 2, %57 ], [ 4, %64 ]
+  %.sink40 = phi i8 [ 1, %47 ], [ 2, %57 ], [ 4, %64 ]
   %.pn.ph = phi i32 [ %50, %47 ], [ %60, %57 ], [ %67, %64 ]
   %70 = load i8, ptr %25, align 1
-  %71 = or i8 %70, %.sink37
+  %71 = or i8 %70, %.sink40
   store i8 %71, ptr %25, align 1
   br label %_ZN13duckdb_apache6thrift8protocol9TProtocol4skipENS1_5TTypeE.exit
 
@@ -61626,10 +61626,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
           to label %_ZN13duckdb_apache6thrift8protocol9TProtocol4skipENS1_5TTypeE.exit.sink.split unwind label %.loopexit
 
 _ZN13duckdb_apache6thrift8protocol9TProtocol4skipENS1_5TTypeE.exit.sink.split: ; preds = %53, %45
-  %.sink31 = phi i8 [ 1, %45 ], [ 2, %53 ]
+  %.sink34 = phi i8 [ 1, %45 ], [ 2, %53 ]
   %.pn.ph = phi i32 [ %46, %45 ], [ %54, %53 ]
   %55 = load i8, ptr %25, align 8
-  %56 = or i8 %55, %.sink31
+  %56 = or i8 %55, %.sink34
   store i8 %56, ptr %25, align 8
   br label %_ZN13duckdb_apache6thrift8protocol9TProtocol4skipENS1_5TTypeE.exit
 
@@ -70203,8 +70203,8 @@ _ZNSt13_Bvector_baseISaIbEE13_M_deallocateEv.exit: ; preds = %24
   br i1 %.not.i25, label %_ZNSt6vectorIbSaIbEE13_M_initializeEm.exit, label %_ZNSt13_Bvector_baseISaIbEE13_M_deallocateEv.exit.thread
 
 _ZNSt13_Bvector_baseISaIbEE13_M_deallocateEv.exit.thread: ; preds = %24, %_ZNSt13_Bvector_baseISaIbEE13_M_deallocateEv.exit
-  %.pre-phi4757 = phi i64 [ %.pre46, %_ZNSt13_Bvector_baseISaIbEE13_M_deallocateEv.exit ], [ %15, %24 ]
-  %28 = add i64 %.pre-phi4757, 63
+  %.pre-phi4761 = phi i64 [ %.pre46, %_ZNSt13_Bvector_baseISaIbEE13_M_deallocateEv.exit ], [ %15, %24 ]
+  %28 = add i64 %.pre-phi4761, 63
   %29 = lshr i64 %28, 3
   %30 = and i64 %29, 2305843009213693944
   %31 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %30) #29
@@ -70214,13 +70214,13 @@ _ZNSt13_Bvector_baseISaIbEE13_M_deallocateEv.exit.thread: ; preds = %24, %_ZNSt1
   store ptr %31, ptr %0, align 8
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %.sroa.5.0..sroa_idx.i, align 8
-  %34 = sdiv i64 %.pre-phi4757, 64
+  %34 = sdiv i64 %.pre-phi4761, 64
   %35 = getelementptr inbounds i64, ptr %31, i64 %34
-  %36 = and i64 %.pre-phi4757, -9223372036854775745
+  %36 = and i64 %.pre-phi4761, -9223372036854775745
   %37 = icmp ugt i64 %36, -9223372036854775808
   %storemerge.idx.i.i.i.i = select i1 %37, i64 -8, i64 0
   %storemerge.i.i.i.i = getelementptr inbounds i8, ptr %35, i64 %storemerge.idx.i.i.i.i
-  %38 = trunc i64 %.pre-phi4757 to i32
+  %38 = trunc i64 %.pre-phi4761 to i32
   %39 = and i32 %38, 63
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %storemerge.i.i.i.i, ptr %40, align 8
@@ -71533,27 +71533,27 @@ define linkonce_odr { ptr, i8 } @_ZNSt8_Rb_treeIiSt4pairIKiPKcESt10_Select1stIS4
   br i1 %13, label %._crit_edge.thread.i, label %19
 
 ._crit_edge.thread.i:                             ; preds = %._crit_edge.i, %2
-  %.019.lcssa28.i = phi ptr [ %.02024.i, %._crit_edge.i ], [ %10, %2 ]
+  %.019.lcssa29.i = phi ptr [ %.02024.i, %._crit_edge.i ], [ %10, %2 ]
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %15 = load ptr, ptr %14, align 8, !tbaa !915
-  %16 = icmp eq ptr %.019.lcssa28.i, %15
+  %16 = icmp eq ptr %.019.lcssa29.i, %15
   br i1 %16, label %select.unfold, label %17
 
 17:                                               ; preds = %._crit_edge.thread.i
-  %18 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa28.i) #30
+  %18 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa29.i) #30
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %18, i64 32
   %.pre = load i32, ptr %.phi.trans.insert, align 4, !tbaa !14
   br label %19
 
 19:                                               ; preds = %17, %._crit_edge.i
   %20 = phi i32 [ %.pre, %17 ], [ %12, %._crit_edge.i ]
-  %.019.lcssa29.i = phi ptr [ %.019.lcssa28.i, %17 ], [ %.02024.i, %._crit_edge.i ]
+  %.019.lcssa28.i = phi ptr [ %.019.lcssa29.i, %17 ], [ %.02024.i, %._crit_edge.i ]
   %.sroa.05.0.i = phi ptr [ %18, %17 ], [ %.02024.i, %._crit_edge.i ]
   %21 = icmp slt i32 %20, %5
   br i1 %21, label %select.unfold, label %31
 
 select.unfold:                                    ; preds = %19, %._crit_edge.thread.i
-  %.sroa.4.0.i.ph = phi ptr [ %.019.lcssa28.i, %._crit_edge.thread.i ], [ %.019.lcssa29.i, %19 ]
+  %.sroa.4.0.i.ph = phi ptr [ %.019.lcssa29.i, %._crit_edge.thread.i ], [ %.019.lcssa28.i, %19 ]
   %22 = icmp eq ptr %.sroa.4.0.i.ph, %10
   br i1 %22, label %.thread24, label %23
 
@@ -71623,13 +71623,13 @@ define linkonce_odr void @_ZNSt6vectorIlSaIlEE17_M_default_appendEm(ptr noundef 
 19:                                               ; preds = %3
   store i64 0, ptr %5, align 8, !tbaa !35
   %20 = getelementptr i8, ptr %5, i64 8
-  %21 = add i64 %1, -1
+  %21 = add nsw i64 %1, -1
   %22 = icmp eq i64 %21, 0
   br i1 %22, label %_ZSt27__uninitialized_default_n_aIPlmlET_S1_T0_RSaIT1_E.exit, label %_ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit.loopexit.i.i.i
 
 _ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
-  %23 = shl i64 %1, 3
-  %24 = add i64 %23, -8
+  %23 = shl nuw nsw i64 %1, 3
+  %24 = add nsw i64 %23, -8
   tail call void @llvm.memset.p0.i64(ptr align 8 %20, i8 0, i64 %24, i1 false), !tbaa !35
   %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 3
   %25 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
@@ -72496,13 +72496,13 @@ define linkonce_odr void @_ZNSt6vectorIN14duckdb_parquet8Encoding4typeESaIS2_EE1
 19:                                               ; preds = %3
   store i32 0, ptr %5, align 4, !tbaa !55
   %20 = getelementptr i8, ptr %5, i64 4
-  %21 = add i64 %1, -1
+  %21 = add nsw i64 %1, -1
   %22 = icmp eq i64 %21, 0
   br i1 %22, label %_ZSt27__uninitialized_default_n_aIPN14duckdb_parquet8Encoding4typeEmS2_ET_S4_T0_RSaIT1_E.exit, label %.lr.ph.preheader.i.i.i.i.i.i.i
 
 .lr.ph.preheader.i.i.i.i.i.i.i:                   ; preds = %19
-  %23 = shl i64 %1, 2
-  %24 = add i64 %23, -4
+  %23 = shl nuw nsw i64 %1, 2
+  %24 = add nsw i64 %23, -4
   tail call void @llvm.memset.p0.i64(ptr align 4 %20, i8 0, i64 %24, i1 false), !tbaa !55
   %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 2
   %25 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i

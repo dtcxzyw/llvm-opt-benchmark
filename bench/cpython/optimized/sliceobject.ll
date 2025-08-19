@@ -1285,7 +1285,7 @@ define dso_local range(i32 -1, 1) i32 @PySlice_GetIndices(ptr noundef readonly c
   %37 = load i64, ptr %4, align 8, !tbaa !117
   %.inv = icmp sgt i64 %37, -1
   %38 = select i1 %.inv, i64 %1, i64 -1
-  br label %.sink.split45
+  br label %.sink.split51
 
 39:                                               ; preds = %32
   %40 = getelementptr i8, ptr %34, i64 8
@@ -1304,15 +1304,15 @@ define dso_local range(i32 -1, 1) i32 @PySlice_GetIndices(ptr noundef readonly c
 
 46:                                               ; preds = %43
   %47 = add i64 %44, %1
-  br label %.sink.split45
+  br label %.sink.split51
 
-.sink.split45:                                    ; preds = %36, %46
-  %.sink46 = phi i64 [ %47, %46 ], [ %38, %36 ]
-  store i64 %.sink46, ptr %3, align 8, !tbaa !117
+.sink.split51:                                    ; preds = %36, %46
+  %.sink52 = phi i64 [ %47, %46 ], [ %38, %36 ]
+  store i64 %.sink52, ptr %3, align 8, !tbaa !117
   br label %48
 
-48:                                               ; preds = %.sink.split45, %43
-  %49 = phi i64 [ %44, %43 ], [ %.sink46, %.sink.split45 ]
+48:                                               ; preds = %.sink.split51, %43
+  %49 = phi i64 [ %44, %43 ], [ %.sink52, %.sink.split51 ]
   %50 = icmp sgt i64 %49, %1
   br i1 %50, label %56, label %51
 
@@ -1454,7 +1454,7 @@ define dso_local i64 @PySlice_AdjustIndices(i64 noundef %0, ptr noundef captures
 
 20:                                               ; preds = %17
   %.lobit49 = ashr i64 %3, 63
-  br label %.sink.split50
+  br label %.sink.split62
 
 21:                                               ; preds = %14
   %.not47 = icmp slt i64 %15, %0
@@ -1463,15 +1463,15 @@ define dso_local i64 @PySlice_AdjustIndices(i64 noundef %0, ptr noundef captures
 22:                                               ; preds = %21
   %.lobit48 = ashr i64 %3, 63
   %23 = add i64 %.lobit48, %0
-  br label %.sink.split50
+  br label %.sink.split62
 
-.sink.split50:                                    ; preds = %20, %22
-  %.sink51 = phi i64 [ %23, %22 ], [ %.lobit49, %20 ]
-  store i64 %.sink51, ptr %2, align 8, !tbaa !117
+.sink.split62:                                    ; preds = %20, %22
+  %.sink63 = phi i64 [ %23, %22 ], [ %.lobit49, %20 ]
+  store i64 %.sink63, ptr %2, align 8, !tbaa !117
   br label %24
 
-24:                                               ; preds = %.sink.split50, %21, %17
-  %25 = phi i64 [ %15, %21 ], [ %18, %17 ], [ %.sink51, %.sink.split50 ]
+24:                                               ; preds = %.sink.split62, %21, %17
+  %25 = phi i64 [ %15, %21 ], [ %18, %17 ], [ %.sink63, %.sink.split62 ]
   %26 = icmp slt i64 %3, 0
   %27 = load i64, ptr %1, align 8, !tbaa !117
   br i1 %26, label %28, label %36
@@ -1553,7 +1553,7 @@ define dso_local range(i32 -1, 1) i32 @PySlice_GetIndicesEx(ptr noundef readonly
 
 26:                                               ; preds = %23
   %.lobit49.i = ashr i64 %10, 63
-  br label %.sink.split50.i
+  br label %.sink.split62.i
 
 27:                                               ; preds = %20
   %.not47.i = icmp slt i64 %21, %1
@@ -1562,15 +1562,15 @@ define dso_local range(i32 -1, 1) i32 @PySlice_GetIndicesEx(ptr noundef readonly
 28:                                               ; preds = %27
   %.lobit48.i = ashr i64 %10, 63
   %29 = add i64 %.lobit48.i, %1
-  br label %.sink.split50.i
+  br label %.sink.split62.i
 
-.sink.split50.i:                                  ; preds = %28, %26
-  %.sink51.i = phi i64 [ %29, %28 ], [ %.lobit49.i, %26 ]
-  store i64 %.sink51.i, ptr %3, align 8, !tbaa !117
+.sink.split62.i:                                  ; preds = %28, %26
+  %.sink63.i = phi i64 [ %29, %28 ], [ %.lobit49.i, %26 ]
+  store i64 %.sink63.i, ptr %3, align 8, !tbaa !117
   br label %30
 
-30:                                               ; preds = %.sink.split50.i, %27, %23
-  %31 = phi i64 [ %21, %27 ], [ %24, %23 ], [ %.sink51.i, %.sink.split50.i ]
+30:                                               ; preds = %.sink.split62.i, %27, %23
+  %31 = phi i64 [ %21, %27 ], [ %24, %23 ], [ %.sink63.i, %.sink.split62.i ]
   %32 = icmp slt i64 %10, 0
   %33 = load i64, ptr %2, align 8, !tbaa !117
   br i1 %32, label %34, label %42

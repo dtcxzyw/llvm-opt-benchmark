@@ -797,7 +797,7 @@ _ZN4YAML5Utils12_GLOBAL__N_118IsValidPlainScalarEPKcmNS_8FlowType5valueEb.exit.t
   %or.cond.i.i42.i.i.i.i.i = and i1 %4, %192
   %193 = icmp eq i8 %.val33.i.i.i.i.i, 10
   %spec.select.i.i43.i.i.i.i.i = or i1 %193, %or.cond.i.i42.i.i.i.i.i
-  br i1 %spec.select.i.i43.i.i.i.i.i, label %_ZN4YAML5Utils12_GLOBAL__N_125IsValidSingleQuotedScalarEPKcmb.exit.loopexit.split.loop.exit76, label %194
+  br i1 %spec.select.i.i43.i.i.i.i.i, label %_ZN4YAML5Utils12_GLOBAL__N_125IsValidSingleQuotedScalarEPKcmb.exit.loopexit.split.loop.exit79, label %194
 
 194:                                              ; preds = %190
   %195 = getelementptr inbounds nuw i8, ptr %.02968.i.i.i.i.i, i64 3
@@ -806,7 +806,7 @@ _ZN4YAML5Utils12_GLOBAL__N_118IsValidPlainScalarEPKcmNS_8FlowType5valueEb.exit.t
   %or.cond.i.i44.i.i.i.i.i = and i1 %4, %196
   %197 = icmp eq i8 %.val35.i.i.i.i.i, 10
   %spec.select.i.i45.i.i.i.i.i = or i1 %197, %or.cond.i.i44.i.i.i.i.i
-  br i1 %spec.select.i.i45.i.i.i.i.i, label %_ZN4YAML5Utils12_GLOBAL__N_125IsValidSingleQuotedScalarEPKcmb.exit.loopexit.split.loop.exit78, label %198
+  br i1 %spec.select.i.i45.i.i.i.i.i, label %_ZN4YAML5Utils12_GLOBAL__N_125IsValidSingleQuotedScalarEPKcmb.exit.loopexit.split.loop.exit81, label %198
 
 198:                                              ; preds = %194
   %199 = getelementptr inbounds nuw i8, ptr %.02968.i.i.i.i.i, i64 4
@@ -865,16 +865,16 @@ _ZN4YAML5Utils12_GLOBAL__N_125IsValidSingleQuotedScalarEPKcmb.exit.loopexit.spli
   %215 = getelementptr inbounds nuw i8, ptr %.02968.i.i.i.i.i, i64 1
   br label %_ZN4YAML5Utils12_GLOBAL__N_125IsValidSingleQuotedScalarEPKcmb.exit
 
-_ZN4YAML5Utils12_GLOBAL__N_125IsValidSingleQuotedScalarEPKcmb.exit.loopexit.split.loop.exit76: ; preds = %190
+_ZN4YAML5Utils12_GLOBAL__N_125IsValidSingleQuotedScalarEPKcmb.exit.loopexit.split.loop.exit79: ; preds = %190
   %216 = getelementptr inbounds nuw i8, ptr %.02968.i.i.i.i.i, i64 2
   br label %_ZN4YAML5Utils12_GLOBAL__N_125IsValidSingleQuotedScalarEPKcmb.exit
 
-_ZN4YAML5Utils12_GLOBAL__N_125IsValidSingleQuotedScalarEPKcmb.exit.loopexit.split.loop.exit78: ; preds = %194
+_ZN4YAML5Utils12_GLOBAL__N_125IsValidSingleQuotedScalarEPKcmb.exit.loopexit.split.loop.exit81: ; preds = %194
   %217 = getelementptr inbounds nuw i8, ptr %.02968.i.i.i.i.i, i64 3
   br label %_ZN4YAML5Utils12_GLOBAL__N_125IsValidSingleQuotedScalarEPKcmb.exit
 
-_ZN4YAML5Utils12_GLOBAL__N_125IsValidSingleQuotedScalarEPKcmb.exit: ; preds = %183, %_ZN4YAML5Utils12_GLOBAL__N_125IsValidSingleQuotedScalarEPKcmb.exit.loopexit.split.loop.exit, %_ZN4YAML5Utils12_GLOBAL__N_125IsValidSingleQuotedScalarEPKcmb.exit.loopexit.split.loop.exit76, %_ZN4YAML5Utils12_GLOBAL__N_125IsValidSingleQuotedScalarEPKcmb.exit.loopexit.split.loop.exit78, %203, %._crit_edge._crit_edge74.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i, %214
-  %.028.i.i.i.i.i = phi ptr [ %178, %214 ], [ %.029.lcssa.i.i.i.i.i, %203 ], [ %.1.i.i.i.i.i, %._crit_edge._crit_edge74.i.i.i.i.i ], [ %.2.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i ], [ %215, %_ZN4YAML5Utils12_GLOBAL__N_125IsValidSingleQuotedScalarEPKcmb.exit.loopexit.split.loop.exit ], [ %216, %_ZN4YAML5Utils12_GLOBAL__N_125IsValidSingleQuotedScalarEPKcmb.exit.loopexit.split.loop.exit76 ], [ %217, %_ZN4YAML5Utils12_GLOBAL__N_125IsValidSingleQuotedScalarEPKcmb.exit.loopexit.split.loop.exit78 ], [ %.02968.i.i.i.i.i, %183 ]
+_ZN4YAML5Utils12_GLOBAL__N_125IsValidSingleQuotedScalarEPKcmb.exit: ; preds = %183, %_ZN4YAML5Utils12_GLOBAL__N_125IsValidSingleQuotedScalarEPKcmb.exit.loopexit.split.loop.exit, %_ZN4YAML5Utils12_GLOBAL__N_125IsValidSingleQuotedScalarEPKcmb.exit.loopexit.split.loop.exit79, %_ZN4YAML5Utils12_GLOBAL__N_125IsValidSingleQuotedScalarEPKcmb.exit.loopexit.split.loop.exit81, %203, %._crit_edge._crit_edge74.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i, %214
+  %.028.i.i.i.i.i = phi ptr [ %178, %214 ], [ %.029.lcssa.i.i.i.i.i, %203 ], [ %.1.i.i.i.i.i, %._crit_edge._crit_edge74.i.i.i.i.i ], [ %.2.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i ], [ %215, %_ZN4YAML5Utils12_GLOBAL__N_125IsValidSingleQuotedScalarEPKcmb.exit.loopexit.split.loop.exit ], [ %216, %_ZN4YAML5Utils12_GLOBAL__N_125IsValidSingleQuotedScalarEPKcmb.exit.loopexit.split.loop.exit79 ], [ %217, %_ZN4YAML5Utils12_GLOBAL__N_125IsValidSingleQuotedScalarEPKcmb.exit.loopexit.split.loop.exit81 ], [ %.02968.i.i.i.i.i, %183 ]
   %218 = icmp eq ptr %178, %.028.i.i.i.i.i
   %.12 = select i1 %218, i32 1, i32 2
   br label %_ZN4YAML5Utils12_GLOBAL__N_118IsValidPlainScalarEPKcmNS_8FlowType5valueEb.exit.thread
@@ -906,13 +906,13 @@ _ZN4YAML5Utils12_GLOBAL__N_125IsValidSingleQuotedScalarEPKcmb.exit: ; preds = %1
   %229 = getelementptr inbounds nuw i8, ptr %.02956.i.i.i.i.i, i64 1
   %.val31.i.i.i.i.i26 = load i8, ptr %229, align 1, !tbaa !12
   %230 = icmp slt i8 %.val31.i.i.i.i.i26, 0
-  br i1 %230, label %_ZN4YAML5Utils12_GLOBAL__N_120IsValidLiteralScalarEPKcmNS_8FlowType5valueEb.exit.loopexit.split.loop.exit70, label %231
+  br i1 %230, label %_ZN4YAML5Utils12_GLOBAL__N_120IsValidLiteralScalarEPKcmNS_8FlowType5valueEb.exit.loopexit.split.loop.exit73, label %231
 
 231:                                              ; preds = %228
   %232 = getelementptr inbounds nuw i8, ptr %.02956.i.i.i.i.i, i64 2
   %.val33.i.i.i.i.i27 = load i8, ptr %232, align 1, !tbaa !12
   %233 = icmp slt i8 %.val33.i.i.i.i.i27, 0
-  br i1 %233, label %_ZN4YAML5Utils12_GLOBAL__N_120IsValidLiteralScalarEPKcmNS_8FlowType5valueEb.exit.loopexit.split.loop.exit68, label %234
+  br i1 %233, label %_ZN4YAML5Utils12_GLOBAL__N_120IsValidLiteralScalarEPKcmNS_8FlowType5valueEb.exit.loopexit.split.loop.exit71, label %234
 
 234:                                              ; preds = %231
   %235 = getelementptr inbounds nuw i8, ptr %.02956.i.i.i.i.i, i64 3
@@ -968,16 +968,16 @@ _ZN4YAML5Utils12_GLOBAL__N_120IsValidLiteralScalarEPKcmNS_8FlowType5valueEb.exit
   %254 = getelementptr inbounds nuw i8, ptr %.02956.i.i.i.i.i, i64 3
   br label %_ZN4YAML5Utils12_GLOBAL__N_120IsValidLiteralScalarEPKcmNS_8FlowType5valueEb.exit
 
-_ZN4YAML5Utils12_GLOBAL__N_120IsValidLiteralScalarEPKcmNS_8FlowType5valueEb.exit.loopexit.split.loop.exit68: ; preds = %231
+_ZN4YAML5Utils12_GLOBAL__N_120IsValidLiteralScalarEPKcmNS_8FlowType5valueEb.exit.loopexit.split.loop.exit71: ; preds = %231
   %255 = getelementptr inbounds nuw i8, ptr %.02956.i.i.i.i.i, i64 2
   br label %_ZN4YAML5Utils12_GLOBAL__N_120IsValidLiteralScalarEPKcmNS_8FlowType5valueEb.exit
 
-_ZN4YAML5Utils12_GLOBAL__N_120IsValidLiteralScalarEPKcmNS_8FlowType5valueEb.exit.loopexit.split.loop.exit70: ; preds = %228
+_ZN4YAML5Utils12_GLOBAL__N_120IsValidLiteralScalarEPKcmNS_8FlowType5valueEb.exit.loopexit.split.loop.exit73: ; preds = %228
   %256 = getelementptr inbounds nuw i8, ptr %.02956.i.i.i.i.i, i64 1
   br label %_ZN4YAML5Utils12_GLOBAL__N_120IsValidLiteralScalarEPKcmNS_8FlowType5valueEb.exit
 
-_ZN4YAML5Utils12_GLOBAL__N_120IsValidLiteralScalarEPKcmNS_8FlowType5valueEb.exit: ; preds = %.lr.ph.split.i.i.i.i.i, %_ZN4YAML5Utils12_GLOBAL__N_120IsValidLiteralScalarEPKcmNS_8FlowType5valueEb.exit.loopexit.split.loop.exit, %_ZN4YAML5Utils12_GLOBAL__N_120IsValidLiteralScalarEPKcmNS_8FlowType5valueEb.exit.loopexit.split.loop.exit68, %_ZN4YAML5Utils12_GLOBAL__N_120IsValidLiteralScalarEPKcmNS_8FlowType5valueEb.exit.loopexit.split.loop.exit70, %243, %._crit_edge._crit_edge69.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i16
-  %.028.i.i.i.i.i19 = phi ptr [ %.029.lcssa.i.i.i.i.i15, %243 ], [ %.1.i.i.i.i.i21, %._crit_edge._crit_edge69.i.i.i.i.i ], [ %.2.i.i.i.i.i17, %._crit_edge._crit_edge.i.i.i.i.i16 ], [ %254, %_ZN4YAML5Utils12_GLOBAL__N_120IsValidLiteralScalarEPKcmNS_8FlowType5valueEb.exit.loopexit.split.loop.exit ], [ %255, %_ZN4YAML5Utils12_GLOBAL__N_120IsValidLiteralScalarEPKcmNS_8FlowType5valueEb.exit.loopexit.split.loop.exit68 ], [ %256, %_ZN4YAML5Utils12_GLOBAL__N_120IsValidLiteralScalarEPKcmNS_8FlowType5valueEb.exit.loopexit.split.loop.exit70 ], [ %.02956.i.i.i.i.i, %.lr.ph.split.i.i.i.i.i ]
+_ZN4YAML5Utils12_GLOBAL__N_120IsValidLiteralScalarEPKcmNS_8FlowType5valueEb.exit: ; preds = %.lr.ph.split.i.i.i.i.i, %_ZN4YAML5Utils12_GLOBAL__N_120IsValidLiteralScalarEPKcmNS_8FlowType5valueEb.exit.loopexit.split.loop.exit, %_ZN4YAML5Utils12_GLOBAL__N_120IsValidLiteralScalarEPKcmNS_8FlowType5valueEb.exit.loopexit.split.loop.exit71, %_ZN4YAML5Utils12_GLOBAL__N_120IsValidLiteralScalarEPKcmNS_8FlowType5valueEb.exit.loopexit.split.loop.exit73, %243, %._crit_edge._crit_edge69.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i16
+  %.028.i.i.i.i.i19 = phi ptr [ %.029.lcssa.i.i.i.i.i15, %243 ], [ %.1.i.i.i.i.i21, %._crit_edge._crit_edge69.i.i.i.i.i ], [ %.2.i.i.i.i.i17, %._crit_edge._crit_edge.i.i.i.i.i16 ], [ %254, %_ZN4YAML5Utils12_GLOBAL__N_120IsValidLiteralScalarEPKcmNS_8FlowType5valueEb.exit.loopexit.split.loop.exit ], [ %255, %_ZN4YAML5Utils12_GLOBAL__N_120IsValidLiteralScalarEPKcmNS_8FlowType5valueEb.exit.loopexit.split.loop.exit71 ], [ %256, %_ZN4YAML5Utils12_GLOBAL__N_120IsValidLiteralScalarEPKcmNS_8FlowType5valueEb.exit.loopexit.split.loop.exit73 ], [ %.02956.i.i.i.i.i, %.lr.ph.split.i.i.i.i.i ]
   %257 = icmp eq ptr %222, %.028.i.i.i.i.i19
   br i1 %257, label %_ZN4YAML5Utils12_GLOBAL__N_120IsValidLiteralScalarEPKcmNS_8FlowType5valueEb.exit.thread35, label %_ZN4YAML5Utils12_GLOBAL__N_118IsValidPlainScalarEPKcmNS_8FlowType5valueEb.exit.thread
 
@@ -1023,7 +1023,7 @@ define noundef zeroext i1 @_ZN4YAML5Utils23WriteSingleQuotedStringERNS_15ostream
 
 _ZN4YAML5Utils12_GLOBAL__N_126GetNextCodePointAndAdvanceERiRPKcS4_.exit.thread.thread: ; preds = %.lr.ph
   %9 = getelementptr inbounds nuw i8, ptr %.030, i64 1
-  br label %_ZN4YAML5Utils12_GLOBAL__N_126GetNextCodePointAndAdvanceERiRPKcS4_.exit.thread.thread35
+  br label %_ZN4YAML5Utils12_GLOBAL__N_126GetNextCodePointAndAdvanceERiRPKcS4_.exit.thread.thread36
 
 10:                                               ; preds = %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph
   %11 = getelementptr inbounds nuw i8, ptr %.030, i64 1
@@ -1050,12 +1050,12 @@ _ZN4YAML5Utils12_GLOBAL__N_126GetNextCodePointAndAdvanceERiRPKcS4_.exit.thread.t
   %.110 = getelementptr inbounds nuw i8, ptr %.030.pn, i64 1
   %.057.i = add nsw i32 %.057.in.i, -1
   %22 = icmp eq ptr %.110, %4
-  br i1 %22, label %_ZN4YAML5Utils12_GLOBAL__N_126GetNextCodePointAndAdvanceERiRPKcS4_.exit.thread.thread35, label %23
+  br i1 %22, label %_ZN4YAML5Utils12_GLOBAL__N_126GetNextCodePointAndAdvanceERiRPKcS4_.exit.thread.thread36, label %23
 
 23:                                               ; preds = %21
   %24 = load i8, ptr %.110, align 1, !tbaa !12
   %25 = icmp slt i8 %24, -64
-  br i1 %25, label %26, label %_ZN4YAML5Utils12_GLOBAL__N_126GetNextCodePointAndAdvanceERiRPKcS4_.exit.thread.thread35
+  br i1 %25, label %26, label %_ZN4YAML5Utils12_GLOBAL__N_126GetNextCodePointAndAdvanceERiRPKcS4_.exit.thread.thread36
 
 26:                                               ; preds = %23
   %27 = shl i32 %storemerge5255.i, 6
@@ -1069,19 +1069,19 @@ _ZN4YAML5Utils12_GLOBAL__N_126GetNextCodePointAndAdvanceERiRPKcS4_.exit.thread.t
   %33 = icmp sgt i32 %30, 1114111
   %34 = and i32 %storemerge5255.i, 67108832
   %or.cond.i = icmp eq i32 %34, 864
-  %or.cond59.i = select i1 %33, i1 true, i1 %or.cond.i
+  %or.cond61.i = select i1 %33, i1 true, i1 %or.cond.i
   %35 = and i32 %30, 65534
   %36 = icmp eq i32 %35, 65534
-  %or.cond61.i = or i1 %or.cond59.i, %36
+  %or.cond63.i = or i1 %or.cond61.i, %36
   %37 = add i32 %30, -64976
   %or.cond41.i = icmp ult i32 %37, 32
-  %or.cond62.i = or i1 %or.cond41.i, %or.cond61.i
-  br i1 %or.cond62.i, label %_ZN4YAML5Utils12_GLOBAL__N_126GetNextCodePointAndAdvanceERiRPKcS4_.exit.thread.thread35, label %_ZN4YAML5Utils12_GLOBAL__N_126GetNextCodePointAndAdvanceERiRPKcS4_.exit.thread
+  %or.cond64.i = or i1 %or.cond41.i, %or.cond63.i
+  br i1 %or.cond64.i, label %_ZN4YAML5Utils12_GLOBAL__N_126GetNextCodePointAndAdvanceERiRPKcS4_.exit.thread.thread36, label %_ZN4YAML5Utils12_GLOBAL__N_126GetNextCodePointAndAdvanceERiRPKcS4_.exit.thread
 
 _ZN4YAML5Utils12_GLOBAL__N_126GetNextCodePointAndAdvanceERiRPKcS4_.exit.thread: ; preds = %32, %10
   %.316 = phi ptr [ %11, %10 ], [ %scevgep34, %32 ]
   %.11215 = phi i32 [ %12, %10 ], [ %30, %32 ]
-  switch i32 %.11215, label %_ZN4YAML5Utils12_GLOBAL__N_126GetNextCodePointAndAdvanceERiRPKcS4_.exit.thread.thread35 [
+  switch i32 %.11215, label %_ZN4YAML5Utils12_GLOBAL__N_126GetNextCodePointAndAdvanceERiRPKcS4_.exit.thread.thread36 [
     i32 10, label %.loopexit
     i32 39, label %38
   ]
@@ -1090,14 +1090,14 @@ _ZN4YAML5Utils12_GLOBAL__N_126GetNextCodePointAndAdvanceERiRPKcS4_.exit.thread: 
   tail call void @_ZN4YAML15ostream_wrapper5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(57) %0, ptr noundef nonnull @.str.1, i64 noundef 2)
   br label %39
 
-_ZN4YAML5Utils12_GLOBAL__N_126GetNextCodePointAndAdvanceERiRPKcS4_.exit.thread.thread35: ; preds = %23, %21, %32, %_ZN4YAML5Utils12_GLOBAL__N_126GetNextCodePointAndAdvanceERiRPKcS4_.exit.thread.thread, %_ZN4YAML5Utils12_GLOBAL__N_126GetNextCodePointAndAdvanceERiRPKcS4_.exit.thread
+_ZN4YAML5Utils12_GLOBAL__N_126GetNextCodePointAndAdvanceERiRPKcS4_.exit.thread.thread36: ; preds = %23, %21, %32, %_ZN4YAML5Utils12_GLOBAL__N_126GetNextCodePointAndAdvanceERiRPKcS4_.exit.thread.thread, %_ZN4YAML5Utils12_GLOBAL__N_126GetNextCodePointAndAdvanceERiRPKcS4_.exit.thread
   %.1121524 = phi i32 [ 65533, %_ZN4YAML5Utils12_GLOBAL__N_126GetNextCodePointAndAdvanceERiRPKcS4_.exit.thread.thread ], [ %.11215, %_ZN4YAML5Utils12_GLOBAL__N_126GetNextCodePointAndAdvanceERiRPKcS4_.exit.thread ], [ 65533, %32 ], [ 65533, %21 ], [ 65533, %23 ]
   %.31623 = phi ptr [ %9, %_ZN4YAML5Utils12_GLOBAL__N_126GetNextCodePointAndAdvanceERiRPKcS4_.exit.thread.thread ], [ %.316, %_ZN4YAML5Utils12_GLOBAL__N_126GetNextCodePointAndAdvanceERiRPKcS4_.exit.thread ], [ %scevgep34, %32 ], [ %.110, %23 ], [ %4, %21 ]
   tail call fastcc void @_ZN4YAML5Utils12_GLOBAL__N_114WriteCodePointERNS_15ostream_wrapperEi(ptr noundef nonnull align 8 dereferenceable(57) %0, i32 noundef %.1121524)
   br label %39
 
-39:                                               ; preds = %_ZN4YAML5Utils12_GLOBAL__N_126GetNextCodePointAndAdvanceERiRPKcS4_.exit.thread.thread35, %38
-  %.31622 = phi ptr [ %.31623, %_ZN4YAML5Utils12_GLOBAL__N_126GetNextCodePointAndAdvanceERiRPKcS4_.exit.thread.thread35 ], [ %.316, %38 ]
+39:                                               ; preds = %_ZN4YAML5Utils12_GLOBAL__N_126GetNextCodePointAndAdvanceERiRPKcS4_.exit.thread.thread36, %38
+  %.31622 = phi ptr [ %.31623, %_ZN4YAML5Utils12_GLOBAL__N_126GetNextCodePointAndAdvanceERiRPKcS4_.exit.thread.thread36 ], [ %.316, %38 ]
   %.not = icmp eq ptr %.31622, %4
   br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !19
 
@@ -1285,12 +1285,12 @@ define noundef zeroext i1 @_ZN4YAML5Utils23WriteDoubleQuotedStringERNS_15ostream
   %.1 = getelementptr inbounds nuw i8, ptr %.058.pn, i64 1
   %.057.i = add nsw i32 %.057.in.i, -1
   %26 = icmp eq ptr %.1, %7
-  br i1 %26, label %.thread75, label %27
+  br i1 %26, label %.thread76, label %27
 
 27:                                               ; preds = %25
   %28 = load i8, ptr %.1, align 1, !tbaa !12
   %29 = icmp slt i8 %28, -64
-  br i1 %29, label %30, label %.thread75
+  br i1 %29, label %30, label %.thread76
 
 30:                                               ; preds = %27
   %31 = shl i32 %storemerge5255.i, 6
@@ -1304,14 +1304,14 @@ define noundef zeroext i1 @_ZN4YAML5Utils23WriteDoubleQuotedStringERNS_15ostream
   %37 = icmp sgt i32 %34, 1114111
   %38 = and i32 %storemerge5255.i, 67108832
   %or.cond.i = icmp eq i32 %38, 864
-  %or.cond59.i = select i1 %37, i1 true, i1 %or.cond.i
+  %or.cond61.i = select i1 %37, i1 true, i1 %or.cond.i
   %39 = and i32 %34, 65534
   %40 = icmp eq i32 %39, 65534
-  %or.cond61.i = or i1 %or.cond59.i, %40
+  %or.cond63.i = or i1 %or.cond61.i, %40
   %41 = add i32 %34, -64976
   %or.cond41.i = icmp ult i32 %41, 32
-  %or.cond62.i = or i1 %or.cond41.i, %or.cond61.i
-  br i1 %or.cond62.i, label %.thread75, label %_ZN4YAML5Utils12_GLOBAL__N_126GetNextCodePointAndAdvanceERiRPKcS4_.exit.thread
+  %or.cond64.i = or i1 %or.cond41.i, %or.cond63.i
+  br i1 %or.cond64.i, label %.thread76, label %_ZN4YAML5Utils12_GLOBAL__N_126GetNextCodePointAndAdvanceERiRPKcS4_.exit.thread
 
 _ZN4YAML5Utils12_GLOBAL__N_126GetNextCodePointAndAdvanceERiRPKcS4_.exit.thread33: ; preds = %_ZN4YAML5Utils12_GLOBAL__N_130WriteDoubleQuoteEscapeSequenceERNS_15ostream_wrapperEiNS_14StringEscaping5valueE.exit, %4
   call void @_ZN4YAML15ostream_wrapper5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(57) %0, ptr noundef nonnull @.str.2, i64 noundef 1)
@@ -1367,7 +1367,7 @@ _ZN4YAML5Utils12_GLOBAL__N_126GetNextCodePointAndAdvanceERiRPKcS4_.exit.thread: 
 
 .thread49:                                        ; preds = %9
   %52 = getelementptr inbounds nuw i8, ptr %.058, i64 1
-  br label %.thread75
+  br label %.thread76
 
 53:                                               ; preds = %49
   call fastcc void @_ZN4YAML5Utils12_GLOBAL__N_130WriteDoubleQuoteEscapeSequenceERNS_15ostream_wrapperEiNS_14StringEscaping5valueE(ptr noundef nonnull align 8 dereferenceable(57) %0, i32 noundef %.12831, i32 noundef %3)
@@ -1375,7 +1375,7 @@ _ZN4YAML5Utils12_GLOBAL__N_126GetNextCodePointAndAdvanceERiRPKcS4_.exit.thread: 
 
 54:                                               ; preds = %49
   %55 = icmp eq i32 %.12831, 65279
-  br i1 %55, label %56, label %.thread75
+  br i1 %55, label %56, label %.thread76
 
 56:                                               ; preds = %54
   call void @_ZN4YAML15ostream_wrapper5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(57) %0, ptr noundef nonnull @.str.34, i64 noundef 1)
@@ -1399,14 +1399,14 @@ _ZN4YAML5Utils12_GLOBAL__N_126GetNextCodePointAndAdvanceERiRPKcS4_.exit.thread: 
   %66 = icmp samesign ugt i32 %.133.i, 1
   br i1 %66, label %57, label %_ZN4YAML5Utils12_GLOBAL__N_130WriteDoubleQuoteEscapeSequenceERNS_15ostream_wrapperEiNS_14StringEscaping5valueE.exit, !llvm.loop !20
 
-.thread75:                                        ; preds = %27, %25, %36, %.thread49, %54
+.thread76:                                        ; preds = %27, %25, %36, %.thread49, %54
   %.12831404553 = phi i32 [ 65533, %.thread49 ], [ %.12831, %54 ], [ 65533, %36 ], [ 65533, %25 ], [ 65533, %27 ]
   %.332394752 = phi ptr [ %52, %.thread49 ], [ %.332, %54 ], [ %scevgep62, %36 ], [ %.1, %27 ], [ %7, %25 ]
   %67 = icmp samesign ugt i32 %.12831404553, 126
   %or.cond3 = and i1 %8, %67
   br i1 %or.cond3, label %tailrecurse._crit_edge.i, label %80
 
-tailrecurse._crit_edge.i:                         ; preds = %.thread75
+tailrecurse._crit_edge.i:                         ; preds = %.thread76
   call void @_ZN4YAML15ostream_wrapper5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(57) %0, ptr noundef nonnull @.str.34, i64 noundef 1)
   %68 = icmp samesign ult i32 %.12831404553, 255
   %69 = icmp samesign ult i32 %.12831404553, 65535
@@ -1434,7 +1434,7 @@ tailrecurse._crit_edge.i:                         ; preds = %.thread75
   %79 = icmp samesign ugt i32 %.133.i24, 1
   br i1 %79, label %70, label %_ZN4YAML5Utils12_GLOBAL__N_130WriteDoubleQuoteEscapeSequenceERNS_15ostream_wrapperEiNS_14StringEscaping5valueE.exit, !llvm.loop !20
 
-80:                                               ; preds = %.thread75
+80:                                               ; preds = %.thread76
   call fastcc void @_ZN4YAML5Utils12_GLOBAL__N_114WriteCodePointERNS_15ostream_wrapperEi(ptr noundef nonnull align 8 dereferenceable(57) %0, i32 noundef %.12831404553)
   br label %_ZN4YAML5Utils12_GLOBAL__N_130WriteDoubleQuoteEscapeSequenceERNS_15ostream_wrapperEiNS_14StringEscaping5valueE.exit
 
@@ -1537,7 +1537,7 @@ define noundef zeroext i1 @_ZN4YAML5Utils18WriteLiteralStringERNS_15ostream_wrap
 
 _ZN4YAML5Utils12_GLOBAL__N_126GetNextCodePointAndAdvanceERiRPKcS4_.exit.thread.thread: ; preds = %8
   %13 = getelementptr inbounds nuw i8, ptr %.0926, i64 1
-  br label %_ZN4YAML5Utils12_GLOBAL__N_126GetNextCodePointAndAdvanceERiRPKcS4_.exit.thread.thread30
+  br label %_ZN4YAML5Utils12_GLOBAL__N_126GetNextCodePointAndAdvanceERiRPKcS4_.exit.thread.thread32
 
 14:                                               ; preds = %8, %8, %8, %8, %8, %8, %8, %8
   %15 = getelementptr inbounds nuw i8, ptr %.0926, i64 1
@@ -1564,12 +1564,12 @@ _ZN4YAML5Utils12_GLOBAL__N_126GetNextCodePointAndAdvanceERiRPKcS4_.exit.thread.t
   %.110 = getelementptr inbounds nuw i8, ptr %.0926.pn, i64 1
   %.057.i = add nsw i32 %.057.in.i, -1
   %26 = icmp eq ptr %.110, %6
-  br i1 %26, label %_ZN4YAML5Utils12_GLOBAL__N_126GetNextCodePointAndAdvanceERiRPKcS4_.exit.thread.thread30, label %27
+  br i1 %26, label %_ZN4YAML5Utils12_GLOBAL__N_126GetNextCodePointAndAdvanceERiRPKcS4_.exit.thread.thread32, label %27
 
 27:                                               ; preds = %25
   %28 = load i8, ptr %.110, align 1, !tbaa !12
   %29 = icmp slt i8 %28, -64
-  br i1 %29, label %30, label %_ZN4YAML5Utils12_GLOBAL__N_126GetNextCodePointAndAdvanceERiRPKcS4_.exit.thread.thread30
+  br i1 %29, label %30, label %_ZN4YAML5Utils12_GLOBAL__N_126GetNextCodePointAndAdvanceERiRPKcS4_.exit.thread.thread32
 
 30:                                               ; preds = %27
   %31 = shl i32 %storemerge5255.i, 6
@@ -1583,14 +1583,14 @@ _ZN4YAML5Utils12_GLOBAL__N_126GetNextCodePointAndAdvanceERiRPKcS4_.exit.thread.t
   %37 = icmp sgt i32 %34, 1114111
   %38 = and i32 %storemerge5255.i, 67108832
   %or.cond.i = icmp eq i32 %38, 864
-  %or.cond59.i = select i1 %37, i1 true, i1 %or.cond.i
+  %or.cond61.i = select i1 %37, i1 true, i1 %or.cond.i
   %39 = and i32 %34, 65534
   %40 = icmp eq i32 %39, 65534
-  %or.cond61.i = or i1 %or.cond59.i, %40
+  %or.cond63.i = or i1 %or.cond61.i, %40
   %41 = add i32 %34, -64976
   %or.cond41.i = icmp ult i32 %41, 32
-  %or.cond62.i = or i1 %or.cond41.i, %or.cond61.i
-  br i1 %or.cond62.i, label %_ZN4YAML5Utils12_GLOBAL__N_126GetNextCodePointAndAdvanceERiRPKcS4_.exit.thread.thread30, label %_ZN4YAML5Utils12_GLOBAL__N_126GetNextCodePointAndAdvanceERiRPKcS4_.exit.thread
+  %or.cond64.i = or i1 %or.cond41.i, %or.cond63.i
+  br i1 %or.cond64.i, label %_ZN4YAML5Utils12_GLOBAL__N_126GetNextCodePointAndAdvanceERiRPKcS4_.exit.thread.thread32, label %_ZN4YAML5Utils12_GLOBAL__N_126GetNextCodePointAndAdvanceERiRPKcS4_.exit.thread
 
 _ZN4YAML5Utils12_GLOBAL__N_126GetNextCodePointAndAdvanceERiRPKcS4_.exit.thread15: ; preds = %48, %4
   ret i1 true
@@ -1599,20 +1599,20 @@ _ZN4YAML5Utils12_GLOBAL__N_126GetNextCodePointAndAdvanceERiRPKcS4_.exit.thread: 
   %.114 = phi i32 [ %16, %14 ], [ %34, %36 ]
   %.313 = phi ptr [ %15, %14 ], [ %scevgep29, %36 ]
   %42 = icmp eq i32 %.114, 10
-  br i1 %42, label %43, label %_ZN4YAML5Utils12_GLOBAL__N_126GetNextCodePointAndAdvanceERiRPKcS4_.exit.thread.thread30
+  br i1 %42, label %43, label %_ZN4YAML5Utils12_GLOBAL__N_126GetNextCodePointAndAdvanceERiRPKcS4_.exit.thread.thread32
 
 43:                                               ; preds = %_ZN4YAML5Utils12_GLOBAL__N_126GetNextCodePointAndAdvanceERiRPKcS4_.exit.thread
   call void @_ZN4YAML15ostream_wrapper5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(57) %0, ptr noundef nonnull @.str.11, i64 noundef 1)
   br label %48
 
-_ZN4YAML5Utils12_GLOBAL__N_126GetNextCodePointAndAdvanceERiRPKcS4_.exit.thread.thread30: ; preds = %27, %25, %36, %_ZN4YAML5Utils12_GLOBAL__N_126GetNextCodePointAndAdvanceERiRPKcS4_.exit.thread.thread, %_ZN4YAML5Utils12_GLOBAL__N_126GetNextCodePointAndAdvanceERiRPKcS4_.exit.thread
+_ZN4YAML5Utils12_GLOBAL__N_126GetNextCodePointAndAdvanceERiRPKcS4_.exit.thread.thread32: ; preds = %27, %25, %36, %_ZN4YAML5Utils12_GLOBAL__N_126GetNextCodePointAndAdvanceERiRPKcS4_.exit.thread.thread, %_ZN4YAML5Utils12_GLOBAL__N_126GetNextCodePointAndAdvanceERiRPKcS4_.exit.thread
   %.31322 = phi ptr [ %13, %_ZN4YAML5Utils12_GLOBAL__N_126GetNextCodePointAndAdvanceERiRPKcS4_.exit.thread.thread ], [ %.313, %_ZN4YAML5Utils12_GLOBAL__N_126GetNextCodePointAndAdvanceERiRPKcS4_.exit.thread ], [ %scevgep29, %36 ], [ %6, %25 ], [ %.110, %27 ]
   %.11420 = phi i32 [ 65533, %_ZN4YAML5Utils12_GLOBAL__N_126GetNextCodePointAndAdvanceERiRPKcS4_.exit.thread.thread ], [ %.114, %_ZN4YAML5Utils12_GLOBAL__N_126GetNextCodePointAndAdvanceERiRPKcS4_.exit.thread ], [ 65533, %36 ], [ 65533, %25 ], [ 65533, %27 ]
   %44 = load i64, ptr %7, align 8, !tbaa !22
   %45 = icmp ult i64 %44, %3
   br i1 %45, label %.lr.ph.i, label %_ZN4YAMLlsERNS_15ostream_wrapperERKNS_8IndentToE.exit
 
-.lr.ph.i:                                         ; preds = %_ZN4YAML5Utils12_GLOBAL__N_126GetNextCodePointAndAdvanceERiRPKcS4_.exit.thread.thread30, %.lr.ph.i
+.lr.ph.i:                                         ; preds = %_ZN4YAML5Utils12_GLOBAL__N_126GetNextCodePointAndAdvanceERiRPKcS4_.exit.thread.thread32, %.lr.ph.i
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i8 32, ptr %5, align 1, !tbaa !12
   call void @_ZN4YAML15ostream_wrapper5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(57) %0, ptr noundef nonnull %5, i64 noundef 1)
@@ -1621,7 +1621,7 @@ _ZN4YAML5Utils12_GLOBAL__N_126GetNextCodePointAndAdvanceERiRPKcS4_.exit.thread.t
   %47 = icmp ult i64 %46, %3
   br i1 %47, label %.lr.ph.i, label %_ZN4YAMLlsERNS_15ostream_wrapperERKNS_8IndentToE.exit, !llvm.loop !30
 
-_ZN4YAMLlsERNS_15ostream_wrapperERKNS_8IndentToE.exit: ; preds = %.lr.ph.i, %_ZN4YAML5Utils12_GLOBAL__N_126GetNextCodePointAndAdvanceERiRPKcS4_.exit.thread.thread30
+_ZN4YAMLlsERNS_15ostream_wrapperERKNS_8IndentToE.exit: ; preds = %.lr.ph.i, %_ZN4YAML5Utils12_GLOBAL__N_126GetNextCodePointAndAdvanceERiRPKcS4_.exit.thread.thread32
   call fastcc void @_ZN4YAML5Utils12_GLOBAL__N_114WriteCodePointERNS_15ostream_wrapperEi(ptr noundef nonnull align 8 dereferenceable(57) %0, i32 noundef %.11420)
   br label %48
 
@@ -1765,7 +1765,7 @@ _ZN4YAMLlsERNS_15ostream_wrapperERKNS_11IndentationE.exit: ; preds = %.lr.ph.i, 
 
 _ZN4YAML5Utils12_GLOBAL__N_126GetNextCodePointAndAdvanceERiRPKcS4_.exit.thread.thread: ; preds = %.lr.ph
   %17 = getelementptr inbounds nuw i8, ptr %.02138, i64 1
-  br label %_ZN4YAML5Utils12_GLOBAL__N_126GetNextCodePointAndAdvanceERiRPKcS4_.exit.thread.thread43
+  br label %_ZN4YAML5Utils12_GLOBAL__N_126GetNextCodePointAndAdvanceERiRPKcS4_.exit.thread.thread46
 
 18:                                               ; preds = %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph
   %19 = getelementptr inbounds nuw i8, ptr %.02138, i64 1
@@ -1792,12 +1792,12 @@ _ZN4YAML5Utils12_GLOBAL__N_126GetNextCodePointAndAdvanceERiRPKcS4_.exit.thread.t
   %.122 = getelementptr inbounds nuw i8, ptr %.02138.pn, i64 1
   %.057.i = add nsw i32 %.057.in.i, -1
   %30 = icmp eq ptr %.122, %12
-  br i1 %30, label %_ZN4YAML5Utils12_GLOBAL__N_126GetNextCodePointAndAdvanceERiRPKcS4_.exit.thread.thread43, label %31
+  br i1 %30, label %_ZN4YAML5Utils12_GLOBAL__N_126GetNextCodePointAndAdvanceERiRPKcS4_.exit.thread.thread46, label %31
 
 31:                                               ; preds = %29
   %32 = load i8, ptr %.122, align 1, !tbaa !12
   %33 = icmp slt i8 %32, -64
-  br i1 %33, label %34, label %_ZN4YAML5Utils12_GLOBAL__N_126GetNextCodePointAndAdvanceERiRPKcS4_.exit.thread.thread43
+  br i1 %33, label %34, label %_ZN4YAML5Utils12_GLOBAL__N_126GetNextCodePointAndAdvanceERiRPKcS4_.exit.thread.thread46
 
 34:                                               ; preds = %31
   %35 = shl i32 %storemerge5255.i, 6
@@ -1811,14 +1811,14 @@ _ZN4YAML5Utils12_GLOBAL__N_126GetNextCodePointAndAdvanceERiRPKcS4_.exit.thread.t
   %41 = icmp sgt i32 %38, 1114111
   %42 = and i32 %storemerge5255.i, 67108832
   %or.cond.i = icmp eq i32 %42, 864
-  %or.cond59.i = select i1 %41, i1 true, i1 %or.cond.i
+  %or.cond61.i = select i1 %41, i1 true, i1 %or.cond.i
   %43 = and i32 %38, 65534
   %44 = icmp eq i32 %43, 65534
-  %or.cond61.i = or i1 %or.cond59.i, %44
+  %or.cond63.i = or i1 %or.cond61.i, %44
   %45 = add i32 %38, -64976
   %or.cond41.i = icmp ult i32 %45, 32
-  %or.cond62.i = or i1 %or.cond41.i, %or.cond61.i
-  br i1 %or.cond62.i, label %_ZN4YAML5Utils12_GLOBAL__N_126GetNextCodePointAndAdvanceERiRPKcS4_.exit.thread.thread43, label %_ZN4YAML5Utils12_GLOBAL__N_126GetNextCodePointAndAdvanceERiRPKcS4_.exit.thread
+  %or.cond64.i = or i1 %or.cond41.i, %or.cond63.i
+  br i1 %or.cond64.i, label %_ZN4YAML5Utils12_GLOBAL__N_126GetNextCodePointAndAdvanceERiRPKcS4_.exit.thread.thread46, label %_ZN4YAML5Utils12_GLOBAL__N_126GetNextCodePointAndAdvanceERiRPKcS4_.exit.thread
 
 _ZN4YAML5Utils12_GLOBAL__N_126GetNextCodePointAndAdvanceERiRPKcS4_.exit.thread27: ; preds = %53, %_ZN4YAMLlsERNS_15ostream_wrapperERKNS_11IndentationE.exit
   ret i1 true
@@ -1827,7 +1827,7 @@ _ZN4YAML5Utils12_GLOBAL__N_126GetNextCodePointAndAdvanceERiRPKcS4_.exit.thread: 
   %.126 = phi i32 [ %20, %18 ], [ %38, %40 ]
   %.325 = phi ptr [ %19, %18 ], [ %scevgep41, %40 ]
   %46 = icmp eq i32 %.126, 10
-  br i1 %46, label %47, label %_ZN4YAML5Utils12_GLOBAL__N_126GetNextCodePointAndAdvanceERiRPKcS4_.exit.thread.thread43
+  br i1 %46, label %47, label %_ZN4YAML5Utils12_GLOBAL__N_126GetNextCodePointAndAdvanceERiRPKcS4_.exit.thread.thread46
 
 47:                                               ; preds = %_ZN4YAML5Utils12_GLOBAL__N_126GetNextCodePointAndAdvanceERiRPKcS4_.exit.thread
   call void @_ZN4YAML15ostream_wrapper5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(57) %0, ptr noundef nonnull @.str.11, i64 noundef 1)
@@ -1862,14 +1862,14 @@ _ZN4YAMLlsERNS_15ostream_wrapperERKNS_11IndentationE.exit15: ; preds = %.lr.ph.i
   store i8 1, ptr %11, align 8, !tbaa !33
   br label %53
 
-_ZN4YAML5Utils12_GLOBAL__N_126GetNextCodePointAndAdvanceERiRPKcS4_.exit.thread.thread43: ; preds = %31, %29, %40, %_ZN4YAML5Utils12_GLOBAL__N_126GetNextCodePointAndAdvanceERiRPKcS4_.exit.thread.thread, %_ZN4YAML5Utils12_GLOBAL__N_126GetNextCodePointAndAdvanceERiRPKcS4_.exit.thread
+_ZN4YAML5Utils12_GLOBAL__N_126GetNextCodePointAndAdvanceERiRPKcS4_.exit.thread.thread46: ; preds = %31, %29, %40, %_ZN4YAML5Utils12_GLOBAL__N_126GetNextCodePointAndAdvanceERiRPKcS4_.exit.thread.thread, %_ZN4YAML5Utils12_GLOBAL__N_126GetNextCodePointAndAdvanceERiRPKcS4_.exit.thread
   %.32534 = phi ptr [ %17, %_ZN4YAML5Utils12_GLOBAL__N_126GetNextCodePointAndAdvanceERiRPKcS4_.exit.thread.thread ], [ %.325, %_ZN4YAML5Utils12_GLOBAL__N_126GetNextCodePointAndAdvanceERiRPKcS4_.exit.thread ], [ %scevgep41, %40 ], [ %12, %29 ], [ %.122, %31 ]
   %.12632 = phi i32 [ 65533, %_ZN4YAML5Utils12_GLOBAL__N_126GetNextCodePointAndAdvanceERiRPKcS4_.exit.thread.thread ], [ %.126, %_ZN4YAML5Utils12_GLOBAL__N_126GetNextCodePointAndAdvanceERiRPKcS4_.exit.thread ], [ 65533, %40 ], [ 65533, %29 ], [ 65533, %31 ]
   call fastcc void @_ZN4YAML5Utils12_GLOBAL__N_114WriteCodePointERNS_15ostream_wrapperEi(ptr noundef nonnull align 8 dereferenceable(57) %0, i32 noundef %.12632)
   br label %53
 
-53:                                               ; preds = %_ZN4YAML5Utils12_GLOBAL__N_126GetNextCodePointAndAdvanceERiRPKcS4_.exit.thread.thread43, %_ZN4YAMLlsERNS_15ostream_wrapperERKNS_11IndentationE.exit15
-  %.32533 = phi ptr [ %.32534, %_ZN4YAML5Utils12_GLOBAL__N_126GetNextCodePointAndAdvanceERiRPKcS4_.exit.thread.thread43 ], [ %.325, %_ZN4YAMLlsERNS_15ostream_wrapperERKNS_11IndentationE.exit15 ]
+53:                                               ; preds = %_ZN4YAML5Utils12_GLOBAL__N_126GetNextCodePointAndAdvanceERiRPKcS4_.exit.thread.thread46, %_ZN4YAMLlsERNS_15ostream_wrapperERKNS_11IndentationE.exit15
+  %.32533 = phi ptr [ %.32534, %_ZN4YAML5Utils12_GLOBAL__N_126GetNextCodePointAndAdvanceERiRPKcS4_.exit.thread.thread46 ], [ %.325, %_ZN4YAMLlsERNS_15ostream_wrapperERKNS_11IndentationE.exit15 ]
   %.not = icmp eq ptr %.32533, %12
   br i1 %.not, label %_ZN4YAML5Utils12_GLOBAL__N_126GetNextCodePointAndAdvanceERiRPKcS4_.exit.thread27, label %.lr.ph, !llvm.loop !34
 }
@@ -1960,14 +1960,14 @@ define internal fastcc noundef zeroext i1 @_ZN4YAML5Utils12_GLOBAL__N_114WriteAl
   %33 = icmp sgt i32 %30, 1114111
   %34 = and i32 %storemerge5255.i, 67108832
   %or.cond.i = icmp eq i32 %34, 864
-  %or.cond59.i = select i1 %33, i1 true, i1 %or.cond.i
+  %or.cond61.i = select i1 %33, i1 true, i1 %or.cond.i
   %35 = and i32 %30, 65534
   %36 = icmp eq i32 %35, 65534
-  %or.cond61.i = or i1 %or.cond59.i, %36
+  %or.cond63.i = or i1 %or.cond61.i, %36
   %37 = add i32 %30, -64976
   %or.cond41.i = icmp ult i32 %37, 32
-  %or.cond62.i = or i1 %or.cond41.i, %or.cond61.i
-  br i1 %or.cond62.i, label %_ZN4YAML5Utils12_GLOBAL__N_112IsAnchorCharEi.exit, label %_ZN4YAML5Utils12_GLOBAL__N_126GetNextCodePointAndAdvanceERiRPKcS4_.exit.thread
+  %or.cond64.i = or i1 %or.cond41.i, %or.cond63.i
+  br i1 %or.cond64.i, label %_ZN4YAML5Utils12_GLOBAL__N_112IsAnchorCharEi.exit, label %_ZN4YAML5Utils12_GLOBAL__N_126GetNextCodePointAndAdvanceERiRPKcS4_.exit.thread
 
 _ZN4YAML5Utils12_GLOBAL__N_126GetNextCodePointAndAdvanceERiRPKcS4_.exit.thread: ; preds = %32, %10
   %.314 = phi ptr [ %11, %10 ], [ %scevgep68, %32 ]
@@ -5461,7 +5461,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(32) ptr @_ZN4YAML3Ex
 define linkonce_odr noundef i32 @_ZNK4YAML5RegEx14MatchUncheckedINS_16StringCharSourceEEEiRKT_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #1 comdat align 2 {
   %3 = alloca %"class.YAML::StringCharSource", align 8
   %4 = load i32, ptr %0, align 8, !tbaa !42
-  switch i32 %4, label %common.ret65 [
+  switch i32 %4, label %common.ret76 [
     i32 0, label %9
     i32 1, label %15
     i32 2, label %23
@@ -5477,7 +5477,7 @@ define linkonce_odr noundef i32 @_ZNK4YAML5RegEx14MatchUncheckedINS_16StringChar
   %7 = load ptr, ptr %6, align 8, !tbaa !52
   %8 = load ptr, ptr %5, align 8, !tbaa !53
   %.not20.i36.not = icmp eq ptr %7, %8
-  br i1 %.not20.i36.not, label %common.ret65, label %.lr.ph39
+  br i1 %.not20.i36.not, label %common.ret76, label %.lr.ph39
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -5486,7 +5486,7 @@ define linkonce_odr noundef i32 @_ZNK4YAML5RegEx14MatchUncheckedINS_16StringChar
   %13 = load i64, ptr %12, align 8, !tbaa !10
   %.not.i = icmp ult i64 %11, %13
   %14 = sext i1 %.not.i to i32
-  br label %common.ret65
+  br label %common.ret76
 
 15:                                               ; preds = %2
   %16 = load ptr, ptr %1, align 8, !tbaa !3
@@ -5498,7 +5498,7 @@ define linkonce_odr noundef i32 @_ZNK4YAML5RegEx14MatchUncheckedINS_16StringChar
   %22 = load i8, ptr %21, align 4, !tbaa !50
   %.not.i8 = icmp eq i8 %20, %22
   %..i = select i1 %.not.i8, i32 1, i32 -1
-  br label %common.ret65
+  br label %common.ret76
 
 23:                                               ; preds = %2
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -5514,7 +5514,7 @@ define linkonce_odr noundef i32 @_ZNK4YAML5RegEx14MatchUncheckedINS_16StringChar
   %34 = icmp slt i8 %33, %30
   %35 = select i1 %31, i1 true, i1 %34
   %.0.i = select i1 %35, i32 -1, i32 1
-  br label %common.ret65
+  br label %common.ret76
 
 36:                                               ; preds = %2
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -5522,18 +5522,18 @@ define linkonce_odr noundef i32 @_ZNK4YAML5RegEx14MatchUncheckedINS_16StringChar
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %40 = load ptr, ptr %39, align 8, !tbaa !51
   %.not2643 = icmp eq ptr %38, %40
-  br i1 %.not2643, label %common.ret65, label %.lr.ph45
+  br i1 %.not2643, label %common.ret76, label %.lr.ph45
 
 41:                                               ; preds = %.lr.ph45
   %42 = getelementptr inbounds nuw i8, ptr %.sroa.019.044, i64 32
   %.not26 = icmp eq ptr %42, %40
-  br i1 %.not26, label %common.ret65, label %.lr.ph45
+  br i1 %.not26, label %common.ret76, label %.lr.ph45
 
 .lr.ph45:                                         ; preds = %36, %41
   %.sroa.019.044 = phi ptr [ %42, %41 ], [ %38, %36 ]
   %43 = tail call noundef i32 @_ZNK4YAML5RegEx14MatchUncheckedINS_16StringCharSourceEEEiRKT_(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.019.044, ptr noundef nonnull align 8 dereferenceable(24) %1)
   %44 = icmp slt i32 %43, 0
-  br i1 %44, label %41, label %common.ret65
+  br i1 %44, label %41, label %common.ret76
 
 .lr.ph39:                                         ; preds = %.preheader, %48
   %45 = phi ptr [ %52, %48 ], [ %8, %.preheader ]
@@ -5542,7 +5542,7 @@ define linkonce_odr noundef i32 @_ZNK4YAML5RegEx14MatchUncheckedINS_16StringChar
   %46 = getelementptr inbounds nuw %"class.YAML::RegEx", ptr %45, i64 %.014.i38
   %47 = tail call noundef i32 @_ZNK4YAML5RegEx14MatchUncheckedINS_16StringCharSourceEEEiRKT_(ptr noundef nonnull align 8 dereferenceable(32) %46, ptr noundef nonnull align 8 dereferenceable(24) %1)
   %.not.i10 = icmp eq i32 %47, -1
-  br i1 %.not.i10, label %common.ret65, label %48
+  br i1 %.not.i10, label %common.ret76, label %48
 
 48:                                               ; preds = %.lr.ph39
   %49 = icmp eq i64 %.014.i38, 0
@@ -5555,7 +5555,7 @@ define linkonce_odr noundef i32 @_ZNK4YAML5RegEx14MatchUncheckedINS_16StringChar
   %55 = sub i64 %53, %54
   %56 = ashr exact i64 %55, 5
   %.not20.i = icmp ult i64 %50, %56
-  br i1 %.not20.i, label %.lr.ph39, label %common.ret65, !llvm.loop !54
+  br i1 %.not20.i, label %.lr.ph39, label %common.ret76, !llvm.loop !54
 
 57:                                               ; preds = %2
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -5563,17 +5563,17 @@ define linkonce_odr noundef i32 @_ZNK4YAML5RegEx14MatchUncheckedINS_16StringChar
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %61 = load ptr, ptr %60, align 8, !tbaa !51
   %62 = icmp eq ptr %59, %61
-  br i1 %62, label %common.ret65, label %63
+  br i1 %62, label %common.ret76, label %63
 
-common.ret65:                                     ; preds = %57, %2, %23, %15, %9, %36, %.preheader, %66, %41, %.lr.ph45, %48, %.lr.ph39, %80, %72, %63
-  %common.ret65.op = phi i32 [ %..i12, %63 ], [ %14, %9 ], [ %..i, %15 ], [ %.0.i, %23 ], [ -1, %2 ], [ -1, %57 ], [ -1, %36 ], [ -1, %.preheader ], [ 0, %66 ], [ %43, %.lr.ph45 ], [ -1, %41 ], [ -1, %.lr.ph39 ], [ %spec.select.i11, %48 ], [ -1, %72 ], [ %81, %80 ]
-  ret i32 %common.ret65.op
+common.ret76:                                     ; preds = %57, %2, %23, %15, %9, %36, %.preheader, %66, %41, %.lr.ph45, %48, %.lr.ph39, %80, %72, %63
+  %common.ret76.op = phi i32 [ %..i12, %63 ], [ %14, %9 ], [ %..i, %15 ], [ %.0.i, %23 ], [ -1, %2 ], [ -1, %57 ], [ -1, %36 ], [ -1, %.preheader ], [ 0, %66 ], [ %43, %.lr.ph45 ], [ -1, %41 ], [ -1, %.lr.ph39 ], [ %spec.select.i11, %48 ], [ -1, %72 ], [ %81, %80 ]
+  ret i32 %common.ret76.op
 
 63:                                               ; preds = %57
   %64 = tail call noundef i32 @_ZNK4YAML5RegEx14MatchUncheckedINS_16StringCharSourceEEEiRKT_(ptr noundef nonnull align 8 dereferenceable(32) %59, ptr noundef nonnull align 8 dereferenceable(24) %1)
   %65 = icmp sgt i32 %64, -1
   %..i12 = select i1 %65, i32 -1, i32 1
-  br label %common.ret65
+  br label %common.ret76
 
 66:                                               ; preds = %2
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -5581,7 +5581,7 @@ common.ret65:                                     ; preds = %57, %2, %23, %15, %
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %70 = load ptr, ptr %69, align 8, !tbaa !51
   %.not31 = icmp eq ptr %68, %70
-  br i1 %.not31, label %common.ret65, label %.lr.ph
+  br i1 %.not31, label %common.ret76, label %.lr.ph
 
 .lr.ph:                                           ; preds = %66
   %71 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -5603,13 +5603,13 @@ common.ret65:                                     ; preds = %57, %2, %23, %15, %
   %79 = call noundef i32 @_ZNK4YAML5RegEx5MatchINS_16StringCharSourceEEEiRKT_(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.023.032, ptr noundef nonnull align 8 dereferenceable(24) %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.not.i17 = icmp eq i32 %79, -1
-  br i1 %.not.i17, label %common.ret65, label %80
+  br i1 %.not.i17, label %common.ret76, label %80
 
 80:                                               ; preds = %72
   %81 = add nsw i32 %79, %.015.i1433
   %82 = getelementptr inbounds nuw i8, ptr %.sroa.023.032, i64 32
   %.not = icmp eq ptr %82, %70
-  br i1 %.not, label %common.ret65, label %72
+  br i1 %.not, label %common.ret76, label %72
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
@@ -5751,7 +5751,7 @@ define linkonce_odr noundef i32 @_ZNK4YAML5RegEx10MatchOpSeqINS_16StringCharSour
   %28 = getelementptr inbounds nuw i8, ptr %.sroa.021.026, i64 4
   %29 = load i8, ptr %28, align 4, !tbaa !50
   %.not.i.i = icmp eq i8 %27, %29
-  br i1 %.not.i.i, label %_ZNK4YAML5RegEx5MatchINS_16StringCharSourceEEEiRKT_.exit.thread33, label %_ZNK4YAML5RegEx5MatchINS_16StringCharSourceEEEiRKT_.exit.thread
+  br i1 %.not.i.i, label %_ZNK4YAML5RegEx5MatchINS_16StringCharSourceEEEiRKT_.exit.thread36, label %_ZNK4YAML5RegEx5MatchINS_16StringCharSourceEEEiRKT_.exit.thread
 
 30:                                               ; preds = %21
   %31 = getelementptr inbounds nuw i8, ptr %.sroa.021.026, i64 4
@@ -5764,7 +5764,7 @@ define linkonce_odr noundef i32 @_ZNK4YAML5RegEx10MatchOpSeqINS_16StringCharSour
   %38 = load i8, ptr %37, align 1
   %39 = icmp slt i8 %38, %35
   %40 = select i1 %36, i1 true, i1 %39
-  br i1 %40, label %_ZNK4YAML5RegEx5MatchINS_16StringCharSourceEEEiRKT_.exit.thread, label %_ZNK4YAML5RegEx5MatchINS_16StringCharSourceEEEiRKT_.exit.thread33
+  br i1 %40, label %_ZNK4YAML5RegEx5MatchINS_16StringCharSourceEEEiRKT_.exit.thread, label %_ZNK4YAML5RegEx5MatchINS_16StringCharSourceEEEiRKT_.exit.thread36
 
 41:                                               ; preds = %21
   %42 = call noundef i32 @_ZNK4YAML5RegEx9MatchOpOrINS_16StringCharSourceEEEiRKT_(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.021.026, ptr noundef nonnull align 8 dereferenceable(24) %3)
@@ -5786,7 +5786,7 @@ _ZNK4YAML5RegEx5MatchINS_16StringCharSourceEEEiRKT_.exit.thread: ; preds = %10, 
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %._crit_edge
 
-_ZNK4YAML5RegEx5MatchINS_16StringCharSourceEEEiRKT_.exit.thread33: ; preds = %30, %24
+_ZNK4YAML5RegEx5MatchINS_16StringCharSourceEEEiRKT_.exit.thread36: ; preds = %30, %24
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %50
 
@@ -5796,8 +5796,8 @@ _ZNK4YAML5RegEx5MatchINS_16StringCharSourceEEEiRKT_.exit: ; preds = %22, %41, %4
   %.not = icmp eq i32 %49, -1
   br i1 %.not, label %._crit_edge, label %50
 
-50:                                               ; preds = %_ZNK4YAML5RegEx5MatchINS_16StringCharSourceEEEiRKT_.exit.thread33, %_ZNK4YAML5RegEx5MatchINS_16StringCharSourceEEEiRKT_.exit
-  %51 = phi i32 [ 1, %_ZNK4YAML5RegEx5MatchINS_16StringCharSourceEEEiRKT_.exit.thread33 ], [ %49, %_ZNK4YAML5RegEx5MatchINS_16StringCharSourceEEEiRKT_.exit ]
+50:                                               ; preds = %_ZNK4YAML5RegEx5MatchINS_16StringCharSourceEEEiRKT_.exit.thread36, %_ZNK4YAML5RegEx5MatchINS_16StringCharSourceEEEiRKT_.exit
+  %51 = phi i32 [ 1, %_ZNK4YAML5RegEx5MatchINS_16StringCharSourceEEEiRKT_.exit.thread36 ], [ %49, %_ZNK4YAML5RegEx5MatchINS_16StringCharSourceEEEiRKT_.exit ]
   %52 = add nsw i32 %51, %.01527
   %53 = getelementptr inbounds nuw i8, ptr %.sroa.021.026, i64 32
   %.not24 = icmp eq ptr %53, %7

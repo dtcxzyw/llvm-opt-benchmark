@@ -5022,19 +5022,19 @@ define void @_ZN21uv_distribution_types24prioritized_distribution16IncompatibleD
   %.sroa.010.1.extract.shift = lshr i40 %3, 8
   %.sroa.010.1.extract.trunc = trunc nuw i40 %.sroa.010.1.extract.shift to i32
   %29 = load i64, ptr %1, align 8, !range !28, !noundef !6
-  switch i64 %29, label %default.unreachable134 [
+  switch i64 %29, label %default.unreachable135 [
     i64 0, label %30
     i64 1, label %33
     i64 2, label %34
   ]
 
-default.unreachable134:                           ; preds = %36, %30, %4
+default.unreachable135:                           ; preds = %36, %30, %4
   unreachable
 
 30:                                               ; preds = %4
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %32 = load i8, ptr %31, align 8, !range !322, !noundef !6
-  switch i8 %32, label %default.unreachable134 [
+  switch i8 %32, label %default.unreachable135 [
     i8 0, label %35
     i8 1, label %36
     i8 2, label %39
@@ -5058,7 +5058,7 @@ default.unreachable134:                           ; preds = %36, %30, %4
 36:                                               ; preds = %30
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 9
   %38 = load i8, ptr %37, align 1, !range !836, !noundef !6
-  switch i8 %38, label %default.unreachable134 [
+  switch i8 %38, label %default.unreachable135 [
     i8 0, label %43
     i8 1, label %44
     i8 2, label %46
@@ -5408,19 +5408,19 @@ define noundef zeroext i1 @"_ZN104_$LT$uv_distribution_types..prioritized_distri
   %37 = alloca [16 x i8], align 8
   %38 = alloca [16 x i8], align 8
   %39 = load i64, ptr %0, align 8, !range !28, !noundef !6
-  switch i64 %39, label %default.unreachable107 [
+  switch i64 %39, label %default.unreachable109 [
     i64 0, label %40
     i64 1, label %43
     i64 2, label %46
   ]
 
-default.unreachable107:                           ; preds = %203, %211, %233, %108, %116, %138, %51, %43, %40, %2
+default.unreachable109:                           ; preds = %203, %211, %233, %108, %116, %138, %51, %43, %40, %2
   unreachable
 
 40:                                               ; preds = %2
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %42 = load i8, ptr %41, align 8, !range !322, !noundef !6
-  switch i8 %42, label %default.unreachable107 [
+  switch i8 %42, label %default.unreachable109 [
     i8 0, label %48
     i8 1, label %51
     i8 2, label %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.llvm.7220102503332299125.exit
@@ -5432,7 +5432,7 @@ default.unreachable107:                           ; preds = %203, %211, %233, %1
 43:                                               ; preds = %2
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %45 = load i8, ptr %44, align 8, !range !114, !noundef !6
-  switch i8 %45, label %default.unreachable107 [
+  switch i8 %45, label %default.unreachable109 [
     i8 0, label %176
     i8 1, label %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.llvm.7220102503332299125.exit54
     i8 2, label %185
@@ -5452,7 +5452,7 @@ default.unreachable107:                           ; preds = %203, %211, %233, %1
 51:                                               ; preds = %40
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 9
   %53 = load i8, ptr %52, align 1, !range !836, !noundef !6
-  switch i8 %53, label %default.unreachable107 [
+  switch i8 %53, label %default.unreachable109 [
     i8 0, label %89
     i8 1, label %91
     i8 2, label %93
@@ -5600,7 +5600,7 @@ _ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.llvm.7220102503332299125.ex
   call void @llvm.lifetime.start.p0(ptr nonnull %18), !noalias !883
   call void @"_ZN97_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..Searcher$GT$4next17hcdb1a922a561f59bE.llvm.16679439562553428002"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %18, ptr noalias noundef nonnull align 8 dereferenceable(40) %19), !noalias !890
   %109 = load i64, ptr %18, align 8, !range !28, !noalias !883, !noundef !6
-  switch i64 %109, label %default.unreachable107 [
+  switch i64 %109, label %default.unreachable109 [
     i64 1, label %110
     i64 2, label %"_ZN99_$LT$core..str..pattern..CharPredicateSearcher$LT$F$GT$$u20$as$u20$core..str..pattern..Searcher$GT$11next_reject17h69022878e3036cdaE.llvm.16679439562553428002.exit.i"
     i64 0, label %115
@@ -5628,7 +5628,7 @@ _ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.llvm.7220102503332299125.ex
   call void @llvm.lifetime.start.p0(ptr nonnull %17), !noalias !891
   call void @"_ZN104_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..ReverseSearcher$GT$9next_back17h27bad9eb6be0e21aE.llvm.16679439562553428002"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %17, ptr noalias noundef nonnull align 8 dereferenceable(40) %19), !noalias !898
   %117 = load i64, ptr %17, align 8, !range !28, !noalias !891, !noundef !6
-  switch i64 %117, label %default.unreachable107 [
+  switch i64 %117, label %default.unreachable109 [
     i64 1, label %119
     i64 2, label %"_ZN106_$LT$core..str..pattern..CharPredicateSearcher$LT$F$GT$$u20$as$u20$core..str..pattern..ReverseSearcher$GT$16next_reject_back17hffa313c359e416f5E.llvm.16679439562553428002.exit.i"
     i64 0, label %118
@@ -5695,7 +5695,7 @@ _ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.llvm.7220102503332299125.ex
   call void @llvm.lifetime.start.p0(ptr nonnull %14), !noalias !908
   call void @"_ZN88_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..ReverseSearcher$GT$9next_back17h182f3aa835239622E.llvm.16679439562553428002"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %14, ptr noalias noundef nonnull align 8 dereferenceable(48) %16), !noalias !912
   %139 = load i64, ptr %14, align 8, !range !28, !noalias !908, !noundef !6
-  switch i64 %139, label %default.unreachable107 [
+  switch i64 %139, label %default.unreachable109 [
     i64 1, label %140
     i64 2, label %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.llvm.7220102503332299125.exit44
     i64 0, label %143
@@ -5923,7 +5923,7 @@ _ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.llvm.7220102503332299125.ex
   call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !939
   call void @"_ZN97_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..Searcher$GT$4next17hcdb1a922a561f59bE.llvm.16679439562553428002"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %9, ptr noalias noundef nonnull align 8 dereferenceable(40) %10), !noalias !946
   %204 = load i64, ptr %9, align 8, !range !28, !noalias !939, !noundef !6
-  switch i64 %204, label %default.unreachable107 [
+  switch i64 %204, label %default.unreachable109 [
     i64 1, label %205
     i64 2, label %"_ZN99_$LT$core..str..pattern..CharPredicateSearcher$LT$F$GT$$u20$as$u20$core..str..pattern..Searcher$GT$11next_reject17h69022878e3036cdaE.llvm.16679439562553428002.exit.i59"
     i64 0, label %210
@@ -5951,7 +5951,7 @@ _ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.llvm.7220102503332299125.ex
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !947
   call void @"_ZN104_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..ReverseSearcher$GT$9next_back17h27bad9eb6be0e21aE.llvm.16679439562553428002"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %8, ptr noalias noundef nonnull align 8 dereferenceable(40) %10), !noalias !954
   %212 = load i64, ptr %8, align 8, !range !28, !noalias !947, !noundef !6
-  switch i64 %212, label %default.unreachable107 [
+  switch i64 %212, label %default.unreachable109 [
     i64 1, label %214
     i64 2, label %"_ZN106_$LT$core..str..pattern..CharPredicateSearcher$LT$F$GT$$u20$as$u20$core..str..pattern..ReverseSearcher$GT$16next_reject_back17hffa313c359e416f5E.llvm.16679439562553428002.exit.i63"
     i64 0, label %213
@@ -6018,7 +6018,7 @@ _ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.llvm.7220102503332299125.ex
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !964
   call void @"_ZN88_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..ReverseSearcher$GT$9next_back17h182f3aa835239622E.llvm.16679439562553428002"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %5, ptr noalias noundef nonnull align 8 dereferenceable(48) %7), !noalias !968
   %234 = load i64, ptr %5, align 8, !range !28, !noalias !964, !noundef !6
-  switch i64 %234, label %default.unreachable107 [
+  switch i64 %234, label %default.unreachable109 [
     i64 1, label %235
     i64 2, label %_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.llvm.7220102503332299125.exit80
     i64 0, label %238
@@ -6252,7 +6252,7 @@ define void @_ZN21uv_distribution_types24prioritized_distribution15PrioritizedDi
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %.pre = load i64, ptr %22, align 8, !range !552
   %23 = icmp eq i64 %.pre, 3
-  br i1 %23, label %.thread40.thread41, label %.thread40.thread
+  br i1 %23, label %.thread40.thread43, label %.thread40.thread
 
 24:                                               ; preds = %12
   %25 = getelementptr inbounds nuw i8, ptr %3, i64 96
@@ -6261,7 +6261,7 @@ define void @_ZN21uv_distribution_types24prioritized_distribution15PrioritizedDi
   br i1 %21, label %43, label %28
 
 .thread39:                                        ; preds = %12
-  br i1 %21, label %.thread40.thread41, label %40
+  br i1 %21, label %.thread40.thread43, label %40
 
 28:                                               ; preds = %24
   br i1 %27, label %29, label %40
@@ -6294,7 +6294,7 @@ define void @_ZN21uv_distribution_types24prioritized_distribution15PrioritizedDi
   store ptr %1, ptr %.sroa.5.0..sroa_idx, align 8
   br label %39
 
-39:                                               ; preds = %35, %38, %53, %.thread40.thread41, %48, %40
+39:                                               ; preds = %35, %38, %53, %.thread40.thread43, %48, %40
   ret void
 
 40:                                               ; preds = %28, %.thread39
@@ -6333,9 +6333,9 @@ define void @_ZN21uv_distribution_types24prioritized_distribution15PrioritizedDi
   %50 = getelementptr inbounds nuw i8, ptr %3, i64 96
   %51 = load i8, ptr %50, align 8, !range !836, !noundef !6
   %52 = icmp eq i8 %51, 4
-  br i1 %52, label %53, label %.thread40.thread41
+  br i1 %52, label %53, label %.thread40.thread43
 
-.thread40.thread41:                               ; preds = %.thread39, %.thread40.thread, %.thread40
+.thread40.thread43:                               ; preds = %.thread39, %.thread40.thread, %.thread40
   store i32 4, ptr %0, align 8
   br label %39
 
@@ -7615,14 +7615,14 @@ define noundef zeroext i1 @_ZN21uv_distribution_types24prioritized_distribution2
 9:                                                ; preds = %7
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1105)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1108)
-  switch i8 %3, label %default.unreachable13.i [
+  switch i8 %3, label %default.unreachable [
     i8 0, label %10
     i8 1, label %11
     i8 2, label %12
     i8 3, label %_ZN21uv_distribution_types24prioritized_distribution18IncompatibleSource18is_more_compatible17h8310810896c121eaE.exit
   ]
 
-default.unreachable13.i:                          ; preds = %12, %9
+default.unreachable:                              ; preds = %12, %9
   unreachable
 
 10:                                               ; preds = %9
@@ -7635,7 +7635,7 @@ default.unreachable13.i:                          ; preds = %12, %9
   br label %_ZN21uv_distribution_types24prioritized_distribution18IncompatibleSource18is_more_compatible17h8310810896c121eaE.exit
 
 12:                                               ; preds = %9
-  switch i8 %5, label %default.unreachable13.i [
+  switch i8 %5, label %default.unreachable [
     i8 0, label %_ZN21uv_distribution_types24prioritized_distribution18IncompatibleSource18is_more_compatible17h8310810896c121eaE.exit
     i8 1, label %_ZN21uv_distribution_types24prioritized_distribution18IncompatibleSource18is_more_compatible17h8310810896c121eaE.exit
     i8 2, label %27
@@ -8296,14 +8296,14 @@ define void @"_ZN21uv_distribution_types121_$LT$impl$u20$uv_distribution_types..
 
 8:                                                ; preds = %2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1181)
-  switch i64 %3, label %default.unreachable1.i [
+  switch i64 %3, label %default.unreachable [
     i64 0, label %9
     i64 1, label %12
     i64 2, label %16
     i64 3, label %19
   ]
 
-default.unreachable1.i:                           ; preds = %8
+default.unreachable:                              ; preds = %8
   unreachable
 
 9:                                                ; preds = %8
@@ -8351,14 +8351,14 @@ define void @"_ZN21uv_distribution_types121_$LT$impl$u20$uv_distribution_types..
 
 8:                                                ; preds = %2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1207)
-  switch i64 %3, label %default.unreachable1.i [
+  switch i64 %3, label %default.unreachable [
     i64 0, label %9
     i64 1, label %12
     i64 2, label %16
     i64 3, label %19
   ]
 
-default.unreachable1.i:                           ; preds = %8
+default.unreachable:                              ; preds = %8
   unreachable
 
 9:                                                ; preds = %8

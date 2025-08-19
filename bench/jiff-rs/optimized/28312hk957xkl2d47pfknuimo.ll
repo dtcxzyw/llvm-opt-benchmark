@@ -9191,12 +9191,12 @@ _ZN4jiff3fmt8friendly7printer11Designators10designator17h3637c761b92830f5E.exit:
   %76 = trunc nuw i64 %75 to i1
   %77 = extractvalue { i64, ptr } %74, 1
   %spec.select = select i1 %76, ptr %77, ptr undef
-  %spec.select33 = and i64 %75, 1
+  %spec.select35 = and i64 %75, 1
   br label %78
 
 78:                                               ; preds = %_ZN4jiff3fmt8friendly7printer11Designators10designator17h3637c761b92830f5E.exit, %41, %54, %3, %"_ZN4jiff3fmt8friendly7printer25DesignatorWriter$LT$W$GT$16finish_preceding17h1fe9687bcc090c60E.exit.thread", %"_ZN4jiff3fmt8friendly7printer25DesignatorWriter$LT$W$GT$16finish_preceding17h1fe9687bcc090c60E.exit"
   %.sroa.7.1 = phi ptr [ %42, %41 ], [ %55, %54 ], [ undef, %3 ], [ %27, %"_ZN4jiff3fmt8friendly7printer25DesignatorWriter$LT$W$GT$16finish_preceding17h1fe9687bcc090c60E.exit.thread" ], [ %36, %"_ZN4jiff3fmt8friendly7printer25DesignatorWriter$LT$W$GT$16finish_preceding17h1fe9687bcc090c60E.exit" ], [ %spec.select, %_ZN4jiff3fmt8friendly7printer11Designators10designator17h3637c761b92830f5E.exit ]
-  %.sroa.0.1 = phi i64 [ 1, %41 ], [ 1, %54 ], [ 0, %3 ], [ 1, %"_ZN4jiff3fmt8friendly7printer25DesignatorWriter$LT$W$GT$16finish_preceding17h1fe9687bcc090c60E.exit.thread" ], [ 1, %"_ZN4jiff3fmt8friendly7printer25DesignatorWriter$LT$W$GT$16finish_preceding17h1fe9687bcc090c60E.exit" ], [ %spec.select33, %_ZN4jiff3fmt8friendly7printer11Designators10designator17h3637c761b92830f5E.exit ]
+  %.sroa.0.1 = phi i64 [ 1, %41 ], [ 1, %54 ], [ 0, %3 ], [ 1, %"_ZN4jiff3fmt8friendly7printer25DesignatorWriter$LT$W$GT$16finish_preceding17h1fe9687bcc090c60E.exit.thread" ], [ 1, %"_ZN4jiff3fmt8friendly7printer25DesignatorWriter$LT$W$GT$16finish_preceding17h1fe9687bcc090c60E.exit" ], [ %spec.select35, %_ZN4jiff3fmt8friendly7printer11Designators10designator17h3637c761b92830f5E.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %79 = insertvalue { i64, ptr } poison, i64 %.sroa.0.1, 0
   %80 = insertvalue { i64, ptr } %79, ptr %.sroa.7.1, 1

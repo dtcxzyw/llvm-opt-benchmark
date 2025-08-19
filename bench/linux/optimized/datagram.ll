@@ -334,7 +334,7 @@ define dso_local ptr @__skb_try_recv_from_queue(ptr readnone captures(none) %0, 
   br label %.loopexit
 
 .split.thread:                                    ; preds = %.preheader.split.split, %65, %.split
-  %.split1016 = phi i32 [ %.split10, %.split ], [ %.split10, %65 ], [ %23, %.preheader.split.split ]
+  %.split1025 = phi i32 [ %.split10, %.split ], [ %.split10, %65 ], [ %23, %.preheader.split.split ]
   %71 = phi ptr [ %.split9, %.split ], [ %66, %65 ], [ %22, %.preheader.split.split ]
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 212
   %73 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %72, i32 1, ptr nonnull elementtype(i32) %72) #10, !srcloc !13
@@ -370,7 +370,7 @@ define dso_local ptr @__skb_try_recv_from_queue(ptr readnone captures(none) %0, 
   br label %88
 
 88:                                               ; preds = %.preheader.thread, %80, %76, %75
-  %89 = phi i32 [ 0, %.preheader.thread ], [ %.split1016, %75 ], [ %.split1016, %76 ], [ %.split1016, %80 ]
+  %89 = phi i32 [ 0, %.preheader.thread ], [ %.split1025, %75 ], [ %.split1025, %76 ], [ %.split1025, %80 ]
   %90 = phi ptr [ %20, %.preheader.thread ], [ %71, %75 ], [ %71, %76 ], [ %71, %80 ]
   store i32 %89, ptr %3, align 4
   br label %.loopexit
@@ -1587,27 +1587,27 @@ define dso_local i32 @__zerocopy_sg_from_iter(ptr noundef readonly captures(addr
   %136 = sub i32 4096, %135
   br label %.preheader.outer
 
-.preheader.outer:                                 ; preds = %.thread21, %.preheader.preheader
-  %.ph = phi i32 [ 4096, %.thread21 ], [ %136, %.preheader.preheader ]
-  %.ph23 = phi i32 [ %231, %.thread21 ], [ %41, %.preheader.preheader ]
-  %.ph24 = phi i64 [ %204, %.thread21 ], [ %48, %.preheader.preheader ]
-  %.ph25 = phi i32 [ %205, %.thread21 ], [ 0, %.preheader.preheader ]
-  %.ph26 = phi i32 [ %195, %.thread21 ], [ %133, %.preheader.preheader ]
-  %.ph27 = phi ptr [ %145, %.thread21 ], [ null, %.preheader.preheader ]
-  %.ph28 = phi ptr [ %194, %.thread21 ], [ %123, %.preheader.preheader ]
-  %137 = icmp eq i32 %.ph23, 0
-  %138 = add i32 %.ph23, -1
+.preheader.outer:                                 ; preds = %.thread32, %.preheader.preheader
+  %.ph = phi i32 [ 4096, %.thread32 ], [ %136, %.preheader.preheader ]
+  %.ph34 = phi i32 [ %231, %.thread32 ], [ %41, %.preheader.preheader ]
+  %.ph35 = phi i64 [ %204, %.thread32 ], [ %48, %.preheader.preheader ]
+  %.ph36 = phi i32 [ %205, %.thread32 ], [ 0, %.preheader.preheader ]
+  %.ph37 = phi i32 [ %195, %.thread32 ], [ %133, %.preheader.preheader ]
+  %.ph38 = phi ptr [ %145, %.thread32 ], [ null, %.preheader.preheader ]
+  %.ph39 = phi ptr [ %194, %.thread32 ], [ %123, %.preheader.preheader ]
+  %137 = icmp eq i32 %.ph34, 0
+  %138 = add i32 %.ph34, -1
   %139 = sext i32 %138 to i64
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.outer, %226
   %140 = phi i32 [ 4096, %226 ], [ %.ph, %.preheader.outer ]
-  %141 = phi i64 [ %204, %226 ], [ %.ph24, %.preheader.outer ]
-  %142 = phi i32 [ %205, %226 ], [ %.ph25, %.preheader.outer ]
-  %143 = phi i32 [ %195, %226 ], [ %.ph26, %.preheader.outer ]
+  %141 = phi i64 [ %204, %226 ], [ %.ph35, %.preheader.outer ]
+  %142 = phi i32 [ %205, %226 ], [ %.ph36, %.preheader.outer ]
+  %143 = phi i32 [ %195, %226 ], [ %.ph37, %.preheader.outer ]
   %144 = phi i32 [ %228, %226 ], [ 0, %.preheader.outer ]
-  %145 = phi ptr [ %194, %226 ], [ %.ph27, %.preheader.outer ]
-  %146 = phi ptr [ %194, %226 ], [ %.ph28, %.preheader.outer ]
+  %145 = phi ptr [ %194, %226 ], [ %.ph38, %.preheader.outer ]
+  %146 = phi ptr [ %194, %226 ], [ %.ph39, %.preheader.outer ]
   %147 = trunc i64 %141 to i32
   %148 = call i32 @llvm.smin.i32(i32 %140, i32 %147)
   %149 = sext i32 %142 to i64
@@ -1714,13 +1714,13 @@ define dso_local i32 @__zerocopy_sg_from_iter(ptr noundef readonly captures(addr
 
 .thread:                                          ; preds = %206, %215, %193
   %223 = icmp eq i32 %144, 0
-  br i1 %223, label %.thread21, label %224
+  br i1 %223, label %.thread32, label %224
 
 224:                                              ; preds = %.thread
   %225 = getelementptr inbounds nuw i8, ptr %145, i64 52
   call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; subl $1,$0", "=*m,ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %225, i32 %144, ptr nonnull elementtype(i32) %225) #10, !srcloc !49
   %.pre20 = load i64, ptr %7, align 8
-  br label %.thread21
+  br label %.thread32
 
 226:                                              ; preds = %215
   %227 = add i32 %219, %148
@@ -1730,23 +1730,23 @@ define dso_local i32 @__zerocopy_sg_from_iter(ptr noundef readonly captures(addr
   %229 = icmp eq i64 %204, 0
   br i1 %229, label %246, label %.preheader, !llvm.loop !50
 
-.thread21:                                        ; preds = %.thread, %224
+.thread32:                                        ; preds = %.thread, %224
   %230 = phi i64 [ %.pre20, %224 ], [ %202, %.thread ]
-  %231 = add i32 %.ph23, 1
+  %231 = add i32 %.ph34, 1
   %232 = trunc i64 %230 to i32
   %233 = load ptr, ptr %20, align 8
   %234 = load i32, ptr %21, align 4
   %235 = zext i32 %234 to i64
   %236 = getelementptr i8, ptr %233, i64 %235
   %237 = getelementptr inbounds nuw i8, ptr %236, i64 48
-  %238 = sext i32 %.ph23 to i64
+  %238 = sext i32 %.ph34 to i64
   %239 = getelementptr [17 x %struct.bio_vec], ptr %237, i64 0, i64 %238
   store ptr %194, ptr %239, align 8
   %240 = getelementptr inbounds nuw i8, ptr %239, i64 12
   store i32 %232, ptr %240, align 4
   %241 = getelementptr inbounds nuw i8, ptr %239, i64 8
   store i32 %148, ptr %241, align 8
-  %242 = trunc i32 %.ph23 to i8
+  %242 = trunc i32 %.ph34 to i8
   %243 = add i8 %242, 1
   %244 = getelementptr inbounds nuw i8, ptr %236, i64 2
   store i8 %243, ptr %244, align 2
@@ -1769,8 +1769,8 @@ define dso_local i32 @__zerocopy_sg_from_iter(ptr noundef readonly captures(addr
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.loopexit
 
-.thread11:                                        ; preds = %.thread21, %132, %248, %246
-  %250 = phi i32 [ %.ph23, %248 ], [ %.ph23, %246 ], [ %41, %132 ], [ %231, %.thread21 ]
+.thread11:                                        ; preds = %.thread32, %132, %248, %246
+  %250 = phi i32 [ %.ph34, %248 ], [ %.ph34, %246 ], [ %41, %132 ], [ %231, %.thread32 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %251 = icmp eq i64 %51, 0

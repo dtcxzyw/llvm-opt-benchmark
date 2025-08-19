@@ -1618,7 +1618,7 @@ if.end32.i:                                       ; preds = %for.cond.i
   store i64 %or.i.i.i.i.i, ptr %retval.0.i.i.i.i.i.i78, align 8
   %call45.i = call noundef i32 @_ZN6hermes2vm9JSONLexer7advanceEv(ptr noundef nonnull align 8 dereferenceable(112) %lexer_) #12
   %cmp46.i = icmp eq i32 %call45.i, 0
-  br i1 %cmp46.i, label %_ZN6hermes2vm12_GLOBAL__N_117RuntimeJSONParser11parseObjectEv.exit.thread189, label %if.end48.i
+  br i1 %cmp46.i, label %_ZN6hermes2vm12_GLOBAL__N_117RuntimeJSONParser11parseObjectEv.exit.thread194, label %if.end48.i
 
 if.end48.i:                                       ; preds = %if.end32.i
   %25 = load i32, ptr %token_.i, align 8
@@ -1641,14 +1641,14 @@ if.then53.i:                                      ; preds = %if.end48.i
 if.end57.i:                                       ; preds = %if.end48.i
   %call59.i = call noundef i32 @_ZN6hermes2vm9JSONLexer7advanceEv(ptr noundef nonnull align 8 dereferenceable(112) %lexer_) #12
   %cmp60.i = icmp eq i32 %call59.i, 0
-  br i1 %cmp60.i, label %_ZN6hermes2vm12_GLOBAL__N_117RuntimeJSONParser11parseObjectEv.exit.thread189, label %if.end62.i
+  br i1 %cmp60.i, label %_ZN6hermes2vm12_GLOBAL__N_117RuntimeJSONParser11parseObjectEv.exit.thread194, label %if.end62.i
 
 if.end62.i:                                       ; preds = %if.end57.i
   %call63.i = call fastcc { i32, i64 } @_ZN6hermes2vm12_GLOBAL__N_117RuntimeJSONParser10parseValueEv(ptr noundef nonnull align 8 dereferenceable(140) %this)
   %27 = extractvalue { i32, i64 } %call63.i, 0
   %28 = extractvalue { i32, i64 } %call63.i, 1
   %cmp.i48 = icmp eq i32 %27, 0
-  br i1 %cmp.i48, label %_ZN6hermes2vm12_GLOBAL__N_117RuntimeJSONParser11parseObjectEv.exit.thread189, label %if.end66.i
+  br i1 %cmp.i48, label %_ZN6hermes2vm12_GLOBAL__N_117RuntimeJSONParser11parseObjectEv.exit.thread194, label %if.end66.i
 
 if.end66.i:                                       ; preds = %if.end62.i
   %29 = load ptr, ptr %this, align 8
@@ -1677,24 +1677,24 @@ _ZN6hermes2vm15HandleRootOwner10makeHandleENS0_11HermesValueE.exit: ; preds = %i
   %33 = load i32, ptr %token_.i, align 8
   switch i32 %33, label %if.else106.i [
     i32 9, label %if.then95.i
-    i32 6, label %_ZN6hermes2vm12_GLOBAL__N_117RuntimeJSONParser11parseObjectEv.exit.thread193
+    i32 6, label %_ZN6hermes2vm12_GLOBAL__N_117RuntimeJSONParser11parseObjectEv.exit.thread198
   ]
 
 if.then95.i:                                      ; preds = %_ZN6hermes2vm15HandleRootOwner10makeHandleENS0_11HermesValueE.exit
   %call97.i = call noundef i32 @_ZN6hermes2vm9JSONLexer18advanceStrAsSymbolEv(ptr noundef nonnull align 8 dereferenceable(112) %lexer_) #12
   %cmp98.i = icmp eq i32 %call97.i, 0
-  br i1 %cmp98.i, label %_ZN6hermes2vm12_GLOBAL__N_117RuntimeJSONParser11parseObjectEv.exit.thread189, label %for.cond.i, !llvm.loop !17
+  br i1 %cmp98.i, label %_ZN6hermes2vm12_GLOBAL__N_117RuntimeJSONParser11parseObjectEv.exit.thread194, label %for.cond.i, !llvm.loop !17
 
 if.else106.i:                                     ; preds = %_ZN6hermes2vm15HandleRootOwner10makeHandleENS0_11HermesValueE.exit
   %call108.i = call noundef i32 @_ZN6hermes2vm9JSONLexer19errorUnexpectedCharEv(ptr noundef nonnull align 8 dereferenceable(112) %lexer_)
   br label %_ZN6hermes2vm12_GLOBAL__N_117RuntimeJSONParser11parseObjectEv.exit
 
-_ZN6hermes2vm12_GLOBAL__N_117RuntimeJSONParser11parseObjectEv.exit.thread193: ; preds = %_ZN6hermes2vm15HandleRootOwner10makeHandleENS0_11HermesValueE.exit
+_ZN6hermes2vm12_GLOBAL__N_117RuntimeJSONParser11parseObjectEv.exit.thread198: ; preds = %_ZN6hermes2vm15HandleRootOwner10makeHandleENS0_11HermesValueE.exit
   %retval.sroa.0.0.copyload.i35 = load i64, ptr %retval.0.i.i.i.i.i.i91, align 8
   call void @_ZN6hermes2vm7GCScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(212) %gcScope.i) #12
   br label %if.end33.sink.split
 
-_ZN6hermes2vm12_GLOBAL__N_117RuntimeJSONParser11parseObjectEv.exit.thread189: ; preds = %if.then95.i, %if.end62.i, %if.end57.i, %if.end32.i
+_ZN6hermes2vm12_GLOBAL__N_117RuntimeJSONParser11parseObjectEv.exit.thread194: ; preds = %if.then95.i, %if.end62.i, %if.end57.i, %if.end32.i
   call void @_ZN6hermes2vm7GCScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(212) %gcScope.i) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %gcScope.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp30.i)
@@ -1710,8 +1710,8 @@ _ZN6hermes2vm12_GLOBAL__N_117RuntimeJSONParser11parseObjectEv.exit: ; preds = %i
   %cmp.i4 = icmp eq i32 %retval.i.sroa.0.0, 0
   br i1 %cmp.i4, label %cleanup, label %sw.epilog
 
-if.end33.sink.split:                              ; preds = %_ZN6hermes2vm12_GLOBAL__N_117RuntimeJSONParser11parseObjectEv.exit.thread162, %_ZN6hermes2vm12_GLOBAL__N_117RuntimeJSONParser11parseObjectEv.exit.thread193
-  %retval.i.sroa.13154.1168.ph = phi i64 [ %retval.sroa.0.0.copyload.i35, %_ZN6hermes2vm12_GLOBAL__N_117RuntimeJSONParser11parseObjectEv.exit.thread193 ], [ %retval.sroa.0.0.copyload.i82, %_ZN6hermes2vm12_GLOBAL__N_117RuntimeJSONParser11parseObjectEv.exit.thread162 ]
+if.end33.sink.split:                              ; preds = %_ZN6hermes2vm12_GLOBAL__N_117RuntimeJSONParser11parseObjectEv.exit.thread162, %_ZN6hermes2vm12_GLOBAL__N_117RuntimeJSONParser11parseObjectEv.exit.thread198
+  %retval.i.sroa.13154.1168.ph = phi i64 [ %retval.sroa.0.0.copyload.i35, %_ZN6hermes2vm12_GLOBAL__N_117RuntimeJSONParser11parseObjectEv.exit.thread198 ], [ %retval.sroa.0.0.copyload.i82, %_ZN6hermes2vm12_GLOBAL__N_117RuntimeJSONParser11parseObjectEv.exit.thread162 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %gcScope.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp30.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp55.i)
@@ -1938,9 +1938,9 @@ cleanup.critedge:                                 ; preds = %if.then58.i, %for.c
   call void @llvm.lifetime.end.p0(ptr nonnull %gcScope.i6)
   br label %cleanup
 
-cleanup:                                          ; preds = %_ZN6hermes2vm12_GLOBAL__N_117RuntimeJSONParser11parseObjectEv.exit.thread189, %cleanup.critedge, %sw.epilog, %if.end.i30, %if.then.i31, %if.else69.i, %_ZN6hermes2vm12_GLOBAL__N_117RuntimeJSONParser10parseArrayEv.exit.thread, %_ZN6hermes2vm12_GLOBAL__N_117RuntimeJSONParser11parseObjectEv.exit, %_ZN6hermes2vm12_GLOBAL__N_117RuntimeJSONParser11parseObjectEv.exit.thread, %if.end72, %if.then
-  %retval.sroa.0.0 = phi i32 [ %call, %if.then ], [ 1, %if.end72 ], [ 0, %_ZN6hermes2vm12_GLOBAL__N_117RuntimeJSONParser11parseObjectEv.exit.thread ], [ 0, %_ZN6hermes2vm12_GLOBAL__N_117RuntimeJSONParser11parseObjectEv.exit ], [ 0, %_ZN6hermes2vm12_GLOBAL__N_117RuntimeJSONParser10parseArrayEv.exit.thread ], [ 0, %if.else69.i ], [ %call.i.i, %if.then.i31 ], [ %call.i.i3.i, %if.end.i30 ], [ 0, %sw.epilog ], [ 0, %cleanup.critedge ], [ 0, %_ZN6hermes2vm12_GLOBAL__N_117RuntimeJSONParser11parseObjectEv.exit.thread189 ]
-  %retval.sroa.7.0 = phi i64 [ undef, %if.then ], [ %retval.sroa.0.0.copyload.i32, %if.end72 ], [ undef, %_ZN6hermes2vm12_GLOBAL__N_117RuntimeJSONParser11parseObjectEv.exit.thread ], [ undef, %_ZN6hermes2vm12_GLOBAL__N_117RuntimeJSONParser11parseObjectEv.exit ], [ undef, %_ZN6hermes2vm12_GLOBAL__N_117RuntimeJSONParser10parseArrayEv.exit.thread ], [ undef, %if.else69.i ], [ undef, %if.then.i31 ], [ undef, %if.end.i30 ], [ undef, %sw.epilog ], [ undef, %cleanup.critedge ], [ undef, %_ZN6hermes2vm12_GLOBAL__N_117RuntimeJSONParser11parseObjectEv.exit.thread189 ]
+cleanup:                                          ; preds = %_ZN6hermes2vm12_GLOBAL__N_117RuntimeJSONParser11parseObjectEv.exit.thread194, %cleanup.critedge, %sw.epilog, %if.end.i30, %if.then.i31, %if.else69.i, %_ZN6hermes2vm12_GLOBAL__N_117RuntimeJSONParser10parseArrayEv.exit.thread, %_ZN6hermes2vm12_GLOBAL__N_117RuntimeJSONParser11parseObjectEv.exit, %_ZN6hermes2vm12_GLOBAL__N_117RuntimeJSONParser11parseObjectEv.exit.thread, %if.end72, %if.then
+  %retval.sroa.0.0 = phi i32 [ %call, %if.then ], [ 1, %if.end72 ], [ 0, %_ZN6hermes2vm12_GLOBAL__N_117RuntimeJSONParser11parseObjectEv.exit.thread ], [ 0, %_ZN6hermes2vm12_GLOBAL__N_117RuntimeJSONParser11parseObjectEv.exit ], [ 0, %_ZN6hermes2vm12_GLOBAL__N_117RuntimeJSONParser10parseArrayEv.exit.thread ], [ 0, %if.else69.i ], [ %call.i.i, %if.then.i31 ], [ %call.i.i3.i, %if.end.i30 ], [ 0, %sw.epilog ], [ 0, %cleanup.critedge ], [ 0, %_ZN6hermes2vm12_GLOBAL__N_117RuntimeJSONParser11parseObjectEv.exit.thread194 ]
+  %retval.sroa.7.0 = phi i64 [ undef, %if.then ], [ %retval.sroa.0.0.copyload.i32, %if.end72 ], [ undef, %_ZN6hermes2vm12_GLOBAL__N_117RuntimeJSONParser11parseObjectEv.exit.thread ], [ undef, %_ZN6hermes2vm12_GLOBAL__N_117RuntimeJSONParser11parseObjectEv.exit ], [ undef, %_ZN6hermes2vm12_GLOBAL__N_117RuntimeJSONParser10parseArrayEv.exit.thread ], [ undef, %if.else69.i ], [ undef, %if.then.i31 ], [ undef, %if.end.i30 ], [ undef, %sw.epilog ], [ undef, %cleanup.critedge ], [ undef, %_ZN6hermes2vm12_GLOBAL__N_117RuntimeJSONParser11parseObjectEv.exit.thread194 ]
   store i32 %0, ptr %remainingDepth_, align 8
   %.fca.0.insert = insertvalue { i32, i64 } poison, i32 %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { i32, i64 } %.fca.0.insert, i64 %retval.sroa.7.0, 1

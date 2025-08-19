@@ -379,22 +379,22 @@ define internal noundef i32 @_ZL25u_sprintf_pad_and_justifyPvPK18u_printf_spec_i
 .thread:                                          ; preds = %4
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = load i32, ptr %15, align 8, !tbaa !14
-  %.76 = tail call i32 @llvm.smin.i32(i32 %3, i32 %16)
-  %.not6577 = icmp ne i32 %8, -1
-  %17 = icmp slt i32 %.76, %8
-  %or.cond6778 = select i1 %.not6577, i1 %17, i1 false
-  br i1 %or.cond6778, label %18, label %61
+  %.81 = tail call i32 @llvm.smin.i32(i32 %3, i32 %16)
+  %.not6582 = icmp ne i32 %8, -1
+  %17 = icmp slt i32 %.81, %8
+  %or.cond6783 = select i1 %.not6582, i1 %17, i1 false
+  br i1 %or.cond6783, label %18, label %61
 
 18:                                               ; preds = %.thread, %11
-  %.79 = phi i32 [ %.76, %.thread ], [ %., %11 ]
+  %.85 = phi i32 [ %.81, %.thread ], [ %., %11 ]
   %19 = phi i32 [ %16, %.thread ], [ %13, %11 ]
   %20 = phi ptr [ %15, %.thread ], [ %12, %11 ]
-  %21 = sub nsw i32 %8, %.79
+  %21 = sub nsw i32 %8, %.85
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %23 = load i32, ptr %22, align 4, !tbaa !13
   %24 = sub nsw i32 %23, %19
   %25 = icmp sgt i32 %8, %19
-  %26 = sub nsw i32 %19, %.79
+  %26 = sub nsw i32 %19, %.85
   %spec.store.select = tail call i32 @llvm.smax.i32(i32 %26, i32 0)
   %.056 = select i1 %25, i32 %spec.store.select, i32 %21
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -408,16 +408,16 @@ define internal noundef i32 @_ZL25u_sprintf_pad_and_justifyPvPK18u_printf_spec_i
 30:                                               ; preds = %29
   %31 = sext i32 %24 to i64
   %32 = getelementptr inbounds i16, ptr %5, i64 %31
-  %33 = tail call ptr @u_strncpy_77(ptr noundef nonnull %32, ptr noundef %2, i32 noundef %.79)
+  %33 = tail call ptr @u_strncpy_77(ptr noundef nonnull %32, ptr noundef %2, i32 noundef %.85)
   %34 = load i32, ptr %20, align 8, !tbaa !14
-  %35 = sub nsw i32 %34, %.79
+  %35 = sub nsw i32 %34, %.85
   store i32 %35, ptr %20, align 8, !tbaa !14
   %.pre75 = load ptr, ptr %0, align 8, !tbaa !7
   br label %_ZL15u_sprintf_writePvPKDsi.exit
 
 _ZL15u_sprintf_writePvPKDsi.exit:                 ; preds = %29, %30
   %36 = phi ptr [ null, %29 ], [ %.pre75, %30 ]
-  %37 = add nsw i32 %24, %.79
+  %37 = add nsw i32 %24, %.85
   %38 = sext i32 %37 to i64
   %39 = getelementptr inbounds i16, ptr %36, i64 %38
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 12
@@ -439,7 +439,7 @@ _ZL15u_sprintf_writePvPKDsi.exit:                 ; preds = %29, %30
   br i1 %52, label %_ZL15u_sprintf_writePvPKDsi.exit71, label %53
 
 53:                                               ; preds = %43
-  %..i69 = tail call i32 @llvm.smin.i32(i32 %.79, i32 %50)
+  %..i69 = tail call i32 @llvm.smin.i32(i32 %.85, i32 %50)
   %54 = load i32, ptr %22, align 4, !tbaa !13
   %55 = sub nsw i32 %54, %50
   %56 = sext i32 %55 to i64
@@ -449,14 +449,14 @@ _ZL15u_sprintf_writePvPKDsi.exit:                 ; preds = %29, %30
 
 _ZL15u_sprintf_writePvPKDsi.exit71.sink.split:    ; preds = %_ZL15u_sprintf_writePvPKDsi.exit, %53
   %..i69.sink = phi i32 [ %..i69, %53 ], [ %.056, %_ZL15u_sprintf_writePvPKDsi.exit ]
-  %.pn.ph = phi i32 [ %..i69, %53 ], [ %.79, %_ZL15u_sprintf_writePvPKDsi.exit ]
+  %.pn.ph = phi i32 [ %..i69, %53 ], [ %.85, %_ZL15u_sprintf_writePvPKDsi.exit ]
   %59 = load i32, ptr %20, align 8, !tbaa !14
   %60 = sub nsw i32 %59, %..i69.sink
   store i32 %60, ptr %20, align 8, !tbaa !14
   br label %_ZL15u_sprintf_writePvPKDsi.exit71
 
 _ZL15u_sprintf_writePvPKDsi.exit71:               ; preds = %_ZL15u_sprintf_writePvPKDsi.exit71.sink.split, %43
-  %.pn = phi i32 [ %.79, %43 ], [ %.pn.ph, %_ZL15u_sprintf_writePvPKDsi.exit71.sink.split ]
+  %.pn = phi i32 [ %.85, %43 ], [ %.pn.ph, %_ZL15u_sprintf_writePvPKDsi.exit71.sink.split ]
   %.057 = add nsw i32 %.pn, %.056
   br label %_ZL15u_sprintf_writePvPKDsi.exit74
 
@@ -466,14 +466,14 @@ _ZL15u_sprintf_writePvPKDsi.exit71:               ; preds = %_ZL15u_sprintf_writ
   %64 = sub nsw i32 %63, %16
   %65 = sext i32 %64 to i64
   %66 = getelementptr inbounds i16, ptr %5, i64 %65
-  %67 = tail call ptr @u_strncpy_77(ptr noundef nonnull %66, ptr noundef %2, i32 noundef %.76)
+  %67 = tail call ptr @u_strncpy_77(ptr noundef nonnull %66, ptr noundef %2, i32 noundef %.81)
   %68 = load i32, ptr %15, align 8, !tbaa !14
-  %69 = sub nsw i32 %68, %.76
+  %69 = sub nsw i32 %68, %.81
   store i32 %69, ptr %15, align 8, !tbaa !14
   br label %_ZL15u_sprintf_writePvPKDsi.exit74
 
 _ZL15u_sprintf_writePvPKDsi.exit74:               ; preds = %11, %61, %_ZL15u_sprintf_writePvPKDsi.exit71
-  %.1 = phi i32 [ %.057, %_ZL15u_sprintf_writePvPKDsi.exit71 ], [ %.76, %61 ], [ %., %11 ]
+  %.1 = phi i32 [ %.057, %_ZL15u_sprintf_writePvPKDsi.exit71 ], [ %.81, %61 ], [ %., %11 ]
   %70 = tail call i32 @llvm.smax.i32(i32 %3, i32 %.1)
   %71 = icmp slt i32 %.1, 0
   %spec.select = select i1 %71, i32 %.1, i32 %70

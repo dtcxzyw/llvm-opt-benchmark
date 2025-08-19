@@ -934,7 +934,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i149:  ; preds = %_ZNSt11char_traitsI
   %314 = ptrtoint ptr %312 to i64
   %315 = sub i64 %313, %314
   %316 = icmp eq i64 %315, 9223372036854775804
-  br i1 %316, label %.invoke413, label %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i
+  br i1 %316, label %.invoke480, label %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i
 
 _ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i: ; preds = %311
   %317 = ashr exact i64 %315, 2
@@ -996,7 +996,7 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit:          ; preds = %_ZNSt6vectorIiSaIiE
   %339 = ptrtoint ptr %337 to i64
   %340 = sub i64 %338, %339
   %341 = icmp eq i64 %340, 9223372036854775804
-  br i1 %341, label %.invoke413, label %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i164
+  br i1 %341, label %.invoke480, label %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i164
 
 _ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i164: ; preds = %336
   %342 = ashr exact i64 %340, 2
@@ -1058,13 +1058,13 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit172:       ; preds = %_ZNSt6vectorIiSaIiE
   %364 = ptrtoint ptr %362 to i64
   %365 = sub i64 %363, %364
   %366 = icmp eq i64 %365, 9223372036854775804
-  br i1 %366, label %.invoke413, label %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i174
+  br i1 %366, label %.invoke480, label %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i174
 
-.invoke413:                                       ; preds = %361, %336, %311
+.invoke480:                                       ; preds = %361, %336, %311
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.16) #24
-          to label %.cont414 unwind label %.loopexit.split-lp.loopexit.split-lp
+          to label %.cont481 unwind label %.loopexit.split-lp.loopexit.split-lp
 
-.cont414:                                         ; preds = %.invoke413
+.cont481:                                         ; preds = %.invoke480
   unreachable
 
 _ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i174: ; preds = %361
@@ -1120,7 +1120,7 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit182:       ; preds = %_ZNSt6vectorIiSaIiE
           cleanup
   br label %.loopexit.split-lp
 
-.loopexit.split-lp.loopexit.split-lp:             ; preds = %.invoke413, %.noexc271, %_ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i266, %.noexc269, %396, %390, %382
+.loopexit.split-lp.loopexit.split-lp:             ; preds = %.invoke480, %.noexc271, %_ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i266, %.noexc269, %396, %390, %382
   %lpad.loopexit.split-lp339 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp

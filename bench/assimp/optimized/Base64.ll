@@ -346,8 +346,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %24
   %48 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %47) #19
   store ptr %48, ptr %2, align 8
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %48, i8 0, i64 %47, i1 false)
-  %.not133 = icmp eq i64 %1, 4
-  br i1 %.not133, label %._crit_edge, label %.lr.ph
+  %.not153 = icmp eq i64 %1, 4
+  br i1 %.not153, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %37, %_ZN6Assimp6Base6410DecodeCharEc.exit78
   %49 = phi i64 [ %111, %_ZN6Assimp6Base6410DecodeCharEc.exit78 ], [ 4, %37 ]

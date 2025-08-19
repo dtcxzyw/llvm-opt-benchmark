@@ -779,8 +779,8 @@ invoke.cont17:                                    ; preds = %if.end.i.i.i.i.i.i.
   br i1 %cmp226.not, label %for.cond.cleanup.thread, label %for.body.lr.ph
 
 for.cond.cleanup.thread:                          ; preds = %invoke.cont17
-  %numberValidVectors_249 = getelementptr inbounds nuw i8, ptr %this, i64 40
-  store i64 0, ptr %numberValidVectors_249, align 8, !tbaa !66
+  %numberValidVectors_271 = getelementptr inbounds nuw i8, ptr %this, i64 40
+  store i64 0, ptr %numberValidVectors_271, align 8, !tbaa !66
   br label %for.cond.cleanup201
 
 for.body.lr.ph:                                   ; preds = %invoke.cont17
@@ -1320,13 +1320,13 @@ if.then.i.i.i192:                                 ; preds = %invoke.cont.i
   br label %_ZNSt6vectorIS_IdSaIdEESaIS1_EED2Ev.exit
 
 _ZNSt6vectorIS_IdSaIdEESaIS1_EED2Ev.exit:         ; preds = %invoke.cont.i.thread, %invoke.cont.i, %if.then.i.i.i192
-  %.pn65.pn.pn.pn253256 = phi { ptr, i32 } [ %19, %invoke.cont.i.thread ], [ %.pn65.pn.pn, %invoke.cont.i ], [ %.pn65.pn.pn, %if.then.i.i.i192 ]
+  %.pn65.pn.pn.pn275278 = phi { ptr, i32 } [ %19, %invoke.cont.i.thread ], [ %.pn65.pn.pn, %invoke.cont.i ], [ %.pn65.pn.pn, %if.then.i.i.i192 ]
   %77 = load ptr, ptr %_M_data.i, align 8, !tbaa !59
   call void @_ZdlPv(ptr noundef %77) #23
   br label %ehcleanup215
 
 ehcleanup215:                                     ; preds = %_ZNSt6vectorIS_IdSaIdEESaIS1_EED2Ev.exit, %lpad4
-  %.pn65.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn65.pn.pn.pn253256, %_ZNSt6vectorIS_IdSaIdEESaIS1_EED2Ev.exit ], [ %18, %lpad4 ]
+  %.pn65.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn65.pn.pn.pn275278, %_ZNSt6vectorIS_IdSaIdEESaIS1_EED2Ev.exit ], [ %18, %lpad4 ]
   %78 = load ptr, ptr %this, align 8, !tbaa !26
   %cmp.not.i.i198 = icmp eq ptr %78, null
   br i1 %cmp.not.i.i198, label %_ZN8QuantLib6MatrixD2Ev.exit200, label %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i199

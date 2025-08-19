@@ -319,8 +319,8 @@ define dso_local void @get_control_data(ptr noundef %0) local_unnamed_addr #0 {
 
 ._crit_edge.thread:                               ; preds = %.preheader
   %93 = call i32 @pclose(ptr noundef nonnull %60)
-  %.not4541240 = icmp eq i32 %93, 0
-  br i1 %.not4541240, label %.thread1242, label %94
+  %.not4541305 = icmp eq i32 %93, 0
+  br i1 %.not4541305, label %.thread1307, label %94
 
 94:                                               ; preds = %._crit_edge.thread, %._crit_edge
   %95 = phi i32 [ %93, %._crit_edge.thread ], [ %92, %._crit_edge ]
@@ -329,16 +329,16 @@ define dso_local void @get_control_data(ptr noundef %0) local_unnamed_addr #0 {
   unreachable
 
 97:                                               ; preds = %._crit_edge
-  br i1 %.1333, label %100, label %.thread1242
+  br i1 %.1333, label %100, label %.thread1307
 
-.thread1242:                                      ; preds = %._crit_edge.thread, %97
+.thread1307:                                      ; preds = %._crit_edge.thread, %97
   br i1 %4, label %98, label %99
 
-98:                                               ; preds = %.thread1242
+98:                                               ; preds = %.thread1307
   call void (ptr, ...) @pg_fatal(ptr noundef nonnull @.str.22) #10
   unreachable
 
-99:                                               ; preds = %.thread1242
+99:                                               ; preds = %.thread1307
   call void (ptr, ...) @pg_fatal(ptr noundef nonnull @.str.23) #10
   unreachable
 

@@ -666,19 +666,19 @@ nghttp2_buf_wrap_init.exit:                       ; preds = %.preheader, %27
   br label %nghttp2_bufs_wrap_init.exit.sink.split
 
 nghttp2_bufs_wrap_init.exit.sink.split:           ; preds = %30, %10
-  %.sink46 = phi ptr [ %8, %10 ], [ %.0..0..0..0.34, %30 ]
-  %.sink41 = phi i64 [ 1, %10 ], [ %2, %30 ]
-  store ptr %.sink46, ptr %0, align 8, !tbaa !19
+  %.sink49 = phi ptr [ %8, %10 ], [ %.0..0..0..0.34, %30 ]
+  %.sink44 = phi i64 [ 1, %10 ], [ %2, %30 ]
+  store ptr %.sink49, ptr %0, align 8, !tbaa !19
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sink46, ptr %33, align 8, !tbaa !20
+  store ptr %.sink49, ptr %33, align 8, !tbaa !20
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 0, ptr %34, align 8, !tbaa !24
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i64 %.sink41, ptr %35, align 8, !tbaa !25
+  store i64 %.sink44, ptr %35, align 8, !tbaa !25
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i64 %.sink41, ptr %36, align 8, !tbaa !26
+  store i64 %.sink44, ptr %36, align 8, !tbaa !26
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i64 %.sink41, ptr %37, align 8, !tbaa !27
+  store i64 %.sink44, ptr %37, align 8, !tbaa !27
   br label %nghttp2_bufs_wrap_init.exit
 
 nghttp2_bufs_wrap_init.exit:                      ; preds = %nghttp2_bufs_wrap_init.exit.sink.split, %7, %13
@@ -762,12 +762,12 @@ define dso_local i64 @nghttp2_bufs_len(ptr noundef readonly captures(none) %0) l
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 -901, 1) i32 @nghttp2_bufs_add(ptr noundef captures(none) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.not52 = icmp eq i64 %2, 0
-  br i1 %.not52, label %.split, label %.outer.split.preheader
+  %.not54 = icmp eq i64 %2, 0
+  br i1 %.not54, label %.split, label %.outer.split.preheader
 
 .outer.split.preheader:                           ; preds = %3, %.outer
-  %.0.ph54 = phi ptr [ %18, %.outer ], [ %1, %3 ]
-  %.022.ph53 = phi i64 [ %19, %.outer ], [ %2, %3 ]
+  %.0.ph56 = phi ptr [ %18, %.outer ], [ %1, %3 ]
+  %.022.ph55 = phi i64 [ %19, %.outer ], [ %2, %3 ]
   br label %.outer.split
 
 .outer.split:                                     ; preds = %.outer.split.preheader, %11
@@ -789,11 +789,11 @@ define dso_local range(i32 -901, 1) i32 @nghttp2_bufs_add(ptr noundef captures(n
   %14 = ptrtoint ptr %9 to i64
   %15 = ptrtoint ptr %7 to i64
   %16 = sub i64 %15, %14
-  %..022 = tail call i64 @llvm.umin.i64(i64 %16, i64 %.022.ph53)
-  %17 = tail call ptr @nghttp2_cpymem(ptr noundef %9, ptr noundef %.0.ph54, i64 noundef %..022) #10
+  %..022 = tail call i64 @llvm.umin.i64(i64 %16, i64 %.022.ph55)
+  %17 = tail call ptr @nghttp2_cpymem(ptr noundef %9, ptr noundef %.0.ph56, i64 noundef %..022) #10
   store ptr %17, ptr %13, align 8, !tbaa !11
-  %18 = getelementptr inbounds nuw i8, ptr %.0.ph54, i64 %..022
-  %19 = sub i64 %.022.ph53, %..022
+  %18 = getelementptr inbounds nuw i8, ptr %.0.ph56, i64 %..022
+  %19 = sub i64 %.022.ph55, %..022
   %.not = icmp eq i64 %19, 0
   br i1 %.not, label %.split, label %.outer.split.preheader, !llvm.loop !38
 

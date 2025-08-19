@@ -577,10 +577,10 @@ Abc_ShowGetFileName.exit:                         ; preds = %109, %.critedge
   br i1 %exitcond.not, label %.lr.ph102.preheader, label %128, !llvm.loop !50
 
 .lr.ph102.preheader:                              ; preds = %128
-  %.val84120 = load ptr, ptr %9, align 8, !tbaa !37
-  %133 = getelementptr i8, ptr %.val84120, i64 4
-  %.val84.val121 = load i32, ptr %133, align 4, !tbaa !38
-  %134 = tail call i32 @Cudd_DumpDot(ptr noundef nonnull %5, i32 noundef %.val84.val121, ptr noundef nonnull %126, ptr noundef %118, ptr noundef %119, ptr noundef nonnull %112) #10
+  %.val84134 = load ptr, ptr %9, align 8, !tbaa !37
+  %133 = getelementptr i8, ptr %.val84134, i64 4
+  %.val84.val135 = load i32, ptr %133, align 4, !tbaa !38
+  %134 = tail call i32 @Cudd_DumpDot(ptr noundef nonnull %5, i32 noundef %.val84.val135, ptr noundef nonnull %126, ptr noundef %118, ptr noundef %119, ptr noundef nonnull %112) #10
   %wide.trip.count112 = zext nneg i32 %.val80 to i64
   br label %.lr.ph102
 
@@ -1300,14 +1300,14 @@ define void @Abc_NtkWriteFlopDependency(ptr noundef %0, ptr noundef %1) local_un
   br i1 %.not.i, label %Vec_PtrFree.exit, label %.critedge.thread
 
 .critedge.thread:                                 ; preds = %53, %.critedge
-  %.0.lcssa114 = phi i32 [ 0, %.critedge ], [ %60, %53 ]
+  %.0.lcssa116 = phi i32 [ 0, %.critedge ], [ %60, %53 ]
   call void @free(ptr noundef nonnull %.val62) #10
   br label %Vec_PtrFree.exit
 
 Vec_PtrFree.exit:                                 ; preds = %.critedge, %.critedge.thread
-  %.0.lcssa115 = phi i32 [ 0, %.critedge ], [ %.0.lcssa114, %.critedge.thread ]
+  %.0.lcssa117 = phi i32 [ 0, %.critedge ], [ %.0.lcssa116, %.critedge.thread ]
   call void @free(ptr noundef nonnull %49) #10
-  %61 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %4, ptr noundef nonnull @.str.27, i32 noundef %48, i32 noundef %48, i32 noundef %.0.lcssa115) #10
+  %61 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %4, ptr noundef nonnull @.str.27, i32 noundef %48, i32 noundef %48, i32 noundef %.0.lcssa117) #10
   %.pre106 = load ptr, ptr %17, align 8, !tbaa !61
   br label %62
 

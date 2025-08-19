@@ -410,7 +410,7 @@ _ZNSt11unique_lockISt5mutexED2Ev.exit:            ; preds = %"_ZNSt18condition_v
   br i1 %34, label %35, label %_ZNSt11unique_lockISt5mutexED2Ev.exit5
 
 35:                                               ; preds = %.thread, %32
-  %.pn9 = phi { ptr, i32 } [ %14, %.thread ], [ %33, %32 ]
+  %.pn11 = phi { ptr, i32 } [ %14, %.thread ], [ %33, %32 ]
   %36 = load ptr, ptr %2, align 8, !tbaa !25
   %.not.i.i4 = icmp eq ptr %36, null
   br i1 %.not.i.i4, label %_ZNSt11unique_lockISt5mutexED2Ev.exit5, label %37
@@ -420,9 +420,9 @@ _ZNSt11unique_lockISt5mutexED2Ev.exit:            ; preds = %"_ZNSt18condition_v
   br label %_ZNSt11unique_lockISt5mutexED2Ev.exit5
 
 _ZNSt11unique_lockISt5mutexED2Ev.exit5:           ; preds = %32, %35, %37
-  %.pn8 = phi { ptr, i32 } [ %33, %32 ], [ %.pn9, %35 ], [ %.pn9, %37 ]
+  %.pn10 = phi { ptr, i32 } [ %33, %32 ], [ %.pn11, %35 ], [ %.pn11, %37 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  resume { ptr, i32 } %.pn8
+  resume { ptr, i32 } %.pn10
 }
 
 ; Function Attrs: inlinehint mustprogress noreturn uwtable
@@ -1053,7 +1053,7 @@ _ZNSt11unique_lockISt5mutexEC2ERS0_.exit:         ; preds = %1
   br i1 %16, label %17, label %_ZNSt11unique_lockISt5mutexED2Ev.exit
 
 17:                                               ; preds = %.thread, %15
-  %lpad.phi34 = phi { ptr, i32 } [ %lpad.loopexit, %.thread ], [ %lpad.loopexit.split-lp, %15 ]
+  %lpad.phi38 = phi { ptr, i32 } [ %lpad.loopexit, %.thread ], [ %lpad.loopexit.split-lp, %15 ]
   %18 = load ptr, ptr %2, align 8, !tbaa !25
   %.not.i.i = icmp eq ptr %18, null
   br i1 %.not.i.i, label %_ZNSt11unique_lockISt5mutexED2Ev.exit, label %19
@@ -1063,9 +1063,9 @@ _ZNSt11unique_lockISt5mutexEC2ERS0_.exit:         ; preds = %1
   br label %_ZNSt11unique_lockISt5mutexED2Ev.exit
 
 _ZNSt11unique_lockISt5mutexED2Ev.exit:            ; preds = %15, %17, %19
-  %lpad.phi33 = phi { ptr, i32 } [ %lpad.loopexit.split-lp, %15 ], [ %lpad.phi34, %17 ], [ %lpad.phi34, %19 ]
+  %lpad.phi37 = phi { ptr, i32 } [ %lpad.loopexit.split-lp, %15 ], [ %lpad.phi38, %17 ], [ %lpad.phi38, %19 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  resume { ptr, i32 } %lpad.phi33
+  resume { ptr, i32 } %lpad.phi37
 
 .critedge:                                        ; preds = %12
   %21 = getelementptr inbounds nuw i8, ptr %.01128, i64 8

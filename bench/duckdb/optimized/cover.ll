@@ -1157,16 +1157,16 @@ _ZN11duckdb_zstdL16COVER_map_removeEPNS_11COVER_map_sEj.exit.i: ; preds = %125, 
   br i1 %.not68.i, label %_ZN11duckdb_zstdL19COVER_selectSegmentEPKNS_11COVER_ctx_tEPjPNS_11COVER_map_sEjjNS_20ZDICT_cover_params_tE.exit, label %.lr.ph24.i, !llvm.loop !56
 
 _ZN11duckdb_zstdL19COVER_selectSegmentEPKNS_11COVER_ctx_tEPjPNS_11COVER_map_sEjjNS_20ZDICT_cover_params_tE.exit: ; preds = %.lr.ph24.i, %.preheader1.i, %.preheader.i
-  %.065.lcssa41.i = phi i32 [ %.167.i, %.preheader.i ], [ %.sroa.048.sroa.7.1.i, %.preheader1.i ], [ %.1.i, %.lr.ph24.i ]
-  %.066.lcssa40.i = phi i32 [ %.167.i, %.preheader.i ], [ %.sroa.048.sroa.7.1.i, %.preheader1.i ], [ %.167.i, %.lr.ph24.i ]
-  %.sroa.048.sroa.0.0.insert.ext.i = zext i32 %.066.lcssa40.i to i64
+  %.065.lcssa44.i = phi i32 [ %.167.i, %.preheader.i ], [ %.sroa.048.sroa.7.1.i, %.preheader1.i ], [ %.1.i, %.lr.ph24.i ]
+  %.066.lcssa43.i = phi i32 [ %.167.i, %.preheader.i ], [ %.sroa.048.sroa.7.1.i, %.preheader1.i ], [ %.167.i, %.lr.ph24.i ]
+  %.sroa.048.sroa.0.0.insert.ext.i = zext i32 %.066.lcssa43.i to i64
   %178 = icmp eq i32 %.sroa.12.1.i, 0
   br i1 %178, label %_ZN11duckdb_zstdL19COVER_selectSegmentEPKNS_11COVER_ctx_tEPjPNS_11COVER_map_sEjjNS_20ZDICT_cover_params_tE.exit.thread, label %179
 
 179:                                              ; preds = %_ZN11duckdb_zstdL19COVER_selectSegmentEPKNS_11COVER_ctx_tEPjPNS_11COVER_map_sEjjNS_20ZDICT_cover_params_tE.exit
   %180 = load i32, ptr %.sroa.2.0..sroa_idx, align 4, !tbaa !57
-  %181 = xor i32 %.066.lcssa40.i, -1
-  %182 = add i32 %.065.lcssa41.i, %181
+  %181 = xor i32 %.066.lcssa43.i, -1
+  %182 = add i32 %.065.lcssa44.i, %181
   %183 = add i32 %182, %180
   %184 = zext i32 %183 to i64
   %..045 = tail call i64 @llvm.umin.i64(i64 %.04586, i64 %184)
@@ -1269,10 +1269,10 @@ define noundef i64 @_ZN11duckdb_zstd30COVER_checkTotalCompressedSizeENS_20ZDICT_
   %23 = icmp eq ptr %18, null
   %24 = icmp eq ptr %19, null
   %25 = icmp eq ptr %22, null
-  %.not69 = or i1 %24, %25
-  %or.cond3.not66 = or i1 %23, %.not69
-  %brmerge = or i1 %or.cond3.not66, %13
-  %.mux = select i1 %or.cond3.not66, i64 -1, i64 %7
+  %.not78 = or i1 %24, %25
+  %or.cond3.not75 = or i1 %23, %.not78
+  %brmerge = or i1 %or.cond3.not75, %13
+  %.mux = select i1 %or.cond3.not75, i64 -1, i64 %7
   br i1 %brmerge, label %.loopexit, label %.lr.ph59
 
 .lr.ph59:                                         ; preds = %._crit_edge, %33

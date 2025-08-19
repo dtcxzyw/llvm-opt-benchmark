@@ -82,9 +82,9 @@ Vec_IntPush.exit.sink.split:                      ; preds = %21
   %37 = shl nuw nsw i32 %33, 1
   %38 = zext nneg i32 %37 to i64
   %39 = shl nuw nsw i64 %38, 2
-  %.sink68 = select i1 %36, i64 64, i64 %39
+  %.sink72 = select i1 %36, i64 64, i64 %39
   %.sink = select i1 %36, i32 16, i32 %37
-  %40 = tail call ptr @realloc(ptr noundef nonnull %.pre.i3955, i64 noundef %.sink68) #13
+  %40 = tail call ptr @realloc(ptr noundef nonnull %.pre.i3955, i64 noundef %.sink72) #13
   store i32 %.sink, ptr %6, align 8, !tbaa !27
   br label %Vec_IntPush.exit
 
@@ -124,10 +124,10 @@ Vec_IntPush.exit36.sink.split:                    ; preds = %.lr.ph
   %54 = shl nuw nsw i32 %50, 1
   %55 = zext nneg i32 %54 to i64
   %56 = shl nuw nsw i64 %55, 2
-  %.sink70 = select i1 %53, i64 64, i64 %56
-  %.sink69 = select i1 %53, i32 16, i32 %54
-  %57 = tail call ptr @realloc(ptr noundef nonnull %.pre.i3953, i64 noundef %.sink70) #13
-  store i32 %.sink69, ptr %6, align 8, !tbaa !27
+  %.sink74 = select i1 %53, i64 64, i64 %56
+  %.sink73 = select i1 %53, i32 16, i32 %54
+  %57 = tail call ptr @realloc(ptr noundef nonnull %.pre.i3953, i64 noundef %.sink74) #13
+  store i32 %.sink73, ptr %6, align 8, !tbaa !27
   br label %Vec_IntPush.exit36
 
 Vec_IntPush.exit36:                               ; preds = %Vec_IntPush.exit36.sink.split, %.lr.ph
@@ -156,10 +156,10 @@ Vec_IntPush.exit43.sink.split:                    ; preds = %.lr.ph46
   %68 = shl nuw nsw i32 %64, 1
   %69 = zext nneg i32 %68 to i64
   %70 = shl nuw nsw i64 %69, 2
-  %.sink72 = select i1 %67, i64 64, i64 %70
-  %.sink71 = select i1 %67, i32 16, i32 %68
-  %71 = tail call ptr @realloc(ptr noundef nonnull %.pre.i3957, i64 noundef %.sink72) #13
-  store i32 %.sink71, ptr %6, align 8, !tbaa !27
+  %.sink76 = select i1 %67, i64 64, i64 %70
+  %.sink75 = select i1 %67, i32 16, i32 %68
+  %71 = tail call ptr @realloc(ptr noundef nonnull %.pre.i3957, i64 noundef %.sink76) #13
+  store i32 %.sink75, ptr %6, align 8, !tbaa !27
   br label %Vec_IntPush.exit43
 
 Vec_IntPush.exit43:                               ; preds = %Vec_IntPush.exit43.sink.split, %.lr.ph46
@@ -218,9 +218,9 @@ define void @Cnf_SopConvertToVector(ptr noundef readonly captures(none) %0, i32 
   %13 = getelementptr inbounds nuw [4 x i32], ptr %4, i64 0, i64 %indvars.iv
   %switch.selectcmp = icmp eq i32 %12, 1
   %switch.select = select i1 %switch.selectcmp, i32 2, i32 0
-  %switch.selectcmp37 = icmp eq i32 %12, 0
-  %switch.select38 = select i1 %switch.selectcmp37, i32 1, i32 %switch.select
-  store i32 %switch.select38, ptr %13, align 4, !tbaa !35
+  %switch.selectcmp40 = icmp eq i32 %12, 0
+  %switch.select41 = select i1 %switch.selectcmp40, i32 1, i32 %switch.select
+  store i32 %switch.select41, ptr %13, align 4, !tbaa !35
   %14 = sdiv i32 %.02123, 3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
@@ -1068,8 +1068,8 @@ Cnf_IsopWriteCube.exit:                           ; preds = %.lr.ph446.split, %C
   br i1 %277, label %.critedge20.thread, label %292
 
 .critedge20.thread:                               ; preds = %Cnf_IsopWriteCube.exit, %.critedge20
-  %.1294.lcssa528 = phi ptr [ %.1294.lcssa, %.critedge20 ], [ %272, %Cnf_IsopWriteCube.exit ]
-  %.1299.lcssa526 = phi ptr [ %.1299.lcssa, %.critedge20 ], [ %274, %Cnf_IsopWriteCube.exit ]
+  %.1294.lcssa534 = phi ptr [ %.1294.lcssa, %.critedge20 ], [ %272, %Cnf_IsopWriteCube.exit ]
+  %.1299.lcssa532 = phi ptr [ %.1299.lcssa, %.critedge20 ], [ %274, %Cnf_IsopWriteCube.exit ]
   %278 = getelementptr inbounds nuw i8, ptr %.val327, i64 24
   %279 = sext i8 %.pre to i64
   %280 = getelementptr inbounds i32, ptr %278, i64 %279
@@ -1093,8 +1093,8 @@ Cnf_IsopWriteCube.exit:                           ; preds = %.lr.ph446.split, %C
   br label %295
 
 295:                                              ; preds = %292, %.critedge20.thread
-  %.1294.lcssa527 = phi ptr [ %.1294.lcssa528, %.critedge20.thread ], [ %.1294.lcssa, %292 ]
-  %.1299.lcssa525 = phi ptr [ %.1299.lcssa526, %.critedge20.thread ], [ %.1299.lcssa, %292 ]
+  %.1294.lcssa533 = phi ptr [ %.1294.lcssa534, %.critedge20.thread ], [ %.1294.lcssa, %292 ]
+  %.1299.lcssa531 = phi ptr [ %.1299.lcssa532, %.critedge20.thread ], [ %.1299.lcssa, %292 ]
   %.1304 = phi ptr [ %195, %.critedge20.thread ], [ %294, %292 ]
   %296 = getelementptr i8, ptr %.1304, i64 4
   %.1304.val450 = load i32, ptr %296, align 4, !tbaa !30
@@ -1113,8 +1113,8 @@ Cnf_IsopWriteCube.exit:                           ; preds = %.lr.ph446.split, %C
 
 .lr.ph.preheader.i394.us:                         ; preds = %.lr.ph455, %Cnf_IsopWriteCube.exit405.loopexit.us
   %indvars.iv512 = phi i64 [ %indvars.iv.next513, %Cnf_IsopWriteCube.exit405.loopexit.us ], [ 0, %.lr.ph455 ]
-  %.2295452.us = phi ptr [ %323, %Cnf_IsopWriteCube.exit405.loopexit.us ], [ %.1294.lcssa527, %.lr.ph455 ]
-  %.2300451.us = phi ptr [ %325, %Cnf_IsopWriteCube.exit405.loopexit.us ], [ %.1299.lcssa525, %.lr.ph455 ]
+  %.2295452.us = phi ptr [ %323, %Cnf_IsopWriteCube.exit405.loopexit.us ], [ %.1294.lcssa533, %.lr.ph455 ]
+  %.2300451.us = phi ptr [ %325, %Cnf_IsopWriteCube.exit405.loopexit.us ], [ %.1299.lcssa531, %.lr.ph455 ]
   %.1304.val333.us = load ptr, ptr %298, align 8, !tbaa !29
   %304 = getelementptr inbounds nuw i32, ptr %.1304.val333.us, i64 %indvars.iv512
   %305 = load i32, ptr %304, align 4, !tbaa !35
@@ -1179,8 +1179,8 @@ Cnf_IsopWriteCube.exit405.loopexit.us:            ; preds = %321
 
 Cnf_IsopWriteCube.exit405:                        ; preds = %.lr.ph455.split, %Cnf_IsopWriteCube.exit405
   %.2282453 = phi i32 [ 0, %.lr.ph455.split ], [ %332, %Cnf_IsopWriteCube.exit405 ]
-  %.2295452 = phi ptr [ %.1294.lcssa527, %.lr.ph455.split ], [ %329, %Cnf_IsopWriteCube.exit405 ]
-  %.2300451 = phi ptr [ %.1299.lcssa525, %.lr.ph455.split ], [ %331, %Cnf_IsopWriteCube.exit405 ]
+  %.2295452 = phi ptr [ %.1294.lcssa533, %.lr.ph455.split ], [ %329, %Cnf_IsopWriteCube.exit405 ]
+  %.2300451 = phi ptr [ %.1299.lcssa531, %.lr.ph455.split ], [ %331, %Cnf_IsopWriteCube.exit405 ]
   %329 = getelementptr inbounds nuw i8, ptr %.2295452, i64 8
   store ptr %.2300451, ptr %.2295452, align 8, !tbaa !62
   %330 = getelementptr inbounds nuw i8, ptr %.2300451, i64 4
@@ -1192,8 +1192,8 @@ Cnf_IsopWriteCube.exit405:                        ; preds = %.lr.ph455.split, %C
   br i1 %333, label %Cnf_IsopWriteCube.exit405, label %.critedge22, !llvm.loop !76
 
 .critedge22:                                      ; preds = %Cnf_IsopWriteCube.exit405, %Cnf_IsopWriteCube.exit405.loopexit.us, %295
-  %.2300.lcssa = phi ptr [ %.1299.lcssa525, %295 ], [ %325, %Cnf_IsopWriteCube.exit405.loopexit.us ], [ %331, %Cnf_IsopWriteCube.exit405 ]
-  %.2295.lcssa = phi ptr [ %.1294.lcssa527, %295 ], [ %323, %Cnf_IsopWriteCube.exit405.loopexit.us ], [ %329, %Cnf_IsopWriteCube.exit405 ]
+  %.2300.lcssa = phi ptr [ %.1299.lcssa531, %295 ], [ %325, %Cnf_IsopWriteCube.exit405.loopexit.us ], [ %331, %Cnf_IsopWriteCube.exit405 ]
+  %.2295.lcssa = phi ptr [ %.1294.lcssa533, %295 ], [ %323, %Cnf_IsopWriteCube.exit405.loopexit.us ], [ %329, %Cnf_IsopWriteCube.exit405 ]
   %indvars.iv.next516 = add nuw nsw i64 %indvars.iv515, 1
   %.val312 = load i32, ptr %11, align 4, !tbaa !25
   %334 = sext i32 %.val312 to i64
@@ -1853,8 +1853,8 @@ Cnf_IsopWriteCube.exit:                           ; preds = %.lr.ph336.split, %C
   br i1 %244, label %245, label %260
 
 245:                                              ; preds = %.critedge6.thread, %.critedge6
-  %.1208.lcssa415 = phi ptr [ %227, %.critedge6.thread ], [ %.1208.lcssa, %.critedge6 ]
-  %.1212.lcssa413 = phi ptr [ %229, %.critedge6.thread ], [ %.1212.lcssa, %.critedge6 ]
+  %.1208.lcssa421 = phi ptr [ %227, %.critedge6.thread ], [ %.1208.lcssa, %.critedge6 ]
+  %.1212.lcssa419 = phi ptr [ %229, %.critedge6.thread ], [ %.1212.lcssa, %.critedge6 ]
   %246 = getelementptr inbounds nuw i8, ptr %.val234, i64 24
   %247 = sext i8 %.pre to i64
   %248 = getelementptr inbounds i32, ptr %246, i64 %247
@@ -1878,8 +1878,8 @@ Cnf_IsopWriteCube.exit:                           ; preds = %.lr.ph336.split, %C
   br label %263
 
 263:                                              ; preds = %260, %245
-  %.1208.lcssa414 = phi ptr [ %.1208.lcssa415, %245 ], [ %.1208.lcssa, %260 ]
-  %.1212.lcssa412 = phi ptr [ %.1212.lcssa413, %245 ], [ %.1212.lcssa, %260 ]
+  %.1208.lcssa420 = phi ptr [ %.1208.lcssa421, %245 ], [ %.1208.lcssa, %260 ]
+  %.1212.lcssa418 = phi ptr [ %.1212.lcssa419, %245 ], [ %.1212.lcssa, %260 ]
   %.1216 = phi ptr [ %146, %245 ], [ %262, %260 ]
   %264 = getelementptr i8, ptr %.1216, i64 4
   %.1216.val236342 = load i32, ptr %264, align 4, !tbaa !30
@@ -1898,8 +1898,8 @@ Cnf_IsopWriteCube.exit:                           ; preds = %.lr.ph336.split, %C
 
 .lr.ph.preheader.i299.us:                         ; preds = %.lr.ph347, %Cnf_IsopWriteCube.exit310.loopexit.us
   %indvars.iv396 = phi i64 [ %indvars.iv.next397, %Cnf_IsopWriteCube.exit310.loopexit.us ], [ 0, %.lr.ph347 ]
-  %.2209344.us = phi ptr [ %291, %Cnf_IsopWriteCube.exit310.loopexit.us ], [ %.1208.lcssa414, %.lr.ph347 ]
-  %.2213343.us = phi ptr [ %293, %Cnf_IsopWriteCube.exit310.loopexit.us ], [ %.1212.lcssa412, %.lr.ph347 ]
+  %.2209344.us = phi ptr [ %291, %Cnf_IsopWriteCube.exit310.loopexit.us ], [ %.1208.lcssa420, %.lr.ph347 ]
+  %.2213343.us = phi ptr [ %293, %Cnf_IsopWriteCube.exit310.loopexit.us ], [ %.1212.lcssa418, %.lr.ph347 ]
   %.1216.val242.us = load ptr, ptr %266, align 8, !tbaa !29
   %272 = getelementptr inbounds nuw i32, ptr %.1216.val242.us, i64 %indvars.iv396
   %273 = load i32, ptr %272, align 4, !tbaa !35
@@ -1964,8 +1964,8 @@ Cnf_IsopWriteCube.exit310.loopexit.us:            ; preds = %289
 
 Cnf_IsopWriteCube.exit310:                        ; preds = %.lr.ph347.split, %Cnf_IsopWriteCube.exit310
   %.2203345 = phi i32 [ 0, %.lr.ph347.split ], [ %300, %Cnf_IsopWriteCube.exit310 ]
-  %.2209344 = phi ptr [ %.1208.lcssa414, %.lr.ph347.split ], [ %297, %Cnf_IsopWriteCube.exit310 ]
-  %.2213343 = phi ptr [ %.1212.lcssa412, %.lr.ph347.split ], [ %299, %Cnf_IsopWriteCube.exit310 ]
+  %.2209344 = phi ptr [ %.1208.lcssa420, %.lr.ph347.split ], [ %297, %Cnf_IsopWriteCube.exit310 ]
+  %.2213343 = phi ptr [ %.1212.lcssa418, %.lr.ph347.split ], [ %299, %Cnf_IsopWriteCube.exit310 ]
   %297 = getelementptr inbounds nuw i8, ptr %.2209344, i64 8
   store ptr %.2213343, ptr %.2209344, align 8, !tbaa !62
   %298 = getelementptr inbounds nuw i8, ptr %.2213343, i64 4
@@ -1977,8 +1977,8 @@ Cnf_IsopWriteCube.exit310:                        ; preds = %.lr.ph347.split, %C
   br i1 %301, label %Cnf_IsopWriteCube.exit310, label %.critedge8, !llvm.loop !86
 
 .critedge8:                                       ; preds = %Cnf_IsopWriteCube.exit310, %Cnf_IsopWriteCube.exit310.loopexit.us, %263
-  %.2213.lcssa = phi ptr [ %.1212.lcssa412, %263 ], [ %293, %Cnf_IsopWriteCube.exit310.loopexit.us ], [ %299, %Cnf_IsopWriteCube.exit310 ]
-  %.2209.lcssa = phi ptr [ %.1208.lcssa414, %263 ], [ %291, %Cnf_IsopWriteCube.exit310.loopexit.us ], [ %297, %Cnf_IsopWriteCube.exit310 ]
+  %.2213.lcssa = phi ptr [ %.1212.lcssa418, %263 ], [ %293, %Cnf_IsopWriteCube.exit310.loopexit.us ], [ %299, %Cnf_IsopWriteCube.exit310 ]
+  %.2209.lcssa = phi ptr [ %.1208.lcssa420, %263 ], [ %291, %Cnf_IsopWriteCube.exit310.loopexit.us ], [ %297, %Cnf_IsopWriteCube.exit310 ]
   %.1216.val236.lcssa = phi i32 [ %.1216.val236342, %263 ], [ %.1216.val236.us, %Cnf_IsopWriteCube.exit310.loopexit.us ], [ %.1216.val236, %Cnf_IsopWriteCube.exit310 ]
   %302 = load ptr, ptr %125, align 8, !tbaa !82
   %303 = load i32, ptr %164, align 4, !tbaa !34

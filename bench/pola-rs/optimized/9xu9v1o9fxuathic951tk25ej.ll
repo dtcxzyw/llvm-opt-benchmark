@@ -5646,8 +5646,8 @@ define hidden void @_ZN11polars_core5utils19align_chunks_binary17h0a79345531b132
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %83, ptr noundef nonnull align 8 dereferenceable(56) %20, i64 56, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   store i64 -9223372036854775808, ptr %0, align 8
-  %.sroa.4.0..sroa_idx50 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %1, ptr %.sroa.4.0..sroa_idx50, align 8
+  %.sroa.4.0..sroa_idx52 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %1, ptr %.sroa.4.0..sroa_idx52, align 8
   br label %33
 
 84:                                               ; preds = %118
@@ -5963,8 +5963,8 @@ define hidden void @_ZN11polars_core5utils19align_chunks_binary17h271ca993b25f07
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %83, ptr noundef nonnull align 8 dereferenceable(56) %20, i64 56, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   store i64 -9223372036854775808, ptr %0, align 8
-  %.sroa.4.0..sroa_idx50 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %1, ptr %.sroa.4.0..sroa_idx50, align 8
+  %.sroa.4.0..sroa_idx52 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %1, ptr %.sroa.4.0..sroa_idx52, align 8
   br label %33
 
 84:                                               ; preds = %118
@@ -6280,8 +6280,8 @@ define hidden void @_ZN11polars_core5utils19align_chunks_binary17h2dd49720e11821
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %83, ptr noundef nonnull align 8 dereferenceable(56) %20, i64 56, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   store i64 -9223372036854775808, ptr %0, align 8
-  %.sroa.4.0..sroa_idx50 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %1, ptr %.sroa.4.0..sroa_idx50, align 8
+  %.sroa.4.0..sroa_idx52 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %1, ptr %.sroa.4.0..sroa_idx52, align 8
   br label %33
 
 84:                                               ; preds = %118
@@ -6597,8 +6597,8 @@ define hidden void @_ZN11polars_core5utils19align_chunks_binary17h5033de2a734c3b
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %83, ptr noundef nonnull align 8 dereferenceable(56) %20, i64 56, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   store i64 -9223372036854775808, ptr %0, align 8
-  %.sroa.4.0..sroa_idx50 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %1, ptr %.sroa.4.0..sroa_idx50, align 8
+  %.sroa.4.0..sroa_idx52 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %1, ptr %.sroa.4.0..sroa_idx52, align 8
   br label %33
 
 84:                                               ; preds = %118
@@ -6914,8 +6914,8 @@ define hidden void @_ZN11polars_core5utils19align_chunks_binary17h96961a1a6a8231
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %83, ptr noundef nonnull align 8 dereferenceable(56) %20, i64 56, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   store i64 -9223372036854775808, ptr %0, align 8
-  %.sroa.4.0..sroa_idx50 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %1, ptr %.sroa.4.0..sroa_idx50, align 8
+  %.sroa.4.0..sroa_idx52 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %1, ptr %.sroa.4.0..sroa_idx52, align 8
   br label %33
 
 84:                                               ; preds = %118
@@ -7231,8 +7231,8 @@ define hidden void @_ZN11polars_core5utils19align_chunks_binary17hf0986721e0d344
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %83, ptr noundef nonnull align 8 dereferenceable(56) %20, i64 56, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   store i64 -9223372036854775808, ptr %0, align 8
-  %.sroa.4.0..sroa_idx50 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %1, ptr %.sroa.4.0..sroa_idx50, align 8
+  %.sroa.4.0..sroa_idx52 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %1, ptr %.sroa.4.0..sroa_idx52, align 8
   br label %33
 
 84:                                               ; preds = %118
@@ -7547,8 +7547,8 @@ define hidden void @_ZN11polars_core5utils20align_chunks_ternary17h3138e0457b7b0
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %111, ptr noundef nonnull align 8 dereferenceable(56) %44, i64 56, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %44)
   store i64 -9223372036854775808, ptr %0, align 8
-  %.sroa.4.0..sroa_idx102 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %1, ptr %.sroa.4.0..sroa_idx102, align 8
+  %.sroa.4.0..sroa_idx107 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %1, ptr %.sroa.4.0..sroa_idx107, align 8
   %112 = getelementptr inbounds nuw i8, ptr %0, i64 56
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %112, ptr noundef nonnull align 8 dereferenceable(56) %47, i64 56, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %47)
@@ -7669,8 +7669,8 @@ define hidden void @_ZN11polars_core5utils20align_chunks_ternary17h3138e0457b7b0
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(56) %38, i64 56, i1 false)
   %155 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i64 -9223372036854775808, ptr %155, align 8
-  %.sroa.4105.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store ptr %2, ptr %.sroa.4105.0..sroa_idx, align 8
+  %.sroa.4110.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 64
+  store ptr %2, ptr %.sroa.4110.0..sroa_idx, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %38)
   br label %66
 
@@ -7916,8 +7916,8 @@ define hidden void @_ZN11polars_core5utils20align_chunks_ternary17h3138e0457b7b0
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %245, ptr noundef nonnull align 8 dereferenceable(56) %18, i64 56, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   store i64 -9223372036854775808, ptr %0, align 8
-  %.sroa.4108.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %1, ptr %.sroa.4108.0..sroa_idx, align 8
+  %.sroa.4113.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %1, ptr %.sroa.4113.0..sroa_idx, align 8
   %246 = getelementptr inbounds nuw i8, ptr %0, i64 56
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %246, ptr noundef nonnull align 8 dereferenceable(56) %21, i64 56, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
@@ -8363,8 +8363,8 @@ define hidden void @_ZN11polars_core5utils20align_chunks_ternary17h86df40f9f1727
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %111, ptr noundef nonnull align 8 dereferenceable(56) %44, i64 56, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %44)
   store i64 -9223372036854775808, ptr %0, align 8
-  %.sroa.4.0..sroa_idx102 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %1, ptr %.sroa.4.0..sroa_idx102, align 8
+  %.sroa.4.0..sroa_idx107 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %1, ptr %.sroa.4.0..sroa_idx107, align 8
   %112 = getelementptr inbounds nuw i8, ptr %0, i64 56
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %112, ptr noundef nonnull align 8 dereferenceable(56) %47, i64 56, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %47)
@@ -8485,8 +8485,8 @@ define hidden void @_ZN11polars_core5utils20align_chunks_ternary17h86df40f9f1727
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(56) %38, i64 56, i1 false)
   %155 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i64 -9223372036854775808, ptr %155, align 8
-  %.sroa.4105.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store ptr %2, ptr %.sroa.4105.0..sroa_idx, align 8
+  %.sroa.4110.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 64
+  store ptr %2, ptr %.sroa.4110.0..sroa_idx, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %38)
   br label %66
 
@@ -8732,8 +8732,8 @@ define hidden void @_ZN11polars_core5utils20align_chunks_ternary17h86df40f9f1727
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %245, ptr noundef nonnull align 8 dereferenceable(56) %18, i64 56, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   store i64 -9223372036854775808, ptr %0, align 8
-  %.sroa.4108.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %1, ptr %.sroa.4108.0..sroa_idx, align 8
+  %.sroa.4113.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %1, ptr %.sroa.4113.0..sroa_idx, align 8
   %246 = getelementptr inbounds nuw i8, ptr %0, i64 56
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %246, ptr noundef nonnull align 8 dereferenceable(56) %21, i64 56, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
@@ -13440,12 +13440,12 @@ define internal fastcc void @_ZN5alloc7raw_vec11finish_grow17he4649709df50651aE(
   %30 = icmp eq ptr %.sroa.012.0.i.i.pn, null
   %31 = inttoptr i64 %1 to ptr
   %spec.select = select i1 %30, ptr %31, ptr %.sroa.012.0.i.i.pn
-  %spec.select4 = zext i1 %30 to i64
+  %spec.select6 = zext i1 %30 to i64
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %spec.select, ptr %32, align 8
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %2, ptr %33, align 8
-  store i64 %spec.select4, ptr %0, align 8
+  store i64 %spec.select6, ptr %0, align 8
   ret void
 }
 

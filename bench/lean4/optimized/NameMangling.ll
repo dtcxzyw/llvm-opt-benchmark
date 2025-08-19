@@ -829,8 +829,8 @@ lean_nat_lt.exit608:                              ; preds = %lean_nat_lt.exit
   br label %lean_dec.exit460
 
 lean_dec.exit460:                                 ; preds = %222, %220, %233, %232, %230
-  %.1.i819 = phi ptr [ %227, %233 ], [ %227, %232 ], [ %227, %230 ], [ inttoptr (i64 1 to ptr), %220 ], [ %225, %222 ]
-  %234 = tail call ptr @l_Nat_repeatTR_loop___at___private_Lean_Compiler_NameMangling_0__String_mangleAux___spec__1(ptr noundef %.1.i819, ptr noundef %215)
+  %.1.i891 = phi ptr [ %227, %233 ], [ %227, %232 ], [ %227, %230 ], [ inttoptr (i64 1 to ptr), %220 ], [ %225, %222 ]
+  %234 = tail call ptr @l_Nat_repeatTR_loop___at___private_Lean_Compiler_NameMangling_0__String_mangleAux___spec__1(ptr noundef %.1.i891, ptr noundef %215)
   %235 = tail call ptr @l_List_foldl___at___private_Lean_Compiler_NameMangling_0__String_mangleAux___spec__2(ptr noundef %234, ptr noundef %216)
   %.18370.val = load i32, ptr %.0352, align 4, !tbaa !5
   %236 = icmp eq i32 %.18370.val, 1
@@ -2178,18 +2178,18 @@ lean_dec_ref.exit:                                ; preds = %14, %16, %17
   unreachable
 
 .sink.split:                                      ; preds = %lean_dec_ref.exit, %3
-  %.sink9 = phi ptr [ %4, %3 ], [ %25, %lean_dec_ref.exit ]
-  %28 = getelementptr inbounds nuw i8, ptr %.sink9, i64 4
-  store i32 1, ptr %.sink9, align 4, !tbaa !5
+  %.sink12 = phi ptr [ %4, %3 ], [ %25, %lean_dec_ref.exit ]
+  %28 = getelementptr inbounds nuw i8, ptr %.sink12, i64 4
+  store i32 1, ptr %.sink12, align 4, !tbaa !5
   store i32 131096, ptr %28, align 4
-  %29 = getelementptr inbounds nuw i8, ptr %.sink9, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %.sink12, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %29, align 8, !tbaa !11
-  %30 = getelementptr inbounds nuw i8, ptr %.sink9, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %.sink12, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %30, align 8, !tbaa !11
   br label %31
 
 31:                                               ; preds = %.sink.split, %7
-  %.0 = phi ptr [ %8, %7 ], [ %.sink9, %.sink.split ]
+  %.0 = phi ptr [ %8, %7 ], [ %.sink12, %.sink.split ]
   ret ptr %.0
 }
 

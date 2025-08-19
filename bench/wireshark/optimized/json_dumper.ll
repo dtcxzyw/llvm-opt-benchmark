@@ -70,7 +70,7 @@ json_dumper_stack_would_overflow.exit.thread:     ; preds = %6
 
 json_dumper_stack_would_overflow.exit:            ; preds = %6
   tail call fastcc void @prepare_token(ptr noundef %0)
-  switch i32 %1, label %default.unreachable23 [
+  switch i32 %1, label %default.unreachable32 [
     i32 2, label %11
     i32 3, label %33
     i32 4, label %55
@@ -197,7 +197,7 @@ json_dumper_stack_would_overflow.exit:            ; preds = %6
   %78 = tail call ptr @g_string_insert_c(ptr noundef nonnull %63, i64 noundef -1, i8 noundef signext 34)
   br label %jd_putc.exit
 
-default.unreachable23:                            ; preds = %json_dumper_stack_would_overflow.exit
+default.unreachable32:                            ; preds = %json_dumper_stack_would_overflow.exit
   unreachable
 
 jd_putc.exit:                                     ; preds = %77, %71, %61, %53, %47, %37, %31, %25, %15
@@ -910,7 +910,7 @@ json_dumper_check_previous_error.exit:            ; preds = %2
 
 json_dumper_get_prev_state.exit:                  ; preds = %7, %10
   %16 = phi i8 [ %15, %10 ], [ 0, %7 ]
-  switch i32 %1, label %default.unreachable40 [
+  switch i32 %1, label %default.unreachable52 [
     i32 2, label %17
     i32 3, label %20
     i32 4, label %23
@@ -943,7 +943,7 @@ json_dumper_get_prev_state.exit:                  ; preds = %7, %10
   tail call fastcc void @json_dumper_bad(ptr noundef %0, ptr noundef nonnull @.str.22)
   br label %115
 
-default.unreachable40:                            ; preds = %36, %json_dumper_get_prev_state.exit
+default.unreachable52:                            ; preds = %36, %json_dumper_get_prev_state.exit
   unreachable
 
 26:                                               ; preds = %23, %20, %17
@@ -976,7 +976,7 @@ json_dumper_stack_would_underflow.exit:           ; preds = %29
   br label %36
 
 36:                                               ; preds = %34, %json_dumper_stack_would_underflow.exit
-  switch i32 %1, label %default.unreachable40 [
+  switch i32 %1, label %default.unreachable52 [
     i32 2, label %37
     i32 3, label %59
     i32 4, label %81

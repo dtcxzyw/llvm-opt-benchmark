@@ -73,8 +73,8 @@ define noundef i32 @_ZN5ZXing6QRCode16CodecModeForBitsEiNS0_4TypeE(i32 noundef %
   %switch.maskindex = trunc i32 %switch.tableidx to i8
   %switch.shifted = lshr i8 71, %switch.maskindex
   %switch.lobit = trunc i8 %switch.shifted to i1
-  %or.cond42 = select i1 %19, i1 %switch.lobit, i1 false
-  br i1 %or.cond42, label %switch.lookup, label %.thread
+  %or.cond47 = select i1 %19, i1 %switch.lobit, i1 false
+  br i1 %or.cond47, label %switch.lookup, label %.thread
 
 .thread:                                          ; preds = %18, %11, %5
   %20 = tail call ptr @__cxa_allocate_exception(i64 48) #11

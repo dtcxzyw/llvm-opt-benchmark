@@ -334,7 +334,7 @@ corosync_totemsrp_get_uint32.exit:                ; preds = %61, %63
   %65 = getelementptr inbounds nuw i8, ptr %25, i64 4
   store i32 %.0.i, ptr %65, align 4
   tail call void @increment_dissection_depth(ptr noundef %1)
-  switch i8 %29, label %default.unreachable [
+  switch i8 %29, label %default.unreachable118 [
     i8 0, label %66
     i8 1, label %142
     i8 2, label %184
@@ -801,7 +801,7 @@ dissect_corosync_totemsrp_memb_commit_token.exit: ; preds = %.lr.ph5.i, %corosyn
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %328
 
-default.unreachable:                              ; preds = %corosync_totemsrp_get_uint32.exit
+default.unreachable118:                           ; preds = %corosync_totemsrp_get_uint32.exit
   unreachable
 
 328:                                              ; preds = %320, %dissect_corosync_totemsrp_memb_commit_token.exit, %dissect_corosync_totemsrp_memb_join.exit, %184, %dissect_corosync_totemsrp_mcast.exit, %dissect_corosync_totemsrp_orf_token.exit

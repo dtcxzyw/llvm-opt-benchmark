@@ -796,7 +796,7 @@ is_sbus_pdu.exit:                                 ; preds = %20
   %102 = add i8 %101, 1
   %103 = getelementptr inbounds nuw i8, ptr %94, i64 1
   store i8 %102, ptr %103, align 1
-  %104 = add i32 %98, %97
+  %104 = add nsw i32 %98, %97
   %105 = add i8 %.030.i, 1
   call void @wmem_list_append(ptr noundef %85, ptr noundef %94)
   br label %106

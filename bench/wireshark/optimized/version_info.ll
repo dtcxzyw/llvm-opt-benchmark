@@ -93,26 +93,26 @@ define void @ws_init_version_info(ptr noundef %0, ptr noundef readonly captures(
 23:                                               ; preds = %.lr.ph28.i
   %24 = getelementptr i8, ptr %.01827.i, i64 80
   %25 = icmp ugt ptr %24, %.01827.i
-  br i1 %25, label %.lr.ph.i, label %.critedge.thread31.i
+  br i1 %25, label %.lr.ph.i, label %.critedge.thread34.i
 
 .lr.ph.i:                                         ; preds = %23, %27
   %.123.i = phi ptr [ %28, %27 ], [ %24, %23 ]
   %26 = load i8, ptr %.123.i, align 1
   %.not21.i = icmp eq i8 %26, 32
-  br i1 %.not21.i, label %.critedge.thread31.i, label %27
+  br i1 %.not21.i, label %.critedge.thread34.i, label %27
 
 27:                                               ; preds = %.lr.ph.i
   %28 = getelementptr i8, ptr %.123.i, i64 -1
   %29 = icmp ugt ptr %28, %.01827.i
   br i1 %29, label %.lr.ph.i, label %.critedge.thread.i, !llvm.loop !6
 
-.critedge.thread31.i:                             ; preds = %.lr.ph.i, %23
-  %.1.lcssa34.i = phi ptr [ %24, %23 ], [ %.123.i, %.lr.ph.i ]
-  store i8 10, ptr %.1.lcssa34.i, align 1
+.critedge.thread34.i:                             ; preds = %.lr.ph.i, %23
+  %.1.lcssa37.i = phi ptr [ %24, %23 ], [ %.123.i, %.lr.ph.i ]
+  store i8 10, ptr %.1.lcssa37.i, align 1
   br label %.critedge.thread.i
 
-.critedge.thread.i:                               ; preds = %27, %.critedge.thread31.i, %.lr.ph28.i
-  %.0.i = phi ptr [ %.1.lcssa34.i, %.critedge.thread31.i ], [ %18, %.lr.ph28.i ], [ %.01827.i, %27 ]
+.critedge.thread.i:                               ; preds = %27, %.critedge.thread34.i, %.lr.ph28.i
+  %.0.i = phi ptr [ %.1.lcssa37.i, %.critedge.thread34.i ], [ %18, %.lr.ph28.i ], [ %.01827.i, %27 ]
   %30 = getelementptr i8, ptr %.0.i, i64 1
   %31 = load i8, ptr %30, align 1
   %.not20.i = icmp eq i8 %31, 0
@@ -158,26 +158,26 @@ end_string.exit:                                  ; preds = %.critedge.thread.i,
 52:                                               ; preds = %.lr.ph28.i14
   %53 = getelementptr i8, ptr %.01827.i15, i64 80
   %54 = icmp ugt ptr %53, %.01827.i15
-  br i1 %54, label %.lr.ph.i21, label %.critedge.thread31.i19
+  br i1 %54, label %.lr.ph.i21, label %.critedge.thread34.i19
 
 .lr.ph.i21:                                       ; preds = %52, %56
   %.123.i22 = phi ptr [ %57, %56 ], [ %53, %52 ]
   %55 = load i8, ptr %.123.i22, align 1
   %.not21.i23 = icmp eq i8 %55, 32
-  br i1 %.not21.i23, label %.critedge.thread31.i19, label %56
+  br i1 %.not21.i23, label %.critedge.thread34.i19, label %56
 
 56:                                               ; preds = %.lr.ph.i21
   %57 = getelementptr i8, ptr %.123.i22, i64 -1
   %58 = icmp ugt ptr %57, %.01827.i15
   br i1 %58, label %.lr.ph.i21, label %.critedge.thread.i16, !llvm.loop !6
 
-.critedge.thread31.i19:                           ; preds = %.lr.ph.i21, %52
-  %.1.lcssa34.i20 = phi ptr [ %53, %52 ], [ %.123.i22, %.lr.ph.i21 ]
-  store i8 10, ptr %.1.lcssa34.i20, align 1
+.critedge.thread34.i19:                           ; preds = %.lr.ph.i21, %52
+  %.1.lcssa37.i20 = phi ptr [ %53, %52 ], [ %.123.i22, %.lr.ph.i21 ]
+  store i8 10, ptr %.1.lcssa37.i20, align 1
   br label %.critedge.thread.i16
 
-.critedge.thread.i16:                             ; preds = %56, %.critedge.thread31.i19, %.lr.ph28.i14
-  %.0.i17 = phi ptr [ %.1.lcssa34.i20, %.critedge.thread31.i19 ], [ %47, %.lr.ph28.i14 ], [ %.01827.i15, %56 ]
+.critedge.thread.i16:                             ; preds = %56, %.critedge.thread34.i19, %.lr.ph28.i14
+  %.0.i17 = phi ptr [ %.1.lcssa37.i20, %.critedge.thread34.i19 ], [ %47, %.lr.ph28.i14 ], [ %.01827.i15, %56 ]
   %59 = getelementptr i8, ptr %.0.i17, i64 1
   %60 = load i8, ptr %59, align 1
   %.not20.i18 = icmp eq i8 %60, 0
@@ -340,26 +340,26 @@ define noundef ptr @get_compiled_version_info(ptr noundef readonly captures(addr
 36:                                               ; preds = %.lr.ph28.i
   %37 = getelementptr i8, ptr %.01827.i, i64 80
   %38 = icmp ugt ptr %37, %.01827.i
-  br i1 %38, label %.lr.ph.i, label %.critedge.thread31.i
+  br i1 %38, label %.lr.ph.i, label %.critedge.thread34.i
 
 .lr.ph.i:                                         ; preds = %36, %40
   %.123.i = phi ptr [ %41, %40 ], [ %37, %36 ]
   %39 = load i8, ptr %.123.i, align 1
   %.not21.i = icmp eq i8 %39, 32
-  br i1 %.not21.i, label %.critedge.thread31.i, label %40
+  br i1 %.not21.i, label %.critedge.thread34.i, label %40
 
 40:                                               ; preds = %.lr.ph.i
   %41 = getelementptr i8, ptr %.123.i, i64 -1
   %42 = icmp ugt ptr %41, %.01827.i
   br i1 %42, label %.lr.ph.i, label %.critedge.thread.i, !llvm.loop !6
 
-.critedge.thread31.i:                             ; preds = %.lr.ph.i, %36
-  %.1.lcssa34.i = phi ptr [ %37, %36 ], [ %.123.i, %.lr.ph.i ]
-  store i8 10, ptr %.1.lcssa34.i, align 1
+.critedge.thread34.i:                             ; preds = %.lr.ph.i, %36
+  %.1.lcssa37.i = phi ptr [ %37, %36 ], [ %.123.i, %.lr.ph.i ]
+  store i8 10, ptr %.1.lcssa37.i, align 1
   br label %.critedge.thread.i
 
-.critedge.thread.i:                               ; preds = %40, %.critedge.thread31.i, %.lr.ph28.i
-  %.0.i = phi ptr [ %.1.lcssa34.i, %.critedge.thread31.i ], [ %31, %.lr.ph28.i ], [ %.01827.i, %40 ]
+.critedge.thread.i:                               ; preds = %40, %.critedge.thread34.i, %.lr.ph28.i
+  %.0.i = phi ptr [ %.1.lcssa37.i, %.critedge.thread34.i ], [ %31, %.lr.ph28.i ], [ %.01827.i, %40 ]
   %43 = getelementptr i8, ptr %.0.i, i64 1
   %44 = load i8, ptr %43, align 1
   %.not20.i = icmp eq i8 %44, 0
@@ -497,26 +497,26 @@ get_mem_info.exit:                                ; preds = %1, %18
 57:                                               ; preds = %.lr.ph28.i
   %58 = getelementptr i8, ptr %.01827.i, i64 80
   %59 = icmp ugt ptr %58, %.01827.i
-  br i1 %59, label %.lr.ph.i, label %.critedge.thread31.i
+  br i1 %59, label %.lr.ph.i, label %.critedge.thread34.i
 
 .lr.ph.i:                                         ; preds = %57, %61
   %.123.i = phi ptr [ %62, %61 ], [ %58, %57 ]
   %60 = load i8, ptr %.123.i, align 1
   %.not21.i = icmp eq i8 %60, 32
-  br i1 %.not21.i, label %.critedge.thread31.i, label %61
+  br i1 %.not21.i, label %.critedge.thread34.i, label %61
 
 61:                                               ; preds = %.lr.ph.i
   %62 = getelementptr i8, ptr %.123.i, i64 -1
   %63 = icmp ugt ptr %62, %.01827.i
   br i1 %63, label %.lr.ph.i, label %.critedge.thread.i, !llvm.loop !6
 
-.critedge.thread31.i:                             ; preds = %.lr.ph.i, %57
-  %.1.lcssa34.i = phi ptr [ %58, %57 ], [ %.123.i, %.lr.ph.i ]
-  store i8 10, ptr %.1.lcssa34.i, align 1
+.critedge.thread34.i:                             ; preds = %.lr.ph.i, %57
+  %.1.lcssa37.i = phi ptr [ %58, %57 ], [ %.123.i, %.lr.ph.i ]
+  store i8 10, ptr %.1.lcssa37.i, align 1
   br label %.critedge.thread.i
 
-.critedge.thread.i:                               ; preds = %61, %.critedge.thread31.i, %.lr.ph28.i
-  %.0.i22 = phi ptr [ %.1.lcssa34.i, %.critedge.thread31.i ], [ %52, %.lr.ph28.i ], [ %.01827.i, %61 ]
+.critedge.thread.i:                               ; preds = %61, %.critedge.thread34.i, %.lr.ph28.i
+  %.0.i22 = phi ptr [ %.1.lcssa37.i, %.critedge.thread34.i ], [ %52, %.lr.ph28.i ], [ %.01827.i, %61 ]
   %64 = getelementptr i8, ptr %.0.i22, i64 1
   %65 = load i8, ptr %64, align 1
   %.not20.i = icmp eq i8 %65, 0

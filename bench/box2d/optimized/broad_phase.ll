@@ -193,8 +193,8 @@ define hidden void @b2BroadPhase_DestroyProxy(ptr noundef %0, i32 noundef %1) lo
   br i1 %.not.i.i, label %b2IntArray_RemoveSwap.exit.i, label %20
 
 20:                                               ; preds = %17
-  %21 = sext i32 %19 to i64
-  %22 = getelementptr inbounds i32, ptr %12, i64 %21
+  %21 = zext nneg i32 %19 to i64
+  %22 = getelementptr inbounds nuw i32, ptr %12, i64 %21
   %23 = load i32, ptr %22, align 4, !tbaa !21
   %24 = and i64 %indvars.iv.i, 4294967295
   %25 = getelementptr inbounds nuw i32, ptr %12, i64 %24
@@ -638,11 +638,11 @@ define internal noundef zeroext i1 @b2PairQueryCallback(i32 noundef %0, i32 noun
 28:                                               ; preds = %23, %15, %18
   %29 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %30 = load i32, ptr %29, align 8, !tbaa !102
-  %.114 = tail call i32 @llvm.smin.i32(i32 %1, i32 %30)
-  %.115 = tail call i32 @llvm.smax.i32(i32 %1, i32 %30)
-  %31 = sext i32 %.114 to i64
+  %.123 = tail call i32 @llvm.smin.i32(i32 %1, i32 %30)
+  %.124 = tail call i32 @llvm.smax.i32(i32 %1, i32 %30)
+  %31 = sext i32 %.123 to i64
   %32 = shl nsw i64 %31, 32
-  %33 = sext i32 %.115 to i64
+  %33 = sext i32 %.124 to i64
   %34 = or i64 %32, %33
   %35 = getelementptr inbounds nuw i8, ptr %4, i64 320
   %36 = tail call zeroext i1 @b2ContainsKey(ptr noundef nonnull %35, i64 noundef %34) #8
@@ -748,19 +748,19 @@ define internal noundef zeroext i1 @b2PairQueryCallback(i32 noundef %0, i32 noun
   br label %99
 
 99:                                               ; preds = %97, %92
-  %.sink113 = phi ptr [ %98, %97 ], [ %96, %92 ]
-  %.sink111 = phi i8 [ 1, %97 ], [ 0, %92 ]
-  %100 = getelementptr inbounds nuw i8, ptr %.sink113, i64 16
-  store i8 %.sink111, ptr %100, align 8, !tbaa !91
-  store i32 %.104, ptr %.sink113, align 8, !tbaa !87
-  %101 = getelementptr inbounds nuw i8, ptr %.sink113, i64 4
+  %.sink122 = phi ptr [ %98, %97 ], [ %96, %92 ]
+  %.sink120 = phi i8 [ 1, %97 ], [ 0, %92 ]
+  %100 = getelementptr inbounds nuw i8, ptr %.sink122, i64 16
+  store i8 %.sink120, ptr %100, align 8, !tbaa !91
+  store i32 %.104, ptr %.sink122, align 8, !tbaa !87
+  %101 = getelementptr inbounds nuw i8, ptr %.sink122, i64 4
   store i32 %., ptr %101, align 4, !tbaa !89
   %102 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %103 = load ptr, ptr %102, align 8, !tbaa !100
   %104 = load ptr, ptr %103, align 8, !tbaa !85
-  %105 = getelementptr inbounds nuw i8, ptr %.sink113, i64 8
+  %105 = getelementptr inbounds nuw i8, ptr %.sink122, i64 8
   store ptr %104, ptr %105, align 8, !tbaa !94
-  store ptr %.sink113, ptr %103, align 8, !tbaa !85
+  store ptr %.sink122, ptr %103, align 8, !tbaa !85
   br label %106
 
 106:                                              ; preds = %23, %18, %37, %54, %51, %57, %99, %72, %61, %28, %3

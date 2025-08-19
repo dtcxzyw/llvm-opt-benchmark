@@ -831,11 +831,11 @@ define internal void @_toggle_capture_mode_clicked(ptr noundef %0, ptr noundef r
   br label %.thread.sink.split
 
 .thread.sink.split:                               ; preds = %28, %18
-  %.sink22 = phi i64 [ %21, %18 ], [ %29, %28 ]
-  %.sink19 = phi ptr [ %25, %18 ], [ %.0, %28 ]
-  %30 = tail call ptr @g_type_check_instance_cast(ptr noundef %0, i64 noundef %.sink22) #15
+  %.sink23 = phi i64 [ %21, %18 ], [ %29, %28 ]
+  %.sink20 = phi ptr [ %25, %18 ], [ %.0, %28 ]
+  %30 = tail call ptr @g_type_check_instance_cast(ptr noundef %0, i64 noundef %.sink23) #15
   %31 = tail call i32 @gtk_toggle_button_get_active(ptr noundef %30) #15
-  tail call void @gtk_widget_set_sensitive(ptr noundef %.sink19, i32 noundef %31) #15
+  tail call void @gtk_widget_set_sensitive(ptr noundef %.sink20, i32 noundef %31) #15
   br label %.thread
 
 .thread:                                          ; preds = %.thread.sink.split, %13, %26
@@ -973,20 +973,20 @@ define void @view_enter(ptr noundef readonly captures(none) %0, ptr noundef read
   %16 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.27, i32 noundef 5) #15
   %17 = tail call fastcc ptr @_lib_property_add_new(ptr noundef %5, ptr noundef %16, ptr noundef nonnull @.str.28)
   %.not77 = icmp eq ptr %17, null
-  br i1 %.not77, label %18, label %.sink.split91
+  br i1 %.not77, label %18, label %.sink.split106
 
 18:                                               ; preds = %15
   %19 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.27, i32 noundef 5) #15
   %20 = tail call fastcc ptr @_lib_property_add_new(ptr noundef %5, ptr noundef %19, ptr noundef nonnull @.str.27)
   %.not78 = icmp eq ptr %20, null
-  br i1 %.not78, label %21, label %.sink.split91
+  br i1 %.not78, label %21, label %.sink.split106
 
-.sink.split91:                                    ; preds = %18, %15
-  %.sink92 = phi ptr [ %17, %15 ], [ %20, %18 ]
-  tail call fastcc void @_lib_property_add_to_gui(ptr noundef %.sink92, ptr noundef %5)
+.sink.split106:                                   ; preds = %18, %15
+  %.sink107 = phi ptr [ %17, %15 ], [ %20, %18 ]
+  tail call fastcc void @_lib_property_add_to_gui(ptr noundef %.sink107, ptr noundef %5)
   br label %21
 
-21:                                               ; preds = %.sink.split91, %18
+21:                                               ; preds = %.sink.split106, %18
   %22 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.29, i32 noundef 5) #15
   %23 = tail call fastcc ptr @_lib_property_add_new(ptr noundef %5, ptr noundef %22, ptr noundef nonnull @.str.30)
   %.not79 = icmp eq ptr %23, null
@@ -1000,20 +1000,20 @@ define void @view_enter(ptr noundef readonly captures(none) %0, ptr noundef read
   %26 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.31, i32 noundef 5) #15
   %27 = tail call fastcc ptr @_lib_property_add_new(ptr noundef %5, ptr noundef %26, ptr noundef nonnull @.str.31)
   %.not80 = icmp eq ptr %27, null
-  br i1 %.not80, label %28, label %.sink.split93
+  br i1 %.not80, label %28, label %.sink.split108
 
 28:                                               ; preds = %25
   %29 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.32, i32 noundef 5) #15
   %30 = tail call fastcc ptr @_lib_property_add_new(ptr noundef %5, ptr noundef %29, ptr noundef nonnull @.str.32)
   %.not81 = icmp eq ptr %30, null
-  br i1 %.not81, label %31, label %.sink.split93
+  br i1 %.not81, label %31, label %.sink.split108
 
-.sink.split93:                                    ; preds = %28, %25
-  %.sink94 = phi ptr [ %27, %25 ], [ %30, %28 ]
-  tail call fastcc void @_lib_property_add_to_gui(ptr noundef %.sink94, ptr noundef %5)
+.sink.split108:                                   ; preds = %28, %25
+  %.sink109 = phi ptr [ %27, %25 ], [ %30, %28 ]
+  tail call fastcc void @_lib_property_add_to_gui(ptr noundef %.sink109, ptr noundef %5)
   br label %31
 
-31:                                               ; preds = %.sink.split93, %28
+31:                                               ; preds = %.sink.split108, %28
   %32 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.33, i32 noundef 5) #15
   %33 = tail call fastcc ptr @_lib_property_add_new(ptr noundef %5, ptr noundef %32, ptr noundef nonnull @.str.34)
   %.not82 = icmp eq ptr %33, null

@@ -1369,7 +1369,7 @@ lean_obj_tag.exit29.thread:                       ; preds = %lean_dec.exit18
 
 .thread:                                          ; preds = %lean_obj_tag.exit29.thread
   %43 = getelementptr i8, ptr %23, i64 8
-  %.val32 = load i8, ptr %43, align 1, !tbaa !14
+  %.val37 = load i8, ptr %43, align 1, !tbaa !14
   br label %lean_dec.exit17
 
 44:                                               ; preds = %lean_obj_tag.exit29
@@ -1417,7 +1417,7 @@ lean_dec.exit:                                    ; preds = %lean_obj_tag.exit29
   br label %lean_dec.exit17
 
 lean_dec.exit17:                                  ; preds = %.thread, %48, %50, %51, %lean_dec.exit, %17
-  %.0 = phi i8 [ %20, %17 ], [ %61, %lean_dec.exit ], [ %.val, %51 ], [ %.val, %50 ], [ %.val, %48 ], [ %.val32, %.thread ]
+  %.0 = phi i8 [ %20, %17 ], [ %61, %lean_dec.exit ], [ %.val, %51 ], [ %.val, %50 ], [ %.val, %48 ], [ %.val37, %.thread ]
   ret i8 %.0
 }
 
@@ -2014,18 +2014,18 @@ lean_dec_ref.exit32:                              ; preds = %170, %169, %167, %_
   unreachable
 
 .sink.split:                                      ; preds = %lean_dec_ref.exit32, %3
-  %.sink49 = phi ptr [ %4, %3 ], [ %175, %lean_dec_ref.exit32 ]
-  %178 = getelementptr inbounds nuw i8, ptr %.sink49, i64 4
-  store i32 1, ptr %.sink49, align 4, !tbaa !8
+  %.sink65 = phi ptr [ %4, %3 ], [ %175, %lean_dec_ref.exit32 ]
+  %178 = getelementptr inbounds nuw i8, ptr %.sink65, i64 4
+  store i32 1, ptr %.sink65, align 4, !tbaa !8
   store i32 131096, ptr %178, align 4
-  %179 = getelementptr inbounds nuw i8, ptr %.sink49, i64 8
+  %179 = getelementptr inbounds nuw i8, ptr %.sink65, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %179, align 8, !tbaa !4
-  %180 = getelementptr inbounds nuw i8, ptr %.sink49, i64 16
+  %180 = getelementptr inbounds nuw i8, ptr %.sink65, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %180, align 8, !tbaa !4
   br label %181
 
 181:                                              ; preds = %.sink.split, %156, %121, %86, %51, %7
-  %.0 = phi ptr [ %8, %7 ], [ %55, %51 ], [ %90, %86 ], [ %125, %121 ], [ %160, %156 ], [ %.sink49, %.sink.split ]
+  %.0 = phi ptr [ %8, %7 ], [ %55, %51 ], [ %90, %86 ], [ %125, %121 ], [ %160, %156 ], [ %.sink65, %.sink.split ]
   ret ptr %.0
 }
 

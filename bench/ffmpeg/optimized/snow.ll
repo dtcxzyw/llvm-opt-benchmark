@@ -77,7 +77,7 @@ define void @ff_snow_inner_add_yblock(ptr noundef readonly captures(none) %0, i3
   %41 = load ptr, ptr %19, align 8, !tbaa !14
   %42 = load ptr, ptr %20, align 8, !tbaa !14
   %43 = load ptr, ptr %2, align 8, !tbaa !14
-  %invariant.gep105 = getelementptr i16, ptr %38, i64 %22
+  %invariant.gep108 = getelementptr i16, ptr %38, i64 %22
   br label %44
 
 44:                                               ; preds = %44, %.lr.ph.us.us
@@ -115,11 +115,11 @@ define void @ff_snow_inner_add_yblock(ptr noundef readonly captures(none) %0, i3
   %75 = mul nuw nsw i32 %74, %71
   %76 = add nuw nsw i32 %68, %75
   %77 = lshr i32 %76, 4
-  %gep106 = getelementptr i16, ptr %invariant.gep105, i64 %indvars.iv93
-  %78 = load i16, ptr %gep106, align 2, !tbaa !17
+  %gep109 = getelementptr i16, ptr %invariant.gep108, i64 %indvars.iv93
+  %78 = load i16, ptr %gep109, align 2, !tbaa !17
   %79 = trunc nuw nsw i32 %77 to i16
   %80 = sub i16 %78, %79
-  store i16 %80, ptr %gep106, align 2, !tbaa !17
+  store i16 %80, ptr %gep109, align 2, !tbaa !17
   %indvars.iv.next94 = add nuw nsw i64 %indvars.iv93, 1
   %exitcond97.not = icmp eq i64 %indvars.iv.next94, %wide.trip.count96
   br i1 %exitcond97.not, label %._crit_edge.split.us.us.us, label %44, !llvm.loop !19
@@ -378,8 +378,8 @@ define void @ff_snow_pred_block(ptr noundef readonly captures(address_is_null) %
 
 .preheader254:                                    ; preds = %16
   %26 = icmp sgt i32 %6, 0
-  %or.cond312 = and i1 %25, %26
-  br i1 %or.cond312, label %.preheader253.us.preheader, label %.loopexit
+  %or.cond314 = and i1 %25, %26
+  br i1 %or.cond314, label %.preheader253.us.preheader, label %.loopexit
 
 .preheader253.us.preheader:                       ; preds = %.preheader254
   %27 = zext nneg i32 %6 to i64
@@ -1017,33 +1017,33 @@ define internal fastcc void @mc_block(ptr noundef readonly captures(address_is_n
   %.3379.us387 = phi ptr [ %229, %._crit_edge.split.us.us ], [ %178, %.preheader331.us386.preheader ]
   %.1278378.us388 = phi i32 [ %231, %._crit_edge.split.us.us ], [ 0, %.preheader331.us386.preheader ]
   %.1290376.us389 = phi ptr [ %230, %._crit_edge.split.us.us ], [ %179, %.preheader331.us386.preheader ]
-  %invariant.gep547 = getelementptr i8, ptr %.3379.us387, i64 %188
-  %invariant.gep549 = getelementptr i8, ptr %.3379.us387, i64 %197
-  %invariant.gep551 = getelementptr i8, ptr %.3379.us387, i64 %198
-  %invariant.gep553 = getelementptr i8, ptr %.3379.us387, i64 %199
-  %invariant.gep555 = getelementptr i8, ptr %.3379.us387, i64 %200
-  %invariant.gep557 = getelementptr i8, ptr %.3379.us387, i64 %201
+  %invariant.gep563 = getelementptr i8, ptr %.3379.us387, i64 %188
+  %invariant.gep565 = getelementptr i8, ptr %.3379.us387, i64 %197
+  %invariant.gep567 = getelementptr i8, ptr %.3379.us387, i64 %198
+  %invariant.gep569 = getelementptr i8, ptr %.3379.us387, i64 %199
+  %invariant.gep571 = getelementptr i8, ptr %.3379.us387, i64 %200
+  %invariant.gep573 = getelementptr i8, ptr %.3379.us387, i64 %201
   br label %205
 
 205:                                              ; preds = %205, %.preheader331.us386
   %indvars.iv488 = phi i64 [ %indvars.iv.next489, %205 ], [ 0, %.preheader331.us386 ]
-  %gep548 = getelementptr i8, ptr %invariant.gep547, i64 %indvars.iv488
-  %206 = load i8, ptr %gep548, align 1, !tbaa !16
+  %gep564 = getelementptr i8, ptr %invariant.gep563, i64 %indvars.iv488
+  %206 = load i8, ptr %gep564, align 1, !tbaa !16
   %207 = zext i8 %206 to i32
-  %gep550 = getelementptr i8, ptr %invariant.gep549, i64 %indvars.iv488
-  %208 = load i8, ptr %gep550, align 1, !tbaa !16
+  %gep566 = getelementptr i8, ptr %invariant.gep565, i64 %indvars.iv488
+  %208 = load i8, ptr %gep566, align 1, !tbaa !16
   %209 = zext i8 %208 to i32
-  %gep552 = getelementptr i8, ptr %invariant.gep551, i64 %indvars.iv488
-  %210 = load i8, ptr %gep552, align 1, !tbaa !16
+  %gep568 = getelementptr i8, ptr %invariant.gep567, i64 %indvars.iv488
+  %210 = load i8, ptr %gep568, align 1, !tbaa !16
   %211 = zext i8 %210 to i32
-  %gep554 = getelementptr i8, ptr %invariant.gep553, i64 %indvars.iv488
-  %212 = load i8, ptr %gep554, align 1, !tbaa !16
+  %gep570 = getelementptr i8, ptr %invariant.gep569, i64 %indvars.iv488
+  %212 = load i8, ptr %gep570, align 1, !tbaa !16
   %213 = zext i8 %212 to i32
-  %gep556 = getelementptr i8, ptr %invariant.gep555, i64 %indvars.iv488
-  %214 = load i8, ptr %gep556, align 1, !tbaa !16
+  %gep572 = getelementptr i8, ptr %invariant.gep571, i64 %indvars.iv488
+  %214 = load i8, ptr %gep572, align 1, !tbaa !16
   %215 = zext i8 %214 to i32
-  %gep558 = getelementptr i8, ptr %invariant.gep557, i64 %indvars.iv488
-  %216 = load i8, ptr %gep558, align 1, !tbaa !16
+  %gep574 = getelementptr i8, ptr %invariant.gep573, i64 %indvars.iv488
+  %216 = load i8, ptr %gep574, align 1, !tbaa !16
   %217 = zext i8 %216 to i32
   %218 = add nuw nsw i32 %213, %211
   %219 = mul nuw nsw i32 %218, 20
@@ -1077,12 +1077,12 @@ define internal fastcc void @mc_block(ptr noundef readonly captures(address_is_n
   %.1278378 = phi i32 [ %287, %._crit_edge.split ], [ 0, %.preheader331.preheader ]
   %.1290376 = phi ptr [ %286, %._crit_edge.split ], [ %179, %.preheader331.preheader ]
   %invariant.gep = getelementptr i8, ptr %.3379, i64 %188
-  %invariant.gep535 = getelementptr i8, ptr %.3379, i64 %197
-  %invariant.gep537 = getelementptr i8, ptr %.3379, i64 %198
-  %invariant.gep539 = getelementptr i8, ptr %.3379, i64 %199
-  %invariant.gep541 = getelementptr i8, ptr %.3379, i64 %200
-  %invariant.gep543 = getelementptr i8, ptr %.3379, i64 %201
-  %invariant.gep545 = getelementptr i8, ptr %.3379, i64 %202
+  %invariant.gep551 = getelementptr i8, ptr %.3379, i64 %197
+  %invariant.gep553 = getelementptr i8, ptr %.3379, i64 %198
+  %invariant.gep555 = getelementptr i8, ptr %.3379, i64 %199
+  %invariant.gep557 = getelementptr i8, ptr %.3379, i64 %200
+  %invariant.gep559 = getelementptr i8, ptr %.3379, i64 %201
+  %invariant.gep561 = getelementptr i8, ptr %.3379, i64 %202
   br label %232
 
 232:                                              ; preds = %.preheader331, %281
@@ -1090,20 +1090,20 @@ define internal fastcc void @mc_block(ptr noundef readonly captures(address_is_n
   %gep = getelementptr i8, ptr %invariant.gep, i64 %indvars.iv482
   %233 = load i8, ptr %gep, align 1, !tbaa !16
   %234 = zext i8 %233 to i32
-  %gep536 = getelementptr i8, ptr %invariant.gep535, i64 %indvars.iv482
-  %235 = load i8, ptr %gep536, align 1, !tbaa !16
+  %gep552 = getelementptr i8, ptr %invariant.gep551, i64 %indvars.iv482
+  %235 = load i8, ptr %gep552, align 1, !tbaa !16
   %236 = zext i8 %235 to i32
-  %gep538 = getelementptr i8, ptr %invariant.gep537, i64 %indvars.iv482
-  %237 = load i8, ptr %gep538, align 1, !tbaa !16
+  %gep554 = getelementptr i8, ptr %invariant.gep553, i64 %indvars.iv482
+  %237 = load i8, ptr %gep554, align 1, !tbaa !16
   %238 = zext i8 %237 to i32
-  %gep540 = getelementptr i8, ptr %invariant.gep539, i64 %indvars.iv482
-  %239 = load i8, ptr %gep540, align 1, !tbaa !16
+  %gep556 = getelementptr i8, ptr %invariant.gep555, i64 %indvars.iv482
+  %239 = load i8, ptr %gep556, align 1, !tbaa !16
   %240 = zext i8 %239 to i32
-  %gep542 = getelementptr i8, ptr %invariant.gep541, i64 %indvars.iv482
-  %241 = load i8, ptr %gep542, align 1, !tbaa !16
+  %gep558 = getelementptr i8, ptr %invariant.gep557, i64 %indvars.iv482
+  %241 = load i8, ptr %gep558, align 1, !tbaa !16
   %242 = zext i8 %241 to i32
-  %gep544 = getelementptr i8, ptr %invariant.gep543, i64 %indvars.iv482
-  %243 = load i8, ptr %gep544, align 1, !tbaa !16
+  %gep560 = getelementptr i8, ptr %invariant.gep559, i64 %indvars.iv482
+  %243 = load i8, ptr %gep560, align 1, !tbaa !16
   %244 = zext i8 %243 to i32
   br i1 %.not316, label %254, label %245
 
@@ -1120,8 +1120,8 @@ define internal fastcc void @mc_block(ptr noundef readonly captures(address_is_n
   br label %281
 
 254:                                              ; preds = %232
-  %gep546 = getelementptr i8, ptr %invariant.gep545, i64 %indvars.iv482
-  %255 = load i8, ptr %gep546, align 1, !tbaa !16
+  %gep562 = getelementptr i8, ptr %invariant.gep561, i64 %indvars.iv482
+  %255 = load i8, ptr %gep562, align 1, !tbaa !16
   %256 = zext i8 %255 to i32
   %257 = getelementptr inbounds nuw i8, ptr %.3379, i64 %indvars.iv482
   %258 = load i8, ptr %257, align 1, !tbaa !16

@@ -223,16 +223,16 @@ define dso_local range(i32 -1, 1) i32 @add_reflog_for_walk(ptr noundef %0, ptr n
   br label %108
 
 .thread.thread:                                   ; preds = %46, %.thread
-  %.17191101 = phi ptr [ %.272, %.thread ], [ %45, %46 ]
-  %.293100 = phi ptr [ %.3, %.thread ], [ %.169, %46 ]
-  %65 = call ptr @string_list_insert(ptr noundef nonnull %31, ptr noundef %.293100) #12
+  %.17191110 = phi ptr [ %.272, %.thread ], [ %45, %46 ]
+  %.293109 = phi ptr [ %.3, %.thread ], [ %.169, %46 ]
+  %65 = call ptr @string_list_insert(ptr noundef nonnull %31, ptr noundef %.293109) #12
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 8
-  store ptr %.17191101, ptr %66, align 8, !tbaa !24
+  store ptr %.17191110, ptr %66, align 8, !tbaa !24
   br label %67
 
 67:                                               ; preds = %.thread.thread, %33
-  %.070 = phi ptr [ %35, %33 ], [ %.17191101, %.thread.thread ]
-  %.068 = phi ptr [ %11, %33 ], [ %.293100, %.thread.thread ]
+  %.070 = phi ptr [ %35, %33 ], [ %.17191110, %.thread.thread ]
+  %.068 = phi ptr [ %11, %33 ], [ %.293109, %.thread.thread ]
   call void @free(ptr noundef %.068) #12
   %68 = call ptr @xcalloc(i64 noundef 1, i64 noundef 16) #12
   %69 = icmp slt i32 %.167, 0

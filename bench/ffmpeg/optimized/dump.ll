@@ -183,7 +183,7 @@ define internal fastcc void @hex_dump_internal(ptr noundef %0, ptr noundef captu
   %10 = trunc nsw i64 %9 to i32
   %spec.store.select = tail call i32 @llvm.smin.i32(i32 %10, i32 16)
   %11 = trunc nuw nsw i64 %indvars.iv81 to i32
-  %invariant.gep86 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv81
+  %invariant.gep87 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv81
   br i1 %.not, label %.split.us.preheader, label %.split.preheader
 
 .split.preheader:                                 ; preds = %8
@@ -204,8 +204,8 @@ define internal fastcc void @hex_dump_internal(ptr noundef %0, ptr noundef captu
   br label %18
 
 15:                                               ; preds = %.split.us
-  %gep87 = getelementptr inbounds nuw i8, ptr %invariant.gep86, i64 %indvars.iv71
-  %16 = load i8, ptr %gep87, align 1, !tbaa !4
+  %gep88 = getelementptr inbounds nuw i8, ptr %invariant.gep87, i64 %indvars.iv71
+  %16 = load i8, ptr %gep88, align 1, !tbaa !4
   %17 = zext i8 %16 to i32
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef %2, ptr noundef nonnull @.str.26, i32 noundef %17) #9
   br label %18
@@ -213,7 +213,7 @@ define internal fastcc void @hex_dump_internal(ptr noundef %0, ptr noundef captu
 18:                                               ; preds = %15, %14
   %indvars.iv.next72 = add nuw nsw i64 %indvars.iv71, 1
   %exitcond74.not = icmp eq i64 %indvars.iv.next72, 16
-  br i1 %exitcond74.not, label %.thread84, label %.split.us, !llvm.loop !7
+  br i1 %exitcond74.not, label %.thread85, label %.split.us, !llvm.loop !7
 
 .split:                                           ; preds = %.split.preheader, %26
   %indvars.iv = phi i64 [ 0, %.split.preheader ], [ %indvars.iv.next, %26 ]
@@ -221,7 +221,7 @@ define internal fastcc void @hex_dump_internal(ptr noundef %0, ptr noundef captu
   br i1 %19, label %20, label %24
 
 20:                                               ; preds = %.split
-  %gep = getelementptr inbounds nuw i8, ptr %invariant.gep86, i64 %indvars.iv
+  %gep = getelementptr inbounds nuw i8, ptr %invariant.gep87, i64 %indvars.iv
   %21 = load i8, ptr %gep, align 1, !tbaa !4
   %22 = zext i8 %21 to i32
   %23 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %1, ptr noundef nonnull @.str.26, i32 noundef %22) #9
@@ -239,27 +239,27 @@ define internal fastcc void @hex_dump_internal(ptr noundef %0, ptr noundef captu
 .loopexit:                                        ; preds = %26
   %fputc = tail call i32 @fputc(i32 32, ptr nonnull %1)
   %27 = icmp sgt i64 %9, 0
-  br i1 %27, label %.lr.ph.split.preheader, label %._crit_edge.thread85
+  br i1 %27, label %.lr.ph.split.preheader, label %._crit_edge.thread86
 
-.thread84:                                        ; preds = %18
+.thread85:                                        ; preds = %18
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef %2, ptr noundef nonnull @.str.28) #9
   %28 = icmp sgt i64 %9, 0
   br i1 %28, label %.lr.ph.split.us.preheader, label %._crit_edge.thread
 
 .lr.ph.split.preheader:                           ; preds = %.loopexit
   %29 = sext i32 %spec.store.select to i64
-  %invariant.gep88 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv81
+  %invariant.gep89 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv81
   br label %.lr.ph.split
 
-.lr.ph.split.us.preheader:                        ; preds = %.thread84
+.lr.ph.split.us.preheader:                        ; preds = %.thread85
   %30 = sext i32 %spec.store.select to i64
-  %invariant.gep90 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv81
+  %invariant.gep91 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv81
   br label %.lr.ph.split.us
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph.split.us.preheader, %.lr.ph.split.us
   %indvars.iv78 = phi i64 [ 0, %.lr.ph.split.us.preheader ], [ %indvars.iv.next79, %.lr.ph.split.us ]
-  %gep91 = getelementptr inbounds nuw i8, ptr %invariant.gep90, i64 %indvars.iv78
-  %31 = load i8, ptr %gep91, align 1, !tbaa !4
+  %gep92 = getelementptr inbounds nuw i8, ptr %invariant.gep91, i64 %indvars.iv78
+  %31 = load i8, ptr %gep92, align 1, !tbaa !4
   %32 = add i8 %31, -127
   %or.cond.us = icmp ult i8 %32, -95
   %narrow.us = select i1 %or.cond.us, i8 46, i8 %31
@@ -271,8 +271,8 @@ define internal fastcc void @hex_dump_internal(ptr noundef %0, ptr noundef captu
 
 .lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %.lr.ph.split
   %indvars.iv75 = phi i64 [ 0, %.lr.ph.split.preheader ], [ %indvars.iv.next76, %.lr.ph.split ]
-  %gep89 = getelementptr inbounds nuw i8, ptr %invariant.gep88, i64 %indvars.iv75
-  %34 = load i8, ptr %gep89, align 1, !tbaa !4
+  %gep90 = getelementptr inbounds nuw i8, ptr %invariant.gep89, i64 %indvars.iv75
+  %34 = load i8, ptr %gep90, align 1, !tbaa !4
   %35 = add i8 %34, -127
   %or.cond = icmp ult i8 %35, -95
   %narrow = select i1 %or.cond, i8 46, i8 %34
@@ -280,17 +280,17 @@ define internal fastcc void @hex_dump_internal(ptr noundef %0, ptr noundef captu
   %fputc58 = tail call i32 @fputc(i32 %spec.store.select2, ptr nonnull %1)
   %indvars.iv.next76 = add nuw nsw i64 %indvars.iv75, 1
   %36 = icmp slt i64 %indvars.iv.next76, %29
-  br i1 %36, label %.lr.ph.split, label %._crit_edge.thread85, !llvm.loop !9
+  br i1 %36, label %.lr.ph.split, label %._crit_edge.thread86, !llvm.loop !9
 
-._crit_edge.thread:                               ; preds = %.lr.ph.split.us, %.thread84
+._crit_edge.thread:                               ; preds = %.lr.ph.split.us, %.thread85
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef %2, ptr noundef nonnull @.str.15) #9
   br label %37
 
-._crit_edge.thread85:                             ; preds = %.lr.ph.split, %.loopexit
+._crit_edge.thread86:                             ; preds = %.lr.ph.split, %.loopexit
   %fputc57 = tail call i32 @fputc(i32 10, ptr nonnull %1)
   br label %37
 
-37:                                               ; preds = %._crit_edge.thread, %._crit_edge.thread85
+37:                                               ; preds = %._crit_edge.thread, %._crit_edge.thread86
   %indvars.iv.next82 = add nuw nsw i64 %indvars.iv81, 16
   %38 = icmp samesign ult i64 %indvars.iv.next82, %7
   br i1 %38, label %8, label %._crit_edge67, !llvm.loop !10
@@ -746,7 +746,7 @@ dump_metadata.exit115:                            ; preds = %116, %122, %124
 
 .lr.ph134:                                        ; preds = %147
   %150 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %.275.i = select i1 %.not99, i64 16, i64 44
+  %.291.i = select i1 %.not99, i64 16, i64 44
   %151 = getelementptr inbounds nuw i8, ptr %0, i64 440
   br label %153
 
@@ -761,7 +761,7 @@ dump_metadata.exit115:                            ; preds = %116, %122, %124
   %155 = getelementptr inbounds nuw ptr, ptr %154, i64 %indvars.iv154
   %156 = load ptr, ptr %155, align 8, !tbaa !72
   %157 = load ptr, ptr %.in.in, align 8, !tbaa !40
-  %158 = getelementptr inbounds nuw i8, ptr %157, i64 %.275.i
+  %158 = getelementptr inbounds nuw i8, ptr %157, i64 %.291.i
   %159 = load i32, ptr %158, align 4, !tbaa !67
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %160 = trunc nuw nsw i64 %indvars.iv154 to i32
@@ -1414,10 +1414,10 @@ define internal fastcc void @dump_stream_format(ptr noundef readonly captures(no
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %.not = icmp eq i32 %4, 0
   %. = select i1 %.not, i64 8, i64 16
-  %.141 = select i1 %.not, i64 16, i64 44
+  %.148 = select i1 %.not, i64 16, i64 44
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 %.
   %11 = load ptr, ptr %10, align 8, !tbaa !40
-  %12 = getelementptr inbounds nuw i8, ptr %11, i64 %.141
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 %.148
   %13 = load i32, ptr %12, align 4, !tbaa !67
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %15 = load ptr, ptr %14, align 8, !tbaa !165

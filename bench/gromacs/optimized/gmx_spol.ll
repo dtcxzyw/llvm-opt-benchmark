@@ -971,15 +971,15 @@ _ZL12calc_com_pbciPK10t_topologyPA3_fP5t_pbcPKiPf7PbcType.exit: ; preds = %._cri
   %362 = sub nsw i32 %300, %298
   %363 = sitofp i32 %362 to float
   %364 = fdiv float %361, %363
-  %.pre402 = load ptr, ptr %11, align 8, !tbaa !150
+  %.pre444 = load ptr, ptr %11, align 8, !tbaa !150
   %365 = sext i32 %298 to i64
   %wide.trip.count375 = sext i32 %300 to i64
   br label %367
 
 .preheader249:                                    ; preds = %378, %._crit_edge288..preheader249_crit_edge
-  %.pre404 = phi ptr [ %.pre, %._crit_edge288..preheader249_crit_edge ], [ %.pre402, %378 ]
+  %.pre446 = phi ptr [ %.pre, %._crit_edge288..preheader249_crit_edge ], [ %.pre444, %378 ]
   %.pre-phi = phi i64 [ %.pre400, %._crit_edge288..preheader249_crit_edge ], [ %365, %378 ]
-  %366 = getelementptr inbounds [3 x float], ptr %.pre404, i64 %.pre-phi
+  %366 = getelementptr inbounds [3 x float], ptr %.pre446, i64 %.pre-phi
   br label %379
 
 367:                                              ; preds = %.lr.ph293, %378
@@ -987,7 +987,7 @@ _ZL12calc_com_pbciPK10t_topologyPA3_fP5t_pbcPKiPf7PbcType.exit: ; preds = %._cri
   %368 = getelementptr inbounds %struct.t_atom, ptr %191, i64 %indvars.iv372, i32 1
   %369 = load float, ptr %368, align 4, !tbaa !161
   %370 = fsub float %369, %364
-  %371 = getelementptr inbounds [3 x float], ptr %.pre402, i64 %indvars.iv372
+  %371 = getelementptr inbounds [3 x float], ptr %.pre444, i64 %indvars.iv372
   br label %372
 
 372:                                              ; preds = %367, %372
@@ -1025,7 +1025,7 @@ _ZL12calc_com_pbciPK10t_topologyPA3_fP5t_pbcPKiPf7PbcType.exit: ; preds = %._cri
 .preheader:                                       ; preds = %379, %.loopexit
   %indvars.iv385 = phi i64 [ %indvars.iv.next386, %.loopexit ], [ %.pre-phi, %379 ]
   %indvars.iv.next386 = add nsw i64 %indvars.iv385, 1
-  %384 = getelementptr inbounds [3 x float], ptr %.pre404, i64 %indvars.iv.next386
+  %384 = getelementptr inbounds [3 x float], ptr %.pre446, i64 %indvars.iv.next386
   br label %385
 
 385:                                              ; preds = %.preheader, %385

@@ -821,15 +821,15 @@ define dso_local noundef range(i32 -28, 1) i32 @drm_mm_insert_node_in_range(ptr 
   %53 = getelementptr i8, ptr %51, i64 40
   %54 = load i64, ptr %53, align 8
   %55 = icmp ult i64 %54, %2
-  br i1 %55, label %.thread22, label %.lr.ph179
+  br i1 %55, label %.thread22, label %.lr.ph207
 
 .lr.ph79:                                         ; preds = %71
   %56 = getelementptr i8, ptr %74, i64 40
   %57 = load i64, ptr %56, align 8
   %58 = icmp ult i64 %57, %2
-  br i1 %58, label %.thread22.loopexit210, label %.lr.ph179
+  br i1 %58, label %.thread22.loopexit238, label %.lr.ph207
 
-.lr.ph179:                                        ; preds = %.lr.ph79.preheader, %.lr.ph79
+.lr.ph207:                                        ; preds = %.lr.ph79.preheader, %.lr.ph79
   %59 = phi ptr [ %74, %.lr.ph79 ], [ %51, %.lr.ph79.preheader ]
   %60 = getelementptr i8, ptr %59, i64 -104
   %61 = load i64, ptr %60, align 8
@@ -839,19 +839,19 @@ define dso_local noundef range(i32 -28, 1) i32 @drm_mm_insert_node_in_range(ptr 
   %65 = icmp ugt i64 %64, %5
   br i1 %65, label %71, label %66
 
-66:                                               ; preds = %.lr.ph179
+66:                                               ; preds = %.lr.ph207
   %67 = getelementptr i8, ptr %59, i64 32
   %68 = load i64, ptr %67, align 8
   %69 = add i64 %68, %64
   %70 = icmp ult i64 %69, %5
-  br i1 %70, label %71, label %.thread22.loopexit210
+  br i1 %70, label %71, label %.thread22.loopexit238
 
-71:                                               ; preds = %.lr.ph179, %66
-  %72 = phi i64 [ 16, %.lr.ph179 ], [ 8, %66 ]
+71:                                               ; preds = %.lr.ph207, %66
+  %72 = phi i64 [ 16, %.lr.ph207 ], [ 8, %66 ]
   %73 = getelementptr i8, ptr %59, i64 %72
   %74 = load ptr, ptr %73, align 8
   %75 = icmp eq ptr %74, null
-  br i1 %75, label %.thread22.loopexit210, label %.lr.ph79
+  br i1 %75, label %.thread22.loopexit238, label %.lr.ph79
 
 76:                                               ; preds = %.thread
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 224
@@ -863,15 +863,15 @@ define dso_local noundef range(i32 -28, 1) i32 @drm_mm_insert_node_in_range(ptr 
   %80 = getelementptr i8, ptr %78, i64 40
   %81 = load i64, ptr %80, align 8
   %82 = icmp ult i64 %81, %2
-  br i1 %82, label %.thread22, label %.lr.ph175
+  br i1 %82, label %.thread22, label %.lr.ph203
 
 .lr.ph:                                           ; preds = %98
   %83 = getelementptr i8, ptr %101, i64 40
   %84 = load i64, ptr %83, align 8
   %85 = icmp ult i64 %84, %2
-  br i1 %85, label %.thread22.loopexit212, label %.lr.ph175
+  br i1 %85, label %.thread22.loopexit240, label %.lr.ph203
 
-.lr.ph175:                                        ; preds = %.lr.ph.preheader, %.lr.ph
+.lr.ph203:                                        ; preds = %.lr.ph.preheader, %.lr.ph
   %86 = phi ptr [ %101, %.lr.ph ], [ %78, %.lr.ph.preheader ]
   %87 = getelementptr i8, ptr %86, i64 -104
   %88 = load i64, ptr %87, align 8
@@ -881,19 +881,19 @@ define dso_local noundef range(i32 -28, 1) i32 @drm_mm_insert_node_in_range(ptr 
   %92 = icmp ugt i64 %91, %6
   br i1 %92, label %98, label %93
 
-93:                                               ; preds = %.lr.ph175
+93:                                               ; preds = %.lr.ph203
   %94 = getelementptr i8, ptr %86, i64 32
   %95 = load i64, ptr %94, align 8
   %96 = add i64 %95, %91
   %97 = icmp ult i64 %96, %6
-  br i1 %97, label %98, label %.thread22.loopexit212
+  br i1 %97, label %98, label %.thread22.loopexit240
 
-98:                                               ; preds = %.lr.ph175, %93
-  %99 = phi i64 [ 16, %.lr.ph175 ], [ 8, %93 ]
+98:                                               ; preds = %.lr.ph203, %93
+  %99 = phi i64 [ 16, %.lr.ph203 ], [ 8, %93 ]
   %100 = getelementptr i8, ptr %86, i64 %99
   %101 = load ptr, ptr %100, align 8
   %102 = icmp eq ptr %101, null
-  br i1 %102, label %.thread22.loopexit212, label %.lr.ph
+  br i1 %102, label %.thread22.loopexit240, label %.lr.ph
 
 103:                                              ; preds = %.thread
   %104 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -902,16 +902,16 @@ define dso_local noundef range(i32 -28, 1) i32 @drm_mm_insert_node_in_range(ptr 
   %107 = getelementptr i8, ptr %105, i64 -48
   br i1 %106, label %.thread26, label %.thread22
 
-.thread22.loopexit210:                            ; preds = %71, %.lr.ph79, %66
+.thread22.loopexit238:                            ; preds = %71, %.lr.ph79, %66
   %108 = getelementptr i8, ptr %59, i64 -112
   br label %.thread22
 
-.thread22.loopexit212:                            ; preds = %98, %.lr.ph, %93
+.thread22.loopexit240:                            ; preds = %98, %.lr.ph, %93
   %109 = getelementptr i8, ptr %86, i64 -112
   br label %.thread22
 
-.thread22:                                        ; preds = %37, %.thread22.loopexit212, %.thread22.loopexit210, %.lr.ph.preheader, %.lr.ph79.preheader, %103
-  %110 = phi ptr [ %107, %103 ], [ null, %.lr.ph79.preheader ], [ null, %.lr.ph.preheader ], [ %108, %.thread22.loopexit210 ], [ %109, %.thread22.loopexit212 ], [ %44, %37 ]
+.thread22:                                        ; preds = %37, %.thread22.loopexit240, %.thread22.loopexit238, %.lr.ph.preheader, %.lr.ph79.preheader, %103
+  %110 = phi ptr [ %107, %103 ], [ null, %.lr.ph79.preheader ], [ null, %.lr.ph.preheader ], [ %108, %.thread22.loopexit238 ], [ %109, %.thread22.loopexit240 ], [ %44, %37 ]
   %111 = icmp eq ptr %110, null
   br i1 %111, label %.thread26, label %112
 
@@ -1000,9 +1000,9 @@ define dso_local noundef range(i32 -28, 1) i32 @drm_mm_insert_node_in_range(ptr 
   %167 = icmp uge i64 %166, %147
   %168 = sub i64 %148, %166
   %169 = icmp uge i64 %168, %2
-  %.not146 = and i1 %167, %169
+  %.not174 = and i1 %167, %169
   %170 = icmp ugt i64 %148, %166
-  %or.cond = and i1 %.not146, %170
+  %or.cond = and i1 %.not174, %170
   br i1 %or.cond, label %.thread27, label %.thread32
 
 .thread27:                                        ; preds = %164, %161, %153
@@ -1167,16 +1167,16 @@ drm_mm_interval_tree_add_node.exit:               ; preds = %.loopexit.i, %234
   %255 = getelementptr inbounds nuw i8, ptr %126, i64 120
   %256 = load ptr, ptr %255, align 8
   %257 = icmp eq ptr %256, null
-  br i1 %257, label %.preheader186, label %258
+  br i1 %257, label %.preheader214, label %258
 
-.preheader186:                                    ; preds = %258, %254
+.preheader214:                                    ; preds = %258, %254
   br label %272
 
 258:                                              ; preds = %254
   %259 = getelementptr i8, ptr %256, i64 40
   %260 = load i64, ptr %259, align 8
   %261 = icmp ult i64 %260, %2
-  br i1 %261, label %.preheader186, label %.preheader
+  br i1 %261, label %.preheader214, label %.preheader
 
 .preheader:                                       ; preds = %258, %266
   %262 = phi ptr [ %264, %266 ], [ %256, %258 ]
@@ -1195,8 +1195,8 @@ drm_mm_interval_tree_add_node.exit:               ; preds = %.loopexit.i, %234
   %271 = getelementptr i8, ptr %262, i64 -112
   br label %324
 
-272:                                              ; preds = %.preheader186, %277
-  %273 = phi ptr [ %278, %277 ], [ %250, %.preheader186 ]
+272:                                              ; preds = %.preheader214, %277
+  %273 = phi ptr [ %278, %277 ], [ %250, %.preheader214 ]
   %274 = load i64, ptr %273, align 8
   %275 = and i64 %274, -4
   %276 = icmp eq i64 %275, 0
@@ -1224,16 +1224,16 @@ drm_mm_interval_tree_add_node.exit:               ; preds = %.loopexit.i, %234
   %290 = getelementptr inbounds nuw i8, ptr %126, i64 128
   %291 = load ptr, ptr %290, align 8
   %292 = icmp eq ptr %291, null
-  br i1 %292, label %.preheader187, label %293
+  br i1 %292, label %.preheader215, label %293
 
-.preheader187:                                    ; preds = %293, %289
+.preheader215:                                    ; preds = %293, %289
   br label %307
 
 293:                                              ; preds = %289
   %294 = getelementptr i8, ptr %291, i64 40
   %295 = load i64, ptr %294, align 8
   %296 = icmp ult i64 %295, %2
-  br i1 %296, label %.preheader187, label %.preheader46
+  br i1 %296, label %.preheader215, label %.preheader46
 
 .preheader46:                                     ; preds = %293, %301
   %297 = phi ptr [ %299, %301 ], [ %291, %293 ]
@@ -1252,8 +1252,8 @@ drm_mm_interval_tree_add_node.exit:               ; preds = %.loopexit.i, %234
   %306 = getelementptr i8, ptr %297, i64 -112
   br label %324
 
-307:                                              ; preds = %.preheader187, %312
-  %308 = phi ptr [ %313, %312 ], [ %285, %.preheader187 ]
+307:                                              ; preds = %.preheader215, %312
+  %308 = phi ptr [ %313, %312 ], [ %285, %.preheader215 ]
   %309 = load i64, ptr %308, align 8
   %310 = and i64 %309, -4
   %311 = icmp eq i64 %310, 0

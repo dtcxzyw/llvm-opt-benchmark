@@ -119,24 +119,24 @@ define internal i32 @decode_frame(ptr noundef %0, ptr noundef %1, ptr noundef wr
   %68 = getelementptr inbounds i8, ptr %11, i64 -1
   %69 = getelementptr inbounds i8, ptr %11, i64 -3
   %.not158 = icmp eq ptr %66, null
-  %.not192 = icmp slt i32 %9, 4
-  br i1 %.not192, label %.thread.thread, label %.lr.ph
+  %.not205 = icmp slt i32 %9, 4
+  br i1 %.not205, label %.thread.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader, %.thread
-  %.0120183 = phi ptr [ %.8, %.thread ], [ %25, %.preheader ]
-  %.0121182 = phi i32 [ %.4125, %.thread ], [ 0, %.preheader ]
-  %70 = load i16, ptr %.0120183, align 1, !tbaa !31
+  %.0120196 = phi ptr [ %.8, %.thread ], [ %25, %.preheader ]
+  %.0121195 = phi i32 [ %.4125, %.thread ], [ 0, %.preheader ]
+  %70 = load i16, ptr %.0120196, align 1, !tbaa !31
   %71 = zext i16 %70 to i32
-  %72 = getelementptr inbounds nuw i8, ptr %.0120183, i64 2
+  %72 = getelementptr inbounds nuw i8, ptr %.0120196, i64 2
   %.not155 = icmp sgt i16 %70, -1
   br i1 %.not155, label %73, label %78
 
 73:                                               ; preds = %.lr.ph
-  %74 = shl nsw i32 %.0121182, 1
+  %74 = shl nsw i32 %.0121195, 1
   %75 = sext i32 %74 to i64
   %76 = getelementptr inbounds i8, ptr %64, i64 %75
   store i16 %70, ptr %76, align 2, !tbaa !31
-  %77 = add nsw i32 %.0121182, 1
+  %77 = add nsw i32 %.0121195, 1
   br label %.thread
 
 78:                                               ; preds = %.lr.ph
@@ -160,7 +160,7 @@ define internal i32 @decode_frame(ptr noundef %0, ptr noundef %1, ptr noundef wr
   br i1 %91, label %.thread.thread, label %92
 
 92:                                               ; preds = %90
-  %93 = getelementptr i8, ptr %.0120183, i64 3
+  %93 = getelementptr i8, ptr %.0120196, i64 3
   %94 = load i16, ptr %93, align 1
   %95 = zext i16 %94 to i32
   %96 = shl nuw nsw i32 %95, 8
@@ -168,17 +168,17 @@ define internal i32 @decode_frame(ptr noundef %0, ptr noundef %1, ptr noundef wr
   %98 = zext i8 %97 to i32
   %99 = or disjoint i32 %96, %98
   store i32 %99, ptr %87, align 4, !tbaa !37
-  %100 = getelementptr inbounds nuw i8, ptr %.0120183, i64 5
+  %100 = getelementptr inbounds nuw i8, ptr %.0120196, i64 5
   br label %101
 
 101:                                              ; preds = %92, %81
   %102 = phi i32 [ %99, %92 ], [ %88, %81 ]
   %.2 = phi ptr [ %100, %92 ], [ %72, %81 ]
-  %103 = add nsw i32 %102, %.0121182
+  %103 = add nsw i32 %102, %.0121195
   %104 = srem i32 %103, %26
   %105 = sub nsw i32 %26, %104
   %106 = icmp slt i32 %105, %85
-  %107 = sub nsw i32 %26, %.0121182
+  %107 = sub nsw i32 %26, %.0121195
   %108 = icmp slt i32 %107, %85
   %or.cond161 = select i1 %106, i1 true, i1 %108
   br i1 %or.cond161, label %.thread.thread, label %109
@@ -191,7 +191,7 @@ define internal i32 @decode_frame(ptr noundef %0, ptr noundef %1, ptr noundef wr
   br label %.thread.thread
 
 111:                                              ; preds = %109
-  %112 = shl nsw i32 %.0121182, 1
+  %112 = shl nsw i32 %.0121195, 1
   %113 = sext i32 %112 to i64
   %114 = getelementptr inbounds i8, ptr %64, i64 %113
   %115 = shl nsw i32 %104, 1
@@ -217,7 +217,7 @@ define internal i32 @decode_frame(ptr noundef %0, ptr noundef %1, ptr noundef wr
   br i1 %124, label %.thread.thread, label %125
 
 125:                                              ; preds = %123
-  %126 = getelementptr inbounds nuw i8, ptr %.0120183, i64 3
+  %126 = getelementptr inbounds nuw i8, ptr %.0120196, i64 3
   %127 = load i8, ptr %72, align 1, !tbaa !31
   %128 = zext i8 %127 to i32
   %129 = add nuw nsw i32 %128, 4
@@ -226,14 +226,14 @@ define internal i32 @decode_frame(ptr noundef %0, ptr noundef %1, ptr noundef wr
 130:                                              ; preds = %120, %122, %125
   %.4131 = phi i32 [ 3, %122 ], [ %129, %125 ], [ 2, %120 ]
   %.6 = phi ptr [ %72, %122 ], [ %126, %125 ], [ %72, %120 ]
-  %.not157 = icmp sle i32 %.0121182, %121
-  %131 = sub nsw i32 %26, %.0121182
+  %.not157 = icmp sle i32 %.0121195, %121
+  %131 = sub nsw i32 %26, %.0121195
   %132 = icmp slt i32 %131, %.4131
   %or.cond163 = select i1 %.not157, i1 true, i1 %132
   br i1 %or.cond163, label %.thread.thread, label %133
 
 133:                                              ; preds = %130
-  %134 = shl nuw nsw i32 %.0121182, 1
+  %134 = shl nuw nsw i32 %.0121195, 1
   %135 = zext nneg i32 %134 to i64
   %136 = getelementptr inbounds nuw i8, ptr %64, i64 %135
   %137 = shl nuw nsw i32 %121, 1
@@ -245,7 +245,7 @@ define internal i32 @decode_frame(ptr noundef %0, ptr noundef %1, ptr noundef wr
 140:                                              ; preds = %133, %111
   %.3130 = phi i32 [ %85, %111 ], [ %.4131, %133 ]
   %.5 = phi ptr [ %.2, %111 ], [ %.6, %133 ]
-  %141 = add nsw i32 %.3130, %.0121182
+  %141 = add nsw i32 %.3130, %.0121195
   br label %.thread
 
 .thread:                                          ; preds = %140, %73
@@ -257,12 +257,12 @@ define internal i32 @decode_frame(ptr noundef %0, ptr noundef %1, ptr noundef wr
   br i1 %144, label %.lr.ph, label %.thread.thread
 
 .thread.thread:                                   ; preds = %.thread, %90, %101, %123, %130, %.preheader, %110
-  %.0121181 = phi i32 [ %.0121182, %110 ], [ 0, %.preheader ], [ %.0121182, %130 ], [ %.0121182, %123 ], [ %.0121182, %101 ], [ %.0121182, %90 ], [ %.4125, %.thread ]
-  %.not159 = icmp eq i32 %.0121181, %26
+  %.0121194 = phi i32 [ %.0121195, %110 ], [ 0, %.preheader ], [ %.0121195, %130 ], [ %.0121195, %123 ], [ %.0121195, %101 ], [ %.0121195, %90 ], [ %.4125, %.thread ]
+  %.not159 = icmp eq i32 %.0121194, %26
   br i1 %.not159, label %147, label %145
 
 145:                                              ; preds = %.thread.thread
-  %146 = sub nsw i32 %.0121181, %26
+  %146 = sub nsw i32 %.0121194, %26
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 48, ptr noundef nonnull @.str.3, i32 noundef %146) #7
   br label %147
 

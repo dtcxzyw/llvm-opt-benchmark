@@ -2365,9 +2365,9 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi19EEERS2_RAT__Kc.exit: ; pr
   %70 = load i64, ptr %69, align 8, !tbaa !47
   %71 = icmp slt i64 %70, %0
   %72 = icmp eq i64 %70, %0
-  %or.cond291 = and i1 %67, %72
-  %or.cond156292 = or i1 %71, %or.cond291
-  br i1 %or.cond156292, label %.critedge, label %.critedge2
+  %or.cond315 = and i1 %67, %72
+  %or.cond156316 = or i1 %71, %or.cond315
+  br i1 %or.cond156316, label %.critedge, label %.critedge2
 
 .critedge:                                        ; preds = %.critedge41, %_ZL20note_deadline_changeP11timer_shard.exit
   %73 = phi ptr [ %348, %_ZL20note_deadline_changeP11timer_shard.exit ], [ %68, %.critedge41 ]
@@ -3226,13 +3226,13 @@ _ZL20note_deadline_changeP11timer_shard.exit:     ; preds = %.lr.ph13.i, %340, %
   br i1 %or.cond156, label %.critedge, label %.critedge2, !llvm.loop !86
 
 .critedge2:                                       ; preds = %_ZL20note_deadline_changeP11timer_shard.exit, %.critedge41
-  %.lcssa275 = phi ptr [ %68, %.critedge41 ], [ %348, %_ZL20note_deadline_changeP11timer_shard.exit ]
+  %.lcssa299 = phi ptr [ %68, %.critedge41 ], [ %348, %_ZL20note_deadline_changeP11timer_shard.exit ]
   %.lcssa = phi i64 [ %70, %.critedge41 ], [ %350, %_ZL20note_deadline_changeP11timer_shard.exit ]
   %.not34 = icmp eq ptr %1, null
   br i1 %.not34, label %356, label %353
 
 353:                                              ; preds = %.critedge2
-  %354 = getelementptr inbounds nuw i8, ptr %.lcssa275, i64 72
+  %354 = getelementptr inbounds nuw i8, ptr %.lcssa299, i64 72
   %.sroa.0.0.copyload.i88 = load i64, ptr %1, align 8, !tbaa !17
   %355 = call i64 @llvm.smin.i64(i64 %.lcssa, i64 %.sroa.0.0.copyload.i88)
   store i64 %355, ptr %1, align 8, !tbaa !17

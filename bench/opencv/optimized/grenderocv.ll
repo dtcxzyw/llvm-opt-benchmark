@@ -6803,7 +6803,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit111:       ; preds = %_ZSt8_DestroyIPN2cv
   br i1 %212, label %.loopexit154, label %209
 
 .body78:                                          ; preds = %.body125.thread, %.body125, %122
-  %eh.lpad-body126175 = phi { ptr, i32 } [ %121, %.body125.thread ], [ %116, %.body125 ], [ %116, %122 ]
+  %eh.lpad-body126191 = phi { ptr, i32 } [ %121, %.body125.thread ], [ %116, %.body125 ], [ %116, %122 ]
   br label %213
 
 213:                                              ; preds = %213, %.body78
@@ -6814,7 +6814,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit111:       ; preds = %_ZSt8_DestroyIPN2cv
   br i1 %216, label %.loopexit154, label %213
 
 .loopexit154:                                     ; preds = %209, %213, %.thread149
-  %.pn55 = phi { ptr, i32 } [ %99, %.thread149 ], [ %eh.lpad-body126175, %213 ], [ %208, %209 ]
+  %.pn55 = phi { ptr, i32 } [ %99, %.thread149 ], [ %eh.lpad-body126191, %213 ], [ %208, %209 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   br label %229
 
@@ -9633,7 +9633,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit148:       ; preds = %_ZSt8_DestroyIPN2cv
   br i1 %293, label %.loopexit195, label %290
 
 .body110:                                         ; preds = %.body163.thread, %.body163, %187
-  %eh.lpad-body164216 = phi { ptr, i32 } [ %186, %.body163.thread ], [ %181, %.body163 ], [ %181, %187 ]
+  %eh.lpad-body164236 = phi { ptr, i32 } [ %186, %.body163.thread ], [ %181, %.body163 ], [ %181, %187 ]
   br label %294
 
 294:                                              ; preds = %294, %.body110
@@ -9644,7 +9644,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit148:       ; preds = %_ZSt8_DestroyIPN2cv
   br i1 %297, label %.loopexit195, label %294
 
 .loopexit195:                                     ; preds = %290, %294, %.thread190
-  %.pn72 = phi { ptr, i32 } [ %164, %.thread190 ], [ %eh.lpad-body164216, %294 ], [ %289, %290 ]
+  %.pn72 = phi { ptr, i32 } [ %164, %.thread190 ], [ %eh.lpad-body164236, %294 ], [ %289, %290 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %26)
   br label %310
 

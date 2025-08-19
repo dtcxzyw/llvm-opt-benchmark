@@ -701,14 +701,14 @@ Vec_IntStartFull.exit:                            ; preds = %Vec_IntAlloc.exit.t
   br label %Vec_IntPush.exit.sink.split
 
 Vec_IntPush.exit.sink.split:                      ; preds = %120, %122, %112, %114
-  %.sink162 = phi ptr [ %113, %112 ], [ %115, %114 ], [ %121, %120 ], [ %123, %122 ]
+  %.sink175 = phi ptr [ %113, %112 ], [ %115, %114 ], [ %121, %120 ], [ %123, %122 ]
   %.sink = phi i32 [ 16, %112 ], [ 16, %114 ], [ %117, %120 ], [ %117, %122 ]
-  store ptr %.sink162, ptr %35, align 8, !tbaa !33
+  store ptr %.sink175, ptr %35, align 8, !tbaa !33
   store i32 %.sink, ptr %32, align 8, !tbaa !46
   br label %Vec_IntPush.exit
 
 Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.sink.split, %105
-  %.pre.i146 = phi ptr [ %93, %105 ], [ %.sink162, %Vec_IntPush.exit.sink.split ]
+  %.pre.i146 = phi ptr [ %93, %105 ], [ %.sink175, %Vec_IntPush.exit.sink.split ]
   %124 = add nsw i32 %106, 1
   store i32 %124, ptr %33, align 4, !tbaa !38
   %125 = sext i32 %106 to i64
@@ -879,7 +879,7 @@ Vec_BitFreeP.exit:                                ; preds = %.critedge4, %190
   br label %Vec_BitFreeP.exit108.thread
 
 Vec_BitFreeP.exit108:                             ; preds = %.critedge._crit_edge, %.critedge._crit_edge.thread
-  %.val90156 = phi i32 [ 0, %.critedge._crit_edge.thread ], [ %.val90.pre, %.critedge._crit_edge ]
+  %.val90169 = phi i32 [ 0, %.critedge._crit_edge.thread ], [ %.val90.pre, %.critedge._crit_edge ]
   %197 = phi ptr [ %34, %.critedge._crit_edge.thread ], [ %.pre.i147, %.critedge._crit_edge ]
   %puts.i = tail call i32 @puts(ptr nonnull dereferenceable(1) @str)
   %.not.i109 = icmp eq ptr %197, null
@@ -887,12 +887,12 @@ Vec_BitFreeP.exit108:                             ; preds = %.critedge._crit_edg
 
 Vec_BitFreeP.exit108.thread:                      ; preds = %Vec_BitFreeP.exit, %196, %Vec_BitFreeP.exit108
   %198 = phi ptr [ %197, %Vec_BitFreeP.exit108 ], [ %.pre.i147, %196 ], [ %.pre.i147, %Vec_BitFreeP.exit ]
-  %.val90155160 = phi i32 [ %.val90156, %Vec_BitFreeP.exit108 ], [ %.val90.pre, %196 ], [ %.val90.pre, %Vec_BitFreeP.exit ]
+  %.val90168173 = phi i32 [ %.val90169, %Vec_BitFreeP.exit108 ], [ %.val90.pre, %196 ], [ %.val90.pre, %Vec_BitFreeP.exit ]
   tail call void @free(ptr noundef nonnull %198) #15
   br label %Vec_IntFree.exit
 
 Vec_IntFree.exit:                                 ; preds = %Vec_BitFreeP.exit108, %Vec_BitFreeP.exit108.thread
-  %.val90155161 = phi i32 [ %.val90156, %Vec_BitFreeP.exit108 ], [ %.val90155160, %Vec_BitFreeP.exit108.thread ]
+  %.val90168174 = phi i32 [ %.val90169, %Vec_BitFreeP.exit108 ], [ %.val90168173, %Vec_BitFreeP.exit108.thread ]
   tail call void @free(ptr noundef nonnull %32) #15
   %199 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %200 = load ptr, ptr %199, align 8, !tbaa !33
@@ -922,7 +922,7 @@ Vec_BitFree.exit:                                 ; preds = %Vec_IntFree.exit111
 
 Vec_BitFree.exit114:                              ; preds = %Vec_BitFree.exit, %203
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  ret i32 %.val90155161
+  ret i32 %.val90168174
 }
 
 ; Function Attrs: nounwind uwtable

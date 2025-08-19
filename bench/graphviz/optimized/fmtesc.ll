@@ -57,8 +57,8 @@ agxblen.exit.i.i:                                 ; preds = %18
   br i1 %.not.i26.i.i, label %30, label %.thread
 
 .thread:                                          ; preds = %agxblen.exit.i.i, %24
-  %.val.i25.i.i164 = phi i8 [ %.val.i25.pre.i.i, %24 ], [ 0, %agxblen.exit.i.i ]
-  %25 = zext i8 %.val.i25.i.i164 to i64
+  %.val.i25.i.i176 = phi i8 [ %.val.i25.pre.i.i, %24 ], [ 0, %agxblen.exit.i.i ]
+  %25 = zext i8 %.val.i25.i.i176 to i64
   %26 = getelementptr inbounds nuw [31 x i8], ptr %4, i64 0, i64 %25
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %26, ptr nonnull readonly align 1 %1, i64 %19, i1 false)
   %27 = trunc i64 %19 to i8
@@ -78,14 +78,14 @@ agxblen.exit.i.i:                                 ; preds = %18
 
 agxbput.exit:                                     ; preds = %30, %.thread, %18
   %.not161 = icmp eq i64 %5, 0
-  br i1 %.not161, label %.thread169, label %.lr.ph
+  br i1 %.not161, label %.thread181, label %.lr.ph
 
 agxbput.exit.thread:                              ; preds = %3
-  %.not161181 = icmp eq i64 %5, 0
-  br i1 %.not161181, label %agxbput.exit139, label %.lr.ph
+  %.not161193 = icmp eq i64 %5, 0
+  br i1 %.not161193, label %agxbput.exit139, label %.lr.ph
 
 .lr.ph:                                           ; preds = %agxbput.exit.thread, %agxbput.exit
-  %.053183 = phi i1 [ false, %agxbput.exit.thread ], [ %.154, %agxbput.exit ]
+  %.053195 = phi i1 [ false, %agxbput.exit.thread ], [ %.154, %agxbput.exit ]
   %.not = icmp eq ptr %2, null
   %35 = getelementptr inbounds nuw i8, ptr %4, i64 31
   %36 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -337,7 +337,7 @@ agxbsizeof.exit.i95:                              ; preds = %112
 
 133:                                              ; preds = %130
   %cond = icmp ne i8 %40, 32
-  %brmerge.not = select i1 %cond, i1 %.053183, i1 false
+  %brmerge.not = select i1 %cond, i1 %.053195, i1 false
   %not.cond = xor i1 %cond, true
   %.mux = zext i1 %not.cond to i8
   br i1 %brmerge.not, label %134, label %agxbputc.exit102
@@ -418,19 +418,19 @@ agxbputc.exit115:                                 ; preds = %144, %149
 
 156:                                              ; preds = %._crit_edge
   %157 = trunc nuw i8 %.1 to i1
-  br i1 %157, label %199, label %.thread169
+  br i1 %157, label %199, label %.thread181
 
-.thread169:                                       ; preds = %agxbput.exit, %156
-  %.053182 = phi i1 [ %.053183, %156 ], [ %.154, %agxbput.exit ]
-  %.055.lcssa167174 = phi i8 [ %.156, %156 ], [ 0, %agxbput.exit ]
-  %158 = zext i1 %.053182 to i64
-  %159 = xor i8 %.055.lcssa167174, 1
+.thread181:                                       ; preds = %agxbput.exit, %156
+  %.053194 = phi i1 [ %.053195, %156 ], [ %.154, %agxbput.exit ]
+  %.055.lcssa179186 = phi i8 [ %.156, %156 ], [ 0, %agxbput.exit ]
+  %158 = zext i1 %.053194 to i64
+  %159 = xor i8 %.055.lcssa179186, 1
   %160 = zext nneg i8 %159 to i64
   %161 = add nuw nsw i64 %160, %158
   %.not65 = icmp eq i64 %161, 0
   br i1 %.not65, label %199, label %162
 
-162:                                              ; preds = %.thread169
+162:                                              ; preds = %.thread181
   %163 = getelementptr inbounds nuw i8, ptr %4, i64 31
   %.val.i = load i8, ptr %163, align 1, !tbaa !3
   %.not.i116 = icmp eq i8 %.val.i, -1
@@ -495,17 +495,17 @@ agxbdisown.exit:                                  ; preds = %agxblen.exit.i117, 
 agxblen.exit.i.i123:                              ; preds = %agxbdisown.exit
   %186 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %187 = icmp ugt i64 %184, 31
-  br i1 %187, label %188, label %.thread176
+  br i1 %187, label %188, label %.thread188
 
 188:                                              ; preds = %agxblen.exit.i.i123
   call fastcc void @agxbmore(ptr noundef nonnull %4, i64 noundef %184)
   %.val.i25.pre.i.i128 = load i8, ptr %163, align 1, !tbaa !3
   %.not.i26.i.i127 = icmp eq i8 %.val.i25.pre.i.i128, -1
-  br i1 %.not.i26.i.i127, label %194, label %.thread176
+  br i1 %.not.i26.i.i127, label %194, label %.thread188
 
-.thread176:                                       ; preds = %agxblen.exit.i.i123, %188
-  %.val.i25.i.i126179 = phi i8 [ %.val.i25.pre.i.i128, %188 ], [ 0, %agxblen.exit.i.i123 ]
-  %189 = zext i8 %.val.i25.i.i126179 to i64
+.thread188:                                       ; preds = %agxblen.exit.i.i123, %188
+  %.val.i25.i.i126191 = phi i8 [ %.val.i25.pre.i.i128, %188 ], [ 0, %agxblen.exit.i.i123 ]
+  %189 = zext i8 %.val.i25.i.i126191 to i64
   %190 = getelementptr inbounds nuw [31 x i8], ptr %4, i64 0, i64 %189
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %190, ptr nonnull readonly align 1 %183, i64 %184, i1 false)
   %191 = trunc i64 %184 to i8
@@ -523,16 +523,16 @@ agxblen.exit.i.i123:                              ; preds = %agxbdisown.exit
   store i64 %198, ptr %186, align 8, !tbaa !3
   br label %agxbput.exit129
 
-agxbput.exit129:                                  ; preds = %agxbdisown.exit, %.thread176, %194
+agxbput.exit129:                                  ; preds = %agxbdisown.exit, %.thread188, %194
   tail call void @free(ptr noundef nonnull %.0.i118) #16
   br label %199
 
-199:                                              ; preds = %.thread169, %agxbput.exit129, %156
-  %.055.lcssa167175 = phi i8 [ %.055.lcssa167174, %.thread169 ], [ %.055.lcssa167174, %agxbput.exit129 ], [ %.156, %156 ]
-  %.050.lcssa168173 = phi i1 [ false, %.thread169 ], [ false, %agxbput.exit129 ], [ true, %156 ]
+199:                                              ; preds = %.thread181, %agxbput.exit129, %156
+  %.055.lcssa179187 = phi i8 [ %.055.lcssa179186, %.thread181 ], [ %.055.lcssa179186, %agxbput.exit129 ], [ %.156, %156 ]
+  %.050.lcssa180185 = phi i1 [ false, %.thread181 ], [ false, %agxbput.exit129 ], [ true, %156 ]
   %.not66 = icmp ne ptr %2, null
-  %200 = trunc nuw i8 %.055.lcssa167175 to i1
-  %or.cond5 = select i1 %.050.lcssa168173, i1 true, i1 %200
+  %200 = trunc nuw i8 %.055.lcssa179187 to i1
+  %or.cond5 = select i1 %.050.lcssa180185, i1 true, i1 %200
   %or.cond = select i1 %.not66, i1 %or.cond5, i1 false
   br i1 %or.cond, label %201, label %agxbput.exit139
 

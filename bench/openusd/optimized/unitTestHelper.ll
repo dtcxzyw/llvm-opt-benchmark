@@ -3107,13 +3107,13 @@ _ZN32pxrInternal_v0_24__pxrReserved__8GfCameraD2Ev.exit: ; preds = %371, %374
   br label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7GfVec4fESaIS1_EED2Ev.exit82.sink.split
 
 _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7GfVec4fESaIS1_EED2Ev.exit82.sink.split: ; preds = %334, %382
-  %.sink95 = phi ptr [ %384, %382 ], [ %336, %334 ]
-  %.sink94 = phi ptr [ %381, %382 ], [ %333, %334 ]
+  %.sink100 = phi ptr [ %384, %382 ], [ %336, %334 ]
+  %.sink99 = phi ptr [ %381, %382 ], [ %333, %334 ]
   %.pn.pn.ph = phi { ptr, i32 } [ %.pn, %382 ], [ %332, %334 ]
-  %385 = ptrtoint ptr %.sink95 to i64
-  %386 = ptrtoint ptr %.sink94 to i64
+  %385 = ptrtoint ptr %.sink100 to i64
+  %386 = ptrtoint ptr %.sink99 to i64
   %387 = sub i64 %385, %386
-  call void @_ZdlPvm(ptr noundef nonnull %.sink94, i64 noundef %387) #20
+  call void @_ZdlPvm(ptr noundef nonnull %.sink99, i64 noundef %387) #20
   br label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7GfVec4fESaIS1_EED2Ev.exit82
 
 _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7GfVec4fESaIS1_EED2Ev.exit82: ; preds = %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7GfVec4fESaIS1_EED2Ev.exit82.sink.split, %.body, %331

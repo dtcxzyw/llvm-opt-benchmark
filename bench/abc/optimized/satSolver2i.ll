@@ -902,14 +902,14 @@ Vec_IntAlloc.exit:                                ; preds = %._crit_edge, %94
   br label %Vec_IntPush.exit.sink.split
 
 Vec_IntPush.exit.sink.split:                      ; preds = %141, %143, %133, %135
-  %.sink125 = phi ptr [ %134, %133 ], [ %136, %135 ], [ %142, %141 ], [ %144, %143 ]
+  %.sink131 = phi ptr [ %134, %133 ], [ %136, %135 ], [ %142, %141 ], [ %144, %143 ]
   %.sink = phi i32 [ 16, %133 ], [ 16, %135 ], [ %138, %141 ], [ %138, %143 ]
-  store ptr %.sink125, ptr %99, align 8, !tbaa !16
+  store ptr %.sink131, ptr %99, align 8, !tbaa !16
   store i32 %.sink, ptr %91, align 8, !tbaa !15
   br label %Vec_IntPush.exit
 
 Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.sink.split, %107
-  %.pre.i123 = phi ptr [ %108, %107 ], [ %.sink125, %Vec_IntPush.exit.sink.split ]
+  %.pre.i123 = phi ptr [ %108, %107 ], [ %.sink131, %Vec_IntPush.exit.sink.split ]
   %145 = add nsw i32 %127, 1
   store i32 %145, ptr %93, align 4, !tbaa !11
   %146 = sext i32 %127 to i64
@@ -1003,14 +1003,14 @@ Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.si
   br label %Vec_IntPush.exit96.sink.split
 
 Vec_IntPush.exit96.sink.split:                    ; preds = %191, %193, %183, %185
-  %.sink127 = phi ptr [ %184, %183 ], [ %186, %185 ], [ %192, %191 ], [ %194, %193 ]
-  %.sink126 = phi i32 [ 16, %183 ], [ 16, %185 ], [ %188, %191 ], [ %188, %193 ]
-  store ptr %.sink127, ptr %99, align 8, !tbaa !16
-  store i32 %.sink126, ptr %91, align 8, !tbaa !15
+  %.sink133 = phi ptr [ %184, %183 ], [ %186, %185 ], [ %192, %191 ], [ %194, %193 ]
+  %.sink132 = phi i32 [ 16, %183 ], [ 16, %185 ], [ %188, %191 ], [ %188, %193 ]
+  store ptr %.sink133, ptr %99, align 8, !tbaa !16
+  store i32 %.sink132, ptr %91, align 8, !tbaa !15
   br label %Vec_IntPush.exit96
 
 Vec_IntPush.exit96:                               ; preds = %Vec_IntPush.exit96.sink.split, %.critedge2
-  %.val89 = phi ptr [ %152, %.critedge2 ], [ %.sink127, %Vec_IntPush.exit96.sink.split ]
+  %.val89 = phi ptr [ %152, %.critedge2 ], [ %.sink133, %Vec_IntPush.exit96.sink.split ]
   %195 = add nsw i32 %177, 1
   store i32 %195, ptr %93, align 4, !tbaa !11
   %196 = sext i32 %177 to i64

@@ -2287,8 +2287,8 @@ define ptr @l_Lake_Date_ofValid_x3f(ptr noundef %0, ptr noundef %1, ptr noundef 
   br i1 %.not, label %lean_nat_le.exit, label %6, !prof !4
 
 6:                                                ; preds = %3
-  %.not104 = icmp ult ptr %1, inttoptr (i64 3 to ptr)
-  br i1 %.not104, label %8, label %34
+  %.not131 = icmp ult ptr %1, inttoptr (i64 3 to ptr)
+  br i1 %.not131, label %8, label %34
 
 lean_nat_le.exit:                                 ; preds = %3
   %7 = tail call zeroext i1 @lean_nat_big_le(ptr noundef nonnull inttoptr (i64 3 to ptr), ptr noundef %1) #3
@@ -2364,8 +2364,8 @@ lean_dec.exit50:                                  ; preds = %24, %23, %21, %lean
   br label %lean_dec.exit49
 
 34:                                               ; preds = %6
-  %.not105 = icmp ugt ptr %1, inttoptr (i64 25 to ptr)
-  br i1 %.not105, label %36, label %62
+  %.not132 = icmp ugt ptr %1, inttoptr (i64 25 to ptr)
+  br i1 %.not132, label %36, label %62
 
 lean_nat_le.exit78:                               ; preds = %lean_nat_le.exit
   %35 = tail call zeroext i1 @lean_nat_big_le(ptr noundef %1, ptr noundef nonnull inttoptr (i64 25 to ptr)) #3
@@ -2447,8 +2447,8 @@ lean_dec.exit47:                                  ; preds = %52, %51, %49, %lean
   br i1 %.not89, label %lean_nat_le.exit81, label %65, !prof !4
 
 65:                                               ; preds = %62
-  %.not106 = icmp ult ptr %2, inttoptr (i64 3 to ptr)
-  br i1 %.not106, label %lean_dec.exit45, label %90
+  %.not133 = icmp ult ptr %2, inttoptr (i64 3 to ptr)
+  br i1 %.not133, label %lean_dec.exit45, label %90
 
 lean_nat_le.exit81:                               ; preds = %62
   %66 = tail call zeroext i1 @lean_nat_big_le(ptr noundef nonnull inttoptr (i64 3 to ptr), ptr noundef %2) #3
@@ -2527,8 +2527,8 @@ lean_dec.exit44:                                  ; preds = %80, %79, %77, %lean
   br i1 %or.cond, label %lean_nat_le.exit84.thread, label %lean_nat_le.exit84, !prof !15
 
 lean_nat_le.exit84.thread:                        ; preds = %90
-  %.not107 = icmp ugt ptr %2, %91
-  br i1 %.not107, label %lean_dec.exit41, label %128
+  %.not134 = icmp ugt ptr %2, %91
+  br i1 %.not134, label %lean_dec.exit41, label %128
 
 lean_nat_le.exit84:                               ; preds = %90
   %96 = tail call zeroext i1 @lean_nat_big_le(ptr noundef %2, ptr noundef %91) #3
@@ -4462,18 +4462,18 @@ _init_l_Lake_Date_instToString___closed__1.exit:  ; preds = %_init_l_Lake_instRe
   unreachable
 
 .sink.split:                                      ; preds = %_init_l_Lake_Date_instToString___closed__1.exit, %3
-  %.sink9 = phi ptr [ %4, %3 ], [ %128, %_init_l_Lake_Date_instToString___closed__1.exit ]
-  %131 = getelementptr inbounds nuw i8, ptr %.sink9, i64 4
-  store i32 1, ptr %.sink9, align 4, !tbaa !5
+  %.sink25 = phi ptr [ %4, %3 ], [ %128, %_init_l_Lake_Date_instToString___closed__1.exit ]
+  %131 = getelementptr inbounds nuw i8, ptr %.sink25, i64 4
+  store i32 1, ptr %.sink25, align 4, !tbaa !5
   store i32 131096, ptr %131, align 4
-  %132 = getelementptr inbounds nuw i8, ptr %.sink9, i64 8
+  %132 = getelementptr inbounds nuw i8, ptr %.sink25, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %132, align 8, !tbaa !13
-  %133 = getelementptr inbounds nuw i8, ptr %.sink9, i64 16
+  %133 = getelementptr inbounds nuw i8, ptr %.sink25, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %133, align 8, !tbaa !13
   br label %134
 
 134:                                              ; preds = %.sink.split, %7
-  %.0 = phi ptr [ %8, %7 ], [ %.sink9, %.sink.split ]
+  %.0 = phi ptr [ %8, %7 ], [ %.sink25, %.sink.split ]
   ret ptr %.0
 }
 

@@ -99,7 +99,7 @@ zend_parse_arg_str_ex.exit.thread:                ; preds = %zend_parse_arg_str_
   %25 = load i64, ptr %24, align 8, !tbaa !17
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %26 = icmp eq i32 %13, 1
-  br i1 %26, label %.critedge.thread282, label %27, !prof !21
+  br i1 %26, label %.critedge.thread290, label %27, !prof !21
 
 27:                                               ; preds = %zend_parse_arg_str_ex.exit.thread
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 96
@@ -119,17 +119,17 @@ zend_parse_arg_long_ex.exit:                      ; preds = %27
 
 34:                                               ; preds = %zend_parse_arg_long_ex.exit.thread, %zend_parse_arg_long_ex.exit
   %35 = icmp samesign ult i32 %13, 3
-  br i1 %35, label %.critedge.thread282, label %36, !prof !21
+  br i1 %35, label %.critedge.thread290, label %36, !prof !21
 
 36:                                               ; preds = %34
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %38 = icmp eq i32 %13, 3
-  br i1 %38, label %.critedge.thread282, label %39, !prof !21
+  br i1 %38, label %.critedge.thread290, label %39, !prof !21
 
 39:                                               ; preds = %36
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %.not = icmp eq i32 %13, 5
-  br i1 %.not, label %41, label %.critedge.thread282, !prof !15
+  br i1 %.not, label %41, label %.critedge.thread290, !prof !15
 
 41:                                               ; preds = %39
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 144
@@ -137,15 +137,15 @@ zend_parse_arg_long_ex.exit:                      ; preds = %27
   %44 = load i8, ptr %43, align 8, !tbaa !13
   switch i8 %44, label %zend_parse_arg_double.exit [
     i8 5, label %.critedge
-    i8 1, label %.critedge.thread282
+    i8 1, label %.critedge.thread290
   ], !prof !23
 
 zend_parse_arg_double.exit:                       ; preds = %41
   %45 = call zeroext i1 @zend_parse_arg_double_slow(ptr noundef nonnull %42, ptr noundef nonnull %6, i32 noundef 5) #5
   %cond.fr = freeze i1 %45
-  br i1 %cond.fr, label %.critedge.thread280, label %.thread229, !prof !22
+  br i1 %cond.fr, label %.critedge.thread288, label %.thread229, !prof !22
 
-.critedge.thread280:                              ; preds = %zend_parse_arg_double.exit
+.critedge.thread288:                              ; preds = %zend_parse_arg_double.exit
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 2, ptr %46, align 8, !tbaa !13
   br label %52
@@ -165,7 +165,7 @@ zend_parse_arg_double.exit:                       ; preds = %41
   store i32 2, ptr %48, align 8, !tbaa !13
   br label %52
 
-.critedge.thread282:                              ; preds = %39, %36, %34, %zend_parse_arg_str_ex.exit.thread, %41
+.critedge.thread290:                              ; preds = %39, %36, %34, %zend_parse_arg_str_ex.exit.thread, %41
   %.1198254 = phi ptr [ %40, %41 ], [ %40, %39 ], [ null, %36 ], [ null, %34 ], [ null, %zend_parse_arg_str_ex.exit.thread ]
   %.1200252 = phi ptr [ %37, %41 ], [ %37, %39 ], [ %37, %36 ], [ null, %34 ], [ null, %zend_parse_arg_str_ex.exit.thread ]
   %49 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -175,10 +175,10 @@ zend_parse_arg_double.exit:                       ; preds = %41
   store double %51, ptr %6, align 8, !tbaa !24
   br label %52
 
-52:                                               ; preds = %.critedge, %.critedge.thread280, %.critedge.thread282
-  %53 = phi ptr [ %49, %.critedge.thread282 ], [ %48, %.critedge ], [ %46, %.critedge.thread280 ]
-  %.1198253 = phi ptr [ %.1198254, %.critedge.thread282 ], [ %40, %.critedge ], [ %40, %.critedge.thread280 ]
-  %.1200251 = phi ptr [ %.1200252, %.critedge.thread282 ], [ %37, %.critedge ], [ %37, %.critedge.thread280 ]
+52:                                               ; preds = %.critedge, %.critedge.thread288, %.critedge.thread290
+  %53 = phi ptr [ %49, %.critedge.thread290 ], [ %48, %.critedge ], [ %46, %.critedge.thread288 ]
+  %.1198253 = phi ptr [ %.1198254, %.critedge.thread290 ], [ %40, %.critedge ], [ %40, %.critedge.thread288 ]
+  %.1200251 = phi ptr [ %.1200252, %.critedge.thread290 ], [ %37, %.critedge ], [ %37, %.critedge.thread288 ]
   %.not164 = icmp eq i32 %2, 0
   %.pre279 = load i64, ptr %5, align 8, !tbaa !4
   br i1 %.not164, label %56, label %54

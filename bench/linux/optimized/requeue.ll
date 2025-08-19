@@ -187,9 +187,9 @@ define dso_local i32 @futex_requeue(ptr noundef %0, i32 noundef %1, ptr noundef 
   br i1 %36, label %.critedge.split.split.us.split.us, label %.critedge.split.split.us.split
 
 .critedge.split.split.us.split.us:                ; preds = %.critedge.split.split.us
-  br i1 %89, label %.split.us, label %.lr.ph577, !prof !11
+  br i1 %89, label %.split.us, label %.lr.ph588, !prof !11
 
-.lr.ph577:                                        ; preds = %.critedge.split.split.us.split.us, %97
+.lr.ph588:                                        ; preds = %.critedge.split.split.us.split.us, %97
   call void @_raw_spin_unlock(ptr noundef nonnull %83) #10
   call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %78, ptr elementtype(i32) %78) #10, !srcloc !12
   %90 = call i64 @llvm.read_register.i64(metadata !0)
@@ -202,7 +202,7 @@ define dso_local i32 @futex_requeue(ptr noundef %0, i32 noundef %1, ptr noundef 
   %96 = icmp eq i32 %95, 0
   br i1 %96, label %97, label %.thread
 
-97:                                               ; preds = %.lr.ph577
+97:                                               ; preds = %.lr.ph588
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %78, ptr elementtype(i32) %78) #10, !srcloc !9
   call void @_raw_spin_lock(ptr noundef nonnull %81) #10
@@ -210,7 +210,7 @@ define dso_local i32 @futex_requeue(ptr noundef %0, i32 noundef %1, ptr noundef 
   store i32 0, ptr %14, align 4, !annotation !14
   %98 = call i32 @futex_get_value_locked(ptr noundef nonnull %14, ptr noundef %0) #10
   %99 = icmp eq i32 %98, 0
-  br i1 %99, label %.split.us, label %.lr.ph577, !prof !15
+  br i1 %99, label %.split.us, label %.lr.ph588, !prof !15
 
 .critedge.split.split.us.split:                   ; preds = %.critedge.split.split.us
   br i1 %89, label %.split.us, label %100, !prof !8
@@ -283,13 +283,13 @@ define dso_local i32 @futex_requeue(ptr noundef %0, i32 noundef %1, ptr noundef 
   %129 = icmp eq i32 %128, 0
   br i1 %129, label %.split166.us, label %.thread
 
-.thread:                                          ; preds = %122, %100, %.lr.ph, %.lr.ph577
-  %.us-phi164 = phi i32 [ %95, %.lr.ph577 ], [ %117, %.lr.ph ], [ %106, %100 ], [ %128, %122 ]
+.thread:                                          ; preds = %122, %100, %.lr.ph, %.lr.ph588
+  %.us-phi164 = phi i32 [ %95, %.lr.ph588 ], [ %117, %.lr.ph ], [ %106, %100 ], [ %128, %122 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %.loopexit45
 
 .split.us:                                        ; preds = %.critedge.split.split.split, %.critedge.split.split.us.split, %119, %97, %.critedge.split.split.split.us, %.critedge.split.split.us.split.us
-  %.fr600 = phi i1 [ false, %.critedge.split.split.split.us ], [ true, %.critedge.split.split.us.split.us ], [ true, %97 ], [ false, %119 ], [ %.fr, %.critedge.split.split.us.split ], [ %.fr, %.critedge.split.split.split ]
+  %.fr611 = phi i1 [ false, %.critedge.split.split.split.us ], [ true, %.critedge.split.split.us.split.us ], [ true, %97 ], [ false, %119 ], [ %.fr, %.critedge.split.split.us.split ], [ %.fr, %.critedge.split.split.split ]
   %130 = load i32, ptr %14, align 4
   %131 = load i32, ptr %6, align 4
   %132 = icmp eq i32 %130, %131
@@ -298,12 +298,12 @@ define dso_local i32 @futex_requeue(ptr noundef %0, i32 noundef %1, ptr noundef 
 
 .thread23:                                        ; preds = %.split.us
   call void @_raw_spin_unlock(ptr noundef nonnull %83) #10
-  br i1 %.fr600, label %348, label %343
+  br i1 %.fr611, label %348, label %343
 
 .loopexit.split.us:                               ; preds = %.split.us, %.critedge.us, %85
   %133 = phi ptr [ %53, %85 ], [ %53, %.critedge.us ], [ %77, %.split.us ]
   %134 = phi ptr [ %54, %85 ], [ %54, %.critedge.us ], [ %78, %.split.us ]
-  %135 = phi i1 [ false, %85 ], [ true, %.critedge.us ], [ %.fr600, %.split.us ]
+  %135 = phi i1 [ false, %85 ], [ true, %.critedge.us ], [ %.fr611, %.split.us ]
   %136 = phi ptr [ %59, %85 ], [ %59, %.critedge.us ], [ %83, %.split.us ]
   %137 = phi ptr [ %60, %85 ], [ %60, %.critedge.us ], [ %84, %.split.us ]
   br i1 %20, label %138, label %.loopexit48.thread
@@ -324,7 +324,7 @@ define dso_local i32 @futex_requeue(ptr noundef %0, i32 noundef %1, ptr noundef 
 141:                                              ; preds = %138
   %142 = call ptr @futex_top_waiter(ptr noundef %133, ptr noundef nonnull %10) #10
   %143 = icmp eq ptr %142, null
-  br i1 %143, label %.loopexit48.thread374, label %144
+  br i1 %143, label %.loopexit48.thread400, label %144
 
 144:                                              ; preds = %141
   %145 = getelementptr inbounds nuw i8, ptr %142, i64 104
@@ -422,10 +422,9 @@ define dso_local i32 @futex_requeue(ptr noundef %0, i32 noundef %1, ptr noundef 
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   switch i32 %184, label %.loopexit [
     i32 0, label %.loopexit48
-    i32 1, label %.loopexit48
+    i32 -11, label %195
     i32 -14, label %190
     i32 -16, label %195
-    i32 -11, label %195
   ]
 
 190:                                              ; preds = %.thread28, %189
@@ -446,7 +445,7 @@ define dso_local i32 @futex_requeue(ptr noundef %0, i32 noundef %1, ptr noundef 
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %.loopexit45
 
-195:                                              ; preds = %.thread29, %189, %189
+195:                                              ; preds = %189, %.thread29, %189
   %196 = phi i32 [ -11, %.thread29 ], [ %184, %189 ], [ %184, %189 ]
   call void @_raw_spin_unlock(ptr noundef nonnull %136) #10
   br i1 %135, label %198, label %197
@@ -468,8 +467,8 @@ select.unfold30:                                  ; preds = %192, %198
   %202 = icmp eq i32 %201, 0
   br i1 %202, label %.preheader44, label %.loopexit45, !prof !21
 
-.loopexit48:                                      ; preds = %189, %189, %.thread27
-  %.ph = phi i32 [ 1, %.thread27 ], [ %184, %189 ], [ %184, %189 ]
+.loopexit48:                                      ; preds = %189, %.thread27
+  %.ph = phi i32 [ 1, %.thread27 ], [ %184, %189 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   %203 = getelementptr inbounds nuw i8, ptr %133, i64 8
   %204 = load ptr, ptr %203, align 8
@@ -479,7 +478,7 @@ select.unfold30:                                  ; preds = %192, %198
   %208 = and i1 %205, %207
   br i1 %208, label %.preheader.split.us.preheader, label %.critedge21
 
-.loopexit48.thread374:                            ; preds = %141
+.loopexit48.thread400:                            ; preds = %141
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   %209 = getelementptr inbounds nuw i8, ptr %133, i64 8
@@ -499,10 +498,10 @@ select.unfold30:                                  ; preds = %192, %198
   %220 = and i1 %217, %219
   br i1 %220, label %.preheader.split, label %.critedge21
 
-.preheader.split.us.preheader:                    ; preds = %.loopexit48, %.loopexit48.thread374
-  %221 = phi i32 [ 0, %.loopexit48.thread374 ], [ %.ph, %.loopexit48 ]
-  %222 = phi ptr [ %209, %.loopexit48.thread374 ], [ %203, %.loopexit48 ]
-  %223 = phi ptr [ %210, %.loopexit48.thread374 ], [ %204, %.loopexit48 ]
+.preheader.split.us.preheader:                    ; preds = %.loopexit48, %.loopexit48.thread400
+  %221 = phi i32 [ 0, %.loopexit48.thread400 ], [ %.ph, %.loopexit48 ]
+  %222 = phi ptr [ %209, %.loopexit48.thread400 ], [ %203, %.loopexit48 ]
+  %223 = phi ptr [ %210, %.loopexit48.thread400 ], [ %204, %.loopexit48 ]
   br label %.preheader.split.us
 
 .preheader.split.us:                              ; preds = %.preheader.split.us.preheader, %.critedge19.us
@@ -710,9 +709,9 @@ select.unfold30:                                  ; preds = %192, %198
   %339 = select i1 %336, i1 %338, i1 false
   br i1 %339, label %.preheader.split, label %.critedge21, !llvm.loop !22
 
-.critedge21:                                      ; preds = %320, %.critedge19, %.thread37, %.critedge19.us, %265, %261, %256, %252, %248, %244, %.loopexit48.thread374, %.loopexit48.thread, %.split267.us, %.loopexit48
-  %340 = phi i32 [ %224, %.split267.us ], [ %.ph, %.loopexit48 ], [ 0, %.loopexit48.thread ], [ 0, %.loopexit48.thread374 ], [ %224, %261 ], [ %224, %256 ], [ %224, %252 ], [ %296, %.critedge19.us ], [ %224, %248 ], [ %224, %244 ], [ %224, %265 ], [ %301, %.thread37 ], [ %335, %.critedge19 ], [ %301, %320 ]
-  %341 = phi i32 [ %290, %.split267.us ], [ 0, %.loopexit48 ], [ 0, %.loopexit48.thread ], [ 0, %.loopexit48.thread374 ], [ -22, %261 ], [ -22, %256 ], [ -22, %252 ], [ %295, %.critedge19.us ], [ -22, %248 ], [ -22, %244 ], [ -22, %265 ], [ -22, %.thread37 ], [ 0, %.critedge19 ], [ -22, %320 ]
+.critedge21:                                      ; preds = %320, %.critedge19, %.thread37, %.critedge19.us, %265, %261, %256, %252, %248, %244, %.loopexit48.thread400, %.loopexit48.thread, %.split267.us, %.loopexit48
+  %340 = phi i32 [ %224, %.split267.us ], [ %.ph, %.loopexit48 ], [ 0, %.loopexit48.thread ], [ 0, %.loopexit48.thread400 ], [ %224, %261 ], [ %224, %256 ], [ %224, %252 ], [ %296, %.critedge19.us ], [ %224, %248 ], [ %224, %244 ], [ %224, %265 ], [ %301, %.thread37 ], [ %335, %.critedge19 ], [ %301, %320 ]
+  %341 = phi i32 [ %290, %.split267.us ], [ 0, %.loopexit48 ], [ 0, %.loopexit48.thread ], [ 0, %.loopexit48.thread400 ], [ -22, %261 ], [ -22, %256 ], [ -22, %252 ], [ %295, %.critedge19.us ], [ -22, %248 ], [ -22, %244 ], [ -22, %265 ], [ -22, %.thread37 ], [ 0, %.critedge19 ], [ -22, %320 ]
   %342 = load ptr, ptr %12, align 8
   call void @put_pi_state(ptr noundef %342) #10
   call void @_raw_spin_unlock(ptr noundef nonnull %136) #10
@@ -736,11 +735,11 @@ select.unfold30:                                  ; preds = %192, %198
   %349 = phi i32 [ %340, %.critedge21 ], [ %344, %343 ], [ 0, %.loopexit ], [ 0, %.thread23 ]
   %350 = phi i32 [ %341, %.critedge21 ], [ %345, %343 ], [ %.ph34, %.loopexit ], [ -11, %.thread23 ]
   %351 = phi ptr [ %134, %.critedge21 ], [ %347, %343 ], [ %134, %.loopexit ], [ %78, %.thread23 ]
-  %.fr474 = freeze i32 %350
+  %.fr493 = freeze i32 %350
   call void @wake_up_q(ptr noundef nonnull %13) #10
   call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %351, ptr elementtype(i32) %351) #10, !srcloc !12
-  %352 = icmp eq i32 %.fr474, 0
-  %spec.select = select i1 %352, i32 %349, i32 %.fr474
+  %352 = icmp eq i32 %.fr493, 0
+  %spec.select = select i1 %352, i32 %349, i32 %.fr493
   br label %.loopexit45
 
 .loopexit45:                                      ; preds = %select.unfold30, %50, %.preheader44.split.us, %.split166.us, %.preheader44.split, %74, %348, %28, %.thread36, %.thread, %25, %21, %8

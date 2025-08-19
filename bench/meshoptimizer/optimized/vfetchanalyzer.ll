@@ -113,29 +113,19 @@ define dso_local i64 @meshopt_analyzeVertexFetch(ptr noundef readonly captures(n
 ._crit_edge52.thread:                             ; preds = %.preheader, %._crit_edge52, %36
   %.sroa.5.0.insert.ext = phi i64 [ %43, %36 ], [ 0, %._crit_edge52 ], [ 0, %.preheader ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %44
+  %44 = load ptr, ptr @_ZN17meshopt_Allocator8StorageTIvE10deallocateE, align 8, !tbaa !4
+  %45 = load ptr, ptr %5, align 8, !tbaa !4
+  invoke void %44(ptr noundef %45)
+          to label %_ZN17meshopt_AllocatorD2Ev.exit unwind label %46, !llvm.loop !17
 
-44:                                               ; preds = %45, %._crit_edge52.thread
-  %.0.i = phi i64 [ 1, %._crit_edge52.thread ], [ %47, %45 ]
-  %.not.i = icmp eq i64 %.0.i, 0
-  br i1 %.not.i, label %_ZN17meshopt_AllocatorD2Ev.exit, label %45
-
-45:                                               ; preds = %44
-  %46 = load ptr, ptr @_ZN17meshopt_Allocator8StorageTIvE10deallocateE, align 8, !tbaa !4
-  %47 = add i64 %.0.i, -1
-  %48 = getelementptr inbounds nuw [24 x ptr], ptr %5, i64 0, i64 %47
-  %49 = load ptr, ptr %48, align 8, !tbaa !4
-  invoke void %46(ptr noundef %49)
-          to label %44 unwind label %50, !llvm.loop !17
-
-50:                                               ; preds = %45
-  %51 = landingpad { ptr, i32 }
+46:                                               ; preds = %._crit_edge52.thread
+  %47 = landingpad { ptr, i32 }
           catch ptr null
-  %52 = extractvalue { ptr, i32 } %51, 0
-  tail call void @__clang_call_terminate(ptr %52) #9
+  %48 = extractvalue { ptr, i32 } %47, 0
+  tail call void @__clang_call_terminate(ptr %48) #9
   unreachable
 
-_ZN17meshopt_AllocatorD2Ev.exit:                  ; preds = %44
+_ZN17meshopt_AllocatorD2Ev.exit:                  ; preds = %._crit_edge52.thread
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.sroa.0.0.insert.ext = zext i32 %.sroa.0.0.lcssa to i64
   %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.5.0.insert.ext, %.sroa.0.0.insert.ext

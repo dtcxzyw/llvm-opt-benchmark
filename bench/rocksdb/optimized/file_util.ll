@@ -828,24 +828,24 @@ _ZNSt10unique_ptrIN7rocksdb16FSSequentialFileESt14default_deleteIS1_EED2Ev.exit:
   br label %156
 
 _ZN7rocksdb8IOStatusC2EOS0_.exit:                 ; preds = %_ZN7rocksdb8IOStatusaSEOS0_.exit55.thread, %_ZN7rocksdb8IOStatusaSEOS0_.exit.thread
-  %.sink598 = phi i8 [ %54, %_ZN7rocksdb8IOStatusaSEOS0_.exit.thread ], [ %77, %_ZN7rocksdb8IOStatusaSEOS0_.exit55.thread ]
-  %.sink596 = phi i8 [ %56, %_ZN7rocksdb8IOStatusaSEOS0_.exit.thread ], [ %79, %_ZN7rocksdb8IOStatusaSEOS0_.exit55.thread ]
-  %.sink594 = phi i8 [ %58, %_ZN7rocksdb8IOStatusaSEOS0_.exit.thread ], [ %81, %_ZN7rocksdb8IOStatusaSEOS0_.exit55.thread ]
-  %.sink592 = phi i8 [ %60, %_ZN7rocksdb8IOStatusaSEOS0_.exit.thread ], [ %83, %_ZN7rocksdb8IOStatusaSEOS0_.exit55.thread ]
-  %.sink590 = phi i8 [ %62, %_ZN7rocksdb8IOStatusaSEOS0_.exit.thread ], [ %85, %_ZN7rocksdb8IOStatusaSEOS0_.exit55.thread ]
+  %.sink686 = phi i8 [ %54, %_ZN7rocksdb8IOStatusaSEOS0_.exit.thread ], [ %77, %_ZN7rocksdb8IOStatusaSEOS0_.exit55.thread ]
+  %.sink684 = phi i8 [ %56, %_ZN7rocksdb8IOStatusaSEOS0_.exit.thread ], [ %79, %_ZN7rocksdb8IOStatusaSEOS0_.exit55.thread ]
+  %.sink682 = phi i8 [ %58, %_ZN7rocksdb8IOStatusaSEOS0_.exit.thread ], [ %81, %_ZN7rocksdb8IOStatusaSEOS0_.exit55.thread ]
+  %.sink680 = phi i8 [ %60, %_ZN7rocksdb8IOStatusaSEOS0_.exit.thread ], [ %83, %_ZN7rocksdb8IOStatusaSEOS0_.exit55.thread ]
+  %.sink678 = phi i8 [ %62, %_ZN7rocksdb8IOStatusaSEOS0_.exit.thread ], [ %85, %_ZN7rocksdb8IOStatusaSEOS0_.exit55.thread ]
   %.sink = phi ptr [ %64, %_ZN7rocksdb8IOStatusaSEOS0_.exit.thread ], [ %87, %_ZN7rocksdb8IOStatusaSEOS0_.exit55.thread ]
   %146 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %147 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %148 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %147, align 2
-  store i8 %.sink598, ptr %0, align 8, !tbaa !74
-  store i8 %.sink596, ptr %146, align 1, !tbaa !75
+  store i8 %.sink686, ptr %0, align 8, !tbaa !74
+  store i8 %.sink684, ptr %146, align 1, !tbaa !75
   %149 = getelementptr inbounds nuw i8, ptr %0, i64 3
-  store i8 %.sink594, ptr %149, align 1, !tbaa !60
+  store i8 %.sink682, ptr %149, align 1, !tbaa !60
   %150 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i8 %.sink592, ptr %150, align 4, !tbaa !71
+  store i8 %.sink680, ptr %150, align 4, !tbaa !71
   %151 = getelementptr inbounds nuw i8, ptr %0, i64 5
-  store i8 %.sink590, ptr %151, align 1, !tbaa !72
+  store i8 %.sink678, ptr %151, align 1, !tbaa !72
   store ptr %.sink, ptr %148, align 8, !tbaa !73
   %152 = load ptr, ptr %13, align 8, !tbaa !93
   %.not.i64 = icmp eq ptr %152, null
@@ -3795,25 +3795,25 @@ _ZN7rocksdb8IOStatusaSEOS0_.exit23.thread:        ; preds = %191, %_ZNKSt14defau
           to label %_ZN7rocksdb8IOStatusC2EOS0_.exit unwind label %86
 
 _ZN7rocksdb8IOStatusC2EOS0_.exit.sink.split:      ; preds = %_ZN7rocksdb8IOStatusaSEOS0_.exit23.thread, %82
-  %.sink101 = phi i8 [ %43, %82 ], [ %192, %_ZN7rocksdb8IOStatusaSEOS0_.exit23.thread ]
-  %.sink99 = phi i8 [ %45, %82 ], [ %194, %_ZN7rocksdb8IOStatusaSEOS0_.exit23.thread ]
-  %.sink97 = phi i8 [ %47, %82 ], [ %196, %_ZN7rocksdb8IOStatusaSEOS0_.exit23.thread ]
-  %.sink95 = phi i8 [ %49, %82 ], [ %198, %_ZN7rocksdb8IOStatusaSEOS0_.exit23.thread ]
-  %.sink93 = phi i8 [ %51, %82 ], [ %200, %_ZN7rocksdb8IOStatusaSEOS0_.exit23.thread ]
+  %.sink133 = phi i8 [ %43, %82 ], [ %192, %_ZN7rocksdb8IOStatusaSEOS0_.exit23.thread ]
+  %.sink131 = phi i8 [ %45, %82 ], [ %194, %_ZN7rocksdb8IOStatusaSEOS0_.exit23.thread ]
+  %.sink129 = phi i8 [ %47, %82 ], [ %196, %_ZN7rocksdb8IOStatusaSEOS0_.exit23.thread ]
+  %.sink127 = phi i8 [ %49, %82 ], [ %198, %_ZN7rocksdb8IOStatusaSEOS0_.exit23.thread ]
+  %.sink125 = phi i8 [ %51, %82 ], [ %200, %_ZN7rocksdb8IOStatusaSEOS0_.exit23.thread ]
   %.sink = phi ptr [ %53, %82 ], [ %202, %_ZN7rocksdb8IOStatusaSEOS0_.exit23.thread ]
   %.ph = phi ptr [ null, %82 ], [ %186, %_ZN7rocksdb8IOStatusaSEOS0_.exit23.thread ]
   %209 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %210 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %211 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %210, align 2
-  store i8 %.sink101, ptr %0, align 8, !tbaa !74
-  store i8 %.sink99, ptr %209, align 1, !tbaa !75
+  store i8 %.sink133, ptr %0, align 8, !tbaa !74
+  store i8 %.sink131, ptr %209, align 1, !tbaa !75
   %212 = getelementptr inbounds nuw i8, ptr %0, i64 3
-  store i8 %.sink97, ptr %212, align 1, !tbaa !60
+  store i8 %.sink129, ptr %212, align 1, !tbaa !60
   %213 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i8 %.sink95, ptr %213, align 4, !tbaa !71
+  store i8 %.sink127, ptr %213, align 4, !tbaa !71
   %214 = getelementptr inbounds nuw i8, ptr %0, i64 5
-  store i8 %.sink93, ptr %214, align 1, !tbaa !72
+  store i8 %.sink125, ptr %214, align 1, !tbaa !72
   store ptr %.sink, ptr %211, align 8, !tbaa !73
   br label %_ZN7rocksdb8IOStatusC2EOS0_.exit
 
@@ -8160,9 +8160,9 @@ _ZNSt10shared_ptrIN7rocksdb8IOTracerEEC2ERKS2_.exit.thread: ; preds = %4
   %15 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !17
   %.not.i.i.i.i = icmp eq i8 %15, 0
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  br i1 %.not.i.i.i.i, label %_ZNSt10shared_ptrIN7rocksdb8IOTracerEEC2ERKS2_.exit, label %_ZNSt10shared_ptrIN7rocksdb8IOTracerEEC2ERKS2_.exit.thread18
+  br i1 %.not.i.i.i.i, label %_ZNSt10shared_ptrIN7rocksdb8IOTracerEEC2ERKS2_.exit, label %_ZNSt10shared_ptrIN7rocksdb8IOTracerEEC2ERKS2_.exit.thread26
 
-_ZNSt10shared_ptrIN7rocksdb8IOTracerEEC2ERKS2_.exit.thread18: ; preds = %13
+_ZNSt10shared_ptrIN7rocksdb8IOTracerEEC2ERKS2_.exit.thread26: ; preds = %13
   %17 = load i32, ptr %14, align 4, !tbaa !88
   %18 = add nsw i32 %17, 1
   store i32 %18, ptr %14, align 4, !tbaa !88
@@ -8179,9 +8179,9 @@ _ZNSt10shared_ptrIN7rocksdb8IOTracerEEC2ERKS2_.exit: ; preds = %13
   %.not.i.i.i8 = icmp eq ptr %.pr.pre, null
   br i1 %.not.i.i.i8, label %_ZNSt10shared_ptrIN7rocksdb8IOTracerEEC2ERKS2_.exit10, label %20
 
-20:                                               ; preds = %_ZNSt10shared_ptrIN7rocksdb8IOTracerEEC2ERKS2_.exit.thread18, %_ZNSt10shared_ptrIN7rocksdb8IOTracerEEC2ERKS2_.exit
-  %.pr21 = phi ptr [ %11, %_ZNSt10shared_ptrIN7rocksdb8IOTracerEEC2ERKS2_.exit.thread18 ], [ %.pr.pre, %_ZNSt10shared_ptrIN7rocksdb8IOTracerEEC2ERKS2_.exit ]
-  %21 = getelementptr inbounds nuw i8, ptr %.pr21, i64 8
+20:                                               ; preds = %_ZNSt10shared_ptrIN7rocksdb8IOTracerEEC2ERKS2_.exit.thread26, %_ZNSt10shared_ptrIN7rocksdb8IOTracerEEC2ERKS2_.exit
+  %.pr29 = phi ptr [ %11, %_ZNSt10shared_ptrIN7rocksdb8IOTracerEEC2ERKS2_.exit.thread26 ], [ %.pr.pre, %_ZNSt10shared_ptrIN7rocksdb8IOTracerEEC2ERKS2_.exit ]
+  %21 = getelementptr inbounds nuw i8, ptr %.pr29, i64 8
   %22 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !17
   %.not.i.i.i.i9 = icmp eq i8 %22, 0
   br i1 %.not.i.i.i.i9, label %26, label %23
@@ -9977,9 +9977,9 @@ _ZNSt10shared_ptrIN7rocksdb8IOTracerEEC2ERKS2_.exit.thread: ; preds = %4
   %15 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !17
   %.not.i.i.i.i = icmp eq i8 %15, 0
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  br i1 %.not.i.i.i.i, label %_ZNSt10shared_ptrIN7rocksdb8IOTracerEEC2ERKS2_.exit, label %_ZNSt10shared_ptrIN7rocksdb8IOTracerEEC2ERKS2_.exit.thread18
+  br i1 %.not.i.i.i.i, label %_ZNSt10shared_ptrIN7rocksdb8IOTracerEEC2ERKS2_.exit, label %_ZNSt10shared_ptrIN7rocksdb8IOTracerEEC2ERKS2_.exit.thread26
 
-_ZNSt10shared_ptrIN7rocksdb8IOTracerEEC2ERKS2_.exit.thread18: ; preds = %13
+_ZNSt10shared_ptrIN7rocksdb8IOTracerEEC2ERKS2_.exit.thread26: ; preds = %13
   %17 = load i32, ptr %14, align 4, !tbaa !88
   %18 = add nsw i32 %17, 1
   store i32 %18, ptr %14, align 4, !tbaa !88
@@ -9996,9 +9996,9 @@ _ZNSt10shared_ptrIN7rocksdb8IOTracerEEC2ERKS2_.exit: ; preds = %13
   %.not.i.i.i8 = icmp eq ptr %.pr.pre, null
   br i1 %.not.i.i.i8, label %_ZNSt10shared_ptrIN7rocksdb8IOTracerEEC2ERKS2_.exit10, label %20
 
-20:                                               ; preds = %_ZNSt10shared_ptrIN7rocksdb8IOTracerEEC2ERKS2_.exit.thread18, %_ZNSt10shared_ptrIN7rocksdb8IOTracerEEC2ERKS2_.exit
-  %.pr21 = phi ptr [ %11, %_ZNSt10shared_ptrIN7rocksdb8IOTracerEEC2ERKS2_.exit.thread18 ], [ %.pr.pre, %_ZNSt10shared_ptrIN7rocksdb8IOTracerEEC2ERKS2_.exit ]
-  %21 = getelementptr inbounds nuw i8, ptr %.pr21, i64 8
+20:                                               ; preds = %_ZNSt10shared_ptrIN7rocksdb8IOTracerEEC2ERKS2_.exit.thread26, %_ZNSt10shared_ptrIN7rocksdb8IOTracerEEC2ERKS2_.exit
+  %.pr29 = phi ptr [ %11, %_ZNSt10shared_ptrIN7rocksdb8IOTracerEEC2ERKS2_.exit.thread26 ], [ %.pr.pre, %_ZNSt10shared_ptrIN7rocksdb8IOTracerEEC2ERKS2_.exit ]
+  %21 = getelementptr inbounds nuw i8, ptr %.pr29, i64 8
   %22 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !17
   %.not.i.i.i.i9 = icmp eq i8 %22, 0
   br i1 %.not.i.i.i.i9, label %26, label %23

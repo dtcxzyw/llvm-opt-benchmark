@@ -421,11 +421,11 @@ define internal fastcc range(i32 0, 2) i32 @ecdsa_sign_setup(ptr noundef %0, ptr
   br label %90
 
 .sink.split:                                      ; preds = %81, %79, %.split120.split, %.split, %67, %65, %.split120.split.us.us, %.split.us, %56, %54, %.split120.us.us, %.split.us.us, %.split129.us, %41, %38, %31
-  %.sink156 = phi i32 [ 172, %31 ], [ 176, %38 ], [ 181, %41 ], [ 240, %.split129.us ], [ 223, %.split120.us.us ], [ 228, %54 ], [ 233, %56 ], [ 216, %.split.us.us ], [ 223, %.split120.split.us.us ], [ 228, %65 ], [ 233, %67 ], [ 216, %.split.us ], [ 223, %.split120.split ], [ 228, %79 ], [ 233, %81 ], [ 216, %.split ]
+  %.sink167 = phi i32 [ 172, %31 ], [ 176, %38 ], [ 181, %41 ], [ 240, %.split129.us ], [ 223, %.split120.us.us ], [ 228, %54 ], [ 233, %56 ], [ 216, %.split.us.us ], [ 223, %.split120.split.us.us ], [ 228, %65 ], [ 233, %67 ], [ 216, %.split.us ], [ 223, %.split120.split ], [ 228, %79 ], [ 233, %81 ], [ 216, %.split ]
   %.sink = phi i32 [ 524291, %31 ], [ 524304, %38 ], [ 524304, %41 ], [ 524291, %.split129.us ], [ 524304, %.split120.us.us ], [ 524304, %54 ], [ 524291, %56 ], [ 158, %.split.us.us ], [ 524304, %.split120.split.us.us ], [ 524304, %65 ], [ 524291, %67 ], [ 158, %.split.us ], [ 524304, %.split120.split ], [ 524304, %79 ], [ 524291, %81 ], [ 158, %.split ]
   %.080.ph.ph = phi ptr [ null, %31 ], [ null, %38 ], [ %39, %41 ], [ %39, %.split129.us ], [ %39, %.split.us.us ], [ %39, %.split120.us.us ], [ %39, %54 ], [ %39, %56 ], [ %39, %.split.us ], [ %39, %.split120.split.us.us ], [ %39, %65 ], [ %39, %67 ], [ %39, %.split ], [ %39, %.split120.split ], [ %39, %79 ], [ %39, %81 ]
   tail call void @ERR_new() #4
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink156, ptr noundef nonnull @__func__.ecdsa_sign_setup) #4
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink167, ptr noundef nonnull @__func__.ecdsa_sign_setup) #4
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 16, i32 noundef %.sink, ptr noundef null) #4
   br label %89
 

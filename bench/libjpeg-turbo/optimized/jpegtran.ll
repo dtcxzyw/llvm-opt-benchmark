@@ -196,8 +196,8 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef readonly captures
   br i1 %41, label %42, label %53
 
 42:                                               ; preds = %40
-  %43 = sext i32 %20 to i64
-  %44 = getelementptr inbounds ptr, ptr %1, i64 %43
+  %43 = zext nneg i32 %20 to i64
+  %44 = getelementptr inbounds nuw ptr, ptr %1, i64 %43
   %45 = load ptr, ptr %44, align 8, !tbaa !4
   %46 = call noalias ptr @fopen(ptr noundef %45, ptr noundef nonnull @.str.2)
   %47 = icmp eq ptr %46, null
@@ -541,7 +541,7 @@ declare void @jpeg_CreateDecompress(ptr noundef, i32 noundef, i64 noundef) local
 declare void @jpeg_CreateCompress(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -2147483646, -2147483648) i32 @parse_switches(ptr noundef nonnull %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #2 {
+define internal fastcc range(i32 1, -2147483648) i32 @parse_switches(ptr noundef nonnull %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #2 {
   %5 = alloca i64, align 8
   %6 = alloca i8, align 1
   %7 = alloca i64, align 8
@@ -557,7 +557,7 @@ define internal fastcc range(i32 -2147483646, -2147483648) i32 @parse_switches(p
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 124
   store i32 0, ptr %10, align 4, !tbaa !45
   %11 = icmp sgt i32 %1, 1
-  br i1 %11, label %.lr.ph, label %.thread319
+  br i1 %11, label %.lr.ph, label %.thread335
 
 .lr.ph:                                           ; preds = %4
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 260
@@ -1232,7 +1232,7 @@ split300:                                         ; preds = %280, %277
   %.0131.lcssa.ph = phi i32 [ %.1132, %291 ], [ %.0131281, %22 ]
   %.0.lcssa.ph = phi ptr [ %.1, %291 ], [ %.0282, %22 ]
   %.not191 = icmp eq i32 %3, 0
-  br i1 %.not191, label %.thread319, label %294
+  br i1 %.not191, label %.thread335, label %294
 
 294:                                              ; preds = %._crit_edge
   %295 = icmp eq i32 %.0131.lcssa.ph, 0
@@ -1244,20 +1244,20 @@ split300:                                         ; preds = %280, %277
 
 297:                                              ; preds = %296, %294
   %.not193 = icmp eq ptr %.0.lcssa.ph, null
-  br i1 %.not193, label %.thread319, label %298
+  br i1 %.not193, label %.thread335, label %298
 
 298:                                              ; preds = %297
   %299 = call i32 @read_scan_script(ptr noundef nonnull %0, ptr noundef nonnull %.0.lcssa.ph) #12
   %.not194 = icmp eq i32 %299, 0
-  br i1 %.not194, label %300, label %.thread319
+  br i1 %.not194, label %300, label %.thread335
 
 300:                                              ; preds = %298
   call fastcc void @usage()
   unreachable
 
-.thread319:                                       ; preds = %4, %297, %298, %._crit_edge
-  %.0133.lcssa311 = phi i32 [ %.0133.lcssa.ph, %297 ], [ %.0133.lcssa.ph, %298 ], [ %.0133.lcssa.ph, %._crit_edge ], [ 1, %4 ]
-  ret i32 %.0133.lcssa311
+.thread335:                                       ; preds = %4, %297, %298, %._crit_edge
+  %.0133.lcssa327 = phi i32 [ %.0133.lcssa.ph, %297 ], [ %.0133.lcssa.ph, %298 ], [ %.0133.lcssa.ph, %._crit_edge ], [ 1, %4 ]
+  ret i32 %.0133.lcssa327
 }
 
 ; Function Attrs: nounwind uwtable

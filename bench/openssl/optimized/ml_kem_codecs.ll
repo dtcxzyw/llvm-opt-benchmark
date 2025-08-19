@@ -591,8 +591,8 @@ switch.lookup:                                    ; preds = %3
 
 33:                                               ; preds = %.thread.thread, %.thread, %.thread
   %34 = phi ptr [ %28, %.thread.thread ], [ %32, %.thread ], [ %32, %.thread ]
-  %.us-phi128 = phi ptr [ %24, %.thread.thread ], [ %21, %.thread ], [ %21, %.thread ]
-  %35 = getelementptr inbounds nuw i8, ptr %.us-phi128, i64 64
+  %.us-phi137 = phi ptr [ %24, %.thread.thread ], [ %21, %.thread ], [ %21, %.thread ]
+  %35 = getelementptr inbounds nuw i8, ptr %.us-phi137, i64 64
   %36 = load i64, ptr %35, align 8, !tbaa !33
   %.not100 = icmp eq i64 %36, 0
   br i1 %.not100, label %40, label %37
@@ -604,7 +604,7 @@ switch.lookup:                                    ; preds = %3
   br i1 %.not101, label %40, label %.loopexit
 
 40:                                               ; preds = %37, %33
-  %41 = getelementptr inbounds nuw i8, ptr %.us-phi128, i64 80
+  %41 = getelementptr inbounds nuw i8, ptr %.us-phi137, i64 80
   %42 = load i64, ptr %41, align 8, !tbaa !35
   %.not102 = icmp eq i64 %42, 0
   br i1 %.not102, label %47, label %43
@@ -623,7 +623,7 @@ switch.lookup:                                    ; preds = %3
   br label %.thread116
 
 47:                                               ; preds = %43, %40
-  %48 = getelementptr inbounds nuw i8, ptr %.us-phi128, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %.us-phi137, i64 8
   %49 = load i64, ptr %48, align 8, !tbaa !25
   %50 = trunc i64 %49 to i32
   %51 = icmp eq ptr %1, null
@@ -637,7 +637,7 @@ switch.lookup:                                    ; preds = %3
   br i1 %55, label %.thread116, label %56
 
 56:                                               ; preds = %52
-  %57 = getelementptr inbounds nuw i8, ptr %.us-phi128, i64 16
+  %57 = getelementptr inbounds nuw i8, ptr %.us-phi137, i64 16
   %58 = load i32, ptr %57, align 8, !tbaa !28
   switch i32 %58, label %69 [
     i32 0, label %59
@@ -646,7 +646,7 @@ switch.lookup:                                    ; preds = %3
   ]
 
 59:                                               ; preds = %56
-  %60 = getelementptr inbounds nuw i8, ptr %.us-phi128, i64 20
+  %60 = getelementptr inbounds nuw i8, ptr %.us-phi137, i64 20
   %61 = load i32, ptr %60, align 4, !tbaa !29
   %62 = tail call noundef i32 @llvm.bswap.i32(i32 %61)
   store i32 %62, ptr %54, align 1
@@ -654,7 +654,7 @@ switch.lookup:                                    ; preds = %3
   br label %71
 
 64:                                               ; preds = %56
-  %65 = getelementptr inbounds nuw i8, ptr %.us-phi128, i64 20
+  %65 = getelementptr inbounds nuw i8, ptr %.us-phi137, i64 20
   %66 = load i32, ptr %65, align 4, !tbaa !29
   %67 = trunc i32 %66 to i16
   %rev.i.i = tail call noundef i16 @llvm.bswap.i16(i16 %67)
@@ -677,14 +677,14 @@ switch.lookup:                                    ; preds = %3
 
 73:                                               ; preds = %71
   %74 = getelementptr inbounds nuw i8, ptr %.083, i64 2
-  %75 = getelementptr inbounds nuw i8, ptr %.us-phi128, i64 32
+  %75 = getelementptr inbounds nuw i8, ptr %.us-phi137, i64 32
   %76 = load i64, ptr %75, align 8, !tbaa !36
   %77 = getelementptr inbounds nuw i8, ptr %54, i64 %76
   %78 = icmp eq ptr %74, %77
   br i1 %78, label %79, label %82
 
 79:                                               ; preds = %73
-  %80 = getelementptr inbounds nuw i8, ptr %.us-phi128, i64 24
+  %80 = getelementptr inbounds nuw i8, ptr %.us-phi137, i64 24
   %81 = load i16, ptr %80, align 8, !tbaa !37
   %rev.i.i113 = tail call noundef i16 @llvm.bswap.i16(i16 %81)
   store i16 %rev.i.i113, ptr %.083, align 1
@@ -722,14 +722,14 @@ switch.lookup:                                    ; preds = %3
 
 93:                                               ; preds = %91
   %94 = getelementptr inbounds nuw i8, ptr %.1, i64 4
-  %95 = getelementptr inbounds nuw i8, ptr %.us-phi128, i64 56
+  %95 = getelementptr inbounds nuw i8, ptr %.us-phi137, i64 56
   %96 = load i64, ptr %95, align 8, !tbaa !38
   %97 = getelementptr inbounds nuw i8, ptr %54, i64 %96
   %98 = icmp eq ptr %94, %97
   br i1 %98, label %99, label %103
 
 99:                                               ; preds = %93
-  %100 = getelementptr inbounds nuw i8, ptr %.us-phi128, i64 48
+  %100 = getelementptr inbounds nuw i8, ptr %.us-phi137, i64 48
   %101 = load i32, ptr %100, align 8, !tbaa !39
   %102 = tail call noundef i32 @llvm.bswap.i32(i32 %101)
   store i32 %102, ptr %.1, align 1
@@ -769,7 +769,7 @@ switch.lookup:                                    ; preds = %3
   br i1 %.not110, label %130, label %117
 
 117:                                              ; preds = %115
-  %118 = getelementptr inbounds nuw i8, ptr %.us-phi128, i64 72
+  %118 = getelementptr inbounds nuw i8, ptr %.us-phi137, i64 72
   %119 = load i64, ptr %118, align 8, !tbaa !40
   %120 = getelementptr inbounds nuw i8, ptr %54, i64 %119
   %.not111 = icmp eq ptr %.3, %120

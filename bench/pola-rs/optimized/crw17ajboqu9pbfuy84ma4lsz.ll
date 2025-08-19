@@ -1794,7 +1794,7 @@ define void @_ZN14polars_compute5arity22ptr_apply_unary_kernel17h4ef3efe864c27e3
   %16 = icmp slt i8 %15, 0
   %or.cond.i.us = and i1 %16, %14
   %17 = sext i1 %or.cond.i.us to i8
-  %spec.select.i.us = add i8 %11, %17
+  %spec.select.i.us = add nsw i8 %11, %17
   br label %"_ZN14polars_compute10arithmetic6signed90_$LT$impl$u20$polars_compute..arithmetic..PrimitiveArithmeticKernelImpl$u20$for$u20$i8$GT$34prim_wrapping_floor_div_scalar_lhs28_$u7b$$u7b$closure$u7d$$u7d$17h16753bb065a82b69E.exit.us"
 
 "_ZN14polars_compute10arithmetic6signed90_$LT$impl$u20$polars_compute..arithmetic..PrimitiveArithmeticKernelImpl$u20$for$u20$i8$GT$34prim_wrapping_floor_div_scalar_lhs28_$u7b$$u7b$closure$u7d$$u7d$17h16753bb065a82b69E.exit.us": ; preds = %13, %"_ZN4core3num20_$LT$impl$u20$i8$GT$15overflowing_div17h77e06c07c0d61a6fE.exit.i.i.us", %.lr.ph.split.us
@@ -2221,7 +2221,7 @@ define void @_ZN14polars_compute5arity22ptr_apply_unary_kernel17h62ac0bc4bf4c7c5
   %16 = icmp slt i32 %15, 0
   %or.cond.i.us = and i1 %16, %14
   %17 = sext i1 %or.cond.i.us to i32
-  %spec.select.i.us = add i32 %11, %17
+  %spec.select.i.us = add nsw i32 %11, %17
   br label %"_ZN14polars_compute10arithmetic6signed91_$LT$impl$u20$polars_compute..arithmetic..PrimitiveArithmeticKernelImpl$u20$for$u20$i32$GT$34prim_wrapping_floor_div_scalar_lhs28_$u7b$$u7b$closure$u7d$$u7d$17hb5cfb468f46f918aE.exit.us"
 
 "_ZN14polars_compute10arithmetic6signed91_$LT$impl$u20$polars_compute..arithmetic..PrimitiveArithmeticKernelImpl$u20$for$u20$i32$GT$34prim_wrapping_floor_div_scalar_lhs28_$u7b$$u7b$closure$u7d$$u7d$17hb5cfb468f46f918aE.exit.us": ; preds = %13, %"_ZN4core3num21_$LT$impl$u20$i32$GT$15overflowing_div17h29d31f5c73f78cddE.exit.i.i.us", %.lr.ph.split.us
@@ -3848,7 +3848,7 @@ define void @_ZN14polars_compute5arity22ptr_apply_unary_kernel17hb8a7e4039e855d7
   %16 = icmp slt i64 %15, 0
   %or.cond.i.us = and i1 %16, %14
   %17 = sext i1 %or.cond.i.us to i64
-  %spec.select.i.us = add i64 %11, %17
+  %spec.select.i.us = add nsw i64 %11, %17
   br label %"_ZN14polars_compute10arithmetic6signed91_$LT$impl$u20$polars_compute..arithmetic..PrimitiveArithmeticKernelImpl$u20$for$u20$i64$GT$34prim_wrapping_floor_div_scalar_lhs28_$u7b$$u7b$closure$u7d$$u7d$17hfc021931a91f701fE.exit.us"
 
 "_ZN14polars_compute10arithmetic6signed91_$LT$impl$u20$polars_compute..arithmetic..PrimitiveArithmeticKernelImpl$u20$for$u20$i64$GT$34prim_wrapping_floor_div_scalar_lhs28_$u7b$$u7b$closure$u7d$$u7d$17hfc021931a91f701fE.exit.us": ; preds = %13, %"_ZN4core3num21_$LT$impl$u20$i64$GT$15overflowing_div17h7a858ea3730d2d8cE.exit.i.i.us", %.lr.ph.split.us
@@ -3923,7 +3923,7 @@ define void @_ZN14polars_compute5arity22ptr_apply_unary_kernel17hb94ce96f99e4e04
   %16 = icmp slt i128 %15, 0
   %or.cond.i.us = and i1 %16, %14
   %17 = sext i1 %or.cond.i.us to i128
-  %spec.select.i.us = add i128 %11, %17
+  %spec.select.i.us = add nsw i128 %11, %17
   br label %"_ZN14polars_compute10arithmetic6signed92_$LT$impl$u20$polars_compute..arithmetic..PrimitiveArithmeticKernelImpl$u20$for$u20$i128$GT$34prim_wrapping_floor_div_scalar_lhs28_$u7b$$u7b$closure$u7d$$u7d$17h5408b059b54deb45E.exit.us"
 
 "_ZN14polars_compute10arithmetic6signed92_$LT$impl$u20$polars_compute..arithmetic..PrimitiveArithmeticKernelImpl$u20$for$u20$i128$GT$34prim_wrapping_floor_div_scalar_lhs28_$u7b$$u7b$closure$u7d$$u7d$17h5408b059b54deb45E.exit.us": ; preds = %12, %"_ZN4core3num22_$LT$impl$u20$i128$GT$15overflowing_div17h280d1e32f20b2ba8E.exit.i.i.us", %.lr.ph.split.us
@@ -3949,8 +3949,8 @@ define void @_ZN14polars_compute5arity22ptr_apply_unary_kernel17hb94ce96f99e4e04
 "_ZN4core3num22_$LT$impl$u20$i128$GT$15overflowing_div17h280d1e32f20b2ba8E.exit.i.i": ; preds = %.lr.ph.split
   %22 = sdiv i128 -170141183460469231731687303715884105728, %21
   %23 = mul i128 %22, %21
-  %.decomposed11 = sub i128 -170141183460469231731687303715884105728, %23
-  %24 = icmp ne i128 %.decomposed11, 0
+  %.decomposed15 = sub i128 -170141183460469231731687303715884105728, %23
+  %24 = icmp ne i128 %.decomposed15, 0
   %25 = icmp sgt i128 %21, -1
   %or.cond.i = and i1 %25, %24
   %26 = sext i1 %or.cond.i to i128
@@ -5281,7 +5281,7 @@ define void @_ZN14polars_compute5arity22ptr_apply_unary_kernel17hfdfadb73781a03b
   %16 = icmp slt i16 %15, 0
   %or.cond.i.us = and i1 %16, %14
   %17 = sext i1 %or.cond.i.us to i16
-  %spec.select.i.us = add i16 %11, %17
+  %spec.select.i.us = add nsw i16 %11, %17
   br label %"_ZN14polars_compute10arithmetic6signed91_$LT$impl$u20$polars_compute..arithmetic..PrimitiveArithmeticKernelImpl$u20$for$u20$i16$GT$34prim_wrapping_floor_div_scalar_lhs28_$u7b$$u7b$closure$u7d$$u7d$17h2f3e203292febabfE.exit.us"
 
 "_ZN14polars_compute10arithmetic6signed91_$LT$impl$u20$polars_compute..arithmetic..PrimitiveArithmeticKernelImpl$u20$for$u20$i16$GT$34prim_wrapping_floor_div_scalar_lhs28_$u7b$$u7b$closure$u7d$$u7d$17h2f3e203292febabfE.exit.us": ; preds = %13, %"_ZN4core3num21_$LT$impl$u20$i16$GT$15overflowing_div17h824e194df7ac093dE.exit.i.i.us", %.lr.ph.split.us
@@ -11704,7 +11704,7 @@ define hidden void @_ZN14polars_compute5arity17prim_unary_values17h1e6a028d94619
   %37 = icmp slt i8 %36, 0
   %or.cond.i.us.i = and i1 %37, %35
   %38 = sext i1 %or.cond.i.us.i to i8
-  %spec.select.i.us.i = add i8 %32, %38
+  %spec.select.i.us.i = add nsw i8 %32, %38
   br label %"_ZN14polars_compute10arithmetic6signed90_$LT$impl$u20$polars_compute..arithmetic..PrimitiveArithmeticKernelImpl$u20$for$u20$i8$GT$34prim_wrapping_floor_div_scalar_lhs28_$u7b$$u7b$closure$u7d$$u7d$17h16753bb065a82b69E.exit.us.i"
 
 "_ZN14polars_compute10arithmetic6signed90_$LT$impl$u20$polars_compute..arithmetic..PrimitiveArithmeticKernelImpl$u20$for$u20$i8$GT$34prim_wrapping_floor_div_scalar_lhs28_$u7b$$u7b$closure$u7d$$u7d$17h16753bb065a82b69E.exit.us.i": ; preds = %34, %"_ZN4core3num20_$LT$impl$u20$i8$GT$15overflowing_div17h77e06c07c0d61a6fE.exit.i.i.us.i", %.lr.ph.split.us.i
@@ -11808,7 +11808,7 @@ _ZN14polars_compute5arity22ptr_apply_unary_kernel17h4ef3efe864c27e30E.exit: ; pr
   %72 = icmp slt i8 %71, 0
   %or.cond.i.us.i16 = and i1 %72, %70
   %73 = sext i1 %or.cond.i.us.i16 to i8
-  %spec.select.i.us.i17 = add i8 %67, %73
+  %spec.select.i.us.i17 = add nsw i8 %67, %73
   br label %"_ZN14polars_compute10arithmetic6signed90_$LT$impl$u20$polars_compute..arithmetic..PrimitiveArithmeticKernelImpl$u20$for$u20$i8$GT$34prim_wrapping_floor_div_scalar_lhs28_$u7b$$u7b$closure$u7d$$u7d$17h16753bb065a82b69E.exit.us.i18"
 
 "_ZN14polars_compute10arithmetic6signed90_$LT$impl$u20$polars_compute..arithmetic..PrimitiveArithmeticKernelImpl$u20$for$u20$i8$GT$34prim_wrapping_floor_div_scalar_lhs28_$u7b$$u7b$closure$u7d$$u7d$17h16753bb065a82b69E.exit.us.i18": ; preds = %69, %"_ZN4core3num20_$LT$impl$u20$i8$GT$15overflowing_div17h77e06c07c0d61a6fE.exit.i.i.us.i15", %.lr.ph.split.us.i13
@@ -24681,7 +24681,7 @@ define hidden void @_ZN14polars_compute5arity17prim_unary_values17h77e3ea12ef11a
   %37 = icmp slt i64 %36, 0
   %or.cond.i.us.i = and i1 %37, %35
   %38 = sext i1 %or.cond.i.us.i to i64
-  %spec.select.i.us.i = add i64 %32, %38
+  %spec.select.i.us.i = add nsw i64 %32, %38
   br label %"_ZN14polars_compute10arithmetic6signed91_$LT$impl$u20$polars_compute..arithmetic..PrimitiveArithmeticKernelImpl$u20$for$u20$i64$GT$34prim_wrapping_floor_div_scalar_lhs28_$u7b$$u7b$closure$u7d$$u7d$17hfc021931a91f701fE.exit.us.i"
 
 "_ZN14polars_compute10arithmetic6signed91_$LT$impl$u20$polars_compute..arithmetic..PrimitiveArithmeticKernelImpl$u20$for$u20$i64$GT$34prim_wrapping_floor_div_scalar_lhs28_$u7b$$u7b$closure$u7d$$u7d$17hfc021931a91f701fE.exit.us.i": ; preds = %34, %"_ZN4core3num21_$LT$impl$u20$i64$GT$15overflowing_div17h7a858ea3730d2d8cE.exit.i.i.us.i", %.lr.ph.split.us.i
@@ -24785,7 +24785,7 @@ _ZN14polars_compute5arity22ptr_apply_unary_kernel17hb8a7e4039e855d73E.exit: ; pr
   %72 = icmp slt i64 %71, 0
   %or.cond.i.us.i16 = and i1 %72, %70
   %73 = sext i1 %or.cond.i.us.i16 to i64
-  %spec.select.i.us.i17 = add i64 %67, %73
+  %spec.select.i.us.i17 = add nsw i64 %67, %73
   br label %"_ZN14polars_compute10arithmetic6signed91_$LT$impl$u20$polars_compute..arithmetic..PrimitiveArithmeticKernelImpl$u20$for$u20$i64$GT$34prim_wrapping_floor_div_scalar_lhs28_$u7b$$u7b$closure$u7d$$u7d$17hfc021931a91f701fE.exit.us.i18"
 
 "_ZN14polars_compute10arithmetic6signed91_$LT$impl$u20$polars_compute..arithmetic..PrimitiveArithmeticKernelImpl$u20$for$u20$i64$GT$34prim_wrapping_floor_div_scalar_lhs28_$u7b$$u7b$closure$u7d$$u7d$17hfc021931a91f701fE.exit.us.i18": ; preds = %69, %"_ZN4core3num21_$LT$impl$u20$i64$GT$15overflowing_div17h7a858ea3730d2d8cE.exit.i.i.us.i15", %.lr.ph.split.us.i13
@@ -25645,7 +25645,7 @@ define hidden void @_ZN14polars_compute5arity17prim_unary_values17h7ee7f2f18a89f
   %37 = icmp slt i16 %36, 0
   %or.cond.i.us.i = and i1 %37, %35
   %38 = sext i1 %or.cond.i.us.i to i16
-  %spec.select.i.us.i = add i16 %32, %38
+  %spec.select.i.us.i = add nsw i16 %32, %38
   br label %"_ZN14polars_compute10arithmetic6signed91_$LT$impl$u20$polars_compute..arithmetic..PrimitiveArithmeticKernelImpl$u20$for$u20$i16$GT$34prim_wrapping_floor_div_scalar_lhs28_$u7b$$u7b$closure$u7d$$u7d$17h2f3e203292febabfE.exit.us.i"
 
 "_ZN14polars_compute10arithmetic6signed91_$LT$impl$u20$polars_compute..arithmetic..PrimitiveArithmeticKernelImpl$u20$for$u20$i16$GT$34prim_wrapping_floor_div_scalar_lhs28_$u7b$$u7b$closure$u7d$$u7d$17h2f3e203292febabfE.exit.us.i": ; preds = %34, %"_ZN4core3num21_$LT$impl$u20$i16$GT$15overflowing_div17h824e194df7ac093dE.exit.i.i.us.i", %.lr.ph.split.us.i
@@ -25749,7 +25749,7 @@ _ZN14polars_compute5arity22ptr_apply_unary_kernel17hfdfadb73781a03b9E.exit: ; pr
   %72 = icmp slt i16 %71, 0
   %or.cond.i.us.i16 = and i1 %72, %70
   %73 = sext i1 %or.cond.i.us.i16 to i16
-  %spec.select.i.us.i17 = add i16 %67, %73
+  %spec.select.i.us.i17 = add nsw i16 %67, %73
   br label %"_ZN14polars_compute10arithmetic6signed91_$LT$impl$u20$polars_compute..arithmetic..PrimitiveArithmeticKernelImpl$u20$for$u20$i16$GT$34prim_wrapping_floor_div_scalar_lhs28_$u7b$$u7b$closure$u7d$$u7d$17h2f3e203292febabfE.exit.us.i18"
 
 "_ZN14polars_compute10arithmetic6signed91_$LT$impl$u20$polars_compute..arithmetic..PrimitiveArithmeticKernelImpl$u20$for$u20$i16$GT$34prim_wrapping_floor_div_scalar_lhs28_$u7b$$u7b$closure$u7d$$u7d$17h2f3e203292febabfE.exit.us.i18": ; preds = %69, %"_ZN4core3num21_$LT$impl$u20$i16$GT$15overflowing_div17h824e194df7ac093dE.exit.i.i.us.i15", %.lr.ph.split.us.i13
@@ -33157,7 +33157,7 @@ define hidden void @_ZN14polars_compute5arity17prim_unary_values17hb3c7021058040
   %37 = icmp slt i32 %36, 0
   %or.cond.i.us.i = and i1 %37, %35
   %38 = sext i1 %or.cond.i.us.i to i32
-  %spec.select.i.us.i = add i32 %32, %38
+  %spec.select.i.us.i = add nsw i32 %32, %38
   br label %"_ZN14polars_compute10arithmetic6signed91_$LT$impl$u20$polars_compute..arithmetic..PrimitiveArithmeticKernelImpl$u20$for$u20$i32$GT$34prim_wrapping_floor_div_scalar_lhs28_$u7b$$u7b$closure$u7d$$u7d$17hb5cfb468f46f918aE.exit.us.i"
 
 "_ZN14polars_compute10arithmetic6signed91_$LT$impl$u20$polars_compute..arithmetic..PrimitiveArithmeticKernelImpl$u20$for$u20$i32$GT$34prim_wrapping_floor_div_scalar_lhs28_$u7b$$u7b$closure$u7d$$u7d$17hb5cfb468f46f918aE.exit.us.i": ; preds = %34, %"_ZN4core3num21_$LT$impl$u20$i32$GT$15overflowing_div17h29d31f5c73f78cddE.exit.i.i.us.i", %.lr.ph.split.us.i
@@ -33261,7 +33261,7 @@ _ZN14polars_compute5arity22ptr_apply_unary_kernel17h62ac0bc4bf4c7c59E.exit: ; pr
   %72 = icmp slt i32 %71, 0
   %or.cond.i.us.i16 = and i1 %72, %70
   %73 = sext i1 %or.cond.i.us.i16 to i32
-  %spec.select.i.us.i17 = add i32 %67, %73
+  %spec.select.i.us.i17 = add nsw i32 %67, %73
   br label %"_ZN14polars_compute10arithmetic6signed91_$LT$impl$u20$polars_compute..arithmetic..PrimitiveArithmeticKernelImpl$u20$for$u20$i32$GT$34prim_wrapping_floor_div_scalar_lhs28_$u7b$$u7b$closure$u7d$$u7d$17hb5cfb468f46f918aE.exit.us.i18"
 
 "_ZN14polars_compute10arithmetic6signed91_$LT$impl$u20$polars_compute..arithmetic..PrimitiveArithmeticKernelImpl$u20$for$u20$i32$GT$34prim_wrapping_floor_div_scalar_lhs28_$u7b$$u7b$closure$u7d$$u7d$17hb5cfb468f46f918aE.exit.us.i18": ; preds = %69, %"_ZN4core3num21_$LT$impl$u20$i32$GT$15overflowing_div17h29d31f5c73f78cddE.exit.i.i.us.i15", %.lr.ph.split.us.i13
@@ -34656,7 +34656,7 @@ define hidden void @_ZN14polars_compute5arity17prim_unary_values17hbffa60d7f420b
   %37 = icmp slt i128 %36, 0
   %or.cond.i.us.i = and i1 %37, %35
   %38 = sext i1 %or.cond.i.us.i to i128
-  %spec.select.i.us.i = add i128 %32, %38
+  %spec.select.i.us.i = add nsw i128 %32, %38
   br label %"_ZN14polars_compute10arithmetic6signed92_$LT$impl$u20$polars_compute..arithmetic..PrimitiveArithmeticKernelImpl$u20$for$u20$i128$GT$34prim_wrapping_floor_div_scalar_lhs28_$u7b$$u7b$closure$u7d$$u7d$17h5408b059b54deb45E.exit.us.i"
 
 "_ZN14polars_compute10arithmetic6signed92_$LT$impl$u20$polars_compute..arithmetic..PrimitiveArithmeticKernelImpl$u20$for$u20$i128$GT$34prim_wrapping_floor_div_scalar_lhs28_$u7b$$u7b$closure$u7d$$u7d$17h5408b059b54deb45E.exit.us.i": ; preds = %33, %"_ZN4core3num22_$LT$impl$u20$i128$GT$15overflowing_div17h280d1e32f20b2ba8E.exit.i.i.us.i", %.lr.ph.split.us.i
@@ -34678,8 +34678,8 @@ define hidden void @_ZN14polars_compute5arity17prim_unary_values17hbffa60d7f420b
 "_ZN4core3num22_$LT$impl$u20$i128$GT$15overflowing_div17h280d1e32f20b2ba8E.exit.i.i.i": ; preds = %.lr.ph.split.i
   %42 = sdiv i128 -170141183460469231731687303715884105728, %41
   %43 = mul i128 %42, %41
-  %.decomposed49 = sub i128 -170141183460469231731687303715884105728, %43
-  %44 = icmp ne i128 %.decomposed49, 0
+  %.decomposed57 = sub i128 -170141183460469231731687303715884105728, %43
+  %44 = icmp ne i128 %.decomposed57, 0
   %45 = icmp sgt i128 %41, -1
   %or.cond.i.i = and i1 %45, %44
   %46 = sext i1 %or.cond.i.i to i128
@@ -34756,13 +34756,13 @@ _ZN14polars_compute5arity22ptr_apply_unary_kernel17hb94ce96f99e4e046E.exit: ; pr
 
 68:                                               ; preds = %"_ZN4core3num22_$LT$impl$u20$i128$GT$15overflowing_div17h280d1e32f20b2ba8E.exit.i.i.us.i15"
   %69 = mul i128 %67, %64
-  %.decomposed50 = sub i128 %61, %69
-  %70 = icmp ne i128 %.decomposed50, 0
+  %.decomposed58 = sub i128 %61, %69
+  %70 = icmp ne i128 %.decomposed58, 0
   %71 = xor i128 %64, %61
   %72 = icmp slt i128 %71, 0
   %or.cond.i.us.i16 = and i1 %72, %70
   %73 = sext i1 %or.cond.i.us.i16 to i128
-  %spec.select.i.us.i17 = add i128 %67, %73
+  %spec.select.i.us.i17 = add nsw i128 %67, %73
   br label %"_ZN14polars_compute10arithmetic6signed92_$LT$impl$u20$polars_compute..arithmetic..PrimitiveArithmeticKernelImpl$u20$for$u20$i128$GT$34prim_wrapping_floor_div_scalar_lhs28_$u7b$$u7b$closure$u7d$$u7d$17h5408b059b54deb45E.exit.us.i18"
 
 "_ZN14polars_compute10arithmetic6signed92_$LT$impl$u20$polars_compute..arithmetic..PrimitiveArithmeticKernelImpl$u20$for$u20$i128$GT$34prim_wrapping_floor_div_scalar_lhs28_$u7b$$u7b$closure$u7d$$u7d$17h5408b059b54deb45E.exit.us.i18": ; preds = %68, %"_ZN4core3num22_$LT$impl$u20$i128$GT$15overflowing_div17h280d1e32f20b2ba8E.exit.i.i.us.i15", %.lr.ph.split.us.i13
@@ -34785,8 +34785,8 @@ _ZN14polars_compute5arity22ptr_apply_unary_kernel17hb94ce96f99e4e046E.exit: ; pr
 "_ZN4core3num22_$LT$impl$u20$i128$GT$15overflowing_div17h280d1e32f20b2ba8E.exit.i.i.i27": ; preds = %.lr.ph.split.i21
   %78 = sdiv i128 -170141183460469231731687303715884105728, %77
   %79 = mul i128 %78, %77
-  %.decomposed51 = sub i128 -170141183460469231731687303715884105728, %79
-  %80 = icmp ne i128 %.decomposed51, 0
+  %.decomposed59 = sub i128 -170141183460469231731687303715884105728, %79
+  %80 = icmp ne i128 %.decomposed59, 0
   %81 = icmp sgt i128 %77, -1
   %or.cond.i.i28 = and i1 %81, %80
   %82 = sext i1 %or.cond.i.i28 to i128
@@ -66396,8 +66396,8 @@ _ZN14polars_compute5arity23ptr_apply_binary_kernel17h49d1747edd3e7f56E.exit: ; p
 
 125:                                              ; preds = %"_ZN4core3num22_$LT$impl$u20$i128$GT$15overflowing_div17h280d1e32f20b2ba8E.exit.i.i.i30"
   %126 = mul i128 %124, %118
-  %.decomposed105 = sub i128 %116, %126
-  %127 = icmp ne i128 %.decomposed105, 0
+  %.decomposed111 = sub i128 %116, %126
+  %127 = icmp ne i128 %.decomposed111, 0
   %128 = xor i128 %118, %116
   %129 = icmp slt i128 %128, 0
   %or.cond.i.i31 = and i1 %129, %127
@@ -66555,8 +66555,8 @@ _ZN14polars_compute5arity23ptr_apply_binary_kernel17h49d1747edd3e7f56E.exit36: ;
 
 182:                                              ; preds = %"_ZN4core3num22_$LT$impl$u20$i128$GT$15overflowing_div17h280d1e32f20b2ba8E.exit.i.i.i51"
   %183 = mul i128 %181, %175
-  %.decomposed106 = sub i128 %173, %183
-  %184 = icmp ne i128 %.decomposed106, 0
+  %.decomposed112 = sub i128 %173, %183
+  %184 = icmp ne i128 %.decomposed112, 0
   %185 = xor i128 %175, %173
   %186 = icmp slt i128 %185, 0
   %or.cond.i.i52 = and i1 %186, %184

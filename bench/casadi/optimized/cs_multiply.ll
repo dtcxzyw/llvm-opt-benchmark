@@ -92,7 +92,7 @@ define ptr @cs_multiply(ptr noundef %0, ptr noundef readonly captures(address_is
 
 .lr.ph119.split.us.split.us:                      ; preds = %.lr.ph119.split.us, %.loopexit.us.us
   %indvars.iv177 = phi i64 [ %indvars.iv.next178, %.loopexit.us.us ], [ 0, %.lr.ph119.split.us ]
-  %.092116.us.us = phi i32 [ %.193.lcssa.us.us184, %.loopexit.us.us ], [ 0, %.lr.ph119.split.us ]
+  %.092116.us.us = phi i32 [ %.193.lcssa.us.us200, %.loopexit.us.us ], [ 0, %.lr.ph119.split.us ]
   %58 = add nsw i32 %.092116.us.us, %19
   %59 = load i32, ptr %48, align 8, !tbaa !17
   %60 = icmp sgt i32 %58, %59
@@ -147,7 +147,7 @@ define ptr @cs_multiply(ptr noundef %0, ptr noundef readonly captures(address_is
   br i1 %exitcond176.not, label %.loopexit.us.us, label %.lr.ph115.us.us, !llvm.loop !20
 
 .loopexit.us.us:                                  ; preds = %.lr.ph115.us.us, %65, %._crit_edge.split.us.us.us
-  %.193.lcssa.us.us184 = phi i32 [ %88, %._crit_edge.split.us.us.us ], [ %.092116.us.us, %65 ], [ %88, %.lr.ph115.us.us ]
+  %.193.lcssa.us.us200 = phi i32 [ %88, %._crit_edge.split.us.us.us ], [ %.092116.us.us, %65 ], [ %88, %.lr.ph115.us.us ]
   %exitcond181.not = icmp eq i64 %indvars.iv.next178, %wide.trip.count180
   br i1 %exitcond181.not, label %._crit_edge120, label %.lr.ph119.split.us.split.us, !llvm.loop !22
 
@@ -264,7 +264,7 @@ define ptr @cs_multiply(ptr noundef %0, ptr noundef readonly captures(address_is
   br i1 %exitcond.not, label %._crit_edge120, label %.lr.ph119.split.split, !llvm.loop !22
 
 ._crit_edge120:                                   ; preds = %._crit_edge.split, %._crit_edge.split.us.us, %.loopexit.us.us, %52
-  %.092.lcssa = phi i32 [ 0, %52 ], [ %.193.lcssa.us.us184, %.loopexit.us.us ], [ %.193.lcssa.us, %._crit_edge.split.us.us ], [ %.193.lcssa, %._crit_edge.split ]
+  %.092.lcssa = phi i32 [ 0, %52 ], [ %.193.lcssa.us.us200, %.loopexit.us.us ], [ %.193.lcssa.us, %._crit_edge.split.us.us ], [ %.193.lcssa, %._crit_edge.split ]
   %138 = getelementptr inbounds i32, ptr %54, i64 %33
   store i32 %.092.lcssa, ptr %138, align 4, !tbaa !14
   %139 = tail call i32 @cs_sprealloc(ptr noundef nonnull %48, i32 noundef 0) #2

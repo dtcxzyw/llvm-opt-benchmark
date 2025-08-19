@@ -1440,10 +1440,10 @@ define internal fastcc range(i32 0, 2) i32 @perf_ibs_handle_irq(ptr noundef %0, 
   %392 = icmp ne i64 %391, 0
   %393 = and i64 %240, 128
   %394 = icmp ne i64 %393, 0
-  %.not34 = and i1 %392, %394
+  %.not44 = and i1 %392, %394
   %395 = and i64 %390, 31
   %396 = icmp eq i64 %395, 2
-  %or.cond = select i1 %.not34, i1 %396, i1 false
+  %or.cond = select i1 %.not44, i1 %396, i1 false
   br i1 %or.cond, label %397, label %419
 
 397:                                              ; preds = %388

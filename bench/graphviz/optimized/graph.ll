@@ -29,7 +29,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.3 = private unnamed_addr constant [49 x i8] c"out of memory when trying to allocate %zu bytes\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @agopen(ptr noundef %0, i32 %1, ptr noundef %2) local_unnamed_addr #0 {
+define nonnull ptr @agopen(ptr noundef %0, i32 %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = tail call noalias dereferenceable_or_null(112) ptr @calloc(i64 noundef 1, i64 noundef 112) #11

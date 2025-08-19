@@ -1312,7 +1312,7 @@ _ZN6vectorIN16bound_propagator10constraintELb0EjE3endEv.exit: ; preds = %1
   %8 = mul nuw nsw i64 %7, 24
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 %8
   %.not8 = icmp eq i32 %6, 0
-  br i1 %.not8, label %._crit_edge.thread13, label %.lr.ph
+  br i1 %.not8, label %._crit_edge.thread15, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN6vectorIN16bound_propagator10constraintELb0EjE3endEv.exit
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1321,15 +1321,15 @@ _ZN6vectorIN16bound_propagator10constraintELb0EjE3endEv.exit: ; preds = %1
 ._crit_edge:                                      ; preds = %_ZN16bound_propagator14del_constraintERNS_10constraintE.exit
   %.pre = load ptr, ptr %2, align 8, !tbaa !74
   %.not.i = icmp eq ptr %.pre, null
-  br i1 %.not.i, label %_ZN6vectorIN16bound_propagator10constraintELb0EjE5resetEv.exit, label %._crit_edge.thread13
+  br i1 %.not.i, label %_ZN6vectorIN16bound_propagator10constraintELb0EjE5resetEv.exit, label %._crit_edge.thread15
 
-._crit_edge.thread13:                             ; preds = %_ZN6vectorIN16bound_propagator10constraintELb0EjE3endEv.exit, %._crit_edge
+._crit_edge.thread15:                             ; preds = %_ZN6vectorIN16bound_propagator10constraintELb0EjE3endEv.exit, %._crit_edge
   %11 = phi ptr [ %.pre, %._crit_edge ], [ %3, %_ZN6vectorIN16bound_propagator10constraintELb0EjE3endEv.exit ]
   %12 = getelementptr inbounds i8, ptr %11, i64 -4
   store i32 0, ptr %12, align 4, !tbaa !69
   br label %_ZN6vectorIN16bound_propagator10constraintELb0EjE5resetEv.exit
 
-_ZN6vectorIN16bound_propagator10constraintELb0EjE5resetEv.exit: ; preds = %1, %._crit_edge, %._crit_edge.thread13
+_ZN6vectorIN16bound_propagator10constraintELb0EjE5resetEv.exit: ; preds = %1, %._crit_edge, %._crit_edge.thread15
   ret void
 
 13:                                               ; preds = %.lr.ph, %_ZN16bound_propagator14del_constraintERNS_10constraintE.exit
@@ -1526,12 +1526,12 @@ _ZNK6vectorIcLb0EjE4sizeEv.exit.thread.i:         ; preds = %3
   br i1 %11, label %_ZNK6vectorIcLb0EjE4sizeEv.exit.i.i.preheader, label %_ZN6vectorIcLb0EjE7reserveEjRKc.exit
 
 _ZNK6vectorIcLb0EjE4sizeEv.exit.i.i.preheader:    ; preds = %_ZNK6vectorIcLb0EjE4sizeEv.exit.i, %_ZNK6vectorIcLb0EjE4sizeEv.exit.thread.i
-  %.ph115 = phi ptr [ %7, %_ZNK6vectorIcLb0EjE4sizeEv.exit.thread.i ], [ null, %_ZNK6vectorIcLb0EjE4sizeEv.exit.i ]
+  %.ph140 = phi ptr [ %7, %_ZNK6vectorIcLb0EjE4sizeEv.exit.thread.i ], [ null, %_ZNK6vectorIcLb0EjE4sizeEv.exit.i ]
   %.0.i17.i.i.ph = phi i32 [ %10, %_ZNK6vectorIcLb0EjE4sizeEv.exit.thread.i ], [ 0, %_ZNK6vectorIcLb0EjE4sizeEv.exit.i ]
   br label %_ZNK6vectorIcLb0EjE4sizeEv.exit.i.i
 
 _ZNK6vectorIcLb0EjE4sizeEv.exit.i.i:              ; preds = %_ZNK6vectorIcLb0EjE4sizeEv.exit.i.i.preheader, %_ZNK6vectorIcLb0EjE8capacityEv.exit.thread.i.i
-  %12 = phi ptr [ %.pr.pre.i.i, %_ZNK6vectorIcLb0EjE8capacityEv.exit.thread.i.i ], [ %.ph115, %_ZNK6vectorIcLb0EjE4sizeEv.exit.i.i.preheader ]
+  %12 = phi ptr [ %.pr.pre.i.i, %_ZNK6vectorIcLb0EjE8capacityEv.exit.thread.i.i ], [ %.ph140, %_ZNK6vectorIcLb0EjE4sizeEv.exit.i.i.preheader ]
   %13 = icmp eq ptr %12, null
   br i1 %13, label %_ZNK6vectorIcLb0EjE8capacityEv.exit.thread.i.i, label %_ZNK6vectorIcLb0EjE8capacityEv.exit.i.i
 
@@ -1587,7 +1587,7 @@ _ZNK6vectorIcLb0EjE4sizeEv.exit.thread.i15:       ; preds = %_ZN6vectorIcLb0EjE7
 _ZNK6vectorIcLb0EjE4sizeEv.exit.i.i28:            ; preds = %_ZNK6vectorIcLb0EjE8capacityEv.exit.thread.i.i24, %_ZNK6vectorIcLb0EjE4sizeEv.exit.thread.i15
   %34 = phi ptr [ %39, %_ZNK6vectorIcLb0EjE8capacityEv.exit.thread.i.i24 ], [ %30, %_ZNK6vectorIcLb0EjE4sizeEv.exit.thread.i15 ]
   %.pr.i.i18 = phi ptr [ %.pr.pre.i.i25, %_ZNK6vectorIcLb0EjE8capacityEv.exit.thread.i.i24 ], [ %29, %_ZNK6vectorIcLb0EjE4sizeEv.exit.thread.i15 ]
-  %.0.i17.ph.i.i19 = phi i32 [ %.0.i17.i.i20106, %_ZNK6vectorIcLb0EjE8capacityEv.exit.thread.i.i24 ], [ %32, %_ZNK6vectorIcLb0EjE4sizeEv.exit.thread.i15 ]
+  %.0.i17.ph.i.i19 = phi i32 [ %.0.i17.i.i20131, %_ZNK6vectorIcLb0EjE8capacityEv.exit.thread.i.i24 ], [ %32, %_ZNK6vectorIcLb0EjE4sizeEv.exit.thread.i15 ]
   %35 = icmp eq ptr %.pr.i.i18, null
   br i1 %35, label %_ZNK6vectorIcLb0EjE8capacityEv.exit.thread.i.i24, label %_ZNK6vectorIcLb0EjE8capacityEv.exit.i.i21
 
@@ -1598,7 +1598,7 @@ _ZNK6vectorIcLb0EjE8capacityEv.exit.i.i21:        ; preds = %_ZNK6vectorIcLb0EjE
   br i1 %38, label %_ZNK6vectorIcLb0EjE8capacityEv.exit.thread.i.i24, label %40
 
 _ZNK6vectorIcLb0EjE8capacityEv.exit.thread.i.i24: ; preds = %_ZNK6vectorIcLb0EjE4sizeEv.exit.i26, %_ZNK6vectorIcLb0EjE8capacityEv.exit.i.i21, %_ZNK6vectorIcLb0EjE4sizeEv.exit.i.i28
-  %.0.i17.i.i20106 = phi i32 [ %.0.i17.ph.i.i19, %_ZNK6vectorIcLb0EjE8capacityEv.exit.i.i21 ], [ %.0.i17.ph.i.i19, %_ZNK6vectorIcLb0EjE4sizeEv.exit.i.i28 ], [ 0, %_ZNK6vectorIcLb0EjE4sizeEv.exit.i26 ]
+  %.0.i17.i.i20131 = phi i32 [ %.0.i17.ph.i.i19, %_ZNK6vectorIcLb0EjE8capacityEv.exit.i.i21 ], [ %.0.i17.ph.i.i19, %_ZNK6vectorIcLb0EjE4sizeEv.exit.i.i28 ], [ 0, %_ZNK6vectorIcLb0EjE4sizeEv.exit.i26 ]
   %39 = phi ptr [ %34, %_ZNK6vectorIcLb0EjE8capacityEv.exit.i.i21 ], [ %34, %_ZNK6vectorIcLb0EjE4sizeEv.exit.i.i28 ], [ %23, %_ZNK6vectorIcLb0EjE4sizeEv.exit.i26 ]
   tail call void @_ZN6vectorIcLb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %39)
   %.pr.pre.i.i25 = load ptr, ptr %39, align 8, !tbaa !73
@@ -1636,12 +1636,12 @@ _ZNK6vectorIPN16bound_propagator5boundELb0EjE4sizeEv.exit.thread.i: ; preds = %_
   br i1 %52, label %_ZNK6vectorIPN16bound_propagator5boundELb0EjE4sizeEv.exit.i.i.preheader, label %_ZN6vectorIPN16bound_propagator5boundELb0EjE7reserveEjRKS2_.exit
 
 _ZNK6vectorIPN16bound_propagator5boundELb0EjE4sizeEv.exit.i.i.preheader: ; preds = %_ZNK6vectorIPN16bound_propagator5boundELb0EjE4sizeEv.exit.i, %_ZNK6vectorIPN16bound_propagator5boundELb0EjE4sizeEv.exit.thread.i
-  %.ph113 = phi ptr [ %48, %_ZNK6vectorIPN16bound_propagator5boundELb0EjE4sizeEv.exit.thread.i ], [ null, %_ZNK6vectorIPN16bound_propagator5boundELb0EjE4sizeEv.exit.i ]
+  %.ph138 = phi ptr [ %48, %_ZNK6vectorIPN16bound_propagator5boundELb0EjE4sizeEv.exit.thread.i ], [ null, %_ZNK6vectorIPN16bound_propagator5boundELb0EjE4sizeEv.exit.i ]
   %.0.i17.i.i33.ph = phi i32 [ %51, %_ZNK6vectorIPN16bound_propagator5boundELb0EjE4sizeEv.exit.thread.i ], [ 0, %_ZNK6vectorIPN16bound_propagator5boundELb0EjE4sizeEv.exit.i ]
   br label %_ZNK6vectorIPN16bound_propagator5boundELb0EjE4sizeEv.exit.i.i
 
 _ZNK6vectorIPN16bound_propagator5boundELb0EjE4sizeEv.exit.i.i: ; preds = %_ZNK6vectorIPN16bound_propagator5boundELb0EjE4sizeEv.exit.i.i.preheader, %_ZNK6vectorIPN16bound_propagator5boundELb0EjE8capacityEv.exit.thread.i.i
-  %53 = phi ptr [ %.pr.pre.i.i36, %_ZNK6vectorIPN16bound_propagator5boundELb0EjE8capacityEv.exit.thread.i.i ], [ %.ph113, %_ZNK6vectorIPN16bound_propagator5boundELb0EjE4sizeEv.exit.i.i.preheader ]
+  %53 = phi ptr [ %.pr.pre.i.i36, %_ZNK6vectorIPN16bound_propagator5boundELb0EjE8capacityEv.exit.thread.i.i ], [ %.ph138, %_ZNK6vectorIPN16bound_propagator5boundELb0EjE4sizeEv.exit.i.i.preheader ]
   %54 = icmp eq ptr %53, null
   br i1 %54, label %_ZNK6vectorIPN16bound_propagator5boundELb0EjE8capacityEv.exit.thread.i.i, label %_ZNK6vectorIPN16bound_propagator5boundELb0EjE8capacityEv.exit.i.i
 
@@ -1701,7 +1701,7 @@ _ZNK6vectorIPN16bound_propagator5boundELb0EjE4sizeEv.exit.thread.i38: ; preds = 
 _ZNK6vectorIPN16bound_propagator5boundELb0EjE4sizeEv.exit.i.i54: ; preds = %_ZNK6vectorIPN16bound_propagator5boundELb0EjE8capacityEv.exit.thread.i.i50, %_ZNK6vectorIPN16bound_propagator5boundELb0EjE4sizeEv.exit.thread.i38
   %79 = phi ptr [ %84, %_ZNK6vectorIPN16bound_propagator5boundELb0EjE8capacityEv.exit.thread.i.i50 ], [ %75, %_ZNK6vectorIPN16bound_propagator5boundELb0EjE4sizeEv.exit.thread.i38 ]
   %.pr.i.i41 = phi ptr [ %.pr.pre.i.i51, %_ZNK6vectorIPN16bound_propagator5boundELb0EjE8capacityEv.exit.thread.i.i50 ], [ %74, %_ZNK6vectorIPN16bound_propagator5boundELb0EjE4sizeEv.exit.thread.i38 ]
-  %.0.i17.ph.i.i42 = phi i32 [ %.0.i17.i.i43108, %_ZNK6vectorIPN16bound_propagator5boundELb0EjE8capacityEv.exit.thread.i.i50 ], [ %77, %_ZNK6vectorIPN16bound_propagator5boundELb0EjE4sizeEv.exit.thread.i38 ]
+  %.0.i17.ph.i.i42 = phi i32 [ %.0.i17.i.i43133, %_ZNK6vectorIPN16bound_propagator5boundELb0EjE8capacityEv.exit.thread.i.i50 ], [ %77, %_ZNK6vectorIPN16bound_propagator5boundELb0EjE4sizeEv.exit.thread.i38 ]
   %80 = icmp eq ptr %.pr.i.i41, null
   br i1 %80, label %_ZNK6vectorIPN16bound_propagator5boundELb0EjE8capacityEv.exit.thread.i.i50, label %_ZNK6vectorIPN16bound_propagator5boundELb0EjE8capacityEv.exit.i.i44
 
@@ -1712,7 +1712,7 @@ _ZNK6vectorIPN16bound_propagator5boundELb0EjE8capacityEv.exit.i.i44: ; preds = %
   br i1 %83, label %_ZNK6vectorIPN16bound_propagator5boundELb0EjE8capacityEv.exit.thread.i.i50, label %85
 
 _ZNK6vectorIPN16bound_propagator5boundELb0EjE8capacityEv.exit.thread.i.i50: ; preds = %_ZNK6vectorIPN16bound_propagator5boundELb0EjE4sizeEv.exit.i52, %_ZNK6vectorIPN16bound_propagator5boundELb0EjE8capacityEv.exit.i.i44, %_ZNK6vectorIPN16bound_propagator5boundELb0EjE4sizeEv.exit.i.i54
-  %.0.i17.i.i43108 = phi i32 [ %.0.i17.ph.i.i42, %_ZNK6vectorIPN16bound_propagator5boundELb0EjE8capacityEv.exit.i.i44 ], [ %.0.i17.ph.i.i42, %_ZNK6vectorIPN16bound_propagator5boundELb0EjE4sizeEv.exit.i.i54 ], [ 0, %_ZNK6vectorIPN16bound_propagator5boundELb0EjE4sizeEv.exit.i52 ]
+  %.0.i17.i.i43133 = phi i32 [ %.0.i17.ph.i.i42, %_ZNK6vectorIPN16bound_propagator5boundELb0EjE8capacityEv.exit.i.i44 ], [ %.0.i17.ph.i.i42, %_ZNK6vectorIPN16bound_propagator5boundELb0EjE4sizeEv.exit.i.i54 ], [ 0, %_ZNK6vectorIPN16bound_propagator5boundELb0EjE4sizeEv.exit.i52 ]
   %84 = phi ptr [ %79, %_ZNK6vectorIPN16bound_propagator5boundELb0EjE8capacityEv.exit.i.i44 ], [ %79, %_ZNK6vectorIPN16bound_propagator5boundELb0EjE4sizeEv.exit.i.i54 ], [ %68, %_ZNK6vectorIPN16bound_propagator5boundELb0EjE4sizeEv.exit.i52 ]
   tail call void @_ZN6vectorIPN16bound_propagator5boundELb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %84)
   %.pr.pre.i.i51 = load ptr, ptr %84, align 8, !tbaa !72
@@ -1754,12 +1754,12 @@ _ZNK6vectorIjLb0EjE4sizeEv.exit.thread.i:         ; preds = %_ZN6vectorIPN16boun
   br i1 %101, label %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i.preheader, label %_ZN6vectorIjLb0EjE7reserveEjRKj.exit
 
 _ZNK6vectorIjLb0EjE4sizeEv.exit.i.i.preheader:    ; preds = %_ZNK6vectorIjLb0EjE4sizeEv.exit.i, %_ZNK6vectorIjLb0EjE4sizeEv.exit.thread.i
-  %.ph111 = phi ptr [ %97, %_ZNK6vectorIjLb0EjE4sizeEv.exit.thread.i ], [ null, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i ]
+  %.ph136 = phi ptr [ %97, %_ZNK6vectorIjLb0EjE4sizeEv.exit.thread.i ], [ null, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i ]
   %.0.i17.i.i59.ph = phi i32 [ %100, %_ZNK6vectorIjLb0EjE4sizeEv.exit.thread.i ], [ 0, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i ]
   br label %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i
 
 _ZNK6vectorIjLb0EjE4sizeEv.exit.i.i:              ; preds = %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i.preheader, %_ZNK6vectorIjLb0EjE8capacityEv.exit.thread.i.i
-  %102 = phi ptr [ %.pr.pre.i.i65, %_ZNK6vectorIjLb0EjE8capacityEv.exit.thread.i.i ], [ %.ph111, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i.preheader ]
+  %102 = phi ptr [ %.pr.pre.i.i65, %_ZNK6vectorIjLb0EjE8capacityEv.exit.thread.i.i ], [ %.ph136, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i.preheader ]
   %103 = icmp eq ptr %102, null
   br i1 %103, label %_ZNK6vectorIjLb0EjE8capacityEv.exit.thread.i.i, label %_ZNK6vectorIjLb0EjE8capacityEv.exit.i.i
 
@@ -1819,7 +1819,7 @@ _ZNK6vectorIjLb0EjE4sizeEv.exit.thread.i67:       ; preds = %_ZN6vectorIjLb0EjE7
 _ZNK6vectorIjLb0EjE4sizeEv.exit.i.i83:            ; preds = %_ZNK6vectorIjLb0EjE8capacityEv.exit.thread.i.i79, %_ZNK6vectorIjLb0EjE4sizeEv.exit.thread.i67
   %128 = phi ptr [ %133, %_ZNK6vectorIjLb0EjE8capacityEv.exit.thread.i.i79 ], [ %124, %_ZNK6vectorIjLb0EjE4sizeEv.exit.thread.i67 ]
   %.pr.i.i70 = phi ptr [ %.pr.pre.i.i80, %_ZNK6vectorIjLb0EjE8capacityEv.exit.thread.i.i79 ], [ %123, %_ZNK6vectorIjLb0EjE4sizeEv.exit.thread.i67 ]
-  %.0.i17.ph.i.i71 = phi i32 [ %.0.i17.i.i72110, %_ZNK6vectorIjLb0EjE8capacityEv.exit.thread.i.i79 ], [ %126, %_ZNK6vectorIjLb0EjE4sizeEv.exit.thread.i67 ]
+  %.0.i17.ph.i.i71 = phi i32 [ %.0.i17.i.i72135, %_ZNK6vectorIjLb0EjE8capacityEv.exit.thread.i.i79 ], [ %126, %_ZNK6vectorIjLb0EjE4sizeEv.exit.thread.i67 ]
   %129 = icmp eq ptr %.pr.i.i70, null
   br i1 %129, label %_ZNK6vectorIjLb0EjE8capacityEv.exit.thread.i.i79, label %_ZNK6vectorIjLb0EjE8capacityEv.exit.i.i73
 
@@ -1830,7 +1830,7 @@ _ZNK6vectorIjLb0EjE8capacityEv.exit.i.i73:        ; preds = %_ZNK6vectorIjLb0EjE
   br i1 %132, label %_ZNK6vectorIjLb0EjE8capacityEv.exit.thread.i.i79, label %134
 
 _ZNK6vectorIjLb0EjE8capacityEv.exit.thread.i.i79: ; preds = %_ZNK6vectorIjLb0EjE4sizeEv.exit.i81, %_ZNK6vectorIjLb0EjE8capacityEv.exit.i.i73, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i83
-  %.0.i17.i.i72110 = phi i32 [ %.0.i17.ph.i.i71, %_ZNK6vectorIjLb0EjE8capacityEv.exit.i.i73 ], [ %.0.i17.ph.i.i71, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i83 ], [ 0, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i81 ]
+  %.0.i17.i.i72135 = phi i32 [ %.0.i17.ph.i.i71, %_ZNK6vectorIjLb0EjE8capacityEv.exit.i.i73 ], [ %.0.i17.ph.i.i71, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i83 ], [ 0, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i81 ]
   %133 = phi ptr [ %128, %_ZNK6vectorIjLb0EjE8capacityEv.exit.i.i73 ], [ %128, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i83 ], [ %117, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i81 ]
   tail call void @_ZN6vectorIjLb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %133)
   %.pr.pre.i.i80 = load ptr, ptr %133, align 8, !tbaa !65
@@ -3505,9 +3505,9 @@ _ZNK16bound_propagator17get_interval_sizeEjRd.exit.i: ; preds = %._ZNK16bound_pr
   %30 = load double, ptr %29, align 8, !tbaa !59
   %31 = fcmp olt double %storemerge.i, %.031.i
   %32 = select i1 %.not34.i, i1 true, i1 %31
-  %storemerge.sink36.i = select i1 %32, double %storemerge.i, double %.031.i
-  %33 = fcmp olt double %storemerge.sink36.i, 1.000000e+00
-  %.sroa.speculated.i = select i1 %33, double 1.000000e+00, double %storemerge.sink36.i
+  %storemerge.sink38.i = select i1 %32, double %storemerge.i, double %.031.i
+  %33 = fcmp olt double %storemerge.sink38.i, 1.000000e+00
+  %.sroa.speculated.i = select i1 %33, double 1.000000e+00, double %storemerge.sink38.i
   %34 = fmul double %.sroa.speculated.i, %30
   %35 = fadd double %21, %34
   %36 = fcmp ugt double %2, %35
@@ -3583,9 +3583,9 @@ _ZNK16bound_propagator17get_interval_sizeEjRd.exit.i: ; preds = %10, %15
   %27 = load double, ptr %26, align 8, !tbaa !59
   %28 = fcmp olt double %storemerge.i, %.031.i
   %29 = select i1 %.not34.i, i1 true, i1 %28
-  %storemerge.sink36.i = select i1 %29, double %storemerge.i, double %.031.i
-  %30 = fcmp olt double %storemerge.sink36.i, 1.000000e+00
-  %.sroa.speculated.i = select i1 %30, double 1.000000e+00, double %storemerge.sink36.i
+  %storemerge.sink38.i = select i1 %29, double %storemerge.i, double %.031.i
+  %30 = fcmp olt double %storemerge.sink38.i, 1.000000e+00
+  %.sroa.speculated.i = select i1 %30, double 1.000000e+00, double %storemerge.sink38.i
   %31 = fmul double %.sroa.speculated.i, %27
   %32 = fsub double %.pre, %31
   %33 = fcmp ult double %2, %32
@@ -4050,11 +4050,11 @@ define hidden noundef zeroext i1 @_ZN16bound_propagator12propagate_eqEj(ptr noun
   br i1 %or.cond, label %.thread291, label %.thread
 
 .thread.sink.split:                               ; preds = %60, %42
-  %.sink390 = phi ptr [ %26, %42 ], [ %24, %60 ]
+  %.sink413 = phi ptr [ %26, %42 ], [ %24, %60 ]
   %.3140290.ph = phi i32 [ %.2139, %42 ], [ %.4, %60 ]
   %.3147288.ph = phi i8 [ %.2146, %42 ], [ %.4148, %60 ]
   %.3155286.ph = phi double [ %.2154, %42 ], [ %.4156, %60 ]
-  %67 = getelementptr inbounds nuw i8, ptr %.sink390, i64 32
+  %67 = getelementptr inbounds nuw i8, ptr %.sink413, i64 32
   %68 = load double, ptr %67, align 8, !tbaa !11
   %69 = fneg double %21
   %70 = tail call double @llvm.fmuladd.f64(double %69, double %68, double %.0157339)
@@ -4139,9 +4139,9 @@ _ZNK16bound_propagator17get_interval_sizeEjRd.exit.i.i: ; preds = %101
   %storemerge.i.i = select i1 %114, double %115, double %108
   %116 = load double, ptr %80, align 8, !tbaa !59
   %117 = fcmp olt double %storemerge.i.i, %109
-  %storemerge.sink36.i.i = select i1 %117, double %storemerge.i.i, double %109
-  %118 = fcmp olt double %storemerge.sink36.i.i, 1.000000e+00
-  %.sroa.speculated.i.i = select i1 %118, double 1.000000e+00, double %storemerge.sink36.i.i
+  %storemerge.sink38.i.i = select i1 %117, double %storemerge.i.i, double %109
+  %118 = fcmp olt double %storemerge.sink38.i.i, 1.000000e+00
+  %.sroa.speculated.i.i = select i1 %118, double 1.000000e+00, double %storemerge.sink38.i.i
   %119 = fmul double %.sroa.speculated.i.i, %116
   %120 = fadd double %108, %119
   %121 = fcmp ugt double %105, %120
@@ -4195,9 +4195,9 @@ _ZNK16bound_propagator17get_interval_sizeEjRd.exit.i.i195: ; preds = %135
   %storemerge.i.i200 = select i1 %146, double %147, double %.pre.i194
   %148 = load double, ptr %80, align 8, !tbaa !59
   %149 = fcmp olt double %storemerge.i.i200, %141
-  %storemerge.sink36.i.i201 = select i1 %149, double %storemerge.i.i200, double %141
-  %150 = fcmp olt double %storemerge.sink36.i.i201, 1.000000e+00
-  %.sroa.speculated.i.i202 = select i1 %150, double 1.000000e+00, double %storemerge.sink36.i.i201
+  %storemerge.sink38.i.i201 = select i1 %149, double %storemerge.i.i200, double %141
+  %150 = fcmp olt double %storemerge.sink38.i.i201, 1.000000e+00
+  %.sroa.speculated.i.i202 = select i1 %150, double 1.000000e+00, double %storemerge.sink38.i.i201
   %151 = fmul double %.sroa.speculated.i.i202, %148
   %152 = fsub double %.pre.i194, %151
   %153 = fcmp ult double %139, %152
@@ -4276,9 +4276,9 @@ _ZNK16bound_propagator17get_interval_sizeEjRd.exit.i.i206: ; preds = %182, %178
   %192 = load double, ptr %80, align 8, !tbaa !59
   %193 = fcmp olt double %storemerge.i.i211, %.031.i.i207
   %194 = select i1 %.not34.i.i203, i1 true, i1 %193
-  %storemerge.sink36.i.i212 = select i1 %194, double %storemerge.i.i211, double %.031.i.i207
-  %195 = fcmp olt double %storemerge.sink36.i.i212, 1.000000e+00
-  %.sroa.speculated.i.i213 = select i1 %195, double 1.000000e+00, double %storemerge.sink36.i.i212
+  %storemerge.sink38.i.i212 = select i1 %194, double %storemerge.i.i211, double %.031.i.i207
+  %195 = fcmp olt double %storemerge.sink38.i.i212, 1.000000e+00
+  %.sroa.speculated.i.i213 = select i1 %195, double 1.000000e+00, double %storemerge.sink38.i.i212
   %196 = fmul double %.sroa.speculated.i.i213, %192
   %197 = fsub double %.pre.i205, %196
   %198 = fcmp ult double %173, %197
@@ -4356,9 +4356,9 @@ _ZNK16bound_propagator17get_interval_sizeEjRd.exit.i.i216: ; preds = %225, %._ZN
   %238 = load double, ptr %80, align 8, !tbaa !59
   %239 = fcmp olt double %storemerge.i.i221, %.031.i.i217
   %240 = select i1 %.not34.i.i215, i1 true, i1 %239
-  %storemerge.sink36.i.i222 = select i1 %240, double %storemerge.i.i221, double %.031.i.i217
-  %241 = fcmp olt double %storemerge.sink36.i.i222, 1.000000e+00
-  %.sroa.speculated.i.i223 = select i1 %241, double 1.000000e+00, double %storemerge.sink36.i.i222
+  %storemerge.sink38.i.i222 = select i1 %240, double %storemerge.i.i221, double %.031.i.i217
+  %241 = fcmp olt double %storemerge.sink38.i.i222, 1.000000e+00
+  %.sroa.speculated.i.i223 = select i1 %241, double 1.000000e+00, double %storemerge.sink38.i.i222
   %242 = fmul double %.sroa.speculated.i.i223, %238
   %243 = fadd double %231, %242
   %244 = fcmp ugt double %216, %243
@@ -4462,9 +4462,9 @@ _ZNK16bound_propagator17get_interval_sizeEjRd.exit.i.i229: ; preds = %282, %._ZN
   %297 = load double, ptr %296, align 8, !tbaa !59
   %298 = fcmp olt double %storemerge.i.i234, %.031.i.i230
   %299 = select i1 %.not34.i.i228, i1 true, i1 %298
-  %storemerge.sink36.i.i235 = select i1 %299, double %storemerge.i.i234, double %.031.i.i230
-  %300 = fcmp olt double %storemerge.sink36.i.i235, 1.000000e+00
-  %.sroa.speculated.i.i236 = select i1 %300, double 1.000000e+00, double %storemerge.sink36.i.i235
+  %storemerge.sink38.i.i235 = select i1 %299, double %storemerge.i.i234, double %.031.i.i230
+  %300 = fcmp olt double %storemerge.sink38.i.i235, 1.000000e+00
+  %.sroa.speculated.i.i236 = select i1 %300, double 1.000000e+00, double %storemerge.sink38.i.i235
   %301 = fmul double %.sroa.speculated.i.i236, %297
   %302 = fadd double %288, %301
   %303 = fcmp ugt double %268, %302
@@ -4538,9 +4538,9 @@ _ZNK16bound_propagator17get_interval_sizeEjRd.exit.i.i244: ; preds = %330, %325
   %342 = load double, ptr %341, align 8, !tbaa !59
   %343 = fcmp olt double %storemerge.i.i249, %.031.i.i245
   %344 = select i1 %.not34.i.i241, i1 true, i1 %343
-  %storemerge.sink36.i.i250 = select i1 %344, double %storemerge.i.i249, double %.031.i.i245
-  %345 = fcmp olt double %storemerge.sink36.i.i250, 1.000000e+00
-  %.sroa.speculated.i.i251 = select i1 %345, double 1.000000e+00, double %storemerge.sink36.i.i250
+  %storemerge.sink38.i.i250 = select i1 %344, double %storemerge.i.i249, double %.031.i.i245
+  %345 = fcmp olt double %storemerge.sink38.i.i250, 1.000000e+00
+  %.sroa.speculated.i.i251 = select i1 %345, double 1.000000e+00, double %storemerge.sink38.i.i250
   %346 = fmul double %.sroa.speculated.i.i251, %342
   %347 = fsub double %.pre.i243, %346
   %348 = fcmp ult double %268, %347
@@ -4634,9 +4634,9 @@ _ZNK16bound_propagator17get_interval_sizeEjRd.exit.i.i256: ; preds = %388, %383
   %400 = load double, ptr %399, align 8, !tbaa !59
   %401 = fcmp olt double %storemerge.i.i261, %.031.i.i257
   %402 = select i1 %.not34.i.i253, i1 true, i1 %401
-  %storemerge.sink36.i.i262 = select i1 %402, double %storemerge.i.i261, double %.031.i.i257
-  %403 = fcmp olt double %storemerge.sink36.i.i262, 1.000000e+00
-  %.sroa.speculated.i.i263 = select i1 %403, double 1.000000e+00, double %storemerge.sink36.i.i262
+  %storemerge.sink38.i.i262 = select i1 %402, double %storemerge.i.i261, double %.031.i.i257
+  %403 = fcmp olt double %storemerge.sink38.i.i262, 1.000000e+00
+  %.sroa.speculated.i.i263 = select i1 %403, double 1.000000e+00, double %storemerge.sink38.i.i262
   %404 = fmul double %.sroa.speculated.i.i263, %400
   %405 = fsub double %.pre.i255, %404
   %406 = fcmp ult double %374, %405
@@ -4716,9 +4716,9 @@ _ZNK16bound_propagator17get_interval_sizeEjRd.exit.i.i266: ; preds = %433, %._ZN
   %448 = load double, ptr %447, align 8, !tbaa !59
   %449 = fcmp olt double %storemerge.i.i271, %.031.i.i267
   %450 = select i1 %.not34.i.i265, i1 true, i1 %449
-  %storemerge.sink36.i.i272 = select i1 %450, double %storemerge.i.i271, double %.031.i.i267
-  %451 = fcmp olt double %storemerge.sink36.i.i272, 1.000000e+00
-  %.sroa.speculated.i.i273 = select i1 %451, double 1.000000e+00, double %storemerge.sink36.i.i272
+  %storemerge.sink38.i.i272 = select i1 %450, double %storemerge.i.i271, double %.031.i.i267
+  %451 = fcmp olt double %storemerge.sink38.i.i272, 1.000000e+00
+  %.sroa.speculated.i.i273 = select i1 %451, double 1.000000e+00, double %storemerge.sink38.i.i272
   %452 = fmul double %.sroa.speculated.i.i273, %448
   %453 = fadd double %439, %452
   %454 = fcmp ugt double %374, %453
@@ -5658,14 +5658,14 @@ _ZN6vectorISt4pairIjPN16bound_propagator5boundEELb0EjE3endEv.exit: ; preds = %_Z
   %153 = shl nuw nsw i64 %59, 4
   %154 = getelementptr inbounds nuw i8, ptr %56, i64 %153
   %.not4885 = icmp eq i32 %58, 0
-  br i1 %.not4885, label %._crit_edge.thread99, label %.lr.ph87
+  br i1 %.not4885, label %._crit_edge.thread114, label %.lr.ph87
 
 ._crit_edge:                                      ; preds = %.lr.ph87
   %.pre = load ptr, ptr %34, align 8, !tbaa !26
   %.not.i63 = icmp eq ptr %.pre, null
-  br i1 %.not.i63, label %_ZN6vectorISt4pairIjPN16bound_propagator5boundEELb0EjE5resetEv.exit64, label %._crit_edge.thread99
+  br i1 %.not.i63, label %_ZN6vectorISt4pairIjPN16bound_propagator5boundEELb0EjE5resetEv.exit64, label %._crit_edge.thread114
 
-._crit_edge.thread99:                             ; preds = %_ZN6vectorISt4pairIjPN16bound_propagator5boundEELb0EjE3endEv.exit, %._crit_edge
+._crit_edge.thread114:                            ; preds = %_ZN6vectorISt4pairIjPN16bound_propagator5boundEELb0EjE3endEv.exit, %._crit_edge
   %155 = phi ptr [ %.pre, %._crit_edge ], [ %56, %_ZN6vectorISt4pairIjPN16bound_propagator5boundEELb0EjE3endEv.exit ]
   %156 = getelementptr inbounds i8, ptr %155, i64 -4
   store i32 0, ptr %156, align 4, !tbaa !69
@@ -5683,7 +5683,7 @@ _ZN6vectorISt4pairIjPN16bound_propagator5boundEELb0EjE3endEv.exit: ; preds = %_Z
   %.not48 = icmp eq ptr %162, %154
   br i1 %.not48, label %._crit_edge, label %.lr.ph87
 
-_ZN6vectorISt4pairIjPN16bound_propagator5boundEELb0EjE5resetEv.exit64: ; preds = %8, %.loopexit, %_ZN6vectorISt4pairIjPN16bound_propagator5boundEELb0EjE9push_backEOS4_.exit, %._crit_edge.thread99, %._crit_edge, %_ZN16bound_propagator5bound2atEj.exit, %_ZN16bound_propagator5bound2atEj.exit, %5, %_ZN6vectorIjLb0EjE9push_backERKj.exit
+_ZN6vectorISt4pairIjPN16bound_propagator5boundEELb0EjE5resetEv.exit64: ; preds = %8, %.loopexit, %_ZN6vectorISt4pairIjPN16bound_propagator5boundEELb0EjE9push_backEOS4_.exit, %._crit_edge.thread114, %._crit_edge, %_ZN16bound_propagator5bound2atEj.exit, %_ZN16bound_propagator5bound2atEj.exit, %5, %_ZN6vectorIjLb0EjE9push_backERKj.exit
   ret void
 }
 

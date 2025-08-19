@@ -1083,8 +1083,8 @@ define internal fastcc i64 @HUF_decompress4X1_usingDTable_internal(ptr noundef %
   %201 = shl nuw nsw i16 %23, 3
   %202 = sub nuw nsw i16 64, %201
   %203 = zext nneg i16 %202 to i32
-  %reass.sub146 = sub nsw i32 %203, %200
-  %204 = add nsw i32 %reass.sub146, 8
+  %reass.sub193 = sub nsw i32 %203, %200
+  %204 = add nsw i32 %reass.sub193, 8
   store i32 %204, ptr %197, align 8
   br label %205
 
@@ -1205,8 +1205,8 @@ define internal fastcc i64 @HUF_decompress4X1_usingDTable_internal(ptr noundef %
   %282 = shl nuw nsw i16 %26, 3
   %283 = sub nuw nsw i16 64, %282
   %284 = zext nneg i16 %283 to i32
-  %reass.sub147 = sub nsw i32 %284, %281
-  %285 = add nsw i32 %reass.sub147, 8
+  %reass.sub194 = sub nsw i32 %284, %281
+  %285 = add nsw i32 %reass.sub194, 8
   store i32 %285, ptr %278, align 8
   br label %286
 
@@ -2646,7 +2646,7 @@ define dso_local i64 @HUF_readDTableX2_wksp_bmi2(ptr noundef %0, ptr noundef %1,
 206:                                              ; preds = %205
   %207 = shl i32 %188, 16
   %208 = add i32 %207, 33554432
-  %invariant.op95 = or disjoint i32 %208, %179
+  %invariant.op111 = or disjoint i32 %208, %179
   br label %241
 
 209:                                              ; preds = %180
@@ -2655,7 +2655,7 @@ define dso_local i64 @HUF_readDTableX2_wksp_bmi2(ptr noundef %0, ptr noundef %1,
 210:                                              ; preds = %209
   %211 = shl i32 %188, 16
   %212 = add i32 %211, 33554432
-  %invariant.op96 = or disjoint i32 %212, %179
+  %invariant.op112 = or disjoint i32 %212, %179
   br label %231
 
 213:                                              ; preds = %180
@@ -2664,7 +2664,7 @@ define dso_local i64 @HUF_readDTableX2_wksp_bmi2(ptr noundef %0, ptr noundef %1,
 214:                                              ; preds = %213
   %215 = shl i32 %188, 16
   %216 = add i32 %215, 33554432
-  %invariant.op97 = or disjoint i32 %216, %179
+  %invariant.op113 = or disjoint i32 %216, %179
   br label %222
 
 217:                                              ; preds = %180
@@ -2674,7 +2674,7 @@ define dso_local i64 @HUF_readDTableX2_wksp_bmi2(ptr noundef %0, ptr noundef %1,
   %219 = shl i32 %188, 16
   %220 = add i32 %219, 33554432
   %221 = zext i32 %199 to i64
-  %invariant.op98 = or disjoint i32 %220, %179
+  %invariant.op114 = or disjoint i32 %220, %179
   br label %267
 
 222:                                              ; preds = %222, %214
@@ -2683,7 +2683,7 @@ define dso_local i64 @HUF_readDTableX2_wksp_bmi2(ptr noundef %0, ptr noundef %1,
   %225 = load i8, ptr %224, align 1
   %226 = zext i8 %225 to i32
   %227 = shl nuw nsw i32 %226, 8
-  %.reass20.reass.i.reass.reass = or disjoint i32 %227, %invariant.op97
+  %.reass20.reass.i.reass.reass = or disjoint i32 %227, %invariant.op113
   %228 = getelementptr i8, ptr %223, i64 4
   store i32 %.reass20.reass.i.reass.reass, ptr %223, align 2
   %229 = getelementptr i8, ptr %224, i64 1
@@ -2696,7 +2696,7 @@ define dso_local i64 @HUF_readDTableX2_wksp_bmi2(ptr noundef %0, ptr noundef %1,
   %234 = load i8, ptr %233, align 1
   %235 = zext i8 %234 to i32
   %236 = shl nuw nsw i32 %235, 8
-  %.reass17.reass.i.reass.reass = or disjoint i32 %236, %invariant.op96
+  %.reass17.reass.i.reass.reass = or disjoint i32 %236, %invariant.op112
   store i32 %.reass17.reass.i.reass.reass, ptr %232, align 2
   %237 = getelementptr i8, ptr %232, i64 4
   store i32 %.reass17.reass.i.reass.reass, ptr %237, align 2
@@ -2711,7 +2711,7 @@ define dso_local i64 @HUF_readDTableX2_wksp_bmi2(ptr noundef %0, ptr noundef %1,
   %244 = load i8, ptr %243, align 1
   %245 = zext i8 %244 to i32
   %246 = shl nuw nsw i32 %245, 8
-  %.reass14.reass.i.reass.reass = or disjoint i32 %246, %invariant.op95
+  %.reass14.reass.i.reass.reass = or disjoint i32 %246, %invariant.op111
   %247 = zext i32 %.reass14.reass.i.reass.reass to i64
   %248 = mul nuw i64 %247, 4294967297
   store i64 %248, ptr %242, align 2
@@ -2749,7 +2749,7 @@ define dso_local i64 @HUF_readDTableX2_wksp_bmi2(ptr noundef %0, ptr noundef %1,
   %270 = load i8, ptr %269, align 1
   %271 = zext i8 %270 to i32
   %272 = shl nuw nsw i32 %271, 8
-  %.reass.reass = or disjoint i32 %272, %invariant.op98
+  %.reass.reass = or disjoint i32 %272, %invariant.op114
   %273 = zext i32 %.reass.reass to i64
   %274 = mul nuw i64 %273, 4294967297
   %275 = getelementptr %struct.HUF_DEltX2, ptr %268, i64 %221
@@ -3882,8 +3882,8 @@ define internal fastcc i64 @HUF_decompress4X2_usingDTable_internal(ptr noundef %
   %202 = shl nuw nsw i16 %23, 3
   %203 = sub nuw nsw i16 64, %202
   %204 = zext nneg i16 %203 to i32
-  %reass.sub200 = sub nsw i32 %204, %201
-  %205 = add nsw i32 %reass.sub200, 8
+  %reass.sub270 = sub nsw i32 %204, %201
+  %205 = add nsw i32 %reass.sub270, 8
   store i32 %205, ptr %198, align 8
   br label %206
 
@@ -4004,8 +4004,8 @@ define internal fastcc i64 @HUF_decompress4X2_usingDTable_internal(ptr noundef %
   %283 = shl nuw nsw i16 %26, 3
   %284 = sub nuw nsw i16 64, %283
   %285 = zext nneg i16 %284 to i32
-  %reass.sub201 = sub nsw i32 %285, %282
-  %286 = add nsw i32 %reass.sub201, 8
+  %reass.sub271 = sub nsw i32 %285, %282
+  %286 = add nsw i32 %reass.sub271, 8
   store i32 %286, ptr %279, align 8
   br label %287
 
@@ -7124,8 +7124,8 @@ define internal fastcc i64 @HUF_decompress4X1_usingDTable_internal_bmi2(ptr noun
   %115 = shl nuw nsw i16 %15, 3
   %116 = sub nuw nsw i16 64, %115
   %117 = zext nneg i16 %116 to i32
-  %reass.sub150 = sub nsw i32 %117, %114
-  %118 = add nsw i32 %reass.sub150, 8
+  %reass.sub197 = sub nsw i32 %117, %114
+  %118 = add nsw i32 %reass.sub197, 8
   store i32 %118, ptr %111, align 8
   br label %119
 
@@ -7246,8 +7246,8 @@ define internal fastcc i64 @HUF_decompress4X1_usingDTable_internal_bmi2(ptr noun
   %196 = shl nuw nsw i16 %18, 3
   %197 = sub nuw nsw i16 64, %196
   %198 = zext nneg i16 %197 to i32
-  %reass.sub151 = sub nsw i32 %198, %195
-  %199 = add nsw i32 %reass.sub151, 8
+  %reass.sub198 = sub nsw i32 %198, %195
+  %199 = add nsw i32 %reass.sub198, 8
   store i32 %199, ptr %192, align 8
   br label %200
 
@@ -7368,8 +7368,8 @@ define internal fastcc i64 @HUF_decompress4X1_usingDTable_internal_bmi2(ptr noun
   %277 = shl nuw nsw i16 %21, 3
   %278 = sub nuw nsw i16 64, %277
   %279 = zext nneg i16 %278 to i32
-  %reass.sub152 = sub nsw i32 %279, %276
-  %280 = add nsw i32 %reass.sub152, 8
+  %reass.sub199 = sub nsw i32 %279, %276
+  %280 = add nsw i32 %reass.sub199, 8
   store i32 %280, ptr %273, align 8
   br label %281
 
@@ -9312,8 +9312,8 @@ define internal fastcc i64 @HUF_decompress4X2_usingDTable_internal_bmi2(ptr noun
   %116 = shl nuw nsw i16 %15, 3
   %117 = sub nuw nsw i16 64, %116
   %118 = zext nneg i16 %117 to i32
-  %reass.sub251 = sub nsw i32 %118, %115
-  %119 = add nsw i32 %reass.sub251, 8
+  %reass.sub361 = sub nsw i32 %118, %115
+  %119 = add nsw i32 %reass.sub361, 8
   store i32 %119, ptr %112, align 8
   br label %120
 
@@ -9434,8 +9434,8 @@ define internal fastcc i64 @HUF_decompress4X2_usingDTable_internal_bmi2(ptr noun
   %197 = shl nuw nsw i16 %18, 3
   %198 = sub nuw nsw i16 64, %197
   %199 = zext nneg i16 %198 to i32
-  %reass.sub252 = sub nsw i32 %199, %196
-  %200 = add nsw i32 %reass.sub252, 8
+  %reass.sub362 = sub nsw i32 %199, %196
+  %200 = add nsw i32 %reass.sub362, 8
   store i32 %200, ptr %193, align 8
   br label %201
 
@@ -9556,8 +9556,8 @@ define internal fastcc i64 @HUF_decompress4X2_usingDTable_internal_bmi2(ptr noun
   %278 = shl nuw nsw i16 %21, 3
   %279 = sub nuw nsw i16 64, %278
   %280 = zext nneg i16 %279 to i32
-  %reass.sub253 = sub nsw i32 %280, %277
-  %281 = add nsw i32 %reass.sub253, 8
+  %reass.sub363 = sub nsw i32 %280, %277
+  %281 = add nsw i32 %reass.sub363, 8
   store i32 %281, ptr %274, align 8
   br label %282
 

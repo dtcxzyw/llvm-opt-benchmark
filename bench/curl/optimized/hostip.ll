@@ -1165,25 +1165,25 @@ Curl_host_is_ipnum.exit:                          ; preds = %13
 Curl_printable_address.exit:                      ; preds = %38, %.sink.split.i
   %44 = call i64 @Curl_dyn_len(ptr noundef nonnull %.sroa.sel) #10
   %.not61 = icmp eq i64 %44, 0
-  br i1 %.not61, label %.thread75, label %45
+  br i1 %.not61, label %.thread82, label %45
 
 45:                                               ; preds = %Curl_printable_address.exit
   %46 = call i32 @Curl_dyn_addn(ptr noundef nonnull %.sroa.sel, ptr noundef nonnull @.str.28, i64 noundef 2) #10
   %47 = icmp eq i32 %46, 0
-  br i1 %47, label %.thread75, label %.thread77
+  br i1 %47, label %.thread82, label %.thread84
 
-.thread75:                                        ; preds = %Curl_printable_address.exit, %45
+.thread82:                                        ; preds = %Curl_printable_address.exit, %45
   %48 = call i32 @Curl_dyn_add(ptr noundef nonnull %.sroa.sel, ptr noundef nonnull %6) #10
   %49 = icmp eq i32 %48, 0
-  br i1 %49, label %60, label %.thread77
+  br i1 %49, label %60, label %.thread84
 
-.thread77:                                        ; preds = %45, %.thread75
+.thread84:                                        ; preds = %45, %.thread82
   %50 = load i64, ptr %7, align 2
   %51 = and i64 %50, 2147483648
   %.not64 = icmp eq i64 %51, 0
   br i1 %.not64, label %.thread, label %52
 
-52:                                               ; preds = %.thread77
+52:                                               ; preds = %.thread84
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 4864
   %54 = load ptr, ptr %53, align 8, !tbaa !92
   %.not65 = icmp eq ptr %54, null
@@ -1199,11 +1199,11 @@ Curl_printable_address.exit:                      ; preds = %38, %.sink.split.i
   call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %0, ptr noundef nonnull @.str.29) #10
   br label %.thread
 
-.thread:                                          ; preds = %59, %55, %.thread77
+.thread:                                          ; preds = %59, %55, %.thread84
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.critedge
 
-60:                                               ; preds = %.thread75
+60:                                               ; preds = %.thread82
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %61
 
@@ -1229,7 +1229,7 @@ Curl_printable_address.exit:                      ; preds = %38, %.sink.split.i
   %70 = getelementptr inbounds nuw i8, ptr %68, i64 8
   %71 = load i32, ptr %70, align 8, !tbaa !93
   %72 = icmp sgt i32 %71, 0
-  br i1 %72, label %73, label %.thread81
+  br i1 %72, label %73, label %.thread88
 
 73:                                               ; preds = %69, %66
   %74 = call i64 @Curl_dyn_len(ptr noundef nonnull %35) #10
@@ -1246,21 +1246,21 @@ Curl_printable_address.exit:                      ; preds = %38, %.sink.split.i
   %.pre = load i64, ptr %7, align 2
   %.pre74 = and i64 %.pre, 2147483648
   %79 = icmp eq i64 %.pre74, 0
-  br i1 %79, label %.critedge, label %.thread81
+  br i1 %79, label %.critedge, label %.thread88
 
-.thread81:                                        ; preds = %69, %77
+.thread88:                                        ; preds = %69, %77
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 4864
   %81 = load ptr, ptr %80, align 8, !tbaa !92
   %.not59 = icmp eq ptr %81, null
   br i1 %.not59, label %86, label %82
 
-82:                                               ; preds = %.thread81
+82:                                               ; preds = %.thread88
   %83 = getelementptr inbounds nuw i8, ptr %81, i64 8
   %84 = load i32, ptr %83, align 8, !tbaa !93
   %85 = icmp sgt i32 %84, 0
   br i1 %85, label %86, label %.critedge
 
-86:                                               ; preds = %82, %.thread81
+86:                                               ; preds = %82, %.thread88
   %87 = call i64 @Curl_dyn_len(ptr noundef nonnull %5) #10
   %.not60 = icmp eq i64 %87, 0
   br i1 %.not60, label %90, label %88

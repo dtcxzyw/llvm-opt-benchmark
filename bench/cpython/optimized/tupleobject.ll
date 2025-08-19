@@ -992,9 +992,9 @@ tuple_alloc.exit.thread:                          ; preds = %3
   %14 = getelementptr [20 x %struct._Py_freelist], ptr %13, i64 0, i64 %8
   %15 = load ptr, ptr %14, align 8, !tbaa !21
   %.not.i.i.i = icmp eq ptr %15, null
-  br i1 %.not.i.i.i, label %.thread.i, label %tuple_alloc.exit.thread15
+  br i1 %.not.i.i.i, label %.thread.i, label %tuple_alloc.exit.thread16
 
-tuple_alloc.exit.thread15:                        ; preds = %7
+tuple_alloc.exit.thread16:                        ; preds = %7
   %16 = load ptr, ptr %15, align 8, !tbaa !23
   store ptr %16, ptr %14, align 8, !tbaa !21
   %17 = getelementptr inbounds nuw i8, ptr %14, i64 8
@@ -1021,12 +1021,12 @@ tuple_alloc.exit:                                 ; preds = %22, %.thread.i
   %25 = icmp eq ptr %.09.i, null
   br i1 %25, label %51, label %._crit_edge
 
-._crit_edge:                                      ; preds = %tuple_alloc.exit.thread15, %tuple_alloc.exit
-  %.09.i17 = phi ptr [ %15, %tuple_alloc.exit.thread15 ], [ %.09.i, %tuple_alloc.exit ]
-  %26 = getelementptr inbounds nuw i8, ptr %.09.i17, i64 24
+._crit_edge:                                      ; preds = %tuple_alloc.exit.thread16, %tuple_alloc.exit
+  %.09.i18 = phi ptr [ %15, %tuple_alloc.exit.thread16 ], [ %.09.i, %tuple_alloc.exit ]
+  %26 = getelementptr inbounds nuw i8, ptr %.09.i18, i64 24
   %27 = shl nuw i64 %0, 3
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %26, i8 0, i64 %27, i1 false), !tbaa !25
-  %28 = getelementptr i8, ptr %.09.i17, i64 -16
+  %28 = getelementptr i8, ptr %.09.i18, i64 -16
   %29 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %30 = load ptr, ptr %29, align 8, !tbaa !4
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 16
@@ -1040,7 +1040,7 @@ tuple_alloc.exit:                                 ; preds = %22, %.thread.i
   %39 = and i64 %38, 3
   %40 = or i64 %39, %37
   store i64 %40, ptr %36, align 8, !tbaa !28
-  %41 = getelementptr i8, ptr %.09.i17, i64 -8
+  %41 = getelementptr i8, ptr %.09.i18, i64 -8
   %42 = load i64, ptr %41, align 8, !tbaa !26
   %43 = and i64 %42, 3
   %44 = or i64 %43, %35
@@ -1056,7 +1056,7 @@ tuple_alloc.exit:                                 ; preds = %22, %.thread.i
   br label %51
 
 51:                                               ; preds = %tuple_alloc.exit.thread, %1, %tuple_alloc.exit, %._crit_edge
-  %.010 = phi ptr [ %.09.i17, %._crit_edge ], [ null, %tuple_alloc.exit ], [ getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 88968), %1 ], [ null, %tuple_alloc.exit.thread ]
+  %.010 = phi ptr [ %.09.i18, %._crit_edge ], [ null, %tuple_alloc.exit ], [ getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 88968), %1 ], [ null, %tuple_alloc.exit.thread ]
   ret ptr %.010
 }
 
@@ -2125,11 +2125,11 @@ define internal i64 @tuple_hash(ptr noundef readonly captures(none) %0) #0 {
   %13 = xor i64 %.val, 2870177450013471926
   %14 = add i64 %.024.lcssa.ph, %13
   %15 = icmp eq i64 %14, -1
-  %.41 = select i1 %15, i64 1546275796, i64 %14
+  %.42 = select i1 %15, i64 1546275796, i64 %14
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %.thread.thread
-  %16 = phi i64 [ %.41, %.thread.thread ], [ -1, %.lr.ph ]
+  %16 = phi i64 [ %.42, %.thread.thread ], [ -1, %.lr.ph ]
   ret i64 %16
 }
 

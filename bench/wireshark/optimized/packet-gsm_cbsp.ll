@@ -714,8 +714,8 @@ cbsp_warn_period_to_secs.exit160.i:               ; preds = %223, %221, %218, %2
   br i1 %241, label %switch.lookup, label %cell_id_len.exit.i.i
 
 switch.lookup:                                    ; preds = %239
-  %.mask71 = and i32 %.pre31.i.i, 7
-  %242 = zext nneg i32 %.mask71 to i64
+  %.mask80 = and i32 %.pre31.i.i, 7
+  %242 = zext nneg i32 %.mask80 to i64
   %switch.gep = getelementptr inbounds nuw [7 x i32], ptr @switch.table.dissect_cbsp_message, i64 0, i64 %242
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %cell_id_len.exit.i.i
@@ -769,17 +769,17 @@ dissect_cell_id_list_ie.exit.i:                   ; preds = %236, %cell_id_len.e
   %262 = load i32, ptr %11, align 4
   %263 = trunc i32 %262 to i8
   %264 = icmp ult i8 %263, 7
-  br i1 %264, label %switch.lookup61, label %cell_id_len.exit.i161.i
+  br i1 %264, label %switch.lookup70, label %cell_id_len.exit.i161.i
 
-switch.lookup61:                                  ; preds = %.lr.ph.i.i
-  %.mask70 = and i32 %262, 7
-  %265 = zext nneg i32 %.mask70 to i64
-  %switch.gep62 = getelementptr inbounds nuw [7 x i32], ptr @switch.table.dissect_cbsp_message.1, i64 0, i64 %265
-  %switch.load63 = load i32, ptr %switch.gep62, align 4
+switch.lookup70:                                  ; preds = %.lr.ph.i.i
+  %.mask79 = and i32 %262, 7
+  %265 = zext nneg i32 %.mask79 to i64
+  %switch.gep71 = getelementptr inbounds nuw [7 x i32], ptr @switch.table.dissect_cbsp_message.1, i64 0, i64 %265
+  %switch.load72 = load i32, ptr %switch.gep71, align 4
   br label %cell_id_len.exit.i161.i
 
-cell_id_len.exit.i161.i:                          ; preds = %.lr.ph.i.i, %switch.lookup61
-  %.0.i.i162.i = phi i32 [ %switch.load63, %switch.lookup61 ], [ 2, %.lr.ph.i.i ]
+cell_id_len.exit.i161.i:                          ; preds = %.lr.ph.i.i, %switch.lookup70
+  %.0.i.i162.i = phi i32 [ %switch.load72, %switch.lookup70 ], [ 2, %.lr.ph.i.i ]
   %266 = load i32, ptr @ett_cbsp_num_bcast_compl_list, align 4
   %267 = call ptr @proto_tree_add_subtree(ptr noundef %65, ptr noundef %0, i32 noundef %.03245.i.i, i32 noundef %.0.i.i162.i, i32 noundef %266, ptr noundef nonnull %12, ptr noundef nonnull @.str.168)
   %268 = load i32, ptr %11, align 4
@@ -837,16 +837,16 @@ dissect_bc_compl_list_ie.exit.i:                  ; preds = %273, %.thread.i.i, 
   %292 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.03144.i.i)
   %293 = and i8 %292, 15
   %294 = icmp samesign ult i8 %293, 7
-  br i1 %294, label %switch.lookup64, label %cell_id_len.exit.i165.i
+  br i1 %294, label %switch.lookup73, label %cell_id_len.exit.i165.i
 
-switch.lookup64:                                  ; preds = %.lr.ph.i164.i
+switch.lookup73:                                  ; preds = %.lr.ph.i164.i
   %295 = zext nneg i8 %293 to i64
-  %switch.gep65 = getelementptr inbounds nuw [7 x i32], ptr @switch.table.dissect_cbsp_message.3, i64 0, i64 %295
-  %switch.load66 = load i32, ptr %switch.gep65, align 4
+  %switch.gep74 = getelementptr inbounds nuw [7 x i32], ptr @switch.table.dissect_cbsp_message.3, i64 0, i64 %295
+  %switch.load75 = load i32, ptr %switch.gep74, align 4
   br label %cell_id_len.exit.i165.i
 
-cell_id_len.exit.i165.i:                          ; preds = %.lr.ph.i164.i, %switch.lookup64
-  %.0.i.i166.i = phi i32 [ %switch.load66, %switch.lookup64 ], [ 1, %.lr.ph.i164.i ]
+cell_id_len.exit.i165.i:                          ; preds = %.lr.ph.i164.i, %switch.lookup73
+  %.0.i.i166.i = phi i32 [ %switch.load75, %switch.lookup73 ], [ 1, %.lr.ph.i164.i ]
   %296 = load i32, ptr @ett_cbsp_fail_list, align 4
   %297 = call ptr @proto_tree_add_subtree(ptr noundef %65, ptr noundef %0, i32 noundef %.03144.i.i, i32 noundef %.0.i.i166.i, i32 noundef %296, ptr noundef nonnull %9, ptr noundef nonnull @.str.174)
   %298 = load i32, ptr @hf_cbsp_cell_id_disc, align 4
@@ -907,17 +907,17 @@ dissect_failure_list_ie.exit.i:                   ; preds = %304, %.thread.i167.
   %323 = load i32, ptr %5, align 4
   %324 = trunc i32 %323 to i8
   %325 = icmp ult i8 %324, 7
-  br i1 %325, label %switch.lookup67, label %cell_id_len.exit.i173.i
+  br i1 %325, label %switch.lookup76, label %cell_id_len.exit.i173.i
 
-switch.lookup67:                                  ; preds = %.lr.ph.i170.i
+switch.lookup76:                                  ; preds = %.lr.ph.i170.i
   %.mask = and i32 %323, 7
   %326 = zext nneg i32 %.mask to i64
-  %switch.gep68 = getelementptr inbounds nuw [7 x i32], ptr @switch.table.dissect_cbsp_message.3, i64 0, i64 %326
-  %switch.load69 = load i32, ptr %switch.gep68, align 4
+  %switch.gep77 = getelementptr inbounds nuw [7 x i32], ptr @switch.table.dissect_cbsp_message.3, i64 0, i64 %326
+  %switch.load78 = load i32, ptr %switch.gep77, align 4
   br label %cell_id_len.exit.i173.i
 
-cell_id_len.exit.i173.i:                          ; preds = %.lr.ph.i170.i, %switch.lookup67
-  %.0.i.i174.i = phi i32 [ %switch.load69, %switch.lookup67 ], [ 1, %.lr.ph.i170.i ]
+cell_id_len.exit.i173.i:                          ; preds = %.lr.ph.i170.i, %switch.lookup76
+  %.0.i.i174.i = phi i32 [ %switch.load78, %switch.lookup76 ], [ 1, %.lr.ph.i170.i ]
   %327 = load i32, ptr @ett_cbsp_load_list, align 4
   %328 = call ptr @proto_tree_add_subtree(ptr noundef %65, ptr noundef %0, i32 noundef %.03144.i171.i, i32 noundef %.0.i.i174.i, i32 noundef %327, ptr noundef nonnull %8, ptr noundef nonnull @.str.178)
   %329 = load i32, ptr %5, align 4

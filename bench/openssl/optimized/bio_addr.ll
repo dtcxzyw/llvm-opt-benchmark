@@ -951,13 +951,13 @@ BIO_ADDRINFO_free.exit.i:                         ; preds = %.preheader.i.i, %38
   %50 = icmp ne ptr %0, null
   %51 = icmp eq i32 %3, 0
   %or.cond.not.not = and i1 %50, %51
-  %.not55 = icmp eq i32 %2, 1
-  %52 = or i1 %or.cond.not.not, %.not55
+  %.not57 = icmp eq i32 %2, 1
+  %52 = or i1 %or.cond.not.not, %.not57
   br i1 %52, label %53, label %55
 
 53:                                               ; preds = %46
   %54 = select i1 %or.cond.not.not, i32 33, i32 1
-  %simplifycfg.merge = select i1 %.not55, i32 %54, i32 32
+  %simplifycfg.merge = select i1 %.not57, i32 %54, i32 32
   br label %.sink.split
 
 .sink.split:                                      ; preds = %66, %53

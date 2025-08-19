@@ -388,10 +388,10 @@ define internal range(i32 0, 2) i32 @kdf_pkcs12_derive(ptr noundef %0, ptr nound
   br i1 %112, label %.lr.ph170.i, label %.loopexit.i, !llvm.loop !27
 
 .loopexit152.sink.split.i:                        ; preds = %33, %18
-  %.sink192.i = phi i32 [ 63, %18 ], [ 69, %33 ]
+  %.sink205.i = phi i32 [ 63, %18 ], [ 69, %33 ]
   %.sink.i = phi i32 [ 524294, %18 ], [ 218, %33 ]
   tail call void @ERR_new() #6
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink192.i, ptr noundef nonnull @__func__.pkcs12kdf_derive) #6
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink205.i, ptr noundef nonnull @__func__.pkcs12kdf_derive) #6
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 57, i32 noundef %.sink.i, ptr noundef null) #6
   br label %pkcs12kdf_derive.exit
 

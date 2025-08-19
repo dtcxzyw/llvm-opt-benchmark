@@ -652,8 +652,8 @@ _ZNSt6vectorIbSaIbEE6resizeEmb.exit:              ; preds = %25, %32
   %64 = ptrtoint ptr %62 to i64
   %65 = ptrtoint ptr %63 to i64
   %66 = sub i64 %64, %65
-  %sext17 = shl i64 %66, 28
-  %67 = ashr i64 %sext17, 32
+  %sext18 = shl i64 %66, 28
+  %67 = ashr i64 %sext18, 32
   %68 = icmp slt i64 %indvars.iv.next, %67
   br i1 %68, label %.lr.ph, label %._crit_edge, !llvm.loop !71
 }

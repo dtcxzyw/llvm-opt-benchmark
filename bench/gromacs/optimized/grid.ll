@@ -587,10 +587,10 @@ _ZNSt6vectorIN3gmx11BoundingBoxENS0_9AllocatorIS1_NS0_23AlignedAllocationPolicyE
   br label %116
 
 116:                                              ; preds = %_ZNSt6vectorIN3gmx11BoundingBoxENS0_9AllocatorIS1_NS0_23AlignedAllocationPolicyEEEE6resizeEm.exit12, %82
-  %.sink22 = phi ptr [ %112, %_ZNSt6vectorIN3gmx11BoundingBoxENS0_9AllocatorIS1_NS0_23AlignedAllocationPolicyEEEE6resizeEm.exit12 ], [ %84, %82 ]
+  %.sink52 = phi ptr [ %112, %_ZNSt6vectorIN3gmx11BoundingBoxENS0_9AllocatorIS1_NS0_23AlignedAllocationPolicyEEEE6resizeEm.exit12 ], [ %84, %82 ]
   %.sink = phi ptr [ %115, %_ZNSt6vectorIN3gmx11BoundingBoxENS0_9AllocatorIS1_NS0_23AlignedAllocationPolicyEEEE6resizeEm.exit12 ], [ %90, %82 ]
   %117 = getelementptr inbounds nuw i8, ptr %0, i64 280
-  store ptr %.sink22, ptr %117, align 8
+  store ptr %.sink52, ptr %117, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 288
   store ptr %.sink, ptr %.sroa.4.0..sroa_idx, align 8
   %118 = getelementptr inbounds nuw i8, ptr %0, i64 328
@@ -698,13 +698,13 @@ define linkonce_odr void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef 
 19:                                               ; preds = %3
   store i32 0, ptr %5, align 4, !tbaa !11
   %20 = getelementptr i8, ptr %5, i64 4
-  %21 = add i64 %1, -1
+  %21 = add nsw i64 %1, -1
   %22 = icmp eq i64 %21, 0
   br i1 %22, label %_ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit, label %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i
 
 _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
-  %23 = shl i64 %1, 2
-  %24 = add i64 %23, -4
+  %23 = shl nuw nsw i64 %1, 2
+  %24 = add nsw i64 %23, -4
   tail call void @llvm.memset.p0.i64(ptr align 4 %20, i8 0, i64 %24, i1 false), !tbaa !11
   %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 2
   %25 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
@@ -808,7 +808,7 @@ define linkonce_odr void @_ZNSt6vectorIN3gmx13BoundingBox1DESaIS1_EE17_M_default
 19:                                               ; preds = %3
   store i64 0, ptr %5, align 4
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %21 = add i64 %1, -1
+  %21 = add nsw i64 %1, -1
   %22 = icmp eq i64 %21, 0
   br i1 %22, label %_ZSt27__uninitialized_default_n_aIPN3gmx13BoundingBox1DEmS1_ET_S3_T0_RSaIT1_E.exit, label %23
 
@@ -923,7 +923,7 @@ define linkonce_odr void @_ZNSt6vectorIN3gmx11BoundingBoxENS0_9AllocatorIS1_NS0_
   br i1 %.not23, label %20, label %_ZSt27__uninitialized_default_n_aIPN3gmx11BoundingBoxEmNS0_9AllocatorIS1_NS0_23AlignedAllocationPolicyEEEET_S6_T0_RT1_.exit
 
 _ZSt27__uninitialized_default_n_aIPN3gmx11BoundingBoxEmNS0_9AllocatorIS1_NS0_23AlignedAllocationPolicyEEEET_S6_T0_RT1_.exit: ; preds = %3
-  %19 = shl nuw i64 %1, 5
+  %19 = shl nuw nsw i64 %1, 5
   tail call void @llvm.memset.p0.i64(ptr align 4 %5, i8 0, i64 %19, i1 false)
   %scevgep.i = getelementptr i8, ptr %5, i64 %19
   store ptr %scevgep.i, ptr %4, align 8, !tbaa !77
@@ -1025,7 +1025,7 @@ define linkonce_odr void @_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocation
   br i1 %.not23, label %20, label %_ZSt27__uninitialized_default_n_aIPfmN3gmx9AllocatorIfNS1_23AlignedAllocationPolicyEEEET_S5_T0_RT1_.exit
 
 _ZSt27__uninitialized_default_n_aIPfmN3gmx9AllocatorIfNS1_23AlignedAllocationPolicyEEEET_S5_T0_RT1_.exit: ; preds = %3
-  %19 = shl nuw i64 %1, 2
+  %19 = shl nuw nsw i64 %1, 2
   tail call void @llvm.memset.p0.i64(ptr align 4 %5, i8 0, i64 %19, i1 false), !tbaa !96
   %scevgep.i = getelementptr i8, ptr %5, i64 %19
   store ptr %scevgep.i, ptr %4, align 8, !tbaa !79
@@ -1122,13 +1122,13 @@ define linkonce_odr void @_ZNSt6vectorIjSaIjEE17_M_default_appendEm(ptr noundef 
 19:                                               ; preds = %3
   store i32 0, ptr %5, align 4, !tbaa !11
   %20 = getelementptr i8, ptr %5, i64 4
-  %21 = add i64 %1, -1
+  %21 = add nsw i64 %1, -1
   %22 = icmp eq i64 %21, 0
   br i1 %22, label %_ZSt27__uninitialized_default_n_aIPjmjET_S1_T0_RSaIT1_E.exit, label %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i
 
 _ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
-  %23 = shl i64 %1, 2
-  %24 = add i64 %23, -4
+  %23 = shl nuw nsw i64 %1, 2
+  %24 = add nsw i64 %23, -4
   tail call void @llvm.memset.p0.i64(ptr align 4 %20, i8 0, i64 %24, i1 false), !tbaa !11
   %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 2
   %25 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
@@ -1492,7 +1492,7 @@ define linkonce_odr void @_ZNSt6vectorIiN3gmx9AllocatorIiNS0_20HostAllocationPol
   br i1 %.not23, label %21, label %_ZSt27__uninitialized_default_n_aIPimN3gmx9AllocatorIiNS1_20HostAllocationPolicyEEEET_S5_T0_RT1_.exit
 
 _ZSt27__uninitialized_default_n_aIPimN3gmx9AllocatorIiNS1_20HostAllocationPolicyEEEET_S5_T0_RT1_.exit: ; preds = %3
-  %20 = shl nuw i64 %1, 2
+  %20 = shl nuw nsw i64 %1, 2
   tail call void @llvm.memset.p0.i64(ptr align 4 %6, i8 0, i64 %20, i1 false), !tbaa !11
   %scevgep.i = getelementptr i8, ptr %6, i64 %20
   store ptr %scevgep.i, ptr %5, align 8, !tbaa !115
@@ -3834,7 +3834,7 @@ _ZNSt6vectorIiSaIiEE6resizeEmRKi.exit:            ; preds = %162, %164, %166, %1
   call void (ptr, i32, ptr, ...) @__kmpc_fork_call(ptr nonnull @2, i32 8, ptr nonnull @_ZN3gmx4Grid14setCellIndicesEiiPNS_11GridSetDataENS_8ArrayRefINS_8GridWorkEEENS_5RangeIiEENS3_IKiEENS3_IKNS_11BasicVectorIfEEEEPNS_16nbnxn_atomdata_tE.omp_outlined, ptr nonnull %16, ptr nonnull %0, ptr nonnull %14, ptr nonnull %13, ptr nonnull %7, ptr nonnull %8, ptr nonnull %15, ptr nonnull %12)
   %221 = load i8, ptr %0, align 8, !tbaa !70, !range !71, !noundef !72
   %222 = trunc nuw i8 %221 to i1
-  br i1 %222, label %223, label %_ZN3gmxL26combine_bounding_box_pairsERKNS_4GridENS_8ArrayRefIKNS_11BoundingBoxEEENS3_IS4_EE.exit.thread190
+  br i1 %222, label %223, label %_ZN3gmxL26combine_bounding_box_pairsERKNS_4GridENS_8ArrayRefIKNS_11BoundingBoxEEENS3_IS4_EE.exit.thread212
 
 223:                                              ; preds = %.loopexit
   %224 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -3936,16 +3936,16 @@ _ZNSt6vectorIiSaIiEE6resizeEmRKi.exit:            ; preds = %162, %164, %166, %1
 _ZN3gmxL26combine_bounding_box_pairsERKNS_4GridENS_8ArrayRefIKNS_11BoundingBoxEEENS3_IS4_EE.exit: ; preds = %270
   %.pre188 = load i8, ptr %0, align 8, !tbaa !70, !range !71
   %276 = trunc nuw i8 %.pre188 to i1
-  br i1 %276, label %.thread, label %_ZN3gmxL26combine_bounding_box_pairsERKNS_4GridENS_8ArrayRefIKNS_11BoundingBoxEEENS3_IS4_EE.exit.thread190
+  br i1 %276, label %.thread, label %_ZN3gmxL26combine_bounding_box_pairsERKNS_4GridENS_8ArrayRefIKNS_11BoundingBoxEEENS3_IS4_EE.exit.thread212
 
-_ZN3gmxL26combine_bounding_box_pairsERKNS_4GridENS_8ArrayRefIKNS_11BoundingBoxEEENS3_IS4_EE.exit.thread190: ; preds = %.loopexit, %_ZN3gmxL26combine_bounding_box_pairsERKNS_4GridENS_8ArrayRefIKNS_11BoundingBoxEEENS3_IS4_EE.exit
+_ZN3gmxL26combine_bounding_box_pairsERKNS_4GridENS_8ArrayRefIKNS_11BoundingBoxEEENS3_IS4_EE.exit.thread212: ; preds = %.loopexit, %_ZN3gmxL26combine_bounding_box_pairsERKNS_4GridENS_8ArrayRefIKNS_11BoundingBoxEEENS3_IS4_EE.exit
   %277 = getelementptr inbounds nuw i8, ptr %0, i64 376
   store i32 0, ptr %277, align 8, !tbaa !226
   %278 = load i32, ptr %42, align 8, !tbaa !216
   %279 = icmp sgt i32 %278, 0
   br i1 %279, label %.lr.ph159, label %._crit_edge160
 
-.lr.ph159:                                        ; preds = %_ZN3gmxL26combine_bounding_box_pairsERKNS_4GridENS_8ArrayRefIKNS_11BoundingBoxEEENS3_IS4_EE.exit.thread190
+.lr.ph159:                                        ; preds = %_ZN3gmxL26combine_bounding_box_pairsERKNS_4GridENS_8ArrayRefIKNS_11BoundingBoxEEENS3_IS4_EE.exit.thread212
   %280 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %281 = load ptr, ptr %280, align 8, !tbaa !74
   %wide.trip.count184 = zext nneg i32 %278 to i64
@@ -3962,8 +3962,8 @@ _ZN3gmxL26combine_bounding_box_pairsERKNS_4GridENS_8ArrayRefIKNS_11BoundingBoxEE
   %exitcond185.not = icmp eq i64 %indvars.iv.next182, %wide.trip.count184
   br i1 %exitcond185.not, label %._crit_edge160, label %282, !llvm.loop !227
 
-._crit_edge160:                                   ; preds = %282, %_ZN3gmxL26combine_bounding_box_pairsERKNS_4GridENS_8ArrayRefIKNS_11BoundingBoxEEENS3_IS4_EE.exit.thread190
-  %287 = phi i32 [ 0, %_ZN3gmxL26combine_bounding_box_pairsERKNS_4GridENS_8ArrayRefIKNS_11BoundingBoxEEENS3_IS4_EE.exit.thread190 ], [ %286, %282 ]
+._crit_edge160:                                   ; preds = %282, %_ZN3gmxL26combine_bounding_box_pairsERKNS_4GridENS_8ArrayRefIKNS_11BoundingBoxEEENS3_IS4_EE.exit.thread212
+  %287 = phi i32 [ 0, %_ZN3gmxL26combine_bounding_box_pairsERKNS_4GridENS_8ArrayRefIKNS_11BoundingBoxEEENS3_IS4_EE.exit.thread212 ], [ %286, %282 ]
   %288 = load ptr, ptr @debug, align 8, !tbaa !190
   %.not77 = icmp eq ptr %288, null
   br i1 %.not77, label %430, label %351
@@ -4830,7 +4830,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit:               ; preds = %80, %82, %84, %86
   %111 = sext i32 %95 to i64
   %112 = mul nsw i64 %.026.lcssa, %111
   %113 = sitofp i64 %112 to float
-  %114 = sitofp i32 %8 to float
+  %114 = uitofp nneg i32 %8 to float
   %115 = fmul float %114, %114
   %116 = fdiv float %113, %115
   %117 = load ptr, ptr @debug, align 8, !tbaa !190

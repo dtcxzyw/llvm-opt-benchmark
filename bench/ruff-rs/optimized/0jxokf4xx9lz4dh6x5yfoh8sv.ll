@@ -1853,7 +1853,7 @@ define hidden void @_ZN15ruff_python_ast7visitor9walk_body17hb7fb1d99206931f1E(p
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_ZN15ruff_python_ast7visitor9walk_expr17h23fd472fc8a399a0E(ptr noalias noundef align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 %1) unnamed_addr #0 {
   %3 = load i32, ptr %1, align 8, !range !8, !noundef !4
-  switch i32 %3, label %default.unreachable150 [
+  switch i32 %3, label %default.unreachable161 [
     i32 0, label %4
     i32 1, label %12
     i32 2, label %17
@@ -1888,7 +1888,7 @@ define hidden void @_ZN15ruff_python_ast7visitor9walk_expr17h23fd472fc8a399a0E(p
     i32 31, label %.loopexit
   ]
 
-default.unreachable150:                           ; preds = %2
+default.unreachable161:                           ; preds = %2
   unreachable
 
 4:                                                ; preds = %2
@@ -2360,7 +2360,7 @@ default.unreachable150:                           ; preds = %2
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_ZN15ruff_python_ast7visitor9walk_expr17h41e72f6dcaeb3a18E(ptr noalias noundef align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 %1) unnamed_addr #0 {
   %3 = load i32, ptr %1, align 8, !range !8, !noundef !4
-  switch i32 %3, label %default.unreachable150 [
+  switch i32 %3, label %default.unreachable161 [
     i32 0, label %4
     i32 1, label %12
     i32 2, label %17
@@ -2395,7 +2395,7 @@ define hidden void @_ZN15ruff_python_ast7visitor9walk_expr17h41e72f6dcaeb3a18E(p
     i32 31, label %.loopexit
   ]
 
-default.unreachable150:                           ; preds = %2
+default.unreachable161:                           ; preds = %2
   unreachable
 
 4:                                                ; preds = %2
@@ -2867,7 +2867,7 @@ default.unreachable150:                           ; preds = %2
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_ZN15ruff_python_ast7visitor9walk_expr17h6c9ead719bd4006dE(ptr noalias noundef align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 %1) unnamed_addr #0 {
   %3 = load i32, ptr %1, align 8, !range !8, !noundef !4
-  switch i32 %3, label %default.unreachable150 [
+  switch i32 %3, label %default.unreachable161 [
     i32 0, label %4
     i32 1, label %12
     i32 2, label %17
@@ -2902,7 +2902,7 @@ define hidden void @_ZN15ruff_python_ast7visitor9walk_expr17h6c9ead719bd4006dE(p
     i32 31, label %.loopexit
   ]
 
-default.unreachable150:                           ; preds = %2
+default.unreachable161:                           ; preds = %2
   unreachable
 
 4:                                                ; preds = %2
@@ -3374,7 +3374,7 @@ default.unreachable150:                           ; preds = %2
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_ZN15ruff_python_ast7visitor9walk_expr17h8287302385da02e1E(ptr noalias noundef align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 %1) unnamed_addr #0 {
   %3 = load i32, ptr %1, align 8, !range !8, !noundef !4
-  switch i32 %3, label %default.unreachable150 [
+  switch i32 %3, label %default.unreachable161 [
     i32 0, label %4
     i32 1, label %12
     i32 2, label %17
@@ -3409,7 +3409,7 @@ define hidden void @_ZN15ruff_python_ast7visitor9walk_expr17h8287302385da02e1E(p
     i32 31, label %.loopexit
   ]
 
-default.unreachable150:                           ; preds = %2
+default.unreachable161:                           ; preds = %2
   unreachable
 
 4:                                                ; preds = %2
@@ -3881,7 +3881,7 @@ default.unreachable150:                           ; preds = %2
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_ZN15ruff_python_ast7visitor9walk_expr17h8eb75246a311843bE(ptr noalias noundef align 8 dereferenceable(584) %0, ptr noundef nonnull align 8 %1) unnamed_addr #0 {
   %3 = load i32, ptr %1, align 8, !range !8, !noundef !4
-  switch i32 %3, label %default.unreachable150 [
+  switch i32 %3, label %default.unreachable161 [
     i32 0, label %4
     i32 1, label %12
     i32 2, label %17
@@ -3916,7 +3916,7 @@ define hidden void @_ZN15ruff_python_ast7visitor9walk_expr17h8eb75246a311843bE(p
     i32 31, label %.loopexit
   ]
 
-default.unreachable150:                           ; preds = %2
+default.unreachable161:                           ; preds = %2
   unreachable
 
 4:                                                ; preds = %2
@@ -10299,14 +10299,14 @@ define hidden noundef range(i32 1, 0) i32 @"_ZN5salsa14tracked_struct23Ingredien
   %43 = alloca [48 x i8], align 8
   %44 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %45 = load ptr, ptr %44, align 8, !invariant.load !4, !nonnull !4
-  %.sink16.i.sroa.gep = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %.sink16.i.sroa.gep144 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %.sink16.i.sroa.gep146 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  %.sink16.i.sroa.gep147 = getelementptr inbounds nuw i8, ptr %10, i64 32
-  %.sink16.i.sroa.gep149 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %.sink16.i.sroa.gep150 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %.sink16.i.sroa.gep152 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %.sink16.i.sroa.gep153 = getelementptr inbounds nuw i8, ptr %10, i64 24
+  %.sink17.i.sroa.gep = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %.sink17.i.sroa.gep144 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %.sink17.i.sroa.gep146 = getelementptr inbounds nuw i8, ptr %8, i64 32
+  %.sink17.i.sroa.gep147 = getelementptr inbounds nuw i8, ptr %10, i64 32
+  %.sink17.i.sroa.gep149 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %.sink17.i.sroa.gep150 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  %.sink17.i.sroa.gep152 = getelementptr inbounds nuw i8, ptr %8, i64 24
+  %.sink17.i.sroa.gep153 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %46 = invoke { ptr, ptr } %45(ptr noundef nonnull align 1 %1)
           to label %48 unwind label %47
 
@@ -10816,18 +10816,18 @@ define hidden noundef range(i32 1, 0) i32 @"_ZN5salsa14tracked_struct23Ingredien
   br label %.invoke.i
 
 .invoke.i:                                        ; preds = %231, %227
-  %.sink16.i.sroa.phi = phi ptr [ %.sink16.i.sroa.gep, %231 ], [ %.sink16.i.sroa.gep144, %227 ]
-  %.sink16.i.sroa.phi145 = phi ptr [ %.sink16.i.sroa.gep146, %231 ], [ %.sink16.i.sroa.gep147, %227 ]
-  %.sink16.i.sroa.phi148 = phi ptr [ %.sink16.i.sroa.gep149, %231 ], [ %.sink16.i.sroa.gep150, %227 ]
-  %.sink16.i.sroa.phi151 = phi ptr [ %.sink16.i.sroa.gep152, %231 ], [ %.sink16.i.sroa.gep153, %227 ]
-  %.sink16.i = phi ptr [ %8, %231 ], [ %10, %227 ]
+  %.sink17.i.sroa.phi = phi ptr [ %.sink17.i.sroa.gep, %231 ], [ %.sink17.i.sroa.gep144, %227 ]
+  %.sink17.i.sroa.phi145 = phi ptr [ %.sink17.i.sroa.gep146, %231 ], [ %.sink17.i.sroa.gep147, %227 ]
+  %.sink17.i.sroa.phi148 = phi ptr [ %.sink17.i.sroa.gep149, %231 ], [ %.sink17.i.sroa.gep150, %227 ]
+  %.sink17.i.sroa.phi151 = phi ptr [ %.sink17.i.sroa.gep152, %231 ], [ %.sink17.i.sroa.gep153, %227 ]
+  %.sink17.i = phi ptr [ %8, %231 ], [ %10, %227 ]
   %.sink.i = phi ptr [ %7, %231 ], [ %9, %227 ]
   %228 = phi ptr [ @anon.bd069b0397abcbf5d72b25326b9d08c3.136, %231 ], [ @anon.bd069b0397abcbf5d72b25326b9d08c3.140, %227 ]
-  store i64 2, ptr %.sink16.i.sroa.phi, align 8, !noalias !265
-  store ptr null, ptr %.sink16.i.sroa.phi145, align 8, !noalias !265
-  store ptr %.sink.i, ptr %.sink16.i.sroa.phi148, align 8, !noalias !265
-  store i64 1, ptr %.sink16.i.sroa.phi151, align 8, !noalias !265
-  invoke void @_ZN4core9panicking9panic_fmt17hd54fb667be51beeaE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %.sink16.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %228) #29
+  store i64 2, ptr %.sink17.i.sroa.phi, align 8, !noalias !265
+  store ptr null, ptr %.sink17.i.sroa.phi145, align 8, !noalias !265
+  store ptr %.sink.i, ptr %.sink17.i.sroa.phi148, align 8, !noalias !265
+  store i64 1, ptr %.sink17.i.sroa.phi151, align 8, !noalias !265
+  invoke void @_ZN4core9panicking9panic_fmt17hd54fb667be51beeaE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %.sink17.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %228) #29
           to label %.cont.i unwind label %257, !noalias !263
 
 .cont.i:                                          ; preds = %.invoke.i
@@ -18561,9 +18561,9 @@ define internal fastcc void @_ZN5salsa5table4memo21MemoTableWithTypesMut4drop17h
   %.sroa.7.2 = phi i64 [ %.sroa.7.0, %10 ], [ %.sroa.7.1, %27 ], [ %.sroa.7.1, %31 ], [ %.sroa.7.1, %.loopexit.i.i.i.i ]
   %.sroa.4.2 = phi i64 [ %.sroa.4.0, %10 ], [ %.sroa.4.1, %27 ], [ %.sroa.4.1, %31 ], [ 59, %.loopexit.i.i.i.i ]
   %.sroa.17.1 = phi ptr [ %.sroa.17.0, %10 ], [ %.sroa.17.0, %27 ], [ %32, %31 ], [ %.sroa.17.0, %.loopexit.i.i.i.i ]
-  %.sink21.i.sroa.phi = phi ptr [ %.sroa.49, %10 ], [ %.sroa.49, %27 ], [ %.sroa.10, %31 ], [ %.sroa.49, %.loopexit.i.i.i.i ]
+  %.sink25.i.sroa.phi = phi ptr [ %.sroa.49, %10 ], [ %.sroa.49, %27 ], [ %.sroa.10, %31 ], [ %.sroa.49, %.loopexit.i.i.i.i ]
   %.sink.i = phi ptr [ null, %10 ], [ null, %27 ], [ %.sroa.17.0, %31 ], [ null, %.loopexit.i.i.i.i ]
-  store ptr %.sink.i, ptr %.sink21.i.sroa.phi, align 8, !alias.scope !536, !noalias !548
+  store ptr %.sink.i, ptr %.sink25.i.sroa.phi, align 8, !alias.scope !536, !noalias !548
   %.sroa.49.0..sroa.49.0..sroa.49.0..sroa.49.8. = load i64, ptr %.sroa.49, align 8, !noundef !4
   %34 = inttoptr i64 %.sroa.49.0..sroa.49.0..sroa.49.0..sroa.49.8. to ptr
   %.not = icmp eq i64 %.sroa.49.0..sroa.49.0..sroa.49.0..sroa.49.8., 0
@@ -38943,13 +38943,13 @@ define hidden void @"_ZN18ty_python_semantic4list24ListBuilder$LT$K$C$V$GT$5entr
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef i32 @"_ZN18ty_python_semantic4list22ListEntry$LT$K$C$V$GT$14or_insert_with17hda394a4ee2e137f8E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = load i32, ptr %0, align 8, !range !2216, !noundef !4
-  switch i32 %2, label %default.unreachable6 [
+  switch i32 %2, label %default.unreachable7 [
     i32 0, label %9
     i32 1, label %3
     i32 2, label %6
   ]
 
-default.unreachable6:                             ; preds = %1
+default.unreachable7:                             ; preds = %1
   unreachable
 
 3:                                                ; preds = %1
@@ -41227,14 +41227,14 @@ define hidden noundef range(i32 1, 0) i32 @"_ZN18ty_python_semantic14semantic_in
   call void @llvm.lifetime.start.p0(ptr nonnull %32)
   call void @llvm.lifetime.start.p0(ptr nonnull %41)
   call void @llvm.lifetime.start.p0(ptr nonnull %43)
-  %.sink16.i.sroa.gep.i = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %.sink16.i.sroa.gep1.i = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %.sink16.i.sroa.gep3.i = getelementptr inbounds nuw i8, ptr %11, i64 32
-  %.sink16.i.sroa.gep4.i = getelementptr inbounds nuw i8, ptr %13, i64 32
-  %.sink16.i.sroa.gep6.i = getelementptr inbounds nuw i8, ptr %11, i64 16
-  %.sink16.i.sroa.gep7.i = getelementptr inbounds nuw i8, ptr %13, i64 16
-  %.sink16.i.sroa.gep9.i = getelementptr inbounds nuw i8, ptr %11, i64 24
-  %.sink16.i.sroa.gep10.i = getelementptr inbounds nuw i8, ptr %13, i64 24
+  %.sink17.i.sroa.gep.i = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %.sink17.i.sroa.gep1.i = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %.sink17.i.sroa.gep3.i = getelementptr inbounds nuw i8, ptr %11, i64 32
+  %.sink17.i.sroa.gep4.i = getelementptr inbounds nuw i8, ptr %13, i64 32
+  %.sink17.i.sroa.gep6.i = getelementptr inbounds nuw i8, ptr %11, i64 16
+  %.sink17.i.sroa.gep7.i = getelementptr inbounds nuw i8, ptr %13, i64 16
+  %.sink17.i.sroa.gep9.i = getelementptr inbounds nuw i8, ptr %11, i64 24
+  %.sink17.i.sroa.gep10.i = getelementptr inbounds nuw i8, ptr %13, i64 24
   %66 = invoke { ptr, ptr } %.val(ptr noundef nonnull align 1 %58)
           to label %68 unwind label %67, !noalias !2539
 
@@ -41745,18 +41745,18 @@ define hidden noundef range(i32 1, 0) i32 @"_ZN18ty_python_semantic14semantic_in
   br label %.invoke.i.i
 
 .invoke.i.i:                                      ; preds = %243, %239
-  %.sink16.i.sroa.phi.i = phi ptr [ %.sink16.i.sroa.gep.i, %243 ], [ %.sink16.i.sroa.gep1.i, %239 ]
-  %.sink16.i.sroa.phi2.i = phi ptr [ %.sink16.i.sroa.gep3.i, %243 ], [ %.sink16.i.sroa.gep4.i, %239 ]
-  %.sink16.i.sroa.phi5.i = phi ptr [ %.sink16.i.sroa.gep6.i, %243 ], [ %.sink16.i.sroa.gep7.i, %239 ]
-  %.sink16.i.sroa.phi8.i = phi ptr [ %.sink16.i.sroa.gep9.i, %243 ], [ %.sink16.i.sroa.gep10.i, %239 ]
-  %.sink16.i.i = phi ptr [ %11, %243 ], [ %13, %239 ]
+  %.sink17.i.sroa.phi.i = phi ptr [ %.sink17.i.sroa.gep.i, %243 ], [ %.sink17.i.sroa.gep1.i, %239 ]
+  %.sink17.i.sroa.phi2.i = phi ptr [ %.sink17.i.sroa.gep3.i, %243 ], [ %.sink17.i.sroa.gep4.i, %239 ]
+  %.sink17.i.sroa.phi5.i = phi ptr [ %.sink17.i.sroa.gep6.i, %243 ], [ %.sink17.i.sroa.gep7.i, %239 ]
+  %.sink17.i.sroa.phi8.i = phi ptr [ %.sink17.i.sroa.gep9.i, %243 ], [ %.sink17.i.sroa.gep10.i, %239 ]
+  %.sink17.i.i = phi ptr [ %11, %243 ], [ %13, %239 ]
   %.sink.i.i = phi ptr [ %10, %243 ], [ %12, %239 ]
   %240 = phi ptr [ @anon.bd069b0397abcbf5d72b25326b9d08c3.136, %243 ], [ @anon.bd069b0397abcbf5d72b25326b9d08c3.140, %239 ]
-  store i64 2, ptr %.sink16.i.sroa.phi.i, align 8, !noalias !2566
-  store ptr null, ptr %.sink16.i.sroa.phi2.i, align 8, !noalias !2566
-  store ptr %.sink.i.i, ptr %.sink16.i.sroa.phi5.i, align 8, !noalias !2566
-  store i64 1, ptr %.sink16.i.sroa.phi8.i, align 8, !noalias !2566
-  invoke void @_ZN4core9panicking9panic_fmt17hd54fb667be51beeaE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %.sink16.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %240) #29
+  store i64 2, ptr %.sink17.i.sroa.phi.i, align 8, !noalias !2566
+  store ptr null, ptr %.sink17.i.sroa.phi2.i, align 8, !noalias !2566
+  store ptr %.sink.i.i, ptr %.sink17.i.sroa.phi5.i, align 8, !noalias !2566
+  store i64 1, ptr %.sink17.i.sroa.phi8.i, align 8, !noalias !2566
+  invoke void @_ZN4core9panicking9panic_fmt17hd54fb667be51beeaE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %.sink17.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %240) #29
           to label %.cont.i.i unwind label %268, !noalias !2565
 
 .cont.i.i:                                        ; preds = %.invoke.i.i
@@ -42737,14 +42737,14 @@ define hidden noundef range(i32 1, 0) i32 @"_ZN18ty_python_semantic14semantic_in
   call void @llvm.lifetime.start.p0(ptr nonnull %34)
   call void @llvm.lifetime.start.p0(ptr nonnull %43)
   call void @llvm.lifetime.start.p0(ptr nonnull %45)
-  %.sink15.i.sroa.gep.i = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %.sink15.i.sroa.gep1.i = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %.sink15.i.sroa.gep3.i = getelementptr inbounds nuw i8, ptr %13, i64 32
-  %.sink15.i.sroa.gep4.i = getelementptr inbounds nuw i8, ptr %15, i64 32
-  %.sink15.i.sroa.gep6.i = getelementptr inbounds nuw i8, ptr %13, i64 16
-  %.sink15.i.sroa.gep7.i = getelementptr inbounds nuw i8, ptr %15, i64 16
-  %.sink15.i.sroa.gep9.i = getelementptr inbounds nuw i8, ptr %13, i64 24
-  %.sink15.i.sroa.gep10.i = getelementptr inbounds nuw i8, ptr %15, i64 24
+  %.sink16.i.sroa.gep.i = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %.sink16.i.sroa.gep1.i = getelementptr inbounds nuw i8, ptr %15, i64 8
+  %.sink16.i.sroa.gep3.i = getelementptr inbounds nuw i8, ptr %13, i64 32
+  %.sink16.i.sroa.gep4.i = getelementptr inbounds nuw i8, ptr %15, i64 32
+  %.sink16.i.sroa.gep6.i = getelementptr inbounds nuw i8, ptr %13, i64 16
+  %.sink16.i.sroa.gep7.i = getelementptr inbounds nuw i8, ptr %15, i64 16
+  %.sink16.i.sroa.gep9.i = getelementptr inbounds nuw i8, ptr %13, i64 24
+  %.sink16.i.sroa.gep10.i = getelementptr inbounds nuw i8, ptr %15, i64 24
   %76 = invoke { ptr, ptr } %.val(ptr noundef nonnull align 1 %66)
           to label %78 unwind label %77, !noalias !2596
 
@@ -43252,18 +43252,18 @@ define hidden noundef range(i32 1, 0) i32 @"_ZN18ty_python_semantic14semantic_in
   br label %.invoke.i.i
 
 .invoke.i.i:                                      ; preds = %251, %247
-  %.sink15.i.sroa.phi.i = phi ptr [ %.sink15.i.sroa.gep.i, %251 ], [ %.sink15.i.sroa.gep1.i, %247 ]
-  %.sink15.i.sroa.phi2.i = phi ptr [ %.sink15.i.sroa.gep3.i, %251 ], [ %.sink15.i.sroa.gep4.i, %247 ]
-  %.sink15.i.sroa.phi5.i = phi ptr [ %.sink15.i.sroa.gep6.i, %251 ], [ %.sink15.i.sroa.gep7.i, %247 ]
-  %.sink15.i.sroa.phi8.i = phi ptr [ %.sink15.i.sroa.gep9.i, %251 ], [ %.sink15.i.sroa.gep10.i, %247 ]
-  %.sink15.i.i = phi ptr [ %13, %251 ], [ %15, %247 ]
+  %.sink16.i.sroa.phi.i = phi ptr [ %.sink16.i.sroa.gep.i, %251 ], [ %.sink16.i.sroa.gep1.i, %247 ]
+  %.sink16.i.sroa.phi2.i = phi ptr [ %.sink16.i.sroa.gep3.i, %251 ], [ %.sink16.i.sroa.gep4.i, %247 ]
+  %.sink16.i.sroa.phi5.i = phi ptr [ %.sink16.i.sroa.gep6.i, %251 ], [ %.sink16.i.sroa.gep7.i, %247 ]
+  %.sink16.i.sroa.phi8.i = phi ptr [ %.sink16.i.sroa.gep9.i, %251 ], [ %.sink16.i.sroa.gep10.i, %247 ]
+  %.sink16.i.i = phi ptr [ %13, %251 ], [ %15, %247 ]
   %.sink.i.i = phi ptr [ %12, %251 ], [ %14, %247 ]
   %248 = phi ptr [ @anon.bd069b0397abcbf5d72b25326b9d08c3.136, %251 ], [ @anon.bd069b0397abcbf5d72b25326b9d08c3.140, %247 ]
-  store i64 2, ptr %.sink15.i.sroa.phi.i, align 8, !noalias !2627
-  store ptr null, ptr %.sink15.i.sroa.phi2.i, align 8, !noalias !2627
-  store ptr %.sink.i.i, ptr %.sink15.i.sroa.phi5.i, align 8, !noalias !2627
-  store i64 1, ptr %.sink15.i.sroa.phi8.i, align 8, !noalias !2627
-  invoke void @_ZN4core9panicking9panic_fmt17hd54fb667be51beeaE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %.sink15.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %248) #29
+  store i64 2, ptr %.sink16.i.sroa.phi.i, align 8, !noalias !2627
+  store ptr null, ptr %.sink16.i.sroa.phi2.i, align 8, !noalias !2627
+  store ptr %.sink.i.i, ptr %.sink16.i.sroa.phi5.i, align 8, !noalias !2627
+  store i64 1, ptr %.sink16.i.sroa.phi8.i, align 8, !noalias !2627
+  invoke void @_ZN4core9panicking9panic_fmt17hd54fb667be51beeaE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %.sink16.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %248) #29
           to label %.cont.i.i unwind label %263, !noalias !2626
 
 .cont.i.i:                                        ; preds = %.invoke.i.i
@@ -43736,13 +43736,13 @@ default.unreachable:                              ; preds = %2
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define noundef zeroext i1 @"_ZN102_$LT$ty_python_semantic..semantic_index..predicate..PredicateNode$u20$as$u20$salsa..update..Update$GT$12maybe_update17hefd8adc927b49a69E"(ptr noundef captures(none) %0, i32 noundef range(i32 0, 3) %1, i32 noundef %2) unnamed_addr #12 {
   %4 = load i32, ptr %0, align 4, !range !2216, !noundef !4
-  switch i32 %4, label %default.unreachable14 [
+  switch i32 %4, label %default.unreachable17 [
     i32 0, label %5
     i32 1, label %7
     i32 2, label %9
   ]
 
-default.unreachable14:                            ; preds = %3
+default.unreachable17:                            ; preds = %3
   unreachable
 
 5:                                                ; preds = %3
@@ -44496,14 +44496,14 @@ define hidden noundef range(i32 1, 0) i32 @"_ZN18ty_python_semantic14semantic_in
   store i32 %2, ptr %37, align 4
   %51 = getelementptr inbounds nuw i8, ptr %37, i64 4
   store i32 %3, ptr %51, align 4
-  %.sink16.i.sroa.gep.i = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %.sink16.i.sroa.gep1.i = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %.sink16.i.sroa.gep3.i = getelementptr inbounds nuw i8, ptr %7, i64 32
-  %.sink16.i.sroa.gep4.i = getelementptr inbounds nuw i8, ptr %9, i64 32
-  %.sink16.i.sroa.gep6.i = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %.sink16.i.sroa.gep7.i = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %.sink16.i.sroa.gep9.i = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %.sink16.i.sroa.gep10.i = getelementptr inbounds nuw i8, ptr %9, i64 24
+  %.sink17.i.sroa.gep.i = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %.sink17.i.sroa.gep1.i = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %.sink17.i.sroa.gep3.i = getelementptr inbounds nuw i8, ptr %7, i64 32
+  %.sink17.i.sroa.gep4.i = getelementptr inbounds nuw i8, ptr %9, i64 32
+  %.sink17.i.sroa.gep6.i = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %.sink17.i.sroa.gep7.i = getelementptr inbounds nuw i8, ptr %9, i64 16
+  %.sink17.i.sroa.gep9.i = getelementptr inbounds nuw i8, ptr %7, i64 24
+  %.sink17.i.sroa.gep10.i = getelementptr inbounds nuw i8, ptr %9, i64 24
   %52 = invoke { ptr, ptr } %.val(ptr noundef nonnull align 1 %48)
           to label %54 unwind label %53
 
@@ -45012,18 +45012,18 @@ define hidden noundef range(i32 1, 0) i32 @"_ZN18ty_python_semantic14semantic_in
   br label %.invoke.i.i
 
 .invoke.i.i:                                      ; preds = %231, %227
-  %.sink16.i.sroa.phi.i = phi ptr [ %.sink16.i.sroa.gep.i, %231 ], [ %.sink16.i.sroa.gep1.i, %227 ]
-  %.sink16.i.sroa.phi2.i = phi ptr [ %.sink16.i.sroa.gep3.i, %231 ], [ %.sink16.i.sroa.gep4.i, %227 ]
-  %.sink16.i.sroa.phi5.i = phi ptr [ %.sink16.i.sroa.gep6.i, %231 ], [ %.sink16.i.sroa.gep7.i, %227 ]
-  %.sink16.i.sroa.phi8.i = phi ptr [ %.sink16.i.sroa.gep9.i, %231 ], [ %.sink16.i.sroa.gep10.i, %227 ]
-  %.sink16.i.i = phi ptr [ %7, %231 ], [ %9, %227 ]
+  %.sink17.i.sroa.phi.i = phi ptr [ %.sink17.i.sroa.gep.i, %231 ], [ %.sink17.i.sroa.gep1.i, %227 ]
+  %.sink17.i.sroa.phi2.i = phi ptr [ %.sink17.i.sroa.gep3.i, %231 ], [ %.sink17.i.sroa.gep4.i, %227 ]
+  %.sink17.i.sroa.phi5.i = phi ptr [ %.sink17.i.sroa.gep6.i, %231 ], [ %.sink17.i.sroa.gep7.i, %227 ]
+  %.sink17.i.sroa.phi8.i = phi ptr [ %.sink17.i.sroa.gep9.i, %231 ], [ %.sink17.i.sroa.gep10.i, %227 ]
+  %.sink17.i.i = phi ptr [ %7, %231 ], [ %9, %227 ]
   %.sink.i.i = phi ptr [ %6, %231 ], [ %8, %227 ]
   %228 = phi ptr [ @anon.bd069b0397abcbf5d72b25326b9d08c3.136, %231 ], [ @anon.bd069b0397abcbf5d72b25326b9d08c3.140, %227 ]
-  store i64 2, ptr %.sink16.i.sroa.phi.i, align 8, !noalias !2670
-  store ptr null, ptr %.sink16.i.sroa.phi2.i, align 8, !noalias !2670
-  store ptr %.sink.i.i, ptr %.sink16.i.sroa.phi5.i, align 8, !noalias !2670
-  store i64 1, ptr %.sink16.i.sroa.phi8.i, align 8, !noalias !2670
-  invoke void @_ZN4core9panicking9panic_fmt17hd54fb667be51beeaE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %.sink16.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %228) #29
+  store i64 2, ptr %.sink17.i.sroa.phi.i, align 8, !noalias !2670
+  store ptr null, ptr %.sink17.i.sroa.phi2.i, align 8, !noalias !2670
+  store ptr %.sink.i.i, ptr %.sink17.i.sroa.phi5.i, align 8, !noalias !2670
+  store i64 1, ptr %.sink17.i.sroa.phi8.i, align 8, !noalias !2670
+  invoke void @_ZN4core9panicking9panic_fmt17hd54fb667be51beeaE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %.sink17.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %228) #29
           to label %.cont.i.i unwind label %244, !noalias !2667
 
 .cont.i.i:                                        ; preds = %.invoke.i.i
@@ -45912,7 +45912,7 @@ define void @"_ZN112_$LT$ty_python_semantic..suppression..suppressions..Configur
   %161 = trunc nuw i64 %160 to i1
   %162 = load i32, ptr %58, align 8, !alias.scope !2748, !noalias !2750, !noundef !4
   %163 = load i32, ptr %59, align 4, !alias.scope !2748, !noalias !2750, !noundef !4
-  br i1 %161, label %.thread150.i.i, label %183
+  br i1 %161, label %.thread158.i.i, label %183
 
 .thread.i.i:                                      ; preds = %154
   %164 = load i64, ptr %13, align 8, !range !24, !alias.scope !2748, !noalias !2750, !noundef !4
@@ -46047,7 +46047,7 @@ define void @"_ZN112_$LT$ty_python_semantic..suppression..suppressions..Configur
 201:                                              ; preds = %178
   %202 = load i32, ptr %58, align 8, !alias.scope !2748, !noalias !2750, !noundef !4
   %203 = load i32, ptr %59, align 4, !alias.scope !2748, !noalias !2750, !noundef !4
-  br i1 %158, label %274, label %.thread150.i.i
+  br i1 %158, label %274, label %.thread158.i.i
 
 204:                                              ; preds = %199
   %205 = load i32, ptr %58, align 8, !alias.scope !2748, !noalias !2750, !noundef !4
@@ -46285,11 +46285,11 @@ define void @"_ZN112_$LT$ty_python_semantic..suppression..suppressions..Configur
   store i64 %281, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !2795, !noalias !2798
   br label %_ZN18ty_python_semantic11suppression19SuppressionsBuilder11add_comment17hf02274c5c803083fE.exit.i
 
-.thread150.i.i:                                   ; preds = %201, %159
+.thread158.i.i:                                   ; preds = %201, %159
   %282 = phi i32 [ %203, %201 ], [ %163, %159 ]
   %283 = phi i32 [ %202, %201 ], [ %162, %159 ]
-  %.sroa.0.0113148154.i.i = phi i32 [ %.sroa.06.0117.i, %201 ], [ %172, %159 ]
-  %.sroa.6.0111149153.i.i = phi i32 [ %153, %201 ], [ %176, %159 ]
+  %.sroa.0.0113156162.i.i = phi i32 [ %.sroa.06.0117.i, %201 ], [ %172, %159 ]
+  %.sroa.6.0111157161.i.i = phi i32 [ %153, %201 ], [ %176, %159 ]
   %284 = load i64, ptr %.sroa.42.0..sroa_idx.i.i, align 8, !alias.scope !2801, !noalias !2806, !noundef !4
   %285 = icmp ugt i64 %284, 1
   %286 = load ptr, ptr %57, align 8, !alias.scope !2801, !noalias !2806, !nonnull !4
@@ -46300,7 +46300,7 @@ define void @"_ZN112_$LT$ty_python_semantic..suppression..suppressions..Configur
   %288 = icmp eq i64 %287, %.sink.i.i36.i.i
   br i1 %288, label %289, label %"_ZN8smallvec17SmallVec$LT$A$GT$4push17h1be56e388c656bfbE.exit40.i.i", !prof !33
 
-289:                                              ; preds = %.thread150.i.i
+289:                                              ; preds = %.thread158.i.i
   invoke void @"_ZN8smallvec17SmallVec$LT$A$GT$21reserve_one_unchecked17ha63f09b85d439e10E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %57)
           to label %.noexc39.i unwind label %.loopexit.split-lp.loopexit.i, !noalias !2708
 
@@ -46309,10 +46309,10 @@ define void @"_ZN112_$LT$ty_python_semantic..suppression..suppressions..Configur
   %.pre.i39.i.i = load i64, ptr %60, align 8, !alias.scope !2809, !noalias !2810
   br label %"_ZN8smallvec17SmallVec$LT$A$GT$4push17h1be56e388c656bfbE.exit40.i.i"
 
-"_ZN8smallvec17SmallVec$LT$A$GT$4push17h1be56e388c656bfbE.exit40.i.i": ; preds = %.noexc39.i, %.thread150.i.i
-  %291 = phi i64 [ %.pre.i39.i.i, %.noexc39.i ], [ %287, %.thread150.i.i ]
-  %.sroa.01.0.i37.i.i = phi ptr [ %60, %.noexc39.i ], [ %.sink9.i.i35.i.i, %.thread150.i.i ]
-  %.sroa.0.0.i38.i.i = phi ptr [ %290, %.noexc39.i ], [ %.sink10.i.i34.i.i, %.thread150.i.i ]
+"_ZN8smallvec17SmallVec$LT$A$GT$4push17h1be56e388c656bfbE.exit40.i.i": ; preds = %.noexc39.i, %.thread158.i.i
+  %291 = phi i64 [ %.pre.i39.i.i, %.noexc39.i ], [ %287, %.thread158.i.i ]
+  %.sroa.01.0.i37.i.i = phi ptr [ %60, %.noexc39.i ], [ %.sink9.i.i35.i.i, %.thread158.i.i ]
+  %.sroa.0.0.i38.i.i = phi ptr [ %290, %.noexc39.i ], [ %.sink10.i.i34.i.i, %.thread158.i.i ]
   %292 = getelementptr inbounds nuw { { i64, [1 x i64] }, { i32, i32 }, { i32, i32 }, { i32, i32 }, i8, [7 x i8] }, ptr %.sroa.0.0.i38.i.i, i64 %291
   store i64 0, ptr %292, align 8, !noalias !2751
   %.sroa.365.0..sroa_idx66.i.i = getelementptr inbounds nuw i8, ptr %292, i64 16
@@ -46324,9 +46324,9 @@ define void @"_ZN112_$LT$ty_python_semantic..suppression..suppressions..Configur
   %.sroa.674.0..sroa_idx75.i.i = getelementptr inbounds nuw i8, ptr %292, i64 28
   store i32 %282, ptr %.sroa.674.0..sroa_idx75.i.i, align 4, !noalias !2751
   %.sroa.777.0..sroa_idx78.i.i = getelementptr inbounds nuw i8, ptr %292, i64 32
-  store i32 %.sroa.0.0113148154.i.i, ptr %.sroa.777.0..sroa_idx78.i.i, align 8, !noalias !2751
+  store i32 %.sroa.0.0113156162.i.i, ptr %.sroa.777.0..sroa_idx78.i.i, align 8, !noalias !2751
   %.sroa.880.0..sroa_idx81.i.i = getelementptr inbounds nuw i8, ptr %292, i64 36
-  store i32 %.sroa.6.0111149153.i.i, ptr %.sroa.880.0..sroa_idx81.i.i, align 4, !noalias !2751
+  store i32 %.sroa.6.0111157161.i.i, ptr %.sroa.880.0..sroa_idx81.i.i, align 4, !noalias !2751
   %.sroa.983.0..sroa_idx84.i.i = getelementptr inbounds nuw i8, ptr %292, i64 40
   store i8 0, ptr %.sroa.983.0..sroa_idx84.i.i, align 8, !noalias !2751
   %293 = load i64, ptr %.sroa.01.0.i37.i.i, align 8, !alias.scope !2809, !noalias !2810, !noundef !4
@@ -47065,14 +47065,14 @@ define hidden noundef range(i32 1, 0) i32 @"_ZN18ty_python_semantic6unpack1_52_$
   call void @llvm.lifetime.start.p0(ptr nonnull %34)
   call void @llvm.lifetime.start.p0(ptr nonnull %43)
   call void @llvm.lifetime.start.p0(ptr nonnull %45)
-  %.sink16.i.sroa.gep.i = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %.sink16.i.sroa.gep1.i = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %.sink16.i.sroa.gep3.i = getelementptr inbounds nuw i8, ptr %13, i64 32
-  %.sink16.i.sroa.gep4.i = getelementptr inbounds nuw i8, ptr %15, i64 32
-  %.sink16.i.sroa.gep6.i = getelementptr inbounds nuw i8, ptr %13, i64 16
-  %.sink16.i.sroa.gep7.i = getelementptr inbounds nuw i8, ptr %15, i64 16
-  %.sink16.i.sroa.gep9.i = getelementptr inbounds nuw i8, ptr %13, i64 24
-  %.sink16.i.sroa.gep10.i = getelementptr inbounds nuw i8, ptr %15, i64 24
+  %.sink17.i.sroa.gep.i = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %.sink17.i.sroa.gep1.i = getelementptr inbounds nuw i8, ptr %15, i64 8
+  %.sink17.i.sroa.gep3.i = getelementptr inbounds nuw i8, ptr %13, i64 32
+  %.sink17.i.sroa.gep4.i = getelementptr inbounds nuw i8, ptr %15, i64 32
+  %.sink17.i.sroa.gep6.i = getelementptr inbounds nuw i8, ptr %13, i64 16
+  %.sink17.i.sroa.gep7.i = getelementptr inbounds nuw i8, ptr %15, i64 16
+  %.sink17.i.sroa.gep9.i = getelementptr inbounds nuw i8, ptr %13, i64 24
+  %.sink17.i.sroa.gep10.i = getelementptr inbounds nuw i8, ptr %15, i64 24
   %71 = invoke { ptr, ptr } %.val(ptr noundef nonnull align 1 %62)
           to label %73 unwind label %72, !noalias !2884
 
@@ -47583,18 +47583,18 @@ define hidden noundef range(i32 1, 0) i32 @"_ZN18ty_python_semantic6unpack1_52_$
   br label %.invoke.i.i
 
 .invoke.i.i:                                      ; preds = %248, %244
-  %.sink16.i.sroa.phi.i = phi ptr [ %.sink16.i.sroa.gep.i, %248 ], [ %.sink16.i.sroa.gep1.i, %244 ]
-  %.sink16.i.sroa.phi2.i = phi ptr [ %.sink16.i.sroa.gep3.i, %248 ], [ %.sink16.i.sroa.gep4.i, %244 ]
-  %.sink16.i.sroa.phi5.i = phi ptr [ %.sink16.i.sroa.gep6.i, %248 ], [ %.sink16.i.sroa.gep7.i, %244 ]
-  %.sink16.i.sroa.phi8.i = phi ptr [ %.sink16.i.sroa.gep9.i, %248 ], [ %.sink16.i.sroa.gep10.i, %244 ]
-  %.sink16.i.i = phi ptr [ %13, %248 ], [ %15, %244 ]
+  %.sink17.i.sroa.phi.i = phi ptr [ %.sink17.i.sroa.gep.i, %248 ], [ %.sink17.i.sroa.gep1.i, %244 ]
+  %.sink17.i.sroa.phi2.i = phi ptr [ %.sink17.i.sroa.gep3.i, %248 ], [ %.sink17.i.sroa.gep4.i, %244 ]
+  %.sink17.i.sroa.phi5.i = phi ptr [ %.sink17.i.sroa.gep6.i, %248 ], [ %.sink17.i.sroa.gep7.i, %244 ]
+  %.sink17.i.sroa.phi8.i = phi ptr [ %.sink17.i.sroa.gep9.i, %248 ], [ %.sink17.i.sroa.gep10.i, %244 ]
+  %.sink17.i.i = phi ptr [ %13, %248 ], [ %15, %244 ]
   %.sink.i.i = phi ptr [ %12, %248 ], [ %14, %244 ]
   %245 = phi ptr [ @anon.bd069b0397abcbf5d72b25326b9d08c3.136, %248 ], [ @anon.bd069b0397abcbf5d72b25326b9d08c3.140, %244 ]
-  store i64 2, ptr %.sink16.i.sroa.phi.i, align 8, !noalias !2911
-  store ptr null, ptr %.sink16.i.sroa.phi2.i, align 8, !noalias !2911
-  store ptr %.sink.i.i, ptr %.sink16.i.sroa.phi5.i, align 8, !noalias !2911
-  store i64 1, ptr %.sink16.i.sroa.phi8.i, align 8, !noalias !2911
-  invoke void @_ZN4core9panicking9panic_fmt17hd54fb667be51beeaE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %.sink16.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %245) #29
+  store i64 2, ptr %.sink17.i.sroa.phi.i, align 8, !noalias !2911
+  store ptr null, ptr %.sink17.i.sroa.phi2.i, align 8, !noalias !2911
+  store ptr %.sink.i.i, ptr %.sink17.i.sroa.phi5.i, align 8, !noalias !2911
+  store i64 1, ptr %.sink17.i.sroa.phi8.i, align 8, !noalias !2911
+  invoke void @_ZN4core9panicking9panic_fmt17hd54fb667be51beeaE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %.sink17.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %245) #29
           to label %.cont.i.i unwind label %274, !noalias !2910
 
 .cont.i.i:                                        ; preds = %.invoke.i.i

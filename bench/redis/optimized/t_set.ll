@@ -2181,8 +2181,8 @@ setTypeSize.exit:                                 ; preds = %96, %104, %109
   tail call void @notifyKeyspaceEvent(i32 noundef 32, ptr noundef nonnull @.str.9, ptr noundef %129, i32 noundef %132) #10
   br label %._crit_edge._crit_edge
 
-._crit_edge._crit_edge:                           ; preds = %._crit_edge, %setTypeMaybeConvert.exit, %setTypeSize.exit
-  %.pre-phi = phi i64 [ %121, %setTypeSize.exit ], [ 0, %setTypeMaybeConvert.exit ], [ 0, %._crit_edge ]
+._crit_edge._crit_edge:                           ; preds = %setTypeMaybeConvert.exit, %._crit_edge, %setTypeSize.exit
+  %.pre-phi = phi i64 [ %121, %setTypeSize.exit ], [ 0, %._crit_edge ], [ 0, %setTypeMaybeConvert.exit ]
   %133 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6720), align 8, !tbaa !78
   %134 = add nsw i64 %133, %.pre-phi
   store i64 %134, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6720), align 8, !tbaa !78
@@ -2434,8 +2434,8 @@ setTypeSize.exit39:                               ; preds = %70, %77, %81
   store i64 %126, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6720), align 8, !tbaa !78
   br label %.loopexit._crit_edge
 
-.loopexit._crit_edge:                             ; preds = %.loopexit, %setTypeSize.exit, %124
-  %.pre-phi = phi i64 [ %105, %124 ], [ 0, %setTypeSize.exit ], [ 0, %.loopexit ]
+.loopexit._crit_edge:                             ; preds = %setTypeSize.exit, %.loopexit, %124
+  %.pre-phi = phi i64 [ %105, %124 ], [ 0, %.loopexit ], [ 0, %setTypeSize.exit ]
   tail call void @addReplyLongLong(ptr noundef nonnull %0, i64 noundef %.pre-phi) #10
   br label %127
 
@@ -3643,9 +3643,9 @@ define dso_local void @sunionDiffGenericCommand(ptr noundef %0, ptr noundef read
   %43 = load ptr, ptr %12, align 8, !tbaa !73
   %44 = icmp eq ptr %43, null
   %or.cond3 = select i1 %44, i1 true, i1 %.0146.lcssa
-  %.not344 = xor i1 %13, true
-  %brmerge345 = or i1 %or.cond3, %.not344
-  br i1 %brmerge345, label %.thread, label %.lr.ph232.preheader
+  %.not360 = xor i1 %13, true
+  %brmerge361 = or i1 %or.cond3, %.not360
+  br i1 %brmerge361, label %.thread, label %.lr.ph232.preheader
 
 .lr.ph232.preheader:                              ; preds = %42
   %wide.trip.count308 = zext nneg i32 %2 to i64
@@ -3756,7 +3756,7 @@ setTypeSize.exit190:                              ; preds = %76, %84, %89
   %96 = sdiv i64 %.1144, 2
   %97 = icmp sle i64 %96, %.1
   %cond.fr = freeze i1 %97
-  %spec.select346 = select i1 %cond.fr, i32 1, i32 2
+  %spec.select362 = select i1 %cond.fr, i32 1, i32 2
   %98 = icmp sgt i32 %2, 1
   %or.cond5 = and i1 %98, %cond.fr
   br i1 %or.cond5, label %99, label %.thread
@@ -3769,7 +3769,7 @@ setTypeSize.exit190:                              ; preds = %76, %84, %89
   br label %.thread
 
 .thread:                                          ; preds = %42, %._crit_edge233, %99, %._crit_edge
-  %.0148 = phi i32 [ 1, %42 ], [ 1, %._crit_edge ], [ %spec.select346, %99 ], [ %spec.select346, %._crit_edge233 ]
+  %.0148 = phi i32 [ 1, %42 ], [ 1, %._crit_edge ], [ %spec.select362, %99 ], [ %spec.select362, %._crit_edge233 ]
   br i1 %.0157.lcssa, label %103, label %105
 
 103:                                              ; preds = %.thread

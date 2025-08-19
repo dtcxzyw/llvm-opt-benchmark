@@ -166,10 +166,10 @@ define internal fastcc noalias noundef ptr @_get_token(ptr noundef %0) unnamed_a
   %11 = icmp eq i8 %10, 43
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 2
   %spec.select = select i1 %11, ptr %12, ptr %9
-  %spec.select95 = zext i1 %11 to i32
+  %spec.select96 = zext i1 %11 to i32
   store ptr %spec.select, ptr %0, align 8, !tbaa !9
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i32 %spec.select95, ptr %13, align 8, !tbaa !6
+  store i32 %spec.select96, ptr %13, align 8, !tbaa !6
   store i32 1, ptr %4, align 8, !tbaa !17
   br label %52
 
@@ -178,11 +178,11 @@ define internal fastcc noalias noundef ptr @_get_token(ptr noundef %0) unnamed_a
   %16 = load i8, ptr %15, align 1, !tbaa !6
   %17 = icmp eq i8 %16, 45
   %18 = getelementptr inbounds nuw i8, ptr %6, i64 2
-  %spec.select96 = select i1 %17, ptr %18, ptr %15
-  %spec.select97 = select i1 %17, i32 3, i32 2
-  store ptr %spec.select96, ptr %0, align 8, !tbaa !9
+  %spec.select97 = select i1 %17, ptr %18, ptr %15
+  %spec.select98 = select i1 %17, i32 3, i32 2
+  store ptr %spec.select97, ptr %0, align 8, !tbaa !9
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i32 %spec.select97, ptr %19, align 8, !tbaa !6
+  store i32 %spec.select98, ptr %19, align 8, !tbaa !6
   store i32 1, ptr %4, align 8, !tbaa !17
   br label %52
 
@@ -321,8 +321,8 @@ define internal fastcc double @_parse_multiplicative_expression(ptr noundef %0) 
 
 .lr.ph70:                                         ; preds = %.lr.ph70.preheader, %.backedge
   %18 = phi ptr [ %55, %.backedge ], [ %7, %.lr.ph70.preheader ]
-  %.169 = phi double [ %.281, %.backedge ], [ undef, %.lr.ph70.preheader ]
-  %.04068 = phi double [ %.14180, %.backedge ], [ %.014.i54, %.lr.ph70.preheader ]
+  %.169 = phi double [ %.287, %.backedge ], [ undef, %.lr.ph70.preheader ]
+  %.04068 = phi double [ %.14186, %.backedge ], [ %.014.i54, %.lr.ph70.preheader ]
   %19 = load i32, ptr %18, align 8, !tbaa !17
   %20 = icmp eq i32 %19, 1
   br i1 %20, label %21, label %.critedge
@@ -410,14 +410,14 @@ _parse_power_expression.exit52:                   ; preds = %32, %.lr.ph61, %35,
   br i1 %cond, label %.backedge, label %.critedge
 
 .backedge:                                        ; preds = %53, %43, %47, %45, %41
-  %.281 = phi double [ %.2, %53 ], [ %.169, %41 ], [ %.169, %45 ], [ %.169, %47 ], [ %.169, %43 ]
-  %.14180 = phi double [ %.04068, %53 ], [ %42, %41 ], [ %46, %45 ], [ %52, %47 ], [ %44, %43 ]
+  %.287 = phi double [ %.2, %53 ], [ %.169, %41 ], [ %.169, %45 ], [ %.169, %47 ], [ %.169, %43 ]
+  %.14186 = phi double [ %.04068, %53 ], [ %42, %41 ], [ %46, %45 ], [ %52, %47 ], [ %44, %43 ]
   %55 = phi ptr [ %54, %53 ], [ %40, %41 ], [ %40, %45 ], [ %40, %47 ], [ %40, %43 ]
   %.not45 = icmp eq ptr %55, null
   br i1 %.not45, label %.critedge, label %.lr.ph70
 
 .critedge:                                        ; preds = %13, %53, %.lr.ph70, %.backedge, %4, %1
-  %.0 = phi nsz double [ 0x7FF8000000000000, %1 ], [ %5, %4 ], [ %.04068, %.lr.ph70 ], [ %.14180, %.backedge ], [ %.2, %53 ], [ %16, %13 ]
+  %.0 = phi nsz double [ 0x7FF8000000000000, %1 ], [ %5, %4 ], [ %.04068, %.lr.ph70 ], [ %.14186, %.backedge ], [ %.2, %53 ], [ %16, %13 ]
   ret double %.0
 }
 
@@ -426,12 +426,12 @@ define internal fastcc double @_parse_unary_expression(ptr noundef %0) unnamed_a
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !16
   %.not38 = icmp eq ptr %3, null
-  br i1 %.not38, label %common.ret79, label %.lr.ph
+  br i1 %.not38, label %common.ret82, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1, %tailrecurse
   %4 = phi ptr [ %13, %tailrecurse ], [ %3, %1 ]
   %5 = load i32, ptr %4, align 8, !tbaa !17
-  switch i32 %5, label %common.ret79 [
+  switch i32 %5, label %common.ret82 [
     i32 1, label %6
     i32 0, label %14
   ]
@@ -439,15 +439,15 @@ define internal fastcc double @_parse_unary_expression(ptr noundef %0) unnamed_a
 6:                                                ; preds = %.lr.ph
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %8 = load i32, ptr %7, align 8, !tbaa !6
-  switch i32 %8, label %common.ret79 [
+  switch i32 %8, label %common.ret82 [
     i32 2, label %9
     i32 0, label %tailrecurse
     i32 9, label %18
   ]
 
-common.ret79:                                     ; preds = %18, %38, %_parse_expression.exit, %14, %20, %1, %.lr.ph41, %36, %tailrecurse, %.lr.ph, %6, %9
-  %common.ret79.op = phi double [ %12, %9 ], [ %16, %14 ], [ %.022.i.i40, %38 ], [ 0x7FF8000000000000, %_parse_expression.exit ], [ 0x7FF8000000000000, %18 ], [ 0x7FF8000000000000, %20 ], [ 0x7FF8000000000000, %1 ], [ 0x7FF8000000000000, %.lr.ph41 ], [ 0x7FF8000000000000, %36 ], [ 0x7FF8000000000000, %tailrecurse ], [ 0x7FF8000000000000, %.lr.ph ], [ 0x7FF8000000000000, %6 ]
-  ret double %common.ret79.op
+common.ret82:                                     ; preds = %18, %38, %_parse_expression.exit, %14, %20, %1, %.lr.ph41, %36, %tailrecurse, %.lr.ph, %6, %9
+  %common.ret82.op = phi double [ %12, %9 ], [ %16, %14 ], [ %.022.i.i40, %38 ], [ 0x7FF8000000000000, %_parse_expression.exit ], [ 0x7FF8000000000000, %18 ], [ 0x7FF8000000000000, %20 ], [ 0x7FF8000000000000, %1 ], [ 0x7FF8000000000000, %.lr.ph41 ], [ 0x7FF8000000000000, %36 ], [ 0x7FF8000000000000, %tailrecurse ], [ 0x7FF8000000000000, %.lr.ph ], [ 0x7FF8000000000000, %6 ]
+  ret double %common.ret82.op
 
 9:                                                ; preds = %6
   tail call void @free(ptr noundef nonnull %4) #5
@@ -455,14 +455,14 @@ common.ret79:                                     ; preds = %18, %38, %_parse_ex
   store ptr %10, ptr %2, align 8, !tbaa !16
   %11 = tail call reassoc nsz arcp contract afn fastcc double @_parse_unary_expression(ptr noundef nonnull %0)
   %12 = fneg reassoc nsz arcp contract afn double %11
-  br label %common.ret79
+  br label %common.ret82
 
 tailrecurse:                                      ; preds = %6
   tail call void @free(ptr noundef nonnull %4) #5
   %13 = tail call fastcc ptr @_get_token(ptr noundef nonnull %0)
   store ptr %13, ptr %2, align 8, !tbaa !16
   %.not = icmp eq ptr %13, null
-  br i1 %.not, label %common.ret79, label %.lr.ph
+  br i1 %.not, label %common.ret82, label %.lr.ph
 
 14:                                               ; preds = %.lr.ph
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -470,27 +470,27 @@ tailrecurse:                                      ; preds = %6
   tail call void @free(ptr noundef nonnull %4) #5
   %17 = tail call fastcc ptr @_get_token(ptr noundef nonnull %0)
   store ptr %17, ptr %2, align 8, !tbaa !16
-  br label %common.ret79
+  br label %common.ret82
 
 18:                                               ; preds = %6
   tail call void @free(ptr noundef nonnull %4) #5
   %19 = tail call fastcc ptr @_get_token(ptr noundef nonnull %0)
   store ptr %19, ptr %2, align 8, !tbaa !16
   %.not.i.i = icmp eq ptr %19, null
-  br i1 %.not.i.i, label %common.ret79, label %20
+  br i1 %.not.i.i, label %common.ret82, label %20
 
 20:                                               ; preds = %18
   %21 = tail call reassoc nsz arcp contract afn fastcc double @_parse_multiplicative_expression(ptr noundef nonnull %0)
   %22 = load ptr, ptr %2, align 8, !tbaa !16
   %.not27.i.i39 = icmp eq ptr %22, null
-  br i1 %.not27.i.i39, label %common.ret79, label %.lr.ph41
+  br i1 %.not27.i.i39, label %common.ret82, label %.lr.ph41
 
 .lr.ph41:                                         ; preds = %20, %36
   %.pr = phi ptr [ %37, %36 ], [ %22, %20 ]
   %.022.i.i40 = phi double [ %.123.i.i, %36 ], [ %21, %20 ]
   %23 = load i32, ptr %.pr, align 8, !tbaa !17
   %24 = icmp eq i32 %23, 1
-  br i1 %24, label %25, label %common.ret79
+  br i1 %24, label %25, label %common.ret82
 
 25:                                               ; preds = %.lr.ph41
   %26 = getelementptr inbounds nuw i8, ptr %.pr, i64 8
@@ -521,17 +521,17 @@ tailrecurse:                                      ; preds = %6
   %.123.i.i = phi nsz double [ %33, %32 ], [ %35, %34 ], [ %.022.i.i40, %29 ]
   %37 = load ptr, ptr %2, align 8, !tbaa !16
   %.not27.i.i = icmp eq ptr %37, null
-  br i1 %.not27.i.i, label %common.ret79, label %.lr.ph41
+  br i1 %.not27.i.i, label %common.ret82, label %.lr.ph41
 
 _parse_expression.exit:                           ; preds = %25
   %.not26.i = icmp eq i32 %27, 10
-  br i1 %.not26.i, label %38, label %common.ret79
+  br i1 %.not26.i, label %38, label %common.ret82
 
 38:                                               ; preds = %_parse_expression.exit
   tail call void @free(ptr noundef nonnull %.pr) #5
   %39 = tail call fastcc ptr @_get_token(ptr noundef nonnull %0)
   store ptr %39, ptr %2, align 8, !tbaa !16
-  br label %common.ret79
+  br label %common.ret82
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)

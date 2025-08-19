@@ -83,8 +83,8 @@ define noundef zeroext i1 @_ZNK17double_conversion23DoubleToStringConverter19Han
   br i1 %or.cond, label %34, label %.sink.split
 
 .sink.split:                                      ; preds = %19, %10, %12
-  %.sink21 = phi ptr [ %.pre, %12 ], [ %8, %10 ], [ %22, %19 ]
-  %24 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.sink21) #14
+  %.sink23 = phi ptr [ %.pre, %12 ], [ %8, %10 ], [ %22, %19 ]
+  %24 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.sink23) #14
   %25 = trunc i64 %24 to i32
   %26 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %27 = load i32, ptr %26, align 8, !tbaa !19
@@ -93,7 +93,7 @@ define noundef zeroext i1 @_ZNK17double_conversion23DoubleToStringConverter19Han
   %30 = getelementptr inbounds i8, ptr %28, i64 %29
   %sext.i8 = shl i64 %24, 32
   %31 = ashr exact i64 %sext.i8, 32
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %30, ptr nonnull align 1 %.sink21, i64 %31, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %30, ptr nonnull align 1 %.sink23, i64 %31, i1 false)
   %32 = load i32, ptr %26, align 8, !tbaa !19
   %33 = add nsw i32 %32, %25
   store i32 %33, ptr %26, align 8, !tbaa !19
@@ -552,8 +552,8 @@ define noundef zeroext i1 @_ZNK17double_conversion23DoubleToStringConverter20ToS
   br i1 %29, label %_ZNK17double_conversion23DoubleToStringConverter19HandleSpecialValuesEdPNS_13StringBuilderE.exit, label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %26, %19, %17
-  %.sink21.i = phi ptr [ %.pre.i, %19 ], [ %15, %17 ], [ %28, %26 ]
-  %30 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.sink21.i) #14
+  %.sink23.i = phi ptr [ %.pre.i, %19 ], [ %15, %17 ], [ %28, %26 ]
+  %30 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.sink23.i) #14
   %31 = trunc i64 %30 to i32
   %32 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %33 = load i32, ptr %32, align 8, !tbaa !19
@@ -562,7 +562,7 @@ define noundef zeroext i1 @_ZNK17double_conversion23DoubleToStringConverter20ToS
   %36 = getelementptr inbounds i8, ptr %34, i64 %35
   %sext.i8.i = shl i64 %30, 32
   %37 = ashr exact i64 %sext.i8.i, 32
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %36, ptr nonnull align 1 %.sink21.i, i64 %37, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %36, ptr nonnull align 1 %.sink23.i, i64 %37, i1 false)
   %38 = load i32, ptr %32, align 8, !tbaa !19
   %39 = add nsw i32 %38, %31
   store i32 %39, ptr %32, align 8, !tbaa !19
@@ -748,8 +748,8 @@ define noundef zeroext i1 @_ZNK17double_conversion23DoubleToStringConverter7ToFi
   br i1 %or.cond.i, label %_ZNK17double_conversion23DoubleToStringConverter19HandleSpecialValuesEdPNS_13StringBuilderE.exit, label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %27, %20, %18
-  %.sink21.i = phi ptr [ %.pre.i, %20 ], [ %16, %18 ], [ %30, %27 ]
-  %32 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.sink21.i) #14
+  %.sink23.i = phi ptr [ %.pre.i, %20 ], [ %16, %18 ], [ %30, %27 ]
+  %32 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.sink23.i) #14
   %33 = trunc i64 %32 to i32
   %34 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %35 = load i32, ptr %34, align 8, !tbaa !19
@@ -758,7 +758,7 @@ define noundef zeroext i1 @_ZNK17double_conversion23DoubleToStringConverter7ToFi
   %38 = getelementptr inbounds i8, ptr %36, i64 %37
   %sext.i8.i = shl i64 %32, 32
   %39 = ashr exact i64 %sext.i8.i, 32
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %38, ptr nonnull align 1 %.sink21.i, i64 %39, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %38, ptr nonnull align 1 %.sink23.i, i64 %39, i1 false)
   %40 = load i32, ptr %34, align 8, !tbaa !19
   %41 = add nsw i32 %40, %33
   store i32 %41, ptr %34, align 8, !tbaa !19
@@ -880,8 +880,8 @@ define noundef zeroext i1 @_ZNK17double_conversion23DoubleToStringConverter13ToE
   br i1 %or.cond.i, label %_ZNK17double_conversion23DoubleToStringConverter19HandleSpecialValuesEdPNS_13StringBuilderE.exit, label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %27, %20, %18
-  %.sink21.i = phi ptr [ %.pre.i, %20 ], [ %16, %18 ], [ %30, %27 ]
-  %32 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.sink21.i) #14
+  %.sink23.i = phi ptr [ %.pre.i, %20 ], [ %16, %18 ], [ %30, %27 ]
+  %32 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.sink23.i) #14
   %33 = trunc i64 %32 to i32
   %34 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %35 = load i32, ptr %34, align 8, !tbaa !19
@@ -890,7 +890,7 @@ define noundef zeroext i1 @_ZNK17double_conversion23DoubleToStringConverter13ToE
   %38 = getelementptr inbounds i8, ptr %36, i64 %37
   %sext.i8.i = shl i64 %32, 32
   %39 = ashr exact i64 %sext.i8.i, 32
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %38, ptr nonnull align 1 %.sink21.i, i64 %39, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %38, ptr nonnull align 1 %.sink23.i, i64 %39, i1 false)
   %40 = load i32, ptr %34, align 8, !tbaa !19
   %41 = add nsw i32 %40, %33
   store i32 %41, ptr %34, align 8, !tbaa !19
@@ -1064,8 +1064,8 @@ define noundef zeroext i1 @_ZNK17double_conversion23DoubleToStringConverter11ToP
   br i1 %or.cond.i, label %_ZNK17double_conversion23DoubleToStringConverter19HandleSpecialValuesEdPNS_13StringBuilderE.exit, label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %27, %20, %18
-  %.sink21.i = phi ptr [ %.pre.i, %20 ], [ %16, %18 ], [ %30, %27 ]
-  %32 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.sink21.i) #14
+  %.sink23.i = phi ptr [ %.pre.i, %20 ], [ %16, %18 ], [ %30, %27 ]
+  %32 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.sink23.i) #14
   %33 = trunc i64 %32 to i32
   %34 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %35 = load i32, ptr %34, align 8, !tbaa !19
@@ -1074,7 +1074,7 @@ define noundef zeroext i1 @_ZNK17double_conversion23DoubleToStringConverter11ToP
   %38 = getelementptr inbounds i8, ptr %36, i64 %37
   %sext.i8.i = shl i64 %32, 32
   %39 = ashr exact i64 %sext.i8.i, 32
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %38, ptr nonnull align 1 %.sink21.i, i64 %39, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %38, ptr nonnull align 1 %.sink23.i, i64 %39, i1 false)
   %40 = load i32, ptr %34, align 8, !tbaa !19
   %41 = add nsw i32 %40, %33
   store i32 %41, ptr %34, align 8, !tbaa !19
@@ -1183,37 +1183,37 @@ _ZN17double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS0_8DtoaModeEiP
 .lr.ph.preheader:                                 ; preds = %.thread51
   %87 = zext nneg i32 %.promoted to i64
   %88 = zext nneg i32 %85 to i64
-  %indvars.iv.next74 = add nsw i64 %87, -1
-  %89 = getelementptr inbounds [121 x i8], ptr %6, i64 0, i64 %indvars.iv.next74
+  %indvars.iv.next77 = add nsw i64 %87, -1
+  %89 = getelementptr inbounds nuw [121 x i8], ptr %6, i64 0, i64 %indvars.iv.next77
   %90 = load i8, ptr %89, align 1, !tbaa !23
   %91 = icmp eq i8 %90, 48
-  br i1 %91, label %.lr.ph76, label %.critedge
+  br i1 %91, label %.lr.ph79, label %.critedge
 
-.lr.ph:                                           ; preds = %.lr.ph76
-  %indvars.iv.next = add nsw i64 %indvars.iv.next75, -1
-  %92 = getelementptr inbounds [121 x i8], ptr %6, i64 0, i64 %indvars.iv.next
+.lr.ph:                                           ; preds = %.lr.ph79
+  %indvars.iv.next = add nsw i64 %indvars.iv.next78, -1
+  %92 = getelementptr inbounds nuw [121 x i8], ptr %6, i64 0, i64 %indvars.iv.next
   %93 = load i8, ptr %92, align 1, !tbaa !23
   %94 = icmp eq i8 %93, 48
-  br i1 %94, label %.lr.ph76, label %.lr.ph..critedge.loopexit.split.loop.exit67_crit_edge, !llvm.loop !33
+  br i1 %94, label %.lr.ph79, label %.lr.ph..critedge.loopexit.split.loop.exit70_crit_edge, !llvm.loop !33
 
-.lr.ph76:                                         ; preds = %.lr.ph.preheader, %.lr.ph
-  %indvars.iv.next75 = phi i64 [ %indvars.iv.next, %.lr.ph ], [ %indvars.iv.next74, %.lr.ph.preheader ]
-  %95 = trunc nsw i64 %indvars.iv.next75 to i32
-  %96 = icmp sgt i64 %indvars.iv.next75, %88
+.lr.ph79:                                         ; preds = %.lr.ph.preheader, %.lr.ph
+  %indvars.iv.next78 = phi i64 [ %indvars.iv.next, %.lr.ph ], [ %indvars.iv.next77, %.lr.ph.preheader ]
+  %95 = trunc nuw nsw i64 %indvars.iv.next78 to i32
+  %96 = icmp sgt i64 %indvars.iv.next78, %88
   br i1 %96, label %.lr.ph, label %.critedge.loopexit, !llvm.loop !33
 
-.lr.ph..critedge.loopexit.split.loop.exit67_crit_edge: ; preds = %.lr.ph
+.lr.ph..critedge.loopexit.split.loop.exit70_crit_edge: ; preds = %.lr.ph
   store i32 %95, ptr %7, align 4, !tbaa !26
-  %97 = trunc nuw nsw i64 %indvars.iv.next75 to i32
+  %97 = trunc nuw nsw i64 %indvars.iv.next78 to i32
   br label %.critedge
 
-.critedge.loopexit:                               ; preds = %.lr.ph76
+.critedge.loopexit:                               ; preds = %.lr.ph79
   store i32 %95, ptr %7, align 4, !tbaa !26
   br label %.critedge
 
-.critedge:                                        ; preds = %.critedge.loopexit, %.lr.ph.preheader, %.lr.ph..critedge.loopexit.split.loop.exit67_crit_edge, %.thread51
-  %98 = phi i32 [ %.promoted, %.thread51 ], [ %95, %.lr.ph..critedge.loopexit.split.loop.exit67_crit_edge ], [ %.promoted, %.lr.ph.preheader ], [ %95, %.critedge.loopexit ]
-  %.lcssa = phi i32 [ %.promoted, %.thread51 ], [ %97, %.lr.ph..critedge.loopexit.split.loop.exit67_crit_edge ], [ %.promoted, %.lr.ph.preheader ], [ %85, %.critedge.loopexit ]
+.critedge:                                        ; preds = %.critedge.loopexit, %.lr.ph.preheader, %.lr.ph..critedge.loopexit.split.loop.exit70_crit_edge, %.thread51
+  %98 = phi i32 [ %.promoted, %.thread51 ], [ %95, %.lr.ph..critedge.loopexit.split.loop.exit70_crit_edge ], [ %.promoted, %.lr.ph.preheader ], [ %95, %.critedge.loopexit ]
+  %.lcssa = phi i32 [ %.promoted, %.thread51 ], [ %97, %.lr.ph..critedge.loopexit.split.loop.exit70_crit_edge ], [ %.promoted, %.lr.ph.preheader ], [ %85, %.critedge.loopexit ]
   %.sroa.speculated41 = call i32 @llvm.smin.i32(i32 %.lcssa, i32 %2)
   br i1 %84, label %.thread52, label %._crit_edge64
 

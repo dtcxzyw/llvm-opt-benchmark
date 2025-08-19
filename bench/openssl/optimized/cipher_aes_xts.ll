@@ -59,10 +59,10 @@ define internal range(i32 0, 2) i32 @aes_xts_stream_update(ptr noundef %0, ptr n
   br i1 %.not, label %.sink.split, label %10
 
 .sink.split:                                      ; preds = %8, %6
-  %.sink11 = phi i32 [ 223, %6 ], [ 228, %8 ]
+  %.sink13 = phi i32 [ 223, %6 ], [ 228, %8 ]
   %.sink = phi i32 [ 106, %6 ], [ 102, %8 ]
   tail call void @ERR_new() #4
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink11, ptr noundef nonnull @__func__.aes_xts_stream_update) #4
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink13, ptr noundef nonnull @__func__.aes_xts_stream_update) #4
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 57, i32 noundef %.sink, ptr noundef null) #4
   br label %10
 

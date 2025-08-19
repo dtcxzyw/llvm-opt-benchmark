@@ -1115,11 +1115,11 @@ define void @_ZN6quiche7testing4Pipe3new17h188bb0489a14adebE(ptr dead_on_unwind 
   ret void
 
 51:                                               ; preds = %37, %33, %29
-  %.sink50 = phi { i64, i64 } [ %27, %29 ], [ %32, %33 ], [ %36, %37 ]
-  %.sink48 = phi i64 [ %30, %29 ], [ %34, %33 ], [ %38, %37 ]
-  %52 = extractvalue { i64, i64 } %.sink50, 1
+  %.sink53 = phi { i64, i64 } [ %27, %29 ], [ %32, %33 ], [ %36, %37 ]
+  %.sink51 = phi i64 [ %30, %29 ], [ %34, %33 ], [ %38, %37 ]
+  %52 = extractvalue { i64, i64 } %.sink53, 1
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sink48, ptr %53, align 16
+  store i64 %.sink51, ptr %53, align 16
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %52, ptr %54, align 8
   store i128 2, ptr %0, align 16
@@ -1832,14 +1832,14 @@ define void @_ZN6quiche7testing4Pipe28with_config_and_scid_lengths17ha9b920abf20
   store i64 %103, ptr %.sroa.7.0..sroa_idx, align 16
   %.sroa.839.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 15240
   store i64 %105, ptr %.sroa.839.0..sroa_idx, align 8
-  br label %.invoke112
+  br label %.invoke114
 
 110:                                              ; preds = %120, %111
   %.pn84 = phi { ptr, i32 } [ %112, %111 ], [ %121, %120 ]
   invoke void @"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h29f03b3dfa9a0695E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %19) #20
           to label %113 unwind label %123
 
-111:                                              ; preds = %.invoke112
+111:                                              ; preds = %.invoke114
   %112 = landingpad { ptr, i32 }
           cleanup
   br label %110
@@ -1849,7 +1849,7 @@ define void @_ZN6quiche7testing4Pipe28with_config_and_scid_lengths17ha9b920abf20
   invoke void @"_ZN4core3ptr49drop_in_place$LT$quiche..packet..ConnectionId$GT$17hed15f16148b73689E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %21) #20
           to label %116 unwind label %123
 
-114:                                              ; preds = %.invoke111
+114:                                              ; preds = %.invoke113
   %115 = landingpad { ptr, i32 }
           cleanup
   br label %113
@@ -1878,18 +1878,18 @@ define void @_ZN6quiche7testing4Pipe28with_config_and_scid_lengths17ha9b920abf20
 
 122:                                              ; preds = %106
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
-  br label %.invoke112
+  br label %.invoke114
 
-.invoke112:                                       ; preds = %109, %122
+.invoke114:                                       ; preds = %109, %122
   invoke void @"_ZN4core3ptr49drop_in_place$LT$quiche..packet..ConnectionId$GT$17hed15f16148b73689E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %18)
-          to label %.invoke111 unwind label %111
+          to label %.invoke113 unwind label %111
 
-.invoke111:                                       ; preds = %.invoke112
+.invoke113:                                       ; preds = %.invoke114
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   invoke void @"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h29f03b3dfa9a0695E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %19)
           to label %.invoke unwind label %114
 
-.invoke:                                          ; preds = %.invoke111
+.invoke:                                          ; preds = %.invoke113
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   invoke void @"_ZN4core3ptr49drop_in_place$LT$quiche..packet..ConnectionId$GT$17hed15f16148b73689E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %21)
           to label %119 unwind label %117
@@ -2298,14 +2298,14 @@ define void @_ZN6quiche7testing4Pipe18with_client_config17hc46425be63491fe2E(ptr
   store i64 %101, ptr %.sroa.773.0..sroa_idx, align 16
   %.sroa.874.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 15240
   store i64 %103, ptr %.sroa.874.0..sroa_idx, align 8
-  br label %.invoke165
+  br label %.invoke171
 
 108:                                              ; preds = %115, %109
   %.pn = phi { ptr, i32 } [ %110, %109 ], [ %116, %115 ]
   invoke void @"_ZN4core3ptr49drop_in_place$LT$quiche..packet..ConnectionId$GT$17hed15f16148b73689E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %16) #20
           to label %111 unwind label %118
 
-109:                                              ; preds = %.invoke165
+109:                                              ; preds = %.invoke171
   %110 = landingpad { ptr, i32 }
           cleanup
   br label %108
@@ -2336,13 +2336,13 @@ define void @_ZN6quiche7testing4Pipe18with_client_config17hc46425be63491fe2E(ptr
 
 117:                                              ; preds = %104
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  br label %.invoke165
+  br label %.invoke171
 
-.invoke165:                                       ; preds = %107, %117
+.invoke171:                                       ; preds = %107, %117
   invoke void @"_ZN4core3ptr35drop_in_place$LT$quiche..Config$GT$17h1500ee3d59a24099E"(ptr noalias noundef nonnull align 16 dereferenceable(528) %14)
           to label %.invoke unwind label %109
 
-.invoke:                                          ; preds = %.invoke165
+.invoke:                                          ; preds = %.invoke171
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   invoke void @"_ZN4core3ptr49drop_in_place$LT$quiche..packet..ConnectionId$GT$17hed15f16148b73689E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %16)
           to label %114 unwind label %112
@@ -2387,11 +2387,11 @@ define void @_ZN6quiche7testing4Pipe18with_client_config17hc46425be63491fe2E(ptr
   br label %126
 
 129:                                              ; preds = %62, %58, %54
-  %.sink164 = phi { i64, i64 } [ %51, %54 ], [ %57, %58 ], [ %61, %62 ]
-  %.sink162 = phi i64 [ %55, %54 ], [ %59, %58 ], [ %63, %62 ]
-  %130 = extractvalue { i64, i64 } %.sink164, 1
+  %.sink170 = phi { i64, i64 } [ %51, %54 ], [ %57, %58 ], [ %61, %62 ]
+  %.sink168 = phi i64 [ %55, %54 ], [ %59, %58 ], [ %63, %62 ]
+  %130 = extractvalue { i64, i64 } %.sink170, 1
   %131 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sink162, ptr %131, align 16
+  store i64 %.sink168, ptr %131, align 16
   %132 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %130, ptr %132, align 8
   store i128 2, ptr %0, align 16
@@ -2745,14 +2745,14 @@ define void @_ZN6quiche7testing4Pipe18with_server_config17heed4f2b506ea898dE(ptr
   store i64 %97, ptr %.sroa.7.0..sroa_idx, align 16
   %.sroa.862.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 15240
   store i64 %99, ptr %.sroa.862.0..sroa_idx, align 8
-  br label %.invoke135
+  br label %.invoke139
 
 104:                                              ; preds = %111, %105
   %.pn = phi { ptr, i32 } [ %106, %105 ], [ %112, %111 ]
   invoke void @"_ZN4core3ptr49drop_in_place$LT$quiche..packet..ConnectionId$GT$17hed15f16148b73689E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %16) #20
           to label %107 unwind label %114
 
-105:                                              ; preds = %.invoke135
+105:                                              ; preds = %.invoke139
   %106 = landingpad { ptr, i32 }
           cleanup
   br label %104
@@ -2783,13 +2783,13 @@ define void @_ZN6quiche7testing4Pipe18with_server_config17heed4f2b506ea898dE(ptr
 
 113:                                              ; preds = %100
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  br label %.invoke135
+  br label %.invoke139
 
-.invoke135:                                       ; preds = %103, %113
+.invoke139:                                       ; preds = %103, %113
   invoke void @"_ZN4core3ptr35drop_in_place$LT$quiche..Config$GT$17h1500ee3d59a24099E"(ptr noalias noundef nonnull align 16 dereferenceable(528) %14)
           to label %.invoke unwind label %105
 
-.invoke:                                          ; preds = %.invoke135
+.invoke:                                          ; preds = %.invoke139
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   invoke void @"_ZN4core3ptr49drop_in_place$LT$quiche..packet..ConnectionId$GT$17hed15f16148b73689E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %16)
           to label %110 unwind label %108
@@ -4619,8 +4619,8 @@ define void @_ZN6quiche7testing10decode_pkt17hcb780e6b95099f2dE(ptr dead_on_unwi
   store i64 0, ptr %.sroa.5.0..sroa_idx.i, align 8, !noalias !322
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i64 %25, ptr %26, align 8, !noalias !322
-  %.sink33.sroa.gep = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %.sink33.sroa.gep44 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %.sink37.sroa.gep = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %.sink37.sroa.gep48 = getelementptr inbounds nuw i8, ptr %7, i64 8
   br label %27
 
 27:                                               ; preds = %30, %4
@@ -4668,10 +4668,10 @@ define void @_ZN6quiche7testing10decode_pkt17hcb780e6b95099f2dE(ptr dead_on_unwi
   br i1 %.not19.i, label %44, label %"_ZN6quiche19Connection$LT$F$GT$9source_id17h12457483ffe8333aE.exit"
 
 "_ZN6quiche19Connection$LT$F$GT$9source_id17h12457483ffe8333aE.exit": ; preds = %44, %47
-  %.sink24.i = phi ptr [ %46, %44 ], [ %51, %47 ]
-  %.sroa.35.0.in.i = getelementptr inbounds nuw i8, ptr %.sink24.i, i64 64
+  %.sink25.i = phi ptr [ %46, %44 ], [ %51, %47 ]
+  %.sroa.35.0.in.i = getelementptr inbounds nuw i8, ptr %.sink25.i, i64 64
   %.sroa.35.0.i = load i64, ptr %.sroa.35.0.in.i, align 16, !noalias !317, !noundef !3
-  %.sroa.04.0.in.i = getelementptr inbounds nuw i8, ptr %.sink24.i, i64 56
+  %.sroa.04.0.in.i = getelementptr inbounds nuw i8, ptr %.sink25.i, i64 56
   %.sroa.04.0.i = load ptr, ptr %.sroa.04.0.in.i, align 8, !noalias !317, !nonnull !3, !noundef !3
   store i64 -9223372036854775808, ptr %15, align 8, !alias.scope !317, !noalias !320
   %.sroa.417.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %15, i64 8
@@ -4789,12 +4789,12 @@ define void @_ZN6quiche7testing10decode_pkt17hcb780e6b95099f2dE(ptr dead_on_unwi
   br label %.invoke
 
 .invoke:                                          ; preds = %110, %92
-  %.sink33.sroa.phi = phi ptr [ %.sink33.sroa.gep, %110 ], [ %.sink33.sroa.gep44, %92 ]
-  %.sink33 = phi ptr [ %8, %110 ], [ %7, %92 ]
+  %.sink37.sroa.phi = phi ptr [ %.sink37.sroa.gep, %110 ], [ %.sink37.sroa.gep48, %92 ]
+  %.sink37 = phi ptr [ %8, %110 ], [ %7, %92 ]
   %.sink = phi i64 [ %114, %110 ], [ %93, %92 ]
   %94 = phi ptr [ @anon.2555188e7c0d002edaa778fbad9a1afd.62, %110 ], [ @anon.2555188e7c0d002edaa778fbad9a1afd.60, %92 ]
-  store i64 %.sink, ptr %.sink33.sroa.phi, align 8
-  invoke void @_ZN4core6result13unwrap_failed17h563d6df1cad9fe9bE(ptr noalias noundef nonnull readonly align 1 @anon.2555188e7c0d002edaa778fbad9a1afd.13, i64 noundef 43, ptr noundef nonnull align 1 %.sink33, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.2555188e7c0d002edaa778fbad9a1afd.14, ptr noalias noundef readonly align 8 dereferenceable(24) %94) #21
+  store i64 %.sink, ptr %.sink37.sroa.phi, align 8
+  invoke void @_ZN4core6result13unwrap_failed17h563d6df1cad9fe9bE(ptr noalias noundef nonnull readonly align 1 @anon.2555188e7c0d002edaa778fbad9a1afd.13, i64 noundef 43, ptr noundef nonnull align 1 %.sink37, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.2555188e7c0d002edaa778fbad9a1afd.14, ptr noalias noundef readonly align 8 dereferenceable(24) %94) #21
           to label %.cont unwind label %65
 
 .cont:                                            ; preds = %.invoke
@@ -5441,11 +5441,11 @@ define hidden void @_ZN6quiche6crypto9boringssl9PacketKey11from_secret17hfc9b3c5
   unreachable
 
 73:                                               ; preds = %47, %43
-  %.sink62 = phi { i64, i64 } [ %42, %43 ], [ %46, %47 ]
-  %.sink60 = phi i64 [ %44, %43 ], [ %48, %47 ]
-  %74 = extractvalue { i64, i64 } %.sink62, 1
+  %.sink65 = phi { i64, i64 } [ %42, %43 ], [ %46, %47 ]
+  %.sink63 = phi i64 [ %44, %43 ], [ %48, %47 ]
+  %74 = extractvalue { i64, i64 } %.sink65, 1
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.sink60, ptr %75, align 8
+  store i64 %.sink63, ptr %75, align 8
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %74, ptr %76, align 8
   store i64 -9223372036854775808, ptr %0, align 8
@@ -6078,8 +6078,8 @@ _ZN6quiche2h35qpack7encoder10encode_str17he411e776bfc898c7E.exit: ; preds = %133
   br i1 %144, label %._crit_edge, label %31
 
 .loopexit:                                        ; preds = %68, %74
-  %.sroa.014.0.lcssa44.sink.i.ph = phi ptr [ %75, %74 ], [ %.sroa.014.0.i, %68 ]
-  %.sroa.0.3.in.i80 = getelementptr inbounds nuw i8, ptr %.sroa.014.0.lcssa44.sink.i.ph, i64 16
+  %.sroa.014.0.lcssa47.sink.i.ph = phi ptr [ %75, %74 ], [ %.sroa.014.0.i, %68 ]
+  %.sroa.0.3.in.i80 = getelementptr inbounds nuw i8, ptr %.sroa.014.0.lcssa47.sink.i.ph, i64 16
   %.sroa.0.3.i81 = load i64, ptr %.sroa.0.3.in.i80, align 8, !noundef !3
   %145 = call noundef i8 @_ZN6quiche2h35qpack7encoder10encode_int17h81c05efc11fe5058E(i64 noundef %.sroa.0.3.i81, i8 noundef 80, i64 noundef 4, ptr noalias noundef nonnull align 8 dereferenceable(24) %13)
   %.not56 = icmp eq i8 %145, 6
@@ -6235,8 +6235,8 @@ define hidden { i64, i64 } @_ZN6quiche2h36stream6Stream15try_fill_buffer17hb9312
   br i1 %.not27, label %38, label %50
 
 .sink.split:                                      ; preds = %83, %33, %77, %80
-  %.sink31 = phi i64 [ 13, %80 ], [ 13, %77 ], [ %31, %33 ], [ %31, %83 ]
-  %48 = tail call { i64, i64 } @"_ZN78_$LT$quiche..h3..Error$u20$as$u20$core..convert..From$LT$quiche..Error$GT$$GT$4from17h2909c663f6301edcE"(i64 noundef %.sink31, i64 %34)
+  %.sink37 = phi i64 [ 13, %80 ], [ 13, %77 ], [ %31, %33 ], [ %31, %83 ]
+  %48 = tail call { i64, i64 } @"_ZN78_$LT$quiche..h3..Error$u20$as$u20$core..convert..From$LT$quiche..Error$GT$$GT$4from17h2909c663f6301edcE"(i64 noundef %.sink37, i64 %34)
   %49 = extractvalue { i64, i64 } %48, 0
   br label %50
 
@@ -6245,7 +6245,7 @@ define hidden { i64, i64 } @_ZN6quiche2h36stream6Stream15try_fill_buffer17hb9312
   %.sroa.0.1 = phi i64 [ %47, %45 ], [ %82, %80 ], [ %49, %.sink.split ]
   %.sroa.8.1 = extractvalue { i64, i64 } %.pn, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %.sink.split32
+  br label %.sink.split38
 
 51:                                               ; preds = %56, %38
   %52 = phi i64 [ %.pre, %56 ], [ %31, %38 ]
@@ -6253,7 +6253,7 @@ define hidden { i64, i64 } @_ZN6quiche2h36stream6Stream15try_fill_buffer17hb9312
   %54 = add i64 %53, %52
   store i64 %54, ptr %11, align 8
   %55 = call noundef zeroext i1 @_ZN6quiche2h36stream6Stream21state_buffer_complete17he54939401e3679a0E(ptr noalias noundef nonnull readonly align 8 dereferenceable(112) %0)
-  br i1 %55, label %.sink.split32, label %73
+  br i1 %55, label %.sink.split38, label %73
 
 56:                                               ; preds = %38
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -6307,17 +6307,17 @@ define hidden { i64, i64 } @_ZN6quiche2h36stream6Stream15try_fill_buffer17hb9312
 
 73:                                               ; preds = %51
   call void @_ZN6quiche2h36stream6Stream16reset_data_event17h571ba4586c3002f1E(ptr noalias noundef nonnull align 8 dereferenceable(112) %0)
-  br label %.sink.split32
+  br label %.sink.split38
 
-.sink.split32:                                    ; preds = %50, %73, %51
+.sink.split38:                                    ; preds = %50, %73, %51
   %.sroa.8.0.ph = phi i64 [ undef, %51 ], [ %.sroa.8.1, %50 ], [ undef, %73 ]
   %.sroa.0.0.ph = phi i64 [ 40, %51 ], [ %.sroa.0.1, %50 ], [ 20, %73 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %74
 
-74:                                               ; preds = %.sink.split32, %2
-  %.sroa.8.0 = phi i64 [ undef, %2 ], [ %.sroa.8.0.ph, %.sink.split32 ]
-  %.sroa.0.0 = phi i64 [ 40, %2 ], [ %.sroa.0.0.ph, %.sink.split32 ]
+74:                                               ; preds = %.sink.split38, %2
+  %.sroa.8.0 = phi i64 [ undef, %2 ], [ %.sroa.8.0.ph, %.sink.split38 ]
+  %.sroa.0.0 = phi i64 [ 40, %2 ], [ %.sroa.0.0.ph, %.sink.split38 ]
   %75 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
   %76 = insertvalue { i64, i64 } %75, i64 %.sroa.8.0, 1
   ret { i64, i64 } %76
@@ -8520,7 +8520,7 @@ _ZN6quiche8recovery11gcongestion4bbr213network_model12MinRttFilter6update17h4389
   br label %182
 
 186:                                              ; preds = %187, %182
-  switch i8 %147, label %default.unreachable.i [
+  switch i8 %147, label %default.unreachable [
     i8 3, label %217
     i8 1, label %190
     i8 2, label %206
@@ -8533,7 +8533,7 @@ _ZN6quiche8recovery11gcongestion4bbr213network_model12MinRttFilter6update17h4389
   store i64 %188, ptr %189, align 8, !alias.scope !566, !noalias !576
   br label %186
 
-default.unreachable.i:                            ; preds = %186
+default.unreachable:                              ; preds = %186
   unreachable
 
 190:                                              ; preds = %186
@@ -8544,11 +8544,11 @@ default.unreachable.i:                            ; preds = %186
   %193 = tail call noundef i64 @_ZN6quiche8recovery9bandwidth9Bandwidth25from_bytes_and_time_delta17h08c072a537c3b5cbE(i64 noundef %99, i64 noundef %.val.i49.i, i32 noundef %.val1.i50.i), !noalias !580
   %194 = load i64, ptr %38, align 8, !alias.scope !566, !noalias !576
   %195 = tail call { i64, i64 } @"_ZN80_$LT$quiche..recovery..bandwidth..Bandwidth$u20$as$u20$core..ops..arith..Sub$GT$3sub17hf9fd0d16ef150a89E"(i64 noundef %194, i64 noundef %193), !noalias !580
-  %196 = extractvalue { i64, i64 } %195, 0
-  %197 = tail call noundef i64 @_ZN6quiche8recovery9bandwidth9Bandwidth4zero17hc6907186b2be410cE(), !noalias !580
-  %198 = trunc nuw i64 %196 to i1
+  %196 = tail call noundef i64 @_ZN6quiche8recovery9bandwidth9Bandwidth4zero17hc6907186b2be410cE(), !noalias !580
+  %197 = extractvalue { i64, i64 } %195, 0
+  %198 = trunc nuw i64 %197 to i1
   %199 = extractvalue { i64, i64 } %195, 1
-  %spec.select.i = select i1 %198, i64 %199, i64 %197
+  %spec.select.i = select i1 %198, i64 %199, i64 %196
   br label %200
 
 200:                                              ; preds = %217, %206, %190

@@ -1088,20 +1088,20 @@ expanded_record_get_tupdesc.exit:                 ; preds = %3, %6
   br i1 %.not, label %40, label %.sink.split
 
 .sink.split:                                      ; preds = %19, %._crit_edge
-  %.sink46 = phi ptr [ %27, %._crit_edge ], [ %15, %19 ]
-  %28 = getelementptr inbounds nuw i8, ptr %.sink46, i64 74
+  %.sink49 = phi ptr [ %27, %._crit_edge ], [ %15, %19 ]
+  %28 = getelementptr inbounds nuw i8, ptr %.sink49, i64 74
   %29 = load i16, ptr %28, align 2
   %30 = sext i16 %29 to i32
   store i32 %30, ptr %2, align 4
-  %31 = getelementptr inbounds nuw i8, ptr %.sink46, i64 68
+  %31 = getelementptr inbounds nuw i8, ptr %.sink49, i64 68
   %32 = load i32, ptr %31, align 4
   %33 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 %32, ptr %33, align 4
-  %34 = getelementptr inbounds nuw i8, ptr %.sink46, i64 76
+  %34 = getelementptr inbounds nuw i8, ptr %.sink49, i64 76
   %35 = load i32, ptr %34, align 4
   %36 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 %35, ptr %36, align 4
-  %37 = getelementptr inbounds nuw i8, ptr %.sink46, i64 96
+  %37 = getelementptr inbounds nuw i8, ptr %.sink49, i64 96
   %38 = load i32, ptr %37, align 4
   %39 = getelementptr inbounds nuw i8, ptr %2, i64 12
   store i32 %38, ptr %39, align 4

@@ -1285,7 +1285,7 @@ define dso_local void @drm_mode_config_validate(ptr noundef readonly captures(ad
   %148 = getelementptr inbounds nuw i8, ptr %147, i64 8
   %149 = load ptr, ptr %148, align 8
   %150 = icmp eq ptr %149, null
-  br i1 %150, label %.thread43, label %151, !prof !25
+  br i1 %150, label %.thread62, label %151, !prof !25
 
 151:                                              ; preds = %145
   tail call void asm sideeffect "405: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 405b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 405) #6, !srcloc !70
@@ -1300,16 +1300,16 @@ define dso_local void @drm_mode_config_validate(ptr noundef readonly captures(ad
   tail call void asm sideeffect "408: nop\0A\09.pushsection .discard.instr_end\0A\09.long 408b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 408) #6, !srcloc !74
   %.pr.pre = load ptr, ptr %142, align 8
   %156 = icmp eq ptr %.pr.pre, null
-  br i1 %156, label %.thread17, label %.thread43
+  br i1 %156, label %.thread17, label %.thread62
 
-.thread43:                                        ; preds = %145, %151
+.thread62:                                        ; preds = %145, %151
   %157 = load ptr, ptr %146, align 8
   %158 = getelementptr inbounds nuw i8, ptr %157, i64 16
   %159 = load ptr, ptr %158, align 8
   %160 = icmp eq ptr %159, null
-  br i1 %160, label %.thread45, label %161, !prof !25
+  br i1 %160, label %.thread64, label %161, !prof !25
 
-161:                                              ; preds = %.thread43
+161:                                              ; preds = %.thread62
   tail call void asm sideeffect "409: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 409b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 409) #6, !srcloc !75
   %162 = getelementptr i8, ptr %130, i64 80
   %163 = load i32, ptr %162, align 8
@@ -1322,16 +1322,16 @@ define dso_local void @drm_mode_config_validate(ptr noundef readonly captures(ad
   tail call void asm sideeffect "412: nop\0A\09.pushsection .discard.instr_end\0A\09.long 412b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 412) #6, !srcloc !79
   %.pr16.pre = load ptr, ptr %142, align 8
   %166 = icmp eq ptr %.pr16.pre, null
-  br i1 %166, label %.thread17, label %.thread45
+  br i1 %166, label %.thread17, label %.thread64
 
-.thread45:                                        ; preds = %.thread43, %161
+.thread64:                                        ; preds = %.thread62, %161
   %167 = load ptr, ptr %146, align 8
   %168 = getelementptr inbounds nuw i8, ptr %167, i64 24
   %169 = load ptr, ptr %168, align 8
   %170 = icmp eq ptr %169, null
   br i1 %170, label %.thread17, label %171, !prof !25
 
-171:                                              ; preds = %.thread45
+171:                                              ; preds = %.thread64
   tail call void asm sideeffect "413: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 413b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 413) #6, !srcloc !80
   %172 = getelementptr i8, ptr %130, i64 80
   %173 = load i32, ptr %172, align 8
@@ -1344,7 +1344,7 @@ define dso_local void @drm_mode_config_validate(ptr noundef readonly captures(ad
   tail call void asm sideeffect "416: nop\0A\09.pushsection .discard.instr_end\0A\09.long 416b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 416) #6, !srcloc !84
   br label %.thread17
 
-.thread17:                                        ; preds = %141, %151, %171, %.thread45, %161
+.thread17:                                        ; preds = %141, %151, %171, %.thread64, %161
   %176 = load ptr, ptr %133, align 8
   %177 = icmp eq ptr %176, null
   br i1 %177, label %211, label %178

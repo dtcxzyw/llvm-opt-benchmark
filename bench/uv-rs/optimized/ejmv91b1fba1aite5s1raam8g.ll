@@ -10041,15 +10041,15 @@ default.unreachable:                              ; preds = %2
   invoke fastcc void @"_ZN77_$LT$serde..__private..de..content..Content$u20$as$u20$core..clone..Clone$GT$5clone17h5cd98bca0677822bE"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %94)
           to label %"_ZN69_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hf5cf98c075b8c6f7E.exit" unwind label %95
 
-common.resume8:                                   ; preds = %135, %common.resume
-  %common.resume8.op = phi { ptr, i32 } [ %common.resume.op, %common.resume ], [ %lpad.loopexit.i, %135 ]
-  resume { ptr, i32 } %common.resume8.op
+common.resume9:                                   ; preds = %135, %common.resume
+  %common.resume9.op = phi { ptr, i32 } [ %common.resume.op, %common.resume ], [ %lpad.loopexit.i, %135 ]
+  resume { ptr, i32 } %common.resume9.op
 
 common.resume:                                    ; preds = %104, %95
   %.sink = phi ptr [ %99, %104 ], [ %90, %95 ]
   %common.resume.op = phi { ptr, i32 } [ %105, %104 ], [ %96, %95 ]
   tail call void @__rust_dealloc(ptr noundef nonnull %.sink, i64 noundef 32, i64 noundef 8) #30, !noalias !8
-  br label %common.resume8
+  br label %common.resume9
 
 95:                                               ; preds = %"_ZN5alloc5boxed16Box$LT$T$C$A$GT$13new_uninit_in17h5f699aa0adc0ac65E.exit"
   %96 = landingpad { ptr, i32 }
@@ -10158,7 +10158,7 @@ common.resume:                                    ; preds = %104, %95
           cleanup
   store i64 %.sroa.7.019.i, ptr %122, align 8, !noalias !2192
   invoke void @"_ZN4core3ptr82drop_in_place$LT$alloc..vec..Vec$LT$serde..__private..de..content..Content$GT$$GT$17h90c9dd416924b3b1E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %5) #33
-          to label %common.resume8 unwind label %133, !noalias !2199
+          to label %common.resume9 unwind label %133, !noalias !2199
 
 "_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17h63980a95ff355afeE.llvm.12411732638658174862.exit": ; preds = %.lr.ph.i, %128, %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$16with_capacity_in17h8a087be098dd34fdE.llvm.12411732638658174862.exit.i"
   store i64 %111, ptr %122, align 8, !noalias !2192

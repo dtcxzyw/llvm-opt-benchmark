@@ -122,47 +122,47 @@ define i32 @Fxu_PairHashKey(ptr noundef readnone captures(none) %0, ptr noundef 
 
 .outer:                                           ; preds = %16, %6
   %.058.ph = phi i32 [ %19, %16 ], [ 0, %6 ]
-  %.056.ph = phi i32 [ %.056.ph63, %16 ], [ 0, %6 ]
+  %.056.ph = phi i32 [ %.056.ph65, %16 ], [ 0, %6 ]
   %.054.ph = phi i32 [ %.054, %16 ], [ 0, %6 ]
   %.052.ph.in = phi ptr [ %17, %16 ], [ %7, %6 ]
   %.050.ph.in = phi ptr [ %18, %16 ], [ %8, %6 ]
   %.0.ph = phi i32 [ %.0, %16 ], [ 0, %6 ]
   %.050.ph = load ptr, ptr %.050.ph.in, align 8, !tbaa !8
-  br label %.outer62
+  br label %.outer64
 
-.outer62:                                         ; preds = %.outer62.backedge, %.outer
-  %.056.ph63 = phi i32 [ %.056.ph, %.outer ], [ %.056.ph63.be, %.outer62.backedge ]
-  %.054.ph64 = phi i32 [ %.054.ph, %.outer ], [ %.054, %.outer62.backedge ]
-  %.052.ph65.in = phi ptr [ %.052.ph.in, %.outer ], [ %.052.ph65.be.in, %.outer62.backedge ]
-  %.050.ph66 = phi ptr [ %.050.ph, %.outer ], [ %.050.ph66.be, %.outer62.backedge ]
-  %.0.ph67 = phi i32 [ %.0.ph, %.outer ], [ %.0.ph67.be, %.outer62.backedge ]
-  %.052.ph65 = load ptr, ptr %.052.ph65.in, align 8, !tbaa !8
-  br label %.outer68
+.outer64:                                         ; preds = %.outer64.backedge, %.outer
+  %.056.ph65 = phi i32 [ %.056.ph, %.outer ], [ %.056.ph65.be, %.outer64.backedge ]
+  %.054.ph66 = phi i32 [ %.054.ph, %.outer ], [ %.054, %.outer64.backedge ]
+  %.052.ph67.in = phi ptr [ %.052.ph.in, %.outer ], [ %.052.ph67.be.in, %.outer64.backedge ]
+  %.050.ph68 = phi ptr [ %.050.ph, %.outer ], [ %.050.ph68.be, %.outer64.backedge ]
+  %.0.ph69 = phi i32 [ %.0.ph, %.outer ], [ %.0.ph69.be, %.outer64.backedge ]
+  %.052.ph67 = load ptr, ptr %.052.ph67.in, align 8, !tbaa !8
+  br label %.outer70
 
-.outer68:                                         ; preds = %.outer62, %48
-  %.054.ph69 = phi i32 [ %.054.ph64, %.outer62 ], [ %58, %48 ]
-  %.052.ph70 = phi ptr [ %.052.ph65, %.outer62 ], [ null, %48 ]
-  %.050.ph71 = phi ptr [ %.050.ph66, %.outer62 ], [ %57, %48 ]
-  %.0.ph72 = phi i32 [ %.0.ph67, %.outer62 ], [ %55, %48 ]
-  %9 = icmp ne ptr %.052.ph70, null
+.outer70:                                         ; preds = %.outer64, %48
+  %.054.ph71 = phi i32 [ %.054.ph66, %.outer64 ], [ %58, %48 ]
+  %.052.ph72 = phi ptr [ %.052.ph67, %.outer64 ], [ null, %48 ]
+  %.050.ph73 = phi ptr [ %.050.ph68, %.outer64 ], [ %57, %48 ]
+  %.0.ph74 = phi i32 [ %.0.ph69, %.outer64 ], [ %55, %48 ]
+  %9 = icmp ne ptr %.052.ph72, null
   br label %10
 
-10:                                               ; preds = %.outer68, %28
-  %.054 = phi i32 [ %37, %28 ], [ %.054.ph69, %.outer68 ]
-  %.050 = phi ptr [ %36, %28 ], [ %.050.ph71, %.outer68 ]
-  %.0 = phi i32 [ %34, %28 ], [ %.0.ph72, %.outer68 ]
+10:                                               ; preds = %.outer70, %28
+  %.054 = phi i32 [ %37, %28 ], [ %.054.ph71, %.outer70 ]
+  %.050 = phi ptr [ %36, %28 ], [ %.050.ph73, %.outer70 ]
+  %.0 = phi i32 [ %34, %28 ], [ %.0.ph74, %.outer70 ]
   %11 = icmp ne ptr %.050, null
   %or.cond = select i1 %9, i1 %11, i1 false
   br i1 %or.cond, label %12, label %38
 
 12:                                               ; preds = %10
-  %13 = load i32, ptr %.052.ph70, align 8, !tbaa !10
+  %13 = load i32, ptr %.052.ph72, align 8, !tbaa !10
   %14 = load i32, ptr %.050, align 8, !tbaa !10
   %15 = icmp eq i32 %13, %14
   br i1 %15, label %16, label %20
 
 16:                                               ; preds = %12
-  %17 = getelementptr inbounds nuw i8, ptr %.052.ph70, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %.052.ph72, i64 32
   %18 = getelementptr inbounds nuw i8, ptr %.050, i64 32
   %19 = add nuw nsw i32 %.058.ph, 1
   br label %.outer
@@ -172,20 +172,20 @@ define i32 @Fxu_PairHashKey(ptr noundef readnone captures(none) %0, ptr noundef 
   br i1 %21, label %22, label %28
 
 22:                                               ; preds = %20
-  %23 = add nsw i32 %.056.ph63, 100
+  %23 = add nsw i32 %.056.ph65, 100
   %24 = sext i32 %23 to i64
   %25 = getelementptr inbounds [304 x i32], ptr @s_Primes, i64 0, i64 %24
   %26 = load i32, ptr %25, align 4, !tbaa !17
   %27 = mul nsw i32 %26, %13
-  br label %.outer62.backedge
+  br label %.outer64.backedge
 
-.outer62.backedge:                                ; preds = %22, %40
-  %.050.ph66.be = phi ptr [ null, %40 ], [ %.050, %22 ]
+.outer64.backedge:                                ; preds = %22, %40
+  %.050.ph68.be = phi ptr [ null, %40 ], [ %.050, %22 ]
   %.pn = phi i32 [ %46, %40 ], [ %27, %22 ]
-  %.0.ph67.be = xor i32 %.pn, %.0
-  %.052.ph65.be.in = getelementptr inbounds nuw i8, ptr %.052.ph70, i64 32
-  %.056.ph63.be = add nsw i32 %.056.ph63, 1
-  br label %.outer62
+  %.0.ph69.be = xor i32 %.pn, %.0
+  %.052.ph67.be.in = getelementptr inbounds nuw i8, ptr %.052.ph72, i64 32
+  %.056.ph65.be = add nsw i32 %.056.ph65, 1
+  br label %.outer64
 
 28:                                               ; preds = %20
   %29 = add nsw i32 %.054, 200
@@ -200,18 +200,18 @@ define i32 @Fxu_PairHashKey(ptr noundef readnone captures(none) %0, ptr noundef 
   br label %10
 
 38:                                               ; preds = %10
-  %39 = icmp eq ptr %.052.ph70, null
+  %39 = icmp eq ptr %.052.ph72, null
   %or.cond3 = select i1 %39, i1 true, i1 %11
   br i1 %or.cond3, label %47, label %40
 
 40:                                               ; preds = %38
-  %41 = add nsw i32 %.056.ph63, 100
+  %41 = add nsw i32 %.056.ph65, 100
   %42 = sext i32 %41 to i64
   %43 = getelementptr inbounds [304 x i32], ptr @s_Primes, i64 0, i64 %42
   %44 = load i32, ptr %43, align 4, !tbaa !17
-  %45 = load i32, ptr %.052.ph70, align 8, !tbaa !10
+  %45 = load i32, ptr %.052.ph72, align 8, !tbaa !10
   %46 = mul nsw i32 %45, %44
-  br label %.outer62.backedge
+  br label %.outer64.backedge
 
 47:                                               ; preds = %38
   %or.cond5 = select i1 %39, i1 %11, i1 false
@@ -228,11 +228,11 @@ define i32 @Fxu_PairHashKey(ptr noundef readnone captures(none) %0, ptr noundef 
   %56 = getelementptr inbounds nuw i8, ptr %.050, i64 32
   %57 = load ptr, ptr %56, align 8, !tbaa !21
   %58 = add nsw i32 %.054, 1
-  br label %.outer68
+  br label %.outer70
 
 59:                                               ; preds = %47
   store i32 %.058.ph, ptr %3, align 4, !tbaa !17
-  store i32 %.056.ph63, ptr %4, align 4, !tbaa !17
+  store i32 %.056.ph65, ptr %4, align 4, !tbaa !17
   store i32 %.054, ptr %5, align 4, !tbaa !17
   ret i32 %.0
 }
@@ -287,7 +287,7 @@ define range(i32 0, 2) i32 @Fxu_PairCompare(ptr noundef readonly captures(none) 
   %.not200 = icmp ne ptr %.1.sink, null
   %33 = zext i1 %.not200 to i32
   %34 = or disjoint i32 %32, %33
-  switch i32 %34, label %default.unreachable209 [
+  switch i32 %34, label %default.unreachable216 [
     i32 0, label %.loopexit.loopexit
     i32 1, label %.loopexit
     i32 2, label %.loopexit
@@ -577,7 +577,7 @@ define range(i32 0, 2) i32 @Fxu_PairCompare(ptr noundef readonly captures(none) 
   %190 = load ptr, ptr %189, align 8, !tbaa !21
   br label %.backedge
 
-default.unreachable209:                           ; preds = %27
+default.unreachable216:                           ; preds = %27
   unreachable
 
 .loopexit.loopexit:                               ; preds = %27, %35, %43, %56, %62, %69, %82, %89, %96, %109, %115, %127, %134, %152, %162, %164, %171, %179, %185

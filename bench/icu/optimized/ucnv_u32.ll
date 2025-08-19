@@ -1715,7 +1715,7 @@ define internal void @_ZL26_UTF32ToUnicodeWithOffsetsP23UConverterToUnicodeArgsP
   %19 = load i8, ptr %.0.ph105171, align 1, !tbaa !23
   switch i8 %19, label %.outer103.split.us.split [
     i8 0, label %.loopexit102.split.us
-    i8 -1, label %.loopexit102.split.us.loopexit233
+    i8 -1, label %.loopexit102.split.us.loopexit242
   ], !llvm.loop !58
 
 .split.us:                                        ; preds = %.outer103.split.us.split, %.outer103.split.us.split, %.outer103.split.us.split, %.outer103.split.us.split, %.outer103.split.us.split, %.outer103.split.us.split
@@ -1734,11 +1734,11 @@ define internal void @_ZL26_UTF32ToUnicodeWithOffsetsP23UConverterToUnicodeArgsP
   store ptr %.0.ph105171, ptr %5, align 8, !tbaa !3
   br i1 %15, label %62, label %63
 
-.loopexit102.split.us.loopexit233:                ; preds = %18
+.loopexit102.split.us.loopexit242:                ; preds = %18
   br label %.loopexit102.split.us
 
-.loopexit102.split.us:                            ; preds = %18, %.loopexit102.split.us.loopexit233
-  %.190 = phi i32 [ 5, %.loopexit102.split.us.loopexit233 ], [ 1, %18 ]
+.loopexit102.split.us:                            ; preds = %18, %.loopexit102.split.us.loopexit242
+  %.190 = phi i32 [ 5, %.loopexit102.split.us.loopexit242 ], [ 1, %18 ]
   %25 = getelementptr inbounds nuw i8, ptr %.0.ph105171, i64 1
   br label %.outer
 
@@ -1851,10 +1851,10 @@ define internal void @_ZL26_UTF32ToUnicodeWithOffsetsP23UConverterToUnicodeArgsP
   br i1 %75, label %.lr.ph, label %.loopexit, !llvm.loop !60
 
 .loopexit:                                        ; preds = %.lr.ph, %2, %69, %.critedge
-  %.us-phi120203 = phi i32 [ %.us-phi120, %69 ], [ %.us-phi120, %.critedge ], [ %12, %2 ], [ %.us-phi120, %.lr.ph ]
-  %.us-phi119202 = phi ptr [ %.us-phi119, %69 ], [ %.us-phi119, %.critedge ], [ %6, %2 ], [ %.us-phi119, %.lr.ph ]
-  store ptr %.us-phi119202, ptr %5, align 8, !tbaa !3
-  %76 = icmp eq ptr %.us-phi119202, %8
+  %.us-phi120212 = phi i32 [ %.us-phi120, %69 ], [ %.us-phi120, %.critedge ], [ %12, %2 ], [ %.us-phi120, %.lr.ph ]
+  %.us-phi119211 = phi ptr [ %.us-phi119, %69 ], [ %.us-phi119, %.critedge ], [ %6, %2 ], [ %.us-phi119, %.lr.ph ]
+  store ptr %.us-phi119211, ptr %5, align 8, !tbaa !3
+  %76 = icmp eq ptr %.us-phi119211, %8
   br i1 %76, label %77, label %90
 
 77:                                               ; preds = %.loopexit
@@ -1864,7 +1864,7 @@ define internal void @_ZL26_UTF32ToUnicodeWithOffsetsP23UConverterToUnicodeArgsP
   br i1 %.not100, label %90, label %80
 
 80:                                               ; preds = %77
-  switch i32 %.us-phi120203, label %83 [
+  switch i32 %.us-phi120212, label %83 [
     i32 0, label %90
     i32 8, label %81
     i32 9, label %82
@@ -1879,21 +1879,21 @@ define internal void @_ZL26_UTF32ToUnicodeWithOffsetsP23UConverterToUnicodeArgsP
   br label %90
 
 83:                                               ; preds = %80
-  %84 = and i32 %.us-phi120203, 4
+  %84 = and i32 %.us-phi120212, 4
   %85 = zext nneg i32 %84 to i64
   %86 = getelementptr inbounds nuw i8, ptr @_ZL8utf32BOM, i64 %85
   store ptr %86, ptr %5, align 8, !tbaa !3
-  %87 = and i32 %.us-phi120203, 3
+  %87 = and i32 %.us-phi120212, 3
   %88 = zext nneg i32 %87 to i64
   %89 = getelementptr inbounds nuw i8, ptr %86, i64 %88
   store ptr %89, ptr %7, align 8, !tbaa !14
   tail call void @_ZL31T_UConverter_toUnicode_UTF32_BEP23UConverterToUnicodeArgsP10UErrorCode(ptr noundef nonnull %0, ptr noundef %1)
-  store ptr %.us-phi119202, ptr %5, align 8, !tbaa !3
+  store ptr %.us-phi119211, ptr %5, align 8, !tbaa !3
   store ptr %8, ptr %7, align 8, !tbaa !14
   br label %90
 
 90:                                               ; preds = %80, %81, %82, %83, %77, %.loopexit
-  %.3 = phi i32 [ 8, %83 ], [ %.us-phi120203, %80 ], [ 8, %81 ], [ 9, %82 ], [ %.us-phi120203, %77 ], [ %.us-phi120203, %.loopexit ]
+  %.3 = phi i32 [ 8, %83 ], [ %.us-phi120212, %80 ], [ 8, %81 ], [ 9, %82 ], [ %.us-phi120212, %77 ], [ %.us-phi120212, %.loopexit ]
   store i32 %.3, ptr %11, align 4, !tbaa !57
   ret void
 }

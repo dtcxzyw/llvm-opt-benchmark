@@ -66,7 +66,7 @@ define void @reset(ptr noundef captures(none) initializes((0, 8)) %0) local_unna
   br i1 %10, label %.lr.ph17, label %._crit_edge
 
 .lr.ph17:                                         ; preds = %.preheader.thread, %.preheader
-  %.0.lcssa25 = phi i64 [ %19, %.preheader.thread ], [ 0, %.preheader ]
+  %.0.lcssa26 = phi i64 [ %19, %.preheader.thread ], [ 0, %.preheader ]
   %11 = add nsw i32 %3, 2
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load ptr, ptr %12, align 8, !tbaa !14
@@ -89,7 +89,7 @@ define void @reset(ptr noundef captures(none) initializes((0, 8)) %0) local_unna
   br label %.lr.ph17
 
 20:                                               ; preds = %.lr.ph17, %20
-  %indvars.iv19 = phi i64 [ %.0.lcssa25, %.lr.ph17 ], [ %indvars.iv.next20, %20 ]
+  %indvars.iv19 = phi i64 [ %.0.lcssa26, %.lr.ph17 ], [ %indvars.iv.next20, %20 ]
   %21 = getelementptr inbounds nuw %struct.snode, ptr %13, i64 %indvars.iv19, i32 4
   store i16 0, ptr %21, align 8, !tbaa !15
   %indvars.iv.next20 = add nuw nsw i64 %indvars.iv19, 1
@@ -188,8 +188,8 @@ gv_calloc.exit25:                                 ; preds = %.thread.i24, %29
   br i1 %41, label %.lr.ph31, label %._crit_edge
 
 .lr.ph31:                                         ; preds = %.preheader.thread, %.preheader
-  %.0.lcssa42 = phi ptr [ %48, %.preheader.thread ], [ %20, %.preheader ]
-  %.019.lcssa41 = phi i64 [ %49, %.preheader.thread ], [ 0, %.preheader ]
+  %.0.lcssa47 = phi ptr [ %48, %.preheader.thread ], [ %20, %.preheader ]
+  %.019.lcssa46 = phi i64 [ %49, %.preheader.thread ], [ 0, %.preheader ]
   %42 = add nsw i32 %3, 2
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %44 = load ptr, ptr %43, align 8, !tbaa !14
@@ -212,8 +212,8 @@ gv_calloc.exit25:                                 ; preds = %.thread.i24, %29
   br label %.lr.ph31
 
 50:                                               ; preds = %.lr.ph31, %50
-  %indvars.iv34 = phi i64 [ %.019.lcssa41, %.lr.ph31 ], [ %indvars.iv.next35, %50 ]
-  %.130 = phi ptr [ %.0.lcssa42, %.lr.ph31 ], [ %52, %50 ]
+  %indvars.iv34 = phi i64 [ %.019.lcssa46, %.lr.ph31 ], [ %indvars.iv.next35, %50 ]
+  %.130 = phi ptr [ %.0.lcssa47, %.lr.ph31 ], [ %52, %50 ]
   %51 = getelementptr inbounds nuw %struct.snode, ptr %44, i64 %indvars.iv34, i32 7
   store ptr %.130, ptr %51, align 8, !tbaa !28
   %52 = getelementptr inbounds i32, ptr %.130, i64 %45
@@ -226,7 +226,7 @@ gv_calloc.exit25:                                 ; preds = %.thread.i24, %29
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define noalias noundef ptr @createSGraph(i32 noundef %0) local_unnamed_addr #1 {
+define noalias nonnull ptr @createSGraph(i32 noundef %0) local_unnamed_addr #1 {
   %2 = tail call noalias dereferenceable_or_null(32) ptr @calloc(i64 noundef 1, i64 noundef 32) #11
   %3 = icmp eq ptr %2, null
   br i1 %3, label %4, label %gv_alloc.exit
@@ -434,8 +434,8 @@ define range(i32 0, 2) i32 @shortPath(ptr noundef readonly captures(none) %0, pt
   br label %adjacentNode.exit
 
 adjacentNode.exit:                                ; preds = %27, %38
-  %.sink1.i = phi i32 [ %40, %38 ], [ %35, %27 ]
-  %41 = sext i32 %.sink1.i to i64
+  %.sink2.i = phi i32 [ %40, %38 ], [ %35, %27 ]
+  %41 = sext i32 %.sink2.i to i64
   %42 = getelementptr inbounds %struct.snode, ptr %37, i64 %41
   %43 = load i32, ptr %42, align 8, !tbaa !39
   %44 = icmp slt i32 %43, 0

@@ -384,8 +384,8 @@ define internal fastcc range(i32 -2147483647, -2147483648) i32 @ff_poll_interrup
 
 .critedge.us.preheader:                           ; preds = %4
   %6 = tail call i32 @ff_check_interrupt(ptr noundef %3) #12
-  %.not.us40 = icmp eq i32 %6, 0
-  br i1 %.not.us40, label %.lr.ph, label %.loopexit
+  %.not.us43 = icmp eq i32 %6, 0
+  br i1 %.not.us43, label %.lr.ph, label %.loopexit
 
 .critedge.outer.preheader:                        ; preds = %4
   %7 = udiv i32 %2, 100
@@ -884,23 +884,23 @@ ff_socket.exit._crit_edge.i:                      ; preds = %ff_socket.exit.i
   store i64 %105, ptr %68, align 8, !tbaa !44
   store ptr %.0108146, ptr %69, align 8, !tbaa !45
   %106 = call i32 @ff_socket_nonblock(i32 noundef %.0.i.i, i32 noundef 1) #12
-  br i1 %.not.i102, label %.preheader253, label %107
+  br i1 %.not.i102, label %.preheader267, label %107
 
-.preheader253:                                    ; preds = %107, %103
+.preheader267:                                    ; preds = %107, %103
   br label %112
 
 107:                                              ; preds = %103
   %108 = load i32, ptr %79, align 4, !tbaa !38
   %109 = call i32 %5(ptr noundef %6, i32 noundef %.0.i.i, i32 noundef %108) #12
   %.not35.i = icmp eq i32 %109, 0
-  br i1 %.not35.i, label %.preheader253, label %110
+  br i1 %.not35.i, label %.preheader267, label %110
 
 110:                                              ; preds = %107
   %111 = call i32 @close(i32 noundef %.0.i.i) #12
   store i32 -1, ptr %67, align 8, !tbaa !42
   br label %start_connect_attempt.exit
 
-112:                                              ; preds = %.preheader253, %119
+112:                                              ; preds = %.preheader267, %119
   %113 = load ptr, ptr %72, align 8, !tbaa !30
   %114 = load i32, ptr %74, align 8, !tbaa !34
   %115 = call i32 @connect(i32 noundef %.0.i.i, ptr noundef %113, i32 noundef %114) #12
@@ -988,7 +988,7 @@ start_connect_attempt.exit:                       ; preds = %99, %110, %122
   store i16 4, ptr %138, align 4, !tbaa !10
   %139 = call i64 @av_gettime_relative() #12
   %140 = add nsw i64 %139, 200000
-  %141 = add i32 %.081.ph153, 1
+  %141 = add nsw i32 %.081.ph153, 1
   br label %.loopexit122
 
 .loopexit122:                                     ; preds = %.lr.ph.split, %.lr.ph, %136
@@ -1156,8 +1156,8 @@ start_connect_attempt.exit:                       ; preds = %99, %110, %122
   br i1 %221, label %.lr.ph163.preheader, label %._crit_edge164
 
 .lr.ph163.preheader:                              ; preds = %144, %.loopexit121
-  %.182208 = phi i32 [ %.081.ph153, %.loopexit121 ], [ %.283, %144 ]
-  %wide.trip.count203 = zext nneg i32 %.182208 to i64
+  %.182222 = phi i32 [ %.081.ph153, %.loopexit121 ], [ %.283, %144 ]
+  %wide.trip.count203 = zext nneg i32 %.182222 to i64
   br label %.lr.ph163
 
 .lr.ph163:                                        ; preds = %.lr.ph163.preheader, %.lr.ph163

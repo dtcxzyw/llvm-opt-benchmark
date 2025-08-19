@@ -357,9 +357,9 @@ Vec_PtrPush.exit28.i.i:                           ; preds = %149, %Vec_PtrGrow.e
   %159 = phi i32 [ %68, %Vec_PtrPush.exit.i.i ], [ %68, %Vec_PtrPush.exit28.i.i ], [ %126, %Vec_PtrPush.exit21.i.i ]
   %160 = phi i32 [ %69, %Vec_PtrPush.exit.i.i ], [ %69, %Vec_PtrPush.exit28.i.i ], [ %128, %Vec_PtrPush.exit21.i.i ]
   %.sink.i.i = phi i32 [ %65, %Vec_PtrPush.exit.i.i ], [ %67, %Vec_PtrPush.exit28.i.i ], [ %69, %Vec_PtrPush.exit21.i.i ]
-  %.sink34.i.i = phi ptr [ %100, %Vec_PtrPush.exit.i.i ], [ %152, %Vec_PtrPush.exit28.i.i ], [ %127, %Vec_PtrPush.exit21.i.i ]
+  %.sink42.i.i = phi ptr [ %100, %Vec_PtrPush.exit.i.i ], [ %152, %Vec_PtrPush.exit28.i.i ], [ %127, %Vec_PtrPush.exit21.i.i ]
   %161 = sext i32 %.sink.i.i to i64
-  %162 = getelementptr inbounds ptr, ptr %.sink34.i.i, i64 %161
+  %162 = getelementptr inbounds ptr, ptr %.sink42.i.i, i64 %161
   store ptr %71, ptr %162, align 8, !tbaa !28
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i74 = icmp eq i64 %indvars.iv.next.i.i, %63
@@ -1195,10 +1195,10 @@ tailrecurse:                                      ; preds = %.lr.ph
 
 Vec_PtrPushUnique.exit.sink.split:                ; preds = %Vec_PtrPush.exit.i, %Vec_PtrPush.exit.i15
   %.sink = phi i32 [ %80, %Vec_PtrPush.exit.i15 ], [ %40, %Vec_PtrPush.exit.i ]
-  %.sink43 = phi ptr [ %79, %Vec_PtrPush.exit.i15 ], [ %39, %Vec_PtrPush.exit.i ]
+  %.sink49 = phi ptr [ %79, %Vec_PtrPush.exit.i15 ], [ %39, %Vec_PtrPush.exit.i ]
   %.tr38.lcssa.sink = phi ptr [ %.tr38, %Vec_PtrPush.exit.i15 ], [ %.tr.lcssa, %Vec_PtrPush.exit.i ]
   %107 = sext i32 %.sink to i64
-  %108 = getelementptr inbounds ptr, ptr %.sink43, i64 %107
+  %108 = getelementptr inbounds ptr, ptr %.sink49, i64 %107
   store ptr %.tr38.lcssa.sink, ptr %108, align 8, !tbaa !28
   br label %Vec_PtrPushUnique.exit
 

@@ -3982,15 +3982,15 @@ sw.default:                                       ; preds = %entry
   unreachable
 
 return.sink.split:                                ; preds = %while.end.loopexit.i.i.i.i.i.i.i.i, %sw.bb3, %while.end.loopexit.i.i.i.i.i.i.i, %sw.bb2
-  %.sink9 = phi ptr [ %.pre.i.i.i.i.i.i.i, %while.end.loopexit.i.i.i.i.i.i.i ], [ %2, %sw.bb2 ], [ %.pre.i.i.i.i.i.i.i.i, %while.end.loopexit.i.i.i.i.i.i.i.i ], [ %11, %sw.bb3 ]
-  %.sink8 = phi i64 [ 16, %while.end.loopexit.i.i.i.i.i.i.i ], [ 16, %sw.bb2 ], [ 48, %while.end.loopexit.i.i.i.i.i.i.i.i ], [ 48, %sw.bb3 ]
-  %.sink7.in = phi ptr [ %base_.i.i.i.i.i.i, %while.end.loopexit.i.i.i.i.i.i.i ], [ %base_.i.i.i.i.i.i, %sw.bb2 ], [ %base_.i.i.i.i.i.i.i, %while.end.loopexit.i.i.i.i.i.i.i.i ], [ %base_.i.i.i.i.i.i.i, %sw.bb3 ]
-  %head_3.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sink9, i64 8
+  %.sink12 = phi ptr [ %.pre.i.i.i.i.i.i.i, %while.end.loopexit.i.i.i.i.i.i.i ], [ %2, %sw.bb2 ], [ %.pre.i.i.i.i.i.i.i.i, %while.end.loopexit.i.i.i.i.i.i.i.i ], [ %11, %sw.bb3 ]
+  %.sink11 = phi i64 [ 16, %while.end.loopexit.i.i.i.i.i.i.i ], [ 16, %sw.bb2 ], [ 48, %while.end.loopexit.i.i.i.i.i.i.i.i ], [ 48, %sw.bb3 ]
+  %.sink10.in = phi ptr [ %base_.i.i.i.i.i.i, %while.end.loopexit.i.i.i.i.i.i.i ], [ %base_.i.i.i.i.i.i, %sw.bb2 ], [ %base_.i.i.i.i.i.i.i, %while.end.loopexit.i.i.i.i.i.i.i.i ], [ %base_.i.i.i.i.i.i.i, %sw.bb3 ]
+  %head_3.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sink12, i64 8
   store ptr null, ptr %head_3.i.i.i.i.i.i.i, align 8
-  %previous_.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__variants, i64 %.sink8
+  %previous_.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__variants, i64 %.sink11
   %.sink = load ptr, ptr %previous_.i.i.i.i.i.i, align 8
-  %.sink7 = load ptr, ptr %.sink7.in, align 8
-  %scope_.i.i.i.i.i.i.i6 = getelementptr inbounds nuw i8, ptr %.sink7, i64 24
+  %.sink10 = load ptr, ptr %.sink10.in, align 8
+  %scope_.i.i.i.i.i.i.i6 = getelementptr inbounds nuw i8, ptr %.sink10, i64 24
   store ptr %.sink, ptr %scope_.i.i.i.i.i.i.i6, align 8
   br label %return
 

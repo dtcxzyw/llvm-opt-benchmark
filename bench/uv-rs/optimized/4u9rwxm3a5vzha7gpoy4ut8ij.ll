@@ -894,9 +894,9 @@ define hidden void @_ZN16uv_install_wheel7install13install_wheel17hfd424773679a9
 263:                                              ; preds = %257
   %264 = load i64, ptr %227, align 8, !noundef !6
   %265 = icmp eq i64 %264, %230
-  br i1 %265, label %322, label %.thread1105
+  br i1 %265, label %322, label %.thread1144
 
-.thread1105:                                      ; preds = %263
+.thread1144:                                      ; preds = %263
   call void @llvm.lifetime.start.p0(ptr nonnull %112)
   call void @llvm.lifetime.start.p0(ptr nonnull %111)
   br label %270
@@ -914,9 +914,9 @@ define hidden void @_ZN16uv_install_wheel7install13install_wheel17hfd424773679a9
   %269 = icmp eq i8 %.pre1101, 0
   br i1 %269, label %277, label %270
 
-270:                                              ; preds = %.thread1105, %268
-  %271 = phi ptr [ %227, %.thread1105 ], [ %.pre, %268 ]
-  %272 = phi i8 [ %259, %.thread1105 ], [ %.pre1101, %268 ]
+270:                                              ; preds = %.thread1144, %268
+  %271 = phi ptr [ %227, %.thread1144 ], [ %.pre, %268 ]
+  %272 = phi i8 [ %259, %.thread1144 ], [ %.pre1101, %268 ]
   %273 = getelementptr inbounds nuw i8, ptr %271, i64 8
   %274 = load i8, ptr %273, align 8, !noundef !6
   %275 = load i64, ptr %271, align 8, !noundef !6
@@ -1583,8 +1583,8 @@ define hidden void @_ZN16uv_install_wheel7install13install_wheel17hfd424773679a9
   invoke void @"_ZN4core3ptr76drop_in_place$LT$alloc..vec..Vec$LT$uv_install_wheel..script..Script$GT$$GT$17ha5cf5a3bb543f5b0E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %82) #37
           to label %728 unwind label %765
 
-469:                                              ; preds = %.invoke1110, %.critedge, %771, %727, %563, %552, %548, %540, %535, %.critedge854, %.thread1030, %510, %502, %.thread1024, %476
-  %.sroa.0379.3 = phi i8 [ %.sroa.0379.81076, %771 ], [ 0, %727 ], [ 1, %563 ], [ 1, %502 ], [ 1, %.thread1024 ], [ 1, %476 ], [ 1, %552 ], [ 1, %540 ], [ 1, %548 ], [ 1, %.critedge854 ], [ 1, %535 ], [ 1, %.thread1030 ], [ 1, %510 ], [ 1, %.critedge ], [ 1, %.invoke1110 ]
+469:                                              ; preds = %.invoke1149, %.critedge, %771, %727, %563, %552, %548, %540, %535, %.critedge854, %.thread1030, %510, %502, %.thread1024, %476
+  %.sroa.0379.3 = phi i8 [ %.sroa.0379.81076, %771 ], [ 0, %727 ], [ 1, %563 ], [ 1, %502 ], [ 1, %.thread1024 ], [ 1, %476 ], [ 1, %552 ], [ 1, %540 ], [ 1, %548 ], [ 1, %.critedge854 ], [ 1, %535 ], [ 1, %.thread1030 ], [ 1, %510 ], [ 1, %.critedge ], [ 1, %.invoke1149 ]
   %470 = landingpad { ptr, i32 }
           cleanup
   br label %468
@@ -1655,7 +1655,7 @@ define hidden void @_ZN16uv_install_wheel7install13install_wheel17hfd424773679a9
   call void @llvm.lifetime.start.p0(ptr nonnull %80)
   call void @llvm.lifetime.start.p0(ptr nonnull %79)
   %.not814 = icmp eq i64 %491, 0
-  br i1 %.not814, label %.invoke1110, label %497
+  br i1 %.not814, label %.invoke1149, label %497
 
 497:                                              ; preds = %487
   store ptr %492, ptr %79, align 8
@@ -1679,7 +1679,7 @@ define hidden void @_ZN16uv_install_wheel7install13install_wheel17hfd424773679a9
   store i64 0, ptr %501, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %77)
   %.not1092 = icmp eq i64 %491, 1
-  br i1 %.not1092, label %.invoke1110, label %502
+  br i1 %.not1092, label %.invoke1149, label %502
 
 502:                                              ; preds = %497
   store ptr %492, ptr %77, align 8
@@ -1770,7 +1770,7 @@ define hidden void @_ZN16uv_install_wheel7install13install_wheel17hfd424773679a9
   call void @llvm.lifetime.start.p0(ptr nonnull %75)
   call void @llvm.lifetime.start.p0(ptr nonnull %74)
   %.not813 = icmp eq i64 %523, 0
-  br i1 %.not813, label %.invoke1110, label %529
+  br i1 %.not813, label %.invoke1149, label %529
 
 529:                                              ; preds = %519
   store ptr %524, ptr %74, align 8
@@ -1794,14 +1794,14 @@ define hidden void @_ZN16uv_install_wheel7install13install_wheel17hfd424773679a9
   store i64 0, ptr %533, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %72)
   %.not1091 = icmp eq i64 %523, 1
-  br i1 %.not1091, label %.invoke1110, label %535
+  br i1 %.not1091, label %.invoke1149, label %535
 
-.invoke1110:                                      ; preds = %529, %519, %497, %487
+.invoke1149:                                      ; preds = %529, %519, %497, %487
   %534 = phi ptr [ @anon.bdae0b95be7c07854914f555fad99aa0.24, %487 ], [ @anon.bdae0b95be7c07854914f555fad99aa0.24, %497 ], [ @anon.bdae0b95be7c07854914f555fad99aa0.27, %519 ], [ @anon.bdae0b95be7c07854914f555fad99aa0.27, %529 ]
   invoke void @_ZN4core6option13expect_failed17h653f5dbca1fa5fc0E(ptr noalias noundef nonnull readonly align 1 @anon.bdae0b95be7c07854914f555fad99aa0.5, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) %534) #36
-          to label %.cont1111 unwind label %469
+          to label %.cont1150 unwind label %469
 
-.cont1111:                                        ; preds = %.invoke1110
+.cont1150:                                        ; preds = %.invoke1149
   unreachable
 
 535:                                              ; preds = %529
@@ -1927,9 +1927,9 @@ define hidden void @_ZN16uv_install_wheel7install13install_wheel17hfd424773679a9
   %571 = trunc nuw i8 %.sroa.0370.1 to i1
   br i1 %571, label %773, label %468
 
-572:                                              ; preds = %.invoke1114, %.invoke1112, %.critedge871, %"_ZN4core3ptr97drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$uv_install_wheel..record..RecordEntry$GT$$GT$17hc787ca9a81e5ad6dE.exit910", %"_ZN4core3ptr97drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$uv_install_wheel..record..RecordEntry$GT$$GT$17hc787ca9a81e5ad6dE.exit903", %710, %699, %698, %695, %.thread1056, %669, %656, %.critedge866, %.thread1048, %632, %626, %622, %616, %.thread1040, %594, %575, %564
-  %.sroa.0370.0 = phi i8 [ %.sroa.0370.2, %710 ], [ %.sroa.0370.2, %"_ZN4core3ptr97drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$uv_install_wheel..record..RecordEntry$GT$$GT$17hc787ca9a81e5ad6dE.exit903" ], [ %.sroa.0370.2, %"_ZN4core3ptr97drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$uv_install_wheel..record..RecordEntry$GT$$GT$17hc787ca9a81e5ad6dE.exit910" ], [ %.sroa.0370.2, %699 ], [ %.sroa.0370.2, %698 ], [ %.sroa.0370.2, %695 ], [ %.sroa.0370.2, %.thread1056 ], [ %.sroa.0370.2, %669 ], [ %.sroa.0370.2, %.critedge866 ], [ %.sroa.0370.2, %656 ], [ %.sroa.0370.2, %.thread1048 ], [ %.sroa.0370.2, %632 ], [ 0, %626 ], [ 0, %622 ], [ 1, %575 ], [ 1, %616 ], [ 1, %.thread1040 ], [ 1, %594 ], [ 1, %564 ], [ %.sroa.0370.2, %.critedge871 ], [ %.sroa.0370.2, %.invoke1112 ], [ 1, %.invoke1114 ]
-  %.sroa.0379.6 = phi i8 [ 1, %710 ], [ 0, %"_ZN4core3ptr97drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$uv_install_wheel..record..RecordEntry$GT$$GT$17hc787ca9a81e5ad6dE.exit903" ], [ 0, %"_ZN4core3ptr97drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$uv_install_wheel..record..RecordEntry$GT$$GT$17hc787ca9a81e5ad6dE.exit910" ], [ 1, %699 ], [ 1, %698 ], [ 1, %695 ], [ 1, %.thread1056 ], [ 1, %669 ], [ 1, %.critedge866 ], [ 1, %656 ], [ 1, %.thread1048 ], [ 1, %632 ], [ 1, %626 ], [ 1, %622 ], [ 1, %575 ], [ 1, %616 ], [ 1, %.thread1040 ], [ 1, %594 ], [ 1, %564 ], [ 1, %.critedge871 ], [ 1, %.invoke1112 ], [ 1, %.invoke1114 ]
+572:                                              ; preds = %.invoke1153, %.invoke1151, %.critedge871, %"_ZN4core3ptr97drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$uv_install_wheel..record..RecordEntry$GT$$GT$17hc787ca9a81e5ad6dE.exit910", %"_ZN4core3ptr97drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$uv_install_wheel..record..RecordEntry$GT$$GT$17hc787ca9a81e5ad6dE.exit903", %710, %699, %698, %695, %.thread1056, %669, %656, %.critedge866, %.thread1048, %632, %626, %622, %616, %.thread1040, %594, %575, %564
+  %.sroa.0370.0 = phi i8 [ %.sroa.0370.2, %710 ], [ %.sroa.0370.2, %"_ZN4core3ptr97drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$uv_install_wheel..record..RecordEntry$GT$$GT$17hc787ca9a81e5ad6dE.exit903" ], [ %.sroa.0370.2, %"_ZN4core3ptr97drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$uv_install_wheel..record..RecordEntry$GT$$GT$17hc787ca9a81e5ad6dE.exit910" ], [ %.sroa.0370.2, %699 ], [ %.sroa.0370.2, %698 ], [ %.sroa.0370.2, %695 ], [ %.sroa.0370.2, %.thread1056 ], [ %.sroa.0370.2, %669 ], [ %.sroa.0370.2, %.critedge866 ], [ %.sroa.0370.2, %656 ], [ %.sroa.0370.2, %.thread1048 ], [ %.sroa.0370.2, %632 ], [ 0, %626 ], [ 0, %622 ], [ 1, %575 ], [ 1, %616 ], [ 1, %.thread1040 ], [ 1, %594 ], [ 1, %564 ], [ %.sroa.0370.2, %.critedge871 ], [ %.sroa.0370.2, %.invoke1151 ], [ 1, %.invoke1153 ]
+  %.sroa.0379.6 = phi i8 [ 1, %710 ], [ 0, %"_ZN4core3ptr97drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$uv_install_wheel..record..RecordEntry$GT$$GT$17hc787ca9a81e5ad6dE.exit903" ], [ 0, %"_ZN4core3ptr97drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$uv_install_wheel..record..RecordEntry$GT$$GT$17hc787ca9a81e5ad6dE.exit910" ], [ 1, %699 ], [ 1, %698 ], [ 1, %695 ], [ 1, %.thread1056 ], [ 1, %669 ], [ 1, %.critedge866 ], [ 1, %656 ], [ 1, %.thread1048 ], [ 1, %632 ], [ 1, %626 ], [ 1, %622 ], [ 1, %575 ], [ 1, %616 ], [ 1, %.thread1040 ], [ 1, %594 ], [ 1, %564 ], [ 1, %.critedge871 ], [ 1, %.invoke1151 ], [ 1, %.invoke1153 ]
   %573 = landingpad { ptr, i32 }
           cleanup
   br label %570
@@ -2002,7 +2002,7 @@ define hidden void @_ZN16uv_install_wheel7install13install_wheel17hfd424773679a9
   call void @llvm.lifetime.start.p0(ptr nonnull %63)
   call void @llvm.lifetime.start.p0(ptr nonnull %62)
   %.not815 = icmp eq i64 %605, 0
-  br i1 %.not815, label %.invoke1114, label %611
+  br i1 %.not815, label %.invoke1153, label %611
 
 611:                                              ; preds = %601
   store ptr %606, ptr %62, align 8
@@ -2026,13 +2026,13 @@ define hidden void @_ZN16uv_install_wheel7install13install_wheel17hfd424773679a9
   store i64 0, ptr %615, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %60)
   %.not1093 = icmp eq i64 %605, 1
-  br i1 %.not1093, label %.invoke1114, label %616
+  br i1 %.not1093, label %.invoke1153, label %616
 
-.invoke1114:                                      ; preds = %611, %601
+.invoke1153:                                      ; preds = %611, %601
   invoke void @_ZN4core6option13expect_failed17h653f5dbca1fa5fc0E(ptr noalias noundef nonnull readonly align 1 @anon.bdae0b95be7c07854914f555fad99aa0.5, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.bdae0b95be7c07854914f555fad99aa0.32) #36
-          to label %.cont1115 unwind label %572
+          to label %.cont1154 unwind label %572
 
-.cont1115:                                        ; preds = %.invoke1114
+.cont1154:                                        ; preds = %.invoke1153
   unreachable
 
 616:                                              ; preds = %611
@@ -2156,7 +2156,7 @@ define hidden void @_ZN16uv_install_wheel7install13install_wheel17hfd424773679a9
   call void @llvm.lifetime.start.p0(ptr nonnull %58)
   call void @llvm.lifetime.start.p0(ptr nonnull %57)
   %.not816 = icmp eq i64 %645, 0
-  br i1 %.not816, label %.invoke1112, label %651
+  br i1 %.not816, label %.invoke1151, label %651
 
 651:                                              ; preds = %641
   store ptr %646, ptr %57, align 8
@@ -2180,7 +2180,7 @@ define hidden void @_ZN16uv_install_wheel7install13install_wheel17hfd424773679a9
   store i64 0, ptr %655, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %55)
   %.not1094 = icmp eq i64 %645, 1
-  br i1 %.not1094, label %.invoke1112, label %656
+  br i1 %.not1094, label %.invoke1151, label %656
 
 656:                                              ; preds = %651
   store ptr %646, ptr %55, align 8
@@ -2334,7 +2334,7 @@ define hidden void @_ZN16uv_install_wheel7install13install_wheel17hfd424773679a9
   call void @llvm.lifetime.start.p0(ptr nonnull %52)
   call void @llvm.lifetime.start.p0(ptr nonnull %51)
   %.not817 = icmp eq i64 %683, 0
-  br i1 %.not817, label %.invoke1112, label %689
+  br i1 %.not817, label %.invoke1151, label %689
 
 689:                                              ; preds = %679
   store ptr %684, ptr %51, align 8
@@ -2358,14 +2358,14 @@ define hidden void @_ZN16uv_install_wheel7install13install_wheel17hfd424773679a9
   store i64 0, ptr %693, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %49)
   %.not1095 = icmp eq i64 %683, 1
-  br i1 %.not1095, label %.invoke1112, label %695
+  br i1 %.not1095, label %.invoke1151, label %695
 
-.invoke1112:                                      ; preds = %689, %679, %651, %641
+.invoke1151:                                      ; preds = %689, %679, %651, %641
   %694 = phi ptr [ @anon.bdae0b95be7c07854914f555fad99aa0.35, %641 ], [ @anon.bdae0b95be7c07854914f555fad99aa0.35, %651 ], [ @anon.bdae0b95be7c07854914f555fad99aa0.38, %679 ], [ @anon.bdae0b95be7c07854914f555fad99aa0.38, %689 ]
   invoke void @_ZN4core6option13expect_failed17h653f5dbca1fa5fc0E(ptr noalias noundef nonnull readonly align 1 @anon.bdae0b95be7c07854914f555fad99aa0.5, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) %694) #36
-          to label %.cont1113 unwind label %572
+          to label %.cont1152 unwind label %572
 
-.cont1113:                                        ; preds = %.invoke1112
+.cont1152:                                        ; preds = %.invoke1151
   unreachable
 
 695:                                              ; preds = %689
@@ -3287,8 +3287,8 @@ define hidden noundef ptr @_ZN3std2io5Write9write_all17he9f84c55c1802b44E(ptr no
   br label %7
 
 7:                                                ; preds = %.lr.ph, %35
-  %.sroa.0.016 = phi ptr [ %1, %.lr.ph ], [ %.sroa.0.124, %35 ]
-  %.sroa.4.015 = phi i64 [ %2, %.lr.ph ], [ %.sroa.4.123, %35 ]
+  %.sroa.0.016 = phi ptr [ %1, %.lr.ph ], [ %.sroa.0.125, %35 ]
+  %.sroa.4.015 = phi i64 [ %2, %.lr.ph ], [ %.sroa.4.124, %35 ]
   %8 = call { i64, ptr } @"_ZN48_$LT$std..fs..File$u20$as$u20$std..io..Write$GT$5write17h617d25ae3ca79501E"(ptr noalias noundef nonnull align 4 dereferenceable(4) %0, ptr noalias noundef nonnull readonly align 1 %.sroa.0.016, i64 noundef %.sroa.4.015)
   %9 = extractvalue { i64, ptr } %8, 0
   %10 = extractvalue { i64, ptr } %8, 1
@@ -3370,9 +3370,9 @@ _ZN3std2io5error5Error14is_interrupted17h7eca20d7cd17b577E.llvm.8712186130389273
   br label %35
 
 35:                                               ; preds = %.thread, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h74e0331b02f96decE.exit"
-  %.sroa.0.124 = phi ptr [ %31, %.thread ], [ %.sroa.0.016, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h74e0331b02f96decE.exit" ]
-  %.sroa.4.123 = phi i64 [ %30, %.thread ], [ %.sroa.4.015, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h74e0331b02f96decE.exit" ]
-  %36 = icmp eq i64 %.sroa.4.123, 0
+  %.sroa.0.125 = phi ptr [ %31, %.thread ], [ %.sroa.0.016, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h74e0331b02f96decE.exit" ]
+  %.sroa.4.124 = phi i64 [ %30, %.thread ], [ %.sroa.4.015, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h74e0331b02f96decE.exit" ]
+  %36 = icmp eq i64 %.sroa.4.124, 0
   br i1 %36, label %.loopexit, label %7
 }
 
@@ -5400,8 +5400,8 @@ define internal fastcc void @"_ZN4rkyv4util5alloc11aligned_vec19AlignedVec$LT$_$
   unreachable
 
 "_ZN4rkyv4util5alloc11aligned_vec19AlignedVec$LT$_$GT$16grow_capacity_to17hae3f50981840e70aE.exit": ; preds = %23, %27
-  %.sink11.i.i = phi ptr [ %29, %27 ], [ %25, %23 ]
-  store ptr %.sink11.i.i, ptr %0, align 8, !alias.scope !1126
+  %.sink15.i.i = phi ptr [ %29, %27 ], [ %25, %23 ]
+  store ptr %.sink15.i.i, ptr %0, align 8, !alias.scope !1126
   store i64 %.sroa.0.0.i, ptr %21, align 8, !alias.scope !1126
   ret void
 

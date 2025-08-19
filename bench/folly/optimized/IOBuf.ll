@@ -5510,10 +5510,10 @@ define linkonce_odr noundef i64 @_ZN5folly2io10CursorBaseINS0_6CursorEKNS_5IOBuf
   %14 = load ptr, ptr %13, align 8, !tbaa !64
   %15 = icmp eq ptr %14, %9
   %16 = icmp eq i64 %.promoted36, 0
-  %or.cond56 = select i1 %15, i1 true, i1 %16
-  br i1 %or.cond56, label %.thread, label %.lr.ph58, !prof !214
+  %or.cond68 = select i1 %15, i1 true, i1 %16
+  br i1 %or.cond68, label %.thread, label %.lr.ph70, !prof !214
 
-.lr.ph58:                                         ; preds = %.lr.ph
+.lr.ph70:                                         ; preds = %.lr.ph
   %.promoted38 = load i64, ptr %12, align 8
   %.promoted37 = load ptr, ptr %11, align 8
   br label %23
@@ -5527,15 +5527,15 @@ define linkonce_odr noundef i64 @_ZN5folly2io10CursorBaseINS0_6CursorEKNS_5IOBuf
   %or.cond = select i1 %21, i1 true, i1 %22
   br i1 %or.cond, label %.thread.loopexit, label %23, !prof !215, !llvm.loop !216
 
-23:                                               ; preds = %.lr.ph58, %17
-  %24 = phi ptr [ %14, %.lr.ph58 ], [ %20, %17 ]
-  %25 = phi i64 [ %7, %.lr.ph58 ], [ %18, %17 ]
-  %.0143157 = phi i64 [ %1, %.lr.ph58 ], [ %47, %17 ]
-  %26 = phi i64 [ %5, %.lr.ph58 ], [ %48, %17 ]
-  %27 = phi i64 [ %7, %.lr.ph58 ], [ %49, %17 ]
-  %28 = phi i64 [ %.promoted36, %.lr.ph58 ], [ %45, %17 ]
-  %29 = phi ptr [ %.promoted37, %.lr.ph58 ], [ %35, %17 ]
-  %30 = phi i64 [ %.promoted38, %.lr.ph58 ], [ %33, %17 ]
+23:                                               ; preds = %.lr.ph70, %17
+  %24 = phi ptr [ %14, %.lr.ph70 ], [ %20, %17 ]
+  %25 = phi i64 [ %7, %.lr.ph70 ], [ %18, %17 ]
+  %.0143169 = phi i64 [ %1, %.lr.ph70 ], [ %47, %17 ]
+  %26 = phi i64 [ %5, %.lr.ph70 ], [ %48, %17 ]
+  %27 = phi i64 [ %7, %.lr.ph70 ], [ %49, %17 ]
+  %28 = phi i64 [ %.promoted36, %.lr.ph70 ], [ %45, %17 ]
+  %29 = phi ptr [ %.promoted37, %.lr.ph70 ], [ %35, %17 ]
+  %30 = phi i64 [ %.promoted38, %.lr.ph70 ], [ %33, %17 ]
   %31 = ptrtoint ptr %29 to i64
   %32 = sub i64 %26, %31
   %33 = add i64 %32, %30
@@ -5567,15 +5567,15 @@ define linkonce_odr noundef i64 @_ZN5folly2io10CursorBaseINS0_6CursorEKNS_5IOBuf
   br label %.thread
 
 .thread:                                          ; preds = %.thread.loopexit, %.lr.ph
-  %.lcssa51 = phi ptr [ %.promoted, %.lr.ph ], [ %46, %.thread.loopexit ]
+  %.lcssa63 = phi ptr [ %.promoted, %.lr.ph ], [ %46, %.thread.loopexit ]
   %.lcssa = phi i64 [ %7, %.lr.ph ], [ %18, %.thread.loopexit ]
-  store ptr %.lcssa51, ptr %4, align 8, !tbaa !210
+  store ptr %.lcssa63, ptr %4, align 8, !tbaa !210
   br label %89
 
 ._crit_edge43:                                    ; preds = %23, %38
   %45 = phi i64 [ %44, %38 ], [ -1, %23 ]
   %46 = phi ptr [ %43, %38 ], [ %37, %23 ]
-  %47 = sub i64 %.0143157, %27
+  %47 = sub i64 %.0143169, %27
   %48 = ptrtoint ptr %46 to i64
   %49 = sub i64 %48, %.pre
   %.not = icmp ult i64 %49, %47

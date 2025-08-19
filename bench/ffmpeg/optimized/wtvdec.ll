@@ -995,18 +995,18 @@ define internal fastcc ptr @wtvfile_open2(ptr noundef %0, ptr noundef nonnull %1
   %108 = getelementptr inbounds nuw i8, ptr %104, i64 16
   store ptr %107, ptr %108, align 8, !tbaa !62
   %.not45.i = icmp eq ptr %107, null
-  br i1 %.not45.i, label %109, label %.thread70.i
+  br i1 %.not45.i, label %109, label %.thread77.i
 
 109:                                              ; preds = %106
   tail call void @av_free(ptr noundef nonnull %104) #11
   br label %.thread84
 
-.thread70.i:                                      ; preds = %106
+.thread77.i:                                      ; preds = %106
   store i32 %93, ptr %107, align 4, !tbaa !57
   %110 = getelementptr inbounds nuw i8, ptr %104, i64 24
   store i32 1, ptr %110, align 8, !tbaa !65
-  %.not4671.i = icmp sgt i64 %91, -1
-  %111 = select i1 %.not4671.i, i32 18, i32 12
+  %.not4678.i = icmp sgt i64 %91, -1
+  %111 = select i1 %.not4678.i, i32 18, i32 12
   %112 = getelementptr inbounds nuw i8, ptr %104, i64 8
   store i32 %111, ptr %112, align 8, !tbaa !66
   br label %165
@@ -1152,8 +1152,8 @@ read_ints.exit61.i:                               ; preds = %150
   call void @av_freep(ptr noundef nonnull %6) #11
   br label %.thread84
 
-165:                                              ; preds = %159, %.thread70.i
-  %166 = phi ptr [ %112, %.thread70.i ], [ %162, %159 ]
+165:                                              ; preds = %159, %.thread77.i
+  %166 = phi ptr [ %112, %.thread77.i ], [ %162, %159 ]
   %167 = getelementptr inbounds nuw i8, ptr %104, i64 24
   %168 = load ptr, ptr %97, align 8, !tbaa !31
   %169 = tail call i64 @avio_size(ptr noundef %168) #11
@@ -3170,12 +3170,12 @@ define internal fastcc ptr @parse_media_type(ptr noundef %0, ptr noundef %1, i32
   br label %301
 
 301:                                              ; preds = %299, %296
-  %.sink534 = phi i32 [ %300, %299 ], [ %298, %296 ]
+  %.sink546 = phi i32 [ %300, %299 ], [ %298, %296 ]
   %302 = getelementptr inbounds nuw i8, ptr %.019.i480, i64 16
   %303 = load ptr, ptr %302, align 8, !tbaa !80
   %304 = getelementptr inbounds nuw i8, ptr %303, i64 4
-  store i32 %.sink534, ptr %304, align 4, !tbaa !99
-  %305 = icmp eq i32 %.sink534, 0
+  store i32 %.sink546, ptr %304, align 4, !tbaa !99
+  %305 = icmp eq i32 %.sink546, 0
   br i1 %305, label %306, label %new_stream.exit.thread
 
 306:                                              ; preds = %301

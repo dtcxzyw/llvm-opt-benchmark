@@ -119,16 +119,16 @@ define dso_local ptr @ipv6_gro_receive(ptr noundef %0, ptr noundef %1) #0 align 
   %67 = load i32, ptr %66, align 8
   %68 = and i32 %67, 1
   %69 = icmp eq i32 %68, 0
-  br i1 %69, label %.thread17.loopexit, label %.lr.ph58
+  br i1 %69, label %.thread17.loopexit, label %.lr.ph77
 
 .lr.ph:                                           ; preds = %120
   %70 = getelementptr inbounds nuw i8, ptr %125, i64 24
   %71 = load i32, ptr %70, align 8
   %72 = and i32 %71, 1
   %73 = icmp eq i32 %72, 0
-  br i1 %73, label %.thread17.loopexit, label %.lr.ph58
+  br i1 %73, label %.thread17.loopexit, label %.lr.ph77
 
-.lr.ph58:                                         ; preds = %.lr.ph.preheader, %.lr.ph
+.lr.ph77:                                         ; preds = %.lr.ph.preheader, %.lr.ph
   %74 = phi i32 [ %122, %.lr.ph ], [ %53, %.lr.ph.preheader ]
   %75 = phi i32 [ %102, %.lr.ph ], [ %6, %.lr.ph.preheader ]
   %76 = phi i32 [ %117, %.lr.ph ], [ %27, %.lr.ph.preheader ]
@@ -137,7 +137,7 @@ define dso_local ptr @ipv6_gro_receive(ptr noundef %0, ptr noundef %1) #0 align 
   %79 = icmp ult i32 %76, %77
   br i1 %79, label %80, label %92
 
-80:                                               ; preds = %.lr.ph58
+80:                                               ; preds = %.lr.ph77
   %81 = load i32, ptr %46, align 8
   %82 = load i32, ptr %63, align 4
   %83 = sub i32 %81, %82
@@ -159,9 +159,9 @@ define dso_local ptr @ipv6_gro_receive(ptr noundef %0, ptr noundef %1) #0 align 
   store i32 0, ptr %8, align 8
   br label %92
 
-92:                                               ; preds = %91, %.lr.ph58
-  %93 = phi i32 [ %76, %.lr.ph58 ], [ 0, %91 ]
-  %.pn22.in = phi ptr [ %7, %.lr.ph58 ], [ %31, %91 ]
+92:                                               ; preds = %91, %.lr.ph77
+  %93 = phi i32 [ %76, %.lr.ph77 ], [ 0, %91 ]
+  %.pn22.in = phi ptr [ %7, %.lr.ph77 ], [ %31, %91 ]
   %.pn22 = load ptr, ptr %.pn22.in, align 8
   %94 = getelementptr i8, ptr %.pn22, i64 %78
   %95 = icmp eq ptr %94, null
@@ -929,17 +929,17 @@ define internal ptr @ipv6_gso_segment(ptr noundef initializes((180, 182)) %0, i6
   %144 = load i32, ptr %143, align 8
   %145 = and i32 %144, 1
   %146 = icmp eq i32 %145, 0
-  br i1 %146, label %._crit_edge, label %.lr.ph67
+  br i1 %146, label %._crit_edge, label %.lr.ph85
 
 .lr.ph:                                           ; preds = %186
   %147 = getelementptr inbounds nuw i8, ptr %191, i64 24
   %148 = load i32, ptr %147, align 8
   %149 = and i32 %148, 1
   %150 = icmp eq i32 %149, 0
-  br i1 %150, label %._crit_edge, label %.lr.ph67
+  br i1 %150, label %._crit_edge, label %.lr.ph85
 
-.lr.ph67:                                         ; preds = %.lr.ph.preheader, %.lr.ph
-  %.in2666 = phi i8 [ %182, %.lr.ph ], [ %138, %.lr.ph.preheader ]
+.lr.ph85:                                         ; preds = %.lr.ph.preheader, %.lr.ph
+  %.in2684 = phi i8 [ %182, %.lr.ph ], [ %138, %.lr.ph.preheader ]
   %151 = phi i32 [ %183, %.lr.ph ], [ %128, %.lr.ph.preheader ]
   %152 = phi ptr [ %188, %.lr.ph ], [ %136, %.lr.ph.preheader ]
   %153 = phi i32 [ %179, %.lr.ph ], [ %129, %.lr.ph.preheader ]
@@ -947,7 +947,7 @@ define internal ptr @ipv6_gso_segment(ptr noundef initializes((180, 182)) %0, i6
   %155 = icmp ult i32 %154, 8
   br i1 %155, label %156, label %162, !prof !5
 
-156:                                              ; preds = %.lr.ph67
+156:                                              ; preds = %.lr.ph85
   %157 = icmp ult i32 %151, 8
   br i1 %157, label %._crit_edge, label %158, !prof !5
 
@@ -964,11 +964,11 @@ define internal ptr @ipv6_gso_segment(ptr noundef initializes((180, 182)) %0, i6
   %.pre57 = sub i32 %.pre51, %.pre52
   br label %162
 
-162:                                              ; preds = %._crit_edge49, %.lr.ph67
-  %.pre-phi = phi i32 [ %.pre57, %._crit_edge49 ], [ %154, %.lr.ph67 ]
-  %163 = phi i32 [ %.pre52, %._crit_edge49 ], [ %153, %.lr.ph67 ]
-  %164 = phi i32 [ %.pre51, %._crit_edge49 ], [ %151, %.lr.ph67 ]
-  %165 = phi ptr [ %.pre50, %._crit_edge49 ], [ %152, %.lr.ph67 ]
+162:                                              ; preds = %._crit_edge49, %.lr.ph85
+  %.pre-phi = phi i32 [ %.pre57, %._crit_edge49 ], [ %154, %.lr.ph85 ]
+  %163 = phi i32 [ %.pre52, %._crit_edge49 ], [ %153, %.lr.ph85 ]
+  %164 = phi i32 [ %.pre51, %._crit_edge49 ], [ %151, %.lr.ph85 ]
+  %165 = phi ptr [ %.pre50, %._crit_edge49 ], [ %152, %.lr.ph85 ]
   %166 = getelementptr inbounds nuw i8, ptr %165, i64 1
   %167 = load i8, ptr %166, align 1
   %168 = zext i8 %167 to i32
@@ -1019,7 +1019,7 @@ define internal ptr @ipv6_gso_segment(ptr noundef initializes((180, 182)) %0, i6
   br i1 %192, label %._crit_edge, label %.lr.ph, !prof !8
 
 ._crit_edge:                                      ; preds = %186, %.lr.ph, %158, %174, %156, %172, %.lr.ph.preheader, %132
-  %.in.lcssa = phi i8 [ %138, %132 ], [ %138, %.lr.ph.preheader ], [ %.in2666, %172 ], [ %.in2666, %156 ], [ %.in2666, %174 ], [ %.in2666, %158 ], [ %182, %.lr.ph ], [ %182, %186 ]
+  %.in.lcssa = phi i8 [ %138, %132 ], [ %138, %.lr.ph.preheader ], [ %.in2684, %172 ], [ %.in2684, %156 ], [ %.in2684, %174 ], [ %.in2684, %158 ], [ %182, %.lr.ph ], [ %182, %186 ]
   %193 = getelementptr inbounds nuw i8, ptr %0, i64 129
   %194 = load i24, ptr %193, align 1
   %195 = and i24 %194, 8192

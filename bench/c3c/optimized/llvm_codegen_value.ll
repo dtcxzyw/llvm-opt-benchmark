@@ -87,8 +87,8 @@ define dso_local void @llvm_value_rvalue(ptr noundef %0, ptr noundef captures(no
   %29 = phi i8 [ %27, %23 ], [ %.val, %5 ]
   br label %30
 
-30:                                               ; preds = %.backedge148, %28
-  %.0.i.in = phi ptr [ %6, %28 ], [ %.0.i.in.be, %.backedge148 ]
+30:                                               ; preds = %.backedge149, %28
+  %.0.i.in = phi ptr [ %6, %28 ], [ %.0.i.in.be, %.backedge149 ]
   %.0.i = load ptr, ptr %.0.i.in, align 8
   %31 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   %32 = load ptr, ptr %31, align 8
@@ -106,13 +106,13 @@ define dso_local void @llvm_value_rvalue(ptr noundef %0, ptr noundef captures(no
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 96
   %38 = load ptr, ptr %37, align 8
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
-  br label %.backedge148
+  br label %.backedge149
 
 40:                                               ; preds = %30
   %41 = getelementptr inbounds nuw i8, ptr %32, i64 56
-  br label %.backedge148
+  br label %.backedge149
 
-.backedge148:                                     ; preds = %40, %34
+.backedge149:                                     ; preds = %40, %34
   %.0.i.in.be = phi ptr [ %39, %34 ], [ %41, %40 ]
   br label %30
 
@@ -124,8 +124,8 @@ define dso_local void @llvm_value_rvalue(ptr noundef %0, ptr noundef captures(no
   %44 = getelementptr inbounds nuw i8, ptr %32, i64 56
   br label %45
 
-45:                                               ; preds = %.backedge145, %43
-  %.0.i88.in = phi ptr [ %44, %43 ], [ %.0.i88.in.be, %.backedge145 ]
+45:                                               ; preds = %.backedge146, %43
+  %.0.i88.in = phi ptr [ %44, %43 ], [ %.0.i88.in.be, %.backedge146 ]
   %.0.i88 = load ptr, ptr %.0.i88.in, align 8
   %46 = getelementptr inbounds nuw i8, ptr %.0.i88, i64 8
   %47 = load ptr, ptr %46, align 8
@@ -142,13 +142,13 @@ define dso_local void @llvm_value_rvalue(ptr noundef %0, ptr noundef captures(no
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 96
   %53 = load ptr, ptr %52, align 8
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 8
-  br label %.backedge145
+  br label %.backedge146
 
 55:                                               ; preds = %45
   %56 = getelementptr inbounds nuw i8, ptr %47, i64 56
-  br label %.backedge145
+  br label %.backedge146
 
-.backedge145:                                     ; preds = %55, %49
+.backedge146:                                     ; preds = %55, %49
   %.0.i88.in.be = phi ptr [ %54, %49 ], [ %56, %55 ]
   br label %45
 
@@ -161,8 +161,8 @@ type_flatten.exit91:                              ; preds = %45
   %59 = icmp ne ptr %47, %58
   %60 = and i8 %29, 31
   %.not86 = icmp eq i8 %60, 4
-  %or.cond127 = select i1 %59, i1 true, i1 %.not86
-  br i1 %or.cond127, label %.critedge, label %61
+  %or.cond128 = select i1 %59, i1 true, i1 %.not86
+  br i1 %or.cond128, label %.critedge, label %61
 
 61:                                               ; preds = %type_flatten.exit91
   %62 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -182,8 +182,8 @@ type_flatten.exit91:                              ; preds = %45
   br label %74
 
 74:                                               ; preds = %61, %71
-  %.sink128 = phi ptr [ %73, %71 ], [ %70, %61 ]
-  %75 = tail call ptr @LLVMBuildTrunc(ptr noundef %68, ptr noundef %63, ptr noundef %.sink128, ptr noundef nonnull @.str.2) #3
+  %.sink129 = phi ptr [ %73, %71 ], [ %70, %61 ]
+  %75 = tail call ptr @LLVMBuildTrunc(ptr noundef %68, ptr noundef %63, ptr noundef %.sink129, ptr noundef nonnull @.str.2) #3
   store ptr %75, ptr %62, align 8
   %76 = load i8, ptr %1, align 8
   %77 = and i8 %76, -32
@@ -247,8 +247,8 @@ llvm_value_fold_optional.exit:                    ; preds = %79, %81
   br label %116
 
 116:                                              ; preds = %105, %113
-  %.sink129 = phi ptr [ %115, %113 ], [ %112, %105 ]
-  %117 = tail call ptr @LLVMBuildTrunc(ptr noundef %110, ptr noundef %101, ptr noundef %.sink129, ptr noundef nonnull @.str.2) #3
+  %.sink130 = phi ptr [ %115, %113 ], [ %112, %105 ]
+  %117 = tail call ptr @LLVMBuildTrunc(ptr noundef %110, ptr noundef %101, ptr noundef %.sink130, ptr noundef nonnull @.str.2) #3
   store ptr %117, ptr %92, align 8
   %118 = load i8, ptr %1, align 8
   %119 = and i8 %118, -32
@@ -345,8 +345,8 @@ type_flatten.exit99:                              ; preds = %136
   br label %162
 
 162:                                              ; preds = %151, %159
-  %.sink130 = phi ptr [ %161, %159 ], [ %158, %151 ]
-  %163 = tail call ptr @LLVMBuildTrunc(ptr noundef %156, ptr noundef %101, ptr noundef %.sink130, ptr noundef nonnull @.str.2) #3
+  %.sink131 = phi ptr [ %161, %159 ], [ %158, %151 ]
+  %163 = tail call ptr @LLVMBuildTrunc(ptr noundef %156, ptr noundef %101, ptr noundef %.sink131, ptr noundef nonnull @.str.2) #3
   store ptr %163, ptr %92, align 8
   %164 = load i8, ptr %1, align 8
   %165 = and i8 %164, -32
@@ -359,8 +359,8 @@ type_flatten.exit99:                              ; preds = %136
   br label %.critedge.sink.split
 
 .critedge.sink.split:                             ; preds = %116, %162, %.critedge2, %74
-  %.sink131 = phi i8 [ %78, %74 ], [ %168, %.critedge2 ], [ %166, %162 ], [ %120, %116 ]
-  store i8 %.sink131, ptr %1, align 8
+  %.sink132 = phi i8 [ %78, %74 ], [ %168, %.critedge2 ], [ %166, %162 ], [ %120, %116 ]
+  store i8 %.sink132, ptr %1, align 8
   br label %.critedge
 
 .critedge:                                        ; preds = %30, %.critedge.sink.split, %type_flatten.exit91

@@ -3717,8 +3717,8 @@ define noundef i32 @_Z16tMPI_Type_commitPP14tmpi_datatype_(ptr noundef captures(
 
 ._crit_edge.thread:                               ; preds = %5
   %41 = load ptr, ptr %0, align 8, !tbaa !176
-  %.not4083 = icmp eq ptr %2, %41
-  br i1 %.not4083, label %58, label %.critedge
+  %.not4086 = icmp eq ptr %2, %41
+  br i1 %.not4086, label %58, label %.critedge
 
 .lr.ph68:                                         ; preds = %._crit_edge
   %42 = load ptr, ptr %8, align 8, !tbaa !175
@@ -3749,20 +3749,20 @@ define noundef i32 @_Z16tMPI_Type_commitPP14tmpi_datatype_(ptr noundef captures(
   br label %.critedge
 
 .critedge:                                        ; preds = %43, %._crit_edge.thread, %48
-  %.036.lcssa8587 = phi ptr [ %.1, %48 ], [ %2, %._crit_edge.thread ], [ %.1, %43 ]
+  %.036.lcssa8890 = phi ptr [ %.1, %48 ], [ %2, %._crit_edge.thread ], [ %.1, %43 ]
   %54 = phi ptr [ %.pre, %48 ], [ %41, %._crit_edge.thread ], [ %40, %43 ]
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 24
   %56 = load ptr, ptr %55, align 8, !tbaa !155
   tail call void @free(ptr noundef %56) #6
   %57 = load ptr, ptr %0, align 8, !tbaa !176
   tail call void @free(ptr noundef %57) #6
-  store ptr %.036.lcssa8587, ptr %0, align 8, !tbaa !176
+  store ptr %.036.lcssa8890, ptr %0, align 8, !tbaa !176
   %.pre81 = load ptr, ptr @tmpi_global, align 8, !tbaa !161
   br label %60
 
 58:                                               ; preds = %._crit_edge.thread, %._crit_edge
-  %.036.lcssa84 = phi ptr [ %2, %._crit_edge.thread ], [ %.1, %._crit_edge ]
-  %59 = getelementptr inbounds nuw i8, ptr %.036.lcssa84, i64 32
+  %.036.lcssa87 = phi ptr [ %2, %._crit_edge.thread ], [ %.1, %._crit_edge ]
+  %59 = getelementptr inbounds nuw i8, ptr %.036.lcssa87, i64 32
   store i32 1, ptr %59, align 8, !tbaa !160
   br label %60
 

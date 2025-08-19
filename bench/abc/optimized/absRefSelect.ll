@@ -379,22 +379,22 @@ define noalias noundef ptr @Rnm_ManFilterSelected(ptr noundef readonly captures(
   %9 = getelementptr i8, ptr %0, i64 48
   %10 = load ptr, ptr %0, align 8, !tbaa !18
   %11 = getelementptr i8, ptr %10, i64 32
-  %.val105196 = load ptr, ptr %11, align 8, !tbaa !21
-  %.not197 = icmp eq ptr %.val105196, null
-  br i1 %.not197, label %.critedge.loopexit, label %.lr.ph199
+  %.val105208 = load ptr, ptr %11, align 8, !tbaa !21
+  %.not209 = icmp eq ptr %.val105208, null
+  br i1 %.not209, label %.critedge.loopexit, label %.lr.ph211
 
 12:                                               ; preds = %.critedge2
   %13 = load ptr, ptr %0, align 8, !tbaa !18
   %14 = getelementptr i8, ptr %13, i64 32
   %.val105 = load ptr, ptr %14, align 8, !tbaa !21
   %.not = icmp eq ptr %.val105, null
-  br i1 %.not, label %.critedge.loopexit, label %.lr.ph199, !llvm.loop !49
+  br i1 %.not, label %.critedge.loopexit, label %.lr.ph211, !llvm.loop !49
 
-.lr.ph199:                                        ; preds = %.lr.ph149, %12
+.lr.ph211:                                        ; preds = %.lr.ph149, %12
   %15 = phi ptr [ %13, %12 ], [ %10, %.lr.ph149 ]
-  %indvars.iv162198 = phi i64 [ %indvars.iv.next163, %12 ], [ 0, %.lr.ph149 ]
+  %indvars.iv162210 = phi i64 [ %indvars.iv.next163, %12 ], [ 0, %.lr.ph149 ]
   %.val100 = load ptr, ptr %8, align 8, !tbaa !19
-  %16 = getelementptr inbounds nuw i32, ptr %.val100, i64 %indvars.iv162198
+  %16 = getelementptr inbounds nuw i32, ptr %.val100, i64 %indvars.iv162210
   %17 = load i32, ptr %16, align 4, !tbaa !20
   %18 = zext i32 %17 to i64
   %19 = getelementptr i8, ptr %15, i64 264
@@ -417,7 +417,7 @@ define noalias noundef ptr @Rnm_ManFilterSelected(ptr noundef readonly captures(
   %31 = icmp sgt i32 %26, 0
   br i1 %31, label %.lr.ph.preheader, label %.critedge2
 
-.lr.ph.preheader:                                 ; preds = %.lr.ph199
+.lr.ph.preheader:                                 ; preds = %.lr.ph211
   %Ga2_ObjLeaves.v.val99 = load ptr, ptr @Ga2_ObjLeaves.v.1, align 8
   br label %.lr.ph
 
@@ -533,8 +533,8 @@ Rnm_ObjAddToCount.exit.thread:                    ; preds = %34, %Rnm_ObjAddToCo
   %86 = icmp slt i64 %indvars.iv.next, %85
   br i1 %86, label %.lr.ph, label %.critedge2, !llvm.loop !55
 
-.critedge2:                                       ; preds = %Rnm_ObjAddToCount.exit.thread, %.lr.ph, %.lr.ph199
-  %indvars.iv.next163 = add nuw nsw i64 %indvars.iv162198, 1
+.critedge2:                                       ; preds = %Rnm_ObjAddToCount.exit.thread, %.lr.ph, %.lr.ph211
+  %indvars.iv.next163 = add nuw nsw i64 %indvars.iv162210, 1
   %.val95 = load i32, ptr %6, align 4, !tbaa !15
   %87 = sext i32 %.val95 to i64
   %88 = icmp slt i64 %indvars.iv.next163, %87
@@ -738,20 +738,20 @@ Rnm_ObjIsJust.exit.thread141:                     ; preds = %.lr.ph152, %Rnm_Obj
   br label %.critedge6.sink.split.sink.split
 
 .critedge6.sink.split.sink.split:                 ; preds = %171, %169, %179, %177, %124, %122, %132, %130
-  %.sink190.sink = phi ptr [ %123, %122 ], [ %125, %124 ], [ %131, %130 ], [ %133, %132 ], [ %170, %169 ], [ %172, %171 ], [ %178, %177 ], [ %180, %179 ]
-  %.sink189.sink = phi i32 [ 16, %122 ], [ 16, %124 ], [ %127, %130 ], [ %127, %132 ], [ 16, %169 ], [ 16, %171 ], [ %174, %177 ], [ %174, %179 ]
-  %.sink195.ph = phi i32 [ %116, %122 ], [ %116, %124 ], [ %116, %130 ], [ %116, %132 ], [ %163, %169 ], [ %163, %171 ], [ %163, %177 ], [ %163, %179 ]
-  store ptr %.sink190.sink, ptr %93, align 8, !tbaa !19
-  store i32 %.sink189.sink, ptr %90, align 8, !tbaa !54
+  %.sink202.sink = phi ptr [ %123, %122 ], [ %125, %124 ], [ %131, %130 ], [ %133, %132 ], [ %170, %169 ], [ %172, %171 ], [ %178, %177 ], [ %180, %179 ]
+  %.sink201.sink = phi i32 [ 16, %122 ], [ 16, %124 ], [ %127, %130 ], [ %127, %132 ], [ 16, %169 ], [ 16, %171 ], [ %174, %177 ], [ %174, %179 ]
+  %.sink207.ph = phi i32 [ %116, %122 ], [ %116, %124 ], [ %116, %130 ], [ %116, %132 ], [ %163, %169 ], [ %163, %171 ], [ %163, %177 ], [ %163, %179 ]
+  store ptr %.sink202.sink, ptr %93, align 8, !tbaa !19
+  store i32 %.sink201.sink, ptr %90, align 8, !tbaa !54
   br label %.critedge6.sink.split
 
 .critedge6.sink.split:                            ; preds = %.critedge6.sink.split.sink.split, %Rnm_ObjIsJust.exit.thread141, %115
-  %.sink195 = phi i32 [ %116, %115 ], [ %163, %Rnm_ObjIsJust.exit.thread141 ], [ %.sink195.ph, %.critedge6.sink.split.sink.split ]
-  %.pre.i132181.sink = phi ptr [ %99, %115 ], [ %98, %Rnm_ObjIsJust.exit.thread141 ], [ %.sink190.sink, %.critedge6.sink.split.sink.split ]
-  %.pre.i132183.ph = phi ptr [ %98, %115 ], [ %98, %Rnm_ObjIsJust.exit.thread141 ], [ %.sink190.sink, %.critedge6.sink.split.sink.split ]
-  %181 = add nsw i32 %.sink195, 1
+  %.sink207 = phi i32 [ %116, %115 ], [ %163, %Rnm_ObjIsJust.exit.thread141 ], [ %.sink207.ph, %.critedge6.sink.split.sink.split ]
+  %.pre.i132181.sink = phi ptr [ %99, %115 ], [ %98, %Rnm_ObjIsJust.exit.thread141 ], [ %.sink202.sink, %.critedge6.sink.split.sink.split ]
+  %.pre.i132183.ph = phi ptr [ %98, %115 ], [ %98, %Rnm_ObjIsJust.exit.thread141 ], [ %.sink202.sink, %.critedge6.sink.split.sink.split ]
+  %181 = add nsw i32 %.sink207, 1
   store i32 %181, ptr %91, align 4, !tbaa !15
-  %182 = sext i32 %.sink195 to i64
+  %182 = sext i32 %.sink207 to i64
   %183 = getelementptr inbounds i32, ptr %.pre.i132181.sink, i64 %182
   store i32 %102, ptr %183, align 4, !tbaa !20
   br label %.critedge6

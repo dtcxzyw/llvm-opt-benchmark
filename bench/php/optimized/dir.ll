@@ -1666,9 +1666,9 @@ zend_parse_arg_long_ex.exit:                      ; preds = %28
   %50 = load i64, ptr %4, align 8, !tbaa !111
   %switch.selectcmp = icmp eq i64 %50, 2
   %switch.select = select i1 %switch.selectcmp, ptr null, ptr @php_stream_dirent_alphasortr
-  %switch.selectcmp145 = icmp eq i64 %50, 0
-  %switch.select146 = select i1 %switch.selectcmp145, ptr @php_stream_dirent_alphasort, ptr %switch.select
-  %51 = call i32 @_php_stream_scandir(ptr noundef nonnull %26, ptr noundef nonnull %5, i32 noundef 0, ptr noundef %.076, ptr noundef %switch.select146) #13
+  %switch.selectcmp148 = icmp eq i64 %50, 0
+  %switch.select149 = select i1 %switch.selectcmp148, ptr @php_stream_dirent_alphasort, ptr %switch.select
+  %51 = call i32 @_php_stream_scandir(ptr noundef nonnull %26, ptr noundef nonnull %5, i32 noundef 0, ptr noundef %.076, ptr noundef %switch.select149) #13
   %52 = icmp slt i32 %51, 0
   br i1 %52, label %53, label %58
 

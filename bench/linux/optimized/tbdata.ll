@@ -131,7 +131,7 @@ declare dso_local void @acpi_os_unmap_memory(ptr noundef, i64 noundef) local_unn
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef range(i32 0, 4098) i32 @acpi_tb_acquire_temp_table(ptr noundef writeonly captures(none) %0, i64 noundef %1, i8 noundef zeroext %2, ptr noundef %3) local_unnamed_addr #2 align 16 {
   %5 = and i8 %2, 3
-  switch i8 %5, label %default.unreachable5 [
+  switch i8 %5, label %default.unreachable6 [
     i8 1, label %6
     i8 2, label %10
     i8 0, label %10
@@ -194,7 +194,7 @@ define dso_local noundef range(i32 0, 4098) i32 @acpi_tb_acquire_temp_table(ptr 
   tail call void @acpi_os_unmap_memory(ptr noundef nonnull %.ph, i64 noundef 36) #8
   br label %.thread4
 
-default.unreachable5:                             ; preds = %4
+default.unreachable6:                             ; preds = %4
   unreachable
 
 .thread4:                                         ; preds = %12, %20, %4, %30, %22, %10, %7
@@ -376,7 +376,7 @@ define dso_local i32 @acpi_tb_verify_temp_table(ptr noundef %0, ptr noundef %1, 
   %switch = icmp eq i8 %16, 1
   br i1 %switch, label %17, label %.thread13
 
-default.unreachable23:                            ; preds = %60
+default.unreachable32:                            ; preds = %60
   unreachable
 
 17:                                               ; preds = %13
@@ -452,7 +452,7 @@ default.unreachable23:                            ; preds = %60
   %61 = getelementptr %struct.acpi_table_desc, ptr %55, i64 %54
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 26
   %63 = and i8 %57, 3
-  switch i8 %63, label %default.unreachable23 [
+  switch i8 %63, label %default.unreachable32 [
     i8 1, label %64
     i8 2, label %70
     i8 0, label %70

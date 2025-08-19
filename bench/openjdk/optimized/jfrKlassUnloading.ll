@@ -60,8 +60,8 @@ define hidden void @_ZN17JfrKlassUnloading4sortEb(i1 noundef zeroext %0) local_u
   br i1 %.not.i, label %_ZL8sort_setP13GrowableArrayImE.exit, label %_ZL15is_nonempty_seth.exit
 
 _ZL15is_nonempty_seth.exit:                       ; preds = %5, %7
-  %.sink4.i = phi ptr [ %6, %5 ], [ %8, %7 ]
-  %9 = load i32, ptr %.sink4.i, align 4
+  %.sink6.i = phi ptr [ %6, %5 ], [ %8, %7 ]
+  %9 = load i32, ptr %.sink6.i, align 4
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %_ZL8sort_setP13GrowableArrayImE.exit, label %10
 
@@ -99,8 +99,8 @@ _ZL8sort_setP13GrowableArrayImE.exit:             ; preds = %7, %5, %15, %10, %_
   br i1 %.not.i1, label %_ZL8sort_setP13GrowableArrayImE.exit7, label %_ZL15is_nonempty_seth.exit6
 
 _ZL15is_nonempty_seth.exit6:                      ; preds = %21, %23
-  %.sink4.i3 = phi ptr [ %22, %21 ], [ %24, %23 ]
-  %25 = load i32, ptr %.sink4.i3, align 4
+  %.sink6.i3 = phi ptr [ %22, %21 ], [ %24, %23 ]
+  %25 = load i32, ptr %.sink6.i3, align 4
   %.not11 = icmp eq i32 %25, 0
   br i1 %.not11, label %_ZL8sort_setP13GrowableArrayImE.exit7, label %26
 
@@ -140,8 +140,8 @@ define hidden void @_ZN17JfrKlassUnloading5clearEv() local_unnamed_addr #0 align
   br i1 %.not.i, label %_ZL15is_nonempty_seth.exit.thread, label %_ZL15is_nonempty_seth.exit
 
 _ZL15is_nonempty_seth.exit:                       ; preds = %3, %5
-  %.sink4.i = phi ptr [ %4, %3 ], [ %6, %5 ]
-  %7 = load i32, ptr %.sink4.i, align 4
+  %.sink6.i = phi ptr [ %4, %3 ], [ %6, %5 ]
+  %7 = load i32, ptr %.sink6.i, align 4
   %.not2 = icmp eq i32 %7, 0
   br i1 %.not2, label %_ZL15is_nonempty_seth.exit.thread, label %8
 

@@ -138,8 +138,8 @@ define dso_local range(i32 -1, 1) i32 @job_submit_g_init(i1 noundef zeroext %0) 
   br i1 %56, label %job_submit_g_fini.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %52
-  %.not26.i = icmp eq i32 %55, 0
-  br i1 %.not26.i, label %._crit_edge.i, label %.lr.ph.preheader.i
+  %.not29.i = icmp eq i32 %55, 0
+  br i1 %.not29.i, label %._crit_edge.i, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %.preheader.i
   %.pre24.i = load ptr, ptr @g_context, align 8
@@ -243,8 +243,8 @@ define dso_local i32 @job_submit_g_fini(i1 noundef zeroext %0) local_unnamed_add
   br i1 %8, label %20, label %.preheader
 
 .preheader:                                       ; preds = %6
-  %.not26 = icmp eq i32 %7, 0
-  br i1 %.not26, label %._crit_edge, label %.lr.ph.preheader
+  %.not29 = icmp eq i32 %7, 0
+  br i1 %.not29, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %.preheader
   %.pre24 = load ptr, ptr @g_context, align 8

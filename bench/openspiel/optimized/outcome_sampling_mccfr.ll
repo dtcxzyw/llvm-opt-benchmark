@@ -2159,8 +2159,8 @@ _ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %375
   br i1 %exitcond247.not, label %._crit_edge, label %403, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %403, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i
-  %.sroa.0.0256264 = phi ptr [ null, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i ], [ %385, %403 ]
-  %.sroa.11.0259263 = phi i64 [ 0, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i ], [ %391, %403 ]
+  %.sroa.0.0284292 = phi ptr [ null, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i ], [ %385, %403 ]
+  %.sroa.11.0287291 = phi i64 [ 0, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i ], [ %391, %403 ]
   %.0130.lcssa = phi double [ 0.000000e+00, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i ], [ %408, %403 ]
   br i1 %266, label %409, label %.loopexit226
 
@@ -2195,7 +2195,7 @@ _ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN10open
 
 420:                                              ; preds = %.lr.ph234, %420
   %indvars.iv248 = phi i64 [ 0, %.lr.ph234 ], [ %indvars.iv.next249, %420 ]
-  %421 = getelementptr inbounds nuw double, ptr %.sroa.0.0256264, i64 %indvars.iv248
+  %421 = getelementptr inbounds nuw double, ptr %.sroa.0.0284292, i64 %indvars.iv248
   %422 = load double, ptr %421, align 8
   %423 = fmul double %5, %422
   %424 = fdiv double %423, %6
@@ -2266,13 +2266,13 @@ _ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN10open
   br i1 %461, label %439, label %.loopexit226, !llvm.loop !23
 
 .loopexit226:                                     ; preds = %450, %411, %._crit_edge
-  %.not.i.i.i174 = icmp eq ptr %.sroa.0.0256264, null
+  %.not.i.i.i174 = icmp eq ptr %.sroa.0.0284292, null
   br i1 %.not.i.i.i174, label %_ZNSt6vectorIdSaIdEED2Ev.exit, label %.loopexit226.thread
 
 .loopexit226.thread:                              ; preds = %.preheader, %.loopexit226
-  %462 = ptrtoint ptr %.sroa.0.0256264 to i64
-  %463 = sub i64 %.sroa.11.0259263, %462
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.0256264, i64 noundef %463) #28
+  %462 = ptrtoint ptr %.sroa.0.0284292 to i64
+  %463 = sub i64 %.sroa.11.0287291, %462
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.0284292, i64 noundef %463) #28
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit
 
 _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %.loopexit226, %.loopexit226.thread
@@ -2394,13 +2394,13 @@ _ZNSt6vectorIlSaIlEED2Ev.exit187:                 ; preds = %_ZN10open_spiel10al
 
 521:                                              ; preds = %448, %437
   %.pn137 = phi { ptr, i32 } [ %449, %448 ], [ %438, %437 ]
-  %.not.i.i.i188 = icmp eq ptr %.sroa.0.0256264, null
+  %.not.i.i.i188 = icmp eq ptr %.sroa.0.0284292, null
   br i1 %.not.i.i.i188, label %_ZNSt6vectorIdSaIdEED2Ev.exit189, label %522
 
 522:                                              ; preds = %521
-  %523 = ptrtoint ptr %.sroa.0.0256264 to i64
-  %524 = sub i64 %.sroa.11.0259263, %523
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.0256264, i64 noundef %524) #28
+  %523 = ptrtoint ptr %.sroa.0.0284292 to i64
+  %524 = sub i64 %.sroa.11.0287291, %523
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.0284292, i64 noundef %524) #28
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit189
 
 _ZNSt6vectorIdSaIdEED2Ev.exit189:                 ; preds = %522, %521, %401, %354, %347, %340, %333, %331
@@ -7828,14 +7828,14 @@ _ZNSt6vectorISt4pairIdmESaIS1_EED2Ev.exit:        ; preds = %23, %26
   br i1 %.not.i.i.i8, label %.body, label %.body.sink.split
 
 .body.sink.split:                                 ; preds = %_ZNSt6vectorISt4pairIdmESaIS1_EED2Ev.exit, %15
-  %.sink13 = phi ptr [ %17, %15 ], [ %32, %_ZNSt6vectorISt4pairIdmESaIS1_EED2Ev.exit ]
+  %.sink17 = phi ptr [ %17, %15 ], [ %32, %_ZNSt6vectorISt4pairIdmESaIS1_EED2Ev.exit ]
   %.pn.ph = phi { ptr, i32 } [ %16, %15 ], [ %24, %_ZNSt6vectorISt4pairIdmESaIS1_EED2Ev.exit ]
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %34 = load ptr, ptr %33, align 8
   %35 = ptrtoint ptr %34 to i64
-  %36 = ptrtoint ptr %.sink13 to i64
+  %36 = ptrtoint ptr %.sink17 to i64
   %37 = sub i64 %35, %36
-  tail call void @_ZdlPvm(ptr noundef nonnull %.sink13, i64 noundef %37) #28
+  tail call void @_ZdlPvm(ptr noundef nonnull %.sink17, i64 noundef %37) #28
   br label %.body
 
 .body:                                            ; preds = %.body.sink.split, %_ZNSt6vectorISt4pairIdmESaIS1_EED2Ev.exit, %15

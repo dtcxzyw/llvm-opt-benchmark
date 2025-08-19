@@ -104,7 +104,7 @@ _ZNK4llvm9StringRef13find_first_ofEcm.exit.i:     ; preds = %23
   br label %_ZL26splitLiteralAndReplacementN4llvm9StringRefE.exit
 
 .lr.ph.i.i.ithread-pre-split.i:                   ; preds = %.lr.ph.i.i.i.preheader.i
-  %33 = getelementptr inbounds nuw i8, ptr %.sroa.0.013.i.i.i151.i, i64 1
+  %33 = getelementptr inbounds nuw i8, ptr %.sroa.0.013.i.i.i155.i, i64 1
   %.pr.i = load i8, ptr %33, align 1, !tbaa !14, !noalias !15
   %34 = icmp eq i8 %.pr.i, 123
   br i1 %34, label %.lr.ph.i.i.i.preheader.i, label %35
@@ -115,9 +115,9 @@ _ZNK4llvm9StringRef13find_first_ofEcm.exit.i:     ; preds = %23
   br label %_ZNK4llvm9StringRef10take_whileENS_12function_refIFbcEEE.exit.i
 
 .lr.ph.i.i.i.preheader.i:                         ; preds = %23, %.lr.ph.i.i.ithread-pre-split.i
-  %.sroa.0.013.i.i.i151.i = phi ptr [ %33, %.lr.ph.i.i.ithread-pre-split.i ], [ %.sroa.0.08, %23 ]
-  %.pn914.i.i.i150.i = phi i64 [ %38, %.lr.ph.i.i.ithread-pre-split.i ], [ %.sroa.3.07, %23 ]
-  %38 = add i64 %.pn914.i.i.i150.i, -1
+  %.sroa.0.013.i.i.i155.i = phi ptr [ %33, %.lr.ph.i.i.ithread-pre-split.i ], [ %.sroa.0.08, %23 ]
+  %.pn914.i.i.i154.i = phi i64 [ %38, %.lr.ph.i.i.ithread-pre-split.i ], [ %.sroa.3.07, %23 ]
+  %38 = add i64 %.pn914.i.i.i154.i, -1
   %39 = icmp eq i64 %38, 0
   br i1 %39, label %_ZNK4llvm9StringRef10take_whileENS_12function_refIFbcEEE.exit.i, label %.lr.ph.i.i.ithread-pre-split.i, !llvm.loop !23
 
@@ -293,9 +293,9 @@ _ZL16translateLocCharc.exit.i.i.i:                ; preds = %95, %94, %91
   %.sink.i.i = phi i64 [ -3, %_ZL16translateLocCharc.exit.i.i.i ], [ -2, %100 ], [ -2, %99 ], [ -2, %.critedge.i.i.i ]
   %.245.i.i = phi i32 [ %.sroa.0.0.i.i.i.i, %_ZL16translateLocCharc.exit.i.i.i ], [ 2, %100 ], [ 1, %99 ], [ 0, %.critedge.i.i.i ]
   %.2.i.i = phi i8 [ %97, %_ZL16translateLocCharc.exit.i.i.i ], [ 32, %100 ], [ 32, %99 ], [ 32, %.critedge.i.i.i ]
-  %.sink33.i.i.i = phi ptr [ %98, %_ZL16translateLocCharc.exit.i.i.i ], [ %92, %100 ], [ %92, %99 ], [ %92, %.critedge.i.i.i ]
+  %.sink34.i.i.i = phi ptr [ %98, %_ZL16translateLocCharc.exit.i.i.i ], [ %92, %100 ], [ %92, %99 ], [ %92, %.critedge.i.i.i ]
   %101 = add i64 %.sink.i.i, %86
-  store ptr %.sink33.i.i.i, ptr %11, align 8, !tbaa !19, !noalias !25
+  store ptr %.sink34.i.i.i, ptr %11, align 8, !tbaa !19, !noalias !25
   store i64 %101, ptr %21, align 8, !tbaa !21, !noalias !25
   br label %.critedge32.i.i.i
 

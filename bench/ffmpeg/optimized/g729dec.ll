@@ -172,7 +172,7 @@ define internal i32 @decode_frame(ptr noundef %0, ptr noundef initializes((112, 
   store i32 80, ptr %21, align 8, !tbaa !50
   %22 = tail call i32 @ff_get_buffer(ptr noundef %0, ptr noundef %1, i32 noundef 0) #9
   %23 = icmp slt i32 %22, 0
-  %indvars.iv369.sroa.gep401 = getelementptr inbounds nuw i8, ptr %6, i64 22
+  %indvars.iv369.sroa.gep409 = getelementptr inbounds nuw i8, ptr %6, i64 22
   br i1 %23, label %566, label %24
 
 24:                                               ; preds = %4
@@ -554,8 +554,8 @@ lsf_restore_from_previous.exit:                   ; preds = %118, %lsf_decode.ex
 
 252:                                              ; preds = %lsf_restore_from_previous.exit, %549
   %.not269 = phi i1 [ true, %lsf_restore_from_previous.exit ], [ false, %549 ]
-  %indvars.iv369.sroa.phi397 = phi ptr [ %.sroa.0, %lsf_restore_from_previous.exit ], [ %.sroa.5, %549 ]
-  %indvars.iv369.sroa.phi400 = phi ptr [ %6, %lsf_restore_from_previous.exit ], [ %indvars.iv369.sroa.gep401, %549 ]
+  %indvars.iv369.sroa.phi405 = phi ptr [ %.sroa.0, %lsf_restore_from_previous.exit ], [ %.sroa.5, %549 ]
+  %indvars.iv369.sroa.phi408 = phi ptr [ %6, %lsf_restore_from_previous.exit ], [ %indvars.iv369.sroa.gep409, %549 ]
   %indvars.iv369 = phi i64 [ 0, %lsf_restore_from_previous.exit ], [ 1, %549 ]
   %.0243342 = phi i32 [ 0, %lsf_restore_from_previous.exit ], [ %.1244, %549 ]
   %.sroa.14.0341 = phi i32 [ %92, %lsf_restore_from_previous.exit ], [ %326, %549 ]
@@ -716,20 +716,20 @@ lsf_restore_from_previous.exit:                   ; preds = %118, %lsf_decode.ex
   %.lhs.trunc = add nsw i16 %365, 1
   %366 = sdiv i16 %.lhs.trunc, 3
   %.sext = sext i16 %366 to i32
-  store i32 %.sext, ptr %indvars.iv369.sroa.phi397, align 4, !tbaa !60
+  store i32 %.sext, ptr %indvars.iv369.sroa.phi405, align 4, !tbaa !60
   br label %381
 
 ff_acelp_decode_4bit_to_2nd_delay3.exit:          ; preds = %357, %361, %332, %327
   %.0251 = phi i32 [ %329, %327 ], [ %334, %332 ], [ %364, %361 ], [ %360, %357 ]
   %367 = add nsw i32 %.0251, 1
   %368 = sdiv i32 %367, 3
-  store i32 %368, ptr %indvars.iv369.sroa.phi397, align 4, !tbaa !60
+  store i32 %368, ptr %indvars.iv369.sroa.phi405, align 4, !tbaa !60
   %369 = icmp sgt i32 %.0251, 430
   br i1 %369, label %370, label %371
 
 370:                                              ; preds = %ff_acelp_decode_4bit_to_2nd_delay3.exit
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 24, ptr noundef nonnull @.str.10, i32 noundef %368) #9
-  store i32 143, ptr %indvars.iv369.sroa.phi397, align 4, !tbaa !60
+  store i32 143, ptr %indvars.iv369.sroa.phi405, align 4, !tbaa !60
   br label %371
 
 371:                                              ; preds = %370, %ff_acelp_decode_4bit_to_2nd_delay3.exit
@@ -764,7 +764,7 @@ ff_acelp_decode_4bit_to_2nd_delay3.exit:          ; preds = %357, %361, %332, %3
   br label %385
 
 385:                                              ; preds = %384, %383
-  %386 = load i32, ptr %indvars.iv369.sroa.phi397, align 4, !tbaa !60
+  %386 = load i32, ptr %indvars.iv369.sroa.phi405, align 4, !tbaa !60
   %387 = icmp slt i32 %386, 40
   br i1 %387, label %388, label %395
 
@@ -880,7 +880,7 @@ ff_acelp_decode_4bit_to_2nd_delay3.exit:          ; preds = %357, %361, %332, %3
   %461 = phi i16 [ %458, %.thread325 ], [ 0, %454 ]
   call void @ff_acelp_weighted_vector_sum(ptr noundef %451, ptr noundef %451, ptr noundef nonnull %7, i16 noundef signext %460, i16 noundef signext %461, i16 noundef signext 8192, i32 noundef 14, i32 noundef 40) #9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %8, ptr noundef nonnull align 8 dereferenceable(20) %242, i64 20, i1 false)
-  %462 = getelementptr inbounds nuw i8, ptr %indvars.iv369.sroa.phi400, i64 2
+  %462 = getelementptr inbounds nuw i8, ptr %indvars.iv369.sroa.phi408, i64 2
   %463 = load ptr, ptr %240, align 8, !tbaa !41
   %464 = getelementptr inbounds nuw i16, ptr %463, i64 %444
   %465 = call i32 @ff_celp_lp_synthesis_filter(ptr noundef nonnull %54, ptr noundef nonnull %462, ptr noundef %464, i32 noundef 40, i32 noundef 10, i32 noundef 1, i32 noundef 0, i32 noundef 2048) #9
@@ -1017,7 +1017,7 @@ g729d_get_new_exc.exit:                           ; preds = %500
 
 533:                                              ; preds = %526
   %.sroa.0.0..sroa.0.0. = load i32, ptr %.sroa.0, align 4, !tbaa !60
-  call void @ff_g729_postfilter(ptr noundef %16, ptr noundef nonnull %245, ptr noundef nonnull %9, ptr noundef nonnull %indvars.iv369.sroa.phi400, i32 noundef %.sroa.0.0..sroa.0.0., ptr noundef nonnull %246, ptr noundef nonnull %247, ptr noundef nonnull %248, ptr noundef nonnull %54, i32 noundef 40) #9
+  call void @ff_g729_postfilter(ptr noundef %16, ptr noundef nonnull %245, ptr noundef nonnull %9, ptr noundef nonnull %indvars.iv369.sroa.phi408, i32 noundef %.sroa.0.0..sroa.0.0., ptr noundef nonnull %246, ptr noundef nonnull %247, ptr noundef nonnull %248, ptr noundef nonnull %54, i32 noundef 40) #9
   br label %534
 
 534:                                              ; preds = %533, %534
@@ -1048,8 +1048,8 @@ g729d_get_new_exc.exit:                           ; preds = %500
   br label %549
 
 549:                                              ; preds = %541, %546
-  %storemerge380 = phi i32 [ %spec.select, %546 ], [ %386, %541 ]
-  store i32 %storemerge380, ptr %232, align 8, !tbaa !42
+  %storemerge388 = phi i32 [ %spec.select, %546 ], [ %386, %541 ]
+  store i32 %storemerge388, ptr %232, align 8, !tbaa !42
   %550 = load i32, ptr %250, align 8
   store i32 %550, ptr %56, align 16
   %551 = getelementptr inbounds nuw i16, ptr %60, i64 %444

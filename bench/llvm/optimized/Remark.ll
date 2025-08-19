@@ -602,13 +602,13 @@ switch.lookup:                                    ; preds = %_ZN4llvm11raw_ostre
   %switch.gep = getelementptr inbounds nuw [6 x i64], ptr @switch.table._ZNK4llvm7remarks6Remark5printERNS_11raw_ostreamE, i64 0, i64 %53
   %switch.load = load i64, ptr %switch.gep, align 8
   %54 = zext nneg i32 %51 to i64
-  %switch.gep78 = getelementptr inbounds nuw [6 x ptr], ptr @switch.table._ZNK4llvm7remarks6Remark5printERNS_11raw_ostreamE.1, i64 0, i64 %54
-  %switch.load79 = load ptr, ptr %switch.gep78, align 8
+  %switch.gep83 = getelementptr inbounds nuw [6 x ptr], ptr @switch.table._ZNK4llvm7remarks6Remark5printERNS_11raw_ostreamE.1, i64 0, i64 %54
+  %switch.load84 = load ptr, ptr %switch.gep83, align 8
   br label %_ZN4llvm7remarks9typeToStrENS0_4TypeE.exit
 
 _ZN4llvm7remarks9typeToStrENS0_4TypeE.exit:       ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit27, %switch.lookup
   %.sroa.8.0.i = phi i64 [ %switch.load, %switch.lookup ], [ 7, %_ZN4llvm11raw_ostreamlsEPKc.exit27 ]
-  %.sroa.0.0.i = phi ptr [ %switch.load79, %switch.lookup ], [ @.str.21, %_ZN4llvm11raw_ostreamlsEPKc.exit27 ]
+  %.sroa.0.0.i = phi ptr [ %switch.load84, %switch.lookup ], [ @.str.21, %_ZN4llvm11raw_ostreamlsEPKc.exit27 ]
   %55 = getelementptr inbounds nuw i8, ptr %.0.i.i26, i64 24
   %56 = load ptr, ptr %55, align 8, !tbaa !30
   %57 = getelementptr inbounds nuw i8, ptr %.0.i.i26, i64 32

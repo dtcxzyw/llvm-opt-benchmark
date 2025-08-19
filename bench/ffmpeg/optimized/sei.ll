@@ -1355,10 +1355,10 @@ switch.lookup:                                    ; preds = %881
   %switch.gep = getelementptr inbounds nuw [12 x ptr], ptr @switch.table.ff_hevc_decode_nal_sei, i64 0, i64 %886
   %switch.load = load ptr, ptr %switch.gep, align 8
   %887 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep95 = getelementptr inbounds nuw [12 x i32], ptr @switch.table.ff_hevc_decode_nal_sei.4, i64 0, i64 %887
-  %switch.load96 = load i32, ptr %switch.gep95, align 4
+  %switch.gep120 = getelementptr inbounds nuw [12 x i32], ptr @switch.table.ff_hevc_decode_nal_sei.4, i64 0, i64 %887
+  %switch.load121 = load i32, ptr %switch.gep120, align 4
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef %1, i32 noundef 48, ptr noundef nonnull %switch.load) #6
-  store i32 %switch.load96, ptr %65, align 4, !tbaa !79
+  store i32 %switch.load121, ptr %65, align 4, !tbaa !79
   br label %decode_nal_sei_message.exit.thread.us
 
 888:                                              ; preds = %bytestream2_init.exit.i.us
@@ -1516,11 +1516,11 @@ bytestream2_get_byte.exit.i.i34.i:                ; preds = %949
   br i1 %954, label %bytestream2_get_byte.exit.split.us.i.i36.i.preheader, label %decode_nal_sei_message.exit.thread
 
 bytestream2_get_byte.exit.split.us.i.i36.i.preheader: ; preds = %bytestream2_get_byte.exit.i.i34.i, %949
-  %.ph106 = phi ptr [ %940, %949 ], [ %952, %bytestream2_get_byte.exit.i.i34.i ]
+  %.ph131 = phi ptr [ %940, %949 ], [ %952, %bytestream2_get_byte.exit.i.i34.i ]
   br label %bytestream2_get_byte.exit.split.us.i.i36.i
 
 bytestream2_get_byte.exit.split.us.i.i36.i:       ; preds = %bytestream2_get_byte.exit.split.us.i.i36.i.preheader, %bytestream2_get_byte.exit.split.us.i.i36.i
-  %955 = phi ptr [ %961, %bytestream2_get_byte.exit.split.us.i.i36.i ], [ %.ph106, %bytestream2_get_byte.exit.split.us.i.i36.i.preheader ]
+  %955 = phi ptr [ %961, %bytestream2_get_byte.exit.split.us.i.i36.i ], [ %.ph131, %bytestream2_get_byte.exit.split.us.i.i36.i.preheader ]
   %indvars.iv.i.i37.i = phi i64 [ %indvars.iv.next.i.i38.i, %bytestream2_get_byte.exit.split.us.i.i36.i ], [ 0, %bytestream2_get_byte.exit.split.us.i.i36.i.preheader ]
   store i8 1, ptr %29, align 1, !tbaa !81
   %956 = getelementptr inbounds nuw [3 x [16 x i8]], ptr %28, i64 0, i64 %indvars.iv.i.i37.i

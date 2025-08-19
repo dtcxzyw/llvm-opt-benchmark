@@ -5079,8 +5079,8 @@ common.resume:                                    ; preds = %31, %.body.i
   unreachable
 
 "_ZN4core3ptr136drop_in_place$LT$awc..client..connection..H1Connection$LT$alloc..boxed..Box$LT$dyn$u20$awc..client..connection..ConnectionIo$GT$$GT$$GT$17hdc92c7e24e99bfc2E.exit": ; preds = %30, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.14828715386332725032.exit.i1.i.i.i", %20, %5
-  %.sink1 = phi i64 [ 16, %5 ], [ 16, %20 ], [ 16, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.14828715386332725032.exit.i1.i.i.i" ], [ 40, %30 ]
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink1
+  %.sink3 = phi i64 [ 16, %5 ], [ 16, %20 ], [ 16, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.14828715386332725032.exit.i1.i.i.i" ], [ 40, %30 ]
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink3
   tail call void @"_ZN4core3ptr126drop_in_place$LT$awc..client..pool..Acquired$LT$alloc..boxed..Box$LT$dyn$u20$awc..client..connection..ConnectionIo$GT$$GT$$GT$17hfdbd21aa61aa47cbE"(ptr noalias noundef nonnull align 8 dereferenceable(56) %36)
   ret void
 }
@@ -10872,14 +10872,14 @@ define hidden void @"_ZN4core3ptr244drop_in_place$LT$core..cell..UnsafeCell$LT$s
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN4core3ptr245drop_in_place$LT$actix_http..payload..Payload$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$futures_core..stream..Stream$u2b$Item$u20$$u3d$$u20$core..result..Result$LT$bytes..bytes..Bytes$C$actix_http..error..PayloadError$GT$$GT$$GT$$GT$$GT$17h7c91f9f275e44899E.llvm.14828715386332725032"(ptr noalias noundef align 8 dereferenceable(24) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = load i64, ptr %0, align 8, !range !1435, !noundef !4
-  switch i64 %2, label %default.unreachable1 [
+  switch i64 %2, label %default.unreachable2 [
     i64 0, label %"_ZN4core3ptr209drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$futures_core..stream..Stream$u2b$Item$u20$$u3d$$u20$core..result..Result$LT$bytes..bytes..Bytes$C$actix_http..error..PayloadError$GT$$GT$$GT$$GT$17h2e210e44b03d9741E.exit"
     i64 1, label %24
     i64 2, label %26
     i64 3, label %3
   ]
 
-default.unreachable1:                             ; preds = %1
+default.unreachable2:                             ; preds = %1
   unreachable
 
 3:                                                ; preds = %1
@@ -11874,14 +11874,14 @@ define hidden void @"_ZN4core3ptr273drop_in_place$LT$core..option..Option$LT$act
 
 4:                                                ; preds = %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3362)
-  switch i64 %2, label %default.unreachable1.i [
+  switch i64 %2, label %default.unreachable [
     i64 0, label %"_ZN4core3ptr245drop_in_place$LT$actix_http..payload..Payload$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$futures_core..stream..Stream$u2b$Item$u20$$u3d$$u20$core..result..Result$LT$bytes..bytes..Bytes$C$actix_http..error..PayloadError$GT$$GT$$GT$$GT$$GT$17h7c91f9f275e44899E.llvm.14828715386332725032.exit"
     i64 1, label %26
     i64 2, label %28
     i64 3, label %5
   ]
 
-default.unreachable1.i:                           ; preds = %4
+default.unreachable:                              ; preds = %4
   unreachable
 
 5:                                                ; preds = %4
@@ -21115,8 +21115,8 @@ define hidden void @"_ZN4core3ptr65drop_in_place$LT$tokio..sync..oneshot..Sender
   br i1 %23, label %"_ZN4core3ptr116drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$tokio..sync..oneshot..Inner$LT$$LP$$RP$$GT$$GT$$GT$$GT$17h64153c0a7e221e8cE.llvm.14828715386332725032.exit3", label %"_ZN79_$LT$tokio..sync..oneshot..Sender$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h72494dfdb52da33bE.llvm.14828715386332725032.exit.thread"
 
 "_ZN79_$LT$tokio..sync..oneshot..Sender$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h72494dfdb52da33bE.llvm.14828715386332725032.exit.thread": ; preds = %.noexc, %"_ZN79_$LT$tokio..sync..oneshot..Sender$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h72494dfdb52da33bE.llvm.14828715386332725032.exit"
-  %.pr6 = phi ptr [ %.pr.pre, %"_ZN79_$LT$tokio..sync..oneshot..Sender$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h72494dfdb52da33bE.llvm.14828715386332725032.exit" ], [ %2, %.noexc ]
-  %24 = atomicrmw sub ptr %.pr6, i64 1 release, align 8, !noalias !6915
+  %.pr7 = phi ptr [ %.pr.pre, %"_ZN79_$LT$tokio..sync..oneshot..Sender$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h72494dfdb52da33bE.llvm.14828715386332725032.exit" ], [ %2, %.noexc ]
+  %24 = atomicrmw sub ptr %.pr7, i64 1 release, align 8, !noalias !6915
   %25 = icmp eq i64 %24, 1
   br i1 %25, label %26, label %"_ZN4core3ptr116drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$tokio..sync..oneshot..Inner$LT$$LP$$RP$$GT$$GT$$GT$$GT$17h64153c0a7e221e8cE.llvm.14828715386332725032.exit3"
 
@@ -27546,7 +27546,7 @@ define internal fastcc void @"_ZN5tokio3net3tcp6stream9TcpStream11connect_mio28_
   %5 = alloca { ptr, [2 x i64] }, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %7 = load i8, ptr %6, align 4, !range !208, !noundef !4
-  switch i8 %7, label %default.unreachable36 [
+  switch i8 %7, label %default.unreachable40 [
     i8 0, label %8
     i8 1, label %22
     i8 2, label %23
@@ -27558,7 +27558,7 @@ define internal fastcc void @"_ZN5tokio3net3tcp6stream9TcpStream11connect_mio28_
   %.pre = load ptr, ptr %.phi.trans.insert, align 8, !alias.scope !8894, !noalias !8899
   br label %24
 
-default.unreachable36:                            ; preds = %3
+default.unreachable40:                            ; preds = %3
   unreachable
 
 8:                                                ; preds = %3
@@ -27704,13 +27704,13 @@ common.ret:                                       ; preds = %33, %"_ZN4core3ptr5
   br label %"_ZN4core3ptr55drop_in_place$LT$tokio..net..tcp..stream..TcpStream$GT$17h8cb06273c7875ed2E.exit"
 
 .sink.split:                                      ; preds = %44, %31
-  %.sink37 = phi ptr [ %.sroa.022.0.copyload, %31 ], [ %46, %44 ]
-  %48 = icmp ne ptr %.sink37, null
+  %.sink41 = phi ptr [ %.sroa.022.0.copyload, %31 ], [ %46, %44 ]
+  %48 = icmp ne ptr %.sink41, null
   tail call void @llvm.assume(i1 %48)
   br label %49
 
 49:                                               ; preds = %.sink.split, %47
-  %.sroa.625.2 = phi ptr [ %46, %47 ], [ %.sink37, %.sink.split ]
+  %.sroa.625.2 = phi ptr [ %46, %47 ], [ %.sink41, %.sink.split ]
   invoke void @"_ZN87_$LT$tokio..io..poll_evented..PollEvented$LT$E$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17he95eccc3374ce119E.llvm.14828715386332725032"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1)
           to label %57 unwind label %50
 
@@ -32422,7 +32422,7 @@ define hidden void @"_ZN9actix_tls7connect3tcp7connect28_$u7b$$u7b$closure$u7d$$
   %16 = alloca { i16, [15 x i16] }, align 4
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 49
   %18 = load i8, ptr %17, align 1, !range !1379, !noundef !4
-  switch i8 %18, label %default.unreachable133 [
+  switch i8 %18, label %default.unreachable141 [
     i8 0, label %19
     i8 1, label %83
     i8 2, label %84
@@ -32430,7 +32430,7 @@ define hidden void @"_ZN9actix_tls7connect3tcp7connect28_$u7b$$u7b$closure$u7d$$
     i8 4, label %150
   ]
 
-default.unreachable133:                           ; preds = %186, %150, %85, %3
+default.unreachable141:                           ; preds = %186, %150, %85, %3
   unreachable
 
 19:                                               ; preds = %3
@@ -32441,13 +32441,13 @@ default.unreachable133:                           ; preds = %186, %150, %85, %3
   %.sroa.11.sroa.0.0.copyload = load i32, ptr %.sroa.11.0..sroa_idx, align 1
   %.sroa.11.sroa.10.0..sroa.11.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 37
   %21 = icmp eq i8 %.sroa.0.0.copyload, 2
-  br i1 %21, label %.thread134, label %22
+  br i1 %21, label %.thread142, label %22
 
 22:                                               ; preds = %19
   %trunc = trunc i8 %.sroa.0.0.copyload to i1
   br i1 %trunc, label %27, label %26
 
-.thread134:                                       ; preds = %19
+.thread142:                                       ; preds = %19
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 56
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
   %.sroa.789.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 88
@@ -32624,9 +32624,9 @@ default.unreachable133:                           ; preds = %186, %150, %85, %3
   br label %"_ZN4core3ptr55drop_in_place$LT$tokio..net..tcp..socket..TcpSocket$GT$17h784d13d9542aaea1E.exit50"
 
 common.ret:                                       ; preds = %315, %145, %81
-  %.sink137 = phi i64 [ 1, %315 ], [ 1, %145 ], [ 0, %81 ]
+  %.sink145 = phi i64 [ 1, %315 ], [ 1, %145 ], [ 0, %81 ]
   %.sink = phi i8 [ 4, %315 ], [ 3, %145 ], [ 1, %81 ]
-  store i64 %.sink137, ptr %0, align 8
+  store i64 %.sink145, ptr %0, align 8
   store i8 %.sink, ptr %17, align 1
   ret void
 
@@ -32656,7 +32656,7 @@ common.ret:                                       ; preds = %315, %145, %81
   %86 = getelementptr inbounds nuw i8, ptr %1, i64 56
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %87 = getelementptr inbounds nuw i8, ptr %1, i64 136
-  switch i8 %.pre, label %default.unreachable133 [
+  switch i8 %.pre, label %default.unreachable141 [
     i8 0, label %88
     i8 1, label %.invoke
     i8 2, label %122
@@ -32847,17 +32847,17 @@ common.ret:                                       ; preds = %315, %145, %81
   %.pre132 = load i8, ptr %.phi.trans.insert131, align 8, !range !1379, !noalias !9674
   %151 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %152 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  switch i8 %.pre132, label %default.unreachable133 [
+  switch i8 %.pre132, label %default.unreachable141 [
     i8 0, label %153
-    i8 1, label %.invoke135
+    i8 1, label %.invoke143
     i8 2, label %159
     i8 3, label %162
     i8 4, label %186
   ]
 
-153:                                              ; preds = %.thread134, %150
-  %154 = phi ptr [ %25, %.thread134 ], [ %152, %150 ]
-  %155 = phi ptr [ %24, %.thread134 ], [ %151, %150 ]
+153:                                              ; preds = %.thread142, %150
+  %154 = phi ptr [ %25, %.thread142 ], [ %152, %150 ]
+  %155 = phi ptr [ %24, %.thread142 ], [ %151, %150 ]
   %156 = getelementptr inbounds nuw i8, ptr %1, i64 90
   store i8 0, ptr %156, align 2, !noalias !9674
   %157 = getelementptr inbounds nuw i8, ptr %1, i64 89
@@ -32867,15 +32867,15 @@ common.ret:                                       ; preds = %315, %145, %81
   br label %162
 
 159:                                              ; preds = %150
-  br label %.invoke135
+  br label %.invoke143
 
-.invoke135:                                       ; preds = %150, %159
+.invoke143:                                       ; preds = %150, %159
   %160 = phi ptr [ @str.1, %159 ], [ @str.0, %150 ]
   %161 = phi i64 [ 34, %159 ], [ 35, %150 ]
   invoke void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 %160, i64 noundef %161, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.2f67150bb2f438acc2a75658cf391852.49) #29
-          to label %.cont136 unwind label %309
+          to label %.cont144 unwind label %309
 
-.cont136:                                         ; preds = %.invoke135
+.cont144:                                         ; preds = %.invoke143
   unreachable
 
 162:                                              ; preds = %150, %153
@@ -32957,7 +32957,7 @@ common.ret:                                       ; preds = %315, %145, %81
   %.phi.trans.insert104.i = getelementptr inbounds nuw i8, ptr %1, i64 176
   %.pre.i = load i8, ptr %.phi.trans.insert104.i, align 8, !range !208, !noalias !9691
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !9674
-  switch i8 %.pre.i, label %default.unreachable133 [
+  switch i8 %.pre.i, label %default.unreachable141 [
     i8 0, label %187
     i8 1, label %.invoke.i
     i8 2, label %204
@@ -33293,7 +33293,7 @@ common.ret:                                       ; preds = %315, %145, %81
   invoke fastcc void @"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$std..io..error..Error$GT$$GT$17h2d6f3abbe36fc8a7E"(ptr %.val.i) #28
           to label %.body33.i unwind label %181, !noalias !9684
 
-309:                                              ; preds = %.invoke135
+309:                                              ; preds = %.invoke143
   %310 = landingpad { ptr, i32 }
           cleanup
   br label %.body63

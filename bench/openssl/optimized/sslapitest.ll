@@ -7386,9 +7386,9 @@ define internal range(i32 0, 2) i32 @test_tls13_ciphersuite(i32 noundef %0) #1 {
 
 .preheader:                                       ; preds = %10, %123
   %.b.pre62 = phi i1 [ %.b.pre62.pre, %10 ], [ %.b.pre6265, %123 ]
-  %.03359 = phi i32 [ 771, %10 ], [ %124, %123 ]
-  %12 = icmp eq i32 %.03359, 772
-  %13 = icmp eq i32 %.03359, 771
+  %12 = phi i1 [ false, %10 ], [ true, %123 ]
+  %13 = phi i1 [ true, %10 ], [ false, %123 ]
+  %.03359 = phi i32 [ 771, %10 ], [ 772, %123 ]
   %or.cond = and i1 %11, %13
   br label %14
 
@@ -7588,20 +7588,18 @@ define internal range(i32 0, 2) i32 @test_tls13_ciphersuite(i32 noundef %0) #1 {
   br i1 %exitcond.not, label %123, label %14, !llvm.loop !65
 
 123:                                              ; preds = %121
-  %124 = add nuw nsw i32 %.03359, 1
-  %exitcond61.not = icmp eq i32 %124, 773
-  br i1 %exitcond61.not, label %.loopexit, label %.preheader, !llvm.loop !66
+  br i1 %12, label %.loopexit, label %.preheader, !llvm.loop !66
 
 .loopexit:                                        ; preds = %123, %115, %111, %102, %95, %83, %89, %70, %76, %62, %50, %56, %37, %43, %18
   %.034 = phi i32 [ 0, %18 ], [ 0, %43 ], [ 0, %37 ], [ 0, %56 ], [ 0, %50 ], [ 0, %62 ], [ 0, %76 ], [ 0, %70 ], [ 0, %89 ], [ 0, %83 ], [ 0, %95 ], [ 0, %102 ], [ 0, %111 ], [ 0, %115 ], [ 1, %123 ]
-  %125 = load ptr, ptr %4, align 8, !tbaa !21
+  %124 = load ptr, ptr %4, align 8, !tbaa !21
+  call void @SSL_free(ptr noundef %124) #24
+  %125 = load ptr, ptr %5, align 8, !tbaa !21
   call void @SSL_free(ptr noundef %125) #24
-  %126 = load ptr, ptr %5, align 8, !tbaa !21
-  call void @SSL_free(ptr noundef %126) #24
-  %127 = load ptr, ptr %2, align 8, !tbaa !19
+  %126 = load ptr, ptr %2, align 8, !tbaa !19
+  call void @SSL_CTX_free(ptr noundef %126) #24
+  %127 = load ptr, ptr %3, align 8, !tbaa !19
   call void @SSL_CTX_free(ptr noundef %127) #24
-  %128 = load ptr, ptr %3, align 8, !tbaa !19
-  call void @SSL_CTX_free(ptr noundef %128) #24
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -11461,8 +11459,8 @@ PACKET_get_length_prefixed_1.exit.i:              ; preds = %62, %57
 
 PACKET_get_length_prefixed_1.exit.thread.i:       ; preds = %56
   %67 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 7379, ptr noundef nonnull @.str.766, i32 noundef 0) #24
-  %.not982.i = icmp eq i32 %67, 0
-  br i1 %.not982.i, label %get_MFL_from_client_hello.exit, label %PACKET_get_length_prefixed_2.exit.thread.i
+  %.not992.i = icmp eq i32 %67, 0
+  br i1 %.not992.i, label %get_MFL_from_client_hello.exit, label %PACKET_get_length_prefixed_2.exit.thread.i
 
 68:                                               ; preds = %PACKET_get_length_prefixed_1.exit.i
   %69 = icmp samesign ult i64 %.sroa.18.4.i, 2
@@ -11498,8 +11496,8 @@ PACKET_get_length_prefixed_2.exit.i:              ; preds = %80, %70, %68
 
 PACKET_get_length_prefixed_2.exit.thread.i:       ; preds = %PACKET_get_length_prefixed_1.exit.thread.i
   %85 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 7381, ptr noundef nonnull @.str.767, i32 noundef 0) #24
-  %.not1096.i = icmp eq i32 %85, 0
-  br i1 %.not1096.i, label %get_MFL_from_client_hello.exit, label %PACKET_get_length_prefixed_1.exit36.i
+  %.not10106.i = icmp eq i32 %85, 0
+  br i1 %.not10106.i, label %get_MFL_from_client_hello.exit, label %PACKET_get_length_prefixed_1.exit36.i
 
 86:                                               ; preds = %PACKET_get_length_prefixed_2.exit.i
   %.not.i.i.i33.i = icmp eq i64 %.sroa.18.5.i, 0
@@ -11561,7 +11559,7 @@ PACKET_as_length_prefixed_2.exit.i:               ; preds = %108, %99, %97
   %.sroa.11.0.i = phi i64 [ %.sroa.11.6.i, %139 ], [ %.sroa.11.4.i, %PACKET_as_length_prefixed_2.exit.i ]
   %.sroa.0.0.i = phi ptr [ %.sroa.0.1.i, %139 ], [ null, %PACKET_as_length_prefixed_2.exit.i ]
   %.sroa.6.0.i = phi i64 [ %.sroa.6.1.i, %139 ], [ 0, %PACKET_as_length_prefixed_2.exit.i ]
-  %.063.i = phi i32 [ %.1114119.i, %139 ], [ 0, %PACKET_as_length_prefixed_2.exit.i ]
+  %.063.i = phi i32 [ %.1124129.i, %139 ], [ 0, %PACKET_as_length_prefixed_2.exit.i ]
   switch i64 %.sroa.11.0.i, label %PACKET_get_net_2.exit.i [
     i64 0, label %get_MFL_from_client_hello.exit
     i64 1, label %PACKET_get_net_2.exit.thread.i
@@ -11583,8 +11581,8 @@ PACKET_get_net_2.exit.i:                          ; preds = %.preheader.i
 
 PACKET_get_net_2.exit.thread.i:                   ; preds = %.preheader.i
   %121 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 7390, ptr noundef nonnull @.str.769, i32 noundef 0) #24
-  %.not14111.i = icmp eq i32 %121, 0
-  br i1 %.not14111.i, label %get_MFL_from_client_hello.exit, label %PACKET_get_length_prefixed_2.exit46.i
+  %.not14121.i = icmp eq i32 %121, 0
+  br i1 %.not14121.i, label %get_MFL_from_client_hello.exit, label %PACKET_get_length_prefixed_2.exit46.i
 
 122:                                              ; preds = %PACKET_get_net_2.exit.i
   %123 = icmp ult i64 %119, 2
@@ -11609,7 +11607,7 @@ PACKET_get_net_2.exit.thread.i:                   ; preds = %.preheader.i
   br label %PACKET_get_length_prefixed_2.exit46.i
 
 PACKET_get_length_prefixed_2.exit46.i:            ; preds = %134, %124, %122, %PACKET_get_net_2.exit.thread.i
-  %.1114119.i = phi i32 [ %117, %122 ], [ %117, %124 ], [ %117, %134 ], [ %.063.i, %PACKET_get_net_2.exit.thread.i ]
+  %.1124129.i = phi i32 [ %117, %122 ], [ %117, %124 ], [ %117, %134 ], [ %.063.i, %PACKET_get_net_2.exit.thread.i ]
   %.sroa.051.6.i = phi ptr [ %118, %122 ], [ %118, %124 ], [ %136, %134 ], [ %.sroa.051.0.i, %PACKET_get_net_2.exit.thread.i ]
   %.sroa.11.6.i = phi i64 [ %119, %122 ], [ %119, %124 ], [ %137, %134 ], [ 1, %PACKET_get_net_2.exit.thread.i ]
   %.sroa.0.1.i = phi ptr [ %.sroa.0.0.i, %122 ], [ %.sroa.0.0.i, %124 ], [ %135, %134 ], [ %.sroa.0.0.i, %PACKET_get_net_2.exit.thread.i ]
@@ -11620,7 +11618,7 @@ PACKET_get_length_prefixed_2.exit46.i:            ; preds = %134, %124, %122, %P
   br i1 %.not15.i, label %get_MFL_from_client_hello.exit, label %139
 
 139:                                              ; preds = %PACKET_get_length_prefixed_2.exit46.i
-  %140 = icmp eq i32 %.1114119.i, 1
+  %140 = icmp eq i32 %.1124129.i, 1
   br i1 %140, label %141, label %.preheader.i, !llvm.loop !71
 
 141:                                              ; preds = %139
@@ -12502,17 +12500,17 @@ switch.lookup:                                    ; preds = %1
   %.sink = phi i32 [ %switch.load, %switch.lookup ], [ 0, %1 ]
   store i32 %.sink, ptr @tick_key_renew, align 4, !tbaa !14
   %9 = icmp ult i32 %0, 8
-  br i1 %9, label %switch.lookup59, label %11
+  br i1 %9, label %switch.lookup60, label %11
 
-switch.lookup59:                                  ; preds = %8
+switch.lookup60:                                  ; preds = %8
   %10 = zext nneg i32 %0 to i64
-  %switch.gep60 = getelementptr inbounds nuw [8 x i32], ptr @switch.table.test_ticket_callbacks.15, i64 0, i64 %10
-  %switch.load61 = load i32, ptr %switch.gep60, align 4
+  %switch.gep61 = getelementptr inbounds nuw [8 x i32], ptr @switch.table.test_ticket_callbacks.15, i64 0, i64 %10
+  %switch.load62 = load i32, ptr %switch.gep61, align 4
   br label %11
 
-11:                                               ; preds = %8, %switch.lookup59
-  %.sink58 = phi i32 [ %switch.load61, %switch.lookup59 ], [ 0, %8 ]
-  store i32 %.sink58, ptr @tick_dec_ret, align 4, !tbaa !14
+11:                                               ; preds = %8, %switch.lookup60
+  %.sink59 = phi i32 [ %switch.load62, %switch.lookup60 ], [ 0, %8 ]
+  store i32 %.sink59, ptr @tick_dec_ret, align 4, !tbaa !14
   %12 = load ptr, ptr @libctx, align 8, !tbaa !4
   %13 = tail call ptr @TLS_server_method() #24
   %14 = tail call ptr @TLS_client_method() #24
@@ -14302,21 +14300,21 @@ switch.lookup:                                    ; preds = %119
   %switch.gep = getelementptr inbounds nuw [6 x i32], ptr @switch.table.test_sigalgs_available, i64 0, i64 %123
   %switch.load = load i32, ptr %switch.gep, align 4
   %124 = zext nneg i32 %0 to i64
-  %switch.gep68 = getelementptr inbounds nuw [6 x i32], ptr @switch.table.test_sigalgs_available.16, i64 0, i64 %124
-  %switch.load69 = load i32, ptr %switch.gep68, align 4
+  %switch.gep69 = getelementptr inbounds nuw [6 x i32], ptr @switch.table.test_sigalgs_available.16, i64 0, i64 %124
+  %switch.load70 = load i32, ptr %switch.gep69, align 4
   %125 = zext nneg i32 %0 to i64
-  %switch.gep70 = getelementptr inbounds nuw [6 x i32], ptr @switch.table.test_sigalgs_available.17, i64 0, i64 %125
-  %switch.load71 = load i32, ptr %switch.gep70, align 4
+  %switch.gep71 = getelementptr inbounds nuw [6 x i32], ptr @switch.table.test_sigalgs_available.17, i64 0, i64 %125
+  %switch.load72 = load i32, ptr %switch.gep71, align 4
   %126 = zext nneg i32 %0 to i64
-  %switch.gep72 = getelementptr inbounds nuw [6 x ptr], ptr @switch.table.test_sigalgs_available.18, i64 0, i64 %126
-  %switch.load73 = load ptr, ptr %switch.gep72, align 8
+  %switch.gep73 = getelementptr inbounds nuw [6 x ptr], ptr @switch.table.test_sigalgs_available.18, i64 0, i64 %126
+  %switch.load74 = load ptr, ptr %switch.gep73, align 8
   br label %127
 
 127:                                              ; preds = %switch.lookup, %119
   %.031 = phi i32 [ 1, %119 ], [ %switch.load, %switch.lookup ]
-  %.029 = phi i32 [ 672, %119 ], [ %switch.load69, %switch.lookup ]
-  %.028 = phi i32 [ 912, %119 ], [ %switch.load71, %switch.lookup ]
-  %.0 = phi ptr [ @.str.1037, %119 ], [ %switch.load73, %switch.lookup ]
+  %.029 = phi i32 [ 672, %119 ], [ %switch.load70, %switch.lookup ]
+  %.028 = phi i32 [ 912, %119 ], [ %switch.load72, %switch.lookup ]
+  %.0 = phi ptr [ @.str.1037, %119 ], [ %switch.load74, %switch.lookup ]
   %128 = call i32 @test_int_eq(ptr noundef nonnull @.str.14, i32 noundef 10063, ptr noundef nonnull @.str.1039, ptr noundef nonnull @.str.1040, i32 noundef %121, i32 noundef %.031) #24
   %.not59 = icmp eq i32 %128, 0
   br i1 %.not59, label %149, label %129

@@ -252,7 +252,7 @@ define dso_local void @move_cache_to_base_index(ptr noundef captures(none) %0) l
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 224
   %8 = load ptr, ptr %7, align 8, !tbaa !55
   %.not46 = icmp eq ptr %8, null
-  br i1 %.not46, label %.thread65, label %9
+  br i1 %.not46, label %.thread70, label %9
 
 9:                                                ; preds = %6
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 224
@@ -278,11 +278,11 @@ define dso_local void @move_cache_to_base_index(ptr noundef captures(none) %0) l
   tail call void @mem_pool_combine(ptr noundef %16, ptr noundef %15) #12
   %.pr.pre = load ptr, ptr %4, align 8, !tbaa !54
   %.not48 = icmp eq ptr %.pr.pre, null
-  br i1 %.not48, label %.thread, label %.thread65
+  br i1 %.not48, label %.thread, label %.thread70
 
-.thread65:                                        ; preds = %6, %14
-  %.pr68 = phi ptr [ %.pr.pre, %14 ], [ %5, %6 ]
-  tail call void @release_index(ptr noundef nonnull %.pr68) #12
+.thread70:                                        ; preds = %6, %14
+  %.pr73 = phi ptr [ %.pr.pre, %14 ], [ %5, %6 ]
+  tail call void @release_index(ptr noundef nonnull %.pr73) #12
   %.pre60 = load ptr, ptr %4, align 8, !tbaa !54
   br label %18
 
@@ -291,8 +291,8 @@ define dso_local void @move_cache_to_base_index(ptr noundef captures(none) %0) l
   store ptr %17, ptr %4, align 8, !tbaa !54
   br label %18
 
-18:                                               ; preds = %.thread, %.thread65
-  %19 = phi ptr [ %17, %.thread ], [ %.pre60, %.thread65 ]
+18:                                               ; preds = %.thread, %.thread70
+  %19 = phi ptr [ %17, %.thread ], [ %.pre60, %.thread70 ]
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %21 = load ptr, ptr %20, align 8, !tbaa !56
   tail call void @index_state_init(ptr noundef %19, ptr noundef %21) #12
@@ -1303,7 +1303,7 @@ define dso_local void @remove_split_index(ptr noundef captures(none) %0) local_u
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %6 = load ptr, ptr %5, align 8, !tbaa !54
   %.not8 = icmp eq ptr %6, null
-  br i1 %.not8, label %.thread10, label %7
+  br i1 %.not8, label %.thread12, label %7
 
 7:                                                ; preds = %4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 224
@@ -1324,28 +1324,28 @@ define dso_local void @remove_split_index(ptr noundef captures(none) %0) local_u
   %.not10.i = icmp eq i32 %18, 0
   br i1 %.not10.i, label %22, label %discard_split_index.exit
 
-.thread10:                                        ; preds = %4
+.thread12:                                        ; preds = %4
   store ptr null, ptr %2, align 8, !tbaa !4
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 84
   %20 = load i32, ptr %19, align 4, !tbaa !26
   %21 = add nsw i32 %20, -1
   store i32 %21, ptr %19, align 4, !tbaa !26
-  %.not10.i11 = icmp eq i32 %21, 0
-  br i1 %.not10.i11, label %.thread12, label %discard_split_index.exit
+  %.not10.i13 = icmp eq i32 %21, 0
+  br i1 %.not10.i13, label %.thread14, label %discard_split_index.exit
 
 22:                                               ; preds = %7
   %23 = getelementptr inbounds nuw i8, ptr %12, i64 40
   tail call void @discard_index(ptr noundef nonnull %14) #12
   %24 = load ptr, ptr %23, align 8, !tbaa !54
   tail call void @free(ptr noundef %24) #12
-  br label %.thread12
+  br label %.thread14
 
-.thread12:                                        ; preds = %.thread10, %22
-  %25 = phi ptr [ %12, %22 ], [ %3, %.thread10 ]
+.thread14:                                        ; preds = %.thread12, %22
+  %25 = phi ptr [ %12, %22 ], [ %3, %.thread12 ]
   tail call void @free(ptr noundef nonnull %25) #12
   br label %discard_split_index.exit
 
-discard_split_index.exit:                         ; preds = %.thread10, %7, %.thread12
+discard_split_index.exit:                         ; preds = %.thread12, %7, %.thread14
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %27 = load i32, ptr %26, align 4, !tbaa !73
   %28 = or i32 %27, 1

@@ -2019,7 +2019,7 @@ define dso_local ptr @xprt_lookup_rqst(ptr noundef %0, i32 noundef %1) #0 align 
   %10 = icmp ugt i32 %8, %1
   %11 = select i1 %10, i32 1, i32 2
   %12 = select i1 %9, i32 0, i32 %11
-  switch i32 %12, label %default.unreachable9 [
+  switch i32 %12, label %default.unreachable13 [
     i32 1, label %14
     i32 2, label %13
     i32 0, label %19
@@ -2028,7 +2028,7 @@ define dso_local ptr @xprt_lookup_rqst(ptr noundef %0, i32 noundef %1) #0 align 
 13:                                               ; preds = %.preheader
   br label %14
 
-default.unreachable9:                             ; preds = %.preheader
+default.unreachable13:                            ; preds = %.preheader
   unreachable
 
 14:                                               ; preds = %13, %.preheader
@@ -2241,7 +2241,7 @@ define dso_local i32 @xprt_request_enqueue_receive(ptr noundef %0) local_unnamed
   %36 = icmp ult i32 %30, %34
   %37 = select i1 %36, i32 1, i32 2
   %38 = select i1 %35, i32 0, i32 %37
-  switch i32 %38, label %default.unreachable11 [
+  switch i32 %38, label %default.unreachable14 [
     i32 1, label %44
     i32 2, label %39
     i32 0, label %40
@@ -2261,7 +2261,7 @@ define dso_local i32 @xprt_request_enqueue_receive(ptr noundef %0) local_unnamed
   tail call void asm sideeffect "2647: nop\0A\09.pushsection .discard.instr_end\0A\09.long 2647b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 2647) #17, !srcloc !68
   br label %57
 
-default.unreachable11:                            ; preds = %31
+default.unreachable14:                            ; preds = %31
   unreachable
 
 44:                                               ; preds = %39, %31
@@ -2791,9 +2791,9 @@ define dso_local void @xprt_request_enqueue_transmit(ptr noundef %0) local_unnam
   br label %104
 
 104:                                              ; preds = %.loopexit, %93, %70
-  %.sink14 = phi i64 [ 240, %.loopexit ], [ 224, %93 ], [ 240, %70 ]
+  %.sink17 = phi i64 [ 240, %.loopexit ], [ 224, %93 ], [ 240, %70 ]
   %105 = phi i64 [ 248, %.loopexit ], [ 232, %93 ], [ 248, %70 ]
-  %106 = getelementptr inbounds nuw i8, ptr %3, i64 %.sink14
+  %106 = getelementptr inbounds nuw i8, ptr %3, i64 %.sink17
   store volatile ptr %106, ptr %106, align 8
   %107 = getelementptr inbounds nuw i8, ptr %3, i64 %105
   store volatile ptr %106, ptr %107, align 8

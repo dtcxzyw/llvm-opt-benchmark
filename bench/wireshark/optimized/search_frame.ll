@@ -2495,11 +2495,11 @@ _ZN7QStringD2Ev.exit40:                           ; preds = %_ZN10QByteArrayD2Ev
   br label %115
 
 115:                                              ; preds = %_ZN7QStringD2Ev.exit32, %114
-  %.sink54 = phi i32 [ 4, %114 ], [ 2, %_ZN7QStringD2Ev.exit32 ]
+  %.sink64 = phi i32 [ 4, %114 ], [ 2, %_ZN7QStringD2Ev.exit32 ]
   %116 = load ptr, ptr %12, align 8
   %117 = getelementptr inbounds nuw i8, ptr %116, i64 48
   %118 = load ptr, ptr %117, align 8
-  call void @_ZN14SyntaxLineEdit14setSyntaxStateENS_11SyntaxStateE(ptr noundef align 8 dereferenceable_or_null(185) %118, i32 noundef %.sink54)
+  call void @_ZN14SyntaxLineEdit14setSyntaxStateENS_11SyntaxStateE(ptr noundef align 8 dereferenceable_or_null(185) %118, i32 noundef %.sink64)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZN7QStringD2Ev.exit
 

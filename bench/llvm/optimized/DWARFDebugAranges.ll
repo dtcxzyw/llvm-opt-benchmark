@@ -685,8 +685,8 @@ _ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i: ; p
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %94, ptr %3, align 8, !tbaa !11
   %95 = load ptr, ptr %81, align 8, !tbaa !119
-  %.not.i.i.i60 = icmp eq ptr %95, null
-  br i1 %.not.i.i.i60, label %96, label %_ZNKSt8functionIFvN4llvm5ErrorEEEclES1_.exit.i
+  %.not.i.i.i87 = icmp eq ptr %95, null
+  br i1 %.not.i.i.i87, label %96, label %_ZNKSt8functionIFvN4llvm5ErrorEEEclES1_.exit.i
 
 96:                                               ; preds = %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i
   call void @_ZSt25__throw_bad_function_callv() #14
@@ -1232,9 +1232,9 @@ _ZNSt8multisetImSt4lessImESaImEE4findERKm.exit28: ; preds = %70, %_ZNSt8_Rb_tree
   br label %83
 
 83:                                               ; preds = %_ZNSt8multisetImSt4lessImESaImEE4findERKm.exit28, %_ZNSt8multisetImSt4lessImESaImEE6insertERKm.exit
-  %.sink56 = phi i64 [ -1, %_ZNSt8multisetImSt4lessImESaImEE4findERKm.exit28 ], [ 1, %_ZNSt8multisetImSt4lessImESaImEE6insertERKm.exit ]
+  %.sink70 = phi i64 [ -1, %_ZNSt8multisetImSt4lessImESaImEE4findERKm.exit28 ], [ 1, %_ZNSt8multisetImSt4lessImESaImEE6insertERKm.exit ]
   %84 = load i64, ptr %8, align 8, !tbaa !146
-  %85 = add i64 %84, %.sink56
+  %85 = add i64 %84, %.sink70
   store i64 %85, ptr %8, align 8, !tbaa !146
   %86 = load i64, ptr %.sroa.032.043, align 8, !tbaa !39
   store i64 %86, ptr %3, align 8, !tbaa !10
@@ -1562,13 +1562,13 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapImNS_6detail13DenseSetEmptyENS_12DenseMapInfo
   br label %.loopexit
 
 .loopexit:                                        ; preds = %27, %10, %60
-  %.sink28 = phi i32 [ %63, %60 ], [ %8, %10 ], [ %8, %27 ]
-  %.sink26 = phi ptr [ %62, %60 ], [ %6, %10 ], [ %6, %27 ]
-  %.sink25 = phi ptr [ %51, %60 ], [ %19, %10 ], [ %34, %27 ]
+  %.sink32 = phi i32 [ %63, %60 ], [ %8, %10 ], [ %8, %27 ]
+  %.sink30 = phi ptr [ %62, %60 ], [ %6, %10 ], [ %6, %27 ]
+  %.sink29 = phi ptr [ %51, %60 ], [ %19, %10 ], [ %34, %27 ]
   %.sink = phi i8 [ 1, %60 ], [ 0, %10 ], [ 0, %27 ]
-  %64 = zext i32 %.sink28 to i64
-  %65 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair", ptr %.sink26, i64 %64
-  store ptr %.sink25, ptr %0, align 8
+  %64 = zext i32 %.sink32 to i64
+  %65 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair", ptr %.sink30, i64 %64
+  store ptr %.sink29, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %65, ptr %.sroa.4.0..sroa_idx, align 8
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1912,7 +1912,7 @@ define linkonce_odr void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorI
   %25 = and i64 %20, 1
   %26 = icmp eq i64 %25, 0
   %27 = or disjoint i64 %21, 1
-  %28 = getelementptr inbounds %"struct.llvm::DWARFDebugAranges::RangeEndpoint", ptr %0, i64 %27
+  %28 = getelementptr inbounds nuw %"struct.llvm::DWARFDebugAranges::RangeEndpoint", ptr %0, i64 %27
   %29 = getelementptr inbounds nuw %"struct.llvm::DWARFDebugAranges::RangeEndpoint", ptr %0, i64 %22
   br label %30
 
@@ -1962,20 +1962,20 @@ define linkonce_odr void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorI
   %.018.i.i.i.i = phi i64 [ %.0919.i.i.i.i, %51 ], [ %.1.i.i.i, %46 ]
   %.0919.in.i.i.i.i = add nsw i64 %.018.i.i.i.i, -1
   %.0919.i.i.i.i = sdiv i64 %.0919.in.i.i.i.i, 2
-  %48 = getelementptr inbounds %"struct.llvm::DWARFDebugAranges::RangeEndpoint", ptr %0, i64 %.0919.i.i.i.i
+  %48 = getelementptr inbounds nuw %"struct.llvm::DWARFDebugAranges::RangeEndpoint", ptr %0, i64 %.0919.i.i.i.i
   %49 = load i64, ptr %48, align 8, !tbaa !39
   %50 = icmp ult i64 %49, %.sroa.015.0.copyload.i.i
   br i1 %50, label %51, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm17DWARFDebugAranges13RangeEndpointESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_less_iterEEvT_T0_SD_T1_T2_.exit.i.i
 
 51:                                               ; preds = %.lr.ph.i.i.i.i11
-  %52 = getelementptr inbounds %"struct.llvm::DWARFDebugAranges::RangeEndpoint", ptr %0, i64 %.018.i.i.i.i
+  %52 = getelementptr inbounds nuw %"struct.llvm::DWARFDebugAranges::RangeEndpoint", ptr %0, i64 %.018.i.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %52, ptr noundef nonnull align 8 dereferenceable(17) %48, i64 17, i1 false), !tbaa.struct !45
   %53 = icmp sgt i64 %.0919.i.i.i.i, %.07.i.i
   br i1 %53, label %.lr.ph.i.i.i.i11, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm17DWARFDebugAranges13RangeEndpointESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_less_iterEEvT_T0_SD_T1_T2_.exit.i.i, !llvm.loop !177
 
 _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm17DWARFDebugAranges13RangeEndpointESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_less_iterEEvT_T0_SD_T1_T2_.exit.i.i: ; preds = %51, %.lr.ph.i.i.i.i11, %46
   %.0.lcssa.i.i.i.i10 = phi i64 [ %.1.i.i.i, %46 ], [ %.0919.i.i.i.i, %51 ], [ %.018.i.i.i.i, %.lr.ph.i.i.i.i11 ]
-  %54 = getelementptr inbounds %"struct.llvm::DWARFDebugAranges::RangeEndpoint", ptr %0, i64 %.0.lcssa.i.i.i.i10
+  %54 = getelementptr inbounds nuw %"struct.llvm::DWARFDebugAranges::RangeEndpoint", ptr %0, i64 %.0.lcssa.i.i.i.i10
   store i64 %.sroa.015.0.copyload.i.i, ptr %54, align 8, !tbaa !10
   %.sroa.5.0..sroa_idx36.i.i.i = getelementptr inbounds nuw i8, ptr %54, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %.sroa.5.0..sroa_idx36.i.i.i, ptr noundef nonnull align 8 dereferenceable(9) %.sroa.4.i.i, i64 9, i1 false)

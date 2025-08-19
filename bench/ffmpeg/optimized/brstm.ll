@@ -1096,9 +1096,9 @@ read32.exit378:                                   ; preds = %482, %484
   br label %552
 
 552:                                              ; preds = %500, %551, %489, %.loopexit
-  %.sink451 = phi i32 [ %520, %.loopexit ], [ %488, %489 ], [ %488, %551 ], [ %488, %500 ]
+  %.sink462 = phi i32 [ %520, %.loopexit ], [ %488, %489 ], [ %488, %551 ], [ %488, %500 ]
   %.sink = load ptr, ptr %12, align 8, !tbaa !41
-  %553 = zext i32 %.sink451 to i64
+  %553 = zext i32 %.sink462 to i64
   %554 = tail call i64 @avio_skip(ptr noundef %.sink, i64 noundef %553) #10
   %555 = load ptr, ptr %12, align 8, !tbaa !41
   %556 = tail call i32 @avio_feof(ptr noundef %555) #10

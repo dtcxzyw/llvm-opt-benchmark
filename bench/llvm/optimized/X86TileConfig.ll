@@ -2737,7 +2737,7 @@ _ZN4llvm6ShapeTD2Ev.exit.i:                       ; preds = %65, %_ZN4llvm11Smal
   br i1 %.not.i, label %_ZSt20uninitialized_fill_nIPN4llvm6ShapeTEmS1_ET_S3_T0_RKT1_.exit, label %.lr.ph.i, !llvm.loop !279
 
 _ZSt20uninitialized_fill_nIPN4llvm6ShapeTEmS1_ET_S3_T0_RKT1_.exit: ; preds = %_ZN4llvm6ShapeTD2Ev.exit.i, %_ZSt10_ConstructIN4llvm6ShapeTEJRKS1_EEvPT_DpOT0_.exit.i.i.i, %51
-  %66 = trunc i64 %1 to i32
+  %66 = trunc nuw i64 %1 to i32
   store i32 %66, ptr %10, align 8, !tbaa !256
   br label %67
 

@@ -1880,8 +1880,8 @@ define void @_ZN7rocksdb9lru_cache13LRUCacheShard10LRU_InsertEPNS0_9LRUHandleE(p
   %77 = load i8, ptr %76, align 8, !tbaa !77
   %78 = and i8 %77, 2
   %.not58 = icmp eq i8 %78, 0
-  %or.cond94 = select i1 %or.cond.not, i1 %.not58, i1 false
-  br i1 %or.cond94, label %131, label %._crit_edge77
+  %or.cond97 = select i1 %or.cond.not, i1 %.not58, i1 false
+  br i1 %or.cond97, label %131, label %._crit_edge77
 
 ._crit_edge77:                                    ; preds = %72
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 144
@@ -4645,7 +4645,7 @@ _ZNK7rocksdb12ShardedCacheINS_9lru_cache13LRUCacheShardEE13SumOverShardsERKSt8fu
   br i1 %.not.i4, label %_ZNSt14_Function_baseD2Ev.exit, label %_ZNK7rocksdb12ShardedCacheINS_9lru_cache13LRUCacheShardEE13SumOverShardsERKSt8functionIFmRS2_EE.exit.thread
 
 _ZNK7rocksdb12ShardedCacheINS_9lru_cache13LRUCacheShardEE13SumOverShardsERKSt8functionIFmRS2_EE.exit.thread: ; preds = %.noexc, %_ZNK7rocksdb12ShardedCacheINS_9lru_cache13LRUCacheShardEE13SumOverShardsERKSt8functionIFmRS2_EE.exit
-  %.07.lcssa.i9 = phi i64 [ %14, %_ZNK7rocksdb12ShardedCacheINS_9lru_cache13LRUCacheShardEE13SumOverShardsERKSt8functionIFmRS2_EE.exit ], [ 0, %.noexc ]
+  %.07.lcssa.i11 = phi i64 [ %14, %_ZNK7rocksdb12ShardedCacheINS_9lru_cache13LRUCacheShardEE13SumOverShardsERKSt8functionIFmRS2_EE.exit ], [ 0, %.noexc ]
   %15 = phi ptr [ %.pre, %_ZNK7rocksdb12ShardedCacheINS_9lru_cache13LRUCacheShardEE13SumOverShardsERKSt8functionIFmRS2_EE.exit ], [ @"_ZNSt17_Function_handlerIFmRN7rocksdb9lru_cache13LRUCacheShardEEZNS1_8LRUCache15TEST_GetLRUSizeEvE3$_0E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation", %.noexc ]
   %16 = invoke noundef zeroext i1 %15(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef 3)
           to label %_ZNSt14_Function_baseD2Ev.exit unwind label %17
@@ -4658,9 +4658,9 @@ _ZNK7rocksdb12ShardedCacheINS_9lru_cache13LRUCacheShardEE13SumOverShardsERKSt8fu
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %_ZNK7rocksdb12ShardedCacheINS_9lru_cache13LRUCacheShardEE13SumOverShardsERKSt8functionIFmRS2_EE.exit, %_ZNK7rocksdb12ShardedCacheINS_9lru_cache13LRUCacheShardEE13SumOverShardsERKSt8functionIFmRS2_EE.exit.thread
-  %.07.lcssa.i10 = phi i64 [ %14, %_ZNK7rocksdb12ShardedCacheINS_9lru_cache13LRUCacheShardEE13SumOverShardsERKSt8functionIFmRS2_EE.exit ], [ %.07.lcssa.i9, %_ZNK7rocksdb12ShardedCacheINS_9lru_cache13LRUCacheShardEE13SumOverShardsERKSt8functionIFmRS2_EE.exit.thread ]
+  %.07.lcssa.i12 = phi i64 [ %14, %_ZNK7rocksdb12ShardedCacheINS_9lru_cache13LRUCacheShardEE13SumOverShardsERKSt8functionIFmRS2_EE.exit ], [ %.07.lcssa.i11, %_ZNK7rocksdb12ShardedCacheINS_9lru_cache13LRUCacheShardEE13SumOverShardsERKSt8functionIFmRS2_EE.exit.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  ret i64 %.07.lcssa.i10
+  ret i64 %.07.lcssa.i12
 
 .loopexit:                                        ; preds = %_ZNKSt8functionIFmRN7rocksdb9lru_cache13LRUCacheShardEEEclES3_.exit.i
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -5789,7 +5789,7 @@ _ZNK7rocksdb12ShardedCacheINS_9lru_cache13LRUCacheShardEE13SumOverShardsERKSt8fu
   br i1 %.not.i16.i, label %_ZNK7rocksdb12ShardedCacheINS_9lru_cache13LRUCacheShardEE14SumOverShards2EMS2_KFmvE.exit, label %_ZNK7rocksdb12ShardedCacheINS_9lru_cache13LRUCacheShardEE13SumOverShardsERKSt8functionIFmRS2_EE.exit.thread.i
 
 _ZNK7rocksdb12ShardedCacheINS_9lru_cache13LRUCacheShardEE13SumOverShardsERKSt8functionIFmRS2_EE.exit.thread.i: ; preds = %_ZNK7rocksdb12ShardedCacheINS_9lru_cache13LRUCacheShardEE13SumOverShardsERKSt8functionIFmRS2_EE.exit.i, %.noexc.i
-  %.07.lcssa.i21.i = phi i64 [ %14, %_ZNK7rocksdb12ShardedCacheINS_9lru_cache13LRUCacheShardEE13SumOverShardsERKSt8functionIFmRS2_EE.exit.i ], [ 0, %.noexc.i ]
+  %.07.lcssa.i23.i = phi i64 [ %14, %_ZNK7rocksdb12ShardedCacheINS_9lru_cache13LRUCacheShardEE13SumOverShardsERKSt8functionIFmRS2_EE.exit.i ], [ 0, %.noexc.i ]
   %15 = phi ptr [ %.pre.i, %_ZNK7rocksdb12ShardedCacheINS_9lru_cache13LRUCacheShardEE13SumOverShardsERKSt8functionIFmRS2_EE.exit.i ], [ @_ZNSt17_Function_handlerIFmRN7rocksdb9lru_cache13LRUCacheShardEEZNKS0_12ShardedCacheIS2_E14SumOverShards2EMS2_KFmvEEUlS3_E_E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation, %.noexc.i ]
   %16 = invoke noundef zeroext i1 %15(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef 3)
           to label %_ZNK7rocksdb12ShardedCacheINS_9lru_cache13LRUCacheShardEE14SumOverShards2EMS2_KFmvE.exit unwind label %17
@@ -5833,9 +5833,9 @@ _ZNSt14_Function_baseD2Ev.exit18.i:               ; preds = %22, %20
   resume { ptr, i32 } %lpad.phi.i
 
 _ZNK7rocksdb12ShardedCacheINS_9lru_cache13LRUCacheShardEE14SumOverShards2EMS2_KFmvE.exit: ; preds = %_ZNK7rocksdb12ShardedCacheINS_9lru_cache13LRUCacheShardEE13SumOverShardsERKSt8functionIFmRS2_EE.exit.i, %_ZNK7rocksdb12ShardedCacheINS_9lru_cache13LRUCacheShardEE13SumOverShardsERKSt8functionIFmRS2_EE.exit.thread.i
-  %.07.lcssa.i22.i = phi i64 [ %14, %_ZNK7rocksdb12ShardedCacheINS_9lru_cache13LRUCacheShardEE13SumOverShardsERKSt8functionIFmRS2_EE.exit.i ], [ %.07.lcssa.i21.i, %_ZNK7rocksdb12ShardedCacheINS_9lru_cache13LRUCacheShardEE13SumOverShardsERKSt8functionIFmRS2_EE.exit.thread.i ]
+  %.07.lcssa.i24.i = phi i64 [ %14, %_ZNK7rocksdb12ShardedCacheINS_9lru_cache13LRUCacheShardEE13SumOverShardsERKSt8functionIFmRS2_EE.exit.i ], [ %.07.lcssa.i23.i, %_ZNK7rocksdb12ShardedCacheINS_9lru_cache13LRUCacheShardEE13SumOverShardsERKSt8functionIFmRS2_EE.exit.thread.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  ret i64 %.07.lcssa.i22.i
+  ret i64 %.07.lcssa.i24.i
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -5894,7 +5894,7 @@ _ZNK7rocksdb12ShardedCacheINS_9lru_cache13LRUCacheShardEE13SumOverShardsERKSt8fu
   br i1 %.not.i16.i, label %_ZNK7rocksdb12ShardedCacheINS_9lru_cache13LRUCacheShardEE14SumOverShards2EMS2_KFmvE.exit, label %_ZNK7rocksdb12ShardedCacheINS_9lru_cache13LRUCacheShardEE13SumOverShardsERKSt8functionIFmRS2_EE.exit.thread.i
 
 _ZNK7rocksdb12ShardedCacheINS_9lru_cache13LRUCacheShardEE13SumOverShardsERKSt8functionIFmRS2_EE.exit.thread.i: ; preds = %_ZNK7rocksdb12ShardedCacheINS_9lru_cache13LRUCacheShardEE13SumOverShardsERKSt8functionIFmRS2_EE.exit.i, %.noexc.i
-  %.07.lcssa.i21.i = phi i64 [ %14, %_ZNK7rocksdb12ShardedCacheINS_9lru_cache13LRUCacheShardEE13SumOverShardsERKSt8functionIFmRS2_EE.exit.i ], [ 0, %.noexc.i ]
+  %.07.lcssa.i23.i = phi i64 [ %14, %_ZNK7rocksdb12ShardedCacheINS_9lru_cache13LRUCacheShardEE13SumOverShardsERKSt8functionIFmRS2_EE.exit.i ], [ 0, %.noexc.i ]
   %15 = phi ptr [ %.pre.i, %_ZNK7rocksdb12ShardedCacheINS_9lru_cache13LRUCacheShardEE13SumOverShardsERKSt8functionIFmRS2_EE.exit.i ], [ @_ZNSt17_Function_handlerIFmRN7rocksdb9lru_cache13LRUCacheShardEEZNKS0_12ShardedCacheIS2_E14SumOverShards2EMS2_KFmvEEUlS3_E_E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation, %.noexc.i ]
   %16 = invoke noundef zeroext i1 %15(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef 3)
           to label %_ZNK7rocksdb12ShardedCacheINS_9lru_cache13LRUCacheShardEE14SumOverShards2EMS2_KFmvE.exit unwind label %17
@@ -5938,9 +5938,9 @@ _ZNSt14_Function_baseD2Ev.exit18.i:               ; preds = %22, %20
   resume { ptr, i32 } %lpad.phi.i
 
 _ZNK7rocksdb12ShardedCacheINS_9lru_cache13LRUCacheShardEE14SumOverShards2EMS2_KFmvE.exit: ; preds = %_ZNK7rocksdb12ShardedCacheINS_9lru_cache13LRUCacheShardEE13SumOverShardsERKSt8functionIFmRS2_EE.exit.i, %_ZNK7rocksdb12ShardedCacheINS_9lru_cache13LRUCacheShardEE13SumOverShardsERKSt8functionIFmRS2_EE.exit.thread.i
-  %.07.lcssa.i22.i = phi i64 [ %14, %_ZNK7rocksdb12ShardedCacheINS_9lru_cache13LRUCacheShardEE13SumOverShardsERKSt8functionIFmRS2_EE.exit.i ], [ %.07.lcssa.i21.i, %_ZNK7rocksdb12ShardedCacheINS_9lru_cache13LRUCacheShardEE13SumOverShardsERKSt8functionIFmRS2_EE.exit.thread.i ]
+  %.07.lcssa.i24.i = phi i64 [ %14, %_ZNK7rocksdb12ShardedCacheINS_9lru_cache13LRUCacheShardEE13SumOverShardsERKSt8functionIFmRS2_EE.exit.i ], [ %.07.lcssa.i23.i, %_ZNK7rocksdb12ShardedCacheINS_9lru_cache13LRUCacheShardEE13SumOverShardsERKSt8functionIFmRS2_EE.exit.thread.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  ret i64 %.07.lcssa.i22.i
+  ret i64 %.07.lcssa.i24.i
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -5999,7 +5999,7 @@ _ZNK7rocksdb12ShardedCacheINS_9lru_cache13LRUCacheShardEE13SumOverShardsERKSt8fu
   br i1 %.not.i16.i, label %_ZNK7rocksdb12ShardedCacheINS_9lru_cache13LRUCacheShardEE14SumOverShards2EMS2_KFmvE.exit, label %_ZNK7rocksdb12ShardedCacheINS_9lru_cache13LRUCacheShardEE13SumOverShardsERKSt8functionIFmRS2_EE.exit.thread.i
 
 _ZNK7rocksdb12ShardedCacheINS_9lru_cache13LRUCacheShardEE13SumOverShardsERKSt8functionIFmRS2_EE.exit.thread.i: ; preds = %_ZNK7rocksdb12ShardedCacheINS_9lru_cache13LRUCacheShardEE13SumOverShardsERKSt8functionIFmRS2_EE.exit.i, %.noexc.i
-  %.07.lcssa.i21.i = phi i64 [ %14, %_ZNK7rocksdb12ShardedCacheINS_9lru_cache13LRUCacheShardEE13SumOverShardsERKSt8functionIFmRS2_EE.exit.i ], [ 0, %.noexc.i ]
+  %.07.lcssa.i23.i = phi i64 [ %14, %_ZNK7rocksdb12ShardedCacheINS_9lru_cache13LRUCacheShardEE13SumOverShardsERKSt8functionIFmRS2_EE.exit.i ], [ 0, %.noexc.i ]
   %15 = phi ptr [ %.pre.i, %_ZNK7rocksdb12ShardedCacheINS_9lru_cache13LRUCacheShardEE13SumOverShardsERKSt8functionIFmRS2_EE.exit.i ], [ @_ZNSt17_Function_handlerIFmRN7rocksdb9lru_cache13LRUCacheShardEEZNKS0_12ShardedCacheIS2_E14SumOverShards2EMS2_KFmvEEUlS3_E_E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation, %.noexc.i ]
   %16 = invoke noundef zeroext i1 %15(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef 3)
           to label %_ZNK7rocksdb12ShardedCacheINS_9lru_cache13LRUCacheShardEE14SumOverShards2EMS2_KFmvE.exit unwind label %17
@@ -6043,9 +6043,9 @@ _ZNSt14_Function_baseD2Ev.exit18.i:               ; preds = %22, %20
   resume { ptr, i32 } %lpad.phi.i
 
 _ZNK7rocksdb12ShardedCacheINS_9lru_cache13LRUCacheShardEE14SumOverShards2EMS2_KFmvE.exit: ; preds = %_ZNK7rocksdb12ShardedCacheINS_9lru_cache13LRUCacheShardEE13SumOverShardsERKSt8functionIFmRS2_EE.exit.i, %_ZNK7rocksdb12ShardedCacheINS_9lru_cache13LRUCacheShardEE13SumOverShardsERKSt8functionIFmRS2_EE.exit.thread.i
-  %.07.lcssa.i22.i = phi i64 [ %14, %_ZNK7rocksdb12ShardedCacheINS_9lru_cache13LRUCacheShardEE13SumOverShardsERKSt8functionIFmRS2_EE.exit.i ], [ %.07.lcssa.i21.i, %_ZNK7rocksdb12ShardedCacheINS_9lru_cache13LRUCacheShardEE13SumOverShardsERKSt8functionIFmRS2_EE.exit.thread.i ]
+  %.07.lcssa.i24.i = phi i64 [ %14, %_ZNK7rocksdb12ShardedCacheINS_9lru_cache13LRUCacheShardEE13SumOverShardsERKSt8functionIFmRS2_EE.exit.i ], [ %.07.lcssa.i23.i, %_ZNK7rocksdb12ShardedCacheINS_9lru_cache13LRUCacheShardEE13SumOverShardsERKSt8functionIFmRS2_EE.exit.thread.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  ret i64 %.07.lcssa.i22.i
+  ret i64 %.07.lcssa.i24.i
 }
 
 declare noundef i64 @_ZNK7rocksdb16ShardedCacheBase8GetUsageEPNS_5Cache6HandleE(ptr noundef nonnull align 8 dereferenceable(152), ptr noundef) unnamed_addr #8
@@ -6106,7 +6106,7 @@ _ZNK7rocksdb12ShardedCacheINS_9lru_cache13LRUCacheShardEE13SumOverShardsERKSt8fu
   br i1 %.not.i16.i, label %_ZNK7rocksdb12ShardedCacheINS_9lru_cache13LRUCacheShardEE14SumOverShards2EMS2_KFmvE.exit, label %_ZNK7rocksdb12ShardedCacheINS_9lru_cache13LRUCacheShardEE13SumOverShardsERKSt8functionIFmRS2_EE.exit.thread.i
 
 _ZNK7rocksdb12ShardedCacheINS_9lru_cache13LRUCacheShardEE13SumOverShardsERKSt8functionIFmRS2_EE.exit.thread.i: ; preds = %_ZNK7rocksdb12ShardedCacheINS_9lru_cache13LRUCacheShardEE13SumOverShardsERKSt8functionIFmRS2_EE.exit.i, %.noexc.i
-  %.07.lcssa.i21.i = phi i64 [ %14, %_ZNK7rocksdb12ShardedCacheINS_9lru_cache13LRUCacheShardEE13SumOverShardsERKSt8functionIFmRS2_EE.exit.i ], [ 0, %.noexc.i ]
+  %.07.lcssa.i23.i = phi i64 [ %14, %_ZNK7rocksdb12ShardedCacheINS_9lru_cache13LRUCacheShardEE13SumOverShardsERKSt8functionIFmRS2_EE.exit.i ], [ 0, %.noexc.i ]
   %15 = phi ptr [ %.pre.i, %_ZNK7rocksdb12ShardedCacheINS_9lru_cache13LRUCacheShardEE13SumOverShardsERKSt8functionIFmRS2_EE.exit.i ], [ @_ZNSt17_Function_handlerIFmRN7rocksdb9lru_cache13LRUCacheShardEEZNKS0_12ShardedCacheIS2_E14SumOverShards2EMS2_KFmvEEUlS3_E_E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation, %.noexc.i ]
   %16 = invoke noundef zeroext i1 %15(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef 3)
           to label %_ZNK7rocksdb12ShardedCacheINS_9lru_cache13LRUCacheShardEE14SumOverShards2EMS2_KFmvE.exit unwind label %17
@@ -6150,9 +6150,9 @@ _ZNSt14_Function_baseD2Ev.exit18.i:               ; preds = %22, %20
   resume { ptr, i32 } %lpad.phi.i
 
 _ZNK7rocksdb12ShardedCacheINS_9lru_cache13LRUCacheShardEE14SumOverShards2EMS2_KFmvE.exit: ; preds = %_ZNK7rocksdb12ShardedCacheINS_9lru_cache13LRUCacheShardEE13SumOverShardsERKSt8functionIFmRS2_EE.exit.i, %_ZNK7rocksdb12ShardedCacheINS_9lru_cache13LRUCacheShardEE13SumOverShardsERKSt8functionIFmRS2_EE.exit.thread.i
-  %.07.lcssa.i22.i = phi i64 [ %14, %_ZNK7rocksdb12ShardedCacheINS_9lru_cache13LRUCacheShardEE13SumOverShardsERKSt8functionIFmRS2_EE.exit.i ], [ %.07.lcssa.i21.i, %_ZNK7rocksdb12ShardedCacheINS_9lru_cache13LRUCacheShardEE13SumOverShardsERKSt8functionIFmRS2_EE.exit.thread.i ]
+  %.07.lcssa.i24.i = phi i64 [ %14, %_ZNK7rocksdb12ShardedCacheINS_9lru_cache13LRUCacheShardEE13SumOverShardsERKSt8functionIFmRS2_EE.exit.i ], [ %.07.lcssa.i23.i, %_ZNK7rocksdb12ShardedCacheINS_9lru_cache13LRUCacheShardEE13SumOverShardsERKSt8functionIFmRS2_EE.exit.thread.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  ret i64 %.07.lcssa.i22.i
+  ret i64 %.07.lcssa.i24.i
 }
 
 declare void @_ZNK7rocksdb16ShardedCacheBase25GetSecondaryCacheCapacityERm(ptr dead_on_unwind writable sret(%"class.rocksdb::Status") align 8, ptr noundef nonnull align 8 dereferenceable(152), ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #8

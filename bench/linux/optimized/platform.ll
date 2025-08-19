@@ -639,19 +639,19 @@ define dso_local i32 @devm_platform_get_irqs_affinity(ptr noundef %0, ptr nounde
 47:                                               ; preds = %.thread
   %48 = tail call ptr @irq_create_affinity_masks(i32 noundef %23, ptr noundef nonnull %1) #15
   %49 = icmp eq ptr %48, null
-  br i1 %49, label %.loopexit, label %.preheader39
+  br i1 %49, label %.loopexit, label %.preheader57
 
 .thread17:                                        ; preds = %29
   %50 = tail call ptr @irq_create_affinity_masks(i32 noundef %23, ptr noundef nonnull %1) #15
   %51 = icmp eq ptr %50, null
   br i1 %51, label %.loopexit, label %.thread18
 
-52:                                               ; preds = %.preheader39
+52:                                               ; preds = %.preheader57
   %53 = add nuw nsw i64 %55, 1
   %54 = icmp eq i64 %53, %34
-  br i1 %54, label %.thread18, label %.preheader39, !llvm.loop !19
+  br i1 %54, label %.thread18, label %.preheader57, !llvm.loop !19
 
-.preheader39:                                     ; preds = %47, %52
+.preheader57:                                     ; preds = %47, %52
   %55 = phi i64 [ %53, %52 ], [ 0, %47 ]
   %56 = getelementptr [0 x i32], ptr %33, i64 0, i64 %55
   %57 = load i32, ptr %56, align 4
@@ -660,7 +660,7 @@ define dso_local i32 @devm_platform_get_irqs_affinity(ptr noundef %0, ptr nounde
   %60 = icmp eq i32 %59, 0
   br i1 %60, label %52, label %61
 
-61:                                               ; preds = %.preheader39
+61:                                               ; preds = %.preheader57
   %62 = getelementptr [0 x i32], ptr %33, i64 0, i64 %55
   %63 = load i32, ptr %62, align 4
   tail call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %32, ptr noundef nonnull @.str.5, i32 noundef %63, i32 noundef %59) #16

@@ -755,14 +755,14 @@ _ZN5eastl16intrusive_sdlistIN15TestSDListLocal7IntNodeEE4swapERS3_.exit: ; preds
   br label %while.cond.i.i113thread-pre-split
 
 while.cond.i.i113thread-pre-split:                ; preds = %_ZN5eastl16intrusive_sdlistIN15TestSDListLocal7IntNodeEE4swapERS3_.exit, %while.cond.i.i113thread-pre-split
-  %pNext.0.i.i115391 = phi ptr [ %nodes, %_ZN5eastl16intrusive_sdlistIN15TestSDListLocal7IntNodeEE4swapERS3_.exit ], [ %pNext.0.i.i115.pr, %while.cond.i.i113thread-pre-split ]
-  %pNext.0.i.i115.pr = load ptr, ptr %pNext.0.i.i115391, align 8
+  %pNext.0.i.i115398 = phi ptr [ %nodes, %_ZN5eastl16intrusive_sdlistIN15TestSDListLocal7IntNodeEE4swapERS3_.exit ], [ %pNext.0.i.i115.pr, %while.cond.i.i113thread-pre-split ]
+  %pNext.0.i.i115.pr = load ptr, ptr %pNext.0.i.i115398, align 8
   %tobool.not.i.i116 = icmp eq ptr %pNext.0.i.i115.pr, null
   br i1 %tobool.not.i.i116, label %_ZN15TestSDListLocal8ListInitcmEi.exit118, label %while.cond.i.i113thread-pre-split, !llvm.loop !5
 
 _ZN15TestSDListLocal8ListInitcmEi.exit118:        ; preds = %while.cond.i.i113thread-pre-split
-  store ptr %incdec.ptr.i, ptr %pNext.0.i.i115391, align 8
-  store ptr %pNext.0.i.i115391, ptr %mppPrevNext.i.i12, align 16
+  store ptr %incdec.ptr.i, ptr %pNext.0.i.i115398, align 8
+  store ptr %pNext.0.i.i115398, ptr %mppPrevNext.i.i12, align 16
   store ptr null, ptr %incdec.ptr.i, align 8
   store i32 2, ptr %mX.i14, align 16
   br label %while.cond.i.i122
@@ -811,14 +811,14 @@ _ZN15TestSDListLocal8ListInitcmEi.exit145:        ; preds = %while.cond.i.i140
   br label %while.cond.i.i159thread-pre-split
 
 while.cond.i.i159thread-pre-split:                ; preds = %_ZN15TestSDListLocal8ListInitcmEi.exit145, %while.cond.i.i159thread-pre-split
-  %pNext.0.i.i161392 = phi ptr [ %incdec.ptr.i33, %_ZN15TestSDListLocal8ListInitcmEi.exit145 ], [ %pNext.0.i.i161.pr, %while.cond.i.i159thread-pre-split ]
-  %pNext.0.i.i161.pr = load ptr, ptr %pNext.0.i.i161392, align 8
+  %pNext.0.i.i161399 = phi ptr [ %incdec.ptr.i33, %_ZN15TestSDListLocal8ListInitcmEi.exit145 ], [ %pNext.0.i.i161.pr, %while.cond.i.i159thread-pre-split ]
+  %pNext.0.i.i161.pr = load ptr, ptr %pNext.0.i.i161399, align 8
   %tobool.not.i.i162 = icmp eq ptr %pNext.0.i.i161.pr, null
   br i1 %tobool.not.i.i162, label %_ZN15TestSDListLocal8ListInitcmEi.exit164, label %while.cond.i.i159thread-pre-split, !llvm.loop !5
 
 _ZN15TestSDListLocal8ListInitcmEi.exit164:        ; preds = %while.cond.i.i159thread-pre-split
-  store ptr %incdec.ptr.i42, ptr %pNext.0.i.i161392, align 8
-  store ptr %pNext.0.i.i161392, ptr %mppPrevNext.i.i56, align 8
+  store ptr %incdec.ptr.i42, ptr %pNext.0.i.i161399, align 8
+  store ptr %pNext.0.i.i161399, ptr %mppPrevNext.i.i56, align 8
   store ptr null, ptr %incdec.ptr.i42, align 16
   store i32 7, ptr %mX.i59, align 8
   br label %while.cond.i.i168
@@ -892,14 +892,14 @@ _ZN5eastl16intrusive_sdlistIN15TestSDListLocal7IntNodeEE5eraseENS_23IntrusiveSDL
   br label %while.cond.i.i217thread-pre-split
 
 while.cond.i.i217thread-pre-split:                ; preds = %_ZN5eastl16intrusive_sdlistIN15TestSDListLocal7IntNodeEE5eraseENS_23IntrusiveSDListIteratorIS2_PS2_RS2_EES7_.exit203, %while.cond.i.i217thread-pre-split
-  %pNext.0.i.i219393 = phi ptr [ %nodes, %_ZN5eastl16intrusive_sdlistIN15TestSDListLocal7IntNodeEE5eraseENS_23IntrusiveSDListIteratorIS2_PS2_RS2_EES7_.exit203 ], [ %pNext.0.i.i219.pr, %while.cond.i.i217thread-pre-split ]
-  %pNext.0.i.i219.pr = load ptr, ptr %pNext.0.i.i219393, align 8
+  %pNext.0.i.i219400 = phi ptr [ %nodes, %_ZN5eastl16intrusive_sdlistIN15TestSDListLocal7IntNodeEE5eraseENS_23IntrusiveSDListIteratorIS2_PS2_RS2_EES7_.exit203 ], [ %pNext.0.i.i219.pr, %while.cond.i.i217thread-pre-split ]
+  %pNext.0.i.i219.pr = load ptr, ptr %pNext.0.i.i219400, align 8
   %tobool.not.i.i220 = icmp eq ptr %pNext.0.i.i219.pr, null
   br i1 %tobool.not.i.i220, label %_ZN15TestSDListLocal8ListInitcmEi.exit222, label %while.cond.i.i217thread-pre-split, !llvm.loop !5
 
 _ZN15TestSDListLocal8ListInitcmEi.exit222:        ; preds = %while.cond.i.i217thread-pre-split
-  store ptr %incdec.ptr.i, ptr %pNext.0.i.i219393, align 8
-  store ptr %pNext.0.i.i219393, ptr %mppPrevNext.i.i12, align 16
+  store ptr %incdec.ptr.i, ptr %pNext.0.i.i219400, align 8
+  store ptr %pNext.0.i.i219400, ptr %mppPrevNext.i.i12, align 16
   store ptr null, ptr %incdec.ptr.i, align 8
   store i32 2, ptr %mX.i14, align 16
   br label %while.cond.i.i226
@@ -962,8 +962,8 @@ _ZN5eastl16intrusive_sdlistIN15TestSDListLocal7IntNodeEE6removeERS2_.exit: ; pre
   %22 = load ptr, ptr %l, align 8
   store ptr %22, ptr %i1, align 8
   %tobool.not.i252 = icmp eq ptr %22, null
-  %mppPrevNext.i257389 = getelementptr inbounds nuw i8, ptr %i2, i64 8
-  store ptr %l, ptr %mppPrevNext.i257389, align 8
+  %mppPrevNext.i257396 = getelementptr inbounds nuw i8, ptr %i2, i64 8
+  store ptr %l, ptr %mppPrevNext.i257396, align 8
   store ptr %i2, ptr %mppPrevNext.i240, align 8
   store ptr %i2, ptr %l, align 8
   store ptr %22, ptr %i2, align 8
@@ -991,13 +991,13 @@ if.then.i271:                                     ; preds = %_ZN5eastl16intrusiv
 _ZN5eastl16intrusive_sdlistIN15TestSDListLocal7IntNodeEE10push_frontERS2_.exit274: ; preds = %_ZN5eastl16intrusive_sdlistIN15TestSDListLocal7IntNodeEE6removeERS2_.exit268, %if.then.i271
   store ptr %i1, ptr %l, align 8
   %24 = load ptr, ptr %i2, align 8
-  %25 = load ptr, ptr %mppPrevNext.i257389, align 8
+  %25 = load ptr, ptr %mppPrevNext.i257396, align 8
   store ptr %24, ptr %25, align 8
   %tobool.not.i276 = icmp eq ptr %24, null
   br i1 %tobool.not.i276, label %_ZN5eastl16intrusive_sdlistIN15TestSDListLocal7IntNodeEE6removeERS2_.exit280, label %if.then.i277
 
 if.then.i277:                                     ; preds = %_ZN5eastl16intrusive_sdlistIN15TestSDListLocal7IntNodeEE10push_frontERS2_.exit274
-  %26 = load ptr, ptr %mppPrevNext.i257389, align 8
+  %26 = load ptr, ptr %mppPrevNext.i257396, align 8
   %mppPrevNext4.i278 = getelementptr inbounds nuw i8, ptr %24, i64 8
   store ptr %26, ptr %mppPrevNext4.i278, align 8
   br label %_ZN5eastl16intrusive_sdlistIN15TestSDListLocal7IntNodeEE6removeERS2_.exit280
@@ -1015,7 +1015,7 @@ while.cond.i281:                                  ; preds = %while.cond.i281, %_
 
 _ZN5eastl16intrusive_sdlistIN15TestSDListLocal7IntNodeEE9push_backERS2_.exit: ; preds = %while.cond.i281
   store ptr %i2, ptr %ppPrevNext.0.i, align 8
-  store ptr %ppPrevNext.0.i, ptr %mppPrevNext.i257389, align 8
+  store ptr %ppPrevNext.0.i, ptr %mppPrevNext.i257396, align 8
   store ptr null, ptr %i2, align 8
   br label %while.cond.i284
 
@@ -1031,13 +1031,13 @@ _ZN5eastl16intrusive_sdlistIN15TestSDListLocal7IntNodeEE9push_backERS2_.exit289:
   store ptr %ppPrevNext.0.i285, ptr %mppPrevNext.i288, align 8
   store ptr null, ptr %i3, align 8
   %27 = load ptr, ptr %i2, align 8
-  %28 = load ptr, ptr %mppPrevNext.i257389, align 8
+  %28 = load ptr, ptr %mppPrevNext.i257396, align 8
   store ptr %27, ptr %28, align 8
   %tobool.not.i291 = icmp eq ptr %27, null
   br i1 %tobool.not.i291, label %_ZN5eastl16intrusive_sdlistIN15TestSDListLocal7IntNodeEE6removeERS2_.exit295, label %if.then.i292
 
 if.then.i292:                                     ; preds = %_ZN5eastl16intrusive_sdlistIN15TestSDListLocal7IntNodeEE9push_backERS2_.exit289
-  %29 = load ptr, ptr %mppPrevNext.i257389, align 8
+  %29 = load ptr, ptr %mppPrevNext.i257396, align 8
   %mppPrevNext4.i293 = getelementptr inbounds nuw i8, ptr %27, i64 8
   store ptr %29, ptr %mppPrevNext4.i293, align 8
   br label %_ZN5eastl16intrusive_sdlistIN15TestSDListLocal7IntNodeEE6removeERS2_.exit295
@@ -1120,8 +1120,8 @@ vaarg.end:                                        ; preds = %vaarg.in_mem, %vaar
   %mX.i11.phi.trans.insert = getelementptr inbounds nuw i8, ptr %it.sroa.0.034, i64 16
   %.pre = load i32, ptr %mX.i11.phi.trans.insert, align 8
   %cmp7.not = icmp eq i32 %5, %.pre
-  %or.cond71 = select i1 %cmp, i1 %cmp7.not, i1 false
-  br i1 %or.cond71, label %if.end, label %if.then
+  %or.cond76 = select i1 %cmp, i1 %cmp7.not, i1 false
+  br i1 %or.cond76, label %if.end, label %if.then
 
 if.then:                                          ; preds = %vaarg.end
   call void @_ZN15TestSDListLocal16IntListToString8IN5eastl16intrusive_sdlistINS_7IntNodeEEEEENS1_12basic_stringIcNS1_9allocatorEEERKT_(ptr nonnull sret(%"class.eastl::basic_string") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(8) %cont)

@@ -1046,13 +1046,13 @@ _ZN5ZXing6ResultD2Ev.exit29:                      ; preds = %_ZNSt6vectorIN5ZXin
   br label %163
 
 .body:                                            ; preds = %.body31.thread, %98
-  %eh.lpad-body3240 = phi { ptr, i32 } [ %97, %.body31.thread ], [ %92, %98 ]
+  %eh.lpad-body3257 = phi { ptr, i32 } [ %97, %.body31.thread ], [ %92, %98 ]
   call void @_ZN5ZXing6ResultD2Ev(ptr noundef nonnull align 8 dereferenceable(211) %6) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %163
 
 163:                                              ; preds = %.body, %161
-  %.pn = phi { ptr, i32 } [ %eh.lpad-body3240, %.body ], [ %162, %161 ]
+  %.pn = phi { ptr, i32 } [ %eh.lpad-body3257, %.body ], [ %162, %161 ]
   call void @_ZN5ZXing6ResultD2Ev(ptr noundef nonnull align 8 dereferenceable(211) %5) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %.pn

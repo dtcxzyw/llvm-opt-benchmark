@@ -1126,7 +1126,7 @@ define internal fastcc void @gist_indexsortbuild_levelstate_flush(ptr noundef no
   br i1 %.not7989, label %._crit_edge93, label %.lr.ph92
 
 .lr.ph92:                                         ; preds = %.thread, %.loopexit
-  %.07297 = phi ptr [ %37, %.thread ], [ %53, %.loopexit ]
+  %.072102 = phi ptr [ %37, %.thread ], [ %53, %.loopexit ]
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %55 = zext nneg i16 %13 to i32
   %56 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -1135,7 +1135,7 @@ define internal fastcc void @gist_indexsortbuild_levelstate_flush(ptr noundef no
   br label %59
 
 59:                                               ; preds = %.lr.ph92, %115
-  %.190 = phi ptr [ %.07297, %.lr.ph92 ], [ %117, %115 ]
+  %.190 = phi ptr [ %.072102, %.lr.ph92 ], [ %117, %115 ]
   %60 = load volatile i32, ptr @InterruptPending, align 4
   %.not80 = icmp eq i32 %60, 0
   br i1 %.not80, label %62, label %61, !prof !16
@@ -1821,12 +1821,12 @@ list_length.exit:                                 ; preds = %gistBufferingFindCo
   br i1 %123, label %.lr.ph107.split.us.preheader, label %.lr.ph107.split.split
 
 .lr.ph107.split.us.preheader:                     ; preds = %.lr.ph107
-  br i1 %212, label %.lr.ph133, label %.critedge
+  br i1 %212, label %.lr.ph144, label %.critedge
 
-.lr.ph133:                                        ; preds = %.lr.ph107.split.us.preheader, %gistMemorizeAllDownlinks.exit95.us
-  %indvars.iv123132 = phi i64 [ %indvars.iv.next124, %gistMemorizeAllDownlinks.exit95.us ], [ 0, %.lr.ph107.split.us.preheader ]
+.lr.ph144:                                        ; preds = %.lr.ph107.split.us.preheader, %gistMemorizeAllDownlinks.exit95.us
+  %indvars.iv123143 = phi i64 [ %indvars.iv.next124, %gistMemorizeAllDownlinks.exit95.us ], [ 0, %.lr.ph107.split.us.preheader ]
   %213 = load ptr, ptr %209, align 8
-  %214 = getelementptr inbounds nuw %union.ListCell, ptr %213, i64 %indvars.iv123132
+  %214 = getelementptr inbounds nuw %union.ListCell, ptr %213, i64 %indvars.iv123143
   %215 = load ptr, ptr %214, align 8
   %216 = load i32, ptr %215, align 8
   %217 = call i32 @BufferGetBlockNumber(i32 noundef %216) #10
@@ -1842,7 +1842,7 @@ list_length.exit:                                 ; preds = %gistBufferingFindCo
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br i1 %.not101, label %gistMemorizeAllDownlinks.exit95.us, label %221
 
-221:                                              ; preds = %.lr.ph133
+221:                                              ; preds = %.lr.ph144
   %222 = load i32, ptr %215, align 8
   %223 = call i32 @BufferGetBlockNumber(i32 noundef %222) #10
   %224 = icmp slt i32 %222, 0
@@ -1912,18 +1912,18 @@ BufferGetPage.exit.i80.us:                        ; preds = %231, %225
   %exitcond.i93.us = icmp eq i64 %indvars.iv.next.i92.us, %wide.trip.count.i86.us
   br i1 %exitcond.i93.us, label %gistMemorizeAllDownlinks.exit95.us, label %246, !llvm.loop !20
 
-gistMemorizeAllDownlinks.exit95.us:               ; preds = %246, %BufferGetPage.exit.i80.us, %.lr.ph133
+gistMemorizeAllDownlinks.exit95.us:               ; preds = %246, %BufferGetPage.exit.i80.us, %.lr.ph144
   %259 = load i32, ptr %215, align 8
   call void @UnlockReleaseBuffer(i32 noundef %259) #10
   %260 = getelementptr inbounds nuw i8, ptr %215, i64 8
   %261 = load ptr, ptr %260, align 8
-  %indvars.iv.next124 = add nuw nsw i64 %indvars.iv123132, 1
-  %262 = getelementptr inbounds nuw ptr, ptr %206, i64 %indvars.iv123132
+  %indvars.iv.next124 = add nuw nsw i64 %indvars.iv123143, 1
+  %262 = getelementptr inbounds nuw ptr, ptr %206, i64 %indvars.iv123143
   store ptr %261, ptr %262, align 8
   %263 = load i32, ptr %208, align 4
   %264 = sext i32 %263 to i64
   %265 = icmp slt i64 %indvars.iv.next124, %264
-  br i1 %265, label %.lr.ph133, label %.critedge
+  br i1 %265, label %.lr.ph144, label %.critedge
 
 .lr.ph107.split.split:                            ; preds = %.lr.ph107
   br i1 %212, label %gistMemorizeAllDownlinks.exit95, label %.critedge

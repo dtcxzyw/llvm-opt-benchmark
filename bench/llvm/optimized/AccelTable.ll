@@ -249,7 +249,7 @@ define dso_local void @_ZN4llvm14AccelTableBase18computeBucketCountEv(ptr nounde
   br i1 %.not8, label %_ZN4llvm4sortIRNS_11SmallVectorIjLj0EEEEEvOT_.exit.thread, label %_ZN4llvm15SmallVectorImplIjE7reserveEm.exit
 
 _ZN4llvm4sortIRNS_11SmallVectorIjLj0EEEEEvOT_.exit.thread: ; preds = %1
-  %.pre1621 = load ptr, ptr %2, align 8, !tbaa !3
+  %.pre1634 = load ptr, ptr %2, align 8, !tbaa !3
   br label %_ZN4llvm6uniqueIRNS_11SmallVectorIjLj0EEEEEDaOT_.exit
 
 _ZN4llvm15SmallVectorImplIjE7reserveEm.exit:      ; preds = %1
@@ -329,8 +329,8 @@ _ZSt15__adjacent_findIPjN9__gnu_cxx5__ops19_Iter_equal_to_iterEET_S4_S4_T0_.exit
   br label %_ZN4llvm6uniqueIRNS_11SmallVectorIjLj0EEEEEDaOT_.exit
 
 _ZN4llvm6uniqueIRNS_11SmallVectorIjLj0EEEEEDaOT_.exit: ; preds = %.preheader.i.i.i.i, %_ZN4llvm4sortIRNS_11SmallVectorIjLj0EEEEEvOT_.exit.thread, %_ZN4llvm4sortIRNS_11SmallVectorIjLj0EEEEEvOT_.exit, %._crit_edge.i.i.i
-  %37 = phi ptr [ %17, %._crit_edge.i.i.i ], [ %17, %_ZN4llvm4sortIRNS_11SmallVectorIjLj0EEEEEvOT_.exit ], [ %.pre1621, %_ZN4llvm4sortIRNS_11SmallVectorIjLj0EEEEEvOT_.exit.thread ], [ %17, %.preheader.i.i.i.i ]
-  %.015.i.i.i = phi ptr [ %36, %._crit_edge.i.i.i ], [ %20, %_ZN4llvm4sortIRNS_11SmallVectorIjLj0EEEEEvOT_.exit ], [ %.pre1621, %_ZN4llvm4sortIRNS_11SmallVectorIjLj0EEEEEvOT_.exit.thread ], [ %20, %.preheader.i.i.i.i ]
+  %37 = phi ptr [ %17, %._crit_edge.i.i.i ], [ %17, %_ZN4llvm4sortIRNS_11SmallVectorIjLj0EEEEEvOT_.exit ], [ %.pre1634, %_ZN4llvm4sortIRNS_11SmallVectorIjLj0EEEEEvOT_.exit.thread ], [ %17, %.preheader.i.i.i.i ]
+  %.015.i.i.i = phi ptr [ %36, %._crit_edge.i.i.i ], [ %20, %_ZN4llvm4sortIRNS_11SmallVectorIjLj0EEEEEvOT_.exit ], [ %.pre1634, %_ZN4llvm4sortIRNS_11SmallVectorIjLj0EEEEEvOT_.exit.thread ], [ %20, %.preheader.i.i.i.i ]
   %38 = ptrtoint ptr %.015.i.i.i to i64
   %39 = ptrtoint ptr %37 to i64
   %40 = sub i64 %38, %39
@@ -505,7 +505,7 @@ _ZNSt6vectorIS_IPN4llvm14AccelTableBase8HashDataESaIS3_EESaIS5_EE6resizeEm.exit:
   %.010.i.i.in.in.i.i.i = phi i64 [ %.010.i.i.i.i.i, %select.unfold.i.i.i.i.i ], [ %52, %48 ]
   %.010.i.i.in.i.i.i = add nuw nsw i64 %.010.i.i.in.in.i.i.i, 1
   %.010.i.i.i.i.i = lshr i64 %.010.i.i.in.i.i.i, 1
-  %54 = shl i64 %.010.i.i.i.i.i, 3
+  %54 = shl nuw nsw i64 %.010.i.i.i.i.i, 3
   %55 = tail call noalias noundef ptr @_ZnwmRKSt9nothrow_t(i64 noundef %54, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #22
   %.not.i.i.i.i.i30 = icmp eq ptr %55, null
   br i1 %.not.i.i.i.i.i30, label %select.unfold.i.i.i.i.i, label %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPPN4llvm14AccelTableDataESt6vectorIS4_SaIS4_EEEES4_EC2ES9_l.exit.i.i.i
@@ -700,7 +700,7 @@ _ZNSt6vectorIPN4llvm14AccelTableBase8HashDataESaIS3_EE9push_backEOS3_.exit: ; pr
   %.010.i.i.in.in.i.i.i39 = phi i64 [ %.010.i.i.i.i.i41, %select.unfold.i.i.i.i.i43 ], [ %123, %119 ]
   %.010.i.i.in.i.i.i40 = add nuw nsw i64 %.010.i.i.in.in.i.i.i39, 1
   %.010.i.i.i.i.i41 = lshr i64 %.010.i.i.in.i.i.i40, 1
-  %125 = shl i64 %.010.i.i.i.i.i41, 3
+  %125 = shl nuw nsw i64 %.010.i.i.i.i.i41, 3
   %126 = call noalias noundef ptr @_ZnwmRKSt9nothrow_t(i64 noundef %125, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #22
   %.not.i.i.i.i.i42 = icmp eq ptr %126, null
   br i1 %.not.i.i.i.i.i42, label %select.unfold.i.i.i.i.i43, label %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPPN4llvm14AccelTableBase8HashDataESt6vectorIS5_SaIS5_EEEES5_EC2ESA_l.exit.i.i.i
@@ -2774,8 +2774,8 @@ _ZL19getFormForIdxParentRKN4llvm8DenseSetINS_15OffsetAndUnitIDENS_12DenseMapInfo
   store i32 0, ptr %98, align 8, !tbaa !9
   store i32 1, ptr %99, align 4, !tbaa !10
   %180 = and i64 %120, 4294967296
-  %.not120.i = icmp eq i64 %180, 0
-  br i1 %.not120.i, label %_ZN4llvm16DebugNamesAbbrev12addAttributeERKNS0_17AttributeEncodingE.exit46.i, label %181
+  %.not146.i = icmp eq i64 %180, 0
+  br i1 %.not146.i, label %_ZN4llvm16DebugNamesAbbrev12addAttributeERKNS0_17AttributeEncodingE.exit46.i, label %181
 
 181:                                              ; preds = %_ZL19getFormForIdxParentRKN4llvm8DenseSetINS_15OffsetAndUnitIDENS_12DenseMapInfoIS1_vEEEESt8optionalIS1_E.exit.i
   %.sroa.065.i.4..sroa.065.i.4..sroa.065.i.4..sroa.065.4..sroa.065.4..sroa.065.4..sroa.0.0.copyload.i41.i = load i64, ptr %.sroa.065.i.4.i.4.i.4..sroa_idx, align 4
@@ -2962,11 +2962,11 @@ _ZN4llvm15SmallVectorImplINS_16DebugNamesAbbrev17AttributeEncodingEE12assignRemo
   br label %_ZN4llvm16DebugNamesAbbrevC2EOS0_.exit.sink.split.i
 
 263:                                              ; preds = %259
-  %.not121.i = icmp eq i32 %257, 1
-  br i1 %.not121.i, label %_ZSt4moveIPN4llvm16DebugNamesAbbrev17AttributeEncodingES3_ET0_T_S5_S4_.exit35.i.thread.i, label %_ZSt4moveIPN4llvm16DebugNamesAbbrev17AttributeEncodingES3_ET0_T_S5_S4_.exit35.i.i
+  %264 = zext i32 %257 to i64
+  %265 = icmp ugt i32 %257, 1
+  br i1 %265, label %_ZSt4moveIPN4llvm16DebugNamesAbbrev17AttributeEncodingES3_ET0_T_S5_S4_.exit35.i.i, label %_ZSt4moveIPN4llvm16DebugNamesAbbrev17AttributeEncodingES3_ET0_T_S5_S4_.exit35.i.thread.i
 
 _ZSt4moveIPN4llvm16DebugNamesAbbrev17AttributeEncodingES3_ET0_T_S5_S4_.exit35.i.i: ; preds = %263
-  %264 = zext i32 %257 to i64
   call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(24) %253, ptr noundef nonnull %254, i64 noundef %264, i64 noundef 8) #20
   %.pre118.i = load i32, ptr %98, align 8, !tbaa !9
   %.not.i.i.i56.i = icmp eq i32 %.pre118.i, 0
@@ -2976,14 +2976,14 @@ _ZSt4moveIPN4llvm16DebugNamesAbbrev17AttributeEncodingES3_ET0_T_S5_S4_.exit35.i.
   %.pre119.i = zext i32 %.pre118.i to i64
   %.pre = load ptr, ptr %96, align 8, !tbaa !3
   %.pre121 = load ptr, ptr %253, align 8, !tbaa !3
-  %265 = shl nuw nsw i64 %.pre119.i, 3
   br label %_ZSt4moveIPN4llvm16DebugNamesAbbrev17AttributeEncodingES3_ET0_T_S5_S4_.exit35.i.thread.i
 
 _ZSt4moveIPN4llvm16DebugNamesAbbrev17AttributeEncodingES3_ET0_T_S5_S4_.exit35.i.thread.i: ; preds = %_ZSt4moveIPN4llvm16DebugNamesAbbrev17AttributeEncodingES3_ET0_T_S5_S4_.exit35.i.i._ZSt4moveIPN4llvm16DebugNamesAbbrev17AttributeEncodingES3_ET0_T_S5_S4_.exit35.i.thread.i_crit_edge, %263
   %266 = phi ptr [ %.pre121, %_ZSt4moveIPN4llvm16DebugNamesAbbrev17AttributeEncodingES3_ET0_T_S5_S4_.exit35.i.i._ZSt4moveIPN4llvm16DebugNamesAbbrev17AttributeEncodingES3_ET0_T_S5_S4_.exit35.i.thread.i_crit_edge ], [ %254, %263 ]
   %267 = phi ptr [ %.pre, %_ZSt4moveIPN4llvm16DebugNamesAbbrev17AttributeEncodingES3_ET0_T_S5_S4_.exit35.i.i._ZSt4moveIPN4llvm16DebugNamesAbbrev17AttributeEncodingES3_ET0_T_S5_S4_.exit35.i.thread.i_crit_edge ], [ %260, %263 ]
-  %.pre-phi124.i = phi i64 [ %265, %_ZSt4moveIPN4llvm16DebugNamesAbbrev17AttributeEncodingES3_ET0_T_S5_S4_.exit35.i.i._ZSt4moveIPN4llvm16DebugNamesAbbrev17AttributeEncodingES3_ET0_T_S5_S4_.exit35.i.thread.i_crit_edge ], [ 8, %263 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %266, ptr align 4 %267, i64 %.pre-phi124.i, i1 false)
+  %.pre-phi149.i = phi i64 [ %.pre119.i, %_ZSt4moveIPN4llvm16DebugNamesAbbrev17AttributeEncodingES3_ET0_T_S5_S4_.exit35.i.i._ZSt4moveIPN4llvm16DebugNamesAbbrev17AttributeEncodingES3_ET0_T_S5_S4_.exit35.i.thread.i_crit_edge ], [ %264, %263 ]
+  %gepdiff.i.i = shl nuw nsw i64 %.pre-phi149.i, 3
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %266, ptr align 4 %267, i64 %gepdiff.i.i, i1 false)
   br label %_ZN4llvm23SmallVectorTemplateBaseINS_16DebugNamesAbbrev17AttributeEncodingELb1EE18uninitialized_moveIPS2_S5_EEvT_S6_T0_.exit.i.i
 
 _ZN4llvm23SmallVectorTemplateBaseINS_16DebugNamesAbbrev17AttributeEncodingELb1EE18uninitialized_moveIPS2_S5_EEvT_S6_T0_.exit.i.i: ; preds = %_ZSt4moveIPN4llvm16DebugNamesAbbrev17AttributeEncodingES3_ET0_T_S5_S4_.exit35.i.thread.i, %_ZSt4moveIPN4llvm16DebugNamesAbbrev17AttributeEncodingES3_ET0_T_S5_S4_.exit35.i.i
@@ -3024,10 +3024,10 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_16DebugNamesAbbrevELb1EE9push_backES2_.exi
   br label %282
 
 282:                                              ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPNS_16DebugNamesAbbrevELb1EE9push_backES2_.exit.i, %232
-  %.sink128.in.i = phi ptr [ %233, %232 ], [ %280, %_ZN4llvm23SmallVectorTemplateBaseIPNS_16DebugNamesAbbrevELb1EE9push_backES2_.exit.i ]
-  %.sink128.i = load i32, ptr %.sink128.in.i, align 4, !tbaa !559
+  %.sink153.in.i = phi ptr [ %233, %232 ], [ %280, %_ZN4llvm23SmallVectorTemplateBaseIPNS_16DebugNamesAbbrevELb1EE9push_backES2_.exit.i ]
+  %.sink153.i = load i32, ptr %.sink153.in.i, align 4, !tbaa !559
   %283 = load i32, ptr %178, align 8
-  %284 = shl i32 %.sink128.i, 16
+  %284 = shl i32 %.sink153.i, 16
   %285 = and i32 %284, 2147418112
   %286 = and i32 %283, -2147418113
   %287 = or disjoint i32 %286, %285
@@ -6816,7 +6816,7 @@ define internal fastcc void @"_ZSt21__inplace_stable_sortIN9__gnu_cxx17__normal_
   %.sroa.0.016.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.not17.i = icmp eq ptr %.sroa.0.016.i, %1
   %or.cond = select i1 %9, i1 true, i1 %.not17.i
-  br i1 %or.cond, label %common.ret25, label %.lr.ph.i
+  br i1 %or.cond, label %common.ret27, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %8, %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPPN4llvm14AccelTableDataESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_comp_iterIZNS2_14AccelTableBase8finalizeEPNS2_10AsmPrinterENS2_9StringRefEE3$_0EEEvT_T0_.exit.i"
   %.sroa.0.019.i = phi ptr [ %.sroa.0.0.i, %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPPN4llvm14AccelTableDataESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_comp_iterIZNS2_14AccelTableBase8finalizeEPNS2_10AsmPrinterENS2_9StringRefEE3$_0EEEvT_T0_.exit.i" ], [ %.sroa.0.016.i, %8 ]
@@ -6881,9 +6881,9 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPN4llvm14AccelTableDataESt6v
   store ptr %21, ptr %.sink.i, align 8, !tbaa !72
   %.sroa.0.0.i = getelementptr inbounds nuw i8, ptr %.sroa.0.019.i, i64 8
   %.not.i = icmp eq ptr %.sroa.0.0.i, %1
-  br i1 %.not.i, label %common.ret25, label %.lr.ph.i, !llvm.loop !718
+  br i1 %.not.i, label %common.ret27, label %.lr.ph.i, !llvm.loop !718
 
-common.ret25:                                     ; preds = %8, %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPPN4llvm14AccelTableDataESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_comp_iterIZNS2_14AccelTableBase8finalizeEPNS2_10AsmPrinterENS2_9StringRefEE3$_0EEEvT_T0_.exit.i", %50
+common.ret27:                                     ; preds = %8, %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPPN4llvm14AccelTableDataESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_comp_iterIZNS2_14AccelTableBase8finalizeEPNS2_10AsmPrinterENS2_9StringRefEE3$_0EEEvT_T0_.exit.i", %50
   ret void
 
 50:                                               ; preds = %2
@@ -6895,7 +6895,7 @@ common.ret25:                                     ; preds = %8, %"_ZSt25__unguar
   %54 = sub i64 %3, %53
   %55 = ashr exact i64 %54, 3
   tail call fastcc void @"_ZSt22__merge_without_bufferIN9__gnu_cxx17__normal_iteratorIPPN4llvm14AccelTableDataESt6vectorIS4_SaIS4_EEEElNS0_5__ops15_Iter_comp_iterIZNS2_14AccelTableBase8finalizeEPNS2_10AsmPrinterENS2_9StringRefEE3$_0EEEvT_SI_SI_T0_SJ_T1_"(ptr %0, ptr %52, ptr %1, i64 noundef %51, i64 noundef %55)
-  br label %common.ret25
+  br label %common.ret27
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -7869,9 +7869,9 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPPN4llvm14AccelTableDataESt6vectorIS4_S
   br label %36, !llvm.loop !732
 
 _ZSt13move_backwardIPPN4llvm14AccelTableDataEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEEET0_T_SB_SA_.exit.sink.split.i: ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPPN4llvm14AccelTableDataESt6vectorIS4_SaIS4_EEEES5_ET0_T_SB_SA_.exit83.thread, %51
-  %.sink38.i = phi ptr [ %52, %51 ], [ %32, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPPN4llvm14AccelTableDataESt6vectorIS4_SaIS4_EEEES5_ET0_T_SB_SA_.exit83.thread ]
+  %.sink45.i = phi ptr [ %52, %51 ], [ %32, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPPN4llvm14AccelTableDataESt6vectorIS4_SaIS4_EEEES5_ET0_T_SB_SA_.exit83.thread ]
   %.lcssa.sink.i = phi ptr [ %47, %51 ], [ %2, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPPN4llvm14AccelTableDataESt6vectorIS4_SaIS4_EEEES5_ET0_T_SB_SA_.exit83.thread ]
-  %58 = ptrtoint ptr %.sink38.i to i64
+  %58 = ptrtoint ptr %.sink45.i to i64
   %59 = ptrtoint ptr %5 to i64
   %60 = sub i64 %58, %59
   %61 = ashr exact i64 %60, 3
@@ -8109,7 +8109,7 @@ define linkonce_odr void @_ZNSt6vectorIS_IPN4llvm14AccelTableBase8HashDataESaIS3
   br i1 %.not23, label %20, label %_ZSt27__uninitialized_default_n_aIPSt6vectorIPN4llvm14AccelTableBase8HashDataESaIS4_EEmS6_ET_S8_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPSt6vectorIPN4llvm14AccelTableBase8HashDataESaIS4_EEmS6_ET_S8_T0_RSaIT1_E.exit: ; preds = %3
-  %19 = mul nuw i64 %1, 24
+  %19 = mul nuw nsw i64 %1, 24
   tail call void @llvm.memset.p0.i64(ptr align 8 %5, i8 0, i64 %19, i1 false)
   %scevgep.i.i.i = getelementptr i8, ptr %5, i64 %19
   store ptr %scevgep.i.i.i, ptr %4, align 8, !tbaa !65
@@ -8199,7 +8199,7 @@ define internal fastcc void @"_ZSt21__inplace_stable_sortIN9__gnu_cxx17__normal_
   %.sroa.0.016.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.not17.i = icmp eq ptr %.sroa.0.016.i, %1
   %or.cond = select i1 %9, i1 true, i1 %.not17.i
-  br i1 %or.cond, label %common.ret25, label %.lr.ph.i
+  br i1 %or.cond, label %common.ret27, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %8, %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPPN4llvm14AccelTableBase8HashDataESt6vectorIS5_SaIS5_EEEENS0_5__ops14_Val_comp_iterIZNS3_8finalizeEPNS2_10AsmPrinterENS2_9StringRefEE3$_1EEEvT_T0_.exit.i"
   %.sroa.0.019.i = phi ptr [ %.sroa.0.0.i, %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPPN4llvm14AccelTableBase8HashDataESt6vectorIS5_SaIS5_EEEENS0_5__ops14_Val_comp_iterIZNS3_8finalizeEPNS2_10AsmPrinterENS2_9StringRefEE3$_1EEEvT_T0_.exit.i" ], [ %.sroa.0.016.i, %8 ]
@@ -8247,9 +8247,9 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPPN4llvm14AccelTableBase8Hash
   store ptr %10, ptr %.sink.i, align 8, !tbaa !79
   %.sroa.0.0.i = getelementptr inbounds nuw i8, ptr %.sroa.0.019.i, i64 8
   %.not.i = icmp eq ptr %.sroa.0.0.i, %1
-  br i1 %.not.i, label %common.ret25, label %.lr.ph.i, !llvm.loop !741
+  br i1 %.not.i, label %common.ret27, label %.lr.ph.i, !llvm.loop !741
 
-common.ret25:                                     ; preds = %8, %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPPN4llvm14AccelTableBase8HashDataESt6vectorIS5_SaIS5_EEEENS0_5__ops14_Val_comp_iterIZNS3_8finalizeEPNS2_10AsmPrinterENS2_9StringRefEE3$_1EEEvT_T0_.exit.i", %29
+common.ret27:                                     ; preds = %8, %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPPN4llvm14AccelTableBase8HashDataESt6vectorIS5_SaIS5_EEEENS0_5__ops14_Val_comp_iterIZNS3_8finalizeEPNS2_10AsmPrinterENS2_9StringRefEE3$_1EEEvT_T0_.exit.i", %29
   ret void
 
 29:                                               ; preds = %2
@@ -8261,7 +8261,7 @@ common.ret25:                                     ; preds = %8, %"_ZSt25__unguar
   %33 = sub i64 %3, %32
   %34 = ashr exact i64 %33, 3
   tail call fastcc void @"_ZSt22__merge_without_bufferIN9__gnu_cxx17__normal_iteratorIPPN4llvm14AccelTableBase8HashDataESt6vectorIS5_SaIS5_EEEElNS0_5__ops15_Iter_comp_iterIZNS3_8finalizeEPNS2_10AsmPrinterENS2_9StringRefEE3$_1EEEvT_SI_SI_T0_SJ_T1_"(ptr %0, ptr %31, ptr %1, i64 noundef %30, i64 noundef %34)
-  br label %common.ret25
+  br label %common.ret27
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -9159,9 +9159,9 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPPN4llvm14AccelTableBase8HashDataESt6ve
   br label %30, !llvm.loop !755
 
 _ZSt13move_backwardIPPN4llvm14AccelTableBase8HashDataEN9__gnu_cxx17__normal_iteratorIS4_St6vectorIS3_SaIS3_EEEEET0_T_SC_SB_.exit.sink.split.i: ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPPN4llvm14AccelTableBase8HashDataESt6vectorIS5_SaIS5_EEEES6_ET0_T_SC_SB_.exit84.thread, %38
-  %.sink38.i = phi ptr [ %39, %38 ], [ %26, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPPN4llvm14AccelTableBase8HashDataESt6vectorIS5_SaIS5_EEEES6_ET0_T_SC_SB_.exit84.thread ]
+  %.sink45.i = phi ptr [ %39, %38 ], [ %26, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPPN4llvm14AccelTableBase8HashDataESt6vectorIS5_SaIS5_EEEES6_ET0_T_SC_SB_.exit84.thread ]
   %.lcssa.sink.i = phi ptr [ %35, %38 ], [ %2, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPPN4llvm14AccelTableBase8HashDataESt6vectorIS5_SaIS5_EEEES6_ET0_T_SC_SB_.exit84.thread ]
-  %44 = ptrtoint ptr %.sink38.i to i64
+  %44 = ptrtoint ptr %.sink45.i to i64
   %45 = ptrtoint ptr %5 to i64
   %46 = sub i64 %44, %45
   %47 = ashr exact i64 %46, 3

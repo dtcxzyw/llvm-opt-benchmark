@@ -929,7 +929,7 @@ define void @_ZN10t_inputrecC2Ev(ptr noundef nonnull align 8 dereferenceable(880
   br label %_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EED2Ev.exit
 
 _ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EED2Ev.exit: ; preds = %.thread, %53, %54
-  %.pn.pn20 = phi { ptr, i32 } [ %48, %.thread ], [ %.pn, %53 ], [ %.pn, %54 ]
+  %.pn.pn22 = phi { ptr, i32 } [ %48, %.thread ], [ %.pn, %53 ], [ %.pn, %54 ]
   %60 = load ptr, ptr %10, align 8, !tbaa !148
   %.not.i.i.i14 = icmp eq ptr %60, null
   br i1 %.not.i.i.i14, label %_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EED2Ev.exit15, label %61
@@ -958,7 +958,7 @@ _ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EED2Ev.exit15: ; preds = %_ZNSt6vectorI
   br label %_ZNSt6vectorIN3gmx8MtsLevelESaIS1_EED2Ev.exit
 
 _ZNSt6vectorIN3gmx8MtsLevelESaIS1_EED2Ev.exit:    ; preds = %_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EED2Ev.exit15, %68
-  resume { ptr, i32 } %.pn.pn20
+  resume { ptr, i32 } %.pn.pn22
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)

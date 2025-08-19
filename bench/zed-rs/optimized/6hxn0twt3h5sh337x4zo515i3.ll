@@ -53,14 +53,14 @@ define hidden noundef zeroext i1 @"_ZN3std4sync4mpmc4list16Channel$LT$T$GT$10sta
   %10 = lshr exact i64 %.sroa.01.0.ph96, 1
   %11 = and i64 %10, 31
   %12 = icmp eq i64 %11, 31
-  br i1 %12, label %.lr.ph165, label %._crit_edge
+  br i1 %12, label %.lr.ph167, label %._crit_edge
 
 13:                                               ; preds = %.loopexit
-  %14 = add i32 %.sroa.0.089164, 1
+  %14 = add i32 %.sroa.0.089166, 1
   %15 = lshr exact i64 %63, 1
   %16 = and i64 %15, 31
   %17 = icmp eq i64 %16, 31
-  br i1 %17, label %.lr.ph165, label %._crit_edge
+  br i1 %17, label %.lr.ph167, label %._crit_edge
 
 .critedge:                                        ; preds = %.outer.backedge, %.loopexit, %2
   %.sroa.050.0.ph.lcssa88 = phi ptr [ null, %2 ], [ %.sroa.050.0.ph93, %.loopexit ], [ %.sroa.050.0.ph.be, %.outer.backedge ]
@@ -78,18 +78,18 @@ define hidden noundef zeroext i1 @"_ZN3std4sync4mpmc4list16Channel$LT$T$GT$10sta
   %or.cond = select i1 %.not71, i1 %.not, i1 false
   br i1 %or.cond, label %26, label %24
 
-.lr.ph165:                                        ; preds = %.lr.ph, %13
-  %.sroa.0.089164 = phi i32 [ %14, %13 ], [ %.sroa.0.0.ph94, %.lr.ph ]
-  %19 = icmp ult i32 %.sroa.0.089164, 7
+.lr.ph167:                                        ; preds = %.lr.ph, %13
+  %.sroa.0.089166 = phi i32 [ %14, %13 ], [ %.sroa.0.0.ph94, %.lr.ph ]
+  %19 = icmp ult i32 %.sroa.0.089166, 7
   br i1 %19, label %21, label %20
 
-20:                                               ; preds = %.lr.ph165
+20:                                               ; preds = %.lr.ph167
   invoke void @_ZN3std6thread9yield_now17h17a04a6f48076bfbE()
           to label %.loopexit unwind label %.loopexit72
 
-21:                                               ; preds = %.lr.ph165
-  %22 = mul nuw nsw i32 %.sroa.0.089164, %.sroa.0.089164
-  %.not.i = icmp eq i32 %.sroa.0.089164, 0
+21:                                               ; preds = %.lr.ph167
+  %22 = mul nuw nsw i32 %.sroa.0.089166, %.sroa.0.089166
+  %.not.i = icmp eq i32 %.sroa.0.089166, 0
   br i1 %.not.i, label %.loopexit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %21, %.lr.ph.i

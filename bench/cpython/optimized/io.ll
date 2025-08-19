@@ -409,9 +409,9 @@ scan_dpoint_exp.exit:                             ; preds = %.preheader172
   %156 = load ptr, ptr %5, align 8, !tbaa !26
   %157 = load i8, ptr %156, align 1, !tbaa !11
   %158 = icmp eq i8 %157, 0
-  br i1 %158, label %strtoexp.exit.thread196, label %strtoexp.exit.thread
+  br i1 %158, label %strtoexp.exit.thread212, label %strtoexp.exit.thread
 
-strtoexp.exit.thread196:                          ; preds = %155
+strtoexp.exit.thread212:                          ; preds = %155
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   store i64 %150, ptr %7, align 8, !tbaa !10
   br label %159
@@ -428,11 +428,11 @@ strtoexp.exit:                                    ; preds = %147
   %cond = icmp eq i32 %151, 34
   %.off = add i64 %150, -9223372036854775807
   %switch97 = icmp ult i64 %.off, 2
-  %or.cond207 = select i1 %cond, i1 %switch97, i1 false
-  br i1 %or.cond207, label %159, label %_mpd_strneq.exit130.thread
+  %or.cond223 = select i1 %cond, i1 %switch97, i1 false
+  br i1 %or.cond223, label %159, label %_mpd_strneq.exit130.thread
 
-159:                                              ; preds = %strtoexp.exit, %strtoexp.exit.thread196, %146
-  %.0152 = phi ptr [ %.029.i, %146 ], [ %.0148, %strtoexp.exit.thread196 ], [ %.0148, %strtoexp.exit ]
+159:                                              ; preds = %strtoexp.exit, %strtoexp.exit.thread212, %146
+  %.0152 = phi ptr [ %.029.i, %146 ], [ %.0148, %strtoexp.exit.thread212 ], [ %.0148, %strtoexp.exit ]
   %160 = ptrtoint ptr %.0152 to i64
   %161 = ptrtoint ptr %.0.i131 to i64
   %162 = sub i64 %160, %161
@@ -712,8 +712,8 @@ define internal fastcc i64 @_mpd_to_string(ptr noundef writeonly captures(none) 
   br label %32
 
 32:                                               ; preds = %31, %30
-  %.sink160 = phi i64 [ 4, %31 ], [ 3, %30 ]
-  %33 = getelementptr i8, ptr %.096, i64 %.sink160
+  %.sink167 = phi i64 [ 4, %31 ], [ 3, %30 ]
+  %33 = getelementptr i8, ptr %.096, i64 %.sink167
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %35 = load i64, ptr %34, align 8, !tbaa !3
   %36 = icmp sgt i64 %35, 0
@@ -837,25 +837,25 @@ define internal fastcc i64 @_mpd_to_string(ptr noundef writeonly captures(none) 
 99:                                               ; preds = %94
   %100 = tail call i32 @mpd_isnegative(ptr noundef nonnull %1) #18
   %.not108 = icmp eq i32 %100, 0
-  br i1 %.not108, label %101, label %.sink.split161
+  br i1 %.not108, label %101, label %.sink.split168
 
 101:                                              ; preds = %99
   %102 = and i32 %2, 64
   %.not109 = icmp eq i32 %102, 0
-  br i1 %.not109, label %103, label %.sink.split161
+  br i1 %.not109, label %103, label %.sink.split168
 
 103:                                              ; preds = %101
   %.not110 = icmp samesign ult i32 %2, 128
-  br i1 %.not110, label %105, label %.sink.split161
+  br i1 %.not110, label %105, label %.sink.split168
 
-.sink.split161:                                   ; preds = %103, %101, %99
-  %.sink162 = phi i8 [ 45, %99 ], [ 32, %101 ], [ 43, %103 ]
+.sink.split168:                                   ; preds = %103, %101, %99
+  %.sink169 = phi i8 [ 45, %99 ], [ 32, %101 ], [ 43, %103 ]
   %104 = getelementptr i8, ptr %96, i64 1
-  store i8 %.sink162, ptr %96, align 1, !tbaa !11
+  store i8 %.sink169, ptr %96, align 1, !tbaa !11
   br label %105
 
-105:                                              ; preds = %.sink.split161, %103
-  %.3 = phi ptr [ %96, %103 ], [ %104, %.sink.split161 ]
+105:                                              ; preds = %.sink.split168, %103
+  %.3 = phi ptr [ %96, %103 ], [ %104, %.sink.split168 ]
   br i1 %89, label %106, label %125
 
 106:                                              ; preds = %105
@@ -1183,10 +1183,10 @@ define hidden range(i32 0, 2) i32 @mpd_parse_fmt_str(ptr noundef captures(none) 
   %43 = getelementptr i8, ptr %1, i64 1
   store i8 %14, ptr %13, align 1, !tbaa !11
   %44 = load i8, ptr %43, align 1, !tbaa !11
-  %or.cond4554.i = icmp sgt i8 %44, -65
-  br i1 %or.cond4554.i, label %_mpd_copy_utf8.exit, label %.thread56.i
+  %or.cond4555.i = icmp sgt i8 %44, -65
+  br i1 %or.cond4555.i, label %_mpd_copy_utf8.exit, label %.thread57.i
 
-.thread56.i:                                      ; preds = %.thread.i
+.thread57.i:                                      ; preds = %.thread.i
   %45 = getelementptr i8, ptr %0, i64 20
   store i8 %44, ptr %45, align 1, !tbaa !11
   br label %._crit_edge.i
@@ -1212,9 +1212,9 @@ define hidden range(i32 0, 2) i32 @mpd_parse_fmt_str(ptr noundef captures(none) 
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %.036.i
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !47
 
-._crit_edge.i:                                    ; preds = %50, %.thread56.i
-  %.0365558.i = phi i64 [ 2, %.thread56.i ], [ %.036.i, %50 ]
-  %53 = getelementptr i8, ptr %13, i64 %.0365558.i
+._crit_edge.i:                                    ; preds = %50, %.thread57.i
+  %.0365659.i = phi i64 [ 2, %.thread57.i ], [ %.036.i, %50 ]
+  %53 = getelementptr i8, ptr %13, i64 %.0365659.i
   store i8 0, ptr %53, align 1, !tbaa !11
   br label %54
 
@@ -1223,7 +1223,7 @@ _mpd_copy_utf8.exit:                              ; preds = %.lr.ph.i, %35, %37,
   br label %.critedge
 
 54:                                               ; preds = %16, %19, %._crit_edge.i
-  %.040.i.ph = phi i64 [ %.0365558.i, %._crit_edge.i ], [ 1, %19 ], [ 0, %16 ]
+  %.040.i.ph = phi i64 [ %.0365659.i, %._crit_edge.i ], [ 1, %19 ], [ 0, %16 ]
   %55 = load i8, ptr %1, align 1, !tbaa !11
   %.not52 = icmp eq i8 %55, 0
   br i1 %.not52, label %59, label %56
@@ -1251,9 +1251,9 @@ _mpd_copy_utf8.exit:                              ; preds = %.lr.ph.i, %35, %37,
   ]
 
 thread-pre-split:                                 ; preds = %59, %59, %59, %59, %56, %56, %56, %56
-  %.sink69 = phi ptr [ %57, %56 ], [ %57, %56 ], [ %57, %56 ], [ %57, %56 ], [ %1, %59 ], [ %1, %59 ], [ %1, %59 ], [ %1, %59 ]
+  %.sink75 = phi ptr [ %57, %56 ], [ %57, %56 ], [ %57, %56 ], [ %57, %56 ], [ %1, %59 ], [ %1, %59 ], [ %1, %59 ], [ %1, %59 ]
   %.sink = phi i8 [ %58, %56 ], [ %58, %56 ], [ %58, %56 ], [ %58, %56 ], [ %61, %59 ], [ %61, %59 ], [ %61, %59 ], [ %61, %59 ]
-  %62 = getelementptr i8, ptr %.sink69, i64 1
+  %62 = getelementptr i8, ptr %.sink75, i64 1
   store ptr %62, ptr %4, align 8, !tbaa !26
   store i8 %.sink, ptr %8, align 1, !tbaa !45
   %.pr = load i8, ptr %62, align 1, !tbaa !11
@@ -1549,7 +1549,7 @@ define hidden ptr @mpd_qformat_spec(ptr noundef %0, ptr noundef readonly capture
     i8 103, label %64
     i8 101, label %56
     i8 37, label %57
-    i8 102, label %.thread128
+    i8 102, label %.thread136
   ]
 
 56:                                               ; preds = %55
@@ -1569,7 +1569,7 @@ define hidden ptr @mpd_qformat_spec(ptr noundef %0, ptr noundef readonly capture
   %61 = load i64, ptr %12, align 8, !tbaa !10
   %62 = add i64 %61, 2
   store i64 %62, ptr %12, align 8, !tbaa !10
-  br label %.thread128
+  br label %.thread136
 
 63:                                               ; preds = %55
   call void @abort() #20
@@ -1583,26 +1583,26 @@ define hidden ptr @mpd_qformat_spec(ptr noundef %0, ptr noundef readonly capture
   %68 = icmp sgt i64 %67, -1
   br i1 %68, label %73, label %.thread
 
-.thread128:                                       ; preds = %55, %59
+.thread136:                                       ; preds = %55, %59
   %.370 = phi i32 [ %60, %59 ], [ %.168, %55 ]
   %.163 = phi ptr [ %7, %59 ], [ %0, %55 ]
   %69 = or i32 %.370, 16
   %70 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %71 = load i64, ptr %70, align 8, !tbaa !43
   %72 = icmp sgt i64 %71, -1
-  br i1 %72, label %73, label %.thread139
+  br i1 %72, label %73, label %.thread147
 
-73:                                               ; preds = %.thread128, %64
-  %74 = phi i64 [ %71, %.thread128 ], [ %67, %64 ]
-  %75 = phi ptr [ %70, %.thread128 ], [ %66, %64 ]
-  %.2137 = phi ptr [ %.163, %.thread128 ], [ %0, %64 ]
-  %.471136 = phi i32 [ %69, %.thread128 ], [ %65, %64 ]
-  %.275132 = phi i8 [ 102, %.thread128 ], [ %.073, %64 ]
+73:                                               ; preds = %.thread136, %64
+  %74 = phi i64 [ %71, %.thread136 ], [ %67, %64 ]
+  %75 = phi ptr [ %70, %.thread136 ], [ %66, %64 ]
+  %.2145 = phi ptr [ %.163, %.thread136 ], [ %0, %64 ]
+  %.471144 = phi i32 [ %69, %.thread136 ], [ %65, %64 ]
+  %.275140 = phi i8 [ 102, %.thread136 ], [ %.073, %64 ]
   %76 = icmp samesign ugt i64 %74, 999999999999999999
   br i1 %76, label %.thread106, label %77
 
 77:                                               ; preds = %73
-  switch i8 %.275132, label %default.unreachable127 [
+  switch i8 %.275140, label %default.unreachable135 [
     i8 103, label %78
     i8 101, label %83
     i8 102, label %.thread100
@@ -1610,17 +1610,17 @@ define hidden ptr @mpd_qformat_spec(ptr noundef %0, ptr noundef readonly capture
 
 78:                                               ; preds = %77
   %spec.select93 = call i64 @llvm.umax.i64(i64 %74, i64 1)
-  %79 = getelementptr inbounds nuw i8, ptr %.2137, i64 16
+  %79 = getelementptr inbounds nuw i8, ptr %.2145, i64 16
   %80 = load i64, ptr %79, align 8, !tbaa !33
   %81 = icmp sgt i64 %80, %spec.select93
   br i1 %81, label %82, label %.thread
 
 82:                                               ; preds = %78
-  call fastcc void @_mpd_round(ptr noundef %7, ptr noundef nonnull %.2137, i64 noundef %spec.select93, ptr noundef %2, ptr noundef %10)
+  call fastcc void @_mpd_round(ptr noundef %7, ptr noundef nonnull %.2145, i64 noundef %spec.select93, ptr noundef %2, ptr noundef %10)
   br label %.thread
 
 83:                                               ; preds = %77
-  %84 = call i32 @mpd_iszero(ptr noundef %.2137) #18
+  %84 = call i32 @mpd_iszero(ptr noundef %.2145) #18
   %.not85 = icmp eq i32 %84, 0
   %85 = load i64, ptr %75, align 8, !tbaa !43
   br i1 %.not85, label %88, label %86
@@ -1631,22 +1631,22 @@ define hidden ptr @mpd_qformat_spec(ptr noundef %0, ptr noundef readonly capture
 
 88:                                               ; preds = %83
   %89 = add i64 %85, 1
-  call fastcc void @_mpd_round(ptr noundef %7, ptr noundef %.2137, i64 noundef %89, ptr noundef %2, ptr noundef %10)
+  call fastcc void @_mpd_round(ptr noundef %7, ptr noundef %.2145, i64 noundef %89, ptr noundef %2, ptr noundef %10)
   br label %.thread
 
 .thread100:                                       ; preds = %77
   %90 = sub nsw i64 0, %74
-  call void @mpd_qrescale(ptr noundef nonnull %7, ptr noundef %.2137, i64 noundef %90, ptr noundef %2, ptr noundef nonnull %10) #18
-  br label %.thread139
+  call void @mpd_qrescale(ptr noundef nonnull %7, ptr noundef %.2145, i64 noundef %90, ptr noundef %2, ptr noundef nonnull %10) #18
+  br label %.thread147
 
-.thread139:                                       ; preds = %.thread128, %.thread100
-  %.471134 = phi i32 [ %.471136, %.thread100 ], [ %69, %.thread128 ]
-  %.4104 = phi ptr [ %7, %.thread100 ], [ %.163, %.thread128 ]
+.thread147:                                       ; preds = %.thread136, %.thread100
+  %.471142 = phi i32 [ %.471144, %.thread100 ], [ %69, %.thread136 ]
+  %.4104 = phi ptr [ %7, %.thread100 ], [ %.163, %.thread136 ]
   %91 = call i32 @mpd_iszero(ptr noundef %.4104) #18
   %.not86 = icmp eq i32 %91, 0
   br i1 %.not86, label %.thread, label %92
 
-92:                                               ; preds = %.thread139
+92:                                               ; preds = %.thread147
   %93 = getelementptr inbounds nuw i8, ptr %.4104, i64 8
   %94 = load i64, ptr %93, align 8, !tbaa !10
   %95 = icmp sgt i64 %94, 0
@@ -1656,22 +1656,22 @@ define hidden ptr @mpd_qformat_spec(ptr noundef %0, ptr noundef readonly capture
   call void @mpd_qrescale(ptr noundef nonnull %7, ptr noundef nonnull %.4104, i64 noundef 0, ptr noundef %2, ptr noundef nonnull %10) #18
   br label %.thread
 
-default.unreachable127:                           ; preds = %77
+default.unreachable135:                           ; preds = %77
   unreachable
 
-.thread:                                          ; preds = %64, %86, %88, %78, %82, %.thread139, %92, %96
-  %.471133 = phi i32 [ %.471134, %96 ], [ %.471134, %92 ], [ %.471134, %.thread139 ], [ %.471136, %88 ], [ %.471136, %86 ], [ %.471136, %78 ], [ %.471136, %82 ], [ %65, %64 ]
-  %.27899 = phi i64 [ 1, %96 ], [ 1, %92 ], [ 1, %.thread139 ], [ 1, %88 ], [ %87, %86 ], [ 1, %78 ], [ 1, %82 ], [ 1, %64 ]
-  %.5 = phi ptr [ %7, %96 ], [ %.4104, %92 ], [ %.4104, %.thread139 ], [ %7, %88 ], [ %.2137, %86 ], [ %.2137, %78 ], [ %7, %82 ], [ %0, %64 ]
+.thread:                                          ; preds = %64, %86, %88, %78, %82, %.thread147, %92, %96
+  %.471141 = phi i32 [ %.471142, %96 ], [ %.471142, %92 ], [ %.471142, %.thread147 ], [ %.471144, %88 ], [ %.471144, %86 ], [ %.471144, %78 ], [ %.471144, %82 ], [ %65, %64 ]
+  %.27899 = phi i64 [ 1, %96 ], [ 1, %92 ], [ 1, %.thread147 ], [ 1, %88 ], [ %87, %86 ], [ 1, %78 ], [ 1, %82 ], [ 1, %64 ]
+  %.5 = phi ptr [ %7, %96 ], [ %.4104, %92 ], [ %.4104, %.thread147 ], [ %7, %88 ], [ %.2145, %86 ], [ %.2145, %78 ], [ %7, %82 ], [ %0, %64 ]
   %97 = load i32, ptr %10, align 4, !tbaa !25
   %98 = and i32 %97, 958
   %.not87 = icmp eq i32 %98, 0
   br i1 %.not87, label %101, label %.thread106
 
 .thread106:                                       ; preds = %.thread, %73
-  %.sink143 = phi i32 [ 256, %73 ], [ %98, %.thread ]
+  %.sink151 = phi i32 [ 256, %73 ], [ %98, %.thread ]
   %99 = load i32, ptr %3, align 4, !tbaa !25
-  %100 = or i32 %99, %.sink143
+  %100 = or i32 %99, %.sink151
   store i32 %100, ptr %3, align 4, !tbaa !25
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %229
@@ -1682,7 +1682,7 @@ default.unreachable127:                           ; preds = %77
 
 102:                                              ; preds = %101, %52
   %.076 = phi i64 [ %.27899, %101 ], [ 1, %52 ]
-  %.269 = phi i32 [ %.471133, %101 ], [ %spec.select, %52 ]
+  %.269 = phi i32 [ %.471141, %101 ], [ %spec.select, %52 ]
   %.165 = phi ptr [ %1, %101 ], [ %.064, %52 ]
   %.062 = phi ptr [ %.5, %101 ], [ %0, %52 ]
   %103 = getelementptr inbounds nuw i8, ptr %8, i64 24
@@ -1952,8 +1952,8 @@ _mpd_add_pad.exit.thread123:                      ; preds = %178
   %218 = getelementptr i8, ptr %209, i64 %.076.i
   %.not100.i = icmp eq i64 %.07988.i, 0
   %.not101.i = icmp eq i64 %182, 0
-  %or.cond109.i = or i1 %.not101.i, %.not100.i
-  br i1 %or.cond109.i, label %_mpd_add_pad.exit, label %.preheader.us.i
+  %or.cond113.i = or i1 %.not101.i, %.not100.i
+  br i1 %or.cond113.i, label %_mpd_add_pad.exit, label %.preheader.us.i
 
 .preheader.us.i:                                  ; preds = %._crit_edge94.i, %._crit_edge.us98.i
   %.17596.us.i = phi i64 [ %226, %._crit_edge.us98.i ], [ 0, %._crit_edge94.i ]

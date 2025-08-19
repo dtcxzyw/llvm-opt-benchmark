@@ -1056,7 +1056,7 @@ land.lhs.true.us.i.1:                             ; preds = %if.then.us.i.1
   %cmp15.us.i.1 = icmp eq i32 %7, -1
   %cmp18.us.i.1 = icmp eq i32 %7, %0
   %or.cond45.us.i.1 = or i1 %cmp15.us.i.1, %cmp18.us.i.1
-  br i1 %or.cond45.us.i.1, label %_ZN3irrL11getBlitter2ENS_8eBlitterEPKNS_5video6IImageES4_.exit.loopexit11.split.loop.exit, label %if.end27.us.i.1
+  br i1 %or.cond45.us.i.1, label %_ZN3irrL11getBlitter2ENS_8eBlitterEPKNS_5video6IImageES4_.exit.loopexit14.split.loop.exit, label %if.end27.us.i.1
 
 if.end27.us.i.1:                                  ; preds = %land.lhs.true.us.i.1, %if.then.us.i.1, %while.body.us.i.1
   %add.ptr.us.i.1 = getelementptr inbounds nuw i8, ptr %b.050.us.i, i64 48
@@ -1097,12 +1097,12 @@ if.end27.i:                                       ; preds = %if.else.i, %land.lh
   %cmp.not.i = icmp eq i32 %12, 0
   br i1 %cmp.not.i, label %cleanup92, label %while.body.i, !llvm.loop !35
 
-_ZN3irrL11getBlitter2ENS_8eBlitterEPKNS_5video6IImageES4_.exit.loopexit11.split.loop.exit: ; preds = %land.lhs.true.us.i.1
+_ZN3irrL11getBlitter2ENS_8eBlitterEPKNS_5video6IImageES4_.exit.loopexit14.split.loop.exit: ; preds = %land.lhs.true.us.i.1
   %add.ptr.us.i.le = getelementptr inbounds nuw i8, ptr %b.050.us.i, i64 24
   br label %_ZN3irrL11getBlitter2ENS_8eBlitterEPKNS_5video6IImageES4_.exit
 
-_ZN3irrL11getBlitter2ENS_8eBlitterEPKNS_5video6IImageES4_.exit: ; preds = %land.lhs.true.us.i, %if.else.i, %land.lhs.true.i, %_ZN3irrL11getBlitter2ENS_8eBlitterEPKNS_5video6IImageES4_.exit.loopexit11.split.loop.exit
-  %b.050.lcssa58.sink.i = phi ptr [ %add.ptr.us.i.le, %_ZN3irrL11getBlitter2ENS_8eBlitterEPKNS_5video6IImageES4_.exit.loopexit11.split.loop.exit ], [ %b.050.i, %land.lhs.true.i ], [ %b.050.i, %if.else.i ], [ %b.050.us.i, %land.lhs.true.us.i ]
+_ZN3irrL11getBlitter2ENS_8eBlitterEPKNS_5video6IImageES4_.exit: ; preds = %land.lhs.true.us.i, %if.else.i, %land.lhs.true.i, %_ZN3irrL11getBlitter2ENS_8eBlitterEPKNS_5video6IImageES4_.exit.loopexit14.split.loop.exit
+  %b.050.lcssa58.sink.i = phi ptr [ %add.ptr.us.i.le, %_ZN3irrL11getBlitter2ENS_8eBlitterEPKNS_5video6IImageES4_.exit.loopexit14.split.loop.exit ], [ %b.050.i, %land.lhs.true.i ], [ %b.050.i, %if.else.i ], [ %b.050.us.i, %land.lhs.true.us.i ]
   %func25.i = getelementptr inbounds nuw i8, ptr %b.050.lcssa58.sink.i, i64 16
   %13 = load ptr, ptr %func25.i, align 8, !tbaa !37
   %cmp = icmp eq ptr %13, null

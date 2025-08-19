@@ -561,8 +561,8 @@ GetLengthCost.exit.i.i:                           ; preds = %223, %219
 ._crit_edge.i117.i:                               ; preds = %GetLengthCost.exit.i.i
   %242 = getelementptr inbounds nuw i8, ptr %24, i64 24
   store i64 1, ptr %242, align 8, !tbaa !38
-  %.not94.i.i = icmp eq i32 %11, 1
-  br i1 %.not94.i.i, label %._crit_edge69.i.i, label %.lr.ph68.i.i
+  %.not98.i.i = icmp eq i32 %11, 1
+  br i1 %.not98.i.i, label %._crit_edge69.i.i, label %.lr.ph68.i.i
 
 .lr.ph68.i.i:                                     ; preds = %._crit_edge.i117.i
   %.pre.i.i = load i64, ptr %216, align 8, !tbaa !40
@@ -1205,7 +1205,7 @@ TraceBackwards.exit:                              ; preds = %.lr.ph.i21, %522
 ._crit_edge.thread.i:                             ; preds = %.thread.i
   %542 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %543 = load i32, ptr %542, align 4, !tbaa !62
-  %.not5290.i = icmp eq i32 %543, 0
+  %.not5294.i = icmp eq i32 %543, 0
   br label %585
 
 .lr.ph76.split.preheader.i:                       ; preds = %.thread.i
@@ -1323,9 +1323,9 @@ TraceBackwards.exit:                              ; preds = %.lr.ph.i21, %522
   br label %582
 
 582:                                              ; preds = %.thread66.i, %570
-  %.sink93.i = phi i32 [ %581, %.thread66.i ], [ %575, %570 ]
+  %.sink97.i = phi i32 [ %581, %.thread66.i ], [ %575, %570 ]
   %.sink.i = phi i64 [ 65536, %.thread66.i ], [ 65537, %570 ]
-  %.sroa.3.0.insert.ext.i64.i = zext i32 %.sink93.i to i64
+  %.sroa.3.0.insert.ext.i64.i = zext i32 %.sink97.i to i64
   %.sroa.3.0.insert.shift.i65.i = shl nuw i64 %.sroa.3.0.insert.ext.i64.i, 32
   %.sroa.21.0.insert.insert.i.i = or disjoint i64 %.sroa.3.0.insert.shift.i65.i, %.sink.i
   call void @VP8LBackwardRefsCursorAdd(ptr noundef %6, i64 %.sroa.21.0.insert.insert.i.i) #7
@@ -1344,12 +1344,12 @@ TraceBackwards.exit:                              ; preds = %.lr.ph.i21, %522
   br i1 %16, label %BackwardReferencesHashChainFollowChosenPath.exit, label %585
 
 585:                                              ; preds = %._crit_edge.i33, %._crit_edge.thread.i
-  %.not5291.i = phi i1 [ %.not5290.i, %._crit_edge.thread.i ], [ %.not52.i, %._crit_edge.i33 ]
+  %.not5295.i = phi i1 [ %.not5294.i, %._crit_edge.thread.i ], [ %.not52.i, %._crit_edge.i33 ]
   call void @VP8LColorCacheClear(ptr noundef nonnull %8) #7
   br label %BackwardReferencesHashChainFollowChosenPath.exit
 
 BackwardReferencesHashChainFollowChosenPath.exit: ; preds = %._crit_edge.i33.thread, %535, %._crit_edge.i33, %585
-  %.04371.shrunk.i = phi i1 [ %.not5291.i, %585 ], [ %.not52.i, %._crit_edge.i33 ], [ false, %535 ], [ %.not52.i36, %._crit_edge.i33.thread ]
+  %.04371.shrunk.i = phi i1 [ %.not5295.i, %585 ], [ %.not52.i, %._crit_edge.i33 ], [ false, %535 ], [ %.not52.i36, %._crit_edge.i33.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %spec.select = zext i1 %.04371.shrunk.i to i32
   br label %586
@@ -1850,8 +1850,8 @@ UpdateCost.exit.i43:                              ; preds = %49, %45
   br label %PositionOrphanInterval.exit
 
 PositionOrphanInterval.exit:                      ; preds = %.split.thread.i, %78, %.critedge29.i, %84
-  %.sink62.i = phi ptr [ %72, %.split.thread.i ], [ %79, %78 ], [ %0, %.critedge29.i ], [ %0, %84 ]
-  store ptr %.0, ptr %.sink62.i, align 8, !tbaa !60
+  %.sink66.i = phi ptr [ %72, %.split.thread.i ], [ %79, %78 ], [ %0, %.critedge29.i ], [ %0, %84 ]
+  store ptr %.0, ptr %.sink66.i, align 8, !tbaa !60
   %86 = getelementptr inbounds nuw i8, ptr %.0, i64 24
   store ptr %.2.i, ptr %86, align 8, !tbaa !59
   %87 = load i32, ptr %8, align 8, !tbaa !32

@@ -98,8 +98,8 @@ define internal i32 @y216_decode_frame(ptr noundef %0, ptr noundef %1, ptr nound
   %52 = getelementptr inbounds nuw i8, ptr %48, i64 2
   %53 = load i16, ptr %52, align 2, !tbaa !35
   %54 = tail call i16 @llvm.fshl.i16(i16 %53, i16 %53, i16 2)
-  %.idx69 = shl nuw nsw i64 %indvars.iv, 2
-  %55 = getelementptr inbounds nuw i8, ptr %.05760.us, i64 %.idx69
+  %.idx73 = shl nuw nsw i64 %indvars.iv, 2
+  %55 = getelementptr inbounds nuw i8, ptr %.05760.us, i64 %.idx73
   store i16 %54, ptr %55, align 2, !tbaa !35
   %56 = getelementptr inbounds nuw i8, ptr %48, i64 4
   %57 = load i16, ptr %56, align 2, !tbaa !35

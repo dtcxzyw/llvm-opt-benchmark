@@ -172,9 +172,9 @@ define hidden void @_ZN4lean7mpn_mulEPKjmS1_mPj(ptr noundef readonly captures(no
   br i1 %.not50, label %._crit_edge49, label %.lr.ph48.split
 
 .preheader38.thread:                              ; preds = %.lr.ph
-  %invariant.gep4355 = getelementptr i32, ptr %4, i64 %1
-  %.not5056 = icmp eq i64 %3, 0
-  br i1 %.not5056, label %._crit_edge49, label %.lr.ph48.split.us
+  %invariant.gep4358 = getelementptr i32, ptr %4, i64 %1
+  %.not5059 = icmp eq i64 %3, 0
+  br i1 %.not5059, label %._crit_edge49, label %.lr.ph48.split.us
 
 .lr.ph48.split.us:                                ; preds = %.preheader38.thread, %23
   %.03547.us = phi i64 [ %24, %23 ], [ 0, %.preheader38.thread ]
@@ -206,7 +206,7 @@ define hidden void @_ZN4lean7mpn_mulEPKjmS1_mPj(ptr noundef readonly captures(no
 
 23:                                               ; preds = %.lr.ph48.split.us, %._crit_edge.us
   %.sink = phi i32 [ %25, %._crit_edge.us ], [ 0, %.lr.ph48.split.us ]
-  %gep46.us = getelementptr i32, ptr %invariant.gep4355, i64 %.03547.us
+  %gep46.us = getelementptr i32, ptr %invariant.gep4358, i64 %.03547.us
   store i32 %.sink, ptr %gep46.us, align 4, !tbaa !3
   %24 = add nuw i64 %.03547.us, 1
   %exitcond53.not = icmp eq i64 %24, %3
@@ -483,7 +483,7 @@ define hidden void @_ZN4lean7mpn_divEPKjmS1_mPjS2_(ptr noundef readonly captures
   %113 = and i64 %112, 4294967295
   %114 = add i64 %107, 4294967294
   %115 = and i64 %114, 4294967295
-  %.not5056.i.i = icmp eq i64 %107, 0
+  %.not5059.i.i = icmp eq i64 %107, 0
   %.not.i.i = icmp eq i64 %108, 0
   %116 = add i64 %107, 2
   %117 = and i64 %116, 4294967295
@@ -548,8 +548,8 @@ define hidden void @_ZN4lean7mpn_divEPKjmS1_mPjS2_(ptr noundef readonly captures
   %158 = trunc i64 %.1.i to i32
   %159 = load ptr, ptr %11, align 8, !tbaa !19
   store i32 0, ptr %159, align 4, !tbaa !3
-  %invariant.gep4355.i.i = getelementptr i8, ptr %159, i64 4
-  br i1 %.not5056.i.i, label %.lr.ph.i69.preheader.i, label %.lr.ph48.split.us.i.preheader.i
+  %invariant.gep4358.i.i = getelementptr i8, ptr %159, i64 4
+  br i1 %.not5059.i.i, label %.lr.ph.i69.preheader.i, label %.lr.ph48.split.us.i.preheader.i
 
 .lr.ph48.split.us.i.preheader.i:                  ; preds = %.lr.ph.i.i
   %160 = and i64 %.1.i, 4294967295
@@ -564,7 +564,7 @@ define hidden void @_ZN4lean7mpn_divEPKjmS1_mPjS2_(ptr noundef readonly captures
 
 164:                                              ; preds = %.preheader.us.i.i, %.lr.ph48.split.us.i.i
   %.sink.i.i = phi i32 [ %173, %.preheader.us.i.i ], [ 0, %.lr.ph48.split.us.i.i ]
-  %gep46.us.i.i = getelementptr i32, ptr %invariant.gep4355.i.i, i64 %.03547.us.i.i
+  %gep46.us.i.i = getelementptr i32, ptr %invariant.gep4358.i.i, i64 %.03547.us.i.i
   store i32 %.sink.i.i, ptr %gep46.us.i.i, align 4, !tbaa !3
   %165 = add nuw i64 %.03547.us.i.i, 1
   %exitcond53.not.i.i = icmp eq i64 %165, %107
@@ -1500,10 +1500,10 @@ _ZN4lean6bufferIjLm16EED2Ev.exit97:               ; preds = %_ZN4lean6bufferIjLm
   br label %.body.sink.split
 
 .body.sink.split:                                 ; preds = %72, %203
-  %.sink169 = phi i64 [ %204, %203 ], [ %53, %72 ]
+  %.sink189 = phi i64 [ %204, %203 ], [ %53, %72 ]
   %.sink = phi ptr [ %202, %203 ], [ %.pre.i.i54, %72 ]
   %.pn45.pn.pn.ph = phi { ptr, i32 } [ %lpad.phi, %203 ], [ %73, %72 ]
-  %205 = shl i64 %.sink169, 2
+  %205 = shl i64 %.sink189, 2
   call void @_ZdaPvm(ptr noundef %.sink, i64 noundef %205) #14
   br label %.body
 

@@ -2944,13 +2944,13 @@ _ZNSt13unordered_mapIN4cvc58internal8TypeNodeESt6vectorISt10shared_ptrINS1_16DTy
           to label %_ZNSt13unordered_mapIN4cvc58internal8TypeNodeESt6vectorISt10shared_ptrINS1_16DTypeConstructorEESaIS6_EESt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S8_EEEixERSE_.exit118 unwind label %202
 
 _ZNSt13unordered_mapIN4cvc58internal8TypeNodeESt6vectorISt10shared_ptrINS1_16DTypeConstructorEESaIS6_EESt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S8_EEEixERSE_.exit118: ; preds = %245, %240
-  %.sink473 = phi ptr [ %241, %240 ], [ %246, %245 ]
+  %.sink578 = phi ptr [ %241, %240 ], [ %246, %245 ]
   %.sink = phi i64 [ %239, %240 ], [ %244, %245 ]
-  %.sink464 = phi ptr [ %238, %240 ], [ %243, %245 ]
-  %247 = getelementptr inbounds nuw i8, ptr %.sink473, i64 8
+  %.sink569 = phi ptr [ %238, %240 ], [ %243, %245 ]
+  %247 = getelementptr inbounds nuw i8, ptr %.sink578, i64 8
   %248 = load ptr, ptr %247, align 8, !tbaa !59
-  %249 = load ptr, ptr %.sink473, align 8, !tbaa !66
-  %250 = load ptr, ptr %.sink464, align 8, !tbaa !66
+  %249 = load ptr, ptr %.sink578, align 8, !tbaa !66
+  %250 = load ptr, ptr %.sink569, align 8, !tbaa !66
   %251 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt8__detail9_Map_baseIN4cvc58internal12NodeTemplateILb1EEESt4pairIKS4_St10shared_ptrINS2_16DTypeConstructorEEESaISA_ENS_10_Select1stESt8equal_toIS4_ESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixERS6_(ptr noundef nonnull align 8 dereferenceable(56) %12, ptr noundef nonnull align 8 dereferenceable(8) %15)
           to label %_ZNSt13unordered_mapIN4cvc58internal12NodeTemplateILb1EEESt10shared_ptrINS1_16DTypeConstructorEESt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_S6_EEEixERSC_.exit unwind label %202
 
@@ -5675,23 +5675,23 @@ _ZN4cvc58internal4expr9NodeValue3decEv.exit.i50:  ; preds = %233, %227, %224
   br i1 %241, label %.invoke, label %_ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit43, !prof !9
 
 .invoke:                                          ; preds = %240, %217
-  %.sink70 = phi i64 [ %212, %217 ], [ %235, %240 ]
-  %.sink69 = phi ptr [ %211, %217 ], [ %234, %240 ]
-  %242 = or i64 %.sink70, 1152920405095219200
-  store i64 %242, ptr %.sink69, align 8
-  invoke void @_ZN4cvc58internal4expr9NodeValue20markRefCountMaxedOutEv(ptr noundef nonnull align 8 dereferenceable(24) %.sink69)
+  %.sink85 = phi i64 [ %212, %217 ], [ %235, %240 ]
+  %.sink84 = phi ptr [ %211, %217 ], [ %234, %240 ]
+  %242 = or i64 %.sink85, 1152920405095219200
+  store i64 %242, ptr %.sink84, align 8
+  invoke void @_ZN4cvc58internal4expr9NodeValue20markRefCountMaxedOutEv(ptr noundef nonnull align 8 dereferenceable(24) %.sink84)
           to label %_ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit43 unwind label %167
 
 _ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit43.sink.split: ; preds = %_ZN4cvc58internal4expr9NodeValue3decEv.exit.i50, %_ZN4cvc58internal4expr9NodeValue3decEv.exit.i40
-  %.sink76 = phi i32 [ %215, %_ZN4cvc58internal4expr9NodeValue3decEv.exit.i40 ], [ %238, %_ZN4cvc58internal4expr9NodeValue3decEv.exit.i50 ]
+  %.sink91 = phi i32 [ %215, %_ZN4cvc58internal4expr9NodeValue3decEv.exit.i40 ], [ %238, %_ZN4cvc58internal4expr9NodeValue3decEv.exit.i50 ]
   %.sink = phi i64 [ %212, %_ZN4cvc58internal4expr9NodeValue3decEv.exit.i40 ], [ %235, %_ZN4cvc58internal4expr9NodeValue3decEv.exit.i50 ]
-  %.sink71 = phi ptr [ %211, %_ZN4cvc58internal4expr9NodeValue3decEv.exit.i40 ], [ %234, %_ZN4cvc58internal4expr9NodeValue3decEv.exit.i50 ]
-  %243 = add nuw nsw i32 %.sink76, 1
+  %.sink86 = phi ptr [ %211, %_ZN4cvc58internal4expr9NodeValue3decEv.exit.i40 ], [ %234, %_ZN4cvc58internal4expr9NodeValue3decEv.exit.i50 ]
+  %243 = add nuw nsw i32 %.sink91, 1
   %244 = zext nneg i32 %243 to i64
   %245 = shl nuw nsw i64 %244, 40
   %246 = and i64 %.sink, -1152920405095219201
   %247 = or i64 %245, %246
-  store i64 %247, ptr %.sink71, align 8
+  store i64 %247, ptr %.sink86, align 8
   br label %_ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit43
 
 _ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit43: ; preds = %_ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit43.sink.split, %.invoke, %240, %_ZNSt13unordered_mapIN4cvc58internal12NodeTemplateILb1EEES3_St4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_S3_EEEixERS9_.exit47, %217, %_ZNSt13unordered_mapIN4cvc58internal12NodeTemplateILb1EEES3_St4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_S3_EEEixERS9_.exit37

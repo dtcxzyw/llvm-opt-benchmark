@@ -98,13 +98,13 @@ define internal range(i32 -1094995529, 1) i32 @iss_read_header(ptr noundef %0) #
   %30 = load i32, ptr %3, align 4, !tbaa !41
   %.not48 = icmp eq i32 %30, 0
   %spec.select = select i1 %.not48, i32 1, i32 2
-  %spec.select50 = select i1 %.not48, i64 4, i64 3
+  %spec.select53 = select i1 %.not48, i64 4, i64 3
   %31 = getelementptr inbounds nuw i8, ptr %28, i64 128
   store i32 1, ptr %31, align 8, !tbaa !41
   %32 = getelementptr inbounds nuw i8, ptr %28, i64 132
   store i32 %spec.select, ptr %32, align 4, !tbaa !41
   %33 = getelementptr inbounds nuw i8, ptr %28, i64 136
-  store i64 %spec.select50, ptr %33, align 8, !tbaa !42
+  store i64 %spec.select53, ptr %33, align 8, !tbaa !42
   %34 = getelementptr inbounds nuw i8, ptr %28, i64 144
   store ptr null, ptr %34, align 8, !tbaa !43
   %35 = load ptr, ptr %27, align 8, !tbaa !30
@@ -233,13 +233,13 @@ define internal fastcc void @get_token(ptr noundef %0, ptr noundef nonnull write
   br i1 %5, label %19, label %21
 
 19:                                               ; preds = %._crit_edge.loopexit, %._crit_edge
-  %.0.lcssa19 = phi i64 [ %18, %._crit_edge.loopexit ], [ 0, %._crit_edge ]
+  %.0.lcssa20 = phi i64 [ %18, %._crit_edge.loopexit ], [ 0, %._crit_edge ]
   %20 = tail call i32 @avio_r8(ptr noundef %0) #8
   br label %21
 
 21:                                               ; preds = %._crit_edge.loopexit, %19, %._crit_edge
-  %.0.lcssa18 = phi i64 [ %18, %._crit_edge.loopexit ], [ %.0.lcssa19, %19 ], [ 0, %._crit_edge ]
-  %22 = getelementptr inbounds i8, ptr %1, i64 %.0.lcssa18
+  %.0.lcssa19 = phi i64 [ %18, %._crit_edge.loopexit ], [ %.0.lcssa20, %19 ], [ 0, %._crit_edge ]
+  %22 = getelementptr inbounds i8, ptr %1, i64 %.0.lcssa19
   store i8 0, ptr %22, align 1, !tbaa !42
   ret void
 }

@@ -3510,7 +3510,7 @@ define internal fastcc range(i32 -105, 1) i32 @nl80211_send_wiphy(ptr noundef %0
   %301 = phi i32 [ %412, %410 ], [ %288, %294 ]
   %302 = icmp samesign ult i64 %indvars.iv, 2
   %303 = or i1 %300, %302
-  %304 = trunc nuw i64 %indvars.iv to i32
+  %304 = trunc nuw nsw i64 %indvars.iv to i32
   br i1 %303, label %305, label %.loopexit
 
 305:                                              ; preds = %298
@@ -3568,7 +3568,7 @@ define internal fastcc range(i32 -105, 1) i32 @nl80211_send_wiphy(ptr noundef %0
   %344 = getelementptr inbounds nuw i8, ptr %307, i64 20
   %345 = load i32, ptr %344, align 4
   %346 = icmp slt i32 %343, %345
-  br i1 %346, label %347, label %.thread114
+  br i1 %346, label %347, label %.thread154
 
 347:                                              ; preds = %340
   %348 = sext i32 %343 to i64
@@ -3580,7 +3580,7 @@ define internal fastcc range(i32 -105, 1) i32 @nl80211_send_wiphy(ptr noundef %0
   %352 = load i32, ptr %277, align 8
   %353 = zext i32 %352 to i64
   %354 = getelementptr i8, ptr %351, i64 %353
-  %355 = trunc i64 %350 to i32
+  %355 = trunc nsw i64 %350 to i32
   %356 = call i32 @nla_put(ptr noundef %2, i32 noundef %355, i32 noundef 0, ptr noundef null) #26
   %357 = icmp slt i32 %356, 0
   %358 = icmp eq ptr %354, null
@@ -3609,7 +3609,7 @@ define internal fastcc range(i32 -105, 1) i32 @nl80211_send_wiphy(ptr noundef %0
   %376 = load i8, ptr %289, align 8, !range !60, !noundef !61
   %377 = icmp eq i8 %376, 0
   %.pre92.pre = load i32, ptr %344, align 4
-  br i1 %377, label %378, label %.loopexit116
+  br i1 %377, label %378, label %.loopexit156
 
 378:                                              ; preds = %367
   %379 = add nsw i64 %350, 1
@@ -3619,19 +3619,19 @@ define internal fastcc range(i32 -105, 1) i32 @nl80211_send_wiphy(ptr noundef %0
 
 ._crit_edge112:                                   ; preds = %378
   %.pre113 = trunc nsw i64 %379 to i32
-  br label %.loopexit116, !llvm.loop !63
+  br label %.loopexit156, !llvm.loop !63
 
-.loopexit116:                                     ; preds = %367, %._crit_edge112
+.loopexit156:                                     ; preds = %367, %._crit_edge112
   %.pre-phi = phi i32 [ %.pre113, %._crit_edge112 ], [ %355, %367 ]
   %382 = icmp slt i32 %.pre-phi, %.pre92.pre
   %383 = add i32 %.pre-phi, 2
   %384 = sext i32 %383 to i64
   %cond.fr = freeze i1 %382
   %spec.select = select i1 %cond.fr, i64 %384, i64 0
-  br label %.thread114
+  br label %.thread154
 
-.thread114:                                       ; preds = %.loopexit116, %340
-  %385 = phi i64 [ 0, %340 ], [ %spec.select, %.loopexit116 ]
+.thread154:                                       ; preds = %.loopexit156, %340
+  %385 = phi i64 [ 0, %340 ], [ %spec.select, %.loopexit156 ]
   store i64 %385, ptr %296, align 8
   %386 = load ptr, ptr %275, align 8
   %387 = load i32, ptr %277, align 8
@@ -3644,7 +3644,7 @@ define internal fastcc range(i32 -105, 1) i32 @nl80211_send_wiphy(ptr noundef %0
   store i16 %393, ptr %335, align 2
   br label %394
 
-394:                                              ; preds = %.thread114, %326
+394:                                              ; preds = %.thread154, %326
   %395 = load ptr, ptr %275, align 8
   %396 = load i32, ptr %277, align 8
   %397 = zext i32 %396 to i64
@@ -14364,9 +14364,9 @@ define internal fastcc range(i32 -90, 1) i32 @cfg80211_net_detect_results(ptr no
   br label %.thread.sink.split
 
 .thread.sink.split:                               ; preds = %.thread.sink.split.sink.split, %80, %60, %38
-  %.sink21 = phi ptr [ %39, %38 ], [ %61, %60 ], [ %86, %80 ], [ %.pre12, %.thread.sink.split.sink.split ]
+  %.sink29 = phi ptr [ %39, %38 ], [ %61, %60 ], [ %86, %80 ], [ %.pre12, %.thread.sink.split.sink.split ]
   %110 = ptrtoint ptr %26 to i64
-  %111 = ptrtoint ptr %.sink21 to i64
+  %111 = ptrtoint ptr %.sink29 to i64
   %112 = sub i64 %110, %111
   %113 = trunc i64 %112 to i32
   call void @skb_trim(ptr noundef nonnull %0, i32 noundef %113) #26
@@ -15302,7 +15302,7 @@ define internal i32 @nl80211_pre_doit(ptr noundef readonly captures(none) %0, pt
   %17 = load ptr, ptr %16, align 8
   %18 = tail call fastcc ptr @__cfg80211_rdev_from_attrs(ptr noundef %15, ptr noundef %17)
   %19 = icmp ugt ptr %18, inttoptr (i64 -4096 to ptr)
-  br i1 %19, label %20, label %.thread28
+  br i1 %19, label %20, label %.thread40
 
 20:                                               ; preds = %13
   %21 = ptrtoint ptr %18 to i64
@@ -15395,14 +15395,14 @@ define internal i32 @nl80211_pre_doit(ptr noundef readonly captures(none) %0, pt
   %72 = icmp eq i64 %71, 0
   br i1 %72, label %78, label %.thread21
 
-.thread28:                                        ; preds = %13
+.thread40:                                        ; preds = %13
   %73 = getelementptr inbounds nuw i8, ptr %2, i64 48
   store ptr %18, ptr %73, align 8
   %74 = and i64 %10, 1048770
   %75 = icmp eq i64 %74, 0
-  br i1 %75, label %.thread18.thread30, label %.thread21
+  br i1 %75, label %.thread18.thread42, label %.thread21
 
-.thread18.thread30:                               ; preds = %.thread28
+.thread18.thread42:                               ; preds = %.thread40
   tail call void @rtnl_unlock() #26
   br label %129
 
@@ -15442,10 +15442,10 @@ define internal i32 @nl80211_pre_doit(ptr noundef readonly captures(none) %0, pt
 95:                                               ; preds = %78
   br i1 %.not27, label %.thread21, label %.thread18
 
-.thread21:                                        ; preds = %.thread28, %87, %95, %.thread, %69
-  %96 = phi ptr [ null, %.thread ], [ %52, %69 ], [ %52, %95 ], [ %52, %87 ], [ %18, %.thread28 ]
-  %97 = phi ptr [ null, %.thread ], [ %42, %69 ], [ %42, %95 ], [ %42, %87 ], [ null, %.thread28 ]
-  %98 = phi ptr [ null, %.thread ], [ %35, %69 ], [ %35, %95 ], [ %35, %87 ], [ null, %.thread28 ]
+.thread21:                                        ; preds = %.thread40, %87, %95, %.thread, %69
+  %96 = phi ptr [ null, %.thread ], [ %52, %69 ], [ %52, %95 ], [ %52, %87 ], [ %18, %.thread40 ]
+  %97 = phi ptr [ null, %.thread ], [ %42, %69 ], [ %42, %95 ], [ %42, %87 ], [ null, %.thread40 ]
+  %98 = phi ptr [ null, %.thread ], [ %35, %69 ], [ %35, %95 ], [ %35, %87 ], [ null, %.thread40 ]
   %99 = and i64 %10, 2052063
   %100 = icmp eq i64 %99, 0
   br i1 %100, label %101, label %113
@@ -15507,8 +15507,8 @@ define internal i32 @nl80211_pre_doit(ptr noundef readonly captures(none) %0, pt
   tail call void asm sideeffect "decl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %128, ptr elementtype(i32) %128) #26, !srcloc !251
   br label %129
 
-129:                                              ; preds = %.thread18.thread30, %.thread18.thread, %.thread20, %126, %.thread18, %122, %119, %7
-  %130 = phi i32 [ -22, %7 ], [ 0, %122 ], [ 0, %119 ], [ %124, %.thread18 ], [ %124, %126 ], [ %.ph, %.thread20 ], [ -22, %.thread18.thread ], [ -22, %.thread18.thread30 ]
+129:                                              ; preds = %.thread18.thread42, %.thread18.thread, %.thread20, %126, %.thread18, %122, %119, %7
+  %130 = phi i32 [ -22, %7 ], [ 0, %122 ], [ 0, %119 ], [ %124, %.thread18 ], [ %124, %126 ], [ %.ph, %.thread20 ], [ -22, %.thread18.thread ], [ -22, %.thread18.thread42 ]
   ret i32 %130
 }
 
@@ -21677,7 +21677,7 @@ define internal i32 @nl80211_new_station(ptr readnone captures(none) %0, ptr nou
   %253 = getelementptr i8, ptr %16, i64 2192
   %254 = load ptr, ptr %253, align 8
   %255 = icmp eq ptr %254, null
-  br i1 %255, label %.thread28, label %256
+  br i1 %255, label %.thread52, label %256
 
 256:                                              ; preds = %252
   %257 = getelementptr i8, ptr %254, i64 4
@@ -21685,16 +21685,16 @@ define internal i32 @nl80211_new_station(ptr readnone captures(none) %0, ptr nou
   %259 = getelementptr inbounds nuw i8, ptr %3, i64 96
   store i16 %258, ptr %259, align 8
   %260 = icmp eq i16 %258, 0
-  br i1 %260, label %.thread28, label %261
+  br i1 %260, label %.thread52, label %261
 
 261:                                              ; preds = %256
   %262 = getelementptr i8, ptr %5, i64 1060
   %263 = load i8, ptr %262, align 1
   %264 = and i8 %263, 2
   %265 = icmp eq i8 %264, 0
-  br i1 %265, label %.thread, label %.thread28
+  br i1 %265, label %.thread, label %.thread52
 
-.thread28:                                        ; preds = %252, %261, %256
+.thread52:                                        ; preds = %252, %261, %256
   %266 = getelementptr inbounds nuw i8, ptr %3, i64 180
   %267 = getelementptr inbounds nuw i8, ptr %3, i64 188
   %268 = getelementptr i8, ptr %16, i64 2200
@@ -21702,7 +21702,7 @@ define internal i32 @nl80211_new_station(ptr readnone captures(none) %0, ptr nou
   %270 = icmp eq ptr %269, null
   br i1 %270, label %294, label %271
 
-271:                                              ; preds = %.thread28
+271:                                              ; preds = %.thread52
   %272 = load ptr, ptr %5, align 32
   %273 = getelementptr inbounds nuw i8, ptr %272, i64 424
   %274 = load ptr, ptr %273, align 8
@@ -21737,8 +21737,8 @@ define internal i32 @nl80211_new_station(ptr readnone captures(none) %0, ptr nou
   store i16 %293, ptr %266, align 4
   br label %294
 
-294:                                              ; preds = %291, %281, %.thread28
-  %295 = phi i8 [ 1, %291 ], [ 1, %281 ], [ 0, %.thread28 ]
+294:                                              ; preds = %291, %281, %.thread52
+  %295 = phi i8 [ 1, %291 ], [ 1, %281 ], [ 0, %.thread52 ]
   store i8 %295, ptr %267, align 4
   %296 = getelementptr i8, ptr %16, i64 1512
   %297 = load ptr, ptr %296, align 8
@@ -21811,13 +21811,13 @@ define internal i32 @nl80211_new_station(ptr readnone captures(none) %0, ptr nou
   %345 = load i8, ptr %344, align 8
   %346 = icmp ne i8 %345, 0
   %347 = select i1 %343, i1 true, i1 %346
-  br i1 %347, label %.thread, label %.thread29
+  br i1 %347, label %.thread, label %.thread53
 
 348:                                              ; preds = %330
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %3, i64 192
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   %349 = icmp eq ptr %.pre, null
-  br i1 %349, label %.thread29, label %350
+  br i1 %349, label %.thread53, label %350
 
 350:                                              ; preds = %348
   %351 = getelementptr inbounds nuw i8, ptr %3, i64 144
@@ -21827,9 +21827,9 @@ define internal i32 @nl80211_new_station(ptr readnone captures(none) %0, ptr nou
   %355 = load ptr, ptr %354, align 8
   %356 = icmp ne ptr %355, null
   %357 = select i1 %353, i1 true, i1 %356
-  br i1 %357, label %.thread, label %.thread29
+  br i1 %357, label %.thread, label %.thread53
 
-.thread29:                                        ; preds = %335, %350, %348
+.thread53:                                        ; preds = %335, %350, %348
   %358 = load ptr, ptr %8, align 8
   %359 = getelementptr inbounds nuw i8, ptr %358, i64 8
   %360 = load i32, ptr %359, align 8
@@ -21842,7 +21842,7 @@ define internal i32 @nl80211_new_station(ptr readnone captures(none) %0, ptr nou
     i32 8, label %415
   ]
 
-361:                                              ; preds = %.thread29, %.thread29, %.thread29
+361:                                              ; preds = %.thread53, %.thread53, %.thread53
   %362 = getelementptr inbounds nuw i8, ptr %5, i64 1044
   %363 = load i32, ptr %362, align 4
   %364 = and i32 %363, 16384
@@ -21904,7 +21904,7 @@ define internal i32 @nl80211_new_station(ptr readnone captures(none) %0, ptr nou
   %399 = trunc i64 %398 to i32
   br label %.thread
 
-400:                                              ; preds = %.thread29
+400:                                              ; preds = %.thread53
   %401 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %402 = load i32, ptr %401, align 8
   %403 = and i32 %402, -2
@@ -21924,7 +21924,7 @@ define internal i32 @nl80211_new_station(ptr readnone captures(none) %0, ptr nou
   %414 = icmp eq ptr %413, null
   br i1 %414, label %433, label %.thread
 
-415:                                              ; preds = %.thread29, %.thread29
+415:                                              ; preds = %.thread53, %.thread53
   %416 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %417 = load i32, ptr %416, align 8
   %418 = and i32 %417, -2
@@ -21989,8 +21989,8 @@ define internal i32 @nl80211_new_station(ptr readnone captures(none) %0, ptr nou
   call void asm sideeffect "decl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %456, ptr elementtype(i32) %456) #26, !srcloc !251
   br label %.thread
 
-.thread:                                          ; preds = %287, %271, %276, %207, %299, %454, %450, %426, %415, %410, %400, %397, %379, %374, %371, %.thread29, %350, %335, %324, %321, %261, %212, %199, %165, %59, %50, %32, %24, %20, %14, %2
-  %457 = phi i32 [ %399, %397 ], [ -95, %2 ], [ -22, %14 ], [ -22, %20 ], [ -22, %24 ], [ -22, %32 ], [ -22, %59 ], [ -22, %212 ], [ -95, %261 ], [ %322, %321 ], [ -22, %324 ], [ -22, %335 ], [ -22, %350 ], [ -22, %374 ], [ -22, %371 ], [ -22, %379 ], [ -22, %400 ], [ -22, %410 ], [ -22, %415 ], [ -95, %426 ], [ -95, %.thread29 ], [ %451, %450 ], [ %451, %454 ], [ -22, %50 ], [ -22, %199 ], [ -22, %165 ], [ -22, %299 ], [ -22, %207 ], [ -22, %287 ], [ -95, %271 ], [ -95, %276 ]
+.thread:                                          ; preds = %287, %271, %276, %207, %299, %454, %450, %426, %415, %410, %400, %397, %379, %374, %371, %.thread53, %350, %335, %324, %321, %261, %212, %199, %165, %59, %50, %32, %24, %20, %14, %2
+  %457 = phi i32 [ %399, %397 ], [ -95, %2 ], [ -22, %14 ], [ -22, %20 ], [ -22, %24 ], [ -22, %32 ], [ -22, %59 ], [ -22, %212 ], [ -95, %261 ], [ %322, %321 ], [ -22, %324 ], [ -22, %335 ], [ -22, %350 ], [ -22, %374 ], [ -22, %371 ], [ -22, %379 ], [ -22, %400 ], [ -22, %410 ], [ -22, %415 ], [ -95, %426 ], [ -95, %.thread53 ], [ %451, %450 ], [ %451, %454 ], [ -22, %50 ], [ -22, %199 ], [ -22, %165 ], [ -22, %299 ], [ -22, %207 ], [ -22, %287 ], [ -95, %271 ], [ -95, %276 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %457
 }
@@ -26922,7 +26922,7 @@ define internal i32 @nl80211_associate(ptr readnone captures(none) %0, ptr nound
   %126 = getelementptr i8, ptr %62, i64 1408
   %127 = load ptr, ptr %126, align 8
   %128 = icmp eq ptr %127, null
-  br i1 %128, label %129, label %.thread83
+  br i1 %128, label %129, label %.thread123
 
 129:                                              ; preds = %124
   %130 = getelementptr i8, ptr %62, i64 1256
@@ -26930,7 +26930,7 @@ define internal i32 @nl80211_associate(ptr readnone captures(none) %0, ptr nound
   %132 = icmp eq ptr %131, null
   br i1 %132, label %141, label %.thread44
 
-.thread83:                                        ; preds = %124
+.thread123:                                       ; preds = %124
   %133 = getelementptr inbounds nuw i8, ptr %5, i64 216
   %134 = getelementptr i8, ptr %127, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %133, ptr noundef align 1 dereferenceable(12) %134, i64 12, i1 false)
@@ -26939,13 +26939,13 @@ define internal i32 @nl80211_associate(ptr readnone captures(none) %0, ptr nound
   %137 = icmp eq ptr %136, null
   br i1 %137, label %141, label %138
 
-138:                                              ; preds = %.thread83
+138:                                              ; preds = %.thread123
   %139 = getelementptr inbounds nuw i8, ptr %5, i64 204
   %140 = getelementptr i8, ptr %136, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %139, ptr noundef align 1 dereferenceable(12) %140, i64 12, i1 false)
   br label %141
 
-141:                                              ; preds = %.thread83, %138, %129
+141:                                              ; preds = %.thread123, %138, %129
   %142 = getelementptr i8, ptr %62, i64 1664
   %143 = load ptr, ptr %142, align 8
   %144 = icmp eq ptr %143, null
@@ -28397,7 +28397,7 @@ define internal i32 @nl80211_connect(ptr readnone captures(none) %0, ptr noundef
   %234 = getelementptr i8, ptr %224, i64 1184
   %235 = load ptr, ptr %234, align 8
   %236 = icmp eq ptr %235, null
-  br i1 %236, label %237, label %.thread34
+  br i1 %236, label %237, label %.thread63
 
 237:                                              ; preds = %233
   %238 = getelementptr i8, ptr %224, i64 248
@@ -28405,7 +28405,7 @@ define internal i32 @nl80211_connect(ptr readnone captures(none) %0, ptr noundef
   %240 = icmp eq ptr %239, null
   br i1 %240, label %250, label %246
 
-.thread34:                                        ; preds = %233
+.thread63:                                        ; preds = %233
   %241 = getelementptr inbounds nuw i8, ptr %3, i64 238
   %242 = getelementptr i8, ptr %235, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(26) %241, ptr noundef align 1 dereferenceable(26) %242, i64 26, i1 false)
@@ -28418,13 +28418,13 @@ define internal i32 @nl80211_connect(ptr readnone captures(none) %0, ptr noundef
   tail call void @kfree_sensitive(ptr noundef %225) #26
   br label %.thread
 
-247:                                              ; preds = %.thread34
+247:                                              ; preds = %.thread63
   %248 = getelementptr inbounds nuw i8, ptr %3, i64 212
   %249 = getelementptr i8, ptr %244, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(26) %248, ptr noundef align 1 dereferenceable(26) %249, i64 26, i1 false)
   br label %250
 
-250:                                              ; preds = %.thread34, %247, %237
+250:                                              ; preds = %.thread63, %247, %237
   %251 = getelementptr i8, ptr %224, i64 1400
   %252 = load ptr, ptr %251, align 8
   %253 = icmp eq ptr %252, null
@@ -28467,7 +28467,7 @@ define internal i32 @nl80211_connect(ptr readnone captures(none) %0, ptr noundef
   %275 = getelementptr i8, ptr %224, i64 1408
   %276 = load ptr, ptr %275, align 8
   %277 = icmp eq ptr %276, null
-  br i1 %277, label %278, label %.thread36
+  br i1 %277, label %278, label %.thread65
 
 278:                                              ; preds = %274
   %279 = getelementptr i8, ptr %224, i64 1256
@@ -28475,7 +28475,7 @@ define internal i32 @nl80211_connect(ptr readnone captures(none) %0, ptr noundef
   %281 = icmp eq ptr %280, null
   br i1 %281, label %291, label %287
 
-.thread36:                                        ; preds = %274
+.thread65:                                        ; preds = %274
   %282 = getelementptr inbounds nuw i8, ptr %3, i64 276
   %283 = getelementptr i8, ptr %276, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %282, ptr noundef align 1 dereferenceable(12) %283, i64 12, i1 false)
@@ -28488,13 +28488,13 @@ define internal i32 @nl80211_connect(ptr readnone captures(none) %0, ptr noundef
   tail call void @kfree_sensitive(ptr noundef %225) #26
   br label %.thread
 
-288:                                              ; preds = %.thread36
+288:                                              ; preds = %.thread65
   %289 = getelementptr inbounds nuw i8, ptr %3, i64 264
   %290 = getelementptr i8, ptr %285, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %289, ptr noundef align 1 dereferenceable(12) %290, i64 12, i1 false)
   br label %291
 
-291:                                              ; preds = %.thread36, %288, %278
+291:                                              ; preds = %.thread65, %288, %278
   %292 = getelementptr i8, ptr %224, i64 1664
   %293 = load ptr, ptr %292, align 8
   %294 = icmp eq ptr %293, null
@@ -28565,25 +28565,25 @@ define internal i32 @nl80211_connect(ptr readnone captures(none) %0, ptr noundef
   br i1 %330, label %367, label %332
 
 332:                                              ; preds = %326
-  br i1 %331, label %.thread39, label %333
+  br i1 %331, label %.thread68, label %333
 
 333:                                              ; preds = %332
   %334 = getelementptr i8, ptr %224, i64 2000
   %335 = load ptr, ptr %334, align 8
   %336 = icmp eq ptr %335, null
-  br i1 %336, label %.thread38, label %337
+  br i1 %336, label %.thread67, label %337
 
 337:                                              ; preds = %333
   %338 = getelementptr i8, ptr %224, i64 2008
   %339 = load ptr, ptr %338, align 8
   %340 = icmp eq ptr %339, null
-  br i1 %340, label %.thread38, label %341
+  br i1 %340, label %.thread67, label %341
 
 341:                                              ; preds = %337
   %342 = getelementptr i8, ptr %224, i64 2016
   %343 = load ptr, ptr %342, align 8
   %344 = icmp eq ptr %343, null
-  br i1 %344, label %.thread38, label %345
+  br i1 %344, label %.thread67, label %345
 
 345:                                              ; preds = %341
   %346 = getelementptr i8, ptr %.pre33, i64 4
@@ -28617,27 +28617,27 @@ define internal i32 @nl80211_connect(ptr readnone captures(none) %0, ptr noundef
   br label %379
 
 367:                                              ; preds = %326
-  br i1 %331, label %.thread39, label %.thread38
+  br i1 %331, label %.thread68, label %.thread67
 
-.thread39:                                        ; preds = %332, %367
+.thread68:                                        ; preds = %332, %367
   %368 = getelementptr i8, ptr %224, i64 2000
   %369 = load ptr, ptr %368, align 8
   %370 = icmp eq ptr %369, null
-  br i1 %370, label %371, label %.thread38
+  br i1 %370, label %371, label %.thread67
 
-371:                                              ; preds = %.thread39
+371:                                              ; preds = %.thread68
   %372 = getelementptr i8, ptr %224, i64 2008
   %373 = load ptr, ptr %372, align 8
   %374 = icmp eq ptr %373, null
-  br i1 %374, label %375, label %.thread38
+  br i1 %374, label %375, label %.thread67
 
 375:                                              ; preds = %371
   %376 = getelementptr i8, ptr %224, i64 2016
   %377 = load ptr, ptr %376, align 8
   %378 = icmp eq ptr %377, null
-  br i1 %378, label %379, label %.thread38
+  br i1 %378, label %379, label %.thread67
 
-.thread38:                                        ; preds = %333, %337, %341, %375, %371, %.thread39, %367
+.thread67:                                        ; preds = %333, %337, %341, %375, %371, %.thread68, %367
   tail call void @kfree_sensitive(ptr noundef %225) #26
   br label %.thread
 
@@ -28723,8 +28723,8 @@ define internal i32 @nl80211_connect(ptr readnone captures(none) %0, ptr noundef
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %423, i8 0, i64 6, i1 false)
   br label %.thread
 
-.thread:                                          ; preds = %186, %180, %170, %167, %425, %424, %410, %409, %391, %387, %.thread38, %325, %320, %305, %287, %246, %220, %133, %73, %66, %61, %43, %40, %30, %20, %13, %2
-  %426 = phi i32 [ %222, %220 ], [ -22, %.thread38 ], [ -95, %320 ], [ -22, %305 ], [ -22, %287 ], [ -22, %246 ], [ -22, %13 ], [ -22, %2 ], [ -22, %43 ], [ -22, %61 ], [ %71, %66 ], [ -95, %73 ], [ -95, %133 ], [ -22, %391 ], [ -22, %387 ], [ 0, %424 ], [ 0, %425 ], [ 0, %410 ], [ %407, %409 ], [ -22, %40 ], [ -22, %30 ], [ -22, %20 ], [ -22, %325 ], [ -22, %167 ], [ -22, %170 ], [ -22, %180 ], [ -22, %186 ]
+.thread:                                          ; preds = %186, %180, %170, %167, %425, %424, %410, %409, %391, %387, %.thread67, %325, %320, %305, %287, %246, %220, %133, %73, %66, %61, %43, %40, %30, %20, %13, %2
+  %426 = phi i32 [ %222, %220 ], [ -22, %.thread67 ], [ -95, %320 ], [ -22, %305 ], [ -22, %287 ], [ -22, %246 ], [ -22, %13 ], [ -22, %2 ], [ -22, %43 ], [ -22, %61 ], [ %71, %66 ], [ -95, %73 ], [ -95, %133 ], [ -22, %391 ], [ -22, %387 ], [ 0, %424 ], [ 0, %425 ], [ 0, %410 ], [ %407, %409 ], [ -22, %40 ], [ -22, %30 ], [ -22, %20 ], [ -22, %325 ], [ -22, %167 ], [ -22, %170 ], [ -22, %180 ], [ -22, %186 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %426
 }
@@ -28777,7 +28777,7 @@ define internal i32 @nl80211_update_connect_params(ptr readnone captures(none) %
   br i1 %32, label %36, label %72
 
 36:                                               ; preds = %27
-  br i1 %35, label %.thread4, label %37
+  br i1 %35, label %.thread10, label %37
 
 37:                                               ; preds = %36
   %38 = getelementptr i8, ptr %16, i64 2000
@@ -28830,15 +28830,15 @@ define internal i32 @nl80211_update_connect_params(ptr readnone captures(none) %
   br label %84
 
 72:                                               ; preds = %27
-  br i1 %35, label %.thread4, label %.thread
+  br i1 %35, label %.thread10, label %.thread
 
-.thread4:                                         ; preds = %36, %72
+.thread10:                                        ; preds = %36, %72
   %73 = getelementptr i8, ptr %16, i64 2000
   %74 = load ptr, ptr %73, align 8
   %75 = icmp eq ptr %74, null
   br i1 %75, label %76, label %.thread
 
-76:                                               ; preds = %.thread4
+76:                                               ; preds = %.thread10
   %77 = getelementptr i8, ptr %16, i64 2008
   %78 = load ptr, ptr %77, align 8
   %79 = icmp eq ptr %78, null
@@ -28918,8 +28918,8 @@ define internal i32 @nl80211_update_connect_params(ptr readnone captures(none) %
   %130 = call fastcc i32 @rdev_update_connect_params(ptr noundef %5, ptr noundef %7, ptr noundef nonnull %3, i32 noundef %124)
   br label %.thread
 
-.thread:                                          ; preds = %37, %41, %45, %129, %123, %114, %111, %108, %98, %89, %80, %76, %.thread4, %72, %2
-  %131 = phi i32 [ %130, %129 ], [ -95, %2 ], [ -22, %80 ], [ -22, %76 ], [ -22, %.thread4 ], [ -22, %72 ], [ -22, %111 ], [ -22, %114 ], [ -67, %123 ], [ -22, %108 ], [ -22, %98 ], [ -22, %89 ], [ -22, %45 ], [ -22, %41 ], [ -22, %37 ]
+.thread:                                          ; preds = %37, %41, %45, %129, %123, %114, %111, %108, %98, %89, %80, %76, %.thread10, %72, %2
+  %131 = phi i32 [ %130, %129 ], [ -95, %2 ], [ -22, %80 ], [ -22, %76 ], [ -22, %.thread10 ], [ -22, %72 ], [ -22, %111 ], [ -22, %114 ], [ -67, %123 ], [ -22, %108 ], [ -22, %98 ], [ -22, %89 ], [ -22, %45 ], [ -22, %41 ], [ -22, %37 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %131
 }
@@ -31899,7 +31899,7 @@ define internal i32 @nl80211_join_mesh(ptr readnone captures(none) %0, ptr nound
   %174 = getelementptr inbounds nuw i8, ptr %5, i64 58
   %175 = zext i1 %173 to i8
   store i8 %175, ptr %174, align 2
-  br i1 %173, label %.thread48, label %176
+  br i1 %173, label %.thread74, label %176
 
 176:                                              ; preds = %162
   %177 = getelementptr inbounds nuw i8, ptr %3, i64 64
@@ -31907,18 +31907,18 @@ define internal i32 @nl80211_join_mesh(ptr readnone captures(none) %0, ptr nound
   %179 = icmp eq ptr %178, null
   br i1 %179, label %188, label %183
 
-.thread48:                                        ; preds = %162
+.thread74:                                        ; preds = %162
   store i8 1, ptr %164, align 1
   %180 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %181 = load ptr, ptr %180, align 16
   %182 = icmp eq ptr %181, null
-  br i1 %182, label %188, label %.thread49
+  br i1 %182, label %188, label %.thread75
 
 183:                                              ; preds = %176
-  br i1 %163, label %.thread49, label %.thread25
+  br i1 %163, label %.thread75, label %.thread25
 
-.thread49:                                        ; preds = %.thread48, %183
-  %184 = phi ptr [ %178, %183 ], [ %181, %.thread48 ]
+.thread75:                                        ; preds = %.thread74, %183
+  %184 = phi ptr [ %178, %183 ], [ %181, %.thread74 ]
   %185 = getelementptr i8, ptr %184, i64 4
   %186 = load i8, ptr %185, align 1
   %187 = getelementptr inbounds nuw i8, ptr %5, i64 44
@@ -31929,8 +31929,8 @@ define internal i32 @nl80211_join_mesh(ptr readnone captures(none) %0, ptr nound
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.thread26
 
-188:                                              ; preds = %.thread48, %.thread49, %176
-  %189 = phi i8 [ 1, %.thread48 ], [ 1, %.thread49 ], [ %165, %176 ]
+188:                                              ; preds = %.thread74, %.thread75, %176
+  %189 = phi i8 [ 1, %.thread74 ], [ 1, %.thread75 ], [ %165, %176 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %190
 
@@ -34923,7 +34923,7 @@ define internal i32 @nl80211_nan_change_config(ptr readnone captures(none) %0, p
   store i8 %30, ptr %3, align 2
   %31 = add i8 %30, 1
   %32 = icmp ult i8 %31, 3
-  br i1 %32, label %.thread, label %.thread9
+  br i1 %32, label %.thread, label %.thread14
 
 33:                                               ; preds = %22
   %34 = getelementptr i8, ptr %24, i64 1912
@@ -34931,15 +34931,15 @@ define internal i32 @nl80211_nan_change_config(ptr readnone captures(none) %0, p
   %36 = icmp eq ptr %35, null
   br i1 %36, label %.thread, label %40
 
-.thread9:                                         ; preds = %28
+.thread14:                                        ; preds = %28
   %37 = getelementptr i8, ptr %24, i64 1912
   %38 = load ptr, ptr %37, align 8
   %39 = icmp eq ptr %38, null
-  br i1 %39, label %.thread10, label %40
+  br i1 %39, label %.thread15, label %40
 
-40:                                               ; preds = %.thread9, %33
-  %41 = phi ptr [ %38, %.thread9 ], [ %35, %33 ]
-  %42 = phi i32 [ 3, %.thread9 ], [ 2, %33 ]
+40:                                               ; preds = %.thread14, %33
+  %41 = phi ptr [ %38, %.thread14 ], [ %35, %33 ]
+  %42 = phi i32 [ 3, %.thread14 ], [ 2, %33 ]
   %43 = getelementptr i8, ptr %41, i64 4
   %44 = load i32, ptr %43, align 4
   %45 = load ptr, ptr %7, align 8
@@ -34962,15 +34962,15 @@ define internal i32 @nl80211_nan_change_config(ptr readnone captures(none) %0, p
   %57 = trunc i32 %44 to i8
   %58 = getelementptr inbounds nuw i8, ptr %3, i64 1
   store i8 %57, ptr %58, align 1
-  br label %.thread10
+  br label %.thread15
 
-.thread10:                                        ; preds = %.thread9, %.thread7
-  %59 = phi i32 [ %42, %.thread7 ], [ 1, %.thread9 ]
+.thread15:                                        ; preds = %.thread14, %.thread7
+  %59 = phi i32 [ %42, %.thread7 ], [ 1, %.thread14 ]
   %60 = getelementptr inbounds nuw i8, ptr %5, i64 960
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_rdev_nan_change_conf, i64 8), i32 2) #26
           to label %81 [label %61], !srcloc !87
 
-61:                                               ; preds = %.thread10
+61:                                               ; preds = %.thread15
   %62 = tail call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #26, !srcloc !527
   %63 = zext i32 %62 to i64
   %64 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @__cpu_online_mask, i64 %63) #26, !srcloc !89
@@ -35006,7 +35006,7 @@ define internal i32 @nl80211_nan_change_config(ptr readnone captures(none) %0, p
   call void @llvm.write_register.i64(metadata !0, i64 %80)
   br label %81
 
-81:                                               ; preds = %78, %74, %61, %.thread10
+81:                                               ; preds = %78, %74, %61, %.thread15
   %82 = load ptr, ptr %5, align 32
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 800
   %84 = load ptr, ptr %83, align 8
@@ -37406,9 +37406,9 @@ define internal i32 @nl80211_vendor_cmd_dump(ptr noundef %0, ptr noundef %1) #0 
   %101 = getelementptr inbounds nuw i8, ptr %93, i64 24
   %102 = load ptr, ptr %101, align 8
   %103 = icmp eq ptr %102, null
-  br i1 %103, label %.thread82, label %107
+  br i1 %103, label %.thread111, label %107
 
-.thread82:                                        ; preds = %100
+.thread111:                                       ; preds = %100
   tail call void @kfree(ptr noundef nonnull %34) #26
   br label %.thread36
 
@@ -37731,15 +37731,15 @@ define internal i32 @nl80211_vendor_cmd_dump(ptr noundef %0, ptr noundef %1) #0 
   br i1 %298, label %.loopexit, label %.lr.ph
 
 .loopexit.sink.split.sink.split:                  ; preds = %232, %248, %266
-  %.sink102.ph = phi ptr [ %261, %266 ], [ %243, %248 ], [ %227, %232 ]
+  %.sink131.ph = phi ptr [ %261, %266 ], [ %243, %248 ], [ %227, %232 ]
   %.pre79 = load ptr, ptr %193, align 8
   br label %.loopexit.sink.split
 
 .loopexit.sink.split:                             ; preds = %.loopexit.sink.split.sink.split, %263, %245, %229
-  %.sink102 = phi ptr [ %227, %229 ], [ %243, %245 ], [ %261, %263 ], [ %.sink102.ph, %.loopexit.sink.split.sink.split ]
-  %.sink101 = phi ptr [ %230, %229 ], [ %246, %245 ], [ %264, %263 ], [ %.pre79, %.loopexit.sink.split.sink.split ]
-  %299 = ptrtoint ptr %.sink102 to i64
-  %300 = ptrtoint ptr %.sink101 to i64
+  %.sink131 = phi ptr [ %227, %229 ], [ %243, %245 ], [ %261, %263 ], [ %.sink131.ph, %.loopexit.sink.split.sink.split ]
+  %.sink130 = phi ptr [ %230, %229 ], [ %246, %245 ], [ %264, %263 ], [ %.pre79, %.loopexit.sink.split.sink.split ]
+  %299 = ptrtoint ptr %.sink131 to i64
+  %300 = ptrtoint ptr %.sink130 to i64
   %301 = sub i64 %299, %300
   %302 = trunc i64 %301 to i32
   call void @skb_trim(ptr noundef %0, i32 noundef %302) #26
@@ -37750,8 +37750,8 @@ define internal i32 @nl80211_vendor_cmd_dump(ptr noundef %0, ptr noundef %1) #0 
   %304 = load i32, ptr %303, align 8
   br label %.thread36
 
-.thread36:                                        ; preds = %.thread82, %276, %270, %8, %32, %181, %.thread41, %.loopexit, %185, %170, %165, %143
-  %305 = phi i32 [ %145, %143 ], [ %304, %.loopexit ], [ -22, %165 ], [ -22, %170 ], [ -100, %185 ], [ %.ph40, %.thread41 ], [ -100, %181 ], [ -19, %8 ], [ -12, %32 ], [ %251, %270 ], [ %251, %276 ], [ -95, %.thread82 ]
+.thread36:                                        ; preds = %.thread111, %276, %270, %8, %32, %181, %.thread41, %.loopexit, %185, %170, %165, %143
+  %305 = phi i32 [ %145, %143 ], [ %304, %.loopexit ], [ -22, %165 ], [ -22, %170 ], [ -100, %185 ], [ %.ph40, %.thread41 ], [ -100, %181 ], [ -19, %8 ], [ -12, %32 ], [ %251, %270 ], [ %251, %276 ], [ -95, %.thread111 ]
   call void @rtnl_unlock() #26
   ret i32 %305
 }
@@ -40603,8 +40603,8 @@ define internal i32 @nl80211_set_sar_specs(ptr readnone captures(none) %0, ptr n
   br i1 %63, label %152, label %.critedge.thread
 
 .critedge.thread:                                 ; preds = %41, %.critedge
-  %.lcssa2336 = phi i32 [ %.lcssa23, %.critedge ], [ 0, %41 ]
-  %64 = zext i32 %.lcssa2336 to i64
+  %.lcssa2352 = phi i32 [ %.lcssa23, %.critedge ], [ 0, %41 ]
+  %64 = zext i32 %.lcssa2352 to i64
   %65 = shl nuw nsw i64 %64, 3
   %66 = add nuw nsw i64 %65, 8
   %67 = call noalias align 8 ptr @__kmalloc(i64 noundef %66, i32 noundef 3520) #31
@@ -44673,7 +44673,7 @@ define internal fastcc i32 @nl80211_parse_tx_bitrate_mask(ptr noundef readonly c
 .unreachabledefault:                              ; preds = %36
   unreachable
 
-default.unreachable111:                           ; preds = %100, %284, %374
+default.unreachable155:                           ; preds = %100, %284, %374
   unreachable
 
 44:                                               ; preds = %36, %43, %42, %41
@@ -44766,7 +44766,7 @@ default.unreachable111:                           ; preds = %100, %284, %374
   %102 = phi i16 [ %98, %95 ], [ %111, %108 ]
   %103 = trunc i16 %102 to i8
   %104 = and i8 %103, 3
-  switch i8 %104, label %default.unreachable111 [
+  switch i8 %104, label %default.unreachable155 [
     i8 3, label %108
     i8 0, label %105
     i8 1, label %106
@@ -45051,7 +45051,7 @@ default.unreachable111:                           ; preds = %100, %284, %374
   %286 = phi i16 [ %280, %283 ], [ %295, %292 ]
   %287 = trunc i16 %286 to i8
   %288 = and i8 %287, 3
-  switch i8 %288, label %default.unreachable111 [
+  switch i8 %288, label %default.unreachable155 [
     i8 2, label %291
     i8 0, label %289
     i8 1, label %290
@@ -45201,7 +45201,7 @@ default.unreachable111:                           ; preds = %100, %284, %374
   %376 = phi i16 [ %373, %370 ], [ %385, %382 ]
   %377 = trunc i16 %376 to i8
   %378 = and i8 %377, 3
-  switch i8 %378, label %default.unreachable111 [
+  switch i8 %378, label %default.unreachable155 [
     i8 3, label %382
     i8 0, label %379
     i8 1, label %380
@@ -45517,8 +45517,8 @@ define internal fastcc noundef range(i32 -22, 1) i32 @validate_beacon_tx_rate(pt
   %76 = tail call i32 asm "# ALT: oldnstr\0A661:\0A\09call __sw_hweight32\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 4*32+23)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09popcntl $1, $0\0A6651:\0A.popsection\0A", "={ax},{di},~{dirflag},~{fpsr},~{flags}"(i32 %75) #29, !srcloc !254
   %77 = icmp ult i32 %76, 2
   %.not31 = icmp eq i16 %74, 0
-  %or.cond52 = select i1 %77, i1 %.not31, i1 false
-  br i1 %or.cond52, label %53, label %.loopexit
+  %or.cond57 = select i1 %77, i1 %.not31, i1 false
+  br i1 %or.cond57, label %53, label %.loopexit
 
 78:                                               ; preds = %.split21
   %79 = add nuw nsw i64 %81, 1
@@ -45533,8 +45533,8 @@ define internal fastcc noundef range(i32 -22, 1) i32 @validate_beacon_tx_rate(pt
   %85 = tail call i32 asm "# ALT: oldnstr\0A661:\0A\09call __sw_hweight32\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 4*32+23)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09popcntl $1, $0\0A6651:\0A.popsection\0A", "={ax},{di},~{dirflag},~{fpsr},~{flags}"(i32 %84) #29, !srcloc !254
   %86 = icmp ult i32 %85, 2
   %.not33 = icmp eq i16 %83, 0
-  %or.cond53 = select i1 %86, i1 %.not33, i1 false
-  br i1 %or.cond53, label %78, label %.loopexit
+  %or.cond58 = select i1 %86, i1 %.not33, i1 false
+  br i1 %or.cond58, label %78, label %.loopexit
 
 .split23:                                         ; preds = %68
   %87 = icmp ne i32 %69, 0
@@ -45543,10 +45543,10 @@ define internal fastcc noundef range(i32 -22, 1) i32 @validate_beacon_tx_rate(pt
   br i1 %89, label %.loopexit, label %.split23.thread
 
 .split23.thread:                                  ; preds = %78, %.split23
-  %.us-phi2544 = phi i1 [ %87, %.split23 ], [ false, %78 ]
-  %.us-phi2443 = phi i32 [ %69, %.split23 ], [ 0, %78 ]
+  %.us-phi2549 = phi i1 [ %87, %.split23 ], [ false, %78 ]
+  %.us-phi2448 = phi i32 [ %69, %.split23 ], [ 0, %78 ]
   %90 = or i32 %.us-phi, %.us-phi17
-  %91 = or i32 %90, %.us-phi2443
+  %91 = or i32 %90, %.us-phi2448
   %92 = or i32 %91, %.fr30
   %93 = icmp eq i32 %92, 0
   br i1 %93, label %.loopexit, label %94
@@ -45581,7 +45581,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @validate_beacon_tx_rate(pt
   br i1 %110, label %.loopexit, label %111
 
 111:                                              ; preds = %106, %105
-  br i1 %.us-phi2544, label %112, label %117
+  br i1 %.us-phi2549, label %112, label %117
 
 112:                                              ; preds = %111
   %113 = getelementptr i8, ptr %0, i64 1062
@@ -45627,7 +45627,7 @@ define internal fastcc ptr @parse_acl_data(i16 %.82.val, ptr noundef readonly ca
   %18 = load i16, ptr %15, align 2
   %19 = add i16 %18, -4
   %20 = icmp ugt i16 %19, 3
-  br i1 %20, label %.lr.ph.preheader, label %.critedge.thread6
+  br i1 %20, label %.lr.ph.preheader, label %.critedge.thread14
 
 .lr.ph.preheader:                                 ; preds = %17
   %21 = zext i16 %19 to i32
@@ -45660,20 +45660,20 @@ define internal fastcc ptr @parse_acl_data(i16 %.82.val, ptr noundef readonly ca
   %.lcssa = phi i32 [ %32, %31 ], [ %23, %.lr.ph ]
   %36 = zext i16 %.82.val to i32
   %37 = icmp samesign ugt i32 %.lcssa, %36
-  br i1 %37, label %.critedge.thread, label %.critedge.thread6
+  br i1 %37, label %.critedge.thread, label %.critedge.thread14
 
-.critedge.thread6:                                ; preds = %17, %.critedge
-  %.lcssa8 = phi i32 [ %.lcssa, %.critedge ], [ 0, %17 ]
-  %38 = zext nneg i32 %.lcssa8 to i64
+.critedge.thread14:                               ; preds = %17, %.critedge
+  %.lcssa16 = phi i32 [ %.lcssa, %.critedge ], [ 0, %17 ]
+  %38 = zext nneg i32 %.lcssa16 to i64
   %39 = mul nuw nsw i64 %38, 6
   %40 = add nuw nsw i64 %39, 8
   %41 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %40, i32 noundef 3520) #31
   %42 = icmp eq ptr %41, null
   br i1 %42, label %.critedge.thread, label %43
 
-43:                                               ; preds = %.critedge.thread6
+43:                                               ; preds = %.critedge.thread14
   %44 = getelementptr inbounds nuw i8, ptr %41, i64 4
-  store i32 %.lcssa8, ptr %44, align 4
+  store i32 %.lcssa16, ptr %44, align 4
   %45 = load ptr, ptr %4, align 8
   %46 = getelementptr i8, ptr %45, i64 1328
   %47 = load ptr, ptr %46, align 8
@@ -45717,8 +45717,8 @@ define internal fastcc ptr @parse_acl_data(i16 %.82.val, ptr noundef readonly ca
   store i32 %11, ptr %41, align 8
   br label %.critedge.thread
 
-.critedge.thread:                                 ; preds = %29, %.critedge12, %.critedge.thread6, %.critedge, %13, %9, %3, %1
-  %71 = phi ptr [ %41, %.critedge12 ], [ inttoptr (i64 -95 to ptr), %1 ], [ inttoptr (i64 -22 to ptr), %3 ], [ inttoptr (i64 -22 to ptr), %9 ], [ inttoptr (i64 -22 to ptr), %13 ], [ inttoptr (i64 -95 to ptr), %.critedge ], [ inttoptr (i64 -12 to ptr), %.critedge.thread6 ], [ inttoptr (i64 -22 to ptr), %29 ]
+.critedge.thread:                                 ; preds = %29, %.critedge12, %.critedge.thread14, %.critedge, %13, %9, %3, %1
+  %71 = phi ptr [ %41, %.critedge12 ], [ inttoptr (i64 -95 to ptr), %1 ], [ inttoptr (i64 -22 to ptr), %3 ], [ inttoptr (i64 -22 to ptr), %9 ], [ inttoptr (i64 -22 to ptr), %13 ], [ inttoptr (i64 -95 to ptr), %.critedge ], [ inttoptr (i64 -12 to ptr), %.critedge.thread14 ], [ inttoptr (i64 -22 to ptr), %29 ]
   ret ptr %71
 }
 
@@ -52195,7 +52195,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @handle_nan_filter(ptr noun
   %5 = load i16, ptr %0, align 2
   %6 = add i16 %5, -4
   %7 = icmp ugt i16 %6, 3
-  br i1 %7, label %.lr.ph.preheader, label %.critedge.thread26
+  br i1 %7, label %.lr.ph.preheader, label %.critedge.thread36
 
 .lr.ph.preheader:                                 ; preds = %3
   %8 = zext i16 %6 to i32
@@ -52234,17 +52234,17 @@ define internal fastcc range(i32 -2147483648, 1) i32 @handle_nan_filter(ptr noun
 
 .critedge:                                        ; preds = %.critedge.loopexit
   %28 = icmp slt i32 %.lcssa.ph, 0
-  br i1 %28, label %.critedge.thread, label %.critedge.thread26
+  br i1 %28, label %.critedge.thread, label %.critedge.thread36
 
-.critedge.thread26:                               ; preds = %3, %.critedge
-  %.lcssa1628 = phi i32 [ %.lcssa.ph, %.critedge ], [ 0, %3 ]
-  %29 = zext nneg i32 %.lcssa1628 to i64
+.critedge.thread36:                               ; preds = %3, %.critedge
+  %.lcssa1638 = phi i32 [ %.lcssa.ph, %.critedge ], [ 0, %3 ]
+  %29 = zext nneg i32 %.lcssa1638 to i64
   %30 = shl nuw nsw i64 %29, 4
   %31 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %30, i32 noundef 3520) #31
   %32 = icmp eq ptr %31, null
   br i1 %32, label %.critedge.thread, label %33
 
-33:                                               ; preds = %.critedge.thread26
+33:                                               ; preds = %.critedge.thread36
   %34 = load i16, ptr %0, align 2
   %35 = add i16 %34, -4
   %36 = icmp ugt i16 %35, 3
@@ -52293,7 +52293,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @handle_nan_filter(ptr noun
   br i1 %64, label %.lr.ph21, label %.critedge11, !llvm.loop !762
 
 .critedge11:                                      ; preds = %52, %.lr.ph21, %33
-  %65 = trunc i32 %.lcssa1628 to i8
+  %65 = trunc i32 %.lcssa1638 to i8
   br i1 %2, label %66, label %69
 
 66:                                               ; preds = %.critedge11
@@ -52351,8 +52351,8 @@ define internal fastcc range(i32 -2147483648, 1) i32 @handle_nan_filter(ptr noun
   tail call void @kfree(ptr noundef nonnull %31) #26
   br label %.critedge.thread
 
-.critedge.thread:                                 ; preds = %.critedge.loopexit, %.critedge13, %69, %66, %.critedge.thread26, %.critedge
-  %96 = phi i32 [ -12, %.critedge13 ], [ %.lcssa.ph, %.critedge ], [ -12, %.critedge.thread26 ], [ 0, %69 ], [ 0, %66 ], [ -22, %.critedge.loopexit ]
+.critedge.thread:                                 ; preds = %.critedge.loopexit, %.critedge13, %69, %66, %.critedge.thread36, %.critedge
+  %96 = phi i32 [ -12, %.critedge13 ], [ %.lcssa.ph, %.critedge ], [ -12, %.critedge.thread36 ], [ 0, %69 ], [ 0, %66 ], [ -22, %.critedge.loopexit ]
   ret i32 %96
 }
 

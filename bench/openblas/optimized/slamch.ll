@@ -356,10 +356,10 @@ slamc1_.exit:                                     ; preds = %9
   %47 = phi i32 [ %20, %slamc1_.exit.thread ], [ %.pre.i, %slamc1_.exit ]
   %48 = phi i32 [ %37, %slamc1_.exit.thread ], [ %.pre65.i, %slamc1_.exit ]
   %49 = phi i1 [ %narrow.i, %slamc1_.exit.thread ], [ %43, %slamc1_.exit ]
-  %.pre-phi262 = phi float [ %21, %slamc1_.exit.thread ], [ %.pre257, %slamc1_.exit ]
+  %.pre-phi277 = phi float [ %21, %slamc1_.exit.thread ], [ %.pre257, %slamc1_.exit ]
   %50 = icmp sgt i32 %48, 0
-  %51 = fdiv float 1.000000e+00, %.pre-phi262
-  %.013.i = select i1 %50, float %51, float %.pre-phi262
+  %51 = fdiv float 1.000000e+00, %.pre-phi277
+  %.013.i = select i1 %50, float %51, float %.pre-phi277
   %.012.i = tail call i32 @llvm.abs.i32(i32 range(i32 -2147483647, -2147483648) %48, i1 true)
   %52 = zext nneg i32 %.012.i to i64
   %53 = and i64 %52, 1
@@ -422,21 +422,21 @@ spow_ui.exit:                                     ; preds = %.lr.ph.i44, %45
 .sink.split:                                      ; preds = %71, %slamc1_.exit
   %.sink = phi float [ 1.000000e+00, %slamc1_.exit ], [ %.011.i, %71 ]
   %.ph = phi i32 [ %44, %slamc1_.exit ], [ %46, %71 ]
-  %.ph306 = phi i32 [ %.pre.i, %slamc1_.exit ], [ %47, %71 ]
-  %.ph307 = phi i32 [ 0, %slamc1_.exit ], [ %48, %71 ]
-  %.ph308 = phi i1 [ %43, %slamc1_.exit ], [ %49, %71 ]
-  %.pre-phi261266279.ph = phi float [ %.pre257, %slamc1_.exit ], [ %.pre-phi262, %71 ]
+  %.ph321 = phi i32 [ %.pre.i, %slamc1_.exit ], [ %47, %71 ]
+  %.ph322 = phi i32 [ 0, %slamc1_.exit ], [ %48, %71 ]
+  %.ph323 = phi i1 [ %43, %slamc1_.exit ], [ %49, %71 ]
+  %.pre-phi276281294.ph = phi float [ %.pre257, %slamc1_.exit ], [ %.pre-phi277, %71 ]
   store float %.sink, ptr @slamc2_.leps, align 4, !tbaa !7
   br label %73
 
 73:                                               ; preds = %.sink.split, %71
   %74 = phi i32 [ %46, %71 ], [ %.ph, %.sink.split ]
-  %75 = phi i32 [ %47, %71 ], [ %.ph306, %.sink.split ]
-  %76 = phi i32 [ %48, %71 ], [ %.ph307, %.sink.split ]
-  %77 = phi i1 [ %49, %71 ], [ %.ph308, %.sink.split ]
-  %.pre-phi261266279 = phi float [ %.pre-phi262, %71 ], [ %.pre-phi261266279.ph, %.sink.split ]
+  %75 = phi i32 [ %47, %71 ], [ %.ph321, %.sink.split ]
+  %76 = phi i32 [ %48, %71 ], [ %.ph322, %.sink.split ]
+  %77 = phi i1 [ %49, %71 ], [ %.ph323, %.sink.split ]
+  %.pre-phi276281294 = phi float [ %.pre-phi277, %71 ], [ %.pre-phi276281294.ph, %.sink.split ]
   %78 = phi float [ %.lcssa212, %71 ], [ %.sink, %.sink.split ]
-  %79 = fdiv float 1.000000e+00, %.pre-phi261266279
+  %79 = fdiv float 1.000000e+00, %.pre-phi276281294
   br label %80
 
 80:                                               ; preds = %73, %80
@@ -471,9 +471,9 @@ spow_ui.exit:                                     ; preds = %.lr.ph.i44, %45
   %90 = phi i32 [ %91, %.loopexit.i47 ], [ 1, %.lr.ph75.preheader.i ]
   %.04473.i = phi float [ %93, %.loopexit.i47 ], [ %84, %.lr.ph75.preheader.i ]
   %91 = add nsw i32 %90, -1
-  %92 = fdiv float %.04473.i, %.pre-phi261266279
+  %92 = fdiv float %.04473.i, %.pre-phi276281294
   %93 = fadd float %92, 0.000000e+00
-  %94 = fmul float %93, %.pre-phi261266279
+  %94 = fmul float %93, %.pre-phi276281294
   br i1 %.not61.i, label %._crit_edge.thread.i, label %.lr.ph.i46
 
 ._crit_edge.thread.i:                             ; preds = %.lr.ph75.i
@@ -524,9 +524,9 @@ spow_ui.exit:                                     ; preds = %.lr.ph.i44, %45
   %109 = phi i32 [ %110, %.loopexit.i61 ], [ 1, %.lr.ph75.preheader.i48 ]
   %.04473.i50 = phi float [ %112, %.loopexit.i61 ], [ %103, %.lr.ph75.preheader.i48 ]
   %110 = add nsw i32 %109, -1
-  %111 = fdiv float %.04473.i50, %.pre-phi261266279
+  %111 = fdiv float %.04473.i50, %.pre-phi276281294
   %112 = fadd float %111, 0.000000e+00
-  %113 = fmul float %112, %.pre-phi261266279
+  %113 = fmul float %112, %.pre-phi276281294
   br i1 %.not61.i, label %._crit_edge.thread.i68, label %.lr.ph.i52
 
 ._crit_edge.thread.i68:                           ; preds = %.lr.ph75.i49
@@ -583,9 +583,9 @@ slamc4_.exit69:                                   ; preds = %.loopexit.i61
   %131 = phi i32 [ %132, %.loopexit.i83 ], [ 1, %.lr.ph75.preheader.i70 ]
   %.04473.i72 = phi float [ %134, %.loopexit.i83 ], [ %125, %.lr.ph75.preheader.i70 ]
   %132 = add nsw i32 %131, -1
-  %133 = fdiv float %.04473.i72, %.pre-phi261266279
+  %133 = fdiv float %.04473.i72, %.pre-phi276281294
   %134 = fadd float %133, 0.000000e+00
-  %135 = fmul float %134, %.pre-phi261266279
+  %135 = fmul float %134, %.pre-phi276281294
   br i1 %.not61.i, label %._crit_edge.thread.i90, label %.lr.ph.i74
 
 ._crit_edge.thread.i90:                           ; preds = %.lr.ph75.i71
@@ -637,9 +637,9 @@ slamc4_.exit69:                                   ; preds = %.loopexit.i61
   %151 = phi i32 [ %152, %.loopexit.i105 ], [ 1, %.lr.ph75.preheader.i92 ]
   %.04473.i94 = phi float [ %154, %.loopexit.i105 ], [ %145, %.lr.ph75.preheader.i92 ]
   %152 = add nsw i32 %151, -1
-  %153 = fdiv float %.04473.i94, %.pre-phi261266279
+  %153 = fdiv float %.04473.i94, %.pre-phi276281294
   %154 = fadd float %153, 0.000000e+00
-  %155 = fmul float %154, %.pre-phi261266279
+  %155 = fmul float %154, %.pre-phi276281294
   br i1 %.not61.i, label %._crit_edge.thread.i112, label %.lr.ph.i96
 
 ._crit_edge.thread.i112:                          ; preds = %.lr.ph75.i93
@@ -669,19 +669,19 @@ slamc4_.exit69:                                   ; preds = %.loopexit.i61
   br i1 %exitcond78.not.i104, label %.loopexit.i105, label %.lr.ph68.i101, !llvm.loop !12
 
 slamc4_.exit113:                                  ; preds = %.loopexit.i105, %slamc4_.exit69
-  %.0179281 = phi i32 [ 1, %slamc4_.exit69 ], [ %132, %.loopexit.i105 ]
+  %.0179296 = phi i32 [ 1, %slamc4_.exit69 ], [ %132, %.loopexit.i105 ]
   %.0181 = phi i32 [ 1, %slamc4_.exit69 ], [ %152, %.loopexit.i105 ]
   %164 = icmp eq i32 %90, %109
-  %165 = icmp eq i32 %.0179281, %.0181
+  %165 = icmp eq i32 %.0179296, %.0181
   %or.cond187 = select i1 %164, i1 %165, i1 false
-  %166 = icmp eq i32 %91, %.0179281
+  %166 = icmp eq i32 %91, %.0179296
   br i1 %or.cond187, label %167, label %176
 
 167:                                              ; preds = %slamc4_.exit113
   br i1 %166, label %198, label %168
 
 168:                                              ; preds = %167
-  %169 = sub nsw i32 %.0179281, %91
+  %169 = sub nsw i32 %.0179296, %91
   %170 = icmp eq i32 %169, 3
   br i1 %170, label %171, label %174
 
@@ -691,7 +691,7 @@ slamc4_.exit113:                                  ; preds = %.loopexit.i105, %sl
   br label %198
 
 174:                                              ; preds = %168
-  %175 = tail call i32 @llvm.smin.i32(i32 %91, i32 %.0179281)
+  %175 = tail call i32 @llvm.smin.i32(i32 %91, i32 %.0179296)
   br label %198
 
 176:                                              ; preds = %slamc4_.exit113
@@ -719,7 +719,7 @@ slamc4_.exit113:                                  ; preds = %.loopexit.i105, %sl
   br i1 %or.cond189, label %188, label %195
 
 188:                                              ; preds = %186
-  %189 = sub nsw i32 %.0179281, %187
+  %189 = sub nsw i32 %.0179296, %187
   %190 = icmp eq i32 %189, 3
   br i1 %190, label %191, label %198
 
@@ -730,21 +730,21 @@ slamc4_.exit113:                                  ; preds = %.loopexit.i105, %sl
   br label %198
 
 195:                                              ; preds = %186
-  %196 = tail call i32 @llvm.smin.i32(i32 %187, i32 %.0179281)
+  %196 = tail call i32 @llvm.smin.i32(i32 %187, i32 %.0179296)
   %197 = tail call i32 @llvm.smin.i32(i32 %196, i32 %.0181)
   br label %198
 
 198:                                              ; preds = %188, %167, %184, %182, %191, %195, %174, %171
-  %.sink310 = phi i32 [ %185, %184 ], [ %183, %182 ], [ %194, %191 ], [ %197, %195 ], [ %175, %174 ], [ %173, %171 ], [ %91, %167 ], [ %187, %188 ]
+  %.sink325 = phi i32 [ %185, %184 ], [ %183, %182 ], [ %194, %191 ], [ %197, %195 ], [ %175, %174 ], [ %173, %171 ], [ %91, %167 ], [ %187, %188 ]
   %199 = phi i1 [ %77, %184 ], [ %77, %182 ], [ %77, %191 ], [ %77, %195 ], [ %77, %174 ], [ true, %171 ], [ %77, %167 ], [ %77, %188 ]
-  store i32 %.sink310, ptr @slamc2_.lemin, align 4, !tbaa !3
+  store i32 %.sink325, ptr @slamc2_.lemin, align 4, !tbaa !3
   store i1 true, ptr @slamc2_.first, align 4
   store float 1.000000e+00, ptr @slamc2_.lrmin, align 4, !tbaa !7
-  %.not223 = icmp sgt i32 %.sink310, 0
+  %.not223 = icmp sgt i32 %.sink325, 0
   br i1 %.not223, label %205, label %.lr.ph226.preheader
 
 .lr.ph226.preheader:                              ; preds = %198
-  %200 = sub i32 1, %.sink310
+  %200 = sub i32 1, %.sink325
   %smax = tail call i32 @llvm.smax.i32(i32 %200, i32 1)
   br label %.lr.ph226
 
@@ -763,7 +763,7 @@ slamc4_.exit113:                                  ; preds = %.loopexit.i105, %sl
 
 205:                                              ; preds = %._crit_edge227, %198
   %206 = phi float [ %203, %._crit_edge227 ], [ 1.000000e+00, %198 ]
-  %207 = sub nsw i32 0, %.sink310
+  %207 = sub nsw i32 0, %.sink325
   br label %208
 
 208:                                              ; preds = %208, %205
@@ -778,13 +778,13 @@ slamc4_.exit113:                                  ; preds = %.loopexit.i105, %sl
   %212 = icmp ne i32 %.040.i, %207
   %.045.i = select i1 %212, i32 %209, i32 %.040.i
   %213 = zext i1 %212 to i32
-  %214 = add nsw i32 %.045.i, %.sink310
-  %215 = add i32 %.sink310, %.040.i
+  %214 = add nsw i32 %.045.i, %.sink325
+  %215 = add i32 %.sink325, %.040.i
   %216 = sub i32 0, %215
   %217 = icmp sgt i32 %214, %216
   %218 = shl i32 %.045.i, 1
   %.0.i = select i1 %217, i32 %209, i32 %218
-  %219 = add nsw i32 %.0.i, %.sink310
+  %219 = add nsw i32 %.0.i, %.sink325
   %220 = add nsw i32 %219, -1
   %221 = add i32 %76, %213
   %222 = add i32 %221, %210
@@ -803,7 +803,7 @@ slamc4_.exit113:                                  ; preds = %.loopexit.i105, %sl
   br i1 %.not5165.i, label %._crit_edge.i117, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %211
-  %231 = fadd float %.pre-phi261266279, -1.000000e+00
+  %231 = fadd float %.pre-phi276281294, -1.000000e+00
   br label %.lr.ph.i115
 
 .lr.ph.i115:                                      ; preds = %.lr.ph.i115, %.lr.ph.preheader.i
@@ -830,7 +830,7 @@ slamc4_.exit113:                                  ; preds = %.loopexit.i105, %sl
 .lr.ph75.i118:                                    ; preds = %._crit_edge.i117, %.lr.ph75.i118
   %.14473.i = phi i32 [ %239, %.lr.ph75.i118 ], [ 1, %._crit_edge.i117 ]
   %.272.i = phi float [ %238, %.lr.ph75.i118 ], [ %.162.i, %._crit_edge.i117 ]
-  %237 = fmul float %.272.i, %.pre-phi261266279
+  %237 = fmul float %.272.i, %.pre-phi276281294
   %238 = fadd float %237, 0.000000e+00
   %239 = add nuw i32 %.14473.i, 1
   %exitcond80.not.i = icmp eq i32 %.14473.i, %229

@@ -900,8 +900,8 @@ nstrace_ensure_buflen.exit227:                    ; preds = %192
   br label %.critedge
 
 205:                                              ; preds = %197, %177, %161
-  %.sink369 = phi i16 [ %.val208, %177 ], [ %.val204, %161 ], [ %203, %197 ]
-  %206 = zext i16 %.sink369 to i32
+  %.sink375 = phi i16 [ %.val208, %177 ], [ %.val204, %161 ], [ %203, %197 ]
+  %206 = zext i16 %.sink375 to i32
   %207 = add i32 %.1174278, %206
   %208 = icmp ult i32 %207, %.0179
   %209 = sub i32 %.0179, %207
@@ -4883,7 +4883,7 @@ define internal noundef zeroext i1 @nstrace_read_v30(ptr noundef readonly captur
   br i1 %160, label %.lr.ph483.preheader, label %._crit_edge484
 
 .lr.ph483.preheader:                              ; preds = %.preheader
-  %161 = zext i32 %.1339.lcssa to i64
+  %161 = zext nneg i32 %.1339.lcssa to i64
   %wide.trip.count606 = zext nneg i32 %152 to i64
   br label %.lr.ph483
 
@@ -5121,7 +5121,7 @@ select.unfold:                                    ; preds = %._crit_edge472
   br i1 %271, label %.lr.ph464.preheader, label %._crit_edge465
 
 .lr.ph464.preheader:                              ; preds = %.preheader400
-  %272 = zext i32 %.5343.lcssa to i64
+  %272 = zext nneg i32 %.5343.lcssa to i64
   %wide.trip.count571 = zext nneg i32 %263 to i64
   br label %.lr.ph464
 
@@ -5567,13 +5567,13 @@ define internal noundef zeroext i1 @nstrace_seek_read_v30(ptr noundef readonly c
   br label %.sink.split
 
 .sink.split:                                      ; preds = %79, %123
-  %.sink115 = phi i8 [ 35, %123 ], [ 52, %79 ]
-  %.sink113 = phi i8 [ 30, %123 ], [ 36, %79 ]
+  %.sink117 = phi i8 [ 35, %123 ], [ 52, %79 ]
+  %.sink115 = phi i8 [ 30, %123 ], [ 36, %79 ]
   %.sink = phi i8 [ 53, %123 ], [ 48, %79 ]
   %133 = getelementptr inbounds nuw i8, ptr %2, i64 109
-  store i8 %.sink115, ptr %133, align 1
+  store i8 %.sink117, ptr %133, align 1
   %134 = getelementptr inbounds nuw i8, ptr %2, i64 108
-  store i8 %.sink113, ptr %134, align 4
+  store i8 %.sink115, ptr %134, align 4
   %135 = getelementptr inbounds nuw i8, ptr %2, i64 100
   store i8 %.sink, ptr %135, align 4
   br label %136

@@ -6694,14 +6694,14 @@ switch.lookup:                                    ; preds = %959
   %switch.gep = getelementptr inbounds nuw [3 x float], ptr @switch.table._ZN24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl19calculateMassMatrixERKNS_4vecxEbbbP9btMatrixXIfE.7, i64 0, i64 %962
   %switch.load = load float, ptr %switch.gep, align 4
   %963 = zext nneg i32 %960 to i64
-  %switch.gep733 = getelementptr inbounds nuw [3 x float], ptr @switch.table._ZN24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl19calculateMassMatrixERKNS_4vecxEbbbP9btMatrixXIfE.8, i64 0, i64 %963
-  %switch.load734 = load float, ptr %switch.gep733, align 4
+  %switch.gep744 = getelementptr inbounds nuw [3 x float], ptr @switch.table._ZN24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl19calculateMassMatrixERKNS_4vecxEbbbP9btMatrixXIfE.8, i64 0, i64 %963
+  %switch.load745 = load float, ptr %switch.gep744, align 4
   %964 = zext nneg i32 %960 to i64
-  %switch.gep735 = getelementptr inbounds nuw [3 x float], ptr @switch.table._ZN24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl19calculateMassMatrixERKNS_4vecxEbbbP9btMatrixXIfE.9, i64 0, i64 %964
-  %switch.load736 = load float, ptr %switch.gep735, align 4
+  %switch.gep746 = getelementptr inbounds nuw [3 x float], ptr @switch.table._ZN24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl19calculateMassMatrixERKNS_4vecxEbbbP9btMatrixXIfE.9, i64 0, i64 %964
+  %switch.load747 = load float, ptr %switch.gep746, align 4
   store float %switch.load, ptr %18, align 4, !tbaa !62
-  store float %switch.load734, ptr %570, align 4, !tbaa !62
-  store float %switch.load736, ptr %571, align 4, !tbaa !62
+  store float %switch.load745, ptr %570, align 4, !tbaa !62
+  store float %switch.load747, ptr %571, align 4, !tbaa !62
   call void @_ZN24btInverseDynamicsBullet37setZeroERNS_4vec3E(ptr noundef nonnull align 4 dereferenceable(16) %19)
   br label %_ZN24btInverseDynamicsBullet3L20setThreeDoFJacobiansEiRNS_4vec3ES1_.exit
 
@@ -6807,21 +6807,21 @@ _ZN24btInverseDynamicsBullet3L20setThreeDoFJacobiansEiRNS_4vec3ES1_.exit: ; pred
 1045:                                             ; preds = %.lr.ph658
   %1046 = sub nsw i32 %.0194657, %923
   %1047 = icmp ult i32 %1046, 3
-  br i1 %1047, label %switch.lookup737, label %_ZN24btInverseDynamicsBullet3L20setThreeDoFJacobiansEiRNS_4vec3ES1_.exit282
+  br i1 %1047, label %switch.lookup748, label %_ZN24btInverseDynamicsBullet3L20setThreeDoFJacobiansEiRNS_4vec3ES1_.exit282
 
-switch.lookup737:                                 ; preds = %1045
+switch.lookup748:                                 ; preds = %1045
   %1048 = zext nneg i32 %1046 to i64
-  %switch.gep738 = getelementptr inbounds nuw [3 x float], ptr @switch.table._ZN24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl19calculateMassMatrixERKNS_4vecxEbbbP9btMatrixXIfE.7, i64 0, i64 %1048
-  %switch.load739 = load float, ptr %switch.gep738, align 4
+  %switch.gep749 = getelementptr inbounds nuw [3 x float], ptr @switch.table._ZN24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl19calculateMassMatrixERKNS_4vecxEbbbP9btMatrixXIfE.7, i64 0, i64 %1048
+  %switch.load750 = load float, ptr %switch.gep749, align 4
   %1049 = zext nneg i32 %1046 to i64
-  %switch.gep740 = getelementptr inbounds nuw [3 x float], ptr @switch.table._ZN24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl19calculateMassMatrixERKNS_4vecxEbbbP9btMatrixXIfE.8, i64 0, i64 %1049
-  %switch.load741 = load float, ptr %switch.gep740, align 4
+  %switch.gep751 = getelementptr inbounds nuw [3 x float], ptr @switch.table._ZN24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl19calculateMassMatrixERKNS_4vecxEbbbP9btMatrixXIfE.8, i64 0, i64 %1049
+  %switch.load752 = load float, ptr %switch.gep751, align 4
   %1050 = zext nneg i32 %1046 to i64
-  %switch.gep742 = getelementptr inbounds nuw [3 x float], ptr @switch.table._ZN24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl19calculateMassMatrixERKNS_4vecxEbbbP9btMatrixXIfE.9, i64 0, i64 %1050
-  %switch.load743 = load float, ptr %switch.gep742, align 4
-  store float %switch.load739, ptr %18, align 4, !tbaa !62
-  store float %switch.load741, ptr %570, align 4, !tbaa !62
-  store float %switch.load743, ptr %571, align 4, !tbaa !62
+  %switch.gep753 = getelementptr inbounds nuw [3 x float], ptr @switch.table._ZN24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl19calculateMassMatrixERKNS_4vecxEbbbP9btMatrixXIfE.9, i64 0, i64 %1050
+  %switch.load754 = load float, ptr %switch.gep753, align 4
+  store float %switch.load750, ptr %18, align 4, !tbaa !62
+  store float %switch.load752, ptr %570, align 4, !tbaa !62
+  store float %switch.load754, ptr %571, align 4, !tbaa !62
   call void @_ZN24btInverseDynamicsBullet37setZeroERNS_4vec3E(ptr noundef nonnull align 4 dereferenceable(16) %19)
   %.pre722 = load i32, ptr %572, align 8, !tbaa !53
   %.pre723 = load i32, ptr %29, align 4, !tbaa !50
@@ -6829,11 +6829,11 @@ switch.lookup737:                                 ; preds = %1045
   %.pr628.pre = load i32, ptr %924, align 4, !tbaa !96
   br label %_ZN24btInverseDynamicsBullet3L20setThreeDoFJacobiansEiRNS_4vec3ES1_.exit282
 
-_ZN24btInverseDynamicsBullet3L20setThreeDoFJacobiansEiRNS_4vec3ES1_.exit282: ; preds = %1045, %switch.lookup737
-  %.pr628 = phi i32 [ 4, %1045 ], [ %.pr628.pre, %switch.lookup737 ]
-  %1051 = phi ptr [ %1040, %1045 ], [ %.pre724, %switch.lookup737 ]
-  %1052 = phi i32 [ %1041, %1045 ], [ %.pre723, %switch.lookup737 ]
-  %1053 = phi i32 [ %1042, %1045 ], [ %.pre722, %switch.lookup737 ]
+_ZN24btInverseDynamicsBullet3L20setThreeDoFJacobiansEiRNS_4vec3ES1_.exit282: ; preds = %1045, %switch.lookup748
+  %.pr628 = phi i32 [ 4, %1045 ], [ %.pr628.pre, %switch.lookup748 ]
+  %1051 = phi ptr [ %1040, %1045 ], [ %.pre724, %switch.lookup748 ]
+  %1052 = phi i32 [ %1041, %1045 ], [ %.pre723, %switch.lookup748 ]
+  %1053 = phi i32 [ %1042, %1045 ], [ %.pre722, %switch.lookup748 ]
   %1054 = load float, ptr %18, align 4, !tbaa !62
   %1055 = load float, ptr %570, align 4, !tbaa !62
   %1056 = fmul float %1002, %1055
@@ -7097,27 +7097,27 @@ _ZN24btInverseDynamicsBullet3L12jointNumDoFsERKNS_9JointTypeE.exit300: ; preds =
 1190:                                             ; preds = %.lr.ph663
   %1191 = sub nsw i32 %.0186662, %1174
   %1192 = icmp ult i32 %1191, 3
-  br i1 %1192, label %switch.lookup744, label %_ZN24btInverseDynamicsBullet3L18setSixDoFJacobiansEiRNS_4vec3ES1_.exit306
+  br i1 %1192, label %switch.lookup755, label %_ZN24btInverseDynamicsBullet3L18setSixDoFJacobiansEiRNS_4vec3ES1_.exit306
 
-switch.lookup744:                                 ; preds = %1190
+switch.lookup755:                                 ; preds = %1190
   %1193 = zext nneg i32 %1191 to i64
-  %switch.gep745 = getelementptr inbounds nuw [3 x float], ptr @switch.table._ZN24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl19calculateMassMatrixERKNS_4vecxEbbbP9btMatrixXIfE.7, i64 0, i64 %1193
-  %switch.load746 = load float, ptr %switch.gep745, align 4
+  %switch.gep756 = getelementptr inbounds nuw [3 x float], ptr @switch.table._ZN24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl19calculateMassMatrixERKNS_4vecxEbbbP9btMatrixXIfE.7, i64 0, i64 %1193
+  %switch.load757 = load float, ptr %switch.gep756, align 4
   %1194 = zext nneg i32 %1191 to i64
-  %switch.gep747 = getelementptr inbounds nuw [3 x float], ptr @switch.table._ZN24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl19calculateMassMatrixERKNS_4vecxEbbbP9btMatrixXIfE.8, i64 0, i64 %1194
-  %switch.load748 = load float, ptr %switch.gep747, align 4
+  %switch.gep758 = getelementptr inbounds nuw [3 x float], ptr @switch.table._ZN24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl19calculateMassMatrixERKNS_4vecxEbbbP9btMatrixXIfE.8, i64 0, i64 %1194
+  %switch.load759 = load float, ptr %switch.gep758, align 4
   %1195 = zext nneg i32 %1191 to i64
-  %switch.gep749 = getelementptr inbounds nuw [3 x float], ptr @switch.table._ZN24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl19calculateMassMatrixERKNS_4vecxEbbbP9btMatrixXIfE.9, i64 0, i64 %1195
-  %switch.load750 = load float, ptr %switch.gep749, align 4
-  store float %switch.load746, ptr %20, align 4, !tbaa !62
-  store float %switch.load748, ptr %575, align 4, !tbaa !62
-  store float %switch.load750, ptr %576, align 4, !tbaa !62
+  %switch.gep760 = getelementptr inbounds nuw [3 x float], ptr @switch.table._ZN24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl19calculateMassMatrixERKNS_4vecxEbbbP9btMatrixXIfE.9, i64 0, i64 %1195
+  %switch.load761 = load float, ptr %switch.gep760, align 4
+  store float %switch.load757, ptr %20, align 4, !tbaa !62
+  store float %switch.load759, ptr %575, align 4, !tbaa !62
+  store float %switch.load761, ptr %576, align 4, !tbaa !62
   call void @_ZN24btInverseDynamicsBullet37setZeroERNS_4vec3E(ptr noundef nonnull align 4 dereferenceable(16) %21)
   %.pr629 = load i32, ptr %1175, align 4, !tbaa !96
   br label %_ZN24btInverseDynamicsBullet3L20setThreeDoFJacobiansEiRNS_4vec3ES1_.exit305
 
-_ZN24btInverseDynamicsBullet3L20setThreeDoFJacobiansEiRNS_4vec3ES1_.exit305: ; preds = %switch.lookup744, %.lr.ph663
-  %1196 = phi i32 [ %.pr629, %switch.lookup744 ], [ %1188, %.lr.ph663 ]
+_ZN24btInverseDynamicsBullet3L20setThreeDoFJacobiansEiRNS_4vec3ES1_.exit305: ; preds = %switch.lookup755, %.lr.ph663
+  %1196 = phi i32 [ %.pr629, %switch.lookup755 ], [ %1188, %.lr.ph663 ]
   %1197 = icmp eq i32 %1196, 3
   br i1 %1197, label %1198, label %_ZN24btInverseDynamicsBullet3L18setSixDoFJacobiansEiRNS_4vec3ES1_.exit306
 
@@ -8818,14 +8818,14 @@ _ZNK20btAlignedObjectArrayIfE4copyEiiPf.exit.i.i: ; preds = %_ZN20btAlignedObjec
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %31 = load i8, ptr %30, align 8, !range !67
   %32 = trunc nuw i8 %31 to i1
-  %or.cond27.i = select i1 %.not.i5.i.i, i1 %32, i1 false
-  br i1 %or.cond27.i, label %33, label %_ZN20btAlignedObjectArrayIfE10deallocateEv.exit.i.i
+  %or.cond29.i = select i1 %.not.i5.i.i, i1 %32, i1 false
+  br i1 %or.cond29.i, label %33, label %_ZN20btAlignedObjectArrayIfE10deallocateEv.exit.i.i
 
 _ZNK20btAlignedObjectArrayIfE4copyEiiPf.exit.thread.i.i: ; preds = %26
   %.old.i = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %.old25.i = load i8, ptr %.old.i, align 8, !tbaa !54, !range !67, !noundef !207
-  %.old26.i = trunc nuw i8 %.old25.i to i1
-  br i1 %.old26.i, label %33, label %_ZN20btAlignedObjectArrayIfE10deallocateEv.exit.i.i
+  %.old27.i = load i8, ptr %.old.i, align 8, !tbaa !54, !range !67, !noundef !207
+  %.old28.i = trunc nuw i8 %.old27.i to i1
+  br i1 %.old28.i, label %33, label %_ZN20btAlignedObjectArrayIfE10deallocateEv.exit.i.i
 
 33:                                               ; preds = %_ZNK20btAlignedObjectArrayIfE4copyEiiPf.exit.thread.i.i, %_ZNK20btAlignedObjectArrayIfE4copyEiiPf.exit.i.i
   invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %25)
@@ -9139,8 +9139,8 @@ _ZNK20b3AlignedObjectArrayIN24btInverseDynamicsBullet39RigidBodyEE4copyEiiPS1_.e
   br i1 %71, label %_ZN20b3AlignedObjectArrayIN24btInverseDynamicsBullet39RigidBodyEE7destroyEii.exit, label %66, !llvm.loop !85
 
 _ZN20b3AlignedObjectArrayIN24btInverseDynamicsBullet39RigidBodyEE7destroyEii.exit: ; preds = %66, %.split7, %.split, %_ZNK20b3AlignedObjectArrayIN24btInverseDynamicsBullet39RigidBodyEE4copyEiiPS1_.exit
-  %.032 = phi i32 [ %1, %_ZNK20b3AlignedObjectArrayIN24btInverseDynamicsBullet39RigidBodyEE4copyEiiPS1_.exit ], [ 0, %.split7 ], [ %1, %.split ], [ %1, %66 ]
-  %.0.i2431 = phi ptr [ %9, %_ZNK20b3AlignedObjectArrayIN24btInverseDynamicsBullet39RigidBodyEE4copyEiiPS1_.exit ], [ null, %.split7 ], [ %9, %.split ], [ %9, %66 ]
+  %.037 = phi i32 [ %1, %_ZNK20b3AlignedObjectArrayIN24btInverseDynamicsBullet39RigidBodyEE4copyEiiPS1_.exit ], [ 0, %.split7 ], [ %1, %.split ], [ %1, %66 ]
+  %.0.i2436 = phi ptr [ %9, %_ZNK20b3AlignedObjectArrayIN24btInverseDynamicsBullet39RigidBodyEE4copyEiiPS1_.exit ], [ null, %.split7 ], [ %9, %.split ], [ %9, %66 ]
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %73 = load ptr, ptr %72, align 8, !tbaa !34
   %.not.i22 = icmp eq ptr %73, null
@@ -9163,8 +9163,8 @@ _ZN20b3AlignedObjectArrayIN24btInverseDynamicsBullet39RigidBodyEE7destroyEii.exi
 _ZN20b3AlignedObjectArrayIN24btInverseDynamicsBullet39RigidBodyEE10deallocateEv.exit: ; preds = %_ZN20b3AlignedObjectArrayIN24btInverseDynamicsBullet39RigidBodyEE7destroyEii.exit, %79
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i8 1, ptr %80, align 8, !tbaa !33
-  store ptr %.0.i2431, ptr %72, align 8, !tbaa !34
-  store i32 %.032, ptr %3, align 8, !tbaa !36
+  store ptr %.0.i2436, ptr %72, align 8, !tbaa !34
+  store i32 %.037, ptr %3, align 8, !tbaa !36
   br label %81
 
 81:                                               ; preds = %_ZN20b3AlignedObjectArrayIN24btInverseDynamicsBullet39RigidBodyEE10deallocateEv.exit, %2
@@ -9367,8 +9367,8 @@ _ZN20b3AlignedObjectArrayIiED2Ev.exit.i:          ; preds = %31, %23
   br i1 %37, label %_ZN20b3AlignedObjectArrayIS_IiEE7destroyEii.exit, label %23, !llvm.loop !84
 
 _ZN20b3AlignedObjectArrayIS_IiEE7destroyEii.exit: ; preds = %_ZN20b3AlignedObjectArrayIiED2Ev.exit.i, %.split, %_ZNK20b3AlignedObjectArrayIS_IiEE4copyEiiPS0_.exit15, %_ZNK20b3AlignedObjectArrayIS_IiEE4copyEiiPS0_.exit
-  %.029 = phi i32 [ %1, %_ZNK20b3AlignedObjectArrayIS_IiEE4copyEiiPS0_.exit ], [ %1, %.split ], [ 0, %_ZNK20b3AlignedObjectArrayIS_IiEE4copyEiiPS0_.exit15 ], [ %1, %_ZN20b3AlignedObjectArrayIiED2Ev.exit.i ]
-  %.0.i2328 = phi ptr [ %9, %_ZNK20b3AlignedObjectArrayIS_IiEE4copyEiiPS0_.exit ], [ %9, %.split ], [ null, %_ZNK20b3AlignedObjectArrayIS_IiEE4copyEiiPS0_.exit15 ], [ %9, %_ZN20b3AlignedObjectArrayIiED2Ev.exit.i ]
+  %.035 = phi i32 [ %1, %_ZNK20b3AlignedObjectArrayIS_IiEE4copyEiiPS0_.exit ], [ %1, %.split ], [ 0, %_ZNK20b3AlignedObjectArrayIS_IiEE4copyEiiPS0_.exit15 ], [ %1, %_ZN20b3AlignedObjectArrayIiED2Ev.exit.i ]
+  %.0.i2334 = phi ptr [ %9, %_ZNK20b3AlignedObjectArrayIS_IiEE4copyEiiPS0_.exit ], [ %9, %.split ], [ null, %_ZNK20b3AlignedObjectArrayIS_IiEE4copyEiiPS0_.exit15 ], [ %9, %_ZN20b3AlignedObjectArrayIiED2Ev.exit.i ]
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %39 = load ptr, ptr %38, align 8, !tbaa !42
   %.not.i21 = icmp ne ptr %39, null
@@ -9385,8 +9385,8 @@ _ZN20b3AlignedObjectArrayIS_IiEE7destroyEii.exit: ; preds = %_ZN20b3AlignedObjec
 _ZN20b3AlignedObjectArrayIS_IiEE10deallocateEv.exit: ; preds = %43, %_ZN20b3AlignedObjectArrayIS_IiEE7destroyEii.exit
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i8 1, ptr %44, align 8, !tbaa !41
-  store ptr %.0.i2328, ptr %38, align 8, !tbaa !42
-  store i32 %.029, ptr %3, align 8, !tbaa !44
+  store ptr %.0.i2334, ptr %38, align 8, !tbaa !42
+  store i32 %.035, ptr %3, align 8, !tbaa !44
   br label %45
 
 45:                                               ; preds = %_ZN20b3AlignedObjectArrayIS_IiEE10deallocateEv.exit, %2

@@ -686,7 +686,7 @@ _ZNK6aiMesh24HasTangentsAndBitangentsEv.exit.thread: ; preds = %195, %_ZN6Assimp
 
 _ZNK6aiMesh16GetNumUVChannelsEv.exit.preheader:   ; preds = %199
   %.not328 = icmp eq i32 %spec.select.i, 0
-  br i1 %.not328, label %_ZN6Assimp13CompareArraysEPK10aiVector3tIfES3_jf.exit218.thread372, label %.lr.ph
+  br i1 %.not328, label %_ZN6Assimp13CompareArraysEPK10aiVector3tIfES3_jf.exit218.thread388, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZNK6aiMesh16GetNumUVChannelsEv.exit.preheader
   %203 = zext i32 %82 to i64
@@ -742,19 +742,19 @@ _ZNK6aiMesh16GetNumUVChannelsEv.exit.preheader:   ; preds = %199
 _ZN6Assimp13CompareArraysEPK10aiVector3tIfES3_jf.exit218.thread: ; preds = %228, %207, %204
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %_ZN6Assimp13CompareArraysEPK10aiVector3tIfES3_jf.exit218.thread372, label %204, !llvm.loop !10
+  br i1 %exitcond.not, label %_ZN6Assimp13CompareArraysEPK10aiVector3tIfES3_jf.exit218.thread388, label %204, !llvm.loop !10
 
 _ZN6Assimp13CompareArraysEPK10aiVector3tIfES3_jf.exit218: ; preds = %.lr.ph.i213
   %231 = trunc nuw i64 %indvars.iv to i32
   %232 = icmp eq i32 %spec.select.i, %231
-  br i1 %232, label %_ZN6Assimp13CompareArraysEPK10aiVector3tIfES3_jf.exit218.thread372, label %_ZN6Assimp13CompareArraysEPK10aiVector3tIfES3_jf.exit.thread269
+  br i1 %232, label %_ZN6Assimp13CompareArraysEPK10aiVector3tIfES3_jf.exit218.thread388, label %_ZN6Assimp13CompareArraysEPK10aiVector3tIfES3_jf.exit.thread269
 
-_ZN6Assimp13CompareArraysEPK10aiVector3tIfES3_jf.exit218.thread372: ; preds = %_ZN6Assimp13CompareArraysEPK10aiVector3tIfES3_jf.exit218.thread, %_ZNK6aiMesh16GetNumUVChannelsEv.exit.preheader, %_ZN6Assimp13CompareArraysEPK10aiVector3tIfES3_jf.exit218
+_ZN6Assimp13CompareArraysEPK10aiVector3tIfES3_jf.exit218.thread388: ; preds = %_ZN6Assimp13CompareArraysEPK10aiVector3tIfES3_jf.exit218.thread, %_ZNK6aiMesh16GetNumUVChannelsEv.exit.preheader, %_ZN6Assimp13CompareArraysEPK10aiVector3tIfES3_jf.exit218
   %233 = getelementptr inbounds nuw i8, ptr %71, i64 48
   br label %234
 
-234:                                              ; preds = %237, %_ZN6Assimp13CompareArraysEPK10aiVector3tIfES3_jf.exit218.thread372
-  %indvars.iv.i219 = phi i64 [ 0, %_ZN6Assimp13CompareArraysEPK10aiVector3tIfES3_jf.exit218.thread372 ], [ %indvars.iv.next.i221, %237 ]
+234:                                              ; preds = %237, %_ZN6Assimp13CompareArraysEPK10aiVector3tIfES3_jf.exit218.thread388
+  %indvars.iv.i219 = phi i64 [ 0, %_ZN6Assimp13CompareArraysEPK10aiVector3tIfES3_jf.exit218.thread388 ], [ %indvars.iv.next.i221, %237 ]
   %235 = getelementptr inbounds nuw [8 x ptr], ptr %233, i64 0, i64 %indvars.iv.i219
   %236 = load ptr, ptr %235, align 8
   %.not.i220 = icmp eq ptr %236, null
@@ -768,14 +768,14 @@ _ZN6Assimp13CompareArraysEPK10aiVector3tIfES3_jf.exit218.thread372: ; preds = %_
 _ZNK6aiMesh19GetNumColorChannelsEv.exit:          ; preds = %234
   %238 = trunc nuw nsw i64 %indvars.iv.i219 to i32
   %.not329 = icmp eq i64 %indvars.iv.i219, 0
-  br i1 %.not329, label %_ZN6Assimp13CompareArraysEPK9aiColor4tIfES3_jf.exit.thread377, label %.lr.ph303
+  br i1 %.not329, label %_ZN6Assimp13CompareArraysEPK9aiColor4tIfES3_jf.exit.thread393, label %.lr.ph303
 
 .lr.ph303:                                        ; preds = %237, %_ZNK6aiMesh19GetNumColorChannelsEv.exit
-  %.0.lcssa.i376 = phi i32 [ %238, %_ZNK6aiMesh19GetNumColorChannelsEv.exit ], [ 8, %237 ]
+  %.0.lcssa.i392 = phi i32 [ %238, %_ZNK6aiMesh19GetNumColorChannelsEv.exit ], [ 8, %237 ]
   %239 = zext i32 %82 to i64
   %.idx.i223 = shl nuw nsw i64 %239, 4
   %.not13.i224 = icmp eq i32 %82, 0
-  %wide.trip.count353 = zext i32 %.0.lcssa.i376 to i64
+  %wide.trip.count353 = zext i32 %.0.lcssa.i392 to i64
   br label %240
 
 240:                                              ; preds = %.lr.ph303, %_ZN6Assimp13CompareArraysEPK9aiColor4tIfES3_jf.exit.thread
@@ -831,19 +831,19 @@ _ZNK6aiMesh19GetNumColorChannelsEv.exit:          ; preds = %234
 _ZN6Assimp13CompareArraysEPK9aiColor4tIfES3_jf.exit.thread: ; preds = %270, %243, %240
   %indvars.iv.next351 = add nuw nsw i64 %indvars.iv350, 1
   %exitcond354.not = icmp eq i64 %indvars.iv.next351, %wide.trip.count353
-  br i1 %exitcond354.not, label %_ZN6Assimp13CompareArraysEPK9aiColor4tIfES3_jf.exit.thread377, label %240, !llvm.loop !13
+  br i1 %exitcond354.not, label %_ZN6Assimp13CompareArraysEPK9aiColor4tIfES3_jf.exit.thread393, label %240, !llvm.loop !13
 
 _ZN6Assimp13CompareArraysEPK9aiColor4tIfES3_jf.exit: ; preds = %.lr.ph.i225
   %273 = trunc nuw nsw i64 %indvars.iv350 to i32
-  %274 = icmp eq i32 %.0.lcssa.i376, %273
-  br i1 %274, label %_ZN6Assimp13CompareArraysEPK9aiColor4tIfES3_jf.exit.thread377, label %_ZN6Assimp13CompareArraysEPK10aiVector3tIfES3_jf.exit.thread269
+  %274 = icmp eq i32 %.0.lcssa.i392, %273
+  br i1 %274, label %_ZN6Assimp13CompareArraysEPK9aiColor4tIfES3_jf.exit.thread393, label %_ZN6Assimp13CompareArraysEPK10aiVector3tIfES3_jf.exit.thread269
 
-_ZN6Assimp13CompareArraysEPK9aiColor4tIfES3_jf.exit.thread377: ; preds = %_ZN6Assimp13CompareArraysEPK9aiColor4tIfES3_jf.exit.thread, %_ZNK6aiMesh19GetNumColorChannelsEv.exit, %_ZN6Assimp13CompareArraysEPK9aiColor4tIfES3_jf.exit
+_ZN6Assimp13CompareArraysEPK9aiColor4tIfES3_jf.exit.thread393: ; preds = %_ZN6Assimp13CompareArraysEPK9aiColor4tIfES3_jf.exit.thread, %_ZNK6aiMesh19GetNumColorChannelsEv.exit, %_ZN6Assimp13CompareArraysEPK9aiColor4tIfES3_jf.exit
   %275 = load i8, ptr %14, align 8, !range !14, !noundef !15
   %276 = trunc nuw i8 %275 to i1
   br i1 %276, label %_ZN6Assimp13CompareArraysEPK10aiVector3tIfES3_jf.exit.thread272, label %277
 
-277:                                              ; preds = %_ZN6Assimp13CompareArraysEPK9aiColor4tIfES3_jf.exit.thread377
+277:                                              ; preds = %_ZN6Assimp13CompareArraysEPK9aiColor4tIfES3_jf.exit.thread393
   %278 = tail call noundef zeroext i1 @_Z12CompareBonesPK6aiMeshS1_(ptr noundef nonnull %71, ptr noundef nonnull %22)
   br i1 %278, label %279, label %_ZN6Assimp13CompareArraysEPK10aiVector3tIfES3_jf.exit.thread269
 
@@ -950,7 +950,7 @@ _ZNSt10unique_ptrIA_jSt14default_deleteIS0_EED2Ev.exit235: ; preds = %283
   %327 = icmp samesign ult i64 %indvars.iv.next359, %326
   br i1 %327, label %319, label %._crit_edge310, !llvm.loop !18
 
-_ZN6Assimp13CompareArraysEPK10aiVector3tIfES3_jf.exit.thread272: ; preds = %_ZN6Assimp13CompareArraysEPK9aiColor4tIfES3_jf.exit.thread377, %_ZNSt10unique_ptrIA_jSt14default_deleteIS0_EED2Ev.exit232
+_ZN6Assimp13CompareArraysEPK10aiVector3tIfES3_jf.exit.thread272: ; preds = %_ZN6Assimp13CompareArraysEPK9aiColor4tIfES3_jf.exit.thread393, %_ZNSt10unique_ptrIA_jSt14default_deleteIS0_EED2Ev.exit232
   %328 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv366
   %329 = load i32, ptr %328, align 4
   %330 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv369

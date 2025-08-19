@@ -806,19 +806,19 @@ getv4.exit.thread135.thread:                      ; preds = %77, %106, %getv4.ex
   br label %getv4.exit.thread135.thread.thread
 
 getv4.exit.thread135.thread.thread:               ; preds = %getv4.exit.thread135.thread, %84
-  %.3.idx282 = phi i64 [ %.081.add, %84 ], [ %.3.idx, %getv4.exit.thread135.thread ]
-  %.078199280 = phi ptr [ %.078209, %84 ], [ %.078199, %getv4.exit.thread135.thread ]
+  %.3.idx292 = phi i64 [ %.081.add, %84 ], [ %.3.idx, %getv4.exit.thread135.thread ]
+  %.078199290 = phi ptr [ %.078209, %84 ], [ %.078199, %getv4.exit.thread135.thread ]
   %112 = phi i32 [ 128, %84 ], [ %spec.select, %getv4.exit.thread135.thread ]
-  %.not101 = icmp eq ptr %.078199280, null
+  %.not101 = icmp eq ptr %.078199290, null
   br i1 %.not101, label %126, label %113
 
 113:                                              ; preds = %getv4.exit.thread135.thread.thread
-  %.3.ptr.ptr = getelementptr i8, ptr %4, i64 %.3.idx282
+  %.3.ptr.ptr = getelementptr i8, ptr %4, i64 %.3.idx292
   %114 = ptrtoint ptr %.3.ptr.ptr to i64
-  %115 = ptrtoint ptr %.078199280 to i64
+  %115 = ptrtoint ptr %.078199290 to i64
   %116 = sub i64 %114, %115
   %117 = trunc i64 %116 to i32
-  %118 = icmp eq i64 %.3.idx282, 16
+  %118 = icmp eq i64 %.3.idx292, 16
   br i1 %118, label %getv4.exit.thread125, label %.preheader
 
 .preheader:                                       ; preds = %113
@@ -836,7 +836,7 @@ getv4.exit.thread135.thread.thread:               ; preds = %getv4.exit.thread13
   %120 = sub i64 %116, %indvars.iv
   %sext = shl i64 %120, 32
   %121 = ashr exact i64 %sext, 32
-  %122 = getelementptr inbounds i8, ptr %.078199280, i64 %121
+  %122 = getelementptr inbounds i8, ptr %.078199290, i64 %121
   %123 = load i8, ptr %122, align 1
   %124 = sub nsw i64 0, %indvars.iv
   %125 = getelementptr inbounds i8, ptr %.ptr, i64 %124
@@ -847,7 +847,7 @@ getv4.exit.thread135.thread.thread:               ; preds = %getv4.exit.thread13
   br i1 %exitcond, label %.thread147, label %.lr.ph220, !llvm.loop !13
 
 126:                                              ; preds = %getv4.exit.thread135.thread.thread
-  %.not103 = icmp eq i64 %.3.idx282, 16
+  %.not103 = icmp eq i64 %.3.idx292, 16
   br i1 %.not103, label %.thread147, label %getv4.exit.thread125
 
 .thread147:                                       ; preds = %.lr.ph220, %.preheader, %126

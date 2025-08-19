@@ -532,10 +532,10 @@ define internal range(i32 4, 1) i32 @dissect_ecpri(ptr noundef %0, ptr noundef %
   br label %95
 
 95:                                               ; preds = %92, %93
-  %.sink496 = phi i32 [ -1, %93 ], [ %46, %92 ]
+  %.sink519 = phi i32 [ -1, %93 ], [ %46, %92 ]
   %96 = load i32, ptr @hf_payload, align 4
   %97 = load i32, ptr %6, align 4
-  %98 = call ptr @proto_tree_add_item(ptr noundef %59, i32 noundef %96, ptr noundef %0, i32 noundef %97, i32 noundef %.sink496, i32 noundef 0)
+  %98 = call ptr @proto_tree_add_item(ptr noundef %59, i32 noundef %96, ptr noundef %0, i32 noundef %97, i32 noundef %.sink519, i32 noundef 0)
   %99 = load i32, ptr @ett_ecpri_payload, align 4
   %100 = call ptr @proto_item_add_subtree(ptr noundef %98, i32 noundef %99)
   %101 = load i8, ptr @pref_message_type_decoding, align 1, !range !6, !noundef !7

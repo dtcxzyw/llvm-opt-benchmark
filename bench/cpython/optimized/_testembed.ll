@@ -1333,19 +1333,19 @@ define hidden i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 
 6:                                                ; preds = %.preheader, %10
   %7 = phi ptr [ @.str.2, %.preheader ], [ %12, %10 ]
-  %.0183035 = phi ptr [ @TestCases, %.preheader ], [ %11, %10 ]
+  %.0183036 = phi ptr [ @TestCases, %.preheader ], [ %11, %10 ]
   %8 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) %7) #19
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %.critedge, label %10
 
 10:                                               ; preds = %6
-  %11 = getelementptr i8, ptr %.0183035, i64 16
+  %11 = getelementptr i8, ptr %.0183036, i64 16
   %12 = load ptr, ptr %11, align 8, !tbaa !13
   %.not22 = icmp eq ptr %12, null
   br i1 %.not22, label %.critedge.thread, label %6
 
 .critedge:                                        ; preds = %6
-  %13 = getelementptr inbounds nuw i8, ptr %.0183035, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %.0183036, i64 8
   %14 = load ptr, ptr %13, align 8, !tbaa !15
   %15 = tail call i32 %14() #20
   br label %.critedge2
@@ -1357,9 +1357,9 @@ define hidden i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 
 18:                                               ; preds = %.critedge.thread, %18
   %19 = phi ptr [ @.str.2, %.critedge.thread ], [ %22, %18 ]
-  %.03136 = phi ptr [ @TestCases, %.critedge.thread ], [ %21, %18 ]
+  %.03137 = phi ptr [ @TestCases, %.critedge.thread ], [ %21, %18 ]
   %20 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, ptr noundef nonnull %19)
-  %21 = getelementptr i8, ptr %.03136, i64 16
+  %21 = getelementptr i8, ptr %.03137, i64 16
   %22 = load ptr, ptr %21, align 8, !tbaa !13
   %.not24 = icmp eq ptr %22, null
   br i1 %.not24, label %.critedge2, label %18
@@ -1430,8 +1430,8 @@ define internal range(i32 0, 2) i32 @test_repeated_init_exec() #0 {
   br i1 %.not16, label %12, label %28, !llvm.loop !18
 
 28:                                               ; preds = %12, %26
-  %29 = sext i32 %11 to i64
-  %.not17 = icmp slt i64 %indvars.iv, %29
+  %29 = zext nneg i32 %11 to i64
+  %.not17 = icmp samesign ult i64 %indvars.iv, %29
   %spec.select = zext i1 %.not17 to i32
   ret i32 %spec.select
 }

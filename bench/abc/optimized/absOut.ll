@@ -305,16 +305,16 @@ Abc_Clock.exit:                                   ; preds = %4, %11
   br i1 %46, label %.lr.ph.preheader, label %.critedge
 
 .lr.ph.preheader:                                 ; preds = %.preheader203
-  %.val178253 = load ptr, ptr %35, align 8, !tbaa !37
-  %.not157255 = icmp eq ptr %.val178253, null
-  br i1 %.not157255, label %.critedge, label %.lr.ph257
+  %.val178261 = load ptr, ptr %35, align 8, !tbaa !37
+  %.not157263 = icmp eq ptr %.val178261, null
+  br i1 %.not157263, label %.critedge, label %.lr.ph265
 
-.lr.ph257:                                        ; preds = %.lr.ph.preheader
+.lr.ph265:                                        ; preds = %.lr.ph.preheader
   %47 = getelementptr i8, ptr %.val171205, i64 8
-  %.val179.val254 = load ptr, ptr %47, align 8, !tbaa !36
-  %48 = load i32, ptr %.val179.val254, align 4, !tbaa !35
+  %.val179.val262 = load ptr, ptr %47, align 8, !tbaa !36
+  %48 = load i32, ptr %.val179.val262, align 4, !tbaa !35
   %49 = sext i32 %48 to i64
-  %50 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val178253, i64 %49
+  %50 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val178261, i64 %49
   br label %56
 
 .lr.ph:                                           ; preds = %84
@@ -328,14 +328,14 @@ Abc_Clock.exit:                                   ; preds = %4, %11
   %.not157 = icmp eq ptr %.val178, null
   br i1 %.not157, label %.critedge, label %56, !llvm.loop !53
 
-56:                                               ; preds = %.lr.ph257, %.lr.ph
-  %57 = phi ptr [ %50, %.lr.ph257 ], [ %55, %.lr.ph ]
-  %indvars.iv256 = phi i64 [ 0, %.lr.ph257 ], [ %indvars.iv.next, %.lr.ph ]
+56:                                               ; preds = %.lr.ph265, %.lr.ph
+  %57 = phi ptr [ %50, %.lr.ph265 ], [ %55, %.lr.ph ]
+  %indvars.iv264 = phi i64 [ 0, %.lr.ph265 ], [ %indvars.iv.next, %.lr.ph ]
   %58 = load ptr, ptr %7, align 8, !tbaa !54
   %59 = getelementptr i8, ptr %58, i64 4
   %.val167 = load i32, ptr %59, align 4, !tbaa !29
   %60 = sext i32 %.val167 to i64
-  %.not162 = icmp slt i64 %indvars.iv256, %60
+  %.not162 = icmp slt i64 %indvars.iv264, %60
   br i1 %.not162, label %64, label %61
 
 61:                                               ; preds = %56
@@ -347,7 +347,7 @@ Abc_Clock.exit:                                   ; preds = %4, %11
   %65 = load i32, ptr %42, align 4, !tbaa !33
   %66 = load i32, ptr %27, align 4, !tbaa !34
   %67 = mul nsw i32 %66, %.0137223
-  %68 = trunc nuw nsw i64 %indvars.iv256 to i32
+  %68 = trunc nuw nsw i64 %indvars.iv264 to i32
   %69 = add i32 %65, %68
   %70 = add i32 %69, %67
   %71 = ashr i32 %70, 5
@@ -373,7 +373,7 @@ Abc_Clock.exit:                                   ; preds = %4, %11
 84:                                               ; preds = %61, %82, %80
   %.sink = phi i64 [ %63, %61 ], [ %83, %82 ], [ %81, %80 ]
   store i64 %.sink, ptr %57, align 4
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv256, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv264, 1
   %.val170 = load i32, ptr %23, align 8, !tbaa !3
   %.val171 = load ptr, ptr %24, align 8, !tbaa !28
   %85 = getelementptr i8, ptr %.val171, i64 4
@@ -942,14 +942,14 @@ Vec_IntAlloc.exit:                                ; preds = %3, %8
   br label %Vec_IntPush.exit.sink.split
 
 Vec_IntPush.exit.sink.split:                      ; preds = %72, %74, %64, %66
-  %.sink194 = phi ptr [ %65, %64 ], [ %67, %66 ], [ %73, %72 ], [ %75, %74 ]
+  %.sink202 = phi ptr [ %65, %64 ], [ %67, %66 ], [ %73, %72 ], [ %75, %74 ]
   %.sink = phi i32 [ 16, %64 ], [ 16, %66 ], [ %69, %72 ], [ %69, %74 ]
-  store ptr %.sink194, ptr %13, align 8, !tbaa !36
+  store ptr %.sink202, ptr %13, align 8, !tbaa !36
   store i32 %.sink, ptr %5, align 8, !tbaa !63
   br label %Vec_IntPush.exit
 
 Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.sink.split, %44
-  %.pre.i187 = phi ptr [ %43, %44 ], [ %.sink194, %Vec_IntPush.exit.sink.split ]
+  %.pre.i187 = phi ptr [ %43, %44 ], [ %.sink202, %Vec_IntPush.exit.sink.split ]
   %76 = add nsw i32 %58, 1
   store i32 %76, ptr %7, align 4, !tbaa !29
   %77 = sext i32 %58 to i64

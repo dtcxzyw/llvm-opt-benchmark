@@ -184,14 +184,14 @@ Vec_IntAlloc.exit:                                ; preds = %.lr.ph33, %25
   br label %Vec_IntPush.exit.sink.split
 
 Vec_IntPush.exit.sink.split:                      ; preds = %50, %52, %42, %44
-  %.sink43 = phi ptr [ %43, %42 ], [ %45, %44 ], [ %51, %50 ], [ %53, %52 ]
+  %.sink50 = phi ptr [ %43, %42 ], [ %45, %44 ], [ %51, %50 ], [ %53, %52 ]
   %.sink = phi i32 [ 16, %42 ], [ 16, %44 ], [ %47, %50 ], [ %47, %52 ]
-  store ptr %.sink43, ptr %30, align 8, !tbaa !3
+  store ptr %.sink50, ptr %30, align 8, !tbaa !3
   store i32 %.sink, ptr %22, align 8, !tbaa !16
   br label %Vec_IntPush.exit
 
 Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.sink.split, %.lr.ph
-  %.pre.i41 = phi ptr [ %33, %.lr.ph ], [ %.sink43, %Vec_IntPush.exit.sink.split ]
+  %.pre.i41 = phi ptr [ %33, %.lr.ph ], [ %.sink50, %Vec_IntPush.exit.sink.split ]
   %54 = load i32, ptr %24, align 4, !tbaa !15
   %55 = add nsw i32 %54, 1
   store i32 %55, ptr %24, align 4, !tbaa !15
@@ -359,9 +359,9 @@ Vec_IntPush.exit49.sink.split:                    ; preds = %thread-pre-split
   %33 = shl nuw nsw i32 %26, 1
   %34 = zext nneg i32 %33 to i64
   %35 = shl nuw nsw i64 %34, 2
-  %.sink93 = select i1 %32, i64 64, i64 %35
+  %.sink100 = select i1 %32, i64 64, i64 %35
   %.sink = select i1 %32, i32 16, i32 %33
-  %36 = tail call ptr @realloc(ptr noundef nonnull %27, i64 noundef %.sink93) #26
+  %36 = tail call ptr @realloc(ptr noundef nonnull %27, i64 noundef %.sink100) #26
   store ptr %36, ptr %23, align 8, !tbaa !3
   store i32 %.sink, ptr %13, align 8, !tbaa !16
   br label %Vec_IntPush.exit49
@@ -400,11 +400,11 @@ Vec_IntPush.exit56.sink.split:                    ; preds = %.critedge
   %49 = shl nuw nsw i32 %45, 1
   %50 = zext nneg i32 %49 to i64
   %51 = shl nuw nsw i64 %50, 2
-  %.sink96 = select i1 %48, i64 64, i64 %51
-  %.sink94 = select i1 %48, i32 16, i32 %49
-  %52 = tail call ptr @realloc(ptr noundef nonnull %44, i64 noundef %.sink96) #26
+  %.sink103 = select i1 %48, i64 64, i64 %51
+  %.sink101 = select i1 %48, i32 16, i32 %49
+  %52 = tail call ptr @realloc(ptr noundef nonnull %44, i64 noundef %.sink103) #26
   store ptr %52, ptr %23, align 8, !tbaa !3
-  store i32 %.sink94, ptr %13, align 8, !tbaa !16
+  store i32 %.sink101, ptr %13, align 8, !tbaa !16
   br label %Vec_IntPush.exit56
 
 Vec_IntPush.exit56:                               ; preds = %Vec_IntPush.exit56.sink.split, %.critedge
@@ -481,14 +481,14 @@ Vec_IntPush.exit56:                               ; preds = %Vec_IntPush.exit56.
   br label %Vec_IntPush.exit63.sink.split
 
 Vec_IntPush.exit63.sink.split:                    ; preds = %83, %85, %75, %77
-  %.sink98 = phi ptr [ %76, %75 ], [ %78, %77 ], [ %84, %83 ], [ %86, %85 ]
-  %.sink97 = phi i32 [ 16, %75 ], [ 16, %77 ], [ %80, %83 ], [ %80, %85 ]
-  store ptr %.sink98, ptr %23, align 8, !tbaa !3
-  store i32 %.sink97, ptr %13, align 8, !tbaa !16
+  %.sink105 = phi ptr [ %76, %75 ], [ %78, %77 ], [ %84, %83 ], [ %86, %85 ]
+  %.sink104 = phi i32 [ 16, %75 ], [ 16, %77 ], [ %80, %83 ], [ %80, %85 ]
+  store ptr %.sink105, ptr %23, align 8, !tbaa !3
+  store i32 %.sink104, ptr %13, align 8, !tbaa !16
   br label %Vec_IntPush.exit63
 
 Vec_IntPush.exit63:                               ; preds = %Vec_IntPush.exit63.sink.split, %65
-  %.pre.i5988 = phi ptr [ %66, %65 ], [ %.sink98, %Vec_IntPush.exit63.sink.split ]
+  %.pre.i5988 = phi ptr [ %66, %65 ], [ %.sink105, %Vec_IntPush.exit63.sink.split ]
   %87 = add nsw i32 %69, 1
   store i32 %87, ptr %15, align 4, !tbaa !15
   %88 = sext i32 %69 to i64
@@ -545,15 +545,15 @@ define noundef range(i32 0, -1) i32 @Vec_IntDoubleWidth(ptr noundef captures(non
   %14 = mul nuw nsw i64 %indvars.iv36, %12
   %15 = sext i32 %factor.op.mul.reass.us to i64
   %invariant.gep = getelementptr inbounds nuw i32, ptr %11, i64 %14
-  %invariant.gep42 = getelementptr i32, ptr %6, i64 %15
+  %invariant.gep44 = getelementptr i32, ptr %6, i64 %15
   br label %16
 
 16:                                               ; preds = %.preheader.us, %16
   %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %16 ]
   %gep = getelementptr inbounds nuw i32, ptr %invariant.gep, i64 %indvars.iv
   %17 = load i32, ptr %gep, align 4, !tbaa !10
-  %gep43 = getelementptr i32, ptr %invariant.gep42, i64 %indvars.iv
-  store i32 %17, ptr %gep43, align 4, !tbaa !10
+  %gep45 = getelementptr i32, ptr %invariant.gep44, i64 %indvars.iv
+  store i32 %17, ptr %gep45, align 4, !tbaa !10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge.us, label %16, !llvm.loop !28
@@ -1470,10 +1470,10 @@ Vta_ManCollectNodes.exit:                         ; preds = %32, %36, %2
 
 .lr.ph:                                           ; preds = %Vta_ManCollectNodes.exit
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %.val389786 = load ptr, ptr %41, align 8, !tbaa !3
-  %46 = load i32, ptr %.val389786, align 4, !tbaa !10
-  %.not.i787 = icmp eq i32 %46, 0
-  br i1 %.not.i787, label %.critedge2, label %Vta_ManObj.exit
+  %.val389830 = load ptr, ptr %41, align 8, !tbaa !3
+  %46 = load i32, ptr %.val389830, align 4, !tbaa !10
+  %.not.i831 = icmp eq i32 %46, 0
+  br i1 %.not.i831, label %.critedge2, label %Vta_ManObj.exit
 
 47:                                               ; preds = %53
   %.val389 = load ptr, ptr %41, align 8, !tbaa !3
@@ -1484,8 +1484,8 @@ Vta_ManCollectNodes.exit:                         ; preds = %32, %36, %2
 
 Vta_ManObj.exit:                                  ; preds = %.lr.ph, %47
   %50 = phi i32 [ %49, %47 ], [ %46, %.lr.ph ]
-  %.val398643789 = phi i32 [ %.val398, %47 ], [ %.val398641, %.lr.ph ]
-  %indvars.iv788 = phi i64 [ %indvars.iv.next, %47 ], [ 0, %.lr.ph ]
+  %.val398643833 = phi i32 [ %.val398, %47 ], [ %.val398641, %.lr.ph ]
+  %indvars.iv832 = phi i64 [ %indvars.iv.next, %47 ], [ 0, %.lr.ph ]
   %51 = load ptr, ptr %0, align 8, !tbaa !30
   %52 = getelementptr i8, ptr %51, i64 32
   %.val403 = load ptr, ptr %52, align 8, !tbaa !63
@@ -1516,17 +1516,17 @@ Vta_ManObj.exit:                                  ; preds = %.lr.ph, %47
   %69 = and i32 %59, 1342177279
   %70 = or disjoint i32 %68, %69
   store i32 %70, ptr %57, align 4
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv788, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv832, 1
   %.val398 = load i32, ptr %43, align 4, !tbaa !15
   %71 = sext i32 %.val398 to i64
   %72 = icmp slt i64 %indvars.iv.next, %71
-  br i1 %72, label %47, label %..critedge2.loopexit_crit_edge791, !llvm.loop !102
+  br i1 %72, label %47, label %..critedge2.loopexit_crit_edge835, !llvm.loop !102
 
-..critedge2.loopexit_crit_edge791:                ; preds = %53
+..critedge2.loopexit_crit_edge835:                ; preds = %53
   br label %.critedge2, !llvm.loop !102
 
-.critedge2:                                       ; preds = %47, %Vta_ManObj.exit, %.lr.ph, %..critedge2.loopexit_crit_edge791, %Vta_ManCollectNodes.exit
-  %.val398.lcssa = phi i32 [ %.val398641, %Vta_ManCollectNodes.exit ], [ %.val398, %..critedge2.loopexit_crit_edge791 ], [ %.val398641, %.lr.ph ], [ %.val398643789, %Vta_ManObj.exit ], [ %.val398, %47 ]
+.critedge2:                                       ; preds = %47, %Vta_ManObj.exit, %.lr.ph, %..critedge2.loopexit_crit_edge835, %Vta_ManCollectNodes.exit
+  %.val398.lcssa = phi i32 [ %.val398641, %Vta_ManCollectNodes.exit ], [ %.val398, %..critedge2.loopexit_crit_edge835 ], [ %.val398641, %.lr.ph ], [ %.val398643833, %Vta_ManObj.exit ], [ %.val398, %47 ]
   %.val426 = load ptr, ptr %41, align 8, !tbaa !3
   %73 = sext i32 %.val398.lcssa to i64
   %74 = getelementptr i32, ptr %.val426, i64 %73
@@ -1952,10 +1952,10 @@ Vec_PtrSort.exit472:                              ; preds = %Vec_PtrSort.exit, %
   br i1 %265, label %.lr.ph667.preheader, label %.critedge14
 
 .lr.ph667.preheader:                              ; preds = %.critedge12.preheader
-  %.val387793 = load ptr, ptr %41, align 8, !tbaa !3
-  %266 = load i32, ptr %.val387793, align 4, !tbaa !10
-  %.not.i473794 = icmp eq i32 %266, 0
-  br i1 %.not.i473794, label %.critedge14, label %Vta_ManObj.exit474
+  %.val387837 = load ptr, ptr %41, align 8, !tbaa !3
+  %266 = load i32, ptr %.val387837, align 4, !tbaa !10
+  %.not.i473838 = icmp eq i32 %266, 0
+  br i1 %.not.i473838, label %.critedge14, label %Vta_ManObj.exit474
 
 .critedge10:                                      ; preds = %.lr.ph663, %.critedge10
   %indvars.iv709 = phi i64 [ 0, %.lr.ph663 ], [ %indvars.iv.next710, %.critedge10 ]
@@ -1982,8 +1982,8 @@ Vec_PtrSort.exit472:                              ; preds = %Vec_PtrSort.exit, %
 
 Vta_ManObj.exit474:                               ; preds = %.lr.ph667.preheader, %.lr.ph667
   %277 = phi i32 [ %276, %.lr.ph667 ], [ %266, %.lr.ph667.preheader ]
-  %.val396666796 = phi i32 [ %.val396, %.lr.ph667 ], [ %.val396664.pr, %.lr.ph667.preheader ]
-  %indvars.iv714795 = phi i64 [ %indvars.iv.next715, %.lr.ph667 ], [ 0, %.lr.ph667.preheader ]
+  %.val396666840 = phi i32 [ %.val396, %.lr.ph667 ], [ %.val396664.pr, %.lr.ph667.preheader ]
+  %indvars.iv714839 = phi i64 [ %indvars.iv.next715, %.lr.ph667 ], [ 0, %.lr.ph667.preheader ]
   %278 = load ptr, ptr %42, align 8, !tbaa !62
   %279 = sext i32 %277 to i64
   %280 = getelementptr inbounds %struct.Vta_Obj_t_, ptr %278, i64 %279
@@ -2258,7 +2258,7 @@ Gia_ObjIsRo.exit.thread:                          ; preds = %376, %Gia_ObjIsRo.e
   br label %.critedge12
 
 .critedge12:                                      ; preds = %.critedge12.sink.split, %Vga_ManFind.exit486, %371, %Gia_ObjIsRo.exit.thread, %286
-  %indvars.iv.next715 = add nuw nsw i64 %indvars.iv714795, 1
+  %indvars.iv.next715 = add nuw nsw i64 %indvars.iv714839, 1
   %.val396 = load i32, ptr %43, align 4, !tbaa !15
   %433 = sext i32 %.val396 to i64
   %434 = icmp slt i64 %indvars.iv.next715, %433
@@ -2268,7 +2268,7 @@ Gia_ObjIsRo.exit.thread:                          ; preds = %376, %Gia_ObjIsRo.e
   br label %.critedge14, !llvm.loop !108
 
 .critedge14:                                      ; preds = %.lr.ph667, %Vta_ManObj.exit474, %.lr.ph667.preheader, %.critedge12..critedge14.loopexit_crit_edge, %.critedge2, %.critedge12.preheader
-  %.val396.lcssa = phi i32 [ %.val396664.pr, %.critedge12.preheader ], [ %.val397, %.critedge2 ], [ %.val396, %.critedge12..critedge14.loopexit_crit_edge ], [ %.val396664.pr, %.lr.ph667.preheader ], [ %.val396666796, %Vta_ManObj.exit474 ], [ %.val396, %.lr.ph667 ]
+  %.val396.lcssa = phi i32 [ %.val396664.pr, %.critedge12.preheader ], [ %.val397, %.critedge2 ], [ %.val396, %.critedge12..critedge14.loopexit_crit_edge ], [ %.val396664.pr, %.lr.ph667.preheader ], [ %.val396666840, %Vta_ManObj.exit474 ], [ %.val396, %.lr.ph667 ]
   %.val428 = load ptr, ptr %41, align 8, !tbaa !3
   %435 = sext i32 %.val396.lcssa to i64
   %436 = getelementptr i32, ptr %.val428, i64 %435
@@ -5346,15 +5346,15 @@ Abc_Clock.exit313:                                ; preds = %88, %95
   %182 = mul nuw nsw i64 %indvars.iv36.i, %180
   %183 = sext i32 %factor.op.mul.reass.us.i to i64
   %invariant.gep.i = getelementptr inbounds nuw i32, ptr %179, i64 %182
-  %invariant.gep42.i = getelementptr i32, ptr %174, i64 %183
+  %invariant.gep44.i = getelementptr i32, ptr %174, i64 %183
   br label %184
 
 184:                                              ; preds = %184, %.preheader.us.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %184 ]
   %gep.i = getelementptr inbounds nuw i32, ptr %invariant.gep.i, i64 %indvars.iv.i
   %185 = load i32, ptr %gep.i, align 4, !tbaa !10
-  %gep43.i = getelementptr i32, ptr %invariant.gep42.i, i64 %indvars.iv.i
-  store i32 %185, ptr %gep43.i, align 4, !tbaa !10
+  %gep45.i = getelementptr i32, ptr %invariant.gep44.i, i64 %indvars.iv.i
+  store i32 %185, ptr %gep45.i, align 4, !tbaa !10
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %180
   br i1 %exitcond.not.i, label %._crit_edge.us.i, label %184, !llvm.loop !28
@@ -5788,7 +5788,7 @@ Vga_ManDelete.exit.i:                             ; preds = %396
   %410 = getelementptr i8, ptr %409, i64 4
   %.val2729.i = load i32, ptr %410, align 4, !tbaa !15
   %411 = icmp sgt i32 %.val2729.i, 0
-  br i1 %411, label %.lr.ph32.i, label %.loopexit656
+  br i1 %411, label %.lr.ph32.i, label %.loopexit698
 
 .lr.ph32.i:                                       ; preds = %._crit_edge.i, %423
   %412 = phi ptr [ %424, %423 ], [ %409, %._crit_edge.i ]
@@ -5820,7 +5820,7 @@ Vta_ManObj.exit.i:                                ; preds = %.lr.ph32.i
   %.val27.i = load i32, ptr %425, align 4, !tbaa !15
   %426 = sext i32 %.val27.i to i64
   %427 = icmp slt i64 %indvars.iv.next.i334, %426
-  br i1 %427, label %.lr.ph32.i, label %.loopexit656, !llvm.loop !167
+  br i1 %427, label %.lr.ph32.i, label %.loopexit698, !llvm.loop !167
 
 428:                                              ; preds = %Vga_ManGetOutLit.exit
   %429 = load ptr, ptr %127, align 8, !tbaa !66
@@ -6702,7 +6702,7 @@ Abc_Clock.exit464:                                ; preds = %Vec_PtrPush.exit, %
 
 868:                                              ; preds = %854
   store i32 -1, ptr %32, align 4, !tbaa !10
-  br label %.loopexit656
+  br label %.loopexit698
 
 Vga_ManRollBack.exit:                             ; preds = %854
   %869 = load ptr, ptr %84, align 8, !tbaa !55
@@ -6715,7 +6715,7 @@ Vga_ManRollBack.exit:                             ; preds = %854
 Vga_ManRollBack.exit.thread.loopexit594:          ; preds = %Abc_Clock.exit436, %Vga_ManRollBack.exit
   %.0219560.ph = phi i32 [ %164, %Abc_Clock.exit436 ], [ %indvars, %Vga_ManRollBack.exit ]
   %872 = icmp eq i32 %673, -1
-  br label %.loopexit656
+  br label %.loopexit698
 
 Vga_ManRollBack.exit.thread:                      ; preds = %Gia_ObjIsRo.exit.thread.i450, %.lr.ph45.i, %.critedge.preheader.i, %724
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
@@ -6724,23 +6724,23 @@ Vga_ManRollBack.exit.thread:                      ; preds = %Gia_ObjIsRo.exit.th
   %874 = icmp eq ptr %873, null
   br i1 %874, label %.thread, label %Vga_ManRollBack.exit.thread.thread
 
-.loopexit656:                                     ; preds = %423, %._crit_edge.i, %868, %Vga_ManRollBack.exit.thread.loopexit594
+.loopexit698:                                     ; preds = %423, %._crit_edge.i, %868, %Vga_ManRollBack.exit.thread.loopexit594
   %.ph = phi i1 [ %872, %Vga_ManRollBack.exit.thread.loopexit594 ], [ true, %868 ], [ true, %._crit_edge.i ], [ true, %423 ]
-  %.0219560.ph640 = phi i32 [ %.0219560.ph, %Vga_ManRollBack.exit.thread.loopexit594 ], [ %164, %868 ], [ %164, %._crit_edge.i ], [ %164, %423 ]
-  %.pre633644 = load ptr, ptr %84, align 8, !tbaa !55
-  %875 = getelementptr inbounds nuw i8, ptr %.pre633644, i64 112
+  %.0219560.ph682 = phi i32 [ %.0219560.ph, %Vga_ManRollBack.exit.thread.loopexit594 ], [ %164, %868 ], [ %164, %._crit_edge.i ], [ %164, %423 ]
+  %.pre633686 = load ptr, ptr %84, align 8, !tbaa !55
+  %875 = getelementptr inbounds nuw i8, ptr %.pre633686, i64 112
   %876 = load i32, ptr %875, align 8, !tbaa !150
   %877 = icmp ne i32 %876, 0
   %or.cond = and i1 %877, %.ph
   br i1 %or.cond, label %878, label %.thread
 
-878:                                              ; preds = %.loopexit656
+878:                                              ; preds = %.loopexit698
   %putchar251 = call i32 @putchar(i32 10)
   br label %.thread
 
-.thread:                                          ; preds = %495, %._crit_edge.i343, %124, %Vga_ManRollBack.exit.thread, %878, %.loopexit656
-  %879 = phi i1 [ %.ph, %878 ], [ %.ph, %.loopexit656 ], [ false, %Vga_ManRollBack.exit.thread ], [ false, %._crit_edge.i343 ], [ undef, %124 ], [ false, %495 ]
-  %.0219560645650 = phi i32 [ %.0219560.ph640, %878 ], [ %.0219560.ph640, %.loopexit656 ], [ %164, %Vga_ManRollBack.exit.thread ], [ %164, %._crit_edge.i343 ], [ 0, %124 ], [ %164, %495 ]
+.thread:                                          ; preds = %495, %._crit_edge.i343, %124, %Vga_ManRollBack.exit.thread, %878, %.loopexit698
+  %879 = phi i1 [ %.ph, %878 ], [ %.ph, %.loopexit698 ], [ false, %Vga_ManRollBack.exit.thread ], [ false, %._crit_edge.i343 ], [ undef, %124 ], [ false, %495 ]
+  %.0219560687692 = phi i32 [ %.0219560.ph682, %878 ], [ %.0219560.ph682, %.loopexit698 ], [ %164, %Vga_ManRollBack.exit.thread ], [ %164, %._crit_edge.i343 ], [ 0, %124 ], [ %164, %495 ]
   %880 = getelementptr inbounds nuw i8, ptr %83, i64 112
   %881 = load ptr, ptr %880, align 8, !tbaa !130
   %882 = getelementptr i8, ptr %881, i64 4
@@ -6805,7 +6805,7 @@ Vec_IntFreeP.exit:                                ; preds = %885, %893
   %910 = load i32, ptr %909, align 8, !tbaa !175
   %911 = getelementptr inbounds nuw i8, ptr %908, i64 128
   %912 = load i32, ptr %911, align 8, !tbaa !197
-  call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.36, i32 noundef %910, i32 noundef %.0219560645650, i32 noundef %912)
+  call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.36, i32 noundef %910, i32 noundef %.0219560687692, i32 noundef %912)
   br label %Vec_IntFreeP.exit473
 
 913:                                              ; preds = %901, %898
@@ -6827,7 +6827,7 @@ Vec_IntFreeP.exit:                                ; preds = %885, %893
   %922 = load ptr, ptr %84, align 8, !tbaa !55
   %923 = getelementptr inbounds nuw i8, ptr %922, i64 128
   %924 = load i32, ptr %923, align 8, !tbaa !197
-  call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.37, i32 noundef %915, i32 noundef %.0219560645650, i32 noundef %924)
+  call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.37, i32 noundef %915, i32 noundef %.0219560687692, i32 noundef %924)
   br label %Vec_IntFreeP.exit473
 
 925:                                              ; preds = %916, %913
@@ -6855,11 +6855,11 @@ Vec_IntFreeP.exit:                                ; preds = %885, %893
   br i1 %.not256, label %944, label %943
 
 943:                                              ; preds = %925
-  call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.38, i32 noundef %939, i32 noundef %.0219560645650)
+  call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.38, i32 noundef %939, i32 noundef %.0219560687692)
   br label %Vec_IntFreeP.exit473
 
 944:                                              ; preds = %925
-  call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.39, i32 noundef %.0219560645650)
+  call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.39, i32 noundef %.0219560687692)
   br label %Vec_IntFreeP.exit473
 
 945:                                              ; preds = %Vec_IntFreeP.exit
@@ -6869,7 +6869,7 @@ Vec_IntFreeP.exit:                                ; preds = %885, %893
   store i32 %948, ptr %946, align 8, !tbaa !56
   %949 = getelementptr inbounds nuw i8, ptr %897, i64 128
   %950 = load i32, ptr %949, align 8, !tbaa !197
-  call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.40, i32 noundef %.0219560645650, i32 noundef %950)
+  call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.40, i32 noundef %.0219560687692, i32 noundef %950)
   br label %Vec_IntFreeP.exit473
 
 Vga_ManRollBack.exit.thread.thread:               ; preds = %Abc_Clock.exit442, %Vga_ManRollBack.exit.thread

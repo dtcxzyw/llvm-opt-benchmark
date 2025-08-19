@@ -92,8 +92,8 @@ define internal fastcc i32 @mbedtls_x509_crt_parse_der_internal(ptr noundef %0, 
 .preheader.preheader:                             ; preds = %6
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %16 = load i32, ptr %15, align 8, !tbaa !3
-  %.not55 = icmp eq i32 %16, 0
-  br i1 %.not55, label %.critedge.thread, label %.lr.ph
+  %.not80 = icmp eq i32 %16, 0
+  br i1 %.not80, label %.critedge.thread, label %.lr.ph
 
 .preheader:                                       ; preds = %.lr.ph
   %17 = getelementptr inbounds nuw i8, ptr %20, i64 56
@@ -102,14 +102,14 @@ define internal fastcc i32 @mbedtls_x509_crt_parse_der_internal(ptr noundef %0, 
   br i1 %.not, label %.critedge.thread, label %.lr.ph, !llvm.loop !21
 
 .lr.ph:                                           ; preds = %.preheader.preheader, %.preheader
-  %.02856 = phi ptr [ %20, %.preheader ], [ %0, %.preheader.preheader ]
-  %19 = getelementptr inbounds nuw i8, ptr %.02856, i64 736
+  %.02881 = phi ptr [ %20, %.preheader ], [ %0, %.preheader.preheader ]
+  %19 = getelementptr inbounds nuw i8, ptr %.02881, i64 736
   %20 = load ptr, ptr %19, align 8, !tbaa !23
   %.not35 = icmp eq ptr %20, null
   br i1 %.not35, label %.critedge, label %.preheader, !llvm.loop !21
 
 .critedge:                                        ; preds = %.lr.ph
-  %21 = getelementptr inbounds nuw i8, ptr %.02856, i64 736
+  %21 = getelementptr inbounds nuw i8, ptr %.02881, i64 736
   %22 = tail call noalias dereferenceable_or_null(744) ptr @calloc(i64 noundef 1, i64 noundef 744) #16
   store ptr %22, ptr %21, align 8, !tbaa !23
   %23 = icmp eq ptr %22, null
@@ -122,7 +122,7 @@ define internal fastcc i32 @mbedtls_x509_crt_parse_der_internal(ptr noundef %0, 
 
 .critedge.thread:                                 ; preds = %.preheader, %.preheader.preheader, %24
   %.129 = phi ptr [ %25, %24 ], [ %0, %.preheader.preheader ], [ %20, %.preheader ]
-  %.1 = phi ptr [ %.02856, %24 ], [ null, %.preheader.preheader ], [ %.02856, %.preheader ]
+  %.1 = phi ptr [ %.02881, %24 ], [ null, %.preheader.preheader ], [ %.02881, %.preheader ]
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
@@ -1703,10 +1703,10 @@ x509_crt_verify_chain_reset.exit:                 ; preds = %18
 .thread.i.i:                                      ; preds = %.lr.ph.i.i
   %39 = getelementptr inbounds nuw i8, ptr %.01636.i.i, i64 24
   %40 = load ptr, ptr %39, align 8, !tbaa !72
-  %.not44.i.i = icmp eq ptr %40, null
-  br i1 %.not44.i.i, label %.critedge.thread47.i.i, label %.lr.ph.i.i, !llvm.loop !93
+  %.not50.i.i = icmp eq ptr %40, null
+  br i1 %.not50.i.i, label %.critedge.thread53.i.i, label %.lr.ph.i.i, !llvm.loop !93
 
-.critedge.thread47.i.i:                           ; preds = %.thread.i.i
+.critedge.thread53.i.i:                           ; preds = %.thread.i.i
   %41 = icmp eq i32 %.01735.ph.i.i, 0
   br label %44
 
@@ -1715,8 +1715,8 @@ x509_crt_verify_chain_reset.exit:                 ; preds = %18
   %43 = icmp eq i32 %.1.i.i, 0
   br i1 %42, label %63, label %44
 
-44:                                               ; preds = %.critedge.i.i, %.critedge.thread47.i.i
-  %45 = phi i1 [ %41, %.critedge.thread47.i.i ], [ %43, %.critedge.i.i ]
+44:                                               ; preds = %.critedge.i.i, %.critedge.thread53.i.i
+  %45 = phi i1 [ %41, %.critedge.thread53.i.i ], [ %43, %.critedge.i.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %46 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %4, i32 noundef 58) #18
   %47 = icmp eq ptr %46, null

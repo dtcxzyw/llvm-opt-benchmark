@@ -88,8 +88,8 @@ define ptr @dtflatten(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   br i1 %.not6279, label %.loopexit, label %.lr.ph82.preheader
 
 .lr.ph82.preheader:                               ; preds = %.lr.ph76, %.preheader68
-  %.049.lcssa89 = phi ptr [ %30, %.preheader68 ], [ %33, %.lr.ph76 ]
-  %.1507888 = phi ptr [ %.15078.pre, %.preheader68 ], [ %.04975, %.lr.ph76 ]
+  %.049.lcssa94 = phi ptr [ %30, %.preheader68 ], [ %33, %.lr.ph76 ]
+  %.1507893 = phi ptr [ %.15078.pre, %.preheader68 ], [ %.04975, %.lr.ph76 ]
   br label %.lr.ph82
 
 .lr.ph76:                                         ; preds = %.preheader69, %.lr.ph76
@@ -105,8 +105,8 @@ define ptr @dtflatten(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   br i1 %.not61, label %.lr.ph82.preheader, label %.lr.ph76, !llvm.loop !22
 
 .lr.ph82:                                         ; preds = %.lr.ph82.preheader, %45
-  %.15081 = phi ptr [ %.150, %45 ], [ %.1507888, %.lr.ph82.preheader ]
-  %.480 = phi ptr [ %.352, %45 ], [ %.049.lcssa89, %.lr.ph82.preheader ]
+  %.15081 = phi ptr [ %.150, %45 ], [ %.1507893, %.lr.ph82.preheader ]
+  %.480 = phi ptr [ %.352, %45 ], [ %.049.lcssa94, %.lr.ph82.preheader ]
   %38 = getelementptr inbounds nuw i8, ptr %.15081, i64 8
   %39 = load ptr, ptr %38, align 8, !tbaa !14
   %.not63 = icmp eq ptr %39, null
@@ -135,7 +135,7 @@ define ptr @dtflatten(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   br i1 %.not62, label %.loopexit, label %.lr.ph82, !llvm.loop !24
 
 .loopexit:                                        ; preds = %25, %45, %10, %.preheader68, %28
-  %.348 = phi ptr [ null, %28 ], [ %30, %.preheader68 ], [ null, %10 ], [ %.049.lcssa89, %45 ], [ %.247, %25 ]
+  %.348 = phi ptr [ null, %28 ], [ %30, %.preheader68 ], [ null, %10 ], [ %.049.lcssa94, %45 ], [ %.247, %25 ]
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %.348, ptr %46, align 8, !tbaa !13
   %47 = load i32, ptr %2, align 8, !tbaa !3

@@ -173,10 +173,10 @@ define void @_Z14principal_compiPKiP6t_atomPA3_fS4_Pf(i32 noundef %0, ptr nounde
   %97 = load double, ptr %8, align 16, !tbaa !9
   %98 = call noundef double @llvm.fabs.f64(double %97)
   %99 = fcmp olt double %96, %98
-  br i1 %99, label %.preheader244, label %.loopexit143
+  br i1 %99, label %.preheader245, label %.loopexit143
 
-.preheader244:                                    ; preds = %93, %.preheader244
-  %indvars.iv186 = phi i64 [ %indvars.iv.next187, %.preheader244 ], [ 0, %93 ]
+.preheader245:                                    ; preds = %93, %.preheader245
+  %indvars.iv186 = phi i64 [ %indvars.iv.next187, %.preheader245 ], [ 0, %93 ]
   %100 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv186
   %101 = load ptr, ptr %100, align 8, !tbaa !4
   %102 = load double, ptr %101, align 8, !tbaa !9
@@ -184,9 +184,9 @@ define void @_Z14principal_compiPKiP6t_atomPA3_fS4_Pf(i32 noundef %0, ptr nounde
   store double %102, ptr %103, align 8, !tbaa !9
   %indvars.iv.next187 = add nuw nsw i64 %indvars.iv186, 1
   %exitcond189.not = icmp eq i64 %indvars.iv.next187, 4
-  br i1 %exitcond189.not, label %104, label %.preheader244, !llvm.loop !25
+  br i1 %exitcond189.not, label %104, label %.preheader245, !llvm.loop !25
 
-104:                                              ; preds = %.preheader244
+104:                                              ; preds = %.preheader245
   store double %95, ptr %8, align 16, !tbaa !9
   br label %105
 
@@ -231,10 +231,10 @@ define void @_Z14principal_compiPKiP6t_atomPA3_fS4_Pf(i32 noundef %0, ptr nounde
   %121 = load double, ptr %120, align 16, !tbaa !9
   %122 = call noundef double @llvm.fabs.f64(double %121)
   %123 = fcmp olt double %122, %.pre-phi
-  br i1 %123, label %.preheader243, label %.loopexit142
+  br i1 %123, label %.preheader244, label %.loopexit142
 
-.preheader243:                                    ; preds = %.loopexit143, %.preheader243
-  %indvars.iv198 = phi i64 [ %indvars.iv.next199, %.preheader243 ], [ 0, %.loopexit143 ]
+.preheader244:                                    ; preds = %.loopexit143, %.preheader244
+  %indvars.iv198 = phi i64 [ %indvars.iv.next199, %.preheader244 ], [ 0, %.loopexit143 ]
   %124 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv198
   %125 = load ptr, ptr %124, align 8, !tbaa !4
   %126 = getelementptr inbounds nuw i8, ptr %125, i64 8
@@ -243,9 +243,9 @@ define void @_Z14principal_compiPKiP6t_atomPA3_fS4_Pf(i32 noundef %0, ptr nounde
   store double %127, ptr %128, align 8, !tbaa !9
   %indvars.iv.next199 = add nuw nsw i64 %indvars.iv198, 1
   %exitcond201.not = icmp eq i64 %indvars.iv.next199, 4
-  br i1 %exitcond201.not, label %129, label %.preheader243, !llvm.loop !28
+  br i1 %exitcond201.not, label %129, label %.preheader244, !llvm.loop !28
 
-129:                                              ; preds = %.preheader243
+129:                                              ; preds = %.preheader244
   store double %121, ptr %94, align 8, !tbaa !9
   br label %130
 
@@ -290,10 +290,10 @@ define void @_Z14principal_compiPKiP6t_atomPA3_fS4_Pf(i32 noundef %0, ptr nounde
   %146 = load double, ptr %8, align 16, !tbaa !9
   %147 = call noundef double @llvm.fabs.f64(double %146)
   %148 = fcmp olt double %.pre-phi241, %147
-  br i1 %148, label %.preheader242, label %.loopexit.preheader
+  br i1 %148, label %.preheader243, label %.loopexit.preheader
 
-.preheader242:                                    ; preds = %.loopexit142, %.preheader242
-  %indvars.iv210 = phi i64 [ %indvars.iv.next211, %.preheader242 ], [ 0, %.loopexit142 ]
+.preheader243:                                    ; preds = %.loopexit142, %.preheader243
+  %indvars.iv210 = phi i64 [ %indvars.iv.next211, %.preheader243 ], [ 0, %.loopexit142 ]
   %149 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv210
   %150 = load ptr, ptr %149, align 8, !tbaa !4
   %151 = load double, ptr %150, align 8, !tbaa !9
@@ -301,9 +301,9 @@ define void @_Z14principal_compiPKiP6t_atomPA3_fS4_Pf(i32 noundef %0, ptr nounde
   store double %151, ptr %152, align 8, !tbaa !9
   %indvars.iv.next211 = add nuw nsw i64 %indvars.iv210, 1
   %exitcond213.not = icmp eq i64 %indvars.iv.next211, 4
-  br i1 %exitcond213.not, label %153, label %.preheader242, !llvm.loop !31
+  br i1 %exitcond213.not, label %153, label %.preheader243, !llvm.loop !31
 
-153:                                              ; preds = %.preheader242
+153:                                              ; preds = %.preheader243
   store double %145, ptr %8, align 16, !tbaa !9
   br label %154
 

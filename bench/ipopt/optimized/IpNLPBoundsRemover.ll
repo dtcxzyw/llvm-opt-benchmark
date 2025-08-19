@@ -3853,12 +3853,12 @@ _ZN5Ipopt8SmartPtrIKNS_11MatrixSpaceEED2Ev.exit22: ; preds = %_ZN5Ipopt8SmartPtr
   ret i1 %40
 
 _ZN5Ipopt8SmartPtrIKNS_11MatrixSpaceEED2Ev.exit17.thread.sink.split: ; preds = %49, %43
-  %.sink40 = phi ptr [ %13, %43 ], [ %21, %49 ]
+  %.sink42 = phi ptr [ %13, %43 ], [ %21, %49 ]
   %.pn1235.ph = phi { ptr, i32 } [ %44, %43 ], [ %50, %49 ]
-  %72 = load ptr, ptr %.sink40, align 8, !tbaa !8
+  %72 = load ptr, ptr %.sink42, align 8, !tbaa !8
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 8
   %74 = load ptr, ptr %73, align 8
-  tail call void %74(ptr noundef nonnull align 8 dereferenceable(20) %.sink40) #19
+  tail call void %74(ptr noundef nonnull align 8 dereferenceable(20) %.sink42) #19
   br label %_ZN5Ipopt8SmartPtrIKNS_11MatrixSpaceEED2Ev.exit17.thread
 
 _ZN5Ipopt8SmartPtrIKNS_11MatrixSpaceEED2Ev.exit17.thread: ; preds = %_ZN5Ipopt8SmartPtrIKNS_11MatrixSpaceEED2Ev.exit17.thread.sink.split, %43, %49

@@ -343,20 +343,20 @@ define dso_local void @default_find_smp_config() local_unnamed_addr #0 section "
 define internal fastcc noundef range(i32 0, 2) i32 @smp_scan_config(i64 noundef range(i64 0, 1048561) %0, i64 noundef range(i64 1024, 65537) %1) unnamed_addr #0 section ".init.text" align 16 {
   %3 = load i32, ptr @apic_verbosity, align 4
   %4 = icmp sgt i32 %3, 0
-  br i1 %4, label %5, label %.preheader26
+  br i1 %4, label %5, label %.preheader27
 
 5:                                                ; preds = %2
   %6 = add nsw i64 %0, -1
   %7 = add nsw i64 %6, %1
   %8 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.37, i64 noundef %0, i64 noundef %7) #11
-  br label %.preheader26
+  br label %.preheader27
 
-.preheader26:                                     ; preds = %5, %2
+.preheader27:                                     ; preds = %5, %2
   br label %9
 
-9:                                                ; preds = %.preheader26, %46
-  %10 = phi i64 [ %47, %46 ], [ %0, %.preheader26 ]
-  %11 = phi i64 [ %48, %46 ], [ %1, %.preheader26 ]
+9:                                                ; preds = %.preheader27, %46
+  %10 = phi i64 [ %47, %46 ], [ %0, %.preheader27 ]
+  %11 = phi i64 [ %48, %46 ], [ %1, %.preheader27 ]
   %12 = tail call ptr @early_memremap(i64 noundef %10, i64 noundef %11) #10
   %13 = load i32, ptr %12, align 4
   %14 = icmp eq i32 %13, 1599098207
@@ -545,14 +545,14 @@ define internal noundef i32 @update_mp_table() #0 section ".init.text" align 16 
   %43 = zext i16 %42 to i64
   %44 = load i64, ptr @mpc_new_length, align 8
   %45 = icmp ult i64 %44, %43
-  br i1 %45, label %46, label %.thread15
+  br i1 %45, label %46, label %.thread21
 
 46:                                               ; preds = %40
   store i64 0, ptr @mpc_new_phys, align 8
   %47 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.43, i64 noundef %44) #11
   %.pr.pre = load i64, ptr @mpc_new_phys, align 8
   %48 = icmp eq i64 %.pr.pre, 0
-  br i1 %48, label %.thread, label %.thread15
+  br i1 %48, label %.thread, label %.thread21
 
 .thread:                                          ; preds = %33, %46
   %49 = getelementptr inbounds nuw i8, ptr %26, i64 7
@@ -604,18 +604,18 @@ define internal noundef i32 @update_mp_table() #0 section ".init.text" align 16 
   %80 = call i32 (ptr, ...) @_printk(ptr noundef nonnull %79) #11
   br i1 %78, label %127, label %121
 
-.thread15:                                        ; preds = %40, %46
-  %.pr17 = phi i64 [ %.pr.pre, %46 ], [ %38, %40 ]
+.thread21:                                        ; preds = %40, %46
+  %.pr23 = phi i64 [ %.pr.pre, %46 ], [ %38, %40 ]
   %81 = load i64, ptr @mpc_new_length, align 8
-  %82 = call ptr @early_memremap(i64 noundef %.pr17, i64 noundef %81) #10
+  %82 = call ptr @early_memremap(i64 noundef %.pr23, i64 noundef %81) #10
   %83 = icmp eq ptr %82, null
   br i1 %83, label %84, label %86
 
-84:                                               ; preds = %.thread15
+84:                                               ; preds = %.thread21
   %85 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.46) #11
   br label %127
 
-86:                                               ; preds = %.thread15
+86:                                               ; preds = %.thread21
   %87 = load i64, ptr @mpc_new_phys, align 8
   %88 = trunc i64 %87 to i32
   store i32 %88, ptr %18, align 4

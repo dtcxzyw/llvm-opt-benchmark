@@ -148,14 +148,14 @@ define hidden range(i32 0, 2) i32 @mlib_ImageConvClearEdge_Bit(ptr noundef reado
   %78 = sext i32 %.val273 to i64
   %79 = zext nneg i32 %62 to i64
   %80 = sext i32 %48 to i64
-  %invariant.gep379 = getelementptr i8, ptr %.val, i64 %79
+  %invariant.gep395 = getelementptr i8, ptr %.val, i64 %79
   br label %.lr.ph292
 
 .lr.ph292:                                        ; preds = %.lr.ph292.preheader, %.lr.ph292
   %indvars.iv336 = phi i64 [ %77, %.lr.ph292.preheader ], [ %indvars.iv.next337, %.lr.ph292 ]
   %81 = mul nsw i64 %indvars.iv336, %78
-  %gep380 = getelementptr i8, ptr %invariant.gep379, i64 %81
-  %82 = getelementptr i8, ptr %gep380, i64 -1
+  %gep396 = getelementptr i8, ptr %invariant.gep395, i64 %81
+  %82 = getelementptr i8, ptr %gep396, i64 -1
   %83 = load i8, ptr %82, align 1
   %84 = zext i8 %83 to i32
   %85 = and i32 %68, %84
@@ -265,14 +265,14 @@ define hidden range(i32 0, 2) i32 @mlib_ImageConvClearEdge_Bit(ptr noundef reado
 
 .preheader280.us:                                 ; preds = %.preheader280.us.preheader, %._crit_edge303.us
   %indvars.iv348 = phi i64 [ 1, %.preheader280.us.preheader ], [ %indvars.iv.next349, %._crit_edge303.us ]
-  %invariant.gep381 = getelementptr i8, ptr %95, i64 %indvars.iv348
+  %invariant.gep397 = getelementptr i8, ptr %95, i64 %indvars.iv348
   br label %148
 
 148:                                              ; preds = %.preheader280.us, %148
   %indvars.iv345 = phi i64 [ %144, %.preheader280.us ], [ %indvars.iv.next346, %148 ]
   %149 = mul nsw i64 %indvars.iv345, %145
-  %gep382 = getelementptr i8, ptr %invariant.gep381, i64 %149
-  store i8 %19, ptr %gep382, align 1
+  %gep398 = getelementptr i8, ptr %invariant.gep397, i64 %149
+  store i8 %19, ptr %gep398, align 1
   %indvars.iv.next346 = add nsw i64 %indvars.iv345, 1
   %150 = icmp slt i64 %indvars.iv.next346, %146
   br i1 %150, label %148, label %._crit_edge303.us, !llvm.loop !14
@@ -290,14 +290,14 @@ define hidden range(i32 0, 2) i32 @mlib_ImageConvClearEdge_Bit(ptr noundef reado
   %152 = sext i32 %.val273 to i64
   %153 = zext nneg i32 %136 to i64
   %154 = sext i32 %122 to i64
-  %invariant.gep383 = getelementptr i8, ptr %95, i64 %153
+  %invariant.gep399 = getelementptr i8, ptr %95, i64 %153
   br label %.lr.ph306
 
 .lr.ph306:                                        ; preds = %.lr.ph306.preheader, %.lr.ph306
   %indvars.iv354 = phi i64 [ %151, %.lr.ph306.preheader ], [ %indvars.iv.next355, %.lr.ph306 ]
   %155 = mul nsw i64 %indvars.iv354, %152
-  %gep384 = getelementptr i8, ptr %invariant.gep383, i64 %155
-  %156 = getelementptr i8, ptr %gep384, i64 -1
+  %gep400 = getelementptr i8, ptr %invariant.gep399, i64 %155
+  %156 = getelementptr i8, ptr %gep400, i64 -1
   %157 = load i8, ptr %156, align 1
   %158 = zext i8 %157 to i32
   %159 = and i32 %142, %158
@@ -329,7 +329,7 @@ define hidden range(i32 0, 2) i32 @mlib_ImageConvClearEdge_Bit(ptr noundef reado
   %176 = zext i32 %165 to i64
   %177 = sext i32 %165 to i64
   %wide.trip.count364 = zext nneg i32 %3 to i64
-  %invariant.gep385 = getelementptr i8, ptr %.val, i64 %177
+  %invariant.gep401 = getelementptr i8, ptr %.val, i64 %177
   br label %178
 
 178:                                              ; preds = %.lr.ph316, %._crit_edge313
@@ -337,8 +337,8 @@ define hidden range(i32 0, 2) i32 @mlib_ImageConvClearEdge_Bit(ptr noundef reado
   %179 = mul nsw i64 %indvar, %175
   %scevgep = getelementptr i8, ptr %.val, i64 %179
   %180 = load i8, ptr %scevgep, align 1
-  %gep386 = getelementptr i8, ptr %invariant.gep385, i64 %179
-  %181 = getelementptr i8, ptr %gep386, i64 -1
+  %gep402 = getelementptr i8, ptr %invariant.gep401, i64 %179
+  %181 = getelementptr i8, ptr %gep402, i64 -1
   %182 = load i8, ptr %181, align 1
   br i1 %171, label %.lr.ph312.preheader, label %._crit_edge313
 

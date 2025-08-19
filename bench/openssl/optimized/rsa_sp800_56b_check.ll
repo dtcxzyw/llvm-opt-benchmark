@@ -792,10 +792,10 @@ ossl_rsa_check_public_exponent.exit.thread:       ; preds = %32, %ossl_rsa_check
   br i1 %78, label %.sink.split, label %79
 
 .sink.split:                                      ; preds = %76, %61, %65, %69, %74, %58
-  %.sink66 = phi i32 [ 428, %58 ], [ 441, %74 ], [ 441, %69 ], [ 441, %65 ], [ 441, %61 ], [ 441, %76 ]
+  %.sink70 = phi i32 [ 428, %58 ], [ 441, %74 ], [ 441, %69 ], [ 441, %65 ], [ 441, %61 ], [ 441, %76 ]
   %.sink = phi i32 [ 175, %58 ], [ 171, %74 ], [ 171, %69 ], [ 171, %65 ], [ 171, %61 ], [ 171, %76 ]
   tail call void @ERR_new() #3
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink66, ptr noundef nonnull @__func__.ossl_rsa_sp800_56b_check_keypair) #3
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink70, ptr noundef nonnull @__func__.ossl_rsa_sp800_56b_check_keypair) #3
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 4, i32 noundef %.sink, ptr noundef null) #3
   br label %79
 

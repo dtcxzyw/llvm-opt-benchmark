@@ -215,16 +215,16 @@ _thumbs_get_overlays_class.exit:                  ; preds = %12, %switch.lookup
   %.str.56.sink.i = phi ptr [ %switch.load, %switch.lookup ], [ @.str.56, %12 ]
   %19 = tail call noalias ptr @g_strdup(ptr noundef nonnull %.str.56.sink.i) #14
   %20 = icmp ult i32 %1, 7
-  br i1 %20, label %switch.lookup58, label %_thumbs_get_overlays_class.exit54
+  br i1 %20, label %switch.lookup61, label %_thumbs_get_overlays_class.exit54
 
-switch.lookup58:                                  ; preds = %_thumbs_get_overlays_class.exit
+switch.lookup61:                                  ; preds = %_thumbs_get_overlays_class.exit
   %21 = zext nneg i32 %1 to i64
-  %switch.gep59 = getelementptr inbounds nuw [7 x ptr], ptr @switch.table.dt_thumbtable_set_overlays_mode.2, i64 0, i64 %21
-  %switch.load60 = load ptr, ptr %switch.gep59, align 8
+  %switch.gep62 = getelementptr inbounds nuw [7 x ptr], ptr @switch.table.dt_thumbtable_set_overlays_mode.2, i64 0, i64 %21
+  %switch.load63 = load ptr, ptr %switch.gep62, align 8
   br label %_thumbs_get_overlays_class.exit54
 
-_thumbs_get_overlays_class.exit54:                ; preds = %_thumbs_get_overlays_class.exit, %switch.lookup58
-  %.str.56.sink.i53 = phi ptr [ %switch.load60, %switch.lookup58 ], [ @.str.56, %_thumbs_get_overlays_class.exit ]
+_thumbs_get_overlays_class.exit54:                ; preds = %_thumbs_get_overlays_class.exit, %switch.lookup61
+  %.str.56.sink.i53 = phi ptr [ %switch.load63, %switch.lookup61 ], [ @.str.56, %_thumbs_get_overlays_class.exit ]
   %22 = tail call noalias ptr @g_strdup(ptr noundef nonnull %.str.56.sink.i53) #14
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %24 = load ptr, ptr %23, align 8, !tbaa !20
@@ -501,17 +501,17 @@ define void @dt_thumbtable_zoom_changed(ptr noundef captures(none) %0, i32 nound
   br label %_thumb_get_at_pos.exit.sink.split.i
 
 _thumb_get_at_pos.exit.sink.split.i:              ; preds = %.lr.ph.i38.i, %.loopexit.i
-  %.lcssa75.sink88.i = phi ptr [ %79, %.loopexit.i ], [ %53, %.lr.ph.i38.i ]
-  %80 = getelementptr inbounds nuw i8, ptr %.lcssa75.sink88.i, i64 16
+  %.lcssa84.sink97.i = phi ptr [ %79, %.loopexit.i ], [ %53, %.lr.ph.i38.i ]
+  %80 = getelementptr inbounds nuw i8, ptr %.lcssa84.sink97.i, i64 16
   %81 = load i32, ptr %80, align 8, !tbaa !39
-  %82 = getelementptr inbounds nuw i8, ptr %.lcssa75.sink88.i, i64 8
+  %82 = getelementptr inbounds nuw i8, ptr %.lcssa84.sink97.i, i64 8
   %83 = load i32, ptr %82, align 8, !tbaa !31
   %84 = sdiv i32 %83, 2
   %85 = add nsw i32 %84, %81
   store i32 %85, ptr %7, align 4, !tbaa !35
-  %86 = getelementptr inbounds nuw i8, ptr %.lcssa75.sink88.i, i64 20
+  %86 = getelementptr inbounds nuw i8, ptr %.lcssa84.sink97.i, i64 20
   %87 = load i32, ptr %86, align 4, !tbaa !40
-  %88 = getelementptr inbounds nuw i8, ptr %.lcssa75.sink88.i, i64 12
+  %88 = getelementptr inbounds nuw i8, ptr %.lcssa84.sink97.i, i64 12
   %89 = load i32, ptr %88, align 4, !tbaa !32
   %90 = sdiv i32 %89, 2
   %91 = add nsw i32 %90, %87
@@ -521,7 +521,7 @@ _thumb_get_at_pos.exit.sink.split.i:              ; preds = %.lr.ph.i38.i, %.loo
 _thumb_get_at_pos.exit.i:                         ; preds = %42, %72, %_thumb_get_at_pos.exit.sink.split.i
   %92 = phi i32 [ %85, %_thumb_get_at_pos.exit.sink.split.i ], [ %57, %72 ], [ %26, %42 ]
   %93 = phi i32 [ %91, %_thumb_get_at_pos.exit.sink.split.i ], [ %60, %72 ], [ %30, %42 ]
-  %.1.i = phi ptr [ %.lcssa75.sink88.i, %_thumb_get_at_pos.exit.sink.split.i ], [ %61, %72 ], [ %31, %42 ]
+  %.1.i = phi ptr [ %.lcssa84.sink97.i, %_thumb_get_at_pos.exit.sink.split.i ], [ %61, %72 ], [ %31, %42 ]
   %94 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %95 = load i32, ptr %94, align 8, !tbaa !42
   %96 = sdiv i32 %95, %2
@@ -721,14 +721,14 @@ _filemanager_zoom.exit:                           ; preds = %_thumb_get_at_pos.e
   br i1 %.not46.i.i, label %195, label %.preheader.i.i
 
 212:                                              ; preds = %._crit_edge.i, %._crit_edge.thread.i
-  %.0.lcssa205.i = phi ptr [ null, %._crit_edge.thread.i ], [ %spec.select.i, %._crit_edge.i ]
-  %.0128.lcssa203.i = phi ptr [ null, %._crit_edge.thread.i ], [ %173, %._crit_edge.i ]
+  %.0.lcssa208.i = phi ptr [ null, %._crit_edge.thread.i ], [ %spec.select.i, %._crit_edge.i ]
+  %.0128.lcssa206.i = phi ptr [ null, %._crit_edge.thread.i ], [ %173, %._crit_edge.i ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %146, i8 0, i64 16, i1 false)
   br label %_pos_compute_area.exit.i
 
 _pos_compute_area.exit.i:                         ; preds = %212, %195
-  %.0.lcssa204.i = phi ptr [ %spec.select.i, %195 ], [ %.0.lcssa205.i, %212 ]
-  %.0128.lcssa202.i = phi ptr [ %173, %195 ], [ %.0128.lcssa203.i, %212 ]
+  %.0.lcssa207.i = phi ptr [ %spec.select.i, %195 ], [ %.0.lcssa208.i, %212 ]
+  %.0128.lcssa205.i = phi ptr [ %173, %195 ], [ %.0128.lcssa206.i, %212 ]
   %213 = phi ptr [ %.pre196.i, %195 ], [ null, %212 ]
   %214 = phi i32 [ %197, %195 ], [ 0, %212 ]
   %215 = phi i32 [ %.0..i.i, %195 ], [ 0, %212 ]
@@ -816,7 +816,7 @@ _pos_compute_area.exit.i:                         ; preds = %212, %195
   br i1 %.not139.i, label %._crit_edge187.i, label %242
 
 ._crit_edge187.i:                                 ; preds = %265, %239
-  %266 = call fastcc i32 @_thumbs_load_needed(ptr noundef nonnull %0, ptr noundef %6, ptr noundef %.0.lcssa204.i, ptr noundef %.0128.lcssa202.i)
+  %266 = call fastcc i32 @_thumbs_load_needed(ptr noundef nonnull %0, ptr noundef %6, ptr noundef %.0.lcssa207.i, ptr noundef %.0128.lcssa205.i)
   %.0121.i.i = load ptr, ptr %6, align 8, !tbaa !21
   %.not2.i.i = icmp eq ptr %.0121.i.i, null
   br i1 %.not2.i.i, label %_thumbs_remove_unneeded.exit.i, label %.lr.ph.i.i14
@@ -2723,12 +2723,12 @@ declare void @dt_control_signal_connect(ptr noundef, i32 noundef, ptr noundef, p
 define internal void @_dt_collection_changed_callback(ptr readnone captures(none) %0, i32 noundef %1, i32 %2, ptr noundef readonly captures(address_is_null) %3, i32 noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %.not = icmp eq ptr %5, null
-  br i1 %.not, label %195, label %8
+  br i1 %.not, label %187, label %8
 
 8:                                                ; preds = %6
   tail call void (...) @dt_collection_history_save() #14
   %9 = icmp eq i32 %1, 3
-  br i1 %9, label %10, label %183
+  br i1 %9, label %10, label %175
 
 10:                                               ; preds = %8
   %11 = tail call i32 (...) @dt_control_get_mouse_over_id() #14
@@ -2915,238 +2915,216 @@ define internal void @_dt_collection_changed_callback(ptr readnone captures(none
   %107 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %.0152219 = load ptr, ptr %107, align 8, !tbaa !21
   %.not180220 = icmp eq ptr %.0152219, null
-  br i1 %.not180220, label %._crit_edge229.thread.thread, label %.lr.ph222
+  br i1 %.not180220, label %._crit_edge229.thread, label %.lr.ph222
 
-._crit_edge229.thread.thread:                     ; preds = %106
-  %108 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  %109 = load i32, ptr %108, align 8, !tbaa !45
-  %.not185259 = icmp eq i32 %109, 1
-  %110 = call fastcc i32 @_thumb_get_imgid(i32 noundef 1)
-  store i32 %110, ptr %28, align 4, !tbaa !89
-  store i32 1, ptr %108, align 8, !tbaa !45
-  br i1 %.not185259, label %153, label %143
+.lr.ph222:                                        ; preds = %106, %112
+  %.0152221 = phi ptr [ %111, %112 ], [ %.0152219, %106 ]
+  %108 = load ptr, ptr %.0152221, align 8, !tbaa !23
+  %109 = load i32, ptr %108, align 8, !tbaa !41
+  %.not181 = icmp eq i32 %109, %.1132
+  %110 = getelementptr inbounds nuw i8, ptr %.0152221, i64 8
+  %111 = load ptr, ptr %110, align 8, !tbaa !21
+  %.not183225 = icmp eq ptr %111, null
+  br i1 %.not181, label %113, label %112
 
-.lr.ph222:                                        ; preds = %106, %115
-  %.0152221 = phi ptr [ %114, %115 ], [ %.0152219, %106 ]
-  %111 = load ptr, ptr %.0152221, align 8, !tbaa !23
-  %112 = load i32, ptr %111, align 8, !tbaa !41
-  %.not181 = icmp eq i32 %112, %.1132
-  %113 = getelementptr inbounds nuw i8, ptr %.0152221, i64 8
-  %114 = load ptr, ptr %113, align 8, !tbaa !21
-  %.not183225 = icmp eq ptr %114, null
-  br i1 %.not181, label %116, label %115
-
-115:                                              ; preds = %.lr.ph222
+112:                                              ; preds = %.lr.ph222
   br i1 %.not183225, label %._crit_edge229.thread, label %.lr.ph222
 
-116:                                              ; preds = %.lr.ph222
-  br i1 %.not183225, label %._crit_edge229, label %.lr.ph228
+113:                                              ; preds = %.lr.ph222
+  br i1 %.not183225, label %.preheader.preheader, label %.lr.ph228
 
-.lr.ph228:                                        ; preds = %116, %121
-  %.0145226 = phi ptr [ %123, %121 ], [ %114, %116 ]
-  %117 = load ptr, ptr %.0145226, align 8, !tbaa !23
-  %118 = load i32, ptr %117, align 8, !tbaa !41
-  %119 = call fastcc i32 @_thumb_get_rowid(i32 noundef %118)
-  %120 = icmp slt i32 %119, 1
-  br i1 %120, label %121, label %.thread203.sink.split
+.lr.ph228:                                        ; preds = %113, %118
+  %.0145226 = phi ptr [ %120, %118 ], [ %111, %113 ]
+  %114 = load ptr, ptr %.0145226, align 8, !tbaa !23
+  %115 = load i32, ptr %114, align 8, !tbaa !41
+  %116 = call fastcc i32 @_thumb_get_rowid(i32 noundef %115)
+  %117 = icmp slt i32 %116, 1
+  br i1 %117, label %118, label %.thread203.sink.split
 
-121:                                              ; preds = %.lr.ph228
-  %122 = getelementptr inbounds nuw i8, ptr %.0145226, i64 8
-  %123 = load ptr, ptr %122, align 8, !tbaa !85
-  %.not183 = icmp eq ptr %123, null
-  br i1 %.not183, label %._crit_edge229, label %.lr.ph228
+118:                                              ; preds = %.lr.ph228
+  %119 = getelementptr inbounds nuw i8, ptr %.0145226, i64 8
+  %120 = load ptr, ptr %119, align 8, !tbaa !85
+  %.not183 = icmp eq ptr %120, null
+  br i1 %.not183, label %.preheader.preheader, label %.lr.ph228
 
-._crit_edge229:                                   ; preds = %121, %116
-  %.1147.lcssa = phi i32 [ %104, %116 ], [ %119, %121 ]
-  %124 = icmp slt i32 %.1147.lcssa, 1
-  br i1 %124, label %.preheader, label %._crit_edge229.thread
+.preheader.preheader:                             ; preds = %118, %113
+  br label %.preheader
 
-.preheader:                                       ; preds = %._crit_edge229, %128
-  %.0153.pn = phi ptr [ %.0143, %128 ], [ %.0152221, %._crit_edge229 ]
+.preheader:                                       ; preds = %.preheader.preheader, %124
+  %.0153.pn = phi ptr [ %.0143, %124 ], [ %.0152221, %.preheader.preheader ]
   %.0143.in = getelementptr inbounds nuw i8, ptr %.0153.pn, i64 16
   %.0143 = load ptr, ptr %.0143.in, align 8, !tbaa !231
   %.not184 = icmp eq ptr %.0143, null
-  br i1 %.not184, label %.thread208, label %128
+  br i1 %.not184, label %.thread208, label %124
 
 .thread208:                                       ; preds = %.preheader
-  %125 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  %126 = load i32, ptr %125, align 8, !tbaa !45
-  %.not185211 = icmp eq i32 %126, 1
-  %127 = call fastcc i32 @_thumb_get_imgid(i32 noundef 1)
-  store i32 %127, ptr %28, align 4, !tbaa !89
-  store i32 1, ptr %125, align 8, !tbaa !45
-  br i1 %.not185211, label %153, label %143
+  %121 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  %122 = load i32, ptr %121, align 8, !tbaa !45
+  %.not185211 = icmp eq i32 %122, 1
+  %123 = call fastcc i32 @_thumb_get_imgid(i32 noundef 1)
+  store i32 %123, ptr %28, align 4, !tbaa !89
+  store i32 1, ptr %121, align 8, !tbaa !45
+  br i1 %.not185211, label %145, label %135
 
-128:                                              ; preds = %.preheader
-  %129 = load ptr, ptr %.0143, align 8, !tbaa !23
-  %130 = load i32, ptr %129, align 8, !tbaa !41
-  %131 = call fastcc i32 @_thumb_get_rowid(i32 noundef %130)
-  %132 = icmp slt i32 %131, 1
-  br i1 %132, label %.preheader, label %.thread203.sink.split
+124:                                              ; preds = %.preheader
+  %125 = load ptr, ptr %.0143, align 8, !tbaa !23
+  %126 = load i32, ptr %125, align 8, !tbaa !41
+  %127 = call fastcc i32 @_thumb_get_rowid(i32 noundef %126)
+  %128 = icmp slt i32 %127, 1
+  br i1 %128, label %.preheader, label %.thread203.sink.split
 
-.thread203.sink.split:                            ; preds = %.lr.ph228, %128
-  %.lcssa261.sink = phi ptr [ %129, %128 ], [ %117, %.lr.ph228 ]
-  %.3149.ph.ph = phi i32 [ %131, %128 ], [ %119, %.lr.ph228 ]
-  %133 = load i32, ptr %.lcssa261.sink, align 8, !tbaa !41
+.thread203.sink.split:                            ; preds = %.lr.ph228, %124
+  %.lcssa282.sink = phi ptr [ %125, %124 ], [ %114, %.lr.ph228 ]
+  %.3149.ph.ph = phi i32 [ %127, %124 ], [ %116, %.lr.ph228 ]
+  %129 = load i32, ptr %.lcssa282.sink, align 8, !tbaa !41
   br label %.thread203
 
 .thread203:                                       ; preds = %.thread203.sink.split, %102
   %.3149.ph = phi i32 [ %104, %102 ], [ %.3149.ph.ph, %.thread203.sink.split ]
-  %.7.ph = phi i32 [ %.1132, %102 ], [ %133, %.thread203.sink.split ]
-  %134 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  %135 = load i32, ptr %134, align 8, !tbaa !45
-  %.not185206 = icmp eq i32 %.3149.ph, %135
+  %.7.ph = phi i32 [ %.1132, %102 ], [ %129, %.thread203.sink.split ]
+  %130 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  %131 = load i32, ptr %130, align 8, !tbaa !45
+  %.not185206 = icmp eq i32 %.3149.ph, %131
   store i32 %.7.ph, ptr %28, align 4, !tbaa !89
-  store i32 %.3149.ph, ptr %134, align 8, !tbaa !45
-  br i1 %.not185206, label %153, label %143
+  store i32 %.3149.ph, ptr %130, align 8, !tbaa !45
+  br i1 %.not185206, label %145, label %135
 
-._crit_edge229.thread:                            ; preds = %115, %._crit_edge229
-  %.1147.lcssa256 = phi i32 [ %.1147.lcssa, %._crit_edge229 ], [ %104, %115 ]
-  %136 = call i32 @llvm.smax.i32(i32 %.1147.lcssa256, i32 1)
-  %137 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  %138 = load i32, ptr %137, align 8, !tbaa !45
-  %.not185 = icmp eq i32 %136, %138
-  %139 = icmp sgt i32 %.1147.lcssa256, 0
-  br i1 %139, label %142, label %140
+._crit_edge229.thread:                            ; preds = %112, %106
+  %132 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  %133 = load i32, ptr %132, align 8, !tbaa !45
+  %.not185 = icmp eq i32 %133, 1
+  %134 = call fastcc i32 @_thumb_get_imgid(i32 noundef 1)
+  store i32 %134, ptr %28, align 4, !tbaa !89
+  store i32 1, ptr %132, align 8, !tbaa !45
+  br i1 %.not185, label %145, label %135
 
-140:                                              ; preds = %._crit_edge229.thread
-  %141 = call fastcc i32 @_thumb_get_imgid(i32 noundef 1)
-  store i32 %141, ptr %28, align 4, !tbaa !89
-  store i32 %136, ptr %137, align 8, !tbaa !45
-  br i1 %.not185, label %153, label %143
+135:                                              ; preds = %.thread208, %.thread203, %._crit_edge229.thread
+  %136 = phi i32 [ 1, %._crit_edge229.thread ], [ %.3149.ph, %.thread203 ], [ 1, %.thread208 ]
+  %137 = phi ptr [ %132, %._crit_edge229.thread ], [ %130, %.thread203 ], [ %121, %.thread208 ]
+  call void @dt_conf_set_int(ptr noundef nonnull @.str.12, i32 noundef %136) #14
+  %138 = load i32, ptr %5, align 8, !tbaa !6
+  %139 = icmp eq i32 %138, 3
+  br i1 %139, label %140, label %142
 
-142:                                              ; preds = %._crit_edge229.thread
-  store i32 %.1132, ptr %28, align 4, !tbaa !89
-  store i32 %136, ptr %137, align 8, !tbaa !45
-  br i1 %.not185, label %153, label %143
+140:                                              ; preds = %135
+  %141 = load i32, ptr %137, align 8, !tbaa !45
+  call void @dt_conf_set_int(ptr noundef nonnull @.str.39, i32 noundef %141) #14
+  br label %142
 
-143:                                              ; preds = %._crit_edge229.thread.thread, %.thread208, %.thread203, %140, %142
-  %144 = phi i32 [ %136, %140 ], [ %136, %142 ], [ %.3149.ph, %.thread203 ], [ 1, %.thread208 ], [ 1, %._crit_edge229.thread.thread ]
-  %145 = phi ptr [ %137, %140 ], [ %137, %142 ], [ %134, %.thread203 ], [ %125, %.thread208 ], [ %108, %._crit_edge229.thread.thread ]
-  call void @dt_conf_set_int(ptr noundef nonnull @.str.12, i32 noundef %144) #14
-  %146 = load i32, ptr %5, align 8, !tbaa !6
-  %147 = icmp eq i32 %146, 3
-  br i1 %147, label %148, label %150
-
-148:                                              ; preds = %143
-  %149 = load i32, ptr %145, align 8, !tbaa !45
-  call void @dt_conf_set_int(ptr noundef nonnull @.str.39, i32 noundef %149) #14
-  br label %150
-
-150:                                              ; preds = %143, %148
+142:                                              ; preds = %135, %140
   call void @dt_thumbtable_full_redraw(ptr noundef nonnull %5, i32 noundef 1)
-  %151 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 80), align 8, !tbaa !46
-  %152 = load i32, ptr %28, align 4, !tbaa !89
-  call void @dt_view_lighttable_change_offset(ptr noundef %151, i32 noundef 0, i32 noundef %152) #14
-  br label %156
+  %143 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 80), align 8, !tbaa !46
+  %144 = load i32, ptr %28, align 4, !tbaa !89
+  call void @dt_view_lighttable_change_offset(ptr noundef %143, i32 noundef 0, i32 noundef %144) #14
+  br label %148
 
-153:                                              ; preds = %._crit_edge229.thread.thread, %.thread208, %142, %140, %.thread203
-  %154 = phi ptr [ %137, %140 ], [ %137, %142 ], [ %134, %.thread203 ], [ %125, %.thread208 ], [ %108, %._crit_edge229.thread.thread ]
+145:                                              ; preds = %.thread208, %._crit_edge229.thread, %.thread203
+  %146 = phi ptr [ %132, %._crit_edge229.thread ], [ %130, %.thread203 ], [ %121, %.thread208 ]
   call void @dt_thumbtable_full_redraw(ptr noundef nonnull %5, i32 noundef 1)
-  %155 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 80), align 8, !tbaa !46
-  call void @dt_view_lighttable_culling_preview_refresh(ptr noundef %155) #14
-  br label %156
+  %147 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 80), align 8, !tbaa !46
+  call void @dt_view_lighttable_culling_preview_refresh(ptr noundef %147) #14
+  br label %148
 
-156:                                              ; preds = %153, %150
-  %157 = phi ptr [ %154, %153 ], [ %145, %150 ]
-  %158 = icmp sgt i32 %.0, 0
-  br i1 %158, label %159, label %165
+148:                                              ; preds = %145, %142
+  %149 = phi ptr [ %146, %145 ], [ %137, %142 ]
+  %150 = icmp sgt i32 %.0, 0
+  br i1 %150, label %151, label %157
 
-159:                                              ; preds = %156
-  %160 = load i32, ptr %157, align 8, !tbaa !45
-  %.not186 = icmp eq i32 %.0, %160
-  br i1 %.not186, label %165, label %161
+151:                                              ; preds = %148
+  %152 = load i32, ptr %149, align 8, !tbaa !45
+  %.not186 = icmp eq i32 %.0, %152
+  br i1 %.not186, label %157, label %153
 
-161:                                              ; preds = %159
-  %162 = call fastcc i32 @_thumb_get_rowid(i32 noundef %.0)
-  %163 = icmp sgt i32 %162, 0
-  br i1 %163, label %164, label %165
+153:                                              ; preds = %151
+  %154 = call fastcc i32 @_thumb_get_rowid(i32 noundef %.0)
+  %155 = icmp sgt i32 %154, 0
+  br i1 %155, label %156, label %157
 
-164:                                              ; preds = %161
-  store i32 %162, ptr %157, align 8, !tbaa !45
+156:                                              ; preds = %153
+  store i32 %154, ptr %149, align 8, !tbaa !45
   store i32 %.0, ptr %28, align 4, !tbaa !89
   call void @dt_thumbtable_full_redraw(ptr noundef nonnull %5, i32 noundef 1)
-  br label %165
+  br label %157
 
-165:                                              ; preds = %161, %164, %159, %156
-  %166 = icmp sgt i32 %11, 0
-  %or.cond5 = and i1 %166, %103
-  br i1 %or.cond5, label %167, label %._crit_edge238.thread
+157:                                              ; preds = %153, %156, %151, %148
+  %158 = icmp sgt i32 %11, 0
+  %or.cond5 = and i1 %158, %103
+  br i1 %or.cond5, label %159, label %._crit_edge238.thread
 
-167:                                              ; preds = %165
-  %168 = getelementptr inbounds nuw i8, ptr %5, i64 132
-  %169 = load i32, ptr %168, align 4, !tbaa !36
-  %.not187 = icmp eq i32 %169, 0
-  br i1 %.not187, label %170, label %172
+159:                                              ; preds = %157
+  %160 = getelementptr inbounds nuw i8, ptr %5, i64 132
+  %161 = load i32, ptr %160, align 4, !tbaa !36
+  %.not187 = icmp eq i32 %161, 0
+  br i1 %.not187, label %162, label %164
 
-170:                                              ; preds = %167
-  %171 = call i32 @dt_view_get_current() #14
-  %.not188 = icmp eq i32 %171, 2
-  br i1 %.not188, label %._crit_edge238.thread, label %172
+162:                                              ; preds = %159
+  %163 = call i32 @dt_view_get_current() #14
+  %.not188 = icmp eq i32 %163, 2
+  br i1 %.not188, label %._crit_edge238.thread, label %164
 
-172:                                              ; preds = %170, %167
-  %173 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %.0133231 = load ptr, ptr %173, align 8, !tbaa !21
+164:                                              ; preds = %162, %159
+  %165 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %.0133231 = load ptr, ptr %165, align 8, !tbaa !21
   %.not189232 = icmp eq ptr %.0133231, null
   br i1 %.not189232, label %._crit_edge238.thread, label %.lr.ph237
 
 ._crit_edge238:                                   ; preds = %.lr.ph237
-  %174 = icmp eq i32 %spec.select, 0
-  %175 = icmp ne i32 %.1135, 0
-  %176 = select i1 %174, i1 %175, i1 false
-  br i1 %176, label %182, label %._crit_edge238.thread
+  %166 = icmp eq i32 %spec.select, 0
+  %167 = icmp ne i32 %.1135, 0
+  %168 = select i1 %166, i1 %167, i1 false
+  br i1 %168, label %174, label %._crit_edge238.thread
 
-.lr.ph237:                                        ; preds = %172, %.lr.ph237
-  %.0133235 = phi ptr [ %.0133, %.lr.ph237 ], [ %.0133231, %172 ]
-  %.0134234 = phi i32 [ %.1135, %.lr.ph237 ], [ 0, %172 ]
-  %.1137233 = phi i32 [ %spec.select, %.lr.ph237 ], [ 0, %172 ]
-  %177 = load ptr, ptr %.0133235, align 8, !tbaa !23
-  %178 = load i32, ptr %177, align 8, !tbaa !41
-  %179 = icmp eq i32 %178, %11
-  %spec.select = select i1 %179, i32 1, i32 %.1137233
-  %180 = icmp eq i32 %178, %4
-  %.1135 = select i1 %180, i32 1, i32 %.0134234
-  %181 = getelementptr inbounds nuw i8, ptr %.0133235, i64 8
-  %.0133 = load ptr, ptr %181, align 8, !tbaa !21
+.lr.ph237:                                        ; preds = %164, %.lr.ph237
+  %.0133235 = phi ptr [ %.0133, %.lr.ph237 ], [ %.0133231, %164 ]
+  %.0134234 = phi i32 [ %.1135, %.lr.ph237 ], [ 0, %164 ]
+  %.1137233 = phi i32 [ %spec.select, %.lr.ph237 ], [ 0, %164 ]
+  %169 = load ptr, ptr %.0133235, align 8, !tbaa !23
+  %170 = load i32, ptr %169, align 8, !tbaa !41
+  %171 = icmp eq i32 %170, %11
+  %spec.select = select i1 %171, i32 1, i32 %.1137233
+  %172 = icmp eq i32 %170, %4
+  %.1135 = select i1 %172, i32 1, i32 %.0134234
+  %173 = getelementptr inbounds nuw i8, ptr %.0133235, i64 8
+  %.0133 = load ptr, ptr %173, align 8, !tbaa !21
   %.not189 = icmp eq ptr %.0133, null
   br i1 %.not189, label %._crit_edge238, label %.lr.ph237
 
-182:                                              ; preds = %._crit_edge238
+174:                                              ; preds = %._crit_edge238
   call void @dt_control_set_mouse_over_id(i32 noundef %4) #14
   br label %._crit_edge238.thread
 
-._crit_edge238.thread:                            ; preds = %172, %._crit_edge238, %182, %170, %165
+._crit_edge238.thread:                            ; preds = %164, %._crit_edge238, %174, %162, %157
   call void (...) @dt_control_queue_redraw_center() #14
-  br label %195
+  br label %187
 
-183:                                              ; preds = %8
-  %184 = tail call i32 @dt_conf_get_int(ptr noundef nonnull @.str.104) #14
-  %185 = icmp sgt i32 %184, 1
-  br i1 %185, label %186, label %188
+175:                                              ; preds = %8
+  %176 = tail call i32 @dt_conf_get_int(ptr noundef nonnull @.str.104) #14
+  %177 = icmp sgt i32 %176, 1
+  br i1 %177, label %178, label %180
 
-186:                                              ; preds = %183
-  %187 = tail call i32 @dt_conf_get_int(ptr noundef nonnull @.str.104) #14
-  br label %188
+178:                                              ; preds = %175
+  %179 = tail call i32 @dt_conf_get_int(ptr noundef nonnull @.str.104) #14
+  br label %180
 
-188:                                              ; preds = %183, %186
-  %189 = phi i32 [ %187, %186 ], [ 1, %183 ]
-  %190 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  store i32 %189, ptr %190, align 8, !tbaa !45
-  %191 = tail call fastcc i32 @_thumb_get_imgid(i32 noundef %189)
-  %192 = getelementptr inbounds nuw i8, ptr %5, i64 36
-  store i32 %191, ptr %192, align 4, !tbaa !89
-  tail call void @dt_conf_set_int(ptr noundef nonnull @.str.12, i32 noundef %189) #14
+180:                                              ; preds = %175, %178
+  %181 = phi i32 [ %179, %178 ], [ 1, %175 ]
+  %182 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  store i32 %181, ptr %182, align 8, !tbaa !45
+  %183 = tail call fastcc i32 @_thumb_get_imgid(i32 noundef %181)
+  %184 = getelementptr inbounds nuw i8, ptr %5, i64 36
+  store i32 %183, ptr %184, align 4, !tbaa !89
+  tail call void @dt_conf_set_int(ptr noundef nonnull @.str.12, i32 noundef %181) #14
   tail call void @dt_conf_set_int(ptr noundef nonnull @.str.104, i32 noundef 0) #14
-  tail call void @dt_conf_set_int(ptr noundef nonnull @.str.39, i32 noundef %189) #14
+  tail call void @dt_conf_set_int(ptr noundef nonnull @.str.39, i32 noundef %181) #14
   tail call void @dt_conf_set_int(ptr noundef nonnull @.str.37, i32 noundef 0) #14
   tail call void @dt_conf_set_int(ptr noundef nonnull @.str.38, i32 noundef 0) #14
   tail call void @dt_thumbtable_full_redraw(ptr noundef nonnull %5, i32 noundef 1)
-  %193 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 80), align 8, !tbaa !46
-  %194 = load i32, ptr %192, align 4, !tbaa !89
-  tail call void @dt_view_lighttable_change_offset(ptr noundef %193, i32 noundef 1, i32 noundef %194) #14
-  br label %195
+  %185 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 80), align 8, !tbaa !46
+  %186 = load i32, ptr %184, align 4, !tbaa !89
+  tail call void @dt_view_lighttable_change_offset(ptr noundef %185, i32 noundef 1, i32 noundef %186) #14
+  br label %187
 
-195:                                              ; preds = %6, %188, %._crit_edge238.thread
+187:                                              ; preds = %6, %180, %._crit_edge238.thread
   ret void
 }
 
@@ -3413,8 +3391,8 @@ define internal void @_dt_mouse_over_image_callback(ptr readnone captures(none) 
 .critedge128:                                     ; preds = %134, %138
   %143 = load i32, ptr %1, align 8, !tbaa !6
   %144 = icmp eq i32 %143, 2
-  %.145 = select i1 %144, i32 4, i32 8
-  tail call void @dt_thumbnail_set_group_border(ptr noundef nonnull %82, i32 noundef %.145) #14
+  %.149 = select i1 %144, i32 4, i32 8
+  tail call void @dt_thumbnail_set_group_border(ptr noundef nonnull %82, i32 noundef %.149) #14
   br label %145
 
 145:                                              ; preds = %.critedge128, %138, %81
@@ -5789,8 +5767,8 @@ tailrecurse:
   br i1 %or.cond.not, label %38, label %.loopexit
 
 38:                                               ; preds = %.thread, %30
-  %.259135 = phi i32 [ %24, %.thread ], [ %spec.select114, %30 ]
-  %39 = tail call fastcc i32 @_move(ptr noundef %0, i32 noundef %.259135, i32 noundef %.263, i32 noundef 1)
+  %.259143 = phi i32 [ %24, %.thread ], [ %spec.select114, %30 ]
+  %39 = tail call fastcc i32 @_move(ptr noundef %0, i32 noundef %.259143, i32 noundef %.263, i32 noundef 1)
   br label %.loopexit
 
 40:                                               ; preds = %25
@@ -6706,7 +6684,7 @@ _pos_get_previous.exit100:                        ; preds = %108, %110, %120, %.
   br i1 %.not93, label %.thread124, label %.thread126
 
 .thread:                                          ; preds = %29, %137
-  %.086143 = phi i32 [ %.086, %137 ], [ 0, %29 ]
+  %.086154 = phi i32 [ %.086, %137 ], [ 0, %29 ]
   %151 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %152 = load i32, ptr %151, align 8, !tbaa !81
   %153 = add i32 %152, %16
@@ -6737,7 +6715,7 @@ _pos_get_previous.exit100:                        ; preds = %108, %110, %120, %.
   br label %170
 
 170:                                              ; preds = %.thread126, %168
-  %.086144 = phi i32 [ %.086143, %168 ], [ %.086, %.thread126 ]
+  %.086155 = phi i32 [ %.086154, %168 ], [ %.086, %.thread126 ]
   %171 = phi i32 [ %152, %168 ], [ %164, %.thread126 ]
   %172 = phi ptr [ %151, %168 ], [ %166, %.thread126 ]
   %.088 = phi i32 [ %169, %168 ], [ %167, %.thread126 ]
@@ -6844,7 +6822,7 @@ _pos_get_next.exit:                               ; preds = %195, %197, %207, %.
   br label %226
 
 226:                                              ; preds = %.lr.ph134, %_pos_get_next.exit109
-  %.4133 = phi i32 [ %.086144, %.lr.ph134 ], [ %.5, %_pos_get_next.exit109 ]
+  %.4133 = phi i32 [ %.086155, %.lr.ph134 ], [ %.5, %_pos_get_next.exit109 ]
   %.0..0..0. = load i32, ptr %9, align 4, !tbaa !35
   %227 = load i32, ptr %172, align 8, !tbaa !81
   %228 = add nsw i32 %227, %.0..0..0.
@@ -6925,7 +6903,7 @@ _pos_get_next.exit109:                            ; preds = %240, %242, %250, %.
   br i1 %264, label %226, label %._crit_edge135
 
 ._crit_edge135:                                   ; preds = %_pos_get_next.exit109, %_pos_get_next.exit
-  %.4.lcssa = phi i32 [ %.086144, %_pos_get_next.exit ], [ %.5, %_pos_get_next.exit109 ]
+  %.4.lcssa = phi i32 [ %.086155, %_pos_get_next.exit ], [ %.5, %_pos_get_next.exit109 ]
   call void @g_free(ptr noundef %181) #14
   %265 = load ptr, ptr %5, align 8, !tbaa !230
   %266 = call i32 @sqlite3_finalize(ptr noundef %265) #14
@@ -6934,7 +6912,7 @@ _pos_get_next.exit109:                            ; preds = %240, %242, %250, %.
   br label %.thread124
 
 .thread124:                                       ; preds = %137, %139, %146, %.thread, %._crit_edge135, %157
-  %.3 = phi i32 [ %.4.lcssa, %._crit_edge135 ], [ %.086, %157 ], [ %.086143, %.thread ], [ %.086, %146 ], [ %.086, %139 ], [ %.086, %137 ]
+  %.3 = phi i32 [ %.4.lcssa, %._crit_edge135 ], [ %.086, %157 ], [ %.086154, %.thread ], [ %.086, %146 ], [ %.086, %139 ], [ %.086, %137 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %267
 

@@ -105,7 +105,7 @@ define i32 @RAND_load_file(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0
 
 40:                                               ; preds = %35, %31
   %41 = icmp eq i32 %33, 0
-  br i1 %41, label %.loopexit51, label %.loopexit
+  br i1 %41, label %.loopexit54, label %.loopexit
 
 .loopexit:                                        ; preds = %39, %40
   %42 = sitofp i32 %33 to double
@@ -118,9 +118,9 @@ define i32 @RAND_load_file(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0
   %45 = ashr exact i64 %sext35, 32
   %46 = sub nsw i64 %.130.ph.ph, %45
   %47 = icmp slt i64 %46, 1
-  br i1 %47, label %.loopexit51, label %.outer.outer
+  br i1 %47, label %.loopexit54, label %.outer.outer
 
-.loopexit51:                                      ; preds = %44, %40
+.loopexit54:                                      ; preds = %44, %40
   %.1 = phi i32 [ %.027.ph, %40 ], [ %43, %44 ]
   call void @OPENSSL_cleanse(ptr noundef nonnull %3, i64 noundef 1280) #10
   %48 = call i32 @fclose(ptr noundef nonnull %7)
@@ -128,14 +128,14 @@ define i32 @RAND_load_file(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0
   %.not36 = icmp eq i32 %49, 0
   br i1 %.not36, label %50, label %51
 
-50:                                               ; preds = %.loopexit51
+50:                                               ; preds = %.loopexit54
   call void @ERR_new() #10
   call void @ERR_set_debug(ptr noundef nonnull @.str.1, i32 noundef 175, ptr noundef nonnull @__func__.RAND_load_file) #10
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 36, i32 noundef 118, ptr noundef nonnull @.str.2, ptr noundef %0) #10
   br label %51
 
-51:                                               ; preds = %.loopexit51, %2, %50, %14, %9
-  %.0 = phi i32 [ -1, %9 ], [ -1, %14 ], [ -1, %50 ], [ 0, %2 ], [ %.1, %.loopexit51 ]
+51:                                               ; preds = %.loopexit54, %2, %50, %14, %9
+  %.0 = phi i32 [ -1, %9 ], [ -1, %14 ], [ -1, %50 ], [ 0, %2 ], [ %.1, %.loopexit54 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0

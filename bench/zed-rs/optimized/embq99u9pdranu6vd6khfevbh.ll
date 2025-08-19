@@ -2950,7 +2950,7 @@ define hidden void @_ZN4core5slice4sort8unstable7ipnsort17h9289f7b544d4f5c6E(ptr
   br label %34
 
 .preheader:                                       ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20sort_unstable_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h1324b7cb8249eee4E.exit"
-  br i1 %.not27, label %.thread35, label %.lr.ph24
+  br i1 %.not27, label %.thread41, label %.lr.ph24
 
 .lr.ph24:                                         ; preds = %.preheader
   %32 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -3103,7 +3103,7 @@ _ZN4core5slice4sort6shared17find_existing_run17h3234dc7b197aebc4E.exit: ; preds 
   br i1 %79, label %80, label %81
 
 80:                                               ; preds = %_ZN4core5slice4sort6shared17find_existing_run17h3234dc7b197aebc4E.exit
-  br i1 %29, label %.thread35, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17he2ed26f6b801e308E.exit"
+  br i1 %29, label %.thread41, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17he2ed26f6b801e308E.exit"
 
 81:                                               ; preds = %_ZN4core5slice4sort6shared17find_existing_run17h3234dc7b197aebc4E.exit
   %82 = or i64 %1, 1
@@ -3117,7 +3117,7 @@ _ZN4core5slice4sort6shared17find_existing_run17h3234dc7b197aebc4E.exit: ; preds 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17he2ed26f6b801e308E.exit": ; preds = %_ZN4core10intrinsics10typed_swap17hd22b9b891da5459fE.exit.i.i, %.preheader19, %3, %80, %81
   ret void
 
-.thread35:                                        ; preds = %.preheader, %80
+.thread41:                                        ; preds = %.preheader, %80
   %87 = lshr i64 %1, 1
   %88 = getelementptr inbounds { i64, [7 x i64] }, ptr %0, i64 %1
   %89 = sub nsw i64 0, %87
@@ -3126,8 +3126,8 @@ _ZN4core5slice4sort6shared17find_existing_run17h3234dc7b197aebc4E.exit: ; preds 
   call void @llvm.experimental.noalias.scope.decl(metadata !1155)
   br label %.lr.ph.preheader.i.i
 
-.lr.ph.preheader.i.i:                             ; preds = %.thread35, %_ZN4core10intrinsics10typed_swap17hd22b9b891da5459fE.exit.i.i
-  %.sroa.0.08.i.i = phi i64 [ %101, %_ZN4core10intrinsics10typed_swap17hd22b9b891da5459fE.exit.i.i ], [ 0, %.thread35 ]
+.lr.ph.preheader.i.i:                             ; preds = %.thread41, %_ZN4core10intrinsics10typed_swap17hd22b9b891da5459fE.exit.i.i
+  %.sroa.0.08.i.i = phi i64 [ %101, %_ZN4core10intrinsics10typed_swap17hd22b9b891da5459fE.exit.i.i ], [ 0, %.thread41 ]
   %91 = xor i64 %.sroa.0.08.i.i, -1
   %92 = add nsw i64 %87, %91
   %93 = getelementptr inbounds nuw [0 x { i64, [7 x i64] }], ptr %0, i64 0, i64 %.sroa.0.08.i.i

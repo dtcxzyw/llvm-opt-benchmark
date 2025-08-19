@@ -1084,14 +1084,14 @@ define dso_local void @__copy_xstate_to_uabi_buf(ptr writeonly captures(none) %0
 
 .thread32.preheader:                              ; preds = %58, %60, %69, %64
   %.ph = phi ptr [ %67, %64 ], [ %72, %69 ], [ %62, %60 ], [ %56, %58 ]
-  %.ph40 = phi i64 [ 0, %64 ], [ %73, %69 ], [ 0, %60 ], [ 0, %58 ]
+  %.ph53 = phi i64 [ 0, %64 ], [ %73, %69 ], [ 0, %60 ], [ 0, %58 ]
   br label %.thread32
 
 .thread32:                                        ; preds = %.thread32.preheader, %122
   %74 = phi i64 [ %130, %122 ], [ 2, %.thread32.preheader ]
   %75 = phi i32 [ %128, %122 ], [ 576, %.thread32.preheader ]
   %76 = phi ptr [ %124, %122 ], [ %.ph, %.thread32.preheader ]
-  %77 = phi i64 [ %123, %122 ], [ %.ph40, %.thread32.preheader ]
+  %77 = phi i64 [ %123, %122 ], [ %.ph53, %.thread32.preheader ]
   %78 = shl nsw i64 -1, %74
   %79 = and i64 %78, %.0..0..0.2
   %80 = icmp eq i64 %79, 0

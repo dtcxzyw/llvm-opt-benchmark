@@ -1289,8 +1289,8 @@ define internal fastcc zeroext i16 @dissect_mausb_mgmt_pkt_ep_handle(ptr noundef
   %29 = load i32, ptr @hf_mausb_mgmt_ep_handle_pad, align 4
   %30 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %29, ptr noundef %1, i32 noundef 12, i32 noundef 4, i32 noundef 0)
   %31 = zext nneg i8 %9 to i32
-  %.not167 = icmp eq i8 %9, 0
-  br i1 %.not167, label %._crit_edge, label %.lr.ph.split.us
+  %.not170 = icmp eq i8 %9, 0
+  br i1 %.not170, label %._crit_edge, label %.lr.ph.split.us
 
 .lr.ph:                                           ; preds = %25
   %32 = icmp samesign ugt i32 %.0119, 16

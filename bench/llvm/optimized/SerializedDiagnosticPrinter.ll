@@ -813,7 +813,7 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit.i47.i.i.i.i: ; preds =
   %278 = phi i8 [ 68, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit.i47.i.i.i.i ], [ %288, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit10.i53.i.i.i.i ]
   %.014.i50.idx.i.i.i.i = phi i64 [ 0, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit.i47.i.i.i.i ], [ %.014.i50.add.i.i.i.i, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit10.i53.i.i.i.i ]
   %.014.i50.add.i.i.i.i = add nuw nsw i64 %.014.i50.idx.i.i.i.i, 1
-  %.ptr549.i.i.i.i = getelementptr inbounds nuw i8, ptr @.str.4, i64 %.014.i50.add.i.i.i.i
+  %.ptr623.i.i.i.i = getelementptr inbounds nuw i8, ptr @.str.4, i64 %.014.i50.add.i.i.i.i
   %279 = sext i8 %278 to i64
   %280 = load i32, ptr %75, align 4, !tbaa !92, !noalias !3
   %.not.i.i.not.i8.i51.i.i.i.i = icmp ult i32 %277, %280
@@ -835,7 +835,7 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit10.i53.i.i.i.i: ; preds
   %storemerge.in.i54.i.i.i.i = load i32, ptr %74, align 8, !tbaa !91, !noalias !3
   %storemerge.i55.i.i.i.i = add i32 %storemerge.in.i54.i.i.i.i, 1
   store i32 %storemerge.i55.i.i.i.i, ptr %74, align 8, !tbaa !91, !noalias !3
-  %288 = load i8, ptr %.ptr549.i.i.i.i, align 1, !tbaa !85, !noalias !3
+  %288 = load i8, ptr %.ptr623.i.i.i.i, align 1, !tbaa !85, !noalias !3
   %exitcond543.i.i.i.i = icmp eq i64 %.014.i50.add.i.i.i.i, 8
   br i1 %exitcond543.i.i.i.i, label %_ZL12EmitRecordIDjPKcRN4llvm15BitstreamWriterERNS1_15SmallVectorImplImEE.exit58.i.i.i.i, label %276, !llvm.loop !149
 
@@ -867,7 +867,7 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit.i60.i.i.i.i: ; preds =
   %297 = phi i8 [ 83, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit.i60.i.i.i.i ], [ %307, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit10.i66.i.i.i.i ]
   %.014.i63.idx.i.i.i.i = phi i64 [ 0, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit.i60.i.i.i.i ], [ %.014.i63.add.i.i.i.i, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit10.i66.i.i.i.i ]
   %.014.i63.add.i.i.i.i = add nuw nsw i64 %.014.i63.idx.i.i.i.i, 1
-  %.ptr550.i.i.i.i = getelementptr inbounds nuw i8, ptr @.str.5, i64 %.014.i63.add.i.i.i.i
+  %.ptr624.i.i.i.i = getelementptr inbounds nuw i8, ptr @.str.5, i64 %.014.i63.add.i.i.i.i
   %298 = sext i8 %297 to i64
   %299 = load i32, ptr %75, align 4, !tbaa !92, !noalias !3
   %.not.i.i.not.i8.i64.i.i.i.i = icmp ult i32 %296, %299
@@ -889,7 +889,7 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit10.i66.i.i.i.i: ; preds
   %storemerge.in.i67.i.i.i.i = load i32, ptr %74, align 8, !tbaa !91, !noalias !3
   %storemerge.i68.i.i.i.i = add i32 %storemerge.in.i67.i.i.i.i, 1
   store i32 %storemerge.i68.i.i.i.i, ptr %74, align 8, !tbaa !91, !noalias !3
-  %307 = load i8, ptr %.ptr550.i.i.i.i, align 1, !tbaa !85, !noalias !3
+  %307 = load i8, ptr %.ptr624.i.i.i.i, align 1, !tbaa !85, !noalias !3
   %exitcond544.i.i.i.i = icmp eq i64 %.014.i63.add.i.i.i.i, 8
   br i1 %exitcond544.i.i.i.i, label %_ZL12EmitRecordIDjPKcRN4llvm15BitstreamWriterERNS1_15SmallVectorImplImEE.exit71.i.i.i.i, label %295, !llvm.loop !149
 
@@ -921,7 +921,7 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit.i73.i.i.i.i: ; preds =
   %316 = phi i8 [ 67, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit.i73.i.i.i.i ], [ %326, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit10.i79.i.i.i.i ]
   %.014.i76.idx.i.i.i.i = phi i64 [ 0, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit.i73.i.i.i.i ], [ %.014.i76.add.i.i.i.i, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit10.i79.i.i.i.i ]
   %.014.i76.add.i.i.i.i = add nuw nsw i64 %.014.i76.idx.i.i.i.i, 1
-  %.ptr551.i.i.i.i = getelementptr inbounds nuw i8, ptr @.str.6, i64 %.014.i76.add.i.i.i.i
+  %.ptr625.i.i.i.i = getelementptr inbounds nuw i8, ptr @.str.6, i64 %.014.i76.add.i.i.i.i
   %317 = sext i8 %316 to i64
   %318 = load i32, ptr %75, align 4, !tbaa !92, !noalias !3
   %.not.i.i.not.i8.i77.i.i.i.i = icmp ult i32 %315, %318
@@ -943,7 +943,7 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit10.i79.i.i.i.i: ; preds
   %storemerge.in.i80.i.i.i.i = load i32, ptr %74, align 8, !tbaa !91, !noalias !3
   %storemerge.i81.i.i.i.i = add i32 %storemerge.in.i80.i.i.i.i, 1
   store i32 %storemerge.i81.i.i.i.i, ptr %74, align 8, !tbaa !91, !noalias !3
-  %326 = load i8, ptr %.ptr551.i.i.i.i, align 1, !tbaa !85, !noalias !3
+  %326 = load i8, ptr %.ptr625.i.i.i.i, align 1, !tbaa !85, !noalias !3
   %exitcond545.i.i.i.i = icmp eq i64 %.014.i76.add.i.i.i.i, 7
   br i1 %exitcond545.i.i.i.i, label %_ZL12EmitRecordIDjPKcRN4llvm15BitstreamWriterERNS1_15SmallVectorImplImEE.exit84.i.i.i.i, label %314, !llvm.loop !149
 
@@ -975,7 +975,7 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit.i86.i.i.i.i: ; preds =
   %335 = phi i8 [ 68, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit.i86.i.i.i.i ], [ %345, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit10.i92.i.i.i.i ]
   %.014.i89.idx.i.i.i.i = phi i64 [ 0, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit.i86.i.i.i.i ], [ %.014.i89.add.i.i.i.i, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit10.i92.i.i.i.i ]
   %.014.i89.add.i.i.i.i = add nuw nsw i64 %.014.i89.idx.i.i.i.i, 1
-  %.ptr552.i.i.i.i = getelementptr inbounds nuw i8, ptr @.str.7, i64 %.014.i89.add.i.i.i.i
+  %.ptr626.i.i.i.i = getelementptr inbounds nuw i8, ptr @.str.7, i64 %.014.i89.add.i.i.i.i
   %336 = sext i8 %335 to i64
   %337 = load i32, ptr %75, align 4, !tbaa !92, !noalias !3
   %.not.i.i.not.i8.i90.i.i.i.i = icmp ult i32 %334, %337
@@ -997,7 +997,7 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit10.i92.i.i.i.i: ; preds
   %storemerge.in.i93.i.i.i.i = load i32, ptr %74, align 8, !tbaa !91, !noalias !3
   %storemerge.i94.i.i.i.i = add i32 %storemerge.in.i93.i.i.i.i, 1
   store i32 %storemerge.i94.i.i.i.i, ptr %74, align 8, !tbaa !91, !noalias !3
-  %345 = load i8, ptr %.ptr552.i.i.i.i, align 1, !tbaa !85, !noalias !3
+  %345 = load i8, ptr %.ptr626.i.i.i.i, align 1, !tbaa !85, !noalias !3
   %exitcond546.i.i.i.i = icmp eq i64 %.014.i89.add.i.i.i.i, 8
   br i1 %exitcond546.i.i.i.i, label %_ZL12EmitRecordIDjPKcRN4llvm15BitstreamWriterERNS1_15SmallVectorImplImEE.exit97.i.i.i.i, label %333, !llvm.loop !149
 
@@ -1029,7 +1029,7 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit.i99.i.i.i.i: ; preds =
   %354 = phi i8 [ 70, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit.i99.i.i.i.i ], [ %364, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit10.i105.i.i.i.i ]
   %.014.i102.idx.i.i.i.i = phi i64 [ 0, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit.i99.i.i.i.i ], [ %.014.i102.add.i.i.i.i, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit10.i105.i.i.i.i ]
   %.014.i102.add.i.i.i.i = add nuw nsw i64 %.014.i102.idx.i.i.i.i, 1
-  %.ptr553.i.i.i.i = getelementptr inbounds nuw i8, ptr @.str.8, i64 %.014.i102.add.i.i.i.i
+  %.ptr627.i.i.i.i = getelementptr inbounds nuw i8, ptr @.str.8, i64 %.014.i102.add.i.i.i.i
   %355 = sext i8 %354 to i64
   %356 = load i32, ptr %75, align 4, !tbaa !92, !noalias !3
   %.not.i.i.not.i8.i103.i.i.i.i = icmp ult i32 %353, %356
@@ -1051,7 +1051,7 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit10.i105.i.i.i.i: ; pred
   %storemerge.in.i106.i.i.i.i = load i32, ptr %74, align 8, !tbaa !91, !noalias !3
   %storemerge.i107.i.i.i.i = add i32 %storemerge.in.i106.i.i.i.i, 1
   store i32 %storemerge.i107.i.i.i.i, ptr %74, align 8, !tbaa !91, !noalias !3
-  %364 = load i8, ptr %.ptr553.i.i.i.i, align 1, !tbaa !85, !noalias !3
+  %364 = load i8, ptr %.ptr627.i.i.i.i, align 1, !tbaa !85, !noalias !3
   %exitcond547.i.i.i.i = icmp eq i64 %.014.i102.add.i.i.i.i, 8
   br i1 %exitcond547.i.i.i.i, label %_ZL12EmitRecordIDjPKcRN4llvm15BitstreamWriterERNS1_15SmallVectorImplImEE.exit110.i.i.i.i, label %352, !llvm.loop !149
 
@@ -1083,7 +1083,7 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit.i112.i.i.i.i: ; preds 
   %373 = phi i8 [ 70, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit.i112.i.i.i.i ], [ %383, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit10.i118.i.i.i.i ]
   %.014.i115.idx.i.i.i.i = phi i64 [ 0, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit.i112.i.i.i.i ], [ %.014.i115.add.i.i.i.i, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit10.i118.i.i.i.i ]
   %.014.i115.add.i.i.i.i = add nuw nsw i64 %.014.i115.idx.i.i.i.i, 1
-  %.ptr554.i.i.i.i = getelementptr inbounds nuw i8, ptr @.str.9, i64 %.014.i115.add.i.i.i.i
+  %.ptr628.i.i.i.i = getelementptr inbounds nuw i8, ptr @.str.9, i64 %.014.i115.add.i.i.i.i
   %374 = sext i8 %373 to i64
   %375 = load i32, ptr %75, align 4, !tbaa !92, !noalias !3
   %.not.i.i.not.i8.i116.i.i.i.i = icmp ult i32 %372, %375
@@ -1105,7 +1105,7 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit10.i118.i.i.i.i: ; pred
   %storemerge.in.i119.i.i.i.i = load i32, ptr %74, align 8, !tbaa !91, !noalias !3
   %storemerge.i120.i.i.i.i = add i32 %storemerge.in.i119.i.i.i.i, 1
   store i32 %storemerge.i120.i.i.i.i, ptr %74, align 8, !tbaa !91, !noalias !3
-  %383 = load i8, ptr %.ptr554.i.i.i.i, align 1, !tbaa !85, !noalias !3
+  %383 = load i8, ptr %.ptr628.i.i.i.i, align 1, !tbaa !85, !noalias !3
   %exitcond548.i.i.i.i = icmp eq i64 %.014.i115.add.i.i.i.i, 5
   br i1 %exitcond548.i.i.i.i, label %384, label %371, !llvm.loop !149
 
@@ -6455,7 +6455,7 @@ _ZN4llvm15BitstreamWriter4EmitEjj.exit:           ; preds = %15, %_ZN4llvm15Bits
   br i1 %.not, label %._crit_edge, label %15, !llvm.loop !336
 
 ._crit_edge:                                      ; preds = %_ZN4llvm15BitstreamWriter4EmitEjj.exit
-  %45 = trunc nuw i64 %44 to i32
+  %45 = trunc nuw nsw i64 %44 to i32
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %47 = shl i32 %45, %storemerge6.i
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 52
@@ -8116,9 +8116,9 @@ _ZN4llvm15BitstreamWriter4EmitEjj.exit20:         ; preds = %71, %_ZN4llvm15Bits
   unreachable
 
 _ZNK4llvm15BitCodeAbbrevOp15hasEncodingDataEv.exit.sink.split: ; preds = %_ZN4llvm15BitstreamWriter4EmitEjj.exit20, %_ZN4llvm15BitstreamWriter4EmitEjj.exit20, %_ZN4llvm15BitstreamWriter4EmitEjj.exit
-  %.sink25 = phi i32 [ 8, %_ZN4llvm15BitstreamWriter4EmitEjj.exit ], [ 5, %_ZN4llvm15BitstreamWriter4EmitEjj.exit20 ], [ 5, %_ZN4llvm15BitstreamWriter4EmitEjj.exit20 ]
+  %.sink30 = phi i32 [ 8, %_ZN4llvm15BitstreamWriter4EmitEjj.exit ], [ 5, %_ZN4llvm15BitstreamWriter4EmitEjj.exit20 ], [ 5, %_ZN4llvm15BitstreamWriter4EmitEjj.exit20 ]
   %101 = load i64, ptr %39, align 8, !tbaa !340
-  tail call void @_ZN4llvm15BitstreamWriter9EmitVBR64Emj(ptr noundef nonnull align 8 dereferenceable(152) %0, i64 noundef %101, i32 noundef %.sink25)
+  tail call void @_ZN4llvm15BitstreamWriter9EmitVBR64Emj(ptr noundef nonnull align 8 dereferenceable(152) %0, i64 noundef %101, i32 noundef %.sink30)
   br label %_ZNK4llvm15BitCodeAbbrevOp15hasEncodingDataEv.exit
 
 _ZNK4llvm15BitCodeAbbrevOp15hasEncodingDataEv.exit: ; preds = %_ZNK4llvm15BitCodeAbbrevOp15hasEncodingDataEv.exit.sink.split, %_ZN4llvm15BitstreamWriter4EmitEjj.exit20, %_ZN4llvm15BitstreamWriter4EmitEjj.exit20, %_ZN4llvm15BitstreamWriter4EmitEjj.exit20
@@ -10151,13 +10151,13 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIjNS_6detail13DenseSetEmptyENS_12DenseMapInfo
   br label %.loopexit
 
 .loopexit:                                        ; preds = %23, %10, %55
-  %.sink28 = phi i32 [ %58, %55 ], [ %8, %10 ], [ %8, %23 ]
-  %.sink26 = phi ptr [ %57, %55 ], [ %6, %10 ], [ %6, %23 ]
-  %.sink25 = phi ptr [ %46, %55 ], [ %15, %10 ], [ %29, %23 ]
+  %.sink32 = phi i32 [ %58, %55 ], [ %8, %10 ], [ %8, %23 ]
+  %.sink30 = phi ptr [ %57, %55 ], [ %6, %10 ], [ %6, %23 ]
+  %.sink29 = phi ptr [ %46, %55 ], [ %15, %10 ], [ %29, %23 ]
   %.sink = phi i8 [ 1, %55 ], [ 0, %10 ], [ 0, %23 ]
-  %59 = zext i32 %.sink28 to i64
-  %60 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair", ptr %.sink26, i64 %59
-  store ptr %.sink25, ptr %0, align 8
+  %59 = zext i32 %.sink32 to i64
+  %60 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair", ptr %.sink30, i64 %59
+  store ptr %.sink29, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %60, ptr %.sroa.4.0..sroa_idx, align 8
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -11252,7 +11252,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IN4llvm9StringRefEvEERKT_
   %79 = load ptr, ptr %78, align 8, !tbaa !88
   %80 = getelementptr inbounds nuw i8, ptr %78, i64 16
   %81 = icmp eq ptr %79, %80
-  br i1 %81, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i
+  br i1 %81, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IN4llvm9StringRefEvEERKT_RKS3_.exit
   %82 = getelementptr inbounds nuw i8, ptr %78, i64 8
@@ -11263,13 +11263,13 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i: ; 
   %86 = icmp eq ptr %85, %56
   br i1 %86, label %89, label %.thread.i
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IN4llvm9StringRefEvEERKT_RKS3_.exit
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IN4llvm9StringRefEvEERKT_RKS3_.exit
   %87 = load ptr, ptr %5, align 8, !tbaa !88
   %88 = icmp eq ptr %87, %56
   br i1 %88, label %89, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit24.thread.i
 
-89:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i
-  %90 = phi ptr [ %87, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i ], [ %85, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i ]
+89:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i
+  %90 = phi ptr [ %87, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i ], [ %85, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i ]
   %91 = load i64, ptr %70, align 8, !tbaa !83
   %92 = icmp ult i64 %91, 16
   call void @llvm.assume(i1 %92)
@@ -11309,7 +11309,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm.exit.i: ; p
   store i64 %102, ptr %80, align 8, !tbaa !85
   br label %108
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit24.thread.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit24.thread.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i
   %103 = load i64, ptr %80, align 8, !tbaa !85
   store ptr %87, ptr %78, align 8, !tbaa !88
   %104 = load i64, ptr %70, align 8, !tbaa !83
@@ -11578,9 +11578,9 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit42: ; preds = %_ZN12_GL
   br i1 %.not.i.i.not.i44, label %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit35, label %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit35.sink.split, !prof !148
 
 _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit35.sink.split: ; preds = %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit42, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit32
-  %.sink60 = phi i32 [ %86, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit32 ], [ %119, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit42 ]
+  %.sink68 = phi i32 [ %86, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit32 ], [ %119, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit42 ]
   %.sink.ph = phi i64 [ %85, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit32 ], [ 0, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit42 ]
-  %121 = zext i32 %.sink60 to i64
+  %121 = zext i32 %.sink68 to i64
   %122 = add nuw nsw i64 %121, 1
   %123 = getelementptr inbounds nuw i8, ptr %.val25, i64 1280
   call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %21, ptr noundef nonnull %123, i64 noundef %122, i64 noundef 8) #20
@@ -11588,10 +11588,10 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit35.sink.split: ; preds 
   br label %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit35
 
 _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit35: ; preds = %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit35.sink.split, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit42, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit32
-  %.sink56 = phi i32 [ %86, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit32 ], [ %119, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit42 ], [ %.pre.i45, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit35.sink.split ]
+  %.sink64 = phi i32 [ %86, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit32 ], [ %119, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit42 ], [ %.pre.i45, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit35.sink.split ]
   %.sink = phi i64 [ %85, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit32 ], [ 0, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit42 ], [ %.sink.ph, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit35.sink.split ]
   %124 = load ptr, ptr %21, align 8, !tbaa !89
-  %125 = zext i32 %.sink56 to i64
+  %125 = zext i32 %.sink64 to i64
   %126 = getelementptr inbounds nuw i64, ptr %124, i64 %125
   store i64 %.sink, ptr %126, align 1
   %storemerge.in = load i32, ptr %22, align 8, !tbaa !91

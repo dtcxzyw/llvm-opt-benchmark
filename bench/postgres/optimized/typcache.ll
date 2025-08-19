@@ -352,9 +352,9 @@ define dso_local ptr @lookup_type_cache(i32 noundef %0, i32 noundef %1) local_un
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.loopexit, %104, %134
-  %.sink535 = phi ptr [ %114, %134 ], [ %41, %104 ], [ %41, %.loopexit ]
+  %.sink569 = phi ptr [ %114, %134 ], [ %41, %104 ], [ %41, %.loopexit ]
   %.0277.ph = phi ptr [ %36, %134 ], [ %63, %104 ], [ %63, %.loopexit ]
-  call void @ReleaseSysCache(ptr noundef nonnull %.sink535) #16
+  call void @ReleaseSysCache(ptr noundef nonnull %.sink569) #16
   br label %164
 
 164:                                              ; preds = %.sink.split, %107
@@ -562,11 +562,11 @@ define dso_local ptr @lookup_type_cache(i32 noundef %0, i32 noundef %1) local_un
   %260 = load i32, ptr %259, align 4
   %.not14.i = icmp eq i32 %260, 0
   %261 = or i32 %.pre478, 8192
-  %spec.select536 = select i1 %.not14.i, i32 %.pre478, i32 %261
+  %spec.select570 = select i1 %.not14.i, i32 %.pre478, i32 %261
   br label %cache_array_element_properties.exit
 
 cache_array_element_properties.exit:              ; preds = %258, %.cache_array_element_properties.exit_crit_edge
-  %262 = phi i32 [ %.pre477, %.cache_array_element_properties.exit_crit_edge ], [ %spec.select536, %258 ]
+  %262 = phi i32 [ %.pre477, %.cache_array_element_properties.exit_crit_edge ], [ %spec.select570, %258 ]
   %263 = or i32 %262, 512
   store i32 %263, ptr %218, align 8
   br label %array_element_has_equality.exit
@@ -702,11 +702,11 @@ record_fields_have_equality.exit:                 ; preds = %266, %269
   %316 = load i32, ptr %315, align 4
   %.not14.i389 = icmp eq i32 %316, 0
   %317 = or i32 %.pre481, 8192
-  %spec.select537 = select i1 %.not14.i389, i32 %.pre481, i32 %317
+  %spec.select571 = select i1 %.not14.i389, i32 %.pre481, i32 %317
   br label %cache_array_element_properties.exit390
 
 cache_array_element_properties.exit390:           ; preds = %314, %.cache_array_element_properties.exit390_crit_edge
-  %318 = phi i32 [ %.pre480, %.cache_array_element_properties.exit390_crit_edge ], [ %spec.select537, %314 ]
+  %318 = phi i32 [ %.pre480, %.cache_array_element_properties.exit390_crit_edge ], [ %spec.select571, %314 ]
   %319 = or i32 %318, 512
   br label %array_element_has_compare.exit
 
@@ -829,11 +829,11 @@ record_fields_have_compare.exit:                  ; preds = %322, %324
   %366 = load i32, ptr %365, align 4
   %.not14.i395 = icmp eq i32 %366, 0
   %367 = or i32 %.pre485, 8192
-  %spec.select538 = select i1 %.not14.i395, i32 %.pre485, i32 %367
+  %spec.select572 = select i1 %.not14.i395, i32 %.pre485, i32 %367
   br label %cache_array_element_properties.exit396
 
 cache_array_element_properties.exit396:           ; preds = %364, %.cache_array_element_properties.exit396_crit_edge
-  %368 = phi i32 [ %.pre484, %.cache_array_element_properties.exit396_crit_edge ], [ %spec.select538, %364 ]
+  %368 = phi i32 [ %.pre484, %.cache_array_element_properties.exit396_crit_edge ], [ %spec.select572, %364 ]
   %369 = or i32 %368, 512
   br label %array_element_has_compare.exit365
 
@@ -956,11 +956,11 @@ record_fields_have_compare.exit367:               ; preds = %372, %374
   %417 = load i32, ptr %416, align 4
   %.not14.i401 = icmp eq i32 %417, 0
   %418 = or i32 %.pre489, 8192
-  %spec.select539 = select i1 %.not14.i401, i32 %.pre489, i32 %418
+  %spec.select573 = select i1 %.not14.i401, i32 %.pre489, i32 %418
   br label %cache_array_element_properties.exit402
 
 cache_array_element_properties.exit402:           ; preds = %415, %.cache_array_element_properties.exit402_crit_edge
-  %419 = phi i32 [ %.pre488, %.cache_array_element_properties.exit402_crit_edge ], [ %spec.select539, %415 ]
+  %419 = phi i32 [ %.pre488, %.cache_array_element_properties.exit402_crit_edge ], [ %spec.select573, %415 ]
   %420 = or i32 %419, 512
   store i32 %420, ptr %383, align 8
   br label %array_element_has_compare.exit369
@@ -1115,11 +1115,11 @@ record_fields_have_compare.exit371:               ; preds = %423, %426
   %482 = load i32, ptr %481, align 4
   %.not14.i407 = icmp eq i32 %482, 0
   %483 = or i32 %.pre498, 8192
-  %spec.select540 = select i1 %.not14.i407, i32 %.pre498, i32 %483
+  %spec.select574 = select i1 %.not14.i407, i32 %.pre498, i32 %483
   br label %cache_array_element_properties.exit408
 
 cache_array_element_properties.exit408:           ; preds = %480, %.cache_array_element_properties.exit408_crit_edge
-  %484 = phi i32 [ %.pre497, %.cache_array_element_properties.exit408_crit_edge ], [ %spec.select540, %480 ]
+  %484 = phi i32 [ %.pre497, %.cache_array_element_properties.exit408_crit_edge ], [ %spec.select574, %480 ]
   %485 = or i32 %484, 512
   store i32 %485, ptr %439, align 8
   br label %array_element_has_hashing.exit
@@ -1198,11 +1198,11 @@ record_fields_have_hashing.exit:                  ; preds = %488, %491
   %515 = load i32, ptr %514, align 4
   %.not11.i410 = icmp eq i32 %515, 0
   %516 = or i32 %.pre495, 8192
-  %spec.select541 = select i1 %.not11.i410, i32 %.pre495, i32 %516
+  %spec.select575 = select i1 %.not11.i410, i32 %.pre495, i32 %516
   br label %cache_range_element_properties.exit
 
 cache_range_element_properties.exit:              ; preds = %513, %.cache_range_element_properties.exit_crit_edge
-  %517 = phi i32 [ %.pre494, %.cache_range_element_properties.exit_crit_edge ], [ %spec.select541, %513 ]
+  %517 = phi i32 [ %.pre494, %.cache_range_element_properties.exit_crit_edge ], [ %spec.select575, %513 ]
   %518 = or i32 %517, 512
   store i32 %518, ptr %439, align 8
   br label %range_element_has_hashing.exit
@@ -1357,11 +1357,11 @@ multirange_element_has_hashing.exit:              ; preds = %521, %524
   %580 = load i32, ptr %579, align 4
   %.not14.i415 = icmp eq i32 %580, 0
   %581 = or i32 %.pre507, 8192
-  %spec.select542 = select i1 %.not14.i415, i32 %.pre507, i32 %581
+  %spec.select576 = select i1 %.not14.i415, i32 %.pre507, i32 %581
   br label %cache_array_element_properties.exit416
 
 cache_array_element_properties.exit416:           ; preds = %578, %.cache_array_element_properties.exit416_crit_edge
-  %582 = phi i32 [ %.pre506, %.cache_array_element_properties.exit416_crit_edge ], [ %spec.select542, %578 ]
+  %582 = phi i32 [ %.pre506, %.cache_array_element_properties.exit416_crit_edge ], [ %spec.select576, %578 ]
   %583 = or i32 %582, 512
   store i32 %583, ptr %537, align 8
   br label %array_element_has_extended_hashing.exit
@@ -1440,11 +1440,11 @@ record_fields_have_extended_hashing.exit:         ; preds = %586, %589
   %613 = load i32, ptr %612, align 4
   %.not11.i419 = icmp eq i32 %613, 0
   %614 = or i32 %.pre504, 8192
-  %spec.select543 = select i1 %.not11.i419, i32 %.pre504, i32 %614
+  %spec.select577 = select i1 %.not11.i419, i32 %.pre504, i32 %614
   br label %cache_range_element_properties.exit420
 
 cache_range_element_properties.exit420:           ; preds = %611, %.cache_range_element_properties.exit420_crit_edge
-  %615 = phi i32 [ %.pre503, %.cache_range_element_properties.exit420_crit_edge ], [ %spec.select543, %611 ]
+  %615 = phi i32 [ %.pre503, %.cache_range_element_properties.exit420_crit_edge ], [ %spec.select577, %611 ]
   %616 = or i32 %615, 512
   store i32 %616, ptr %537, align 8
   br label %range_element_has_extended_hashing.exit
@@ -2286,10 +2286,10 @@ decr_dcc_refcount.exit:                           ; preds = %11, %6, %1
 20:                                               ; preds = %.lr.ph175, %141
   %21 = phi ptr [ %16, %.lr.ph175 ], [ %145, %141 ]
   %22 = phi i64 [ %15, %.lr.ph175 ], [ %144, %141 ]
-  %.085174 = phi ptr [ null, %.lr.ph175 ], [ %.2.lcssa207, %141 ]
+  %.085174 = phi ptr [ null, %.lr.ph175 ], [ %.2.lcssa212, %141 ]
   %.087173 = phi i1 [ false, %.lr.ph175 ], [ %spec.select, %141 ]
-  %.090172 = phi ptr [ null, %.lr.ph175 ], [ %.292.lcssa206, %141 ]
-  %.095171 = phi i32 [ 0, %.lr.ph175 ], [ %.297.lcssa205, %141 ]
+  %.090172 = phi ptr [ null, %.lr.ph175 ], [ %.292.lcssa211, %141 ]
+  %.095171 = phi i32 [ 0, %.lr.ph175 ], [ %.297.lcssa210, %141 ]
   %23 = getelementptr i8, ptr %21, i64 16
   %.val114 = load ptr, ptr %23, align 8
   %24 = getelementptr inbounds nuw i8, ptr %.val114, i64 22
@@ -2540,9 +2540,9 @@ fastgetattr.exit:                                 ; preds = %80
   br label %141
 
 141:                                              ; preds = %._crit_edge.thread, %._crit_edge, %._crit_edge169
-  %.2.lcssa207 = phi ptr [ %.085174, %._crit_edge.thread ], [ %.3, %._crit_edge ], [ %.3, %._crit_edge169 ]
-  %.292.lcssa206 = phi ptr [ %.090172, %._crit_edge.thread ], [ %.393, %._crit_edge ], [ %.393, %._crit_edge169 ]
-  %.297.lcssa205 = phi i32 [ %.095171, %._crit_edge.thread ], [ %.398, %._crit_edge ], [ %.398, %._crit_edge169 ]
+  %.2.lcssa212 = phi ptr [ %.085174, %._crit_edge.thread ], [ %.3, %._crit_edge ], [ %.3, %._crit_edge169 ]
+  %.292.lcssa211 = phi ptr [ %.090172, %._crit_edge.thread ], [ %.393, %._crit_edge ], [ %.393, %._crit_edge169 ]
+  %.297.lcssa210 = phi i32 [ %.095171, %._crit_edge.thread ], [ %.398, %._crit_edge ], [ %.398, %._crit_edge169 ]
   %142 = getelementptr inbounds nuw i8, ptr %27, i64 132
   %143 = load i32, ptr %142, align 4
   call void @ReleaseSysCache(ptr noundef nonnull %21) #16
@@ -3828,7 +3828,7 @@ enum_known_sorted.exit.thread:                    ; preds = %23, %20, %14, %10, 
 
 42:                                               ; preds = %.lr.ph.i.i
   %.not.i.i = icmp eq i32 %1, %40
-  br i1 %.not.i.i, label %find_enumitem.exit.split.loop.exit110, label %43
+  br i1 %.not.i.i, label %find_enumitem.exit.split.loop.exit125, label %43
 
 43:                                               ; preds = %42
   %44 = add nuw i64 %37, 1
@@ -3840,12 +3840,12 @@ enum_known_sorted.exit.thread:                    ; preds = %23, %20, %14, %10, 
   %46 = icmp ult i64 %.1.i.i, %.118.i.i
   br i1 %46, label %.lr.ph.i.i, label %find_enumitem.exit, !llvm.loop !16
 
-find_enumitem.exit.split.loop.exit110:            ; preds = %42
+find_enumitem.exit.split.loop.exit125:            ; preds = %42
   %47 = getelementptr inbounds nuw i8, ptr %34, i64 %38
   br label %find_enumitem.exit
 
-find_enumitem.exit:                               ; preds = %45, %find_enumitem.exit.split.loop.exit110
-  %.0.i47 = phi ptr [ %47, %find_enumitem.exit.split.loop.exit110 ], [ null, %45 ]
+find_enumitem.exit:                               ; preds = %45, %find_enumitem.exit.split.loop.exit125
+  %.0.i47 = phi ptr [ %47, %find_enumitem.exit.split.loop.exit125 ], [ null, %45 ]
   br label %.lr.ph.i.i48
 
 .lr.ph.i.i48:                                     ; preds = %57, %find_enumitem.exit
@@ -3904,7 +3904,7 @@ find_enumitem.exit56.thread:                      ; preds = %57, %enum_known_sor
 
 74:                                               ; preds = %.lr.ph.i.i57
   %.not.i.i60 = icmp eq i32 %1, %72
-  br i1 %.not.i.i60, label %find_enumitem.exit65.split.loop.exit114, label %75
+  br i1 %.not.i.i60, label %find_enumitem.exit65.split.loop.exit129, label %75
 
 75:                                               ; preds = %74
   %76 = add nuw i64 %69, 1
@@ -3916,12 +3916,12 @@ find_enumitem.exit56.thread:                      ; preds = %57, %enum_known_sor
   %78 = icmp ult i64 %.1.i.i62, %.118.i.i61
   br i1 %78, label %.lr.ph.i.i57, label %find_enumitem.exit65, !llvm.loop !16
 
-find_enumitem.exit65.split.loop.exit114:          ; preds = %74
+find_enumitem.exit65.split.loop.exit129:          ; preds = %74
   %79 = getelementptr inbounds nuw i8, ptr %66, i64 %70
   br label %find_enumitem.exit65
 
-find_enumitem.exit65:                             ; preds = %77, %find_enumitem.exit65.split.loop.exit114
-  %.0.i63 = phi ptr [ %79, %find_enumitem.exit65.split.loop.exit114 ], [ null, %77 ]
+find_enumitem.exit65:                             ; preds = %77, %find_enumitem.exit65.split.loop.exit129
+  %.0.i63 = phi ptr [ %79, %find_enumitem.exit65.split.loop.exit129 ], [ null, %77 ]
   br label %.lr.ph.i.i66
 
 .lr.ph.i.i66:                                     ; preds = %89, %find_enumitem.exit65
@@ -3947,18 +3947,18 @@ find_enumitem.exit65:                             ; preds = %77, %find_enumitem.
   %.118.i.i70 = phi i64 [ %.01720.i.i68, %87 ], [ %81, %.lr.ph.i.i66 ]
   %.1.i.i71 = phi i64 [ %88, %87 ], [ %.01621.i.i67, %.lr.ph.i.i66 ]
   %90 = icmp ult i64 %.1.i.i71, %.118.i.i70
-  br i1 %90, label %.lr.ph.i.i66, label %find_enumitem.exit74.thread103, !llvm.loop !16
+  br i1 %90, label %.lr.ph.i.i66, label %find_enumitem.exit74.thread118, !llvm.loop !16
 
 find_enumitem.exit74:                             ; preds = %86
   %91 = getelementptr inbounds nuw i8, ptr %66, i64 %82
   %92 = icmp eq ptr %.0.i63, null
   br i1 %92, label %find_enumitem.exit74.thread, label %103
 
-find_enumitem.exit74.thread103:                   ; preds = %89
+find_enumitem.exit74.thread118:                   ; preds = %89
   %93 = icmp eq ptr %.0.i63, null
   br i1 %93, label %find_enumitem.exit74.thread, label %98
 
-find_enumitem.exit74.thread:                      ; preds = %find_enumitem.exit74.thread103, %find_enumitem.exit56.thread, %find_enumitem.exit74
+find_enumitem.exit74.thread:                      ; preds = %find_enumitem.exit74.thread118, %find_enumitem.exit56.thread, %find_enumitem.exit74
   %94 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #17
   tail call void @llvm.assume(i1 %94)
   %95 = load i32, ptr %0, align 8
@@ -3967,7 +3967,7 @@ find_enumitem.exit74.thread:                      ; preds = %find_enumitem.exit7
   tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 2705, ptr noundef nonnull @__func__.compare_values_of_enum) #16
   unreachable
 
-98:                                               ; preds = %find_enumitem.exit74.thread103
+98:                                               ; preds = %find_enumitem.exit74.thread118
   %99 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #17
   tail call void @llvm.assume(i1 %99)
   %100 = load i32, ptr %0, align 8

@@ -610,8 +610,8 @@ _ZN4ncnn3MatD2Ev.exit407.i.i:                     ; preds = %181
 .lr.ph240.split.i.i:                              ; preds = %.lr.ph240.i.i
   %349 = icmp slt i32 %5, 8
   %350 = icmp ne i32 %28, 8
-  %brmerge356.i.i = or i1 %349, %350
-  br i1 %brmerge356.i.i, label %_ZN4ncnnL34convolution_im2col_input_tile_int8ERKNS_3MatERS0_iiiiiiiiii.exit, label %_ZN4ncnn3MatD2Ev.exit410.us243.us.preheader.i.i
+  %brmerge362.i.i = or i1 %349, %350
+  br i1 %brmerge362.i.i, label %_ZN4ncnnL34convolution_im2col_input_tile_int8ERKNS_3MatERS0_iiiiiiiiii.exit, label %_ZN4ncnn3MatD2Ev.exit410.us243.us.preheader.i.i
 
 _ZN4ncnn3MatD2Ev.exit410.us243.us.preheader.i.i:  ; preds = %.lr.ph240.split.i.i
   %351 = sext i32 %.2358.lcssa.i.i to i64
@@ -1012,8 +1012,8 @@ _ZN17FastDivider_epu32C2Ej.exit1306.i.i:          ; preds = %502, %_ZN17FastDivi
   %606 = mul <8 x i32> %605, %527
   %607 = mul <8 x i32> %603, %529
   %608 = add <8 x i32> %606, %607
-  %shift350 = shufflevector <8 x i32> %607, <8 x i32> poison, <8 x i32> <i32 7, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %609 = icmp eq <8 x i32> %607, %shift350
+  %shift365 = shufflevector <8 x i32> %607, <8 x i32> poison, <8 x i32> <i32 7, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
+  %609 = icmp eq <8 x i32> %607, %shift365
   %610 = extractelement <8 x i1> %609, i64 0
   %or.cond.i.i = and i1 %19, %610
   br i1 %or.cond.i.i, label %611, label %754
@@ -1517,15 +1517,15 @@ _ZN17FastDivider_epu32C2Ej.exit1306.i.i:          ; preds = %502, %_ZN17FastDivi
   br i1 %or.cond3.i.i, label %994, label %1146
 
 994:                                              ; preds = %968
-  %foldExtExtBinop348 = add nsw <4 x i32> %989, %990
-  %995 = extractelement <4 x i32> %foldExtExtBinop348, i64 0
+  %foldExtExtBinop363 = add nsw <4 x i32> %989, %990
+  %995 = extractelement <4 x i32> %foldExtExtBinop363, i64 0
   br i1 %563, label %.preheader87.i.i, label %.loopexit85.i.i
 
 .preheader87.i.i:                                 ; preds = %994
   br i1 %564, label %.lr.ph166.i37.i, label %.preheader86.i.i
 
 .lr.ph166.i37.i:                                  ; preds = %.preheader87.i.i
-  %996 = shufflevector <4 x i32> %foldExtExtBinop348, <4 x i32> poison, <4 x i32> zeroinitializer
+  %996 = shufflevector <4 x i32> %foldExtExtBinop363, <4 x i32> poison, <4 x i32> zeroinitializer
   br label %999
 
 .preheader86.i.i:                                 ; preds = %999, %.preheader87.i.i

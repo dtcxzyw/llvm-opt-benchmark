@@ -625,13 +625,13 @@ thread-pre-split:                                 ; preds = %6, %10, %13
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %21 = load i8, ptr %20, align 2
   %22 = icmp ugt i8 %21, 2
-  br i1 %22, label %27, label %.thread17
+  br i1 %22, label %27, label %.thread20
 
 23:                                               ; preds = %17
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %25 = load i8, ptr %24, align 2
   %26 = icmp ugt i8 %25, 13
-  br i1 %26, label %27, label %.thread17
+  br i1 %26, label %27, label %.thread20
 
 27:                                               ; preds = %23, %19
   %28 = getelementptr i8, ptr %0, i64 53
@@ -642,16 +642,16 @@ thread-pre-split:                                 ; preds = %6, %10, %13
 29:                                               ; preds = %27, %17
   %30 = phi i8 [ %.pre, %27 ], [ %18, %17 ]
   %31 = icmp ugt i8 %30, 5
-  br i1 %31, label %.thread17, label %46
+  br i1 %31, label %.thread20, label %46
 
-.thread17:                                        ; preds = %23, %19, %29
+.thread20:                                        ; preds = %23, %19, %29
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %33 = load volatile i64, ptr %32, align 8
   %34 = and i64 %33, 1073741824
   %35 = icmp eq i64 %34, 0
   br i1 %35, label %36, label %46
 
-36:                                               ; preds = %.thread17
+36:                                               ; preds = %.thread20
   tail call void asm sideeffect "1: wrmsr\0A2:\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A .long 8 \0A .popsection\0A", "{cx},{ax},{dx},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 139, i32 0, i32 0) #14, !srcloc !11
   %37 = tail call { i32, i32, i32, i32 } asm sideeffect "cpuid", "={ax},={bx},={cx},={dx},0,2,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 1, i32 0) #14, !srcloc !23
   %38 = tail call { i64, i64 } asm sideeffect "1: rdmsr\0A2:\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A .long 9 \0A .popsection\0A", "={ax},={dx},{cx},~{dirflag},~{fpsr},~{flags}"(i32 139) #14, !srcloc !19
@@ -665,7 +665,7 @@ thread-pre-split:                                 ; preds = %6, %10, %13
   store i32 %44, ptr %45, align 4
   br label %46
 
-46:                                               ; preds = %36, %.thread17, %29
+46:                                               ; preds = %36, %.thread20, %29
   %47 = getelementptr i8, ptr %0, i64 112
   %48 = load volatile i64, ptr %47, align 8
   %49 = and i64 %48, 67108864
@@ -850,7 +850,7 @@ thread-pre-split:                                 ; preds = %6, %10, %13
 .thread7:                                         ; preds = %..thread7_crit_edge, %140
   %146 = phi i8 [ %.pre14, %..thread7_crit_edge ], [ %142, %140 ]
   %147 = icmp ult i8 %146, 15
-  br i1 %147, label %148, label %.thread18
+  br i1 %147, label %148, label %.thread21
 
 148:                                              ; preds = %.thread7
   tail call void @clear_cpu_cap(ptr noundef %0, i32 noundef 16) #14
@@ -864,15 +864,15 @@ thread-pre-split:                                 ; preds = %6, %10, %13
 
 151:                                              ; preds = %.thread8
   %152 = icmp eq i8 %149, 6
-  br i1 %152, label %.thread18, label %168
+  br i1 %152, label %.thread21, label %168
 
-.thread18:                                        ; preds = %.thread7, %151
+.thread21:                                        ; preds = %.thread7, %151
   %153 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %154 = load i8, ptr %153, align 2
   %155 = icmp ugt i8 %154, 12
   br i1 %155, label %156, label %168
 
-156:                                              ; preds = %.thread18, %.thread8
+156:                                              ; preds = %.thread21, %.thread8
   %157 = tail call { i64, i64 } asm sideeffect "1: rdmsr\0A2:\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A .long 9 \0A .popsection\0A", "={ax},={dx},{cx},~{dirflag},~{fpsr},~{flags}"(i32 416) #14, !srcloc !19
   %158 = extractvalue { i64, i64 } %157, 0
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_read_msr, i64 8), i32 2) #14
@@ -896,7 +896,7 @@ thread-pre-split:                                 ; preds = %6, %10, %13
   tail call void @setup_clear_cpu_cap(i32 noundef 297) #14
   br label %168
 
-168:                                              ; preds = %166, %163, %.thread18, %151
+168:                                              ; preds = %166, %163, %.thread21, %151
   %169 = load i8, ptr %0, align 8
   %170 = icmp eq i8 %169, 5
   br i1 %170, label %171, label %177
@@ -1038,12 +1038,12 @@ define internal void @init_intel(ptr noundef %0) #2 align 16 {
   %48 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 40), align 8
   %49 = and i64 %48, 524288
   %50 = icmp eq i64 %49, 0
-  br i1 %50, label %.thread7, label %51
+  br i1 %50, label %.thread11, label %51
 
 51:                                               ; preds = %47
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %53 = load i8, ptr %52, align 2
-  switch i8 %53, label %.thread7 [
+  switch i8 %53, label %.thread11 [
     i8 29, label %54
     i8 46, label %54
     i8 47, label %54
@@ -1054,15 +1054,15 @@ define internal void @init_intel(ptr noundef %0) #2 align 16 {
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %55, i32 128, ptr elementtype(i8) %55) #14, !srcloc !24
   %.pr.pre = load i8, ptr %0, align 8
   %56 = icmp eq i8 %.pr.pre, 6
-  br i1 %56, label %.thread7, label %.thread
+  br i1 %56, label %.thread11, label %.thread
 
-.thread7:                                         ; preds = %47, %51, %54
+.thread11:                                        ; preds = %47, %51, %54
   %57 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 56), align 8
   %58 = and i64 %57, 8
   %59 = icmp eq i64 %58, 0
   br i1 %59, label %.thread.thread, label %60
 
-60:                                               ; preds = %.thread7
+60:                                               ; preds = %.thread11
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %62 = load i8, ptr %61, align 2
   %63 = icmp eq i8 %62, 92
@@ -1090,7 +1090,7 @@ define internal void @init_intel(ptr noundef %0) #2 align 16 {
   store i32 %71, ptr %72, align 4
   br label %74
 
-.thread.thread:                                   ; preds = %60, %.thread7, %.thread
+.thread.thread:                                   ; preds = %60, %.thread11, %.thread
   %73 = getelementptr i8, ptr %0, i64 54
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %73, i32 1, ptr elementtype(i8) %73) #14, !srcloc !24
   br label %74
@@ -1144,7 +1144,7 @@ define internal void @init_intel(ptr noundef %0) #2 align 16 {
 103:                                              ; preds = %102, %96
   %104 = load i32, ptr @mktme_status, align 4
   %105 = icmp eq i32 %104, 2
-  br i1 %105, label %.thread9, label %106
+  br i1 %105, label %.thread13, label %106
 
 106:                                              ; preds = %103
   %107 = load i64, ptr @detect_tme.tme_activate_cpu0, align 8
@@ -1178,13 +1178,13 @@ define internal void @init_intel(ptr noundef %0) #2 align 16 {
   %120 = icmp eq i64 %119, 3
   br i1 %120, label %140, label %123
 
-.thread9:                                         ; preds = %103
+.thread13:                                        ; preds = %103
   store i64 %101, ptr @detect_tme.tme_activate_cpu0, align 8
   %121 = and i64 %98, 3
   %122 = icmp eq i64 %121, 3
-  br i1 %122, label %.thread10, label %123
+  br i1 %122, label %.thread14, label %123
 
-123:                                              ; preds = %.thread9, %118
+123:                                              ; preds = %.thread13, %118
   %124 = load i1, ptr @detect_tme.__already_done.14, align 1
   br i1 %124, label %127, label %125, !prof !6
 
@@ -1197,18 +1197,18 @@ define internal void @init_intel(ptr noundef %0) #2 align 16 {
   store i32 1, ptr @mktme_status, align 4
   br label %169
 
-.thread10:                                        ; preds = %.thread9
+.thread14:                                        ; preds = %.thread13
   %128 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.16) #16
   %129 = lshr i64 %98, 4
   %130 = and i64 %129, 15
   %131 = icmp eq i64 %130, 0
   br i1 %131, label %134, label %132
 
-132:                                              ; preds = %.thread10
+132:                                              ; preds = %.thread14
   %133 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.17, i64 noundef %130) #16
   br label %134
 
-134:                                              ; preds = %132, %.thread10
+134:                                              ; preds = %132, %.thread14
   %135 = and i64 %101, 281474976710656
   %136 = icmp eq i64 %135, 0
   br i1 %136, label %137, label %140

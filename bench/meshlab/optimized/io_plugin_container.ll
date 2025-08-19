@@ -653,8 +653,8 @@ _ZN4QMapI7QStringP8IOPluginE6detachEv.exit.i:     ; preds = %.noexc, %_ZNKR7QStr
   br label %_ZN4QMapI7QStringP8IOPluginE6insertERKS0_RKS2_.exit
 
 _ZN4QMapI7QStringP8IOPluginE6insertERKS0_RKS2_.exit: ; preds = %.noexc74, %125, %116
-  %.sink614 = phi ptr [ %.121.i, %116 ], [ %120, %125 ], [ %120, %.noexc74 ]
-  %127 = getelementptr inbounds nuw i8, ptr %.sink614, i64 32
+  %.sink658 = phi ptr [ %.121.i, %116 ], [ %120, %125 ], [ %120, %.noexc74 ]
+  %127 = getelementptr inbounds nuw i8, ptr %.sink658, i64 32
   store ptr %1, ptr %127, align 8
   %128 = load ptr, ptr %5, align 8
   %129 = load atomic i32, ptr %128 monotonic, align 4
@@ -944,8 +944,8 @@ _ZN4QMapI7QStringP8IOPluginE6detachEv.exit.i109:  ; preds = %.noexc129, %_ZNKR7Q
   br label %_ZN4QMapI7QStringP8IOPluginE6insertERKS0_RKS2_.exit131
 
 _ZN4QMapI7QStringP8IOPluginE6insertERKS0_RKS2_.exit131: ; preds = %.noexc130, %210, %201
-  %.sink615 = phi ptr [ %.121.i115, %201 ], [ %205, %210 ], [ %205, %.noexc130 ]
-  %212 = getelementptr inbounds nuw i8, ptr %.sink615, i64 32
+  %.sink659 = phi ptr [ %.121.i115, %201 ], [ %205, %210 ], [ %205, %.noexc130 ]
+  %212 = getelementptr inbounds nuw i8, ptr %.sink659, i64 32
   store ptr %1, ptr %212, align 8
   %213 = load ptr, ptr %8, align 8
   %214 = load atomic i32, ptr %213 monotonic, align 4
@@ -1235,8 +1235,8 @@ _ZN4QMapI7QStringP8IOPluginE6detachEv.exit.i166:  ; preds = %.noexc186, %_ZNKR7Q
   br label %_ZN4QMapI7QStringP8IOPluginE6insertERKS0_RKS2_.exit188
 
 _ZN4QMapI7QStringP8IOPluginE6insertERKS0_RKS2_.exit188: ; preds = %.noexc187, %295, %286
-  %.sink616 = phi ptr [ %.121.i172, %286 ], [ %290, %295 ], [ %290, %.noexc187 ]
-  %297 = getelementptr inbounds nuw i8, ptr %.sink616, i64 32
+  %.sink660 = phi ptr [ %.121.i172, %286 ], [ %290, %295 ], [ %290, %.noexc187 ]
+  %297 = getelementptr inbounds nuw i8, ptr %.sink660, i64 32
   store ptr %1, ptr %297, align 8
   %298 = load ptr, ptr %11, align 8
   %299 = load atomic i32, ptr %298 monotonic, align 4
@@ -1526,8 +1526,8 @@ _ZN4QMapI7QStringP8IOPluginE6detachEv.exit.i223:  ; preds = %.noexc243, %_ZNKR7Q
   br label %_ZN4QMapI7QStringP8IOPluginE6insertERKS0_RKS2_.exit245
 
 _ZN4QMapI7QStringP8IOPluginE6insertERKS0_RKS2_.exit245: ; preds = %.noexc244, %380, %371
-  %.sink617 = phi ptr [ %.121.i229, %371 ], [ %375, %380 ], [ %375, %.noexc244 ]
-  %382 = getelementptr inbounds nuw i8, ptr %.sink617, i64 32
+  %.sink661 = phi ptr [ %.121.i229, %371 ], [ %375, %380 ], [ %375, %.noexc244 ]
+  %382 = getelementptr inbounds nuw i8, ptr %.sink661, i64 32
   store ptr %1, ptr %382, align 8
   %383 = load ptr, ptr %14, align 8
   %384 = load atomic i32, ptr %383 monotonic, align 4
@@ -1817,8 +1817,8 @@ _ZN4QMapI7QStringP8IOPluginE6detachEv.exit.i280:  ; preds = %.noexc300, %_ZNKR7Q
   br label %_ZN4QMapI7QStringP8IOPluginE6insertERKS0_RKS2_.exit302
 
 _ZN4QMapI7QStringP8IOPluginE6insertERKS0_RKS2_.exit302: ; preds = %.noexc301, %465, %456
-  %.sink618 = phi ptr [ %.121.i286, %456 ], [ %460, %465 ], [ %460, %.noexc301 ]
-  %467 = getelementptr inbounds nuw i8, ptr %.sink618, i64 32
+  %.sink662 = phi ptr [ %.121.i286, %456 ], [ %460, %465 ], [ %460, %.noexc301 ]
+  %467 = getelementptr inbounds nuw i8, ptr %.sink662, i64 32
   store ptr %1, ptr %467, align 8
   %468 = load ptr, ptr %17, align 8
   %469 = load atomic i32, ptr %468 monotonic, align 4
@@ -2098,8 +2098,8 @@ _ZN4QMapI7QStringP8IOPluginE6detachEv.exit.i337:  ; preds = %.noexc357, %_ZNKR7Q
   br label %_ZN4QMapI7QStringP8IOPluginE6insertERKS0_RKS2_.exit359
 
 _ZN4QMapI7QStringP8IOPluginE6insertERKS0_RKS2_.exit359: ; preds = %.noexc358, %546, %537
-  %.sink619 = phi ptr [ %.121.i343, %537 ], [ %541, %546 ], [ %541, %.noexc358 ]
-  %548 = getelementptr inbounds nuw i8, ptr %.sink619, i64 32
+  %.sink663 = phi ptr [ %.121.i343, %537 ], [ %541, %546 ], [ %541, %.noexc358 ]
+  %548 = getelementptr inbounds nuw i8, ptr %.sink663, i64 32
   store ptr %1, ptr %548, align 8
   %549 = load ptr, ptr %20, align 8
   %550 = load atomic i32, ptr %549 monotonic, align 4
@@ -2235,7 +2235,7 @@ _ZN8QMapDataI7QStringP8IOPluginE10createNodeERKS0_RKS2_P8QMapNodeIS0_S2_Eb.exit:
   %.not14 = icmp eq ptr %31, null
   br i1 %.not14, label %common.ret, label %32
 
-common.ret15:                                     ; preds = %32, %common.ret
+common.ret16:                                     ; preds = %32, %common.ret
   ret ptr %5
 
 32:                                               ; preds = %29
@@ -2247,12 +2247,12 @@ common.ret15:                                     ; preds = %32, %common.ret
   %37 = ptrtoint ptr %5 to i64
   %38 = or i64 %36, %37
   store i64 %38, ptr %33, align 8
-  br label %common.ret15
+  br label %common.ret16
 
 common.ret:                                       ; preds = %29
   %39 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr null, ptr %39, align 8
-  br label %common.ret15
+  br label %common.ret16
 }
 
 declare void @_ZN12QMapDataBase18recalcMostLeftNodeEv(ptr noundef nonnull align 8 dereferenceable(40)) local_unnamed_addr #0
@@ -2404,13 +2404,13 @@ define void @_ZN17IOPluginContainer13eraseIOPluginEP8IOPlugin(ptr noundef nonnul
   %26 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i, i64 16
   %27 = load ptr, ptr %26, align 8
   %28 = icmp eq ptr %27, %1
-  br i1 %28, label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPP8IOPluginSt6vectorIS3_SaIS3_EEEES3_ET_S9_S9_RKT0_.exit.loopexit.split.loop.exit246, label %29
+  br i1 %28, label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPP8IOPluginSt6vectorIS3_SaIS3_EEEES3_ET_S9_S9_RKT0_.exit.loopexit.split.loop.exit272, label %29
 
 29:                                               ; preds = %25
   %30 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i, i64 24
   %31 = load ptr, ptr %30, align 8
   %32 = icmp eq ptr %31, %1
-  br i1 %32, label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPP8IOPluginSt6vectorIS3_SaIS3_EEEES3_ET_S9_S9_RKT0_.exit.loopexit.split.loop.exit248, label %33
+  br i1 %32, label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPP8IOPluginSt6vectorIS3_SaIS3_EEEES3_ET_S9_S9_RKT0_.exit.loopexit.split.loop.exit274, label %33
 
 33:                                               ; preds = %29
   %34 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i, i64 32
@@ -2463,16 +2463,16 @@ _ZSt4findIN9__gnu_cxx17__normal_iteratorIPP8IOPluginSt6vectorIS3_SaIS3_EEEES3_ET
   %49 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i, i64 8
   br label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPP8IOPluginSt6vectorIS3_SaIS3_EEEES3_ET_S9_S9_RKT0_.exit
 
-_ZSt4findIN9__gnu_cxx17__normal_iteratorIPP8IOPluginSt6vectorIS3_SaIS3_EEEES3_ET_S9_S9_RKT0_.exit.loopexit.split.loop.exit246: ; preds = %25
+_ZSt4findIN9__gnu_cxx17__normal_iteratorIPP8IOPluginSt6vectorIS3_SaIS3_EEEES3_ET_S9_S9_RKT0_.exit.loopexit.split.loop.exit272: ; preds = %25
   %50 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i, i64 16
   br label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPP8IOPluginSt6vectorIS3_SaIS3_EEEES3_ET_S9_S9_RKT0_.exit
 
-_ZSt4findIN9__gnu_cxx17__normal_iteratorIPP8IOPluginSt6vectorIS3_SaIS3_EEEES3_ET_S9_S9_RKT0_.exit.loopexit.split.loop.exit248: ; preds = %29
+_ZSt4findIN9__gnu_cxx17__normal_iteratorIPP8IOPluginSt6vectorIS3_SaIS3_EEEES3_ET_S9_S9_RKT0_.exit.loopexit.split.loop.exit274: ; preds = %29
   %51 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i, i64 24
   br label %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPP8IOPluginSt6vectorIS3_SaIS3_EEEES3_ET_S9_S9_RKT0_.exit
 
-_ZSt4findIN9__gnu_cxx17__normal_iteratorIPP8IOPluginSt6vectorIS3_SaIS3_EEEES3_ET_S9_S9_RKT0_.exit: ; preds = %18, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPP8IOPluginSt6vectorIS3_SaIS3_EEEES3_ET_S9_S9_RKT0_.exit.loopexit.split.loop.exit, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPP8IOPluginSt6vectorIS3_SaIS3_EEEES3_ET_S9_S9_RKT0_.exit.loopexit.split.loop.exit246, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPP8IOPluginSt6vectorIS3_SaIS3_EEEES3_ET_S9_S9_RKT0_.exit.loopexit.split.loop.exit248, %._crit_edge.i.i.i, %38, %._crit_edge._crit_edge.i.i.i, %._crit_edge._crit_edge57.i.i.i
-  %.sroa.08.0.in.sroa.speculated.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i, %38 ], [ %.sroa.032.1.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %11, %._crit_edge.i.i.i ], [ %spec.select.i.i.i, %._crit_edge._crit_edge57.i.i.i ], [ %49, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPP8IOPluginSt6vectorIS3_SaIS3_EEEES3_ET_S9_S9_RKT0_.exit.loopexit.split.loop.exit ], [ %50, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPP8IOPluginSt6vectorIS3_SaIS3_EEEES3_ET_S9_S9_RKT0_.exit.loopexit.split.loop.exit246 ], [ %51, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPP8IOPluginSt6vectorIS3_SaIS3_EEEES3_ET_S9_S9_RKT0_.exit.loopexit.split.loop.exit248 ], [ %.sroa.032.051.i.i.i, %18 ]
+_ZSt4findIN9__gnu_cxx17__normal_iteratorIPP8IOPluginSt6vectorIS3_SaIS3_EEEES3_ET_S9_S9_RKT0_.exit: ; preds = %18, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPP8IOPluginSt6vectorIS3_SaIS3_EEEES3_ET_S9_S9_RKT0_.exit.loopexit.split.loop.exit, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPP8IOPluginSt6vectorIS3_SaIS3_EEEES3_ET_S9_S9_RKT0_.exit.loopexit.split.loop.exit272, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPP8IOPluginSt6vectorIS3_SaIS3_EEEES3_ET_S9_S9_RKT0_.exit.loopexit.split.loop.exit274, %._crit_edge.i.i.i, %38, %._crit_edge._crit_edge.i.i.i, %._crit_edge._crit_edge57.i.i.i
+  %.sroa.08.0.in.sroa.speculated.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i, %38 ], [ %.sroa.032.1.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %11, %._crit_edge.i.i.i ], [ %spec.select.i.i.i, %._crit_edge._crit_edge57.i.i.i ], [ %49, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPP8IOPluginSt6vectorIS3_SaIS3_EEEES3_ET_S9_S9_RKT0_.exit.loopexit.split.loop.exit ], [ %50, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPP8IOPluginSt6vectorIS3_SaIS3_EEEES3_ET_S9_S9_RKT0_.exit.loopexit.split.loop.exit272 ], [ %51, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPP8IOPluginSt6vectorIS3_SaIS3_EEEES3_ET_S9_S9_RKT0_.exit.loopexit.split.loop.exit274 ], [ %.sroa.032.051.i.i.i, %18 ]
   %52 = ptrtoint ptr %.sroa.08.0.in.sroa.speculated.i.i.i to i64
   %53 = sub i64 %52, %13
   %54 = getelementptr inbounds i8, ptr %9, i64 %53

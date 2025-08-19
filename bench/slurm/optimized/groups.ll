@@ -168,7 +168,7 @@ _get_group_cache.exit.i:                          ; preds = %.loopexit.i.i
   %.06288.i = phi i32 [ %62, %61 ], [ %50, %47 ]
   %59 = load i32, ptr %53, align 4
   %60 = icmp eq i32 %59, 34
-  br i1 %60, label %61, label %_get_group_members.exit.thread90
+  br i1 %60, label %61, label %_get_group_members.exit.thread113
 
 61:                                               ; preds = %.lr.ph.i
   %62 = shl nuw nsw i32 %.06288.i, 1
@@ -183,7 +183,7 @@ _get_group_cache.exit.i:                          ; preds = %.loopexit.i.i
   %or.cond.i = select i1 %67, i1 %69, i1 false
   br i1 %or.cond.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !11
 
-_get_group_members.exit.thread90:                 ; preds = %.lr.ph.i
+_get_group_members.exit.thread113:                ; preds = %.lr.ph.i
   %70 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.6, ptr noundef nonnull @__func__._get_group_members, ptr noundef nonnull %.01264) #12
   call void @slurm_xfree(ptr noundef nonnull %3) #12
   br label %.sink.split
@@ -476,9 +476,9 @@ _get_group_members.exit.thread90:                 ; preds = %.lr.ph.i
 
 _put_group_cache.exit.i:                          ; preds = %201
   %.not77.i = icmp eq i64 %indvars.iv, 0
-  br i1 %.not77.i, label %_get_group_members.exit.thread94, label %_get_group_members.exit
+  br i1 %.not77.i, label %_get_group_members.exit.thread117, label %_get_group_members.exit
 
-_get_group_members.exit.thread94:                 ; preds = %_put_group_cache.exit.i
+_get_group_members.exit.thread117:                ; preds = %_put_group_cache.exit.i
   call void @slurm_xfree(ptr noundef nonnull %7) #12
   %205 = load ptr, ptr %7, align 8
   br label %.sink.split
@@ -487,8 +487,8 @@ _get_group_members.exit:                          ; preds = %_put_group_cache.ex
   %206 = load ptr, ptr %7, align 8
   br label %_get_group_members.exit.thread
 
-.sink.split:                                      ; preds = %_get_group_members.exit.thread90, %_get_group_members.exit.thread94
-  %.sink = phi ptr [ %205, %_get_group_members.exit.thread94 ], [ null, %_get_group_members.exit.thread90 ]
+.sink.split:                                      ; preds = %_get_group_members.exit.thread113, %_get_group_members.exit.thread117
+  %.sink = phi ptr [ %205, %_get_group_members.exit.thread117 ], [ null, %_get_group_members.exit.thread113 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)

@@ -158,8 +158,8 @@ define range(i32 0, 2) i32 @Nwk_ManPushForwardFast_rec(ptr noundef %0, ptr nound
   br label %.critedge.sink.split
 
 .critedge.sink.split:                             ; preds = %8, %28
-  %.sink29 = phi i32 [ %29, %28 ], [ %.val25, %8 ]
-  %30 = or i32 %.sink29, 32
+  %.sink30 = phi i32 [ %29, %28 ], [ %.val25, %8 ]
+  %30 = or i32 %.sink30, 32
   store i32 %30, ptr %6, align 8
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %1, ptr %31, align 8, !tbaa !31

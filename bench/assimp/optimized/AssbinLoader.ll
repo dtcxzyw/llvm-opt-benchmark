@@ -753,7 +753,7 @@ define hidden void @_Z4ReadI12aiMatrix4x4tIfEET_PN6Assimp8IOStreamE(ptr dead_on_
 _Z4ReadIfET_PN6Assimp8IOStreamE.exit:             ; preds = %16
   %26 = load float, ptr %3, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  switch i32 %.068, label %default.unreachable.i [
+  switch i32 %.068, label %default.unreachable5.i [
     i32 0, label %_ZN12aiMatrix4x4tIfEixEj.exit
     i32 1, label %27
     i32 2, label %28
@@ -769,7 +769,7 @@ _Z4ReadIfET_PN6Assimp8IOStreamE.exit:             ; preds = %16
 29:                                               ; preds = %_Z4ReadIfET_PN6Assimp8IOStreamE.exit
   br label %_ZN12aiMatrix4x4tIfEixEj.exit
 
-default.unreachable.i:                            ; preds = %_Z4ReadIfET_PN6Assimp8IOStreamE.exit
+default.unreachable5.i:                           ; preds = %_Z4ReadIfET_PN6Assimp8IOStreamE.exit
   unreachable
 
 _ZN12aiMatrix4x4tIfEixEj.exit:                    ; preds = %_Z4ReadIfET_PN6Assimp8IOStreamE.exit, %27, %28, %29

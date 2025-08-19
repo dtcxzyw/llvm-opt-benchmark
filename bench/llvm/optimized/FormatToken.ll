@@ -1017,26 +1017,26 @@ _ZN4llvm15SmallVectorImplIjE7reserveEm.exit105:   ; preds = %_ZN4llvm15SmallVect
   %80 = getelementptr inbounds nuw i8, ptr %.1190, i64 16
   %81 = load i16, ptr %80, align 8, !tbaa !48
   %82 = icmp eq i16 %81, 4
-  br i1 %82, label %.lr.ph241, label %.critedge
+  br i1 %82, label %.lr.ph266, label %.critedge
 
 83:                                               ; preds = %_ZNK5clang6format11FormatToken17isTrailingCommentEv.exit107.thread
   %84 = getelementptr inbounds nuw i8, ptr %.pre227, i64 16
   %85 = load i16, ptr %84, align 8, !tbaa !48
   %86 = icmp eq i16 %85, 4
-  br i1 %86, label %.lr.ph241, label %.critedge, !llvm.loop !198
+  br i1 %86, label %.lr.ph266, label %.critedge, !llvm.loop !198
 
-.lr.ph241:                                        ; preds = %.lr.ph176, %83
-  %.275174240 = phi i1 [ %79, %83 ], [ %.073189, %.lr.ph176 ]
-  %.2175239 = phi ptr [ %.pre227, %83 ], [ %.1190, %.lr.ph176 ]
+.lr.ph266:                                        ; preds = %.lr.ph176, %83
+  %.275174265 = phi i1 [ %79, %83 ], [ %.073189, %.lr.ph176 ]
+  %.2175264 = phi ptr [ %.pre227, %83 ], [ %.1190, %.lr.ph176 ]
   %87 = phi i8 [ %94, %83 ], [ %77, %.lr.ph176 ]
-  %88 = getelementptr inbounds nuw i8, ptr %.2175239, i64 67
+  %88 = getelementptr inbounds nuw i8, ptr %.2175264, i64 67
   %89 = load i8, ptr %88, align 1, !tbaa !11
   %90 = icmp eq i8 %89, 78
-  %.phi.trans.insert226 = getelementptr inbounds nuw i8, ptr %.2175239, i64 216
+  %.phi.trans.insert226 = getelementptr inbounds nuw i8, ptr %.2175264, i64 216
   %.pre227 = load ptr, ptr %.phi.trans.insert226, align 8, !tbaa !159
   br i1 %90, label %_ZNK5clang6format11FormatToken17isTrailingCommentEv.exit107.thread, label %_ZNK5clang6format11FormatToken17isTrailingCommentEv.exit107
 
-_ZNK5clang6format11FormatToken17isTrailingCommentEv.exit107: ; preds = %.lr.ph241
+_ZNK5clang6format11FormatToken17isTrailingCommentEv.exit107: ; preds = %.lr.ph266
   %.not.i106 = icmp ne ptr %.pre227, null
   call void @llvm.assume(i1 %.not.i106)
   %91 = getelementptr inbounds nuw i8, ptr %.pre227, i64 72
@@ -1044,7 +1044,7 @@ _ZNK5clang6format11FormatToken17isTrailingCommentEv.exit107: ; preds = %.lr.ph24
   %.not163 = icmp eq i32 %92, 0
   br i1 %.not163, label %.critedge, label %_ZNK5clang6format11FormatToken17isTrailingCommentEv.exit107.thread
 
-_ZNK5clang6format11FormatToken17isTrailingCommentEv.exit107.thread: ; preds = %.lr.ph241, %_ZNK5clang6format11FormatToken17isTrailingCommentEv.exit107
+_ZNK5clang6format11FormatToken17isTrailingCommentEv.exit107.thread: ; preds = %.lr.ph266, %_ZNK5clang6format11FormatToken17isTrailingCommentEv.exit107
   %93 = getelementptr inbounds nuw i8, ptr %.pre227, i64 64
   %94 = load i8, ptr %93, align 8
   %95 = and i8 %94, 1
@@ -1055,8 +1055,8 @@ _ZNK5clang6format11FormatToken17isTrailingCommentEv.exit107.thread..critedge.loo
   br label %.critedge, !llvm.loop !198
 
 .critedge:                                        ; preds = %83, %_ZNK5clang6format11FormatToken17isTrailingCommentEv.exit107, %.lr.ph176, %_ZNK5clang6format11FormatToken17isTrailingCommentEv.exit107.thread..critedge.loopexit_crit_edge, %.preheader
-  %.275.lcssa = phi i1 [ %.073189, %.preheader ], [ %79, %_ZNK5clang6format11FormatToken17isTrailingCommentEv.exit107.thread..critedge.loopexit_crit_edge ], [ %.073189, %.lr.ph176 ], [ %.275174240, %_ZNK5clang6format11FormatToken17isTrailingCommentEv.exit107 ], [ %79, %83 ]
-  %.2.lcssa = phi ptr [ %.1190, %.preheader ], [ %.pre227, %_ZNK5clang6format11FormatToken17isTrailingCommentEv.exit107.thread..critedge.loopexit_crit_edge ], [ %.1190, %.lr.ph176 ], [ %.2175239, %_ZNK5clang6format11FormatToken17isTrailingCommentEv.exit107 ], [ %.pre227, %83 ]
+  %.275.lcssa = phi i1 [ %.073189, %.preheader ], [ %79, %_ZNK5clang6format11FormatToken17isTrailingCommentEv.exit107.thread..critedge.loopexit_crit_edge ], [ %.073189, %.lr.ph176 ], [ %.275174265, %_ZNK5clang6format11FormatToken17isTrailingCommentEv.exit107 ], [ %79, %83 ]
+  %.2.lcssa = phi ptr [ %.1190, %.preheader ], [ %.pre227, %_ZNK5clang6format11FormatToken17isTrailingCommentEv.exit107.thread..critedge.loopexit_crit_edge ], [ %.1190, %.lr.ph176 ], [ %.2175264, %_ZNK5clang6format11FormatToken17isTrailingCommentEv.exit107 ], [ %.pre227, %83 ]
   %.lcssa = phi i8 [ %77, %.preheader ], [ %94, %_ZNK5clang6format11FormatToken17isTrailingCommentEv.exit107.thread..critedge.loopexit_crit_edge ], [ %77, %.lr.ph176 ], [ %87, %_ZNK5clang6format11FormatToken17isTrailingCommentEv.exit107 ], [ %94, %83 ]
   %96 = load i64, ptr %51, align 8, !tbaa !195
   %97 = add i64 %96, 1
@@ -1408,10 +1408,10 @@ _ZN4llvm15SmallVectorImplIjE7reserveEm.exit.i.i:  ; preds = %257
   br i1 %.not11.i.i, label %_ZN4llvm15SmallVectorImplIjE6resizeEm.exit, label %.lr.ph.preheader.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %257, %_ZN4llvm15SmallVectorImplIjE7reserveEm.exit.i.i
-  %.pre-phi.i.i236 = phi i64 [ %.pre13.i.i, %_ZN4llvm15SmallVectorImplIjE7reserveEm.exit.i.i ], [ 0, %257 ]
+  %.pre-phi.i.i261 = phi i64 [ %.pre13.i.i, %_ZN4llvm15SmallVectorImplIjE7reserveEm.exit.i.i ], [ 0, %257 ]
   %262 = load ptr, ptr %249, align 8, !tbaa !8
-  %263 = getelementptr i32, ptr %262, i64 %.pre-phi.i.i236
-  %264 = sub nsw i64 %indvars.iv215, %.pre-phi.i.i236
+  %263 = getelementptr i32, ptr %262, i64 %.pre-phi.i.i261
+  %264 = sub nsw i64 %indvars.iv215, %.pre-phi.i.i261
   %265 = shl nsw i64 %264, 2
   call void @llvm.memset.p0.i64(ptr align 4 %263, i8 0, i64 %265, i1 false), !tbaa !168
   br label %_ZN4llvm15SmallVectorImplIjE6resizeEm.exit

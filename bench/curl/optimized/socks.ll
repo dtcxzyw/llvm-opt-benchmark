@@ -402,10 +402,10 @@ socksstate.exit472.thread534.i.i:                 ; preds = %96
   br i1 %145, label %148, label %.sink.split.i.i
 
 .sink.split.i.i:                                  ; preds = %144, %.thread.i.i
-  %.sink626.i.i = phi i64 [ 18, %.thread.i.i ], [ 19, %144 ]
+  %.sink652.i.i = phi i64 [ 18, %.thread.i.i ], [ 19, %144 ]
   %.sink.i.i = phi i8 [ 0, %.thread.i.i ], [ 2, %144 ]
   %.1338.ph.i.i = phi i64 [ 3, %.thread.i.i ], [ 4, %144 ]
-  %147 = getelementptr inbounds nuw i8, ptr %.0, i64 %.sink626.i.i
+  %147 = getelementptr inbounds nuw i8, ptr %.0, i64 %.sink652.i.i
   store i8 %.sink.i.i, ptr %147, align 1, !tbaa !118
   br label %148
 
@@ -2206,9 +2206,9 @@ socks_proxy_cf_free.exit:                         ; preds = %.thread.i, %915, %9
   br label %.sink.split
 
 .sink.split:                                      ; preds = %4, %socks_proxy_cf_free.exit
-  %.sink77 = phi i8 [ %927, %socks_proxy_cf_free.exit ], [ 1, %4 ]
+  %.sink123 = phi i8 [ %927, %socks_proxy_cf_free.exit ], [ 1, %4 ]
   %.053.ph = phi i32 [ %.1.i70, %socks_proxy_cf_free.exit ], [ 0, %4 ]
-  store i8 %.sink77, ptr %3, align 1, !tbaa !20
+  store i8 %.sink123, ptr %3, align 1, !tbaa !20
   br label %928
 
 928:                                              ; preds = %.sink.split, %41, %30, %37

@@ -599,9 +599,9 @@ _ZN3ue2L18isPseudoNoCaseCharERKNS_9CharReachE.exit133.thread.i: ; preds = %_ZN3u
   br i1 %.not81.i, label %.preheader.i, label %_ZN3ue2L17lookForEodSchemesERKNS_10RevAccInfoEjP3NFA.exit, !llvm.loop !12
 
 _ZN3ue2L17lookForEodSchemesERKNS_10RevAccInfoEjP3NFA.exit.thread: ; preds = %_ZNK3ue29CharReach10find_firstEv.exit92.i, %_ZNK3ue29CharReach10find_firstEv.exit115.i, %_ZNK3ue29CharReach10find_firstEv.exit120.i, %_ZNK3ue29CharReach10find_firstEv.exit138.i
-  %.sink339.in.i = phi i64 [ %indvars.iv278.i, %_ZNK3ue29CharReach10find_firstEv.exit138.i ], [ %indvars.iv282.i, %_ZNK3ue29CharReach10find_firstEv.exit120.i ], [ %indvars.iv.i, %_ZNK3ue29CharReach10find_firstEv.exit115.i ], [ %indvars.iv274.i, %_ZNK3ue29CharReach10find_firstEv.exit92.i ]
-  %.sink339.i = trunc i64 %.sink339.in.i to i8
-  %272 = add nuw nsw i8 %.sink339.i, 1
+  %.sink362.in.i = phi i64 [ %indvars.iv278.i, %_ZNK3ue29CharReach10find_firstEv.exit138.i ], [ %indvars.iv282.i, %_ZNK3ue29CharReach10find_firstEv.exit120.i ], [ %indvars.iv.i, %_ZNK3ue29CharReach10find_firstEv.exit115.i ], [ %indvars.iv274.i, %_ZNK3ue29CharReach10find_firstEv.exit92.i ]
+  %.sink362.i = trunc i64 %.sink362.in.i to i8
+  %272 = add nuw nsw i8 %.sink362.i, 1
   store i8 %272, ptr %11, align 2
   br label %_ZN3ue2L22lookForFloatingSchemesERKNS_10RevAccInfoEjP3NFA.exit
 
@@ -954,12 +954,12 @@ _ZN3ue2L18isPseudoNoCaseCharERKNS_9CharReachE.exit.thread.i47: ; preds = %_ZN3ue
 _ZN3ue2L18isPseudoNoCaseCharERKNS_9CharReachE.exit.thread.thread.i: ; preds = %.critedge.i29
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %indvars.iv.next253.i = add nuw nsw i64 %indvars.iv.i28, 1
-  %exitcond.not254.i = icmp eq i64 %indvars.iv.next253.i, 16
-  br i1 %exitcond.not254.i, label %.critedge148.preheader.i, label %.backedge.i.backedge
+  %indvars.iv.next276.i = add nuw nsw i64 %indvars.iv.i28, 1
+  %exitcond.not277.i = icmp eq i64 %indvars.iv.next276.i, 16
+  br i1 %exitcond.not277.i, label %.critedge148.preheader.i, label %.backedge.i.backedge
 
 .backedge.i.backedge:                             ; preds = %_ZN3ue2L18isPseudoNoCaseCharERKNS_9CharReachE.exit.thread.thread.i, %_ZN3ue2L18isPseudoNoCaseCharERKNS_9CharReachE.exit.thread.i47
-  %indvars.iv.i28.be = phi i64 [ %indvars.iv.next253.i, %_ZN3ue2L18isPseudoNoCaseCharERKNS_9CharReachE.exit.thread.thread.i ], [ %indvars.iv.next.i48, %_ZN3ue2L18isPseudoNoCaseCharERKNS_9CharReachE.exit.thread.i47 ]
+  %indvars.iv.i28.be = phi i64 [ %indvars.iv.next276.i, %_ZN3ue2L18isPseudoNoCaseCharERKNS_9CharReachE.exit.thread.thread.i ], [ %indvars.iv.next.i48, %_ZN3ue2L18isPseudoNoCaseCharERKNS_9CharReachE.exit.thread.i47 ]
   br label %.backedge.i, !llvm.loop !19
 
 437:                                              ; preds = %409, %333
@@ -1175,11 +1175,11 @@ _ZN3ue2L18isPseudoNoCaseCharERKNS_9CharReachE.exit123.thread.i: ; preds = %_ZN3u
 
 .sink.split.i:                                    ; preds = %537, %501, %532, %496
   %spec.select.i.i126.sink.i = phi i8 [ %500, %496 ], [ %536, %532 ], [ 0, %501 ], [ 0, %537 ]
-  %.sink298.in.i = phi i64 [ %indvars.iv244.i, %496 ], [ %indvars.iv240.i, %532 ], [ %indvars.iv244.i, %501 ], [ %indvars.iv240.i, %537 ]
-  %.sink298.i = trunc i64 %.sink298.in.i to i8
+  %.sink321.in.i = phi i64 [ %indvars.iv244.i, %496 ], [ %indvars.iv240.i, %532 ], [ %indvars.iv244.i, %501 ], [ %indvars.iv240.i, %537 ]
+  %.sink321.i = trunc i64 %.sink321.in.i to i8
   %539 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i8 %spec.select.i.i126.sink.i, ptr %539, align 4
-  %540 = add nuw nsw i8 %.sink298.i, 1
+  %540 = add nuw nsw i8 %.sink321.i, 1
   store i8 %540, ptr %11, align 2
   br label %541
 
@@ -1507,14 +1507,14 @@ _ZNSt3setIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS
   br i1 %.not.i.i, label %._crit_edge.thread.i.i, label %.lr.ph.split.i.i.backedge
 
 .lr.ph.split.i.i.backedge:                        ; preds = %114, %.thread
-  %.02632.i.i.be = phi ptr [ %.026.i.i, %114 ], [ %.026.i.i118, %.thread ]
+  %.02632.i.i.be = phi ptr [ %.026.i.i, %114 ], [ %.026.i.i124, %.thread ]
   br label %.lr.ph.split.i.i, !llvm.loop !27
 
 .thread:                                          ; preds = %.lr.ph.split.i.i, %112
   %116 = getelementptr inbounds nuw i8, ptr %.02632.i.i, i64 24
-  %.026.i.i118 = load ptr, ptr %116, align 8
-  %.not.i.i119 = icmp eq ptr %.026.i.i118, null
-  br i1 %.not.i.i119, label %._crit_edge.i.i.thread, label %.lr.ph.split.i.i.backedge
+  %.026.i.i124 = load ptr, ptr %116, align 8
+  %.not.i.i125 = icmp eq ptr %.026.i.i124, null
+  br i1 %.not.i.i125, label %._crit_edge.i.i.thread, label %.lr.ph.split.i.i.backedge
 
 ._crit_edge.thread.i.i:                           ; preds = %114, %110
   %.025.lcssa42.i.i = phi ptr [ %14, %110 ], [ %.02632.i.i, %114 ]

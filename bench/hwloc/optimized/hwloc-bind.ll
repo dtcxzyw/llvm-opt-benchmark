@@ -649,7 +649,7 @@ hwloc_utils_parse_restrict_flags.exit:            ; preds = %.preheader.i.i, %93
   %182 = load ptr, ptr %19, align 8, !tbaa !24
   %183 = call i32 @hwloc_topology_get_depth(ptr noundef %182) #28
   %184 = icmp sgt i32 %.0353.lcssa, 0
-  br i1 %184, label %sub_0.lr.ph, label %.thread2078
+  br i1 %184, label %sub_0.lr.ph, label %.thread2111
 
 sub_0.lr.ph:                                      ; preds = %181
   %185 = getelementptr inbounds nuw i8, ptr %20, i64 8
@@ -1670,9 +1670,9 @@ hwloc_get_next_obj_by_depth.exit.i.i:             ; preds = %580, %575
   br label %.preheader, !llvm.loop !63
 
 hwloc_cpuset_to_nodeset.exit.i:                   ; preds = %hwloc_get_next_obj_covering_cpuset_by_depth.exit.i.i, %hwloc_get_next_obj_by_depth.exit.i.i.i, %559, %587, %hwloc_get_next_obj_by_depth.exit.i.i, %577, %568
-  %.sink120.i = phi ptr [ %39, %568 ], [ %38, %577 ], [ %38, %hwloc_get_next_obj_by_depth.exit.i.i ], [ %38, %587 ], [ %39, %559 ], [ %39, %hwloc_get_next_obj_by_depth.exit.i.i.i ], [ %39, %hwloc_get_next_obj_covering_cpuset_by_depth.exit.i.i ]
+  %.sink132.i = phi ptr [ %39, %568 ], [ %38, %577 ], [ %38, %hwloc_get_next_obj_by_depth.exit.i.i ], [ %38, %587 ], [ %39, %559 ], [ %39, %hwloc_get_next_obj_by_depth.exit.i.i.i ], [ %39, %hwloc_get_next_obj_covering_cpuset_by_depth.exit.i.i ]
   %.sink.i = phi ptr [ %38, %568 ], [ %39, %577 ], [ %39, %hwloc_get_next_obj_by_depth.exit.i.i ], [ %39, %587 ], [ %38, %559 ], [ %38, %hwloc_get_next_obj_by_depth.exit.i.i.i ], [ %38, %hwloc_get_next_obj_covering_cpuset_by_depth.exit.i.i ]
-  call fastcc void @hwloc_calc_append_set(ptr noundef %.sink120.i, ptr noundef %555, i32 noundef %.077.i, i32 noundef %.04481351)
+  call fastcc void @hwloc_calc_append_set(ptr noundef %.sink132.i, ptr noundef %555, i32 noundef %.077.i, i32 noundef %.04481351)
   call void @hwloc_bitmap_free(ptr noundef %555) #27
   call fastcc void @hwloc_calc_append_set(ptr noundef %.sink.i, ptr noundef %541, i32 noundef %.077.i, i32 noundef %.04481351)
   call void @hwloc_bitmap_free(ptr noundef %541) #27
@@ -1756,43 +1756,43 @@ hwloc_calc_process_location_as_set.exit.thread:   ; preds = %hwloc_calc_process_
   %607 = icmp eq i32 %.0384987, 0
   %608 = icmp ne i32 %.0372906, 0
   %or.cond5 = select i1 %607, i1 true, i1 %608
-  br i1 %or.cond5, label %.thread2078, label %609
+  br i1 %or.cond5, label %.thread2111, label %609
 
 609:                                              ; preds = %606
   %610 = load ptr, ptr @stderr, align 8, !tbaa !9
   %611 = call i64 @fwrite(ptr nonnull @.str.89, i64 66, i64 1, ptr %610) #32
   br label %.thread
 
-.thread2078:                                      ; preds = %181, %606
+.thread2111:                                      ; preds = %181, %606
   %612 = phi i1 [ %608, %606 ], [ true, %181 ]
-  %spec.select6582116 = phi i32 [ %spec.select658, %606 ], [ 0, %181 ]
-  %.0456126320542115 = phi i32 [ %.04561263, %606 ], [ 0, %181 ]
-  %.0452123620552114 = phi i32 [ %.04521236, %606 ], [ 0, %181 ]
-  %.0448120920562113 = phi i32 [ %.04481209, %606 ], [ 0, %181 ]
-  %.0437118220572112 = phi i32 [ %.04371182, %606 ], [ 1, %181 ]
-  %.0432115520582111 = phi i32 [ %.04321155, %606 ], [ 0, %181 ]
-  %.0427112820592110 = phi i32 [ %.04271128, %606 ], [ 2, %181 ]
-  %.0423110120602109 = phi i32 [ %.04231101, %606 ], [ 0, %181 ]
-  %.0419107420612108 = phi i32 [ %.04191074, %606 ], [ 0, %181 ]
-  %.0411104320622107 = phi i32 [ %.04111043, %606 ], [ -1, %181 ]
-  %.0407101420672106 = phi i32 [ %.04071014, %606 ], [ -1, %181 ]
-  %.038498720702105 = phi i32 [ %.0384987, %606 ], [ 0, %181 ]
-  %.038096020712104 = phi i32 [ %.0380960, %606 ], [ 0, %181 ]
-  %.037693320722103 = phi i32 [ %.0376933, %606 ], [ 0, %181 ]
-  %.036887920742102 = phi i32 [ %.0368879, %606 ], [ 0, %181 ]
-  %.036185220752101 = phi i32 [ %.0361852, %606 ], [ 0, %181 ]
-  %.235920762100 = phi ptr [ %.2359, %606 ], [ %.0357.lcssa, %181 ]
-  %.235520772099 = phi i32 [ %.2355, %606 ], [ %.0353.lcssa, %181 ]
+  %spec.select6582149 = phi i32 [ %spec.select658, %606 ], [ 0, %181 ]
+  %.0456126320872148 = phi i32 [ %.04561263, %606 ], [ 0, %181 ]
+  %.0452123620882147 = phi i32 [ %.04521236, %606 ], [ 0, %181 ]
+  %.0448120920892146 = phi i32 [ %.04481209, %606 ], [ 0, %181 ]
+  %.0437118220902145 = phi i32 [ %.04371182, %606 ], [ 1, %181 ]
+  %.0432115520912144 = phi i32 [ %.04321155, %606 ], [ 0, %181 ]
+  %.0427112820922143 = phi i32 [ %.04271128, %606 ], [ 2, %181 ]
+  %.0423110120932142 = phi i32 [ %.04231101, %606 ], [ 0, %181 ]
+  %.0419107420942141 = phi i32 [ %.04191074, %606 ], [ 0, %181 ]
+  %.0411104320952140 = phi i32 [ %.04111043, %606 ], [ -1, %181 ]
+  %.0407101421002139 = phi i32 [ %.04071014, %606 ], [ -1, %181 ]
+  %.038498721032138 = phi i32 [ %.0384987, %606 ], [ 0, %181 ]
+  %.038096021042137 = phi i32 [ %.0380960, %606 ], [ 0, %181 ]
+  %.037693321052136 = phi i32 [ %.0376933, %606 ], [ 0, %181 ]
+  %.036887921072135 = phi i32 [ %.0368879, %606 ], [ 0, %181 ]
+  %.036185221082134 = phi i32 [ %.0361852, %606 ], [ 0, %181 ]
+  %.235921092133 = phi ptr [ %.2359, %606 ], [ %.0357.lcssa, %181 ]
+  %.235521102132 = phi i32 [ %.2355, %606 ], [ %.0353.lcssa, %181 ]
   %613 = phi i1 [ %601, %606 ], [ false, %181 ]
   %614 = phi i1 [ %602, %606 ], [ false, %181 ]
-  %615 = icmp ne i32 %.037693320722103, 0
-  %616 = icmp ne i32 %.038498720702105, 0
+  %615 = icmp ne i32 %.037693321052136, 0
+  %616 = icmp ne i32 %.038498721032138, 0
   %or.cond7 = select i1 %615, i1 true, i1 %616
   br i1 %or.cond7, label %617, label %623
 
-617:                                              ; preds = %.thread2078
-  %618 = icmp ne i32 %.036185220752101, 0
-  %619 = icmp ne i32 %.036887920742102, 0
+617:                                              ; preds = %.thread2111
+  %618 = icmp ne i32 %.036185221082134, 0
+  %619 = icmp ne i32 %.036887921072135, 0
   %or.cond9 = select i1 %618, i1 true, i1 %619
   br i1 %or.cond9, label %620, label %623
 
@@ -1801,14 +1801,14 @@ hwloc_calc_process_location_as_set.exit.thread:   ; preds = %hwloc_calc_process_
   %622 = call i64 @fwrite(ptr nonnull @.str.90, i64 49, i64 1, ptr %621) #32
   br label %.thread
 
-623:                                              ; preds = %617, %.thread2078
-  %624 = icmp ne i32 %.036887920742102, 0
-  %625 = or i32 %.036185220752101, %.037693320722103
+623:                                              ; preds = %617, %.thread2111
+  %624 = icmp ne i32 %.036887921072135, 0
+  %625 = or i32 %.036185221082134, %.037693321052136
   %626 = icmp ne i32 %625, 0
   %or.cond13 = select i1 %626, i1 true, i1 %624
   %or.cond15 = select i1 %or.cond13, i1 true, i1 %616
   %or.cond15.not = xor i1 %or.cond15, true
-  %627 = icmp sgt i32 %.0448120920562113, -1
+  %627 = icmp sgt i32 %.0448120920892146, -1
   %or.cond33 = select i1 %or.cond15.not, i1 %627, i1 false
   br i1 %or.cond33, label %628, label %631
 
@@ -1832,14 +1832,14 @@ hwloc_calc_process_location_as_set.exit.thread:   ; preds = %hwloc_calc_process_
   br i1 %613, label %636, label %638
 
 636:                                              ; preds = %635
-  %637 = call i32 @hwloc_get_proc_last_cpu_location(ptr noundef %634, i32 noundef %spec.select6582116, ptr noundef %38, i32 noundef 0) #27
+  %637 = call i32 @hwloc_get_proc_last_cpu_location(ptr noundef %634, i32 noundef %spec.select6582149, ptr noundef %38, i32 noundef 0) #27
   br label %651
 
 638:                                              ; preds = %635
   br i1 %614, label %639, label %641
 
 639:                                              ; preds = %638
-  %640 = call i32 @hwloc_linux_get_tid_last_cpu_location(ptr noundef %634, i32 noundef %.0407101420672106, ptr noundef %38) #27
+  %640 = call i32 @hwloc_linux_get_tid_last_cpu_location(ptr noundef %634, i32 noundef %.0407101421002139, ptr noundef %38) #27
   br label %651
 
 641:                                              ; preds = %638
@@ -1850,14 +1850,14 @@ hwloc_calc_process_location_as_set.exit.thread:   ; preds = %hwloc_calc_process_
   br i1 %613, label %644, label %646
 
 644:                                              ; preds = %643
-  %645 = call i32 @hwloc_get_proc_cpubind(ptr noundef %634, i32 noundef %spec.select6582116, ptr noundef %38, i32 noundef 0) #27
+  %645 = call i32 @hwloc_get_proc_cpubind(ptr noundef %634, i32 noundef %spec.select6582149, ptr noundef %38, i32 noundef 0) #27
   br label %651
 
 646:                                              ; preds = %643
   br i1 %614, label %647, label %649
 
 647:                                              ; preds = %646
-  %648 = call i32 @hwloc_linux_get_tid_cpubind(ptr noundef %634, i32 noundef %.0407101420672106, ptr noundef %38) #27
+  %648 = call i32 @hwloc_linux_get_tid_cpubind(ptr noundef %634, i32 noundef %.0407101421002139, ptr noundef %38) #27
   br label %651
 
 649:                                              ; preds = %646
@@ -1879,14 +1879,14 @@ hwloc_calc_process_location_as_set.exit.thread:   ; preds = %hwloc_calc_process_
   br i1 %613, label %659, label %661
 
 659:                                              ; preds = %652
-  %660 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %656, ptr noundef nonnull @.str.92, ptr noundef nonnull %657, i32 noundef %.0411104320622107, i32 noundef %658, ptr noundef %655) #29
+  %660 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %656, ptr noundef nonnull @.str.92, ptr noundef nonnull %657, i32 noundef %.0411104320952140, i32 noundef %658, ptr noundef %655) #29
   br label %.thread646
 
 661:                                              ; preds = %652
   br i1 %614, label %662, label %664
 
 662:                                              ; preds = %661
-  %663 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %656, ptr noundef nonnull @.str.95, ptr noundef nonnull %657, i32 noundef %.0407101420672106, i32 noundef %658, ptr noundef %655) #29
+  %663 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %656, ptr noundef nonnull @.str.95, ptr noundef nonnull %657, i32 noundef %.0407101421002139, i32 noundef %658, ptr noundef %655) #29
   br label %.thread646
 
 664:                                              ; preds = %661
@@ -1894,7 +1894,7 @@ hwloc_calc_process_location_as_set.exit.thread:   ; preds = %hwloc_calc_process_
   br label %.thread646
 
 666:                                              ; preds = %651
-  %.not524 = icmp eq i32 %.038096020712104, 0
+  %.not524 = icmp eq i32 %.038096021042137, 0
   br i1 %.not524, label %690, label %667
 
 667:                                              ; preds = %666
@@ -1951,12 +1951,12 @@ hwloc_get_next_obj_covering_cpuset_by_depth.exit.i: ; preds = %.preheader.i.i553
   br i1 %689, label %hwloc_cpuset_to_nodeset.exit, label %671, !llvm.loop !62
 
 hwloc_cpuset_to_nodeset.exit:                     ; preds = %674, %hwloc_get_next_obj_by_depth.exit.i.i550, %hwloc_get_next_obj_covering_cpuset_by_depth.exit.i, %683
-  call fastcc void @hwloc_utils_cpuset_format_asprintf(ptr noundef %22, ptr noundef %668, i32 noundef %.0437118220572112)
+  call fastcc void @hwloc_utils_cpuset_format_asprintf(ptr noundef %22, ptr noundef %668, i32 noundef %.0437118220902145)
   call void @hwloc_bitmap_free(ptr noundef %668) #27
   br label %.thread634
 
 690:                                              ; preds = %666
-  call fastcc void @hwloc_utils_cpuset_format_asprintf(ptr noundef %22, ptr noundef %38, i32 noundef %.0437118220572112)
+  call fastcc void @hwloc_utils_cpuset_format_asprintf(ptr noundef %22, ptr noundef %38, i32 noundef %.0437118220902145)
   br label %.thread634
 
 691:                                              ; preds = %632
@@ -1965,15 +1965,15 @@ hwloc_cpuset_to_nodeset.exit:                     ; preds = %674, %hwloc_get_nex
 
 692:                                              ; preds = %691
   %693 = load ptr, ptr %19, align 8, !tbaa !24
-  %.not521 = icmp eq i32 %.038096020712104, 0
+  %.not521 = icmp eq i32 %.038096021042137, 0
   %694 = select i1 %.not521, i32 0, i32 32
-  %695 = call i32 @hwloc_get_proc_membind(ptr noundef %693, i32 noundef %spec.select6582116, ptr noundef %39, ptr noundef nonnull %23, i32 noundef %694) #27
+  %695 = call i32 @hwloc_get_proc_membind(ptr noundef %693, i32 noundef %spec.select6582149, ptr noundef %39, ptr noundef nonnull %23, i32 noundef %694) #27
   br label %703
 
 696:                                              ; preds = %691
-  br i1 %614, label %.thread2121, label %699
+  br i1 %614, label %.thread2154, label %699
 
-.thread2121:                                      ; preds = %696
+.thread2154:                                      ; preds = %696
   %697 = tail call ptr @__errno_location() #31
   store i32 38, ptr %697, align 4, !tbaa !14
   %698 = call ptr @strerror(i32 noundef 38) #27
@@ -1981,7 +1981,7 @@ hwloc_cpuset_to_nodeset.exit:                     ; preds = %674, %hwloc_get_nex
 
 699:                                              ; preds = %696
   %700 = load ptr, ptr %19, align 8, !tbaa !24
-  %.not520 = icmp eq i32 %.038096020712104, 0
+  %.not520 = icmp eq i32 %.038096021042137, 0
   %701 = select i1 %.not520, i32 0, i32 32
   %702 = call i32 @hwloc_get_membind(ptr noundef %700, ptr noundef %39, ptr noundef nonnull %23, i32 noundef %701) #27
   br label %703
@@ -2000,19 +2000,19 @@ hwloc_cpuset_to_nodeset.exit:                     ; preds = %674, %hwloc_get_nex
 707:                                              ; preds = %704
   %708 = load ptr, ptr @stderr, align 8, !tbaa !9
   %709 = load i32, ptr %.pre, align 4, !tbaa !14
-  %710 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %708, ptr noundef nonnull @.str.97, i32 noundef %.0411104320622107, i32 noundef %709, ptr noundef %706) #29
+  %710 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %708, ptr noundef nonnull @.str.97, i32 noundef %.0411104320952140, i32 noundef %709, ptr noundef %706) #29
   br label %719
 
-711:                                              ; preds = %.thread2121, %704
-  %712 = phi ptr [ %698, %.thread2121 ], [ %706, %704 ]
-  %.pre-phi2123 = phi ptr [ %697, %.thread2121 ], [ %.pre, %704 ]
+711:                                              ; preds = %.thread2154, %704
+  %712 = phi ptr [ %698, %.thread2154 ], [ %706, %704 ]
+  %.pre-phi2156 = phi ptr [ %697, %.thread2154 ], [ %.pre, %704 ]
   %713 = load ptr, ptr @stderr, align 8, !tbaa !9
-  %714 = load i32, ptr %.pre-phi2123, align 4, !tbaa !14
+  %714 = load i32, ptr %.pre-phi2156, align 4, !tbaa !14
   %715 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %713, ptr noundef nonnull @.str.98, i32 noundef %714, ptr noundef %712) #29
   br label %719
 
 716:                                              ; preds = %703
-  call fastcc void @hwloc_utils_cpuset_format_asprintf(ptr noundef %22, ptr noundef %39, i32 noundef %.0437118220572112)
+  call fastcc void @hwloc_utils_cpuset_format_asprintf(ptr noundef %22, ptr noundef %39, i32 noundef %.0437118220902145)
   %717 = load i32, ptr %23, align 4, !tbaa !14
   %switch.tableidx = add i32 %717, -1
   %718 = icmp ult i32 %switch.tableidx, 5
@@ -2069,7 +2069,7 @@ switch.lookup:                                    ; preds = %716
   br label %736
 
 736:                                              ; preds = %733, %732
-  %.not528 = icmp eq i32 %.0456126320542115, 0
+  %.not528 = icmp eq i32 %.0456126320872148, 0
   br i1 %.not528, label %1068, label %737
 
 737:                                              ; preds = %736, %730
@@ -2159,7 +2159,7 @@ hwloc_utils_parse_memattr_name.exit:              ; preds = %.lr.ph.i, %765
   br label %.thread652
 
 773:                                              ; preds = %hwloc_utils_parse_memattr_name.exit
-  %774 = icmp sgt i32 %.0448120920562113, 0
+  %774 = icmp sgt i32 %.0448120920892146, 0
   br i1 %774, label %775, label %781
 
 775:                                              ; preds = %773
@@ -2543,7 +2543,7 @@ hwloc_utils_get_best_node_in_array_by_memattr.exit: ; preds = %._crit_edge1422, 
   br label %933
 
 933:                                              ; preds = %932, %738, %737
-  %934 = icmp sgt i32 %.0448120920562113, 0
+  %934 = icmp sgt i32 %.0448120920892146, 0
   br i1 %934, label %935, label %941
 
 935:                                              ; preds = %933
@@ -2558,7 +2558,7 @@ hwloc_utils_get_best_node_in_array_by_memattr.exit: ; preds = %._crit_edge1422, 
   br label %941
 
 941:                                              ; preds = %935, %933
-  %.not533 = icmp eq i32 %.0452123620552114, 0
+  %.not533 = icmp eq i32 %.0452123620882147, 0
   br i1 %.not533, label %944, label %942
 
 942:                                              ; preds = %941
@@ -2570,8 +2570,8 @@ hwloc_utils_get_best_node_in_array_by_memattr.exit: ; preds = %._crit_edge1422, 
 
 945:                                              ; preds = %944
   %946 = load ptr, ptr %19, align 8, !tbaa !24
-  %947 = or i32 %.0419107420612108, 32
-  %948 = call i32 @hwloc_set_proc_membind(ptr noundef %946, i32 noundef %spec.select6582116, ptr noundef %39, i32 noundef %.0427112820592110, i32 noundef %947) #27
+  %947 = or i32 %.0419107420942141, 32
+  %948 = call i32 @hwloc_set_proc_membind(ptr noundef %946, i32 noundef %spec.select6582149, ptr noundef %39, i32 noundef %.0427112820922143, i32 noundef %947) #27
   br label %956
 
 949:                                              ; preds = %944
@@ -2584,8 +2584,8 @@ hwloc_utils_get_best_node_in_array_by_memattr.exit: ; preds = %._crit_edge1422, 
 
 952:                                              ; preds = %949
   %953 = load ptr, ptr %19, align 8, !tbaa !24
-  %954 = or i32 %.0419107420612108, 32
-  %955 = call i32 @hwloc_set_membind(ptr noundef %953, ptr noundef %39, i32 noundef %.0427112820592110, i32 noundef %954) #27
+  %954 = or i32 %.0419107420942141, 32
+  %955 = call i32 @hwloc_set_membind(ptr noundef %953, ptr noundef %39, i32 noundef %.0427112820922143, i32 noundef %954) #27
   br label %956
 
 956:                                              ; preds = %950, %952, %945
@@ -2605,11 +2605,11 @@ hwloc_utils_get_best_node_in_array_by_memattr.exit: ; preds = %._crit_edge1422, 
   br i1 %613, label %965, label %967
 
 965:                                              ; preds = %958
-  %966 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %963, ptr noundef nonnull @.str.110, ptr noundef %964, i32 noundef %.0427112820592110, i32 noundef %.0419107420612108, i32 noundef %.0411104320622107, i32 noundef %960, ptr noundef %961) #29
+  %966 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %963, ptr noundef nonnull @.str.110, ptr noundef %964, i32 noundef %.0427112820922143, i32 noundef %.0419107420942141, i32 noundef %.0411104320952140, i32 noundef %960, ptr noundef %961) #29
   br label %969
 
 967:                                              ; preds = %958
-  %968 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %963, ptr noundef nonnull @.str.111, ptr noundef %964, i32 noundef %.0427112820592110, i32 noundef %.0419107420612108, i32 noundef %960, ptr noundef %961) #29
+  %968 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %963, ptr noundef nonnull @.str.111, ptr noundef %964, i32 noundef %.0427112820922143, i32 noundef %.0419107420942141, i32 noundef %960, ptr noundef %961) #29
   br label %969
 
 969:                                              ; preds = %967, %965
@@ -2620,12 +2620,12 @@ hwloc_utils_get_best_node_in_array_by_memattr.exit: ; preds = %._crit_edge1422, 
 
 971:                                              ; preds = %969, %956
   %972 = icmp eq i32 %.0415, 0
-  %973 = icmp ne i32 %.0456126320542115, 0
+  %973 = icmp ne i32 %.0456126320872148, 0
   %or.cond21 = select i1 %972, i1 true, i1 %973
   br i1 %or.cond21, label %978, label %1068
 
 974:                                              ; preds = %729
-  %.not526 = icmp eq i32 %.0423110120602109, 0
+  %.not526 = icmp eq i32 %.0423110120932142, 0
   br i1 %.not526, label %978, label %975
 
 975:                                              ; preds = %974
@@ -2634,7 +2634,7 @@ hwloc_utils_get_best_node_in_array_by_memattr.exit: ; preds = %._crit_edge1422, 
   br label %978
 
 978:                                              ; preds = %974, %975, %971
-  %979 = icmp eq i32 %.036185220752101, 0
+  %979 = icmp eq i32 %.036185221082134, 0
   %980 = icmp ne i32 %.0446.lcssa, -1
   %or.cond23 = select i1 %979, i1 %980, i1 false
   br i1 %or.cond23, label %.thread655, label %984
@@ -2662,11 +2662,11 @@ hwloc_utils_get_best_node_in_array_by_memattr.exit: ; preds = %._crit_edge1422, 
   br label %991
 
 991:                                              ; preds = %988, %987
-  %.not536 = icmp eq i32 %.0456126320542115, 0
+  %.not536 = icmp eq i32 %.0456126320872148, 0
   br i1 %.not536, label %1068, label %992
 
 992:                                              ; preds = %991, %985
-  %993 = icmp sgt i32 %.0448120920562113, 0
+  %993 = icmp sgt i32 %.0448120920892146, 0
   br i1 %993, label %994, label %1000
 
 994:                                              ; preds = %992
@@ -2689,7 +2689,7 @@ hwloc_utils_get_best_node_in_array_by_memattr.exit: ; preds = %._crit_edge1422, 
   br i1 %.not537, label %1003, label %1009
 
 1003:                                             ; preds = %1001
-  %.not538 = icmp eq i32 %.0448120920562113, 0
+  %.not538 = icmp eq i32 %.0448120920892146, 0
   br i1 %.not538, label %1007, label %1004
 
 1004:                                             ; preds = %1003
@@ -2698,11 +2698,11 @@ hwloc_utils_get_best_node_in_array_by_memattr.exit: ; preds = %._crit_edge1422, 
   br label %1007
 
 1007:                                             ; preds = %1004, %1003
-  %1008 = or i32 %.0432115520582111, 8
+  %1008 = or i32 %.0432115520912144, 8
   br label %1009
 
 1009:                                             ; preds = %1007, %1001, %1000
-  %.4436 = phi i32 [ %.0432115520582111, %1001 ], [ %1008, %1007 ], [ %.0432115520582111, %1000 ]
+  %.4436 = phi i32 [ %.0432115520912144, %1001 ], [ %1008, %1007 ], [ %.0432115520912144, %1000 ]
   br i1 %980, label %1010, label %1020
 
 1010:                                             ; preds = %1009
@@ -2722,7 +2722,7 @@ hwloc_utils_get_best_node_in_array_by_memattr.exit: ; preds = %._crit_edge1422, 
   br label %1020
 
 1020:                                             ; preds = %1014, %1017, %1009
-  %.not539 = icmp eq i32 %.0452123620552114, 0
+  %.not539 = icmp eq i32 %.0452123620882147, 0
   br i1 %.not539, label %1023, label %1021
 
 1021:                                             ; preds = %1020
@@ -2734,14 +2734,14 @@ hwloc_utils_get_best_node_in_array_by_memattr.exit: ; preds = %._crit_edge1422, 
   br i1 %613, label %1025, label %1027
 
 1025:                                             ; preds = %1023
-  %1026 = call i32 @hwloc_set_proc_cpubind(ptr noundef %1024, i32 noundef %spec.select6582116, ptr noundef %38, i32 noundef %.4436) #27
+  %1026 = call i32 @hwloc_set_proc_cpubind(ptr noundef %1024, i32 noundef %spec.select6582149, ptr noundef %38, i32 noundef %.4436) #27
   br label %1032
 
 1027:                                             ; preds = %1023
   br i1 %614, label %1028, label %1030
 
 1028:                                             ; preds = %1027
-  %1029 = call i32 @hwloc_linux_set_tid_cpubind(ptr noundef %1024, i32 noundef %.0407101420672106, ptr noundef %38) #27
+  %1029 = call i32 @hwloc_linux_set_tid_cpubind(ptr noundef %1024, i32 noundef %.0407101421002139, ptr noundef %38) #27
   br label %1032
 
 1030:                                             ; preds = %1027
@@ -2765,14 +2765,14 @@ hwloc_utils_get_best_node_in_array_by_memattr.exit: ; preds = %._crit_edge1422, 
   br i1 %613, label %1041, label %1043
 
 1041:                                             ; preds = %1034
-  %1042 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1039, ptr noundef nonnull @.str.117, ptr noundef %1040, i32 noundef %.4436, i32 noundef %.0411104320622107, i32 noundef %1036, ptr noundef %1037) #29
+  %1042 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1039, ptr noundef nonnull @.str.117, ptr noundef %1040, i32 noundef %.4436, i32 noundef %.0411104320952140, i32 noundef %1036, ptr noundef %1037) #29
   br label %1048
 
 1043:                                             ; preds = %1034
   br i1 %614, label %1044, label %1046
 
 1044:                                             ; preds = %1043
-  %1045 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1039, ptr noundef nonnull @.str.118, ptr noundef %1040, i32 noundef %.4436, i32 noundef %.0407101420672106, i32 noundef %1036, ptr noundef %1037) #29
+  %1045 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1039, ptr noundef nonnull @.str.118, ptr noundef %1040, i32 noundef %.4436, i32 noundef %.0407101421002139, i32 noundef %1036, ptr noundef %1037) #29
   br label %1048
 
 1046:                                             ; preds = %1043
@@ -2787,7 +2787,7 @@ hwloc_utils_get_best_node_in_array_by_memattr.exit: ; preds = %._crit_edge1422, 
 
 1050:                                             ; preds = %1048, %1032
   %1051 = icmp eq i32 %.1416, 0
-  %1052 = icmp ne i32 %.0456126320542115, 0
+  %1052 = icmp ne i32 %.0456126320872148, 0
   %or.cond27 = select i1 %1051, i1 true, i1 %1052
   br i1 %or.cond27, label %1053, label %1068
 
@@ -2800,7 +2800,7 @@ hwloc_utils_get_best_node_in_array_by_memattr.exit: ; preds = %._crit_edge1422, 
   br i1 %or.cond29, label %.thread, label %1055
 
 1055:                                             ; preds = %1053
-  %1056 = icmp eq i32 %.235520772099, 0
+  %1056 = icmp eq i32 %.235521102132, 0
   br i1 %1056, label %1057, label %1061
 
 1057:                                             ; preds = %1055
@@ -2812,14 +2812,14 @@ hwloc_utils_get_best_node_in_array_by_memattr.exit: ; preds = %._crit_edge1422, 
   br label %.thread
 
 1061:                                             ; preds = %1055
-  %1062 = load ptr, ptr %.235920762100, align 8, !tbaa !4
-  %1063 = call i32 @execvp(ptr noundef %1062, ptr noundef nonnull %.235920762100) #27
+  %1062 = load ptr, ptr %.235921092133, align 8, !tbaa !4
+  %1063 = call i32 @execvp(ptr noundef %1062, ptr noundef nonnull %.235921092133) #27
   %.not540 = icmp eq i32 %1063, 0
   br i1 %.not540, label %.thread, label %1064
 
 1064:                                             ; preds = %1061
   %1065 = load ptr, ptr @stderr, align 8, !tbaa !9
-  %1066 = load ptr, ptr %.235920762100, align 8, !tbaa !4
+  %1066 = load ptr, ptr %.235921092133, align 8, !tbaa !4
   %1067 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1065, ptr noundef nonnull @.str.121, ptr noundef nonnull %.0404, ptr noundef %1066) #29
   call void @perror(ptr noundef nonnull @.str.122) #32
   br label %.thread

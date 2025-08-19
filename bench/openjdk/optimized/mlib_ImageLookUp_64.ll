@@ -510,8 +510,8 @@ define hidden void @mlib_ImageLookUp_U8_D64(ptr noundef %0, i32 noundef %1, ptr 
   %264 = trunc i64 %263 to i32
   %265 = sub i32 0, %264
   %266 = and i32 %265, 2
-  %.not845 = icmp eq i32 %266, 0
-  br i1 %.not845, label %._crit_edge641, label %.lr.ph640.preheader
+  %.not867 = icmp eq i32 %266, 0
+  br i1 %.not867, label %._crit_edge641, label %.lr.ph640.preheader
 
 .lr.ph640.preheader:                              ; preds = %260
   %267 = getelementptr i8, ptr %.3516667, i64 16
@@ -2366,7 +2366,7 @@ define hidden void @mlib_ImageLookUpSI_U8_D64(ptr noundef %0, i32 noundef %1, pt
   %.2533681 = phi ptr [ %2, %.lr.ph683 ], [ %280, %._crit_edge679 ]
   %.0573680 = phi i32 [ 0, %.lr.ph683 ], [ %279, %._crit_edge679 ]
   %167 = zext i2 %indvars.iv797 to i32
-  %168 = sub nsw i32 %4, %167
+  %168 = sub nuw nsw i32 %4, %167
   %169 = load ptr, ptr %7, align 8
   %170 = load ptr, ptr %160, align 8
   %171 = ptrtoint ptr %.2529682 to i64
@@ -2556,7 +2556,7 @@ define hidden void @mlib_ImageLookUpSI_U8_D64(ptr noundef %0, i32 noundef %1, pt
   %.3534649 = phi ptr [ %2, %.lr.ph651 ], [ %431, %._crit_edge647 ]
   %.0559648 = phi i32 [ 0, %.lr.ph651 ], [ %430, %._crit_edge647 ]
   %283 = zext i2 %indvars.iv792 to i32
-  %284 = sub nsw i32 %4, %283
+  %284 = sub nuw nsw i32 %4, %283
   %285 = load ptr, ptr %7, align 8
   %286 = load ptr, ptr %152, align 8
   %287 = load ptr, ptr %153, align 8
@@ -2791,7 +2791,7 @@ define hidden void @mlib_ImageLookUpSI_U8_D64(ptr noundef %0, i32 noundef %1, pt
   %.4535617 = phi ptr [ %2, %.lr.ph619 ], [ %617, %._crit_edge615 ]
   %.0543616 = phi i32 [ 0, %.lr.ph619 ], [ %616, %._crit_edge615 ]
   %434 = zext i2 %indvars.iv to i32
-  %435 = sub nsw i32 %4, %434
+  %435 = sub nuw nsw i32 %4, %434
   %436 = load ptr, ptr %7, align 8
   %437 = load ptr, ptr %143, align 8
   %438 = load ptr, ptr %144, align 8

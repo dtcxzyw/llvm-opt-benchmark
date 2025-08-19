@@ -3000,9 +3000,9 @@ component_converter.exit.thread:                  ; preds = %component_converter
   br i1 %or.cond3.i15, label %component_converter.exit18.thread.sink.split, label %63
 
 component_converter.exit18.thread.sink.split:     ; preds = %59, %55
-  %.str.99.sink44 = phi ptr [ @.str.99, %55 ], [ @.str.100, %59 ]
+  %.str.99.sink53 = phi ptr [ @.str.99, %55 ], [ @.str.100, %59 ]
   %62 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !11
-  call void @PyErr_SetString(ptr noundef %62, ptr noundef nonnull %.str.99.sink44) #9
+  call void @PyErr_SetString(ptr noundef %62, ptr noundef nonnull %.str.99.sink53) #9
   br label %component_converter.exit18.thread
 
 component_converter.exit18.thread:                ; preds = %component_converter.exit18.thread.sink.split, %53
@@ -3038,9 +3038,9 @@ component_converter.exit18.thread:                ; preds = %component_converter
   br i1 %or.cond3.i20, label %component_converter.exit23.thread.sink.split, label %79
 
 component_converter.exit23.thread.sink.split:     ; preds = %75, %71
-  %.str.99.sink45 = phi ptr [ @.str.99, %71 ], [ @.str.100, %75 ]
+  %.str.99.sink54 = phi ptr [ @.str.99, %71 ], [ @.str.100, %75 ]
   %78 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !11
-  call void @PyErr_SetString(ptr noundef %78, ptr noundef nonnull %.str.99.sink45) #9
+  call void @PyErr_SetString(ptr noundef %78, ptr noundef nonnull %.str.99.sink54) #9
   br label %component_converter.exit23.thread
 
 component_converter.exit23.thread:                ; preds = %component_converter.exit23.thread.sink.split, %69

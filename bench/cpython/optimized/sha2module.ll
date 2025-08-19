@@ -273,9 +273,9 @@ define internal ptr @_sha2_sha256(ptr noundef readonly captures(none) %0, ptr no
   %.not38 = icmp ne ptr %18, null
   %19 = icmp eq i64 %16, 1
   %spec.select = and i1 %19, %.not38
-  br i1 %spec.select, label %.thread55, label %20
+  br i1 %spec.select, label %.thread64, label %20
 
-.thread55:                                        ; preds = %17
+.thread64:                                        ; preds = %17
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   br label %26
 
@@ -291,7 +291,7 @@ define internal ptr @_sha2_sha256(ptr noundef readonly captures(none) %0, ptr no
   %.not.i = icmp eq ptr %18, null
   br i1 %.not.i, label %45, label %26
 
-26:                                               ; preds = %.thread55, %25
+26:                                               ; preds = %.thread64, %25
   %27 = getelementptr i8, ptr %18, i64 8
   %.val23.i = load ptr, ptr %27, align 8, !tbaa !23
   %28 = getelementptr i8, ptr %.val23.i, i64 168
@@ -483,9 +483,9 @@ define internal ptr @_sha2_sha224(ptr noundef readonly captures(none) %0, ptr no
   %.not38 = icmp ne ptr %18, null
   %19 = icmp eq i64 %16, 1
   %spec.select = and i1 %19, %.not38
-  br i1 %spec.select, label %.thread55, label %20
+  br i1 %spec.select, label %.thread64, label %20
 
-.thread55:                                        ; preds = %17
+.thread64:                                        ; preds = %17
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   br label %26
 
@@ -501,7 +501,7 @@ define internal ptr @_sha2_sha224(ptr noundef readonly captures(none) %0, ptr no
   %.not.i = icmp eq ptr %18, null
   br i1 %.not.i, label %45, label %26
 
-26:                                               ; preds = %.thread55, %25
+26:                                               ; preds = %.thread64, %25
   %27 = getelementptr i8, ptr %18, i64 8
   %.val23.i = load ptr, ptr %27, align 8, !tbaa !23
   %28 = getelementptr i8, ptr %.val23.i, i64 168
@@ -694,11 +694,11 @@ define internal noundef ptr @_sha2_sha512(ptr noundef readonly captures(none) %0
   %.not38 = icmp ne ptr %19, null
   %20 = icmp eq i64 %16, 1
   %spec.select = and i1 %20, %.not38
-  br i1 %spec.select, label %.thread59, label %22
+  br i1 %spec.select, label %.thread69, label %22
 
-.thread59:                                        ; preds = %18
+.thread69:                                        ; preds = %18
   %21 = getelementptr i8, ptr %0, i64 32
-  %.val4160 = load ptr, ptr %21, align 8, !tbaa !3
+  %.val4170 = load ptr, ptr %21, align 8, !tbaa !3
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   br label %29
 
@@ -716,8 +716,8 @@ define internal noundef ptr @_sha2_sha512(ptr noundef readonly captures(none) %0
   %.not.i = icmp eq ptr %19, null
   br i1 %.not.i, label %48, label %29
 
-29:                                               ; preds = %.thread59, %27
-  %.val4162 = phi ptr [ %.val4160, %.thread59 ], [ %.val41, %27 ]
+29:                                               ; preds = %.thread69, %27
+  %.val4172 = phi ptr [ %.val4170, %.thread69 ], [ %.val41, %27 ]
   %30 = getelementptr i8, ptr %19, i64 8
   %.val23.i = load ptr, ptr %30, align 8, !tbaa !23
   %31 = getelementptr i8, ptr %.val23.i, i64 168
@@ -767,7 +767,7 @@ define internal noundef ptr @_sha2_sha512(ptr noundef readonly captures(none) %0
   br i1 %.not.i26.i, label %_sha2_sha512_impl.exit, label %54
 
 .thread.i:                                        ; preds = %42
-  %51 = getelementptr i8, ptr %.val4162, i64 24
+  %51 = getelementptr i8, ptr %.val4172, i64 24
   %.val251.i = load ptr, ptr %51, align 8, !tbaa !16
   %52 = call ptr @_PyObject_GC_New(ptr noundef %.val251.i) #3
   %.not.i262.i = icmp eq ptr %52, null
@@ -915,11 +915,11 @@ define internal noundef ptr @_sha2_sha384(ptr noundef readonly captures(none) %0
   %.not38 = icmp ne ptr %19, null
   %20 = icmp eq i64 %16, 1
   %spec.select = and i1 %20, %.not38
-  br i1 %spec.select, label %.thread59, label %22
+  br i1 %spec.select, label %.thread69, label %22
 
-.thread59:                                        ; preds = %18
+.thread69:                                        ; preds = %18
   %21 = getelementptr i8, ptr %0, i64 32
-  %.val4160 = load ptr, ptr %21, align 8, !tbaa !3
+  %.val4170 = load ptr, ptr %21, align 8, !tbaa !3
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   br label %29
 
@@ -937,8 +937,8 @@ define internal noundef ptr @_sha2_sha384(ptr noundef readonly captures(none) %0
   %.not.i = icmp eq ptr %19, null
   br i1 %.not.i, label %48, label %29
 
-29:                                               ; preds = %.thread59, %27
-  %.val4162 = phi ptr [ %.val4160, %.thread59 ], [ %.val41, %27 ]
+29:                                               ; preds = %.thread69, %27
+  %.val4172 = phi ptr [ %.val4170, %.thread69 ], [ %.val41, %27 ]
   %30 = getelementptr i8, ptr %19, i64 8
   %.val23.i = load ptr, ptr %30, align 8, !tbaa !23
   %31 = getelementptr i8, ptr %.val23.i, i64 168
@@ -988,7 +988,7 @@ define internal noundef ptr @_sha2_sha384(ptr noundef readonly captures(none) %0
   br i1 %.not.i26.i, label %_sha2_sha384_impl.exit, label %54
 
 .thread.i:                                        ; preds = %42
-  %51 = getelementptr i8, ptr %.val4162, i64 16
+  %51 = getelementptr i8, ptr %.val4172, i64 16
   %.val251.i = load ptr, ptr %51, align 8, !tbaa !15
   %52 = call ptr @_PyObject_GC_New(ptr noundef %.val251.i) #3
   %.not.i262.i = icmp eq ptr %52, null
@@ -1289,12 +1289,12 @@ define internal noundef ptr @SHA256Type_copy(ptr noundef %0, ptr noundef readonl
   br i1 %.not.i21.i, label %SHA256Type_copy_impl.exit, label %newSHA256object.exit.i
 
 newSHA256object.exit.i:                           ; preds = %19, %17
-  %.sink4.i = phi ptr [ %18, %17 ], [ %20, %19 ]
-  %21 = getelementptr inbounds nuw i8, ptr %.sink4.i, i64 21
+  %.sink7.i = phi ptr [ %18, %17 ], [ %20, %19 ]
+  %21 = getelementptr inbounds nuw i8, ptr %.sink7.i, i64 21
   store i8 0, ptr %21, align 1, !tbaa !18
-  %22 = getelementptr inbounds nuw i8, ptr %.sink4.i, i64 20
+  %22 = getelementptr inbounds nuw i8, ptr %.sink7.i, i64 20
   store i8 0, ptr %22, align 4, !tbaa !35
-  tail call void @PyObject_GC_Track(ptr noundef nonnull %.sink4.i) #3
+  tail call void @PyObject_GC_Track(ptr noundef nonnull %.sink7.i) #3
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %24 = load i8, ptr %23, align 4, !tbaa !35, !range !61, !noundef !62
   %25 = trunc nuw i8 %24 to i1
@@ -1315,10 +1315,10 @@ _PyMutex_Lock.exit.i:                             ; preds = %30, %26, %newSHA256
   %.val19.i = load i32, ptr %31, align 8, !tbaa !41
   %32 = getelementptr i8, ptr %0, i64 24
   %.val20.i = load ptr, ptr %32, align 8, !tbaa !40
-  %33 = getelementptr inbounds nuw i8, ptr %.sink4.i, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %.sink7.i, i64 16
   store i32 %.val19.i, ptr %33, align 8, !tbaa !41
   %34 = tail call ptr @python_hashlib_Hacl_Hash_SHA2_copy_256(ptr noundef %.val20.i) #3
-  %35 = getelementptr inbounds nuw i8, ptr %.sink4.i, i64 24
+  %35 = getelementptr inbounds nuw i8, ptr %.sink7.i, i64 24
   store ptr %34, ptr %35, align 8, !tbaa !40
   %36 = load i8, ptr %23, align 4, !tbaa !35, !range !61, !noundef !62
   %37 = trunc nuw i8 %36 to i1
@@ -1335,7 +1335,7 @@ _PyMutex_Lock.exit.i:                             ; preds = %30, %26, %newSHA256
   br label %SHA256Type_copy_impl.exit
 
 SHA256Type_copy_impl.exit:                        ; preds = %42, %38, %_PyMutex_Lock.exit.i, %19, %17, %9
-  %.0 = phi ptr [ null, %9 ], [ %.sink4.i, %_PyMutex_Lock.exit.i ], [ %.sink4.i, %38 ], [ %.sink4.i, %42 ], [ null, %17 ], [ null, %19 ]
+  %.0 = phi ptr [ null, %9 ], [ %.sink7.i, %_PyMutex_Lock.exit.i ], [ %.sink7.i, %38 ], [ %.sink7.i, %42 ], [ null, %17 ], [ null, %19 ]
   ret ptr %.0
 }
 
@@ -1686,12 +1686,12 @@ define internal noundef ptr @SHA512Type_copy(ptr noundef %0, ptr noundef readonl
   br i1 %.not.i21.i, label %SHA512Type_copy_impl.exit, label %newSHA512object.exit.i
 
 newSHA512object.exit.i:                           ; preds = %19, %17
-  %.sink4.i = phi ptr [ %18, %17 ], [ %21, %19 ]
-  %22 = getelementptr inbounds nuw i8, ptr %.sink4.i, i64 21
+  %.sink7.i = phi ptr [ %18, %17 ], [ %21, %19 ]
+  %22 = getelementptr inbounds nuw i8, ptr %.sink7.i, i64 21
   store i8 0, ptr %22, align 1, !tbaa !18
-  %23 = getelementptr inbounds nuw i8, ptr %.sink4.i, i64 20
+  %23 = getelementptr inbounds nuw i8, ptr %.sink7.i, i64 20
   store i8 0, ptr %23, align 4, !tbaa !46
-  tail call void @PyObject_GC_Track(ptr noundef nonnull %.sink4.i) #3
+  tail call void @PyObject_GC_Track(ptr noundef nonnull %.sink7.i) #3
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %25 = load i8, ptr %24, align 4, !tbaa !46, !range !61, !noundef !62
   %26 = trunc nuw i8 %25 to i1
@@ -1712,10 +1712,10 @@ _PyMutex_Lock.exit.i:                             ; preds = %31, %27, %newSHA512
   %.val19.i = load i32, ptr %32, align 8, !tbaa !50
   %33 = getelementptr i8, ptr %0, i64 24
   %.val20.i = load ptr, ptr %33, align 8, !tbaa !49
-  %34 = getelementptr inbounds nuw i8, ptr %.sink4.i, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %.sink7.i, i64 16
   store i32 %.val19.i, ptr %34, align 8, !tbaa !50
   %35 = tail call ptr @python_hashlib_Hacl_Hash_SHA2_copy_512(ptr noundef %.val20.i) #3
-  %36 = getelementptr inbounds nuw i8, ptr %.sink4.i, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %.sink7.i, i64 24
   store ptr %35, ptr %36, align 8, !tbaa !49
   %37 = load i8, ptr %24, align 4, !tbaa !46, !range !61, !noundef !62
   %38 = trunc nuw i8 %37 to i1
@@ -1732,7 +1732,7 @@ _PyMutex_Lock.exit.i:                             ; preds = %31, %27, %newSHA512
   br label %SHA512Type_copy_impl.exit
 
 SHA512Type_copy_impl.exit:                        ; preds = %43, %39, %_PyMutex_Lock.exit.i, %19, %17, %9
-  %.0 = phi ptr [ null, %9 ], [ %.sink4.i, %_PyMutex_Lock.exit.i ], [ %.sink4.i, %39 ], [ %.sink4.i, %43 ], [ null, %17 ], [ null, %19 ]
+  %.0 = phi ptr [ null, %9 ], [ %.sink7.i, %_PyMutex_Lock.exit.i ], [ %.sink7.i, %39 ], [ %.sink7.i, %43 ], [ null, %17 ], [ null, %19 ]
   ret ptr %.0
 }
 

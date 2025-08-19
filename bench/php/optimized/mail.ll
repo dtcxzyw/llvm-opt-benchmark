@@ -1444,11 +1444,11 @@ php_mail_build_headers_elems.exit:                ; preds = %545, %496, %445, %3
   br i1 %.not, label %.loopexitthread-pre-split, label %.lr.ph
 
 .loopexitthread-pre-split:                        ; preds = %564, %563
-  %.pr463 = load ptr, ptr %2, align 8, !tbaa !50
+  %.pr505 = load ptr, ptr %2, align 8, !tbaa !50
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexitthread-pre-split, %1
-  %566 = phi ptr [ %.pr463, %.loopexitthread-pre-split ], [ null, %1 ]
+  %566 = phi ptr [ %.pr505, %.loopexitthread-pre-split ], [ null, %1 ]
   %.not223 = icmp eq ptr %566, null
   br i1 %.not223, label %smart_str_0.exit, label %567
 
@@ -2258,8 +2258,8 @@ thread-pre-split284:                              ; preds = %zend_parse_arg_str_
   br i1 %.not184, label %183, label %.sink.split
 
 .sink.split:                                      ; preds = %180, %.loopexit339
-  %.sink355 = phi ptr [ %179, %.loopexit339 ], [ %181, %180 ]
-  %182 = call ptr @php_escape_shell_cmd(ptr noundef nonnull %.sink355) #11
+  %.sink376 = phi ptr [ %179, %.loopexit339 ], [ %181, %180 ]
+  %182 = call ptr @php_escape_shell_cmd(ptr noundef nonnull %.sink376) #11
   store ptr %182, ptr %6, align 8, !tbaa !55
   br label %183
 
@@ -2283,9 +2283,9 @@ thread-pre-split284:                              ; preds = %zend_parse_arg_str_
   %192 = getelementptr inbounds nuw i8, ptr %184, i64 24
   %193 = select i1 %.not187, ptr null, ptr %192
   %194 = call zeroext i1 @php_mail(ptr noundef nonnull %.0147, ptr noundef nonnull %.0148, ptr noundef nonnull %59, ptr noundef %191, ptr noundef %193)
-  %spec.select356 = select i1 %194, i32 3, i32 2
+  %spec.select377 = select i1 %194, i32 3, i32 2
   %195 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 %spec.select356, ptr %195, align 8, !tbaa !12
+  store i32 %spec.select377, ptr %195, align 8, !tbaa !12
   %196 = load ptr, ptr %7, align 8, !tbaa !55
   %.not188 = icmp eq ptr %196, null
   br i1 %.not188, label %zend_string_release_ex.exit, label %197

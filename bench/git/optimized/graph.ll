@@ -383,8 +383,8 @@ graph_is_interesting.exit.i.i:                    ; preds = %28, %24, %22
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 288
   %37 = load i64, ptr %36, align 8
   %38 = and i64 %37, 274877906944
-  %.not.i19101 = icmp eq i64 %38, 0
-  br i1 %.not.i19101, label %.preheader.i, label %._crit_edge
+  %.not.i19112 = icmp eq i64 %38, 0
+  br i1 %.not.i19112, label %.preheader.i, label %._crit_edge
 
 .preheader.i:                                     ; preds = %.lr.ph, %.preheader.i.backedge
   %.pn.i = phi ptr [ %.0.i20, %.preheader.i.backedge ], [ %.0.i.ph, %.lr.ph ]
@@ -2198,8 +2198,8 @@ graph_line_addch.exit114.i:                       ; preds = %strbuf_avail.exit.t
   %504 = getelementptr inbounds nuw i32, ptr %475, i64 %indvars.iv142.i
   store i32 %483, ptr %504, align 4, !tbaa !69
   %indvars.iv.next143.i = add nuw nsw i64 %indvars.iv142.i, 2
-  %sext153.i = shl i64 %indvars.iv.next143.i, 32
-  %505 = ashr exact i64 %sext153.i, 32
+  %sext162.i = shl i64 %indvars.iv.next143.i, 32
+  %505 = ashr exact i64 %sext162.i, 32
   %506 = icmp slt i64 %505, %501
   br i1 %506, label %.lr.ph122.i, label %.loopexit114.i, !llvm.loop !136
 
@@ -2771,10 +2771,10 @@ graph_line_addch.exit:                            ; preds = %strbuf_avail.exit.i
   br label %41
 
 41:                                               ; preds = %graph_line_addch.exit, %23
-  %.sink19 = phi i64 [ 1, %graph_line_addch.exit ], [ %26, %23 ]
+  %.sink22 = phi i64 [ 1, %graph_line_addch.exit ], [ %26, %23 ]
   %42 = phi ptr [ %29, %graph_line_addch.exit ], [ %27, %23 ]
   %43 = load i64, ptr %4, align 8, !tbaa !125
-  %44 = add i64 %43, %.sink19
+  %44 = add i64 %43, %.sink22
   store i64 %44, ptr %4, align 8, !tbaa !125
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %45 = load i32, ptr %7, align 4, !tbaa !81
@@ -3009,14 +3009,14 @@ graph_show_line_prefix.exit.i.i:                  ; preds = %42, %39, %37
   br i1 %.not19.i, label %._crit_edge.sink.split.i, label %.lr.ph, !llvm.loop !144
 
 ._crit_edge.sink.split.i:                         ; preds = %.lr.ph.split.i, %.lr.ph.split.us.i, %.lr.ph.split.i.preheader, %.lr.ph.split.us.i.preheader
-  %.01727.lcssa.sink37.i = phi ptr [ %6, %.lr.ph.split.us.i.preheader ], [ %6, %.lr.ph.split.i.preheader ], [ %14, %.lr.ph.split.us.i ], [ %31, %.lr.ph.split.i ]
+  %.01727.lcssa.sink44.i = phi ptr [ %6, %.lr.ph.split.us.i.preheader ], [ %6, %.lr.ph.split.i.preheader ], [ %14, %.lr.ph.split.us.i ], [ %31, %.lr.ph.split.i ]
   %54 = load ptr, ptr %5, align 8, !tbaa !29
   %55 = load i64, ptr %10, align 8, !tbaa !27
   %56 = getelementptr inbounds nuw i8, ptr %54, i64 %55
   %57 = ptrtoint ptr %56 to i64
-  %58 = ptrtoint ptr %.01727.lcssa.sink37.i to i64
+  %58 = ptrtoint ptr %.01727.lcssa.sink44.i to i64
   %59 = sub i64 %57, %58
-  %60 = call i64 @fwrite(ptr noundef nonnull %.01727.lcssa.sink37.i, i64 noundef 1, i64 noundef %59, ptr noundef %1)
+  %60 = call i64 @fwrite(ptr noundef nonnull %.01727.lcssa.sink44.i, i64 noundef 1, i64 noundef %59, ptr noundef %1)
   br label %graph_show_strbuf.exit
 
 graph_show_strbuf.exit:                           ; preds = %3, %._crit_edge.sink.split.i

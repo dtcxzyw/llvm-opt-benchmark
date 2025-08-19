@@ -228,9 +228,9 @@ define internal i32 @fits_decode_frame(ptr noundef %0, ptr noundef initializes((
 105:                                              ; preds = %92, %._crit_edge122.i
   %106 = phi i32 [ %.pre123.i, %._crit_edge122.i ], [ %81, %92 ]
   %.not104.i = icmp eq i32 %106, 0
-  br i1 %.not104.i, label %107, label %.thread480
+  br i1 %.not104.i, label %107, label %.thread526
 
-.thread480:                                       ; preds = %105
+.thread526:                                       ; preds = %105
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %120
 
@@ -269,7 +269,7 @@ fits_read_header.exit.thread:                     ; preds = %18, %._crit_edge119
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br i1 %119, label %138, label %120
 
-120:                                              ; preds = %.thread480, %116
+120:                                              ; preds = %.thread526, %116
   %121 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %122 = load i32, ptr %121, align 8, !tbaa !45
   switch i32 %122, label %137 [

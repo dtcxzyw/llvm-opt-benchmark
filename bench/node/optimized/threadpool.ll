@@ -648,8 +648,8 @@ if.then9:                                         ; preds = %land.rhs, %land.lhs
   %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @run_slow_work_message, i64 8), align 8
   store ptr %1, ptr %8, align 8
   %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @run_slow_work_message, i64 8), align 8
-  %prev4.i35 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store ptr %9, ptr %prev4.i35, align 8
+  %prev4.i37 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store ptr %9, ptr %prev4.i37, align 8
   store ptr @run_slow_work_message, ptr @run_slow_work_message, align 8
   store ptr @run_slow_work_message, ptr getelementptr inbounds nuw (i8, ptr @run_slow_work_message, i64 8), align 8
   %10 = load i32, ptr @slow_io_work_running, align 4

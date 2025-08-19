@@ -1049,13 +1049,13 @@ define i32 @pmix_ptl_base_setup_listener(ptr noundef %0, i64 noundef %1) local_u
   br label %284
 
 284:                                              ; preds = %280, %283
-  %.sink338 = phi i64 [ 8, %283 ], [ 4, %280 ]
+  %.sink389 = phi i64 [ 8, %283 ], [ 4, %280 ]
   %.sink = phi i32 [ 10, %283 ], [ 2, %280 ]
   %.0219 = phi ptr [ @.str.47, %283 ], [ @.str.46, %280 ]
   %285 = getelementptr inbounds nuw i8, ptr %281, i64 2
   %286 = load i16, ptr %285, align 2, !tbaa !100
   %rev.i300 = call noundef i16 @llvm.bswap.i16(i16 %286)
-  %287 = getelementptr inbounds nuw i8, ptr %281, i64 %.sink338
+  %287 = getelementptr inbounds nuw i8, ptr %281, i64 %.sink389
   %288 = call ptr @inet_ntop(i32 noundef %.sink, ptr noundef nonnull %287, ptr noundef nonnull %7, i32 noundef 64) #16
   %.0220 = zext i16 %rev.i300 to i32
   %289 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_globals, i64 260), align 4, !tbaa !101

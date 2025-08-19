@@ -351,17 +351,17 @@ define internal void @SDL_FillSurfaceRect1(ptr noundef %0, i32 noundef %1, i32 n
 .lr.ph.split.us.unreachabledefault:               ; preds = %.lr.ph.split.us
   unreachable
 
-default.unreachable58:                            ; preds = %.lr.ph.split
+.unreachabledefault:                              ; preds = %25
   unreachable
 
-.unreachabledefault:                              ; preds = %25
+default.unreachable59:                            ; preds = %.lr.ph.split
   unreachable
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   %37 = and i32 %3, 3
   %38 = and i32 %3, -4
   %39 = sext i32 %38 to i64
-  switch i32 %37, label %default.unreachable58 [
+  switch i32 %37, label %default.unreachable59 [
     i32 0, label %._crit_edge
     i32 3, label %.lr.ph.split.split.split.split.us
     i32 2, label %.lr.ph.split.split.split.split.us47

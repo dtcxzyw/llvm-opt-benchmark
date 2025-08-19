@@ -729,9 +729,9 @@ _ZN7QStringD2Ev.exit124:                          ; preds = %_ZN7QStringD2Ev.exi
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   invoke void @_ZN7QAction10setEnabledEb(ptr noundef align 8 dereferenceable_or_null(16) %140, i1 noundef zeroext false)
-          to label %.invoke223 unwind label %150
+          to label %.invoke255 unwind label %150
 
-150:                                              ; preds = %.invoke223, %.invoke, %255, %.noexc172, %_ZN7QStringD2Ev.exit165, %_ZN7QStringD2Ev.exit124, %118, %.noexc, %_ZN7QStringD2Ev.exit96, %257, %_ZN7QAction11setDisabledEb.exit188, %116, %100
+150:                                              ; preds = %.invoke255, %.invoke, %255, %.noexc172, %_ZN7QStringD2Ev.exit165, %_ZN7QStringD2Ev.exit124, %118, %.noexc, %_ZN7QStringD2Ev.exit96, %257, %_ZN7QAction11setDisabledEb.exit188, %116, %100
   %151 = landingpad { ptr, i32 }
           cleanup
   br label %292
@@ -1144,9 +1144,9 @@ _ZN17QArrayDataPointerIP7QActionE5derefEv.exit.i.i: ; preds = %270
 
 _ZN5QListIP7QActionED2Ev.exit:                    ; preds = %270, %_ZN17QArrayDataPointerIP7QActionE5derefEv.exit.i.i, %273
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
-  br i1 %269, label %.invoke, label %.invoke223
+  br i1 %269, label %.invoke, label %.invoke255
 
-.invoke223:                                       ; preds = %_ZN7QStringD2Ev.exit124, %_ZN5QListIP7QActionED2Ev.exit
+.invoke255:                                       ; preds = %_ZN7QStringD2Ev.exit124, %_ZN5QListIP7QActionED2Ev.exit
   %275 = invoke noundef ptr @_ZN5QMenu12addSeparatorEv(ptr noundef align 8 dereferenceable_or_null(40) %0)
           to label %.invoke unwind label %150
 
@@ -1177,7 +1177,7 @@ _ZN5QListIP7QActionED2Ev.exit194:                 ; preds = %282, %_ZN17QArrayDa
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
   br label %292
 
-.invoke:                                          ; preds = %.invoke223, %_ZN5QListIP7QActionED2Ev.exit
+.invoke:                                          ; preds = %.invoke255, %_ZN5QListIP7QActionED2Ev.exit
   invoke void @_ZN7QWidget9addActionEP7QAction(ptr noundef align 8 dereferenceable_or_null(40) %0, ptr noundef %101)
           to label %_ZN7QAction11setDisabledEb.exit unwind label %150
 

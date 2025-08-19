@@ -218,9 +218,9 @@ _ZNKSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EE12_M_check_lenEmPKc.ex
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZNKSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EE12_M_check_lenEmPKc.exit.i.i, %_ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit460
-  %.sroa.0863.0.ph1314 = phi ptr [ %17, %_ZNKSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EE12_M_check_lenEmPKc.exit.i.i ], [ %.sroa.0863.3.lcssa1581, %_ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit460 ]
+  %.sroa.0863.0.ph1314 = phi ptr [ %17, %_ZNKSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EE12_M_check_lenEmPKc.exit.i.i ], [ %.sroa.0863.3.lcssa1605, %_ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit460 ]
   %.sroa.11.0.ph1313 = phi ptr [ %19, %_ZNKSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EE12_M_check_lenEmPKc.exit.i.i ], [ %.sroa.11.3, %_ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit460 ]
-  %.sroa.23.0.ph1312 = phi ptr [ %19, %_ZNKSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EE12_M_check_lenEmPKc.exit.i.i ], [ %.sroa.23.3.lcssa1575, %_ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit460 ]
+  %.sroa.23.0.ph1312 = phi ptr [ %19, %_ZNKSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EE12_M_check_lenEmPKc.exit.i.i ], [ %.sroa.23.3.lcssa1599, %_ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit460 ]
   br label %31
 
 31:                                               ; preds = %.lr.ph, %44
@@ -462,10 +462,10 @@ _ZNSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EE9push_backEOS3_.exit: ;
   br i1 %.not, label %._crit_edge1307, label %.lr.ph1306, !llvm.loop !41
 
 ._crit_edge1307.thread:                           ; preds = %57, %._crit_edge1307
-  %.sroa.0863.3.lcssa1580 = phi ptr [ %.sroa.0863.5, %._crit_edge1307 ], [ %.sroa.0863.0.ph1314, %57 ]
-  %.sroa.11.1.lcssa1579 = phi ptr [ %.sroa.11.2, %._crit_edge1307 ], [ %.sroa.11.01295, %57 ]
-  %.sroa.23.3.lcssa1574 = phi ptr [ %.sroa.23.5, %._crit_edge1307 ], [ %.sroa.23.0.ph1312, %57 ]
-  %127 = getelementptr inbounds i8, ptr %.sroa.11.1.lcssa1579, i64 -8
+  %.sroa.0863.3.lcssa1604 = phi ptr [ %.sroa.0863.5, %._crit_edge1307 ], [ %.sroa.0863.0.ph1314, %57 ]
+  %.sroa.11.1.lcssa1603 = phi ptr [ %.sroa.11.2, %._crit_edge1307 ], [ %.sroa.11.01295, %57 ]
+  %.sroa.23.3.lcssa1598 = phi ptr [ %.sroa.23.5, %._crit_edge1307 ], [ %.sroa.23.0.ph1312, %57 ]
+  %127 = getelementptr inbounds i8, ptr %.sroa.11.1.lcssa1603, i64 -8
   %128 = load i64, ptr %25, align 8, !tbaa !30
   %.not.not.i.i281 = icmp eq i64 %128, 0
   br i1 %.not.not.i.i281, label %129, label %136
@@ -1800,15 +1800,15 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit569: ; preds = %_ZN4cvc58internal1
   br label %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EED2Ev.exit589
 
 _ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit460: ; preds = %807, %803, %796, %175, %167, %193, %366, %336, %304, %273, %243, %225, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit569, %_ZNSt13unordered_setIN4cvc58internal12NodeTemplateILb0EEESt4hashIS3_ESt8equal_toIS3_ESaIS3_EE4findERKS3_.exit293, %.critedge270, %._crit_edge1307
-  %.sroa.0863.3.lcssa1581 = phi ptr [ %.sroa.0863.5, %._crit_edge1307 ], [ %.sroa.0863.3.lcssa1580, %_ZNSt13unordered_setIN4cvc58internal12NodeTemplateILb0EEESt4hashIS3_ESt8equal_toIS3_ESaIS3_EE4findERKS3_.exit293 ], [ %.sroa.0863.3.lcssa1580, %.critedge270 ], [ %.sroa.0863.3.lcssa1580, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit569 ], [ %.sroa.0863.3.lcssa1580, %225 ], [ %.sroa.0863.3.lcssa1580, %243 ], [ %.sroa.0863.3.lcssa1580, %273 ], [ %.sroa.0863.3.lcssa1580, %304 ], [ %.sroa.0863.3.lcssa1580, %336 ], [ %.sroa.0863.3.lcssa1580, %366 ], [ %.sroa.0863.3.lcssa1580, %193 ], [ %.sroa.0863.3.lcssa1580, %167 ], [ %.sroa.0863.3.lcssa1580, %175 ], [ %.sroa.0863.3.lcssa1580, %796 ], [ %.sroa.0863.3.lcssa1580, %803 ], [ %.sroa.0863.3.lcssa1580, %807 ]
-  %.sroa.23.3.lcssa1575 = phi ptr [ %.sroa.23.5, %._crit_edge1307 ], [ %.sroa.23.3.lcssa1574, %_ZNSt13unordered_setIN4cvc58internal12NodeTemplateILb0EEESt4hashIS3_ESt8equal_toIS3_ESaIS3_EE4findERKS3_.exit293 ], [ %.sroa.23.3.lcssa1574, %.critedge270 ], [ %.sroa.23.3.lcssa1574, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit569 ], [ %.sroa.23.3.lcssa1574, %225 ], [ %.sroa.23.3.lcssa1574, %243 ], [ %.sroa.23.3.lcssa1574, %273 ], [ %.sroa.23.3.lcssa1574, %304 ], [ %.sroa.23.3.lcssa1574, %336 ], [ %.sroa.23.3.lcssa1574, %366 ], [ %.sroa.23.3.lcssa1574, %193 ], [ %.sroa.23.3.lcssa1574, %167 ], [ %.sroa.23.3.lcssa1574, %175 ], [ %.sroa.23.3.lcssa1574, %796 ], [ %.sroa.23.3.lcssa1574, %803 ], [ %.sroa.23.3.lcssa1574, %807 ]
+  %.sroa.0863.3.lcssa1605 = phi ptr [ %.sroa.0863.5, %._crit_edge1307 ], [ %.sroa.0863.3.lcssa1604, %_ZNSt13unordered_setIN4cvc58internal12NodeTemplateILb0EEESt4hashIS3_ESt8equal_toIS3_ESaIS3_EE4findERKS3_.exit293 ], [ %.sroa.0863.3.lcssa1604, %.critedge270 ], [ %.sroa.0863.3.lcssa1604, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit569 ], [ %.sroa.0863.3.lcssa1604, %225 ], [ %.sroa.0863.3.lcssa1604, %243 ], [ %.sroa.0863.3.lcssa1604, %273 ], [ %.sroa.0863.3.lcssa1604, %304 ], [ %.sroa.0863.3.lcssa1604, %336 ], [ %.sroa.0863.3.lcssa1604, %366 ], [ %.sroa.0863.3.lcssa1604, %193 ], [ %.sroa.0863.3.lcssa1604, %167 ], [ %.sroa.0863.3.lcssa1604, %175 ], [ %.sroa.0863.3.lcssa1604, %796 ], [ %.sroa.0863.3.lcssa1604, %803 ], [ %.sroa.0863.3.lcssa1604, %807 ]
+  %.sroa.23.3.lcssa1599 = phi ptr [ %.sroa.23.5, %._crit_edge1307 ], [ %.sroa.23.3.lcssa1598, %_ZNSt13unordered_setIN4cvc58internal12NodeTemplateILb0EEESt4hashIS3_ESt8equal_toIS3_ESaIS3_EE4findERKS3_.exit293 ], [ %.sroa.23.3.lcssa1598, %.critedge270 ], [ %.sroa.23.3.lcssa1598, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit569 ], [ %.sroa.23.3.lcssa1598, %225 ], [ %.sroa.23.3.lcssa1598, %243 ], [ %.sroa.23.3.lcssa1598, %273 ], [ %.sroa.23.3.lcssa1598, %304 ], [ %.sroa.23.3.lcssa1598, %336 ], [ %.sroa.23.3.lcssa1598, %366 ], [ %.sroa.23.3.lcssa1598, %193 ], [ %.sroa.23.3.lcssa1598, %167 ], [ %.sroa.23.3.lcssa1598, %175 ], [ %.sroa.23.3.lcssa1598, %796 ], [ %.sroa.23.3.lcssa1598, %803 ], [ %.sroa.23.3.lcssa1598, %807 ]
   %.sroa.11.3 = phi ptr [ %.sroa.11.2, %._crit_edge1307 ], [ %127, %_ZNSt13unordered_setIN4cvc58internal12NodeTemplateILb0EEESt4hashIS3_ESt8equal_toIS3_ESaIS3_EE4findERKS3_.exit293 ], [ %127, %.critedge270 ], [ %127, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit569 ], [ %127, %225 ], [ %127, %243 ], [ %127, %273 ], [ %127, %304 ], [ %127, %336 ], [ %127, %366 ], [ %127, %193 ], [ %127, %167 ], [ %127, %175 ], [ %127, %796 ], [ %127, %803 ], [ %127, %807 ]
-  %943 = icmp eq ptr %.sroa.0863.3.lcssa1581, %.sroa.11.3
+  %943 = icmp eq ptr %.sroa.0863.3.lcssa1605, %.sroa.11.3
   br i1 %943, label %.outer._crit_edge, label %.lr.ph
 
 .outer._crit_edge:                                ; preds = %_ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit460, %44
-  %.sroa.23.0.ph.lcssa1294 = phi ptr [ %.sroa.23.0.ph1312, %44 ], [ %.sroa.23.3.lcssa1575, %_ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit460 ]
-  %.sroa.0863.0.ph.lcssa1234 = phi ptr [ %.sroa.0863.0.ph1314, %44 ], [ %.sroa.0863.3.lcssa1581, %_ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit460 ]
+  %.sroa.23.0.ph.lcssa1294 = phi ptr [ %.sroa.23.0.ph1312, %44 ], [ %.sroa.23.3.lcssa1599, %_ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit460 ]
+  %.sroa.0863.0.ph.lcssa1234 = phi ptr [ %.sroa.0863.0.ph1314, %44 ], [ %.sroa.0863.3.lcssa1605, %_ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit460 ]
   %944 = load ptr, ptr %22, align 8, !tbaa !178
   %.not5.i.i.i.i = icmp eq ptr %944, null
   br i1 %.not5.i.i.i.i, label %_ZNSt10_HashtableIN4cvc58internal12NodeTemplateILb0EEES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ESt4hashIS3_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb1ELb1ELb1EEEE5clearEv.exit.i.i, label %.lr.ph.i.i.i.i585
@@ -1845,8 +1845,8 @@ _ZNSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EED2Ev.exit: ; preds = %_
   ret void
 
 _ZNSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EED2Ev.exit589: ; preds = %.loopexit1040, %.loopexit.split-lp, %46, %714, %164, %124, %66, %720, %726, %730, %732, %738, %740, %742, %736, %734, %728, %724, %722, %718, %716, %752, %754, %750, %764, %766, %762, %776, %778, %774, %788, %790, %786, %.body, %780, %784, %782, %768, %772, %770, %756, %760, %758, %744, %748, %746
-  %.sroa.23.2 = phi ptr [ %.sroa.23.0.ph1312, %46 ], [ %.sroa.23.3.lcssa1574, %714 ], [ %.sroa.23.3.lcssa1574, %164 ], [ %.sroa.23.0.ph1312, %66 ], [ %.sroa.23.31301, %124 ], [ %.sroa.23.3.lcssa1574, %720 ], [ %.sroa.23.3.lcssa1574, %726 ], [ %.sroa.23.3.lcssa1574, %730 ], [ %.sroa.23.3.lcssa1574, %732 ], [ %.sroa.23.3.lcssa1574, %738 ], [ %.sroa.23.3.lcssa1574, %740 ], [ %.sroa.23.3.lcssa1574, %742 ], [ %.sroa.23.3.lcssa1574, %736 ], [ %.sroa.23.3.lcssa1574, %734 ], [ %.sroa.23.3.lcssa1574, %728 ], [ %.sroa.23.3.lcssa1574, %724 ], [ %.sroa.23.3.lcssa1574, %722 ], [ %.sroa.23.3.lcssa1574, %718 ], [ %.sroa.23.3.lcssa1574, %716 ], [ %.sroa.23.3.lcssa1574, %752 ], [ %.sroa.23.3.lcssa1574, %754 ], [ %.sroa.23.3.lcssa1574, %750 ], [ %.sroa.23.3.lcssa1574, %764 ], [ %.sroa.23.3.lcssa1574, %766 ], [ %.sroa.23.3.lcssa1574, %762 ], [ %.sroa.23.3.lcssa1574, %776 ], [ %.sroa.23.3.lcssa1574, %778 ], [ %.sroa.23.3.lcssa1574, %774 ], [ %.sroa.23.3.lcssa1574, %788 ], [ %.sroa.23.3.lcssa1574, %790 ], [ %.sroa.23.3.lcssa1574, %786 ], [ %.sroa.23.3.lcssa1574, %.body ], [ %.sroa.23.3.lcssa1574, %780 ], [ %.sroa.23.3.lcssa1574, %784 ], [ %.sroa.23.3.lcssa1574, %782 ], [ %.sroa.23.3.lcssa1574, %768 ], [ %.sroa.23.3.lcssa1574, %772 ], [ %.sroa.23.3.lcssa1574, %770 ], [ %.sroa.23.3.lcssa1574, %756 ], [ %.sroa.23.3.lcssa1574, %760 ], [ %.sroa.23.3.lcssa1574, %758 ], [ %.sroa.23.3.lcssa1574, %744 ], [ %.sroa.23.3.lcssa1574, %748 ], [ %.sroa.23.3.lcssa1574, %746 ], [ %.sroa.11.11302, %.loopexit1040 ], [ %.sroa.11.11302, %.loopexit.split-lp ]
-  %.sroa.0863.2 = phi ptr [ %.sroa.0863.0.ph1314, %46 ], [ %.sroa.0863.3.lcssa1580, %714 ], [ %.sroa.0863.3.lcssa1580, %164 ], [ %.sroa.0863.0.ph1314, %66 ], [ %.sroa.0863.31303, %124 ], [ %.sroa.0863.3.lcssa1580, %720 ], [ %.sroa.0863.3.lcssa1580, %726 ], [ %.sroa.0863.3.lcssa1580, %730 ], [ %.sroa.0863.3.lcssa1580, %732 ], [ %.sroa.0863.3.lcssa1580, %738 ], [ %.sroa.0863.3.lcssa1580, %740 ], [ %.sroa.0863.3.lcssa1580, %742 ], [ %.sroa.0863.3.lcssa1580, %736 ], [ %.sroa.0863.3.lcssa1580, %734 ], [ %.sroa.0863.3.lcssa1580, %728 ], [ %.sroa.0863.3.lcssa1580, %724 ], [ %.sroa.0863.3.lcssa1580, %722 ], [ %.sroa.0863.3.lcssa1580, %718 ], [ %.sroa.0863.3.lcssa1580, %716 ], [ %.sroa.0863.3.lcssa1580, %752 ], [ %.sroa.0863.3.lcssa1580, %754 ], [ %.sroa.0863.3.lcssa1580, %750 ], [ %.sroa.0863.3.lcssa1580, %764 ], [ %.sroa.0863.3.lcssa1580, %766 ], [ %.sroa.0863.3.lcssa1580, %762 ], [ %.sroa.0863.3.lcssa1580, %776 ], [ %.sroa.0863.3.lcssa1580, %778 ], [ %.sroa.0863.3.lcssa1580, %774 ], [ %.sroa.0863.3.lcssa1580, %788 ], [ %.sroa.0863.3.lcssa1580, %790 ], [ %.sroa.0863.3.lcssa1580, %786 ], [ %.sroa.0863.3.lcssa1580, %.body ], [ %.sroa.0863.3.lcssa1580, %780 ], [ %.sroa.0863.3.lcssa1580, %784 ], [ %.sroa.0863.3.lcssa1580, %782 ], [ %.sroa.0863.3.lcssa1580, %768 ], [ %.sroa.0863.3.lcssa1580, %772 ], [ %.sroa.0863.3.lcssa1580, %770 ], [ %.sroa.0863.3.lcssa1580, %756 ], [ %.sroa.0863.3.lcssa1580, %760 ], [ %.sroa.0863.3.lcssa1580, %758 ], [ %.sroa.0863.3.lcssa1580, %744 ], [ %.sroa.0863.3.lcssa1580, %748 ], [ %.sroa.0863.3.lcssa1580, %746 ], [ %.sroa.0863.31303, %.loopexit1040 ], [ %.sroa.0863.31303, %.loopexit.split-lp ]
+  %.sroa.23.2 = phi ptr [ %.sroa.23.0.ph1312, %46 ], [ %.sroa.23.3.lcssa1598, %714 ], [ %.sroa.23.3.lcssa1598, %164 ], [ %.sroa.23.0.ph1312, %66 ], [ %.sroa.23.31301, %124 ], [ %.sroa.23.3.lcssa1598, %720 ], [ %.sroa.23.3.lcssa1598, %726 ], [ %.sroa.23.3.lcssa1598, %730 ], [ %.sroa.23.3.lcssa1598, %732 ], [ %.sroa.23.3.lcssa1598, %738 ], [ %.sroa.23.3.lcssa1598, %740 ], [ %.sroa.23.3.lcssa1598, %742 ], [ %.sroa.23.3.lcssa1598, %736 ], [ %.sroa.23.3.lcssa1598, %734 ], [ %.sroa.23.3.lcssa1598, %728 ], [ %.sroa.23.3.lcssa1598, %724 ], [ %.sroa.23.3.lcssa1598, %722 ], [ %.sroa.23.3.lcssa1598, %718 ], [ %.sroa.23.3.lcssa1598, %716 ], [ %.sroa.23.3.lcssa1598, %752 ], [ %.sroa.23.3.lcssa1598, %754 ], [ %.sroa.23.3.lcssa1598, %750 ], [ %.sroa.23.3.lcssa1598, %764 ], [ %.sroa.23.3.lcssa1598, %766 ], [ %.sroa.23.3.lcssa1598, %762 ], [ %.sroa.23.3.lcssa1598, %776 ], [ %.sroa.23.3.lcssa1598, %778 ], [ %.sroa.23.3.lcssa1598, %774 ], [ %.sroa.23.3.lcssa1598, %788 ], [ %.sroa.23.3.lcssa1598, %790 ], [ %.sroa.23.3.lcssa1598, %786 ], [ %.sroa.23.3.lcssa1598, %.body ], [ %.sroa.23.3.lcssa1598, %780 ], [ %.sroa.23.3.lcssa1598, %784 ], [ %.sroa.23.3.lcssa1598, %782 ], [ %.sroa.23.3.lcssa1598, %768 ], [ %.sroa.23.3.lcssa1598, %772 ], [ %.sroa.23.3.lcssa1598, %770 ], [ %.sroa.23.3.lcssa1598, %756 ], [ %.sroa.23.3.lcssa1598, %760 ], [ %.sroa.23.3.lcssa1598, %758 ], [ %.sroa.23.3.lcssa1598, %744 ], [ %.sroa.23.3.lcssa1598, %748 ], [ %.sroa.23.3.lcssa1598, %746 ], [ %.sroa.11.11302, %.loopexit1040 ], [ %.sroa.11.11302, %.loopexit.split-lp ]
+  %.sroa.0863.2 = phi ptr [ %.sroa.0863.0.ph1314, %46 ], [ %.sroa.0863.3.lcssa1604, %714 ], [ %.sroa.0863.3.lcssa1604, %164 ], [ %.sroa.0863.0.ph1314, %66 ], [ %.sroa.0863.31303, %124 ], [ %.sroa.0863.3.lcssa1604, %720 ], [ %.sroa.0863.3.lcssa1604, %726 ], [ %.sroa.0863.3.lcssa1604, %730 ], [ %.sroa.0863.3.lcssa1604, %732 ], [ %.sroa.0863.3.lcssa1604, %738 ], [ %.sroa.0863.3.lcssa1604, %740 ], [ %.sroa.0863.3.lcssa1604, %742 ], [ %.sroa.0863.3.lcssa1604, %736 ], [ %.sroa.0863.3.lcssa1604, %734 ], [ %.sroa.0863.3.lcssa1604, %728 ], [ %.sroa.0863.3.lcssa1604, %724 ], [ %.sroa.0863.3.lcssa1604, %722 ], [ %.sroa.0863.3.lcssa1604, %718 ], [ %.sroa.0863.3.lcssa1604, %716 ], [ %.sroa.0863.3.lcssa1604, %752 ], [ %.sroa.0863.3.lcssa1604, %754 ], [ %.sroa.0863.3.lcssa1604, %750 ], [ %.sroa.0863.3.lcssa1604, %764 ], [ %.sroa.0863.3.lcssa1604, %766 ], [ %.sroa.0863.3.lcssa1604, %762 ], [ %.sroa.0863.3.lcssa1604, %776 ], [ %.sroa.0863.3.lcssa1604, %778 ], [ %.sroa.0863.3.lcssa1604, %774 ], [ %.sroa.0863.3.lcssa1604, %788 ], [ %.sroa.0863.3.lcssa1604, %790 ], [ %.sroa.0863.3.lcssa1604, %786 ], [ %.sroa.0863.3.lcssa1604, %.body ], [ %.sroa.0863.3.lcssa1604, %780 ], [ %.sroa.0863.3.lcssa1604, %784 ], [ %.sroa.0863.3.lcssa1604, %782 ], [ %.sroa.0863.3.lcssa1604, %768 ], [ %.sroa.0863.3.lcssa1604, %772 ], [ %.sroa.0863.3.lcssa1604, %770 ], [ %.sroa.0863.3.lcssa1604, %756 ], [ %.sroa.0863.3.lcssa1604, %760 ], [ %.sroa.0863.3.lcssa1604, %758 ], [ %.sroa.0863.3.lcssa1604, %744 ], [ %.sroa.0863.3.lcssa1604, %748 ], [ %.sroa.0863.3.lcssa1604, %746 ], [ %.sroa.0863.31303, %.loopexit1040 ], [ %.sroa.0863.31303, %.loopexit.split-lp ]
   %.pn246 = phi { ptr, i32 } [ %47, %46 ], [ %715, %714 ], [ %165, %164 ], [ %67, %66 ], [ %125, %124 ], [ %721, %720 ], [ %727, %726 ], [ %731, %730 ], [ %733, %732 ], [ %739, %738 ], [ %741, %740 ], [ %743, %742 ], [ %737, %736 ], [ %735, %734 ], [ %729, %728 ], [ %725, %724 ], [ %723, %722 ], [ %719, %718 ], [ %717, %716 ], [ %753, %752 ], [ %755, %754 ], [ %751, %750 ], [ %765, %764 ], [ %767, %766 ], [ %763, %762 ], [ %777, %776 ], [ %779, %778 ], [ %775, %774 ], [ %789, %788 ], [ %791, %790 ], [ %787, %786 ], [ %.pn225.pn.pn.pn, %.body ], [ %781, %780 ], [ %785, %784 ], [ %783, %782 ], [ %769, %768 ], [ %773, %772 ], [ %771, %770 ], [ %757, %756 ], [ %761, %760 ], [ %759, %758 ], [ %745, %744 ], [ %749, %748 ], [ %747, %746 ], [ %lpad.loopexit, %.loopexit1040 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZNSt13unordered_setIN4cvc58internal12NodeTemplateILb0EEESt4hashIS3_ESt8equal_toIS3_ESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %11) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -2177,7 +2177,7 @@ _ZNK4cvc58internal12NodeTemplateILb1EEixEi.exit157: ; preds = %122, %116, %124
 
 147:                                              ; preds = %134
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.16) #24
-          to label %.noexc.i160 unwind label %.thread743
+          to label %.noexc.i160 unwind label %.thread889
 
 .noexc.i160:                                      ; preds = %147
   unreachable
@@ -2188,7 +2188,7 @@ _ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE17_S_check_init_lenEmRK
 
 _ZNSt16allocator_traitsISaIN4cvc58internal12NodeTemplateILb1EEEEE8allocateERS4_m.exit.i.i.i: ; preds = %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i.i
   %148 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %145) #23
-          to label %_ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE11_M_allocateEm.exit.i.i unwind label %.thread743
+          to label %_ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE11_M_allocateEm.exit.i.i unwind label %.thread889
 
 _ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE11_M_allocateEm.exit.i.i: ; preds = %_ZNSt16allocator_traitsISaIN4cvc58internal12NodeTemplateILb1EEEEE8allocateERS4_m.exit.i.i.i, %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i.i
   %149 = phi ptr [ null, %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i.i ], [ %148, %_ZNSt16allocator_traitsISaIN4cvc58internal12NodeTemplateILb1EEEEE8allocateERS4_m.exit.i.i.i ]
@@ -2199,7 +2199,7 @@ _ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE11_M_allocateEm.
   %152 = invoke noundef ptr @_ZSt16__do_uninit_copyIN4cvc58internal4expr9NodeValue8iteratorINS1_12NodeTemplateILb1EEEEEPS6_ET0_T_SA_S9_(ptr nonnull %spec.select.i.i158, ptr nonnull %142, ptr noundef %149)
           to label %155 unwind label %153
 
-.thread743:                                       ; preds = %_ZNSt16allocator_traitsISaIN4cvc58internal12NodeTemplateILb1EEEEE8allocateERS4_m.exit.i.i.i, %147
+.thread889:                                       ; preds = %_ZNSt16allocator_traitsISaIN4cvc58internal12NodeTemplateILb1EEEEE8allocateERS4_m.exit.i.i.i, %147
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -5822,8 +5822,8 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit551: ; preds = %_ZN4cvc58internal1
   call void @_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %18) #21
   br label %.body
 
-.body:                                            ; preds = %.thread743, %154, %153, %1732, %186
-  %.pn131.pn.pn.pn = phi { ptr, i32 } [ %.pn131.pn.pn, %1732 ], [ %187, %186 ], [ %lpad.thr_comm.split-lp, %154 ], [ %lpad.thr_comm.split-lp, %153 ], [ %lpad.thr_comm, %.thread743 ]
+.body:                                            ; preds = %.thread889, %154, %153, %1732, %186
+  %.pn131.pn.pn.pn = phi { ptr, i32 } [ %.pn131.pn.pn, %1732 ], [ %187, %186 ], [ %lpad.thr_comm.split-lp, %154 ], [ %lpad.thr_comm.split-lp, %153 ], [ %lpad.thr_comm, %.thread889 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %17) #21
   br label %1733

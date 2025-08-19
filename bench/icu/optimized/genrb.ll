@@ -702,7 +702,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   %13 = tail call i32 @u_parseArgs(i32 noundef %0, ptr noundef %1, i32 noundef 25, ptr noundef nonnull @options)
   %14 = icmp slt i32 %13, 0
   %.sink.sroa.gep = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %.sink.sroa.gep358 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %.sink.sroa.gep381 = getelementptr inbounds nuw i8, ptr %7, i64 8
   br i1 %14, label %15, label %23
 
 15:                                               ; preds = %2
@@ -1021,9 +1021,9 @@ _ZN6icu_7712LocalPointerI7SRBRootE29adoptInsteadAndCheckErrorCodeEPS1_R10UErrorC
 173:                                              ; preds = %_ZN6icu_7712LocalPointerI7SRBRootE29adoptInsteadAndCheckErrorCodeEPS1_R10UErrorCode.exit
   %174 = load ptr, ptr @stderr, align 8, !tbaa !25
   %175 = invoke ptr @u_errorName_77(i32 noundef %.pre)
-          to label %.thread344 unwind label %.loopexit.split-lp
+          to label %.thread367 unwind label %.loopexit.split-lp
 
-.thread344:                                       ; preds = %173
+.thread367:                                       ; preds = %173
   %176 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %174, ptr noundef nonnull @.str.48, ptr noundef %175) #28
   %177 = load i32, ptr %3, align 4, !tbaa !14
   br label %_ZN6icu_7712LocalPointerI7SRBRootED2Ev.exit
@@ -1114,7 +1114,7 @@ _ZN6icu_7712LocalPointerI7SRBRootE29adoptInsteadAndCheckErrorCodeEPS1_R10UErrorC
           to label %.invoke unwind label %202
 
 .invoke:                                          ; preds = %205, %199
-  %.sink.sroa.phi = phi ptr [ %.sink.sroa.gep, %199 ], [ %.sink.sroa.gep358, %205 ]
+  %.sink.sroa.phi = phi ptr [ %.sink.sroa.gep, %199 ], [ %.sink.sroa.gep381, %205 ]
   %.sink = phi ptr [ %6, %199 ], [ %7, %205 ]
   %206 = load ptr, ptr %.sink, align 8
   %207 = load i32, ptr %.sink.sroa.phi, align 8
@@ -1872,8 +1872,8 @@ _ZN7ResFile5closeEv.exit:                         ; preds = %517, %520
   call void @_ZdlPvm(ptr noundef nonnull %546, i64 noundef 176) #27
   br label %_ZN6icu_7712LocalPointerI7SRBRootED2Ev.exit
 
-_ZN6icu_7712LocalPointerI7SRBRootED2Ev.exit:      ; preds = %.thread344, %545, %548
-  %.2346 = phi i32 [ %177, %.thread344 ], [ %.2, %545 ], [ %.2, %548 ]
+_ZN6icu_7712LocalPointerI7SRBRootED2Ev.exit:      ; preds = %.thread367, %545, %548
+  %.2369 = phi i32 [ %177, %.thread367 ], [ %.2, %545 ], [ %.2, %548 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %549
 
@@ -1885,7 +1885,7 @@ _ZN6icu_7712LocalPointerI7SRBRootED2Ev.exit:      ; preds = %.thread344, %545, %
   resume { ptr, i32 } %.pn289
 
 549:                                              ; preds = %80, %_ZN6icu_7712LocalPointerI7SRBRootED2Ev.exit, %90
-  %.0170 = phi i32 [ %113, %90 ], [ %.2346, %_ZN6icu_7712LocalPointerI7SRBRootED2Ev.exit ], [ 0, %80 ]
+  %.0170 = phi i32 [ %113, %90 ], [ %.2369, %_ZN6icu_7712LocalPointerI7SRBRootED2Ev.exit ], [ 0, %80 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0170
 }
@@ -2000,7 +2000,7 @@ define dso_local void @_Z11processFilePKcS0_S0_S0_S0_S0_P7SRBRootaR10UErrorCode(
   store ptr null, ptr %12, align 8, !tbaa !73
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %.sink.sroa.gep = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %.sink.sroa.gep182 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  %.sink.sroa.gep201 = getelementptr inbounds nuw i8, ptr %17, i64 8
   invoke void @_ZN6icu_7715MaybeStackArrayIcLi40EEC1Ev(ptr noundef nonnull align 8 dereferenceable(60) %13)
           to label %27 unwind label %35
 
@@ -2099,7 +2099,7 @@ define dso_local void @_Z11processFilePKcS0_S0_S0_S0_S0_P7SRBRootaR10UErrorCode(
           to label %.invoke unwind label %39
 
 .invoke:                                          ; preds = %68, %67
-  %.sink.sroa.phi = phi ptr [ %.sink.sroa.gep, %67 ], [ %.sink.sroa.gep182, %68 ]
+  %.sink.sroa.phi = phi ptr [ %.sink.sroa.gep, %67 ], [ %.sink.sroa.gep201, %68 ]
   %.sink = phi ptr [ %16, %67 ], [ %17, %68 ]
   %69 = load ptr, ptr %.sink, align 8
   %70 = load i32, ptr %.sink.sroa.phi, align 8

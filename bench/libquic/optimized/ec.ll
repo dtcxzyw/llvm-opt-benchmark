@@ -473,8 +473,8 @@ define hidden noundef ptr @EC_GROUP_new_by_curve_name(i32 noundef %0) local_unna
   br i1 %2, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1, %3
-  %indvars.iv26 = phi i64 [ %indvars.iv.next, %3 ], [ 0, %1 ]
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv26, 1
+  %indvars.iv39 = phi i64 [ %indvars.iv.next, %3 ], [ 0, %1 ]
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv39, 1
   %exitcond = icmp eq i64 %indvars.iv.next, 4
   br i1 %exitcond, label %.thread, label %3, !llvm.loop !25
 

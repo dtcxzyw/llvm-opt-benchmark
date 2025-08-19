@@ -1071,7 +1071,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @astfold_body(ptr noundef %0,
 
 .lr.ph:                                           ; preds = %.lr.phthread-pre-split, %.thread
   %19 = phi i64 [ %.pr, %.lr.phthread-pre-split ], [ %16, %.thread ]
-  %.036.shrunk66 = phi i1 [ %.not, %.lr.phthread-pre-split ], [ false, %.thread ]
+  %.036.shrunk74 = phi i1 [ %.not, %.lr.phthread-pre-split ], [ false, %.thread ]
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %21 = icmp sgt i64 %19, 0
   br i1 %21, label %.lr.ph64, label %.critedge53
@@ -1100,8 +1100,8 @@ define internal fastcc noundef range(i32 0, 2) i32 @astfold_body(ptr noundef %0,
   br i1 %29, label %.lr.ph64, label %.critedge53
 
 .critedge53:                                      ; preds = %.critedge, %.lr.ph, %17
-  %.036.shrunk67 = phi i1 [ %.036.shrunk66, %.lr.ph ], [ %.not, %17 ], [ %.036.shrunk66, %.critedge ]
-  br i1 %.036.shrunk67, label %.critedge55, label %30
+  %.036.shrunk75 = phi i1 [ %.036.shrunk74, %.lr.ph ], [ %.not, %17 ], [ %.036.shrunk74, %.critedge ]
+  br i1 %.036.shrunk75, label %.critedge55, label %30
 
 30:                                               ; preds = %.critedge53
   %31 = tail call ptr @_PyAST_GetDocString(ptr noundef %0) #8
@@ -4976,8 +4976,8 @@ _PyUnicode_DATA.exit.i.i.us.us.i.i:               ; preds = %.backedge.i.us.us.i
   br label %.backedge.i.us.us.i.i
 
 .backedge.i.us.us.i.i:                            ; preds = %134, %133, %132, %131, %_PyUnicode_DATA.exit.i.i.us.us.i.i
-  %.sink177.i.us.us.i.i = phi i32 [ 1, %134 ], [ 4, %133 ], [ 8, %132 ], [ 16, %131 ], [ 2, %_PyUnicode_DATA.exit.i.i.us.us.i.i ]
-  %135 = or i32 %.sink177.i.us.us.i.i, %.051.us.us.i.i
+  %.sink181.i.us.us.i.i = phi i32 [ 1, %134 ], [ 4, %133 ], [ 8, %132 ], [ 16, %131 ], [ 2, %_PyUnicode_DATA.exit.i.i.us.us.i.i ]
+  %135 = or i32 %.sink181.i.us.us.i.i, %.051.us.us.i.i
   %exitcond.not.i.us.us.i.i = icmp eq i64 %130, %.val.i
   br i1 %exitcond.not.i.us.us.i.i, label %parse_format.exit.thread.i, label %_PyUnicode_DATA.exit.i.i.us.us.i.i
 
@@ -5008,8 +5008,8 @@ _PyUnicode_DATA.exit.i.i.us.i.i:                  ; preds = %.lr.ph.i.split.us.i
   br label %.backedge.i.us.i.i
 
 .backedge.i.us.i.i:                               ; preds = %142, %141, %140, %139, %_PyUnicode_DATA.exit.i.i.us.i.i
-  %.sink177.i.us.i.i = phi i32 [ 1, %142 ], [ 4, %141 ], [ 8, %140 ], [ 16, %139 ], [ 2, %_PyUnicode_DATA.exit.i.i.us.i.i ]
-  %143 = or i32 %.sink177.i.us.i.i, %.051.us.i.i
+  %.sink181.i.us.i.i = phi i32 [ 1, %142 ], [ 4, %141 ], [ 8, %140 ], [ 16, %139 ], [ 2, %_PyUnicode_DATA.exit.i.i.us.i.i ]
+  %143 = or i32 %.sink181.i.us.i.i, %.051.us.i.i
   %exitcond.not.i.us.i.i = icmp eq i64 %138, %.val.i
   br i1 %exitcond.not.i.us.i.i, label %parse_format.exit.thread.i, label %_PyUnicode_DATA.exit.i.i.us.i.i
 
@@ -5047,8 +5047,8 @@ _PyUnicode_DATA.exit17.i.i.us.us.i.i:             ; preds = %.backedge.i.us88.us
   br label %.backedge.i.us88.us.i.i
 
 .backedge.i.us88.us.i.i:                          ; preds = %150, %149, %148, %147, %_PyUnicode_DATA.exit17.i.i.us.us.i.i
-  %.sink177.i.us89.us.i.i = phi i32 [ 1, %150 ], [ 4, %149 ], [ 8, %148 ], [ 16, %147 ], [ 2, %_PyUnicode_DATA.exit17.i.i.us.us.i.i ]
-  %151 = or i32 %.sink177.i.us89.us.i.i, %.051.us84.us.i.i
+  %.sink181.i.us89.us.i.i = phi i32 [ 1, %150 ], [ 4, %149 ], [ 8, %148 ], [ 16, %147 ], [ 2, %_PyUnicode_DATA.exit17.i.i.us.us.i.i ]
+  %151 = or i32 %.sink181.i.us89.us.i.i, %.051.us84.us.i.i
   %exitcond.not.i.us90.us.i.i = icmp eq i64 %146, %.val.i
   br i1 %exitcond.not.i.us90.us.i.i, label %parse_format.exit.thread.i, label %_PyUnicode_DATA.exit17.i.i.us.us.i.i
 
@@ -5079,8 +5079,8 @@ _PyUnicode_DATA.exit17.i.i.us.i.i:                ; preds = %.lr.ph.i.split.us83
   br label %.backedge.i.us88.i.i
 
 .backedge.i.us88.i.i:                             ; preds = %158, %157, %156, %155, %_PyUnicode_DATA.exit17.i.i.us.i.i
-  %.sink177.i.us89.i.i = phi i32 [ 1, %158 ], [ 4, %157 ], [ 8, %156 ], [ 16, %155 ], [ 2, %_PyUnicode_DATA.exit17.i.i.us.i.i ]
-  %159 = or i32 %.sink177.i.us89.i.i, %.051.us84.i.i
+  %.sink181.i.us89.i.i = phi i32 [ 1, %158 ], [ 4, %157 ], [ 8, %156 ], [ 16, %155 ], [ 2, %_PyUnicode_DATA.exit17.i.i.us.i.i ]
+  %159 = or i32 %.sink181.i.us89.i.i, %.051.us84.i.i
   %exitcond.not.i.us90.i.i = icmp eq i64 %154, %.val.i
   br i1 %exitcond.not.i.us90.i.i, label %parse_format.exit.thread.i, label %_PyUnicode_DATA.exit17.i.i.us.i.i
 
@@ -5118,8 +5118,8 @@ _PyUnicode_DATA.exit25.i.i.us.i.i:                ; preds = %.backedge.i.us105.i
   br label %.backedge.i.us105.i.i
 
 .backedge.i.us105.i.i:                            ; preds = %166, %165, %164, %163, %_PyUnicode_DATA.exit25.i.i.us.i.i
-  %.sink177.i.us106.i.i = phi i32 [ 1, %166 ], [ 4, %165 ], [ 8, %164 ], [ 16, %163 ], [ 2, %_PyUnicode_DATA.exit25.i.i.us.i.i ]
-  %167 = or i32 %.sink177.i.us106.i.i, %.051.us103.i.i
+  %.sink181.i.us106.i.i = phi i32 [ 1, %166 ], [ 4, %165 ], [ 8, %164 ], [ 16, %163 ], [ 2, %_PyUnicode_DATA.exit25.i.i.us.i.i ]
+  %167 = or i32 %.sink181.i.us106.i.i, %.051.us103.i.i
   %exitcond.not.i.us107.i.i = icmp eq i64 %162, %.val.i
   br i1 %exitcond.not.i.us107.i.i, label %parse_format.exit.thread.i, label %_PyUnicode_DATA.exit25.i.i.us.i.i
 
@@ -5141,8 +5141,8 @@ _PyUnicode_DATA.exit25.i.i.i.i:                   ; preds = %.lr.ph.i.split.i.i,
   br label %.backedge.i.i.i
 
 .backedge.i.i.i:                                  ; preds = %175, %174, %173, %171, %_PyUnicode_DATA.exit25.i.i.i.i
-  %.sink177.i.i.i = phi i32 [ 1, %171 ], [ 4, %173 ], [ 8, %174 ], [ 16, %175 ], [ 2, %_PyUnicode_DATA.exit25.i.i.i.i ]
-  %172 = or i32 %.sink177.i.i.i, %.051.i.i
+  %.sink181.i.i.i = phi i32 [ 1, %171 ], [ 4, %173 ], [ 8, %174 ], [ 16, %175 ], [ 2, %_PyUnicode_DATA.exit25.i.i.i.i ]
+  %172 = or i32 %.sink181.i.i.i, %.051.i.i
   %exitcond.not.i.i.i = icmp eq i64 %170, %.val.i
   br i1 %exitcond.not.i.i.i, label %parse_format.exit.thread.i, label %_PyUnicode_DATA.exit25.i.i.i.i
 

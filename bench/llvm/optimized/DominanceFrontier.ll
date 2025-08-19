@@ -1339,9 +1339,9 @@ _ZNSt6vectorIN4llvm21DFCalculateWorkObjectINS0_10BasicBlockEEESaIS3_EE9push_back
   br label %18
 
 18:                                               ; preds = %374, %_ZNSt6vectorIN4llvm21DFCalculateWorkObjectINS0_10BasicBlockEEESaIS3_EE9push_backEOS3_.exit
-  %.sroa.21.0 = phi ptr [ %13, %_ZNSt6vectorIN4llvm21DFCalculateWorkObjectINS0_10BasicBlockEEESaIS3_EE9push_backEOS3_.exit ], [ %.sroa.21.1.lcssa289, %374 ]
+  %.sroa.21.0 = phi ptr [ %13, %_ZNSt6vectorIN4llvm21DFCalculateWorkObjectINS0_10BasicBlockEEESaIS3_EE9push_backEOS3_.exit ], [ %.sroa.21.1.lcssa325, %374 ]
   %.sroa.9167.0 = phi ptr [ %13, %_ZNSt6vectorIN4llvm21DFCalculateWorkObjectINS0_10BasicBlockEEESaIS3_EE9push_backEOS3_.exit ], [ %.sroa.9167.3.ph, %374 ]
-  %.sroa.0163.0 = phi ptr [ %12, %_ZNSt6vectorIN4llvm21DFCalculateWorkObjectINS0_10BasicBlockEEESaIS3_EE9push_backEOS3_.exit ], [ %.sroa.0163.1.lcssa293, %374 ]
+  %.sroa.0163.0 = phi ptr [ %12, %_ZNSt6vectorIN4llvm21DFCalculateWorkObjectINS0_10BasicBlockEEESaIS3_EE9push_backEOS3_.exit ], [ %.sroa.0163.1.lcssa329, %374 ]
   %19 = getelementptr inbounds i8, ptr %.sroa.9167.0, i64 -32
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %20 = load ptr, ptr %19, align 8, !tbaa !87
@@ -1749,9 +1749,9 @@ _ZNSt6vectorIN4llvm21DFCalculateWorkObjectINS0_10BasicBlockEEESaIS3_EE9push_back
   br i1 %.not, label %._crit_edge, label %.lr.ph247, !llvm.loop !120
 
 ._crit_edge.thread:                               ; preds = %.loopexit, %._crit_edge
-  %.sroa.0163.1.lcssa292 = phi ptr [ %.sroa.0163.2, %._crit_edge ], [ %.sroa.0163.0, %.loopexit ]
-  %.sroa.9167.1.lcssa291 = phi ptr [ %.sroa.9167.2, %._crit_edge ], [ %.sroa.9167.0, %.loopexit ]
-  %.sroa.21.1.lcssa288 = phi ptr [ %.sroa.21.2, %._crit_edge ], [ %.sroa.21.0, %.loopexit ]
+  %.sroa.0163.1.lcssa328 = phi ptr [ %.sroa.0163.2, %._crit_edge ], [ %.sroa.0163.0, %.loopexit ]
+  %.sroa.9167.1.lcssa327 = phi ptr [ %.sroa.9167.2, %._crit_edge ], [ %.sroa.9167.0, %.loopexit ]
+  %.sroa.21.1.lcssa324 = phi ptr [ %.sroa.21.2, %._crit_edge ], [ %.sroa.21.0, %.loopexit ]
   %207 = load ptr, ptr %5, align 8, !tbaa !9
   %.not47 = icmp eq ptr %207, null
   br i1 %.not47, label %373, label %208
@@ -2063,7 +2063,7 @@ _ZN4llvm9SetVectorIPNS_10BasicBlockENS_11SmallVectorIS2_Lj0EEENS_8DenseSetIS2_NS
   br i1 %.not48, label %._crit_edge257, label %228, !llvm.loop !141
 
 ._crit_edge257:                                   ; preds = %_ZN4llvm9SetVectorIPNS_10BasicBlockENS_11SmallVectorIS2_Lj0EEENS_8DenseSetIS2_NS_12DenseMapInfoIS2_vEEEELj0EE6insertERKS2_.exit82, %208
-  %372 = getelementptr inbounds i8, ptr %.sroa.9167.1.lcssa291, i64 -32
+  %372 = getelementptr inbounds i8, ptr %.sroa.9167.1.lcssa327, i64 -32
   br label %374
 
 373:                                              ; preds = %._crit_edge.thread
@@ -2072,17 +2072,17 @@ _ZN4llvm9SetVectorIPNS_10BasicBlockENS_11SmallVectorIS2_Lj0EEENS_8DenseSetIS2_NS
   br label %.loopexit212
 
 374:                                              ; preds = %._crit_edge257, %._crit_edge
-  %.sroa.0163.1.lcssa293 = phi ptr [ %.sroa.0163.1.lcssa292, %._crit_edge257 ], [ %.sroa.0163.2, %._crit_edge ]
-  %.sroa.21.1.lcssa289 = phi ptr [ %.sroa.21.1.lcssa288, %._crit_edge257 ], [ %.sroa.21.2, %._crit_edge ]
+  %.sroa.0163.1.lcssa329 = phi ptr [ %.sroa.0163.1.lcssa328, %._crit_edge257 ], [ %.sroa.0163.2, %._crit_edge ]
+  %.sroa.21.1.lcssa325 = phi ptr [ %.sroa.21.1.lcssa324, %._crit_edge257 ], [ %.sroa.21.2, %._crit_edge ]
   %.sroa.9167.3.ph = phi ptr [ %372, %._crit_edge257 ], [ %.sroa.9167.2, %._crit_edge ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %375 = icmp eq ptr %.sroa.0163.1.lcssa293, %.sroa.9167.3.ph
+  %375 = icmp eq ptr %.sroa.0163.1.lcssa329, %.sroa.9167.3.ph
   br i1 %375, label %.loopexit212, label %18, !llvm.loop !142
 
 .loopexit212:                                     ; preds = %374, %373
-  %.sroa.0163.1.lcssa294 = phi ptr [ %.sroa.0163.1.lcssa292, %373 ], [ %.sroa.0163.1.lcssa293, %374 ]
-  %.sroa.21.1.lcssa290 = phi ptr [ %.sroa.21.1.lcssa288, %373 ], [ %.sroa.21.1.lcssa289, %374 ]
+  %.sroa.0163.1.lcssa330 = phi ptr [ %.sroa.0163.1.lcssa328, %373 ], [ %.sroa.0163.1.lcssa329, %374 ]
+  %.sroa.21.1.lcssa326 = phi ptr [ %.sroa.21.1.lcssa324, %373 ], [ %.sroa.21.1.lcssa325, %374 ]
   %.1206 = phi ptr [ %27, %373 ], [ null, %374 ]
   %376 = load i8, ptr %11, align 4, !tbaa !86, !range !92, !noundef !96
   %377 = trunc nuw i8 %376 to i1
@@ -2095,10 +2095,10 @@ _ZN4llvm9SetVectorIPNS_10BasicBlockENS_11SmallVectorIS2_Lj0EEENS_8DenseSetIS2_NS
 
 _ZNSt6vectorIN4llvm21DFCalculateWorkObjectINS0_10BasicBlockEEESaIS3_EED2Ev.exit: ; preds = %.loopexit212, %378
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %380 = ptrtoint ptr %.sroa.21.1.lcssa290 to i64
-  %381 = ptrtoint ptr %.sroa.0163.1.lcssa294 to i64
+  %380 = ptrtoint ptr %.sroa.21.1.lcssa326 to i64
+  %381 = ptrtoint ptr %.sroa.0163.1.lcssa330 to i64
   %382 = sub i64 %380, %381
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0163.1.lcssa294, i64 noundef %382) #20
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0163.1.lcssa330, i64 noundef %382) #20
   ret ptr %.1206
 }
 
@@ -2742,10 +2742,10 @@ _ZNK4llvm15SmallPtrSetImplIPvE5countEPKv.exit.thread.thread.i17: ; preds = %71, 
 .lr.ph.i.i5.i20:                                  ; preds = %_ZNK4llvm15SmallPtrSetImplIPvE5countEPKv.exit.thread.thread.i17, %.lr.ph.i.i5.i20
   %.0810.i.i6.i21 = phi ptr [ %82, %.lr.ph.i.i5.i20 ], [ %78, %_ZNK4llvm15SmallPtrSetImplIPvE5countEPKv.exit.thread.thread.i17 ]
   %81 = load ptr, ptr %.0810.i.i6.i21, align 8, !tbaa !97
-  %.not82 = icmp ne ptr %81, @_ZN4llvm11CFGAnalyses6SetKeyE
+  %.not91 = icmp ne ptr %81, @_ZN4llvm11CFGAnalyses6SetKeyE
   %82 = getelementptr inbounds nuw i8, ptr %.0810.i.i6.i21, i64 8
   %.not.not.i.i7.i22 = icmp ne ptr %82, %80
-  %or.cond.not = select i1 %.not82, i1 %.not.not.i.i7.i22, i1 false
+  %or.cond.not = select i1 %.not91, i1 %.not.not.i.i7.i22, i1 false
   br i1 %or.cond.not, label %.lr.ph.i.i5.i20, label %_ZN4llvm17PreservedAnalyses24PreservedAnalysisChecker9preservedEv.exit.thread37, !llvm.loop !113
 
 83:                                               ; preds = %_ZNK4llvm15SmallPtrSetImplIPvE5countEPKv.exit.thread.i13
@@ -2754,7 +2754,7 @@ _ZNK4llvm15SmallPtrSetImplIPvE5countEPKv.exit.thread.thread.i17: ; preds = %71, 
   br label %_ZN4llvm17PreservedAnalyses24PreservedAnalysisChecker9preservedEv.exit.thread37
 
 _ZN4llvm17PreservedAnalyses24PreservedAnalysisChecker9preservedEv.exit.thread37: ; preds = %.lr.ph.i.i.i.i, %.lr.ph.i.i.i, %.lr.ph.i.i4.i, %.lr.ph.i.i.i8, %.lr.ph.i.i5.i, %.lr.ph.i.i.i25, %.lr.ph.i.i5.i20, %.thread43.thread, %83, %_ZNK4llvm15SmallPtrSetImplIPvE5countEPKv.exit.thread.thread.i17, %_ZNK4llvm15SmallPtrSetImplIPvE5countEPKv.exit.i11, %_ZNK4llvm17PreservedAnalyses10getCheckerINS_25DominanceFrontierAnalysisEEENS0_24PreservedAnalysisCheckerEv.exit, %_ZNK4llvm15SmallPtrSetImplIPvE5countEPKv.exit.i1, %_ZNK4llvm15SmallPtrSetImplIPvE5countEPKv.exit.i, %_ZN4llvm17PreservedAnalyses24PreservedAnalysisChecker12preservedSetINS_13AllAnalysesOnINS_8FunctionEEEEEbv.exit, %_ZN4llvm17PreservedAnalyses24PreservedAnalysisChecker9preservedEv.exit
-  %86 = phi i1 [ false, %_ZN4llvm17PreservedAnalyses24PreservedAnalysisChecker12preservedSetINS_13AllAnalysesOnINS_8FunctionEEEEEbv.exit ], [ false, %_ZN4llvm17PreservedAnalyses24PreservedAnalysisChecker9preservedEv.exit ], [ false, %_ZNK4llvm15SmallPtrSetImplIPvE5countEPKv.exit.i ], [ false, %_ZNK4llvm15SmallPtrSetImplIPvE5countEPKv.exit.i1 ], [ false, %_ZNK4llvm15SmallPtrSetImplIPvE5countEPKv.exit.i11 ], [ %85, %83 ], [ true, %_ZNK4llvm15SmallPtrSetImplIPvE5countEPKv.exit.thread.thread.i17 ], [ true, %_ZNK4llvm17PreservedAnalyses10getCheckerINS_25DominanceFrontierAnalysisEEENS0_24PreservedAnalysisCheckerEv.exit ], [ true, %.thread43.thread ], [ %.not82, %.lr.ph.i.i5.i20 ], [ false, %.lr.ph.i.i.i25 ], [ false, %.lr.ph.i.i5.i ], [ false, %.lr.ph.i.i.i8 ], [ false, %.lr.ph.i.i4.i ], [ false, %.lr.ph.i.i.i ], [ true, %.lr.ph.i.i.i.i ]
+  %86 = phi i1 [ false, %_ZN4llvm17PreservedAnalyses24PreservedAnalysisChecker12preservedSetINS_13AllAnalysesOnINS_8FunctionEEEEEbv.exit ], [ false, %_ZN4llvm17PreservedAnalyses24PreservedAnalysisChecker9preservedEv.exit ], [ false, %_ZNK4llvm15SmallPtrSetImplIPvE5countEPKv.exit.i ], [ false, %_ZNK4llvm15SmallPtrSetImplIPvE5countEPKv.exit.i1 ], [ false, %_ZNK4llvm15SmallPtrSetImplIPvE5countEPKv.exit.i11 ], [ %85, %83 ], [ true, %_ZNK4llvm15SmallPtrSetImplIPvE5countEPKv.exit.thread.thread.i17 ], [ true, %_ZNK4llvm17PreservedAnalyses10getCheckerINS_25DominanceFrontierAnalysisEEENS0_24PreservedAnalysisCheckerEv.exit ], [ true, %.thread43.thread ], [ %.not91, %.lr.ph.i.i5.i20 ], [ false, %.lr.ph.i.i.i25 ], [ false, %.lr.ph.i.i5.i ], [ false, %.lr.ph.i.i.i8 ], [ false, %.lr.ph.i.i4.i ], [ false, %.lr.ph.i.i.i ], [ true, %.lr.ph.i.i.i.i ]
   ret i1 %86
 }
 

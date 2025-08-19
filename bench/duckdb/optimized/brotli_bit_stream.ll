@@ -579,7 +579,7 @@ _ZN13duckdb_brotliL20SortHuffmanTreeItemsEPNS_11HuffmanTreeEmPFiPKS0_S3_E.exit: 
   %142 = load i8, ptr %141, align 1, !tbaa !7, !alias.scope !70, !noalias !67
   %143 = zext i8 %142 to i64
   %144 = and i64 %138, 7
-  %145 = shl nsw i64 %139, %144
+  %145 = shl nuw nsw i64 %139, %144
   %146 = or i64 %145, %143
   store i64 %146, ptr %141, align 1, !noalias !67
   %147 = add i64 %130, 4
@@ -2841,9 +2841,9 @@ _ZL20MoveToFrontTransformPKjmPj.exit:             ; preds = %_ZL11MoveToFrontPhm
   br i1 %99, label %.preheader78.i, label %.critedge2.thread.i, !llvm.loop !467
 
 .critedge2.thread.i:                              ; preds = %.critedge2.i, %87
-  %.068.lcssa106.i = phi i32 [ %.088.i, %87 ], [ %.068.lcssa.i, %.critedge2.i ]
-  %.not.i = icmp eq i32 %.068.lcssa106.i, 0
-  %100 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %.068.lcssa106.i, i1 true)
+  %.068.lcssa111.i = phi i32 [ %.088.i, %87 ], [ %.068.lcssa.i, %.critedge2.i ]
+  %.not.i = icmp eq i32 %.068.lcssa111.i, 0
+  %100 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %.068.lcssa111.i, i1 true)
   %101 = xor i32 %100, 31
   %102 = tail call i32 @llvm.umin.i32(i32 range(i32 0, 32) %101, i32 6)
   %103 = select i1 %.not.i, i32 0, i32 %102
@@ -2904,36 +2904,36 @@ _ZL20MoveToFrontTransformPKjmPj.exit:             ; preds = %_ZL11MoveToFrontPhm
 
 .lr.ph98.preheader.i:                             ; preds = %.preheader.i62, %.critedge4.i
   %127 = phi i64 [ %126, %.critedge4.i ], [ %.06589.i, %.preheader.i62 ]
-  %.066.lcssa109.i = phi i32 [ %.066.lcssa.i, %.critedge4.i ], [ 1, %.preheader.i62 ]
-  %128 = icmp ult i32 %.066.lcssa109.i, %105
+  %.066.lcssa114.i = phi i32 [ %.066.lcssa.i, %.critedge4.i ], [ 1, %.preheader.i62 ]
+  %128 = icmp ult i32 %.066.lcssa114.i, %105
   br i1 %128, label %.lr.ph98.i._crit_edge, label %.lr.ph98.i
 
 .lr.ph98.i._crit_edge:                            ; preds = %.lr.ph98.i, %.lr.ph98.preheader.i
-  %.lcssa105 = phi i64 [ %110, %.lr.ph98.preheader.i ], [ %138, %.lr.ph98.i ]
-  %.16797.i.lcssa = phi i32 [ %.066.lcssa109.i, %.lr.ph98.preheader.i ], [ %137, %.lr.ph98.i ]
+  %.lcssa118 = phi i64 [ %110, %.lr.ph98.preheader.i ], [ %138, %.lr.ph98.i ]
+  %.16797.i.lcssa = phi i32 [ %.066.lcssa114.i, %.lr.ph98.preheader.i ], [ %137, %.lr.ph98.i ]
   %129 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %.16797.i.lcssa, i1 true)
   %130 = xor i32 %129, 31
   %.neg.i63 = shl nsw i32 -1, %130
-  %131 = add i32 %.neg.i63, %.16797.i.lcssa
+  %131 = add nsw i32 %.neg.i63, %.16797.i.lcssa
   %132 = shl i32 %131, 9
   %133 = or disjoint i32 %132, %130
-  %134 = getelementptr inbounds nuw i32, ptr %52, i64 %.lcssa105
+  %134 = getelementptr inbounds nuw i32, ptr %52, i64 %.lcssa118
   store i32 %133, ptr %134, align 4, !tbaa !8, !alias.scope !459, !noalias !462
   br label %.loopexit.sink.split.i
 
 .lr.ph98.i:                                       ; preds = %.lr.ph98.preheader.i, %.lr.ph98.i
-  %.16797.i109 = phi i32 [ %137, %.lr.ph98.i ], [ %.066.lcssa109.i, %.lr.ph98.preheader.i ]
+  %.16797.i122 = phi i32 [ %137, %.lr.ph98.i ], [ %.066.lcssa114.i, %.lr.ph98.preheader.i ]
   %135 = phi i64 [ %138, %.lr.ph98.i ], [ %110, %.lr.ph98.preheader.i ]
   %136 = getelementptr inbounds nuw i32, ptr %52, i64 %135
   store i32 %108, ptr %136, align 4, !tbaa !8, !alias.scope !459, !noalias !462
-  %reass.sub.i = sub nuw i32 %.16797.i109, %105
+  %reass.sub.i = sub nuw i32 %.16797.i122, %105
   %137 = add nuw i32 %reass.sub.i, 1
   %138 = add i64 %135, 1
   %139 = icmp ult i32 %137, %105
   br i1 %139, label %.lr.ph98.i._crit_edge, label %.lr.ph98.i
 
 .loopexit.sink.split.i:                           ; preds = %.lr.ph98.i._crit_edge, %116
-  %.lcssa.sink.i = phi i64 [ %.lcssa105, %.lr.ph98.i._crit_edge ], [ %110, %116 ]
+  %.lcssa.sink.i = phi i64 [ %.lcssa118, %.lr.ph98.i._crit_edge ], [ %110, %116 ]
   %.4.ph.i = phi i64 [ %127, %.lr.ph98.i._crit_edge ], [ %119, %116 ]
   %140 = add i64 %.lcssa.sink.i, 1
   br label %.loopexit.i

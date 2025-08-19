@@ -1451,11 +1451,11 @@ lookup_conf.exit865:                              ; preds = %187
   br i1 %.2591, label %445, label %762
 
 445:                                              ; preds = %444
-  %.not1878 = icmp eq i32 %.0592, 0
-  br i1 %.not1878, label %.tail, label %446
+  %.not1935 = icmp eq i32 %.0592, 0
+  br i1 %.not1935, label %.tail, label %446
 
 446:                                              ; preds = %445
-  %447 = call ptr @app_conf_try_string(ptr noundef %144, ptr noundef nonnull %.2680, ptr noundef nonnull @.str.185) #12
+  %447 = call ptr @app_conf_try_string(ptr noundef nonnull %144, ptr noundef nonnull %.2680, ptr noundef nonnull @.str.185) #12
   %.not790 = icmp eq ptr %447, null
   br i1 %.not790, label %.tail, label %sub_0
 
@@ -1505,7 +1505,7 @@ sub_2:                                            ; preds = %sub_1
   br label %467
 
 467:                                              ; preds = %464, %463
-  %468 = call ptr @app_conf_try_string(ptr noundef %144, ptr noundef nonnull %.2680, ptr noundef nonnull @.str.48) #12
+  %468 = call ptr @app_conf_try_string(ptr noundef nonnull %144, ptr noundef nonnull %.2680, ptr noundef nonnull @.str.48) #12
   %.not791 = icmp eq ptr %468, null
   br i1 %.not791, label %469, label %472
 
@@ -1546,7 +1546,7 @@ sub_2:                                            ; preds = %sub_1
   br i1 %482, label %483, label %.thread874
 
 483:                                              ; preds = %481
-  %484 = call ptr @app_conf_try_string(ptr noundef %144, ptr noundef nonnull %.2680, ptr noundef nonnull @.str.191) #12
+  %484 = call ptr @app_conf_try_string(ptr noundef nonnull %144, ptr noundef nonnull %.2680, ptr noundef nonnull @.str.191) #12
   %.not793 = icmp eq ptr %484, null
   br i1 %.not793, label %489, label %.thread874
 
@@ -1554,8 +1554,8 @@ sub_2:                                            ; preds = %sub_1
   %.4655877 = phi ptr [ %484, %483 ], [ %.2653, %481 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
   call void @X509V3_set_ctx(ptr noundef nonnull %20, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, i32 noundef 1) #12
-  call void @X509V3_set_nconf(ptr noundef nonnull %20, ptr noundef %144) #12
-  %485 = call i32 @X509V3_EXT_add_nconf(ptr noundef %144, ptr noundef nonnull %20, ptr noundef nonnull %.4655877, ptr noundef null) #12
+  call void @X509V3_set_nconf(ptr noundef nonnull %20, ptr noundef nonnull %144) #12
+  %485 = call i32 @X509V3_EXT_add_nconf(ptr noundef nonnull %144, ptr noundef nonnull %20, ptr noundef nonnull %.4655877, ptr noundef null) #12
   %.not794 = icmp eq i32 %485, 0
   br i1 %.not794, label %486, label %.thread878
 
@@ -1575,7 +1575,7 @@ sub_2:                                            ; preds = %sub_1
   br i1 %490, label %491, label %493
 
 491:                                              ; preds = %489
-  %492 = call ptr @app_conf_try_string(ptr noundef %144, ptr noundef nonnull %.2680, ptr noundef nonnull @.str.193) #12
+  %492 = call ptr @app_conf_try_string(ptr noundef nonnull %144, ptr noundef nonnull %.2680, ptr noundef nonnull @.str.193) #12
   br label %493
 
 493:                                              ; preds = %491, %489
@@ -1584,17 +1584,17 @@ sub_2:                                            ; preds = %sub_1
   br i1 %494, label %495, label %497
 
 495:                                              ; preds = %493
-  %496 = call ptr @app_conf_try_string(ptr noundef %144, ptr noundef nonnull %.2680, ptr noundef nonnull @.str.194) #12
+  %496 = call ptr @app_conf_try_string(ptr noundef nonnull %144, ptr noundef nonnull %.2680, ptr noundef nonnull @.str.194) #12
   br label %497
 
 497:                                              ; preds = %495, %493
   %.2630 = phi ptr [ %496, %495 ], [ %.0628, %493 ]
   %498 = load i64, ptr %16, align 8, !tbaa !13
   %499 = icmp eq i64 %498, 0
-  br i1 %499, label %500, label %.thread1443
+  br i1 %499, label %500, label %.thread1500
 
 500:                                              ; preds = %497
-  %501 = call i32 @app_conf_try_number(ptr noundef %144, ptr noundef nonnull %.2680, ptr noundef nonnull @.str.195, ptr noundef nonnull %16) #12
+  %501 = call i32 @app_conf_try_number(ptr noundef nonnull %144, ptr noundef nonnull %.2680, ptr noundef nonnull @.str.195, ptr noundef nonnull %16) #12
   %.not796 = icmp eq i32 %501, 0
   br i1 %.not796, label %502, label %._crit_edge1439
 
@@ -1611,26 +1611,26 @@ sub_2:                                            ; preds = %sub_1
   %505 = icmp eq ptr %.2630, null
   %506 = icmp eq i64 %504, 0
   %or.cond16 = select i1 %505, i1 %506, i1 false
-  br i1 %or.cond16, label %507, label %.thread1443
+  br i1 %or.cond16, label %507, label %.thread1500
 
 507:                                              ; preds = %503
   %508 = load ptr, ptr @bio_err, align 8, !tbaa !19
   %509 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %508, ptr noundef nonnull @.str.196) #12
   br label %.thread880
 
-.thread1443:                                      ; preds = %497, %503
+.thread1500:                                      ; preds = %497, %503
   %510 = phi i64 [ %504, %503 ], [ %498, %497 ]
   %511 = icmp ne i64 %510, 0
   %512 = icmp ne ptr %.2630, null
   %or.cond18 = select i1 %511, i1 %512, i1 false
   br i1 %or.cond18, label %513, label %516
 
-513:                                              ; preds = %.thread1443
+513:                                              ; preds = %.thread1500
   %514 = load ptr, ptr @bio_err, align 8, !tbaa !19
   %515 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %514, ptr noundef nonnull @.str.197) #12
   br label %516
 
-516:                                              ; preds = %513, %.thread1443
+516:                                              ; preds = %513, %.thread1500
   %.not797 = icmp eq i32 %.2582, 0
   br i1 %.not797, label %525, label %517
 
@@ -1687,7 +1687,7 @@ sub_2:                                            ; preds = %sub_1
   br label %544
 
 544:                                              ; preds = %531, %541, %534, %520
-  %545 = call ptr @NCONF_get_section(ptr noundef %144, ptr noundef nonnull %.2673) #12
+  %545 = call ptr @NCONF_get_section(ptr noundef nonnull %144, ptr noundef nonnull %.2673) #12
   %546 = icmp eq ptr %545, null
   br i1 %546, label %547, label %550
 
@@ -2103,7 +2103,7 @@ sub_2:                                            ; preds = %sub_1
   br i1 %764, label %765, label %.thread883
 
 765:                                              ; preds = %763
-  %766 = call ptr @app_conf_try_string(ptr noundef %144, ptr noundef nonnull %.2680, ptr noundef nonnull @.str.216) #12
+  %766 = call ptr @app_conf_try_string(ptr noundef nonnull %144, ptr noundef nonnull %.2680, ptr noundef nonnull @.str.216) #12
   %.not = icmp eq ptr %766, null
   br i1 %.not, label %771, label %.thread883
 
@@ -2111,8 +2111,8 @@ sub_2:                                            ; preds = %sub_1
   %.2664885 = phi ptr [ %766, %765 ], [ %.0662, %763 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
   call void @X509V3_set_ctx(ptr noundef nonnull %21, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, i32 noundef 1) #12
-  call void @X509V3_set_nconf(ptr noundef nonnull %21, ptr noundef %144) #12
-  %767 = call i32 @X509V3_EXT_add_nconf(ptr noundef %144, ptr noundef nonnull %21, ptr noundef nonnull %.2664885, ptr noundef null) #12
+  call void @X509V3_set_nconf(ptr noundef nonnull %21, ptr noundef nonnull %144) #12
+  %767 = call i32 @X509V3_EXT_add_nconf(ptr noundef nonnull %144, ptr noundef nonnull %21, ptr noundef nonnull %.2664885, ptr noundef null) #12
   %.not818.not = icmp eq i32 %767, 0
   br i1 %.not818.not, label %.thread887, label %770
 
@@ -2129,7 +2129,7 @@ sub_2:                                            ; preds = %sub_1
 771:                                              ; preds = %770, %765
   %772 = phi i1 [ true, %770 ], [ false, %765 ]
   %.2664886 = phi ptr [ %.2664885, %770 ], [ null, %765 ]
-  %773 = call ptr @app_conf_try_string(ptr noundef %144, ptr noundef nonnull %.2680, ptr noundef nonnull @.str.218) #12
+  %773 = call ptr @app_conf_try_string(ptr noundef nonnull %144, ptr noundef nonnull %.2680, ptr noundef nonnull @.str.218) #12
   %774 = icmp ne ptr %773, null
   br i1 %774, label %775, label %781
 
@@ -2155,7 +2155,7 @@ sub_2:                                            ; preds = %sub_1
   br i1 %or.cond26, label %793, label %787
 
 787:                                              ; preds = %781
-  %788 = call i32 @app_conf_try_number(ptr noundef %144, ptr noundef nonnull %.2680, ptr noundef nonnull @.str.220, ptr noundef nonnull %14) #12
+  %788 = call i32 @app_conf_try_number(ptr noundef nonnull %144, ptr noundef nonnull %.2680, ptr noundef nonnull @.str.220, ptr noundef nonnull %14) #12
   %.not819 = icmp eq i32 %788, 0
   br i1 %.not819, label %789, label %790
 
@@ -2164,7 +2164,7 @@ sub_2:                                            ; preds = %sub_1
   br label %790
 
 790:                                              ; preds = %789, %787
-  %791 = call i32 @app_conf_try_number(ptr noundef %144, ptr noundef nonnull %.2680, ptr noundef nonnull @.str.221, ptr noundef nonnull %15) #12
+  %791 = call i32 @app_conf_try_number(ptr noundef nonnull %144, ptr noundef nonnull %.2680, ptr noundef nonnull @.str.221, ptr noundef nonnull %15) #12
   %.not820 = icmp eq i32 %791, 0
   br i1 %.not820, label %792, label %._crit_edge1441
 
@@ -2327,11 +2327,11 @@ sub_2:                                            ; preds = %sub_1
 871:                                              ; preds = %870
   call void @llvm.lifetime.start.p0(ptr nonnull %22)
   call void @X509V3_set_ctx(ptr noundef nonnull %22, ptr noundef %.1556, ptr noundef null, ptr noundef null, ptr noundef nonnull %810, i32 noundef 0) #12
-  call void @X509V3_set_nconf(ptr noundef nonnull %22, ptr noundef %144) #12
+  call void @X509V3_set_nconf(ptr noundef nonnull %22, ptr noundef nonnull %144) #12
   br i1 %772, label %872, label %877
 
 872:                                              ; preds = %871
-  %873 = call i32 @X509V3_EXT_CRL_add_nconf(ptr noundef %144, ptr noundef nonnull %22, ptr noundef nonnull %.2664886, ptr noundef nonnull %810) #12
+  %873 = call i32 @X509V3_EXT_CRL_add_nconf(ptr noundef nonnull %144, ptr noundef nonnull %22, ptr noundef nonnull %.2664886, ptr noundef nonnull %810) #12
   %.not824 = icmp eq i32 %873, 0
   br i1 %.not824, label %874, label %877
 
@@ -4184,8 +4184,8 @@ old_entry_print.exit:                             ; preds = %134, %116
   br label %152
 
 152:                                              ; preds = %149, %150
-  %.sink530 = phi ptr [ %151, %150 ], [ %40, %149 ]
-  %153 = call ptr @X509_NAME_dup(ptr noundef %.sink530) #12
+  %.sink548 = phi ptr [ %151, %150 ], [ %40, %149 ]
+  %153 = call ptr @X509_NAME_dup(ptr noundef %.sink548) #12
   %154 = icmp eq ptr %153, null
   br i1 %154, label %.thread397, label %.preheader435
 

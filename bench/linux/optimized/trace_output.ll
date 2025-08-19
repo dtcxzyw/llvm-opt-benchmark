@@ -2352,9 +2352,9 @@ define internal i32 @trace_user_stack_print(ptr noundef %0, i32 noundef %1, ptr 
   %13 = load i32, ptr %12, align 8
   %14 = and i32 %13, 4096
   %15 = icmp eq i32 %14, 0
-  br i1 %15, label %.thread10, label %19
+  br i1 %15, label %.thread16, label %19
 
-.thread10:                                        ; preds = %11
+.thread16:                                        ; preds = %11
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16536
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 16520
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 16512
@@ -2386,10 +2386,10 @@ define internal i32 @trace_user_stack_print(ptr noundef %0, i32 noundef %1, ptr 
   %36 = icmp eq i32 %35, 0
   br i1 %33, label %.split.us.preheader, label %.split
 
-.split.us.preheader:                              ; preds = %.thread10, %27
-  %37 = phi ptr [ %18, %.thread10 ], [ %32, %27 ]
-  %38 = phi ptr [ %17, %.thread10 ], [ %31, %27 ]
-  %39 = phi ptr [ %16, %.thread10 ], [ %30, %27 ]
+.split.us.preheader:                              ; preds = %.thread16, %27
+  %37 = phi ptr [ %18, %.thread16 ], [ %32, %27 ]
+  %38 = phi ptr [ %17, %.thread16 ], [ %31, %27 ]
+  %39 = phi ptr [ %16, %.thread16 ], [ %30, %27 ]
   %40 = getelementptr inbounds nuw i8, ptr %7, i64 16
   br label %.split.us
 

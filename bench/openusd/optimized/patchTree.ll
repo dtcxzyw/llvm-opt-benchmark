@@ -2241,7 +2241,7 @@ _ZNSt6vectorIN10OpenSubdiv6v3_6_03Bfr9PatchTree8TreeNodeESaIS4_EE11_S_relocateEP
 
 _ZNSt12_Vector_baseIN10OpenSubdiv6v3_6_03Bfr9PatchTree8TreeNodeESaIS4_EE13_M_deallocateEPS4_m.exit38: ; preds = %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Bfr9PatchTree8TreeNodeESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit, %35
   store ptr %28, ptr %0, align 8
-  %37 = getelementptr inbounds %"struct.OpenSubdiv::v3_6_0::Bfr::PatchTree::TreeNode", ptr %29, i64 %1
+  %37 = getelementptr inbounds nuw %"struct.OpenSubdiv::v3_6_0::Bfr::PatchTree::TreeNode", ptr %29, i64 %1
   store ptr %37, ptr %4, align 8
   %38 = getelementptr inbounds nuw %"struct.OpenSubdiv::v3_6_0::Bfr::PatchTree::TreeNode", ptr %28, i64 %26
   store ptr %38, ptr %11, align 8
@@ -2298,7 +2298,7 @@ define noundef i32 @_ZNK10OpenSubdiv6v3_6_03Bfr9PatchTree14searchQuadtreeEddii(p
   br i1 %.not2651, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %28, %31
-  %.02167 = phi i32 [ %22, %31 ], [ 1, %28 ]
+  %.02173 = phi i32 [ %22, %31 ], [ 1, %28 ]
   %32 = load i8, ptr %0, align 8
   %33 = and i8 %32, 4
   %.not27 = icmp eq i8 %33, 0
@@ -2336,7 +2336,7 @@ _ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_125transformUVToQuadQuadrantIdEEiRKT_RS4_
   %.1.us = select i1 %.not29.us, ptr %.02256.us, ptr %50
   %51 = add nuw i32 %.02057.us, 1
   %52 = fmul double %.04254.us, 5.000000e-01
-  %exitcond64.not = icmp eq i32 %.02057.us, %.02167
+  %exitcond64.not = icmp eq i32 %.02057.us, %.02173
   br i1 %exitcond64.not, label %._crit_edge, label %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_125transformUVToQuadQuadrantIdEEiRKT_RS4_S7_.exit.us, !llvm.loop !35
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %84
@@ -2422,7 +2422,7 @@ _ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_124transformUVToTriQuadrantIdEEiRKT_RS4_S
   %.1 = select i1 %.not29, ptr %.02256, ptr %89
   %90 = add nuw i32 %.02057, 1
   %91 = fmul double %.04254, 5.000000e-01
-  %exitcond.not = icmp eq i32 %.02057, %.02167
+  %exitcond.not = icmp eq i32 %.02057, %.02173
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !35
 
 ._crit_edge:                                      ; preds = %84, %43, %31

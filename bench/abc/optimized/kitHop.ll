@@ -1332,12 +1332,12 @@ Vec_IntPush.exit76:                               ; preds = %.Vec_IntGrow.exit10
   br label %195
 
 195:                                              ; preds = %Vec_IntPush.exit67, %Vec_IntPush.exit76, %Vec_IntPush.exit
-  %.sink87 = phi i32 [ %76, %Vec_IntPush.exit67 ], [ %193, %Vec_IntPush.exit76 ], [ %35, %Vec_IntPush.exit ]
-  %.sink85 = phi ptr [ %75, %Vec_IntPush.exit67 ], [ %192, %Vec_IntPush.exit76 ], [ %34, %Vec_IntPush.exit ]
-  %.sink83 = phi i32 [ %48, %Vec_IntPush.exit67 ], [ %165, %Vec_IntPush.exit76 ], [ %7, %Vec_IntPush.exit ]
-  %196 = sext i32 %.sink87 to i64
-  %197 = getelementptr inbounds i32, ptr %.sink85, i64 %196
-  store i32 %.sink83, ptr %197, align 4, !tbaa !44
+  %.sink99 = phi i32 [ %76, %Vec_IntPush.exit67 ], [ %193, %Vec_IntPush.exit76 ], [ %35, %Vec_IntPush.exit ]
+  %.sink97 = phi ptr [ %75, %Vec_IntPush.exit67 ], [ %192, %Vec_IntPush.exit76 ], [ %34, %Vec_IntPush.exit ]
+  %.sink95 = phi i32 [ %48, %Vec_IntPush.exit67 ], [ %165, %Vec_IntPush.exit76 ], [ %7, %Vec_IntPush.exit ]
+  %196 = sext i32 %.sink99 to i64
+  %197 = getelementptr inbounds i32, ptr %.sink97, i64 %196
+  store i32 %.sink95, ptr %197, align 4, !tbaa !44
   ret void
 }
 
@@ -1391,9 +1391,9 @@ Vec_IntFree.exit:                                 ; preds = %6, %10
   br label %19
 
 19:                                               ; preds = %.split, %.split21
-  %.sink41 = phi i32 [ %17, %.split ], [ %18, %.split21 ]
+  %.sink43 = phi i32 [ %17, %.split ], [ %18, %.split21 ]
   %.0.sink = phi ptr [ %.0, %.split ], [ null, %.split21 ]
-  %20 = shl nsw i32 %.sink41, 1
+  %20 = shl nsw i32 %.sink43, 1
   %21 = or disjoint i32 %20, 1
   %22 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #13
   %or.cond.i = icmp ult i32 %20, 15

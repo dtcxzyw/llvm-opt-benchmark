@@ -894,23 +894,23 @@ _ZNK4cvc58internal12NodeTemplateILb0EE12hasAttributeINS0_4expr9AttributeINS0_6th
   br i1 %116, label %.invoke, label %_ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit, !prof !114
 
 .invoke:                                          ; preds = %115, %106, %92
-  %.sink27 = phi i64 [ %87, %92 ], [ %101, %106 ], [ %110, %115 ]
-  %.sink26 = phi ptr [ %86, %92 ], [ %100, %106 ], [ %109, %115 ]
-  %117 = or i64 %.sink27, 1152920405095219200
-  store i64 %117, ptr %.sink26, align 8
-  invoke void @_ZN4cvc58internal4expr9NodeValue20markRefCountMaxedOutEv(ptr noundef nonnull align 8 dereferenceable(24) %.sink26)
+  %.sink33 = phi i64 [ %87, %92 ], [ %101, %106 ], [ %110, %115 ]
+  %.sink32 = phi ptr [ %86, %92 ], [ %100, %106 ], [ %109, %115 ]
+  %117 = or i64 %.sink33, 1152920405095219200
+  store i64 %117, ptr %.sink32, align 8
+  invoke void @_ZN4cvc58internal4expr9NodeValue20markRefCountMaxedOutEv(ptr noundef nonnull align 8 dereferenceable(24) %.sink32)
           to label %_ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit unwind label %94
 
 _ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit.sink.split: ; preds = %108, %99, %_ZNK4cvc58internal12NodeTemplateILb0EE12hasAttributeINS0_4expr9AttributeINS0_6theory15RewriteCacheTagILb1ELNS6_8TheoryIdE0EEENS1_ILb1EEEEEEEbRKT_.exit.thread
-  %.sink33 = phi i32 [ %90, %_ZNK4cvc58internal12NodeTemplateILb0EE12hasAttributeINS0_4expr9AttributeINS0_6theory15RewriteCacheTagILb1ELNS6_8TheoryIdE0EEENS1_ILb1EEEEEEEbRKT_.exit.thread ], [ %104, %99 ], [ %113, %108 ]
+  %.sink39 = phi i32 [ %90, %_ZNK4cvc58internal12NodeTemplateILb0EE12hasAttributeINS0_4expr9AttributeINS0_6theory15RewriteCacheTagILb1ELNS6_8TheoryIdE0EEENS1_ILb1EEEEEEEbRKT_.exit.thread ], [ %104, %99 ], [ %113, %108 ]
   %.sink = phi i64 [ %87, %_ZNK4cvc58internal12NodeTemplateILb0EE12hasAttributeINS0_4expr9AttributeINS0_6theory15RewriteCacheTagILb1ELNS6_8TheoryIdE0EEENS1_ILb1EEEEEEEbRKT_.exit.thread ], [ %101, %99 ], [ %110, %108 ]
-  %.sink28 = phi ptr [ %86, %_ZNK4cvc58internal12NodeTemplateILb0EE12hasAttributeINS0_4expr9AttributeINS0_6theory15RewriteCacheTagILb1ELNS6_8TheoryIdE0EEENS1_ILb1EEEEEEEbRKT_.exit.thread ], [ %100, %99 ], [ %109, %108 ]
-  %118 = add nuw nsw i32 %.sink33, 1
+  %.sink34 = phi ptr [ %86, %_ZNK4cvc58internal12NodeTemplateILb0EE12hasAttributeINS0_4expr9AttributeINS0_6theory15RewriteCacheTagILb1ELNS6_8TheoryIdE0EEENS1_ILb1EEEEEEEbRKT_.exit.thread ], [ %100, %99 ], [ %109, %108 ]
+  %118 = add nuw nsw i32 %.sink39, 1
   %119 = zext nneg i32 %118 to i64
   %120 = shl nuw nsw i64 %119, 40
   %121 = and i64 %.sink, -1152920405095219201
   %122 = or i64 %120, %121
-  store i64 %122, ptr %.sink28, align 8
+  store i64 %122, ptr %.sink34, align 8
   br label %_ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit
 
 _ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit: ; preds = %_ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit.sink.split, %.invoke, %115, %106, %92
@@ -1180,23 +1180,23 @@ _ZNK4cvc58internal12NodeTemplateILb0EE12hasAttributeINS0_4expr9AttributeINS0_6th
   br i1 %116, label %.invoke, label %_ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit, !prof !114
 
 .invoke:                                          ; preds = %115, %106, %92
-  %.sink27 = phi i64 [ %87, %92 ], [ %101, %106 ], [ %110, %115 ]
-  %.sink26 = phi ptr [ %86, %92 ], [ %100, %106 ], [ %109, %115 ]
-  %117 = or i64 %.sink27, 1152920405095219200
-  store i64 %117, ptr %.sink26, align 8
-  invoke void @_ZN4cvc58internal4expr9NodeValue20markRefCountMaxedOutEv(ptr noundef nonnull align 8 dereferenceable(24) %.sink26)
+  %.sink33 = phi i64 [ %87, %92 ], [ %101, %106 ], [ %110, %115 ]
+  %.sink32 = phi ptr [ %86, %92 ], [ %100, %106 ], [ %109, %115 ]
+  %117 = or i64 %.sink33, 1152920405095219200
+  store i64 %117, ptr %.sink32, align 8
+  invoke void @_ZN4cvc58internal4expr9NodeValue20markRefCountMaxedOutEv(ptr noundef nonnull align 8 dereferenceable(24) %.sink32)
           to label %_ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit unwind label %94
 
 _ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit.sink.split: ; preds = %108, %99, %_ZNK4cvc58internal12NodeTemplateILb0EE12hasAttributeINS0_4expr9AttributeINS0_6theory15RewriteCacheTagILb1ELNS6_8TheoryIdE1EEENS1_ILb1EEEEEEEbRKT_.exit.thread
-  %.sink33 = phi i32 [ %90, %_ZNK4cvc58internal12NodeTemplateILb0EE12hasAttributeINS0_4expr9AttributeINS0_6theory15RewriteCacheTagILb1ELNS6_8TheoryIdE1EEENS1_ILb1EEEEEEEbRKT_.exit.thread ], [ %104, %99 ], [ %113, %108 ]
+  %.sink39 = phi i32 [ %90, %_ZNK4cvc58internal12NodeTemplateILb0EE12hasAttributeINS0_4expr9AttributeINS0_6theory15RewriteCacheTagILb1ELNS6_8TheoryIdE1EEENS1_ILb1EEEEEEEbRKT_.exit.thread ], [ %104, %99 ], [ %113, %108 ]
   %.sink = phi i64 [ %87, %_ZNK4cvc58internal12NodeTemplateILb0EE12hasAttributeINS0_4expr9AttributeINS0_6theory15RewriteCacheTagILb1ELNS6_8TheoryIdE1EEENS1_ILb1EEEEEEEbRKT_.exit.thread ], [ %101, %99 ], [ %110, %108 ]
-  %.sink28 = phi ptr [ %86, %_ZNK4cvc58internal12NodeTemplateILb0EE12hasAttributeINS0_4expr9AttributeINS0_6theory15RewriteCacheTagILb1ELNS6_8TheoryIdE1EEENS1_ILb1EEEEEEEbRKT_.exit.thread ], [ %100, %99 ], [ %109, %108 ]
-  %118 = add nuw nsw i32 %.sink33, 1
+  %.sink34 = phi ptr [ %86, %_ZNK4cvc58internal12NodeTemplateILb0EE12hasAttributeINS0_4expr9AttributeINS0_6theory15RewriteCacheTagILb1ELNS6_8TheoryIdE1EEENS1_ILb1EEEEEEEbRKT_.exit.thread ], [ %100, %99 ], [ %109, %108 ]
+  %118 = add nuw nsw i32 %.sink39, 1
   %119 = zext nneg i32 %118 to i64
   %120 = shl nuw nsw i64 %119, 40
   %121 = and i64 %.sink, -1152920405095219201
   %122 = or i64 %120, %121
-  store i64 %122, ptr %.sink28, align 8
+  store i64 %122, ptr %.sink34, align 8
   br label %_ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit
 
 _ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit: ; preds = %_ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit.sink.split, %.invoke, %115, %106, %92
@@ -1464,23 +1464,23 @@ _ZNK4cvc58internal12NodeTemplateILb0EE12hasAttributeINS0_4expr9AttributeINS0_6th
   br i1 %116, label %.invoke, label %_ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit, !prof !114
 
 .invoke:                                          ; preds = %115, %106, %92
-  %.sink27 = phi i64 [ %87, %92 ], [ %101, %106 ], [ %110, %115 ]
-  %.sink26 = phi ptr [ %86, %92 ], [ %100, %106 ], [ %109, %115 ]
-  %117 = or i64 %.sink27, 1152920405095219200
-  store i64 %117, ptr %.sink26, align 8
-  invoke void @_ZN4cvc58internal4expr9NodeValue20markRefCountMaxedOutEv(ptr noundef nonnull align 8 dereferenceable(24) %.sink26)
+  %.sink33 = phi i64 [ %87, %92 ], [ %101, %106 ], [ %110, %115 ]
+  %.sink32 = phi ptr [ %86, %92 ], [ %100, %106 ], [ %109, %115 ]
+  %117 = or i64 %.sink33, 1152920405095219200
+  store i64 %117, ptr %.sink32, align 8
+  invoke void @_ZN4cvc58internal4expr9NodeValue20markRefCountMaxedOutEv(ptr noundef nonnull align 8 dereferenceable(24) %.sink32)
           to label %_ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit unwind label %94
 
 _ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit.sink.split: ; preds = %108, %99, %_ZNK4cvc58internal12NodeTemplateILb0EE12hasAttributeINS0_4expr9AttributeINS0_6theory15RewriteCacheTagILb1ELNS6_8TheoryIdE2EEENS1_ILb1EEEEEEEbRKT_.exit.thread
-  %.sink33 = phi i32 [ %90, %_ZNK4cvc58internal12NodeTemplateILb0EE12hasAttributeINS0_4expr9AttributeINS0_6theory15RewriteCacheTagILb1ELNS6_8TheoryIdE2EEENS1_ILb1EEEEEEEbRKT_.exit.thread ], [ %104, %99 ], [ %113, %108 ]
+  %.sink39 = phi i32 [ %90, %_ZNK4cvc58internal12NodeTemplateILb0EE12hasAttributeINS0_4expr9AttributeINS0_6theory15RewriteCacheTagILb1ELNS6_8TheoryIdE2EEENS1_ILb1EEEEEEEbRKT_.exit.thread ], [ %104, %99 ], [ %113, %108 ]
   %.sink = phi i64 [ %87, %_ZNK4cvc58internal12NodeTemplateILb0EE12hasAttributeINS0_4expr9AttributeINS0_6theory15RewriteCacheTagILb1ELNS6_8TheoryIdE2EEENS1_ILb1EEEEEEEbRKT_.exit.thread ], [ %101, %99 ], [ %110, %108 ]
-  %.sink28 = phi ptr [ %86, %_ZNK4cvc58internal12NodeTemplateILb0EE12hasAttributeINS0_4expr9AttributeINS0_6theory15RewriteCacheTagILb1ELNS6_8TheoryIdE2EEENS1_ILb1EEEEEEEbRKT_.exit.thread ], [ %100, %99 ], [ %109, %108 ]
-  %118 = add nuw nsw i32 %.sink33, 1
+  %.sink34 = phi ptr [ %86, %_ZNK4cvc58internal12NodeTemplateILb0EE12hasAttributeINS0_4expr9AttributeINS0_6theory15RewriteCacheTagILb1ELNS6_8TheoryIdE2EEENS1_ILb1EEEEEEEbRKT_.exit.thread ], [ %100, %99 ], [ %109, %108 ]
+  %118 = add nuw nsw i32 %.sink39, 1
   %119 = zext nneg i32 %118 to i64
   %120 = shl nuw nsw i64 %119, 40
   %121 = and i64 %.sink, -1152920405095219201
   %122 = or i64 %120, %121
-  store i64 %122, ptr %.sink28, align 8
+  store i64 %122, ptr %.sink34, align 8
   br label %_ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit
 
 _ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit: ; preds = %_ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit.sink.split, %.invoke, %115, %106, %92
@@ -1748,23 +1748,23 @@ _ZNK4cvc58internal12NodeTemplateILb0EE12hasAttributeINS0_4expr9AttributeINS0_6th
   br i1 %116, label %.invoke, label %_ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit, !prof !114
 
 .invoke:                                          ; preds = %115, %106, %92
-  %.sink27 = phi i64 [ %87, %92 ], [ %101, %106 ], [ %110, %115 ]
-  %.sink26 = phi ptr [ %86, %92 ], [ %100, %106 ], [ %109, %115 ]
-  %117 = or i64 %.sink27, 1152920405095219200
-  store i64 %117, ptr %.sink26, align 8
-  invoke void @_ZN4cvc58internal4expr9NodeValue20markRefCountMaxedOutEv(ptr noundef nonnull align 8 dereferenceable(24) %.sink26)
+  %.sink33 = phi i64 [ %87, %92 ], [ %101, %106 ], [ %110, %115 ]
+  %.sink32 = phi ptr [ %86, %92 ], [ %100, %106 ], [ %109, %115 ]
+  %117 = or i64 %.sink33, 1152920405095219200
+  store i64 %117, ptr %.sink32, align 8
+  invoke void @_ZN4cvc58internal4expr9NodeValue20markRefCountMaxedOutEv(ptr noundef nonnull align 8 dereferenceable(24) %.sink32)
           to label %_ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit unwind label %94
 
 _ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit.sink.split: ; preds = %108, %99, %_ZNK4cvc58internal12NodeTemplateILb0EE12hasAttributeINS0_4expr9AttributeINS0_6theory15RewriteCacheTagILb1ELNS6_8TheoryIdE3EEENS1_ILb1EEEEEEEbRKT_.exit.thread
-  %.sink33 = phi i32 [ %90, %_ZNK4cvc58internal12NodeTemplateILb0EE12hasAttributeINS0_4expr9AttributeINS0_6theory15RewriteCacheTagILb1ELNS6_8TheoryIdE3EEENS1_ILb1EEEEEEEbRKT_.exit.thread ], [ %104, %99 ], [ %113, %108 ]
+  %.sink39 = phi i32 [ %90, %_ZNK4cvc58internal12NodeTemplateILb0EE12hasAttributeINS0_4expr9AttributeINS0_6theory15RewriteCacheTagILb1ELNS6_8TheoryIdE3EEENS1_ILb1EEEEEEEbRKT_.exit.thread ], [ %104, %99 ], [ %113, %108 ]
   %.sink = phi i64 [ %87, %_ZNK4cvc58internal12NodeTemplateILb0EE12hasAttributeINS0_4expr9AttributeINS0_6theory15RewriteCacheTagILb1ELNS6_8TheoryIdE3EEENS1_ILb1EEEEEEEbRKT_.exit.thread ], [ %101, %99 ], [ %110, %108 ]
-  %.sink28 = phi ptr [ %86, %_ZNK4cvc58internal12NodeTemplateILb0EE12hasAttributeINS0_4expr9AttributeINS0_6theory15RewriteCacheTagILb1ELNS6_8TheoryIdE3EEENS1_ILb1EEEEEEEbRKT_.exit.thread ], [ %100, %99 ], [ %109, %108 ]
-  %118 = add nuw nsw i32 %.sink33, 1
+  %.sink34 = phi ptr [ %86, %_ZNK4cvc58internal12NodeTemplateILb0EE12hasAttributeINS0_4expr9AttributeINS0_6theory15RewriteCacheTagILb1ELNS6_8TheoryIdE3EEENS1_ILb1EEEEEEEbRKT_.exit.thread ], [ %100, %99 ], [ %109, %108 ]
+  %118 = add nuw nsw i32 %.sink39, 1
   %119 = zext nneg i32 %118 to i64
   %120 = shl nuw nsw i64 %119, 40
   %121 = and i64 %.sink, -1152920405095219201
   %122 = or i64 %120, %121
-  store i64 %122, ptr %.sink28, align 8
+  store i64 %122, ptr %.sink34, align 8
   br label %_ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit
 
 _ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit: ; preds = %_ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit.sink.split, %.invoke, %115, %106, %92
@@ -2032,23 +2032,23 @@ _ZNK4cvc58internal12NodeTemplateILb0EE12hasAttributeINS0_4expr9AttributeINS0_6th
   br i1 %116, label %.invoke, label %_ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit, !prof !114
 
 .invoke:                                          ; preds = %115, %106, %92
-  %.sink27 = phi i64 [ %87, %92 ], [ %101, %106 ], [ %110, %115 ]
-  %.sink26 = phi ptr [ %86, %92 ], [ %100, %106 ], [ %109, %115 ]
-  %117 = or i64 %.sink27, 1152920405095219200
-  store i64 %117, ptr %.sink26, align 8
-  invoke void @_ZN4cvc58internal4expr9NodeValue20markRefCountMaxedOutEv(ptr noundef nonnull align 8 dereferenceable(24) %.sink26)
+  %.sink33 = phi i64 [ %87, %92 ], [ %101, %106 ], [ %110, %115 ]
+  %.sink32 = phi ptr [ %86, %92 ], [ %100, %106 ], [ %109, %115 ]
+  %117 = or i64 %.sink33, 1152920405095219200
+  store i64 %117, ptr %.sink32, align 8
+  invoke void @_ZN4cvc58internal4expr9NodeValue20markRefCountMaxedOutEv(ptr noundef nonnull align 8 dereferenceable(24) %.sink32)
           to label %_ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit unwind label %94
 
 _ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit.sink.split: ; preds = %108, %99, %_ZNK4cvc58internal12NodeTemplateILb0EE12hasAttributeINS0_4expr9AttributeINS0_6theory15RewriteCacheTagILb1ELNS6_8TheoryIdE4EEENS1_ILb1EEEEEEEbRKT_.exit.thread
-  %.sink33 = phi i32 [ %90, %_ZNK4cvc58internal12NodeTemplateILb0EE12hasAttributeINS0_4expr9AttributeINS0_6theory15RewriteCacheTagILb1ELNS6_8TheoryIdE4EEENS1_ILb1EEEEEEEbRKT_.exit.thread ], [ %104, %99 ], [ %113, %108 ]
+  %.sink39 = phi i32 [ %90, %_ZNK4cvc58internal12NodeTemplateILb0EE12hasAttributeINS0_4expr9AttributeINS0_6theory15RewriteCacheTagILb1ELNS6_8TheoryIdE4EEENS1_ILb1EEEEEEEbRKT_.exit.thread ], [ %104, %99 ], [ %113, %108 ]
   %.sink = phi i64 [ %87, %_ZNK4cvc58internal12NodeTemplateILb0EE12hasAttributeINS0_4expr9AttributeINS0_6theory15RewriteCacheTagILb1ELNS6_8TheoryIdE4EEENS1_ILb1EEEEEEEbRKT_.exit.thread ], [ %101, %99 ], [ %110, %108 ]
-  %.sink28 = phi ptr [ %86, %_ZNK4cvc58internal12NodeTemplateILb0EE12hasAttributeINS0_4expr9AttributeINS0_6theory15RewriteCacheTagILb1ELNS6_8TheoryIdE4EEENS1_ILb1EEEEEEEbRKT_.exit.thread ], [ %100, %99 ], [ %109, %108 ]
-  %118 = add nuw nsw i32 %.sink33, 1
+  %.sink34 = phi ptr [ %86, %_ZNK4cvc58internal12NodeTemplateILb0EE12hasAttributeINS0_4expr9AttributeINS0_6theory15RewriteCacheTagILb1ELNS6_8TheoryIdE4EEENS1_ILb1EEEEEEEbRKT_.exit.thread ], [ %100, %99 ], [ %109, %108 ]
+  %118 = add nuw nsw i32 %.sink39, 1
   %119 = zext nneg i32 %118 to i64
   %120 = shl nuw nsw i64 %119, 40
   %121 = and i64 %.sink, -1152920405095219201
   %122 = or i64 %120, %121
-  store i64 %122, ptr %.sink28, align 8
+  store i64 %122, ptr %.sink34, align 8
   br label %_ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit
 
 _ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit: ; preds = %_ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit.sink.split, %.invoke, %115, %106, %92
@@ -2316,23 +2316,23 @@ _ZNK4cvc58internal12NodeTemplateILb0EE12hasAttributeINS0_4expr9AttributeINS0_6th
   br i1 %116, label %.invoke, label %_ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit, !prof !114
 
 .invoke:                                          ; preds = %115, %106, %92
-  %.sink27 = phi i64 [ %87, %92 ], [ %101, %106 ], [ %110, %115 ]
-  %.sink26 = phi ptr [ %86, %92 ], [ %100, %106 ], [ %109, %115 ]
-  %117 = or i64 %.sink27, 1152920405095219200
-  store i64 %117, ptr %.sink26, align 8
-  invoke void @_ZN4cvc58internal4expr9NodeValue20markRefCountMaxedOutEv(ptr noundef nonnull align 8 dereferenceable(24) %.sink26)
+  %.sink33 = phi i64 [ %87, %92 ], [ %101, %106 ], [ %110, %115 ]
+  %.sink32 = phi ptr [ %86, %92 ], [ %100, %106 ], [ %109, %115 ]
+  %117 = or i64 %.sink33, 1152920405095219200
+  store i64 %117, ptr %.sink32, align 8
+  invoke void @_ZN4cvc58internal4expr9NodeValue20markRefCountMaxedOutEv(ptr noundef nonnull align 8 dereferenceable(24) %.sink32)
           to label %_ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit unwind label %94
 
 _ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit.sink.split: ; preds = %108, %99, %_ZNK4cvc58internal12NodeTemplateILb0EE12hasAttributeINS0_4expr9AttributeINS0_6theory15RewriteCacheTagILb1ELNS6_8TheoryIdE5EEENS1_ILb1EEEEEEEbRKT_.exit.thread
-  %.sink33 = phi i32 [ %90, %_ZNK4cvc58internal12NodeTemplateILb0EE12hasAttributeINS0_4expr9AttributeINS0_6theory15RewriteCacheTagILb1ELNS6_8TheoryIdE5EEENS1_ILb1EEEEEEEbRKT_.exit.thread ], [ %104, %99 ], [ %113, %108 ]
+  %.sink39 = phi i32 [ %90, %_ZNK4cvc58internal12NodeTemplateILb0EE12hasAttributeINS0_4expr9AttributeINS0_6theory15RewriteCacheTagILb1ELNS6_8TheoryIdE5EEENS1_ILb1EEEEEEEbRKT_.exit.thread ], [ %104, %99 ], [ %113, %108 ]
   %.sink = phi i64 [ %87, %_ZNK4cvc58internal12NodeTemplateILb0EE12hasAttributeINS0_4expr9AttributeINS0_6theory15RewriteCacheTagILb1ELNS6_8TheoryIdE5EEENS1_ILb1EEEEEEEbRKT_.exit.thread ], [ %101, %99 ], [ %110, %108 ]
-  %.sink28 = phi ptr [ %86, %_ZNK4cvc58internal12NodeTemplateILb0EE12hasAttributeINS0_4expr9AttributeINS0_6theory15RewriteCacheTagILb1ELNS6_8TheoryIdE5EEENS1_ILb1EEEEEEEbRKT_.exit.thread ], [ %100, %99 ], [ %109, %108 ]
-  %118 = add nuw nsw i32 %.sink33, 1
+  %.sink34 = phi ptr [ %86, %_ZNK4cvc58internal12NodeTemplateILb0EE12hasAttributeINS0_4expr9AttributeINS0_6theory15RewriteCacheTagILb1ELNS6_8TheoryIdE5EEENS1_ILb1EEEEEEEbRKT_.exit.thread ], [ %100, %99 ], [ %109, %108 ]
+  %118 = add nuw nsw i32 %.sink39, 1
   %119 = zext nneg i32 %118 to i64
   %120 = shl nuw nsw i64 %119, 40
   %121 = and i64 %.sink, -1152920405095219201
   %122 = or i64 %120, %121
-  store i64 %122, ptr %.sink28, align 8
+  store i64 %122, ptr %.sink34, align 8
   br label %_ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit
 
 _ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit: ; preds = %_ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit.sink.split, %.invoke, %115, %106, %92
@@ -2600,23 +2600,23 @@ _ZNK4cvc58internal12NodeTemplateILb0EE12hasAttributeINS0_4expr9AttributeINS0_6th
   br i1 %116, label %.invoke, label %_ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit, !prof !114
 
 .invoke:                                          ; preds = %115, %106, %92
-  %.sink27 = phi i64 [ %87, %92 ], [ %101, %106 ], [ %110, %115 ]
-  %.sink26 = phi ptr [ %86, %92 ], [ %100, %106 ], [ %109, %115 ]
-  %117 = or i64 %.sink27, 1152920405095219200
-  store i64 %117, ptr %.sink26, align 8
-  invoke void @_ZN4cvc58internal4expr9NodeValue20markRefCountMaxedOutEv(ptr noundef nonnull align 8 dereferenceable(24) %.sink26)
+  %.sink33 = phi i64 [ %87, %92 ], [ %101, %106 ], [ %110, %115 ]
+  %.sink32 = phi ptr [ %86, %92 ], [ %100, %106 ], [ %109, %115 ]
+  %117 = or i64 %.sink33, 1152920405095219200
+  store i64 %117, ptr %.sink32, align 8
+  invoke void @_ZN4cvc58internal4expr9NodeValue20markRefCountMaxedOutEv(ptr noundef nonnull align 8 dereferenceable(24) %.sink32)
           to label %_ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit unwind label %94
 
 _ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit.sink.split: ; preds = %108, %99, %_ZNK4cvc58internal12NodeTemplateILb0EE12hasAttributeINS0_4expr9AttributeINS0_6theory15RewriteCacheTagILb1ELNS6_8TheoryIdE6EEENS1_ILb1EEEEEEEbRKT_.exit.thread
-  %.sink33 = phi i32 [ %90, %_ZNK4cvc58internal12NodeTemplateILb0EE12hasAttributeINS0_4expr9AttributeINS0_6theory15RewriteCacheTagILb1ELNS6_8TheoryIdE6EEENS1_ILb1EEEEEEEbRKT_.exit.thread ], [ %104, %99 ], [ %113, %108 ]
+  %.sink39 = phi i32 [ %90, %_ZNK4cvc58internal12NodeTemplateILb0EE12hasAttributeINS0_4expr9AttributeINS0_6theory15RewriteCacheTagILb1ELNS6_8TheoryIdE6EEENS1_ILb1EEEEEEEbRKT_.exit.thread ], [ %104, %99 ], [ %113, %108 ]
   %.sink = phi i64 [ %87, %_ZNK4cvc58internal12NodeTemplateILb0EE12hasAttributeINS0_4expr9AttributeINS0_6theory15RewriteCacheTagILb1ELNS6_8TheoryIdE6EEENS1_ILb1EEEEEEEbRKT_.exit.thread ], [ %101, %99 ], [ %110, %108 ]
-  %.sink28 = phi ptr [ %86, %_ZNK4cvc58internal12NodeTemplateILb0EE12hasAttributeINS0_4expr9AttributeINS0_6theory15RewriteCacheTagILb1ELNS6_8TheoryIdE6EEENS1_ILb1EEEEEEEbRKT_.exit.thread ], [ %100, %99 ], [ %109, %108 ]
-  %118 = add nuw nsw i32 %.sink33, 1
+  %.sink34 = phi ptr [ %86, %_ZNK4cvc58internal12NodeTemplateILb0EE12hasAttributeINS0_4expr9AttributeINS0_6theory15RewriteCacheTagILb1ELNS6_8TheoryIdE6EEENS1_ILb1EEEEEEEbRKT_.exit.thread ], [ %100, %99 ], [ %109, %108 ]
+  %118 = add nuw nsw i32 %.sink39, 1
   %119 = zext nneg i32 %118 to i64
   %120 = shl nuw nsw i64 %119, 40
   %121 = and i64 %.sink, -1152920405095219201
   %122 = or i64 %120, %121
-  store i64 %122, ptr %.sink28, align 8
+  store i64 %122, ptr %.sink34, align 8
   br label %_ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit
 
 _ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit: ; preds = %_ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit.sink.split, %.invoke, %115, %106, %92
@@ -2884,23 +2884,23 @@ _ZNK4cvc58internal12NodeTemplateILb0EE12hasAttributeINS0_4expr9AttributeINS0_6th
   br i1 %116, label %.invoke, label %_ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit, !prof !114
 
 .invoke:                                          ; preds = %115, %106, %92
-  %.sink27 = phi i64 [ %87, %92 ], [ %101, %106 ], [ %110, %115 ]
-  %.sink26 = phi ptr [ %86, %92 ], [ %100, %106 ], [ %109, %115 ]
-  %117 = or i64 %.sink27, 1152920405095219200
-  store i64 %117, ptr %.sink26, align 8
-  invoke void @_ZN4cvc58internal4expr9NodeValue20markRefCountMaxedOutEv(ptr noundef nonnull align 8 dereferenceable(24) %.sink26)
+  %.sink33 = phi i64 [ %87, %92 ], [ %101, %106 ], [ %110, %115 ]
+  %.sink32 = phi ptr [ %86, %92 ], [ %100, %106 ], [ %109, %115 ]
+  %117 = or i64 %.sink33, 1152920405095219200
+  store i64 %117, ptr %.sink32, align 8
+  invoke void @_ZN4cvc58internal4expr9NodeValue20markRefCountMaxedOutEv(ptr noundef nonnull align 8 dereferenceable(24) %.sink32)
           to label %_ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit unwind label %94
 
 _ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit.sink.split: ; preds = %108, %99, %_ZNK4cvc58internal12NodeTemplateILb0EE12hasAttributeINS0_4expr9AttributeINS0_6theory15RewriteCacheTagILb1ELNS6_8TheoryIdE7EEENS1_ILb1EEEEEEEbRKT_.exit.thread
-  %.sink33 = phi i32 [ %90, %_ZNK4cvc58internal12NodeTemplateILb0EE12hasAttributeINS0_4expr9AttributeINS0_6theory15RewriteCacheTagILb1ELNS6_8TheoryIdE7EEENS1_ILb1EEEEEEEbRKT_.exit.thread ], [ %104, %99 ], [ %113, %108 ]
+  %.sink39 = phi i32 [ %90, %_ZNK4cvc58internal12NodeTemplateILb0EE12hasAttributeINS0_4expr9AttributeINS0_6theory15RewriteCacheTagILb1ELNS6_8TheoryIdE7EEENS1_ILb1EEEEEEEbRKT_.exit.thread ], [ %104, %99 ], [ %113, %108 ]
   %.sink = phi i64 [ %87, %_ZNK4cvc58internal12NodeTemplateILb0EE12hasAttributeINS0_4expr9AttributeINS0_6theory15RewriteCacheTagILb1ELNS6_8TheoryIdE7EEENS1_ILb1EEEEEEEbRKT_.exit.thread ], [ %101, %99 ], [ %110, %108 ]
-  %.sink28 = phi ptr [ %86, %_ZNK4cvc58internal12NodeTemplateILb0EE12hasAttributeINS0_4expr9AttributeINS0_6theory15RewriteCacheTagILb1ELNS6_8TheoryIdE7EEENS1_ILb1EEEEEEEbRKT_.exit.thread ], [ %100, %99 ], [ %109, %108 ]
-  %118 = add nuw nsw i32 %.sink33, 1
+  %.sink34 = phi ptr [ %86, %_ZNK4cvc58internal12NodeTemplateILb0EE12hasAttributeINS0_4expr9AttributeINS0_6theory15RewriteCacheTagILb1ELNS6_8TheoryIdE7EEENS1_ILb1EEEEEEEbRKT_.exit.thread ], [ %100, %99 ], [ %109, %108 ]
+  %118 = add nuw nsw i32 %.sink39, 1
   %119 = zext nneg i32 %118 to i64
   %120 = shl nuw nsw i64 %119, 40
   %121 = and i64 %.sink, -1152920405095219201
   %122 = or i64 %120, %121
-  store i64 %122, ptr %.sink28, align 8
+  store i64 %122, ptr %.sink34, align 8
   br label %_ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit
 
 _ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit: ; preds = %_ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit.sink.split, %.invoke, %115, %106, %92
@@ -3168,23 +3168,23 @@ _ZNK4cvc58internal12NodeTemplateILb0EE12hasAttributeINS0_4expr9AttributeINS0_6th
   br i1 %116, label %.invoke, label %_ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit, !prof !114
 
 .invoke:                                          ; preds = %115, %106, %92
-  %.sink27 = phi i64 [ %87, %92 ], [ %101, %106 ], [ %110, %115 ]
-  %.sink26 = phi ptr [ %86, %92 ], [ %100, %106 ], [ %109, %115 ]
-  %117 = or i64 %.sink27, 1152920405095219200
-  store i64 %117, ptr %.sink26, align 8
-  invoke void @_ZN4cvc58internal4expr9NodeValue20markRefCountMaxedOutEv(ptr noundef nonnull align 8 dereferenceable(24) %.sink26)
+  %.sink33 = phi i64 [ %87, %92 ], [ %101, %106 ], [ %110, %115 ]
+  %.sink32 = phi ptr [ %86, %92 ], [ %100, %106 ], [ %109, %115 ]
+  %117 = or i64 %.sink33, 1152920405095219200
+  store i64 %117, ptr %.sink32, align 8
+  invoke void @_ZN4cvc58internal4expr9NodeValue20markRefCountMaxedOutEv(ptr noundef nonnull align 8 dereferenceable(24) %.sink32)
           to label %_ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit unwind label %94
 
 _ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit.sink.split: ; preds = %108, %99, %_ZNK4cvc58internal12NodeTemplateILb0EE12hasAttributeINS0_4expr9AttributeINS0_6theory15RewriteCacheTagILb1ELNS6_8TheoryIdE8EEENS1_ILb1EEEEEEEbRKT_.exit.thread
-  %.sink33 = phi i32 [ %90, %_ZNK4cvc58internal12NodeTemplateILb0EE12hasAttributeINS0_4expr9AttributeINS0_6theory15RewriteCacheTagILb1ELNS6_8TheoryIdE8EEENS1_ILb1EEEEEEEbRKT_.exit.thread ], [ %104, %99 ], [ %113, %108 ]
+  %.sink39 = phi i32 [ %90, %_ZNK4cvc58internal12NodeTemplateILb0EE12hasAttributeINS0_4expr9AttributeINS0_6theory15RewriteCacheTagILb1ELNS6_8TheoryIdE8EEENS1_ILb1EEEEEEEbRKT_.exit.thread ], [ %104, %99 ], [ %113, %108 ]
   %.sink = phi i64 [ %87, %_ZNK4cvc58internal12NodeTemplateILb0EE12hasAttributeINS0_4expr9AttributeINS0_6theory15RewriteCacheTagILb1ELNS6_8TheoryIdE8EEENS1_ILb1EEEEEEEbRKT_.exit.thread ], [ %101, %99 ], [ %110, %108 ]
-  %.sink28 = phi ptr [ %86, %_ZNK4cvc58internal12NodeTemplateILb0EE12hasAttributeINS0_4expr9AttributeINS0_6theory15RewriteCacheTagILb1ELNS6_8TheoryIdE8EEENS1_ILb1EEEEEEEbRKT_.exit.thread ], [ %100, %99 ], [ %109, %108 ]
-  %118 = add nuw nsw i32 %.sink33, 1
+  %.sink34 = phi ptr [ %86, %_ZNK4cvc58internal12NodeTemplateILb0EE12hasAttributeINS0_4expr9AttributeINS0_6theory15RewriteCacheTagILb1ELNS6_8TheoryIdE8EEENS1_ILb1EEEEEEEbRKT_.exit.thread ], [ %100, %99 ], [ %109, %108 ]
+  %118 = add nuw nsw i32 %.sink39, 1
   %119 = zext nneg i32 %118 to i64
   %120 = shl nuw nsw i64 %119, 40
   %121 = and i64 %.sink, -1152920405095219201
   %122 = or i64 %120, %121
-  store i64 %122, ptr %.sink28, align 8
+  store i64 %122, ptr %.sink34, align 8
   br label %_ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit
 
 _ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit: ; preds = %_ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit.sink.split, %.invoke, %115, %106, %92
@@ -3452,23 +3452,23 @@ _ZNK4cvc58internal12NodeTemplateILb0EE12hasAttributeINS0_4expr9AttributeINS0_6th
   br i1 %116, label %.invoke, label %_ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit, !prof !114
 
 .invoke:                                          ; preds = %115, %106, %92
-  %.sink27 = phi i64 [ %87, %92 ], [ %101, %106 ], [ %110, %115 ]
-  %.sink26 = phi ptr [ %86, %92 ], [ %100, %106 ], [ %109, %115 ]
-  %117 = or i64 %.sink27, 1152920405095219200
-  store i64 %117, ptr %.sink26, align 8
-  invoke void @_ZN4cvc58internal4expr9NodeValue20markRefCountMaxedOutEv(ptr noundef nonnull align 8 dereferenceable(24) %.sink26)
+  %.sink33 = phi i64 [ %87, %92 ], [ %101, %106 ], [ %110, %115 ]
+  %.sink32 = phi ptr [ %86, %92 ], [ %100, %106 ], [ %109, %115 ]
+  %117 = or i64 %.sink33, 1152920405095219200
+  store i64 %117, ptr %.sink32, align 8
+  invoke void @_ZN4cvc58internal4expr9NodeValue20markRefCountMaxedOutEv(ptr noundef nonnull align 8 dereferenceable(24) %.sink32)
           to label %_ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit unwind label %94
 
 _ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit.sink.split: ; preds = %108, %99, %_ZNK4cvc58internal12NodeTemplateILb0EE12hasAttributeINS0_4expr9AttributeINS0_6theory15RewriteCacheTagILb1ELNS6_8TheoryIdE9EEENS1_ILb1EEEEEEEbRKT_.exit.thread
-  %.sink33 = phi i32 [ %90, %_ZNK4cvc58internal12NodeTemplateILb0EE12hasAttributeINS0_4expr9AttributeINS0_6theory15RewriteCacheTagILb1ELNS6_8TheoryIdE9EEENS1_ILb1EEEEEEEbRKT_.exit.thread ], [ %104, %99 ], [ %113, %108 ]
+  %.sink39 = phi i32 [ %90, %_ZNK4cvc58internal12NodeTemplateILb0EE12hasAttributeINS0_4expr9AttributeINS0_6theory15RewriteCacheTagILb1ELNS6_8TheoryIdE9EEENS1_ILb1EEEEEEEbRKT_.exit.thread ], [ %104, %99 ], [ %113, %108 ]
   %.sink = phi i64 [ %87, %_ZNK4cvc58internal12NodeTemplateILb0EE12hasAttributeINS0_4expr9AttributeINS0_6theory15RewriteCacheTagILb1ELNS6_8TheoryIdE9EEENS1_ILb1EEEEEEEbRKT_.exit.thread ], [ %101, %99 ], [ %110, %108 ]
-  %.sink28 = phi ptr [ %86, %_ZNK4cvc58internal12NodeTemplateILb0EE12hasAttributeINS0_4expr9AttributeINS0_6theory15RewriteCacheTagILb1ELNS6_8TheoryIdE9EEENS1_ILb1EEEEEEEbRKT_.exit.thread ], [ %100, %99 ], [ %109, %108 ]
-  %118 = add nuw nsw i32 %.sink33, 1
+  %.sink34 = phi ptr [ %86, %_ZNK4cvc58internal12NodeTemplateILb0EE12hasAttributeINS0_4expr9AttributeINS0_6theory15RewriteCacheTagILb1ELNS6_8TheoryIdE9EEENS1_ILb1EEEEEEEbRKT_.exit.thread ], [ %100, %99 ], [ %109, %108 ]
+  %118 = add nuw nsw i32 %.sink39, 1
   %119 = zext nneg i32 %118 to i64
   %120 = shl nuw nsw i64 %119, 40
   %121 = and i64 %.sink, -1152920405095219201
   %122 = or i64 %120, %121
-  store i64 %122, ptr %.sink28, align 8
+  store i64 %122, ptr %.sink34, align 8
   br label %_ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit
 
 _ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit: ; preds = %_ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit.sink.split, %.invoke, %115, %106, %92
@@ -3736,23 +3736,23 @@ _ZNK4cvc58internal12NodeTemplateILb0EE12hasAttributeINS0_4expr9AttributeINS0_6th
   br i1 %116, label %.invoke, label %_ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit, !prof !114
 
 .invoke:                                          ; preds = %115, %106, %92
-  %.sink27 = phi i64 [ %87, %92 ], [ %101, %106 ], [ %110, %115 ]
-  %.sink26 = phi ptr [ %86, %92 ], [ %100, %106 ], [ %109, %115 ]
-  %117 = or i64 %.sink27, 1152920405095219200
-  store i64 %117, ptr %.sink26, align 8
-  invoke void @_ZN4cvc58internal4expr9NodeValue20markRefCountMaxedOutEv(ptr noundef nonnull align 8 dereferenceable(24) %.sink26)
+  %.sink33 = phi i64 [ %87, %92 ], [ %101, %106 ], [ %110, %115 ]
+  %.sink32 = phi ptr [ %86, %92 ], [ %100, %106 ], [ %109, %115 ]
+  %117 = or i64 %.sink33, 1152920405095219200
+  store i64 %117, ptr %.sink32, align 8
+  invoke void @_ZN4cvc58internal4expr9NodeValue20markRefCountMaxedOutEv(ptr noundef nonnull align 8 dereferenceable(24) %.sink32)
           to label %_ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit unwind label %94
 
 _ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit.sink.split: ; preds = %108, %99, %_ZNK4cvc58internal12NodeTemplateILb0EE12hasAttributeINS0_4expr9AttributeINS0_6theory15RewriteCacheTagILb1ELNS6_8TheoryIdE10EEENS1_ILb1EEEEEEEbRKT_.exit.thread
-  %.sink33 = phi i32 [ %90, %_ZNK4cvc58internal12NodeTemplateILb0EE12hasAttributeINS0_4expr9AttributeINS0_6theory15RewriteCacheTagILb1ELNS6_8TheoryIdE10EEENS1_ILb1EEEEEEEbRKT_.exit.thread ], [ %104, %99 ], [ %113, %108 ]
+  %.sink39 = phi i32 [ %90, %_ZNK4cvc58internal12NodeTemplateILb0EE12hasAttributeINS0_4expr9AttributeINS0_6theory15RewriteCacheTagILb1ELNS6_8TheoryIdE10EEENS1_ILb1EEEEEEEbRKT_.exit.thread ], [ %104, %99 ], [ %113, %108 ]
   %.sink = phi i64 [ %87, %_ZNK4cvc58internal12NodeTemplateILb0EE12hasAttributeINS0_4expr9AttributeINS0_6theory15RewriteCacheTagILb1ELNS6_8TheoryIdE10EEENS1_ILb1EEEEEEEbRKT_.exit.thread ], [ %101, %99 ], [ %110, %108 ]
-  %.sink28 = phi ptr [ %86, %_ZNK4cvc58internal12NodeTemplateILb0EE12hasAttributeINS0_4expr9AttributeINS0_6theory15RewriteCacheTagILb1ELNS6_8TheoryIdE10EEENS1_ILb1EEEEEEEbRKT_.exit.thread ], [ %100, %99 ], [ %109, %108 ]
-  %118 = add nuw nsw i32 %.sink33, 1
+  %.sink34 = phi ptr [ %86, %_ZNK4cvc58internal12NodeTemplateILb0EE12hasAttributeINS0_4expr9AttributeINS0_6theory15RewriteCacheTagILb1ELNS6_8TheoryIdE10EEENS1_ILb1EEEEEEEbRKT_.exit.thread ], [ %100, %99 ], [ %109, %108 ]
+  %118 = add nuw nsw i32 %.sink39, 1
   %119 = zext nneg i32 %118 to i64
   %120 = shl nuw nsw i64 %119, 40
   %121 = and i64 %.sink, -1152920405095219201
   %122 = or i64 %120, %121
-  store i64 %122, ptr %.sink28, align 8
+  store i64 %122, ptr %.sink34, align 8
   br label %_ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit
 
 _ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit: ; preds = %_ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit.sink.split, %.invoke, %115, %106, %92
@@ -4020,23 +4020,23 @@ _ZNK4cvc58internal12NodeTemplateILb0EE12hasAttributeINS0_4expr9AttributeINS0_6th
   br i1 %116, label %.invoke, label %_ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit, !prof !114
 
 .invoke:                                          ; preds = %115, %106, %92
-  %.sink27 = phi i64 [ %87, %92 ], [ %101, %106 ], [ %110, %115 ]
-  %.sink26 = phi ptr [ %86, %92 ], [ %100, %106 ], [ %109, %115 ]
-  %117 = or i64 %.sink27, 1152920405095219200
-  store i64 %117, ptr %.sink26, align 8
-  invoke void @_ZN4cvc58internal4expr9NodeValue20markRefCountMaxedOutEv(ptr noundef nonnull align 8 dereferenceable(24) %.sink26)
+  %.sink33 = phi i64 [ %87, %92 ], [ %101, %106 ], [ %110, %115 ]
+  %.sink32 = phi ptr [ %86, %92 ], [ %100, %106 ], [ %109, %115 ]
+  %117 = or i64 %.sink33, 1152920405095219200
+  store i64 %117, ptr %.sink32, align 8
+  invoke void @_ZN4cvc58internal4expr9NodeValue20markRefCountMaxedOutEv(ptr noundef nonnull align 8 dereferenceable(24) %.sink32)
           to label %_ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit unwind label %94
 
 _ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit.sink.split: ; preds = %108, %99, %_ZNK4cvc58internal12NodeTemplateILb0EE12hasAttributeINS0_4expr9AttributeINS0_6theory15RewriteCacheTagILb1ELNS6_8TheoryIdE11EEENS1_ILb1EEEEEEEbRKT_.exit.thread
-  %.sink33 = phi i32 [ %90, %_ZNK4cvc58internal12NodeTemplateILb0EE12hasAttributeINS0_4expr9AttributeINS0_6theory15RewriteCacheTagILb1ELNS6_8TheoryIdE11EEENS1_ILb1EEEEEEEbRKT_.exit.thread ], [ %104, %99 ], [ %113, %108 ]
+  %.sink39 = phi i32 [ %90, %_ZNK4cvc58internal12NodeTemplateILb0EE12hasAttributeINS0_4expr9AttributeINS0_6theory15RewriteCacheTagILb1ELNS6_8TheoryIdE11EEENS1_ILb1EEEEEEEbRKT_.exit.thread ], [ %104, %99 ], [ %113, %108 ]
   %.sink = phi i64 [ %87, %_ZNK4cvc58internal12NodeTemplateILb0EE12hasAttributeINS0_4expr9AttributeINS0_6theory15RewriteCacheTagILb1ELNS6_8TheoryIdE11EEENS1_ILb1EEEEEEEbRKT_.exit.thread ], [ %101, %99 ], [ %110, %108 ]
-  %.sink28 = phi ptr [ %86, %_ZNK4cvc58internal12NodeTemplateILb0EE12hasAttributeINS0_4expr9AttributeINS0_6theory15RewriteCacheTagILb1ELNS6_8TheoryIdE11EEENS1_ILb1EEEEEEEbRKT_.exit.thread ], [ %100, %99 ], [ %109, %108 ]
-  %118 = add nuw nsw i32 %.sink33, 1
+  %.sink34 = phi ptr [ %86, %_ZNK4cvc58internal12NodeTemplateILb0EE12hasAttributeINS0_4expr9AttributeINS0_6theory15RewriteCacheTagILb1ELNS6_8TheoryIdE11EEENS1_ILb1EEEEEEEbRKT_.exit.thread ], [ %100, %99 ], [ %109, %108 ]
+  %118 = add nuw nsw i32 %.sink39, 1
   %119 = zext nneg i32 %118 to i64
   %120 = shl nuw nsw i64 %119, 40
   %121 = and i64 %.sink, -1152920405095219201
   %122 = or i64 %120, %121
-  store i64 %122, ptr %.sink28, align 8
+  store i64 %122, ptr %.sink34, align 8
   br label %_ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit
 
 _ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit: ; preds = %_ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit.sink.split, %.invoke, %115, %106, %92
@@ -4304,23 +4304,23 @@ _ZNK4cvc58internal12NodeTemplateILb0EE12hasAttributeINS0_4expr9AttributeINS0_6th
   br i1 %116, label %.invoke, label %_ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit, !prof !114
 
 .invoke:                                          ; preds = %115, %106, %92
-  %.sink27 = phi i64 [ %87, %92 ], [ %101, %106 ], [ %110, %115 ]
-  %.sink26 = phi ptr [ %86, %92 ], [ %100, %106 ], [ %109, %115 ]
-  %117 = or i64 %.sink27, 1152920405095219200
-  store i64 %117, ptr %.sink26, align 8
-  invoke void @_ZN4cvc58internal4expr9NodeValue20markRefCountMaxedOutEv(ptr noundef nonnull align 8 dereferenceable(24) %.sink26)
+  %.sink33 = phi i64 [ %87, %92 ], [ %101, %106 ], [ %110, %115 ]
+  %.sink32 = phi ptr [ %86, %92 ], [ %100, %106 ], [ %109, %115 ]
+  %117 = or i64 %.sink33, 1152920405095219200
+  store i64 %117, ptr %.sink32, align 8
+  invoke void @_ZN4cvc58internal4expr9NodeValue20markRefCountMaxedOutEv(ptr noundef nonnull align 8 dereferenceable(24) %.sink32)
           to label %_ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit unwind label %94
 
 _ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit.sink.split: ; preds = %108, %99, %_ZNK4cvc58internal12NodeTemplateILb0EE12hasAttributeINS0_4expr9AttributeINS0_6theory15RewriteCacheTagILb1ELNS6_8TheoryIdE12EEENS1_ILb1EEEEEEEbRKT_.exit.thread
-  %.sink33 = phi i32 [ %90, %_ZNK4cvc58internal12NodeTemplateILb0EE12hasAttributeINS0_4expr9AttributeINS0_6theory15RewriteCacheTagILb1ELNS6_8TheoryIdE12EEENS1_ILb1EEEEEEEbRKT_.exit.thread ], [ %104, %99 ], [ %113, %108 ]
+  %.sink39 = phi i32 [ %90, %_ZNK4cvc58internal12NodeTemplateILb0EE12hasAttributeINS0_4expr9AttributeINS0_6theory15RewriteCacheTagILb1ELNS6_8TheoryIdE12EEENS1_ILb1EEEEEEEbRKT_.exit.thread ], [ %104, %99 ], [ %113, %108 ]
   %.sink = phi i64 [ %87, %_ZNK4cvc58internal12NodeTemplateILb0EE12hasAttributeINS0_4expr9AttributeINS0_6theory15RewriteCacheTagILb1ELNS6_8TheoryIdE12EEENS1_ILb1EEEEEEEbRKT_.exit.thread ], [ %101, %99 ], [ %110, %108 ]
-  %.sink28 = phi ptr [ %86, %_ZNK4cvc58internal12NodeTemplateILb0EE12hasAttributeINS0_4expr9AttributeINS0_6theory15RewriteCacheTagILb1ELNS6_8TheoryIdE12EEENS1_ILb1EEEEEEEbRKT_.exit.thread ], [ %100, %99 ], [ %109, %108 ]
-  %118 = add nuw nsw i32 %.sink33, 1
+  %.sink34 = phi ptr [ %86, %_ZNK4cvc58internal12NodeTemplateILb0EE12hasAttributeINS0_4expr9AttributeINS0_6theory15RewriteCacheTagILb1ELNS6_8TheoryIdE12EEENS1_ILb1EEEEEEEbRKT_.exit.thread ], [ %100, %99 ], [ %109, %108 ]
+  %118 = add nuw nsw i32 %.sink39, 1
   %119 = zext nneg i32 %118 to i64
   %120 = shl nuw nsw i64 %119, 40
   %121 = and i64 %.sink, -1152920405095219201
   %122 = or i64 %120, %121
-  store i64 %122, ptr %.sink28, align 8
+  store i64 %122, ptr %.sink34, align 8
   br label %_ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit
 
 _ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit: ; preds = %_ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit.sink.split, %.invoke, %115, %106, %92
@@ -4588,23 +4588,23 @@ _ZNK4cvc58internal12NodeTemplateILb0EE12hasAttributeINS0_4expr9AttributeINS0_6th
   br i1 %116, label %.invoke, label %_ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit, !prof !114
 
 .invoke:                                          ; preds = %115, %106, %92
-  %.sink27 = phi i64 [ %87, %92 ], [ %101, %106 ], [ %110, %115 ]
-  %.sink26 = phi ptr [ %86, %92 ], [ %100, %106 ], [ %109, %115 ]
-  %117 = or i64 %.sink27, 1152920405095219200
-  store i64 %117, ptr %.sink26, align 8
-  invoke void @_ZN4cvc58internal4expr9NodeValue20markRefCountMaxedOutEv(ptr noundef nonnull align 8 dereferenceable(24) %.sink26)
+  %.sink33 = phi i64 [ %87, %92 ], [ %101, %106 ], [ %110, %115 ]
+  %.sink32 = phi ptr [ %86, %92 ], [ %100, %106 ], [ %109, %115 ]
+  %117 = or i64 %.sink33, 1152920405095219200
+  store i64 %117, ptr %.sink32, align 8
+  invoke void @_ZN4cvc58internal4expr9NodeValue20markRefCountMaxedOutEv(ptr noundef nonnull align 8 dereferenceable(24) %.sink32)
           to label %_ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit unwind label %94
 
 _ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit.sink.split: ; preds = %108, %99, %_ZNK4cvc58internal12NodeTemplateILb0EE12hasAttributeINS0_4expr9AttributeINS0_6theory15RewriteCacheTagILb1ELNS6_8TheoryIdE13EEENS1_ILb1EEEEEEEbRKT_.exit.thread
-  %.sink33 = phi i32 [ %90, %_ZNK4cvc58internal12NodeTemplateILb0EE12hasAttributeINS0_4expr9AttributeINS0_6theory15RewriteCacheTagILb1ELNS6_8TheoryIdE13EEENS1_ILb1EEEEEEEbRKT_.exit.thread ], [ %104, %99 ], [ %113, %108 ]
+  %.sink39 = phi i32 [ %90, %_ZNK4cvc58internal12NodeTemplateILb0EE12hasAttributeINS0_4expr9AttributeINS0_6theory15RewriteCacheTagILb1ELNS6_8TheoryIdE13EEENS1_ILb1EEEEEEEbRKT_.exit.thread ], [ %104, %99 ], [ %113, %108 ]
   %.sink = phi i64 [ %87, %_ZNK4cvc58internal12NodeTemplateILb0EE12hasAttributeINS0_4expr9AttributeINS0_6theory15RewriteCacheTagILb1ELNS6_8TheoryIdE13EEENS1_ILb1EEEEEEEbRKT_.exit.thread ], [ %101, %99 ], [ %110, %108 ]
-  %.sink28 = phi ptr [ %86, %_ZNK4cvc58internal12NodeTemplateILb0EE12hasAttributeINS0_4expr9AttributeINS0_6theory15RewriteCacheTagILb1ELNS6_8TheoryIdE13EEENS1_ILb1EEEEEEEbRKT_.exit.thread ], [ %100, %99 ], [ %109, %108 ]
-  %118 = add nuw nsw i32 %.sink33, 1
+  %.sink34 = phi ptr [ %86, %_ZNK4cvc58internal12NodeTemplateILb0EE12hasAttributeINS0_4expr9AttributeINS0_6theory15RewriteCacheTagILb1ELNS6_8TheoryIdE13EEENS1_ILb1EEEEEEEbRKT_.exit.thread ], [ %100, %99 ], [ %109, %108 ]
+  %118 = add nuw nsw i32 %.sink39, 1
   %119 = zext nneg i32 %118 to i64
   %120 = shl nuw nsw i64 %119, 40
   %121 = and i64 %.sink, -1152920405095219201
   %122 = or i64 %120, %121
-  store i64 %122, ptr %.sink28, align 8
+  store i64 %122, ptr %.sink34, align 8
   br label %_ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit
 
 _ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit: ; preds = %_ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit.sink.split, %.invoke, %115, %106, %92
@@ -5024,23 +5024,23 @@ _ZNK4cvc58internal12NodeTemplateILb0EE12hasAttributeINS0_4expr9AttributeINS0_6th
   br i1 %116, label %.invoke, label %_ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit, !prof !114
 
 .invoke:                                          ; preds = %115, %106, %92
-  %.sink27 = phi i64 [ %87, %92 ], [ %101, %106 ], [ %110, %115 ]
-  %.sink26 = phi ptr [ %86, %92 ], [ %100, %106 ], [ %109, %115 ]
-  %117 = or i64 %.sink27, 1152920405095219200
-  store i64 %117, ptr %.sink26, align 8
-  invoke void @_ZN4cvc58internal4expr9NodeValue20markRefCountMaxedOutEv(ptr noundef nonnull align 8 dereferenceable(24) %.sink26)
+  %.sink33 = phi i64 [ %87, %92 ], [ %101, %106 ], [ %110, %115 ]
+  %.sink32 = phi ptr [ %86, %92 ], [ %100, %106 ], [ %109, %115 ]
+  %117 = or i64 %.sink33, 1152920405095219200
+  store i64 %117, ptr %.sink32, align 8
+  invoke void @_ZN4cvc58internal4expr9NodeValue20markRefCountMaxedOutEv(ptr noundef nonnull align 8 dereferenceable(24) %.sink32)
           to label %_ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit unwind label %94
 
 _ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit.sink.split: ; preds = %108, %99, %_ZNK4cvc58internal12NodeTemplateILb0EE12hasAttributeINS0_4expr9AttributeINS0_6theory15RewriteCacheTagILb0ELNS6_8TheoryIdE0EEENS1_ILb1EEEEEEEbRKT_.exit.thread
-  %.sink33 = phi i32 [ %90, %_ZNK4cvc58internal12NodeTemplateILb0EE12hasAttributeINS0_4expr9AttributeINS0_6theory15RewriteCacheTagILb0ELNS6_8TheoryIdE0EEENS1_ILb1EEEEEEEbRKT_.exit.thread ], [ %104, %99 ], [ %113, %108 ]
+  %.sink39 = phi i32 [ %90, %_ZNK4cvc58internal12NodeTemplateILb0EE12hasAttributeINS0_4expr9AttributeINS0_6theory15RewriteCacheTagILb0ELNS6_8TheoryIdE0EEENS1_ILb1EEEEEEEbRKT_.exit.thread ], [ %104, %99 ], [ %113, %108 ]
   %.sink = phi i64 [ %87, %_ZNK4cvc58internal12NodeTemplateILb0EE12hasAttributeINS0_4expr9AttributeINS0_6theory15RewriteCacheTagILb0ELNS6_8TheoryIdE0EEENS1_ILb1EEEEEEEbRKT_.exit.thread ], [ %101, %99 ], [ %110, %108 ]
-  %.sink28 = phi ptr [ %86, %_ZNK4cvc58internal12NodeTemplateILb0EE12hasAttributeINS0_4expr9AttributeINS0_6theory15RewriteCacheTagILb0ELNS6_8TheoryIdE0EEENS1_ILb1EEEEEEEbRKT_.exit.thread ], [ %100, %99 ], [ %109, %108 ]
-  %118 = add nuw nsw i32 %.sink33, 1
+  %.sink34 = phi ptr [ %86, %_ZNK4cvc58internal12NodeTemplateILb0EE12hasAttributeINS0_4expr9AttributeINS0_6theory15RewriteCacheTagILb0ELNS6_8TheoryIdE0EEENS1_ILb1EEEEEEEbRKT_.exit.thread ], [ %100, %99 ], [ %109, %108 ]
+  %118 = add nuw nsw i32 %.sink39, 1
   %119 = zext nneg i32 %118 to i64
   %120 = shl nuw nsw i64 %119, 40
   %121 = and i64 %.sink, -1152920405095219201
   %122 = or i64 %120, %121
-  store i64 %122, ptr %.sink28, align 8
+  store i64 %122, ptr %.sink34, align 8
   br label %_ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit
 
 _ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit: ; preds = %_ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit.sink.split, %.invoke, %115, %106, %92
@@ -5308,23 +5308,23 @@ _ZNK4cvc58internal12NodeTemplateILb0EE12hasAttributeINS0_4expr9AttributeINS0_6th
   br i1 %116, label %.invoke, label %_ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit, !prof !114
 
 .invoke:                                          ; preds = %115, %106, %92
-  %.sink27 = phi i64 [ %87, %92 ], [ %101, %106 ], [ %110, %115 ]
-  %.sink26 = phi ptr [ %86, %92 ], [ %100, %106 ], [ %109, %115 ]
-  %117 = or i64 %.sink27, 1152920405095219200
-  store i64 %117, ptr %.sink26, align 8
-  invoke void @_ZN4cvc58internal4expr9NodeValue20markRefCountMaxedOutEv(ptr noundef nonnull align 8 dereferenceable(24) %.sink26)
+  %.sink33 = phi i64 [ %87, %92 ], [ %101, %106 ], [ %110, %115 ]
+  %.sink32 = phi ptr [ %86, %92 ], [ %100, %106 ], [ %109, %115 ]
+  %117 = or i64 %.sink33, 1152920405095219200
+  store i64 %117, ptr %.sink32, align 8
+  invoke void @_ZN4cvc58internal4expr9NodeValue20markRefCountMaxedOutEv(ptr noundef nonnull align 8 dereferenceable(24) %.sink32)
           to label %_ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit unwind label %94
 
 _ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit.sink.split: ; preds = %108, %99, %_ZNK4cvc58internal12NodeTemplateILb0EE12hasAttributeINS0_4expr9AttributeINS0_6theory15RewriteCacheTagILb0ELNS6_8TheoryIdE1EEENS1_ILb1EEEEEEEbRKT_.exit.thread
-  %.sink33 = phi i32 [ %90, %_ZNK4cvc58internal12NodeTemplateILb0EE12hasAttributeINS0_4expr9AttributeINS0_6theory15RewriteCacheTagILb0ELNS6_8TheoryIdE1EEENS1_ILb1EEEEEEEbRKT_.exit.thread ], [ %104, %99 ], [ %113, %108 ]
+  %.sink39 = phi i32 [ %90, %_ZNK4cvc58internal12NodeTemplateILb0EE12hasAttributeINS0_4expr9AttributeINS0_6theory15RewriteCacheTagILb0ELNS6_8TheoryIdE1EEENS1_ILb1EEEEEEEbRKT_.exit.thread ], [ %104, %99 ], [ %113, %108 ]
   %.sink = phi i64 [ %87, %_ZNK4cvc58internal12NodeTemplateILb0EE12hasAttributeINS0_4expr9AttributeINS0_6theory15RewriteCacheTagILb0ELNS6_8TheoryIdE1EEENS1_ILb1EEEEEEEbRKT_.exit.thread ], [ %101, %99 ], [ %110, %108 ]
-  %.sink28 = phi ptr [ %86, %_ZNK4cvc58internal12NodeTemplateILb0EE12hasAttributeINS0_4expr9AttributeINS0_6theory15RewriteCacheTagILb0ELNS6_8TheoryIdE1EEENS1_ILb1EEEEEEEbRKT_.exit.thread ], [ %100, %99 ], [ %109, %108 ]
-  %118 = add nuw nsw i32 %.sink33, 1
+  %.sink34 = phi ptr [ %86, %_ZNK4cvc58internal12NodeTemplateILb0EE12hasAttributeINS0_4expr9AttributeINS0_6theory15RewriteCacheTagILb0ELNS6_8TheoryIdE1EEENS1_ILb1EEEEEEEbRKT_.exit.thread ], [ %100, %99 ], [ %109, %108 ]
+  %118 = add nuw nsw i32 %.sink39, 1
   %119 = zext nneg i32 %118 to i64
   %120 = shl nuw nsw i64 %119, 40
   %121 = and i64 %.sink, -1152920405095219201
   %122 = or i64 %120, %121
-  store i64 %122, ptr %.sink28, align 8
+  store i64 %122, ptr %.sink34, align 8
   br label %_ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit
 
 _ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit: ; preds = %_ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit.sink.split, %.invoke, %115, %106, %92
@@ -5592,23 +5592,23 @@ _ZNK4cvc58internal12NodeTemplateILb0EE12hasAttributeINS0_4expr9AttributeINS0_6th
   br i1 %116, label %.invoke, label %_ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit, !prof !114
 
 .invoke:                                          ; preds = %115, %106, %92
-  %.sink27 = phi i64 [ %87, %92 ], [ %101, %106 ], [ %110, %115 ]
-  %.sink26 = phi ptr [ %86, %92 ], [ %100, %106 ], [ %109, %115 ]
-  %117 = or i64 %.sink27, 1152920405095219200
-  store i64 %117, ptr %.sink26, align 8
-  invoke void @_ZN4cvc58internal4expr9NodeValue20markRefCountMaxedOutEv(ptr noundef nonnull align 8 dereferenceable(24) %.sink26)
+  %.sink33 = phi i64 [ %87, %92 ], [ %101, %106 ], [ %110, %115 ]
+  %.sink32 = phi ptr [ %86, %92 ], [ %100, %106 ], [ %109, %115 ]
+  %117 = or i64 %.sink33, 1152920405095219200
+  store i64 %117, ptr %.sink32, align 8
+  invoke void @_ZN4cvc58internal4expr9NodeValue20markRefCountMaxedOutEv(ptr noundef nonnull align 8 dereferenceable(24) %.sink32)
           to label %_ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit unwind label %94
 
 _ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit.sink.split: ; preds = %108, %99, %_ZNK4cvc58internal12NodeTemplateILb0EE12hasAttributeINS0_4expr9AttributeINS0_6theory15RewriteCacheTagILb0ELNS6_8TheoryIdE2EEENS1_ILb1EEEEEEEbRKT_.exit.thread
-  %.sink33 = phi i32 [ %90, %_ZNK4cvc58internal12NodeTemplateILb0EE12hasAttributeINS0_4expr9AttributeINS0_6theory15RewriteCacheTagILb0ELNS6_8TheoryIdE2EEENS1_ILb1EEEEEEEbRKT_.exit.thread ], [ %104, %99 ], [ %113, %108 ]
+  %.sink39 = phi i32 [ %90, %_ZNK4cvc58internal12NodeTemplateILb0EE12hasAttributeINS0_4expr9AttributeINS0_6theory15RewriteCacheTagILb0ELNS6_8TheoryIdE2EEENS1_ILb1EEEEEEEbRKT_.exit.thread ], [ %104, %99 ], [ %113, %108 ]
   %.sink = phi i64 [ %87, %_ZNK4cvc58internal12NodeTemplateILb0EE12hasAttributeINS0_4expr9AttributeINS0_6theory15RewriteCacheTagILb0ELNS6_8TheoryIdE2EEENS1_ILb1EEEEEEEbRKT_.exit.thread ], [ %101, %99 ], [ %110, %108 ]
-  %.sink28 = phi ptr [ %86, %_ZNK4cvc58internal12NodeTemplateILb0EE12hasAttributeINS0_4expr9AttributeINS0_6theory15RewriteCacheTagILb0ELNS6_8TheoryIdE2EEENS1_ILb1EEEEEEEbRKT_.exit.thread ], [ %100, %99 ], [ %109, %108 ]
-  %118 = add nuw nsw i32 %.sink33, 1
+  %.sink34 = phi ptr [ %86, %_ZNK4cvc58internal12NodeTemplateILb0EE12hasAttributeINS0_4expr9AttributeINS0_6theory15RewriteCacheTagILb0ELNS6_8TheoryIdE2EEENS1_ILb1EEEEEEEbRKT_.exit.thread ], [ %100, %99 ], [ %109, %108 ]
+  %118 = add nuw nsw i32 %.sink39, 1
   %119 = zext nneg i32 %118 to i64
   %120 = shl nuw nsw i64 %119, 40
   %121 = and i64 %.sink, -1152920405095219201
   %122 = or i64 %120, %121
-  store i64 %122, ptr %.sink28, align 8
+  store i64 %122, ptr %.sink34, align 8
   br label %_ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit
 
 _ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit: ; preds = %_ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit.sink.split, %.invoke, %115, %106, %92
@@ -5876,23 +5876,23 @@ _ZNK4cvc58internal12NodeTemplateILb0EE12hasAttributeINS0_4expr9AttributeINS0_6th
   br i1 %116, label %.invoke, label %_ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit, !prof !114
 
 .invoke:                                          ; preds = %115, %106, %92
-  %.sink27 = phi i64 [ %87, %92 ], [ %101, %106 ], [ %110, %115 ]
-  %.sink26 = phi ptr [ %86, %92 ], [ %100, %106 ], [ %109, %115 ]
-  %117 = or i64 %.sink27, 1152920405095219200
-  store i64 %117, ptr %.sink26, align 8
-  invoke void @_ZN4cvc58internal4expr9NodeValue20markRefCountMaxedOutEv(ptr noundef nonnull align 8 dereferenceable(24) %.sink26)
+  %.sink33 = phi i64 [ %87, %92 ], [ %101, %106 ], [ %110, %115 ]
+  %.sink32 = phi ptr [ %86, %92 ], [ %100, %106 ], [ %109, %115 ]
+  %117 = or i64 %.sink33, 1152920405095219200
+  store i64 %117, ptr %.sink32, align 8
+  invoke void @_ZN4cvc58internal4expr9NodeValue20markRefCountMaxedOutEv(ptr noundef nonnull align 8 dereferenceable(24) %.sink32)
           to label %_ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit unwind label %94
 
 _ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit.sink.split: ; preds = %108, %99, %_ZNK4cvc58internal12NodeTemplateILb0EE12hasAttributeINS0_4expr9AttributeINS0_6theory15RewriteCacheTagILb0ELNS6_8TheoryIdE3EEENS1_ILb1EEEEEEEbRKT_.exit.thread
-  %.sink33 = phi i32 [ %90, %_ZNK4cvc58internal12NodeTemplateILb0EE12hasAttributeINS0_4expr9AttributeINS0_6theory15RewriteCacheTagILb0ELNS6_8TheoryIdE3EEENS1_ILb1EEEEEEEbRKT_.exit.thread ], [ %104, %99 ], [ %113, %108 ]
+  %.sink39 = phi i32 [ %90, %_ZNK4cvc58internal12NodeTemplateILb0EE12hasAttributeINS0_4expr9AttributeINS0_6theory15RewriteCacheTagILb0ELNS6_8TheoryIdE3EEENS1_ILb1EEEEEEEbRKT_.exit.thread ], [ %104, %99 ], [ %113, %108 ]
   %.sink = phi i64 [ %87, %_ZNK4cvc58internal12NodeTemplateILb0EE12hasAttributeINS0_4expr9AttributeINS0_6theory15RewriteCacheTagILb0ELNS6_8TheoryIdE3EEENS1_ILb1EEEEEEEbRKT_.exit.thread ], [ %101, %99 ], [ %110, %108 ]
-  %.sink28 = phi ptr [ %86, %_ZNK4cvc58internal12NodeTemplateILb0EE12hasAttributeINS0_4expr9AttributeINS0_6theory15RewriteCacheTagILb0ELNS6_8TheoryIdE3EEENS1_ILb1EEEEEEEbRKT_.exit.thread ], [ %100, %99 ], [ %109, %108 ]
-  %118 = add nuw nsw i32 %.sink33, 1
+  %.sink34 = phi ptr [ %86, %_ZNK4cvc58internal12NodeTemplateILb0EE12hasAttributeINS0_4expr9AttributeINS0_6theory15RewriteCacheTagILb0ELNS6_8TheoryIdE3EEENS1_ILb1EEEEEEEbRKT_.exit.thread ], [ %100, %99 ], [ %109, %108 ]
+  %118 = add nuw nsw i32 %.sink39, 1
   %119 = zext nneg i32 %118 to i64
   %120 = shl nuw nsw i64 %119, 40
   %121 = and i64 %.sink, -1152920405095219201
   %122 = or i64 %120, %121
-  store i64 %122, ptr %.sink28, align 8
+  store i64 %122, ptr %.sink34, align 8
   br label %_ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit
 
 _ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit: ; preds = %_ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit.sink.split, %.invoke, %115, %106, %92
@@ -6160,23 +6160,23 @@ _ZNK4cvc58internal12NodeTemplateILb0EE12hasAttributeINS0_4expr9AttributeINS0_6th
   br i1 %116, label %.invoke, label %_ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit, !prof !114
 
 .invoke:                                          ; preds = %115, %106, %92
-  %.sink27 = phi i64 [ %87, %92 ], [ %101, %106 ], [ %110, %115 ]
-  %.sink26 = phi ptr [ %86, %92 ], [ %100, %106 ], [ %109, %115 ]
-  %117 = or i64 %.sink27, 1152920405095219200
-  store i64 %117, ptr %.sink26, align 8
-  invoke void @_ZN4cvc58internal4expr9NodeValue20markRefCountMaxedOutEv(ptr noundef nonnull align 8 dereferenceable(24) %.sink26)
+  %.sink33 = phi i64 [ %87, %92 ], [ %101, %106 ], [ %110, %115 ]
+  %.sink32 = phi ptr [ %86, %92 ], [ %100, %106 ], [ %109, %115 ]
+  %117 = or i64 %.sink33, 1152920405095219200
+  store i64 %117, ptr %.sink32, align 8
+  invoke void @_ZN4cvc58internal4expr9NodeValue20markRefCountMaxedOutEv(ptr noundef nonnull align 8 dereferenceable(24) %.sink32)
           to label %_ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit unwind label %94
 
 _ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit.sink.split: ; preds = %108, %99, %_ZNK4cvc58internal12NodeTemplateILb0EE12hasAttributeINS0_4expr9AttributeINS0_6theory15RewriteCacheTagILb0ELNS6_8TheoryIdE4EEENS1_ILb1EEEEEEEbRKT_.exit.thread
-  %.sink33 = phi i32 [ %90, %_ZNK4cvc58internal12NodeTemplateILb0EE12hasAttributeINS0_4expr9AttributeINS0_6theory15RewriteCacheTagILb0ELNS6_8TheoryIdE4EEENS1_ILb1EEEEEEEbRKT_.exit.thread ], [ %104, %99 ], [ %113, %108 ]
+  %.sink39 = phi i32 [ %90, %_ZNK4cvc58internal12NodeTemplateILb0EE12hasAttributeINS0_4expr9AttributeINS0_6theory15RewriteCacheTagILb0ELNS6_8TheoryIdE4EEENS1_ILb1EEEEEEEbRKT_.exit.thread ], [ %104, %99 ], [ %113, %108 ]
   %.sink = phi i64 [ %87, %_ZNK4cvc58internal12NodeTemplateILb0EE12hasAttributeINS0_4expr9AttributeINS0_6theory15RewriteCacheTagILb0ELNS6_8TheoryIdE4EEENS1_ILb1EEEEEEEbRKT_.exit.thread ], [ %101, %99 ], [ %110, %108 ]
-  %.sink28 = phi ptr [ %86, %_ZNK4cvc58internal12NodeTemplateILb0EE12hasAttributeINS0_4expr9AttributeINS0_6theory15RewriteCacheTagILb0ELNS6_8TheoryIdE4EEENS1_ILb1EEEEEEEbRKT_.exit.thread ], [ %100, %99 ], [ %109, %108 ]
-  %118 = add nuw nsw i32 %.sink33, 1
+  %.sink34 = phi ptr [ %86, %_ZNK4cvc58internal12NodeTemplateILb0EE12hasAttributeINS0_4expr9AttributeINS0_6theory15RewriteCacheTagILb0ELNS6_8TheoryIdE4EEENS1_ILb1EEEEEEEbRKT_.exit.thread ], [ %100, %99 ], [ %109, %108 ]
+  %118 = add nuw nsw i32 %.sink39, 1
   %119 = zext nneg i32 %118 to i64
   %120 = shl nuw nsw i64 %119, 40
   %121 = and i64 %.sink, -1152920405095219201
   %122 = or i64 %120, %121
-  store i64 %122, ptr %.sink28, align 8
+  store i64 %122, ptr %.sink34, align 8
   br label %_ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit
 
 _ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit: ; preds = %_ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit.sink.split, %.invoke, %115, %106, %92
@@ -6444,23 +6444,23 @@ _ZNK4cvc58internal12NodeTemplateILb0EE12hasAttributeINS0_4expr9AttributeINS0_6th
   br i1 %116, label %.invoke, label %_ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit, !prof !114
 
 .invoke:                                          ; preds = %115, %106, %92
-  %.sink27 = phi i64 [ %87, %92 ], [ %101, %106 ], [ %110, %115 ]
-  %.sink26 = phi ptr [ %86, %92 ], [ %100, %106 ], [ %109, %115 ]
-  %117 = or i64 %.sink27, 1152920405095219200
-  store i64 %117, ptr %.sink26, align 8
-  invoke void @_ZN4cvc58internal4expr9NodeValue20markRefCountMaxedOutEv(ptr noundef nonnull align 8 dereferenceable(24) %.sink26)
+  %.sink33 = phi i64 [ %87, %92 ], [ %101, %106 ], [ %110, %115 ]
+  %.sink32 = phi ptr [ %86, %92 ], [ %100, %106 ], [ %109, %115 ]
+  %117 = or i64 %.sink33, 1152920405095219200
+  store i64 %117, ptr %.sink32, align 8
+  invoke void @_ZN4cvc58internal4expr9NodeValue20markRefCountMaxedOutEv(ptr noundef nonnull align 8 dereferenceable(24) %.sink32)
           to label %_ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit unwind label %94
 
 _ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit.sink.split: ; preds = %108, %99, %_ZNK4cvc58internal12NodeTemplateILb0EE12hasAttributeINS0_4expr9AttributeINS0_6theory15RewriteCacheTagILb0ELNS6_8TheoryIdE5EEENS1_ILb1EEEEEEEbRKT_.exit.thread
-  %.sink33 = phi i32 [ %90, %_ZNK4cvc58internal12NodeTemplateILb0EE12hasAttributeINS0_4expr9AttributeINS0_6theory15RewriteCacheTagILb0ELNS6_8TheoryIdE5EEENS1_ILb1EEEEEEEbRKT_.exit.thread ], [ %104, %99 ], [ %113, %108 ]
+  %.sink39 = phi i32 [ %90, %_ZNK4cvc58internal12NodeTemplateILb0EE12hasAttributeINS0_4expr9AttributeINS0_6theory15RewriteCacheTagILb0ELNS6_8TheoryIdE5EEENS1_ILb1EEEEEEEbRKT_.exit.thread ], [ %104, %99 ], [ %113, %108 ]
   %.sink = phi i64 [ %87, %_ZNK4cvc58internal12NodeTemplateILb0EE12hasAttributeINS0_4expr9AttributeINS0_6theory15RewriteCacheTagILb0ELNS6_8TheoryIdE5EEENS1_ILb1EEEEEEEbRKT_.exit.thread ], [ %101, %99 ], [ %110, %108 ]
-  %.sink28 = phi ptr [ %86, %_ZNK4cvc58internal12NodeTemplateILb0EE12hasAttributeINS0_4expr9AttributeINS0_6theory15RewriteCacheTagILb0ELNS6_8TheoryIdE5EEENS1_ILb1EEEEEEEbRKT_.exit.thread ], [ %100, %99 ], [ %109, %108 ]
-  %118 = add nuw nsw i32 %.sink33, 1
+  %.sink34 = phi ptr [ %86, %_ZNK4cvc58internal12NodeTemplateILb0EE12hasAttributeINS0_4expr9AttributeINS0_6theory15RewriteCacheTagILb0ELNS6_8TheoryIdE5EEENS1_ILb1EEEEEEEbRKT_.exit.thread ], [ %100, %99 ], [ %109, %108 ]
+  %118 = add nuw nsw i32 %.sink39, 1
   %119 = zext nneg i32 %118 to i64
   %120 = shl nuw nsw i64 %119, 40
   %121 = and i64 %.sink, -1152920405095219201
   %122 = or i64 %120, %121
-  store i64 %122, ptr %.sink28, align 8
+  store i64 %122, ptr %.sink34, align 8
   br label %_ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit
 
 _ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit: ; preds = %_ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit.sink.split, %.invoke, %115, %106, %92
@@ -6728,23 +6728,23 @@ _ZNK4cvc58internal12NodeTemplateILb0EE12hasAttributeINS0_4expr9AttributeINS0_6th
   br i1 %116, label %.invoke, label %_ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit, !prof !114
 
 .invoke:                                          ; preds = %115, %106, %92
-  %.sink27 = phi i64 [ %87, %92 ], [ %101, %106 ], [ %110, %115 ]
-  %.sink26 = phi ptr [ %86, %92 ], [ %100, %106 ], [ %109, %115 ]
-  %117 = or i64 %.sink27, 1152920405095219200
-  store i64 %117, ptr %.sink26, align 8
-  invoke void @_ZN4cvc58internal4expr9NodeValue20markRefCountMaxedOutEv(ptr noundef nonnull align 8 dereferenceable(24) %.sink26)
+  %.sink33 = phi i64 [ %87, %92 ], [ %101, %106 ], [ %110, %115 ]
+  %.sink32 = phi ptr [ %86, %92 ], [ %100, %106 ], [ %109, %115 ]
+  %117 = or i64 %.sink33, 1152920405095219200
+  store i64 %117, ptr %.sink32, align 8
+  invoke void @_ZN4cvc58internal4expr9NodeValue20markRefCountMaxedOutEv(ptr noundef nonnull align 8 dereferenceable(24) %.sink32)
           to label %_ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit unwind label %94
 
 _ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit.sink.split: ; preds = %108, %99, %_ZNK4cvc58internal12NodeTemplateILb0EE12hasAttributeINS0_4expr9AttributeINS0_6theory15RewriteCacheTagILb0ELNS6_8TheoryIdE6EEENS1_ILb1EEEEEEEbRKT_.exit.thread
-  %.sink33 = phi i32 [ %90, %_ZNK4cvc58internal12NodeTemplateILb0EE12hasAttributeINS0_4expr9AttributeINS0_6theory15RewriteCacheTagILb0ELNS6_8TheoryIdE6EEENS1_ILb1EEEEEEEbRKT_.exit.thread ], [ %104, %99 ], [ %113, %108 ]
+  %.sink39 = phi i32 [ %90, %_ZNK4cvc58internal12NodeTemplateILb0EE12hasAttributeINS0_4expr9AttributeINS0_6theory15RewriteCacheTagILb0ELNS6_8TheoryIdE6EEENS1_ILb1EEEEEEEbRKT_.exit.thread ], [ %104, %99 ], [ %113, %108 ]
   %.sink = phi i64 [ %87, %_ZNK4cvc58internal12NodeTemplateILb0EE12hasAttributeINS0_4expr9AttributeINS0_6theory15RewriteCacheTagILb0ELNS6_8TheoryIdE6EEENS1_ILb1EEEEEEEbRKT_.exit.thread ], [ %101, %99 ], [ %110, %108 ]
-  %.sink28 = phi ptr [ %86, %_ZNK4cvc58internal12NodeTemplateILb0EE12hasAttributeINS0_4expr9AttributeINS0_6theory15RewriteCacheTagILb0ELNS6_8TheoryIdE6EEENS1_ILb1EEEEEEEbRKT_.exit.thread ], [ %100, %99 ], [ %109, %108 ]
-  %118 = add nuw nsw i32 %.sink33, 1
+  %.sink34 = phi ptr [ %86, %_ZNK4cvc58internal12NodeTemplateILb0EE12hasAttributeINS0_4expr9AttributeINS0_6theory15RewriteCacheTagILb0ELNS6_8TheoryIdE6EEENS1_ILb1EEEEEEEbRKT_.exit.thread ], [ %100, %99 ], [ %109, %108 ]
+  %118 = add nuw nsw i32 %.sink39, 1
   %119 = zext nneg i32 %118 to i64
   %120 = shl nuw nsw i64 %119, 40
   %121 = and i64 %.sink, -1152920405095219201
   %122 = or i64 %120, %121
-  store i64 %122, ptr %.sink28, align 8
+  store i64 %122, ptr %.sink34, align 8
   br label %_ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit
 
 _ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit: ; preds = %_ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit.sink.split, %.invoke, %115, %106, %92
@@ -7012,23 +7012,23 @@ _ZNK4cvc58internal12NodeTemplateILb0EE12hasAttributeINS0_4expr9AttributeINS0_6th
   br i1 %116, label %.invoke, label %_ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit, !prof !114
 
 .invoke:                                          ; preds = %115, %106, %92
-  %.sink27 = phi i64 [ %87, %92 ], [ %101, %106 ], [ %110, %115 ]
-  %.sink26 = phi ptr [ %86, %92 ], [ %100, %106 ], [ %109, %115 ]
-  %117 = or i64 %.sink27, 1152920405095219200
-  store i64 %117, ptr %.sink26, align 8
-  invoke void @_ZN4cvc58internal4expr9NodeValue20markRefCountMaxedOutEv(ptr noundef nonnull align 8 dereferenceable(24) %.sink26)
+  %.sink33 = phi i64 [ %87, %92 ], [ %101, %106 ], [ %110, %115 ]
+  %.sink32 = phi ptr [ %86, %92 ], [ %100, %106 ], [ %109, %115 ]
+  %117 = or i64 %.sink33, 1152920405095219200
+  store i64 %117, ptr %.sink32, align 8
+  invoke void @_ZN4cvc58internal4expr9NodeValue20markRefCountMaxedOutEv(ptr noundef nonnull align 8 dereferenceable(24) %.sink32)
           to label %_ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit unwind label %94
 
 _ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit.sink.split: ; preds = %108, %99, %_ZNK4cvc58internal12NodeTemplateILb0EE12hasAttributeINS0_4expr9AttributeINS0_6theory15RewriteCacheTagILb0ELNS6_8TheoryIdE7EEENS1_ILb1EEEEEEEbRKT_.exit.thread
-  %.sink33 = phi i32 [ %90, %_ZNK4cvc58internal12NodeTemplateILb0EE12hasAttributeINS0_4expr9AttributeINS0_6theory15RewriteCacheTagILb0ELNS6_8TheoryIdE7EEENS1_ILb1EEEEEEEbRKT_.exit.thread ], [ %104, %99 ], [ %113, %108 ]
+  %.sink39 = phi i32 [ %90, %_ZNK4cvc58internal12NodeTemplateILb0EE12hasAttributeINS0_4expr9AttributeINS0_6theory15RewriteCacheTagILb0ELNS6_8TheoryIdE7EEENS1_ILb1EEEEEEEbRKT_.exit.thread ], [ %104, %99 ], [ %113, %108 ]
   %.sink = phi i64 [ %87, %_ZNK4cvc58internal12NodeTemplateILb0EE12hasAttributeINS0_4expr9AttributeINS0_6theory15RewriteCacheTagILb0ELNS6_8TheoryIdE7EEENS1_ILb1EEEEEEEbRKT_.exit.thread ], [ %101, %99 ], [ %110, %108 ]
-  %.sink28 = phi ptr [ %86, %_ZNK4cvc58internal12NodeTemplateILb0EE12hasAttributeINS0_4expr9AttributeINS0_6theory15RewriteCacheTagILb0ELNS6_8TheoryIdE7EEENS1_ILb1EEEEEEEbRKT_.exit.thread ], [ %100, %99 ], [ %109, %108 ]
-  %118 = add nuw nsw i32 %.sink33, 1
+  %.sink34 = phi ptr [ %86, %_ZNK4cvc58internal12NodeTemplateILb0EE12hasAttributeINS0_4expr9AttributeINS0_6theory15RewriteCacheTagILb0ELNS6_8TheoryIdE7EEENS1_ILb1EEEEEEEbRKT_.exit.thread ], [ %100, %99 ], [ %109, %108 ]
+  %118 = add nuw nsw i32 %.sink39, 1
   %119 = zext nneg i32 %118 to i64
   %120 = shl nuw nsw i64 %119, 40
   %121 = and i64 %.sink, -1152920405095219201
   %122 = or i64 %120, %121
-  store i64 %122, ptr %.sink28, align 8
+  store i64 %122, ptr %.sink34, align 8
   br label %_ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit
 
 _ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit: ; preds = %_ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit.sink.split, %.invoke, %115, %106, %92
@@ -7296,23 +7296,23 @@ _ZNK4cvc58internal12NodeTemplateILb0EE12hasAttributeINS0_4expr9AttributeINS0_6th
   br i1 %116, label %.invoke, label %_ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit, !prof !114
 
 .invoke:                                          ; preds = %115, %106, %92
-  %.sink27 = phi i64 [ %87, %92 ], [ %101, %106 ], [ %110, %115 ]
-  %.sink26 = phi ptr [ %86, %92 ], [ %100, %106 ], [ %109, %115 ]
-  %117 = or i64 %.sink27, 1152920405095219200
-  store i64 %117, ptr %.sink26, align 8
-  invoke void @_ZN4cvc58internal4expr9NodeValue20markRefCountMaxedOutEv(ptr noundef nonnull align 8 dereferenceable(24) %.sink26)
+  %.sink33 = phi i64 [ %87, %92 ], [ %101, %106 ], [ %110, %115 ]
+  %.sink32 = phi ptr [ %86, %92 ], [ %100, %106 ], [ %109, %115 ]
+  %117 = or i64 %.sink33, 1152920405095219200
+  store i64 %117, ptr %.sink32, align 8
+  invoke void @_ZN4cvc58internal4expr9NodeValue20markRefCountMaxedOutEv(ptr noundef nonnull align 8 dereferenceable(24) %.sink32)
           to label %_ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit unwind label %94
 
 _ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit.sink.split: ; preds = %108, %99, %_ZNK4cvc58internal12NodeTemplateILb0EE12hasAttributeINS0_4expr9AttributeINS0_6theory15RewriteCacheTagILb0ELNS6_8TheoryIdE8EEENS1_ILb1EEEEEEEbRKT_.exit.thread
-  %.sink33 = phi i32 [ %90, %_ZNK4cvc58internal12NodeTemplateILb0EE12hasAttributeINS0_4expr9AttributeINS0_6theory15RewriteCacheTagILb0ELNS6_8TheoryIdE8EEENS1_ILb1EEEEEEEbRKT_.exit.thread ], [ %104, %99 ], [ %113, %108 ]
+  %.sink39 = phi i32 [ %90, %_ZNK4cvc58internal12NodeTemplateILb0EE12hasAttributeINS0_4expr9AttributeINS0_6theory15RewriteCacheTagILb0ELNS6_8TheoryIdE8EEENS1_ILb1EEEEEEEbRKT_.exit.thread ], [ %104, %99 ], [ %113, %108 ]
   %.sink = phi i64 [ %87, %_ZNK4cvc58internal12NodeTemplateILb0EE12hasAttributeINS0_4expr9AttributeINS0_6theory15RewriteCacheTagILb0ELNS6_8TheoryIdE8EEENS1_ILb1EEEEEEEbRKT_.exit.thread ], [ %101, %99 ], [ %110, %108 ]
-  %.sink28 = phi ptr [ %86, %_ZNK4cvc58internal12NodeTemplateILb0EE12hasAttributeINS0_4expr9AttributeINS0_6theory15RewriteCacheTagILb0ELNS6_8TheoryIdE8EEENS1_ILb1EEEEEEEbRKT_.exit.thread ], [ %100, %99 ], [ %109, %108 ]
-  %118 = add nuw nsw i32 %.sink33, 1
+  %.sink34 = phi ptr [ %86, %_ZNK4cvc58internal12NodeTemplateILb0EE12hasAttributeINS0_4expr9AttributeINS0_6theory15RewriteCacheTagILb0ELNS6_8TheoryIdE8EEENS1_ILb1EEEEEEEbRKT_.exit.thread ], [ %100, %99 ], [ %109, %108 ]
+  %118 = add nuw nsw i32 %.sink39, 1
   %119 = zext nneg i32 %118 to i64
   %120 = shl nuw nsw i64 %119, 40
   %121 = and i64 %.sink, -1152920405095219201
   %122 = or i64 %120, %121
-  store i64 %122, ptr %.sink28, align 8
+  store i64 %122, ptr %.sink34, align 8
   br label %_ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit
 
 _ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit: ; preds = %_ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit.sink.split, %.invoke, %115, %106, %92
@@ -7580,23 +7580,23 @@ _ZNK4cvc58internal12NodeTemplateILb0EE12hasAttributeINS0_4expr9AttributeINS0_6th
   br i1 %116, label %.invoke, label %_ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit, !prof !114
 
 .invoke:                                          ; preds = %115, %106, %92
-  %.sink27 = phi i64 [ %87, %92 ], [ %101, %106 ], [ %110, %115 ]
-  %.sink26 = phi ptr [ %86, %92 ], [ %100, %106 ], [ %109, %115 ]
-  %117 = or i64 %.sink27, 1152920405095219200
-  store i64 %117, ptr %.sink26, align 8
-  invoke void @_ZN4cvc58internal4expr9NodeValue20markRefCountMaxedOutEv(ptr noundef nonnull align 8 dereferenceable(24) %.sink26)
+  %.sink33 = phi i64 [ %87, %92 ], [ %101, %106 ], [ %110, %115 ]
+  %.sink32 = phi ptr [ %86, %92 ], [ %100, %106 ], [ %109, %115 ]
+  %117 = or i64 %.sink33, 1152920405095219200
+  store i64 %117, ptr %.sink32, align 8
+  invoke void @_ZN4cvc58internal4expr9NodeValue20markRefCountMaxedOutEv(ptr noundef nonnull align 8 dereferenceable(24) %.sink32)
           to label %_ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit unwind label %94
 
 _ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit.sink.split: ; preds = %108, %99, %_ZNK4cvc58internal12NodeTemplateILb0EE12hasAttributeINS0_4expr9AttributeINS0_6theory15RewriteCacheTagILb0ELNS6_8TheoryIdE9EEENS1_ILb1EEEEEEEbRKT_.exit.thread
-  %.sink33 = phi i32 [ %90, %_ZNK4cvc58internal12NodeTemplateILb0EE12hasAttributeINS0_4expr9AttributeINS0_6theory15RewriteCacheTagILb0ELNS6_8TheoryIdE9EEENS1_ILb1EEEEEEEbRKT_.exit.thread ], [ %104, %99 ], [ %113, %108 ]
+  %.sink39 = phi i32 [ %90, %_ZNK4cvc58internal12NodeTemplateILb0EE12hasAttributeINS0_4expr9AttributeINS0_6theory15RewriteCacheTagILb0ELNS6_8TheoryIdE9EEENS1_ILb1EEEEEEEbRKT_.exit.thread ], [ %104, %99 ], [ %113, %108 ]
   %.sink = phi i64 [ %87, %_ZNK4cvc58internal12NodeTemplateILb0EE12hasAttributeINS0_4expr9AttributeINS0_6theory15RewriteCacheTagILb0ELNS6_8TheoryIdE9EEENS1_ILb1EEEEEEEbRKT_.exit.thread ], [ %101, %99 ], [ %110, %108 ]
-  %.sink28 = phi ptr [ %86, %_ZNK4cvc58internal12NodeTemplateILb0EE12hasAttributeINS0_4expr9AttributeINS0_6theory15RewriteCacheTagILb0ELNS6_8TheoryIdE9EEENS1_ILb1EEEEEEEbRKT_.exit.thread ], [ %100, %99 ], [ %109, %108 ]
-  %118 = add nuw nsw i32 %.sink33, 1
+  %.sink34 = phi ptr [ %86, %_ZNK4cvc58internal12NodeTemplateILb0EE12hasAttributeINS0_4expr9AttributeINS0_6theory15RewriteCacheTagILb0ELNS6_8TheoryIdE9EEENS1_ILb1EEEEEEEbRKT_.exit.thread ], [ %100, %99 ], [ %109, %108 ]
+  %118 = add nuw nsw i32 %.sink39, 1
   %119 = zext nneg i32 %118 to i64
   %120 = shl nuw nsw i64 %119, 40
   %121 = and i64 %.sink, -1152920405095219201
   %122 = or i64 %120, %121
-  store i64 %122, ptr %.sink28, align 8
+  store i64 %122, ptr %.sink34, align 8
   br label %_ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit
 
 _ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit: ; preds = %_ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit.sink.split, %.invoke, %115, %106, %92
@@ -7864,23 +7864,23 @@ _ZNK4cvc58internal12NodeTemplateILb0EE12hasAttributeINS0_4expr9AttributeINS0_6th
   br i1 %116, label %.invoke, label %_ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit, !prof !114
 
 .invoke:                                          ; preds = %115, %106, %92
-  %.sink27 = phi i64 [ %87, %92 ], [ %101, %106 ], [ %110, %115 ]
-  %.sink26 = phi ptr [ %86, %92 ], [ %100, %106 ], [ %109, %115 ]
-  %117 = or i64 %.sink27, 1152920405095219200
-  store i64 %117, ptr %.sink26, align 8
-  invoke void @_ZN4cvc58internal4expr9NodeValue20markRefCountMaxedOutEv(ptr noundef nonnull align 8 dereferenceable(24) %.sink26)
+  %.sink33 = phi i64 [ %87, %92 ], [ %101, %106 ], [ %110, %115 ]
+  %.sink32 = phi ptr [ %86, %92 ], [ %100, %106 ], [ %109, %115 ]
+  %117 = or i64 %.sink33, 1152920405095219200
+  store i64 %117, ptr %.sink32, align 8
+  invoke void @_ZN4cvc58internal4expr9NodeValue20markRefCountMaxedOutEv(ptr noundef nonnull align 8 dereferenceable(24) %.sink32)
           to label %_ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit unwind label %94
 
 _ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit.sink.split: ; preds = %108, %99, %_ZNK4cvc58internal12NodeTemplateILb0EE12hasAttributeINS0_4expr9AttributeINS0_6theory15RewriteCacheTagILb0ELNS6_8TheoryIdE10EEENS1_ILb1EEEEEEEbRKT_.exit.thread
-  %.sink33 = phi i32 [ %90, %_ZNK4cvc58internal12NodeTemplateILb0EE12hasAttributeINS0_4expr9AttributeINS0_6theory15RewriteCacheTagILb0ELNS6_8TheoryIdE10EEENS1_ILb1EEEEEEEbRKT_.exit.thread ], [ %104, %99 ], [ %113, %108 ]
+  %.sink39 = phi i32 [ %90, %_ZNK4cvc58internal12NodeTemplateILb0EE12hasAttributeINS0_4expr9AttributeINS0_6theory15RewriteCacheTagILb0ELNS6_8TheoryIdE10EEENS1_ILb1EEEEEEEbRKT_.exit.thread ], [ %104, %99 ], [ %113, %108 ]
   %.sink = phi i64 [ %87, %_ZNK4cvc58internal12NodeTemplateILb0EE12hasAttributeINS0_4expr9AttributeINS0_6theory15RewriteCacheTagILb0ELNS6_8TheoryIdE10EEENS1_ILb1EEEEEEEbRKT_.exit.thread ], [ %101, %99 ], [ %110, %108 ]
-  %.sink28 = phi ptr [ %86, %_ZNK4cvc58internal12NodeTemplateILb0EE12hasAttributeINS0_4expr9AttributeINS0_6theory15RewriteCacheTagILb0ELNS6_8TheoryIdE10EEENS1_ILb1EEEEEEEbRKT_.exit.thread ], [ %100, %99 ], [ %109, %108 ]
-  %118 = add nuw nsw i32 %.sink33, 1
+  %.sink34 = phi ptr [ %86, %_ZNK4cvc58internal12NodeTemplateILb0EE12hasAttributeINS0_4expr9AttributeINS0_6theory15RewriteCacheTagILb0ELNS6_8TheoryIdE10EEENS1_ILb1EEEEEEEbRKT_.exit.thread ], [ %100, %99 ], [ %109, %108 ]
+  %118 = add nuw nsw i32 %.sink39, 1
   %119 = zext nneg i32 %118 to i64
   %120 = shl nuw nsw i64 %119, 40
   %121 = and i64 %.sink, -1152920405095219201
   %122 = or i64 %120, %121
-  store i64 %122, ptr %.sink28, align 8
+  store i64 %122, ptr %.sink34, align 8
   br label %_ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit
 
 _ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit: ; preds = %_ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit.sink.split, %.invoke, %115, %106, %92
@@ -8148,23 +8148,23 @@ _ZNK4cvc58internal12NodeTemplateILb0EE12hasAttributeINS0_4expr9AttributeINS0_6th
   br i1 %116, label %.invoke, label %_ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit, !prof !114
 
 .invoke:                                          ; preds = %115, %106, %92
-  %.sink27 = phi i64 [ %87, %92 ], [ %101, %106 ], [ %110, %115 ]
-  %.sink26 = phi ptr [ %86, %92 ], [ %100, %106 ], [ %109, %115 ]
-  %117 = or i64 %.sink27, 1152920405095219200
-  store i64 %117, ptr %.sink26, align 8
-  invoke void @_ZN4cvc58internal4expr9NodeValue20markRefCountMaxedOutEv(ptr noundef nonnull align 8 dereferenceable(24) %.sink26)
+  %.sink33 = phi i64 [ %87, %92 ], [ %101, %106 ], [ %110, %115 ]
+  %.sink32 = phi ptr [ %86, %92 ], [ %100, %106 ], [ %109, %115 ]
+  %117 = or i64 %.sink33, 1152920405095219200
+  store i64 %117, ptr %.sink32, align 8
+  invoke void @_ZN4cvc58internal4expr9NodeValue20markRefCountMaxedOutEv(ptr noundef nonnull align 8 dereferenceable(24) %.sink32)
           to label %_ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit unwind label %94
 
 _ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit.sink.split: ; preds = %108, %99, %_ZNK4cvc58internal12NodeTemplateILb0EE12hasAttributeINS0_4expr9AttributeINS0_6theory15RewriteCacheTagILb0ELNS6_8TheoryIdE11EEENS1_ILb1EEEEEEEbRKT_.exit.thread
-  %.sink33 = phi i32 [ %90, %_ZNK4cvc58internal12NodeTemplateILb0EE12hasAttributeINS0_4expr9AttributeINS0_6theory15RewriteCacheTagILb0ELNS6_8TheoryIdE11EEENS1_ILb1EEEEEEEbRKT_.exit.thread ], [ %104, %99 ], [ %113, %108 ]
+  %.sink39 = phi i32 [ %90, %_ZNK4cvc58internal12NodeTemplateILb0EE12hasAttributeINS0_4expr9AttributeINS0_6theory15RewriteCacheTagILb0ELNS6_8TheoryIdE11EEENS1_ILb1EEEEEEEbRKT_.exit.thread ], [ %104, %99 ], [ %113, %108 ]
   %.sink = phi i64 [ %87, %_ZNK4cvc58internal12NodeTemplateILb0EE12hasAttributeINS0_4expr9AttributeINS0_6theory15RewriteCacheTagILb0ELNS6_8TheoryIdE11EEENS1_ILb1EEEEEEEbRKT_.exit.thread ], [ %101, %99 ], [ %110, %108 ]
-  %.sink28 = phi ptr [ %86, %_ZNK4cvc58internal12NodeTemplateILb0EE12hasAttributeINS0_4expr9AttributeINS0_6theory15RewriteCacheTagILb0ELNS6_8TheoryIdE11EEENS1_ILb1EEEEEEEbRKT_.exit.thread ], [ %100, %99 ], [ %109, %108 ]
-  %118 = add nuw nsw i32 %.sink33, 1
+  %.sink34 = phi ptr [ %86, %_ZNK4cvc58internal12NodeTemplateILb0EE12hasAttributeINS0_4expr9AttributeINS0_6theory15RewriteCacheTagILb0ELNS6_8TheoryIdE11EEENS1_ILb1EEEEEEEbRKT_.exit.thread ], [ %100, %99 ], [ %109, %108 ]
+  %118 = add nuw nsw i32 %.sink39, 1
   %119 = zext nneg i32 %118 to i64
   %120 = shl nuw nsw i64 %119, 40
   %121 = and i64 %.sink, -1152920405095219201
   %122 = or i64 %120, %121
-  store i64 %122, ptr %.sink28, align 8
+  store i64 %122, ptr %.sink34, align 8
   br label %_ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit
 
 _ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit: ; preds = %_ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit.sink.split, %.invoke, %115, %106, %92
@@ -8432,23 +8432,23 @@ _ZNK4cvc58internal12NodeTemplateILb0EE12hasAttributeINS0_4expr9AttributeINS0_6th
   br i1 %116, label %.invoke, label %_ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit, !prof !114
 
 .invoke:                                          ; preds = %115, %106, %92
-  %.sink27 = phi i64 [ %87, %92 ], [ %101, %106 ], [ %110, %115 ]
-  %.sink26 = phi ptr [ %86, %92 ], [ %100, %106 ], [ %109, %115 ]
-  %117 = or i64 %.sink27, 1152920405095219200
-  store i64 %117, ptr %.sink26, align 8
-  invoke void @_ZN4cvc58internal4expr9NodeValue20markRefCountMaxedOutEv(ptr noundef nonnull align 8 dereferenceable(24) %.sink26)
+  %.sink33 = phi i64 [ %87, %92 ], [ %101, %106 ], [ %110, %115 ]
+  %.sink32 = phi ptr [ %86, %92 ], [ %100, %106 ], [ %109, %115 ]
+  %117 = or i64 %.sink33, 1152920405095219200
+  store i64 %117, ptr %.sink32, align 8
+  invoke void @_ZN4cvc58internal4expr9NodeValue20markRefCountMaxedOutEv(ptr noundef nonnull align 8 dereferenceable(24) %.sink32)
           to label %_ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit unwind label %94
 
 _ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit.sink.split: ; preds = %108, %99, %_ZNK4cvc58internal12NodeTemplateILb0EE12hasAttributeINS0_4expr9AttributeINS0_6theory15RewriteCacheTagILb0ELNS6_8TheoryIdE12EEENS1_ILb1EEEEEEEbRKT_.exit.thread
-  %.sink33 = phi i32 [ %90, %_ZNK4cvc58internal12NodeTemplateILb0EE12hasAttributeINS0_4expr9AttributeINS0_6theory15RewriteCacheTagILb0ELNS6_8TheoryIdE12EEENS1_ILb1EEEEEEEbRKT_.exit.thread ], [ %104, %99 ], [ %113, %108 ]
+  %.sink39 = phi i32 [ %90, %_ZNK4cvc58internal12NodeTemplateILb0EE12hasAttributeINS0_4expr9AttributeINS0_6theory15RewriteCacheTagILb0ELNS6_8TheoryIdE12EEENS1_ILb1EEEEEEEbRKT_.exit.thread ], [ %104, %99 ], [ %113, %108 ]
   %.sink = phi i64 [ %87, %_ZNK4cvc58internal12NodeTemplateILb0EE12hasAttributeINS0_4expr9AttributeINS0_6theory15RewriteCacheTagILb0ELNS6_8TheoryIdE12EEENS1_ILb1EEEEEEEbRKT_.exit.thread ], [ %101, %99 ], [ %110, %108 ]
-  %.sink28 = phi ptr [ %86, %_ZNK4cvc58internal12NodeTemplateILb0EE12hasAttributeINS0_4expr9AttributeINS0_6theory15RewriteCacheTagILb0ELNS6_8TheoryIdE12EEENS1_ILb1EEEEEEEbRKT_.exit.thread ], [ %100, %99 ], [ %109, %108 ]
-  %118 = add nuw nsw i32 %.sink33, 1
+  %.sink34 = phi ptr [ %86, %_ZNK4cvc58internal12NodeTemplateILb0EE12hasAttributeINS0_4expr9AttributeINS0_6theory15RewriteCacheTagILb0ELNS6_8TheoryIdE12EEENS1_ILb1EEEEEEEbRKT_.exit.thread ], [ %100, %99 ], [ %109, %108 ]
+  %118 = add nuw nsw i32 %.sink39, 1
   %119 = zext nneg i32 %118 to i64
   %120 = shl nuw nsw i64 %119, 40
   %121 = and i64 %.sink, -1152920405095219201
   %122 = or i64 %120, %121
-  store i64 %122, ptr %.sink28, align 8
+  store i64 %122, ptr %.sink34, align 8
   br label %_ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit
 
 _ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit: ; preds = %_ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit.sink.split, %.invoke, %115, %106, %92
@@ -8716,23 +8716,23 @@ _ZNK4cvc58internal12NodeTemplateILb0EE12hasAttributeINS0_4expr9AttributeINS0_6th
   br i1 %116, label %.invoke, label %_ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit, !prof !114
 
 .invoke:                                          ; preds = %115, %106, %92
-  %.sink27 = phi i64 [ %87, %92 ], [ %101, %106 ], [ %110, %115 ]
-  %.sink26 = phi ptr [ %86, %92 ], [ %100, %106 ], [ %109, %115 ]
-  %117 = or i64 %.sink27, 1152920405095219200
-  store i64 %117, ptr %.sink26, align 8
-  invoke void @_ZN4cvc58internal4expr9NodeValue20markRefCountMaxedOutEv(ptr noundef nonnull align 8 dereferenceable(24) %.sink26)
+  %.sink33 = phi i64 [ %87, %92 ], [ %101, %106 ], [ %110, %115 ]
+  %.sink32 = phi ptr [ %86, %92 ], [ %100, %106 ], [ %109, %115 ]
+  %117 = or i64 %.sink33, 1152920405095219200
+  store i64 %117, ptr %.sink32, align 8
+  invoke void @_ZN4cvc58internal4expr9NodeValue20markRefCountMaxedOutEv(ptr noundef nonnull align 8 dereferenceable(24) %.sink32)
           to label %_ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit unwind label %94
 
 _ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit.sink.split: ; preds = %108, %99, %_ZNK4cvc58internal12NodeTemplateILb0EE12hasAttributeINS0_4expr9AttributeINS0_6theory15RewriteCacheTagILb0ELNS6_8TheoryIdE13EEENS1_ILb1EEEEEEEbRKT_.exit.thread
-  %.sink33 = phi i32 [ %90, %_ZNK4cvc58internal12NodeTemplateILb0EE12hasAttributeINS0_4expr9AttributeINS0_6theory15RewriteCacheTagILb0ELNS6_8TheoryIdE13EEENS1_ILb1EEEEEEEbRKT_.exit.thread ], [ %104, %99 ], [ %113, %108 ]
+  %.sink39 = phi i32 [ %90, %_ZNK4cvc58internal12NodeTemplateILb0EE12hasAttributeINS0_4expr9AttributeINS0_6theory15RewriteCacheTagILb0ELNS6_8TheoryIdE13EEENS1_ILb1EEEEEEEbRKT_.exit.thread ], [ %104, %99 ], [ %113, %108 ]
   %.sink = phi i64 [ %87, %_ZNK4cvc58internal12NodeTemplateILb0EE12hasAttributeINS0_4expr9AttributeINS0_6theory15RewriteCacheTagILb0ELNS6_8TheoryIdE13EEENS1_ILb1EEEEEEEbRKT_.exit.thread ], [ %101, %99 ], [ %110, %108 ]
-  %.sink28 = phi ptr [ %86, %_ZNK4cvc58internal12NodeTemplateILb0EE12hasAttributeINS0_4expr9AttributeINS0_6theory15RewriteCacheTagILb0ELNS6_8TheoryIdE13EEENS1_ILb1EEEEEEEbRKT_.exit.thread ], [ %100, %99 ], [ %109, %108 ]
-  %118 = add nuw nsw i32 %.sink33, 1
+  %.sink34 = phi ptr [ %86, %_ZNK4cvc58internal12NodeTemplateILb0EE12hasAttributeINS0_4expr9AttributeINS0_6theory15RewriteCacheTagILb0ELNS6_8TheoryIdE13EEENS1_ILb1EEEEEEEbRKT_.exit.thread ], [ %100, %99 ], [ %109, %108 ]
+  %118 = add nuw nsw i32 %.sink39, 1
   %119 = zext nneg i32 %118 to i64
   %120 = shl nuw nsw i64 %119, 40
   %121 = and i64 %.sink, -1152920405095219201
   %122 = or i64 %120, %121
-  store i64 %122, ptr %.sink28, align 8
+  store i64 %122, ptr %.sink34, align 8
   br label %_ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit
 
 _ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit: ; preds = %_ZN4cvc58internal12NodeTemplateILb1EE4nullEv.exit.sink.split, %.invoke, %115, %106, %92
@@ -15998,9 +15998,9 @@ _ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit737.backedge: ; preds = %.thre
   %886 = add nsw i64 %884, %885
   %887 = and i64 %886, 4294967295
   %.not179 = icmp eq i64 %887, 0
-  br i1 %.not179, label %.preheader1345, label %888
+  br i1 %.not179, label %.preheader1433, label %888
 
-.preheader1345:                                   ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit480, %880
+.preheader1433:                                   ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit480, %880
   br label %948
 
 888:                                              ; preds = %880
@@ -16103,7 +16103,7 @@ _ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit477: ; preds = %915, %909, %89
 
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit480: ; preds = %921, %930, %936
   call void @llvm.lifetime.end.p0(ptr nonnull %43)
-  br label %.preheader1345
+  br label %.preheader1433
 
 940:                                              ; preds = %888
   %941 = landingpad { ptr, i32 }
@@ -16130,7 +16130,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit480: ; preds = %921, %930, %936
   call void @llvm.lifetime.end.p0(ptr nonnull %43)
   br label %.body318
 
-948:                                              ; preds = %.preheader1345, %_ZN4cvc58internal6theory15RewriteResponseD2Ev.exit580
+948:                                              ; preds = %.preheader1433, %_ZN4cvc58internal6theory15RewriteResponseD2Ev.exit580
   %949 = load ptr, ptr %203, align 8, !tbaa !11
   %950 = getelementptr inbounds nuw i8, ptr %949, i64 8
   %951 = load i64, ptr %950, align 8
@@ -21431,8 +21431,8 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt4pairImN4cvc58internal12NodeTemp
   %.02150.i.i = phi i64 [ %.2.i.i, %68 ], [ %36, %_ZSt9make_pairIRmN4cvc58internal12NodeTemplateILb1EEEESt4pairINSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENS6_INS7_IT0_E4typeEE6__typeEEOS8_OSD_.exit ]
   %.sroa.038.049.i.i = phi ptr [ %.sroa.038.1.i.i, %68 ], [ %4, %_ZSt9make_pairIRmN4cvc58internal12NodeTemplateILb1EEEESt4pairINSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENS6_INS7_IT0_E4typeEE6__typeEEOS8_OSD_.exit ]
   %38 = lshr i64 %.02150.i.i, 1
-  %.idx26 = shl nuw nsw i64 %38, 4
-  %39 = getelementptr inbounds nuw i8, ptr %.sroa.038.049.i.i, i64 %.idx26
+  %.idx31 = shl nuw nsw i64 %38, 4
+  %39 = getelementptr inbounds nuw i8, ptr %.sroa.038.049.i.i, i64 %.idx31
   %40 = load i64, ptr %39, align 8, !tbaa !488
   %41 = icmp ult i64 %40, %1
   br i1 %41, label %42, label %46
@@ -21470,7 +21470,7 @@ _ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPKSt4pairImN4cvc58internal12N
   %.sroa.011.0.lcssa.i.i.i = phi ptr [ %.sroa.038.049.i.i, %.critedge.i.i ], [ %.sroa.011.1.i.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt4pairImN4cvc58internal12NodeTemplateILb1EEEESt6vectorIS7_SaIS7_EEEElEvRT_T0_.exit.i.i.i ]
   %.idx = shl nuw nsw i64 %.02150.i.i, 4
   %56 = getelementptr inbounds nuw i8, ptr %39, i64 16
-  %57 = add nuw nsw i64 %.idx26, 16
+  %57 = add nuw nsw i64 %.idx31, 16
   %gepdiff = sub nsw i64 %.idx, %57
   %58 = ashr exact i64 %gepdiff, 4
   %59 = icmp sgt i64 %58, 0

@@ -700,7 +700,7 @@ define hidden void @_ZN14ArchiveBuilder13SourceObjList8relocateEiPS_(ptr noundef
   br i1 %.not36.i.i.i.i, label %.preheader.i.i, label %39, !llvm.loop !6
 
 39:                                               ; preds = %36
-  %40 = shl i64 %34, 6
+  %40 = shl nuw i64 %34, 6
   br label %41
 
 41:                                               ; preds = %39, %32
@@ -2353,10 +2353,10 @@ _ZN26GrowableArrayWithAllocatorIPN14ArchiveBuilder13SourceObjInfoE13GrowableArra
   br i1 %.not.i16, label %_ZN14ArchiveBuilder13SourceObjList6appendEPNS_13SourceObjInfoE.exit, label %_ZN14ArchiveBuilder13SourceObjList6appendEPNS_13SourceObjInfoE.exit.sink.split
 
 _ZN14ArchiveBuilder13SourceObjList6appendEPNS_13SourceObjInfoE.exit.sink.split: ; preds = %_ZN26GrowableArrayWithAllocatorIPN14ArchiveBuilder13SourceObjInfoE13GrowableArrayIS2_EE6appendERKS2_.exit.i15, %_ZN26GrowableArrayWithAllocatorIPN14ArchiveBuilder13SourceObjInfoE13GrowableArrayIS2_EE6appendERKS2_.exit.i
-  %.sink38 = phi i64 [ 528, %_ZN26GrowableArrayWithAllocatorIPN14ArchiveBuilder13SourceObjInfoE13GrowableArrayIS2_EE6appendERKS2_.exit.i ], [ 488, %_ZN26GrowableArrayWithAllocatorIPN14ArchiveBuilder13SourceObjInfoE13GrowableArrayIS2_EE6appendERKS2_.exit.i15 ]
-  %.sink37 = phi i64 [ %191, %_ZN26GrowableArrayWithAllocatorIPN14ArchiveBuilder13SourceObjInfoE13GrowableArrayIS2_EE6appendERKS2_.exit.i ], [ %228, %_ZN26GrowableArrayWithAllocatorIPN14ArchiveBuilder13SourceObjInfoE13GrowableArrayIS2_EE6appendERKS2_.exit.i15 ]
-  %232 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink38
-  %233 = shl nuw nsw i64 %.sink37, 1
+  %.sink57 = phi i64 [ 528, %_ZN26GrowableArrayWithAllocatorIPN14ArchiveBuilder13SourceObjInfoE13GrowableArrayIS2_EE6appendERKS2_.exit.i ], [ 488, %_ZN26GrowableArrayWithAllocatorIPN14ArchiveBuilder13SourceObjInfoE13GrowableArrayIS2_EE6appendERKS2_.exit.i15 ]
+  %.sink56 = phi i64 [ %191, %_ZN26GrowableArrayWithAllocatorIPN14ArchiveBuilder13SourceObjInfoE13GrowableArrayIS2_EE6appendERKS2_.exit.i ], [ %228, %_ZN26GrowableArrayWithAllocatorIPN14ArchiveBuilder13SourceObjInfoE13GrowableArrayIS2_EE6appendERKS2_.exit.i15 ]
+  %232 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink57
+  %233 = shl nuw nsw i64 %.sink56, 1
   %234 = add nuw nsw i64 %233, 2
   tail call void @_ZN14GrowableBitMapI11CHeapBitMapE6resizeEmb(ptr noundef nonnull align 8 dereferenceable(16) %232, i64 noundef %234, i1 noundef zeroext true) #19
   br label %_ZN14ArchiveBuilder13SourceObjList6appendEPNS_13SourceObjInfoE.exit
@@ -3567,7 +3567,7 @@ define hidden void @_ZN14ArchiveBuilder26relocate_embedded_pointersEPNS_13Source
   br i1 %.not36.i.i.i.i.i, label %.preheader.i.i.i, label %41, !llvm.loop !6
 
 41:                                               ; preds = %38
-  %42 = shl i64 %36, 6
+  %42 = shl nuw i64 %36, 6
   br label %43
 
 43:                                               ; preds = %41, %34
@@ -3685,7 +3685,7 @@ define hidden void @_ZN14ArchiveBuilder39relocate_metaspaceobj_embedded_pointers
   br i1 %.not36.i.i.i.i.i.i, label %.preheader.i.i.i.i, label %44, !llvm.loop !6
 
 44:                                               ; preds = %41
-  %45 = shl i64 %39, 6
+  %45 = shl nuw i64 %39, 6
   br label %46
 
 46:                                               ; preds = %44, %37
@@ -3787,7 +3787,7 @@ _ZN14ArchiveBuilder26relocate_embedded_pointersEPNS_13SourceObjListE.exit: ; pre
   br i1 %.not36.i.i.i.i.i.i16, label %.preheader.i.i.i.i14, label %97, !llvm.loop !6
 
 97:                                               ; preds = %94
-  %98 = shl i64 %92, 6
+  %98 = shl nuw i64 %92, 6
   br label %99
 
 99:                                               ; preds = %97, %90
@@ -4348,10 +4348,10 @@ _ZNK14ArchiveBuilder17get_buffered_addrEPh.exit:  ; preds = %31
   br label %45
 
 45:                                               ; preds = %2, %39
-  %.sink10 = phi ptr [ %42, %39 ], [ %1, %2 ]
-  %.sink9 = phi ptr [ %44, %39 ], [ %4, %2 ]
-  %46 = ptrtoint ptr %.sink10 to i64
-  %47 = ptrtoint ptr %.sink9 to i64
+  %.sink12 = phi ptr [ %42, %39 ], [ %1, %2 ]
+  %.sink11 = phi ptr [ %44, %39 ], [ %4, %2 ]
+  %46 = ptrtoint ptr %.sink12 to i64
+  %47 = ptrtoint ptr %.sink11 to i64
   %48 = sub i64 %46, %47
   ret i64 %48
 }
@@ -4502,7 +4502,7 @@ _ZN25RelocateBufferToRequestedILb1EEC2EP14ArchiveBuilder.exit: ; preds = %17, %3
   br i1 %.not36.i.i.i.i.i.i, label %.preheader.i.i.i.i, label %61, !llvm.loop !6
 
 61:                                               ; preds = %58
-  %62 = shl i64 %56, 6
+  %62 = shl nuw i64 %56, 6
   br label %63
 
 63:                                               ; preds = %61, %54
@@ -4611,7 +4611,7 @@ _ZN25RelocateBufferToRequestedILb0EEC2EP14ArchiveBuilder.exit: ; preds = %74, %9
   br i1 %.not36.i.i.i.i.i.i15, label %.preheader.i.i.i.i13, label %120, !llvm.loop !6
 
 120:                                              ; preds = %117
-  %121 = shl i64 %115, 6
+  %121 = shl nuw i64 %115, 6
   br label %122
 
 122:                                              ; preds = %120, %113
@@ -7860,7 +7860,7 @@ define linkonce_odr hidden void @_ZN26GrowableArrayWithAllocatorIP5Klass13Growab
   br i1 %.not, label %_ZN13GrowableArrayIP5KlassE10deallocateEPS1_.exit, label %.loopexit.thread
 
 .loopexit.thread:                                 ; preds = %.lr.ph, %.loopexit
-  %.01827 = phi ptr [ null, %.loopexit ], [ %.0.i, %.lr.ph ]
+  %.01829 = phi ptr [ null, %.loopexit ], [ %.0.i, %.lr.ph ]
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %29 = load i64, ptr %28, align 8
   %30 = and i64 %29, 1
@@ -7872,8 +7872,8 @@ define linkonce_odr hidden void @_ZN26GrowableArrayWithAllocatorIP5Klass13Growab
   br label %_ZN13GrowableArrayIP5KlassE10deallocateEPS1_.exit
 
 _ZN13GrowableArrayIP5KlassE10deallocateEPS1_.exit: ; preds = %31, %.loopexit.thread, %.loopexit
-  %.01828 = phi ptr [ %.01827, %31 ], [ %.01827, %.loopexit.thread ], [ null, %.loopexit ]
-  store ptr %.01828, ptr %7, align 8
+  %.01830 = phi ptr [ %.01829, %31 ], [ %.01829, %.loopexit.thread ], [ null, %.loopexit ]
+  store ptr %.01830, ptr %7, align 8
   br label %32
 
 32:                                               ; preds = %1, %_ZN13GrowableArrayIP5KlassE10deallocateEPS1_.exit
@@ -7951,7 +7951,7 @@ define linkonce_odr hidden void @_ZN26GrowableArrayWithAllocatorIPN14ArchiveBuil
   br i1 %.not, label %_ZN13GrowableArrayIPN14ArchiveBuilder13SourceObjInfoEE10deallocateEPS2_.exit, label %.loopexit.thread
 
 .loopexit.thread:                                 ; preds = %.lr.ph, %.loopexit
-  %.01827 = phi ptr [ null, %.loopexit ], [ %.0.i, %.lr.ph ]
+  %.01829 = phi ptr [ null, %.loopexit ], [ %.0.i, %.lr.ph ]
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %29 = load i64, ptr %28, align 8
   %30 = and i64 %29, 1
@@ -7963,8 +7963,8 @@ define linkonce_odr hidden void @_ZN26GrowableArrayWithAllocatorIPN14ArchiveBuil
   br label %_ZN13GrowableArrayIPN14ArchiveBuilder13SourceObjInfoEE10deallocateEPS2_.exit
 
 _ZN13GrowableArrayIPN14ArchiveBuilder13SourceObjInfoEE10deallocateEPS2_.exit: ; preds = %31, %.loopexit.thread, %.loopexit
-  %.01828 = phi ptr [ %.01827, %31 ], [ %.01827, %.loopexit.thread ], [ null, %.loopexit ]
-  store ptr %.01828, ptr %7, align 8
+  %.01830 = phi ptr [ %.01829, %31 ], [ %.01829, %.loopexit.thread ], [ null, %.loopexit ]
+  store ptr %.01830, ptr %7, align 8
   br label %32
 
 32:                                               ; preds = %1, %_ZN13GrowableArrayIPN14ArchiveBuilder13SourceObjInfoEE10deallocateEPS2_.exit
@@ -8135,7 +8135,7 @@ define linkonce_odr hidden void @_ZN26GrowableArrayWithAllocatorIP6Symbol13Growa
   br i1 %.not, label %_ZN13GrowableArrayIP6SymbolE10deallocateEPS1_.exit, label %.loopexit.thread
 
 .loopexit.thread:                                 ; preds = %.lr.ph, %.loopexit
-  %.01827 = phi ptr [ null, %.loopexit ], [ %.0.i, %.lr.ph ]
+  %.01829 = phi ptr [ null, %.loopexit ], [ %.0.i, %.lr.ph ]
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %29 = load i64, ptr %28, align 8
   %30 = and i64 %29, 1
@@ -8147,8 +8147,8 @@ define linkonce_odr hidden void @_ZN26GrowableArrayWithAllocatorIP6Symbol13Growa
   br label %_ZN13GrowableArrayIP6SymbolE10deallocateEPS1_.exit
 
 _ZN13GrowableArrayIP6SymbolE10deallocateEPS1_.exit: ; preds = %31, %.loopexit.thread, %.loopexit
-  %.01828 = phi ptr [ %.01827, %31 ], [ %.01827, %.loopexit.thread ], [ null, %.loopexit ]
-  store ptr %.01828, ptr %7, align 8
+  %.01830 = phi ptr [ %.01829, %31 ], [ %.01829, %.loopexit.thread ], [ null, %.loopexit ]
+  store ptr %.01830, ptr %7, align 8
   br label %32
 
 32:                                               ; preds = %1, %_ZN13GrowableArrayIP6SymbolE10deallocateEPS1_.exit

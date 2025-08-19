@@ -303,13 +303,13 @@ define internal fastcc void @_ZN22cranelift_codegen_meta4cdsl8settings13Predicat
   %14 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %15 = load i64, ptr %1, align 8, !range !8, !noundef !4
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  switch i64 %15, label %default.unreachable21 [
+  switch i64 %15, label %default.unreachable22 [
     i64 0, label %17
     i64 1, label %22
     i64 2, label %27
   ]
 
-default.unreachable21:                            ; preds = %3
+default.unreachable22:                            ; preds = %3
   unreachable
 
 17:                                               ; preds = %3
@@ -737,17 +737,17 @@ define hidden void @_ZN22cranelift_codegen_meta4cdsl8settings19SettingGroupBuild
 .loopexit.split-lp:                               ; preds = %.loopexit.loopexit, %.loopexit.loopexit.split-lp, %.loopexit.split-lp.loopexit.loopexit, %.loopexit.split-lp.loopexit.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp, %.thread, %98
   %.035 = phi i1 [ true, %98 ], [ %.1.ph, %.thread ], [ true, %.loopexit.split-lp.loopexit.split-lp ], [ true, %.loopexit.split-lp.loopexit.loopexit.split-lp ], [ true, %.loopexit.split-lp.loopexit.loopexit ], [ true, %.loopexit.loopexit.split-lp ], [ true, %.loopexit.loopexit ]
   %.0 = phi i1 [ false, %98 ], [ false, %.thread ], [ true, %.loopexit.split-lp.loopexit.split-lp ], [ true, %.loopexit.split-lp.loopexit.loopexit.split-lp ], [ true, %.loopexit.split-lp.loopexit.loopexit ], [ true, %.loopexit.loopexit.split-lp ], [ true, %.loopexit.loopexit ]
-  %.pn = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %98 ], [ %lpad.thr_comm, %.thread ], [ %lpad.loopexit.split-lp44, %.loopexit.split-lp.loopexit.split-lp ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.loopexit.split-lp ], [ %lpad.loopexit46, %.loopexit.split-lp.loopexit.loopexit ], [ %lpad.loopexit72, %.loopexit.loopexit ], [ %lpad.loopexit.split-lp73, %.loopexit.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %98 ], [ %lpad.thr_comm, %.thread ], [ %lpad.loopexit.split-lp44, %.loopexit.split-lp.loopexit.split-lp ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.loopexit.split-lp ], [ %lpad.loopexit46, %.loopexit.split-lp.loopexit.loopexit ], [ %lpad.loopexit74, %.loopexit.loopexit ], [ %lpad.loopexit.split-lp75, %.loopexit.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr73drop_in_place$LT$cranelift_codegen_meta..cdsl..settings..SettingGroup$GT$17hd697bd66021c7fe6E"(ptr nonnull align 8 %16) #13
           to label %143 unwind label %99
 
 .loopexit.loopexit:                               ; preds = %.backedge
-  %lpad.loopexit72 = landingpad { ptr, i32 }
+  %lpad.loopexit74 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
 
 .loopexit.loopexit.split-lp:                      ; preds = %103
-  %lpad.loopexit.split-lp73 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp75 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
 

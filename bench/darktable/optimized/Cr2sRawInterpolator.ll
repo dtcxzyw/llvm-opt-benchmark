@@ -89,7 +89,7 @@ define hidden void @_ZN8rawspeed19Cr2sRawInterpolator11interpolateEi(ptr noundef
   %29 = icmp ne i32 %20, 0
   tail call void @llvm.assume(i1 %29)
   %30 = icmp sgt i32 %20, 0
-  switch i32 %1, label %default.unreachable [
+  switch i32 %1, label %default.unreachable24 [
     i32 0, label %31
     i32 1, label %33
     i32 2, label %35
@@ -125,7 +125,7 @@ define hidden void @_ZN8rawspeed19Cr2sRawInterpolator11interpolateEi(ptr noundef
   %exitcond.not.i15 = icmp eq i32 %36, %20
   br i1 %exitcond.not.i15, label %_ZN8rawspeed19Cr2sRawInterpolator15interpolate_422ILi0EEEvv.exit, label %.lr.ph.i13, !llvm.loop !99
 
-default.unreachable:                              ; preds = %11
+default.unreachable24:                            ; preds = %11
   unreachable
 
 37:                                               ; preds = %2
@@ -224,12 +224,12 @@ define linkonce_odr hidden void @_ZN8rawspeed19Cr2sRawInterpolator15interpolate_
   %50 = icmp samesign ugt i32 %34, 11
   tail call void @llvm.assume(i1 %50)
   %51 = icmp samesign ugt i32 %37, 1
-  %indvars.iv242.sroa.gep295 = getelementptr inbounds nuw i8, ptr %4, i64 48
-  %indvars.iv254.sroa.gep296 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %indvars.iv239.sroa.gep297 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %indvars.iv263.sroa.gep298 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %indvars.iv269.sroa.gep299 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %indvars.iv275.sroa.gep300 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %indvars.iv242.sroa.gep297 = getelementptr inbounds nuw i8, ptr %4, i64 48
+  %indvars.iv254.sroa.gep298 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %indvars.iv239.sroa.gep299 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %indvars.iv263.sroa.gep300 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %indvars.iv269.sroa.gep301 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %indvars.iv275.sroa.gep302 = getelementptr inbounds nuw i8, ptr %2, i64 24
   br i1 %51, label %.lr.ph, label %.lr.ph226
 
 .lr.ph:                                           ; preds = %1, %.lr.ph
@@ -332,7 +332,7 @@ define linkonce_odr hidden void @_ZN8rawspeed19Cr2sRawInterpolator15interpolate_
 
 118:                                              ; preds = %.preheader211, %_ZZN8rawspeed19Cr2sRawInterpolator15interpolate_420ILi1EEEvvENKUliiE_clEii.exit
   %119 = phi i1 [ true, %.preheader211 ], [ false, %_ZZN8rawspeed19Cr2sRawInterpolator15interpolate_420ILi1EEEvvENKUliiE_clEii.exit ]
-  %indvars.iv242.sroa.phi = phi ptr [ %4, %.preheader211 ], [ %indvars.iv242.sroa.gep295, %_ZZN8rawspeed19Cr2sRawInterpolator15interpolate_420ILi1EEEvvENKUliiE_clEii.exit ]
+  %indvars.iv242.sroa.phi = phi ptr [ %4, %.preheader211 ], [ %indvars.iv242.sroa.gep297, %_ZZN8rawspeed19Cr2sRawInterpolator15interpolate_420ILi1EEEvvENKUliiE_clEii.exit ]
   %indvars.iv242 = phi i64 [ 0, %.preheader211 ], [ 1, %_ZZN8rawspeed19Cr2sRawInterpolator15interpolate_420ILi1EEEvvENKUliiE_clEii.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0)
   %120 = add nuw nsw i64 %indvars.iv242, %indvars.iv257
@@ -343,7 +343,7 @@ define linkonce_odr hidden void @_ZN8rawspeed19Cr2sRawInterpolator15interpolate_
 
 .preheader208:                                    ; preds = %118, %.preheader208
   %122 = phi i1 [ true, %118 ], [ false, %.preheader208 ]
-  %indvars.iv239.sroa.phi = phi ptr [ %3, %118 ], [ %indvars.iv239.sroa.gep297, %.preheader208 ]
+  %indvars.iv239.sroa.phi = phi ptr [ %3, %118 ], [ %indvars.iv239.sroa.gep299, %.preheader208 ]
   %indvars.iv239 = phi i64 [ 0, %118 ], [ 2, %.preheader208 ]
   %123 = add nuw nsw i64 %indvars.iv239, %121
   %124 = getelementptr inbounds nuw i16, ptr %80, i64 %123
@@ -413,7 +413,7 @@ _ZZN8rawspeed19Cr2sRawInterpolator15interpolate_420ILi1EEEvvENKUliiE_clEii.exit:
 
 .preheader209:                                    ; preds = %.loopexit212, %168
   %161 = phi i1 [ true, %.loopexit212 ], [ false, %168 ]
-  %indvars.iv254.sroa.phi = phi ptr [ %4, %.loopexit212 ], [ %indvars.iv254.sroa.gep296, %168 ]
+  %indvars.iv254.sroa.phi = phi ptr [ %4, %.loopexit212 ], [ %indvars.iv254.sroa.gep298, %168 ]
   %indvars.iv254 = phi i64 [ 0, %.loopexit212 ], [ 1, %168 ]
   %162 = or disjoint i64 %indvars.iv254, %100
   %163 = icmp samesign ult i64 %162, %103
@@ -494,7 +494,7 @@ _ZZN8rawspeed19Cr2sRawInterpolator15interpolate_420ILi1EEEvvENKUlRKSt5arrayIS2_I
 
 .preheader207:                                    ; preds = %._crit_edge227, %.preheader207
   %212 = phi i1 [ true, %._crit_edge227 ], [ false, %.preheader207 ]
-  %indvars.iv263.sroa.phi = phi ptr [ %2, %._crit_edge227 ], [ %indvars.iv263.sroa.gep298, %.preheader207 ]
+  %indvars.iv263.sroa.phi = phi ptr [ %2, %._crit_edge227 ], [ %indvars.iv263.sroa.gep300, %.preheader207 ]
   %indvars.iv263 = phi i64 [ 0, %._crit_edge227 ], [ 2, %.preheader207 ]
   %213 = add nuw nsw i64 %indvars.iv263, %211
   %214 = getelementptr inbounds nuw i16, ptr %209, i64 %213
@@ -540,7 +540,7 @@ _ZZN8rawspeed19Cr2sRawInterpolator15interpolate_420ILi1EEEvvENKUliiE_clEii.exit6
 
 .preheader206:                                    ; preds = %_ZZN8rawspeed19Cr2sRawInterpolator15interpolate_420ILi1EEEvvENKUliiE_clEii.exit60, %.preheader206
   %242 = phi i1 [ true, %_ZZN8rawspeed19Cr2sRawInterpolator15interpolate_420ILi1EEEvvENKUliiE_clEii.exit60 ], [ false, %.preheader206 ]
-  %indvars.iv269.sroa.phi = phi ptr [ %2, %_ZZN8rawspeed19Cr2sRawInterpolator15interpolate_420ILi1EEEvvENKUliiE_clEii.exit60 ], [ %indvars.iv269.sroa.gep299, %.preheader206 ]
+  %indvars.iv269.sroa.phi = phi ptr [ %2, %_ZZN8rawspeed19Cr2sRawInterpolator15interpolate_420ILi1EEEvvENKUliiE_clEii.exit60 ], [ %indvars.iv269.sroa.gep301, %.preheader206 ]
   %243 = getelementptr inbounds nuw i8, ptr %indvars.iv269.sroa.phi, i64 4
   store i32 %240, ptr %243, align 4
   %244 = getelementptr inbounds nuw i8, ptr %indvars.iv269.sroa.phi, i64 8
@@ -568,7 +568,7 @@ _ZZN8rawspeed19Cr2sRawInterpolator15interpolate_420ILi1EEEvvENKUliiE_clEii.exit6
 
 .preheader:                                       ; preds = %.preheader205, %266
   %259 = phi i1 [ true, %.preheader205 ], [ false, %266 ]
-  %indvars.iv275.sroa.phi = phi ptr [ %2, %.preheader205 ], [ %indvars.iv275.sroa.gep300, %266 ]
+  %indvars.iv275.sroa.phi = phi ptr [ %2, %.preheader205 ], [ %indvars.iv275.sroa.gep302, %266 ]
   %indvars.iv275 = phi i64 [ 0, %.preheader205 ], [ 1, %266 ]
   %260 = or disjoint i64 %indvars.iv275, %255
   %261 = icmp samesign ult i64 %260, %258
@@ -708,12 +708,12 @@ define linkonce_odr hidden void @_ZN8rawspeed19Cr2sRawInterpolator15interpolate_
   %50 = icmp samesign ugt i32 %34, 11
   tail call void @llvm.assume(i1 %50)
   %51 = icmp samesign ugt i32 %37, 1
-  %indvars.iv240.sroa.gep293 = getelementptr inbounds nuw i8, ptr %4, i64 48
-  %indvars.iv252.sroa.gep294 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %indvars.iv237.sroa.gep295 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %indvars.iv261.sroa.gep296 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %indvars.iv267.sroa.gep297 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %indvars.iv273.sroa.gep298 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %indvars.iv240.sroa.gep295 = getelementptr inbounds nuw i8, ptr %4, i64 48
+  %indvars.iv252.sroa.gep296 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %indvars.iv237.sroa.gep297 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %indvars.iv261.sroa.gep298 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %indvars.iv267.sroa.gep299 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %indvars.iv273.sroa.gep300 = getelementptr inbounds nuw i8, ptr %2, i64 24
   br i1 %51, label %.lr.ph, label %.lr.ph224
 
 .lr.ph:                                           ; preds = %1, %.lr.ph
@@ -816,7 +816,7 @@ define linkonce_odr hidden void @_ZN8rawspeed19Cr2sRawInterpolator15interpolate_
 
 118:                                              ; preds = %.preheader209, %_ZZN8rawspeed19Cr2sRawInterpolator15interpolate_420ILi2EEEvvENKUliiE_clEii.exit
   %119 = phi i1 [ true, %.preheader209 ], [ false, %_ZZN8rawspeed19Cr2sRawInterpolator15interpolate_420ILi2EEEvvENKUliiE_clEii.exit ]
-  %indvars.iv240.sroa.phi = phi ptr [ %4, %.preheader209 ], [ %indvars.iv240.sroa.gep293, %_ZZN8rawspeed19Cr2sRawInterpolator15interpolate_420ILi2EEEvvENKUliiE_clEii.exit ]
+  %indvars.iv240.sroa.phi = phi ptr [ %4, %.preheader209 ], [ %indvars.iv240.sroa.gep295, %_ZZN8rawspeed19Cr2sRawInterpolator15interpolate_420ILi2EEEvvENKUliiE_clEii.exit ]
   %indvars.iv240 = phi i64 [ 0, %.preheader209 ], [ 1, %_ZZN8rawspeed19Cr2sRawInterpolator15interpolate_420ILi2EEEvvENKUliiE_clEii.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0)
   %120 = add nuw nsw i64 %indvars.iv240, %indvars.iv255
@@ -827,7 +827,7 @@ define linkonce_odr hidden void @_ZN8rawspeed19Cr2sRawInterpolator15interpolate_
 
 .preheader206:                                    ; preds = %118, %.preheader206
   %122 = phi i1 [ true, %118 ], [ false, %.preheader206 ]
-  %indvars.iv237.sroa.phi = phi ptr [ %3, %118 ], [ %indvars.iv237.sroa.gep295, %.preheader206 ]
+  %indvars.iv237.sroa.phi = phi ptr [ %3, %118 ], [ %indvars.iv237.sroa.gep297, %.preheader206 ]
   %indvars.iv237 = phi i64 [ 0, %118 ], [ 2, %.preheader206 ]
   %123 = add nuw nsw i64 %indvars.iv237, %121
   %124 = getelementptr inbounds nuw i16, ptr %80, i64 %123
@@ -897,7 +897,7 @@ _ZZN8rawspeed19Cr2sRawInterpolator15interpolate_420ILi2EEEvvENKUliiE_clEii.exit:
 
 .preheader207:                                    ; preds = %.loopexit210, %168
   %161 = phi i1 [ true, %.loopexit210 ], [ false, %168 ]
-  %indvars.iv252.sroa.phi = phi ptr [ %4, %.loopexit210 ], [ %indvars.iv252.sroa.gep294, %168 ]
+  %indvars.iv252.sroa.phi = phi ptr [ %4, %.loopexit210 ], [ %indvars.iv252.sroa.gep296, %168 ]
   %indvars.iv252 = phi i64 [ 0, %.loopexit210 ], [ 1, %168 ]
   %162 = or disjoint i64 %indvars.iv252, %100
   %163 = icmp samesign ult i64 %162, %103
@@ -970,7 +970,7 @@ _ZZN8rawspeed19Cr2sRawInterpolator15interpolate_420ILi2EEEvvENKUlRKSt5arrayIS2_I
 
 .preheader205:                                    ; preds = %._crit_edge225, %.preheader205
   %206 = phi i1 [ true, %._crit_edge225 ], [ false, %.preheader205 ]
-  %indvars.iv261.sroa.phi = phi ptr [ %2, %._crit_edge225 ], [ %indvars.iv261.sroa.gep296, %.preheader205 ]
+  %indvars.iv261.sroa.phi = phi ptr [ %2, %._crit_edge225 ], [ %indvars.iv261.sroa.gep298, %.preheader205 ]
   %indvars.iv261 = phi i64 [ 0, %._crit_edge225 ], [ 2, %.preheader205 ]
   %207 = add nuw nsw i64 %indvars.iv261, %205
   %208 = getelementptr inbounds nuw i16, ptr %203, i64 %207
@@ -1016,7 +1016,7 @@ _ZZN8rawspeed19Cr2sRawInterpolator15interpolate_420ILi2EEEvvENKUliiE_clEii.exit6
 
 .preheader204:                                    ; preds = %_ZZN8rawspeed19Cr2sRawInterpolator15interpolate_420ILi2EEEvvENKUliiE_clEii.exit60, %.preheader204
   %236 = phi i1 [ true, %_ZZN8rawspeed19Cr2sRawInterpolator15interpolate_420ILi2EEEvvENKUliiE_clEii.exit60 ], [ false, %.preheader204 ]
-  %indvars.iv267.sroa.phi = phi ptr [ %2, %_ZZN8rawspeed19Cr2sRawInterpolator15interpolate_420ILi2EEEvvENKUliiE_clEii.exit60 ], [ %indvars.iv267.sroa.gep297, %.preheader204 ]
+  %indvars.iv267.sroa.phi = phi ptr [ %2, %_ZZN8rawspeed19Cr2sRawInterpolator15interpolate_420ILi2EEEvvENKUliiE_clEii.exit60 ], [ %indvars.iv267.sroa.gep299, %.preheader204 ]
   %237 = getelementptr inbounds nuw i8, ptr %indvars.iv267.sroa.phi, i64 4
   store i32 %234, ptr %237, align 4
   %238 = getelementptr inbounds nuw i8, ptr %indvars.iv267.sroa.phi, i64 8
@@ -1044,7 +1044,7 @@ _ZZN8rawspeed19Cr2sRawInterpolator15interpolate_420ILi2EEEvvENKUliiE_clEii.exit6
 
 .preheader:                                       ; preds = %.preheader203, %260
   %253 = phi i1 [ true, %.preheader203 ], [ false, %260 ]
-  %indvars.iv273.sroa.phi = phi ptr [ %2, %.preheader203 ], [ %indvars.iv273.sroa.gep298, %260 ]
+  %indvars.iv273.sroa.phi = phi ptr [ %2, %.preheader203 ], [ %indvars.iv273.sroa.gep300, %260 ]
   %indvars.iv273 = phi i64 [ 0, %.preheader203 ], [ 1, %260 ]
   %254 = or disjoint i64 %indvars.iv273, %249
   %255 = icmp samesign ult i64 %254, %252

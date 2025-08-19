@@ -316,16 +316,16 @@ define void @lv_draw_sw_fill(ptr noundef %0, ptr noundef %1, ptr noundef readonl
   %153 = getelementptr inbounds i8, ptr %152, i64 %150
   %154 = load i8, ptr %153, align 1, !tbaa !21
   store i8 %154, ptr %62, align 8, !tbaa !26
-  br i1 %.0148, label %.thread219, label %174
+  br i1 %.0148, label %.thread235, label %174
 
 155:                                              ; preds = %144
-  br i1 %.0147, label %.thread219, label %174
+  br i1 %.0147, label %.thread235, label %174
 
 156:                                              ; preds = %144
   br i1 %.0148, label %157, label %174
 
 157:                                              ; preds = %156
-  br i1 %102, label %158, label %.thread219
+  br i1 %102, label %158, label %.thread235
 
 158:                                              ; preds = %157
   call void @lv_memset(ptr noundef %.0, i8 noundef zeroext %spec.select, i64 noundef %95) #6
@@ -334,13 +334,13 @@ define void @lv_draw_sw_fill(ptr noundef %0, ptr noundef %1, ptr noundef readonl
   %161 = icmp eq i32 %160, 1
   %spec.store.select = select i1 %161, i32 2, i32 %160
   store i32 %spec.store.select, ptr %96, align 8
-  br label %.thread219
+  br label %.thread235
 
-.thread219:                                       ; preds = %146, %155, %158, %157
+.thread235:                                       ; preds = %146, %155, %158, %157
   br i1 %99, label %.lr.ph192, label %._crit_edge193
 
-.lr.ph192:                                        ; preds = %.thread219, %173
-  %indvars.iv211 = phi i64 [ %indvars.iv.next212, %173 ], [ 0, %.thread219 ]
+.lr.ph192:                                        ; preds = %.thread235, %173
+  %indvars.iv211 = phi i64 [ %indvars.iv.next212, %173 ], [ 0, %.thread235 ]
   %162 = getelementptr inbounds nuw i8, ptr %.0152, i64 %indvars.iv211
   %163 = load i8, ptr %162, align 1, !tbaa !21
   %164 = icmp ult i8 %163, -3
@@ -362,7 +362,7 @@ define void @lv_draw_sw_fill(ptr noundef %0, ptr noundef %1, ptr noundef readonl
   %exitcond215.not = icmp eq i64 %indvars.iv.next212, %wide.trip.count214
   br i1 %exitcond215.not, label %._crit_edge193, label %.lr.ph192, !llvm.loop !43
 
-._crit_edge193:                                   ; preds = %173, %.thread219
+._crit_edge193:                                   ; preds = %173, %.thread235
   store i32 2, ptr %96, align 8, !tbaa !41
   br label %174
 

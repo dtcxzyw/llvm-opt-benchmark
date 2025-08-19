@@ -186,24 +186,24 @@ define hidden void @_ZN20AttachListenerThread12thread_entryEP10JavaThreadS1_(ptr
 .preheader.preheader:                             ; preds = %10
   %26 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %23, ptr noundef nonnull dereferenceable(16) @.str.11) #9
   %27 = icmp eq i32 %26, 0
-  br i1 %27, label %.preheader._crit_edge, label %.lr.ph32
+  br i1 %27, label %.preheader._crit_edge, label %.lr.ph35
 
 28:                                               ; preds = %10
   call void @_ZN14AttachListener12pd_detachallEv() #8
   br label %37
 
-.lr.ph32:                                         ; preds = %.preheader.preheader, %.preheader
-  %indvars.iv31 = phi i64 [ %indvars.iv.next, %.preheader ], [ 0, %.preheader.preheader ]
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv31, 1
+.lr.ph35:                                         ; preds = %.preheader.preheader, %.preheader
+  %indvars.iv34 = phi i64 [ %indvars.iv.next, %.preheader ], [ 0, %.preheader.preheader ]
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv34, 1
   %exitcond = icmp eq i64 %indvars.iv.next, 10
   br i1 %exitcond, label %36, label %.preheader, !llvm.loop !6
 
-.preheader:                                       ; preds = %.lr.ph32
+.preheader:                                       ; preds = %.lr.ph35
   %29 = getelementptr inbounds nuw [11 x %struct.AttachOperationFunctionInfo], ptr @_ZL5funcs, i64 0, i64 %indvars.iv.next
   %30 = load ptr, ptr %29, align 16
   %31 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %23, ptr noundef nonnull dereferenceable(1) %30) #9
   %32 = icmp eq i32 %31, 0
-  br i1 %32, label %.preheader._crit_edge, label %.lr.ph32, !llvm.loop !6
+  br i1 %32, label %.preheader._crit_edge, label %.lr.ph35, !llvm.loop !6
 
 .preheader._crit_edge:                            ; preds = %.preheader, %.preheader.preheader
   %.lcssa = phi ptr [ @_ZL5funcs, %.preheader.preheader ], [ %29, %.preheader ]
@@ -212,7 +212,7 @@ define hidden void @_ZN20AttachListenerThread12thread_entryEP10JavaThreadS1_(ptr
   %35 = call noundef i32 %34(ptr noundef nonnull %11, ptr noundef nonnull %3) #8
   br label %37
 
-36:                                               ; preds = %.lr.ph32
+36:                                               ; preds = %.lr.ph35
   call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull @.str, ptr noundef nonnull %23) #8
   br label %37
 

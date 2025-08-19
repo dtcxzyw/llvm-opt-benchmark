@@ -5657,16 +5657,16 @@ _ZSt6copy_nIPSt4bytemS1_ET1_T_T0_S2_.exit:        ; preds = %._ZSt6copy_nIPSt4by
 
 31:                                               ; preds = %_ZSt6copy_nIPSt4bytemS1_ET1_T_T0_S2_.exit.thread, %_ZSt6copy_nIPSt4bytemS1_ET1_T_T0_S2_.exit
   %32 = phi ptr [ %26, %_ZSt6copy_nIPSt4bytemS1_ET1_T_T0_S2_.exit.thread ], [ %29, %_ZSt6copy_nIPSt4bytemS1_ET1_T_T0_S2_.exit ]
-  %.015222528 = phi ptr [ %12, %_ZSt6copy_nIPSt4bytemS1_ET1_T_T0_S2_.exit.thread ], [ %.0152225, %_ZSt6copy_nIPSt4bytemS1_ET1_T_T0_S2_.exit ]
+  %.015222531 = phi ptr [ %12, %_ZSt6copy_nIPSt4bytemS1_ET1_T_T0_S2_.exit.thread ], [ %.0152225, %_ZSt6copy_nIPSt4bytemS1_ET1_T_T0_S2_.exit ]
   %33 = phi i64 [ 0, %_ZSt6copy_nIPSt4bytemS1_ET1_T_T0_S2_.exit.thread ], [ %28, %_ZSt6copy_nIPSt4bytemS1_ET1_T_T0_S2_.exit ]
   %34 = sub i64 %1, %33
-  %35 = getelementptr inbounds nuw i8, ptr %.015222528, i64 %33
+  %35 = getelementptr inbounds nuw i8, ptr %.015222531, i64 %33
   call void @llvm.memset.p0.i64(ptr align 1 %35, i8 %2, i64 %34, i1 false)
   br label %_ZSt6fill_nIPSt4bytemS0_ET_S2_T0_RKT1_.exit
 
 _ZSt6fill_nIPSt4bytemS0_ET_S2_T0_RKT1_.exit:      ; preds = %_ZSt6copy_nIPSt4bytemS1_ET1_T_T0_S2_.exit, %31
   %36 = phi ptr [ %29, %_ZSt6copy_nIPSt4bytemS1_ET1_T_T0_S2_.exit ], [ %32, %31 ]
-  %.015222529 = phi ptr [ %.0152225, %_ZSt6copy_nIPSt4bytemS1_ET1_T_T0_S2_.exit ], [ %.015222528, %31 ]
+  %.015222532 = phi ptr [ %.0152225, %_ZSt6copy_nIPSt4bytemS1_ET1_T_T0_S2_.exit ], [ %.015222531, %31 ]
   br i1 %.not, label %37, label %39
 
 37:                                               ; preds = %_ZSt6fill_nIPSt4bytemS0_ET_S2_T0_RKT1_.exit
@@ -5676,7 +5676,7 @@ _ZSt6fill_nIPSt4bytemS0_ET_S2_T0_RKT1_.exit:      ; preds = %_ZSt6copy_nIPSt4byt
   br label %39
 
 39:                                               ; preds = %37, %_ZSt6fill_nIPSt4bytemS0_ET_S2_T0_RKT1_.exit
-  store ptr %.015222529, ptr %6, align 8, !tbaa !180
+  store ptr %.015222532, ptr %6, align 8, !tbaa !180
   store i64 %1, ptr %36, align 8, !tbaa !182
   br label %40
 

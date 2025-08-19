@@ -1736,9 +1736,9 @@ define hidden void @_ZN5uu_ls5dired9add_total17hca5aad377567ee2fE(ptr noalias no
   br label %_ZN5uu_ls5dired29get_offset_from_previous_line17h75ae77b303ee5190E.llvm.10078391086421553218.exit
 
 _ZN5uu_ls5dired29get_offset_from_previous_line17h75ae77b303ee5190E.llvm.10078391086421553218.exit: ; preds = %2, %9, %6
-  %.sink3 = phi i64 [ %15, %9 ], [ 0, %6 ], [ %4, %2 ]
+  %.sink4 = phi i64 [ %15, %9 ], [ 0, %6 ], [ %4, %2 ]
   %16 = add i64 %1, 2
-  %17 = add i64 %16, %.sink3
+  %17 = add i64 %16, %.sink4
   store i64 %17, ptr %3, align 8
   ret void
 }

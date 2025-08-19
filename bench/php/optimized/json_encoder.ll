@@ -2789,21 +2789,21 @@ smart_str_appendc_ex.exit354.sink.split:          ; preds = %306, %308, %.crited
   br label %smart_str_appendc_ex.exit354
 
 smart_str_appendc_ex.exit354:                     ; preds = %smart_str_appendc_ex.exit354.sink.split, %308, %300
-  %.sink661 = phi ptr [ %299, %300 ], [ %307, %308 ], [ %.pre613, %smart_str_appendc_ex.exit354.sink.split ]
-  %.1.i.i358.sink660 = phi i64 [ %303, %300 ], [ %311, %308 ], [ %.0.i.i357.sink, %smart_str_appendc_ex.exit354.sink.split ]
+  %.sink747 = phi ptr [ %299, %300 ], [ %307, %308 ], [ %.pre613, %smart_str_appendc_ex.exit354.sink.split ]
+  %.1.i.i358.sink746 = phi i64 [ %303, %300 ], [ %311, %308 ], [ %.0.i.i357.sink, %smart_str_appendc_ex.exit354.sink.split ]
   %.sink = phi i8 [ 91, %300 ], [ 123, %308 ], [ %.sink.ph, %smart_str_appendc_ex.exit354.sink.split ]
   %.0247510533 = phi ptr [ %.0247510535, %300 ], [ %.0247510534, %308 ], [ %.0247510533.ph, %smart_str_appendc_ex.exit354.sink.split ]
   %.0242513530 = phi ptr [ %.0242513532, %300 ], [ %.0242513531, %308 ], [ %.0242513530.ph, %smart_str_appendc_ex.exit354.sink.split ]
   %.0241515527 = phi ptr [ %.0241515529, %300 ], [ %.0241515528, %308 ], [ %.0241515527.ph, %smart_str_appendc_ex.exit354.sink.split ]
   %.0218517524 = phi i1 [ true, %300 ], [ false, %308 ], [ %.0218517524.ph, %smart_str_appendc_ex.exit354.sink.split ]
   %.not272519521 = phi i1 [ %.not272519523, %300 ], [ %.not272519522, %308 ], [ %.not272519521.ph, %smart_str_appendc_ex.exit354.sink.split ]
-  %314 = getelementptr inbounds nuw i8, ptr %.sink661, i64 24
-  %315 = add i64 %.1.i.i358.sink660, -1
+  %314 = getelementptr inbounds nuw i8, ptr %.sink747, i64 24
+  %315 = add i64 %.1.i.i358.sink746, -1
   %316 = getelementptr inbounds nuw [1 x i8], ptr %314, i64 0, i64 %315
   store i8 %.sink, ptr %316, align 1, !tbaa !18
   %317 = load ptr, ptr %0, align 8, !tbaa !4
   %318 = getelementptr inbounds nuw i8, ptr %317, i64 16
-  store i64 %.1.i.i358.sink660, ptr %318, align 8, !tbaa !12
+  store i64 %.1.i.i358.sink746, ptr %318, align 8, !tbaa !12
   %319 = load i32, ptr %3, align 4, !tbaa !94
   %320 = add nsw i32 %319, 1
   store i32 %320, ptr %3, align 4, !tbaa !94
@@ -3325,14 +3325,14 @@ php_json_pretty_print_indent.exit467:             ; preds = %533
   br i1 %.not.i.i375, label %567, label %php_json_pretty_print_indent.exit467.php_json_pretty_print_indent.exit467.thread_crit_edge, !prof !111
 
 php_json_pretty_print_indent.exit467.php_json_pretty_print_indent.exit467.thread_crit_edge: ; preds = %smart_str_appendl_ex.exit.i465, %php_json_pretty_print_indent.exit467
-  %.pr539652 = phi ptr [ %.pr539.pre, %php_json_pretty_print_indent.exit467 ], [ %558, %smart_str_appendl_ex.exit.i465 ]
-  %.phi.trans.insert621 = getelementptr inbounds nuw i8, ptr %.pr539652, i64 16
+  %.pr539738 = phi ptr [ %.pr539.pre, %php_json_pretty_print_indent.exit467 ], [ %558, %smart_str_appendl_ex.exit.i465 ]
+  %.phi.trans.insert621 = getelementptr inbounds nuw i8, ptr %.pr539738, i64 16
   %.pre622 = load i64, ptr %.phi.trans.insert621, align 8, !tbaa !12
   br label %php_json_pretty_print_indent.exit467.thread
 
 php_json_pretty_print_indent.exit467.thread:      ; preds = %php_json_pretty_print_indent.exit467.php_json_pretty_print_indent.exit467.thread_crit_edge, %.preheader.i455
   %563 = phi i64 [ %.pre622, %php_json_pretty_print_indent.exit467.php_json_pretty_print_indent.exit467.thread_crit_edge ], [ %.1.i.i.i452, %.preheader.i455 ]
-  %564 = phi ptr [ %.pr539652, %php_json_pretty_print_indent.exit467.php_json_pretty_print_indent.exit467.thread_crit_edge ], [ %545, %.preheader.i455 ]
+  %564 = phi ptr [ %.pr539738, %php_json_pretty_print_indent.exit467.php_json_pretty_print_indent.exit467.thread_crit_edge ], [ %545, %.preheader.i455 ]
   %565 = add i64 %563, 1
   %566 = load i64, ptr %332, align 8, !tbaa !16
   %.not12.i.i376 = icmp ult i64 %565, %566
@@ -3737,22 +3737,22 @@ php_json_pretty_print_indent.exit497:             ; preds = %smart_str_appendl_e
 
 smart_str_appendc_ex.exit394.sink.split:          ; preds = %725, %726, %718, %719
   %.0.i.i397.sink = phi i64 [ 1, %718 ], [ %722, %719 ], [ 1, %725 ], [ %729, %726 ]
-  %.sink664.ph = phi i8 [ 93, %718 ], [ 93, %719 ], [ 125, %725 ], [ 125, %726 ]
+  %.sink750.ph = phi i8 [ 93, %718 ], [ 93, %719 ], [ 125, %725 ], [ 125, %726 ]
   call void @smart_str_erealloc(ptr noundef nonnull %0, i64 noundef %.0.i.i397.sink) #9
   %.pre632 = load ptr, ptr %0, align 8, !tbaa !4
   br label %smart_str_appendc_ex.exit394
 
 smart_str_appendc_ex.exit394:                     ; preds = %smart_str_appendc_ex.exit394.sink.split, %726, %719
-  %.sink669 = phi ptr [ %717, %719 ], [ %717, %726 ], [ %.pre632, %smart_str_appendc_ex.exit394.sink.split ]
-  %.1.i.i393.sink668 = phi i64 [ %722, %719 ], [ %729, %726 ], [ %.0.i.i397.sink, %smart_str_appendc_ex.exit394.sink.split ]
-  %.sink664 = phi i8 [ 93, %719 ], [ 125, %726 ], [ %.sink664.ph, %smart_str_appendc_ex.exit394.sink.split ]
-  %732 = getelementptr inbounds nuw i8, ptr %.sink669, i64 24
-  %733 = add i64 %.1.i.i393.sink668, -1
+  %.sink755 = phi ptr [ %717, %719 ], [ %717, %726 ], [ %.pre632, %smart_str_appendc_ex.exit394.sink.split ]
+  %.1.i.i393.sink754 = phi i64 [ %722, %719 ], [ %729, %726 ], [ %.0.i.i397.sink, %smart_str_appendc_ex.exit394.sink.split ]
+  %.sink750 = phi i8 [ 93, %719 ], [ 125, %726 ], [ %.sink750.ph, %smart_str_appendc_ex.exit394.sink.split ]
+  %732 = getelementptr inbounds nuw i8, ptr %.sink755, i64 24
+  %733 = add i64 %.1.i.i393.sink754, -1
   %734 = getelementptr inbounds nuw [1 x i8], ptr %732, i64 0, i64 %733
-  store i8 %.sink664, ptr %734, align 1, !tbaa !18
+  store i8 %.sink750, ptr %734, align 1, !tbaa !18
   %735 = load ptr, ptr %0, align 8, !tbaa !4
   %736 = getelementptr inbounds nuw i8, ptr %735, i64 16
-  store i64 %.1.i.i393.sink668, ptr %736, align 8, !tbaa !12
+  store i64 %.1.i.i393.sink754, ptr %736, align 8, !tbaa !12
   %.not298 = icmp eq ptr %.0242513530, null
   br i1 %.not298, label %zend_array_release.exit, label %737
 

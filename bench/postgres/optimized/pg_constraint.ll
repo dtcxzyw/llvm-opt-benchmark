@@ -1869,8 +1869,8 @@ define dso_local ptr @get_relation_constraint_attnos(i32 noundef %0, ptr noundef
 
 44:                                               ; preds = %38
   %45 = getelementptr inbounds nuw i8, ptr %28, i64 24
-  %.not44 = icmp eq i32 %30, 0
-  br i1 %.not44, label %.loopexit, label %.lr.ph.preheader
+  %.not45 = icmp eq i32 %30, 0
+  br i1 %.not45, label %.loopexit, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %44
   %wide.trip.count = zext nneg i32 %30 to i64
@@ -2215,8 +2215,8 @@ define dso_local ptr @get_primary_key_attnos(i32 noundef %0, i1 noundef zeroext 
 
 55:                                               ; preds = %49
   %56 = getelementptr inbounds nuw i8, ptr %39, i64 24
-  %.not70 = icmp eq i32 %41, 0
-  br i1 %.not70, label %._crit_edge, label %.lr.ph57.preheader
+  %.not72 = icmp eq i32 %41, 0
+  br i1 %.not72, label %._crit_edge, label %.lr.ph57.preheader
 
 .lr.ph57.preheader:                               ; preds = %55
   %wide.trip.count = zext nneg i32 %41 to i64

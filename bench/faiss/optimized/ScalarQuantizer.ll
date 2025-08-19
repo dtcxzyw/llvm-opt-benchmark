@@ -1235,7 +1235,7 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIf
   br i1 %.not.i22.i.i.i, label %_ZNSt6vectorIfSaIfEED2Ev.exit, label %.lr.ph.i16.i.i.i, !llvm.loop !48
 
 _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEENS0_5__ops14_Val_less_iterEEvT_T0_.exit.i19.i.i.i, %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEENS0_5__ops14_Val_less_iterEEvT_T0_.exit.i7.i.i.i, %101, %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEENS0_5__ops15_Iter_less_iterEEvT_S9_T0_.exit.i.i.i
-  %117 = sitofp i64 %2 to float
+  %117 = uitofp nneg i64 %2 to float
   %118 = fmul float %1, %117
   %119 = fptosi float %118 to i32
   %spec.store.select = tail call i32 @llvm.smax.i32(i32 %119, i32 0)
@@ -1589,13 +1589,13 @@ define linkonce_odr void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef 
 19:                                               ; preds = %3
   store float 0.000000e+00, ptr %5, align 4, !tbaa !23
   %20 = getelementptr i8, ptr %5, i64 4
-  %21 = add i64 %1, -1
+  %21 = add nsw i64 %1, -1
   %22 = icmp eq i64 %21, 0
   br i1 %22, label %_ZSt27__uninitialized_default_n_aIPfmfET_S1_T0_RSaIT1_E.exit, label %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i
 
 _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
-  %23 = shl i64 %1, 2
-  %24 = add i64 %23, -4
+  %23 = shl nuw nsw i64 %1, 2
+  %24 = add nsw i64 %23, -4
   tail call void @llvm.memset.p0.i64(ptr align 4 %20, i8 0, i64 %24, i1 false), !tbaa !23
   %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 2
   %25 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
@@ -1907,7 +1907,7 @@ define linkonce_odr void @_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPfSt6
 
 .split.preheader:                                 ; preds = %9
   %17 = or disjoint i64 %10, 1
-  %18 = getelementptr inbounds float, ptr %0, i64 %17
+  %18 = getelementptr inbounds nuw float, ptr %0, i64 %17
   %19 = getelementptr inbounds nuw float, ptr %0, i64 %16
   br label %.split
 
@@ -1944,20 +1944,20 @@ define linkonce_odr void @_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPfSt6
   %.019.i.i.us = phi i64 [ %.0920.i.i.us, %39 ], [ %spec.select.i.us, %._crit_edge.i.us ]
   %.0920.in.i.i.us = add nsw i64 %.019.i.i.us, -1
   %.0920.i.i.us = sdiv i64 %.0920.in.i.i.us, 2
-  %36 = getelementptr inbounds float, ptr %0, i64 %.0920.i.i.us
+  %36 = getelementptr inbounds nuw float, ptr %0, i64 %.0920.i.i.us
   %37 = load float, ptr %36, align 4, !tbaa !23
   %38 = fcmp olt float %37, %21
   br i1 %38, label %39, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElfNS0_5__ops15_Iter_less_iterEEvT_T0_SA_T1_T2_.exit.us
 
 39:                                               ; preds = %.lr.ph.i.i.us
-  %40 = getelementptr inbounds float, ptr %0, i64 %.019.i.i.us
+  %40 = getelementptr inbounds nuw float, ptr %0, i64 %.019.i.i.us
   store float %37, ptr %40, align 4, !tbaa !23
   %41 = icmp sgt i64 %.0920.i.i.us, %.07.us
   br i1 %41, label %.lr.ph.i.i.us, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElfNS0_5__ops15_Iter_less_iterEEvT_T0_SA_T1_T2_.exit.us, !llvm.loop !60
 
 _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElfNS0_5__ops15_Iter_less_iterEEvT_T0_SA_T1_T2_.exit.us: ; preds = %.lr.ph.i.i.us, %39, %.split.us, %._crit_edge.i.us
   %.0.lcssa.i.i.us = phi i64 [ %spec.select.i.us, %._crit_edge.i.us ], [ %.07.us, %.split.us ], [ %.0920.i.i.us, %39 ], [ %.019.i.i.us, %.lr.ph.i.i.us ]
-  %42 = getelementptr inbounds float, ptr %0, i64 %.0.lcssa.i.i.us
+  %42 = getelementptr inbounds nuw float, ptr %0, i64 %.0.lcssa.i.i.us
   store float %21, ptr %42, align 4, !tbaa !23
   %.not.us = icmp eq i64 %.07.us, 0
   %43 = add nsw i64 %.07.us, -1
@@ -2007,20 +2007,20 @@ _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElfNS0_5_
   %.019.i.i = phi i64 [ %.0920.i.i, %67 ], [ %.1.i, %62 ]
   %.0920.in.i.i = add nsw i64 %.019.i.i, -1
   %.0920.i.i = sdiv i64 %.0920.in.i.i, 2
-  %64 = getelementptr inbounds float, ptr %0, i64 %.0920.i.i
+  %64 = getelementptr inbounds nuw float, ptr %0, i64 %.0920.i.i
   %65 = load float, ptr %64, align 4, !tbaa !23
   %66 = fcmp olt float %65, %45
   br i1 %66, label %67, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElfNS0_5__ops15_Iter_less_iterEEvT_T0_SA_T1_T2_.exit
 
 67:                                               ; preds = %.lr.ph.i.i
-  %68 = getelementptr inbounds float, ptr %0, i64 %.019.i.i
+  %68 = getelementptr inbounds nuw float, ptr %0, i64 %.019.i.i
   store float %65, ptr %68, align 4, !tbaa !23
   %69 = icmp sgt i64 %.0920.i.i, %.07
   br i1 %69, label %.lr.ph.i.i, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElfNS0_5__ops15_Iter_less_iterEEvT_T0_SA_T1_T2_.exit, !llvm.loop !60
 
 _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIfEEEElfNS0_5__ops15_Iter_less_iterEEvT_T0_SA_T1_T2_.exit: ; preds = %.lr.ph.i.i, %67, %62
   %.0.lcssa.i.i = phi i64 [ %.1.i, %62 ], [ %.0920.i.i, %67 ], [ %.019.i.i, %.lr.ph.i.i ]
-  %70 = getelementptr inbounds float, ptr %0, i64 %.0.lcssa.i.i
+  %70 = getelementptr inbounds nuw float, ptr %0, i64 %.0.lcssa.i.i
   store float %45, ptr %70, align 4, !tbaa !23
   %.not = icmp eq i64 %.07, 0
   %71 = add nsw i64 %.07, -1
@@ -3193,8 +3193,8 @@ define internal void @_ZNK5faiss15ScalarQuantizer13compute_codesEPKfPhm.omp_outl
   %17 = call i64 @llvm.umin.i64(i64 %16, i64 %14)
   store i64 %17, ptr %9, align 8, !tbaa !24
   %18 = load i64, ptr %8, align 8, !tbaa !24
-  %.not17 = icmp ugt i64 %18, %17
-  br i1 %.not17, label %._crit_edge, label %.lr.ph
+  %.not19 = icmp ugt i64 %18, %17
+  br i1 %.not19, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %13
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -3272,8 +3272,8 @@ define internal void @_ZNK5faiss15ScalarQuantizer6decodeEPKhPfm.omp_outlined(ptr
   %17 = call i64 @llvm.umin.i64(i64 %16, i64 %14)
   store i64 %17, ptr %9, align 8, !tbaa !24
   %18 = load i64, ptr %8, align 8, !tbaa !24
-  %.not17 = icmp ugt i64 %18, %17
-  br i1 %.not17, label %._crit_edge, label %.lr.ph
+  %.not19 = icmp ugt i64 %18, %17
+  br i1 %.not19, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %13
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -9043,12 +9043,12 @@ _ZN5faiss12_GLOBAL__N_125sel12_InvertedListScannerINS0_12SimilarityIPILi1EEENS0_
   br label %_ZN5faiss12_GLOBAL__N_124sel2_InvertedListScannerINS0_10DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityIPILi1EEELi1EEEEEPNS_19InvertedListScannerEPKNS_15ScalarQuantizerEPKNS_5IndexEbPKNS_10IDSelectorEb.exit.i.i
 
 _ZN5faiss12_GLOBAL__N_124sel2_InvertedListScannerINS0_10DCTemplateINS0_13QuantizerFP16ILi1EEENS0_12SimilarityIPILi1EEELi1EEEEEPNS_19InvertedListScannerEPKNS_15ScalarQuantizerEPKNS_5IndexEbPKNS_10IDSelectorEb.exit.i.i: ; preds = %1011, %1010, %1009
-  %.sink1.i.i.i = phi i8 [ %1018, %1011 ], [ 0, %1010 ], [ 1, %1009 ]
+  %.sink2.i.i.i = phi i8 [ %1018, %1011 ], [ 0, %1010 ], [ 1, %1009 ]
   %1021 = getelementptr inbounds nuw i8, ptr %994, i64 32
   %1022 = getelementptr inbounds nuw i8, ptr %994, i64 24
   %1023 = getelementptr inbounds nuw i8, ptr %994, i64 17
   %1024 = getelementptr inbounds nuw i8, ptr %994, i64 16
-  store i8 %.sink1.i.i.i, ptr %1023, align 1, !tbaa !185
+  store i8 %.sink2.i.i.i, ptr %1023, align 1, !tbaa !185
   store ptr %4, ptr %1022, align 8, !tbaa !191
   store i64 %998, ptr %1021, align 8, !tbaa !192
   store i8 1, ptr %1024, align 8, !tbaa !184
@@ -9118,12 +9118,12 @@ _ZN5faiss12_GLOBAL__N_124sel2_InvertedListScannerINS0_10DCTemplateINS0_13Quantiz
   br label %_ZN5faiss12_GLOBAL__N_124sel2_InvertedListScannerINS0_10DCTemplateINS0_13QuantizerBF16ILi1EEENS0_12SimilarityIPILi1EEELi1EEEEEPNS_19InvertedListScannerEPKNS_15ScalarQuantizerEPKNS_5IndexEbPKNS_10IDSelectorEb.exit.i.i
 
 _ZN5faiss12_GLOBAL__N_124sel2_InvertedListScannerINS0_10DCTemplateINS0_13QuantizerBF16ILi1EEENS0_12SimilarityIPILi1EEELi1EEEEEPNS_19InvertedListScannerEPKNS_15ScalarQuantizerEPKNS_5IndexEbPKNS_10IDSelectorEb.exit.i.i: ; preds = %1043, %1042, %1041
-  %.sink1.i79.i.i = phi i8 [ %1050, %1043 ], [ 0, %1042 ], [ 1, %1041 ]
+  %.sink2.i79.i.i = phi i8 [ %1050, %1043 ], [ 0, %1042 ], [ 1, %1041 ]
   %1053 = getelementptr inbounds nuw i8, ptr %1026, i64 32
   %1054 = getelementptr inbounds nuw i8, ptr %1026, i64 24
   %1055 = getelementptr inbounds nuw i8, ptr %1026, i64 17
   %1056 = getelementptr inbounds nuw i8, ptr %1026, i64 16
-  store i8 %.sink1.i79.i.i, ptr %1055, align 1, !tbaa !185
+  store i8 %.sink2.i79.i.i, ptr %1055, align 1, !tbaa !185
   store ptr %4, ptr %1054, align 8, !tbaa !191
   store i64 %1030, ptr %1053, align 8, !tbaa !192
   store i8 1, ptr %1056, align 8, !tbaa !184
@@ -9193,12 +9193,12 @@ _ZN5faiss12_GLOBAL__N_124sel2_InvertedListScannerINS0_10DCTemplateINS0_13Quantiz
   br label %_ZN5faiss12_GLOBAL__N_124sel2_InvertedListScannerINS0_10DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityIPILi1EEELi1EEEEEPNS_19InvertedListScannerEPKNS_15ScalarQuantizerEPKNS_5IndexEbPKNS_10IDSelectorEb.exit.i.i
 
 _ZN5faiss12_GLOBAL__N_124sel2_InvertedListScannerINS0_10DCTemplateINS0_19Quantizer8bitDirectILi1EEENS0_12SimilarityIPILi1EEELi1EEEEEPNS_19InvertedListScannerEPKNS_15ScalarQuantizerEPKNS_5IndexEbPKNS_10IDSelectorEb.exit.i.i: ; preds = %1075, %1074, %1073
-  %.sink1.i84.i.i = phi i8 [ %1082, %1075 ], [ 0, %1074 ], [ 1, %1073 ]
+  %.sink2.i84.i.i = phi i8 [ %1082, %1075 ], [ 0, %1074 ], [ 1, %1073 ]
   %1085 = getelementptr inbounds nuw i8, ptr %1058, i64 32
   %1086 = getelementptr inbounds nuw i8, ptr %1058, i64 24
   %1087 = getelementptr inbounds nuw i8, ptr %1058, i64 17
   %1088 = getelementptr inbounds nuw i8, ptr %1058, i64 16
-  store i8 %.sink1.i84.i.i, ptr %1087, align 1, !tbaa !185
+  store i8 %.sink2.i84.i.i, ptr %1087, align 1, !tbaa !185
   store ptr %4, ptr %1086, align 8, !tbaa !191
   store i64 %1062, ptr %1085, align 8, !tbaa !192
   store i8 1, ptr %1088, align 8, !tbaa !184
@@ -9268,12 +9268,12 @@ _ZN5faiss12_GLOBAL__N_124sel2_InvertedListScannerINS0_10DCTemplateINS0_19Quantiz
   br label %_ZN5faiss12_GLOBAL__N_124sel2_InvertedListScannerINS0_10DCTemplateINS0_25Quantizer8bitDirectSignedILi1EEENS0_12SimilarityIPILi1EEELi1EEEEEPNS_19InvertedListScannerEPKNS_15ScalarQuantizerEPKNS_5IndexEbPKNS_10IDSelectorEb.exit.i.i
 
 _ZN5faiss12_GLOBAL__N_124sel2_InvertedListScannerINS0_10DCTemplateINS0_25Quantizer8bitDirectSignedILi1EEENS0_12SimilarityIPILi1EEELi1EEEEEPNS_19InvertedListScannerEPKNS_15ScalarQuantizerEPKNS_5IndexEbPKNS_10IDSelectorEb.exit.i.i: ; preds = %1107, %1106, %1105
-  %.sink1.i89.i.i = phi i8 [ %1114, %1107 ], [ 0, %1106 ], [ 1, %1105 ]
+  %.sink2.i89.i.i = phi i8 [ %1114, %1107 ], [ 0, %1106 ], [ 1, %1105 ]
   %1117 = getelementptr inbounds nuw i8, ptr %1090, i64 32
   %1118 = getelementptr inbounds nuw i8, ptr %1090, i64 24
   %1119 = getelementptr inbounds nuw i8, ptr %1090, i64 17
   %1120 = getelementptr inbounds nuw i8, ptr %1090, i64 16
-  store i8 %.sink1.i89.i.i, ptr %1119, align 1, !tbaa !185
+  store i8 %.sink2.i89.i.i, ptr %1119, align 1, !tbaa !185
   store ptr %4, ptr %1118, align 8, !tbaa !191
   store i64 %1094, ptr %1117, align 8, !tbaa !192
   store i8 1, ptr %1120, align 8, !tbaa !184
@@ -9633,11 +9633,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i:          ; preds = %79
   br i1 %83, label %_ZN5faiss19maxheap_replace_topIfEEvmPT_PlS1_l.exit, label %84
 
 84:                                               ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i
-  %.sink63.i.i = phi float [ %72, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i ], [ %63, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i ]
+  %.sink71.i.i = phi float [ %72, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i ], [ %63, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i ]
   %.sink.i.i = phi i64 [ %75, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i ], [ %65, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i ]
   %.1.i.i = phi i64 [ %57, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i ], [ %56, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i ]
   %85 = getelementptr inbounds nuw float, ptr %15, i64 %.056.i.i
-  store float %.sink63.i.i, ptr %85, align 4, !tbaa !23
+  store float %.sink71.i.i, ptr %85, align 4, !tbaa !23
   %86 = getelementptr inbounds nuw i64, ptr %16, i64 %.056.i.i
   store i64 %.sink.i.i, ptr %86, align 8, !tbaa !24
   %87 = shl i64 %.1.i.i, 1
@@ -10043,11 +10043,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i:          ; preds = %80
   br i1 %84, label %_ZN5faiss19maxheap_replace_topIfEEvmPT_PlS1_l.exit, label %85
 
 85:                                               ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i
-  %.sink63.i.i = phi float [ %73, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i ], [ %64, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i ]
+  %.sink71.i.i = phi float [ %73, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i ], [ %64, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i ]
   %.sink.i.i = phi i64 [ %76, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i ], [ %66, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i ]
   %.1.i.i = phi i64 [ %58, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i ], [ %57, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i ]
   %86 = getelementptr inbounds nuw float, ptr %15, i64 %.056.i.i
-  store float %.sink63.i.i, ptr %86, align 4, !tbaa !23
+  store float %.sink71.i.i, ptr %86, align 4, !tbaa !23
   %87 = getelementptr inbounds nuw i64, ptr %16, i64 %.056.i.i
   store i64 %.sink.i.i, ptr %87, align 8, !tbaa !24
   %88 = shl i64 %.1.i.i, 1
@@ -10554,11 +10554,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i:          ; preds = %122
   br i1 %126, label %_ZN5faiss19maxheap_replace_topIfEEvmPT_PlS1_l.exit.loopexit, label %127
 
 127:                                              ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i
-  %.sink63.i.i = phi float [ %115, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i ], [ %106, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i ]
+  %.sink71.i.i = phi float [ %115, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i ], [ %106, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i ]
   %.sink.i.i = phi i64 [ %118, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i ], [ %108, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i ]
   %.1.i.i = phi i64 [ %100, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i ], [ %99, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i ]
   %128 = getelementptr inbounds nuw float, ptr %17, i64 %.056.i.i
-  store float %.sink63.i.i, ptr %128, align 4, !tbaa !23
+  store float %.sink71.i.i, ptr %128, align 4, !tbaa !23
   %129 = getelementptr inbounds nuw i64, ptr %18, i64 %.056.i.i
   store i64 %.sink.i.i, ptr %129, align 8, !tbaa !24
   %130 = shl i64 %.1.i.i, 1
@@ -10961,11 +10961,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i:          ; preds = %86
   br i1 %90, label %_ZN5faiss19maxheap_replace_topIfEEvmPT_PlS1_l.exit, label %91
 
 91:                                               ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i
-  %.sink63.i.i = phi float [ %79, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i ], [ %70, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i ]
+  %.sink71.i.i = phi float [ %79, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i ], [ %70, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i ]
   %.sink.i.i = phi i64 [ %82, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i ], [ %72, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i ]
   %.1.i.i = phi i64 [ %64, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i ], [ %63, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i ]
   %92 = getelementptr inbounds nuw float, ptr %15, i64 %.056.i.i
-  store float %.sink63.i.i, ptr %92, align 4, !tbaa !23
+  store float %.sink71.i.i, ptr %92, align 4, !tbaa !23
   %93 = getelementptr inbounds nuw i64, ptr %16, i64 %.056.i.i
   store i64 %.sink.i.i, ptr %93, align 8, !tbaa !24
   %94 = shl i64 %.1.i.i, 1
@@ -11383,11 +11383,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i:          ; preds = %87
   br i1 %91, label %_ZN5faiss19maxheap_replace_topIfEEvmPT_PlS1_l.exit, label %92
 
 92:                                               ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i
-  %.sink63.i.i = phi float [ %80, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i ], [ %71, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i ]
+  %.sink71.i.i = phi float [ %80, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i ], [ %71, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i ]
   %.sink.i.i = phi i64 [ %83, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i ], [ %73, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i ]
   %.1.i.i = phi i64 [ %65, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i ], [ %64, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i ]
   %93 = getelementptr inbounds nuw float, ptr %15, i64 %.056.i.i
-  store float %.sink63.i.i, ptr %93, align 4, !tbaa !23
+  store float %.sink71.i.i, ptr %93, align 4, !tbaa !23
   %94 = getelementptr inbounds nuw i64, ptr %16, i64 %.056.i.i
   store i64 %.sink.i.i, ptr %94, align 8, !tbaa !24
   %95 = shl i64 %.1.i.i, 1
@@ -11797,11 +11797,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i:          ; preds = %80
   br i1 %84, label %_ZN5faiss19maxheap_replace_topIfEEvmPT_PlS1_l.exit, label %85
 
 85:                                               ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i
-  %.sink63.i.i = phi float [ %73, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i ], [ %64, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i ]
+  %.sink71.i.i = phi float [ %73, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i ], [ %64, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i ]
   %.sink.i.i = phi i64 [ %76, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i ], [ %66, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i ]
   %.1.i.i = phi i64 [ %58, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i ], [ %57, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i ]
   %86 = getelementptr inbounds nuw float, ptr %17, i64 %.056.i.i
-  store float %.sink63.i.i, ptr %86, align 4, !tbaa !23
+  store float %.sink71.i.i, ptr %86, align 4, !tbaa !23
   %87 = getelementptr inbounds nuw i64, ptr %18, i64 %.056.i.i
   store i64 %.sink.i.i, ptr %87, align 8, !tbaa !24
   %88 = shl i64 %.1.i.i, 1
@@ -12206,11 +12206,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i:          ; preds = %83
   br i1 %87, label %_ZN5faiss19maxheap_replace_topIfEEvmPT_PlS1_l.exit, label %88
 
 88:                                               ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i
-  %.sink63.i.i = phi float [ %76, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i ], [ %67, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i ]
+  %.sink71.i.i = phi float [ %76, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i ], [ %67, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i ]
   %.sink.i.i = phi i64 [ %79, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i ], [ %69, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i ]
   %.1.i.i = phi i64 [ %61, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i ], [ %60, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i ]
   %89 = getelementptr inbounds nuw float, ptr %15, i64 %.056.i.i
-  store float %.sink63.i.i, ptr %89, align 4, !tbaa !23
+  store float %.sink71.i.i, ptr %89, align 4, !tbaa !23
   %90 = getelementptr inbounds nuw i64, ptr %16, i64 %.056.i.i
   store i64 %.sink.i.i, ptr %90, align 8, !tbaa !24
   %91 = shl i64 %.1.i.i, 1
@@ -12622,11 +12622,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i:          ; preds = %84
   br i1 %88, label %_ZN5faiss19maxheap_replace_topIfEEvmPT_PlS1_l.exit, label %89
 
 89:                                               ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i
-  %.sink63.i.i = phi float [ %77, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i ], [ %68, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i ]
+  %.sink71.i.i = phi float [ %77, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i ], [ %68, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i ]
   %.sink.i.i = phi i64 [ %80, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i ], [ %70, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i ]
   %.1.i.i = phi i64 [ %62, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i ], [ %61, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i ]
   %90 = getelementptr inbounds nuw float, ptr %15, i64 %.056.i.i
-  store float %.sink63.i.i, ptr %90, align 4, !tbaa !23
+  store float %.sink71.i.i, ptr %90, align 4, !tbaa !23
   %91 = getelementptr inbounds nuw i64, ptr %16, i64 %.056.i.i
   store i64 %.sink.i.i, ptr %91, align 8, !tbaa !24
   %92 = shl i64 %.1.i.i, 1
@@ -13143,11 +13143,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i:          ; preds = %129
   br i1 %133, label %_ZN5faiss19maxheap_replace_topIfEEvmPT_PlS1_l.exit.loopexit, label %134
 
 134:                                              ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i
-  %.sink63.i.i = phi float [ %122, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i ], [ %113, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i ]
+  %.sink71.i.i = phi float [ %122, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i ], [ %113, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i ]
   %.sink.i.i = phi i64 [ %125, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i ], [ %115, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i ]
   %.1.i.i = phi i64 [ %107, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i ], [ %106, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i ]
   %135 = getelementptr inbounds nuw float, ptr %19, i64 %.056.i.i
-  store float %.sink63.i.i, ptr %135, align 4, !tbaa !23
+  store float %.sink71.i.i, ptr %135, align 4, !tbaa !23
   %136 = getelementptr inbounds nuw i64, ptr %20, i64 %.056.i.i
   store i64 %.sink.i.i, ptr %136, align 8, !tbaa !24
   %137 = shl i64 %.1.i.i, 1
@@ -13566,11 +13566,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i:          ; preds = %91
   br i1 %95, label %_ZN5faiss19maxheap_replace_topIfEEvmPT_PlS1_l.exit, label %96
 
 96:                                               ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i
-  %.sink63.i.i = phi float [ %84, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i ], [ %75, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i ]
+  %.sink71.i.i = phi float [ %84, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i ], [ %75, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i ]
   %.sink.i.i = phi i64 [ %87, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i ], [ %77, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i ]
   %.1.i.i = phi i64 [ %69, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i ], [ %68, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i ]
   %97 = getelementptr inbounds nuw float, ptr %15, i64 %.056.i.i
-  store float %.sink63.i.i, ptr %97, align 4, !tbaa !23
+  store float %.sink71.i.i, ptr %97, align 4, !tbaa !23
   %98 = getelementptr inbounds nuw i64, ptr %16, i64 %.056.i.i
   store i64 %.sink.i.i, ptr %98, align 8, !tbaa !24
   %99 = shl i64 %.1.i.i, 1
@@ -14006,11 +14006,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i:          ; preds = %92
   br i1 %96, label %_ZN5faiss19maxheap_replace_topIfEEvmPT_PlS1_l.exit, label %97
 
 97:                                               ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i
-  %.sink63.i.i = phi float [ %85, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i ], [ %76, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i ]
+  %.sink71.i.i = phi float [ %85, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i ], [ %76, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i ]
   %.sink.i.i = phi i64 [ %88, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i ], [ %78, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i ]
   %.1.i.i = phi i64 [ %70, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i ], [ %69, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i ]
   %98 = getelementptr inbounds nuw float, ptr %15, i64 %.056.i.i
-  store float %.sink63.i.i, ptr %98, align 4, !tbaa !23
+  store float %.sink71.i.i, ptr %98, align 4, !tbaa !23
   %99 = getelementptr inbounds nuw i64, ptr %16, i64 %.056.i.i
   store i64 %.sink.i.i, ptr %99, align 8, !tbaa !24
   %100 = shl i64 %.1.i.i, 1
@@ -14435,11 +14435,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i:          ; preds = %84
   br i1 %88, label %_ZN5faiss19maxheap_replace_topIfEEvmPT_PlS1_l.exit, label %89
 
 89:                                               ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i
-  %.sink63.i.i = phi float [ %77, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i ], [ %68, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i ]
+  %.sink71.i.i = phi float [ %77, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i ], [ %68, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i ]
   %.sink.i.i = phi i64 [ %80, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i ], [ %70, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i ]
   %.1.i.i = phi i64 [ %62, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i ], [ %61, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i ]
   %90 = getelementptr inbounds nuw float, ptr %19, i64 %.056.i.i
-  store float %.sink63.i.i, ptr %90, align 4, !tbaa !23
+  store float %.sink71.i.i, ptr %90, align 4, !tbaa !23
   %91 = getelementptr inbounds nuw i64, ptr %20, i64 %.056.i.i
   store i64 %.sink.i.i, ptr %91, align 8, !tbaa !24
   %92 = shl i64 %.1.i.i, 1
@@ -14946,11 +14946,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i:          ; preds = %111
   br i1 %115, label %_ZN5faiss19maxheap_replace_topIfEEvmPT_PlS1_l.exit, label %116
 
 116:                                              ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i
-  %.sink63.i.i = phi float [ %104, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i ], [ %95, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i ]
+  %.sink71.i.i = phi float [ %104, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i ], [ %95, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i ]
   %.sink.i.i = phi i64 [ %107, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i ], [ %97, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i ]
   %.1.i.i = phi i64 [ %89, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i ], [ %88, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i ]
   %117 = getelementptr inbounds nuw float, ptr %15, i64 %.056.i.i
-  store float %.sink63.i.i, ptr %117, align 4, !tbaa !23
+  store float %.sink71.i.i, ptr %117, align 4, !tbaa !23
   %118 = getelementptr inbounds nuw i64, ptr %16, i64 %.056.i.i
   store i64 %.sink.i.i, ptr %118, align 8, !tbaa !24
   %119 = shl i64 %.1.i.i, 1
@@ -15506,11 +15506,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i:          ; preds = %112
   br i1 %116, label %_ZN5faiss19maxheap_replace_topIfEEvmPT_PlS1_l.exit, label %117
 
 117:                                              ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i
-  %.sink63.i.i = phi float [ %105, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i ], [ %96, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i ]
+  %.sink71.i.i = phi float [ %105, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i ], [ %96, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i ]
   %.sink.i.i = phi i64 [ %108, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i ], [ %98, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i ]
   %.1.i.i = phi i64 [ %90, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i ], [ %89, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i ]
   %118 = getelementptr inbounds nuw float, ptr %15, i64 %.056.i.i
-  store float %.sink63.i.i, ptr %118, align 4, !tbaa !23
+  store float %.sink71.i.i, ptr %118, align 4, !tbaa !23
   %119 = getelementptr inbounds nuw i64, ptr %16, i64 %.056.i.i
   store i64 %.sink.i.i, ptr %119, align 8, !tbaa !24
   %120 = shl i64 %.1.i.i, 1
@@ -16058,11 +16058,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i:          ; preds = %105
   br i1 %109, label %_ZN5faiss19maxheap_replace_topIfEEvmPT_PlS1_l.exit, label %110
 
 110:                                              ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i
-  %.sink63.i.i = phi float [ %98, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i ], [ %89, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i ]
+  %.sink71.i.i = phi float [ %98, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i ], [ %89, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i ]
   %.sink.i.i = phi i64 [ %101, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i ], [ %91, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i ]
   %.1.i.i = phi i64 [ %83, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i ], [ %82, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i ]
   %111 = getelementptr inbounds nuw float, ptr %17, i64 %.056.i.i
-  store float %.sink63.i.i, ptr %111, align 4, !tbaa !23
+  store float %.sink71.i.i, ptr %111, align 4, !tbaa !23
   %112 = getelementptr inbounds nuw i64, ptr %18, i64 %.056.i.i
   store i64 %.sink.i.i, ptr %112, align 8, !tbaa !24
   %113 = shl i64 %.1.i.i, 1
@@ -16525,11 +16525,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i:          ; preds = %86
   br i1 %90, label %_ZN5faiss19maxheap_replace_topIfEEvmPT_PlS1_l.exit, label %91
 
 91:                                               ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i
-  %.sink63.i.i = phi float [ %79, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i ], [ %70, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i ]
+  %.sink71.i.i = phi float [ %79, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i ], [ %70, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i ]
   %.sink.i.i = phi i64 [ %82, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i ], [ %72, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i ]
   %.1.i.i = phi i64 [ %64, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i ], [ %63, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i ]
   %92 = getelementptr inbounds nuw float, ptr %13, i64 %.056.i.i
-  store float %.sink63.i.i, ptr %92, align 4, !tbaa !23
+  store float %.sink71.i.i, ptr %92, align 4, !tbaa !23
   %93 = getelementptr inbounds nuw i64, ptr %14, i64 %.056.i.i
   store i64 %.sink.i.i, ptr %93, align 8, !tbaa !24
   %94 = shl i64 %.1.i.i, 1
@@ -16959,11 +16959,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i:          ; preds = %87
   br i1 %91, label %_ZN5faiss19maxheap_replace_topIfEEvmPT_PlS1_l.exit, label %92
 
 92:                                               ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i
-  %.sink63.i.i = phi float [ %80, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i ], [ %71, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i ]
+  %.sink71.i.i = phi float [ %80, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i ], [ %71, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i ]
   %.sink.i.i = phi i64 [ %83, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i ], [ %73, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i ]
   %.1.i.i = phi i64 [ %65, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i ], [ %64, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i ]
   %93 = getelementptr inbounds nuw float, ptr %13, i64 %.056.i.i
-  store float %.sink63.i.i, ptr %93, align 4, !tbaa !23
+  store float %.sink71.i.i, ptr %93, align 4, !tbaa !23
   %94 = getelementptr inbounds nuw i64, ptr %14, i64 %.056.i.i
   store i64 %.sink.i.i, ptr %94, align 8, !tbaa !24
   %95 = shl i64 %.1.i.i, 1
@@ -17382,11 +17382,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i:          ; preds = %80
   br i1 %84, label %_ZN5faiss19maxheap_replace_topIfEEvmPT_PlS1_l.exit, label %85
 
 85:                                               ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i
-  %.sink63.i.i = phi float [ %73, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i ], [ %64, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i ]
+  %.sink71.i.i = phi float [ %73, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i ], [ %64, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i ]
   %.sink.i.i = phi i64 [ %76, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i ], [ %66, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i ]
   %.1.i.i = phi i64 [ %58, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i ], [ %57, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i ]
   %86 = getelementptr inbounds nuw float, ptr %15, i64 %.056.i.i
-  store float %.sink63.i.i, ptr %86, align 4, !tbaa !23
+  store float %.sink71.i.i, ptr %86, align 4, !tbaa !23
   %87 = getelementptr inbounds nuw i64, ptr %16, i64 %.056.i.i
   store i64 %.sink.i.i, ptr %87, align 8, !tbaa !24
   %88 = shl i64 %.1.i.i, 1
@@ -17852,11 +17852,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i:          ; preds = %105
   br i1 %109, label %_ZN5faiss19maxheap_replace_topIfEEvmPT_PlS1_l.exit.loopexit, label %110
 
 110:                                              ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i
-  %.sink63.i.i = phi float [ %98, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i ], [ %89, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i ]
+  %.sink71.i.i = phi float [ %98, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i ], [ %89, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i ]
   %.sink.i.i = phi i64 [ %101, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i ], [ %91, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i ]
   %.1.i.i = phi i64 [ %83, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i ], [ %82, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i ]
   %111 = getelementptr inbounds nuw float, ptr %13, i64 %.056.i.i
-  store float %.sink63.i.i, ptr %111, align 4, !tbaa !23
+  store float %.sink71.i.i, ptr %111, align 4, !tbaa !23
   %112 = getelementptr inbounds nuw i64, ptr %14, i64 %.056.i.i
   store i64 %.sink.i.i, ptr %112, align 8, !tbaa !24
   %113 = shl i64 %.1.i.i, 1
@@ -18317,11 +18317,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i:          ; preds = %107
   br i1 %111, label %_ZN5faiss19maxheap_replace_topIfEEvmPT_PlS1_l.exit.loopexit, label %112
 
 112:                                              ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i
-  %.sink63.i.i = phi float [ %100, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i ], [ %91, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i ]
+  %.sink71.i.i = phi float [ %100, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i ], [ %91, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i ]
   %.sink.i.i = phi i64 [ %103, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i ], [ %93, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i ]
   %.1.i.i = phi i64 [ %85, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i ], [ %84, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i ]
   %113 = getelementptr inbounds nuw float, ptr %13, i64 %.056.i.i
-  store float %.sink63.i.i, ptr %113, align 4, !tbaa !23
+  store float %.sink71.i.i, ptr %113, align 4, !tbaa !23
   %114 = getelementptr inbounds nuw i64, ptr %14, i64 %.056.i.i
   store i64 %.sink.i.i, ptr %114, align 8, !tbaa !24
   %115 = shl i64 %.1.i.i, 1
@@ -18798,11 +18798,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i:          ; preds = %105
   br i1 %109, label %_ZN5faiss19maxheap_replace_topIfEEvmPT_PlS1_l.exit.loopexit, label %110
 
 110:                                              ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i
-  %.sink63.i.i = phi float [ %98, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i ], [ %89, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i ]
+  %.sink71.i.i = phi float [ %98, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i ], [ %89, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i ]
   %.sink.i.i = phi i64 [ %101, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i ], [ %91, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i ]
   %.1.i.i = phi i64 [ %83, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i ], [ %82, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i ]
   %111 = getelementptr inbounds nuw float, ptr %15, i64 %.056.i.i
-  store float %.sink63.i.i, ptr %111, align 4, !tbaa !23
+  store float %.sink71.i.i, ptr %111, align 4, !tbaa !23
   %112 = getelementptr inbounds nuw i64, ptr %16, i64 %.056.i.i
   store i64 %.sink.i.i, ptr %112, align 8, !tbaa !24
   %113 = shl i64 %.1.i.i, 1
@@ -19247,11 +19247,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i:          ; preds = %101
   br i1 %105, label %_ZN5faiss19maxheap_replace_topIfEEvmPT_PlS1_l.exit.loopexit, label %106
 
 106:                                              ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i
-  %.sink63.i.i = phi float [ %94, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i ], [ %85, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i ]
+  %.sink71.i.i = phi float [ %94, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i ], [ %85, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i ]
   %.sink.i.i = phi i64 [ %97, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i ], [ %87, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i ]
   %.1.i.i = phi i64 [ %79, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i ], [ %78, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i ]
   %107 = getelementptr inbounds nuw float, ptr %13, i64 %.056.i.i
-  store float %.sink63.i.i, ptr %107, align 4, !tbaa !23
+  store float %.sink71.i.i, ptr %107, align 4, !tbaa !23
   %108 = getelementptr inbounds nuw i64, ptr %14, i64 %.056.i.i
   store i64 %.sink.i.i, ptr %108, align 8, !tbaa !24
   %109 = shl i64 %.1.i.i, 1
@@ -19704,11 +19704,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i:          ; preds = %103
   br i1 %107, label %_ZN5faiss19maxheap_replace_topIfEEvmPT_PlS1_l.exit.loopexit, label %108
 
 108:                                              ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i
-  %.sink63.i.i = phi float [ %96, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i ], [ %87, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i ]
+  %.sink71.i.i = phi float [ %96, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i ], [ %87, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i ]
   %.sink.i.i = phi i64 [ %99, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i ], [ %89, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i ]
   %.1.i.i = phi i64 [ %81, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i ], [ %80, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i ]
   %109 = getelementptr inbounds nuw float, ptr %13, i64 %.056.i.i
-  store float %.sink63.i.i, ptr %109, align 4, !tbaa !23
+  store float %.sink71.i.i, ptr %109, align 4, !tbaa !23
   %110 = getelementptr inbounds nuw i64, ptr %14, i64 %.056.i.i
   store i64 %.sink.i.i, ptr %110, align 8, !tbaa !24
   %111 = shl i64 %.1.i.i, 1
@@ -20175,11 +20175,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i:          ; preds = %99
   br i1 %103, label %_ZN5faiss19maxheap_replace_topIfEEvmPT_PlS1_l.exit.loopexit, label %104
 
 104:                                              ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i
-  %.sink63.i.i = phi float [ %92, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i ], [ %83, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i ]
+  %.sink71.i.i = phi float [ %92, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i ], [ %83, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i ]
   %.sink.i.i = phi i64 [ %95, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i ], [ %85, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i ]
   %.1.i.i = phi i64 [ %77, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i ], [ %76, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i ]
   %105 = getelementptr inbounds nuw float, ptr %15, i64 %.056.i.i
-  store float %.sink63.i.i, ptr %105, align 4, !tbaa !23
+  store float %.sink71.i.i, ptr %105, align 4, !tbaa !23
   %106 = getelementptr inbounds nuw i64, ptr %16, i64 %.056.i.i
   store i64 %.sink.i.i, ptr %106, align 8, !tbaa !24
   %107 = shl i64 %.1.i.i, 1
@@ -20628,11 +20628,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i:          ; preds = %105
   br i1 %109, label %_ZN5faiss19maxheap_replace_topIfEEvmPT_PlS1_l.exit.loopexit, label %110
 
 110:                                              ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i
-  %.sink63.i.i = phi float [ %98, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i ], [ %89, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i ]
+  %.sink71.i.i = phi float [ %98, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i ], [ %89, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i ]
   %.sink.i.i = phi i64 [ %101, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i ], [ %91, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i ]
   %.1.i.i = phi i64 [ %83, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i ], [ %82, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i ]
   %111 = getelementptr inbounds nuw float, ptr %13, i64 %.056.i.i
-  store float %.sink63.i.i, ptr %111, align 4, !tbaa !23
+  store float %.sink71.i.i, ptr %111, align 4, !tbaa !23
   %112 = getelementptr inbounds nuw i64, ptr %14, i64 %.056.i.i
   store i64 %.sink.i.i, ptr %112, align 8, !tbaa !24
   %113 = shl i64 %.1.i.i, 1
@@ -21093,11 +21093,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i:          ; preds = %107
   br i1 %111, label %_ZN5faiss19maxheap_replace_topIfEEvmPT_PlS1_l.exit.loopexit, label %112
 
 112:                                              ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i
-  %.sink63.i.i = phi float [ %100, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i ], [ %91, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i ]
+  %.sink71.i.i = phi float [ %100, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i ], [ %91, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i ]
   %.sink.i.i = phi i64 [ %103, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i ], [ %93, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i ]
   %.1.i.i = phi i64 [ %85, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i ], [ %84, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i ]
   %113 = getelementptr inbounds nuw float, ptr %13, i64 %.056.i.i
-  store float %.sink63.i.i, ptr %113, align 4, !tbaa !23
+  store float %.sink71.i.i, ptr %113, align 4, !tbaa !23
   %114 = getelementptr inbounds nuw i64, ptr %14, i64 %.056.i.i
   store i64 %.sink.i.i, ptr %114, align 8, !tbaa !24
   %115 = shl i64 %.1.i.i, 1
@@ -21574,11 +21574,11 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i:          ; preds = %105
   br i1 %109, label %_ZN5faiss19maxheap_replace_topIfEEvmPT_PlS1_l.exit.loopexit, label %110
 
 110:                                              ; preds = %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i
-  %.sink63.i.i = phi float [ %98, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i ], [ %89, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i ]
+  %.sink71.i.i = phi float [ %98, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i ], [ %89, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i ]
   %.sink.i.i = phi i64 [ %101, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i ], [ %91, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i ]
   %.1.i.i = phi i64 [ %83, %_ZN5faiss4CMaxIflE4cmp2Effll.exit54.i.i ], [ %82, %_ZN5faiss4CMaxIflE4cmp2Effll.exit55.i.i ]
   %111 = getelementptr inbounds nuw float, ptr %15, i64 %.056.i.i
-  store float %.sink63.i.i, ptr %111, align 4, !tbaa !23
+  store float %.sink71.i.i, ptr %111, align 4, !tbaa !23
   %112 = getelementptr inbounds nuw i64, ptr %16, i64 %.056.i.i
   store i64 %.sink.i.i, ptr %112, align 8, !tbaa !24
   %113 = shl i64 %.1.i.i, 1
@@ -21936,11 +21936,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i:          ; preds = %81
   br i1 %85, label %_ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit, label %86
 
 86:                                               ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i
-  %.sink63.i.i = phi float [ %74, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i ], [ %65, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i ]
+  %.sink71.i.i = phi float [ %74, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i ], [ %65, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i ]
   %.sink.i.i = phi i64 [ %77, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i ], [ %67, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i ]
   %.1.i.i = phi i64 [ %59, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i ], [ %58, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i ]
   %87 = getelementptr inbounds nuw float, ptr %16, i64 %.056.i.i
-  store float %.sink63.i.i, ptr %87, align 4, !tbaa !23
+  store float %.sink71.i.i, ptr %87, align 4, !tbaa !23
   %88 = getelementptr inbounds nuw i64, ptr %17, i64 %.056.i.i
   store i64 %.sink.i.i, ptr %88, align 8, !tbaa !24
   %89 = shl i64 %.1.i.i, 1
@@ -22282,11 +22282,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i:          ; preds = %82
   br i1 %86, label %_ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit, label %87
 
 87:                                               ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i
-  %.sink63.i.i = phi float [ %75, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i ], [ %66, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i ]
+  %.sink71.i.i = phi float [ %75, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i ], [ %66, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i ]
   %.sink.i.i = phi i64 [ %78, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i ], [ %68, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i ]
   %.1.i.i = phi i64 [ %60, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i ], [ %59, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i ]
   %88 = getelementptr inbounds nuw float, ptr %16, i64 %.056.i.i
-  store float %.sink63.i.i, ptr %88, align 4, !tbaa !23
+  store float %.sink71.i.i, ptr %88, align 4, !tbaa !23
   %89 = getelementptr inbounds nuw i64, ptr %17, i64 %.056.i.i
   store i64 %.sink.i.i, ptr %89, align 8, !tbaa !24
   %90 = shl i64 %.1.i.i, 1
@@ -22737,11 +22737,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i:          ; preds = %126
   br i1 %130, label %_ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit.loopexit, label %131
 
 131:                                              ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i
-  %.sink63.i.i = phi float [ %119, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i ], [ %110, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i ]
+  %.sink71.i.i = phi float [ %119, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i ], [ %110, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i ]
   %.sink.i.i = phi i64 [ %122, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i ], [ %112, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i ]
   %.1.i.i = phi i64 [ %104, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i ], [ %103, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i ]
   %132 = getelementptr inbounds nuw float, ptr %18, i64 %.056.i.i
-  store float %.sink63.i.i, ptr %132, align 4, !tbaa !23
+  store float %.sink71.i.i, ptr %132, align 4, !tbaa !23
   %133 = getelementptr inbounds nuw i64, ptr %19, i64 %.056.i.i
   store i64 %.sink.i.i, ptr %133, align 8, !tbaa !24
   %134 = shl i64 %.1.i.i, 1
@@ -23086,11 +23086,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i:          ; preds = %88
   br i1 %92, label %_ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit, label %93
 
 93:                                               ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i
-  %.sink63.i.i = phi float [ %81, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i ], [ %72, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i ]
+  %.sink71.i.i = phi float [ %81, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i ], [ %72, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i ]
   %.sink.i.i = phi i64 [ %84, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i ], [ %74, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i ]
   %.1.i.i = phi i64 [ %66, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i ], [ %65, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i ]
   %94 = getelementptr inbounds nuw float, ptr %16, i64 %.056.i.i
-  store float %.sink63.i.i, ptr %94, align 4, !tbaa !23
+  store float %.sink71.i.i, ptr %94, align 4, !tbaa !23
   %95 = getelementptr inbounds nuw i64, ptr %17, i64 %.056.i.i
   store i64 %.sink.i.i, ptr %95, align 8, !tbaa !24
   %96 = shl i64 %.1.i.i, 1
@@ -23450,11 +23450,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i:          ; preds = %89
   br i1 %93, label %_ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit, label %94
 
 94:                                               ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i
-  %.sink63.i.i = phi float [ %82, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i ], [ %73, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i ]
+  %.sink71.i.i = phi float [ %82, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i ], [ %73, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i ]
   %.sink.i.i = phi i64 [ %85, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i ], [ %75, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i ]
   %.1.i.i = phi i64 [ %67, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i ], [ %66, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i ]
   %95 = getelementptr inbounds nuw float, ptr %16, i64 %.056.i.i
-  store float %.sink63.i.i, ptr %95, align 4, !tbaa !23
+  store float %.sink71.i.i, ptr %95, align 4, !tbaa !23
   %96 = getelementptr inbounds nuw i64, ptr %17, i64 %.056.i.i
   store i64 %.sink.i.i, ptr %96, align 8, !tbaa !24
   %97 = shl i64 %.1.i.i, 1
@@ -23806,11 +23806,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i:          ; preds = %82
   br i1 %86, label %_ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit, label %87
 
 87:                                               ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i
-  %.sink63.i.i = phi float [ %75, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i ], [ %66, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i ]
+  %.sink71.i.i = phi float [ %75, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i ], [ %66, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i ]
   %.sink.i.i = phi i64 [ %78, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i ], [ %68, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i ]
   %.1.i.i = phi i64 [ %60, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i ], [ %59, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i ]
   %88 = getelementptr inbounds nuw float, ptr %18, i64 %.056.i.i
-  store float %.sink63.i.i, ptr %88, align 4, !tbaa !23
+  store float %.sink71.i.i, ptr %88, align 4, !tbaa !23
   %89 = getelementptr inbounds nuw i64, ptr %19, i64 %.056.i.i
   store i64 %.sink.i.i, ptr %89, align 8, !tbaa !24
   %90 = shl i64 %.1.i.i, 1
@@ -24157,11 +24157,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i:          ; preds = %85
   br i1 %89, label %_ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit, label %90
 
 90:                                               ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i
-  %.sink63.i.i = phi float [ %78, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i ], [ %69, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i ]
+  %.sink71.i.i = phi float [ %78, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i ], [ %69, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i ]
   %.sink.i.i = phi i64 [ %81, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i ], [ %71, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i ]
   %.1.i.i = phi i64 [ %63, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i ], [ %62, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i ]
   %91 = getelementptr inbounds nuw float, ptr %16, i64 %.056.i.i
-  store float %.sink63.i.i, ptr %91, align 4, !tbaa !23
+  store float %.sink71.i.i, ptr %91, align 4, !tbaa !23
   %92 = getelementptr inbounds nuw i64, ptr %17, i64 %.056.i.i
   store i64 %.sink.i.i, ptr %92, align 8, !tbaa !24
   %93 = shl i64 %.1.i.i, 1
@@ -24515,11 +24515,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i:          ; preds = %86
   br i1 %90, label %_ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit, label %91
 
 91:                                               ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i
-  %.sink63.i.i = phi float [ %79, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i ], [ %70, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i ]
+  %.sink71.i.i = phi float [ %79, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i ], [ %70, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i ]
   %.sink.i.i = phi i64 [ %82, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i ], [ %72, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i ]
   %.1.i.i = phi i64 [ %64, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i ], [ %63, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i ]
   %92 = getelementptr inbounds nuw float, ptr %16, i64 %.056.i.i
-  store float %.sink63.i.i, ptr %92, align 4, !tbaa !23
+  store float %.sink71.i.i, ptr %92, align 4, !tbaa !23
   %93 = getelementptr inbounds nuw i64, ptr %17, i64 %.056.i.i
   store i64 %.sink.i.i, ptr %93, align 8, !tbaa !24
   %94 = shl i64 %.1.i.i, 1
@@ -24977,11 +24977,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i:          ; preds = %131
   br i1 %135, label %_ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit.loopexit, label %136
 
 136:                                              ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i
-  %.sink63.i.i = phi float [ %124, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i ], [ %115, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i ]
+  %.sink71.i.i = phi float [ %124, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i ], [ %115, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i ]
   %.sink.i.i = phi i64 [ %127, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i ], [ %117, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i ]
   %.1.i.i = phi i64 [ %109, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i ], [ %108, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i ]
   %137 = getelementptr inbounds nuw float, ptr %20, i64 %.056.i.i
-  store float %.sink63.i.i, ptr %137, align 4, !tbaa !23
+  store float %.sink71.i.i, ptr %137, align 4, !tbaa !23
   %138 = getelementptr inbounds nuw i64, ptr %21, i64 %.056.i.i
   store i64 %.sink.i.i, ptr %138, align 8, !tbaa !24
   %139 = shl i64 %.1.i.i, 1
@@ -25342,11 +25342,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i:          ; preds = %93
   br i1 %97, label %_ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit, label %98
 
 98:                                               ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i
-  %.sink63.i.i = phi float [ %86, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i ], [ %77, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i ]
+  %.sink71.i.i = phi float [ %86, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i ], [ %77, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i ]
   %.sink.i.i = phi i64 [ %89, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i ], [ %79, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i ]
   %.1.i.i = phi i64 [ %71, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i ], [ %70, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i ]
   %99 = getelementptr inbounds nuw float, ptr %16, i64 %.056.i.i
-  store float %.sink63.i.i, ptr %99, align 4, !tbaa !23
+  store float %.sink71.i.i, ptr %99, align 4, !tbaa !23
   %100 = getelementptr inbounds nuw i64, ptr %17, i64 %.056.i.i
   store i64 %.sink.i.i, ptr %100, align 8, !tbaa !24
   %101 = shl i64 %.1.i.i, 1
@@ -25724,11 +25724,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i:          ; preds = %94
   br i1 %98, label %_ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit, label %99
 
 99:                                               ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i
-  %.sink63.i.i = phi float [ %87, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i ], [ %78, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i ]
+  %.sink71.i.i = phi float [ %87, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i ], [ %78, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i ]
   %.sink.i.i = phi i64 [ %90, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i ], [ %80, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i ]
   %.1.i.i = phi i64 [ %72, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i ], [ %71, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i ]
   %100 = getelementptr inbounds nuw float, ptr %16, i64 %.056.i.i
-  store float %.sink63.i.i, ptr %100, align 4, !tbaa !23
+  store float %.sink71.i.i, ptr %100, align 4, !tbaa !23
   %101 = getelementptr inbounds nuw i64, ptr %17, i64 %.056.i.i
   store i64 %.sink.i.i, ptr %101, align 8, !tbaa !24
   %102 = shl i64 %.1.i.i, 1
@@ -26095,11 +26095,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i:          ; preds = %86
   br i1 %90, label %_ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit, label %91
 
 91:                                               ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i
-  %.sink63.i.i = phi float [ %79, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i ], [ %70, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i ]
+  %.sink71.i.i = phi float [ %79, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i ], [ %70, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i ]
   %.sink.i.i = phi i64 [ %82, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i ], [ %72, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i ]
   %.1.i.i = phi i64 [ %64, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i ], [ %63, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i ]
   %92 = getelementptr inbounds nuw float, ptr %20, i64 %.056.i.i
-  store float %.sink63.i.i, ptr %92, align 4, !tbaa !23
+  store float %.sink71.i.i, ptr %92, align 4, !tbaa !23
   %93 = getelementptr inbounds nuw i64, ptr %21, i64 %.056.i.i
   store i64 %.sink.i.i, ptr %93, align 8, !tbaa !24
   %94 = shl i64 %.1.i.i, 1
@@ -26548,11 +26548,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i:          ; preds = %113
   br i1 %117, label %_ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit, label %118
 
 118:                                              ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i
-  %.sink63.i.i = phi float [ %106, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i ], [ %97, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i ]
+  %.sink71.i.i = phi float [ %106, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i ], [ %97, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i ]
   %.sink.i.i = phi i64 [ %109, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i ], [ %99, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i ]
   %.1.i.i = phi i64 [ %91, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i ], [ %90, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i ]
   %119 = getelementptr inbounds nuw float, ptr %16, i64 %.056.i.i
-  store float %.sink63.i.i, ptr %119, align 4, !tbaa !23
+  store float %.sink71.i.i, ptr %119, align 4, !tbaa !23
   %120 = getelementptr inbounds nuw i64, ptr %17, i64 %.056.i.i
   store i64 %.sink.i.i, ptr %120, align 8, !tbaa !24
   %121 = shl i64 %.1.i.i, 1
@@ -27050,11 +27050,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i:          ; preds = %114
   br i1 %118, label %_ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit, label %119
 
 119:                                              ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i
-  %.sink63.i.i = phi float [ %107, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i ], [ %98, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i ]
+  %.sink71.i.i = phi float [ %107, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i ], [ %98, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i ]
   %.sink.i.i = phi i64 [ %110, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i ], [ %100, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i ]
   %.1.i.i = phi i64 [ %92, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i ], [ %91, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i ]
   %120 = getelementptr inbounds nuw float, ptr %16, i64 %.056.i.i
-  store float %.sink63.i.i, ptr %120, align 4, !tbaa !23
+  store float %.sink71.i.i, ptr %120, align 4, !tbaa !23
   %121 = getelementptr inbounds nuw i64, ptr %17, i64 %.056.i.i
   store i64 %.sink.i.i, ptr %121, align 8, !tbaa !24
   %122 = shl i64 %.1.i.i, 1
@@ -27544,11 +27544,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i:          ; preds = %107
   br i1 %111, label %_ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit, label %112
 
 112:                                              ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i
-  %.sink63.i.i = phi float [ %100, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i ], [ %91, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i ]
+  %.sink71.i.i = phi float [ %100, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i ], [ %91, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i ]
   %.sink.i.i = phi i64 [ %103, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i ], [ %93, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i ]
   %.1.i.i = phi i64 [ %85, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i ], [ %84, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i ]
   %113 = getelementptr inbounds nuw float, ptr %18, i64 %.056.i.i
-  store float %.sink63.i.i, ptr %113, align 4, !tbaa !23
+  store float %.sink71.i.i, ptr %113, align 4, !tbaa !23
   %114 = getelementptr inbounds nuw i64, ptr %19, i64 %.056.i.i
   store i64 %.sink.i.i, ptr %114, align 8, !tbaa !24
   %115 = shl i64 %.1.i.i, 1
@@ -27953,11 +27953,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i:          ; preds = %88
   br i1 %92, label %_ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit, label %93
 
 93:                                               ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i
-  %.sink63.i.i = phi float [ %81, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i ], [ %72, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i ]
+  %.sink71.i.i = phi float [ %81, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i ], [ %72, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i ]
   %.sink.i.i = phi i64 [ %84, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i ], [ %74, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i ]
   %.1.i.i = phi i64 [ %66, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i ], [ %65, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i ]
   %94 = getelementptr inbounds nuw float, ptr %14, i64 %.056.i.i
-  store float %.sink63.i.i, ptr %94, align 4, !tbaa !23
+  store float %.sink71.i.i, ptr %94, align 4, !tbaa !23
   %95 = getelementptr inbounds nuw i64, ptr %15, i64 %.056.i.i
   store i64 %.sink.i.i, ptr %95, align 8, !tbaa !24
   %96 = shl i64 %.1.i.i, 1
@@ -28329,11 +28329,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i:          ; preds = %89
   br i1 %93, label %_ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit, label %94
 
 94:                                               ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i
-  %.sink63.i.i = phi float [ %82, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i ], [ %73, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i ]
+  %.sink71.i.i = phi float [ %82, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i ], [ %73, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i ]
   %.sink.i.i = phi i64 [ %85, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i ], [ %75, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i ]
   %.1.i.i = phi i64 [ %67, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i ], [ %66, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i ]
   %95 = getelementptr inbounds nuw float, ptr %14, i64 %.056.i.i
-  store float %.sink63.i.i, ptr %95, align 4, !tbaa !23
+  store float %.sink71.i.i, ptr %95, align 4, !tbaa !23
   %96 = getelementptr inbounds nuw i64, ptr %15, i64 %.056.i.i
   store i64 %.sink.i.i, ptr %96, align 8, !tbaa !24
   %97 = shl i64 %.1.i.i, 1
@@ -28694,11 +28694,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i:          ; preds = %82
   br i1 %86, label %_ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit, label %87
 
 87:                                               ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i
-  %.sink63.i.i = phi float [ %75, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i ], [ %66, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i ]
+  %.sink71.i.i = phi float [ %75, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i ], [ %66, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i ]
   %.sink.i.i = phi i64 [ %78, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i ], [ %68, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i ]
   %.1.i.i = phi i64 [ %60, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i ], [ %59, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i ]
   %88 = getelementptr inbounds nuw float, ptr %16, i64 %.056.i.i
-  store float %.sink63.i.i, ptr %88, align 4, !tbaa !23
+  store float %.sink71.i.i, ptr %88, align 4, !tbaa !23
   %89 = getelementptr inbounds nuw i64, ptr %17, i64 %.056.i.i
   store i64 %.sink.i.i, ptr %89, align 8, !tbaa !24
   %90 = shl i64 %.1.i.i, 1
@@ -29107,11 +29107,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i:          ; preds = %108
   br i1 %112, label %_ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit.loopexit, label %113
 
 113:                                              ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i
-  %.sink63.i.i = phi float [ %101, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i ], [ %92, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i ]
+  %.sink71.i.i = phi float [ %101, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i ], [ %92, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i ]
   %.sink.i.i = phi i64 [ %104, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i ], [ %94, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i ]
   %.1.i.i = phi i64 [ %86, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i ], [ %85, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i ]
   %114 = getelementptr inbounds nuw float, ptr %14, i64 %.056.i.i
-  store float %.sink63.i.i, ptr %114, align 4, !tbaa !23
+  store float %.sink71.i.i, ptr %114, align 4, !tbaa !23
   %115 = getelementptr inbounds nuw i64, ptr %15, i64 %.056.i.i
   store i64 %.sink.i.i, ptr %115, align 8, !tbaa !24
   %116 = shl i64 %.1.i.i, 1
@@ -29515,11 +29515,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i:          ; preds = %110
   br i1 %114, label %_ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit.loopexit, label %115
 
 115:                                              ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i
-  %.sink63.i.i = phi float [ %103, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i ], [ %94, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i ]
+  %.sink71.i.i = phi float [ %103, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i ], [ %94, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i ]
   %.sink.i.i = phi i64 [ %106, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i ], [ %96, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i ]
   %.1.i.i = phi i64 [ %88, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i ], [ %87, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i ]
   %116 = getelementptr inbounds nuw float, ptr %14, i64 %.056.i.i
-  store float %.sink63.i.i, ptr %116, align 4, !tbaa !23
+  store float %.sink71.i.i, ptr %116, align 4, !tbaa !23
   %117 = getelementptr inbounds nuw i64, ptr %15, i64 %.056.i.i
   store i64 %.sink.i.i, ptr %117, align 8, !tbaa !24
   %118 = shl i64 %.1.i.i, 1
@@ -29940,11 +29940,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i:          ; preds = %109
   br i1 %113, label %_ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit.loopexit, label %114
 
 114:                                              ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i
-  %.sink63.i.i = phi float [ %102, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i ], [ %93, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i ]
+  %.sink71.i.i = phi float [ %102, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i ], [ %93, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i ]
   %.sink.i.i = phi i64 [ %105, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i ], [ %95, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i ]
   %.1.i.i = phi i64 [ %87, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i ], [ %86, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i ]
   %115 = getelementptr inbounds nuw float, ptr %16, i64 %.056.i.i
-  store float %.sink63.i.i, ptr %115, align 4, !tbaa !23
+  store float %.sink71.i.i, ptr %115, align 4, !tbaa !23
   %116 = getelementptr inbounds nuw i64, ptr %17, i64 %.056.i.i
   store i64 %.sink.i.i, ptr %116, align 8, !tbaa !24
   %117 = shl i64 %.1.i.i, 1
@@ -30332,11 +30332,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i:          ; preds = %104
   br i1 %108, label %_ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit.loopexit, label %109
 
 109:                                              ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i
-  %.sink63.i.i = phi float [ %97, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i ], [ %88, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i ]
+  %.sink71.i.i = phi float [ %97, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i ], [ %88, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i ]
   %.sink.i.i = phi i64 [ %100, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i ], [ %90, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i ]
   %.1.i.i = phi i64 [ %82, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i ], [ %81, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i ]
   %110 = getelementptr inbounds nuw float, ptr %14, i64 %.056.i.i
-  store float %.sink63.i.i, ptr %110, align 4, !tbaa !23
+  store float %.sink71.i.i, ptr %110, align 4, !tbaa !23
   %111 = getelementptr inbounds nuw i64, ptr %15, i64 %.056.i.i
   store i64 %.sink.i.i, ptr %111, align 8, !tbaa !24
   %112 = shl i64 %.1.i.i, 1
@@ -30732,11 +30732,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i:          ; preds = %106
   br i1 %110, label %_ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit.loopexit, label %111
 
 111:                                              ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i
-  %.sink63.i.i = phi float [ %99, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i ], [ %90, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i ]
+  %.sink71.i.i = phi float [ %99, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i ], [ %90, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i ]
   %.sink.i.i = phi i64 [ %102, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i ], [ %92, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i ]
   %.1.i.i = phi i64 [ %84, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i ], [ %83, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i ]
   %112 = getelementptr inbounds nuw float, ptr %14, i64 %.056.i.i
-  store float %.sink63.i.i, ptr %112, align 4, !tbaa !23
+  store float %.sink71.i.i, ptr %112, align 4, !tbaa !23
   %113 = getelementptr inbounds nuw i64, ptr %15, i64 %.056.i.i
   store i64 %.sink.i.i, ptr %113, align 8, !tbaa !24
   %114 = shl i64 %.1.i.i, 1
@@ -31147,11 +31147,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i:          ; preds = %103
   br i1 %107, label %_ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit.loopexit, label %108
 
 108:                                              ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i
-  %.sink63.i.i = phi float [ %96, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i ], [ %87, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i ]
+  %.sink71.i.i = phi float [ %96, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i ], [ %87, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i ]
   %.sink.i.i = phi i64 [ %99, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i ], [ %89, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i ]
   %.1.i.i = phi i64 [ %81, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i ], [ %80, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i ]
   %109 = getelementptr inbounds nuw float, ptr %16, i64 %.056.i.i
-  store float %.sink63.i.i, ptr %109, align 4, !tbaa !23
+  store float %.sink71.i.i, ptr %109, align 4, !tbaa !23
   %110 = getelementptr inbounds nuw i64, ptr %17, i64 %.056.i.i
   store i64 %.sink.i.i, ptr %110, align 8, !tbaa !24
   %111 = shl i64 %.1.i.i, 1
@@ -31543,11 +31543,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i:          ; preds = %108
   br i1 %112, label %_ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit.loopexit, label %113
 
 113:                                              ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i
-  %.sink63.i.i = phi float [ %101, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i ], [ %92, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i ]
+  %.sink71.i.i = phi float [ %101, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i ], [ %92, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i ]
   %.sink.i.i = phi i64 [ %104, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i ], [ %94, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i ]
   %.1.i.i = phi i64 [ %86, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i ], [ %85, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i ]
   %114 = getelementptr inbounds nuw float, ptr %14, i64 %.056.i.i
-  store float %.sink63.i.i, ptr %114, align 4, !tbaa !23
+  store float %.sink71.i.i, ptr %114, align 4, !tbaa !23
   %115 = getelementptr inbounds nuw i64, ptr %15, i64 %.056.i.i
   store i64 %.sink.i.i, ptr %115, align 8, !tbaa !24
   %116 = shl i64 %.1.i.i, 1
@@ -31951,11 +31951,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i:          ; preds = %110
   br i1 %114, label %_ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit.loopexit, label %115
 
 115:                                              ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i
-  %.sink63.i.i = phi float [ %103, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i ], [ %94, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i ]
+  %.sink71.i.i = phi float [ %103, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i ], [ %94, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i ]
   %.sink.i.i = phi i64 [ %106, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i ], [ %96, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i ]
   %.1.i.i = phi i64 [ %88, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i ], [ %87, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i ]
   %116 = getelementptr inbounds nuw float, ptr %14, i64 %.056.i.i
-  store float %.sink63.i.i, ptr %116, align 4, !tbaa !23
+  store float %.sink71.i.i, ptr %116, align 4, !tbaa !23
   %117 = getelementptr inbounds nuw i64, ptr %15, i64 %.056.i.i
   store i64 %.sink.i.i, ptr %117, align 8, !tbaa !24
   %118 = shl i64 %.1.i.i, 1
@@ -32376,11 +32376,11 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i:          ; preds = %109
   br i1 %113, label %_ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit.loopexit, label %114
 
 114:                                              ; preds = %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i
-  %.sink63.i.i = phi float [ %102, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i ], [ %93, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i ]
+  %.sink71.i.i = phi float [ %102, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i ], [ %93, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i ]
   %.sink.i.i = phi i64 [ %105, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i ], [ %95, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i ]
   %.1.i.i = phi i64 [ %87, %_ZN5faiss4CMinIflE4cmp2Effll.exit54.i.i ], [ %86, %_ZN5faiss4CMinIflE4cmp2Effll.exit55.i.i ]
   %115 = getelementptr inbounds nuw float, ptr %16, i64 %.056.i.i
-  store float %.sink63.i.i, ptr %115, align 4, !tbaa !23
+  store float %.sink71.i.i, ptr %115, align 4, !tbaa !23
   %116 = getelementptr inbounds nuw i64, ptr %17, i64 %.056.i.i
   store i64 %.sink.i.i, ptr %116, align 8, !tbaa !24
   %117 = shl i64 %.1.i.i, 1

@@ -76,7 +76,7 @@ define void @dbdsdc_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 42:                                               ; preds = %40
   %43 = tail call i32 @lsame_(ptr noundef %1, ptr noundef nonnull @.str.4) #5
   %.not469 = icmp eq i32 %43, 0
-  br i1 %.not469, label %.thread542, label %44
+  br i1 %.not469, label %.thread554, label %44
 
 44:                                               ; preds = %42, %40, %14
   %.sink = phi i32 [ 0, %14 ], [ 1, %40 ], [ 2, %42 ]
@@ -86,7 +86,7 @@ define void @dbdsdc_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %47 = select i1 %.not466, i1 true, i1 %.not
   br i1 %47, label %49, label %.thread.sink.split
 
-.thread542:                                       ; preds = %42
+.thread554:                                       ; preds = %42
   %48 = select i1 %.not466, i1 true, i1 %.not
   %spec.select = select i1 %48, i32 -2, i32 -1
   br label %.thread.sink.split
@@ -101,8 +101,8 @@ define void @dbdsdc_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %54 = icmp slt i32 %53, 1
   %55 = icmp samesign ult i32 %53, %50
   %or.cond484 = and i1 %45, %55
-  %or.cond545 = select i1 %54, i1 true, i1 %or.cond484
-  br i1 %or.cond545, label %.thread.sink.split, label %56
+  %or.cond557 = select i1 %54, i1 true, i1 %or.cond484
+  br i1 %or.cond557, label %.thread.sink.split, label %56
 
 56:                                               ; preds = %52
   %57 = load i32, ptr %8, align 4, !tbaa !3
@@ -117,13 +117,13 @@ define void @dbdsdc_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %.not470 = icmp eq i32 %.pr, 0
   br i1 %.not470, label %64, label %.thread
 
-.thread.sink.split:                               ; preds = %.thread542, %56, %52, %49, %44
-  %.sink546 = phi i32 [ -1, %44 ], [ -3, %49 ], [ -7, %52 ], [ -9, %56 ], [ %spec.select, %.thread542 ]
-  store i32 %.sink546, ptr %13, align 4, !tbaa !3
+.thread.sink.split:                               ; preds = %.thread554, %56, %52, %49, %44
+  %.sink558 = phi i32 [ -1, %44 ], [ -3, %49 ], [ -7, %52 ], [ -9, %56 ], [ %spec.select, %.thread554 ]
+  store i32 %.sink558, ptr %13, align 4, !tbaa !3
   br label %.thread
 
 .thread:                                          ; preds = %.thread.sink.split, %60
-  %61 = phi i32 [ %.pr, %60 ], [ %.sink546, %.thread.sink.split ]
+  %61 = phi i32 [ %.pr, %60 ], [ %.sink558, %.thread.sink.split ]
   %62 = sub nsw i32 0, %61
   store i32 %62, ptr %15, align 4, !tbaa !3
   %63 = call i32 @xerbla_(ptr noundef nonnull @.str.5, ptr noundef nonnull %15, i32 noundef 6) #5
@@ -258,13 +258,13 @@ define void @dbdsdc_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br label %.sink.split
 
 .sink.split:                                      ; preds = %127, %118
-  %.sink551 = phi i32 [ %126, %118 ], [ %132, %127 ]
+  %.sink563 = phi i32 [ %126, %118 ], [ %132, %127 ]
   %133 = phi ptr [ %9, %118 ], [ %11, %127 ]
-  %.sink547 = phi double [ %110, %118 ], [ %129, %127 ]
+  %.sink559 = phi double [ %110, %118 ], [ %129, %127 ]
   %134 = getelementptr inbounds i8, ptr %133, i64 -8
-  %135 = sext i32 %.sink551 to i64
+  %135 = sext i32 %.sink563 to i64
   %136 = getelementptr inbounds double, ptr %134, i64 %135
-  store double %.sink547, ptr %136, align 8, !tbaa !7
+  store double %.sink559, ptr %136, align 8, !tbaa !7
   br label %137
 
 137:                                              ; preds = %.sink.split, %.lr.ph
@@ -534,10 +534,10 @@ define void @dbdsdc_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br label %._crit_edge534.sink.split
 
 ._crit_edge534.sink.split:                        ; preds = %261, %273
-  %.sink555 = phi i32 [ %286, %273 ], [ %272, %261 ]
-  %.sink553 = phi ptr [ %34, %273 ], [ %33, %261 ]
-  %287 = sext i32 %.sink555 to i64
-  %288 = getelementptr inbounds double, ptr %.sink553, i64 %287
+  %.sink567 = phi i32 [ %286, %273 ], [ %272, %261 ]
+  %.sink565 = phi ptr [ %34, %273 ], [ %33, %261 ]
+  %287 = sext i32 %.sink567 to i64
+  %288 = getelementptr inbounds double, ptr %.sink565, i64 %287
   store double 1.000000e+00, ptr %288, align 8, !tbaa !7
   br label %._crit_edge534
 
@@ -649,11 +649,11 @@ define void @dbdsdc_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br label %thread-pre-split
 
 thread-pre-split:                                 ; preds = %142, %._crit_edge504, %150, %147
-  %.pr544 = load i32, ptr %2, align 4, !tbaa !3
+  %.pr556 = load i32, ptr %2, align 4, !tbaa !3
   br label %368
 
 368:                                              ; preds = %thread-pre-split, %146
-  %369 = phi i32 [ %.pr544, %thread-pre-split ], [ %144, %146 ]
+  %369 = phi i32 [ %.pr556, %thread-pre-split ], [ %144, %146 ]
   store i32 %369, ptr %15, align 4, !tbaa !3
   %.not478513 = icmp slt i32 %369, 2
   br i1 %.not478513, label %._crit_edge517, label %.lr.ph516.preheader
@@ -741,7 +741,7 @@ thread-pre-split:                                 ; preds = %142, %._crit_edge50
   br i1 %404, label %405, label %407
 
 405:                                              ; preds = %402
-  %406 = getelementptr inbounds i32, ptr %35, i64 %373
+  %406 = getelementptr inbounds nuw i32, ptr %35, i64 %373
   store i32 %378, ptr %406, align 4, !tbaa !3
   br label %407
 

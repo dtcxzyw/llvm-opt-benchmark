@@ -170,8 +170,8 @@ invoke.cont:                                      ; preds = %entry
 
 _ZN5boost10shared_ptrIN8QuantLib8Calendar4ImplEEC2ERKS4_.exit.i.i.thread: ; preds = %invoke.cont
   store ptr %3, ptr %call5.i.i.i.i2.i.i1, align 8, !tbaa !37
-  %pn3.i2.i.i23 = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i2.i.i1, i64 8
-  store ptr %4, ptr %pn3.i2.i.i23, align 8, !tbaa !36
+  %pn3.i2.i.i26 = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i2.i.i1, i64 8
+  store ptr %4, ptr %pn3.i2.i.i26, align 8, !tbaa !36
   br label %_ZN8QuantLib8CalendaraSERKS0_.exit
 
 _ZN5boost10shared_ptrIN8QuantLib8Calendar4ImplEEC2ERKS4_.exit.i.i: ; preds = %invoke.cont
@@ -332,8 +332,8 @@ invoke.cont:                                      ; preds = %entry
 
 _ZN5boost10shared_ptrIN8QuantLib8Calendar4ImplEEC2ERKS4_.exit.i.i.thread: ; preds = %invoke.cont
   store ptr %3, ptr %call5.i.i.i.i2.i.i1, align 8, !tbaa !37
-  %pn3.i2.i.i45 = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i2.i.i1, i64 8
-  store ptr %4, ptr %pn3.i2.i.i45, align 8, !tbaa !36
+  %pn3.i2.i.i50 = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i2.i.i1, i64 8
+  store ptr %4, ptr %pn3.i2.i.i50, align 8, !tbaa !36
   br label %_ZN8QuantLib8CalendaraSERKS0_.exit
 
 _ZN5boost10shared_ptrIN8QuantLib8Calendar4ImplEEC2ERKS4_.exit.i.i: ; preds = %invoke.cont
@@ -547,8 +547,8 @@ invoke.cont:                                      ; preds = %entry
 
 _ZN5boost10shared_ptrIN8QuantLib8Calendar4ImplEEC2ERKS4_.exit.i.i.thread: ; preds = %invoke.cont
   store ptr %3, ptr %call5.i.i.i.i2.i.i1, align 8, !tbaa !37
-  %pn3.i2.i.i67 = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i2.i.i1, i64 8
-  store ptr %4, ptr %pn3.i2.i.i67, align 8, !tbaa !36
+  %pn3.i2.i.i74 = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i2.i.i1, i64 8
+  store ptr %4, ptr %pn3.i2.i.i74, align 8, !tbaa !36
   br label %_ZN8QuantLib8CalendaraSERKS0_.exit
 
 _ZN5boost10shared_ptrIN8QuantLib8Calendar4ImplEEC2ERKS4_.exit.i.i: ; preds = %invoke.cont
@@ -1622,8 +1622,8 @@ for.body21:                                       ; preds = %sw.bb10, %for.body2
   %incdec.ptr.i8 = getelementptr inbounds nuw i8, ptr %i.sroa.0.150, i64 16
   %6 = load ptr, ptr %_M_finish.i6, align 8
   %cmp.i7.not = icmp ne ptr %incdec.ptr.i8, %6
-  %or.cond62.not = select i1 %call23, i1 %cmp.i7.not, i1 false
-  br i1 %or.cond62.not, label %for.body21, label %cleanup, !llvm.loop !59
+  %or.cond71.not = select i1 %call23, i1 %cmp.i7.not, i1 false
+  br i1 %or.cond71.not, label %for.body21, label %cleanup, !llvm.loop !59
 
 do.body:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(ptr nonnull %_ql_msg_stream)
@@ -2016,8 +2016,8 @@ for.body21:                                       ; preds = %sw.bb10, %for.body2
   %incdec.ptr.i8 = getelementptr inbounds nuw i8, ptr %i.sroa.0.150, i64 16
   %6 = load ptr, ptr %_M_finish.i6, align 8
   %cmp.i7.not = icmp eq ptr %incdec.ptr.i8, %6
-  %or.cond62 = select i1 %call23, i1 true, i1 %cmp.i7.not
-  br i1 %or.cond62, label %cleanup, label %for.body21, !llvm.loop !61
+  %or.cond71 = select i1 %call23, i1 true, i1 %cmp.i7.not
+  br i1 %or.cond71, label %cleanup, label %for.body21, !llvm.loop !61
 
 do.body:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(ptr nonnull %_ql_msg_stream)

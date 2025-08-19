@@ -1812,7 +1812,7 @@ define noundef zeroext i1 @_ZN2cv12can_describeERKNS_4util7variantIJNS0_9monosta
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8, !tbaa !110
   call void @_ZN2cv8descr_ofERKNS_4UMatE(ptr dead_on_unwind nonnull writable sret(%"struct.cv::GMatDesc") align 8 %3, ptr noundef nonnull align 8 dereferenceable(80) %9)
-  %.sroa.370.8.copyload = load i32, ptr %3, align 8
+  %.sroa.375.8.copyload = load i32, ptr %3, align 8
   %.sroa.5.8..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 4
   %.sroa.5.8.copyload = load i32, ptr %.sroa.5.8..sroa_idx, align 4
   %.sroa.6.8..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -1830,13 +1830,13 @@ define noundef zeroext i1 @_ZN2cv12can_describeERKNS_4util7variantIJNS0_9monosta
   %.not.i22 = icmp eq i64 %14, 1
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = load i32, ptr %15, align 8
-  %17 = icmp eq i32 %16, %.sroa.370.8.copyload
+  %17 = icmp eq i32 %16, %.sroa.375.8.copyload
   %or.cond = select i1 %.not.i22, i1 %17, i1 false
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %19 = load i32, ptr %18, align 4
   %20 = icmp eq i32 %19, %.sroa.5.8.copyload
-  %or.cond76 = select i1 %or.cond, i1 %20, i1 false
-  br i1 %or.cond76, label %21, label %_ZN2cv4utileqIJNS0_9monostateENS_8GMatDescENS_11GScalarDescENS_10GArrayDescENS_11GOpaqueDescENS_10GFrameDescEEEEbRKNS0_7variantIJDpT_EEESD_.exit
+  %or.cond81 = select i1 %or.cond, i1 %20, i1 false
+  br i1 %or.cond81, label %21, label %_ZN2cv4utileqIJNS0_9monostateENS_8GMatDescENS_11GScalarDescENS_10GArrayDescENS_11GOpaqueDescENS_10GFrameDescEEEEbRKNS0_7variantIJDpT_EEESD_.exit
 
 21:                                               ; preds = %7
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1849,8 +1849,8 @@ define noundef zeroext i1 @_ZN2cv12can_describeERKNS_4util7variantIJNS0_9monosta
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %28 = load i8, ptr %27, align 8, !range !120
   %29 = icmp eq i8 %28, %.sroa.8.8.copyload
-  %or.cond79 = select i1 %26, i1 %29, i1 false
-  br i1 %or.cond79, label %30, label %_ZN2cv4utileqIJNS0_9monostateENS_8GMatDescENS_11GScalarDescENS_10GArrayDescENS_11GOpaqueDescENS_10GFrameDescEEEEbRKNS0_7variantIJDpT_EEESD_.exit
+  %or.cond84 = select i1 %26, i1 %29, i1 false
+  br i1 %or.cond84, label %30, label %_ZN2cv4utileqIJNS0_9monostateENS_8GMatDescENS_11GScalarDescENS_10GArrayDescENS_11GOpaqueDescENS_10GFrameDescEEEEbRKNS0_7variantIJDpT_EEESD_.exit
 
 30:                                               ; preds = %21
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -2036,7 +2036,7 @@ define noundef zeroext i1 @_ZN2cv12can_describeERKNS_4util7variantIJNS0_9monosta
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   call void @_ZN2cv8descr_ofERKNS_4UMatE(ptr dead_on_unwind nonnull writable sret(%"struct.cv::GMatDesc") align 8 %3, ptr noundef nonnull align 8 dereferenceable(80) %8)
-  %.sroa.377.8.copyload = load i32, ptr %3, align 8
+  %.sroa.382.8.copyload = load i32, ptr %3, align 8
   %.sroa.5.8..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 4
   %.sroa.5.8.copyload = load i32, ptr %.sroa.5.8..sroa_idx, align 4
   %.sroa.6.8..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -2054,13 +2054,13 @@ define noundef zeroext i1 @_ZN2cv12can_describeERKNS_4util7variantIJNS0_9monosta
   %.not.i26 = icmp eq i64 %13, 1
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = load i32, ptr %14, align 8
-  %16 = icmp eq i32 %15, %.sroa.377.8.copyload
+  %16 = icmp eq i32 %15, %.sroa.382.8.copyload
   %or.cond = select i1 %.not.i26, i1 %16, i1 false
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %18 = load i32, ptr %17, align 4
   %19 = icmp eq i32 %18, %.sroa.5.8.copyload
-  %or.cond83 = select i1 %or.cond, i1 %19, i1 false
-  br i1 %or.cond83, label %20, label %_ZN2cv4utileqIJNS0_9monostateENS_8GMatDescENS_11GScalarDescENS_10GArrayDescENS_11GOpaqueDescENS_10GFrameDescEEEEbRKNS0_7variantIJDpT_EEESD_.exit
+  %or.cond88 = select i1 %or.cond, i1 %19, i1 false
+  br i1 %or.cond88, label %20, label %_ZN2cv4utileqIJNS0_9monostateENS_8GMatDescENS_11GScalarDescENS_10GArrayDescENS_11GOpaqueDescENS_10GFrameDescEEEEbRKNS0_7variantIJDpT_EEESD_.exit
 
 20:                                               ; preds = %7
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -2073,8 +2073,8 @@ define noundef zeroext i1 @_ZN2cv12can_describeERKNS_4util7variantIJNS0_9monosta
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %27 = load i8, ptr %26, align 8, !range !120
   %28 = icmp eq i8 %27, %.sroa.8.8.copyload
-  %or.cond86 = select i1 %25, i1 %28, i1 false
-  br i1 %or.cond86, label %29, label %_ZN2cv4utileqIJNS0_9monostateENS_8GMatDescENS_11GScalarDescENS_10GArrayDescENS_11GOpaqueDescENS_10GFrameDescEEEEbRKNS0_7variantIJDpT_EEESD_.exit
+  %or.cond91 = select i1 %25, i1 %28, i1 false
+  br i1 %or.cond91, label %29, label %_ZN2cv4utileqIJNS0_9monostateENS_8GMatDescENS_11GScalarDescENS_10GArrayDescENS_11GOpaqueDescENS_10GFrameDescEEEEbRKNS0_7variantIJDpT_EEESD_.exit
 
 29:                                               ; preds = %20
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -2106,12 +2106,12 @@ _ZN2cv4utileqIJNS0_9monostateENS_8GMatDescENS_11GScalarDescENS_10GArrayDescENS_1
 
 _ZN2cv4util7variantIJNS0_9monostateENS_8GMatDescENS_11GScalarDescENS_10GArrayDescENS_11GOpaqueDescENS_10GFrameDescEEE6dtor_hIS3_E4helpEPNSt15aligned_storageILm48ELm8EE4typeE.exit: ; preds = %_ZN2cv4utileqIJNS0_9monostateENS_8GMatDescENS_11GScalarDescENS_10GArrayDescENS_11GOpaqueDescENS_10GFrameDescEEEEbRKNS0_7variantIJDpT_EEESD_.exit
   call void @_ZdlPv(ptr noundef nonnull %10) #29
-  %.pre87 = load ptr, ptr %9, align 8, !tbaa !85
-  %.not.i.i.i.i = icmp eq ptr %.pre87, null
+  %.pre92 = load ptr, ptr %9, align 8, !tbaa !85
+  %.not.i.i.i.i = icmp eq ptr %.pre92, null
   br i1 %.not.i.i.i.i, label %_ZN2cv8GMatDescD2Ev.exit, label %43
 
 43:                                               ; preds = %_ZN2cv4util7variantIJNS0_9monostateENS_8GMatDescENS_11GScalarDescENS_10GArrayDescENS_11GOpaqueDescENS_10GFrameDescEEE6dtor_hIS3_E4helpEPNSt15aligned_storageILm48ELm8EE4typeE.exit
-  call void @_ZdlPv(ptr noundef nonnull %.pre87) #29
+  call void @_ZdlPv(ptr noundef nonnull %.pre92) #29
   br label %_ZN2cv8GMatDescD2Ev.exit
 
 _ZN2cv8GMatDescD2Ev.exit:                         ; preds = %_ZN2cv4utileqIJNS0_9monostateENS_8GMatDescENS_11GScalarDescENS_10GArrayDescENS_11GOpaqueDescENS_10GFrameDescEEEEbRKNS0_7variantIJDpT_EEESD_.exit, %_ZN2cv4util7variantIJNS0_9monostateENS_8GMatDescENS_11GScalarDescENS_10GArrayDescENS_11GOpaqueDescENS_10GFrameDescEEE6dtor_hIS3_E4helpEPNSt15aligned_storageILm48ELm8EE4typeE.exit, %43

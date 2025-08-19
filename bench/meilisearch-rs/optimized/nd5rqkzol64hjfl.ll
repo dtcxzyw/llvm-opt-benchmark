@@ -2271,7 +2271,7 @@ define void @_ZN16meilisearch_auth5store13HeedAuthStore11put_api_key17hf2d7cb442
   %.sroa.0.0172 = phi ptr [ %87, %.lr.ph ], [ %103, %"_ZN9hashbrown3set24HashSet$LT$T$C$S$C$A$GT$6insert17h0497176a68fe4e31E.exit" ]
   %103 = getelementptr inbounds nuw i8, ptr %.sroa.0.0172, i64 1
   %104 = load i8, ptr %.sroa.0.0172, align 1, !range !524, !noundef !4
-  switch i8 %104, label %.invoke195 [
+  switch i8 %104, label %.invoke213 [
     i8 0, label %239
     i8 2, label %.invoke
     i8 6, label %250
@@ -2752,18 +2752,18 @@ define void @_ZN16meilisearch_auth5store13HeedAuthStore11put_api_key17hf2d7cb442
   br label %"_ZN9hashbrown3set24HashSet$LT$T$C$S$C$A$GT$6insert17h0497176a68fe4e31E.exit"
 
 242:                                              ; preds = %102
-  br label %.invoke195
+  br label %.invoke213
 
 243:                                              ; preds = %102
-  br label %.invoke195
+  br label %.invoke213
 
 244:                                              ; preds = %102
-  br label %.invoke195
+  br label %.invoke213
 
 245:                                              ; preds = %102
-  br label %.invoke195
+  br label %.invoke213
 
-.invoke195:                                       ; preds = %102, %242, %243, %244, %245
+.invoke213:                                       ; preds = %102, %242, %243, %244, %245
   %246 = phi i8 [ 26, %245 ], [ 24, %244 ], [ 22, %243 ], [ 20, %242 ], [ %104, %102 ]
   %247 = invoke noundef zeroext i1 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17hb36851a3005ca4ebE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %28, i8 noundef %246)
           to label %"_ZN9hashbrown3set24HashSet$LT$T$C$S$C$A$GT$6insert17h0497176a68fe4e31E.exit" unwind label %.loopexit.split-lp163
@@ -2772,7 +2772,7 @@ define void @_ZN16meilisearch_auth5store13HeedAuthStore11put_api_key17hf2d7cb442
   invoke void @_ZN4core4iter6traits8iterator8Iterator4fold17h648924a926a84bf9E.llvm.17336248082475965192(i8 noundef %240, ptr noalias noundef nonnull align 8 dereferenceable(48) %28)
           to label %"_ZN9hashbrown3set24HashSet$LT$T$C$S$C$A$GT$6insert17h0497176a68fe4e31E.exit" unwind label %.loopexit.split-lp163
 
-"_ZN9hashbrown3set24HashSet$LT$T$C$S$C$A$GT$6insert17h0497176a68fe4e31E.exit": ; preds = %.invoke195, %.invoke, %248, %"_ZN105_$LT$hashbrown..set..HashSet$LT$T$C$S$C$A$GT$$u20$as$u20$core..iter..traits..collect..Extend$LT$T$GT$$GT$6extend17h6634afa2ce4bb303E.exit"
+"_ZN9hashbrown3set24HashSet$LT$T$C$S$C$A$GT$6insert17h0497176a68fe4e31E.exit": ; preds = %.invoke213, %.invoke, %248, %"_ZN105_$LT$hashbrown..set..HashSet$LT$T$C$S$C$A$GT$$u20$as$u20$core..iter..traits..collect..Extend$LT$T$GT$$GT$6extend17h6634afa2ce4bb303E.exit"
   %249 = icmp eq ptr %103, %90
   br i1 %249, label %._crit_edge, label %102
 
@@ -2793,7 +2793,7 @@ define void @_ZN16meilisearch_auth5store13HeedAuthStore11put_api_key17hf2d7cb442
           cleanup
   br label %254
 
-.loopexit.split-lp163:                            ; preds = %.invoke195, %.invoke, %248, %241, %239
+.loopexit.split-lp163:                            ; preds = %.invoke213, %.invoke, %248, %241, %239
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %254

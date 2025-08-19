@@ -231,9 +231,9 @@ define void @_ZN18ruff_python_trivia8textwrap6dedent17h775591c1c1ee89e4E(ptr wri
   br label %.invoke
 
 .invoke:                                          ; preds = %49, %45
-  %.sink14 = phi { ptr, i64 } [ %44, %45 ], [ %41, %49 ]
+  %.sink16 = phi { ptr, i64 } [ %44, %45 ], [ %41, %49 ]
   %.sink = phi ptr [ %46, %45 ], [ %50, %49 ]
-  %47 = extractvalue { ptr, i64 } %.sink14, 1
+  %47 = extractvalue { ptr, i64 } %.sink16, 1
   %48 = getelementptr inbounds nuw i8, ptr %.sink, i64 %47
   invoke void @"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17h3fd7e2792154fe48E"(ptr nonnull align 8 %9, ptr %.sink, ptr %48, ptr nonnull align 8 @anon.2932ddeffeee90be19b0646989d1169a.2)
           to label %.backedge.backedge unwind label %.loopexit

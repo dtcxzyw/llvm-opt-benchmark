@@ -341,8 +341,8 @@ PaletteHasNonMonotonousDeltas.exit.i:             ; preds = %.lr.ph.i.i, %23
   br i1 %26, label %.preheader.preheader.i, label %PaletteSortMinimizeDeltas.exit
 
 .preheader.preheader.i:                           ; preds = %62, %57, %54
-  %.054.i = phi i32 [ %3, %62 ], [ %3, %54 ], [ %58, %57 ]
-  %wide.trip.count51.i = zext nneg i32 %.054.i to i64
+  %.055.i = phi i32 [ %3, %62 ], [ %3, %54 ], [ %58, %57 ]
+  %wide.trip.count51.i = zext nneg i32 %.055.i to i64
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %97, %.preheader.preheader.i

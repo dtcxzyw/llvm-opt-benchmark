@@ -176,20 +176,20 @@ define hidden noundef align 8 ptr @"_ZN3csv6writer15Writer$LT$W$GT$12write_recor
   %36 = load i64, ptr %13, align 8, !noalias !16, !noundef !15
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !16
   %37 = icmp ugt i64 %35, %27
-  br i1 %37, label %"_ZN84_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17hbdbc2f5077659ff9E.llvm.14933412330345768097.exit.preheader._crit_edge", label %.lr.ph107
+  br i1 %37, label %"_ZN84_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17hbdbc2f5077659ff9E.llvm.14933412330345768097.exit.preheader._crit_edge", label %.lr.ph113
 
 ._crit_edge:                                      ; preds = %24
   tail call void @_ZN4core5slice5index26slice_start_index_len_fail17h89a39d0ac724bb0bE(i64 noundef %28, i64 noundef %29, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.60dc0379046a18711abc9b890678a8dd.5.llvm.14933412330345768097) #16, !noalias !25
   unreachable
 
-.lr.ph107:                                        ; preds = %"_ZN84_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17hbdbc2f5077659ff9E.llvm.14933412330345768097.exit.preheader", %"_ZN3csv6writer15Writer$LT$W$GT$9flush_buf17ha296408b96e7bb69E.llvm.14933412330345768097.exit"
+.lr.ph113:                                        ; preds = %"_ZN84_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17hbdbc2f5077659ff9E.llvm.14933412330345768097.exit.preheader", %"_ZN3csv6writer15Writer$LT$W$GT$9flush_buf17ha296408b96e7bb69E.llvm.14933412330345768097.exit"
   %38 = phi i64 [ %66, %"_ZN3csv6writer15Writer$LT$W$GT$9flush_buf17ha296408b96e7bb69E.llvm.14933412330345768097.exit" ], [ %36, %"_ZN84_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17hbdbc2f5077659ff9E.llvm.14933412330345768097.exit.preheader" ]
   %39 = phi i64 [ %65, %"_ZN3csv6writer15Writer$LT$W$GT$9flush_buf17ha296408b96e7bb69E.llvm.14933412330345768097.exit" ], [ %35, %"_ZN84_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17hbdbc2f5077659ff9E.llvm.14933412330345768097.exit.preheader" ]
   %40 = phi i8 [ %64, %"_ZN3csv6writer15Writer$LT$W$GT$9flush_buf17ha296408b96e7bb69E.llvm.14933412330345768097.exit" ], [ %34, %"_ZN84_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17hbdbc2f5077659ff9E.llvm.14933412330345768097.exit.preheader" ]
-  %.sroa.0.0.i32106 = phi ptr [ %42, %"_ZN3csv6writer15Writer$LT$W$GT$9flush_buf17ha296408b96e7bb69E.llvm.14933412330345768097.exit" ], [ %25, %"_ZN84_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17hbdbc2f5077659ff9E.llvm.14933412330345768097.exit.preheader" ]
-  %.sroa.4.0.i33105 = phi i64 [ %41, %"_ZN3csv6writer15Writer$LT$W$GT$9flush_buf17ha296408b96e7bb69E.llvm.14933412330345768097.exit" ], [ %27, %"_ZN84_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17hbdbc2f5077659ff9E.llvm.14933412330345768097.exit.preheader" ]
-  %41 = sub nuw i64 %.sroa.4.0.i33105, %39
-  %42 = getelementptr inbounds i8, ptr %.sroa.0.0.i32106, i64 %39
+  %.sroa.0.0.i32112 = phi ptr [ %42, %"_ZN3csv6writer15Writer$LT$W$GT$9flush_buf17ha296408b96e7bb69E.llvm.14933412330345768097.exit" ], [ %25, %"_ZN84_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17hbdbc2f5077659ff9E.llvm.14933412330345768097.exit.preheader" ]
+  %.sroa.4.0.i33111 = phi i64 [ %41, %"_ZN3csv6writer15Writer$LT$W$GT$9flush_buf17ha296408b96e7bb69E.llvm.14933412330345768097.exit" ], [ %27, %"_ZN84_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17hbdbc2f5077659ff9E.llvm.14933412330345768097.exit.preheader" ]
+  %41 = sub nuw i64 %.sroa.4.0.i33111, %39
+  %42 = getelementptr inbounds i8, ptr %.sroa.0.0.i32112, i64 %39
   %43 = load i64, ptr %9, align 8, !alias.scope !4, !noalias !7, !noundef !15
   %44 = add i64 %43, %38
   store i64 %44, ptr %9, align 8, !alias.scope !4, !noalias !7
@@ -202,7 +202,7 @@ define hidden noundef align 8 ptr @"_ZN3csv6writer15Writer$LT$W$GT$12write_recor
   tail call void @_ZN4core5slice5index26slice_start_index_len_fail17h89a39d0ac724bb0bE(i64 noundef %.lcssa, i64 noundef %.sroa.4.0.i33.lcssa, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.60dc0379046a18711abc9b890678a8dd.6.llvm.14933412330345768097) #16
   unreachable
 
-45:                                               ; preds = %.lr.ph107
+45:                                               ; preds = %.lr.ph113
   tail call void @llvm.experimental.noalias.scope.decl(metadata !29)
   store i8 1, ptr %14, align 1, !alias.scope !29
   %46 = load ptr, ptr %15, align 8, !alias.scope !29, !noundef !15
@@ -255,9 +255,9 @@ define hidden noundef align 8 ptr @"_ZN3csv6writer15Writer$LT$W$GT$12write_recor
   %66 = load i64, ptr %13, align 8, !noalias !16, !noundef !15
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !16
   %67 = icmp ugt i64 %65, %41
-  br i1 %67, label %"_ZN84_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17hbdbc2f5077659ff9E.llvm.14933412330345768097.exit.preheader._crit_edge", label %.lr.ph107
+  br i1 %67, label %"_ZN84_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17hbdbc2f5077659ff9E.llvm.14933412330345768097.exit.preheader._crit_edge", label %.lr.ph113
 
-"_ZN3csv6writer15Writer$LT$W$GT$16write_field_impl17h2111a403b7222bf2E.llvm.14933412330345768097.exit": ; preds = %.lr.ph107
+"_ZN3csv6writer15Writer$LT$W$GT$16write_field_impl17h2111a403b7222bf2E.llvm.14933412330345768097.exit": ; preds = %.lr.ph113
   %68 = load i64, ptr %7, align 8, !alias.scope !4, !noalias !7, !noundef !15
   %69 = add i64 %68, 1
   store i64 %69, ptr %7, align 8, !alias.scope !4, !noalias !7
@@ -392,20 +392,20 @@ _ZN3csv11byte_record6Bounds3end17h4453fd335d968684E.exit.i: ; preds = %"_ZN81_$L
   %61 = load i64, ptr %25, align 8, !noalias !92, !noundef !15
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !92
   %62 = icmp ugt i64 %60, %47
-  br i1 %62, label %"_ZN84_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17hbdbc2f5077659ff9E.llvm.14933412330345768097.exit.preheader._crit_edge", label %.lr.ph299
+  br i1 %62, label %"_ZN84_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17hbdbc2f5077659ff9E.llvm.14933412330345768097.exit.preheader._crit_edge", label %.lr.ph312
 
 ._crit_edge:                                      ; preds = %52
   tail call void @_ZN4core5slice5index26slice_start_index_len_fail17h89a39d0ac724bb0bE(i64 noundef %53, i64 noundef %54, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.60dc0379046a18711abc9b890678a8dd.5.llvm.14933412330345768097) #16, !noalias !100
   unreachable
 
-.lr.ph299:                                        ; preds = %"_ZN84_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17hbdbc2f5077659ff9E.llvm.14933412330345768097.exit.preheader", %"_ZN3csv6writer15Writer$LT$W$GT$9flush_buf17ha296408b96e7bb69E.llvm.14933412330345768097.exit"
+.lr.ph312:                                        ; preds = %"_ZN84_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17hbdbc2f5077659ff9E.llvm.14933412330345768097.exit.preheader", %"_ZN3csv6writer15Writer$LT$W$GT$9flush_buf17ha296408b96e7bb69E.llvm.14933412330345768097.exit"
   %63 = phi i64 [ %91, %"_ZN3csv6writer15Writer$LT$W$GT$9flush_buf17ha296408b96e7bb69E.llvm.14933412330345768097.exit" ], [ %61, %"_ZN84_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17hbdbc2f5077659ff9E.llvm.14933412330345768097.exit.preheader" ]
   %64 = phi i64 [ %90, %"_ZN3csv6writer15Writer$LT$W$GT$9flush_buf17ha296408b96e7bb69E.llvm.14933412330345768097.exit" ], [ %60, %"_ZN84_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17hbdbc2f5077659ff9E.llvm.14933412330345768097.exit.preheader" ]
   %65 = phi i8 [ %89, %"_ZN3csv6writer15Writer$LT$W$GT$9flush_buf17ha296408b96e7bb69E.llvm.14933412330345768097.exit" ], [ %59, %"_ZN84_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17hbdbc2f5077659ff9E.llvm.14933412330345768097.exit.preheader" ]
-  %.sroa.0.0.i83298 = phi ptr [ %67, %"_ZN3csv6writer15Writer$LT$W$GT$9flush_buf17ha296408b96e7bb69E.llvm.14933412330345768097.exit" ], [ %48, %"_ZN84_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17hbdbc2f5077659ff9E.llvm.14933412330345768097.exit.preheader" ]
-  %.sroa.4.0.i84297 = phi i64 [ %66, %"_ZN3csv6writer15Writer$LT$W$GT$9flush_buf17ha296408b96e7bb69E.llvm.14933412330345768097.exit" ], [ %47, %"_ZN84_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17hbdbc2f5077659ff9E.llvm.14933412330345768097.exit.preheader" ]
-  %66 = sub nuw i64 %.sroa.4.0.i84297, %64
-  %67 = getelementptr inbounds i8, ptr %.sroa.0.0.i83298, i64 %64
+  %.sroa.0.0.i83311 = phi ptr [ %67, %"_ZN3csv6writer15Writer$LT$W$GT$9flush_buf17ha296408b96e7bb69E.llvm.14933412330345768097.exit" ], [ %48, %"_ZN84_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17hbdbc2f5077659ff9E.llvm.14933412330345768097.exit.preheader" ]
+  %.sroa.4.0.i84310 = phi i64 [ %66, %"_ZN3csv6writer15Writer$LT$W$GT$9flush_buf17ha296408b96e7bb69E.llvm.14933412330345768097.exit" ], [ %47, %"_ZN84_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17hbdbc2f5077659ff9E.llvm.14933412330345768097.exit.preheader" ]
+  %66 = sub nuw i64 %.sroa.4.0.i84310, %64
+  %67 = getelementptr inbounds i8, ptr %.sroa.0.0.i83311, i64 %64
   %68 = load i64, ptr %21, align 8, !alias.scope !87, !noalias !90, !noundef !15
   %69 = add i64 %68, %63
   store i64 %69, ptr %21, align 8, !alias.scope !87, !noalias !90
@@ -418,7 +418,7 @@ _ZN3csv11byte_record6Bounds3end17h4453fd335d968684E.exit.i: ; preds = %"_ZN81_$L
   tail call void @_ZN4core5slice5index26slice_start_index_len_fail17h89a39d0ac724bb0bE(i64 noundef %.lcssa, i64 noundef %.sroa.4.0.i84.lcssa, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.60dc0379046a18711abc9b890678a8dd.6.llvm.14933412330345768097) #16
   unreachable
 
-70:                                               ; preds = %.lr.ph299
+70:                                               ; preds = %.lr.ph312
   tail call void @llvm.experimental.noalias.scope.decl(metadata !104)
   store i8 1, ptr %26, align 1, !alias.scope !104
   %71 = load ptr, ptr %27, align 8, !alias.scope !104, !noundef !15
@@ -471,9 +471,9 @@ _ZN3csv11byte_record6Bounds3end17h4453fd335d968684E.exit.i: ; preds = %"_ZN81_$L
   %91 = load i64, ptr %25, align 8, !noalias !92, !noundef !15
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !92
   %92 = icmp ugt i64 %90, %66
-  br i1 %92, label %"_ZN84_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17hbdbc2f5077659ff9E.llvm.14933412330345768097.exit.preheader._crit_edge", label %.lr.ph299
+  br i1 %92, label %"_ZN84_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17hbdbc2f5077659ff9E.llvm.14933412330345768097.exit.preheader._crit_edge", label %.lr.ph312
 
-"_ZN3csv6writer15Writer$LT$W$GT$16write_field_impl17haf0ce7edc6bda9c6E.exit": ; preds = %.lr.ph299
+"_ZN3csv6writer15Writer$LT$W$GT$16write_field_impl17haf0ce7edc6bda9c6E.exit": ; preds = %.lr.ph312
   %93 = load i64, ptr %19, align 8, !alias.scope !87, !noalias !90, !noundef !15
   %94 = add i64 %93, 1
   store i64 %94, ptr %19, align 8, !alias.scope !87, !noalias !90
@@ -506,8 +506,8 @@ define hidden noalias noundef align 8 ptr @"_ZN3csv6writer15Writer$LT$W$GT$15wri
   %19 = load i64, ptr %3, align 8, !noundef !15
   %20 = add i64 %19, %18
   store i64 %20, ptr %3, align 8
-  %trunc28 = trunc i8 %17 to i1
-  br i1 %trunc28, label %.lr.ph, label %"_ZN84_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17hbdbc2f5077659ff9E.llvm.14933412330345768097.exit._crit_edge"
+  %trunc31 = trunc i8 %17 to i1
+  br i1 %trunc31, label %.lr.ph, label %"_ZN84_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17hbdbc2f5077659ff9E.llvm.14933412330345768097.exit._crit_edge"
 
 ._crit_edge:                                      ; preds = %1
   tail call void @_ZN4core5slice5index26slice_start_index_len_fail17h89a39d0ac724bb0bE(i64 noundef %5, i64 noundef %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.60dc0379046a18711abc9b890678a8dd.5.llvm.14933412330345768097) #16, !noalias !136
@@ -625,10 +625,10 @@ define hidden noalias noundef align 8 ptr @"_ZN3csv6writer15Writer$LT$W$GT$16wri
   %32 = phi i64 [ %63, %"_ZN3csv6writer15Writer$LT$W$GT$9flush_buf17ha296408b96e7bb69E.llvm.14933412330345768097.exit" ], [ %30, %"_ZN84_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17hbdbc2f5077659ff9E.llvm.14933412330345768097.exit.lr.ph" ]
   %33 = phi i64 [ %62, %"_ZN3csv6writer15Writer$LT$W$GT$9flush_buf17ha296408b96e7bb69E.llvm.14933412330345768097.exit" ], [ %29, %"_ZN84_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17hbdbc2f5077659ff9E.llvm.14933412330345768097.exit.lr.ph" ]
   %34 = phi i8 [ %61, %"_ZN3csv6writer15Writer$LT$W$GT$9flush_buf17ha296408b96e7bb69E.llvm.14933412330345768097.exit" ], [ %28, %"_ZN84_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17hbdbc2f5077659ff9E.llvm.14933412330345768097.exit.lr.ph" ]
-  %.sroa.0.04984 = phi ptr [ %36, %"_ZN3csv6writer15Writer$LT$W$GT$9flush_buf17ha296408b96e7bb69E.llvm.14933412330345768097.exit" ], [ %9, %"_ZN84_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17hbdbc2f5077659ff9E.llvm.14933412330345768097.exit.lr.ph" ]
-  %.sroa.4.05083 = phi i64 [ %35, %"_ZN3csv6writer15Writer$LT$W$GT$9flush_buf17ha296408b96e7bb69E.llvm.14933412330345768097.exit" ], [ %11, %"_ZN84_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17hbdbc2f5077659ff9E.llvm.14933412330345768097.exit.lr.ph" ]
-  %35 = sub nuw i64 %.sroa.4.05083, %33
-  %36 = getelementptr inbounds i8, ptr %.sroa.0.04984, i64 %33
+  %.sroa.0.04989 = phi ptr [ %36, %"_ZN3csv6writer15Writer$LT$W$GT$9flush_buf17ha296408b96e7bb69E.llvm.14933412330345768097.exit" ], [ %9, %"_ZN84_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17hbdbc2f5077659ff9E.llvm.14933412330345768097.exit.lr.ph" ]
+  %.sroa.4.05088 = phi i64 [ %35, %"_ZN3csv6writer15Writer$LT$W$GT$9flush_buf17ha296408b96e7bb69E.llvm.14933412330345768097.exit" ], [ %11, %"_ZN84_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17hbdbc2f5077659ff9E.llvm.14933412330345768097.exit.lr.ph" ]
+  %35 = sub nuw i64 %.sroa.4.05088, %33
+  %36 = getelementptr inbounds i8, ptr %.sroa.0.04989, i64 %33
   %37 = load i64, ptr %13, align 8, !noundef !15
   %38 = add i64 %37, %32
   store i64 %38, ptr %13, align 8
@@ -770,8 +770,8 @@ define hidden noundef align 8 ptr @"_ZN3csv6writer15Writer$LT$W$GT$16write_termi
   %38 = load i64, ptr %22, align 8, !noundef !15
   %39 = add i64 %38, %37
   store i64 %39, ptr %22, align 8
-  %trunc36 = trunc i8 %36 to i1
-  br i1 %trunc36, label %.lr.ph, label %"_ZN84_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17hbdbc2f5077659ff9E.llvm.14933412330345768097.exit._crit_edge"
+  %trunc42 = trunc i8 %36 to i1
+  br i1 %trunc42, label %.lr.ph, label %"_ZN84_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17hbdbc2f5077659ff9E.llvm.14933412330345768097.exit._crit_edge"
 
 ._crit_edge:                                      ; preds = %"_ZN3csv6writer15Writer$LT$W$GT$17check_field_count17hf2d27f16f2b44173E.exit"
   tail call void @_ZN4core5slice5index26slice_start_index_len_fail17h89a39d0ac724bb0bE(i64 noundef %24, i64 noundef %25, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.60dc0379046a18711abc9b890678a8dd.5.llvm.14933412330345768097) #16, !noalias !218
@@ -1217,13 +1217,13 @@ _ZN3csv11byte_record6Bounds3end17h4453fd335d968684E.exit: ; preds = %"_ZN81_$LT$
   br i1 %or.cond.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 ._crit_edge.thread.i.i:                           ; preds = %._crit_edge.i.i, %114
-  %.sroa.0.0.lcssa43.i.i = phi ptr [ %171, %._crit_edge.i.i ], [ %104, %114 ]
-  %.sroa.12.0.lcssa42.i.i = phi i64 [ %170, %._crit_edge.i.i ], [ %103, %114 ]
-  %173 = getelementptr inbounds i8, ptr %.sroa.0.0.lcssa43.i.i, i64 %.sroa.12.0.lcssa42.i.i
+  %.sroa.0.0.lcssa47.i.i = phi ptr [ %171, %._crit_edge.i.i ], [ %104, %114 ]
+  %.sroa.12.0.lcssa46.i.i = phi i64 [ %170, %._crit_edge.i.i ], [ %103, %114 ]
+  %173 = getelementptr inbounds i8, ptr %.sroa.0.0.lcssa47.i.i, i64 %.sroa.12.0.lcssa46.i.i
   br label %174
 
 174:                                              ; preds = %176, %._crit_edge.thread.i.i
-  %175 = phi ptr [ %177, %176 ], [ %.sroa.0.0.lcssa43.i.i, %._crit_edge.thread.i.i ]
+  %175 = phi ptr [ %177, %176 ], [ %.sroa.0.0.lcssa47.i.i, %._crit_edge.thread.i.i ]
   %.not.not.not.i.not.not.i.not.i = icmp eq ptr %175, %173
   br i1 %.not.not.not.i.not.not.i.not.i, label %_ZN8csv_core6writer6Writer12should_quote17h8bf8142a482b043dE.exit.thread64, label %176
 
@@ -1297,9 +1297,9 @@ _ZN8csv_core6writer6Writer12should_quote17h8bf8142a482b043dE.exit.thread: ; pred
   br i1 %.not19, label %228, label %206, !prof !296
 
 "_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h55b44624645f8983E.exit39": ; preds = %229, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h0ed213980287b77aE.exit"
-  %.sink453 = phi i64 [ 1, %229 ], [ %103, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h0ed213980287b77aE.exit" ]
+  %.sink500 = phi i64 [ 1, %229 ], [ %103, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h0ed213980287b77aE.exit" ]
   %203 = load i64, ptr %22, align 8, !noundef !15
-  %204 = add i64 %203, %.sink453
+  %204 = add i64 %203, %.sink500
   store i64 %204, ptr %22, align 8
   %205 = icmp eq i64 %52, %9
   br i1 %205, label %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h55b44624645f8983E.exit39._crit_edge", label %43

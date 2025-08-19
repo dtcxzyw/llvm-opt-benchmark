@@ -1341,8 +1341,8 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.i153:   ; preds = %_ZN4llvm12StringSwi
   br i1 %13, label %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit661, label %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit157
 
 _ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit157: ; preds = %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit, %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit150, %_ZNK4llvm9StringRef11starts_withES0_.exit.i153
-  %.not.i.i1511494 = phi i1 [ %.not.i.i151, %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit150 ], [ %.not.i.i151, %_ZNK4llvm9StringRef11starts_withES0_.exit.i153 ], [ true, %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit ]
-  %.not.i.i14410971493 = phi i1 [ %.not.i.i1441097, %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit150 ], [ %.not.i.i1441097, %_ZNK4llvm9StringRef11starts_withES0_.exit.i153 ], [ true, %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit ]
+  %.not.i.i1511499 = phi i1 [ %.not.i.i151, %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit150 ], [ %.not.i.i151, %_ZNK4llvm9StringRef11starts_withES0_.exit.i153 ], [ true, %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit ]
+  %.not.i.i14410971498 = phi i1 [ %.not.i.i1441097, %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit150 ], [ %.not.i.i1441097, %_ZNK4llvm9StringRef11starts_withES0_.exit.i153 ], [ true, %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit ]
   %.sroa.306.2 = phi i8 [ %.sroa.306.1, %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit150 ], [ 0, %_ZNK4llvm9StringRef11starts_withES0_.exit.i153 ], [ 0, %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit ]
   %14 = trunc nuw i8 %.sroa.306.2 to i1
   %.not.i.i158 = icmp ult i64 %1, 15
@@ -1367,7 +1367,7 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.i167:   ; preds = %_ZN4llvm12StringSwi
 
 _ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit171: ; preds = %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit164, %_ZNK4llvm9StringRef11starts_withES0_.exit.i167
   %18 = trunc nuw i8 %.sroa.306.2 to i1
-  %or.cond.i173 = or i1 %.not.i.i1511494, %18
+  %or.cond.i173 = or i1 %.not.i.i1511499, %18
   br i1 %or.cond.i173, label %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit178, label %_ZNK4llvm9StringRef11starts_withES0_.exit.i174
 
 _ZNK4llvm9StringRef11starts_withES0_.exit.i174:   ; preds = %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit171
@@ -1636,7 +1636,7 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.i342:   ; preds = %_ZN4llvm12StringSwi
 
 _ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit346: ; preds = %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit339, %_ZNK4llvm9StringRef11starts_withES0_.exit.i342
   %68 = trunc nuw i8 %.sroa.306.8 to i1
-  %or.cond.i348 = or i1 %.not.i.i14410971493, %68
+  %or.cond.i348 = or i1 %.not.i.i14410971498, %68
   br i1 %or.cond.i348, label %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit353, label %_ZNK4llvm9StringRef11starts_withES0_.exit.i349
 
 _ZNK4llvm9StringRef11starts_withES0_.exit.i349:   ; preds = %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit346
@@ -1696,7 +1696,7 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.i377:   ; preds = %_ZN4llvm12StringSwi
 
 _ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit381: ; preds = %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit374, %_ZNK4llvm9StringRef11starts_withES0_.exit.i377
   %78 = trunc nuw i8 %.sroa.306.32 to i1
-  %or.cond.i383 = or i1 %.not.i.i1511494, %78
+  %or.cond.i383 = or i1 %.not.i.i1511499, %78
   br i1 %or.cond.i383, label %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit388, label %_ZNK4llvm9StringRef11starts_withES0_.exit.i384
 
 _ZNK4llvm9StringRef11starts_withES0_.exit.i384:   ; preds = %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit381
@@ -1835,7 +1835,7 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.i468:   ; preds = %_ZN4llvm12StringSwi
 
 _ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit472: ; preds = %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit465, %_ZNK4llvm9StringRef11starts_withES0_.exit.i468
   %104 = trunc nuw i8 %.sroa.306.39 to i1
-  %or.cond.i474 = or i1 %.not.i.i14410971493, %104
+  %or.cond.i474 = or i1 %.not.i.i14410971498, %104
   br i1 %or.cond.i474, label %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit479, label %_ZNK4llvm9StringRef11starts_withES0_.exit.i475
 
 _ZNK4llvm9StringRef11starts_withES0_.exit.i475:   ; preds = %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit472
@@ -1845,7 +1845,7 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.i475:   ; preds = %_ZN4llvm12StringSwi
 
 _ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit479: ; preds = %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit472, %_ZNK4llvm9StringRef11starts_withES0_.exit.i475
   %106 = trunc nuw i8 %.sroa.306.39 to i1
-  %or.cond.i481 = or i1 %.not.i.i1511494, %106
+  %or.cond.i481 = or i1 %.not.i.i1511499, %106
   br i1 %or.cond.i481, label %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit486, label %_ZNK4llvm9StringRef11starts_withES0_.exit.i482
 
 _ZNK4llvm9StringRef11starts_withES0_.exit.i482:   ; preds = %_ZN4llvm12StringSwitchIN5clang13SanitizerMaskES2_E10StartsWithENS_13StringLiteralES2_.exit479
@@ -4784,7 +4784,7 @@ define dso_local void @_ZN5clang29serializeSanitizerMaskCutoffsERKNS_20Sanitizer
 317:                                              ; preds = %2
   %318 = load double, ptr %313, align 8, !tbaa !11
   %319 = fcmp olt double %318, 0x3E112E0BE0000000
-  br i1 %319, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit.thread.thread1530, label %320
+  br i1 %319, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit.thread.thread1959, label %320
 
 320:                                              ; preds = %317
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -4880,16 +4880,16 @@ _ZNK5clang20SanitizerMaskCutoffsixEj.exit.thread: ; preds = %_ZNKSt7__cxx1112bas
   %.pre = load ptr, ptr %0, align 8, !tbaa !3
   %.pre1409 = load ptr, ptr %314, align 8, !tbaa !3
   %361 = icmp eq ptr %.pre, %.pre1409
-  br i1 %361, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit968.thread, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit.thread.thread1530
+  br i1 %361, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit968.thread, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit.thread.thread1959
 
-_ZNK5clang20SanitizerMaskCutoffsixEj.exit.thread.thread1530: ; preds = %317, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit.thread
+_ZNK5clang20SanitizerMaskCutoffsixEj.exit.thread.thread1959: ; preds = %317, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit.thread
   %362 = phi ptr [ %.pre, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit.thread ], [ %313, %317 ]
   %363 = getelementptr inbounds nuw i8, ptr %362, i64 8
   %364 = load double, ptr %363, align 8, !tbaa !11
   %365 = fcmp olt double %364, 0x3E112E0BE0000000
-  br i1 %365, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit128.thread.thread1531, label %366
+  br i1 %365, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit128.thread.thread1960, label %366
 
-366:                                              ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit.thread.thread1530
+366:                                              ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit.thread.thread1959
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %367 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %367, ptr %8, align 8, !tbaa !47
@@ -4983,16 +4983,16 @@ _ZNK5clang20SanitizerMaskCutoffsixEj.exit128.thread: ; preds = %_ZNKSt7__cxx1112
   %.pre1410 = load ptr, ptr %0, align 8, !tbaa !3
   %.pre1411 = load ptr, ptr %314, align 8, !tbaa !3
   %407 = icmp eq ptr %.pre1410, %.pre1411
-  br i1 %407, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit968.thread, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit128.thread.thread1531
+  br i1 %407, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit968.thread, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit128.thread.thread1960
 
-_ZNK5clang20SanitizerMaskCutoffsixEj.exit128.thread.thread1531: ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit.thread.thread1530, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit128.thread
-  %408 = phi ptr [ %.pre1410, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit128.thread ], [ %362, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit.thread.thread1530 ]
+_ZNK5clang20SanitizerMaskCutoffsixEj.exit128.thread.thread1960: ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit.thread.thread1959, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit128.thread
+  %408 = phi ptr [ %.pre1410, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit128.thread ], [ %362, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit.thread.thread1959 ]
   %409 = getelementptr inbounds nuw i8, ptr %408, i64 16
   %410 = load double, ptr %409, align 8, !tbaa !11
   %411 = fcmp olt double %410, 0x3E112E0BE0000000
-  br i1 %411, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit142.thread.thread1533, label %412
+  br i1 %411, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit142.thread.thread1962, label %412
 
-412:                                              ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit128.thread.thread1531
+412:                                              ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit128.thread.thread1960
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %413 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store ptr %413, ptr %13, align 8, !tbaa !47
@@ -5086,16 +5086,16 @@ _ZNK5clang20SanitizerMaskCutoffsixEj.exit142.thread: ; preds = %_ZNKSt7__cxx1112
   %.pre1412 = load ptr, ptr %0, align 8, !tbaa !3
   %.pre1413 = load ptr, ptr %314, align 8, !tbaa !3
   %453 = icmp eq ptr %.pre1412, %.pre1413
-  br i1 %453, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit968.thread, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit142.thread.thread1533
+  br i1 %453, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit968.thread, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit142.thread.thread1962
 
-_ZNK5clang20SanitizerMaskCutoffsixEj.exit142.thread.thread1533: ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit128.thread.thread1531, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit142.thread
-  %454 = phi ptr [ %.pre1412, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit142.thread ], [ %408, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit128.thread.thread1531 ]
+_ZNK5clang20SanitizerMaskCutoffsixEj.exit142.thread.thread1962: ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit128.thread.thread1960, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit142.thread
+  %454 = phi ptr [ %.pre1412, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit142.thread ], [ %408, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit128.thread.thread1960 ]
   %455 = getelementptr inbounds nuw i8, ptr %454, i64 24
   %456 = load double, ptr %455, align 8, !tbaa !11
   %457 = fcmp olt double %456, 0x3E112E0BE0000000
-  br i1 %457, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit156.thread.thread1535, label %458
+  br i1 %457, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit156.thread.thread1964, label %458
 
-458:                                              ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit142.thread.thread1533
+458:                                              ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit142.thread.thread1962
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
   %459 = getelementptr inbounds nuw i8, ptr %18, i64 16
   store ptr %459, ptr %18, align 8, !tbaa !47
@@ -5189,16 +5189,16 @@ _ZNK5clang20SanitizerMaskCutoffsixEj.exit156.thread: ; preds = %_ZNKSt7__cxx1112
   %.pre1414 = load ptr, ptr %0, align 8, !tbaa !3
   %.pre1415 = load ptr, ptr %314, align 8, !tbaa !3
   %499 = icmp eq ptr %.pre1414, %.pre1415
-  br i1 %499, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit968.thread, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit156.thread.thread1535
+  br i1 %499, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit968.thread, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit156.thread.thread1964
 
-_ZNK5clang20SanitizerMaskCutoffsixEj.exit156.thread.thread1535: ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit142.thread.thread1533, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit156.thread
-  %500 = phi ptr [ %.pre1414, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit156.thread ], [ %454, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit142.thread.thread1533 ]
+_ZNK5clang20SanitizerMaskCutoffsixEj.exit156.thread.thread1964: ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit142.thread.thread1962, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit156.thread
+  %500 = phi ptr [ %.pre1414, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit156.thread ], [ %454, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit142.thread.thread1962 ]
   %501 = getelementptr inbounds nuw i8, ptr %500, i64 32
   %502 = load double, ptr %501, align 8, !tbaa !11
   %503 = fcmp olt double %502, 0x3E112E0BE0000000
-  br i1 %503, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit170.thread.thread1537, label %504
+  br i1 %503, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit170.thread.thread1966, label %504
 
-504:                                              ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit156.thread.thread1535
+504:                                              ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit156.thread.thread1964
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
   %505 = getelementptr inbounds nuw i8, ptr %23, i64 16
   store ptr %505, ptr %23, align 8, !tbaa !47
@@ -5292,16 +5292,16 @@ _ZNK5clang20SanitizerMaskCutoffsixEj.exit170.thread: ; preds = %_ZNKSt7__cxx1112
   %.pre1416 = load ptr, ptr %0, align 8, !tbaa !3
   %.pre1417 = load ptr, ptr %314, align 8, !tbaa !3
   %545 = icmp eq ptr %.pre1416, %.pre1417
-  br i1 %545, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit968.thread, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit170.thread.thread1537
+  br i1 %545, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit968.thread, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit170.thread.thread1966
 
-_ZNK5clang20SanitizerMaskCutoffsixEj.exit170.thread.thread1537: ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit156.thread.thread1535, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit170.thread
-  %546 = phi ptr [ %.pre1416, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit170.thread ], [ %500, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit156.thread.thread1535 ]
+_ZNK5clang20SanitizerMaskCutoffsixEj.exit170.thread.thread1966: ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit156.thread.thread1964, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit170.thread
+  %546 = phi ptr [ %.pre1416, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit170.thread ], [ %500, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit156.thread.thread1964 ]
   %547 = getelementptr inbounds nuw i8, ptr %546, i64 40
   %548 = load double, ptr %547, align 8, !tbaa !11
   %549 = fcmp olt double %548, 0x3E112E0BE0000000
-  br i1 %549, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit184.thread.thread1539, label %550
+  br i1 %549, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit184.thread.thread1968, label %550
 
-550:                                              ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit170.thread.thread1537
+550:                                              ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit170.thread.thread1966
   call void @llvm.lifetime.start.p0(ptr nonnull %28)
   %551 = getelementptr inbounds nuw i8, ptr %28, i64 16
   store ptr %551, ptr %28, align 8, !tbaa !47
@@ -5395,16 +5395,16 @@ _ZNK5clang20SanitizerMaskCutoffsixEj.exit184.thread: ; preds = %_ZNKSt7__cxx1112
   %.pre1418 = load ptr, ptr %0, align 8, !tbaa !3
   %.pre1419 = load ptr, ptr %314, align 8, !tbaa !3
   %591 = icmp eq ptr %.pre1418, %.pre1419
-  br i1 %591, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit968.thread, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit184.thread.thread1539
+  br i1 %591, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit968.thread, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit184.thread.thread1968
 
-_ZNK5clang20SanitizerMaskCutoffsixEj.exit184.thread.thread1539: ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit170.thread.thread1537, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit184.thread
-  %592 = phi ptr [ %.pre1418, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit184.thread ], [ %546, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit170.thread.thread1537 ]
+_ZNK5clang20SanitizerMaskCutoffsixEj.exit184.thread.thread1968: ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit170.thread.thread1966, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit184.thread
+  %592 = phi ptr [ %.pre1418, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit184.thread ], [ %546, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit170.thread.thread1966 ]
   %593 = getelementptr inbounds nuw i8, ptr %592, i64 48
   %594 = load double, ptr %593, align 8, !tbaa !11
   %595 = fcmp olt double %594, 0x3E112E0BE0000000
-  br i1 %595, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit198.thread.thread1541, label %596
+  br i1 %595, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit198.thread.thread1970, label %596
 
-596:                                              ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit184.thread.thread1539
+596:                                              ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit184.thread.thread1968
   call void @llvm.lifetime.start.p0(ptr nonnull %33)
   %597 = getelementptr inbounds nuw i8, ptr %33, i64 16
   store ptr %597, ptr %33, align 8, !tbaa !47
@@ -5498,16 +5498,16 @@ _ZNK5clang20SanitizerMaskCutoffsixEj.exit198.thread: ; preds = %_ZNKSt7__cxx1112
   %.pre1420 = load ptr, ptr %0, align 8, !tbaa !3
   %.pre1421 = load ptr, ptr %314, align 8, !tbaa !3
   %637 = icmp eq ptr %.pre1420, %.pre1421
-  br i1 %637, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit968.thread, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit198.thread.thread1541
+  br i1 %637, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit968.thread, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit198.thread.thread1970
 
-_ZNK5clang20SanitizerMaskCutoffsixEj.exit198.thread.thread1541: ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit184.thread.thread1539, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit198.thread
-  %638 = phi ptr [ %.pre1420, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit198.thread ], [ %592, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit184.thread.thread1539 ]
+_ZNK5clang20SanitizerMaskCutoffsixEj.exit198.thread.thread1970: ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit184.thread.thread1968, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit198.thread
+  %638 = phi ptr [ %.pre1420, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit198.thread ], [ %592, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit184.thread.thread1968 ]
   %639 = getelementptr inbounds nuw i8, ptr %638, i64 56
   %640 = load double, ptr %639, align 8, !tbaa !11
   %641 = fcmp olt double %640, 0x3E112E0BE0000000
-  br i1 %641, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit212.thread.thread1543, label %642
+  br i1 %641, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit212.thread.thread1972, label %642
 
-642:                                              ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit198.thread.thread1541
+642:                                              ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit198.thread.thread1970
   call void @llvm.lifetime.start.p0(ptr nonnull %38)
   %643 = getelementptr inbounds nuw i8, ptr %38, i64 16
   store ptr %643, ptr %38, align 8, !tbaa !47
@@ -5601,16 +5601,16 @@ _ZNK5clang20SanitizerMaskCutoffsixEj.exit212.thread: ; preds = %_ZNKSt7__cxx1112
   %.pre1422 = load ptr, ptr %0, align 8, !tbaa !3
   %.pre1423 = load ptr, ptr %314, align 8, !tbaa !3
   %683 = icmp eq ptr %.pre1422, %.pre1423
-  br i1 %683, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit968.thread, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit212.thread.thread1543
+  br i1 %683, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit968.thread, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit212.thread.thread1972
 
-_ZNK5clang20SanitizerMaskCutoffsixEj.exit212.thread.thread1543: ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit198.thread.thread1541, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit212.thread
-  %684 = phi ptr [ %.pre1422, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit212.thread ], [ %638, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit198.thread.thread1541 ]
+_ZNK5clang20SanitizerMaskCutoffsixEj.exit212.thread.thread1972: ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit198.thread.thread1970, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit212.thread
+  %684 = phi ptr [ %.pre1422, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit212.thread ], [ %638, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit198.thread.thread1970 ]
   %685 = getelementptr inbounds nuw i8, ptr %684, i64 64
   %686 = load double, ptr %685, align 8, !tbaa !11
   %687 = fcmp olt double %686, 0x3E112E0BE0000000
-  br i1 %687, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit226.thread.thread1545, label %688
+  br i1 %687, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit226.thread.thread1974, label %688
 
-688:                                              ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit212.thread.thread1543
+688:                                              ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit212.thread.thread1972
   call void @llvm.lifetime.start.p0(ptr nonnull %43)
   %689 = getelementptr inbounds nuw i8, ptr %43, i64 16
   store ptr %689, ptr %43, align 8, !tbaa !47
@@ -5704,16 +5704,16 @@ _ZNK5clang20SanitizerMaskCutoffsixEj.exit226.thread: ; preds = %_ZNKSt7__cxx1112
   %.pre1424 = load ptr, ptr %0, align 8, !tbaa !3
   %.pre1425 = load ptr, ptr %314, align 8, !tbaa !3
   %729 = icmp eq ptr %.pre1424, %.pre1425
-  br i1 %729, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit968.thread, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit226.thread.thread1545
+  br i1 %729, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit968.thread, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit226.thread.thread1974
 
-_ZNK5clang20SanitizerMaskCutoffsixEj.exit226.thread.thread1545: ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit212.thread.thread1543, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit226.thread
-  %730 = phi ptr [ %.pre1424, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit226.thread ], [ %684, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit212.thread.thread1543 ]
+_ZNK5clang20SanitizerMaskCutoffsixEj.exit226.thread.thread1974: ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit212.thread.thread1972, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit226.thread
+  %730 = phi ptr [ %.pre1424, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit226.thread ], [ %684, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit212.thread.thread1972 ]
   %731 = getelementptr inbounds nuw i8, ptr %730, i64 80
   %732 = load double, ptr %731, align 8, !tbaa !11
   %733 = fcmp olt double %732, 0x3E112E0BE0000000
-  br i1 %733, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit240.thread.thread1547, label %734
+  br i1 %733, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit240.thread.thread1976, label %734
 
-734:                                              ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit226.thread.thread1545
+734:                                              ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit226.thread.thread1974
   call void @llvm.lifetime.start.p0(ptr nonnull %48)
   %735 = getelementptr inbounds nuw i8, ptr %48, i64 16
   store ptr %735, ptr %48, align 8, !tbaa !47
@@ -5807,16 +5807,16 @@ _ZNK5clang20SanitizerMaskCutoffsixEj.exit240.thread: ; preds = %_ZNKSt7__cxx1112
   %.pre1426 = load ptr, ptr %0, align 8, !tbaa !3
   %.pre1427 = load ptr, ptr %314, align 8, !tbaa !3
   %775 = icmp eq ptr %.pre1426, %.pre1427
-  br i1 %775, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit968.thread, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit240.thread.thread1547
+  br i1 %775, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit968.thread, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit240.thread.thread1976
 
-_ZNK5clang20SanitizerMaskCutoffsixEj.exit240.thread.thread1547: ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit226.thread.thread1545, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit240.thread
-  %776 = phi ptr [ %.pre1426, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit240.thread ], [ %730, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit226.thread.thread1545 ]
+_ZNK5clang20SanitizerMaskCutoffsixEj.exit240.thread.thread1976: ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit226.thread.thread1974, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit240.thread
+  %776 = phi ptr [ %.pre1426, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit240.thread ], [ %730, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit226.thread.thread1974 ]
   %777 = getelementptr inbounds nuw i8, ptr %776, i64 88
   %778 = load double, ptr %777, align 8, !tbaa !11
   %779 = fcmp olt double %778, 0x3E112E0BE0000000
-  br i1 %779, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit254.thread.thread1549, label %780
+  br i1 %779, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit254.thread.thread1978, label %780
 
-780:                                              ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit240.thread.thread1547
+780:                                              ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit240.thread.thread1976
   call void @llvm.lifetime.start.p0(ptr nonnull %53)
   %781 = getelementptr inbounds nuw i8, ptr %53, i64 16
   store ptr %781, ptr %53, align 8, !tbaa !47
@@ -5910,16 +5910,16 @@ _ZNK5clang20SanitizerMaskCutoffsixEj.exit254.thread: ; preds = %_ZNKSt7__cxx1112
   %.pre1428 = load ptr, ptr %0, align 8, !tbaa !3
   %.pre1429 = load ptr, ptr %314, align 8, !tbaa !3
   %821 = icmp eq ptr %.pre1428, %.pre1429
-  br i1 %821, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit968.thread, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit254.thread.thread1549
+  br i1 %821, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit968.thread, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit254.thread.thread1978
 
-_ZNK5clang20SanitizerMaskCutoffsixEj.exit254.thread.thread1549: ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit240.thread.thread1547, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit254.thread
-  %822 = phi ptr [ %.pre1428, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit254.thread ], [ %776, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit240.thread.thread1547 ]
+_ZNK5clang20SanitizerMaskCutoffsixEj.exit254.thread.thread1978: ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit240.thread.thread1976, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit254.thread
+  %822 = phi ptr [ %.pre1428, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit254.thread ], [ %776, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit240.thread.thread1976 ]
   %823 = getelementptr inbounds nuw i8, ptr %822, i64 96
   %824 = load double, ptr %823, align 8, !tbaa !11
   %825 = fcmp olt double %824, 0x3E112E0BE0000000
-  br i1 %825, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit268.thread.thread1551, label %826
+  br i1 %825, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit268.thread.thread1980, label %826
 
-826:                                              ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit254.thread.thread1549
+826:                                              ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit254.thread.thread1978
   call void @llvm.lifetime.start.p0(ptr nonnull %58)
   %827 = getelementptr inbounds nuw i8, ptr %58, i64 16
   store ptr %827, ptr %58, align 8, !tbaa !47
@@ -6013,16 +6013,16 @@ _ZNK5clang20SanitizerMaskCutoffsixEj.exit268.thread: ; preds = %_ZNKSt7__cxx1112
   %.pre1430 = load ptr, ptr %0, align 8, !tbaa !3
   %.pre1431 = load ptr, ptr %314, align 8, !tbaa !3
   %867 = icmp eq ptr %.pre1430, %.pre1431
-  br i1 %867, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit968.thread, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit268.thread.thread1551
+  br i1 %867, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit968.thread, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit268.thread.thread1980
 
-_ZNK5clang20SanitizerMaskCutoffsixEj.exit268.thread.thread1551: ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit254.thread.thread1549, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit268.thread
-  %868 = phi ptr [ %.pre1430, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit268.thread ], [ %822, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit254.thread.thread1549 ]
+_ZNK5clang20SanitizerMaskCutoffsixEj.exit268.thread.thread1980: ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit254.thread.thread1978, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit268.thread
+  %868 = phi ptr [ %.pre1430, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit268.thread ], [ %822, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit254.thread.thread1978 ]
   %869 = getelementptr inbounds nuw i8, ptr %868, i64 104
   %870 = load double, ptr %869, align 8, !tbaa !11
   %871 = fcmp olt double %870, 0x3E112E0BE0000000
-  br i1 %871, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit282.thread.thread1553, label %872
+  br i1 %871, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit282.thread.thread1982, label %872
 
-872:                                              ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit268.thread.thread1551
+872:                                              ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit268.thread.thread1980
   call void @llvm.lifetime.start.p0(ptr nonnull %63)
   %873 = getelementptr inbounds nuw i8, ptr %63, i64 16
   store ptr %873, ptr %63, align 8, !tbaa !47
@@ -6116,16 +6116,16 @@ _ZNK5clang20SanitizerMaskCutoffsixEj.exit282.thread: ; preds = %_ZNKSt7__cxx1112
   %.pre1432 = load ptr, ptr %0, align 8, !tbaa !3
   %.pre1433 = load ptr, ptr %314, align 8, !tbaa !3
   %913 = icmp eq ptr %.pre1432, %.pre1433
-  br i1 %913, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit968.thread, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit282.thread.thread1553
+  br i1 %913, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit968.thread, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit282.thread.thread1982
 
-_ZNK5clang20SanitizerMaskCutoffsixEj.exit282.thread.thread1553: ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit268.thread.thread1551, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit282.thread
-  %914 = phi ptr [ %.pre1432, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit282.thread ], [ %868, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit268.thread.thread1551 ]
+_ZNK5clang20SanitizerMaskCutoffsixEj.exit282.thread.thread1982: ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit268.thread.thread1980, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit282.thread
+  %914 = phi ptr [ %.pre1432, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit282.thread ], [ %868, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit268.thread.thread1980 ]
   %915 = getelementptr inbounds nuw i8, ptr %914, i64 112
   %916 = load double, ptr %915, align 8, !tbaa !11
   %917 = fcmp olt double %916, 0x3E112E0BE0000000
-  br i1 %917, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit296.thread.thread1555, label %918
+  br i1 %917, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit296.thread.thread1984, label %918
 
-918:                                              ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit282.thread.thread1553
+918:                                              ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit282.thread.thread1982
   call void @llvm.lifetime.start.p0(ptr nonnull %68)
   %919 = getelementptr inbounds nuw i8, ptr %68, i64 16
   store ptr %919, ptr %68, align 8, !tbaa !47
@@ -6219,16 +6219,16 @@ _ZNK5clang20SanitizerMaskCutoffsixEj.exit296.thread: ; preds = %_ZNKSt7__cxx1112
   %.pre1434 = load ptr, ptr %0, align 8, !tbaa !3
   %.pre1435 = load ptr, ptr %314, align 8, !tbaa !3
   %959 = icmp eq ptr %.pre1434, %.pre1435
-  br i1 %959, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit968.thread, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit296.thread.thread1555
+  br i1 %959, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit968.thread, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit296.thread.thread1984
 
-_ZNK5clang20SanitizerMaskCutoffsixEj.exit296.thread.thread1555: ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit282.thread.thread1553, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit296.thread
-  %960 = phi ptr [ %.pre1434, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit296.thread ], [ %914, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit282.thread.thread1553 ]
+_ZNK5clang20SanitizerMaskCutoffsixEj.exit296.thread.thread1984: ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit282.thread.thread1982, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit296.thread
+  %960 = phi ptr [ %.pre1434, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit296.thread ], [ %914, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit282.thread.thread1982 ]
   %961 = getelementptr inbounds nuw i8, ptr %960, i64 120
   %962 = load double, ptr %961, align 8, !tbaa !11
   %963 = fcmp olt double %962, 0x3E112E0BE0000000
-  br i1 %963, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit310.thread.thread1557, label %964
+  br i1 %963, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit310.thread.thread1986, label %964
 
-964:                                              ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit296.thread.thread1555
+964:                                              ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit296.thread.thread1984
   call void @llvm.lifetime.start.p0(ptr nonnull %73)
   %965 = getelementptr inbounds nuw i8, ptr %73, i64 16
   store ptr %965, ptr %73, align 8, !tbaa !47
@@ -6322,16 +6322,16 @@ _ZNK5clang20SanitizerMaskCutoffsixEj.exit310.thread: ; preds = %_ZNKSt7__cxx1112
   %.pre1436 = load ptr, ptr %0, align 8, !tbaa !3
   %.pre1437 = load ptr, ptr %314, align 8, !tbaa !3
   %1005 = icmp eq ptr %.pre1436, %.pre1437
-  br i1 %1005, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit968.thread, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit310.thread.thread1557
+  br i1 %1005, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit968.thread, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit310.thread.thread1986
 
-_ZNK5clang20SanitizerMaskCutoffsixEj.exit310.thread.thread1557: ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit296.thread.thread1555, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit310.thread
-  %1006 = phi ptr [ %.pre1436, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit310.thread ], [ %960, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit296.thread.thread1555 ]
+_ZNK5clang20SanitizerMaskCutoffsixEj.exit310.thread.thread1986: ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit296.thread.thread1984, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit310.thread
+  %1006 = phi ptr [ %.pre1436, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit310.thread ], [ %960, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit296.thread.thread1984 ]
   %1007 = getelementptr inbounds nuw i8, ptr %1006, i64 128
   %1008 = load double, ptr %1007, align 8, !tbaa !11
   %1009 = fcmp olt double %1008, 0x3E112E0BE0000000
-  br i1 %1009, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit324.thread.thread1559, label %1010
+  br i1 %1009, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit324.thread.thread1988, label %1010
 
-1010:                                             ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit310.thread.thread1557
+1010:                                             ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit310.thread.thread1986
   call void @llvm.lifetime.start.p0(ptr nonnull %78)
   %1011 = getelementptr inbounds nuw i8, ptr %78, i64 16
   store ptr %1011, ptr %78, align 8, !tbaa !47
@@ -6425,16 +6425,16 @@ _ZNK5clang20SanitizerMaskCutoffsixEj.exit324.thread: ; preds = %_ZNKSt7__cxx1112
   %.pre1438 = load ptr, ptr %0, align 8, !tbaa !3
   %.pre1439 = load ptr, ptr %314, align 8, !tbaa !3
   %1051 = icmp eq ptr %.pre1438, %.pre1439
-  br i1 %1051, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit968.thread, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit324.thread.thread1559
+  br i1 %1051, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit968.thread, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit324.thread.thread1988
 
-_ZNK5clang20SanitizerMaskCutoffsixEj.exit324.thread.thread1559: ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit310.thread.thread1557, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit324.thread
-  %1052 = phi ptr [ %.pre1438, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit324.thread ], [ %1006, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit310.thread.thread1557 ]
+_ZNK5clang20SanitizerMaskCutoffsixEj.exit324.thread.thread1988: ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit310.thread.thread1986, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit324.thread
+  %1052 = phi ptr [ %.pre1438, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit324.thread ], [ %1006, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit310.thread.thread1986 ]
   %1053 = getelementptr inbounds nuw i8, ptr %1052, i64 136
   %1054 = load double, ptr %1053, align 8, !tbaa !11
   %1055 = fcmp olt double %1054, 0x3E112E0BE0000000
-  br i1 %1055, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit338.thread.thread1561, label %1056
+  br i1 %1055, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit338.thread.thread1990, label %1056
 
-1056:                                             ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit324.thread.thread1559
+1056:                                             ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit324.thread.thread1988
   call void @llvm.lifetime.start.p0(ptr nonnull %83)
   %1057 = getelementptr inbounds nuw i8, ptr %83, i64 16
   store ptr %1057, ptr %83, align 8, !tbaa !47
@@ -6528,16 +6528,16 @@ _ZNK5clang20SanitizerMaskCutoffsixEj.exit338.thread: ; preds = %_ZNKSt7__cxx1112
   %.pre1440 = load ptr, ptr %0, align 8, !tbaa !3
   %.pre1441 = load ptr, ptr %314, align 8, !tbaa !3
   %1097 = icmp eq ptr %.pre1440, %.pre1441
-  br i1 %1097, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit968.thread, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit338.thread.thread1561
+  br i1 %1097, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit968.thread, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit338.thread.thread1990
 
-_ZNK5clang20SanitizerMaskCutoffsixEj.exit338.thread.thread1561: ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit324.thread.thread1559, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit338.thread
-  %1098 = phi ptr [ %.pre1440, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit338.thread ], [ %1052, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit324.thread.thread1559 ]
+_ZNK5clang20SanitizerMaskCutoffsixEj.exit338.thread.thread1990: ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit324.thread.thread1988, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit338.thread
+  %1098 = phi ptr [ %.pre1440, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit338.thread ], [ %1052, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit324.thread.thread1988 ]
   %1099 = getelementptr inbounds nuw i8, ptr %1098, i64 144
   %1100 = load double, ptr %1099, align 8, !tbaa !11
   %1101 = fcmp olt double %1100, 0x3E112E0BE0000000
-  br i1 %1101, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit352.thread.thread1563, label %1102
+  br i1 %1101, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit352.thread.thread1992, label %1102
 
-1102:                                             ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit338.thread.thread1561
+1102:                                             ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit338.thread.thread1990
   call void @llvm.lifetime.start.p0(ptr nonnull %88)
   %1103 = getelementptr inbounds nuw i8, ptr %88, i64 16
   store ptr %1103, ptr %88, align 8, !tbaa !47
@@ -6631,16 +6631,16 @@ _ZNK5clang20SanitizerMaskCutoffsixEj.exit352.thread: ; preds = %_ZNKSt7__cxx1112
   %.pre1442 = load ptr, ptr %0, align 8, !tbaa !3
   %.pre1443 = load ptr, ptr %314, align 8, !tbaa !3
   %1143 = icmp eq ptr %.pre1442, %.pre1443
-  br i1 %1143, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit968.thread, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit352.thread.thread1563
+  br i1 %1143, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit968.thread, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit352.thread.thread1992
 
-_ZNK5clang20SanitizerMaskCutoffsixEj.exit352.thread.thread1563: ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit338.thread.thread1561, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit352.thread
-  %1144 = phi ptr [ %.pre1442, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit352.thread ], [ %1098, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit338.thread.thread1561 ]
+_ZNK5clang20SanitizerMaskCutoffsixEj.exit352.thread.thread1992: ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit338.thread.thread1990, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit352.thread
+  %1144 = phi ptr [ %.pre1442, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit352.thread ], [ %1098, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit338.thread.thread1990 ]
   %1145 = getelementptr inbounds nuw i8, ptr %1144, i64 152
   %1146 = load double, ptr %1145, align 8, !tbaa !11
   %1147 = fcmp olt double %1146, 0x3E112E0BE0000000
-  br i1 %1147, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit366.thread.thread1565, label %1148
+  br i1 %1147, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit366.thread.thread1994, label %1148
 
-1148:                                             ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit352.thread.thread1563
+1148:                                             ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit352.thread.thread1992
   call void @llvm.lifetime.start.p0(ptr nonnull %93)
   %1149 = getelementptr inbounds nuw i8, ptr %93, i64 16
   store ptr %1149, ptr %93, align 8, !tbaa !47
@@ -6734,16 +6734,16 @@ _ZNK5clang20SanitizerMaskCutoffsixEj.exit366.thread: ; preds = %_ZNKSt7__cxx1112
   %.pre1444 = load ptr, ptr %0, align 8, !tbaa !3
   %.pre1445 = load ptr, ptr %314, align 8, !tbaa !3
   %1189 = icmp eq ptr %.pre1444, %.pre1445
-  br i1 %1189, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit968.thread, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit366.thread.thread1565
+  br i1 %1189, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit968.thread, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit366.thread.thread1994
 
-_ZNK5clang20SanitizerMaskCutoffsixEj.exit366.thread.thread1565: ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit352.thread.thread1563, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit366.thread
-  %1190 = phi ptr [ %.pre1444, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit366.thread ], [ %1144, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit352.thread.thread1563 ]
+_ZNK5clang20SanitizerMaskCutoffsixEj.exit366.thread.thread1994: ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit352.thread.thread1992, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit366.thread
+  %1190 = phi ptr [ %.pre1444, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit366.thread ], [ %1144, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit352.thread.thread1992 ]
   %1191 = getelementptr inbounds nuw i8, ptr %1190, i64 160
   %1192 = load double, ptr %1191, align 8, !tbaa !11
   %1193 = fcmp olt double %1192, 0x3E112E0BE0000000
-  br i1 %1193, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit380.thread.thread1567, label %1194
+  br i1 %1193, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit380.thread.thread1996, label %1194
 
-1194:                                             ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit366.thread.thread1565
+1194:                                             ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit366.thread.thread1994
   call void @llvm.lifetime.start.p0(ptr nonnull %98)
   %1195 = getelementptr inbounds nuw i8, ptr %98, i64 16
   store ptr %1195, ptr %98, align 8, !tbaa !47
@@ -6837,16 +6837,16 @@ _ZNK5clang20SanitizerMaskCutoffsixEj.exit380.thread: ; preds = %_ZNKSt7__cxx1112
   %.pre1446 = load ptr, ptr %0, align 8, !tbaa !3
   %.pre1447 = load ptr, ptr %314, align 8, !tbaa !3
   %1235 = icmp eq ptr %.pre1446, %.pre1447
-  br i1 %1235, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit968.thread, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit380.thread.thread1567
+  br i1 %1235, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit968.thread, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit380.thread.thread1996
 
-_ZNK5clang20SanitizerMaskCutoffsixEj.exit380.thread.thread1567: ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit366.thread.thread1565, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit380.thread
-  %1236 = phi ptr [ %.pre1446, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit380.thread ], [ %1190, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit366.thread.thread1565 ]
+_ZNK5clang20SanitizerMaskCutoffsixEj.exit380.thread.thread1996: ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit366.thread.thread1994, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit380.thread
+  %1236 = phi ptr [ %.pre1446, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit380.thread ], [ %1190, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit366.thread.thread1994 ]
   %1237 = getelementptr inbounds nuw i8, ptr %1236, i64 168
   %1238 = load double, ptr %1237, align 8, !tbaa !11
   %1239 = fcmp olt double %1238, 0x3E112E0BE0000000
-  br i1 %1239, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit394.thread.thread1569, label %1240
+  br i1 %1239, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit394.thread.thread1998, label %1240
 
-1240:                                             ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit380.thread.thread1567
+1240:                                             ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit380.thread.thread1996
   call void @llvm.lifetime.start.p0(ptr nonnull %103)
   %1241 = getelementptr inbounds nuw i8, ptr %103, i64 16
   store ptr %1241, ptr %103, align 8, !tbaa !47
@@ -6940,16 +6940,16 @@ _ZNK5clang20SanitizerMaskCutoffsixEj.exit394.thread: ; preds = %_ZNKSt7__cxx1112
   %.pre1448 = load ptr, ptr %0, align 8, !tbaa !3
   %.pre1449 = load ptr, ptr %314, align 8, !tbaa !3
   %1281 = icmp eq ptr %.pre1448, %.pre1449
-  br i1 %1281, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit968.thread, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit394.thread.thread1569
+  br i1 %1281, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit968.thread, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit394.thread.thread1998
 
-_ZNK5clang20SanitizerMaskCutoffsixEj.exit394.thread.thread1569: ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit380.thread.thread1567, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit394.thread
-  %1282 = phi ptr [ %.pre1448, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit394.thread ], [ %1236, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit380.thread.thread1567 ]
+_ZNK5clang20SanitizerMaskCutoffsixEj.exit394.thread.thread1998: ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit380.thread.thread1996, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit394.thread
+  %1282 = phi ptr [ %.pre1448, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit394.thread ], [ %1236, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit380.thread.thread1996 ]
   %1283 = getelementptr inbounds nuw i8, ptr %1282, i64 176
   %1284 = load double, ptr %1283, align 8, !tbaa !11
   %1285 = fcmp olt double %1284, 0x3E112E0BE0000000
-  br i1 %1285, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit408.thread.thread1571, label %1286
+  br i1 %1285, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit408.thread.thread2000, label %1286
 
-1286:                                             ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit394.thread.thread1569
+1286:                                             ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit394.thread.thread1998
   call void @llvm.lifetime.start.p0(ptr nonnull %108)
   %1287 = getelementptr inbounds nuw i8, ptr %108, i64 16
   store ptr %1287, ptr %108, align 8, !tbaa !47
@@ -7043,16 +7043,16 @@ _ZNK5clang20SanitizerMaskCutoffsixEj.exit408.thread: ; preds = %_ZNKSt7__cxx1112
   %.pre1450 = load ptr, ptr %0, align 8, !tbaa !3
   %.pre1451 = load ptr, ptr %314, align 8, !tbaa !3
   %1327 = icmp eq ptr %.pre1450, %.pre1451
-  br i1 %1327, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit968.thread, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit408.thread.thread1571
+  br i1 %1327, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit968.thread, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit408.thread.thread2000
 
-_ZNK5clang20SanitizerMaskCutoffsixEj.exit408.thread.thread1571: ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit394.thread.thread1569, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit408.thread
-  %1328 = phi ptr [ %.pre1450, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit408.thread ], [ %1282, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit394.thread.thread1569 ]
+_ZNK5clang20SanitizerMaskCutoffsixEj.exit408.thread.thread2000: ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit394.thread.thread1998, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit408.thread
+  %1328 = phi ptr [ %.pre1450, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit408.thread ], [ %1282, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit394.thread.thread1998 ]
   %1329 = getelementptr inbounds nuw i8, ptr %1328, i64 184
   %1330 = load double, ptr %1329, align 8, !tbaa !11
   %1331 = fcmp olt double %1330, 0x3E112E0BE0000000
-  br i1 %1331, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit422.thread.thread1573, label %1332
+  br i1 %1331, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit422.thread.thread2002, label %1332
 
-1332:                                             ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit408.thread.thread1571
+1332:                                             ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit408.thread.thread2000
   call void @llvm.lifetime.start.p0(ptr nonnull %113)
   %1333 = getelementptr inbounds nuw i8, ptr %113, i64 16
   store ptr %1333, ptr %113, align 8, !tbaa !47
@@ -7146,16 +7146,16 @@ _ZNK5clang20SanitizerMaskCutoffsixEj.exit422.thread: ; preds = %_ZNKSt7__cxx1112
   %.pre1452 = load ptr, ptr %0, align 8, !tbaa !3
   %.pre1453 = load ptr, ptr %314, align 8, !tbaa !3
   %1373 = icmp eq ptr %.pre1452, %.pre1453
-  br i1 %1373, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit968.thread, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit422.thread.thread1573
+  br i1 %1373, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit968.thread, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit422.thread.thread2002
 
-_ZNK5clang20SanitizerMaskCutoffsixEj.exit422.thread.thread1573: ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit408.thread.thread1571, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit422.thread
-  %1374 = phi ptr [ %.pre1452, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit422.thread ], [ %1328, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit408.thread.thread1571 ]
+_ZNK5clang20SanitizerMaskCutoffsixEj.exit422.thread.thread2002: ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit408.thread.thread2000, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit422.thread
+  %1374 = phi ptr [ %.pre1452, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit422.thread ], [ %1328, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit408.thread.thread2000 ]
   %1375 = getelementptr inbounds nuw i8, ptr %1374, i64 192
   %1376 = load double, ptr %1375, align 8, !tbaa !11
   %1377 = fcmp olt double %1376, 0x3E112E0BE0000000
-  br i1 %1377, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit436.thread.thread1575, label %1378
+  br i1 %1377, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit436.thread.thread2004, label %1378
 
-1378:                                             ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit422.thread.thread1573
+1378:                                             ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit422.thread.thread2002
   call void @llvm.lifetime.start.p0(ptr nonnull %118)
   %1379 = getelementptr inbounds nuw i8, ptr %118, i64 16
   store ptr %1379, ptr %118, align 8, !tbaa !47
@@ -7249,16 +7249,16 @@ _ZNK5clang20SanitizerMaskCutoffsixEj.exit436.thread: ; preds = %_ZNKSt7__cxx1112
   %.pre1454 = load ptr, ptr %0, align 8, !tbaa !3
   %.pre1455 = load ptr, ptr %314, align 8, !tbaa !3
   %1419 = icmp eq ptr %.pre1454, %.pre1455
-  br i1 %1419, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit968.thread, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit436.thread.thread1575
+  br i1 %1419, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit968.thread, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit436.thread.thread2004
 
-_ZNK5clang20SanitizerMaskCutoffsixEj.exit436.thread.thread1575: ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit422.thread.thread1573, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit436.thread
-  %1420 = phi ptr [ %.pre1454, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit436.thread ], [ %1374, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit422.thread.thread1573 ]
+_ZNK5clang20SanitizerMaskCutoffsixEj.exit436.thread.thread2004: ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit422.thread.thread2002, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit436.thread
+  %1420 = phi ptr [ %.pre1454, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit436.thread ], [ %1374, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit422.thread.thread2002 ]
   %1421 = getelementptr inbounds nuw i8, ptr %1420, i64 200
   %1422 = load double, ptr %1421, align 8, !tbaa !11
   %1423 = fcmp olt double %1422, 0x3E112E0BE0000000
-  br i1 %1423, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit450.thread.thread1577, label %1424
+  br i1 %1423, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit450.thread.thread2006, label %1424
 
-1424:                                             ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit436.thread.thread1575
+1424:                                             ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit436.thread.thread2004
   call void @llvm.lifetime.start.p0(ptr nonnull %123)
   %1425 = getelementptr inbounds nuw i8, ptr %123, i64 16
   store ptr %1425, ptr %123, align 8, !tbaa !47
@@ -7352,16 +7352,16 @@ _ZNK5clang20SanitizerMaskCutoffsixEj.exit450.thread: ; preds = %_ZNKSt7__cxx1112
   %.pre1456 = load ptr, ptr %0, align 8, !tbaa !3
   %.pre1457 = load ptr, ptr %314, align 8, !tbaa !3
   %1465 = icmp eq ptr %.pre1456, %.pre1457
-  br i1 %1465, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit968.thread, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit450.thread.thread1577
+  br i1 %1465, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit968.thread, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit450.thread.thread2006
 
-_ZNK5clang20SanitizerMaskCutoffsixEj.exit450.thread.thread1577: ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit436.thread.thread1575, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit450.thread
-  %1466 = phi ptr [ %.pre1456, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit450.thread ], [ %1420, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit436.thread.thread1575 ]
+_ZNK5clang20SanitizerMaskCutoffsixEj.exit450.thread.thread2006: ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit436.thread.thread2004, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit450.thread
+  %1466 = phi ptr [ %.pre1456, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit450.thread ], [ %1420, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit436.thread.thread2004 ]
   %1467 = getelementptr inbounds nuw i8, ptr %1466, i64 208
   %1468 = load double, ptr %1467, align 8, !tbaa !11
   %1469 = fcmp olt double %1468, 0x3E112E0BE0000000
-  br i1 %1469, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit464.thread.thread1579, label %1470
+  br i1 %1469, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit464.thread.thread2008, label %1470
 
-1470:                                             ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit450.thread.thread1577
+1470:                                             ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit450.thread.thread2006
   call void @llvm.lifetime.start.p0(ptr nonnull %128)
   %1471 = getelementptr inbounds nuw i8, ptr %128, i64 16
   store ptr %1471, ptr %128, align 8, !tbaa !47
@@ -7455,16 +7455,16 @@ _ZNK5clang20SanitizerMaskCutoffsixEj.exit464.thread: ; preds = %_ZNKSt7__cxx1112
   %.pre1458 = load ptr, ptr %0, align 8, !tbaa !3
   %.pre1459 = load ptr, ptr %314, align 8, !tbaa !3
   %1511 = icmp eq ptr %.pre1458, %.pre1459
-  br i1 %1511, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit968.thread, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit464.thread.thread1579
+  br i1 %1511, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit968.thread, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit464.thread.thread2008
 
-_ZNK5clang20SanitizerMaskCutoffsixEj.exit464.thread.thread1579: ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit450.thread.thread1577, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit464.thread
-  %1512 = phi ptr [ %.pre1458, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit464.thread ], [ %1466, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit450.thread.thread1577 ]
+_ZNK5clang20SanitizerMaskCutoffsixEj.exit464.thread.thread2008: ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit450.thread.thread2006, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit464.thread
+  %1512 = phi ptr [ %.pre1458, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit464.thread ], [ %1466, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit450.thread.thread2006 ]
   %1513 = getelementptr inbounds nuw i8, ptr %1512, i64 216
   %1514 = load double, ptr %1513, align 8, !tbaa !11
   %1515 = fcmp olt double %1514, 0x3E112E0BE0000000
-  br i1 %1515, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit478.thread.thread1581, label %1516
+  br i1 %1515, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit478.thread.thread2010, label %1516
 
-1516:                                             ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit464.thread.thread1579
+1516:                                             ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit464.thread.thread2008
   call void @llvm.lifetime.start.p0(ptr nonnull %133)
   %1517 = getelementptr inbounds nuw i8, ptr %133, i64 16
   store ptr %1517, ptr %133, align 8, !tbaa !47
@@ -7558,16 +7558,16 @@ _ZNK5clang20SanitizerMaskCutoffsixEj.exit478.thread: ; preds = %_ZNKSt7__cxx1112
   %.pre1460 = load ptr, ptr %0, align 8, !tbaa !3
   %.pre1461 = load ptr, ptr %314, align 8, !tbaa !3
   %1557 = icmp eq ptr %.pre1460, %.pre1461
-  br i1 %1557, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit968.thread, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit478.thread.thread1581
+  br i1 %1557, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit968.thread, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit478.thread.thread2010
 
-_ZNK5clang20SanitizerMaskCutoffsixEj.exit478.thread.thread1581: ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit464.thread.thread1579, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit478.thread
-  %1558 = phi ptr [ %.pre1460, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit478.thread ], [ %1512, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit464.thread.thread1579 ]
+_ZNK5clang20SanitizerMaskCutoffsixEj.exit478.thread.thread2010: ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit464.thread.thread2008, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit478.thread
+  %1558 = phi ptr [ %.pre1460, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit478.thread ], [ %1512, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit464.thread.thread2008 ]
   %1559 = getelementptr inbounds nuw i8, ptr %1558, i64 224
   %1560 = load double, ptr %1559, align 8, !tbaa !11
   %1561 = fcmp olt double %1560, 0x3E112E0BE0000000
-  br i1 %1561, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit492.thread.thread1583, label %1562
+  br i1 %1561, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit492.thread.thread2012, label %1562
 
-1562:                                             ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit478.thread.thread1581
+1562:                                             ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit478.thread.thread2010
   call void @llvm.lifetime.start.p0(ptr nonnull %138)
   %1563 = getelementptr inbounds nuw i8, ptr %138, i64 16
   store ptr %1563, ptr %138, align 8, !tbaa !47
@@ -7661,16 +7661,16 @@ _ZNK5clang20SanitizerMaskCutoffsixEj.exit492.thread: ; preds = %_ZNKSt7__cxx1112
   %.pre1462 = load ptr, ptr %0, align 8, !tbaa !3
   %.pre1463 = load ptr, ptr %314, align 8, !tbaa !3
   %1603 = icmp eq ptr %.pre1462, %.pre1463
-  br i1 %1603, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit968.thread, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit492.thread.thread1583
+  br i1 %1603, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit968.thread, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit492.thread.thread2012
 
-_ZNK5clang20SanitizerMaskCutoffsixEj.exit492.thread.thread1583: ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit478.thread.thread1581, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit492.thread
-  %1604 = phi ptr [ %.pre1462, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit492.thread ], [ %1558, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit478.thread.thread1581 ]
+_ZNK5clang20SanitizerMaskCutoffsixEj.exit492.thread.thread2012: ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit478.thread.thread2010, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit492.thread
+  %1604 = phi ptr [ %.pre1462, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit492.thread ], [ %1558, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit478.thread.thread2010 ]
   %1605 = getelementptr inbounds nuw i8, ptr %1604, i64 232
   %1606 = load double, ptr %1605, align 8, !tbaa !11
   %1607 = fcmp olt double %1606, 0x3E112E0BE0000000
-  br i1 %1607, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit506.thread.thread1585, label %1608
+  br i1 %1607, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit506.thread.thread2014, label %1608
 
-1608:                                             ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit492.thread.thread1583
+1608:                                             ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit492.thread.thread2012
   call void @llvm.lifetime.start.p0(ptr nonnull %143)
   %1609 = getelementptr inbounds nuw i8, ptr %143, i64 16
   store ptr %1609, ptr %143, align 8, !tbaa !47
@@ -7764,16 +7764,16 @@ _ZNK5clang20SanitizerMaskCutoffsixEj.exit506.thread: ; preds = %_ZNKSt7__cxx1112
   %.pre1464 = load ptr, ptr %0, align 8, !tbaa !3
   %.pre1465 = load ptr, ptr %314, align 8, !tbaa !3
   %1649 = icmp eq ptr %.pre1464, %.pre1465
-  br i1 %1649, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit968.thread, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit506.thread.thread1585
+  br i1 %1649, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit968.thread, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit506.thread.thread2014
 
-_ZNK5clang20SanitizerMaskCutoffsixEj.exit506.thread.thread1585: ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit492.thread.thread1583, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit506.thread
-  %1650 = phi ptr [ %.pre1464, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit506.thread ], [ %1604, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit492.thread.thread1583 ]
+_ZNK5clang20SanitizerMaskCutoffsixEj.exit506.thread.thread2014: ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit492.thread.thread2012, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit506.thread
+  %1650 = phi ptr [ %.pre1464, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit506.thread ], [ %1604, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit492.thread.thread2012 ]
   %1651 = getelementptr inbounds nuw i8, ptr %1650, i64 240
   %1652 = load double, ptr %1651, align 8, !tbaa !11
   %1653 = fcmp olt double %1652, 0x3E112E0BE0000000
-  br i1 %1653, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit520.thread.thread1587, label %1654
+  br i1 %1653, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit520.thread.thread2016, label %1654
 
-1654:                                             ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit506.thread.thread1585
+1654:                                             ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit506.thread.thread2014
   call void @llvm.lifetime.start.p0(ptr nonnull %148)
   %1655 = getelementptr inbounds nuw i8, ptr %148, i64 16
   store ptr %1655, ptr %148, align 8, !tbaa !47
@@ -7867,16 +7867,16 @@ _ZNK5clang20SanitizerMaskCutoffsixEj.exit520.thread: ; preds = %_ZNKSt7__cxx1112
   %.pre1466 = load ptr, ptr %0, align 8, !tbaa !3
   %.pre1467 = load ptr, ptr %314, align 8, !tbaa !3
   %1695 = icmp eq ptr %.pre1466, %.pre1467
-  br i1 %1695, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit968.thread, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit520.thread.thread1587
+  br i1 %1695, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit968.thread, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit520.thread.thread2016
 
-_ZNK5clang20SanitizerMaskCutoffsixEj.exit520.thread.thread1587: ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit506.thread.thread1585, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit520.thread
-  %1696 = phi ptr [ %.pre1466, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit520.thread ], [ %1650, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit506.thread.thread1585 ]
+_ZNK5clang20SanitizerMaskCutoffsixEj.exit520.thread.thread2016: ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit506.thread.thread2014, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit520.thread
+  %1696 = phi ptr [ %.pre1466, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit520.thread ], [ %1650, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit506.thread.thread2014 ]
   %1697 = getelementptr inbounds nuw i8, ptr %1696, i64 248
   %1698 = load double, ptr %1697, align 8, !tbaa !11
   %1699 = fcmp olt double %1698, 0x3E112E0BE0000000
-  br i1 %1699, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit534.thread.thread1589, label %1700
+  br i1 %1699, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit534.thread.thread2018, label %1700
 
-1700:                                             ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit520.thread.thread1587
+1700:                                             ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit520.thread.thread2016
   call void @llvm.lifetime.start.p0(ptr nonnull %153)
   %1701 = getelementptr inbounds nuw i8, ptr %153, i64 16
   store ptr %1701, ptr %153, align 8, !tbaa !47
@@ -7970,16 +7970,16 @@ _ZNK5clang20SanitizerMaskCutoffsixEj.exit534.thread: ; preds = %_ZNKSt7__cxx1112
   %.pre1468 = load ptr, ptr %0, align 8, !tbaa !3
   %.pre1469 = load ptr, ptr %314, align 8, !tbaa !3
   %1741 = icmp eq ptr %.pre1468, %.pre1469
-  br i1 %1741, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit968.thread, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit534.thread.thread1589
+  br i1 %1741, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit968.thread, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit534.thread.thread2018
 
-_ZNK5clang20SanitizerMaskCutoffsixEj.exit534.thread.thread1589: ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit520.thread.thread1587, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit534.thread
-  %1742 = phi ptr [ %.pre1468, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit534.thread ], [ %1696, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit520.thread.thread1587 ]
+_ZNK5clang20SanitizerMaskCutoffsixEj.exit534.thread.thread2018: ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit520.thread.thread2016, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit534.thread
+  %1742 = phi ptr [ %.pre1468, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit534.thread ], [ %1696, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit520.thread.thread2016 ]
   %1743 = getelementptr inbounds nuw i8, ptr %1742, i64 256
   %1744 = load double, ptr %1743, align 8, !tbaa !11
   %1745 = fcmp olt double %1744, 0x3E112E0BE0000000
-  br i1 %1745, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit548.thread.thread1591, label %1746
+  br i1 %1745, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit548.thread.thread2020, label %1746
 
-1746:                                             ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit534.thread.thread1589
+1746:                                             ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit534.thread.thread2018
   call void @llvm.lifetime.start.p0(ptr nonnull %158)
   %1747 = getelementptr inbounds nuw i8, ptr %158, i64 16
   store ptr %1747, ptr %158, align 8, !tbaa !47
@@ -8073,16 +8073,16 @@ _ZNK5clang20SanitizerMaskCutoffsixEj.exit548.thread: ; preds = %_ZNKSt7__cxx1112
   %.pre1470 = load ptr, ptr %0, align 8, !tbaa !3
   %.pre1471 = load ptr, ptr %314, align 8, !tbaa !3
   %1787 = icmp eq ptr %.pre1470, %.pre1471
-  br i1 %1787, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit968.thread, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit548.thread.thread1591
+  br i1 %1787, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit968.thread, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit548.thread.thread2020
 
-_ZNK5clang20SanitizerMaskCutoffsixEj.exit548.thread.thread1591: ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit534.thread.thread1589, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit548.thread
-  %1788 = phi ptr [ %.pre1470, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit548.thread ], [ %1742, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit534.thread.thread1589 ]
+_ZNK5clang20SanitizerMaskCutoffsixEj.exit548.thread.thread2020: ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit534.thread.thread2018, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit548.thread
+  %1788 = phi ptr [ %.pre1470, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit548.thread ], [ %1742, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit534.thread.thread2018 ]
   %1789 = getelementptr inbounds nuw i8, ptr %1788, i64 272
   %1790 = load double, ptr %1789, align 8, !tbaa !11
   %1791 = fcmp olt double %1790, 0x3E112E0BE0000000
-  br i1 %1791, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit562.thread.thread1593, label %1792
+  br i1 %1791, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit562.thread.thread2022, label %1792
 
-1792:                                             ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit548.thread.thread1591
+1792:                                             ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit548.thread.thread2020
   call void @llvm.lifetime.start.p0(ptr nonnull %163)
   %1793 = getelementptr inbounds nuw i8, ptr %163, i64 16
   store ptr %1793, ptr %163, align 8, !tbaa !47
@@ -8176,16 +8176,16 @@ _ZNK5clang20SanitizerMaskCutoffsixEj.exit562.thread: ; preds = %_ZNKSt7__cxx1112
   %.pre1472 = load ptr, ptr %0, align 8, !tbaa !3
   %.pre1473 = load ptr, ptr %314, align 8, !tbaa !3
   %1833 = icmp eq ptr %.pre1472, %.pre1473
-  br i1 %1833, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit968.thread, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit562.thread.thread1593
+  br i1 %1833, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit968.thread, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit562.thread.thread2022
 
-_ZNK5clang20SanitizerMaskCutoffsixEj.exit562.thread.thread1593: ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit548.thread.thread1591, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit562.thread
-  %1834 = phi ptr [ %.pre1472, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit562.thread ], [ %1788, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit548.thread.thread1591 ]
+_ZNK5clang20SanitizerMaskCutoffsixEj.exit562.thread.thread2022: ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit548.thread.thread2020, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit562.thread
+  %1834 = phi ptr [ %.pre1472, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit562.thread ], [ %1788, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit548.thread.thread2020 ]
   %1835 = getelementptr inbounds nuw i8, ptr %1834, i64 280
   %1836 = load double, ptr %1835, align 8, !tbaa !11
   %1837 = fcmp olt double %1836, 0x3E112E0BE0000000
-  br i1 %1837, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit576.thread.thread1595, label %1838
+  br i1 %1837, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit576.thread.thread2024, label %1838
 
-1838:                                             ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit562.thread.thread1593
+1838:                                             ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit562.thread.thread2022
   call void @llvm.lifetime.start.p0(ptr nonnull %168)
   %1839 = getelementptr inbounds nuw i8, ptr %168, i64 16
   store ptr %1839, ptr %168, align 8, !tbaa !47
@@ -8279,16 +8279,16 @@ _ZNK5clang20SanitizerMaskCutoffsixEj.exit576.thread: ; preds = %_ZNKSt7__cxx1112
   %.pre1474 = load ptr, ptr %0, align 8, !tbaa !3
   %.pre1475 = load ptr, ptr %314, align 8, !tbaa !3
   %1879 = icmp eq ptr %.pre1474, %.pre1475
-  br i1 %1879, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit968.thread, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit576.thread.thread1595
+  br i1 %1879, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit968.thread, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit576.thread.thread2024
 
-_ZNK5clang20SanitizerMaskCutoffsixEj.exit576.thread.thread1595: ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit562.thread.thread1593, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit576.thread
-  %1880 = phi ptr [ %.pre1474, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit576.thread ], [ %1834, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit562.thread.thread1593 ]
+_ZNK5clang20SanitizerMaskCutoffsixEj.exit576.thread.thread2024: ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit562.thread.thread2022, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit576.thread
+  %1880 = phi ptr [ %.pre1474, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit576.thread ], [ %1834, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit562.thread.thread2022 ]
   %1881 = getelementptr inbounds nuw i8, ptr %1880, i64 288
   %1882 = load double, ptr %1881, align 8, !tbaa !11
   %1883 = fcmp olt double %1882, 0x3E112E0BE0000000
-  br i1 %1883, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit590.thread.thread1597, label %1884
+  br i1 %1883, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit590.thread.thread2026, label %1884
 
-1884:                                             ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit576.thread.thread1595
+1884:                                             ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit576.thread.thread2024
   call void @llvm.lifetime.start.p0(ptr nonnull %173)
   %1885 = getelementptr inbounds nuw i8, ptr %173, i64 16
   store ptr %1885, ptr %173, align 8, !tbaa !47
@@ -8382,16 +8382,16 @@ _ZNK5clang20SanitizerMaskCutoffsixEj.exit590.thread: ; preds = %_ZNKSt7__cxx1112
   %.pre1476 = load ptr, ptr %0, align 8, !tbaa !3
   %.pre1477 = load ptr, ptr %314, align 8, !tbaa !3
   %1925 = icmp eq ptr %.pre1476, %.pre1477
-  br i1 %1925, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit968.thread, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit590.thread.thread1597
+  br i1 %1925, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit968.thread, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit590.thread.thread2026
 
-_ZNK5clang20SanitizerMaskCutoffsixEj.exit590.thread.thread1597: ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit576.thread.thread1595, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit590.thread
-  %1926 = phi ptr [ %.pre1476, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit590.thread ], [ %1880, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit576.thread.thread1595 ]
+_ZNK5clang20SanitizerMaskCutoffsixEj.exit590.thread.thread2026: ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit576.thread.thread2024, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit590.thread
+  %1926 = phi ptr [ %.pre1476, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit590.thread ], [ %1880, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit576.thread.thread2024 ]
   %1927 = getelementptr inbounds nuw i8, ptr %1926, i64 296
   %1928 = load double, ptr %1927, align 8, !tbaa !11
   %1929 = fcmp olt double %1928, 0x3E112E0BE0000000
-  br i1 %1929, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit604.thread.thread1599, label %1930
+  br i1 %1929, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit604.thread.thread2028, label %1930
 
-1930:                                             ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit590.thread.thread1597
+1930:                                             ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit590.thread.thread2026
   call void @llvm.lifetime.start.p0(ptr nonnull %178)
   %1931 = getelementptr inbounds nuw i8, ptr %178, i64 16
   store ptr %1931, ptr %178, align 8, !tbaa !47
@@ -8485,16 +8485,16 @@ _ZNK5clang20SanitizerMaskCutoffsixEj.exit604.thread: ; preds = %_ZNKSt7__cxx1112
   %.pre1478 = load ptr, ptr %0, align 8, !tbaa !3
   %.pre1479 = load ptr, ptr %314, align 8, !tbaa !3
   %1971 = icmp eq ptr %.pre1478, %.pre1479
-  br i1 %1971, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit968.thread, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit604.thread.thread1599
+  br i1 %1971, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit968.thread, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit604.thread.thread2028
 
-_ZNK5clang20SanitizerMaskCutoffsixEj.exit604.thread.thread1599: ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit590.thread.thread1597, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit604.thread
-  %1972 = phi ptr [ %.pre1478, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit604.thread ], [ %1926, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit590.thread.thread1597 ]
+_ZNK5clang20SanitizerMaskCutoffsixEj.exit604.thread.thread2028: ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit590.thread.thread2026, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit604.thread
+  %1972 = phi ptr [ %.pre1478, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit604.thread ], [ %1926, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit590.thread.thread2026 ]
   %1973 = getelementptr inbounds nuw i8, ptr %1972, i64 304
   %1974 = load double, ptr %1973, align 8, !tbaa !11
   %1975 = fcmp olt double %1974, 0x3E112E0BE0000000
-  br i1 %1975, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit618.thread.thread1601, label %1976
+  br i1 %1975, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit618.thread.thread2030, label %1976
 
-1976:                                             ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit604.thread.thread1599
+1976:                                             ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit604.thread.thread2028
   call void @llvm.lifetime.start.p0(ptr nonnull %183)
   %1977 = getelementptr inbounds nuw i8, ptr %183, i64 16
   store ptr %1977, ptr %183, align 8, !tbaa !47
@@ -8588,16 +8588,16 @@ _ZNK5clang20SanitizerMaskCutoffsixEj.exit618.thread: ; preds = %_ZNKSt7__cxx1112
   %.pre1480 = load ptr, ptr %0, align 8, !tbaa !3
   %.pre1481 = load ptr, ptr %314, align 8, !tbaa !3
   %2017 = icmp eq ptr %.pre1480, %.pre1481
-  br i1 %2017, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit968.thread, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit618.thread.thread1601
+  br i1 %2017, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit968.thread, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit618.thread.thread2030
 
-_ZNK5clang20SanitizerMaskCutoffsixEj.exit618.thread.thread1601: ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit604.thread.thread1599, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit618.thread
-  %2018 = phi ptr [ %.pre1480, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit618.thread ], [ %1972, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit604.thread.thread1599 ]
+_ZNK5clang20SanitizerMaskCutoffsixEj.exit618.thread.thread2030: ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit604.thread.thread2028, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit618.thread
+  %2018 = phi ptr [ %.pre1480, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit618.thread ], [ %1972, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit604.thread.thread2028 ]
   %2019 = getelementptr inbounds nuw i8, ptr %2018, i64 312
   %2020 = load double, ptr %2019, align 8, !tbaa !11
   %2021 = fcmp olt double %2020, 0x3E112E0BE0000000
-  br i1 %2021, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit632.thread.thread1603, label %2022
+  br i1 %2021, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit632.thread.thread2032, label %2022
 
-2022:                                             ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit618.thread.thread1601
+2022:                                             ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit618.thread.thread2030
   call void @llvm.lifetime.start.p0(ptr nonnull %188)
   %2023 = getelementptr inbounds nuw i8, ptr %188, i64 16
   store ptr %2023, ptr %188, align 8, !tbaa !47
@@ -8691,16 +8691,16 @@ _ZNK5clang20SanitizerMaskCutoffsixEj.exit632.thread: ; preds = %_ZNKSt7__cxx1112
   %.pre1482 = load ptr, ptr %0, align 8, !tbaa !3
   %.pre1483 = load ptr, ptr %314, align 8, !tbaa !3
   %2063 = icmp eq ptr %.pre1482, %.pre1483
-  br i1 %2063, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit968.thread, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit632.thread.thread1603
+  br i1 %2063, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit968.thread, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit632.thread.thread2032
 
-_ZNK5clang20SanitizerMaskCutoffsixEj.exit632.thread.thread1603: ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit618.thread.thread1601, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit632.thread
-  %2064 = phi ptr [ %.pre1482, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit632.thread ], [ %2018, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit618.thread.thread1601 ]
+_ZNK5clang20SanitizerMaskCutoffsixEj.exit632.thread.thread2032: ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit618.thread.thread2030, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit632.thread
+  %2064 = phi ptr [ %.pre1482, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit632.thread ], [ %2018, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit618.thread.thread2030 ]
   %2065 = getelementptr inbounds nuw i8, ptr %2064, i64 328
   %2066 = load double, ptr %2065, align 8, !tbaa !11
   %2067 = fcmp olt double %2066, 0x3E112E0BE0000000
-  br i1 %2067, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit646.thread.thread1605, label %2068
+  br i1 %2067, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit646.thread.thread2034, label %2068
 
-2068:                                             ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit632.thread.thread1603
+2068:                                             ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit632.thread.thread2032
   call void @llvm.lifetime.start.p0(ptr nonnull %193)
   %2069 = getelementptr inbounds nuw i8, ptr %193, i64 16
   store ptr %2069, ptr %193, align 8, !tbaa !47
@@ -8794,16 +8794,16 @@ _ZNK5clang20SanitizerMaskCutoffsixEj.exit646.thread: ; preds = %_ZNKSt7__cxx1112
   %.pre1484 = load ptr, ptr %0, align 8, !tbaa !3
   %.pre1485 = load ptr, ptr %314, align 8, !tbaa !3
   %2109 = icmp eq ptr %.pre1484, %.pre1485
-  br i1 %2109, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit968.thread, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit646.thread.thread1605
+  br i1 %2109, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit968.thread, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit646.thread.thread2034
 
-_ZNK5clang20SanitizerMaskCutoffsixEj.exit646.thread.thread1605: ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit632.thread.thread1603, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit646.thread
-  %2110 = phi ptr [ %.pre1484, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit646.thread ], [ %2064, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit632.thread.thread1603 ]
+_ZNK5clang20SanitizerMaskCutoffsixEj.exit646.thread.thread2034: ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit632.thread.thread2032, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit646.thread
+  %2110 = phi ptr [ %.pre1484, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit646.thread ], [ %2064, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit632.thread.thread2032 ]
   %2111 = getelementptr inbounds nuw i8, ptr %2110, i64 336
   %2112 = load double, ptr %2111, align 8, !tbaa !11
   %2113 = fcmp olt double %2112, 0x3E112E0BE0000000
-  br i1 %2113, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit660.thread.thread1607, label %2114
+  br i1 %2113, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit660.thread.thread2036, label %2114
 
-2114:                                             ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit646.thread.thread1605
+2114:                                             ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit646.thread.thread2034
   call void @llvm.lifetime.start.p0(ptr nonnull %198)
   %2115 = getelementptr inbounds nuw i8, ptr %198, i64 16
   store ptr %2115, ptr %198, align 8, !tbaa !47
@@ -8897,16 +8897,16 @@ _ZNK5clang20SanitizerMaskCutoffsixEj.exit660.thread: ; preds = %_ZNKSt7__cxx1112
   %.pre1486 = load ptr, ptr %0, align 8, !tbaa !3
   %.pre1487 = load ptr, ptr %314, align 8, !tbaa !3
   %2155 = icmp eq ptr %.pre1486, %.pre1487
-  br i1 %2155, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit968.thread, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit660.thread.thread1607
+  br i1 %2155, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit968.thread, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit660.thread.thread2036
 
-_ZNK5clang20SanitizerMaskCutoffsixEj.exit660.thread.thread1607: ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit646.thread.thread1605, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit660.thread
-  %2156 = phi ptr [ %.pre1486, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit660.thread ], [ %2110, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit646.thread.thread1605 ]
+_ZNK5clang20SanitizerMaskCutoffsixEj.exit660.thread.thread2036: ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit646.thread.thread2034, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit660.thread
+  %2156 = phi ptr [ %.pre1486, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit660.thread ], [ %2110, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit646.thread.thread2034 ]
   %2157 = getelementptr inbounds nuw i8, ptr %2156, i64 344
   %2158 = load double, ptr %2157, align 8, !tbaa !11
   %2159 = fcmp olt double %2158, 0x3E112E0BE0000000
-  br i1 %2159, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit674.thread.thread1609, label %2160
+  br i1 %2159, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit674.thread.thread2038, label %2160
 
-2160:                                             ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit660.thread.thread1607
+2160:                                             ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit660.thread.thread2036
   call void @llvm.lifetime.start.p0(ptr nonnull %203)
   %2161 = getelementptr inbounds nuw i8, ptr %203, i64 16
   store ptr %2161, ptr %203, align 8, !tbaa !47
@@ -9000,16 +9000,16 @@ _ZNK5clang20SanitizerMaskCutoffsixEj.exit674.thread: ; preds = %_ZNKSt7__cxx1112
   %.pre1488 = load ptr, ptr %0, align 8, !tbaa !3
   %.pre1489 = load ptr, ptr %314, align 8, !tbaa !3
   %2201 = icmp eq ptr %.pre1488, %.pre1489
-  br i1 %2201, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit968.thread, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit674.thread.thread1609
+  br i1 %2201, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit968.thread, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit674.thread.thread2038
 
-_ZNK5clang20SanitizerMaskCutoffsixEj.exit674.thread.thread1609: ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit660.thread.thread1607, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit674.thread
-  %2202 = phi ptr [ %.pre1488, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit674.thread ], [ %2156, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit660.thread.thread1607 ]
+_ZNK5clang20SanitizerMaskCutoffsixEj.exit674.thread.thread2038: ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit660.thread.thread2036, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit674.thread
+  %2202 = phi ptr [ %.pre1488, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit674.thread ], [ %2156, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit660.thread.thread2036 ]
   %2203 = getelementptr inbounds nuw i8, ptr %2202, i64 352
   %2204 = load double, ptr %2203, align 8, !tbaa !11
   %2205 = fcmp olt double %2204, 0x3E112E0BE0000000
-  br i1 %2205, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit688.thread.thread1611, label %2206
+  br i1 %2205, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit688.thread.thread2040, label %2206
 
-2206:                                             ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit674.thread.thread1609
+2206:                                             ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit674.thread.thread2038
   call void @llvm.lifetime.start.p0(ptr nonnull %208)
   %2207 = getelementptr inbounds nuw i8, ptr %208, i64 16
   store ptr %2207, ptr %208, align 8, !tbaa !47
@@ -9103,16 +9103,16 @@ _ZNK5clang20SanitizerMaskCutoffsixEj.exit688.thread: ; preds = %_ZNKSt7__cxx1112
   %.pre1490 = load ptr, ptr %0, align 8, !tbaa !3
   %.pre1491 = load ptr, ptr %314, align 8, !tbaa !3
   %2247 = icmp eq ptr %.pre1490, %.pre1491
-  br i1 %2247, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit968.thread, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit688.thread.thread1611
+  br i1 %2247, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit968.thread, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit688.thread.thread2040
 
-_ZNK5clang20SanitizerMaskCutoffsixEj.exit688.thread.thread1611: ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit674.thread.thread1609, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit688.thread
-  %2248 = phi ptr [ %.pre1490, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit688.thread ], [ %2202, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit674.thread.thread1609 ]
+_ZNK5clang20SanitizerMaskCutoffsixEj.exit688.thread.thread2040: ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit674.thread.thread2038, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit688.thread
+  %2248 = phi ptr [ %.pre1490, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit688.thread ], [ %2202, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit674.thread.thread2038 ]
   %2249 = getelementptr inbounds nuw i8, ptr %2248, i64 360
   %2250 = load double, ptr %2249, align 8, !tbaa !11
   %2251 = fcmp olt double %2250, 0x3E112E0BE0000000
-  br i1 %2251, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit702.thread.thread1613, label %2252
+  br i1 %2251, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit702.thread.thread2042, label %2252
 
-2252:                                             ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit688.thread.thread1611
+2252:                                             ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit688.thread.thread2040
   call void @llvm.lifetime.start.p0(ptr nonnull %213)
   %2253 = getelementptr inbounds nuw i8, ptr %213, i64 16
   store ptr %2253, ptr %213, align 8, !tbaa !47
@@ -9206,16 +9206,16 @@ _ZNK5clang20SanitizerMaskCutoffsixEj.exit702.thread: ; preds = %_ZNKSt7__cxx1112
   %.pre1492 = load ptr, ptr %0, align 8, !tbaa !3
   %.pre1493 = load ptr, ptr %314, align 8, !tbaa !3
   %2293 = icmp eq ptr %.pre1492, %.pre1493
-  br i1 %2293, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit968.thread, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit702.thread.thread1613
+  br i1 %2293, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit968.thread, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit702.thread.thread2042
 
-_ZNK5clang20SanitizerMaskCutoffsixEj.exit702.thread.thread1613: ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit688.thread.thread1611, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit702.thread
-  %2294 = phi ptr [ %.pre1492, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit702.thread ], [ %2248, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit688.thread.thread1611 ]
+_ZNK5clang20SanitizerMaskCutoffsixEj.exit702.thread.thread2042: ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit688.thread.thread2040, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit702.thread
+  %2294 = phi ptr [ %.pre1492, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit702.thread ], [ %2248, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit688.thread.thread2040 ]
   %2295 = getelementptr inbounds nuw i8, ptr %2294, i64 368
   %2296 = load double, ptr %2295, align 8, !tbaa !11
   %2297 = fcmp olt double %2296, 0x3E112E0BE0000000
-  br i1 %2297, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit716.thread.thread1615, label %2298
+  br i1 %2297, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit716.thread.thread2044, label %2298
 
-2298:                                             ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit702.thread.thread1613
+2298:                                             ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit702.thread.thread2042
   call void @llvm.lifetime.start.p0(ptr nonnull %218)
   %2299 = getelementptr inbounds nuw i8, ptr %218, i64 16
   store ptr %2299, ptr %218, align 8, !tbaa !47
@@ -9309,16 +9309,16 @@ _ZNK5clang20SanitizerMaskCutoffsixEj.exit716.thread: ; preds = %_ZNKSt7__cxx1112
   %.pre1494 = load ptr, ptr %0, align 8, !tbaa !3
   %.pre1495 = load ptr, ptr %314, align 8, !tbaa !3
   %2339 = icmp eq ptr %.pre1494, %.pre1495
-  br i1 %2339, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit968.thread, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit716.thread.thread1615
+  br i1 %2339, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit968.thread, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit716.thread.thread2044
 
-_ZNK5clang20SanitizerMaskCutoffsixEj.exit716.thread.thread1615: ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit702.thread.thread1613, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit716.thread
-  %2340 = phi ptr [ %.pre1494, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit716.thread ], [ %2294, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit702.thread.thread1613 ]
+_ZNK5clang20SanitizerMaskCutoffsixEj.exit716.thread.thread2044: ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit702.thread.thread2042, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit716.thread
+  %2340 = phi ptr [ %.pre1494, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit716.thread ], [ %2294, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit702.thread.thread2042 ]
   %2341 = getelementptr inbounds nuw i8, ptr %2340, i64 376
   %2342 = load double, ptr %2341, align 8, !tbaa !11
   %2343 = fcmp olt double %2342, 0x3E112E0BE0000000
-  br i1 %2343, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit730.thread.thread1617, label %2344
+  br i1 %2343, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit730.thread.thread2046, label %2344
 
-2344:                                             ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit716.thread.thread1615
+2344:                                             ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit716.thread.thread2044
   call void @llvm.lifetime.start.p0(ptr nonnull %223)
   %2345 = getelementptr inbounds nuw i8, ptr %223, i64 16
   store ptr %2345, ptr %223, align 8, !tbaa !47
@@ -9412,16 +9412,16 @@ _ZNK5clang20SanitizerMaskCutoffsixEj.exit730.thread: ; preds = %_ZNKSt7__cxx1112
   %.pre1496 = load ptr, ptr %0, align 8, !tbaa !3
   %.pre1497 = load ptr, ptr %314, align 8, !tbaa !3
   %2385 = icmp eq ptr %.pre1496, %.pre1497
-  br i1 %2385, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit968.thread, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit730.thread.thread1617
+  br i1 %2385, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit968.thread, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit730.thread.thread2046
 
-_ZNK5clang20SanitizerMaskCutoffsixEj.exit730.thread.thread1617: ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit716.thread.thread1615, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit730.thread
-  %2386 = phi ptr [ %.pre1496, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit730.thread ], [ %2340, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit716.thread.thread1615 ]
+_ZNK5clang20SanitizerMaskCutoffsixEj.exit730.thread.thread2046: ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit716.thread.thread2044, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit730.thread
+  %2386 = phi ptr [ %.pre1496, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit730.thread ], [ %2340, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit716.thread.thread2044 ]
   %2387 = getelementptr inbounds nuw i8, ptr %2386, i64 384
   %2388 = load double, ptr %2387, align 8, !tbaa !11
   %2389 = fcmp olt double %2388, 0x3E112E0BE0000000
-  br i1 %2389, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit744.thread.thread1619, label %2390
+  br i1 %2389, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit744.thread.thread2048, label %2390
 
-2390:                                             ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit730.thread.thread1617
+2390:                                             ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit730.thread.thread2046
   call void @llvm.lifetime.start.p0(ptr nonnull %228)
   %2391 = getelementptr inbounds nuw i8, ptr %228, i64 16
   store ptr %2391, ptr %228, align 8, !tbaa !47
@@ -9515,16 +9515,16 @@ _ZNK5clang20SanitizerMaskCutoffsixEj.exit744.thread: ; preds = %_ZNKSt7__cxx1112
   %.pre1498 = load ptr, ptr %0, align 8, !tbaa !3
   %.pre1499 = load ptr, ptr %314, align 8, !tbaa !3
   %2431 = icmp eq ptr %.pre1498, %.pre1499
-  br i1 %2431, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit968.thread, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit744.thread.thread1619
+  br i1 %2431, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit968.thread, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit744.thread.thread2048
 
-_ZNK5clang20SanitizerMaskCutoffsixEj.exit744.thread.thread1619: ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit730.thread.thread1617, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit744.thread
-  %2432 = phi ptr [ %.pre1498, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit744.thread ], [ %2386, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit730.thread.thread1617 ]
+_ZNK5clang20SanitizerMaskCutoffsixEj.exit744.thread.thread2048: ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit730.thread.thread2046, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit744.thread
+  %2432 = phi ptr [ %.pre1498, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit744.thread ], [ %2386, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit730.thread.thread2046 ]
   %2433 = getelementptr inbounds nuw i8, ptr %2432, i64 392
   %2434 = load double, ptr %2433, align 8, !tbaa !11
   %2435 = fcmp olt double %2434, 0x3E112E0BE0000000
-  br i1 %2435, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit758.thread.thread1621, label %2436
+  br i1 %2435, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit758.thread.thread2050, label %2436
 
-2436:                                             ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit744.thread.thread1619
+2436:                                             ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit744.thread.thread2048
   call void @llvm.lifetime.start.p0(ptr nonnull %233)
   %2437 = getelementptr inbounds nuw i8, ptr %233, i64 16
   store ptr %2437, ptr %233, align 8, !tbaa !47
@@ -9618,16 +9618,16 @@ _ZNK5clang20SanitizerMaskCutoffsixEj.exit758.thread: ; preds = %_ZNKSt7__cxx1112
   %.pre1500 = load ptr, ptr %0, align 8, !tbaa !3
   %.pre1501 = load ptr, ptr %314, align 8, !tbaa !3
   %2477 = icmp eq ptr %.pre1500, %.pre1501
-  br i1 %2477, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit968.thread, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit758.thread.thread1621
+  br i1 %2477, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit968.thread, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit758.thread.thread2050
 
-_ZNK5clang20SanitizerMaskCutoffsixEj.exit758.thread.thread1621: ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit744.thread.thread1619, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit758.thread
-  %2478 = phi ptr [ %.pre1500, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit758.thread ], [ %2432, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit744.thread.thread1619 ]
+_ZNK5clang20SanitizerMaskCutoffsixEj.exit758.thread.thread2050: ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit744.thread.thread2048, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit758.thread
+  %2478 = phi ptr [ %.pre1500, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit758.thread ], [ %2432, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit744.thread.thread2048 ]
   %2479 = getelementptr inbounds nuw i8, ptr %2478, i64 400
   %2480 = load double, ptr %2479, align 8, !tbaa !11
   %2481 = fcmp olt double %2480, 0x3E112E0BE0000000
-  br i1 %2481, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit772.thread.thread1623, label %2482
+  br i1 %2481, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit772.thread.thread2052, label %2482
 
-2482:                                             ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit758.thread.thread1621
+2482:                                             ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit758.thread.thread2050
   call void @llvm.lifetime.start.p0(ptr nonnull %238)
   %2483 = getelementptr inbounds nuw i8, ptr %238, i64 16
   store ptr %2483, ptr %238, align 8, !tbaa !47
@@ -9721,16 +9721,16 @@ _ZNK5clang20SanitizerMaskCutoffsixEj.exit772.thread: ; preds = %_ZNKSt7__cxx1112
   %.pre1502 = load ptr, ptr %0, align 8, !tbaa !3
   %.pre1503 = load ptr, ptr %314, align 8, !tbaa !3
   %2523 = icmp eq ptr %.pre1502, %.pre1503
-  br i1 %2523, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit968.thread, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit772.thread.thread1623
+  br i1 %2523, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit968.thread, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit772.thread.thread2052
 
-_ZNK5clang20SanitizerMaskCutoffsixEj.exit772.thread.thread1623: ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit758.thread.thread1621, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit772.thread
-  %2524 = phi ptr [ %.pre1502, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit772.thread ], [ %2478, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit758.thread.thread1621 ]
+_ZNK5clang20SanitizerMaskCutoffsixEj.exit772.thread.thread2052: ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit758.thread.thread2050, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit772.thread
+  %2524 = phi ptr [ %.pre1502, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit772.thread ], [ %2478, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit758.thread.thread2050 ]
   %2525 = getelementptr inbounds nuw i8, ptr %2524, i64 408
   %2526 = load double, ptr %2525, align 8, !tbaa !11
   %2527 = fcmp olt double %2526, 0x3E112E0BE0000000
-  br i1 %2527, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit786.thread.thread1625, label %2528
+  br i1 %2527, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit786.thread.thread2054, label %2528
 
-2528:                                             ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit772.thread.thread1623
+2528:                                             ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit772.thread.thread2052
   call void @llvm.lifetime.start.p0(ptr nonnull %243)
   %2529 = getelementptr inbounds nuw i8, ptr %243, i64 16
   store ptr %2529, ptr %243, align 8, !tbaa !47
@@ -9824,16 +9824,16 @@ _ZNK5clang20SanitizerMaskCutoffsixEj.exit786.thread: ; preds = %_ZNKSt7__cxx1112
   %.pre1504 = load ptr, ptr %0, align 8, !tbaa !3
   %.pre1505 = load ptr, ptr %314, align 8, !tbaa !3
   %2569 = icmp eq ptr %.pre1504, %.pre1505
-  br i1 %2569, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit968.thread, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit786.thread.thread1625
+  br i1 %2569, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit968.thread, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit786.thread.thread2054
 
-_ZNK5clang20SanitizerMaskCutoffsixEj.exit786.thread.thread1625: ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit772.thread.thread1623, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit786.thread
-  %2570 = phi ptr [ %.pre1504, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit786.thread ], [ %2524, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit772.thread.thread1623 ]
+_ZNK5clang20SanitizerMaskCutoffsixEj.exit786.thread.thread2054: ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit772.thread.thread2052, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit786.thread
+  %2570 = phi ptr [ %.pre1504, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit786.thread ], [ %2524, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit772.thread.thread2052 ]
   %2571 = getelementptr inbounds nuw i8, ptr %2570, i64 416
   %2572 = load double, ptr %2571, align 8, !tbaa !11
   %2573 = fcmp olt double %2572, 0x3E112E0BE0000000
-  br i1 %2573, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit800.thread.thread1627, label %2574
+  br i1 %2573, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit800.thread.thread2056, label %2574
 
-2574:                                             ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit786.thread.thread1625
+2574:                                             ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit786.thread.thread2054
   call void @llvm.lifetime.start.p0(ptr nonnull %248)
   %2575 = getelementptr inbounds nuw i8, ptr %248, i64 16
   store ptr %2575, ptr %248, align 8, !tbaa !47
@@ -9927,16 +9927,16 @@ _ZNK5clang20SanitizerMaskCutoffsixEj.exit800.thread: ; preds = %_ZNKSt7__cxx1112
   %.pre1506 = load ptr, ptr %0, align 8, !tbaa !3
   %.pre1507 = load ptr, ptr %314, align 8, !tbaa !3
   %2615 = icmp eq ptr %.pre1506, %.pre1507
-  br i1 %2615, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit968.thread, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit800.thread.thread1627
+  br i1 %2615, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit968.thread, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit800.thread.thread2056
 
-_ZNK5clang20SanitizerMaskCutoffsixEj.exit800.thread.thread1627: ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit786.thread.thread1625, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit800.thread
-  %2616 = phi ptr [ %.pre1506, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit800.thread ], [ %2570, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit786.thread.thread1625 ]
+_ZNK5clang20SanitizerMaskCutoffsixEj.exit800.thread.thread2056: ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit786.thread.thread2054, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit800.thread
+  %2616 = phi ptr [ %.pre1506, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit800.thread ], [ %2570, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit786.thread.thread2054 ]
   %2617 = getelementptr inbounds nuw i8, ptr %2616, i64 424
   %2618 = load double, ptr %2617, align 8, !tbaa !11
   %2619 = fcmp olt double %2618, 0x3E112E0BE0000000
-  br i1 %2619, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit814.thread.thread1629, label %2620
+  br i1 %2619, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit814.thread.thread2058, label %2620
 
-2620:                                             ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit800.thread.thread1627
+2620:                                             ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit800.thread.thread2056
   call void @llvm.lifetime.start.p0(ptr nonnull %253)
   %2621 = getelementptr inbounds nuw i8, ptr %253, i64 16
   store ptr %2621, ptr %253, align 8, !tbaa !47
@@ -10030,16 +10030,16 @@ _ZNK5clang20SanitizerMaskCutoffsixEj.exit814.thread: ; preds = %_ZNKSt7__cxx1112
   %.pre1508 = load ptr, ptr %0, align 8, !tbaa !3
   %.pre1509 = load ptr, ptr %314, align 8, !tbaa !3
   %2661 = icmp eq ptr %.pre1508, %.pre1509
-  br i1 %2661, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit968.thread, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit814.thread.thread1629
+  br i1 %2661, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit968.thread, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit814.thread.thread2058
 
-_ZNK5clang20SanitizerMaskCutoffsixEj.exit814.thread.thread1629: ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit800.thread.thread1627, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit814.thread
-  %2662 = phi ptr [ %.pre1508, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit814.thread ], [ %2616, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit800.thread.thread1627 ]
+_ZNK5clang20SanitizerMaskCutoffsixEj.exit814.thread.thread2058: ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit800.thread.thread2056, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit814.thread
+  %2662 = phi ptr [ %.pre1508, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit814.thread ], [ %2616, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit800.thread.thread2056 ]
   %2663 = getelementptr inbounds nuw i8, ptr %2662, i64 432
   %2664 = load double, ptr %2663, align 8, !tbaa !11
   %2665 = fcmp olt double %2664, 0x3E112E0BE0000000
-  br i1 %2665, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit828.thread.thread1631, label %2666
+  br i1 %2665, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit828.thread.thread2060, label %2666
 
-2666:                                             ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit814.thread.thread1629
+2666:                                             ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit814.thread.thread2058
   call void @llvm.lifetime.start.p0(ptr nonnull %258)
   %2667 = getelementptr inbounds nuw i8, ptr %258, i64 16
   store ptr %2667, ptr %258, align 8, !tbaa !47
@@ -10133,16 +10133,16 @@ _ZNK5clang20SanitizerMaskCutoffsixEj.exit828.thread: ; preds = %_ZNKSt7__cxx1112
   %.pre1510 = load ptr, ptr %0, align 8, !tbaa !3
   %.pre1511 = load ptr, ptr %314, align 8, !tbaa !3
   %2707 = icmp eq ptr %.pre1510, %.pre1511
-  br i1 %2707, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit968.thread, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit828.thread.thread1631
+  br i1 %2707, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit968.thread, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit828.thread.thread2060
 
-_ZNK5clang20SanitizerMaskCutoffsixEj.exit828.thread.thread1631: ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit814.thread.thread1629, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit828.thread
-  %2708 = phi ptr [ %.pre1510, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit828.thread ], [ %2662, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit814.thread.thread1629 ]
+_ZNK5clang20SanitizerMaskCutoffsixEj.exit828.thread.thread2060: ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit814.thread.thread2058, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit828.thread
+  %2708 = phi ptr [ %.pre1510, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit828.thread ], [ %2662, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit814.thread.thread2058 ]
   %2709 = getelementptr inbounds nuw i8, ptr %2708, i64 448
   %2710 = load double, ptr %2709, align 8, !tbaa !11
   %2711 = fcmp olt double %2710, 0x3E112E0BE0000000
-  br i1 %2711, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit842.thread.thread1633, label %2712
+  br i1 %2711, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit842.thread.thread2062, label %2712
 
-2712:                                             ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit828.thread.thread1631
+2712:                                             ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit828.thread.thread2060
   call void @llvm.lifetime.start.p0(ptr nonnull %263)
   %2713 = getelementptr inbounds nuw i8, ptr %263, i64 16
   store ptr %2713, ptr %263, align 8, !tbaa !47
@@ -10236,16 +10236,16 @@ _ZNK5clang20SanitizerMaskCutoffsixEj.exit842.thread: ; preds = %_ZNKSt7__cxx1112
   %.pre1512 = load ptr, ptr %0, align 8, !tbaa !3
   %.pre1513 = load ptr, ptr %314, align 8, !tbaa !3
   %2753 = icmp eq ptr %.pre1512, %.pre1513
-  br i1 %2753, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit968.thread, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit842.thread.thread1633
+  br i1 %2753, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit968.thread, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit842.thread.thread2062
 
-_ZNK5clang20SanitizerMaskCutoffsixEj.exit842.thread.thread1633: ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit828.thread.thread1631, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit842.thread
-  %2754 = phi ptr [ %.pre1512, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit842.thread ], [ %2708, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit828.thread.thread1631 ]
+_ZNK5clang20SanitizerMaskCutoffsixEj.exit842.thread.thread2062: ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit828.thread.thread2060, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit842.thread
+  %2754 = phi ptr [ %.pre1512, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit842.thread ], [ %2708, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit828.thread.thread2060 ]
   %2755 = getelementptr inbounds nuw i8, ptr %2754, i64 456
   %2756 = load double, ptr %2755, align 8, !tbaa !11
   %2757 = fcmp olt double %2756, 0x3E112E0BE0000000
-  br i1 %2757, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit856.thread.thread1635, label %2758
+  br i1 %2757, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit856.thread.thread2064, label %2758
 
-2758:                                             ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit842.thread.thread1633
+2758:                                             ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit842.thread.thread2062
   call void @llvm.lifetime.start.p0(ptr nonnull %268)
   %2759 = getelementptr inbounds nuw i8, ptr %268, i64 16
   store ptr %2759, ptr %268, align 8, !tbaa !47
@@ -10339,16 +10339,16 @@ _ZNK5clang20SanitizerMaskCutoffsixEj.exit856.thread: ; preds = %_ZNKSt7__cxx1112
   %.pre1514 = load ptr, ptr %0, align 8, !tbaa !3
   %.pre1515 = load ptr, ptr %314, align 8, !tbaa !3
   %2799 = icmp eq ptr %.pre1514, %.pre1515
-  br i1 %2799, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit968.thread, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit856.thread.thread1635
+  br i1 %2799, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit968.thread, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit856.thread.thread2064
 
-_ZNK5clang20SanitizerMaskCutoffsixEj.exit856.thread.thread1635: ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit842.thread.thread1633, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit856.thread
-  %2800 = phi ptr [ %.pre1514, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit856.thread ], [ %2754, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit842.thread.thread1633 ]
+_ZNK5clang20SanitizerMaskCutoffsixEj.exit856.thread.thread2064: ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit842.thread.thread2062, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit856.thread
+  %2800 = phi ptr [ %.pre1514, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit856.thread ], [ %2754, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit842.thread.thread2062 ]
   %2801 = getelementptr inbounds nuw i8, ptr %2800, i64 464
   %2802 = load double, ptr %2801, align 8, !tbaa !11
   %2803 = fcmp olt double %2802, 0x3E112E0BE0000000
-  br i1 %2803, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit870.thread.thread1637, label %2804
+  br i1 %2803, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit870.thread.thread2066, label %2804
 
-2804:                                             ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit856.thread.thread1635
+2804:                                             ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit856.thread.thread2064
   call void @llvm.lifetime.start.p0(ptr nonnull %273)
   %2805 = getelementptr inbounds nuw i8, ptr %273, i64 16
   store ptr %2805, ptr %273, align 8, !tbaa !47
@@ -10442,16 +10442,16 @@ _ZNK5clang20SanitizerMaskCutoffsixEj.exit870.thread: ; preds = %_ZNKSt7__cxx1112
   %.pre1516 = load ptr, ptr %0, align 8, !tbaa !3
   %.pre1517 = load ptr, ptr %314, align 8, !tbaa !3
   %2845 = icmp eq ptr %.pre1516, %.pre1517
-  br i1 %2845, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit968.thread, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit870.thread.thread1637
+  br i1 %2845, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit968.thread, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit870.thread.thread2066
 
-_ZNK5clang20SanitizerMaskCutoffsixEj.exit870.thread.thread1637: ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit856.thread.thread1635, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit870.thread
-  %2846 = phi ptr [ %.pre1516, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit870.thread ], [ %2800, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit856.thread.thread1635 ]
+_ZNK5clang20SanitizerMaskCutoffsixEj.exit870.thread.thread2066: ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit856.thread.thread2064, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit870.thread
+  %2846 = phi ptr [ %.pre1516, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit870.thread ], [ %2800, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit856.thread.thread2064 ]
   %2847 = getelementptr inbounds nuw i8, ptr %2846, i64 488
   %2848 = load double, ptr %2847, align 8, !tbaa !11
   %2849 = fcmp olt double %2848, 0x3E112E0BE0000000
-  br i1 %2849, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit884.thread.thread1639, label %2850
+  br i1 %2849, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit884.thread.thread2068, label %2850
 
-2850:                                             ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit870.thread.thread1637
+2850:                                             ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit870.thread.thread2066
   call void @llvm.lifetime.start.p0(ptr nonnull %278)
   %2851 = getelementptr inbounds nuw i8, ptr %278, i64 16
   store ptr %2851, ptr %278, align 8, !tbaa !47
@@ -10545,16 +10545,16 @@ _ZNK5clang20SanitizerMaskCutoffsixEj.exit884.thread: ; preds = %_ZNKSt7__cxx1112
   %.pre1518 = load ptr, ptr %0, align 8, !tbaa !3
   %.pre1519 = load ptr, ptr %314, align 8, !tbaa !3
   %2891 = icmp eq ptr %.pre1518, %.pre1519
-  br i1 %2891, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit968.thread, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit884.thread.thread1639
+  br i1 %2891, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit968.thread, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit884.thread.thread2068
 
-_ZNK5clang20SanitizerMaskCutoffsixEj.exit884.thread.thread1639: ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit870.thread.thread1637, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit884.thread
-  %2892 = phi ptr [ %.pre1518, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit884.thread ], [ %2846, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit870.thread.thread1637 ]
+_ZNK5clang20SanitizerMaskCutoffsixEj.exit884.thread.thread2068: ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit870.thread.thread2066, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit884.thread
+  %2892 = phi ptr [ %.pre1518, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit884.thread ], [ %2846, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit870.thread.thread2066 ]
   %2893 = getelementptr inbounds nuw i8, ptr %2892, i64 496
   %2894 = load double, ptr %2893, align 8, !tbaa !11
   %2895 = fcmp olt double %2894, 0x3E112E0BE0000000
-  br i1 %2895, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit898.thread.thread1641, label %2896
+  br i1 %2895, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit898.thread.thread2070, label %2896
 
-2896:                                             ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit884.thread.thread1639
+2896:                                             ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit884.thread.thread2068
   call void @llvm.lifetime.start.p0(ptr nonnull %283)
   %2897 = getelementptr inbounds nuw i8, ptr %283, i64 16
   store ptr %2897, ptr %283, align 8, !tbaa !47
@@ -10648,16 +10648,16 @@ _ZNK5clang20SanitizerMaskCutoffsixEj.exit898.thread: ; preds = %_ZNKSt7__cxx1112
   %.pre1520 = load ptr, ptr %0, align 8, !tbaa !3
   %.pre1521 = load ptr, ptr %314, align 8, !tbaa !3
   %2937 = icmp eq ptr %.pre1520, %.pre1521
-  br i1 %2937, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit968.thread, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit898.thread.thread1641
+  br i1 %2937, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit968.thread, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit898.thread.thread2070
 
-_ZNK5clang20SanitizerMaskCutoffsixEj.exit898.thread.thread1641: ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit884.thread.thread1639, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit898.thread
-  %2938 = phi ptr [ %.pre1520, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit898.thread ], [ %2892, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit884.thread.thread1639 ]
+_ZNK5clang20SanitizerMaskCutoffsixEj.exit898.thread.thread2070: ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit884.thread.thread2068, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit898.thread
+  %2938 = phi ptr [ %.pre1520, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit898.thread ], [ %2892, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit884.thread.thread2068 ]
   %2939 = getelementptr inbounds nuw i8, ptr %2938, i64 512
   %2940 = load double, ptr %2939, align 8, !tbaa !11
   %2941 = fcmp olt double %2940, 0x3E112E0BE0000000
-  br i1 %2941, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit912.thread.thread1643, label %2942
+  br i1 %2941, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit912.thread.thread2072, label %2942
 
-2942:                                             ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit898.thread.thread1641
+2942:                                             ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit898.thread.thread2070
   call void @llvm.lifetime.start.p0(ptr nonnull %288)
   %2943 = getelementptr inbounds nuw i8, ptr %288, i64 16
   store ptr %2943, ptr %288, align 8, !tbaa !47
@@ -10751,16 +10751,16 @@ _ZNK5clang20SanitizerMaskCutoffsixEj.exit912.thread: ; preds = %_ZNKSt7__cxx1112
   %.pre1522 = load ptr, ptr %0, align 8, !tbaa !3
   %.pre1523 = load ptr, ptr %314, align 8, !tbaa !3
   %2983 = icmp eq ptr %.pre1522, %.pre1523
-  br i1 %2983, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit968.thread, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit912.thread.thread1643
+  br i1 %2983, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit968.thread, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit912.thread.thread2072
 
-_ZNK5clang20SanitizerMaskCutoffsixEj.exit912.thread.thread1643: ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit898.thread.thread1641, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit912.thread
-  %2984 = phi ptr [ %.pre1522, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit912.thread ], [ %2938, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit898.thread.thread1641 ]
+_ZNK5clang20SanitizerMaskCutoffsixEj.exit912.thread.thread2072: ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit898.thread.thread2070, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit912.thread
+  %2984 = phi ptr [ %.pre1522, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit912.thread ], [ %2938, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit898.thread.thread2070 ]
   %2985 = getelementptr inbounds nuw i8, ptr %2984, i64 536
   %2986 = load double, ptr %2985, align 8, !tbaa !11
   %2987 = fcmp olt double %2986, 0x3E112E0BE0000000
-  br i1 %2987, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit926.thread.thread1645, label %2988
+  br i1 %2987, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit926.thread.thread2074, label %2988
 
-2988:                                             ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit912.thread.thread1643
+2988:                                             ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit912.thread.thread2072
   call void @llvm.lifetime.start.p0(ptr nonnull %293)
   %2989 = getelementptr inbounds nuw i8, ptr %293, i64 16
   store ptr %2989, ptr %293, align 8, !tbaa !47
@@ -10854,16 +10854,16 @@ _ZNK5clang20SanitizerMaskCutoffsixEj.exit926.thread: ; preds = %_ZNKSt7__cxx1112
   %.pre1524 = load ptr, ptr %0, align 8, !tbaa !3
   %.pre1525 = load ptr, ptr %314, align 8, !tbaa !3
   %3029 = icmp eq ptr %.pre1524, %.pre1525
-  br i1 %3029, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit968.thread, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit926.thread.thread1645
+  br i1 %3029, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit968.thread, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit926.thread.thread2074
 
-_ZNK5clang20SanitizerMaskCutoffsixEj.exit926.thread.thread1645: ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit912.thread.thread1643, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit926.thread
-  %3030 = phi ptr [ %.pre1524, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit926.thread ], [ %2984, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit912.thread.thread1643 ]
+_ZNK5clang20SanitizerMaskCutoffsixEj.exit926.thread.thread2074: ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit912.thread.thread2072, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit926.thread
+  %3030 = phi ptr [ %.pre1524, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit926.thread ], [ %2984, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit912.thread.thread2072 ]
   %3031 = getelementptr inbounds nuw i8, ptr %3030, i64 560
   %3032 = load double, ptr %3031, align 8, !tbaa !11
   %3033 = fcmp olt double %3032, 0x3E112E0BE0000000
-  br i1 %3033, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit940.thread.thread1647, label %3034
+  br i1 %3033, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit940.thread.thread2076, label %3034
 
-3034:                                             ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit926.thread.thread1645
+3034:                                             ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit926.thread.thread2074
   call void @llvm.lifetime.start.p0(ptr nonnull %298)
   %3035 = getelementptr inbounds nuw i8, ptr %298, i64 16
   store ptr %3035, ptr %298, align 8, !tbaa !47
@@ -10957,16 +10957,16 @@ _ZNK5clang20SanitizerMaskCutoffsixEj.exit940.thread: ; preds = %_ZNKSt7__cxx1112
   %.pre1526 = load ptr, ptr %0, align 8, !tbaa !3
   %.pre1527 = load ptr, ptr %314, align 8, !tbaa !3
   %3075 = icmp eq ptr %.pre1526, %.pre1527
-  br i1 %3075, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit968.thread, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit940.thread.thread1647
+  br i1 %3075, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit968.thread, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit940.thread.thread2076
 
-_ZNK5clang20SanitizerMaskCutoffsixEj.exit940.thread.thread1647: ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit926.thread.thread1645, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit940.thread
-  %3076 = phi ptr [ %.pre1526, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit940.thread ], [ %3030, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit926.thread.thread1645 ]
+_ZNK5clang20SanitizerMaskCutoffsixEj.exit940.thread.thread2076: ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit926.thread.thread2074, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit940.thread
+  %3076 = phi ptr [ %.pre1526, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit940.thread ], [ %3030, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit926.thread.thread2074 ]
   %3077 = getelementptr inbounds nuw i8, ptr %3076, i64 568
   %3078 = load double, ptr %3077, align 8, !tbaa !11
   %3079 = fcmp olt double %3078, 0x3E112E0BE0000000
-  br i1 %3079, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit954.thread.thread1649, label %3080
+  br i1 %3079, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit954.thread.thread2078, label %3080
 
-3080:                                             ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit940.thread.thread1647
+3080:                                             ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit940.thread.thread2076
   call void @llvm.lifetime.start.p0(ptr nonnull %303)
   %3081 = getelementptr inbounds nuw i8, ptr %303, i64 16
   store ptr %3081, ptr %303, align 8, !tbaa !47
@@ -11060,16 +11060,16 @@ _ZNK5clang20SanitizerMaskCutoffsixEj.exit954.thread: ; preds = %_ZNKSt7__cxx1112
   %.pre1528 = load ptr, ptr %0, align 8, !tbaa !3
   %.pre1529 = load ptr, ptr %314, align 8, !tbaa !3
   %3121 = icmp eq ptr %.pre1528, %.pre1529
-  br i1 %3121, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit968.thread, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit954.thread.thread1649
+  br i1 %3121, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit968.thread, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit954.thread.thread2078
 
-_ZNK5clang20SanitizerMaskCutoffsixEj.exit954.thread.thread1649: ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit940.thread.thread1647, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit954.thread
-  %3122 = phi ptr [ %.pre1528, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit954.thread ], [ %3076, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit940.thread.thread1647 ]
+_ZNK5clang20SanitizerMaskCutoffsixEj.exit954.thread.thread2078: ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit940.thread.thread2076, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit954.thread
+  %3122 = phi ptr [ %.pre1528, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit954.thread ], [ %3076, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit940.thread.thread2076 ]
   %3123 = getelementptr inbounds nuw i8, ptr %3122, i64 584
   %3124 = load double, ptr %3123, align 8, !tbaa !11
   %3125 = fcmp olt double %3124, 0x3E112E0BE0000000
   br i1 %3125, label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit968.thread, label %3126
 
-3126:                                             ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit954.thread.thread1649
+3126:                                             ; preds = %_ZNK5clang20SanitizerMaskCutoffsixEj.exit954.thread.thread2078
   call void @llvm.lifetime.start.p0(ptr nonnull %308)
   %3127 = getelementptr inbounds nuw i8, ptr %308, i64 16
   store ptr %3127, ptr %308, align 8, !tbaa !47
@@ -11162,7 +11162,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit977: ; preds = %_Z
   call void @llvm.lifetime.end.p0(ptr nonnull %308)
   br label %_ZNK5clang20SanitizerMaskCutoffsixEj.exit968.thread
 
-_ZNK5clang20SanitizerMaskCutoffsixEj.exit968.thread: ; preds = %2, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit.thread, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit128.thread, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit142.thread, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit156.thread, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit170.thread, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit184.thread, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit198.thread, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit212.thread, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit226.thread, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit240.thread, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit254.thread, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit268.thread, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit282.thread, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit296.thread, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit310.thread, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit324.thread, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit338.thread, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit352.thread, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit366.thread, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit380.thread, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit394.thread, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit408.thread, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit422.thread, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit436.thread, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit450.thread, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit464.thread, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit478.thread, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit492.thread, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit506.thread, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit520.thread, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit534.thread, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit548.thread, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit562.thread, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit576.thread, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit590.thread, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit604.thread, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit618.thread, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit632.thread, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit646.thread, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit660.thread, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit674.thread, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit688.thread, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit702.thread, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit716.thread, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit730.thread, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit744.thread, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit758.thread, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit772.thread, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit786.thread, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit800.thread, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit814.thread, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit828.thread, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit842.thread, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit856.thread, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit870.thread, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit884.thread, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit898.thread, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit912.thread, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit926.thread, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit940.thread, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit954.thread, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit954.thread.thread1649, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit977
+_ZNK5clang20SanitizerMaskCutoffsixEj.exit968.thread: ; preds = %2, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit.thread, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit128.thread, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit142.thread, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit156.thread, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit170.thread, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit184.thread, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit198.thread, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit212.thread, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit226.thread, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit240.thread, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit254.thread, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit268.thread, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit282.thread, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit296.thread, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit310.thread, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit324.thread, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit338.thread, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit352.thread, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit366.thread, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit380.thread, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit394.thread, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit408.thread, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit422.thread, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit436.thread, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit450.thread, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit464.thread, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit478.thread, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit492.thread, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit506.thread, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit520.thread, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit534.thread, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit548.thread, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit562.thread, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit576.thread, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit590.thread, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit604.thread, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit618.thread, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit632.thread, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit646.thread, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit660.thread, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit674.thread, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit688.thread, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit702.thread, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit716.thread, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit730.thread, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit744.thread, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit758.thread, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit772.thread, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit786.thread, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit800.thread, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit814.thread, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit828.thread, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit842.thread, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit856.thread, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit870.thread, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit884.thread, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit898.thread, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit912.thread, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit926.thread, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit940.thread, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit954.thread, %_ZNK5clang20SanitizerMaskCutoffsixEj.exit954.thread.thread2078, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit977
   ret void
 }
 
@@ -11465,13 +11465,13 @@ define linkonce_odr void @_ZNSt6vectorIdSaIdEE17_M_default_appendEm(ptr noundef 
 19:                                               ; preds = %3
   store double 0.000000e+00, ptr %5, align 8, !tbaa !11
   %20 = getelementptr i8, ptr %5, i64 8
-  %21 = add i64 %1, -1
+  %21 = add nsw i64 %1, -1
   %22 = icmp eq i64 %21, 0
   br i1 %22, label %_ZSt27__uninitialized_default_n_aIPdmdET_S1_T0_RSaIT1_E.exit, label %_ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i
 
 _ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
-  %23 = shl i64 %1, 3
-  %24 = add i64 %23, -8
+  %23 = shl nuw nsw i64 %1, 3
+  %24 = add nsw i64 %23, -8
   tail call void @llvm.memset.p0.i64(ptr align 8 %20, i8 0, i64 %24, i1 false), !tbaa !11
   %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 3
   %25 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i

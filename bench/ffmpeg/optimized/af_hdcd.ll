@@ -525,9 +525,9 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   %143 = load i32, ptr %142, align 8, !tbaa !94
   %144 = sdiv i32 %143, 300
   %145 = icmp sgt i32 %130, 0
-  br i1 %145, label %.lr.ph.i.i, label %hdcd_analyze_prepare.exit111.thread134.i
+  br i1 %145, label %.lr.ph.i.i, label %hdcd_analyze_prepare.exit111.thread140.i
 
-hdcd_analyze_prepare.exit111.thread134.i:         ; preds = %141
+hdcd_analyze_prepare.exit111.thread140.i:         ; preds = %141
   %146 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %147 = call fastcc i32 @hdcd_control_stereo(ptr noundef nonnull %9, ptr noundef %3, ptr noundef %146)
   br label %hdcd_process_stereo.exit
@@ -747,9 +747,9 @@ hdcd_analyze_prepare.exit111.i:                   ; preds = %129
   %281 = tail call fastcc i32 @hdcd_envelope(ptr noundef nonnull %262, i32 noundef 1, i32 noundef 2, i32 noundef %278, i32 noundef %.sroa.12.1.i, i32 noundef %279, i32 noundef %280)
   br label %hdcd_process_stereo.exit
 
-hdcd_process_stereo.exit:                         ; preds = %hdcd_analyze_prepare.exit111.thread134.i, %hdcd_analyze_prepare.exit111.i, %263, %273
-  %.sroa.12.2.i = phi i32 [ %272, %263 ], [ %281, %273 ], [ %138, %hdcd_analyze_prepare.exit111.i ], [ %138, %hdcd_analyze_prepare.exit111.thread134.i ]
-  %.sroa.0.2.i = phi i32 [ %267, %263 ], [ %277, %273 ], [ %136, %hdcd_analyze_prepare.exit111.i ], [ %136, %hdcd_analyze_prepare.exit111.thread134.i ]
+hdcd_process_stereo.exit:                         ; preds = %hdcd_analyze_prepare.exit111.thread140.i, %hdcd_analyze_prepare.exit111.i, %263, %273
+  %.sroa.12.2.i = phi i32 [ %272, %263 ], [ %281, %273 ], [ %138, %hdcd_analyze_prepare.exit111.i ], [ %138, %hdcd_analyze_prepare.exit111.thread140.i ]
+  %.sroa.0.2.i = phi i32 [ %267, %263 ], [ %277, %273 ], [ %136, %hdcd_analyze_prepare.exit111.i ], [ %136, %hdcd_analyze_prepare.exit111.thread140.i ]
   store i32 %.sroa.0.2.i, ptr %135, align 4, !tbaa !92
   store i32 %.sroa.12.2.i, ptr %137, align 4, !tbaa !92
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -1981,8 +1981,8 @@ define internal fastcc i32 @hdcd_analyze(ptr noundef captures(address) %0, i32 n
   store i32 %115, ptr %.3136.us, align 4, !tbaa !41
   %116 = getelementptr inbounds i32, ptr %.3136.us, i64 %105
   %117 = add nsw i32 %110, -1
-  %.not182 = icmp eq i32 %110, 0
-  br i1 %.not182, label %.loopexit, label %.lr.ph137.split.us, !llvm.loop !128
+  %.not189 = icmp eq i32 %110, 0
+  br i1 %.not189, label %.loopexit, label %.lr.ph137.split.us, !llvm.loop !128
 
 118:                                              ; preds = %.loopexit115
   br i1 %98, label %119, label %.loopexit
@@ -2063,7 +2063,7 @@ define internal fastcc i32 @hdcd_envelope(ptr noundef captures(address) %0, i32 
   %28 = load i32, ptr %27, align 4, !tbaa !41
   %29 = sub i32 0, %28
   %30 = icmp slt i32 %18, 0
-  %spec.select163 = select i1 %30, i32 %29, i32 %28
+  %spec.select171 = select i1 %30, i32 %29, i32 %28
   br label %33
 
 31:                                               ; preds = %.lr.ph
@@ -2071,7 +2071,7 @@ define internal fastcc i32 @hdcd_envelope(ptr noundef captures(address) %0, i32 
   br label %33
 
 33:                                               ; preds = %25, %31
-  %.0103 = phi i32 [ %32, %31 ], [ %spec.select163, %25 ]
+  %.0103 = phi i32 [ %32, %31 ], [ %spec.select171, %25 ]
   store i32 %.0103, ptr %17, align 4, !tbaa !41
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count

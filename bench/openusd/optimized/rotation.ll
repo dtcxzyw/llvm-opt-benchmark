@@ -677,26 +677,26 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__10GfRotation25MatchClosestEule
   %.3100 = add nsw i32 %.299, %20
   %.3 = select i1 %19, i32 4, i32 %.2
   %21 = icmp eq i32 %.3100, 0
-  %.sink251.sroa.gep = getelementptr inbounds nuw i8, ptr %11, i64 120
-  %.sink251.sroa.gep268 = getelementptr inbounds nuw i8, ptr %11, i64 56
-  %.sink251.sroa.gep269 = getelementptr inbounds nuw i8, ptr %11, i64 56
-  %.sink251.sroa.gep270 = getelementptr inbounds nuw i8, ptr %11, i64 56
-  %.sink251.sroa.gep271 = getelementptr inbounds nuw i8, ptr %11, i64 56
-  %.sink253.sroa.gep = getelementptr inbounds nuw i8, ptr %11, i64 112
-  %.sink253.sroa.gep272 = getelementptr inbounds nuw i8, ptr %11, i64 48
-  %.sink253.sroa.gep273 = getelementptr inbounds nuw i8, ptr %11, i64 48
-  %.sink253.sroa.gep274 = getelementptr inbounds nuw i8, ptr %11, i64 48
-  %.sink253.sroa.gep275 = getelementptr inbounds nuw i8, ptr %11, i64 48
-  %.sink255.sroa.gep = getelementptr inbounds nuw i8, ptr %11, i64 104
-  %.sink255.sroa.gep276 = getelementptr inbounds nuw i8, ptr %11, i64 40
-  %.sink255.sroa.gep277 = getelementptr inbounds nuw i8, ptr %11, i64 40
-  %.sink255.sroa.gep278 = getelementptr inbounds nuw i8, ptr %11, i64 40
-  %.sink255.sroa.gep279 = getelementptr inbounds nuw i8, ptr %11, i64 40
-  %.sink258.sroa.gep = getelementptr inbounds nuw i8, ptr %11, i64 96
-  %.sink258.sroa.gep280 = getelementptr inbounds nuw i8, ptr %11, i64 32
-  %.sink258.sroa.gep281 = getelementptr inbounds nuw i8, ptr %11, i64 32
-  %.sink258.sroa.gep282 = getelementptr inbounds nuw i8, ptr %11, i64 32
-  %.sink258.sroa.gep283 = getelementptr inbounds nuw i8, ptr %11, i64 32
+  %.sink280.sroa.gep = getelementptr inbounds nuw i8, ptr %11, i64 120
+  %.sink280.sroa.gep297 = getelementptr inbounds nuw i8, ptr %11, i64 56
+  %.sink280.sroa.gep298 = getelementptr inbounds nuw i8, ptr %11, i64 56
+  %.sink280.sroa.gep299 = getelementptr inbounds nuw i8, ptr %11, i64 56
+  %.sink280.sroa.gep300 = getelementptr inbounds nuw i8, ptr %11, i64 56
+  %.sink282.sroa.gep = getelementptr inbounds nuw i8, ptr %11, i64 112
+  %.sink282.sroa.gep301 = getelementptr inbounds nuw i8, ptr %11, i64 48
+  %.sink282.sroa.gep302 = getelementptr inbounds nuw i8, ptr %11, i64 48
+  %.sink282.sroa.gep303 = getelementptr inbounds nuw i8, ptr %11, i64 48
+  %.sink282.sroa.gep304 = getelementptr inbounds nuw i8, ptr %11, i64 48
+  %.sink284.sroa.gep = getelementptr inbounds nuw i8, ptr %11, i64 104
+  %.sink284.sroa.gep305 = getelementptr inbounds nuw i8, ptr %11, i64 40
+  %.sink284.sroa.gep306 = getelementptr inbounds nuw i8, ptr %11, i64 40
+  %.sink284.sroa.gep307 = getelementptr inbounds nuw i8, ptr %11, i64 40
+  %.sink284.sroa.gep308 = getelementptr inbounds nuw i8, ptr %11, i64 40
+  %.sink287.sroa.gep = getelementptr inbounds nuw i8, ptr %11, i64 96
+  %.sink287.sroa.gep309 = getelementptr inbounds nuw i8, ptr %11, i64 32
+  %.sink287.sroa.gep310 = getelementptr inbounds nuw i8, ptr %11, i64 32
+  %.sink287.sroa.gep311 = getelementptr inbounds nuw i8, ptr %11, i64 32
+  %.sink287.sroa.gep312 = getelementptr inbounds nuw i8, ptr %11, i64 32
   br i1 %21, label %_ZN32pxrInternal_v0_24__pxrReserved__L8_PiShiftERKNS_7GfVec4dES2_d.exit.cont, label %22
 
 22:                                               ; preds = %8
@@ -876,7 +876,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__L8_PiShiftERKNS_7GfVec4dES2_d.exit.cont169:
   store double %48, ptr %.sroa.3140.0..sroa_idx, align 16
   %.sroa.4141.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 24
   store double %60, ptr %.sroa.4141.0..sroa_idx, align 8
-  switch i32 %.3, label %default.unreachable246 [
+  switch i32 %.3, label %default.unreachable275 [
     i32 1, label %64
     i32 2, label %67
     i32 3, label %67
@@ -980,22 +980,22 @@ _ZN32pxrInternal_v0_24__pxrReserved__L8_PiShiftERKNS_7GfVec4dES2_d.exit.cont169:
   %84 = fneg double %51
   br label %.cont157
 
-default.unreachable246:                           ; preds = %.cont151
+default.unreachable275:                           ; preds = %.cont151
   unreachable
 
 .cont157:                                         ; preds = %.else159, %72, %.cont161.cont.cont, %.cont179, %.cont217
-  %.sink258.sroa.phi = phi ptr [ %.sink258.sroa.gep, %.cont161.cont.cont ], [ %.sink258.sroa.gep280, %.cont179 ], [ %.sink258.sroa.gep281, %.cont217 ], [ %.sink258.sroa.gep282, %72 ], [ %.sink258.sroa.gep283, %.else159 ]
-  %.sink256 = phi double [ %83, %.cont161.cont.cont ], [ %59, %.cont179 ], [ %65, %.cont217 ], [ %59, %72 ], [ %59, %.else159 ]
-  %.sink255.sroa.phi = phi ptr [ %.sink255.sroa.gep, %.cont161.cont.cont ], [ %.sink255.sroa.gep276, %.cont179 ], [ %.sink255.sroa.gep277, %.cont217 ], [ %.sink255.sroa.gep278, %72 ], [ %.sink255.sroa.gep279, %.else159 ]
-  %.sink254 = phi double [ %55, %.cont161.cont.cont ], [ %69, %.cont179 ], [ %55, %.cont217 ], [ %73, %72 ], [ %73, %.else159 ]
-  %.sink253.sroa.phi = phi ptr [ %.sink253.sroa.gep, %.cont161.cont.cont ], [ %.sink253.sroa.gep272, %.cont179 ], [ %.sink253.sroa.gep273, %.cont217 ], [ %.sink253.sroa.gep274, %72 ], [ %.sink253.sroa.gep275, %.else159 ]
-  %.sink252 = phi double [ %84, %.cont161.cont.cont ], [ %71, %.cont179 ], [ %66, %.cont217 ], [ %51, %72 ], [ %51, %.else159 ]
-  %.sink251.sroa.phi = phi ptr [ %.sink251.sroa.gep, %.cont161.cont.cont ], [ %.sink251.sroa.gep268, %.cont179 ], [ %.sink251.sroa.gep269, %.cont217 ], [ %.sink251.sroa.gep270, %72 ], [ %.sink251.sroa.gep271, %.else159 ]
+  %.sink287.sroa.phi = phi ptr [ %.sink287.sroa.gep, %.cont161.cont.cont ], [ %.sink287.sroa.gep309, %.cont179 ], [ %.sink287.sroa.gep310, %.cont217 ], [ %.sink287.sroa.gep311, %72 ], [ %.sink287.sroa.gep312, %.else159 ]
+  %.sink285 = phi double [ %83, %.cont161.cont.cont ], [ %59, %.cont179 ], [ %65, %.cont217 ], [ %59, %72 ], [ %59, %.else159 ]
+  %.sink284.sroa.phi = phi ptr [ %.sink284.sroa.gep, %.cont161.cont.cont ], [ %.sink284.sroa.gep305, %.cont179 ], [ %.sink284.sroa.gep306, %.cont217 ], [ %.sink284.sroa.gep307, %72 ], [ %.sink284.sroa.gep308, %.else159 ]
+  %.sink283 = phi double [ %55, %.cont161.cont.cont ], [ %69, %.cont179 ], [ %55, %.cont217 ], [ %73, %72 ], [ %73, %.else159 ]
+  %.sink282.sroa.phi = phi ptr [ %.sink282.sroa.gep, %.cont161.cont.cont ], [ %.sink282.sroa.gep301, %.cont179 ], [ %.sink282.sroa.gep302, %.cont217 ], [ %.sink282.sroa.gep303, %72 ], [ %.sink282.sroa.gep304, %.else159 ]
+  %.sink281 = phi double [ %84, %.cont161.cont.cont ], [ %71, %.cont179 ], [ %66, %.cont217 ], [ %51, %72 ], [ %51, %.else159 ]
+  %.sink280.sroa.phi = phi ptr [ %.sink280.sroa.gep, %.cont161.cont.cont ], [ %.sink280.sroa.gep297, %.cont179 ], [ %.sink280.sroa.gep298, %.cont217 ], [ %.sink280.sroa.gep299, %72 ], [ %.sink280.sroa.gep300, %.else159 ]
   %.sink = phi double [ %63, %.cont161.cont.cont ], [ %63, %.cont179 ], [ %63, %.cont217 ], [ 0.000000e+00, %72 ], [ %.else.val160, %.else159 ]
-  store double %.sink256, ptr %.sink258.sroa.phi, align 16
-  store double %.sink254, ptr %.sink255.sroa.phi, align 8
-  store double %.sink252, ptr %.sink253.sroa.phi, align 16
-  store double %.sink, ptr %.sink251.sroa.phi, align 8
+  store double %.sink285, ptr %.sink287.sroa.phi, align 16
+  store double %.sink283, ptr %.sink284.sroa.phi, align 8
+  store double %.sink281, ptr %.sink282.sroa.phi, align 16
+  store double %.sink, ptr %.sink280.sroa.phi, align 8
   br label %85
 
 .preheader:                                       ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L8_PiShiftERKNS_7GfVec4dES2_d.exit117
@@ -1140,8 +1140,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__L8_PiShiftERKNS_7GfVec4dES2_d.exit117: ; pr
   br label %_ZN32pxrInternal_v0_24__pxrReserved__L8_PiShiftERKNS_7GfVec4dES2_d.exit.cont.sink.split
 
 _ZN32pxrInternal_v0_24__pxrReserved__L8_PiShiftERKNS_7GfVec4dES2_d.exit.cont.sink.split: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L8_PiShiftERKNS_7GfVec4dES2_d.exit.cont169, %.else156
-  %.sink259 = phi double [ %125, %.else156 ], [ %.sroa.8.0.copyload, %_ZN32pxrInternal_v0_24__pxrReserved__L8_PiShiftERKNS_7GfVec4dES2_d.exit.cont169 ]
-  store double %.sink259, ptr %7, align 8
+  %.sink288 = phi double [ %125, %.else156 ], [ %.sroa.8.0.copyload, %_ZN32pxrInternal_v0_24__pxrReserved__L8_PiShiftERKNS_7GfVec4dES2_d.exit.cont169 ]
+  store double %.sink288, ptr %7, align 8
   br label %_ZN32pxrInternal_v0_24__pxrReserved__L8_PiShiftERKNS_7GfVec4dES2_d.exit.cont
 
 _ZN32pxrInternal_v0_24__pxrReserved__L8_PiShiftERKNS_7GfVec4dES2_d.exit.cont: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L8_PiShiftERKNS_7GfVec4dES2_d.exit.cont.sink.split, %.cont176, %_ZN32pxrInternal_v0_24__pxrReserved__L8_PiShiftERKNS_7GfVec4dES2_d.exit.cont169, %8
@@ -1357,7 +1357,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__10GfRotation17DecomposeRotatio
   %147 = call double @llvm.fmuladd.f64(double %135, double %127, double %146)
   %148 = call double @llvm.fmuladd.f64(double %141, double %133, double %147)
   %149 = call noundef nonnull align 8 dereferenceable(128) ptr @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix4d11SetDiagonalEd(ptr noundef nonnull align 8 dereferenceable(128) %29, double noundef 1.000000e+00)
-  switch i32 %.3, label %default.unreachable178 [
+  switch i32 %.3, label %default.unreachable181 [
     i32 4, label %150
     i32 0, label %150
     i32 1, label %245
@@ -1878,7 +1878,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__10GfRotation17DecomposeRotatio
   store double %517, ptr %spec.select, align 8
   br label %518
 
-default.unreachable178:                           ; preds = %518, %103
+default.unreachable181:                           ; preds = %518, %103
   unreachable
 
 518:                                              ; preds = %427, %336, %245, %243
@@ -1919,7 +1919,7 @@ default.unreachable178:                           ; preds = %518, %103
   %544 = load double, ptr %543, align 8
   %545 = getelementptr inbounds nuw i8, ptr %66, i64 64
   store double %544, ptr %545, align 8
-  switch i32 %.3, label %default.unreachable178 [
+  switch i32 %.3, label %default.unreachable181 [
     i32 0, label %546
     i32 4, label %546
     i32 1, label %567

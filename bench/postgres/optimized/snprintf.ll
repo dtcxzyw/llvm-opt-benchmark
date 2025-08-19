@@ -363,13 +363,13 @@ define internal fastcc void @dopr(ptr noundef nonnull captures(none) %0, ptr nou
   %.085.ph150.i = phi i32 [ %.085.ph145.i, %.outer142.i ], [ 1, %111 ]
   br label %111
 
-111:                                              ; preds = %.backedge1342, %.outer148.i
-  %.298.i = phi ptr [ %.298.ph149.i, %.outer148.i ], [ %112, %.backedge1342 ]
+111:                                              ; preds = %.backedge1370, %.outer148.i
+  %.298.i = phi ptr [ %.298.ph149.i, %.outer148.i ], [ %112, %.backedge1370 ]
   %112 = getelementptr inbounds nuw i8, ptr %.298.i, i64 1
   %113 = load i8, ptr %.298.i, align 1
   switch i8 %113, label %find_arguments.exit.thread [
-    i8 45, label %.backedge1342
-    i8 43, label %.backedge1342
+    i8 45, label %.backedge1370
+    i8 43, label %.backedge1370
     i8 48, label %114
     i8 49, label %114
     i8 50, label %114
@@ -385,8 +385,8 @@ define internal fastcc void @dopr(ptr noundef nonnull captures(none) %0, ptr nou
     i8 36, label %120
     i8 108, label %129
     i8 122, label %.outer148.i
-    i8 104, label %.backedge1342
-    i8 39, label %.backedge1342
+    i8 104, label %.backedge1370
+    i8 39, label %.backedge1370
     i8 100, label %130
     i8 105, label %130
     i8 111, label %130
@@ -405,7 +405,7 @@ define internal fastcc void @dopr(ptr noundef nonnull captures(none) %0, ptr nou
     i8 37, label %.loopexit135.i
   ]
 
-.backedge1342:                                    ; preds = %111, %111, %111, %111
+.backedge1370:                                    ; preds = %111, %111, %111, %111
   br label %111
 
 114:                                              ; preds = %111, %111, %111, %111, %111, %111, %111, %111, %111, %111
@@ -1879,9 +1879,9 @@ define i32 @pg_strfromd(ptr noundef %0, i64 noundef %1, i32 noundef %2, double n
   store i8 0, ptr %30, align 1
   %31 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %7, i64 noundef 64, ptr noundef nonnull %6, i32 noundef %.010, double noundef %.018) #16
   %32 = icmp slt i32 %31, 0
-  br i1 %32, label %.thread26, label %33
+  br i1 %32, label %.thread28, label %33
 
-.thread26:                                        ; preds = %26
+.thread28:                                        ; preds = %26
   store i8 0, ptr %0, align 1
   br label %45
 
@@ -1920,7 +1920,7 @@ define i32 @pg_strfromd(ptr noundef %0, i64 noundef %1, i32 noundef %2, double n
   %44 = add i32 %.pre25, %43
   br i1 %39, label %45, label %46
 
-45:                                               ; preds = %.thread26, %38
+45:                                               ; preds = %.thread28, %38
   br label %46
 
 46:                                               ; preds = %38, %45
@@ -2129,14 +2129,14 @@ define internal fastcc void @fmtint(i64 noundef %0, i8 noundef signext %1, i32 n
 
 15:                                               ; preds = %9, %9
   %.not.i = icmp sgt i64 %0, -1
-  br i1 %.not.i, label %16, label %.thread94
+  br i1 %.not.i, label %16, label %.thread97
 
 16:                                               ; preds = %15
   %.not4.i = icmp eq i32 %2, 0
   %spec.select = select i1 %.not4.i, i32 0, i32 43
   br label %.thread
 
-.thread94:                                        ; preds = %15
+.thread97:                                        ; preds = %15
   %17 = sub i64 0, %0
   br label %.preheader.preheader
 
@@ -2155,17 +2155,17 @@ define internal fastcc void @fmtint(i64 noundef %0, i8 noundef signext %1, i32 n
 23:                                               ; preds = %.thread
   br i1 %19, label %.preheader.preheader, label %32
 
-.preheader.preheader:                             ; preds = %.thread94, %23
-  %.0496490100 = phi ptr [ @.str.3, %.thread94 ], [ %.04964, %23 ]
-  %.0599199 = phi i32 [ 45, %.thread94 ], [ %.059, %23 ]
-  %.09398 = phi i64 [ %17, %.thread94 ], [ %0, %23 ]
+.preheader.preheader:                             ; preds = %.thread97, %23
+  %.0496493103 = phi ptr [ @.str.3, %.thread97 ], [ %.04964, %23 ]
+  %.05994102 = phi i32 [ 45, %.thread97 ], [ %.059, %23 ]
+  %.096101 = phi i64 [ %17, %.thread97 ], [ %0, %23 ]
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
   %.146 = phi i32 [ %27, %.preheader ], [ 0, %.preheader.preheader ]
-  %.1 = phi i64 [ %31, %.preheader ], [ %.09398, %.preheader.preheader ]
+  %.1 = phi i64 [ %31, %.preheader ], [ %.096101, %.preheader.preheader ]
   %24 = urem i64 %.1, 10
-  %25 = getelementptr inbounds nuw i8, ptr %.0496490100, i64 %24
+  %25 = getelementptr inbounds nuw i8, ptr %.0496493103, i64 %24
   %26 = load i8, ptr %25, align 1
   %27 = add i32 %.146, 1
   %28 = sext i32 %27 to i64
@@ -2216,7 +2216,7 @@ define internal fastcc void @fmtint(i64 noundef %0, i8 noundef signext %1, i32 n
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader, %.loopexit.loopexit78, %.loopexit.loopexit77, %.thread
-  %.05992 = phi i32 [ %.059, %.thread ], [ %.059, %.loopexit.loopexit77 ], [ %.059, %.loopexit.loopexit78 ], [ %.0599199, %.preheader ]
+  %.05995 = phi i32 [ %.059, %.thread ], [ %.059, %.loopexit.loopexit77 ], [ %.059, %.loopexit.loopexit78 ], [ %.05994102, %.preheader ]
   %.045 = phi i32 [ 0, %.thread ], [ %45, %.loopexit.loopexit77 ], [ %46, %.loopexit.loopexit78 ], [ %27, %.preheader ]
   %47 = sub i32 %6, %.045
   %48 = tail call i32 @llvm.smax.i32(i32 %47, i32 0)
@@ -2227,7 +2227,7 @@ define internal fastcc void @fmtint(i64 noundef %0, i8 noundef signext %1, i32 n
   %51 = sub nsw i32 0, %spec.store.select.i
   %spec.select.i = select i1 %.not.i58, i32 %spec.store.select.i, i32 %51
   store i32 %spec.select.i, ptr %11, align 4
-  call fastcc void @leading_pad(i32 noundef %5, i32 noundef %.05992, ptr noundef %11, ptr noundef %8)
+  call fastcc void @leading_pad(i32 noundef %5, i32 noundef %.05995, ptr noundef %11, ptr noundef %8)
   %.not57 = icmp slt i32 %47, 1
   br i1 %.not57, label %53, label %52
 
@@ -2274,7 +2274,7 @@ define internal fastcc void @leading_pad(i32 noundef range(i32 0, 49) %0, i32 no
 
 8:                                                ; preds = %4
   %.not = icmp eq i32 %1, 0
-  br i1 %.not, label %.thread44, label %9
+  br i1 %.not, label %.thread56, label %9
 
 9:                                                ; preds = %8
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -2342,9 +2342,9 @@ thread-pre-split:                                 ; preds = %38, %16
   %43 = add i32 %42, -1
   store i32 %43, ptr %2, align 4
   %44 = icmp sgt i32 %43, 0
-  br i1 %44, label %.thread44, label %46
+  br i1 %44, label %.thread56, label %46
 
-.thread44:                                        ; preds = %8, %thread-pre-split
+.thread56:                                        ; preds = %8, %thread-pre-split
   %45 = phi i32 [ %43, %thread-pre-split ], [ %5, %8 ]
   tail call fastcc void @dopr_outchmulti(i32 noundef %0, i32 noundef %45, ptr noundef %3)
   br label %.sink.split
@@ -2444,8 +2444,8 @@ dopr_outch.exit41:                                ; preds = %61, %83
   %94 = add nsw i32 %87, 1
   br label %.sink.split
 
-.sink.split:                                      ; preds = %93, %89, %.thread44
-  %.sink = phi i32 [ 0, %.thread44 ], [ %90, %89 ], [ %94, %93 ]
+.sink.split:                                      ; preds = %93, %89, %.thread56
+  %.sink = phi i32 [ 0, %.thread56 ], [ %90, %89 ], [ %94, %93 ]
   store i32 %.sink, ptr %2, align 4
   br label %95
 

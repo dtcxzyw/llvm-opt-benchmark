@@ -179,38 +179,38 @@ _ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_
   %10 = load ptr, ptr %1, align 8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 48
   %12 = load i8, ptr %11, align 8
-  switch i8 %12, label %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIRN3nix14DerivedPathMapISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessISC_ESaISC_EEE9ChildNodeEEEONS4_10overloadedIJZZNSH_10ensureSlotERKNS4_17SingleDerivedPathEENKUlRKT_E_clISM_EERDaSR_EUlRKNS4_17DerivedPathOpaqueEE_ZZNSH_10ensureSlotESO_ENKST_ISM_EESU_SR_EUlRKNS4_22SingleDerivedPathBuiltEE_EEERKSt7variantIJSV_SZ_EEEJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeES14_S18_.exit.i.i.i.i.i.i12 [
+  switch i8 %12, label %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIRN3nix14DerivedPathMapISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessISC_ESaISC_EEE9ChildNodeEEEONS4_10overloadedIJZZNSH_10ensureSlotERKNS4_17SingleDerivedPathEENKUlRKT_E_clISM_EERDaSR_EUlRKNS4_17DerivedPathOpaqueEE_ZZNSH_10ensureSlotESO_ENKST_ISM_EESU_SR_EUlRKNS4_22SingleDerivedPathBuiltEE_EEERKSt7variantIJSV_SZ_EEEJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeES14_S18_.exit.i.i.i.i.i.i14 [
     i8 -1, label %.invoke
     i8 0, label %13
   ]
 
 13:                                               ; preds = %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIRN3nix14DerivedPathMapISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessISC_ESaISC_EEE9ChildNodeEEEONS4_10overloadedIJZZNSH_10ensureSlotERKNS4_17SingleDerivedPathEENKUlRKT_E_clISM_EERDaSR_EUlRKNS4_17DerivedPathOpaqueEE_ZZNSH_10ensureSlotESO_ENKST_ISM_EESU_SR_EUlRKNS4_22SingleDerivedPathBuiltEE_EEERKSt7variantIJSV_SZ_EEEJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeES14_S18_.exit.i.i.i.i.i.i
   %14 = invoke noundef nonnull align 8 dereferenceable(96) ptr @_ZNSt3mapIN3nix9StorePathENS0_14DerivedPathMapISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS9_ESaIS9_EEE9ChildNodeESA_IS1_ESaISt4pairIKS1_SF_EEEixERSI_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(49) %10)
-          to label %.noexc9 unwind label %47
+          to label %.noexc10 unwind label %47
 
-_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIRN3nix14DerivedPathMapISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessISC_ESaISC_EEE9ChildNodeEEEONS4_10overloadedIJZZNSH_10ensureSlotERKNS4_17SingleDerivedPathEENKUlRKT_E_clISM_EERDaSR_EUlRKNS4_17DerivedPathOpaqueEE_ZZNSH_10ensureSlotESO_ENKST_ISM_EESU_SR_EUlRKNS4_22SingleDerivedPathBuiltEE_EEERKSt7variantIJSV_SZ_EEEJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeES14_S18_.exit.i.i.i.i.i.i12: ; preds = %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIRN3nix14DerivedPathMapISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessISC_ESaISC_EEE9ChildNodeEEEONS4_10overloadedIJZZNSH_10ensureSlotERKNS4_17SingleDerivedPathEENKUlRKT_E_clISM_EERDaSR_EUlRKNS4_17DerivedPathOpaqueEE_ZZNSH_10ensureSlotESO_ENKST_ISM_EESU_SR_EUlRKNS4_22SingleDerivedPathBuiltEE_EEERKSt7variantIJSV_SZ_EEEJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeES14_S18_.exit.i.i.i.i.i.i
+_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIRN3nix14DerivedPathMapISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessISC_ESaISC_EEE9ChildNodeEEEONS4_10overloadedIJZZNSH_10ensureSlotERKNS4_17SingleDerivedPathEENKUlRKT_E_clISM_EERDaSR_EUlRKNS4_17DerivedPathOpaqueEE_ZZNSH_10ensureSlotESO_ENKST_ISM_EESU_SR_EUlRKNS4_22SingleDerivedPathBuiltEE_EEERKSt7variantIJSV_SZ_EEEJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeES14_S18_.exit.i.i.i.i.i.i14: ; preds = %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIRN3nix14DerivedPathMapISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessISC_ESaISC_EEE9ChildNodeEEEONS4_10overloadedIJZZNSH_10ensureSlotERKNS4_17SingleDerivedPathEENKUlRKT_E_clISM_EERDaSR_EUlRKNS4_17DerivedPathOpaqueEE_ZZNSH_10ensureSlotESO_ENKST_ISM_EESU_SR_EUlRKNS4_22SingleDerivedPathBuiltEE_EEERKSt7variantIJSV_SZ_EEEJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeES14_S18_.exit.i.i.i.i.i.i
   %15 = load ptr, ptr %10, align 8
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 48
   %17 = load i8, ptr %16, align 8
-  switch i8 %17, label %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIRN3nix14DerivedPathMapISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessISC_ESaISC_EEE9ChildNodeEEEONS4_10overloadedIJZZNSH_10ensureSlotERKNS4_17SingleDerivedPathEENKUlRKT_E_clISM_EERDaSR_EUlRKNS4_17DerivedPathOpaqueEE_ZZNSH_10ensureSlotESO_ENKST_ISM_EESU_SR_EUlRKNS4_22SingleDerivedPathBuiltEE_EEERKSt7variantIJSV_SZ_EEEJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeES14_S18_.exit.i.i.i.i.i.i20 [
+  switch i8 %17, label %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIRN3nix14DerivedPathMapISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessISC_ESaISC_EEE9ChildNodeEEEONS4_10overloadedIJZZNSH_10ensureSlotERKNS4_17SingleDerivedPathEENKUlRKT_E_clISM_EERDaSR_EUlRKNS4_17DerivedPathOpaqueEE_ZZNSH_10ensureSlotESO_ENKST_ISM_EESU_SR_EUlRKNS4_22SingleDerivedPathBuiltEE_EEERKSt7variantIJSV_SZ_EEEJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeES14_S18_.exit.i.i.i.i.i.i23 [
     i8 -1, label %.invoke
     i8 0, label %18
   ]
 
-18:                                               ; preds = %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIRN3nix14DerivedPathMapISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessISC_ESaISC_EEE9ChildNodeEEEONS4_10overloadedIJZZNSH_10ensureSlotERKNS4_17SingleDerivedPathEENKUlRKT_E_clISM_EERDaSR_EUlRKNS4_17DerivedPathOpaqueEE_ZZNSH_10ensureSlotESO_ENKST_ISM_EESU_SR_EUlRKNS4_22SingleDerivedPathBuiltEE_EEERKSt7variantIJSV_SZ_EEEJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeES14_S18_.exit.i.i.i.i.i.i12
+18:                                               ; preds = %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIRN3nix14DerivedPathMapISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessISC_ESaISC_EEE9ChildNodeEEEONS4_10overloadedIJZZNSH_10ensureSlotERKNS4_17SingleDerivedPathEENKUlRKT_E_clISM_EERDaSR_EUlRKNS4_17DerivedPathOpaqueEE_ZZNSH_10ensureSlotESO_ENKST_ISM_EESU_SR_EUlRKNS4_22SingleDerivedPathBuiltEE_EEERKSt7variantIJSV_SZ_EEEJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeES14_S18_.exit.i.i.i.i.i.i14
   %19 = invoke noundef nonnull align 8 dereferenceable(96) ptr @_ZNSt3mapIN3nix9StorePathENS0_14DerivedPathMapISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS9_ESaIS9_EEE9ChildNodeESA_IS1_ESaISt4pairIKS1_SF_EEEixERSI_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(49) %15)
-          to label %.noexc16 unwind label %47
+          to label %.noexc18 unwind label %47
 
-_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIRN3nix14DerivedPathMapISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessISC_ESaISC_EEE9ChildNodeEEEONS4_10overloadedIJZZNSH_10ensureSlotERKNS4_17SingleDerivedPathEENKUlRKT_E_clISM_EERDaSR_EUlRKNS4_17DerivedPathOpaqueEE_ZZNSH_10ensureSlotESO_ENKST_ISM_EESU_SR_EUlRKNS4_22SingleDerivedPathBuiltEE_EEERKSt7variantIJSV_SZ_EEEJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeES14_S18_.exit.i.i.i.i.i.i20: ; preds = %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIRN3nix14DerivedPathMapISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessISC_ESaISC_EEE9ChildNodeEEEONS4_10overloadedIJZZNSH_10ensureSlotERKNS4_17SingleDerivedPathEENKUlRKT_E_clISM_EERDaSR_EUlRKNS4_17DerivedPathOpaqueEE_ZZNSH_10ensureSlotESO_ENKST_ISM_EESU_SR_EUlRKNS4_22SingleDerivedPathBuiltEE_EEERKSt7variantIJSV_SZ_EEEJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeES14_S18_.exit.i.i.i.i.i.i12
+_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIRN3nix14DerivedPathMapISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessISC_ESaISC_EEE9ChildNodeEEEONS4_10overloadedIJZZNSH_10ensureSlotERKNS4_17SingleDerivedPathEENKUlRKT_E_clISM_EERDaSR_EUlRKNS4_17DerivedPathOpaqueEE_ZZNSH_10ensureSlotESO_ENKST_ISM_EESU_SR_EUlRKNS4_22SingleDerivedPathBuiltEE_EEERKSt7variantIJSV_SZ_EEEJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeES14_S18_.exit.i.i.i.i.i.i23: ; preds = %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIRN3nix14DerivedPathMapISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessISC_ESaISC_EEE9ChildNodeEEEONS4_10overloadedIJZZNSH_10ensureSlotERKNS4_17SingleDerivedPathEENKUlRKT_E_clISM_EERDaSR_EUlRKNS4_17DerivedPathOpaqueEE_ZZNSH_10ensureSlotESO_ENKST_ISM_EESU_SR_EUlRKNS4_22SingleDerivedPathBuiltEE_EEERKSt7variantIJSV_SZ_EEEJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeES14_S18_.exit.i.i.i.i.i.i14
   %20 = load ptr, ptr %15, align 8
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 48
   %22 = load i8, ptr %21, align 8
-  switch i8 %22, label %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIRN3nix14DerivedPathMapISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessISC_ESaISC_EEE9ChildNodeEEEONS4_10overloadedIJZZNSH_10ensureSlotERKNS4_17SingleDerivedPathEENKUlRKT_E_clISM_EERDaSR_EUlRKNS4_17DerivedPathOpaqueEE_ZZNSH_10ensureSlotESO_ENKST_ISM_EESU_SR_EUlRKNS4_22SingleDerivedPathBuiltEE_EEERKSt7variantIJSV_SZ_EEEJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeES14_S18_.exit.i.i.i.i.i.i29 [
+  switch i8 %22, label %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIRN3nix14DerivedPathMapISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessISC_ESaISC_EEE9ChildNodeEEEONS4_10overloadedIJZZNSH_10ensureSlotERKNS4_17SingleDerivedPathEENKUlRKT_E_clISM_EERDaSR_EUlRKNS4_17DerivedPathOpaqueEE_ZZNSH_10ensureSlotESO_ENKST_ISM_EESU_SR_EUlRKNS4_22SingleDerivedPathBuiltEE_EEERKSt7variantIJSV_SZ_EEEJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeES14_S18_.exit.i.i.i.i.i.i33 [
     i8 -1, label %.invoke
     i8 0, label %25
   ]
 
-.invoke:                                          ; preds = %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIRN3nix14DerivedPathMapISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessISC_ESaISC_EEE9ChildNodeEEEONS4_10overloadedIJZZNSH_10ensureSlotERKNS4_17SingleDerivedPathEENKUlRKT_E_clISM_EERDaSR_EUlRKNS4_17DerivedPathOpaqueEE_ZZNSH_10ensureSlotESO_ENKST_ISM_EESU_SR_EUlRKNS4_22SingleDerivedPathBuiltEE_EEERKSt7variantIJSV_SZ_EEEJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeES14_S18_.exit.i.i.i.i.i.i20, %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIRN3nix14DerivedPathMapISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessISC_ESaISC_EEE9ChildNodeEEEONS4_10overloadedIJZZNSH_10ensureSlotERKNS4_17SingleDerivedPathEENKUlRKT_E_clISM_EERDaSR_EUlRKNS4_17DerivedPathOpaqueEE_ZZNSH_10ensureSlotESO_ENKST_ISM_EESU_SR_EUlRKNS4_22SingleDerivedPathBuiltEE_EEERKSt7variantIJSV_SZ_EEEJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeES14_S18_.exit.i.i.i.i.i.i, %2, %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIRN3nix14DerivedPathMapISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessISC_ESaISC_EEE9ChildNodeEEEONS4_10overloadedIJZZNSH_10ensureSlotERKNS4_17SingleDerivedPathEENKUlRKT_E_clISM_EERDaSR_EUlRKNS4_17DerivedPathOpaqueEE_ZZNSH_10ensureSlotESO_ENKST_ISM_EESU_SR_EUlRKNS4_22SingleDerivedPathBuiltEE_EEERKSt7variantIJSV_SZ_EEEJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeES14_S18_.exit.i.i.i.i.i.i12
+.invoke:                                          ; preds = %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIRN3nix14DerivedPathMapISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessISC_ESaISC_EEE9ChildNodeEEEONS4_10overloadedIJZZNSH_10ensureSlotERKNS4_17SingleDerivedPathEENKUlRKT_E_clISM_EERDaSR_EUlRKNS4_17DerivedPathOpaqueEE_ZZNSH_10ensureSlotESO_ENKST_ISM_EESU_SR_EUlRKNS4_22SingleDerivedPathBuiltEE_EEERKSt7variantIJSV_SZ_EEEJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeES14_S18_.exit.i.i.i.i.i.i23, %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIRN3nix14DerivedPathMapISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessISC_ESaISC_EEE9ChildNodeEEEONS4_10overloadedIJZZNSH_10ensureSlotERKNS4_17SingleDerivedPathEENKUlRKT_E_clISM_EERDaSR_EUlRKNS4_17DerivedPathOpaqueEE_ZZNSH_10ensureSlotESO_ENKST_ISM_EESU_SR_EUlRKNS4_22SingleDerivedPathBuiltEE_EEERKSt7variantIJSV_SZ_EEEJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeES14_S18_.exit.i.i.i.i.i.i, %2, %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIRN3nix14DerivedPathMapISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessISC_ESaISC_EEE9ChildNodeEEEONS4_10overloadedIJZZNSH_10ensureSlotERKNS4_17SingleDerivedPathEENKUlRKT_E_clISM_EERDaSR_EUlRKNS4_17DerivedPathOpaqueEE_ZZNSH_10ensureSlotESO_ENKST_ISM_EESU_SR_EUlRKNS4_22SingleDerivedPathBuiltEE_EEERKSt7variantIJSV_SZ_EEEJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeES14_S18_.exit.i.i.i.i.i.i14
   %23 = call ptr @__cxa_allocate_exception(i64 16) #19
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %23, align 8
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
@@ -221,44 +221,44 @@ _ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_
 .cont:                                            ; preds = %.invoke
   unreachable
 
-25:                                               ; preds = %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIRN3nix14DerivedPathMapISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessISC_ESaISC_EEE9ChildNodeEEEONS4_10overloadedIJZZNSH_10ensureSlotERKNS4_17SingleDerivedPathEENKUlRKT_E_clISM_EERDaSR_EUlRKNS4_17DerivedPathOpaqueEE_ZZNSH_10ensureSlotESO_ENKST_ISM_EESU_SR_EUlRKNS4_22SingleDerivedPathBuiltEE_EEERKSt7variantIJSV_SZ_EEEJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeES14_S18_.exit.i.i.i.i.i.i20
+25:                                               ; preds = %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIRN3nix14DerivedPathMapISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessISC_ESaISC_EEE9ChildNodeEEEONS4_10overloadedIJZZNSH_10ensureSlotERKNS4_17SingleDerivedPathEENKUlRKT_E_clISM_EERDaSR_EUlRKNS4_17DerivedPathOpaqueEE_ZZNSH_10ensureSlotESO_ENKST_ISM_EESU_SR_EUlRKNS4_22SingleDerivedPathBuiltEE_EEERKSt7variantIJSV_SZ_EEEJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeES14_S18_.exit.i.i.i.i.i.i23
   %26 = invoke noundef nonnull align 8 dereferenceable(96) ptr @_ZNSt3mapIN3nix9StorePathENS0_14DerivedPathMapISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS9_ESaIS9_EEE9ChildNodeESA_IS1_ESaISt4pairIKS1_SF_EEEixERSI_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(49) %20)
-          to label %.noexc23 unwind label %47
+          to label %.noexc26 unwind label %47
 
-_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIRN3nix14DerivedPathMapISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessISC_ESaISC_EEE9ChildNodeEEEONS4_10overloadedIJZZNSH_10ensureSlotERKNS4_17SingleDerivedPathEENKUlRKT_E_clISM_EERDaSR_EUlRKNS4_17DerivedPathOpaqueEE_ZZNSH_10ensureSlotESO_ENKST_ISM_EESU_SR_EUlRKNS4_22SingleDerivedPathBuiltEE_EEERKSt7variantIJSV_SZ_EEEJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeES14_S18_.exit.i.i.i.i.i.i29: ; preds = %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIRN3nix14DerivedPathMapISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessISC_ESaISC_EEE9ChildNodeEEEONS4_10overloadedIJZZNSH_10ensureSlotERKNS4_17SingleDerivedPathEENKUlRKT_E_clISM_EERDaSR_EUlRKNS4_17DerivedPathOpaqueEE_ZZNSH_10ensureSlotESO_ENKST_ISM_EESU_SR_EUlRKNS4_22SingleDerivedPathBuiltEE_EEERKSt7variantIJSV_SZ_EEEJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeES14_S18_.exit.i.i.i.i.i.i20
+_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIRN3nix14DerivedPathMapISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessISC_ESaISC_EEE9ChildNodeEEEONS4_10overloadedIJZZNSH_10ensureSlotERKNS4_17SingleDerivedPathEENKUlRKT_E_clISM_EERDaSR_EUlRKNS4_17DerivedPathOpaqueEE_ZZNSH_10ensureSlotESO_ENKST_ISM_EESU_SR_EUlRKNS4_22SingleDerivedPathBuiltEE_EEERKSt7variantIJSV_SZ_EEEJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeES14_S18_.exit.i.i.i.i.i.i33: ; preds = %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIRN3nix14DerivedPathMapISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessISC_ESaISC_EEE9ChildNodeEEEONS4_10overloadedIJZZNSH_10ensureSlotERKNS4_17SingleDerivedPathEENKUlRKT_E_clISM_EERDaSR_EUlRKNS4_17DerivedPathOpaqueEE_ZZNSH_10ensureSlotESO_ENKST_ISM_EESU_SR_EUlRKNS4_22SingleDerivedPathBuiltEE_EEERKSt7variantIJSV_SZ_EEEJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeES14_S18_.exit.i.i.i.i.i.i23
   %27 = load ptr, ptr %20, align 8
   %28 = invoke noundef nonnull align 8 dereferenceable(96) ptr @_ZNSt17_Function_handlerIFRN3nix14DerivedPathMapISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS8_ESaIS8_EEE9ChildNodeERKNS0_17SingleDerivedPathEEZNSD_10ensureSlotESI_EUlRKT_E_E9_M_invokeERKSt9_Any_dataSI_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(49) %27)
-          to label %.noexc32 unwind label %47
+          to label %.noexc36 unwind label %47
 
-.noexc32:                                         ; preds = %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIRN3nix14DerivedPathMapISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessISC_ESaISC_EEE9ChildNodeEEEONS4_10overloadedIJZZNSH_10ensureSlotERKNS4_17SingleDerivedPathEENKUlRKT_E_clISM_EERDaSR_EUlRKNS4_17DerivedPathOpaqueEE_ZZNSH_10ensureSlotESO_ENKST_ISM_EESU_SR_EUlRKNS4_22SingleDerivedPathBuiltEE_EEERKSt7variantIJSV_SZ_EEEJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeES14_S18_.exit.i.i.i.i.i.i29
+.noexc36:                                         ; preds = %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIRN3nix14DerivedPathMapISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessISC_ESaISC_EEE9ChildNodeEEEONS4_10overloadedIJZZNSH_10ensureSlotERKNS4_17SingleDerivedPathEENKUlRKT_E_clISM_EERDaSR_EUlRKNS4_17DerivedPathOpaqueEE_ZZNSH_10ensureSlotESO_ENKST_ISM_EESU_SR_EUlRKNS4_22SingleDerivedPathBuiltEE_EEERKSt7variantIJSV_SZ_EEEJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeES14_S18_.exit.i.i.i.i.i.i33
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 48
   %30 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %31 = invoke noundef nonnull align 8 dereferenceable(96) ptr @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN3nix14DerivedPathMapISt3setIS5_St4lessIS5_ESaIS5_EEE9ChildNodeESA_SaISt4pairIKS5_SE_EEEixERSG_(ptr noundef nonnull align 8 dereferenceable(48) %29, ptr noundef nonnull align 8 dereferenceable(32) %30)
-          to label %.noexc23 unwind label %47
+          to label %.noexc26 unwind label %47
 
-.noexc23:                                         ; preds = %25, %.noexc32
-  %.0.i.i.i.i.i.i28 = phi ptr [ %26, %25 ], [ %31, %.noexc32 ]
-  %32 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i28, i64 48
+.noexc26:                                         ; preds = %25, %.noexc36
+  %.0.i.i.i.i.i.i32 = phi ptr [ %26, %25 ], [ %31, %.noexc36 ]
+  %32 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i32, i64 48
   %33 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %34 = invoke noundef nonnull align 8 dereferenceable(96) ptr @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN3nix14DerivedPathMapISt3setIS5_St4lessIS5_ESaIS5_EEE9ChildNodeESA_SaISt4pairIKS5_SE_EEEixERSG_(ptr noundef nonnull align 8 dereferenceable(48) %32, ptr noundef nonnull align 8 dereferenceable(32) %33)
-          to label %.noexc16 unwind label %47
+          to label %.noexc18 unwind label %47
 
-.noexc16:                                         ; preds = %18, %.noexc23
-  %.0.i.i.i.i.i.i19 = phi ptr [ %19, %18 ], [ %34, %.noexc23 ]
-  %35 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i19, i64 48
+.noexc18:                                         ; preds = %18, %.noexc26
+  %.0.i.i.i.i.i.i22 = phi ptr [ %19, %18 ], [ %34, %.noexc26 ]
+  %35 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i22, i64 48
   %36 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %37 = invoke noundef nonnull align 8 dereferenceable(96) ptr @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN3nix14DerivedPathMapISt3setIS5_St4lessIS5_ESaIS5_EEE9ChildNodeESA_SaISt4pairIKS5_SE_EEEixERSG_(ptr noundef nonnull align 8 dereferenceable(48) %35, ptr noundef nonnull align 8 dereferenceable(32) %36)
-          to label %.noexc9 unwind label %47
+          to label %.noexc10 unwind label %47
 
-.noexc9:                                          ; preds = %13, %.noexc16
-  %.0.i.i.i.i.i.i11 = phi ptr [ %14, %13 ], [ %37, %.noexc16 ]
-  %38 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i11, i64 48
+.noexc10:                                         ; preds = %13, %.noexc18
+  %.0.i.i.i.i.i.i13 = phi ptr [ %14, %13 ], [ %37, %.noexc18 ]
+  %38 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i13, i64 48
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %40 = invoke noundef nonnull align 8 dereferenceable(96) ptr @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN3nix14DerivedPathMapISt3setIS5_St4lessIS5_ESaIS5_EEE9ChildNodeESA_SaISt4pairIKS5_SE_EEEixERSG_(ptr noundef nonnull align 8 dereferenceable(48) %38, ptr noundef nonnull align 8 dereferenceable(32) %39)
           to label %_ZNKSt8functionIFRN3nix14DerivedPathMapISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS8_ESaIS8_EEE9ChildNodeERKNS0_17SingleDerivedPathEEEclESI_.exit unwind label %47
 
-_ZNKSt8functionIFRN3nix14DerivedPathMapISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS8_ESaIS8_EEE9ChildNodeERKNS0_17SingleDerivedPathEEEclESI_.exit: ; preds = %8, %.noexc9
-  %.0.i.i.i.i.i.i = phi ptr [ %9, %8 ], [ %40, %.noexc9 ]
+_ZNKSt8functionIFRN3nix14DerivedPathMapISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS8_ESaIS8_EEE9ChildNodeERKNS0_17SingleDerivedPathEEEclESI_.exit: ; preds = %8, %.noexc10
+  %.0.i.i.i.i.i.i = phi ptr [ %9, %8 ], [ %40, %.noexc10 ]
   %41 = load ptr, ptr %4, align 8
   %.not.i.i4 = icmp eq ptr %41, null
   br i1 %.not.i.i4, label %_ZNSt8functionIFRN3nix14DerivedPathMapISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS8_ESaIS8_EEE9ChildNodeERKNS0_17SingleDerivedPathEEED2Ev.exit, label %42
@@ -277,7 +277,7 @@ _ZNKSt8functionIFRN3nix14DerivedPathMapISt3setINSt7__cxx1112basic_stringIcSt11ch
 _ZNSt8functionIFRN3nix14DerivedPathMapISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS8_ESaIS8_EEE9ChildNodeERKNS0_17SingleDerivedPathEEED2Ev.exit: ; preds = %_ZNKSt8functionIFRN3nix14DerivedPathMapISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS8_ESaIS8_EEE9ChildNodeERKNS0_17SingleDerivedPathEEEclESI_.exit, %42
   ret ptr %.0.i.i.i.i.i.i
 
-47:                                               ; preds = %.invoke, %.noexc32, %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIRN3nix14DerivedPathMapISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessISC_ESaISC_EEE9ChildNodeEEEONS4_10overloadedIJZZNSH_10ensureSlotERKNS4_17SingleDerivedPathEENKUlRKT_E_clISM_EERDaSR_EUlRKNS4_17DerivedPathOpaqueEE_ZZNSH_10ensureSlotESO_ENKST_ISM_EESU_SR_EUlRKNS4_22SingleDerivedPathBuiltEE_EEERKSt7variantIJSV_SZ_EEEJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeES14_S18_.exit.i.i.i.i.i.i29, %25, %.noexc23, %18, %.noexc16, %13, %.noexc9, %8
+47:                                               ; preds = %.invoke, %.noexc36, %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIRN3nix14DerivedPathMapISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessISC_ESaISC_EEE9ChildNodeEEEONS4_10overloadedIJZZNSH_10ensureSlotERKNS4_17SingleDerivedPathEENKUlRKT_E_clISM_EERDaSR_EUlRKNS4_17DerivedPathOpaqueEE_ZZNSH_10ensureSlotESO_ENKST_ISM_EESU_SR_EUlRKNS4_22SingleDerivedPathBuiltEE_EEERKSt7variantIJSV_SZ_EEEJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeES14_S18_.exit.i.i.i.i.i.i33, %25, %.noexc26, %18, %.noexc18, %13, %.noexc10, %8
   %48 = landingpad { ptr, i32 }
           cleanup
   %49 = load ptr, ptr %4, align 8
@@ -698,8 +698,8 @@ _ZNKSt8__detail10_Synth3wayclINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcE
   br label %.loopexit.split.loop.exit.i.i.i.i
 
 .loopexit.split.loop.exit.i.i.i.i:                ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i, %.loopexit.split.loop.exit.i.split.loop.exit.i.i.i
-  %.0.i.i.i19.i.i.i.i = phi i32 [ %.0.i6.i.i.i.i.le.i.i.i, %.loopexit.split.loop.exit.i.split.loop.exit.i.i.i ], [ %25, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i ]
-  %34 = tail call i8 @llvm.scmp.i8.i32(i32 %.0.i.i.i19.i.i.i.i, i32 0)
+  %.0.i.i.i22.i.i.i.i = phi i32 [ %.0.i6.i.i.i.i.le.i.i.i, %.loopexit.split.loop.exit.i.split.loop.exit.i.i.i ], [ %25, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i ]
+  %34 = tail call i8 @llvm.scmp.i8.i32(i32 %.0.i.i.i22.i.i.i.i, i32 0)
   br label %_ZNKSt8__detail10_Synth3wayclISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS8_ESaIS8_EESC_EEDaRKT_RKT0_QrqXltfp_fp0_RNS_18__boolean_testableEXltfp0_fp_RNS_18__boolean_testableEE.exit
 
 _ZNKSt8__detail10_Synth3wayclISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS8_ESaIS8_EESC_EEDaRKT_RKT0_QrqXltfp_fp0_RNS_18__boolean_testableEXltfp0_fp_RNS_18__boolean_testableEE.exit: ; preds = %._crit_edge.i.i.i.i, %.loopexit.split.loop.exit.i.i.i.i
@@ -766,7 +766,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i: ; preds = %16
 
 _ZNKSt8__detail10_Synth3wayclINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_EEDaRKT_RKT0_QrqXltfp_fp0_RNS_18__boolean_testableEXltfp0_fp_RNS_18__boolean_testableEE.exit.i: ; preds = %16, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i
   %27 = icmp eq i64 %18, %20
-  br i1 %27, label %28, label %_ZStssIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN3nix14DerivedPathMapISt3setIS5_St4lessIS5_ESaIS5_EEE9ChildNodeEENSt26common_comparison_categoryIJDTclL_ZNSt8__detail11__synth3wayEEclsr3stdE7declvalIRT_EEclsr3stdE7declvalISJ_EEEEDTclL_ZNSH_11__synth3wayEEclsr3stdE7declvalIRT0_EEclsr3stdE7declvalISM_EEEEEE4typeERKSt4pairISI_SL_EST_.exit.thread.loopexit.split.loop.exit22.split.loop.exit29
+  br i1 %27, label %28, label %_ZStssIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN3nix14DerivedPathMapISt3setIS5_St4lessIS5_ESaIS5_EEE9ChildNodeEENSt26common_comparison_categoryIJDTclL_ZNSt8__detail11__synth3wayEEclsr3stdE7declvalIRT_EEclsr3stdE7declvalISJ_EEEEDTclL_ZNSH_11__synth3wayEEclsr3stdE7declvalIRT0_EEclsr3stdE7declvalISM_EEEEEE4typeERKSt4pairISI_SL_EST_.exit.thread.loopexit.split.loop.exit22.split.loop.exit32
 
 28:                                               ; preds = %_ZNKSt8__detail10_Synth3wayclINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_EEDaRKT_RKT0_QrqXltfp_fp0_RNS_18__boolean_testableEXltfp0_fp_RNS_18__boolean_testableEE.exit.i
   %29 = getelementptr inbounds nuw i8, ptr %.sroa.010.025, i64 64
@@ -810,16 +810,16 @@ _ZStssIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN3nix14DerivedPathMa
   %42 = sext i1 %41 to i8
   br label %_ZStssIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN3nix14DerivedPathMapISt3setIS5_St4lessIS5_ESaIS5_EEE9ChildNodeEENSt26common_comparison_categoryIJDTclL_ZNSt8__detail11__synth3wayEEclsr3stdE7declvalIRT_EEclsr3stdE7declvalISJ_EEEEDTclL_ZNSH_11__synth3wayEEclsr3stdE7declvalIRT0_EEclsr3stdE7declvalISM_EEEEEE4typeERKSt4pairISI_SL_EST_.exit.thread
 
-_ZStssIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN3nix14DerivedPathMapISt3setIS5_St4lessIS5_ESaIS5_EEE9ChildNodeEENSt26common_comparison_categoryIJDTclL_ZNSt8__detail11__synth3wayEEclsr3stdE7declvalIRT_EEclsr3stdE7declvalISJ_EEEEDTclL_ZNSH_11__synth3wayEEclsr3stdE7declvalIRT0_EEclsr3stdE7declvalISM_EEEEEE4typeERKSt4pairISI_SL_EST_.exit.thread.loopexit.split.loop.exit22.split.loop.exit29: ; preds = %_ZNKSt8__detail10_Synth3wayclINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_EEDaRKT_RKT0_QrqXltfp_fp0_RNS_18__boolean_testableEXltfp0_fp_RNS_18__boolean_testableEE.exit.i
+_ZStssIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN3nix14DerivedPathMapISt3setIS5_St4lessIS5_ESaIS5_EEE9ChildNodeEENSt26common_comparison_categoryIJDTclL_ZNSt8__detail11__synth3wayEEclsr3stdE7declvalIRT_EEclsr3stdE7declvalISJ_EEEEDTclL_ZNSH_11__synth3wayEEclsr3stdE7declvalIRT0_EEclsr3stdE7declvalISM_EEEEEE4typeERKSt4pairISI_SL_EST_.exit.thread.loopexit.split.loop.exit22.split.loop.exit32: ; preds = %_ZNKSt8__detail10_Synth3wayclINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_EEDaRKT_RKT0_QrqXltfp_fp0_RNS_18__boolean_testableEXltfp0_fp_RNS_18__boolean_testableEE.exit.i
   %43 = sub i64 %18, %20
   %spec.select7.i.i.i.i.i.le = call i64 @llvm.smax.i64(i64 %43, i64 -2147483648)
   %.08.i.i.i.i.i.le = call i64 @llvm.smin.i64(i64 %spec.select7.i.i.i.i.i.le, i64 2147483647)
   %.0.i6.i.i.i.i.le = trunc nsw i64 %.08.i.i.i.i.i.le to i32
   br label %_ZStssIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN3nix14DerivedPathMapISt3setIS5_St4lessIS5_ESaIS5_EEE9ChildNodeEENSt26common_comparison_categoryIJDTclL_ZNSt8__detail11__synth3wayEEclsr3stdE7declvalIRT_EEclsr3stdE7declvalISJ_EEEEDTclL_ZNSH_11__synth3wayEEclsr3stdE7declvalIRT0_EEclsr3stdE7declvalISM_EEEEEE4typeERKSt4pairISI_SL_EST_.exit.thread.loopexit.split.loop.exit22
 
-_ZStssIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN3nix14DerivedPathMapISt3setIS5_St4lessIS5_ESaIS5_EEE9ChildNodeEENSt26common_comparison_categoryIJDTclL_ZNSt8__detail11__synth3wayEEclsr3stdE7declvalIRT_EEclsr3stdE7declvalISJ_EEEEDTclL_ZNSH_11__synth3wayEEclsr3stdE7declvalIRT0_EEclsr3stdE7declvalISM_EEEEEE4typeERKSt4pairISI_SL_EST_.exit.thread.loopexit.split.loop.exit22: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i, %_ZStssIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN3nix14DerivedPathMapISt3setIS5_St4lessIS5_ESaIS5_EEE9ChildNodeEENSt26common_comparison_categoryIJDTclL_ZNSt8__detail11__synth3wayEEclsr3stdE7declvalIRT_EEclsr3stdE7declvalISJ_EEEEDTclL_ZNSH_11__synth3wayEEclsr3stdE7declvalIRT0_EEclsr3stdE7declvalISM_EEEEEE4typeERKSt4pairISI_SL_EST_.exit.thread.loopexit.split.loop.exit22.split.loop.exit29
-  %.0.i.i.i.i28 = phi i32 [ %.0.i6.i.i.i.i.le, %_ZStssIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN3nix14DerivedPathMapISt3setIS5_St4lessIS5_ESaIS5_EEE9ChildNodeEENSt26common_comparison_categoryIJDTclL_ZNSt8__detail11__synth3wayEEclsr3stdE7declvalIRT_EEclsr3stdE7declvalISJ_EEEEDTclL_ZNSH_11__synth3wayEEclsr3stdE7declvalIRT0_EEclsr3stdE7declvalISM_EEEEEE4typeERKSt4pairISI_SL_EST_.exit.thread.loopexit.split.loop.exit22.split.loop.exit29 ], [ %26, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i ]
-  %44 = call i8 @llvm.scmp.i8.i32(i32 %.0.i.i.i.i28, i32 0)
+_ZStssIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN3nix14DerivedPathMapISt3setIS5_St4lessIS5_ESaIS5_EEE9ChildNodeEENSt26common_comparison_categoryIJDTclL_ZNSt8__detail11__synth3wayEEclsr3stdE7declvalIRT_EEclsr3stdE7declvalISJ_EEEEDTclL_ZNSH_11__synth3wayEEclsr3stdE7declvalIRT0_EEclsr3stdE7declvalISM_EEEEEE4typeERKSt4pairISI_SL_EST_.exit.thread.loopexit.split.loop.exit22: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i, %_ZStssIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN3nix14DerivedPathMapISt3setIS5_St4lessIS5_ESaIS5_EEE9ChildNodeEENSt26common_comparison_categoryIJDTclL_ZNSt8__detail11__synth3wayEEclsr3stdE7declvalIRT_EEclsr3stdE7declvalISJ_EEEEDTclL_ZNSH_11__synth3wayEEclsr3stdE7declvalIRT0_EEclsr3stdE7declvalISM_EEEEEE4typeERKSt4pairISI_SL_EST_.exit.thread.loopexit.split.loop.exit22.split.loop.exit32
+  %.0.i.i.i.i31 = phi i32 [ %.0.i6.i.i.i.i.le, %_ZStssIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN3nix14DerivedPathMapISt3setIS5_St4lessIS5_ESaIS5_EEE9ChildNodeEENSt26common_comparison_categoryIJDTclL_ZNSt8__detail11__synth3wayEEclsr3stdE7declvalIRT_EEclsr3stdE7declvalISJ_EEEEDTclL_ZNSH_11__synth3wayEEclsr3stdE7declvalIRT0_EEclsr3stdE7declvalISM_EEEEEE4typeERKSt4pairISI_SL_EST_.exit.thread.loopexit.split.loop.exit22.split.loop.exit32 ], [ %26, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i ]
+  %44 = call i8 @llvm.scmp.i8.i32(i32 %.0.i.i.i.i31, i32 0)
   br label %_ZStssIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN3nix14DerivedPathMapISt3setIS5_St4lessIS5_ESaIS5_EEE9ChildNodeEENSt26common_comparison_categoryIJDTclL_ZNSt8__detail11__synth3wayEEclsr3stdE7declvalIRT_EEclsr3stdE7declvalISJ_EEEEDTclL_ZNSH_11__synth3wayEEclsr3stdE7declvalIRT0_EEclsr3stdE7declvalISM_EEEEEE4typeERKSt4pairISI_SL_EST_.exit.thread
 
 _ZStssIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN3nix14DerivedPathMapISt3setIS5_St4lessIS5_ESaIS5_EEE9ChildNodeEENSt26common_comparison_categoryIJDTclL_ZNSt8__detail11__synth3wayEEclsr3stdE7declvalIRT_EEclsr3stdE7declvalISJ_EEEEDTclL_ZNSH_11__synth3wayEEclsr3stdE7declvalIRT0_EEclsr3stdE7declvalISM_EEEEEE4typeERKSt4pairISI_SL_EST_.exit.thread: ; preds = %14, %28, %35, %_ZStssIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN3nix14DerivedPathMapISt3setIS5_St4lessIS5_ESaIS5_EEE9ChildNodeEENSt26common_comparison_categoryIJDTclL_ZNSt8__detail11__synth3wayEEclsr3stdE7declvalIRT_EEclsr3stdE7declvalISJ_EEEEDTclL_ZNSH_11__synth3wayEEclsr3stdE7declvalIRT0_EEclsr3stdE7declvalISM_EEEEEE4typeERKSt4pairISI_SL_EST_.exit.thread.loopexit.split.loop.exit22, %._crit_edge
@@ -1680,18 +1680,18 @@ _ZNKSt4lessIN3nix9StorePathEEclERKS1_S4_.exit:    ; preds = %_ZNSt11char_traitsI
   br i1 %16, label %._crit_edge.thread, label %22
 
 ._crit_edge.thread:                               ; preds = %2, %._crit_edge
-  %.028.lcssa37 = phi ptr [ %.02933, %._crit_edge ], [ %4, %2 ]
+  %.028.lcssa39 = phi ptr [ %.02933, %._crit_edge ], [ %4, %2 ]
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %18 = load ptr, ptr %17, align 8
-  %19 = icmp eq ptr %.028.lcssa37, %18
+  %19 = icmp eq ptr %.028.lcssa39, %18
   br i1 %19, label %34, label %20
 
 20:                                               ; preds = %._crit_edge.thread
-  %21 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.028.lcssa37) #22
+  %21 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.028.lcssa39) #22
   br label %22
 
 22:                                               ; preds = %20, %._crit_edge
-  %.028.lcssa38 = phi ptr [ %.028.lcssa37, %20 ], [ %.02933, %._crit_edge ]
+  %.028.lcssa38 = phi ptr [ %.028.lcssa39, %20 ], [ %.02933, %._crit_edge ]
   %.sroa.014.0 = phi ptr [ %21, %20 ], [ %.02933, %._crit_edge ]
   %23 = getelementptr inbounds nuw i8, ptr %.sroa.014.0, i64 40
   %24 = load i64, ptr %23, align 8
@@ -1725,7 +1725,7 @@ _ZNKSt4lessIN3nix9StorePathEEclERKS1_S4_.exit13:  ; preds = %_ZNSt11char_traitsI
 
 34:                                               ; preds = %_ZNKSt4lessIN3nix9StorePathEEclERKS1_S4_.exit13, %._crit_edge.thread
   %.sroa.027.0 = phi ptr [ null, %._crit_edge.thread ], [ %spec.select, %_ZNKSt4lessIN3nix9StorePathEEclERKS1_S4_.exit13 ]
-  %.sroa.4.0 = phi ptr [ %.028.lcssa37, %._crit_edge.thread ], [ %spec.select30, %_ZNKSt4lessIN3nix9StorePathEEclERKS1_S4_.exit13 ]
+  %.sroa.4.0 = phi ptr [ %.028.lcssa39, %._crit_edge.thread ], [ %spec.select30, %_ZNKSt4lessIN3nix9StorePathEEclERKS1_S4_.exit13 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.027.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.4.0, 1
   ret { ptr, ptr } %.fca.1.insert
@@ -2423,18 +2423,18 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   br i1 %16, label %._crit_edge.thread, label %22
 
 ._crit_edge.thread:                               ; preds = %2, %._crit_edge
-  %.028.lcssa37 = phi ptr [ %.02933, %._crit_edge ], [ %4, %2 ]
+  %.028.lcssa39 = phi ptr [ %.02933, %._crit_edge ], [ %4, %2 ]
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %18 = load ptr, ptr %17, align 8
-  %19 = icmp eq ptr %.028.lcssa37, %18
+  %19 = icmp eq ptr %.028.lcssa39, %18
   br i1 %19, label %34, label %20
 
 20:                                               ; preds = %._crit_edge.thread
-  %21 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.028.lcssa37) #22
+  %21 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.028.lcssa39) #22
   br label %22
 
 22:                                               ; preds = %20, %._crit_edge
-  %.028.lcssa38 = phi ptr [ %.028.lcssa37, %20 ], [ %.02933, %._crit_edge ]
+  %.028.lcssa38 = phi ptr [ %.028.lcssa39, %20 ], [ %.02933, %._crit_edge ]
   %.sroa.014.0 = phi ptr [ %21, %20 ], [ %.02933, %._crit_edge ]
   %23 = getelementptr inbounds nuw i8, ptr %.sroa.014.0, i64 40
   %24 = load i64, ptr %23, align 8
@@ -2468,7 +2468,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
 
 34:                                               ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit13, %._crit_edge.thread
   %.sroa.027.0 = phi ptr [ null, %._crit_edge.thread ], [ %spec.select, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit13 ]
-  %.sroa.4.0 = phi ptr [ %.028.lcssa37, %._crit_edge.thread ], [ %spec.select30, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit13 ]
+  %.sroa.4.0 = phi ptr [ %.028.lcssa39, %._crit_edge.thread ], [ %spec.select30, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit13 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.027.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.4.0, 1
   ret { ptr, ptr } %.fca.1.insert

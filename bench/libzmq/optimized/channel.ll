@@ -334,11 +334,11 @@ define noundef range(i32 -1, 1) i32 @_ZN3zmq9channel_t5xrecvEPNS_5msg_tE(ptr nou
 
 .critedge.sink.split.sink.split:                  ; preds = %.critedge34, %15
   %.pre37.sink = phi ptr [ %.pre, %15 ], [ %.pre37, %.critedge34 ]
-  %.sink43 = phi i32 [ 87, %15 ], [ 109, %.critedge34 ]
+  %.sink44 = phi i32 [ 87, %15 ], [ 109, %.critedge34 ]
   %30 = load i32, ptr %.pre37.sink, align 4, !tbaa !90
   %31 = tail call ptr @strerror(i32 noundef %30) #14
   %32 = load ptr, ptr @stderr, align 8, !tbaa !87
-  %33 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %32, ptr noundef nonnull @.str.4, ptr noundef %31, ptr noundef nonnull @.str.2, i32 noundef %.sink43) #13
+  %33 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %32, ptr noundef nonnull @.str.4, ptr noundef %31, ptr noundef nonnull @.str.2, i32 noundef %.sink44) #13
   %34 = load ptr, ptr @stderr, align 8, !tbaa !87
   %35 = tail call i32 @fflush(ptr noundef %34)
   tail call void @_ZN3zmq9zmq_abortEPKc(ptr noundef %31)

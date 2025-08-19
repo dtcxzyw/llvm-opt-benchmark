@@ -1027,7 +1027,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit18:                  ; preds = %34, %32
   br i1 %.not.i.i.i19, label %_ZNSt6vectorIlSaIlEED2Ev.exit, label %37
 
 37:                                               ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit18.thread, %_ZNSt6vectorIfSaIfEED2Ev.exit18
-  %.pn31 = phi { ptr, i32 } [ %31, %_ZNSt6vectorIfSaIfEED2Ev.exit18.thread ], [ %33, %_ZNSt6vectorIfSaIfEED2Ev.exit18 ]
+  %.pn32 = phi { ptr, i32 } [ %31, %_ZNSt6vectorIfSaIfEED2Ev.exit18.thread ], [ %33, %_ZNSt6vectorIfSaIfEED2Ev.exit18 ]
   %38 = phi ptr [ %9, %_ZNSt6vectorIfSaIfEED2Ev.exit18.thread ], [ %23, %_ZNSt6vectorIfSaIfEED2Ev.exit18 ]
   %39 = phi ptr [ %10, %_ZNSt6vectorIfSaIfEED2Ev.exit18.thread ], [ %22, %_ZNSt6vectorIfSaIfEED2Ev.exit18 ]
   %40 = ptrtoint ptr %39 to i64
@@ -1037,8 +1037,8 @@ _ZNSt6vectorIfSaIfEED2Ev.exit18:                  ; preds = %34, %32
   br label %_ZNSt6vectorIlSaIlEED2Ev.exit
 
 _ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %37, %_ZNSt6vectorIfSaIfEED2Ev.exit18
-  %.pn32 = phi { ptr, i32 } [ %.pn31, %37 ], [ %33, %_ZNSt6vectorIfSaIfEED2Ev.exit18 ]
-  resume { ptr, i32 } %.pn32
+  %.pn33 = phi { ptr, i32 } [ %.pn32, %37 ], [ %33, %_ZNSt6vectorIfSaIfEED2Ev.exit18 ]
+  resume { ptr, i32 } %.pn33
 }
 
 ; Function Attrs: mustprogress uwtable

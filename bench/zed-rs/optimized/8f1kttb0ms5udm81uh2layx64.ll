@@ -2954,9 +2954,9 @@ define hidden { i64, ptr } @"_ZN75_$LT$gpui..app..async_context..AsyncAppContext
   call void @llvm.lifetime.end.p0(ptr nonnull %20), !noalias !486
   %182 = getelementptr inbounds nuw i8, ptr %19, i64 16
   invoke void @"_ZN72_$LT$alloc..sync..Weak$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd18a0cdcceb5402bE.llvm.3163802790851490697"(ptr noalias noundef nonnull align 8 dereferenceable(8) %182)
-          to label %"_ZN55_$LT$gpui..app..AppContext$u20$as$u20$gpui..Context$GT$12update_model28_$u7b$$u7b$closure$u7d$$u7d$17h8c5938e434e4d2acE.exit.i" unwind label %"_ZN4core3ptr139drop_in_place$LT$notifications..NotificationStore..handle_update_notification..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hc48fc09feb21eef4E.exit.thread25.i.i", !noalias !492
+          to label %"_ZN55_$LT$gpui..app..AppContext$u20$as$u20$gpui..Context$GT$12update_model28_$u7b$$u7b$closure$u7d$$u7d$17h8c5938e434e4d2acE.exit.i" unwind label %"_ZN4core3ptr139drop_in_place$LT$notifications..NotificationStore..handle_update_notification..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hc48fc09feb21eef4E.exit.thread31.i.i", !noalias !492
 
-"_ZN4core3ptr139drop_in_place$LT$notifications..NotificationStore..handle_update_notification..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hc48fc09feb21eef4E.exit.thread25.i.i": ; preds = %"_ZN13notifications17NotificationStore26handle_update_notification28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h7ce97df8d38a1201E.exit.i.i"
+"_ZN4core3ptr139drop_in_place$LT$notifications..NotificationStore..handle_update_notification..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hc48fc09feb21eef4E.exit.thread31.i.i": ; preds = %"_ZN13notifications17NotificationStore26handle_update_notification28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h7ce97df8d38a1201E.exit.i.i"
   %183 = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr139drop_in_place$LT$notifications..NotificationStore..handle_update_notification..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hc48fc09feb21eef4E.exit.thread.i.i"
@@ -2967,8 +2967,8 @@ define hidden { i64, ptr } @"_ZN75_$LT$gpui..app..async_context..AsyncAppContext
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #31
   unreachable
 
-"_ZN4core3ptr139drop_in_place$LT$notifications..NotificationStore..handle_update_notification..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hc48fc09feb21eef4E.exit.thread.i.i": ; preds = %"_ZN4core3ptr139drop_in_place$LT$notifications..NotificationStore..handle_update_notification..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hc48fc09feb21eef4E.exit.thread25.i.i", %.body.i.i, %86, %82
-  %.pn24.i.i = phi { ptr, i32 } [ %eh.lpad-body.i.i, %.body.i.i ], [ %83, %82 ], [ %83, %86 ], [ %183, %"_ZN4core3ptr139drop_in_place$LT$notifications..NotificationStore..handle_update_notification..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hc48fc09feb21eef4E.exit.thread25.i.i" ]
+"_ZN4core3ptr139drop_in_place$LT$notifications..NotificationStore..handle_update_notification..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hc48fc09feb21eef4E.exit.thread.i.i": ; preds = %"_ZN4core3ptr139drop_in_place$LT$notifications..NotificationStore..handle_update_notification..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hc48fc09feb21eef4E.exit.thread31.i.i", %.body.i.i, %86, %82
+  %.pn24.i.i = phi { ptr, i32 } [ %eh.lpad-body.i.i, %.body.i.i ], [ %83, %82 ], [ %83, %86 ], [ %183, %"_ZN4core3ptr139drop_in_place$LT$notifications..NotificationStore..handle_update_notification..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hc48fc09feb21eef4E.exit.thread31.i.i" ]
   invoke void @"_ZN4core3ptr89drop_in_place$LT$gpui..app..entity_map..Lease$LT$notifications..NotificationStore$GT$$GT$17ha4e2fba0f9d9d5d4E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %21) #29
           to label %.body unwind label %184, !noalias !492
 

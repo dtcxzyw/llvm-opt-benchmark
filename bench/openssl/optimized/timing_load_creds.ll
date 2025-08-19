@@ -66,17 +66,17 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
 
 .outer:                                           ; preds = %9, %2
   %.not41 = phi i1 [ true, %2 ], [ false, %9 ]
-  %.029.ph = phi i32 [ 100, %2 ], [ %.029.ph127, %9 ]
+  %.029.ph = phi i32 [ 100, %2 ], [ %.029.ph131, %9 ]
   %.0.ph = phi i32 [ 99, %2 ], [ %.0, %9 ]
-  br label %.outer126
+  br label %.outer130
 
-.outer126:                                        ; preds = %.outer, %12
-  %.029.ph127 = phi i32 [ %.029.ph, %.outer ], [ %15, %12 ]
-  %.0.ph128 = phi i32 [ %.0.ph, %.outer ], [ %.0, %12 ]
+.outer130:                                        ; preds = %.outer, %12
+  %.029.ph131 = phi i32 [ %.029.ph, %.outer ], [ %15, %12 ]
+  %.0.ph132 = phi i32 [ %.0.ph, %.outer ], [ %.0, %12 ]
   br label %9
 
-9:                                                ; preds = %.outer126, %26
-  %.0 = phi i32 [ %27, %26 ], [ %.0.ph128, %.outer126 ]
+9:                                                ; preds = %.outer130, %26
+  %.0 = phi i32 [ %27, %26 ], [ %.0.ph132, %.outer130 ]
   %10 = tail call i32 @getopt(i32 noundef %0, ptr noundef nonnull %1, ptr noundef nonnull @.str) #9
   switch i32 %10, label %11 [
     i32 -1, label %28
@@ -94,7 +94,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   %14 = tail call i64 @strtol(ptr noundef nonnull captures(none) %13, ptr noundef null, i32 noundef 10) #9
   %15 = trunc i64 %14 to i32
   %16 = icmp slt i32 %15, 0
-  br i1 %16, label %17, label %.outer126, !llvm.loop !9
+  br i1 %16, label %17, label %.outer130, !llvm.loop !9
 
 17:                                               ; preds = %12
   tail call fastcc void @usage()
@@ -221,7 +221,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   br i1 %68, label %73, label %.preheader
 
 .preheader:                                       ; preds = %66
-  %.not = icmp eq i32 %.029.ph127, 0
+  %.not = icmp eq i32 %.029.ph131, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
@@ -231,14 +231,14 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   ]
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.lr.ph.split.us
-  %.13477.us = phi i32 [ %69, %.lr.ph.split.us ], [ %.029.ph127, %.lr.ph ]
+  %.13477.us = phi i32 [ %69, %.lr.ph.split.us ], [ %.029.ph131, %.lr.ph ]
   call fastcc void @readx509(ptr noundef %44, i32 noundef %58)
   %69 = add nsw i32 %.13477.us, -1
   %70 = icmp samesign ugt i32 %.13477.us, 1
   br i1 %70, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !19
 
 .lr.ph.split.us78:                                ; preds = %.lr.ph, %.lr.ph.split.us78
-  %.13477.us79 = phi i32 [ %71, %.lr.ph.split.us78 ], [ %.029.ph127, %.lr.ph ]
+  %.13477.us79 = phi i32 [ %71, %.lr.ph.split.us78 ], [ %.029.ph131, %.lr.ph ]
   call fastcc void @readpkey(ptr noundef %44, i32 noundef %58)
   %71 = add nsw i32 %.13477.us79, -1
   %72 = icmp samesign ugt i32 %.13477.us79, 1

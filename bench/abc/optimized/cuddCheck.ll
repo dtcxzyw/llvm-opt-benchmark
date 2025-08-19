@@ -525,13 +525,13 @@ define range(i32 -1, 2) i32 @Cudd_DebugCheck(ptr noundef captures(address) %0) l
   %282 = getelementptr inbounds nuw i8, ptr %280, i64 16
   %283 = load ptr, ptr %282, align 8, !tbaa !33
   %.not192 = icmp eq ptr %283, null
-  br i1 %.not192, label %.thread370, label %284
+  br i1 %.not192, label %.thread385, label %284
 
 284:                                              ; preds = %.lr.ph284
   %285 = getelementptr inbounds nuw i8, ptr %280, i64 24
   %286 = load ptr, ptr %285, align 8, !tbaa !33
   %.not193 = icmp eq ptr %286, null
-  br i1 %.not193, label %.thread370, label %287
+  br i1 %.not193, label %.thread385, label %287
 
 287:                                              ; preds = %284
   %288 = getelementptr inbounds nuw i8, ptr %280, i64 4
@@ -798,13 +798,13 @@ define range(i32 -1, 2) i32 @Cudd_DebugCheck(ptr noundef captures(address) %0) l
   %480 = getelementptr inbounds nuw i8, ptr %280, i64 4
   %481 = load i32, ptr %480, align 4, !tbaa !34
   %482 = icmp eq i32 %481, 0
-  br i1 %482, label %483, label %.thread370
+  br i1 %482, label %483, label %.thread385
 
 483:                                              ; preds = %479
   %484 = add nsw i32 %.4281, 1
   br label %501
 
-.thread370:                                       ; preds = %284, %.lr.ph284, %479
+.thread385:                                       ; preds = %284, %.lr.ph284, %479
   %485 = load ptr, ptr %16, align 8, !tbaa !28
   %486 = call i64 @fwrite(ptr nonnull @.str.15, i64 50, i64 1, ptr %485)
   %487 = load ptr, ptr %16, align 8, !tbaa !28
@@ -823,10 +823,10 @@ define range(i32 -1, 2) i32 @Cudd_DebugCheck(ptr noundef captures(address) %0) l
   %500 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %487, ptr noundef nonnull @.str.40, i64 noundef %489, i32 noundef %491, i32 noundef %493, i64 noundef %496, i64 noundef %499) #7
   br label %501
 
-501:                                              ; preds = %483, %.thread370, %466
-  %502 = phi ptr [ %458, %466 ], [ %280, %483 ], [ %280, %.thread370 ]
-  %.19 = phi i32 [ %.18, %466 ], [ %.13279, %483 ], [ 1, %.thread370 ]
-  %.5 = phi i32 [ %.4281, %466 ], [ %484, %483 ], [ %.4281, %.thread370 ]
+501:                                              ; preds = %483, %.thread385, %466
+  %502 = phi ptr [ %458, %466 ], [ %280, %483 ], [ %280, %.thread385 ]
+  %.19 = phi i32 [ %.18, %466 ], [ %.13279, %483 ], [ 1, %.thread385 ]
+  %.5 = phi i32 [ %.4281, %466 ], [ %484, %483 ], [ %.4281, %.thread385 ]
   %503 = getelementptr inbounds nuw i8, ptr %502, i64 8
   %storemerge190 = load ptr, ptr %503, align 8, !tbaa !32
   store ptr %storemerge190, ptr %3, align 8, !tbaa !32

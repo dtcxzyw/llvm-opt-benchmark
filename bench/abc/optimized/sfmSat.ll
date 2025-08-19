@@ -367,8 +367,8 @@ Vec_IntPush.exit230:                              ; preds = %.Vec_IntGrow.exit10
   br i1 %176, label %185, label %.Vec_IntGrow.exit10_crit_edge.i231
 
 .critedge6.thread:                                ; preds = %125
-  %.val197351 = load ptr, ptr %73, align 8, !tbaa !27
-  %177 = getelementptr inbounds i32, ptr %.val197351, i64 %128
+  %.val197372 = load ptr, ptr %73, align 8, !tbaa !27
+  %177 = getelementptr inbounds i32, ptr %.val197372, i64 %128
   %178 = load i32, ptr %177, align 4, !tbaa !28
   %179 = getelementptr inbounds nuw i8, ptr %126, i64 4
   %180 = load i32, ptr %126, align 8, !tbaa !34
@@ -806,13 +806,13 @@ Vec_IntPush.exit253:                              ; preds = %.Vec_IntGrow.exit10
   br i1 %392, label %401, label %.Vec_IntGrow.exit10_crit_edge.i254
 
 .critedge16.thread:                               ; preds = %337
-  %.val201353 = load ptr, ptr %310, align 8, !tbaa !27
-  %393 = getelementptr inbounds i32, ptr %.val201353, i64 %344
+  %.val201374 = load ptr, ptr %310, align 8, !tbaa !27
+  %393 = getelementptr inbounds i32, ptr %.val201374, i64 %344
   %394 = load i32, ptr %393, align 4, !tbaa !28
   %395 = getelementptr inbounds nuw i8, ptr %342, i64 4
   %396 = load i32, ptr %342, align 8, !tbaa !34
   %397 = icmp eq i32 %396, 0
-  br i1 %397, label %.thread354, label %.Vec_IntGrow.exit10_crit_edge.i254
+  br i1 %397, label %.thread375, label %.Vec_IntGrow.exit10_crit_edge.i254
 
 .Vec_IntGrow.exit10_crit_edge.i254:               ; preds = %.critedge16.thread, %.critedge16
   %398 = phi ptr [ %395, %.critedge16.thread ], [ %390, %.critedge16 ]
@@ -824,9 +824,9 @@ Vec_IntPush.exit253:                              ; preds = %.Vec_IntGrow.exit10
 
 401:                                              ; preds = %.critedge16
   %402 = icmp slt i32 %.pre343, 16
-  br i1 %402, label %.thread354, label %413
+  br i1 %402, label %.thread375, label %413
 
-.thread354:                                       ; preds = %.critedge16.thread, %401
+.thread375:                                       ; preds = %.critedge16.thread, %401
   %403 = phi ptr [ %.pre341, %401 ], [ %342, %.critedge16.thread ]
   %404 = phi i32 [ %389, %401 ], [ %394, %.critedge16.thread ]
   %405 = phi ptr [ %390, %401 ], [ %395, %.critedge16.thread ]
@@ -835,11 +835,11 @@ Vec_IntPush.exit253:                              ; preds = %.Vec_IntGrow.exit10
   %.not9.i.i258 = icmp eq ptr %407, null
   br i1 %.not9.i.i258, label %410, label %408
 
-408:                                              ; preds = %.thread354
+408:                                              ; preds = %.thread375
   %409 = call dereferenceable_or_null(64) ptr @realloc(ptr noundef nonnull %407, i64 noundef 64) #11
   br label %Vec_IntGrow.exit.i259
 
-410:                                              ; preds = %.thread354
+410:                                              ; preds = %.thread375
   %411 = call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #12
   br label %Vec_IntGrow.exit.i259
 

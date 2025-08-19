@@ -2953,7 +2953,7 @@ vec_uint_push_back.exit:                          ; preds = %.lr.ph124, %110, %v
   %.val = load ptr, ptr %126, align 8, !tbaa !84
   %127 = sext i32 %83 to i64
   %wide.trip.count164 = zext nneg i32 %26 to i64
-  %invariant.gep177 = getelementptr i32, ptr %1, i64 %127
+  %invariant.gep187 = getelementptr i32, ptr %1, i64 %127
   br label %130
 
 .lr.ph126:                                        ; preds = %.lr.ph126.preheader, %.lr.ph126
@@ -2977,8 +2977,8 @@ vec_uint_push_back.exit:                          ; preds = %.lr.ph124, %110, %v
   %indvars.iv159 = phi i64 [ 0, %.lr.ph128 ], [ %indvars.iv.next160, %130 ]
   %131 = getelementptr inbounds nuw i32, ptr %.val, i64 %indvars.iv159
   %132 = load i32, ptr %131, align 4, !tbaa !103
-  %gep178 = getelementptr i32, ptr %invariant.gep177, i64 %indvars.iv159
-  store i32 %132, ptr %gep178, align 4, !tbaa !103
+  %gep188 = getelementptr i32, ptr %invariant.gep187, i64 %indvars.iv159
+  store i32 %132, ptr %gep188, align 4, !tbaa !103
   %indvars.iv.next160 = add nuw nsw i64 %indvars.iv159, 1
   %exitcond165.not = icmp eq i64 %indvars.iv.next160, %wide.trip.count164
   br i1 %exitcond165.not, label %.preheader104, label %130, !llvm.loop !162

@@ -358,15 +358,15 @@ proto_item_set_generated.exit.i:                  ; preds = %30, %27, %19
   br i1 %.not88.i, label %._crit_edge.i, label %54, !llvm.loop !6
 
 ._crit_edge.i:                                    ; preds = %54, %51, %proto_item_set_generated.exit.i
-  %.0108.i = phi i32 [ 2, %51 ], [ 1, %proto_item_set_generated.exit.i ], [ 2, %54 ]
-  %.084107.i = phi i1 [ %52, %51 ], [ true, %proto_item_set_generated.exit.i ], [ %52, %54 ]
+  %.0113.i = phi i32 [ 2, %51 ], [ 1, %proto_item_set_generated.exit.i ], [ 2, %54 ]
+  %.084112.i = phi i1 [ %52, %51 ], [ true, %proto_item_set_generated.exit.i ], [ %52, %54 ]
   %66 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %67 = load ptr, ptr %66, align 8
   %68 = tail call noalias dereferenceable_or_null(188) ptr @wmem_alloc(ptr noundef %67, i64 noundef 188) #5
   store i8 71, ptr %68, align 1
   %69 = getelementptr i8, ptr %68, i64 1
-  %70 = tail call ptr @tvb_memcpy(ptr noundef %0, ptr noundef %69, i32 noundef %.0108.i, i64 noundef 187)
-  %71 = add nuw nsw i32 %.0108.i, 187
+  %70 = tail call ptr @tvb_memcpy(ptr noundef %0, ptr noundef %69, i32 noundef %.0113.i, i64 noundef 187)
+  %71 = add nuw nsw i32 %.0113.i, 187
   %72 = load i32, ptr %68, align 1
   %.sroa.4.0.extract.shift.i = lshr i32 %72, 24
   %.sroa.4.0.extract.trunc.i = trunc nuw i32 %.sroa.4.0.extract.shift.i to i8
@@ -378,7 +378,7 @@ proto_item_set_generated.exit.i:                  ; preds = %30, %27, %19
   br i1 %.not8996.i, label %._crit_edge100.i, label %.lr.ph99.i
 
 .lr.ph99.i:                                       ; preds = %._crit_edge.i
-  br i1 %.084107.i, label %.lr.ph99.split.us.i, label %.lr.ph99.split.preheader.i
+  br i1 %.084112.i, label %.lr.ph99.split.us.i, label %.lr.ph99.split.preheader.i
 
 .lr.ph99.split.preheader.i:                       ; preds = %.lr.ph99.i
   %.sroa.0.0.insert.ext.i = and i32 %72, 16777215

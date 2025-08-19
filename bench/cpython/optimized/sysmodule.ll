@@ -2402,8 +2402,8 @@ define dso_local range(i32 -1, 1) i32 @PySys_AddAuditHook(ptr noundef %0, ptr no
 
 .thread:                                          ; preds = %7
   %16 = tail call ptr @PyMem_RawMalloc(i64 noundef 24) #15
-  %.not2035 = icmp eq ptr %16, null
-  br i1 %.not2035, label %18, label %20
+  %.not2039 = icmp eq ptr %16, null
+  br i1 %.not2039, label %18, label %20
 
 .thread26:                                        ; preds = %2
   %17 = tail call ptr @PyMem_RawMalloc(i64 noundef 24) #15
@@ -6195,20 +6195,20 @@ sys_pyfile_write.exit:                            ; preds = %sys_pyfile_write_un
 
 .thread:                                          ; preds = %sys_pyfile_write.exit
   %43 = icmp ugt i32 %19, 1000
-  br i1 %43, label %.thread38, label %62
+  br i1 %43, label %.thread47, label %62
 
 44:                                               ; preds = %38
-  br i1 %40, label %sys_pyfile_write.exit24.thread, label %.thread38
+  br i1 %40, label %sys_pyfile_write.exit24.thread, label %.thread47
 
-.thread38:                                        ; preds = %.thread, %44
-  %.0.i26323740 = phi ptr [ %.0.i2631, %44 ], [ %18, %.thread ]
+.thread47:                                        ; preds = %.thread, %44
+  %.0.i26324649 = phi ptr [ %.0.i2631, %44 ], [ %18, %.thread ]
   %45 = call ptr @PyUnicode_FromString(ptr noundef nonnull @.str.546) #15
   %46 = icmp eq ptr %45, null
   br i1 %46, label %sys_pyfile_write.exit24.thread, label %47
 
-47:                                               ; preds = %.thread38
+47:                                               ; preds = %.thread47
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  store ptr %.0.i26323740, ptr %5, align 16, !tbaa !93
+  store ptr %.0.i26324649, ptr %5, align 16, !tbaa !93
   %48 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %45, ptr %48, align 8, !tbaa !93
   %49 = call ptr @PyObject_VectorcallMethod(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 74416), ptr noundef nonnull %5, i64 noundef -9223372036854775806, ptr noundef null) #15
@@ -6249,7 +6249,7 @@ sys_pyfile_write_unicode.exit.i20:                ; preds = %55, %52, %50, %47
 sys_pyfile_write.exit24:                          ; preds = %sys_pyfile_write_unicode.exit.i20, %57, %60
   br i1 %.not35, label %sys_pyfile_write.exit24.thread, label %62
 
-sys_pyfile_write.exit24.thread:                   ; preds = %.thread38, %44, %sys_pyfile_write.exit24
+sys_pyfile_write.exit24.thread:                   ; preds = %.thread47, %44, %sys_pyfile_write.exit24
   %61 = call i64 @fwrite(ptr nonnull @.str.546, i64 13, i64 1, ptr %1)
   br label %62
 
@@ -7922,12 +7922,12 @@ define internal noundef ptr @sys_setdlopenflags(ptr readnone captures(none) %0, 
   br i1 %.not, label %.sink.split, label %11
 
 .sink.split:                                      ; preds = %5, %2
-  %.sink6 = phi i32 [ %3, %2 ], [ -1, %5 ]
+  %.sink7 = phi i32 [ %3, %2 ], [ -1, %5 ]
   %7 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %8 = load ptr, ptr %7, align 8, !tbaa !92
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %10 = load ptr, ptr %9, align 8, !tbaa !4
-  tail call void @_PyImport_SetDLOpenFlags(ptr noundef %10, i32 noundef %.sink6) #15
+  tail call void @_PyImport_SetDLOpenFlags(ptr noundef %10, i32 noundef %.sink7) #15
   br label %11
 
 11:                                               ; preds = %.sink.split, %5

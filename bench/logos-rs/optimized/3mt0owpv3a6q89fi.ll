@@ -1695,11 +1695,11 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17h614495477fe1728cE"(
           to label %29 unwind label %27
 
 ._crit_edge.thread:                               ; preds = %31, %._crit_edge
-  %.sroa.0.0.lcssa14 = phi ptr [ %17, %._crit_edge ], [ %35, %31 ]
+  %.sroa.0.0.lcssa15 = phi ptr [ %17, %._crit_edge ], [ %35, %31 ]
   %21 = load i8, ptr %6, align 1
   %22 = load i8, ptr %7, align 1
-  store i8 %21, ptr %.sroa.0.0.lcssa14, align 1
-  %23 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.lcssa14, i64 1
+  store i8 %21, ptr %.sroa.0.0.lcssa15, align 1
+  %23 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.lcssa15, i64 1
   store i8 %22, ptr %23, align 1
   %24 = load i64, ptr %18, align 8
   %25 = add i64 %24, 1
@@ -1781,9 +1781,9 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17hf2ef9f1939021ef3E"(
           to label %24 unwind label %22
 
 ._crit_edge.thread:                               ; preds = %24, %._crit_edge
-  %.sroa.0.0.lcssa15 = phi ptr [ %15, %._crit_edge ], [ %25, %24 ]
+  %.sroa.0.0.lcssa16 = phi ptr [ %15, %._crit_edge ], [ %25, %24 ]
   %19 = phi i64 [ %12, %._crit_edge ], [ %27, %24 ]
-  store i8 %5, ptr %.sroa.0.0.lcssa15, align 1
+  store i8 %5, ptr %.sroa.0.0.lcssa16, align 1
   %20 = add i64 %19, 1
   store i64 %20, ptr %16, align 8
   br label %21

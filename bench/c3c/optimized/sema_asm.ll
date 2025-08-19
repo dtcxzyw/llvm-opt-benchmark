@@ -932,7 +932,7 @@ sema_reg_float_suported_type.exit.thread.i:       ; preds = %sema_reg_float_supo
   br i1 %374, label %375, label %422
 
 375:                                              ; preds = %.thread.thread.i62, %.thread.i45
-  %.096216.i = phi ptr [ %365, %.thread.thread.i62 ], [ %.0962.i, %.thread.i45 ]
+  %.096219.i = phi ptr [ %365, %.thread.thread.i62 ], [ %.0962.i, %.thread.i45 ]
   %376 = lshr i64 %3, 48
   %377 = trunc nuw nsw i64 %376 to i32
   %.not113.i = icmp ult i64 %3, 281474976710656
@@ -953,7 +953,7 @@ sema_reg_float_suported_type.exit.thread.i:       ; preds = %sema_reg_float_supo
   br label %sema_check_asm_arg_reg.exit
 
 383:                                              ; preds = %375
-  %384 = tail call i32 @type_size(ptr noundef nonnull %.096216.i) #4
+  %384 = tail call i32 @type_size(ptr noundef nonnull %.096219.i) #4
   %385 = shl i32 %384, 3
   %386 = icmp eq i32 %385, 0
   %spec.store.select.i.i46 = select i1 %386, i32 -1, i32 %385
@@ -1043,7 +1043,7 @@ sema_reg_int_suported_type.exit.i49:              ; preds = %401, %398, %395, %3
   br label %sema_check_asm_arg_reg.exit
 
 422:                                              ; preds = %.thread.thread.i62, %.thread.i45
-  %.09621519.i = phi ptr [ %.0962.i, %.thread.i45 ], [ %365, %.thread.thread.i62 ]
+  %.09621822.i = phi ptr [ %.0962.i, %.thread.i45 ], [ %365, %.thread.thread.i62 ]
   %.093.i = phi i32 [ %367, %.thread.i45 ], [ %372, %.thread.thread.i62 ]
   %423 = add i32 %.093.i, -13
   %424 = icmp ult i32 %423, 5
@@ -1069,7 +1069,7 @@ sema_reg_int_suported_type.exit.i49:              ; preds = %401, %398, %395, %3
   br label %sema_check_asm_arg_reg.exit
 
 432:                                              ; preds = %425
-  %433 = tail call fastcc zeroext i1 @sema_reg_float_suported_type(i32 %4, ptr noundef nonnull %.09621519.i)
+  %433 = tail call fastcc zeroext i1 @sema_reg_float_suported_type(i32 %4, ptr noundef nonnull %.09621822.i)
   br i1 %433, label %sema_check_asm_arg_reg.exit, label %434
 
 434:                                              ; preds = %432

@@ -61,7 +61,7 @@ define internal range(i32 0, 53) i32 @mpegps_probe(ptr noundef readonly captures
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i32, ptr %2, align 8, !tbaa !4
   %4 = icmp sgt i32 %3, 0
-  br i1 %4, label %.lr.ph, label %.thread212
+  br i1 %4, label %.lr.ph, label %.thread218
 
 .lr.ph:                                           ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -342,7 +342,7 @@ check_pes.exit:                                   ; preds = %52, %61, %79
   %146 = icmp sgt i32 %145, 1
   %147 = select i1 %146, i32 26, i32 25
   %148 = select i1 %or.cond19, i32 52, i32 %147
-  br label %.thread212
+  br label %.thread218
 
 149:                                              ; preds = %138, %._crit_edge
   %150 = icmp sgt i32 %.0140.lcssa, %.0121.lcssa
@@ -358,13 +358,13 @@ check_pes.exit:                                   ; preds = %52, %61, %79
 155:                                              ; preds = %151
   %156 = icmp sgt i32 %.0140.lcssa, 2
   %157 = select i1 %156, i32 52, i32 25
-  br label %.thread212
+  br label %.thread218
 
 158:                                              ; preds = %151, %149
   %159 = icmp ne i32 %.0130.lcssa, 0
   %160 = icmp ne i32 %.0125.lcssa, 0
   %161 = xor i1 %159, %160
-  br i1 %161, label %162, label %.thread212
+  br i1 %161, label %162, label %.thread218
 
 162:                                              ; preds = %158
   %163 = icmp slt i32 %.0125.lcssa, 5
@@ -374,13 +374,13 @@ check_pes.exit:                                   ; preds = %52, %61, %79
   %or.cond23 = or i1 %or.cond21.not157, %165
   %166 = icmp ne i32 %.0140.lcssa, 0
   %or.cond25 = select i1 %or.cond23, i1 true, i1 %166
-  br i1 %or.cond25, label %.thread212, label %167
+  br i1 %or.cond25, label %.thread218, label %167
 
 167:                                              ; preds = %162
   %168 = icmp sgt i32 %3, 2048
   %169 = icmp sgt i32 %134, %.0121.lcssa
   %or.cond159 = select i1 %168, i1 %169, i1 false
-  br i1 %or.cond159, label %170, label %.thread212
+  br i1 %or.cond159, label %170, label %.thread218
 
 170:                                              ; preds = %167
   %171 = icmp sgt i32 %.0125.lcssa, 12
@@ -389,9 +389,9 @@ check_pes.exit:                                   ; preds = %52, %61, %79
   %174 = icmp sgt i32 %.0130.lcssa, %173
   %175 = select i1 %171, i1 true, i1 %174
   %176 = select i1 %175, i32 52, i32 25
-  br label %.thread212
+  br label %.thread218
 
-.thread212:                                       ; preds = %1, %158, %167, %162, %170, %155, %141
+.thread218:                                       ; preds = %1, %158, %167, %162, %170, %155, %141
   %.0113 = phi i32 [ %148, %141 ], [ %157, %155 ], [ %176, %170 ], [ %spec.select158, %162 ], [ %spec.select158, %167 ], [ %spec.select158, %158 ], [ 0, %1 ]
   ret i32 %.0113
 }
@@ -1353,9 +1353,9 @@ sub_2:                                            ; preds = %sub_1
   %180 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %181 = load i32, ptr %180, align 4, !tbaa !39
   %182 = icmp ult i32 %179, %181
-  br i1 %182, label %.thread222, label %191
+  br i1 %182, label %.thread230, label %191
 
-.thread222:                                       ; preds = %.loopexit197
+.thread230:                                       ; preds = %.loopexit197
   %183 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %184 = load ptr, ptr %183, align 8, !tbaa !40
   %185 = sext i32 %179 to i64
@@ -1371,7 +1371,7 @@ sub_2:                                            ; preds = %sub_1
   %.not212 = icmp eq i32 %181, 0
   br i1 %.not212, label %._crit_edge.thread, label %.lr.ph205
 
-.lr.ph205:                                        ; preds = %.thread222, %191
+.lr.ph205:                                        ; preds = %.thread230, %191
   %192 = getelementptr inbounds nuw i8, ptr %18, i64 16
   br label %193
 
@@ -1399,11 +1399,11 @@ sub_2:                                            ; preds = %sub_1
 
 ._crit_edge.thread:                               ; preds = %191
   %202 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %.val225 = load i32, ptr %202, align 8, !tbaa !92
+  %.val233 = load i32, ptr %202, align 8, !tbaa !92
   %203 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  %.val167226 = load i32, ptr %203, align 4, !tbaa !94
-  %.not195227 = icmp ult i32 %.val225, %.val167226
-  %spec.select = select i1 %.not195227, i32 %52, i32 -12
+  %.val167234 = load i32, ptr %203, align 4, !tbaa !94
+  %.not195235 = icmp ult i32 %.val233, %.val167234
+  %spec.select = select i1 %.not195235, i32 %52, i32 -12
   br label %.loopexit
 
 .preheader:                                       ; preds = %._crit_edge
@@ -1582,7 +1582,7 @@ define internal range(i32 -2147483648, 1) i32 @vobsub_read_packet(ptr noundef re
 72:                                               ; preds = %67
   %73 = load i32, ptr %66, align 8, !tbaa !79
   %.not90 = icmp eq i32 %73, 0
-  %spec.select125 = select i1 %.not90, i32 %70, i32 0
+  %spec.select136 = select i1 %.not90, i32 %70, i32 0
   br label %.loopexit.sink.split
 
 74:                                               ; preds = %67
@@ -1638,7 +1638,7 @@ define internal range(i32 -2147483648, 1) i32 @vobsub_read_packet(ptr noundef re
   br i1 %107, label %67, label %.loopexit, !llvm.loop !105
 
 .loopexit.sink.split:                             ; preds = %92, %82, %74, %72
-  %.0.ph = phi i32 [ %spec.select125, %72 ], [ 0, %74 ], [ 0, %82 ], [ %93, %92 ]
+  %.0.ph = phi i32 [ %spec.select136, %72 ], [ 0, %74 ], [ 0, %82 ], [ %93, %92 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -2224,9 +2224,9 @@ get_pts.exit:                                     ; preds = %237, %242
   %288 = icmp ne i32 %287, 0
   %289 = icmp eq i32 %.0234, 0
   %or.cond23 = select i1 %288, i1 %289, i1 false
-  br i1 %or.cond23, label %.thread375, label %290
+  br i1 %or.cond23, label %.thread388, label %290
 
-.thread375:                                       ; preds = %286
+.thread388:                                       ; preds = %286
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 24, ptr noundef nonnull @.str.9) #13
   br label %325
 
@@ -2279,7 +2279,7 @@ get_pts.exit:                                     ; preds = %237, %242
   %316 = call i32 @avio_r8(ptr noundef %315) #13
   %317 = and i32 %316, 128
   %318 = icmp eq i32 %317, 0
-  %319 = shl i32 %.016.i, 8
+  %319 = shl nuw i32 %.016.i, 8
   %320 = and i32 %319, 65280
   %321 = or i32 %316, %320
   %.2228 = select i1 %318, i32 %321, i32 %.016.i
@@ -2292,11 +2292,11 @@ get_pts.exit:                                     ; preds = %237, %242
   %324 = icmp slt i32 %.1235, 0
   br i1 %324, label %.backedge314.backedge, label %325
 
-325:                                              ; preds = %.thread375, %323
-  %.1227379 = phi i32 [ %.016.i, %.thread375 ], [ %.1227, %323 ]
-  %.1235378 = phi i32 [ 0, %.thread375 ], [ %.1235, %323 ]
+325:                                              ; preds = %.thread388, %323
+  %.1227392 = phi i32 [ %.016.i, %.thread388 ], [ %.1227, %323 ]
+  %.1235391 = phi i32 [ 0, %.thread388 ], [ %.1235, %323 ]
   %326 = load ptr, ptr %9, align 8, !tbaa !31
-  %327 = zext nneg i32 %.1235378 to i64
+  %327 = zext nneg i32 %.1235391 to i64
   %328 = call i64 @avio_skip(ptr noundef %326, i64 noundef %327) #13
   br label %.loopexit312
 
@@ -2307,7 +2307,7 @@ get_pts.exit:                                     ; preds = %237, %242
 .loopexit312:                                     ; preds = %329, %260, %get_pts.exit, %325
   %.0240 = phi i64 [ %262, %260 ], [ %.0.i, %get_pts.exit ], [ %.1241, %325 ], [ -9223372036854775808, %329 ]
   %.0238 = phi i64 [ %.0.i, %260 ], [ %.0.i, %get_pts.exit ], [ %.1239, %325 ], [ -9223372036854775808, %329 ]
-  %.0226 = phi i32 [ %.016.i, %260 ], [ %.016.i, %get_pts.exit ], [ %.1227379, %325 ], [ %.016.i, %329 ]
+  %.0226 = phi i32 [ %.016.i, %260 ], [ %.016.i, %get_pts.exit ], [ %.1227392, %325 ], [ %.016.i, %329 ]
   %.0222 = phi i32 [ %263, %260 ], [ %258, %get_pts.exit ], [ %275, %325 ], [ %.2224, %329 ]
   %330 = icmp eq i32 %.0226, 445
   br i1 %330, label %331, label %.thread297

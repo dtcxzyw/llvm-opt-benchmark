@@ -545,18 +545,18 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes9ScopeDescES4_NS_12DenseMapInfoIS4_
   %idx.ext.i.i2 = zext i32 %1 to i64
   %add.ptr.i.i3 = getelementptr inbounds nuw %"struct.llvh::detail::DenseMapPair", ptr %0, i64 %idx.ext.i.i2
   %cmp.i = icmp eq ptr %cond.sink.i.i.ph.pn.i, %add.ptr.i.i3
-  br i1 %cmp.i, label %common.ret7, label %if.end
+  br i1 %cmp.i, label %common.ret9, label %if.end
 
-common.ret7:                                      ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes9ScopeDescES4_NS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E4findEPKS3_.exit, %if.end
-  %common.ret7.op = phi ptr [ %call6, %if.end ], [ %scopeDesc, %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes9ScopeDescES4_NS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E4findEPKS3_.exit ]
-  ret ptr %common.ret7.op
+common.ret9:                                      ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes9ScopeDescES4_NS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E4findEPKS3_.exit, %if.end
+  %common.ret9.op = phi ptr [ %call6, %if.end ], [ %scopeDesc, %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes9ScopeDescES4_NS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E4findEPKS3_.exit ]
+  ret ptr %common.ret9.op
 
 if.end:                                           ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes9ScopeDescES4_NS_12DenseMapInfoIS4_EENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E4findEPKS3_.exit
   %second = getelementptr inbounds nuw i8, ptr %cond.sink.i.i.ph.pn.i, i64 8
   %6 = load ptr, ptr %second, align 8
   %call6 = tail call noundef ptr @_ZN6hermes11ScopeMerger11mergedScopeEPNS_9ScopeDescE(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef %6)
   store ptr %call6, ptr %second, align 8
-  br label %common.ret7
+  br label %common.ret9
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

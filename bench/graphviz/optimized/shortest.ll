@@ -94,7 +94,7 @@ define range(i32 -2, 1) i32 @Pshortestpath(ptr noundef readonly captures(none) %
 
 ._crit_edge.thread:                               ; preds = %34
   %39 = getelementptr inbounds nuw i8, ptr %.pre, i64 -16
-  %.sroa.6.0..sroa_idx389 = getelementptr inbounds i8, ptr %.pre, i64 -8
+  %.sroa.6.0..sroa_idx411 = getelementptr inbounds i8, ptr %.pre, i64 -8
   br label %46
 
 .lr.ph:                                           ; preds = %34, %.lr.ph
@@ -119,34 +119,34 @@ define range(i32 -2, 1) i32 @Pshortestpath(ptr noundef readonly captures(none) %
   br label %46
 
 46:                                               ; preds = %._crit_edge, %._crit_edge.thread
-  %.sroa.6.0.copyload394.in = phi ptr [ %.sroa.6.0..sroa_idx389, %._crit_edge.thread ], [ %.sroa.6.0..sroa_idx, %._crit_edge ]
-  %.sroa.0129.0.copyload393.in = phi ptr [ %39, %._crit_edge.thread ], [ %44, %._crit_edge ]
-  %.0217.lcssa392 = phi i64 [ -1, %._crit_edge.thread ], [ %.1218.fr, %._crit_edge ]
+  %.sroa.6.0.copyload416.in = phi ptr [ %.sroa.6.0..sroa_idx411, %._crit_edge.thread ], [ %.sroa.6.0..sroa_idx, %._crit_edge ]
+  %.sroa.0129.0.copyload415.in = phi ptr [ %39, %._crit_edge.thread ], [ %44, %._crit_edge ]
+  %.0217.lcssa414 = phi i64 [ -1, %._crit_edge.thread ], [ %.1218.fr, %._crit_edge ]
   %47 = phi i64 [ -1, %._crit_edge.thread ], [ %spec.select, %._crit_edge ]
-  %.sroa.0129.0.copyload393 = load double, ptr %.sroa.0129.0.copyload393.in, align 8, !tbaa !24
-  %.sroa.6.0.copyload394 = load double, ptr %.sroa.6.0.copyload394.in, align 8, !tbaa !24
+  %.sroa.0129.0.copyload415 = load double, ptr %.sroa.0129.0.copyload415.in, align 8, !tbaa !24
+  %.sroa.6.0.copyload416 = load double, ptr %.sroa.6.0.copyload416.in, align 8, !tbaa !24
   %48 = getelementptr %struct.Pxy_t, ptr %.pre, i64 %47
   %49 = getelementptr i8, ptr %48, i64 -16
   %.sroa.0133.0.copyload = load double, ptr %49, align 8, !tbaa !24
   %50 = add i64 %27, -1
-  %51 = icmp eq i64 %.0217.lcssa392, %50
-  %52 = add i64 %.0217.lcssa392, 1
+  %51 = icmp eq i64 %.0217.lcssa414, %50
+  %52 = add i64 %.0217.lcssa414, 1
   %53 = select i1 %51, i64 0, i64 %52
   %54 = getelementptr inbounds nuw %struct.Pxy_t, ptr %.pre, i64 %53
   %.sroa.0.0.copyload = load double, ptr %54, align 8, !tbaa !24
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %54, i64 8
   %.sroa.5.0.copyload = load double, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !24
-  %55 = fcmp oeq double %.sroa.0133.0.copyload, %.sroa.0129.0.copyload393
-  %56 = fcmp oeq double %.sroa.0129.0.copyload393, %.sroa.0.0.copyload
+  %55 = fcmp oeq double %.sroa.0133.0.copyload, %.sroa.0129.0.copyload415
+  %56 = fcmp oeq double %.sroa.0129.0.copyload415, %.sroa.0.0.copyload
   %or.cond259 = select i1 %55, i1 %56, i1 false
-  %57 = fcmp ogt double %.sroa.5.0.copyload, %.sroa.6.0.copyload394
+  %57 = fcmp ogt double %.sroa.5.0.copyload, %.sroa.6.0.copyload416
   %or.cond260 = select i1 %or.cond259, i1 %57, i1 false
   br i1 %or.cond260, label %60, label %58
 
 58:                                               ; preds = %46
   %.sroa.5135.0..sroa_idx = getelementptr i8, ptr %48, i64 -8
   %.sroa.5135.0.copyload = load double, ptr %.sroa.5135.0..sroa_idx, align 8, !tbaa !24
-  %59 = tail call i32 @ccw(double %.sroa.0133.0.copyload, double %.sroa.5135.0.copyload, double %.sroa.0129.0.copyload393, double %.sroa.6.0.copyload394, double %.sroa.0.0.copyload, double %.sroa.5.0.copyload) #14
+  %59 = tail call i32 @ccw(double %.sroa.0133.0.copyload, double %.sroa.5135.0.copyload, double %.sroa.0129.0.copyload415, double %.sroa.6.0.copyload416, double %.sroa.0.0.copyload, double %.sroa.5.0.copyload) #14
   %.not = icmp eq i32 %59, 1
   %.pre378 = load i64, ptr %10, align 8, !tbaa !3
   br i1 %.not, label %.preheader306, label %60
@@ -613,9 +613,9 @@ add2dq.exit:                                      ; preds = %247, %252
   %.pre382 = load ptr, ptr @tris, align 8, !tbaa !44
   %.pre383 = load i64, ptr getelementptr inbounds nuw (i8, ptr @tris, i64 8), align 8, !tbaa !48
   %.pre384 = load i64, ptr getelementptr inbounds nuw (i8, ptr @tris, i64 24), align 8, !tbaa !49
-  br label %.loopexit407
+  br label %.loopexit429
 
-.loopexit407:                                     ; preds = %377, %.lr.ph350
+.loopexit429:                                     ; preds = %377, %.lr.ph350
   %257 = phi i64 [ %.pre384, %.lr.ph350 ], [ %371, %377 ]
   %258 = phi i64 [ %.pre383, %.lr.ph350 ], [ %370, %377 ]
   %259 = phi ptr [ %.pre382, %.lr.ph350 ], [ %369, %377 ]
@@ -630,8 +630,8 @@ add2dq.exit:                                      ; preds = %247, %252
   %266 = getelementptr inbounds nuw i8, ptr %265, i64 8
   br label %267
 
-267:                                              ; preds = %.loopexit407, %277
-  %indvars.iv = phi i64 [ 0, %.loopexit407 ], [ %indvars.iv.next, %277 ]
+267:                                              ; preds = %.loopexit429, %277
+  %indvars.iv = phi i64 [ 0, %.loopexit429 ], [ %indvars.iv.next, %277 ]
   %268 = mul nuw nsw i64 %indvars.iv, 24
   %269 = getelementptr inbounds nuw i8, ptr %266, i64 %268
   %270 = getelementptr inbounds nuw i8, ptr %269, i64 16
@@ -831,7 +831,7 @@ add2dq.exit284:                                   ; preds = %357, %359
   %380 = getelementptr inbounds nuw %struct.triangle_t, ptr %369, i64 %379
   %.sroa.0.0.copyload288 = load i32, ptr %380, align 8, !tbaa !51
   %381 = icmp eq i32 %.sroa.0.0.copyload288, 1
-  br i1 %381, label %.loopexit407, label %382, !llvm.loop !67
+  br i1 %381, label %.loopexit429, label %382, !llvm.loop !67
 
 382:                                              ; preds = %372, %377
   %indvars.iv.next373 = add nuw nsw i64 %indvars.iv372, 1
@@ -932,17 +932,17 @@ define internal fastcc range(i32 -1, 1) i32 @triangulate(ptr noundef %0, i64 nou
   br label %tailrecurse
 
 tailrecurse:                                      ; preds = %._crit_edge, %2
-  %.tr78 = phi i64 [ %1, %2 ], [ %18, %._crit_edge ]
-  %3 = icmp ugt i64 %.tr78, 3
+  %.tr81 = phi i64 [ %1, %2 ], [ %18, %._crit_edge ]
+  %3 = icmp ugt i64 %.tr81, 3
   br i1 %3, label %.preheader53, label %27
 
 .preheader53:                                     ; preds = %tailrecurse, %.thread43
   %.03356 = phi i64 [ %7, %.thread43 ], [ 0, %tailrecurse ]
   %4 = add i64 %.03356, 2
-  %5 = urem i64 %4, %.tr78
-  %6 = tail call zeroext i1 @isdiagonal(i64 noundef %.03356, i64 noundef %5, ptr noundef %0, i64 noundef %.tr78, ptr noundef nonnull @point_indexer) #14
+  %5 = urem i64 %4, %.tr81
+  %6 = tail call zeroext i1 @isdiagonal(i64 noundef %.03356, i64 noundef %5, ptr noundef %0, i64 noundef %.tr81, ptr noundef nonnull @point_indexer) #14
   %7 = add nuw i64 %.03356, 1
-  %8 = icmp eq i64 %7, %.tr78
+  %8 = icmp eq i64 %7, %.tr81
   br i1 %6, label %9, label %.thread43
 
 9:                                                ; preds = %.preheader53
@@ -958,7 +958,7 @@ tailrecurse:                                      ; preds = %._crit_edge, %2
   br i1 %.not40, label %.preheader, label %.thread48
 
 .preheader:                                       ; preds = %9
-  %18 = add i64 %.tr78, -1
+  %18 = add i64 %.tr81, -1
   %19 = icmp ult i64 %10, %18
   br i1 %19, label %.lr.ph, label %._crit_edge
 

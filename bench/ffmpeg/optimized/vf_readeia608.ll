@@ -814,14 +814,14 @@ dump_code.exit.i:                                 ; preds = %228
   br i1 %262, label %extract_line.exit, label %.lr.ph161.i
 
 ._crit_edge156.thread.i:                          ; preds = %.lr.ph155.preheader.i, %.lr.ph161.i
-  %.193.lcssa199.i = phi i32 [ %284, %.lr.ph155.preheader.i ], [ %.092159.i, %.lr.ph161.i ]
+  %.193.lcssa202.i = phi i32 [ %284, %.lr.ph155.preheader.i ], [ %.092159.i, %.lr.ph161.i ]
   %indvars.iv.next188.i = add nuw nsw i64 %indvars.iv187.i, 1
   %exitcond191.not.i = icmp eq i64 %indvars.iv.next188.i, %wide.trip.count.i132.i
   br i1 %exitcond191.not.i, label %._crit_edge162.i, label %.lr.ph161.i, !llvm.loop !90
 
 .lr.ph161.i:                                      ; preds = %257, %._crit_edge156.thread.i
   %indvars.iv187.i = phi i64 [ %indvars.iv.next188.i, %._crit_edge156.thread.i ], [ 14, %257 ]
-  %.092159.i = phi i32 [ %.193.lcssa199.i, %._crit_edge156.thread.i ], [ 0, %257 ]
+  %.092159.i = phi i32 [ %.193.lcssa202.i, %._crit_edge156.thread.i ], [ 0, %257 ]
   %263 = getelementptr inbounds nuw %struct.CodeItem, ptr %234, i64 %indvars.iv187.i
   %264 = getelementptr inbounds nuw i8, ptr %263, i64 4
   %265 = load i32, ptr %264, align 4, !tbaa !83
@@ -1252,7 +1252,7 @@ define internal fastcc range(i32 -22, 1) i32 @config_filter(ptr noundef %0, i32 
   br label %61
 
 61:                                               ; preds = %58, %55
-  %.not6880 = phi i1 [ %60, %58 ], [ false, %55 ]
+  %.not6886 = phi i1 [ %60, %58 ], [ false, %55 ]
   %62 = getelementptr inbounds nuw i8, ptr %47, i64 32
   %63 = load ptr, ptr %62, align 8, !tbaa !80
   %.not67 = icmp eq ptr %63, null
@@ -1268,7 +1268,7 @@ define internal fastcc range(i32 -22, 1) i32 @config_filter(ptr noundef %0, i32 
   br i1 %brmerge, label %.critedge, label %.critedge73
 
 .thread:                                          ; preds = %61
-  br i1 %.not6880, label %.critedge, label %.critedge73
+  br i1 %.not6886, label %.critedge, label %.critedge73
 
 .critedge73:                                      ; preds = %64, %.thread
   %67 = load ptr, ptr %48, align 8, !tbaa !59

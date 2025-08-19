@@ -2064,8 +2064,8 @@ _ZN10rcIntArrayixEi.exit396.i.us:                 ; preds = %979, %975, %.noexc4
   %983 = and i32 %982, 131072
   %.not339.i.us = icmp eq i32 %983, 0
   %.not340573.i.us = icmp eq i32 %.0315.i.us, %.0317.i.us
-  %or.cond640.i.us = select i1 %.not339.i.us, i1 true, i1 %.not340573.i.us
-  br i1 %or.cond640.i.us, label %.thread.i363.us, label %.lr.ph578.i.us
+  %or.cond724.i.us = select i1 %.not339.i.us, i1 true, i1 %.not340573.i.us
+  br i1 %or.cond724.i.us, label %.thread.i363.us, label %.lr.ph578.i.us
 
 984:                                              ; preds = %_ZN10rcIntArrayixEi.exit394.i.us
   %.not340573.old.i.us = icmp eq i32 %.0315.i.us, %.0317.i.us
@@ -4032,8 +4032,8 @@ _ZL24removeDegenerateSegmentsR10rcIntArray.exit.us: ; preds = %_ZL6vequalPKiS0_.
 .lr.ph859.us:                                     ; preds = %.preheader781.us, %.lr.ph859.us
   %indvars.iv931 = phi i64 [ %indvars.iv.next932, %.lr.ph859.us ], [ 0, %.preheader781.us ]
   %1875 = load ptr, ptr %1859, align 8
-  %.idx989 = shl nsw i64 %indvars.iv931, 4
-  %1876 = getelementptr inbounds nuw i8, ptr %1875, i64 %.idx989
+  %.idx1149 = shl nsw i64 %indvars.iv931, 4
+  %1876 = getelementptr inbounds nuw i8, ptr %1875, i64 %.idx1149
   %1877 = load i32, ptr %1876, align 4
   %1878 = sub nsw i32 %1877, %32
   store i32 %1878, ptr %1876, align 4
@@ -4161,9 +4161,9 @@ _ZL24removeDegenerateSegmentsR10rcIntArray.exit.us: ; preds = %_ZL6vequalPKiS0_.
   br label %_ZN14rcScopedDeleteIaED2Ev.exit573
 
 .split.us.invoke:                                 ; preds = %1839, %1858
-  %.lcssa1003.sink = phi ptr [ %1854, %1858 ], [ %1835, %1839 ]
+  %.lcssa1163.sink = phi ptr [ %1854, %1858 ], [ %1835, %1839 ]
   %1903 = phi ptr [ @.str.5, %1858 ], [ @.str.4, %1839 ]
-  %1904 = load i32, ptr %.lcssa1003.sink, align 8
+  %1904 = load i32, ptr %.lcssa1163.sink, align 8
   invoke void (ptr, i32, ptr, ...) @_ZN9rcContext3logE13rcLogCategoryPKcz(ptr noundef nonnull align 8 dereferenceable(10) %0, i32 noundef 3, ptr noundef nonnull %1903, i32 noundef %1904)
           to label %_ZN14rcScopedDeleteIaED2Ev.exit unwind label %.loopexit.split-lp770.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -4403,11 +4403,11 @@ _ZL19calcAreaOfPolygon2DPKii.exit.thread:         ; preds = %.lr.ph, %_ZL19calcA
   br i1 %2002, label %2003, label %2008
 
 2003:                                             ; preds = %1999
-  %2004 = sext i32 %.0278897 to i64
-  %2005 = getelementptr inbounds %struct.rcContourHole, ptr %1962, i64 %2004
+  %2004 = zext nneg i32 %.0278897 to i64
+  %2005 = getelementptr inbounds nuw %struct.rcContourHole, ptr %1962, i64 %2004
   %2006 = getelementptr inbounds nuw %struct.rcContourRegion, ptr %1953, i64 %indvars.iv953, i32 1
   store ptr %2005, ptr %2006, align 8
-  %2007 = add nsw i32 %2001, %.0278897
+  %2007 = add nuw nsw i32 %2001, %.0278897
   store i32 0, ptr %2000, align 8
   br label %2008
 

@@ -1730,8 +1730,8 @@ _ZL11IS_CHEMBONDi.exit949:                        ; preds = %_ZL13gmx_snew_implI
   br i1 %658, label %659, label %._crit_edge1555.thread
 
 659:                                              ; preds = %._crit_edge1555
-  %.idx1975 = mul nuw nsw i64 %indvars.iv1792, 12
-  %660 = getelementptr inbounds nuw i8, ptr %641, i64 %.idx1975
+  %.idx2118 = mul nuw nsw i64 %indvars.iv1792, 12
+  %660 = getelementptr inbounds nuw i8, ptr %641, i64 %.idx2118
   %661 = getelementptr inbounds nuw i8, ptr %660, i64 4
   %662 = load i32, ptr %661, align 4, !tbaa !4
   %663 = sext i32 %662 to i64
@@ -3486,7 +3486,7 @@ _ZL13gmx_snew_implIfEvPKcS1_iRPT_m.exit1004.loopexit: ; preds = %1423, %1397
 
 1367:                                             ; preds = %.lr.ph1661.split.us
   %1368 = trunc nuw nsw i64 %1365 to i32
-  %1369 = sitofp i32 %1368 to float
+  %1369 = uitofp nneg i32 %1368 to float
   %1370 = call noundef float @logf(float noundef %1369) #22, !tbaa !4
   %1371 = fmul float %.0766, %1370
   %1372 = call float @llvm.rint.f32(float %1371)

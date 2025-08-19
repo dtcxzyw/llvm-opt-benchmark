@@ -3728,7 +3728,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit156:          ; preds = %509, %513
   %527 = load ptr, ptr %135, align 8, !tbaa !91, !noalias !113
   %528 = load ptr, ptr %14, align 8, !tbaa !93, !noalias !113
   %529 = icmp eq ptr %527, %528
-  %spec.select321 = zext i1 %529 to i8
+  %spec.select365 = zext i1 %529 to i8
   call void @_ZN5Catch9StringRefC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull @.str.25) #21, !noalias !113
   %530 = load ptr, ptr %5, align 8, !noalias !113
   %531 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -3736,7 +3736,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit156:          ; preds = %509, %513
   %533 = getelementptr inbounds nuw i8, ptr %60, i64 8
   store i8 1, ptr %533, align 8, !tbaa !19, !alias.scope !113
   %534 = getelementptr inbounds nuw i8, ptr %60, i64 9
-  store i8 %spec.select321, ptr %534, align 1, !tbaa !22, !alias.scope !113
+  store i8 %spec.select365, ptr %534, align 1, !tbaa !22, !alias.scope !113
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5Catch10BinaryExprIRKSt6vectorIN5vcpkg10StringViewESaIS3_EES7_EE, i64 16), ptr %60, align 8, !tbaa !23, !alias.scope !113
   %535 = getelementptr inbounds nuw i8, ptr %60, i64 16
   store ptr %14, ptr %535, align 8, !tbaa !94, !alias.scope !113
@@ -5118,7 +5118,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit139:          ; preds = %217, %221
   %237 = load ptr, ptr %236, align 8, !tbaa !91, !noalias !134
   %238 = load ptr, ptr %235, align 8, !tbaa !93, !noalias !134
   %239 = icmp eq ptr %237, %238
-  %spec.select545 = zext i1 %239 to i8
+  %spec.select629 = zext i1 %239 to i8
   call void @_ZN5Catch9StringRefC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull @.str.25) #21, !noalias !134
   %240 = load ptr, ptr %16, align 8, !noalias !134
   %241 = getelementptr inbounds nuw i8, ptr %16, i64 8
@@ -5126,7 +5126,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit139:          ; preds = %217, %221
   %243 = getelementptr inbounds nuw i8, ptr %36, i64 8
   store i8 1, ptr %243, align 8, !tbaa !19, !alias.scope !134
   %244 = getelementptr inbounds nuw i8, ptr %36, i64 9
-  store i8 %spec.select545, ptr %244, align 1, !tbaa !22, !alias.scope !134
+  store i8 %spec.select629, ptr %244, align 1, !tbaa !22, !alias.scope !134
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5Catch10BinaryExprIRKSt6vectorIN5vcpkg10StringViewESaIS3_EES7_EE, i64 16), ptr %36, align 8, !tbaa !23, !alias.scope !134
   %245 = getelementptr inbounds nuw i8, ptr %36, i64 16
   store ptr %235, ptr %245, align 8, !tbaa !94, !alias.scope !134
@@ -5476,7 +5476,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit162:          ; preds = %359, %363
   %377 = load ptr, ptr %177, align 8, !tbaa !91, !noalias !140
   %378 = load ptr, ptr %20, align 8, !tbaa !93, !noalias !140
   %379 = icmp eq ptr %377, %378
-  %spec.select546 = zext i1 %379 to i8
+  %spec.select630 = zext i1 %379 to i8
   call void @_ZN5Catch9StringRefC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull @.str.25) #21, !noalias !140
   %380 = load ptr, ptr %14, align 8, !noalias !140
   %381 = getelementptr inbounds nuw i8, ptr %14, i64 8
@@ -5484,7 +5484,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit162:          ; preds = %359, %363
   %383 = getelementptr inbounds nuw i8, ptr %48, i64 8
   store i8 1, ptr %383, align 8, !tbaa !19, !alias.scope !140
   %384 = getelementptr inbounds nuw i8, ptr %48, i64 9
-  store i8 %spec.select546, ptr %384, align 1, !tbaa !22, !alias.scope !140
+  store i8 %spec.select630, ptr %384, align 1, !tbaa !22, !alias.scope !140
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5Catch10BinaryExprIRKSt6vectorIN5vcpkg10StringViewESaIS3_EES7_EE, i64 16), ptr %48, align 8, !tbaa !23, !alias.scope !140
   %385 = getelementptr inbounds nuw i8, ptr %48, i64 16
   store ptr %20, ptr %385, align 8, !tbaa !94, !alias.scope !140
@@ -5630,7 +5630,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit183:          ; preds = %416, %420
   %434 = load ptr, ptr %236, align 8, !tbaa !91, !noalias !143
   %435 = load ptr, ptr %235, align 8, !tbaa !93, !noalias !143
   %436 = icmp eq ptr %434, %435
-  %spec.select547 = zext i1 %436 to i8
+  %spec.select631 = zext i1 %436 to i8
   call void @_ZN5Catch9StringRefC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull @.str.25) #21, !noalias !143
   %437 = load ptr, ptr %13, align 8, !noalias !143
   %438 = getelementptr inbounds nuw i8, ptr %13, i64 8
@@ -5638,7 +5638,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit183:          ; preds = %416, %420
   %440 = getelementptr inbounds nuw i8, ptr %54, i64 8
   store i8 1, ptr %440, align 8, !tbaa !19, !alias.scope !143
   %441 = getelementptr inbounds nuw i8, ptr %54, i64 9
-  store i8 %spec.select547, ptr %441, align 1, !tbaa !22, !alias.scope !143
+  store i8 %spec.select631, ptr %441, align 1, !tbaa !22, !alias.scope !143
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5Catch10BinaryExprIRKSt6vectorIN5vcpkg10StringViewESaIS3_EES7_EE, i64 16), ptr %54, align 8, !tbaa !23, !alias.scope !143
   %442 = getelementptr inbounds nuw i8, ptr %54, i64 16
   store ptr %235, ptr %442, align 8, !tbaa !94, !alias.scope !143
@@ -5986,7 +5986,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit214:          ; preds = %554, %558
   %572 = load ptr, ptr %177, align 8, !tbaa !91, !noalias !149
   %573 = load ptr, ptr %20, align 8, !tbaa !93, !noalias !149
   %574 = icmp eq ptr %572, %573
-  %spec.select548 = zext i1 %574 to i8
+  %spec.select632 = zext i1 %574 to i8
   call void @_ZN5Catch9StringRefC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull @.str.25) #21, !noalias !149
   %575 = load ptr, ptr %11, align 8, !noalias !149
   %576 = getelementptr inbounds nuw i8, ptr %11, i64 8
@@ -5994,7 +5994,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit214:          ; preds = %554, %558
   %578 = getelementptr inbounds nuw i8, ptr %66, i64 8
   store i8 1, ptr %578, align 8, !tbaa !19, !alias.scope !149
   %579 = getelementptr inbounds nuw i8, ptr %66, i64 9
-  store i8 %spec.select548, ptr %579, align 1, !tbaa !22, !alias.scope !149
+  store i8 %spec.select632, ptr %579, align 1, !tbaa !22, !alias.scope !149
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5Catch10BinaryExprIRKSt6vectorIN5vcpkg10StringViewESaIS3_EES7_EE, i64 16), ptr %66, align 8, !tbaa !23, !alias.scope !149
   %580 = getelementptr inbounds nuw i8, ptr %66, i64 16
   store ptr %20, ptr %580, align 8, !tbaa !94, !alias.scope !149
@@ -6140,7 +6140,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit235:          ; preds = %611, %615
   %629 = load ptr, ptr %236, align 8, !tbaa !91, !noalias !152
   %630 = load ptr, ptr %235, align 8, !tbaa !93, !noalias !152
   %631 = icmp eq ptr %629, %630
-  %spec.select549 = zext i1 %631 to i8
+  %spec.select633 = zext i1 %631 to i8
   call void @_ZN5Catch9StringRefC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull @.str.25) #21, !noalias !152
   %632 = load ptr, ptr %10, align 8, !noalias !152
   %633 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -6148,7 +6148,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit235:          ; preds = %611, %615
   %635 = getelementptr inbounds nuw i8, ptr %72, i64 8
   store i8 1, ptr %635, align 8, !tbaa !19, !alias.scope !152
   %636 = getelementptr inbounds nuw i8, ptr %72, i64 9
-  store i8 %spec.select549, ptr %636, align 1, !tbaa !22, !alias.scope !152
+  store i8 %spec.select633, ptr %636, align 1, !tbaa !22, !alias.scope !152
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5Catch10BinaryExprIRKSt6vectorIN5vcpkg10StringViewESaIS3_EES7_EE, i64 16), ptr %72, align 8, !tbaa !23, !alias.scope !152
   %637 = getelementptr inbounds nuw i8, ptr %72, i64 16
   store ptr %235, ptr %637, align 8, !tbaa !94, !alias.scope !152
@@ -6496,7 +6496,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit266:          ; preds = %749, %753
   %767 = load ptr, ptr %177, align 8, !tbaa !91, !noalias !158
   %768 = load ptr, ptr %20, align 8, !tbaa !93, !noalias !158
   %769 = icmp eq ptr %767, %768
-  %spec.select550 = zext i1 %769 to i8
+  %spec.select634 = zext i1 %769 to i8
   call void @_ZN5Catch9StringRefC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull @.str.25) #21, !noalias !158
   %770 = load ptr, ptr %8, align 8, !noalias !158
   %771 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -6504,7 +6504,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit266:          ; preds = %749, %753
   %773 = getelementptr inbounds nuw i8, ptr %84, i64 8
   store i8 1, ptr %773, align 8, !tbaa !19, !alias.scope !158
   %774 = getelementptr inbounds nuw i8, ptr %84, i64 9
-  store i8 %spec.select550, ptr %774, align 1, !tbaa !22, !alias.scope !158
+  store i8 %spec.select634, ptr %774, align 1, !tbaa !22, !alias.scope !158
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5Catch10BinaryExprIRKSt6vectorIN5vcpkg10StringViewESaIS3_EES7_EE, i64 16), ptr %84, align 8, !tbaa !23, !alias.scope !158
   %775 = getelementptr inbounds nuw i8, ptr %84, i64 16
   store ptr %20, ptr %775, align 8, !tbaa !94, !alias.scope !158
@@ -6650,7 +6650,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit287:          ; preds = %806, %810
   %824 = load ptr, ptr %236, align 8, !tbaa !91, !noalias !161
   %825 = load ptr, ptr %235, align 8, !tbaa !93, !noalias !161
   %826 = icmp eq ptr %824, %825
-  %spec.select551 = zext i1 %826 to i8
+  %spec.select635 = zext i1 %826 to i8
   call void @_ZN5Catch9StringRefC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull @.str.25) #21, !noalias !161
   %827 = load ptr, ptr %7, align 8, !noalias !161
   %828 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -6658,7 +6658,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit287:          ; preds = %806, %810
   %830 = getelementptr inbounds nuw i8, ptr %90, i64 8
   store i8 1, ptr %830, align 8, !tbaa !19, !alias.scope !161
   %831 = getelementptr inbounds nuw i8, ptr %90, i64 9
-  store i8 %spec.select551, ptr %831, align 1, !tbaa !22, !alias.scope !161
+  store i8 %spec.select635, ptr %831, align 1, !tbaa !22, !alias.scope !161
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5Catch10BinaryExprIRKSt6vectorIN5vcpkg10StringViewESaIS3_EES7_EE, i64 16), ptr %90, align 8, !tbaa !23, !alias.scope !161
   %832 = getelementptr inbounds nuw i8, ptr %90, i64 16
   store ptr %235, ptr %832, align 8, !tbaa !94, !alias.scope !161

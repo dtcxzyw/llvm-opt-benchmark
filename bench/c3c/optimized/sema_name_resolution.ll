@@ -834,7 +834,7 @@ sema_find_extension_method_in_list.exit:          ; preds = %33, %13, %16
   br label %.thread107
 
 sema_find_extension_method_in_list.exit.thread:   ; preds = %24, %sema_find_extension_method_in_list.exit
-  %.067136 = phi ptr [ %35, %sema_find_extension_method_in_list.exit ], [ %22, %24 ]
+  %.067147 = phi ptr [ %35, %sema_find_extension_method_in_list.exit ], [ %22, %24 ]
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %38 = load ptr, ptr %37, align 8
   %.not82 = icmp eq ptr %38, null
@@ -852,7 +852,7 @@ sema_find_extension_method_in_list.exit.thread:   ; preds = %24, %sema_find_exte
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %61
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %61 ]
-  %.1124 = phi ptr [ %.067136, %.lr.ph.preheader ], [ %.2, %61 ]
+  %.1124 = phi ptr [ %.067147, %.lr.ph.preheader ], [ %.2, %61 ]
   %42 = load ptr, ptr %37, align 8
   %43 = getelementptr inbounds nuw ptr, ptr %42, i64 %indvars.iv
   %44 = load ptr, ptr %43, align 8
@@ -897,7 +897,7 @@ sema_find_extension_method_in_list.exit.thread:   ; preds = %24, %sema_find_exte
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %61, %sema_find_extension_method_in_list.exit.thread, %39
-  %.1.lcssa = phi ptr [ %.067136, %39 ], [ %.067136, %sema_find_extension_method_in_list.exit.thread ], [ %.2, %61 ]
+  %.1.lcssa = phi ptr [ %.067147, %39 ], [ %.067147, %sema_find_extension_method_in_list.exit.thread ], [ %.2, %61 ]
   %.not83 = icmp eq ptr %.1.lcssa, null
   br i1 %.not83, label %62, label %65
 
@@ -2258,10 +2258,10 @@ matches_subpath.exit.thread:                      ; preds = %45, %49, %37, %matc
 ._crit_edge:                                      ; preds = %matches_subpath.exit.thread, %21, %23
   %53 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @global_context, i64 32), align 8
   %.not71 = icmp eq ptr %53, null
-  br i1 %.not71, label %.thread126, label %54
+  br i1 %.not71, label %.thread135, label %54
 
-.thread126:                                       ; preds = %._crit_edge
-  %.pre129 = load ptr, ptr %6, align 8
+.thread135:                                       ; preds = %._crit_edge
+  %.pre138 = load ptr, ptr %6, align 8
   br label %.._crit_edge107_crit_edge
 
 54:                                               ; preds = %._crit_edge
@@ -2271,11 +2271,11 @@ matches_subpath.exit.thread:                      ; preds = %45, %49, %37, %matc
   %.pre = load ptr, ptr %6, align 8
   br i1 %.not109, label %.._crit_edge107_crit_edge, label %.lr.ph106
 
-.._crit_edge107_crit_edge:                        ; preds = %.thread126, %54
-  %.pre131 = phi ptr [ %.pre129, %.thread126 ], [ %.pre, %54 ]
-  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre131, i64 16
+.._crit_edge107_crit_edge:                        ; preds = %.thread135, %54
+  %.pre140 = phi ptr [ %.pre138, %.thread135 ], [ %.pre, %54 ]
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre140, i64 16
   %.pre120 = load i32, ptr %.phi.trans.insert, align 8
-  %.phi.trans.insert121 = getelementptr inbounds nuw i8, ptr %.pre131, i64 8
+  %.phi.trans.insert121 = getelementptr inbounds nuw i8, ptr %.pre140, i64 8
   %.pre122 = load ptr, ptr %.phi.trans.insert121, align 8
   br label %._crit_edge107
 
@@ -2337,10 +2337,10 @@ matches_subpath.exit81.thread:                    ; preds = %75, %79, %67, %matc
   br label %89
 
 ._crit_edge107:                                   ; preds = %matches_subpath.exit81.thread, %.._crit_edge107_crit_edge
-  %.pre130 = phi ptr [ %.pre131, %.._crit_edge107_crit_edge ], [ %.pre, %matches_subpath.exit81.thread ]
+  %.pre139 = phi ptr [ %.pre140, %.._crit_edge107_crit_edge ], [ %.pre, %matches_subpath.exit81.thread ]
   %86 = phi ptr [ %.pre122, %.._crit_edge107_crit_edge ], [ %58, %matches_subpath.exit81.thread ]
   %87 = phi i32 [ %.pre120, %.._crit_edge107_crit_edge ], [ %71, %matches_subpath.exit81.thread ]
-  %88 = load i64, ptr %.pre130, align 8
+  %88 = load i64, ptr %.pre139, align 8
   tail call void (i64, ptr, ...) @sema_error_at(i64 %88, ptr noundef nonnull @.str.17, i32 noundef %87, ptr noundef %86) #10
   br label %89
 
@@ -2484,10 +2484,10 @@ matches_subpath.exit.thread:                      ; preds = %46, %50, %38, %matc
 ._crit_edge:                                      ; preds = %matches_subpath.exit.thread, %22, %24
   %54 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @global_context, i64 32), align 8
   %.not71 = icmp eq ptr %54, null
-  br i1 %.not71, label %.thread126, label %55
+  br i1 %.not71, label %.thread135, label %55
 
-.thread126:                                       ; preds = %._crit_edge
-  %.pre129 = load ptr, ptr %7, align 8
+.thread135:                                       ; preds = %._crit_edge
+  %.pre138 = load ptr, ptr %7, align 8
   br label %.._crit_edge107_crit_edge
 
 55:                                               ; preds = %._crit_edge
@@ -2497,11 +2497,11 @@ matches_subpath.exit.thread:                      ; preds = %46, %50, %38, %matc
   %.pre = load ptr, ptr %7, align 8
   br i1 %.not109, label %.._crit_edge107_crit_edge, label %.lr.ph106
 
-.._crit_edge107_crit_edge:                        ; preds = %.thread126, %55
-  %.pre131 = phi ptr [ %.pre129, %.thread126 ], [ %.pre, %55 ]
-  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre131, i64 16
+.._crit_edge107_crit_edge:                        ; preds = %.thread135, %55
+  %.pre140 = phi ptr [ %.pre138, %.thread135 ], [ %.pre, %55 ]
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre140, i64 16
   %.pre120 = load i32, ptr %.phi.trans.insert, align 8
-  %.phi.trans.insert121 = getelementptr inbounds nuw i8, ptr %.pre131, i64 8
+  %.phi.trans.insert121 = getelementptr inbounds nuw i8, ptr %.pre140, i64 8
   %.pre122 = load ptr, ptr %.phi.trans.insert121, align 8
   br label %._crit_edge107
 
@@ -2563,10 +2563,10 @@ matches_subpath.exit81.thread:                    ; preds = %76, %80, %68, %matc
   br label %90
 
 ._crit_edge107:                                   ; preds = %matches_subpath.exit81.thread, %.._crit_edge107_crit_edge
-  %.pre130 = phi ptr [ %.pre131, %.._crit_edge107_crit_edge ], [ %.pre, %matches_subpath.exit81.thread ]
+  %.pre139 = phi ptr [ %.pre140, %.._crit_edge107_crit_edge ], [ %.pre, %matches_subpath.exit81.thread ]
   %87 = phi ptr [ %.pre122, %.._crit_edge107_crit_edge ], [ %59, %matches_subpath.exit81.thread ]
   %88 = phi i32 [ %.pre120, %.._crit_edge107_crit_edge ], [ %72, %matches_subpath.exit81.thread ]
-  %89 = load i64, ptr %.pre130, align 8
+  %89 = load i64, ptr %.pre139, align 8
   tail call void (i64, ptr, ...) @sema_error_at(i64 %89, ptr noundef nonnull @.str.17, i32 noundef %88, ptr noundef %87) #10
   br label %90
 
@@ -2889,11 +2889,11 @@ sema_find_local.exit.thread:                      ; preds = %92, %78, %73, %75, 
 .preheader.preheader.i:                           ; preds = %134, %.thread.i
   %141 = phi i64 [ %133, %.thread.i ], [ %140, %134 ]
   %142 = phi ptr [ %131, %.thread.i ], [ %138, %134 ]
-  %.037.i = phi i64 [ 0, %.thread.i ], [ %137, %134 ]
+  %.043.i = phi i64 [ 0, %.thread.i ], [ %137, %134 ]
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %167, %.preheader.preheader.i
-  %.02634.i = phi i64 [ %175, %167 ], [ %.037.i, %.preheader.preheader.i ]
+  %.02634.i = phi i64 [ %175, %167 ], [ %.043.i, %.preheader.preheader.i ]
   %143 = load ptr, ptr %129, align 8
   %.not.i.i71 = icmp eq ptr %143, null
   br i1 %.not.i.i71, label %144, label %147
@@ -3017,11 +3017,11 @@ define dso_local void @sema_unwrap_var(ptr noundef captures(none) %0, ptr nounde
 .preheader.preheader.i:                           ; preds = %22, %.thread.i
   %29 = phi i64 [ %21, %.thread.i ], [ %28, %22 ]
   %30 = phi ptr [ %19, %.thread.i ], [ %26, %22 ]
-  %.037.i = phi i64 [ 0, %.thread.i ], [ %25, %22 ]
+  %.043.i = phi i64 [ 0, %.thread.i ], [ %25, %22 ]
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %55, %.preheader.preheader.i
-  %.02634.i = phi i64 [ %63, %55 ], [ %.037.i, %.preheader.preheader.i ]
+  %.02634.i = phi i64 [ %63, %55 ], [ %.043.i, %.preheader.preheader.i ]
   %31 = load ptr, ptr %17, align 8
   %.not.i.i = icmp eq ptr %31, null
   br i1 %.not.i.i, label %32, label %35
@@ -3122,11 +3122,11 @@ define dso_local void @sema_rewrap_var(ptr noundef captures(none) %0, ptr nounde
 .preheader.preheader.i:                           ; preds = %10, %.thread.i
   %17 = phi i64 [ %9, %.thread.i ], [ %16, %10 ]
   %18 = phi ptr [ %7, %.thread.i ], [ %14, %10 ]
-  %.037.i = phi i64 [ 0, %.thread.i ], [ %13, %10 ]
+  %.043.i = phi i64 [ 0, %.thread.i ], [ %13, %10 ]
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %43, %.preheader.preheader.i
-  %.02634.i = phi i64 [ %51, %43 ], [ %.037.i, %.preheader.preheader.i ]
+  %.02634.i = phi i64 [ %51, %43 ], [ %.043.i, %.preheader.preheader.i ]
   %19 = load ptr, ptr %5, align 8
   %.not.i.i = icmp eq ptr %19, null
   br i1 %.not.i.i, label %20, label %23
@@ -3237,11 +3237,11 @@ define dso_local void @sema_erase_var(ptr noundef captures(none) %0, ptr noundef
 .preheader.preheader.i:                           ; preds = %17, %.thread.i
   %24 = phi i64 [ %16, %.thread.i ], [ %23, %17 ]
   %25 = phi ptr [ %14, %.thread.i ], [ %21, %17 ]
-  %.037.i = phi i64 [ 0, %.thread.i ], [ %20, %17 ]
+  %.043.i = phi i64 [ 0, %.thread.i ], [ %20, %17 ]
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %50, %.preheader.preheader.i
-  %.02634.i = phi i64 [ %58, %50 ], [ %.037.i, %.preheader.preheader.i ]
+  %.02634.i = phi i64 [ %58, %50 ], [ %.043.i, %.preheader.preheader.i ]
   %26 = load ptr, ptr %12, align 8
   %.not.i.i = icmp eq ptr %26, null
   br i1 %.not.i.i, label %27, label %30
@@ -3358,11 +3358,11 @@ define dso_local void @sema_erase_unwrapped(ptr noundef captures(none) %0, ptr n
 .preheader.preheader.i:                           ; preds = %21, %.thread.i
   %28 = phi i64 [ %20, %.thread.i ], [ %27, %21 ]
   %29 = phi ptr [ %18, %.thread.i ], [ %25, %21 ]
-  %.037.i = phi i64 [ 0, %.thread.i ], [ %24, %21 ]
+  %.043.i = phi i64 [ 0, %.thread.i ], [ %24, %21 ]
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %54, %.preheader.preheader.i
-  %.02634.i = phi i64 [ %62, %54 ], [ %.037.i, %.preheader.preheader.i ]
+  %.02634.i = phi i64 [ %62, %54 ], [ %.043.i, %.preheader.preheader.i ]
   %30 = load ptr, ptr %16, align 8
   %.not.i.i = icmp eq ptr %30, null
   br i1 %.not.i.i, label %31, label %34

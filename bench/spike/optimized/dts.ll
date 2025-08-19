@@ -1282,8 +1282,8 @@ define noundef range(i32 -2147483648, 1) i32 @_Z22fdt_get_node_addr_sizePKviPmS1
   br i1 %.not48, label %33, label %.preheader
 
 .preheader:                                       ; preds = %26
-  %.not63 = icmp eq i32 %13, 0
-  br i1 %.not63, label %._crit_edge58, label %.lr.ph57
+  %.not69 = icmp eq i32 %13, 0
+  br i1 %.not69, label %._crit_edge58, label %.lr.ph57
 
 .lr.ph57:                                         ; preds = %.preheader, %.lr.ph57
   %.156 = phi i64 [ %31, %.lr.ph57 ], [ 0, %.preheader ]
@@ -1556,19 +1556,19 @@ _Z22fdt_get_node_addr_sizePKviPmS1_PKc.exit:      ; preds = %.lr.ph.i
 
 34:                                               ; preds = %32
   %.not40 = icmp eq ptr %33, null
-  br i1 %.not40, label %.sink.split47, label %35
+  br i1 %.not40, label %.sink.split58, label %35
 
 35:                                               ; preds = %34
   %36 = load i32, ptr %33, align 4, !tbaa !95
   %rev.i43 = call noundef i32 @llvm.bswap.i32(i32 %36)
-  br label %.sink.split47
+  br label %.sink.split58
 
-.sink.split47:                                    ; preds = %34, %35
+.sink.split58:                                    ; preds = %34, %35
   %rev.i43.sink = phi i32 [ %rev.i43, %35 ], [ 1, %34 ]
   store i32 %rev.i43.sink, ptr %3, align 4, !tbaa !95
   br label %37
 
-37:                                               ; preds = %.sink.split47, %32
+37:                                               ; preds = %.sink.split58, %32
   %38 = call ptr @fdt_getprop(ptr noundef %0, i32 noundef %9, ptr noundef nonnull @.str.32, ptr noundef nonnull %8)
   %.not41 = icmp eq ptr %4, null
   br i1 %.not41, label %43, label %39

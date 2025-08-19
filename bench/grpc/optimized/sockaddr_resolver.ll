@@ -363,12 +363,12 @@ _ZNSt10unique_ptrIN9grpc_core12_GLOBAL__N_120VSockResolverFactoryESt14default_de
   br i1 %.not.i49, label %_ZNSt10unique_ptrIN9grpc_core12_GLOBAL__N_119IPv4ResolverFactoryESt14default_deleteIS2_EED2Ev.exit30, label %_ZNSt10unique_ptrIN9grpc_core12_GLOBAL__N_119IPv4ResolverFactoryESt14default_deleteIS2_EED2Ev.exit30.sink.split
 
 _ZNSt10unique_ptrIN9grpc_core12_GLOBAL__N_119IPv4ResolverFactoryESt14default_deleteIS2_EED2Ev.exit30.sink.split: ; preds = %50, %47, %44, %41, %38
-  %.sink72 = phi ptr [ %40, %38 ], [ %43, %41 ], [ %46, %44 ], [ %49, %47 ], [ %52, %50 ]
+  %.sink81 = phi ptr [ %40, %38 ], [ %43, %41 ], [ %46, %44 ], [ %49, %47 ], [ %52, %50 ]
   %.pn.ph = phi { ptr, i32 } [ %39, %38 ], [ %42, %41 ], [ %45, %44 ], [ %48, %47 ], [ %51, %50 ]
-  %53 = load ptr, ptr %.sink72, align 8, !tbaa !6
+  %53 = load ptr, ptr %.sink81, align 8, !tbaa !6
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 8
   %55 = load ptr, ptr %54, align 8
-  call void %55(ptr noundef nonnull align 8 dereferenceable(8) %.sink72) #24
+  call void %55(ptr noundef nonnull align 8 dereferenceable(8) %.sink81) #24
   br label %_ZNSt10unique_ptrIN9grpc_core12_GLOBAL__N_119IPv4ResolverFactoryESt14default_deleteIS2_EED2Ev.exit30
 
 _ZNSt10unique_ptrIN9grpc_core12_GLOBAL__N_119IPv4ResolverFactoryESt14default_deleteIS2_EED2Ev.exit30: ; preds = %_ZNSt10unique_ptrIN9grpc_core12_GLOBAL__N_119IPv4ResolverFactoryESt14default_deleteIS2_EED2Ev.exit30.sink.split, %50, %47, %44, %41, %38

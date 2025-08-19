@@ -1145,9 +1145,9 @@ define internal ptr @seq_start(ptr noundef readonly captures(none) %0, ptr nound
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %17 = load volatile ptr, ptr %16, align 8
   %18 = icmp eq ptr %17, null
-  br i1 %18, label %.lr.ph39, label %._crit_edge40
+  br i1 %18, label %.lr.ph44, label %._crit_edge45
 
-.lr.ph39:                                         ; preds = %7, %23
+.lr.ph44:                                         ; preds = %7, %23
   %19 = phi i64 [ %20, %23 ], [ 0, %7 ]
   %20 = add nuw nsw i64 %19, 1
   %21 = trunc i64 %20 to i32
@@ -1155,26 +1155,26 @@ define internal ptr @seq_start(ptr noundef readonly captures(none) %0, ptr nound
   %22 = icmp eq i64 %20, 16
   br i1 %22, label %.thread7, label %23, !llvm.loop !27
 
-23:                                               ; preds = %.lr.ph39
+23:                                               ; preds = %.lr.ph44
   %24 = getelementptr [16 x %struct.hlist_head], ptr %16, i64 0, i64 %20
   %25 = load volatile ptr, ptr %24, align 8
   %26 = icmp eq ptr %25, null
-  br i1 %26, label %.lr.ph39, label %._crit_edge40, !llvm.loop !27
+  br i1 %26, label %.lr.ph44, label %._crit_edge45, !llvm.loop !27
 
-._crit_edge40:                                    ; preds = %23, %7
-  %.lcssa36 = phi i32 [ 0, %7 ], [ %21, %23 ]
-  %.lcssa34 = phi i64 [ 0, %7 ], [ %20, %23 ]
-  %27 = getelementptr [16 x %struct.hlist_head], ptr %16, i64 0, i64 %.lcssa34
+._crit_edge45:                                    ; preds = %23, %7
+  %.lcssa41 = phi i32 [ 0, %7 ], [ %21, %23 ]
+  %.lcssa39 = phi i64 [ 0, %7 ], [ %20, %23 ]
+  %27 = getelementptr [16 x %struct.hlist_head], ptr %16, i64 0, i64 %.lcssa39
   %28 = load volatile ptr, ptr %27, align 8
   %29 = icmp ne ptr %28, null
   %30 = icmp ne i64 %.fr, 0
   %31 = and i1 %30, %29
   br i1 %31, label %.preheader, label %.thread7
 
-.preheader:                                       ; preds = %._crit_edge40, %._crit_edge
-  %32 = phi i32 [ %52, %._crit_edge ], [ %.lcssa36, %._crit_edge40 ]
-  %33 = phi i64 [ %53, %._crit_edge ], [ %.fr, %._crit_edge40 ]
-  %34 = phi ptr [ %.lcssa, %._crit_edge ], [ %28, %._crit_edge40 ]
+.preheader:                                       ; preds = %._crit_edge45, %._crit_edge
+  %32 = phi i32 [ %52, %._crit_edge ], [ %.lcssa41, %._crit_edge45 ]
+  %33 = phi i64 [ %53, %._crit_edge ], [ %.fr, %._crit_edge45 ]
+  %34 = phi ptr [ %.lcssa, %._crit_edge ], [ %28, %._crit_edge45 ]
   %35 = load volatile ptr, ptr %34, align 8
   %36 = icmp eq ptr %35, null
   br i1 %36, label %.lr.ph, label %._crit_edge
@@ -1209,8 +1209,8 @@ define internal ptr @seq_start(ptr noundef readonly captures(none) %0, ptr nound
   %54 = icmp eq i64 %53, 0
   br i1 %54, label %.thread12, label %.preheader
 
-.thread7:                                         ; preds = %.lr.ph39, %2, %._crit_edge40
-  %55 = phi ptr [ %28, %._crit_edge40 ], [ null, %2 ], [ null, %.lr.ph39 ]
+.thread7:                                         ; preds = %.lr.ph44, %2, %._crit_edge45
+  %55 = phi ptr [ %28, %._crit_edge45 ], [ null, %2 ], [ null, %.lr.ph44 ]
   %56 = icmp eq i64 %.fr, 0
   %spec.select = select i1 %56, ptr %55, ptr null
   br label %.thread12

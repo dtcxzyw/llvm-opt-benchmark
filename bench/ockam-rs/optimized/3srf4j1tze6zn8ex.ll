@@ -3822,7 +3822,7 @@ define internal void @"_ZN127_$LT$ockam_core..access_control..all..AllIncomingAc
   %4 = alloca { i8, [15 x i8] }, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %6 = load i8, ptr %5, align 8, !range !136, !noundef !8
-  switch i8 %6, label %default.unreachable44 [
+  switch i8 %6, label %default.unreachable45 [
     i8 0, label %8
     i8 1, label %20
     i8 2, label %21
@@ -3836,7 +3836,7 @@ define internal void @"_ZN127_$LT$ockam_core..access_control..all..AllIncomingAc
   %.pre43 = load ptr, ptr %.phi.trans.insert42, align 8, !alias.scope !445, !noalias !450
   br label %22
 
-default.unreachable44:                            ; preds = %3
+default.unreachable45:                            ; preds = %3
   unreachable
 
 common.ret:                                       ; preds = %41, %7
@@ -4070,7 +4070,7 @@ define internal void @"_ZN127_$LT$ockam_core..access_control..all..AllOutgoingAc
   %4 = alloca { i8, [15 x i8] }, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %6 = load i8, ptr %5, align 8, !range !136, !noundef !8
-  switch i8 %6, label %default.unreachable44 [
+  switch i8 %6, label %default.unreachable45 [
     i8 0, label %8
     i8 1, label %20
     i8 2, label %21
@@ -4084,7 +4084,7 @@ define internal void @"_ZN127_$LT$ockam_core..access_control..all..AllOutgoingAc
   %.pre43 = load ptr, ptr %.phi.trans.insert42, align 8, !alias.scope !471, !noalias !476
   br label %22
 
-default.unreachable44:                            ; preds = %3
+default.unreachable45:                            ; preds = %3
   unreachable
 
 common.ret:                                       ; preds = %41, %7
@@ -5069,13 +5069,13 @@ define { ptr, ptr } @"_ZN126_$LT$ockam_core..access_control..onward..AllowOnward
 define internal void @"_ZN126_$LT$ockam_core..access_control..onward..AllowOnwardAddresses$u20$as$u20$ockam_core..access_control..OutgoingAccessControl$GT$13is_authorized28_$u7b$$u7b$closure$u7d$$u7d$17h8d0a4ffb55e45e8aE"(ptr noalias noundef writeonly sret({ i8, [15 x i8] }) align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 captures(none) %1, ptr noalias readnone align 8 captures(none) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load i8, ptr %4, align 8, !range !165, !noundef !8
-  switch i8 %5, label %default.unreachable19 [
+  switch i8 %5, label %default.unreachable20 [
     i8 0, label %6
     i8 1, label %47
     i8 2, label %48
   ]
 
-default.unreachable19:                            ; preds = %3
+default.unreachable20:                            ; preds = %3
   unreachable
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8contains17h4c28611bd3c17b15E.exit": ; preds = %40, %.backedge.i.i.i, %16, %12
@@ -5318,13 +5318,13 @@ define { ptr, ptr } @"_ZN126_$LT$ockam_core..access_control..source..AllowSource
 define internal void @"_ZN126_$LT$ockam_core..access_control..source..AllowSourceAddresses$u20$as$u20$ockam_core..access_control..IncomingAccessControl$GT$13is_authorized28_$u7b$$u7b$closure$u7d$$u7d$17hfbb6711f219e124fE"(ptr noalias noundef writeonly sret({ i8, [15 x i8] }) align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 captures(none) %1, ptr noalias readnone align 8 captures(none) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load i8, ptr %4, align 8, !range !165, !noundef !8
-  switch i8 %5, label %default.unreachable9 [
+  switch i8 %5, label %default.unreachable10 [
     i8 0, label %8
     i8 1, label %31
     i8 2, label %32
   ]
 
-default.unreachable9:                             ; preds = %3
+default.unreachable10:                            ; preds = %3
   unreachable
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8contains17h4c28611bd3c17b15E.exit": ; preds = %27, %.backedge.i.i.i, %8

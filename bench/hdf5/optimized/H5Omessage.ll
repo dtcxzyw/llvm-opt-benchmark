@@ -677,8 +677,8 @@ define range(i32 -1, 1) i32 @H5O__msg_write_real(ptr noundef %0, ptr noundef %1,
   %31 = load i8, ptr %30, align 1, !tbaa !47
   %32 = and i8 %31, 1
   %.not40 = icmp eq i8 %32, 0
-  %or.cond63 = select i1 %.not, i1 true, i1 %.not40
-  br i1 %or.cond63, label %._crit_edge57, label %33
+  %or.cond65 = select i1 %.not, i1 true, i1 %.not40
+  br i1 %or.cond65, label %._crit_edge57, label %33
 
 33:                                               ; preds = %28
   %34 = load i64, ptr @H5E_OHDR_g, align 8, !tbaa !10
@@ -725,8 +725,8 @@ define range(i32 -1, 1) i32 @H5O__msg_write_real(ptr noundef %0, ptr noundef %1,
   %.pre58 = load i32, ptr %7, align 4, !tbaa !18
   %60 = and i32 %.pre58, 2
   %.not44 = icmp eq i32 %60, 0
-  %or.cond64 = select i1 %59, i1 true, i1 %.not44
-  br i1 %or.cond64, label %65, label %61
+  %or.cond66 = select i1 %59, i1 true, i1 %.not44
+  br i1 %or.cond66, label %65, label %61
 
 61:                                               ; preds = %58
   %62 = load i64, ptr @H5E_OHDR_g, align 8, !tbaa !10
@@ -3495,23 +3495,23 @@ define range(i32 -1, 1) i32 @H5O_msg_get_flags(ptr noundef %0, i32 noundef %1, p
   %33 = load ptr, ptr %32, align 8, !tbaa !28
   %34 = load ptr, ptr %33, align 8, !tbaa !50
   %35 = icmp eq ptr %22, %34
-  br i1 %35, label %._crit_edge, label %.lr.ph46
+  br i1 %35, label %._crit_edge, label %.lr.ph50
 
-.lr.ph:                                           ; preds = %.lr.ph46
+.lr.ph:                                           ; preds = %.lr.ph50
   %36 = load ptr, ptr %39, align 8, !tbaa !50
   %37 = icmp eq ptr %22, %36
-  br i1 %37, label %._crit_edge, label %.lr.ph46, !llvm.loop !91
+  br i1 %37, label %._crit_edge, label %.lr.ph50, !llvm.loop !91
 
-.lr.ph46:                                         ; preds = %.lr.ph.preheader, %.lr.ph
-  %.0212945 = phi ptr [ %39, %.lr.ph ], [ %33, %.lr.ph.preheader ]
-  %.0203044 = phi i32 [ %38, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %38 = add i32 %.0203044, 1
-  %39 = getelementptr inbounds nuw i8, ptr %.0212945, i64 48
+.lr.ph50:                                         ; preds = %.lr.ph.preheader, %.lr.ph
+  %.0212949 = phi ptr [ %39, %.lr.ph ], [ %33, %.lr.ph.preheader ]
+  %.0203048 = phi i32 [ %38, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %38 = add i32 %.0203048, 1
+  %39 = getelementptr inbounds nuw i8, ptr %.0212949, i64 48
   %40 = zext i32 %38 to i64
   %41 = icmp ugt i64 %31, %40
   br i1 %41, label %.lr.ph, label %.._crit_edge_crit_edge, !llvm.loop !91
 
-.._crit_edge_crit_edge:                           ; preds = %.lr.ph46
+.._crit_edge_crit_edge:                           ; preds = %.lr.ph50
   %42 = icmp eq i64 %31, %40
   br label %._crit_edge, !llvm.loop !91
 

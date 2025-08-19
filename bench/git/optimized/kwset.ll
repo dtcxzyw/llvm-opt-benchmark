@@ -192,11 +192,11 @@ define dso_local noundef ptr @kwsincr(ptr noundef %0, ptr noundef readonly captu
   store ptr %.0205270, ptr %30, align 8, !tbaa !31
   %31 = icmp uge i8 %24, %28
   %spec.select = zext i1 %31 to i32
-  %spec.select339.idx = select i1 %31, i64 8, i64 0
-  %spec.select339 = getelementptr inbounds nuw i8, ptr %.0205270, i64 %spec.select339.idx
+  %spec.select352.idx = select i1 %31, i64 8, i64 0
+  %spec.select352 = getelementptr inbounds nuw i8, ptr %.0205270, i64 %spec.select352.idx
   %32 = getelementptr inbounds nuw [12 x i32], ptr %5, i64 0, i64 %indvars.iv
   store i32 %spec.select, ptr %32, align 4, !tbaa !32
-  %.1206 = load ptr, ptr %spec.select339, align 8, !tbaa !31
+  %.1206 = load ptr, ptr %spec.select352, align 8, !tbaa !31
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not219 = icmp eq ptr %.1206, null
   br i1 %.not219, label %.critedge231.loopexit, label %.lr.ph, !llvm.loop !35
@@ -406,8 +406,8 @@ define dso_local noundef ptr @kwsincr(ptr noundef %0, ptr noundef readonly captu
 
 136:                                              ; preds = %134
   %137 = shl i64 %indvars.iv308, 32
-  %sext314 = add i64 %137, 4294967296
-  %138 = ashr exact i64 %sext314, 32
+  %sext327 = add i64 %137, 4294967296
+  %138 = ashr exact i64 %sext327, 32
   %139 = getelementptr inbounds [12 x i32], ptr %5, i64 0, i64 %138
   %140 = load i32, ptr %139, align 4, !tbaa !32
   switch i32 %140, label %159 [
@@ -511,8 +511,8 @@ define dso_local noundef ptr @kwsincr(ptr noundef %0, ptr noundef readonly captu
 185:                                              ; preds = %165, %170, %141, %146
   %.0210 = phi ptr [ %142, %141 ], [ %149, %146 ], [ %167, %165 ], [ %173, %170 ]
   %186 = shl i64 %indvars.iv308, 32
-  %sext315 = add i64 %186, -4294967296
-  %187 = ashr exact i64 %sext315, 32
+  %sext328 = add i64 %186, -4294967296
+  %187 = ashr exact i64 %sext328, 32
   %188 = getelementptr inbounds [12 x i32], ptr %5, i64 0, i64 %187
   %189 = load i32, ptr %188, align 4, !tbaa !32
   %190 = icmp eq i32 %189, 0
@@ -735,8 +735,8 @@ define dso_local noundef ptr @kwsprep(ptr noundef %0) local_unnamed_addr #0 {
   %83 = getelementptr i8, ptr %.pre199.pre, i64 %65
   %84 = getelementptr i8, ptr %83, i64 -1
   %85 = load i8, ptr %84, align 1, !tbaa !29
-  %.not208 = icmp eq i32 %.pre198, 1
-  br i1 %.not208, label %._crit_edge179, label %.lr.ph178.preheader
+  %.not222 = icmp eq i32 %.pre198, 1
+  br i1 %.not222, label %._crit_edge179, label %.lr.ph178.preheader
 
 .lr.ph178.preheader:                              ; preds = %._crit_edge175
   %86 = add nsw i32 %.pre198, -2

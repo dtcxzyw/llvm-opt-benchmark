@@ -362,9 +362,9 @@ define internal fastcc void @lj_alloc_free(ptr noundef %0, ptr noundef %1) unnam
 74:                                               ; preds = %67
   store ptr %.0283, ptr %71, align 8, !tbaa !45
   %cond = icmp eq ptr %.0283, null
-  br i1 %cond, label %.thread368, label %89
+  br i1 %cond, label %.thread399, label %89
 
-.thread368:                                       ; preds = %74
+.thread399:                                       ; preds = %74
   %75 = trunc i64 %70 to i32
   %76 = shl nuw i32 1, %75
   %77 = xor i32 %76, -1
@@ -439,9 +439,9 @@ define internal fastcc void @lj_alloc_free(ptr noundef %0, ptr noundef %1) unnam
   store i64 %25, ptr %8, align 8, !tbaa !36
   br label %.critedge350
 
-112:                                              ; preds = %.thread368, %102, %43, %37, %88, %99, %96, %66, %3
-  %.0274 = phi i64 [ %7, %3 ], [ %25, %66 ], [ %25, %96 ], [ %25, %99 ], [ %25, %88 ], [ %25, %37 ], [ %25, %43 ], [ %25, %102 ], [ %25, %.thread368 ]
-  %.0269 = phi ptr [ %4, %3 ], [ %24, %66 ], [ %24, %96 ], [ %24, %99 ], [ %24, %88 ], [ %24, %37 ], [ %24, %43 ], [ %24, %102 ], [ %24, %.thread368 ]
+112:                                              ; preds = %.thread399, %102, %43, %37, %88, %99, %96, %66, %3
+  %.0274 = phi i64 [ %7, %3 ], [ %25, %66 ], [ %25, %96 ], [ %25, %99 ], [ %25, %88 ], [ %25, %37 ], [ %25, %43 ], [ %25, %102 ], [ %25, %.thread399 ]
+  %.0269 = phi ptr [ %4, %3 ], [ %24, %66 ], [ %24, %96 ], [ %24, %99 ], [ %24, %88 ], [ %24, %37 ], [ %24, %43 ], [ %24, %102 ], [ %24, %.thread399 ]
   %113 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %114 = load i64, ptr %113, align 8, !tbaa !4
   %115 = and i64 %114, 2
@@ -725,9 +725,9 @@ has_segment_link.exit.thread54.i:                 ; preds = %158, %174, %has_seg
 257:                                              ; preds = %250
   store ptr %.0291, ptr %254, align 8, !tbaa !45
   %cond355 = icmp eq ptr %.0291, null
-  br i1 %cond355, label %.thread370, label %272
+  br i1 %cond355, label %.thread401, label %272
 
-.thread370:                                       ; preds = %257
+.thread401:                                       ; preds = %257
   %258 = trunc i64 %253 to i32
   %259 = shl nuw i32 1, %258
   %260 = xor i32 %259, -1
@@ -784,7 +784,7 @@ has_segment_link.exit.thread54.i:                 ; preds = %158, %174, %has_seg
   store ptr %.0291, ptr %284, align 8, !tbaa !40
   br label %285
 
-285:                                              ; preds = %.thread370, %249, %279, %282, %271, %220, %226
+285:                                              ; preds = %.thread401, %249, %279, %282, %271, %220, %226
   %286 = or i64 %211, 1
   %287 = getelementptr inbounds nuw i8, ptr %.0269, i64 8
   store i64 %286, ptr %287, align 8, !tbaa !4
@@ -932,16 +932,16 @@ has_segment_link.exit.thread54.i:                 ; preds = %158, %174, %has_seg
   br label %366
 
 366:                                              ; preds = %.thread, %362, %342
-  %.sink379 = phi i64 [ 48, %.thread ], [ 16, %362 ], [ 48, %342 ]
-  %.0272.lcssa373.sink = phi ptr [ %.0272, %.thread ], [ %364, %362 ], [ %334, %342 ]
-  %.0269.sink378 = phi ptr [ %.0269, %.thread ], [ %.0272, %362 ], [ %.0269, %342 ]
-  %.sink377 = phi i64 [ 16, %.thread ], [ 48, %362 ], [ 16, %342 ]
+  %.sink410 = phi i64 [ 48, %.thread ], [ 16, %362 ], [ 48, %342 ]
+  %.0272.lcssa404.sink = phi ptr [ %.0272, %.thread ], [ %364, %362 ], [ %334, %342 ]
+  %.0269.sink409 = phi ptr [ %.0269, %.thread ], [ %.0272, %362 ], [ %.0269, %342 ]
+  %.sink408 = phi i64 [ 16, %.thread ], [ 48, %362 ], [ 16, %342 ]
   %.0269.sink = phi ptr [ %.0269, %.thread ], [ null, %362 ], [ %.0269, %342 ]
-  %367 = getelementptr inbounds nuw i8, ptr %.0269, i64 %.sink379
-  store ptr %.0272.lcssa373.sink, ptr %367, align 8, !tbaa !45
+  %367 = getelementptr inbounds nuw i8, ptr %.0269, i64 %.sink410
+  store ptr %.0272.lcssa404.sink, ptr %367, align 8, !tbaa !45
   %368 = getelementptr inbounds nuw i8, ptr %.0269, i64 24
-  store ptr %.0269.sink378, ptr %368, align 8, !tbaa !44
-  %369 = getelementptr inbounds nuw i8, ptr %.0269, i64 %.sink377
+  store ptr %.0269.sink409, ptr %368, align 8, !tbaa !44
+  %369 = getelementptr inbounds nuw i8, ptr %.0269, i64 %.sink408
   store ptr %.0269.sink, ptr %369, align 8, !tbaa !45
   %370 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %371 = load i64, ptr %370, align 8, !tbaa !19
@@ -1246,9 +1246,9 @@ define internal fastcc ptr @lj_alloc_malloc(ptr noundef %0, i64 noundef range(i6
 163:                                              ; preds = %157
   store ptr %.0101.i, ptr %160, align 8, !tbaa !45
   %cond.i = icmp eq ptr %.0101.i, null
-  br i1 %cond.i, label %.thread131.i, label %176
+  br i1 %cond.i, label %.thread142.i, label %176
 
-.thread131.i:                                     ; preds = %163
+.thread142.i:                                     ; preds = %163
   %164 = trunc i64 %159 to i32
   %165 = shl nuw i32 1, %164
   %166 = xor i32 %165, -1
@@ -1303,7 +1303,7 @@ define internal fastcc ptr @lj_alloc_malloc(ptr noundef %0, i64 noundef range(i6
   store ptr %.0101.i, ptr %188, align 8, !tbaa !40
   br label %189
 
-189:                                              ; preds = %186, %183, %175, %.thread131.i, %156
+189:                                              ; preds = %186, %183, %175, %.thread142.i, %156
   %190 = icmp ult i64 %.099.i, 32
   br i1 %190, label %191, label %199
 
@@ -1338,8 +1338,8 @@ define internal fastcc ptr @lj_alloc_malloc(ptr noundef %0, i64 noundef range(i6
   %209 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %210 = shl nuw nsw i64 %208, 1
   %211 = getelementptr inbounds nuw [66 x ptr], ptr %209, i64 0, i64 %210
-  %212 = trunc i64 %208 to i32
-  %213 = shl nuw i32 1, %212
+  %212 = trunc nuw nsw i64 %208 to i32
+  %213 = shl nuw nsw i32 1, %212
   %214 = and i32 %213, %10
   %.not128.i = icmp eq i32 %214, 0
   br i1 %.not128.i, label %215, label %217
@@ -1611,9 +1611,9 @@ tmalloc_small.exit:                               ; preds = %191, %225
 339:                                              ; preds = %333
   store ptr %.0210.i, ptr %336, align 8, !tbaa !45
   %cond.i174 = icmp eq ptr %.0210.i, null
-  br i1 %cond.i174, label %.thread303.i, label %352
+  br i1 %cond.i174, label %.thread320.i, label %352
 
-.thread303.i:                                     ; preds = %339
+.thread320.i:                                     ; preds = %339
   %340 = trunc i64 %335 to i32
   %341 = shl nuw i32 1, %340
   %342 = xor i32 %341, -1
@@ -1668,7 +1668,7 @@ tmalloc_small.exit:                               ; preds = %191, %225
   store ptr %.0210.i, ptr %364, align 8, !tbaa !40
   br label %365
 
-365:                                              ; preds = %362, %359, %351, %.thread303.i, %332
+365:                                              ; preds = %362, %359, %351, %.thread320.i, %332
   %366 = icmp ult i64 %.4192.lcssa.i, 32
   br i1 %366, label %367, label %375
 
@@ -2156,9 +2156,9 @@ tmalloc_large.exit.thread:                        ; preds = %281, %._crit_edge.i
 632:                                              ; preds = %625
   store ptr %.0176.i.i, ptr %629, align 8, !tbaa !45
   %cond.i.i = icmp eq ptr %.0176.i.i, null
-  br i1 %cond.i.i, label %.thread220.i.i, label %647
+  br i1 %cond.i.i, label %.thread233.i.i, label %647
 
-.thread220.i.i:                                   ; preds = %632
+.thread233.i.i:                                   ; preds = %632
   %633 = trunc i64 %628 to i32
   %634 = shl nuw i32 1, %633
   %635 = xor i32 %634, -1
@@ -2215,7 +2215,7 @@ tmalloc_large.exit.thread:                        ; preds = %281, %._crit_edge.i
   store ptr %.0176.i.i, ptr %659, align 8, !tbaa !40
   br label %660
 
-660:                                              ; preds = %657, %654, %646, %.thread220.i.i, %624, %601, %595
+660:                                              ; preds = %657, %654, %646, %.thread233.i.i, %624, %601, %595
   %661 = getelementptr inbounds nuw i8, ptr %555, i64 %586
   %662 = add i64 %586, %560
   %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %661, i64 8
@@ -2587,13 +2587,13 @@ segment_holding.exit.i.i:                         ; preds = %754
   br label %.sink.split.i.i
 
 .sink.split.i.i:                                  ; preds = %868, %.thread.i96.i, %846, %818
-  %.sink154.i.i = phi i64 [ 24, %.thread.i96.i ], [ 16, %818 ], [ 24, %868 ], [ 24, %846 ]
-  %.sink152.i.i = phi ptr [ %751, %.thread.i96.i ], [ %.0127.i.i, %818 ], [ %.0125.i.i, %868 ], [ %751, %846 ]
-  %.sink151.i.i = phi i64 [ 16, %.thread.i96.i ], [ 24, %818 ], [ 48, %868 ], [ 16, %846 ]
+  %.sink161.i.i = phi i64 [ 24, %.thread.i96.i ], [ 16, %818 ], [ 24, %868 ], [ 24, %846 ]
+  %.sink159.i.i = phi ptr [ %751, %.thread.i96.i ], [ %.0127.i.i, %818 ], [ %.0125.i.i, %868 ], [ %751, %846 ]
+  %.sink158.i.i = phi i64 [ 16, %.thread.i96.i ], [ 24, %818 ], [ 48, %868 ], [ 16, %846 ]
   %.sink.i.i = phi ptr [ %751, %.thread.i96.i ], [ %808, %818 ], [ null, %868 ], [ %751, %846 ]
-  %873 = getelementptr inbounds nuw i8, ptr %751, i64 %.sink154.i.i
-  store ptr %.sink152.i.i, ptr %873, align 8, !tbaa !38
-  %874 = getelementptr inbounds nuw i8, ptr %751, i64 %.sink151.i.i
+  %873 = getelementptr inbounds nuw i8, ptr %751, i64 %.sink161.i.i
+  store ptr %.sink159.i.i, ptr %873, align 8, !tbaa !38
+  %874 = getelementptr inbounds nuw i8, ptr %751, i64 %.sink158.i.i
   store ptr %.sink.i.i, ptr %874, align 8, !tbaa !38
   br label %add_segment.exit.i
 
@@ -2916,9 +2916,9 @@ define internal fastcc i64 @release_unused_segments(ptr noundef %0) unnamed_addr
 61:                                               ; preds = %55
   store ptr %.0137, ptr %58, align 8, !tbaa !45
   %cond = icmp eq ptr %.0137, null
-  br i1 %cond, label %.thread183, label %75
+  br i1 %cond, label %.thread195, label %75
 
-.thread183:                                       ; preds = %61
+.thread195:                                       ; preds = %61
   %62 = trunc i64 %57 to i32
   %63 = shl nuw i32 1, %62
   %64 = xor i32 %63, -1
@@ -2974,7 +2974,7 @@ define internal fastcc i64 @release_unused_segments(ptr noundef %0) unnamed_addr
   store ptr %.0137, ptr %87, align 8, !tbaa !40
   br label %88
 
-88:                                               ; preds = %.thread183, %54, %82, %85, %74, %31
+88:                                               ; preds = %.thread195, %54, %82, %85, %74, %31
   %89 = tail call ptr @__errno_location() #10
   %90 = load i32, ptr %89, align 4, !tbaa !27
   %91 = tail call i32 @munmap(ptr noundef %10, i64 noundef %12) #11

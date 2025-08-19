@@ -666,7 +666,7 @@ saveNodeLink.exit.i:                              ; preds = %.lr.ph.i.i.i
   %263 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 24
   %264 = zext i16 %.sroa.117.01031 to i64
   %265 = add nsw i64 %264, -1
-  %266 = getelementptr inbounds [0 x %struct.ItemIdData], ptr %263, i64 0, i64 %265
+  %266 = getelementptr inbounds nuw [0 x %struct.ItemIdData], ptr %263, i64 0, i64 %265
   %.val.i = load i32, ptr %266, align 4
   %267 = and i32 %.val.i, 32767
   %268 = zext nneg i32 %267 to i64
@@ -830,7 +830,7 @@ addLeafTuple.exit:                                ; preds = %311, %319, %322, %3
   %.021.in4.i = phi i16 [ %.sroa.117.01031, %.lr.ph.i ], [ %370, %367 ]
   %350 = zext i16 %.021.in4.i to i64
   %351 = add nsw i64 %350, -1
-  %352 = getelementptr inbounds [0 x %struct.ItemIdData], ptr %348, i64 0, i64 %351
+  %352 = getelementptr inbounds nuw [0 x %struct.ItemIdData], ptr %348, i64 0, i64 %351
   %.val.i162 = load i32, ptr %352, align 4
   %353 = and i32 %.val.i162, 32767
   %354 = zext nneg i32 %353 to i64
@@ -920,7 +920,7 @@ checkSplitConditions.exit:                        ; preds = %checkSplitCondition
   %.0121133.i = phi i8 [ %.1122.i, %414 ], [ 0, %.lr.ph.i165.preheader ]
   %392 = zext i16 %.0.in136.i to i64
   %393 = add nsw i64 %392, -1
-  %394 = getelementptr inbounds [0 x %struct.ItemIdData], ptr %391, i64 0, i64 %393
+  %394 = getelementptr inbounds nuw [0 x %struct.ItemIdData], ptr %391, i64 0, i64 %393
   %.val.i166 = load i32, ptr %394, align 4
   %395 = and i32 %.val.i166, 32767
   %396 = zext nneg i32 %395 to i64
@@ -1374,7 +1374,7 @@ fetch_att.exit.i:                                 ; preds = %615, %609, %606, %6
   %.2445589.i = phi i32 [ 0, %.lr.ph.i180 ], [ %.3446.i, %686 ]
   %634 = zext i16 %.1409.in592.i to i64
   %635 = add nsw i64 %634, -1
-  %636 = getelementptr inbounds [0 x %struct.ItemIdData], ptr %632, i64 0, i64 %635
+  %636 = getelementptr inbounds nuw [0 x %struct.ItemIdData], ptr %632, i64 0, i64 %635
   %.val500.i = load i32, ptr %636, align 4
   %637 = and i32 %.val500.i, 32767
   %638 = zext nneg i32 %637 to i64
@@ -1668,8 +1668,8 @@ fetch_att.exit510.i:                              ; preds = %711, %705, %702, %6
   br i1 %773, label %784, label %788
 
 784:                                              ; preds = %._crit_edge.i.i
-  %785 = sext i32 %776 to i64
-  %786 = getelementptr inbounds i32, ptr %778, i64 %785
+  %785 = zext nneg i32 %776 to i64
+  %786 = getelementptr inbounds nuw i32, ptr %778, i64 %785
   %787 = load i32, ptr %786, align 4
   %.not.i.i = icmp eq i32 %787, %779
   br label %788
@@ -1864,12 +1864,12 @@ checkAllTheSame.exit.thread.i:                    ; preds = %.lr.ph.i.i, %813, %
 884:                                              ; preds = %._crit_edge623.i
   %.off494.i = add i32 %.sroa.0.01030, -1
   %switch495.i = icmp ult i32 %.off494.i, 2
-  br i1 %switch495.i, label %..thread722.i_crit_edge, label %885
+  br i1 %switch495.i, label %..thread749.i_crit_edge, label %885
 
-..thread722.i_crit_edge:                          ; preds = %884
+..thread749.i_crit_edge:                          ; preds = %884
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %846, i64 4
   %.pre1556 = load i16, ptr %.phi.trans.insert, align 4
-  br label %.thread722.i
+  br label %.thread749.i
 
 885:                                              ; preds = %884
   %886 = call i64 @PageGetExactFreeSpace(ptr noundef %.sroa.34.01026) #10
@@ -1887,10 +1887,10 @@ checkAllTheSame.exit.thread.i:                    ; preds = %.lr.ph.i.i, %813, %
   %897 = zext i16 %896 to i64
   %898 = add nuw nsw i64 %897, 4
   %.not467.i = icmp ult i64 %894, %898
-  br i1 %.not467.i, label %.thread722.i, label %.thread.i
+  br i1 %.not467.i, label %.thread749.i, label %.thread.i
 
-.thread722.i:                                     ; preds = %..thread722.i_crit_edge, %885
-  %899 = phi i16 [ %.pre1556, %..thread722.i_crit_edge ], [ %896, %885 ]
+.thread749.i:                                     ; preds = %..thread749.i_crit_edge, %885
+  %899 = phi i16 [ %.pre1556, %..thread749.i_crit_edge ], [ %896, %885 ]
   %900 = add i32 %.sroa.0.01030, 1
   %901 = urem i32 %900, 3
   %902 = or disjoint i32 %901, %115
@@ -1899,8 +1899,8 @@ checkAllTheSame.exit.thread.i:                    ; preds = %.lr.ph.i.i, %813, %
   %905 = call i32 @SpGistGetBuffer(ptr noundef %0, i32 noundef %902, i32 noundef %904, ptr noundef nonnull %114) #10
   br label %.thread.i
 
-.thread.i:                                        ; preds = %.thread722.i, %885, %._crit_edge623.i
-  %.0415.i = phi i32 [ %905, %.thread722.i ], [ 0, %._crit_edge623.i ], [ %.sroa.8.01029, %885 ]
+.thread.i:                                        ; preds = %.thread749.i, %885, %._crit_edge623.i
+  %.0415.i = phi i32 [ %905, %.thread749.i ], [ 0, %._crit_edge623.i ], [ %.sroa.8.01029, %885 ]
   br i1 %switch.i161, label %910, label %906
 
 906:                                              ; preds = %.thread.i
@@ -2396,7 +2396,7 @@ saveNodeLink.exit.i195:                           ; preds = %.lr.ph.i.i.i189
   %1155 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 24
   %1156 = zext i16 %.0417.i to i64
   %1157 = add nsw i64 %1156, -1
-  %1158 = getelementptr inbounds [0 x %struct.ItemIdData], ptr %1155, i64 0, i64 %1157
+  %1158 = getelementptr inbounds nuw [0 x %struct.ItemIdData], ptr %1155, i64 0, i64 %1157
   %.val.i518.i = load i32, ptr %1158, align 4
   %1159 = and i32 %.val.i518.i, 32767
   %1160 = zext nneg i32 %1159 to i64
@@ -2507,7 +2507,7 @@ saveNodeLink.exit530.i:                           ; preds = %.lr.ph.i.i524.i
   %1216 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 24
   %1217 = zext i16 %.0417.i to i64
   %1218 = add nsw i64 %1217, -1
-  %1219 = getelementptr inbounds [0 x %struct.ItemIdData], ptr %1216, i64 0, i64 %1218
+  %1219 = getelementptr inbounds nuw [0 x %struct.ItemIdData], ptr %1216, i64 0, i64 %1218
   %.val.i531.i = load i32, ptr %1219, align 4
   %1220 = and i32 %.val.i531.i, 32767
   %1221 = zext nneg i32 %1220 to i64
@@ -2951,15 +2951,15 @@ thread-pre-split:                                 ; preds = %1388, %1381, %1384
   unreachable
 
 ItemPointerIsValid.exit.i207:                     ; preds = %._crit_edge.i209, %._crit_edge.loopexit.i
-  %.0.lcssa8.i = phi ptr [ %1415, %._crit_edge.loopexit.i ], [ %1404, %._crit_edge.i209 ]
-  %1421 = getelementptr i8, ptr %.0.lcssa8.i, i64 4
+  %.0.lcssa10.i = phi ptr [ %1415, %._crit_edge.loopexit.i ], [ %1404, %._crit_edge.i209 ]
+  %1421 = getelementptr i8, ptr %.0.lcssa10.i, i64 4
   %1422 = load i16, ptr %1421, align 2
   %.not1.i = icmp eq i16 %1422, 0
   br i1 %.not1.i, label %spgMatchNodeAction.exit, label %1423
 
 1423:                                             ; preds = %ItemPointerIsValid.exit.i207
-  %.0.val42.i = load i16, ptr %.0.lcssa8.i, align 2
-  %1424 = getelementptr i8, ptr %.0.lcssa8.i, i64 2
+  %.0.val42.i = load i16, ptr %.0.lcssa10.i, align 2
+  %1424 = getelementptr i8, ptr %.0.lcssa10.i, i64 2
   %.0.val43.i = load i16, ptr %1424, align 2
   %1425 = zext i16 %.0.val42.i to i32
   %1426 = shl nuw i32 %1425, 16
@@ -3371,8 +3371,8 @@ saveNodeLink.exit.i231:                           ; preds = %.lr.ph.i.i.i225
   %1642 = load i16, ptr %1344, align 4
   %1643 = zext i16 %1642 to i64
   %1644 = getelementptr inbounds nuw i8, ptr %.sroa.67.1.ph4921014, i64 %1643
-  %.112.i = select i1 %1641, i64 4, i64 2
-  %1645 = getelementptr inbounds nuw i8, ptr %1644, i64 %.112.i
+  %.116.i = select i1 %1641, i64 4, i64 2
+  %1645 = getelementptr inbounds nuw i8, ptr %1644, i64 %.116.i
   %1646 = load i16, ptr %1645, align 2
   %1647 = add i16 %1646, 1
   store i16 %1647, ptr %1645, align 2

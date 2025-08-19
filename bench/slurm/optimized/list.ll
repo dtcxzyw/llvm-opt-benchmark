@@ -2551,11 +2551,11 @@ define dso_local void @list_iterator_destroy(ptr noundef %0) #0 {
 
 .lr.ph.preheader:                                 ; preds = %9
   %13 = icmp eq ptr %12, %0
-  br i1 %13, label %.lr.ph._crit_edge, label %.lr.ph23
+  br i1 %13, label %.lr.ph._crit_edge, label %.lr.ph27
 
-.lr.ph:                                           ; preds = %.lr.ph23
+.lr.ph:                                           ; preds = %.lr.ph27
   %14 = icmp eq ptr %20, %0
-  br i1 %14, label %.lr.ph._crit_edge.loopexit, label %.lr.ph23, !llvm.loop !30
+  br i1 %14, label %.lr.ph._crit_edge.loopexit, label %.lr.ph27, !llvm.loop !30
 
 .lr.ph._crit_edge.loopexit:                       ; preds = %.lr.ph
   %15 = getelementptr inbounds nuw i8, ptr %18, i64 32
@@ -2570,15 +2570,15 @@ define dso_local void @list_iterator_destroy(ptr noundef %0) #0 {
   %.pre = load ptr, ptr %3, align 8
   br label %.loopexit
 
-.lr.ph23:                                         ; preds = %.lr.ph.preheader, %.lr.ph
+.lr.ph27:                                         ; preds = %.lr.ph.preheader, %.lr.ph
   %18 = phi ptr [ %20, %.lr.ph ], [ %12, %.lr.ph.preheader ]
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 32
   %20 = load ptr, ptr %19, align 8
   %.not11 = icmp eq ptr %20, null
   br i1 %.not11, label %.loopexit, label %.lr.ph, !llvm.loop !30
 
-.loopexit:                                        ; preds = %.lr.ph23, %9, %.lr.ph._crit_edge
-  %21 = phi ptr [ %10, %9 ], [ %.pre, %.lr.ph._crit_edge ], [ %10, %.lr.ph23 ]
+.loopexit:                                        ; preds = %.lr.ph27, %9, %.lr.ph._crit_edge
+  %21 = phi ptr [ %10, %9 ], [ %.pre, %.lr.ph._crit_edge ], [ %10, %.lr.ph27 ]
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 40
   %23 = tail call i32 @pthread_rwlock_unlock(ptr noundef nonnull %22) #9
   %.not12 = icmp eq i32 %23, 0

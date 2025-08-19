@@ -716,17 +716,17 @@ deint_vaapi_mode_name.exit:                       ; preds = %._crit_edge72, %swi
 
 ._crit_edge:                                      ; preds = %32, %.preheader68
   %36 = icmp ult i32 %17, 5
-  br i1 %36, label %switch.lookup81, label %deint_vaapi_mode_name.exit67
+  br i1 %36, label %switch.lookup88, label %deint_vaapi_mode_name.exit67
 
-switch.lookup81:                                  ; preds = %._crit_edge
-  %switch.tableidx82 = add nsw i32 %17, -1
-  %37 = zext nneg i32 %switch.tableidx82 to i64
-  %switch.gep83 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table.deint_vaapi_build_filter_params.1, i64 0, i64 %37
-  %switch.load84 = load ptr, ptr %switch.gep83, align 8
+switch.lookup88:                                  ; preds = %._crit_edge
+  %switch.tableidx89 = add nsw i32 %17, -1
+  %37 = zext nneg i32 %switch.tableidx89 to i64
+  %switch.gep90 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table.deint_vaapi_build_filter_params.1, i64 0, i64 %37
+  %switch.load91 = load ptr, ptr %switch.gep90, align 8
   br label %deint_vaapi_mode_name.exit67
 
-deint_vaapi_mode_name.exit67:                     ; preds = %._crit_edge, %switch.lookup81
-  %.0.i66 = phi ptr [ %switch.load84, %switch.lookup81 ], [ @.str.42, %._crit_edge ]
+deint_vaapi_mode_name.exit67:                     ; preds = %._crit_edge, %switch.lookup88
+  %.0.i66 = phi ptr [ %switch.load91, %switch.lookup88 ], [ @.str.42, %._crit_edge ]
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.35, i32 noundef %17, ptr noundef nonnull %.0.i66) #6
   br label %67
 

@@ -50,7 +50,7 @@ define dso_local range(i32 -1, 1) i32 @sacctmgr_list_reservation(i32 noundef %0,
   store i64 %10, ptr %11, align 8
   %12 = call ptr @localtime_r(ptr noundef nonnull %11, ptr noundef nonnull %4) #10
   %.not.not = icmp eq ptr %12, null
-  br i1 %.not.not, label %.thread, label %.thread149
+  br i1 %.not.not, label %.thread, label %.thread163
 
 .thread:                                          ; preds = %9
   %13 = load ptr, ptr @stderr, align 8
@@ -61,7 +61,7 @@ define dso_local range(i32 -1, 1) i32 @sacctmgr_list_reservation(i32 noundef %0,
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %322
 
-.thread149:                                       ; preds = %9
+.thread163:                                       ; preds = %9
   store i32 0, ptr %4, align 8
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 0, ptr %16, align 4
@@ -381,8 +381,8 @@ _set_cond.exit:                                   ; preds = %187, %65, %89
   %189 = icmp slt i32 %188, %0
   br i1 %189, label %.lr.ph.split, label %._crit_edge, !llvm.loop !8
 
-._crit_edge:                                      ; preds = %_set_cond.exit, %_set_cond.exit.us, %.thread149, %23
-  %190 = phi ptr [ %22, %.thread149 ], [ %24, %23 ], [ %24, %_set_cond.exit.us ], [ %24, %_set_cond.exit ]
+._crit_edge:                                      ; preds = %_set_cond.exit, %_set_cond.exit.us, %.thread163, %23
+  %190 = phi ptr [ %22, %.thread163 ], [ %24, %23 ], [ %24, %_set_cond.exit.us ], [ %24, %_set_cond.exit ]
   %191 = getelementptr inbounds nuw i8, ptr %.fr, i64 40
   %192 = load ptr, ptr %191, align 8
   %.not = icmp eq ptr %192, null

@@ -1444,8 +1444,8 @@ write_fat_sector.exit:                            ; preds = %write_fat.exit.i, %
   br label %71
 
 71:                                               ; preds = %36, %write_fat_sector.exit
-  %.sink50 = phi i64 [ %70, %write_fat_sector.exit ], [ %39, %36 ]
-  %72 = trunc i64 %.sink50 to i32
+  %.sink54 = phi i64 [ %70, %write_fat_sector.exit ], [ %39, %36 ]
+  %72 = trunc i64 %.sink54 to i32
   %73 = getelementptr inbounds nuw i8, ptr %10, i64 20
   store i32 %72, ptr %73, align 4, !tbaa !86
   %74 = load i64, ptr %10, align 8, !tbaa !83

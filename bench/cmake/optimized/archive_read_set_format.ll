@@ -124,7 +124,7 @@ define dso_local range(i32 -2147483648, 1) i32 @archive_read_set_format(ptr noun
 32:                                               ; preds = %29
   %33 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %31, ptr noundef nonnull dereferenceable(1) %3) #6
   %.not29 = icmp eq i32 %33, 0
-  br i1 %.not29, label %split.thread35, label %34
+  br i1 %.not29, label %split.thread39, label %34
 
 34:                                               ; preds = %32
   %35 = add nuw nsw i32 %.02233, 1
@@ -137,21 +137,21 @@ split:                                            ; preds = %34
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %storemerge32, i64 96
   %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !25
   %.not30 = icmp eq ptr %.pre, null
-  br i1 %.not30, label %.sink.split, label %split.thread35
+  br i1 %.not30, label %.sink.split, label %split.thread39
 
-split.thread35:                                   ; preds = %32, %split
+split.thread39:                                   ; preds = %32, %split
   %37 = phi ptr [ %.pre, %split ], [ %31, %32 ]
   %38 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %37, ptr noundef nonnull dereferenceable(1) %3) #6
   %.not31 = icmp eq i32 %38, 0
   br i1 %.not31, label %39, label %.sink.split
 
-.sink.split:                                      ; preds = %29, %split, %split.thread35, %6
-  %.str.16.sink = phi ptr [ @.str.15, %6 ], [ @.str.16, %split.thread35 ], [ @.str.16, %split ], [ @.str.16, %29 ]
+.sink.split:                                      ; preds = %29, %split, %split.thread39, %6
+  %.str.16.sink = phi ptr [ @.str.15, %6 ], [ @.str.16, %split.thread39 ], [ @.str.16, %split ], [ @.str.16, %29 ]
   tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 22, ptr noundef nonnull %.str.16.sink) #5
   br label %39
 
-39:                                               ; preds = %.sink.split, %split.thread35, %2
-  %.0 = phi i32 [ %4, %2 ], [ %spec.select, %split.thread35 ], [ -30, %.sink.split ]
+39:                                               ; preds = %.sink.split, %split.thread39, %2
+  %.0 = phi i32 [ %4, %2 ], [ %spec.select, %split.thread39 ], [ -30, %.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }

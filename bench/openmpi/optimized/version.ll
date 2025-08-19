@@ -197,8 +197,8 @@ pmix_cmd_line_get_param.exit:                     ; preds = %.lr.ph.i
   br i1 %42, label %43, label %44
 
 43:                                               ; preds = %.thread, %34
-  %.043 = phi ptr [ %.str.20., %.thread ], [ @.str.20, %34 ]
-  tail call void @prte_info_show_prte_version(ptr noundef nonnull %.043)
+  %.046 = phi ptr [ %.str.20., %.thread ], [ @.str.20, %34 ]
+  tail call void @prte_info_show_prte_version(ptr noundef nonnull %.046)
   br label %47
 
 44:                                               ; preds = %.thread
@@ -496,15 +496,15 @@ thread-pre-split.i:                               ; preds = %101
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %138, %120
-  %.sink59.i = phi ptr [ %7, %138 ], [ %5, %120 ]
-  %.sink58.ph.i = phi ptr [ %5, %138 ], [ %7, %120 ]
-  %142 = load ptr, ptr %.sink59.i, align 8, !tbaa !4
+  %.sink60.i = phi ptr [ %7, %138 ], [ %5, %120 ]
+  %.sink59.ph.i = phi ptr [ %5, %138 ], [ %7, %120 ]
+  %142 = load ptr, ptr %.sink60.i, align 8, !tbaa !4
   call void @free(ptr noundef %142) #6
   br label %show_mca_version.exit
 
 show_mca_version.exit:                            ; preds = %137, %.sink.split.i
-  %.sink58.i = phi ptr [ %5, %137 ], [ %.sink58.ph.i, %.sink.split.i ]
-  %143 = load ptr, ptr %.sink58.i, align 8, !tbaa !4
+  %.sink59.i = phi ptr [ %5, %137 ], [ %.sink59.ph.i, %.sink.split.i ]
+  %143 = load ptr, ptr %.sink59.i, align 8, !tbaa !4
   call void @free(ptr noundef %143) #6
   call void @free(ptr noundef %62) #6
   call void @free(ptr noundef %69) #6

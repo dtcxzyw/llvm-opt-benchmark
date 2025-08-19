@@ -4850,29 +4850,29 @@ define linkonce_odr noundef ptr @_ZN3tbb6detail2d125concurrent_unordered_baseINS
   br i1 %.not26, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %.backedge
-  %.02942 = inttoptr i64 %7 to ptr
-  %8 = getelementptr inbounds nuw i8, ptr %.02942, i64 8
+  %.02946 = inttoptr i64 %7 to ptr
+  %8 = getelementptr inbounds nuw i8, ptr %.02946, i64 8
   %9 = load i64, ptr %8, align 8
   %10 = icmp ult i64 %9, %2
-  br i1 %10, label %.lr.ph44, label %.critedge
+  br i1 %10, label %.lr.ph48, label %.critedge
 
-.lr.ph:                                           ; preds = %.lr.ph44
+.lr.ph:                                           ; preds = %.lr.ph48
   %.029 = inttoptr i64 %14 to ptr
   %11 = getelementptr inbounds nuw i8, ptr %.029, i64 8
   %12 = load i64, ptr %11, align 8
   %13 = icmp ult i64 %12, %2
-  br i1 %13, label %.lr.ph44, label %.critedge, !llvm.loop !51
+  br i1 %13, label %.lr.ph48, label %.critedge, !llvm.loop !51
 
-.lr.ph44:                                         ; preds = %.lr.ph.preheader, %.lr.ph
-  %.02943 = phi ptr [ %.029, %.lr.ph ], [ %.02942, %.lr.ph.preheader ]
-  %14 = load atomic i64, ptr %.02943 acquire, align 8
+.lr.ph48:                                         ; preds = %.lr.ph.preheader, %.lr.ph
+  %.02947 = phi ptr [ %.029, %.lr.ph ], [ %.02946, %.lr.ph.preheader ]
+  %14 = load atomic i64, ptr %.02947 acquire, align 8
   %.not = icmp eq i64 %14, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !51
 
 .critedge:                                        ; preds = %.lr.ph, %.lr.ph.preheader
   %.0.in28.lcssa = phi i64 [ %7, %.lr.ph.preheader ], [ %14, %.lr.ph ]
-  %.127.lcssa = phi ptr [ %.019, %.lr.ph.preheader ], [ %.02943, %.lr.ph ]
-  %.029.lcssa = phi ptr [ %.02942, %.lr.ph.preheader ], [ %.029, %.lr.ph ]
+  %.127.lcssa = phi ptr [ %.019, %.lr.ph.preheader ], [ %.02947, %.lr.ph ]
+  %.029.lcssa = phi ptr [ %.02946, %.lr.ph.preheader ], [ %.029, %.lr.ph ]
   %.lcssa = phi i64 [ %9, %.lr.ph.preheader ], [ %12, %.lr.ph ]
   %15 = icmp eq i64 %.lcssa, %2
   br i1 %15, label %18, label %.split
@@ -4972,8 +4972,8 @@ _ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_trai
   tail call void @_ZN3tbb6detail2r117deallocate_memoryEPv(ptr noundef nonnull %4)
   br label %.loopexit
 
-._crit_edge:                                      ; preds = %.lr.ph44, %.backedge
-  %.1.lcssa = phi ptr [ %.019, %.backedge ], [ %.02943, %.lr.ph44 ]
+._crit_edge:                                      ; preds = %.lr.ph48, %.backedge
+  %.1.lcssa = phi ptr [ %.019, %.backedge ], [ %.02947, %.lr.ph48 ]
   store atomic i64 0, ptr %4 release, align 8
   %60 = cmpxchg ptr %.1.lcssa, i64 0, i64 %6 seq_cst seq_cst, align 8
   %61 = extractvalue { i64, i1 } %60, 1
@@ -5295,12 +5295,12 @@ _ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_trai
   br label %_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIPKN32pxrInternal_v0_24__pxrReserved__15UsdPrimTypeInfoENS4_25UsdImaging_AdapterManager13AdaptersEntryENS4_6TfHashESt8equal_toIS7_ENS1_13tbb_allocatorISt4pairIKS7_S9_EEELb0EEEE17adjust_table_sizeEmm.exit
 
 _ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIPKN32pxrInternal_v0_24__pxrReserved__15UsdPrimTypeInfoENS4_25UsdImaging_AdapterManager13AdaptersEntryENS4_6TfHashESt8equal_toIS7_ENS1_13tbb_allocatorISt4pairIKS7_S9_EEELb0EEEE17adjust_table_sizeEmm.exit: ; preds = %35, %67, %85, %._crit_edge
-  %.sink74 = phi ptr [ null, %._crit_edge ], [ null, %85 ], [ %57, %67 ], [ null, %35 ]
-  %.sink72 = phi ptr [ %57, %._crit_edge ], [ %57, %85 ], [ %.025.i36, %67 ], [ %.025.i, %35 ]
+  %.sink77 = phi ptr [ null, %._crit_edge ], [ null, %85 ], [ %57, %67 ], [ null, %35 ]
+  %.sink75 = phi ptr [ %57, %._crit_edge ], [ %57, %85 ], [ %.025.i36, %67 ], [ %.025.i, %35 ]
   %.sink = phi i8 [ 1, %._crit_edge ], [ 1, %85 ], [ 0, %67 ], [ 0, %35 ]
-  store ptr %.sink74, ptr %0, align 8
+  store ptr %.sink77, ptr %0, align 8
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sink72, ptr %88, align 8
+  store ptr %.sink75, ptr %88, align 8
   %89 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i8 %.sink, ptr %89, align 8
   ret void
@@ -6321,12 +6321,12 @@ _ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_trai
   br label %_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN32pxrInternal_v0_24__pxrReserved__7TfTokenENS4_25UsdImaging_AdapterManager24_WrappedPrimAdapterEntryENS4_6TfHashESt8equal_toIS5_ENS1_13tbb_allocatorISt4pairIKS5_S7_EEELb0EEEE17adjust_table_sizeEmm.exit
 
 _ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN32pxrInternal_v0_24__pxrReserved__7TfTokenENS4_25UsdImaging_AdapterManager24_WrappedPrimAdapterEntryENS4_6TfHashESt8equal_toIS5_ENS1_13tbb_allocatorISt4pairIKS5_S7_EEELb0EEEE17adjust_table_sizeEmm.exit: ; preds = %33, %79, %100, %._crit_edge
-  %.sink74 = phi ptr [ null, %._crit_edge ], [ null, %100 ], [ %43, %79 ], [ null, %33 ]
-  %.sink72 = phi ptr [ %43, %._crit_edge ], [ %43, %100 ], [ %.025.i36, %79 ], [ %.025.i, %33 ]
+  %.sink77 = phi ptr [ null, %._crit_edge ], [ null, %100 ], [ %43, %79 ], [ null, %33 ]
+  %.sink75 = phi ptr [ %43, %._crit_edge ], [ %43, %100 ], [ %.025.i36, %79 ], [ %.025.i, %33 ]
   %.sink = phi i8 [ 1, %._crit_edge ], [ 1, %100 ], [ 0, %79 ], [ 0, %33 ]
-  store ptr %.sink74, ptr %0, align 8
+  store ptr %.sink77, ptr %0, align 8
   %103 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sink72, ptr %103, align 8
+  store ptr %.sink75, ptr %103, align 8
   %104 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i8 %.sink, ptr %104, align 8
   ret void
@@ -7686,29 +7686,29 @@ define linkonce_odr noundef ptr @_ZN3tbb6detail2d125concurrent_unordered_baseINS
   br i1 %.not26, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %.backedge
-  %.02942 = inttoptr i64 %7 to ptr
-  %8 = getelementptr inbounds nuw i8, ptr %.02942, i64 8
+  %.02946 = inttoptr i64 %7 to ptr
+  %8 = getelementptr inbounds nuw i8, ptr %.02946, i64 8
   %9 = load i64, ptr %8, align 8
   %10 = icmp ult i64 %9, %2
-  br i1 %10, label %.lr.ph44, label %.critedge
+  br i1 %10, label %.lr.ph48, label %.critedge
 
-.lr.ph:                                           ; preds = %.lr.ph44
+.lr.ph:                                           ; preds = %.lr.ph48
   %.029 = inttoptr i64 %14 to ptr
   %11 = getelementptr inbounds nuw i8, ptr %.029, i64 8
   %12 = load i64, ptr %11, align 8
   %13 = icmp ult i64 %12, %2
-  br i1 %13, label %.lr.ph44, label %.critedge, !llvm.loop !65
+  br i1 %13, label %.lr.ph48, label %.critedge, !llvm.loop !65
 
-.lr.ph44:                                         ; preds = %.lr.ph.preheader, %.lr.ph
-  %.02943 = phi ptr [ %.029, %.lr.ph ], [ %.02942, %.lr.ph.preheader ]
-  %14 = load atomic i64, ptr %.02943 acquire, align 8
+.lr.ph48:                                         ; preds = %.lr.ph.preheader, %.lr.ph
+  %.02947 = phi ptr [ %.029, %.lr.ph ], [ %.02946, %.lr.ph.preheader ]
+  %14 = load atomic i64, ptr %.02947 acquire, align 8
   %.not = icmp eq i64 %14, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !65
 
 .critedge:                                        ; preds = %.lr.ph, %.lr.ph.preheader
   %.0.in28.lcssa = phi i64 [ %7, %.lr.ph.preheader ], [ %14, %.lr.ph ]
-  %.127.lcssa = phi ptr [ %.019, %.lr.ph.preheader ], [ %.02943, %.lr.ph ]
-  %.029.lcssa = phi ptr [ %.02942, %.lr.ph.preheader ], [ %.029, %.lr.ph ]
+  %.127.lcssa = phi ptr [ %.019, %.lr.ph.preheader ], [ %.02947, %.lr.ph ]
+  %.029.lcssa = phi ptr [ %.02946, %.lr.ph.preheader ], [ %.029, %.lr.ph ]
   %.lcssa = phi i64 [ %9, %.lr.ph.preheader ], [ %12, %.lr.ph ]
   %15 = icmp eq i64 %.lcssa, %2
   br i1 %15, label %18, label %.split
@@ -7817,8 +7817,8 @@ _ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_trai
   tail call void @_ZN3tbb6detail2r117deallocate_memoryEPv(ptr noundef nonnull %4)
   br label %.loopexit
 
-._crit_edge:                                      ; preds = %.lr.ph44, %.backedge
-  %.1.lcssa = phi ptr [ %.019, %.backedge ], [ %.02943, %.lr.ph44 ]
+._crit_edge:                                      ; preds = %.lr.ph48, %.backedge
+  %.1.lcssa = phi ptr [ %.019, %.backedge ], [ %.02947, %.lr.ph48 ]
   store atomic i64 0, ptr %4 release, align 8
   %67 = cmpxchg ptr %.1.lcssa, i64 0, i64 %6 seq_cst seq_cst, align 8
   %68 = extractvalue { i64, i1 } %67, 1
@@ -8169,12 +8169,12 @@ _ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_trai
   br label %_ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt10shared_ptrINS4_26UsdImagingAPISchemaAdapterEENS4_6TfHashESt8equal_toIS5_ENS1_13tbb_allocatorISt4pairIKS5_S8_EEELb0EEEE17adjust_table_sizeEmm.exit
 
 _ZN3tbb6detail2d125concurrent_unordered_baseINS1_31concurrent_unordered_map_traitsIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt10shared_ptrINS4_26UsdImagingAPISchemaAdapterEENS4_6TfHashESt8equal_toIS5_ENS1_13tbb_allocatorISt4pairIKS5_S8_EEELb0EEEE17adjust_table_sizeEmm.exit: ; preds = %32, %54, %75, %._crit_edge
-  %.sink74 = phi ptr [ null, %._crit_edge ], [ null, %75 ], [ %44, %54 ], [ null, %32 ]
-  %.sink72 = phi ptr [ %44, %._crit_edge ], [ %44, %75 ], [ %.025.i36, %54 ], [ %.025.i, %32 ]
+  %.sink77 = phi ptr [ null, %._crit_edge ], [ null, %75 ], [ %44, %54 ], [ null, %32 ]
+  %.sink75 = phi ptr [ %44, %._crit_edge ], [ %44, %75 ], [ %.025.i36, %54 ], [ %.025.i, %32 ]
   %.sink = phi i8 [ 1, %._crit_edge ], [ 1, %75 ], [ 0, %54 ], [ 0, %32 ]
-  store ptr %.sink74, ptr %0, align 8
+  store ptr %.sink77, ptr %0, align 8
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sink72, ptr %78, align 8
+  store ptr %.sink75, ptr %78, align 8
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i8 %.sink, ptr %79, align 8
   ret void

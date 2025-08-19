@@ -393,15 +393,15 @@ _ZN3std4sync4mpmc7counter3new17ha4e8a9b186736aabE.exit: ; preds = %.noexc.i47
   br label %30
 
 30:                                               ; preds = %_ZN3std4sync4mpmc7counter3new17ha4e8a9b186736aabE.exit, %_ZN3std4sync4mpmc7counter3new17h12915be357100bbdE.exit
-  %.sink55 = phi i64 [ 0, %_ZN3std4sync4mpmc7counter3new17ha4e8a9b186736aabE.exit ], [ 2, %_ZN3std4sync4mpmc7counter3new17h12915be357100bbdE.exit ]
-  %.sink53 = phi ptr [ %23, %_ZN3std4sync4mpmc7counter3new17ha4e8a9b186736aabE.exit ], [ %11, %_ZN3std4sync4mpmc7counter3new17h12915be357100bbdE.exit ]
-  store i64 %.sink55, ptr %0, align 8
+  %.sink57 = phi i64 [ 0, %_ZN3std4sync4mpmc7counter3new17ha4e8a9b186736aabE.exit ], [ 2, %_ZN3std4sync4mpmc7counter3new17h12915be357100bbdE.exit ]
+  %.sink55 = phi ptr [ %23, %_ZN3std4sync4mpmc7counter3new17ha4e8a9b186736aabE.exit ], [ %11, %_ZN3std4sync4mpmc7counter3new17h12915be357100bbdE.exit ]
+  store i64 %.sink57, ptr %0, align 8
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sink53, ptr %31, align 8
+  store ptr %.sink55, ptr %31, align 8
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sink55, ptr %32, align 8
+  store i64 %.sink57, ptr %32, align 8
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %.sink53, ptr %33, align 8
+  store ptr %.sink55, ptr %33, align 8
   ret void
 }
 
@@ -1600,7 +1600,7 @@ _ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.17851403509711027544.exit
   switch i64 %66, label %.loopexit109 [
     i64 0, label %67
     i64 1, label %.thread.loopexit26.i
-    i64 2, label %.thread.loopexit36.i
+    i64 2, label %.thread.loopexit38.i
   ]
 
 67:                                               ; preds = %.split.us.i
@@ -1612,7 +1612,7 @@ _ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.17851403509711027544.exit
   switch i64 %68, label %.loopexit109 [
     i64 0, label %69
     i64 1, label %.thread.loopexit26.i
-    i64 2, label %.thread.loopexit36.i
+    i64 2, label %.thread.loopexit38.i
   ]
 
 69:                                               ; preds = %.split.i
@@ -1641,7 +1641,7 @@ _ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.17851403509711027544.exit
   switch i64 %80, label %.loopexit109 [
     i64 0, label %84
     i64 1, label %.thread.loopexit26.i
-    i64 2, label %.thread.loopexit36.i
+    i64 2, label %.thread.loopexit38.i
   ]
 
 "_ZN77_$LT$std..sys..pal..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h6e44c7c4099b6ff7E.exit.thread.i": ; preds = %74, %.noexc22
@@ -1672,7 +1672,7 @@ _ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.17851403509711027544.exit
   invoke void @_ZN3std3sys3pal4unix5locks11futex_mutex5Mutex14lock_contended17hf70df39e402d52e1E(ptr noundef nonnull align 4 %86)
           to label %_ZN3std3sys3pal4unix5locks11futex_mutex5Mutex4lock17h985bdbb4640079dbE.llvm.17851403509711027544.exit unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-.thread.loopexit36.i:                             ; preds = %.split.i, %.split.us.i, %79
+.thread.loopexit38.i:                             ; preds = %.split.i, %.split.us.i, %79
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.673)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
@@ -1682,7 +1682,7 @@ _ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.17851403509711027544.exit
   %.sroa.18.0.in.i.i26 = extractvalue { i32, i1 } %91, 1
   br i1 %.sroa.18.0.in.i.i26, label %_ZN3std3sys3pal4unix5locks11futex_mutex5Mutex4lock17h985bdbb4640079dbE.llvm.17851403509711027544.exit28, label %92
 
-92:                                               ; preds = %.thread.loopexit36.i
+92:                                               ; preds = %.thread.loopexit38.i
   invoke void @_ZN3std3sys3pal4unix5locks11futex_mutex5Mutex14lock_contended17hf70df39e402d52e1E(ptr noundef nonnull align 4 %90)
           to label %_ZN3std3sys3pal4unix5locks11futex_mutex5Mutex4lock17h985bdbb4640079dbE.llvm.17851403509711027544.exit28 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -1940,7 +1940,7 @@ _ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.17851403509711027544.exit
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #36
   unreachable
 
-_ZN3std3sys3pal4unix5locks11futex_mutex5Mutex4lock17h985bdbb4640079dbE.llvm.17851403509711027544.exit28: ; preds = %.thread.loopexit36.i, %92
+_ZN3std3sys3pal4unix5locks11futex_mutex5Mutex4lock17h985bdbb4640079dbE.llvm.17851403509711027544.exit28: ; preds = %.thread.loopexit38.i, %92
   %185 = load atomic i64, ptr @_ZN3std9panicking11panic_count18GLOBAL_PANIC_COUNT17hc804604804a6cbf8E monotonic, align 8, !noalias !356
   %186 = and i64 %185, 9223372036854775807
   %187 = icmp eq i64 %186, 0

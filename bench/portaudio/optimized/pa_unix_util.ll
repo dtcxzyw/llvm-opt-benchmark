@@ -317,14 +317,14 @@ define i32 @PaUnixThread_New(ptr noundef initializes((0, 120)) %0, ptr noundef %
   %56 = load i32, ptr %16, align 8, !tbaa !18
   %57 = call i32 @PaPthreadUtil_GetTime(i32 noundef %56, ptr noundef nonnull %11) #16
   %58 = icmp eq i32 %57, 0
-  br i1 %58, label %.thread69, label %59
+  br i1 %58, label %.thread71, label %59
 
 59:                                               ; preds = %55, %53
   %60 = load i32, ptr %21, align 8, !tbaa !21
   %.not66 = icmp eq i32 %60, 0
   br i1 %.not66, label %._crit_edge, label %.lr.ph.split.us
 
-.thread69:                                        ; preds = %55
+.thread71:                                        ; preds = %55
   %61 = load i64, ptr %11, align 8, !tbaa !26
   %62 = sitofp i64 %61 to double
   %63 = getelementptr inbounds nuw i8, ptr %11, i64 8
@@ -340,8 +340,8 @@ define i32 @PaUnixThread_New(ptr noundef initializes((0, 120)) %0, ptr noundef %
   %72 = fptosi double %71 to i64
   store i64 %72, ptr %63, align 8, !tbaa !28
   %73 = load i32, ptr %21, align 8, !tbaa !21
-  %.not6671 = icmp eq i32 %73, 0
-  br i1 %.not6671, label %._crit_edge, label %.lr.ph.split
+  %.not6673 = icmp eq i32 %73, 0
+  br i1 %.not6673, label %._crit_edge, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %59, %.lr.ph.split.us
   %74 = call i32 @pthread_cond_wait(ptr noundef nonnull %17, ptr noundef nonnull %12) #16
@@ -351,7 +351,7 @@ define i32 @PaUnixThread_New(ptr noundef initializes((0, 120)) %0, ptr noundef %
   %77 = select i1 %76, i1 %.not47.us, i1 false
   br i1 %77, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !29
 
-.lr.ph.split:                                     ; preds = %.thread69, %.lr.ph.split
+.lr.ph.split:                                     ; preds = %.thread71, %.lr.ph.split
   %78 = call i32 @pthread_cond_timedwait(ptr noundef nonnull %17, ptr noundef nonnull %12, ptr noundef nonnull %11) #16
   %79 = load i32, ptr %21, align 8, !tbaa !21
   %80 = icmp ne i32 %79, 0
@@ -359,8 +359,8 @@ define i32 @PaUnixThread_New(ptr noundef initializes((0, 120)) %0, ptr noundef %
   %81 = select i1 %80, i1 %.not47, i1 false
   br i1 %81, label %.lr.ph.split, label %._crit_edge, !llvm.loop !29
 
-._crit_edge:                                      ; preds = %.lr.ph.split.us, %.lr.ph.split, %.thread69, %59
-  %.038.lcssa = phi i32 [ 0, %59 ], [ 0, %.thread69 ], [ %78, %.lr.ph.split ], [ %74, %.lr.ph.split.us ]
+._crit_edge:                                      ; preds = %.lr.ph.split.us, %.lr.ph.split, %.thread71, %59
+  %.038.lcssa = phi i32 [ 0, %59 ], [ 0, %.thread71 ], [ %78, %.lr.ph.split ], [ %74, %.lr.ph.split.us ]
   %82 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %12) #16
   store i32 %82, ptr @paUtilErr_, align 4, !tbaa !11
   %.not.i53 = icmp eq i32 %82, 0

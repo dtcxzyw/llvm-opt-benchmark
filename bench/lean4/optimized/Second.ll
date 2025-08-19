@@ -508,7 +508,7 @@ lean_dec.exit20:                                  ; preds = %67, %65, %77, %76, 
   br label %lean_dec.exit19
 
 88:                                               ; preds = %80
-  %89 = tail call ptr @lean_big_usize_to_nat(i64 noundef range(i64 0, -1) %82) #6
+  %89 = tail call ptr @lean_big_usize_to_nat(i64 noundef range(i64 0, -1) -9223372036854775808) #6
   br label %lean_dec.exit19
 
 90:                                               ; preds = %lean_dec.exit20
@@ -1101,13 +1101,13 @@ define nonnull ptr @l_Std_Time_Second_instDecidableLeOrdinal___rarg___boxed(ptr 
   br i1 %.not.i.i.i, label %l_Std_Time_Second_instDecidableLeOrdinal___rarg.exit, label %6, !prof !12
 
 6:                                                ; preds = %2
-  br i1 %5, label %l_Std_Time_Second_instDecidableLeOrdinal___rarg.exit.thread15, label %lean_dec.exit5.thread20, !prof !12
+  br i1 %5, label %l_Std_Time_Second_instDecidableLeOrdinal___rarg.exit.thread19, label %lean_dec.exit5.thread24, !prof !12
 
-l_Std_Time_Second_instDecidableLeOrdinal___rarg.exit.thread15: ; preds = %6
+l_Std_Time_Second_instDecidableLeOrdinal___rarg.exit.thread19: ; preds = %6
   %7 = tail call zeroext i1 @lean_int_big_le(ptr noundef %0, ptr noundef %1) #6
   br label %14
 
-lean_dec.exit5.thread20:                          ; preds = %6
+lean_dec.exit5.thread24:                          ; preds = %6
   %8 = lshr i64 %3, 1
   %9 = trunc i64 %8 to i32
   %10 = lshr i64 %.pre11, 1
@@ -1119,8 +1119,8 @@ l_Std_Time_Second_instDecidableLeOrdinal___rarg.exit: ; preds = %2
   %13 = tail call zeroext i1 @lean_int_big_le(ptr noundef %0, ptr noundef %1) #6
   br i1 %5, label %14, label %lean_dec.exit5.thread
 
-14:                                               ; preds = %l_Std_Time_Second_instDecidableLeOrdinal___rarg.exit.thread15, %l_Std_Time_Second_instDecidableLeOrdinal___rarg.exit
-  %15 = phi i1 [ %7, %l_Std_Time_Second_instDecidableLeOrdinal___rarg.exit.thread15 ], [ %13, %l_Std_Time_Second_instDecidableLeOrdinal___rarg.exit ]
+14:                                               ; preds = %l_Std_Time_Second_instDecidableLeOrdinal___rarg.exit.thread19, %l_Std_Time_Second_instDecidableLeOrdinal___rarg.exit
+  %15 = phi i1 [ %7, %l_Std_Time_Second_instDecidableLeOrdinal___rarg.exit.thread19 ], [ %13, %l_Std_Time_Second_instDecidableLeOrdinal___rarg.exit ]
   %16 = load i32, ptr %1, align 4, !tbaa !4
   %17 = icmp sgt i32 %16, 1
   br i1 %17, label %18, label %20, !prof !9
@@ -1142,7 +1142,7 @@ lean_dec.exit5:                                   ; preds = %21, %20, %18
   br i1 %.not.i.i.i, label %lean_dec.exit5.thread, label %lean_dec.exit
 
 lean_dec.exit5.thread:                            ; preds = %l_Std_Time_Second_instDecidableLeOrdinal___rarg.exit, %lean_dec.exit5
-  %.0.i.i.i1419 = phi i1 [ %15, %lean_dec.exit5 ], [ %13, %l_Std_Time_Second_instDecidableLeOrdinal___rarg.exit ]
+  %.0.i.i.i1823 = phi i1 [ %15, %lean_dec.exit5 ], [ %13, %l_Std_Time_Second_instDecidableLeOrdinal___rarg.exit ]
   %22 = load i32, ptr %0, align 4, !tbaa !4
   %23 = icmp sgt i32 %22, 1
   br i1 %23, label %24, label %26, !prof !9
@@ -1160,9 +1160,9 @@ lean_dec.exit5.thread:                            ; preds = %l_Std_Time_Second_i
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %0) #6
   br label %lean_dec.exit
 
-lean_dec.exit:                                    ; preds = %lean_dec.exit5.thread20, %27, %26, %24, %lean_dec.exit5
-  %.0.i.i.i1418 = phi i1 [ %.0.i.i.i1419, %27 ], [ %.0.i.i.i1419, %26 ], [ %.0.i.i.i1419, %24 ], [ %15, %lean_dec.exit5 ], [ %12, %lean_dec.exit5.thread20 ]
-  %28 = select i1 %.0.i.i.i1418, ptr inttoptr (i64 3 to ptr), ptr inttoptr (i64 1 to ptr)
+lean_dec.exit:                                    ; preds = %lean_dec.exit5.thread24, %27, %26, %24, %lean_dec.exit5
+  %.0.i.i.i1822 = phi i1 [ %.0.i.i.i1823, %27 ], [ %.0.i.i.i1823, %26 ], [ %.0.i.i.i1823, %24 ], [ %15, %lean_dec.exit5 ], [ %12, %lean_dec.exit5.thread24 ]
+  %28 = select i1 %.0.i.i.i1822, ptr inttoptr (i64 3 to ptr), ptr inttoptr (i64 1 to ptr)
   ret ptr %28
 }
 
@@ -1280,13 +1280,13 @@ define nonnull ptr @l_Std_Time_Second_instDecidableLtOrdinal___rarg___boxed(ptr 
   br i1 %.not.i.i.i, label %l_Std_Time_Second_instDecidableLtOrdinal___rarg.exit, label %6, !prof !12
 
 6:                                                ; preds = %2
-  br i1 %5, label %l_Std_Time_Second_instDecidableLtOrdinal___rarg.exit.thread15, label %lean_dec.exit5.thread20, !prof !12
+  br i1 %5, label %l_Std_Time_Second_instDecidableLtOrdinal___rarg.exit.thread19, label %lean_dec.exit5.thread24, !prof !12
 
-l_Std_Time_Second_instDecidableLtOrdinal___rarg.exit.thread15: ; preds = %6
+l_Std_Time_Second_instDecidableLtOrdinal___rarg.exit.thread19: ; preds = %6
   %7 = tail call zeroext i1 @lean_int_big_lt(ptr noundef %0, ptr noundef %1) #6
   br label %14
 
-lean_dec.exit5.thread20:                          ; preds = %6
+lean_dec.exit5.thread24:                          ; preds = %6
   %8 = lshr i64 %3, 1
   %9 = trunc i64 %8 to i32
   %10 = lshr i64 %.pre11, 1
@@ -1298,8 +1298,8 @@ l_Std_Time_Second_instDecidableLtOrdinal___rarg.exit: ; preds = %2
   %13 = tail call zeroext i1 @lean_int_big_lt(ptr noundef %0, ptr noundef %1) #6
   br i1 %5, label %14, label %lean_dec.exit5.thread
 
-14:                                               ; preds = %l_Std_Time_Second_instDecidableLtOrdinal___rarg.exit.thread15, %l_Std_Time_Second_instDecidableLtOrdinal___rarg.exit
-  %15 = phi i1 [ %7, %l_Std_Time_Second_instDecidableLtOrdinal___rarg.exit.thread15 ], [ %13, %l_Std_Time_Second_instDecidableLtOrdinal___rarg.exit ]
+14:                                               ; preds = %l_Std_Time_Second_instDecidableLtOrdinal___rarg.exit.thread19, %l_Std_Time_Second_instDecidableLtOrdinal___rarg.exit
+  %15 = phi i1 [ %7, %l_Std_Time_Second_instDecidableLtOrdinal___rarg.exit.thread19 ], [ %13, %l_Std_Time_Second_instDecidableLtOrdinal___rarg.exit ]
   %16 = load i32, ptr %1, align 4, !tbaa !4
   %17 = icmp sgt i32 %16, 1
   br i1 %17, label %18, label %20, !prof !9
@@ -1321,7 +1321,7 @@ lean_dec.exit5:                                   ; preds = %21, %20, %18
   br i1 %.not.i.i.i, label %lean_dec.exit5.thread, label %lean_dec.exit
 
 lean_dec.exit5.thread:                            ; preds = %l_Std_Time_Second_instDecidableLtOrdinal___rarg.exit, %lean_dec.exit5
-  %.0.i.i.i1419 = phi i1 [ %15, %lean_dec.exit5 ], [ %13, %l_Std_Time_Second_instDecidableLtOrdinal___rarg.exit ]
+  %.0.i.i.i1823 = phi i1 [ %15, %lean_dec.exit5 ], [ %13, %l_Std_Time_Second_instDecidableLtOrdinal___rarg.exit ]
   %22 = load i32, ptr %0, align 4, !tbaa !4
   %23 = icmp sgt i32 %22, 1
   br i1 %23, label %24, label %26, !prof !9
@@ -1339,9 +1339,9 @@ lean_dec.exit5.thread:                            ; preds = %l_Std_Time_Second_i
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %0) #6
   br label %lean_dec.exit
 
-lean_dec.exit:                                    ; preds = %lean_dec.exit5.thread20, %27, %26, %24, %lean_dec.exit5
-  %.0.i.i.i1418 = phi i1 [ %.0.i.i.i1419, %27 ], [ %.0.i.i.i1419, %26 ], [ %.0.i.i.i1419, %24 ], [ %15, %lean_dec.exit5 ], [ %12, %lean_dec.exit5.thread20 ]
-  %28 = select i1 %.0.i.i.i1418, ptr inttoptr (i64 3 to ptr), ptr inttoptr (i64 1 to ptr)
+lean_dec.exit:                                    ; preds = %lean_dec.exit5.thread24, %27, %26, %24, %lean_dec.exit5
+  %.0.i.i.i1822 = phi i1 [ %.0.i.i.i1823, %27 ], [ %.0.i.i.i1823, %26 ], [ %.0.i.i.i1823, %24 ], [ %15, %lean_dec.exit5 ], [ %12, %lean_dec.exit5.thread24 ]
+  %28 = select i1 %.0.i.i.i1822, ptr inttoptr (i64 3 to ptr), ptr inttoptr (i64 1 to ptr)
   ret ptr %28
 }
 
@@ -1725,13 +1725,13 @@ define nonnull ptr @l_Std_Time_Second_instDecidableLeOffset___boxed(ptr noundef 
   br i1 %.not.i.i.i, label %l_Std_Time_Second_instDecidableLeOffset.exit, label %6, !prof !12
 
 6:                                                ; preds = %2
-  br i1 %5, label %l_Std_Time_Second_instDecidableLeOffset.exit.thread15, label %lean_dec.exit5.thread20, !prof !12
+  br i1 %5, label %l_Std_Time_Second_instDecidableLeOffset.exit.thread19, label %lean_dec.exit5.thread24, !prof !12
 
-l_Std_Time_Second_instDecidableLeOffset.exit.thread15: ; preds = %6
+l_Std_Time_Second_instDecidableLeOffset.exit.thread19: ; preds = %6
   %7 = tail call zeroext i1 @lean_int_big_le(ptr noundef %0, ptr noundef %1) #6
   br label %14
 
-lean_dec.exit5.thread20:                          ; preds = %6
+lean_dec.exit5.thread24:                          ; preds = %6
   %8 = lshr i64 %3, 1
   %9 = trunc i64 %8 to i32
   %10 = lshr i64 %.pre11, 1
@@ -1743,8 +1743,8 @@ l_Std_Time_Second_instDecidableLeOffset.exit:     ; preds = %2
   %13 = tail call zeroext i1 @lean_int_big_le(ptr noundef %0, ptr noundef %1) #6
   br i1 %5, label %14, label %lean_dec.exit5.thread
 
-14:                                               ; preds = %l_Std_Time_Second_instDecidableLeOffset.exit.thread15, %l_Std_Time_Second_instDecidableLeOffset.exit
-  %15 = phi i1 [ %7, %l_Std_Time_Second_instDecidableLeOffset.exit.thread15 ], [ %13, %l_Std_Time_Second_instDecidableLeOffset.exit ]
+14:                                               ; preds = %l_Std_Time_Second_instDecidableLeOffset.exit.thread19, %l_Std_Time_Second_instDecidableLeOffset.exit
+  %15 = phi i1 [ %7, %l_Std_Time_Second_instDecidableLeOffset.exit.thread19 ], [ %13, %l_Std_Time_Second_instDecidableLeOffset.exit ]
   %16 = load i32, ptr %1, align 4, !tbaa !4
   %17 = icmp sgt i32 %16, 1
   br i1 %17, label %18, label %20, !prof !9
@@ -1766,7 +1766,7 @@ lean_dec.exit5:                                   ; preds = %21, %20, %18
   br i1 %.not.i.i.i, label %lean_dec.exit5.thread, label %lean_dec.exit
 
 lean_dec.exit5.thread:                            ; preds = %l_Std_Time_Second_instDecidableLeOffset.exit, %lean_dec.exit5
-  %.0.i.i.i1419 = phi i1 [ %15, %lean_dec.exit5 ], [ %13, %l_Std_Time_Second_instDecidableLeOffset.exit ]
+  %.0.i.i.i1823 = phi i1 [ %15, %lean_dec.exit5 ], [ %13, %l_Std_Time_Second_instDecidableLeOffset.exit ]
   %22 = load i32, ptr %0, align 4, !tbaa !4
   %23 = icmp sgt i32 %22, 1
   br i1 %23, label %24, label %26, !prof !9
@@ -1784,9 +1784,9 @@ lean_dec.exit5.thread:                            ; preds = %l_Std_Time_Second_i
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %0) #6
   br label %lean_dec.exit
 
-lean_dec.exit:                                    ; preds = %lean_dec.exit5.thread20, %27, %26, %24, %lean_dec.exit5
-  %.0.i.i.i1418 = phi i1 [ %.0.i.i.i1419, %27 ], [ %.0.i.i.i1419, %26 ], [ %.0.i.i.i1419, %24 ], [ %15, %lean_dec.exit5 ], [ %12, %lean_dec.exit5.thread20 ]
-  %28 = select i1 %.0.i.i.i1418, ptr inttoptr (i64 3 to ptr), ptr inttoptr (i64 1 to ptr)
+lean_dec.exit:                                    ; preds = %lean_dec.exit5.thread24, %27, %26, %24, %lean_dec.exit5
+  %.0.i.i.i1822 = phi i1 [ %.0.i.i.i1823, %27 ], [ %.0.i.i.i1823, %26 ], [ %.0.i.i.i1823, %24 ], [ %15, %lean_dec.exit5 ], [ %12, %lean_dec.exit5.thread24 ]
+  %28 = select i1 %.0.i.i.i1822, ptr inttoptr (i64 3 to ptr), ptr inttoptr (i64 1 to ptr)
   ret ptr %28
 }
 
@@ -1832,13 +1832,13 @@ define nonnull ptr @l_Std_Time_Second_instDecidableLtOffset___boxed(ptr noundef 
   br i1 %.not.i.i.i, label %l_Std_Time_Second_instDecidableLtOffset.exit, label %6, !prof !12
 
 6:                                                ; preds = %2
-  br i1 %5, label %l_Std_Time_Second_instDecidableLtOffset.exit.thread15, label %lean_dec.exit5.thread20, !prof !12
+  br i1 %5, label %l_Std_Time_Second_instDecidableLtOffset.exit.thread19, label %lean_dec.exit5.thread24, !prof !12
 
-l_Std_Time_Second_instDecidableLtOffset.exit.thread15: ; preds = %6
+l_Std_Time_Second_instDecidableLtOffset.exit.thread19: ; preds = %6
   %7 = tail call zeroext i1 @lean_int_big_lt(ptr noundef %0, ptr noundef %1) #6
   br label %14
 
-lean_dec.exit5.thread20:                          ; preds = %6
+lean_dec.exit5.thread24:                          ; preds = %6
   %8 = lshr i64 %3, 1
   %9 = trunc i64 %8 to i32
   %10 = lshr i64 %.pre11, 1
@@ -1850,8 +1850,8 @@ l_Std_Time_Second_instDecidableLtOffset.exit:     ; preds = %2
   %13 = tail call zeroext i1 @lean_int_big_lt(ptr noundef %0, ptr noundef %1) #6
   br i1 %5, label %14, label %lean_dec.exit5.thread
 
-14:                                               ; preds = %l_Std_Time_Second_instDecidableLtOffset.exit.thread15, %l_Std_Time_Second_instDecidableLtOffset.exit
-  %15 = phi i1 [ %7, %l_Std_Time_Second_instDecidableLtOffset.exit.thread15 ], [ %13, %l_Std_Time_Second_instDecidableLtOffset.exit ]
+14:                                               ; preds = %l_Std_Time_Second_instDecidableLtOffset.exit.thread19, %l_Std_Time_Second_instDecidableLtOffset.exit
+  %15 = phi i1 [ %7, %l_Std_Time_Second_instDecidableLtOffset.exit.thread19 ], [ %13, %l_Std_Time_Second_instDecidableLtOffset.exit ]
   %16 = load i32, ptr %1, align 4, !tbaa !4
   %17 = icmp sgt i32 %16, 1
   br i1 %17, label %18, label %20, !prof !9
@@ -1873,7 +1873,7 @@ lean_dec.exit5:                                   ; preds = %21, %20, %18
   br i1 %.not.i.i.i, label %lean_dec.exit5.thread, label %lean_dec.exit
 
 lean_dec.exit5.thread:                            ; preds = %l_Std_Time_Second_instDecidableLtOffset.exit, %lean_dec.exit5
-  %.0.i.i.i1419 = phi i1 [ %15, %lean_dec.exit5 ], [ %13, %l_Std_Time_Second_instDecidableLtOffset.exit ]
+  %.0.i.i.i1823 = phi i1 [ %15, %lean_dec.exit5 ], [ %13, %l_Std_Time_Second_instDecidableLtOffset.exit ]
   %22 = load i32, ptr %0, align 4, !tbaa !4
   %23 = icmp sgt i32 %22, 1
   br i1 %23, label %24, label %26, !prof !9
@@ -1891,9 +1891,9 @@ lean_dec.exit5.thread:                            ; preds = %l_Std_Time_Second_i
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %0) #6
   br label %lean_dec.exit
 
-lean_dec.exit:                                    ; preds = %lean_dec.exit5.thread20, %27, %26, %24, %lean_dec.exit5
-  %.0.i.i.i1418 = phi i1 [ %.0.i.i.i1419, %27 ], [ %.0.i.i.i1419, %26 ], [ %.0.i.i.i1419, %24 ], [ %15, %lean_dec.exit5 ], [ %12, %lean_dec.exit5.thread20 ]
-  %28 = select i1 %.0.i.i.i1418, ptr inttoptr (i64 3 to ptr), ptr inttoptr (i64 1 to ptr)
+lean_dec.exit:                                    ; preds = %lean_dec.exit5.thread24, %27, %26, %24, %lean_dec.exit5
+  %.0.i.i.i1822 = phi i1 [ %.0.i.i.i1823, %27 ], [ %.0.i.i.i1823, %26 ], [ %.0.i.i.i1823, %24 ], [ %15, %lean_dec.exit5 ], [ %12, %lean_dec.exit5.thread24 ]
+  %28 = select i1 %.0.i.i.i1822, ptr inttoptr (i64 3 to ptr), ptr inttoptr (i64 1 to ptr)
   ret ptr %28
 }
 
@@ -2826,18 +2826,18 @@ _init_l_Std_Time_Second_instOrdOffset___closed__1.exit: ; preds = %_init_l_Std_T
   unreachable
 
 .sink.split:                                      ; preds = %_init_l_Std_Time_Second_instOrdOffset___closed__1.exit, %3
-  %.sink25 = phi ptr [ %4, %3 ], [ %116, %_init_l_Std_Time_Second_instOrdOffset___closed__1.exit ]
-  %119 = getelementptr inbounds nuw i8, ptr %.sink25, i64 4
-  store i32 1, ptr %.sink25, align 4, !tbaa !4
+  %.sink38 = phi ptr [ %4, %3 ], [ %116, %_init_l_Std_Time_Second_instOrdOffset___closed__1.exit ]
+  %119 = getelementptr inbounds nuw i8, ptr %.sink38, i64 4
+  store i32 1, ptr %.sink38, align 4, !tbaa !4
   store i32 131096, ptr %119, align 4
-  %120 = getelementptr inbounds nuw i8, ptr %.sink25, i64 8
+  %120 = getelementptr inbounds nuw i8, ptr %.sink38, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %120, align 8, !tbaa !10
-  %121 = getelementptr inbounds nuw i8, ptr %.sink25, i64 16
+  %121 = getelementptr inbounds nuw i8, ptr %.sink38, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %121, align 8, !tbaa !10
   br label %122
 
 122:                                              ; preds = %.sink.split, %lean_dec_ref.exit, %7
-  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit ], [ %.sink25, %.sink.split ]
+  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit ], [ %.sink38, %.sink.split ]
   ret ptr %.0
 }
 

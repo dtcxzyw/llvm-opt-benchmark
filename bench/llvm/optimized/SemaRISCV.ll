@@ -1083,9 +1083,9 @@ _ZNK4llvm5APInt12getSExtValueEv.exit.thread:      ; preds = %_ZNK4llvm5APInt12ge
   br label %_ZN4llvm5APIntD2Ev.exit
 
 _ZN4llvm5APIntD2Ev.exit:                          ; preds = %28, %3, %_ZNK4llvm5APInt12getSExtValueEv.exit.thread, %47, %50
-  %.021 = phi i1 [ %.0, %_ZNK4llvm5APInt12getSExtValueEv.exit.thread ], [ %.0, %47 ], [ %.0, %50 ], [ false, %3 ], [ false, %28 ]
+  %.022 = phi i1 [ %.0, %_ZNK4llvm5APInt12getSExtValueEv.exit.thread ], [ %.0, %47 ], [ %.0, %50 ], [ false, %3 ], [ false, %28 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  ret i1 %.021
+  ret i1 %.022
 }
 
 declare noundef zeroext i1 @_ZN5clang4Sema18BuiltinConstantArgEPNS_8CallExprEiRN4llvm6APSIntE(ptr noundef nonnull align 8 dereferenceable(17504), ptr noundef, i32 noundef, ptr noundef nonnull align 8 dereferenceable(13)) local_unnamed_addr #1
@@ -7784,7 +7784,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IN4llvm9StringRefEvEERKT_
   %79 = load ptr, ptr %78, align 8, !tbaa !787
   %80 = getelementptr inbounds nuw i8, ptr %78, i64 16
   %81 = icmp eq ptr %79, %80
-  br i1 %81, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i
+  br i1 %81, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IN4llvm9StringRefEvEERKT_RKS3_.exit
   %82 = getelementptr inbounds nuw i8, ptr %78, i64 8
@@ -7795,13 +7795,13 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i: ; 
   %86 = icmp eq ptr %85, %56
   br i1 %86, label %89, label %.thread.i
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IN4llvm9StringRefEvEERKT_RKS3_.exit
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IN4llvm9StringRefEvEERKT_RKS3_.exit
   %87 = load ptr, ptr %5, align 8, !tbaa !787
   %88 = icmp eq ptr %87, %56
   br i1 %88, label %89, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit24.thread.i
 
-89:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i
-  %90 = phi ptr [ %87, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i ], [ %85, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i ]
+89:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i
+  %90 = phi ptr [ %87, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i ], [ %85, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i ]
   %91 = load i64, ptr %70, align 8, !tbaa !782
   %92 = icmp ult i64 %91, 16
   call void @llvm.assume(i1 %92)
@@ -7841,7 +7841,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm.exit.i: ; p
   store i64 %102, ptr %80, align 8, !tbaa !725
   br label %108
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit24.thread.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit24.thread.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i
   %103 = load i64, ptr %80, align 8, !tbaa !725
   store ptr %87, ptr %78, align 8, !tbaa !787
   %104 = load i64, ptr %70, align 8, !tbaa !782
@@ -8741,11 +8741,11 @@ define internal fastcc void @_ZN12_GLOBAL__N_125RISCVIntrinsicManagerImpl22Const
   %59 = getelementptr inbounds nuw i8, ptr %5, i64 24
   br label %60
 
-._crit_edge:                                      ; preds = %"_ZN4llvm6any_ofIRA19_KSt4pairIPKcN5clang5RISCV10RVVRequireEEZN12_GLOBAL__N_125RISCVIntrinsicManagerImpl22ConstructRVVIntrinsicsENS_8ArrayRefINS5_18RVVIntrinsicRecordEEENS4_4sema21RISCVIntrinsicManager13IntrinsicKindEE3$_0EEbOT_T0_.exit.thread233", %4
+._crit_edge:                                      ; preds = %"_ZN4llvm6any_ofIRA19_KSt4pairIPKcN5clang5RISCV10RVVRequireEEZN12_GLOBAL__N_125RISCVIntrinsicManagerImpl22ConstructRVVIntrinsicsENS_8ArrayRefINS5_18RVVIntrinsicRecordEEENS4_4sema21RISCVIntrinsicManager13IntrinsicKindEE3$_0EEbOT_T0_.exit.thread258", %4
   ret void
 
-60:                                               ; preds = %.lr.ph224, %"_ZN4llvm6any_ofIRA19_KSt4pairIPKcN5clang5RISCV10RVVRequireEEZN12_GLOBAL__N_125RISCVIntrinsicManagerImpl22ConstructRVVIntrinsicsENS_8ArrayRefINS5_18RVVIntrinsicRecordEEENS4_4sema21RISCVIntrinsicManager13IntrinsicKindEE3$_0EEbOT_T0_.exit.thread233"
-  %.0223 = phi ptr [ %1, %.lr.ph224 ], [ %372, %"_ZN4llvm6any_ofIRA19_KSt4pairIPKcN5clang5RISCV10RVVRequireEEZN12_GLOBAL__N_125RISCVIntrinsicManagerImpl22ConstructRVVIntrinsicsENS_8ArrayRefINS5_18RVVIntrinsicRecordEEENS4_4sema21RISCVIntrinsicManager13IntrinsicKindEE3$_0EEbOT_T0_.exit.thread233" ]
+60:                                               ; preds = %.lr.ph224, %"_ZN4llvm6any_ofIRA19_KSt4pairIPKcN5clang5RISCV10RVVRequireEEZN12_GLOBAL__N_125RISCVIntrinsicManagerImpl22ConstructRVVIntrinsicsENS_8ArrayRefINS5_18RVVIntrinsicRecordEEENS4_4sema21RISCVIntrinsicManager13IntrinsicKindEE3$_0EEbOT_T0_.exit.thread258"
+  %.0223 = phi ptr [ %1, %.lr.ph224 ], [ %372, %"_ZN4llvm6any_ofIRA19_KSt4pairIPKcN5clang5RISCV10RVVRequireEEZN12_GLOBAL__N_125RISCVIntrinsicManagerImpl22ConstructRVVIntrinsicsENS_8ArrayRefINS5_18RVVIntrinsicRecordEEENS4_4sema21RISCVIntrinsicManager13IntrinsicKindEE3$_0EEbOT_T0_.exit.thread258" ]
   %61 = getelementptr i8, ptr %.0223, i64 28
   br label %62
 
@@ -8775,7 +8775,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_125RISCVIntrinsicManagerImpl22Const
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 584
   %72 = load ptr, ptr %71, align 8
   %73 = call noundef zeroext i1 %72(ptr noundef nonnull align 8 dereferenceable(489) %25, ptr %.029.val.i.i.i.i.i.i, i64 %69) #21
-  br i1 %73, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_125RISCVIntrinsicManagerImpl22ConstructRVVIntrinsicsEN4llvm8ArrayRefIN5clang5RISCV18RVVIntrinsicRecordEEENS6_4sema21RISCVIntrinsicManager13IntrinsicKindEE3$_0EclIPKSt4pairIPKcNS7_10RVVRequireEEEEbT_.exit._ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_125RISCVIntrinsicManagerImpl22ConstructRVVIntrinsicsEN4llvm8ArrayRefIN5clang5RISCV18RVVIntrinsicRecordEEENS6_4sema21RISCVIntrinsicManager13IntrinsicKindEE3$_0EclIPKSt4pairIPKcNS7_10RVVRequireEEEEbT_.exit.thread_crit_edge.i.i.i.i.i.i", label %"_ZN4llvm6any_ofIRA19_KSt4pairIPKcN5clang5RISCV10RVVRequireEEZN12_GLOBAL__N_125RISCVIntrinsicManagerImpl22ConstructRVVIntrinsicsENS_8ArrayRefINS5_18RVVIntrinsicRecordEEENS4_4sema21RISCVIntrinsicManager13IntrinsicKindEE3$_0EEbOT_T0_.exit.thread233"
+  br i1 %73, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_125RISCVIntrinsicManagerImpl22ConstructRVVIntrinsicsEN4llvm8ArrayRefIN5clang5RISCV18RVVIntrinsicRecordEEENS6_4sema21RISCVIntrinsicManager13IntrinsicKindEE3$_0EclIPKSt4pairIPKcNS7_10RVVRequireEEEEbT_.exit._ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_125RISCVIntrinsicManagerImpl22ConstructRVVIntrinsicsEN4llvm8ArrayRefIN5clang5RISCV18RVVIntrinsicRecordEEENS6_4sema21RISCVIntrinsicManager13IntrinsicKindEE3$_0EclIPKSt4pairIPKcNS7_10RVVRequireEEEEbT_.exit.thread_crit_edge.i.i.i.i.i.i", label %"_ZN4llvm6any_ofIRA19_KSt4pairIPKcN5clang5RISCV10RVVRequireEEZN12_GLOBAL__N_125RISCVIntrinsicManagerImpl22ConstructRVVIntrinsicsENS_8ArrayRefINS5_18RVVIntrinsicRecordEEENS4_4sema21RISCVIntrinsicManager13IntrinsicKindEE3$_0EEbOT_T0_.exit.thread258"
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_125RISCVIntrinsicManagerImpl22ConstructRVVIntrinsicsEN4llvm8ArrayRefIN5clang5RISCV18RVVIntrinsicRecordEEENS6_4sema21RISCVIntrinsicManager13IntrinsicKindEE3$_0EclIPKSt4pairIPKcNS7_10RVVRequireEEEEbT_.exit._ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_125RISCVIntrinsicManagerImpl22ConstructRVVIntrinsicsEN4llvm8ArrayRefIN5clang5RISCV18RVVIntrinsicRecordEEENS6_4sema21RISCVIntrinsicManager13IntrinsicKindEE3$_0EclIPKSt4pairIPKcNS7_10RVVRequireEEEEbT_.exit.thread_crit_edge.i.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_125RISCVIntrinsicManagerImpl22ConstructRVVIntrinsicsEN4llvm8ArrayRefIN5clang5RISCV18RVVIntrinsicRecordEEENS6_4sema21RISCVIntrinsicManager13IntrinsicKindEE3$_0EclIPKSt4pairIPKcNS7_10RVVRequireEEEEbT_.exit.i.i.i.i.i.i"
   %.val32.val.pre.i.i.i.i.i.i = load i32, ptr %61, align 4, !tbaa !1238
@@ -8806,7 +8806,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_125RISCVIntrinsicManagerImpl22Const
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 584
   %84 = load ptr, ptr %83, align 8
   %85 = call noundef zeroext i1 %84(ptr noundef nonnull align 8 dereferenceable(489) %25, ptr %.val34.i.i.i.i.i.i, i64 %81) #21
-  br i1 %85, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_125RISCVIntrinsicManagerImpl22ConstructRVVIntrinsicsEN4llvm8ArrayRefIN5clang5RISCV18RVVIntrinsicRecordEEENS6_4sema21RISCVIntrinsicManager13IntrinsicKindEE3$_0EclIPKSt4pairIPKcNS7_10RVVRequireEEEEbT_.exit56._ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_125RISCVIntrinsicManagerImpl22ConstructRVVIntrinsicsEN4llvm8ArrayRefIN5clang5RISCV18RVVIntrinsicRecordEEENS6_4sema21RISCVIntrinsicManager13IntrinsicKindEE3$_0EclIPKSt4pairIPKcNS7_10RVVRequireEEEEbT_.exit56.thread_crit_edge.i.i.i.i.i.i", label %"_ZN4llvm6any_ofIRA19_KSt4pairIPKcN5clang5RISCV10RVVRequireEEZN12_GLOBAL__N_125RISCVIntrinsicManagerImpl22ConstructRVVIntrinsicsENS_8ArrayRefINS5_18RVVIntrinsicRecordEEENS4_4sema21RISCVIntrinsicManager13IntrinsicKindEE3$_0EEbOT_T0_.exit.thread233"
+  br i1 %85, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_125RISCVIntrinsicManagerImpl22ConstructRVVIntrinsicsEN4llvm8ArrayRefIN5clang5RISCV18RVVIntrinsicRecordEEENS6_4sema21RISCVIntrinsicManager13IntrinsicKindEE3$_0EclIPKSt4pairIPKcNS7_10RVVRequireEEEEbT_.exit56._ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_125RISCVIntrinsicManagerImpl22ConstructRVVIntrinsicsEN4llvm8ArrayRefIN5clang5RISCV18RVVIntrinsicRecordEEENS6_4sema21RISCVIntrinsicManager13IntrinsicKindEE3$_0EclIPKSt4pairIPKcNS7_10RVVRequireEEEEbT_.exit56.thread_crit_edge.i.i.i.i.i.i", label %"_ZN4llvm6any_ofIRA19_KSt4pairIPKcN5clang5RISCV10RVVRequireEEZN12_GLOBAL__N_125RISCVIntrinsicManagerImpl22ConstructRVVIntrinsicsENS_8ArrayRefINS5_18RVVIntrinsicRecordEEENS4_4sema21RISCVIntrinsicManager13IntrinsicKindEE3$_0EEbOT_T0_.exit.thread258"
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_125RISCVIntrinsicManagerImpl22ConstructRVVIntrinsicsEN4llvm8ArrayRefIN5clang5RISCV18RVVIntrinsicRecordEEENS6_4sema21RISCVIntrinsicManager13IntrinsicKindEE3$_0EclIPKSt4pairIPKcNS7_10RVVRequireEEEEbT_.exit56._ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_125RISCVIntrinsicManagerImpl22ConstructRVVIntrinsicsEN4llvm8ArrayRefIN5clang5RISCV18RVVIntrinsicRecordEEENS6_4sema21RISCVIntrinsicManager13IntrinsicKindEE3$_0EclIPKSt4pairIPKcNS7_10RVVRequireEEEEbT_.exit56.thread_crit_edge.i.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_125RISCVIntrinsicManagerImpl22ConstructRVVIntrinsicsEN4llvm8ArrayRefIN5clang5RISCV18RVVIntrinsicRecordEEENS6_4sema21RISCVIntrinsicManager13IntrinsicKindEE3$_0EclIPKSt4pairIPKcNS7_10RVVRequireEEEEbT_.exit56.i.i.i.i.i.i"
   %.val36.val.pre.i.i.i.i.i.i = load i32, ptr %61, align 4, !tbaa !1238
@@ -8837,7 +8837,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_125RISCVIntrinsicManagerImpl22Const
   %95 = getelementptr inbounds nuw i8, ptr %94, i64 584
   %96 = load ptr, ptr %95, align 8
   %97 = call noundef zeroext i1 %96(ptr noundef nonnull align 8 dereferenceable(489) %25, ptr %.val38.i.i.i.i.i.i, i64 %93) #21
-  br i1 %97, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_125RISCVIntrinsicManagerImpl22ConstructRVVIntrinsicsEN4llvm8ArrayRefIN5clang5RISCV18RVVIntrinsicRecordEEENS6_4sema21RISCVIntrinsicManager13IntrinsicKindEE3$_0EclIPKSt4pairIPKcNS7_10RVVRequireEEEEbT_.exit59._ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_125RISCVIntrinsicManagerImpl22ConstructRVVIntrinsicsEN4llvm8ArrayRefIN5clang5RISCV18RVVIntrinsicRecordEEENS6_4sema21RISCVIntrinsicManager13IntrinsicKindEE3$_0EclIPKSt4pairIPKcNS7_10RVVRequireEEEEbT_.exit59.thread_crit_edge.i.i.i.i.i.i", label %"_ZN4llvm6any_ofIRA19_KSt4pairIPKcN5clang5RISCV10RVVRequireEEZN12_GLOBAL__N_125RISCVIntrinsicManagerImpl22ConstructRVVIntrinsicsENS_8ArrayRefINS5_18RVVIntrinsicRecordEEENS4_4sema21RISCVIntrinsicManager13IntrinsicKindEE3$_0EEbOT_T0_.exit.thread233"
+  br i1 %97, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_125RISCVIntrinsicManagerImpl22ConstructRVVIntrinsicsEN4llvm8ArrayRefIN5clang5RISCV18RVVIntrinsicRecordEEENS6_4sema21RISCVIntrinsicManager13IntrinsicKindEE3$_0EclIPKSt4pairIPKcNS7_10RVVRequireEEEEbT_.exit59._ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_125RISCVIntrinsicManagerImpl22ConstructRVVIntrinsicsEN4llvm8ArrayRefIN5clang5RISCV18RVVIntrinsicRecordEEENS6_4sema21RISCVIntrinsicManager13IntrinsicKindEE3$_0EclIPKSt4pairIPKcNS7_10RVVRequireEEEEbT_.exit59.thread_crit_edge.i.i.i.i.i.i", label %"_ZN4llvm6any_ofIRA19_KSt4pairIPKcN5clang5RISCV10RVVRequireEEZN12_GLOBAL__N_125RISCVIntrinsicManagerImpl22ConstructRVVIntrinsicsENS_8ArrayRefINS5_18RVVIntrinsicRecordEEENS4_4sema21RISCVIntrinsicManager13IntrinsicKindEE3$_0EEbOT_T0_.exit.thread258"
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_125RISCVIntrinsicManagerImpl22ConstructRVVIntrinsicsEN4llvm8ArrayRefIN5clang5RISCV18RVVIntrinsicRecordEEENS6_4sema21RISCVIntrinsicManager13IntrinsicKindEE3$_0EclIPKSt4pairIPKcNS7_10RVVRequireEEEEbT_.exit59._ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_125RISCVIntrinsicManagerImpl22ConstructRVVIntrinsicsEN4llvm8ArrayRefIN5clang5RISCV18RVVIntrinsicRecordEEENS6_4sema21RISCVIntrinsicManager13IntrinsicKindEE3$_0EclIPKSt4pairIPKcNS7_10RVVRequireEEEEbT_.exit59.thread_crit_edge.i.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_125RISCVIntrinsicManagerImpl22ConstructRVVIntrinsicsEN4llvm8ArrayRefIN5clang5RISCV18RVVIntrinsicRecordEEENS6_4sema21RISCVIntrinsicManager13IntrinsicKindEE3$_0EclIPKSt4pairIPKcNS7_10RVVRequireEEEEbT_.exit59.i.i.i.i.i.i"
   %.val40.val.pre.i.i.i.i.i.i = load i32, ptr %61, align 4, !tbaa !1238
@@ -8889,37 +8889,37 @@ define internal fastcc void @_ZN12_GLOBAL__N_125RISCVIntrinsicManagerImpl22Const
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 584
   %117 = load ptr, ptr %116, align 8
   %118 = call noundef zeroext i1 %117(ptr noundef nonnull align 8 dereferenceable(489) %25, ptr nonnull @.str.7, i64 8) #21
-  br i1 %118, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_125RISCVIntrinsicManagerImpl22ConstructRVVIntrinsicsEN4llvm8ArrayRefIN5clang5RISCV18RVVIntrinsicRecordEEENS6_4sema21RISCVIntrinsicManager13IntrinsicKindEE3$_0EclIPKSt4pairIPKcNS7_10RVVRequireEEEEbT_.exit65.thread.i.i.i.i.i.i", label %"_ZN4llvm6any_ofIRA19_KSt4pairIPKcN5clang5RISCV10RVVRequireEEZN12_GLOBAL__N_125RISCVIntrinsicManagerImpl22ConstructRVVIntrinsicsENS_8ArrayRefINS5_18RVVIntrinsicRecordEEENS4_4sema21RISCVIntrinsicManager13IntrinsicKindEE3$_0EEbOT_T0_.exit.thread233"
+  br i1 %118, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_125RISCVIntrinsicManagerImpl22ConstructRVVIntrinsicsEN4llvm8ArrayRefIN5clang5RISCV18RVVIntrinsicRecordEEENS6_4sema21RISCVIntrinsicManager13IntrinsicKindEE3$_0EclIPKSt4pairIPKcNS7_10RVVRequireEEEEbT_.exit65.thread.i.i.i.i.i.i", label %"_ZN4llvm6any_ofIRA19_KSt4pairIPKcN5clang5RISCV10RVVRequireEEZN12_GLOBAL__N_125RISCVIntrinsicManagerImpl22ConstructRVVIntrinsicsENS_8ArrayRefINS5_18RVVIntrinsicRecordEEENS4_4sema21RISCVIntrinsicManager13IntrinsicKindEE3$_0EEbOT_T0_.exit.thread258"
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_125RISCVIntrinsicManagerImpl22ConstructRVVIntrinsicsEN4llvm8ArrayRefIN5clang5RISCV18RVVIntrinsicRecordEEENS6_4sema21RISCVIntrinsicManager13IntrinsicKindEE3$_0EclIPKSt4pairIPKcNS7_10RVVRequireEEEEbT_.exit65.thread.i.i.i.i.i.i": ; preds = %._crit_edge.loopexit.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_125RISCVIntrinsicManagerImpl22ConstructRVVIntrinsicsEN4llvm8ArrayRefIN5clang5RISCV18RVVIntrinsicRecordEEENS6_4sema21RISCVIntrinsicManager13IntrinsicKindEE3$_0EclIPKSt4pairIPKcNS7_10RVVRequireEEEEbT_.exit65.i.i.i.i.i.i"
   %.val48.val.i.i.i.i.i.i = load i32, ptr %61, align 4, !tbaa !1238
   %119 = and i32 %.val48.val.i.i.i.i.i.i, 262144
-  %.not231 = icmp eq i32 %119, 0
-  br i1 %.not231, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_125RISCVIntrinsicManagerImpl22ConstructRVVIntrinsicsEN4llvm8ArrayRefIN5clang5RISCV18RVVIntrinsicRecordEEENS6_4sema21RISCVIntrinsicManager13IntrinsicKindEE3$_0EclIPKSt4pairIPKcNS7_10RVVRequireEEEEbT_.exit68.thread.i.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_125RISCVIntrinsicManagerImpl22ConstructRVVIntrinsicsEN4llvm8ArrayRefIN5clang5RISCV18RVVIntrinsicRecordEEENS6_4sema21RISCVIntrinsicManager13IntrinsicKindEE3$_0EclIPKSt4pairIPKcNS7_10RVVRequireEEEEbT_.exit68.i.i.i.i.i.i"
+  %.not256 = icmp eq i32 %119, 0
+  br i1 %.not256, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_125RISCVIntrinsicManagerImpl22ConstructRVVIntrinsicsEN4llvm8ArrayRefIN5clang5RISCV18RVVIntrinsicRecordEEENS6_4sema21RISCVIntrinsicManager13IntrinsicKindEE3$_0EclIPKSt4pairIPKcNS7_10RVVRequireEEEEbT_.exit68.thread.i.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_125RISCVIntrinsicManagerImpl22ConstructRVVIntrinsicsEN4llvm8ArrayRefIN5clang5RISCV18RVVIntrinsicRecordEEENS6_4sema21RISCVIntrinsicManager13IntrinsicKindEE3$_0EclIPKSt4pairIPKcNS7_10RVVRequireEEEEbT_.exit68.i.i.i.i.i.i"
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_125RISCVIntrinsicManagerImpl22ConstructRVVIntrinsicsEN4llvm8ArrayRefIN5clang5RISCV18RVVIntrinsicRecordEEENS6_4sema21RISCVIntrinsicManager13IntrinsicKindEE3$_0EclIPKSt4pairIPKcNS7_10RVVRequireEEEEbT_.exit68.i.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_125RISCVIntrinsicManagerImpl22ConstructRVVIntrinsicsEN4llvm8ArrayRefIN5clang5RISCV18RVVIntrinsicRecordEEENS6_4sema21RISCVIntrinsicManager13IntrinsicKindEE3$_0EclIPKSt4pairIPKcNS7_10RVVRequireEEEEbT_.exit65.thread.i.i.i.i.i.i"
   %120 = load ptr, ptr %25, align 8, !tbaa !6
   %121 = getelementptr inbounds nuw i8, ptr %120, i64 584
   %122 = load ptr, ptr %121, align 8
   %123 = call noundef zeroext i1 %122(ptr noundef nonnull align 8 dereferenceable(489) %25, ptr nonnull @.str.4, i64 4) #21
-  br i1 %123, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_125RISCVIntrinsicManagerImpl22ConstructRVVIntrinsicsEN4llvm8ArrayRefIN5clang5RISCV18RVVIntrinsicRecordEEENS6_4sema21RISCVIntrinsicManager13IntrinsicKindEE3$_0EclIPKSt4pairIPKcNS7_10RVVRequireEEEEbT_.exit68.thread.i.i.i.i.i.i", label %"_ZN4llvm6any_ofIRA19_KSt4pairIPKcN5clang5RISCV10RVVRequireEEZN12_GLOBAL__N_125RISCVIntrinsicManagerImpl22ConstructRVVIntrinsicsENS_8ArrayRefINS5_18RVVIntrinsicRecordEEENS4_4sema21RISCVIntrinsicManager13IntrinsicKindEE3$_0EEbOT_T0_.exit.thread233"
+  br i1 %123, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_125RISCVIntrinsicManagerImpl22ConstructRVVIntrinsicsEN4llvm8ArrayRefIN5clang5RISCV18RVVIntrinsicRecordEEENS6_4sema21RISCVIntrinsicManager13IntrinsicKindEE3$_0EclIPKSt4pairIPKcNS7_10RVVRequireEEEEbT_.exit68.thread.i.i.i.i.i.i", label %"_ZN4llvm6any_ofIRA19_KSt4pairIPKcN5clang5RISCV10RVVRequireEEZN12_GLOBAL__N_125RISCVIntrinsicManagerImpl22ConstructRVVIntrinsicsENS_8ArrayRefINS5_18RVVIntrinsicRecordEEENS4_4sema21RISCVIntrinsicManager13IntrinsicKindEE3$_0EEbOT_T0_.exit.thread258"
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_125RISCVIntrinsicManagerImpl22ConstructRVVIntrinsicsEN4llvm8ArrayRefIN5clang5RISCV18RVVIntrinsicRecordEEENS6_4sema21RISCVIntrinsicManager13IntrinsicKindEE3$_0EclIPKSt4pairIPKcNS7_10RVVRequireEEEEbT_.exit68.thread.i.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_125RISCVIntrinsicManagerImpl22ConstructRVVIntrinsicsEN4llvm8ArrayRefIN5clang5RISCV18RVVIntrinsicRecordEEENS6_4sema21RISCVIntrinsicManager13IntrinsicKindEE3$_0EclIPKSt4pairIPKcNS7_10RVVRequireEEEEbT_.exit65.thread.i.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_125RISCVIntrinsicManagerImpl22ConstructRVVIntrinsicsEN4llvm8ArrayRefIN5clang5RISCV18RVVIntrinsicRecordEEENS6_4sema21RISCVIntrinsicManager13IntrinsicKindEE3$_0EclIPKSt4pairIPKcNS7_10RVVRequireEEEEbT_.exit68.i.i.i.i.i.i"
   %.val51.val.i.i.i.i.i.i = load i32, ptr %61, align 4, !tbaa !1238
   %124 = and i32 %.val51.val.i.i.i.i.i.i, 524288
-  %.not232 = icmp eq i32 %124, 0
-  br i1 %.not232, label %"_ZN4llvm6any_ofIRA19_KSt4pairIPKcN5clang5RISCV10RVVRequireEEZN12_GLOBAL__N_125RISCVIntrinsicManagerImpl22ConstructRVVIntrinsicsENS_8ArrayRefINS5_18RVVIntrinsicRecordEEENS4_4sema21RISCVIntrinsicManager13IntrinsicKindEE3$_0EEbOT_T0_.exit.thread", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_125RISCVIntrinsicManagerImpl22ConstructRVVIntrinsicsEN4llvm8ArrayRefIN5clang5RISCV18RVVIntrinsicRecordEEENS6_4sema21RISCVIntrinsicManager13IntrinsicKindEE3$_0EclIPKSt4pairIPKcNS7_10RVVRequireEEEEbT_.exit71.i.i.i.i.i.i"
+  %.not257 = icmp eq i32 %124, 0
+  br i1 %.not257, label %"_ZN4llvm6any_ofIRA19_KSt4pairIPKcN5clang5RISCV10RVVRequireEEZN12_GLOBAL__N_125RISCVIntrinsicManagerImpl22ConstructRVVIntrinsicsENS_8ArrayRefINS5_18RVVIntrinsicRecordEEENS4_4sema21RISCVIntrinsicManager13IntrinsicKindEE3$_0EEbOT_T0_.exit.thread", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_125RISCVIntrinsicManagerImpl22ConstructRVVIntrinsicsEN4llvm8ArrayRefIN5clang5RISCV18RVVIntrinsicRecordEEENS6_4sema21RISCVIntrinsicManager13IntrinsicKindEE3$_0EclIPKSt4pairIPKcNS7_10RVVRequireEEEEbT_.exit71.i.i.i.i.i.i"
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_125RISCVIntrinsicManagerImpl22ConstructRVVIntrinsicsEN4llvm8ArrayRefIN5clang5RISCV18RVVIntrinsicRecordEEENS6_4sema21RISCVIntrinsicManager13IntrinsicKindEE3$_0EclIPKSt4pairIPKcNS7_10RVVRequireEEEEbT_.exit71.i.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_125RISCVIntrinsicManagerImpl22ConstructRVVIntrinsicsEN4llvm8ArrayRefIN5clang5RISCV18RVVIntrinsicRecordEEENS6_4sema21RISCVIntrinsicManager13IntrinsicKindEE3$_0EclIPKSt4pairIPKcNS7_10RVVRequireEEEEbT_.exit68.thread.i.i.i.i.i.i"
   %125 = load ptr, ptr %25, align 8, !tbaa !6
   %126 = getelementptr inbounds nuw i8, ptr %125, i64 584
   %127 = load ptr, ptr %126, align 8
   %128 = call noundef zeroext i1 %127(ptr noundef nonnull align 8 dereferenceable(489) %25, ptr nonnull @.str.33, i64 12) #21
-  br i1 %128, label %"_ZN4llvm6any_ofIRA19_KSt4pairIPKcN5clang5RISCV10RVVRequireEEZN12_GLOBAL__N_125RISCVIntrinsicManagerImpl22ConstructRVVIntrinsicsENS_8ArrayRefINS5_18RVVIntrinsicRecordEEENS4_4sema21RISCVIntrinsicManager13IntrinsicKindEE3$_0EEbOT_T0_.exit.thread", label %"_ZN4llvm6any_ofIRA19_KSt4pairIPKcN5clang5RISCV10RVVRequireEEZN12_GLOBAL__N_125RISCVIntrinsicManagerImpl22ConstructRVVIntrinsicsENS_8ArrayRefINS5_18RVVIntrinsicRecordEEENS4_4sema21RISCVIntrinsicManager13IntrinsicKindEE3$_0EEbOT_T0_.exit.thread233"
+  br i1 %128, label %"_ZN4llvm6any_ofIRA19_KSt4pairIPKcN5clang5RISCV10RVVRequireEEZN12_GLOBAL__N_125RISCVIntrinsicManagerImpl22ConstructRVVIntrinsicsENS_8ArrayRefINS5_18RVVIntrinsicRecordEEENS4_4sema21RISCVIntrinsicManager13IntrinsicKindEE3$_0EEbOT_T0_.exit.thread", label %"_ZN4llvm6any_ofIRA19_KSt4pairIPKcN5clang5RISCV10RVVRequireEEZN12_GLOBAL__N_125RISCVIntrinsicManagerImpl22ConstructRVVIntrinsicsENS_8ArrayRefINS5_18RVVIntrinsicRecordEEENS4_4sema21RISCVIntrinsicManager13IntrinsicKindEE3$_0EEbOT_T0_.exit.thread258"
 
 "_ZN4llvm6any_ofIRA19_KSt4pairIPKcN5clang5RISCV10RVVRequireEEZN12_GLOBAL__N_125RISCVIntrinsicManagerImpl22ConstructRVVIntrinsicsENS_8ArrayRefINS5_18RVVIntrinsicRecordEEENS4_4sema21RISCVIntrinsicManager13IntrinsicKindEE3$_0EEbOT_T0_.exit": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_125RISCVIntrinsicManagerImpl22ConstructRVVIntrinsicsEN4llvm8ArrayRefIN5clang5RISCV18RVVIntrinsicRecordEEENS6_4sema21RISCVIntrinsicManager13IntrinsicKindEE3$_0EclIPKSt4pairIPKcNS7_10RVVRequireEEEEbT_.exit62.i.i.i.i.i.i"
   %129 = icmp eq i64 %.02982.i.i.i.i.i.i.idx, 256
-  br i1 %129, label %"_ZN4llvm6any_ofIRA19_KSt4pairIPKcN5clang5RISCV10RVVRequireEEZN12_GLOBAL__N_125RISCVIntrinsicManagerImpl22ConstructRVVIntrinsicsENS_8ArrayRefINS5_18RVVIntrinsicRecordEEENS4_4sema21RISCVIntrinsicManager13IntrinsicKindEE3$_0EEbOT_T0_.exit.thread", label %"_ZN4llvm6any_ofIRA19_KSt4pairIPKcN5clang5RISCV10RVVRequireEEZN12_GLOBAL__N_125RISCVIntrinsicManagerImpl22ConstructRVVIntrinsicsENS_8ArrayRefINS5_18RVVIntrinsicRecordEEENS4_4sema21RISCVIntrinsicManager13IntrinsicKindEE3$_0EEbOT_T0_.exit.thread233"
+  br i1 %129, label %"_ZN4llvm6any_ofIRA19_KSt4pairIPKcN5clang5RISCV10RVVRequireEEZN12_GLOBAL__N_125RISCVIntrinsicManagerImpl22ConstructRVVIntrinsicsENS_8ArrayRefINS5_18RVVIntrinsicRecordEEENS4_4sema21RISCVIntrinsicManager13IntrinsicKindEE3$_0EEbOT_T0_.exit.thread", label %"_ZN4llvm6any_ofIRA19_KSt4pairIPKcN5clang5RISCV10RVVRequireEEZN12_GLOBAL__N_125RISCVIntrinsicManagerImpl22ConstructRVVIntrinsicsENS_8ArrayRefINS5_18RVVIntrinsicRecordEEENS4_4sema21RISCVIntrinsicManager13IntrinsicKindEE3$_0EEbOT_T0_.exit.thread258"
 
 "_ZN4llvm6any_ofIRA19_KSt4pairIPKcN5clang5RISCV10RVVRequireEEZN12_GLOBAL__N_125RISCVIntrinsicManagerImpl22ConstructRVVIntrinsicsENS_8ArrayRefINS5_18RVVIntrinsicRecordEEENS4_4sema21RISCVIntrinsicManager13IntrinsicKindEE3$_0EEbOT_T0_.exit.thread": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_125RISCVIntrinsicManagerImpl22ConstructRVVIntrinsicsEN4llvm8ArrayRefIN5clang5RISCV18RVVIntrinsicRecordEEENS6_4sema21RISCVIntrinsicManager13IntrinsicKindEE3$_0EclIPKSt4pairIPKcNS7_10RVVRequireEEEEbT_.exit71.i.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_125RISCVIntrinsicManagerImpl22ConstructRVVIntrinsicsEN4llvm8ArrayRefIN5clang5RISCV18RVVIntrinsicRecordEEENS6_4sema21RISCVIntrinsicManager13IntrinsicKindEE3$_0EclIPKSt4pairIPKcNS7_10RVVRequireEEEEbT_.exit68.thread.i.i.i.i.i.i", %"_ZN4llvm6any_ofIRA19_KSt4pairIPKcN5clang5RISCV10RVVRequireEEZN12_GLOBAL__N_125RISCVIntrinsicManagerImpl22ConstructRVVIntrinsicsENS_8ArrayRefINS5_18RVVIntrinsicRecordEEENS4_4sema21RISCVIntrinsicManager13IntrinsicKindEE3$_0EEbOT_T0_.exit"
   %130 = getelementptr inbounds nuw i8, ptr %.0223, i64 16
@@ -9143,7 +9143,7 @@ _ZN4llvm11SmallVectorIN5clang5RISCV19PrototypeDescriptorELj13EED2Ev.exit143: ; p
 
 _ZN4llvm11SmallVectorIN5clang5RISCV19PrototypeDescriptorELj13EED2Ev.exit144: ; preds = %_ZN4llvm11SmallVectorIN5clang5RISCV19PrototypeDescriptorELj13EED2Ev.exit143, %230
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %"_ZN4llvm6any_ofIRA19_KSt4pairIPKcN5clang5RISCV10RVVRequireEEZN12_GLOBAL__N_125RISCVIntrinsicManagerImpl22ConstructRVVIntrinsicsENS_8ArrayRefINS5_18RVVIntrinsicRecordEEENS4_4sema21RISCVIntrinsicManager13IntrinsicKindEE3$_0EEbOT_T0_.exit.thread233"
+  br label %"_ZN4llvm6any_ofIRA19_KSt4pairIPKcN5clang5RISCV10RVVRequireEEZN12_GLOBAL__N_125RISCVIntrinsicManagerImpl22ConstructRVVIntrinsicsENS_8ArrayRefINS5_18RVVIntrinsicRecordEEENS4_4sema21RISCVIntrinsicManager13IntrinsicKindEE3$_0EEbOT_T0_.exit.thread258"
 
 231:                                              ; preds = %208, %.loopexit206
   %.0123221 = phi i32 [ 0, %208 ], [ %371, %.loopexit206 ]
@@ -9451,7 +9451,7 @@ _ZNSt14_Optional_baseISt6vectorIPN5clang5RISCV7RVVTypeESaIS4_EELb0ELb0EED2Ev.exi
   %exitcond229.not = icmp eq i32 %371, 8
   br i1 %exitcond229.not, label %218, label %231, !llvm.loop !1262
 
-"_ZN4llvm6any_ofIRA19_KSt4pairIPKcN5clang5RISCV10RVVRequireEEZN12_GLOBAL__N_125RISCVIntrinsicManagerImpl22ConstructRVVIntrinsicsENS_8ArrayRefINS5_18RVVIntrinsicRecordEEENS4_4sema21RISCVIntrinsicManager13IntrinsicKindEE3$_0EEbOT_T0_.exit.thread233": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_125RISCVIntrinsicManagerImpl22ConstructRVVIntrinsicsEN4llvm8ArrayRefIN5clang5RISCV18RVVIntrinsicRecordEEENS6_4sema21RISCVIntrinsicManager13IntrinsicKindEE3$_0EclIPKSt4pairIPKcNS7_10RVVRequireEEEEbT_.exit59.i.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_125RISCVIntrinsicManagerImpl22ConstructRVVIntrinsicsEN4llvm8ArrayRefIN5clang5RISCV18RVVIntrinsicRecordEEENS6_4sema21RISCVIntrinsicManager13IntrinsicKindEE3$_0EclIPKSt4pairIPKcNS7_10RVVRequireEEEEbT_.exit56.i.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_125RISCVIntrinsicManagerImpl22ConstructRVVIntrinsicsEN4llvm8ArrayRefIN5clang5RISCV18RVVIntrinsicRecordEEENS6_4sema21RISCVIntrinsicManager13IntrinsicKindEE3$_0EclIPKSt4pairIPKcNS7_10RVVRequireEEEEbT_.exit.i.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_125RISCVIntrinsicManagerImpl22ConstructRVVIntrinsicsEN4llvm8ArrayRefIN5clang5RISCV18RVVIntrinsicRecordEEENS6_4sema21RISCVIntrinsicManager13IntrinsicKindEE3$_0EclIPKSt4pairIPKcNS7_10RVVRequireEEEEbT_.exit71.i.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_125RISCVIntrinsicManagerImpl22ConstructRVVIntrinsicsEN4llvm8ArrayRefIN5clang5RISCV18RVVIntrinsicRecordEEENS6_4sema21RISCVIntrinsicManager13IntrinsicKindEE3$_0EclIPKSt4pairIPKcNS7_10RVVRequireEEEEbT_.exit68.i.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_125RISCVIntrinsicManagerImpl22ConstructRVVIntrinsicsEN4llvm8ArrayRefIN5clang5RISCV18RVVIntrinsicRecordEEENS6_4sema21RISCVIntrinsicManager13IntrinsicKindEE3$_0EclIPKSt4pairIPKcNS7_10RVVRequireEEEEbT_.exit65.i.i.i.i.i.i", %"_ZN4llvm6any_ofIRA19_KSt4pairIPKcN5clang5RISCV10RVVRequireEEZN12_GLOBAL__N_125RISCVIntrinsicManagerImpl22ConstructRVVIntrinsicsENS_8ArrayRefINS5_18RVVIntrinsicRecordEEENS4_4sema21RISCVIntrinsicManager13IntrinsicKindEE3$_0EEbOT_T0_.exit", %_ZN4llvm11SmallVectorIN5clang5RISCV19PrototypeDescriptorELj13EED2Ev.exit144
+"_ZN4llvm6any_ofIRA19_KSt4pairIPKcN5clang5RISCV10RVVRequireEEZN12_GLOBAL__N_125RISCVIntrinsicManagerImpl22ConstructRVVIntrinsicsENS_8ArrayRefINS5_18RVVIntrinsicRecordEEENS4_4sema21RISCVIntrinsicManager13IntrinsicKindEE3$_0EEbOT_T0_.exit.thread258": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_125RISCVIntrinsicManagerImpl22ConstructRVVIntrinsicsEN4llvm8ArrayRefIN5clang5RISCV18RVVIntrinsicRecordEEENS6_4sema21RISCVIntrinsicManager13IntrinsicKindEE3$_0EclIPKSt4pairIPKcNS7_10RVVRequireEEEEbT_.exit59.i.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_125RISCVIntrinsicManagerImpl22ConstructRVVIntrinsicsEN4llvm8ArrayRefIN5clang5RISCV18RVVIntrinsicRecordEEENS6_4sema21RISCVIntrinsicManager13IntrinsicKindEE3$_0EclIPKSt4pairIPKcNS7_10RVVRequireEEEEbT_.exit56.i.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_125RISCVIntrinsicManagerImpl22ConstructRVVIntrinsicsEN4llvm8ArrayRefIN5clang5RISCV18RVVIntrinsicRecordEEENS6_4sema21RISCVIntrinsicManager13IntrinsicKindEE3$_0EclIPKSt4pairIPKcNS7_10RVVRequireEEEEbT_.exit.i.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_125RISCVIntrinsicManagerImpl22ConstructRVVIntrinsicsEN4llvm8ArrayRefIN5clang5RISCV18RVVIntrinsicRecordEEENS6_4sema21RISCVIntrinsicManager13IntrinsicKindEE3$_0EclIPKSt4pairIPKcNS7_10RVVRequireEEEEbT_.exit71.i.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_125RISCVIntrinsicManagerImpl22ConstructRVVIntrinsicsEN4llvm8ArrayRefIN5clang5RISCV18RVVIntrinsicRecordEEENS6_4sema21RISCVIntrinsicManager13IntrinsicKindEE3$_0EclIPKSt4pairIPKcNS7_10RVVRequireEEEEbT_.exit68.i.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_125RISCVIntrinsicManagerImpl22ConstructRVVIntrinsicsEN4llvm8ArrayRefIN5clang5RISCV18RVVIntrinsicRecordEEENS6_4sema21RISCVIntrinsicManager13IntrinsicKindEE3$_0EclIPKSt4pairIPKcNS7_10RVVRequireEEEEbT_.exit65.i.i.i.i.i.i", %"_ZN4llvm6any_ofIRA19_KSt4pairIPKcN5clang5RISCV10RVVRequireEEZN12_GLOBAL__N_125RISCVIntrinsicManagerImpl22ConstructRVVIntrinsicsENS_8ArrayRefINS5_18RVVIntrinsicRecordEEENS4_4sema21RISCVIntrinsicManager13IntrinsicKindEE3$_0EEbOT_T0_.exit", %_ZN4llvm11SmallVectorIN5clang5RISCV19PrototypeDescriptorELj13EED2Ev.exit144
   %372 = getelementptr inbounds nuw i8, ptr %.0223, i64 40
   %.not = icmp eq ptr %372, %26
   br i1 %.not, label %._crit_edge, label %60
@@ -9768,7 +9768,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcmRKS3_.exit.i18: ; pr
 _ZNK4llvm9StringRef3strB5cxx11Ev.exit19:          ; preds = %113, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcmRKS3_.exit.i18
   %128 = load ptr, ptr %22, align 8, !tbaa !787
   %129 = icmp eq ptr %128, %100
-  br i1 %129, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i
+  br i1 %129, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i: ; preds = %_ZNK4llvm9StringRef3strB5cxx11Ev.exit19
   %130 = load i64, ptr %101, align 8, !tbaa !782
@@ -9779,14 +9779,14 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i: ; 
   %134 = icmp eq ptr %132, %133
   br i1 %134, label %138, label %.thread.i
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i: ; preds = %_ZNK4llvm9StringRef3strB5cxx11Ev.exit19
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i: ; preds = %_ZNK4llvm9StringRef3strB5cxx11Ev.exit19
   %135 = load ptr, ptr %23, align 8, !tbaa !787
   %136 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %137 = icmp eq ptr %135, %136
   br i1 %137, label %138, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit24.thread.i
 
-138:                                              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i
-  %139 = phi ptr [ %135, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i ], [ %132, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i ]
+138:                                              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i
+  %139 = phi ptr [ %135, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i ], [ %132, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i ]
   %140 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %141 = load i64, ptr %140, align 8, !tbaa !782
   %142 = icmp ult i64 %141, 16
@@ -9823,7 +9823,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm.exit.i: ; p
   store i64 %151, ptr %100, align 8, !tbaa !725
   br label %157
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit24.thread.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread29.i
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit24.thread.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i
   %152 = load i64, ptr %100, align 8, !tbaa !725
   store ptr %135, ptr %22, align 8, !tbaa !787
   %153 = getelementptr inbounds nuw i8, ptr %23, i64 8

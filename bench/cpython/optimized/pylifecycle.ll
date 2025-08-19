@@ -579,8 +579,8 @@ define hidden range(i32 0, 2) i32 @_Py_CoerceLegacyLocale(i32 noundef %0) local_
 
 8:                                                ; preds = %5
   %9 = load i8, ptr %6, align 1, !tbaa !176
-  %.not40 = icmp eq i8 %9, 0
-  br i1 %.not40, label %.lr.ph.preheader, label %.thread
+  %.not45 = icmp eq i8 %9, 0
+  br i1 %.not45, label %.lr.ph.preheader, label %.thread
 
 .lr.ph.preheader:                                 ; preds = %5, %8
   br label %.lr.ph
@@ -6451,8 +6451,8 @@ Py_XDECREF.exit161:                               ; preds = %Py_XDECREF.exit158,
   br i1 %124, label %Py_XDECREF.exit164.sink.split, label %Py_XDECREF.exit164
 
 Py_XDECREF.exit164.sink.split:                    ; preds = %122, %74, %61
-  %.sink28 = phi ptr [ %12, %61 ], [ %57, %74 ], [ %.0100713, %122 ]
-  call void @_Py_Dealloc(ptr noundef nonnull %.sink28) #23
+  %.sink52 = phi ptr [ %12, %61 ], [ %57, %74 ], [ %.0100713, %122 ]
+  call void @_Py_Dealloc(ptr noundef nonnull %.sink52) #23
   br label %Py_XDECREF.exit164
 
 Py_XDECREF.exit164:                               ; preds = %Py_XDECREF.exit164.sink.split, %9, %Py_DECREF.exit129, %59, %61, %Py_DECREF.exit137, %74, %Py_XDECREF.exit161, %120, %122
@@ -6592,7 +6592,7 @@ file_is_closed.exit:                              ; preds = %Py_DECREF.exit.i
 25:                                               ; preds = %22
   %26 = tail call ptr @PyObject_GetAttrString(ptr noundef nonnull %4, ptr noundef nonnull @.str.210) #23
   %27 = icmp eq ptr %26, null
-  br i1 %27, label %.sink.split29, label %28
+  br i1 %27, label %.sink.split37, label %28
 
 28:                                               ; preds = %25
   %29 = tail call i32 @PyObject_IsTrue(ptr noundef nonnull %26) #23
@@ -6612,17 +6612,17 @@ file_is_closed.exit:                              ; preds = %Py_DECREF.exit.i
 
 Py_DECREF.exit.i17:                               ; preds = %34, %31, %28
   %35 = icmp slt i32 %29, 0
-  br i1 %35, label %.sink.split29, label %file_is_closed.exit19
+  br i1 %35, label %.sink.split37, label %file_is_closed.exit19
 
 file_is_closed.exit19:                            ; preds = %Py_DECREF.exit.i17
   %.not = icmp eq i32 %29, 0
   br i1 %.not, label %36, label %40
 
-.sink.split29:                                    ; preds = %Py_DECREF.exit.i17, %25
+.sink.split37:                                    ; preds = %Py_DECREF.exit.i17, %25
   tail call void @PyErr_Clear() #23
   br label %36
 
-36:                                               ; preds = %.sink.split29, %file_is_closed.exit19
+36:                                               ; preds = %.sink.split37, %file_is_closed.exit19
   %37 = tail call i32 @_PyFile_Flush(ptr noundef nonnull %4) #23
   %38 = icmp slt i32 %37, 0
   br i1 %38, label %39, label %40

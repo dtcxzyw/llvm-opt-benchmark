@@ -747,8 +747,8 @@ define i32 @ff_alsa_get_device_list(ptr noundef %0, i32 noundef %1) local_unname
   br label %31
 
 31:                                               ; preds = %27, %30
-  %.sink64 = phi ptr [ %17, %30 ], [ %28, %27 ]
-  %32 = call noalias ptr @av_strdup(ptr noundef nonnull %.sink64) #11
+  %.sink71 = phi ptr [ %17, %30 ], [ %28, %27 ]
+  %32 = call noalias ptr @av_strdup(ptr noundef nonnull %.sink71) #11
   %33 = getelementptr inbounds nuw i8, ptr %23, i64 8
   store ptr %32, ptr %33, align 8, !tbaa !54
   %.not52 = icmp eq ptr %32, null
@@ -803,13 +803,13 @@ define i32 @ff_alsa_get_device_list(ptr noundef %0, i32 noundef %1) local_unname
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %8, %50, %._crit_edge
-  %.036.lcssa62 = phi i32 [ %.137, %50 ], [ %.137, %._crit_edge ], [ 0, %8 ]
+  %.036.lcssa69 = phi i32 [ %.137, %50 ], [ %.137, %._crit_edge ], [ 0, %8 ]
   %54 = load ptr, ptr %3, align 8, !tbaa !50
   %55 = call i32 @snd_device_name_free_hint(ptr noundef %54) #11
   br label %56
 
 56:                                               ; preds = %2, %._crit_edge.thread
-  %.0 = phi i32 [ %.036.lcssa62, %._crit_edge.thread ], [ -542398533, %2 ]
+  %.0 = phi i32 [ %.036.lcssa69, %._crit_edge.thread ], [ -542398533, %2 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }

@@ -186,10 +186,10 @@ policy_cache_set_int.exit54.thread.i:             ; preds = %37, %.thread.i, %20
   br label %.thread.i.i
 
 .thread39.i.i:                                    ; preds = %.lr.ph.i.i, %46
-  %.sink52.i.i = phi i32 [ 38, %46 ], [ 45, %.lr.ph.i.i ]
+  %.sink55.i.i = phi i32 [ 38, %46 ], [ 45, %.lr.ph.i.i ]
   %.sink.i.i = phi i32 [ 524303, %46 ], [ 524299, %.lr.ph.i.i ]
   call void @ERR_new() #4
-  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink52.i.i, ptr noundef nonnull @__func__.policy_cache_create) #4
+  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink55.i.i, ptr noundef nonnull @__func__.policy_cache_create) #4
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 34, i32 noundef %.sink.i.i, ptr noundef null) #4
   br label %policy_cache_create.exit.thread.i
 

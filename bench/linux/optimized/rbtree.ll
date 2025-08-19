@@ -379,9 +379,9 @@ define dso_local void @rb_insert_color(ptr noundef %0, ptr noundef %1) #1 align 
   br i1 %22, label %23, label %28
 
 23:                                               ; preds = %19, %68
-  %.sink74 = phi ptr [ %66, %68 ], [ %15, %19 ]
+  %.sink86 = phi ptr [ %66, %68 ], [ %15, %19 ]
   %24 = or disjoint i64 %9, 1
-  store i64 %24, ptr %.sink74, align 8
+  store i64 %24, ptr %.sink86, align 8
   store i64 %24, ptr %8, align 8
   %25 = load i64, ptr %13, align 8
   %26 = and i64 %25, -4
@@ -1049,9 +1049,9 @@ define dso_local void @__rb_insert_augmented(ptr noundef %0, ptr noundef %1, ptr
   br i1 %23, label %24, label %29
 
 24:                                               ; preds = %20, %69
-  %.sink76 = phi ptr [ %67, %69 ], [ %16, %20 ]
+  %.sink90 = phi ptr [ %67, %69 ], [ %16, %20 ]
   %25 = or disjoint i64 %10, 1
-  store i64 %25, ptr %.sink76, align 8
+  store i64 %25, ptr %.sink90, align 8
   store i64 %25, ptr %9, align 8
   %26 = load i64, ptr %14, align 8
   %27 = and i64 %26, -4

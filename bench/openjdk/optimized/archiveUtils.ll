@@ -314,7 +314,7 @@ define hidden void @_ZN16ArchivePtrMarker7compactEPhS0_(ptr noundef %0, ptr noun
   br i1 %.not36.i.i.i.i.i, label %.preheader.i.i.i, label %32, !llvm.loop !9
 
 32:                                               ; preds = %29
-  %33 = shl i64 %27, 6
+  %33 = shl nuw i64 %27, 6
   br label %34
 
 34:                                               ; preds = %32, %25

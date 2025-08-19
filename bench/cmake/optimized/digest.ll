@@ -169,10 +169,10 @@ define dso_local noundef zeroext i1 @Curl_auth_digest_get_pair(ptr noundef %0, p
   br i1 %38, label %.loopexit, label %.critedge2.thread
 
 .critedge2.thread:                                ; preds = %.lr.ph.split.split, %35, %13, %.critedge2
-  %.030.lcssa73 = phi ptr [ %.030.lcssa.ph, %.critedge2 ], [ %2, %13 ], [ %.03048, %.lr.ph.split.split ], [ %.131, %35 ]
-  %.235.lcssa72 = phi ptr [ %.235.lcssa.ph, %.critedge2 ], [ %spec.select, %13 ], [ %.23547, %.lr.ph.split.split ], [ %36, %35 ]
-  store i8 0, ptr %.030.lcssa73, align 1, !tbaa !4
-  store ptr %.235.lcssa72, ptr %3, align 8, !tbaa !10
+  %.030.lcssa75 = phi ptr [ %.030.lcssa.ph, %.critedge2 ], [ %2, %13 ], [ %.03048, %.lr.ph.split.split ], [ %.131, %35 ]
+  %.235.lcssa74 = phi ptr [ %.235.lcssa.ph, %.critedge2 ], [ %spec.select, %13 ], [ %.23547, %.lr.ph.split.split ], [ %36, %35 ]
+  store i8 0, ptr %.030.lcssa75, align 1, !tbaa !4
+  store ptr %.235.lcssa74, ptr %3, align 8, !tbaa !10
   br label %.loopexit
 
 .loopexit:                                        ; preds = %32, %23, %23, %.critedge2, %.critedge, %.critedge2.thread
@@ -405,8 +405,8 @@ switch.early.test59.i:                            ; preds = %.lr.ph.i49.i
   br i1 %.not17.i, label %76, label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %73, %71, %.lr.ph.i
-  %.sink21.i = phi i32 [ 1, %.lr.ph.i ], [ 2, %71 ], [ 4, %73 ]
-  %75 = or i32 %.sink21.i, %.094
+  %.sink23.i = phi i32 [ 1, %.lr.ph.i ], [ 2, %71 ], [ 4, %73 ]
+  %75 = or i32 %.sink23.i, %.094
   br label %76
 
 76:                                               ; preds = %.sink.split.i, %73

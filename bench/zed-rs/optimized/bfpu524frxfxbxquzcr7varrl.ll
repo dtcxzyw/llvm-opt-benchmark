@@ -1624,8 +1624,8 @@ _ZN10async_task5utils14abort_on_panic17h868f9ffb8e4a295fE.exit: ; preds = %187, 
 "_ZN4core3ptr60drop_in_place$LT$async_task..utils..abort_on_panic..Bomb$GT$17hec6477199e4464c5E.exit.i135": ; preds = %314, %318, %276, %254, %.body.i148, %223, %.body173
   %.pn96 = phi { ptr, i32 } [ %308, %.body173 ], [ %214, %.body.i148 ], [ %224, %223 ], [ %255, %254 ], [ %277, %276 ], [ %308, %318 ], [ %315, %314 ]
   %198 = load i64, ptr %6, align 8, !range !326, !noundef !11
-  %.not271 = icmp eq i64 %198, 5
-  br i1 %.not271, label %common.resume, label %321
+  %.not286 = icmp eq i64 %198, 5
+  br i1 %.not286, label %common.resume, label %321
 
 199:                                              ; preds = %.body.i128
   invoke fastcc void @"_ZN4core3ptr232drop_in_place$LT$core..result..Result$LT$core..result..Result$LT$http..response..Response$LT$http_client..async_body..AsyncBody$GT$$C$anyhow..Error$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17h3029fe5b76f05d9fE"(ptr noalias noundef align 8 dereferenceable(144) %4) #17
@@ -3428,8 +3428,8 @@ _ZN10async_task5utils14abort_on_panic17he7bda8be89559da4E.exit: ; preds = %193, 
 "_ZN4core3ptr60drop_in_place$LT$async_task..utils..abort_on_panic..Bomb$GT$17hec6477199e4464c5E.exit.i133": ; preds = %322, %326, %284, %262, %.body.i147, %230, %.body172
   %.pn96 = phi { ptr, i32 } [ %316, %.body172 ], [ %221, %.body.i147 ], [ %231, %230 ], [ %263, %262 ], [ %285, %284 ], [ %316, %326 ], [ %323, %322 ]
   %204 = load i64, ptr %6, align 8, !range !326, !noundef !11
-  %.not273 = icmp eq i64 %204, 5
-  br i1 %.not273, label %common.resume, label %329
+  %.not288 = icmp eq i64 %204, 5
+  br i1 %.not288, label %common.resume, label %329
 
 205:                                              ; preds = %.body.i126
   invoke fastcc void @"_ZN4core3ptr232drop_in_place$LT$core..result..Result$LT$core..result..Result$LT$http..response..Response$LT$http_client..async_body..AsyncBody$GT$$C$anyhow..Error$GT$$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$17h3029fe5b76f05d9fE"(ptr noalias noundef align 8 dereferenceable(144) %4) #17

@@ -228,9 +228,9 @@ _ZNK4base8internal8RunMixinINS_8CallbackIFvvELNS0_8CopyModeE1ELNS0_10RepeatModeE
   br label %_ZNSt5stackIN4base8CallbackIFvvELNS0_8internal8CopyModeE1ELNS3_10RepeatModeE1EEESt5dequeIS6_SaIS6_EEE3popEv.exit
 
 _ZNSt5stackIN4base8CallbackIFvvELNS0_8internal8CopyModeE1ELNS3_10RepeatModeE1EEESt5dequeIS6_SaIS6_EEE3popEv.exit: ; preds = %45, %47
-  %.sink1.i.i = phi ptr [ %52, %47 ], [ %46, %45 ]
-  store ptr %.sink1.i.i, ptr %16, align 8, !tbaa !40
-  call void @_ZN4base8internal12CallbackBaseILNS0_8CopyModeE0EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %.sink1.i.i) #13
+  %.sink2.i.i = phi ptr [ %52, %47 ], [ %46, %45 ]
+  store ptr %.sink2.i.i, ptr %16, align 8, !tbaa !40
+  call void @_ZN4base8internal12CallbackBaseILNS0_8CopyModeE0EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %.sink2.i.i) #13
   call void @_ZN4base8internal12CallbackBaseILNS0_8CopyModeE0EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %53 = load ptr, ptr %16, align 8, !tbaa !23

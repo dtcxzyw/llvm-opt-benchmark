@@ -443,17 +443,17 @@ define internal i32 @b64_read(ptr noundef %0, ptr noundef writeonly captures(add
   %50 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %51 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %52 = icmp sgt i32 %.0168, 0
-  br i1 %52, label %.lr.ph328, label %.thread226
+  br i1 %52, label %.lr.ph340, label %.thread226
 
-.lr.ph328:                                        ; preds = %43, %.outer
-  %.1164.ph345 = phi ptr [ %139, %.outer ], [ %.0163, %43 ]
-  %.0165.ph344 = phi i32 [ %.3, %.outer ], [ %spec.select216, %43 ]
-  %.1169.ph343 = phi i32 [ %138, %.outer ], [ %.0168, %43 ]
-  %.1173.ph340 = phi i32 [ %134, %.outer ], [ %.0172, %43 ]
+.lr.ph340:                                        ; preds = %43, %.outer
+  %.1164.ph357 = phi ptr [ %139, %.outer ], [ %.0163, %43 ]
+  %.0165.ph356 = phi i32 [ %.3, %.outer ], [ %spec.select216, %43 ]
+  %.1169.ph355 = phi i32 [ %138, %.outer ], [ %.0168, %43 ]
+  %.1173.ph352 = phi i32 [ %134, %.outer ], [ %.0172, %43 ]
   br label %.backedge
 
-.backedge:                                        ; preds = %.backedge.backedge, %.lr.ph328
-  %.0165327 = phi i32 [ %.0165.ph344, %.lr.ph328 ], [ %.3, %.backedge.backedge ]
+.backedge:                                        ; preds = %.backedge.backedge, %.lr.ph340
+  %.0165339 = phi i32 [ %.0165.ph356, %.lr.ph340 ], [ %.3, %.backedge.backedge ]
   %53 = load i32, ptr %44, align 8, !tbaa !18
   %54 = icmp slt i32 %53, 1
   br i1 %54, label %.thread226, label %55
@@ -506,7 +506,7 @@ define internal i32 @b64_read(ptr noundef %0, ptr noundef writeonly captures(add
 74:                                               ; preds = %._crit_edge273, %71
   %75 = phi i32 [ %.pre274, %._crit_edge273 ], [ %72, %71 ]
   %.1179 = phi i32 [ %60, %._crit_edge273 ], [ 0, %71 ]
-  %.3 = phi i32 [ %.0165327, %._crit_edge273 ], [ %.4, %71 ]
+  %.3 = phi i32 [ %.0165339, %._crit_edge273 ], [ %.4, %71 ]
   %76 = add nsw i32 %75, %.1179
   store i32 %76, ptr %46, align 8, !tbaa !12
   %77 = load i32, ptr %48, align 4, !tbaa !19
@@ -517,7 +517,7 @@ define internal i32 @b64_read(ptr noundef %0, ptr noundef writeonly captures(add
   %79 = call i32 @BIO_test_flags(ptr noundef %0, i32 noundef -1) #8
   %80 = and i32 %79, 256
   %.not205 = icmp eq i32 %80, 0
-  br i1 %.not205, label %81, label %.loopexit301.sink.split
+  br i1 %.not205, label %81, label %.loopexit313.sink.split
 
 81:                                               ; preds = %78
   %.pr = load i32, ptr %48, align 4, !tbaa !19
@@ -527,7 +527,7 @@ define internal i32 @b64_read(ptr noundef %0, ptr noundef writeonly captures(add
 82:                                               ; preds = %81
   store i32 0, ptr %4, align 4, !tbaa !20
   %83 = icmp sgt i32 %76, 0
-  br i1 %83, label %.lr.ph.preheader, label %.thread298
+  br i1 %83, label %.lr.ph.preheader, label %.thread310
 
 .lr.ph.preheader:                                 ; preds = %82
   %84 = add i32 %75, -1
@@ -574,14 +574,14 @@ define internal i32 @b64_read(ptr noundef %0, ptr noundef writeonly captures(add
 102:                                              ; preds = %94
   store i32 0, ptr %48, align 4, !tbaa !19
   %.not209 = icmp eq i64 %.0161.idx246, 1542
-  br i1 %.not209, label %.loopexit301.sink.split, label %103
+  br i1 %.not209, label %.loopexit313.sink.split, label %103
 
 103:                                              ; preds = %102
   %104 = trunc i64 %.0161.idx246 to i32
   %.neg234 = add nuw i32 %76, 1542
   %105 = sub i32 %.neg234, %104
   %106 = icmp sgt i32 %105, 0
-  br i1 %106, label %.lr.ph253.preheader, label %.loopexit301.sink.split
+  br i1 %106, label %.lr.ph253.preheader, label %.loopexit313.sink.split
 
 .lr.ph253.preheader:                              ; preds = %103
   %wide.trip.count265 = zext nneg i32 %105 to i64
@@ -595,7 +595,7 @@ define internal i32 @b64_read(ptr noundef %0, ptr noundef writeonly captures(add
   store i8 %108, ptr %109, align 1, !tbaa !21
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond266.not = icmp eq i64 %indvars.iv.next, %wide.trip.count265
-  br i1 %exitcond266.not, label %.loopexit301.sink.split, label %.lr.ph253, !llvm.loop !23
+  br i1 %exitcond266.not, label %.loopexit313.sink.split, label %.lr.ph253, !llvm.loop !23
 
 110:                                              ; preds = %94, %.lr.ph, %93
   %.1162.idx = phi i64 [ %.0161.idx246, %.lr.ph ], [ %.0160.add, %93 ], [ %.0160.add, %94 ]
@@ -607,7 +607,7 @@ define internal i32 @b64_read(ptr noundef %0, ptr noundef writeonly captures(add
 .loopexit:                                        ; preds = %110
   %.pr220.pre = load i32, ptr %48, align 4, !tbaa !19
   %111 = icmp eq i32 %.pr220.pre, 0
-  br i1 %111, label %.loopexit301.sink.split, label %112
+  br i1 %111, label %.loopexit313.sink.split, label %112
 
 112:                                              ; preds = %.loopexit
   %113 = icmp samesign eq i64 %.1162.idx, 1542
@@ -615,21 +615,21 @@ define internal i32 @b64_read(ptr noundef %0, ptr noundef writeonly captures(add
 
 114:                                              ; preds = %112
   %115 = icmp eq i32 %76, 1024
-  br i1 %115, label %116, label %.thread298
+  br i1 %115, label %116, label %.thread310
 
 116:                                              ; preds = %114
   store i32 1, ptr %49, align 4, !tbaa !22
-  br label %.thread298.sink.split
+  br label %.thread310.sink.split
 
 117:                                              ; preds = %112
   %.not213 = icmp eq i64 %.1162.idx, %87
-  br i1 %.not213, label %.thread298.sink.split, label %118
+  br i1 %.not213, label %.thread310.sink.split, label %118
 
 118:                                              ; preds = %117
   %gepdiff = sub i64 %87, %.1162.idx
   %119 = trunc i64 %gepdiff to i32
   %120 = icmp sgt i32 %119, 0
-  br i1 %120, label %.lr.ph255.preheader, label %.thread298.sink.split
+  br i1 %120, label %.lr.ph255.preheader, label %.thread310.sink.split
 
 .lr.ph255.preheader:                              ; preds = %118
   %wide.trip.count270 = and i64 %gepdiff, 2147483647
@@ -643,31 +643,31 @@ define internal i32 @b64_read(ptr noundef %0, ptr noundef writeonly captures(add
   store i8 %122, ptr %123, align 1, !tbaa !21
   %indvars.iv.next268 = add nuw nsw i64 %indvars.iv267, 1
   %exitcond271.not = icmp eq i64 %indvars.iv.next268, %wide.trip.count270
-  br i1 %exitcond271.not, label %.thread298.sink.split, label %.lr.ph255, !llvm.loop !25
+  br i1 %exitcond271.not, label %.thread310.sink.split, label %.lr.ph255, !llvm.loop !25
 
-.thread298.sink.split:                            ; preds = %.lr.ph255, %117, %118, %116
+.thread310.sink.split:                            ; preds = %.lr.ph255, %117, %118, %116
   %.sink = phi i32 [ 0, %116 ], [ %119, %118 ], [ 0, %117 ], [ %119, %.lr.ph255 ]
   store i32 %.sink, ptr %46, align 8, !tbaa !12
-  br label %.thread298
+  br label %.thread310
 
-.thread298:                                       ; preds = %.thread298.sink.split, %82, %114
+.thread310:                                       ; preds = %.thread310.sink.split, %82, %114
   br i1 %61, label %.backedge.backedge, label %.thread226
 
 .thread:                                          ; preds = %74, %81
   %124 = icmp slt i32 %76, 1024
   %or.cond5 = and i1 %61, %124
-  br i1 %or.cond5, label %.backedge.backedge, label %.loopexit301
+  br i1 %or.cond5, label %.backedge.backedge, label %.loopexit313
 
-.backedge.backedge:                               ; preds = %.thread, %.thread298
+.backedge.backedge:                               ; preds = %.thread, %.thread310
   br label %.backedge, !llvm.loop !26
 
-.loopexit301.sink.split:                          ; preds = %.loopexit, %78, %.lr.ph253, %102, %103
+.loopexit313.sink.split:                          ; preds = %.loopexit, %78, %.lr.ph253, %102, %103
   %.2180.ph = phi i32 [ %76, %102 ], [ %105, %103 ], [ %105, %.lr.ph253 ], [ %76, %78 ], [ %76, %.loopexit ]
   store i32 0, ptr %46, align 8, !tbaa !12
-  br label %.loopexit301
+  br label %.loopexit313
 
-.loopexit301:                                     ; preds = %.thread, %.loopexit301.sink.split
-  %.2180 = phi i32 [ %.2180.ph, %.loopexit301.sink.split ], [ %76, %.thread ]
+.loopexit313:                                     ; preds = %.thread, %.loopexit313.sink.split
+  %.2180 = phi i32 [ %.2180.ph, %.loopexit313.sink.split ], [ %76, %.thread ]
   %125 = load ptr, ptr %47, align 8, !tbaa !13
   %126 = call i32 @EVP_DecodeUpdate(ptr noundef %125, ptr noundef nonnull %50, ptr noundef nonnull %7, ptr noundef nonnull %.ptr, i32 noundef %.2180) #8
   store i32 0, ptr %46, align 8, !tbaa !12
@@ -676,19 +676,19 @@ define internal i32 @b64_read(ptr noundef %0, ptr noundef writeonly captures(add
   %127 = icmp slt i32 %126, 0
   br i1 %127, label %128, label %131
 
-128:                                              ; preds = %.loopexit301
+128:                                              ; preds = %.loopexit313
   %129 = load i32, ptr %48, align 4, !tbaa !19
   %.not215 = icmp eq i32 %129, 0
   %130 = select i1 %.not215, i32 %126, i32 0
   store i32 0, ptr %7, align 8, !tbaa !10
   br label %.thread226
 
-131:                                              ; preds = %.loopexit301
+131:                                              ; preds = %.loopexit313
   %132 = load i32, ptr %7, align 8, !tbaa !10
-  %.1169. = call i32 @llvm.smin.i32(i32 %132, i32 %.1169.ph343)
+  %.1169. = call i32 @llvm.smin.i32(i32 %132, i32 %.1169.ph355)
   %133 = sext i32 %.1169. to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.1164.ph345, ptr nonnull align 8 %50, i64 %133, i1 false)
-  %134 = add nsw i32 %.1169., %.1173.ph340
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.1164.ph357, ptr nonnull align 8 %50, i64 %133, i1 false)
+  %134 = add nsw i32 %.1169., %.1173.ph352
   store i32 %.1169., ptr %51, align 4, !tbaa !11
   %135 = load i32, ptr %7, align 8, !tbaa !10
   %136 = icmp eq i32 %.1169., %135
@@ -700,17 +700,17 @@ define internal i32 @b64_read(ptr noundef %0, ptr noundef writeonly captures(add
   br label %.outer
 
 .outer:                                           ; preds = %137, %131
-  %138 = sub nsw i32 %.1169.ph343, %.1169.
-  %139 = getelementptr inbounds i8, ptr %.1164.ph345, i64 %133
+  %138 = sub nsw i32 %.1169.ph355, %.1169.
+  %139 = getelementptr inbounds i8, ptr %.1164.ph357, i64 %133
   %140 = icmp sgt i32 %138, 0
-  br i1 %140, label %.lr.ph328, label %.thread226
+  br i1 %140, label %.lr.ph340, label %.thread226
 
-.thread226:                                       ; preds = %.outer, %.thread298, %.backedge, %71, %43, %128
-  %.1173.ph325 = phi i32 [ %.1173.ph340, %128 ], [ %.0172, %43 ], [ %.1173.ph340, %71 ], [ %.1173.ph340, %.backedge ], [ %.1173.ph340, %.thread298 ], [ %134, %.outer ]
-  %.1166 = phi i32 [ %130, %128 ], [ %spec.select216, %43 ], [ %.4, %71 ], [ %.0165327, %.backedge ], [ %.3, %.thread298 ], [ %.3, %.outer ]
+.thread226:                                       ; preds = %.outer, %.thread310, %.backedge, %71, %43, %128
+  %.1173.ph337 = phi i32 [ %.1173.ph352, %128 ], [ %.0172, %43 ], [ %.1173.ph352, %71 ], [ %.1173.ph352, %.backedge ], [ %.1173.ph352, %.thread310 ], [ %134, %.outer ]
+  %.1166 = phi i32 [ %130, %128 ], [ %spec.select216, %43 ], [ %.4, %71 ], [ %.0165339, %.backedge ], [ %.3, %.thread310 ], [ %.3, %.outer ]
   call void @BIO_copy_next_retry(ptr noundef %0) #8
-  %141 = icmp eq i32 %.1173.ph325, 0
-  %142 = select i1 %141, i32 %.1166, i32 %.1173.ph325
+  %141 = icmp eq i32 %.1173.ph337, 0
+  %142 = select i1 %141, i32 %.1166, i32 %.1173.ph337
   br label %143
 
 143:                                              ; preds = %6, %3, %.thread226

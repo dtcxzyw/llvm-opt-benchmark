@@ -1414,12 +1414,12 @@ define dso_local i32 @tcf_register_action(ptr noundef %0, ptr noundef %1) #0 ali
   br label %.sink.split
 
 .sink.split:                                      ; preds = %27, %63, %71, %31
-  %.ph10 = phi i32 [ -12, %31 ], [ -17, %71 ], [ -17, %63 ], [ -17, %27 ]
+  %.ph16 = phi i32 [ -12, %31 ], [ -17, %71 ], [ -17, %63 ], [ -17, %27 ]
   tail call void @mutex_unlock(ptr noundef nonnull @act_id_mutex) #14
   br label %76
 
 76:                                               ; preds = %.sink.split, %55
-  %77 = phi i32 [ -17, %55 ], [ %.ph10, %.sink.split ]
+  %77 = phi i32 [ -17, %55 ], [ %.ph16, %.sink.split ]
   tail call void @unregister_pernet_subsys(ptr noundef %1) #14
   br label %78
 
@@ -1517,7 +1517,7 @@ define dso_local noundef range(i32 -2, 1) i32 @tcf_unregister_action(ptr noundef
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @tcf_action_exec(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef %3) #0 align 16 {
+define dso_local range(i32 7, 6) i32 @tcf_action_exec(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef %3) #0 align 16 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 129
   %6 = load i24, ptr %5, align 1
   %7 = and i24 %6, 4

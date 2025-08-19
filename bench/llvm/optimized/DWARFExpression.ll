@@ -1224,8 +1224,8 @@ _ZN4llvm9DWARFUnit15getDIEForOffsetEm.exit:       ; preds = %47
   store ptr %0, ptr %11, align 8
   %55 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %54, ptr %55, align 8
-  %.not40 = icmp eq ptr %31, null
-  br i1 %.not40, label %_ZNK4llvm8DWARFDie6getTagEv.exit.thread, label %56
+  %.not47 = icmp eq ptr %31, null
+  br i1 %.not47, label %_ZNK4llvm8DWARFDie6getTagEv.exit.thread, label %56
 
 56:                                               ; preds = %_ZN4llvm9DWARFUnit15getDIEForOffsetEm.exit
   %57 = getelementptr inbounds nuw i8, ptr %54, i64 16
@@ -2645,8 +2645,8 @@ define dso_local noundef zeroext i1 @_ZN4llvm15DWARFExpression9Operation6verifyE
   %21 = getelementptr inbounds nuw i64, ptr %.pre, i64 %13
   %22 = load i64, ptr %21, align 8, !tbaa !3
   %23 = icmp eq i64 %22, 0
-  %or.cond40 = select i1 %20, i1 %23, i1 false
-  br i1 %or.cond40, label %53, label %._crit_edge
+  %or.cond46 = select i1 %20, i1 %23, i1 false
+  br i1 %or.cond46, label %53, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %18
   %24 = load i64, ptr %8, align 8, !tbaa !94
@@ -2849,8 +2849,8 @@ _ZNK4llvm15DWARFExpression5beginEv.exit:          ; preds = %2, %20
   %67 = getelementptr inbounds nuw i64, ptr %.pre.i, i64 %59
   %68 = load i64, ptr %67, align 8, !tbaa !3
   %69 = icmp eq i64 %68, 0
-  %or.cond40.i = select i1 %66, i1 %69, i1 false
-  br i1 %or.cond40.i, label %99, label %._crit_edge.i
+  %or.cond46.i = select i1 %66, i1 %69, i1 false
+  br i1 %or.cond46.i, label %99, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %64
   %70 = load i64, ptr %49, align 8, !tbaa !94
@@ -5474,7 +5474,7 @@ _ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit420: ; preds = %_ZN4llv
   %476 = getelementptr inbounds nuw i8, ptr %15, i64 32
   %477 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %478 = getelementptr inbounds nuw i8, ptr %15, i64 24
-  br label %1048
+  br label %1054
 
 .preheader1:                                      ; preds = %.sink.split.i.i.i423, %.preheader1
   %indvars.iv6 = phi i64 [ %indvars.iv.next7, %.preheader1 ], [ 80, %.sink.split.i.i.i423 ]
@@ -5658,1312 +5658,1318 @@ _ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit460: ; preds = %_ZN4llv
 
 549:                                              ; preds = %548
   %550 = load ptr, ptr %534, align 8, !tbaa !40
-  call void @llvm.memmove.p0.p0.i64(ptr align 1 %550, ptr nonnull align 8 %529, i64 %538, i1 false)
+  %551 = load i8, ptr %529, align 8
+  store i8 %551, ptr %550, align 1
   br label %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i465
 
 _ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i465: ; preds = %549, %548, %546
   %.022.i.i.i466 = phi i64 [ 0, %546 ], [ 0, %548 ], [ 1, %549 ]
-  %551 = load i64, ptr %530, align 8, !tbaa !41
-  %.not.i.i.i.i467 = icmp samesign eq i64 %.022.i.i.i466, %551
-  br i1 %.not.i.i.i.i467, label %_ZN4llvm15DWARFExpression9Operation11DescriptionaSERKS2_.exit469, label %552
+  %552 = load i64, ptr %530, align 8, !tbaa !41
+  %.not.i.i.i.i467 = icmp samesign eq i64 %.022.i.i.i466, %552
+  br i1 %.not.i.i.i.i467, label %_ZN4llvm15DWARFExpression9Operation11DescriptionaSERKS2_.exit469, label %553
 
-552:                                              ; preds = %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i465
-  %553 = load ptr, ptr %528, align 8, !tbaa !40
-  %554 = getelementptr inbounds nuw i8, ptr %553, i64 %.022.i.i.i466
-  %555 = load ptr, ptr %534, align 8, !tbaa !40
-  %556 = getelementptr inbounds nuw i8, ptr %555, i64 %.022.i.i.i466
-  %gepdiff.i.i.i468 = sub nsw i64 %551, %.022.i.i.i466
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %556, ptr align 1 %554, i64 %gepdiff.i.i.i468, i1 false)
+553:                                              ; preds = %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i465
+  %554 = load ptr, ptr %528, align 8, !tbaa !40
+  %555 = getelementptr inbounds nuw i8, ptr %554, i64 %.022.i.i.i466
+  %556 = load ptr, ptr %534, align 8, !tbaa !40
+  %557 = getelementptr inbounds nuw i8, ptr %556, i64 %.022.i.i.i466
+  %gepdiff.i.i.i468 = sub nsw i64 %552, %.022.i.i.i466
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %557, ptr align 1 %555, i64 %gepdiff.i.i.i468, i1 false)
   br label %_ZN4llvm15DWARFExpression9Operation11DescriptionaSERKS2_.exit469
 
-_ZN4llvm15DWARFExpression9Operation11DescriptionaSERKS2_.exit469: ; preds = %539, %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i465, %552
+_ZN4llvm15DWARFExpression9Operation11DescriptionaSERKS2_.exit469: ; preds = %539, %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i465, %553
   store i64 2, ptr %537, align 8, !tbaa !41
   %.pre41 = load ptr, ptr %528, align 8, !tbaa !40
-  %557 = icmp eq ptr %.pre41, %529
-  br i1 %557, label %_ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit470, label %558
+  %558 = icmp eq ptr %.pre41, %529
+  br i1 %558, label %_ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit470, label %559
 
-558:                                              ; preds = %_ZN4llvm15DWARFExpression9Operation11DescriptionaSERKS2_.exit469
+559:                                              ; preds = %_ZN4llvm15DWARFExpression9Operation11DescriptionaSERKS2_.exit469
   call void @free(ptr noundef %.pre41) #20
   br label %_ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit470
 
-_ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit470: ; preds = %_ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit460, %_ZN4llvm15DWARFExpression9Operation11DescriptionaSERKS2_.exit469, %558
+_ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit470: ; preds = %_ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit460, %_ZN4llvm15DWARFExpression9Operation11DescriptionaSERKS2_.exit469, %559
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
   store i8 2, ptr %19, align 8, !tbaa !38
-  %559 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %560 = getelementptr inbounds nuw i8, ptr %19, i64 32
-  store ptr %560, ptr %559, align 8, !tbaa !40
-  %561 = getelementptr inbounds nuw i8, ptr %19, i64 16
-  %562 = getelementptr inbounds nuw i8, ptr %19, i64 24
-  store i64 40, ptr %562, align 8, !tbaa !42
-  store i8 4, ptr %560, align 8
-  store i64 1, ptr %561, align 8, !tbaa !41
-  %563 = load ptr, ptr @_ZZN4llvmL9getOpDescEjE12Descriptions, align 8, !tbaa !31
-  %564 = getelementptr inbounds nuw i8, ptr %563, i64 10584
-  store i8 2, ptr %564, align 8, !tbaa !38
-  %565 = getelementptr inbounds nuw i8, ptr %563, i64 10592
-  %566 = icmp eq ptr %564, %19
-  br i1 %566, label %_ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit480, label %567
+  %560 = getelementptr inbounds nuw i8, ptr %19, i64 8
+  %561 = getelementptr inbounds nuw i8, ptr %19, i64 32
+  store ptr %561, ptr %560, align 8, !tbaa !40
+  %562 = getelementptr inbounds nuw i8, ptr %19, i64 16
+  %563 = getelementptr inbounds nuw i8, ptr %19, i64 24
+  store i64 40, ptr %563, align 8, !tbaa !42
+  store i8 4, ptr %561, align 8
+  store i64 1, ptr %562, align 8, !tbaa !41
+  %564 = load ptr, ptr @_ZZN4llvmL9getOpDescEjE12Descriptions, align 8, !tbaa !31
+  %565 = getelementptr inbounds nuw i8, ptr %564, i64 10584
+  store i8 2, ptr %565, align 8, !tbaa !38
+  %566 = getelementptr inbounds nuw i8, ptr %564, i64 10592
+  %567 = icmp eq ptr %565, %19
+  br i1 %567, label %_ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit480, label %568
 
-567:                                              ; preds = %_ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit470
-  %568 = getelementptr inbounds nuw i8, ptr %563, i64 10600
-  %569 = load i64, ptr %568, align 8, !tbaa !41
-  %.not.i.i.i471 = icmp eq i64 %569, 0
-  br i1 %.not.i.i.i471, label %572, label %570
+568:                                              ; preds = %_ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit470
+  %569 = getelementptr inbounds nuw i8, ptr %564, i64 10600
+  %570 = load i64, ptr %569, align 8, !tbaa !41
+  %.not.i.i.i471 = icmp eq i64 %570, 0
+  br i1 %.not.i.i.i471, label %573, label %571
 
-570:                                              ; preds = %567
-  %571 = load ptr, ptr %565, align 8, !tbaa !40
-  store i8 4, ptr %571, align 1
+571:                                              ; preds = %568
+  %572 = load ptr, ptr %566, align 8, !tbaa !40
+  store i8 4, ptr %572, align 1
   br label %_ZN4llvm15DWARFExpression9Operation11DescriptionaSERKS2_.exit479
 
-572:                                              ; preds = %567
-  %573 = getelementptr inbounds nuw i8, ptr %563, i64 10608
-  %574 = load i64, ptr %573, align 8, !tbaa !42
-  %575 = icmp eq i64 %574, 0
-  br i1 %575, label %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i475, label %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i475.thread
+573:                                              ; preds = %568
+  %574 = getelementptr inbounds nuw i8, ptr %564, i64 10608
+  %575 = load i64, ptr %574, align 8, !tbaa !42
+  %576 = icmp eq i64 %575, 0
+  br i1 %576, label %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i475, label %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i475.thread
 
-_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i475: ; preds = %572
-  store i64 0, ptr %568, align 8, !tbaa !41
-  %576 = getelementptr inbounds nuw i8, ptr %563, i64 10616
-  call void @_ZN4llvm15SmallVectorBaseImE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(64) %565, ptr noundef nonnull %576, i64 noundef 1, i64 noundef 1) #20
-  %.pre42 = load i64, ptr %561, align 8, !tbaa !41
+_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i475: ; preds = %573
+  store i64 0, ptr %569, align 8, !tbaa !41
+  %577 = getelementptr inbounds nuw i8, ptr %564, i64 10616
+  call void @_ZN4llvm15SmallVectorBaseImE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(64) %566, ptr noundef nonnull %577, i64 noundef 1, i64 noundef 1) #20
+  %.pre42 = load i64, ptr %562, align 8, !tbaa !41
   %.not.i.i.i.i477 = icmp samesign eq i64 %.pre42, 0
   br i1 %.not.i.i.i.i477, label %_ZN4llvm15DWARFExpression9Operation11DescriptionaSERKS2_.exit479, label %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i475.thread
 
-_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i475.thread: ; preds = %572, %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i475
-  %577 = phi i64 [ %.pre42, %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i475 ], [ 1, %572 ]
-  %578 = load ptr, ptr %559, align 8, !tbaa !40
-  %579 = load ptr, ptr %565, align 8, !tbaa !40
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %579, ptr noundef nonnull align 1 dereferenceable(1) %578, i64 %577, i1 false)
+_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i475.thread: ; preds = %573, %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i475
+  %578 = phi i64 [ %.pre42, %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i475 ], [ 1, %573 ]
+  %579 = load ptr, ptr %560, align 8, !tbaa !40
+  %580 = load ptr, ptr %566, align 8, !tbaa !40
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %580, ptr noundef nonnull align 1 dereferenceable(1) %579, i64 %578, i1 false)
   br label %_ZN4llvm15DWARFExpression9Operation11DescriptionaSERKS2_.exit479
 
-_ZN4llvm15DWARFExpression9Operation11DescriptionaSERKS2_.exit479: ; preds = %570, %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i475, %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i475.thread
-  store i64 1, ptr %568, align 8, !tbaa !41
-  %.pre43 = load ptr, ptr %559, align 8, !tbaa !40
-  %580 = icmp eq ptr %.pre43, %560
-  br i1 %580, label %_ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit480, label %581
+_ZN4llvm15DWARFExpression9Operation11DescriptionaSERKS2_.exit479: ; preds = %571, %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i475, %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i475.thread
+  store i64 1, ptr %569, align 8, !tbaa !41
+  %.pre43 = load ptr, ptr %560, align 8, !tbaa !40
+  %581 = icmp eq ptr %.pre43, %561
+  br i1 %581, label %_ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit480, label %582
 
-581:                                              ; preds = %_ZN4llvm15DWARFExpression9Operation11DescriptionaSERKS2_.exit479
+582:                                              ; preds = %_ZN4llvm15DWARFExpression9Operation11DescriptionaSERKS2_.exit479
   call void @free(ptr noundef %.pre43) #20
   br label %_ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit480
 
-_ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit480: ; preds = %_ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit470, %_ZN4llvm15DWARFExpression9Operation11DescriptionaSERKS2_.exit479, %581
+_ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit480: ; preds = %_ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit470, %_ZN4llvm15DWARFExpression9Operation11DescriptionaSERKS2_.exit479, %582
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
   store i8 2, ptr %20, align 8, !tbaa !38
-  %582 = getelementptr inbounds nuw i8, ptr %20, i64 8
-  %583 = getelementptr inbounds nuw i8, ptr %20, i64 32
-  store ptr %583, ptr %582, align 8, !tbaa !40
-  %584 = getelementptr inbounds nuw i8, ptr %20, i64 16
-  %585 = getelementptr inbounds nuw i8, ptr %20, i64 24
-  store i64 40, ptr %585, align 8, !tbaa !42
-  store i8 0, ptr %583, align 8
-  store i64 1, ptr %584, align 8, !tbaa !41
-  %586 = load ptr, ptr @_ZZN4llvmL9getOpDescEjE12Descriptions, align 8, !tbaa !31
-  %587 = getelementptr inbounds nuw i8, ptr %586, i64 10656
-  store i8 2, ptr %587, align 8, !tbaa !38
-  %588 = getelementptr inbounds nuw i8, ptr %586, i64 10664
-  %589 = icmp eq ptr %587, %20
-  br i1 %589, label %_ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit490, label %590
+  %583 = getelementptr inbounds nuw i8, ptr %20, i64 8
+  %584 = getelementptr inbounds nuw i8, ptr %20, i64 32
+  store ptr %584, ptr %583, align 8, !tbaa !40
+  %585 = getelementptr inbounds nuw i8, ptr %20, i64 16
+  %586 = getelementptr inbounds nuw i8, ptr %20, i64 24
+  store i64 40, ptr %586, align 8, !tbaa !42
+  store i8 0, ptr %584, align 8
+  store i64 1, ptr %585, align 8, !tbaa !41
+  %587 = load ptr, ptr @_ZZN4llvmL9getOpDescEjE12Descriptions, align 8, !tbaa !31
+  %588 = getelementptr inbounds nuw i8, ptr %587, i64 10656
+  store i8 2, ptr %588, align 8, !tbaa !38
+  %589 = getelementptr inbounds nuw i8, ptr %587, i64 10664
+  %590 = icmp eq ptr %588, %20
+  br i1 %590, label %_ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit490, label %591
 
-590:                                              ; preds = %_ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit480
-  %591 = getelementptr inbounds nuw i8, ptr %586, i64 10672
-  %592 = load i64, ptr %591, align 8, !tbaa !41
-  %.not.i.i.i481 = icmp eq i64 %592, 0
-  br i1 %.not.i.i.i481, label %595, label %593
+591:                                              ; preds = %_ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit480
+  %592 = getelementptr inbounds nuw i8, ptr %587, i64 10672
+  %593 = load i64, ptr %592, align 8, !tbaa !41
+  %.not.i.i.i481 = icmp eq i64 %593, 0
+  br i1 %.not.i.i.i481, label %596, label %594
 
-593:                                              ; preds = %590
-  %594 = load ptr, ptr %588, align 8, !tbaa !40
-  store i8 0, ptr %594, align 1
+594:                                              ; preds = %591
+  %595 = load ptr, ptr %589, align 8, !tbaa !40
+  store i8 0, ptr %595, align 1
   br label %_ZN4llvm15DWARFExpression9Operation11DescriptionaSERKS2_.exit489
 
-595:                                              ; preds = %590
-  %596 = getelementptr inbounds nuw i8, ptr %586, i64 10680
-  %597 = load i64, ptr %596, align 8, !tbaa !42
-  %598 = icmp eq i64 %597, 0
-  br i1 %598, label %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i485, label %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i485.thread
+596:                                              ; preds = %591
+  %597 = getelementptr inbounds nuw i8, ptr %587, i64 10680
+  %598 = load i64, ptr %597, align 8, !tbaa !42
+  %599 = icmp eq i64 %598, 0
+  br i1 %599, label %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i485, label %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i485.thread
 
-_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i485: ; preds = %595
-  store i64 0, ptr %591, align 8, !tbaa !41
-  %599 = getelementptr inbounds nuw i8, ptr %586, i64 10688
-  call void @_ZN4llvm15SmallVectorBaseImE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(64) %588, ptr noundef nonnull %599, i64 noundef 1, i64 noundef 1) #20
-  %.pre44 = load i64, ptr %584, align 8, !tbaa !41
+_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i485: ; preds = %596
+  store i64 0, ptr %592, align 8, !tbaa !41
+  %600 = getelementptr inbounds nuw i8, ptr %587, i64 10688
+  call void @_ZN4llvm15SmallVectorBaseImE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(64) %589, ptr noundef nonnull %600, i64 noundef 1, i64 noundef 1) #20
+  %.pre44 = load i64, ptr %585, align 8, !tbaa !41
   %.not.i.i.i.i487 = icmp samesign eq i64 %.pre44, 0
   br i1 %.not.i.i.i.i487, label %_ZN4llvm15DWARFExpression9Operation11DescriptionaSERKS2_.exit489, label %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i485.thread
 
-_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i485.thread: ; preds = %595, %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i485
-  %600 = phi i64 [ %.pre44, %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i485 ], [ 1, %595 ]
-  %601 = load ptr, ptr %582, align 8, !tbaa !40
-  %602 = load ptr, ptr %588, align 8, !tbaa !40
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %602, ptr noundef nonnull align 1 dereferenceable(1) %601, i64 %600, i1 false)
+_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i485.thread: ; preds = %596, %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i485
+  %601 = phi i64 [ %.pre44, %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i485 ], [ 1, %596 ]
+  %602 = load ptr, ptr %583, align 8, !tbaa !40
+  %603 = load ptr, ptr %589, align 8, !tbaa !40
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %603, ptr noundef nonnull align 1 dereferenceable(1) %602, i64 %601, i1 false)
   br label %_ZN4llvm15DWARFExpression9Operation11DescriptionaSERKS2_.exit489
 
-_ZN4llvm15DWARFExpression9Operation11DescriptionaSERKS2_.exit489: ; preds = %593, %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i485, %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i485.thread
-  store i64 1, ptr %591, align 8, !tbaa !41
-  %.pre45 = load ptr, ptr %582, align 8, !tbaa !40
-  %603 = icmp eq ptr %.pre45, %583
-  br i1 %603, label %_ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit490, label %604
+_ZN4llvm15DWARFExpression9Operation11DescriptionaSERKS2_.exit489: ; preds = %594, %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i485, %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i485.thread
+  store i64 1, ptr %592, align 8, !tbaa !41
+  %.pre45 = load ptr, ptr %583, align 8, !tbaa !40
+  %604 = icmp eq ptr %.pre45, %584
+  br i1 %604, label %_ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit490, label %605
 
-604:                                              ; preds = %_ZN4llvm15DWARFExpression9Operation11DescriptionaSERKS2_.exit489
+605:                                              ; preds = %_ZN4llvm15DWARFExpression9Operation11DescriptionaSERKS2_.exit489
   call void @free(ptr noundef %.pre45) #20
   br label %_ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit490
 
-_ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit490: ; preds = %_ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit480, %_ZN4llvm15DWARFExpression9Operation11DescriptionaSERKS2_.exit489, %604
+_ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit490: ; preds = %_ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit480, %_ZN4llvm15DWARFExpression9Operation11DescriptionaSERKS2_.exit489, %605
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
   store i8 2, ptr %21, align 8, !tbaa !38
-  %605 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  %606 = getelementptr inbounds nuw i8, ptr %21, i64 32
-  store ptr %606, ptr %605, align 8, !tbaa !40
-  %607 = getelementptr inbounds nuw i8, ptr %21, i64 16
-  %608 = getelementptr inbounds nuw i8, ptr %21, i64 24
-  store i64 40, ptr %608, align 8, !tbaa !42
-  store i8 0, ptr %606, align 8
-  store i64 1, ptr %607, align 8, !tbaa !41
-  %609 = load ptr, ptr @_ZZN4llvmL9getOpDescEjE12Descriptions, align 8, !tbaa !31
-  %610 = getelementptr inbounds nuw i8, ptr %609, i64 10728
-  store i8 2, ptr %610, align 8, !tbaa !38
-  %611 = getelementptr inbounds nuw i8, ptr %609, i64 10736
-  %612 = icmp eq ptr %610, %21
-  br i1 %612, label %_ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit500, label %613
+  %606 = getelementptr inbounds nuw i8, ptr %21, i64 8
+  %607 = getelementptr inbounds nuw i8, ptr %21, i64 32
+  store ptr %607, ptr %606, align 8, !tbaa !40
+  %608 = getelementptr inbounds nuw i8, ptr %21, i64 16
+  %609 = getelementptr inbounds nuw i8, ptr %21, i64 24
+  store i64 40, ptr %609, align 8, !tbaa !42
+  store i8 0, ptr %607, align 8
+  store i64 1, ptr %608, align 8, !tbaa !41
+  %610 = load ptr, ptr @_ZZN4llvmL9getOpDescEjE12Descriptions, align 8, !tbaa !31
+  %611 = getelementptr inbounds nuw i8, ptr %610, i64 10728
+  store i8 2, ptr %611, align 8, !tbaa !38
+  %612 = getelementptr inbounds nuw i8, ptr %610, i64 10736
+  %613 = icmp eq ptr %611, %21
+  br i1 %613, label %_ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit500, label %614
 
-613:                                              ; preds = %_ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit490
-  %614 = getelementptr inbounds nuw i8, ptr %609, i64 10744
-  %615 = load i64, ptr %614, align 8, !tbaa !41
-  %.not.i.i.i491 = icmp eq i64 %615, 0
-  br i1 %.not.i.i.i491, label %618, label %616
+614:                                              ; preds = %_ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit490
+  %615 = getelementptr inbounds nuw i8, ptr %610, i64 10744
+  %616 = load i64, ptr %615, align 8, !tbaa !41
+  %.not.i.i.i491 = icmp eq i64 %616, 0
+  br i1 %.not.i.i.i491, label %619, label %617
 
-616:                                              ; preds = %613
-  %617 = load ptr, ptr %611, align 8, !tbaa !40
-  store i8 0, ptr %617, align 1
+617:                                              ; preds = %614
+  %618 = load ptr, ptr %612, align 8, !tbaa !40
+  store i8 0, ptr %618, align 1
   br label %_ZN4llvm15DWARFExpression9Operation11DescriptionaSERKS2_.exit499
 
-618:                                              ; preds = %613
-  %619 = getelementptr inbounds nuw i8, ptr %609, i64 10752
-  %620 = load i64, ptr %619, align 8, !tbaa !42
-  %621 = icmp eq i64 %620, 0
-  br i1 %621, label %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i495, label %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i495.thread
+619:                                              ; preds = %614
+  %620 = getelementptr inbounds nuw i8, ptr %610, i64 10752
+  %621 = load i64, ptr %620, align 8, !tbaa !42
+  %622 = icmp eq i64 %621, 0
+  br i1 %622, label %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i495, label %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i495.thread
 
-_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i495: ; preds = %618
-  store i64 0, ptr %614, align 8, !tbaa !41
-  %622 = getelementptr inbounds nuw i8, ptr %609, i64 10760
-  call void @_ZN4llvm15SmallVectorBaseImE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(64) %611, ptr noundef nonnull %622, i64 noundef 1, i64 noundef 1) #20
-  %.pre46 = load i64, ptr %607, align 8, !tbaa !41
+_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i495: ; preds = %619
+  store i64 0, ptr %615, align 8, !tbaa !41
+  %623 = getelementptr inbounds nuw i8, ptr %610, i64 10760
+  call void @_ZN4llvm15SmallVectorBaseImE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(64) %612, ptr noundef nonnull %623, i64 noundef 1, i64 noundef 1) #20
+  %.pre46 = load i64, ptr %608, align 8, !tbaa !41
   %.not.i.i.i.i497 = icmp samesign eq i64 %.pre46, 0
   br i1 %.not.i.i.i.i497, label %_ZN4llvm15DWARFExpression9Operation11DescriptionaSERKS2_.exit499, label %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i495.thread
 
-_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i495.thread: ; preds = %618, %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i495
-  %623 = phi i64 [ %.pre46, %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i495 ], [ 1, %618 ]
-  %624 = load ptr, ptr %605, align 8, !tbaa !40
-  %625 = load ptr, ptr %611, align 8, !tbaa !40
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %625, ptr noundef nonnull align 1 dereferenceable(1) %624, i64 %623, i1 false)
+_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i495.thread: ; preds = %619, %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i495
+  %624 = phi i64 [ %.pre46, %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i495 ], [ 1, %619 ]
+  %625 = load ptr, ptr %606, align 8, !tbaa !40
+  %626 = load ptr, ptr %612, align 8, !tbaa !40
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %626, ptr noundef nonnull align 1 dereferenceable(1) %625, i64 %624, i1 false)
   br label %_ZN4llvm15DWARFExpression9Operation11DescriptionaSERKS2_.exit499
 
-_ZN4llvm15DWARFExpression9Operation11DescriptionaSERKS2_.exit499: ; preds = %616, %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i495, %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i495.thread
-  store i64 1, ptr %614, align 8, !tbaa !41
-  %.pre47 = load ptr, ptr %605, align 8, !tbaa !40
-  %626 = icmp eq ptr %.pre47, %606
-  br i1 %626, label %_ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit500, label %627
+_ZN4llvm15DWARFExpression9Operation11DescriptionaSERKS2_.exit499: ; preds = %617, %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i495, %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i495.thread
+  store i64 1, ptr %615, align 8, !tbaa !41
+  %.pre47 = load ptr, ptr %606, align 8, !tbaa !40
+  %627 = icmp eq ptr %.pre47, %607
+  br i1 %627, label %_ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit500, label %628
 
-627:                                              ; preds = %_ZN4llvm15DWARFExpression9Operation11DescriptionaSERKS2_.exit499
+628:                                              ; preds = %_ZN4llvm15DWARFExpression9Operation11DescriptionaSERKS2_.exit499
   call void @free(ptr noundef %.pre47) #20
   br label %_ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit500
 
-_ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit500: ; preds = %_ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit490, %_ZN4llvm15DWARFExpression9Operation11DescriptionaSERKS2_.exit499, %627
+_ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit500: ; preds = %_ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit490, %_ZN4llvm15DWARFExpression9Operation11DescriptionaSERKS2_.exit499, %628
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
-  %628 = load ptr, ptr @_ZZN4llvmL9getOpDescEjE12Descriptions, align 8, !tbaa !31
-  %629 = getelementptr inbounds nuw i8, ptr %628, i64 10800
-  store i8 2, ptr %629, align 8, !tbaa !38
-  %630 = getelementptr inbounds nuw i8, ptr %628, i64 10816
-  store i64 0, ptr %630, align 8, !tbaa !41
-  %631 = getelementptr inbounds nuw i8, ptr %628, i64 10872
-  store i8 3, ptr %631, align 8, !tbaa !38
-  %632 = getelementptr inbounds nuw i8, ptr %628, i64 10888
-  store i64 0, ptr %632, align 8, !tbaa !41
+  %629 = load ptr, ptr @_ZZN4llvmL9getOpDescEjE12Descriptions, align 8, !tbaa !31
+  %630 = getelementptr inbounds nuw i8, ptr %629, i64 10800
+  store i8 2, ptr %630, align 8, !tbaa !38
+  %631 = getelementptr inbounds nuw i8, ptr %629, i64 10816
+  store i64 0, ptr %631, align 8, !tbaa !41
+  %632 = getelementptr inbounds nuw i8, ptr %629, i64 10872
+  store i8 3, ptr %632, align 8, !tbaa !38
+  %633 = getelementptr inbounds nuw i8, ptr %629, i64 10888
+  store i64 0, ptr %633, align 8, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %22)
   store i8 3, ptr %22, align 8, !tbaa !38
-  %633 = getelementptr inbounds nuw i8, ptr %22, i64 8
-  %634 = getelementptr inbounds nuw i8, ptr %22, i64 32
-  store ptr %634, ptr %633, align 8, !tbaa !40
-  %635 = getelementptr inbounds nuw i8, ptr %22, i64 16
-  %636 = getelementptr inbounds nuw i8, ptr %22, i64 24
-  store i64 40, ptr %636, align 8, !tbaa !42
-  store i8 1, ptr %634, align 8
-  store i64 1, ptr %635, align 8, !tbaa !41
-  %637 = getelementptr inbounds nuw i8, ptr %628, i64 10944
-  store i8 3, ptr %637, align 8, !tbaa !38
-  %638 = getelementptr inbounds nuw i8, ptr %628, i64 10952
-  %639 = icmp eq ptr %637, %22
-  br i1 %639, label %_ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit530, label %640
+  %634 = getelementptr inbounds nuw i8, ptr %22, i64 8
+  %635 = getelementptr inbounds nuw i8, ptr %22, i64 32
+  store ptr %635, ptr %634, align 8, !tbaa !40
+  %636 = getelementptr inbounds nuw i8, ptr %22, i64 16
+  %637 = getelementptr inbounds nuw i8, ptr %22, i64 24
+  store i64 40, ptr %637, align 8, !tbaa !42
+  store i8 1, ptr %635, align 8
+  store i64 1, ptr %636, align 8, !tbaa !41
+  %638 = getelementptr inbounds nuw i8, ptr %629, i64 10944
+  store i8 3, ptr %638, align 8, !tbaa !38
+  %639 = getelementptr inbounds nuw i8, ptr %629, i64 10952
+  %640 = icmp eq ptr %638, %22
+  br i1 %640, label %_ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit530, label %641
 
-640:                                              ; preds = %_ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit500
-  %641 = getelementptr inbounds nuw i8, ptr %628, i64 10960
-  %642 = load i64, ptr %641, align 8, !tbaa !41
-  %.not.i.i.i521 = icmp eq i64 %642, 0
-  br i1 %.not.i.i.i521, label %645, label %643
+641:                                              ; preds = %_ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit500
+  %642 = getelementptr inbounds nuw i8, ptr %629, i64 10960
+  %643 = load i64, ptr %642, align 8, !tbaa !41
+  %.not.i.i.i521 = icmp eq i64 %643, 0
+  br i1 %.not.i.i.i521, label %646, label %644
 
-643:                                              ; preds = %640
-  %644 = load ptr, ptr %638, align 8, !tbaa !40
-  store i8 1, ptr %644, align 1
+644:                                              ; preds = %641
+  %645 = load ptr, ptr %639, align 8, !tbaa !40
+  store i8 1, ptr %645, align 1
   br label %_ZN4llvm15DWARFExpression9Operation11DescriptionaSERKS2_.exit529
 
-645:                                              ; preds = %640
-  %646 = getelementptr inbounds nuw i8, ptr %628, i64 10968
-  %647 = load i64, ptr %646, align 8, !tbaa !42
-  %648 = icmp eq i64 %647, 0
-  br i1 %648, label %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i525, label %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i525.thread
+646:                                              ; preds = %641
+  %647 = getelementptr inbounds nuw i8, ptr %629, i64 10968
+  %648 = load i64, ptr %647, align 8, !tbaa !42
+  %649 = icmp eq i64 %648, 0
+  br i1 %649, label %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i525, label %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i525.thread
 
-_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i525: ; preds = %645
-  store i64 0, ptr %641, align 8, !tbaa !41
-  %649 = getelementptr inbounds nuw i8, ptr %628, i64 10976
-  call void @_ZN4llvm15SmallVectorBaseImE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(64) %638, ptr noundef nonnull %649, i64 noundef 1, i64 noundef 1) #20
-  %.pre48 = load i64, ptr %635, align 8, !tbaa !41
+_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i525: ; preds = %646
+  store i64 0, ptr %642, align 8, !tbaa !41
+  %650 = getelementptr inbounds nuw i8, ptr %629, i64 10976
+  call void @_ZN4llvm15SmallVectorBaseImE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(64) %639, ptr noundef nonnull %650, i64 noundef 1, i64 noundef 1) #20
+  %.pre48 = load i64, ptr %636, align 8, !tbaa !41
   %.not.i.i.i.i527 = icmp samesign eq i64 %.pre48, 0
   br i1 %.not.i.i.i.i527, label %_ZN4llvm15DWARFExpression9Operation11DescriptionaSERKS2_.exit529, label %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i525.thread
 
-_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i525.thread: ; preds = %645, %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i525
-  %650 = phi i64 [ %.pre48, %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i525 ], [ 1, %645 ]
-  %651 = load ptr, ptr %633, align 8, !tbaa !40
-  %652 = load ptr, ptr %638, align 8, !tbaa !40
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %652, ptr noundef nonnull align 1 dereferenceable(1) %651, i64 %650, i1 false)
+_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i525.thread: ; preds = %646, %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i525
+  %651 = phi i64 [ %.pre48, %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i525 ], [ 1, %646 ]
+  %652 = load ptr, ptr %634, align 8, !tbaa !40
+  %653 = load ptr, ptr %639, align 8, !tbaa !40
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %653, ptr noundef nonnull align 1 dereferenceable(1) %652, i64 %651, i1 false)
   br label %_ZN4llvm15DWARFExpression9Operation11DescriptionaSERKS2_.exit529
 
-_ZN4llvm15DWARFExpression9Operation11DescriptionaSERKS2_.exit529: ; preds = %643, %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i525, %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i525.thread
-  store i64 1, ptr %641, align 8, !tbaa !41
-  %.pre49 = load ptr, ptr %633, align 8, !tbaa !40
-  %653 = icmp eq ptr %.pre49, %634
-  br i1 %653, label %_ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit530, label %654
+_ZN4llvm15DWARFExpression9Operation11DescriptionaSERKS2_.exit529: ; preds = %644, %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i525, %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i525.thread
+  store i64 1, ptr %642, align 8, !tbaa !41
+  %.pre49 = load ptr, ptr %634, align 8, !tbaa !40
+  %654 = icmp eq ptr %.pre49, %635
+  br i1 %654, label %_ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit530, label %655
 
-654:                                              ; preds = %_ZN4llvm15DWARFExpression9Operation11DescriptionaSERKS2_.exit529
+655:                                              ; preds = %_ZN4llvm15DWARFExpression9Operation11DescriptionaSERKS2_.exit529
   call void @free(ptr noundef %.pre49) #20
   br label %_ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit530
 
-_ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit530: ; preds = %_ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit500, %_ZN4llvm15DWARFExpression9Operation11DescriptionaSERKS2_.exit529, %654
+_ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit530: ; preds = %_ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit500, %_ZN4llvm15DWARFExpression9Operation11DescriptionaSERKS2_.exit529, %655
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
   store i8 3, ptr %23, align 8, !tbaa !38
-  %655 = getelementptr inbounds nuw i8, ptr %23, i64 8
-  %656 = getelementptr inbounds nuw i8, ptr %23, i64 32
-  store ptr %656, ptr %655, align 8, !tbaa !40
-  %657 = getelementptr inbounds nuw i8, ptr %23, i64 16
-  %658 = getelementptr inbounds nuw i8, ptr %23, i64 24
-  store i64 40, ptr %658, align 8, !tbaa !42
-  store i8 2, ptr %656, align 8
-  store i64 1, ptr %657, align 8, !tbaa !41
-  %659 = load ptr, ptr @_ZZN4llvmL9getOpDescEjE12Descriptions, align 8, !tbaa !31
-  %660 = getelementptr inbounds nuw i8, ptr %659, i64 11016
-  store i8 3, ptr %660, align 8, !tbaa !38
-  %661 = getelementptr inbounds nuw i8, ptr %659, i64 11024
-  %662 = icmp eq ptr %660, %23
-  br i1 %662, label %_ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit540, label %663
+  %656 = getelementptr inbounds nuw i8, ptr %23, i64 8
+  %657 = getelementptr inbounds nuw i8, ptr %23, i64 32
+  store ptr %657, ptr %656, align 8, !tbaa !40
+  %658 = getelementptr inbounds nuw i8, ptr %23, i64 16
+  %659 = getelementptr inbounds nuw i8, ptr %23, i64 24
+  store i64 40, ptr %659, align 8, !tbaa !42
+  store i8 2, ptr %657, align 8
+  store i64 1, ptr %658, align 8, !tbaa !41
+  %660 = load ptr, ptr @_ZZN4llvmL9getOpDescEjE12Descriptions, align 8, !tbaa !31
+  %661 = getelementptr inbounds nuw i8, ptr %660, i64 11016
+  store i8 3, ptr %661, align 8, !tbaa !38
+  %662 = getelementptr inbounds nuw i8, ptr %660, i64 11024
+  %663 = icmp eq ptr %661, %23
+  br i1 %663, label %_ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit540, label %664
 
-663:                                              ; preds = %_ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit530
-  %664 = getelementptr inbounds nuw i8, ptr %659, i64 11032
-  %665 = load i64, ptr %664, align 8, !tbaa !41
-  %.not.i.i.i531 = icmp eq i64 %665, 0
-  br i1 %.not.i.i.i531, label %668, label %666
+664:                                              ; preds = %_ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit530
+  %665 = getelementptr inbounds nuw i8, ptr %660, i64 11032
+  %666 = load i64, ptr %665, align 8, !tbaa !41
+  %.not.i.i.i531 = icmp eq i64 %666, 0
+  br i1 %.not.i.i.i531, label %669, label %667
 
-666:                                              ; preds = %663
-  %667 = load ptr, ptr %661, align 8, !tbaa !40
-  store i8 2, ptr %667, align 1
+667:                                              ; preds = %664
+  %668 = load ptr, ptr %662, align 8, !tbaa !40
+  store i8 2, ptr %668, align 1
   br label %_ZN4llvm15DWARFExpression9Operation11DescriptionaSERKS2_.exit539
 
-668:                                              ; preds = %663
-  %669 = getelementptr inbounds nuw i8, ptr %659, i64 11040
-  %670 = load i64, ptr %669, align 8, !tbaa !42
-  %671 = icmp eq i64 %670, 0
-  br i1 %671, label %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i535, label %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i535.thread
+669:                                              ; preds = %664
+  %670 = getelementptr inbounds nuw i8, ptr %660, i64 11040
+  %671 = load i64, ptr %670, align 8, !tbaa !42
+  %672 = icmp eq i64 %671, 0
+  br i1 %672, label %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i535, label %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i535.thread
 
-_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i535: ; preds = %668
-  store i64 0, ptr %664, align 8, !tbaa !41
-  %672 = getelementptr inbounds nuw i8, ptr %659, i64 11048
-  call void @_ZN4llvm15SmallVectorBaseImE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(64) %661, ptr noundef nonnull %672, i64 noundef 1, i64 noundef 1) #20
-  %.pre50 = load i64, ptr %657, align 8, !tbaa !41
+_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i535: ; preds = %669
+  store i64 0, ptr %665, align 8, !tbaa !41
+  %673 = getelementptr inbounds nuw i8, ptr %660, i64 11048
+  call void @_ZN4llvm15SmallVectorBaseImE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(64) %662, ptr noundef nonnull %673, i64 noundef 1, i64 noundef 1) #20
+  %.pre50 = load i64, ptr %658, align 8, !tbaa !41
   %.not.i.i.i.i537 = icmp samesign eq i64 %.pre50, 0
   br i1 %.not.i.i.i.i537, label %_ZN4llvm15DWARFExpression9Operation11DescriptionaSERKS2_.exit539, label %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i535.thread
 
-_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i535.thread: ; preds = %668, %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i535
-  %673 = phi i64 [ %.pre50, %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i535 ], [ 1, %668 ]
-  %674 = load ptr, ptr %655, align 8, !tbaa !40
-  %675 = load ptr, ptr %661, align 8, !tbaa !40
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %675, ptr noundef nonnull align 1 dereferenceable(1) %674, i64 %673, i1 false)
+_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i535.thread: ; preds = %669, %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i535
+  %674 = phi i64 [ %.pre50, %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i535 ], [ 1, %669 ]
+  %675 = load ptr, ptr %656, align 8, !tbaa !40
+  %676 = load ptr, ptr %662, align 8, !tbaa !40
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %676, ptr noundef nonnull align 1 dereferenceable(1) %675, i64 %674, i1 false)
   br label %_ZN4llvm15DWARFExpression9Operation11DescriptionaSERKS2_.exit539
 
-_ZN4llvm15DWARFExpression9Operation11DescriptionaSERKS2_.exit539: ; preds = %666, %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i535, %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i535.thread
-  store i64 1, ptr %664, align 8, !tbaa !41
-  %.pre51 = load ptr, ptr %655, align 8, !tbaa !40
-  %676 = icmp eq ptr %.pre51, %656
-  br i1 %676, label %_ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit540, label %677
+_ZN4llvm15DWARFExpression9Operation11DescriptionaSERKS2_.exit539: ; preds = %667, %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i535, %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i535.thread
+  store i64 1, ptr %665, align 8, !tbaa !41
+  %.pre51 = load ptr, ptr %656, align 8, !tbaa !40
+  %677 = icmp eq ptr %.pre51, %657
+  br i1 %677, label %_ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit540, label %678
 
-677:                                              ; preds = %_ZN4llvm15DWARFExpression9Operation11DescriptionaSERKS2_.exit539
+678:                                              ; preds = %_ZN4llvm15DWARFExpression9Operation11DescriptionaSERKS2_.exit539
   call void @free(ptr noundef %.pre51) #20
   br label %_ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit540
 
-_ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit540: ; preds = %_ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit530, %_ZN4llvm15DWARFExpression9Operation11DescriptionaSERKS2_.exit539, %677
+_ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit540: ; preds = %_ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit530, %_ZN4llvm15DWARFExpression9Operation11DescriptionaSERKS2_.exit539, %678
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   call void @llvm.lifetime.start.p0(ptr nonnull %24)
   store i8 3, ptr %24, align 8, !tbaa !38
-  %678 = getelementptr inbounds nuw i8, ptr %24, i64 8
-  %679 = getelementptr inbounds nuw i8, ptr %24, i64 32
-  store ptr %679, ptr %678, align 8, !tbaa !40
-  %680 = getelementptr inbounds nuw i8, ptr %24, i64 16
-  %681 = getelementptr inbounds nuw i8, ptr %24, i64 24
-  store i64 40, ptr %681, align 8, !tbaa !42
-  store i8 6, ptr %679, align 8
-  store i64 1, ptr %680, align 8, !tbaa !41
-  %682 = load ptr, ptr @_ZZN4llvmL9getOpDescEjE12Descriptions, align 8, !tbaa !31
-  %683 = getelementptr inbounds nuw i8, ptr %682, i64 11088
-  store i8 3, ptr %683, align 8, !tbaa !38
-  %684 = getelementptr inbounds nuw i8, ptr %682, i64 11096
-  %685 = icmp eq ptr %683, %24
-  br i1 %685, label %_ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit550, label %686
+  %679 = getelementptr inbounds nuw i8, ptr %24, i64 8
+  %680 = getelementptr inbounds nuw i8, ptr %24, i64 32
+  store ptr %680, ptr %679, align 8, !tbaa !40
+  %681 = getelementptr inbounds nuw i8, ptr %24, i64 16
+  %682 = getelementptr inbounds nuw i8, ptr %24, i64 24
+  store i64 40, ptr %682, align 8, !tbaa !42
+  store i8 6, ptr %680, align 8
+  store i64 1, ptr %681, align 8, !tbaa !41
+  %683 = load ptr, ptr @_ZZN4llvmL9getOpDescEjE12Descriptions, align 8, !tbaa !31
+  %684 = getelementptr inbounds nuw i8, ptr %683, i64 11088
+  store i8 3, ptr %684, align 8, !tbaa !38
+  %685 = getelementptr inbounds nuw i8, ptr %683, i64 11096
+  %686 = icmp eq ptr %684, %24
+  br i1 %686, label %_ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit550, label %687
 
-686:                                              ; preds = %_ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit540
-  %687 = getelementptr inbounds nuw i8, ptr %682, i64 11104
-  %688 = load i64, ptr %687, align 8, !tbaa !41
-  %.not.i.i.i541 = icmp eq i64 %688, 0
-  br i1 %.not.i.i.i541, label %691, label %689
+687:                                              ; preds = %_ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit540
+  %688 = getelementptr inbounds nuw i8, ptr %683, i64 11104
+  %689 = load i64, ptr %688, align 8, !tbaa !41
+  %.not.i.i.i541 = icmp eq i64 %689, 0
+  br i1 %.not.i.i.i541, label %692, label %690
 
-689:                                              ; preds = %686
-  %690 = load ptr, ptr %684, align 8, !tbaa !40
-  store i8 6, ptr %690, align 1
+690:                                              ; preds = %687
+  %691 = load ptr, ptr %685, align 8, !tbaa !40
+  store i8 6, ptr %691, align 1
   br label %_ZN4llvm15DWARFExpression9Operation11DescriptionaSERKS2_.exit549
 
-691:                                              ; preds = %686
-  %692 = getelementptr inbounds nuw i8, ptr %682, i64 11112
-  %693 = load i64, ptr %692, align 8, !tbaa !42
-  %694 = icmp eq i64 %693, 0
-  br i1 %694, label %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i545, label %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i545.thread
+692:                                              ; preds = %687
+  %693 = getelementptr inbounds nuw i8, ptr %683, i64 11112
+  %694 = load i64, ptr %693, align 8, !tbaa !42
+  %695 = icmp eq i64 %694, 0
+  br i1 %695, label %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i545, label %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i545.thread
 
-_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i545: ; preds = %691
-  store i64 0, ptr %687, align 8, !tbaa !41
-  %695 = getelementptr inbounds nuw i8, ptr %682, i64 11120
-  call void @_ZN4llvm15SmallVectorBaseImE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(64) %684, ptr noundef nonnull %695, i64 noundef 1, i64 noundef 1) #20
-  %.pre52 = load i64, ptr %680, align 8, !tbaa !41
+_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i545: ; preds = %692
+  store i64 0, ptr %688, align 8, !tbaa !41
+  %696 = getelementptr inbounds nuw i8, ptr %683, i64 11120
+  call void @_ZN4llvm15SmallVectorBaseImE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(64) %685, ptr noundef nonnull %696, i64 noundef 1, i64 noundef 1) #20
+  %.pre52 = load i64, ptr %681, align 8, !tbaa !41
   %.not.i.i.i.i547 = icmp samesign eq i64 %.pre52, 0
   br i1 %.not.i.i.i.i547, label %_ZN4llvm15DWARFExpression9Operation11DescriptionaSERKS2_.exit549, label %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i545.thread
 
-_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i545.thread: ; preds = %691, %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i545
-  %696 = phi i64 [ %.pre52, %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i545 ], [ 1, %691 ]
-  %697 = load ptr, ptr %678, align 8, !tbaa !40
-  %698 = load ptr, ptr %684, align 8, !tbaa !40
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %698, ptr noundef nonnull align 1 dereferenceable(1) %697, i64 %696, i1 false)
+_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i545.thread: ; preds = %692, %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i545
+  %697 = phi i64 [ %.pre52, %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i545 ], [ 1, %692 ]
+  %698 = load ptr, ptr %679, align 8, !tbaa !40
+  %699 = load ptr, ptr %685, align 8, !tbaa !40
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %699, ptr noundef nonnull align 1 dereferenceable(1) %698, i64 %697, i1 false)
   br label %_ZN4llvm15DWARFExpression9Operation11DescriptionaSERKS2_.exit549
 
-_ZN4llvm15DWARFExpression9Operation11DescriptionaSERKS2_.exit549: ; preds = %689, %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i545, %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i545.thread
-  store i64 1, ptr %687, align 8, !tbaa !41
-  %.pre53 = load ptr, ptr %678, align 8, !tbaa !40
-  %699 = icmp eq ptr %.pre53, %679
-  br i1 %699, label %_ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit550, label %700
+_ZN4llvm15DWARFExpression9Operation11DescriptionaSERKS2_.exit549: ; preds = %690, %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i545, %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i545.thread
+  store i64 1, ptr %688, align 8, !tbaa !41
+  %.pre53 = load ptr, ptr %679, align 8, !tbaa !40
+  %700 = icmp eq ptr %.pre53, %680
+  br i1 %700, label %_ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit550, label %701
 
-700:                                              ; preds = %_ZN4llvm15DWARFExpression9Operation11DescriptionaSERKS2_.exit549
+701:                                              ; preds = %_ZN4llvm15DWARFExpression9Operation11DescriptionaSERKS2_.exit549
   call void @free(ptr noundef %.pre53) #20
   br label %_ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit550
 
-_ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit550: ; preds = %_ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit540, %_ZN4llvm15DWARFExpression9Operation11DescriptionaSERKS2_.exit549, %700
+_ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit550: ; preds = %_ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit540, %_ZN4llvm15DWARFExpression9Operation11DescriptionaSERKS2_.exit549, %701
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
-  %701 = load ptr, ptr @_ZZN4llvmL9getOpDescEjE12Descriptions, align 8, !tbaa !31
-  %702 = getelementptr inbounds nuw i8, ptr %701, i64 11160
-  store i8 3, ptr %702, align 8, !tbaa !38
-  %703 = getelementptr inbounds nuw i8, ptr %701, i64 11176
-  store i64 0, ptr %703, align 8, !tbaa !41
-  %704 = getelementptr inbounds nuw i8, ptr %701, i64 11232
-  store i8 3, ptr %704, align 8, !tbaa !38
-  %705 = getelementptr inbounds nuw i8, ptr %701, i64 11248
-  store i64 0, ptr %705, align 8, !tbaa !41
+  %702 = load ptr, ptr @_ZZN4llvmL9getOpDescEjE12Descriptions, align 8, !tbaa !31
+  %703 = getelementptr inbounds nuw i8, ptr %702, i64 11160
+  store i8 3, ptr %703, align 8, !tbaa !38
+  %704 = getelementptr inbounds nuw i8, ptr %702, i64 11176
+  store i64 0, ptr %704, align 8, !tbaa !41
+  %705 = getelementptr inbounds nuw i8, ptr %702, i64 11232
+  store i8 3, ptr %705, align 8, !tbaa !38
+  %706 = getelementptr inbounds nuw i8, ptr %702, i64 11248
+  store i64 0, ptr %706, align 8, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %25)
   store i8 3, ptr %25, align 8, !tbaa !38
-  %706 = getelementptr inbounds nuw i8, ptr %25, i64 8
-  %707 = getelementptr inbounds nuw i8, ptr %25, i64 32
-  store ptr %707, ptr %706, align 8, !tbaa !40
-  %708 = getelementptr inbounds nuw i8, ptr %25, i64 16
-  %709 = getelementptr inbounds nuw i8, ptr %25, i64 24
-  store i64 40, ptr %709, align 8, !tbaa !42
-  store i8 4, ptr %707, align 8
+  %707 = getelementptr inbounds nuw i8, ptr %25, i64 8
+  %708 = getelementptr inbounds nuw i8, ptr %25, i64 32
+  store ptr %708, ptr %707, align 8, !tbaa !40
+  %709 = getelementptr inbounds nuw i8, ptr %25, i64 16
+  %710 = getelementptr inbounds nuw i8, ptr %25, i64 24
+  store i64 40, ptr %710, align 8, !tbaa !42
+  store i8 4, ptr %708, align 8
   %.sroa.4.0..sroa_idx.i571 = getelementptr inbounds nuw i8, ptr %25, i64 33
   store i8 4, ptr %.sroa.4.0..sroa_idx.i571, align 1
-  store i64 2, ptr %708, align 8, !tbaa !41
-  %710 = getelementptr inbounds nuw i8, ptr %701, i64 11304
-  store i8 3, ptr %710, align 8, !tbaa !38
-  %711 = getelementptr inbounds nuw i8, ptr %701, i64 11312
-  %712 = icmp eq ptr %710, %25
-  br i1 %712, label %_ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit581, label %713
+  store i64 2, ptr %709, align 8, !tbaa !41
+  %711 = getelementptr inbounds nuw i8, ptr %702, i64 11304
+  store i8 3, ptr %711, align 8, !tbaa !38
+  %712 = getelementptr inbounds nuw i8, ptr %702, i64 11312
+  %713 = icmp eq ptr %711, %25
+  br i1 %713, label %_ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit581, label %714
 
-713:                                              ; preds = %_ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit550
-  %714 = getelementptr inbounds nuw i8, ptr %701, i64 11320
-  %715 = load i64, ptr %714, align 8, !tbaa !41
-  %.not.i.i.i572 = icmp ult i64 %715, 2
-  br i1 %.not.i.i.i572, label %719, label %716
+714:                                              ; preds = %_ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit550
+  %715 = getelementptr inbounds nuw i8, ptr %702, i64 11320
+  %716 = load i64, ptr %715, align 8, !tbaa !41
+  %.not.i.i.i572 = icmp ult i64 %716, 2
+  br i1 %.not.i.i.i572, label %720, label %717
 
-716:                                              ; preds = %713
-  %717 = load ptr, ptr %711, align 8, !tbaa !40
-  %718 = load i16, ptr %707, align 8
-  store i16 %718, ptr %717, align 1
+717:                                              ; preds = %714
+  %718 = load ptr, ptr %712, align 8, !tbaa !40
+  %719 = load i16, ptr %708, align 8
+  store i16 %719, ptr %718, align 1
   br label %_ZN4llvm15DWARFExpression9Operation11DescriptionaSERKS2_.exit580
 
-719:                                              ; preds = %713
-  %720 = getelementptr inbounds nuw i8, ptr %701, i64 11328
-  %721 = load i64, ptr %720, align 8, !tbaa !42
-  %722 = icmp ult i64 %721, 2
-  br i1 %722, label %723, label %725
+720:                                              ; preds = %714
+  %721 = getelementptr inbounds nuw i8, ptr %702, i64 11328
+  %722 = load i64, ptr %721, align 8, !tbaa !42
+  %723 = icmp ult i64 %722, 2
+  br i1 %723, label %724, label %726
 
-723:                                              ; preds = %719
-  store i64 0, ptr %714, align 8, !tbaa !41
-  %724 = getelementptr inbounds nuw i8, ptr %701, i64 11336
-  call void @_ZN4llvm15SmallVectorBaseImE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(64) %711, ptr noundef nonnull %724, i64 noundef 2, i64 noundef 1) #20
+724:                                              ; preds = %720
+  store i64 0, ptr %715, align 8, !tbaa !41
+  %725 = getelementptr inbounds nuw i8, ptr %702, i64 11336
+  call void @_ZN4llvm15SmallVectorBaseImE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(64) %712, ptr noundef nonnull %725, i64 noundef 2, i64 noundef 1) #20
   br label %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i576
 
-725:                                              ; preds = %719
-  %.not28.i.i.i575 = icmp eq i64 %715, 0
-  br i1 %.not28.i.i.i575, label %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i576, label %726
+726:                                              ; preds = %720
+  %.not28.i.i.i575 = icmp eq i64 %716, 0
+  br i1 %.not28.i.i.i575, label %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i576, label %727
 
-726:                                              ; preds = %725
-  %727 = load ptr, ptr %711, align 8, !tbaa !40
-  call void @llvm.memmove.p0.p0.i64(ptr align 1 %727, ptr nonnull align 8 %707, i64 %715, i1 false)
+727:                                              ; preds = %726
+  %728 = load ptr, ptr %712, align 8, !tbaa !40
+  %729 = load i8, ptr %708, align 8
+  store i8 %729, ptr %728, align 1
   br label %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i576
 
-_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i576: ; preds = %726, %725, %723
-  %.022.i.i.i577 = phi i64 [ 0, %723 ], [ 0, %725 ], [ 1, %726 ]
-  %728 = load i64, ptr %708, align 8, !tbaa !41
-  %.not.i.i.i.i578 = icmp samesign eq i64 %.022.i.i.i577, %728
-  br i1 %.not.i.i.i.i578, label %_ZN4llvm15DWARFExpression9Operation11DescriptionaSERKS2_.exit580, label %729
+_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i576: ; preds = %727, %726, %724
+  %.022.i.i.i577 = phi i64 [ 0, %724 ], [ 0, %726 ], [ 1, %727 ]
+  %730 = load i64, ptr %709, align 8, !tbaa !41
+  %.not.i.i.i.i578 = icmp samesign eq i64 %.022.i.i.i577, %730
+  br i1 %.not.i.i.i.i578, label %_ZN4llvm15DWARFExpression9Operation11DescriptionaSERKS2_.exit580, label %731
 
-729:                                              ; preds = %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i576
-  %730 = load ptr, ptr %706, align 8, !tbaa !40
-  %731 = getelementptr inbounds nuw i8, ptr %730, i64 %.022.i.i.i577
-  %732 = load ptr, ptr %711, align 8, !tbaa !40
+731:                                              ; preds = %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i576
+  %732 = load ptr, ptr %707, align 8, !tbaa !40
   %733 = getelementptr inbounds nuw i8, ptr %732, i64 %.022.i.i.i577
-  %gepdiff.i.i.i579 = sub nsw i64 %728, %.022.i.i.i577
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %733, ptr align 1 %731, i64 %gepdiff.i.i.i579, i1 false)
+  %734 = load ptr, ptr %712, align 8, !tbaa !40
+  %735 = getelementptr inbounds nuw i8, ptr %734, i64 %.022.i.i.i577
+  %gepdiff.i.i.i579 = sub nsw i64 %730, %.022.i.i.i577
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %735, ptr align 1 %733, i64 %gepdiff.i.i.i579, i1 false)
   br label %_ZN4llvm15DWARFExpression9Operation11DescriptionaSERKS2_.exit580
 
-_ZN4llvm15DWARFExpression9Operation11DescriptionaSERKS2_.exit580: ; preds = %716, %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i576, %729
-  store i64 2, ptr %714, align 8, !tbaa !41
-  %.pre54 = load ptr, ptr %706, align 8, !tbaa !40
-  %734 = icmp eq ptr %.pre54, %707
-  br i1 %734, label %_ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit581, label %735
+_ZN4llvm15DWARFExpression9Operation11DescriptionaSERKS2_.exit580: ; preds = %717, %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i576, %731
+  store i64 2, ptr %715, align 8, !tbaa !41
+  %.pre54 = load ptr, ptr %707, align 8, !tbaa !40
+  %736 = icmp eq ptr %.pre54, %708
+  br i1 %736, label %_ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit581, label %737
 
-735:                                              ; preds = %_ZN4llvm15DWARFExpression9Operation11DescriptionaSERKS2_.exit580
+737:                                              ; preds = %_ZN4llvm15DWARFExpression9Operation11DescriptionaSERKS2_.exit580
   call void @free(ptr noundef %.pre54) #20
   br label %_ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit581
 
-_ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit581: ; preds = %_ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit550, %_ZN4llvm15DWARFExpression9Operation11DescriptionaSERKS2_.exit580, %735
+_ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit581: ; preds = %_ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit550, %_ZN4llvm15DWARFExpression9Operation11DescriptionaSERKS2_.exit580, %737
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
   call void @llvm.lifetime.start.p0(ptr nonnull %26)
   store i8 4, ptr %26, align 8, !tbaa !38
-  %736 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  %737 = getelementptr inbounds nuw i8, ptr %26, i64 32
-  store ptr %737, ptr %736, align 8, !tbaa !40
-  %738 = getelementptr inbounds nuw i8, ptr %26, i64 16
-  %739 = getelementptr inbounds nuw i8, ptr %26, i64 24
-  store i64 40, ptr %739, align 8, !tbaa !42
-  store i8 4, ptr %737, align 8
+  %738 = getelementptr inbounds nuw i8, ptr %26, i64 8
+  %739 = getelementptr inbounds nuw i8, ptr %26, i64 32
+  store ptr %739, ptr %738, align 8, !tbaa !40
+  %740 = getelementptr inbounds nuw i8, ptr %26, i64 16
+  %741 = getelementptr inbounds nuw i8, ptr %26, i64 24
+  store i64 40, ptr %741, align 8, !tbaa !42
+  store i8 4, ptr %739, align 8
   %.sroa.4.0..sroa_idx.i582 = getelementptr inbounds nuw i8, ptr %26, i64 33
   store i8 7, ptr %.sroa.4.0..sroa_idx.i582, align 1
-  store i64 2, ptr %738, align 8, !tbaa !41
-  %740 = load ptr, ptr @_ZZN4llvmL9getOpDescEjE12Descriptions, align 8, !tbaa !31
-  %741 = getelementptr inbounds nuw i8, ptr %740, i64 11376
-  store i8 4, ptr %741, align 8, !tbaa !38
-  %742 = getelementptr inbounds nuw i8, ptr %740, i64 11384
-  %743 = icmp eq ptr %741, %26
-  br i1 %743, label %_ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit592, label %744
+  store i64 2, ptr %740, align 8, !tbaa !41
+  %742 = load ptr, ptr @_ZZN4llvmL9getOpDescEjE12Descriptions, align 8, !tbaa !31
+  %743 = getelementptr inbounds nuw i8, ptr %742, i64 11376
+  store i8 4, ptr %743, align 8, !tbaa !38
+  %744 = getelementptr inbounds nuw i8, ptr %742, i64 11384
+  %745 = icmp eq ptr %743, %26
+  br i1 %745, label %_ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit592, label %746
 
-744:                                              ; preds = %_ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit581
-  %745 = getelementptr inbounds nuw i8, ptr %740, i64 11392
-  %746 = load i64, ptr %745, align 8, !tbaa !41
-  %.not.i.i.i583 = icmp ult i64 %746, 2
-  br i1 %.not.i.i.i583, label %750, label %747
+746:                                              ; preds = %_ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit581
+  %747 = getelementptr inbounds nuw i8, ptr %742, i64 11392
+  %748 = load i64, ptr %747, align 8, !tbaa !41
+  %.not.i.i.i583 = icmp ult i64 %748, 2
+  br i1 %.not.i.i.i583, label %752, label %749
 
-747:                                              ; preds = %744
-  %748 = load ptr, ptr %742, align 8, !tbaa !40
-  %749 = load i16, ptr %737, align 8
-  store i16 %749, ptr %748, align 1
+749:                                              ; preds = %746
+  %750 = load ptr, ptr %744, align 8, !tbaa !40
+  %751 = load i16, ptr %739, align 8
+  store i16 %751, ptr %750, align 1
   br label %_ZN4llvm15DWARFExpression9Operation11DescriptionaSERKS2_.exit591
 
-750:                                              ; preds = %744
-  %751 = getelementptr inbounds nuw i8, ptr %740, i64 11400
-  %752 = load i64, ptr %751, align 8, !tbaa !42
-  %753 = icmp ult i64 %752, 2
-  br i1 %753, label %754, label %756
+752:                                              ; preds = %746
+  %753 = getelementptr inbounds nuw i8, ptr %742, i64 11400
+  %754 = load i64, ptr %753, align 8, !tbaa !42
+  %755 = icmp ult i64 %754, 2
+  br i1 %755, label %756, label %758
 
-754:                                              ; preds = %750
-  store i64 0, ptr %745, align 8, !tbaa !41
-  %755 = getelementptr inbounds nuw i8, ptr %740, i64 11408
-  call void @_ZN4llvm15SmallVectorBaseImE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(64) %742, ptr noundef nonnull %755, i64 noundef 2, i64 noundef 1) #20
+756:                                              ; preds = %752
+  store i64 0, ptr %747, align 8, !tbaa !41
+  %757 = getelementptr inbounds nuw i8, ptr %742, i64 11408
+  call void @_ZN4llvm15SmallVectorBaseImE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(64) %744, ptr noundef nonnull %757, i64 noundef 2, i64 noundef 1) #20
   br label %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i587
 
-756:                                              ; preds = %750
-  %.not28.i.i.i586 = icmp eq i64 %746, 0
-  br i1 %.not28.i.i.i586, label %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i587, label %757
+758:                                              ; preds = %752
+  %.not28.i.i.i586 = icmp eq i64 %748, 0
+  br i1 %.not28.i.i.i586, label %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i587, label %759
 
-757:                                              ; preds = %756
-  %758 = load ptr, ptr %742, align 8, !tbaa !40
-  call void @llvm.memmove.p0.p0.i64(ptr align 1 %758, ptr nonnull align 8 %737, i64 %746, i1 false)
+759:                                              ; preds = %758
+  %760 = load ptr, ptr %744, align 8, !tbaa !40
+  %761 = load i8, ptr %739, align 8
+  store i8 %761, ptr %760, align 1
   br label %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i587
 
-_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i587: ; preds = %757, %756, %754
-  %.022.i.i.i588 = phi i64 [ 0, %754 ], [ 0, %756 ], [ 1, %757 ]
-  %759 = load i64, ptr %738, align 8, !tbaa !41
-  %.not.i.i.i.i589 = icmp samesign eq i64 %.022.i.i.i588, %759
-  br i1 %.not.i.i.i.i589, label %_ZN4llvm15DWARFExpression9Operation11DescriptionaSERKS2_.exit591, label %760
+_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i587: ; preds = %759, %758, %756
+  %.022.i.i.i588 = phi i64 [ 0, %756 ], [ 0, %758 ], [ 1, %759 ]
+  %762 = load i64, ptr %740, align 8, !tbaa !41
+  %.not.i.i.i.i589 = icmp samesign eq i64 %.022.i.i.i588, %762
+  br i1 %.not.i.i.i.i589, label %_ZN4llvm15DWARFExpression9Operation11DescriptionaSERKS2_.exit591, label %763
 
-760:                                              ; preds = %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i587
-  %761 = load ptr, ptr %736, align 8, !tbaa !40
-  %762 = getelementptr inbounds nuw i8, ptr %761, i64 %.022.i.i.i588
-  %763 = load ptr, ptr %742, align 8, !tbaa !40
-  %764 = getelementptr inbounds nuw i8, ptr %763, i64 %.022.i.i.i588
-  %gepdiff.i.i.i590 = sub nsw i64 %759, %.022.i.i.i588
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %764, ptr align 1 %762, i64 %gepdiff.i.i.i590, i1 false)
+763:                                              ; preds = %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i587
+  %764 = load ptr, ptr %738, align 8, !tbaa !40
+  %765 = getelementptr inbounds nuw i8, ptr %764, i64 %.022.i.i.i588
+  %766 = load ptr, ptr %744, align 8, !tbaa !40
+  %767 = getelementptr inbounds nuw i8, ptr %766, i64 %.022.i.i.i588
+  %gepdiff.i.i.i590 = sub nsw i64 %762, %.022.i.i.i588
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %767, ptr align 1 %765, i64 %gepdiff.i.i.i590, i1 false)
   br label %_ZN4llvm15DWARFExpression9Operation11DescriptionaSERKS2_.exit591
 
-_ZN4llvm15DWARFExpression9Operation11DescriptionaSERKS2_.exit591: ; preds = %747, %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i587, %760
-  store i64 2, ptr %745, align 8, !tbaa !41
-  %.pre55 = load ptr, ptr %736, align 8, !tbaa !40
-  %765 = icmp eq ptr %.pre55, %737
-  br i1 %765, label %_ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit592, label %766
+_ZN4llvm15DWARFExpression9Operation11DescriptionaSERKS2_.exit591: ; preds = %749, %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i587, %763
+  store i64 2, ptr %747, align 8, !tbaa !41
+  %.pre55 = load ptr, ptr %738, align 8, !tbaa !40
+  %768 = icmp eq ptr %.pre55, %739
+  br i1 %768, label %_ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit592, label %769
 
-766:                                              ; preds = %_ZN4llvm15DWARFExpression9Operation11DescriptionaSERKS2_.exit591
+769:                                              ; preds = %_ZN4llvm15DWARFExpression9Operation11DescriptionaSERKS2_.exit591
   call void @free(ptr noundef %.pre55) #20
   br label %_ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit592
 
-_ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit592: ; preds = %_ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit581, %_ZN4llvm15DWARFExpression9Operation11DescriptionaSERKS2_.exit591, %766
+_ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit592: ; preds = %_ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit581, %_ZN4llvm15DWARFExpression9Operation11DescriptionaSERKS2_.exit591, %769
   call void @llvm.lifetime.end.p0(ptr nonnull %26)
-  %767 = load ptr, ptr @_ZZN4llvmL9getOpDescEjE12Descriptions, align 8, !tbaa !31
-  %768 = getelementptr inbounds nuw i8, ptr %767, i64 11448
-  store i8 4, ptr %768, align 8, !tbaa !38
-  %769 = getelementptr inbounds nuw i8, ptr %767, i64 11464
-  store i64 0, ptr %769, align 8, !tbaa !41
+  %770 = load ptr, ptr @_ZZN4llvmL9getOpDescEjE12Descriptions, align 8, !tbaa !31
+  %771 = getelementptr inbounds nuw i8, ptr %770, i64 11448
+  store i8 4, ptr %771, align 8, !tbaa !38
+  %772 = getelementptr inbounds nuw i8, ptr %770, i64 11464
+  store i64 0, ptr %772, align 8, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %27)
   store i8 5, ptr %27, align 8, !tbaa !38
-  %770 = getelementptr inbounds nuw i8, ptr %27, i64 8
-  %771 = getelementptr inbounds nuw i8, ptr %27, i64 32
-  store ptr %771, ptr %770, align 8, !tbaa !40
-  %772 = getelementptr inbounds nuw i8, ptr %27, i64 16
-  %773 = getelementptr inbounds nuw i8, ptr %27, i64 24
-  store i64 40, ptr %773, align 8, !tbaa !42
-  store i8 6, ptr %771, align 8
+  %773 = getelementptr inbounds nuw i8, ptr %27, i64 8
+  %774 = getelementptr inbounds nuw i8, ptr %27, i64 32
+  store ptr %774, ptr %773, align 8, !tbaa !40
+  %775 = getelementptr inbounds nuw i8, ptr %27, i64 16
+  %776 = getelementptr inbounds nuw i8, ptr %27, i64 24
+  store i64 40, ptr %776, align 8, !tbaa !42
+  store i8 6, ptr %774, align 8
   %.sroa.4.0..sroa_idx.i603 = getelementptr inbounds nuw i8, ptr %27, i64 33
   store i8 -124, ptr %.sroa.4.0..sroa_idx.i603, align 1
-  store i64 2, ptr %772, align 8, !tbaa !41
-  %774 = getelementptr inbounds nuw i8, ptr %767, i64 11520
-  store i8 5, ptr %774, align 8, !tbaa !38
-  %775 = getelementptr inbounds nuw i8, ptr %767, i64 11528
-  %776 = icmp eq ptr %774, %27
-  br i1 %776, label %_ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit613, label %777
+  store i64 2, ptr %775, align 8, !tbaa !41
+  %777 = getelementptr inbounds nuw i8, ptr %770, i64 11520
+  store i8 5, ptr %777, align 8, !tbaa !38
+  %778 = getelementptr inbounds nuw i8, ptr %770, i64 11528
+  %779 = icmp eq ptr %777, %27
+  br i1 %779, label %_ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit613, label %780
 
-777:                                              ; preds = %_ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit592
-  %778 = getelementptr inbounds nuw i8, ptr %767, i64 11536
-  %779 = load i64, ptr %778, align 8, !tbaa !41
-  %.not.i.i.i604 = icmp ult i64 %779, 2
-  br i1 %.not.i.i.i604, label %783, label %780
+780:                                              ; preds = %_ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit592
+  %781 = getelementptr inbounds nuw i8, ptr %770, i64 11536
+  %782 = load i64, ptr %781, align 8, !tbaa !41
+  %.not.i.i.i604 = icmp ult i64 %782, 2
+  br i1 %.not.i.i.i604, label %786, label %783
 
-780:                                              ; preds = %777
-  %781 = load ptr, ptr %775, align 8, !tbaa !40
-  %782 = load i16, ptr %771, align 8
-  store i16 %782, ptr %781, align 1
+783:                                              ; preds = %780
+  %784 = load ptr, ptr %778, align 8, !tbaa !40
+  %785 = load i16, ptr %774, align 8
+  store i16 %785, ptr %784, align 1
   br label %_ZN4llvm15DWARFExpression9Operation11DescriptionaSERKS2_.exit612
 
-783:                                              ; preds = %777
-  %784 = getelementptr inbounds nuw i8, ptr %767, i64 11544
-  %785 = load i64, ptr %784, align 8, !tbaa !42
-  %786 = icmp ult i64 %785, 2
-  br i1 %786, label %787, label %789
+786:                                              ; preds = %780
+  %787 = getelementptr inbounds nuw i8, ptr %770, i64 11544
+  %788 = load i64, ptr %787, align 8, !tbaa !42
+  %789 = icmp ult i64 %788, 2
+  br i1 %789, label %790, label %792
 
-787:                                              ; preds = %783
-  store i64 0, ptr %778, align 8, !tbaa !41
-  %788 = getelementptr inbounds nuw i8, ptr %767, i64 11552
-  call void @_ZN4llvm15SmallVectorBaseImE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(64) %775, ptr noundef nonnull %788, i64 noundef 2, i64 noundef 1) #20
+790:                                              ; preds = %786
+  store i64 0, ptr %781, align 8, !tbaa !41
+  %791 = getelementptr inbounds nuw i8, ptr %770, i64 11552
+  call void @_ZN4llvm15SmallVectorBaseImE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(64) %778, ptr noundef nonnull %791, i64 noundef 2, i64 noundef 1) #20
   br label %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i608
 
-789:                                              ; preds = %783
-  %.not28.i.i.i607 = icmp eq i64 %779, 0
-  br i1 %.not28.i.i.i607, label %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i608, label %790
+792:                                              ; preds = %786
+  %.not28.i.i.i607 = icmp eq i64 %782, 0
+  br i1 %.not28.i.i.i607, label %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i608, label %793
 
-790:                                              ; preds = %789
-  %791 = load ptr, ptr %775, align 8, !tbaa !40
-  call void @llvm.memmove.p0.p0.i64(ptr align 1 %791, ptr nonnull align 8 %771, i64 %779, i1 false)
+793:                                              ; preds = %792
+  %794 = load ptr, ptr %778, align 8, !tbaa !40
+  %795 = load i8, ptr %774, align 8
+  store i8 %795, ptr %794, align 1
   br label %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i608
 
-_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i608: ; preds = %790, %789, %787
-  %.022.i.i.i609 = phi i64 [ 0, %787 ], [ 0, %789 ], [ 1, %790 ]
-  %792 = load i64, ptr %772, align 8, !tbaa !41
-  %.not.i.i.i.i610 = icmp samesign eq i64 %.022.i.i.i609, %792
-  br i1 %.not.i.i.i.i610, label %_ZN4llvm15DWARFExpression9Operation11DescriptionaSERKS2_.exit612, label %793
+_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i608: ; preds = %793, %792, %790
+  %.022.i.i.i609 = phi i64 [ 0, %790 ], [ 0, %792 ], [ 1, %793 ]
+  %796 = load i64, ptr %775, align 8, !tbaa !41
+  %.not.i.i.i.i610 = icmp samesign eq i64 %.022.i.i.i609, %796
+  br i1 %.not.i.i.i.i610, label %_ZN4llvm15DWARFExpression9Operation11DescriptionaSERKS2_.exit612, label %797
 
-793:                                              ; preds = %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i608
-  %794 = load ptr, ptr %770, align 8, !tbaa !40
-  %795 = getelementptr inbounds nuw i8, ptr %794, i64 %.022.i.i.i609
-  %796 = load ptr, ptr %775, align 8, !tbaa !40
-  %797 = getelementptr inbounds nuw i8, ptr %796, i64 %.022.i.i.i609
-  %gepdiff.i.i.i611 = sub nsw i64 %792, %.022.i.i.i609
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %797, ptr align 1 %795, i64 %gepdiff.i.i.i611, i1 false)
+797:                                              ; preds = %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i608
+  %798 = load ptr, ptr %773, align 8, !tbaa !40
+  %799 = getelementptr inbounds nuw i8, ptr %798, i64 %.022.i.i.i609
+  %800 = load ptr, ptr %778, align 8, !tbaa !40
+  %801 = getelementptr inbounds nuw i8, ptr %800, i64 %.022.i.i.i609
+  %gepdiff.i.i.i611 = sub nsw i64 %796, %.022.i.i.i609
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %801, ptr align 1 %799, i64 %gepdiff.i.i.i611, i1 false)
   br label %_ZN4llvm15DWARFExpression9Operation11DescriptionaSERKS2_.exit612
 
-_ZN4llvm15DWARFExpression9Operation11DescriptionaSERKS2_.exit612: ; preds = %780, %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i608, %793
-  store i64 2, ptr %778, align 8, !tbaa !41
-  %.pre56 = load ptr, ptr %770, align 8, !tbaa !40
-  %798 = icmp eq ptr %.pre56, %771
-  br i1 %798, label %_ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit613, label %799
+_ZN4llvm15DWARFExpression9Operation11DescriptionaSERKS2_.exit612: ; preds = %783, %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i608, %797
+  store i64 2, ptr %781, align 8, !tbaa !41
+  %.pre56 = load ptr, ptr %773, align 8, !tbaa !40
+  %802 = icmp eq ptr %.pre56, %774
+  br i1 %802, label %_ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit613, label %803
 
-799:                                              ; preds = %_ZN4llvm15DWARFExpression9Operation11DescriptionaSERKS2_.exit612
+803:                                              ; preds = %_ZN4llvm15DWARFExpression9Operation11DescriptionaSERKS2_.exit612
   call void @free(ptr noundef %.pre56) #20
   br label %_ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit613
 
-_ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit613: ; preds = %_ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit592, %_ZN4llvm15DWARFExpression9Operation11DescriptionaSERKS2_.exit612, %799
+_ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit613: ; preds = %_ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit592, %_ZN4llvm15DWARFExpression9Operation11DescriptionaSERKS2_.exit612, %803
   call void @llvm.lifetime.end.p0(ptr nonnull %27)
   call void @llvm.lifetime.start.p0(ptr nonnull %28)
   store i8 5, ptr %28, align 8, !tbaa !38
-  %800 = getelementptr inbounds nuw i8, ptr %28, i64 8
-  %801 = getelementptr inbounds nuw i8, ptr %28, i64 32
-  store ptr %801, ptr %800, align 8, !tbaa !40
-  %802 = getelementptr inbounds nuw i8, ptr %28, i64 16
-  %803 = getelementptr inbounds nuw i8, ptr %28, i64 24
-  store i64 40, ptr %803, align 8, !tbaa !42
-  store i8 4, ptr %801, align 8
-  store i64 1, ptr %802, align 8, !tbaa !41
-  %804 = load ptr, ptr @_ZZN4llvmL9getOpDescEjE12Descriptions, align 8, !tbaa !31
-  %805 = getelementptr inbounds nuw i8, ptr %804, i64 11592
-  store i8 5, ptr %805, align 8, !tbaa !38
-  %806 = getelementptr inbounds nuw i8, ptr %804, i64 11600
-  %807 = icmp eq ptr %805, %28
-  br i1 %807, label %_ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit623, label %808
+  %804 = getelementptr inbounds nuw i8, ptr %28, i64 8
+  %805 = getelementptr inbounds nuw i8, ptr %28, i64 32
+  store ptr %805, ptr %804, align 8, !tbaa !40
+  %806 = getelementptr inbounds nuw i8, ptr %28, i64 16
+  %807 = getelementptr inbounds nuw i8, ptr %28, i64 24
+  store i64 40, ptr %807, align 8, !tbaa !42
+  store i8 4, ptr %805, align 8
+  store i64 1, ptr %806, align 8, !tbaa !41
+  %808 = load ptr, ptr @_ZZN4llvmL9getOpDescEjE12Descriptions, align 8, !tbaa !31
+  %809 = getelementptr inbounds nuw i8, ptr %808, i64 11592
+  store i8 5, ptr %809, align 8, !tbaa !38
+  %810 = getelementptr inbounds nuw i8, ptr %808, i64 11600
+  %811 = icmp eq ptr %809, %28
+  br i1 %811, label %_ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit623, label %812
 
-808:                                              ; preds = %_ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit613
-  %809 = getelementptr inbounds nuw i8, ptr %804, i64 11608
-  %810 = load i64, ptr %809, align 8, !tbaa !41
-  %.not.i.i.i614 = icmp eq i64 %810, 0
-  br i1 %.not.i.i.i614, label %813, label %811
+812:                                              ; preds = %_ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit613
+  %813 = getelementptr inbounds nuw i8, ptr %808, i64 11608
+  %814 = load i64, ptr %813, align 8, !tbaa !41
+  %.not.i.i.i614 = icmp eq i64 %814, 0
+  br i1 %.not.i.i.i614, label %817, label %815
 
-811:                                              ; preds = %808
-  %812 = load ptr, ptr %806, align 8, !tbaa !40
-  store i8 4, ptr %812, align 1
+815:                                              ; preds = %812
+  %816 = load ptr, ptr %810, align 8, !tbaa !40
+  store i8 4, ptr %816, align 1
   br label %_ZN4llvm15DWARFExpression9Operation11DescriptionaSERKS2_.exit622
 
-813:                                              ; preds = %808
-  %814 = getelementptr inbounds nuw i8, ptr %804, i64 11616
-  %815 = load i64, ptr %814, align 8, !tbaa !42
-  %816 = icmp eq i64 %815, 0
-  br i1 %816, label %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i618, label %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i618.thread
+817:                                              ; preds = %812
+  %818 = getelementptr inbounds nuw i8, ptr %808, i64 11616
+  %819 = load i64, ptr %818, align 8, !tbaa !42
+  %820 = icmp eq i64 %819, 0
+  br i1 %820, label %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i618, label %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i618.thread
 
-_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i618: ; preds = %813
-  store i64 0, ptr %809, align 8, !tbaa !41
-  %817 = getelementptr inbounds nuw i8, ptr %804, i64 11624
-  call void @_ZN4llvm15SmallVectorBaseImE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(64) %806, ptr noundef nonnull %817, i64 noundef 1, i64 noundef 1) #20
-  %.pre57 = load i64, ptr %802, align 8, !tbaa !41
+_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i618: ; preds = %817
+  store i64 0, ptr %813, align 8, !tbaa !41
+  %821 = getelementptr inbounds nuw i8, ptr %808, i64 11624
+  call void @_ZN4llvm15SmallVectorBaseImE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(64) %810, ptr noundef nonnull %821, i64 noundef 1, i64 noundef 1) #20
+  %.pre57 = load i64, ptr %806, align 8, !tbaa !41
   %.not.i.i.i.i620 = icmp samesign eq i64 %.pre57, 0
   br i1 %.not.i.i.i.i620, label %_ZN4llvm15DWARFExpression9Operation11DescriptionaSERKS2_.exit622, label %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i618.thread
 
-_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i618.thread: ; preds = %813, %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i618
-  %818 = phi i64 [ %.pre57, %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i618 ], [ 1, %813 ]
-  %819 = load ptr, ptr %800, align 8, !tbaa !40
-  %820 = load ptr, ptr %806, align 8, !tbaa !40
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %820, ptr noundef nonnull align 1 dereferenceable(1) %819, i64 %818, i1 false)
+_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i618.thread: ; preds = %817, %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i618
+  %822 = phi i64 [ %.pre57, %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i618 ], [ 1, %817 ]
+  %823 = load ptr, ptr %804, align 8, !tbaa !40
+  %824 = load ptr, ptr %810, align 8, !tbaa !40
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %824, ptr noundef nonnull align 1 dereferenceable(1) %823, i64 %822, i1 false)
   br label %_ZN4llvm15DWARFExpression9Operation11DescriptionaSERKS2_.exit622
 
-_ZN4llvm15DWARFExpression9Operation11DescriptionaSERKS2_.exit622: ; preds = %811, %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i618, %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i618.thread
-  store i64 1, ptr %809, align 8, !tbaa !41
-  %.pre58 = load ptr, ptr %800, align 8, !tbaa !40
-  %821 = icmp eq ptr %.pre58, %801
-  br i1 %821, label %_ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit623, label %822
+_ZN4llvm15DWARFExpression9Operation11DescriptionaSERKS2_.exit622: ; preds = %815, %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i618, %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i618.thread
+  store i64 1, ptr %813, align 8, !tbaa !41
+  %.pre58 = load ptr, ptr %804, align 8, !tbaa !40
+  %825 = icmp eq ptr %.pre58, %805
+  br i1 %825, label %_ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit623, label %826
 
-822:                                              ; preds = %_ZN4llvm15DWARFExpression9Operation11DescriptionaSERKS2_.exit622
+826:                                              ; preds = %_ZN4llvm15DWARFExpression9Operation11DescriptionaSERKS2_.exit622
   call void @free(ptr noundef %.pre58) #20
   br label %_ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit623
 
-_ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit623: ; preds = %_ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit613, %_ZN4llvm15DWARFExpression9Operation11DescriptionaSERKS2_.exit622, %822
+_ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit623: ; preds = %_ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit613, %_ZN4llvm15DWARFExpression9Operation11DescriptionaSERKS2_.exit622, %826
   call void @llvm.lifetime.end.p0(ptr nonnull %28)
   call void @llvm.lifetime.start.p0(ptr nonnull %29)
   store i8 5, ptr %29, align 8, !tbaa !38
-  %823 = getelementptr inbounds nuw i8, ptr %29, i64 8
-  %824 = getelementptr inbounds nuw i8, ptr %29, i64 32
-  store ptr %824, ptr %823, align 8, !tbaa !40
-  %825 = getelementptr inbounds nuw i8, ptr %29, i64 16
-  %826 = getelementptr inbounds nuw i8, ptr %29, i64 24
-  store i64 40, ptr %826, align 8, !tbaa !42
-  store i8 4, ptr %824, align 8
-  store i64 1, ptr %825, align 8, !tbaa !41
-  %827 = load ptr, ptr @_ZZN4llvmL9getOpDescEjE12Descriptions, align 8, !tbaa !31
-  %828 = getelementptr inbounds nuw i8, ptr %827, i64 11664
-  store i8 5, ptr %828, align 8, !tbaa !38
-  %829 = getelementptr inbounds nuw i8, ptr %827, i64 11672
-  %830 = icmp eq ptr %828, %29
-  br i1 %830, label %_ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit633, label %831
+  %827 = getelementptr inbounds nuw i8, ptr %29, i64 8
+  %828 = getelementptr inbounds nuw i8, ptr %29, i64 32
+  store ptr %828, ptr %827, align 8, !tbaa !40
+  %829 = getelementptr inbounds nuw i8, ptr %29, i64 16
+  %830 = getelementptr inbounds nuw i8, ptr %29, i64 24
+  store i64 40, ptr %830, align 8, !tbaa !42
+  store i8 4, ptr %828, align 8
+  store i64 1, ptr %829, align 8, !tbaa !41
+  %831 = load ptr, ptr @_ZZN4llvmL9getOpDescEjE12Descriptions, align 8, !tbaa !31
+  %832 = getelementptr inbounds nuw i8, ptr %831, i64 11664
+  store i8 5, ptr %832, align 8, !tbaa !38
+  %833 = getelementptr inbounds nuw i8, ptr %831, i64 11672
+  %834 = icmp eq ptr %832, %29
+  br i1 %834, label %_ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit633, label %835
 
-831:                                              ; preds = %_ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit623
-  %832 = getelementptr inbounds nuw i8, ptr %827, i64 11680
-  %833 = load i64, ptr %832, align 8, !tbaa !41
-  %.not.i.i.i624 = icmp eq i64 %833, 0
-  br i1 %.not.i.i.i624, label %836, label %834
+835:                                              ; preds = %_ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit623
+  %836 = getelementptr inbounds nuw i8, ptr %831, i64 11680
+  %837 = load i64, ptr %836, align 8, !tbaa !41
+  %.not.i.i.i624 = icmp eq i64 %837, 0
+  br i1 %.not.i.i.i624, label %840, label %838
 
-834:                                              ; preds = %831
-  %835 = load ptr, ptr %829, align 8, !tbaa !40
-  store i8 4, ptr %835, align 1
+838:                                              ; preds = %835
+  %839 = load ptr, ptr %833, align 8, !tbaa !40
+  store i8 4, ptr %839, align 1
   br label %_ZN4llvm15DWARFExpression9Operation11DescriptionaSERKS2_.exit632
 
-836:                                              ; preds = %831
-  %837 = getelementptr inbounds nuw i8, ptr %827, i64 11688
-  %838 = load i64, ptr %837, align 8, !tbaa !42
-  %839 = icmp eq i64 %838, 0
-  br i1 %839, label %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i628, label %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i628.thread
+840:                                              ; preds = %835
+  %841 = getelementptr inbounds nuw i8, ptr %831, i64 11688
+  %842 = load i64, ptr %841, align 8, !tbaa !42
+  %843 = icmp eq i64 %842, 0
+  br i1 %843, label %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i628, label %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i628.thread
 
-_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i628: ; preds = %836
-  store i64 0, ptr %832, align 8, !tbaa !41
-  %840 = getelementptr inbounds nuw i8, ptr %827, i64 11696
-  call void @_ZN4llvm15SmallVectorBaseImE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(64) %829, ptr noundef nonnull %840, i64 noundef 1, i64 noundef 1) #20
-  %.pre59 = load i64, ptr %825, align 8, !tbaa !41
+_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i628: ; preds = %840
+  store i64 0, ptr %836, align 8, !tbaa !41
+  %844 = getelementptr inbounds nuw i8, ptr %831, i64 11696
+  call void @_ZN4llvm15SmallVectorBaseImE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(64) %833, ptr noundef nonnull %844, i64 noundef 1, i64 noundef 1) #20
+  %.pre59 = load i64, ptr %829, align 8, !tbaa !41
   %.not.i.i.i.i630 = icmp samesign eq i64 %.pre59, 0
   br i1 %.not.i.i.i.i630, label %_ZN4llvm15DWARFExpression9Operation11DescriptionaSERKS2_.exit632, label %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i628.thread
 
-_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i628.thread: ; preds = %836, %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i628
-  %841 = phi i64 [ %.pre59, %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i628 ], [ 1, %836 ]
-  %842 = load ptr, ptr %823, align 8, !tbaa !40
-  %843 = load ptr, ptr %829, align 8, !tbaa !40
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %843, ptr noundef nonnull align 1 dereferenceable(1) %842, i64 %841, i1 false)
+_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i628.thread: ; preds = %840, %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i628
+  %845 = phi i64 [ %.pre59, %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i628 ], [ 1, %840 ]
+  %846 = load ptr, ptr %827, align 8, !tbaa !40
+  %847 = load ptr, ptr %833, align 8, !tbaa !40
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %847, ptr noundef nonnull align 1 dereferenceable(1) %846, i64 %845, i1 false)
   br label %_ZN4llvm15DWARFExpression9Operation11DescriptionaSERKS2_.exit632
 
-_ZN4llvm15DWARFExpression9Operation11DescriptionaSERKS2_.exit632: ; preds = %834, %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i628, %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i628.thread
-  store i64 1, ptr %832, align 8, !tbaa !41
-  %.pre60 = load ptr, ptr %823, align 8, !tbaa !40
-  %844 = icmp eq ptr %.pre60, %824
-  br i1 %844, label %_ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit633, label %845
+_ZN4llvm15DWARFExpression9Operation11DescriptionaSERKS2_.exit632: ; preds = %838, %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i628, %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i628.thread
+  store i64 1, ptr %836, align 8, !tbaa !41
+  %.pre60 = load ptr, ptr %827, align 8, !tbaa !40
+  %848 = icmp eq ptr %.pre60, %828
+  br i1 %848, label %_ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit633, label %849
 
-845:                                              ; preds = %_ZN4llvm15DWARFExpression9Operation11DescriptionaSERKS2_.exit632
+849:                                              ; preds = %_ZN4llvm15DWARFExpression9Operation11DescriptionaSERKS2_.exit632
   call void @free(ptr noundef %.pre60) #20
   br label %_ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit633
 
-_ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit633: ; preds = %_ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit623, %_ZN4llvm15DWARFExpression9Operation11DescriptionaSERKS2_.exit632, %845
+_ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit633: ; preds = %_ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit623, %_ZN4llvm15DWARFExpression9Operation11DescriptionaSERKS2_.exit632, %849
   call void @llvm.lifetime.end.p0(ptr nonnull %29)
   call void @llvm.lifetime.start.p0(ptr nonnull %30)
   store i8 5, ptr %30, align 8, !tbaa !38
-  %846 = getelementptr inbounds nuw i8, ptr %30, i64 8
-  %847 = getelementptr inbounds nuw i8, ptr %30, i64 32
-  store ptr %847, ptr %846, align 8, !tbaa !40
-  %848 = getelementptr inbounds nuw i8, ptr %30, i64 16
-  %849 = getelementptr inbounds nuw i8, ptr %30, i64 24
-  store i64 40, ptr %849, align 8, !tbaa !42
-  store i8 4, ptr %847, align 8
-  store i64 1, ptr %848, align 8, !tbaa !41
-  %850 = load ptr, ptr @_ZZN4llvmL9getOpDescEjE12Descriptions, align 8, !tbaa !31
-  %851 = getelementptr inbounds nuw i8, ptr %850, i64 11736
-  store i8 5, ptr %851, align 8, !tbaa !38
-  %852 = getelementptr inbounds nuw i8, ptr %850, i64 11744
-  %853 = icmp eq ptr %851, %30
-  br i1 %853, label %_ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit643, label %854
+  %850 = getelementptr inbounds nuw i8, ptr %30, i64 8
+  %851 = getelementptr inbounds nuw i8, ptr %30, i64 32
+  store ptr %851, ptr %850, align 8, !tbaa !40
+  %852 = getelementptr inbounds nuw i8, ptr %30, i64 16
+  %853 = getelementptr inbounds nuw i8, ptr %30, i64 24
+  store i64 40, ptr %853, align 8, !tbaa !42
+  store i8 4, ptr %851, align 8
+  store i64 1, ptr %852, align 8, !tbaa !41
+  %854 = load ptr, ptr @_ZZN4llvmL9getOpDescEjE12Descriptions, align 8, !tbaa !31
+  %855 = getelementptr inbounds nuw i8, ptr %854, i64 11736
+  store i8 5, ptr %855, align 8, !tbaa !38
+  %856 = getelementptr inbounds nuw i8, ptr %854, i64 11744
+  %857 = icmp eq ptr %855, %30
+  br i1 %857, label %_ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit643, label %858
 
-854:                                              ; preds = %_ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit633
-  %855 = getelementptr inbounds nuw i8, ptr %850, i64 11752
-  %856 = load i64, ptr %855, align 8, !tbaa !41
-  %.not.i.i.i634 = icmp eq i64 %856, 0
-  br i1 %.not.i.i.i634, label %859, label %857
+858:                                              ; preds = %_ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit633
+  %859 = getelementptr inbounds nuw i8, ptr %854, i64 11752
+  %860 = load i64, ptr %859, align 8, !tbaa !41
+  %.not.i.i.i634 = icmp eq i64 %860, 0
+  br i1 %.not.i.i.i634, label %863, label %861
 
-857:                                              ; preds = %854
-  %858 = load ptr, ptr %852, align 8, !tbaa !40
-  store i8 4, ptr %858, align 1
+861:                                              ; preds = %858
+  %862 = load ptr, ptr %856, align 8, !tbaa !40
+  store i8 4, ptr %862, align 1
   br label %_ZN4llvm15DWARFExpression9Operation11DescriptionaSERKS2_.exit642
 
-859:                                              ; preds = %854
-  %860 = getelementptr inbounds nuw i8, ptr %850, i64 11760
-  %861 = load i64, ptr %860, align 8, !tbaa !42
-  %862 = icmp eq i64 %861, 0
-  br i1 %862, label %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i638, label %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i638.thread
+863:                                              ; preds = %858
+  %864 = getelementptr inbounds nuw i8, ptr %854, i64 11760
+  %865 = load i64, ptr %864, align 8, !tbaa !42
+  %866 = icmp eq i64 %865, 0
+  br i1 %866, label %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i638, label %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i638.thread
 
-_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i638: ; preds = %859
-  store i64 0, ptr %855, align 8, !tbaa !41
-  %863 = getelementptr inbounds nuw i8, ptr %850, i64 11768
-  call void @_ZN4llvm15SmallVectorBaseImE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(64) %852, ptr noundef nonnull %863, i64 noundef 1, i64 noundef 1) #20
-  %.pre61 = load i64, ptr %848, align 8, !tbaa !41
+_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i638: ; preds = %863
+  store i64 0, ptr %859, align 8, !tbaa !41
+  %867 = getelementptr inbounds nuw i8, ptr %854, i64 11768
+  call void @_ZN4llvm15SmallVectorBaseImE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(64) %856, ptr noundef nonnull %867, i64 noundef 1, i64 noundef 1) #20
+  %.pre61 = load i64, ptr %852, align 8, !tbaa !41
   %.not.i.i.i.i640 = icmp samesign eq i64 %.pre61, 0
   br i1 %.not.i.i.i.i640, label %_ZN4llvm15DWARFExpression9Operation11DescriptionaSERKS2_.exit642, label %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i638.thread
 
-_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i638.thread: ; preds = %859, %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i638
-  %864 = phi i64 [ %.pre61, %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i638 ], [ 1, %859 ]
-  %865 = load ptr, ptr %846, align 8, !tbaa !40
-  %866 = load ptr, ptr %852, align 8, !tbaa !40
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %866, ptr noundef nonnull align 1 dereferenceable(1) %865, i64 %864, i1 false)
+_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i638.thread: ; preds = %863, %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i638
+  %868 = phi i64 [ %.pre61, %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i638 ], [ 1, %863 ]
+  %869 = load ptr, ptr %850, align 8, !tbaa !40
+  %870 = load ptr, ptr %856, align 8, !tbaa !40
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %870, ptr noundef nonnull align 1 dereferenceable(1) %869, i64 %868, i1 false)
   br label %_ZN4llvm15DWARFExpression9Operation11DescriptionaSERKS2_.exit642
 
-_ZN4llvm15DWARFExpression9Operation11DescriptionaSERKS2_.exit642: ; preds = %857, %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i638, %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i638.thread
-  store i64 1, ptr %855, align 8, !tbaa !41
-  %.pre62 = load ptr, ptr %846, align 8, !tbaa !40
-  %867 = icmp eq ptr %.pre62, %847
-  br i1 %867, label %_ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit643, label %868
+_ZN4llvm15DWARFExpression9Operation11DescriptionaSERKS2_.exit642: ; preds = %861, %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i638, %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i638.thread
+  store i64 1, ptr %859, align 8, !tbaa !41
+  %.pre62 = load ptr, ptr %850, align 8, !tbaa !40
+  %871 = icmp eq ptr %.pre62, %851
+  br i1 %871, label %_ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit643, label %872
 
-868:                                              ; preds = %_ZN4llvm15DWARFExpression9Operation11DescriptionaSERKS2_.exit642
+872:                                              ; preds = %_ZN4llvm15DWARFExpression9Operation11DescriptionaSERKS2_.exit642
   call void @free(ptr noundef %.pre62) #20
   br label %_ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit643
 
-_ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit643: ; preds = %_ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit633, %_ZN4llvm15DWARFExpression9Operation11DescriptionaSERKS2_.exit642, %868
+_ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit643: ; preds = %_ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit633, %_ZN4llvm15DWARFExpression9Operation11DescriptionaSERKS2_.exit642, %872
   call void @llvm.lifetime.end.p0(ptr nonnull %30)
   call void @llvm.lifetime.start.p0(ptr nonnull %31)
   store i8 5, ptr %31, align 8, !tbaa !38
-  %869 = getelementptr inbounds nuw i8, ptr %31, i64 8
-  %870 = getelementptr inbounds nuw i8, ptr %31, i64 32
-  store ptr %870, ptr %869, align 8, !tbaa !40
-  %871 = getelementptr inbounds nuw i8, ptr %31, i64 16
-  %872 = getelementptr inbounds nuw i8, ptr %31, i64 24
-  store i64 40, ptr %872, align 8, !tbaa !42
-  store i8 8, ptr %870, align 8
-  store i64 1, ptr %871, align 8, !tbaa !41
-  %873 = load ptr, ptr @_ZZN4llvmL9getOpDescEjE12Descriptions, align 8, !tbaa !31
-  %874 = getelementptr inbounds nuw i8, ptr %873, i64 12096
-  store i8 5, ptr %874, align 8, !tbaa !38
-  %875 = getelementptr inbounds nuw i8, ptr %873, i64 12104
-  %876 = icmp eq ptr %874, %31
-  br i1 %876, label %_ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit653, label %877
+  %873 = getelementptr inbounds nuw i8, ptr %31, i64 8
+  %874 = getelementptr inbounds nuw i8, ptr %31, i64 32
+  store ptr %874, ptr %873, align 8, !tbaa !40
+  %875 = getelementptr inbounds nuw i8, ptr %31, i64 16
+  %876 = getelementptr inbounds nuw i8, ptr %31, i64 24
+  store i64 40, ptr %876, align 8, !tbaa !42
+  store i8 8, ptr %874, align 8
+  store i64 1, ptr %875, align 8, !tbaa !41
+  %877 = load ptr, ptr @_ZZN4llvmL9getOpDescEjE12Descriptions, align 8, !tbaa !31
+  %878 = getelementptr inbounds nuw i8, ptr %877, i64 12096
+  store i8 5, ptr %878, align 8, !tbaa !38
+  %879 = getelementptr inbounds nuw i8, ptr %877, i64 12104
+  %880 = icmp eq ptr %878, %31
+  br i1 %880, label %_ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit653, label %881
 
-877:                                              ; preds = %_ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit643
-  %878 = getelementptr inbounds nuw i8, ptr %873, i64 12112
-  %879 = load i64, ptr %878, align 8, !tbaa !41
-  %.not.i.i.i644 = icmp eq i64 %879, 0
-  br i1 %.not.i.i.i644, label %882, label %880
+881:                                              ; preds = %_ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit643
+  %882 = getelementptr inbounds nuw i8, ptr %877, i64 12112
+  %883 = load i64, ptr %882, align 8, !tbaa !41
+  %.not.i.i.i644 = icmp eq i64 %883, 0
+  br i1 %.not.i.i.i644, label %886, label %884
 
-880:                                              ; preds = %877
-  %881 = load ptr, ptr %875, align 8, !tbaa !40
-  store i8 8, ptr %881, align 1
+884:                                              ; preds = %881
+  %885 = load ptr, ptr %879, align 8, !tbaa !40
+  store i8 8, ptr %885, align 1
   br label %_ZN4llvm15DWARFExpression9Operation11DescriptionaSERKS2_.exit652
 
-882:                                              ; preds = %877
-  %883 = getelementptr inbounds nuw i8, ptr %873, i64 12120
-  %884 = load i64, ptr %883, align 8, !tbaa !42
-  %885 = icmp eq i64 %884, 0
-  br i1 %885, label %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i648, label %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i648.thread
+886:                                              ; preds = %881
+  %887 = getelementptr inbounds nuw i8, ptr %877, i64 12120
+  %888 = load i64, ptr %887, align 8, !tbaa !42
+  %889 = icmp eq i64 %888, 0
+  br i1 %889, label %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i648, label %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i648.thread
 
-_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i648: ; preds = %882
-  store i64 0, ptr %878, align 8, !tbaa !41
-  %886 = getelementptr inbounds nuw i8, ptr %873, i64 12128
-  call void @_ZN4llvm15SmallVectorBaseImE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(64) %875, ptr noundef nonnull %886, i64 noundef 1, i64 noundef 1) #20
-  %.pre63 = load i64, ptr %871, align 8, !tbaa !41
+_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i648: ; preds = %886
+  store i64 0, ptr %882, align 8, !tbaa !41
+  %890 = getelementptr inbounds nuw i8, ptr %877, i64 12128
+  call void @_ZN4llvm15SmallVectorBaseImE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(64) %879, ptr noundef nonnull %890, i64 noundef 1, i64 noundef 1) #20
+  %.pre63 = load i64, ptr %875, align 8, !tbaa !41
   %.not.i.i.i.i650 = icmp samesign eq i64 %.pre63, 0
   br i1 %.not.i.i.i.i650, label %_ZN4llvm15DWARFExpression9Operation11DescriptionaSERKS2_.exit652, label %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i648.thread
 
-_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i648.thread: ; preds = %882, %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i648
-  %887 = phi i64 [ %.pre63, %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i648 ], [ 1, %882 ]
-  %888 = load ptr, ptr %869, align 8, !tbaa !40
-  %889 = load ptr, ptr %875, align 8, !tbaa !40
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %889, ptr noundef nonnull align 1 dereferenceable(1) %888, i64 %887, i1 false)
+_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i648.thread: ; preds = %886, %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i648
+  %891 = phi i64 [ %.pre63, %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i648 ], [ 1, %886 ]
+  %892 = load ptr, ptr %873, align 8, !tbaa !40
+  %893 = load ptr, ptr %879, align 8, !tbaa !40
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %893, ptr noundef nonnull align 1 dereferenceable(1) %892, i64 %891, i1 false)
   br label %_ZN4llvm15DWARFExpression9Operation11DescriptionaSERKS2_.exit652
 
-_ZN4llvm15DWARFExpression9Operation11DescriptionaSERKS2_.exit652: ; preds = %880, %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i648, %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i648.thread
-  store i64 1, ptr %878, align 8, !tbaa !41
-  %.pre64 = load ptr, ptr %869, align 8, !tbaa !40
-  %890 = icmp eq ptr %.pre64, %870
-  br i1 %890, label %_ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit653, label %891
+_ZN4llvm15DWARFExpression9Operation11DescriptionaSERKS2_.exit652: ; preds = %884, %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i648, %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i648.thread
+  store i64 1, ptr %882, align 8, !tbaa !41
+  %.pre64 = load ptr, ptr %873, align 8, !tbaa !40
+  %894 = icmp eq ptr %.pre64, %874
+  br i1 %894, label %_ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit653, label %895
 
-891:                                              ; preds = %_ZN4llvm15DWARFExpression9Operation11DescriptionaSERKS2_.exit652
+895:                                              ; preds = %_ZN4llvm15DWARFExpression9Operation11DescriptionaSERKS2_.exit652
   call void @free(ptr noundef %.pre64) #20
   br label %_ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit653
 
-_ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit653: ; preds = %_ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit643, %_ZN4llvm15DWARFExpression9Operation11DescriptionaSERKS2_.exit652, %891
+_ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit653: ; preds = %_ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit643, %_ZN4llvm15DWARFExpression9Operation11DescriptionaSERKS2_.exit652, %895
   call void @llvm.lifetime.end.p0(ptr nonnull %31)
   call void @llvm.lifetime.start.p0(ptr nonnull %32)
   store i8 5, ptr %32, align 8, !tbaa !38
-  %892 = getelementptr inbounds nuw i8, ptr %32, i64 8
-  %893 = getelementptr inbounds nuw i8, ptr %32, i64 32
-  store ptr %893, ptr %892, align 8, !tbaa !40
-  %894 = getelementptr inbounds nuw i8, ptr %32, i64 16
-  %895 = getelementptr inbounds nuw i8, ptr %32, i64 24
-  store i64 40, ptr %895, align 8, !tbaa !42
-  store i8 4, ptr %893, align 8
+  %896 = getelementptr inbounds nuw i8, ptr %32, i64 8
+  %897 = getelementptr inbounds nuw i8, ptr %32, i64 32
+  store ptr %897, ptr %896, align 8, !tbaa !40
+  %898 = getelementptr inbounds nuw i8, ptr %32, i64 16
+  %899 = getelementptr inbounds nuw i8, ptr %32, i64 24
+  store i64 40, ptr %899, align 8, !tbaa !42
+  store i8 4, ptr %897, align 8
   %.sroa.4.0..sroa_idx.i654 = getelementptr inbounds nuw i8, ptr %32, i64 33
   store i8 8, ptr %.sroa.4.0..sroa_idx.i654, align 1
-  store i64 2, ptr %894, align 8, !tbaa !41
-  %896 = load ptr, ptr @_ZZN4llvmL9getOpDescEjE12Descriptions, align 8, !tbaa !31
-  %897 = getelementptr inbounds nuw i8, ptr %896, i64 11880
-  store i8 5, ptr %897, align 8, !tbaa !38
-  %898 = getelementptr inbounds nuw i8, ptr %896, i64 11888
-  %899 = icmp eq ptr %897, %32
-  br i1 %899, label %_ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit664, label %900
+  store i64 2, ptr %898, align 8, !tbaa !41
+  %900 = load ptr, ptr @_ZZN4llvmL9getOpDescEjE12Descriptions, align 8, !tbaa !31
+  %901 = getelementptr inbounds nuw i8, ptr %900, i64 11880
+  store i8 5, ptr %901, align 8, !tbaa !38
+  %902 = getelementptr inbounds nuw i8, ptr %900, i64 11888
+  %903 = icmp eq ptr %901, %32
+  br i1 %903, label %_ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit664, label %904
 
-900:                                              ; preds = %_ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit653
-  %901 = getelementptr inbounds nuw i8, ptr %896, i64 11896
-  %902 = load i64, ptr %901, align 8, !tbaa !41
-  %.not.i.i.i655 = icmp ult i64 %902, 2
-  br i1 %.not.i.i.i655, label %906, label %903
+904:                                              ; preds = %_ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit653
+  %905 = getelementptr inbounds nuw i8, ptr %900, i64 11896
+  %906 = load i64, ptr %905, align 8, !tbaa !41
+  %.not.i.i.i655 = icmp ult i64 %906, 2
+  br i1 %.not.i.i.i655, label %910, label %907
 
-903:                                              ; preds = %900
-  %904 = load ptr, ptr %898, align 8, !tbaa !40
-  %905 = load i16, ptr %893, align 8
-  store i16 %905, ptr %904, align 1
+907:                                              ; preds = %904
+  %908 = load ptr, ptr %902, align 8, !tbaa !40
+  %909 = load i16, ptr %897, align 8
+  store i16 %909, ptr %908, align 1
   br label %_ZN4llvm15DWARFExpression9Operation11DescriptionaSERKS2_.exit663
 
-906:                                              ; preds = %900
-  %907 = getelementptr inbounds nuw i8, ptr %896, i64 11904
-  %908 = load i64, ptr %907, align 8, !tbaa !42
-  %909 = icmp ult i64 %908, 2
-  br i1 %909, label %910, label %912
+910:                                              ; preds = %904
+  %911 = getelementptr inbounds nuw i8, ptr %900, i64 11904
+  %912 = load i64, ptr %911, align 8, !tbaa !42
+  %913 = icmp ult i64 %912, 2
+  br i1 %913, label %914, label %916
 
-910:                                              ; preds = %906
-  store i64 0, ptr %901, align 8, !tbaa !41
-  %911 = getelementptr inbounds nuw i8, ptr %896, i64 11912
-  call void @_ZN4llvm15SmallVectorBaseImE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(64) %898, ptr noundef nonnull %911, i64 noundef 2, i64 noundef 1) #20
+914:                                              ; preds = %910
+  store i64 0, ptr %905, align 8, !tbaa !41
+  %915 = getelementptr inbounds nuw i8, ptr %900, i64 11912
+  call void @_ZN4llvm15SmallVectorBaseImE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(64) %902, ptr noundef nonnull %915, i64 noundef 2, i64 noundef 1) #20
   br label %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i659
 
-912:                                              ; preds = %906
-  %.not28.i.i.i658 = icmp eq i64 %902, 0
-  br i1 %.not28.i.i.i658, label %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i659, label %913
+916:                                              ; preds = %910
+  %.not28.i.i.i658 = icmp eq i64 %906, 0
+  br i1 %.not28.i.i.i658, label %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i659, label %917
 
-913:                                              ; preds = %912
-  %914 = load ptr, ptr %898, align 8, !tbaa !40
-  call void @llvm.memmove.p0.p0.i64(ptr align 1 %914, ptr nonnull align 8 %893, i64 %902, i1 false)
+917:                                              ; preds = %916
+  %918 = load ptr, ptr %902, align 8, !tbaa !40
+  %919 = load i8, ptr %897, align 8
+  store i8 %919, ptr %918, align 1
   br label %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i659
 
-_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i659: ; preds = %913, %912, %910
-  %.022.i.i.i660 = phi i64 [ 0, %910 ], [ 0, %912 ], [ 1, %913 ]
-  %915 = load i64, ptr %894, align 8, !tbaa !41
-  %.not.i.i.i.i661 = icmp samesign eq i64 %.022.i.i.i660, %915
-  br i1 %.not.i.i.i.i661, label %_ZN4llvm15DWARFExpression9Operation11DescriptionaSERKS2_.exit663, label %916
+_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i659: ; preds = %917, %916, %914
+  %.022.i.i.i660 = phi i64 [ 0, %914 ], [ 0, %916 ], [ 1, %917 ]
+  %920 = load i64, ptr %898, align 8, !tbaa !41
+  %.not.i.i.i.i661 = icmp samesign eq i64 %.022.i.i.i660, %920
+  br i1 %.not.i.i.i.i661, label %_ZN4llvm15DWARFExpression9Operation11DescriptionaSERKS2_.exit663, label %921
 
-916:                                              ; preds = %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i659
-  %917 = load ptr, ptr %892, align 8, !tbaa !40
-  %918 = getelementptr inbounds nuw i8, ptr %917, i64 %.022.i.i.i660
-  %919 = load ptr, ptr %898, align 8, !tbaa !40
-  %920 = getelementptr inbounds nuw i8, ptr %919, i64 %.022.i.i.i660
-  %gepdiff.i.i.i662 = sub nsw i64 %915, %.022.i.i.i660
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %920, ptr align 1 %918, i64 %gepdiff.i.i.i662, i1 false)
+921:                                              ; preds = %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i659
+  %922 = load ptr, ptr %896, align 8, !tbaa !40
+  %923 = getelementptr inbounds nuw i8, ptr %922, i64 %.022.i.i.i660
+  %924 = load ptr, ptr %902, align 8, !tbaa !40
+  %925 = getelementptr inbounds nuw i8, ptr %924, i64 %.022.i.i.i660
+  %gepdiff.i.i.i662 = sub nsw i64 %920, %.022.i.i.i660
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %925, ptr align 1 %923, i64 %gepdiff.i.i.i662, i1 false)
   br label %_ZN4llvm15DWARFExpression9Operation11DescriptionaSERKS2_.exit663
 
-_ZN4llvm15DWARFExpression9Operation11DescriptionaSERKS2_.exit663: ; preds = %903, %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i659, %916
-  store i64 2, ptr %901, align 8, !tbaa !41
-  %.pre65 = load ptr, ptr %892, align 8, !tbaa !40
-  %921 = icmp eq ptr %.pre65, %893
-  br i1 %921, label %_ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit664, label %922
+_ZN4llvm15DWARFExpression9Operation11DescriptionaSERKS2_.exit663: ; preds = %907, %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i659, %921
+  store i64 2, ptr %905, align 8, !tbaa !41
+  %.pre65 = load ptr, ptr %896, align 8, !tbaa !40
+  %926 = icmp eq ptr %.pre65, %897
+  br i1 %926, label %_ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit664, label %927
 
-922:                                              ; preds = %_ZN4llvm15DWARFExpression9Operation11DescriptionaSERKS2_.exit663
+927:                                              ; preds = %_ZN4llvm15DWARFExpression9Operation11DescriptionaSERKS2_.exit663
   call void @free(ptr noundef %.pre65) #20
   br label %_ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit664
 
-_ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit664: ; preds = %_ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit653, %_ZN4llvm15DWARFExpression9Operation11DescriptionaSERKS2_.exit663, %922
+_ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit664: ; preds = %_ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit653, %_ZN4llvm15DWARFExpression9Operation11DescriptionaSERKS2_.exit663, %927
   call void @llvm.lifetime.end.p0(ptr nonnull %32)
   call void @llvm.lifetime.start.p0(ptr nonnull %33)
   store i8 4, ptr %33, align 8, !tbaa !38
-  %923 = getelementptr inbounds nuw i8, ptr %33, i64 8
-  %924 = getelementptr inbounds nuw i8, ptr %33, i64 32
-  store ptr %924, ptr %923, align 8, !tbaa !40
-  %925 = getelementptr inbounds nuw i8, ptr %33, i64 16
-  %926 = getelementptr inbounds nuw i8, ptr %33, i64 24
-  store i64 40, ptr %926, align 8, !tbaa !42
-  store i8 4, ptr %924, align 8
+  %928 = getelementptr inbounds nuw i8, ptr %33, i64 8
+  %929 = getelementptr inbounds nuw i8, ptr %33, i64 32
+  store ptr %929, ptr %928, align 8, !tbaa !40
+  %930 = getelementptr inbounds nuw i8, ptr %33, i64 16
+  %931 = getelementptr inbounds nuw i8, ptr %33, i64 24
+  store i64 40, ptr %931, align 8, !tbaa !42
+  store i8 4, ptr %929, align 8
   %.sroa.4.0..sroa_idx.i665 = getelementptr inbounds nuw i8, ptr %33, i64 33
   store i8 30, ptr %.sroa.4.0..sroa_idx.i665, align 1
-  store i64 2, ptr %925, align 8, !tbaa !41
-  %927 = load ptr, ptr @_ZZN4llvmL9getOpDescEjE12Descriptions, align 8, !tbaa !31
-  %928 = getelementptr inbounds nuw i8, ptr %927, i64 17064
-  store i8 4, ptr %928, align 8, !tbaa !38
-  %929 = getelementptr inbounds nuw i8, ptr %927, i64 17072
-  %930 = icmp eq ptr %928, %33
-  br i1 %930, label %_ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit675, label %931
+  store i64 2, ptr %930, align 8, !tbaa !41
+  %932 = load ptr, ptr @_ZZN4llvmL9getOpDescEjE12Descriptions, align 8, !tbaa !31
+  %933 = getelementptr inbounds nuw i8, ptr %932, i64 17064
+  store i8 4, ptr %933, align 8, !tbaa !38
+  %934 = getelementptr inbounds nuw i8, ptr %932, i64 17072
+  %935 = icmp eq ptr %933, %33
+  br i1 %935, label %_ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit675, label %936
 
-931:                                              ; preds = %_ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit664
-  %932 = getelementptr inbounds nuw i8, ptr %927, i64 17080
-  %933 = load i64, ptr %932, align 8, !tbaa !41
-  %.not.i.i.i666 = icmp ult i64 %933, 2
-  br i1 %.not.i.i.i666, label %937, label %934
+936:                                              ; preds = %_ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit664
+  %937 = getelementptr inbounds nuw i8, ptr %932, i64 17080
+  %938 = load i64, ptr %937, align 8, !tbaa !41
+  %.not.i.i.i666 = icmp ult i64 %938, 2
+  br i1 %.not.i.i.i666, label %942, label %939
 
-934:                                              ; preds = %931
-  %935 = load ptr, ptr %929, align 8, !tbaa !40
-  %936 = load i16, ptr %924, align 8
-  store i16 %936, ptr %935, align 1
+939:                                              ; preds = %936
+  %940 = load ptr, ptr %934, align 8, !tbaa !40
+  %941 = load i16, ptr %929, align 8
+  store i16 %941, ptr %940, align 1
   br label %_ZN4llvm15DWARFExpression9Operation11DescriptionaSERKS2_.exit674
 
-937:                                              ; preds = %931
-  %938 = getelementptr inbounds nuw i8, ptr %927, i64 17088
-  %939 = load i64, ptr %938, align 8, !tbaa !42
-  %940 = icmp ult i64 %939, 2
-  br i1 %940, label %941, label %943
+942:                                              ; preds = %936
+  %943 = getelementptr inbounds nuw i8, ptr %932, i64 17088
+  %944 = load i64, ptr %943, align 8, !tbaa !42
+  %945 = icmp ult i64 %944, 2
+  br i1 %945, label %946, label %948
 
-941:                                              ; preds = %937
-  store i64 0, ptr %932, align 8, !tbaa !41
-  %942 = getelementptr inbounds nuw i8, ptr %927, i64 17096
-  call void @_ZN4llvm15SmallVectorBaseImE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(64) %929, ptr noundef nonnull %942, i64 noundef 2, i64 noundef 1) #20
+946:                                              ; preds = %942
+  store i64 0, ptr %937, align 8, !tbaa !41
+  %947 = getelementptr inbounds nuw i8, ptr %932, i64 17096
+  call void @_ZN4llvm15SmallVectorBaseImE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(64) %934, ptr noundef nonnull %947, i64 noundef 2, i64 noundef 1) #20
   br label %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i670
 
-943:                                              ; preds = %937
-  %.not28.i.i.i669 = icmp eq i64 %933, 0
-  br i1 %.not28.i.i.i669, label %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i670, label %944
+948:                                              ; preds = %942
+  %.not28.i.i.i669 = icmp eq i64 %938, 0
+  br i1 %.not28.i.i.i669, label %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i670, label %949
 
-944:                                              ; preds = %943
-  %945 = load ptr, ptr %929, align 8, !tbaa !40
-  call void @llvm.memmove.p0.p0.i64(ptr align 1 %945, ptr nonnull align 8 %924, i64 %933, i1 false)
+949:                                              ; preds = %948
+  %950 = load ptr, ptr %934, align 8, !tbaa !40
+  %951 = load i8, ptr %929, align 8
+  store i8 %951, ptr %950, align 1
   br label %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i670
 
-_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i670: ; preds = %944, %943, %941
-  %.022.i.i.i671 = phi i64 [ 0, %941 ], [ 0, %943 ], [ 1, %944 ]
-  %946 = load i64, ptr %925, align 8, !tbaa !41
-  %.not.i.i.i.i672 = icmp samesign eq i64 %.022.i.i.i671, %946
-  br i1 %.not.i.i.i.i672, label %_ZN4llvm15DWARFExpression9Operation11DescriptionaSERKS2_.exit674, label %947
+_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i670: ; preds = %949, %948, %946
+  %.022.i.i.i671 = phi i64 [ 0, %946 ], [ 0, %948 ], [ 1, %949 ]
+  %952 = load i64, ptr %930, align 8, !tbaa !41
+  %.not.i.i.i.i672 = icmp samesign eq i64 %.022.i.i.i671, %952
+  br i1 %.not.i.i.i.i672, label %_ZN4llvm15DWARFExpression9Operation11DescriptionaSERKS2_.exit674, label %953
 
-947:                                              ; preds = %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i670
-  %948 = load ptr, ptr %923, align 8, !tbaa !40
-  %949 = getelementptr inbounds nuw i8, ptr %948, i64 %.022.i.i.i671
-  %950 = load ptr, ptr %929, align 8, !tbaa !40
-  %951 = getelementptr inbounds nuw i8, ptr %950, i64 %.022.i.i.i671
-  %gepdiff.i.i.i673 = sub nsw i64 %946, %.022.i.i.i671
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %951, ptr align 1 %949, i64 %gepdiff.i.i.i673, i1 false)
+953:                                              ; preds = %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i670
+  %954 = load ptr, ptr %928, align 8, !tbaa !40
+  %955 = getelementptr inbounds nuw i8, ptr %954, i64 %.022.i.i.i671
+  %956 = load ptr, ptr %934, align 8, !tbaa !40
+  %957 = getelementptr inbounds nuw i8, ptr %956, i64 %.022.i.i.i671
+  %gepdiff.i.i.i673 = sub nsw i64 %952, %.022.i.i.i671
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %957, ptr align 1 %955, i64 %gepdiff.i.i.i673, i1 false)
   br label %_ZN4llvm15DWARFExpression9Operation11DescriptionaSERKS2_.exit674
 
-_ZN4llvm15DWARFExpression9Operation11DescriptionaSERKS2_.exit674: ; preds = %934, %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i670, %947
-  store i64 2, ptr %932, align 8, !tbaa !41
-  %.pre66 = load ptr, ptr %923, align 8, !tbaa !40
-  %952 = icmp eq ptr %.pre66, %924
-  br i1 %952, label %_ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit675, label %953
+_ZN4llvm15DWARFExpression9Operation11DescriptionaSERKS2_.exit674: ; preds = %939, %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i670, %953
+  store i64 2, ptr %937, align 8, !tbaa !41
+  %.pre66 = load ptr, ptr %928, align 8, !tbaa !40
+  %958 = icmp eq ptr %.pre66, %929
+  br i1 %958, label %_ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit675, label %959
 
-953:                                              ; preds = %_ZN4llvm15DWARFExpression9Operation11DescriptionaSERKS2_.exit674
+959:                                              ; preds = %_ZN4llvm15DWARFExpression9Operation11DescriptionaSERKS2_.exit674
   call void @free(ptr noundef %.pre66) #20
   br label %_ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit675
 
-_ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit675: ; preds = %_ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit664, %_ZN4llvm15DWARFExpression9Operation11DescriptionaSERKS2_.exit674, %953
+_ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit675: ; preds = %_ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit664, %_ZN4llvm15DWARFExpression9Operation11DescriptionaSERKS2_.exit674, %959
   call void @llvm.lifetime.end.p0(ptr nonnull %33)
-  %954 = load ptr, ptr @_ZZN4llvmL9getOpDescEjE12Descriptions, align 8, !tbaa !31
-  %955 = getelementptr inbounds nuw i8, ptr %954, i64 16128
-  store i8 3, ptr %955, align 8, !tbaa !38
-  %956 = getelementptr inbounds nuw i8, ptr %954, i64 16144
-  store i64 0, ptr %956, align 8, !tbaa !41
+  %960 = load ptr, ptr @_ZZN4llvmL9getOpDescEjE12Descriptions, align 8, !tbaa !31
+  %961 = getelementptr inbounds nuw i8, ptr %960, i64 16128
+  store i8 3, ptr %961, align 8, !tbaa !38
+  %962 = getelementptr inbounds nuw i8, ptr %960, i64 16144
+  store i64 0, ptr %962, align 8, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %34)
   store i8 4, ptr %34, align 8, !tbaa !38
-  %957 = getelementptr inbounds nuw i8, ptr %34, i64 8
-  %958 = getelementptr inbounds nuw i8, ptr %34, i64 32
-  store ptr %958, ptr %957, align 8, !tbaa !40
-  %959 = getelementptr inbounds nuw i8, ptr %34, i64 16
-  %960 = getelementptr inbounds nuw i8, ptr %34, i64 24
-  store i64 40, ptr %960, align 8, !tbaa !42
-  store i8 4, ptr %958, align 8
-  store i64 1, ptr %959, align 8, !tbaa !41
-  %961 = getelementptr inbounds nuw i8, ptr %954, i64 18072
-  store i8 4, ptr %961, align 8, !tbaa !38
-  %962 = getelementptr inbounds nuw i8, ptr %954, i64 18080
-  %963 = icmp eq ptr %961, %34
-  br i1 %963, label %_ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit695, label %964
+  %963 = getelementptr inbounds nuw i8, ptr %34, i64 8
+  %964 = getelementptr inbounds nuw i8, ptr %34, i64 32
+  store ptr %964, ptr %963, align 8, !tbaa !40
+  %965 = getelementptr inbounds nuw i8, ptr %34, i64 16
+  %966 = getelementptr inbounds nuw i8, ptr %34, i64 24
+  store i64 40, ptr %966, align 8, !tbaa !42
+  store i8 4, ptr %964, align 8
+  store i64 1, ptr %965, align 8, !tbaa !41
+  %967 = getelementptr inbounds nuw i8, ptr %960, i64 18072
+  store i8 4, ptr %967, align 8, !tbaa !38
+  %968 = getelementptr inbounds nuw i8, ptr %960, i64 18080
+  %969 = icmp eq ptr %967, %34
+  br i1 %969, label %_ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit695, label %970
 
-964:                                              ; preds = %_ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit675
-  %965 = getelementptr inbounds nuw i8, ptr %954, i64 18088
-  %966 = load i64, ptr %965, align 8, !tbaa !41
-  %.not.i.i.i686 = icmp eq i64 %966, 0
-  br i1 %.not.i.i.i686, label %969, label %967
+970:                                              ; preds = %_ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit675
+  %971 = getelementptr inbounds nuw i8, ptr %960, i64 18088
+  %972 = load i64, ptr %971, align 8, !tbaa !41
+  %.not.i.i.i686 = icmp eq i64 %972, 0
+  br i1 %.not.i.i.i686, label %975, label %973
 
-967:                                              ; preds = %964
-  %968 = load ptr, ptr %962, align 8, !tbaa !40
-  store i8 4, ptr %968, align 1
+973:                                              ; preds = %970
+  %974 = load ptr, ptr %968, align 8, !tbaa !40
+  store i8 4, ptr %974, align 1
   br label %_ZN4llvm15DWARFExpression9Operation11DescriptionaSERKS2_.exit694
 
-969:                                              ; preds = %964
-  %970 = getelementptr inbounds nuw i8, ptr %954, i64 18096
-  %971 = load i64, ptr %970, align 8, !tbaa !42
-  %972 = icmp eq i64 %971, 0
-  br i1 %972, label %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i690, label %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i690.thread
+975:                                              ; preds = %970
+  %976 = getelementptr inbounds nuw i8, ptr %960, i64 18096
+  %977 = load i64, ptr %976, align 8, !tbaa !42
+  %978 = icmp eq i64 %977, 0
+  br i1 %978, label %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i690, label %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i690.thread
 
-_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i690: ; preds = %969
-  store i64 0, ptr %965, align 8, !tbaa !41
-  %973 = getelementptr inbounds nuw i8, ptr %954, i64 18104
-  call void @_ZN4llvm15SmallVectorBaseImE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(64) %962, ptr noundef nonnull %973, i64 noundef 1, i64 noundef 1) #20
-  %.pre67 = load i64, ptr %959, align 8, !tbaa !41
+_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i690: ; preds = %975
+  store i64 0, ptr %971, align 8, !tbaa !41
+  %979 = getelementptr inbounds nuw i8, ptr %960, i64 18104
+  call void @_ZN4llvm15SmallVectorBaseImE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(64) %968, ptr noundef nonnull %979, i64 noundef 1, i64 noundef 1) #20
+  %.pre67 = load i64, ptr %965, align 8, !tbaa !41
   %.not.i.i.i.i692 = icmp samesign eq i64 %.pre67, 0
   br i1 %.not.i.i.i.i692, label %_ZN4llvm15DWARFExpression9Operation11DescriptionaSERKS2_.exit694, label %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i690.thread
 
-_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i690.thread: ; preds = %969, %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i690
-  %974 = phi i64 [ %.pre67, %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i690 ], [ 1, %969 ]
-  %975 = load ptr, ptr %957, align 8, !tbaa !40
-  %976 = load ptr, ptr %962, align 8, !tbaa !40
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %976, ptr noundef nonnull align 1 dereferenceable(1) %975, i64 %974, i1 false)
+_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i690.thread: ; preds = %975, %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i690
+  %980 = phi i64 [ %.pre67, %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i690 ], [ 1, %975 ]
+  %981 = load ptr, ptr %963, align 8, !tbaa !40
+  %982 = load ptr, ptr %968, align 8, !tbaa !40
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %982, ptr noundef nonnull align 1 dereferenceable(1) %981, i64 %980, i1 false)
   br label %_ZN4llvm15DWARFExpression9Operation11DescriptionaSERKS2_.exit694
 
-_ZN4llvm15DWARFExpression9Operation11DescriptionaSERKS2_.exit694: ; preds = %967, %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i690, %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i690.thread
-  store i64 1, ptr %965, align 8, !tbaa !41
-  %.pre68 = load ptr, ptr %957, align 8, !tbaa !40
-  %977 = icmp eq ptr %.pre68, %958
-  br i1 %977, label %_ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit695, label %978
+_ZN4llvm15DWARFExpression9Operation11DescriptionaSERKS2_.exit694: ; preds = %973, %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i690, %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i690.thread
+  store i64 1, ptr %971, align 8, !tbaa !41
+  %.pre68 = load ptr, ptr %963, align 8, !tbaa !40
+  %983 = icmp eq ptr %.pre68, %964
+  br i1 %983, label %_ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit695, label %984
 
-978:                                              ; preds = %_ZN4llvm15DWARFExpression9Operation11DescriptionaSERKS2_.exit694
+984:                                              ; preds = %_ZN4llvm15DWARFExpression9Operation11DescriptionaSERKS2_.exit694
   call void @free(ptr noundef %.pre68) #20
   br label %_ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit695
 
-_ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit695: ; preds = %_ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit675, %_ZN4llvm15DWARFExpression9Operation11DescriptionaSERKS2_.exit694, %978
+_ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit695: ; preds = %_ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit675, %_ZN4llvm15DWARFExpression9Operation11DescriptionaSERKS2_.exit694, %984
   call void @llvm.lifetime.end.p0(ptr nonnull %34)
   call void @llvm.lifetime.start.p0(ptr nonnull %35)
   store i8 4, ptr %35, align 8, !tbaa !38
-  %979 = getelementptr inbounds nuw i8, ptr %35, i64 8
-  %980 = getelementptr inbounds nuw i8, ptr %35, i64 32
-  store ptr %980, ptr %979, align 8, !tbaa !40
-  %981 = getelementptr inbounds nuw i8, ptr %35, i64 16
-  %982 = getelementptr inbounds nuw i8, ptr %35, i64 24
-  store i64 40, ptr %982, align 8, !tbaa !42
-  store i8 4, ptr %980, align 8
-  store i64 1, ptr %981, align 8, !tbaa !41
-  %983 = load ptr, ptr @_ZZN4llvmL9getOpDescEjE12Descriptions, align 8, !tbaa !31
-  %984 = getelementptr inbounds nuw i8, ptr %983, i64 18144
-  store i8 4, ptr %984, align 8, !tbaa !38
-  %985 = getelementptr inbounds nuw i8, ptr %983, i64 18152
-  %986 = icmp eq ptr %984, %35
-  br i1 %986, label %_ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit705, label %987
+  %985 = getelementptr inbounds nuw i8, ptr %35, i64 8
+  %986 = getelementptr inbounds nuw i8, ptr %35, i64 32
+  store ptr %986, ptr %985, align 8, !tbaa !40
+  %987 = getelementptr inbounds nuw i8, ptr %35, i64 16
+  %988 = getelementptr inbounds nuw i8, ptr %35, i64 24
+  store i64 40, ptr %988, align 8, !tbaa !42
+  store i8 4, ptr %986, align 8
+  store i64 1, ptr %987, align 8, !tbaa !41
+  %989 = load ptr, ptr @_ZZN4llvmL9getOpDescEjE12Descriptions, align 8, !tbaa !31
+  %990 = getelementptr inbounds nuw i8, ptr %989, i64 18144
+  store i8 4, ptr %990, align 8, !tbaa !38
+  %991 = getelementptr inbounds nuw i8, ptr %989, i64 18152
+  %992 = icmp eq ptr %990, %35
+  br i1 %992, label %_ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit705, label %993
 
-987:                                              ; preds = %_ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit695
-  %988 = getelementptr inbounds nuw i8, ptr %983, i64 18160
-  %989 = load i64, ptr %988, align 8, !tbaa !41
-  %.not.i.i.i696 = icmp eq i64 %989, 0
-  br i1 %.not.i.i.i696, label %992, label %990
+993:                                              ; preds = %_ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit695
+  %994 = getelementptr inbounds nuw i8, ptr %989, i64 18160
+  %995 = load i64, ptr %994, align 8, !tbaa !41
+  %.not.i.i.i696 = icmp eq i64 %995, 0
+  br i1 %.not.i.i.i696, label %998, label %996
 
-990:                                              ; preds = %987
-  %991 = load ptr, ptr %985, align 8, !tbaa !40
-  store i8 4, ptr %991, align 1
+996:                                              ; preds = %993
+  %997 = load ptr, ptr %991, align 8, !tbaa !40
+  store i8 4, ptr %997, align 1
   br label %_ZN4llvm15DWARFExpression9Operation11DescriptionaSERKS2_.exit704
 
-992:                                              ; preds = %987
-  %993 = getelementptr inbounds nuw i8, ptr %983, i64 18168
-  %994 = load i64, ptr %993, align 8, !tbaa !42
-  %995 = icmp eq i64 %994, 0
-  br i1 %995, label %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i700, label %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i700.thread
+998:                                              ; preds = %993
+  %999 = getelementptr inbounds nuw i8, ptr %989, i64 18168
+  %1000 = load i64, ptr %999, align 8, !tbaa !42
+  %1001 = icmp eq i64 %1000, 0
+  br i1 %1001, label %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i700, label %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i700.thread
 
-_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i700: ; preds = %992
-  store i64 0, ptr %988, align 8, !tbaa !41
-  %996 = getelementptr inbounds nuw i8, ptr %983, i64 18176
-  call void @_ZN4llvm15SmallVectorBaseImE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(64) %985, ptr noundef nonnull %996, i64 noundef 1, i64 noundef 1) #20
-  %.pre69 = load i64, ptr %981, align 8, !tbaa !41
+_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i700: ; preds = %998
+  store i64 0, ptr %994, align 8, !tbaa !41
+  %1002 = getelementptr inbounds nuw i8, ptr %989, i64 18176
+  call void @_ZN4llvm15SmallVectorBaseImE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(64) %991, ptr noundef nonnull %1002, i64 noundef 1, i64 noundef 1) #20
+  %.pre69 = load i64, ptr %987, align 8, !tbaa !41
   %.not.i.i.i.i702 = icmp samesign eq i64 %.pre69, 0
   br i1 %.not.i.i.i.i702, label %_ZN4llvm15DWARFExpression9Operation11DescriptionaSERKS2_.exit704, label %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i700.thread
 
-_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i700.thread: ; preds = %992, %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i700
-  %997 = phi i64 [ %.pre69, %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i700 ], [ 1, %992 ]
-  %998 = load ptr, ptr %979, align 8, !tbaa !40
-  %999 = load ptr, ptr %985, align 8, !tbaa !40
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %999, ptr noundef nonnull align 1 dereferenceable(1) %998, i64 %997, i1 false)
+_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i700.thread: ; preds = %998, %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i700
+  %1003 = phi i64 [ %.pre69, %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i700 ], [ 1, %998 ]
+  %1004 = load ptr, ptr %985, align 8, !tbaa !40
+  %1005 = load ptr, ptr %991, align 8, !tbaa !40
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %1005, ptr noundef nonnull align 1 dereferenceable(1) %1004, i64 %1003, i1 false)
   br label %_ZN4llvm15DWARFExpression9Operation11DescriptionaSERKS2_.exit704
 
-_ZN4llvm15DWARFExpression9Operation11DescriptionaSERKS2_.exit704: ; preds = %990, %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i700, %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i700.thread
-  store i64 1, ptr %988, align 8, !tbaa !41
-  %.pre70 = load ptr, ptr %979, align 8, !tbaa !40
-  %1000 = icmp eq ptr %.pre70, %980
-  br i1 %1000, label %_ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit705, label %1001
+_ZN4llvm15DWARFExpression9Operation11DescriptionaSERKS2_.exit704: ; preds = %996, %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i700, %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i700.thread
+  store i64 1, ptr %994, align 8, !tbaa !41
+  %.pre70 = load ptr, ptr %985, align 8, !tbaa !40
+  %1006 = icmp eq ptr %.pre70, %986
+  br i1 %1006, label %_ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit705, label %1007
 
-1001:                                             ; preds = %_ZN4llvm15DWARFExpression9Operation11DescriptionaSERKS2_.exit704
+1007:                                             ; preds = %_ZN4llvm15DWARFExpression9Operation11DescriptionaSERKS2_.exit704
   call void @free(ptr noundef %.pre70) #20
   br label %_ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit705
 
-_ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit705: ; preds = %_ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit695, %_ZN4llvm15DWARFExpression9Operation11DescriptionaSERKS2_.exit704, %1001
+_ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit705: ; preds = %_ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit695, %_ZN4llvm15DWARFExpression9Operation11DescriptionaSERKS2_.exit704, %1007
   call void @llvm.lifetime.end.p0(ptr nonnull %35)
   call void @llvm.lifetime.start.p0(ptr nonnull %36)
   store i8 4, ptr %36, align 8, !tbaa !38
-  %1002 = getelementptr inbounds nuw i8, ptr %36, i64 8
-  %1003 = getelementptr inbounds nuw i8, ptr %36, i64 32
-  store ptr %1003, ptr %1002, align 8, !tbaa !40
-  %1004 = getelementptr inbounds nuw i8, ptr %36, i64 16
-  %1005 = getelementptr inbounds nuw i8, ptr %36, i64 24
-  store i64 40, ptr %1005, align 8, !tbaa !42
-  store i8 4, ptr %1003, align 8
-  store i64 1, ptr %1004, align 8, !tbaa !41
-  %1006 = load ptr, ptr @_ZZN4llvmL9getOpDescEjE12Descriptions, align 8, !tbaa !31
-  %1007 = getelementptr inbounds nuw i8, ptr %1006, i64 17496
-  store i8 4, ptr %1007, align 8, !tbaa !38
-  %1008 = getelementptr inbounds nuw i8, ptr %1006, i64 17504
-  %1009 = icmp eq ptr %1007, %36
-  br i1 %1009, label %_ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit715, label %1010
+  %1008 = getelementptr inbounds nuw i8, ptr %36, i64 8
+  %1009 = getelementptr inbounds nuw i8, ptr %36, i64 32
+  store ptr %1009, ptr %1008, align 8, !tbaa !40
+  %1010 = getelementptr inbounds nuw i8, ptr %36, i64 16
+  %1011 = getelementptr inbounds nuw i8, ptr %36, i64 24
+  store i64 40, ptr %1011, align 8, !tbaa !42
+  store i8 4, ptr %1009, align 8
+  store i64 1, ptr %1010, align 8, !tbaa !41
+  %1012 = load ptr, ptr @_ZZN4llvmL9getOpDescEjE12Descriptions, align 8, !tbaa !31
+  %1013 = getelementptr inbounds nuw i8, ptr %1012, i64 17496
+  store i8 4, ptr %1013, align 8, !tbaa !38
+  %1014 = getelementptr inbounds nuw i8, ptr %1012, i64 17504
+  %1015 = icmp eq ptr %1013, %36
+  br i1 %1015, label %_ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit715, label %1016
 
-1010:                                             ; preds = %_ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit705
-  %1011 = getelementptr inbounds nuw i8, ptr %1006, i64 17512
-  %1012 = load i64, ptr %1011, align 8, !tbaa !41
-  %.not.i.i.i706 = icmp eq i64 %1012, 0
-  br i1 %.not.i.i.i706, label %1015, label %1013
+1016:                                             ; preds = %_ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit705
+  %1017 = getelementptr inbounds nuw i8, ptr %1012, i64 17512
+  %1018 = load i64, ptr %1017, align 8, !tbaa !41
+  %.not.i.i.i706 = icmp eq i64 %1018, 0
+  br i1 %.not.i.i.i706, label %1021, label %1019
 
-1013:                                             ; preds = %1010
-  %1014 = load ptr, ptr %1008, align 8, !tbaa !40
-  store i8 4, ptr %1014, align 1
+1019:                                             ; preds = %1016
+  %1020 = load ptr, ptr %1014, align 8, !tbaa !40
+  store i8 4, ptr %1020, align 1
   br label %_ZN4llvm15DWARFExpression9Operation11DescriptionaSERKS2_.exit714
 
-1015:                                             ; preds = %1010
-  %1016 = getelementptr inbounds nuw i8, ptr %1006, i64 17520
-  %1017 = load i64, ptr %1016, align 8, !tbaa !42
-  %1018 = icmp eq i64 %1017, 0
-  br i1 %1018, label %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i710, label %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i710.thread
+1021:                                             ; preds = %1016
+  %1022 = getelementptr inbounds nuw i8, ptr %1012, i64 17520
+  %1023 = load i64, ptr %1022, align 8, !tbaa !42
+  %1024 = icmp eq i64 %1023, 0
+  br i1 %1024, label %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i710, label %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i710.thread
 
-_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i710: ; preds = %1015
-  store i64 0, ptr %1011, align 8, !tbaa !41
-  %1019 = getelementptr inbounds nuw i8, ptr %1006, i64 17528
-  call void @_ZN4llvm15SmallVectorBaseImE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(64) %1008, ptr noundef nonnull %1019, i64 noundef 1, i64 noundef 1) #20
-  %.pre71 = load i64, ptr %1004, align 8, !tbaa !41
+_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i710: ; preds = %1021
+  store i64 0, ptr %1017, align 8, !tbaa !41
+  %1025 = getelementptr inbounds nuw i8, ptr %1012, i64 17528
+  call void @_ZN4llvm15SmallVectorBaseImE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(64) %1014, ptr noundef nonnull %1025, i64 noundef 1, i64 noundef 1) #20
+  %.pre71 = load i64, ptr %1010, align 8, !tbaa !41
   %.not.i.i.i.i712 = icmp samesign eq i64 %.pre71, 0
   br i1 %.not.i.i.i.i712, label %_ZN4llvm15DWARFExpression9Operation11DescriptionaSERKS2_.exit714, label %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i710.thread
 
-_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i710.thread: ; preds = %1015, %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i710
-  %1020 = phi i64 [ %.pre71, %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i710 ], [ 1, %1015 ]
-  %1021 = load ptr, ptr %1002, align 8, !tbaa !40
-  %1022 = load ptr, ptr %1008, align 8, !tbaa !40
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %1022, ptr noundef nonnull align 1 dereferenceable(1) %1021, i64 %1020, i1 false)
+_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i710.thread: ; preds = %1021, %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i710
+  %1026 = phi i64 [ %.pre71, %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i710 ], [ 1, %1021 ]
+  %1027 = load ptr, ptr %1008, align 8, !tbaa !40
+  %1028 = load ptr, ptr %1014, align 8, !tbaa !40
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %1028, ptr noundef nonnull align 1 dereferenceable(1) %1027, i64 %1026, i1 false)
   br label %_ZN4llvm15DWARFExpression9Operation11DescriptionaSERKS2_.exit714
 
-_ZN4llvm15DWARFExpression9Operation11DescriptionaSERKS2_.exit714: ; preds = %1013, %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i710, %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i710.thread
-  store i64 1, ptr %1011, align 8, !tbaa !41
-  %.pre72 = load ptr, ptr %1002, align 8, !tbaa !40
-  %1023 = icmp eq ptr %.pre72, %1003
-  br i1 %1023, label %_ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit715, label %1024
+_ZN4llvm15DWARFExpression9Operation11DescriptionaSERKS2_.exit714: ; preds = %1019, %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i710, %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i710.thread
+  store i64 1, ptr %1017, align 8, !tbaa !41
+  %.pre72 = load ptr, ptr %1008, align 8, !tbaa !40
+  %1029 = icmp eq ptr %.pre72, %1009
+  br i1 %1029, label %_ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit715, label %1030
 
-1024:                                             ; preds = %_ZN4llvm15DWARFExpression9Operation11DescriptionaSERKS2_.exit714
+1030:                                             ; preds = %_ZN4llvm15DWARFExpression9Operation11DescriptionaSERKS2_.exit714
   call void @free(ptr noundef %.pre72) #20
   br label %_ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit715
 
-_ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit715: ; preds = %_ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit705, %_ZN4llvm15DWARFExpression9Operation11DescriptionaSERKS2_.exit714, %1024
+_ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit715: ; preds = %_ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit705, %_ZN4llvm15DWARFExpression9Operation11DescriptionaSERKS2_.exit714, %1030
   call void @llvm.lifetime.end.p0(ptr nonnull %36)
   call void @llvm.lifetime.start.p0(ptr nonnull %37)
   store i8 5, ptr %37, align 8, !tbaa !38
-  %1025 = getelementptr inbounds nuw i8, ptr %37, i64 8
-  %1026 = getelementptr inbounds nuw i8, ptr %37, i64 32
-  store ptr %1026, ptr %1025, align 8, !tbaa !40
-  %1027 = getelementptr inbounds nuw i8, ptr %37, i64 16
-  %1028 = getelementptr inbounds nuw i8, ptr %37, i64 24
-  store i64 40, ptr %1028, align 8, !tbaa !42
-  store i8 9, ptr %1026, align 8
-  store i64 1, ptr %1027, align 8, !tbaa !41
-  %1029 = load ptr, ptr @_ZZN4llvmL9getOpDescEjE12Descriptions, align 8, !tbaa !31
-  %1030 = getelementptr inbounds nuw i8, ptr %1029, i64 16776
-  store i8 5, ptr %1030, align 8, !tbaa !38
-  %1031 = getelementptr inbounds nuw i8, ptr %1029, i64 16784
-  %1032 = icmp eq ptr %1030, %37
-  br i1 %1032, label %_ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit725, label %1033
+  %1031 = getelementptr inbounds nuw i8, ptr %37, i64 8
+  %1032 = getelementptr inbounds nuw i8, ptr %37, i64 32
+  store ptr %1032, ptr %1031, align 8, !tbaa !40
+  %1033 = getelementptr inbounds nuw i8, ptr %37, i64 16
+  %1034 = getelementptr inbounds nuw i8, ptr %37, i64 24
+  store i64 40, ptr %1034, align 8, !tbaa !42
+  store i8 9, ptr %1032, align 8
+  store i64 1, ptr %1033, align 8, !tbaa !41
+  %1035 = load ptr, ptr @_ZZN4llvmL9getOpDescEjE12Descriptions, align 8, !tbaa !31
+  %1036 = getelementptr inbounds nuw i8, ptr %1035, i64 16776
+  store i8 5, ptr %1036, align 8, !tbaa !38
+  %1037 = getelementptr inbounds nuw i8, ptr %1035, i64 16784
+  %1038 = icmp eq ptr %1036, %37
+  br i1 %1038, label %_ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit725, label %1039
 
-1033:                                             ; preds = %_ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit715
-  %1034 = getelementptr inbounds nuw i8, ptr %1029, i64 16792
-  %1035 = load i64, ptr %1034, align 8, !tbaa !41
-  %.not.i.i.i716 = icmp eq i64 %1035, 0
-  br i1 %.not.i.i.i716, label %1038, label %1036
+1039:                                             ; preds = %_ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit715
+  %1040 = getelementptr inbounds nuw i8, ptr %1035, i64 16792
+  %1041 = load i64, ptr %1040, align 8, !tbaa !41
+  %.not.i.i.i716 = icmp eq i64 %1041, 0
+  br i1 %.not.i.i.i716, label %1044, label %1042
 
-1036:                                             ; preds = %1033
-  %1037 = load ptr, ptr %1031, align 8, !tbaa !40
-  store i8 9, ptr %1037, align 1
+1042:                                             ; preds = %1039
+  %1043 = load ptr, ptr %1037, align 8, !tbaa !40
+  store i8 9, ptr %1043, align 1
   br label %_ZN4llvm15DWARFExpression9Operation11DescriptionaSERKS2_.exit724
 
-1038:                                             ; preds = %1033
-  %1039 = getelementptr inbounds nuw i8, ptr %1029, i64 16800
-  %1040 = load i64, ptr %1039, align 8, !tbaa !42
-  %1041 = icmp eq i64 %1040, 0
-  br i1 %1041, label %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i720, label %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i720.thread
+1044:                                             ; preds = %1039
+  %1045 = getelementptr inbounds nuw i8, ptr %1035, i64 16800
+  %1046 = load i64, ptr %1045, align 8, !tbaa !42
+  %1047 = icmp eq i64 %1046, 0
+  br i1 %1047, label %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i720, label %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i720.thread
 
-_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i720: ; preds = %1038
-  store i64 0, ptr %1034, align 8, !tbaa !41
-  %1042 = getelementptr inbounds nuw i8, ptr %1029, i64 16808
-  call void @_ZN4llvm15SmallVectorBaseImE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(64) %1031, ptr noundef nonnull %1042, i64 noundef 1, i64 noundef 1) #20
-  %.pre73 = load i64, ptr %1027, align 8, !tbaa !41
+_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i720: ; preds = %1044
+  store i64 0, ptr %1040, align 8, !tbaa !41
+  %1048 = getelementptr inbounds nuw i8, ptr %1035, i64 16808
+  call void @_ZN4llvm15SmallVectorBaseImE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(64) %1037, ptr noundef nonnull %1048, i64 noundef 1, i64 noundef 1) #20
+  %.pre73 = load i64, ptr %1033, align 8, !tbaa !41
   %.not.i.i.i.i722 = icmp samesign eq i64 %.pre73, 0
   br i1 %.not.i.i.i.i722, label %_ZN4llvm15DWARFExpression9Operation11DescriptionaSERKS2_.exit724, label %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i720.thread
 
-_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i720.thread: ; preds = %1038, %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i720
-  %1043 = phi i64 [ %.pre73, %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i720 ], [ 1, %1038 ]
-  %1044 = load ptr, ptr %1025, align 8, !tbaa !40
-  %1045 = load ptr, ptr %1031, align 8, !tbaa !40
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %1045, ptr noundef nonnull align 1 dereferenceable(1) %1044, i64 %1043, i1 false)
+_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i720.thread: ; preds = %1044, %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i720
+  %1049 = phi i64 [ %.pre73, %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i720 ], [ 1, %1044 ]
+  %1050 = load ptr, ptr %1031, align 8, !tbaa !40
+  %1051 = load ptr, ptr %1037, align 8, !tbaa !40
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %1051, ptr noundef nonnull align 1 dereferenceable(1) %1050, i64 %1049, i1 false)
   br label %_ZN4llvm15DWARFExpression9Operation11DescriptionaSERKS2_.exit724
 
-_ZN4llvm15DWARFExpression9Operation11DescriptionaSERKS2_.exit724: ; preds = %1036, %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i720, %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i720.thread
-  store i64 1, ptr %1034, align 8, !tbaa !41
-  %.pre74 = load ptr, ptr %1025, align 8, !tbaa !40
-  %1046 = icmp eq ptr %.pre74, %1026
-  br i1 %1046, label %_ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit725, label %1047
+_ZN4llvm15DWARFExpression9Operation11DescriptionaSERKS2_.exit724: ; preds = %1042, %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i720, %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i720.thread
+  store i64 1, ptr %1040, align 8, !tbaa !41
+  %.pre74 = load ptr, ptr %1031, align 8, !tbaa !40
+  %1052 = icmp eq ptr %.pre74, %1032
+  br i1 %1052, label %_ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit725, label %1053
 
-1047:                                             ; preds = %_ZN4llvm15DWARFExpression9Operation11DescriptionaSERKS2_.exit724
+1053:                                             ; preds = %_ZN4llvm15DWARFExpression9Operation11DescriptionaSERKS2_.exit724
   call void @free(ptr noundef %.pre74) #20
   br label %_ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit725
 
-_ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit725: ; preds = %_ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit715, %_ZN4llvm15DWARFExpression9Operation11DescriptionaSERKS2_.exit724, %1047
+_ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit725: ; preds = %_ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit715, %_ZN4llvm15DWARFExpression9Operation11DescriptionaSERKS2_.exit724, %1053
   call void @llvm.lifetime.end.p0(ptr nonnull %37)
   ret void
 
-1048:                                             ; preds = %.preheader, %_ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit735
+1054:                                             ; preds = %.preheader, %_ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit735
   %indvars.iv10 = phi i64 [ 112, %.preheader ], [ %indvars.iv.next11, %_ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit735 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store i8 2, ptr %15, align 8, !tbaa !38
@@ -6971,61 +6977,61 @@ _ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit725: ; preds = %_ZN4llv
   store i64 40, ptr %478, align 8, !tbaa !42
   store i8 -124, ptr %476, align 8
   store i64 1, ptr %477, align 8, !tbaa !41
-  %1049 = load ptr, ptr @_ZZN4llvmL9getOpDescEjE12Descriptions, align 8, !tbaa !31
-  %1050 = getelementptr inbounds nuw %"struct.llvm::DWARFExpression::Operation::Description", ptr %1049, i64 %indvars.iv10
-  store i8 2, ptr %1050, align 8, !tbaa !38
-  %1051 = getelementptr inbounds nuw i8, ptr %1050, i64 8
-  %1052 = icmp eq ptr %1050, %15
-  br i1 %1052, label %_ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit735, label %1053
+  %1055 = load ptr, ptr @_ZZN4llvmL9getOpDescEjE12Descriptions, align 8, !tbaa !31
+  %1056 = getelementptr inbounds nuw %"struct.llvm::DWARFExpression::Operation::Description", ptr %1055, i64 %indvars.iv10
+  store i8 2, ptr %1056, align 8, !tbaa !38
+  %1057 = getelementptr inbounds nuw i8, ptr %1056, i64 8
+  %1058 = icmp eq ptr %1056, %15
+  br i1 %1058, label %_ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit735, label %1059
 
-1053:                                             ; preds = %1048
-  %1054 = getelementptr inbounds nuw i8, ptr %1050, i64 16
-  %1055 = load i64, ptr %1054, align 8, !tbaa !41
-  %.not.i.i.i726 = icmp eq i64 %1055, 0
-  br i1 %.not.i.i.i726, label %1059, label %1056
+1059:                                             ; preds = %1054
+  %1060 = getelementptr inbounds nuw i8, ptr %1056, i64 16
+  %1061 = load i64, ptr %1060, align 8, !tbaa !41
+  %.not.i.i.i726 = icmp eq i64 %1061, 0
+  br i1 %.not.i.i.i726, label %1065, label %1062
 
-1056:                                             ; preds = %1053
-  %1057 = load ptr, ptr %1051, align 8, !tbaa !40
-  %1058 = load i8, ptr %476, align 8
-  store i8 %1058, ptr %1057, align 1
+1062:                                             ; preds = %1059
+  %1063 = load ptr, ptr %1057, align 8, !tbaa !40
+  %1064 = load i8, ptr %476, align 8
+  store i8 %1064, ptr %1063, align 1
   br label %_ZN4llvm15DWARFExpression9Operation11DescriptionaSERKS2_.exit734
 
-1059:                                             ; preds = %1053
-  %1060 = getelementptr inbounds nuw i8, ptr %1050, i64 24
-  %1061 = load i64, ptr %1060, align 8, !tbaa !42
-  %1062 = icmp eq i64 %1061, 0
-  br i1 %1062, label %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i730, label %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i730.thread
+1065:                                             ; preds = %1059
+  %1066 = getelementptr inbounds nuw i8, ptr %1056, i64 24
+  %1067 = load i64, ptr %1066, align 8, !tbaa !42
+  %1068 = icmp eq i64 %1067, 0
+  br i1 %1068, label %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i730, label %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i730.thread
 
-_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i730: ; preds = %1059
-  store i64 0, ptr %1054, align 8, !tbaa !41
-  %1063 = getelementptr inbounds nuw i8, ptr %1050, i64 32
-  call void @_ZN4llvm15SmallVectorBaseImE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(64) %1051, ptr noundef nonnull %1063, i64 noundef 1, i64 noundef 1) #20
+_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i730: ; preds = %1065
+  store i64 0, ptr %1060, align 8, !tbaa !41
+  %1069 = getelementptr inbounds nuw i8, ptr %1056, i64 32
+  call void @_ZN4llvm15SmallVectorBaseImE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(64) %1057, ptr noundef nonnull %1069, i64 noundef 1, i64 noundef 1) #20
   %.pre35 = load i64, ptr %477, align 8, !tbaa !41
   %.not.i.i.i.i732 = icmp samesign eq i64 %.pre35, 0
   br i1 %.not.i.i.i.i732, label %_ZN4llvm15DWARFExpression9Operation11DescriptionaSERKS2_.exit734, label %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i730.thread
 
-_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i730.thread: ; preds = %1059, %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i730
-  %1064 = phi i64 [ %.pre35, %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i730 ], [ 1, %1059 ]
-  %1065 = load ptr, ptr %475, align 8, !tbaa !40
-  %1066 = load ptr, ptr %1051, align 8, !tbaa !40
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %1066, ptr noundef nonnull align 1 dereferenceable(1) %1065, i64 %1064, i1 false)
+_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i730.thread: ; preds = %1065, %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i730
+  %1070 = phi i64 [ %.pre35, %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i730 ], [ 1, %1065 ]
+  %1071 = load ptr, ptr %475, align 8, !tbaa !40
+  %1072 = load ptr, ptr %1057, align 8, !tbaa !40
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %1072, ptr noundef nonnull align 1 dereferenceable(1) %1071, i64 %1070, i1 false)
   br label %_ZN4llvm15DWARFExpression9Operation11DescriptionaSERKS2_.exit734
 
-_ZN4llvm15DWARFExpression9Operation11DescriptionaSERKS2_.exit734: ; preds = %1056, %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i730, %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i730.thread
-  store i64 1, ptr %1054, align 8, !tbaa !41
+_ZN4llvm15DWARFExpression9Operation11DescriptionaSERKS2_.exit734: ; preds = %1062, %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i730, %_ZSt4copyIPKN4llvm15DWARFExpression9Operation8EncodingEPS3_ET0_T_S8_S7_.exit31.i.i.i730.thread
+  store i64 1, ptr %1060, align 8, !tbaa !41
   %.pre36 = load ptr, ptr %475, align 8, !tbaa !40
-  %1067 = icmp eq ptr %.pre36, %476
-  br i1 %1067, label %_ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit735, label %1068
+  %1073 = icmp eq ptr %.pre36, %476
+  br i1 %1073, label %_ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit735, label %1074
 
-1068:                                             ; preds = %_ZN4llvm15DWARFExpression9Operation11DescriptionaSERKS2_.exit734
+1074:                                             ; preds = %_ZN4llvm15DWARFExpression9Operation11DescriptionaSERKS2_.exit734
   call void @free(ptr noundef %.pre36) #20
   br label %_ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit735
 
-_ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit735: ; preds = %1048, %_ZN4llvm15DWARFExpression9Operation11DescriptionaSERKS2_.exit734, %1068
+_ZN4llvm15DWARFExpression9Operation11DescriptionD2Ev.exit735: ; preds = %1054, %_ZN4llvm15DWARFExpression9Operation11DescriptionaSERKS2_.exit734, %1074
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   %indvars.iv.next11 = add nuw nsw i64 %indvars.iv10, 1
   %exitcond13.not = icmp eq i64 %indvars.iv.next11, 144
-  br i1 %exitcond13.not, label %481, label %1048, !llvm.loop !228
+  br i1 %exitcond13.not, label %481, label %1054, !llvm.loop !228
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

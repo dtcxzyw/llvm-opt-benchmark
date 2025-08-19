@@ -348,8 +348,8 @@ _ZN6Tarjan4EVALEv.exit89:                         ; preds = %169, %172
 ._crit_edge105:                                   ; preds = %189, %_ZN6Tarjan4LINKEPS_S0_.exit
   %indvars.iv.next122 = add nsw i64 %indvars.iv121, -1
   %192 = and i64 %indvars.iv.next122, 4294967294
-  %.not125 = icmp eq i64 %192, 0
-  br i1 %.not125, label %.preheader, label %47, !llvm.loop !11
+  %.not140 = icmp eq i64 %192, 0
+  br i1 %.not140, label %.preheader, label %47, !llvm.loop !11
 
 .lr.ph111:                                        ; preds = %.preheader, %204
   %.073110 = phi i32 [ %206, %204 ], [ 2, %.preheader ]
@@ -1126,8 +1126,8 @@ define hidden void @_ZN14PhaseIdealLoop10DominatorsEv(ptr noundef nonnull readon
   %30 = getelementptr inbounds nuw %struct.NTarjan, ptr %24, i64 %indvars.iv
   store ptr null, ptr %30, align 8
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %.not188 = icmp eq i64 %indvars.iv, 0
-  br i1 %.not188, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !20
+  %.not211 = icmp eq i64 %indvars.iv, 0
+  br i1 %.not211, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !20
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %.pre = load ptr, ptr %17, align 8

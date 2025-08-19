@@ -347,8 +347,8 @@ define range(i32 -1, 1) i32 @H5Tset_cset(i64 noundef %0, i32 noundef %1) local_u
   br label %.thread45
 
 82:                                               ; preds = %73, %.critedge
-  %.sink60 = phi i64 [ 80, %.critedge ], [ 56, %73 ]
-  %83 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 %.sink60
+  %.sink63 = phi i64 [ 80, %.critedge ], [ 56, %73 ]
+  %83 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 %.sink63
   store i32 %1, ptr %83, align 8, !tbaa !29
   %84 = call i32 @H5CX_pop(i1 noundef zeroext true) #4
   br label %86

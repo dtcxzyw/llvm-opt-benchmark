@@ -191,7 +191,7 @@ define hidden noundef ptr @_ZN6flate22gz14GzHeaderParser5parse17h792b75865d516b6
 
 .backedge:                                        ; preds = %.backedge.backedge, %2
   %39 = phi i8 [ %.pre, %2 ], [ %.be, %.backedge.backedge ]
-  switch i8 %39, label %default.unreachable326 [
+  switch i8 %39, label %default.unreachable352 [
     i8 0, label %.preheader
     i8 1, label %42
     i8 2, label %48
@@ -206,7 +206,7 @@ define hidden noundef ptr @_ZN6flate22gz14GzHeaderParser5parse17h792b75865d516b6
   %41 = icmp ult i8 %40, 10
   br i1 %41, label %.lr.ph315, label %._crit_edge316
 
-default.unreachable326:                           ; preds = %.backedge, %274, %202, %168, %115
+default.unreachable352:                           ; preds = %.backedge, %274, %202, %168, %115
   unreachable
 
 42:                                               ; preds = %.backedge
@@ -385,7 +385,7 @@ _ZN5alloc5alloc15exchange_malloc17ha641d2894b944555E.exit: ; preds = %88
   %.val.i = load ptr, ptr %31, align 8, !noalias !31, !nonnull !10, !noundef !10
   %116 = ptrtoint ptr %.val.i to i64
   %117 = and i64 %116, 3
-  switch i64 %117, label %default.unreachable326 [
+  switch i64 %117, label %default.unreachable352 [
     i64 2, label %119
     i64 3, label %118
     i64 0, label %_ZN3std2io5error5Error4kind17he9f58cfbf63ce398E.exit.i
@@ -546,7 +546,7 @@ _ZN3std2io5error5Error4kind17he9f58cfbf63ce398E.exit.i: ; preds = %120, %115
   %.val.i201 = load ptr, ptr %26, align 8, !noalias !62, !nonnull !10, !noundef !10
   %169 = ptrtoint ptr %.val.i201 to i64
   %170 = and i64 %169, 3
-  switch i64 %170, label %default.unreachable326 [
+  switch i64 %170, label %default.unreachable352 [
     i64 2, label %172
     i64 3, label %171
     i64 0, label %_ZN3std2io5error5Error4kind17he9f58cfbf63ce398E.exit.i202
@@ -650,7 +650,7 @@ _ZN3std2io5error5Error4kind17he9f58cfbf63ce398E.exit.i202: ; preds = %173, %168
   %.val.i217 = load ptr, ptr %24, align 8, !noalias !79, !nonnull !10, !noundef !10
   %203 = ptrtoint ptr %.val.i217 to i64
   %204 = and i64 %203, 3
-  switch i64 %204, label %default.unreachable326 [
+  switch i64 %204, label %default.unreachable352 [
     i64 2, label %206
     i64 3, label %205
     i64 0, label %_ZN3std2io5error5Error4kind17he9f58cfbf63ce398E.exit.i218
@@ -856,7 +856,7 @@ _ZN3std2io5error5Error4kind17he9f58cfbf63ce398E.exit.i218: ; preds = %207, %202
   %.val.i240 = load ptr, ptr %17, align 8, !noalias !102, !nonnull !10, !noundef !10
   %275 = ptrtoint ptr %.val.i240 to i64
   %276 = and i64 %275, 3
-  switch i64 %276, label %default.unreachable326 [
+  switch i64 %276, label %default.unreachable352 [
     i64 2, label %278
     i64 3, label %277
     i64 0, label %_ZN3std2io5error5Error4kind17he9f58cfbf63ce398E.exit.i241

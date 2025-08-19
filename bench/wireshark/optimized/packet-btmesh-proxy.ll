@@ -300,7 +300,7 @@ define internal i32 @dissect_btmesh_proxy_msg(ptr noundef %0, ptr noundef %1, pt
   %47 = zext nneg i8 %43 to i32
   %48 = tail call ptr @val_to_str_const(i32 noundef %47, ptr noundef nonnull @btmesh_proxy_type, ptr noundef nonnull @.str.108)
   tail call void @col_set_str(ptr noundef %46, i32 noundef 25, ptr noundef %48)
-  switch i8 %41, label %default.unreachable185 [
+  switch i8 %41, label %default.unreachable196 [
     i8 0, label %126
     i8 1, label %49
     i8 2, label %72
@@ -416,7 +416,7 @@ define internal i32 @dissect_btmesh_proxy_msg(ptr noundef %0, ptr noundef %1, pt
   tail call void @col_append_str(ptr noundef %125, i32 noundef 25, ptr noundef nonnull @.str.112)
   br label %.thread155
 
-default.unreachable185:                           ; preds = %.loopexit
+default.unreachable196:                           ; preds = %.loopexit
   unreachable
 
 126:                                              ; preds = %.loopexit

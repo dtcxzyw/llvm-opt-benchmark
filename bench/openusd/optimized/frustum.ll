@@ -5128,13 +5128,13 @@ define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__9GfFrustum10Int
 switch.lookup:                                    ; preds = %357
   %switch.gep = getelementptr inbounds nuw [3 x double], ptr @switch.table._ZNK32pxrInternal_v0_24__pxrReserved__9GfFrustum10IntersectsERKNS_7GfVec3dES3_S3_, i64 0, i64 %.0109
   %switch.load = load double, ptr %switch.gep, align 8
-  %switch.gep119 = getelementptr inbounds nuw [3 x double], ptr @switch.table._ZNK32pxrInternal_v0_24__pxrReserved__9GfFrustum10IntersectsERKNS_7GfVec3dES3_S3_.5, i64 0, i64 %.0109
-  %switch.load120 = load double, ptr %switch.gep119, align 8
+  %switch.gep132 = getelementptr inbounds nuw [3 x double], ptr @switch.table._ZNK32pxrInternal_v0_24__pxrReserved__9GfFrustum10IntersectsERKNS_7GfVec3dES3_S3_.5, i64 0, i64 %.0109
+  %switch.load133 = load double, ptr %switch.gep132, align 8
   br label %359
 
 359:                                              ; preds = %357, %switch.lookup
   %.sroa.5.0 = phi double [ %switch.load, %switch.lookup ], [ 0.000000e+00, %357 ]
-  %.sroa.0.0 = phi double [ %switch.load120, %switch.lookup ], [ 1.000000e+00, %357 ]
+  %.sroa.0.0 = phi double [ %switch.load133, %switch.lookup ], [ 1.000000e+00, %357 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %360 = load i32, ptr %343, align 8, !noalias !196
   %361 = load double, ptr %345, align 8, !noalias !196

@@ -282,9 +282,9 @@ _ZNK9parameter7get_astEv.exit64:                  ; preds = %66
   %75 = getelementptr inbounds nuw i8, ptr %67, i64 32
   %76 = load i32, ptr %75, align 8, !tbaa !89
   %.not42 = icmp eq i32 %76, 2
-  br i1 %.not42, label %79, label %.invoke77
+  br i1 %.not42, label %79, label %.invoke80
 
-77:                                               ; preds = %.invoke77
+77:                                               ; preds = %.invoke80
   %78 = landingpad { ptr, i32 }
           cleanup
   br label %147
@@ -295,22 +295,22 @@ _ZNK9parameter7get_astEv.exit64:                  ; preds = %66
   %82 = getelementptr inbounds nuw i8, ptr %67, i64 56
   %83 = load ptr, ptr %82, align 8, !tbaa !18
   %.not43 = icmp eq ptr %81, %83
-  br i1 %.not43, label %84, label %.invoke77
+  br i1 %.not43, label %84, label %.invoke80
 
 84:                                               ; preds = %79
   %85 = getelementptr inbounds nuw i8, ptr %67, i64 40
   %86 = load ptr, ptr %85, align 8, !tbaa !94
   %.not44 = icmp eq ptr %81, %86
-  br i1 %.not44, label %125, label %.invoke77
+  br i1 %.not44, label %125, label %.invoke80
 
-.invoke77:                                        ; preds = %84, %79, %_ZNK9parameter7get_astEv.exit64
+.invoke80:                                        ; preds = %84, %79, %_ZNK9parameter7get_astEv.exit64
   %87 = phi ptr [ @.str.10, %_ZNK9parameter7get_astEv.exit64 ], [ @.str.11, %79 ], [ @.str.12, %84 ]
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %89 = load ptr, ptr %88, align 8, !tbaa !3
   invoke void @_ZN11ast_manager15raise_exceptionEPKc(ptr noundef nonnull align 8 dereferenceable(976) %89, ptr noundef nonnull %87) #17
-          to label %.cont78 unwind label %77
+          to label %.cont81 unwind label %77
 
-.cont78:                                          ; preds = %.invoke77
+.cont81:                                          ; preds = %.invoke80
   unreachable
 
 90:                                               ; preds = %28
@@ -355,9 +355,9 @@ _ZNK9parameter7get_astEv.exit72:                  ; preds = %103
   %109 = getelementptr inbounds nuw i8, ptr %104, i64 32
   %110 = load i32, ptr %109, align 8, !tbaa !89
   %.not38 = icmp eq i32 %110, 2
-  br i1 %.not38, label %113, label %.invoke79
+  br i1 %.not38, label %113, label %.invoke82
 
-111:                                              ; preds = %.invoke79
+111:                                              ; preds = %.invoke82
   %112 = landingpad { ptr, i32 }
           cleanup
   br label %147
@@ -368,20 +368,20 @@ _ZNK9parameter7get_astEv.exit72:                  ; preds = %103
   %116 = getelementptr inbounds nuw i8, ptr %104, i64 56
   %117 = load ptr, ptr %116, align 8, !tbaa !18
   %.not39 = icmp eq ptr %115, %117
-  br i1 %.not39, label %118, label %.invoke79
+  br i1 %.not39, label %118, label %.invoke82
 
 118:                                              ; preds = %113
   %119 = getelementptr inbounds nuw i8, ptr %104, i64 40
   %120 = load ptr, ptr %119, align 8, !tbaa !94
   %121 = icmp eq ptr %120, %.1
-  br i1 %121, label %125, label %.invoke79
+  br i1 %121, label %125, label %.invoke82
 
-.invoke79:                                        ; preds = %_ZNK9parameter7get_astEv.exit72, %118, %113
+.invoke82:                                        ; preds = %_ZNK9parameter7get_astEv.exit72, %118, %113
   %122 = phi ptr [ @.str.14, %113 ], [ @.str.15, %118 ], [ @.str.13, %_ZNK9parameter7get_astEv.exit72 ]
   invoke void @_ZN11ast_manager15raise_exceptionEPKc(ptr noundef nonnull align 8 dereferenceable(976) %.val53.val, ptr noundef nonnull %122) #17
-          to label %.cont80 unwind label %111
+          to label %.cont83 unwind label %111
 
-.cont80:                                          ; preds = %.invoke79
+.cont83:                                          ; preds = %.invoke82
   unreachable
 
 .sink.split:                                      ; preds = %49, %44, %39, %32

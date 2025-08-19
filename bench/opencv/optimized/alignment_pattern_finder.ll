@@ -808,8 +808,8 @@ define hidden noundef float @_ZN5zxing6qrcode22AlignmentPatternFinder18crossChec
   %22 = load i8, ptr %21, align 1, !tbaa !52
   %.not = icmp eq i8 %22, 0
   %.not57 = icmp sgt i32 %17, %3
-  %or.cond121 = select i1 %.not, i1 true, i1 %.not57
-  br i1 %or.cond121, label %26, label %_ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit
+  %or.cond136 = select i1 %.not, i1 true, i1 %.not57
+  br i1 %or.cond136, label %26, label %_ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit
 
 _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit:            ; preds = %16
   %23 = add nuw nsw i32 %17, 1
@@ -832,8 +832,8 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit:            ; preds = %16
   %33 = load i8, ptr %32, align 1, !tbaa !52
   %.not58 = icmp ne i8 %33, 0
   %.not59 = icmp sgt i32 %28, %3
-  %or.cond113 = select i1 %.not58, i1 true, i1 %.not59
-  br i1 %or.cond113, label %.critedge2, label %34
+  %or.cond128 = select i1 %.not58, i1 true, i1 %.not59
+  br i1 %or.cond128, label %.critedge2, label %34
 
 34:                                               ; preds = %.lr.ph93
   %35 = add nuw nsw i32 %28, 1
@@ -862,8 +862,8 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit:            ; preds = %16
   %46 = load i8, ptr %45, align 1, !tbaa !52
   %.not60 = icmp eq i8 %46, 0
   %.not61 = icmp sgt i32 %41, %3
-  %or.cond122 = select i1 %.not60, i1 true, i1 %.not61
-  br i1 %or.cond122, label %.critedge4, label %47
+  %or.cond137 = select i1 %.not60, i1 true, i1 %.not61
+  br i1 %or.cond137, label %.critedge4, label %47
 
 47:                                               ; preds = %.lr.ph98
   %48 = add nuw nsw i32 %41, 1
@@ -877,8 +877,8 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit:            ; preds = %16
   %.2.lcssa = phi i32 [ %.296, %.preheader88 ], [ %.297, %.lr.ph98 ]
   %50 = icmp eq i32 %.2.lcssa, %7
   %51 = icmp sgt i32 %49, %3
-  %or.cond123 = select i1 %50, i1 true, i1 %51
-  br i1 %or.cond123, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %.preheader
+  %or.cond138 = select i1 %50, i1 true, i1 %51
+  br i1 %or.cond138, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %.preheader
 
 .preheader:                                       ; preds = %.critedge4
   %52 = getelementptr inbounds nuw i8, ptr %8, i64 8

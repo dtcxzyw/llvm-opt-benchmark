@@ -808,9 +808,9 @@ define internal ptr @pyexpat_ErrorString(ptr readnone captures(none) %0, ptr nou
   br i1 %11, label %pyexpat_ErrorString_impl.exit, label %pyexpat_ErrorString_impl.exit.sink.split
 
 pyexpat_ErrorString_impl.exit.sink.split:         ; preds = %.split4, %.split
-  %.sink9 = phi ptr [ %6, %.split ], [ %10, %.split4 ]
-  %12 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.sink9) #9
-  %13 = tail call ptr @PyUnicode_DecodeUTF8(ptr noundef nonnull %.sink9, i64 noundef %12, ptr noundef nonnull @.str.42) #8
+  %.sink12 = phi ptr [ %6, %.split ], [ %10, %.split4 ]
+  %12 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.sink12) #9
+  %13 = tail call ptr @PyUnicode_DecodeUTF8(ptr noundef nonnull %.sink12, i64 noundef %12, ptr noundef nonnull @.str.42) #8
   br label %pyexpat_ErrorString_impl.exit
 
 pyexpat_ErrorString_impl.exit:                    ; preds = %pyexpat_ErrorString_impl.exit.sink.split, %.split4, %.split, %8
@@ -936,9 +936,9 @@ PyUnicode_READ.exit:                              ; preds = %_PyUnicode_DATA.exi
   %34 = getelementptr i32, ptr %.0.i, i64 %indvars.iv49
   %35 = load i32, ptr %34, align 4, !tbaa !49
   %.not26 = icmp eq i32 %35, 65533
-  %spec.select56 = select i1 %.not26, i32 -1, i32 %35
+  %spec.select61 = select i1 %.not26, i32 -1, i32 %35
   %36 = getelementptr [256 x i32], ptr %2, i64 0, i64 %indvars.iv49
-  store i32 %spec.select56, ptr %36, align 4, !tbaa !49
+  store i32 %spec.select61, ptr %36, align 4, !tbaa !49
   %indvars.iv.next50 = add nuw nsw i64 %indvars.iv49, 1
   %exitcond52.not = icmp eq i64 %indvars.iv.next50, 256
   br i1 %exitcond52.not, label %.split.us, label %PyUnicode_READ.exit, !llvm.loop !50
@@ -7315,9 +7315,9 @@ PyByteArray_AS_STRING.exit.i.i:                   ; preds = %53, %48
   br label %71
 
 PyByteArray_AS_STRING.exit.thread.i.i:            ; preds = %PyByteArray_AS_STRING.exit.i.i, %PyObject_TypeCheck.exit.thread.i.i
-  %.036.i.i = phi ptr [ %.0.i.i, %PyByteArray_AS_STRING.exit.i.i ], [ @_PyByteArray_empty_string, %PyObject_TypeCheck.exit.thread.i.i ]
-  %.val2635.i.i = phi i64 [ %.val26.i.i, %PyByteArray_AS_STRING.exit.i.i ], [ 0, %PyObject_TypeCheck.exit.thread.i.i ]
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %27, ptr align 1 %.036.i.i, i64 %.val2635.i.i, i1 false)
+  %.039.i.i = phi ptr [ %.0.i.i, %PyByteArray_AS_STRING.exit.i.i ], [ @_PyByteArray_empty_string, %PyObject_TypeCheck.exit.thread.i.i ]
+  %.val2638.i.i = phi i64 [ %.val26.i.i, %PyByteArray_AS_STRING.exit.i.i ], [ 0, %PyObject_TypeCheck.exit.thread.i.i ]
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %27, ptr align 1 %.039.i.i, i64 %.val2638.i.i, i1 false)
   %66 = load i32, ptr %42, align 8, !tbaa !13
   %.not.i.i28.i = icmp sgt i32 %66, -1
   br i1 %.not.i.i28.i, label %67, label %readinst.exit.i
@@ -7348,7 +7348,7 @@ PyByteArray_AS_STRING.exit.thread.i.i:            ; preds = %PyByteArray_AS_STRI
   br label %readinst.exit.thread.i
 
 readinst.exit.i:                                  ; preds = %70, %67, %PyByteArray_AS_STRING.exit.thread.i.i
-  %77 = trunc i64 %.val2635.i.i to i32
+  %77 = trunc i64 %.val2638.i.i to i32
   %78 = icmp slt i32 %77, 0
   br i1 %78, label %readinst.exit.thread.i, label %85
 

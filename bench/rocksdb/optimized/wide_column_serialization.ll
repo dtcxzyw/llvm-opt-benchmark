@@ -505,9 +505,9 @@ _ZNSt12_Vector_baseIjSaIjEE11_M_allocateEm.exit.i.i: ; preds = %_ZNSt6vectorIN7r
   %88 = add nsw i64 %87, -16
   %89 = shl nuw nsw i64 %88, 2
   %90 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %89) #14
-          to label %_ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit.i.i unwind label %97
+          to label %_ZN7rocksdb10autovectorIjLm16EE7reserveEm.exit.thread unwind label %97
 
-_ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit.i.i: ; preds = %_ZNSt12_Vector_baseIjSaIjEE11_M_allocateEm.exit.i.i
+_ZN7rocksdb10autovectorIjLm16EE7reserveEm.exit.thread: ; preds = %_ZNSt12_Vector_baseIjSaIjEE11_M_allocateEm.exit.i.i
   %91 = getelementptr inbounds nuw i8, ptr %13, i64 88
   %92 = getelementptr inbounds nuw i8, ptr %13, i64 96
   store ptr %90, ptr %85, align 8, !tbaa !49
@@ -520,7 +520,7 @@ _ZN7rocksdb10autovectorIjLm16EE7reserveEm.exit:   ; preds = %_ZNSt6vectorIN7rock
   %.not46118.not = icmp eq i32 %82, 0
   br i1 %.not46118.not, label %.critedge55, label %.lr.ph
 
-.lr.ph:                                           ; preds = %_ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit.i.i, %_ZN7rocksdb10autovectorIjLm16EE7reserveEm.exit
+.lr.ph:                                           ; preds = %_ZN7rocksdb10autovectorIjLm16EE7reserveEm.exit.thread, %_ZN7rocksdb10autovectorIjLm16EE7reserveEm.exit
   %94 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %95 = getelementptr inbounds nuw i8, ptr %13, i64 88
   %96 = getelementptr inbounds nuw i8, ptr %13, i64 96

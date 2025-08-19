@@ -1581,14 +1581,14 @@ define dso_local void @ReplicationSlotAlter(ptr noundef %0, ptr noundef readonly
 
 .thread.thread:                                   ; preds = %25, %34, %.thread
   %42 = phi i8 [ 1, %34 ], [ 0, %.thread ], [ 0, %25 ]
-  %.pre2427 = phi ptr [ %.pre24.pre, %34 ], [ %.pre24.pre, %.thread ], [ %16, %25 ]
-  %43 = getelementptr inbounds nuw i8, ptr %.pre2427, i64 202
+  %.pre2429 = phi ptr [ %.pre24.pre, %34 ], [ %.pre24.pre, %.thread ], [ %16, %25 ]
+  %43 = getelementptr inbounds nuw i8, ptr %.pre2429, i64 202
   %44 = load i8, ptr %43, align 2, !range !4, !noundef !5
   %.not16 = icmp eq i8 %44, %42
   br i1 %.not16, label %55, label %45
 
 45:                                               ; preds = %.thread.thread
-  %46 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %.pre2427, i8 1, ptr nonnull elementtype(i8) %.pre2427) #17, !srcloc !11
+  %46 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %.pre2429, i8 1, ptr nonnull elementtype(i8) %.pre2429) #17, !srcloc !11
   %.not17 = icmp eq i8 %46, 0
   br i1 %.not17, label %50, label %47
 
@@ -3780,12 +3780,12 @@ SearchNamedReplicationSlot.exit:                  ; preds = %26
   br i1 %65, label %.lr.ph, label %.thread, !llvm.loop !51
 
 .thread.sink.split.sink.split:                    ; preds = %55, %48, %34, %.loopexit
-  %.sink211 = phi i32 [ 50856066, %.loopexit ], [ 50856066, %34 ], [ 325, %48 ], [ 325, %55 ]
+  %.sink217 = phi i32 [ 50856066, %.loopexit ], [ 50856066, %34 ], [ 325, %48 ], [ 325, %55 ]
   %.str.51.sink = phi ptr [ @.str.42, %.loopexit ], [ @.str.46, %34 ], [ @.str.49, %48 ], [ @.str.51, %55 ]
   %.str.44.sink = phi ptr [ @.str.44, %.loopexit ], [ @.str.47, %34 ], [ @.str.44, %48 ], [ @.str.44, %55 ]
   %.str.52.sink = phi ptr [ @.str.45, %.loopexit ], [ @.str.48, %34 ], [ @.str.50, %48 ], [ @.str.52, %55 ]
   %.sink = phi i32 [ 2677, %.loopexit ], [ 2691, %34 ], [ 2711, %48 ], [ 2726, %55 ]
-  %66 = tail call i32 @errcode(i32 noundef %.sink211) #17
+  %66 = tail call i32 @errcode(i32 noundef %.sink217) #17
   %67 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull %.str.51.sink, ptr noundef %.078135, ptr noundef nonnull @.str.43) #17
   %68 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull %.str.44.sink, ptr noundef %.078135) #17
   %69 = tail call i32 (ptr, ...) @errhint(ptr noundef nonnull %.str.52.sink, ptr noundef %.078135, ptr noundef nonnull @.str.43) #17

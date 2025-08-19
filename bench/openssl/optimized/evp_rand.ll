@@ -1166,10 +1166,10 @@ define internal fastcc range(i32 0, 2) i32 @evp_rand_generate_locked(ptr noundef
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !53
 
 .loopexit.sink.split:                             ; preds = %.lr.ph, %7
-  %.sink26 = phi i32 [ 565, %7 ], [ 572, %.lr.ph ]
+  %.sink28 = phi i32 [ 565, %7 ], [ 572, %.lr.ph ]
   %.sink = phi i32 [ 215, %7 ], [ 214, %.lr.ph ]
   call void @ERR_new() #8
-  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink26, ptr noundef nonnull @__func__.evp_rand_generate_locked) #8
+  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink28, ptr noundef nonnull @__func__.evp_rand_generate_locked) #8
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef %.sink, ptr noundef null) #8
   br label %.loopexit
 

@@ -570,7 +570,7 @@ ishex_str.exit.thread177:                         ; preds = %95, %ishex_str.exit
 
 137:                                              ; preds = %178, %133
   %.0167 = phi i32 [ 0, %133 ], [ %.1168, %178 ]
-  %.not233 = phi i1 [ false, %133 ], [ true, %178 ]
+  %.not282 = phi i1 [ false, %133 ], [ true, %178 ]
   %indvars.iv.i.sroa.phi = phi ptr [ %8, %133 ], [ %indvars.iv.i.sroa.gep163, %178 ]
   %.03550.i = phi i32 [ %.0114, %133 ], [ %.136.i, %178 ]
   %138 = load i32, ptr @bin_encode_pref, align 4
@@ -662,7 +662,7 @@ ishex_str.exit.thread43.i:                        ; preds = %ishex_str.exit.thre
   %179 = phi i64 [ %146, %143 ], [ %.1.i.i, %177 ]
   %.136.i = phi i32 [ %147, %143 ], [ %155, %177 ]
   %.not38.i = icmp sgt i64 %179, -1
-  %brmerge = or i1 %.not38.i, %.not233
+  %brmerge = or i1 %.not38.i, %.not282
   br i1 %brmerge, label %get_bitmap.exit.thread.loopexit.split.loop.exit, label %137
 
 get_bitmap.exit:                                  ; preds = %140, %148
@@ -678,7 +678,7 @@ get_bitmap.exit.thread.loopexit.split.loop.exit:  ; preds = %178
   br label %get_bitmap.exit.thread
 
 get_bitmap.exit.thread:                           ; preds = %get_bitmap.exit.thread.loopexit.split.loop.exit, %ishex_str.exit.i, %151, %get_bitmap.exit
-  %.2169219 = phi i32 [ %.0167, %get_bitmap.exit ], [ %.1168.mux.le, %get_bitmap.exit.thread.loopexit.split.loop.exit ], [ %152, %ishex_str.exit.i ], [ %152, %151 ]
+  %.2169268 = phi i32 [ %.0167, %get_bitmap.exit ], [ %.1168.mux.le, %get_bitmap.exit.thread.loopexit.split.loop.exit ], [ %152, %ishex_str.exit.i ], [ %152, %151 ]
   %183 = load i32, ptr @bin_encode_pref, align 4
   %184 = icmp eq i32 %183, 1
   br i1 %184, label %185, label %201
@@ -726,7 +726,7 @@ ishex_str.exit142.thread:                         ; preds = %185, %ishex_str.exi
 ishex_str.exit142.thread182:                      ; preds = %197, %ishex_str.exit142, %201
   %.1115 = phi i32 [ 16, %ishex_str.exit142 ], [ 8, %201 ], [ 16, %197 ]
   %206 = or disjoint i32 %.1115, %.0114
-  %207 = icmp sgt i32 %.2169219, 1
+  %207 = icmp sgt i32 %.2169268, 1
   br i1 %207, label %208, label %.thread
 
 208:                                              ; preds = %ishex_str.exit142.thread182
@@ -779,7 +779,7 @@ ishex_str.exit149:                                ; preds = %.lr.ph.i145, %211
 ishex_str.exit149.thread:                         ; preds = %224, %229, %ishex_str.exit149
   %.2 = phi ptr [ %213, %ishex_str.exit149 ], [ %233, %229 ], [ %213, %224 ]
   %234 = add nuw nsw i32 %206, %.1115
-  %.not193 = icmp eq i32 %.2169219, 2
+  %.not193 = icmp eq i32 %.2169268, 2
   br i1 %.not193, label %.thread, label %235
 
 235:                                              ; preds = %ishex_str.exit149.thread
@@ -789,7 +789,7 @@ ishex_str.exit149.thread:                         ; preds = %224, %229, %ishex_s
 .thread:                                          ; preds = %ishex_str.exit142.thread182, %ishex_str.exit149.thread
   %.0111189 = phi i32 [ %234, %ishex_str.exit149.thread ], [ %206, %ishex_str.exit142.thread182 ]
   %237 = load i32, ptr %9, align 4
-  %238 = shl i32 %.2169219, 6
+  %238 = shl i32 %.2169268, 6
   %.not.i150 = icmp eq ptr %1, null
   br i1 %.not.i150, label %dissect_databits.exit, label %.preheader.i
 
@@ -813,8 +813,8 @@ ishex_str.exit149.thread:                         ; preds = %224, %229, %ishex_s
   br i1 %.not33.i, label %591, label %243
 
 243:                                              ; preds = %241
-  %.udiv100.i = lshr i64 %indvars.iv.i152, 6
-  %244 = and i64 %.udiv100.i, 67108863
+  %.udiv133.i = lshr i64 %indvars.iv.i152, 6
+  %244 = and i64 %.udiv133.i, 67108863
   %245 = getelementptr i64, ptr %8, i64 %244
   %246 = load i64, ptr %245, align 8
   %narrow.i = xor i32 %.urem.i, 63

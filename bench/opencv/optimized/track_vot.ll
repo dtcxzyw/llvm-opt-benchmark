@@ -532,8 +532,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit110: ; preds = %_Z
   %204 = ptrtoint ptr %202 to i64
   %205 = sub i64 %203, %204
   %206 = shl i64 %205, 28
-  %sext160 = add i64 %206, -4294967296
-  %207 = ashr i64 %sext160, 32
+  %sext177 = add i64 %206, -4294967296
+  %207 = ashr i64 %sext177, 32
   %208 = icmp slt i64 %indvars.iv.next, %207
   br i1 %208, label %.lr.ph, label %._crit_edge, !llvm.loop !42
 

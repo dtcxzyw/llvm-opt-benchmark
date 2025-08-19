@@ -594,7 +594,7 @@ hwloc__cpukinds_try_rank_by_forced_efficiency.exit.thread: ; preds = %.loopexit.
 
 117:                                              ; preds = %113
   call fastcc void @hwloc__cpukinds_summarize_info(ptr noundef nonnull %0, ptr noundef %3)
-  switch i32 %.055176.ph, label %default.unreachable254 [
+  switch i32 %.055176.ph, label %default.unreachable266 [
     i32 4, label %118
     i32 3, label %145
     i32 5, label %171
@@ -849,7 +849,7 @@ hwloc__cpukinds_try_rank_by_forced_efficiency.exit.thread: ; preds = %.loopexit.
   %exitcond.not.i115 = icmp eq i64 %indvars.iv.next.i114, %wide.trip.count.i112
   br i1 %exitcond.not.i115, label %.lr.ph17.i.i116, label %215, !llvm.loop !71
 
-default.unreachable254:                           ; preds = %117
+default.unreachable266:                           ; preds = %117
   unreachable
 
 .lr.ph17.i.i116:                                  ; preds = %215, %204, %.lr.ph113.split.i, %.lr.ph113.split.us.i, %177, %.lr.ph117.split.i134, %.lr.ph117.split.us.i138, %.lr.ph119.split.i, %.lr.ph119.split.us.i

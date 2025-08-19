@@ -1197,7 +1197,7 @@ define internal range(i32 0, 203) i32 @socketTransport_readPacket(ptr readnone c
 setLastError.exit:                                ; preds = %12, %16
   %17 = load i32, ptr @tlsIndex, align 4
   tail call void @dbgsysTlsPut(i32 noundef %17, ptr noundef %15) #13
-  br label %148
+  br label %108
 
 18:                                               ; preds = %2
   %19 = load i32, ptr @socketFD, align 4
@@ -1207,7 +1207,7 @@ setLastError.exit:                                ; preds = %12, %16
   %.01316.i = phi i32 [ %29, %28 ], [ 0, %18 ]
   %20 = zext nneg i32 %.01316.i to i64
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 %20
-  %22 = sub nsw i32 4, %.01316.i
+  %22 = sub nuw nsw i32 4, %.01316.i
   %23 = zext nneg i32 %22 to i64
   %24 = call i32 @dbgsysRecv(i32 noundef %19, ptr noundef nonnull %21, i64 noundef %23, i32 noundef 0) #13
   %25 = icmp slt i32 %24, 0
@@ -1231,11 +1231,11 @@ recv_fully.exit:                                  ; preds = %.lr.ph.i, %26, %28
 
 31:                                               ; preds = %recv_fully.exit
   store i32 0, ptr %1, align 8
-  br label %148
+  br label %108
 
 32:                                               ; preds = %recv_fully.exit
   call fastcc void @setLastError(i32 noundef 202, ptr noundef nonnull @.str.42)
-  br label %148
+  br label %108
 
 33:                                               ; preds = %recv_fully.exit
   %34 = load i32, ptr %3, align 4
@@ -1250,7 +1250,7 @@ recv_fully.exit:                                  ; preds = %.lr.ph.i, %26, %28
   %.01316.i49 = phi i32 [ %47, %46 ], [ 0, %33 ]
   %38 = zext nneg i32 %.01316.i49 to i64
   %39 = getelementptr inbounds nuw i8, ptr %37, i64 %38
-  %40 = sub nsw i32 4, %.01316.i49
+  %40 = sub nuw nsw i32 4, %.01316.i49
   %41 = zext nneg i32 %40 to i64
   %42 = call i32 @dbgsysRecv(i32 noundef %36, ptr noundef nonnull %39, i64 noundef %41, i32 noundef 0) #13
   %43 = icmp slt i32 %42, 0
@@ -1263,7 +1263,7 @@ recv_fully.exit:                                  ; preds = %.lr.ph.i, %26, %28
 46:                                               ; preds = %44
   %47 = add nuw nsw i32 %42, %.01316.i49
   %48 = icmp slt i32 %47, 4
-  br i1 %48, label %.lr.ph.i48, label %recv_fully.exit51, !llvm.loop !15
+  br i1 %48, label %.lr.ph.i48, label %.lr.ph.i52, !llvm.loop !15
 
 49:                                               ; preds = %44
   %50 = icmp eq i32 %.01316.i49, 0
@@ -1271,224 +1271,154 @@ recv_fully.exit:                                  ; preds = %.lr.ph.i, %26, %28
 
 51:                                               ; preds = %49
   call fastcc void @setLastError(i32 noundef 202, ptr noundef nonnull @.str.41)
-  br label %148
+  br label %108
 
 .thread:                                          ; preds = %.lr.ph.i48, %49
   call fastcc void @setLastError(i32 noundef 202, ptr noundef nonnull @.str.42)
-  br label %148
+  br label %108
 
-recv_fully.exit51:                                ; preds = %46
+.lr.ph.i52:                                       ; preds = %46
   %52 = load i32, ptr %37, align 4
   %53 = call i32 @dbgsysNetworkToHostLong(i32 noundef %52) #13
   store i32 %53, ptr %37, align 4
-  %54 = load i32, ptr @socketFD, align 4
-  %55 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  br label %.lr.ph.i52
+  %54 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %55 = load i32, ptr @socketFD, align 4
+  %56 = call i32 @dbgsysRecv(i32 noundef %55, ptr noundef nonnull %54, i64 noundef 1, i32 noundef 0) #13
+  %57 = icmp slt i32 %56, 0
+  br i1 %57, label %.thread73, label %58
 
-.lr.ph.i52:                                       ; preds = %64, %recv_fully.exit51
-  %.01316.i53 = phi i32 [ %65, %64 ], [ 0, %recv_fully.exit51 ]
-  %56 = zext nneg i32 %.01316.i53 to i64
-  %57 = getelementptr inbounds nuw i8, ptr %55, i64 %56
-  %58 = sub nsw i32 1, %.01316.i53
-  %59 = zext nneg i32 %58 to i64
-  %60 = call i32 @dbgsysRecv(i32 noundef %54, ptr noundef nonnull %57, i64 noundef %59, i32 noundef 0) #13
-  %61 = icmp slt i32 %60, 0
-  br i1 %61, label %.thread73, label %62
+58:                                               ; preds = %.lr.ph.i52
+  %59 = icmp eq i32 %56, 0
+  br i1 %59, label %60, label %recv_fully.exit55
 
-62:                                               ; preds = %.lr.ph.i52
-  %63 = icmp eq i32 %60, 0
-  br i1 %63, label %67, label %64
-
-64:                                               ; preds = %62
-  %65 = add nuw nsw i32 %60, %.01316.i53
-  %66 = icmp slt i32 %65, 1
-  br i1 %66, label %.lr.ph.i52, label %recv_fully.exit55, !llvm.loop !15
-
-67:                                               ; preds = %62
-  %68 = icmp eq i32 %.01316.i53, 0
-  br i1 %68, label %69, label %.thread73
-
-69:                                               ; preds = %67
+60:                                               ; preds = %58
   call fastcc void @setLastError(i32 noundef 202, ptr noundef nonnull @.str.41)
-  br label %148
+  br label %108
 
-.thread73:                                        ; preds = %.lr.ph.i52, %67
+.thread73:                                        ; preds = %.lr.ph.i52
   call fastcc void @setLastError(i32 noundef 202, ptr noundef nonnull @.str.42)
-  br label %148
+  br label %108
 
-recv_fully.exit55:                                ; preds = %64
-  %70 = load i8, ptr %55, align 8
-  %.not46 = icmp sgt i8 %70, -1
-  %71 = load i32, ptr @socketFD, align 4
-  br i1 %.not46, label %89, label %72
+recv_fully.exit55:                                ; preds = %58
+  %61 = load i8, ptr %54, align 8
+  %.not46 = icmp sgt i8 %61, -1
+  %62 = load i32, ptr @socketFD, align 4
+  br i1 %.not46, label %.lr.ph.i60, label %.lr.ph.i56
 
-72:                                               ; preds = %recv_fully.exit55
-  %73 = getelementptr inbounds nuw i8, ptr %1, i64 10
-  br label %.lr.ph.i56
+.lr.ph.i56:                                       ; preds = %recv_fully.exit55
+  %63 = getelementptr inbounds nuw i8, ptr %1, i64 10
+  %64 = call i32 @dbgsysRecv(i32 noundef %62, ptr noundef nonnull %63, i64 noundef 1, i32 noundef 0) #13
+  %65 = icmp slt i32 %64, 0
+  br i1 %65, label %.thread79, label %66
 
-.lr.ph.i56:                                       ; preds = %82, %72
-  %.01316.i57 = phi i32 [ %83, %82 ], [ 0, %72 ]
-  %74 = zext nneg i32 %.01316.i57 to i64
-  %75 = getelementptr inbounds nuw i8, ptr %73, i64 %74
-  %76 = sub nsw i32 1, %.01316.i57
-  %77 = zext nneg i32 %76 to i64
-  %78 = call i32 @dbgsysRecv(i32 noundef %71, ptr noundef nonnull %75, i64 noundef %77, i32 noundef 0) #13
-  %79 = icmp slt i32 %78, 0
-  br i1 %79, label %.thread79, label %80
+66:                                               ; preds = %.lr.ph.i56
+  switch i32 %64, label %recv_fully.exit67 [
+    i32 0, label %67
+    i32 1, label %.thread79
+  ]
 
-80:                                               ; preds = %.lr.ph.i56
-  %81 = icmp eq i32 %78, 0
-  br i1 %81, label %86, label %82
-
-82:                                               ; preds = %80
-  %83 = add nuw nsw i32 %78, %.01316.i57
-  %84 = icmp slt i32 %83, 1
-  br i1 %84, label %.lr.ph.i56, label %recv_fully.exit59, !llvm.loop !15
-
-recv_fully.exit59:                                ; preds = %82
-  %85 = icmp eq i32 %83, 1
-  br i1 %85, label %.thread79, label %recv_fully.exit67
-
-86:                                               ; preds = %80
-  %87 = icmp eq i32 %.01316.i57, 0
-  br i1 %87, label %88, label %.thread79
-
-88:                                               ; preds = %86
+67:                                               ; preds = %66
   call fastcc void @setLastError(i32 noundef 202, ptr noundef nonnull @.str.41)
-  br label %148
+  br label %108
 
-.thread79:                                        ; preds = %.lr.ph.i56, %recv_fully.exit59, %86
+.thread79:                                        ; preds = %66, %.lr.ph.i56
   call fastcc void @setLastError(i32 noundef 202, ptr noundef nonnull @.str.42)
-  br label %148
+  br label %108
 
-89:                                               ; preds = %recv_fully.exit55
-  %90 = getelementptr inbounds nuw i8, ptr %1, i64 9
-  br label %.lr.ph.i60
+.lr.ph.i60:                                       ; preds = %recv_fully.exit55
+  %68 = getelementptr inbounds nuw i8, ptr %1, i64 9
+  %69 = call i32 @dbgsysRecv(i32 noundef %62, ptr noundef nonnull %68, i64 noundef 1, i32 noundef 0) #13
+  %70 = icmp slt i32 %69, 0
+  br i1 %70, label %.thread83, label %71
 
-.lr.ph.i60:                                       ; preds = %99, %89
-  %.01316.i61 = phi i32 [ %100, %99 ], [ 0, %89 ]
-  %91 = zext nneg i32 %.01316.i61 to i64
-  %92 = getelementptr inbounds nuw i8, ptr %90, i64 %91
-  %93 = sub nsw i32 1, %.01316.i61
-  %94 = zext nneg i32 %93 to i64
-  %95 = call i32 @dbgsysRecv(i32 noundef %71, ptr noundef nonnull %92, i64 noundef %94, i32 noundef 0) #13
-  %96 = icmp slt i32 %95, 0
-  br i1 %96, label %.thread83, label %97
+71:                                               ; preds = %.lr.ph.i60
+  %72 = icmp eq i32 %69, 0
+  br i1 %72, label %73, label %.lr.ph.i64
 
-97:                                               ; preds = %.lr.ph.i60
-  %98 = icmp eq i32 %95, 0
-  br i1 %98, label %102, label %99
-
-99:                                               ; preds = %97
-  %100 = add nuw nsw i32 %95, %.01316.i61
-  %101 = icmp slt i32 %100, 1
-  br i1 %101, label %.lr.ph.i60, label %recv_fully.exit63, !llvm.loop !15
-
-102:                                              ; preds = %97
-  %103 = icmp eq i32 %.01316.i61, 0
-  br i1 %103, label %104, label %.thread83
-
-104:                                              ; preds = %102
+73:                                               ; preds = %71
   call fastcc void @setLastError(i32 noundef 202, ptr noundef nonnull @.str.41)
-  br label %148
+  br label %108
 
-.thread83:                                        ; preds = %.lr.ph.i60, %102
+.thread83:                                        ; preds = %.lr.ph.i60
   call fastcc void @setLastError(i32 noundef 202, ptr noundef nonnull @.str.42)
-  br label %148
+  br label %108
 
-recv_fully.exit63:                                ; preds = %99
-  %105 = load i32, ptr @socketFD, align 4
-  %106 = getelementptr inbounds nuw i8, ptr %1, i64 10
-  br label %.lr.ph.i64
+.lr.ph.i64:                                       ; preds = %71
+  %74 = getelementptr inbounds nuw i8, ptr %1, i64 10
+  %75 = load i32, ptr @socketFD, align 4
+  %76 = call i32 @dbgsysRecv(i32 noundef %75, ptr noundef nonnull %74, i64 noundef 1, i32 noundef 0) #13
+  %77 = icmp slt i32 %76, 0
+  br i1 %77, label %.thread87, label %78
 
-.lr.ph.i64:                                       ; preds = %115, %recv_fully.exit63
-  %.01316.i65 = phi i32 [ %116, %115 ], [ 0, %recv_fully.exit63 ]
-  %107 = zext nneg i32 %.01316.i65 to i64
-  %108 = getelementptr inbounds nuw i8, ptr %106, i64 %107
-  %109 = sub nsw i32 1, %.01316.i65
-  %110 = zext nneg i32 %109 to i64
-  %111 = call i32 @dbgsysRecv(i32 noundef %105, ptr noundef nonnull %108, i64 noundef %110, i32 noundef 0) #13
-  %112 = icmp slt i32 %111, 0
-  br i1 %112, label %.thread87, label %113
+78:                                               ; preds = %.lr.ph.i64
+  %79 = icmp eq i32 %76, 0
+  br i1 %79, label %80, label %recv_fully.exit67
 
-113:                                              ; preds = %.lr.ph.i64
-  %114 = icmp eq i32 %111, 0
-  br i1 %114, label %118, label %115
-
-115:                                              ; preds = %113
-  %116 = add nuw nsw i32 %111, %.01316.i65
-  %117 = icmp slt i32 %116, 1
-  br i1 %117, label %.lr.ph.i64, label %recv_fully.exit67, !llvm.loop !15
-
-118:                                              ; preds = %113
-  %119 = icmp eq i32 %.01316.i65, 0
-  br i1 %119, label %120, label %.thread87
-
-120:                                              ; preds = %118
+80:                                               ; preds = %78
   call fastcc void @setLastError(i32 noundef 202, ptr noundef nonnull @.str.41)
-  br label %148
+  br label %108
 
-.thread87:                                        ; preds = %.lr.ph.i64, %118
+.thread87:                                        ; preds = %.lr.ph.i64
   call fastcc void @setLastError(i32 noundef 202, ptr noundef nonnull @.str.42)
-  br label %148
+  br label %108
 
-recv_fully.exit67:                                ; preds = %115, %recv_fully.exit59
-  %121 = load i32, ptr %3, align 4
-  %122 = add i32 %121, -11
-  %123 = icmp slt i32 %122, 0
-  br i1 %123, label %124, label %125
+recv_fully.exit67:                                ; preds = %66, %78
+  %81 = load i32, ptr %3, align 4
+  %82 = add i32 %81, -11
+  %83 = icmp slt i32 %82, 0
+  br i1 %83, label %84, label %85
 
-124:                                              ; preds = %recv_fully.exit67
+84:                                               ; preds = %recv_fully.exit67
   call fastcc void @setLastError(i32 noundef 0, ptr noundef nonnull @.str.43)
-  br label %148
+  br label %108
 
-125:                                              ; preds = %recv_fully.exit67
-  %126 = icmp eq i32 %122, 0
-  br i1 %126, label %127, label %129
+85:                                               ; preds = %recv_fully.exit67
+  %86 = icmp eq i32 %82, 0
+  br i1 %86, label %87, label %89
 
-127:                                              ; preds = %125
-  %128 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store ptr null, ptr %128, align 8
-  br label %148
+87:                                               ; preds = %85
+  %88 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  store ptr null, ptr %88, align 8
+  br label %108
 
-129:                                              ; preds = %125
-  %130 = load ptr, ptr @callback, align 8
-  %131 = load ptr, ptr %130, align 8
-  %132 = call ptr %131(i32 noundef %122) #13
-  %133 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store ptr %132, ptr %133, align 8
-  %134 = icmp eq ptr %132, null
-  br i1 %134, label %135, label %136
+89:                                               ; preds = %85
+  %90 = load ptr, ptr @callback, align 8
+  %91 = load ptr, ptr %90, align 8
+  %92 = call ptr %91(i32 noundef %82) #13
+  %93 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  store ptr %92, ptr %93, align 8
+  %94 = icmp eq ptr %92, null
+  br i1 %94, label %95, label %96
 
-135:                                              ; preds = %129
+95:                                               ; preds = %89
   call fastcc void @setLastError(i32 noundef 110, ptr noundef nonnull @.str.8)
-  br label %148
+  br label %108
 
-136:                                              ; preds = %129
-  %137 = load i32, ptr @socketFD, align 4
-  %138 = call fastcc i32 @recv_fully(i32 noundef %137, ptr noundef %132, i32 noundef %122)
-  %139 = icmp slt i32 %138, %122
-  br i1 %139, label %140, label %148
+96:                                               ; preds = %89
+  %97 = load i32, ptr @socketFD, align 4
+  %98 = call fastcc i32 @recv_fully(i32 noundef %97, ptr noundef %92, i32 noundef %82)
+  %99 = icmp slt i32 %98, %82
+  br i1 %99, label %100, label %108
 
-140:                                              ; preds = %136
-  %141 = load ptr, ptr @callback, align 8
-  %142 = getelementptr inbounds nuw i8, ptr %141, i64 8
-  %143 = load ptr, ptr %142, align 8
-  %144 = load ptr, ptr %133, align 8
-  call void %143(ptr noundef %144) #13
-  %145 = icmp eq i32 %138, 0
-  br i1 %145, label %146, label %147
+100:                                              ; preds = %96
+  %101 = load ptr, ptr @callback, align 8
+  %102 = getelementptr inbounds nuw i8, ptr %101, i64 8
+  %103 = load ptr, ptr %102, align 8
+  %104 = load ptr, ptr %93, align 8
+  call void %103(ptr noundef %104) #13
+  %105 = icmp eq i32 %98, 0
+  br i1 %105, label %106, label %107
 
-146:                                              ; preds = %140
+106:                                              ; preds = %100
   call fastcc void @setLastError(i32 noundef 202, ptr noundef nonnull @.str.41)
-  br label %148
+  br label %108
 
-147:                                              ; preds = %140
+107:                                              ; preds = %100
   call fastcc void @setLastError(i32 noundef 202, ptr noundef nonnull @.str.42)
-  br label %148
+  br label %108
 
-148:                                              ; preds = %136, %127, %147, %146, %135, %124, %.thread87, %120, %.thread83, %104, %.thread79, %88, %.thread73, %69, %.thread, %51, %32, %31, %setLastError.exit
-  %.0 = phi i32 [ 103, %setLastError.exit ], [ 0, %31 ], [ 202, %32 ], [ 202, %51 ], [ 202, %.thread ], [ 202, %69 ], [ 202, %.thread73 ], [ 202, %88 ], [ 202, %.thread79 ], [ 202, %124 ], [ 110, %135 ], [ 202, %146 ], [ 202, %147 ], [ 202, %104 ], [ 202, %.thread83 ], [ 202, %120 ], [ 202, %.thread87 ], [ 0, %127 ], [ 0, %136 ]
+108:                                              ; preds = %96, %87, %107, %106, %95, %84, %.thread87, %80, %.thread83, %73, %.thread79, %67, %.thread73, %60, %.thread, %51, %32, %31, %setLastError.exit
+  %.0 = phi i32 [ 103, %setLastError.exit ], [ 0, %31 ], [ 202, %32 ], [ 202, %51 ], [ 202, %.thread ], [ 202, %60 ], [ 202, %.thread73 ], [ 202, %67 ], [ 202, %.thread79 ], [ 202, %84 ], [ 110, %95 ], [ 202, %106 ], [ 202, %107 ], [ 202, %73 ], [ 202, %.thread83 ], [ 202, %80 ], [ 202, %.thread87 ], [ 0, %87 ], [ 0, %96 ]
   ret i32 %.0
 }
 
@@ -1646,7 +1576,7 @@ send_fully.exit:                                  ; preds = %.lr.ph.i, %70, %72
   %.01316.i34 = phi i32 [ %84, %83 ], [ 0, %76 ]
   %78 = zext nneg i32 %.01316.i34 to i64
   %79 = getelementptr inbounds nuw i8, ptr %3, i64 %78
-  %80 = sub nsw i32 1011, %.01316.i34
+  %80 = sub nuw nsw i32 1011, %.01316.i34
   %81 = zext nneg i32 %80 to i64
   %82 = call i32 @dbgsysSend(i32 noundef %77, ptr noundef nonnull %79, i64 noundef %81, i32 noundef 0) #13
   %or.cond = icmp slt i32 %82, 1
@@ -1765,13 +1695,13 @@ define internal range(i32 0, 111) i32 @socketTransport_setConfiguration(ptr read
 setLastError.exit:                                ; preds = %13, %17
   %18 = load i32, ptr @tlsIndex, align 4
   tail call void @dbgsysTlsPut(i32 noundef %18, ptr noundef %16) #13
-  br label %171
+  br label %168
 
 19:                                               ; preds = %2
   %20 = load ptr, ptr %1, align 8
   store i32 0, ptr @_peers_cnt, align 4
   %.not = icmp eq ptr %20, null
-  br i1 %.not, label %171, label %21
+  br i1 %.not, label %168, label %21
 
 21:                                               ; preds = %19
   %22 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %20) #14
@@ -1807,7 +1737,7 @@ setLastError.exit:                                ; preds = %13, %17
 setLastError.exit22:                              ; preds = %33, %37
   %38 = load i32, ptr @tlsIndex, align 4
   tail call void @dbgsysTlsPut(i32 noundef %38, ptr noundef %36) #13
-  br label %171
+  br label %168
 
 39:                                               ; preds = %21
   %40 = load i8, ptr %20, align 1
@@ -1816,13 +1746,13 @@ setLastError.exit22:                              ; preds = %33, %37
 
 42:                                               ; preds = %39
   %.not18 = icmp eq i64 %22, 1
-  br i1 %.not18, label %171, label %43
+  br i1 %.not18, label %168, label %43
 
 43:                                               ; preds = %42
   %44 = load ptr, ptr @stderr, align 8
   %45 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %44, ptr noundef nonnull @.str.48, ptr noundef nonnull %20) #15
   tail call fastcc void @setLastError(i32 noundef 103, ptr noundef nonnull @.str.50)
-  br label %171
+  br label %168
 
 46:                                               ; preds = %39
   %47 = load ptr, ptr @callback, align 8
@@ -1860,7 +1790,7 @@ setLastError.exit22:                              ; preds = %33, %37
 parseAllowedPeers.exit.thread:                    ; preds = %60, %64
   %65 = load i32, ptr @tlsIndex, align 4
   tail call void @dbgsysTlsPut(i32 noundef %65, ptr noundef %63) #13
-  br label %171
+  br label %168
 
 66:                                               ; preds = %46
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %51, ptr noundef nonnull readonly align 1 dereferenceable(1) %20, i64 range(i64 1, 0) %22, i1 false)
@@ -1961,7 +1891,7 @@ parseAllowedPeers.exit.thread:                    ; preds = %60, %64
   %110 = load i32, ptr @_peers_cnt, align 4
   %111 = sext i32 %110 to i64
   %112 = getelementptr inbounds [32 x %struct.AllowedPeerInfo], ptr @_peers, i64 0, i64 %111, i32 1
-  br i1 %.not28.i.i, label %162, label %113
+  br i1 %.not28.i.i, label %159, label %113
 
 113:                                              ; preds = %109
   %114 = select i1 %89, i32 128, i32 32
@@ -1977,11 +1907,11 @@ parseAllowedPeers.exit.thread:                    ; preds = %60, %64
   br i1 %or.cond.i.i.i, label %.loopexit41.i.i, label %118
 
 118:                                              ; preds = %115
-  %119 = mul nsw i32 %.023.i.i.i, 10
+  %119 = mul nuw nsw i32 %.023.i.i.i, 10
   %narrow.i.i.i = add nsw i8 %116, -48
   %120 = zext nneg i8 %narrow.i.i.i to i32
-  %121 = add nsw i32 %119, %120
-  %122 = icmp sgt i32 %121, %114
+  %121 = add nuw nsw i32 %119, %120
+  %122 = icmp samesign ugt i32 %121, %114
   br i1 %122, label %.loopexit41.i.i, label %123
 
 123:                                              ; preds = %118
@@ -1991,117 +1921,110 @@ parseAllowedPeers.exit.thread:                    ; preds = %60, %64
   br i1 %.not27.i.i.i, label %126, label %115, !llvm.loop !17
 
 126:                                              ; preds = %123
-  %127 = add nsw i32 %121, 96
+  %127 = add nuw nsw i32 %121, 96
   %spec.select.i.i.i = select i1 %89, i32 %121, i32 %127
   %128 = icmp eq i32 %spec.select.i.i.i, 0
-  br i1 %128, label %.loopexit41.i.i, label %129
+  br i1 %128, label %.loopexit41.i.i, label %.lr.ph.preheader.i.i.i
 
-129:                                              ; preds = %126
+.lr.ph.preheader.i.i.i:                           ; preds = %126
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %112, i8 0, i64 16, i1 false)
-  %130 = icmp sgt i32 %spec.select.i.i.i, 0
-  br i1 %130, label %.lr.ph.i.preheader.i.i, label %parseAllowedMask.exit.i.i
-
-.lr.ph.i.preheader.i.i:                           ; preds = %129
-  %131 = lshr i32 %spec.select.i.i.i, 3
-  %132 = and i32 %spec.select.i.i.i, 7
-  %wide.trip.count.i.i = zext nneg i32 %131 to i64
   br label %.lr.ph.i.i.i
 
-.lr.ph.i.i.i:                                     ; preds = %137, %.lr.ph.i.preheader.i.i
-  %indvars.iv.i.i.i = phi i64 [ %indvars.iv.next.i.i.i, %137 ], [ 0, %.lr.ph.i.preheader.i.i ]
-  %.229.i.i.i = phi i32 [ %139, %137 ], [ %spec.select.i.i.i, %.lr.ph.i.preheader.i.i ]
-  %exitcond.not.i.i = icmp eq i64 %indvars.iv.i.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %.thread.i.i.i, label %137
+.lr.ph.i.i.i:                                     ; preds = %134, %.lr.ph.preheader.i.i.i
+  %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i.i ], [ %indvars.iv.next.i.i.i, %134 ]
+  %.229.i.i.i = phi i32 [ %spec.select.i.i.i, %.lr.ph.preheader.i.i.i ], [ %136, %134 ]
+  %129 = icmp samesign ugt i32 %.229.i.i.i, 7
+  br i1 %129, label %134, label %.thread.i.i.i
 
 .thread.i.i.i:                                    ; preds = %.lr.ph.i.i.i
-  %133 = sub nuw nsw i32 8, %132
-  %134 = shl nuw nsw i32 255, %133
-  %135 = trunc i32 %134 to i8
-  %136 = getelementptr inbounds nuw [16 x i8], ptr %112, i64 0, i64 %wide.trip.count.i.i
-  store i8 %135, ptr %136, align 1
+  %130 = sub nuw nsw i32 8, %.229.i.i.i
+  %131 = shl nuw nsw i32 255, %130
+  %132 = trunc i32 %131 to i8
+  %133 = getelementptr inbounds nuw [16 x i8], ptr %112, i64 0, i64 %indvars.iv.i.i.i
+  store i8 %132, ptr %133, align 1
   br label %parseAllowedMask.exit.i.i
 
-137:                                              ; preds = %.lr.ph.i.i.i
-  %138 = getelementptr inbounds nuw [16 x i8], ptr %112, i64 0, i64 %indvars.iv.i.i.i
-  store i8 -1, ptr %138, align 1
+134:                                              ; preds = %.lr.ph.i.i.i
+  %135 = getelementptr inbounds nuw [16 x i8], ptr %112, i64 0, i64 %indvars.iv.i.i.i
+  store i8 -1, ptr %135, align 1
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
-  %139 = add nsw i32 %.229.i.i.i, -8
-  %.not38.i.i.i = icmp eq i32 %.229.i.i.i, 8
-  br i1 %.not38.i.i.i, label %parseAllowedMask.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !18
+  %136 = add nsw i32 %.229.i.i.i, -8
+  %.not39.i.i.i = icmp eq i32 %.229.i.i.i, 8
+  br i1 %.not39.i.i.i, label %parseAllowedMask.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !18
 
-parseAllowedMask.exit.i.i:                        ; preds = %137, %.thread.i.i.i, %129
-  %140 = getelementptr inbounds [32 x %struct.AllowedPeerInfo], ptr @_peers, i64 0, i64 %111
-  %141 = getelementptr inbounds nuw i8, ptr %140, i64 16
-  br label %155
+parseAllowedMask.exit.i.i:                        ; preds = %134, %.thread.i.i.i
+  %137 = getelementptr inbounds [32 x %struct.AllowedPeerInfo], ptr @_peers, i64 0, i64 %111
+  %138 = getelementptr inbounds nuw i8, ptr %137, i64 16
+  br label %152
 
 .loopexit41.i.i:                                  ; preds = %126, %118, %115
   store i32 0, ptr @_peers_cnt, align 4
-  %142 = load ptr, ptr @stderr, align 8
-  %143 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %142, ptr noundef nonnull @.str.48, ptr noundef nonnull %.023.i.i) #15
-  %144 = load i32, ptr @tlsIndex, align 4
-  %145 = call ptr @dbgsysTlsGet(i32 noundef %144) #13
-  %.not.i11.i = icmp eq ptr %145, null
-  br i1 %.not.i11.i, label %150, label %146
+  %139 = load ptr, ptr @stderr, align 8
+  %140 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %139, ptr noundef nonnull @.str.48, ptr noundef nonnull %.023.i.i) #15
+  %141 = load i32, ptr @tlsIndex, align 4
+  %142 = call ptr @dbgsysTlsGet(i32 noundef %141) #13
+  %.not.i11.i = icmp eq ptr %142, null
+  br i1 %.not.i11.i, label %147, label %143
 
-146:                                              ; preds = %.loopexit41.i.i
-  %147 = load ptr, ptr @callback, align 8
-  %148 = getelementptr inbounds nuw i8, ptr %147, i64 8
+143:                                              ; preds = %.loopexit41.i.i
+  %144 = load ptr, ptr @callback, align 8
+  %145 = getelementptr inbounds nuw i8, ptr %144, i64 8
+  %146 = load ptr, ptr %145, align 8
+  call void %146(ptr noundef nonnull %142) #13
+  br label %147
+
+147:                                              ; preds = %143, %.loopexit41.i.i
+  %148 = load ptr, ptr @callback, align 8
   %149 = load ptr, ptr %148, align 8
-  call void %149(ptr noundef nonnull %145) #13
-  br label %150
+  %150 = call ptr %149(i32 noundef 32) #13
+  %.not21.i12.i = icmp eq ptr %150, null
+  br i1 %.not21.i12.i, label %parseAllowedPeers.exit, label %151
 
-150:                                              ; preds = %146, %.loopexit41.i.i
-  %151 = load ptr, ptr @callback, align 8
-  %152 = load ptr, ptr %151, align 8
-  %153 = call ptr %152(i32 noundef 32) #13
-  %.not21.i12.i = icmp eq ptr %153, null
-  br i1 %.not21.i12.i, label %parseAllowedPeers.exit, label %154
-
-154:                                              ; preds = %150
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %153, ptr noundef nonnull align 1 dereferenceable(32) @.str.53, i64 32, i1 false) #13
+151:                                              ; preds = %147
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %150, ptr noundef nonnull align 1 dereferenceable(32) @.str.53, i64 32, i1 false) #13
   br label %parseAllowedPeers.exit
 
-155:                                              ; preds = %155, %parseAllowedMask.exit.i.i
-  %.053.i.i = phi i64 [ 0, %parseAllowedMask.exit.i.i ], [ %161, %155 ]
-  %156 = getelementptr inbounds nuw [16 x i8], ptr %141, i64 0, i64 %.053.i.i
-  %157 = load i8, ptr %156, align 1
-  %158 = getelementptr inbounds nuw [16 x i8], ptr %140, i64 0, i64 %.053.i.i
-  %159 = load i8, ptr %158, align 1
-  %160 = and i8 %159, %157
-  store i8 %160, ptr %158, align 1
-  %161 = add nuw nsw i64 %.053.i.i, 1
-  %exitcond64.not.i.i = icmp eq i64 %161, 16
-  br i1 %exitcond64.not.i.i, label %.loopexit.i.i, label %155, !llvm.loop !19
+152:                                              ; preds = %152, %parseAllowedMask.exit.i.i
+  %.053.i.i = phi i64 [ 0, %parseAllowedMask.exit.i.i ], [ %158, %152 ]
+  %153 = getelementptr inbounds nuw [16 x i8], ptr %138, i64 0, i64 %.053.i.i
+  %154 = load i8, ptr %153, align 1
+  %155 = getelementptr inbounds nuw [16 x i8], ptr %137, i64 0, i64 %.053.i.i
+  %156 = load i8, ptr %155, align 1
+  %157 = and i8 %156, %154
+  store i8 %157, ptr %155, align 1
+  %158 = add nuw nsw i64 %.053.i.i, 1
+  %exitcond.not.i.i = icmp eq i64 %158, 16
+  br i1 %exitcond.not.i.i, label %.loopexit.i.i, label %152, !llvm.loop !19
 
-162:                                              ; preds = %109
+159:                                              ; preds = %109
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %112, i8 -1, i64 16, i1 false)
   br label %.loopexit.i.i
 
-.loopexit.i.i:                                    ; preds = %155, %162
-  %163 = add nsw i32 %110, 1
-  store i32 %163, ptr @_peers_cnt, align 4
+.loopexit.i.i:                                    ; preds = %152, %159
+  %160 = add nsw i32 %110, 1
+  store i32 %160, ptr @_peers_cnt, align 4
   %.not30.i.i = icmp eq ptr %.024.i.i, null
-  br i1 %.not30.i.i, label %parseAllowedPeers.exit.thread42, label %71, !llvm.loop !20
+  br i1 %.not30.i.i, label %parseAllowedPeers.exit.thread64, label %71, !llvm.loop !20
 
-parseAllowedPeers.exit.thread42:                  ; preds = %.loopexit.i.i
-  %164 = load ptr, ptr @callback, align 8
-  %165 = getelementptr inbounds nuw i8, ptr %164, i64 8
-  %166 = load ptr, ptr %165, align 8
-  call void %166(ptr noundef nonnull %51) #13
-  br label %171
+parseAllowedPeers.exit.thread64:                  ; preds = %.loopexit.i.i
+  %161 = load ptr, ptr @callback, align 8
+  %162 = getelementptr inbounds nuw i8, ptr %161, i64 8
+  %163 = load ptr, ptr %162, align 8
+  call void %163(ptr noundef nonnull %51) #13
+  br label %168
 
-parseAllowedPeers.exit:                           ; preds = %104, %108, %150, %154
-  %.sink39.i = phi ptr [ %107, %108 ], [ null, %104 ], [ null, %150 ], [ %153, %154 ]
-  %167 = load i32, ptr @tlsIndex, align 4
-  call void @dbgsysTlsPut(i32 noundef %167, ptr noundef %.sink39.i) #13
-  %168 = load ptr, ptr @callback, align 8
-  %169 = getelementptr inbounds nuw i8, ptr %168, i64 8
-  %170 = load ptr, ptr %169, align 8
-  call void %170(ptr noundef nonnull %51) #13
-  br label %171
+parseAllowedPeers.exit:                           ; preds = %104, %108, %147, %151
+  %.sink56.i = phi ptr [ %107, %108 ], [ null, %104 ], [ null, %147 ], [ %150, %151 ]
+  %164 = load i32, ptr @tlsIndex, align 4
+  call void @dbgsysTlsPut(i32 noundef %164, ptr noundef %.sink56.i) #13
+  %165 = load ptr, ptr @callback, align 8
+  %166 = getelementptr inbounds nuw i8, ptr %165, i64 8
+  %167 = load ptr, ptr %166, align 8
+  call void %167(ptr noundef nonnull %51) #13
+  br label %168
 
-171:                                              ; preds = %19, %42, %parseAllowedPeers.exit.thread42, %parseAllowedPeers.exit, %parseAllowedPeers.exit.thread, %43, %setLastError.exit22, %setLastError.exit
-  %.0 = phi i32 [ 103, %setLastError.exit ], [ 103, %setLastError.exit22 ], [ 103, %43 ], [ 103, %parseAllowedPeers.exit ], [ 110, %parseAllowedPeers.exit.thread ], [ 0, %parseAllowedPeers.exit.thread42 ], [ 0, %42 ], [ 0, %19 ]
+168:                                              ; preds = %19, %42, %parseAllowedPeers.exit.thread64, %parseAllowedPeers.exit, %parseAllowedPeers.exit.thread, %43, %setLastError.exit22, %setLastError.exit
+  %.0 = phi i32 [ 103, %setLastError.exit ], [ 103, %setLastError.exit22 ], [ 103, %43 ], [ 103, %parseAllowedPeers.exit ], [ 110, %parseAllowedPeers.exit.thread ], [ 0, %parseAllowedPeers.exit.thread64 ], [ 0, %42 ], [ 0, %19 ]
   ret i32 %.0
 }
 
@@ -2274,8 +2197,8 @@ setLastError.exit:                                ; preds = %35, %39
 48:                                               ; preds = %41
   %49 = icmp ugt i64 %28, 2
   %50 = icmp eq i8 %42, 91
-  %or.cond27 = and i1 %49, %50
-  br i1 %or.cond27, label %51, label %59
+  %or.cond43 = and i1 %49, %50
+  br i1 %or.cond43, label %51, label %59
 
 51:                                               ; preds = %48
   %52 = getelementptr i8, ptr %0, i64 %28
@@ -2411,9 +2334,9 @@ parseScopeId.exit.thread.i:                       ; preds = %103, %82
   br label %122
 
 117:                                              ; preds = %116, %112, %102, %98
-  %.sink12.i.i = phi ptr [ null, %98 ], [ %101, %102 ], [ null, %112 ], [ %115, %116 ]
+  %.sink16.i.i = phi ptr [ null, %98 ], [ %101, %102 ], [ null, %112 ], [ %115, %116 ]
   %118 = load i32, ptr @tlsIndex, align 4
-  tail call void @dbgsysTlsPut(i32 noundef %118, ptr noundef %.sink12.i.i) #13
+  tail call void @dbgsysTlsPut(i32 noundef %118, ptr noundef %.sink16.i.i) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %119 = load ptr, ptr @callback, align 8
   %120 = getelementptr inbounds nuw i8, ptr %119, i64 8
@@ -2433,8 +2356,8 @@ parseScopeId.exit.thread.i:                       ; preds = %103, %82
 
 .thread.i:                                        ; preds = %45, %getPortNumber.exit
   %127 = call i32 @dbgsysGetAddrInfo(ptr noundef null, ptr noundef nonnull %9, ptr noundef nonnull %5, ptr noundef nonnull %1) #13
-  %.not4460.i = icmp eq i32 %127, 0
-  br i1 %.not4460.i, label %getAddrInfo.exit, label %128
+  %.not4473.i = icmp eq i32 %127, 0
+  br i1 %.not4473.i, label %getAddrInfo.exit, label %128
 
 128:                                              ; preds = %.thread.i, %122
   %129 = phi i32 [ %127, %.thread.i ], [ %123, %122 ]
@@ -2521,7 +2444,7 @@ define internal fastcc range(i32 0, 203) i32 @handshake(i32 noundef %0, i64 noun
 10:                                               ; preds = %.split.us
   %11 = zext nneg i32 %.02959.us to i64
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 %11
-  %13 = sub nsw i32 14, %.02959.us
+  %13 = sub nuw nsw i32 14, %.02959.us
   br label %.lr.ph.i.us
 
 .lr.ph.i.us:                                      ; preds = %22, %10
@@ -2557,7 +2480,7 @@ recv_fully.exit.thread.us:                        ; preds = %22, %recv_fully.exi
   %.02959 = phi i32 [ %67, %recv_fully.exit.thread ], [ 0, %2 ]
   %28 = zext nneg i32 %.02959 to i64
   %29 = getelementptr inbounds nuw i8, ptr %3, i64 %28
-  %30 = sub nsw i32 14, %.02959
+  %30 = sub nuw nsw i32 14, %.02959
   br label %.lr.ph.i
 
 .split61.us:                                      ; preds = %.split.us
@@ -2704,7 +2627,7 @@ setLastError.exit42:                              ; preds = %83, %90
   %.01316.i44 = phi i32 [ %99, %98 ], [ 0, %71 ]
   %93 = zext nneg i32 %.01316.i44 to i64
   %94 = getelementptr inbounds nuw i8, ptr @.str.17, i64 %93
-  %95 = sub nsw i32 14, %.01316.i44
+  %95 = sub nuw nsw i32 14, %.01316.i44
   %96 = zext nneg i32 %95 to i64
   %97 = call i32 @dbgsysSend(i32 noundef %0, ptr noundef nonnull %94, i64 noundef %96, i32 noundef 0) #13
   %or.cond = icmp slt i32 %97, 1

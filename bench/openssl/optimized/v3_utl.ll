@@ -241,10 +241,10 @@ define ptr @i2s_ASN1_ENUMERATED(ptr noundef readnone captures(none) %0, ptr noun
   br i1 %8, label %.sink.split, label %9
 
 .sink.split:                                      ; preds = %6, %3
-  %.sink10 = phi i32 [ 174, %3 ], [ 176, %6 ]
+  %.sink13 = phi i32 [ 174, %3 ], [ 176, %6 ]
   %.sink = phi i32 [ 524301, %3 ], [ 524322, %6 ]
   tail call void @ERR_new() #12
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink10, ptr noundef nonnull @__func__.i2s_ASN1_ENUMERATED) #12
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink13, ptr noundef nonnull @__func__.i2s_ASN1_ENUMERATED) #12
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 34, i32 noundef %.sink, ptr noundef null) #12
   br label %9
 
@@ -335,10 +335,10 @@ define ptr @i2s_ASN1_INTEGER(ptr noundef readnone captures(none) %0, ptr noundef
   br i1 %8, label %.sink.split, label %9
 
 .sink.split:                                      ; preds = %6, %3
-  %.sink10 = phi i32 [ 189, %3 ], [ 191, %6 ]
+  %.sink13 = phi i32 [ 189, %3 ], [ 191, %6 ]
   %.sink = phi i32 [ 524301, %3 ], [ 524322, %6 ]
   tail call void @ERR_new() #12
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink10, ptr noundef nonnull @__func__.i2s_ASN1_INTEGER) #12
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink13, ptr noundef nonnull @__func__.i2s_ASN1_INTEGER) #12
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 34, i32 noundef %.sink, ptr noundef null) #12
   br label %9
 
@@ -492,10 +492,10 @@ define range(i32 0, 2) i32 @X509V3_add_value_int(ptr noundef %0, ptr noundef %1,
   br i1 %9, label %i2s_ASN1_INTEGER.exit.thread, label %X509V3_add_value.exit
 
 i2s_ASN1_INTEGER.exit.thread:                     ; preds = %4, %7
-  %.sink10.i = phi i32 [ 189, %4 ], [ 191, %7 ]
+  %.sink13.i = phi i32 [ 189, %4 ], [ 191, %7 ]
   %.sink.i = phi i32 [ 524301, %4 ], [ 524322, %7 ]
   tail call void @ERR_new() #12
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink10.i, ptr noundef nonnull @__func__.i2s_ASN1_INTEGER) #12
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink13.i, ptr noundef nonnull @__func__.i2s_ASN1_INTEGER) #12
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 34, i32 noundef %.sink.i, ptr noundef null) #12
   tail call void @BN_free(ptr noundef %5) #12
   br label %12
@@ -1001,10 +1001,10 @@ strip_spaces.exit132:                             ; preds = %.critedge25.i130
   br label %120
 
 .loopexit.sink.split:                             ; preds = %51, %.critedge.i85, %.critedge25.i92, %28, %.critedge.i69, %.critedge25.i76, %8, %.critedge.i, %.critedge25.i, %56, %33, %13, %102, %82, %98, %.critedge.i123, %.critedge25.i130, %78, %.critedge.i102, %.critedge25.i109
-  %.sink251 = phi i32 [ 380, %.critedge25.i109 ], [ 380, %.critedge.i102 ], [ 380, %78 ], [ 389, %.critedge25.i130 ], [ 389, %.critedge.i123 ], [ 389, %98 ], [ 380, %82 ], [ 389, %102 ], [ 340, %13 ], [ 349, %33 ], [ 364, %56 ], [ 340, %.critedge25.i ], [ 340, %.critedge.i ], [ 340, %8 ], [ 349, %.critedge25.i76 ], [ 349, %.critedge.i69 ], [ 349, %28 ], [ 364, %.critedge25.i92 ], [ 364, %.critedge.i85 ], [ 364, %51 ]
+  %.sink262 = phi i32 [ 380, %.critedge25.i109 ], [ 380, %.critedge.i102 ], [ 380, %78 ], [ 389, %.critedge25.i130 ], [ 389, %.critedge.i123 ], [ 389, %98 ], [ 380, %82 ], [ 389, %102 ], [ 340, %13 ], [ 349, %33 ], [ 364, %56 ], [ 340, %.critedge25.i ], [ 340, %.critedge.i ], [ 340, %8 ], [ 349, %.critedge25.i76 ], [ 349, %.critedge.i69 ], [ 349, %28 ], [ 364, %.critedge25.i92 ], [ 364, %.critedge.i85 ], [ 364, %51 ]
   %.sink = phi i32 [ 109, %.critedge25.i109 ], [ 109, %.critedge.i102 ], [ 109, %78 ], [ 108, %.critedge25.i130 ], [ 108, %.critedge.i123 ], [ 108, %98 ], [ 109, %82 ], [ 108, %102 ], [ 108, %13 ], [ 108, %33 ], [ 109, %56 ], [ 108, %.critedge25.i ], [ 108, %.critedge.i ], [ 108, %8 ], [ 108, %.critedge25.i76 ], [ 108, %.critedge.i69 ], [ 108, %28 ], [ 109, %.critedge25.i92 ], [ 109, %.critedge.i85 ], [ 109, %51 ]
   tail call void @ERR_new() #12
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink251, ptr noundef nonnull @__func__.X509V3_parse_list) #12
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink262, ptr noundef nonnull @__func__.X509V3_parse_list) #12
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 34, i32 noundef %.sink, ptr noundef null) #12
   br label %.loopexit
 
@@ -1397,7 +1397,7 @@ define internal fastcc i32 @do_x509_check(ptr noundef %0, ptr noundef nonnull %1
 .preheader:                                       ; preds = %21
   %23 = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %22) #12
   %24 = icmp sgt i32 %23, 0
-  br i1 %24, label %.lr.ph, label %.loopexit150
+  br i1 %24, label %.lr.ph, label %.loopexit159
 
 .lr.ph:                                           ; preds = %.preheader
   %.not85 = icmp eq i32 %4, 7
@@ -1441,7 +1441,7 @@ define internal fastcc i32 @do_x509_check(ptr noundef %0, ptr noundef nonnull %1
   %36 = add nuw nsw i32 %.075112.us, 1
   %37 = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %22) #12
   %38 = icmp slt i32 %36, %37
-  br i1 %38, label %.lr.ph.split.us, label %.loopexit150, !llvm.loop !44
+  br i1 %38, label %.lr.ph.split.us, label %.loopexit159, !llvm.loop !44
 
 .lr.ph.split.split:                               ; preds = %.lr.ph, %.thread
   %.068114 = phi i32 [ %.270107, %.thread ], [ 0, %.lr.ph ]
@@ -1489,14 +1489,14 @@ define internal fastcc i32 @do_x509_check(ptr noundef %0, ptr noundef nonnull %1
   %55 = add nuw nsw i32 %.075112, 1
   %56 = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %22) #12
   %57 = icmp slt i32 %55, %56
-  br i1 %57, label %.lr.ph.split.split, label %.loopexit150, !llvm.loop !44
+  br i1 %57, label %.lr.ph.split.split, label %.loopexit159, !llvm.loop !44
 
 ._crit_edge:                                      ; preds = %34, %52
   %.166 = phi i32 [ %54, %52 ], [ %35, %34 ]
   tail call void @GENERAL_NAMES_free(ptr noundef nonnull %22) #12
   br label %.loopexit
 
-.loopexit150:                                     ; preds = %.thread.us, %.thread, %.preheader
+.loopexit159:                                     ; preds = %.thread.us, %.thread, %.preheader
   %.169.ph = phi i32 [ 0, %.preheader ], [ %.270107, %.thread ], [ %.270107.us, %.thread.us ]
   tail call void @GENERAL_NAMES_free(ptr noundef nonnull %22) #12
   %.not92 = icmp ne i32 %.169.ph, 0
@@ -1505,7 +1505,7 @@ define internal fastcc i32 @do_x509_check(ptr noundef %0, ptr noundef nonnull %1
   %or.cond = and i1 %.not93, %.not92
   br i1 %or.cond, label %.loopexit, label %59
 
-59:                                               ; preds = %.loopexit150, %21
+59:                                               ; preds = %.loopexit159, %21
   %60 = and i32 %.062, 32
   %.not94 = icmp eq i32 %60, 0
   %or.cond98 = and i1 %.not97, %.not94
@@ -1576,8 +1576,8 @@ do_check_string.exit:                             ; preds = %67, %72, %88
   %.not95 = icmp eq i32 %.0.i, 0
   br i1 %.not95, label %64, label %.loopexit, !llvm.loop !50
 
-.loopexit:                                        ; preds = %64, %do_check_string.exit, %._crit_edge, %do_check_string.exit.thread, %59, %.loopexit150
-  %.0 = phi i32 [ %.166, %._crit_edge ], [ 0, %.loopexit150 ], [ 0, %59 ], [ -1, %do_check_string.exit.thread ], [ 0, %64 ], [ %.0.i, %do_check_string.exit ]
+.loopexit:                                        ; preds = %64, %do_check_string.exit, %._crit_edge, %do_check_string.exit.thread, %59, %.loopexit159
+  %.0 = phi i32 [ %.166, %._crit_edge ], [ 0, %.loopexit159 ], [ 0, %59 ], [ -1, %do_check_string.exit.thread ], [ 0, %64 ], [ %.0.i, %do_check_string.exit ]
   ret i32 %.0
 }
 
@@ -2416,14 +2416,14 @@ skip_prefix.exit:                                 ; preds = %.critedge.i, %5
   br i1 %.not, label %.preheader, label %.thread
 
 .preheader:                                       ; preds = %17, %12, %skip_prefix.exit
-  %.24071 = phi ptr [ %.240, %skip_prefix.exit ], [ %scevgep33.i, %12 ], [ %scevgep33.i, %17 ]
+  %.24078 = phi ptr [ %.240, %skip_prefix.exit ], [ %scevgep33.i, %12 ], [ %scevgep33.i, %17 ]
   %.not2954 = icmp eq i64 %3, 0
   br i1 %.not2954, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader, %31
   %.02557 = phi ptr [ %33, %31 ], [ %2, %.preheader ]
   %.03756 = phi i64 [ %34, %31 ], [ %3, %.preheader ]
-  %.03855 = phi ptr [ %32, %31 ], [ %.24071, %.preheader ]
+  %.03855 = phi ptr [ %32, %31 ], [ %.24078, %.preheader ]
   %22 = load i8, ptr %.03855, align 1, !tbaa !13
   %23 = load i8, ptr %.02557, align 1, !tbaa !13
   %24 = icmp eq i8 %22, 0
@@ -2652,14 +2652,14 @@ skip_prefix.exit.i:                               ; preds = %.critedge.i.i, %val
   br i1 %.not.i23, label %.preheader.i, label %equal_nocase.exit
 
 .preheader.i:                                     ; preds = %74, %69, %skip_prefix.exit.i
-  %.24071.i = phi ptr [ %.240.i, %skip_prefix.exit.i ], [ %scevgep33.i.i, %69 ], [ %scevgep33.i.i, %74 ]
+  %.24078.i = phi ptr [ %.240.i, %skip_prefix.exit.i ], [ %scevgep33.i.i, %69 ], [ %scevgep33.i.i, %74 ]
   %.not2954.i = icmp eq i64 %3, 0
   br i1 %.not2954.i, label %equal_nocase.exit, label %.lr.ph.i24
 
 .lr.ph.i24:                                       ; preds = %.preheader.i, %88
   %.02557.i = phi ptr [ %90, %88 ], [ %2, %.preheader.i ]
   %.03756.i = phi i64 [ %91, %88 ], [ %3, %.preheader.i ]
-  %.03855.i = phi ptr [ %89, %88 ], [ %.24071.i, %.preheader.i ]
+  %.03855.i = phi ptr [ %89, %88 ], [ %.24078.i, %.preheader.i ]
   %79 = load i8, ptr %.03855.i, align 1, !tbaa !13
   %80 = load i8, ptr %.02557.i, align 1, !tbaa !13
   %81 = icmp eq i8 %79, 0

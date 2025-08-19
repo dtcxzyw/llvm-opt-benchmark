@@ -37,78 +37,76 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl27snap_to_canonical_view_qu
   br i1 %15, label %.preheader55, label %.loopexit
 
 .preheader55:                                     ; preds = %3, %19
-  %.04466.int = phi i32 [ %.int, %19 ], [ -1, %3 ]
+  %.not = phi i1 [ false, %19 ], [ true, %3 ]
+  %.04466.int = phi double [ 1.000000e+00, %19 ], [ -1.000000e+00, %3 ]
   %.04565 = phi double [ %.2, %19 ], [ 0.000000e+00, %3 ]
   %.04664 = phi i32 [ %.248, %19 ], [ -1, %3 ]
   %.04963 = phi double [ %.251, %19 ], [ 8.000000e-01, %3 ]
-  %indvar.conv = sitofp i32 %.04466.int to double
-  %16 = fneg double %indvar.conv
+  %16 = fneg double %.04466.int
   br label %.preheader54
 
 17:                                               ; preds = %19
   %18 = fcmp ogt double %.251, 4.000000e-01
-  br i1 %18, label %34, label %37
+  br i1 %18, label %33, label %36
 
-.preheader54:                                     ; preds = %.preheader55, %21
-  %.04362 = phi i32 [ 0, %.preheader55 ], [ %23, %21 ]
-  %.161 = phi double [ %.04565, %.preheader55 ], [ %.2, %21 ]
-  %.14760 = phi i32 [ %.04664, %.preheader55 ], [ %.248, %21 ]
-  %.15059 = phi double [ %.04963, %.preheader55 ], [ %.251, %21 ]
-  br label %24
+.preheader54:                                     ; preds = %.preheader55, %20
+  %.04362 = phi i32 [ 0, %.preheader55 ], [ %22, %20 ]
+  %.161 = phi double [ %.04565, %.preheader55 ], [ %.2, %20 ]
+  %.14760 = phi i32 [ %.04664, %.preheader55 ], [ %.248, %20 ]
+  %.15059 = phi double [ %.04963, %.preheader55 ], [ %.251, %20 ]
+  br label %23
 
-19:                                               ; preds = %21
-  %.int = add nsw i32 %.04466.int, 2
-  %20 = icmp ult i32 %.04466.int, -2
-  br i1 %20, label %17, label %.preheader55, !llvm.loop !8
+19:                                               ; preds = %20
+  br i1 %.not, label %.preheader55, label %17, !llvm.loop !8
 
-21:                                               ; preds = %24
-  %22 = fcmp ogt double %.15059, %33
-  %.251 = select i1 %22, double %33, double %.15059
-  %.248 = select i1 %22, i32 %.04362, i32 %.14760
-  %.2 = select i1 %22, double %indvar.conv, double %.161
-  %23 = add nuw nsw i32 %.04362, 1
-  %exitcond69.not = icmp eq i32 %23, 24
+20:                                               ; preds = %23
+  %21 = fcmp ogt double %.15059, %32
+  %.251 = select i1 %21, double %32, double %.15059
+  %.248 = select i1 %21, i32 %.04362, i32 %.14760
+  %.2 = select i1 %21, double %.04466.int, double %.161
+  %22 = add nuw nsw i32 %.04362, 1
+  %exitcond69.not = icmp eq i32 %22, 24
   br i1 %exitcond69.not, label %19, label %.preheader54, !llvm.loop !10
 
-24:                                               ; preds = %.preheader54, %24
-  %indvars.iv = phi i64 [ 0, %.preheader54 ], [ %indvars.iv.next, %24 ]
-  %.04257 = phi double [ 0.000000e+00, %.preheader54 ], [ %33, %24 ]
-  %25 = getelementptr inbounds nuw [4 x double], ptr %4, i64 0, i64 %indvars.iv
-  %26 = load double, ptr %25, align 8, !tbaa !4
-  %27 = trunc nuw nsw i64 %indvars.iv to i32
-  %28 = call noundef double @_ZN3igl19CANONICAL_VIEW_QUATIdEET_ii(i32 noundef %.04362, i32 noundef %27)
-  %29 = call double @llvm.fmuladd.f64(double %16, double %28, double %26)
-  %30 = load double, ptr %25, align 8, !tbaa !4
-  %31 = call noundef double @_ZN3igl19CANONICAL_VIEW_QUATIdEET_ii(i32 noundef %.04362, i32 noundef %27)
-  %32 = call double @llvm.fmuladd.f64(double %16, double %31, double %30)
-  %33 = call double @llvm.fmuladd.f64(double %29, double %32, double %.04257)
+23:                                               ; preds = %.preheader54, %23
+  %indvars.iv = phi i64 [ 0, %.preheader54 ], [ %indvars.iv.next, %23 ]
+  %.04257 = phi double [ 0.000000e+00, %.preheader54 ], [ %32, %23 ]
+  %24 = getelementptr inbounds nuw [4 x double], ptr %4, i64 0, i64 %indvars.iv
+  %25 = load double, ptr %24, align 8, !tbaa !4
+  %26 = trunc nuw nsw i64 %indvars.iv to i32
+  %27 = call noundef double @_ZN3igl19CANONICAL_VIEW_QUATIdEET_ii(i32 noundef %.04362, i32 noundef %26)
+  %28 = call double @llvm.fmuladd.f64(double %16, double %27, double %25)
+  %29 = load double, ptr %24, align 8, !tbaa !4
+  %30 = call noundef double @_ZN3igl19CANONICAL_VIEW_QUATIdEET_ii(i32 noundef %.04362, i32 noundef %26)
+  %31 = call double @llvm.fmuladd.f64(double %16, double %30, double %29)
+  %32 = call double @llvm.fmuladd.f64(double %28, double %31, double %.04257)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %21, label %24, !llvm.loop !11
+  br i1 %exitcond.not, label %20, label %23, !llvm.loop !11
 
-34:                                               ; preds = %17
-  %35 = load ptr, ptr @stderr, align 8, !tbaa !12
-  %36 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %35, ptr noundef nonnull @.str, double noundef %.251) #5
-  br label %37
+33:                                               ; preds = %17
+  %34 = load ptr, ptr @stderr, align 8, !tbaa !12
+  %35 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %34, ptr noundef nonnull @.str, double noundef %.251) #5
+  br label %36
 
-37:                                               ; preds = %34, %17
-  %38 = fdiv double %.251, 4.000000e-01
-  %39 = fcmp ugt double %38, %1
-  br i1 %39, label %.loopexit, label %.preheader
+36:                                               ; preds = %33, %17
+  %37 = fdiv double %.251, 4.000000e-01
+  %38 = fcmp ugt double %37, %1
+  br i1 %38, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %37, %.preheader
-  %indvars.iv70 = phi i64 [ %indvars.iv.next71, %.preheader ], [ 0, %37 ]
-  %40 = trunc nuw nsw i64 %indvars.iv70 to i32
-  %41 = call noundef double @_ZN3igl19CANONICAL_VIEW_QUATIdEET_ii(i32 noundef %.248, i32 noundef %40)
-  %42 = fmul double %.2, %41
-  %43 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv70
-  store double %42, ptr %43, align 8, !tbaa !4
+.preheader:                                       ; preds = %36, %.preheader
+  %indvars.iv70 = phi i64 [ %indvars.iv.next71, %.preheader ], [ 0, %36 ]
+  %39 = trunc nuw nsw i64 %indvars.iv70 to i32
+  %40 = call noundef double @_ZN3igl19CANONICAL_VIEW_QUATIdEET_ii(i32 noundef %.248, i32 noundef %39)
+  %41 = fmul double %.2, %40
+  %42 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv70
+  store double %41, ptr %42, align 8, !tbaa !4
   %indvars.iv.next71 = add nuw nsw i64 %indvars.iv70, 1
   %exitcond73.not = icmp eq i64 %indvars.iv.next71, 4
   br i1 %exitcond73.not, label %.loopexit, label %.preheader, !llvm.loop !15
 
-.loopexit:                                        ; preds = %.preheader, %37, %3
-  %.052 = phi i1 [ false, %3 ], [ false, %37 ], [ true, %.preheader ]
+.loopexit:                                        ; preds = %.preheader, %36, %3
+  %.052 = phi i1 [ false, %3 ], [ false, %36 ], [ true, %.preheader ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %.052
 }
@@ -145,87 +143,85 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl27snap_to_canonical_view_qu
   br i1 %15, label %.preheader55, label %.loopexit
 
 .preheader55:                                     ; preds = %3, %19
-  %.04466.int = phi i32 [ %.int, %19 ], [ -1, %3 ]
+  %.not = phi i1 [ false, %19 ], [ true, %3 ]
+  %.04466.int = phi double [ 1.000000e+00, %19 ], [ -1.000000e+00, %3 ]
   %.04565 = phi double [ %.2, %19 ], [ 0.000000e+00, %3 ]
   %.04664 = phi i32 [ %.248, %19 ], [ -1, %3 ]
   %.04963 = phi float [ %.251, %19 ], [ 0x3FE99999A0000000, %3 ]
-  %indvar.conv = sitofp i32 %.04466.int to double
-  %16 = fneg double %indvar.conv
+  %16 = fneg double %.04466.int
   br label %.preheader54
 
 17:                                               ; preds = %19
   %18 = fcmp ogt float %.251, 0x3FD99999A0000000
-  br i1 %18, label %40, label %44
+  br i1 %18, label %39, label %43
 
-.preheader54:                                     ; preds = %.preheader55, %21
-  %.04362 = phi i32 [ 0, %.preheader55 ], [ %23, %21 ]
-  %.161 = phi double [ %.04565, %.preheader55 ], [ %.2, %21 ]
-  %.14760 = phi i32 [ %.04664, %.preheader55 ], [ %.248, %21 ]
-  %.15059 = phi float [ %.04963, %.preheader55 ], [ %.251, %21 ]
-  br label %24
+.preheader54:                                     ; preds = %.preheader55, %20
+  %.04362 = phi i32 [ 0, %.preheader55 ], [ %22, %20 ]
+  %.161 = phi double [ %.04565, %.preheader55 ], [ %.2, %20 ]
+  %.14760 = phi i32 [ %.04664, %.preheader55 ], [ %.248, %20 ]
+  %.15059 = phi float [ %.04963, %.preheader55 ], [ %.251, %20 ]
+  br label %23
 
-19:                                               ; preds = %21
-  %.int = add nsw i32 %.04466.int, 2
-  %20 = icmp ult i32 %.04466.int, -2
-  br i1 %20, label %17, label %.preheader55, !llvm.loop !18
+19:                                               ; preds = %20
+  br i1 %.not, label %.preheader55, label %17, !llvm.loop !18
 
-21:                                               ; preds = %24
-  %22 = fcmp ogt float %.15059, %39
-  %.251 = select i1 %22, float %39, float %.15059
-  %.248 = select i1 %22, i32 %.04362, i32 %.14760
-  %.2 = select i1 %22, double %indvar.conv, double %.161
-  %23 = add nuw nsw i32 %.04362, 1
-  %exitcond69.not = icmp eq i32 %23, 24
+20:                                               ; preds = %23
+  %21 = fcmp ogt float %.15059, %38
+  %.251 = select i1 %21, float %38, float %.15059
+  %.248 = select i1 %21, i32 %.04362, i32 %.14760
+  %.2 = select i1 %21, double %.04466.int, double %.161
+  %22 = add nuw nsw i32 %.04362, 1
+  %exitcond69.not = icmp eq i32 %22, 24
   br i1 %exitcond69.not, label %19, label %.preheader54, !llvm.loop !19
 
-24:                                               ; preds = %.preheader54, %24
-  %indvars.iv = phi i64 [ 0, %.preheader54 ], [ %indvars.iv.next, %24 ]
-  %.04257 = phi float [ 0.000000e+00, %.preheader54 ], [ %39, %24 ]
-  %25 = getelementptr inbounds nuw [4 x float], ptr %4, i64 0, i64 %indvars.iv
-  %26 = load float, ptr %25, align 4, !tbaa !16
-  %27 = fpext float %26 to double
-  %28 = trunc nuw nsw i64 %indvars.iv to i32
-  %29 = call noundef float @_ZN3igl19CANONICAL_VIEW_QUATIfEET_ii(i32 noundef %.04362, i32 noundef %28)
-  %30 = fpext float %29 to double
-  %31 = call double @llvm.fmuladd.f64(double %16, double %30, double %27)
-  %32 = load float, ptr %25, align 4, !tbaa !16
-  %33 = fpext float %32 to double
-  %34 = call noundef float @_ZN3igl19CANONICAL_VIEW_QUATIfEET_ii(i32 noundef %.04362, i32 noundef %28)
-  %35 = fpext float %34 to double
-  %36 = call double @llvm.fmuladd.f64(double %16, double %35, double %33)
-  %37 = fpext float %.04257 to double
-  %38 = call double @llvm.fmuladd.f64(double %31, double %36, double %37)
-  %39 = fptrunc double %38 to float
+23:                                               ; preds = %.preheader54, %23
+  %indvars.iv = phi i64 [ 0, %.preheader54 ], [ %indvars.iv.next, %23 ]
+  %.04257 = phi float [ 0.000000e+00, %.preheader54 ], [ %38, %23 ]
+  %24 = getelementptr inbounds nuw [4 x float], ptr %4, i64 0, i64 %indvars.iv
+  %25 = load float, ptr %24, align 4, !tbaa !16
+  %26 = fpext float %25 to double
+  %27 = trunc nuw nsw i64 %indvars.iv to i32
+  %28 = call noundef float @_ZN3igl19CANONICAL_VIEW_QUATIfEET_ii(i32 noundef %.04362, i32 noundef %27)
+  %29 = fpext float %28 to double
+  %30 = call double @llvm.fmuladd.f64(double %16, double %29, double %26)
+  %31 = load float, ptr %24, align 4, !tbaa !16
+  %32 = fpext float %31 to double
+  %33 = call noundef float @_ZN3igl19CANONICAL_VIEW_QUATIfEET_ii(i32 noundef %.04362, i32 noundef %27)
+  %34 = fpext float %33 to double
+  %35 = call double @llvm.fmuladd.f64(double %16, double %34, double %32)
+  %36 = fpext float %.04257 to double
+  %37 = call double @llvm.fmuladd.f64(double %30, double %35, double %36)
+  %38 = fptrunc double %37 to float
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %21, label %24, !llvm.loop !20
+  br i1 %exitcond.not, label %20, label %23, !llvm.loop !20
 
-40:                                               ; preds = %17
-  %41 = load ptr, ptr @stderr, align 8, !tbaa !12
-  %42 = fpext float %.251 to double
-  %43 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %41, ptr noundef nonnull @.str, double noundef %42) #5
-  br label %44
+39:                                               ; preds = %17
+  %40 = load ptr, ptr @stderr, align 8, !tbaa !12
+  %41 = fpext float %.251 to double
+  %42 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %40, ptr noundef nonnull @.str, double noundef %41) #5
+  br label %43
 
-44:                                               ; preds = %40, %17
-  %45 = fdiv float %.251, 0x3FD99999A0000000
-  %46 = fcmp ugt float %45, %1
-  br i1 %46, label %.loopexit, label %.preheader
+43:                                               ; preds = %39, %17
+  %44 = fdiv float %.251, 0x3FD99999A0000000
+  %45 = fcmp ugt float %44, %1
+  br i1 %45, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %44, %.preheader
-  %indvars.iv70 = phi i64 [ %indvars.iv.next71, %.preheader ], [ 0, %44 ]
-  %47 = trunc nuw nsw i64 %indvars.iv70 to i32
-  %48 = call noundef float @_ZN3igl19CANONICAL_VIEW_QUATIfEET_ii(i32 noundef %.248, i32 noundef %47)
-  %49 = fpext float %48 to double
-  %50 = fmul double %.2, %49
-  %51 = fptrunc double %50 to float
-  %52 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv70
-  store float %51, ptr %52, align 4, !tbaa !16
+.preheader:                                       ; preds = %43, %.preheader
+  %indvars.iv70 = phi i64 [ %indvars.iv.next71, %.preheader ], [ 0, %43 ]
+  %46 = trunc nuw nsw i64 %indvars.iv70 to i32
+  %47 = call noundef float @_ZN3igl19CANONICAL_VIEW_QUATIfEET_ii(i32 noundef %.248, i32 noundef %46)
+  %48 = fpext float %47 to double
+  %49 = fmul double %.2, %48
+  %50 = fptrunc double %49 to float
+  %51 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv70
+  store float %50, ptr %51, align 4, !tbaa !16
   %indvars.iv.next71 = add nuw nsw i64 %indvars.iv70, 1
   %exitcond73.not = icmp eq i64 %indvars.iv.next71, 4
   br i1 %exitcond73.not, label %.loopexit, label %.preheader, !llvm.loop !21
 
-.loopexit:                                        ; preds = %.preheader, %44, %3
-  %.052 = phi i1 [ false, %3 ], [ false, %44 ], [ true, %.preheader ]
+.loopexit:                                        ; preds = %.preheader, %43, %3
+  %.052 = phi i1 [ false, %3 ], [ false, %43 ], [ true, %.preheader ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %.052
 }

@@ -987,14 +987,14 @@ define void @_ZN3mbe8expander11transcriber13push_fragment17he81d93575d6d283cE(pt
   %.sroa.5 = alloca { { i32, { i32, i32 }, { i32, i32 } }, { i32, { i32, i32 }, { i32, i32 } } }, align 8
   %.sroa.6 = alloca [7 x i8], align 1
   %20 = load i64, ptr %2, align 8, !range !80, !noundef !7
-  switch i64 %20, label %default.unreachable85 [
+  switch i64 %20, label %default.unreachable99 [
     i64 0, label %_ZN3mbe8expander11transcriber12push_subtree17hfcbd89c71104bea4E.exit
     i64 1, label %25
     i64 2, label %29
     i64 3, label %54
   ]
 
-default.unreachable85:                            ; preds = %3
+default.unreachable99:                            ; preds = %3
   unreachable
 
 _ZN3mbe8expander11transcriber12push_subtree17hfcbd89c71104bea4E.exit: ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17haa312d22b0415afaE.exit.i17", %.noexc20, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17haa312d22b0415afaE.exit.i", %.noexc, %_ZN3mbe8expander11transcriber23fix_up_and_push_path_tt17h35128d7b59143134E.exit, %3

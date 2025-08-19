@@ -978,13 +978,13 @@ define nonnull ptr @l_Std_Time_Weekday_instDecidableLeOrdinal___boxed(ptr nounde
   br i1 %.not.i.i.i, label %l_Std_Time_Weekday_instDecidableLeOrdinal.exit, label %6, !prof !15
 
 6:                                                ; preds = %2
-  br i1 %5, label %l_Std_Time_Weekday_instDecidableLeOrdinal.exit.thread15, label %lean_dec.exit5.thread20, !prof !15
+  br i1 %5, label %l_Std_Time_Weekday_instDecidableLeOrdinal.exit.thread19, label %lean_dec.exit5.thread24, !prof !15
 
-l_Std_Time_Weekday_instDecidableLeOrdinal.exit.thread15: ; preds = %6
+l_Std_Time_Weekday_instDecidableLeOrdinal.exit.thread19: ; preds = %6
   %7 = tail call zeroext i1 @lean_int_big_le(ptr noundef %0, ptr noundef %1) #7
   br label %14
 
-lean_dec.exit5.thread20:                          ; preds = %6
+lean_dec.exit5.thread24:                          ; preds = %6
   %8 = lshr i64 %3, 1
   %9 = trunc i64 %8 to i32
   %10 = lshr i64 %.pre11, 1
@@ -996,8 +996,8 @@ l_Std_Time_Weekday_instDecidableLeOrdinal.exit:   ; preds = %2
   %13 = tail call zeroext i1 @lean_int_big_le(ptr noundef %0, ptr noundef %1) #7
   br i1 %5, label %14, label %lean_dec.exit5.thread
 
-14:                                               ; preds = %l_Std_Time_Weekday_instDecidableLeOrdinal.exit.thread15, %l_Std_Time_Weekday_instDecidableLeOrdinal.exit
-  %15 = phi i1 [ %7, %l_Std_Time_Weekday_instDecidableLeOrdinal.exit.thread15 ], [ %13, %l_Std_Time_Weekday_instDecidableLeOrdinal.exit ]
+14:                                               ; preds = %l_Std_Time_Weekday_instDecidableLeOrdinal.exit.thread19, %l_Std_Time_Weekday_instDecidableLeOrdinal.exit
+  %15 = phi i1 [ %7, %l_Std_Time_Weekday_instDecidableLeOrdinal.exit.thread19 ], [ %13, %l_Std_Time_Weekday_instDecidableLeOrdinal.exit ]
   %16 = load i32, ptr %1, align 4, !tbaa !4
   %17 = icmp sgt i32 %16, 1
   br i1 %17, label %18, label %20, !prof !9
@@ -1019,7 +1019,7 @@ lean_dec.exit5:                                   ; preds = %21, %20, %18
   br i1 %.not.i.i.i, label %lean_dec.exit5.thread, label %lean_dec.exit
 
 lean_dec.exit5.thread:                            ; preds = %l_Std_Time_Weekday_instDecidableLeOrdinal.exit, %lean_dec.exit5
-  %.0.i.i.i1419 = phi i1 [ %15, %lean_dec.exit5 ], [ %13, %l_Std_Time_Weekday_instDecidableLeOrdinal.exit ]
+  %.0.i.i.i1823 = phi i1 [ %15, %lean_dec.exit5 ], [ %13, %l_Std_Time_Weekday_instDecidableLeOrdinal.exit ]
   %22 = load i32, ptr %0, align 4, !tbaa !4
   %23 = icmp sgt i32 %22, 1
   br i1 %23, label %24, label %26, !prof !9
@@ -1037,9 +1037,9 @@ lean_dec.exit5.thread:                            ; preds = %l_Std_Time_Weekday_
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %0) #7
   br label %lean_dec.exit
 
-lean_dec.exit:                                    ; preds = %lean_dec.exit5.thread20, %27, %26, %24, %lean_dec.exit5
-  %.0.i.i.i1418 = phi i1 [ %.0.i.i.i1419, %27 ], [ %.0.i.i.i1419, %26 ], [ %.0.i.i.i1419, %24 ], [ %15, %lean_dec.exit5 ], [ %12, %lean_dec.exit5.thread20 ]
-  %28 = select i1 %.0.i.i.i1418, ptr inttoptr (i64 3 to ptr), ptr inttoptr (i64 1 to ptr)
+lean_dec.exit:                                    ; preds = %lean_dec.exit5.thread24, %27, %26, %24, %lean_dec.exit5
+  %.0.i.i.i1822 = phi i1 [ %.0.i.i.i1823, %27 ], [ %.0.i.i.i1823, %26 ], [ %.0.i.i.i1823, %24 ], [ %15, %lean_dec.exit5 ], [ %12, %lean_dec.exit5.thread24 ]
+  %28 = select i1 %.0.i.i.i1822, ptr inttoptr (i64 3 to ptr), ptr inttoptr (i64 1 to ptr)
   ret ptr %28
 }
 
@@ -1085,13 +1085,13 @@ define nonnull ptr @l_Std_Time_Weekday_instDecidableLtOrdinal___boxed(ptr nounde
   br i1 %.not.i.i.i, label %l_Std_Time_Weekday_instDecidableLtOrdinal.exit, label %6, !prof !15
 
 6:                                                ; preds = %2
-  br i1 %5, label %l_Std_Time_Weekday_instDecidableLtOrdinal.exit.thread15, label %lean_dec.exit5.thread20, !prof !15
+  br i1 %5, label %l_Std_Time_Weekday_instDecidableLtOrdinal.exit.thread19, label %lean_dec.exit5.thread24, !prof !15
 
-l_Std_Time_Weekday_instDecidableLtOrdinal.exit.thread15: ; preds = %6
+l_Std_Time_Weekday_instDecidableLtOrdinal.exit.thread19: ; preds = %6
   %7 = tail call zeroext i1 @lean_int_big_lt(ptr noundef %0, ptr noundef %1) #7
   br label %14
 
-lean_dec.exit5.thread20:                          ; preds = %6
+lean_dec.exit5.thread24:                          ; preds = %6
   %8 = lshr i64 %3, 1
   %9 = trunc i64 %8 to i32
   %10 = lshr i64 %.pre11, 1
@@ -1103,8 +1103,8 @@ l_Std_Time_Weekday_instDecidableLtOrdinal.exit:   ; preds = %2
   %13 = tail call zeroext i1 @lean_int_big_lt(ptr noundef %0, ptr noundef %1) #7
   br i1 %5, label %14, label %lean_dec.exit5.thread
 
-14:                                               ; preds = %l_Std_Time_Weekday_instDecidableLtOrdinal.exit.thread15, %l_Std_Time_Weekday_instDecidableLtOrdinal.exit
-  %15 = phi i1 [ %7, %l_Std_Time_Weekday_instDecidableLtOrdinal.exit.thread15 ], [ %13, %l_Std_Time_Weekday_instDecidableLtOrdinal.exit ]
+14:                                               ; preds = %l_Std_Time_Weekday_instDecidableLtOrdinal.exit.thread19, %l_Std_Time_Weekday_instDecidableLtOrdinal.exit
+  %15 = phi i1 [ %7, %l_Std_Time_Weekday_instDecidableLtOrdinal.exit.thread19 ], [ %13, %l_Std_Time_Weekday_instDecidableLtOrdinal.exit ]
   %16 = load i32, ptr %1, align 4, !tbaa !4
   %17 = icmp sgt i32 %16, 1
   br i1 %17, label %18, label %20, !prof !9
@@ -1126,7 +1126,7 @@ lean_dec.exit5:                                   ; preds = %21, %20, %18
   br i1 %.not.i.i.i, label %lean_dec.exit5.thread, label %lean_dec.exit
 
 lean_dec.exit5.thread:                            ; preds = %l_Std_Time_Weekday_instDecidableLtOrdinal.exit, %lean_dec.exit5
-  %.0.i.i.i1419 = phi i1 [ %15, %lean_dec.exit5 ], [ %13, %l_Std_Time_Weekday_instDecidableLtOrdinal.exit ]
+  %.0.i.i.i1823 = phi i1 [ %15, %lean_dec.exit5 ], [ %13, %l_Std_Time_Weekday_instDecidableLtOrdinal.exit ]
   %22 = load i32, ptr %0, align 4, !tbaa !4
   %23 = icmp sgt i32 %22, 1
   br i1 %23, label %24, label %26, !prof !9
@@ -1144,9 +1144,9 @@ lean_dec.exit5.thread:                            ; preds = %l_Std_Time_Weekday_
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %0) #7
   br label %lean_dec.exit
 
-lean_dec.exit:                                    ; preds = %lean_dec.exit5.thread20, %27, %26, %24, %lean_dec.exit5
-  %.0.i.i.i1418 = phi i1 [ %.0.i.i.i1419, %27 ], [ %.0.i.i.i1419, %26 ], [ %.0.i.i.i1419, %24 ], [ %15, %lean_dec.exit5 ], [ %12, %lean_dec.exit5.thread20 ]
-  %28 = select i1 %.0.i.i.i1418, ptr inttoptr (i64 3 to ptr), ptr inttoptr (i64 1 to ptr)
+lean_dec.exit:                                    ; preds = %lean_dec.exit5.thread24, %27, %26, %24, %lean_dec.exit5
+  %.0.i.i.i1822 = phi i1 [ %.0.i.i.i1823, %27 ], [ %.0.i.i.i1823, %26 ], [ %.0.i.i.i1823, %24 ], [ %15, %lean_dec.exit5 ], [ %12, %lean_dec.exit5.thread24 ]
+  %28 = select i1 %.0.i.i.i1822, ptr inttoptr (i64 3 to ptr), ptr inttoptr (i64 1 to ptr)
   ret ptr %28
 }
 
@@ -5164,18 +5164,18 @@ _init_l_Std_Time_Weekday_ofNat_x3f___closed__7.exit: ; preds = %_init_l_Std_Time
   unreachable
 
 .sink.split:                                      ; preds = %_init_l_Std_Time_Weekday_ofNat_x3f___closed__7.exit, %3
-  %.sink189 = phi ptr [ %4, %3 ], [ %1056, %_init_l_Std_Time_Weekday_ofNat_x3f___closed__7.exit ]
-  %1059 = getelementptr inbounds nuw i8, ptr %.sink189, i64 4
-  store i32 1, ptr %.sink189, align 4, !tbaa !4
+  %.sink257 = phi ptr [ %4, %3 ], [ %1056, %_init_l_Std_Time_Weekday_ofNat_x3f___closed__7.exit ]
+  %1059 = getelementptr inbounds nuw i8, ptr %.sink257, i64 4
+  store i32 1, ptr %.sink257, align 4, !tbaa !4
   store i32 131096, ptr %1059, align 4
-  %1060 = getelementptr inbounds nuw i8, ptr %.sink189, i64 8
+  %1060 = getelementptr inbounds nuw i8, ptr %.sink257, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %1060, align 8, !tbaa !10
-  %1061 = getelementptr inbounds nuw i8, ptr %.sink189, i64 16
+  %1061 = getelementptr inbounds nuw i8, ptr %.sink257, i64 16
   store ptr inttoptr (i64 1 to ptr), ptr %1061, align 8, !tbaa !10
   br label %1062
 
 1062:                                             ; preds = %.sink.split, %lean_dec_ref.exit, %7
-  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit ], [ %.sink189, %.sink.split ]
+  %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit ], [ %.sink257, %.sink.split ]
   ret ptr %.0
 }
 

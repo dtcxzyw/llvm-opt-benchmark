@@ -183,13 +183,13 @@ define hidden void @zend_persist_class_entry_calc(ptr noundef %0) local_unnamed_
 
 101:                                              ; preds = %95
   %102 = icmp eq i32 %100, 0
-  br i1 %102, label %zend_hash_persist_calc.exit.thread628, label %105
+  br i1 %102, label %zend_hash_persist_calc.exit.thread697, label %105
 
-zend_hash_persist_calc.exit.thread628:            ; preds = %101
+zend_hash_persist_calc.exit.thread697:            ; preds = %101
   %103 = load i32, ptr %96, align 8, !tbaa !66
   %104 = and i32 %103, 4
-  %.not448630 = icmp eq i32 %104, 0
-  tail call void @llvm.assume(i1 %.not448630)
+  %.not448699 = icmp eq i32 %104, 0
+  tail call void @llvm.assume(i1 %.not448699)
   br label %._crit_edge
 
 105:                                              ; preds = %101
@@ -266,12 +266,12 @@ zend_hash_persist_calc.exit.thread:               ; preds = %107, %132, %._crit_
   %155 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %156 = load ptr, ptr %155, align 8, !tbaa !66
   %157 = zext i32 %100 to i64
-  %.idx625 = shl nuw nsw i64 %157, 5
-  %158 = getelementptr inbounds nuw i8, ptr %156, i64 %.idx625
+  %.idx694 = shl nuw nsw i64 %157, 5
+  %158 = getelementptr inbounds nuw i8, ptr %156, i64 %.idx694
   %159 = load i32, ptr %96, align 8, !tbaa !66
   %160 = and i32 %159, 4
-  %.not448626 = icmp eq i32 %160, 0
-  tail call void @llvm.assume(i1 %.not448626)
+  %.not448695 = icmp eq i32 %160, 0
+  tail call void @llvm.assume(i1 %.not448695)
   br label %.lr.ph.preheader
 
 zend_hash_persist_calc.exit:                      ; preds = %95
@@ -367,7 +367,7 @@ zend_hash_persist_calc.exit:                      ; preds = %95
   %.not449 = icmp eq ptr %214, %167
   br i1 %.not449, label %._crit_edge, label %.lr.ph
 
-._crit_edge:                                      ; preds = %213, %zend_hash_persist_calc.exit.thread628, %zend_hash_persist_calc.exit
+._crit_edge:                                      ; preds = %213, %zend_hash_persist_calc.exit.thread697, %zend_hash_persist_calc.exit
   %215 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %216 = load ptr, ptr %215, align 8, !tbaa !73
   %.not450 = icmp eq ptr %216, null
@@ -449,13 +449,13 @@ zend_hash_persist_calc.exit:                      ; preds = %95
 
 259:                                              ; preds = %.loopexit
   %260 = icmp eq i32 %258, 0
-  br i1 %260, label %zend_hash_persist_calc.exit508.thread635, label %263
+  br i1 %260, label %zend_hash_persist_calc.exit508.thread704, label %263
 
-zend_hash_persist_calc.exit508.thread635:         ; preds = %259
+zend_hash_persist_calc.exit508.thread704:         ; preds = %259
   %261 = load i32, ptr %254, align 8, !tbaa !66
   %262 = and i32 %261, 4
-  %.not452637 = icmp eq i32 %262, 0
-  tail call void @llvm.assume(i1 %.not452637)
+  %.not452706 = icmp eq i32 %262, 0
+  tail call void @llvm.assume(i1 %.not452706)
   br label %._crit_edge536
 
 263:                                              ; preds = %259
@@ -532,12 +532,12 @@ zend_hash_persist_calc.exit508.thread:            ; preds = %265, %290, %._crit_
   %313 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %314 = load ptr, ptr %313, align 8, !tbaa !66
   %315 = zext i32 %258 to i64
-  %.idx563632 = shl nuw nsw i64 %315, 5
-  %316 = getelementptr inbounds nuw i8, ptr %314, i64 %.idx563632
+  %.idx563701 = shl nuw nsw i64 %315, 5
+  %316 = getelementptr inbounds nuw i8, ptr %314, i64 %.idx563701
   %317 = load i32, ptr %254, align 8, !tbaa !66
   %318 = and i32 %317, 4
-  %.not452633 = icmp eq i32 %318, 0
-  tail call void @llvm.assume(i1 %.not452633)
+  %.not452702 = icmp eq i32 %318, 0
+  tail call void @llvm.assume(i1 %.not452702)
   br label %.lr.ph535.preheader
 
 zend_hash_persist_calc.exit508:                   ; preds = %.loopexit
@@ -713,7 +713,7 @@ zend_persist_class_constant_calc.exit:            ; preds = %417, %390, %382, %3
   %.not453 = icmp eq ptr %419, %325
   br i1 %.not453, label %._crit_edge536, label %.lr.ph535
 
-._crit_edge536:                                   ; preds = %zend_persist_class_constant_calc.exit, %zend_hash_persist_calc.exit508.thread635, %zend_hash_persist_calc.exit508
+._crit_edge536:                                   ; preds = %zend_persist_class_constant_calc.exit, %zend_hash_persist_calc.exit508.thread704, %zend_hash_persist_calc.exit508
   %420 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %421 = load i32, ptr %420, align 8, !tbaa !66
   %422 = and i32 %421, 8
@@ -724,13 +724,13 @@ zend_persist_class_constant_calc.exit:            ; preds = %417, %390, %382, %3
 
 425:                                              ; preds = %._crit_edge536
   %426 = icmp eq i32 %424, 0
-  br i1 %426, label %zend_hash_persist_calc.exit517.thread642, label %429
+  br i1 %426, label %zend_hash_persist_calc.exit517.thread711, label %429
 
-zend_hash_persist_calc.exit517.thread642:         ; preds = %425
+zend_hash_persist_calc.exit517.thread711:         ; preds = %425
   %427 = load i32, ptr %420, align 8, !tbaa !66
   %428 = and i32 %427, 4
-  %.not454644 = icmp eq i32 %428, 0
-  tail call void @llvm.assume(i1 %.not454644)
+  %.not454713 = icmp eq i32 %428, 0
+  tail call void @llvm.assume(i1 %.not454713)
   br label %._crit_edge540
 
 429:                                              ; preds = %425
@@ -807,12 +807,12 @@ zend_hash_persist_calc.exit517.thread:            ; preds = %431, %456, %._crit_
   %479 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %480 = load ptr, ptr %479, align 8, !tbaa !66
   %481 = zext i32 %424 to i64
-  %.idx564639 = shl nuw nsw i64 %481, 5
-  %482 = getelementptr inbounds nuw i8, ptr %480, i64 %.idx564639
+  %.idx564708 = shl nuw nsw i64 %481, 5
+  %482 = getelementptr inbounds nuw i8, ptr %480, i64 %.idx564708
   %483 = load i32, ptr %420, align 8, !tbaa !66
   %484 = and i32 %483, 4
-  %.not454640 = icmp eq i32 %484, 0
-  tail call void @llvm.assume(i1 %.not454640)
+  %.not454709 = icmp eq i32 %484, 0
+  tail call void @llvm.assume(i1 %.not454709)
   br label %.lr.ph539.preheader
 
 zend_hash_persist_calc.exit517:                   ; preds = %._crit_edge536
@@ -1038,7 +1038,7 @@ zend_persist_property_info_calc.exit:             ; preds = %617, %603, %536, %.
   %.not455 = icmp eq ptr %618, %491
   br i1 %.not455, label %._crit_edge540, label %.lr.ph539
 
-._crit_edge540:                                   ; preds = %zend_persist_property_info_calc.exit, %zend_hash_persist_calc.exit517.thread642, %zend_hash_persist_calc.exit517
+._crit_edge540:                                   ; preds = %zend_persist_property_info_calc.exit, %zend_hash_persist_calc.exit517.thread711, %zend_hash_persist_calc.exit517
   %619 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %620 = load ptr, ptr %619, align 8, !tbaa !91
   %.not456 = icmp eq ptr %620, null
@@ -2267,16 +2267,16 @@ define internal fastcc void @zend_persist_zval_calc(ptr noundef captures(none) %
   br i1 %90, label %.preheader.i, label %zend_hash_persist_calc.exit.sink.split
 
 zend_hash_persist_calc.exit.sink.split:           ; preds = %.preheader.i, %82, %78
-  %.sink97 = phi i32 [ %81, %78 ], [ %86, %82 ], [ %.0.i, %.preheader.i ]
-  %.sink96 = phi i64 [ 4, %78 ], [ 5, %82 ], [ 5, %.preheader.i ]
-  %.sink92 = phi i64 [ 137438953464, %78 ], [ 274877906936, %82 ], [ 137438953464, %.preheader.i ]
-  %92 = zext i32 %.sink97 to i64
+  %.sink107 = phi i32 [ %81, %78 ], [ %86, %82 ], [ %.0.i, %.preheader.i ]
+  %.sink106 = phi i64 [ 4, %78 ], [ 5, %82 ], [ 5, %.preheader.i ]
+  %.sink102 = phi i64 [ 137438953464, %78 ], [ 274877906936, %82 ], [ 137438953464, %.preheader.i ]
+  %92 = zext i32 %.sink107 to i64
   %93 = shl nuw nsw i64 %92, 2
   %94 = zext i32 %74 to i64
-  %95 = shl nuw nsw i64 %94, %.sink96
+  %95 = shl nuw nsw i64 %94, %.sink106
   %96 = or disjoint i64 %95, 4
   %97 = add nuw nsw i64 %96, %93
-  %98 = and i64 %97, %.sink92
+  %98 = and i64 %97, %.sink102
   %99 = add i64 %98, %68
   store i64 %99, ptr %66, align 8, !tbaa !34
   br label %zend_hash_persist_calc.exit
@@ -2475,9 +2475,9 @@ define internal fastcc void @zend_persist_attributes_calc(ptr noundef nonnull %0
 
 20:                                               ; preds = %10
   %21 = icmp eq i32 %19, 0
-  br i1 %21, label %zend_hash_persist_calc.exit.thread94, label %25
+  br i1 %21, label %zend_hash_persist_calc.exit.thread104, label %25
 
-zend_hash_persist_calc.exit.thread94:             ; preds = %20
+zend_hash_persist_calc.exit.thread104:            ; preds = %20
   %22 = load i32, ptr %15, align 8, !tbaa !66
   %23 = and i32 %22, 4
   %24 = icmp ne i32 %23, 0
@@ -2513,23 +2513,23 @@ zend_hash_persist_calc.exit.thread94:             ; preds = %20
   br i1 %39, label %.preheader.i, label %zend_hash_persist_calc.exit.thread
 
 zend_hash_persist_calc.exit.thread:               ; preds = %.preheader.i, %31, %27
-  %.sink103 = phi i32 [ %30, %27 ], [ %35, %31 ], [ %.0.i, %.preheader.i ]
-  %.sink102 = phi i64 [ 4, %27 ], [ 5, %31 ], [ 5, %.preheader.i ]
-  %.sink98 = phi i64 [ 137438953464, %27 ], [ 274877906936, %31 ], [ 137438953464, %.preheader.i ]
-  %41 = zext i32 %.sink103 to i64
+  %.sink113 = phi i32 [ %30, %27 ], [ %35, %31 ], [ %.0.i, %.preheader.i ]
+  %.sink112 = phi i64 [ 4, %27 ], [ 5, %31 ], [ 5, %.preheader.i ]
+  %.sink108 = phi i64 [ 137438953464, %27 ], [ 274877906936, %31 ], [ 137438953464, %.preheader.i ]
+  %41 = zext i32 %.sink113 to i64
   %42 = shl nuw nsw i64 %41, 2
   %43 = zext i32 %19 to i64
-  %44 = shl nuw nsw i64 %43, %.sink102
+  %44 = shl nuw nsw i64 %43, %.sink112
   %45 = or disjoint i64 %44, 4
   %46 = add nuw nsw i64 %45, %42
-  %47 = and i64 %46, %.sink98
+  %47 = and i64 %46, %.sink108
   %48 = add i64 %47, %14
   store i64 %48, ptr %12, align 8, !tbaa !34
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %50 = load ptr, ptr %49, align 8, !tbaa !66
   %51 = zext i32 %19 to i64
-  %.idx92 = shl nuw nsw i64 %51, 4
-  %52 = getelementptr inbounds nuw i8, ptr %50, i64 %.idx92
+  %.idx102 = shl nuw nsw i64 %51, 4
+  %52 = getelementptr inbounds nuw i8, ptr %50, i64 %.idx102
   %53 = load i32, ptr %15, align 8, !tbaa !66
   %54 = and i32 %53, 4
   %55 = icmp ne i32 %54, 0
@@ -2774,7 +2774,7 @@ zend_hash_persist_calc.exit:                      ; preds = %10
   %.not76 = icmp eq ptr %203, %63
   br i1 %.not76, label %.loopexit84, label %.lr.ph88
 
-.loopexit84:                                      ; preds = %.loopexit, %zend_hash_persist_calc.exit.thread94, %zend_hash_persist_calc.exit, %8, %1
+.loopexit84:                                      ; preds = %.loopexit, %zend_hash_persist_calc.exit.thread104, %zend_hash_persist_calc.exit, %8, %1
   ret void
 }
 
@@ -2929,8 +2929,8 @@ define hidden i32 @zend_accel_script_persist_calc(ptr noundef initializes((400, 
 
 57:                                               ; preds = %55
   %58 = and i32 %53, 4
-  %.not38.i = icmp eq i32 %58, 0
-  br i1 %.not38.i, label %74, label %59
+  %.not42.i = icmp eq i32 %58, 0
+  br i1 %.not42.i, label %74, label %59
 
 59:                                               ; preds = %57
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 332
@@ -2999,14 +2999,14 @@ define hidden i32 @zend_accel_script_persist_calc(ptr noundef initializes((400, 
   br label %zend_hash_persist_calc.exit.thread.i
 
 zend_hash_persist_calc.exit.thread.i:             ; preds = %._crit_edge.i.i, %84, %59
-  %.idx33.i.pre-phi = phi i64 [ %99, %._crit_edge.i.i ], [ %88, %84 ], [ %.pre86, %59 ]
+  %.idx37.i.pre-phi = phi i64 [ %99, %._crit_edge.i.i ], [ %88, %84 ], [ %.pre86, %59 ]
   %107 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %108 = load ptr, ptr %107, align 8, !tbaa !66
-  %109 = getelementptr inbounds nuw i8, ptr %108, i64 %.idx33.i.pre-phi
+  %109 = getelementptr inbounds nuw i8, ptr %108, i64 %.idx37.i.pre-phi
   %110 = load i32, ptr %52, align 8, !tbaa !66
   %111 = and i32 %110, 4
-  %.not34.i = icmp eq i32 %111, 0
-  tail call void @llvm.assume(i1 %.not34.i)
+  %.not38.i = icmp eq i32 %111, 0
+  tail call void @llvm.assume(i1 %.not38.i)
   br label %.lr.ph.preheader.i
 
 zend_hash_persist_calc.exit.i:                    ; preds = %50
@@ -3125,13 +3125,13 @@ zend_accel_persist_class_table_calc.exit:         ; preds = %163, %55, %zend_has
 
 175:                                              ; preds = %171
   %176 = icmp eq i32 %.pre84, 0
-  br i1 %176, label %zend_hash_persist_calc.exit.thread90, label %179
+  br i1 %176, label %zend_hash_persist_calc.exit.thread112, label %179
 
-zend_hash_persist_calc.exit.thread90:             ; preds = %175
+zend_hash_persist_calc.exit.thread112:            ; preds = %175
   %177 = load i32, ptr %172, align 8, !tbaa !66
   %178 = and i32 %177, 4
-  %.not6792 = icmp eq i32 %178, 0
-  tail call void @llvm.assume(i1 %.not6792)
+  %.not67114 = icmp eq i32 %178, 0
+  tail call void @llvm.assume(i1 %.not67114)
   br label %._crit_edge
 
 179:                                              ; preds = %175
@@ -3208,12 +3208,12 @@ zend_hash_persist_calc.exit.thread:               ; preds = %181, %206, %._crit_
   %229 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %230 = load ptr, ptr %229, align 8, !tbaa !66
   %231 = zext i32 %.pre84 to i64
-  %.idx87 = shl nuw nsw i64 %231, 5
-  %232 = getelementptr inbounds nuw i8, ptr %230, i64 %.idx87
+  %.idx109 = shl nuw nsw i64 %231, 5
+  %232 = getelementptr inbounds nuw i8, ptr %230, i64 %.idx109
   %233 = load i32, ptr %172, align 8, !tbaa !66
   %234 = and i32 %233, 4
-  %.not6788 = icmp eq i32 %234, 0
-  tail call void @llvm.assume(i1 %.not6788)
+  %.not67110 = icmp eq i32 %234, 0
+  tail call void @llvm.assume(i1 %.not67110)
   br label %.lr.ph.preheader
 
 zend_hash_persist_calc.exit:                      ; preds = %171
@@ -3323,7 +3323,7 @@ zend_persist_op_array_calc.exit:                  ; preds = %289, %285, %.lr.ph
   %.not68 = icmp eq ptr %294, %241
   br i1 %.not68, label %._crit_edge, label %.lr.ph
 
-._crit_edge:                                      ; preds = %zend_persist_op_array_calc.exit, %zend_hash_persist_calc.exit.thread90, %zend_hash_persist_calc.exit
+._crit_edge:                                      ; preds = %zend_persist_op_array_calc.exit, %zend_hash_persist_calc.exit.thread112, %zend_hash_persist_calc.exit
   %295 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call fastcc void @zend_persist_op_array_calc_ex(ptr noundef nonnull %295)
   %296 = getelementptr inbounds nuw i8, ptr %0, i64 404
@@ -3731,13 +3731,13 @@ define internal fastcc void @zend_persist_op_array_calc_ex(ptr noundef %0) unnam
 
 81:                                               ; preds = %69
   %82 = icmp eq i32 %80, 0
-  br i1 %82, label %zend_hash_persist_calc.exit.thread234, label %85
+  br i1 %82, label %zend_hash_persist_calc.exit.thread254, label %85
 
-zend_hash_persist_calc.exit.thread234:            ; preds = %81
+zend_hash_persist_calc.exit.thread254:            ; preds = %81
   %83 = load i32, ptr %76, align 8, !tbaa !66
   %84 = and i32 %83, 4
-  %.not183236 = icmp eq i32 %84, 0
-  tail call void @llvm.assume(i1 %.not183236)
+  %.not183256 = icmp eq i32 %84, 0
+  tail call void @llvm.assume(i1 %.not183256)
   br label %.loopexit208
 
 85:                                               ; preds = %81
@@ -3769,27 +3769,27 @@ zend_hash_persist_calc.exit.thread234:            ; preds = %81
   br i1 %99, label %.preheader.i, label %zend_hash_persist_calc.exit.thread
 
 zend_hash_persist_calc.exit.thread:               ; preds = %.preheader.i, %91, %87
-  %.sink244 = phi i32 [ %90, %87 ], [ %95, %91 ], [ %.0.i, %.preheader.i ]
-  %.sink243 = phi i64 [ 4, %87 ], [ 5, %91 ], [ 5, %.preheader.i ]
-  %.sink239 = phi i64 [ 137438953464, %87 ], [ 274877906936, %91 ], [ 137438953464, %.preheader.i ]
-  %101 = zext i32 %.sink244 to i64
+  %.sink264 = phi i32 [ %90, %87 ], [ %95, %91 ], [ %.0.i, %.preheader.i ]
+  %.sink263 = phi i64 [ 4, %87 ], [ 5, %91 ], [ 5, %.preheader.i ]
+  %.sink259 = phi i64 [ 137438953464, %87 ], [ 274877906936, %91 ], [ 137438953464, %.preheader.i ]
+  %101 = zext i32 %.sink264 to i64
   %102 = shl nuw nsw i64 %101, 2
   %103 = zext i32 %80 to i64
-  %104 = shl nuw nsw i64 %103, %.sink243
+  %104 = shl nuw nsw i64 %103, %.sink263
   %105 = or disjoint i64 %104, 4
   %106 = add nuw nsw i64 %105, %102
-  %107 = and i64 %106, %.sink239
+  %107 = and i64 %106, %.sink259
   %108 = add i64 %107, %74
   store i64 %108, ptr %72, align 8, !tbaa !34
   %109 = getelementptr inbounds nuw i8, ptr %75, i64 16
   %110 = load ptr, ptr %109, align 8, !tbaa !66
   %111 = zext i32 %80 to i64
-  %.idx231 = shl nuw nsw i64 %111, 5
-  %112 = getelementptr inbounds nuw i8, ptr %110, i64 %.idx231
+  %.idx251 = shl nuw nsw i64 %111, 5
+  %112 = getelementptr inbounds nuw i8, ptr %110, i64 %.idx251
   %113 = load i32, ptr %76, align 8, !tbaa !66
   %114 = and i32 %113, 4
-  %.not183232 = icmp eq i32 %114, 0
-  tail call void @llvm.assume(i1 %.not183232)
+  %.not183252 = icmp eq i32 %114, 0
+  tail call void @llvm.assume(i1 %.not183252)
   br label %.lr.ph.preheader
 
 zend_hash_persist_calc.exit:                      ; preds = %69
@@ -3884,7 +3884,7 @@ zend_hash_persist_calc.exit:                      ; preds = %69
   %.not184 = icmp eq ptr %167, %121
   br i1 %.not184, label %.loopexit208, label %.lr.ph
 
-.loopexit208:                                     ; preds = %166, %zend_hash_persist_calc.exit.thread234, %zend_hash_persist_calc.exit, %66, %64, %.thread
+.loopexit208:                                     ; preds = %166, %zend_hash_persist_calc.exit.thread254, %zend_hash_persist_calc.exit, %66, %64, %.thread
   %168 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %169 = load ptr, ptr %168, align 8, !tbaa !149
   %.not187 = icmp eq ptr %169, null
@@ -4367,8 +4367,8 @@ zend_ast_is_decl.exit:                            ; preds = %33
   tail call void @llvm.assume(i1 %spec.select.not)
   %53 = lshr i16 %2, 8
   %54 = shl nuw nsw i16 %53, 3
-  %narrow42 = add nuw nsw i16 %54, 15
-  %55 = and i16 %narrow42, 4088
+  %narrow45 = add nuw nsw i16 %54, 15
+  %55 = and i16 %narrow45, 4088
   %56 = zext nneg i16 %55 to i64
   %57 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 376), align 8, !tbaa !26
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 440

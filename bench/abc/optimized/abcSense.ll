@@ -181,11 +181,11 @@ define ptr @Abc_NtkSensitivityMiter(ptr noundef %0, i32 noundef %1) local_unname
   br i1 %.not73, label %._crit_edge, label %.lr.ph181
 
 .lr.ph181:                                        ; preds = %47, %167
-  %.sink201 = phi ptr [ %51, %167 ], [ %49, %47 ]
-  %50 = getelementptr inbounds nuw i8, ptr %.sink201, i64 64
+  %.sink219 = phi ptr [ %51, %167 ], [ %49, %47 ]
+  %50 = getelementptr inbounds nuw i8, ptr %.sink219, i64 64
   %51 = load ptr, ptr %50, align 8, !tbaa !3
-  %.val = load ptr, ptr %.sink201, align 8, !tbaa !6
-  %52 = getelementptr i8, ptr %.sink201, i64 32
+  %.val = load ptr, ptr %.sink219, align 8, !tbaa !6
+  %52 = getelementptr i8, ptr %.sink219, i64 32
   %.val78 = load ptr, ptr %52, align 8, !tbaa !14
   %53 = getelementptr i8, ptr %.val, i64 32
   %.val.val = load ptr, ptr %53, align 8, !tbaa !15
@@ -950,20 +950,20 @@ Extra_ProgressBarUpdate.exit:                     ; preds = %21, %24
   br label %.sink.split.sink.split
 
 .sink.split.sink.split:                           ; preds = %62, %60, %70, %68, %36, %34, %44, %42
-  %.sink67.sink = phi ptr [ %35, %34 ], [ %37, %36 ], [ %43, %42 ], [ %45, %44 ], [ %61, %60 ], [ %63, %62 ], [ %69, %68 ], [ %71, %70 ]
-  %.sink66.sink = phi i32 [ 16, %34 ], [ 16, %36 ], [ %39, %42 ], [ %39, %44 ], [ 16, %60 ], [ 16, %62 ], [ %65, %68 ], [ %65, %70 ]
-  %.sink72.ph = phi i32 [ %28, %34 ], [ %28, %36 ], [ %28, %42 ], [ %28, %44 ], [ %54, %60 ], [ %54, %62 ], [ %54, %68 ], [ %54, %70 ]
-  store ptr %.sink67.sink, ptr %11, align 8, !tbaa !44
-  store i32 %.sink66.sink, ptr %8, align 8, !tbaa !43
+  %.sink73.sink = phi ptr [ %35, %34 ], [ %37, %36 ], [ %43, %42 ], [ %45, %44 ], [ %61, %60 ], [ %63, %62 ], [ %69, %68 ], [ %71, %70 ]
+  %.sink72.sink = phi i32 [ 16, %34 ], [ 16, %36 ], [ %39, %42 ], [ %39, %44 ], [ 16, %60 ], [ 16, %62 ], [ %65, %68 ], [ %65, %70 ]
+  %.sink78.ph = phi i32 [ %28, %34 ], [ %28, %36 ], [ %28, %42 ], [ %28, %44 ], [ %54, %60 ], [ %54, %62 ], [ %54, %68 ], [ %54, %70 ]
+  store ptr %.sink73.sink, ptr %11, align 8, !tbaa !44
+  store i32 %.sink72.sink, ptr %8, align 8, !tbaa !43
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.sink.split.sink.split, %53, %27
-  %.sink72 = phi i32 [ %28, %27 ], [ %54, %53 ], [ %.sink72.ph, %.sink.split.sink.split ]
-  %.pre.i4657.sink = phi ptr [ %19, %27 ], [ %20, %53 ], [ %.sink67.sink, %.sink.split.sink.split ]
-  %.pre.i62.ph = phi ptr [ %19, %27 ], [ %19, %53 ], [ %.sink67.sink, %.sink.split.sink.split ]
-  %72 = add nsw i32 %.sink72, 1
+  %.sink78 = phi i32 [ %28, %27 ], [ %54, %53 ], [ %.sink78.ph, %.sink.split.sink.split ]
+  %.pre.i4657.sink = phi ptr [ %19, %27 ], [ %20, %53 ], [ %.sink73.sink, %.sink.split.sink.split ]
+  %.pre.i62.ph = phi ptr [ %19, %27 ], [ %19, %53 ], [ %.sink73.sink, %.sink.split.sink.split ]
+  %72 = add nsw i32 %.sink78, 1
   store i32 %72, ptr %9, align 4, !tbaa !42
-  %73 = sext i32 %.sink72 to i64
+  %73 = sext i32 %.sink78 to i64
   %74 = getelementptr inbounds i32, ptr %.pre.i4657.sink, i64 %73
   store i32 %.053, ptr %74, align 4, !tbaa !29
   br label %75

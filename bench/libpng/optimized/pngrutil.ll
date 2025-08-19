@@ -2935,7 +2935,7 @@ define internal fastcc noundef i32 @png_inflate_claim(ptr noalias noundef %0, i3
   %21 = and i32 %20, 12
   %22 = icmp ne i32 %21, 12
   %spec.select = zext i1 %22 to i8
-  %spec.select34 = select i1 %22, i32 0, i32 15
+  %spec.select37 = select i1 %22, i32 0, i32 15
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 632
   store i8 %spec.select, ptr %23, align 8, !tbaa !38
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 320
@@ -2953,7 +2953,7 @@ define internal fastcc noundef i32 @png_inflate_claim(ptr noalias noundef %0, i3
   br i1 %.not27, label %31, label %36
 
 31:                                               ; preds = %18
-  %32 = tail call i32 @inflateInit2_(ptr noundef nonnull %24, i32 noundef %spec.select34, ptr noundef nonnull @.str.58, i32 noundef 112) #12
+  %32 = tail call i32 @inflateInit2_(ptr noundef nonnull %24, i32 noundef %spec.select37, ptr noundef nonnull @.str.58, i32 noundef 112) #12
   %33 = icmp eq i32 %32, 0
   br i1 %33, label %.thread, label %.thread31
 
@@ -2964,7 +2964,7 @@ define internal fastcc noundef i32 @png_inflate_claim(ptr noalias noundef %0, i3
   br label %39
 
 36:                                               ; preds = %18
-  %37 = tail call i32 @inflateReset2(ptr noundef nonnull %24, i32 noundef %spec.select34) #12
+  %37 = tail call i32 @inflateReset2(ptr noundef nonnull %24, i32 noundef %spec.select37) #12
   %38 = icmp eq i32 %37, 0
   br i1 %38, label %39, label %.thread31
 
@@ -3270,14 +3270,14 @@ define internal range(i32 0, 4) i32 @png_handle_bKGD(ptr noalias noundef %0, ptr
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 623
   %7 = load i8, ptr %6, align 1, !tbaa !124
   %8 = icmp eq i8 %7, 3
-  %.sink62.sroa.gep = getelementptr inbounds nuw i8, ptr %5, i64 2
-  %.sink62.sroa.gep66 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %.sink62.sroa.gep67 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %.sink62.sroa.gep68 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %.sink65.sroa.gep = getelementptr inbounds nuw i8, ptr %5, i64 4
-  %.sink65.sroa.gep69 = getelementptr inbounds nuw i8, ptr %5, i64 6
-  %.sink65.sroa.gep70 = getelementptr inbounds nuw i8, ptr %5, i64 2
-  %.sink65.sroa.gep71 = getelementptr inbounds nuw i8, ptr %5, i64 6
+  %.sink67.sroa.gep = getelementptr inbounds nuw i8, ptr %5, i64 2
+  %.sink67.sroa.gep71 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %.sink67.sroa.gep72 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %.sink67.sroa.gep73 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %.sink70.sroa.gep = getelementptr inbounds nuw i8, ptr %5, i64 4
+  %.sink70.sroa.gep74 = getelementptr inbounds nuw i8, ptr %5, i64 6
+  %.sink70.sroa.gep75 = getelementptr inbounds nuw i8, ptr %5, i64 2
+  %.sink70.sroa.gep76 = getelementptr inbounds nuw i8, ptr %5, i64 6
   br i1 %8, label %9, label %16
 
 9:                                                ; preds = %3
@@ -3472,12 +3472,12 @@ png_crc_read.exit:                                ; preds = %18
   br label %108
 
 108:                                              ; preds = %34, %49, %66, %89
-  %.sink65.sroa.phi = phi ptr [ %.sink65.sroa.gep, %66 ], [ %.sink65.sroa.gep69, %89 ], [ %.sink65.sroa.gep70, %49 ], [ %.sink65.sroa.gep71, %34 ]
-  %.sink63 = phi i16 [ %71, %66 ], [ %107, %89 ], [ 0, %49 ], [ %48, %34 ]
-  %.sink62.sroa.phi = phi ptr [ %.sink62.sroa.gep, %66 ], [ %.sink62.sroa.gep66, %89 ], [ %.sink62.sroa.gep67, %49 ], [ %.sink62.sroa.gep68, %34 ]
-  %.sink60 = phi i16 [ %71, %66 ], [ 0, %89 ], [ 0, %49 ], [ 0, %34 ]
-  store i16 %.sink63, ptr %.sink65.sroa.phi, align 2, !tbaa !64
-  store i16 %.sink60, ptr %.sink62.sroa.phi, align 2, !tbaa !64
+  %.sink70.sroa.phi = phi ptr [ %.sink70.sroa.gep, %66 ], [ %.sink70.sroa.gep74, %89 ], [ %.sink70.sroa.gep75, %49 ], [ %.sink70.sroa.gep76, %34 ]
+  %.sink68 = phi i16 [ %71, %66 ], [ %107, %89 ], [ 0, %49 ], [ %48, %34 ]
+  %.sink67.sroa.phi = phi ptr [ %.sink67.sroa.gep, %66 ], [ %.sink67.sroa.gep71, %89 ], [ %.sink67.sroa.gep72, %49 ], [ %.sink67.sroa.gep73, %34 ]
+  %.sink65 = phi i16 [ %71, %66 ], [ 0, %89 ], [ 0, %49 ], [ 0, %34 ]
+  store i16 %.sink68, ptr %.sink70.sroa.phi, align 2, !tbaa !64
+  store i16 %.sink65, ptr %.sink67.sroa.phi, align 2, !tbaa !64
   call void @png_set_bKGD(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %5) #12
   br label %109
 
@@ -4487,7 +4487,7 @@ png_crc_read.exit:                                ; preds = %37, %30
   %64 = getelementptr inbounds nuw i8, ptr %.021.i, i64 %indvars.iv147
   %65 = load i8, ptr %64, align 1, !tbaa !3
   %.not106 = icmp eq i8 %65, 0
-  br i1 %.not106, label %.critedge4.loopexit.split.loop.exit160, label %66
+  br i1 %.not106, label %.critedge4.loopexit.split.loop.exit170, label %66
 
 66:                                               ; preds = %.lr.ph137
   %indvars.iv.next148 = add nuw nsw i64 %indvars.iv147, 1
@@ -4495,12 +4495,12 @@ png_crc_read.exit:                                ; preds = %37, %30
   %exitcond150.not = icmp eq i32 %2, %lftr.wideiv
   br i1 %exitcond150.not, label %.critedge4, label %.lr.ph137, !llvm.loop !178
 
-.critedge4.loopexit.split.loop.exit160:           ; preds = %.lr.ph137
+.critedge4.loopexit.split.loop.exit170:           ; preds = %.lr.ph137
   %67 = trunc nuw i64 %indvars.iv147 to i32
   br label %.critedge4
 
-.critedge4:                                       ; preds = %66, %.critedge4.loopexit.split.loop.exit160, %60
-  %.196.lcssa = phi i32 [ %61, %60 ], [ %67, %.critedge4.loopexit.split.loop.exit160 ], [ %2, %66 ]
+.critedge4:                                       ; preds = %66, %.critedge4.loopexit.split.loop.exit170, %60
+  %.196.lcssa = phi i32 [ %61, %60 ], [ %67, %.critedge4.loopexit.split.loop.exit170 ], [ %2, %66 ]
   %68 = add i32 %.196.lcssa, 1
   %69 = icmp ult i32 %68, %2
   br i1 %69, label %.lr.ph142.preheader, label %.critedge6
@@ -4514,7 +4514,7 @@ png_crc_read.exit:                                ; preds = %37, %30
   %71 = getelementptr inbounds nuw i8, ptr %.021.i, i64 %indvars.iv151
   %72 = load i8, ptr %71, align 1, !tbaa !3
   %.not107 = icmp eq i8 %72, 0
-  br i1 %.not107, label %.critedge6.loopexit.split.loop.exit162, label %73
+  br i1 %.not107, label %.critedge6.loopexit.split.loop.exit172, label %73
 
 73:                                               ; preds = %.lr.ph142
   %indvars.iv.next152 = add nuw nsw i64 %indvars.iv151, 1
@@ -4522,12 +4522,12 @@ png_crc_read.exit:                                ; preds = %37, %30
   %exitcond155.not = icmp eq i32 %2, %lftr.wideiv154
   br i1 %exitcond155.not, label %.critedge6, label %.lr.ph142, !llvm.loop !179
 
-.critedge6.loopexit.split.loop.exit162:           ; preds = %.lr.ph142
+.critedge6.loopexit.split.loop.exit172:           ; preds = %.lr.ph142
   %74 = trunc nuw i64 %indvars.iv151 to i32
   br label %.critedge6
 
-.critedge6:                                       ; preds = %73, %.critedge6.loopexit.split.loop.exit162, %.critedge4
-  %.297.lcssa = phi i32 [ %68, %.critedge4 ], [ %74, %.critedge6.loopexit.split.loop.exit162 ], [ %2, %73 ]
+.critedge6:                                       ; preds = %73, %.critedge6.loopexit.split.loop.exit172, %.critedge4
+  %.297.lcssa = phi i32 [ %68, %.critedge4 ], [ %74, %.critedge6.loopexit.split.loop.exit172 ], [ %2, %73 ]
   %75 = add i32 %.297.lcssa, 1
   %.not109 = icmp ugt i32 %75, %2
   %or.cond112 = or i1 %.not108, %.not109
@@ -6428,7 +6428,7 @@ declare void @png_free_data(ptr noundef, ptr noundef, i32 noundef, i32 noundef) 
 declare noalias ptr @png_malloc_base(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @png_decompress_chunk(ptr noalias noundef %0, i32 noundef range(i32 4, 0) %1, i32 noundef range(i32 0, -1) %2, ptr noundef nonnull captures(none) %3) unnamed_addr #0 {
+define internal fastcc range(i32 1, 0) i32 @png_decompress_chunk(ptr noalias noundef %0, i32 noundef range(i32 4, 0) %1, i32 noundef range(i32 0, -1) %2, ptr noundef nonnull captures(none) %3) unnamed_addr #0 {
   %5 = alloca [1024 x i8], align 16
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 1128
   %7 = load i64, ptr %6, align 8, !tbaa !46

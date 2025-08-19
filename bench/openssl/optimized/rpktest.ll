@@ -426,13 +426,13 @@ switch.lookup:                                    ; preds = %26
   %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table.test_rpk, i64 0, i64 %30
   %switch.load = load ptr, ptr %switch.gep, align 8
   %31 = zext nneg i16 %16 to i64
-  %switch.gep357 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table.test_rpk.1, i64 0, i64 %31
-  %switch.load358 = load ptr, ptr %switch.gep357, align 8
+  %switch.gep358 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table.test_rpk.1, i64 0, i64 %31
+  %switch.load359 = load ptr, ptr %switch.gep358, align 8
   %32 = zext nneg i16 %16 to i64
-  %switch.gep359 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table.test_rpk.2, i64 0, i64 %32
-  %switch.load360 = load ptr, ptr %switch.gep359, align 8
-  %.0187 = load ptr, ptr %switch.load360, align 8, !tbaa !4
-  %.0188 = load ptr, ptr %switch.load358, align 8, !tbaa !4
+  %switch.gep360 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table.test_rpk.2, i64 0, i64 %32
+  %switch.load361 = load ptr, ptr %switch.gep360, align 8
+  %.0187 = load ptr, ptr %switch.load361, align 8, !tbaa !4
+  %.0188 = load ptr, ptr %switch.load359, align 8, !tbaa !4
   %.0189 = load ptr, ptr %switch.load, align 8, !tbaa !4
   %33 = tail call ptr @load_cert_pem(ptr noundef %.0189, ptr noundef null) #5
   %34 = tail call i32 @test_ptr(ptr noundef nonnull @.str.14, i32 noundef 183, ptr noundef nonnull @.str.40, ptr noundef %33) #5
@@ -510,8 +510,8 @@ switch.lookup:                                    ; preds = %26
   br i1 %.not206, label %.thread330, label %73
 
 73:                                               ; preds = %67, %64
-  %narrow356 = add nsw i16 %11, -288
-  %74 = icmp ult i16 %narrow356, -575
+  %narrow357 = add nsw i16 %11, -288
+  %74 = icmp ult i16 %narrow357, -575
   br i1 %74, label %75, label %81
 
 75:                                               ; preds = %73
@@ -801,7 +801,7 @@ switch.lookup:                                    ; preds = %26
 
 234:                                              ; preds = %228
   %235 = icmp ult i32 %56, 1152
-  %236 = icmp ult i16 %narrow356, 288
+  %236 = icmp ult i16 %narrow357, 288
   %or.cond3 = and i1 %235, %236
   %spec.select322 = sext i1 %or.cond3 to i32
   %237 = load ptr, ptr %4, align 8, !tbaa !13
@@ -810,7 +810,7 @@ switch.lookup:                                    ; preds = %26
 
 238:                                              ; preds = %139
   %239 = icmp ult i32 %56, 1152
-  %240 = icmp ult i16 %narrow356, 288
+  %240 = icmp ult i16 %narrow357, 288
   %or.cond5 = and i1 %239, %240
   %spec.select323 = sext i1 %or.cond5 to i32
   %241 = load ptr, ptr %4, align 8, !tbaa !13
@@ -1084,7 +1084,7 @@ switch.lookup:                                    ; preds = %26
 
 389:                                              ; preds = %139
   %390 = icmp ult i32 %56, 1152
-  %391 = icmp ult i16 %narrow356, 288
+  %391 = icmp ult i16 %narrow357, 288
   %or.cond21 = and i1 %390, %391
   br i1 %or.cond21, label %392, label %394
 
@@ -1106,7 +1106,7 @@ switch.lookup:                                    ; preds = %26
 
 400:                                              ; preds = %139
   %401 = icmp ult i32 %56, 1152
-  %402 = icmp ult i16 %narrow356, 288
+  %402 = icmp ult i16 %narrow357, 288
   %or.cond23 = and i1 %401, %402
   br i1 %or.cond23, label %403, label %405
 

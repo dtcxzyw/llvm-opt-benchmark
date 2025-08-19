@@ -1830,9 +1830,9 @@ define noundef ptr @_ZN6icu_7713ListFormatter14createInstanceERKNS_6LocaleE18ULi
 switch.lookup:                                    ; preds = %9, %7, %5
   %switch.table._ZN6icu_7713ListFormatter14createInstanceERKNS_6LocaleE18UListFormatterType19UListFormatterWidthR10UErrorCode.6.sink = phi ptr [ @switch.table._ZN6icu_7713ListFormatter14createInstanceERKNS_6LocaleE18UListFormatterType19UListFormatterWidthR10UErrorCode, %5 ], [ @switch.table._ZN6icu_7713ListFormatter14createInstanceERKNS_6LocaleE18UListFormatterType19UListFormatterWidthR10UErrorCode.5, %7 ], [ @switch.table._ZN6icu_7713ListFormatter14createInstanceERKNS_6LocaleE18UListFormatterType19UListFormatterWidthR10UErrorCode.6, %9 ]
   %11 = zext nneg i32 %2 to i64
-  %switch.gep15 = getelementptr inbounds nuw [3 x ptr], ptr %switch.table._ZN6icu_7713ListFormatter14createInstanceERKNS_6LocaleE18UListFormatterType19UListFormatterWidthR10UErrorCode.6.sink, i64 0, i64 %11
-  %switch.load16 = load ptr, ptr %switch.gep15, align 8
-  %12 = tail call noundef ptr @_ZN6icu_7713ListFormatter21getListFormatInternalERKNS_6LocaleEPKcR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(217) %0, ptr noundef nonnull %switch.load16, ptr noundef nonnull align 4 dereferenceable(4) %3)
+  %switch.gep16 = getelementptr inbounds nuw [3 x ptr], ptr %switch.table._ZN6icu_7713ListFormatter14createInstanceERKNS_6LocaleE18UListFormatterType19UListFormatterWidthR10UErrorCode.6.sink, i64 0, i64 %11
+  %switch.load17 = load ptr, ptr %switch.gep16, align 8
+  %12 = tail call noundef ptr @_ZN6icu_7713ListFormatter21getListFormatInternalERKNS_6LocaleEPKcR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(217) %0, ptr noundef nonnull %switch.load17, ptr noundef nonnull align 4 dereferenceable(4) %3)
   %13 = load i32, ptr %3, align 4, !tbaa !13
   %14 = icmp slt i32 %13, 1
   br i1 %14, label %15, label %_ZN6icu_7713ListFormatter14createInstanceERKNS_6LocaleEPKcR10UErrorCode.exit
@@ -2240,11 +2240,11 @@ define void @_ZNK6icu_7713ListFormatter20formatStringsToValueEPKNS_13UnicodeStri
 13:                                               ; preds = %9
   %14 = load i32, ptr %4, align 4
   %15 = icmp sgt i32 %14, 0
-  br i1 %15, label %.thread80, label %16
+  br i1 %15, label %.thread87, label %16
 
 16:                                               ; preds = %13
   store i32 7, ptr %4, align 4, !tbaa !13
-  br label %.thread80
+  br label %.thread87
 
 common.resume:                                    ; preds = %_ZN6icu_7712_GLOBAL__N_120FormattedListBuilderD2Ev.exit66, %_ZN6icu_7712_GLOBAL__N_120FormattedListBuilderD2Ev.exit68, %_ZN6icu_7712_GLOBAL__N_120FormattedListBuilderD2Ev.exit71, %17
   %common.resume.op = phi { ptr, i32 } [ %18, %17 ], [ %36, %_ZN6icu_7712_GLOBAL__N_120FormattedListBuilderD2Ev.exit66 ], [ %48, %_ZN6icu_7712_GLOBAL__N_120FormattedListBuilderD2Ev.exit68 ], [ %.pn, %_ZN6icu_7712_GLOBAL__N_120FormattedListBuilderD2Ev.exit71 ]
@@ -2256,7 +2256,7 @@ common.resume:                                    ; preds = %_ZN6icu_7712_GLOBAL
   tail call void @_ZN6icu_777UMemorydlEPv(ptr noundef nonnull %10) #19
   br label %common.resume
 
-.thread80:                                        ; preds = %16, %13
+.thread87:                                        ; preds = %16, %13
   %.ph = phi i32 [ 7, %16 ], [ %14, %13 ]
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN6icu_7713FormattedListE, i64 16), ptr %0, align 8, !tbaa !15
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2302,7 +2302,7 @@ _ZN6icu_7712_GLOBAL__N_120FormattedListBuilderC2ER10UErrorCode.exit: ; preds = %
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN6icu_7713FormattedListE, i64 16), ptr %0, align 8, !tbaa !15
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  br i1 %33, label %.thread81, label %40
+  br i1 %33, label %.thread88, label %40
 
 _ZN6icu_7712_GLOBAL__N_120FormattedListBuilderD2Ev.exit66: ; preds = %28
   %36 = landingpad { ptr, i32 }
@@ -2314,7 +2314,7 @@ _ZN6icu_7712_GLOBAL__N_120FormattedListBuilderD2Ev.exit66: ; preds = %28
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %common.resume
 
-.thread81:                                        ; preds = %31
+.thread88:                                        ; preds = %31
   store ptr %29, ptr %34, align 8, !tbaa !17
   store i32 0, ptr %35, align 8, !tbaa !21
   br label %_ZN6icu_7712_GLOBAL__N_120FormattedListBuilderD2Ev.exit67
@@ -2328,7 +2328,7 @@ _ZN6icu_7712_GLOBAL__N_120FormattedListBuilderD2Ev.exit66: ; preds = %28
   tail call void %43(ptr noundef nonnull align 8 dereferenceable(300) %29) #19
   br label %_ZN6icu_7712_GLOBAL__N_120FormattedListBuilderD2Ev.exit67
 
-_ZN6icu_7712_GLOBAL__N_120FormattedListBuilderD2Ev.exit67: ; preds = %.thread81, %40
+_ZN6icu_7712_GLOBAL__N_120FormattedListBuilderD2Ev.exit67: ; preds = %.thread88, %40
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZN6icu_7712_GLOBAL__N_120FormattedListBuilderD2Ev.exit
 
@@ -2385,14 +2385,14 @@ _ZN6icu_7712_GLOBAL__N_120FormattedListBuilderD2Ev.exit68: ; preds = %47, %50
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN6icu_7713FormattedListE, i64 16), ptr %0, align 8, !tbaa !15
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  br i1 %69, label %.thread85, label %.thread87
+  br i1 %69, label %.thread92, label %.thread94
 
-.thread87:                                        ; preds = %67
+.thread94:                                        ; preds = %67
   store ptr null, ptr %70, align 8, !tbaa !17
   store i32 %68, ptr %71, align 8, !tbaa !21
   br label %76
 
-.thread85:                                        ; preds = %67
+.thread92:                                        ; preds = %67
   store ptr %65, ptr %70, align 8, !tbaa !17
   store i32 0, ptr %71, align 8, !tbaa !21
   br label %_ZN6icu_7712_GLOBAL__N_120FormattedListBuilderD2Ev.exit69
@@ -2407,15 +2407,15 @@ _ZN6icu_7712_GLOBAL__N_120FormattedListBuilderD2Ev.exit68: ; preds = %47, %50
   %75 = icmp eq ptr %.val63.pre, null
   br i1 %75, label %_ZN6icu_7712_GLOBAL__N_120FormattedListBuilderD2Ev.exit69, label %76
 
-76:                                               ; preds = %.thread87, %72
-  %.val6389 = phi ptr [ %65, %.thread87 ], [ %.val63.pre, %72 ]
-  %77 = load ptr, ptr %.val6389, align 8, !tbaa !15
+76:                                               ; preds = %.thread94, %72
+  %.val6396 = phi ptr [ %65, %.thread94 ], [ %.val63.pre, %72 ]
+  %77 = load ptr, ptr %.val6396, align 8, !tbaa !15
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 8
   %79 = load ptr, ptr %78, align 8
-  tail call void %79(ptr noundef nonnull align 8 dereferenceable(300) %.val6389) #19
+  tail call void %79(ptr noundef nonnull align 8 dereferenceable(300) %.val6396) #19
   br label %_ZN6icu_7712_GLOBAL__N_120FormattedListBuilderD2Ev.exit69
 
-_ZN6icu_7712_GLOBAL__N_120FormattedListBuilderD2Ev.exit69: ; preds = %.thread85, %72, %76
+_ZN6icu_7712_GLOBAL__N_120FormattedListBuilderD2Ev.exit69: ; preds = %.thread92, %72, %76
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %_ZN6icu_7712_GLOBAL__N_120FormattedListBuilderD2Ev.exit
 
@@ -2495,14 +2495,14 @@ _ZN6icu_7712_GLOBAL__N_120FormattedListBuilderD2Ev.exit69: ; preds = %.thread85,
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN6icu_7713FormattedListE, i64 16), ptr %0, align 8, !tbaa !15
   %114 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %115 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  br i1 %113, label %.thread90, label %.thread92
+  br i1 %113, label %.thread97, label %.thread99
 
-.thread92:                                        ; preds = %111
+.thread99:                                        ; preds = %111
   store ptr null, ptr %114, align 8, !tbaa !17
   store i32 %112, ptr %115, align 8, !tbaa !21
   br label %120
 
-.thread90:                                        ; preds = %111
+.thread97:                                        ; preds = %111
   store ptr %109, ptr %114, align 8, !tbaa !17
   store i32 0, ptr %115, align 8, !tbaa !21
   br label %_ZN6icu_7712_GLOBAL__N_120FormattedListBuilderD2Ev.exit70
@@ -2517,15 +2517,15 @@ _ZN6icu_7712_GLOBAL__N_120FormattedListBuilderD2Ev.exit69: ; preds = %.thread85,
   %119 = icmp eq ptr %.val64.pre, null
   br i1 %119, label %_ZN6icu_7712_GLOBAL__N_120FormattedListBuilderD2Ev.exit70, label %120
 
-120:                                              ; preds = %.thread92, %116
-  %.val6494 = phi ptr [ %109, %.thread92 ], [ %.val64.pre, %116 ]
-  %121 = load ptr, ptr %.val6494, align 8, !tbaa !15
+120:                                              ; preds = %.thread99, %116
+  %.val64101 = phi ptr [ %109, %.thread99 ], [ %.val64.pre, %116 ]
+  %121 = load ptr, ptr %.val64101, align 8, !tbaa !15
   %122 = getelementptr inbounds nuw i8, ptr %121, i64 8
   %123 = load ptr, ptr %122, align 8
-  tail call void %123(ptr noundef nonnull align 8 dereferenceable(300) %.val6494) #19
+  tail call void %123(ptr noundef nonnull align 8 dereferenceable(300) %.val64101) #19
   br label %_ZN6icu_7712_GLOBAL__N_120FormattedListBuilderD2Ev.exit70
 
-_ZN6icu_7712_GLOBAL__N_120FormattedListBuilderD2Ev.exit70: ; preds = %.thread90, %116, %120
+_ZN6icu_7712_GLOBAL__N_120FormattedListBuilderD2Ev.exit70: ; preds = %.thread97, %116, %120
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %_ZN6icu_7712_GLOBAL__N_120FormattedListBuilderD2Ev.exit
 
@@ -2546,7 +2546,7 @@ _ZN6icu_7712_GLOBAL__N_120FormattedListBuilderD2Ev.exit71: ; preds = %124, %126
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %common.resume
 
-_ZN6icu_7712_GLOBAL__N_120FormattedListBuilderD2Ev.exit: ; preds = %.thread80, %24, %.thread, %_ZN6icu_7712_GLOBAL__N_120FormattedListBuilderD2Ev.exit70, %_ZN6icu_7712_GLOBAL__N_120FormattedListBuilderD2Ev.exit69, %_ZN6icu_7712_GLOBAL__N_120FormattedListBuilderD2Ev.exit67
+_ZN6icu_7712_GLOBAL__N_120FormattedListBuilderD2Ev.exit: ; preds = %.thread87, %24, %.thread, %_ZN6icu_7712_GLOBAL__N_120FormattedListBuilderD2Ev.exit70, %_ZN6icu_7712_GLOBAL__N_120FormattedListBuilderD2Ev.exit69, %_ZN6icu_7712_GLOBAL__N_120FormattedListBuilderD2Ev.exit67
   ret void
 }
 
@@ -4024,8 +4024,8 @@ _ZNK6icu_7713UnicodeStringixEi.exit32:            ; preds = %19, %_ZNK6icu_7713U
 
 _ZNK6icu_7713UnicodeStringixEi.exit35.thread:     ; preds = %_ZNK6icu_7713UnicodeStringixEi.exit29
   %23 = icmp eq i16 %16, 49
-  %or.cond51 = and i1 %18, %23
-  br i1 %or.cond51, label %_ZNK6icu_7713UnicodeStringixEi.exit41, label %.thread48
+  %or.cond54 = and i1 %18, %23
+  br i1 %or.cond54, label %_ZNK6icu_7713UnicodeStringixEi.exit41, label %.thread48
 
 _ZNK6icu_7713UnicodeStringixEi.exit41:            ; preds = %_ZNK6icu_7713UnicodeStringixEi.exit35.thread
   %24 = getelementptr inbounds nuw i8, ptr %15, i64 2

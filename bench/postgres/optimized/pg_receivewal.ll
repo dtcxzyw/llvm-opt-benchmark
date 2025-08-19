@@ -177,9 +177,9 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   %24 = load ptr, ptr %1, align 8
   tail call void @set_pglocale_pgservice(ptr noundef %24, ptr noundef nonnull @.str.21) #12
   %25 = icmp sgt i32 %0, 1
-  br i1 %25, label %26, label %.preheader148
+  br i1 %25, label %26, label %.preheader161
 
-.preheader148:                                    ; preds = %.tail58.thread, %2
+.preheader161:                                    ; preds = %.tail58.thread, %2
   br label %47
 
 26:                                               ; preds = %2
@@ -226,14 +226,14 @@ sub_160:                                          ; preds = %.tail, %sub_1
 .tail58.thread:                                   ; preds = %sub_0, %sub_160, %.tail58
   %43 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %28, ptr noundef nonnull dereferenceable(10) @.str.25) #13
   %44 = icmp eq i32 %43, 0
-  br i1 %44, label %45, label %.preheader148
+  br i1 %44, label %45, label %.preheader161
 
 45:                                               ; preds = %.tail58.thread, %.tail58
   %46 = tail call i32 @puts(ptr noundef nonnull dereferenceable(1) @.str.26)
   tail call void @exit(i32 noundef 0) #14
   unreachable
 
-47:                                               ; preds = %.backedge, %.preheader148
+47:                                               ; preds = %.backedge, %.preheader161
   %48 = call i32 @getopt_long(i32 noundef %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.27, ptr noundef nonnull @main.long_options, ptr noundef nonnull %14) #12
   switch i32 %48, label %99 [
     i32 -1, label %101

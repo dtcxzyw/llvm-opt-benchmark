@@ -87,8 +87,8 @@ define void @WHIRLPOOL_BitUpdate(ptr noundef %0, ptr noundef %1, i64 noundef %2)
   %24 = sub nuw nsw i32 8, %9
   %.not150 = icmp eq i32 %6, 0
   %25 = sub nuw nsw i32 8, %6
-  %.not202 = icmp eq i64 %2, 0
-  br i1 %.not202, label %.loopexit, label %.lr.ph206
+  %.not206 = icmp eq i64 %2, 0
+  br i1 %.not206, label %.loopexit, label %.lr.ph210
 
 .loopexit160:                                     ; preds = %55, %70
   %storemerge.ph = phi i32 [ %65, %55 ], [ 0, %70 ]
@@ -165,15 +165,15 @@ define void @WHIRLPOOL_BitUpdate(ptr noundef %0, ptr noundef %1, i64 noundef %2)
   %.not151 = icmp eq i64 %.2119, 0
   br i1 %.not151, label %.loopexit, label %27, !llvm.loop !13
 
-.lr.ph206:                                        ; preds = %.preheader158.lr.ph, %127
-  %.4205 = phi i64 [ %.5, %127 ], [ %2, %.preheader158.lr.ph ]
-  %.4125204 = phi ptr [ %.5126, %127 ], [ %1, %.preheader158.lr.ph ]
-  %.4138203 = phi i32 [ %storemerge, %127 ], [ %5, %.preheader158.lr.ph ]
-  %54 = lshr i32 %.4138203, 3
+.lr.ph210:                                        ; preds = %.preheader158.lr.ph, %127
+  %.4209 = phi i64 [ %.5, %127 ], [ %2, %.preheader158.lr.ph ]
+  %.4125208 = phi ptr [ %.5126, %127 ], [ %1, %.preheader158.lr.ph ]
+  %.4138207 = phi i32 [ %storemerge, %127 ], [ %5, %.preheader158.lr.ph ]
+  %54 = lshr i32 %.4138207, 3
   br i1 %.not157, label %55, label %71
 
-55:                                               ; preds = %.lr.ph206
-  %56 = load i8, ptr %.4125204, align 1, !tbaa !14
+55:                                               ; preds = %.lr.ph210
+  %56 = load i8, ptr %.4125208, align 1, !tbaa !14
   %57 = lshr i32 255, %6
   %58 = zext nneg i32 %54 to i64
   %59 = getelementptr inbounds nuw [64 x i8], ptr %22, i64 0, i64 %58
@@ -183,10 +183,10 @@ define void @WHIRLPOOL_BitUpdate(ptr noundef %0, ptr noundef %1, i64 noundef %2)
   %63 = or i8 %62, %60
   store i8 %63, ptr %59, align 1, !tbaa !14
   %64 = sub nuw nsw i32 8, %6
-  %65 = add i32 %64, %.4138203
+  %65 = add i32 %64, %.4138207
   %66 = zext nneg i32 %64 to i64
-  %67 = sub i64 %.4205, %66
-  %68 = getelementptr inbounds nuw i8, ptr %.4125204, i64 1
+  %67 = sub i64 %.4209, %66
+  %68 = getelementptr inbounds nuw i8, ptr %.4125208, i64 1
   %69 = icmp eq i32 %65, 512
   br i1 %69, label %70, label %.loopexit160
 
@@ -194,15 +194,15 @@ define void @WHIRLPOOL_BitUpdate(ptr noundef %0, ptr noundef %1, i64 noundef %2)
   tail call void @whirlpool_block(ptr noundef nonnull %0, ptr noundef nonnull %22, i64 noundef 1) #6
   br label %.loopexit160
 
-71:                                               ; preds = %.lr.ph206
-  %72 = icmp ugt i64 %.4205, 8
-  %73 = load i8, ptr %.4125204, align 1, !tbaa !14
+71:                                               ; preds = %.lr.ph210
+  %72 = icmp ugt i64 %.4209, 8
+  %73 = load i8, ptr %.4125208, align 1, !tbaa !14
   %74 = zext i8 %73 to i32
   %75 = shl nuw nsw i32 %74, %9
   br i1 %72, label %76, label %103
 
 76:                                               ; preds = %71
-  %77 = getelementptr inbounds nuw i8, ptr %.4125204, i64 1
+  %77 = getelementptr inbounds nuw i8, ptr %.4125208, i64 1
   %78 = load i8, ptr %77, align 1, !tbaa !14
   %79 = zext i8 %78 to i32
   %80 = lshr i32 %79, %24
@@ -229,8 +229,8 @@ define void @WHIRLPOOL_BitUpdate(ptr noundef %0, ptr noundef %1, i64 noundef %2)
 
 94:                                               ; preds = %90, %82
   %.0116 = add nuw nsw i32 %54, 1
-  %95 = add i32 %.4138203, 8
-  %96 = add i64 %.4205, -8
+  %95 = add i32 %.4138207, 8
+  %96 = add i64 %.4209, -8
   %97 = icmp ugt i32 %95, 511
   br i1 %97, label %98, label %100
 
@@ -271,8 +271,8 @@ define void @WHIRLPOOL_BitUpdate(ptr noundef %0, ptr noundef %1, i64 noundef %2)
 
 116:                                              ; preds = %112, %104
   %.2 = add nuw nsw i32 %54, 1
-  %117 = trunc nuw nsw i64 %.4205 to i32
-  %118 = add i32 %.4138203, %117
+  %117 = trunc nuw nsw i64 %.4209 to i32
+  %118 = add i32 %.4138207, %117
   %119 = icmp eq i32 %118, 512
   br i1 %119, label %120, label %121
 
@@ -290,24 +290,24 @@ define void @WHIRLPOOL_BitUpdate(ptr noundef %0, ptr noundef %1, i64 noundef %2)
   br label %.sink.split
 
 .sink.split:                                      ; preds = %122, %101
-  %.sink197 = phi i32 [ %102, %101 ], [ %123, %122 ]
+  %.sink201 = phi i32 [ %102, %101 ], [ %123, %122 ]
   %.1.sink = phi i32 [ %.1, %101 ], [ %.3, %122 ]
-  %storemerge.ph194 = phi i32 [ %.7, %101 ], [ %.8, %122 ]
-  %.5126.ph = phi ptr [ %77, %101 ], [ %.4125204, %122 ]
+  %storemerge.ph198 = phi i32 [ %.7, %101 ], [ %.8, %122 ]
+  %.5126.ph = phi ptr [ %77, %101 ], [ %.4125208, %122 ]
   %.5.ph = phi i64 [ %96, %101 ], [ 0, %122 ]
-  %124 = trunc i32 %.sink197 to i8
+  %124 = trunc i32 %.sink201 to i8
   %125 = zext nneg i32 %.1.sink to i64
   %126 = getelementptr inbounds nuw [64 x i8], ptr %22, i64 0, i64 %125
   store i8 %124, ptr %126, align 1, !tbaa !14
   br label %127
 
 127:                                              ; preds = %.sink.split, %100, %121
-  %storemerge = phi i32 [ %.7, %100 ], [ %.8, %121 ], [ %storemerge.ph194, %.sink.split ]
-  %.5126 = phi ptr [ %77, %100 ], [ %.4125204, %121 ], [ %.5126.ph, %.sink.split ]
+  %storemerge = phi i32 [ %.7, %100 ], [ %.8, %121 ], [ %storemerge.ph198, %.sink.split ]
+  %.5126 = phi ptr [ %77, %100 ], [ %.4125208, %121 ], [ %.5126.ph, %.sink.split ]
   %.5 = phi i64 [ %96, %100 ], [ 0, %121 ], [ %.5.ph, %.sink.split ]
   store i32 %storemerge, ptr %4, align 8, !tbaa !5
   %.not = icmp eq i64 %.5, 0
-  br i1 %.not, label %.loopexit, label %.lr.ph206
+  br i1 %.not, label %.loopexit, label %.lr.ph210
 
 .loopexit:                                        ; preds = %127, %53, %.preheader158.lr.ph, %.preheader
   ret void

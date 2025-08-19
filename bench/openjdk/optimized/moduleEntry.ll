@@ -499,8 +499,8 @@ _ZNK11ModuleEntry14has_reads_listEv.exit:         ; preds = %24
   %34 = icmp eq ptr %33, %1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  %or.cond11 = select i1 %34, i1 true, i1 %exitcond.not.i
-  br i1 %or.cond11, label %_ZNK17GrowableArrayViewIP11ModuleEntryE8containsERKS1_.exit, label %31, !llvm.loop !6
+  %or.cond17 = select i1 %34, i1 true, i1 %exitcond.not.i
+  br i1 %or.cond17, label %_ZNK17GrowableArrayViewIP11ModuleEntryE8containsERKS1_.exit, label %31, !llvm.loop !6
 
 _ZNK17GrowableArrayViewIP11ModuleEntryE8containsERKS1_.exit: ; preds = %31, %24, %_ZNK11ModuleEntry14has_reads_listEv.exit, %17, %22
   %.1 = phi i1 [ true, %22 ], [ true, %17 ], [ false, %_ZNK11ModuleEntry14has_reads_listEv.exit ], [ false, %24 ], [ %34, %31 ]
@@ -4440,7 +4440,7 @@ define linkonce_odr hidden void @_ZN26GrowableArrayWithAllocatorIP5Klass13Growab
   br i1 %.not, label %_ZN13GrowableArrayIP5KlassE10deallocateEPS1_.exit, label %.loopexit.thread
 
 .loopexit.thread:                                 ; preds = %.lr.ph, %.loopexit
-  %.01827 = phi ptr [ null, %.loopexit ], [ %.0.i, %.lr.ph ]
+  %.01829 = phi ptr [ null, %.loopexit ], [ %.0.i, %.lr.ph ]
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %29 = load i64, ptr %28, align 8
   %30 = and i64 %29, 1
@@ -4452,8 +4452,8 @@ define linkonce_odr hidden void @_ZN26GrowableArrayWithAllocatorIP5Klass13Growab
   br label %_ZN13GrowableArrayIP5KlassE10deallocateEPS1_.exit
 
 _ZN13GrowableArrayIP5KlassE10deallocateEPS1_.exit: ; preds = %31, %.loopexit.thread, %.loopexit
-  %.01828 = phi ptr [ %.01827, %31 ], [ %.01827, %.loopexit.thread ], [ null, %.loopexit ]
-  store ptr %.01828, ptr %7, align 8
+  %.01830 = phi ptr [ %.01829, %31 ], [ %.01829, %.loopexit.thread ], [ null, %.loopexit ]
+  store ptr %.01830, ptr %7, align 8
   br label %32
 
 32:                                               ; preds = %1, %_ZN13GrowableArrayIP5KlassE10deallocateEPS1_.exit
@@ -4539,7 +4539,7 @@ define linkonce_odr hidden void @_ZN26GrowableArrayWithAllocatorIP11ModuleEntry1
   br i1 %.not, label %_ZN13GrowableArrayIP11ModuleEntryE10deallocateEPS1_.exit, label %.loopexit.thread
 
 .loopexit.thread:                                 ; preds = %.lr.ph, %.loopexit
-  %.01827 = phi ptr [ null, %.loopexit ], [ %.0.i, %.lr.ph ]
+  %.01829 = phi ptr [ null, %.loopexit ], [ %.0.i, %.lr.ph ]
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %29 = load i64, ptr %28, align 8
   %30 = and i64 %29, 1
@@ -4551,8 +4551,8 @@ define linkonce_odr hidden void @_ZN26GrowableArrayWithAllocatorIP11ModuleEntry1
   br label %_ZN13GrowableArrayIP11ModuleEntryE10deallocateEPS1_.exit
 
 _ZN13GrowableArrayIP11ModuleEntryE10deallocateEPS1_.exit: ; preds = %31, %.loopexit.thread, %.loopexit
-  %.01828 = phi ptr [ %.01827, %31 ], [ %.01827, %.loopexit.thread ], [ null, %.loopexit ]
-  store ptr %.01828, ptr %7, align 8
+  %.01830 = phi ptr [ %.01829, %31 ], [ %.01829, %.loopexit.thread ], [ null, %.loopexit ]
+  store ptr %.01830, ptr %7, align 8
   br label %32
 
 32:                                               ; preds = %1, %_ZN13GrowableArrayIP11ModuleEntryE10deallocateEPS1_.exit

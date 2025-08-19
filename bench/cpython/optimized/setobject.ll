@@ -6418,8 +6418,8 @@ Py_DECREF.exit77:                                 ; preds = %Py_DECREF.exit79, %
   br i1 %155, label %set_copy_impl.exit.sink.split, label %set_copy_impl.exit
 
 set_copy_impl.exit.sink.split:                    ; preds = %153, %139, %105, %88, %76, %26
-  %.lcssa171.sink = phi ptr [ %12, %26 ], [ %56, %76 ], [ %56, %88 ], [ %34, %105 ], [ %34, %139 ], [ %109, %153 ]
-  tail call void @_Py_Dealloc(ptr noundef nonnull %.lcssa171.sink) #11
+  %.lcssa199.sink = phi ptr [ %12, %26 ], [ %56, %76 ], [ %56, %88 ], [ %34, %105 ], [ %34, %139 ], [ %109, %153 ]
+  tail call void @_Py_Dealloc(ptr noundef nonnull %.lcssa199.sink) #11
   br label %set_copy_impl.exit
 
 set_copy_impl.exit:                               ; preds = %Py_DECREF.exit91, %.critedge2.i, %set_copy_impl.exit.sink.split, %49, %make_new_set_basetype.exit, %153, %Py_DECREF.exit77, %139, %137, %105, %103, %Py_DECREF.exit99, %76, %Py_DECREF.exit95, %88, %26, %24, %14, %make_new_set_basetype.exit.i, %Py_DECREF.exit83

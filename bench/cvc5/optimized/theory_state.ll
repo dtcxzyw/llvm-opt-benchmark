@@ -326,7 +326,7 @@ define hidden noundef zeroext i1 @_ZNK4cvc58internal6theory11TheoryState11areDis
   %12 = load ptr, ptr %1, align 8, !tbaa !45
   %13 = load ptr, ptr %2, align 8, !tbaa !45
   %14 = icmp eq ptr %12, %13
-  br i1 %14, label %.thread22, label %15
+  br i1 %14, label %.thread25, label %15
 
 15:                                               ; preds = %3
   store ptr %12, ptr %4, align 8, !tbaa !45
@@ -359,7 +359,7 @@ _ZN4cvc58internal12NodeTemplateILb0EEaSERKS2_.exit: ; preds = %20, %26
 
 28:                                               ; preds = %15
   %29 = call noundef zeroext i1 @_ZNK4cvc58internal12NodeTemplateILb0EE7isConstEv(ptr noundef nonnull align 8 dereferenceable(8) %1)
-  br i1 %29, label %30, label %.thread22
+  br i1 %29, label %30, label %.thread25
 
 30:                                               ; preds = %28, %_ZN4cvc58internal12NodeTemplateILb0EEaSERKS2_.exit
   %.08 = phi i1 [ %27, %_ZN4cvc58internal12NodeTemplateILb0EEaSERKS2_.exit ], [ true, %28 ]
@@ -393,12 +393,12 @@ _ZN4cvc58internal12NodeTemplateILb0EEaSERKS2_.exit14: ; preds = %36, %42
   br i1 %.08, label %46, label %.thread
 
 .thread:                                          ; preds = %_ZN4cvc58internal12NodeTemplateILb0EEaSERKS2_.exit14
-  br i1 %19, label %53, label %.thread22
+  br i1 %19, label %53, label %.thread25
 
 44:                                               ; preds = %30
   %45 = call noundef zeroext i1 @_ZNK4cvc58internal12NodeTemplateILb0EE7isConstEv(ptr noundef nonnull align 8 dereferenceable(8) %2)
   %or.cond = and i1 %45, %.08
-  br i1 %or.cond, label %48, label %.thread22
+  br i1 %or.cond, label %48, label %.thread25
 
 46:                                               ; preds = %_ZN4cvc58internal12NodeTemplateILb0EEaSERKS2_.exit14
   %47 = call noundef zeroext i1 @_ZNK4cvc58internal12NodeTemplateILb0EE7isConstEv(ptr noundef nonnull align 8 dereferenceable(8) %2)
@@ -408,10 +408,10 @@ _ZN4cvc58internal12NodeTemplateILb0EEaSERKS2_.exit14: ; preds = %36, %42
   %49 = load ptr, ptr %1, align 8, !tbaa !45
   %50 = load ptr, ptr %2, align 8, !tbaa !45
   %51 = icmp ne ptr %49, %50
-  br label %.thread22
+  br label %.thread25
 
 52:                                               ; preds = %46
-  br i1 %19, label %._crit_edge, label %.thread22
+  br i1 %19, label %._crit_edge, label %.thread25
 
 ._crit_edge:                                      ; preds = %52
   %.pre = load ptr, ptr %2, align 8, !tbaa !45
@@ -425,9 +425,9 @@ _ZN4cvc58internal12NodeTemplateILb0EEaSERKS2_.exit14: ; preds = %36, %42
   store ptr %57, ptr %10, align 8, !tbaa !45
   store ptr %54, ptr %11, align 8, !tbaa !45
   %58 = call noundef zeroext i1 @_ZNK4cvc58internal6theory2eq14EqualityEngine11areDisequalENS0_12NodeTemplateILb0EEES5_b(ptr noundef nonnull align 8 dereferenceable(1784) %56, ptr noundef nonnull %10, ptr noundef nonnull %11, i1 noundef zeroext false)
-  br label %.thread22
+  br label %.thread25
 
-.thread22:                                        ; preds = %53, %.thread, %48, %28, %44, %52, %3
+.thread25:                                        ; preds = %53, %.thread, %48, %28, %44, %52, %3
   %.010 = phi i1 [ false, %3 ], [ %51, %48 ], [ false, %28 ], [ false, %44 ], [ false, %52 ], [ false, %.thread ], [ %58, %53 ]
   ret i1 %.010
 }

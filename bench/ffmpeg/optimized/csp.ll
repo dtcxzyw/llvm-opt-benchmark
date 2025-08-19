@@ -182,7 +182,7 @@ define i32 @av_csp_primaries_id_from_desc(ptr noundef readonly captures(none) %0
 av_cmp_q.exit:                                    ; preds = %62, %71
   %.0.i = phi i32 [ %67, %62 ], [ %72, %71 ]
   %73 = icmp slt i32 %.0.i, 0
-  br i1 %73, label %av_cmp_q.exit.thread.split.loop.exit109, label %av_cmp_q.exit.thread103
+  br i1 %73, label %av_cmp_q.exit.thread.split.loop.exit110, label %av_cmp_q.exit.thread103
 
 av_cmp_q.exit.thread103:                          ; preds = %68, %9, %av_cmp_q.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -193,12 +193,12 @@ av_cmp_q.exit.thread.split.loop.exit:             ; preds = %70
   %74 = trunc nuw nsw i64 %indvars.iv to i32
   br label %av_cmp_q.exit.thread
 
-av_cmp_q.exit.thread.split.loop.exit109:          ; preds = %av_cmp_q.exit
+av_cmp_q.exit.thread.split.loop.exit110:          ; preds = %av_cmp_q.exit
   %75 = trunc nuw nsw i64 %indvars.iv to i32
   br label %av_cmp_q.exit.thread
 
-av_cmp_q.exit.thread:                             ; preds = %av_cmp_q.exit.thread103, %av_cmp_q.exit.thread.split.loop.exit109, %av_cmp_q.exit.thread.split.loop.exit
-  %spec.select = phi i32 [ %74, %av_cmp_q.exit.thread.split.loop.exit ], [ %75, %av_cmp_q.exit.thread.split.loop.exit109 ], [ 2, %av_cmp_q.exit.thread103 ]
+av_cmp_q.exit.thread:                             ; preds = %av_cmp_q.exit.thread103, %av_cmp_q.exit.thread.split.loop.exit110, %av_cmp_q.exit.thread.split.loop.exit
+  %spec.select = phi i32 [ %74, %av_cmp_q.exit.thread.split.loop.exit ], [ %75, %av_cmp_q.exit.thread.split.loop.exit110 ], [ 2, %av_cmp_q.exit.thread103 ]
   ret i32 %spec.select
 }
 

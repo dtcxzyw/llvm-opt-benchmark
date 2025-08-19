@@ -1739,12 +1739,12 @@ if.then.i.i.i464:                                 ; preds = %ehcleanup248
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit469
 
 _ZNSt6vectorIdSaIdEED2Ev.exit469:                 ; preds = %ehcleanup248.thread, %ehcleanup248, %if.then.i.i.i464
-  %.pn28.pn.pn.pn.pn.pn551 = phi { ptr, i32 } [ %183, %ehcleanup248.thread ], [ %.pn28.pn.pn.pn.pn, %ehcleanup248 ], [ %.pn28.pn.pn.pn.pn, %if.then.i.i.i464 ]
+  %.pn28.pn.pn.pn.pn.pn621 = phi { ptr, i32 } [ %183, %ehcleanup248.thread ], [ %.pn28.pn.pn.pn.pn, %ehcleanup248 ], [ %.pn28.pn.pn.pn.pn, %if.then.i.i.i464 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %mergedEvolutionTimes)
   br label %ehcleanup251
 
 ehcleanup251:                                     ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit469, %ehcleanup120, %ehcleanup91
-  %.pn28.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn28.pn.pn.pn.pn.pn551, %_ZNSt6vectorIdSaIdEED2Ev.exit469 ], [ %.pn22.pn.pn.pn.pn, %ehcleanup120 ], [ %.pn.pn.pn.pn.pn.pn.pn, %ehcleanup91 ]
+  %.pn28.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn28.pn.pn.pn.pn.pn621, %_ZNSt6vectorIdSaIdEED2Ev.exit469 ], [ %.pn22.pn.pn.pn.pn, %ehcleanup120 ], [ %.pn.pn.pn.pn.pn.pn.pn, %ehcleanup91 ]
   %201 = load ptr, ptr %ref.tmp, align 8, !tbaa !51
   %tobool.not.i.i.i471 = icmp eq ptr %201, null
   br i1 %tobool.not.i.i.i471, label %_ZNSt6vectorIdSaIdEED2Ev.exit477, label %if.then.i.i.i472

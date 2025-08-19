@@ -661,8 +661,8 @@ _ZNK4llvm19MachineRegisterInfo15reg_nodbg_emptyENS_8RegisterE.exit: ; preds = %3
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 68
   %66 = load i16, ptr %65, align 4, !tbaa !174
   %67 = add i16 %66, -1
-  %spec.select.i106 = icmp ult i16 %67, 2
-  br i1 %spec.select.i106, label %._crit_edge, label %.preheader.preheader
+  %spec.select.i117 = icmp ult i16 %67, 2
+  br i1 %spec.select.i117, label %._crit_edge, label %.preheader.preheader
 
 .lr.ph.loopexit:                                  ; preds = %77
   %68 = getelementptr inbounds nuw i8, ptr %76, i64 8
@@ -675,11 +675,11 @@ _ZNK4llvm19MachineRegisterInfo15reg_nodbg_emptyENS_8RegisterE.exit: ; preds = %3
 
 .preheader.preheader:                             ; preds = %.lr.ph.preheader, %.lr.ph.loopexit
   %73 = phi ptr [ %69, %.lr.ph.loopexit ], [ %64, %.lr.ph.preheader ]
-  %.sroa.069.085107 = phi ptr [ %76, %.lr.ph.loopexit ], [ %.0.i.i.i48, %.lr.ph.preheader ]
+  %.sroa.069.085118 = phi ptr [ %76, %.lr.ph.loopexit ], [ %.0.i.i.i48, %.lr.ph.preheader ]
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %77
-  %74 = phi ptr [ %76, %77 ], [ %.sroa.069.085107, %.preheader.preheader ]
+  %74 = phi ptr [ %76, %77 ], [ %.sroa.069.085118, %.preheader.preheader ]
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 24
   %76 = load ptr, ptr %75, align 8, !tbaa !49
   %.not.i = icmp eq ptr %76, null

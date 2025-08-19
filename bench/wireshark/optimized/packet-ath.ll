@@ -351,16 +351,16 @@ define internal i32 @dissect_ath(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br label %175
 
 145:                                              ; preds = %139, %76
-  %.sink241 = phi i32 [ %141, %139 ], [ %78, %76 ]
+  %.sink245 = phi i32 [ %141, %139 ], [ %78, %76 ]
   %.1211 = phi ptr [ %.2212, %139 ], [ %.0210, %76 ]
   %.1208 = phi ptr [ %.2209, %139 ], [ %.0207, %76 ]
   %.1 = phi ptr [ %.2, %139 ], [ %.0206, %76 ]
   %146 = load i32, ptr @hf_ath_unique, align 4
-  %147 = call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %146, ptr noundef %0, i32 noundef %.sink241, i32 noundef 16, i32 noundef 0)
-  %148 = add i32 %.sink241, 16
+  %147 = call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %146, ptr noundef %0, i32 noundef %.sink245, i32 noundef 16, i32 noundef 0)
+  %148 = add i32 %.sink245, 16
   %149 = load i32, ptr @hf_ath_plen, align 4
   %150 = call ptr @proto_tree_add_item_ret_int(ptr noundef %16, i32 noundef %149, ptr noundef %0, i32 noundef %148, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %7)
-  %151 = add i32 %.sink241, 20
+  %151 = add i32 %.sink245, 20
   %152 = load i32, ptr @hf_ath_payload, align 4
   %153 = load i32, ptr %7, align 4
   %154 = call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %152, ptr noundef %0, i32 noundef %151, i32 noundef %153, i32 noundef 0)

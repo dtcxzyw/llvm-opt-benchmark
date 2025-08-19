@@ -135,7 +135,7 @@ define hidden noundef ptr @_ZN8DivINode5IdealEP8PhaseGVNb(ptr noundef nonnull al
   br i1 %13, label %68, label %.thread
 
 .thread:                                          ; preds = %3, %10, %9
-  %.not1828 = phi i1 [ false, %10 ], [ true, %9 ], [ true, %3 ]
+  %.not1834 = phi i1 [ false, %10 ], [ true, %9 ], [ true, %3 ]
   %14 = phi ptr [ %.pre, %10 ], [ %.pre, %9 ], [ %5, %3 ]
   %15 = phi ptr [ %.pre22, %10 ], [ null, %9 ], [ null, %3 ]
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 16
@@ -162,7 +162,7 @@ define hidden noundef ptr @_ZN8DivINode5IdealEP8PhaseGVNb(ptr noundef nonnull al
   br i1 %.not19, label %68, label %33
 
 33:                                               ; preds = %29
-  br i1 %.not1828, label %._crit_edge23, label %34
+  br i1 %.not1834, label %._crit_edge23, label %34
 
 ._crit_edge23:                                    ; preds = %33
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %26, i64 24
@@ -602,7 +602,7 @@ _ZN4NodenwEm.exit126:                             ; preds = %208, %210
   %220 = xor i32 %219, 2147483647
   %221 = udiv i32 -2147483648, %220
   %222 = mul i32 %221, %220
-  %.recomposed179 = urem i32 -2147483648, %220
+  %.recomposed197 = urem i32 -2147483648, %220
   %223 = udiv i32 -2147483648, %5
   %224 = mul i32 %223, %5
   %.recomposed = urem i32 -2147483648, %5
@@ -610,7 +610,7 @@ _ZN4NodenwEm.exit126:                             ; preds = %208, %210
 
 .critedge.i:                                      ; preds = %.critedge.i.backedge, %218
   %.049.i = phi i32 [ %221, %218 ], [ %.150.i, %.critedge.i.backedge ]
-  %.047.i = phi i32 [ %.recomposed179, %218 ], [ %.047.i.be, %.critedge.i.backedge ]
+  %.047.i = phi i32 [ %.recomposed197, %218 ], [ %.047.i.be, %.critedge.i.backedge ]
   %.045.i = phi i32 [ %223, %218 ], [ %.146.i, %.critedge.i.backedge ]
   %.044.i = phi i32 [ %.recomposed, %218 ], [ %.1.i, %.critedge.i.backedge ]
   %.043.i = phi i32 [ 31, %218 ], [ %225, %.critedge.i.backedge ]
@@ -1182,14 +1182,14 @@ _ZN4NodenwEm.exit164:                             ; preds = %536, %538
   br label %_ZL26magic_int_divide_constantsiRiS_.exit.thread.sink.split
 
 _ZL26magic_int_divide_constantsiRiS_.exit.thread.sink.split: ; preds = %29, %213, %541
-  %.0.i.i.i163.sink178 = phi ptr [ %.0.i.i.i163, %541 ], [ %.0.i.i.i125, %213 ], [ %.0.i.i.i, %29 ]
-  %542 = getelementptr inbounds nuw i8, ptr %.0.i.i.i163.sink178, i64 44
+  %.0.i.i.i163.sink196 = phi ptr [ %.0.i.i.i163, %541 ], [ %.0.i.i.i125, %213 ], [ %.0.i.i.i, %29 ]
+  %542 = getelementptr inbounds nuw i8, ptr %.0.i.i.i163.sink196, i64 44
   store i32 64, ptr %542, align 4
-  store ptr getelementptr inbounds nuw inrange(-16, 208) (i8, ptr @_ZTV8SubINode, i64 16), ptr %.0.i.i.i163.sink178, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 208) (i8, ptr @_ZTV8SubINode, i64 16), ptr %.0.i.i.i163.sink196, align 8
   br label %_ZL26magic_int_divide_constantsiRiS_.exit.thread
 
 _ZL26magic_int_divide_constantsiRiS_.exit.thread: ; preds = %_ZL26magic_int_divide_constantsiRiS_.exit.thread.sink.split, %31, %_ZN4NodenwEm.exit164, %_ZN4NodenwEm.exit126, %_ZN4NodenwEm.exit, %192, %7
-  %.082 = phi ptr [ null, %7 ], [ %.0.i.i.i122, %192 ], [ null, %_ZN4NodenwEm.exit ], [ null, %_ZN4NodenwEm.exit126 ], [ null, %_ZN4NodenwEm.exit164 ], [ null, %31 ], [ %.0.i.i.i163.sink178, %_ZL26magic_int_divide_constantsiRiS_.exit.thread.sink.split ]
+  %.082 = phi ptr [ null, %7 ], [ %.0.i.i.i122, %192 ], [ null, %_ZN4NodenwEm.exit ], [ null, %_ZN4NodenwEm.exit126 ], [ null, %_ZN4NodenwEm.exit164 ], [ null, %31 ], [ %.0.i.i.i163.sink196, %_ZL26magic_int_divide_constantsiRiS_.exit.thread.sink.split ]
   ret ptr %.082
 }
 
@@ -1280,10 +1280,10 @@ define hidden noundef ptr @_ZNK8DivINode5ValueEP8PhaseGVN(ptr noundef nonnull al
   %64 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %65 = load i32, ptr %64, align 8
   %66 = icmp eq i32 %65, -2147483648
-  %or.cond58 = select i1 %63, i1 %66, i1 false
+  %or.cond64 = select i1 %63, i1 %66, i1 false
   %67 = getelementptr inbounds nuw i8, ptr %15, i64 28
   %68 = load i32, ptr %67, align 4
-  br i1 %or.cond58, label %69, label %._crit_edge
+  br i1 %or.cond64, label %69, label %._crit_edge
 
 69:                                               ; preds = %62
   %70 = icmp eq i32 %68, -2147483648
@@ -1402,7 +1402,7 @@ define hidden noundef ptr @_ZN8DivLNode5IdealEP8PhaseGVNb(ptr noundef nonnull al
   br i1 %13, label %68, label %.thread
 
 .thread:                                          ; preds = %3, %10, %9
-  %.not1828 = phi i1 [ false, %10 ], [ true, %9 ], [ true, %3 ]
+  %.not1834 = phi i1 [ false, %10 ], [ true, %9 ], [ true, %3 ]
   %14 = phi ptr [ %.pre, %10 ], [ %.pre, %9 ], [ %5, %3 ]
   %15 = phi ptr [ %.pre22, %10 ], [ null, %9 ], [ null, %3 ]
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 16
@@ -1429,7 +1429,7 @@ define hidden noundef ptr @_ZN8DivLNode5IdealEP8PhaseGVNb(ptr noundef nonnull al
   br i1 %.not19, label %68, label %33
 
 33:                                               ; preds = %29
-  br i1 %.not1828, label %._crit_edge23, label %34
+  br i1 %.not1834, label %._crit_edge23, label %34
 
 ._crit_edge23:                                    ; preds = %33
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %26, i64 24
@@ -1882,7 +1882,7 @@ _ZN4NodenwEm.exit109:                             ; preds = %210, %212
   %226 = xor i64 %225, 9223372036854775807
   %227 = udiv i64 -9223372036854775808, %226
   %228 = mul i64 %227, %226
-  %.recomposed138 = urem i64 -9223372036854775808, %226
+  %.recomposed160 = urem i64 -9223372036854775808, %226
   %229 = udiv i64 -9223372036854775808, %5
   %230 = mul i64 %229, %5
   %.recomposed = urem i64 -9223372036854775808, %5
@@ -1890,7 +1890,7 @@ _ZN4NodenwEm.exit109:                             ; preds = %210, %212
 
 .critedge.i:                                      ; preds = %.critedge.i.backedge, %224
   %.049.i = phi i64 [ %227, %224 ], [ %.150.i, %.critedge.i.backedge ]
-  %.047.i = phi i64 [ %.recomposed138, %224 ], [ %.047.i.be, %.critedge.i.backedge ]
+  %.047.i = phi i64 [ %.recomposed160, %224 ], [ %.047.i.be, %.critedge.i.backedge ]
   %.045.i = phi i64 [ %229, %224 ], [ %.146.i, %.critedge.i.backedge ]
   %.044.i = phi i64 [ %.recomposed, %224 ], [ %.1.i, %.critedge.i.backedge ]
   %.043.i = phi i32 [ 63, %224 ], [ %231, %.critedge.i.backedge ]
@@ -3020,10 +3020,10 @@ define hidden noundef ptr @_ZNK8DivLNode5ValueEP8PhaseGVN(ptr noundef nonnull al
   %64 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %65 = load i64, ptr %64, align 8
   %66 = icmp eq i64 %65, -9223372036854775808
-  %or.cond58 = select i1 %63, i1 %66, i1 false
+  %or.cond64 = select i1 %63, i1 %66, i1 false
   %67 = getelementptr inbounds nuw i8, ptr %15, i64 32
   %68 = load i64, ptr %67, align 8
-  br i1 %or.cond58, label %69, label %._crit_edge
+  br i1 %or.cond64, label %69, label %._crit_edge
 
 69:                                               ; preds = %62
   %70 = icmp eq i64 %68, -9223372036854775808
@@ -3887,7 +3887,7 @@ define hidden noundef ptr @_ZN8ModINode5IdealEP8PhaseGVNb(ptr noundef nonnull al
   br i1 %13, label %362, label %.thread
 
 .thread:                                          ; preds = %3, %10, %9
-  %.not122159 = phi i1 [ false, %10 ], [ true, %9 ], [ true, %3 ]
+  %.not122187 = phi i1 [ false, %10 ], [ true, %9 ], [ true, %3 ]
   %14 = phi ptr [ %.pre, %10 ], [ %.pre, %9 ], [ %5, %3 ]
   %15 = phi ptr [ %.pre150, %10 ], [ null, %9 ], [ null, %3 ]
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 16
@@ -3906,7 +3906,7 @@ define hidden noundef ptr @_ZN8ModINode5IdealEP8PhaseGVNb(ptr noundef nonnull al
   br i1 %28, label %362, label %29
 
 29:                                               ; preds = %.thread
-  br i1 %.not122159, label %._crit_edge151, label %30
+  br i1 %.not122187, label %._crit_edge151, label %30
 
 ._crit_edge151:                                   ; preds = %29
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %26, i64 24
@@ -4483,14 +4483,14 @@ _Z13is_power_of_2IiTnNSt9enable_ifIXcvbsr3std11is_integralIT_EE5valueEiE4typeELi
 
 .sink.split:                                      ; preds = %341
   %347 = icmp sgt i32 %.098, -1
-  %.167 = select i1 %347, ptr getelementptr inbounds nuw inrange(-16, 192) (i8, ptr @_ZTV11LShiftINode, i64 16), ptr getelementptr inbounds nuw inrange(-16, 248) (i8, ptr @_ZTV8MulINode, i64 16)
+  %.195 = select i1 %347, ptr getelementptr inbounds nuw inrange(-16, 192) (i8, ptr @_ZTV11LShiftINode, i64 16), ptr getelementptr inbounds nuw inrange(-16, 248) (i8, ptr @_ZTV8MulINode, i64 16)
   %. = select i1 %347, i32 1048576, i32 4096
   %.098. = select i1 %347, i32 %.098, i32 %280
   %348 = tail call noundef ptr @_ZN11PhaseValues6intconEi(ptr noundef nonnull align 8 dereferenceable(2400) %1, i32 noundef %.098.) #7
   tail call void @_ZN4NodeC2EPS_S0_S0_(ptr noundef nonnull align 8 dereferenceable(52) %345, ptr noundef null, ptr noundef %344, ptr noundef %348) #7
   %349 = getelementptr inbounds nuw i8, ptr %345, i64 44
   store i32 %., ptr %349, align 4
-  store ptr %.167, ptr %345, align 8
+  store ptr %.195, ptr %345, align 8
   br label %350
 
 350:                                              ; preds = %341, %.sink.split
@@ -4798,7 +4798,7 @@ define hidden noundef ptr @_ZN8ModLNode5IdealEP8PhaseGVNb(ptr noundef nonnull al
   br i1 %13, label %368, label %.thread
 
 .thread:                                          ; preds = %3, %10, %9
-  %.not122159 = phi i1 [ false, %10 ], [ true, %9 ], [ true, %3 ]
+  %.not122187 = phi i1 [ false, %10 ], [ true, %9 ], [ true, %3 ]
   %14 = phi ptr [ %.pre, %10 ], [ %.pre, %9 ], [ %5, %3 ]
   %15 = phi ptr [ %.pre150, %10 ], [ null, %9 ], [ null, %3 ]
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 16
@@ -4817,7 +4817,7 @@ define hidden noundef ptr @_ZN8ModLNode5IdealEP8PhaseGVNb(ptr noundef nonnull al
   br i1 %28, label %368, label %29
 
 29:                                               ; preds = %.thread
-  br i1 %.not122159, label %._crit_edge151, label %30
+  br i1 %.not122187, label %._crit_edge151, label %30
 
 ._crit_edge151:                                   ; preds = %29
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %26, i64 24
@@ -5409,12 +5409,12 @@ _Z13is_power_of_2IlTnNSt9enable_ifIXcvbsr3std11is_integralIT_EE5valueEiE4typeELi
   br label %.sink.split
 
 .sink.split:                                      ; preds = %350, %353
-  %.sink165 = phi ptr [ %354, %353 ], [ %351, %350 ]
-  %.sink163 = phi i32 [ 4096, %353 ], [ 1048576, %350 ]
+  %.sink193 = phi ptr [ %354, %353 ], [ %351, %350 ]
+  %.sink191 = phi i32 [ 4096, %353 ], [ 1048576, %350 ]
   %.sink = phi ptr [ getelementptr inbounds nuw inrange(-16, 248) (i8, ptr @_ZTV8MulLNode, i64 16), %353 ], [ getelementptr inbounds nuw inrange(-16, 192) (i8, ptr @_ZTV11LShiftLNode, i64 16), %350 ]
-  tail call void @_ZN4NodeC2EPS_S0_S0_(ptr noundef nonnull align 8 dereferenceable(52) %347, ptr noundef null, ptr noundef %345, ptr noundef %.sink165) #7
+  tail call void @_ZN4NodeC2EPS_S0_S0_(ptr noundef nonnull align 8 dereferenceable(52) %347, ptr noundef null, ptr noundef %345, ptr noundef %.sink193) #7
   %355 = getelementptr inbounds nuw i8, ptr %347, i64 44
-  store i32 %.sink163, ptr %355, align 4
+  store i32 %.sink191, ptr %355, align 4
   store ptr %.sink, ptr %347, align 8
   br label %356
 

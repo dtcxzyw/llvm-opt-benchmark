@@ -242,13 +242,13 @@ switch.lookup:                                    ; preds = %87
   %switch.gep = getelementptr inbounds nuw [10 x i32], ptr @switch.table.observer_open, i64 0, i64 %93
   %switch.load = load i32, ptr %switch.gep, align 4
   %94 = zext nneg i8 %89 to i64
-  %switch.gep156 = getelementptr inbounds nuw [10 x i8], ptr @switch.table.observer_open.1, i64 0, i64 %94
-  %switch.load157 = load i8, ptr %switch.gep156, align 1
+  %switch.gep163 = getelementptr inbounds nuw [10 x i8], ptr @switch.table.observer_open.1, i64 0, i64 %94
+  %switch.load164 = load i8, ptr %switch.gep163, align 1
   %95 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store i32 %switch.load, ptr %95, align 8
   store i64 0, ptr %25, align 8
   %96 = getelementptr inbounds nuw i8, ptr %25, i64 8
-  store i8 %switch.load157, ptr %96, align 8
+  store i8 %switch.load164, ptr %96, align 8
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store ptr @observer_read, ptr %97, align 8
   %98 = getelementptr inbounds nuw i8, ptr %0, i64 120
@@ -744,16 +744,16 @@ define internal fastcc i32 @read_packet_header(ptr noundef readonly captures(non
 
 70:                                               ; preds = %58, %58, %58, %58, %58, %58, %58, %58
   %71 = icmp ult i8 %64, 15
-  %.135 = select i1 %71, i32 6, i32 5
-  %.136 = select i1 %71, i8 -2, i8 -4
+  %.138 = select i1 %71, i32 6, i32 5
+  %.139 = select i1 %71, i8 -2, i8 -4
   br label %.sink.split
 
 .sink.split:                                      ; preds = %70, %58, %58, %58, %58, %58, %58
-  %.sink = phi i32 [ 4, %58 ], [ 4, %58 ], [ 4, %58 ], [ 4, %58 ], [ 4, %58 ], [ 4, %58 ], [ %.135, %70 ]
-  %.sink133 = phi i8 [ -2, %58 ], [ -2, %58 ], [ -2, %58 ], [ -2, %58 ], [ -2, %58 ], [ -2, %58 ], [ %.136, %70 ]
+  %.sink = phi i32 [ 4, %58 ], [ 4, %58 ], [ 4, %58 ], [ 4, %58 ], [ 4, %58 ], [ 4, %58 ], [ %.138, %70 ]
+  %.sink136 = phi i8 [ -2, %58 ], [ -2, %58 ], [ -2, %58 ], [ -2, %58 ], [ -2, %58 ], [ -2, %58 ], [ %.139, %70 ]
   store i32 %.sink, ptr %40, align 8
   %72 = load i8, ptr %41, align 4
-  %73 = and i8 %72, %.sink133
+  %73 = and i8 %72, %.sink136
   store i8 %73, ptr %41, align 4
   br label %77
 
@@ -766,8 +766,8 @@ define internal fastcc i32 @read_packet_header(ptr noundef readonly captures(non
   br i1 %76, label %77, label %.critedge
 
 77:                                               ; preds = %74, %75, %58, %.sink.split
-  %.sink134 = phi i32 [ 12, %.sink.split ], [ 12, %58 ], [ %47, %75 ], [ %47, %74 ]
-  %78 = add i32 %.0103117, %.sink134
+  %.sink137 = phi i32 [ 12, %.sink.split ], [ 12, %58 ], [ %47, %75 ], [ %47, %74 ]
+  %78 = add i32 %.0103117, %.sink137
   %79 = add nuw nsw i32 %.1102118, 1
   %80 = load i8, ptr %28, align 2
   %81 = zext i8 %80 to i32

@@ -250,9 +250,9 @@ define range(i32 -2147483648, 1) i32 @ff_vlc_init_sparse(ptr noundef initializes
   br label %122
 
 122:                                              ; preds = %112, %115, %117, %120
-  %.sink453 = phi i16 [ %114, %112 ], [ %116, %115 ], [ %119, %117 ], [ %121, %120 ]
+  %.sink469 = phi i16 [ %114, %112 ], [ %116, %115 ], [ %119, %117 ], [ %121, %120 ]
   %123 = getelementptr inbounds %struct.VLCcode, ptr %.1.ph, i64 %54, i32 1
-  store i16 %.sink453, ptr %123, align 2, !tbaa !21
+  store i16 %.sink469, ptr %123, align 2, !tbaa !21
   %124 = add nsw i32 %.0231383, 1
   br label %125
 
@@ -343,8 +343,8 @@ define range(i32 -2147483648, 1) i32 @ff_vlc_init_sparse(ptr noundef initializes
   br label %.sink.split
 
 .sink.split:                                      ; preds = %162, %160, %166
-  %.sink455 = phi i64 [ %167, %166 ], [ %161, %160 ], [ %163, %162 ]
-  store i64 %.sink455, ptr %.0251396, align 4
+  %.sink471 = phi i64 [ %167, %166 ], [ %161, %160 ], [ %163, %162 ]
+  store i64 %.sink471, ptr %.0251396, align 4
   br label %169
 
 169:                                              ; preds = %.sink.split, %164
@@ -618,11 +618,11 @@ define range(i32 -2147483648, 1) i32 @ff_vlc_init_sparse(ptr noundef initializes
   br label %274
 
 274:                                              ; preds = %272, %269, %266
-  %.sink456 = phi i32 [ %273, %272 ], [ %271, %269 ], [ %268, %266 ]
+  %.sink472 = phi i32 [ %273, %272 ], [ %271, %269 ], [ %268, %266 ]
   %275 = getelementptr inbounds %struct.VLCcode, ptr %.1.ph, i64 %262, i32 2
-  store i32 %.sink456, ptr %275, align 4, !tbaa !20
+  store i32 %.sink472, ptr %275, align 4, !tbaa !20
   %276 = getelementptr inbounds nuw i8, ptr %263, i64 4
-  %277 = zext i32 %.sink456 to i64
+  %277 = zext i32 %.sink472 to i64
   %278 = zext nneg i32 %.0237 to i64
   %.highbits = lshr i64 %277, %278
   %.not285 = icmp eq i64 %.highbits, 0
@@ -630,7 +630,7 @@ define range(i32 -2147483648, 1) i32 @ff_vlc_init_sparse(ptr noundef initializes
 
 279:                                              ; preds = %274
   %280 = trunc nuw nsw i64 %indvars.iv432 to i32
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.4, i32 noundef %.sink456, i32 noundef %280) #8
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.4, i32 noundef %.sink472, i32 noundef %280) #8
   %.not287 = icmp eq ptr %.1.ph, %14
   br i1 %.not287, label %vlc_common_init.exit, label %281
 
@@ -642,13 +642,13 @@ define range(i32 -2147483648, 1) i32 @ff_vlc_init_sparse(ptr noundef initializes
   br i1 %.not286, label %313, label %283
 
 283:                                              ; preds = %282
-  %284 = and i32 %.sink456, 255
+  %284 = and i32 %.sink472, 255
   %285 = zext nneg i32 %284 to i64
   %286 = getelementptr inbounds nuw [256 x i8], ptr @ff_reverse, i64 0, i64 %285
   %287 = load i8, ptr %286, align 1, !tbaa !14
   %288 = zext i8 %287 to i32
   %289 = shl nuw i32 %288, 24
-  %290 = lshr i32 %.sink456, 8
+  %290 = lshr i32 %.sink472, 8
   %291 = and i32 %290, 255
   %292 = zext nneg i32 %291 to i64
   %293 = getelementptr inbounds nuw [256 x i8], ptr @ff_reverse, i64 0, i64 %292
@@ -656,7 +656,7 @@ define range(i32 -2147483648, 1) i32 @ff_vlc_init_sparse(ptr noundef initializes
   %295 = zext i8 %294 to i32
   %296 = shl nuw nsw i32 %295, 16
   %297 = or disjoint i32 %296, %289
-  %298 = lshr i32 %.sink456, 16
+  %298 = lshr i32 %.sink472, 16
   %299 = and i32 %298, 255
   %300 = zext nneg i32 %299 to i64
   %301 = getelementptr inbounds nuw [256 x i8], ptr @ff_reverse, i64 0, i64 %300
@@ -664,7 +664,7 @@ define range(i32 -2147483648, 1) i32 @ff_vlc_init_sparse(ptr noundef initializes
   %303 = zext i8 %302 to i32
   %304 = shl nuw nsw i32 %303, 8
   %305 = or disjoint i32 %297, %304
-  %306 = lshr i32 %.sink456, 24
+  %306 = lshr i32 %.sink472, 24
   %307 = zext nneg i32 %306 to i64
   %308 = getelementptr inbounds nuw [256 x i8], ptr @ff_reverse, i64 0, i64 %307
   %309 = load i8, ptr %308, align 1, !tbaa !14
@@ -676,7 +676,7 @@ define range(i32 -2147483648, 1) i32 @ff_vlc_init_sparse(ptr noundef initializes
 
 313:                                              ; preds = %282
   %314 = sub nuw nsw i32 32, %.0237
-  %315 = shl i32 %.sink456, %314
+  %315 = shl i32 %.sink472, %314
   store i32 %315, ptr %276, align 4, !tbaa !20
   br label %316
 
@@ -710,9 +710,9 @@ define range(i32 -2147483648, 1) i32 @ff_vlc_init_sparse(ptr noundef initializes
   br label %330
 
 330:                                              ; preds = %320, %323, %325, %328
-  %.sink458 = phi i16 [ %322, %320 ], [ %324, %323 ], [ %327, %325 ], [ %329, %328 ]
+  %.sink474 = phi i16 [ %322, %320 ], [ %324, %323 ], [ %327, %325 ], [ %329, %328 ]
   %331 = getelementptr inbounds %struct.VLCcode, ptr %.1.ph, i64 %262, i32 1
-  store i16 %.sink458, ptr %331, align 2, !tbaa !21
+  store i16 %.sink474, ptr %331, align 2, !tbaa !21
   %332 = add nsw i32 %.3234408, 1
   br label %333
 
@@ -834,7 +834,7 @@ vlc_common_init.exit:                             ; preds = %17, %20
   br i1 %27, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %24, %vlc_common_init.exit
-  %.172103 = phi ptr [ %12, %vlc_common_init.exit ], [ %26, %24 ]
+  %.172114 = phi ptr [ %12, %vlc_common_init.exit ], [ %26, %24 ]
   %.not = icmp eq ptr %5, null
   %28 = sext i32 %4 to i64
   br i1 %.not, label %.lr.ph.split.us, label %.lr.ph.split.preheader
@@ -864,15 +864,15 @@ vlc_common_init.exit:                             ; preds = %17, %20
 
 37:                                               ; preds = %.lr.ph.split.us
   %38 = sext i32 %.05586.us to i64
-  %39 = getelementptr inbounds %struct.VLCcode, ptr %.172103, i64 %38
+  %39 = getelementptr inbounds %struct.VLCcode, ptr %.172114, i64 %38
   store i8 %30, ptr %39, align 4, !tbaa !18
   %40 = add i32 %.05188.us, %8
   %41 = trunc i32 %40 to i16
-  %42 = getelementptr inbounds %struct.VLCcode, ptr %.172103, i64 %38, i32 1
+  %42 = getelementptr inbounds %struct.VLCcode, ptr %.172114, i64 %38, i32 1
   store i16 %41, ptr %42, align 2, !tbaa !21
   %43 = trunc i64 %.05785.us to i32
   %44 = add nsw i32 %.05586.us, 1
-  %45 = getelementptr inbounds %struct.VLCcode, ptr %.172103, i64 %38, i32 2
+  %45 = getelementptr inbounds %struct.VLCcode, ptr %.172114, i64 %38, i32 2
   store i32 %43, ptr %45, align 4, !tbaa !20
   br label %46
 
@@ -917,7 +917,7 @@ vlc_common_init.exit:                             ; preds = %17, %20
 
 64:                                               ; preds = %.lr.ph.split
   %65 = sext i32 %.05586 to i64
-  %66 = getelementptr inbounds %struct.VLCcode, ptr %.172103, i64 %65
+  %66 = getelementptr inbounds %struct.VLCcode, ptr %.172114, i64 %65
   store i8 %61, ptr %66, align 4, !tbaa !18
   %67 = mul nsw i64 %indvars.iv, %29
   %68 = getelementptr inbounds i8, ptr %5, i64 %67
@@ -944,11 +944,11 @@ vlc_common_init.exit:                             ; preds = %17, %20
   %.1 = phi i32 [ %76, %75 ], [ %71, %69 ], [ %74, %72 ]
   %78 = add i32 %.1, %8
   %79 = trunc i32 %78 to i16
-  %80 = getelementptr inbounds %struct.VLCcode, ptr %.172103, i64 %65, i32 1
+  %80 = getelementptr inbounds %struct.VLCcode, ptr %.172114, i64 %65, i32 1
   store i16 %79, ptr %80, align 2, !tbaa !21
   %81 = trunc i64 %.05785 to i32
   %82 = add nsw i32 %.05586, 1
-  %83 = getelementptr inbounds %struct.VLCcode, ptr %.172103, i64 %65, i32 2
+  %83 = getelementptr inbounds %struct.VLCcode, ptr %.172114, i64 %65, i32 2
   store i32 %81, ptr %83, align 4, !tbaa !20
   br label %88
 
@@ -999,17 +999,17 @@ vlc_common_init.exit:                             ; preds = %17, %20
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !31
 
 ._crit_edge:                                      ; preds = %100, %58, %vlc_common_init.exit
-  %.172104 = phi ptr [ %12, %vlc_common_init.exit ], [ %.172103, %58 ], [ %.172103, %100 ]
+  %.172115 = phi ptr [ %12, %vlc_common_init.exit ], [ %.172114, %58 ], [ %.172114, %100 ]
   %.055.lcssa = phi i32 [ 0, %vlc_common_init.exit ], [ %.3.us, %58 ], [ %.3, %100 ]
-  %102 = call fastcc i32 @vlc_common_end(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %.055.lcssa, ptr noundef nonnull %.172104, i32 noundef %9, ptr noundef nonnull %12)
+  %102 = call fastcc i32 @vlc_common_end(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %.055.lcssa, ptr noundef nonnull %.172115, i32 noundef %9, ptr noundef nonnull %12)
   br label %vlc_common_init.exit.thread
 
 103:                                              ; preds = %.split92.us, %.split.us
-  %.not67 = icmp eq ptr %.172103, %12
+  %.not67 = icmp eq ptr %.172114, %12
   br i1 %.not67, label %vlc_common_init.exit.thread, label %104
 
 104:                                              ; preds = %103
-  call void @av_free(ptr noundef nonnull %.172103) #8
+  call void @av_free(ptr noundef nonnull %.172114) #8
   br label %vlc_common_init.exit.thread
 
 vlc_common_init.exit.thread:                      ; preds = %24, %103, %104, %._crit_edge
@@ -1463,10 +1463,10 @@ vlc_common_end.exit:                              ; preds = %92
   br i1 %exitcond.not.i, label %vlc_multi_gen.exit, label %.lr.ph104.split.i, !llvm.loop !45
 
 vlc_multi_gen.exit:                               ; preds = %.lr.ph104.split.us.i, %.lr.ph104.split.i, %95
-  %.076.lcssa137.i = phi i32 [ %.067.lcssa, %95 ], [ %.076.lcssa.i, %.lr.ph104.split.i ], [ %.076.lcssa.i, %.lr.ph104.split.us.i ]
-  %.075.lcssa127130136.i = phi i32 [ 32, %95 ], [ %.075.lcssa.i108111, %.lr.ph104.split.i ], [ %.075.lcssa.i108111, %.lr.ph104.split.us.i ]
-  %.077.lcssa126131135.i = phi i32 [ 0, %95 ], [ %.077.lcssa.i107112, %.lr.ph104.split.i ], [ %.077.lcssa.i107112, %.lr.ph104.split.us.i ]
-  call fastcc void @add_level(ptr noundef %96, i32 noundef range(i32 0, 2) %98, i32 noundef %.067.lcssa, i32 noundef %2, ptr noundef nonnull readonly %.192.ph, i32 noundef 0, i32 noundef 0, i32 noundef %.077.lcssa126131135.i, i32 noundef 0, i32 noundef %.075.lcssa127130136.i, i32 noundef %.076.lcssa137.i, ptr noundef %14, i64 0)
+  %.076.lcssa140.i = phi i32 [ %.067.lcssa, %95 ], [ %.076.lcssa.i, %.lr.ph104.split.i ], [ %.076.lcssa.i, %.lr.ph104.split.us.i ]
+  %.075.lcssa130133139.i = phi i32 [ 32, %95 ], [ %.075.lcssa.i108111, %.lr.ph104.split.i ], [ %.075.lcssa.i108111, %.lr.ph104.split.us.i ]
+  %.077.lcssa129134138.i = phi i32 [ 0, %95 ], [ %.077.lcssa.i107112, %.lr.ph104.split.i ], [ %.077.lcssa.i107112, %.lr.ph104.split.us.i ]
+  call fastcc void @add_level(ptr noundef %96, i32 noundef range(i32 0, 2) %98, i32 noundef %.067.lcssa, i32 noundef %2, ptr noundef nonnull readonly %.192.ph, i32 noundef 0, i32 noundef 0, i32 noundef %.077.lcssa129134138.i, i32 noundef 0, i32 noundef %.075.lcssa130133139.i, i32 noundef %.076.lcssa140.i, ptr noundef %14, i64 0)
   %161 = load i32, ptr %14, align 16, !tbaa !17
   %162 = getelementptr inbounds nuw i8, ptr %14, i64 4
   %163 = load i32, ptr %162, align 4, !tbaa !17
@@ -1476,7 +1476,7 @@ vlc_multi_gen.exit:                               ; preds = %.lr.ph104.split.us.
   %167 = load i32, ptr %166, align 4, !tbaa !17
   %168 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %169 = load i32, ptr %168, align 16, !tbaa !17
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %12, i32 noundef 48, ptr noundef nonnull @.str.13, i32 noundef %161, i32 noundef %163, i32 noundef %165, i32 noundef %167, i32 noundef %169, i32 noundef %.075.lcssa127130136.i, i32 noundef %.076.lcssa137.i) #8
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %12, i32 noundef 48, ptr noundef nonnull @.str.13, i32 noundef %161, i32 noundef %163, i32 noundef %165, i32 noundef %167, i32 noundef %169, i32 noundef %.075.lcssa130133139.i, i32 noundef %.076.lcssa140.i) #8
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %.not81 = icmp eq ptr %.192.ph, %15
   br i1 %.not81, label %vlc_common_init.exit, label %170
@@ -1708,7 +1708,7 @@ alloc_table.exit:                                 ; preds = %7, %26
   %113 = zext i8 %112 to i32
   %114 = sub nsw i32 %113, %1
   %115 = icmp slt i32 %114, 1
-  br i1 %115, label %._crit_edge, label %.lr.ph253
+  br i1 %115, label %._crit_edge, label %.lr.ph263
 
 .lr.ph:                                           ; preds = %128
   %116 = getelementptr inbounds %struct.VLCcode, ptr %3, i64 %indvars.iv.next237
@@ -1717,38 +1717,38 @@ alloc_table.exit:                                 ; preds = %7, %26
   %119 = sub nsw i32 %118, %1
   %120 = icmp slt i32 %119, 1
   %121 = trunc nsw i64 %indvars.iv.next237 to i32
-  br i1 %120, label %._crit_edge, label %.lr.ph253, !llvm.loop !47
+  br i1 %120, label %._crit_edge, label %.lr.ph263, !llvm.loop !47
 
-.lr.ph253:                                        ; preds = %.lr.ph.preheader, %.lr.ph
+.lr.ph263:                                        ; preds = %.lr.ph.preheader, %.lr.ph
   %122 = phi i32 [ %121, %.lr.ph ], [ %.0133205, %.lr.ph.preheader ]
   %123 = phi i32 [ %119, %.lr.ph ], [ %114, %.lr.ph.preheader ]
   %124 = phi ptr [ %116, %.lr.ph ], [ %111, %.lr.ph.preheader ]
-  %.0135206252 = phi i32 [ %131, %.lr.ph ], [ %105, %.lr.ph.preheader ]
-  %.0133.in207251 = phi i32 [ %122, %.lr.ph ], [ %.0146220, %.lr.ph.preheader ]
-  %indvars.iv236250 = phi i64 [ %indvars.iv.next237, %.lr.ph ], [ %110, %.lr.ph.preheader ]
+  %.0135206262 = phi i32 [ %131, %.lr.ph ], [ %105, %.lr.ph.preheader ]
+  %.0133.in207261 = phi i32 [ %122, %.lr.ph ], [ %.0146220, %.lr.ph.preheader ]
+  %indvars.iv236260 = phi i64 [ %indvars.iv.next237, %.lr.ph ], [ %110, %.lr.ph.preheader ]
   %125 = getelementptr inbounds nuw i8, ptr %124, i64 4
   %126 = load i32, ptr %125, align 4, !tbaa !20
   %127 = lshr i32 %126, %43
   %.not164 = icmp eq i32 %127, %106
   br i1 %.not164, label %128, label %._crit_edge
 
-128:                                              ; preds = %.lr.ph253
+128:                                              ; preds = %.lr.ph263
   %129 = trunc i32 %123 to i8
   store i8 %129, ptr %124, align 4, !tbaa !18
   %130 = shl i32 %126, %1
   store i32 %130, ptr %125, align 4, !tbaa !20
-  %131 = tail call i32 @llvm.smax.i32(i32 %.0135206252, i32 %123)
-  %indvars.iv.next237 = add nsw i64 %indvars.iv236250, 1
+  %131 = tail call i32 @llvm.smax.i32(i32 %.0135206262, i32 %123)
+  %indvars.iv.next237 = add nsw i64 %indvars.iv236260, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next237, %45
-  br i1 %exitcond.not, label %.._crit_edge.loopexit_crit_edge259, label %.lr.ph, !llvm.loop !47
+  br i1 %exitcond.not, label %.._crit_edge.loopexit_crit_edge269, label %.lr.ph, !llvm.loop !47
 
-.._crit_edge.loopexit_crit_edge259:               ; preds = %128
+.._crit_edge.loopexit_crit_edge269:               ; preds = %128
   br label %._crit_edge, !llvm.loop !47
 
-._crit_edge:                                      ; preds = %.lr.ph253, %.lr.ph, %.lr.ph.preheader, %.._crit_edge.loopexit_crit_edge259, %104
-  %.0135.lcssa = phi i32 [ %105, %104 ], [ %131, %.._crit_edge.loopexit_crit_edge259 ], [ %105, %.lr.ph.preheader ], [ %131, %.lr.ph ], [ %.0135206252, %.lr.ph253 ]
-  %.0133.in.lcssa = phi i32 [ %.0146220, %104 ], [ %46, %.._crit_edge.loopexit_crit_edge259 ], [ %.0146220, %.lr.ph.preheader ], [ %122, %.lr.ph ], [ %.0133.in207251, %.lr.ph253 ]
-  %.0133.lcssa = phi i32 [ %.0133205, %104 ], [ %2, %.._crit_edge.loopexit_crit_edge259 ], [ %.0133205, %.lr.ph.preheader ], [ %121, %.lr.ph ], [ %122, %.lr.ph253 ]
+._crit_edge:                                      ; preds = %.lr.ph263, %.lr.ph, %.lr.ph.preheader, %.._crit_edge.loopexit_crit_edge269, %104
+  %.0135.lcssa = phi i32 [ %105, %104 ], [ %131, %.._crit_edge.loopexit_crit_edge269 ], [ %105, %.lr.ph.preheader ], [ %131, %.lr.ph ], [ %.0135206262, %.lr.ph263 ]
+  %.0133.in.lcssa = phi i32 [ %.0146220, %104 ], [ %46, %.._crit_edge.loopexit_crit_edge269 ], [ %.0146220, %.lr.ph.preheader ], [ %122, %.lr.ph ], [ %.0133.in207261, %.lr.ph263 ]
+  %.0133.lcssa = phi i32 [ %.0133205, %104 ], [ %2, %.._crit_edge.loopexit_crit_edge269 ], [ %.0133205, %.lr.ph.preheader ], [ %121, %.lr.ph ], [ %122, %.lr.ph263 ]
   %132 = tail call i32 @llvm.smin.i32(i32 %.0135.lcssa, i32 %1)
   br i1 %.not167, label %163, label %133
 

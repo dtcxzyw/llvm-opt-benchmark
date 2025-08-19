@@ -3398,12 +3398,12 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i6.i: ; preds = %44, %
   br i1 %46, label %common.resume.sink.split, label %common.resume
 
 common.resume.sink.split:                         ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i6.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i48
-  %.sink22 = phi ptr [ %85, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i48 ], [ %37, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i6.i ]
+  %.sink29 = phi ptr [ %85, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i48 ], [ %37, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i6.i ]
   %common.resume.op.ph = phi { ptr, i32 } [ %.pn.pn, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i48 ], [ %36, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i6.i ]
-  %47 = load ptr, ptr %.sink22, align 8, !tbaa !3
+  %47 = load ptr, ptr %.sink29, align 8, !tbaa !3
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 24
   %49 = load ptr, ptr %48, align 8
-  call void %49(ptr noundef nonnull align 8 dereferenceable(16) %.sink22) #27
+  call void %49(ptr noundef nonnull align 8 dereferenceable(16) %.sink29) #27
   br label %common.resume
 
 common.resume:                                    ; preds = %common.resume.sink.split, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i48, %.body, %35, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i6.i
@@ -4728,8 +4728,8 @@ _ZN2cv4util3getINS_8GMatDescEJNS0_9monostateES2_NS_11GScalarDescENS_10GArrayDesc
 _ZN2cv8GMatDescC2ERKS0_.exit:                     ; preds = %.thread, %291, %297
   %298 = phi ptr [ %286, %.thread ], [ %294, %291 ], [ %294, %297 ]
   %299 = phi ptr [ null, %.thread ], [ %292, %291 ], [ %292, %297 ]
-  %.pre-phi307310 = phi i64 [ 0, %.thread ], [ 0, %291 ], [ %.pre306, %297 ]
-  %300 = getelementptr inbounds i8, ptr %299, i64 %.pre-phi307310
+  %.pre-phi307342 = phi i64 [ 0, %.thread ], [ 0, %291 ], [ %.pre306, %297 ]
+  %300 = getelementptr inbounds i8, ptr %299, i64 %.pre-phi307342
   store ptr %300, ptr %298, align 8, !tbaa !236
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
   call void @llvm.lifetime.start.p0(ptr nonnull %24)
@@ -7238,8 +7238,8 @@ _ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i.i: ; preds = %233
 
 239:                                              ; preds = %.noexc106.thread, %238, %.noexc106
   %240 = phi ptr [ null, %.noexc106.thread ], [ %235, %238 ], [ %235, %.noexc106 ]
-  %.pre-phi547550 = phi i64 [ 0, %.noexc106.thread ], [ %.pre546, %238 ], [ 0, %.noexc106 ]
-  %241 = getelementptr inbounds i8, ptr %240, i64 %.pre-phi547550
+  %.pre-phi547618 = phi i64 [ 0, %.noexc106.thread ], [ %.pre546, %238 ], [ 0, %.noexc106 ]
+  %241 = getelementptr inbounds i8, ptr %240, i64 %.pre-phi547618
   store ptr %241, ptr %124, align 8, !tbaa !236
   %242 = load ptr, ptr %97, align 8, !tbaa !298
   %243 = load ptr, ptr %96, align 8, !tbaa !301
@@ -7413,7 +7413,7 @@ _ZN2cv8GMatDescD2Ev.exit:                         ; preds = %"_ZZN2cv5gimpl9GExe
   br label %.body
 
 282:                                              ; preds = %_ZN2cv8GMatDescD2Ev.exit, %.loopexit351
-  %283 = add i64 %.sroa.0318.0454, 1
+  %283 = add nuw i64 %.sroa.0318.0454, 1
   %.not326 = icmp eq i64 %283, %120
   br i1 %.not326, label %._crit_edge.loopexit, label %126
 

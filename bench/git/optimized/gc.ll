@@ -1697,7 +1697,7 @@ find_base_packs.exit:                             ; preds = %find_base_packs.exi
   br label %find_base_packs.exit50
 
 find_base_packs.exit50:                           ; preds = %62, %._crit_edge.i46, %77
-  %.0.lcssa30.i48 = phi ptr [ %.1.us.i44, %77 ], [ null, %._crit_edge.i46 ], [ null, %62 ]
+  %.0.lcssa33.i48 = phi ptr [ %.1.us.i44, %77 ], [ null, %._crit_edge.i46 ], [ null, %62 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %80 = call i32 @sysinfo(ptr noundef nonnull %2) #21
   %.not.i51 = icmp eq i32 %80, 0
@@ -1707,15 +1707,15 @@ find_base_packs.exit50:                           ; preds = %62, %._crit_edge.i4
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %83 = load ptr, ptr @the_repository, align 8, !tbaa !42
   %84 = call i64 @repo_approximate_object_count(ptr noundef %83) #21
-  %85 = icmp ne ptr %.0.lcssa30.i48, null
+  %85 = icmp ne ptr %.0.lcssa33.i48, null
   %86 = icmp ne i64 %84, 0
   %or.cond.i52 = select i1 %85, i1 %86, i1 false
   br i1 %or.cond.i52, label %87, label %estimate_repack_memory.exit
 
 87:                                               ; preds = %find_base_packs.exit50
-  %88 = getelementptr inbounds nuw i8, ptr %.0.lcssa30.i48, i64 48
+  %88 = getelementptr inbounds nuw i8, ptr %.0.lcssa33.i48, i64 48
   %89 = load i64, ptr %88, align 8, !tbaa !44
-  %90 = getelementptr inbounds nuw i8, ptr %.0.lcssa30.i48, i64 64
+  %90 = getelementptr inbounds nuw i8, ptr %.0.lcssa33.i48, i64 64
   %91 = load i64, ptr %90, align 8, !tbaa !44
   %92 = mul i64 %84, 40
   %93 = lshr exact i64 %92, 1
@@ -2709,7 +2709,7 @@ _.exit.i:                                         ; preds = %170, %168
   call void @free(ptr noundef %162) #21
   %174 = load i32, ptr %46, align 4, !tbaa !39
   %175 = icmp sgt i32 %174, 0
-  br i1 %175, label %176, label %.preheader18
+  br i1 %175, label %176, label %.preheader22
 
 176:                                              ; preds = %173
   %177 = load ptr, ptr @the_repository, align 8, !tbaa !42
@@ -2717,13 +2717,13 @@ _.exit.i:                                         ; preds = %170, %168
   %178 = call i32 @daemonize() #21
   %179 = load ptr, ptr @the_repository, align 8, !tbaa !42
   call void (ptr, i32, ptr, ptr, ptr, ...) @trace2_region_leave_fl(ptr noundef nonnull @.str.118, i32 noundef 1456, ptr noundef nonnull @.str.165, ptr noundef nonnull @.str.18, ptr noundef %179) #21
-  br label %.preheader18
+  br label %.preheader22
 
-.preheader18:                                     ; preds = %176, %173
+.preheader22:                                     ; preds = %176, %173
   br label %180
 
-180:                                              ; preds = %.preheader18, %180
-  %indvars.iv.i10 = phi i64 [ %indvars.iv.next.i11, %180 ], [ 0, %.preheader18 ]
+180:                                              ; preds = %.preheader22, %180
+  %indvars.iv.i10 = phi i64 [ %indvars.iv.next.i11, %180 ], [ 0, %.preheader22 ]
   %181 = getelementptr inbounds nuw [6 x %struct.maintenance_task], ptr @tasks, i64 0, i64 %indvars.iv.i10, i32 5
   %182 = load i32, ptr %181, align 8, !tbaa !116
   %183 = icmp slt i32 %182, 0
@@ -3080,17 +3080,17 @@ get_maintpath.exit:                               ; preds = %4, %16
   %36 = load i64, ptr %35, align 8, !tbaa !62
   %.idx = shl nuw nsw i64 %36, 4
   %37 = getelementptr inbounds nuw i8, ptr %34, i64 %.idx
-  %.not37 = icmp eq i64 %36, 0
-  br i1 %.not37, label %.critedge28, label %.lr.ph36
+  %.not40 = icmp eq i64 %36, 0
+  br i1 %.not40, label %.critedge28, label %.lr.ph39
 
-38:                                               ; preds = %.lr.ph36
-  %39 = getelementptr inbounds nuw i8, ptr %.0183335, i64 16
+38:                                               ; preds = %.lr.ph39
+  %39 = getelementptr inbounds nuw i8, ptr %.0183338, i64 16
   %40 = icmp ult ptr %39, %37
-  br i1 %40, label %.lr.ph36, label %.critedge28
+  br i1 %40, label %.lr.ph39, label %.critedge28
 
-.lr.ph36:                                         ; preds = %.lr.ph, %38
-  %.0183335 = phi ptr [ %39, %38 ], [ %34, %.lr.ph ]
-  %41 = load ptr, ptr %.0183335, align 8, !tbaa !84
+.lr.ph39:                                         ; preds = %.lr.ph, %38
+  %.0183338 = phi ptr [ %39, %38 ], [ %34, %.lr.ph ]
+  %41 = load ptr, ptr %.0183338, align 8, !tbaa !84
   %42 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %20, ptr noundef nonnull dereferenceable(1) %41) #25
   %.not23 = icmp eq i32 %42, 0
   br i1 %.not23, label %.critedge, label %38
@@ -3125,7 +3125,7 @@ get_maintpath.exit:                               ; preds = %4, %16
   call void (ptr, ...) @die(ptr noundef %52, ptr noundef nonnull @.str.268, ptr noundef %20) #22
   unreachable
 
-.critedge:                                        ; preds = %.lr.ph36, %.thread
+.critedge:                                        ; preds = %.lr.ph39, %.thread
   call void @free(ptr noundef %20) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -3238,22 +3238,22 @@ get_maintpath.exit:                               ; preds = %4, %28
   %48 = load i64, ptr %47, align 8, !tbaa !62
   %.idx = shl nuw nsw i64 %48, 4
   %49 = getelementptr inbounds nuw i8, ptr %46, i64 %.idx
-  %.not48 = icmp eq i64 %48, 0
-  br i1 %.not48, label %.critedge37, label %.lr.ph47
+  %.not52 = icmp eq i64 %48, 0
+  br i1 %.not52, label %.critedge37, label %.lr.ph51
 
-50:                                               ; preds = %.lr.ph47
-  %51 = getelementptr inbounds nuw i8, ptr %.0234446, i64 16
+50:                                               ; preds = %.lr.ph51
+  %51 = getelementptr inbounds nuw i8, ptr %.0234450, i64 16
   %52 = icmp ult ptr %51, %49
-  br i1 %52, label %.lr.ph47, label %.critedge37
+  br i1 %52, label %.lr.ph51, label %.critedge37
 
-.lr.ph47:                                         ; preds = %.lr.ph, %50
-  %.0234446 = phi ptr [ %51, %50 ], [ %46, %.lr.ph ]
-  %53 = load ptr, ptr %.0234446, align 8, !tbaa !84
+.lr.ph51:                                         ; preds = %.lr.ph, %50
+  %.0234450 = phi ptr [ %51, %50 ], [ %46, %.lr.ph ]
+  %53 = load ptr, ptr %.0234450, align 8, !tbaa !84
   %54 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %32, ptr noundef nonnull dereferenceable(1) %53) #25
   %.not31 = icmp eq i32 %54, 0
   br i1 %.not31, label %.critedge, label %50
 
-.critedge:                                        ; preds = %.lr.ph47
+.critedge:                                        ; preds = %.lr.ph51
   %55 = load ptr, ptr %7, align 8, !tbaa !26
   %.not34 = icmp eq ptr %55, null
   br i1 %.not34, label %56, label %.thread39
@@ -4328,8 +4328,8 @@ define internal range(i32 0, 2) i32 @dfs_on_ref(ptr readnone captures(none) %0, 
 
 ._crit_edge:                                      ; preds = %49, %.lr.ph46
   %51 = load ptr, ptr %7, align 8
-  %.not55 = icmp eq ptr %51, null
-  br i1 %.not55, label %._crit_edge47, label %.lr.ph46, !llvm.loop !168
+  %.not56 = icmp eq ptr %51, null
+  br i1 %.not56, label %._crit_edge47, label %.lr.ph46, !llvm.loop !168
 
 ._crit_edge47:                                    ; preds = %._crit_edge, %._crit_edge.thread, %25
   %.024.lcssa = phi i32 [ 0, %25 ], [ 1, %._crit_edge.thread ], [ 0, %._crit_edge ]
@@ -4723,18 +4723,18 @@ xstrdup_or_null.exit:                             ; preds = %3
   %18 = load i64, ptr %16, align 8, !tbaa !62
   %19 = getelementptr inbounds nuw %struct.string_list_item, ptr %17, i64 %18
   %20 = icmp ult ptr %15, %19
-  br i1 %20, label %.lr.ph40, label %.critedge
+  br i1 %20, label %.lr.ph45, label %.critedge
 
-.lr.ph40:                                         ; preds = %.lr.ph, %36
-  %.0213739 = phi ptr [ %37, %36 ], [ %15, %.lr.ph ]
+.lr.ph45:                                         ; preds = %.lr.ph, %36
+  %.0213744 = phi ptr [ %37, %36 ], [ %15, %.lr.ph ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %5, i8 0, i64 40, i1 false)
-  %21 = load ptr, ptr %.0213739, align 8, !tbaa !84
+  %21 = load ptr, ptr %.0213744, align 8, !tbaa !84
   %22 = call i32 @string_list_split_in_place(ptr noundef nonnull %5, ptr noundef %21, ptr noundef nonnull @.str.183, i32 noundef 2) #21
   %.not31 = icmp eq i32 %22, 2
   br i1 %.not31, label %23, label %36
 
-23:                                               ; preds = %.lr.ph40
+23:                                               ; preds = %.lr.ph45
   %24 = load ptr, ptr %5, align 8, !tbaa !83
   %25 = load ptr, ptr %24, align 8, !tbaa !84
   %26 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %25) #25
@@ -4768,14 +4768,14 @@ xstrdup_or_null.exit:                             ; preds = %3
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %44
 
-36:                                               ; preds = %34, %.lr.ph40
+36:                                               ; preds = %34, %.lr.ph45
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %37 = getelementptr inbounds nuw i8, ptr %.0213739, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %.0213744, i64 16
   %38 = load ptr, ptr %4, align 8, !tbaa !83
   %39 = load i64, ptr %16, align 8, !tbaa !62
   %40 = getelementptr inbounds nuw %struct.string_list_item, ptr %38, i64 %39
   %41 = icmp ult ptr %37, %40
-  br i1 %41, label %.lr.ph40, label %.critedge
+  br i1 %41, label %.lr.ph45, label %.critedge
 
 .critedge:                                        ; preds = %36, %.lr.ph, %13
   %.not30 = icmp eq ptr %2, null
@@ -5448,25 +5448,25 @@ switch.lookup:
   %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.schtasks_schedule_task, i64 0, i64 %5
   %switch.load = load ptr, ptr %switch.gep, align 8
   %6 = icmp ne i32 %0, 0
-  br i1 %6, label %switch.lookup14, label %7
+  br i1 %6, label %switch.lookup15, label %7
 
 7:                                                ; preds = %switch.lookup
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 104
   store i16 4, ptr %8, align 8
   br label %38
 
-switch.lookup14:                                  ; preds = %switch.lookup
-  %switch.tableidx15 = add nsw i32 %1, -1
-  %9 = zext nneg i32 %switch.tableidx15 to i64
-  %switch.gep16 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.schtasks_schedule_task, i64 0, i64 %9
-  %switch.load17 = load ptr, ptr %switch.gep16, align 8
-  %10 = tail call ptr (ptr, ...) @xstrfmt(ptr noundef nonnull @.str.209, ptr noundef nonnull %switch.load17, ptr noundef nonnull @.str.219) #21
+switch.lookup15:                                  ; preds = %switch.lookup
+  %switch.tableidx16 = add nsw i32 %1, -1
+  %9 = zext nneg i32 %switch.tableidx16 to i64
+  %switch.gep17 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.schtasks_schedule_task, i64 0, i64 %9
+  %switch.load18 = load ptr, ptr %switch.gep17, align 8
+  %10 = tail call ptr (ptr, ...) @xstrfmt(ptr noundef nonnull @.str.209, ptr noundef nonnull %switch.load18, ptr noundef nonnull @.str.219) #21
   %11 = tail call ptr @xdg_config_home_for(ptr noundef nonnull @.str.215, ptr noundef %10) #21
   %12 = tail call i32 @safe_create_leading_directories(ptr noundef %11) #21
   %.not.i = icmp eq i32 %12, 0
   br i1 %.not.i, label %18, label %13
 
-13:                                               ; preds = %switch.lookup14
+13:                                               ; preds = %switch.lookup15
   %14 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !4
   %.not4.i.i = icmp eq i32 %14, 0
   br i1 %.not4.i.i, label %_.exit.i, label %15
@@ -5480,22 +5480,22 @@ _.exit.i:                                         ; preds = %15, %13
   %17 = tail call i32 (ptr, ...) @error(ptr noundef %.0.i24.i, ptr noundef %11) #21
   br label %.critedge
 
-18:                                               ; preds = %switch.lookup14
+18:                                               ; preds = %switch.lookup15
   %19 = tail call ptr @fopen_or_warn(ptr noundef %11, ptr noundef nonnull @.str.138) #21
   %.not23.i = icmp eq ptr %19, null
-  br i1 %.not23.i, label %.critedge, label %switch.lookup18
+  br i1 %.not23.i, label %.critedge, label %switch.lookup19
 
-switch.lookup18:                                  ; preds = %18
-  %switch.tableidx19 = add nsw i32 %1, -1
-  %20 = zext nneg i32 %switch.tableidx19 to i64
-  %switch.gep20 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.systemd_timer_enable_unit.12, i64 0, i64 %20
-  %switch.load21 = load ptr, ptr %switch.gep20, align 8
-  %21 = tail call ptr (ptr, ...) @xstrfmt(ptr noundef nonnull %switch.load21, i32 noundef range(i32 0, 60) %2) #21
+switch.lookup19:                                  ; preds = %18
+  %switch.tableidx20 = add nsw i32 %1, -1
+  %20 = zext nneg i32 %switch.tableidx20 to i64
+  %switch.gep21 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.systemd_timer_enable_unit.12, i64 0, i64 %20
+  %switch.load22 = load ptr, ptr %switch.gep21, align 8
+  %21 = tail call ptr (ptr, ...) @xstrfmt(ptr noundef nonnull %switch.load22, i32 noundef range(i32 0, 60) %2) #21
   %22 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %19, ptr noundef nonnull @.str.227, ptr noundef %21) #21
   %23 = icmp slt i32 %22, 0
   br i1 %23, label %24, label %30
 
-24:                                               ; preds = %switch.lookup18
+24:                                               ; preds = %switch.lookup19
   %25 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !4
   %.not4.i25.i = icmp eq i32 %25, 0
   br i1 %.not4.i25.i, label %_.exit27.i, label %26
@@ -5510,7 +5510,7 @@ _.exit27.i:                                       ; preds = %26, %24
   %29 = tail call i32 @fclose(ptr noundef nonnull %19)
   br label %.critedge
 
-30:                                               ; preds = %switch.lookup18
+30:                                               ; preds = %switch.lookup19
   %31 = tail call i32 @fclose(ptr noundef nonnull %19)
   %32 = icmp eq i32 %31, -1
   br i1 %32, label %33, label %systemd_timer_write_timer_file.exit
@@ -5712,7 +5712,7 @@ switch.lookup:
   %.not.i = icmp eq ptr %15, null
   br i1 %.not.i, label %16, label %launchctl_service_filename.exit
 
-default.unreachable51:                            ; preds = %get_extra_launchctl_strings.exit
+default.unreachable54:                            ; preds = %get_extra_launchctl_strings.exit
   unreachable
 
 16:                                               ; preds = %switch.lookup
@@ -5769,7 +5769,7 @@ get_extra_launchctl_strings.exit:                 ; preds = %get_random_minute.e
   %.05.i = phi ptr [ %25, %.critedge.i ], [ %24, %get_random_minute.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %7, ptr noundef nonnull @.str.229, ptr noundef %12, ptr noundef %0, ptr noundef %0, ptr noundef %.05.i, ptr noundef nonnull %switch.load) #21
-  switch i32 %1, label %default.unreachable51 [
+  switch i32 %1, label %default.unreachable54 [
     i32 3, label %.preheader
     i32 2, label %.preheader43
     i32 1, label %31

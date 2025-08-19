@@ -927,11 +927,11 @@ define hidden void @bluetooth_add_address(ptr noundef readonly captures(none) %0
   br label %.sink.split
 
 .sink.split:                                      ; preds = %28, %41
-  %.sink44 = phi i64 [ 16, %41 ], [ 48, %28 ]
-  %.sink42 = phi i64 [ 64, %41 ], [ 56, %28 ]
+  %.sink49 = phi i64 [ 16, %41 ], [ 48, %28 ]
+  %.sink47 = phi i64 [ 64, %41 ], [ 56, %28 ]
   %42 = call ptr @wmem_file_scope()
-  %43 = call dereferenceable_or_null(16) ptr @wmem_memdup(ptr noundef %42, ptr noundef %6, i64 noundef %.sink44) #15
-  %44 = getelementptr inbounds nuw i8, ptr %30, i64 %.sink42
+  %43 = call dereferenceable_or_null(16) ptr @wmem_memdup(ptr noundef %42, ptr noundef %6, i64 noundef %.sink49) #15
+  %44 = getelementptr inbounds nuw i8, ptr %30, i64 %.sink47
   store ptr %43, ptr %44, align 8
   br label %45
 
@@ -2198,8 +2198,8 @@ get_rtp_packet_info.exit:                         ; preds = %153, %calculate_ext
   br i1 %.not504, label %.critedge, label %.critedge.sink.split
 
 .critedge.sink.split:                             ; preds = %296, %291
-  %.sink602 = phi ptr [ %292, %291 ], [ %297, %296 ]
-  %298 = call ptr @dissector_handle_get_protocol_short_name(ptr noundef nonnull %.sink602)
+  %.sink659 = phi ptr [ %292, %291 ], [ %297, %296 ]
+  %298 = call ptr @dissector_handle_get_protocol_short_name(ptr noundef nonnull %.sink659)
   store ptr %298, ptr %139, align 8
   br label %.critedge
 
@@ -2490,8 +2490,8 @@ proto_item_set_generated.exit59.i:                ; preds = %423, %420
   br i1 %.not5.i61.i, label %proto_item_set_hidden.exit.i, label %proto_item_set_hidden.exit.sink.split.i
 
 proto_item_set_hidden.exit.sink.split.i:          ; preds = %430, %414
-  %.sink71.i = phi ptr [ %415, %414 ], [ %431, %430 ]
-  %432 = getelementptr inbounds nuw i8, ptr %.sink71.i, i64 28
+  %.sink87.i = phi ptr [ %415, %414 ], [ %431, %430 ]
+  %432 = getelementptr inbounds nuw i8, ptr %.sink87.i, i64 28
   %433 = load i32, ptr %432, align 4
   %434 = or i32 %433, 1
   store i32 %434, ptr %432, align 4
@@ -2601,9 +2601,9 @@ proto_item_set_generated.exit551:                 ; preds = %468, %465, %proto_i
   br label %478
 
 478:                                              ; preds = %342, %proto_item_set_generated.exit551
-  %.sink604 = phi i32 [ 4, %proto_item_set_generated.exit551 ], [ 12, %342 ]
+  %.sink661 = phi i32 [ 4, %proto_item_set_generated.exit551 ], [ 12, %342 ]
   %.0..0..0..0.204 = load volatile i32, ptr %6, align 4
-  %479 = add i32 %.0..0..0..0.204, %.sink604
+  %479 = add i32 %.0..0..0..0.204, %.sink661
   store volatile i32 %479, ptr %6, align 4
   %.not514 = icmp eq i32 %102, 0
   br i1 %.not514, label %.loopexit, label %480
@@ -2917,8 +2917,8 @@ dissect_rtp_hext_rfc5285_onebyte.exit:            ; preds = %568, %555, %531, %5
   %633 = call i32 @_setjmp(ptr noundef nonnull %632) #18
   %.not527 = icmp eq i32 %633, 0
   %634 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  %.sink605 = select i1 %.not527, ptr null, ptr %634
-  store volatile ptr %.sink605, ptr %9, align 8
+  %.sink662 = select i1 %.not527, ptr null, ptr %634
+  store volatile ptr %.sink662, ptr %9, align 8
   %.0..0..0..0.19 = load volatile i32, ptr %10, align 4
   %635 = and i32 %.0..0..0..0.19, 1
   %.not528 = icmp eq i32 %635, 0
@@ -3178,8 +3178,8 @@ dissect_rtp_hext_rfc5285_onebyte.exit:            ; preds = %568, %555, %531, %5
   %742 = call i32 @_setjmp(ptr noundef nonnull %741) #18
   %.not519 = icmp eq i32 %742, 0
   %743 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  %.sink606 = select i1 %.not519, ptr null, ptr %743
-  store volatile ptr %.sink606, ptr %13, align 8
+  %.sink663 = select i1 %.not519, ptr null, ptr %743
+  store volatile ptr %.sink663, ptr %13, align 8
   %.0..0..0..0. = load volatile i32, ptr %14, align 4
   %744 = and i32 %.0..0..0..0., 1
   %.not520 = icmp eq i32 %744, 0

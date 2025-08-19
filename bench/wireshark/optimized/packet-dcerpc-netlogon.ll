@@ -5031,9 +5031,9 @@ find_tmp_netlogon_auth_vars.exit.thread:          ; preds = %6
   %44 = getelementptr inbounds nuw i8, ptr %41, i64 384
   %45 = load i32, ptr %44, align 8
   %.not16.i41 = icmp sgt i32 %43, %45
-  br i1 %.not16.i41, label %.lr.ph, label %find_tmp_netlogon_auth_vars.exit.thread47
+  br i1 %.not16.i41, label %.lr.ph, label %find_tmp_netlogon_auth_vars.exit.thread51
 
-find_tmp_netlogon_auth_vars.exit.thread47:        ; preds = %.lr.ph.i
+find_tmp_netlogon_auth_vars.exit.thread51:        ; preds = %.lr.ph.i
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %66
 
@@ -5089,7 +5089,7 @@ find_tmp_netlogon_auth_vars.exit:                 ; preds = %46, %.thread22.i.fi
   %65 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %2, ptr noundef %64, ptr noundef nonnull @ei_netlogon_session_key, ptr noundef nonnull @.str.1325)
   br label %66
 
-66:                                               ; preds = %find_tmp_netlogon_auth_vars.exit.thread47, %find_tmp_netlogon_auth_vars.exit.thread, %find_tmp_netlogon_auth_vars.exit, %55
+66:                                               ; preds = %find_tmp_netlogon_auth_vars.exit.thread51, %find_tmp_netlogon_auth_vars.exit.thread, %find_tmp_netlogon_auth_vars.exit, %55
   ret i32 %23
 }
 
@@ -6526,9 +6526,9 @@ find_tmp_netlogon_auth_vars.exit.thread:          ; preds = %55
   %78 = getelementptr inbounds nuw i8, ptr %75, i64 384
   %79 = load i32, ptr %78, align 8
   %.not16.i170 = icmp sgt i32 %77, %79
-  br i1 %.not16.i170, label %.lr.ph, label %find_tmp_netlogon_auth_vars.exit.thread230
+  br i1 %.not16.i170, label %.lr.ph, label %find_tmp_netlogon_auth_vars.exit.thread242
 
-find_tmp_netlogon_auth_vars.exit.thread230:       ; preds = %.lr.ph.i
+find_tmp_netlogon_auth_vars.exit.thread242:       ; preds = %.lr.ph.i
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %249
 
@@ -6917,7 +6917,7 @@ find_tmp_netlogon_auth_vars.exit:                 ; preds = %80, %.thread22.i.fi
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %249
 
-249:                                              ; preds = %find_tmp_netlogon_auth_vars.exit.thread230, %find_tmp_netlogon_auth_vars.exit.thread, %248, %find_tmp_netlogon_auth_vars.exit
+249:                                              ; preds = %find_tmp_netlogon_auth_vars.exit.thread242, %find_tmp_netlogon_auth_vars.exit.thread, %248, %find_tmp_netlogon_auth_vars.exit
   ret i32 %57
 }
 

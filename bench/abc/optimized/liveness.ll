@@ -221,19 +221,19 @@ define ptr @retrieveLOName(ptr noundef readonly captures(none) %0, ptr noundef r
   %gep = getelementptr ptr, ptr %invariant.gep, i64 %indvars.iv
   %17 = load ptr, ptr %gep, align 8, !tbaa !10
   %18 = icmp eq ptr %17, %3
-  br i1 %18, label %.critedge.loopexit.split.loop.exit147, label %19
+  br i1 %18, label %.critedge.loopexit.split.loop.exit149, label %19
 
 19:                                               ; preds = %16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.critedge, label %16, !llvm.loop !45
 
-.critedge.loopexit.split.loop.exit147:            ; preds = %16
+.critedge.loopexit.split.loop.exit149:            ; preds = %16
   %20 = trunc nuw nsw i64 %indvars.iv to i32
   br label %.critedge
 
-.critedge:                                        ; preds = %19, %.critedge.loopexit.split.loop.exit147, %6
-  %.088.lcssa = phi i32 [ 0, %6 ], [ %20, %.critedge.loopexit.split.loop.exit147 ], [ %.val110, %19 ]
+.critedge:                                        ; preds = %19, %.critedge.loopexit.split.loop.exit149, %6
+  %.088.lcssa = phi i32 [ 0, %6 ], [ %20, %.critedge.loopexit.split.loop.exit149 ], [ %.val110, %19 ]
   %21 = icmp slt i32 %.088.lcssa, %.val109
   br i1 %21, label %22, label %31
 
@@ -285,8 +285,8 @@ define ptr @retrieveLOName(ptr noundef readonly captures(none) %0, ptr noundef r
   %.val98 = load i32, ptr %50, align 4, !tbaa !3
   %51 = add nsw i32 %.val98, %49
   %52 = icmp slt i32 %.088.lcssa, %51
-  %or.cond149 = select i1 %.not, i1 %52, i1 false
-  br i1 %or.cond149, label %53, label %._crit_edge
+  %or.cond151 = select i1 %.not, i1 %52, i1 false
+  br i1 %or.cond151, label %53, label %._crit_edge
 
 53:                                               ; preds = %48
   %54 = xor i32 %35, -1
@@ -4921,7 +4921,7 @@ Aig_ObjChild1Copy.exit:                           ; preds = %Aig_ObjChild0Copy.e
 
 395:                                              ; preds = %.critedge5, %.critedge9, %.thread, %.critedge13
   %.3248 = phi ptr [ %.4249.lcssa, %.critedge9 ], [ %.6251.lcssa, %.critedge13 ], [ %.2247.lcssa, %.thread ], [ %.2247.lcssa, %.critedge5 ]
-  br i1 %or.cond, label %396, label %.thread488
+  br i1 %or.cond, label %396, label %.thread512
 
 396:                                              ; preds = %395
   %397 = getelementptr i8, ptr %.3248, i64 8
@@ -4936,13 +4936,13 @@ Aig_ObjChild1Copy.exit:                           ; preds = %Aig_ObjChild0Copy.e
   %404 = icmp sgt i32 %.val296417, 0
   br i1 %404, label %.lr.ph420, label %.critedge21
 
-.thread488:                                       ; preds = %395
-  %.val296417490 = load i32, ptr %8, align 8, !tbaa !44
-  %405 = icmp sgt i32 %.val296417490, 0
+.thread512:                                       ; preds = %395
+  %.val296417514 = load i32, ptr %8, align 8, !tbaa !44
+  %405 = icmp sgt i32 %.val296417514, 0
   br i1 %405, label %.lr.ph420, label %.critedge17.thread.thread
 
-.lr.ph420:                                        ; preds = %.thread488, %396
-  %.0231493 = phi ptr [ null, %.thread488 ], [ %403, %396 ]
+.lr.ph420:                                        ; preds = %.thread512, %396
+  %.0231517 = phi ptr [ null, %.thread512 ], [ %403, %396 ]
   %406 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %407 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %408 = getelementptr i8, ptr %2, i64 112
@@ -5051,8 +5051,8 @@ Aig_ObjChild1Copy.exit:                           ; preds = %Aig_ObjChild0Copy.e
   br i1 %475, label %440, label %.critedge21, !llvm.loop !91
 
 .critedge21:                                      ; preds = %473, %396, %.preheader386
-  %.0231491 = phi ptr [ %.0231493, %.preheader386 ], [ %403, %396 ], [ %.0231493, %473 ]
-  %.0230.lcssa478481 = phi i32 [ %434, %.preheader386 ], [ 0, %396 ], [ %434, %473 ]
+  %.0231515 = phi ptr [ %.0231517, %.preheader386 ], [ %403, %396 ], [ %.0231517, %473 ]
+  %.0230.lcssa502505 = phi i32 [ %434, %.preheader386 ], [ 0, %396 ], [ %434, %473 ]
   %.6241.lcssa = phi ptr [ null, %.preheader386 ], [ null, %396 ], [ %.7242, %473 ]
   %476 = tail call ptr @Aig_And(ptr noundef nonnull %56, ptr noundef %.0232, ptr noundef %.6241.lcssa) #16
   %477 = icmp eq ptr %3, null
@@ -5065,7 +5065,7 @@ Aig_ObjChild1Copy.exit:                           ; preds = %Aig_ObjChild0Copy.e
 
 .preheader385:                                    ; preds = %478
   %480 = icmp sgt i32 %.val265, 0
-  br i1 %480, label %.lr.ph430, label %.critedge23.thread482
+  br i1 %480, label %.lr.ph430, label %.critedge23.thread506
 
 .lr.ph430:                                        ; preds = %.preheader385
   %481 = getelementptr i8, ptr %3, i64 8
@@ -5073,7 +5073,7 @@ Aig_ObjChild1Copy.exit:                           ; preds = %Aig_ObjChild0Copy.e
 
 .critedge23.thread:                               ; preds = %.critedge21, %478
   %puts257 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.7)
-  br label %.critedge23.thread482
+  br label %.critedge23.thread506
 
 482:                                              ; preds = %.lr.ph430, %498
   %.val264470 = phi i32 [ %.val265, %.lr.ph430 ], [ %.val264, %498 ]
@@ -5111,14 +5111,14 @@ Aig_ObjChild1Copy.exit:                           ; preds = %Aig_ObjChild0Copy.e
 
 .critedge23:                                      ; preds = %498
   %.not258 = icmp eq ptr %.10, null
-  br i1 %.not258, label %.critedge23.thread482, label %501
+  br i1 %.not258, label %.critedge23.thread506, label %501
 
-.critedge23.thread482:                            ; preds = %.preheader385, %.critedge23.thread, %.critedge23
+.critedge23.thread506:                            ; preds = %.preheader385, %.critedge23.thread, %.critedge23
   %.val304 = load ptr, ptr %60, align 8, !tbaa !58
   br label %501
 
-501:                                              ; preds = %.critedge23, %.critedge23.thread482
-  %.0234 = phi ptr [ %.val304, %.critedge23.thread482 ], [ %.10, %.critedge23 ]
+501:                                              ; preds = %.critedge23, %.critedge23.thread506
+  %.0234 = phi ptr [ %.val304, %.critedge23.thread506 ], [ %.10, %.critedge23 ]
   %502 = icmp eq ptr %4, null
   br i1 %502, label %.critedge25.thread, label %503
 
@@ -5129,7 +5129,7 @@ Aig_ObjChild1Copy.exit:                           ; preds = %Aig_ObjChild0Copy.e
 
 .preheader:                                       ; preds = %503
   %505 = icmp sgt i32 %.val263, 0
-  br i1 %505, label %.lr.ph435, label %.critedge25.thread485
+  br i1 %505, label %.lr.ph435, label %.critedge25.thread509
 
 .lr.ph435:                                        ; preds = %.preheader
   %506 = getelementptr i8, ptr %4, i64 8
@@ -5137,7 +5137,7 @@ Aig_ObjChild1Copy.exit:                           ; preds = %Aig_ObjChild0Copy.e
 
 .critedge25.thread:                               ; preds = %501, %503
   %puts259 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.8)
-  br label %.critedge25.thread485
+  br label %.critedge25.thread509
 
 507:                                              ; preds = %.lr.ph435, %523
   %.val472 = phi i32 [ %.val263, %.lr.ph435 ], [ %.val, %523 ]
@@ -5175,25 +5175,25 @@ Aig_ObjChild1Copy.exit:                           ; preds = %Aig_ObjChild0Copy.e
 
 .critedge25:                                      ; preds = %523
   %.not260 = icmp eq ptr %.13, null
-  br i1 %.not260, label %.critedge25.thread485, label %526
+  br i1 %.not260, label %.critedge25.thread509, label %526
 
-.critedge25.thread485:                            ; preds = %.preheader, %.critedge25.thread, %.critedge25
+.critedge25.thread509:                            ; preds = %.preheader, %.critedge25.thread, %.critedge25
   %.val303 = load ptr, ptr %60, align 8, !tbaa !58
   br label %526
 
-526:                                              ; preds = %.critedge25, %.critedge25.thread485
-  %.0233 = phi ptr [ %.val303, %.critedge25.thread485 ], [ %.13, %.critedge25 ]
+526:                                              ; preds = %.critedge25, %.critedge25.thread509
+  %.0233 = phi ptr [ %.val303, %.critedge25.thread509 ], [ %.13, %.critedge25 ]
   %527 = ptrtoint ptr %.0234 to i64
   %528 = xor i64 %527, 1
   %529 = inttoptr i64 %528 to ptr
   %530 = tail call ptr @Aig_And(ptr noundef nonnull %56, ptr noundef %.0233, ptr noundef %529) #16
   %531 = tail call ptr @Aig_And(ptr noundef nonnull %56, ptr noundef %476, ptr noundef %530) #16
-  tail call void @Aig_ObjPatchFanin0(ptr noundef nonnull %56, ptr noundef %.0231491, ptr noundef %531) #16
+  tail call void @Aig_ObjPatchFanin0(ptr noundef nonnull %56, ptr noundef %.0231515, ptr noundef %531) #16
   br label %.critedge17.thread.thread
 
-.critedge17.thread.thread:                        ; preds = %.thread488, %.critedge17, %526
-  %.0230.lcssa477 = phi i32 [ %434, %.critedge17 ], [ %.0230.lcssa478481, %526 ], [ 0, %.thread488 ]
-  tail call void @Aig_ManSetRegNum(ptr noundef nonnull %56, i32 noundef %.0230.lcssa477) #16
+.critedge17.thread.thread:                        ; preds = %.thread512, %.critedge17, %526
+  %.0230.lcssa501 = phi i32 [ %434, %.critedge17 ], [ %.0230.lcssa502505, %526 ], [ 0, %.thread512 ]
+  tail call void @Aig_ManSetRegNum(ptr noundef nonnull %56, i32 noundef %.0230.lcssa501) #16
   %532 = getelementptr i8, ptr %56, i64 136
   %533 = getelementptr inbounds nuw i8, ptr %56, i64 16
   %534 = load ptr, ptr %533, align 8, !tbaa !29
@@ -6013,8 +6013,8 @@ define range(i32 0, 2) i32 @Abc_CommandAbcLivenessToSafety(ptr noundef %0, i32 n
   br label %21
 
 21:                                               ; preds = %18, %19
-  %.sink118 = phi ptr [ %20, %19 ], [ %4, %18 ]
-  %22 = tail call ptr @Abc_NtkToDar(ptr noundef %.sink118, i32 noundef 0, i32 noundef 1) #16
+  %.sink121 = phi ptr [ %20, %19 ], [ %4, %18 ]
+  %22 = tail call ptr @Abc_NtkToDar(ptr noundef %.sink121, i32 noundef 0, i32 noundef 1) #16
   %23 = tail call ptr @populateLivenessVector(ptr noundef nonnull %4, ptr noundef %22)
   %24 = tail call ptr @populateFairnessVector(ptr noundef nonnull %4, ptr noundef %22)
   %25 = tail call ptr @populateSafetyAssertionVector(ptr noundef nonnull %4, ptr noundef %22)
@@ -6207,14 +6207,14 @@ Vec_IntAlloc.exit:                                ; preds = %2, %6
   br label %Vec_IntPush.exit.sink.split
 
 Vec_IntPush.exit.sink.split:                      ; preds = %28, %30, %20, %22
-  %.sink9 = phi ptr [ %21, %20 ], [ %23, %22 ], [ %29, %28 ], [ %31, %30 ]
+  %.sink12 = phi ptr [ %21, %20 ], [ %23, %22 ], [ %29, %28 ], [ %31, %30 ]
   %.sink = phi i32 [ 16, %20 ], [ 16, %22 ], [ %25, %28 ], [ %25, %30 ]
-  store ptr %.sink9, ptr %11, align 8, !tbaa !80
+  store ptr %.sink12, ptr %11, align 8, !tbaa !80
   store i32 %.sink, ptr %3, align 8, !tbaa !114
   br label %Vec_IntPush.exit
 
 Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.sink.split, %.lr.ph
-  %.pre.i7 = phi ptr [ %13, %.lr.ph ], [ %.sink9, %Vec_IntPush.exit.sink.split ]
+  %.pre.i7 = phi ptr [ %13, %.lr.ph ], [ %.sink12, %Vec_IntPush.exit.sink.split ]
   %32 = add nsw i32 %14, 1
   store i32 %32, ptr %5, align 4, !tbaa !71
   %33 = sext i32 %14 to i64
@@ -6296,8 +6296,8 @@ define range(i32 0, 2) i32 @Abc_CommandAbcLivenessToSafetyAbstraction(ptr nounde
   br label %21
 
 21:                                               ; preds = %18, %19
-  %.sink127 = phi ptr [ %20, %19 ], [ %4, %18 ]
-  %22 = tail call ptr @Abc_NtkToDar(ptr noundef %.sink127, i32 noundef 0, i32 noundef 1) #16
+  %.sink130 = phi ptr [ %20, %19 ], [ %4, %18 ]
+  %22 = tail call ptr @Abc_NtkToDar(ptr noundef %.sink130, i32 noundef 0, i32 noundef 1) #16
   %23 = tail call ptr @populateLivenessVector(ptr noundef nonnull %4, ptr noundef %22)
   %24 = tail call ptr @populateFairnessVector(ptr noundef nonnull %4, ptr noundef %22)
   %25 = tail call ptr @populateSafetyAssertionVector(ptr noundef nonnull %4, ptr noundef %22)
@@ -8523,8 +8523,8 @@ define range(i32 0, 2) i32 @Abc_CommandAbcLivenessToSafetyWithLTL(ptr noundef %0
   br label %23
 
 23:                                               ; preds = %20, %21
-  %.sink128 = phi ptr [ %22, %21 ], [ %5, %20 ]
-  %24 = tail call ptr @Abc_NtkToDar(ptr noundef %.sink128, i32 noundef 0, i32 noundef 1) #16
+  %.sink130 = phi ptr [ %22, %21 ], [ %5, %20 ]
+  %24 = tail call ptr @Abc_NtkToDar(ptr noundef %.sink130, i32 noundef 0, i32 noundef 1) #16
   %25 = tail call ptr @populateLivenessVector(ptr noundef nonnull %5, ptr noundef %24)
   %26 = tail call ptr @populateFairnessVector(ptr noundef nonnull %5, ptr noundef %24)
   %27 = tail call ptr @populateSafetyAssertionVector(ptr noundef nonnull %5, ptr noundef %24)

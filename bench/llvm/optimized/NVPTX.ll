@@ -1007,8 +1007,8 @@ _ZN4llvm16dyn_cast_or_nullIN5clang12FunctionDeclEKNS1_4DeclEEEDaPT0_.exit: ; pre
   %.not33 = icmp eq i64 %40, 0
   %41 = and i32 %11, 256
   %.not.i = icmp eq i32 %41, 0
-  %or.cond126 = or i1 %.not33, %.not.i
-  br i1 %or.cond126, label %_ZNK5clang4Decl7hasAttrINS_16OpenCLKernelAttrEEEbv.exit.thread95, label %42
+  %or.cond141 = or i1 %.not33, %.not.i
+  br i1 %or.cond141, label %_ZNK5clang4Decl7hasAttrINS_16OpenCLKernelAttrEEEbv.exit.thread95, label %42
 
 42:                                               ; preds = %_ZN4llvm16dyn_cast_or_nullIN5clang12FunctionDeclEKNS1_4DeclEEEDaPT0_.exit
   %43 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZNK5clang4Decl8getAttrsEv(ptr noundef nonnull align 8 dereferenceable(33) %1) #15
@@ -1808,8 +1808,8 @@ _ZNK5clang4Type12isScalarTypeEv.exit.i:           ; preds = %55
 _ZNK5clang4Type12isScalarTypeEv.exit.thread.i:    ; preds = %_ZNK5clang4Type12isScalarTypeEv.exit.i, %._ZNK5clang4Type12isScalarTypeEv.exit.thread_crit_edge.i
   %80 = phi i8 [ %.pre57, %._ZNK5clang4Type12isScalarTypeEv.exit.thread_crit_edge.i ], [ %79, %_ZNK5clang4Type12isScalarTypeEv.exit.i ]
   %81 = phi ptr [ %.pre, %._ZNK5clang4Type12isScalarTypeEv.exit.thread_crit_edge.i ], [ %60, %_ZNK5clang4Type12isScalarTypeEv.exit.i ]
-  %.not60 = icmp eq i8 %80, 46
-  br i1 %.not60, label %82, label %_ZNK5clang8EnumDecl14getIntegerTypeEv.exit.i
+  %.not64 = icmp eq i8 %80, 46
+  br i1 %.not64, label %82, label %_ZNK5clang8EnumDecl14getIntegerTypeEv.exit.i
 
 82:                                               ; preds = %_ZNK5clang4Type12isScalarTypeEv.exit.thread.i
   %83 = tail call noundef ptr @_ZNK5clang7TagType7getDeclEv(ptr noundef nonnull align 16 dereferenceable(32) %81) #15, !noalias !556

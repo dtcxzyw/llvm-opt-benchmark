@@ -490,11 +490,11 @@ define ptr @res_getStringNoTrace_77(ptr noundef readonly captures(none) %0, i32 
   %8 = load i32, ptr %7, align 8, !tbaa !27
   %9 = icmp slt i32 %6, %8
   %10 = select i1 %9, i32 0, i32 %8
-  %.sink42 = sub i32 %6, %10
+  %.sink47 = sub i32 %6, %10
   %.sink.in.v = select i1 %9, i64 40, i64 16
   %.sink.in = getelementptr inbounds nuw i8, ptr %0, i64 %.sink.in.v
   %.sink = load ptr, ptr %.sink.in, align 8, !tbaa !33
-  %11 = zext i32 %.sink42 to i64
+  %11 = zext i32 %.sink47 to i64
   %12 = getelementptr inbounds nuw i16, ptr %.sink, i64 %11
   %13 = load i16, ptr %12, align 2, !tbaa !34
   %14 = zext i16 %13 to i32
@@ -804,11 +804,11 @@ define noundef ptr @_ZNK6icu_7717ResourceDataValue9getStringERiR10UErrorCode(ptr
   %15 = load i32, ptr %14, align 8, !tbaa !27
   %16 = icmp slt i32 %13, %15
   %17 = select i1 %16, i32 0, i32 %15
-  %.sink42.i.i = sub i32 %13, %17
+  %.sink47.i.i = sub i32 %13, %17
   %.sink.in.i.v.i = select i1 %16, i64 40, i64 16
   %.sink.in.i.i = getelementptr inbounds nuw i8, ptr %8, i64 %.sink.in.i.v.i
   %.sink.i.i = load ptr, ptr %.sink.in.i.i, align 8, !tbaa !33
-  %18 = zext i32 %.sink42.i.i to i64
+  %18 = zext i32 %.sink47.i.i to i64
   %19 = getelementptr inbounds nuw i16, ptr %.sink.i.i, i64 %18
   %20 = load i16, ptr %19, align 2, !tbaa !34
   %21 = zext i16 %20 to i32
@@ -1295,11 +1295,11 @@ define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7717ResourceDataValue21isNoIn
   %33 = load i32, ptr %32, align 8, !tbaa !27
   %34 = icmp slt i32 %6, %33
   %35 = select i1 %34, i32 0, i32 %33
-  %.sink36.i = sub i32 %6, %35
+  %.sink39.i = sub i32 %6, %35
   %.sink.in.i.v = select i1 %34, i64 40, i64 16
   %.sink.in.i = getelementptr inbounds nuw i8, ptr %3, i64 %.sink.in.i.v
   %.sink.i = load ptr, ptr %.sink.in.i, align 8, !tbaa !33
-  %36 = zext i32 %.sink36.i to i64
+  %36 = zext i32 %.sink39.i to i64
   %37 = getelementptr inbounds nuw i16, ptr %.sink.i, i64 %36
   %38 = load i16, ptr %37, align 2, !tbaa !34
   switch i16 %38, label %_ZN12_GLOBAL__N_121isNoInheritanceMarkerEPK12ResourceDataj.exit [
@@ -1447,11 +1447,11 @@ _ZNK6icu_7713ResourceArray19internalGetResourceEPK12ResourceDatai.exit: ; preds 
   %44 = load i32, ptr %21, align 8, !tbaa !27
   %45 = icmp slt i32 %43, %44
   %46 = select i1 %45, i32 0, i32 %44
-  %.sink42.i = sub i32 %43, %46
+  %.sink47.i = sub i32 %43, %46
   %.sink.in.i.v = select i1 %45, i64 40, i64 16
   %.sink.in.i = getelementptr inbounds nuw i8, ptr %0, i64 %.sink.in.i.v
   %.sink.i = load ptr, ptr %.sink.in.i, align 8, !tbaa !33
-  %47 = zext i32 %.sink42.i to i64
+  %47 = zext i32 %.sink47.i to i64
   %48 = getelementptr inbounds nuw i16, ptr %.sink.i, i64 %47
   %49 = load i16, ptr %48, align 2, !tbaa !34
   %50 = zext i16 %49 to i32
@@ -1615,11 +1615,11 @@ define noundef i32 @_ZNK6icu_7717ResourceDataValue29getStringArrayOrStringAsArra
   %35 = load i32, ptr %34, align 8, !tbaa !27
   %36 = icmp slt i32 %33, %35
   %37 = select i1 %36, i32 0, i32 %35
-  %.sink42.i.i = sub i32 %33, %37
+  %.sink47.i.i = sub i32 %33, %37
   %.sink.in.i.v.i = select i1 %36, i64 40, i64 16
   %.sink.in.i.i = getelementptr inbounds nuw i8, ptr %30, i64 %.sink.in.i.v.i
   %.sink.i.i = load ptr, ptr %.sink.in.i.i, align 8, !tbaa !33
-  %38 = zext i32 %.sink42.i.i to i64
+  %38 = zext i32 %.sink47.i.i to i64
   %39 = getelementptr inbounds nuw i16, ptr %.sink.i.i, i64 %38
   %40 = load i16, ptr %39, align 2, !tbaa !34
   %41 = zext i16 %40 to i32
@@ -1746,11 +1746,11 @@ define void @_ZNK6icu_7717ResourceDataValue23getStringOrFirstOfArrayER10UErrorCo
   %19 = load i32, ptr %18, align 8, !tbaa !27
   %20 = icmp slt i32 %17, %19
   %21 = select i1 %20, i32 0, i32 %19
-  %.sink42.i.i = sub i32 %17, %21
+  %.sink47.i.i = sub i32 %17, %21
   %.sink.in.i.v.i = select i1 %20, i64 40, i64 16
   %.sink.in.i.i = getelementptr inbounds nuw i8, ptr %12, i64 %.sink.in.i.v.i
   %.sink.i.i = load ptr, ptr %.sink.in.i.i, align 8, !tbaa !33
-  %22 = zext i32 %.sink42.i.i to i64
+  %22 = zext i32 %.sink47.i.i to i64
   %23 = getelementptr inbounds nuw i16, ptr %.sink.i.i, i64 %22
   %24 = load i16, ptr %23, align 2, !tbaa !34
   %25 = zext i16 %24 to i32
@@ -1910,11 +1910,11 @@ _ZNK6icu_7713ResourceArray19internalGetResourceEPK12ResourceDatai.exit: ; preds 
   %112 = load i32, ptr %111, align 8, !tbaa !27
   %113 = icmp slt i32 %110, %112
   %114 = select i1 %113, i32 0, i32 %112
-  %.sink42.i = sub i32 %110, %114
+  %.sink47.i = sub i32 %110, %114
   %.sink.in.i.v = select i1 %113, i64 40, i64 16
   %.sink.in.i = getelementptr inbounds nuw i8, ptr %90, i64 %.sink.in.i.v
   %.sink.i = load ptr, ptr %.sink.in.i, align 8, !tbaa !33
-  %115 = zext i32 %.sink42.i to i64
+  %115 = zext i32 %.sink47.i to i64
   %116 = getelementptr inbounds nuw i16, ptr %.sink.i, i64 %115
   %117 = load i16, ptr %116, align 2, !tbaa !34
   %118 = zext i16 %117 to i32
@@ -2505,9 +2505,9 @@ define i32 @res_getTableItemByIndex_77(ptr noundef readonly captures(none) %0, i
   br label %111
 
 111:                                              ; preds = %102, %107
-  %.sink104 = phi i32 [ %110, %107 ], [ %105, %102 ]
+  %.sink118 = phi i32 [ %110, %107 ], [ %105, %102 ]
   %.sink = phi ptr [ %109, %107 ], [ %96, %102 ]
-  %112 = zext nneg i32 %.sink104 to i64
+  %112 = zext nneg i32 %.sink118 to i64
   %113 = getelementptr inbounds nuw i8, ptr %.sink, i64 %112
   store ptr %113, ptr %3, align 8, !tbaa !63
   br label %.thread101
@@ -3154,8 +3154,8 @@ define i32 @ures_swap_77(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nou
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 13
   %20 = load i8, ptr %19, align 1, !tbaa !13
   %21 = icmp eq i8 %20, 101
-  %or.cond165 = select i1 %18, i1 %21, i1 false
-  br i1 %or.cond165, label %22, label %.thread
+  %or.cond183 = select i1 %18, i1 %21, i1 false
+  br i1 %or.cond183, label %22, label %.thread
 
 22:                                               ; preds = %15
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 14
@@ -3651,9 +3651,9 @@ define internal fastcc void @_ZL17ures_swapResourcePK12UDataSwapperPKjPjjPKcP9Te
   br label %106
 
 106:                                              ; preds = %100, %91
-  %.sink377 = phi i64 [ %105, %100 ], [ %99, %91 ]
+  %.sink380 = phi i64 [ %105, %100 ], [ %99, %91 ]
   %.sink = phi i1 [ %104, %100 ], [ %98, %91 ]
-  %107 = getelementptr inbounds nuw i8, ptr %2, i64 %.sink377
+  %107 = getelementptr inbounds nuw i8, ptr %2, i64 %.sink380
   %.2 = select i1 %.sink, ptr %107, ptr @.str.15
   %108 = load ptr, ptr %89, align 8, !tbaa !72
   %109 = getelementptr inbounds nuw i32, ptr %84, i64 %indvars.iv

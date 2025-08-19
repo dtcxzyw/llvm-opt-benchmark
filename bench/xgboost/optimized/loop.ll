@@ -1113,14 +1113,14 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i17
   br label %.body
 
 .sink.split:                                      ; preds = %217, %190, %.noexc150, %212, %.noexc139, %185
-  %.pn.i.i.i.i148.sink791 = phi ptr [ %186, %185 ], [ %201, %.noexc139 ], [ %213, %212 ], [ %228, %.noexc150 ], [ %192, %190 ], [ %219, %217 ]
-  %.sink790 = phi i32 [ %178, %185 ], [ %178, %.noexc139 ], [ %205, %212 ], [ %205, %.noexc150 ], [ %178, %190 ], [ %205, %217 ]
-  %.sink788 = phi i16 [ 1, %185 ], [ 1, %.noexc139 ], [ 4, %212 ], [ 4, %.noexc150 ], [ 1, %190 ], [ 4, %217 ]
-  %.1.i.i.i.i149 = getelementptr inbounds nuw i8, ptr %.pn.i.i.i.i148.sink791, i64 12
-  store i32 %.sink790, ptr %.1.i.i.i.i149, align 4, !tbaa !130
-  %338 = getelementptr inbounds nuw i8, ptr %.pn.i.i.i.i148.sink791, i64 16
+  %.pn.i.i.i.i148.sink898 = phi ptr [ %186, %185 ], [ %201, %.noexc139 ], [ %213, %212 ], [ %228, %.noexc150 ], [ %192, %190 ], [ %219, %217 ]
+  %.sink897 = phi i32 [ %178, %185 ], [ %178, %.noexc139 ], [ %205, %212 ], [ %205, %.noexc150 ], [ %178, %190 ], [ %205, %217 ]
+  %.sink895 = phi i16 [ 1, %185 ], [ 1, %.noexc139 ], [ 4, %212 ], [ 4, %.noexc150 ], [ 1, %190 ], [ 4, %217 ]
+  %.1.i.i.i.i149 = getelementptr inbounds nuw i8, ptr %.pn.i.i.i.i148.sink898, i64 12
+  store i32 %.sink897, ptr %.1.i.i.i.i149, align 4, !tbaa !130
+  %338 = getelementptr inbounds nuw i8, ptr %.pn.i.i.i.i148.sink898, i64 16
   %339 = load i16, ptr %338, align 4, !tbaa !131
-  %340 = or i16 %339, %.sink788
+  %340 = or i16 %339, %.sink895
   store i16 %340, ptr %338, align 4, !tbaa !131
   br label %341
 

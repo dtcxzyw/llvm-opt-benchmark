@@ -624,8 +624,8 @@ define void @ff_print_debug_info2(ptr noundef %0, ptr noundef %1, ptr noundef re
   %265 = trunc nuw nsw i64 %indvars.iv363 to i32
   %266 = shl i32 %265, 4
   %267 = mul nsw i64 %indvars.iv363, %264
-  %invariant.gep374 = getelementptr i8, ptr %3, i64 %267
-  %invariant.gep376 = getelementptr i32, ptr %2, i64 %267
+  %invariant.gep381 = getelementptr i8, ptr %3, i64 %267
+  %invariant.gep383 = getelementptr i32, ptr %2, i64 %267
   br label %268
 
 268:                                              ; preds = %.lr.ph310.us, %309
@@ -644,8 +644,8 @@ define void @ff_print_debug_info2(ptr noundef %0, ptr noundef %1, ptr noundef re
   br i1 %.not221.us, label %277, label %274
 
 274:                                              ; preds = %271
-  %gep375 = getelementptr i8, ptr %invariant.gep374, i64 %indvars.iv358
-  %275 = load i8, ptr %gep375, align 1, !tbaa !73
+  %gep382 = getelementptr i8, ptr %invariant.gep381, i64 %indvars.iv358
+  %275 = load i8, ptr %gep382, align 1, !tbaa !73
   %276 = sext i8 %275 to i32
   call void (ptr, ptr, ...) @av_bprintf(ptr noundef nonnull %11, ptr noundef nonnull @.str.5, i32 noundef %276) #6
   %.pre = load i32, ptr %237, align 4, !tbaa !68
@@ -658,8 +658,8 @@ define void @ff_print_debug_info2(ptr noundef %0, ptr noundef %1, ptr noundef re
   br i1 %.not222.us, label %309, label %280
 
 280:                                              ; preds = %277
-  %gep377 = getelementptr i32, ptr %invariant.gep376, i64 %indvars.iv358
-  %281 = load i32, ptr %gep377, align 4, !tbaa !35
+  %gep384 = getelementptr i32, ptr %invariant.gep383, i64 %indvars.iv358
+  %281 = load i32, ptr %gep384, align 4, !tbaa !35
   %282 = and i32 %281, 4
   %.not.i241.us = icmp eq i32 %282, 0
   br i1 %.not.i241.us, label %283, label %get_type_mv_char.exit.us

@@ -257,8 +257,8 @@ define noundef i32 @dissect_oer_constrained_integer_64b(ptr noundef %0, i32 noun
   unreachable
 
 32:                                               ; preds = %18, %16, %14, %12
-  %.sink36 = phi i32 [ 1, %12 ], [ 2, %14 ], [ 4, %16 ], [ 8, %18 ]
-  %33 = call ptr @proto_tree_add_item_ret_uint64(ptr noundef %3, i32 noundef %4, ptr noundef %0, i32 noundef %1, i32 noundef %.sink36, i32 noundef 0, ptr noundef nonnull %10)
+  %.sink38 = phi i32 [ 1, %12 ], [ 2, %14 ], [ 4, %16 ], [ 8, %18 ]
+  %33 = call ptr @proto_tree_add_item_ret_uint64(ptr noundef %3, i32 noundef %4, ptr noundef %0, i32 noundef %1, i32 noundef %.sink38, i32 noundef 0, ptr noundef nonnull %10)
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %36, label %34
 
@@ -268,7 +268,7 @@ define noundef i32 @dissect_oer_constrained_integer_64b(ptr noundef %0, i32 noun
   br label %36
 
 36:                                               ; preds = %34, %32
-  %37 = add i32 %1, %.sink36
+  %37 = add i32 %1, %.sink38
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret i32 %37
 }
@@ -922,7 +922,7 @@ proto_item_set_hidden.exit169:                    ; preds = %96, %93, %91, %88
   br label %._crit_edge219
 
 ._crit_edge219:                                   ; preds = %._crit_edge219.loopexit, %56
-  %.0142.lcssa259263 = phi i32 [ 0, %56 ], [ %.1143, %._crit_edge219.loopexit ]
+  %.0142.lcssa287291 = phi i32 [ 0, %56 ], [ %.1143, %._crit_edge219.loopexit ]
   %111 = phi ptr [ %33, %56 ], [ %.pre, %._crit_edge219.loopexit ]
   %.1141.lcssa = phi i32 [ %.0140, %56 ], [ %61, %._crit_edge219.loopexit ]
   %112 = add i32 %.1141.lcssa, 7
@@ -936,7 +936,7 @@ proto_item_set_hidden.exit169:                    ; preds = %96, %93, %91, %88
   %.0225 = phi i32 [ %.1, %.thread ], [ %113, %._crit_edge219 ]
   %.2129224 = phi i32 [ %154, %.thread ], [ 0, %._crit_edge219 ]
   %.0136223 = phi i32 [ %.3139, %.thread ], [ 0, %._crit_edge219 ]
-  %.2144222 = phi i32 [ %.5147, %.thread ], [ %.0142.lcssa259263, %._crit_edge219 ]
+  %.2144222 = phi i32 [ %.5147, %.thread ], [ %.0142.lcssa287291, %._crit_edge219 ]
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 8
   %117 = load i32, ptr %116, align 8
   %switch165 = icmp ult i32 %117, 2
@@ -961,7 +961,7 @@ proto_item_set_hidden.exit169:                    ; preds = %96, %93, %91, %88
   %130 = load i32, ptr %129, align 4
   %131 = and i32 %130, %126
   %.not158 = icmp eq i32 %131, 0
-  %132 = add i32 %.2144222, -1
+  %132 = add nsw i32 %.2144222, -1
   %133 = add i32 %.0136223, 1
   br i1 %.not158, label %.thread, label %134
 
@@ -1591,9 +1591,9 @@ proto_item_set_hidden.exit:                       ; preds = %20, %17, %8
   br i1 %.not5.i76, label %proto_item_set_hidden.exit74, label %proto_item_set_hidden.exit74.sink.split
 
 proto_item_set_hidden.exit74.sink.split:          ; preds = %50, %42
-  %.sink91 = phi ptr [ %44, %42 ], [ %52, %50 ]
+  %.sink101 = phi ptr [ %44, %42 ], [ %52, %50 ]
   %.065.ph = phi i8 [ %29, %42 ], [ %25, %50 ]
-  %53 = getelementptr inbounds nuw i8, ptr %.sink91, i64 28
+  %53 = getelementptr inbounds nuw i8, ptr %.sink101, i64 28
   %54 = load i32, ptr %53, align 4
   %55 = or i32 %54, 1
   store i32 %55, ptr %53, align 4

@@ -152,10 +152,10 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   %6 = load ptr, ptr %5, align 8, !tbaa !4
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 104
   %8 = load i32, ptr %7, align 8, !tbaa !24
-  switch i32 %8, label %.thread113 [
+  switch i32 %8, label %.thread117 [
     i32 0, label %9
     i32 1, label %thread-pre-split99.thread
-    i32 2, label %.thread115
+    i32 2, label %.thread119
   ]
 
 9:                                                ; preds = %2
@@ -166,7 +166,7 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 88
   %14 = load i64, ptr %13, align 8, !tbaa !46
   %.not = icmp ult i64 %12, %14
-  br i1 %.not, label %.thread113, label %15
+  br i1 %.not, label %.thread117, label %15
 
 15:                                               ; preds = %9
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 240
@@ -175,7 +175,7 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   %19 = load i32, ptr %18, align 4, !tbaa !26
   %20 = sext i32 %19 to i64
   %.not87 = icmp slt i64 %17, %20
-  br i1 %.not87, label %.thread113, label %21
+  br i1 %.not87, label %.thread117, label %21
 
 21:                                               ; preds = %15
   store i32 1, ptr %7, align 8, !tbaa !24
@@ -221,7 +221,7 @@ thread-pre-split99.thread:                        ; preds = %2, %thread-pre-spli
   %41 = add nsw i32 %40, %32
   %42 = sext i32 %41 to i64
   %43 = icmp sgt i64 %30, %42
-  br i1 %43, label %.thread115.sink.split, label %.thread113
+  br i1 %43, label %.thread119.sink.split, label %.thread117
 
 44:                                               ; preds = %thread-pre-split99.thread
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 136
@@ -236,13 +236,13 @@ thread-pre-split99.thread:                        ; preds = %2, %thread-pre-spli
   store i32 %52, ptr %53, align 4, !tbaa !40
   %54 = add i64 %48, %26
   %55 = icmp ugt i64 %46, %54
-  br i1 %55, label %.thread115.sink.split, label %.thread113
+  br i1 %55, label %.thread119.sink.split, label %.thread117
 
-.thread115.sink.split:                            ; preds = %44, %28
+.thread119.sink.split:                            ; preds = %44, %28
   store i32 2, ptr %7, align 8, !tbaa !24
-  br label %.thread115
+  br label %.thread119
 
-.thread113:                                       ; preds = %2, %9, %15, %44, %28
+.thread117:                                       ; preds = %2, %9, %15, %44, %28
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %6, i64 12
   %.pre = load i32, ptr %.phi.trans.insert, align 4, !tbaa !40
   %.pre.fr = freeze i32 %.pre
@@ -251,10 +251,10 @@ thread-pre-split99.thread:                        ; preds = %2, %thread-pre-spli
   %56 = sext i1 %isnotneg.i to i32
   %spec.select = select i1 %.not.i, i32 %.pre.fr, i32 %56
   %57 = and i32 %spec.select, 65535
-  br label %.thread115
+  br label %.thread119
 
-.thread115:                                       ; preds = %2, %.thread115.sink.split, %.thread113
-  %58 = phi i32 [ %57, %.thread113 ], [ 65535, %.thread115.sink.split ], [ 65535, %2 ]
+.thread119:                                       ; preds = %2, %.thread119.sink.split, %.thread117
+  %58 = phi i32 [ %57, %.thread117 ], [ 65535, %.thread119.sink.split ], [ 65535, %2 ]
   %59 = getelementptr inbounds nuw i8, ptr %6, i64 12
   store i32 %58, ptr %59, align 4, !tbaa !40
   %60 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -262,13 +262,13 @@ thread-pre-split99.thread:                        ; preds = %2, %thread-pre-spli
   %62 = icmp eq i32 %61, 1
   br i1 %62, label %63, label %65
 
-63:                                               ; preds = %.thread115
+63:                                               ; preds = %.thread119
   %64 = xor i32 %58, 65535
   store i32 %64, ptr %59, align 4, !tbaa !40
   br label %65
 
-65:                                               ; preds = %63, %.thread115
-  %66 = phi i32 [ %64, %63 ], [ %58, %.thread115 ]
+65:                                               ; preds = %63, %.thread119
+  %66 = phi i32 [ %64, %63 ], [ %58, %.thread119 ]
   %67 = icmp samesign ult i32 %66, 65535
   br i1 %67, label %68, label %102
 
@@ -330,11 +330,11 @@ thread-pre-split99.thread:                        ; preds = %2, %thread-pre-spli
   br label %.sink.split
 
 .sink.split:                                      ; preds = %81, %97, %71
-  %.sink119.in = phi ptr [ %74, %71 ], [ %86, %97 ], [ %82, %81 ]
+  %.sink123.in = phi ptr [ %74, %71 ], [ %86, %97 ], [ %82, %81 ]
   %.sink = phi ptr [ %73, %71 ], [ %99, %97 ], [ @filter_slice_rgb, %81 ]
-  %.sink119 = load i32, ptr %.sink119.in, align 4, !tbaa !53
+  %.sink123 = load i32, ptr %.sink123.in, align 4, !tbaa !53
   %100 = tail call i32 @ff_filter_get_nb_threads(ptr noundef nonnull %4) #10
-  %. = tail call i32 @llvm.smin.i32(i32 %.sink119, i32 %100)
+  %. = tail call i32 @llvm.smin.i32(i32 %.sink123, i32 %100)
   %101 = tail call i32 @ff_filter_execute(ptr noundef nonnull %4, ptr noundef %.sink, ptr noundef %1, ptr noundef null, i32 noundef %.) #9
   br label %102
 
@@ -1382,7 +1382,8 @@ define internal noundef i32 @filter_slice_chroma(ptr noundef readonly captures(n
   br i1 %or.cond, label %.preheader.us.us, label %.split57.us
 
 .preheader.us.us:                                 ; preds = %4, %._crit_edge51.split.us.us.us
-  %indvars.iv = phi i64 [ %indvars.iv.next, %._crit_edge51.split.us.us.us ], [ 1, %4 ]
+  %exitcond63.not = phi i1 [ true, %._crit_edge51.split.us.us.us ], [ false, %4 ]
+  %indvars.iv = phi i64 [ 2, %._crit_edge51.split.us.us.us ], [ 1, %4 ]
   %29 = getelementptr inbounds nuw [8 x ptr], ptr %1, i64 0, i64 %indvars.iv
   %30 = getelementptr inbounds nuw [8 x i32], ptr %26, i64 0, i64 %indvars.iv
   br label %.lr.ph.us.us.us
@@ -1419,8 +1420,6 @@ define internal noundef i32 @filter_slice_chroma(ptr noundef readonly captures(n
   br i1 %exitcond61.not, label %._crit_edge51.split.us.us.us, label %.lr.ph.us.us.us, !llvm.loop !95
 
 ._crit_edge51.split.us.us.us:                     ; preds = %._crit_edge.us.us.us
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond63.not = icmp eq i64 %indvars.iv.next, 3
   br i1 %exitcond63.not, label %.split57.us, label %.preheader.us.us, !llvm.loop !96
 
 .split57.us:                                      ; preds = %._crit_edge51.split.us.us.us, %4
@@ -1453,8 +1452,8 @@ define internal noundef i32 @filter_slice_chroma16(ptr noundef readonly captures
   %25 = mul i32 %19, %2
   %26 = sub i32 0, %25
   %27 = sdiv i32 %26, %3
-  %.neg71 = xor i32 %2, -1
-  %28 = mul i32 %19, %.neg71
+  %.neg72 = xor i32 %2, -1
+  %28 = mul i32 %19, %.neg72
   %29 = sdiv i32 %28, %3
   %. = tail call i32 @llvm.smin.i32(i32 %29, i32 %15)
   %30 = icmp slt i32 %27, %.
@@ -1471,7 +1470,8 @@ define internal noundef i32 @filter_slice_chroma16(ptr noundef readonly captures
   br label %.preheader.us.us
 
 .preheader.us.us:                                 ; preds = %._crit_edge55.split.us.us.us, %.split.us.split.us
-  %indvars.iv67 = phi i64 [ %indvars.iv.next68, %._crit_edge55.split.us.us.us ], [ 1, %.split.us.split.us ]
+  %exitcond70.not = phi i1 [ true, %._crit_edge55.split.us.us.us ], [ false, %.split.us.split.us ]
+  %indvars.iv67 = phi i64 [ 2, %._crit_edge55.split.us.us.us ], [ 1, %.split.us.split.us ]
   %36 = getelementptr inbounds nuw [8 x ptr], ptr %1, i64 0, i64 %indvars.iv67
   %37 = load ptr, ptr %36, align 8, !tbaa !54
   %38 = getelementptr inbounds nuw [8 x i32], ptr %31, i64 0, i64 %indvars.iv67
@@ -1507,8 +1507,6 @@ define internal noundef i32 @filter_slice_chroma16(ptr noundef readonly captures
   br i1 %exitcond66.not, label %._crit_edge55.split.us.us.us, label %.lr.ph.us.us.us, !llvm.loop !98
 
 ._crit_edge55.split.us.us.us:                     ; preds = %._crit_edge.us.us.us
-  %indvars.iv.next68 = add nuw nsw i64 %indvars.iv67, 1
-  %exitcond70.not = icmp eq i64 %indvars.iv.next68, 3
   br i1 %exitcond70.not, label %.split61.us, label %.preheader.us.us, !llvm.loop !99
 
 .split61.us:                                      ; preds = %._crit_edge55.split.us.us.us, %4

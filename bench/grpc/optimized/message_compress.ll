@@ -532,9 +532,9 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZL9zlib_bodyP10z_stream_sP1
 59:                                               ; preds = %54, %50
   %60 = phi ptr [ %53, %50 ], [ %58, %54 ]
   store ptr %60, ptr %0, align 8, !tbaa !40
-  br i1 %.pr, label %.critedge165, label %71
+  br i1 %.pr, label %.critedge174, label %71
 
-.critedge165:                                     ; preds = %86, %59
+.critedge174:                                     ; preds = %86, %59
   %61 = call i64 @grpc_slice_buffer_add_indexed(ptr noundef %2, ptr noundef nonnull byval(%struct.grpc_slice) align 8 %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @grpc_slice_malloc(ptr dead_on_unwind nonnull writable sret(%struct.grpc_slice) align 8 %9, i64 noundef 1024)
@@ -547,13 +547,13 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZL9zlib_bodyP10z_stream_sP1
   %.not97 = select i1 %.not95, i1 %64, i1 false
   br i1 %.not97, label %65, label %.critedge105, !prof !34
 
-65:                                               ; preds = %.critedge165
+65:                                               ; preds = %.critedge174
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @_ZN4absl12lts_2024072212log_internal15LogMessageFatalC1EPKciSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull @.str, i32 noundef 56, i64 37, ptr nonnull @.str.4) #12
   call void @_ZN4absl12lts_2024072212log_internal15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %10) #14
   unreachable
 
-.critedge105:                                     ; preds = %.critedge165
+.critedge105:                                     ; preds = %.critedge174
   %.not98 = icmp eq ptr %62, null
   %66 = and i64 %63, 255
   %67 = select i1 %.not98, i64 %66, i64 %63
@@ -616,7 +616,7 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi13EEERS2_RAT__Kc.exit: ; pr
 86:                                               ; preds = %71
   %87 = load i32, ptr %23, align 8, !tbaa !35
   %88 = icmp eq i32 %87, 0
-  br i1 %88, label %.critedge165, label %89, !llvm.loop !45
+  br i1 %88, label %.critedge174, label %89, !llvm.loop !45
 
 89:                                               ; preds = %86
   %90 = load i32, ptr %32, align 8, !tbaa !39

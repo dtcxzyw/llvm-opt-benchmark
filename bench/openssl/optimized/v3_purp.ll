@@ -218,9 +218,9 @@ define range(i32 0, 2) i32 @ossl_x509v3_cache_extensions(ptr noundef %0) local_u
   br i1 %.not152, label %65, label %.sink.split
 
 .sink.split:                                      ; preds = %61, %60
-  %.sink186 = phi i32 [ 1, %60 ], [ 128, %61 ]
+  %.sink199 = phi i32 [ 1, %60 ], [ 128, %61 ]
   %63 = load i32, ptr %17, align 8, !tbaa !13
-  %64 = or i32 %63, %.sink186
+  %64 = or i32 %63, %.sink199
   store i32 %64, ptr %17, align 8, !tbaa !13
   br label %65
 
@@ -265,21 +265,21 @@ define range(i32 0, 2) i32 @ossl_x509v3_cache_extensions(ptr noundef %0) local_u
   %84 = getelementptr inbounds nuw i8, ptr %0, i64 224
   store i64 %.sink, ptr %84, align 8, !tbaa !50
   call void @PROXY_CERT_INFO_EXTENSION_free(ptr noundef nonnull %66) #8
-  br label %.sink.split187
+  br label %.sink.split200
 
 85:                                               ; preds = %65
   %86 = load i32, ptr %4, align 4, !tbaa !46
   %.not156 = icmp eq i32 %86, -1
-  br i1 %.not156, label %89, label %.sink.split187
+  br i1 %.not156, label %89, label %.sink.split200
 
-.sink.split187:                                   ; preds = %85, %83
-  %.sink190 = phi i32 [ 1024, %83 ], [ 128, %85 ]
+.sink.split200:                                   ; preds = %85, %83
+  %.sink203 = phi i32 [ 1024, %83 ], [ 128, %85 ]
   %87 = load i32, ptr %17, align 8, !tbaa !13
-  %88 = or i32 %87, %.sink190
+  %88 = or i32 %87, %.sink203
   store i32 %88, ptr %17, align 8, !tbaa !13
   br label %89
 
-89:                                               ; preds = %.sink.split187, %85
+89:                                               ; preds = %.sink.split200, %85
   %90 = call ptr @X509_get_ext_d2i(ptr noundef nonnull %0, i32 noundef 83, ptr noundef nonnull %4, ptr noundef null) #8
   %.not159 = icmp eq ptr %90, null
   br i1 %.not159, label %112, label %91
@@ -322,20 +322,20 @@ define range(i32 0, 2) i32 @ossl_x509v3_cache_extensions(ptr noundef %0) local_u
   call void @ERR_new() #8
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 524, ptr noundef nonnull @__func__.ossl_x509v3_cache_extensions) #8
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 34, i32 noundef 169, ptr noundef null) #8
-  br label %.sink.split191
+  br label %.sink.split204
 
 112:                                              ; preds = %89
   %113 = load i32, ptr %4, align 4, !tbaa !46
   %.not160 = icmp eq i32 %113, -1
-  br i1 %.not160, label %116, label %.sink.split191
+  br i1 %.not160, label %116, label %.sink.split204
 
-.sink.split191:                                   ; preds = %112, %111
+.sink.split204:                                   ; preds = %112, %111
   %114 = load i32, ptr %17, align 8, !tbaa !13
   %115 = or i32 %114, 128
   store i32 %115, ptr %17, align 8, !tbaa !13
   br label %116
 
-116:                                              ; preds = %.sink.split191, %112, %106
+116:                                              ; preds = %.sink.split204, %112, %106
   %117 = getelementptr inbounds nuw i8, ptr %0, i64 240
   store i32 0, ptr %117, align 8, !tbaa !55
   %118 = call ptr @X509_get_ext_d2i(ptr noundef nonnull %0, i32 noundef 126, ptr noundef nonnull %4, ptr noundef null) #8
@@ -356,7 +356,7 @@ define range(i32 0, 2) i32 @ossl_x509v3_cache_extensions(ptr noundef %0) local_u
   %125 = call ptr @OPENSSL_sk_value(ptr noundef nonnull %118, i32 noundef %124) #8
   %126 = call i32 @OBJ_obj2nid(ptr noundef %125) #8
   switch i32 %126, label %137 [
-    i32 129, label %.sink.split194
+    i32 129, label %.sink.split207
     i32 130, label %127
     i32 132, label %128
     i32 131, label %129
@@ -369,37 +369,37 @@ define range(i32 0, 2) i32 @ossl_x509v3_cache_extensions(ptr noundef %0) local_u
   ]
 
 127:                                              ; preds = %.lr.ph
-  br label %.sink.split194
+  br label %.sink.split207
 
 128:                                              ; preds = %.lr.ph
-  br label %.sink.split194
+  br label %.sink.split207
 
 129:                                              ; preds = %.lr.ph
-  br label %.sink.split194
+  br label %.sink.split207
 
 130:                                              ; preds = %.lr.ph, %.lr.ph
-  br label %.sink.split194
+  br label %.sink.split207
 
 131:                                              ; preds = %.lr.ph
-  br label %.sink.split194
+  br label %.sink.split207
 
 132:                                              ; preds = %.lr.ph
-  br label %.sink.split194
+  br label %.sink.split207
 
 133:                                              ; preds = %.lr.ph
-  br label %.sink.split194
+  br label %.sink.split207
 
 134:                                              ; preds = %.lr.ph
-  br label %.sink.split194
+  br label %.sink.split207
 
-.sink.split194:                                   ; preds = %.lr.ph, %134, %133, %132, %131, %130, %129, %128, %127
-  %.sink197 = phi i32 [ 2, %127 ], [ 4, %128 ], [ 8, %129 ], [ 16, %130 ], [ 32, %131 ], [ 64, %132 ], [ 128, %133 ], [ 256, %134 ], [ 1, %.lr.ph ]
+.sink.split207:                                   ; preds = %.lr.ph, %134, %133, %132, %131, %130, %129, %128, %127
+  %.sink210 = phi i32 [ 2, %127 ], [ 4, %128 ], [ 8, %129 ], [ 16, %130 ], [ 32, %131 ], [ 64, %132 ], [ 128, %133 ], [ 256, %134 ], [ 1, %.lr.ph ]
   %135 = load i32, ptr %117, align 8, !tbaa !55
-  %136 = or i32 %135, %.sink197
+  %136 = or i32 %135, %.sink210
   store i32 %136, ptr %117, align 8, !tbaa !55
   br label %137
 
-137:                                              ; preds = %.sink.split194, %.lr.ph
+137:                                              ; preds = %.sink.split207, %.lr.ph
   %138 = load i32, ptr %4, align 4, !tbaa !46
   %139 = add nsw i32 %138, 1
   store i32 %139, ptr %4, align 4, !tbaa !46
@@ -786,8 +786,8 @@ X509_supported_extension.exit:                    ; preds = %328
   %switch.maskindex = trunc i32 %switch.tableidx to i16
   %switch.shifted = lshr i16 297, %switch.maskindex
   %switch.lobit = trunc i16 %switch.shifted to i1
-  %or.cond203 = select i1 %334, i1 %switch.lobit, i1 false
-  br i1 %or.cond203, label %switch.lookup, label %340
+  %or.cond216 = select i1 %334, i1 %switch.lobit, i1 false
+  br i1 %or.cond216, label %switch.lookup, label %340
 
 .loopexit177:                                     ; preds = %X509_supported_extension.exit, %X509_supported_extension.exit.thread
   %335 = load i32, ptr %17, align 8, !tbaa !13
@@ -966,22 +966,22 @@ define range(i32 11, 1) i32 @X509_PURPOSE_get_unused_id(ptr noundef readnone cap
 
 .lr.ph:                                           ; preds = %1, %select.unfold
   %5 = phi ptr [ %8, %select.unfold ], [ %3, %1 ]
-  %.05 = phi i32 [ %7, %select.unfold ], [ 11, %1 ]
-  store i32 %.05, ptr %2, align 8, !tbaa !8
+  %.06 = phi i32 [ %7, %select.unfold ], [ 11, %1 ]
+  store i32 %.06, ptr %2, align 8, !tbaa !8
   %6 = call i32 @OPENSSL_sk_find(ptr noundef nonnull %5, ptr noundef nonnull %2) #8
   %.inv.i = icmp sgt i32 %6, -1
   br i1 %.inv.i, label %select.unfold, label %._crit_edge
 
 select.unfold:                                    ; preds = %.lr.ph
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %7 = add nuw nsw i32 %.05, 1
+  %7 = add nuw nsw i32 %.06, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %8 = load ptr, ptr @xptable, align 8, !tbaa !3
   %9 = icmp eq ptr %8, null
   br i1 %9, label %._crit_edge, label %.lr.ph, !llvm.loop !79
 
 ._crit_edge:                                      ; preds = %.lr.ph, %select.unfold, %1
-  %.0.lcssa = phi i32 [ 11, %1 ], [ %.05, %.lr.ph ], [ %7, %select.unfold ]
+  %.0.lcssa = phi i32 [ 11, %1 ], [ %.06, %.lr.ph ], [ %7, %select.unfold ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0.lcssa
 }
@@ -1030,18 +1030,18 @@ X509_PURPOSE_get0.exit:                           ; preds = %11, %13
   %19 = load ptr, ptr %18, align 8, !tbaa !80
   %20 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %19, ptr noundef nonnull dereferenceable(1) %0) #9
   %21 = icmp eq i32 %20, 0
-  br i1 %21, label %.split.loop.exit9, label %22
+  br i1 %21, label %.split.loop.exit10, label %22
 
 22:                                               ; preds = %X509_PURPOSE_get0.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   br label %2, !llvm.loop !81
 
-.split.loop.exit9:                                ; preds = %X509_PURPOSE_get0.exit
+.split.loop.exit10:                               ; preds = %X509_PURPOSE_get0.exit
   %23 = trunc nuw nsw i64 %indvars.iv to i32
   br label %.split.loop.exit
 
-.split.loop.exit:                                 ; preds = %X509_PURPOSE_get_count.exit, %.split.loop.exit9
-  %.0 = phi i32 [ %23, %.split.loop.exit9 ], [ -1, %X509_PURPOSE_get_count.exit ]
+.split.loop.exit:                                 ; preds = %X509_PURPOSE_get_count.exit, %.split.loop.exit10
+  %.0 = phi i32 [ %23, %.split.loop.exit10 ], [ -1, %X509_PURPOSE_get_count.exit ]
   ret i32 %.0
 }
 

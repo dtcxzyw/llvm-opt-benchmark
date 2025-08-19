@@ -486,16 +486,16 @@ weight_set.exit127.i:                             ; preds = %137, %133
   br i1 %.not.i, label %.preheader262.i, label %25, !llvm.loop !33
 
 .preheader261.i:                                  ; preds = %255, %._crit_edge
-  %.037.lcssa91 = phi ptr [ null, %._crit_edge ], [ %.138, %255 ]
+  %.037.lcssa152 = phi ptr [ null, %._crit_edge ], [ %.138, %255 ]
   %.279.lcssa.i = phi i32 [ 0, %._crit_edge ], [ %.380.i, %255 ]
   %148 = icmp slt i32 %.279.lcssa.i, %.1
   br i1 %148, label %.preheader.lr.ph.i, label %.preheader261.._crit_edge_crit_edge.i
 
 .preheader261.._crit_edge_crit_edge.i:            ; preds = %.preheader261.i.thread, %.preheader261.i
-  %.037.lcssa91104 = phi ptr [ null, %.preheader261.i.thread ], [ %.037.lcssa91, %.preheader261.i ]
-  %.0.lcssa93102 = phi i32 [ 0, %.preheader261.i.thread ], [ %.1, %.preheader261.i ]
+  %.037.lcssa152165 = phi ptr [ null, %.preheader261.i.thread ], [ %.037.lcssa152, %.preheader261.i ]
+  %.0.lcssa154163 = phi i32 [ 0, %.preheader261.i.thread ], [ %.1, %.preheader261.i ]
   %149 = phi ptr [ %7, %.preheader261.i.thread ], [ %21, %.preheader261.i ]
-  %.not271.i94100 = phi i1 [ true, %.preheader261.i.thread ], [ %.not271.i, %.preheader261.i ]
+  %.not271.i155161 = phi i1 [ true, %.preheader261.i.thread ], [ %.not271.i, %.preheader261.i ]
   %.pre457.i = and i32 %3, 1
   br label %._crit_edge.i
 
@@ -756,7 +756,7 @@ approx_halfway.exit.thread.i:                     ; preds = %approx_halfway.exit
   %.pre.i.i.i157356.i = phi ptr [ %.pre.i.i.i148.pre.pre.i, %.preheader.preheader.i ], [ %.pre.i.i.i157356.i.be, %.preheader.i.backedge ]
   %.pre.i.i.i148.i = phi ptr [ %.pre.i.i.i148.pre.pre.i, %.preheader.preheader.i ], [ %.pre.i.i.i148.i.be, %.preheader.i.backedge ]
   %.5287.i = phi i32 [ %.279.lcssa.i, %.preheader.preheader.i ], [ %.6.ph.i, %.preheader.i.backedge ]
-  %.283285.i = phi ptr [ %.037.lcssa91, %.preheader.preheader.i ], [ %.283285.i.be, %.preheader.i.backedge ]
+  %.283285.i = phi ptr [ %.037.lcssa152, %.preheader.preheader.i ], [ %.283285.i.be, %.preheader.i.backedge ]
   %259 = load ptr, ptr %.283285.i, align 8, !tbaa !15
   %260 = load i32, ptr %259, align 8
   %261 = getelementptr i8, ptr %259, i64 64
@@ -1278,25 +1278,25 @@ approx_halfway.exit214.thread.i:                  ; preds = %324, %323, %approx_
   %.pre.i.i.i193373.i.be = phi ptr [ %.pre.i.i.i193374.i, %approx_halfway.exit214.thread.i ], [ %.pre.i.i.i148.pre442.i, %..loopexit_crit_edge.i ]
   %.pre.i.i.i157356.i.be = phi ptr [ %.pre.i.i.i157357.i, %approx_halfway.exit214.thread.i ], [ %.pre.i.i.i148.pre442.i, %..loopexit_crit_edge.i ]
   %.pre.i.i.i148.i.be = phi ptr [ %.pre.i.i.i148340.i, %approx_halfway.exit214.thread.i ], [ %.pre.i.i.i148.pre442.i, %..loopexit_crit_edge.i ]
-  %.283285.i.be = phi ptr [ %471, %approx_halfway.exit214.thread.i ], [ %.037.lcssa91, %..loopexit_crit_edge.i ]
+  %.283285.i.be = phi ptr [ %471, %approx_halfway.exit214.thread.i ], [ %.037.lcssa152, %..loopexit_crit_edge.i ]
   br label %.preheader.i, !llvm.loop !38
 
 ._crit_edge.i:                                    ; preds = %..loopexit_crit_edge.i, %.preheader261.._crit_edge_crit_edge.i
-  %.037.lcssa91103 = phi ptr [ %.037.lcssa91104, %.preheader261.._crit_edge_crit_edge.i ], [ %.037.lcssa91, %..loopexit_crit_edge.i ]
-  %.0.lcssa93101 = phi i32 [ %.0.lcssa93102, %.preheader261.._crit_edge_crit_edge.i ], [ %.1, %..loopexit_crit_edge.i ]
+  %.037.lcssa152164 = phi ptr [ %.037.lcssa152165, %.preheader261.._crit_edge_crit_edge.i ], [ %.037.lcssa152, %..loopexit_crit_edge.i ]
+  %.0.lcssa154162 = phi i32 [ %.0.lcssa154163, %.preheader261.._crit_edge_crit_edge.i ], [ %.1, %..loopexit_crit_edge.i ]
   %472 = phi ptr [ %149, %.preheader261.._crit_edge_crit_edge.i ], [ %21, %..loopexit_crit_edge.i ]
-  %.not271.i9499 = phi i1 [ %.not271.i94100, %.preheader261.._crit_edge_crit_edge.i ], [ false, %..loopexit_crit_edge.i ]
+  %.not271.i155160 = phi i1 [ %.not271.i155161, %.preheader261.._crit_edge_crit_edge.i ], [ false, %..loopexit_crit_edge.i ]
   %.pre-phi.i = phi i32 [ %.pre457.i, %.preheader261.._crit_edge_crit_edge.i ], [ %151, %..loopexit_crit_edge.i ]
   %.not87.i = icmp eq i32 %.pre-phi.i, 0
   br i1 %.not87.i, label %473, label %510
 
 473:                                              ; preds = %._crit_edge.i
-  br i1 %.not271.i9499, label %do_find_bisection.exit.thread65, label %.lr.ph.i215.i
+  br i1 %.not271.i155160, label %do_find_bisection.exit.thread65, label %.lr.ph.i215.i
 
 .lr.ph.i215.i:                                    ; preds = %473, %507
-  %.027.i.i = phi ptr [ %509, %507 ], [ %.037.lcssa91103, %473 ]
+  %.027.i.i = phi ptr [ %509, %507 ], [ %.037.lcssa152164, %473 ]
   %.01726.i.i = phi i32 [ %.1.i216.i, %507 ], [ -1, %473 ]
-  %.01825.i.i = phi ptr [ %.119.i.i, %507 ], [ %.037.lcssa91103, %473 ]
+  %.01825.i.i = phi ptr [ %.119.i.i, %507 ], [ %.037.lcssa152164, %473 ]
   %474 = load ptr, ptr %.027.i.i, align 8, !tbaa !15
   %475 = load i32, ptr %474, align 8
   %476 = and i32 %475, 64
@@ -1357,7 +1357,7 @@ weight.exit.i226.i:                               ; preds = %496, %491
   %502 = getelementptr inbounds nuw ptr, ptr %500, i64 %501
   %503 = load ptr, ptr %502, align 8, !tbaa !30
   %504 = load i32, ptr %503, align 4, !tbaa !14
-  %505 = sub nsw i32 %.0.lcssa93101, %504
+  %505 = sub nsw i32 %.0.lcssa154162, %504
   %spec.select.i.i = tail call i32 @llvm.smin.i32(i32 %505, i32 %504)
   %506 = icmp sgt i32 %spec.select.i.i, %.01726.i.i
   %.220.i.i = select i1 %506, ptr %.027.i.i, ptr %.01825.i.i
@@ -1373,14 +1373,14 @@ weight.exit.i226.i:                               ; preds = %496, %491
   br i1 %.not.i217.i, label %do_find_bisection.exit, label %.lr.ph.i215.i, !llvm.loop !39
 
 510:                                              ; preds = %._crit_edge.i
-  %511 = sext i32 %.0.lcssa93101 to i64
+  %511 = sext i32 %.0.lcssa154162 to i64
   %512 = tail call ptr @xcalloc(i64 noundef %511, i64 noundef 16) #22
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) @__const.read_bisect_paths.str, i64 24, i1 false)
-  br i1 %.not271.i9499, label %best_bisection_sorted.exit.i, label %.lr.ph.i227.i
+  br i1 %.not271.i155160, label %best_bisection_sorted.exit.i, label %.lr.ph.i227.i
 
 .lr.ph.i227.i:                                    ; preds = %510, %550
-  %.050.i.i = phi ptr [ %552, %550 ], [ %.037.lcssa91103, %510 ]
+  %.050.i.i = phi ptr [ %552, %550 ], [ %.037.lcssa152164, %510 ]
   %.04049.i.i = phi i32 [ %.141.i.i, %550 ], [ 0, %510 ]
   %513 = load ptr, ptr %.050.i.i, align 8, !tbaa !15
   %514 = load i32, ptr %513, align 8
@@ -1442,7 +1442,7 @@ weight.exit.i239.i:                               ; preds = %535, %530
   %541 = getelementptr inbounds nuw ptr, ptr %539, i64 %540
   %542 = load ptr, ptr %541, align 8, !tbaa !30
   %543 = load i32, ptr %542, align 4, !tbaa !14
-  %544 = sub nsw i32 %.0.lcssa93101, %543
+  %544 = sub nsw i32 %.0.lcssa154162, %543
   %spec.select.i240.i = tail call i32 @llvm.smin.i32(i32 %544, i32 %543)
   %545 = load ptr, ptr %.050.i.i, align 8, !tbaa !15
   %546 = sext i32 %.04049.i.i to i64
@@ -1483,7 +1483,7 @@ sane_qsort.exit.i.i:                              ; preds = %554, %._crit_edge.i
 
 561:                                              ; preds = %574, %.lr.ph53.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph53.i.i ], [ %indvars.iv.next.i.i, %574 ]
-  %.152.i.i = phi ptr [ %.037.lcssa91103, %.lr.ph53.i.i ], [ %.2.i229.i, %574 ]
+  %.152.i.i = phi ptr [ %.037.lcssa152164, %.lr.ph53.i.i ], [ %.2.i229.i, %574 ]
   %562 = getelementptr inbounds nuw %struct.commit_dist, ptr %512, i64 %indvars.iv.i.i
   %563 = load ptr, ptr %562, align 8, !tbaa !40
   store i64 0, ptr %557, align 8, !tbaa !44
@@ -1518,7 +1518,7 @@ strbuf_setlen.exit.i.i:                           ; preds = %565, %561
   br i1 %exitcond.not.i.i, label %._crit_edge54.i.i, label %561, !llvm.loop !49
 
 ._crit_edge54.i.i:                                ; preds = %574, %sane_qsort.exit.i.i
-  %.1.lcssa.i.i = phi ptr [ %.037.lcssa91103, %sane_qsort.exit.i.i ], [ %.2.i229.i, %574 ]
+  %.1.lcssa.i.i = phi ptr [ %.037.lcssa152164, %sane_qsort.exit.i.i ], [ %.2.i229.i, %574 ]
   %.not46.i.i = icmp eq ptr %.1.lcssa.i.i, null
   br i1 %.not46.i.i, label %best_bisection_sorted.exit.i, label %575
 
@@ -1536,7 +1536,7 @@ best_bisection_sorted.exit.i:                     ; preds = %575, %._crit_edge54
   br label %do_find_bisection.exit
 
 do_find_bisection.exit:                           ; preds = %507, %best_bisection_sorted.exit.i
-  %.0.i = phi ptr [ %.037.lcssa91103, %best_bisection_sorted.exit.i ], [ %.119.i.i, %507 ]
+  %.0.i = phi ptr [ %.037.lcssa152164, %best_bisection_sorted.exit.i ], [ %.119.i.i, %507 ]
   %.not44 = icmp eq ptr %.0.i, null
   br i1 %.not44, label %do_find_bisection.exit.thread65, label %do_find_bisection.exit.thread
 
@@ -1546,12 +1546,12 @@ do_find_bisection.exit.thread:                    ; preds = %do_find_bisection.e
   br i1 %578, label %do_find_bisection.exit.thread.thread, label %583
 
 do_find_bisection.exit.thread.thread:             ; preds = %weight.exit.i.i, %weight.exit.i.i, %weight.exit.i.i, %approx_halfway.exit.i, %weight.exit.i212.i, %weight.exit.i212.i, %weight.exit.i212.i, %approx_halfway.exit214.i, %do_find_bisection.exit.thread
-  %.0.i64109 = phi ptr [ %.0.i, %do_find_bisection.exit.thread ], [ %.283285.i, %approx_halfway.exit214.i ], [ %.283285.i, %weight.exit.i212.i ], [ %.283285.i, %weight.exit.i212.i ], [ %.283285.i, %weight.exit.i212.i ], [ %.182276.i, %approx_halfway.exit.i ], [ %.182276.i, %weight.exit.i.i ], [ %.182276.i, %weight.exit.i.i ], [ %.182276.i, %weight.exit.i.i ]
-  %.037.lcssa92108 = phi ptr [ %.037.lcssa91103, %do_find_bisection.exit.thread ], [ %.037.lcssa91, %approx_halfway.exit214.i ], [ %.037.lcssa91, %weight.exit.i212.i ], [ %.037.lcssa91, %weight.exit.i212.i ], [ %.037.lcssa91, %weight.exit.i212.i ], [ %.138, %approx_halfway.exit.i ], [ %.138, %weight.exit.i.i ], [ %.138, %weight.exit.i.i ], [ %.138, %weight.exit.i.i ]
+  %.0.i64170 = phi ptr [ %.0.i, %do_find_bisection.exit.thread ], [ %.283285.i, %approx_halfway.exit214.i ], [ %.283285.i, %weight.exit.i212.i ], [ %.283285.i, %weight.exit.i212.i ], [ %.283285.i, %weight.exit.i212.i ], [ %.182276.i, %approx_halfway.exit.i ], [ %.182276.i, %weight.exit.i.i ], [ %.182276.i, %weight.exit.i.i ], [ %.182276.i, %weight.exit.i.i ]
+  %.037.lcssa153169 = phi ptr [ %.037.lcssa152164, %do_find_bisection.exit.thread ], [ %.037.lcssa152, %approx_halfway.exit214.i ], [ %.037.lcssa152, %weight.exit.i212.i ], [ %.037.lcssa152, %weight.exit.i212.i ], [ %.037.lcssa152, %weight.exit.i212.i ], [ %.138, %approx_halfway.exit.i ], [ %.138, %weight.exit.i.i ], [ %.138, %weight.exit.i.i ], [ %.138, %weight.exit.i.i ]
   %579 = phi ptr [ %472, %do_find_bisection.exit.thread ], [ %21, %approx_halfway.exit214.i ], [ %21, %weight.exit.i212.i ], [ %21, %weight.exit.i212.i ], [ %21, %weight.exit.i212.i ], [ %21, %approx_halfway.exit.i ], [ %21, %weight.exit.i.i ], [ %21, %weight.exit.i.i ], [ %21, %weight.exit.i.i ]
-  %580 = load ptr, ptr %.0.i64109, align 8, !tbaa !15
-  store ptr %580, ptr %.037.lcssa92108, align 8, !tbaa !15
-  %581 = getelementptr inbounds nuw i8, ptr %.037.lcssa92108, i64 8
+  %580 = load ptr, ptr %.0.i64170, align 8, !tbaa !15
+  store ptr %580, ptr %.037.lcssa153169, align 8, !tbaa !15
+  %581 = getelementptr inbounds nuw i8, ptr %.037.lcssa153169, i64 8
   %582 = load ptr, ptr %581, align 8, !tbaa !18
   call void @free_commit_list(ptr noundef %582) #22
   store ptr null, ptr %581, align 8, !tbaa !18
@@ -1559,7 +1559,7 @@ do_find_bisection.exit.thread.thread:             ; preds = %weight.exit.i.i, %w
 
 583:                                              ; preds = %do_find_bisection.exit.thread.thread, %do_find_bisection.exit.thread
   %584 = phi ptr [ %472, %do_find_bisection.exit.thread ], [ %579, %do_find_bisection.exit.thread.thread ]
-  %.141 = phi ptr [ %.0.i, %do_find_bisection.exit.thread ], [ %.037.lcssa92108, %do_find_bisection.exit.thread.thread ]
+  %.141 = phi ptr [ %.0.i, %do_find_bisection.exit.thread ], [ %.037.lcssa153169, %do_find_bisection.exit.thread.thread ]
   %.141.val = load ptr, ptr %.141, align 8, !tbaa !15
   %585 = getelementptr i8, ptr %.141.val, i64 64
   %.141.val.val = load i32, ptr %585, align 8, !tbaa !21
@@ -2590,7 +2590,7 @@ bisect_common.exit:                               ; preds = %192, %195
 
 .lr.ph.split.us.split.i.i:                        ; preds = %.preheader.i.i38, %208
   %.015.i = phi i32 [ %.116.i, %208 ], [ 0, %.preheader.i.i38 ]
-  %.014.i = phi i32 [ %.1.i, %208 ], [ 0, %.preheader.i.i38 ]
+  %.not55.us.i.i = phi i1 [ false, %208 ], [ true, %.preheader.i.i38 ]
   %.03565.us.i.i = phi ptr [ %.237.us.i.i, %208 ], [ %4, %.preheader.i.i38 ]
   %.03864.us.i.i = phi ptr [ %199, %208 ], [ %196, %.preheader.i.i38 ]
   %.04063.us.i.i = phi ptr [ %.242.us.i.i, %208 ], [ %12, %.preheader.i.i38 ]
@@ -2604,7 +2604,6 @@ bisect_common.exit:                               ; preds = %192, %195
   br i1 %203, label %207, label %204
 
 204:                                              ; preds = %.lr.ph.split.us.split.i.i
-  %.not55.us.i.i = icmp eq i32 %.014.i, 0
   br i1 %.not55.us.i.i, label %filter_skipped.exit.thread.i, label %205
 
 205:                                              ; preds = %204
@@ -2618,7 +2617,6 @@ bisect_common.exit:                               ; preds = %192, %195
 
 208:                                              ; preds = %207, %205
   %.116.i = phi i32 [ %.015.i, %207 ], [ %206, %205 ]
-  %.1.i = phi i32 [ 1, %207 ], [ %.014.i, %205 ]
   %.242.us.i.i = phi ptr [ %198, %207 ], [ %.04063.us.i.i, %205 ]
   %.237.us.i.i = phi ptr [ %.03565.us.i.i, %207 ], [ %198, %205 ]
   %.not51.us.i.i = icmp eq ptr %199, null

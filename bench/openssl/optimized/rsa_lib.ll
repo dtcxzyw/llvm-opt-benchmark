@@ -121,10 +121,10 @@ define internal fastcc ptr @rsa_new_intern(ptr noundef %0, ptr noundef %1) unnam
   br i1 %.not39, label %.sink.split, label %43
 
 .sink.split:                                      ; preds = %40, %25, %19
-  %.sink41 = phi i32 [ 101, %19 ], [ 111, %25 ], [ 125, %40 ]
+  %.sink46 = phi i32 [ 101, %19 ], [ 111, %25 ], [ 125, %40 ]
   %.sink = phi i32 [ 524326, %19 ], [ 524326, %25 ], [ 786693, %40 ]
   tail call void @ERR_new() #11
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink41, ptr noundef nonnull @__func__.rsa_new_intern) #11
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink46, ptr noundef nonnull @__func__.rsa_new_intern) #11
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 4, i32 noundef %.sink, ptr noundef null) #11
   br label %42
 

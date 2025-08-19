@@ -955,11 +955,11 @@ define hidden void @"_ZN102_$LT$futures_util..future..future..map..Map$LT$Fut$C$
   unreachable
 
 101:                                              ; preds = %146, %145
-  br i1 %.sroa.080.1.i.i, label %186, label %.thread270.i.i
+  br i1 %.sroa.080.1.i.i, label %186, label %.thread274.i.i
 
-.thread270.i.i:                                   ; preds = %101
-  %.sroa.22.1268.i.i = extractvalue { ptr, i32 } %.pn.pn.i.i, 1
-  %.sroa.0126.1269.i.i = extractvalue { ptr, i32 } %.pn.pn.i.i, 0
+.thread274.i.i:                                   ; preds = %101
+  %.sroa.22.1272.i.i = extractvalue { ptr, i32 } %.pn.pn.i.i, 1
+  %.sroa.0126.1273.i.i = extractvalue { ptr, i32 } %.pn.pn.i.i, 0
   br label %.body4.thread
 
 .thread.i.i:                                      ; preds = %174, %.thread191.i.i, %167, %.thread186.i.i, %154, %.critedge.i.i
@@ -1471,9 +1471,9 @@ define hidden void @"_ZN102_$LT$futures_util..future..future..map..Map$LT$Fut$C$
   call void @"_ZN4core3ptr102drop_in_place$LT$h2..share..SendStream$LT$hyper..proto..h2..SendBuf$LT$bytes..bytes..Bytes$GT$$GT$$GT$17hed2caa3b10205e8aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %232)
   br label %263
 
-.body4.thread:                                    ; preds = %.thread255.i.i, %.thread270.i.i, %223, %230, %239, %249, %253, %255, %258, %262
-  %.sroa.0126.6.i.i = phi ptr [ %241, %239 ], [ %.sroa.0126.1216.i.i, %255 ], [ %226, %230 ], [ %226, %223 ], [ %241, %253 ], [ %241, %249 ], [ %.sroa.0126.1216.i.i, %262 ], [ %.sroa.0126.1216.i.i, %258 ], [ %.sroa.0126.1254.i.i, %.thread255.i.i ], [ %.sroa.0126.1269.i.i, %.thread270.i.i ]
-  %.sroa.22.6.i.i = phi i32 [ %242, %239 ], [ %.sroa.22.1214.i.i, %255 ], [ %225, %230 ], [ %225, %223 ], [ %242, %253 ], [ %242, %249 ], [ %.sroa.22.1214.i.i, %262 ], [ %.sroa.22.1214.i.i, %258 ], [ %.sroa.22.1253.i.i, %.thread255.i.i ], [ %.sroa.22.1268.i.i, %.thread270.i.i ]
+.body4.thread:                                    ; preds = %.thread255.i.i, %.thread274.i.i, %223, %230, %239, %249, %253, %255, %258, %262
+  %.sroa.0126.6.i.i = phi ptr [ %241, %239 ], [ %.sroa.0126.1216.i.i, %255 ], [ %226, %230 ], [ %226, %223 ], [ %241, %253 ], [ %241, %249 ], [ %.sroa.0126.1216.i.i, %262 ], [ %.sroa.0126.1216.i.i, %258 ], [ %.sroa.0126.1254.i.i, %.thread255.i.i ], [ %.sroa.0126.1273.i.i, %.thread274.i.i ]
+  %.sroa.22.6.i.i = phi i32 [ %242, %239 ], [ %.sroa.22.1214.i.i, %255 ], [ %225, %230 ], [ %225, %223 ], [ %242, %253 ], [ %242, %249 ], [ %.sroa.22.1214.i.i, %262 ], [ %.sroa.22.1214.i.i, %258 ], [ %.sroa.22.1253.i.i, %.thread255.i.i ], [ %.sroa.22.1272.i.i, %.thread274.i.i ]
   %236 = insertvalue { ptr, i32 } poison, ptr %.sroa.0126.6.i.i, 0
   %237 = insertvalue { ptr, i32 } %236, i32 %.sroa.22.6.i.i, 1
   br label %266
@@ -2466,7 +2466,7 @@ define hidden void @"_ZN15futures_channel4mpsc17Receiver$LT$T$GT$12next_message1
 
 .noexc:                                           ; preds = %15
   %.not3.i = icmp eq ptr %18, null
-  br i1 %.not3.i, label %"_ZN15futures_channel4mpsc17Receiver$LT$T$GT$10unpark_one17h02459d4514102764E.exit.thread14", label %19
+  br i1 %.not3.i, label %"_ZN15futures_channel4mpsc17Receiver$LT$T$GT$10unpark_one17h02459d4514102764E.exit.thread16", label %19
 
 19:                                               ; preds = %.noexc
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -2653,15 +2653,15 @@ _ZN3std4sync6poison4Flag4done17h5bd12da882ef54a3E.exit.i.i.i: ; preds = %58, %.n
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.pr.pre = load ptr, ptr %1, align 8
   %.not9 = icmp eq ptr %.pr.pre, null
-  br i1 %.not9, label %"_ZN15futures_channel4mpsc17Receiver$LT$T$GT$10unpark_one17h02459d4514102764E.exit.thread", label %"_ZN15futures_channel4mpsc17Receiver$LT$T$GT$10unpark_one17h02459d4514102764E.exit.thread14"
+  br i1 %.not9, label %"_ZN15futures_channel4mpsc17Receiver$LT$T$GT$10unpark_one17h02459d4514102764E.exit.thread", label %"_ZN15futures_channel4mpsc17Receiver$LT$T$GT$10unpark_one17h02459d4514102764E.exit.thread16"
 
-"_ZN15futures_channel4mpsc17Receiver$LT$T$GT$10unpark_one17h02459d4514102764E.exit.thread14": ; preds = %.noexc, %"_ZN15futures_channel4mpsc17Receiver$LT$T$GT$10unpark_one17h02459d4514102764E.exit"
-  %.pr17 = phi ptr [ %.pr.pre, %"_ZN15futures_channel4mpsc17Receiver$LT$T$GT$10unpark_one17h02459d4514102764E.exit" ], [ %8, %.noexc ]
-  %85 = getelementptr inbounds nuw i8, ptr %.pr17, i64 56
+"_ZN15futures_channel4mpsc17Receiver$LT$T$GT$10unpark_one17h02459d4514102764E.exit.thread16": ; preds = %.noexc, %"_ZN15futures_channel4mpsc17Receiver$LT$T$GT$10unpark_one17h02459d4514102764E.exit"
+  %.pr19 = phi ptr [ %.pr.pre, %"_ZN15futures_channel4mpsc17Receiver$LT$T$GT$10unpark_one17h02459d4514102764E.exit" ], [ %8, %.noexc ]
+  %85 = getelementptr inbounds nuw i8, ptr %.pr19, i64 56
   %86 = atomicrmw sub ptr %85, i64 1 seq_cst, align 8
   br label %"_ZN15futures_channel4mpsc17Receiver$LT$T$GT$10unpark_one17h02459d4514102764E.exit.thread"
 
-"_ZN15futures_channel4mpsc17Receiver$LT$T$GT$10unpark_one17h02459d4514102764E.exit.thread": ; preds = %"_ZN15futures_channel4mpsc17Receiver$LT$T$GT$10unpark_one17h02459d4514102764E.exit.thread14", %"_ZN15futures_channel4mpsc17Receiver$LT$T$GT$10unpark_one17h02459d4514102764E.exit"
+"_ZN15futures_channel4mpsc17Receiver$LT$T$GT$10unpark_one17h02459d4514102764E.exit.thread": ; preds = %"_ZN15futures_channel4mpsc17Receiver$LT$T$GT$10unpark_one17h02459d4514102764E.exit.thread16", %"_ZN15futures_channel4mpsc17Receiver$LT$T$GT$10unpark_one17h02459d4514102764E.exit"
   %.sroa.43.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.43.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false)
   store i64 1, ptr %0, align 8
@@ -21583,7 +21583,7 @@ define void @_ZN11foundations9telemetry7testing20TestTelemetryContext6traces17ha
   switch i64 %67, label %.loopexit.i.i [
     i64 0, label %68
     i64 1, label %.loopexit.i
-    i64 2, label %.loopexit.i.loopexit58
+    i64 2, label %.loopexit.i.loopexit63
     i64 3, label %70
   ]
 
@@ -21611,12 +21611,12 @@ define void @_ZN11foundations9telemetry7testing20TestTelemetryContext6traces17ha
   call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !1182
   br label %.loopexit.i
 
-.loopexit.i.loopexit58:                           ; preds = %63
+.loopexit.i.loopexit63:                           ; preds = %63
   br label %.loopexit.i
 
-.loopexit.i:                                      ; preds = %63, %.loopexit.i.loopexit58, %73
-  %.sroa.11.0.i = phi i8 [ %.sroa.11.0.copyload29.i, %73 ], [ 1, %.loopexit.i.loopexit58 ], [ 0, %63 ]
-  %.sroa.0.0.i6 = phi i64 [ %64, %73 ], [ -9223372036854775808, %.loopexit.i.loopexit58 ], [ -9223372036854775808, %63 ]
+.loopexit.i:                                      ; preds = %63, %.loopexit.i.loopexit63, %73
+  %.sroa.11.0.i = phi i8 [ %.sroa.11.0.copyload29.i, %73 ], [ 1, %.loopexit.i.loopexit63 ], [ 0, %63 ]
+  %.sroa.0.0.i6 = phi i64 [ %64, %73 ], [ -9223372036854775808, %.loopexit.i.loopexit63 ], [ -9223372036854775808, %63 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !1182
   %.val.i.i = load ptr, ptr %12, align 8, !noalias !1182, !nonnull !3, !align !108, !noundef !3
   %.val4.i.i = load ptr, ptr %25, align 8, !noalias !1182, !noundef !3
@@ -25025,7 +25025,7 @@ _ZN11foundations9telemetry7metrics5gauge10RangeGauge10get_values17hb655f57992f9d
 78:                                               ; preds = %_ZN11foundations9telemetry7metrics5gauge10RangeGauge10get_values17hb655f57992f9da4dE.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
-  br label %.sink.split127
+  br label %.sink.split138
 
 79:                                               ; preds = %_ZN11foundations9telemetry7metrics5gauge10RangeGauge10get_values17hb655f57992f9da4dE.exit
   %.sroa.586.0..sroa_idx = getelementptr inbounds nuw i8, ptr %17, i64 8
@@ -25045,7 +25045,7 @@ _ZN11foundations9telemetry7metrics5gauge10RangeGauge10get_values17hb655f57992f9d
   %82 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %83 = load ptr, ptr %82, align 8, !nonnull !3
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
-  br i1 %81, label %.sink.split127, label %84
+  br i1 %81, label %.sink.split138, label %84
 
 84:                                               ; preds = %79
   store ptr %80, ptr %20, align 8
@@ -25087,7 +25087,7 @@ _ZN11foundations9telemetry7metrics5gauge10RangeGauge10get_values17hb655f57992f9d
 98:                                               ; preds = %93
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
-  br label %.sink.split126
+  br label %.sink.split137
 
 99:                                               ; preds = %93
   %.sroa.494.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 8
@@ -25107,7 +25107,7 @@ _ZN11foundations9telemetry7metrics5gauge10RangeGauge10get_values17hb655f57992f9d
   %102 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %103 = load ptr, ptr %102, align 8, !nonnull !3
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
-  br i1 %101, label %.sink.split126, label %104
+  br i1 %101, label %.sink.split137, label %104
 
 104:                                              ; preds = %99
   store ptr %100, ptr %14, align 8
@@ -25213,25 +25213,25 @@ _ZN11foundations9telemetry7metrics5gauge10RangeGauge10get_values17hb655f57992f9d
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %134
 
-.sink.split126:                                   ; preds = %99, %98
+.sink.split137:                                   ; preds = %99, %98
   %.sroa.0.1.ph = phi ptr [ %97, %98 ], [ %103, %99 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %136
 
-136:                                              ; preds = %.sink.split126, %110, %104
-  %.sroa.0.1 = phi ptr [ %109, %104 ], [ %112, %110 ], [ %.sroa.0.1.ph, %.sink.split126 ]
+136:                                              ; preds = %.sink.split137, %110, %104
+  %.sroa.0.1 = phi ptr [ %109, %104 ], [ %112, %110 ], [ %.sroa.0.1.ph, %.sink.split137 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %134
 
-.sink.split127:                                   ; preds = %79, %78
+.sink.split138:                                   ; preds = %79, %78
   %.sroa.0.0.ph = phi ptr [ %77, %78 ], [ %83, %79 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   br label %137
 
-137:                                              ; preds = %.sink.split127, %90, %84
-  %.sroa.0.0 = phi ptr [ %89, %84 ], [ %92, %90 ], [ %.sroa.0.0.ph, %.sink.split127 ]
+137:                                              ; preds = %.sink.split138, %90, %84
+  %.sroa.0.0 = phi ptr [ %89, %84 ], [ %92, %90 ], [ %.sroa.0.0.ph, %.sink.split138 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   call void @llvm.lifetime.end.p0(ptr nonnull %22)

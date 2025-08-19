@@ -580,10 +580,10 @@ virtio_gpu_create_context_locked.exit:            ; preds = %23, %30
   br i1 %47, label %50, label %49
 
 49:                                               ; preds = %42
-  br i1 %48, label %84, label %.thread4
+  br i1 %48, label %84, label %.thread8
 
 50:                                               ; preds = %42
-  br i1 %48, label %51, label %.thread4
+  br i1 %48, label %51, label %.thread8
 
 51:                                               ; preds = %50
   %52 = getelementptr inbounds nuw i8, ptr %1, i64 36
@@ -595,14 +595,14 @@ virtio_gpu_create_context_locked.exit:            ; preds = %23, %30
   %56 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %57 = load i32, ptr %56, align 4
   %58 = icmp eq i32 %57, 0
-  br i1 %58, label %.thread4, label %84
+  br i1 %58, label %.thread8, label %84
 
-.thread4:                                         ; preds = %49, %55, %50
+.thread8:                                         ; preds = %49, %55, %50
   %59 = tail call i32 @virtio_gpu_array_lock_resv(ptr noundef nonnull %40) #6
   %60 = icmp eq i32 %59, 0
   br i1 %60, label %61, label %84
 
-61:                                               ; preds = %.thread4
+61:                                               ; preds = %.thread8
   %62 = getelementptr inbounds nuw i8, ptr %6, i64 62088
   %63 = load i64, ptr %62, align 8
   %64 = tail call ptr @virtio_gpu_fence_alloc(ptr noundef %6, i64 noundef %63, i32 noundef 0) #6
@@ -646,8 +646,8 @@ virtio_gpu_create_context_locked.exit:            ; preds = %23, %30
   tail call void @virtio_gpu_notify(ptr noundef %6) #6
   br label %86
 
-84:                                               ; preds = %66, %.thread4, %55, %51, %49
-  %85 = phi i32 [ %59, %.thread4 ], [ -12, %66 ], [ -22, %49 ], [ -22, %55 ], [ -22, %51 ]
+84:                                               ; preds = %66, %.thread8, %55, %51, %49
+  %85 = phi i32 [ %59, %.thread8 ], [ -12, %66 ], [ -22, %49 ], [ -22, %55 ], [ -22, %51 ]
   tail call void @virtio_gpu_array_put_free(ptr noundef nonnull %40) #6
   br label %86
 
@@ -1174,7 +1174,7 @@ define internal i32 @virtio_gpu_resource_create_blob_ioctl(ptr noundef readonly 
   store i8 1, ptr %59, align 2
   %60 = getelementptr inbounds nuw i8, ptr %6, i64 60
   store i32 %16, ptr %60, align 4
-  br i1 %55, label %.thread16, label %61
+  br i1 %55, label %.thread24, label %61
 
 61:                                               ; preds = %.thread, %54
   %62 = phi ptr [ %45, %.thread ], [ %60, %54 ]
@@ -1219,12 +1219,12 @@ define internal i32 @virtio_gpu_resource_create_blob_ioctl(ptr noundef readonly 
   %85 = load i32, ptr %73, align 4
   %86 = load i32, ptr %10, align 8
   tail call void @virtio_gpu_cmd_submit(ptr noundef %8, ptr noundef %80, i32 noundef %85, i32 noundef %86, ptr noundef null, ptr noundef null) #6
-  br i1 %63, label %92, label %.thread16
+  br i1 %63, label %92, label %.thread24
 
 87:                                               ; preds = %72
-  br i1 %63, label %92, label %.thread16
+  br i1 %63, label %92, label %.thread24
 
-.thread16:                                        ; preds = %54, %84, %87
+.thread24:                                        ; preds = %54, %84, %87
   %88 = phi ptr [ %62, %87 ], [ %62, %84 ], [ %60, %54 ]
   %89 = phi i8 [ %64, %87 ], [ %64, %84 ], [ 1, %54 ]
   %90 = phi i8 [ %66, %87 ], [ %66, %84 ], [ 0, %54 ]
@@ -1238,11 +1238,11 @@ define internal i32 @virtio_gpu_resource_create_blob_ioctl(ptr noundef readonly 
   %94 = call i32 @virtio_gpu_vram_create(ptr noundef %8, ptr noundef nonnull %6, ptr noundef nonnull %5) #6
   br label %95
 
-95:                                               ; preds = %93, %.thread16
-  %96 = phi ptr [ %88, %.thread16 ], [ %62, %93 ]
-  %97 = phi i8 [ %89, %.thread16 ], [ %64, %93 ]
-  %98 = phi i8 [ %90, %.thread16 ], [ %66, %93 ]
-  %99 = phi i32 [ %91, %.thread16 ], [ %94, %93 ]
+95:                                               ; preds = %93, %.thread24
+  %96 = phi ptr [ %88, %.thread24 ], [ %62, %93 ]
+  %97 = phi i8 [ %89, %.thread24 ], [ %64, %93 ]
+  %98 = phi i8 [ %90, %.thread24 ], [ %66, %93 ]
+  %99 = phi i32 [ %91, %.thread24 ], [ %94, %93 ]
   %100 = icmp slt i32 %99, 0
   br i1 %100, label %.critedge, label %101
 

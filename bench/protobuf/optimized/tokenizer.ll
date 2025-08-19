@@ -1977,7 +1977,7 @@ while.body:                                       ; preds = %while.body.backedge
   br label %while.cond2
 
 while.cond2:                                      ; preds = %while.cond2.backedge, %while.body
-  %3 = phi i8 [ %.pre, %while.body ], [ %.be159, %while.cond2.backedge ]
+  %3 = phi i8 [ %.pre, %while.body ], [ %.be172, %while.cond2.backedge ]
   switch i8 %3, label %if.else8.i [
     i8 9, label %if.then5.i
     i8 10, label %if.then15
@@ -2017,7 +2017,7 @@ if.then15.i:                                      ; preds = %if.end11.i
   br label %while.cond2.backedge
 
 while.cond2.backedge:                             ; preds = %if.then15.i, %_ZN6google8protobuf2io9Tokenizer7RefreshEv.exit.i
-  %.be159 = phi i8 [ %9, %if.then15.i ], [ %.sink.i.i, %_ZN6google8protobuf2io9Tokenizer7RefreshEv.exit.i ]
+  %.be172 = phi i8 [ %9, %if.then15.i ], [ %.sink.i.i, %_ZN6google8protobuf2io9Tokenizer7RefreshEv.exit.i ]
   br label %while.cond2, !llvm.loop !11
 
 if.else18.i:                                      ; preds = %if.end11.i
@@ -2931,7 +2931,7 @@ if.then3.i:                                       ; preds = %lor.rhs
   br label %_ZN6google8protobuf2io9Tokenizer17TryConsumeNewlineEv.exit
 
 _ZN6google8protobuf2io9Tokenizer17TryConsumeNewlineEv.exit: ; preds = %if.end3.i, %_ZN6google8protobuf2io9Tokenizer20TryConsumeWhitespaceEv.exit, %lor.rhs, %if.then3.i
-  %or.cond1.i233 = phi i1 [ false, %lor.rhs ], [ true, %if.then3.i ], [ false, %_ZN6google8protobuf2io9Tokenizer20TryConsumeWhitespaceEv.exit ], [ false, %if.end3.i ]
+  %or.cond1.i245 = phi i1 [ false, %lor.rhs ], [ true, %if.then3.i ], [ false, %_ZN6google8protobuf2io9Tokenizer20TryConsumeWhitespaceEv.exit ], [ false, %if.end3.i ]
   %45 = load i32, ptr %buffer_pos_.i.i, align 4
   %46 = load i32, ptr %record_start_.i.i, align 8
   %cmp.not.i.i = icmp eq i32 %45, %46
@@ -2952,7 +2952,7 @@ _ZN6google8protobuf2io9Tokenizer8EndTokenEv.exit: ; preds = %_ZN6google8protobuf
   store i32 -1, ptr %record_start_.i.i, align 8
   %49 = load i32, ptr %column_.i, align 8
   store i32 %49, ptr %end_column.i, align 8
-  br i1 %or.cond1.i233, label %return, label %if.end
+  br i1 %or.cond1.i245, label %return, label %if.end
 
 if.then.critedge:                                 ; preds = %_ZN6google8protobuf2io9Tokenizer20TryConsumeWhitespaceEv.exit, %_ZN6google8protobuf2io9Tokenizer20TryConsumeWhitespaceEv.exit.thread155
   %50 = load i32, ptr %buffer_pos_.i.i, align 4
@@ -3543,7 +3543,7 @@ if.else:                                          ; preds = %_ZN6google8protobuf
   br label %while.cond.i
 
 while.cond.i:                                     ; preds = %while.cond.i.backedge, %if.else
-  %16 = phi i8 [ %.pre, %if.else ], [ %.be520, %while.cond.i.backedge ]
+  %16 = phi i8 [ %.pre, %if.else ], [ %.be567, %while.cond.i.backedge ]
   switch i8 %16, label %invoke.cont15 [
     i8 9, label %if.then5.i295
     i8 11, label %if.else8.i
@@ -3651,7 +3651,7 @@ _ZN6google8protobuf2io9Tokenizer7RefreshEv.exit.i: ; preds = %do.end.i.i, %if.th
   br label %while.cond.i.backedge
 
 while.cond.i.backedge:                            ; preds = %_ZN6google8protobuf2io9Tokenizer7RefreshEv.exit.i, %if.then15.i
-  %.be520 = phi i8 [ %.sink.i.i, %_ZN6google8protobuf2io9Tokenizer7RefreshEv.exit.i ], [ %22, %if.then15.i ]
+  %.be567 = phi i8 [ %.sink.i.i, %_ZN6google8protobuf2io9Tokenizer7RefreshEv.exit.i ], [ %22, %if.then15.i ]
   br label %while.cond.i, !llvm.loop !12
 
 invoke.cont15:                                    ; preds = %while.cond.i
@@ -3659,7 +3659,7 @@ invoke.cont15:                                    ; preds = %while.cond.i
           to label %invoke.cont16 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont16:                                    ; preds = %invoke.cont15
-  switch i32 %call17, label %default.unreachable514 [
+  switch i32 %call17, label %default.unreachable561 [
     i32 0, label %sw.bb
     i32 1, label %sw.bb23
     i32 2, label %cleanup
@@ -3929,7 +3929,7 @@ if.then34:                                        ; preds = %sw.bb31
   %call36 = invoke noundef zeroext i1 @_ZN6google8protobuf2io9Tokenizer4NextEv(ptr noundef nonnull align 8 dereferenceable(192) %this)
           to label %cleanup unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-default.unreachable514:                           ; preds = %invoke.cont40, %invoke.cont16
+default.unreachable561:                           ; preds = %invoke.cont40, %invoke.cont16
   unreachable
 
 if.end38:                                         ; preds = %if.then.i99, %if.end12.i81, %invoke.cont28, %if.end12.i, %invoke.cont21, %if.end13
@@ -3954,7 +3954,7 @@ while.cond:                                       ; preds = %while.cond.backedge
   br label %while.cond.i103
 
 while.cond.i103:                                  ; preds = %while.cond.i103.backedge, %while.cond
-  %66 = phi i8 [ %.pre511, %while.cond ], [ %.be519, %while.cond.i103.backedge ]
+  %66 = phi i8 [ %.pre511, %while.cond ], [ %.be566, %while.cond.i103.backedge ]
   switch i8 %66, label %invoke.cont39 [
     i8 9, label %if.then5.i316
     i8 11, label %if.else8.i362
@@ -3976,8 +3976,8 @@ if.else8.i362:                                    ; preds = %while.cond.i103, %w
   br label %if.end11.i321
 
 if.end11.i321:                                    ; preds = %if.else8.i362, %if.then5.i316
-  %storemerge515 = phi i32 [ %inc10.i364, %if.else8.i362 ], [ %add.i320, %if.then5.i316 ]
-  store i32 %storemerge515, ptr %column_9.i363, align 8
+  %storemerge562 = phi i32 [ %inc10.i364, %if.else8.i362 ], [ %add.i320, %if.then5.i316 ]
+  store i32 %storemerge562, ptr %column_9.i363, align 8
   %69 = load i32, ptr %buffer_pos_.i322, align 4
   %inc12.i323 = add nsw i32 %69, 1
   store i32 %inc12.i323, ptr %buffer_pos_.i322, align 4
@@ -4062,7 +4062,7 @@ _ZN6google8protobuf2io9Tokenizer7RefreshEv.exit.i342: ; preds = %do.end.i.i346, 
   br label %while.cond.i103.backedge
 
 while.cond.i103.backedge:                         ; preds = %_ZN6google8protobuf2io9Tokenizer7RefreshEv.exit.i342, %if.then15.i354
-  %.be519 = phi i8 [ %.sink.i.i343, %_ZN6google8protobuf2io9Tokenizer7RefreshEv.exit.i342 ], [ %72, %if.then15.i354 ]
+  %.be566 = phi i8 [ %.sink.i.i343, %_ZN6google8protobuf2io9Tokenizer7RefreshEv.exit.i342 ], [ %72, %if.then15.i354 ]
   br label %while.cond.i103, !llvm.loop !12
 
 invoke.cont39:                                    ; preds = %while.cond.i103
@@ -4070,7 +4070,7 @@ invoke.cont39:                                    ; preds = %while.cond.i103
           to label %invoke.cont40 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 invoke.cont40:                                    ; preds = %invoke.cont39
-  switch i32 %call41, label %default.unreachable514 [
+  switch i32 %call41, label %default.unreachable561 [
     i32 0, label %sw.bb42
     i32 1, label %sw.bb46
     i32 2, label %cleanup
@@ -4109,8 +4109,8 @@ if.else8.i417:                                    ; preds = %while.cond.i114
   br label %if.end11.i376
 
 if.end11.i376:                                    ; preds = %if.else8.i417, %if.then5.i371
-  %storemerge517 = phi i32 [ %add.i375, %if.then5.i371 ], [ %inc10.i419, %if.else8.i417 ]
-  store i32 %storemerge517, ptr %column_9.i363, align 8
+  %storemerge564 = phi i32 [ %add.i375, %if.then5.i371 ], [ %inc10.i419, %if.else8.i417 ]
+  store i32 %storemerge564, ptr %column_9.i363, align 8
   %86 = load i32, ptr %buffer_pos_.i322, align 4
   %inc12.i378 = add nsw i32 %86, 1
   store i32 %inc12.i378, ptr %buffer_pos_.i322, align 4
@@ -4292,7 +4292,7 @@ while.cond.i169.preheader:                        ; preds = %invoke.cont47
   br label %while.cond.i169
 
 while.cond.i169:                                  ; preds = %while.cond.i169.backedge, %while.cond.i169.preheader
-  %111 = phi i8 [ %.pre512, %while.cond.i169.preheader ], [ %.be518, %while.cond.i169.backedge ]
+  %111 = phi i8 [ %.pre512, %while.cond.i169.preheader ], [ %.be565, %while.cond.i169.backedge ]
   switch i8 %111, label %while.cond.backedge [
     i8 9, label %if.then5.i426
     i8 11, label %if.else8.i472
@@ -4315,8 +4315,8 @@ if.else8.i472:                                    ; preds = %while.cond.i169, %w
   br label %if.end11.i431
 
 if.end11.i431:                                    ; preds = %if.else8.i472, %if.then5.i426
-  %storemerge516 = phi i32 [ %inc10.i474, %if.else8.i472 ], [ %add.i430, %if.then5.i426 ]
-  store i32 %storemerge516, ptr %column_9.i363, align 8
+  %storemerge563 = phi i32 [ %inc10.i474, %if.else8.i472 ], [ %add.i430, %if.then5.i426 ]
+  store i32 %storemerge563, ptr %column_9.i363, align 8
   %114 = load i32, ptr %buffer_pos_.i322, align 4
   %inc12.i433 = add nsw i32 %114, 1
   store i32 %inc12.i433, ptr %buffer_pos_.i322, align 4
@@ -4401,7 +4401,7 @@ _ZN6google8protobuf2io9Tokenizer7RefreshEv.exit.i452: ; preds = %do.end.i.i456, 
   br label %while.cond.i169.backedge
 
 while.cond.i169.backedge:                         ; preds = %_ZN6google8protobuf2io9Tokenizer7RefreshEv.exit.i452, %if.then15.i464
-  %.be518 = phi i8 [ %.sink.i.i453, %_ZN6google8protobuf2io9Tokenizer7RefreshEv.exit.i452 ], [ %117, %if.then15.i464 ]
+  %.be565 = phi i8 [ %.sink.i.i453, %_ZN6google8protobuf2io9Tokenizer7RefreshEv.exit.i452 ], [ %117, %if.then15.i464 ]
   br label %while.cond.i169, !llvm.loop !12
 
 if.then.i175:                                     ; preds = %while.cond.i169
@@ -4896,8 +4896,8 @@ for.end:                                          ; preds = %for.cond, %while.en
   br i1 %cmp38, label %return, label %if.end40
 
 if.end40:                                         ; preds = %while.cond, %for.end
-  %result.1.lcssa42 = phi i64 [ %result.1.lcssa, %for.end ], [ 0, %while.cond ]
-  store i64 %result.1.lcssa42, ptr %output, align 8
+  %result.1.lcssa44 = phi i64 [ %result.1.lcssa, %for.end ], [ 0, %while.cond ]
+  store i64 %result.1.lcssa44, ptr %output, align 8
   br label %return
 
 return:                                           ; preds = %while.body, %if.end30, %for.body, %for.end, %if.end40
@@ -5279,7 +5279,7 @@ if.then12.i:                                      ; preds = %land.lhs.true10.i
   br label %_ZN6google8protobuf2ioL17FetchUnicodePointEPKcPj.exit
 
 if.else5.i.thread:                                ; preds = %land.lhs.true3.i, %land.lhs.true.i
-  %retval.0.i.ptr77 = getelementptr inbounds nuw i8, ptr %call6.pn, i64 %incdec.ptr.i.add
+  %retval.0.i.ptr79 = getelementptr inbounds nuw i8, ptr %call6.pn, i64 %incdec.ptr.i.add
   call void @llvm.lifetime.start.p0(ptr nonnull %tmp.i)
   br label %if.then7.i
 
@@ -5312,13 +5312,13 @@ if.else5.i:                                       ; preds = %if.else.i
   br i1 %cmp6.i64, label %if.then7.i, label %if.else16.i
 
 if.then7.i:                                       ; preds = %if.else5.i.thread, %if.else5.i
-  %retval.0.i.ptr818692 = phi ptr [ %retval.0.i.ptr77, %if.else5.i.thread ], [ %retval.0.i.ptr, %if.else5.i ]
-  %unicode.1798791 = phi i32 [ %add.i.i, %if.else5.i.thread ], [ %unicode.1, %if.else5.i ]
-  %and8.i = shl nuw nsw i32 %unicode.1798791, 4
+  %retval.0.i.ptr838894 = phi ptr [ %retval.0.i.ptr79, %if.else5.i.thread ], [ %retval.0.i.ptr, %if.else5.i ]
+  %unicode.1818993 = phi i32 [ %add.i.i, %if.else5.i.thread ], [ %unicode.1, %if.else5.i ]
+  %and8.i = shl nuw nsw i32 %unicode.1818993, 4
   %shl9.i = and i32 %and8.i, 983040
-  %and11.i = shl nuw nsw i32 %unicode.1798791, 2
+  %and11.i = shl nuw nsw i32 %unicode.1818993, 2
   %shl12.i = and i32 %and11.i, 16128
-  %and14.i = and i32 %unicode.1798791, 63
+  %and14.i = and i32 %unicode.1818993, 63
   %or10.i = or disjoint i32 %and14.i, %shl12.i
   %or13.i = or disjoint i32 %or10.i, %shl9.i
   %or15.i = or disjoint i32 %or13.i, 14712960
@@ -5353,7 +5353,7 @@ if.else30.i:                                      ; preds = %if.else16.i
   br label %_ZN6google8protobuf2ioL10AppendUTF8EjPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
 if.end33.i:                                       ; preds = %if.then18.i, %if.then7.i, %if.then2.i, %_ZN6google8protobuf2ioL17FetchUnicodePointEPKcPj.exit
-  %retval.0.i.ptr82 = phi ptr [ %retval.0.i.ptr, %if.then2.i ], [ %retval.0.i.ptr818692, %if.then7.i ], [ %retval.0.i.ptr, %if.then18.i ], [ %retval.0.i.ptr, %_ZN6google8protobuf2ioL17FetchUnicodePointEPKcPj.exit ]
+  %retval.0.i.ptr84 = phi ptr [ %retval.0.i.ptr, %if.then2.i ], [ %retval.0.i.ptr838894, %if.then7.i ], [ %retval.0.i.ptr, %if.then18.i ], [ %retval.0.i.ptr, %_ZN6google8protobuf2ioL17FetchUnicodePointEPKcPj.exit ]
   %33 = phi i32 [ %or4.i, %if.then2.i ], [ %or15.i, %if.then7.i ], [ %or29.i, %if.then18.i ], [ %unicode.1, %_ZN6google8protobuf2ioL17FetchUnicodePointEPKcPj.exit ]
   %len.0.i = phi i64 [ 2, %if.then2.i ], [ 3, %if.then7.i ], [ 4, %if.then18.i ], [ 1, %_ZN6google8protobuf2ioL17FetchUnicodePointEPKcPj.exit ]
   %call34.i = call noundef i32 @_ZN6google8protobuf6ghtonlEj(i32 noundef %33)
@@ -5364,9 +5364,9 @@ if.end33.i:                                       ; preds = %if.then18.i, %if.th
   br label %_ZN6google8protobuf2ioL10AppendUTF8EjPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
 _ZN6google8protobuf2ioL10AppendUTF8EjPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %if.else30.i, %if.end33.i
-  %retval.0.i.ptr80 = phi ptr [ %retval.0.i.ptr, %if.else30.i ], [ %retval.0.i.ptr82, %if.end33.i ]
+  %retval.0.i.ptr82 = phi ptr [ %retval.0.i.ptr, %if.else30.i ], [ %retval.0.i.ptr84, %if.end33.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %tmp.i)
-  %add.ptr64 = getelementptr inbounds i8, ptr %retval.0.i.ptr80, i64 -1
+  %add.ptr64 = getelementptr inbounds i8, ptr %retval.0.i.ptr82, i64 -1
   br label %for.cond.backedge
 
 sw.bb1.i:                                         ; preds = %if.else
@@ -5867,7 +5867,7 @@ for.body.i.i.i.i73:                               ; preds = %_ZNSt12_Vector_base
           to label %for.inc.i.i.i.i87 unwind label %lpad.i.i.i.i76
 
 for.inc.i.i.i.i87:                                ; preds = %for.body.i.i.i.i73
-  %dec.i.i.i.i88 = add i64 %__n.addr.08.i.i.i.i75, -1
+  %dec.i.i.i.i88 = add nsw i64 %__n.addr.08.i.i.i.i75, -1
   %incdec.ptr.i.i.i.i89 = getelementptr inbounds nuw i8, ptr %__cur.09.i.i.i.i74, i64 32
   %cmp.not.i.i.i.i90 = icmp eq i64 %dec.i.i.i.i88, 0
   br i1 %cmp.not.i.i.i.i90, label %invoke.cont57, label %for.body.i.i.i.i73, !llvm.loop !31
@@ -5922,7 +5922,7 @@ for.body.i.i.i.i.i95:                             ; preds = %invoke.cont57, %for
 
 invoke.cont60:                                    ; preds = %for.body.i.i.i.i.i95, %invoke.cont57
   %__cur.0.lcssa.i.i.i.i.i101 = phi ptr [ %cond.i71, %invoke.cont57 ], [ %incdec.ptr.i.i.i.i.i99, %for.body.i.i.i.i.i95 ]
-  %add.ptr62 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %__cur.0.lcssa.i.i.i.i.i101, i64 %__n
+  %add.ptr62 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %__cur.0.lcssa.i.i.i.i.i101, i64 %__n
   %cmp.i.i.not7.i.i.i.i.i102 = icmp eq ptr %__position.coerce, %1
   br i1 %cmp.i.i.not7.i.i.i.i.i102, label %invoke.cont64, label %for.body.i.i.i.i.i103
 
@@ -5969,8 +5969,8 @@ lpad56.body:                                      ; preds = %lpad1.i.i.i.i83
   br i1 %cond, label %if.then66, label %if.then.i130
 
 if.then66:                                        ; preds = %lpad56.body
-  %add.ptr69.idx = shl nsw i64 %__n, 5
-  %add.ptr69 = getelementptr inbounds i8, ptr %add.ptr54, i64 %add.ptr69.idx
+  %add.ptr69.idx = shl nuw nsw i64 %__n, 5
+  %add.ptr69 = getelementptr inbounds nuw i8, ptr %add.ptr54, i64 %add.ptr69.idx
   br label %for.body.i.i.i118
 
 for.body.i.i.i118:                                ; preds = %if.then66, %for.body.i.i.i118

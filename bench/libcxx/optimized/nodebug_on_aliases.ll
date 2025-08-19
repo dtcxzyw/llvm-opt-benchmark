@@ -4440,7 +4440,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i:   ; preds = %34, %.lr.ph.i.i.i
   %.033.i.i.i = phi i64 [ %15, %.lr.ph.i.i.i ], [ %37, %34 ]
   %.02132.i.i.i = phi ptr [ %13, %.lr.ph.i.i.i ], [ %35, %34 ]
   %26 = add i64 %.033.i.i.i, -1
-  %27 = tail call ptr @memchr(ptr noundef nonnull %.02132.i.i.i, i32 noundef 95, i64 noundef %26) #23
+  %27 = tail call ptr @memchr(ptr noundef nonnull dereferenceable(1) %.02132.i.i.i, i32 noundef 95, i64 noundef %26) #23
   %.not26.i.i.i = icmp eq ptr %27, null
   br i1 %.not26.i.i.i, label %_Z12is_ugly_nameSt17basic_string_viewIcSt11char_traitsIcEE.exit, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i
 
@@ -4729,7 +4729,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i:   ; preds = %34, %.lr.ph.i.i.i
   %.033.i.i.i = phi i64 [ %15, %.lr.ph.i.i.i ], [ %37, %34 ]
   %.02132.i.i.i = phi ptr [ %13, %.lr.ph.i.i.i ], [ %35, %34 ]
   %26 = add i64 %.033.i.i.i, -1
-  %27 = tail call ptr @memchr(ptr noundef nonnull %.02132.i.i.i, i32 noundef 95, i64 noundef %26) #23
+  %27 = tail call ptr @memchr(ptr noundef nonnull dereferenceable(1) %.02132.i.i.i, i32 noundef 95, i64 noundef %26) #23
   %.not26.i.i.i = icmp eq ptr %27, null
   br i1 %.not26.i.i.i, label %_Z12is_ugly_nameSt17basic_string_viewIcSt11char_traitsIcEE.exit, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i
 
