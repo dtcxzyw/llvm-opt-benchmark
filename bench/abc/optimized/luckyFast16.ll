@@ -1782,7 +1782,7 @@ define range(i32 0, 4) i32 @minTemp0_fast_iVar5(ptr noundef readonly captures(no
   %11 = getelementptr i8, ptr %8, i64 -12
   %12 = load i32, ptr %11, align 4, !tbaa !6
   %13 = zext i32 %12 to i64
-  %.0.i = tail call range(i32 -1, 2) i32 @llvm.ucmp.i32.i64(i64 %10, i64 %13)
+  %.0.i = tail call noundef range(i32 -1, 2) i32 @llvm.ucmp.i32.i64(i64 %10, i64 %13)
   switch i32 %.0.i, label %17 [
     i32 0, label %20
     i32 -1, label %14
@@ -1830,7 +1830,7 @@ define range(i32 1, 3) i32 @minTemp1_fast_iVar5(ptr noundef readonly captures(no
   %11 = getelementptr i8, ptr %8, i64 -4
   %12 = load i32, ptr %11, align 4, !tbaa !6
   %13 = zext i32 %12 to i64
-  %.0.i = tail call range(i32 -1, 2) i32 @llvm.ucmp.i32.i64(i64 %10, i64 %13)
+  %.0.i = tail call noundef range(i32 -1, 2) i32 @llvm.ucmp.i32.i64(i64 %10, i64 %13)
   switch i32 %.0.i, label %17 [
     i32 0, label %20
     i32 -1, label %14
@@ -1882,7 +1882,7 @@ define range(i32 0, 2) i32 @minTemp2_fast_iVar5(ptr noundef readonly captures(no
   %17 = getelementptr inbounds i32, ptr %0, i64 %16
   %18 = load i32, ptr %17, align 4, !tbaa !6
   %19 = zext i32 %18 to i64
-  %.0.i = tail call range(i32 -1, 2) i32 @llvm.ucmp.i32.i64(i64 %15, i64 %19)
+  %.0.i = tail call noundef range(i32 -1, 2) i32 @llvm.ucmp.i32.i64(i64 %15, i64 %19)
   switch i32 %.0.i, label %23 [
     i32 0, label %26
     i32 -1, label %20
@@ -1933,7 +1933,7 @@ define range(i32 0, 2) i32 @minTemp3_fast_iVar5(ptr noundef readonly captures(no
   %17 = getelementptr inbounds i32, ptr %0, i64 %16
   %18 = load i32, ptr %17, align 4, !tbaa !6
   %19 = zext i32 %18 to i64
-  %.0.i = tail call range(i32 -1, 2) i32 @llvm.ucmp.i32.i64(i64 %15, i64 %19)
+  %.0.i = tail call noundef range(i32 -1, 2) i32 @llvm.ucmp.i32.i64(i64 %15, i64 %19)
   switch i32 %.0.i, label %23 [
     i32 0, label %26
     i32 -1, label %20
@@ -1990,7 +1990,7 @@ define void @minimalSwapAndFlipIVar_superFast_iVar5(ptr noundef captures(none) %
   %15 = getelementptr i8, ptr %12, i64 -12
   %16 = load i32, ptr %15, align 4, !tbaa !6
   %17 = zext i32 %16 to i64
-  %.0.i.i = tail call range(i32 -1, 2) i32 @llvm.ucmp.i32.i64(i64 %14, i64 %17)
+  %.0.i.i = tail call noundef range(i32 -1, 2) i32 @llvm.ucmp.i32.i64(i64 %14, i64 %17)
   switch i32 %.0.i.i, label %21 [
     i32 0, label %24
     i32 -1, label %18
@@ -2029,7 +2029,7 @@ minTemp0_fast_iVar5.exit:                         ; preds = %24, %18, %21
   %33 = getelementptr i8, ptr %30, i64 -4
   %34 = load i32, ptr %33, align 4, !tbaa !6
   %35 = zext i32 %34 to i64
-  %.0.i.i54 = tail call range(i32 -1, 2) i32 @llvm.ucmp.i32.i64(i64 %32, i64 %35)
+  %.0.i.i54 = tail call noundef range(i32 -1, 2) i32 @llvm.ucmp.i32.i64(i64 %32, i64 %35)
   switch i32 %.0.i.i54, label %39 [
     i32 0, label %42
     i32 -1, label %36
@@ -2072,7 +2072,7 @@ minTemp1_fast_iVar5.exit:                         ; preds = %42, %36, %39
   %55 = getelementptr inbounds i32, ptr %0, i64 %54
   %56 = load i32, ptr %55, align 4, !tbaa !6
   %57 = zext i32 %56 to i64
-  %.0.i.i61 = tail call range(i32 -1, 2) i32 @llvm.ucmp.i32.i64(i64 %53, i64 %57)
+  %.0.i.i61 = tail call noundef range(i32 -1, 2) i32 @llvm.ucmp.i32.i64(i64 %53, i64 %57)
   switch i32 %.0.i.i61, label %61 [
     i32 0, label %64
     i32 -1, label %58
@@ -2358,7 +2358,7 @@ arrangeQuoters_superFast_iVar5.exit79:            ; preds = %150, %139
   %221 = getelementptr inbounds i32, ptr %0, i64 %220
   %222 = load i32, ptr %221, align 4, !tbaa !6
   %223 = zext i32 %222 to i64
-  %.0.i.i93 = tail call range(i32 -1, 2) i32 @llvm.ucmp.i32.i64(i64 %219, i64 %223)
+  %.0.i.i93 = tail call noundef range(i32 -1, 2) i32 @llvm.ucmp.i32.i64(i64 %219, i64 %223)
   switch i32 %.0.i.i93, label %227 [
     i32 0, label %230
     i32 -1, label %224
@@ -2541,7 +2541,7 @@ define void @minimalSwapAndFlipIVar_superFast_iVar5_noEBFC(ptr noundef captures(
   %13 = getelementptr i8, ptr %10, i64 -4
   %14 = load i32, ptr %13, align 4, !tbaa !6
   %15 = zext i32 %14 to i64
-  %.0.i.i = tail call range(i32 -1, 2) i32 @llvm.ucmp.i32.i64(i64 %12, i64 %15)
+  %.0.i.i = tail call noundef range(i32 -1, 2) i32 @llvm.ucmp.i32.i64(i64 %12, i64 %15)
   switch i32 %.0.i.i, label %19 [
     i32 0, label %16
     i32 -1, label %minTemp1_fast_iVar5.exit.thread
@@ -2712,7 +2712,7 @@ define range(i32 0, 4) i32 @minTemp0_fast_moreThen5(ptr noundef readonly capture
   %16 = sext i32 %15 to i64
   %17 = getelementptr inbounds i64, ptr %0, i64 %16
   %18 = load i64, ptr %17, align 8, !tbaa !11
-  %.0.i.us = tail call range(i32 -1, 2) i32 @llvm.ucmp.i32.i64(i64 %13, i64 %18)
+  %.0.i.us = tail call noundef range(i32 -1, 2) i32 @llvm.ucmp.i32.i64(i64 %13, i64 %18)
   switch i32 %.0.i.us, label %.split.us [
     i32 0, label %19
     i32 -1, label %.split34.us
@@ -2774,7 +2774,7 @@ define range(i32 1, 3) i32 @minTemp1_fast_moreThen5(ptr noundef readonly capture
   %16 = sub nsw i64 %13, %10
   %17 = getelementptr inbounds i64, ptr %0, i64 %16
   %18 = load i64, ptr %17, align 8, !tbaa !11
-  %.0.i.us = tail call range(i32 -1, 2) i32 @llvm.ucmp.i32.i64(i64 %15, i64 %18)
+  %.0.i.us = tail call noundef range(i32 -1, 2) i32 @llvm.ucmp.i32.i64(i64 %15, i64 %18)
   switch i32 %.0.i.us, label %.split.us [
     i32 0, label %19
     i32 -1, label %.split36.us
@@ -2841,7 +2841,7 @@ define range(i32 0, 2) i32 @minTemp2_fast_moreThen5(ptr noundef readonly capture
   %21 = sub nsw i64 %17, %14
   %22 = getelementptr inbounds i64, ptr %0, i64 %21
   %23 = load i64, ptr %22, align 8, !tbaa !11
-  %.0.i.us = tail call range(i32 -1, 2) i32 @llvm.ucmp.i32.i64(i64 %20, i64 %23)
+  %.0.i.us = tail call noundef range(i32 -1, 2) i32 @llvm.ucmp.i32.i64(i64 %20, i64 %23)
   switch i32 %.0.i.us, label %.split.us [
     i32 0, label %24
     i32 -1, label %.split36.us
@@ -2906,7 +2906,7 @@ define range(i32 0, 2) i32 @minTemp3_fast_moreThen5(ptr noundef readonly capture
   %21 = sub nsw i64 %17, %14
   %22 = getelementptr inbounds i64, ptr %0, i64 %21
   %23 = load i64, ptr %22, align 8, !tbaa !11
-  %.0.i.us = tail call range(i32 -1, 2) i32 @llvm.ucmp.i32.i64(i64 %20, i64 %23)
+  %.0.i.us = tail call noundef range(i32 -1, 2) i32 @llvm.ucmp.i32.i64(i64 %20, i64 %23)
   switch i32 %.0.i.us, label %.split.us [
     i32 0, label %24
     i32 -1, label %.split38.us
@@ -2973,7 +2973,7 @@ define void @minimalSwapAndFlipIVar_superFast_moreThen5(ptr noundef captures(non
   %18 = sext i32 %17 to i64
   %19 = getelementptr inbounds i64, ptr %0, i64 %18
   %20 = load i64, ptr %19, align 8, !tbaa !11
-  %.0.i.us.i = tail call range(i32 -1, 2) i32 @llvm.ucmp.i32.i64(i64 %15, i64 %20)
+  %.0.i.us.i = tail call noundef range(i32 -1, 2) i32 @llvm.ucmp.i32.i64(i64 %15, i64 %20)
   switch i32 %.0.i.us.i, label %.split.us.i [
     i32 0, label %21
     i32 -1, label %.split34.us.i
@@ -3027,7 +3027,7 @@ minTemp0_fast_moreThen5.exit:                     ; preds = %._crit_edge.us.i, %
   %36 = sub nsw i64 %33, %30
   %37 = getelementptr inbounds i64, ptr %0, i64 %36
   %38 = load i64, ptr %37, align 8, !tbaa !11
-  %.0.i.us.i67 = tail call range(i32 -1, 2) i32 @llvm.ucmp.i32.i64(i64 %35, i64 %38)
+  %.0.i.us.i67 = tail call noundef range(i32 -1, 2) i32 @llvm.ucmp.i32.i64(i64 %35, i64 %38)
   switch i32 %.0.i.us.i67, label %.split.us.i73 [
     i32 0, label %39
     i32 -1, label %.split36.us.i
@@ -3085,7 +3085,7 @@ minTemp1_fast_moreThen5.exit:                     ; preds = %._crit_edge.us.i72,
   %59 = sub nsw i64 %55, %52
   %60 = getelementptr inbounds i64, ptr %0, i64 %59
   %61 = load i64, ptr %60, align 8, !tbaa !11
-  %.0.i.us.i83 = tail call range(i32 -1, 2) i32 @llvm.ucmp.i32.i64(i64 %58, i64 %61)
+  %.0.i.us.i83 = tail call noundef range(i32 -1, 2) i32 @llvm.ucmp.i32.i64(i64 %58, i64 %61)
   switch i32 %.0.i.us.i83, label %.split.us.i90 [
     i32 0, label %62
     i32 -1, label %.split36.us.i84
@@ -3434,7 +3434,7 @@ arrangeQuoters_superFast_moreThen5.exit106:       ; preds = %194, %170
   %284 = sub nsw i64 %280, %277
   %285 = getelementptr inbounds i64, ptr %0, i64 %284
   %286 = load i64, ptr %285, align 8, !tbaa !11
-  %.0.i.us.i121 = tail call range(i32 -1, 2) i32 @llvm.ucmp.i32.i64(i64 %283, i64 %286)
+  %.0.i.us.i121 = tail call noundef range(i32 -1, 2) i32 @llvm.ucmp.i32.i64(i64 %283, i64 %286)
   switch i32 %.0.i.us.i121, label %.split.us.i127 [
     i32 0, label %287
     i32 -1, label %.split38.us.i
@@ -3655,7 +3655,7 @@ define void @minimalSwapAndFlipIVar_superFast_moreThen5_noEBFC(ptr noundef captu
   %18 = sub nsw i64 %15, %12
   %19 = getelementptr inbounds i64, ptr %0, i64 %18
   %20 = load i64, ptr %19, align 8, !tbaa !11
-  %.0.i.us.i = tail call range(i32 -1, 2) i32 @llvm.ucmp.i32.i64(i64 %17, i64 %20)
+  %.0.i.us.i = tail call noundef range(i32 -1, 2) i32 @llvm.ucmp.i32.i64(i64 %17, i64 %20)
   switch i32 %.0.i.us.i, label %24 [
     i32 0, label %21
     i32 -1, label %minTemp1_fast_moreThen5.exit.thread
@@ -3878,7 +3878,7 @@ define range(i32 0, 2) i32 @minimalSwapAndFlipIVar_superFast_all_noEBFC(ptr noun
   %31 = getelementptr i8, ptr %28, i64 -4
   %32 = load i32, ptr %31, align 4, !tbaa !6
   %33 = zext i32 %32 to i64
-  %.0.i.i.i = tail call range(i32 -1, 2) i32 @llvm.ucmp.i32.i64(i64 %30, i64 %33)
+  %.0.i.i.i = tail call noundef range(i32 -1, 2) i32 @llvm.ucmp.i32.i64(i64 %30, i64 %33)
   switch i32 %.0.i.i.i, label %37 [
     i32 0, label %34
     i32 -1, label %minimalSwapAndFlipIVar_superFast_iVar5_noEBFC.exit

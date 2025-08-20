@@ -6390,7 +6390,7 @@ define hidden noundef zeroext i1 @_ZN5wasmi6engine10translator13instr_encoder12I
   %33 = load i16, ptr %20, align 8, !noundef !8
   %34 = icmp sle i16 %11, %33
   %35 = icmp slt i16 %33, %19
-  %or.cond = select i1 %34, i1 %35, i1 false
+  %or.cond = and i1 %34, %35
   br i1 %or.cond, label %.sink.split, label %28
 }
 

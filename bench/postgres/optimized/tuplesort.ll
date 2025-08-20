@@ -3456,19 +3456,19 @@ define dso_local void @tuplesort_attach_shared(ptr noundef %0, ptr noundef %1) l
 declare void @SharedFileSetAttach(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local range(i32 -1, 2) i32 @ssup_datum_unsigned_cmp(i64 noundef %0, i64 noundef %1, ptr readnone captures(none) %2) #6 {
+define dso_local noundef range(i32 -1, 2) i32 @ssup_datum_unsigned_cmp(i64 noundef %0, i64 noundef %1, ptr readnone captures(none) %2) #6 {
   %.0 = tail call i32 @llvm.ucmp.i32.i64(i64 %0, i64 %1)
   ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local range(i32 -1, 2) i32 @ssup_datum_signed_cmp(i64 noundef %0, i64 noundef %1, ptr readnone captures(none) %2) #6 {
+define dso_local noundef range(i32 -1, 2) i32 @ssup_datum_signed_cmp(i64 noundef %0, i64 noundef %1, ptr readnone captures(none) %2) #6 {
   %.0 = tail call i32 @llvm.scmp.i32.i64(i64 %0, i64 %1)
   ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local range(i32 -1, 2) i32 @ssup_datum_int32_cmp(i64 noundef %0, i64 noundef %1, ptr readnone captures(none) %2) #6 {
+define dso_local noundef range(i32 -1, 2) i32 @ssup_datum_int32_cmp(i64 noundef %0, i64 noundef %1, ptr readnone captures(none) %2) #6 {
   %4 = trunc i64 %0 to i32
   %5 = trunc i64 %1 to i32
   %.0 = tail call i32 @llvm.scmp.i32.i32(i32 %4, i32 %5)

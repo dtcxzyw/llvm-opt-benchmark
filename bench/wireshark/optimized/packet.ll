@@ -7292,7 +7292,7 @@ define internal void @dissector_delete_from_table(ptr readnone captures(none) %0
 declare ptr @g_slist_remove(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(none) uwtable
-define internal range(i32 -1, 2) i32 @compare_ints(ptr noundef %0, ptr noundef %1) #19 {
+define internal noundef range(i32 -1, 2) i32 @compare_ints(ptr noundef %0, ptr noundef %1) #19 {
   %3 = ptrtoint ptr %0 to i64
   %4 = trunc i64 %3 to i32
   %5 = ptrtoint ptr %1 to i64

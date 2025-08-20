@@ -338,7 +338,7 @@ define internal i32 @library_name_compare(ptr noundef readonly captures(none) %0
   br i1 %.not, label %9, label %7
 
 7:                                                ; preds = %2
-  %8 = tail call range(i32 -1, 2) i32 @llvm.ucmp.i32.i64(i64 %5, i64 %6)
+  %8 = tail call noundef range(i32 -1, 2) i32 @llvm.ucmp.i32.i64(i64 %5, i64 %6)
   br label %17
 
 9:                                                ; preds = %2
@@ -351,7 +351,7 @@ define internal i32 @library_name_compare(ptr noundef readonly captures(none) %0
   %13 = load i32, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %15 = load i32, ptr %14, align 8
-  %16 = tail call range(i32 -1, 2) i32 @llvm.scmp.i32.i32(i32 %13, i32 %15)
+  %16 = tail call noundef range(i32 -1, 2) i32 @llvm.scmp.i32.i32(i32 %13, i32 %15)
   br label %17
 
 17:                                               ; preds = %9, %11, %7

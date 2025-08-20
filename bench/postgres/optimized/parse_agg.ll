@@ -1927,7 +1927,7 @@ declare ptr @list_union_int(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @list_sort(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal range(i32 -1, 2) i32 @cmp_list_len_asc(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #4 {
+define internal noundef range(i32 -1, 2) i32 @cmp_list_len_asc(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #4 {
   %3 = load ptr, ptr %0, align 8
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %list_length.exit, label %4
@@ -1950,14 +1950,14 @@ list_length.exit:                                 ; preds = %2, %4
 
 list_length.exit4:                                ; preds = %list_length.exit, %9
   %12 = phi i32 [ %11, %9 ], [ 0, %list_length.exit ]
-  %13 = tail call range(i32 -1, 2) i32 @llvm.scmp.i32.i32(i32 %7, i32 %12)
+  %13 = tail call noundef range(i32 -1, 2) i32 @llvm.scmp.i32.i32(i32 %7, i32 %12)
   ret i32 %13
 }
 
 declare i32 @list_int_cmp(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal i32 @cmp_list_len_contents_asc(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #5 {
+define internal noundef i32 @cmp_list_len_contents_asc(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #5 {
   %3 = load ptr, ptr %0, align 8
   %.not.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i, label %list_length.exit.i.thread, label %list_length.exit.i
@@ -1975,20 +1975,20 @@ list_length.exit.i.thread:                        ; preds = %2
   br i1 %.not.i3.i61, label %.thread43, label %cmp_list_len_asc.exit.thread.thread
 
 cmp_list_len_asc.exit:                            ; preds = %list_length.exit.i
-  %8 = tail call range(i32 -1, 2) i32 @llvm.scmp.i32.i32(i32 %5, i32 0)
+  %8 = tail call noundef range(i32 -1, 2) i32 @llvm.scmp.i32.i32(i32 %5, i32 0)
   br label %.thread43
 
 cmp_list_len_asc.exit.thread:                     ; preds = %list_length.exit.i
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %10 = load i32, ptr %9, align 4
-  %11 = tail call range(i32 -1, 2) i32 @llvm.scmp.i32.i32(i32 %5, i32 %10)
+  %11 = tail call noundef range(i32 -1, 2) i32 @llvm.scmp.i32.i32(i32 %5, i32 %10)
   %12 = icmp eq i32 %5, %10
   br i1 %12, label %.preheader.split.split, label %.thread43
 
 cmp_list_len_asc.exit.thread.thread:              ; preds = %list_length.exit.i.thread
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %14 = load i32, ptr %13, align 4
-  %15 = tail call range(i32 -1, 2) i32 @llvm.scmp.i32.i32(i32 0, i32 %14)
+  %15 = tail call noundef range(i32 -1, 2) i32 @llvm.scmp.i32.i32(i32 0, i32 %14)
   br label %.thread43
 
 .preheader.split.split:                           ; preds = %cmp_list_len_asc.exit.thread

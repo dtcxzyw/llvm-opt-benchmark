@@ -48522,7 +48522,7 @@ switch.lookup:                                    ; preds = %30
   %68 = sub nsw i8 %65, %67
   br label %"_ZN62_$LT$typst..util..scalar..Scalar$u20$as$u20$core..cmp..Ord$GT$3cmp17h0ae961c8dbcd3ce9E.exit"
 
-default.unreachable345:                           ; preds = %263
+default.unreachable346:                           ; preds = %263
   unreachable
 
 "_ZN62_$LT$typst..util..scalar..Scalar$u20$as$u20$core..cmp..Ord$GT$3cmp17h0ae961c8dbcd3ce9E.exit": ; preds = %switch.lookup, %326, %324, %318, %234, %.thread.i173, %219, %.thread.i169, %186, %.thread.i165, %157, %.thread.i160, %148, %.thread.i, %70, %83, %346, %315, %240, %236, %221, %206, %135, %128, %109, %104, %85
@@ -49033,7 +49033,7 @@ _ZN5typst4util7Numeric7is_zero17h21065271731c9cb3E.exit: ; preds = %171
   %narrow.i.i = tail call i8 @llvm.umin.i8(i8 %268, i8 2)
   %269 = getelementptr inbounds nuw i8, ptr %2, i64 15
   %270 = load i8, ptr %269, align 1, !range !862, !alias.scope !7875, !noalias !7876, !noundef !16
-  switch i8 %narrow.i.i, label %default.unreachable345 [
+  switch i8 %narrow.i.i, label %default.unreachable346 [
     i8 0, label %271
     i8 1, label %273
     i8 2, label %275
@@ -49052,7 +49052,7 @@ _ZN5typst4util7Numeric7is_zero17h21065271731c9cb3E.exit: ; preds = %171
   call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !7877
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !7877
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !7877
-  br label %switch.lookup352
+  br label %switch.lookup353
 
 273:                                              ; preds = %263
   %274 = icmp eq i8 %270, 2
@@ -49067,7 +49067,7 @@ _ZN5typst4util7Numeric7is_zero17h21065271731c9cb3E.exit: ; preds = %171
   call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !7880
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !7880
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !7880
-  br label %switch.lookup352
+  br label %switch.lookup353
 
 275:                                              ; preds = %263
   %276 = icmp eq i8 %270, 0
@@ -49082,7 +49082,7 @@ _ZN5typst4util7Numeric7is_zero17h21065271731c9cb3E.exit: ; preds = %171
   call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !7882
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !7882
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !7882
-  br label %switch.lookup352
+  br label %switch.lookup353
 
 277:                                              ; preds = %271
   %278 = load i32, ptr %264, align 4, !alias.scope !7872, !noalias !7873, !noundef !16
@@ -49129,9 +49129,9 @@ _ZN5typst4util7Numeric7is_zero17h21065271731c9cb3E.exit: ; preds = %171
   %switch.i180 = icmp ugt i8 %268, 1
   %..i = select i1 %switch.i180, i64 8, i64 4
   %anon.53fe85e3a453dfbf0ab1e8743506e67c.703.llvm.12850028421071809815.anon.53fe85e3a453dfbf0ab1e8743506e67c.702.llvm.12850028421071809815.i = select i1 %switch.i180, ptr @anon.53fe85e3a453dfbf0ab1e8743506e67c.703.llvm.12850028421071809815, ptr @anon.53fe85e3a453dfbf0ab1e8743506e67c.702.llvm.12850028421071809815
-  br label %switch.lookup352
+  br label %switch.lookup353
 
-293:                                              ; preds = %312, %switch.lookup352
+293:                                              ; preds = %312, %switch.lookup353
   %294 = landingpad { ptr, i32 }
           cleanup
   %295 = load i8, ptr %.sroa.03.sroa.4.0..sroa_idx.i10.i, align 1, !alias.scope !7896, !noalias !7894, !noundef !16
@@ -49142,7 +49142,7 @@ _ZN5typst4util7Numeric7is_zero17h21065271731c9cb3E.exit: ; preds = %171
   invoke void @"_ZN68_$LT$ecow..vec..EcoVec$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h3d104556f500dee7E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %10)
           to label %common.resume unwind label %313, !noalias !7903
 
-switch.lookup352:                                 ; preds = %"_ZN80_$LT$typst..foundations..datetime..Datetime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h98ad53d03b1e158aE.exit.thread.i", %"_ZN80_$LT$typst..foundations..datetime..Datetime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h98ad53d03b1e158aE.exit.thread.thread14.i", %"_ZN80_$LT$typst..foundations..datetime..Datetime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h98ad53d03b1e158aE.exit.thread.thread11.i", %"_ZN80_$LT$typst..foundations..datetime..Datetime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h98ad53d03b1e158aE.exit.thread.thread.i"
+switch.lookup353:                                 ; preds = %"_ZN80_$LT$typst..foundations..datetime..Datetime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h98ad53d03b1e158aE.exit.thread.i", %"_ZN80_$LT$typst..foundations..datetime..Datetime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h98ad53d03b1e158aE.exit.thread.thread14.i", %"_ZN80_$LT$typst..foundations..datetime..Datetime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h98ad53d03b1e158aE.exit.thread.thread11.i", %"_ZN80_$LT$typst..foundations..datetime..Datetime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h98ad53d03b1e158aE.exit.thread.thread.i"
   %.sroa.03.sroa.4.0..sroa_idx.i10.i = phi ptr [ %.sroa.03.sroa.4.0..sroa_idx.i9.i, %"_ZN80_$LT$typst..foundations..datetime..Datetime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h98ad53d03b1e158aE.exit.thread.thread.i" ], [ %.sroa.03.sroa.4.0..sroa_idx.i12.i, %"_ZN80_$LT$typst..foundations..datetime..Datetime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h98ad53d03b1e158aE.exit.thread.thread11.i" ], [ %.sroa.03.sroa.4.0..sroa_idx.i15.i, %"_ZN80_$LT$typst..foundations..datetime..Datetime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h98ad53d03b1e158aE.exit.thread.thread14.i" ], [ %.sroa.03.sroa.4.0..sroa_idx.i.i, %"_ZN80_$LT$typst..foundations..datetime..Datetime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h98ad53d03b1e158aE.exit.thread.i" ]
   %.sroa.4.0.i.i.i = phi i64 [ 4, %"_ZN80_$LT$typst..foundations..datetime..Datetime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h98ad53d03b1e158aE.exit.thread.thread.i" ], [ 4, %"_ZN80_$LT$typst..foundations..datetime..Datetime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h98ad53d03b1e158aE.exit.thread.thread11.i" ], [ 8, %"_ZN80_$LT$typst..foundations..datetime..Datetime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h98ad53d03b1e158aE.exit.thread.thread14.i" ], [ %..i, %"_ZN80_$LT$typst..foundations..datetime..Datetime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h98ad53d03b1e158aE.exit.thread.i" ]
   %.sroa.0.0.i.i.i = phi ptr [ @anon.53fe85e3a453dfbf0ab1e8743506e67c.701.llvm.12850028421071809815, %"_ZN80_$LT$typst..foundations..datetime..Datetime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h98ad53d03b1e158aE.exit.thread.thread.i" ], [ @anon.53fe85e3a453dfbf0ab1e8743506e67c.702.llvm.12850028421071809815, %"_ZN80_$LT$typst..foundations..datetime..Datetime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h98ad53d03b1e158aE.exit.thread.thread11.i" ], [ @anon.53fe85e3a453dfbf0ab1e8743506e67c.703.llvm.12850028421071809815, %"_ZN80_$LT$typst..foundations..datetime..Datetime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h98ad53d03b1e158aE.exit.thread.thread14.i" ], [ %anon.53fe85e3a453dfbf0ab1e8743506e67c.703.llvm.12850028421071809815.anon.53fe85e3a453dfbf0ab1e8743506e67c.702.llvm.12850028421071809815.i, %"_ZN80_$LT$typst..foundations..datetime..Datetime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h98ad53d03b1e158aE.exit.thread.i" ]
@@ -49156,9 +49156,9 @@ switch.lookup352:                                 ; preds = %"_ZN80_$LT$typst..f
   %switch.gep = getelementptr inbounds nuw [3 x i64], ptr @switch.table._ZN5typst4eval3ops7compare17he80bdcfe32974cebE, i64 0, i64 %300
   %switch.load = load i64, ptr %switch.gep, align 8
   %301 = zext nneg i8 %narrow.i11.i.i to i64
-  %switch.gep353 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN5typst4eval3ops7compare17he80bdcfe32974cebE.533, i64 0, i64 %301
-  %switch.load354 = load ptr, ptr %switch.gep353, align 8
-  store ptr %switch.load354, ptr %6, align 8, !noalias !7894
+  %switch.gep354 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN5typst4eval3ops7compare17he80bdcfe32974cebE.533, i64 0, i64 %301
+  %switch.load355 = load ptr, ptr %switch.gep354, align 8
+  store ptr %switch.load355, ptr %6, align 8, !noalias !7894
   %302 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 %switch.load, ptr %302, align 8, !noalias !7894
   store ptr %7, ptr %8, align 8, !noalias !7894
@@ -49180,7 +49180,7 @@ switch.lookup352:                                 ; preds = %"_ZN80_$LT$typst..f
   %310 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h4311bce0ee536615E(ptr noundef nonnull align 1 %10, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.9efbc0c128adab6190fabe7f7e045142.299.llvm.12777920187102919001, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %9)
           to label %311 unwind label %293, !noalias !7903
 
-311:                                              ; preds = %switch.lookup352
+311:                                              ; preds = %switch.lookup353
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !7894
   br i1 %310, label %312, label %316
 
@@ -49265,9 +49265,9 @@ common.resume:                                    ; preds = %353, %349, %293, %2
   br label %337
 
 337:                                              ; preds = %.lr.ph, %344
-  %.sroa.8211.0329 = phi i64 [ 0, %.lr.ph ], [ %345, %344 ]
-  %338 = getelementptr inbounds { i8, [31 x i8] }, ptr %329, i64 %.sroa.8211.0329
-  %339 = getelementptr inbounds { i8, [31 x i8] }, ptr %333, i64 %.sroa.8211.0329
+  %.sroa.8211.0330 = phi i64 [ 0, %.lr.ph ], [ %345, %344 ]
+  %338 = getelementptr inbounds { i8, [31 x i8] }, ptr %329, i64 %.sroa.8211.0330
+  %339 = getelementptr inbounds { i8, [31 x i8] }, ptr %333, i64 %.sroa.8211.0330
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !7918
   call void @_ZN5typst4eval3ops7compare17he80bdcfe32974cebE(ptr noalias noundef nonnull sret({ i8, [23 x i8] }) align 8 captures(none) dereferenceable(24) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %338, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %339), !noalias !7935
   %340 = load i8, ptr %5, align 8, !range !612, !noalias !7918, !noundef !16
@@ -49278,7 +49278,7 @@ common.resume:                                    ; preds = %353, %349, %293, %2
   br i1 %or.cond.i.i183, label %344, label %_ZN5typst4eval3ops14try_cmp_arrays17h04863316876c3600E.exit
 
 344:                                              ; preds = %337
-  %345 = add nuw i64 %.sroa.8211.0329, 1
+  %345 = add nuw i64 %.sroa.8211.0330, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !7918
   %exitcond.not = icmp eq i64 %345, %.0.sroa.speculated.i.i.i
   br i1 %exitcond.not, label %_ZN5typst4eval3ops14try_cmp_arrays17h04863316876c3600E.exit.thread, label %337

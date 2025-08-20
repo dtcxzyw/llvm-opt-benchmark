@@ -1187,7 +1187,7 @@ define internal range(i32 -1, 2) i32 @resource_priority_cmp(ptr noundef readonly
   %14 = load i32, ptr %13, align 4
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %16 = load i32, ptr %15, align 4
-  %17 = tail call range(i32 -1, 2) i32 @llvm.ucmp.i32.i32(i32 %14, i32 %16)
+  %17 = tail call noundef range(i32 -1, 2) i32 @llvm.ucmp.i32.i32(i32 %14, i32 %16)
   br label %20
 
 18:                                               ; preds = %2

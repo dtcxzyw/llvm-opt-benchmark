@@ -8211,12 +8211,12 @@ declare ptr @lappend(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @list_sort(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal range(i32 -1, 2) i32 @file_sort_by_lsn(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #7 {
+define internal noundef range(i32 -1, 2) i32 @file_sort_by_lsn(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #7 {
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %1, align 8
   %5 = load i64, ptr %3, align 8
   %6 = load i64, ptr %4, align 8
-  %7 = tail call range(i32 -1, 2) i32 @llvm.ucmp.i32.i64(i64 %5, i64 %6)
+  %7 = tail call noundef range(i32 -1, 2) i32 @llvm.ucmp.i32.i64(i64 %5, i64 %6)
   ret i32 %7
 }
 

@@ -1805,7 +1805,7 @@ define hidden noundef zeroext i1 @"_ZN78_$LT$cranelift_isle..trie_again..Binding
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden range(i8 -1, 2) i8 @"_ZN79_$LT$cranelift_isle..trie_again..BindingId$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h3b9f8e2b4bdac807E"(ptr readonly align 2 captures(none) %0, ptr readonly align 2 captures(none) %1) unnamed_addr #5 {
+define hidden noundef range(i8 -1, 2) i8 @"_ZN79_$LT$cranelift_isle..trie_again..BindingId$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h3b9f8e2b4bdac807E"(ptr readonly align 2 captures(none) %0, ptr readonly align 2 captures(none) %1) unnamed_addr #5 {
   %3 = load i16, ptr %0, align 2, !noundef !3
   %4 = load i16, ptr %1, align 2, !noundef !3
   %.0 = tail call i8 @llvm.ucmp.i8.i16(i16 %3, i16 %4)

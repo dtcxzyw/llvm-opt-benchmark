@@ -201,7 +201,7 @@ define dso_local noundef i64 @btoidsortsupport(ptr noundef readonly captures(non
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal range(i32 -1, 2) i32 @btoidfastcmp(i64 noundef %0, i64 noundef %1, ptr readnone captures(none) %2) #2 {
+define internal noundef range(i32 -1, 2) i32 @btoidfastcmp(i64 noundef %0, i64 noundef %1, ptr readnone captures(none) %2) #2 {
   %4 = trunc i64 %0 to i32
   %5 = trunc i64 %1 to i32
   %.0 = tail call i32 @llvm.ucmp.i32.i32(i32 %4, i32 %5)

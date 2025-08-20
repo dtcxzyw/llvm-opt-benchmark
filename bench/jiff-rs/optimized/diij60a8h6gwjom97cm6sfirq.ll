@@ -16160,7 +16160,7 @@ define internal fastcc void @_ZN4jiff4span5Nudge19relative_zoned_time17h94a0df0b
   %336 = icmp eq i128 %333, %335
   %337 = call i8 @llvm.scmp.i8.i128(i128 %333, i128 0)
   %338 = icmp eq i8 %337, %33
-  %or.cond = select i1 %336, i1 true, i1 %338
+  %or.cond = or i1 %336, %338
   br i1 %or.cond, label %341, label %339
 
 339:                                              ; preds = %"_ZN4core3ptr41drop_in_place$LT$jiff..span..Relative$GT$17h2fe59d808ce3c3beE.exit96"
@@ -17482,7 +17482,7 @@ switch.lookup:                                    ; preds = %"_ZN96_$LT$core..re
   %528 = icmp eq i128 %525, %527
   %529 = call i8 @llvm.scmp.i8.i128(i128 %525, i128 0)
   %530 = icmp eq i8 %529, %439
-  %or.cond = select i1 %528, i1 true, i1 %530
+  %or.cond = or i1 %528, %530
   br i1 %or.cond, label %539, label %538
 
 531:                                              ; preds = %532, %508, %497, %480

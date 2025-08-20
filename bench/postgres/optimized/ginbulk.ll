@@ -364,7 +364,7 @@ declare ptr @rbt_iterate(ptr noundef) local_unnamed_addr #1
 declare void @pg_qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 -1, 2) i32 @qsortCompareItemPointers(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #2 {
+define internal noundef range(i32 -1, 2) i32 @qsortCompareItemPointers(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #2 {
   %.val.i = load i16, ptr %0, align 2
   %3 = getelementptr i8, ptr %0, i64 2
   %.val5.i = load i16, ptr %3, align 2
@@ -389,7 +389,7 @@ define internal range(i32 -1, 2) i32 @qsortCompareItemPointers(ptr noundef reado
   %.val9.i = load i16, ptr %18, align 2
   %19 = zext i16 %.val9.i to i64
   %20 = or disjoint i64 %17, %19
-  %21 = tail call range(i32 -1, 2) i32 @llvm.ucmp.i32.i64(i64 range(i64 0, -4294901760) %11, i64 range(i64 0, -4294901760) %20)
+  %21 = tail call noundef range(i32 -1, 2) i32 @llvm.ucmp.i32.i64(i64 range(i64 0, -4294901760) %11, i64 range(i64 0, -4294901760) %20)
   ret i32 %21
 }
 

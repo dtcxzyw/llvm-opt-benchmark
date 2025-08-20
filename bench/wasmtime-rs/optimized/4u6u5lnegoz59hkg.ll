@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden range(i8 -1, 2) i8 @"_ZN4core3cmp5impls48_$LT$impl$u20$core..cmp..Ord$u20$for$u20$u16$GT$3cmp17h0d93e16fc862e2b1E"(ptr readonly align 2 captures(none) %0, ptr readonly align 2 captures(none) %1) unnamed_addr #0 {
+define hidden noundef range(i8 -1, 2) i8 @"_ZN4core3cmp5impls48_$LT$impl$u20$core..cmp..Ord$u20$for$u20$u16$GT$3cmp17h0d93e16fc862e2b1E"(ptr readonly align 2 captures(none) %0, ptr readonly align 2 captures(none) %1) unnamed_addr #0 {
   %3 = load i16, ptr %0, align 2, !noundef !3
   %4 = load i16, ptr %1, align 2, !noundef !3
   %.0 = tail call i8 @llvm.ucmp.i8.i16(i16 %3, i16 %4)
@@ -12,7 +12,7 @@ define hidden range(i8 -1, 2) i8 @"_ZN4core3cmp5impls48_$LT$impl$u20$core..cmp..
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden range(i8 -1, 2) i8 @"_ZN4core3cmp5impls50_$LT$impl$u20$core..cmp..Ord$u20$for$u20$usize$GT$3cmp17h4c652fea249149a5E"(ptr readonly align 8 captures(none) %0, ptr readonly align 8 captures(none) %1) unnamed_addr #0 {
+define hidden noundef range(i8 -1, 2) i8 @"_ZN4core3cmp5impls50_$LT$impl$u20$core..cmp..Ord$u20$for$u20$usize$GT$3cmp17h4c652fea249149a5E"(ptr readonly align 8 captures(none) %0, ptr readonly align 8 captures(none) %1) unnamed_addr #0 {
   %3 = load i64, ptr %0, align 8, !noundef !3
   %4 = load i64, ptr %1, align 8, !noundef !3
   %.0 = tail call i8 @llvm.ucmp.i8.i64(i64 %3, i64 %4)

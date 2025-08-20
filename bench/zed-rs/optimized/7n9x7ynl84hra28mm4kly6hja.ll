@@ -15377,7 +15377,7 @@ define internal fastcc void @_ZN8terminal8mappings5mouse19normal_mouse_report17h
 
 51:                                               ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h0c7b3f31586b9f8aE.exit", %.noexc19
   %switch12 = icmp samesign ugt i32 %2, 94
-  %or.cond14 = select i1 %4, i1 %switch12, i1 false
+  %or.cond14 = and i1 %switch12, %4
   br i1 %or.cond14, label %62, label %52
 
 52:                                               ; preds = %51

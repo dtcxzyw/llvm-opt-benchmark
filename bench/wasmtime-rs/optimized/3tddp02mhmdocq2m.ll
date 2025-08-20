@@ -7415,7 +7415,7 @@ define hidden noundef zeroext i1 @"_ZN69_$LT$cranelift_isle..sema..TermId$u20$as
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden range(i8 -1, 2) i8 @"_ZN70_$LT$cranelift_isle..sema..TermId$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h2015d02bbc67b0a2E"(ptr readonly align 8 captures(none) %0, ptr readonly align 8 captures(none) %1) unnamed_addr #5 {
+define hidden noundef range(i8 -1, 2) i8 @"_ZN70_$LT$cranelift_isle..sema..TermId$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h2015d02bbc67b0a2E"(ptr readonly align 8 captures(none) %0, ptr readonly align 8 captures(none) %1) unnamed_addr #5 {
   %3 = load i64, ptr %0, align 8, !noundef !4
   %4 = load i64, ptr %1, align 8, !noundef !4
   %.0 = tail call i8 @llvm.ucmp.i8.i64(i64 %3, i64 %4)
@@ -7423,7 +7423,7 @@ define hidden range(i8 -1, 2) i8 @"_ZN70_$LT$cranelift_isle..sema..TermId$u20$as
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden range(i8 -1, 2) i8 @"_ZN63_$LT$cranelift_isle..sema..TermId$u20$as$u20$core..cmp..Ord$GT$3cmp17h462961b65fb6efe5E"(ptr readonly align 8 captures(none) %0, ptr readonly align 8 captures(none) %1) unnamed_addr #5 {
+define hidden noundef range(i8 -1, 2) i8 @"_ZN63_$LT$cranelift_isle..sema..TermId$u20$as$u20$core..cmp..Ord$GT$3cmp17h462961b65fb6efe5E"(ptr readonly align 8 captures(none) %0, ptr readonly align 8 captures(none) %1) unnamed_addr #5 {
   %3 = load i64, ptr %0, align 8, !noundef !4
   %4 = load i64, ptr %1, align 8, !noundef !4
   %.0 = tail call i8 @llvm.ucmp.i8.i64(i64 %3, i64 %4)

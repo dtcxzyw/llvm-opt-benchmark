@@ -6728,7 +6728,7 @@ _ZN18tree_sitter_loader5mtime17h2c85b39d6424743eE.exit.i: ; preds = %.noexc338, 
 336:                                              ; preds = %334
   %337 = icmp ne ptr %311, %329
   %338 = icmp samesign ugt i32 %327, %309
-  %or.cond.i = select i1 %337, i1 true, i1 %338
+  %or.cond.i = or i1 %338, %337
   br i1 %or.cond.i, label %.loopexit545, label %"_ZN72_$LT$std..sys..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h69c7fe6700806219E.exit.thread50.i"
 
 .noexc343:                                        ; preds = %332, %.noexc342

@@ -1838,12 +1838,12 @@ declare i32 @getMaxDumpId() local_unnamed_addr #1
 declare ptr @binaryheap_allocate(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal range(i32 -1, 2) i32 @int_cmp(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2) #5 {
+define internal noundef range(i32 -1, 2) i32 @int_cmp(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2) #5 {
   %4 = ptrtoint ptr %0 to i64
   %5 = trunc i64 %4 to i32
   %6 = ptrtoint ptr %1 to i64
   %7 = trunc i64 %6 to i32
-  %8 = tail call range(i32 -1, 2) i32 @llvm.scmp.i32.i32(i32 %5, i32 %7)
+  %8 = tail call noundef range(i32 -1, 2) i32 @llvm.scmp.i32.i32(i32 %5, i32 %7)
   ret i32 %8
 }
 

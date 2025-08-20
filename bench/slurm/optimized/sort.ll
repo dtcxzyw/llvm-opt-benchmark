@@ -349,7 +349,7 @@ define internal range(i32 -1, 2) i32 @_sort_job_by_num_cpus(ptr noundef readonly
   %8 = load i32, ptr %7, align 4
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 548
   %10 = load i32, ptr %9, align 4
-  %.0.i = tail call range(i32 -1, 2) i32 @llvm.ucmp.i32.i32(i32 %8, i32 %10)
+  %.0.i = tail call noundef range(i32 -1, 2) i32 @llvm.ucmp.i32.i32(i32 %8, i32 %10)
   %.b3 = load i1, ptr @reverse_order, align 1
   %11 = sub nsw i32 0, %.0.i
   %spec.select = select i1 %.b3, i32 %11, i32 %.0.i
@@ -368,7 +368,7 @@ define internal range(i32 -1, 2) i32 @_sort_job_by_min_tmp_disk(ptr noundef read
   %8 = load i32, ptr %7, align 4
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 596
   %10 = load i32, ptr %9, align 4
-  %.0.i = tail call range(i32 -1, 2) i32 @llvm.ucmp.i32.i32(i32 %8, i32 %10)
+  %.0.i = tail call noundef range(i32 -1, 2) i32 @llvm.ucmp.i32.i32(i32 %8, i32 %10)
   %.b3 = load i1, ptr @reverse_order, align 1
   %11 = sub nsw i32 0, %.0.i
   %spec.select = select i1 %.b3, i32 %11, i32 %.0.i
@@ -387,7 +387,7 @@ define internal range(i32 -1, 2) i32 @_sort_job_by_num_nodes(ptr noundef readonl
   %8 = load i32, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 552
   %10 = load i32, ptr %9, align 8
-  %.0.i = tail call range(i32 -1, 2) i32 @llvm.ucmp.i32.i32(i32 %8, i32 %10)
+  %.0.i = tail call noundef range(i32 -1, 2) i32 @llvm.ucmp.i32.i32(i32 %8, i32 %10)
   %.b3 = load i1, ptr @reverse_order, align 1
   %11 = sub nsw i32 0, %.0.i
   %spec.select = select i1 %.b3, i32 %11, i32 %.0.i
@@ -406,7 +406,7 @@ define internal range(i32 -1, 2) i32 @_sort_job_by_time_end(ptr noundef readonly
   %8 = load i64, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 272
   %10 = load i64, ptr %9, align 8
-  %.0.i = tail call range(i32 -1, 2) i32 @llvm.scmp.i32.i64(i64 %8, i64 %10)
+  %.0.i = tail call noundef range(i32 -1, 2) i32 @llvm.scmp.i32.i64(i64 %8, i64 %10)
   %.b3 = load i1, ptr @reverse_order, align 1
   %11 = sub nsw i32 0, %.0.i
   %spec.select = select i1 %.b3, i32 %11, i32 %.0.i
@@ -456,7 +456,7 @@ define internal range(i32 -1, 2) i32 @_sort_job_by_group_id(ptr noundef readonly
   %8 = load i32, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 392
   %10 = load i32, ptr %9, align 8
-  %.0.i = tail call range(i32 -1, 2) i32 @llvm.ucmp.i32.i32(i32 %8, i32 %10)
+  %.0.i = tail call noundef range(i32 -1, 2) i32 @llvm.ucmp.i32.i32(i32 %8, i32 %10)
   %.b3 = load i1, ptr @reverse_order, align 1
   %11 = sub nsw i32 0, %.0.i
   %spec.select = select i1 %.b3, i32 %11, i32 %.0.i
@@ -477,7 +477,7 @@ define internal range(i32 -1, 2) i32 @_sort_job_by_sockets(ptr noundef readonly 
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 754
   %11 = load i16, ptr %10, align 2
   %12 = zext i16 %11 to i32
-  %.0.i = tail call range(i32 -1, 2) i32 @llvm.ucmp.i32.i32(i32 %9, i32 %12)
+  %.0.i = tail call noundef range(i32 -1, 2) i32 @llvm.ucmp.i32.i32(i32 %9, i32 %12)
   %.b3 = load i1, ptr @reverse_order, align 1
   %13 = sub nsw i32 0, %.0.i
   %spec.select = select i1 %.b3, i32 %13, i32 %.0.i
@@ -551,7 +551,7 @@ define internal range(i32 -1, 2) i32 @_sort_job_by_id(ptr noundef readonly captu
 31:                                               ; preds = %.thread, %.thread20, %30, %22
   %.18 = phi i32 [ %.222, %.thread20 ], [ %.2, %30 ], [ %.07, %22 ], [ %.07, %.thread ]
   %.1 = phi i32 [ %29, %.thread20 ], [ %24, %30 ], [ %.0, %22 ], [ %21, %.thread ]
-  %.0.i = tail call range(i32 -1, 2) i32 @llvm.ucmp.i32.i32(i32 %.18, i32 %.1)
+  %.0.i = tail call noundef range(i32 -1, 2) i32 @llvm.ucmp.i32.i32(i32 %.18, i32 %.1)
   %.b15 = load i1, ptr @reverse_order, align 1
   %32 = sub nsw i32 0, %.0.i
   %spec.select = select i1 %.b15, i32 %32, i32 %.0.i
@@ -572,7 +572,7 @@ define internal range(i32 -1, 2) i32 @_sort_job_by_cores(ptr noundef readonly ca
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 188
   %11 = load i16, ptr %10, align 4
   %12 = zext i16 %11 to i32
-  %.0.i = tail call range(i32 -1, 2) i32 @llvm.ucmp.i32.i32(i32 %9, i32 %12)
+  %.0.i = tail call noundef range(i32 -1, 2) i32 @llvm.ucmp.i32.i32(i32 %9, i32 %12)
   %.b3 = load i1, ptr @reverse_order, align 1
   %13 = sub nsw i32 0, %.0.i
   %spec.select = select i1 %.b3, i32 %13, i32 %.0.i
@@ -616,7 +616,7 @@ define internal range(i32 -1, 2) i32 @_sort_job_by_threads(ptr noundef readonly 
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 856
   %11 = load i16, ptr %10, align 8
   %12 = zext i16 %11 to i32
-  %.0.i = tail call range(i32 -1, 2) i32 @llvm.ucmp.i32.i32(i32 %9, i32 %12)
+  %.0.i = tail call noundef range(i32 -1, 2) i32 @llvm.ucmp.i32.i32(i32 %9, i32 %12)
   %.b3 = load i1, ptr @reverse_order, align 1
   %13 = sub nsw i32 0, %.0.i
   %spec.select = select i1 %.b3, i32 %13, i32 %.0.i
@@ -635,7 +635,7 @@ define internal range(i32 -1, 2) i32 @_sort_job_by_time_limit(ptr noundef readon
   %8 = load i32, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 848
   %10 = load i32, ptr %9, align 8
-  %.0.i = tail call range(i32 -1, 2) i32 @llvm.ucmp.i32.i32(i32 %8, i32 %10)
+  %.0.i = tail call noundef range(i32 -1, 2) i32 @llvm.ucmp.i32.i32(i32 %8, i32 %10)
   %.b3 = load i1, ptr @reverse_order, align 1
   %11 = sub nsw i32 0, %.0.i
   %spec.select = select i1 %.b3, i32 %11, i32 %.0.i
@@ -678,7 +678,7 @@ define internal range(i32 -1, 2) i32 @_sort_job_by_time_left(ptr noundef readonl
 
 22:                                               ; preds = %14, %17
   %.0 = phi i64 [ %21, %17 ], [ 4294967295, %14 ]
-  %.0.i = tail call range(i32 -1, 2) i32 @llvm.scmp.i32.i64(i64 %.05, i64 %.0)
+  %.0.i = tail call noundef range(i32 -1, 2) i32 @llvm.scmp.i32.i64(i64 %.05, i64 %.0)
   %.b9 = load i1, ptr @reverse_order, align 1
   %23 = sub nsw i32 0, %.0.i
   %spec.select = select i1 %.b9, i32 %23, i32 %.0.i
@@ -702,7 +702,7 @@ define internal range(i32 -1, 2) i32 @_sort_job_by_min_memory(ptr noundef readon
   %12 = and i64 %11, 9223372036854775807
   store i64 %12, ptr %10, align 8
   %13 = load i64, ptr %7, align 8
-  %.0.i = tail call range(i32 -1, 2) i32 @llvm.ucmp.i32.i64(i64 %13, i64 %12)
+  %.0.i = tail call noundef range(i32 -1, 2) i32 @llvm.ucmp.i32.i64(i64 %13, i64 %12)
   %.b3 = load i1, ptr @reverse_order, align 1
   %14 = sub nsw i32 0, %.0.i
   %spec.select = select i1 %.b3, i32 %14, i32 %.0.i
@@ -719,7 +719,7 @@ define internal range(i32 -1, 2) i32 @_sort_job_by_time_used(ptr noundef readonl
   %6 = load ptr, ptr %5, align 8
   %7 = tail call i64 @job_time_used(ptr noundef %.val.val) #11
   %8 = tail call i64 @job_time_used(ptr noundef %6) #11
-  %.0.i = tail call range(i32 -1, 2) i32 @llvm.scmp.i32.i64(i64 %7, i64 %8)
+  %.0.i = tail call noundef range(i32 -1, 2) i32 @llvm.scmp.i32.i64(i64 %7, i64 %8)
   %.b5 = load i1, ptr @reverse_order, align 1
   %9 = sub nsw i32 0, %.0.i
   %spec.select = select i1 %.b5, i32 %9, i32 %.0.i
@@ -759,7 +759,7 @@ define internal range(i32 -1, 2) i32 @_sort_job_by_priority(ptr noundef readonly
   %4 = load ptr, ptr %1, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %6 = load i32, ptr %5, align 8
-  %.0.i = tail call range(i32 -1, 2) i32 @llvm.ucmp.i32.i32(i32 %.val8.val, i32 %6)
+  %.0.i = tail call noundef range(i32 -1, 2) i32 @llvm.ucmp.i32.i32(i32 %.val8.val, i32 %6)
   %7 = icmp eq i32 %.val8.val, %6
   br i1 %7, label %8, label %16
 
@@ -772,7 +772,7 @@ define internal range(i32 -1, 2) i32 @_sort_job_by_priority(ptr noundef readonly
   %13 = load i32, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 624
   %15 = load i32, ptr %14, align 8
-  %.0.i9 = tail call range(i32 -1, 2) i32 @llvm.ucmp.i32.i32(i32 %13, i32 %15)
+  %.0.i9 = tail call noundef range(i32 -1, 2) i32 @llvm.ucmp.i32.i32(i32 %13, i32 %15)
   br label %16
 
 16:                                               ; preds = %8, %2
@@ -829,7 +829,7 @@ define internal range(i32 -1, 2) i32 @_sort_job_by_time_start(ptr noundef readon
   %21 = icmp eq i32 %20, 0
   %spec.select.i8 = tail call i64 @llvm.smax.i64(i64 %12, i64 %18)
   %.0.i9 = select i1 %21, i64 %spec.select.i8, i64 %12
-  %.0.i10 = tail call range(i32 -1, 2) i32 @llvm.scmp.i32.i64(i64 %.0.i, i64 %.0.i9)
+  %.0.i10 = tail call noundef range(i32 -1, 2) i32 @llvm.scmp.i32.i64(i64 %.0.i, i64 %.0.i9)
   %.b7 = load i1, ptr @reverse_order, align 1
   %22 = sub nsw i32 0, %.0.i10
   %spec.select = select i1 %.b7, i32 %22, i32 %.0.i10
@@ -915,7 +915,7 @@ define internal range(i32 -1, 2) i32 @_sort_job_by_user_id(ptr noundef readonly 
   %8 = load i32, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 928
   %10 = load i32, ptr %9, align 8
-  %.0.i = tail call range(i32 -1, 2) i32 @llvm.ucmp.i32.i32(i32 %8, i32 %10)
+  %.0.i = tail call noundef range(i32 -1, 2) i32 @llvm.ucmp.i32.i32(i32 %8, i32 %10)
   %.b3 = load i1, ptr @reverse_order, align 1
   %11 = sub nsw i32 0, %.0.i
   %spec.select = select i1 %.b3, i32 %11, i32 %.0.i
@@ -957,7 +957,7 @@ define internal range(i32 -1, 2) i32 @_sort_job_by_time_submit(ptr noundef reado
   %8 = load i64, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 824
   %10 = load i64, ptr %9, align 8
-  %.0.i = tail call range(i32 -1, 2) i32 @llvm.scmp.i32.i64(i64 %8, i64 %10)
+  %.0.i = tail call noundef range(i32 -1, 2) i32 @llvm.scmp.i32.i64(i64 %8, i64 %10)
   %.b3 = load i1, ptr @reverse_order, align 1
   %11 = sub nsw i32 0, %.0.i
   %spec.select = select i1 %.b3, i32 %11, i32 %.0.i
@@ -978,21 +978,21 @@ define internal range(i32 -1, 2) i32 @_sort_job_by_num_sct(ptr noundef readonly 
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 754
   %11 = load i16, ptr %10, align 2
   %12 = zext i16 %11 to i32
-  %.0.i = tail call range(i32 -1, 2) i32 @llvm.ucmp.i32.i32(i32 %9, i32 %12)
+  %.0.i = tail call noundef range(i32 -1, 2) i32 @llvm.ucmp.i32.i32(i32 %9, i32 %12)
   %13 = getelementptr inbounds nuw i8, ptr %.val.val, i64 188
   %14 = load i16, ptr %13, align 4
   %15 = zext i16 %14 to i32
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 188
   %17 = load i16, ptr %16, align 4
   %18 = zext i16 %17 to i32
-  %.0.i15 = tail call range(i32 -1, 2) i32 @llvm.ucmp.i32.i32(i32 %15, i32 %18)
+  %.0.i15 = tail call noundef range(i32 -1, 2) i32 @llvm.ucmp.i32.i32(i32 %15, i32 %18)
   %19 = getelementptr inbounds nuw i8, ptr %.val.val, i64 856
   %20 = load i16, ptr %19, align 8
   %21 = zext i16 %20 to i32
   %22 = getelementptr inbounds nuw i8, ptr %6, i64 856
   %23 = load i16, ptr %22, align 8
   %24 = zext i16 %23 to i32
-  %.0.i16 = tail call range(i32 -1, 2) i32 @llvm.ucmp.i32.i32(i32 %21, i32 %24)
+  %.0.i16 = tail call noundef range(i32 -1, 2) i32 @llvm.ucmp.i32.i32(i32 %21, i32 %24)
   %.b13 = load i1, ptr @reverse_order, align 1
   %25 = sub nsw i32 0, %.0.i
   %26 = sub nsw i32 0, %.0.i15
@@ -1195,7 +1195,7 @@ define internal range(i32 -1, 2) i32 @_sort_step_by_id(ptr noundef readonly capt
   %5 = load i32, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 168
   %7 = load i32, ptr %6, align 8
-  %.0.i = tail call range(i32 -1, 2) i32 @llvm.ucmp.i32.i32(i32 %5, i32 %7)
+  %.0.i = tail call noundef range(i32 -1, 2) i32 @llvm.ucmp.i32.i32(i32 %5, i32 %7)
   %8 = icmp eq i32 %5, %7
   br i1 %8, label %9, label %14
 
@@ -1204,7 +1204,7 @@ define internal range(i32 -1, 2) i32 @_sort_step_by_id(ptr noundef readonly capt
   %11 = load i32, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 176
   %13 = load i32, ptr %12, align 8
-  %.0.i6 = tail call range(i32 -1, 2) i32 @llvm.ucmp.i32.i32(i32 %11, i32 %13)
+  %.0.i6 = tail call noundef range(i32 -1, 2) i32 @llvm.ucmp.i32.i32(i32 %11, i32 %13)
   br label %14
 
 14:                                               ; preds = %9, %2
@@ -1263,7 +1263,7 @@ define internal range(i32 -1, 2) i32 @_sort_step_by_time_limit(ptr noundef reado
   %5 = load i32, ptr %4, align 4
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 196
   %7 = load i32, ptr %6, align 4
-  %.0.i = tail call range(i32 -1, 2) i32 @llvm.ucmp.i32.i32(i32 %5, i32 %7)
+  %.0.i = tail call noundef range(i32 -1, 2) i32 @llvm.ucmp.i32.i32(i32 %5, i32 %7)
   %.b3 = load i1, ptr @reverse_order, align 1
   %8 = sub nsw i32 0, %.0.i
   %spec.select = select i1 %.b3, i32 %8, i32 %.0.i
@@ -1278,7 +1278,7 @@ define internal range(i32 -1, 2) i32 @_sort_step_by_time_start(ptr noundef reado
   %5 = load i64, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 144
   %7 = load i64, ptr %6, align 8
-  %.0.i = tail call range(i32 -1, 2) i32 @llvm.scmp.i32.i64(i64 %5, i64 %7)
+  %.0.i = tail call noundef range(i32 -1, 2) i32 @llvm.scmp.i32.i64(i64 %5, i64 %7)
   %.b3 = load i1, ptr @reverse_order, align 1
   %8 = sub nsw i32 0, %.0.i
   %spec.select = select i1 %.b3, i32 %8, i32 %.0.i
@@ -1298,7 +1298,7 @@ define internal range(i32 -1, 2) i32 @_sort_step_by_time_used(ptr noundef readon
   %10 = load i64, ptr %9, align 8
   %11 = tail call double @difftime(i64 noundef %4, i64 noundef %10) #14
   %12 = fptosi double %11 to i64
-  %.0.i = tail call range(i32 -1, 2) i32 @llvm.scmp.i32.i64(i64 %8, i64 %12)
+  %.0.i = tail call noundef range(i32 -1, 2) i32 @llvm.scmp.i32.i64(i64 %8, i64 %12)
   %.b5 = load i1, ptr @reverse_order, align 1
   %13 = sub nsw i32 0, %.0.i
   %spec.select = select i1 %.b5, i32 %13, i32 %.0.i
@@ -1330,7 +1330,7 @@ define internal range(i32 -1, 2) i32 @_sort_step_by_user_id(ptr noundef readonly
   %5 = load i32, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 256
   %7 = load i32, ptr %6, align 8
-  %.0.i = tail call range(i32 -1, 2) i32 @llvm.ucmp.i32.i32(i32 %5, i32 %7)
+  %.0.i = tail call noundef range(i32 -1, 2) i32 @llvm.ucmp.i32.i32(i32 %5, i32 %7)
   %.b3 = load i1, ptr @reverse_order, align 1
   %8 = sub nsw i32 0, %.0.i
   %spec.select = select i1 %.b3, i32 %8, i32 %.0.i

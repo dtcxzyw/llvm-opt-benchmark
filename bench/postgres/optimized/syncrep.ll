@@ -1205,10 +1205,10 @@ define dso_local void @assign_synchronous_commit(i32 noundef %0, ptr noundef rea
 declare void @pfree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 -1, 2) i32 @cmp_lsn(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #2 {
+define internal noundef range(i32 -1, 2) i32 @cmp_lsn(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #2 {
   %3 = load i64, ptr %0, align 8
   %4 = load i64, ptr %1, align 8
-  %5 = tail call range(i32 -1, 2) i32 @llvm.ucmp.i32.i64(i64 %4, i64 %3)
+  %5 = tail call noundef range(i32 -1, 2) i32 @llvm.ucmp.i32.i64(i64 %4, i64 %3)
   ret i32 %5
 }
 

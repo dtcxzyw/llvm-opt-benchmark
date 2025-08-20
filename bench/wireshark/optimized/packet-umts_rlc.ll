@@ -5936,7 +5936,7 @@ declare i32 @g_direct_equal(ptr noundef, ptr noundef) #10
 declare ptr @g_tree_new_full(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(none) uwtable
-define internal range(i32 -1, 2) i32 @rlc_simple_key_cmp(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2) #11 {
+define internal noundef range(i32 -1, 2) i32 @rlc_simple_key_cmp(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2) #11 {
   %4 = ptrtoint ptr %1 to i64
   %5 = trunc i64 %4 to i32
   %6 = ptrtoint ptr %0 to i64

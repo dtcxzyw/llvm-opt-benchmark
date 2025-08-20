@@ -22,14 +22,14 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.10 = private unnamed_addr constant [35 x i8] c"position information is misordered\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local range(i32 -1, 2) i32 @compareWordEntryPos(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #0 {
+define dso_local noundef range(i32 -1, 2) i32 @compareWordEntryPos(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = load i16, ptr %0, align 2
   %4 = and i16 %3, 16383
   %5 = zext nneg i16 %4 to i32
   %6 = load i16, ptr %1, align 2
   %7 = and i16 %6, 16383
   %8 = zext nneg i16 %7 to i32
-  %9 = tail call range(i32 -1, 2) i32 @llvm.ucmp.i32.i32(i32 range(i32 0, 16384) %5, i32 range(i32 0, 16384) %8)
+  %9 = tail call noundef range(i32 -1, 2) i32 @llvm.ucmp.i32.i32(i32 range(i32 0, 16384) %5, i32 range(i32 0, 16384) %8)
   ret i32 %9
 }
 
