@@ -3671,9 +3671,9 @@ get_bitsz.exit.i:                                 ; preds = %501, %491, %480
   %667 = getelementptr inbounds nuw i8, ptr %557, i64 32
   %668 = load i8, ptr %33, align 2, !tbaa !40
   %669 = sext i8 %668 to i32
-  %670 = mul nsw i32 %669, %669
-  %671 = zext nneg i32 %670 to i64
-  %672 = shl nuw nsw i64 %671, 2
+  %670 = shl nsw i32 %669, 2
+  %671 = mul nsw i32 %670, %669
+  %672 = zext nneg i32 %671 to i64
   call void @llvm.memset.p0.i64(ptr nonnull align 8 %667, i8 0, i64 %672, i1 false)
   %673 = zext i8 %604 to i32
   %674 = add nsw i32 %673, -1

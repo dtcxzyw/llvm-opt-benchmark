@@ -3389,7 +3389,7 @@ define internal fastcc void @get_fcb_param(ptr noundef nonnull captures(none) %0
   %206 = trunc i64 %sext to i32
   %207 = call i32 @llvm.ssub.sat.i32(i32 %.0232, i32 %206)
   %208 = mul nsw i64 %200, %200
-  %209 = trunc nsw i64 %208 to i32
+  %209 = trunc nuw nsw i64 %208 to i32
   %210 = call i32 @llvm.sadd.sat.i32(i32 %209, i32 %207)
   %indvars.iv.next304 = add nuw nsw i64 %indvars.iv303, 1
   %exitcond306.not = icmp eq i64 %indvars.iv.next304, 60
