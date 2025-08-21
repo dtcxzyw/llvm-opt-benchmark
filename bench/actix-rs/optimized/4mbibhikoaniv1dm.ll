@@ -3347,8 +3347,7 @@ define internal fastcc noundef zeroext i1 @"_ZN137_$LT$brotli..enc..backward_ref
 
 .preheader.split:                                 ; preds = %.preheader
   %90 = icmp ult i64 %.165108, %31
-  %.fr = freeze i1 %90
-  br i1 %.fr, label %.preheader.split.split.us, label %.preheader.split.split, !prof !5
+  br i1 %90, label %.preheader.split.split.us, label %.preheader.split.split, !prof !5
 
 .preheader.split.split.us:                        ; preds = %.preheader.split, %106
   %.263.us81 = phi i64 [ %91, %106 ], [ %.162109, %.preheader.split ]
@@ -3797,9 +3796,9 @@ define internal fastcc noundef zeroext i1 @"_ZN137_$LT$brotli..enc..backward_ref
   br i1 %89, label %.loopexit, label %93
 
 .loopexit:                                        ; preds = %159, %.split100.us, %130, %145, %105, %88, %93
-  %.pre-phi192 = phi i32 [ %94, %93 ], [ 0, %88 ], [ %94, %105 ], [ %94, %145 ], [ %94, %130 ], [ %94, %.split100.us ], [ %94, %159 ]
+  %.pre-phi191 = phi i32 [ %94, %93 ], [ 0, %88 ], [ %94, %105 ], [ %94, %145 ], [ %94, %130 ], [ %94, %.split100.us ], [ %94, %159 ]
   %.1 = phi i8 [ %.0.lcssa, %93 ], [ %.0.lcssa, %88 ], [ %.2130, %105 ], [ %.2130, %145 ], [ %.2130, %130 ], [ %.3, %159 ], [ %.2130, %.split100.us ]
-  %90 = and i32 %83, %.pre-phi192
+  %90 = and i32 %83, %.pre-phi191
   %91 = zext nneg i32 %90 to i64
   %92 = icmp ugt i32 %75, %90
   br i1 %92, label %164, label %170, !prof !5
@@ -3846,8 +3845,7 @@ define internal fastcc noundef zeroext i1 @"_ZN137_$LT$brotli..enc..backward_ref
 
 .preheader.split:                                 ; preds = %.preheader
   %112 = icmp ult i64 %.165127, %31
-  %.fr106 = freeze i1 %112
-  br i1 %.fr106, label %.preheader.split.split.us, label %.preheader.split.split, !prof !5
+  br i1 %112, label %.preheader.split.split.us, label %.preheader.split.split, !prof !5
 
 .preheader.split.split.us:                        ; preds = %.preheader.split, %130
   %.263.us92 = phi i64 [ %113, %130 ], [ %.162128, %.preheader.split ]
@@ -4154,8 +4152,8 @@ _ZN6brotli3enc19backward_references24SearchInStaticDictionary17hf3f051a18e1469e6
   %.360 = phi i64 [ %.05774, %201 ], [ %.05774, %209 ], [ %.05774, %213 ], [ %.05774, %221 ], [ %.056, %254 ], [ %.05774, %252 ], [ %.05774, %240 ], [ %.05774, %237 ]
   %.5 = phi i8 [ %.075, %201 ], [ %.075, %209 ], [ %.075, %213 ], [ %.075, %221 ], [ 1, %254 ], [ %.075, %252 ], [ %.075, %240 ], [ %.075, %237 ]
   %256 = add nuw i64 %.06172, 1
-  %exitcond190.not = icmp eq i64 %256, %34
-  br i1 %exitcond190.not, label %._crit_edge, label %54
+  %exitcond189.not = icmp eq i64 %256, %34
+  br i1 %exitcond189.not, label %._crit_edge, label %54
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -4298,11 +4296,11 @@ define internal fastcc noundef zeroext i1 @"_ZN137_$LT$brotli..enc..backward_ref
   %79 = icmp eq i16 %52, 0
   br i1 %79, label %.loopexit, label %83
 
-.loopexit:                                        ; preds = %.split105.us, %121, %136, %96, %..loopexit.loopexit148_crit_edge, %78, %83
-  %.pre-phi210 = phi i32 [ %84, %83 ], [ 0, %78 ], [ %84, %..loopexit.loopexit148_crit_edge ], [ %84, %96 ], [ %84, %136 ], [ %84, %121 ], [ %84, %.split105.us ]
-  %.val101 = phi i32 [ %.val102, %83 ], [ %.val102, %78 ], [ %.val101.pre.pre, %..loopexit.loopexit148_crit_edge ], [ %.val, %96 ], [ %.val, %136 ], [ %.val, %121 ], [ %.val, %.split105.us ]
-  %.1 = phi i8 [ %.0.lcssa, %83 ], [ %.0.lcssa, %78 ], [ %.3, %..loopexit.loopexit148_crit_edge ], [ %.2140, %96 ], [ %.2140, %136 ], [ %.2140, %121 ], [ %.2140, %.split105.us ]
-  %80 = and i32 %.val101, %.pre-phi210
+.loopexit:                                        ; preds = %.split105.us, %121, %136, %96, %..loopexit.loopexit147_crit_edge, %78, %83
+  %.pre-phi209 = phi i32 [ %84, %83 ], [ 0, %78 ], [ %84, %..loopexit.loopexit147_crit_edge ], [ %84, %96 ], [ %84, %136 ], [ %84, %121 ], [ %84, %.split105.us ]
+  %.val101 = phi i32 [ %.val102, %83 ], [ %.val102, %78 ], [ %.val101.pre.pre, %..loopexit.loopexit147_crit_edge ], [ %.val, %96 ], [ %.val, %136 ], [ %.val, %121 ], [ %.val, %.split105.us ]
+  %.1 = phi i8 [ %.0.lcssa, %83 ], [ %.0.lcssa, %78 ], [ %.3, %..loopexit.loopexit147_crit_edge ], [ %.2140, %96 ], [ %.2140, %136 ], [ %.2140, %121 ], [ %.2140, %.split105.us ]
+  %80 = and i32 %.val101, %.pre-phi209
   %81 = zext nneg i32 %80 to i64
   %82 = icmp ugt i32 %67, %80
   br i1 %82, label %155, label %161, !prof !5
@@ -4351,8 +4349,7 @@ define internal fastcc noundef zeroext i1 @"_ZN137_$LT$brotli..enc..backward_ref
 
 .preheader.split:                                 ; preds = %.preheader
   %103 = icmp ult i64 %.165137, %30
-  %.fr111 = freeze i1 %103
-  br i1 %.fr111, label %.preheader.split.split.us, label %.preheader.split.split, !prof !5
+  br i1 %103, label %.preheader.split.split.us, label %.preheader.split.split, !prof !5
 
 .preheader.split.split.us:                        ; preds = %.preheader.split, %121
   %.263.us97 = phi i64 [ %104, %121 ], [ %.162138, %.preheader.split ]
@@ -4458,9 +4455,9 @@ define internal fastcc noundef zeroext i1 @"_ZN137_$LT$brotli..enc..backward_ref
   %.259 = phi i64 [ %.158139, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17h84aaafaec353abe6E.llvm.6642645476840219850.exit119" ], [ %152, %154 ], [ %.158139, %151 ]
   %.3 = phi i8 [ %.2140, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17h84aaafaec353abe6E.llvm.6642645476840219850.exit119" ], [ 1, %154 ], [ %.2140, %151 ]
   %.old1 = icmp ugt i64 %104, %86
-  br i1 %.old1, label %.preheader, label %..loopexit.loopexit148_crit_edge
+  br i1 %.old1, label %.preheader, label %..loopexit.loopexit147_crit_edge
 
-..loopexit.loopexit148_crit_edge:                 ; preds = %150
+..loopexit.loopexit147_crit_edge:                 ; preds = %150
   %.val101.pre.pre = load i32, ptr %74, align 8
   br label %.loopexit
 
@@ -4852,8 +4849,7 @@ define internal fastcc noundef zeroext i1 @"_ZN137_$LT$brotli..enc..backward_ref
 
 .preheader.split:                                 ; preds = %.preheader
   %90 = icmp ult i64 %.165108, %31
-  %.fr = freeze i1 %90
-  br i1 %.fr, label %.preheader.split.split.us, label %.preheader.split.split, !prof !5
+  br i1 %90, label %.preheader.split.split.us, label %.preheader.split.split, !prof !5
 
 .preheader.split.split.us:                        ; preds = %.preheader.split, %106
   %.263.us81 = phi i64 [ %91, %106 ], [ %.162109, %.preheader.split ]

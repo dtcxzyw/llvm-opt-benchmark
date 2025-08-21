@@ -73572,14 +73572,13 @@ define hidden noundef ptr @_ZN13rust_analyzer8handlers7request15handle_run_test1
   %163 = zext nneg i8 %162 to i32
   %164 = or disjoint i32 %161, %163
   %165 = or disjoint i32 %164, %160
-  %.fr.i.i.i.i = freeze i32 %165
-  %166 = icmp eq i32 %.fr.i.i.i.i, 1114112
+  %166 = icmp eq i32 %165, 1114112
   %spec.select.i.i.i.i = select i1 %166, i32 1114112, i32 %128
   br label %167
 
 167:                                              ; preds = %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha3bb299ebebfcc3aE.exit19.i.i.i.i", %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heab392a7e291af20E.exit15.i.i17.i.i.i.i", %144, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heab392a7e291af20E.exit13.i.i16.i.i.i.i"
   %.sroa.10.1.i.i.i = phi ptr [ %131, %144 ], [ %157, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha3bb299ebebfcc3aE.exit19.i.i.i.i" ], [ %147, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heab392a7e291af20E.exit15.i.i17.i.i.i.i" ], [ %137, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heab392a7e291af20E.exit13.i.i16.i.i.i.i" ]
-  %.sroa.4.0.i.i.i.i = phi i32 [ %145, %144 ], [ %.fr.i.i.i.i, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha3bb299ebebfcc3aE.exit19.i.i.i.i" ], [ %154, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heab392a7e291af20E.exit15.i.i17.i.i.i.i" ], [ %142, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heab392a7e291af20E.exit13.i.i16.i.i.i.i" ]
+  %.sroa.4.0.i.i.i.i = phi i32 [ %145, %144 ], [ %165, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha3bb299ebebfcc3aE.exit19.i.i.i.i" ], [ %154, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heab392a7e291af20E.exit15.i.i17.i.i.i.i" ], [ %142, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heab392a7e291af20E.exit13.i.i16.i.i.i.i" ]
   %.sroa.0.0.i.i.i.i = phi i32 [ %128, %144 ], [ %spec.select.i.i.i.i, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha3bb299ebebfcc3aE.exit19.i.i.i.i" ], [ %128, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heab392a7e291af20E.exit15.i.i17.i.i.i.i" ], [ %128, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heab392a7e291af20E.exit13.i.i16.i.i.i.i" ]
   %168 = icmp ne i32 %.sroa.0.0.i.i.i.i, 1114112
   %.not.i.i.i = icmp eq i32 %.sroa.0.0.i.i.i.i, %.sroa.4.0.i.i.i.i
@@ -77411,15 +77410,14 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   %125 = zext nneg i8 %124 to i32
   %126 = or disjoint i32 %123, %125
   %127 = or disjoint i32 %126, %122
-  %.fr = freeze i32 %127
-  %128 = icmp eq i32 %.fr, 1114112
+  %128 = icmp eq i32 %127, 1114112
   br i1 %128, label %.thread253, label %.thread256
 
 .thread253:                                       ; preds = %79, %117
   br label %.thread256
 
 .thread256:                                       ; preds = %100, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heab392a7e291af20E.exit15.i", %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heab392a7e291af20E.exit13.i", %117, %.thread253
-  %129 = phi i32 [ 0, %.thread253 ], [ %.fr, %117 ], [ %101, %100 ], [ %110, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heab392a7e291af20E.exit15.i" ], [ %98, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heab392a7e291af20E.exit13.i" ]
+  %129 = phi i32 [ 0, %.thread253 ], [ %127, %117 ], [ %101, %100 ], [ %110, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heab392a7e291af20E.exit15.i" ], [ %98, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heab392a7e291af20E.exit13.i" ]
   call void @llvm.lifetime.start.p0(ptr nonnull %26)
   call void @llvm.lifetime.start.p0(ptr nonnull %25)
   invoke void @_ZN3ide8Analysis9file_text17heef44c01410c8c32E(ptr noalias noundef nonnull sret({ ptr, [1 x i64] }) align 8 captures(none) dereferenceable(16) %25, ptr noundef nonnull align 8 %1, i32 noundef %67)

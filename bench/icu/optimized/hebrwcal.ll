@@ -665,10 +665,9 @@ _ZN6icu_7712_GLOBAL__N_110daysInYearEiR10UErrorCode.exit.i: ; preds = %.preheade
   %39 = icmp slt i64 %38, 0
   %40 = select i1 %39, i64 -7, i64 12
   %.not = icmp slt i64 %38, %40
-  %.not.fr = freeze i1 %.not
   %invariant.gep = getelementptr [3 x i16], ptr @_ZL16LEAP_MONTH_START, i64 0, i64 %switch.select14.i
   %invariant.gep79 = getelementptr [3 x i16], ptr @_ZL11MONTH_START, i64 0, i64 %switch.select14.i
-  br i1 %.not.fr, label %.split.us, label %.split
+  br i1 %.not, label %.split.us, label %.split
 
 .split.us:                                        ; preds = %31, %44
   %indvars.iv89 = phi i64 [ %indvars.iv.next90, %44 ], [ 0, %31 ]
@@ -713,7 +712,7 @@ _ZN6icu_7712_GLOBAL__N_110daysInYearEiR10UErrorCode.exit.i: ; preds = %.preheade
   %53 = getelementptr inbounds nuw [3 x i16], ptr %52, i64 0, i64 %switch.select14.i
   %54 = getelementptr inbounds nuw [14 x [3 x i16]], ptr @_ZL11MONTH_START, i64 0, i64 %51
   %55 = getelementptr inbounds nuw [3 x i16], ptr %54, i64 0, i64 %switch.select14.i
-  %.in71 = select i1 %.not.fr, ptr %55, ptr %53
+  %.in71 = select i1 %.not, ptr %55, ptr %53
   %56 = load i16, ptr %.in71, align 2, !tbaa !18
   %57 = sext i16 %56 to i32
   %58 = sub nsw i32 %.062, %57
@@ -766,7 +765,7 @@ _ZN6icu_7712_GLOBAL__N_110daysInYearEiR10UErrorCode.exit.i: ; preds = %.preheade
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 123
   store i8 1, ptr %82, align 1, !tbaa !16
   %83 = icmp samesign ugt i32 %.us-phi, 6
-  %or.cond3 = select i1 %.not.fr, i1 %83, i1 false
+  %or.cond3 = select i1 %.not, i1 %83, i1 false
   %84 = add nsw i32 %.us-phi, -2
   %spec.select = select i1 %or.cond3, i32 %84, i32 %50
   %85 = getelementptr inbounds nuw i8, ptr %0, i64 100

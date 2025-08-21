@@ -4066,15 +4066,16 @@ GetASNTag.exit.i.i:                               ; preds = %.thread.i.i.i
 48:                                               ; preds = %._crit_edge.i.i.i, %15
   %.240.i.i.i = phi i32 [ %19, %15 ], [ %.139.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %.2.i.i.i = phi i32 [ %13, %15 ], [ %.1.lcssa.i.i.i, %._crit_edge.i.i.i ]
-  %49 = add i32 %.2.i.i.i, %.240.i.i.i
-  %.fr = freeze i32 %49
-  %50 = icmp ugt i32 %.fr, %3
-  %switch = icmp samesign ult i32 %.240.i.i.i, 3
+  %.240.i.i.i.fr = freeze i32 %.240.i.i.i
+  %.2.i.i.i.fr = freeze i32 %.2.i.i.i
+  %49 = add i32 %.2.i.i.i.fr, %.240.i.i.i.fr
+  %50 = icmp ugt i32 %49, %3
+  %switch = icmp ult i32 %.240.i.i.i.fr, 3
   %or.cond = or i1 %switch, %50
   br i1 %or.cond, label %GetASNHeader.exit, label %51
 
 51:                                               ; preds = %48
-  %52 = sext i32 %.fr to i64
+  %52 = sext i32 %49 to i64
   %53 = getelementptr i8, ptr %0, i64 %52
   %54 = getelementptr i8, ptr %53, i64 -1
   %55 = load i8, ptr %54, align 1, !tbaa !3
@@ -4082,12 +4083,13 @@ GetASNTag.exit.i.i:                               ; preds = %.thread.i.i.i
   br i1 %.not19.i.i, label %select.unfold.i.i, label %GetASNHeader.exit
 
 select.unfold.i.i:                                ; preds = %51
-  store i32 %.240.i.i.i, ptr %2, align 4, !tbaa !22
-  store i32 %.2.i.i.i, ptr %1, align 4, !tbaa !22
+  store i32 %.240.i.i.i.fr, ptr %2, align 4, !tbaa !22
+  store i32 %.2.i.i.i.fr, ptr %1, align 4, !tbaa !22
+  %56 = tail call i32 @llvm.smin.i32(i32 %.240.i.i.i.fr, i32 0)
   br label %GetASNHeader.exit
 
 GetASNHeader.exit:                                ; preds = %48, %4, %6, %.thread.i.i.i, %GetASNTag.exit.i.i, %26, %32, %.thread68.i.i.i, %._crit_edge.i.i.i, %51, %select.unfold.i.i
-  %.4.i.i = phi i32 [ 0, %select.unfold.i.i ], [ -140, %51 ], [ -140, %.thread68.i.i.i ], [ -140, %26 ], [ -140, %32 ], [ -140, %._crit_edge.i.i.i ], [ -140, %GetASNTag.exit.i.i ], [ -140, %6 ], [ -140, %.thread.i.i.i ], [ -140, %4 ], [ -140, %48 ]
+  %.4.i.i = phi i32 [ %56, %select.unfold.i.i ], [ -140, %51 ], [ -140, %.thread68.i.i.i ], [ -140, %26 ], [ -140, %32 ], [ -140, %._crit_edge.i.i.i ], [ -140, %GetASNTag.exit.i.i ], [ -140, %6 ], [ -140, %.thread.i.i.i ], [ -140, %4 ], [ -140, %48 ]
   ret i32 %.4.i.i
 }
 
@@ -7803,14 +7805,15 @@ define internal fastcc i32 @SetEccPublicKey(ptr noundef %0, ptr noundef %1, i32 
 22:                                               ; preds = %19
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 72
   %24 = load i32, ptr %23, align 8, !tbaa !104
-  %25 = icmp ult i32 %24, 128
+  %.fr = freeze i32 %24
+  %25 = icmp ult i32 %.fr, 128
   br i1 %25, label %SetCurve.exit, label %.preheader.i.i.i
 
 .preheader.i.i.i:                                 ; preds = %22, %29
   %.06.i.i.i.i = phi i32 [ %30, %29 ], [ 4, %22 ]
   %26 = shl i32 %.06.i.i.i.i, 3
   %27 = add nsw i32 %26, -8
-  %28 = lshr i32 %24, %27
+  %28 = lshr i32 %.fr, %27
   %.not5.i.i.i.i = icmp eq i32 %28, 0
   br i1 %.not5.i.i.i.i, label %29, label %BytePrecision.exit.i.i.i
 
@@ -7832,9 +7835,8 @@ BytePrecision.exit.i.i.i:                         ; preds = %.preheader.i.i.i
 
 SetCurve.exit:                                    ; preds = %29, %22, %BytePrecision.exit.i.i.i, %.lr.ph.split.us.preheader.i.i.i
   %.020.i.i.ph.i = phi i32 [ 2, %22 ], [ %34, %.lr.ph.split.us.preheader.i.i.i ], [ 2, %BytePrecision.exit.i.i.i ], [ 2, %29 ]
-  %35 = add nsw i32 %.020.i.i.ph.i, %24
-  %.fr = freeze i32 %35
-  %36 = icmp slt i32 %.fr, 0
+  %35 = add i32 %.020.i.i.ph.i, %.fr
+  %36 = icmp slt i32 %35, 0
   br i1 %36, label %.thread89, label %.thread85
 
 .thread85:                                        ; preds = %SetCurve.exit
@@ -7845,7 +7847,7 @@ SetCurve.exit:                                    ; preds = %29, %22, %BytePreci
   %39 = getelementptr inbounds nuw i8, ptr %8, i64 120
   store i8 7, ptr %39, align 8, !tbaa !12
   %40 = getelementptr inbounds nuw i8, ptr %8, i64 112
-  store i32 %.fr, ptr %40, align 16, !tbaa !3
+  store i32 %35, ptr %40, align 16, !tbaa !3
   %41 = getelementptr inbounds nuw i8, ptr %8, i64 153
   store i8 1, ptr %41, align 1, !tbaa !9
   %42 = load i32, ptr %6, align 4, !tbaa !22
@@ -7857,8 +7859,8 @@ SetCurve.exit:                                    ; preds = %29, %22, %BytePreci
 
 .thread89:                                        ; preds = %SetCurve.exit, %19, %.thread85
   %45 = phi i32 [ %.pre, %.thread85 ], [ 0, %19 ], [ 0, %SetCurve.exit ]
-  %.0.i8387 = phi i32 [ %.fr, %.thread85 ], [ -173, %19 ], [ %.fr, %SetCurve.exit ]
-  %.3 = phi i32 [ 0, %.thread85 ], [ -173, %19 ], [ %.fr, %SetCurve.exit ]
+  %.0.i8387 = phi i32 [ %35, %.thread85 ], [ -173, %19 ], [ %35, %SetCurve.exit ]
+  %.3 = phi i32 [ 0, %.thread85 ], [ -173, %19 ], [ %35, %SetCurve.exit ]
   %46 = icmp eq i32 %.3, 0
   %47 = icmp ne ptr %0, null
   %or.cond3 = and i1 %47, %46
@@ -7922,17 +7924,18 @@ SetCurve.exit:                                    ; preds = %29, %22, %BytePreci
 73:                                               ; preds = %69
   %74 = getelementptr inbounds nuw i8, ptr %71, i64 72
   %75 = load i32, ptr %74, align 8, !tbaa !104
+  %.fr117 = freeze i32 %75
   %.not.i.i = icmp eq ptr %.1, null
   br i1 %.not.i.i, label %76, label %.thread.i.i
 
 76:                                               ; preds = %73
-  %77 = icmp ult i32 %75, 128
+  %77 = icmp ult i32 %.fr117, 128
   br i1 %77, label %SetCurve.exit73, label %.preheader.i.preheader.i.i62
 
 .thread.i.i:                                      ; preds = %73
   store i8 6, ptr %.1, align 1, !tbaa !3
   %78 = getelementptr inbounds nuw i8, ptr %.1, i64 1
-  %79 = icmp ult i32 %75, 128
+  %79 = icmp ult i32 %.fr117, 128
   br i1 %79, label %80, label %.preheader.i.preheader.i.i62
 
 .preheader.i.preheader.i.i62:                     ; preds = %.thread.i.i, %76
@@ -7940,7 +7943,7 @@ SetCurve.exit:                                    ; preds = %29, %22, %BytePreci
   br label %.preheader.i.i.i63
 
 80:                                               ; preds = %.thread.i.i
-  %81 = trunc nuw nsw i32 %75 to i8
+  %81 = trunc nuw nsw i32 %.fr117 to i8
   store i8 %81, ptr %78, align 1, !tbaa !3
   br label %100
 
@@ -7948,7 +7951,7 @@ SetCurve.exit:                                    ; preds = %29, %22, %BytePreci
   %.06.i.i.i.i64 = phi i32 [ %86, %85 ], [ 4, %.preheader.i.preheader.i.i62 ]
   %82 = shl i32 %.06.i.i.i.i64, 3
   %83 = add nsw i32 %82, -8
-  %84 = lshr i32 %75, %83
+  %84 = lshr i32 %.fr117, %83
   %.not5.i.i.i.i65 = icmp eq i32 %84, 0
   br i1 %.not5.i.i.i.i65, label %85, label %BytePrecision.exit.i.i.i66
 
@@ -7983,7 +7986,7 @@ BytePrecision.exit.i.i.i66:                       ; preds = %85, %.preheader.i.i
   %indvars.iv.i.i.i = phi i32 [ %indvars.iv.next.i.i.i, %.lr.ph.split.i.i.i ], [ %.0.lcssa.i.i.i.i67, %.thread.i.i.i ]
   %93 = shl nuw nsw i32 %indvars.iv.i.i.i, 3
   %94 = add nsw i32 %93, -8
-  %95 = lshr i32 %75, %94
+  %95 = lshr i32 %.fr117, %94
   %96 = trunc i32 %95 to i8
   %97 = getelementptr inbounds nuw i8, ptr %.ph.i.i, i64 %indvars.iv33.i.i.i
   store i8 %96, ptr %97, align 1, !tbaa !3
@@ -7999,7 +8002,7 @@ BytePrecision.exit.i.i.i66:                       ; preds = %85, %.preheader.i.i
 
 100:                                              ; preds = %.loopexit.loopexit31.i.i.i, %.thread.i.i.i, %80
   %.020.i.i.i = phi i32 [ 2, %80 ], [ %99, %.loopexit.loopexit31.i.i.i ], [ 2, %.thread.i.i.i ]
-  %101 = zext i32 %75 to i64
+  %101 = zext i32 %.fr117 to i64
   %102 = icmp ult i64 %.047, %101
   br i1 %102, label %.thread109.thread, label %103
 
@@ -8014,9 +8017,9 @@ BytePrecision.exit.i.i.i66:                       ; preds = %85, %.preheader.i.i
 
 SetCurve.exit73:                                  ; preds = %76, %88, %.lr.ph.split.us.preheader.i.i.i70, %103
   %.020.i.i.ph.i71.pn = phi i32 [ %.020.i.i.i, %103 ], [ 2, %76 ], [ %92, %.lr.ph.split.us.preheader.i.i.i70 ], [ 2, %88 ]
-  %.0.i68 = add nsw i32 %.020.i.i.ph.i71.pn, %75
-  %.0.i68.fr = freeze i32 %.0.i68
-  %spec.select = call i32 @llvm.smin.i32(i32 %.0.i68.fr, i32 0)
+  %.020.i.i.ph.i71.pn.fr = freeze i32 %.020.i.i.ph.i71.pn
+  %.0.i68 = add i32 %.020.i.i.ph.i71.pn.fr, %.fr117
+  %spec.select = call i32 @llvm.smin.i32(i32 %.0.i68, i32 0)
   br label %109
 
 109:                                              ; preds = %SetCurve.exit73, %65
@@ -15279,14 +15282,15 @@ define i32 @wc_BuildEccKeyDer(ptr noundef %0, ptr noundef %1, ptr noundef captur
 35:                                               ; preds = %32
   %36 = getelementptr inbounds nuw i8, ptr %33, i64 72
   %37 = load i32, ptr %36, align 8, !tbaa !104
-  %38 = icmp ult i32 %37, 128
+  %.fr = freeze i32 %37
+  %38 = icmp ult i32 %.fr, 128
   br i1 %38, label %SetCurve.exit, label %.preheader.i.i.i
 
 .preheader.i.i.i:                                 ; preds = %35, %42
   %.06.i.i.i.i = phi i32 [ %43, %42 ], [ 4, %35 ]
   %39 = shl i32 %.06.i.i.i.i, 3
   %40 = add nsw i32 %39, -8
-  %41 = lshr i32 %37, %40
+  %41 = lshr i32 %.fr, %40
   %.not5.i.i.i.i = icmp eq i32 %41, 0
   br i1 %.not5.i.i.i.i, label %42, label %BytePrecision.exit.i.i.i
 
@@ -15308,15 +15312,14 @@ BytePrecision.exit.i.i.i:                         ; preds = %.preheader.i.i.i
 
 SetCurve.exit:                                    ; preds = %42, %35, %BytePrecision.exit.i.i.i, %.lr.ph.split.us.preheader.i.i.i
   %.020.i.i.ph.i = phi i32 [ 2, %35 ], [ %47, %.lr.ph.split.us.preheader.i.i.i ], [ 2, %BytePrecision.exit.i.i.i ], [ 2, %42 ]
-  %48 = add nsw i32 %.020.i.i.ph.i, %37
-  %.fr = freeze i32 %48
-  %49 = icmp slt i32 %.fr, 0
+  %48 = add i32 %.020.i.i.ph.i, %.fr
+  %49 = icmp slt i32 %48, 0
   %50 = getelementptr inbounds nuw i8, ptr %6, i64 152
   store i8 7, ptr %50, align 8, !tbaa !12
   %51 = getelementptr inbounds nuw i8, ptr %6, i64 136
   store ptr null, ptr %51, align 8, !tbaa !3
   %52 = getelementptr inbounds nuw i8, ptr %6, i64 144
-  store i32 %.fr, ptr %52, align 16, !tbaa !3
+  store i32 %48, ptr %52, align 16, !tbaa !3
   %53 = getelementptr inbounds nuw i8, ptr %6, i64 185
   store i8 1, ptr %53, align 1, !tbaa !9
   br i1 %49, label %.thread, label %.thread100
@@ -15335,7 +15338,7 @@ SetCurve.exit:                                    ; preds = %42, %35, %BytePreci
   br i1 %exitcond, label %.thread100, label %56
 
 .thread100:                                       ; preds = %56, %SetCurve.exit
-  %.1103 = phi i32 [ %.fr, %SetCurve.exit ], [ 0, %56 ]
+  %.1103 = phi i32 [ %48, %SetCurve.exit ], [ 0, %56 ]
   %58 = phi i1 [ true, %SetCurve.exit ], [ false, %56 ]
   br i1 %.not, label %.loopexit, label %59
 
@@ -15365,8 +15368,8 @@ SetCurve.exit:                                    ; preds = %42, %35, %BytePreci
 
 .thread:                                          ; preds = %21, %SetCurve.exit, %65
   %69 = phi i1 [ true, %65 ], [ false, %SetCurve.exit ], [ false, %21 ]
-  %.059161 = phi i32 [ %.1103, %65 ], [ %.fr, %SetCurve.exit ], [ 0, %21 ]
-  %.3160 = phi i32 [ 0, %65 ], [ %.fr, %SetCurve.exit ], [ %22, %21 ]
+  %.059161 = phi i32 [ %.1103, %65 ], [ %48, %SetCurve.exit ], [ 0, %21 ]
+  %.3160 = phi i32 [ 0, %65 ], [ %48, %SetCurve.exit ], [ %22, %21 ]
   %70 = phi i1 [ %58, %65 ], [ true, %SetCurve.exit ], [ %15, %21 ]
   %71 = icmp ne ptr %2, null
   %or.cond7 = and i1 %71, %69
@@ -15401,17 +15404,18 @@ SetCurve.exit:                                    ; preds = %42, %35, %BytePreci
 87:                                               ; preds = %81
   %88 = getelementptr inbounds nuw i8, ptr %85, i64 72
   %89 = load i32, ptr %88, align 8, !tbaa !104
+  %.fr142 = freeze i32 %89
   %.not.i.i = icmp eq ptr %83, null
   br i1 %.not.i.i, label %90, label %.thread.i.i
 
 90:                                               ; preds = %87
-  %91 = icmp ult i32 %89, 128
+  %91 = icmp ult i32 %.fr142, 128
   br i1 %91, label %SetCurve.exit82, label %.preheader.i.preheader.i.i71
 
 .thread.i.i:                                      ; preds = %87
   store i8 6, ptr %83, align 1, !tbaa !3
   %92 = getelementptr inbounds nuw i8, ptr %83, i64 1
-  %93 = icmp ult i32 %89, 128
+  %93 = icmp ult i32 %.fr142, 128
   br i1 %93, label %94, label %.preheader.i.preheader.i.i71
 
 .preheader.i.preheader.i.i71:                     ; preds = %.thread.i.i, %90
@@ -15419,7 +15423,7 @@ SetCurve.exit:                                    ; preds = %42, %35, %BytePreci
   br label %.preheader.i.i.i72
 
 94:                                               ; preds = %.thread.i.i
-  %95 = trunc nuw nsw i32 %89 to i8
+  %95 = trunc nuw nsw i32 %.fr142 to i8
   store i8 %95, ptr %92, align 1, !tbaa !3
   br label %114
 
@@ -15427,7 +15431,7 @@ SetCurve.exit:                                    ; preds = %42, %35, %BytePreci
   %.06.i.i.i.i73 = phi i32 [ %100, %99 ], [ 4, %.preheader.i.preheader.i.i71 ]
   %96 = shl i32 %.06.i.i.i.i73, 3
   %97 = add nsw i32 %96, -8
-  %98 = lshr i32 %89, %97
+  %98 = lshr i32 %.fr142, %97
   %.not5.i.i.i.i74 = icmp eq i32 %98, 0
   br i1 %.not5.i.i.i.i74, label %99, label %BytePrecision.exit.i.i.i75
 
@@ -15462,7 +15466,7 @@ BytePrecision.exit.i.i.i75:                       ; preds = %99, %.preheader.i.i
   %indvars.iv.i.i.i = phi i32 [ %indvars.iv.next.i.i.i, %.lr.ph.split.i.i.i ], [ %.0.lcssa.i.i.i.i76, %.thread.i.i.i ]
   %107 = shl nuw nsw i32 %indvars.iv.i.i.i, 3
   %108 = add nsw i32 %107, -8
-  %109 = lshr i32 %89, %108
+  %109 = lshr i32 %.fr142, %108
   %110 = trunc i32 %109 to i8
   %111 = getelementptr inbounds nuw i8, ptr %.ph.i.i, i64 %indvars.iv33.i.i.i
   store i8 %110, ptr %111, align 1, !tbaa !3
@@ -15478,7 +15482,7 @@ BytePrecision.exit.i.i.i75:                       ; preds = %99, %.preheader.i.i
 
 114:                                              ; preds = %.loopexit.loopexit31.i.i.i, %.thread.i.i.i, %94
   %.020.i.i.i = phi i32 [ 2, %94 ], [ %113, %.loopexit.loopexit31.i.i.i ], [ 2, %.thread.i.i.i ]
-  %115 = zext i32 %89 to i64
+  %115 = zext i32 %.fr142 to i64
   %116 = icmp ult i64 %84, %115
   br i1 %116, label %.thread121.thread, label %117
 
@@ -15493,9 +15497,9 @@ BytePrecision.exit.i.i.i75:                       ; preds = %99, %.preheader.i.i
 
 SetCurve.exit82:                                  ; preds = %90, %102, %.lr.ph.split.us.preheader.i.i.i79, %117
   %.020.i.i.ph.i80.pn = phi i32 [ %.020.i.i.i, %117 ], [ 2, %90 ], [ %106, %.lr.ph.split.us.preheader.i.i.i79 ], [ 2, %102 ]
-  %.0.i77 = add nsw i32 %.020.i.i.ph.i80.pn, %89
-  %.0.i77.fr = freeze i32 %.0.i77
-  %123 = icmp sgt i32 %.0.i77.fr, -1
+  %.020.i.i.ph.i80.pn.fr = freeze i32 %.020.i.i.ph.i80.pn
+  %.0.i77 = add i32 %.020.i.i.ph.i80.pn.fr, %.fr142
+  %123 = icmp sgt i32 %.0.i77, -1
   br i1 %123, label %.thread130, label %.thread121.thread
 
 .thread130:                                       ; preds = %SetCurve.exit82, %79
@@ -15522,7 +15526,7 @@ SetCurve.exit82:                                  ; preds = %90, %102, %.lr.ph.s
   br label %.thread121.thread
 
 .thread121.thread:                                ; preds = %32, %11, %5, %14, %.thread121, %SetCurve.exit82, %81, %114, %67
-  %135 = phi i32 [ -173, %81 ], [ -132, %114 ], [ -202, %67 ], [ %.0.i77.fr, %SetCurve.exit82 ], [ %spec.select, %.thread121 ], [ -173, %14 ], [ -173, %5 ], [ -173, %11 ], [ -173, %32 ]
+  %135 = phi i32 [ -173, %81 ], [ -132, %114 ], [ -202, %67 ], [ %.0.i77, %SetCurve.exit82 ], [ %spec.select, %.thread121 ], [ -173, %14 ], [ -173, %5 ], [ -173, %11 ], [ -173, %32 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
