@@ -83,21 +83,21 @@ define void @_Z7cvMatNDRKN2cv3MatE(ptr dead_on_unwind noalias writable sret(%str
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %15 = load ptr, ptr %14, align 8, !tbaa !19
   %wide.trip.count = zext nneg i32 %12 to i64
-  br label %16
+  br label %17
 
-16:                                               ; preds = %.lr.ph, %16
+17:                                               ; preds = %.lr.ph, %17
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %16 ]
-  %17 = getelementptr inbounds nuw i64, ptr %15, i64 %indvars.iv
-  %18 = load i64, ptr %17, align 8, !tbaa !20
-  %19 = trunc i64 %18 to i32
+  %18 = getelementptr inbounds nuw i64, ptr %15, i64 %indvars.iv
+  %19 = load i64, ptr %18, align 8, !tbaa !20
+  %20 = trunc i64 %19 to i32
   %20 = getelementptr inbounds nuw [32 x %struct.anon], ptr %0, i64 0, i64 %indvars.iv
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 36
-  store i32 %19, ptr %21, align 4, !tbaa !22
+  store i32 %20, ptr %21, align 4, !tbaa !22
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %16, !llvm.loop !24
+  br i1 %exitcond.not, label %._crit_edge, label %17, !llvm.loop !24
 
-._crit_edge:                                      ; preds = %16, %2
+._crit_edge:                                      ; preds = %17, %2
   %22 = load i32, ptr %1, align 8, !tbaa !17
   %23 = and i32 %22, 16384
   %24 = load i32, ptr %0, align 8, !tbaa !26

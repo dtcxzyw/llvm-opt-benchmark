@@ -4952,28 +4952,28 @@ define linkonce_odr void @casadi_init_arrays(ptr noundef %0) local_unnamed_addr 
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %10 = load i64, ptr %9, align 8, !tbaa !84
   %11 = icmp sgt i64 %10, 0
-  br i1 %11, label %.lr.ph60, label %._crit_edge
+  br i1 %11, label %.lr.ph61, label %._crit_edge
 
-.lr.ph60:                                         ; preds = %.preheader
+.lr.ph61:                                         ; preds = %.preheader
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 80
-  br label %64
+  br label %62
 
 15:                                               ; preds = %.lr.ph, %casadi_decompress.exit
-  %.056 = phi i64 [ 0, %.lr.ph ], [ %61, %casadi_decompress.exit ]
+  %.057 = phi i64 [ 0, %.lr.ph ], [ %59, %casadi_decompress.exit ]
   %16 = load ptr, ptr %6, align 8, !tbaa !138
   %.not51 = icmp eq ptr %16, null
   br i1 %.not51, label %19, label %17
 
 17:                                               ; preds = %15
-  %18 = tail call noundef ptr %16(i64 noundef %.056)
+  %18 = tail call noundef ptr %16(i64 noundef %.057)
   br label %19
 
 19:                                               ; preds = %15, %17
   %20 = phi ptr [ %18, %17 ], [ null, %15 ]
   %21 = load ptr, ptr %7, align 8, !tbaa !95
-  %22 = getelementptr inbounds nuw %struct.casadi_io, ptr %21, i64 %.056
+  %22 = getelementptr inbounds nuw %struct.casadi_io, ptr %21, i64 %.057
   store ptr %20, ptr %22, align 8, !tbaa !139
   %23 = load ptr, ptr %8, align 8, !tbaa !141
   %.not52 = icmp eq ptr %23, null
@@ -4989,9 +4989,9 @@ define linkonce_odr void @casadi_init_arrays(ptr noundef %0) local_unnamed_addr 
   br label %41
 
 30:                                               ; preds = %19
-  %31 = tail call noundef ptr %23(i64 noundef %.056)
+  %31 = tail call noundef ptr %23(i64 noundef %.057)
   %32 = load ptr, ptr %7, align 8, !tbaa !95
-  %33 = getelementptr inbounds nuw %struct.casadi_io, ptr %32, i64 %.056
+  %33 = getelementptr inbounds nuw %struct.casadi_io, ptr %32, i64 %.057
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %35 = getelementptr inbounds nuw i8, ptr %33, i64 16
   %36 = getelementptr inbounds nuw i8, ptr %33, i64 24
@@ -5037,83 +5037,83 @@ define linkonce_odr void @casadi_init_arrays(ptr noundef %0) local_unnamed_addr 
   br label %casadi_decompress.exit
 
 casadi_decompress.exit:                           ; preds = %41, %48, %57
-  %60 = phi ptr [ %42, %41 ], [ %39, %57 ], [ %39, %48 ]
+  %58 = phi ptr [ %42, %41 ], [ %39, %57 ], [ %39, %48 ]
   %storemerge.i = phi ptr [ null, %41 ], [ %59, %57 ], [ null, %48 ]
-  store ptr %storemerge.i, ptr %60, align 8, !tbaa !142
-  %61 = add nuw nsw i64 %.056, 1
-  %62 = load i64, ptr %3, align 8, !tbaa !82
-  %63 = icmp slt i64 %61, %62
-  br i1 %63, label %15, label %.preheader, !llvm.loop !143
+  store ptr %storemerge.i, ptr %58, align 8, !tbaa !142
+  %59 = add nuw nsw i64 %.057, 1
+  %60 = load i64, ptr %3, align 8, !tbaa !82
+  %61 = icmp slt i64 %59, %60
+  br i1 %61, label %15, label %.preheader, !llvm.loop !143
 
-64:                                               ; preds = %.lr.ph60, %casadi_decompress.exit54
-  %.158 = phi i64 [ 0, %.lr.ph60 ], [ %110, %casadi_decompress.exit54 ]
-  %65 = load ptr, ptr %12, align 8, !tbaa !144
-  %.not = icmp eq ptr %65, null
-  br i1 %.not, label %68, label %66
+62:                                               ; preds = %.lr.ph61, %casadi_decompress.exit54
+  %.159 = phi i64 [ 0, %.lr.ph60 ], [ %106, %casadi_decompress.exit54 ]
+  %63 = load ptr, ptr %12, align 8, !tbaa !144
+  %.not = icmp eq ptr %63, null
+  br i1 %.not, label %66, label %64
 
-66:                                               ; preds = %64
-  %67 = tail call noundef ptr %65(i64 noundef %.158)
-  br label %68
+64:                                               ; preds = %62
+  %65 = tail call noundef ptr %65(i64 noundef %.159)
+  br label %66
 
-68:                                               ; preds = %64, %66
-  %69 = phi ptr [ %67, %66 ], [ null, %64 ]
-  %70 = load ptr, ptr %13, align 8, !tbaa !96
-  %71 = getelementptr inbounds nuw %struct.casadi_io, ptr %70, i64 %.158
-  store ptr %69, ptr %71, align 8, !tbaa !139
-  %72 = load ptr, ptr %14, align 8, !tbaa !145
-  %.not50 = icmp eq ptr %72, null
-  br i1 %.not50, label %.thread55, label %79
+66:                                               ; preds = %62, %64
+  %67 = phi ptr [ %65, %66 ], [ null, %64 ]
+  %68 = load ptr, ptr %13, align 8, !tbaa !96
+  %69 = getelementptr inbounds nuw %struct.casadi_io, ptr %68, i64 %.159
+  store ptr %67, ptr %69, align 8, !tbaa !139
+  %70 = load ptr, ptr %14, align 8, !tbaa !145
+  %.not50 = icmp eq ptr %70, null
+  br i1 %.not50, label %.thread55, label %77
 
-.thread55:                                        ; preds = %68
-  %73 = getelementptr inbounds nuw i8, ptr %71, i64 8
-  %74 = getelementptr inbounds nuw i8, ptr %71, i64 16
-  %75 = getelementptr inbounds nuw i8, ptr %71, i64 24
-  %76 = getelementptr inbounds nuw i8, ptr %71, i64 32
-  %77 = getelementptr inbounds nuw i8, ptr %71, i64 40
-  %78 = getelementptr inbounds nuw i8, ptr %71, i64 48
-  br label %90
+.thread55:                                        ; preds = %66
+  %71 = getelementptr inbounds nuw i8, ptr %69, i64 8
+  %72 = getelementptr inbounds nuw i8, ptr %69, i64 16
+  %73 = getelementptr inbounds nuw i8, ptr %69, i64 24
+  %74 = getelementptr inbounds nuw i8, ptr %69, i64 32
+  %75 = getelementptr inbounds nuw i8, ptr %69, i64 40
+  %76 = getelementptr inbounds nuw i8, ptr %69, i64 48
+  br label %88
 
-79:                                               ; preds = %68
-  %80 = tail call noundef ptr %72(i64 noundef %.158)
-  %81 = load ptr, ptr %13, align 8, !tbaa !96
-  %82 = getelementptr inbounds nuw %struct.casadi_io, ptr %81, i64 %.158
-  %83 = getelementptr inbounds nuw i8, ptr %82, i64 8
-  %84 = getelementptr inbounds nuw i8, ptr %82, i64 16
-  %85 = getelementptr inbounds nuw i8, ptr %82, i64 24
-  %86 = getelementptr inbounds nuw i8, ptr %82, i64 32
-  %87 = getelementptr inbounds nuw i8, ptr %82, i64 40
-  %88 = getelementptr inbounds nuw i8, ptr %82, i64 48
-  %89 = icmp eq ptr %80, null
-  br i1 %89, label %90, label %97
+77:                                               ; preds = %66
+  %78 = tail call noundef ptr %72(i64 noundef %.159)
+  %79 = load ptr, ptr %13, align 8, !tbaa !96
+  %80 = getelementptr inbounds nuw %struct.casadi_io, ptr %79, i64 %.159
+  %81 = getelementptr inbounds nuw i8, ptr %80, i64 8
+  %82 = getelementptr inbounds nuw i8, ptr %80, i64 16
+  %83 = getelementptr inbounds nuw i8, ptr %80, i64 24
+  %84 = getelementptr inbounds nuw i8, ptr %80, i64 32
+  %85 = getelementptr inbounds nuw i8, ptr %80, i64 40
+  %86 = getelementptr inbounds nuw i8, ptr %80, i64 48
+  %87 = icmp eq ptr %78, null
+  br i1 %87, label %88, label %95
 
-90:                                               ; preds = %.thread55, %79
-  %91 = phi ptr [ %78, %.thread55 ], [ %88, %79 ]
-  %92 = phi ptr [ %77, %.thread55 ], [ %87, %79 ]
-  %93 = phi ptr [ %76, %.thread55 ], [ %86, %79 ]
-  %94 = phi ptr [ %75, %.thread55 ], [ %85, %79 ]
-  %95 = phi ptr [ %74, %.thread55 ], [ %84, %79 ]
-  %96 = phi ptr [ %73, %.thread55 ], [ %83, %79 ]
-  store i64 1, ptr %96, align 8, !tbaa !3
+88:                                               ; preds = %.thread55, %77
+  %89 = phi ptr [ %76, %.thread55 ], [ %86, %79 ]
+  %90 = phi ptr [ %75, %.thread55 ], [ %85, %79 ]
+  %91 = phi ptr [ %74, %.thread55 ], [ %84, %79 ]
+  %92 = phi ptr [ %73, %.thread55 ], [ %83, %79 ]
+  %93 = phi ptr [ %72, %.thread55 ], [ %82, %79 ]
+  %94 = phi ptr [ %71, %.thread55 ], [ %81, %79 ]
+  store i64 1, ptr %94, align 8, !tbaa !3
   store i64 1, ptr %95, align 8, !tbaa !3
   store i64 1, ptr %93, align 8, !tbaa !3
   store i64 1, ptr %94, align 8, !tbaa !3
   store ptr @_ZZ17casadi_decompressE13scalar_colind, ptr %92, align 8, !tbaa !142
   br label %casadi_decompress.exit54
 
-97:                                               ; preds = %79
-  %98 = getelementptr inbounds nuw i8, ptr %80, i64 8
-  %99 = load i64, ptr %80, align 8, !tbaa !3
-  store i64 %99, ptr %83, align 8, !tbaa !3
-  %100 = getelementptr inbounds nuw i8, ptr %80, i64 16
-  %101 = load i64, ptr %98, align 8, !tbaa !3
-  store i64 %101, ptr %84, align 8, !tbaa !3
-  store ptr %100, ptr %87, align 8, !tbaa !142
-  %102 = getelementptr inbounds i64, ptr %100, i64 %101
-  %103 = load i64, ptr %102, align 8, !tbaa !3
-  store i64 %103, ptr %85, align 8, !tbaa !3
-  %104 = mul nsw i64 %101, %99
-  store i64 %104, ptr %86, align 8, !tbaa !3
-  %105 = icmp eq i64 %103, %104
+95:                                               ; preds = %77
+  %96 = getelementptr inbounds nuw i8, ptr %78, i64 8
+  %97 = load i64, ptr %78, align 8, !tbaa !3
+  store i64 %97, ptr %81, align 8, !tbaa !3
+  %98 = getelementptr inbounds nuw i8, ptr %78, i64 16
+  %99 = load i64, ptr %96, align 8, !tbaa !3
+  store i64 %99, ptr %82, align 8, !tbaa !3
+  store ptr %98, ptr %85, align 8, !tbaa !142
+  %100 = getelementptr inbounds i64, ptr %98, i64 %99
+  %101 = load i64, ptr %100, align 8, !tbaa !3
+  store i64 %101, ptr %83, align 8, !tbaa !3
+  %102 = mul nsw i64 %99, %97
+  store i64 %102, ptr %84, align 8, !tbaa !3
+  %103 = icmp eq i64 %101, %102
   br i1 %105, label %casadi_decompress.exit54, label %106
 
 106:                                              ; preds = %97
@@ -5121,14 +5121,14 @@ casadi_decompress.exit:                           ; preds = %41, %48, %57
   %108 = getelementptr i8, ptr %107, i64 24
   br label %casadi_decompress.exit54
 
-casadi_decompress.exit54:                         ; preds = %90, %97, %106
-  %109 = phi ptr [ %91, %90 ], [ %88, %106 ], [ %88, %97 ]
+casadi_decompress.exit54:                         ; preds = %90, %95, %106
+  %105 = phi ptr [ %89, %90 ], [ %88, %106 ], [ %86, %97 ]
   %storemerge.i53 = phi ptr [ null, %90 ], [ %108, %106 ], [ null, %97 ]
-  store ptr %storemerge.i53, ptr %109, align 8, !tbaa !142
-  %110 = add nuw nsw i64 %.158, 1
-  %111 = load i64, ptr %9, align 8, !tbaa !84
-  %112 = icmp slt i64 %110, %111
-  br i1 %112, label %64, label %._crit_edge, !llvm.loop !146
+  store ptr %storemerge.i53, ptr %105, align 8, !tbaa !142
+  %106 = add nuw nsw i64 %.159, 1
+  %107 = load i64, ptr %9, align 8, !tbaa !84
+  %108 = icmp slt i64 %106, %107
+  br i1 %108, label %62, label %._crit_edge, !llvm.loop !146
 
 ._crit_edge:                                      ; preds = %casadi_decompress.exit54, %.preheader
   ret void

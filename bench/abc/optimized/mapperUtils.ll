@@ -403,10 +403,10 @@ define void @Map_MappingPrintOutputArrivals(ptr noundef readonly captures(none) 
   %28 = and i64 %23, 1
   %29 = xor i64 %28, 1
   %30 = getelementptr inbounds nuw [2 x %struct.Map_TimeStruct_t_], ptr %22, i64 0, i64 %27
-  %31 = getelementptr inbounds nuw i8, ptr %30, i64 104
+  %30 = getelementptr inbounds nuw i8, ptr %30, i64 104
   %32 = load float, ptr %31, align 4, !tbaa !40
   %33 = getelementptr inbounds nuw [2 x %struct.Map_TimeStruct_t_], ptr %25, i64 0, i64 %29
-  %34 = getelementptr inbounds nuw i8, ptr %33, i64 104
+  %33 = getelementptr inbounds nuw i8, ptr %33, i64 104
   %35 = load float, ptr %34, align 4, !tbaa !40
   %36 = fcmp uge float %32, %35
   br i1 %36, label %37, label %9, !llvm.loop !42
@@ -828,7 +828,7 @@ define range(i32 0, 2) i32 @Map_MappingNodeIsViolator(ptr noundef readonly captu
   %6 = getelementptr inbounds [3 x i32], ptr %4, i64 0, i64 %5
   %7 = load i32, ptr %6, align 4, !tbaa !39
   %8 = getelementptr [2 x %struct.Map_MatchStruct_t_], ptr %1, i64 0, i64 %5
-  %9 = getelementptr i8, ptr %8, i64 96
+  %8 = getelementptr i8, ptr %8, i64 96
   %10 = load ptr, ptr %9, align 8, !tbaa !63
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %12 = load i32, ptr %11, align 4
@@ -878,7 +878,7 @@ define float @Map_MappingGetAreaFlow(ptr noundef readonly captures(none) %0) loc
   %25 = getelementptr inbounds nuw [2 x ptr], ptr %21, i64 0, i64 %spec.select
   %26 = load ptr, ptr %25, align 8, !tbaa !66
   %27 = getelementptr [2 x %struct.Map_MatchStruct_t_], ptr %26, i64 0, i64 %spec.select
-  %28 = getelementptr i8, ptr %27, i64 116
+  %27 = getelementptr i8, ptr %27, i64 116
   %29 = load float, ptr %28, align 4, !tbaa !67
   %30 = fadd float %.01921, %29
   br label %31

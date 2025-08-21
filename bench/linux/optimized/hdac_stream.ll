@@ -190,7 +190,7 @@ define dso_local void @snd_hdac_stream_init(ptr noundef %0, ptr noundef initiali
   %41 = icmp eq ptr %40, null
   br i1 %41, label %48, label %42
 
-42:                                               ; preds = %38
+49:                                               ; preds = %38
   %43 = getelementptr i8, ptr %40, i64 8
   %44 = shl i32 %2, 3
   %45 = sext i32 %44 to i64

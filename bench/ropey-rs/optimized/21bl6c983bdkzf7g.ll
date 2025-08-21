@@ -6750,10 +6750,10 @@ _ZN5ropey4tree13node_children12NodeChildren5nodes17h41f9a73c210d05f7E.exit: ; pr
   %16 = tail call noundef i64 @_ZN5ropey4tree4node4Node14assert_balance17h4c2adef8466d66bfE(ptr noalias noundef nonnull readonly align 8 dereferenceable(1008) %15)
   store i64 %16, ptr %4, align 8
   %.idx = shl nuw nsw i64 %10, 3
-  %17 = add nuw nsw i64 %.idx, 8
-  %18 = getelementptr i8, ptr %0, i64 %17
-  %19 = icmp eq i64 %17, 16
-  br i1 %19, label %._crit_edge, label %.lr.ph
+  %18 = add nuw nsw i64 %.idx, 8
+  %19 = getelementptr i8, ptr %0, i64 %18
+  %20 = icmp eq i64 %18, 16
+  br i1 %20, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hfecffa06a9082206E.llvm.15236414416081531888.exit"
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -6763,32 +6763,32 @@ _ZN5ropey4tree13node_children12NodeChildren5nodes17h41f9a73c210d05f7E.exit: ; pr
   tail call void @_ZN4core9panicking18panic_bounds_check17hd7e618b1b39cc1c3E(i64 noundef 0, i64 noundef 0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.779e77bcbf80b3a9592adcbf249981c3.126.llvm.15236414416081531888) #26
   unreachable
 
-._crit_edge:                                      ; preds = %29, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hfecffa06a9082206E.llvm.15236414416081531888.exit"
+._crit_edge:                                      ; preds = %28, %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hfecffa06a9082206E.llvm.15236414416081531888.exit"
   %22 = add i64 %16, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %13
 
-23:                                               ; preds = %.lr.ph, %29
+.lr.ph:                                           ; preds = %.lr.ph, %28
   %.sroa.0.069 = phi ptr [ %20, %.lr.ph ], [ %30, %29 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %24 = load ptr, ptr %.sroa.0.069, align 8, !nonnull !7, !noundef !7
-  %25 = getelementptr inbounds nuw i8, ptr %24, i64 16
-  %26 = tail call noundef i64 @_ZN5ropey4tree4node4Node14assert_balance17h4c2adef8466d66bfE(ptr noalias noundef nonnull readonly align 8 dereferenceable(1008) %25)
-  store i64 %26, ptr %3, align 8
-  %27 = icmp eq i64 %26, %16
-  br i1 %27, label %29, label %28
+  %23 = load ptr, ptr %.sroa.0.069, align 8, !nonnull !7, !noundef !7
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
+  %25 = tail call noundef i64 @_ZN5ropey4tree4node4Node14assert_balance17h4c2adef8466d66bfE(ptr noalias noundef nonnull readonly align 8 dereferenceable(1008) %24)
+  store i64 %25, ptr %3, align 8
+  %26 = icmp eq i64 %25, %16
+  br i1 %26, label %28, label %27
 
-28:                                               ; preds = %23
+27:                                               ; preds = %.lr.ph
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr null, ptr %2, align 8
   call void @_ZN4core9panicking13assert_failed17h2f0f2a0f7659f141E(i8 noundef 0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %4, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %2, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.779e77bcbf80b3a9592adcbf249981c3.128.llvm.15236414416081531888) #26
   unreachable
 
-29:                                               ; preds = %23
-  %30 = getelementptr inbounds nuw i8, ptr %.sroa.0.069, i64 8
+28:                                               ; preds = %.lr.ph
+  %29 = getelementptr inbounds nuw i8, ptr %.sroa.0.069, i64 8
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %31 = icmp eq ptr %30, %18
-  br i1 %31, label %._crit_edge, label %23
+  %30 = icmp eq ptr %29, %19
+  br i1 %30, label %._crit_edge, label %.lr.ph
 }
 
 ; Function Attrs: nonlazybind uwtable

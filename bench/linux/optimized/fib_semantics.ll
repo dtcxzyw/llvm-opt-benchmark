@@ -665,9 +665,9 @@ define dso_local range(i64 -9223372036854775604, -9223372036854775808) i64 @fib_
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %24 = load i32, ptr %23, align 8
   %.not12 = icmp eq i32 %24, 0
-  br i1 %.not12, label %.split.us, label %.thread4.us
+  br i1 %.not12, label %.split.us, label %.thread4.us.preheader
 
-.thread4.us:                                      ; preds = %.thread.split.us, %.thread4.us
+.thread4.us.preheader:                            ; preds = %.thread.split.us, %.thread4.us
   %25 = phi i32 [ %34, %.thread4.us ], [ 0, %.thread.split.us ]
   %26 = phi i64 [ %33, %.thread4.us ], [ 0, %.thread.split.us ]
   %27 = sext i32 %25 to i64

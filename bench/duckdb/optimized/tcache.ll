@@ -3888,20 +3888,20 @@ sz_size2index_compute.exit19:                     ; preds = %sz_size2index_compu
 define noundef zeroext i1 @duckdb_je_tcache_bins_ncached_max_write(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = alloca [73 x %struct.cache_bin_info_s], align 16
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  br label %5
+  br label %6
 
-5:                                                ; preds = %5, %3
+6:                                                ; preds = %6, %3
   %indvars.iv.i = phi i64 [ 0, %3 ], [ %indvars.iv.next.i, %5 ]
-  %6 = getelementptr inbounds nuw %struct.cache_bin_info_s, ptr %4, i64 %indvars.iv.i
+  %7 = getelementptr inbounds nuw %struct.cache_bin_info_s, ptr %4, i64 %indvars.iv.i
   %7 = getelementptr [73 x %struct.cache_bin_s], ptr %0, i64 0, i64 %indvars.iv.i
   %8 = getelementptr i8, ptr %7, i64 894
   %.val.i = load i16, ptr %8, align 2, !tbaa !40
-  call void @duckdb_je_cache_bin_info_init(ptr noundef nonnull %6, i16 noundef zeroext %.val.i) #16
+  call void @duckdb_je_cache_bin_info_init(ptr noundef nonnull %7, i16 noundef zeroext %.val.i) #16
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 73
-  br i1 %exitcond.not.i, label %tcache_bin_settings_backup.exit, label %5
+  br i1 %exitcond.not.i, label %tcache_bin_settings_backup.exit, label %6
 
-tcache_bin_settings_backup.exit:                  ; preds = %5
+tcache_bin_settings_backup.exit:                  ; preds = %6
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 864
   %10 = call fastcc zeroext i1 @tcache_bin_info_settings_parse(ptr noundef %1, i64 noundef %2, ptr noundef nonnull %4, ptr noundef null)
   br i1 %10, label %19, label %11

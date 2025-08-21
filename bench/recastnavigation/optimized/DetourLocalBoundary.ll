@@ -53,7 +53,7 @@ define void @_ZN15dtLocalBoundary10addSegmentEfPKf(ptr noundef nonnull align 4 c
   %8 = add nsw i32 %5, -1
   %9 = sext i32 %8 to i64
   %10 = getelementptr [8 x %"struct.dtLocalBoundary::Segment"], ptr %0, i64 0, i64 %9
-  %11 = getelementptr i8, ptr %10, i64 36
+  %10 = getelementptr i8, ptr %10, i64 36
   %12 = load float, ptr %11, align 4
   %13 = fcmp ult float %1, %12
   br i1 %13, label %.preheader, label %15
@@ -78,30 +78,30 @@ define void @_ZN15dtLocalBoundary10addSegmentEfPKf(ptr noundef nonnull align 4 c
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %24
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %24 ]
   %20 = getelementptr inbounds nuw [8 x %"struct.dtLocalBoundary::Segment"], ptr %0, i64 0, i64 %indvars.iv
-  %21 = getelementptr inbounds nuw i8, ptr %20, i64 36
+  %20 = getelementptr inbounds nuw i8, ptr %20, i64 36
   %22 = load float, ptr %21, align 4
   %23 = fcmp ugt float %1, %22
-  br i1 %23, label %24, label %.loopexit.split.loop.exit37
+  br i1 %23, label %24, label %.loopexit.split.loop.exit38
 
 24:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !4
 
-.loopexit.split.loop.exit37:                      ; preds = %.lr.ph
+.loopexit.split.loop.exit38:                      ; preds = %.lr.ph
   %25 = trunc nuw nsw i64 %indvars.iv to i32
   br label %.loopexit
 
-.loopexit:                                        ; preds = %24, %.loopexit.split.loop.exit37, %.preheader
+.loopexit:                                        ; preds = %24, %.loopexit.split.loop.exit38, %.preheader
   %.021.lcssa = phi i32 [ 0, %.preheader ], [ %25, %.loopexit.split.loop.exit37 ], [ %5, %24 ]
   %26 = sub nsw i32 %5, %.021.lcssa
   %27 = sub nsw i32 7, %.021.lcssa
   %28 = tail call noundef i32 @llvm.smin.i32(i32 %26, i32 %27)
   %29 = tail call noundef ptr @_Z21dtAssertFailGetCustomv()
   %30 = icmp sgt i32 %28, 0
-  br i1 %30, label %31, label %._crit_edge32
+  br i1 %30, label %31, label %._crit_edge33
 
-._crit_edge32:                                    ; preds = %.loopexit
+._crit_edge33:                                    ; preds = %.loopexit
   %.pre = zext nneg i32 %.021.lcssa to i64
   br label %39
 
@@ -116,7 +116,7 @@ define void @_ZN15dtLocalBoundary10addSegmentEfPKf(ptr noundef nonnull align 4 c
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %34, ptr nonnull align 4 %36, i64 %38, i1 false)
   br label %39
 
-39:                                               ; preds = %._crit_edge32, %31
+39:                                               ; preds = %._crit_edge33, %31
   %.pre-phi = phi i64 [ %.pre, %._crit_edge32 ], [ %35, %31 ]
   %40 = getelementptr inbounds nuw [8 x %"struct.dtLocalBoundary::Segment"], ptr %6, i64 0, i64 %.pre-phi
   br label %41
@@ -220,7 +220,7 @@ define void @_ZN15dtLocalBoundary6updateEjPKffP14dtNavMeshQueryPK13dtQueryFilter
   %45 = add nsw i32 %43, -1
   %46 = sext i32 %45 to i64
   %47 = getelementptr [8 x %"struct.dtLocalBoundary::Segment"], ptr %0, i64 0, i64 %46
-  %48 = getelementptr i8, ptr %47, i64 36
+  %47 = getelementptr i8, ptr %47, i64 36
   %49 = load float, ptr %48, align 4
   %50 = fcmp ult float %40, %49
   br i1 %50, label %.preheader.i, label %52
@@ -245,30 +245,30 @@ define void @_ZN15dtLocalBoundary6updateEjPKffP14dtNavMeshQueryPK13dtQueryFilter
 .lr.ph.i:                                         ; preds = %61, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %61 ]
   %57 = getelementptr inbounds nuw [8 x %"struct.dtLocalBoundary::Segment"], ptr %0, i64 0, i64 %indvars.iv.i
-  %58 = getelementptr inbounds nuw i8, ptr %57, i64 36
+  %57 = getelementptr inbounds nuw i8, ptr %57, i64 36
   %59 = load float, ptr %58, align 4
   %60 = fcmp ugt float %40, %59
-  br i1 %60, label %61, label %.loopexit.split.loop.exit37.i
+  br i1 %60, label %61, label %.loopexit.split.loop.exit38.i
 
 61:                                               ; preds = %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !4
 
-.loopexit.split.loop.exit37.i:                    ; preds = %.lr.ph.i
+.loopexit.split.loop.exit38.i:                    ; preds = %.lr.ph.i
   %62 = trunc nuw nsw i64 %indvars.iv.i to i32
   br label %.loopexit.i
 
-.loopexit.i:                                      ; preds = %61, %.loopexit.split.loop.exit37.i, %.preheader.i
+.loopexit.i:                                      ; preds = %61, %.loopexit.split.loop.exit38.i, %.preheader.i
   %.021.lcssa.i = phi i32 [ 0, %.preheader.i ], [ %62, %.loopexit.split.loop.exit37.i ], [ %43, %61 ]
   %63 = sub nsw i32 %43, %.021.lcssa.i
   %64 = sub nsw i32 7, %.021.lcssa.i
   %65 = call noundef i32 @llvm.smin.i32(i32 %63, i32 %64)
   %66 = call noundef ptr @_Z21dtAssertFailGetCustomv()
   %67 = icmp sgt i32 %65, 0
-  br i1 %67, label %68, label %._crit_edge32.i
+  br i1 %67, label %68, label %._crit_edge33.i
 
-._crit_edge32.i:                                  ; preds = %.loopexit.i
+._crit_edge33.i:                                  ; preds = %.loopexit.i
   %.pre.i = zext nneg i32 %.021.lcssa.i to i64
   br label %76
 
@@ -283,7 +283,7 @@ define void @_ZN15dtLocalBoundary6updateEjPKffP14dtNavMeshQueryPK13dtQueryFilter
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %71, ptr nonnull align 4 %73, i64 %75, i1 false)
   br label %76
 
-76:                                               ; preds = %68, %._crit_edge32.i
+76:                                               ; preds = %68, %._crit_edge33.i
   %.pre-phi.i = phi i64 [ %.pre.i, %._crit_edge32.i ], [ %72, %68 ]
   %77 = getelementptr inbounds nuw [8 x %"struct.dtLocalBoundary::Segment"], ptr %30, i64 0, i64 %.pre-phi.i
   br label %78

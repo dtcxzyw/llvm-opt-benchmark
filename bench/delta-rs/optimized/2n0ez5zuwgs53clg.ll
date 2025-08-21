@@ -52555,75 +52555,75 @@ define hidden void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h42621c0c3e635a
   br i1 %6, label %"_ZN4core3ptr94drop_in_place$LT$$u5b$$LP$i8$C$alloc..sync..Arc$LT$arrow_schema..field..Field$GT$$RP$$u5d$$GT$17h07c8b271d9cdddb1E.exit", label %.lr.ph
 
 .lr.ph:                                           ; preds = %1, %"_ZN4core3ptr84drop_in_place$LT$$LP$i8$C$alloc..sync..Arc$LT$arrow_schema..field..Field$GT$$RP$$GT$17ha4d4c075db3740ceE.exit1"
-  %.0.i4 = phi i64 [ %8, %"_ZN4core3ptr84drop_in_place$LT$$LP$i8$C$alloc..sync..Arc$LT$arrow_schema..field..Field$GT$$RP$$GT$17ha4d4c075db3740ceE.exit1" ], [ 0, %1 ]
-  %7 = getelementptr [0 x { i8, [7 x i8], ptr }], ptr %3, i64 0, i64 %.0.i4
-  %8 = add nuw i64 %.0.i4, 1
+  %.0.i5 = phi i64 [ %8, %"_ZN4core3ptr84drop_in_place$LT$$LP$i8$C$alloc..sync..Arc$LT$arrow_schema..field..Field$GT$$RP$$GT$17ha4d4c075db3740ceE.exit1" ], [ 0, %1 ]
+  %7 = getelementptr [0 x { i8, [7 x i8], ptr }], ptr %3, i64 0, i64 %.0.i5
+  %8 = add nuw i64 %.0.i5, 1
   %9 = getelementptr i8, ptr %7, i64 24
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8583)
-  %10 = load ptr, ptr %9, align 8, !alias.scope !8583, !nonnull !4, !noundef !4
-  %11 = atomicrmw sub ptr %10, i64 1 release, align 8, !noalias !8583
-  %12 = icmp eq i64 %11, 1
-  br i1 %12, label %13, label %"_ZN4core3ptr84drop_in_place$LT$$LP$i8$C$alloc..sync..Arc$LT$arrow_schema..field..Field$GT$$RP$$GT$17ha4d4c075db3740ceE.exit1"
+  %11 = load ptr, ptr %9, align 8, !alias.scope !8583, !nonnull !4, !noundef !4
+  %12 = atomicrmw sub ptr %11, i64 1 release, align 8, !noalias !8583
+  %13 = icmp eq i64 %12, 1
+  br i1 %13, label %14, label %"_ZN4core3ptr84drop_in_place$LT$$LP$i8$C$alloc..sync..Arc$LT$arrow_schema..field..Field$GT$$RP$$GT$17ha4d4c075db3740ceE.exit1"
 
-13:                                               ; preds = %.lr.ph
+14:                                               ; preds = %.lr.ph
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h1df6f7008e1e15c8E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %9)
-          to label %"_ZN4core3ptr84drop_in_place$LT$$LP$i8$C$alloc..sync..Arc$LT$arrow_schema..field..Field$GT$$RP$$GT$17ha4d4c075db3740ceE.exit1" unwind label %15
+          to label %"_ZN4core3ptr84drop_in_place$LT$$LP$i8$C$alloc..sync..Arc$LT$arrow_schema..field..Field$GT$$RP$$GT$17ha4d4c075db3740ceE.exit1" unwind label %16
 
-"_ZN4core3ptr84drop_in_place$LT$$LP$i8$C$alloc..sync..Arc$LT$arrow_schema..field..Field$GT$$RP$$GT$17ha4d4c075db3740ceE.exit1": ; preds = %.lr.ph, %13
-  %14 = icmp eq i64 %8, %5
-  br i1 %14, label %"_ZN4core3ptr94drop_in_place$LT$$u5b$$LP$i8$C$alloc..sync..Arc$LT$arrow_schema..field..Field$GT$$RP$$u5d$$GT$17h07c8b271d9cdddb1E.exit.loopexit", label %.lr.ph
+"_ZN4core3ptr84drop_in_place$LT$$LP$i8$C$alloc..sync..Arc$LT$arrow_schema..field..Field$GT$$RP$$GT$17ha4d4c075db3740ceE.exit1": ; preds = %.lr.ph, %14
+  %15 = icmp eq i64 %8, %5
+  br i1 %15, label %"_ZN4core3ptr94drop_in_place$LT$$u5b$$LP$i8$C$alloc..sync..Arc$LT$arrow_schema..field..Field$GT$$RP$$u5d$$GT$17h07c8b271d9cdddb1E.exit.loopexit", label %.lr.ph
 
-15:                                               ; preds = %13
-  %16 = landingpad { ptr, i32 }
+16:                                               ; preds = %14
+  %17 = landingpad { ptr, i32 }
           cleanup
-  %17 = icmp eq i64 %8, %5
-  br i1 %17, label %._crit_edge, label %.lr.ph6
+  %18 = icmp eq i64 %8, %5
+  br i1 %18, label %._crit_edge, label %.lr.ph7
 
-.lr.ph6:                                          ; preds = %15, %"_ZN4core3ptr84drop_in_place$LT$$LP$i8$C$alloc..sync..Arc$LT$arrow_schema..field..Field$GT$$RP$$GT$17ha4d4c075db3740ceE.exit"
-  %.1.i5 = phi i64 [ %19, %"_ZN4core3ptr84drop_in_place$LT$$LP$i8$C$alloc..sync..Arc$LT$arrow_schema..field..Field$GT$$RP$$GT$17ha4d4c075db3740ceE.exit" ], [ %8, %15 ]
-  %18 = getelementptr [0 x { i8, [7 x i8], ptr }], ptr %3, i64 0, i64 %.1.i5
-  %19 = add i64 %.1.i5, 1
+.lr.ph7:                                          ; preds = %16, %"_ZN4core3ptr84drop_in_place$LT$$LP$i8$C$alloc..sync..Arc$LT$arrow_schema..field..Field$GT$$RP$$GT$17ha4d4c075db3740ceE.exit"
+  %.1.i6 = phi i64 [ %19, %"_ZN4core3ptr84drop_in_place$LT$$LP$i8$C$alloc..sync..Arc$LT$arrow_schema..field..Field$GT$$RP$$GT$17ha4d4c075db3740ceE.exit" ], [ %8, %15 ]
+  %18 = getelementptr [0 x { i8, [7 x i8], ptr }], ptr %3, i64 0, i64 %.1.i6
+  %19 = add i64 %.1.i6, 1
   %20 = getelementptr i8, ptr %18, i64 24
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8586)
-  %21 = load ptr, ptr %20, align 8, !alias.scope !8586, !nonnull !4, !noundef !4
-  %22 = atomicrmw sub ptr %21, i64 1 release, align 8, !noalias !8586
-  %23 = icmp eq i64 %22, 1
-  br i1 %23, label %24, label %"_ZN4core3ptr84drop_in_place$LT$$LP$i8$C$alloc..sync..Arc$LT$arrow_schema..field..Field$GT$$RP$$GT$17ha4d4c075db3740ceE.exit"
+  %22 = load ptr, ptr %20, align 8, !alias.scope !8586, !nonnull !4, !noundef !4
+  %23 = atomicrmw sub ptr %22, i64 1 release, align 8, !noalias !8586
+  %24 = icmp eq i64 %23, 1
+  br i1 %24, label %25, label %"_ZN4core3ptr84drop_in_place$LT$$LP$i8$C$alloc..sync..Arc$LT$arrow_schema..field..Field$GT$$RP$$GT$17ha4d4c075db3740ceE.exit"
 
-24:                                               ; preds = %.lr.ph6
+25:                                               ; preds = %.lr.ph7
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h1df6f7008e1e15c8E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %20)
-          to label %"_ZN4core3ptr84drop_in_place$LT$$LP$i8$C$alloc..sync..Arc$LT$arrow_schema..field..Field$GT$$RP$$GT$17ha4d4c075db3740ceE.exit" unwind label %26
+          to label %"_ZN4core3ptr84drop_in_place$LT$$LP$i8$C$alloc..sync..Arc$LT$arrow_schema..field..Field$GT$$RP$$GT$17ha4d4c075db3740ceE.exit" unwind label %27
 
-"_ZN4core3ptr84drop_in_place$LT$$LP$i8$C$alloc..sync..Arc$LT$arrow_schema..field..Field$GT$$RP$$GT$17ha4d4c075db3740ceE.exit": ; preds = %.lr.ph6, %24
-  %25 = icmp eq i64 %19, %5
-  br i1 %25, label %._crit_edge, label %.lr.ph6
+"_ZN4core3ptr84drop_in_place$LT$$LP$i8$C$alloc..sync..Arc$LT$arrow_schema..field..Field$GT$$RP$$GT$17ha4d4c075db3740ceE.exit": ; preds = %.lr.ph7, %25
+  %26 = icmp eq i64 %19, %5
+  br i1 %26, label %._crit_edge, label %.lr.ph7
 
-._crit_edge:                                      ; preds = %"_ZN4core3ptr84drop_in_place$LT$$LP$i8$C$alloc..sync..Arc$LT$arrow_schema..field..Field$GT$$RP$$GT$17ha4d4c075db3740ceE.exit", %15
-  resume { ptr, i32 } %16
+._crit_edge:                                      ; preds = %"_ZN4core3ptr84drop_in_place$LT$$LP$i8$C$alloc..sync..Arc$LT$arrow_schema..field..Field$GT$$RP$$GT$17ha4d4c075db3740ceE.exit", %16
+  resume { ptr, i32 } %17
 
-26:                                               ; preds = %24
-  %27 = landingpad { ptr, i32 }
+27:                                               ; preds = %25
+  %28 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #57
   unreachable
 
 "_ZN4core3ptr94drop_in_place$LT$$u5b$$LP$i8$C$alloc..sync..Arc$LT$arrow_schema..field..Field$GT$$RP$$u5d$$GT$17h07c8b271d9cdddb1E.exit.loopexit": ; preds = %"_ZN4core3ptr84drop_in_place$LT$$LP$i8$C$alloc..sync..Arc$LT$arrow_schema..field..Field$GT$$RP$$GT$17ha4d4c075db3740ceE.exit1"
   %.pre = load ptr, ptr %0, align 8
-  %.pre8 = load i64, ptr %4, align 8
+  %.pre9 = load i64, ptr %4, align 8
   br label %"_ZN4core3ptr94drop_in_place$LT$$u5b$$LP$i8$C$alloc..sync..Arc$LT$arrow_schema..field..Field$GT$$RP$$u5d$$GT$17h07c8b271d9cdddb1E.exit"
 
 "_ZN4core3ptr94drop_in_place$LT$$u5b$$LP$i8$C$alloc..sync..Arc$LT$arrow_schema..field..Field$GT$$RP$$u5d$$GT$17h07c8b271d9cdddb1E.exit": ; preds = %"_ZN4core3ptr94drop_in_place$LT$$u5b$$LP$i8$C$alloc..sync..Arc$LT$arrow_schema..field..Field$GT$$RP$$u5d$$GT$17h07c8b271d9cdddb1E.exit.loopexit", %1
-  %28 = phi i64 [ %.pre8, %"_ZN4core3ptr94drop_in_place$LT$$u5b$$LP$i8$C$alloc..sync..Arc$LT$arrow_schema..field..Field$GT$$RP$$u5d$$GT$17h07c8b271d9cdddb1E.exit.loopexit" ], [ 0, %1 ]
-  %29 = phi ptr [ %.pre, %"_ZN4core3ptr94drop_in_place$LT$$u5b$$LP$i8$C$alloc..sync..Arc$LT$arrow_schema..field..Field$GT$$RP$$u5d$$GT$17h07c8b271d9cdddb1E.exit.loopexit" ], [ %3, %1 ]
+  %29 = phi i64 [ %.pre9, %"_ZN4core3ptr94drop_in_place$LT$$u5b$$LP$i8$C$alloc..sync..Arc$LT$arrow_schema..field..Field$GT$$RP$$u5d$$GT$17h07c8b271d9cdddb1E.exit.loopexit" ], [ 0, %1 ]
+  %30 = phi ptr [ %.pre, %"_ZN4core3ptr94drop_in_place$LT$$u5b$$LP$i8$C$alloc..sync..Arc$LT$arrow_schema..field..Field$GT$$RP$$u5d$$GT$17h07c8b271d9cdddb1E.exit.loopexit" ], [ %3, %1 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %29, ptr %2, align 8
-  %31 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store i64 %28, ptr %31, align 8
-  %32 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store ptr %30, ptr %32, align 8
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %30, ptr %2, align 8
+  %32 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  store i64 %29, ptr %32, align 8
+  %33 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  store ptr %31, ptr %33, align 8
   call void @"_ZN72_$LT$alloc..sync..Weak$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd5c2b50f1b6ba7fcE.llvm.4057250340930679409"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void

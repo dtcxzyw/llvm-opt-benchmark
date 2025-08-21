@@ -62170,13 +62170,13 @@ define hidden noundef zeroext i1 @_ZN11ruff_linter5rules7airflow7helpers30is_air
 20:                                               ; preds = %13
   %21 = add i64 %1, -2
   %.idx = shl i64 %1, 4
-  %22 = getelementptr i8, ptr %0, i64 %.idx
-  %23 = icmp ne ptr %22, null
-  tail call void @llvm.assume(i1 %23)
+  %23 = getelementptr i8, ptr %0, i64 %.idx
+  %24 = icmp ne ptr %23, null
+  tail call void @llvm.assume(i1 %24)
   %gepdiff = add i64 %.idx, -32
-  %24 = lshr exact i64 %gepdiff, 4
-  %25 = icmp eq i64 %.idx, 32
-  br i1 %25, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h60a4b221dbcbc4adE.exit.thread", label %.lr.ph.i.preheader
+  %25 = lshr exact i64 %gepdiff, 4
+  %26 = icmp eq i64 %.idx, 32
+  br i1 %26, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h60a4b221dbcbc4adE.exit.thread", label %.lr.ph.i.preheader
 
 .lr.ph.i.preheader:                               ; preds = %20
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -62194,11 +62194,11 @@ define hidden noundef zeroext i1 @_ZN11ruff_linter5rules7airflow7helpers30is_air
 30:                                               ; preds = %.lr.ph.i
   %31 = getelementptr inbounds nuw i8, ptr %27, i64 16
   %32 = add nuw nsw i64 %.sroa.02.013.i, 1
-  %33 = icmp eq ptr %31, %22
+  %33 = icmp eq ptr %31, %23
   br i1 %33, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h60a4b221dbcbc4adE.exit.thread", label %.lr.ph.i
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h60a4b221dbcbc4adE.exit": ; preds = %.lr.ph.i
-  %34 = icmp samesign ult i64 %.sroa.02.013.i, %24
+  %34 = icmp samesign ult i64 %.sroa.02.013.i, %25
   tail call void @llvm.assume(i1 %34)
   %35 = add nuw nsw i64 %.sroa.02.013.i, 1
   %36 = icmp uge i64 %35, %21

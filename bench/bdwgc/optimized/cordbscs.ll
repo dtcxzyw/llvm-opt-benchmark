@@ -2289,7 +2289,7 @@ define void @CORD__prev(ptr noundef captures(none) %0) local_unnamed_addr #10 {
   %10 = getelementptr [49 x %struct.CORD_pe], ptr %0, i64 0, i64 %9
   %11 = add i64 %4, -1
   store i64 %11, ptr %0, align 8, !tbaa !52
-  %12 = getelementptr i8, ptr %10, i64 48
+  %11 = getelementptr i8, ptr %10, i64 48
   %13 = load i64, ptr %12, align 8, !tbaa !53
   %.not = icmp ult i64 %11, %13
   br i1 %.not, label %14, label %28
@@ -2449,7 +2449,7 @@ thread-pre-split:                                 ; preds = %1, %4
   %17 = getelementptr [49 x %struct.CORD_pe], ptr %0, i64 0, i64 %16
   %18 = add i64 %.pr, -1
   store i64 %18, ptr %0, align 8, !tbaa !52
-  %19 = getelementptr i8, ptr %17, i64 48
+  %18 = getelementptr i8, ptr %17, i64 48
   %20 = load i64, ptr %19, align 8, !tbaa !53
   %.not.i = icmp ult i64 %18, %20
   br i1 %.not.i, label %21, label %CORD__prev.exit

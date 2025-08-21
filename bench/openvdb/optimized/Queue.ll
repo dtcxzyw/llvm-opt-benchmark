@@ -261,7 +261,7 @@ for.cond4.preheader.i.i.i.i:                      ; preds = %for.body.i.i.i.i
 for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %entry
   %i.07.i.i.i.i = phi i64 [ %inc.i.i.i.i, %for.body.i.i.i.i ], [ 0, %entry ]
   %arrayidx.i.i.i.i = getelementptr inbounds nuw [2 x %"struct.tbb::detail::d2::hash_map_base<tbb::detail::d1::tbb_allocator<std::pair<const unsigned int, openvdb::v11_0::io::Queue::Status>>, tbb::detail::d1::spin_rw_mutex>::bucket"], ptr %call, i64 0, i64 %i.07.i.i.i.i
-  %node_list.i.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i.i.i, i64 48
+  %1 = getelementptr inbounds nuw i8, ptr %arrayidx.i.i.i.i, i64 48
   store atomic i64 0, ptr %node_list.i.i.i.i monotonic, align 8
   %inc.i.i.i.i = add nuw nsw i64 %i.07.i.i.i.i, 1
   %cmp.not.i.i.i.i = icmp eq i64 %inc.i.i.i.i, 2
@@ -271,8 +271,8 @@ for.body6.i.i.i.i:                                ; preds = %for.body6.i.i.i.i, 
   %segment_index.08.i.i.i.i = phi i64 [ 0, %for.cond4.preheader.i.i.i.i ], [ %inc14.i.i.i.i, %for.body6.i.i.i.i ]
   %cmp7.i.i.i.i = icmp eq i64 %segment_index.08.i.i.i.i, 0
   %arrayidx12.i.i.i.i = getelementptr inbounds nuw [64 x %"struct.std::atomic.8"], ptr %my_table11.i.i.i.i, i64 0, i64 %segment_index.08.i.i.i.i
-  %1 = select i1 %cmp7.i.i.i.i, i64 %0, i64 0
-  store atomic i64 %1, ptr %arrayidx12.i.i.i.i monotonic, align 8
+  %2 = select i1 %cmp7.i.i.i.i, i64 %0, i64 0
+  store atomic i64 %2, ptr %arrayidx12.i.i.i.i monotonic, align 8
   %inc14.i.i.i.i = add nuw nsw i64 %segment_index.08.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %inc14.i.i.i.i, 64
   br i1 %exitcond.not.i.i.i.i, label %invoke.cont, label %for.body6.i.i.i.i, !llvm.loop !6
@@ -280,14 +280,14 @@ for.body6.i.i.i.i:                                ; preds = %for.body6.i.i.i.i, 
 invoke.cont:                                      ; preds = %for.body6.i.i.i.i
   %my_hash_compare.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 584
   store i16 0, ptr %my_hash_compare.i.i.i, align 8
-  %2 = getelementptr inbounds nuw i8, ptr %call, i64 600
-  store i32 0, ptr %2, align 8
+  %3 = getelementptr inbounds nuw i8, ptr %call, i64 600
+  store i32 0, ptr %3, align 8
   %_M_parent.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 608
   store ptr null, ptr %_M_parent.i.i.i.i.i.i, align 8
   %_M_left.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 616
-  store ptr %2, ptr %_M_left.i.i.i.i.i.i, align 8
+  store ptr %3, ptr %_M_left.i.i.i.i.i.i, align 8
   %_M_right.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 624
-  store ptr %2, ptr %_M_right.i.i.i.i.i.i, align 8
+  store ptr %3, ptr %_M_right.i.i.i.i.i.i, align 8
   %_M_node_count.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 632
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i, align 8
   %mNextNotifierId.i = getelementptr inbounds nuw i8, ptr %call, i64 640

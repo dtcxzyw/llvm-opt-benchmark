@@ -2532,7 +2532,7 @@ _ZNSt6vectorIhSaIhEE6resizeEm.exit427:            ; preds = %_ZNSt12_Vector_base
 .lr.ph850.preheader:                              ; preds = %_ZNSt6vectorIhSaIhEE6resizeEm.exit427
   %umax = zext nneg i32 %477 to i64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %511, i8 0, i64 %umax, i1 false), !tbaa !14
-  %512 = getelementptr i8, ptr %.sroa.0569.9, i64 %474
+  %scevgep = getelementptr i8, ptr %.sroa.0569.9, i64 %474
   %513 = zext nneg i32 %477 to i64
   %514 = getelementptr i8, ptr %512, i64 %513
   %515 = add i32 %.0219.lcssa, %477

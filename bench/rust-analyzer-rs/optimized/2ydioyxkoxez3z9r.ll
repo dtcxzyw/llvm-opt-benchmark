@@ -49443,15 +49443,15 @@ define hidden void @"_ZN5alloc3str21_$LT$impl$u20$str$GT$7replace17h73d924695c45
   br label %.lr.ph.split.split.i.i
 
 .lr.ph.split.split.i.i:                           ; preds = %.lr.ph.i.i, %51
-  %32 = phi i64 [ %49, %51 ], [ %.promoted.i.i2955, %.lr.ph.i.i ]
-  %33 = getelementptr inbounds i8, ptr %1, i64 %32
-  %.sroa.7.046.i.i = sub nuw i64 %2, %32
+  %33 = phi i64 [ %49, %51 ], [ %.promoted.i.i2955, %.lr.ph.i.i ]
+  %34 = getelementptr inbounds i8, ptr %1, i64 %33
+  %.sroa.7.046.i.i = sub nuw i64 %2, %33
   %34 = load i8, ptr %31, align 1, !alias.scope !11207, !noalias !11208, !noundef !4
   %35 = icmp ult i64 %.sroa.7.046.i.i, 16
   br i1 %35, label %38, label %36
 
 36:                                               ; preds = %.lr.ph.split.split.i.i
-  %37 = invoke { i64, i64 } @_ZN4core5slice6memchr14memchr_aligned17h70c951369894823fE(i8 noundef %34, ptr noalias noundef nonnull readonly align 1 %33, i64 noundef %.sroa.7.046.i.i)
+  %37 = invoke { i64, i64 } @_ZN4core5slice6memchr14memchr_aligned17h70c951369894823fE(i8 noundef %34, ptr noalias noundef nonnull readonly align 1 %34, i64 noundef %.sroa.7.046.i.i)
           to label %.noexc14 unwind label %.loopexit
 
 38:                                               ; preds = %.lr.ph.split.split.i.i
@@ -49460,7 +49460,7 @@ define hidden void @"_ZN5alloc3str21_$LT$impl$u20$str$GT$7replace17h73d924695c45
 
 .lr.ph.i.i.i:                                     ; preds = %38, %42
   %.05.i.i.i = phi i64 [ %43, %42 ], [ 0, %38 ]
-  %39 = getelementptr inbounds nuw [0 x i8], ptr %33, i64 0, i64 %.05.i.i.i
+  %39 = getelementptr inbounds nuw [0 x i8], ptr %34, i64 0, i64 %.05.i.i.i
   %40 = load i8, ptr %39, align 1, !alias.scope !11211, !noalias !11214, !noundef !4
   %41 = icmp eq i8 %40, %34
   br i1 %41, label %_ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.i.i, label %42
@@ -49485,7 +49485,7 @@ _ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.i.i: ; preds = %42,
 
 47:                                               ; preds = %.noexc14
   %.sroa.6.0.i.i = extractvalue { i64, i64 } %.pn.i.i, 1
-  %48 = add i64 %32, 1
+  %48 = add i64 %33, 1
   %49 = add i64 %48, %.sroa.6.0.i.i
   %.not.i.i = icmp ult i64 %49, %30
   %50 = icmp ugt i64 %49, %2

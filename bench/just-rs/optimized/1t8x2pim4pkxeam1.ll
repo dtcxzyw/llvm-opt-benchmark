@@ -10987,8 +10987,8 @@ _ZN4just5token5Token6lexeme17he5b315321a8bd9e1E.exit: ; preds = %"_ZN4core3str21
   %.val = load ptr, ptr %136, align 8, !nonnull !9, !noundef !9
   %137 = getelementptr inbounds nuw i8, ptr %.tr315, i64 120
   %.val241 = load i64, ptr %137, align 8, !noundef !9
-  %.idx = shl nsw i64 %.val241, 7
-  %138 = getelementptr inbounds i8, ptr %.val, i64 %.idx
+  %.idx342 = shl nsw i64 %.val241, 7
+  %138 = getelementptr inbounds i8, ptr %.val, i64 %.idx342
   %139 = icmp eq i64 %.val241, 0
   br i1 %139, label %._crit_edge, label %.lr.ph
 

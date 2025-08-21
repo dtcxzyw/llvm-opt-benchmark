@@ -353,7 +353,7 @@ define dso_local noundef ptr @list_shallow_copy(ptr noundef %0) #0 {
   br i1 %exitcond.not.i, label %list_create.exit, label %15, !llvm.loop !8
 
 list_create.exit:                                 ; preds = %15
-  %19 = tail call i32 @list_append_list(ptr noundef nonnull %2, ptr noundef %0)
+  %20 = tail call i32 @list_append_list(ptr noundef nonnull %2, ptr noundef %0)
   ret ptr %2
 }
 

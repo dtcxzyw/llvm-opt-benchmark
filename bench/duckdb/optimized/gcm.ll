@@ -805,9 +805,9 @@ _ZL8gcm_maskP19mbedtls_gcm_contextPhmmPKhS1_.exit106: ; preds = %_ZL8gcm_incrPh.
   %.275.lcssa = phi ptr [ %.073, %.thread ], [ %116, %114 ]
   %.2.lcssa = phi ptr [ %.071, %.thread ], [ %117, %114 ]
   %.not90 = icmp eq i64 %.278.lcssa, 0
-  br i1 %.not90, label %126, label %.preheader
+  br i1 %.not90, label %126, label %119
 
-.preheader:                                       ; preds = %._crit_edge, %.preheader
+119:                                              ; preds = %._crit_edge, %119
   %.03.i107 = phi i64 [ %123, %.preheader ], [ 16, %._crit_edge ]
   %119 = getelementptr i8, ptr %0, i64 %.03.i107
   %120 = getelementptr i8, ptr %119, i64 359
@@ -818,14 +818,14 @@ _ZL8gcm_maskP19mbedtls_gcm_contextPhmmPKhS1_.exit106: ; preds = %_ZL8gcm_incrPh.
   %123 = add nsw i64 %.03.i107, -1
   %124 = icmp ugt i64 %123, 12
   %or.cond.i109 = select i1 %.not.i108, i1 %124, i1 false
-  br i1 %or.cond.i109, label %.preheader, label %_ZL8gcm_incrPh.exit110, !llvm.loop !36
+  br i1 %or.cond.i109, label %119, label %_ZL8gcm_incrPh.exit110, !llvm.loop !36
 
-_ZL8gcm_incrPh.exit110:                           ; preds = %.preheader
+_ZL8gcm_incrPh.exit110:; preds = %119
   %125 = call fastcc noundef i32 @_ZL8gcm_maskP19mbedtls_gcm_contextPhmmPKhS1_(ptr noundef nonnull %0, ptr noundef %9, i64 noundef 0, i64 noundef %.278.lcssa, ptr noundef %.275.lcssa, ptr noundef %.2.lcssa)
   %.not91 = icmp eq i32 %125, 0
   br i1 %.not91, label %126, label %.critedge
 
-126:                                              ; preds = %_ZL8gcm_incrPh.exit110, %._crit_edge
+126:; preds = %_ZL8gcm_incrPh.exit110, %._crit_edge
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %9, i64 noundef 16)
   br label %.critedge
 

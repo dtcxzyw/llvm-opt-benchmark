@@ -9259,9 +9259,9 @@ lpad29:                                           ; preds = %if.end.i36.invoke, 
 if.end38:                                         ; preds = %invoke.cont35, %invoke.cont28
   %newFrame.sroa.8.052 = phi ptr [ %add.ptr.i.i, %invoke.cont28 ], [ null, %invoke.cont35 ]
   %cmp40.not54 = icmp eq i64 %count, 0
-  br i1 %cmp40.not54, label %for.end, label %for.body
+  br i1 %cmp40.not54, label %for.end, label %for.body.lr.ph
 
-for.body:                                         ; preds = %if.end38, %for.inc
+for.body.lr.ph:                                   ; preds = %if.end38, %for.inc
   %conv3956 = phi i64 [ %conv39, %for.inc ], [ 0, %if.end38 ]
   %i.055 = phi i32 [ %inc, %for.inc ], [ 0, %if.end38 ]
   %arrayidx = getelementptr inbounds nuw %"class.facebook::jsi::Value", ptr %args, i64 %conv3956
@@ -9543,7 +9543,7 @@ lpad44:                                           ; preds = %if.end.i24.invoke, 
 if.end52:                                         ; preds = %invoke.cont49, %invoke.cont43
   %newFrame.sroa.8.044 = phi ptr [ %add.ptr.i.i, %invoke.cont43 ], [ null, %invoke.cont49 ]
   %cmp54.not46 = icmp eq i64 %count, 0
-  br i1 %cmp54.not46, label %for.end, label %for.body
+  br i1 %cmp54.not46, label %for.end, label %for.body.lr.ph
 
 for.body:                                         ; preds = %if.end52, %for.inc
   %conv5348 = phi i64 [ %conv53, %for.inc ], [ 0, %if.end52 ]

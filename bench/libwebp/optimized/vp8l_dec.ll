@@ -775,21 +775,21 @@ define internal fastcc void @VP8LClear(ptr noundef nonnull %0) unnamed_addr #1 {
   tail call void @WebPSafeFree(ptr noundef %17) #8
   store ptr null, ptr %16, align 8, !tbaa !57
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %18 = load i32, ptr %12, align 8, !tbaa !56
-  %19 = sext i32 %18 to i64
-  %20 = icmp slt i64 %indvars.iv.next, %19
-  br i1 %20, label %.lr.ph, label %._crit_edge, !llvm.loop !59
+  %19 = load i32, ptr %12, align 8, !tbaa !56
+  %20 = sext i32 %19 to i64
+  %21 = icmp slt i64 %indvars.iv.next, %20
+  br i1 %21, label %.lr.ph, label %._crit_edge, !llvm.loop !59
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   store i32 0, ptr %12, align 8, !tbaa !56
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 376
-  store i32 0, ptr %21, align 8, !tbaa !60
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 384
-  %23 = load ptr, ptr %22, align 8, !tbaa !61
-  tail call void @WebPSafeFree(ptr noundef %23) #8
-  store ptr null, ptr %22, align 8, !tbaa !61
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr null, ptr %24, align 8, !tbaa !62
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 376
+  store i32 0, ptr %22, align 8, !tbaa !60
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 384
+  %24 = load ptr, ptr %23, align 8, !tbaa !61
+  tail call void @WebPSafeFree(ptr noundef %24) #8
+  store ptr null, ptr %23, align 8, !tbaa !61
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr null, ptr %25, align 8, !tbaa !62
   ret void
 }
 

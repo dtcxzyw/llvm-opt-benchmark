@@ -3138,80 +3138,80 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %16 = load i32, ptr %15, align 4, !tbaa !71
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %18 = icmp sgt i32 %16, 0
-  br i1 %18, label %.preheader.lr.ph, label %._crit_edge42
+  br i1 %18, label %.preheader.lr.ph, label %._crit_edge43
 
 .preheader.lr.ph:                                 ; preds = %14
   %19 = load i32, ptr %0, align 8, !tbaa !74
-  %.fr59 = freeze i32 %19
-  %20 = icmp sgt i32 %.fr59, 0
+  %.fr61 = freeze i32 %19
+  %20 = icmp sgt i32 %.fr61, 0
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br i1 %20, label %.preheader.us.us.preheader, label %.preheader.lr.ph.split.split
 
 .preheader.us.us.preheader:                       ; preds = %.preheader.lr.ph
   %23 = zext nneg i32 %16 to i64
-  %wide.trip.count84 = zext nneg i32 %.fr59 to i64
+  %wide.trip.count86 = zext nneg i32 %.fr61 to i64
   br label %.preheader.us.us
 
-.preheader.us.us:                                 ; preds = %.preheader.us.us.preheader, %._crit_edge40.us.us
-  %indvars.iv91 = phi i64 [ %23, %.preheader.us.us.preheader ], [ %indvars.iv.next92, %._crit_edge40.us.us ]
-  %indvars.iv.next92 = add nsw i64 %indvars.iv91, -1
+.preheader.us.us:                                 ; preds = %.preheader.us.us.preheader, %._crit_edge41.us.us
+  %indvars.iv93 = phi i64 [ %23, %.preheader.us.us.preheader ], [ %indvars.iv.next94, %._crit_edge40.us.us ]
+  %indvars.iv.next94 = add nsw i64 %indvars.iv93, -1
   br label %41
 
-.lr.ph39.us.us:                                   ; preds = %._crit_edge.us.us
+.lr.ph40.us.us:                                   ; preds = %._crit_edge.us.us
   %24 = load ptr, ptr %21, align 8, !tbaa !64
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 32
-  %26 = getelementptr inbounds nuw [32 x %struct.anon.4], ptr %25, i64 0, i64 %indvars.iv.next92
+  %26 = getelementptr inbounds nuw [32 x %struct.anon.4], ptr %25, i64 0, i64 %indvars.iv.next94
   %27 = load i32, ptr %26, align 8, !tbaa !38
   %28 = sext i32 %27 to i64
   br label %29
 
-29:                                               ; preds = %29, %.lr.ph39.us.us
-  %indvars.iv86 = phi i64 [ %indvars.iv.next87, %29 ], [ 0, %.lr.ph39.us.us ]
-  %30 = getelementptr inbounds nuw [10 x ptr], ptr %21, i64 0, i64 %indvars.iv86
+29:                                               ; preds = %29, %.lr.ph40.us.us
+  %indvars.iv88 = phi i64 [ %indvars.iv.next89, %29 ], [ 0, %.lr.ph39.us.us ]
+  %30 = getelementptr inbounds nuw [10 x ptr], ptr %21, i64 0, i64 %indvars.iv88
   %31 = load ptr, ptr %30, align 8, !tbaa !64
   %32 = getelementptr inbounds nuw [32 x %struct.anon.4], ptr %31, i64 0, i64 %indvars.iv.next92
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 36
   %34 = load i32, ptr %33, align 4, !tbaa !40
   %35 = sext i32 %34 to i64
-  %36 = getelementptr inbounds nuw [10 x ptr], ptr %22, i64 0, i64 %indvars.iv86
+  %36 = getelementptr inbounds nuw [10 x ptr], ptr %22, i64 0, i64 %indvars.iv88
   %37 = load ptr, ptr %36, align 8, !tbaa !68
   %38 = mul nsw i64 %28, %35
   %39 = sub nsw i64 0, %38
   %40 = getelementptr inbounds i8, ptr %37, i64 %39
   store ptr %40, ptr %36, align 8, !tbaa !68
-  %indvars.iv.next87 = add nuw nsw i64 %indvars.iv86, 1
-  %exitcond90.not = icmp eq i64 %indvars.iv.next87, %wide.trip.count84
-  br i1 %exitcond90.not, label %._crit_edge40.us.us, label %29, !llvm.loop !76
+  %indvars.iv.next89 = add nuw nsw i64 %indvars.iv88, 1
+  %exitcond92.not = icmp eq i64 %indvars.iv.next89, %wide.trip.count86
+  br i1 %exitcond92.not, label %._crit_edge41.us.us, label %29, !llvm.loop !76
 
 41:                                               ; preds = %.preheader.us.us, %41
-  %indvars.iv81 = phi i64 [ 0, %.preheader.us.us ], [ %indvars.iv.next82, %41 ]
-  %42 = getelementptr inbounds nuw [10 x ptr], ptr %21, i64 0, i64 %indvars.iv81
+  %indvars.iv83 = phi i64 [ 0, %.preheader.us.us ], [ %indvars.iv.next84, %41 ]
+  %42 = getelementptr inbounds nuw [10 x ptr], ptr %21, i64 0, i64 %indvars.iv83
   %43 = load ptr, ptr %42, align 8, !tbaa !64
   %44 = getelementptr inbounds nuw [32 x %struct.anon.4], ptr %43, i64 0, i64 %indvars.iv.next92
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 36
   %46 = load i32, ptr %45, align 4, !tbaa !40
-  %47 = getelementptr inbounds nuw [10 x ptr], ptr %22, i64 0, i64 %indvars.iv81
+  %47 = getelementptr inbounds nuw [10 x ptr], ptr %22, i64 0, i64 %indvars.iv83
   %48 = load ptr, ptr %47, align 8, !tbaa !68
   %49 = sext i32 %46 to i64
   %50 = getelementptr inbounds i8, ptr %48, i64 %49
   store ptr %50, ptr %47, align 8, !tbaa !68
-  %indvars.iv.next82 = add nuw nsw i64 %indvars.iv81, 1
-  %exitcond85.not = icmp eq i64 %indvars.iv.next82, %wide.trip.count84
-  br i1 %exitcond85.not, label %._crit_edge.us.us, label %41, !llvm.loop !77
+  %indvars.iv.next84 = add nuw nsw i64 %indvars.iv83, 1
+  %exitcond87.not = icmp eq i64 %indvars.iv.next84, %wide.trip.count86
+  br i1 %exitcond87.not, label %._crit_edge.us.us, label %41, !llvm.loop !77
 
 ._crit_edge.us.us:                                ; preds = %41
-  %51 = getelementptr inbounds nuw [32 x i32], ptr %17, i64 0, i64 %indvars.iv.next92
+  %51 = getelementptr inbounds nuw [32 x i32], ptr %17, i64 0, i64 %indvars.iv.next94
   %52 = load i32, ptr %51, align 4, !tbaa !26
   %53 = add nsw i32 %52, -1
   store i32 %53, ptr %51, align 4, !tbaa !26
   %54 = icmp sgt i32 %52, 1
-  br i1 %54, label %._crit_edge42, label %.lr.ph39.us.us
+  br i1 %54, label %._crit_edge43, label %.lr.ph40.us.us
 
-._crit_edge40.us.us:                              ; preds = %29
+._crit_edge41.us.us:                              ; preds = %29
   store i32 %27, ptr %51, align 4, !tbaa !26
-  %55 = icmp samesign ugt i64 %indvars.iv91, 1
-  br i1 %55, label %.preheader.us.us, label %._crit_edge42, !llvm.loop !78
+  %55 = icmp samesign ugt i64 %indvars.iv93, 1
+  br i1 %55, label %.preheader.us.us, label %._crit_edge43, !llvm.loop !78
 
 .preheader.lr.ph.split.split:                     ; preds = %.preheader.lr.ph
   %56 = add nsw i32 %16, -1
@@ -3221,7 +3221,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %60 = add nsw i32 %59, -1
   store i32 %60, ptr %58, align 4, !tbaa !26
   %61 = icmp sgt i32 %59, 1
-  br i1 %61, label %._crit_edge42, label %.lr.ph
+  br i1 %61, label %._crit_edge43, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader.lr.ph.split.split
   %62 = load ptr, ptr %21, align 8, !tbaa !64
@@ -3235,7 +3235,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %66 = add nsw i32 %65, -1
   store i32 %66, ptr %64, align 4, !tbaa !26
   %67 = icmp sgt i32 %65, 1
-  br i1 %67, label %._crit_edge42, label %68, !llvm.loop !78
+  br i1 %67, label %._crit_edge43, label %68, !llvm.loop !78
 
 68:                                               ; preds = %.lr.ph, %.preheader
   %indvars.iv = phi i64 [ %57, %.lr.ph ], [ %indvars.iv.next, %.preheader ]
@@ -3244,11 +3244,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %71 = load i32, ptr %70, align 8, !tbaa !38
   store i32 %71, ptr %69, align 4, !tbaa !26
   %72 = icmp sgt i64 %indvars.iv, 0
-  br i1 %72, label %.preheader, label %._crit_edge42, !llvm.loop !78
+  br i1 %72, label %.preheader, label %._crit_edge43, !llvm.loop !78
 
-._crit_edge42:                                    ; preds = %68, %.preheader, %._crit_edge40.us.us, %._crit_edge.us.us, %.preheader.lr.ph.split.split, %14
-  %.lcssa35 = phi i32 [ 0, %14 ], [ 1, %.preheader.lr.ph.split.split ], [ 1, %._crit_edge.us.us ], [ 0, %._crit_edge40.us.us ], [ 1, %.preheader ], [ 0, %68 ]
-  ret i32 %.lcssa35
+._crit_edge43:                                    ; preds = %68, %.preheader, %._crit_edge41.us.us, %._crit_edge.us.us, %.preheader.lr.ph.split.split, %14
+  %.lcssa36 = phi i32 [ 0, %14 ], [ 1, %.preheader.lr.ph.split.split ], [ 1, %._crit_edge.us.us ], [ 0, %._crit_edge40.us.us ], [ 1, %.preheader ], [ 0, %68 ]
+  ret i32 %.lcssa36
 }
 
 ; Function Attrs: mustprogress uwtable

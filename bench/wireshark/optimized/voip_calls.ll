@@ -3933,7 +3933,7 @@ append_to_frame_graph.exit:                       ; preds = %12, %19, %22, %31, 
   store ptr null, ptr %40, align 8
   %41 = load ptr, ptr %3, align 8
   %42 = getelementptr [6 x %struct.graph_str], ptr %41, i64 0, i64 %indvars.iv
-  %43 = getelementptr i8, ptr %42, i64 16
+  %42 = getelementptr i8, ptr %42, i64 16
   %44 = load ptr, ptr %43, align 8
   tail call void @g_free(ptr noundef %44)
   %45 = load ptr, ptr %3, align 8
@@ -4794,7 +4794,7 @@ append_to_frame_graph.exit:                       ; preds = %102
   store ptr null, ptr %132, align 8
   %133 = load ptr, ptr %119, align 8
   %134 = getelementptr [6 x %struct.graph_str], ptr %133, i64 0, i64 %indvars.iv.i.i
-  %135 = getelementptr i8, ptr %134, i64 16
+  %134 = getelementptr i8, ptr %134, i64 16
   %136 = load ptr, ptr %135, align 8
   tail call void @g_free(ptr noundef %136)
   %137 = load ptr, ptr %119, align 8
@@ -4835,7 +4835,7 @@ h245_free_labels.exit.i:                          ; preds = %._crit_edge.i.i, %.
   %158 = load i8, ptr %157, align 4
   %159 = sext i8 %158 to i64
   %160 = getelementptr [6 x %struct.graph_str], ptr %156, i64 0, i64 %159
-  %161 = getelementptr i8, ptr %160, i64 16
+  %160 = getelementptr i8, ptr %160, i64 16
   store ptr %155, ptr %161, align 8
   %162 = load ptr, ptr %119, align 8
   %163 = getelementptr inbounds nuw i8, ptr %162, i64 4

@@ -4358,7 +4358,7 @@ xorbuf.exit274:                                   ; preds = %xorbuf.exit274.preh
   %241 = getelementptr inbounds nuw [16 x i8], ptr %2, i64 %indvars.iv
   br label %242
 
-242:                                              ; preds = %242, %xorbuf.exit274
+242:; preds = %242, %xorbuf.exit274
   %indvars.iv.i275 = phi i64 [ 15, %xorbuf.exit274 ], [ %indvars.iv.next.i276, %242 ]
   %243 = getelementptr i8, ptr %241, i64 %indvars.iv.i275
   %244 = getelementptr i8, ptr %243, i64 -1
@@ -4368,18 +4368,18 @@ xorbuf.exit274:                                   ; preds = %xorbuf.exit274.preh
   %248 = getelementptr inbounds nuw i8, ptr %240, i64 %indvars.iv.i275
   store i8 %247, ptr %248, align 1, !tbaa !15
   %indvars.iv.next.i276 = add nsw i64 %indvars.iv.i275, -1
-  %249 = icmp samesign ugt i64 %indvars.iv.i275, 1
-  br i1 %249, label %242, label %Shift4_M0.exit, !llvm.loop !28
+  %248 = icmp samesign ugt i64 %indvars.iv.i275, 1
+  br i1 %248, label %242, label %Shift4_M0.exit, !llvm.loop !28
 
 Shift4_M0.exit:                                   ; preds = %242
-  %250 = load i8, ptr %241, align 1, !tbaa !15
-  %251 = lshr i8 %250, 4
-  store i8 %251, ptr %240, align 1, !tbaa !15
+  %249 = load i8, ptr %241, align 1, !tbaa !15
+  %250 = lshr i8 %249, 4
+  store i8 %250, ptr %240, align 1, !tbaa !15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %252, label %xorbuf.exit274, !llvm.loop !29
+  br i1 %exitcond.not, label %251, label %xorbuf.exit274, !llvm.loop !29
 
-252:                                              ; preds = %Shift4_M0.exit
+251:                                              ; preds = %Shift4_M0.exit
   ret void
 }
 

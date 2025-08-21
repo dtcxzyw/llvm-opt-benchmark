@@ -36958,23 +36958,23 @@ _ZN3vcg4face13WedgeTexCoordINS_9TexCoord2IfLi1EEENS_6Arity5INS_8FaceBaseINS_3tri
   %116 = getelementptr inbounds nuw i8, ptr %0, i64 40
   br label %117
 
-117:                                              ; preds = %.preheader, %142
-  %indvars.iv31 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next32, %142 ]
-  %118 = load ptr, ptr %1, align 8
-  %119 = getelementptr inbounds nuw i8, ptr %118, i64 192
-  %120 = load ptr, ptr %118, align 8
-  %121 = ptrtoint ptr %120 to i64
-  %122 = sub i64 %21, %121
-  %123 = sdiv exact i64 %122, 48
-  %124 = load ptr, ptr %119, align 8
-  %125 = getelementptr inbounds %"class.vcg::face::vector_ocf<CFaceO>::WedgeTexTypePack", ptr %124, i64 %123
-  %126 = getelementptr inbounds nuw [3 x %"class.vcg::TexCoord2"], ptr %125, i64 0, i64 %indvars.iv31, i32 1
-  %127 = load i16, ptr %126, align 4
-  %128 = sext i16 %127 to i64
-  %129 = load ptr, ptr %116, align 8
-  %130 = getelementptr inbounds nuw i8, ptr %129, i64 8
-  %131 = load ptr, ptr %130, align 8
-  %132 = load ptr, ptr %129, align 8
+118:                                              ; preds = %.preheader, %143
+  %indvars.iv32 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next33, %142 ]
+  %119 = load ptr, ptr %1, align 8
+  %120 = getelementptr inbounds nuw i8, ptr %119, i64 192
+  %121 = load ptr, ptr %119, align 8
+  %122 = ptrtoint ptr %121 to i64
+  %123 = sub i64 %21, %122
+  %124 = sdiv exact i64 %123, 48
+  %125 = load ptr, ptr %120, align 8
+  %126 = getelementptr inbounds %"class.vcg::face::vector_ocf<CFaceO>::WedgeTexTypePack", ptr %125, i64 %124
+  %127 = getelementptr inbounds nuw [3 x %"class.vcg::TexCoord2"], ptr %126, i64 0, i64 %indvars.iv32, i32 1
+  %128 = load i16, ptr %127, align 4
+  %129 = sext i16 %128 to i64
+  %130 = load ptr, ptr %116, align 8
+  %131 = getelementptr inbounds nuw i8, ptr %130, i64 8
+  %132 = load ptr, ptr %131, align 8
+  %133 = load ptr, ptr %130, align 8
   %133 = ptrtoint ptr %131 to i64
   %134 = ptrtoint ptr %132 to i64
   %135 = sub i64 %133, %134
@@ -36988,16 +36988,16 @@ _ZN3vcg4face13WedgeTexCoordINS_9TexCoord2IfLi1EEENS_6Arity5INS_8FaceBaseINS_3tri
   %141 = trunc i32 %140 to i16
   br label %142
 
-142:                                              ; preds = %117, %138
-  %.sink = phi i16 [ %141, %138 ], [ %127, %117 ]
+143:                                              ; preds = %118, %138
+  %.sink = phi i16 [ %141, %138 ], [ %128, %117 ]
   %143 = getelementptr inbounds nuw [3 x %"class.vcg::TexCoord2"], ptr %29, i64 0, i64 %indvars.iv31
   %144 = getelementptr inbounds nuw i8, ptr %143, i64 132
   store i16 %.sink, ptr %144, align 2
-  %indvars.iv.next32 = add nuw nsw i64 %indvars.iv31, 1
-  %exitcond34.not = icmp eq i64 %indvars.iv.next32, 3
-  br i1 %exitcond34.not, label %.loopexit, label %117, !llvm.loop !333
+  %indvars.iv.next33 = add nuw nsw i64 %indvars.iv32, 1
+  %exitcond35.not = icmp eq i64 %indvars.iv.next33, 3
+  br i1 %exitcond35.not, label %.loopexit, label %118, !llvm.loop !333
 
-.loopexit:                                        ; preds = %142, %_ZN3vcg4face13WedgeTexCoordINS_9TexCoord2IfLi1EEENS_6Arity5INS_8FaceBaseINS_3tri12VoronoiAtlasI6CMeshOE13VoroUsedTypesEEENS0_9VertexRefENS0_8BitFlagsENS0_5FFAdjENS0_5VFAdjENS0_13CurvatureDirfEEEE10ImportDataI6CFaceOEEvRKT_.exit
+.loopexit:                                        ; preds = %143, %_ZN3vcg4face13WedgeTexCoordINS_9TexCoord2IfLi1EEENS_6Arity5INS_8FaceBaseINS_3tri12VoronoiAtlasI6CMeshOE13VoroUsedTypesEEENS0_9VertexRefENS0_8BitFlagsENS0_5FFAdjENS0_5VFAdjENS0_13CurvatureDirfEEEE10ImportDataI6CFaceOEEvRKT_.exit
   %145 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %146 = load ptr, ptr %145, align 8
   %147 = load i8, ptr %146, align 1
@@ -53421,9 +53421,9 @@ _ZN3vcg4face13WedgeTexCoordINS_9TexCoord2IfLi1EEENS_6Arity5INS_8FaceBaseINS_3tri
   br label %73
 
 73:                                               ; preds = %.preheader, %91
-  %indvars.iv34 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next35, %91 ]
-  %74 = getelementptr inbounds nuw [3 x %"class.vcg::TexCoord2"], ptr %1, i64 0, i64 %indvars.iv34
-  %75 = getelementptr inbounds nuw i8, ptr %74, i64 132
+  %indvars.iv36 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next37, %91 ]
+  %74 = getelementptr inbounds nuw [3 x %"class.vcg::TexCoord2"], ptr %1, i64 0, i64 %indvars.iv36
+  %74 = getelementptr inbounds nuw i8, ptr %74, i64 132
   %76 = load i16, ptr %75, align 4
   %77 = sext i16 %76 to i64
   %78 = load ptr, ptr %72, align 8
@@ -53448,9 +53448,9 @@ _ZN3vcg4face13WedgeTexCoordINS_9TexCoord2IfLi1EEENS_6Arity5INS_8FaceBaseINS_3tri
   %92 = getelementptr inbounds nuw [3 x %"class.vcg::TexCoord2"], ptr %29, i64 0, i64 %indvars.iv34
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 132
   store i16 %.sink, ptr %93, align 2
-  %indvars.iv.next35 = add nuw nsw i64 %indvars.iv34, 1
-  %exitcond37.not = icmp eq i64 %indvars.iv.next35, 3
-  br i1 %exitcond37.not, label %.loopexit, label %73, !llvm.loop !548
+  %indvars.iv.next37 = add nuw nsw i64 %indvars.iv36, 1
+  %exitcond39.not = icmp eq i64 %indvars.iv.next37, 3
+  br i1 %exitcond39.not, label %.loopexit, label %73, !llvm.loop !548
 
 .loopexit:                                        ; preds = %91, %_ZN3vcg4face13WedgeTexCoordINS_9TexCoord2IfLi1EEENS_6Arity5INS_8FaceBaseINS_3tri12VoronoiAtlasI6CMeshOE13VoroUsedTypesEEENS0_9VertexRefENS0_8BitFlagsENS0_5FFAdjENS0_5VFAdjENS0_13CurvatureDirfEEEE10ImportDataINS9_8VoroFaceEEEvRKT_.exit
   %94 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -75706,9 +75706,9 @@ define linkonce_odr void @_ZZN3vcg3tri6AppendI6CMeshONS0_12VoronoiAtlasIS2_E8Vor
 .preheader:                                       ; preds = %50
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %56 = ptrtoint ptr %29 to i64
-  br label %57
+  br label %58
 
-57:                                               ; preds = %.preheader, %75
+58:                                               ; preds = %.preheader, %75
   %indvars.iv31 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next32, %75 ]
   %58 = getelementptr inbounds nuw [3 x %"class.vcg::TexCoord2"], ptr %1, i64 0, i64 %indvars.iv31
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 132
@@ -75725,13 +75725,13 @@ define linkonce_odr void @_ZZN3vcg3tri6AppendI6CMeshONS0_12VoronoiAtlasIS2_E8Vor
   %70 = icmp ugt i64 %69, %61
   br i1 %70, label %71, label %75
 
-71:                                               ; preds = %57
+71:                                               ; preds = %58
   %72 = getelementptr inbounds i32, ptr %65, i64 %61
   %73 = load i32, ptr %72, align 4
   %74 = trunc i32 %73 to i16
   br label %75
 
-75:                                               ; preds = %57, %71
+75:                                               ; preds = %58, %71
   %.sink = phi i16 [ %74, %71 ], [ %60, %57 ]
   %76 = load ptr, ptr %29, align 8
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 192
@@ -75745,7 +75745,7 @@ define linkonce_odr void @_ZZN3vcg3tri6AppendI6CMeshONS0_12VoronoiAtlasIS2_E8Vor
   store i16 %.sink, ptr %84, align 2
   %indvars.iv.next32 = add nuw nsw i64 %indvars.iv31, 1
   %exitcond34.not = icmp eq i64 %indvars.iv.next32, 3
-  br i1 %exitcond34.not, label %.loopexit, label %57, !llvm.loop !893
+  br i1 %exitcond34.not, label %.loopexit, label %58, !llvm.loop !893
 
 .loopexit:                                        ; preds = %75, %50
   %85 = getelementptr inbounds nuw i8, ptr %0, i64 48

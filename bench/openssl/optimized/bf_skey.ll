@@ -88,10 +88,10 @@ define void @BF_set_key(ptr noundef initializes((0, 4168)) %0, i32 noundef %1, p
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 76
   store i32 %42, ptr %44, align 4, !tbaa !6
   %indvars.iv.next66 = add nuw nsw i64 %indvars.iv65, 2
-  %45 = icmp samesign ult i64 %indvars.iv65, 1022
-  br i1 %45, label %39, label %46, !llvm.loop !11
+  %44 = icmp samesign ult i64 %indvars.iv65, 1022
+  br i1 %44, label %39, label %45, !llvm.loop !11
 
-46:                                               ; preds = %39
+45:                                               ; preds = %39
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }

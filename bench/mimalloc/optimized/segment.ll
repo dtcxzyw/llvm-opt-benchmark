@@ -486,7 +486,7 @@ define internal fastcc void @mi_segment_free(ptr noundef %0, ptr noundef capture
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 65
   %4 = load i8, ptr %3, align 1, !tbaa !54, !range !37, !noundef !38
   %5 = trunc nuw i8 %4 to i1
-  br i1 %5, label %121, label %6
+  br i1 %5, label %122, label %6
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -761,15 +761,15 @@ mi_segment_raw_page_size.exit.i:                  ; preds = %108, %106
   %119 = select i1 %.not.i12, i64 0, i64 %112
   %spec.select.i = add i64 %119, %.02022.i
   %120 = add nuw i64 %.023.i, 1
-  %exitcond.not.i = icmp eq i64 %120, %114
-  br i1 %exitcond.not.i, label %mi_segment_os_free.exit, label %.lr.ph.i11, !llvm.loop !64
+  %.not.i12 = icmp eq i64 %120, %114
+  br i1 %.not.i12, label %mi_segment_os_free.exit, label %.lr.ph.i11, !llvm.loop !64
 
-mi_segment_os_free.exit:                          ; preds = %.lr.ph.i11, %mi_segment_raw_page_size.exit.i
+mi_segment_os_free.exit:; preds = %.lr.ph.i11, %mi_segment_raw_page_size.exit.i
   %.020.lcssa.i = phi i64 [ 0, %mi_segment_raw_page_size.exit.i ], [ %spec.select.i, %.lr.ph.i11 ]
   tail call void @_mi_arena_free(ptr noundef nonnull %0, i64 noundef %73, i64 noundef %.020.lcssa.i, ptr noundef nonnull byval(%struct.mi_memid_s) align 8 %0) #8
-  br label %121
+  br label %122
 
-121:                                              ; preds = %2, %mi_segment_os_free.exit
+122:                                              ; preds = %2, %mi_segment_os_free.exit
   ret void
 }
 

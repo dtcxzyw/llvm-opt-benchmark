@@ -412,7 +412,7 @@ define hidden void @je_tcache_bin_flush_small(ptr noundef %0, ptr noundef readon
   %7 = load ptr, ptr %1, align 8, !tbaa !42
   %8 = zext i32 %3 to i64
   %9 = getelementptr inbounds nuw [36 x %struct.cache_bin_fill_ctl_s], ptr %7, i64 0, i64 %8
-  %10 = getelementptr inbounds nuw i8, ptr %9, i64 77
+  %9 = getelementptr inbounds nuw i8, ptr %9, i64 77
   store i8 0, ptr %10, align 1, !tbaa !51
   %11 = getelementptr i8, ptr %2, i64 20
   tail call void @je_tcache_bin_flush_stashed(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %3, i1 noundef zeroext true)
@@ -4006,18 +4006,18 @@ define hidden noundef zeroext i1 @je_tcache_bins_ncached_max_write(ptr noundef %
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   br label %5
 
-5:                                                ; preds = %5, %3
+6:                                                ; preds = %6, %3
   %indvars.iv.i = phi i64 [ 0, %3 ], [ %indvars.iv.next.i, %5 ]
-  %6 = getelementptr inbounds nuw %struct.cache_bin_info_s, ptr %4, i64 %indvars.iv.i
+  %7 = getelementptr inbounds nuw %struct.cache_bin_info_s, ptr %4, i64 %indvars.iv.i
   %7 = getelementptr [73 x %struct.cache_bin_s], ptr %0, i64 0, i64 %indvars.iv.i
   %8 = getelementptr i8, ptr %7, i64 958
   %.val.i = load i16, ptr %8, align 2, !tbaa !44
-  call void @je_cache_bin_info_init(ptr noundef nonnull %6, i16 noundef zeroext %.val.i) #16
+  call void @je_cache_bin_info_init(ptr noundef nonnull %7, i16 noundef zeroext %.val.i) #16
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 73
-  br i1 %exitcond.not.i, label %tcache_bin_settings_backup.exit, label %5, !llvm.loop !185
+  br i1 %exitcond.not.i, label %tcache_bin_settings_backup.exit, label %6, !llvm.loop !185
 
-tcache_bin_settings_backup.exit:                  ; preds = %5
+tcache_bin_settings_backup.exit:                  ; preds = %6
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 928
   %10 = call fastcc zeroext i1 @tcache_bin_info_settings_parse(ptr noundef %1, i64 noundef %2, ptr noundef nonnull %4, ptr noundef null)
   br i1 %10, label %19, label %11

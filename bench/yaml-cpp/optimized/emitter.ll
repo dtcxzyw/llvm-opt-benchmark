@@ -2859,9 +2859,9 @@ define void @_ZNK4YAML7Emitter21PrepareIntegralStreamERNSt7__cxx1118basic_string
   br label %.sink.split
 
 .sink.split:                                      ; preds = %6, %8, %11
-  %.sink11.in = phi ptr [ %12, %11 ], [ %9, %8 ], [ %7, %6 ]
+  %.sink10 = phi ptr [ %12, %11 ], [ %9, %8 ], [ %7, %6 ]
   %.sink8 = phi i32 [ 64, %11 ], [ 8, %8 ], [ 2, %6 ]
-  %.sink11 = load ptr, ptr %.sink11.in, align 8, !tbaa !67
+  %.sink11 = load ptr, ptr %.sink10, align 8, !tbaa !67
   %14 = getelementptr i8, ptr %.sink11, i64 -24
   %15 = load i64, ptr %14, align 8
   %16 = getelementptr i8, ptr %1, i64 %15
@@ -2872,7 +2872,7 @@ define void @_ZNK4YAML7Emitter21PrepareIntegralStreamERNSt7__cxx1118basic_string
   store i32 %20, ptr %17, align 8, !tbaa !78
   br label %21
 
-21:                                               ; preds = %.sink.split, %2
+22:                                               ; preds = %.sink.split, %2
   ret void
 }
 

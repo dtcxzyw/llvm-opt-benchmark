@@ -1792,10 +1792,10 @@ define internal fastcc range(i32 -13, 1) i32 @process_file(ptr noundef readonly 
 
 .preheader:                                       ; preds = %2
   %5 = tail call ptr @pmix_getline(ptr noundef nonnull %3) #15
-  %.not37 = icmp eq ptr %5, null
-  br i1 %.not37, label %._crit_edge, label %.lr.ph38
+  %.not43 = icmp eq ptr %5, null
+  br i1 %.not43, label %._crit_edge, label %.lr.ph44
 
-.lr.ph38:                                         ; preds = %.preheader
+.lr.ph44:                                         ; preds = %.preheader
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 248
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 264
@@ -1804,9 +1804,9 @@ define internal fastcc range(i32 -13, 1) i32 @process_file(ptr noundef readonly 
 9:                                                ; preds = %2
   %10 = tail call ptr @prte_strerror(i32 noundef -13) #15
   tail call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.8, ptr noundef %10, ptr noundef nonnull @.str.9, i32 noundef 437) #15
-  br label %66
+  br label %63
 
-11:                                               ; preds = %.lr.ph38, %.backedge
+11:                                               ; preds = %.lr.ph44, %.backedge
   %12 = phi ptr [ %5, %.lr.ph38 ], [ %14, %.backedge ]
   %char0 = load i8, ptr %12, align 1
   switch i8 %char0, label %16 [
@@ -1874,33 +1874,33 @@ pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %22, %2
 
 35:                                               ; preds = %pmix_obj_new_tma.exit
   store i8 0, ptr %34, align 1, !tbaa !93
-  %36 = getelementptr inbounds nuw i8, ptr %34, i64 1
-  %37 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %36) #16
-  %38 = getelementptr i8, ptr %34, i64 %37
-  %39 = icmp ugt ptr %38, %36
-  br i1 %39, label %.lr.ph, label %.critedge
+  %.ptr33 = getelementptr inbounds nuw i8, ptr %34, i64 1
+  %36 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.ptr33) #16
+  %.0.ptr38 = getelementptr i8, ptr %34, i64 %36
+  %37 = icmp ugt ptr %38, %36
+  br i1 %37, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %35
-  %40 = tail call ptr @__ctype_b_loc() #17
-  %41 = load ptr, ptr %40, align 8, !tbaa !94
+  %38 = tail call ptr @__ctype_b_loc() #17
+  %39 = load ptr, ptr %38, align 8, !tbaa !94
   br label %42
 
-42:                                               ; preds = %.lr.ph, %48
-  %.034 = phi ptr [ %38, %.lr.ph ], [ %49, %48 ]
+40:                                               ; preds = %.lr.ph, %48
+  %.034 = phi ptr [ %.0.ptr38, %.lr.ph ], [ %49, %48 ]
   %43 = load i8, ptr %.034, align 1, !tbaa !93
   %44 = sext i8 %43 to i64
-  %45 = getelementptr inbounds i16, ptr %41, i64 %44
+  %45 = getelementptr inbounds i16, ptr %39, i64 %44
   %46 = load i16, ptr %45, align 2, !tbaa !96
   %47 = and i16 %46, 8192
-  %.not32 = icmp eq i16 %47, 0
-  br i1 %.not32, label %.critedge, label %48
+  %.not36 = icmp eq i16 %47, 0
+  br i1 %.not36, label %.critedge, label %48
 
-48:                                               ; preds = %42
+.critedge:                                        ; preds = %42
   %49 = getelementptr inbounds i8, ptr %.034, i64 -1
-  %50 = icmp ugt ptr %49, %36
+  %50 = icmp ugt ptr %49, %.ptr33
   br i1 %50, label %42, label %.critedge, !llvm.loop !97
 
-.critedge:                                        ; preds = %42, %48, %35
+.critedge:; preds = %42, %48, %35
   %.0.lcssa = phi ptr [ %38, %35 ], [ %36, %48 ], [ %.034, %42 ]
   %51 = getelementptr inbounds nuw i8, ptr %.0.lcssa, i64 1
   store i8 0, ptr %51, align 1, !tbaa !93
@@ -1908,7 +1908,7 @@ pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %22, %2
   %.not33 = icmp eq ptr %52, null
   br i1 %.not33, label %54, label %53
 
-53:                                               ; preds = %.critedge
+53:; preds = %.critedge
   store i8 0, ptr %52, align 1, !tbaa !93
   br label %54
 
@@ -1918,7 +1918,7 @@ pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %22, %2
   store ptr %55, ptr %56, align 8, !tbaa !91
   br label %57
 
-57:                                               ; preds = %54, %pmix_obj_new_tma.exit
+57: ; preds = %54, %pmix_obj_new_tma.exit
   %58 = getelementptr inbounds nuw i8, ptr %18, i64 144
   store ptr %12, ptr %58, align 8, !tbaa !69
   %59 = load ptr, ptr %7, align 8, !tbaa !48
@@ -1929,16 +1929,16 @@ pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %22, %2
   %62 = getelementptr inbounds nuw i8, ptr %18, i64 120
   store ptr %6, ptr %62, align 8, !tbaa !49
   store ptr %18, ptr %7, align 8, !tbaa !48
-  %63 = load volatile i64, ptr %8, align 8, !tbaa !46
-  %64 = add i64 %63, 1
-  store volatile i64 %64, ptr %8, align 8, !tbaa !46
+  %60 = load volatile i64, ptr %8, align 8, !tbaa !46
+  %61 = add i64 %60, 1
+  store volatile i64 %61, ptr %8, align 8, !tbaa !46
   br label %.backedge
 
 ._crit_edge:                                      ; preds = %.backedge, %.preheader
-  %65 = tail call i32 @fclose(ptr noundef nonnull %3)
-  br label %66
+  %62 = tail call i32 @fclose(ptr noundef nonnull %3)
+  br label %63
 
-66:                                               ; preds = %._crit_edge, %9
+63:                                               ; preds = %._crit_edge, %9
   %.027 = phi i32 [ -13, %9 ], [ 0, %._crit_edge ]
   ret i32 %.027
 }

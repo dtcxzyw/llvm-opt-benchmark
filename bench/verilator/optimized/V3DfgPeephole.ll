@@ -17000,7 +17000,7 @@ define linkonce_odr dso_local noundef ptr @_ZN13V3DfgPeephole4makeI7DfgCondJP9Df
 24:                                               ; preds = %24, %.noexc.i.i
   %.09.i.i.i.i.i = phi i64 [ 0, %.noexc.i.i ], [ %27, %24 ]
   %25 = getelementptr inbounds nuw [3 x %class.DfgEdge], ptr %22, i64 0, i64 %.09.i.i.i.i.i
-  %26 = getelementptr inbounds nuw i8, ptr %25, i64 96
+  %25 = getelementptr inbounds nuw i8, ptr %25, i64 96
   store ptr %22, ptr %26, align 8, !tbaa !247
   %27 = add nuw nsw i64 %.09.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i = icmp eq i64 %27, 3
@@ -17776,7 +17776,7 @@ define linkonce_odr dso_local noundef ptr @_ZN13V3DfgPeephole4makeI7DfgCondJP5Df
 24:                                               ; preds = %24, %.noexc.i.i
   %.09.i.i.i.i.i = phi i64 [ 0, %.noexc.i.i ], [ %27, %24 ]
   %25 = getelementptr inbounds nuw [3 x %class.DfgEdge], ptr %22, i64 0, i64 %.09.i.i.i.i.i
-  %26 = getelementptr inbounds nuw i8, ptr %25, i64 96
+  %25 = getelementptr inbounds nuw i8, ptr %25, i64 96
   store ptr %22, ptr %26, align 8, !tbaa !247
   %27 = add nuw nsw i64 %.09.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i = icmp eq i64 %27, 3
@@ -20641,7 +20641,7 @@ define linkonce_odr dso_local noundef ptr @_ZN13V3DfgPeephole4makeI7DfgCondJP9Df
 24:                                               ; preds = %24, %.noexc.i.i
   %.09.i.i.i.i.i = phi i64 [ 0, %.noexc.i.i ], [ %27, %24 ]
   %25 = getelementptr inbounds nuw [3 x %class.DfgEdge], ptr %22, i64 0, i64 %.09.i.i.i.i.i
-  %26 = getelementptr inbounds nuw i8, ptr %25, i64 96
+  %25 = getelementptr inbounds nuw i8, ptr %25, i64 96
   store ptr %22, ptr %26, align 8, !tbaa !247
   %27 = add nuw nsw i64 %.09.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i = icmp eq i64 %27, 3
@@ -22472,7 +22472,7 @@ define linkonce_odr dso_local noundef ptr @_ZN13V3DfgPeephole4makeI7DfgCondJP9Df
 24:                                               ; preds = %24, %.noexc.i.i
   %.09.i.i.i.i.i = phi i64 [ 0, %.noexc.i.i ], [ %27, %24 ]
   %25 = getelementptr inbounds nuw [3 x %class.DfgEdge], ptr %22, i64 0, i64 %.09.i.i.i.i.i
-  %26 = getelementptr inbounds nuw i8, ptr %25, i64 96
+  %25 = getelementptr inbounds nuw i8, ptr %25, i64 96
   store ptr %22, ptr %26, align 8, !tbaa !247
   %27 = add nuw nsw i64 %.09.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i = icmp eq i64 %27, 3
@@ -22893,7 +22893,7 @@ define linkonce_odr dso_local noundef ptr @_ZN13V3DfgPeephole4makeI7DfgCondJP9Df
 24:                                               ; preds = %24, %.noexc.i.i
   %.09.i.i.i.i.i = phi i64 [ 0, %.noexc.i.i ], [ %27, %24 ]
   %25 = getelementptr inbounds nuw [3 x %class.DfgEdge], ptr %22, i64 0, i64 %.09.i.i.i.i.i
-  %26 = getelementptr inbounds nuw i8, ptr %25, i64 96
+  %25 = getelementptr inbounds nuw i8, ptr %25, i64 96
   store ptr %22, ptr %26, align 8, !tbaa !247
   %27 = add nuw nsw i64 %.09.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i = icmp eq i64 %27, 3
@@ -23314,7 +23314,7 @@ define linkonce_odr dso_local noundef ptr @_ZN13V3DfgPeephole4makeI7DfgCondJP9Df
 24:                                               ; preds = %24, %.noexc.i.i
   %.09.i.i.i.i.i = phi i64 [ 0, %.noexc.i.i ], [ %27, %24 ]
   %25 = getelementptr inbounds nuw [3 x %class.DfgEdge], ptr %22, i64 0, i64 %.09.i.i.i.i.i
-  %26 = getelementptr inbounds nuw i8, ptr %25, i64 96
+  %25 = getelementptr inbounds nuw i8, ptr %25, i64 96
   store ptr %22, ptr %26, align 8, !tbaa !247
   %27 = add nuw nsw i64 %.09.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i = icmp eq i64 %27, 3
@@ -23826,7 +23826,7 @@ define linkonce_odr dso_local noundef ptr @_ZN13V3DfgPeephole4makeI7DfgCondJP9Df
 24:                                               ; preds = %24, %.noexc.i.i
   %.09.i.i.i.i.i = phi i64 [ 0, %.noexc.i.i ], [ %27, %24 ]
   %25 = getelementptr inbounds nuw [3 x %class.DfgEdge], ptr %22, i64 0, i64 %.09.i.i.i.i.i
-  %26 = getelementptr inbounds nuw i8, ptr %25, i64 96
+  %25 = getelementptr inbounds nuw i8, ptr %25, i64 96
   store ptr %22, ptr %26, align 8, !tbaa !247
   %27 = add nuw nsw i64 %.09.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i = icmp eq i64 %27, 3

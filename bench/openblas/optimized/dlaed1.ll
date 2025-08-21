@@ -127,26 +127,26 @@ define void @dlaed1_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   call void @dlamrg_(ptr noundef nonnull %13, ptr noundef nonnull %14, ptr noundef %1, ptr noundef nonnull @c__1, ptr noundef nonnull @c_n1, ptr noundef %4) #4
   br label %.loopexit
 
-87:                                               ; preds = %63
-  %88 = load i32, ptr %0, align 4, !tbaa !3
-  %.not128131 = icmp slt i32 %88, 1
+88:                                               ; preds = %63
+  %89 = load i32, ptr %0, align 4, !tbaa !3
+  %.not128131 = icmp slt i32 %89, 1
   br i1 %.not128131, label %.loopexit, label %.lr.ph.preheader
 
-.lr.ph.preheader:                                 ; preds = %87
-  %89 = add nuw i32 %88, 1
-  %wide.trip.count = zext i32 %89 to i64
+.lr.ph.preheader:                                 ; preds = %88
+  %90 = add nuw i32 %89, 1
+  %wide.trip.count = zext i32 %90 to i64
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %90 = getelementptr inbounds nuw i32, ptr %18, i64 %indvars.iv
-  %91 = trunc nuw nsw i64 %indvars.iv to i32
-  store i32 %91, ptr %90, align 4, !tbaa !3
+  %91 = getelementptr inbounds nuw i32, ptr %18, i64 %indvars.iv
+  %92 = trunc nuw nsw i64 %indvars.iv to i32
+  store i32 %92, ptr %91, align 4, !tbaa !3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !7
 
-.loopexit:                                        ; preds = %.lr.ph, %87, %36, %65, %83, %34, %.thread
+.loopexit:                                        ; preds = %.lr.ph, %88, %36, %65, %83, %34, %.thread
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)

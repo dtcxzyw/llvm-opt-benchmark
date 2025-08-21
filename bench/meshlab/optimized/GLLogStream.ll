@@ -1122,7 +1122,7 @@ define void @_ZN11GLLogStream14backToBookmarkEv(ptr noundef nonnull align 8 dere
   br i1 %14, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %.preheader, %_ZN5QListISt4pairIi7QStringEE10removeLastEv.exit
-  %15 = phi ptr [ %27, %_ZN5QListISt4pairIi7QStringEE10removeLastEv.exit ], [ %8, %.preheader ]
+  %15 = phi ptr [ %28, %_ZN5QListISt4pairIi7QStringEE10removeLastEv.exit ], [ %8, %.preheader ]
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %16 = load atomic i32, ptr %15 monotonic, align 4, !noalias !20
@@ -1147,15 +1147,15 @@ _ZN5QListISt4pairIi7QStringEE10removeLastEv.exit: ; preds = %.lr.ph, %18
   call void @_ZN5QListISt4pairIi7QStringEE5eraseENS3_8iteratorE(ptr dead_on_unwind nonnull writable sret(%"class.QList<std::pair<int, QString>>::iterator") align 8 %3, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %27 = load ptr, ptr %7, align 8
-  %28 = getelementptr inbounds nuw i8, ptr %27, i64 12
-  %29 = load i32, ptr %28, align 4
-  %30 = getelementptr inbounds nuw i8, ptr %27, i64 8
-  %31 = load i32, ptr %30, align 8
-  %32 = sub nsw i32 %29, %31
-  %33 = load i32, ptr %4, align 8
-  %34 = icmp sgt i32 %32, %33
-  br i1 %34, label %.lr.ph, label %.loopexit, !llvm.loop !23
+  %28 = load ptr, ptr %7, align 8
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 12
+  %30 = load i32, ptr %29, align 4
+  %31 = getelementptr inbounds nuw i8, ptr %28, i64 8
+  %32 = load i32, ptr %31, align 8
+  %33 = sub nsw i32 %30, %32
+  %34 = load i32, ptr %4, align 8
+  %35 = icmp sgt i32 %33, %34
+  br i1 %35, label %.lr.ph, label %.loopexit, !llvm.loop !23
 
 .loopexit:                                        ; preds = %_ZN5QListISt4pairIi7QStringEE10removeLastEv.exit, %.preheader, %1
   ret void

@@ -4067,18 +4067,18 @@ define linkonce_odr hidden noundef float @_ZNK7mitsuba10Marginal2DIfLm4ELb1EE4ev
   br label %8
 
 8:                                                ; preds = %57, %4
-  %.040.i = phi i32 [ 0, %4 ], [ %.1.i, %57 ]
-  %storemerge39.i = phi i64 [ 0, %4 ], [ %58, %57 ]
-  %9 = getelementptr inbounds nuw [4 x %"struct.drjit::DynamicArray"], ptr %0, i64 0, i64 %storemerge39.i
-  %10 = getelementptr inbounds nuw i8, ptr %9, i64 40
+  %.041.i = phi i32 [ 0, %4 ], [ %.1.i, %57 ]
+  %storemerge40.i = phi i64 [ 0, %4 ], [ %58, %57 ]
+  %9 = getelementptr inbounds nuw [4 x %"struct.drjit::DynamicArray"], ptr %0, i64 0, i64 %storemerge40.i
+  %9 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %11 = load i64, ptr %10, align 8
   %.fr.i.i = freeze i64 %11
   %12 = icmp eq i64 %.fr.i.i, 1
   br i1 %12, label %13, label %16
 
 13:                                               ; preds = %8
-  %.idx16.i = shl nuw nsw i64 %storemerge39.i, 3
-  %14 = getelementptr inbounds nuw i8, ptr %5, i64 %.idx16.i
+  %.idx17.i = shl nuw nsw i64 %storemerge40.i, 3
+  %14 = getelementptr inbounds nuw i8, ptr %5, i64 %.idx17.i
   store float 1.000000e+00, ptr %14, align 8
   %15 = getelementptr i8, ptr %14, i64 4
   store float 0.000000e+00, ptr %15, align 4
@@ -4088,24 +4088,24 @@ define linkonce_odr hidden noundef float @_ZNK7mitsuba10Marginal2DIfLm4ELb1EE4ev
   %17 = trunc i64 %.fr.i.i to i32
   %18 = add i32 %17, -1
   %19 = icmp ugt i32 %18, 1
-  br i1 %19, label %_ZN5drjit6gatherIfLb0ERKNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit.us.preheader.i.i, label %._ZN5drjit6gatherIfLb0ERKNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit19_crit_edge.i
+  br i1 %19, label %_ZN5drjit6gatherIfLb0ERKNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit.us.preheader.i.i, label %._ZN5drjit6gatherIfLb0ERKNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit20_crit_edge.i
 
-._ZN5drjit6gatherIfLb0ERKNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit19_crit_edge.i: ; preds = %16
-  %.phi.trans.insert.i = getelementptr inbounds nuw [4 x %"struct.drjit::DynamicArray"], ptr %6, i64 0, i64 %storemerge39.i
+._ZN5drjit6gatherIfLb0ERKNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit20_crit_edge.i: ; preds = %16
+  %.phi.trans.insert.i = getelementptr inbounds nuw [4 x %"struct.drjit::DynamicArray"], ptr %6, i64 0, i64 %storemerge40.i
   %.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8
-  %.phi.trans.insert42.i = getelementptr inbounds nuw float, ptr %2, i64 %storemerge39.i
-  %.pre43.i = load float, ptr %.phi.trans.insert42.i, align 4
-  br label %_ZN5drjit6gatherIfLb0ERKNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit19.i
+  %.phi.trans.insert43.i = getelementptr inbounds nuw float, ptr %2, i64 %storemerge40.i
+  %.pre44.i = load float, ptr %.phi.trans.insert43.i, align 4
+  br label %_ZN5drjit6gatherIfLb0ERKNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit20.i
 
 _ZN5drjit6gatherIfLb0ERKNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit.us.preheader.i.i: ; preds = %16
   %20 = add i32 %17, -2
   %21 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %20, i1 true)
   %22 = sub nuw nsw i32 32, %21
   %23 = zext nneg i32 %22 to i64
-  %24 = getelementptr inbounds nuw float, ptr %2, i64 %storemerge39.i
+  %24 = getelementptr inbounds nuw float, ptr %2, i64 %storemerge40.i
   %25 = load float, ptr %24, align 4
   %.fr62.i.i = freeze float %25
-  %26 = getelementptr inbounds nuw [4 x %"struct.drjit::DynamicArray"], ptr %6, i64 0, i64 %storemerge39.i
+  %26 = getelementptr inbounds nuw [4 x %"struct.drjit::DynamicArray"], ptr %6, i64 0, i64 %storemerge40.i
   %27 = load ptr, ptr %26, align 8
   br label %_ZN5drjit6gatherIfLb0ERKNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit.us.i.i
 
@@ -4125,10 +4125,10 @@ _ZN5drjit6gatherIfLb0ERKNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit.us.i.i: ;
   %.144.us.i.i = select i1 %33, i32 %29, i32 %.04347.us.i.i
   %35 = add nuw nsw i64 %.049.us.i.i, 1
   %exitcond69.not.i.i = icmp eq i64 %35, %23
-  br i1 %exitcond69.not.i.i, label %_ZN5drjit6gatherIfLb0ERKNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit19.i, label %_ZN5drjit6gatherIfLb0ERKNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit.us.i.i, !llvm.loop !102
+  br i1 %exitcond69.not.i.i, label %_ZN5drjit6gatherIfLb0ERKNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit20.i, label %_ZN5drjit6gatherIfLb0ERKNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit.us.i.i, !llvm.loop !102
 
-_ZN5drjit6gatherIfLb0ERKNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit19.i: ; preds = %_ZN5drjit6gatherIfLb0ERKNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit.us.i.i, %._ZN5drjit6gatherIfLb0ERKNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit19_crit_edge.i
-  %36 = phi float [ %.pre43.i, %._ZN5drjit6gatherIfLb0ERKNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit19_crit_edge.i ], [ %.fr62.i.i, %_ZN5drjit6gatherIfLb0ERKNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit.us.i.i ]
+_ZN5drjit6gatherIfLb0ERKNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit20.i: ; preds = %_ZN5drjit6gatherIfLb0ERKNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit.us.i.i, %._ZN5drjit6gatherIfLb0ERKNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit20_crit_edge.i
+  %36 = phi float [ %.pre44.i, %._ZN5drjit6gatherIfLb0ERKNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit19_crit_edge.i ], [ %.fr62.i.i, %_ZN5drjit6gatherIfLb0ERKNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit.us.i.i ]
   %37 = phi ptr [ %.pre.i, %._ZN5drjit6gatherIfLb0ERKNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit19_crit_edge.i ], [ %27, %_ZN5drjit6gatherIfLb0ERKNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit.us.i.i ]
   %.042.lcssa.i.i = phi i32 [ 1, %._ZN5drjit6gatherIfLb0ERKNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit19_crit_edge.i ], [ %.146.us.i.i, %_ZN5drjit6gatherIfLb0ERKNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit.us.i.i ]
   %38 = add i32 %.042.lcssa.i.i, -1
@@ -4142,24 +4142,24 @@ _ZN5drjit6gatherIfLb0ERKNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit19.i: ; pr
   %46 = fsub contract float %44, %41
   %47 = fdiv contract float %45, %46
   %48 = fcmp contract ogt float %47, 1.000000e+00
-  %..i.i20.i = select contract i1 %48, float 1.000000e+00, float %47
-  %49 = fcmp contract olt float %..i.i20.i, 0.000000e+00
-  %..i7.i.i = select contract i1 %49, float 0.000000e+00, float %..i.i20.i
-  %.idx.i = shl nuw nsw i64 %storemerge39.i, 3
-  %50 = getelementptr i8, ptr %5, i64 %.idx.i
+  %..i.i21.i = select contract i1 %48, float 1.000000e+00, float %47
+  %49 = fcmp contract olt float %..i.i21.i, 0.000000e+00
+  %..i7.i.i = select contract i1 %49, float 0.000000e+00, float %..i.i21.i
+  %.idx16.i = shl nuw nsw i64 %storemerge40.i, 3
+  %50 = getelementptr i8, ptr %5, i64 %.idx16.i
   %51 = getelementptr i8, ptr %50, i64 4
   store float %..i7.i.i, ptr %51, align 4
   %52 = fsub contract float 1.000000e+00, %..i7.i.i
   store float %52, ptr %50, align 8
-  %53 = getelementptr inbounds nuw [4 x i32], ptr %7, i64 0, i64 %storemerge39.i
+  %53 = getelementptr inbounds nuw [4 x i32], ptr %7, i64 0, i64 %storemerge40.i
   %54 = load i32, ptr %53, align 4
   %55 = mul i32 %54, %38
-  %56 = add i32 %55, %.040.i
+  %56 = add i32 %55, %.041.i
   br label %57
 
-57:                                               ; preds = %_ZN5drjit6gatherIfLb0ERKNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit19.i, %13
-  %.1.i = phi i32 [ %.040.i, %13 ], [ %56, %_ZN5drjit6gatherIfLb0ERKNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit19.i ]
-  %58 = add nuw nsw i64 %storemerge39.i, 1
+57:                                               ; preds = %_ZN5drjit6gatherIfLb0ERKNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit20.i, %13
+  %.1.i = phi i32 [ %.041.i, %13 ], [ %56, %_ZN5drjit6gatherIfLb0ERKNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit19.i ]
+  %58 = add nuw nsw i64 %storemerge40.i, 1
   %exitcond.not.i = icmp eq i64 %58, 4
   br i1 %exitcond.not.i, label %_ZNK7mitsuba14Distribution2DIfLm4EE19interpolate_weightsEPKfPfb.exit, label %8, !llvm.loop !103
 

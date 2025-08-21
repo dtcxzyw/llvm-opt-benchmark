@@ -1871,7 +1871,7 @@ define hidden noundef zeroext i1 @SDL_PrepareCameraSurfaces(ptr noundef initiali
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store ptr %59, ptr %60, align 8
   %.not109 = icmp eq ptr %59, null
-  br i1 %.not109, label %.thread123, label %61
+  br i1 %.not109, label %.thread124, label %61
 
 61:                                               ; preds = %53
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -1900,7 +1900,7 @@ define hidden noundef zeroext i1 @SDL_PrepareCameraSurfaces(ptr noundef initiali
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 152
   store ptr %78, ptr %79, align 8
   %.not111 = icmp eq ptr %78, null
-  br i1 %.not111, label %.thread120, label %.thread
+  br i1 %.not111, label %.thread121, label %.thread
 
 .thread:                                          ; preds = %70
   %80 = load i32, ptr %62, align 4
@@ -1915,7 +1915,7 @@ define hidden noundef zeroext i1 @SDL_PrepareCameraSurfaces(ptr noundef initiali
   %85 = getelementptr inbounds nuw i8, ptr %0, i64 392
   store ptr %83, ptr %85, align 8
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  br label %91
+  br label %92
 
 87:                                               ; preds = %82, %87
   %indvars.iv = phi i64 [ 0, %82 ], [ %indvars.iv.next, %87 ]
@@ -1927,91 +1927,91 @@ define hidden noundef zeroext i1 @SDL_PrepareCameraSurfaces(ptr noundef initiali
   %exitcond.not = icmp eq i64 %indvars.iv.next, 7
   br i1 %exitcond.not, label %84, label %87, !llvm.loop !13
 
-91:                                               ; preds = %84, %107
-  %indvars.iv129 = phi i64 [ 0, %84 ], [ %indvars.iv.next130, %107 ]
-  %92 = load i32, ptr %65, align 8
-  %.not112 = icmp eq i32 %92, 0
-  br i1 %.not112, label %93, label %96
+92:                                               ; preds = %84, %108
+  %indvars.iv131 = phi i64 [ 0, %84 ], [ %indvars.iv.next132, %107 ]
+  %93 = load i32, ptr %65, align 8
+  %.not112 = icmp eq i32 %93, 0
+  br i1 %.not112, label %94, label %97
 
-93:                                               ; preds = %91
-  %94 = load i8, ptr %57, align 4, !range !7, !noundef !8
-  %95 = trunc nuw i8 %94 to i1
-  br i1 %95, label %96, label %101
+94:                                               ; preds = %92
+  %95 = load i8, ptr %57, align 4, !range !7, !noundef !8
+  %96 = trunc nuw i8 %95 to i1
+  br i1 %96, label %97, label %102
 
-96:                                               ; preds = %93, %91
-  %97 = load i32, ptr %4, align 4
-  %98 = load i32, ptr %86, align 4
-  %99 = load i32, ptr %2, align 4
-  %100 = tail call ptr @SDL_CreateSurface_REAL(i32 noundef %97, i32 noundef %98, i32 noundef %99) #11
-  br label %106
+97:                                               ; preds = %94, %92
+  %98 = load i32, ptr %4, align 4
+  %99 = load i32, ptr %86, align 4
+  %100 = load i32, ptr %2, align 4
+  %101 = tail call ptr @SDL_CreateSurface_REAL(i32 noundef %98, i32 noundef %99, i32 noundef %100) #11
+  br label %107
 
-101:                                              ; preds = %93
-  %102 = load i32, ptr %4, align 4
-  %103 = load i32, ptr %86, align 4
-  %104 = load i32, ptr %2, align 4
-  %105 = tail call ptr @SDL_CreateSurfaceFrom_REAL(i32 noundef %102, i32 noundef %103, i32 noundef %104, ptr noundef null, i32 noundef 0) #11
-  br label %106
+102:                                              ; preds = %94
+  %103 = load i32, ptr %4, align 4
+  %104 = load i32, ptr %86, align 4
+  %105 = load i32, ptr %2, align 4
+  %106 = tail call ptr @SDL_CreateSurfaceFrom_REAL(i32 noundef %103, i32 noundef %104, i32 noundef %105, ptr noundef null, i32 noundef 0) #11
+  br label %107
 
-106:                                              ; preds = %101, %96
-  %.096 = phi ptr [ %100, %96 ], [ %105, %101 ]
+107:                                              ; preds = %102, %97
+  %.096 = phi ptr [ %101, %96 ], [ %106, %101 ]
   %.not113.not = icmp eq ptr %.096, null
-  br i1 %.not113.not, label %.thread120, label %107
+  br i1 %.not113.not, label %.thread121, label %108
 
-107:                                              ; preds = %106
-  %108 = load i32, ptr %62, align 4
-  %109 = tail call zeroext i1 @SDL_SetSurfaceColorspace_REAL(ptr noundef nonnull %.096, i32 noundef %108) #11
-  %110 = getelementptr inbounds nuw [8 x %struct.SurfaceList], ptr %83, i64 0, i64 %indvars.iv129
-  store ptr %.096, ptr %110, align 8
-  %indvars.iv.next130 = add nuw nsw i64 %indvars.iv129, 1
-  %exitcond132.not = icmp eq i64 %indvars.iv.next130, 8
-  br i1 %exitcond132.not, label %.loopexit, label %91, !llvm.loop !14
+108:                                              ; preds = %107
+  %109 = load i32, ptr %62, align 4
+  %110 = tail call zeroext i1 @SDL_SetSurfaceColorspace_REAL(ptr noundef nonnull %.096, i32 noundef %109) #11
+  %111 = getelementptr inbounds nuw [8 x %struct.SurfaceList], ptr %83, i64 0, i64 %indvars.iv131
+  store ptr %.096, ptr %111, align 8
+  %indvars.iv.next132 = add nuw nsw i64 %indvars.iv131, 1
+  %exitcond134.not = icmp eq i64 %indvars.iv.next132, 8
+  br i1 %exitcond134.not, label %.loopexit, label %92, !llvm.loop !14
 
-.thread120:                                       ; preds = %106, %70
+.thread121:                                       ; preds = %107, %70
   %.pr = load ptr, ptr %60, align 8
   %.not114 = icmp eq ptr %.pr, null
-  br i1 %.not114, label %.thread123, label %111
+  br i1 %.not114, label %.thread124, label %112
 
-111:                                              ; preds = %.thread120
+112:                                              ; preds = %.thread121
   tail call void @SDL_DestroySurface_REAL(ptr noundef nonnull %.pr) #11
   store ptr null, ptr %60, align 8
-  br label %.thread123
+  br label %.thread124
 
-.thread123:                                       ; preds = %53, %111, %.thread120
-  %112 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %113 = load ptr, ptr %112, align 8
-  %.not115 = icmp eq ptr %113, null
-  br i1 %.not115, label %115, label %114
+.thread124:                                       ; preds = %53, %112, %.thread121
+  %113 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  %114 = load ptr, ptr %113, align 8
+  %.not115 = icmp eq ptr %114, null
+  br i1 %.not115, label %116, label %115
 
-114:                                              ; preds = %.thread123
-  tail call void @SDL_DestroySurface_REAL(ptr noundef nonnull %113) #11
-  store ptr null, ptr %112, align 8
-  br label %115
+115:                                              ; preds = %.thread124
+  tail call void @SDL_DestroySurface_REAL(ptr noundef nonnull %114) #11
+  store ptr null, ptr %113, align 8
+  br label %116
 
-115:                                              ; preds = %114, %.thread123
-  %116 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  br label %118
+116:                                              ; preds = %115, %.thread124
+  %117 = getelementptr inbounds nuw i8, ptr %0, i64 160
+  br label %119
 
-117:                                              ; preds = %122
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %116, i8 0, i64 192, i1 false)
+118:                                              ; preds = %123
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %117, i8 0, i64 192, i1 false)
   br label %.loopexit
 
-118:                                              ; preds = %115, %122
-  %indvars.iv133 = phi i64 [ 0, %115 ], [ %indvars.iv.next134, %122 ]
-  %119 = getelementptr inbounds nuw [8 x %struct.SurfaceList], ptr %116, i64 0, i64 %indvars.iv133
-  %120 = load ptr, ptr %119, align 8
-  %.not116 = icmp eq ptr %120, null
-  br i1 %.not116, label %122, label %121
+119:                                              ; preds = %116, %123
+  %indvars.iv135 = phi i64 [ 0, %115 ], [ %indvars.iv.next136, %122 ]
+  %120 = getelementptr inbounds nuw [8 x %struct.SurfaceList], ptr %117, i64 0, i64 %indvars.iv135
+  %121 = load ptr, ptr %120, align 8
+  %.not116 = icmp eq ptr %121, null
+  br i1 %.not116, label %123, label %122
 
-121:                                              ; preds = %118
-  tail call void @SDL_DestroySurface_REAL(ptr noundef nonnull %120) #11
-  br label %122
+122:                                              ; preds = %119
+  tail call void @SDL_DestroySurface_REAL(ptr noundef nonnull %121) #11
+  br label %123
 
-122:                                              ; preds = %121, %118
-  %indvars.iv.next134 = add nuw nsw i64 %indvars.iv133, 1
-  %exitcond136.not = icmp eq i64 %indvars.iv.next134, 8
-  br i1 %exitcond136.not, label %117, label %118, !llvm.loop !15
+123:                                              ; preds = %122, %119
+  %indvars.iv.next136 = add nuw nsw i64 %indvars.iv135, 1
+  %exitcond138.not = icmp eq i64 %indvars.iv.next136, 8
+  br i1 %exitcond138.not, label %118, label %119, !llvm.loop !15
 
-.loopexit:                                        ; preds = %107, %117
+.loopexit:                                        ; preds = %108, %118
   %.0 = phi i1 [ false, %117 ], [ true, %107 ]
   ret i1 %.0
 }

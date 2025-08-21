@@ -2626,7 +2626,7 @@ alloc_sys.exit:                                   ; preds = %tmalloc_small.exit,
 ; Function Attrs: noinline nounwind uwtable
 define internal fastcc ptr @lj_alloc_realloc(ptr noundef %0, ptr noundef nonnull %1, i64 noundef range(i64 1, 0) %2) unnamed_addr #3 {
   %4 = icmp ugt i64 %2, -129
-  br i1 %4, label %89, label %5
+  br i1 %4, label %88, label %5
 
 5:                                                ; preds = %3
   %6 = getelementptr inbounds i8, ptr %1, i64 -16
@@ -2716,20 +2716,20 @@ define internal fastcc ptr @lj_alloc_realloc(ptr noundef %0, ptr noundef nonnull
   tail call fastcc void @lj_alloc_free(ptr noundef %0, ptr noundef nonnull %60)
   br label %77
 
-61:                                               ; preds = %46
+61: ; preds = %46
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %63 = load ptr, ptr %62, align 8, !tbaa !24
   %64 = icmp eq ptr %10, %63
   br i1 %64, label %65, label %direct_resize.exit
 
-65:                                               ; preds = %61
+65: ; preds = %61
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %67 = load i64, ptr %66, align 8, !tbaa !25
   %68 = add i64 %67, %9
   %69 = icmp ugt i64 %68, %14
   br i1 %69, label %70, label %direct_resize.exit
 
-70:                                               ; preds = %65
+70:; preds = %65
   %71 = sub nuw i64 %68, %14
   %72 = getelementptr inbounds nuw i8, ptr %6, i64 %14
   %73 = or disjoint i64 %14, %15
@@ -2742,38 +2742,38 @@ define internal fastcc ptr @lj_alloc_realloc(ptr noundef %0, ptr noundef nonnull
   store i64 %71, ptr %66, align 8, !tbaa !25
   br label %77
 
-77:                                               ; preds = %70, %50, %47, %21, %36
+77:; preds = %70, %50, %47, %21, %36
   %.072.ph = phi ptr [ %37, %36 ], [ %6, %21 ], [ %6, %47 ], [ %6, %50 ], [ %6, %70 ]
   %78 = getelementptr inbounds nuw i8, ptr %.072.ph, i64 16
   br label %89
 
-direct_resize.exit:                               ; preds = %61, %65, %19, %25
+direct_resize.exit:; preds = %61, %65, %19, %25
   %79 = tail call fastcc ptr @lj_alloc_malloc(ptr noundef %0, i64 noundef %2)
   %.not84 = icmp eq ptr %79, null
   br i1 %.not84, label %89, label %80
 
-80:                                               ; preds = %direct_resize.exit
+80:; preds = %direct_resize.exit
   %81 = load i64, ptr %7, align 8, !tbaa !4
   %82 = and i64 %81, 1
   %.not85 = icmp eq i64 %82, 0
   br i1 %.not85, label %83, label %86
 
-83:                                               ; preds = %80
+83:; preds = %80
   %84 = load i64, ptr %6, align 8, !tbaa !36
   %85 = and i64 %84, 1
   %.not86 = icmp eq i64 %85, 0
   %.neg = select i1 %.not86, i64 -8, i64 -16
-  br label %86
+  br label %85
 
-86:                                               ; preds = %83, %80
+85:                                               ; preds = %83, %80
   %.neg87 = phi i64 [ -8, %80 ], [ %.neg, %83 ]
-  %87 = add i64 %.neg87, %9
-  %88 = tail call i64 @llvm.umin.i64(i64 %87, i64 %2)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %79, ptr nonnull align 1 %1, i64 %88, i1 false)
+  %86 = add i64 %.neg87, %9
+  %87 = tail call i64 @llvm.umin.i64(i64 %86, i64 %2)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %79, ptr nonnull align 1 %1, i64 %87, i1 false)
   tail call fastcc void @lj_alloc_free(ptr noundef %0, ptr noundef nonnull %1)
-  br label %89
+  br label %88
 
-89:                                               ; preds = %77, %86, %direct_resize.exit, %3
+88:                                               ; preds = %77, %85, %direct_resize.exit, %3
   %.0 = phi ptr [ null, %3 ], [ %78, %77 ], [ %79, %86 ], [ null, %direct_resize.exit ]
   ret ptr %.0
 }

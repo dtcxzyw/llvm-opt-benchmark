@@ -3956,12 +3956,12 @@ define linkonce_odr void @_ZN5folly14UnboundedQueueINS_8FunctionIFvvEEELb0ELb1EL
   %15 = mul i64 %.01011.i, 27
   %16 = and i64 %15, 255
   %17 = getelementptr inbounds nuw [256 x %"class.folly::UnboundedQueue<folly::Function<void ()>, false, true, true>::Entry"], ptr %.1.i, i64 0, i64 %16
-  %18 = getelementptr inbounds nuw i8, ptr %17, i64 136
-  %19 = load ptr, ptr %18, align 8, !tbaa !12
+  %17 = getelementptr inbounds nuw i8, ptr %17, i64 136
+  %19 = load ptr, ptr %17, align 8, !tbaa !12
   %.not.i.i.i = icmp eq ptr %19, null
   br i1 %.not.i.i.i, label %_ZN5folly8FunctionIFvvEED2Ev.exit.i, label %20
 
-20:                                               ; preds = %14
+20:; preds = %14
   %21 = getelementptr inbounds nuw i8, ptr %17, i64 80
   %22 = tail call noundef i64 %19(i32 noundef 1, ptr noundef nonnull align 16 dereferenceable(64) %21, ptr noundef null) #27
   br label %_ZN5folly8FunctionIFvvEED2Ev.exit.i

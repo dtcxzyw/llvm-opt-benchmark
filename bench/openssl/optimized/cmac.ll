@@ -490,13 +490,13 @@ define range(i32 0, 2) i32 @CMAC_Final(ptr noundef captures(none) %0, ptr nounde
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %5 = load i32, ptr %4, align 8, !tbaa !10
   %6 = icmp eq i32 %5, -1
-  br i1 %6, label %54, label %7
+  br i1 %6, label %53, label %7
 
 7:                                                ; preds = %3
   %8 = load ptr, ptr %0, align 8, !tbaa !3
   %9 = tail call i32 @EVP_CIPHER_CTX_get_block_size(ptr noundef %8) #7
   %10 = icmp eq i32 %9, 0
-  br i1 %10, label %54, label %11
+  br i1 %10, label %53, label %11
 
 11:                                               ; preds = %7
   %.not = icmp eq ptr %2, null
@@ -509,7 +509,7 @@ define range(i32 0, 2) i32 @CMAC_Final(ptr noundef captures(none) %0, ptr nounde
 
 14:                                               ; preds = %12, %11
   %.not47 = icmp eq ptr %1, null
-  br i1 %.not47, label %54, label %15
+  br i1 %.not47, label %53, label %15
 
 15:                                               ; preds = %14
   %16 = load i32, ptr %4, align 8, !tbaa !10
@@ -556,40 +556,40 @@ define range(i32 0, 2) i32 @CMAC_Final(ptr noundef captures(none) %0, ptr nounde
   tail call void @llvm.memset.p0.i64(ptr align 1 %36, i8 0, i64 %38, i1 false)
   br label %39
 
-39:                                               ; preds = %34, %28
+39:; preds = %34, %28
   %40 = icmp sgt i32 %9, 0
   br i1 %40, label %.lr.ph, label %.loopexit
 
-.lr.ph:                                           ; preds = %39
+.lr.ph:; preds = %39
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %wide.trip.count = zext nneg i32 %9 to i64
-  br label %42
+  br label %41
 
-42:                                               ; preds = %.lr.ph, %42
+41:                                               ; preds = %.lr.ph, %41
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %42 ]
-  %43 = getelementptr inbounds nuw [32 x i8], ptr %29, i64 0, i64 %indvars.iv
-  %44 = load i8, ptr %43, align 1, !tbaa !11
-  %45 = getelementptr inbounds nuw [32 x i8], ptr %41, i64 0, i64 %indvars.iv
-  %46 = load i8, ptr %45, align 1, !tbaa !11
-  %47 = xor i8 %46, %44
-  %48 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv
-  store i8 %47, ptr %48, align 1, !tbaa !11
+  %42 = getelementptr inbounds nuw [32 x i8], ptr %29, i64 0, i64 %indvars.iv
+  %43 = load i8, ptr %42, align 1, !tbaa !11
+  %44 = getelementptr inbounds nuw [32 x i8], ptr %41, i64 0, i64 %indvars.iv
+  %45 = load i8, ptr %44, align 1, !tbaa !11
+  %46 = xor i8 %45, %43
+  %47 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv
+  store i8 %46, ptr %47, align 1, !tbaa !11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %42, !llvm.loop !19
+  br i1 %exitcond.not, label %.loopexit, label %41, !llvm.loop !19
 
-.loopexit:                                        ; preds = %42, %21, %39, %.preheader
-  %49 = load ptr, ptr %0, align 8, !tbaa !3
-  %50 = tail call i32 @EVP_Cipher(ptr noundef %49, ptr noundef nonnull %1, ptr noundef nonnull %1, i32 noundef %9) #7
-  %51 = icmp slt i32 %50, 1
-  br i1 %51, label %52, label %54
+.loopexit:                                        ; preds = %41, %21, %39, %.preheader
+  %48 = load ptr, ptr %0, align 8, !tbaa !3
+  %49 = tail call i32 @EVP_Cipher(ptr noundef %48, ptr noundef nonnull %1, ptr noundef nonnull %1, i32 noundef %9) #7
+  %50 = icmp slt i32 %49, 1
+  br i1 %50, label %51, label %53
 
-52:                                               ; preds = %.loopexit
-  %53 = sext i32 %9 to i64
-  tail call void @OPENSSL_cleanse(ptr noundef nonnull %1, i64 noundef %53) #7
-  br label %54
+51:                                               ; preds = %.loopexit
+  %52 = sext i32 %9 to i64
+  tail call void @OPENSSL_cleanse(ptr noundef nonnull %1, i64 noundef %52) #7
+  br label %53
 
-54:                                               ; preds = %.loopexit, %14, %7, %3, %52
+53:                                               ; preds = %.loopexit, %14, %7, %3, %51
   %.0 = phi i32 [ 0, %52 ], [ 0, %3 ], [ 0, %7 ], [ 1, %14 ], [ 1, %.loopexit ]
   ret i32 %.0
 }

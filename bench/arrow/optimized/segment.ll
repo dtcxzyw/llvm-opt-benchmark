@@ -2988,7 +2988,7 @@ mi_commit_mask_is_empty.exit.i:                   ; preds = %16
 
 mi_segment_ensure_committed.exit:                 ; preds = %mi_commit_mask_is_full.exit.i, %mi_commit_mask_is_empty.exit.i
   %20 = tail call fastcc zeroext i1 @mi_segment_commitx(ptr noundef nonnull %0, i1 noundef zeroext true, ptr noundef nonnull %12, i64 noundef %13, ptr noundef %.896.val)
-  br i1 %20, label %mi_segment_ensure_committed.exit.thread, label %56
+  br i1 %20, label %mi_segment_ensure_committed.exit.thread, label %55
 
 mi_segment_ensure_committed.exit.thread:          ; preds = %mi_commit_mask_is_empty.exit.i, %mi_segment_ensure_committed.exit
   %21 = getelementptr inbounds nuw i8, ptr %10, i64 4
@@ -3023,50 +3023,50 @@ mi_segment_ensure_committed.exit.thread:          ; preds = %mi_commit_mask_is_e
   %34 = getelementptr %struct.mi_page_s, ptr %33, i64 %2
   %35 = getelementptr i8, ptr %34, i64 288
   %36 = getelementptr inbounds nuw [1024 x %struct.mi_page_s], ptr %9, i64 0, i64 %29
-  %37 = icmp uge ptr %35, %36
+  %.not52 = icmp uge ptr %35, %36
   %.not52 = icmp ult ptr %35, %.048.lcssa
   %or.cond = select i1 %37, i1 true, i1 %.not52
   br i1 %or.cond, label %48, label %43
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %.0486 = phi ptr [ %.048, %.lr.ph ], [ %.0482, %.lr.ph.preheader ]
-  %.0465 = phi i64 [ %42, %.lr.ph ], [ 1, %.lr.ph.preheader ]
+  %.0465 = phi i64 [ %41, %.lr.ph ], [ 1, %.lr.ph.preheader ]
   %.pn4 = phi ptr [ %.0486, %.lr.ph ], [ %10, %.lr.ph.preheader ]
-  %38 = trunc i64 %.0465 to i32
-  %39 = mul i32 %38, 80
-  %40 = getelementptr inbounds nuw i8, ptr %.pn4, i64 84
-  store i32 %39, ptr %40, align 4, !tbaa !90
+  %37 = trunc i64 %.0465 to i32
+  %38 = mul i32 %37, 80
+  %39 = getelementptr inbounds nuw i8, ptr %.pn4, i64 84
+  store i32 %38, ptr %39, align 4, !tbaa !90
   store i32 0, ptr %.0486, align 8, !tbaa !21
-  %41 = getelementptr inbounds nuw i8, ptr %.pn4, i64 108
-  store i32 1, ptr %41, align 4, !tbaa !14
-  %42 = add nuw i64 %.0465, 1
+  %40 = getelementptr inbounds nuw i8, ptr %.pn4, i64 108
+  store i32 1, ptr %40, align 4, !tbaa !14
+  %41 = add nuw i64 %.0465, 1
   %.048 = getelementptr inbounds nuw i8, ptr %.0486, i64 80
-  %exitcond = icmp eq i64 %42, %umax
+  %exitcond = icmp eq i64 %41, %umax
   br i1 %exitcond, label %._crit_edge, label %.lr.ph, !llvm.loop !100
 
-43:                                               ; preds = %._crit_edge
-  %44 = trunc i64 %26 to i32
-  %45 = mul i32 %44, 80
-  %46 = getelementptr i8, ptr %34, i64 292
-  store i32 %45, ptr %46, align 4, !tbaa !90
+42:                                               ; preds = %._crit_edge
+  %43 = trunc i64 %26 to i32
+  %44 = mul i32 %43, 80
+  %45 = getelementptr i8, ptr %34, i64 292
+  store i32 %44, ptr %45, align 4, !tbaa !90
   store i32 0, ptr %35, align 8, !tbaa !21
-  %47 = getelementptr i8, ptr %34, i64 316
-  store i32 1, ptr %47, align 4, !tbaa !14
-  br label %48
+  %46 = getelementptr i8, ptr %34, i64 316
+  store i32 1, ptr %46, align 4, !tbaa !14
+  br label %47
 
-48:                                               ; preds = %43, %._crit_edge
-  %49 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %50 = load i8, ptr %49, align 8
-  %51 = and i8 %50, -4
-  %52 = or disjoint i8 %51, 2
-  store i8 %52, ptr %49, align 8
-  %53 = getelementptr inbounds nuw i8, ptr %0, i64 312
-  %54 = load i64, ptr %53, align 8, !tbaa !22
-  %55 = add i64 %54, 1
-  store i64 %55, ptr %53, align 8, !tbaa !22
-  br label %56
+47:                                               ; preds = %42, %._crit_edge
+  %48 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %49 = load i8, ptr %48, align 8
+  %50 = and i8 %49, -4
+  %51 = or disjoint i8 %50, 2
+  store i8 %51, ptr %48, align 8
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 312
+  %53 = load i64, ptr %52, align 8, !tbaa !22
+  %54 = add i64 %53, 1
+  store i64 %54, ptr %52, align 8, !tbaa !22
+  br label %55
 
-56:                                               ; preds = %mi_segment_ensure_committed.exit, %48
+55:                                               ; preds = %mi_segment_ensure_committed.exit, %47
   %.0 = phi ptr [ %10, %48 ], [ null, %mi_segment_ensure_committed.exit ]
   ret ptr %.0
 }

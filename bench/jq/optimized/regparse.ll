@@ -17810,28 +17810,28 @@ define internal fastcc range(i32 -205, 1) i32 @not_code_range_buf(ptr noundef re
   %wide.trip.count = zext nneg i32 %13 to i64
   br label %21
 
-21:                                               ; preds = %16, %39
+21:                                               ; preds = %16, %37
   %indvars.iv = phi i64 [ 0, %16 ], [ %indvars.iv.next, %39 ]
-  %.03357 = phi i32 [ %20, %16 ], [ %40, %39 ]
-  %22 = shl nuw nsw i64 %indvars.iv, 1
-  %23 = getelementptr inbounds nuw i32, ptr %14, i64 %22
-  %24 = load i32, ptr %23, align 4, !tbaa !8
-  %25 = getelementptr inbounds nuw i32, ptr %12, i64 %22
-  %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
+  %.03357 = phi i32 [ %20, %16 ], [ %38, %39 ]
+  %.idx = shl nuw nsw i64 %indvars.iv, 1
+  %22 = getelementptr inbounds nuw i32, ptr %14, i64 %.idx
+  %23 = load i32, ptr %22, align 4, !tbaa !8
+  %24 = getelementptr inbounds nuw i32, ptr %12, i64 %22
+  %26 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %27 = load i32, ptr %26, align 4, !tbaa !8
-  %28 = add i32 %24, -1
+  %28 = add i32 %23, -1
   %.not = icmp ugt i32 %.03357, %28
   br i1 %.not, label %37, label %29
 
 29:                                               ; preds = %21
   %30 = tail call fastcc i32 @add_code_range_to_buf(ptr noundef nonnull %2, i32 noundef %.03357, i32 noundef %28)
-  %.not46 = icmp eq i32 %30, 0
-  br i1 %.not46, label %37, label %31
+  %.not.i = icmp eq i32 %30, 0
+  br i1 %.not.i, label %37, label %31
 
 31:                                               ; preds = %29
   %32 = load ptr, ptr %2, align 8, !tbaa !113
-  %.not.i = icmp eq ptr %32, null
-  br i1 %.not.i, label %bbuf_free.exit, label %33
+  %.not5.i = icmp eq ptr %32, null
+  br i1 %.not5.i, label %bbuf_free.exit, label %33
 
 33:                                               ; preds = %31
   %34 = load ptr, ptr %32, align 8, !tbaa !108
@@ -17842,36 +17842,36 @@ define internal fastcc range(i32 -205, 1) i32 @not_code_range_buf(ptr noundef re
   tail call void @free(ptr noundef nonnull %34) #25
   br label %36
 
-36:                                               ; preds = %35, %33
+34:                                               ; preds = %35, %33
   tail call void @free(ptr noundef nonnull %32) #25
   br label %bbuf_free.exit
 
-37:                                               ; preds = %29, %21
-  %38 = icmp eq i32 %27, -1
-  br i1 %38, label %bbuf_free.exit, label %39
+35:                                               ; preds = %29, %21
+  %36 = icmp eq i32 %27, -1
+  br i1 %36, label %bbuf_free.exit, label %37
 
-39:                                               ; preds = %37
-  %40 = add nuw i32 %27, 1
+37:                                               ; preds = %35
+  %38 = add nuw i32 %27, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %41, label %21, !llvm.loop !287
 
 41:                                               ; preds = %39
-  %42 = tail call fastcc i32 @add_code_range_to_buf(ptr noundef nonnull %2, i32 noundef %40, i32 noundef -1)
-  %.not48 = icmp eq i32 %42, 0
-  br i1 %.not48, label %bbuf_free.exit, label %43
+  %42 = tail call fastcc i32 @add_code_range_to_buf(ptr noundef nonnull %2, i32 noundef %38, i32 noundef -1)
+  %.not.i49 = icmp eq i32 %42, 0
+  br i1 %.not.i49, label %bbuf_free.exit, label %43
 
 43:                                               ; preds = %41
   %44 = load ptr, ptr %2, align 8, !tbaa !113
-  %.not.i49 = icmp eq ptr %44, null
-  br i1 %.not.i49, label %bbuf_free.exit, label %45
+  %.not5.i50 = icmp eq ptr %44, null
+  br i1 %.not5.i50, label %bbuf_free.exit, label %45
 
 45:                                               ; preds = %43
   %46 = load ptr, ptr %44, align 8, !tbaa !108
   %.not5.i50 = icmp eq ptr %46, null
   br i1 %.not5.i50, label %48, label %47
 
-47:                                               ; preds = %45
+46:                                               ; preds = %45
   tail call void @free(ptr noundef nonnull %46) #25
   br label %48
 
@@ -17879,7 +17879,7 @@ define internal fastcc range(i32 -205, 1) i32 @not_code_range_buf(ptr noundef re
   tail call void @free(ptr noundef nonnull %44) #25
   br label %bbuf_free.exit
 
-bbuf_free.exit:                                   ; preds = %37, %48, %43, %36, %31, %41, %5
+bbuf_free.exit:                                   ; preds = %35, %48, %43, %34, %31, %41, %5
   %.032 = phi i32 [ %10, %5 ], [ 0, %41 ], [ %30, %31 ], [ %30, %36 ], [ %42, %43 ], [ %42, %48 ], [ 0, %37 ]
   ret i32 %.032
 }

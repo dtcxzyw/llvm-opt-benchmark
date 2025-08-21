@@ -470,40 +470,40 @@ define hidden range(i32 0, 44) i32 @Curl_headers_push(ptr noundef %0, ptr nounde
   %60 = icmp eq i8 %2, 16
   br i1 %60, label %61, label %.preheader114
 
-61:                                               ; preds = %56
-  %62 = load i8, ptr %57, align 1, !tbaa !94
-  %.not.i68 = icmp eq i8 %62, 58
-  br i1 %.not.i68, label %63, label %namevalue.exit
+60:                                               ; preds = %56
+  %61 = load i8, ptr %57, align 1, !tbaa !94
+  %.not.i68 = icmp eq i8 %61, 58
+  br i1 %.not.i68, label %62, label %namevalue.exit
 
-63:                                               ; preds = %61
-  %64 = getelementptr inbounds nuw i8, ptr %55, i64 54
+62:                                               ; preds = %60
+  %63 = getelementptr inbounds nuw i8, ptr %55, i64 54
   br label %.preheader114
 
-.preheader114:                                    ; preds = %63, %56
-  %.1.i.ph = phi ptr [ %57, %56 ], [ %64, %63 ]
-  br label %65
+.preheader114:                                    ; preds = %62, %56
+  %.1.i.ph = phi ptr [ %57, %56 ], [ %63, %63 ]
+  br label %64
 
-65:                                               ; preds = %.preheader114, %67
-  %.1.i = phi ptr [ %68, %67 ], [ %.1.i.ph, %.preheader114 ]
-  %66 = load i8, ptr %.1.i, align 1, !tbaa !94
-  switch i8 %66, label %67 [
+64:                                               ; preds = %.preheader114, %66
+  %.1.i = phi ptr [ %67, %67 ], [ %.1.i.ph, %.preheader114 ]
+  %65 = load i8, ptr %.1.i, align 1, !tbaa !94
+  switch i8 %65, label %67 [
     i8 0, label %namevalue.exit
-    i8 58, label %69
+    i8 58, label %68
   ]
 
-67:                                               ; preds = %65
-  %68 = getelementptr inbounds nuw i8, ptr %.1.i, i64 1
-  br label %65, !llvm.loop !100
+66:                                               ; preds = %64
+  %67 = getelementptr inbounds nuw i8, ptr %.1.i, i64 1
+  br label %64, !llvm.loop !100
 
-69:                                               ; preds = %65
+68:                                               ; preds = %64
   store i8 0, ptr %.1.i, align 1, !tbaa !94
   br label %.critedge4.i62
 
-.critedge4.i62:                                   ; preds = %.critedge4.i62.backedge, %69
+.critedge4.i62:                                   ; preds = %.critedge4.i62.backedge, %68
   %.1.pn.i = phi ptr [ %.1.i, %69 ], [ %.2.i, %.critedge4.i62.backedge ]
   %.2.i = getelementptr inbounds nuw i8, ptr %.1.pn.i, i64 1
-  %70 = load i8, ptr %.2.i, align 1, !tbaa !94
-  switch i8 %70, label %.critedge2.i63 [
+  %69 = load i8, ptr %.2.i, align 1, !tbaa !94
+  switch i8 %69, label %.critedge2.i63 [
     i8 9, label %.critedge4.i62.backedge
     i8 32, label %.critedge4.i62.backedge
   ]
@@ -513,47 +513,47 @@ define hidden range(i32 0, 44) i32 @Curl_headers_push(ptr noundef %0, ptr nounde
 
 .critedge2.i63:                                   ; preds = %.critedge4.i62
   %.044.i = getelementptr i8, ptr %59, i64 52
-  %71 = icmp ugt ptr %.044.i, %.2.i
-  br i1 %71, label %.lr.ph.i65, label %.loopexit
+  %70 = icmp ugt ptr %.044.i, %.2.i
+  br i1 %70, label %.lr.ph.i65, label %.loopexit
 
 .lr.ph.i65:                                       ; preds = %.critedge2.i63, %.critedge8.i
   %.045.i = phi ptr [ %.0.i66, %.critedge8.i ], [ %.044.i, %.critedge2.i63 ]
-  %72 = load i8, ptr %.045.i, align 1, !tbaa !94
-  switch i8 %72, label %73 [
+  %71 = load i8, ptr %.045.i, align 1, !tbaa !94
+  switch i8 %71, label %73 [
     i8 32, label %.critedge8.i
     i8 9, label %.critedge8.i
   ]
 
-73:                                               ; preds = %.lr.ph.i65
-  %74 = add i8 %72, -10
-  %or.cond.i67 = icmp ult i8 %74, 4
+72:                                               ; preds = %.lr.ph.i65
+  %73 = add i8 %71, -10
+  %or.cond.i67 = icmp ult i8 %73, 4
   br i1 %or.cond.i67, label %.critedge8.i, label %.loopexit
 
-.critedge8.i:                                     ; preds = %73, %.lr.ph.i65, %.lr.ph.i65
+.critedge8.i:                                     ; preds = %72, %.lr.ph.i65, %.lr.ph.i65
   store i8 0, ptr %.045.i, align 1, !tbaa !94
   %.0.i66 = getelementptr inbounds i8, ptr %.045.i, i64 -1
-  %75 = icmp ugt ptr %.0.i66, %.2.i
-  br i1 %75, label %.lr.ph.i65, label %.loopexit, !llvm.loop !102
+  %74 = icmp ugt ptr %.0.i66, %.2.i
+  br i1 %74, label %.lr.ph.i65, label %.loopexit, !llvm.loop !102
 
-.loopexit:                                        ; preds = %73, %.critedge8.i, %.critedge2.i63
-  %76 = getelementptr inbounds nuw i8, ptr %55, i64 32
-  store ptr %57, ptr %76, align 8, !tbaa !75
-  %77 = getelementptr inbounds nuw i8, ptr %55, i64 40
-  store ptr %.2.i, ptr %77, align 8, !tbaa !84
-  %78 = getelementptr inbounds nuw i8, ptr %55, i64 52
-  store i8 %2, ptr %78, align 4, !tbaa !77
-  %79 = getelementptr inbounds nuw i8, ptr %0, i64 3256
-  %80 = load i32, ptr %79, align 8, !tbaa !3
-  %81 = getelementptr inbounds nuw i8, ptr %55, i64 48
-  store i32 %80, ptr %81, align 8, !tbaa !78
-  %82 = getelementptr inbounds nuw i8, ptr %0, i64 4712
-  tail call void @Curl_llist_append(ptr noundef nonnull %82, ptr noundef nonnull %55, ptr noundef nonnull %55) #5
-  %83 = getelementptr inbounds nuw i8, ptr %0, i64 4840
-  store ptr %55, ptr %83, align 8, !tbaa !95
+.loopexit:                                        ; preds = %72, %.critedge8.i, %.critedge2.i63
+  %75 = getelementptr inbounds nuw i8, ptr %55, i64 32
+  store ptr %57, ptr %75, align 8, !tbaa !75
+  %76 = getelementptr inbounds nuw i8, ptr %55, i64 40
+  store ptr %.2.i, ptr %76, align 8, !tbaa !84
+  %77 = getelementptr inbounds nuw i8, ptr %55, i64 52
+  store i8 %2, ptr %77, align 4, !tbaa !77
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 3256
+  %79 = load i32, ptr %78, align 8, !tbaa !3
+  %80 = getelementptr inbounds nuw i8, ptr %55, i64 48
+  store i32 %79, ptr %80, align 8, !tbaa !78
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 4712
+  tail call void @Curl_llist_append(ptr noundef nonnull %81, ptr noundef nonnull %55, ptr noundef nonnull %55) #5
+  %82 = getelementptr inbounds nuw i8, ptr %0, i64 4840
+  store ptr %55, ptr %82, align 8, !tbaa !95
   br label %.critedge61
 
-namevalue.exit:                                   ; preds = %65, %61
-  %84 = load ptr, ptr @Curl_cfree, align 8, !tbaa !99
+namevalue.exit:                                   ; preds = %64, %60
+  %83 = load ptr, ptr @Curl_cfree, align 8, !tbaa !99
   tail call void %84(ptr noundef nonnull %55) #5
   br label %.critedge61
 

@@ -300,7 +300,7 @@ define range(i32 -9992, 1) i32 @_PaPulseAudio_AddAudioDevice(ptr noundef capture
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %19 = load i32, ptr %18, align 8, !tbaa !35
   %20 = getelementptr [1024 x %struct.PaDeviceInfo], ptr %0, i64 0, i64 %16
-  %21 = getelementptr i8, ptr %20, i64 296
+  %20 = getelementptr i8, ptr %20, i64 296
   store i32 %19, ptr %21, align 8, !tbaa !36
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %23 = load ptr, ptr %22, align 8, !tbaa !28
@@ -341,7 +341,7 @@ define range(i32 -9992, 1) i32 @_PaPulseAudio_AddAudioDevice(ptr noundef capture
   %47 = load i32, ptr %14, align 8, !tbaa !24
   %48 = sext i32 %47 to i64
   %49 = getelementptr [1024 x %struct.PaDeviceInfo], ptr %0, i64 0, i64 %48
-  %50 = getelementptr i8, ptr %49, i64 288
+  %49 = getelementptr i8, ptr %49, i64 288
   store ptr %34, ptr %50, align 8, !tbaa !37
   %51 = getelementptr i8, ptr %49, i64 300
   store i32 %3, ptr %51, align 4, !tbaa !38

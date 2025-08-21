@@ -1275,7 +1275,7 @@ HIDAPI_DriverPS4_UpdateEnhancedModeOnApplicationUsage.exit: ; preds = %3, %11
 
 20:                                               ; preds = %16, %HIDAPI_DriverPS4_UpdateEnhancedModeOnApplicationUsage.exit
   %21 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4) #9
-  br label %285
+  br label %287
 
 22:                                               ; preds = %16
   %23 = load ptr, ptr %6, align 8
@@ -1622,7 +1622,7 @@ HIDAPI_DriverPS4_LoadOfficialCalibrationData.exit.i: ; preds = %36, %29, %22
   %250 = icmp samesign ult i64 %indvars.iv35.i, 3
   br i1 %250, label %251, label %267
 
-251:                                              ; preds = %245
+251:; preds = %245
   %252 = load i16, ptr %243, align 2
   %253 = uitofp i16 %252 to double
   %254 = load i16, ptr %244, align 4
@@ -1635,16 +1635,16 @@ HIDAPI_DriverPS4_LoadOfficialCalibrationData.exit.i: ; preds = %36, %29, %22
   %261 = icmp eq i16 %260, 1356
   br i1 %261, label %262, label %282
 
-262:                                              ; preds = %251
+262:; preds = %251
   %263 = load i16, ptr %242, align 2
   %264 = icmp eq i16 %263, 1477
   br i1 %264, label %265, label %282
 
-265:                                              ; preds = %262
+265:; preds = %262
   %266 = fmul double %259, 2.000000e+00
   br label %282
 
-267:                                              ; preds = %245
+267:; preds = %245
   %268 = load i16, ptr %239, align 2
   %269 = uitofp i16 %268 to double
   %270 = load i16, ptr %240, align 8
@@ -1656,16 +1656,16 @@ HIDAPI_DriverPS4_LoadOfficialCalibrationData.exit.i: ; preds = %36, %29, %22
   %276 = icmp eq i16 %275, 1356
   br i1 %276, label %277, label %282
 
-277:                                              ; preds = %267
+277:; preds = %267
   %278 = load i16, ptr %242, align 2
   %279 = icmp eq i16 %278, 1477
   br i1 %279, label %280, label %282
 
-280:                                              ; preds = %277
+280:; preds = %277
   %281 = fmul double %274, -2.000000e+00
   br label %282
 
-282:                                              ; preds = %280, %277, %267, %265, %262, %251
+282:; preds = %280, %277, %267, %265, %262, %251
   %.0.i = phi double [ %266, %265 ], [ %259, %262 ], [ %259, %251 ], [ %281, %280 ], [ %274, %277 ], [ %274, %267 ]
   %283 = fptrunc double %.0.i to float
   store float %283, ptr %247, align 4
@@ -1674,11 +1674,11 @@ HIDAPI_DriverPS4_LoadOfficialCalibrationData.exit.i: ; preds = %36, %29, %22
   br i1 %exitcond38.not.i, label %.critedge, label %245, !llvm.loop !12
 
 .critedge:                                        ; preds = %282, %15
-  %284 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  store i8 %5, ptr %284, align 8
-  br label %285
+  %286 = getelementptr inbounds nuw i8, ptr %7, i64 32
+  store i8 %5, ptr %286, align 8
+  br label %287
 
-285:                                              ; preds = %.critedge, %20
+287:                                              ; preds = %.critedge, %20
   %.0 = phi i1 [ true, %.critedge ], [ %21, %20 ]
   ret i1 %.0
 }
