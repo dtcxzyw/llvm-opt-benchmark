@@ -70,8 +70,8 @@ define noundef ptr @_ZN5boost6fibers4algo11round_robin9pick_nextEv(ptr noundef n
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %12, ptr %13, align 8, !tbaa !3
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
-  %14 = add i64 %7, 72
-  %15 = icmp ult i64 %8, %14
+  %14 = getelementptr i8, ptr %9, i64 232
+  %15 = icmp ugt ptr %14, %9
   br i1 %15, label %.lr.ph.i, label %_ZN5boost7context6detail14prefetch_rangeEPvm.exit
 
 .lr.ph.i:                                         ; preds = %6, %.lr.ph.i
@@ -80,7 +80,7 @@ define noundef ptr @_ZN5boost6fibers4algo11round_robin9pick_nextEv(ptr noundef n
   %16 = ptrtoint ptr %.06.i to i64
   %17 = add i64 %16, 256
   %18 = inttoptr i64 %17 to ptr
-  %19 = icmp ult i64 %17, %14
+  %19 = icmp ugt ptr %14, %18
   br i1 %19, label %.lr.ph.i, label %_ZN5boost7context6detail14prefetch_rangeEPvm.exit, !llvm.loop !9
 
 _ZN5boost7context6detail14prefetch_rangeEPvm.exit: ; preds = %.lr.ph.i, %6, %1

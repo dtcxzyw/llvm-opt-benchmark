@@ -977,7 +977,7 @@ define noundef ptr @_ZN5boost6fibers4numa4algo13work_stealing9pick_nextEv(ptr no
 
 .thread:                                          ; preds = %1
   store atomic i32 1, ptr %5 release, align 8
-  br label %34
+  br label %32
 
 11:                                               ; preds = %1
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 104
@@ -991,251 +991,245 @@ define noundef ptr @_ZN5boost6fibers4numa4algo13work_stealing9pick_nextEv(ptr no
   store i64 %19, ptr %6, align 8, !tbaa !110
   store atomic i32 1, ptr %5 release, align 8
   %.not = icmp eq ptr %15, null
-  br i1 %.not, label %34, label %20
+  br i1 %.not, label %32, label %20
 
 20:                                               ; preds = %11
-  %21 = ptrtoint ptr %15 to i64
-  %22 = add i64 %21, 232
-  %23 = inttoptr i64 %22 to ptr
-  %24 = icmp ult ptr %15, %23
-  br i1 %24, label %.lr.ph.i, label %_ZN5boost7context6detail14prefetch_rangeEPvm.exit
+  %21 = getelementptr i8, ptr %15, i64 232
+  %22 = icmp ult ptr %15, %21
+  br i1 %22, label %.lr.ph.i, label %_ZN5boost7context6detail14prefetch_rangeEPvm.exit
 
 .lr.ph.i:                                         ; preds = %20, %.lr.ph.i
-  %.06.i = phi ptr [ %27, %.lr.ph.i ], [ %15, %20 ]
+  %.06.i = phi ptr [ %25, %.lr.ph.i ], [ %15, %20 ]
   tail call void @llvm.prefetch.p0(ptr %.06.i, i32 1, i32 1, i32 1)
-  %25 = ptrtoint ptr %.06.i to i64
-  %26 = add i64 %25, 256
-  %27 = inttoptr i64 %26 to ptr
-  %28 = icmp ult i64 %26, %22
-  br i1 %28, label %.lr.ph.i, label %_ZN5boost7context6detail14prefetch_rangeEPvm.exit, !llvm.loop !112
+  %23 = ptrtoint ptr %.06.i to i64
+  %24 = add i64 %23, 256
+  %25 = inttoptr i64 %24 to ptr
+  %26 = icmp ugt ptr %21, %25
+  br i1 %26, label %.lr.ph.i, label %_ZN5boost7context6detail14prefetch_rangeEPvm.exit, !llvm.loop !112
 
 _ZN5boost7context6detail14prefetch_rangeEPvm.exit: ; preds = %.lr.ph.i, %20
-  %29 = getelementptr inbounds nuw i8, ptr %15, i64 224
-  %30 = load i32, ptr %29, align 8, !tbaa !78
-  %31 = and i32 %30, 6
-  %.not43 = icmp eq i32 %31, 0
-  br i1 %.not43, label %32, label %140
+  %27 = getelementptr inbounds nuw i8, ptr %15, i64 224
+  %28 = load i32, ptr %27, align 8, !tbaa !78
+  %29 = and i32 %28, 6
+  %.not43 = icmp eq i32 %29, 0
+  br i1 %.not43, label %30, label %134
 
-32:                                               ; preds = %_ZN5boost7context6detail14prefetch_rangeEPvm.exit
-  %33 = tail call noundef ptr @_ZN5boost6fibers7context6activeEv() #22
-  tail call void @_ZN5boost6fibers7context6attachEPS1_(ptr noundef nonnull align 8 dereferenceable(232) %33, ptr noundef nonnull %15) #22
-  br label %140
+30:                                               ; preds = %_ZN5boost7context6detail14prefetch_rangeEPvm.exit
+  %31 = tail call noundef ptr @_ZN5boost6fibers7context6activeEv() #22
+  tail call void @_ZN5boost6fibers7context6attachEPS1_(ptr noundef nonnull align 8 dereferenceable(232) %31, ptr noundef nonnull %15) #22
+  br label %134
 
-34:                                               ; preds = %.thread, %11
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %37 = load ptr, ptr %36, align 8, !tbaa !39
-  %38 = load ptr, ptr %35, align 8, !tbaa !35
-  %39 = ptrtoint ptr %37 to i64
-  %40 = ptrtoint ptr %38 to i64
-  %41 = sub i64 %39, %40
-  %42 = ashr exact i64 %41, 2
+32:                                               ; preds = %.thread, %11
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %35 = load ptr, ptr %34, align 8, !tbaa !39
+  %36 = load ptr, ptr %33, align 8, !tbaa !35
+  %37 = ptrtoint ptr %35 to i64
+  %38 = ptrtoint ptr %36 to i64
+  %39 = sub i64 %37, %38
+  %40 = ashr exact i64 %39, 2
   %.b = load i1, ptr @_ZGVZN5boost6fibers4numa4algo13work_stealing9pick_nextEvE9generator, align 1
-  br i1 %.b, label %52, label %43, !prof !113
+  br i1 %.b, label %50, label %41, !prof !113
 
-43:                                               ; preds = %34
+41:                                               ; preds = %32
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   invoke void @_ZNSt13random_deviceC2Ev(ptr noundef nonnull align 8 dereferenceable(5000) %2)
+          to label %42 unwind label %.loopexit.split-lp.loopexit.split-lp
+
+42:                                               ; preds = %41
+  %43 = invoke noundef i32 @_ZNSt13random_device9_M_getvalEv(ptr noundef nonnull align 8 dereferenceable(5000) %2)
           to label %44 unwind label %.loopexit.split-lp.loopexit.split-lp
 
-44:                                               ; preds = %43
-  %45 = invoke noundef i32 @_ZNSt13random_device9_M_getvalEv(ptr noundef nonnull align 8 dereferenceable(5000) %2)
-          to label %46 unwind label %.loopexit.split-lp.loopexit.split-lp
-
-46:                                               ; preds = %44
-  %47 = urem i32 %45, 2147483647
-  %48 = call i32 @llvm.umax.i32(i32 %47, i32 1)
-  %storemerge.i.i = zext nneg i32 %48 to i64
+44:                                               ; preds = %42
+  %45 = urem i32 %43, 2147483647
+  %46 = call i32 @llvm.umax.i32(i32 %45, i32 1)
+  %storemerge.i.i = zext nneg i32 %46 to i64
   store i64 %storemerge.i.i, ptr @_ZZN5boost6fibers4numa4algo13work_stealing9pick_nextEvE9generator, align 8, !tbaa !114
   invoke void @_ZNSt13random_device7_M_finiEv(ptr noundef nonnull align 8 dereferenceable(5000) %2)
-          to label %_ZNSt13random_deviceD2Ev.exit unwind label %49
+          to label %_ZNSt13random_deviceD2Ev.exit unwind label %47
 
-49:                                               ; preds = %46
-  %50 = landingpad { ptr, i32 }
+47:                                               ; preds = %44
+  %48 = landingpad { ptr, i32 }
           catch ptr null
-  %51 = extractvalue { ptr, i32 } %50, 0
-  call void @__clang_call_terminate(ptr %51) #27
+  %49 = extractvalue { ptr, i32 } %48, 0
+  call void @__clang_call_terminate(ptr %49) #27
   unreachable
 
-_ZNSt13random_deviceD2Ev.exit:                    ; preds = %46
+_ZNSt13random_deviceD2Ev.exit:                    ; preds = %44
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   store i1 true, ptr @_ZGVZN5boost6fibers4numa4algo13work_stealing9pick_nextEvE9generator, align 1
-  %.pre = load ptr, ptr %36, align 8, !tbaa !39
-  %.pre60 = load ptr, ptr %35, align 8, !tbaa !35
+  %.pre = load ptr, ptr %34, align 8, !tbaa !39
+  %.pre60 = load ptr, ptr %33, align 8, !tbaa !35
   %.pre61 = ptrtoint ptr %.pre to i64
   %.pre62 = ptrtoint ptr %.pre60 to i64
   %.pre64 = sub i64 %.pre61, %.pre62
-  br label %52
+  br label %50
 
-52:                                               ; preds = %34, %_ZNSt13random_deviceD2Ev.exit
-  %.pre-phi65 = phi i64 [ %41, %34 ], [ %.pre64, %_ZNSt13random_deviceD2Ev.exit ]
+50:                                               ; preds = %32, %_ZNSt13random_deviceD2Ev.exit
+  %.pre-phi65 = phi i64 [ %39, %32 ], [ %.pre64, %_ZNSt13random_deviceD2Ev.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %53 = lshr exact i64 %.pre-phi65, 2
-  %54 = trunc i64 %53 to i32
-  %55 = add i32 %54, -1
+  %51 = lshr exact i64 %.pre-phi65, 2
+  %52 = trunc i64 %51 to i32
+  %53 = add i32 %52, -1
   store i32 0, ptr %3, align 4, !tbaa !116
-  %56 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  store i32 %55, ptr %56, align 4, !tbaa !118
+  %54 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  store i32 %53, ptr %54, align 4, !tbaa !118
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %57 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %58 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %59 = load ptr, ptr %58, align 8, !tbaa !39
-  %60 = load ptr, ptr %57, align 8, !tbaa !35
-  %61 = ptrtoint ptr %59 to i64
-  %62 = ptrtoint ptr %60 to i64
-  %63 = sub i64 %61, %62
-  %64 = lshr exact i64 %63, 2
-  %65 = trunc i64 %64 to i32
-  %66 = add i32 %65, -1
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %57 = load ptr, ptr %56, align 8, !tbaa !39
+  %58 = load ptr, ptr %55, align 8, !tbaa !35
+  %59 = ptrtoint ptr %57 to i64
+  %60 = ptrtoint ptr %58 to i64
+  %61 = sub i64 %59, %60
+  %62 = lshr exact i64 %61, 2
+  %63 = trunc i64 %62 to i32
+  %64 = add i32 %63, -1
   store i32 0, ptr %4, align 4, !tbaa !116
-  %67 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  store i32 %66, ptr %67, align 4, !tbaa !118
-  %68 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZZN5boost6fibers4numa4algo13work_stealing9pick_nextEvE9generator)
-  %69 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  br label %70
+  %65 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  store i32 %64, ptr %65, align 4, !tbaa !118
+  %66 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZZN5boost6fibers4numa4algo13work_stealing9pick_nextEvE9generator)
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  br label %68
 
-70:                                               ; preds = %.backedge, %52
-  %.1 = phi i64 [ 0, %52 ], [ %72, %.backedge ]
-  %71 = invoke noundef i32 @_ZNSt24uniform_int_distributionIjEclISt26linear_congruential_engineImLm48271ELm0ELm2147483647EEEEjRT_RKNS0_10param_typeE(ptr noundef nonnull align 4 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %68, ptr noundef nonnull align 4 dereferenceable(8) %3)
+68:                                               ; preds = %.backedge, %50
+  %.1 = phi i64 [ 0, %50 ], [ %70, %.backedge ]
+  %69 = invoke noundef i32 @_ZNSt24uniform_int_distributionIjEclISt26linear_congruential_engineImLm48271ELm0ELm2147483647EEEEjRT_RKNS0_10param_typeE(ptr noundef nonnull align 4 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %66, ptr noundef nonnull align 4 dereferenceable(8) %3)
           to label %_ZNSt24uniform_int_distributionIjEclISt26linear_congruential_engineImLm48271ELm0ELm2147483647EEEEjRT_.exit unwind label %.loopexit.split-lp.loopexit
 
-_ZNSt24uniform_int_distributionIjEclISt26linear_congruential_engineImLm48271ELm0ELm2147483647EEEEjRT_.exit: ; preds = %70
-  %72 = add i64 %.1, 1
-  %73 = zext i32 %71 to i64
-  %74 = load ptr, ptr %35, align 8, !tbaa !35
-  %75 = getelementptr inbounds nuw i32, ptr %74, i64 %73
-  %76 = load i32, ptr %75, align 4, !tbaa !37
-  %77 = load i32, ptr %69, align 8, !tbaa !42
-  %78 = icmp eq i32 %76, %77
-  br i1 %78, label %.backedge, label %79
+_ZNSt24uniform_int_distributionIjEclISt26linear_congruential_engineImLm48271ELm0ELm2147483647EEEEjRT_.exit: ; preds = %68
+  %70 = add i64 %.1, 1
+  %71 = zext i32 %69 to i64
+  %72 = load ptr, ptr %33, align 8, !tbaa !35
+  %73 = getelementptr inbounds nuw i32, ptr %72, i64 %71
+  %74 = load i32, ptr %73, align 4, !tbaa !37
+  %75 = load i32, ptr %67, align 8, !tbaa !42
+  %76 = icmp eq i32 %74, %75
+  br i1 %76, label %.backedge, label %77
 
-.backedge:                                        ; preds = %_ZNSt24uniform_int_distributionIjEclISt26linear_congruential_engineImLm48271ELm0ELm2147483647EEEEjRT_.exit, %79
-  br label %70, !llvm.loop !119
+.backedge:                                        ; preds = %_ZNSt24uniform_int_distributionIjEclISt26linear_congruential_engineImLm48271ELm0ELm2147483647EEEEjRT_.exit, %77
+  br label %68, !llvm.loop !119
 
-79:                                               ; preds = %_ZNSt24uniform_int_distributionIjEclISt26linear_congruential_engineImLm48271ELm0ELm2147483647EEEEjRT_.exit
-  %80 = zext i32 %76 to i64
-  %81 = load ptr, ptr @_ZN5boost6fibers4numa4algo13work_stealing11schedulers_E, align 8, !tbaa !3
-  %82 = getelementptr inbounds nuw %"class.boost::intrusive_ptr", ptr %81, i64 %80
-  %83 = load ptr, ptr %82, align 8, !tbaa !9
-  %84 = load ptr, ptr %83, align 8, !tbaa !11
-  %85 = getelementptr inbounds nuw i8, ptr %84, i64 56
-  %86 = load ptr, ptr %85, align 8
-  %87 = call noundef ptr %86(ptr noundef nonnull align 8 dereferenceable(202) %83) #22
-  %88 = icmp eq ptr %87, null
-  %89 = icmp ult i64 %72, %42
-  %90 = select i1 %88, i1 %89, i1 false
-  br i1 %90, label %.backedge, label %91
+77:                                               ; preds = %_ZNSt24uniform_int_distributionIjEclISt26linear_congruential_engineImLm48271ELm0ELm2147483647EEEEjRT_.exit
+  %78 = zext i32 %74 to i64
+  %79 = load ptr, ptr @_ZN5boost6fibers4numa4algo13work_stealing11schedulers_E, align 8, !tbaa !3
+  %80 = getelementptr inbounds nuw %"class.boost::intrusive_ptr", ptr %79, i64 %78
+  %81 = load ptr, ptr %80, align 8, !tbaa !9
+  %82 = load ptr, ptr %81, align 8, !tbaa !11
+  %83 = getelementptr inbounds nuw i8, ptr %82, i64 56
+  %84 = load ptr, ptr %83, align 8
+  %85 = call noundef ptr %84(ptr noundef nonnull align 8 dereferenceable(202) %81) #22
+  %86 = icmp eq ptr %85, null
+  %87 = icmp ult i64 %70, %40
+  %88 = select i1 %86, i1 %87, i1 false
+  br i1 %88, label %.backedge, label %89
 
-91:                                               ; preds = %79
-  br i1 %88, label %101, label %92
+89:                                               ; preds = %77
+  br i1 %86, label %97, label %90
 
-92:                                               ; preds = %91
-  %93 = ptrtoint ptr %87 to i64
-  %94 = add i64 %93, 232
-  %95 = inttoptr i64 %94 to ptr
-  %96 = icmp ult ptr %87, %95
-  br i1 %96, label %.lr.ph.i34, label %.sink.split
+90:                                               ; preds = %89
+  %91 = getelementptr i8, ptr %85, i64 232
+  %92 = icmp ult ptr %85, %91
+  br i1 %92, label %.lr.ph.i34, label %.sink.split
 
-.lr.ph.i34:                                       ; preds = %92, %.lr.ph.i34
-  %.06.i35 = phi ptr [ %99, %.lr.ph.i34 ], [ %87, %92 ]
+.lr.ph.i34:                                       ; preds = %90, %.lr.ph.i34
+  %.06.i35 = phi ptr [ %95, %.lr.ph.i34 ], [ %85, %90 ]
   call void @llvm.prefetch.p0(ptr %.06.i35, i32 1, i32 1, i32 1)
-  %97 = ptrtoint ptr %.06.i35 to i64
-  %98 = add i64 %97, 256
-  %99 = inttoptr i64 %98 to ptr
-  %100 = icmp ult i64 %98, %94
-  br i1 %100, label %.lr.ph.i34, label %.sink.split, !llvm.loop !112
+  %93 = ptrtoint ptr %.06.i35 to i64
+  %94 = add i64 %93, 256
+  %95 = inttoptr i64 %94 to ptr
+  %96 = icmp ugt ptr %91, %95
+  br i1 %96, label %.lr.ph.i34, label %.sink.split, !llvm.loop !112
 
-101:                                              ; preds = %91
-  %102 = load ptr, ptr %57, align 8, !tbaa !16
-  %103 = load ptr, ptr %58, align 8, !tbaa !16
-  %104 = icmp eq ptr %102, %103
-  br i1 %104, label %139, label %105
+97:                                               ; preds = %89
+  %98 = load ptr, ptr %55, align 8, !tbaa !16
+  %99 = load ptr, ptr %56, align 8, !tbaa !16
+  %100 = icmp eq ptr %98, %99
+  br i1 %100, label %133, label %101
 
-105:                                              ; preds = %101
-  %106 = ptrtoint ptr %103 to i64
-  %107 = ptrtoint ptr %102 to i64
-  %108 = sub i64 %106, %107
-  %109 = ashr exact i64 %108, 2
-  br label %110
+101:                                              ; preds = %97
+  %102 = ptrtoint ptr %99 to i64
+  %103 = ptrtoint ptr %98 to i64
+  %104 = sub i64 %102, %103
+  %105 = ashr exact i64 %104, 2
+  br label %106
 
-110:                                              ; preds = %_ZNSt24uniform_int_distributionIjEclISt26linear_congruential_engineImLm48271ELm0ELm2147483647EEEEjRT_.exit37, %105
-  %.2 = phi i64 [ 0, %105 ], [ %112, %_ZNSt24uniform_int_distributionIjEclISt26linear_congruential_engineImLm48271ELm0ELm2147483647EEEEjRT_.exit37 ]
-  %111 = invoke noundef i32 @_ZNSt24uniform_int_distributionIjEclISt26linear_congruential_engineImLm48271ELm0ELm2147483647EEEEjRT_RKNS0_10param_typeE(ptr noundef nonnull align 4 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %68, ptr noundef nonnull align 4 dereferenceable(8) %4)
+106:                                              ; preds = %_ZNSt24uniform_int_distributionIjEclISt26linear_congruential_engineImLm48271ELm0ELm2147483647EEEEjRT_.exit37, %101
+  %.2 = phi i64 [ 0, %101 ], [ %108, %_ZNSt24uniform_int_distributionIjEclISt26linear_congruential_engineImLm48271ELm0ELm2147483647EEEEjRT_.exit37 ]
+  %107 = invoke noundef i32 @_ZNSt24uniform_int_distributionIjEclISt26linear_congruential_engineImLm48271ELm0ELm2147483647EEEEjRT_RKNS0_10param_typeE(ptr noundef nonnull align 4 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %66, ptr noundef nonnull align 4 dereferenceable(8) %4)
           to label %_ZNSt24uniform_int_distributionIjEclISt26linear_congruential_engineImLm48271ELm0ELm2147483647EEEEjRT_.exit37 unwind label %.loopexit
 
-_ZNSt24uniform_int_distributionIjEclISt26linear_congruential_engineImLm48271ELm0ELm2147483647EEEEjRT_.exit37: ; preds = %110
-  %112 = add nuw i64 %.2, 1
-  %113 = zext i32 %111 to i64
-  %114 = load ptr, ptr %57, align 8, !tbaa !35
-  %115 = getelementptr inbounds nuw i32, ptr %114, i64 %113
-  %116 = load i32, ptr %115, align 4, !tbaa !37
-  %117 = zext i32 %116 to i64
-  %118 = load ptr, ptr @_ZN5boost6fibers4numa4algo13work_stealing11schedulers_E, align 8, !tbaa !3
-  %119 = getelementptr inbounds nuw %"class.boost::intrusive_ptr", ptr %118, i64 %117
-  %120 = load ptr, ptr %119, align 8, !tbaa !9
-  %121 = load ptr, ptr %120, align 8, !tbaa !11
-  %122 = getelementptr inbounds nuw i8, ptr %121, i64 56
-  %123 = load ptr, ptr %122, align 8
-  %124 = call noundef ptr %123(ptr noundef nonnull align 8 dereferenceable(202) %120) #22
-  %125 = icmp eq ptr %124, null
-  %126 = icmp ult i64 %112, %109
-  %127 = select i1 %125, i1 %126, i1 false
-  br i1 %127, label %110, label %128, !llvm.loop !120
+_ZNSt24uniform_int_distributionIjEclISt26linear_congruential_engineImLm48271ELm0ELm2147483647EEEEjRT_.exit37: ; preds = %106
+  %108 = add nuw i64 %.2, 1
+  %109 = zext i32 %107 to i64
+  %110 = load ptr, ptr %55, align 8, !tbaa !35
+  %111 = getelementptr inbounds nuw i32, ptr %110, i64 %109
+  %112 = load i32, ptr %111, align 4, !tbaa !37
+  %113 = zext i32 %112 to i64
+  %114 = load ptr, ptr @_ZN5boost6fibers4numa4algo13work_stealing11schedulers_E, align 8, !tbaa !3
+  %115 = getelementptr inbounds nuw %"class.boost::intrusive_ptr", ptr %114, i64 %113
+  %116 = load ptr, ptr %115, align 8, !tbaa !9
+  %117 = load ptr, ptr %116, align 8, !tbaa !11
+  %118 = getelementptr inbounds nuw i8, ptr %117, i64 56
+  %119 = load ptr, ptr %118, align 8
+  %120 = call noundef ptr %119(ptr noundef nonnull align 8 dereferenceable(202) %116) #22
+  %121 = icmp eq ptr %120, null
+  %122 = icmp ult i64 %108, %105
+  %123 = select i1 %121, i1 %122, i1 false
+  br i1 %123, label %106, label %124, !llvm.loop !120
 
-128:                                              ; preds = %_ZNSt24uniform_int_distributionIjEclISt26linear_congruential_engineImLm48271ELm0ELm2147483647EEEEjRT_.exit37
-  br i1 %125, label %139, label %129
+124:                                              ; preds = %_ZNSt24uniform_int_distributionIjEclISt26linear_congruential_engineImLm48271ELm0ELm2147483647EEEEjRT_.exit37
+  br i1 %121, label %133, label %125
 
-129:                                              ; preds = %128
-  %130 = ptrtoint ptr %124 to i64
-  %131 = add i64 %130, 232
-  %132 = inttoptr i64 %131 to ptr
-  %133 = icmp ult ptr %124, %132
-  br i1 %133, label %.lr.ph.i38, label %.sink.split
+125:                                              ; preds = %124
+  %126 = getelementptr i8, ptr %120, i64 232
+  %127 = icmp ult ptr %120, %126
+  br i1 %127, label %.lr.ph.i38, label %.sink.split
 
-.lr.ph.i38:                                       ; preds = %129, %.lr.ph.i38
-  %.06.i39 = phi ptr [ %136, %.lr.ph.i38 ], [ %124, %129 ]
+.lr.ph.i38:                                       ; preds = %125, %.lr.ph.i38
+  %.06.i39 = phi ptr [ %130, %.lr.ph.i38 ], [ %120, %125 ]
   call void @llvm.prefetch.p0(ptr %.06.i39, i32 1, i32 1, i32 1)
-  %134 = ptrtoint ptr %.06.i39 to i64
-  %135 = add i64 %134, 256
-  %136 = inttoptr i64 %135 to ptr
-  %137 = icmp ult i64 %135, %131
-  br i1 %137, label %.lr.ph.i38, label %.sink.split, !llvm.loop !112
+  %128 = ptrtoint ptr %.06.i39 to i64
+  %129 = add i64 %128, 256
+  %130 = inttoptr i64 %129 to ptr
+  %131 = icmp ugt ptr %126, %130
+  br i1 %131, label %.lr.ph.i38, label %.sink.split, !llvm.loop !112
 
-.sink.split:                                      ; preds = %.lr.ph.i34, %.lr.ph.i38, %129, %92
-  %.sink80 = phi ptr [ %87, %92 ], [ %124, %129 ], [ %124, %.lr.ph.i38 ], [ %87, %.lr.ph.i34 ]
-  %138 = call noundef ptr @_ZN5boost6fibers7context6activeEv() #22
-  call void @_ZN5boost6fibers7context6attachEPS1_(ptr noundef nonnull align 8 dereferenceable(232) %138, ptr noundef nonnull %.sink80) #22
-  br label %139
+.sink.split:                                      ; preds = %.lr.ph.i34, %.lr.ph.i38, %125, %90
+  %.sink83 = phi ptr [ %85, %90 ], [ %120, %125 ], [ %120, %.lr.ph.i38 ], [ %85, %.lr.ph.i34 ]
+  %132 = call noundef ptr @_ZN5boost6fibers7context6activeEv() #22
+  call void @_ZN5boost6fibers7context6attachEPS1_(ptr noundef nonnull align 8 dereferenceable(232) %132, ptr noundef nonnull %.sink83) #22
+  br label %133
 
-139:                                              ; preds = %.sink.split, %101, %128
-  %.123 = phi ptr [ null, %101 ], [ null, %128 ], [ %.sink80, %.sink.split ]
+133:                                              ; preds = %.sink.split, %97, %124
+  %.123 = phi ptr [ null, %97 ], [ null, %124 ], [ %.sink83, %.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %140
+  br label %134
 
-140:                                              ; preds = %_ZN5boost7context6detail14prefetch_rangeEPvm.exit, %32, %139
-  %.022 = phi ptr [ %15, %_ZN5boost7context6detail14prefetch_rangeEPvm.exit ], [ %15, %32 ], [ %.123, %139 ]
+134:                                              ; preds = %_ZN5boost7context6detail14prefetch_rangeEPvm.exit, %30, %133
+  %.022 = phi ptr [ %15, %_ZN5boost7context6detail14prefetch_rangeEPvm.exit ], [ %15, %30 ], [ %.123, %133 ]
   ret ptr %.022
 
-.loopexit:                                        ; preds = %110
+.loopexit:                                        ; preds = %106
   %lpad.loopexit = landingpad { ptr, i32 }
           catch ptr null
   br label %.loopexit.split-lp
 
-.loopexit.split-lp.loopexit:                      ; preds = %70
+.loopexit.split-lp.loopexit:                      ; preds = %68
   %lpad.loopexit44 = landingpad { ptr, i32 }
           catch ptr null
   br label %.loopexit.split-lp
 
-.loopexit.split-lp.loopexit.split-lp:             ; preds = %44, %43
+.loopexit.split-lp.loopexit.split-lp:             ; preds = %42, %41
   %lpad.loopexit.split-lp45 = landingpad { ptr, i32 }
           catch ptr null
   br label %.loopexit.split-lp
 
 .loopexit.split-lp:                               ; preds = %.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit44, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp45, %.loopexit.split-lp.loopexit.split-lp ]
-  %141 = extractvalue { ptr, i32 } %lpad.phi, 0
-  call void @__clang_call_terminate(ptr %141) #27
+  %135 = extractvalue { ptr, i32 } %lpad.phi, 0
+  call void @__clang_call_terminate(ptr %135) #27
   unreachable
 }
 

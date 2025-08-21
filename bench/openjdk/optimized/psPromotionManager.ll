@@ -675,7 +675,7 @@ _ZN10PSScavenge15should_scavengeIP7oopDescEEbPT_b.exit: ; preds = %3, %9, %13, %
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden noundef zeroext i1 @_ZN18PSPromotionManager15should_scavengeEP9narrowOopb(ptr noundef readonly captures(none) %0, i1 noundef zeroext %1) local_unnamed_addr #3 align 2 {
-  br i1 %1, label %3, label %25
+  br i1 %1, label %3, label %23
 
 3:                                                ; preds = %2
   %4 = load ptr, ptr @_ZN20ParallelScavengeHeap10_young_genE, align 8
@@ -689,32 +689,30 @@ define hidden noundef zeroext i1 @_ZN18PSPromotionManager15should_scavengeEP9nar
 
 10:                                               ; preds = %3
   %11 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
-  %12 = ptrtoint ptr %11 to i64
-  %13 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
-  %14 = zext nneg i32 %13 to i64
-  %15 = shl i64 %8, %14
-  %16 = add i64 %15, %12
-  %17 = inttoptr i64 %16 to ptr
-  %18 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  %19 = load ptr, ptr %18, align 8
-  %20 = icmp ugt ptr %19, %17
-  br i1 %20, label %_ZN10PSScavenge15should_scavengeI9narrowOopEEbPT_b.exit, label %21
+  %12 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %13 = zext nneg i32 %12 to i64
+  %14 = shl i64 %8, %13
+  %15 = getelementptr i8, ptr %11, i64 %14
+  %16 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  %17 = load ptr, ptr %16, align 8
+  %18 = icmp ult ptr %15, %17
+  br i1 %18, label %_ZN10PSScavenge15should_scavengeI9narrowOopEEbPT_b.exit, label %19
 
-21:                                               ; preds = %10
-  %22 = getelementptr inbounds nuw i8, ptr %6, i64 48
-  %23 = load ptr, ptr %22, align 8
-  %24 = icmp ule ptr %23, %17
+19:                                               ; preds = %10
+  %20 = getelementptr inbounds nuw i8, ptr %6, i64 48
+  %21 = load ptr, ptr %20, align 8
+  %22 = icmp uge ptr %15, %21
   br label %_ZN10PSScavenge15should_scavengeI9narrowOopEEbPT_b.exit
 
-25:                                               ; preds = %2
-  %26 = load i32, ptr %0, align 4
-  %27 = zext i32 %26 to i64
-  %28 = load i64, ptr @_ZN10PSScavenge37_young_generation_boundary_compressedE, align 8
-  %29 = icmp ule i64 %28, %27
+23:                                               ; preds = %2
+  %24 = load i32, ptr %0, align 4
+  %25 = zext i32 %24 to i64
+  %26 = load i64, ptr @_ZN10PSScavenge37_young_generation_boundary_compressedE, align 8
+  %27 = icmp ule i64 %26, %25
   br label %_ZN10PSScavenge15should_scavengeI9narrowOopEEbPT_b.exit
 
-_ZN10PSScavenge15should_scavengeI9narrowOopEEbPT_b.exit: ; preds = %3, %10, %21, %25
-  %.0.i = phi i1 [ %29, %25 ], [ true, %10 ], [ %24, %21 ], [ false, %3 ]
+_ZN10PSScavenge15should_scavengeI9narrowOopEEbPT_b.exit: ; preds = %3, %10, %19, %23
+  %.0.i = phi i1 [ %27, %23 ], [ true, %10 ], [ %22, %19 ], [ false, %3 ]
   ret i1 %.0.i
 }
 

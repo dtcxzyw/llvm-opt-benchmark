@@ -2279,55 +2279,53 @@ define internal i32 @trace_stack_print(ptr noundef %0, i32 noundef %1, ptr readn
 
 10:                                               ; preds = %9, %3
   %11 = phi ptr [ %.pre, %9 ], [ %6, %3 ]
-  %12 = ptrtoint ptr %11 to i64
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16564
-  %14 = load i32, ptr %13, align 4
-  %15 = sext i32 %14 to i64
-  %16 = add i64 %15, %12
-  %17 = inttoptr i64 %16 to ptr
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16564
+  %13 = load i32, ptr %12, align 4
+  %14 = sext i32 %13 to i64
+  %15 = getelementptr i8, ptr %11, i64 %14
   tail call void @trace_seq_puts(ptr noundef nonnull %4, ptr noundef nonnull @.str.55) #10
-  %18 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 16536
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 16520
-  %21 = icmp ult ptr %18, %17
-  br i1 %21, label %22, label %.loopexit
+  %16 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 16536
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 16520
+  %19 = icmp ult ptr %16, %15
+  br i1 %19, label %20, label %.loopexit
 
-22:                                               ; preds = %10
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 16512
-  %24 = sext i32 %1 to i64
-  br label %25
+20:                                               ; preds = %10
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 16512
+  %22 = sext i32 %1 to i64
+  br label %23
 
-25:                                               ; preds = %36, %22
-  %26 = phi ptr [ %18, %22 ], [ %39, %36 ]
-  %27 = load i64, ptr %26, align 8
-  %28 = icmp eq i64 %27, -1
-  br i1 %28, label %.loopexit, label %29
+23:                                               ; preds = %34, %20
+  %24 = phi ptr [ %16, %20 ], [ %37, %34 ]
+  %25 = load i64, ptr %24, align 8
+  %26 = icmp eq i64 %25, -1
+  br i1 %26, label %.loopexit, label %27
 
-29:                                               ; preds = %25
-  %30 = load i32, ptr %19, align 8
-  %31 = icmp eq i32 %30, 0
-  br i1 %31, label %32, label %.loopexit
+27:                                               ; preds = %23
+  %28 = load i32, ptr %17, align 8
+  %29 = icmp eq i32 %28, 0
+  br i1 %29, label %30, label %.loopexit
 
-32:                                               ; preds = %29
-  %33 = load i64, ptr %20, align 8
-  %34 = load i64, ptr %23, align 8
-  %35 = icmp ugt i64 %33, %34
-  br i1 %35, label %.loopexit, label %36
+30:                                               ; preds = %27
+  %31 = load i64, ptr %18, align 8
+  %32 = load i64, ptr %21, align 8
+  %33 = icmp ugt i64 %31, %32
+  br i1 %33, label %.loopexit, label %34
 
-36:                                               ; preds = %32
+34:                                               ; preds = %30
   tail call void @trace_seq_puts(ptr noundef nonnull %4, ptr noundef nonnull @.str.56) #10
-  %37 = load i64, ptr %26, align 8
-  %38 = tail call i32 @seq_print_ip_sym(ptr noundef nonnull %4, i64 noundef %37, i64 noundef %24), !range !26
+  %35 = load i64, ptr %24, align 8
+  %36 = tail call i32 @seq_print_ip_sym(ptr noundef nonnull %4, i64 noundef %35, i64 noundef %22), !range !26
   tail call void @trace_seq_putc(ptr noundef nonnull %4, i8 noundef zeroext 10) #10
-  %39 = getelementptr i8, ptr %26, i64 8
-  %40 = icmp ne ptr %39, null
-  %41 = icmp ult ptr %39, %17
-  %42 = select i1 %40, i1 %41, i1 false
-  br i1 %42, label %25, label %.loopexit, !llvm.loop !64
+  %37 = getelementptr i8, ptr %24, i64 8
+  %38 = icmp ne ptr %37, null
+  %39 = icmp ult ptr %37, %15
+  %40 = select i1 %38, i1 %39, i1 false
+  br i1 %40, label %23, label %.loopexit, !llvm.loop !64
 
-.loopexit:                                        ; preds = %36, %32, %29, %25, %10
-  %43 = tail call i32 @trace_handle_return(ptr noundef nonnull %4) #10
-  ret i32 %43
+.loopexit:                                        ; preds = %34, %30, %27, %23, %10
+  %41 = tail call i32 @trace_handle_return(ptr noundef nonnull %4) #10
+  ret i32 %41
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

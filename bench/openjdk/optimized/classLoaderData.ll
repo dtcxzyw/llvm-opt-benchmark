@@ -6985,12 +6985,12 @@ declare noundef ptr @_ZN21java_lang_ClassLoader19loader_data_acquireEP7oopDesc(p
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN16VerifyHandleOops6do_oopEPP7oopDesc(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1) unnamed_addr #0 comdat align 2 {
   %.not = icmp eq ptr %1, null
-  br i1 %.not, label %40, label %3
+  br i1 %.not, label %38, label %3
 
 3:                                                ; preds = %2
   %4 = load ptr, ptr %1, align 8
   %.not7 = icmp eq ptr %4, null
-  br i1 %.not7, label %40, label %5
+  br i1 %.not7, label %38, label %5
 
 5:                                                ; preds = %3
   %6 = load i8, ptr @UseCompressedClassPointers, align 1
@@ -7002,49 +7002,47 @@ _ZN15java_lang_Class11is_instanceEP7oopDesc.exit: ; preds = %5
   %9 = load i32, ptr %8, align 8
   %10 = load ptr, ptr @_ZN23CompressedKlassPointers5_baseE, align 8
   %11 = load i32, ptr @_ZN23CompressedKlassPointers6_shiftE, align 4
-  %12 = ptrtoint ptr %10 to i64
-  %13 = zext i32 %9 to i64
-  %14 = zext nneg i32 %11 to i64
-  %15 = shl i64 %13, %14
-  %16 = add i64 %15, %12
-  %17 = inttoptr i64 %16 to ptr
-  %18 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 16), align 8
-  %19 = icmp eq ptr %18, %17
-  br i1 %19, label %40, label %23
+  %12 = zext i32 %9 to i64
+  %13 = zext nneg i32 %11 to i64
+  %14 = shl i64 %12, %13
+  %15 = getelementptr i8, ptr %10, i64 %14
+  %16 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 16), align 8
+  %17 = icmp eq ptr %15, %16
+  br i1 %17, label %38, label %21
 
 _ZN15java_lang_Class11is_instanceEP7oopDesc.exit.thread: ; preds = %5
-  %20 = load ptr, ptr %8, align 8
-  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 16), align 8
-  %22 = icmp eq ptr %20, %21
-  br i1 %22, label %40, label %32
+  %18 = load ptr, ptr %8, align 8
+  %19 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 16), align 8
+  %20 = icmp eq ptr %18, %19
+  br i1 %20, label %38, label %30
 
-23:                                               ; preds = %_ZN15java_lang_Class11is_instanceEP7oopDesc.exit
-  %24 = load ptr, ptr @_ZN23CompressedKlassPointers5_baseE, align 8
-  %25 = load i32, ptr @_ZN23CompressedKlassPointers6_shiftE, align 4
-  %26 = ptrtoint ptr %24 to i64
-  %27 = zext i32 %9 to i64
-  %28 = zext nneg i32 %25 to i64
-  %29 = shl i64 %27, %28
-  %30 = add i64 %29, %26
-  %31 = inttoptr i64 %30 to ptr
+21:                                               ; preds = %_ZN15java_lang_Class11is_instanceEP7oopDesc.exit
+  %22 = load ptr, ptr @_ZN23CompressedKlassPointers5_baseE, align 8
+  %23 = load i32, ptr @_ZN23CompressedKlassPointers6_shiftE, align 4
+  %24 = ptrtoint ptr %22 to i64
+  %25 = zext i32 %9 to i64
+  %26 = zext nneg i32 %23 to i64
+  %27 = shl i64 %25, %26
+  %28 = add i64 %27, %24
+  %29 = inttoptr i64 %28 to ptr
   br label %_ZN7oopDesc11oop_iterateI16VerifyOopClosureEEvPT_.exit
 
-32:                                               ; preds = %_ZN15java_lang_Class11is_instanceEP7oopDesc.exit.thread
-  %33 = load ptr, ptr %8, align 8
+30:                                               ; preds = %_ZN15java_lang_Class11is_instanceEP7oopDesc.exit.thread
+  %31 = load ptr, ptr %8, align 8
   br label %_ZN7oopDesc11oop_iterateI16VerifyOopClosureEEvPT_.exit
 
-_ZN7oopDesc11oop_iterateI16VerifyOopClosureEEvPT_.exit: ; preds = %23, %32
-  %.0.i.i9 = phi ptr [ %31, %23 ], [ %33, %32 ]
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %35 = getelementptr inbounds nuw i8, ptr %.0.i.i9, i64 12
-  %36 = load i32, ptr %35, align 4
-  %37 = sext i32 %36 to i64
-  %38 = getelementptr inbounds [7 x ptr], ptr @_ZN21OopOopIterateDispatchI16VerifyOopClosureE6_tableE, i64 0, i64 %37
-  %39 = load ptr, ptr %38, align 8
-  tail call void %39(ptr noundef nonnull %34, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef %.0.i.i9) #17
-  br label %40
+_ZN7oopDesc11oop_iterateI16VerifyOopClosureEEvPT_.exit: ; preds = %21, %30
+  %.0.i.i9 = phi ptr [ %29, %21 ], [ %31, %30 ]
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %.0.i.i9, i64 12
+  %34 = load i32, ptr %33, align 4
+  %35 = sext i32 %34 to i64
+  %36 = getelementptr inbounds [7 x ptr], ptr @_ZN21OopOopIterateDispatchI16VerifyOopClosureE6_tableE, i64 0, i64 %35
+  %37 = load ptr, ptr %36, align 8
+  tail call void %37(ptr noundef nonnull %32, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef %.0.i.i9) #17
+  br label %38
 
-40:                                               ; preds = %_ZN15java_lang_Class11is_instanceEP7oopDesc.exit.thread, %_ZN15java_lang_Class11is_instanceEP7oopDesc.exit, %_ZN7oopDesc11oop_iterateI16VerifyOopClosureEEvPT_.exit, %3, %2
+38:                                               ; preds = %_ZN15java_lang_Class11is_instanceEP7oopDesc.exit.thread, %_ZN15java_lang_Class11is_instanceEP7oopDesc.exit, %_ZN7oopDesc11oop_iterateI16VerifyOopClosureEEvPT_.exit, %3, %2
   ret void
 }
 

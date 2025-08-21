@@ -3159,8 +3159,8 @@ define internal ptr @find_lock_lowest_rq(ptr noundef %0, ptr noundef %1) #1 alig
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 104
   br label %10
 
-10:                                               ; preds = %63, %2
-  %11 = phi i32 [ 0, %2 ], [ %64, %63 ]
+10:                                               ; preds = %62, %2
+  %11 = phi i32 [ 0, %2 ], [ %63, %62 ]
   %12 = tail call fastcc i32 @find_lowest_rq(ptr noundef %0)
   %13 = icmp eq i32 %12, -1
   br i1 %13, label %.loopexit, label %14
@@ -3189,70 +3189,69 @@ define internal ptr @find_lock_lowest_rq(ptr noundef %0, ptr noundef %1) #1 alig
   %29 = zext i32 %28 to i64
   %30 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %29
   %31 = load i64, ptr %30, align 8
-  %32 = add i64 %31, ptrtoint (ptr @runqueues to i64)
-  %33 = inttoptr i64 %32 to ptr
-  %34 = icmp eq ptr %1, %33
-  br i1 %34, label %35, label %54, !prof !29
+  %32 = getelementptr i8, ptr @runqueues, i64 %31
+  %33 = icmp eq ptr %32, %1
+  br i1 %33, label %34, label %53, !prof !29
 
-35:                                               ; preds = %27
-  %36 = getelementptr inbounds nuw i8, ptr %22, i64 2584
-  %37 = load i32, ptr %36, align 8
-  %38 = zext i32 %37 to i64
-  %39 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %6, i64 %38) #29, !srcloc !24
-  %40 = icmp ult i8 %39, 2
-  tail call void @llvm.assume(i1 %40)
-  %41 = icmp eq i8 %39, 0
-  br i1 %41, label %54, label %42, !prof !7
+34:                                               ; preds = %27
+  %35 = getelementptr inbounds nuw i8, ptr %22, i64 2584
+  %36 = load i32, ptr %35, align 8
+  %37 = zext i32 %36 to i64
+  %38 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %6, i64 %37) #29, !srcloc !24
+  %39 = icmp ult i8 %38, 2
+  tail call void @llvm.assume(i1 %39)
+  %40 = icmp eq i8 %38, 0
+  br i1 %40, label %53, label %41, !prof !7
 
-42:                                               ; preds = %35
-  %43 = load i32, ptr %7, align 4
-  %44 = icmp eq i32 %43, 0
-  br i1 %44, label %45, label %54, !prof !29
+41:                                               ; preds = %34
+  %42 = load i32, ptr %7, align 4
+  %43 = icmp eq i32 %42, 0
+  br i1 %43, label %44, label %53, !prof !29
 
-45:                                               ; preds = %42
-  %46 = load i32, ptr %4, align 4
-  %47 = icmp sgt i32 %46, 99
-  br i1 %47, label %54, label %48, !prof !7
+44:                                               ; preds = %41
+  %45 = load i32, ptr %4, align 4
+  %46 = icmp sgt i32 %45, 99
+  br i1 %46, label %53, label %47, !prof !7
 
-48:                                               ; preds = %45
-  %49 = load i16, ptr %8, align 16
-  %50 = icmp eq i16 %49, 0
-  br i1 %50, label %51, label %54, !prof !29
+47:                                               ; preds = %44
+  %48 = load i16, ptr %8, align 16
+  %49 = icmp eq i16 %48, 0
+  br i1 %49, label %50, label %53, !prof !29
 
-51:                                               ; preds = %48
-  %52 = load i32, ptr %9, align 8
-  %53 = icmp eq i32 %52, 1
-  br i1 %53, label %57, label %54, !prof !29
+50:                                               ; preds = %47
+  %51 = load i32, ptr %9, align 8
+  %52 = icmp eq i32 %51, 1
+  br i1 %52, label %56, label %53, !prof !29
 
-54:                                               ; preds = %51, %48, %45, %42, %35, %27
-  %55 = icmp eq ptr %1, %22
-  br i1 %55, label %.loopexit, label %56
+53:                                               ; preds = %50, %47, %44, %41, %34, %27
+  %54 = icmp eq ptr %1, %22
+  br i1 %54, label %.loopexit, label %55
 
-56:                                               ; preds = %54
+55:                                               ; preds = %53
   tail call void @raw_spin_rq_unlock(ptr noundef %22) #29
   br label %.loopexit
 
-57:                                               ; preds = %51
-  %58 = load i32, ptr %23, align 8
-  %59 = icmp sgt i32 %58, %46
-  br i1 %59, label %.loopexit, label %60
+56:                                               ; preds = %50
+  %57 = load i32, ptr %23, align 8
+  %58 = icmp sgt i32 %57, %45
+  br i1 %58, label %.loopexit, label %59
 
-60:                                               ; preds = %57
-  %61 = icmp eq ptr %1, %22
-  br i1 %61, label %63, label %62
+59:                                               ; preds = %56
+  %60 = icmp eq ptr %1, %22
+  br i1 %60, label %62, label %61
 
-62:                                               ; preds = %60
+61:                                               ; preds = %59
   tail call void @raw_spin_rq_unlock(ptr noundef %22) #29
-  br label %63
+  br label %62
 
-63:                                               ; preds = %62, %60
-  %64 = add nuw nsw i32 %11, 1
-  %65 = icmp eq i32 %64, 3
-  br i1 %65, label %.loopexit, label %10, !llvm.loop !131
+62:                                               ; preds = %61, %59
+  %63 = add nuw nsw i32 %11, 1
+  %64 = icmp eq i32 %63, 3
+  br i1 %64, label %.loopexit, label %10, !llvm.loop !131
 
-.loopexit:                                        ; preds = %63, %57, %17, %14, %10, %56, %54
-  %66 = phi ptr [ null, %54 ], [ null, %56 ], [ null, %17 ], [ null, %63 ], [ %22, %57 ], [ null, %14 ], [ null, %10 ]
-  ret ptr %66
+.loopexit:                                        ; preds = %62, %56, %17, %14, %10, %55, %53
+  %65 = phi ptr [ null, %53 ], [ null, %55 ], [ null, %17 ], [ null, %62 ], [ %22, %56 ], [ null, %14 ], [ null, %10 ]
+  ret ptr %65
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -9155,8 +9154,8 @@ define internal ptr @find_lock_later_rq(ptr noundef %0, ptr noundef %1) #1 align
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 104
   br label %11
 
-11:                                               ; preds = %75, %2
-  %12 = phi i32 [ 0, %2 ], [ %76, %75 ]
+11:                                               ; preds = %74, %2
+  %12 = phi i32 [ 0, %2 ], [ %75, %74 ]
   %13 = tail call fastcc i32 @find_later_rq(ptr noundef %0)
   %14 = icmp eq i32 %13, -1
   br i1 %14, label %.loopexit, label %15
@@ -9192,78 +9191,77 @@ define internal ptr @find_lock_later_rq(ptr noundef %0, ptr noundef %1) #1 align
   %35 = zext i32 %34 to i64
   %36 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %35
   %37 = load i64, ptr %36, align 8
-  %38 = add i64 %37, ptrtoint (ptr @runqueues to i64)
-  %39 = inttoptr i64 %38 to ptr
-  %40 = icmp eq ptr %1, %39
-  br i1 %40, label %41, label %60, !prof !29
+  %38 = getelementptr i8, ptr @runqueues, i64 %37
+  %39 = icmp eq ptr %38, %1
+  br i1 %39, label %40, label %59, !prof !29
 
-41:                                               ; preds = %33
-  %42 = getelementptr inbounds nuw i8, ptr %23, i64 2584
-  %43 = load i32, ptr %42, align 8
-  %44 = zext i32 %43 to i64
-  %45 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %6, i64 %44) #29, !srcloc !24
-  %46 = icmp ult i8 %45, 2
-  tail call void @llvm.assume(i1 %46)
-  %47 = icmp eq i8 %45, 0
-  br i1 %47, label %60, label %48, !prof !7
+40:                                               ; preds = %33
+  %41 = getelementptr inbounds nuw i8, ptr %23, i64 2584
+  %42 = load i32, ptr %41, align 8
+  %43 = zext i32 %42 to i64
+  %44 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %6, i64 %43) #29, !srcloc !24
+  %45 = icmp ult i8 %44, 2
+  tail call void @llvm.assume(i1 %45)
+  %46 = icmp eq i8 %44, 0
+  br i1 %46, label %59, label %47, !prof !7
 
-48:                                               ; preds = %41
-  %49 = load i32, ptr %7, align 4
-  %50 = icmp eq i32 %49, 0
-  br i1 %50, label %51, label %60, !prof !29
+47:                                               ; preds = %40
+  %48 = load i32, ptr %7, align 4
+  %49 = icmp eq i32 %48, 0
+  br i1 %49, label %50, label %59, !prof !29
 
-51:                                               ; preds = %48
-  %52 = load i32, ptr %8, align 4
-  %53 = icmp sgt i32 %52, -1
-  br i1 %53, label %60, label %54, !prof !7
+50:                                               ; preds = %47
+  %51 = load i32, ptr %8, align 4
+  %52 = icmp sgt i32 %51, -1
+  br i1 %52, label %59, label %53, !prof !7
 
-54:                                               ; preds = %51
-  %55 = load i16, ptr %9, align 16
-  %56 = icmp eq i16 %55, 0
-  br i1 %56, label %57, label %60, !prof !29
+53:                                               ; preds = %50
+  %54 = load i16, ptr %9, align 16
+  %55 = icmp eq i16 %54, 0
+  br i1 %55, label %56, label %59, !prof !29
 
-57:                                               ; preds = %54
-  %58 = load i32, ptr %10, align 8
-  %59 = icmp eq i32 %58, 1
-  br i1 %59, label %63, label %60, !prof !29
+56:                                               ; preds = %53
+  %57 = load i32, ptr %10, align 8
+  %58 = icmp eq i32 %57, 1
+  br i1 %58, label %62, label %59, !prof !29
 
-60:                                               ; preds = %57, %54, %51, %48, %41, %33
-  %61 = icmp eq ptr %1, %23
-  br i1 %61, label %.loopexit, label %62
+59:                                               ; preds = %56, %53, %50, %47, %40, %33
+  %60 = icmp eq ptr %1, %23
+  br i1 %60, label %.loopexit, label %61
 
-62:                                               ; preds = %60
+61:                                               ; preds = %59
   tail call void @raw_spin_rq_unlock(ptr noundef %23) #29
   br label %.loopexit
 
-63:                                               ; preds = %57
-  %64 = load i32, ptr %24, align 8
-  %65 = icmp eq i32 %64, 0
-  br i1 %65, label %.loopexit, label %66
+62:                                               ; preds = %56
+  %63 = load i32, ptr %24, align 8
+  %64 = icmp eq i32 %63, 0
+  br i1 %64, label %.loopexit, label %65
 
-66:                                               ; preds = %63
-  %67 = load i64, ptr %4, align 8
-  %68 = getelementptr inbounds nuw i8, ptr %23, i64 2224
-  %69 = load i64, ptr %68, align 8
-  %70 = sub i64 %67, %69
-  %71 = icmp slt i64 %70, 0
-  br i1 %71, label %.loopexit, label %72
+65:                                               ; preds = %62
+  %66 = load i64, ptr %4, align 8
+  %67 = getelementptr inbounds nuw i8, ptr %23, i64 2224
+  %68 = load i64, ptr %67, align 8
+  %69 = sub i64 %66, %68
+  %70 = icmp slt i64 %69, 0
+  br i1 %70, label %.loopexit, label %71
 
-72:                                               ; preds = %66
-  %73 = icmp eq ptr %1, %23
-  br i1 %73, label %75, label %74
+71:                                               ; preds = %65
+  %72 = icmp eq ptr %1, %23
+  br i1 %72, label %74, label %73
 
-74:                                               ; preds = %72
+73:                                               ; preds = %71
   tail call void @raw_spin_rq_unlock(ptr noundef %23) #29
-  br label %75
+  br label %74
 
-75:                                               ; preds = %74, %72
-  %76 = add nuw nsw i32 %12, 1
-  %77 = icmp eq i32 %76, 3
-  br i1 %77, label %.loopexit, label %11, !llvm.loop !216
+74:                                               ; preds = %73, %71
+  %75 = add nuw nsw i32 %12, 1
+  %76 = icmp eq i32 %75, 3
+  br i1 %76, label %.loopexit, label %11, !llvm.loop !216
 
-.loopexit:                                        ; preds = %75, %66, %63, %27, %15, %11, %62, %60
-  %78 = phi ptr [ null, %60 ], [ null, %62 ], [ %23, %63 ], [ null, %27 ], [ null, %75 ], [ %23, %66 ], [ null, %15 ], [ null, %11 ]
-  ret ptr %78
+.loopexit:                                        ; preds = %74, %65, %62, %27, %15, %11, %61, %59
+  %77 = phi ptr [ null, %59 ], [ null, %61 ], [ %23, %62 ], [ null, %27 ], [ null, %74 ], [ %23, %65 ], [ null, %15 ], [ null, %11 ]
+  ret ptr %77
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

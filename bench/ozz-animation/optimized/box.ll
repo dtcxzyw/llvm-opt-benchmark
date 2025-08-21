@@ -28,59 +28,57 @@ define dso_local void @_ZN3ozz4math3BoxC2Ev(ptr noundef nonnull writeonly align 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define dso_local void @_ZN3ozz4math3BoxC2EPKNS0_6Float3Emm(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(24) %0, ptr noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #1 align 2 {
   %5 = mul i64 %3, %2
-  %6 = ptrtoint ptr %1 to i64
-  %7 = add i64 %5, %6
-  %8 = inttoptr i64 %7 to ptr
-  %9 = icmp ult ptr %1, %8
-  br i1 %9, label %.lr.ph, label %._crit_edge
+  %6 = getelementptr i8, ptr %1, i64 %5
+  %7 = icmp ult ptr %1, %6
+  br i1 %7, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %4, %.lr.ph
-  %.037 = phi ptr [ %27, %.lr.ph ], [ %1, %4 ]
+  %.037 = phi ptr [ %25, %.lr.ph ], [ %1, %4 ]
   %.sroa.0.036 = phi <2 x float> [ %.sroa.030.4.vec.insert, %.lr.ph ], [ splat (float 0xC7EFFFFFE0000000), %4 ]
-  %.sroa.8.035 = phi float [ %24, %.lr.ph ], [ 0xC7EFFFFFE0000000, %4 ]
+  %.sroa.8.035 = phi float [ %22, %.lr.ph ], [ 0xC7EFFFFFE0000000, %4 ]
   %.sroa.024.034 = phi <2 x float> [ %.sroa.028.4.vec.insert, %.lr.ph ], [ splat (float 0x47EFFFFFE0000000), %4 ]
-  %.sroa.827.033 = phi float [ %19, %.lr.ph ], [ 0x47EFFFFFE0000000, %4 ]
+  %.sroa.827.033 = phi float [ %17, %.lr.ph ], [ 0x47EFFFFFE0000000, %4 ]
   %.sroa.024.0.vec.extract = extractelement <2 x float> %.sroa.024.034, i64 0
-  %10 = load float, ptr %.037, align 4, !tbaa !4
-  %11 = fcmp olt float %.sroa.024.0.vec.extract, %10
-  %..i = select i1 %11, float %.sroa.024.0.vec.extract, float %10
+  %8 = load float, ptr %.037, align 4, !tbaa !4
+  %9 = fcmp olt float %.sroa.024.0.vec.extract, %8
+  %..i = select i1 %9, float %.sroa.024.0.vec.extract, float %8
   %.sroa.024.4.vec.extract = extractelement <2 x float> %.sroa.024.034, i64 1
-  %12 = getelementptr inbounds nuw i8, ptr %.037, i64 4
-  %13 = load float, ptr %12, align 4, !tbaa !9
-  %14 = fcmp olt float %.sroa.024.4.vec.extract, %13
-  %15 = select i1 %14, float %.sroa.024.4.vec.extract, float %13
-  %16 = getelementptr inbounds nuw i8, ptr %.037, i64 8
-  %17 = load float, ptr %16, align 4, !tbaa !10
-  %18 = fcmp olt float %.sroa.827.033, %17
-  %19 = select i1 %18, float %.sroa.827.033, float %17
+  %10 = getelementptr inbounds nuw i8, ptr %.037, i64 4
+  %11 = load float, ptr %10, align 4, !tbaa !9
+  %12 = fcmp olt float %.sroa.024.4.vec.extract, %11
+  %13 = select i1 %12, float %.sroa.024.4.vec.extract, float %11
+  %14 = getelementptr inbounds nuw i8, ptr %.037, i64 8
+  %15 = load float, ptr %14, align 4, !tbaa !10
+  %16 = fcmp olt float %.sroa.827.033, %15
+  %17 = select i1 %16, float %.sroa.827.033, float %15
   %.sroa.028.0.vec.insert = insertelement <2 x float> poison, float %..i, i64 0
-  %.sroa.028.4.vec.insert = insertelement <2 x float> %.sroa.028.0.vec.insert, float %15, i64 1
+  %.sroa.028.4.vec.insert = insertelement <2 x float> %.sroa.028.0.vec.insert, float %13, i64 1
   %.sroa.0.0.vec.extract = extractelement <2 x float> %.sroa.0.036, i64 0
-  %20 = fcmp ogt float %.sroa.0.0.vec.extract, %10
-  %..i16 = select i1 %20, float %.sroa.0.0.vec.extract, float %10
+  %18 = fcmp ogt float %.sroa.0.0.vec.extract, %8
+  %..i16 = select i1 %18, float %.sroa.0.0.vec.extract, float %8
   %.sroa.0.4.vec.extract = extractelement <2 x float> %.sroa.0.036, i64 1
-  %21 = fcmp ogt float %.sroa.0.4.vec.extract, %13
-  %22 = select i1 %21, float %.sroa.0.4.vec.extract, float %13
-  %23 = fcmp ogt float %.sroa.8.035, %17
-  %24 = select i1 %23, float %.sroa.8.035, float %17
+  %19 = fcmp ogt float %.sroa.0.4.vec.extract, %11
+  %20 = select i1 %19, float %.sroa.0.4.vec.extract, float %11
+  %21 = fcmp ogt float %.sroa.8.035, %15
+  %22 = select i1 %21, float %.sroa.8.035, float %15
   %.sroa.030.0.vec.insert = insertelement <2 x float> poison, float %..i16, i64 0
-  %.sroa.030.4.vec.insert = insertelement <2 x float> %.sroa.030.0.vec.insert, float %22, i64 1
-  %25 = ptrtoint ptr %.037 to i64
-  %26 = add i64 %2, %25
-  %27 = inttoptr i64 %26 to ptr
-  %28 = icmp ult i64 %26, %7
-  br i1 %28, label %.lr.ph, label %._crit_edge, !llvm.loop !11
+  %.sroa.030.4.vec.insert = insertelement <2 x float> %.sroa.030.0.vec.insert, float %20, i64 1
+  %23 = ptrtoint ptr %.037 to i64
+  %24 = add i64 %2, %23
+  %25 = inttoptr i64 %24 to ptr
+  %26 = icmp ugt ptr %6, %25
+  br i1 %26, label %.lr.ph, label %._crit_edge, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
-  %.sroa.827.0.lcssa = phi float [ 0x47EFFFFFE0000000, %4 ], [ %19, %.lr.ph ]
+  %.sroa.827.0.lcssa = phi float [ 0x47EFFFFFE0000000, %4 ], [ %17, %.lr.ph ]
   %.sroa.024.0.lcssa = phi <2 x float> [ splat (float 0x47EFFFFFE0000000), %4 ], [ %.sroa.028.4.vec.insert, %.lr.ph ]
-  %.sroa.8.0.lcssa = phi float [ 0xC7EFFFFFE0000000, %4 ], [ %24, %.lr.ph ]
+  %.sroa.8.0.lcssa = phi float [ 0xC7EFFFFFE0000000, %4 ], [ %22, %.lr.ph ]
   %.sroa.0.0.lcssa = phi <2 x float> [ splat (float 0xC7EFFFFFE0000000), %4 ], [ %.sroa.030.4.vec.insert, %.lr.ph ]
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store <2 x float> %.sroa.024.0.lcssa, ptr %0, align 4
   %.sroa.827.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store float %.sroa.827.0.lcssa, ptr %.sroa.827.0..sroa_idx, align 4, !tbaa !13
-  store <2 x float> %.sroa.0.0.lcssa, ptr %29, align 4
+  store <2 x float> %.sroa.0.0.lcssa, ptr %27, align 4
   %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 20
   store float %.sroa.8.0.lcssa, ptr %.sroa.8.0..sroa_idx, align 4, !tbaa !13
   ret void

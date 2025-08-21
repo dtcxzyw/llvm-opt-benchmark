@@ -830,7 +830,7 @@ declare noundef ptr @_ZNK13ObjectMonitor6objectEv(ptr noundef nonnull align 8 de
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN10javaVFrame30print_locked_object_class_nameEP12outputStream6HandlePKc(ptr noundef %0, ptr readonly captures(address_is_null) %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
   %.not = icmp eq ptr %1, null
-  br i1 %.not, label %26, label %_ZNK6HandleclEv.exit
+  br i1 %.not, label %28, label %_ZNK6HandleclEv.exit
 
 _ZNK6HandleclEv.exit:                             ; preds = %3
   %4 = load ptr, ptr %1, align 8
@@ -846,34 +846,38 @@ _ZNK7oopDesc5klassEv.exit:                        ; preds = %_ZNK6HandleclEv.exi
   %10 = load i32, ptr %9, align 8
   %11 = load ptr, ptr @_ZN23CompressedKlassPointers5_baseE, align 8
   %12 = load i32, ptr @_ZN23CompressedKlassPointers6_shiftE, align 4
-  %13 = ptrtoint ptr %11 to i64
-  %14 = zext i32 %10 to i64
-  %15 = zext nneg i32 %12 to i64
-  %16 = shl i64 %14, %15
-  %17 = add i64 %16, %13
-  %18 = inttoptr i64 %17 to ptr
-  %19 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 16), align 8
-  %20 = icmp eq ptr %19, %18
-  br i1 %20, label %_ZNK6HandleclEv.exit5, label %_ZNK7oopDesc5klassEv.exit7
+  %13 = zext i32 %10 to i64
+  %14 = zext nneg i32 %12 to i64
+  %15 = shl i64 %13, %14
+  %16 = getelementptr i8, ptr %11, i64 %15
+  %17 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 16), align 8
+  %18 = icmp eq ptr %16, %17
+  br i1 %18, label %_ZNK6HandleclEv.exit5, label %23
 
 _ZNK7oopDesc5klassEv.exit.thread:                 ; preds = %_ZNK6HandleclEv.exit
-  %21 = load ptr, ptr %9, align 8
-  %22 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 16), align 8
-  %23 = icmp eq ptr %21, %22
-  br i1 %23, label %_ZNK6HandleclEv.exit5, label %_ZNK7oopDesc5klassEv.exit7
+  %19 = load ptr, ptr %9, align 8
+  %20 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 16), align 8
+  %21 = icmp eq ptr %19, %20
+  br i1 %21, label %_ZNK6HandleclEv.exit5, label %_ZNK7oopDesc5klassEv.exit7
 
 _ZNK6HandleclEv.exit5:                            ; preds = %_ZNK7oopDesc5klassEv.exit.thread, %_ZNK7oopDesc5klassEv.exit
-  %24 = tail call noundef ptr @_ZN15java_lang_Class16as_external_nameEP7oopDesc(ptr noundef nonnull %6) #11
-  tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.4, ptr noundef %24) #11
-  br label %26
+  %22 = tail call noundef ptr @_ZN15java_lang_Class16as_external_nameEP7oopDesc(ptr noundef nonnull %6) #11
+  tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.4, ptr noundef %22) #11
+  br label %28
 
-_ZNK7oopDesc5klassEv.exit7:                       ; preds = %_ZNK7oopDesc5klassEv.exit.thread, %_ZNK7oopDesc5klassEv.exit
-  %.0.i6 = phi ptr [ %18, %_ZNK7oopDesc5klassEv.exit ], [ %21, %_ZNK7oopDesc5klassEv.exit.thread ]
-  %25 = tail call noundef ptr @_ZNK5Klass13external_nameEv(ptr noundef nonnull align 8 dereferenceable(196) %.0.i6) #11
-  tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.5, ptr noundef %25) #11
-  br label %26
+23:                                               ; preds = %_ZNK7oopDesc5klassEv.exit
+  %24 = ptrtoint ptr %11 to i64
+  %25 = add i64 %15, %24
+  %26 = inttoptr i64 %25 to ptr
+  br label %_ZNK7oopDesc5klassEv.exit7
 
-26:                                               ; preds = %_ZNK6HandleclEv.exit5, %_ZNK7oopDesc5klassEv.exit7, %3
+_ZNK7oopDesc5klassEv.exit7:                       ; preds = %_ZNK7oopDesc5klassEv.exit.thread, %23
+  %.0.i6 = phi ptr [ %26, %23 ], [ %19, %_ZNK7oopDesc5klassEv.exit.thread ]
+  %27 = tail call noundef ptr @_ZNK5Klass13external_nameEv(ptr noundef nonnull align 8 dereferenceable(196) %.0.i6) #11
+  tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.5, ptr noundef %27) #11
+  br label %28
+
+28:                                               ; preds = %_ZNK6HandleclEv.exit5, %_ZNK7oopDesc5klassEv.exit7, %3
   ret void
 }
 
