@@ -294,7 +294,7 @@ define internal i32 @crypto_cmac_digest_setkey(ptr noundef %0, ptr noundef %1, i
   tail call void @crypto_cipher_encrypt_one(ptr noundef %15, ptr noundef nonnull %9, ptr noundef nonnull %9) #9
   switch i32 %8, label %.loopexit [
     i32 16, label %16
-    i32 8, label %36
+    i32 8, label %37
   ]
 
 16:                                               ; preds = %13
@@ -319,29 +319,30 @@ define internal i32 @crypto_cmac_digest_setkey(ptr noundef %0, ptr noundef %1, i
   %33 = getelementptr i64, ptr %9, i64 %24
   store i64 %32, ptr %33, align 8
   %34 = tail call i64 @llvm.bswap.i64(i64 %31)
-  %35 = getelementptr i8, ptr %33, i64 8
-  store i64 %34, ptr %35, align 8
+  %35 = getelementptr i64, ptr %0, i64 %24
+  %36 = getelementptr i8, ptr %35, i64 56
+  store i64 %34, ptr %36, align 8
   br i1 %23, label %22, label %.loopexit, !llvm.loop !9
 
-36:                                               ; preds = %13
-  %37 = load i64, ptr %9, align 8
-  %38 = tail call i64 @llvm.bswap.i64(i64 %37)
-  br label %39
+37:                                               ; preds = %13
+  %38 = load i64, ptr %9, align 8
+  %39 = tail call i64 @llvm.bswap.i64(i64 %38)
+  br label %40
 
-39:                                               ; preds = %39, %36
-  %40 = phi i1 [ true, %36 ], [ false, %39 ]
-  %41 = phi i64 [ 0, %36 ], [ 1, %39 ]
-  %42 = phi i64 [ %38, %36 ], [ %46, %39 ]
-  %43 = icmp slt i64 %42, 0
-  %44 = shl i64 %42, 1
-  %45 = select i1 %43, i64 27, i64 0
-  %46 = xor i64 %45, %44
-  %47 = tail call i64 @llvm.bswap.i64(i64 %46)
-  %48 = getelementptr i64, ptr %9, i64 %41
-  store i64 %47, ptr %48, align 8
-  br i1 %40, label %39, label %.loopexit, !llvm.loop !10
+40:                                               ; preds = %40, %37
+  %41 = phi i1 [ true, %37 ], [ false, %40 ]
+  %42 = phi i64 [ 0, %37 ], [ 1, %40 ]
+  %43 = phi i64 [ %39, %37 ], [ %47, %40 ]
+  %44 = icmp slt i64 %43, 0
+  %45 = shl i64 %43, 1
+  %46 = select i1 %44, i64 27, i64 0
+  %47 = xor i64 %46, %45
+  %48 = tail call i64 @llvm.bswap.i64(i64 %47)
+  %49 = getelementptr i64, ptr %9, i64 %42
+  store i64 %48, ptr %49, align 8
+  br i1 %41, label %40, label %.loopexit, !llvm.loop !10
 
-.loopexit:                                        ; preds = %39, %22, %13, %3
+.loopexit:                                        ; preds = %40, %22, %13, %3
   ret i32 %11
 }
 

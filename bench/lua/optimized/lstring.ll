@@ -3,6 +3,9 @@ source_filename = "bench/lua/original/lstring.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
+%union.UValue = type { %struct.TValue }
+%struct.TValue = type { %union.Value, i8 }
+%union.Value = type { ptr }
 %struct.NewExt = type { i8, ptr, i64, ptr }
 
 @.str = private unnamed_addr constant [18 x i8] c"not enough memory\00", align 1
@@ -765,23 +768,22 @@ define hidden ptr @luaS_newudata(ptr noundef %0, i64 noundef %1, i16 noundef zer
   store i16 %2, ptr %16, align 2, !tbaa !45
   %17 = getelementptr inbounds nuw i8, ptr %14, i64 24
   store ptr null, ptr %17, align 8, !tbaa !46
-  br i1 %4, label %._crit_edge, label %.lr.ph
+  br i1 %4, label %._crit_edge, label %.lr.ph.preheader
 
-.lr.ph:                                           ; preds = %12
-  %18 = getelementptr inbounds nuw i8, ptr %14, i64 48
+.lr.ph.preheader:                                 ; preds = %12
   %wide.trip.count = zext i16 %2 to i64
-  br label %19
+  br label %.lr.ph
 
-19:                                               ; preds = %.lr.ph, %19
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %19 ]
-  %.idx = shl nuw nsw i64 %indvars.iv, 4
-  %20 = getelementptr inbounds nuw i8, ptr %18, i64 %.idx
-  store i8 0, ptr %20, align 8, !tbaa !4
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
+  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
+  %18 = getelementptr inbounds nuw [1 x %union.UValue], ptr %14, i64 0, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 48
+  store i8 0, ptr %19, align 8, !tbaa !4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %19
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
 
-._crit_edge:                                      ; preds = %19, %12
+._crit_edge:                                      ; preds = %.lr.ph, %12
   ret ptr %14
 }
 

@@ -46,6 +46,9 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon.36 }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon.36 = type { i64, [8 x i8] }
+%"class.clang::TemplateArgument" = type { %union.anon.556 }
+%union.anon.556 = type { %"struct.clang::TemplateArgument::DA" }
+%"struct.clang::TemplateArgument::DA" = type { i32, ptr, ptr }
 %"struct.llvm::detail::DenseMapPair.735" = type { %"struct.std::pair.736" }
 %"struct.std::pair.736" = type { i32, ptr }
 %"class.llvm::FoldingSetNodeID" = type { %"class.llvm::SmallVector.738" }
@@ -1727,9 +1730,8 @@ _ZNK4llvm5APInt12getSExtValueEv.exit:             ; preds = %115, %121
 
 125:                                              ; preds = %_ZNK4llvm5APInt12getSExtValueEv.exit
   %126 = and i64 %.0.i, 4294967295
-  %.idx.i = mul nuw nsw i64 %126, 24
-  %127 = getelementptr inbounds nuw i8, ptr %124, i64 56
-  %128 = getelementptr inbounds nuw i8, ptr %127, i64 %.idx.i
+  %127 = getelementptr inbounds nuw %"class.clang::TemplateArgument", ptr %124, i64 %126
+  %128 = getelementptr inbounds nuw i8, ptr %127, i64 56
   %129 = load i64, ptr %128, align 8, !tbaa !20
   br label %_ZL32getNthTemplateTypeArgFromVariantPKN5clang4TypeEj.exit
 

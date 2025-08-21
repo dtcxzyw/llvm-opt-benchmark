@@ -5479,17 +5479,16 @@ define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN5typst11found
   %9 = and i64 %8, -16
   %10 = getelementptr i8, ptr %2, i64 %9
   %11 = and i64 %8, -80
-  %12 = getelementptr i8, ptr %10, i64 96
-  %13 = getelementptr i8, ptr %12, i64 %11
-  %14 = add i64 %6, -1
-  %15 = and i64 %14, -16
-  %16 = getelementptr i8, ptr %13, i64 %15
-  %17 = getelementptr i8, ptr %16, i64 16
-  %18 = getelementptr inbounds nuw i8, ptr %4, i64 112
-  %19 = load ptr, ptr %18, align 8, !invariant.load !7, !noalias !1438, !nonnull !7
-  %20 = tail call noundef i128 %19(ptr noundef align 1 %17), !noalias !1438
-  %21 = icmp eq i128 %20, 112450470963155292812562028442654455059
-  %. = select i1 %21, ptr %0, ptr null
+  %12 = getelementptr i8, ptr %10, i64 %11
+  %13 = add i64 %6, -1
+  %14 = and i64 %13, -16
+  %15 = getelementptr i8, ptr %12, i64 %14
+  %16 = getelementptr i8, ptr %15, i64 112
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 112
+  %18 = load ptr, ptr %17, align 8, !invariant.load !7, !noalias !1438, !nonnull !7
+  %19 = tail call noundef i128 %18(ptr noundef align 1 %16), !noalias !1438
+  %20 = icmp eq i128 %19, 112450470963155292812562028442654455059
+  %. = select i1 %20, ptr %0, ptr null
   ret ptr %.
 }
 
@@ -5505,17 +5504,16 @@ define hidden noundef zeroext i1 @_ZN5typst11foundations7content7Content2is17h27
   %9 = and i64 %8, -16
   %10 = getelementptr i8, ptr %2, i64 %9
   %11 = and i64 %8, -80
-  %12 = getelementptr i8, ptr %10, i64 96
-  %13 = getelementptr i8, ptr %12, i64 %11
-  %14 = add i64 %6, -1
-  %15 = and i64 %14, -16
-  %16 = getelementptr i8, ptr %13, i64 %15
-  %17 = getelementptr i8, ptr %16, i64 16
-  %18 = getelementptr inbounds nuw i8, ptr %4, i64 112
-  %19 = load ptr, ptr %18, align 8, !invariant.load !7, !nonnull !7
-  %20 = tail call noundef i128 %19(ptr noundef align 1 %17)
-  %21 = icmp eq i128 %20, 112450470963155292812562028442654455059
-  ret i1 %21
+  %12 = getelementptr i8, ptr %10, i64 %11
+  %13 = add i64 %6, -1
+  %14 = and i64 %13, -16
+  %15 = getelementptr i8, ptr %12, i64 %14
+  %16 = getelementptr i8, ptr %15, i64 112
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 112
+  %18 = load ptr, ptr %17, align 8, !invariant.load !7, !nonnull !7
+  %19 = tail call noundef i128 %18(ptr noundef align 1 %16)
+  %20 = icmp eq i128 %19, 112450470963155292812562028442654455059
+  ret i1 %20
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable

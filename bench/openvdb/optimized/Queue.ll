@@ -10,6 +10,12 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::ios_base::_Words" = type { ptr, i64 }
 %"class.std::locale" = type { ptr }
 %"struct.std::piecewise_construct_t" = type { i8 }
+%"struct.tbb::detail::d2::hash_map_base<tbb::detail::d1::tbb_allocator<std::pair<const unsigned int, openvdb::v11_0::io::Queue::Status>>, tbb::detail::d1::spin_rw_mutex>::bucket" = type { %"class.tbb::detail::d1::spin_rw_mutex", %"struct.std::atomic.6" }
+%"class.tbb::detail::d1::spin_rw_mutex" = type { %"struct.std::atomic.4" }
+%"struct.std::atomic.4" = type { %"struct.std::__atomic_base.5" }
+%"struct.std::__atomic_base.5" = type { i64 }
+%"struct.std::atomic.6" = type { %"struct.std::__atomic_base.7" }
+%"struct.std::__atomic_base.7" = type { ptr }
 %"struct.std::atomic.8" = type { %"struct.std::__atomic_base.9" }
 %"struct.std::__atomic_base.9" = type { ptr }
 %struct.timespec = type { i64, i64 }
@@ -57,12 +63,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::_Rb_tree_node_base" = type { i32, ptr, ptr, ptr }
 %"class.std::allocator.17" = type { i8 }
 %"class.tbb::detail::d2::concurrent_hash_map<unsigned int, openvdb::v11_0::io::Queue::Status>::bucket_accessor" = type { %"class.tbb::detail::d1::rw_scoped_lock.base", ptr }
-%"struct.tbb::detail::d2::hash_map_base<tbb::detail::d1::tbb_allocator<std::pair<const unsigned int, openvdb::v11_0::io::Queue::Status>>, tbb::detail::d1::spin_rw_mutex>::bucket" = type { %"class.tbb::detail::d1::spin_rw_mutex", %"struct.std::atomic.6" }
-%"class.tbb::detail::d1::spin_rw_mutex" = type { %"struct.std::atomic.4" }
-%"struct.std::atomic.4" = type { %"struct.std::__atomic_base.5" }
-%"struct.std::__atomic_base.5" = type { i64 }
-%"struct.std::atomic.6" = type { %"struct.std::__atomic_base.7" }
-%"struct.std::__atomic_base.7" = type { ptr }
 %"struct.std::_Rb_tree<unsigned int, std::pair<const unsigned int, std::function<void (unsigned int, openvdb::v11_0::io::Queue::Status)>>, std::_Select1st<std::pair<const unsigned int, std::function<void (unsigned int, openvdb::v11_0::io::Queue::Status)>>>, std::less<unsigned int>>::_Auto_node" = type { ptr, ptr }
 
 $__clang_call_terminate = comdat any
@@ -249,20 +249,19 @@ entry:
   %my_mask.i.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 24
   store i64 1, ptr %my_mask.i.i.i.i, align 8
   %my_size.i.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 32
-  %my_embedded_segment.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %my_size.i.i.i.i, i8 0, i64 40, i1 false)
   br label %for.body.i.i.i.i
 
 for.cond4.preheader.i.i.i.i:                      ; preds = %for.body.i.i.i.i
+  %my_embedded_segment.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 40
   %my_table11.i.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 72
   %0 = ptrtoint ptr %my_embedded_segment.ptr.i.i.i.i to i64
   br label %for.body6.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %entry
   %i.07.i.i.i.i = phi i64 [ %inc.i.i.i.i, %for.body.i.i.i.i ], [ 0, %entry ]
-  %node_list.idx.i.i.i.i = shl nuw nsw i64 %i.07.i.i.i.i, 4
-  %1 = getelementptr inbounds nuw i8, ptr %my_embedded_segment.ptr.i.i.i.i, i64 %node_list.idx.i.i.i.i
-  %node_list.i.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %arrayidx.i.i.i.i = getelementptr inbounds nuw [2 x %"struct.tbb::detail::d2::hash_map_base<tbb::detail::d1::tbb_allocator<std::pair<const unsigned int, openvdb::v11_0::io::Queue::Status>>, tbb::detail::d1::spin_rw_mutex>::bucket"], ptr %call, i64 0, i64 %i.07.i.i.i.i
+  %node_list.i.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i.i.i, i64 48
   store atomic i64 0, ptr %node_list.i.i.i.i monotonic, align 8
   %inc.i.i.i.i = add nuw nsw i64 %i.07.i.i.i.i, 1
   %cmp.not.i.i.i.i = icmp eq i64 %inc.i.i.i.i, 2
@@ -272,8 +271,8 @@ for.body6.i.i.i.i:                                ; preds = %for.body6.i.i.i.i, 
   %segment_index.08.i.i.i.i = phi i64 [ 0, %for.cond4.preheader.i.i.i.i ], [ %inc14.i.i.i.i, %for.body6.i.i.i.i ]
   %cmp7.i.i.i.i = icmp eq i64 %segment_index.08.i.i.i.i, 0
   %arrayidx12.i.i.i.i = getelementptr inbounds nuw [64 x %"struct.std::atomic.8"], ptr %my_table11.i.i.i.i, i64 0, i64 %segment_index.08.i.i.i.i
-  %2 = select i1 %cmp7.i.i.i.i, i64 %0, i64 0
-  store atomic i64 %2, ptr %arrayidx12.i.i.i.i monotonic, align 8
+  %1 = select i1 %cmp7.i.i.i.i, i64 %0, i64 0
+  store atomic i64 %1, ptr %arrayidx12.i.i.i.i monotonic, align 8
   %inc14.i.i.i.i = add nuw nsw i64 %segment_index.08.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %inc14.i.i.i.i, 64
   br i1 %exitcond.not.i.i.i.i, label %invoke.cont, label %for.body6.i.i.i.i, !llvm.loop !6
@@ -281,14 +280,14 @@ for.body6.i.i.i.i:                                ; preds = %for.body6.i.i.i.i, 
 invoke.cont:                                      ; preds = %for.body6.i.i.i.i
   %my_hash_compare.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 584
   store i16 0, ptr %my_hash_compare.i.i.i, align 8
-  %3 = getelementptr inbounds nuw i8, ptr %call, i64 600
-  store i32 0, ptr %3, align 8
+  %2 = getelementptr inbounds nuw i8, ptr %call, i64 600
+  store i32 0, ptr %2, align 8
   %_M_parent.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 608
   store ptr null, ptr %_M_parent.i.i.i.i.i.i, align 8
   %_M_left.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 616
-  store ptr %3, ptr %_M_left.i.i.i.i.i.i, align 8
+  store ptr %2, ptr %_M_left.i.i.i.i.i.i, align 8
   %_M_right.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 624
-  store ptr %3, ptr %_M_right.i.i.i.i.i.i, align 8
+  store ptr %2, ptr %_M_right.i.i.i.i.i.i, align 8
   %_M_node_count.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 632
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i, align 8
   %mNextNotifierId.i = getelementptr inbounds nuw i8, ptr %call, i64 640

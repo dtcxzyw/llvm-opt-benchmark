@@ -4322,11 +4322,11 @@ define void @dequantize_row_q4_K(ptr noalias noundef readonly captures(none) %0,
   %26 = getelementptr i8, ptr %22, i64 4
   %27 = load i8, ptr %26, align 1, !tbaa !13, !alias.scope !259, !noalias !262
   %28 = and i8 %27, 63
-  %29 = getelementptr inbounds nuw i8, ptr %18, i64 %indvars.iv65
-  %30 = getelementptr inbounds nuw i8, ptr %29, i64 1
+  %29 = getelementptr inbounds nuw i8, ptr %7, i64 %indvars.iv65
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 5
   %31 = load i8, ptr %30, align 1, !tbaa !13, !alias.scope !265, !noalias !268
   %32 = and i8 %31, 63
-  %33 = getelementptr i8, ptr %29, i64 5
+  %33 = getelementptr i8, ptr %29, i64 9
   %34 = load i8, ptr %33, align 1, !tbaa !13, !alias.scope !265, !noalias !268
   %35 = and i8 %34, 63
   br label %get_scale_min_k4.exit45
@@ -4345,12 +4345,12 @@ define void @dequantize_row_q4_K(ptr noalias noundef readonly captures(none) %0,
   %47 = lshr i8 %46, 2
   %48 = and i8 %47, 48
   %49 = or disjoint i8 %48, %45
-  %50 = getelementptr inbounds nuw i8, ptr %18, i64 %indvars.iv65
-  %51 = getelementptr inbounds nuw i8, ptr %50, i64 1
-  %52 = getelementptr inbounds nuw i8, ptr %50, i64 5
+  %50 = getelementptr inbounds nuw i8, ptr %7, i64 %indvars.iv65
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 5
+  %52 = getelementptr inbounds nuw i8, ptr %50, i64 9
   %53 = load i8, ptr %52, align 1, !tbaa !13, !alias.scope !265, !noalias !268
   %54 = and i8 %53, 15
-  %55 = getelementptr i8, ptr %50, i64 -3
+  %55 = getelementptr i8, ptr %50, i64 1
   %56 = load i8, ptr %55, align 1, !tbaa !13, !alias.scope !265, !noalias !268
   %57 = lshr i8 %56, 2
   %58 = and i8 %57, 48
@@ -5943,11 +5943,11 @@ define void @dequantize_row_q5_K(ptr noalias noundef readonly captures(none) %0,
   %26 = getelementptr i8, ptr %22, i64 4
   %27 = load i8, ptr %26, align 1, !tbaa !13, !alias.scope !367, !noalias !370
   %28 = and i8 %27, 63
-  %29 = getelementptr inbounds nuw i8, ptr %18, i64 %indvars.iv81
-  %30 = getelementptr inbounds nuw i8, ptr %29, i64 1
+  %29 = getelementptr inbounds nuw i8, ptr %6, i64 %indvars.iv81
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 5
   %31 = load i8, ptr %30, align 1, !tbaa !13, !alias.scope !373, !noalias !376
   %32 = and i8 %31, 63
-  %33 = getelementptr i8, ptr %29, i64 5
+  %33 = getelementptr i8, ptr %29, i64 9
   %34 = load i8, ptr %33, align 1, !tbaa !13, !alias.scope !373, !noalias !376
   %35 = and i8 %34, 63
   br label %get_scale_min_k4.exit59
@@ -5966,12 +5966,12 @@ define void @dequantize_row_q5_K(ptr noalias noundef readonly captures(none) %0,
   %47 = lshr i8 %46, 2
   %48 = and i8 %47, 48
   %49 = or disjoint i8 %48, %45
-  %50 = getelementptr inbounds nuw i8, ptr %18, i64 %indvars.iv81
-  %51 = getelementptr inbounds nuw i8, ptr %50, i64 1
-  %52 = getelementptr inbounds nuw i8, ptr %50, i64 5
+  %50 = getelementptr inbounds nuw i8, ptr %6, i64 %indvars.iv81
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 5
+  %52 = getelementptr inbounds nuw i8, ptr %50, i64 9
   %53 = load i8, ptr %52, align 1, !tbaa !13, !alias.scope !373, !noalias !376
   %54 = and i8 %53, 15
-  %55 = getelementptr i8, ptr %50, i64 -3
+  %55 = getelementptr i8, ptr %50, i64 1
   %56 = load i8, ptr %55, align 1, !tbaa !13, !alias.scope !373, !noalias !376
   %57 = lshr i8 %56, 2
   %58 = and i8 %57, 48
@@ -10305,7 +10305,7 @@ define void @dequantize_row_iq3_s(ptr noalias noundef readonly captures(none) %0
 
 .lr.ph:                                           ; preds = %3, %15
   %indvars.iv127 = phi i64 [ %indvars.iv.next128, %15 ], [ 0, %3 ]
-  %.084109 = phi ptr [ %116, %15 ], [ %1, %3 ]
+  %.084109 = phi ptr [ %117, %15 ], [ %1, %3 ]
   %6 = getelementptr inbounds nuw %struct.block_iq3_s, ptr %0, i64 %indvars.iv127
   %7 = load i16, ptr %6, align 2, !tbaa !648
   %8 = zext i16 %7 to i64
@@ -10324,7 +10324,7 @@ define void @dequantize_row_iq3_s(ptr noalias noundef readonly captures(none) %0
 
 16:                                               ; preds = %.lr.ph, %86
   %indvars.iv124 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next125, %86 ]
-  %.1107 = phi ptr [ %.084109, %.lr.ph ], [ %116, %86 ]
+  %.1107 = phi ptr [ %.084109, %.lr.ph ], [ %117, %86 ]
   %.088106 = phi ptr [ %11, %.lr.ph ], [ %88, %86 ]
   %.090105 = phi ptr [ %12, %.lr.ph ], [ %87, %86 ]
   %.091104 = phi ptr [ %13, %.lr.ph ], [ %89, %86 ]
@@ -10418,7 +10418,7 @@ define void @dequantize_row_iq3_s(ptr noalias noundef readonly captures(none) %0
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
   br i1 %exitcond.not, label %62, label %64, !llvm.loop !652
 
-86:                                               ; preds = %115
+86:                                               ; preds = %116
   %87 = getelementptr inbounds nuw i8, ptr %.090105, i64 2
   %88 = getelementptr inbounds nuw i8, ptr %.088106, i64 16
   %89 = getelementptr inbounds nuw i8, ptr %.091104, i64 8
@@ -10426,9 +10426,9 @@ define void @dequantize_row_iq3_s(ptr noalias noundef readonly captures(none) %0
   %90 = icmp samesign ult i64 %indvars.iv124, 6
   br i1 %90, label %16, label %15, !llvm.loop !653
 
-91:                                               ; preds = %28, %115
-  %indvars.iv120 = phi i64 [ 0, %28 ], [ %indvars.iv.next121, %115 ]
-  %.3102 = phi ptr [ %63, %28 ], [ %116, %115 ]
+91:                                               ; preds = %28, %116
+  %indvars.iv120 = phi i64 [ 0, %28 ], [ %indvars.iv.next121, %116 ]
+  %.3102 = phi ptr [ %63, %28 ], [ %117, %116 ]
   %92 = shl nuw nsw i64 %indvars.iv120, 1
   %93 = getelementptr inbounds nuw i8, ptr %33, i64 %92
   %94 = load i8, ptr %93, align 1, !tbaa !13
@@ -10440,56 +10440,57 @@ define void @dequantize_row_iq3_s(ptr noalias noundef readonly captures(none) %0
   %100 = or disjoint i32 %99, %95
   %101 = zext nneg i32 %100 to i64
   %102 = getelementptr inbounds nuw i32, ptr @iq3s_grid, i64 %101
-  %103 = getelementptr inbounds nuw i8, ptr %93, i64 1
-  %104 = load i8, ptr %103, align 1, !tbaa !13
-  %105 = zext i8 %104 to i32
-  %106 = trunc i64 %92 to i32
-  %107 = sub i32 7, %106
-  %108 = shl nuw nsw i32 %37, %107
-  %109 = and i32 %108, 256
-  %110 = or disjoint i32 %109, %105
-  %111 = zext nneg i32 %110 to i64
-  %112 = getelementptr inbounds nuw i32, ptr @iq3s_grid, i64 %111
-  %113 = getelementptr inbounds nuw i8, ptr %34, i64 %indvars.iv120
-  %114 = load i8, ptr %113, align 1, !tbaa !13
-  br label %117
+  %103 = getelementptr inbounds nuw i8, ptr %.088106, i64 %92
+  %104 = getelementptr inbounds nuw i8, ptr %103, i64 9
+  %105 = load i8, ptr %104, align 1, !tbaa !13
+  %106 = zext i8 %105 to i32
+  %107 = trunc i64 %92 to i32
+  %108 = sub i32 7, %107
+  %109 = shl nuw nsw i32 %37, %108
+  %110 = and i32 %109, 256
+  %111 = or disjoint i32 %110, %106
+  %112 = zext nneg i32 %111 to i64
+  %113 = getelementptr inbounds nuw i32, ptr @iq3s_grid, i64 %112
+  %114 = getelementptr inbounds nuw i8, ptr %34, i64 %indvars.iv120
+  %115 = load i8, ptr %114, align 1, !tbaa !13
+  br label %118
 
-115:                                              ; preds = %117
-  %116 = getelementptr inbounds nuw i8, ptr %.3102, i64 32
+116:                                              ; preds = %118
+  %117 = getelementptr inbounds nuw i8, ptr %.3102, i64 32
   %indvars.iv.next121 = add nuw nsw i64 %indvars.iv120, 1
   %exitcond123.not = icmp eq i64 %indvars.iv.next121, 4
   br i1 %exitcond123.not, label %86, label %91, !llvm.loop !654
 
-117:                                              ; preds = %91, %117
-  %indvars.iv116 = phi i64 [ 0, %91 ], [ %indvars.iv.next117, %117 ]
-  %118 = getelementptr inbounds nuw i8, ptr %102, i64 %indvars.iv116
-  %119 = load i8, ptr %118, align 1, !tbaa !13
-  %120 = uitofp i8 %119 to float
-  %121 = fmul float %32, %120
-  %122 = getelementptr inbounds nuw [8 x i8], ptr @kmask_iq2xs, i64 0, i64 %indvars.iv116
-  %123 = load i8, ptr %122, align 1, !tbaa !13
-  %124 = and i8 %123, %114
-  %.not = icmp eq i8 %124, 0
-  %125 = fneg float %121
-  %126 = select i1 %.not, float %121, float %125
-  %127 = getelementptr inbounds nuw float, ptr %.3102, i64 %indvars.iv116
-  store float %126, ptr %127, align 4, !tbaa !8
-  %128 = getelementptr inbounds nuw i8, ptr %112, i64 %indvars.iv116
-  %129 = load i8, ptr %128, align 1, !tbaa !13
-  %130 = uitofp i8 %129 to float
-  %131 = fmul float %32, %130
-  %132 = or disjoint i64 %indvars.iv116, 4
-  %133 = getelementptr inbounds nuw [8 x i8], ptr @kmask_iq2xs, i64 0, i64 %132
-  %134 = load i8, ptr %133, align 1, !tbaa !13
-  %135 = and i8 %134, %114
-  %.not94 = icmp eq i8 %135, 0
-  %136 = fneg float %131
-  %137 = select i1 %.not94, float %131, float %136
-  %138 = getelementptr inbounds nuw float, ptr %.3102, i64 %132
-  store float %137, ptr %138, align 4, !tbaa !8
+118:                                              ; preds = %91, %118
+  %indvars.iv116 = phi i64 [ 0, %91 ], [ %indvars.iv.next117, %118 ]
+  %119 = getelementptr inbounds nuw i8, ptr %102, i64 %indvars.iv116
+  %120 = load i8, ptr %119, align 1, !tbaa !13
+  %121 = uitofp i8 %120 to float
+  %122 = fmul float %32, %121
+  %123 = getelementptr inbounds nuw [8 x i8], ptr @kmask_iq2xs, i64 0, i64 %indvars.iv116
+  %124 = load i8, ptr %123, align 1, !tbaa !13
+  %125 = and i8 %124, %115
+  %.not = icmp eq i8 %125, 0
+  %126 = fneg float %122
+  %127 = select i1 %.not, float %122, float %126
+  %128 = getelementptr inbounds nuw float, ptr %.3102, i64 %indvars.iv116
+  store float %127, ptr %128, align 4, !tbaa !8
+  %129 = getelementptr inbounds nuw i8, ptr %113, i64 %indvars.iv116
+  %130 = load i8, ptr %129, align 1, !tbaa !13
+  %131 = uitofp i8 %130 to float
+  %132 = fmul float %32, %131
+  %133 = or disjoint i64 %indvars.iv116, 4
+  %134 = getelementptr inbounds nuw [8 x i8], ptr @kmask_iq2xs, i64 0, i64 %133
+  %135 = load i8, ptr %134, align 1, !tbaa !13
+  %136 = and i8 %135, %115
+  %.not94 = icmp eq i8 %136, 0
+  %137 = fneg float %132
+  %138 = select i1 %.not94, float %132, float %137
+  %139 = getelementptr inbounds nuw float, ptr %.3102, i64 %133
+  store float %138, ptr %139, align 4, !tbaa !8
   %indvars.iv.next117 = add nuw nsw i64 %indvars.iv116, 1
   %exitcond119.not = icmp eq i64 %indvars.iv.next117, 4
-  br i1 %exitcond119.not, label %115, label %117, !llvm.loop !655
+  br i1 %exitcond119.not, label %116, label %118, !llvm.loop !655
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable

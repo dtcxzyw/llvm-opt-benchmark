@@ -7498,10 +7498,8 @@ define internal fastcc range(i32 -2, 1) i32 @setPackedBCRdefault(ptr noundef %0,
   br i1 %133, label %.preheader, label %.preheader.lr.ph.split.us
 
 .preheader.lr.ph.split.us:                        ; preds = %.preheader.lr.ph
-  %scevgep = getelementptr i8, ptr %.3202, i64 1
   %134 = zext nneg i32 %130 to i64
-  %135 = getelementptr i8, ptr %scevgep, i64 %134
-  %scevgep215 = getelementptr i8, ptr %135, i64 -1
+  %135 = getelementptr i8, ptr %.3202, i64 %134
   br label %._crit_edge200
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %._crit_edge195
@@ -7557,7 +7555,7 @@ define internal fastcc range(i32 -2, 1) i32 @setPackedBCRdefault(ptr noundef %0,
   br i1 %160, label %.preheader, label %._crit_edge200, !llvm.loop !123
 
 ._crit_edge200:                                   ; preds = %._crit_edge195, %.preheader.lr.ph.split.us, %129
-  %.4.lcssa = phi ptr [ %.3202, %129 ], [ %scevgep215, %.preheader.lr.ph.split.us ], [ %.5.lcssa, %._crit_edge195 ]
+  %.4.lcssa = phi ptr [ %.3202, %129 ], [ %135, %.preheader.lr.ph.split.us ], [ %.5.lcssa, %._crit_edge195 ]
   %161 = load i32, ptr %27, align 8
   %162 = sext i32 %161 to i64
   %163 = getelementptr inbounds i8, ptr %.1144203, i64 %162
@@ -7815,11 +7813,9 @@ define internal fastcc range(i32 -2, 1) i32 @setPackedSCRdefault(ptr noundef %0,
   br i1 %141, label %.preheader, label %.preheader.lr.ph.split.us
 
 .preheader.lr.ph.split.us:                        ; preds = %.preheader.lr.ph
-  %scevgep = getelementptr i8, ptr %.3200, i64 1
   %smax = tail call i32 @llvm.smax.i32(i32 %137, i32 1)
   %142 = zext nneg i32 %smax to i64
-  %143 = getelementptr i8, ptr %scevgep, i64 %142
-  %scevgep214 = getelementptr i8, ptr %143, i64 -1
+  %143 = getelementptr i8, ptr %.3200, i64 %142
   br label %._crit_edge198
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %._crit_edge193
@@ -7885,7 +7881,7 @@ define internal fastcc range(i32 -2, 1) i32 @setPackedSCRdefault(ptr noundef %0,
   %172 = phi i32 [ %137, %.preheader168 ], [ %164, %._crit_edge198.loopexit ], [ %137, %.preheader.lr.ph.split.us ]
   %173 = phi i32 [ %138, %.preheader168 ], [ %165, %._crit_edge198.loopexit ], [ %138, %.preheader.lr.ph.split.us ]
   %174 = phi i32 [ %139, %.preheader168 ], [ %164, %._crit_edge198.loopexit ], [ %137, %.preheader.lr.ph.split.us ]
-  %.4.lcssa = phi ptr [ %.3200, %.preheader168 ], [ %.5.lcssa, %._crit_edge198.loopexit ], [ %scevgep214, %.preheader.lr.ph.split.us ]
+  %.4.lcssa = phi ptr [ %.3200, %.preheader168 ], [ %.5.lcssa, %._crit_edge198.loopexit ], [ %143, %.preheader.lr.ph.split.us ]
   %175 = load i32, ptr %27, align 8
   %176 = sext i32 %175 to i64
   %177 = getelementptr inbounds i16, ptr %.1142201, i64 %176
@@ -8140,11 +8136,9 @@ define internal fastcc range(i32 -2, 1) i32 @setPackedICRdefault(ptr noundef %0,
   br i1 %139, label %.preheader, label %.preheader.lr.ph.split.us
 
 .preheader.lr.ph.split.us:                        ; preds = %.preheader.lr.ph
-  %scevgep = getelementptr i8, ptr %.3200, i64 1
   %smax = tail call i32 @llvm.smax.i32(i32 %135, i32 1)
   %140 = zext nneg i32 %smax to i64
-  %141 = getelementptr i8, ptr %scevgep, i64 %140
-  %scevgep214 = getelementptr i8, ptr %141, i64 -1
+  %141 = getelementptr i8, ptr %.3200, i64 %140
   br label %._crit_edge198
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %._crit_edge193
@@ -8209,7 +8203,7 @@ define internal fastcc range(i32 -2, 1) i32 @setPackedICRdefault(ptr noundef %0,
   %169 = phi i32 [ %135, %.preheader168 ], [ %161, %._crit_edge198.loopexit ], [ %135, %.preheader.lr.ph.split.us ]
   %170 = phi i32 [ %136, %.preheader168 ], [ %162, %._crit_edge198.loopexit ], [ %136, %.preheader.lr.ph.split.us ]
   %171 = phi i32 [ %137, %.preheader168 ], [ %161, %._crit_edge198.loopexit ], [ %135, %.preheader.lr.ph.split.us ]
-  %.4.lcssa = phi ptr [ %.3200, %.preheader168 ], [ %.5.lcssa, %._crit_edge198.loopexit ], [ %scevgep214, %.preheader.lr.ph.split.us ]
+  %.4.lcssa = phi ptr [ %.3200, %.preheader168 ], [ %.5.lcssa, %._crit_edge198.loopexit ], [ %141, %.preheader.lr.ph.split.us ]
   %172 = load i32, ptr %27, align 8
   %173 = sext i32 %172 to i64
   %174 = getelementptr inbounds i32, ptr %.1142201, i64 %173

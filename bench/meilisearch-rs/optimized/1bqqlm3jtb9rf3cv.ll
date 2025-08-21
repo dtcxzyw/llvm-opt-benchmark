@@ -858,12 +858,11 @@ _ZN4core5slice4sort12choose_pivot17h0913dd8363d2763cE.exit: ; preds = %"_ZN4core
   %.sroa.01.012.i = phi i64 [ %186, %185 ], [ %.sroa.01.0.ph.i, %.outer.i ]
   %179 = icmp ult i64 %.sroa.01.012.i, %177
   call void @llvm.assume(i1 %179)
+  %180 = getelementptr { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { i64, [2 x i64] }, { i64, [2 x i64] }, { { i32, { i32, i8, i8, i8, i8 } }, { i8, i8, i8 }, [1 x i8] }, { { i32, { i32, i8, i8, i8, i8 } }, { i8, i8, i8 }, [1 x i8] }, { [11 x i8], i8, [4 x i8] }, { [16 x i8] } }, ptr %.sroa.0.080, i64 %.sroa.01.012.i
   call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !390
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %10, ptr noundef nonnull readonly align 8 dereferenceable(16) %42, i64 16, i1 false), !alias.scope !394, !noalias !398
   call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !390
-  %.idx.i = mul nsw i64 %.sroa.01.012.i, 160
-  %180 = getelementptr i8, ptr %176, i64 %.idx.i
-  %181 = getelementptr i8, ptr %180, i64 96
+  %181 = getelementptr i8, ptr %180, i64 256
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %9, ptr noundef nonnull readonly align 8 dereferenceable(16) %181, i64 16, i1 false), !alias.scope !399, !noalias !403
   %182 = invoke noundef i8 @"_ZN80_$LT$time..offset_date_time..OffsetDateTime$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h793b689048cd26d1E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %9, ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %10)
           to label %183 unwind label %.loopexit.split-lp.i, !noalias !382
@@ -1243,10 +1242,9 @@ define internal fastcc { i64, i1 } @_ZN4core5slice4sort9partition17h7e00584d6344
 
 26:                                               ; preds = %.lr.ph, %34
   %.sroa.01.023 = phi i64 [ 0, %.lr.ph ], [ %35, %34 ]
+  %27 = getelementptr { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { i64, [2 x i64] }, { i64, [2 x i64] }, { { i32, { i32, i8, i8, i8, i8 } }, { i8, i8, i8 }, [1 x i8] }, { { i32, { i32, i8, i8, i8, i8 } }, { i8, i8, i8 }, [1 x i8] }, { [11 x i8], i8, [4 x i8] }, { [16 x i8] } }, ptr %0, i64 %.sroa.01.023
   call void @llvm.lifetime.start.p0(ptr nonnull %17), !noalias !525
-  %.idx = mul nsw i64 %.sroa.01.023, 160
-  %27 = getelementptr i8, ptr %23, i64 %.idx
-  %28 = getelementptr i8, ptr %27, i64 96
+  %28 = getelementptr i8, ptr %27, i64 256
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %17, ptr noundef nonnull readonly align 8 dereferenceable(16) %28, i64 16, i1 false), !alias.scope !529, !noalias !533
   call void @llvm.lifetime.start.p0(ptr nonnull %16), !noalias !525
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %16, ptr noundef nonnull align 8 dereferenceable(16) %25, i64 16, i1 false)

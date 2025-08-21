@@ -73231,13 +73231,13 @@ _ZN4ncnn3MatD2Ev.exit4369:                        ; preds = %_ZN4ncnn3MatD2Ev.ex
 
 .noexc4103.us.preheader:                          ; preds = %.noexc4103.lr.ph
   %5090 = zext i32 %.23466.lcssa to i64
-  %wide.trip.count10372 = zext nneg i32 %5087 to i64
   %5091 = zext nneg i32 %5087 to i64
+  %wide.trip.count10372 = zext nneg i32 %5087 to i64
   br label %.noexc4103.us
 
 .noexc4103.us:                                    ; preds = %.noexc4103.us.preheader, %._crit_edge9320.us
   %indvars.iv10374 = phi i64 [ %5090, %.noexc4103.us.preheader ], [ %indvars.iv.next10375, %._crit_edge9320.us ]
-  %.634749326.us = phi ptr [ %.43472.lcssa, %.noexc4103.us.preheader ], [ %scevgep10370, %._crit_edge9320.us ]
+  %.634749326.us = phi ptr [ %.43472.lcssa, %.noexc4103.us.preheader ], [ %5109, %._crit_edge9320.us ]
   %.234789325.us = phi i32 [ %.03476.lcssa, %.noexc4103.us.preheader ], [ %5107, %._crit_edge9320.us ]
   %.234829324.us = phi i32 [ %.03480.lcssa, %.noexc4103.us.preheader ], [ %5103, %._crit_edge9320.us ]
   %.reass9332.us = mul i64 %factor.op.mul9243, %indvars.iv10374
@@ -73271,9 +73271,7 @@ _ZN4ncnn3MatD2Ev.exit4369:                        ; preds = %_ZN4ncnn3MatD2Ev.ex
   br i1 %exitcond10373.not, label %._crit_edge9320.us, label %5092, !llvm.loop !1519
 
 ._crit_edge9320.us:                               ; preds = %5092
-  %scevgep10369 = getelementptr i8, ptr %.634749326.us, i64 1
-  %5109 = getelementptr i8, ptr %scevgep10369, i64 %5091
-  %scevgep10370 = getelementptr i8, ptr %5109, i64 -1
+  %5109 = getelementptr i8, ptr %.634749326.us, i64 %5091
   %indvars.iv.next10375 = add nuw nsw i64 %indvars.iv10374, 1
   %5110 = trunc nuw i64 %indvars.iv.next10375 to i32
   %5111 = icmp sgt i32 %4813, %5110
@@ -73658,13 +73656,13 @@ _ZN4ncnn3MatD2Ev.exit4369:                        ; preds = %_ZN4ncnn3MatD2Ev.ex
 
 .noexc.us.preheader:                              ; preds = %.noexc.lr.ph
   %5314 = zext i32 %.23374.lcssa to i64
-  %wide.trip.count10428 = zext nneg i32 %5311 to i64
   %5315 = zext nneg i32 %5311 to i64
+  %wide.trip.count10428 = zext nneg i32 %5311 to i64
   br label %.noexc.us
 
 .noexc.us:                                        ; preds = %.noexc.us.preheader, %._crit_edge9434.us
   %indvars.iv10430 = phi i64 [ %5314, %.noexc.us.preheader ], [ %indvars.iv.next10431, %._crit_edge9434.us ]
-  %.633829438.us = phi ptr [ %.43380.lcssa, %.noexc.us.preheader ], [ %scevgep10426, %._crit_edge9434.us ]
+  %.633829438.us = phi ptr [ %.43380.lcssa, %.noexc.us.preheader ], [ %5328, %._crit_edge9434.us ]
   %.233869437.us = phi i32 [ %.03384.lcssa, %.noexc.us.preheader ], [ %5326, %._crit_edge9434.us ]
   %.reass9443.us = mul i64 %factor.op.mul9372, %indvars.iv10430
   %gep9446.us = getelementptr i8, ptr %invariant.gep9445, i64 %.reass9443.us
@@ -73690,9 +73688,7 @@ _ZN4ncnn3MatD2Ev.exit4369:                        ; preds = %_ZN4ncnn3MatD2Ev.ex
   br i1 %exitcond10429.not, label %._crit_edge9434.us, label %5316, !llvm.loop !1540
 
 ._crit_edge9434.us:                               ; preds = %5316
-  %scevgep10425 = getelementptr i8, ptr %.633829438.us, i64 1
-  %5328 = getelementptr i8, ptr %scevgep10425, i64 %5315
-  %scevgep10426 = getelementptr i8, ptr %5328, i64 -1
+  %5328 = getelementptr i8, ptr %.633829438.us, i64 %5315
   %indvars.iv.next10431 = add nuw nsw i64 %indvars.iv10430, 1
   %5329 = trunc nuw i64 %indvars.iv.next10431 to i32
   %5330 = icmp sgt i32 %5119, %5329

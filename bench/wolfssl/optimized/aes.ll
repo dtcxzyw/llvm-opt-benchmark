@@ -4353,32 +4353,33 @@ xorbuf.exit274.preheader:                         ; preds = %.lr.ph.split.i262, 
 
 xorbuf.exit274:                                   ; preds = %xorbuf.exit274.preheader, %Shift4_M0.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %Shift4_M0.exit ], [ 0, %xorbuf.exit274.preheader ]
-  %239 = getelementptr inbounds nuw [16 x i8], ptr %2, i64 %indvars.iv
-  %240 = getelementptr inbounds nuw i8, ptr %239, i64 256
-  br label %241
+  %239 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %indvars.iv
+  %240 = getelementptr inbounds nuw i8, ptr %239, i64 272
+  %241 = getelementptr inbounds nuw [16 x i8], ptr %2, i64 %indvars.iv
+  br label %242
 
-241:                                              ; preds = %241, %xorbuf.exit274
-  %indvars.iv.i275 = phi i64 [ 15, %xorbuf.exit274 ], [ %indvars.iv.next.i276, %241 ]
-  %242 = getelementptr i8, ptr %239, i64 %indvars.iv.i275
-  %243 = getelementptr i8, ptr %242, i64 -1
-  %244 = load i8, ptr %243, align 1, !tbaa !15
-  %245 = load i8, ptr %242, align 1, !tbaa !15
-  %246 = tail call i8 @llvm.fshl.i8(i8 %244, i8 %245, i8 4)
-  %247 = getelementptr inbounds nuw i8, ptr %240, i64 %indvars.iv.i275
-  store i8 %246, ptr %247, align 1, !tbaa !15
+242:                                              ; preds = %242, %xorbuf.exit274
+  %indvars.iv.i275 = phi i64 [ 15, %xorbuf.exit274 ], [ %indvars.iv.next.i276, %242 ]
+  %243 = getelementptr i8, ptr %241, i64 %indvars.iv.i275
+  %244 = getelementptr i8, ptr %243, i64 -1
+  %245 = load i8, ptr %244, align 1, !tbaa !15
+  %246 = load i8, ptr %243, align 1, !tbaa !15
+  %247 = tail call i8 @llvm.fshl.i8(i8 %245, i8 %246, i8 4)
+  %248 = getelementptr inbounds nuw i8, ptr %240, i64 %indvars.iv.i275
+  store i8 %247, ptr %248, align 1, !tbaa !15
   %indvars.iv.next.i276 = add nsw i64 %indvars.iv.i275, -1
-  %248 = icmp samesign ugt i64 %indvars.iv.i275, 1
-  br i1 %248, label %241, label %Shift4_M0.exit, !llvm.loop !28
+  %249 = icmp samesign ugt i64 %indvars.iv.i275, 1
+  br i1 %249, label %242, label %Shift4_M0.exit, !llvm.loop !28
 
-Shift4_M0.exit:                                   ; preds = %241
-  %249 = load i8, ptr %239, align 1, !tbaa !15
-  %250 = lshr i8 %249, 4
-  store i8 %250, ptr %240, align 1, !tbaa !15
+Shift4_M0.exit:                                   ; preds = %242
+  %250 = load i8, ptr %241, align 1, !tbaa !15
+  %251 = lshr i8 %250, 4
+  store i8 %251, ptr %240, align 1, !tbaa !15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %251, label %xorbuf.exit274, !llvm.loop !29
+  br i1 %exitcond.not, label %252, label %xorbuf.exit274, !llvm.loop !29
 
-251:                                              ; preds = %Shift4_M0.exit
+252:                                              ; preds = %Shift4_M0.exit
   ret void
 }
 
@@ -4520,8 +4521,8 @@ xorbuf.exit:                                      ; preds = %xorbuf.exit.prehead
   %63 = zext i16 %62 to i64
   %64 = xor i64 %55, %63
   %.idx = shl nuw nsw i64 %51, 4
-  %65 = getelementptr inbounds nuw i8, ptr %19, i64 %.idx
-  %66 = getelementptr inbounds nuw i8, ptr %65, i64 8
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 24
   %67 = load i64, ptr %66, align 8, !tbaa !21
   %68 = lshr i64 %67, 56
   %69 = lshr i64 %46, 60
@@ -4641,8 +4642,8 @@ xorbuf.exit65:                                    ; preds = %.lr.ph.i.i59
   %149 = zext i16 %148 to i64
   %150 = xor i64 %141, %149
   %.idx150 = shl nuw nsw i64 %137, 4
-  %151 = getelementptr inbounds nuw i8, ptr %120, i64 %.idx150
-  %152 = getelementptr inbounds nuw i8, ptr %151, i64 8
+  %151 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx150
+  %152 = getelementptr inbounds nuw i8, ptr %151, i64 24
   %153 = load i64, ptr %152, align 8, !tbaa !21
   %154 = lshr i64 %153, 56
   %155 = lshr i64 %132, 60
@@ -4786,8 +4787,8 @@ xorbuf.exit91:                                    ; preds = %xorbuf.exit91.prehe
   %249 = zext i16 %248 to i64
   %250 = xor i64 %241, %249
   %.idx151 = shl nuw nsw i64 %237, 4
-  %251 = getelementptr inbounds nuw i8, ptr %205, i64 %.idx151
-  %252 = getelementptr inbounds nuw i8, ptr %251, i64 8
+  %251 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx151
+  %252 = getelementptr inbounds nuw i8, ptr %251, i64 24
   %253 = load i64, ptr %252, align 8, !tbaa !21
   %254 = lshr i64 %253, 56
   %255 = lshr i64 %232, 60
@@ -4907,8 +4908,8 @@ xorbuf.exit117:                                   ; preds = %.lr.ph.i.i111
   %335 = zext i16 %334 to i64
   %336 = xor i64 %327, %335
   %.idx152 = shl nuw nsw i64 %323, 4
-  %337 = getelementptr inbounds nuw i8, ptr %306, i64 %.idx152
-  %338 = getelementptr inbounds nuw i8, ptr %337, i64 8
+  %337 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx152
+  %338 = getelementptr inbounds nuw i8, ptr %337, i64 24
   %339 = load i64, ptr %338, align 8, !tbaa !21
   %340 = lshr i64 %339, 56
   %341 = lshr i64 %318, 60
@@ -5070,8 +5071,8 @@ xorbuf.exit143:                                   ; preds = %.lr.ph.i.i137
   %455 = zext i16 %454 to i64
   %456 = xor i64 %447, %455
   %.idx153 = shl nuw nsw i64 %443, 4
-  %457 = getelementptr inbounds nuw i8, ptr %426, i64 %.idx153
-  %458 = getelementptr inbounds nuw i8, ptr %457, i64 8
+  %457 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx153
+  %458 = getelementptr inbounds nuw i8, ptr %457, i64 24
   %459 = load i64, ptr %458, align 8, !tbaa !21
   %460 = lshr i64 %459, 56
   %461 = lshr i64 %438, 60

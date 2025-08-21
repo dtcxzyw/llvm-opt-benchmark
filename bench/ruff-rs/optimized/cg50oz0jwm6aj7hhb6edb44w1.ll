@@ -99314,8 +99314,8 @@ define internal fastcc void @"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 %14
   %18 = load i8, ptr %11, align 8, !noundef !9
   %19 = zext i8 %18 to i64
-  %20 = getelementptr i8, ptr %10, i64 %19
-  %21 = getelementptr i8, ptr %20, i64 -1
+  %20 = getelementptr i8, ptr %1, i64 %19
+  %21 = getelementptr i8, ptr %20, i64 31
   %22 = load i8, ptr %21, align 1, !noundef !9
   %23 = icmp ult i64 %16, 16
   br i1 %23, label %.preheader.i, label %_ZN4core5slice6memchr6memchr17ha90e5042fce95c81E.exit
@@ -110255,7 +110255,7 @@ define internal fastcc noundef zeroext i1 @_ZN11ruff_linter5rules7airflow5rules1
 
 23:                                               ; preds = %17
   %.not8 = icmp eq i64 %1, 3
-  br i1 %.not8, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h6384669880b81fa8E.exit.thread", label %57
+  br i1 %.not8, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h6384669880b81fa8E.exit.thread", label %56
 
 .thread:                                          ; preds = %..thread_crit_edge, %6, %11, %17
   %24 = phi i64 [ %.pre12, %..thread_crit_edge ], [ %9, %6 ], [ %9, %11 ], [ %9, %17 ]
@@ -110273,19 +110273,22 @@ define internal fastcc noundef zeroext i1 @_ZN11ruff_linter5rules7airflow5rules1
 
 33:                                               ; preds = %27
   %34 = add i64 %1, -2
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %.idx = shl i64 %1, 4
-  %36 = getelementptr i8, ptr %0, i64 %.idx
-  %37 = icmp ne ptr %36, null
-  tail call void @llvm.assume(i1 %37)
+  %35 = getelementptr i8, ptr %0, i64 %.idx
+  %36 = icmp ne ptr %35, null
+  tail call void @llvm.assume(i1 %36)
   %gepdiff = add i64 %.idx, -32
-  %38 = lshr exact i64 %gepdiff, 4
-  %39 = icmp eq i64 %.idx, 32
-  br i1 %39, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h6384669880b81fa8E.exit.thread", label %.lr.ph.i
+  %37 = lshr exact i64 %gepdiff, 4
+  %38 = icmp eq i64 %.idx, 32
+  br i1 %38, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h6384669880b81fa8E.exit.thread", label %.lr.ph.i.preheader
 
-.lr.ph.i:                                         ; preds = %33, %43
-  %.sroa.02.012.i = phi i64 [ %45, %43 ], [ 0, %33 ]
-  %40 = phi ptr [ %44, %43 ], [ %35, %33 ]
+.lr.ph.i.preheader:                               ; preds = %33
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  br label %.lr.ph.i
+
+.lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %43
+  %.sroa.02.012.i = phi i64 [ %45, %43 ], [ 0, %.lr.ph.i.preheader ]
+  %40 = phi ptr [ %44, %43 ], [ %39, %.lr.ph.i.preheader ]
   %.val.i = load ptr, ptr %40, align 8, !noalias !13534, !nonnull !9, !align !10, !noundef !9
   %41 = getelementptr i8, ptr %40, i64 8
   %.val8.i = load i64, ptr %41, align 8, !noalias !13534, !noundef !9
@@ -110295,11 +110298,11 @@ define internal fastcc noundef zeroext i1 @_ZN11ruff_linter5rules7airflow5rules1
 43:                                               ; preds = %.lr.ph.i
   %44 = getelementptr inbounds nuw i8, ptr %40, i64 16
   %45 = add nuw nsw i64 %.sroa.02.012.i, 1
-  %46 = icmp eq ptr %44, %36
+  %46 = icmp eq ptr %44, %35
   br i1 %46, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h6384669880b81fa8E.exit.thread", label %.lr.ph.i
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h6384669880b81fa8E.exit": ; preds = %.lr.ph.i
-  %47 = icmp samesign ult i64 %.sroa.02.012.i, %38
+  %47 = icmp samesign ult i64 %.sroa.02.012.i, %37
   tail call void @llvm.assume(i1 %47)
   %48 = add nuw nsw i64 %.sroa.02.012.i, 1
   %49 = icmp uge i64 %48, %34
@@ -110307,26 +110310,25 @@ define internal fastcc noundef zeroext i1 @_ZN11ruff_linter5rules7airflow5rules1
   %brmerge = select i1 %.not, i1 true, i1 %49
   br i1 %brmerge, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h6384669880b81fa8E.exit.thread", label %50
 
-"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h6384669880b81fa8E.exit.thread": ; preds = %43, %33, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h6384669880b81fa8E.exit", %50, %23, %4, %.thread, %27, %57
-  %.sroa.0.0 = phi i1 [ %63, %57 ], [ false, %27 ], [ false, %.thread ], [ false, %4 ], [ false, %23 ], [ false, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h6384669880b81fa8E.exit" ], [ %56, %50 ], [ false, %33 ], [ false, %43 ]
+"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h6384669880b81fa8E.exit.thread": ; preds = %43, %33, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h6384669880b81fa8E.exit", %50, %23, %4, %.thread, %27, %56
+  %.sroa.0.0 = phi i1 [ %62, %56 ], [ false, %27 ], [ false, %.thread ], [ false, %4 ], [ false, %23 ], [ false, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h6384669880b81fa8E.exit" ], [ %55, %50 ], [ false, %33 ], [ false, %43 ]
   ret i1 %.sroa.0.0
 
 50:                                               ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h6384669880b81fa8E.exit"
-  %51 = getelementptr { ptr, i64 }, ptr %35, i64 %1
-  %52 = getelementptr i8, ptr %51, i64 -48
-  %53 = load ptr, ptr %52, align 8, !nonnull !9, !align !10, !noundef !9
-  %54 = getelementptr i8, ptr %51, i64 -40
-  %55 = load i64, ptr %54, align 8, !noundef !9
-  %56 = tail call noundef zeroext i1 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17h5e4c500a44b995e9E"(ptr noalias noundef nonnull readonly align 1 %53, i64 noundef %55, ptr noalias noundef nonnull readonly align 1 @anon.8ad231a129453d088979dfad2582f60a.563, i64 noundef 11)
+  %51 = getelementptr i8, ptr %35, i64 -16
+  %52 = load ptr, ptr %51, align 8, !nonnull !9, !align !10, !noundef !9
+  %53 = getelementptr i8, ptr %35, i64 -8
+  %54 = load i64, ptr %53, align 8, !noundef !9
+  %55 = tail call noundef zeroext i1 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17h5e4c500a44b995e9E"(ptr noalias noundef nonnull readonly align 1 %52, i64 noundef %54, ptr noalias noundef nonnull readonly align 1 @anon.8ad231a129453d088979dfad2582f60a.563, i64 noundef 11)
   br label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h6384669880b81fa8E.exit.thread"
 
-57:                                               ; preds = %23
-  %58 = getelementptr i8, ptr %0, i64 -16
-  %59 = getelementptr { ptr, i64 }, ptr %58, i64 %1
-  %60 = load ptr, ptr %59, align 8, !nonnull !9, !align !10, !noundef !9
-  %61 = getelementptr inbounds nuw i8, ptr %59, i64 8
-  %62 = load i64, ptr %61, align 8, !noundef !9
-  %63 = tail call noundef zeroext i1 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17h5e4c500a44b995e9E"(ptr noalias noundef nonnull readonly align 1 %60, i64 noundef %62, ptr noalias noundef nonnull readonly align 1 @anon.8ad231a129453d088979dfad2582f60a.563, i64 noundef 11)
+56:                                               ; preds = %23
+  %57 = getelementptr i8, ptr %0, i64 -16
+  %58 = getelementptr { ptr, i64 }, ptr %57, i64 %1
+  %59 = load ptr, ptr %58, align 8, !nonnull !9, !align !10, !noundef !9
+  %60 = getelementptr inbounds nuw i8, ptr %58, i64 8
+  %61 = load i64, ptr %60, align 8, !noundef !9
+  %62 = tail call noundef zeroext i1 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17h5e4c500a44b995e9E"(ptr noalias noundef nonnull readonly align 1 %59, i64 noundef %61, ptr noalias noundef nonnull readonly align 1 @anon.8ad231a129453d088979dfad2582f60a.563, i64 noundef 11)
   br label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h6384669880b81fa8E.exit.thread"
 }
 

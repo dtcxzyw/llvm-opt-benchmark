@@ -113,51 +113,48 @@ define internal fastcc void @RTreeClose2(ptr noundef %0) unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load i32, ptr %2, align 4, !tbaa !13
   %4 = icmp sgt i32 %3, 0
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br i1 %4, label %.preheader, label %.preheader1
 
-.preheader:                                       ; preds = %1, %13
-  %indvars.iv8 = phi i64 [ %indvars.iv.next9, %13 ], [ 0, %1 ]
-  %6 = mul nuw nsw i64 %indvars.iv8, 24
-  %7 = getelementptr inbounds nuw i8, ptr %5, i64 %6
-  %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %9 = load ptr, ptr %8, align 8, !tbaa !22
-  %.not22 = icmp eq ptr %9, null
-  br i1 %.not22, label %13, label %10
+.preheader:                                       ; preds = %1, %11
+  %indvars.iv7 = phi i64 [ %indvars.iv.next8, %11 ], [ 0, %1 ]
+  %5 = getelementptr inbounds nuw [64 x %struct.Branch], ptr %0, i64 0, i64 %indvars.iv7
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %7 = load ptr, ptr %6, align 8, !tbaa !22
+  %.not19 = icmp eq ptr %7, null
+  br i1 %.not19, label %11, label %8
 
-10:                                               ; preds = %.preheader
-  tail call fastcc void @RTreeClose2(ptr noundef nonnull %9)
-  %11 = load ptr, ptr %8, align 8, !tbaa !22
-  tail call void @free(ptr noundef %11) #8
-  %12 = trunc nuw nsw i64 %indvars.iv8 to i32
-  tail call void @DisconBranch(ptr noundef nonnull %0, i32 noundef %12) #8
-  br label %13
+8:                                                ; preds = %.preheader
+  tail call fastcc void @RTreeClose2(ptr noundef nonnull %7)
+  %9 = load ptr, ptr %6, align 8, !tbaa !22
+  tail call void @free(ptr noundef %9) #8
+  %10 = trunc nuw nsw i64 %indvars.iv7 to i32
+  tail call void @DisconBranch(ptr noundef nonnull %0, i32 noundef %10) #8
+  br label %11
 
-13:                                               ; preds = %10, %.preheader
-  %indvars.iv.next9 = add nuw nsw i64 %indvars.iv8, 1
-  %exitcond12.not = icmp eq i64 %indvars.iv.next9, 64
-  br i1 %exitcond12.not, label %.loopexit, label %.preheader, !llvm.loop !24
+11:                                               ; preds = %8, %.preheader
+  %indvars.iv.next8 = add nuw nsw i64 %indvars.iv7, 1
+  %exitcond10.not = icmp eq i64 %indvars.iv.next8, 64
+  br i1 %exitcond10.not, label %.loopexit, label %.preheader, !llvm.loop !24
 
-.preheader1:                                      ; preds = %1, %20
-  %indvars.iv = phi i64 [ %indvars.iv.next, %20 ], [ 0, %1 ]
-  %14 = mul nuw nsw i64 %indvars.iv, 24
-  %15 = getelementptr inbounds nuw i8, ptr %5, i64 %14
-  %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
-  %17 = load ptr, ptr %16, align 8, !tbaa !22
-  %.not = icmp eq ptr %17, null
-  br i1 %.not, label %20, label %18
+.preheader1:                                      ; preds = %1, %17
+  %indvars.iv = phi i64 [ %indvars.iv.next, %17 ], [ 0, %1 ]
+  %12 = getelementptr inbounds nuw [64 x %struct.Branch], ptr %0, i64 0, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 24
+  %14 = load ptr, ptr %13, align 8, !tbaa !22
+  %.not = icmp eq ptr %14, null
+  br i1 %.not, label %17, label %15
 
-18:                                               ; preds = %.preheader1
-  %19 = trunc nuw nsw i64 %indvars.iv to i32
-  tail call void @DisconBranch(ptr noundef nonnull %0, i32 noundef %19) #8
-  br label %20
+15:                                               ; preds = %.preheader1
+  %16 = trunc nuw nsw i64 %indvars.iv to i32
+  tail call void @DisconBranch(ptr noundef nonnull %0, i32 noundef %16) #8
+  br label %17
 
-20:                                               ; preds = %.preheader1, %18
+17:                                               ; preds = %.preheader1, %15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 64
   br i1 %exitcond.not, label %.loopexit, label %.preheader1, !llvm.loop !25
 
-.loopexit:                                        ; preds = %20, %13
+.loopexit:                                        ; preds = %17, %11
   ret void
 }
 

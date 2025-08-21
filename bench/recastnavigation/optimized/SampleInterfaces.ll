@@ -78,19 +78,19 @@ define dso_local void @_ZN12BuildContext10doResetLogEv(ptr noundef nonnull write
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local void @_ZN12BuildContext5doLogE13rcLogCategoryPKci(ptr noundef nonnull align 8 dereferenceable(16472) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3) unnamed_addr #2 align 2 {
   %.not = icmp eq i32 %3, 0
-  br i1 %.not, label %33, label %5
+  br i1 %.not, label %32, label %5
 
 5:                                                ; preds = %4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8464
   %7 = load i32, ptr %6, align 8
   %8 = icmp sgt i32 %7, 999
-  br i1 %8, label %33, label %9
+  br i1 %8, label %32, label %9
 
 9:                                                ; preds = %5
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16468
   %11 = load i32, ptr %10, align 4
   %12 = icmp sgt i32 %11, 7998
-  br i1 %12, label %33, label %13
+  br i1 %12, label %32, label %13
 
 13:                                               ; preds = %9
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8468
@@ -104,23 +104,22 @@ define dso_local void @_ZN12BuildContext5doLogE13rcLogCategoryPKci(ptr noundef n
   %21 = tail call noundef i32 @llvm.smin.i32(i32 %20, i32 %18)
   %22 = sext i32 %21 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %17, ptr align 1 %2, i64 %22, i1 false)
-  %23 = getelementptr i8, ptr %17, i64 %22
-  %24 = getelementptr i8, ptr %23, i64 -1
-  store i8 0, ptr %24, align 1
-  %25 = add nsw i32 %21, 1
-  %26 = load i32, ptr %10, align 4
-  %27 = add nsw i32 %25, %26
-  store i32 %27, ptr %10, align 4
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 464
-  %29 = load i32, ptr %6, align 8
-  %30 = add nsw i32 %29, 1
-  store i32 %30, ptr %6, align 8
-  %31 = sext i32 %29 to i64
-  %32 = getelementptr inbounds [1000 x ptr], ptr %28, i64 0, i64 %31
-  store ptr %16, ptr %32, align 8
-  br label %33
+  %23 = getelementptr i8, ptr %16, i64 %22
+  store i8 0, ptr %23, align 1
+  %24 = add nsw i32 %21, 1
+  %25 = load i32, ptr %10, align 4
+  %26 = add nsw i32 %24, %25
+  store i32 %26, ptr %10, align 4
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 464
+  %28 = load i32, ptr %6, align 8
+  %29 = add nsw i32 %28, 1
+  store i32 %29, ptr %6, align 8
+  %30 = sext i32 %28 to i64
+  %31 = getelementptr inbounds [1000 x ptr], ptr %27, i64 0, i64 %30
+  store ptr %16, ptr %31, align 8
+  br label %32
 
-33:                                               ; preds = %9, %5, %4, %13
+32:                                               ; preds = %9, %5, %4, %13
   ret void
 }
 

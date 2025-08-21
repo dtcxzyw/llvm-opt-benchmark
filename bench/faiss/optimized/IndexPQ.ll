@@ -3601,10 +3601,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   br i1 %70, label %.lr.ph.i, label %._crit_edge.i
 
 ._crit_edge.i.loopexit:                           ; preds = %.lr.ph.i
-  %scevgep = getelementptr i8, ptr %.sroa.034.046, i64 2
   %71 = zext nneg i32 %69 to i64
-  %72 = getelementptr i8, ptr %scevgep, i64 %71
-  %scevgep61 = getelementptr i8, ptr %72, i64 -1
+  %72 = getelementptr i8, ptr %.sroa.034.046, i64 %71
+  %scevgep61 = getelementptr i8, ptr %72, i64 1
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.i.loopexit, %64
@@ -3675,10 +3674,9 @@ _ZN5faiss16PQDecoderGeneric6decodeEv.exit:        ; preds = %._crit_edge.i, %83,
   br i1 %106, label %.lr.ph.i26, label %._crit_edge.i22
 
 ._crit_edge.i22.loopexit:                         ; preds = %.lr.ph.i26
-  %scevgep62 = getelementptr i8, ptr %.sroa.0.050, i64 2
   %107 = zext nneg i32 %105 to i64
-  %108 = getelementptr i8, ptr %scevgep62, i64 %107
-  %scevgep63 = getelementptr i8, ptr %108, i64 -1
+  %108 = getelementptr i8, ptr %.sroa.0.050, i64 %107
+  %scevgep63 = getelementptr i8, ptr %108, i64 1
   br label %._crit_edge.i22
 
 ._crit_edge.i22:                                  ; preds = %._crit_edge.i22.loopexit, %100
@@ -3840,10 +3838,9 @@ define internal noundef float @_ZN5faiss12_GLOBAL__N_118PQDistanceComputerINS_16
   br i1 %36, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i
 
 ._crit_edge.i.loopexit.i.i:                       ; preds = %.lr.ph.i.i.i
-  %scevgep.i.i = getelementptr i8, ptr %.sroa.0.019.i.i, i64 2
   %37 = zext nneg i32 %35 to i64
-  %38 = getelementptr i8, ptr %scevgep.i.i, i64 %37
-  %scevgep26.i.i = getelementptr i8, ptr %38, i64 -1
+  %38 = getelementptr i8, ptr %.sroa.0.019.i.i, i64 %37
+  %scevgep26.i.i = getelementptr i8, ptr %38, i64 1
   br label %._crit_edge.i.i.i
 
 ._crit_edge.i.i.i:                                ; preds = %._crit_edge.i.loopexit.i.i, %30

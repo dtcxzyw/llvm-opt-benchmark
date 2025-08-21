@@ -2532,11 +2532,9 @@ _ZNSt6vectorIhSaIhEE6resizeEm.exit427:            ; preds = %_ZNSt12_Vector_base
 .lr.ph850.preheader:                              ; preds = %_ZNSt6vectorIhSaIhEE6resizeEm.exit427
   %umax = zext nneg i32 %477 to i64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %511, i8 0, i64 %umax, i1 false), !tbaa !14
-  %scevgep = getelementptr i8, ptr %.sroa.0569.9, i64 1
-  %512 = getelementptr i8, ptr %scevgep, i64 %474
+  %512 = getelementptr i8, ptr %.sroa.0569.9, i64 %474
   %513 = zext nneg i32 %477 to i64
   %514 = getelementptr i8, ptr %512, i64 %513
-  %scevgep1004 = getelementptr i8, ptr %514, i64 -1
   %515 = add i32 %.0219.lcssa, %477
   br label %_ZNSt6vectorIhSaIhEED2Ev.exit430
 
@@ -2544,7 +2542,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit430:                 ; preds = %.lr.ph850.preheader
   %.sroa.33.10 = phi ptr [ %.sroa.33.11, %473 ], [ %.sroa.33.11, %._crit_edge845 ], [ %.sroa.33.9, %_ZNSt6vectorIhSaIhEE6resizeEm.exit427 ], [ %.sroa.33.9, %.lr.ph850.preheader ]
   %.sroa.0569.10 = phi ptr [ %.sroa.0569.11, %473 ], [ %.sroa.0569.11, %._crit_edge845 ], [ %.sroa.0569.9, %_ZNSt6vectorIhSaIhEE6resizeEm.exit427 ], [ %.sroa.0569.9, %.lr.ph850.preheader ]
   %.4 = phi i32 [ %475, %473 ], [ %117, %._crit_edge845 ], [ %475, %_ZNSt6vectorIhSaIhEE6resizeEm.exit427 ], [ %475, %.lr.ph850.preheader ]
-  %.10234 = phi ptr [ %.sroa.0569.11, %473 ], [ %.sroa.0569.11, %._crit_edge845 ], [ %511, %_ZNSt6vectorIhSaIhEE6resizeEm.exit427 ], [ %scevgep1004, %.lr.ph850.preheader ]
+  %.10234 = phi ptr [ %.sroa.0569.11, %473 ], [ %.sroa.0569.11, %._crit_edge845 ], [ %511, %_ZNSt6vectorIhSaIhEE6resizeEm.exit427 ], [ %514, %.lr.ph850.preheader ]
   %.8217 = phi i32 [ %.0219.lcssa, %473 ], [ %113, %._crit_edge845 ], [ %.0219.lcssa, %_ZNSt6vectorIhSaIhEE6resizeEm.exit427 ], [ %515, %.lr.ph850.preheader ]
   %516 = ptrtoint ptr %.sroa.13527.5 to i64
   %517 = ptrtoint ptr %.sroa.0521.5 to i64

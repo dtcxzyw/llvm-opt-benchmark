@@ -265,27 +265,26 @@ define internal i32 @decode_mcus(ptr noundef %0, ptr noundef readonly captures(n
 
 .lr.ph149:                                        ; preds = %._crit_edge
   %36 = getelementptr inbounds nuw i8, ptr %8, i64 168
-  %37 = getelementptr inbounds nuw i8, ptr %8, i64 260
-  br label %38
+  br label %37
 
-38:                                               ; preds = %.lr.ph149, %38
-  %indvars.iv164 = phi i64 [ 0, %.lr.ph149 ], [ %indvars.iv.next165, %38 ]
-  %39 = getelementptr inbounds nuw [10 x ptr], ptr %36, i64 0, i64 %indvars.iv164
-  %40 = load ptr, ptr %39, align 8, !tbaa !71
-  %.idx = mul nuw nsw i64 %indvars.iv164, 12
-  %41 = getelementptr inbounds nuw i8, ptr %37, i64 %.idx
+37:                                               ; preds = %.lr.ph149, %37
+  %indvars.iv164 = phi i64 [ 0, %.lr.ph149 ], [ %indvars.iv.next165, %37 ]
+  %38 = getelementptr inbounds nuw [10 x ptr], ptr %36, i64 0, i64 %indvars.iv164
+  %39 = load ptr, ptr %38, align 8, !tbaa !71
+  %40 = getelementptr inbounds nuw [10 x %struct.lhd_output_ptr_info], ptr %8, i64 0, i64 %indvars.iv164
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 260
   %42 = load i32, ptr %41, align 4, !tbaa !60
   %43 = mul i32 %42, %4
   %44 = zext i32 %43 to i64
   %45 = shl nuw nsw i64 %44, 2
-  tail call void @jzero_far(ptr noundef %40, i64 noundef %45) #4
+  tail call void @jzero_far(ptr noundef %39, i64 noundef %45) #4
   %indvars.iv.next165 = add nuw nsw i64 %indvars.iv164, 1
   %46 = load i32, ptr %9, align 8, !tbaa !65
   %47 = sext i32 %46 to i64
   %48 = icmp slt i64 %indvars.iv.next165, %47
-  br i1 %48, label %38, label %._crit_edge150, !llvm.loop !73
+  br i1 %48, label %37, label %._crit_edge150, !llvm.loop !73
 
-._crit_edge150:                                   ; preds = %38, %._crit_edge.thread
+._crit_edge150:                                   ; preds = %37, %._crit_edge.thread
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 600
   %50 = load ptr, ptr %49, align 8, !tbaa !74
   %51 = load ptr, ptr %50, align 8, !tbaa !75

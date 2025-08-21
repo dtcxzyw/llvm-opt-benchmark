@@ -1098,22 +1098,19 @@ define internal ptr @gc_get_count(ptr readnone captures(none) %0, ptr readnone c
   %6 = load ptr, ptr %5, align 8, !tbaa !9
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 7444
   %8 = load i32, ptr %7, align 4, !tbaa !25
-  %9 = getelementptr inbounds nuw i8, ptr %6, i64 7448
-  %10 = getelementptr inbounds nuw i8, ptr %6, i64 7632
-  %11 = load i32, ptr %10, align 8, !tbaa !26
-  %12 = sext i32 %11 to i64
-  %.idx.i = mul nsw i64 %12, 24
-  %13 = getelementptr i8, ptr %9, i64 %.idx.i
-  %14 = getelementptr i8, ptr %13, i64 20
-  %15 = load i32, ptr %14, align 4, !tbaa !27
-  %16 = xor i32 %11, 1
-  %17 = sext i32 %16 to i64
-  %.idx5.i = mul nsw i64 %17, 24
-  %18 = getelementptr i8, ptr %9, i64 %.idx5.i
-  %19 = getelementptr i8, ptr %18, i64 20
-  %20 = load i32, ptr %19, align 4, !tbaa !27
-  %21 = tail call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.20, i32 noundef %8, i32 noundef %15, i32 noundef %20) #5
-  ret ptr %21
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 7632
+  %10 = load i32, ptr %9, align 8, !tbaa !26
+  %11 = sext i32 %10 to i64
+  %12 = getelementptr [2 x %struct.gc_generation], ptr %6, i64 0, i64 %11
+  %13 = getelementptr i8, ptr %12, i64 7468
+  %14 = load i32, ptr %13, align 4, !tbaa !27
+  %15 = xor i32 %10, 1
+  %16 = sext i32 %15 to i64
+  %17 = getelementptr [2 x %struct.gc_generation], ptr %6, i64 0, i64 %16
+  %18 = getelementptr i8, ptr %17, i64 7468
+  %19 = load i32, ptr %18, align 4, !tbaa !27
+  %20 = tail call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.20, i32 noundef %8, i32 noundef %14, i32 noundef %19) #5
+  ret ptr %20
 }
 
 ; Function Attrs: nounwind uwtable

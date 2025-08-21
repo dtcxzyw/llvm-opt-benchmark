@@ -3747,7 +3747,7 @@ define hidden void @_ZN7mitsuba8get_implINS_9TransformINS_5PointIdLm3EEEEENS1_IN
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 320
   %25 = load ptr, ptr %24, align 32
   %26 = icmp eq ptr %25, @_ZTIN7mitsuba9TransformINS_5PointIdLm4EEEEE
-  br i1 %26, label %_ZN7mitsuba7variantIJbldN5drjit5ArrayIdLm3EEENSt3__112basic_stringIcNS4_11char_traitsIcEENS4_9allocatorIcEEEENS_9TransformINS_5PointIdLm3EEEEENSB_INSC_IdLm4EEEEENS4_10shared_ptrIvEENS_5ColorIdLm3EEENS_14NamedReferenceENS_3refINS_6ObjectEEEPKvEEcvRT_IKSG_EEv.exit, label %59
+  br i1 %26, label %_ZN7mitsuba7variantIJbldN5drjit5ArrayIdLm3EEENSt3__112basic_stringIcNS4_11char_traitsIcEENS4_9allocatorIcEEEENS_9TransformINS_5PointIdLm3EEEEENSB_INSC_IdLm4EEEEENS4_10shared_ptrIvEENS_5ColorIdLm3EEENS_14NamedReferenceENS_3refINS_6ObjectEEEPKvEEcvRT_IKSG_EEv.exit, label %58
 
 _ZN7mitsuba7variantIJbldN5drjit5ArrayIdLm3EEENSt3__112basic_stringIcNS4_11char_traitsIcEENS4_9allocatorIcEEEENS_9TransformINS_5PointIdLm3EEEEENSB_INSC_IdLm4EEEEENS4_10shared_ptrIvEENS_5ColorIdLm3EEENS_14NamedReferenceENS_3refINS_6ObjectEEEPKvEEcvRT_IKSG_EEv.exit: ; preds = %20
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 32 dereferenceable(192) %0, i8 0, i64 96, i1 false), !alias.scope !49
@@ -3779,60 +3779,59 @@ _ZN5drjit8identityINS_6MatrixIdLm3EEETnNSt3__19enable_ifIX11is_matrix_vIT_EEiE4t
 _ZN7mitsuba9TransformINS_5PointIdLm3EEEEC2Ev.exit.preheader: ; preds = %32
   %36 = getelementptr inbounds nuw i8, ptr %22, i64 160
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %38 = getelementptr inbounds nuw i8, ptr %22, i64 192
   br label %.preheader
 
 .preheader:                                       ; preds = %_ZN7mitsuba9TransformINS_5PointIdLm3EEEEC2Ev.exit.preheader, %.preheader
-  %39 = phi i1 [ true, %_ZN7mitsuba9TransformINS_5PointIdLm3EEEEC2Ev.exit.preheader ], [ false, %.preheader ]
+  %38 = phi i1 [ true, %_ZN7mitsuba9TransformINS_5PointIdLm3EEEEC2Ev.exit.preheader ], [ false, %.preheader ]
   %.0124 = phi i64 [ 0, %_ZN7mitsuba9TransformINS_5PointIdLm3EEEEC2Ev.exit.preheader ], [ 1, %.preheader ]
-  %40 = shl nuw nsw i64 %.0124, 5
-  %41 = getelementptr nuw i8, ptr %0, i64 %40
-  %scevgep126 = getelementptr nuw i8, ptr %41, i64 96
-  %42 = getelementptr i8, ptr %22, i64 %40
-  %scevgep127 = getelementptr i8, ptr %42, i64 192
-  %scevgep = getelementptr nuw i8, ptr %0, i64 %40
-  %43 = getelementptr i8, ptr %22, i64 %40
-  %scevgep125 = getelementptr i8, ptr %43, i64 64
+  %39 = shl nuw nsw i64 %.0124, 5
+  %40 = getelementptr nuw i8, ptr %0, i64 %39
+  %scevgep126 = getelementptr nuw i8, ptr %40, i64 96
+  %41 = getelementptr i8, ptr %22, i64 %39
+  %scevgep127 = getelementptr i8, ptr %41, i64 192
+  %scevgep = getelementptr nuw i8, ptr %0, i64 %39
+  %42 = getelementptr i8, ptr %22, i64 %39
+  %scevgep125 = getelementptr i8, ptr %42, i64 64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 32 dereferenceable(16) %scevgep, ptr noundef nonnull align 8 dereferenceable(16) %scevgep125, i64 16, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 32 dereferenceable(16) %scevgep126, ptr noundef nonnull align 8 dereferenceable(16) %scevgep127, i64 16, i1 false)
-  %44 = getelementptr inbounds nuw double, ptr %36, i64 %.0124
-  %45 = load double, ptr %44, align 8
-  %46 = getelementptr inbounds nuw double, ptr %37, i64 %.0124
-  store double %45, ptr %46, align 8
-  %47 = getelementptr inbounds nuw [4 x %"struct.drjit::Array.69"], ptr %38, i64 0, i64 %.0124
-  %48 = getelementptr inbounds nuw i8, ptr %47, i64 24
-  %49 = load double, ptr %48, align 8
-  %50 = getelementptr inbounds nuw [3 x %"struct.drjit::Array.15"], ptr %31, i64 0, i64 %.0124
-  %51 = getelementptr inbounds nuw i8, ptr %50, i64 16
-  store double %49, ptr %51, align 16
-  br i1 %39, label %.preheader, label %52, !llvm.loop !62
+  %43 = getelementptr inbounds nuw double, ptr %36, i64 %.0124
+  %44 = load double, ptr %43, align 8
+  %45 = getelementptr inbounds nuw double, ptr %37, i64 %.0124
+  store double %44, ptr %45, align 8
+  %46 = getelementptr inbounds nuw [4 x %"struct.drjit::Array.69"], ptr %22, i64 0, i64 %.0124
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 216
+  %48 = load double, ptr %47, align 8
+  %49 = getelementptr inbounds nuw [3 x %"struct.drjit::Array.15"], ptr %0, i64 0, i64 %.0124
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 112
+  store double %48, ptr %50, align 16
+  br i1 %38, label %.preheader, label %51, !llvm.loop !62
 
-52:                                               ; preds = %.preheader
-  %53 = getelementptr inbounds nuw i8, ptr %22, i64 184
-  %54 = load double, ptr %53, align 8
-  %55 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  store double %54, ptr %55, align 16
-  %56 = getelementptr inbounds nuw i8, ptr %22, i64 312
-  %57 = load double, ptr %56, align 8
-  %58 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  store double %57, ptr %58, align 16
-  br label %63
+51:                                               ; preds = %.preheader
+  %52 = getelementptr inbounds nuw i8, ptr %22, i64 184
+  %53 = load double, ptr %52, align 8
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  store double %53, ptr %54, align 16
+  %55 = getelementptr inbounds nuw i8, ptr %22, i64 312
+  %56 = load double, ptr %55, align 8
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  store double %56, ptr %57, align 16
+  br label %62
 
-59:                                               ; preds = %20
-  %60 = icmp eq ptr %25, @_ZTIN7mitsuba9TransformINS_5PointIdLm3EEEEE
-  br i1 %60, label %_ZN7mitsuba7variantIJbldN5drjit5ArrayIdLm3EEENSt3__112basic_stringIcNS4_11char_traitsIcEENS4_9allocatorIcEEEENS_9TransformINS_5PointIdLm3EEEEENSB_INSC_IdLm4EEEEENS4_10shared_ptrIvEENS_5ColorIdLm3EEENS_14NamedReferenceENS_3refINS_6ObjectEEEPKvEEcvRT_IKSE_EEv.exit, label %61
+58:                                               ; preds = %20
+  %59 = icmp eq ptr %25, @_ZTIN7mitsuba9TransformINS_5PointIdLm3EEEEE
+  br i1 %59, label %_ZN7mitsuba7variantIJbldN5drjit5ArrayIdLm3EEENSt3__112basic_stringIcNS4_11char_traitsIcEENS4_9allocatorIcEEEENS_9TransformINS_5PointIdLm3EEEEENSB_INSC_IdLm4EEEEENS4_10shared_ptrIvEENS_5ColorIdLm3EEENS_14NamedReferenceENS_3refINS_6ObjectEEEPKvEEcvRT_IKSE_EEv.exit, label %60
 
-61:                                               ; preds = %59
-  %62 = tail call ptr @__cxa_allocate_exception(i64 8) #28
-  tail call void @_ZNSt8bad_castC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %62) #28
-  tail call void @__cxa_throw(ptr nonnull %62, ptr nonnull @_ZTISt8bad_cast, ptr nonnull @_ZNSt8bad_castD1Ev) #27
+60:                                               ; preds = %58
+  %61 = tail call ptr @__cxa_allocate_exception(i64 8) #28
+  tail call void @_ZNSt8bad_castC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %61) #28
+  tail call void @__cxa_throw(ptr nonnull %61, ptr nonnull @_ZTISt8bad_cast, ptr nonnull @_ZNSt8bad_castD1Ev) #27
   unreachable
 
-_ZN7mitsuba7variantIJbldN5drjit5ArrayIdLm3EEENSt3__112basic_stringIcNS4_11char_traitsIcEENS4_9allocatorIcEEEENS_9TransformINS_5PointIdLm3EEEEENSB_INSC_IdLm4EEEEENS4_10shared_ptrIvEENS_5ColorIdLm3EEENS_14NamedReferenceENS_3refINS_6ObjectEEEPKvEEcvRT_IKSE_EEv.exit: ; preds = %59
+_ZN7mitsuba7variantIJbldN5drjit5ArrayIdLm3EEENSt3__112basic_stringIcNS4_11char_traitsIcEENS4_9allocatorIcEEEENS_9TransformINS_5PointIdLm3EEEEENSB_INSC_IdLm4EEEEENS4_10shared_ptrIvEENS_5ColorIdLm3EEENS_14NamedReferenceENS_3refINS_6ObjectEEEPKvEEcvRT_IKSE_EEv.exit: ; preds = %58
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 32 dereferenceable(192) %0, ptr noundef nonnull align 32 dereferenceable(192) %23, i64 192, i1 false)
-  br label %63
+  br label %62
 
-63:                                               ; preds = %_ZN7mitsuba7variantIJbldN5drjit5ArrayIdLm3EEENSt3__112basic_stringIcNS4_11char_traitsIcEENS4_9allocatorIcEEEENS_9TransformINS_5PointIdLm3EEEEENSB_INSC_IdLm4EEEEENS4_10shared_ptrIvEENS_5ColorIdLm3EEENS_14NamedReferenceENS_3refINS_6ObjectEEEPKvEEcvRT_IKSE_EEv.exit, %52
+62:                                               ; preds = %_ZN7mitsuba7variantIJbldN5drjit5ArrayIdLm3EEENSt3__112basic_stringIcNS4_11char_traitsIcEENS4_9allocatorIcEEEENS_9TransformINS_5PointIdLm3EEEEENSB_INSC_IdLm4EEEEENS4_10shared_ptrIvEENS_5ColorIdLm3EEENS_14NamedReferenceENS_3refINS_6ObjectEEEPKvEEcvRT_IKSE_EEv.exit, %51
   ret void
 }
 

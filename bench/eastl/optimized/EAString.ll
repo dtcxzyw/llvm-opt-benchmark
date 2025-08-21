@@ -771,24 +771,18 @@ for.cond.i.preheader.i:                           ; preds = %if.else.i.i
   %conv1.i.i = zext i8 %2 to i32
   %sub.i.i = add nsw i32 %conv1.i.i, -1
   %cmp7.i60.not.i = icmp eq i32 %sub.i.i, 0
-  br i1 %cmp7.i60.not.i, label %for.end.i.i, label %for.body.i.preheader.i
+  br i1 %cmp7.i60.not.i, label %for.end.i.i, label %for.body.i.i
 
-for.body.i.preheader.i:                           ; preds = %for.cond.i.preheader.i
-  %scevgep.i = getelementptr i8, ptr %pSource.addr.068.i, i64 2
-  %3 = getelementptr i8, ptr %scevgep.i, i64 %idx.ext.i.i
-  %scevgep77.i = getelementptr i8, ptr %3, i64 -2
-  br label %for.body.i.i
-
-for.body.i.i:                                     ; preds = %if.end18.i.i, %for.body.i.preheader.i
-  %pSource.i.163.i = phi ptr [ %incdec.ptr8.i.i, %if.end18.i.i ], [ %incdec.ptr.i.i, %for.body.i.preheader.i ]
-  %c.i.162.i = phi i32 [ %add.i.i, %if.end18.i.i ], [ %conv.i.i, %for.body.i.preheader.i ]
-  %i.i.061.i = phi i32 [ %inc.i.i, %if.end18.i.i ], [ 0, %for.body.i.preheader.i ]
-  %4 = load i8, ptr %pSource.i.163.i, align 1
-  %or.cond1.i = icmp sgt i8 %4, -65
+for.body.i.i:                                     ; preds = %for.cond.i.preheader.i, %if.end18.i.i
+  %pSource.i.163.i = phi ptr [ %incdec.ptr8.i.i, %if.end18.i.i ], [ %incdec.ptr.i.i, %for.cond.i.preheader.i ]
+  %c.i.162.i = phi i32 [ %add.i.i, %if.end18.i.i ], [ %conv.i.i, %for.cond.i.preheader.i ]
+  %i.i.061.i = phi i32 [ %inc.i.i, %if.end18.i.i ], [ 0, %for.cond.i.preheader.i ]
+  %3 = load i8, ptr %pSource.i.163.i, align 1
+  %or.cond1.i = icmp sgt i8 %3, -65
   br i1 %or.cond1.i, label %while.end.sink.split.i, label %if.end18.i.i
 
 if.end18.i.i:                                     ; preds = %for.body.i.i
-  %conv9.i.i = zext i8 %4 to i32
+  %conv9.i.i = zext i8 %3 to i32
   %incdec.ptr8.i.i = getelementptr inbounds nuw i8, ptr %pSource.i.163.i, i64 1
   %shl.i.i = shl i32 %c.i.162.i, 6
   %add.i.i = add i32 %shl.i.i, %conv9.i.i
@@ -798,19 +792,19 @@ if.end18.i.i:                                     ; preds = %for.body.i.i
 
 for.end.i.i:                                      ; preds = %if.end18.i.i, %for.cond.i.preheader.i
   %c.i.1.lcssa.i = phi i32 [ %conv.i.i, %for.cond.i.preheader.i ], [ %add.i.i, %if.end18.i.i ]
-  %pSource.i.1.lcssa.i = phi ptr [ %incdec.ptr.i.i, %for.cond.i.preheader.i ], [ %scevgep77.i, %if.end18.i.i ]
+  %pSource.i.1.lcssa.i = phi ptr [ %incdec.ptr.i.i, %for.cond.i.preheader.i ], [ %add.ptr.i.i, %if.end18.i.i ]
   %arrayidx21.i.i = getelementptr inbounds nuw [5 x i32], ptr @_ZN2EA4StdCL23utf8DecodingOffsetTableE, i64 0, i64 %idx.ext.i.i
-  %5 = load i32, ptr %arrayidx21.i.i, align 4
-  %sub22.i.i = sub i32 %c.i.1.lcssa.i, %5
+  %4 = load i32, ptr %arrayidx21.i.i, align 4
+  %sub22.i.i = sub i32 %c.i.1.lcssa.i, %4
   %arrayidx24.i.i = getelementptr inbounds nuw [5 x i32], ptr @_ZN2EA4StdCL21utf8MinimumValueTableE, i64 0, i64 %idx.ext.i.i
-  %6 = load i32, ptr %arrayidx24.i.i, align 4
-  %cmp25.i.i = icmp ult i32 %sub22.i.i, %6
+  %5 = load i32, ptr %arrayidx24.i.i, align 4
+  %cmp25.i.i = icmp ult i32 %sub22.i.i, %5
   br i1 %cmp25.i.i, label %while.end.i, label %lor.lhs.false26.i.i
 
 lor.lhs.false26.i.i:                              ; preds = %for.end.i.i
   %arrayidx28.i.i = getelementptr inbounds nuw [5 x i32], ptr @_ZN2EA4StdCL21utf8MaximumValueTableE, i64 0, i64 %idx.ext.i.i
-  %7 = load i32, ptr %arrayidx28.i.i, align 4
-  %cmp29.i.not.i = icmp ult i32 %sub22.i.i, %7
+  %6 = load i32, ptr %arrayidx28.i.i, align 4
+  %cmp29.i.not.i = icmp ult i32 %sub22.i.i, %6
   br i1 %cmp29.i.not.i, label %_ZN2EA4StdC15DecodeCodePointERPKcS2_.exit.i, label %while.end.i
 
 _ZN2EA4StdC15DecodeCodePointERPKcS2_.exit.i:      ; preds = %lor.lhs.false26.i.i, %while.body.i
@@ -968,24 +962,18 @@ for.cond.i.preheader.i:                           ; preds = %if.else.i.i
   %conv1.i.i = zext i8 %2 to i32
   %sub.i.i = add nsw i32 %conv1.i.i, -1
   %cmp7.i60.not.i = icmp eq i32 %sub.i.i, 0
-  br i1 %cmp7.i60.not.i, label %for.end.i.i, label %for.body.i.preheader.i
+  br i1 %cmp7.i60.not.i, label %for.end.i.i, label %for.body.i.i
 
-for.body.i.preheader.i:                           ; preds = %for.cond.i.preheader.i
-  %scevgep.i = getelementptr i8, ptr %pSource.addr.068.i, i64 2
-  %3 = getelementptr i8, ptr %scevgep.i, i64 %idx.ext.i.i
-  %scevgep77.i = getelementptr i8, ptr %3, i64 -2
-  br label %for.body.i.i
-
-for.body.i.i:                                     ; preds = %if.end18.i.i, %for.body.i.preheader.i
-  %pSource.i.163.i = phi ptr [ %incdec.ptr8.i.i, %if.end18.i.i ], [ %incdec.ptr.i.i, %for.body.i.preheader.i ]
-  %c.i.162.i = phi i32 [ %add.i.i, %if.end18.i.i ], [ %conv.i.i, %for.body.i.preheader.i ]
-  %i.i.061.i = phi i32 [ %inc.i.i, %if.end18.i.i ], [ 0, %for.body.i.preheader.i ]
-  %4 = load i8, ptr %pSource.i.163.i, align 1
-  %or.cond1.i = icmp sgt i8 %4, -65
+for.body.i.i:                                     ; preds = %for.cond.i.preheader.i, %if.end18.i.i
+  %pSource.i.163.i = phi ptr [ %incdec.ptr8.i.i, %if.end18.i.i ], [ %incdec.ptr.i.i, %for.cond.i.preheader.i ]
+  %c.i.162.i = phi i32 [ %add.i.i, %if.end18.i.i ], [ %conv.i.i, %for.cond.i.preheader.i ]
+  %i.i.061.i = phi i32 [ %inc.i.i, %if.end18.i.i ], [ 0, %for.cond.i.preheader.i ]
+  %3 = load i8, ptr %pSource.i.163.i, align 1
+  %or.cond1.i = icmp sgt i8 %3, -65
   br i1 %or.cond1.i, label %while.end.sink.split.i, label %if.end18.i.i
 
 if.end18.i.i:                                     ; preds = %for.body.i.i
-  %conv9.i.i = zext i8 %4 to i32
+  %conv9.i.i = zext i8 %3 to i32
   %incdec.ptr8.i.i = getelementptr inbounds nuw i8, ptr %pSource.i.163.i, i64 1
   %shl.i.i = shl i32 %c.i.162.i, 6
   %add.i.i = add i32 %shl.i.i, %conv9.i.i
@@ -995,19 +983,19 @@ if.end18.i.i:                                     ; preds = %for.body.i.i
 
 for.end.i.i:                                      ; preds = %if.end18.i.i, %for.cond.i.preheader.i
   %c.i.1.lcssa.i = phi i32 [ %conv.i.i, %for.cond.i.preheader.i ], [ %add.i.i, %if.end18.i.i ]
-  %pSource.i.1.lcssa.i = phi ptr [ %incdec.ptr.i.i, %for.cond.i.preheader.i ], [ %scevgep77.i, %if.end18.i.i ]
+  %pSource.i.1.lcssa.i = phi ptr [ %incdec.ptr.i.i, %for.cond.i.preheader.i ], [ %add.ptr.i.i, %if.end18.i.i ]
   %arrayidx21.i.i = getelementptr inbounds nuw [5 x i32], ptr @_ZN2EA4StdCL23utf8DecodingOffsetTableE, i64 0, i64 %idx.ext.i.i
-  %5 = load i32, ptr %arrayidx21.i.i, align 4
-  %sub22.i.i = sub i32 %c.i.1.lcssa.i, %5
+  %4 = load i32, ptr %arrayidx21.i.i, align 4
+  %sub22.i.i = sub i32 %c.i.1.lcssa.i, %4
   %arrayidx24.i.i = getelementptr inbounds nuw [5 x i32], ptr @_ZN2EA4StdCL21utf8MinimumValueTableE, i64 0, i64 %idx.ext.i.i
-  %6 = load i32, ptr %arrayidx24.i.i, align 4
-  %cmp25.i.i = icmp ult i32 %sub22.i.i, %6
+  %5 = load i32, ptr %arrayidx24.i.i, align 4
+  %cmp25.i.i = icmp ult i32 %sub22.i.i, %5
   br i1 %cmp25.i.i, label %while.end.i, label %lor.lhs.false26.i.i
 
 lor.lhs.false26.i.i:                              ; preds = %for.end.i.i
   %arrayidx28.i.i = getelementptr inbounds nuw [5 x i32], ptr @_ZN2EA4StdCL21utf8MaximumValueTableE, i64 0, i64 %idx.ext.i.i
-  %7 = load i32, ptr %arrayidx28.i.i, align 4
-  %cmp29.i.not.i = icmp ult i32 %sub22.i.i, %7
+  %6 = load i32, ptr %arrayidx28.i.i, align 4
+  %cmp29.i.not.i = icmp ult i32 %sub22.i.i, %6
   br i1 %cmp29.i.not.i, label %_ZN2EA4StdC15DecodeCodePointERPKcS2_.exit.i, label %while.end.i
 
 _ZN2EA4StdC15DecodeCodePointERPKcS2_.exit.i:      ; preds = %lor.lhs.false26.i.i, %while.body.i
@@ -1457,10 +1445,8 @@ for.cond.preheader:                               ; preds = %if.else
   br i1 %cmp2451.not, label %for.end, label %for.body.preheader
 
 for.body.preheader:                               ; preds = %for.cond.preheader
-  %scevgep = getelementptr i8, ptr %pSource.addr.059, i64 2
   %2 = zext i8 %1 to i64
-  %3 = getelementptr i8, ptr %scevgep, i64 %2
-  %scevgep76 = getelementptr i8, ptr %3, i64 -2
+  %3 = getelementptr i8, ptr %pSource.addr.059, i64 %2
   br label %for.body
 
 if.then14:                                        ; preds = %if.else
@@ -1495,7 +1481,7 @@ if.end41:                                         ; preds = %for.body
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !28
 
 for.end:                                          ; preds = %if.end41, %for.cond.preheader
-  %pSource.addr.2.lcssa = phi ptr [ %incdec.ptr, %for.cond.preheader ], [ %scevgep76, %if.end41 ]
+  %pSource.addr.2.lcssa = phi ptr [ %incdec.ptr, %for.cond.preheader ], [ %3, %if.end41 ]
   %c.0.lcssa = phi i32 [ %conv, %for.cond.preheader ], [ %add43, %if.end41 ]
   %conv46 = zext nneg i32 %sub to i64
   %sub47 = sub i64 %dec63, %conv46
@@ -1617,10 +1603,8 @@ for.cond.preheader:                               ; preds = %if.else
   br i1 %cmp2351.not, label %for.end, label %for.body.preheader
 
 for.body.preheader:                               ; preds = %for.cond.preheader
-  %scevgep = getelementptr i8, ptr %pSource.addr.059, i64 2
   %2 = zext i8 %1 to i64
-  %3 = getelementptr i8, ptr %scevgep, i64 %2
-  %scevgep76 = getelementptr i8, ptr %3, i64 -2
+  %3 = getelementptr i8, ptr %pSource.addr.059, i64 %2
   br label %for.body
 
 if.then13:                                        ; preds = %if.else
@@ -1655,7 +1639,7 @@ if.end40:                                         ; preds = %for.body
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !30
 
 for.end:                                          ; preds = %if.end40, %for.cond.preheader
-  %pSource.addr.2.lcssa = phi ptr [ %incdec.ptr, %for.cond.preheader ], [ %scevgep76, %if.end40 ]
+  %pSource.addr.2.lcssa = phi ptr [ %incdec.ptr, %for.cond.preheader ], [ %3, %if.end40 ]
   %c.0.lcssa = phi i32 [ %conv, %for.cond.preheader ], [ %add42, %if.end40 ]
   %conv45 = zext nneg i32 %sub to i64
   %sub46 = sub i64 %dec63, %conv45

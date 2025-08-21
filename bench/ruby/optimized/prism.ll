@@ -17138,8 +17138,8 @@ peek_offset.exit:                                 ; preds = %11, %14
   br i1 %.not.i.i, label %pm_strspn_decimal_number_validate.exit, label %26
 
 26:                                               ; preds = %17
-  %27 = getelementptr i8, ptr %19, i64 %24
-  %28 = getelementptr i8, ptr %27, i64 -1
+  %27 = getelementptr i8, ptr %18, i64 %24
+  %28 = getelementptr i8, ptr %27, i64 1
   %29 = icmp eq ptr %25, %28
   %30 = select i1 %29, i32 157, i32 156
   %31 = getelementptr i8, ptr %25, i64 1
@@ -17194,7 +17194,7 @@ peek_offset.exit48:                               ; preds = %38
 peek.exit52:                                      ; preds = %42, %45
   %.0.i.i51 = phi i8 [ %46, %45 ], [ 0, %42 ]
   %47 = call zeroext i1 @pm_char_is_decimal_digit(i8 noundef zeroext %.0.i.i51) #31
-  br i1 %47, label %48, label %67
+  br i1 %47, label %48, label %66
 
 48:                                               ; preds = %peek.exit52
   %49 = load ptr, ptr %7, align 8, !tbaa !74
@@ -17212,73 +17212,71 @@ peek.exit52:                                      ; preds = %42, %45
   br i1 %.not.i.i53, label %pm_strspn_decimal_number_validate.exit54, label %57
 
 57:                                               ; preds = %48
-  %58 = getelementptr i8, ptr %50, i64 %55
-  %59 = getelementptr i8, ptr %58, i64 -1
-  %60 = icmp eq ptr %56, %59
-  %61 = select i1 %60, i32 157, i32 156
-  %62 = getelementptr i8, ptr %56, i64 1
-  %63 = getelementptr inbounds nuw i8, ptr %0, i64 472
-  %64 = call zeroext i1 @pm_diagnostic_list_append(ptr noundef nonnull %63, ptr noundef nonnull %56, ptr noundef %62, i32 noundef %61) #31
+  %58 = getelementptr i8, ptr %49, i64 %55
+  %59 = icmp eq ptr %56, %58
+  %60 = select i1 %59, i32 157, i32 156
+  %61 = getelementptr i8, ptr %56, i64 1
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 472
+  %63 = call zeroext i1 @pm_diagnostic_list_append(ptr noundef nonnull %62, ptr noundef nonnull %56, ptr noundef %61, i32 noundef %60) #31
   br label %pm_strspn_decimal_number_validate.exit54
 
 pm_strspn_decimal_number_validate.exit54:         ; preds = %48, %57
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %65 = load ptr, ptr %7, align 8, !tbaa !74
-  %66 = getelementptr i8, ptr %65, i64 %55
-  store ptr %66, ptr %7, align 8, !tbaa !74
-  br label %93
+  %64 = load ptr, ptr %7, align 8, !tbaa !74
+  %65 = getelementptr i8, ptr %64, i64 %55
+  store ptr %65, ptr %7, align 8, !tbaa !74
+  br label %91
 
-67:                                               ; preds = %peek.exit52
-  %68 = getelementptr inbounds nuw i8, ptr %0, i64 352
-  %69 = load ptr, ptr %68, align 8, !tbaa !165
-  %70 = load ptr, ptr %7, align 8, !tbaa !74
-  %71 = getelementptr inbounds nuw i8, ptr %0, i64 472
-  %72 = call zeroext i1 @pm_diagnostic_list_append(ptr noundef nonnull %71, ptr noundef %69, ptr noundef %70, i32 noundef 145) #31
-  br label %93
+66:                                               ; preds = %peek.exit52
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 352
+  %68 = load ptr, ptr %67, align 8, !tbaa !165
+  %69 = load ptr, ptr %7, align 8, !tbaa !74
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 472
+  %71 = call zeroext i1 @pm_diagnostic_list_append(ptr noundef nonnull %70, ptr noundef %68, ptr noundef %69, i32 noundef 145) #31
+  br label %91
 
 peek_offset.exit56:                               ; preds = %peek_offset.exit48, %38
   %.0.i.i55 = phi i8 [ 0, %38 ], [ %41, %peek_offset.exit48 ]
-  %73 = call zeroext i1 @pm_char_is_decimal_digit(i8 noundef zeroext %.0.i.i55) #31
-  br i1 %73, label %74, label %peek.exit46.thread
+  %72 = call zeroext i1 @pm_char_is_decimal_digit(i8 noundef zeroext %.0.i.i55) #31
+  br i1 %72, label %73, label %peek.exit46.thread
 
-74:                                               ; preds = %peek_offset.exit56
-  %75 = load ptr, ptr %7, align 8, !tbaa !74
-  %76 = getelementptr i8, ptr %75, i64 1
-  store ptr %76, ptr %7, align 8, !tbaa !74
+73:                                               ; preds = %peek_offset.exit56
+  %74 = load ptr, ptr %7, align 8, !tbaa !74
+  %75 = getelementptr i8, ptr %74, i64 1
+  store ptr %75, ptr %7, align 8, !tbaa !74
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8, !tbaa !14
-  %77 = load ptr, ptr %6, align 8, !tbaa !76
-  %78 = ptrtoint ptr %77 to i64
-  %79 = ptrtoint ptr %76 to i64
-  %80 = sub i64 %78, %79
-  %81 = call i64 @pm_strspn_decimal_number(ptr noundef %76, i64 noundef %80, ptr noundef nonnull %3) #31
-  %82 = load ptr, ptr %3, align 8, !tbaa !14
-  %.not.i.i57 = icmp eq ptr %82, null
-  br i1 %.not.i.i57, label %pm_strspn_decimal_number_validate.exit58, label %83
+  %76 = load ptr, ptr %6, align 8, !tbaa !76
+  %77 = ptrtoint ptr %76 to i64
+  %78 = ptrtoint ptr %75 to i64
+  %79 = sub i64 %77, %78
+  %80 = call i64 @pm_strspn_decimal_number(ptr noundef %75, i64 noundef %79, ptr noundef nonnull %3) #31
+  %81 = load ptr, ptr %3, align 8, !tbaa !14
+  %.not.i.i57 = icmp eq ptr %81, null
+  br i1 %.not.i.i57, label %pm_strspn_decimal_number_validate.exit58, label %82
 
-83:                                               ; preds = %74
-  %84 = getelementptr i8, ptr %76, i64 %81
-  %85 = getelementptr i8, ptr %84, i64 -1
-  %86 = icmp eq ptr %82, %85
-  %87 = select i1 %86, i32 157, i32 156
-  %88 = getelementptr i8, ptr %82, i64 1
-  %89 = getelementptr inbounds nuw i8, ptr %0, i64 472
-  %90 = call zeroext i1 @pm_diagnostic_list_append(ptr noundef nonnull %89, ptr noundef nonnull %82, ptr noundef %88, i32 noundef %87) #31
+82:                                               ; preds = %73
+  %83 = getelementptr i8, ptr %74, i64 %80
+  %84 = icmp eq ptr %81, %83
+  %85 = select i1 %84, i32 157, i32 156
+  %86 = getelementptr i8, ptr %81, i64 1
+  %87 = getelementptr inbounds nuw i8, ptr %0, i64 472
+  %88 = call zeroext i1 @pm_diagnostic_list_append(ptr noundef nonnull %87, ptr noundef nonnull %81, ptr noundef %86, i32 noundef %85) #31
   br label %pm_strspn_decimal_number_validate.exit58
 
-pm_strspn_decimal_number_validate.exit58:         ; preds = %74, %83
+pm_strspn_decimal_number_validate.exit58:         ; preds = %73, %82
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %91 = load ptr, ptr %7, align 8, !tbaa !74
-  %92 = getelementptr i8, ptr %91, i64 %81
-  store ptr %92, ptr %7, align 8, !tbaa !74
-  br label %93
+  %89 = load ptr, ptr %7, align 8, !tbaa !74
+  %90 = getelementptr i8, ptr %89, i64 %80
+  store ptr %90, ptr %7, align 8, !tbaa !74
+  br label %91
 
-93:                                               ; preds = %pm_strspn_decimal_number_validate.exit54, %67, %pm_strspn_decimal_number_validate.exit58
+91:                                               ; preds = %pm_strspn_decimal_number_validate.exit54, %66, %pm_strspn_decimal_number_validate.exit58
   store i8 1, ptr %1, align 1, !tbaa !17
   br label %peek.exit46.thread
 
-peek.exit46.thread:                               ; preds = %peek.exit44, %peek.exit.thread, %93, %peek_offset.exit56, %peek_offset.exit
-  %.026 = phi i32 [ 58, %peek_offset.exit ], [ %.0, %peek_offset.exit56 ], [ 44, %93 ], [ %.0, %peek.exit.thread ], [ %.0, %peek.exit44 ]
+peek.exit46.thread:                               ; preds = %peek.exit44, %peek.exit.thread, %91, %peek_offset.exit56, %peek_offset.exit
+  %.026 = phi i32 [ 58, %peek_offset.exit ], [ %.0, %peek_offset.exit56 ], [ 44, %91 ], [ %.0, %peek.exit.thread ], [ %.0, %peek.exit44 ]
   ret i32 %.026
 }
 

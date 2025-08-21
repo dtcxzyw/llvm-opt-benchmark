@@ -10987,8 +10987,8 @@ _ZN4just5token5Token6lexeme17he5b315321a8bd9e1E.exit: ; preds = %"_ZN4core3str21
   %.val = load ptr, ptr %136, align 8, !nonnull !9, !noundef !9
   %137 = getelementptr inbounds nuw i8, ptr %.tr315, i64 120
   %.val241 = load i64, ptr %137, align 8, !noundef !9
-  %.idx342 = shl nsw i64 %.val241, 7
-  %138 = getelementptr inbounds i8, ptr %.val, i64 %.idx342
+  %.idx = shl nsw i64 %.val241, 7
+  %138 = getelementptr inbounds i8, ptr %.val, i64 %.idx
   %139 = icmp eq i64 %.val241, 0
   br i1 %139, label %._crit_edge, label %.lr.ph
 
@@ -11321,10 +11321,9 @@ _ZN4just5token5Token6lexeme17he5b315321a8bd9e1E.exit: ; preds = %"_ZN4core3str21
   %.sroa.27.0.copyload.i252 = load i64, ptr %.sroa.27.0..sroa_idx.i251, align 8, !noalias !1974
   %230 = icmp ult i64 %.sroa.27.0.copyload.i252, 11
   call void @llvm.assume(i1 %230)
+  %231 = getelementptr inbounds nuw { [26 x i64] }, ptr %.sroa.0.0.copyload.i250, i64 %.sroa.27.0.copyload.i252
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !1974
-  %.idx = mul nuw nsw i64 %.sroa.27.0.copyload.i252, 208
-  %231 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i250, i64 304
-  %232 = getelementptr inbounds nuw i8, ptr %231, i64 %.idx
+  %232 = getelementptr inbounds nuw i8, ptr %231, i64 304
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
   call void @llvm.experimental.noalias.scope.decl(metadata !1975)
   %233 = load ptr, ptr %183, align 8, !alias.scope !1975, !noalias !1978, !nonnull !9, !noundef !9

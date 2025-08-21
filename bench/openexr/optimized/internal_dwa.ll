@@ -12934,8 +12934,8 @@ define internal fastcc void @interleaveByte2(ptr noundef %0, ptr noundef %1, ptr
   %20 = load <16 x i8>, ptr %19, align 16, !tbaa !86
   %21 = getelementptr inbounds nuw <2 x i64>, ptr %2, i64 %indvars.iv174
   %22 = load <16 x i8>, ptr %21, align 16, !tbaa !86
-  %.idx187 = shl nuw nsw i64 %indvars.iv174, 5
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx187
+  %.idx186 = shl nuw nsw i64 %indvars.iv174, 5
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx186
   %24 = shufflevector <16 x i8> %20, <16 x i8> %22, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
   store <16 x i8> %24, ptr %23, align 16, !tbaa !86, !nontemporal !265
   %25 = getelementptr inbounds nuw i8, ptr %23, i64 16
@@ -13034,76 +13034,77 @@ define internal fastcc void @interleaveByte2(ptr noundef %0, ptr noundef %1, ptr
 
 .lr.ph140:                                        ; preds = %.lr.ph140.preheader, %.lr.ph140
   %indvars.iv164 = phi i64 [ 0, %.lr.ph140.preheader ], [ %indvars.iv.next165, %.lr.ph140 ]
-  %.idx186 = shl nuw nsw i64 %indvars.iv164, 5
-  %64 = getelementptr inbounds nuw i8, ptr %54, i64 %.idx186
-  %65 = getelementptr inbounds nuw <2 x i64>, ptr %55, i64 %indvars.iv164
-  %66 = load <16 x i8>, ptr %65, align 16, !tbaa !86
-  %67 = getelementptr inbounds nuw <2 x i64>, ptr %56, i64 %indvars.iv164
-  %68 = load <16 x i8>, ptr %67, align 16, !tbaa !86
-  %69 = shufflevector <16 x i8> %66, <16 x i8> %68, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
-  store <16 x i8> %69, ptr %64, align 16, !tbaa !86, !nontemporal !265
-  %70 = getelementptr inbounds nuw i8, ptr %64, i64 16
-  %71 = load <16 x i8>, ptr %65, align 16, !tbaa !86
-  %72 = load <16 x i8>, ptr %67, align 16, !tbaa !86
-  %73 = shufflevector <16 x i8> %71, <16 x i8> %72, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
-  store <16 x i8> %73, ptr %70, align 16, !tbaa !86, !nontemporal !265
+  %64 = shl nuw nsw i64 %indvars.iv164, 1
+  %65 = getelementptr inbounds nuw <2 x i64>, ptr %54, i64 %64
+  %66 = getelementptr inbounds nuw <2 x i64>, ptr %55, i64 %indvars.iv164
+  %67 = load <16 x i8>, ptr %66, align 16, !tbaa !86
+  %68 = getelementptr inbounds nuw <2 x i64>, ptr %56, i64 %indvars.iv164
+  %69 = load <16 x i8>, ptr %68, align 16, !tbaa !86
+  %70 = shufflevector <16 x i8> %67, <16 x i8> %69, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
+  store <16 x i8> %70, ptr %65, align 16, !tbaa !86, !nontemporal !265
+  %71 = getelementptr inbounds nuw <2 x i64>, ptr %0, i64 %64
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 32
+  %73 = load <16 x i8>, ptr %66, align 16, !tbaa !86
+  %74 = load <16 x i8>, ptr %68, align 16, !tbaa !86
+  %75 = shufflevector <16 x i8> %73, <16 x i8> %74, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
+  store <16 x i8> %75, ptr %72, align 16, !tbaa !86, !nontemporal !265
   %indvars.iv.next165 = add nuw nsw i64 %indvars.iv164, 1
   %exitcond168.not = icmp eq i64 %indvars.iv.next165, %wide.trip.count167
   br i1 %exitcond168.not, label %._crit_edge141, label %.lr.ph140, !llvm.loop !269
 
 .lr.ph144:                                        ; preds = %.lr.ph144.preheader, %.lr.ph144
   %indvars.iv169 = phi i64 [ %63, %.lr.ph144.preheader ], [ %indvars.iv.next170, %.lr.ph144 ]
-  %74 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv169
-  %75 = load i8, ptr %74, align 1, !tbaa !86
-  %76 = shl nuw nsw i64 %indvars.iv169, 1
-  %77 = getelementptr inbounds nuw i8, ptr %0, i64 %76
-  store i8 %75, ptr %77, align 1, !tbaa !86
-  %78 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv169
-  %79 = load i8, ptr %78, align 1, !tbaa !86
-  %80 = getelementptr i8, ptr %77, i64 1
-  store i8 %79, ptr %80, align 1, !tbaa !86
+  %76 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv169
+  %77 = load i8, ptr %76, align 1, !tbaa !86
+  %78 = shl nuw nsw i64 %indvars.iv169, 1
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 %78
+  store i8 %77, ptr %79, align 1, !tbaa !86
+  %80 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv169
+  %81 = load i8, ptr %80, align 1, !tbaa !86
+  %82 = getelementptr i8, ptr %79, i64 1
+  store i8 %81, ptr %82, align 1, !tbaa !86
   %indvars.iv.next170 = add nuw nsw i64 %indvars.iv169, 1
   %exitcond173.not = icmp eq i64 %indvars.iv.next170, %wide.trip.count172
   br i1 %exitcond173.not, label %.loopexit, label %.lr.ph144, !llvm.loop !270
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader129
-  %81 = shl nsw i32 %11, 4
-  %82 = icmp slt i32 %81, %3
-  br i1 %82, label %.lr.ph133.preheader, label %.loopexit
+  %83 = shl nsw i32 %11, 4
+  %84 = icmp slt i32 %83, %3
+  br i1 %84, label %.lr.ph133.preheader, label %.loopexit
 
 .lr.ph133.preheader:                              ; preds = %._crit_edge
-  %83 = sext i32 %81 to i64
+  %85 = sext i32 %83 to i64
   %wide.trip.count157 = sext i32 %3 to i64
   br label %.lr.ph133
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %84 = getelementptr inbounds nuw <2 x i64>, ptr %1, i64 %indvars.iv
-  %85 = load <16 x i8>, ptr %84, align 1, !tbaa !86
-  %86 = getelementptr inbounds nuw <2 x i64>, ptr %2, i64 %indvars.iv
+  %86 = getelementptr inbounds nuw <2 x i64>, ptr %1, i64 %indvars.iv
   %87 = load <16 x i8>, ptr %86, align 1, !tbaa !86
+  %88 = getelementptr inbounds nuw <2 x i64>, ptr %2, i64 %indvars.iv
+  %89 = load <16 x i8>, ptr %88, align 1, !tbaa !86
   %.idx = shl nuw nsw i64 %indvars.iv, 5
-  %88 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx
-  %89 = shufflevector <16 x i8> %85, <16 x i8> %87, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
-  store <16 x i8> %89, ptr %88, align 1, !tbaa !86
-  %90 = getelementptr inbounds nuw i8, ptr %88, i64 16
-  %91 = shufflevector <16 x i8> %85, <16 x i8> %87, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
+  %90 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx
+  %91 = shufflevector <16 x i8> %87, <16 x i8> %89, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
   store <16 x i8> %91, ptr %90, align 1, !tbaa !86
+  %92 = getelementptr inbounds nuw i8, ptr %90, i64 16
+  %93 = shufflevector <16 x i8> %87, <16 x i8> %89, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
+  store <16 x i8> %93, ptr %92, align 1, !tbaa !86
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !271
 
 .lr.ph133:                                        ; preds = %.lr.ph133.preheader, %.lr.ph133
-  %indvars.iv154 = phi i64 [ %83, %.lr.ph133.preheader ], [ %indvars.iv.next155, %.lr.ph133 ]
-  %92 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv154
-  %93 = load i8, ptr %92, align 1, !tbaa !86
-  %94 = shl nsw i64 %indvars.iv154, 1
-  %95 = getelementptr inbounds i8, ptr %0, i64 %94
-  store i8 %93, ptr %95, align 1, !tbaa !86
-  %96 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv154
-  %97 = load i8, ptr %96, align 1, !tbaa !86
-  %98 = getelementptr i8, ptr %95, i64 1
-  store i8 %97, ptr %98, align 1, !tbaa !86
+  %indvars.iv154 = phi i64 [ %85, %.lr.ph133.preheader ], [ %indvars.iv.next155, %.lr.ph133 ]
+  %94 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv154
+  %95 = load i8, ptr %94, align 1, !tbaa !86
+  %96 = shl nsw i64 %indvars.iv154, 1
+  %97 = getelementptr inbounds i8, ptr %0, i64 %96
+  store i8 %95, ptr %97, align 1, !tbaa !86
+  %98 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv154
+  %99 = load i8, ptr %98, align 1, !tbaa !86
+  %100 = getelementptr i8, ptr %97, i64 1
+  store i8 %99, ptr %100, align 1, !tbaa !86
   %indvars.iv.next155 = add nsw i64 %indvars.iv154, 1
   %exitcond158.not = icmp eq i64 %indvars.iv.next155, %wide.trip.count157
   br i1 %exitcond158.not, label %.loopexit, label %.lr.ph133, !llvm.loop !272

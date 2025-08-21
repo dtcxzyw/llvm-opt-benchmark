@@ -1665,22 +1665,21 @@ define internal noundef range(i32 -1, -2147483648) i32 @_ZL10luauF_byteP9lua_Sta
   br i1 %.not43, label %.lr.ph.preheader, label %.critedge
 
 .lr.ph.preheader:                                 ; preds = %34
-  %39 = getelementptr inbounds nuw i8, ptr %17, i64 24
-  %40 = zext nneg i32 %19 to i64
+  %39 = zext nneg i32 %19 to i64
   %wide.trip.count = zext nneg i32 %36 to i64
-  %invariant.gep = getelementptr i8, ptr %39, i64 %40
+  %invariant.gep = getelementptr i8, ptr %17, i64 %39
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %41 = getelementptr inbounds nuw %struct.lua_TValue, ptr %1, i64 %indvars.iv
+  %40 = getelementptr inbounds nuw %struct.lua_TValue, ptr %1, i64 %indvars.iv
   %gep = getelementptr i8, ptr %invariant.gep, i64 %indvars.iv
-  %42 = getelementptr i8, ptr %gep, i64 -1
-  %43 = load i8, ptr %42, align 1, !tbaa !9
-  %44 = uitofp i8 %43 to double
-  store double %44, ptr %41, align 8, !tbaa !9
-  %45 = getelementptr inbounds nuw i8, ptr %41, i64 12
-  store i32 3, ptr %45, align 4, !tbaa !4
+  %41 = getelementptr i8, ptr %gep, i64 23
+  %42 = load i8, ptr %41, align 1, !tbaa !9
+  %43 = uitofp i8 %42 to double
+  store double %43, ptr %40, align 8, !tbaa !9
+  %44 = getelementptr inbounds nuw i8, ptr %40, i64 12
+  store i32 3, ptr %44, align 4, !tbaa !4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.critedge, label %.lr.ph, !llvm.loop !35
@@ -1878,17 +1877,16 @@ define internal noundef range(i32 -1, 2) i32 @_ZL9luauF_subP9lua_StateP10lua_TVa
   br i1 %40, label %41, label %.thread
 
 41:                                               ; preds = %36
-  %42 = getelementptr inbounds nuw i8, ptr %23, i64 24
-  %43 = zext nneg i32 %25 to i64
-  %44 = getelementptr i8, ptr %42, i64 %43
-  %45 = getelementptr i8, ptr %44, i64 -1
+  %42 = zext nneg i32 %25 to i64
+  %43 = getelementptr i8, ptr %23, i64 %42
+  %44 = getelementptr i8, ptr %43, i64 23
   %reass.sub = sub i32 %27, %25
-  %46 = add i32 %reass.sub, 1
-  %47 = sext i32 %46 to i64
-  %48 = tail call noundef ptr @_Z12luaS_newlstrP9lua_StatePKcm(ptr noundef nonnull %0, ptr noundef %45, i64 noundef %47)
-  store ptr %48, ptr %1, align 8, !tbaa !9
-  %49 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  store i32 5, ptr %49, align 4, !tbaa !4
+  %45 = add i32 %reass.sub, 1
+  %46 = sext i32 %45 to i64
+  %47 = tail call noundef ptr @_Z12luaS_newlstrP9lua_StatePKcm(ptr noundef nonnull %0, ptr noundef %44, i64 noundef %46)
+  store ptr %47, ptr %1, align 8, !tbaa !9
+  %48 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  store i32 5, ptr %48, align 4, !tbaa !4
   br label %.thread
 
 .thread:                                          ; preds = %34, %36, %6, %9, %13, %17, %41, %21

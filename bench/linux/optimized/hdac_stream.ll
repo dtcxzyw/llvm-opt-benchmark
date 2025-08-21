@@ -168,7 +168,7 @@ define dso_local void @snd_hdac_stream_init(ptr noundef %0, ptr noundef initiali
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %26 = load ptr, ptr %25, align 8
   %27 = icmp eq ptr %26, null
-  br i1 %27, label %39, label %28
+  br i1 %27, label %38, label %28
 
 28:                                               ; preds = %5
   %29 = getelementptr i8, ptr %26, i64 8
@@ -178,29 +178,28 @@ define dso_local void @snd_hdac_stream_init(ptr noundef %0, ptr noundef initiali
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 104
   store ptr %32, ptr %33, align 8
   %34 = load ptr, ptr %25, align 8
-  %35 = getelementptr i8, ptr %34, i64 8
-  %36 = getelementptr i8, ptr %35, i64 %31
-  %37 = getelementptr i8, ptr %36, i64 4
-  %38 = getelementptr inbounds nuw i8, ptr %1, i64 112
-  store ptr %37, ptr %38, align 8
-  br label %39
+  %35 = getelementptr i8, ptr %34, i64 %31
+  %36 = getelementptr i8, ptr %35, i64 12
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 112
+  store ptr %36, ptr %37, align 8
+  br label %38
 
-39:                                               ; preds = %28, %5
-  %40 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %41 = load ptr, ptr %40, align 8
-  %42 = icmp eq ptr %41, null
-  br i1 %42, label %49, label %43
+38:                                               ; preds = %28, %5
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %40 = load ptr, ptr %39, align 8
+  %41 = icmp eq ptr %40, null
+  br i1 %41, label %48, label %42
 
-43:                                               ; preds = %39
-  %44 = getelementptr i8, ptr %41, i64 8
-  %45 = shl i32 %2, 3
-  %46 = sext i32 %45 to i64
-  %47 = getelementptr i8, ptr %44, i64 %46
-  %48 = getelementptr inbounds nuw i8, ptr %1, i64 120
-  store ptr %47, ptr %48, align 8
-  br label %49
+42:                                               ; preds = %38
+  %43 = getelementptr i8, ptr %40, i64 8
+  %44 = shl i32 %2, 3
+  %45 = sext i32 %44 to i64
+  %46 = getelementptr i8, ptr %43, i64 %45
+  %47 = getelementptr inbounds nuw i8, ptr %1, i64 120
+  store ptr %46, ptr %47, align 8
+  br label %48
 
-49:                                               ; preds = %43, %39
+48:                                               ; preds = %42, %38
   ret void
 }
 

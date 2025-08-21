@@ -123,10 +123,9 @@ define dso_local noundef ptr @list_create(ptr noundef %0) #0 {
   %indvars.iv = phi i64 [ 0, %12 ], [ %indvars.iv.next, %17 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %18 = getelementptr inbounds nuw [0 x %struct.listNode], ptr %14, i64 0, i64 %indvars.iv.next
-  %19 = shl nuw nsw i64 %indvars.iv, 4
-  %20 = getelementptr inbounds nuw i8, ptr %14, i64 %19
-  %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
-  store ptr %18, ptr %21, align 8
+  %19 = getelementptr inbounds nuw [0 x %struct.listNode], ptr %2, i64 0, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 120
+  store ptr %18, ptr %20, align 8
   %exitcond.not = icmp eq i64 %indvars.iv.next, 246
   br i1 %exitcond.not, label %16, label %17, !llvm.loop !8
 }
@@ -347,15 +346,14 @@ define dso_local noundef ptr @list_shallow_copy(ptr noundef %0) #0 {
   %indvars.iv.i = phi i64 [ 0, %11 ], [ %indvars.iv.next.i, %15 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %16 = getelementptr inbounds nuw [0 x %struct.listNode], ptr %13, i64 0, i64 %indvars.iv.next.i
-  %17 = shl nuw nsw i64 %indvars.iv.i, 4
-  %18 = getelementptr inbounds nuw i8, ptr %13, i64 %17
-  %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  store ptr %16, ptr %19, align 8
+  %17 = getelementptr inbounds nuw [0 x %struct.listNode], ptr %2, i64 0, i64 %indvars.iv.i
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 120
+  store ptr %16, ptr %18, align 8
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 246
   br i1 %exitcond.not.i, label %list_create.exit, label %15, !llvm.loop !8
 
 list_create.exit:                                 ; preds = %15
-  %20 = tail call i32 @list_append_list(ptr noundef nonnull %2, ptr noundef %0)
+  %19 = tail call i32 @list_append_list(ptr noundef nonnull %2, ptr noundef %0)
   ret ptr %2
 }
 

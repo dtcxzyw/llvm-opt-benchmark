@@ -12025,9 +12025,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %28
 
 108:                                              ; preds = %108, %.noexc.i
   %.09.i.i.i.i = phi i64 [ 0, %.noexc.i ], [ %111, %108 ]
-  %.idx.i.i.i.i = shl nuw nsw i64 %.09.i.i.i.i, 5
-  %109 = getelementptr inbounds nuw i8, ptr %107, i64 %.idx.i.i.i.i
-  %110 = getelementptr inbounds nuw i8, ptr %109, i64 24
+  %109 = getelementptr inbounds nuw [3 x %class.DfgEdge], ptr %102, i64 0, i64 %.09.i.i.i.i
+  %110 = getelementptr inbounds nuw i8, ptr %109, i64 96
   store ptr %102, ptr %110, align 8, !tbaa !227
   %111 = add nuw nsw i64 %.09.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %111, 3
@@ -12358,9 +12357,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %28
 
 108:                                              ; preds = %108, %.noexc.i
   %.09.i.i.i.i = phi i64 [ 0, %.noexc.i ], [ %111, %108 ]
-  %.idx.i.i.i.i = shl nuw nsw i64 %.09.i.i.i.i, 5
-  %109 = getelementptr inbounds nuw i8, ptr %107, i64 %.idx.i.i.i.i
-  %110 = getelementptr inbounds nuw i8, ptr %109, i64 24
+  %109 = getelementptr inbounds nuw [3 x %class.DfgEdge], ptr %102, i64 0, i64 %.09.i.i.i.i
+  %110 = getelementptr inbounds nuw i8, ptr %109, i64 96
   store ptr %102, ptr %110, align 8, !tbaa !227
   %111 = add nuw nsw i64 %.09.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %111, 3
@@ -13997,9 +13995,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %28
 
 108:                                              ; preds = %108, %.noexc.i
   %.09.i.i.i.i = phi i64 [ 0, %.noexc.i ], [ %111, %108 ]
-  %.idx.i.i.i.i = shl nuw nsw i64 %.09.i.i.i.i, 5
-  %109 = getelementptr inbounds nuw i8, ptr %107, i64 %.idx.i.i.i.i
-  %110 = getelementptr inbounds nuw i8, ptr %109, i64 24
+  %109 = getelementptr inbounds nuw [3 x %class.DfgEdge], ptr %102, i64 0, i64 %.09.i.i.i.i
+  %110 = getelementptr inbounds nuw i8, ptr %109, i64 96
   store ptr %102, ptr %110, align 8, !tbaa !227
   %111 = add nuw nsw i64 %.09.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %111, 3
@@ -14589,9 +14586,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %28
 
 108:                                              ; preds = %108, %.noexc.i
   %.09.i.i.i.i = phi i64 [ 0, %.noexc.i ], [ %111, %108 ]
-  %.idx.i.i.i.i = shl nuw nsw i64 %.09.i.i.i.i, 5
-  %109 = getelementptr inbounds nuw i8, ptr %107, i64 %.idx.i.i.i.i
-  %110 = getelementptr inbounds nuw i8, ptr %109, i64 24
+  %109 = getelementptr inbounds nuw [3 x %class.DfgEdge], ptr %102, i64 0, i64 %.09.i.i.i.i
+  %110 = getelementptr inbounds nuw i8, ptr %109, i64 96
   store ptr %102, ptr %110, align 8, !tbaa !227
   %111 = add nuw nsw i64 %.09.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %111, 3
@@ -15436,9 +15432,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %28
 
 108:                                              ; preds = %108, %.noexc.i
   %.09.i.i.i.i = phi i64 [ 0, %.noexc.i ], [ %111, %108 ]
-  %.idx.i.i.i.i = shl nuw nsw i64 %.09.i.i.i.i, 5
-  %109 = getelementptr inbounds nuw i8, ptr %107, i64 %.idx.i.i.i.i
-  %110 = getelementptr inbounds nuw i8, ptr %109, i64 24
+  %109 = getelementptr inbounds nuw [3 x %class.DfgEdge], ptr %102, i64 0, i64 %.09.i.i.i.i
+  %110 = getelementptr inbounds nuw i8, ptr %109, i64 96
   store ptr %102, ptr %110, align 8, !tbaa !227
   %111 = add nuw nsw i64 %.09.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %111, 3
@@ -32066,9 +32061,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %28
 
 108:                                              ; preds = %108, %.noexc.i
   %.09.i.i.i.i = phi i64 [ 0, %.noexc.i ], [ %111, %108 ]
-  %.idx.i.i.i.i = shl nuw nsw i64 %.09.i.i.i.i, 5
-  %109 = getelementptr inbounds nuw i8, ptr %107, i64 %.idx.i.i.i.i
-  %110 = getelementptr inbounds nuw i8, ptr %109, i64 24
+  %109 = getelementptr inbounds nuw [3 x %class.DfgEdge], ptr %102, i64 0, i64 %.09.i.i.i.i
+  %110 = getelementptr inbounds nuw i8, ptr %109, i64 96
   store ptr %102, ptr %110, align 8, !tbaa !227
   %111 = add nuw nsw i64 %.09.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %111, 3
@@ -32399,9 +32393,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %28
 
 108:                                              ; preds = %108, %.noexc.i
   %.09.i.i.i.i = phi i64 [ 0, %.noexc.i ], [ %111, %108 ]
-  %.idx.i.i.i.i = shl nuw nsw i64 %.09.i.i.i.i, 5
-  %109 = getelementptr inbounds nuw i8, ptr %107, i64 %.idx.i.i.i.i
-  %110 = getelementptr inbounds nuw i8, ptr %109, i64 24
+  %109 = getelementptr inbounds nuw [3 x %class.DfgEdge], ptr %102, i64 0, i64 %.09.i.i.i.i
+  %110 = getelementptr inbounds nuw i8, ptr %109, i64 96
   store ptr %102, ptr %110, align 8, !tbaa !227
   %111 = add nuw nsw i64 %.09.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %111, 3
@@ -34019,9 +34012,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %28
 
 108:                                              ; preds = %108, %.noexc.i
   %.09.i.i.i.i = phi i64 [ 0, %.noexc.i ], [ %111, %108 ]
-  %.idx.i.i.i.i = shl nuw nsw i64 %.09.i.i.i.i, 5
-  %109 = getelementptr inbounds nuw i8, ptr %107, i64 %.idx.i.i.i.i
-  %110 = getelementptr inbounds nuw i8, ptr %109, i64 24
+  %109 = getelementptr inbounds nuw [3 x %class.DfgEdge], ptr %102, i64 0, i64 %.09.i.i.i.i
+  %110 = getelementptr inbounds nuw i8, ptr %109, i64 96
   store ptr %102, ptr %110, align 8, !tbaa !227
   %111 = add nuw nsw i64 %.09.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %111, 3
@@ -34352,9 +34344,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %28
 
 108:                                              ; preds = %108, %.noexc.i
   %.09.i.i.i.i = phi i64 [ 0, %.noexc.i ], [ %111, %108 ]
-  %.idx.i.i.i.i = shl nuw nsw i64 %.09.i.i.i.i, 5
-  %109 = getelementptr inbounds nuw i8, ptr %107, i64 %.idx.i.i.i.i
-  %110 = getelementptr inbounds nuw i8, ptr %109, i64 24
+  %109 = getelementptr inbounds nuw [3 x %class.DfgEdge], ptr %102, i64 0, i64 %.09.i.i.i.i
+  %110 = getelementptr inbounds nuw i8, ptr %109, i64 96
   store ptr %102, ptr %110, align 8, !tbaa !227
   %111 = add nuw nsw i64 %.09.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %111, 3
@@ -34695,9 +34686,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %28
 
 108:                                              ; preds = %108, %.noexc.i
   %.09.i.i.i.i = phi i64 [ 0, %.noexc.i ], [ %111, %108 ]
-  %.idx.i.i.i.i = shl nuw nsw i64 %.09.i.i.i.i, 5
-  %109 = getelementptr inbounds nuw i8, ptr %107, i64 %.idx.i.i.i.i
-  %110 = getelementptr inbounds nuw i8, ptr %109, i64 24
+  %109 = getelementptr inbounds nuw [3 x %class.DfgEdge], ptr %102, i64 0, i64 %.09.i.i.i.i
+  %110 = getelementptr inbounds nuw i8, ptr %109, i64 96
   store ptr %102, ptr %110, align 8, !tbaa !227
   %111 = add nuw nsw i64 %.09.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %111, 3
@@ -40868,9 +40858,8 @@ _ZN15AstToDfgVisitor9unhandledEP11AstNodeExpr.exit: ; preds = %28
 
 108:                                              ; preds = %108, %.noexc.i
   %.09.i.i.i.i = phi i64 [ 0, %.noexc.i ], [ %111, %108 ]
-  %.idx.i.i.i.i = shl nuw nsw i64 %.09.i.i.i.i, 5
-  %109 = getelementptr inbounds nuw i8, ptr %107, i64 %.idx.i.i.i.i
-  %110 = getelementptr inbounds nuw i8, ptr %109, i64 24
+  %109 = getelementptr inbounds nuw [3 x %class.DfgEdge], ptr %102, i64 0, i64 %.09.i.i.i.i
+  %110 = getelementptr inbounds nuw i8, ptr %109, i64 96
   store ptr %102, ptr %110, align 8, !tbaa !227
   %111 = add nuw nsw i64 %.09.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %111, 3
@@ -49623,8 +49612,8 @@ _ZZN7AstNode11foreachImplI9AstVarRefZN15AstToDfgVisitor14markReferencedEPS_EUlPK
   %81 = sub i64 %79, %80
   %82 = getelementptr inbounds nuw i8, ptr %78, i64 16
   %83 = getelementptr inbounds i8, ptr %82, i64 %81
-  %84 = getelementptr inbounds nuw ptr, ptr %82, i64 %69
-  %85 = getelementptr inbounds i8, ptr %84, i64 -40
+  %84 = getelementptr ptr, ptr %78, i64 %69
+  %85 = getelementptr i8, ptr %84, i64 -24
   br label %86
 
 .loopexit:                                        ; preds = %tailrecurse.i12.i

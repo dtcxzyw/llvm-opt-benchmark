@@ -729,8 +729,8 @@ _ZL8gcm_maskP19mbedtls_gcm_contextPhmmPKhS1_.exit: ; preds = %36
 
 84:                                               ; preds = %84, %83
   %.03.i = phi i64 [ 16, %83 ], [ %89, %84 ]
-  %85 = getelementptr i8, ptr %80, i64 %.03.i
-  %86 = getelementptr i8, ptr %85, i64 -1
+  %85 = getelementptr i8, ptr %0, i64 %.03.i
+  %86 = getelementptr i8, ptr %85, i64 359
   %87 = load i8, ptr %86, align 1, !tbaa !15
   %88 = add i8 %87, 1
   store i8 %88, ptr %86, align 1, !tbaa !15
@@ -805,36 +805,32 @@ _ZL8gcm_maskP19mbedtls_gcm_contextPhmmPKhS1_.exit106: ; preds = %_ZL8gcm_incrPh.
   %.275.lcssa = phi ptr [ %.073, %.thread ], [ %116, %114 ]
   %.2.lcssa = phi ptr [ %.071, %.thread ], [ %117, %114 ]
   %.not90 = icmp eq i64 %.278.lcssa, 0
-  br i1 %.not90, label %129, label %119
+  br i1 %.not90, label %126, label %.preheader
 
-119:                                              ; preds = %._crit_edge
-  %120 = getelementptr inbounds nuw i8, ptr %0, i64 360
-  br label %121
+.preheader:                                       ; preds = %._crit_edge, %.preheader
+  %.03.i107 = phi i64 [ %123, %.preheader ], [ 16, %._crit_edge ]
+  %119 = getelementptr i8, ptr %0, i64 %.03.i107
+  %120 = getelementptr i8, ptr %119, i64 359
+  %121 = load i8, ptr %120, align 1, !tbaa !15
+  %122 = add i8 %121, 1
+  store i8 %122, ptr %120, align 1, !tbaa !15
+  %.not.i108 = icmp eq i8 %122, 0
+  %123 = add nsw i64 %.03.i107, -1
+  %124 = icmp ugt i64 %123, 12
+  %or.cond.i109 = select i1 %.not.i108, i1 %124, i1 false
+  br i1 %or.cond.i109, label %.preheader, label %_ZL8gcm_incrPh.exit110, !llvm.loop !36
 
-121:                                              ; preds = %121, %119
-  %.03.i107 = phi i64 [ 16, %119 ], [ %126, %121 ]
-  %122 = getelementptr i8, ptr %120, i64 %.03.i107
-  %123 = getelementptr i8, ptr %122, i64 -1
-  %124 = load i8, ptr %123, align 1, !tbaa !15
-  %125 = add i8 %124, 1
-  store i8 %125, ptr %123, align 1, !tbaa !15
-  %.not.i108 = icmp eq i8 %125, 0
-  %126 = add nsw i64 %.03.i107, -1
-  %127 = icmp ugt i64 %126, 12
-  %or.cond.i109 = select i1 %.not.i108, i1 %127, i1 false
-  br i1 %or.cond.i109, label %121, label %_ZL8gcm_incrPh.exit110, !llvm.loop !36
+_ZL8gcm_incrPh.exit110:                           ; preds = %.preheader
+  %125 = call fastcc noundef i32 @_ZL8gcm_maskP19mbedtls_gcm_contextPhmmPKhS1_(ptr noundef nonnull %0, ptr noundef %9, i64 noundef 0, i64 noundef %.278.lcssa, ptr noundef %.275.lcssa, ptr noundef %.2.lcssa)
+  %.not91 = icmp eq i32 %125, 0
+  br i1 %.not91, label %126, label %.critedge
 
-_ZL8gcm_incrPh.exit110:                           ; preds = %121
-  %128 = call fastcc noundef i32 @_ZL8gcm_maskP19mbedtls_gcm_contextPhmmPKhS1_(ptr noundef nonnull %0, ptr noundef %9, i64 noundef 0, i64 noundef %.278.lcssa, ptr noundef %.275.lcssa, ptr noundef %.2.lcssa)
-  %.not91 = icmp eq i32 %128, 0
-  br i1 %.not91, label %129, label %.critedge
-
-129:                                              ; preds = %_ZL8gcm_incrPh.exit110, %._crit_edge
+126:                                              ; preds = %_ZL8gcm_incrPh.exit110, %._crit_edge
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %9, i64 noundef 16)
   br label %.critedge
 
-.critedge:                                        ; preds = %_ZL8gcm_maskP19mbedtls_gcm_contextPhmmPKhS1_.exit106, %_ZL8gcm_maskP19mbedtls_gcm_contextPhmmPKhS1_.exit, %_ZL8gcm_incrPh.exit110, %19, %13, %11, %6, %129
-  %.070 = phi i32 [ 0, %129 ], [ -22, %6 ], [ 0, %11 ], [ -20, %13 ], [ -20, %19 ], [ %91, %_ZL8gcm_maskP19mbedtls_gcm_contextPhmmPKhS1_.exit106 ], [ %128, %_ZL8gcm_incrPh.exit110 ], [ %39, %_ZL8gcm_maskP19mbedtls_gcm_contextPhmmPKhS1_.exit ]
+.critedge:                                        ; preds = %_ZL8gcm_maskP19mbedtls_gcm_contextPhmmPKhS1_.exit106, %_ZL8gcm_maskP19mbedtls_gcm_contextPhmmPKhS1_.exit, %_ZL8gcm_incrPh.exit110, %19, %13, %11, %6, %126
+  %.070 = phi i32 [ 0, %126 ], [ -22, %6 ], [ 0, %11 ], [ -20, %13 ], [ -20, %19 ], [ %91, %_ZL8gcm_maskP19mbedtls_gcm_contextPhmmPKhS1_.exit106 ], [ %125, %_ZL8gcm_incrPh.exit110 ], [ %39, %_ZL8gcm_maskP19mbedtls_gcm_contextPhmmPKhS1_.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %.070
 }

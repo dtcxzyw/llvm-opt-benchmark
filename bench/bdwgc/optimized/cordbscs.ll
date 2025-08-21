@@ -2286,13 +2286,12 @@ define void @CORD__prev(ptr noundef captures(none) %0) local_unnamed_addr #10 {
 7:                                                ; preds = %1
   %8 = load i32, ptr %3, align 8, !tbaa !47
   %9 = sext i32 %8 to i64
-  %10 = add i64 %4, -1
-  store i64 %10, ptr %0, align 8, !tbaa !52
-  %.idx = shl nsw i64 %9, 4
-  %11 = getelementptr i8, ptr %2, i64 %.idx
-  %12 = getelementptr i8, ptr %11, i64 8
+  %10 = getelementptr [49 x %struct.CORD_pe], ptr %0, i64 0, i64 %9
+  %11 = add i64 %4, -1
+  store i64 %11, ptr %0, align 8, !tbaa !52
+  %12 = getelementptr i8, ptr %10, i64 48
   %13 = load i64, ptr %12, align 8, !tbaa !53
-  %.not = icmp ult i64 %10, %13
+  %.not = icmp ult i64 %11, %13
   br i1 %.not, label %14, label %28
 
 14:                                               ; preds = %7
@@ -2447,13 +2446,12 @@ thread-pre-split:                                 ; preds = %1, %4
 14:                                               ; preds = %thread-pre-split
   %15 = load i32, ptr %11, align 8, !tbaa !47
   %16 = sext i32 %15 to i64
-  %17 = add i64 %.pr, -1
-  store i64 %17, ptr %0, align 8, !tbaa !52
-  %.idx.i = shl nsw i64 %16, 4
-  %18 = getelementptr i8, ptr %10, i64 %.idx.i
-  %19 = getelementptr i8, ptr %18, i64 8
+  %17 = getelementptr [49 x %struct.CORD_pe], ptr %0, i64 0, i64 %16
+  %18 = add i64 %.pr, -1
+  store i64 %18, ptr %0, align 8, !tbaa !52
+  %19 = getelementptr i8, ptr %17, i64 48
   %20 = load i64, ptr %19, align 8, !tbaa !53
-  %.not.i = icmp ult i64 %17, %20
+  %.not.i = icmp ult i64 %18, %20
   br i1 %.not.i, label %21, label %CORD__prev.exit
 
 21:                                               ; preds = %14

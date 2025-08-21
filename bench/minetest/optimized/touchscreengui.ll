@@ -8802,7 +8802,6 @@ define dso_local void @_ZN14TouchScreenGUI19handleChangedButtonERKN3irr6SEventE(
 entry:
   %ref.tmp.i91 = alloca %"class.irr::core::vector2d", align 8
   %ref.tmp.i = alloca %"class.irr::core::vector2d", align 8
-  %m_buttons = getelementptr inbounds nuw i8, ptr %this, i64 296
   %0 = getelementptr inbounds nuw i8, ptr %event, i64 8
   %X = getelementptr inbounds nuw i8, ptr %event, i64 16
   %m_guienv.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -9144,10 +9143,10 @@ if.end43:                                         ; preds = %for.inc.2.i112, %fo
   %retval.3.i116.ph = phi i32 [ 2, %for.inc.1.i109 ], [ 1, %for.inc.i106 ], [ 0, %for.cond.preheader.i103 ], [ 3, %for.inc.2.i112 ]
   %narrow = mul nuw nsw i32 %retval.3.i116.ph, 80
   %69 = zext nneg i32 %narrow to i64
-  %70 = getelementptr inbounds nuw i8, ptr %m_buttons, i64 %69
-  %ids48 = getelementptr inbounds nuw i8, ptr %70, i64 16
+  %70 = getelementptr inbounds nuw i8, ptr %this, i64 %69
+  %ids48 = getelementptr inbounds nuw i8, ptr %70, i64 312
   %71 = load ptr, ptr %ids48, align 8, !tbaa !67
-  %_M_finish.i118 = getelementptr inbounds nuw i8, ptr %70, i64 24
+  %_M_finish.i118 = getelementptr inbounds nuw i8, ptr %70, i64 320
   %72 = load ptr, ptr %_M_finish.i118, align 8, !tbaa !67
   %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %72 to i64
   %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %71 to i64

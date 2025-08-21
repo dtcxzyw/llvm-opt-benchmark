@@ -1792,10 +1792,10 @@ define internal fastcc range(i32 -13, 1) i32 @process_file(ptr noundef readonly 
 
 .preheader:                                       ; preds = %2
   %5 = tail call ptr @pmix_getline(ptr noundef nonnull %3) #15
-  %.not43 = icmp eq ptr %5, null
-  br i1 %.not43, label %._crit_edge, label %.lr.ph44
+  %.not37 = icmp eq ptr %5, null
+  br i1 %.not37, label %._crit_edge, label %.lr.ph38
 
-.lr.ph44:                                         ; preds = %.preheader
+.lr.ph38:                                         ; preds = %.preheader
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 248
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 264
@@ -1804,10 +1804,10 @@ define internal fastcc range(i32 -13, 1) i32 @process_file(ptr noundef readonly 
 9:                                                ; preds = %2
   %10 = tail call ptr @prte_strerror(i32 noundef -13) #15
   tail call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.8, ptr noundef %10, ptr noundef nonnull @.str.9, i32 noundef 437) #15
-  br label %63
+  br label %66
 
-11:                                               ; preds = %.lr.ph44, %.backedge
-  %12 = phi ptr [ %5, %.lr.ph44 ], [ %14, %.backedge ]
+11:                                               ; preds = %.lr.ph38, %.backedge
+  %12 = phi ptr [ %5, %.lr.ph38 ], [ %14, %.backedge ]
   %char0 = load i8, ptr %12, align 1
   switch i8 %char0, label %16 [
     i8 0, label %13
@@ -1818,7 +1818,7 @@ define internal fastcc range(i32 -13, 1) i32 @process_file(ptr noundef readonly 
   tail call void @free(ptr noundef nonnull %12) #15
   br label %.backedge
 
-.backedge:                                        ; preds = %13, %15, %54
+.backedge:                                        ; preds = %13, %15, %57
   %14 = tail call ptr @pmix_getline(ptr noundef nonnull %3) #15
   %.not = icmp eq ptr %14, null
   br i1 %.not, label %._crit_edge, label %11, !llvm.loop !92
@@ -1870,77 +1870,75 @@ define internal fastcc range(i32 -13, 1) i32 @process_file(ptr noundef readonly 
 pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %22, %23
   %34 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %12, i32 noundef 32) #16
   %.not31 = icmp eq ptr %34, null
-  br i1 %.not31, label %54, label %35
+  br i1 %.not31, label %57, label %35
 
 35:                                               ; preds = %pmix_obj_new_tma.exit
   store i8 0, ptr %34, align 1, !tbaa !93
-  %.ptr33 = getelementptr i8, ptr %34, i64 1
-  %36 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.ptr33) #16
-  %.0.ptr38 = getelementptr inbounds i8, ptr %34, i64 %36
-  %37 = icmp sgt i64 %36, 1
-  br i1 %37, label %.lr.ph, label %.critedge
+  %36 = getelementptr inbounds nuw i8, ptr %34, i64 1
+  %37 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %36) #16
+  %38 = getelementptr i8, ptr %34, i64 %37
+  %39 = icmp ugt ptr %38, %36
+  br i1 %39, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %35
-  %38 = tail call ptr @__ctype_b_loc() #17
-  %39 = load ptr, ptr %38, align 8, !tbaa !94
+  %40 = tail call ptr @__ctype_b_loc() #17
+  %41 = load ptr, ptr %40, align 8, !tbaa !94
   br label %42
 
-40:                                               ; preds = %42
-  %.0.add = add nsw i64 %.0.idx39, -1
-  %.0.ptr = getelementptr inbounds i8, ptr %34, i64 %.0.add
-  %41 = icmp sgt i64 %.0.idx39, 2
-  br i1 %41, label %42, label %.critedge, !llvm.loop !96
-
-42:                                               ; preds = %.lr.ph, %40
-  %.0.ptr40 = phi ptr [ %.0.ptr38, %.lr.ph ], [ %.0.ptr, %40 ]
-  %.0.idx39 = phi i64 [ %36, %.lr.ph ], [ %.0.add, %40 ]
-  %43 = load i8, ptr %.0.ptr40, align 1, !tbaa !93
+42:                                               ; preds = %.lr.ph, %48
+  %.034 = phi ptr [ %38, %.lr.ph ], [ %49, %48 ]
+  %43 = load i8, ptr %.034, align 1, !tbaa !93
   %44 = sext i8 %43 to i64
-  %45 = getelementptr inbounds i16, ptr %39, i64 %44
-  %46 = load i16, ptr %45, align 2, !tbaa !97
+  %45 = getelementptr inbounds i16, ptr %41, i64 %44
+  %46 = load i16, ptr %45, align 2, !tbaa !96
   %47 = and i16 %46, 8192
-  %.not36 = icmp eq i16 %47, 0
-  br i1 %.not36, label %.critedge, label %40
+  %.not32 = icmp eq i16 %47, 0
+  br i1 %.not32, label %.critedge, label %48
 
-.critedge:                                        ; preds = %42, %40, %35
-  %.0.ptr.lcssa = phi ptr [ %.0.ptr38, %35 ], [ %.ptr33, %40 ], [ %.0.ptr40, %42 ]
-  %48 = getelementptr inbounds nuw i8, ptr %.0.ptr.lcssa, i64 1
-  store i8 0, ptr %48, align 1, !tbaa !93
-  %49 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.ptr33, i32 noundef 32) #16
-  %.not37 = icmp eq ptr %49, null
-  br i1 %.not37, label %51, label %50
+48:                                               ; preds = %42
+  %49 = getelementptr inbounds i8, ptr %.034, i64 -1
+  %50 = icmp ugt ptr %49, %36
+  br i1 %50, label %42, label %.critedge, !llvm.loop !97
 
-50:                                               ; preds = %.critedge
-  store i8 0, ptr %49, align 1, !tbaa !93
-  br label %51
+.critedge:                                        ; preds = %42, %48, %35
+  %.0.lcssa = phi ptr [ %38, %35 ], [ %36, %48 ], [ %.034, %42 ]
+  %51 = getelementptr inbounds nuw i8, ptr %.0.lcssa, i64 1
+  store i8 0, ptr %51, align 1, !tbaa !93
+  %52 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %36, i32 noundef 32) #16
+  %.not33 = icmp eq ptr %52, null
+  br i1 %.not33, label %54, label %53
 
-51:                                               ; preds = %50, %.critedge
-  %52 = tail call noalias ptr @strdup(ptr noundef nonnull %.ptr33) #15
-  %53 = getelementptr inbounds nuw i8, ptr %18, i64 152
-  store ptr %52, ptr %53, align 8, !tbaa !91
+53:                                               ; preds = %.critedge
+  store i8 0, ptr %52, align 1, !tbaa !93
   br label %54
 
-54:                                               ; preds = %51, %pmix_obj_new_tma.exit
-  %55 = getelementptr inbounds nuw i8, ptr %18, i64 144
-  store ptr %12, ptr %55, align 8, !tbaa !69
-  %56 = load ptr, ptr %7, align 8, !tbaa !48
-  %57 = getelementptr inbounds nuw i8, ptr %18, i64 128
-  store ptr %56, ptr %57, align 8, !tbaa !48
-  %58 = getelementptr inbounds nuw i8, ptr %56, i64 120
-  store volatile ptr %18, ptr %58, align 8, !tbaa !49
-  %59 = getelementptr inbounds nuw i8, ptr %18, i64 120
-  store ptr %6, ptr %59, align 8, !tbaa !49
+54:                                               ; preds = %53, %.critedge
+  %55 = tail call noalias ptr @strdup(ptr noundef nonnull %36) #15
+  %56 = getelementptr inbounds nuw i8, ptr %18, i64 152
+  store ptr %55, ptr %56, align 8, !tbaa !91
+  br label %57
+
+57:                                               ; preds = %54, %pmix_obj_new_tma.exit
+  %58 = getelementptr inbounds nuw i8, ptr %18, i64 144
+  store ptr %12, ptr %58, align 8, !tbaa !69
+  %59 = load ptr, ptr %7, align 8, !tbaa !48
+  %60 = getelementptr inbounds nuw i8, ptr %18, i64 128
+  store ptr %59, ptr %60, align 8, !tbaa !48
+  %61 = getelementptr inbounds nuw i8, ptr %59, i64 120
+  store volatile ptr %18, ptr %61, align 8, !tbaa !49
+  %62 = getelementptr inbounds nuw i8, ptr %18, i64 120
+  store ptr %6, ptr %62, align 8, !tbaa !49
   store ptr %18, ptr %7, align 8, !tbaa !48
-  %60 = load volatile i64, ptr %8, align 8, !tbaa !46
-  %61 = add i64 %60, 1
-  store volatile i64 %61, ptr %8, align 8, !tbaa !46
+  %63 = load volatile i64, ptr %8, align 8, !tbaa !46
+  %64 = add i64 %63, 1
+  store volatile i64 %64, ptr %8, align 8, !tbaa !46
   br label %.backedge
 
 ._crit_edge:                                      ; preds = %.backedge, %.preheader
-  %62 = tail call i32 @fclose(ptr noundef nonnull %3)
-  br label %63
+  %65 = tail call i32 @fclose(ptr noundef nonnull %3)
+  br label %66
 
-63:                                               ; preds = %._crit_edge, %9
+66:                                               ; preds = %._crit_edge, %9
   %.027 = phi i32 [ -13, %9 ], [ 0, %._crit_edge ]
   ret i32 %.027
 }
@@ -2143,5 +2141,5 @@ attributes #20 = { nounwind allocsize(0) }
 !93 = !{!6, !6, i64 0}
 !94 = !{!95, !95, i64 0}
 !95 = !{!"p1 short", !5, i64 0}
-!96 = distinct !{!96, !45}
-!97 = !{!29, !29, i64 0}
+!96 = !{!29, !29, i64 0}
+!97 = distinct !{!97, !45}

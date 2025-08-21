@@ -38,26 +38,26 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_fib_add_next
 %struct.qrwlock = type { %union.anon.8, %struct.qspinlock }
 %union.anon.8 = type { %struct.atomic_t }
 %struct.fnhe_hash_bucket = type { ptr }
+%struct.fib_nh = type { %struct.fib_nh_common, %struct.hlist_node, ptr, i32, i32 }
+%struct.fib_nh_common = type { ptr, %struct.netdevice_tracker, i32, i8, i8, i8, i8, ptr, %union.anon, i32, %struct.atomic_t, ptr, ptr, ptr }
+%union.anon = type { %struct.in6_addr }
+%struct.in6_addr = type { %union.anon.0 }
+%union.anon.0 = type { [4 x i32] }
 %struct.nh_grp_entry = type { ptr, i8, %union.anon.40, %struct.list_head, ptr }
 %union.anon.40 = type { %struct.anon.42 }
 %struct.anon.42 = type { %struct.list_head, i16, i16 }
 %struct.fib_rt_info = type { ptr, i32, i32, i32, i8, i8, i8 }
 %struct.fib_config = type { i8, i8, i8, i8, i8, i8, i32, i32, %union.anon.4, i32, i32, i32, i32, i32, ptr, ptr, i32, i32, i32, i32, %struct.nl_info, ptr, i16 }
 %union.anon.4 = type { %struct.in6_addr }
-%struct.in6_addr = type { %union.anon.0 }
-%union.anon.0 = type { [4 x i32] }
 %struct.nl_info = type { ptr, ptr, i32, i8 }
 %struct.fib6_config = type { i32, i32, i32, i32, i32, i32, i32, i16, i16, i32, %struct.in6_addr, %struct.in6_addr, %struct.in6_addr, %struct.in6_addr, i64, ptr, i32, i32, ptr, %struct.nl_info, ptr, i16, i8 }
 %struct.fib6_nh = type { %struct.fib_nh_common, ptr, ptr }
-%struct.fib_nh_common = type { ptr, %struct.netdevice_tracker, i32, i8, i8, i8, i8, ptr, %union.anon, i32, %struct.atomic_t, ptr, ptr, ptr }
-%union.anon = type { %struct.in6_addr }
 %struct.fib_result = type { i32, i8, i8, i8, i8, i32, ptr, ptr, ptr, ptr }
 %struct.flowi4 = type { %struct.flowi_common, i32, i32, %union.flowi_uli }
 %struct.flowi_common = type { i32, i32, i32, i32, i8, i8, i8, i8, i32, %struct.kuid_t, i32, %struct.flowi_tunnel }
 %struct.kuid_t = type { i32 }
 %struct.flowi_tunnel = type { i64 }
 %union.flowi_uli = type { i32 }
-%struct.fib_nh = type { %struct.fib_nh_common, %struct.hlist_node, ptr, i32, i32 }
 %struct.fib_nh_notifier_info = type { %struct.fib_notifier_info, ptr }
 %struct.fib_notifier_info = type { i32, ptr }
 
@@ -665,23 +665,19 @@ define dso_local range(i64 -9223372036854775604, -9223372036854775808) i64 @fib_
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %24 = load i32, ptr %23, align 8
   %.not12 = icmp eq i32 %24, 0
-  br i1 %.not12, label %.split.us, label %.thread4.us.preheader
+  br i1 %.not12, label %.split.us, label %.thread4.us
 
-.thread4.us.preheader:                            ; preds = %.thread.split.us
-  %25 = getelementptr i8, ptr %0, i64 144
-  br label %.thread4.us
-
-.thread4.us:                                      ; preds = %.thread4.us.preheader, %.thread4.us
-  %26 = phi i32 [ %34, %.thread4.us ], [ 0, %.thread4.us.preheader ]
-  %27 = phi i64 [ %33, %.thread4.us ], [ 0, %.thread4.us.preheader ]
-  %28 = sext i32 %26 to i64
-  %.idx = mul nsw i64 %28, 104
-  %29 = getelementptr i8, ptr %25, i64 %.idx
+.thread4.us:                                      ; preds = %.thread.split.us, %.thread4.us
+  %25 = phi i32 [ %34, %.thread4.us ], [ 0, %.thread.split.us ]
+  %26 = phi i64 [ %33, %.thread4.us ], [ 0, %.thread.split.us ]
+  %27 = sext i32 %25 to i64
+  %28 = getelementptr [0 x %struct.fib_nh], ptr %0, i64 0, i64 %27
+  %29 = getelementptr i8, ptr %28, i64 144
   %30 = load ptr, ptr %29, align 8
   %31 = icmp eq ptr %30, null
-  %32 = add i64 %27, 8
-  %33 = select i1 %31, i64 %27, i64 %32
-  %34 = add nuw i32 %26, 1
+  %32 = add i64 %26, 8
+  %33 = select i1 %31, i64 %26, i64 %32
+  %34 = add nuw i32 %25, 1
   %exitcond.not = icmp eq i32 %34, %24
   br i1 %exitcond.not, label %.split.us, label %.thread4.us, !llvm.loop !21
 

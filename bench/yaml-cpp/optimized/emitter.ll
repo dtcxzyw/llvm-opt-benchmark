@@ -2838,7 +2838,7 @@ define void @_ZNK4YAML7Emitter21PrepareIntegralStreamERNSt7__cxx1118basic_string
   %3 = load ptr, ptr %0, align 8, !tbaa !3
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %5 = load i32, ptr %4, align 4, !tbaa !65
-  switch i32 %5, label %22 [
+  switch i32 %5, label %21 [
     i32 21, label %6
     i32 22, label %8
     i32 23, label %11
@@ -2859,21 +2859,20 @@ define void @_ZNK4YAML7Emitter21PrepareIntegralStreamERNSt7__cxx1118basic_string
   br label %.sink.split
 
 .sink.split:                                      ; preds = %6, %8, %11
-  %.sink10 = phi ptr [ %12, %11 ], [ %9, %8 ], [ %7, %6 ]
+  %.sink11.in = phi ptr [ %12, %11 ], [ %9, %8 ], [ %7, %6 ]
   %.sink8 = phi i32 [ 64, %11 ], [ 8, %8 ], [ 2, %6 ]
-  %14 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %.sink12 = load ptr, ptr %.sink10, align 8, !tbaa !67
-  %15 = getelementptr i8, ptr %.sink12, i64 -24
-  %16 = load i64, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %14, i64 %16
-  %18 = getelementptr inbounds nuw i8, ptr %17, i64 24
-  %19 = load i32, ptr %18, align 8, !tbaa !69
-  %20 = and i32 %19, -75
-  %21 = or disjoint i32 %20, %.sink8
-  store i32 %21, ptr %18, align 8, !tbaa !78
-  br label %22
+  %.sink11 = load ptr, ptr %.sink11.in, align 8, !tbaa !67
+  %14 = getelementptr i8, ptr %.sink11, i64 -24
+  %15 = load i64, ptr %14, align 8
+  %16 = getelementptr i8, ptr %1, i64 %15
+  %17 = getelementptr i8, ptr %16, i64 40
+  %18 = load i32, ptr %17, align 8, !tbaa !69
+  %19 = and i32 %18, -75
+  %20 = or disjoint i32 %19, %.sink8
+  store i32 %20, ptr %17, align 8, !tbaa !78
+  br label %21
 
-22:                                               ; preds = %.sink.split, %2
+21:                                               ; preds = %.sink.split, %2
   ret void
 }
 

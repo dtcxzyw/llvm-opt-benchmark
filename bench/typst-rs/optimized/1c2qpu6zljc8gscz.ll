@@ -6083,7 +6083,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h6046dd61bc06f1d8E.ll
 define hidden noundef zeroext i1 @"_ZN5typst11foundations4auto14Smart$LT$T$GT$14unwrap_or_else17ha8bdf9f9bc5102d1E"(i8 noundef %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #2 {
   %3 = alloca { { ptr, i64 }, ptr }, align 8
   %4 = icmp eq i8 %0, 2
-  br i1 %4, label %5, label %24
+  br i1 %4, label %5, label %23
 
 5:                                                ; preds = %2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1580)
@@ -6097,26 +6097,25 @@ define hidden noundef zeroext i1 @"_ZN5typst11foundations4auto14Smart$LT$T$GT$14
   %13 = and i64 %12, -16
   %14 = getelementptr i8, ptr %6, i64 %13
   %15 = and i64 %12, -80
-  %16 = getelementptr i8, ptr %14, i64 96
-  %17 = getelementptr i8, ptr %16, i64 %15
-  %18 = add i64 %10, -1
-  %19 = and i64 %18, -16
-  %20 = getelementptr i8, ptr %17, i64 %19
-  %21 = getelementptr i8, ptr %20, i64 16
+  %16 = getelementptr i8, ptr %14, i64 %15
+  %17 = add i64 %10, -1
+  %18 = and i64 %17, -16
+  %19 = getelementptr i8, ptr %16, i64 %18
+  %20 = getelementptr i8, ptr %19, i64 112
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !1580
   store ptr @anon.d1a7c8d6b3d8d21cbf4feff1b00b8d83.80, ptr %3, align 8, !noalias !1580
-  %22 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %22, i8 0, i64 16, i1 false), !noalias !1580
-  %23 = call noundef zeroext i1 @"_ZN5typst5model7heading1_52_$LT$impl$u20$typst..model..heading..HeadingElem$GT$8outlined17he20bce34ef3c5c1fE"(ptr noalias noundef readonly align 8 dereferenceable(144) %21, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %3), !noalias !1580
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %21, i8 0, i64 16, i1 false), !noalias !1580
+  %22 = call noundef zeroext i1 @"_ZN5typst5model7heading1_52_$LT$impl$u20$typst..model..heading..HeadingElem$GT$8outlined17he20bce34ef3c5c1fE"(ptr noalias noundef readonly align 8 dereferenceable(144) %20, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %3), !noalias !1580
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !1580
-  br label %26
+  br label %25
 
-24:                                               ; preds = %2
-  %25 = trunc i8 %0 to i1
-  br label %26
+23:                                               ; preds = %2
+  %24 = trunc i8 %0 to i1
+  br label %25
 
-26:                                               ; preds = %5, %24
-  %.0 = phi i1 [ %23, %5 ], [ %25, %24 ]
+25:                                               ; preds = %5, %23
+  %.0 = phi i1 [ %22, %5 ], [ %24, %23 ]
   ret i1 %.0
 }
 
@@ -10506,19 +10505,18 @@ define hidden noundef zeroext i1 @"_ZN9typst_pdf7outline11HeadingNode4leaf28_$u7
   %10 = and i64 %9, -16
   %11 = getelementptr i8, ptr %3, i64 %10
   %12 = and i64 %9, -80
-  %13 = getelementptr i8, ptr %11, i64 96
-  %14 = getelementptr i8, ptr %13, i64 %12
-  %15 = add i64 %7, -1
-  %16 = and i64 %15, -16
-  %17 = getelementptr i8, ptr %14, i64 %16
-  %18 = getelementptr i8, ptr %17, i64 16
+  %13 = getelementptr i8, ptr %11, i64 %12
+  %14 = add i64 %7, -1
+  %15 = and i64 %14, -16
+  %16 = getelementptr i8, ptr %13, i64 %15
+  %17 = getelementptr i8, ptr %16, i64 112
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr @anon.d1a7c8d6b3d8d21cbf4feff1b00b8d83.80, ptr %2, align 8
-  %19 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %19, i8 0, i64 16, i1 false)
-  %20 = call noundef zeroext i1 @"_ZN5typst5model7heading1_52_$LT$impl$u20$typst..model..heading..HeadingElem$GT$8outlined17he20bce34ef3c5c1fE"(ptr noalias noundef readonly align 8 dereferenceable(144) %18, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %2)
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %18, i8 0, i64 16, i1 false)
+  %19 = call noundef zeroext i1 @"_ZN5typst5model7heading1_52_$LT$impl$u20$typst..model..heading..HeadingElem$GT$8outlined17he20bce34ef3c5c1fE"(ptr noalias noundef readonly align 8 dereferenceable(144) %17, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  ret i1 %20
+  ret i1 %19
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable

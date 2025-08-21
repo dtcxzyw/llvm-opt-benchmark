@@ -210,9 +210,8 @@ loadActiveIdx.exit:                               ; preds = %3, %46, %48, %56, %
   %63 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %64 = load i32, ptr %63, align 8
   %65 = zext i32 %64 to i64
-  %.idx = mul nuw nsw i64 %65, 24
-  %66 = getelementptr inbounds nuw i8, ptr %62, i64 %.idx
-  %67 = getelementptr inbounds nuw i8, ptr %66, i64 8
+  %66 = getelementptr inbounds nuw [10 x %struct.mq_item], ptr %1, i64 0, i64 %65
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 112
   %68 = load i64, ptr %67, align 8
   %69 = getelementptr inbounds nuw i8, ptr %2, i64 104
   store i32 0, ptr %69, align 8, !alias.scope !5
@@ -291,14 +290,13 @@ findEngineForTop.exit:                            ; preds = %101, %94, %._crit_e
   %.not = icmp ne i32 %.0.i.i, %.042
   %103 = icmp ne i32 %.0.i.i, %43
   %or.cond = and i1 %103, %76
-  %or.cond46 = select i1 %.not, i1 %or.cond, i1 false
-  br i1 %or.cond46, label %104, label %125
+  %or.cond45 = select i1 %.not, i1 %or.cond, i1 false
+  br i1 %or.cond45, label %104, label %125
 
 104:                                              ; preds = %findEngineForTop.exit
   %105 = zext i32 %80 to i64
-  %.idx45 = mul nuw nsw i64 %105, 24
-  %106 = getelementptr inbounds nuw i8, ptr %62, i64 %.idx45
-  %107 = getelementptr inbounds nuw i8, ptr %106, i64 8
+  %106 = getelementptr inbounds nuw [10 x %struct.mq_item], ptr %1, i64 0, i64 %105
+  %107 = getelementptr inbounds nuw i8, ptr %106, i64 112
   %108 = load i64, ptr %107, align 8
   %109 = load i32, ptr %4, align 4, !alias.scope !8
   %110 = zext i32 %109 to i64
@@ -337,8 +335,8 @@ findEngineForTop.exit:                            ; preds = %101, %94, %._crit_e
   store ptr %135, ptr %2, align 8
   %136 = load i32, ptr %0, align 32
   %137 = icmp ne i32 %.0.i.i, %136
-  %.not.i47 = icmp eq i32 %.0.i.i, %.042
-  %or.cond.i = and i1 %.not.i47, %137
+  %.not.i46 = icmp eq i32 %.0.i.i, %.042
+  %or.cond.i = and i1 %.not.i46, %137
   br i1 %or.cond.i, label %140, label %138
 
 138:                                              ; preds = %125
@@ -1136,18 +1134,17 @@ define hidden signext i8 @nfaExecTamarama_Q(ptr noundef %0, ptr noundef captures
   br i1 %10, label %.lr.ph, label %.critedge.thread33
 
 .lr.ph:                                           ; preds = %3
-  %11 = getelementptr inbounds nuw i8, ptr %1, i64 112
-  %12 = getelementptr inbounds nuw i8, ptr %4, i64 80
-  %13 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  %14 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %15 = zext i32 %8 to i64
-  %.idx.i43 = mul nuw nsw i64 %15, 24
-  %16 = getelementptr inbounds nuw i8, ptr %11, i64 %.idx.i43
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 80
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 80
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  %14 = zext i32 %8 to i64
+  %15 = getelementptr inbounds nuw [10 x %struct.mq_item], ptr %1, i64 0, i64 %14
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 112
   %17 = load i64, ptr %16, align 8
-  %.not44 = icmp sgt i64 %17, %2
-  br i1 %.not44, label %.critedge, label %.lr.ph45
+  %.not43 = icmp sgt i64 %17, %2
+  br i1 %.not43, label %.critedge, label %.lr.ph44
 
-18:                                               ; preds = %.lr.ph45
+18:                                               ; preds = %.lr.ph44
   %19 = load i32, ptr %6, align 8
   %20 = load i32, ptr %7, align 4
   %21 = icmp ult i32 %19, %20
@@ -1155,31 +1152,31 @@ define hidden signext i8 @nfaExecTamarama_Q(ptr noundef %0, ptr noundef captures
 
 22:                                               ; preds = %18
   %23 = zext i32 %19 to i64
-  %.idx.i = mul nuw nsw i64 %23, 24
-  %24 = getelementptr inbounds nuw i8, ptr %11, i64 %.idx.i
-  %25 = load i64, ptr %24, align 8
-  %.not = icmp sgt i64 %25, %2
-  br i1 %.not, label %.critedge, label %.lr.ph45
+  %24 = getelementptr inbounds nuw [10 x %struct.mq_item], ptr %1, i64 0, i64 %23
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 112
+  %26 = load i64, ptr %25, align 8
+  %.not = icmp sgt i64 %26, %2
+  br i1 %.not, label %.critedge, label %.lr.ph44
 
-.lr.ph45:                                         ; preds = %.lr.ph, %22
+.lr.ph44:                                         ; preds = %.lr.ph, %22
   call fastcc void @updateQueues(ptr noundef nonnull %5, ptr noundef nonnull %1, ptr noundef %4)
-  %26 = load ptr, ptr %4, align 8
-  %27 = call signext i8 @nfaQueueExec_raw(ptr noundef %26, ptr noundef nonnull %4, i64 noundef %2) #7
-  %28 = load i8, ptr %12, align 8
-  store i8 %28, ptr %13, align 8
-  %29 = load ptr, ptr %14, align 8
-  %30 = getelementptr inbounds nuw i8, ptr %29, i64 328
-  %31 = load i8, ptr %30, align 8
-  %32 = and i8 %31, 11
-  %.not16 = icmp eq i8 %32, 0
+  %27 = load ptr, ptr %4, align 8
+  %28 = call signext i8 @nfaQueueExec_raw(ptr noundef %27, ptr noundef nonnull %4, i64 noundef %2) #7
+  %29 = load i8, ptr %11, align 8
+  store i8 %29, ptr %12, align 8
+  %30 = load ptr, ptr %13, align 8
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 328
+  %32 = load i8, ptr %31, align 8
+  %33 = and i8 %32, 11
+  %.not16 = icmp eq i8 %33, 0
   br i1 %.not16, label %18, label %.critedge.thread
 
 .critedge:                                        ; preds = %22, %.lr.ph
-  %.026.lcssa = phi i8 [ 1, %.lr.ph ], [ %27, %22 ]
-  br i1 %.not44, label %.critedge.thread33, label %.critedge.thread
+  %.026.lcssa = phi i8 [ 1, %.lr.ph ], [ %28, %22 ]
+  br i1 %.not43, label %.critedge.thread33, label %.critedge.thread
 
-.critedge.thread:                                 ; preds = %18, %.lr.ph45, %.critedge
-  %.121 = phi i8 [ %.026.lcssa, %.critedge ], [ %27, %.lr.ph45 ], [ %27, %18 ]
+.critedge.thread:                                 ; preds = %18, %.lr.ph44, %.critedge
+  %.121 = phi i8 [ %.026.lcssa, %.critedge ], [ %28, %.lr.ph44 ], [ %28, %18 ]
   call fastcc void @copyBack(ptr noundef nonnull %5, ptr noundef nonnull %1, ptr noundef %4)
   br label %.critedge.thread33
 
@@ -1390,18 +1387,17 @@ define hidden signext i8 @nfaExecTamarama_Q2(ptr noundef %0, ptr noundef capture
   br i1 %10, label %.lr.ph, label %.critedge.thread35
 
 .lr.ph:                                           ; preds = %3
-  %11 = getelementptr inbounds nuw i8, ptr %1, i64 112
-  %12 = getelementptr inbounds nuw i8, ptr %4, i64 80
-  %13 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  %14 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %15 = zext i32 %8 to i64
-  %.idx.i45 = mul nuw nsw i64 %15, 24
-  %16 = getelementptr inbounds nuw i8, ptr %11, i64 %.idx.i45
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 80
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 80
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  %14 = zext i32 %8 to i64
+  %15 = getelementptr inbounds nuw [10 x %struct.mq_item], ptr %1, i64 0, i64 %14
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 112
   %17 = load i64, ptr %16, align 8
-  %.not48 = icmp sgt i64 %17, %2
-  br i1 %.not48, label %.critedge, label %.lr.ph46
+  %.not47 = icmp sgt i64 %17, %2
+  br i1 %.not47, label %.critedge, label %.lr.ph45
 
-18:                                               ; preds = %.lr.ph46
+18:                                               ; preds = %.lr.ph45
   %19 = load i32, ptr %6, align 8
   %20 = load i32, ptr %7, align 4
   %21 = icmp ult i32 %19, %20
@@ -1409,33 +1405,33 @@ define hidden signext i8 @nfaExecTamarama_Q2(ptr noundef %0, ptr noundef capture
 
 22:                                               ; preds = %18
   %23 = zext i32 %19 to i64
-  %.idx.i = mul nuw nsw i64 %23, 24
-  %24 = getelementptr inbounds nuw i8, ptr %11, i64 %.idx.i
-  %25 = load i64, ptr %24, align 8
-  %26 = icmp sle i64 %25, %2
-  %27 = icmp ne i8 %29, 2
-  %or.cond = select i1 %26, i1 %27, i1 false
-  br i1 %or.cond, label %.lr.ph46, label %.critedge
+  %24 = getelementptr inbounds nuw [10 x %struct.mq_item], ptr %1, i64 0, i64 %23
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 112
+  %26 = load i64, ptr %25, align 8
+  %27 = icmp sle i64 %26, %2
+  %28 = icmp ne i8 %30, 2
+  %or.cond = select i1 %27, i1 %28, i1 false
+  br i1 %or.cond, label %.lr.ph45, label %.critedge
 
-.lr.ph46:                                         ; preds = %.lr.ph, %22
+.lr.ph45:                                         ; preds = %.lr.ph, %22
   call fastcc void @updateQueues(ptr noundef nonnull %5, ptr noundef nonnull %1, ptr noundef %4)
-  %28 = load ptr, ptr %4, align 8
-  %29 = call signext i8 @nfaQueueExec2_raw(ptr noundef %28, ptr noundef nonnull %4, i64 noundef %2) #7
-  %30 = load i8, ptr %12, align 8
-  store i8 %30, ptr %13, align 8
-  %31 = load ptr, ptr %14, align 8
-  %32 = getelementptr inbounds nuw i8, ptr %31, i64 328
-  %33 = load i8, ptr %32, align 8
-  %34 = and i8 %33, 11
-  %.not = icmp eq i8 %34, 0
+  %29 = load ptr, ptr %4, align 8
+  %30 = call signext i8 @nfaQueueExec2_raw(ptr noundef %29, ptr noundef nonnull %4, i64 noundef %2) #7
+  %31 = load i8, ptr %11, align 8
+  store i8 %31, ptr %12, align 8
+  %32 = load ptr, ptr %13, align 8
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 328
+  %34 = load i8, ptr %33, align 8
+  %35 = and i8 %34, 11
+  %.not = icmp eq i8 %35, 0
   br i1 %.not, label %18, label %.critedge.thread
 
 .critedge:                                        ; preds = %22, %.lr.ph
-  %.028.lcssa = phi i8 [ 0, %.lr.ph ], [ %29, %22 ]
-  br i1 %.not48, label %.critedge.thread35, label %.critedge.thread
+  %.028.lcssa = phi i8 [ 0, %.lr.ph ], [ %30, %22 ]
+  br i1 %.not47, label %.critedge.thread35, label %.critedge.thread
 
-.critedge.thread:                                 ; preds = %18, %.lr.ph46, %.critedge
-  %.123 = phi i8 [ %.028.lcssa, %.critedge ], [ %29, %.lr.ph46 ], [ %29, %18 ]
+.critedge.thread:                                 ; preds = %18, %.lr.ph45, %.critedge
+  %.123 = phi i8 [ %.028.lcssa, %.critedge ], [ %30, %.lr.ph45 ], [ %30, %18 ]
   call fastcc void @copyBack(ptr noundef nonnull %5, ptr noundef nonnull %1, ptr noundef %4)
   br label %.critedge.thread35
 

@@ -878,20 +878,17 @@ strbuf_setlen.exit:                               ; preds = %43, %45
 64:                                               ; preds = %.thread, %61
   %.083 = phi ptr [ %62, %61 ], [ %63, %.thread ]
   %.082 = phi i32 [ %59, %61 ], [ 0, %.thread ]
-  %.idx = mul nuw nsw i64 %indvars.iv, 56
-  %65 = getelementptr inbounds nuw i8, ptr %49, i64 %.idx
-  %66 = getelementptr inbounds nuw i8, ptr %65, i64 4
-  store i32 %.082, ptr %66, align 4, !tbaa !113
-  %.idx156 = mul nuw nsw i64 %indvars.iv, 56
-  %67 = getelementptr inbounds nuw i8, ptr %49, i64 %.idx156
-  %68 = getelementptr inbounds nuw i8, ptr %67, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %68, ptr noundef nonnull readonly align 4 dereferenceable(32) %.083, i64 32, i1 false)
-  %69 = getelementptr inbounds nuw i8, ptr %.083, i64 32
-  %70 = load i32, ptr %69, align 4, !tbaa !114
-  %.idx157 = mul nuw nsw i64 %indvars.iv, 56
-  %71 = getelementptr inbounds nuw i8, ptr %49, i64 %.idx157
-  %72 = getelementptr inbounds nuw i8, ptr %71, i64 40
-  store i32 %70, ptr %72, align 4, !tbaa !114
+  %65 = getelementptr inbounds nuw [0 x %struct.combine_diff_parent], ptr %38, i64 0, i64 %indvars.iv
+  %66 = getelementptr inbounds nuw [0 x %struct.combine_diff_parent], ptr %38, i64 0, i64 %indvars.iv
+  %67 = getelementptr inbounds nuw [0 x %struct.combine_diff_parent], ptr %38, i64 0, i64 %indvars.iv
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 60
+  store i32 %.082, ptr %68, align 4, !tbaa !113
+  %69 = getelementptr inbounds nuw i8, ptr %66, i64 64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %69, ptr noundef nonnull readonly align 4 dereferenceable(32) %.083, i64 32, i1 false)
+  %70 = getelementptr inbounds nuw i8, ptr %.083, i64 32
+  %71 = load i32, ptr %70, align 4, !tbaa !114
+  %72 = getelementptr inbounds nuw i8, ptr %65, i64 96
+  store i32 %71, ptr %72, align 4, !tbaa !114
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count135
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !115
@@ -922,9 +919,9 @@ strbuf_setlen.exit:                               ; preds = %43, %45
 
 .thread119:                                       ; preds = %25, %80
   %81 = icmp slt i32 %3, 3
-  br i1 %81, label %85, label %.thread159
+  br i1 %81, label %85, label %.thread156
 
-.thread159:                                       ; preds = %.thread119
+.thread156:                                       ; preds = %.thread119
   %82 = zext nneg i32 %3 to i64
   %83 = shl nuw nsw i64 %82, 3
   %84 = tail call ptr @xmalloc(i64 noundef %83) #11
@@ -937,15 +934,15 @@ strbuf_setlen.exit:                               ; preds = %43, %45
   %89 = icmp sgt i32 %3, 0
   br i1 %89, label %.lr.ph126, label %._crit_edge127
 
-.lr.ph126:                                        ; preds = %.thread159, %85
-  %.081161 = phi ptr [ %84, %.thread159 ], [ %88, %85 ]
+.lr.ph126:                                        ; preds = %.thread156, %85
+  %.081158 = phi ptr [ %84, %.thread156 ], [ %88, %85 ]
   %.not103 = icmp eq ptr %5, null
   %90 = zext nneg i32 %3 to i64
   br i1 %.not103, label %.thread120.us.preheader, label %.lr.ph126.split
 
 .thread120.us.preheader:                          ; preds = %.lr.ph126
   %91 = shl nuw nsw i64 %90, 3
-  call void @llvm.memset.p0.i64(ptr align 8 %.081161, i8 0, i64 %91, i1 false), !tbaa !27
+  call void @llvm.memset.p0.i64(ptr align 8 %.081158, i8 0, i64 %91, i1 false), !tbaa !27
   br label %._crit_edge127
 
 .lr.ph126.split:                                  ; preds = %.lr.ph126, %.lr.ph126.split
@@ -956,14 +953,14 @@ strbuf_setlen.exit:                               ; preds = %43, %45
   %.not104 = icmp sgt i32 %.fr, -1
   %94 = getelementptr inbounds nuw %struct.tree_desc, ptr %5, i64 %indvars.iv137, i32 2
   %spec.select = select i1 %.not104, ptr %94, ptr null
-  %95 = getelementptr inbounds nuw ptr, ptr %.081161, i64 %indvars.iv137
+  %95 = getelementptr inbounds nuw ptr, ptr %.081158, i64 %indvars.iv137
   store ptr %spec.select, ptr %95, align 8, !tbaa !27
   %indvars.iv.next138 = add nuw nsw i64 %indvars.iv137, 1
   %exitcond141.not = icmp eq i64 %indvars.iv.next138, %90
   br i1 %exitcond141.not, label %._crit_edge127, label %.lr.ph126.split, !llvm.loop !116
 
 ._crit_edge127:                                   ; preds = %.lr.ph126.split, %.thread120.us.preheader, %85
-  %.081162 = phi ptr [ %.081161, %.thread120.us.preheader ], [ %88, %85 ], [ %.081161, %.lr.ph126.split ]
+  %.081159 = phi ptr [ %.081158, %.thread120.us.preheader ], [ %88, %85 ], [ %.081158, %.lr.ph126.split ]
   %96 = sext i32 %.084 to i64
   tail call void @strbuf_add(ptr noundef %1, ptr noundef %.0116, i64 noundef %96) #11
   %97 = load i64, ptr %1, align 8, !tbaa !110
@@ -995,11 +992,11 @@ strbuf_addch.exit:                                ; preds = %strbuf_avail.exit.i
   %105 = getelementptr inbounds nuw i8, ptr %103, i64 %104
   store i8 0, ptr %105, align 1, !tbaa !73
   %106 = add nsw i32 %7, 1
-  call fastcc void @ll_diff_tree_paths(ptr noundef %0, ptr noundef %.0, ptr noundef %.081162, i32 noundef %3, ptr noundef nonnull %1, ptr noundef nonnull %2, i32 noundef %106)
+  call fastcc void @ll_diff_tree_paths(ptr noundef %0, ptr noundef %.0, ptr noundef %.081159, i32 noundef %3, ptr noundef nonnull %1, ptr noundef nonnull %2, i32 noundef %106)
   br i1 %81, label %108, label %107
 
 107:                                              ; preds = %strbuf_addch.exit
-  call void @free(ptr noundef %.081162) #11
+  call void @free(ptr noundef %.081159) #11
   br label %108
 
 108:                                              ; preds = %107, %strbuf_addch.exit, %80

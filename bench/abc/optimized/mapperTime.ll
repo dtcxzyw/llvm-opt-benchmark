@@ -3,8 +3,8 @@ source_filename = "bench/abc/original/mapperTime.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.Map_MatchStruct_t_ = type { ptr, i32, i32, ptr, %struct.Map_TimeStruct_t_, float }
 %struct.Map_TimeStruct_t_ = type { float, float, float }
+%struct.Map_MatchStruct_t_ = type { ptr, i32, i32, ptr, %struct.Map_TimeStruct_t_, float }
 
 @.str = private unnamed_addr constant [65 x i8] c"Cannot meet the target required times (%4.2f). Continue anyway.\0A\00", align 1
 @.str.1 = private unnamed_addr constant [65 x i8] c"Relaxing the required times from (%4.2f) to the target (%4.2f).\0A\00", align 1
@@ -39,9 +39,8 @@ define float @Map_TimeComputeArrivalMax(ptr noundef readonly captures(none) %0) 
   %17 = xor i64 %16, 1
   %18 = and i64 %15, -2
   %19 = inttoptr i64 %18 to ptr
-  %.idx = mul nuw nsw i64 %17, 12
-  %20 = getelementptr inbounds nuw i8, ptr %19, i64 104
-  %21 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx
+  %20 = getelementptr inbounds nuw [2 x %struct.Map_TimeStruct_t_], ptr %19, i64 0, i64 %17
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 104
   %22 = load float, ptr %21, align 4, !tbaa !24
   %23 = fcmp ogt float %.017, %22
   %24 = select i1 %23, float %.017, float %22
@@ -716,9 +715,8 @@ Scl_ConHasOutReqs.exit:                           ; preds = %10, %3
   %34 = xor i64 %33, 1
   %35 = and i64 %32, -2
   %36 = inttoptr i64 %35 to ptr
-  %.idx.i = mul nuw nsw i64 %34, 12
-  %37 = getelementptr inbounds nuw i8, ptr %36, i64 104
-  %38 = getelementptr inbounds nuw i8, ptr %37, i64 %.idx.i
+  %37 = getelementptr inbounds nuw [2 x %struct.Map_TimeStruct_t_], ptr %36, i64 0, i64 %34
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 104
   %39 = load float, ptr %38, align 4, !tbaa !24
   %40 = fcmp ogt float %.017.i, %39
   %41 = select i1 %40, float %.017.i, float %39
@@ -833,9 +831,8 @@ Map_TimeComputeArrivalMax.exit:                   ; preds = %42, %17
   br i1 %104, label %105, label %.critedge.us
 
 105:                                              ; preds = %.lr.ph104.split.us
-  %.idx = mul nuw nsw i64 %93, 12
-  %106 = getelementptr inbounds nuw i8, ptr %95, i64 104
-  %107 = getelementptr inbounds nuw i8, ptr %106, i64 %.idx
+  %106 = getelementptr inbounds nuw %struct.Map_TimeStruct_t_, ptr %95, i64 %93
+  %107 = getelementptr inbounds nuw i8, ptr %106, i64 104
   %108 = load float, ptr %107, align 4, !tbaa !24
   %109 = fcmp ugt float %108, %103
   br i1 %109, label %110, label %113

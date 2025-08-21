@@ -299,9 +299,8 @@ define range(i32 -9992, 1) i32 @_PaPulseAudio_AddAudioDevice(ptr noundef capture
   store i32 2, ptr %17, align 8, !tbaa !32
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %19 = load i32, ptr %18, align 8, !tbaa !35
-  %.idx = mul nsw i64 %16, 72
-  %20 = getelementptr i8, ptr %13, i64 %.idx
-  %21 = getelementptr i8, ptr %20, i64 16
+  %20 = getelementptr [1024 x %struct.PaDeviceInfo], ptr %0, i64 0, i64 %16
+  %21 = getelementptr i8, ptr %20, i64 296
   store i32 %19, ptr %21, align 8, !tbaa !36
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %23 = load ptr, ptr %22, align 8, !tbaa !28
@@ -341,24 +340,23 @@ define range(i32 -9992, 1) i32 @_PaPulseAudio_AddAudioDevice(ptr noundef capture
   %46 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %34, i64 noundef %33, ptr noundef nonnull @.str.2, ptr noundef nonnull %1) #14
   %47 = load i32, ptr %14, align 8, !tbaa !24
   %48 = sext i32 %47 to i64
-  %.idx51 = mul nsw i64 %48, 72
-  %49 = getelementptr i8, ptr %13, i64 %.idx51
-  %50 = getelementptr i8, ptr %49, i64 8
+  %49 = getelementptr [1024 x %struct.PaDeviceInfo], ptr %0, i64 0, i64 %48
+  %50 = getelementptr i8, ptr %49, i64 288
   store ptr %34, ptr %50, align 8, !tbaa !37
-  %51 = getelementptr i8, ptr %49, i64 20
+  %51 = getelementptr i8, ptr %49, i64 300
   store i32 %3, ptr %51, align 4, !tbaa !38
-  %52 = getelementptr i8, ptr %49, i64 24
+  %52 = getelementptr i8, ptr %49, i64 304
   store i32 %4, ptr %52, align 8, !tbaa !39
-  %53 = getelementptr i8, ptr %49, i64 32
+  %53 = getelementptr i8, ptr %49, i64 312
   store double %5, ptr %53, align 8, !tbaa !40
-  %54 = getelementptr i8, ptr %49, i64 40
+  %54 = getelementptr i8, ptr %49, i64 320
   store double %7, ptr %54, align 8, !tbaa !41
-  %55 = getelementptr i8, ptr %49, i64 48
+  %55 = getelementptr i8, ptr %49, i64 328
   store double %6, ptr %55, align 8, !tbaa !42
-  %56 = getelementptr i8, ptr %49, i64 56
+  %56 = getelementptr i8, ptr %49, i64 336
   store double %8, ptr %56, align 8, !tbaa !43
   %57 = sitofp i64 %9 to double
-  %58 = getelementptr i8, ptr %49, i64 64
+  %58 = getelementptr i8, ptr %49, i64 344
   store double %57, ptr %58, align 8, !tbaa !44
   %59 = add nsw i32 %47, 1
   store i32 %59, ptr %14, align 8, !tbaa !24

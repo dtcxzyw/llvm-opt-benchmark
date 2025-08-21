@@ -9259,15 +9259,11 @@ lpad29:                                           ; preds = %if.end.i36.invoke, 
 if.end38:                                         ; preds = %invoke.cont35, %invoke.cont28
   %newFrame.sroa.8.052 = phi ptr [ %add.ptr.i.i, %invoke.cont28 ], [ null, %invoke.cont35 ]
   %cmp40.not54 = icmp eq i64 %count, 0
-  br i1 %cmp40.not54, label %for.end, label %for.body.lr.ph
+  br i1 %cmp40.not54, label %for.end, label %for.body
 
-for.body.lr.ph:                                   ; preds = %if.end38
-  %arrayidx.i.i.i = getelementptr inbounds i8, ptr %newFrame.sroa.8.052, i64 -56
-  br label %for.body
-
-for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %conv3956 = phi i64 [ 0, %for.body.lr.ph ], [ %conv39, %for.inc ]
-  %i.055 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
+for.body:                                         ; preds = %if.end38, %for.inc
+  %conv3956 = phi i64 [ %conv39, %for.inc ], [ 0, %if.end38 ]
+  %i.055 = phi i32 [ %inc, %for.inc ], [ 0, %if.end38 ]
   %arrayidx = getelementptr inbounds nuw %"class.facebook::jsi::Value", ptr %args, i64 %conv3956
   %22 = load i32, ptr %arrayidx, align 8
   switch i32 %22, label %lor.lhs.false23.i28 [
@@ -9315,8 +9311,8 @@ for.inc:                                          ; preds = %return.fold.split.i
   %retval.sroa.0.0.i19 = phi i64 [ %or.i.i.i26, %if.then8.i23 ], [ %retval.sroa.0.0.i.i22, %if.then14.i20 ], [ %retval.sroa.0.0.copyload.i18, %if.then25.i16 ], [ -1688849860263936, %for.body ], [ -1548112371908608, %return.fold.split.i27 ]
   %conv.i = sext i32 %i.055 to i64
   %idx.neg.i.i.i = sub nsw i64 0, %conv.i
-  %add.ptr.i.i.i = getelementptr inbounds %"class.hermes::vm::PinnedHermesValue", ptr %arrayidx.i.i.i, i64 %idx.neg.i.i.i
-  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 -8
+  %add.ptr.i.i.i = getelementptr %"class.hermes::vm::PinnedHermesValue", ptr %newFrame.sroa.8.052, i64 %idx.neg.i.i.i
+  %incdec.ptr.i.i.i = getelementptr i8, ptr %add.ptr.i.i.i, i64 -64
   store i64 %retval.sroa.0.0.i19, ptr %incdec.ptr.i.i.i, align 8
   %inc = add i32 %i.055, 1
   %conv39 = zext i32 %inc to i64
@@ -9547,15 +9543,11 @@ lpad44:                                           ; preds = %if.end.i24.invoke, 
 if.end52:                                         ; preds = %invoke.cont49, %invoke.cont43
   %newFrame.sroa.8.044 = phi ptr [ %add.ptr.i.i, %invoke.cont43 ], [ null, %invoke.cont49 ]
   %cmp54.not46 = icmp eq i64 %count, 0
-  br i1 %cmp54.not46, label %for.end, label %for.body.lr.ph
+  br i1 %cmp54.not46, label %for.end, label %for.body
 
-for.body.lr.ph:                                   ; preds = %if.end52
-  %arrayidx.i.i.i = getelementptr inbounds i8, ptr %newFrame.sroa.8.044, i64 -56
-  br label %for.body
-
-for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %conv5348 = phi i64 [ 0, %for.body.lr.ph ], [ %conv53, %for.inc ]
-  %i.047 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
+for.body:                                         ; preds = %if.end52, %for.inc
+  %conv5348 = phi i64 [ %conv53, %for.inc ], [ 0, %if.end52 ]
+  %i.047 = phi i32 [ %inc, %for.inc ], [ 0, %if.end52 ]
   %arrayidx = getelementptr inbounds nuw %"class.facebook::jsi::Value", ptr %args, i64 %conv5348
   %21 = load i32, ptr %arrayidx, align 8
   switch i32 %21, label %lor.lhs.false23.i [
@@ -9603,8 +9595,8 @@ for.inc:                                          ; preds = %return.fold.split.i
   %retval.sroa.0.0.i = phi i64 [ %or.i.i.i18, %if.then8.i ], [ %retval.sroa.0.0.i.i, %if.then14.i ], [ %retval.sroa.0.0.copyload.i16, %if.then25.i ], [ -1688849860263936, %for.body ], [ -1548112371908608, %return.fold.split.i ]
   %conv.i = sext i32 %i.047 to i64
   %idx.neg.i.i.i = sub nsw i64 0, %conv.i
-  %add.ptr.i.i.i = getelementptr inbounds %"class.hermes::vm::PinnedHermesValue", ptr %arrayidx.i.i.i, i64 %idx.neg.i.i.i
-  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 -8
+  %add.ptr.i.i.i = getelementptr %"class.hermes::vm::PinnedHermesValue", ptr %newFrame.sroa.8.044, i64 %idx.neg.i.i.i
+  %incdec.ptr.i.i.i = getelementptr i8, ptr %add.ptr.i.i.i, i64 -64
   store i64 %retval.sroa.0.0.i, ptr %incdec.ptr.i.i.i, align 8
   %inc = add i32 %i.047, 1
   %conv53 = zext i32 %inc to i64

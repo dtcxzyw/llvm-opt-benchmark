@@ -3932,14 +3932,13 @@ append_to_frame_graph.exit:                       ; preds = %12, %19, %22, %31, 
   %40 = getelementptr [6 x %struct.graph_str], ptr %39, i64 0, i64 %indvars.iv
   store ptr null, ptr %40, align 8
   %41 = load ptr, ptr %3, align 8
-  %.idx = shl nuw nsw i64 %indvars.iv, 4
-  %42 = getelementptr i8, ptr %41, i64 16
-  %43 = getelementptr i8, ptr %42, i64 %.idx
+  %42 = getelementptr [6 x %struct.graph_str], ptr %41, i64 0, i64 %indvars.iv
+  %43 = getelementptr i8, ptr %42, i64 16
   %44 = load ptr, ptr %43, align 8
   tail call void @g_free(ptr noundef %44)
   %45 = load ptr, ptr %3, align 8
-  %46 = getelementptr i8, ptr %45, i64 16
-  %47 = getelementptr i8, ptr %46, i64 %.idx
+  %46 = getelementptr [6 x %struct.graph_str], ptr %45, i64 0, i64 %indvars.iv
+  %47 = getelementptr i8, ptr %46, i64 16
   store ptr null, ptr %47, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %48 = load ptr, ptr %3, align 8
@@ -4794,14 +4793,13 @@ append_to_frame_graph.exit:                       ; preds = %102
   %132 = getelementptr [6 x %struct.graph_str], ptr %131, i64 0, i64 %indvars.iv.i.i
   store ptr null, ptr %132, align 8
   %133 = load ptr, ptr %119, align 8
-  %.idx.i.i = shl nuw nsw i64 %indvars.iv.i.i, 4
-  %134 = getelementptr i8, ptr %133, i64 16
-  %135 = getelementptr i8, ptr %134, i64 %.idx.i.i
+  %134 = getelementptr [6 x %struct.graph_str], ptr %133, i64 0, i64 %indvars.iv.i.i
+  %135 = getelementptr i8, ptr %134, i64 16
   %136 = load ptr, ptr %135, align 8
   tail call void @g_free(ptr noundef %136)
   %137 = load ptr, ptr %119, align 8
-  %138 = getelementptr i8, ptr %137, i64 16
-  %139 = getelementptr i8, ptr %138, i64 %.idx.i.i
+  %138 = getelementptr [6 x %struct.graph_str], ptr %137, i64 0, i64 %indvars.iv.i.i
+  %139 = getelementptr i8, ptr %138, i64 16
   store ptr null, ptr %139, align 8
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %140 = load ptr, ptr %119, align 8
@@ -4836,9 +4834,8 @@ h245_free_labels.exit.i:                          ; preds = %._crit_edge.i.i, %.
   %157 = getelementptr inbounds nuw i8, ptr %156, i64 4
   %158 = load i8, ptr %157, align 4
   %159 = sext i8 %158 to i64
-  %.idx.i = shl nsw i64 %159, 4
-  %160 = getelementptr i8, ptr %156, i64 16
-  %161 = getelementptr i8, ptr %160, i64 %.idx.i
+  %160 = getelementptr [6 x %struct.graph_str], ptr %156, i64 0, i64 %159
+  %161 = getelementptr i8, ptr %160, i64 16
   store ptr %155, ptr %161, align 8
   %162 = load ptr, ptr %119, align 8
   %163 = getelementptr inbounds nuw i8, ptr %162, i64 4

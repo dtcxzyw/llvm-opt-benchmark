@@ -2159,7 +2159,7 @@ declare hidden void @luaD_throw(ptr noundef, i32 noundef) local_unnamed_addr #8
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden void @luaO_chunkid(ptr noundef writeonly captures(none) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #9 {
   %4 = load i8, ptr %1, align 1, !tbaa !4
-  switch i8 %4, label %20 [
+  switch i8 %4, label %19 [
     i8 61, label %5
     i8 64, label %11
   ]
@@ -2171,13 +2171,13 @@ define hidden void @luaO_chunkid(ptr noundef writeonly captures(none) %0, ptr no
 
 8:                                                ; preds = %5
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %0, ptr nonnull align 1 %7, i64 %2, i1 false)
-  br label %34
+  br label %33
 
 9:                                                ; preds = %5
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(59) %0, ptr noundef nonnull align 1 dereferenceable(59) %7, i64 59, i1 false)
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 59
   store i8 0, ptr %10, align 1, !tbaa !4
-  br label %34
+  br label %33
 
 11:                                               ; preds = %3
   %12 = icmp ult i64 %2, 61
@@ -2186,49 +2186,48 @@ define hidden void @luaO_chunkid(ptr noundef writeonly captures(none) %0, ptr no
 13:                                               ; preds = %11
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %0, ptr nonnull align 1 %14, i64 %2, i1 false)
-  br label %34
+  br label %33
 
 15:                                               ; preds = %11
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %0, ptr noundef nonnull align 1 dereferenceable(3) @.str.4, i64 3, i1 false)
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 3
-  %17 = getelementptr inbounds nuw i8, ptr %1, i64 1
-  %18 = getelementptr inbounds nuw i8, ptr %17, i64 %2
-  %19 = getelementptr inbounds i8, ptr %18, i64 -57
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(57) %16, ptr noundef nonnull align 1 dereferenceable(57) %19, i64 57, i1 false)
-  br label %34
+  %17 = getelementptr i8, ptr %1, i64 %2
+  %18 = getelementptr i8, ptr %17, i64 -56
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(57) %16, ptr noundef nonnull align 1 dereferenceable(57) %18, i64 57, i1 false)
+  br label %33
 
-20:                                               ; preds = %3
-  %21 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %1, i32 noundef 10) #19
+19:                                               ; preds = %3
+  %20 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %1, i32 noundef 10) #19
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %0, ptr noundef nonnull align 1 dereferenceable(9) @.str.5, i64 9, i1 false)
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %23 = icmp ult i64 %2, 45
-  %24 = icmp eq ptr %21, null
-  %or.cond = select i1 %23, i1 %24, i1 false
-  br i1 %or.cond, label %25, label %27
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 9
+  %22 = icmp ult i64 %2, 45
+  %23 = icmp eq ptr %20, null
+  %or.cond = select i1 %22, i1 %23, i1 false
+  br i1 %or.cond, label %24, label %26
 
-25:                                               ; preds = %20
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %22, ptr nonnull align 1 %1, i64 %2, i1 false)
-  %26 = getelementptr inbounds nuw i8, ptr %22, i64 %2
-  br label %33
+24:                                               ; preds = %19
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %21, ptr nonnull align 1 %1, i64 %2, i1 false)
+  %25 = getelementptr inbounds nuw i8, ptr %21, i64 %2
+  br label %32
 
-27:                                               ; preds = %20
-  %28 = ptrtoint ptr %21 to i64
-  %29 = ptrtoint ptr %1 to i64
-  %30 = sub i64 %28, %29
-  %.052 = select i1 %24, i64 %2, i64 %30
+26:                                               ; preds = %19
+  %27 = ptrtoint ptr %20 to i64
+  %28 = ptrtoint ptr %1 to i64
+  %29 = sub i64 %27, %28
+  %.052 = select i1 %23, i64 %2, i64 %29
   %.1 = tail call i64 @llvm.umin.i64(i64 %.052, i64 45)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %22, ptr nonnull align 1 %1, i64 %.1, i1 false)
-  %31 = getelementptr inbounds nuw i8, ptr %22, i64 %.1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %31, ptr noundef nonnull align 1 dereferenceable(3) @.str.4, i64 3, i1 false)
-  %32 = getelementptr inbounds nuw i8, ptr %31, i64 3
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %21, ptr nonnull align 1 %1, i64 %.1, i1 false)
+  %30 = getelementptr inbounds nuw i8, ptr %21, i64 %.1
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %30, ptr noundef nonnull align 1 dereferenceable(3) @.str.4, i64 3, i1 false)
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 3
+  br label %32
+
+32:                                               ; preds = %26, %24
+  %.0 = phi ptr [ %25, %24 ], [ %31, %26 ]
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.0, ptr noundef nonnull align 1 dereferenceable(3) @.str.6, i64 3, i1 false)
   br label %33
 
-33:                                               ; preds = %27, %25
-  %.0 = phi ptr [ %26, %25 ], [ %32, %27 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.0, ptr noundef nonnull align 1 dereferenceable(3) @.str.6, i64 3, i1 false)
-  br label %34
-
-34:                                               ; preds = %33, %15, %13, %8, %9
+33:                                               ; preds = %32, %15, %13, %8, %9
   ret void
 }
 
