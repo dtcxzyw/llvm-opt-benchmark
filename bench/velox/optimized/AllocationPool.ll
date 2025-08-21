@@ -437,9 +437,9 @@ _ZN8facebook5velox4bits14nextPowerOfTwoEm.exit:   ; preds = %if.then
   br label %_ZN8facebook5velox4bits14nextPowerOfTwoEm.exit.thread
 
 _ZN8facebook5velox4bits14nextPowerOfTwoEm.exit.thread: ; preds = %if.then, %_ZN8facebook5velox4bits14nextPowerOfTwoEm.exit
-  %spec.select.i.sink = phi i64 [ %spec.select.i, %_ZN8facebook5velox4bits14nextPowerOfTwoEm.exit ], [ 0, %if.then ]
+  %spec.select.i.fr.sink = phi i64 [ %spec.select.i, %_ZN8facebook5velox4bits14nextPowerOfTwoEm.exit ], [ 0, %if.then ]
   %8 = phi ptr [ %spec.select37, %_ZN8facebook5velox4bits14nextPowerOfTwoEm.exit ], [ %ref.tmp, %if.then ]
-  store i64 %spec.select.i.sink, ptr %ref.tmp4, align 8
+  store i64 %spec.select.i.fr.sink, ptr %ref.tmp4, align 8
   %9 = load i64, ptr %8, align 8
   %10 = tail call i64 @llvm.smin.i64(i64 %9, i64 536870912)
   %add.i = shl i64 %numPages, 12

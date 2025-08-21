@@ -17201,8 +17201,8 @@ define linkonce_odr void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN7
   br i1 %8, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %4, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN7jsonnet8internal11SortImports10ImportElemESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit.thread37
-  %.043 = phi i64 [ %31, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN7jsonnet8internal11SortImports10ImportElemESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit.thread37 ], [ %1, %4 ]
-  %9 = shl i64 %.043, 1
+  %.042 = phi i64 [ %31, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN7jsonnet8internal11SortImports10ImportElemESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit.thread37 ], [ %1, %4 ]
+  %9 = shl i64 %.042, 1
   %10 = add i64 %9, 2
   %11 = getelementptr inbounds %"struct.jsonnet::internal::SortImports::ImportElem", ptr %0, i64 %10
   %12 = or disjoint i64 %9, 1
@@ -17248,7 +17248,7 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN7jsonnet8intern
 _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN7jsonnet8internal11SortImports10ImportElemESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit.thread37: ; preds = %27, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN7jsonnet8internal11SortImports10ImportElemESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN7jsonnet8internal11SortImports10ImportElemESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit.thread
   %31 = phi i64 [ %12, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN7jsonnet8internal11SortImports10ImportElemESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit.thread ], [ %10, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN7jsonnet8internal11SortImports10ImportElemESt6vectorIS7_SaIS7_EEEESC_EEbT_T0_.exit ], [ %10, %27 ]
   %32 = getelementptr inbounds %"struct.jsonnet::internal::SortImports::ImportElem", ptr %0, i64 %31
-  %33 = getelementptr inbounds %"struct.jsonnet::internal::SortImports::ImportElem", ptr %0, i64 %.043
+  %33 = getelementptr inbounds %"struct.jsonnet::internal::SortImports::ImportElem", ptr %0, i64 %.042
   %34 = tail call noundef nonnull align 8 dereferenceable(232) ptr @_ZN7jsonnet8internal11SortImports10ImportElemaSEOS2_(ptr noundef nonnull align 8 dereferenceable(232) %33, ptr noundef nonnull align 8 dereferenceable(232) %32) #29
   %35 = icmp slt i64 %31, %7
   br i1 %35, label %.lr.ph, label %._crit_edge, !llvm.loop !420

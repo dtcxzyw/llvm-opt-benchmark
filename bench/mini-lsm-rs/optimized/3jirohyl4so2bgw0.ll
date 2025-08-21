@@ -2883,7 +2883,7 @@ define hidden noundef i64 @"_ZN17crossbeam_channel7channel17Receiver$LT$T$GT$3le
     i64 5, label %"_ZN17crossbeam_channel7flavors5array16Channel$LT$T$GT$3len17h54b568b483d713aeE.exit"
   ]
 
-default.unreachable32:                            ; preds = %1
+default.unreachable28:                            ; preds = %1
   unreachable
 
 3:                                                ; preds = %1
@@ -2997,8 +2997,8 @@ default.unreachable32:                            ; preds = %1
 
 _ZN17crossbeam_channel7flavors2at7Channel8is_empty17hb283c6f5e9fcb8acE.llvm.6205359899382664383.exit: ; preds = %71, %"_ZN72_$LT$std..sys..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h69c7fe6700806219E.llvm.6205359899382664383.exit.i"
   %76 = load atomic i8, ptr %63 seq_cst, align 1
-  %.fr16 = freeze i8 %76
-  %.not = icmp eq i8 %.fr16, 0
+  %.fr = freeze i8 %76
+  %.not = icmp eq i8 %.fr, 0
   br i1 %.not, label %"_ZN17crossbeam_channel7flavors5array16Channel$LT$T$GT$3len17h54b568b483d713aeE.exit", label %_ZN17crossbeam_channel7flavors2at7Channel8is_empty17hb283c6f5e9fcb8acE.llvm.6205359899382664383.exit.thread
 
 _ZN17crossbeam_channel7flavors2at7Channel8is_empty17hb283c6f5e9fcb8acE.llvm.6205359899382664383.exit.thread: ; preds = %66, %"_ZN72_$LT$std..sys..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h69c7fe6700806219E.llvm.6205359899382664383.exit.i", %60, %_ZN17crossbeam_channel7flavors2at7Channel8is_empty17hb283c6f5e9fcb8acE.llvm.6205359899382664383.exit
@@ -3045,7 +3045,7 @@ define hidden noundef i64 @"_ZN17crossbeam_channel7channel17Receiver$LT$T$GT$3le
     i64 5, label %"_ZN17crossbeam_channel7flavors5array16Channel$LT$T$GT$3len17hc5d3832e8692f3ffE.exit"
   ]
 
-default.unreachable32:                            ; preds = %1
+default.unreachable28:                            ; preds = %1
   unreachable
 
 3:                                                ; preds = %1
@@ -3159,8 +3159,8 @@ default.unreachable32:                            ; preds = %1
 
 _ZN17crossbeam_channel7flavors2at7Channel8is_empty17hb283c6f5e9fcb8acE.llvm.6205359899382664383.exit: ; preds = %71, %"_ZN72_$LT$std..sys..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h69c7fe6700806219E.llvm.6205359899382664383.exit.i"
   %76 = load atomic i8, ptr %63 seq_cst, align 1
-  %.fr16 = freeze i8 %76
-  %.not = icmp eq i8 %.fr16, 0
+  %.fr = freeze i8 %76
+  %.not = icmp eq i8 %.fr, 0
   br i1 %.not, label %"_ZN17crossbeam_channel7flavors5array16Channel$LT$T$GT$3len17hc5d3832e8692f3ffE.exit", label %_ZN17crossbeam_channel7flavors2at7Channel8is_empty17hb283c6f5e9fcb8acE.llvm.6205359899382664383.exit.thread
 
 _ZN17crossbeam_channel7flavors2at7Channel8is_empty17hb283c6f5e9fcb8acE.llvm.6205359899382664383.exit.thread: ; preds = %66, %"_ZN72_$LT$std..sys..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h69c7fe6700806219E.llvm.6205359899382664383.exit.i", %60, %_ZN17crossbeam_channel7flavors2at7Channel8is_empty17hb283c6f5e9fcb8acE.llvm.6205359899382664383.exit

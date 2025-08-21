@@ -923,9 +923,9 @@ _ZNSt6vectorISt4pairIiiESaIS1_EE17_M_realloc_insertIJRiiEEEvN9__gnu_cxx17__norma
   %244 = fdiv double %234, %.scalar.i
   store double %244, ptr %.sroa.8379.0..sroa_idx, align 16, !tbaa !14, !alias.scope !92
   %.pre618 = fmul <2 x double> %243, %243
-  %shift733 = shufflevector <2 x double> %.pre618, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop734 = fadd <2 x double> %.pre618, %shift733
-  %.pre623 = extractelement <2 x double> %foldExtExtBinop734, i64 0
+  %shift725 = shufflevector <2 x double> %.pre618, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop726 = fadd <2 x double> %.pre618, %shift725
+  %.pre623 = extractelement <2 x double> %foldExtExtBinop726, i64 0
   %.pre625 = fmul double %244, %244
   %.pre627 = fadd double %.pre625, %.pre623
   %.pre629 = call double @llvm.sqrt.f64(double %.pre627)
@@ -946,9 +946,9 @@ _ZNSt6vectorISt4pairIiiESaIS1_EE17_M_realloc_insertIJRiiEEEvN9__gnu_cxx17__norma
   %252 = phi <2 x double> [ %243, %250 ], [ %.sroa.0376.8.vec.insert, %.thread697 ], [ %248, %240 ]
   %253 = phi double [ %244, %250 ], [ %234, %.thread697 ], [ %249, %240 ]
   %254 = fmul <2 x double> %252, zeroinitializer
-  %shift736 = shufflevector <2 x double> %254, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop737 = fadd <2 x double> %254, %shift736
-  %255 = extractelement <2 x double> %foldExtExtBinop737, i64 0
+  %shift728 = shufflevector <2 x double> %254, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop729 = fadd <2 x double> %254, %shift728
+  %255 = extractelement <2 x double> %foldExtExtBinop729, i64 0
   %256 = fadd double %253, %255
   %257 = fcmp olt double %256, 0xBFEFFFFFFFFFDCD1
   br i1 %257, label %258, label %275
@@ -1500,8 +1500,8 @@ _ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i: ; preds = %483
   store i64 %469, ptr %472, align 8, !tbaa !22
   store i64 %471, ptr %473, align 8, !tbaa !145
   %490 = and i64 %478, 2305843009213693950
-  %.not730 = icmp eq i64 %478, 1
-  br i1 %.not730, label %._crit_edge.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i
+  %.not722 = icmp eq i64 %478, 1
+  br i1 %.not722, label %._crit_edge.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i
 
 ._crit_edge.i.i.i.i.i.i.i:                        ; preds = %.lr.ph.i.i.i.i.i.i.i, %.thread708, %.thread705, %489
   %491 = phi i64 [ 0, %.thread705 ], [ %490, %489 ], [ %482, %.thread708 ], [ %490, %.lr.ph.i.i.i.i.i.i.i ]
@@ -3718,10 +3718,10 @@ define linkonce_odr dso_local void @_ZNK5Eigen19HouseholderSequenceINS_6MatrixId
   %9 = alloca %"class.Eigen::Block.1105", align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = load i8, ptr %10, align 8, !range !213
-  %.fr = freeze i8 %11
-  %12 = trunc i8 %.fr to i1
-  %or.cond67 = xor i1 %12, true
-  %spec.select = and i1 %3, %or.cond67
+  %.fr67 = freeze i8 %11
+  %12 = trunc i8 %.fr67 to i1
+  %or.cond68 = xor i1 %12, true
+  %spec.select = and i1 %3, %or.cond68
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %14 = load i64, ptr %13, align 8, !tbaa !245
   %15 = icmp sgt i64 %14, 47

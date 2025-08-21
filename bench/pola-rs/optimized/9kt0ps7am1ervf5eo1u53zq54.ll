@@ -56326,10 +56326,10 @@ _ZN11polars_plan3dsl9functions8temporal12DatetimeArgs11all_literal17h0bcd422a2b9
           to label %.critedge39 unwind label %232, !noalias !7051
 
 134:                                              ; preds = %130
-  %.fr283.i = freeze { i32, i32 } %131
-  %135 = extractvalue { i32, i32 } %.fr283.i, 0
+  %.fr282.i = freeze { i32, i32 } %131
+  %135 = extractvalue { i32, i32 } %.fr282.i, 0
   %136 = trunc i32 %135 to i1
-  %137 = extractvalue { i32, i32 } %.fr283.i, 1
+  %137 = extractvalue { i32, i32 } %.fr282.i, 1
   br i1 %136, label %139, label %138
 
 138:                                              ; preds = %134
@@ -56494,8 +56494,8 @@ _ZN11polars_plan3dsl9functions8temporal12DatetimeArgs11all_literal17h0bcd422a2b9
   %185 = icmp ugt i32 %137, 59
   %or.cond.i = or i1 %184, %185
   %186 = icmp ugt i32 %154, 59
-  %or.cond284.i = select i1 %or.cond.i, i1 true, i1 %186
-  br i1 %or.cond284.i, label %.thread267.i, label %187
+  %or.cond279.i = select i1 %or.cond.i, i1 true, i1 %186
+  br i1 %or.cond279.i, label %.thread267.i, label %187
 
 187:                                              ; preds = %183
   %188 = mul nuw nsw i32 %120, 3600

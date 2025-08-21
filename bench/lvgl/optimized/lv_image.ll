@@ -379,8 +379,8 @@ lv_image_get_pivot.exit:                          ; preds = %15
 175:                                              ; preds = %170
   %176 = getelementptr inbounds nuw i8, ptr %154, i64 96
   %177 = load i32, ptr %176, align 8, !tbaa !19
-  %.not101.i = icmp eq i32 %177, 0
-  br i1 %.not101.i, label %179, label %178
+  %.not96.i = icmp eq i32 %177, 0
+  br i1 %.not96.i, label %179, label %178
 
 178:                                              ; preds = %175
   store i32 1, ptr %156, align 8, !tbaa !37
@@ -459,8 +459,8 @@ lv_image_get_pivot.exit:                          ; preds = %15
 220:                                              ; preds = %.critedge.i, %187
   %221 = getelementptr inbounds nuw i8, ptr %154, i64 72
   %222 = load ptr, ptr %221, align 8, !tbaa !40
-  %.not102.i = icmp eq ptr %222, null
-  br i1 %.not102.i, label %draw_image.exit, label %223
+  %.not97.i = icmp eq ptr %222, null
+  br i1 %.not97.i, label %draw_image.exit, label %223
 
 223:                                              ; preds = %220
   store i32 1, ptr %156, align 8, !tbaa !37
@@ -607,7 +607,7 @@ lv_image_get_pivot.exit.i:                        ; preds = %240, %240
   %.fr95.i = freeze i32 %313
   %.neg = add i32 %.fr95.i, 1
   %316 = add i32 %.fr96.i, %.fr97.i
-  %317 = sub i32 %.neg, %316
+  %319 = sub i32 %.neg, %316
   %318 = srem i32 %317, %.fr97.i
   %319 = sub nsw i32 %317, %318
   %320 = getelementptr inbounds nuw i8, ptr %241, i64 32
@@ -620,7 +620,7 @@ lv_image_get_pivot.exit.i:                        ; preds = %240, %240
   %.fr98.i = freeze i32 %321
   %.neg107 = add i32 %.fr98.i, 1
   %325 = add i32 %.fr99.i, %.fr100.i
-  %326 = sub i32 %.neg107, %325
+  %328 = sub i32 %.neg107, %325
   %327 = srem i32 %326, %.fr100.i
   %328 = sub nsw i32 %326, %327
   call void @lv_area_move(ptr noundef nonnull %281, i32 noundef %319, i32 noundef %328) #6

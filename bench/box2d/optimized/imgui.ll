@@ -27147,8 +27147,8 @@ define dso_local void @_ZN5ImGui19FindHoveredWindowExERK6ImVec2bPP11ImGuiWindowS
 
 33:                                               ; preds = %.lr.ph, %.thread93
   %indvars.iv = phi i64 [ %32, %.lr.ph ], [ %indvars.iv.next, %.thread93 ]
-  %.1121 = phi ptr [ %.0, %.lr.ph ], [ %.398, %.thread93 ]
-  %.048120 = phi ptr [ null, %.lr.ph ], [ %.25097, %.thread93 ]
+  %.1118 = phi ptr [ %.0, %.lr.ph ], [ %.398, %.thread93 ]
+  %.048117 = phi ptr [ null, %.lr.ph ], [ %.25097, %.thread93 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %34 = getelementptr inbounds nuw ptr, ptr %27, i64 %indvars.iv.next
   %35 = load ptr, ptr %34, align 8, !tbaa !665
@@ -27257,9 +27257,9 @@ _ZNK6ImRect8ContainsERK6ImVec2.exit:              ; preds = %91
   br i1 %1, label %.thread102, label %99
 
 99:                                               ; preds = %.thread87, %97, %98
-  %100 = icmp eq ptr %.1121, null
-  %spec.select64 = select i1 %100, ptr %35, ptr %.1121
-  %101 = icmp eq ptr %.048120, null
+  %100 = icmp eq ptr %.1118, null
+  %spec.select64 = select i1 %100, ptr %35, ptr %.1118
+  %101 = icmp eq ptr %.048117, null
   br i1 %101, label %102, label %109
 
 102:                                              ; preds = %99
@@ -27276,18 +27276,18 @@ _ZNK6ImRect8ContainsERK6ImVec2.exit:              ; preds = %91
   br i1 %.not62, label %.thread93, label %109
 
 109:                                              ; preds = %102, %104, %99
-  %.452 = phi ptr [ %.048120, %99 ], [ %35, %104 ], [ %35, %102 ]
-  %.not118 = icmp eq ptr %spec.select64, null
-  br i1 %.not118, label %.thread93, label %.thread102
+  %.452 = phi ptr [ %.048117, %99 ], [ %35, %104 ], [ %35, %102 ]
+  %.not115 = icmp eq ptr %spec.select64, null
+  br i1 %.not115, label %.thread93, label %.thread102
 
 .thread93:                                        ; preds = %_ZNK6ImRect8ContainsERK6ImVec2.exit, %104, %47, %56, %61, %109, %_ZNK6ImRect15ContainsWithPadERK6ImVec2S2_.exit, %43, %33, %39
-  %.398 = phi ptr [ null, %109 ], [ %.1121, %_ZNK6ImRect15ContainsWithPadERK6ImVec2S2_.exit ], [ %.1121, %43 ], [ %.1121, %33 ], [ %.1121, %39 ], [ %.1121, %61 ], [ %.1121, %56 ], [ %.1121, %47 ], [ %spec.select64, %104 ], [ %.1121, %_ZNK6ImRect8ContainsERK6ImVec2.exit ]
-  %.25097 = phi ptr [ %.452, %109 ], [ %.048120, %_ZNK6ImRect15ContainsWithPadERK6ImVec2S2_.exit ], [ %.048120, %43 ], [ %.048120, %33 ], [ %.048120, %39 ], [ %.048120, %61 ], [ %.048120, %56 ], [ %.048120, %47 ], [ null, %104 ], [ %.048120, %_ZNK6ImRect8ContainsERK6ImVec2.exit ]
+  %.398 = phi ptr [ null, %109 ], [ %.1118, %_ZNK6ImRect15ContainsWithPadERK6ImVec2S2_.exit ], [ %.1118, %43 ], [ %.1118, %33 ], [ %.1118, %39 ], [ %.1118, %61 ], [ %.1118, %56 ], [ %.1118, %47 ], [ %spec.select64, %104 ], [ %.1118, %_ZNK6ImRect8ContainsERK6ImVec2.exit ]
+  %.25097 = phi ptr [ %.452, %109 ], [ %.048117, %_ZNK6ImRect15ContainsWithPadERK6ImVec2S2_.exit ], [ %.048117, %43 ], [ %.048117, %33 ], [ %.048117, %39 ], [ %.048117, %61 ], [ %.048117, %56 ], [ %.048117, %47 ], [ null, %104 ], [ %.048117, %_ZNK6ImRect8ContainsERK6ImVec2.exit ]
   %110 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %110, label %33, label %.thread102, !llvm.loop !850
 
 .thread102:                                       ; preds = %.thread93, %98, %.thread87, %109, %97, %14
-  %.149 = phi ptr [ null, %14 ], [ %.048120, %97 ], [ %.452, %109 ], [ %.048120, %.thread87 ], [ %.048120, %98 ], [ %.25097, %.thread93 ]
+  %.149 = phi ptr [ null, %14 ], [ %.048117, %97 ], [ %.452, %109 ], [ %.048117, %.thread87 ], [ %.048117, %98 ], [ %.25097, %.thread93 ]
   %.2 = phi ptr [ %.0, %14 ], [ %35, %97 ], [ %spec.select64, %109 ], [ %35, %.thread87 ], [ %35, %98 ], [ %.398, %.thread93 ]
   store ptr %.2, ptr %2, align 8, !tbaa !665
   %.not63 = icmp eq ptr %3, null
@@ -75676,23 +75676,23 @@ _ZN14ImGuiTextIndex12get_line_endEPKci.exit:      ; preds = %260, %264
   %.sroa.7.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %271, i64 7452
   %273 = getelementptr inbounds i8, ptr %268, i64 -10
   %274 = add nsw i64 %267, -10
-  %.not56.i = icmp slt i64 %274, %255
-  br i1 %.not56.i, label %_ZN5ImGui34DebugTextUnformattedWithLocateItemEPKcS1_.exit, label %.lr.ph.i
+  %.not57.i = icmp slt i64 %274, %255
+  br i1 %.not57.i, label %_ZN5ImGui34DebugTextUnformattedWithLocateItemEPKcS1_.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %270
   %275 = fadd float %.sroa.5.0.copyload.i, 0.000000e+00
   br label %276
 
 276:                                              ; preds = %_ZL15ImCharIsXdigitAc.exit.thread.i, %.lr.ph.i
-  %.057.i = phi ptr [ %256, %.lr.ph.i ], [ %343, %_ZL15ImCharIsXdigitAc.exit.thread.i ]
+  %.058.i = phi ptr [ %256, %.lr.ph.i ], [ %343, %_ZL15ImCharIsXdigitAc.exit.thread.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 0, ptr %2, align 4, !tbaa !221
-  %277 = load i8, ptr %.057.i, align 1, !tbaa !205
+  %277 = load i8, ptr %.058.i, align 1, !tbaa !205
   %.not24.i = icmp eq i8 %277, 48
   br i1 %.not24.i, label %278, label %_ZL15ImCharIsXdigitAc.exit.thread.i
 
 278:                                              ; preds = %276
-  %279 = getelementptr inbounds nuw i8, ptr %.057.i, i64 1
+  %279 = getelementptr inbounds nuw i8, ptr %.058.i, i64 1
   %280 = load i8, ptr %279, align 1, !tbaa !205
   switch i8 %280, label %_ZL15ImCharIsXdigitAc.exit.thread.i [
     i8 120, label %281
@@ -75700,21 +75700,21 @@ _ZN14ImGuiTextIndex12get_line_endEPKci.exit:      ; preds = %260, %264
   ]
 
 281:                                              ; preds = %278, %278
-  %282 = getelementptr inbounds nuw i8, ptr %.057.i, i64 2
+  %282 = getelementptr inbounds nuw i8, ptr %.058.i, i64 2
   %283 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %282, ptr noundef nonnull @.str.500, ptr noundef nonnull %2) #44
   %.not27.i = icmp eq i32 %283, 1
   br i1 %.not27.i, label %284, label %_ZL15ImCharIsXdigitAc.exit.thread.i
 
 284:                                              ; preds = %281
-  %285 = getelementptr inbounds nuw i8, ptr %.057.i, i64 10
+  %285 = getelementptr inbounds nuw i8, ptr %.058.i, i64 10
   %286 = load i8, ptr %285, align 1, !tbaa !205
-  %.fr.i = freeze i8 %286
-  %287 = add i8 %.fr.i, -48
+  %.fr56.i = freeze i8 %286
+  %287 = add i8 %.fr56.i, -48
   %or.cond.i.i = icmp ult i8 %287, 10
   br i1 %or.cond.i.i, label %_ZL15ImCharIsXdigitAc.exit.thread.i, label %switch.early.test.i
 
 switch.early.test.i:                              ; preds = %284
-  switch i8 %.fr.i, label %288 [
+  switch i8 %.fr56.i, label %288 [
     i8 102, label %_ZL15ImCharIsXdigitAc.exit.thread.i
     i8 101, label %_ZL15ImCharIsXdigitAc.exit.thread.i
     i8 100, label %_ZL15ImCharIsXdigitAc.exit.thread.i
@@ -75733,7 +75733,7 @@ switch.early.test.i:                              ; preds = %284
   %289 = load ptr, ptr @GImGui, align 8, !tbaa !210
   %290 = getelementptr inbounds nuw i8, ptr %289, i64 4184
   %291 = load float, ptr %290, align 8, !tbaa !448
-  %292 = icmp eq ptr %256, %.057.i
+  %292 = icmp eq ptr %256, %.058.i
   br i1 %292, label %293, label %294
 
 293:                                              ; preds = %288
@@ -75743,7 +75743,7 @@ switch.early.test.i:                              ; preds = %284
 294:                                              ; preds = %288
   %295 = getelementptr inbounds nuw i8, ptr %289, i64 4176
   %296 = load ptr, ptr %295, align 8, !tbaa !447
-  %297 = invoke <2 x float> @_ZNK6ImFont13CalcTextSizeAEfffPKcS1_PS1_(ptr noundef nonnull align 8 dereferenceable(118) %296, float noundef %291, float noundef 0x47EFFFFFE0000000, float noundef -1.000000e+00, ptr noundef nonnull %256, ptr noundef nonnull %.057.i, ptr noundef null)
+  %297 = invoke <2 x float> @_ZNK6ImFont13CalcTextSizeAEfffPKcS1_PS1_(ptr noundef nonnull align 8 dereferenceable(118) %296, float noundef %291, float noundef 0x47EFFFFFE0000000, float noundef -1.000000e+00, ptr noundef nonnull %256, ptr noundef nonnull %.058.i, ptr noundef null)
           to label %.noexc43 unwind label %.loopexit
 
 .noexc43:                                         ; preds = %294
@@ -75754,16 +75754,16 @@ switch.early.test.i:                              ; preds = %284
   %.sroa.0.0.vec.insert.i.i = insertelement <2 x float> %297, float %300, i64 0
   %.pre.i = load ptr, ptr @GImGui, align 8, !tbaa !210
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %.pre.i, i64 4184
-  %.pre58.i = load float, ptr %.phi.trans.insert.i, align 8, !tbaa !448
+  %.pre59.i = load float, ptr %.phi.trans.insert.i, align 8, !tbaa !448
   br label %_ZN5ImGui12CalcTextSizeEPKcS1_bf.exit.i
 
 _ZN5ImGui12CalcTextSizeEPKcS1_bf.exit.i:          ; preds = %.noexc43, %293
-  %301 = phi float [ %291, %293 ], [ %.pre58.i, %.noexc43 ]
+  %301 = phi float [ %291, %293 ], [ %.pre59.i, %.noexc43 ]
   %302 = phi ptr [ %289, %293 ], [ %.pre.i, %.noexc43 ]
   %.sroa.0.0.i.i = phi <2 x float> [ %.sroa.0.4.vec.insert.i.i, %293 ], [ %.sroa.0.0.vec.insert.i.i, %.noexc43 ]
   %303 = getelementptr inbounds nuw i8, ptr %302, i64 4176
   %304 = load ptr, ptr %303, align 8, !tbaa !447
-  %305 = invoke <2 x float> @_ZNK6ImFont13CalcTextSizeAEfffPKcS1_PS1_(ptr noundef nonnull align 8 dereferenceable(118) %304, float noundef %301, float noundef 0x47EFFFFFE0000000, float noundef -1.000000e+00, ptr noundef nonnull %.057.i, ptr noundef nonnull %285, ptr noundef null)
+  %305 = invoke <2 x float> @_ZNK6ImFont13CalcTextSizeAEfffPKcS1_PS1_(ptr noundef nonnull align 8 dereferenceable(118) %304, float noundef %301, float noundef 0x47EFFFFFE0000000, float noundef -1.000000e+00, ptr noundef nonnull %.058.i, ptr noundef nonnull %285, ptr noundef null)
           to label %.noexc44 unwind label %.loopexit
 
 .noexc44:                                         ; preds = %_ZN5ImGui12CalcTextSizeEPKcS1_bf.exit.i
@@ -75831,7 +75831,7 @@ _ZN5ImGui12CalcTextSizeEPKcS1_bf.exit.i:          ; preds = %.noexc43, %293
           to label %_ZL15ImCharIsXdigitAc.exit.thread.i unwind label %.loopexit
 
 _ZL15ImCharIsXdigitAc.exit.thread.i:              ; preds = %341, %323, %.noexc44, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %284, %281, %278, %276
-  %.1.i = phi ptr [ %.057.i, %278 ], [ %.057.i, %281 ], [ %.057.i, %276 ], [ %.057.i, %switch.early.test.i ], [ %285, %323 ], [ %285, %.noexc44 ], [ %.057.i, %284 ], [ %.057.i, %switch.early.test.i ], [ %.057.i, %switch.early.test.i ], [ %.057.i, %switch.early.test.i ], [ %.057.i, %switch.early.test.i ], [ %.057.i, %switch.early.test.i ], [ %.057.i, %switch.early.test.i ], [ %.057.i, %switch.early.test.i ], [ %.057.i, %switch.early.test.i ], [ %.057.i, %switch.early.test.i ], [ %.057.i, %switch.early.test.i ], [ %.057.i, %switch.early.test.i ], [ %285, %341 ]
+  %.1.i = phi ptr [ %.058.i, %278 ], [ %.058.i, %281 ], [ %.058.i, %276 ], [ %.058.i, %switch.early.test.i ], [ %285, %323 ], [ %285, %.noexc44 ], [ %.058.i, %284 ], [ %.058.i, %switch.early.test.i ], [ %.058.i, %switch.early.test.i ], [ %.058.i, %switch.early.test.i ], [ %.058.i, %switch.early.test.i ], [ %.058.i, %switch.early.test.i ], [ %.058.i, %switch.early.test.i ], [ %.058.i, %switch.early.test.i ], [ %.058.i, %switch.early.test.i ], [ %.058.i, %switch.early.test.i ], [ %.058.i, %switch.early.test.i ], [ %.058.i, %switch.early.test.i ], [ %285, %341 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %343 = getelementptr inbounds nuw i8, ptr %.1.i, i64 1
   %.not.i42 = icmp ugt ptr %343, %273
@@ -80116,23 +80116,23 @@ define dso_local void @_ZN5ImGui34DebugTextUnformattedWithLocateItemEPKcS1_(ptr 
   %.sroa.5.0.copyload = load float, ptr %.sroa.5.0..sroa_idx, align 4, !tbaa !81
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 7452
   %8 = getelementptr inbounds i8, ptr %1, i64 -10
-  %.not56 = icmp ugt ptr %0, %8
-  br i1 %.not56, label %.loopexit, label %.lr.ph
+  %.not57 = icmp ugt ptr %0, %8
+  br i1 %.not57, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %5
   %9 = fadd float %.sroa.5.0.copyload, 0.000000e+00
   br label %10
 
 10:                                               ; preds = %.lr.ph, %_ZL15ImCharIsXdigitAc.exit.thread
-  %.057 = phi ptr [ %0, %.lr.ph ], [ %77, %_ZL15ImCharIsXdigitAc.exit.thread ]
+  %.058 = phi ptr [ %0, %.lr.ph ], [ %77, %_ZL15ImCharIsXdigitAc.exit.thread ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 0, ptr %3, align 4, !tbaa !221
-  %11 = load i8, ptr %.057, align 1, !tbaa !205
+  %11 = load i8, ptr %.058, align 1, !tbaa !205
   %.not24 = icmp eq i8 %11, 48
   br i1 %.not24, label %12, label %_ZL15ImCharIsXdigitAc.exit.thread
 
 12:                                               ; preds = %10
-  %13 = getelementptr inbounds nuw i8, ptr %.057, i64 1
+  %13 = getelementptr inbounds nuw i8, ptr %.058, i64 1
   %14 = load i8, ptr %13, align 1, !tbaa !205
   switch i8 %14, label %_ZL15ImCharIsXdigitAc.exit.thread [
     i8 120, label %15
@@ -80140,21 +80140,21 @@ define dso_local void @_ZN5ImGui34DebugTextUnformattedWithLocateItemEPKcS1_(ptr 
   ]
 
 15:                                               ; preds = %12, %12
-  %16 = getelementptr inbounds nuw i8, ptr %.057, i64 2
+  %16 = getelementptr inbounds nuw i8, ptr %.058, i64 2
   %17 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %16, ptr noundef nonnull @.str.500, ptr noundef nonnull %3) #44
   %.not27 = icmp eq i32 %17, 1
   br i1 %.not27, label %18, label %_ZL15ImCharIsXdigitAc.exit.thread
 
 18:                                               ; preds = %15
-  %19 = getelementptr inbounds nuw i8, ptr %.057, i64 10
+  %19 = getelementptr inbounds nuw i8, ptr %.058, i64 10
   %20 = load i8, ptr %19, align 1, !tbaa !205
-  %.fr = freeze i8 %20
-  %21 = add i8 %.fr, -48
+  %.fr56 = freeze i8 %20
+  %21 = add i8 %.fr56, -48
   %or.cond.i = icmp ult i8 %21, 10
   br i1 %or.cond.i, label %_ZL15ImCharIsXdigitAc.exit.thread, label %switch.early.test
 
 switch.early.test:                                ; preds = %18
-  switch i8 %.fr, label %22 [
+  switch i8 %.fr56, label %22 [
     i8 102, label %_ZL15ImCharIsXdigitAc.exit.thread
     i8 101, label %_ZL15ImCharIsXdigitAc.exit.thread
     i8 100, label %_ZL15ImCharIsXdigitAc.exit.thread
@@ -80173,7 +80173,7 @@ switch.early.test:                                ; preds = %18
   %23 = load ptr, ptr @GImGui, align 8, !tbaa !210
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 4184
   %25 = load float, ptr %24, align 8, !tbaa !448
-  %26 = icmp eq ptr %0, %.057
+  %26 = icmp eq ptr %0, %.058
   br i1 %26, label %27, label %28
 
 27:                                               ; preds = %22
@@ -80183,7 +80183,7 @@ switch.early.test:                                ; preds = %18
 28:                                               ; preds = %22
   %29 = getelementptr inbounds nuw i8, ptr %23, i64 4176
   %30 = load ptr, ptr %29, align 8, !tbaa !447
-  %31 = call <2 x float> @_ZNK6ImFont13CalcTextSizeAEfffPKcS1_PS1_(ptr noundef nonnull align 8 dereferenceable(118) %30, float noundef %25, float noundef 0x47EFFFFFE0000000, float noundef -1.000000e+00, ptr noundef %0, ptr noundef nonnull %.057, ptr noundef null)
+  %31 = call <2 x float> @_ZNK6ImFont13CalcTextSizeAEfffPKcS1_PS1_(ptr noundef nonnull align 8 dereferenceable(118) %30, float noundef %25, float noundef 0x47EFFFFFE0000000, float noundef -1.000000e+00, ptr noundef %0, ptr noundef nonnull %.058, ptr noundef null)
   %.sroa.0.0.vec.extract.i = extractelement <2 x float> %31, i64 0
   %32 = fadd float %.sroa.0.0.vec.extract.i, 0x3FEFFFEB00000000
   %33 = fptosi float %32 to i32
@@ -80191,16 +80191,16 @@ switch.early.test:                                ; preds = %18
   %.sroa.0.0.vec.insert.i = insertelement <2 x float> %31, float %34, i64 0
   %.pre = load ptr, ptr @GImGui, align 8, !tbaa !210
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 4184
-  %.pre58 = load float, ptr %.phi.trans.insert, align 8, !tbaa !448
+  %.pre59 = load float, ptr %.phi.trans.insert, align 8, !tbaa !448
   br label %_ZN5ImGui12CalcTextSizeEPKcS1_bf.exit
 
 _ZN5ImGui12CalcTextSizeEPKcS1_bf.exit:            ; preds = %27, %28
-  %35 = phi float [ %25, %27 ], [ %.pre58, %28 ]
+  %35 = phi float [ %25, %27 ], [ %.pre59, %28 ]
   %36 = phi ptr [ %23, %27 ], [ %.pre, %28 ]
   %.sroa.0.0.i = phi <2 x float> [ %.sroa.0.4.vec.insert.i, %27 ], [ %.sroa.0.0.vec.insert.i, %28 ]
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 4176
   %38 = load ptr, ptr %37, align 8, !tbaa !447
-  %39 = call <2 x float> @_ZNK6ImFont13CalcTextSizeAEfffPKcS1_PS1_(ptr noundef nonnull align 8 dereferenceable(118) %38, float noundef %35, float noundef 0x47EFFFFFE0000000, float noundef -1.000000e+00, ptr noundef nonnull %.057, ptr noundef nonnull %19, ptr noundef null)
+  %39 = call <2 x float> @_ZNK6ImFont13CalcTextSizeAEfffPKcS1_PS1_(ptr noundef nonnull align 8 dereferenceable(118) %38, float noundef %35, float noundef 0x47EFFFFFE0000000, float noundef -1.000000e+00, ptr noundef nonnull %.058, ptr noundef nonnull %19, ptr noundef null)
   %.sroa.0.0.vec.extract.i35 = extractelement <2 x float> %39, i64 0
   %40 = fadd float %.sroa.0.0.vec.extract.i35, 0x3FEFFFEB00000000
   %41 = fptosi float %40 to i32
@@ -80265,7 +80265,7 @@ _ZN5ImGui12CalcTextSizeEPKcS1_bf.exit:            ; preds = %27, %28
   br label %_ZL15ImCharIsXdigitAc.exit.thread
 
 _ZL15ImCharIsXdigitAc.exit.thread:                ; preds = %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %18, %_ZN5ImGui12CalcTextSizeEPKcS1_bf.exit, %57, %75, %10, %15, %12
-  %.1 = phi ptr [ %.057, %12 ], [ %.057, %15 ], [ %.057, %10 ], [ %19, %75 ], [ %.057, %switch.early.test ], [ %19, %57 ], [ %19, %_ZN5ImGui12CalcTextSizeEPKcS1_bf.exit ], [ %.057, %18 ], [ %.057, %switch.early.test ], [ %.057, %switch.early.test ], [ %.057, %switch.early.test ], [ %.057, %switch.early.test ], [ %.057, %switch.early.test ], [ %.057, %switch.early.test ], [ %.057, %switch.early.test ], [ %.057, %switch.early.test ], [ %.057, %switch.early.test ], [ %.057, %switch.early.test ], [ %.057, %switch.early.test ]
+  %.1 = phi ptr [ %.058, %12 ], [ %.058, %15 ], [ %.058, %10 ], [ %19, %75 ], [ %.058, %switch.early.test ], [ %19, %57 ], [ %19, %_ZN5ImGui12CalcTextSizeEPKcS1_bf.exit ], [ %.058, %18 ], [ %.058, %switch.early.test ], [ %.058, %switch.early.test ], [ %.058, %switch.early.test ], [ %.058, %switch.early.test ], [ %.058, %switch.early.test ], [ %.058, %switch.early.test ], [ %.058, %switch.early.test ], [ %.058, %switch.early.test ], [ %.058, %switch.early.test ], [ %.058, %switch.early.test ], [ %.058, %switch.early.test ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %77 = getelementptr inbounds nuw i8, ptr %.1, i64 1
   %.not = icmp ugt ptr %77, %8

@@ -1993,10 +1993,10 @@ _ZNSt6vectorIhSaIhEE6resizeEm.exit315:            ; preds = %_ZNSt12_Vector_base
   br i1 %.not.i.i.i316, label %.loopexit761, label %295
 
 .loopexit762.thread:                              ; preds = %._crit_edge890
-  %.not.i.i.i3161079 = icmp eq ptr %.sroa.0557.6, null
-  br i1 %.not.i.i.i3161079, label %.preheader, label %.thread1085
+  %.not.i.i.i3161075 = icmp eq ptr %.sroa.0557.6, null
+  br i1 %.not.i.i.i3161075, label %.preheader, label %.thread1081
 
-.thread1085:                                      ; preds = %.loopexit762.thread
+.thread1081:                                      ; preds = %.loopexit762.thread
   %293 = ptrtoint ptr %.sroa.0557.6 to i64
   %294 = sub i64 %.sroa.16565.6, %293
   call void @_ZdlPvm(ptr noundef nonnull %.sroa.0557.6, i64 noundef %294) #28
@@ -2019,7 +2019,7 @@ _ZNSt6vectorIhSaIhEE6resizeEm.exit315:            ; preds = %_ZNSt12_Vector_base
   call void @_ZdlPvm(ptr noundef nonnull %.sroa.0557.6, i64 noundef %301) #28
   br label %_ZNSt6vectorIhSaIhEED2Ev.exit319
 
-.preheader:                                       ; preds = %.loopexit762.thread, %134, %.thread1085
+.preheader:                                       ; preds = %.loopexit762.thread, %134, %.thread1081
   %.not261912 = icmp ugt i32 %68, %84
   br i1 %.not261912, label %.loopexit761, label %.lr.ph915
 
@@ -2593,7 +2593,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit433:                 ; preds = %_ZNSt6vectorIhSaIhE
   %.not254861 = icmp ugt i32 %80, %82
   %.not928 = icmp eq i8 %79, 0
   %529 = zext i8 %79 to i64
-  %brmerge1165 = select i1 %.not254861, i1 true, i1 %.not928
+  %brmerge1161 = select i1 %.not254861, i1 true, i1 %.not928
   br label %530
 
 530:                                              ; preds = %.lr.ph871, %._crit_edge866
@@ -2606,7 +2606,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit433:                 ; preds = %_ZNSt6vectorIhSaIhE
   %535 = call noundef i64 @_ZNK11OpenImageIO6v3_1_09ImageSpec11pixel_bytesEb(ptr noundef nonnull align 8 dereferenceable(160) %18, i1 noundef zeroext false) #27
   %536 = mul i64 %535, %534
   %537 = getelementptr inbounds nuw i8, ptr %531, i64 %536
-  br i1 %brmerge1165, label %._crit_edge866, label %.lr.ph858.us
+  br i1 %brmerge1161, label %._crit_edge866, label %.lr.ph858.us
 
 .lr.ph858.us:                                     ; preds = %530, %._crit_edge859.us
   %.0181863.us = phi i32 [ %558, %._crit_edge859.us ], [ %80, %530 ]
@@ -8683,8 +8683,8 @@ define linkonce_odr hidden ptr @_ZN3fmt2v86detail14do_write_floatINS0_8appenderE
   %21 = alloca i32, align 4
   %22 = alloca i8, align 1
   %23 = alloca %class.anon.48, align 8
-  %.fr139 = freeze i64 %3
-  store i64 %.fr139, ptr %7, align 8
+  %.fr140 = freeze i64 %3
+  store i64 %.fr140, ptr %7, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %24 = load i32, ptr %1, align 4, !tbaa !236
   store i32 %24, ptr %8, align 4, !tbaa !88
@@ -8703,7 +8703,7 @@ define linkonce_odr hidden ptr @_ZN3fmt2v86detail14do_write_floatINS0_8appenderE
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i8 48, ptr %10, align 1, !tbaa !14
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  %35 = lshr i64 %.fr139, 32
+  %35 = lshr i64 %.fr140, 32
   %36 = trunc nuw i64 %35 to i32
   %37 = lshr i32 %36, 8
   %38 = and i32 %37, 255
@@ -8715,7 +8715,7 @@ define linkonce_odr hidden ptr @_ZN3fmt2v86detail14do_write_floatINS0_8appenderE
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %42 = and i32 %36, 131072
   %.not64 = icmp eq i32 %42, 0
-  %43 = trunc i64 %.fr139 to i32
+  %43 = trunc i64 %.fr140 to i32
   br i1 %.not64, label %55, label %44
 
 44:                                               ; preds = %5
@@ -9246,11 +9246,11 @@ _ZN3fmt2v86detail14digit_groupingIcED2Ev.exit107: ; preds = %_ZNKSt7__cxx1112bas
 
 271:                                              ; preds = %264
   %272 = and i32 %36, 1048576
-  %.not118 = icmp eq i32 %272, 0
+  %.not119 = icmp eq i32 %272, 0
   %.lobit = lshr exact i32 %272, 20
   %273 = trunc nuw nsw i32 %.lobit to i8
   store i8 %273, ptr %22, align 1, !tbaa !195
-  br i1 %.not118, label %275, label %274
+  br i1 %.not119, label %275, label %274
 
 274:                                              ; preds = %.thread116, %271
   br label %275
@@ -11565,8 +11565,8 @@ define linkonce_odr hidden ptr @_ZN3fmt2v86detail14do_write_floatINS0_8appenderE
   %21 = alloca i32, align 4
   %22 = alloca i8, align 1
   %23 = alloca %class.anon.58, align 8
-  %.fr139 = freeze i64 %3
-  store i64 %.fr139, ptr %7, align 8
+  %.fr140 = freeze i64 %3
+  store i64 %.fr140, ptr %7, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %24 = load i64, ptr %1, align 8, !tbaa !293
   store i64 %24, ptr %8, align 8, !tbaa !147
@@ -11587,7 +11587,7 @@ define linkonce_odr hidden ptr @_ZN3fmt2v86detail14do_write_floatINS0_8appenderE
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i8 48, ptr %10, align 1, !tbaa !14
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  %36 = lshr i64 %.fr139, 32
+  %36 = lshr i64 %.fr140, 32
   %37 = trunc nuw i64 %36 to i32
   %38 = lshr i32 %37, 8
   %39 = and i32 %38, 255
@@ -11599,7 +11599,7 @@ define linkonce_odr hidden ptr @_ZN3fmt2v86detail14do_write_floatINS0_8appenderE
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %43 = and i32 %37, 131072
   %.not64 = icmp eq i32 %43, 0
-  %44 = trunc i64 %.fr139 to i32
+  %44 = trunc i64 %.fr140 to i32
   br i1 %.not64, label %56, label %45
 
 45:                                               ; preds = %5
@@ -12130,11 +12130,11 @@ _ZN3fmt2v86detail14digit_groupingIcED2Ev.exit107: ; preds = %_ZNKSt7__cxx1112bas
 
 272:                                              ; preds = %265
   %273 = and i32 %37, 1048576
-  %.not118 = icmp eq i32 %273, 0
+  %.not119 = icmp eq i32 %273, 0
   %.lobit = lshr exact i32 %273, 20
   %274 = trunc nuw nsw i32 %.lobit to i8
   store i8 %274, ptr %22, align 1, !tbaa !195
-  br i1 %.not118, label %276, label %275
+  br i1 %.not119, label %276, label %275
 
 275:                                              ; preds = %.thread116, %272
   br label %276
@@ -17152,8 +17152,8 @@ define linkonce_odr hidden ptr @_ZN3fmt2v86detail14do_write_floatINS0_8appenderE
   %21 = alloca i32, align 4
   %22 = alloca i8, align 1
   %23 = alloca %class.anon.75, align 8
-  %.fr139 = freeze i64 %3
-  store i64 %.fr139, ptr %7, align 8
+  %.fr140 = freeze i64 %3
+  store i64 %.fr140, ptr %7, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %24 = load ptr, ptr %1, align 8, !tbaa !337
   store ptr %24, ptr %8, align 8, !tbaa !146
@@ -17164,7 +17164,7 @@ define linkonce_odr hidden ptr @_ZN3fmt2v86detail14do_write_floatINS0_8appenderE
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i8 48, ptr %10, align 1, !tbaa !14
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  %27 = lshr i64 %.fr139, 32
+  %27 = lshr i64 %.fr140, 32
   %28 = trunc nuw i64 %27 to i32
   %29 = lshr i32 %28, 8
   %30 = and i32 %29, 255
@@ -17176,7 +17176,7 @@ define linkonce_odr hidden ptr @_ZN3fmt2v86detail14do_write_floatINS0_8appenderE
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %34 = and i32 %28, 131072
   %.not64 = icmp eq i32 %34, 0
-  %35 = trunc i64 %.fr139 to i32
+  %35 = trunc i64 %.fr140 to i32
   br i1 %.not64, label %47, label %36
 
 36:                                               ; preds = %5
@@ -17707,11 +17707,11 @@ _ZN3fmt2v86detail14digit_groupingIcED2Ev.exit107: ; preds = %_ZNKSt7__cxx1112bas
 
 263:                                              ; preds = %256
   %264 = and i32 %28, 1048576
-  %.not118 = icmp eq i32 %264, 0
+  %.not119 = icmp eq i32 %264, 0
   %.lobit = lshr exact i32 %264, 20
   %265 = trunc nuw nsw i32 %.lobit to i8
   store i8 %265, ptr %22, align 1, !tbaa !195
-  br i1 %.not118, label %267, label %266
+  br i1 %.not119, label %267, label %266
 
 266:                                              ; preds = %.thread116, %263
   br label %267

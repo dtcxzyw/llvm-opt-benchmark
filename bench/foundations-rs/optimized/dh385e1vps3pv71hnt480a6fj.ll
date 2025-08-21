@@ -12416,7 +12416,7 @@ _ZN11foundations9telemetry7tracing4live12event_output15TraceLogBuilder3new17hbb7
   br i1 %52, label %._crit_edge, label %.noexc.lr.ph
 
 .noexc.lr.ph:                                     ; preds = %.thread86
-  %.sroa.042.1133 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %.sroa.042.1130 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %53 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %.sroa.42.0..sroa_idx.i66 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %.sroa.53.0..sroa_idx.i67 = getelementptr inbounds nuw i8, ptr %8, i64 16
@@ -12435,9 +12435,9 @@ _ZN11foundations9telemetry7tracing4live12event_output15TraceLogBuilder3new17hbb7
   br label %.noexc
 
 .noexc:                                           ; preds = %.noexc.lr.ph, %.backedge
-  %.sroa.042.1135 = phi ptr [ %.sroa.042.1133, %.noexc.lr.ph ], [ %.sroa.042.1, %.backedge ]
-  %.sroa.042.0134 = phi ptr [ %3, %.noexc.lr.ph ], [ %.sroa.042.1135, %.backedge ]
-  %64 = load ptr, ptr %.sroa.042.0134, align 8, !nonnull !3, !noundef !3
+  %.sroa.042.1132 = phi ptr [ %.sroa.042.1130, %.noexc.lr.ph ], [ %.sroa.042.1, %.backedge ]
+  %.sroa.042.0131 = phi ptr [ %3, %.noexc.lr.ph ], [ %.sroa.042.1132, %.backedge ]
+  %64 = load ptr, ptr %.sroa.042.0131, align 8, !nonnull !3, !noundef !3
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 16
   %66 = load ptr, ptr %65, align 8, !nonnull !3, !noundef !3
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 16
@@ -12577,17 +12577,17 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17hc2bb0d0c453db9f3E
           to label %111 unwind label %.loopexit, !noalias !1148
 
 .loopexit:                                        ; preds = %104
-  %lpad.loopexit125 = landingpad { ptr, i32 }
+  %lpad.loopexit122 = landingpad { ptr, i32 }
           cleanup
   br label %110
 
 .loopexit.split-lp:                               ; preds = %112
-  %lpad.loopexit.split-lp126 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp123 = landingpad { ptr, i32 }
           cleanup
   br label %110
 
 110:                                              ; preds = %.loopexit.split-lp, %.loopexit
-  %lpad.phi127 = phi { ptr, i32 } [ %lpad.loopexit125, %.loopexit ], [ %lpad.loopexit.split-lp126, %.loopexit.split-lp ]
+  %lpad.phi124 = phi { ptr, i32 } [ %lpad.loopexit122, %.loopexit ], [ %lpad.loopexit.split-lp123, %.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h8844abfcc79f0839E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %8) #29
           to label %.body70 unwind label %113, !noalias !1148
 
@@ -12614,7 +12614,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17hc2bb0d0c453db9f3E
   br i1 %118, label %.invoke, label %.backedge, !prof !89
 
 .body70:                                          ; preds = %123, %110, %134
-  %.pn = phi { ptr, i32 } [ %135, %134 ], [ %124, %123 ], [ %lpad.phi127, %110 ]
+  %.pn = phi { ptr, i32 } [ %135, %134 ], [ %124, %123 ], [ %lpad.phi124, %110 ]
   %119 = atomicrmw sub ptr %67, i64 16 release, align 8
   %120 = and i64 %119, -14
   %121 = icmp eq i64 %120, 18
@@ -12669,11 +12669,11 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17hc2bb0d0c453db9f3E
   br label %139
 
 139:                                              ; preds = %136, %127
-  %storemerge142 = phi i64 [ %129, %127 ], [ %137, %136 ]
+  %storemerge139 = phi i64 [ %129, %127 ], [ %137, %136 ]
   %storemerge = phi i32 [ %131, %127 ], [ %138, %136 ]
   %.sroa.024.096 = phi ptr [ %.sroa.034.0, %127 ], [ inttoptr (i64 1 to ptr), %136 ]
   %.sroa.4.094 = phi i64 [ %.sroa.535.0, %127 ], [ 0, %136 ]
-  store i64 %storemerge142, ptr %18, align 8
+  store i64 %storemerge139, ptr %18, align 8
   store i32 %storemerge, ptr %56, align 8
   %140 = load i64, ptr %24, align 8, !noundef !3
   %141 = load i32, ptr %25, align 8, !range !1001, !noundef !3
@@ -12776,9 +12776,9 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17hc2bb0d0c453db9f3E
           to label %.backedge unwind label %.thread83.loopexit
 
 .backedge:                                        ; preds = %.invoke, %115, %183
-  %187 = icmp eq ptr %.sroa.042.1135, %51
+  %187 = icmp eq ptr %.sroa.042.1132, %51
   %.sroa.042.1.idx = select i1 %187, i64 0, i64 8
-  %.sroa.042.1 = getelementptr inbounds nuw i8, ptr %.sroa.042.1135, i64 %.sroa.042.1.idx
+  %.sroa.042.1 = getelementptr inbounds nuw i8, ptr %.sroa.042.1132, i64 %.sroa.042.1.idx
   br i1 %187, label %._crit_edge, label %.noexc
 
 188:                                              ; preds = %122, %.thread, %134

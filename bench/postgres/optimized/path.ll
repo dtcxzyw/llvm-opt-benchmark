@@ -599,7 +599,7 @@ path_contains_parent_reference.exit:              ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %8 = load i8, ptr %7, align 1
   %.fr = freeze i8 %8
-  %switch.selectcmp.case1.i = icmp ne i8 %.fr, 0
+  %switch.selectcmp.case2.i = icmp ne i8 %.fr, 0
   %switch.selectcmp.case2.i = icmp ne i8 %.fr, 47
   %switch.selectcmp.i.not = and i1 %switch.selectcmp.case1.i, %switch.selectcmp.case2.i
   br label %path_contains_parent_reference.exit.thread

@@ -11998,7 +11998,7 @@ define noundef zeroext i1 @_ZN4pugi8xml_node8traverseERNS_15xml_tree_walkerE(ptr
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %10 = load ptr, ptr %9, align 8
   %11 = call noundef zeroext i1 %10(ptr noundef nonnull align 8 dereferenceable(12) %1, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  br i1 %11, label %12, label %52
+  br i1 %11, label %12, label %53
 
 12:                                               ; preds = %2
   %13 = load ptr, ptr %0, align 8, !tbaa !54
@@ -12017,7 +12017,7 @@ define noundef zeroext i1 @_ZN4pugi8xml_node8traverseERNS_15xml_tree_walkerE(ptr
   store i32 %19, ptr %6, align 8, !tbaa !16
   br label %20
 
-20:                                               ; preds = %45, %17
+20:                                               ; preds = %46, %17
   %.0 = phi ptr [ %16, %17 ], [ %.148, %45 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN4pugi8xml_nodeC1EPNS_15xml_node_structE(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull %.0)
@@ -12064,7 +12064,7 @@ define noundef zeroext i1 @_ZN4pugi8xml_node8traverseERNS_15xml_tree_walkerE(ptr
   %.not38 = icmp eq ptr %.fr, null
   br i1 %.not38, label %.critedge, label %.lr.ph88, !llvm.loop !190
 
-.lr.ph88:                                         ; preds = %.lr.ph.preheader, %.lr.ph
+.lr.ph88: ; preds = %.lr.ph.preheader, %.lr.ph
   %.fr87 = phi ptr [ %.fr, %.lr.ph ], [ %.fr85, %.lr.ph.preheader ]
   %39 = load i32, ptr %6, align 8, !tbaa !16
   %40 = add nsw i32 %39, -1
@@ -12073,8 +12073,8 @@ define noundef zeroext i1 @_ZN4pugi8xml_node8traverseERNS_15xml_tree_walkerE(ptr
   %42 = load ptr, ptr %41, align 8, !tbaa !67
   %.not36 = icmp ne ptr %42, null
   %43 = load ptr, ptr %0, align 8
-  %.fr78 = freeze ptr %43
-  %.not37 = icmp eq ptr %.fr87, %.fr78
+  %cond.fr = freeze ptr %43
+  %.not37 = icmp eq ptr %.fr87, %cond.fr
   %or.cond = or i1 %.not36, %.not37
   br i1 %or.cond, label %.critedge.loopexit, label %.lr.ph, !llvm.loop !190
 
@@ -12083,42 +12083,42 @@ define noundef zeroext i1 @_ZN4pugi8xml_node8traverseERNS_15xml_tree_walkerE(ptr
   br label %.critedge
 
 .critedge:                                        ; preds = %.lr.ph, %.lr.ph.preheader, %.critedge.loopexit, %.preheader
-  %44 = phi ptr [ %34, %.preheader ], [ %.fr78, %.critedge.loopexit ], [ %34, %.lr.ph.preheader ], [ %.fr78, %.lr.ph ]
+  %45 = phi ptr [ %34, %.preheader ], [ %.fr78, %.critedge.loopexit ], [ %34, %.lr.ph.preheader ], [ %.fr78, %.lr.ph ]
   %.not37.lcssa = phi ptr [ %.0, %.preheader ], [ %spec.select, %.critedge.loopexit ], [ null, %.lr.ph.preheader ], [ null, %.lr.ph ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %45
+  br label %46
 
 .thread46:                                        ; preds = %28, %31
   %.1.ph = phi ptr [ %33, %31 ], [ %27, %28 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.pre = load ptr, ptr %0, align 8
-  br label %45
+  br label %46
 
-45:                                               ; preds = %.critedge, %.thread46
-  %46 = phi ptr [ %.pre, %.thread46 ], [ %44, %.critedge ]
+46:                                               ; preds = %.critedge, %.thread46
+  %47 = phi ptr [ %.pre, %.thread46 ], [ %45, %.critedge ]
   %.148 = phi ptr [ %.1.ph, %.thread46 ], [ %.not37.lcssa, %.critedge ]
   %.not40 = icmp eq ptr %.148, null
-  %.not41 = icmp eq ptr %.148, %46
+  %.not41 = icmp eq ptr %.148, %47
   %or.cond44 = select i1 %.not40, i1 true, i1 %.not41
   br i1 %or.cond44, label %.critedge2, label %20, !llvm.loop !191
 
-.critedge2:                                       ; preds = %45, %12, %14
-  %47 = phi ptr [ null, %12 ], [ %13, %14 ], [ %46, %45 ]
+.critedge2:                                       ; preds = %46, %12, %14
+  %48 = phi ptr [ null, %12 ], [ %13, %14 ], [ %47, %45 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  call void @_ZN4pugi8xml_nodeC1EPNS_15xml_node_structE(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %47)
-  %48 = load ptr, ptr %1, align 8, !tbaa !3
-  %49 = getelementptr inbounds nuw i8, ptr %48, i64 32
-  %50 = load ptr, ptr %49, align 8
-  %51 = call noundef zeroext i1 %50(ptr noundef nonnull align 8 dereferenceable(12) %1, ptr noundef nonnull align 8 dereferenceable(8) %5)
+  call void @_ZN4pugi8xml_nodeC1EPNS_15xml_node_structE(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %48)
+  %49 = load ptr, ptr %1, align 8, !tbaa !3
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 32
+  %51 = load ptr, ptr %50, align 8
+  %52 = call noundef zeroext i1 %50(ptr noundef nonnull align 8 dereferenceable(12) %1, ptr noundef nonnull align 8 dereferenceable(8) %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %52
+  br label %53
 
 .critedge43:                                      ; preds = %20
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %52
+  br label %53
 
-52:                                               ; preds = %.critedge2, %.critedge43, %2
-  %.026 = phi i1 [ false, %2 ], [ %51, %.critedge2 ], [ false, %.critedge43 ]
+53:                                               ; preds = %.critedge2, %.critedge43, %2
+  %.026 = phi i1 [ false, %2 ], [ %52, %.critedge2 ], [ false, %.critedge43 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %.026
 }

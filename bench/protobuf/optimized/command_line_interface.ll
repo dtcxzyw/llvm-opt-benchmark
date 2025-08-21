@@ -18324,8 +18324,8 @@ for.cond.i:                                       ; preds = %if.end.i, %if.end
   %iter.sroa.0.0.i = load ptr, ptr %iter.sroa.0.0.in.i, align 8
   %arrayidx.i.i.i.i = getelementptr i8, ptr %iter.sroa.0.0.i, i64 10
   %3 = load i8, ptr %arrayidx.i.i.i.i, align 1
-  %cmp.not23.i.i.i.i = icmp eq i8 %3, 0
-  br i1 %cmp.not23.i.i.i.i, label %_ZNK4absl12lts_2023080218container_internal10btree_nodeINS1_10set_paramsISt4pairIiiESt4lessIS5_ESaIS5_ELi256ELb0EEEE11lower_boundIS5_EENS1_12SearchResultImLb0EEERKT_RKNS1_19key_compare_adapterIS7_S5_E15checked_compareE.exit.i, label %while.body.lr.ph.i.i.i.i
+  %cmp.not22.i.i.i.i = icmp eq i8 %3, 0
+  br i1 %cmp.not22.i.i.i.i, label %_ZNK4absl12lts_2023080218container_internal10btree_nodeINS1_10set_paramsISt4pairIiiESt4lessIS5_ESaIS5_ELi256ELb0EEEE11lower_boundIS5_EENS1_12SearchResultImLb0EEERKT_RKNS1_19key_compare_adapterIS7_S5_E15checked_compareE.exit.i, label %while.body.lr.ph.i.i.i.i
 
 while.body.lr.ph.i.i.i.i:                         ; preds = %for.cond.i
   %conv3.i.i.i = zext i8 %3 to i64
@@ -18333,9 +18333,9 @@ while.body.lr.ph.i.i.i.i:                         ; preds = %for.cond.i
   br label %while.body.i.i.i.i
 
 while.body.i.i.i.i:                               ; preds = %.thread17.i.i.i.i, %while.body.lr.ph.i.i.i.i
-  %s.addr.025.i.i.i.i = phi i64 [ 0, %while.body.lr.ph.i.i.i.i ], [ %7, %.thread17.i.i.i.i ]
-  %e.addr.024.i.i.i.i = phi i64 [ %conv3.i.i.i, %while.body.lr.ph.i.i.i.i ], [ %6, %.thread17.i.i.i.i ]
-  %add.i.i.i.i = add i64 %e.addr.024.i.i.i.i, %s.addr.025.i.i.i.i
+  %s.addr.024.i.i.i.i = phi i64 [ 0, %while.body.lr.ph.i.i.i.i ], [ %7, %.thread17.i.i.i.i ]
+  %e.addr.023.i.i.i.i = phi i64 [ %conv3.i.i.i, %while.body.lr.ph.i.i.i.i ], [ %6, %.thread17.i.i.i.i ]
+  %add.i.i.i.i = add i64 %e.addr.023.i.i.i.i, %s.addr.024.i.i.i.i
   %shr.i.i.i.i = lshr i64 %add.i.i.i.i, 1
   %arrayidx.i.i.i.i.i.i = getelementptr inbounds nuw %"struct.std::pair.460", ptr %add.ptr.i.i.i.i.i.i.i.i, i64 %shr.i.i.i.i
   %4 = load i32, ptr %arrayidx.i.i.i.i.i.i, align 4
@@ -18356,13 +18356,13 @@ _ZNK4absl12lts_2023080218container_internal19key_compare_adapterISt4lessISt4pair
   %.fr.i.i.i.i = freeze i32 %5
   %cmp6.i.i.i.i.i.i.i = icmp slt i32 %.fr.i.i.i.i, %.fr21.i.i.i.i
   %add3.i.i.i.i = add nuw i64 %shr.i.i.i.i, 1
-  %spec.select.i.i.i.i = select i1 %cmp6.i.i.i.i.i.i.i, i64 %e.addr.024.i.i.i.i, i64 %shr.i.i.i.i
-  %spec.select22.i.i.i.i = select i1 %cmp6.i.i.i.i.i.i.i, i64 %add3.i.i.i.i, i64 %s.addr.025.i.i.i.i
+  %spec.select.i.i.i.i = select i1 %cmp6.i.i.i.i.i.i.i, i64 %e.addr.023.i.i.i.i, i64 %shr.i.i.i.i
+  %spec.select21.i.i.i.i = select i1 %cmp6.i.i.i.i.i.i.i, i64 %add3.i.i.i.i, i64 %s.addr.024.i.i.i.i
   br label %.thread17.i.i.i.i
 
 .thread17.i.i.i.i:                                ; preds = %_ZNK4absl12lts_2023080218container_internal19key_compare_adapterISt4lessISt4pairIiiEES5_E15checked_compareclIS5_S5_TnNSt9enable_ifIXsr3std7is_sameIbNS0_20type_traits_internal9result_ofIFKS6_RKT_RKT0_EE4typeEEE5valueEiE4typeELi0EEEbSG_SJ_.exit.i.i.i.i, %lor.rhs.i.i.i.i.i.i.i, %.thread.i.i.i.i
-  %6 = phi i64 [ %shr.i.i.i.i, %lor.rhs.i.i.i.i.i.i.i ], [ %e.addr.024.i.i.i.i, %.thread.i.i.i.i ], [ %spec.select.i.i.i.i, %_ZNK4absl12lts_2023080218container_internal19key_compare_adapterISt4lessISt4pairIiiEES5_E15checked_compareclIS5_S5_TnNSt9enable_ifIXsr3std7is_sameIbNS0_20type_traits_internal9result_ofIFKS6_RKT_RKT0_EE4typeEEE5valueEiE4typeELi0EEEbSG_SJ_.exit.i.i.i.i ]
-  %7 = phi i64 [ %s.addr.025.i.i.i.i, %lor.rhs.i.i.i.i.i.i.i ], [ %add36.i.i.i.i, %.thread.i.i.i.i ], [ %spec.select22.i.i.i.i, %_ZNK4absl12lts_2023080218container_internal19key_compare_adapterISt4lessISt4pairIiiEES5_E15checked_compareclIS5_S5_TnNSt9enable_ifIXsr3std7is_sameIbNS0_20type_traits_internal9result_ofIFKS6_RKT_RKT0_EE4typeEEE5valueEiE4typeELi0EEEbSG_SJ_.exit.i.i.i.i ]
+  %6 = phi i64 [ %shr.i.i.i.i, %lor.rhs.i.i.i.i.i.i.i ], [ %e.addr.023.i.i.i.i, %.thread.i.i.i.i ], [ %spec.select.i.i.i.i, %_ZNK4absl12lts_2023080218container_internal19key_compare_adapterISt4lessISt4pairIiiEES5_E15checked_compareclIS5_S5_TnNSt9enable_ifIXsr3std7is_sameIbNS0_20type_traits_internal9result_ofIFKS6_RKT_RKT0_EE4typeEEE5valueEiE4typeELi0EEEbSG_SJ_.exit.i.i.i.i ]
+  %7 = phi i64 [ %s.addr.024.i.i.i.i, %lor.rhs.i.i.i.i.i.i.i ], [ %add36.i.i.i.i, %.thread.i.i.i.i ], [ %spec.select21.i.i.i.i, %_ZNK4absl12lts_2023080218container_internal19key_compare_adapterISt4lessISt4pairIiiEES5_E15checked_compareclIS5_S5_TnNSt9enable_ifIXsr3std7is_sameIbNS0_20type_traits_internal9result_ofIFKS6_RKT_RKT0_EE4typeEEE5valueEiE4typeELi0EEEbSG_SJ_.exit.i.i.i.i ]
   %cmp.not.i.i.i.i = icmp eq i64 %7, %6
   br i1 %cmp.not.i.i.i.i, label %_ZNK4absl12lts_2023080218container_internal10btree_nodeINS1_10set_paramsISt4pairIiiESt4lessIS5_ESaIS5_ELi256ELb0EEEE11lower_boundIS5_EENS1_12SearchResultImLb0EEERKT_RKNS1_19key_compare_adapterIS7_S5_E15checked_compareE.exit.i, label %while.body.i.i.i.i, !llvm.loop !293
 

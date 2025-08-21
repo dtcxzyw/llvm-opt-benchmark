@@ -1680,7 +1680,7 @@ define dso_local noundef zeroext i1 @_ZN22b3VoronoiSimplexSolver9inSimplexERK9b3
 
 13:                                               ; preds = %.lr.ph, %_ZNK9b3Vector3eqERKS_.exit.thread
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZNK9b3Vector3eqERKS_.exit.thread ]
-  %.0913 = phi i1 [ false, %.lr.ph ], [ %28, %_ZNK9b3Vector3eqERKS_.exit.thread ]
+  %.0912 = phi i1 [ false, %.lr.ph ], [ %28, %_ZNK9b3Vector3eqERKS_.exit.thread ]
   %14 = getelementptr inbounds nuw [5 x %class.b3Vector3], ptr %5, i64 0, i64 %indvars.iv
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 12
   %16 = load float, ptr %15, align 4, !tbaa !16
@@ -1703,11 +1703,11 @@ _ZNK9b3Vector3eqERKS_.exit:                       ; preds = %22
   %26 = load float, ptr %14, align 16, !tbaa !16
   %.fr = freeze float %26
   %27 = fcmp oeq float %.fr, %.fr12
-  %spec.select = select i1 %27, i1 true, i1 %.0913
+  %spec.select = select i1 %27, i1 true, i1 %.0912
   br label %_ZNK9b3Vector3eqERKS_.exit.thread
 
 _ZNK9b3Vector3eqERKS_.exit.thread:                ; preds = %_ZNK9b3Vector3eqERKS_.exit, %13, %18, %22
-  %28 = phi i1 [ %.0913, %22 ], [ %.0913, %18 ], [ %.0913, %13 ], [ %spec.select, %_ZNK9b3Vector3eqERKS_.exit ]
+  %28 = phi i1 [ %.0912, %22 ], [ %.0912, %18 ], [ %.0912, %13 ], [ %spec.select, %_ZNK9b3Vector3eqERKS_.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %13, !llvm.loop !27

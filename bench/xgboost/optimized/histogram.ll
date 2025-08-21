@@ -570,14 +570,14 @@ define void @_ZN7xgboost4tree11AssignNodesEPKNS_7RegTreeERKSt6vectorINS0_14CPUEx
 .lr.ph:                                           ; preds = %6
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %11 = load ptr, ptr %10, align 8, !tbaa !30
-  %injected.cond.not = icmp ugt i64 %.fr, %.fr29
-  br i1 %injected.cond.not, label %_ZNK7xgboost6common4SpanIiLm18446744073709551615EEixEm.exit, label %.lr.ph.split.us
+  %injected.cond = icmp ugt i64 %.fr, %.fr29
+  br i1 %injected.cond, label %_ZNK7xgboost6common4SpanIiLm18446744073709551615EEixEm.exit, label %.lr.ph.split.us
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %_ZNK7xgboost6common4SpanIiLm18446744073709551615EEixEm.exit.us
   %.028.us = phi i64 [ %26, %_ZNK7xgboost6common4SpanIiLm18446744073709551615EEixEm.exit.us ], [ 0, %.lr.ph ]
   %.sroa.018.027.us = phi ptr [ %27, %_ZNK7xgboost6common4SpanIiLm18446744073709551615EEixEm.exit.us ], [ %7, %.lr.ph ]
-  %exitcond.not = icmp eq i64 %.028.us, %.fr
-  br i1 %exitcond.not, label %.split.us, label %_ZNK7xgboost6common4SpanIiLm18446744073709551615EEixEm.exit.us, !prof !44
+  %exitcond32.not = icmp eq i64 %.028.us, %.fr
+  br i1 %exitcond32.not, label %.split.us, label %_ZNK7xgboost6common4SpanIiLm18446744073709551615EEixEm.exit.us, !prof !44
 
 _ZNK7xgboost6common4SpanIiLm18446744073709551615EEixEm.exit.us: ; preds = %.lr.ph.split.us
   %12 = getelementptr inbounds nuw i8, ptr %.sroa.018.027.us, i64 80
@@ -606,7 +606,7 @@ _ZNK7xgboost6common4SpanIiLm18446744073709551615EEixEm.exit.us: ; preds = %.lr.p
 ._crit_edge:                                      ; preds = %_ZNK7xgboost6common4SpanIiLm18446744073709551615EEixEm.exit.us, %_ZNK7xgboost6common4SpanIiLm18446744073709551615EEixEm.exit14, %6
   ret void
 
-.split.us:                                        ; preds = %.lr.ph.split.us
+.lr.ph.split:                                     ; preds = %.lr.ph.split.us
   tail call void @_ZSt9terminatev() #30
   unreachable
 
@@ -628,8 +628,8 @@ _ZNK7xgboost6common4SpanIiLm18446744073709551615EEixEm.exit: ; preds = %.lr.ph, 
   %.025 = select i1 %39, i32 %34, i32 %32
   %40 = getelementptr inbounds nuw i32, ptr %3, i64 %.028
   store i32 %.025, ptr %40, align 4, !tbaa !33
-  %exitcond32.not = icmp eq i64 %.028, %.fr29
-  br i1 %exitcond32.not, label %41, label %_ZNK7xgboost6common4SpanIiLm18446744073709551615EEixEm.exit14
+  %exitcond31.not = icmp eq i64 %.028, %.fr29
+  br i1 %exitcond31.not, label %41, label %_ZNK7xgboost6common4SpanIiLm18446744073709551615EEixEm.exit14
 
 41:                                               ; preds = %_ZNK7xgboost6common4SpanIiLm18446744073709551615EEixEm.exit
   tail call void @_ZSt9terminatev() #30

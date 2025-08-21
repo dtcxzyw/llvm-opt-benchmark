@@ -524,7 +524,7 @@ resHeat.exit:                                     ; preds = %._crit_edge.us.i, %
   %64 = mul nuw nsw i64 %.15062.us, %.fr
   %65 = icmp eq i64 %.15062.us, 0
   %66 = getelementptr double, ptr %7, i64 %64
-  %67 = icmp eq i64 %.15062.us, %8
+  %66 = icmp eq i64 %.15062.us, %8
   %or.cond = or i1 %65, %67
   br i1 %or.cond, label %._crit_edge.us69.sink.split, label %.lr.ph.split.split.us70
 
@@ -545,7 +545,7 @@ resHeat.exit:                                     ; preds = %._crit_edge.us.i, %
   %exitcond75.not = icmp eq i64 %73, %.fr
   br i1 %exitcond75.not, label %._crit_edge.us69, label %.lr.ph.split.split.us70
 
-._crit_edge.us69.sink.split:                      ; preds = %.lr.ph.us66
+.lr.ph.split.us68:                                ; preds = %.lr.ph.us66
   %74 = mul i64 %63, %.15062.us
   %scevgep76 = getelementptr i8, ptr %7, i64 %74
   tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep76, i8 0, i64 %63, i1 false), !tbaa !20

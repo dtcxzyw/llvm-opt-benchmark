@@ -5396,7 +5396,7 @@ define internal fastcc noundef zeroext i1 @"_ZN137_$LT$brotli..enc..backward_ref
   %111 = icmp eq i16 %84, 0
   br i1 %111, label %.loopexit, label %115
 
-.loopexit:                                        ; preds = %.split209.us, %153, %184, %128, %..loopexit.loopexit252_crit_edge, %110, %115
+.loopexit:                                        ; preds = %.split209.us, %153, %184, %128, %..loopexit.loopexit253_crit_edge, %110, %115
   %.pre-phi = phi i32 [ %116, %115 ], [ 0, %110 ], [ %116, %..loopexit.loopexit252_crit_edge ], [ %116, %128 ], [ %116, %184 ], [ %116, %153 ], [ %116, %.split209.us ]
   %.val92 = phi i32 [ %.val93, %115 ], [ %.val93, %110 ], [ %.val92.pre.pre, %..loopexit.loopexit252_crit_edge ], [ %.val91, %128 ], [ %.val91, %184 ], [ %.val91, %153 ], [ %.val91, %.split209.us ]
   %.sroa.06.1 = phi i1 [ %.sroa.06.0.ph.lcssa73, %115 ], [ %.sroa.06.0.ph.lcssa73, %110 ], [ %.sroa.06.3, %..loopexit.loopexit252_crit_edge ], [ %.sroa.06.2244, %128 ], [ %.sroa.06.2244, %184 ], [ %.sroa.06.2244, %153 ], [ %.sroa.06.2244, %.split209.us ]
@@ -5549,9 +5549,9 @@ define internal fastcc noundef zeroext i1 @"_ZN137_$LT$brotli..enc..backward_ref
   %.sroa.019.2 = phi i64 [ %.sroa.019.1243, %174 ], [ %181, %183 ], [ %.sroa.019.1243, %180 ]
   %.sroa.06.3 = phi i1 [ %.sroa.06.2244, %174 ], [ true, %183 ], [ %.sroa.06.2244, %180 ]
   %.old1 = icmp ugt i64 %136, %118
-  br i1 %.old1, label %.preheader, label %..loopexit.loopexit252_crit_edge
+  br i1 %.old1, label %.preheader, label %..loopexit.loopexit253_crit_edge
 
-..loopexit.loopexit252_crit_edge:                 ; preds = %179
+..loopexit.loopexit253_crit_edge:                 ; preds = %179
   %.val92.pre.pre = load i32, ptr %107, align 8
   br label %.loopexit
 

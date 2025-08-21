@@ -13883,15 +13883,15 @@ FlushRenderCommands.exit:                         ; preds = %SDL_RenderApplyWind
 245:                                              ; preds = %242, %236
   %246 = phi i64 [ %.pre.i, %242 ], [ %239, %236 ]
   %.0.i16 = phi i64 [ %244, %242 ], [ %237, %236 ]
-  %.0.fr.i = freeze i64 %.0.i16
+  %.fr.i = freeze i64 %.0.i16
   %.fr23.i = freeze i64 %246
-  %247 = sub i64 %.0.fr.i, %.fr23.i
+  %247 = sub i64 %.fr.i, %.fr23.i
   %248 = icmp eq i64 %.fr23.i, 0
   %249 = icmp ugt i64 %247, 1000000000
   %or.cond.i17 = or i1 %248, %249
   br i1 %or.cond.i17, label %253, label %250
 
-250:                                              ; preds = %245
+250:; preds = %245
   %251 = urem i64 %247, %235
   %252 = sub i64 %.0.fr.i, %251
   br label %253

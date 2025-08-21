@@ -8298,7 +8298,7 @@ is_numeric_string_ex.exit34:                      ; preds = %15
 38:                                               ; preds = %35
   %39 = load i64, ptr %5, align 8, !tbaa !70
   %40 = sitofp i64 %39 to double
-  %.pre53 = load double, ptr %8, align 8, !tbaa !71
+  %.pre50 = load double, ptr %8, align 8, !tbaa !71
   br label %52
 
 41:                                               ; preds = %34
@@ -8324,7 +8324,7 @@ is_numeric_string_ex.exit34:                      ; preds = %15
   br i1 %or.cond32, label %is_numeric_string_ex.exit.thread, label %52
 
 52:                                               ; preds = %43, %46, %38
-  %53 = phi double [ %45, %43 ], [ %48, %46 ], [ %.pre53, %38 ]
+  %53 = phi double [ %45, %43 ], [ %48, %46 ], [ %.pre50, %38 ]
   %54 = phi double [ %.pre, %43 ], [ %47, %46 ], [ %40, %38 ]
   %55 = fsub double %54, %53
   %56 = fcmp une double %55, 0.000000e+00
@@ -9042,14 +9042,14 @@ define dso_local noundef zeroext i1 @zend_string_only_has_ascii_alphanumeric(ptr
 
 7:                                                ; preds = %6
   %8 = load i8, ptr %.019, align 1, !tbaa !4
-  %.fr = freeze i8 %8
-  %9 = add i8 %.fr, -123
+  %.fr24 = freeze i8 %8
+  %9 = add i8 %.fr24, -123
   %or.cond = icmp ult i8 %9, -75
   br i1 %or.cond, label %.critedge, label %switch.early.test
 
 switch.early.test:                                ; preds = %7
   %10 = getelementptr inbounds nuw i8, ptr %.019, i64 1
-  switch i8 %.fr, label %6 [
+  switch i8 %.fr24, label %6 [
     i8 96, label %.critedge
     i8 95, label %.critedge
     i8 94, label %.critedge
@@ -9235,14 +9235,14 @@ is_numeric_str_function.exit.thread:              ; preds = %is_numeric_str_func
 
 64:                                               ; preds = %63
   %65 = load i8, ptr %.019.i.i, align 1, !tbaa !4
-  %.fr.i.i = freeze i8 %65
-  %66 = add i8 %.fr.i.i, -123
+  %.fr24.i.i = freeze i8 %65
+  %66 = add i8 %.fr24.i.i, -123
   %or.cond.i.i = icmp ult i8 %66, -75
   br i1 %or.cond.i.i, label %68, label %switch.early.test.i.i
 
 switch.early.test.i.i:                            ; preds = %64
   %67 = getelementptr inbounds nuw i8, ptr %.019.i.i, i64 1
-  switch i8 %.fr.i.i, label %63 [
+  switch i8 %.fr24.i.i, label %63 [
     i8 96, label %68
     i8 95, label %68
     i8 94, label %68

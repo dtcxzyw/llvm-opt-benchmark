@@ -2283,7 +2283,7 @@ define linkonce_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZN5b
   %.fr.i.i = freeze ptr %14
   %15 = load ptr, ptr %1, align 8, !tbaa !11
   %.fr15.i.i = freeze ptr %15
-  %16 = ptrtoint ptr %.fr.i.i to i64
+  %17 = ptrtoint ptr %.fr.i.i to i64
   %17 = ptrtoint ptr %.fr15.i.i to i64
   %18 = sub i64 %16, %17
   %.not12.i.i.i.i.i.i = icmp eq i64 %18, 0

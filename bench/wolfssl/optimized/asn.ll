@@ -4067,9 +4067,9 @@ GetASNTag.exit.i.i:                               ; preds = %.thread.i.i.i
   %.240.i.i.i = phi i32 [ %19, %15 ], [ %.139.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %.2.i.i.i = phi i32 [ %13, %15 ], [ %.1.lcssa.i.i.i, %._crit_edge.i.i.i ]
   %.240.i.i.i.fr = freeze i32 %.240.i.i.i
-  %.2.i.i.i.fr = freeze i32 %.2.i.i.i
-  %49 = add i32 %.2.i.i.i.fr, %.240.i.i.i.fr
-  %50 = icmp ugt i32 %49, %3
+  %.fr = freeze i32 %.2.i.i.i
+  %49 = add i32 %.fr, %.240.i.i.i.fr
+  %switch = icmp ugt i32 %49, %3
   %switch = icmp ult i32 %.240.i.i.i.fr, 3
   %or.cond = or i1 %switch, %50
   br i1 %or.cond, label %GetASNHeader.exit, label %51

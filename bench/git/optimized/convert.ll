@@ -262,33 +262,33 @@ convert_is_binary.exit.i:                         ; preds = %gather_stats.exit.i
   %53 = add i32 %46, -1
   %spec.select.i = select i1 %52, i32 %53, i32 %.sroa.14.1.fr.i
   %54 = lshr i32 %.sroa.11.1.fr.i, 7
-  %.not.i = icmp ult i32 %54, %spec.select.i
-  %spec.select18.i = select i1 %.not.i, i32 4, i32 0
+  %55 = icmp ult i32 %54, %spec.select.i
+  %spec.select18.i = select i1 %55, i32 4, i32 0
   br label %gather_convert_stats.exit
 
 gather_convert_stats.exit:                        ; preds = %gather_stats.exit.i, %convert_is_binary.exit.i
-  %55 = phi i32 [ 4, %gather_stats.exit.i ], [ %spec.select18.i, %convert_is_binary.exit.i ]
+  %56 = phi i32 [ 4, %gather_stats.exit.i ], [ %spec.select18.i, %convert_is_binary.exit.i ]
   %.not12.i = icmp eq i32 %.sroa.9.1.i, 0
-  %56 = or disjoint i32 %55, 2
-  %.1.i = select i1 %.not12.i, i32 %55, i32 %56
+  %57 = or disjoint i32 %56, 2
+  %.1.i = select i1 %.not12.i, i32 %56, i32 %57
   %.not = icmp samesign ult i32 %.1.i, 4
-  br i1 %.not, label %57, label %.thread
+  br i1 %.not, label %58, label %.thread
 
-57:                                               ; preds = %gather_convert_stats.exit
+58:                                               ; preds = %gather_convert_stats.exit
   %.not13.i = icmp ne i32 %.sroa.7.1.i, 0
-  %58 = zext i1 %.not13.i to i32
-  %.2.i = or disjoint i32 %.1.i, %58
+  %59 = zext i1 %.not13.i to i32
+  %.2.i = or disjoint i32 %.1.i, %59
   %switch.tableidx = add nsw i32 %.2.i, -1
-  %59 = icmp ult i32 %switch.tableidx, 3
-  br i1 %59, label %switch.lookup, label %.thread
+  %60 = icmp ult i32 %switch.tableidx, 3
+  br i1 %60, label %switch.lookup, label %.thread
 
-switch.lookup:                                    ; preds = %57
-  %60 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.gather_convert_stats_ascii, i64 0, i64 %60
+switch.lookup:                                    ; preds = %58
+  %61 = zext nneg i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.gather_convert_stats_ascii, i64 0, i64 %61
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %.thread
 
-.thread:                                          ; preds = %2, %57, %switch.lookup, %gather_convert_stats.exit
+.thread:                                          ; preds = %2, %58, %switch.lookup, %gather_convert_stats.exit
   %.0 = phi ptr [ @.str.11, %gather_convert_stats.exit ], [ %switch.load, %switch.lookup ], [ @.str.20, %57 ], [ @.str.20, %2 ]
   ret ptr %.0
 }
@@ -3778,7 +3778,7 @@ define internal fastcc range(i32 0, 2) i32 @has_crlf_in_index(ptr noundef %0, pt
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = call ptr @read_blob_data_from_index(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %3) #22
   %.not = icmp eq ptr %4, null
-  br i1 %.not, label %57, label %5
+  br i1 %.not, label %58, label %5
 
 5:                                                ; preds = %2
   %6 = load i64, ptr %3, align 8, !tbaa !4
@@ -3895,22 +3895,22 @@ convert_is_binary.exit.i:                         ; preds = %gather_stats.exit.i
   %52 = add i32 %45, -1
   %spec.select.i = select i1 %51, i32 %52, i32 %.sroa.14.1.fr.i
   %53 = lshr i32 %.sroa.11.1.fr.i, 7
-  %.not.i = icmp uge i32 %53, %spec.select.i
+  %54 = icmp uge i32 %53, %spec.select.i
   br label %convert_is_binary.exit.thread.i
 
 convert_is_binary.exit.thread.i:                  ; preds = %convert_is_binary.exit.i, %gather_stats.exit.i
-  %54 = phi i1 [ false, %gather_stats.exit.i ], [ %.not.i, %convert_is_binary.exit.i ]
+  %55 = phi i1 [ false, %gather_stats.exit.i ], [ %.not.i, %convert_is_binary.exit.i ]
   %.not12.i = icmp ne i32 %.sroa.9.1.i, 0
-  %55 = select i1 %.not12.i, i1 %54, i1 false
-  %56 = zext i1 %55 to i32
+  %56 = select i1 %.not12.i, i1 %55, i1 false
+  %57 = zext i1 %56 to i32
   br label %gather_convert_stats.exit
 
 gather_convert_stats.exit:                        ; preds = %convert_is_binary.exit.thread.i, %5
-  %.010 = phi i32 [ 0, %5 ], [ %56, %convert_is_binary.exit.thread.i ]
+  %.010 = phi i32 [ 0, %5 ], [ %57, %convert_is_binary.exit.thread.i ]
   call void @free(ptr noundef nonnull %4) #22
-  br label %57
+  br label %58
 
-57:                                               ; preds = %2, %gather_convert_stats.exit
+58:                                               ; preds = %2, %gather_convert_stats.exit
   %.0 = phi i32 [ %.010, %gather_convert_stats.exit ], [ 0, %2 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0

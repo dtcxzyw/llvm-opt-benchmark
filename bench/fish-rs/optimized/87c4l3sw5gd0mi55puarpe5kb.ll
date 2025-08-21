@@ -26336,9 +26336,9 @@ _ZN4fish2io12OutputStream6append17h560b6507302fab41E.exit.i: ; preds = %152, %14
 
 160:                                              ; preds = %136
   %161 = call { i32, i32 } @"_ZN97_$LT$fish..builtins..string..match..Match$u20$as$u20$fish..builtins..string..StringSubCommand$GT$6handle17h420e20475ba22a8eE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 %1, ptr noalias noundef nonnull align 8 dereferenceable(48) %2, ptr noalias noundef nonnull align 8 dereferenceable(8) %18, ptr noalias noundef nonnull readonly align 8 %40, i64 noundef %39)
-  %.fr = freeze { i32, i32 } %161
-  %162 = extractvalue { i32, i32 } %.fr, 0
-  %163 = extractvalue { i32, i32 } %.fr, 1
+  %.fr13 = freeze { i32, i32 } %161
+  %162 = extractvalue { i32, i32 } %.fr13, 0
+  %163 = extractvalue { i32, i32 } %.fr13, 1
   %164 = trunc i32 %162 to i1
   call void @llvm.lifetime.end.p0(ptr nonnull %18), !noalias !3417
   %165 = zext i32 %163 to i64
@@ -26879,9 +26879,9 @@ _ZN4fish2io12OutputStream6append17h560b6507302fab41E.exit.i: ; preds = %152, %14
 
 160:                                              ; preds = %136
   %161 = call { i32, i32 } @"_ZN97_$LT$fish..builtins..string..split..Split$u20$as$u20$fish..builtins..string..StringSubCommand$GT$6handle17h5f29d7867680a115E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 %1, ptr noalias noundef nonnull align 8 dereferenceable(48) %2, ptr noalias noundef nonnull align 8 dereferenceable(8) %18, ptr noalias noundef nonnull readonly align 8 %40, i64 noundef %39)
-  %.fr = freeze { i32, i32 } %161
-  %162 = extractvalue { i32, i32 } %.fr, 0
-  %163 = extractvalue { i32, i32 } %.fr, 1
+  %.fr13 = freeze { i32, i32 } %161
+  %162 = extractvalue { i32, i32 } %.fr13, 0
+  %163 = extractvalue { i32, i32 } %.fr13, 1
   %164 = trunc i32 %162 to i1
   call void @llvm.lifetime.end.p0(ptr nonnull %18), !noalias !3499
   %165 = zext i32 %163 to i64
@@ -27413,9 +27413,9 @@ _ZN4fish2io12OutputStream6append17h560b6507302fab41E.exit.i: ; preds = %149, %14
 
 153:                                              ; preds = %132
   %154 = call { i32, i32 } @"_ZN101_$LT$fish..builtins..string..shorten..Shorten$u20$as$u20$fish..builtins..string..StringSubCommand$GT$6handle17h165b684fd03a38adE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 %1, ptr noalias noundef nonnull align 8 dereferenceable(48) %2, ptr noalias noundef nonnull align 8 dereferenceable(8) %18, ptr noalias noundef nonnull readonly align 8 %40, i64 noundef %39)
-  %.fr = freeze { i32, i32 } %154
-  %155 = extractvalue { i32, i32 } %.fr, 0
-  %156 = extractvalue { i32, i32 } %.fr, 1
+  %.fr13 = freeze { i32, i32 } %154
+  %155 = extractvalue { i32, i32 } %.fr13, 0
+  %156 = extractvalue { i32, i32 } %.fr13, 1
   %157 = trunc i32 %155 to i1
   call void @llvm.lifetime.end.p0(ptr nonnull %18), !noalias !3579
   %158 = zext i32 %156 to i64

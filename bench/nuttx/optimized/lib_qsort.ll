@@ -705,7 +705,7 @@ swapfunc.exit303.loopexit329:                     ; preds = %.preheader328
 
 swapfunc.exit310:                                 ; preds = %.preheader341, %286, %273
   %.1229.lcssa.fr = freeze ptr %.1229.lcssa
-  %299 = ptrtoint ptr %.1229.lcssa.fr to i64
+  %300 = ptrtoint ptr %.1229.lcssa.fr to i64
   %.1227.lcssa.fr = freeze ptr %.1227.lcssa
   %300 = ptrtoint ptr %.1227.lcssa.fr to i64
   %301 = sub i64 %299, %300

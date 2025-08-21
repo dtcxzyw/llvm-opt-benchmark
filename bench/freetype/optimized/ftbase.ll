@@ -14210,9 +14210,9 @@ FT_Outline_Get_CBox.exit:                         ; preds = %.lr.ph.i
   %.sroa.023.062 = phi i64 [ %56, %.lr.ph.preheader ], [ %.fr86, %.lr.ph ]
   %.sroa.524.061 = phi i64 [ %55, %.lr.ph.preheader ], [ %.fr, %.lr.ph ]
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %57 = getelementptr inbounds %struct.FT_Vector_, ptr %8, i64 %indvars.iv.next
-  %58 = load i64, ptr %57, align 8, !tbaa !157
-  %59 = ashr i64 %58, %41
+  %55 = getelementptr inbounds %struct.FT_Vector_, ptr %8, i64 %indvars.iv.next
+  %56 = load i64, ptr %55, align 8, !tbaa !157
+  %57 = ashr i64 %56, %41
   %.fr86 = freeze i64 %59
   %60 = getelementptr inbounds nuw i8, ptr %57, i64 8
   %61 = load i64, ptr %60, align 8, !tbaa !158
@@ -14232,17 +14232,17 @@ FT_Outline_Get_CBox.exit:                         ; preds = %.lr.ph.i
   br i1 %exitcond78.not, label %._crit_edge70, label %43, !llvm.loop !505
 
 ._crit_edge70:                                    ; preds = %._crit_edge
-  %67 = icmp sgt i64 %.1.lcssa, 0
-  br i1 %67, label %FT_Outline_Get_CBox.exit.thread, label %68
+  %66 = icmp sgt i64 %.1.lcssa, 0
+  br i1 %66, label %FT_Outline_Get_CBox.exit.thread, label %67
 
-68:                                               ; preds = %._crit_edge70
+67:                                               ; preds = %._crit_edge70
   %.not59 = icmp eq i64 %.1.lcssa, 0
   br i1 %.not59, label %.thread, label %FT_Outline_Get_CBox.exit.thread
 
-.thread:                                          ; preds = %25, %68
+.thread:                                          ; preds = %25, %67
   br label %FT_Outline_Get_CBox.exit.thread
 
-FT_Outline_Get_CBox.exit.thread:                  ; preds = %.thread, %68, %6, %._crit_edge70, %20, %FT_Outline_Get_CBox.exit, %1, %2
+FT_Outline_Get_CBox.exit.thread:                  ; preds = %.thread, %67, %6, %._crit_edge70, %20, %FT_Outline_Get_CBox.exit, %1, %2
   %.044 = phi i32 [ 0, %2 ], [ 0, %1 ], [ 2, %FT_Outline_Get_CBox.exit ], [ 2, %20 ], [ 1, %._crit_edge70 ], [ 2, %6 ], [ 2, %.thread ], [ 0, %68 ]
   ret i32 %.044
 }

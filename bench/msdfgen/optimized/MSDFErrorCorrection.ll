@@ -795,7 +795,7 @@ entry._ZN7msdfgenL24edgeBetweenTexelsChannelEPKfS1_i.exit_crit_edge: ; preds = %
   %arrayidx.i.phi.trans.insert = getelementptr inbounds nuw i8, ptr %a, i64 4
   %.pre = load float, ptr %arrayidx.i.phi.trans.insert, align 4
   %arrayidx4.i.phi.trans.insert = getelementptr inbounds nuw i8, ptr %b, i64 4
-  %.pre105 = load float, ptr %arrayidx4.i.phi.trans.insert, align 4
+  %.pre94 = load float, ptr %arrayidx4.i.phi.trans.insert, align 4
   br label %_ZN7msdfgenL24edgeBetweenTexelsChannelEPKfS1_i.exit
 
 if.then.i:                                        ; preds = %entry
@@ -835,9 +835,9 @@ if.then.i:                                        ; preds = %entry
   br label %_ZN7msdfgenL24edgeBetweenTexelsChannelEPKfS1_i.exit
 
 _ZN7msdfgenL24edgeBetweenTexelsChannelEPKfS1_i.exit: ; preds = %entry._ZN7msdfgenL24edgeBetweenTexelsChannelEPKfS1_i.exit_crit_edge, %if.then.i
-  %10 = phi float [ %4, %if.then.i ], [ %.pre105, %entry._ZN7msdfgenL24edgeBetweenTexelsChannelEPKfS1_i.exit_crit_edge ]
-  %11 = phi float [ %3, %if.then.i ], [ %.pre, %entry._ZN7msdfgenL24edgeBetweenTexelsChannelEPKfS1_i.exit_crit_edge ]
-  %retval.0.i = phi i32 [ %9, %if.then.i ], [ 0, %entry._ZN7msdfgenL24edgeBetweenTexelsChannelEPKfS1_i.exit_crit_edge ]
+  %conv.i6.pre-phi = phi float [ %4, %if.then.i ], [ %.pre94, %entry._ZN7msdfgenL24edgeBetweenTexelsChannelEPKfS1_i.exit_crit_edge ]
+  %10 = phi float [ %3, %if.then.i ], [ %.pre, %entry._ZN7msdfgenL24edgeBetweenTexelsChannelEPKfS1_i.exit_crit_edge ]
+  %11 = phi i32 [ %9, %if.then.i ], [ 0, %entry._ZN7msdfgenL24edgeBetweenTexelsChannelEPKfS1_i.exit_crit_edge ]
   %.fr = freeze float %11
   %conv.i6 = fpext float %.fr to double
   %sub.i7 = fadd double %conv.i6, -5.000000e-01
@@ -852,10 +852,10 @@ _ZN7msdfgenL24edgeBetweenTexelsChannelEPKfS1_i.exit: ; preds = %entry._ZN7msdfge
 
 _ZN7msdfgenL24edgeBetweenTexelsChannelEPKfS1_i.exit._ZN7msdfgenL24edgeBetweenTexelsChannelEPKfS1_i.exit44.thread_crit_edge: ; preds = %_ZN7msdfgenL24edgeBetweenTexelsChannelEPKfS1_i.exit
   %arrayidx.i46.phi.trans.insert = getelementptr inbounds nuw i8, ptr %a, i64 8
-  %.pre106 = load float, ptr %arrayidx.i46.phi.trans.insert, align 4
+  %.pre95 = load float, ptr %arrayidx.i46.phi.trans.insert, align 4
   %arrayidx4.i49.phi.trans.insert = getelementptr inbounds nuw i8, ptr %b, i64 8
-  %.pre107 = load float, ptr %arrayidx4.i49.phi.trans.insert, align 4
-  %.pre108 = freeze float %.pre106
+  %.pre96 = load float, ptr %arrayidx4.i49.phi.trans.insert, align 4
+  %.pre108 = freeze float %.pre95
   %.pre109 = fpext float %.pre108 to double
   %.pre110 = freeze float %.pre107
   br label %_ZN7msdfgenL24edgeBetweenTexelsChannelEPKfS1_i.exit44.thread
@@ -875,7 +875,7 @@ _ZN7msdfgenL24edgeBetweenTexelsChannelEPKfS1_i.exit44: ; preds = %_ZN7msdfgenL24
   %arrayidx15.i30 = getelementptr inbounds nuw i8, ptr %b, i64 8
   %15 = load float, ptr %arrayidx15.i30, align 4
   %.fr99 = freeze float %14
-  %conv.i21.i31 = fpext float %.fr99 to double
+  %conv1.i22.i32 = fpext float %.fr99 to double
   %.fr100 = freeze float %15
   %conv1.i22.i32 = fpext float %.fr100 to double
   %mul2.i23.i33 = fmul double %div.i10, %conv1.i22.i32
@@ -894,12 +894,12 @@ _ZN7msdfgenL24edgeBetweenTexelsChannelEPKfS1_i.exit44: ; preds = %_ZN7msdfgenL24
   br label %_ZN7msdfgenL24edgeBetweenTexelsChannelEPKfS1_i.exit44.thread
 
 _ZN7msdfgenL24edgeBetweenTexelsChannelEPKfS1_i.exit44.thread: ; preds = %_ZN7msdfgenL24edgeBetweenTexelsChannelEPKfS1_i.exit._ZN7msdfgenL24edgeBetweenTexelsChannelEPKfS1_i.exit44.thread_crit_edge, %_ZN7msdfgenL24edgeBetweenTexelsChannelEPKfS1_i.exit44
-  %.fr103.pre-phi = phi float [ %.pre110, %_ZN7msdfgenL24edgeBetweenTexelsChannelEPKfS1_i.exit._ZN7msdfgenL24edgeBetweenTexelsChannelEPKfS1_i.exit44.thread_crit_edge ], [ %.fr100, %_ZN7msdfgenL24edgeBetweenTexelsChannelEPKfS1_i.exit44 ]
-  %conv.i47.pre-phi = phi double [ %.pre109, %_ZN7msdfgenL24edgeBetweenTexelsChannelEPKfS1_i.exit._ZN7msdfgenL24edgeBetweenTexelsChannelEPKfS1_i.exit44.thread_crit_edge ], [ %conv.i21.i31, %_ZN7msdfgenL24edgeBetweenTexelsChannelEPKfS1_i.exit44 ]
-  %.fr101.pre-phi = phi float [ %.pre108, %_ZN7msdfgenL24edgeBetweenTexelsChannelEPKfS1_i.exit._ZN7msdfgenL24edgeBetweenTexelsChannelEPKfS1_i.exit44.thread_crit_edge ], [ %.fr99, %_ZN7msdfgenL24edgeBetweenTexelsChannelEPKfS1_i.exit44 ]
-  %17 = phi i32 [ 0, %_ZN7msdfgenL24edgeBetweenTexelsChannelEPKfS1_i.exit._ZN7msdfgenL24edgeBetweenTexelsChannelEPKfS1_i.exit44.thread_crit_edge ], [ %spec.select, %_ZN7msdfgenL24edgeBetweenTexelsChannelEPKfS1_i.exit44 ]
+  %conv.i47.pre-phi = phi float [ %.pre110, %_ZN7msdfgenL24edgeBetweenTexelsChannelEPKfS1_i.exit._ZN7msdfgenL24edgeBetweenTexelsChannelEPKfS1_i.exit44.thread_crit_edge ], [ %.fr100, %_ZN7msdfgenL24edgeBetweenTexelsChannelEPKfS1_i.exit44 ]
+  %17 = phi double [ %.pre109, %_ZN7msdfgenL24edgeBetweenTexelsChannelEPKfS1_i.exit._ZN7msdfgenL24edgeBetweenTexelsChannelEPKfS1_i.exit44.thread_crit_edge ], [ %conv.i21.i31, %_ZN7msdfgenL24edgeBetweenTexelsChannelEPKfS1_i.exit44 ]
+  %18 = phi float [ %.pre108, %_ZN7msdfgenL24edgeBetweenTexelsChannelEPKfS1_i.exit._ZN7msdfgenL24edgeBetweenTexelsChannelEPKfS1_i.exit44.thread_crit_edge ], [ %.fr99, %_ZN7msdfgenL24edgeBetweenTexelsChannelEPKfS1_i.exit44 ]
+  %19 = phi i32 [ 0, %_ZN7msdfgenL24edgeBetweenTexelsChannelEPKfS1_i.exit._ZN7msdfgenL24edgeBetweenTexelsChannelEPKfS1_i.exit44.thread_crit_edge ], [ %spec.select, %_ZN7msdfgenL24edgeBetweenTexelsChannelEPKfS1_i.exit44 ]
   %sub.i48 = fadd double %conv.i47.pre-phi, -5.000000e-01
-  %sub5.i50 = fsub float %.fr101.pre-phi, %.fr103.pre-phi
+  %sub5.i50 = fsub float %18, %.fr103.pre-phi
   %conv6.i51 = fpext float %sub5.i50 to double
   %div.i52 = fdiv double %sub.i48, %conv6.i51
   %cmp.i53 = fcmp ogt double %div.i52, 0.000000e+00
@@ -911,16 +911,16 @@ _ZN7msdfgenL24edgeBetweenTexelsChannelEPKfS1_i.exit87: ; preds = %_ZN7msdfgenL24
   %sub.i.i58 = fsub double 1.000000e+00, %div.i52
   %conv1.i.i60 = fpext float %.fr98 to double
   %mul2.i.i61 = fmul double %div.i52, %conv1.i.i60
-  %18 = tail call double @llvm.fmuladd.f64(double %sub.i.i58, double %conv.i, double %mul2.i.i61)
-  %conv3.i.i62 = fptrunc double %18 to float
+  %20 = tail call double @llvm.fmuladd.f64(double %sub.i.i58, double %conv.i, double %mul2.i.i61)
+  %conv3.i.i62 = fptrunc double %20 to float
   %conv1.i17.i67 = fpext float %.fr95 to double
   %mul2.i18.i68 = fmul double %div.i52, %conv1.i17.i67
-  %19 = tail call double @llvm.fmuladd.f64(double %sub.i.i58, double %conv.i6, double %mul2.i18.i68)
-  %conv3.i19.i69 = fptrunc double %19 to float
+  %21 = tail call double @llvm.fmuladd.f64(double %sub.i.i58, double %conv.i6, double %mul2.i18.i68)
+  %conv3.i19.i69 = fptrunc double %21 to float
   %conv1.i22.i74 = fpext float %.fr103.pre-phi to double
   %mul2.i23.i75 = fmul double %div.i52, %conv1.i22.i74
-  %20 = tail call double @llvm.fmuladd.f64(double %sub.i.i58, double %conv.i47.pre-phi, double %mul2.i23.i75)
-  %conv3.i24.i76 = fptrunc double %20 to float
+  %22 = tail call double @llvm.fmuladd.f64(double %sub.i.i58, double %conv.i47.pre-phi, double %mul2.i23.i75)
+  %conv3.i24.i76 = fptrunc double %22 to float
   %cmp.i.i.i77 = fcmp olt float %conv3.i19.i69, %conv3.i.i62
   %cond.i.i.i78 = select i1 %cmp.i.i.i77, float %conv3.i19.i69, float %conv3.i.i62
   %cmp.i3.i.i79 = fcmp olt float %conv3.i.i62, %conv3.i19.i69
@@ -934,9 +934,9 @@ _ZN7msdfgenL24edgeBetweenTexelsChannelEPKfS1_i.exit87: ; preds = %_ZN7msdfgenL24
   br label %_ZN7msdfgenL24edgeBetweenTexelsChannelEPKfS1_i.exit87.thread
 
 _ZN7msdfgenL24edgeBetweenTexelsChannelEPKfS1_i.exit87.thread: ; preds = %_ZN7msdfgenL24edgeBetweenTexelsChannelEPKfS1_i.exit87, %_ZN7msdfgenL24edgeBetweenTexelsChannelEPKfS1_i.exit44.thread
-  %21 = phi i32 [ 0, %_ZN7msdfgenL24edgeBetweenTexelsChannelEPKfS1_i.exit44.thread ], [ %spec.select93, %_ZN7msdfgenL24edgeBetweenTexelsChannelEPKfS1_i.exit87 ]
-  %add = or disjoint i32 %17, %retval.0.i
-  %add7 = or disjoint i32 %add, %21
+  %23 = phi i32 [ 0, %_ZN7msdfgenL24edgeBetweenTexelsChannelEPKfS1_i.exit44.thread ], [ %spec.select93, %_ZN7msdfgenL24edgeBetweenTexelsChannelEPKfS1_i.exit87 ]
+  %add = or disjoint i32 %19, %retval.0.i
+  %add7 = or disjoint i32 %add, %23
   ret i32 %add7
 }
 
