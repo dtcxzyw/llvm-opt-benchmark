@@ -512,86 +512,80 @@ _ZNK7oopDesc5klassEv.exit:                        ; preds = %62
   %71 = shl i64 %69, %70
   %72 = getelementptr i8, ptr %67, i64 %71
   %.not27 = icmp eq ptr %72, %2
-  br i1 %.not27, label %87, label %74
+  br i1 %.not27, label %83, label %_ZNK7oopDesc5klassEv.exit37
 
 _ZNK7oopDesc5klassEv.exit.thread:                 ; preds = %62
   %73 = load ptr, ptr %65, align 8
   %.not2744 = icmp eq ptr %73, %2
-  br i1 %.not2744, label %87, label %_ZNK7oopDesc5klassEv.exit37
+  br i1 %.not2744, label %83, label %_ZNK7oopDesc5klassEv.exit37
 
-74:                                               ; preds = %_ZNK7oopDesc5klassEv.exit
-  %75 = ptrtoint ptr %67 to i64
-  %76 = add i64 %71, %75
-  %77 = inttoptr i64 %76 to ptr
-  br label %_ZNK7oopDesc5klassEv.exit37
+_ZNK7oopDesc5klassEv.exit37:                      ; preds = %_ZNK7oopDesc5klassEv.exit.thread, %_ZNK7oopDesc5klassEv.exit
+  %.0.i36 = phi ptr [ %72, %_ZNK7oopDesc5klassEv.exit ], [ %73, %_ZNK7oopDesc5klassEv.exit.thread ]
+  %74 = load ptr, ptr %2, align 8
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 224
+  %76 = load ptr, ptr %75, align 8
+  %77 = tail call noundef ptr %76(ptr noundef nonnull align 8 dereferenceable(464) %2) #9
+  %.not28 = icmp eq ptr %.0.i36, %77
+  br i1 %.not28, label %83, label %78
 
-_ZNK7oopDesc5klassEv.exit37:                      ; preds = %_ZNK7oopDesc5klassEv.exit.thread, %74
-  %.0.i36 = phi ptr [ %77, %74 ], [ %73, %_ZNK7oopDesc5klassEv.exit.thread ]
-  %78 = load ptr, ptr %2, align 8
-  %79 = getelementptr inbounds nuw i8, ptr %78, i64 224
-  %80 = load ptr, ptr %79, align 8
-  %81 = tail call noundef ptr %80(ptr noundef nonnull align 8 dereferenceable(464) %2) #9
-  %.not28 = icmp eq ptr %.0.i36, %81
-  br i1 %.not28, label %87, label %82
-
-82:                                               ; preds = %_ZNK7oopDesc5klassEv.exit37
-  %83 = load ptr, ptr @g_assert_poison, align 8
-  store i8 88, ptr %83, align 1
-  %84 = tail call noundef ptr @_ZNK5Klass13external_nameEv(ptr noundef nonnull align 8 dereferenceable(196) %2) #9
-  %85 = tail call noundef ptr @_ZNK15fieldDescriptor4nameEv(ptr noundef nonnull align 8 dereferenceable(48) %18)
-  %86 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %85) #9
-  tail call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 100, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.7, ptr noundef %84, ptr noundef %86) #10
+78:                                               ; preds = %_ZNK7oopDesc5klassEv.exit37
+  %79 = load ptr, ptr @g_assert_poison, align 8
+  store i8 88, ptr %79, align 1
+  %80 = tail call noundef ptr @_ZNK5Klass13external_nameEv(ptr noundef nonnull align 8 dereferenceable(196) %2) #9
+  %81 = tail call noundef ptr @_ZNK15fieldDescriptor4nameEv(ptr noundef nonnull align 8 dereferenceable(48) %18)
+  %82 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %81) #9
+  tail call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 100, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.7, ptr noundef %80, ptr noundef %82) #10
   unreachable
 
-87:                                               ; preds = %_ZNK7oopDesc5klassEv.exit.thread, %_ZNK7oopDesc5klassEv.exit, %_ZNK7oopDesc5klassEv.exit37
-  %88 = tail call noundef zeroext i1 @_ZN10HeapShared30archive_reachable_objects_fromEiP17KlassSubGraphInfoP7oopDesc(i32 noundef %0, ptr noundef %1, ptr noundef nonnull %55) #9
-  %89 = tail call noundef i32 @_ZN10HeapShared11append_rootEP7oopDesc(ptr noundef nonnull %55) #9
-  %90 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_52ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
-  %.not45 = icmp eq ptr %90, null
-  br i1 %.not45, label %101, label %91
+83:                                               ; preds = %_ZNK7oopDesc5klassEv.exit.thread, %_ZNK7oopDesc5klassEv.exit, %_ZNK7oopDesc5klassEv.exit37
+  %84 = tail call noundef zeroext i1 @_ZN10HeapShared30archive_reachable_objects_fromEiP17KlassSubGraphInfoP7oopDesc(i32 noundef %0, ptr noundef %1, ptr noundef nonnull %55) #9
+  %85 = tail call noundef i32 @_ZN10HeapShared11append_rootEP7oopDesc(ptr noundef nonnull %55) #9
+  %86 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_52ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
+  %.not45 = icmp eq ptr %86, null
+  br i1 %.not45, label %97, label %87
 
-91:                                               ; preds = %87
-  %92 = tail call noundef ptr @_ZNK5Klass13external_nameEv(ptr noundef nonnull align 8 dereferenceable(196) %2) #9
+87:                                               ; preds = %83
+  %88 = tail call noundef ptr @_ZNK5Klass13external_nameEv(ptr noundef nonnull align 8 dereferenceable(196) %2) #9
   %.sroa.1.0..sroa_idx.i38 = getelementptr inbounds nuw i8, ptr %4, i64 92
   %.sroa.1.0.copyload.i39 = load i16, ptr %.sroa.1.0..sroa_idx.i38, align 4
   %.sroa.21.0.copyload.i = load i32, ptr %.sroa.21.0..sroa_idx.i.i, align 8
-  %93 = load ptr, ptr %25, align 8
-  %94 = and i32 %.sroa.21.0.copyload.i, 2
-  %.not.i.i = icmp eq i32 %94, 0
-  %95 = zext i16 %.sroa.1.0.copyload.i39 to i64
-  %96 = getelementptr inbounds nuw [0 x ptr], ptr @_ZN6Symbol11_vm_symbolsE, i64 0, i64 %95
-  %97 = getelementptr inbounds nuw i8, ptr %93, i64 72
-  %98 = getelementptr inbounds nuw i64, ptr %97, i64 %95
-  %.0.in.i.i = select i1 %.not.i.i, ptr %98, ptr %96
+  %89 = load ptr, ptr %25, align 8
+  %90 = and i32 %.sroa.21.0.copyload.i, 2
+  %.not.i.i = icmp eq i32 %90, 0
+  %91 = zext i16 %.sroa.1.0.copyload.i39 to i64
+  %92 = getelementptr inbounds nuw [0 x ptr], ptr @_ZN6Symbol11_vm_symbolsE, i64 0, i64 %91
+  %93 = getelementptr inbounds nuw i8, ptr %89, i64 72
+  %94 = getelementptr inbounds nuw i64, ptr %93, i64 %91
+  %.0.in.i.i = select i1 %.not.i.i, ptr %94, ptr %92
   %.0.i.i = load ptr, ptr %.0.in.i.i, align 8
-  %99 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %.0.i.i) #9
-  %100 = ptrtoint ptr %55 to i64
-  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE14ELS1_52ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE3EEEvPKcz(ptr noundef nonnull @.str.8, i32 noundef %89, ptr noundef %92, ptr noundef %99, i64 noundef %100)
-  br label %101
+  %95 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %.0.i.i) #9
+  %96 = ptrtoint ptr %55 to i64
+  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE14ELS1_52ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE3EEEvPKcz(ptr noundef nonnull @.str.8, i32 noundef %85, ptr noundef %88, ptr noundef %95, i64 noundef %96)
+  br label %97
 
-101:                                              ; preds = %87, %91
-  tail call void @_ZN22SystemDictionaryShared27add_enum_klass_static_fieldEP13InstanceKlassi(ptr noundef %2, i32 noundef %89) #9
-  %102 = load ptr, ptr %11, align 8
-  %.not.i.i.i.i = icmp eq ptr %102, null
-  br i1 %.not.i.i.i.i, label %104, label %103
+97:                                               ; preds = %83, %87
+  tail call void @_ZN22SystemDictionaryShared27add_enum_klass_static_fieldEP13InstanceKlassi(ptr noundef %2, i32 noundef %85) #9
+  %98 = load ptr, ptr %11, align 8
+  %.not.i.i.i.i = icmp eq ptr %98, null
+  br i1 %.not.i.i.i.i, label %100, label %99
 
-103:                                              ; preds = %101
+99:                                               ; preds = %97
   tail call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %9, i64 noundef %17) #9
   tail call void @_ZN5Chunk9next_chopEPS_(ptr noundef nonnull %11) #9
-  br label %104
+  br label %100
 
-104:                                              ; preds = %103, %101
-  %105 = load ptr, ptr %12, align 8
-  %.not8.i.i.i.i = icmp eq ptr %105, %13
-  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %106
+100:                                              ; preds = %99, %97
+  %101 = load ptr, ptr %12, align 8
+  %.not8.i.i.i.i = icmp eq ptr %101, %13
+  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %102
 
-106:                                              ; preds = %104
+102:                                              ; preds = %100
   store ptr %11, ptr %10, align 8
   store ptr %13, ptr %12, align 8
   store ptr %15, ptr %14, align 8
   br label %_ZN12ResourceMarkD2Ev.exit
 
-_ZN12ResourceMarkD2Ev.exit:                       ; preds = %104, %106
+_ZN12ResourceMarkD2Ev.exit:                       ; preds = %100, %102
   ret void
 }
 

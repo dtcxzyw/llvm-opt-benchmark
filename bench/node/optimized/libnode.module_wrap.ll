@@ -1876,33 +1876,31 @@ if.then.i684:                                     ; preds = %lor.lhs.false.i
   %177 = load ptr, ptr %args, align 8
   %arrayidx.i1330 = getelementptr inbounds nuw i8, ptr %177, i64 8
   %178 = load ptr, ptr %arrayidx.i1330, align 8
-  %179 = ptrtoint ptr %178 to i64
-  %add1.i1714 = add i64 %179, 608
+  %179 = getelementptr i8, ptr %178, i64 608
   br label %cond.end
 
 if.end.i:                                         ; preds = %lor.lhs.false.i
   %180 = load ptr, ptr %values_.i, align 8
   %add.ptr.i683 = getelementptr inbounds nuw i8, ptr %180, i64 24
-  %181 = ptrtoint ptr %add.ptr.i683 to i64
   br label %cond.end
 
 cond.false:                                       ; preds = %if.end548
-  %182 = load ptr, ptr %isolate_.i, align 8
-  %183 = ptrtoint ptr %182 to i64
-  %add1.i = add i64 %183, 608
+  %181 = load ptr, ptr %isolate_.i, align 8
+  %182 = getelementptr i8, ptr %181, i64 608
   br label %cond.end
 
 cond.end:                                         ; preds = %if.then.i684, %if.end.i, %cond.false
-  %synthetic_evaluation_step.sroa.0.0 = phi i64 [ %add1.i, %cond.false ], [ %add1.i1714, %if.then.i684 ], [ %181, %if.end.i ]
+  %synthetic_evaluation_step.sroa.0.0 = phi ptr [ %182, %cond.false ], [ %179, %if.then.i684 ], [ %add.ptr.i683, %if.end.i ]
   %call569 = call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #20
-  call void @_ZN4node6loader10ModuleWrapC2EPNS_5RealmEN2v85LocalINS4_6ObjectEEENS5_INS4_6ModuleEEENS5_INS4_6StringEEES7_NS5_INS4_5ValueEEE(ptr noundef nonnull align 8 dereferenceable(112) %call569, ptr noundef nonnull %retval.0.i.i, ptr nonnull %add.ptr.i, ptr %module.sroa.0.1, ptr %retval.i974.sroa.0.0159, ptr %call550, i64 %synthetic_evaluation_step.sroa.0.0)
+  %coerce.val.pi590 = ptrtoint ptr %synthetic_evaluation_step.sroa.0.0 to i64
+  call void @_ZN4node6loader10ModuleWrapC2EPNS_5RealmEN2v85LocalINS4_6ObjectEEENS5_INS4_6ModuleEEENS5_INS4_6StringEEES7_NS5_INS4_5ValueEEE(ptr noundef nonnull align 8 dereferenceable(112) %call569, ptr noundef nonnull %retval.0.i.i, ptr nonnull %add.ptr.i, ptr %module.sroa.0.1, ptr %retval.i974.sroa.0.0159, ptr %call550, i64 %coerce.val.pi590)
   %contextify_context_ = getelementptr inbounds nuw i8, ptr %call569, i64 96
   store ptr %contextify_context.0, ptr %contextify_context_, align 8
   %call596 = call i16 @_ZN2v86Object17SetIntegrityLevelENS_5LocalINS_7ContextEEENS_14IntegrityLevelE(ptr noundef nonnull align 1 dereferenceable(1) %add.ptr.i, ptr nonnull %context.sroa.0.0, i32 noundef 0) #19
-  %184 = load ptr, ptr %args, align 8
-  %arrayidx.i = getelementptr inbounds nuw i8, ptr %184, i64 24
-  %185 = load i64, ptr %add.ptr.i, align 8
-  store i64 %185, ptr %arrayidx.i, align 8
+  %183 = load ptr, ptr %args, align 8
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr %183, i64 24
+  %184 = load i64, ptr %add.ptr.i, align 8
+  store i64 %184, ptr %arrayidx.i, align 8
   br label %cleanup605
 
 cleanup605:                                       ; preds = %if.end521, %cleanup486, %cond.end
@@ -1911,8 +1909,8 @@ cleanup605:                                       ; preds = %if.end521, %cleanup
   br i1 %cmp.not.i.i, label %_ZN4node29ShouldNotAbortOnUncaughtScopeD2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %cleanup605.thread, %cleanup605
-  %186 = load i32, ptr %should_not_abort_scope_counter_.i.i, align 8
-  %dec.i.i.i = add nsw i32 %186, -1
+  %185 = load i32, ptr %should_not_abort_scope_counter_.i.i, align 8
+  %dec.i.i.i = add nsw i32 %185, -1
   store i32 %dec.i.i.i, ptr %should_not_abort_scope_counter_.i.i, align 8
   br label %_ZN4node29ShouldNotAbortOnUncaughtScopeD2Ev.exit
 

@@ -1012,7 +1012,7 @@ _ZN10CompiledIC18ensure_initializedEP8CallInfoP5Klass.exit: ; preds = %3, %_ZN14
   %42 = tail call noundef ptr @_ZNK10NativeCall11destinationEv(ptr noundef nonnull align 1 dereferenceable(1) %41) #14
   %43 = tail call noundef ptr @_ZN11VtableStubs11entry_pointEPh(ptr noundef %42) #14
   %.not = icmp eq ptr %43, null
-  br i1 %.not, label %44, label %97
+  br i1 %.not, label %44, label %95
 
 44:                                               ; preds = %_ZN10CompiledIC18ensure_initializedEP8CallInfoP5Klass.exit
   %45 = load ptr, ptr %4, align 8
@@ -1032,85 +1032,83 @@ _ZNK14CompiledICData28is_speculated_klass_unloadedEv.exit.thread.i.i: ; preds = 
   %53 = trunc i8 %52 to i1
   %54 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %55 = load volatile i64, ptr %54, align 8
-  br i1 %53, label %56, label %65
+  br i1 %53, label %56, label %63
 
 56:                                               ; preds = %_ZNK14CompiledICData28is_speculated_klass_unloadedEv.exit.thread.i.i
   %57 = load ptr, ptr @_ZN23CompressedKlassPointers5_baseE, align 8
   %58 = load i32, ptr @_ZN23CompressedKlassPointers6_shiftE, align 4
-  %59 = ptrtoint ptr %57 to i64
-  %60 = and i64 %55, 4294967295
-  %61 = zext nneg i32 %58 to i64
-  %62 = shl i64 %60, %61
-  %63 = add i64 %62, %59
-  %64 = inttoptr i64 %63 to ptr
+  %59 = and i64 %55, 4294967295
+  %60 = zext nneg i32 %58 to i64
+  %61 = shl i64 %59, %60
+  %62 = getelementptr i8, ptr %57, i64 %61
   br label %_ZN10CompiledIC19is_speculated_klassEP5Klass.exit
 
-65:                                               ; preds = %_ZNK14CompiledICData28is_speculated_klass_unloadedEv.exit.thread.i.i
-  %66 = inttoptr i64 %55 to ptr
+63:                                               ; preds = %_ZNK14CompiledICData28is_speculated_klass_unloadedEv.exit.thread.i.i
+  %64 = inttoptr i64 %55 to ptr
   br label %_ZN10CompiledIC19is_speculated_klassEP5Klass.exit
 
-_ZN10CompiledIC19is_speculated_klassEP5Klass.exit: ; preds = %_ZNK14CompiledICData28is_speculated_klass_unloadedEv.exit.i.i, %56, %65
-  %.0.i.i = phi ptr [ %64, %56 ], [ %66, %65 ], [ null, %_ZNK14CompiledICData28is_speculated_klass_unloadedEv.exit.i.i ]
-  %67 = icmp eq ptr %.0.i.i, %2
-  br i1 %67, label %68, label %96
+_ZN10CompiledIC19is_speculated_klassEP5Klass.exit: ; preds = %_ZNK14CompiledICData28is_speculated_klass_unloadedEv.exit.i.i, %56, %63
+  %.0.i.i = phi ptr [ %62, %56 ], [ %64, %63 ], [ null, %_ZNK14CompiledICData28is_speculated_klass_unloadedEv.exit.i.i ]
+  %65 = icmp eq ptr %.0.i.i, %2
+  br i1 %65, label %66, label %94
 
-68:                                               ; preds = %_ZN10CompiledIC19is_speculated_klassEP5Klass.exit
-  %69 = load volatile ptr, ptr %45, align 8
-  %70 = getelementptr inbounds nuw i8, ptr %69, i64 72
-  %71 = load volatile ptr, ptr %70, align 8
+66:                                               ; preds = %_ZN10CompiledIC19is_speculated_klassEP5Klass.exit
+  %67 = load volatile ptr, ptr %45, align 8
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 72
+  %69 = load volatile ptr, ptr %68, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !16
-  %.not.i = icmp eq ptr %71, null
-  br i1 %.not.i, label %.thread.i, label %72
+  %.not.i = icmp eq ptr %69, null
+  br i1 %.not.i, label %.thread.i, label %70
 
-72:                                               ; preds = %68
-  %73 = getelementptr inbounds nuw i8, ptr %71, i64 211
-  %74 = load volatile i8, ptr %73, align 1
-  %75 = icmp slt i8 %74, 1
-  br i1 %75, label %76, label %.thread.i
+70:                                               ; preds = %66
+  %71 = getelementptr inbounds nuw i8, ptr %69, i64 211
+  %72 = load volatile i8, ptr %71, align 1
+  %73 = icmp slt i8 %72, 1
+  br i1 %73, label %74, label %.thread.i
 
-76:                                               ; preds = %72
-  %77 = tail call noundef zeroext i1 @_ZN7nmethod12is_unloadingEv(ptr noundef nonnull align 8 dereferenceable(214) %71) #14
-  br i1 %77, label %.thread.i, label %78
+74:                                               ; preds = %70
+  %75 = tail call noundef zeroext i1 @_ZN7nmethod12is_unloadingEv(ptr noundef nonnull align 8 dereferenceable(214) %69) #14
+  br i1 %75, label %.thread.i, label %76
 
-78:                                               ; preds = %76
-  %79 = getelementptr inbounds nuw i8, ptr %71, i64 36
-  %80 = load i32, ptr %79, align 4
-  %81 = sext i32 %80 to i64
-  %82 = getelementptr inbounds i8, ptr %71, i64 %81
-  %83 = getelementptr inbounds nuw i8, ptr %71, i64 144
-  %84 = load i16, ptr %83, align 8
-  %85 = zext i16 %84 to i64
-  %86 = getelementptr inbounds nuw i8, ptr %82, i64 %85
-  br label %88
+76:                                               ; preds = %74
+  %77 = getelementptr inbounds nuw i8, ptr %69, i64 36
+  %78 = load i32, ptr %77, align 4
+  %79 = sext i32 %78 to i64
+  %80 = getelementptr inbounds i8, ptr %69, i64 %79
+  %81 = getelementptr inbounds nuw i8, ptr %69, i64 144
+  %82 = load i16, ptr %81, align 8
+  %83 = zext i16 %82 to i64
+  %84 = getelementptr inbounds nuw i8, ptr %80, i64 %83
+  br label %86
 
-.thread.i:                                        ; preds = %76, %72, %68
-  %87 = tail call noundef ptr @_ZN6Method24get_c2i_unverified_entryEv(ptr noundef nonnull align 8 dereferenceable(88) %69) #14
-  br label %88
+.thread.i:                                        ; preds = %74, %70, %66
+  %85 = tail call noundef ptr @_ZN6Method24get_c2i_unverified_entryEv(ptr noundef nonnull align 8 dereferenceable(88) %67) #14
+  br label %86
 
-88:                                               ; preds = %.thread.i, %78
-  %89 = phi ptr [ @.str.5, %78 ], [ @.str.6, %.thread.i ]
-  %.0.i = phi ptr [ %86, %78 ], [ %87, %.thread.i ]
-  %90 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE59ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
-  %.not11.i = icmp eq ptr %90, null
-  br i1 %.not11.i, label %_ZN10CompiledIC18set_to_monomorphicEv.exit, label %91
+86:                                               ; preds = %.thread.i, %76
+  %87 = phi ptr [ @.str.5, %76 ], [ @.str.6, %.thread.i ]
+  %.0.i = phi ptr [ %84, %76 ], [ %85, %.thread.i ]
+  %88 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE59ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
+  %.not11.i = icmp eq ptr %88, null
+  br i1 %.not11.i, label %_ZN10CompiledIC18set_to_monomorphicEv.exit, label %89
 
-91:                                               ; preds = %88
-  %92 = load ptr, ptr %40, align 8
-  %93 = ptrtoint ptr %92 to i64
-  %94 = tail call noundef ptr @_ZNK8Metadata18print_value_stringEv(ptr noundef nonnull align 8 dereferenceable(8) %69) #14
-  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE59ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.4, i64 noundef %93, ptr noundef nonnull %89, ptr noundef %94)
+89:                                               ; preds = %86
+  %90 = load ptr, ptr %40, align 8
+  %91 = ptrtoint ptr %90 to i64
+  %92 = tail call noundef ptr @_ZNK8Metadata18print_value_stringEv(ptr noundef nonnull align 8 dereferenceable(8) %67) #14
+  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE59ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.4, i64 noundef %91, ptr noundef nonnull %87, ptr noundef %92)
   br label %_ZN10CompiledIC18set_to_monomorphicEv.exit
 
-_ZN10CompiledIC18set_to_monomorphicEv.exit:       ; preds = %88, %91
-  %95 = load ptr, ptr %40, align 8
-  tail call void @_ZN10NativeCall23set_destination_mt_safeEPh(ptr noundef nonnull align 1 dereferenceable(1) %95, ptr noundef %.0.i) #14
-  br label %97
+_ZN10CompiledIC18set_to_monomorphicEv.exit:       ; preds = %86, %89
+  %93 = load ptr, ptr %40, align 8
+  tail call void @_ZN10NativeCall23set_destination_mt_safeEPh(ptr noundef nonnull align 1 dereferenceable(1) %93, ptr noundef %.0.i) #14
+  br label %95
 
-96:                                               ; preds = %_ZN10CompiledIC19is_speculated_klassEP5Klass.exit
+94:                                               ; preds = %_ZN10CompiledIC19is_speculated_klassEP5Klass.exit
   tail call void @_ZN10CompiledIC18set_to_megamorphicEP8CallInfo(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1)
-  br label %97
+  br label %95
 
-97:                                               ; preds = %_ZN10CompiledIC18ensure_initializedEP8CallInfoP5Klass.exit, %96, %_ZN10CompiledIC18set_to_monomorphicEv.exit
+95:                                               ; preds = %_ZN10CompiledIC18ensure_initializedEP8CallInfoP5Klass.exit, %94, %_ZN10CompiledIC18set_to_monomorphicEv.exit
   ret void
 }
 
@@ -1144,27 +1142,25 @@ _ZNK14CompiledICData28is_speculated_klass_unloadedEv.exit.thread.i: ; preds = %_
   %12 = trunc i8 %11 to i1
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %14 = load volatile i64, ptr %13, align 8
-  br i1 %12, label %15, label %24
+  br i1 %12, label %15, label %22
 
 15:                                               ; preds = %_ZNK14CompiledICData28is_speculated_klass_unloadedEv.exit.thread.i
   %16 = load ptr, ptr @_ZN23CompressedKlassPointers5_baseE, align 8
   %17 = load i32, ptr @_ZN23CompressedKlassPointers6_shiftE, align 4
-  %18 = ptrtoint ptr %16 to i64
-  %19 = and i64 %14, 4294967295
-  %20 = zext nneg i32 %17 to i64
-  %21 = shl i64 %19, %20
-  %22 = add i64 %21, %18
-  %23 = inttoptr i64 %22 to ptr
+  %18 = and i64 %14, 4294967295
+  %19 = zext nneg i32 %17 to i64
+  %20 = shl i64 %18, %19
+  %21 = getelementptr i8, ptr %16, i64 %20
   br label %_ZNK14CompiledICData16speculated_klassEv.exit
 
-24:                                               ; preds = %_ZNK14CompiledICData28is_speculated_klass_unloadedEv.exit.thread.i
-  %25 = inttoptr i64 %14 to ptr
+22:                                               ; preds = %_ZNK14CompiledICData28is_speculated_klass_unloadedEv.exit.thread.i
+  %23 = inttoptr i64 %14 to ptr
   br label %_ZNK14CompiledICData16speculated_klassEv.exit
 
-_ZNK14CompiledICData16speculated_klassEv.exit:    ; preds = %_ZNK14CompiledICData28is_speculated_klass_unloadedEv.exit.i, %15, %24
-  %.0.i = phi ptr [ %23, %15 ], [ %25, %24 ], [ null, %_ZNK14CompiledICData28is_speculated_klass_unloadedEv.exit.i ]
-  %26 = icmp eq ptr %.0.i, %1
-  ret i1 %26
+_ZNK14CompiledICData16speculated_klassEv.exit:    ; preds = %_ZNK14CompiledICData28is_speculated_klass_unloadedEv.exit.i, %15, %22
+  %.0.i = phi ptr [ %21, %15 ], [ %23, %22 ], [ null, %_ZNK14CompiledICData28is_speculated_klass_unloadedEv.exit.i ]
+  %24 = icmp eq ptr %.0.i, %1
+  ret i1 %24
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

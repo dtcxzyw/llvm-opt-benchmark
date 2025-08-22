@@ -13499,66 +13499,64 @@ define hidden void @_ZN11JvmtiExport36record_vm_internal_object_allocationEP7oop
   %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
-  br i1 %.not, label %37, label %4
+  br i1 %.not, label %35, label %4
 
 4:                                                ; preds = %1
   %5 = load ptr, ptr %3, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %7 = load ptr, ptr %6, align 8
   %8 = tail call noundef zeroext i1 %7(ptr noundef nonnull align 8 dereferenceable(888) %3) #20
-  br i1 %8, label %9, label %37
+  br i1 %8, label %9, label %35
 
 9:                                                ; preds = %4
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 1536
   %11 = load ptr, ptr %10, align 8
   %.not12 = icmp eq ptr %11, null
-  br i1 %.not12, label %37, label %12
+  br i1 %.not12, label %35, label %12
 
 12:                                               ; preds = %9
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 120
   %14 = load ptr, ptr %13, align 8
   %.not13 = icmp eq ptr %14, null
-  br i1 %.not13, label %37, label %15
+  br i1 %.not13, label %35, label %15
 
 15:                                               ; preds = %12
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 32
   %17 = load i8, ptr %16, align 8
   %18 = trunc i8 %17 to i1
-  br i1 %18, label %19, label %37
+  br i1 %18, label %19, label %35
 
 19:                                               ; preds = %15
   %20 = load i8, ptr @UseCompressedClassPointers, align 1
   %21 = trunc i8 %20 to i1
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  br i1 %21, label %23, label %33
+  br i1 %21, label %23, label %31
 
 23:                                               ; preds = %19
   %24 = load i32, ptr %22, align 8
   %25 = load ptr, ptr @_ZN23CompressedKlassPointers5_baseE, align 8
   %26 = load i32, ptr @_ZN23CompressedKlassPointers6_shiftE, align 4
-  %27 = ptrtoint ptr %25 to i64
-  %28 = zext i32 %24 to i64
-  %29 = zext nneg i32 %26 to i64
-  %30 = shl i64 %28, %29
-  %31 = add i64 %30, %27
-  %32 = inttoptr i64 %31 to ptr
+  %27 = zext i32 %24 to i64
+  %28 = zext nneg i32 %26 to i64
+  %29 = shl i64 %27, %28
+  %30 = getelementptr i8, ptr %25, i64 %29
   br label %_ZNK7oopDesc5klassEv.exit
 
-33:                                               ; preds = %19
-  %34 = load ptr, ptr %22, align 8
+31:                                               ; preds = %19
+  %32 = load ptr, ptr %22, align 8
   br label %_ZNK7oopDesc5klassEv.exit
 
-_ZNK7oopDesc5klassEv.exit:                        ; preds = %23, %33
-  %.0.i = phi ptr [ %32, %23 ], [ %34, %33 ]
-  %35 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 16), align 8
-  %.not14 = icmp eq ptr %.0.i, %35
-  br i1 %.not14, label %37, label %36
+_ZNK7oopDesc5klassEv.exit:                        ; preds = %23, %31
+  %.0.i = phi ptr [ %30, %23 ], [ %32, %31 ]
+  %33 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 16), align 8
+  %.not14 = icmp eq ptr %.0.i, %33
+  br i1 %.not14, label %35, label %34
 
-36:                                               ; preds = %_ZNK7oopDesc5klassEv.exit
+34:                                               ; preds = %_ZNK7oopDesc5klassEv.exit
   tail call void @_ZN30JvmtiObjectAllocEventCollector17record_allocationEP7oopDesc(ptr noundef nonnull align 8 dereferenceable(48) %14, ptr noundef nonnull %0)
-  br label %37
+  br label %35
 
-37:                                               ; preds = %9, %_ZNK7oopDesc5klassEv.exit, %36, %15, %12, %4, %1
+35:                                               ; preds = %9, %_ZNK7oopDesc5klassEv.exit, %34, %15, %12, %4, %1
   ret void
 }
 

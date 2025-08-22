@@ -26742,7 +26742,7 @@ define linkonce_odr hidden noundef ptr @_ZN12G1HeapRegion33do_oops_on_memregion_
   %8 = load i8, ptr @UseCompressedClassPointers, align 1
   %9 = trunc i8 %8 to i1
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  br i1 %9, label %11, label %22
+  br i1 %9, label %11, label %20
 
 11:                                               ; preds = %4
   %12 = load volatile i32, ptr %10, align 4
@@ -26750,180 +26750,178 @@ define linkonce_odr hidden noundef ptr @_ZN12G1HeapRegion33do_oops_on_memregion_
   %13 = icmp eq i32 %12, 0
   %14 = load ptr, ptr @_ZN23CompressedKlassPointers5_baseE, align 8
   %15 = load i32, ptr @_ZN23CompressedKlassPointers6_shiftE, align 4
-  %16 = ptrtoint ptr %14 to i64
-  %17 = zext i32 %12 to i64
-  %18 = zext nneg i32 %15 to i64
-  %19 = shl i64 %17, %18
-  %20 = add i64 %19, %16
-  %21 = inttoptr i64 %20 to ptr
+  %16 = zext i32 %12 to i64
+  %17 = zext nneg i32 %15 to i64
+  %18 = shl i64 %16, %17
+  %19 = getelementptr i8, ptr %14, i64 %18
   br i1 %13, label %_ZNK7oopDesc21klass_or_null_acquireEv.exit.thread, label %_ZNK7oopDesc21klass_or_null_acquireEv.exit
 
-22:                                               ; preds = %4
-  %23 = load volatile ptr, ptr %10, align 8
+20:                                               ; preds = %4
+  %21 = load volatile ptr, ptr %10, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !17
   br label %_ZNK7oopDesc21klass_or_null_acquireEv.exit
 
-_ZNK7oopDesc21klass_or_null_acquireEv.exit:       ; preds = %11, %22
-  %.0.i = phi ptr [ %21, %11 ], [ %23, %22 ]
-  %24 = icmp eq ptr %.0.i, null
-  br i1 %24, label %_ZNK7oopDesc21klass_or_null_acquireEv.exit.thread, label %25
+_ZNK7oopDesc21klass_or_null_acquireEv.exit:       ; preds = %11, %20
+  %.0.i = phi ptr [ %19, %11 ], [ %21, %20 ]
+  %22 = icmp eq ptr %.0.i, null
+  br i1 %22, label %_ZNK7oopDesc21klass_or_null_acquireEv.exit.thread, label %23
 
-25:                                               ; preds = %_ZNK7oopDesc21klass_or_null_acquireEv.exit
-  %26 = load i8, ptr @UseCompressedClassPointers, align 1
-  %27 = trunc i8 %26 to i1
-  br i1 %27, label %28, label %38
+23:                                               ; preds = %_ZNK7oopDesc21klass_or_null_acquireEv.exit
+  %24 = load i8, ptr @UseCompressedClassPointers, align 1
+  %25 = trunc i8 %24 to i1
+  br i1 %25, label %26, label %36
 
-28:                                               ; preds = %25
-  %29 = load i32, ptr %10, align 8
-  %30 = load ptr, ptr @_ZN23CompressedKlassPointers5_baseE, align 8
-  %31 = load i32, ptr @_ZN23CompressedKlassPointers6_shiftE, align 4
-  %32 = ptrtoint ptr %30 to i64
-  %33 = zext i32 %29 to i64
-  %34 = zext nneg i32 %31 to i64
-  %35 = shl i64 %33, %34
-  %36 = add i64 %35, %32
-  %37 = inttoptr i64 %36 to ptr
+26:                                               ; preds = %23
+  %27 = load i32, ptr %10, align 8
+  %28 = load ptr, ptr @_ZN23CompressedKlassPointers5_baseE, align 8
+  %29 = load i32, ptr @_ZN23CompressedKlassPointers6_shiftE, align 4
+  %30 = ptrtoint ptr %28 to i64
+  %31 = zext i32 %27 to i64
+  %32 = zext nneg i32 %29 to i64
+  %33 = shl i64 %31, %32
+  %34 = add i64 %33, %30
+  %35 = inttoptr i64 %34 to ptr
   br label %_ZNK7oopDesc11is_objArrayEv.exit
 
-38:                                               ; preds = %25
-  %39 = load ptr, ptr %10, align 8
-  %40 = ptrtoint ptr %39 to i64
-  %41 = trunc i64 %40 to i32
+36:                                               ; preds = %23
+  %37 = load ptr, ptr %10, align 8
+  %38 = ptrtoint ptr %37 to i64
+  %39 = trunc i64 %38 to i32
   br label %_ZNK7oopDesc11is_objArrayEv.exit
 
-_ZNK7oopDesc11is_objArrayEv.exit:                 ; preds = %28, %38
-  %42 = phi i32 [ %29, %28 ], [ %41, %38 ]
-  %.0.i.i = phi ptr [ %37, %28 ], [ %39, %38 ]
-  %43 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 12
-  %44 = load i32, ptr %43, align 4
-  %45 = icmp eq i32 %44, 6
-  br i1 %45, label %49, label %46
+_ZNK7oopDesc11is_objArrayEv.exit:                 ; preds = %26, %36
+  %40 = phi i32 [ %27, %26 ], [ %39, %36 ]
+  %.0.i.i = phi ptr [ %35, %26 ], [ %37, %36 ]
+  %41 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 12
+  %42 = load i32, ptr %41, align 4
+  %43 = icmp eq i32 %42, 6
+  br i1 %43, label %47, label %44
 
-46:                                               ; preds = %_ZNK7oopDesc11is_objArrayEv.exit
-  %47 = load ptr, ptr %6, align 8
-  %48 = icmp ult ptr %47, %1
-  br i1 %48, label %49, label %67
+44:                                               ; preds = %_ZNK7oopDesc11is_objArrayEv.exit
+  %45 = load ptr, ptr %6, align 8
+  %46 = icmp ult ptr %45, %1
+  br i1 %46, label %47, label %65
 
-49:                                               ; preds = %46, %_ZNK7oopDesc11is_objArrayEv.exit
-  br i1 %27, label %50, label %59
+47:                                               ; preds = %44, %_ZNK7oopDesc11is_objArrayEv.exit
+  br i1 %25, label %48, label %57
 
-50:                                               ; preds = %49
-  %51 = load ptr, ptr @_ZN23CompressedKlassPointers5_baseE, align 8
-  %52 = load i32, ptr @_ZN23CompressedKlassPointers6_shiftE, align 4
-  %53 = ptrtoint ptr %51 to i64
-  %54 = zext i32 %42 to i64
-  %55 = zext nneg i32 %52 to i64
-  %56 = shl i64 %54, %55
-  %57 = add i64 %56, %53
-  %58 = inttoptr i64 %57 to ptr
+48:                                               ; preds = %47
+  %49 = load ptr, ptr @_ZN23CompressedKlassPointers5_baseE, align 8
+  %50 = load i32, ptr @_ZN23CompressedKlassPointers6_shiftE, align 4
+  %51 = ptrtoint ptr %49 to i64
+  %52 = zext i32 %40 to i64
+  %53 = zext nneg i32 %50 to i64
+  %54 = shl i64 %52, %53
+  %55 = add i64 %54, %51
+  %56 = inttoptr i64 %55 to ptr
   br label %_ZN7oopDesc11oop_iterateI28G1ConcurrentRefineOopClosureEEvPT_9MemRegion.exit
 
-59:                                               ; preds = %49
-  %60 = load ptr, ptr %10, align 8
+57:                                               ; preds = %47
+  %58 = load ptr, ptr %10, align 8
   br label %_ZN7oopDesc11oop_iterateI28G1ConcurrentRefineOopClosureEEvPT_9MemRegion.exit
 
-_ZN7oopDesc11oop_iterateI28G1ConcurrentRefineOopClosureEEvPT_9MemRegion.exit: ; preds = %50, %59
-  %.0.i.i11 = phi ptr [ %58, %50 ], [ %60, %59 ]
-  %61 = getelementptr inbounds nuw i8, ptr %.0.i.i11, i64 12
-  %62 = load i32, ptr %61, align 4
-  %63 = sext i32 %62 to i64
-  %64 = getelementptr inbounds [7 x ptr], ptr @_ZN28OopOopIterateBoundedDispatchI28G1ConcurrentRefineOopClosureE6_tableE, i64 0, i64 %63
-  %65 = load ptr, ptr %64, align 8
-  tail call void %65(ptr noundef %3, ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef %.0.i.i11, ptr %1, i64 %2) #18
-  %66 = getelementptr inbounds ptr, ptr %1, i64 %2
+_ZN7oopDesc11oop_iterateI28G1ConcurrentRefineOopClosureEEvPT_9MemRegion.exit: ; preds = %48, %57
+  %.0.i.i11 = phi ptr [ %56, %48 ], [ %58, %57 ]
+  %59 = getelementptr inbounds nuw i8, ptr %.0.i.i11, i64 12
+  %60 = load i32, ptr %59, align 4
+  %61 = sext i32 %60 to i64
+  %62 = getelementptr inbounds [7 x ptr], ptr @_ZN28OopOopIterateBoundedDispatchI28G1ConcurrentRefineOopClosureE6_tableE, i64 0, i64 %61
+  %63 = load ptr, ptr %62, align 8
+  tail call void %63(ptr noundef %3, ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef %.0.i.i11, ptr %1, i64 %2) #18
+  %64 = getelementptr inbounds ptr, ptr %1, i64 %2
   br label %_ZNK7oopDesc21klass_or_null_acquireEv.exit.thread
 
-67:                                               ; preds = %46
-  br i1 %27, label %68, label %77
+65:                                               ; preds = %44
+  br i1 %25, label %66, label %75
 
-68:                                               ; preds = %67
-  %69 = load ptr, ptr @_ZN23CompressedKlassPointers5_baseE, align 8
-  %70 = load i32, ptr @_ZN23CompressedKlassPointers6_shiftE, align 4
-  %71 = ptrtoint ptr %69 to i64
-  %72 = zext i32 %42 to i64
-  %73 = zext nneg i32 %70 to i64
-  %74 = shl i64 %72, %73
-  %75 = add i64 %74, %71
-  %76 = inttoptr i64 %75 to ptr
+66:                                               ; preds = %65
+  %67 = load ptr, ptr @_ZN23CompressedKlassPointers5_baseE, align 8
+  %68 = load i32, ptr @_ZN23CompressedKlassPointers6_shiftE, align 4
+  %69 = ptrtoint ptr %67 to i64
+  %70 = zext i32 %40 to i64
+  %71 = zext nneg i32 %68 to i64
+  %72 = shl i64 %70, %71
+  %73 = add i64 %72, %69
+  %74 = inttoptr i64 %73 to ptr
   br label %_ZNK7oopDesc5klassEv.exit.i
 
-77:                                               ; preds = %67
-  %78 = load ptr, ptr %10, align 8
+75:                                               ; preds = %65
+  %76 = load ptr, ptr %10, align 8
   br label %_ZNK7oopDesc5klassEv.exit.i
 
-_ZNK7oopDesc5klassEv.exit.i:                      ; preds = %77, %68
-  %.0.i.i12 = phi ptr [ %76, %68 ], [ %78, %77 ]
-  %79 = getelementptr inbounds nuw i8, ptr %.0.i.i12, i64 8
-  %80 = load i32, ptr %79, align 8
-  %81 = icmp sgt i32 %80, 0
-  br i1 %81, label %82, label %92
+_ZNK7oopDesc5klassEv.exit.i:                      ; preds = %75, %66
+  %.0.i.i12 = phi ptr [ %74, %66 ], [ %76, %75 ]
+  %77 = getelementptr inbounds nuw i8, ptr %.0.i.i12, i64 8
+  %78 = load i32, ptr %77, align 8
+  %79 = icmp sgt i32 %78, 0
+  br i1 %79, label %80, label %90
 
-82:                                               ; preds = %_ZNK7oopDesc5klassEv.exit.i
-  %83 = and i32 %80, 1
-  %.not.i.i = icmp eq i32 %83, 0
-  br i1 %.not.i.i, label %84, label %87
+80:                                               ; preds = %_ZNK7oopDesc5klassEv.exit.i
+  %81 = and i32 %78, 1
+  %.not.i.i = icmp eq i32 %81, 0
+  br i1 %.not.i.i, label %82, label %85
 
-84:                                               ; preds = %82
-  %85 = lshr i32 %80, 3
-  %86 = zext nneg i32 %85 to i64
+82:                                               ; preds = %80
+  %83 = lshr i32 %78, 3
+  %84 = zext nneg i32 %83 to i64
   br label %_ZN7oopDesc16oop_iterate_sizeI28G1ConcurrentRefineOopClosureEEmPT_.exit
 
-87:                                               ; preds = %82
-  %88 = load ptr, ptr %.0.i.i12, align 8
-  %89 = getelementptr inbounds nuw i8, ptr %88, i64 256
-  %90 = load ptr, ptr %89, align 8
-  %91 = tail call noundef i64 %90(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i12, ptr noundef nonnull align 8 dereferenceable(16) %7) #18
+85:                                               ; preds = %80
+  %86 = load ptr, ptr %.0.i.i12, align 8
+  %87 = getelementptr inbounds nuw i8, ptr %86, i64 256
+  %88 = load ptr, ptr %87, align 8
+  %89 = tail call noundef i64 %88(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i12, ptr noundef nonnull align 8 dereferenceable(16) %7) #18
   br label %_ZN7oopDesc16oop_iterate_sizeI28G1ConcurrentRefineOopClosureEEmPT_.exit
 
-92:                                               ; preds = %_ZNK7oopDesc5klassEv.exit.i
-  %93 = icmp slt i32 %80, 0
-  br i1 %93, label %94, label %114
+90:                                               ; preds = %_ZNK7oopDesc5klassEv.exit.i
+  %91 = icmp slt i32 %78, 0
+  br i1 %91, label %92, label %112
 
-94:                                               ; preds = %92
-  %95 = select i1 %27, i64 12, i64 16
-  %96 = getelementptr inbounds nuw i8, ptr %7, i64 %95
-  %97 = load i32, ptr %96, align 4
-  %98 = sext i32 %97 to i64
-  %99 = and i32 %80, 63
-  %100 = zext nneg i32 %99 to i64
-  %101 = shl i64 %98, %100
-  %102 = lshr i32 %80, 16
-  %103 = and i32 %102, 255
-  %104 = zext nneg i32 %103 to i64
-  %105 = add i64 %101, %104
-  %106 = load i32, ptr @MinObjAlignmentInBytes, align 4
-  %107 = add nsw i32 %106, -1
-  %108 = sext i32 %107 to i64
-  %109 = add i64 %105, %108
-  %110 = sub i32 0, %106
-  %111 = sext i32 %110 to i64
-  %112 = and i64 %109, %111
-  %113 = lshr i64 %112, 3
+92:                                               ; preds = %90
+  %93 = select i1 %25, i64 12, i64 16
+  %94 = getelementptr inbounds nuw i8, ptr %7, i64 %93
+  %95 = load i32, ptr %94, align 4
+  %96 = sext i32 %95 to i64
+  %97 = and i32 %78, 63
+  %98 = zext nneg i32 %97 to i64
+  %99 = shl i64 %96, %98
+  %100 = lshr i32 %78, 16
+  %101 = and i32 %100, 255
+  %102 = zext nneg i32 %101 to i64
+  %103 = add i64 %99, %102
+  %104 = load i32, ptr @MinObjAlignmentInBytes, align 4
+  %105 = add nsw i32 %104, -1
+  %106 = sext i32 %105 to i64
+  %107 = add i64 %103, %106
+  %108 = sub i32 0, %104
+  %109 = sext i32 %108 to i64
+  %110 = and i64 %107, %109
+  %111 = lshr i64 %110, 3
   br label %_ZN7oopDesc16oop_iterate_sizeI28G1ConcurrentRefineOopClosureEEmPT_.exit
 
-114:                                              ; preds = %92
-  %115 = load ptr, ptr %.0.i.i12, align 8
-  %116 = getelementptr inbounds nuw i8, ptr %115, i64 256
-  %117 = load ptr, ptr %116, align 8
-  %118 = tail call noundef i64 %117(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i12, ptr noundef nonnull align 8 dereferenceable(16) %7) #18
+112:                                              ; preds = %90
+  %113 = load ptr, ptr %.0.i.i12, align 8
+  %114 = getelementptr inbounds nuw i8, ptr %113, i64 256
+  %115 = load ptr, ptr %114, align 8
+  %116 = tail call noundef i64 %115(ptr noundef nonnull align 8 dereferenceable(196) %.0.i.i12, ptr noundef nonnull align 8 dereferenceable(16) %7) #18
   br label %_ZN7oopDesc16oop_iterate_sizeI28G1ConcurrentRefineOopClosureEEmPT_.exit
 
-_ZN7oopDesc16oop_iterate_sizeI28G1ConcurrentRefineOopClosureEEmPT_.exit: ; preds = %84, %87, %94, %114
-  %.0.i4.i = phi i64 [ %91, %87 ], [ %86, %84 ], [ %113, %94 ], [ %118, %114 ]
-  %119 = getelementptr inbounds nuw i8, ptr %.0.i.i12, i64 12
-  %120 = load i32, ptr %119, align 4
-  %121 = sext i32 %120 to i64
-  %122 = getelementptr inbounds [7 x ptr], ptr @_ZN21OopOopIterateDispatchI28G1ConcurrentRefineOopClosureE6_tableE, i64 0, i64 %121
-  %123 = load ptr, ptr %122, align 8
-  tail call void %123(ptr noundef %3, ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull %.0.i.i12) #18
-  %124 = getelementptr inbounds ptr, ptr %7, i64 %.0.i4.i
-  %125 = getelementptr inbounds ptr, ptr %1, i64 %2
-  %126 = icmp ugt ptr %124, %125
-  %127 = select i1 %126, ptr %124, ptr %125
+_ZN7oopDesc16oop_iterate_sizeI28G1ConcurrentRefineOopClosureEEmPT_.exit: ; preds = %82, %85, %92, %112
+  %.0.i4.i = phi i64 [ %89, %85 ], [ %84, %82 ], [ %111, %92 ], [ %116, %112 ]
+  %117 = getelementptr inbounds nuw i8, ptr %.0.i.i12, i64 12
+  %118 = load i32, ptr %117, align 4
+  %119 = sext i32 %118 to i64
+  %120 = getelementptr inbounds [7 x ptr], ptr @_ZN21OopOopIterateDispatchI28G1ConcurrentRefineOopClosureE6_tableE, i64 0, i64 %119
+  %121 = load ptr, ptr %120, align 8
+  tail call void %121(ptr noundef %3, ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull %.0.i.i12) #18
+  %122 = getelementptr inbounds ptr, ptr %7, i64 %.0.i4.i
+  %123 = getelementptr inbounds ptr, ptr %1, i64 %2
+  %124 = icmp ugt ptr %122, %123
+  %125 = select i1 %124, ptr %122, ptr %123
   br label %_ZNK7oopDesc21klass_or_null_acquireEv.exit.thread
 
 _ZNK7oopDesc21klass_or_null_acquireEv.exit.thread: ; preds = %11, %_ZNK7oopDesc21klass_or_null_acquireEv.exit, %_ZN7oopDesc16oop_iterate_sizeI28G1ConcurrentRefineOopClosureEEmPT_.exit, %_ZN7oopDesc11oop_iterateI28G1ConcurrentRefineOopClosureEEvPT_9MemRegion.exit
-  %.0 = phi ptr [ %66, %_ZN7oopDesc11oop_iterateI28G1ConcurrentRefineOopClosureEEvPT_9MemRegion.exit ], [ %127, %_ZN7oopDesc16oop_iterate_sizeI28G1ConcurrentRefineOopClosureEEmPT_.exit ], [ null, %_ZNK7oopDesc21klass_or_null_acquireEv.exit ], [ null, %11 ]
+  %.0 = phi ptr [ %64, %_ZN7oopDesc11oop_iterateI28G1ConcurrentRefineOopClosureEEvPT_9MemRegion.exit ], [ %125, %_ZN7oopDesc16oop_iterate_sizeI28G1ConcurrentRefineOopClosureEEmPT_.exit ], [ null, %_ZNK7oopDesc21klass_or_null_acquireEv.exit ], [ null, %11 ]
   ret ptr %.0
 }
 

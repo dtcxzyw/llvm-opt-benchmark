@@ -489,69 +489,68 @@ _ZNK7oopDesc5klassEv.exit:                        ; preds = %21, %11, %3
   %28 = load i8, ptr @UseCompressedClassPointers, align 1
   %29 = trunc i8 %28 to i1
   %30 = getelementptr inbounds nuw i8, ptr %25, i64 8
-  br i1 %29, label %31, label %40
+  br i1 %29, label %31, label %39
 
 31:                                               ; preds = %27
   %32 = load i32, ptr %30, align 8
   %33 = load ptr, ptr @_ZN23CompressedKlassPointers5_baseE, align 8
   %34 = load i32, ptr @_ZN23CompressedKlassPointers6_shiftE, align 4
-  %35 = ptrtoint ptr %33 to i64
-  %36 = zext i32 %32 to i64
-  %37 = zext nneg i32 %34 to i64
-  %38 = shl i64 %36, %37
-  %39 = add i64 %38, %35
+  %35 = zext i32 %32 to i64
+  %36 = zext nneg i32 %34 to i64
+  %37 = shl i64 %35, %36
+  %38 = getelementptr i8, ptr %33, i64 %37
   br label %_ZNK7oopDesc5klassEv.exit22
 
-40:                                               ; preds = %27
-  %41 = load ptr, ptr %30, align 8
-  %42 = ptrtoint ptr %41 to i64
+39:                                               ; preds = %27
+  %40 = load ptr, ptr %30, align 8
   br label %_ZNK7oopDesc5klassEv.exit22
 
-_ZNK7oopDesc5klassEv.exit22:                      ; preds = %40, %31, %_ZNK7oopDesc5klassEv.exit
-  %43 = phi i64 [ 0, %_ZNK7oopDesc5klassEv.exit ], [ %39, %31 ], [ %42, %40 ]
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %45 = load ptr, ptr %44, align 8
-  %46 = ptrtoint ptr %23 to i64
-  %47 = load ptr, ptr %2, align 8
-  %48 = ptrtoint ptr %47 to i64
-  %49 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  %50 = load i64, ptr %49, align 8
-  %51 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %52 = load i64, ptr %51, align 8
-  %53 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %54 = load i64, ptr %53, align 8
-  tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %45, ptr noundef nonnull @.str, i64 noundef %46, i64 noundef %43, i64 noundef %48, i64 noundef %50, i64 noundef %52, i64 noundef %54) #7
+_ZNK7oopDesc5klassEv.exit22:                      ; preds = %39, %31, %_ZNK7oopDesc5klassEv.exit
+  %41 = phi ptr [ null, %_ZNK7oopDesc5klassEv.exit ], [ %38, %31 ], [ %40, %39 ]
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %43 = load ptr, ptr %42, align 8
+  %44 = ptrtoint ptr %23 to i64
+  %45 = ptrtoint ptr %41 to i64
+  %46 = load ptr, ptr %2, align 8
+  %47 = ptrtoint ptr %46 to i64
+  %48 = getelementptr inbounds nuw i8, ptr %2, i64 40
+  %49 = load i64, ptr %48, align 8
+  %50 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %51 = load i64, ptr %50, align 8
+  %52 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %53 = load i64, ptr %52, align 8
+  tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %43, ptr noundef nonnull @.str, i64 noundef %44, i64 noundef %45, i64 noundef %47, i64 noundef %49, i64 noundef %51, i64 noundef %53) #7
   %.not = icmp eq ptr %23, null
-  %55 = load ptr, ptr %44, align 8
-  br i1 %.not, label %58, label %56
+  %54 = load ptr, ptr %42, align 8
+  br i1 %.not, label %57, label %55
 
-56:                                               ; preds = %_ZNK7oopDesc5klassEv.exit22
-  %57 = tail call noundef ptr @_ZNK5Klass13external_nameEv(ptr noundef nonnull align 8 dereferenceable(196) %23) #7
-  tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %55, ptr noundef nonnull @.str.4, ptr noundef %57) #7
-  br label %59
+55:                                               ; preds = %_ZNK7oopDesc5klassEv.exit22
+  %56 = tail call noundef ptr @_ZNK5Klass13external_nameEv(ptr noundef nonnull align 8 dereferenceable(196) %23) #7
+  tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %54, ptr noundef nonnull @.str.4, ptr noundef %56) #7
+  br label %58
 
-58:                                               ; preds = %_ZNK7oopDesc5klassEv.exit22
-  tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %55, ptr noundef nonnull @.str.5) #7
-  br label %59
+57:                                               ; preds = %_ZNK7oopDesc5klassEv.exit22
+  tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %54, ptr noundef nonnull @.str.5) #7
+  br label %58
 
-59:                                               ; preds = %58, %56
-  %60 = load ptr, ptr %44, align 8
-  tail call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %60) #7
-  %61 = getelementptr inbounds nuw i8, ptr %2, i64 64
-  %62 = load i64, ptr %61, align 8
-  %.not20 = icmp eq i64 %62, 0
-  br i1 %.not20, label %69, label %63
+58:                                               ; preds = %57, %55
+  %59 = load ptr, ptr %42, align 8
+  tail call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %59) #7
+  %60 = getelementptr inbounds nuw i8, ptr %2, i64 64
+  %61 = load i64, ptr %60, align 8
+  %.not20 = icmp eq i64 %61, 0
+  br i1 %.not20, label %68, label %62
 
-63:                                               ; preds = %59
-  %64 = load ptr, ptr %44, align 8
-  %65 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %66 = load i64, ptr %65, align 8
-  %67 = getelementptr inbounds nuw i8, ptr %2, i64 56
-  %68 = load i64, ptr %67, align 8
-  tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %64, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.7, i64 noundef %62, i64 noundef %66, i64 noundef %68) #7
-  br label %69
+62:                                               ; preds = %58
+  %63 = load ptr, ptr %42, align 8
+  %64 = getelementptr inbounds nuw i8, ptr %2, i64 48
+  %65 = load i64, ptr %64, align 8
+  %66 = getelementptr inbounds nuw i8, ptr %2, i64 56
+  %67 = load i64, ptr %66, align 8
+  tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %63, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.7, i64 noundef %61, i64 noundef %65, i64 noundef %67) #7
+  br label %68
 
-69:                                               ; preds = %63, %59
+68:                                               ; preds = %62, %58
   ret i1 true
 }
 

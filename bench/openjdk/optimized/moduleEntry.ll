@@ -1205,86 +1205,84 @@ _ZNK15ClassLoaderData12class_loaderEv.exit:       ; preds = %1, %5
   %23 = load i8, ptr @UseCompressedClassPointers, align 1
   %24 = trunc i8 %23 to i1
   %25 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  br i1 %24, label %26, label %36
+  br i1 %24, label %26, label %34
 
 26:                                               ; preds = %22
   %27 = load i32, ptr %25, align 8
   %28 = load ptr, ptr @_ZN23CompressedKlassPointers5_baseE, align 8
   %29 = load i32, ptr @_ZN23CompressedKlassPointers6_shiftE, align 4
-  %30 = ptrtoint ptr %28 to i64
-  %31 = zext i32 %27 to i64
-  %32 = zext nneg i32 %29 to i64
-  %33 = shl i64 %31, %32
-  %34 = add i64 %33, %30
-  %35 = inttoptr i64 %34 to ptr
+  %30 = zext i32 %27 to i64
+  %31 = zext nneg i32 %29 to i64
+  %32 = shl i64 %30, %31
+  %33 = getelementptr i8, ptr %28, i64 %32
   br label %_ZN16java_lang_Module11is_instanceEP7oopDesc.exit
 
-36:                                               ; preds = %22
-  %37 = load ptr, ptr %25, align 8
+34:                                               ; preds = %22
+  %35 = load ptr, ptr %25, align 8
   br label %_ZN16java_lang_Module11is_instanceEP7oopDesc.exit
 
-_ZN16java_lang_Module11is_instanceEP7oopDesc.exit: ; preds = %26, %36
-  %.0.i.i = phi ptr [ %35, %26 ], [ %37, %36 ]
-  %38 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 328), align 8
-  %39 = icmp eq ptr %.0.i.i, %38
-  br i1 %39, label %42, label %_ZN16java_lang_Module11is_instanceEP7oopDesc.exit.thread
+_ZN16java_lang_Module11is_instanceEP7oopDesc.exit: ; preds = %26, %34
+  %.0.i.i = phi ptr [ %33, %26 ], [ %35, %34 ]
+  %36 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 328), align 8
+  %37 = icmp eq ptr %.0.i.i, %36
+  br i1 %37, label %40, label %_ZN16java_lang_Module11is_instanceEP7oopDesc.exit.thread
 
 _ZN16java_lang_Module11is_instanceEP7oopDesc.exit.thread: ; preds = %_ZNK15ClassLoaderData12class_loaderEv.exit, %_ZN16java_lang_Module11is_instanceEP7oopDesc.exit
-  %40 = load ptr, ptr @g_assert_poison, align 8
-  store i8 88, ptr %40, align 1
-  %41 = tail call noundef ptr @_ZNK15ClassLoaderData18loader_name_and_idEv(ptr noundef nonnull align 8 dereferenceable(160) %0) #16
-  tail call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str.9, i32 noundef 326, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, ptr noundef %41) #18
+  %38 = load ptr, ptr @g_assert_poison, align 8
+  store i8 88, ptr %38, align 1
+  %39 = tail call noundef ptr @_ZNK15ClassLoaderData18loader_name_and_idEv(ptr noundef nonnull align 8 dereferenceable(160) %0) #16
+  tail call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str.9, i32 noundef 326, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, ptr noundef %39) #18
   unreachable
 
-42:                                               ; preds = %_ZN16java_lang_Module11is_instanceEP7oopDesc.exit
-  %43 = getelementptr inbounds nuw i8, ptr %11, i64 808
+40:                                               ; preds = %_ZN16java_lang_Module11is_instanceEP7oopDesc.exit
+  %41 = getelementptr inbounds nuw i8, ptr %11, i64 808
+  %42 = load ptr, ptr %41, align 8
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 40
   %44 = load ptr, ptr %43, align 8
-  %45 = getelementptr inbounds nuw i8, ptr %44, i64 40
+  %45 = getelementptr inbounds nuw i8, ptr %42, i64 32
   %46 = load ptr, ptr %45, align 8
-  %47 = getelementptr inbounds nuw i8, ptr %44, i64 32
-  %48 = load ptr, ptr %47, align 8
-  %49 = ptrtoint ptr %46 to i64
-  %50 = ptrtoint ptr %48 to i64
-  %51 = sub i64 %49, %50
-  %.not.i.i.i.i = icmp ult i64 %51, 8
-  br i1 %.not.i.i.i.i, label %54, label %52
+  %47 = ptrtoint ptr %44 to i64
+  %48 = ptrtoint ptr %46 to i64
+  %49 = sub i64 %47, %48
+  %.not.i.i.i.i = icmp ult i64 %49, 8
+  br i1 %.not.i.i.i.i, label %52, label %50
 
-52:                                               ; preds = %42
-  %53 = getelementptr inbounds nuw i8, ptr %48, i64 8
-  store ptr %53, ptr %47, align 8
+50:                                               ; preds = %40
+  %51 = getelementptr inbounds nuw i8, ptr %46, i64 8
+  store ptr %51, ptr %45, align 8
   br label %_ZN6HandleC2EP6ThreadP7oopDesc.exit
 
-54:                                               ; preds = %42
-  %55 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(56) %44, i64 noundef 8, i32 noundef 0) #16
+52:                                               ; preds = %40
+  %53 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(56) %42, i64 noundef 8, i32 noundef 0) #16
   br label %_ZN6HandleC2EP6ThreadP7oopDesc.exit
 
-_ZN6HandleC2EP6ThreadP7oopDesc.exit:              ; preds = %52, %54
-  %.0.i.i.i.i = phi ptr [ %48, %52 ], [ %55, %54 ]
+_ZN6HandleC2EP6ThreadP7oopDesc.exit:              ; preds = %50, %52
+  %.0.i.i.i.i = phi ptr [ %46, %50 ], [ %53, %52 ]
   store ptr %9, ptr %.0.i.i.i.i, align 8
-  %56 = tail call noundef ptr @_ZN11ModuleEntry24new_unnamed_module_entryE6HandleP15ClassLoaderData(ptr nonnull %.0.i.i.i.i, ptr noundef nonnull %0)
-  tail call void @_ZN16java_lang_Module16set_module_entryEP7oopDescP11ModuleEntry(ptr noundef nonnull %9, ptr noundef %56) #16
-  %57 = load ptr, ptr %15, align 8
-  %.not.i.i.i.i8 = icmp eq ptr %57, null
-  br i1 %.not.i.i.i.i8, label %59, label %58
+  %54 = tail call noundef ptr @_ZN11ModuleEntry24new_unnamed_module_entryE6HandleP15ClassLoaderData(ptr nonnull %.0.i.i.i.i, ptr noundef nonnull %0)
+  tail call void @_ZN16java_lang_Module16set_module_entryEP7oopDescP11ModuleEntry(ptr noundef nonnull %9, ptr noundef %54) #16
+  %55 = load ptr, ptr %15, align 8
+  %.not.i.i.i.i8 = icmp eq ptr %55, null
+  br i1 %.not.i.i.i.i8, label %57, label %56
 
-58:                                               ; preds = %_ZN6HandleC2EP6ThreadP7oopDesc.exit
+56:                                               ; preds = %_ZN6HandleC2EP6ThreadP7oopDesc.exit
   tail call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %13, i64 noundef %21) #16
   tail call void @_ZN5Chunk9next_chopEPS_(ptr noundef nonnull %15) #16
-  br label %59
+  br label %57
 
-59:                                               ; preds = %58, %_ZN6HandleC2EP6ThreadP7oopDesc.exit
-  %60 = load ptr, ptr %16, align 8
-  %.not8.i.i.i.i = icmp eq ptr %60, %17
-  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %61
+57:                                               ; preds = %56, %_ZN6HandleC2EP6ThreadP7oopDesc.exit
+  %58 = load ptr, ptr %16, align 8
+  %.not8.i.i.i.i = icmp eq ptr %58, %17
+  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %59
 
-61:                                               ; preds = %59
+59:                                               ; preds = %57
   store ptr %15, ptr %14, align 8
   store ptr %17, ptr %16, align 8
   store ptr %19, ptr %18, align 8
   br label %_ZN12ResourceMarkD2Ev.exit
 
-_ZN12ResourceMarkD2Ev.exit:                       ; preds = %59, %61
-  ret ptr %56
+_ZN12ResourceMarkD2Ev.exit:                       ; preds = %57, %59
+  ret ptr %54
 }
 
 declare noundef ptr @_ZN21java_lang_ClassLoader13unnamedModuleEP7oopDesc(ptr noundef) local_unnamed_addr #1

@@ -1241,69 +1241,67 @@ _ZNK14LoaderTreeNode12loader_klassEv.exit.i:      ; preds = %37, %27
 
 43:                                               ; preds = %41
   %44 = getelementptr inbounds nuw i8, ptr %42, i64 8
-  br i1 %25, label %45, label %55
+  br i1 %25, label %45, label %53
 
 45:                                               ; preds = %43
   %46 = load i32, ptr %44, align 8
   %47 = load ptr, ptr @_ZN23CompressedKlassPointers5_baseE, align 8
   %48 = load i32, ptr @_ZN23CompressedKlassPointers6_shiftE, align 4
-  %49 = ptrtoint ptr %47 to i64
-  %50 = zext i32 %46 to i64
-  %51 = zext nneg i32 %48 to i64
-  %52 = shl i64 %50, %51
-  %53 = add i64 %52, %49
-  %54 = inttoptr i64 %53 to ptr
+  %49 = zext i32 %46 to i64
+  %50 = zext nneg i32 %48 to i64
+  %51 = shl i64 %49, %50
+  %52 = getelementptr i8, ptr %47, i64 %51
   br label %_ZNK14LoaderTreeNode12loader_klassEv.exit9.i
 
-55:                                               ; preds = %43
-  %56 = load ptr, ptr %44, align 8
+53:                                               ; preds = %43
+  %54 = load ptr, ptr %44, align 8
   br label %_ZNK14LoaderTreeNode12loader_klassEv.exit9.i
 
-_ZNK14LoaderTreeNode12loader_klassEv.exit9.i:     ; preds = %55, %45, %41
-  %57 = phi ptr [ null, %41 ], [ %54, %45 ], [ %56, %55 ]
-  %.not.i = icmp eq ptr %39, %57
+_ZNK14LoaderTreeNode12loader_klassEv.exit9.i:     ; preds = %53, %45, %41
+  %55 = phi ptr [ null, %41 ], [ %52, %45 ], [ %54, %53 ]
+  %.not.i = icmp eq ptr %39, %55
   br i1 %.not.i, label %_ZNK14LoaderTreeNode15loader_name_oopEv.exit.i.i, label %_ZNK14LoaderTreeNode13can_fold_intoEPKS_.exit.thread
 
 _ZNK14LoaderTreeNode15loader_name_oopEv.exit.i.i: ; preds = %_ZNK14LoaderTreeNode12loader_klassEv.exit9.i
-  %58 = tail call noundef ptr @_ZN21java_lang_ClassLoader4nameEP7oopDesc(ptr noundef nonnull %22) #8
-  %.not.i10.i = icmp eq ptr %58, null
-  br i1 %.not.i10.i, label %_ZNK14LoaderTreeNode11loader_nameEv.exit.i, label %59
+  %56 = tail call noundef ptr @_ZN21java_lang_ClassLoader4nameEP7oopDesc(ptr noundef nonnull %22) #8
+  %.not.i10.i = icmp eq ptr %56, null
+  br i1 %.not.i10.i, label %_ZNK14LoaderTreeNode11loader_nameEv.exit.i, label %57
 
-59:                                               ; preds = %_ZNK14LoaderTreeNode15loader_name_oopEv.exit.i.i
-  %60 = tail call noundef ptr @_ZN16java_lang_String14as_utf8_stringEP7oopDesc(ptr noundef nonnull %58) #8
+57:                                               ; preds = %_ZNK14LoaderTreeNode15loader_name_oopEv.exit.i.i
+  %58 = tail call noundef ptr @_ZN16java_lang_String14as_utf8_stringEP7oopDesc(ptr noundef nonnull %56) #8
   br label %_ZNK14LoaderTreeNode11loader_nameEv.exit.i
 
-_ZNK14LoaderTreeNode11loader_nameEv.exit.i:       ; preds = %59, %_ZNK14LoaderTreeNode15loader_name_oopEv.exit.i.i
-  %61 = phi ptr [ %60, %59 ], [ @.str.21, %_ZNK14LoaderTreeNode15loader_name_oopEv.exit.i.i ]
-  %62 = load ptr, ptr %.031, align 8
-  %.not.i.i11.i = icmp eq ptr %62, null
+_ZNK14LoaderTreeNode11loader_nameEv.exit.i:       ; preds = %57, %_ZNK14LoaderTreeNode15loader_name_oopEv.exit.i.i
+  %59 = phi ptr [ %58, %57 ], [ @.str.21, %_ZNK14LoaderTreeNode15loader_name_oopEv.exit.i.i ]
+  %60 = load ptr, ptr %.031, align 8
+  %.not.i.i11.i = icmp eq ptr %60, null
   br i1 %.not.i.i11.i, label %_ZNK14LoaderTreeNode13can_fold_intoEPKS_.exit, label %_ZNK14LoaderTreeNode15loader_name_oopEv.exit.i12.i
 
 _ZNK14LoaderTreeNode15loader_name_oopEv.exit.i12.i: ; preds = %_ZNK14LoaderTreeNode11loader_nameEv.exit.i
-  %63 = tail call noundef ptr @_ZN21java_lang_ClassLoader4nameEP7oopDesc(ptr noundef nonnull %62) #8
-  %.not.i13.i = icmp eq ptr %63, null
-  br i1 %.not.i13.i, label %_ZNK14LoaderTreeNode13can_fold_intoEPKS_.exit, label %64
+  %61 = tail call noundef ptr @_ZN21java_lang_ClassLoader4nameEP7oopDesc(ptr noundef nonnull %60) #8
+  %.not.i13.i = icmp eq ptr %61, null
+  br i1 %.not.i13.i, label %_ZNK14LoaderTreeNode13can_fold_intoEPKS_.exit, label %62
 
-64:                                               ; preds = %_ZNK14LoaderTreeNode15loader_name_oopEv.exit.i12.i
-  %65 = tail call noundef ptr @_ZN16java_lang_String14as_utf8_stringEP7oopDesc(ptr noundef nonnull %63) #8
+62:                                               ; preds = %_ZNK14LoaderTreeNode15loader_name_oopEv.exit.i12.i
+  %63 = tail call noundef ptr @_ZN16java_lang_String14as_utf8_stringEP7oopDesc(ptr noundef nonnull %61) #8
   br label %_ZNK14LoaderTreeNode13can_fold_intoEPKS_.exit
 
-_ZNK14LoaderTreeNode13can_fold_intoEPKS_.exit:    ; preds = %_ZNK14LoaderTreeNode11loader_nameEv.exit.i, %_ZNK14LoaderTreeNode15loader_name_oopEv.exit.i12.i, %64
-  %66 = phi ptr [ %65, %64 ], [ @.str.21, %_ZNK14LoaderTreeNode15loader_name_oopEv.exit.i12.i ], [ @.str.21, %_ZNK14LoaderTreeNode11loader_nameEv.exit.i ]
-  %67 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %61, ptr noundef nonnull dereferenceable(1) %66) #10
-  %.fr = freeze i32 %67
+_ZNK14LoaderTreeNode13can_fold_intoEPKS_.exit:    ; preds = %_ZNK14LoaderTreeNode11loader_nameEv.exit.i, %_ZNK14LoaderTreeNode15loader_name_oopEv.exit.i12.i, %62
+  %64 = phi ptr [ %63, %62 ], [ @.str.21, %_ZNK14LoaderTreeNode15loader_name_oopEv.exit.i12.i ], [ @.str.21, %_ZNK14LoaderTreeNode11loader_nameEv.exit.i ]
+  %65 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %59, ptr noundef nonnull dereferenceable(1) %64) #10
+  %.fr = freeze i32 %65
   %.not7.i = icmp eq i32 %.fr, 0
   %spec.select = select i1 %.not7.i, ptr %.031, ptr null
   br label %_ZNK14LoaderTreeNode13can_fold_intoEPKS_.exit.thread
 
 _ZNK14LoaderTreeNode13can_fold_intoEPKS_.exit.thread: ; preds = %_ZNK14LoaderTreeNode13can_fold_intoEPKS_.exit, %21, %_ZNK14LoaderTreeNode12loader_klassEv.exit.i, %_ZNK14LoaderTreeNode12loader_klassEv.exit9.i, %.lr.ph
   %.1 = phi ptr [ null, %.lr.ph ], [ null, %_ZNK14LoaderTreeNode12loader_klassEv.exit9.i ], [ null, %_ZNK14LoaderTreeNode12loader_klassEv.exit.i ], [ null, %21 ], [ %spec.select, %_ZNK14LoaderTreeNode13can_fold_intoEPKS_.exit ]
-  %68 = getelementptr inbounds nuw i8, ptr %.031, i64 24
-  %.0 = load ptr, ptr %68, align 8
-  %69 = icmp ne ptr %.0, %.02135
-  %70 = icmp eq ptr %.1, null
-  %71 = and i1 %70, %69
-  br i1 %71, label %.lr.ph, label %._crit_edge, !llvm.loop !13
+  %66 = getelementptr inbounds nuw i8, ptr %.031, i64 24
+  %.0 = load ptr, ptr %66, align 8
+  %67 = icmp ne ptr %.0, %.02135
+  %68 = icmp eq ptr %.1, null
+  %69 = and i1 %68, %67
+  br i1 %69, label %.lr.ph, label %._crit_edge, !llvm.loop !13
 
 .thread:                                          ; preds = %.lr.ph37
   tail call void @_ZN14LoaderTreeNode13fold_childrenEv(ptr noundef nonnull align 8 dereferenceable(64) %.02135)
@@ -1311,48 +1309,48 @@ _ZNK14LoaderTreeNode13can_fold_intoEPKS_.exit.thread: ; preds = %_ZNK14LoaderTre
 
 ._crit_edge:                                      ; preds = %_ZNK14LoaderTreeNode13can_fold_intoEPKS_.exit.thread
   %.not22 = icmp eq ptr %.1, null
-  br i1 %.not22, label %._crit_edge.thread, label %72
+  br i1 %.not22, label %._crit_edge.thread, label %70
 
-72:                                               ; preds = %._crit_edge
-  %73 = getelementptr inbounds nuw i8, ptr %.1, i64 60
-  %74 = load i32, ptr %73, align 4
-  %75 = add nsw i32 %74, 1
-  store i32 %75, ptr %73, align 4
-  %76 = getelementptr inbounds nuw i8, ptr %.02135, i64 24
-  %77 = load ptr, ptr %76, align 8
-  %78 = getelementptr inbounds nuw i8, ptr %.01934, i64 24
-  store ptr %77, ptr %78, align 8
+70:                                               ; preds = %._crit_edge
+  %71 = getelementptr inbounds nuw i8, ptr %.1, i64 60
+  %72 = load i32, ptr %71, align 4
+  %73 = add nsw i32 %72, 1
+  store i32 %73, ptr %71, align 4
+  %74 = getelementptr inbounds nuw i8, ptr %.02135, i64 24
+  %75 = load ptr, ptr %74, align 8
+  %76 = getelementptr inbounds nuw i8, ptr %.01934, i64 24
+  store ptr %75, ptr %76, align 8
   br label %._crit_edge.thread
 
-._crit_edge.thread:                               ; preds = %.preheader, %.thread, %._crit_edge, %72
-  %.120 = phi ptr [ %.01934, %72 ], [ %.02135, %._crit_edge ], [ %.02135, %.thread ], [ %.02135, %.preheader ]
-  %79 = getelementptr inbounds nuw i8, ptr %.02135, i64 24
-  %.021 = load ptr, ptr %79, align 8
+._crit_edge.thread:                               ; preds = %.preheader, %.thread, %._crit_edge, %70
+  %.120 = phi ptr [ %.01934, %70 ], [ %.02135, %._crit_edge ], [ %.02135, %.thread ], [ %.02135, %.preheader ]
+  %77 = getelementptr inbounds nuw i8, ptr %.02135, i64 24
+  %.021 = load ptr, ptr %77, align 8
   %.not = icmp eq ptr %.021, null
   br i1 %.not, label %._crit_edge38, label %.lr.ph37, !llvm.loop !14
 
 ._crit_edge38:                                    ; preds = %._crit_edge.thread, %1
-  %80 = load ptr, ptr %8, align 8
-  %.not.i.i.i.i = icmp eq ptr %80, null
-  br i1 %.not.i.i.i.i, label %82, label %81
+  %78 = load ptr, ptr %8, align 8
+  %.not.i.i.i.i = icmp eq ptr %78, null
+  br i1 %.not.i.i.i.i, label %80, label %79
 
-81:                                               ; preds = %._crit_edge38
+79:                                               ; preds = %._crit_edge38
   tail call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %6, i64 noundef %14) #8
   tail call void @_ZN5Chunk9next_chopEPS_(ptr noundef nonnull %8) #8
-  br label %82
+  br label %80
 
-82:                                               ; preds = %81, %._crit_edge38
-  %83 = load ptr, ptr %9, align 8
-  %.not8.i.i.i.i = icmp eq ptr %83, %10
-  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %84
+80:                                               ; preds = %79, %._crit_edge38
+  %81 = load ptr, ptr %9, align 8
+  %.not8.i.i.i.i = icmp eq ptr %81, %10
+  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %82
 
-84:                                               ; preds = %82
+82:                                               ; preds = %80
   store ptr %8, ptr %7, align 8
   store ptr %10, ptr %9, align 8
   store ptr %12, ptr %11, align 8
   br label %_ZN12ResourceMarkD2Ev.exit
 
-_ZN12ResourceMarkD2Ev.exit:                       ; preds = %82, %84
+_ZN12ResourceMarkD2Ev.exit:                       ; preds = %80, %82
   ret void
 }
 

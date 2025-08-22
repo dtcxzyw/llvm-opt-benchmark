@@ -785,81 +785,77 @@ define hidden noundef zeroext i1 @_ZN16SystemDictionary22is_system_class_loaderE
   %4 = load i8, ptr @UseCompressedClassPointers, align 1
   %5 = trunc i8 %4 to i1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  br i1 %5, label %7, label %17
+  br i1 %5, label %7, label %15
 
 7:                                                ; preds = %3
   %8 = load i32, ptr %6, align 8
   %9 = load ptr, ptr @_ZN23CompressedKlassPointers5_baseE, align 8
   %10 = load i32, ptr @_ZN23CompressedKlassPointers6_shiftE, align 4
-  %11 = ptrtoint ptr %9 to i64
-  %12 = zext i32 %8 to i64
-  %13 = zext nneg i32 %10 to i64
-  %14 = shl i64 %12, %13
-  %15 = add i64 %14, %11
-  %16 = inttoptr i64 %15 to ptr
+  %11 = zext i32 %8 to i64
+  %12 = zext nneg i32 %10 to i64
+  %13 = shl i64 %11, %12
+  %14 = getelementptr i8, ptr %9, i64 %13
   br label %_ZNK7oopDesc5klassEv.exit
 
-17:                                               ; preds = %3
-  %18 = load ptr, ptr %6, align 8
+15:                                               ; preds = %3
+  %16 = load ptr, ptr %6, align 8
   br label %_ZNK7oopDesc5klassEv.exit
 
-_ZNK7oopDesc5klassEv.exit:                        ; preds = %7, %17
-  %.0.i = phi ptr [ %16, %7 ], [ %18, %17 ]
-  %19 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 704), align 8
-  %20 = icmp eq ptr %.0.i, %19
-  br i1 %20, label %_ZNK9OopHandle4peekEv.exit, label %21
+_ZNK7oopDesc5klassEv.exit:                        ; preds = %7, %15
+  %.0.i = phi ptr [ %14, %7 ], [ %16, %15 ]
+  %17 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 704), align 8
+  %18 = icmp eq ptr %.0.i, %17
+  br i1 %18, label %_ZNK9OopHandle4peekEv.exit, label %19
 
-21:                                               ; preds = %_ZNK7oopDesc5klassEv.exit
-  %22 = load ptr, ptr @_ZN16SystemDictionary19_java_system_loaderE, align 8
-  %23 = icmp eq ptr %22, null
-  br i1 %23, label %_ZNK9OopHandle4peekEv.exit, label %24
+19:                                               ; preds = %_ZNK7oopDesc5klassEv.exit
+  %20 = load ptr, ptr @_ZN16SystemDictionary19_java_system_loaderE, align 8
+  %21 = icmp eq ptr %20, null
+  br i1 %21, label %_ZNK9OopHandle4peekEv.exit, label %22
 
-24:                                               ; preds = %21
-  %25 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm544836EP7oopDescLNS_11BarrierTypeE2EE10_load_funcE, align 8
-  %26 = tail call noundef ptr %25(ptr noundef nonnull %22) #14
-  %27 = icmp eq ptr %0, %26
+22:                                               ; preds = %19
+  %23 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm544836EP7oopDescLNS_11BarrierTypeE2EE10_load_funcE, align 8
+  %24 = tail call noundef ptr %23(ptr noundef nonnull %20) #14
+  %25 = icmp eq ptr %0, %24
   br label %_ZNK9OopHandle4peekEv.exit
 
-_ZNK9OopHandle4peekEv.exit:                       ; preds = %24, %21, %_ZNK7oopDesc5klassEv.exit, %1
-  %.0 = phi i1 [ false, %1 ], [ true, %_ZNK7oopDesc5klassEv.exit ], [ %27, %24 ], [ false, %21 ]
+_ZNK9OopHandle4peekEv.exit:                       ; preds = %22, %19, %_ZNK7oopDesc5klassEv.exit, %1
+  %.0 = phi i1 [ false, %1 ], [ true, %_ZNK7oopDesc5klassEv.exit ], [ %25, %22 ], [ false, %19 ]
   ret i1 %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden noundef zeroext i1 @_ZN16SystemDictionary24is_platform_class_loaderEP7oopDesc(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #3 align 2 {
   %2 = icmp eq ptr %0, null
-  br i1 %2, label %21, label %3
+  br i1 %2, label %19, label %3
 
 3:                                                ; preds = %1
   %4 = load i8, ptr @UseCompressedClassPointers, align 1
   %5 = trunc i8 %4 to i1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  br i1 %5, label %7, label %17
+  br i1 %5, label %7, label %15
 
 7:                                                ; preds = %3
   %8 = load i32, ptr %6, align 8
   %9 = load ptr, ptr @_ZN23CompressedKlassPointers5_baseE, align 8
   %10 = load i32, ptr @_ZN23CompressedKlassPointers6_shiftE, align 4
-  %11 = ptrtoint ptr %9 to i64
-  %12 = zext i32 %8 to i64
-  %13 = zext nneg i32 %10 to i64
-  %14 = shl i64 %12, %13
-  %15 = add i64 %14, %11
-  %16 = inttoptr i64 %15 to ptr
+  %11 = zext i32 %8 to i64
+  %12 = zext nneg i32 %10 to i64
+  %13 = shl i64 %11, %12
+  %14 = getelementptr i8, ptr %9, i64 %13
   br label %_ZNK7oopDesc5klassEv.exit
 
-17:                                               ; preds = %3
-  %18 = load ptr, ptr %6, align 8
+15:                                               ; preds = %3
+  %16 = load ptr, ptr %6, align 8
   br label %_ZNK7oopDesc5klassEv.exit
 
-_ZNK7oopDesc5klassEv.exit:                        ; preds = %7, %17
-  %.0.i = phi ptr [ %16, %7 ], [ %18, %17 ]
-  %19 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 712), align 8
-  %20 = icmp eq ptr %.0.i, %19
-  br label %21
+_ZNK7oopDesc5klassEv.exit:                        ; preds = %7, %15
+  %.0.i = phi ptr [ %14, %7 ], [ %16, %15 ]
+  %17 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 712), align 8
+  %18 = icmp eq ptr %.0.i, %17
+  br label %19
 
-21:                                               ; preds = %1, %_ZNK7oopDesc5klassEv.exit
-  %.0 = phi i1 [ %20, %_ZNK7oopDesc5klassEv.exit ], [ false, %1 ]
+19:                                               ; preds = %1, %_ZNK7oopDesc5klassEv.exit
+  %.0 = phi i1 [ %18, %_ZNK7oopDesc5klassEv.exit ], [ false, %1 ]
   ret i1 %.0
 }
 

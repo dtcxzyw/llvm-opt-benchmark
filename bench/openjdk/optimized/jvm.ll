@@ -14292,47 +14292,45 @@ _ZN10JNIHandles16resolve_non_nullEP8_jobject.exit: ; preds = %4, %8, %12
   %14 = load i8, ptr @UseCompressedClassPointers, align 1
   %15 = trunc i8 %14 to i1
   %16 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 8
-  br i1 %15, label %17, label %27
+  br i1 %15, label %17, label %25
 
 17:                                               ; preds = %_ZN10JNIHandles16resolve_non_nullEP8_jobject.exit
   %18 = load i32, ptr %16, align 8
   %19 = load ptr, ptr @_ZN23CompressedKlassPointers5_baseE, align 8
   %20 = load i32, ptr @_ZN23CompressedKlassPointers6_shiftE, align 4
-  %21 = ptrtoint ptr %19 to i64
-  %22 = zext i32 %18 to i64
-  %23 = zext nneg i32 %20 to i64
-  %24 = shl i64 %22, %23
-  %25 = add i64 %24, %21
-  %26 = inttoptr i64 %25 to ptr
+  %21 = zext i32 %18 to i64
+  %22 = zext nneg i32 %20 to i64
+  %23 = shl i64 %21, %22
+  %24 = getelementptr i8, ptr %19, i64 %23
   br label %_ZNK7oopDesc5klassEv.exit
 
-27:                                               ; preds = %_ZN10JNIHandles16resolve_non_nullEP8_jobject.exit
-  %28 = load ptr, ptr %16, align 8
+25:                                               ; preds = %_ZN10JNIHandles16resolve_non_nullEP8_jobject.exit
+  %26 = load ptr, ptr %16, align 8
   br label %_ZNK7oopDesc5klassEv.exit
 
-_ZNK7oopDesc5klassEv.exit:                        ; preds = %17, %27
-  %.0.i = phi ptr [ %26, %17 ], [ %28, %27 ]
-  %29 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 368), align 8
-  %30 = icmp eq ptr %.0.i, %29
-  br i1 %30, label %31, label %34
+_ZNK7oopDesc5klassEv.exit:                        ; preds = %17, %25
+  %.0.i = phi ptr [ %24, %17 ], [ %26, %25 ]
+  %27 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 368), align 8
+  %28 = icmp eq ptr %.0.i, %27
+  br i1 %28, label %29, label %32
 
-31:                                               ; preds = %_ZNK7oopDesc5klassEv.exit
-  %32 = tail call noundef ptr @_ZN29java_lang_reflect_Constructor5clazzEP7oopDesc(ptr noundef nonnull %.0.i.i) #16
-  %33 = tail call noundef i32 @_ZN29java_lang_reflect_Constructor4slotEP7oopDesc(ptr noundef nonnull %.0.i.i) #16
-  br label %37
+29:                                               ; preds = %_ZNK7oopDesc5klassEv.exit
+  %30 = tail call noundef ptr @_ZN29java_lang_reflect_Constructor5clazzEP7oopDesc(ptr noundef nonnull %.0.i.i) #16
+  %31 = tail call noundef i32 @_ZN29java_lang_reflect_Constructor4slotEP7oopDesc(ptr noundef nonnull %.0.i.i) #16
+  br label %35
 
-34:                                               ; preds = %_ZNK7oopDesc5klassEv.exit
-  %35 = tail call noundef ptr @_ZN24java_lang_reflect_Method5clazzEP7oopDesc(ptr noundef nonnull %.0.i.i) #16
-  %36 = tail call noundef i32 @_ZN24java_lang_reflect_Method4slotEP7oopDesc(ptr noundef nonnull %.0.i.i) #16
-  br label %37
+32:                                               ; preds = %_ZNK7oopDesc5klassEv.exit
+  %33 = tail call noundef ptr @_ZN24java_lang_reflect_Method5clazzEP7oopDesc(ptr noundef nonnull %.0.i.i) #16
+  %34 = tail call noundef i32 @_ZN24java_lang_reflect_Method4slotEP7oopDesc(ptr noundef nonnull %.0.i.i) #16
+  br label %35
 
-37:                                               ; preds = %34, %31
-  %.09 = phi i32 [ %33, %31 ], [ %36, %34 ]
-  %.0 = phi ptr [ %32, %31 ], [ %35, %34 ]
-  %38 = load i32, ptr @_ZN15java_lang_Class13_klass_offsetE, align 4
-  %39 = tail call noundef ptr @_ZNK7oopDesc14metadata_fieldEi(ptr noundef nonnull align 8 dereferenceable(16) %.0, i32 noundef %38) #16
-  %40 = tail call noundef ptr @_ZN13InstanceKlass17method_with_idnumEi(ptr noundef nonnull align 8 dereferenceable(464) %39, i32 noundef %.09) #16
-  ret ptr %40
+35:                                               ; preds = %32, %29
+  %.09 = phi i32 [ %31, %29 ], [ %34, %32 ]
+  %.0 = phi ptr [ %30, %29 ], [ %33, %32 ]
+  %36 = load i32, ptr @_ZN15java_lang_Class13_klass_offsetE, align 4
+  %37 = tail call noundef ptr @_ZNK7oopDesc14metadata_fieldEi(ptr noundef nonnull align 8 dereferenceable(16) %.0, i32 noundef %36) #16
+  %38 = tail call noundef ptr @_ZN13InstanceKlass17method_with_idnumEi(ptr noundef nonnull align 8 dereferenceable(464) %37, i32 noundef %.09) #16
+  ret ptr %38
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

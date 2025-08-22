@@ -2568,40 +2568,38 @@ _ZNK5ZMark8is_arrayE8zaddress.exit:               ; preds = %169, %179
 188:                                              ; preds = %185
   %189 = load i8, ptr @UseCompressedClassPointers, align 1
   %190 = trunc i8 %189 to i1
-  br i1 %190, label %191, label %201
+  br i1 %190, label %191, label %199
 
 191:                                              ; preds = %188
   %192 = load i32, ptr %168, align 8
   %193 = load ptr, ptr @_ZN23CompressedKlassPointers5_baseE, align 8
   %194 = load i32, ptr @_ZN23CompressedKlassPointers6_shiftE, align 4
-  %195 = ptrtoint ptr %193 to i64
-  %196 = zext i32 %192 to i64
-  %197 = zext nneg i32 %194 to i64
-  %198 = shl i64 %196, %197
-  %199 = add i64 %198, %195
-  %200 = inttoptr i64 %199 to ptr
+  %195 = zext i32 %192 to i64
+  %196 = zext nneg i32 %194 to i64
+  %197 = shl i64 %195, %196
+  %198 = getelementptr i8, ptr %193, i64 %197
   br label %_ZN16java_lang_String11is_instanceEP7oopDesc.exit.i
 
-201:                                              ; preds = %188
-  %202 = load ptr, ptr %168, align 8
+199:                                              ; preds = %188
+  %200 = load ptr, ptr %168, align 8
   br label %_ZN16java_lang_String11is_instanceEP7oopDesc.exit.i
 
-_ZN16java_lang_String11is_instanceEP7oopDesc.exit.i: ; preds = %201, %191
-  %.0.i.i.i27 = phi ptr [ %200, %191 ], [ %202, %201 ]
-  %203 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 8), align 8
-  %204 = icmp eq ptr %.0.i.i.i27, %203
-  br i1 %204, label %205, label %_ZN5ZMark20follow_partial_arrayE15ZMarkStackEntryb.exit
+_ZN16java_lang_String11is_instanceEP7oopDesc.exit.i: ; preds = %199, %191
+  %.0.i.i.i27 = phi ptr [ %198, %191 ], [ %200, %199 ]
+  %201 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 8), align 8
+  %202 = icmp eq ptr %.0.i.i.i27, %201
+  br i1 %202, label %203, label %_ZN5ZMark20follow_partial_arrayE15ZMarkStackEntryb.exit
 
-205:                                              ; preds = %_ZN16java_lang_String11is_instanceEP7oopDesc.exit.i
-  %206 = call noundef zeroext i1 @_ZN16java_lang_String17test_and_set_flagEP7oopDesch(ptr noundef nonnull %165, i8 noundef zeroext 2) #15
-  br i1 %206, label %_ZN5ZMark20follow_partial_arrayE15ZMarkStackEntryb.exit, label %207
+203:                                              ; preds = %_ZN16java_lang_String11is_instanceEP7oopDesc.exit.i
+  %204 = call noundef zeroext i1 @_ZN16java_lang_String17test_and_set_flagEP7oopDesch(ptr noundef nonnull %165, i8 noundef zeroext 2) #15
+  br i1 %204, label %_ZN5ZMark20follow_partial_arrayE15ZMarkStackEntryb.exit, label %205
 
-207:                                              ; preds = %205
-  %208 = getelementptr inbounds nuw i8, ptr %1, i64 24616
-  call void @_ZN11StringDedup8Requests3addEP7oopDesc(ptr noundef nonnull align 8 dereferenceable(25) %208, ptr noundef nonnull %165) #15
+205:                                              ; preds = %203
+  %206 = getelementptr inbounds nuw i8, ptr %1, i64 24616
+  call void @_ZN11StringDedup8Requests3addEP7oopDesc(ptr noundef nonnull align 8 dereferenceable(25) %206, ptr noundef nonnull %165) #15
   br label %_ZN5ZMark20follow_partial_arrayE15ZMarkStackEntryb.exit
 
-_ZN5ZMark20follow_partial_arrayE15ZMarkStackEntryb.exit: ; preds = %.lr.ph.split.i.i.i.i, %.lr.ph.split.us.i.i.i.i, %207, %205, %_ZN16java_lang_String11is_instanceEP7oopDesc.exit.i, %27, %17, %184, %185, %_ZN5ZPage11mark_objectE8zaddressbRb.exit, %_ZN10ZMarkCache8inc_liveEP5ZPagem.exit
+_ZN5ZMark20follow_partial_arrayE15ZMarkStackEntryb.exit: ; preds = %.lr.ph.split.i.i.i.i, %.lr.ph.split.us.i.i.i.i, %205, %203, %_ZN16java_lang_String11is_instanceEP7oopDesc.exit.i, %27, %17, %184, %185, %_ZN5ZPage11mark_objectE8zaddressbRb.exit, %_ZN10ZMarkCache8inc_liveEP5ZPagem.exit
   ret void
 }
 

@@ -1498,39 +1498,37 @@ _ZNK12ConstantPool19resolved_referencesEv.exit:   ; preds = %1
   %26 = load i8, ptr @UseCompressedClassPointers, align 1
   %27 = trunc i8 %26 to i1
   %28 = getelementptr inbounds nuw i8, ptr %24, i64 8
-  br i1 %27, label %29, label %39
+  br i1 %27, label %29, label %37
 
 29:                                               ; preds = %25
   %30 = load i32, ptr %28, align 8
   %31 = load ptr, ptr @_ZN23CompressedKlassPointers5_baseE, align 8
   %32 = load i32, ptr @_ZN23CompressedKlassPointers6_shiftE, align 4
-  %33 = ptrtoint ptr %31 to i64
-  %34 = zext i32 %30 to i64
-  %35 = zext nneg i32 %32 to i64
-  %36 = shl i64 %34, %35
-  %37 = add i64 %36, %33
-  %38 = inttoptr i64 %37 to ptr
+  %33 = zext i32 %30 to i64
+  %34 = zext nneg i32 %32 to i64
+  %35 = shl i64 %33, %34
+  %36 = getelementptr i8, ptr %31, i64 %35
   br label %_ZN16java_lang_String11is_instanceEP7oopDesc.exit
 
-39:                                               ; preds = %25
-  %40 = load ptr, ptr %28, align 8
+37:                                               ; preds = %25
+  %38 = load ptr, ptr %28, align 8
   br label %_ZN16java_lang_String11is_instanceEP7oopDesc.exit
 
-_ZN16java_lang_String11is_instanceEP7oopDesc.exit: ; preds = %29, %39
-  %.0.i.i = phi ptr [ %38, %29 ], [ %40, %39 ]
-  %41 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 8), align 8
-  %42 = icmp eq ptr %.0.i.i, %41
-  br i1 %42, label %43, label %_ZN16java_lang_String11is_instanceEP7oopDesc.exit.thread
+_ZN16java_lang_String11is_instanceEP7oopDesc.exit: ; preds = %29, %37
+  %.0.i.i = phi ptr [ %36, %29 ], [ %38, %37 ]
+  %39 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 8), align 8
+  %40 = icmp eq ptr %.0.i.i, %39
+  br i1 %40, label %41, label %_ZN16java_lang_String11is_instanceEP7oopDesc.exit.thread
 
-43:                                               ; preds = %_ZN16java_lang_String11is_instanceEP7oopDesc.exit
-  %44 = tail call noundef zeroext i1 @_ZN17ArchiveHeapWriter30is_string_too_large_to_archiveEP7oopDesc(ptr noundef nonnull %24) #17
-  br i1 %44, label %_ZN16java_lang_String11is_instanceEP7oopDesc.exit.thread, label %45
+41:                                               ; preds = %_ZN16java_lang_String11is_instanceEP7oopDesc.exit
+  %42 = tail call noundef zeroext i1 @_ZN17ArchiveHeapWriter30is_string_too_large_to_archiveEP7oopDesc(ptr noundef nonnull %24) #17
+  br i1 %42, label %_ZN16java_lang_String11is_instanceEP7oopDesc.exit.thread, label %43
 
-45:                                               ; preds = %43
+43:                                               ; preds = %41
   tail call void @_ZN10HeapShared30add_to_dumped_interned_stringsEP7oopDesc(ptr noundef nonnull %24) #17
   br label %_ZN16java_lang_String11is_instanceEP7oopDesc.exit.thread
 
-_ZN16java_lang_String11is_instanceEP7oopDesc.exit.thread: ; preds = %.lr.ph, %_ZN16java_lang_String11is_instanceEP7oopDesc.exit, %43, %45
+_ZN16java_lang_String11is_instanceEP7oopDesc.exit.thread: ; preds = %.lr.ph, %_ZN16java_lang_String11is_instanceEP7oopDesc.exit, %41, %43
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %_ZNK12ConstantPool19resolved_referencesEv.exit.thread, label %.lr.ph, !llvm.loop !14

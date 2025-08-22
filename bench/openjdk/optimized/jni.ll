@@ -1618,107 +1618,105 @@ _ZN10JNIHandles16resolve_non_nullEP8_jobject.exit: ; preds = %31, %35, %39
   %41 = load i8, ptr @UseCompressedClassPointers, align 1
   %42 = trunc i8 %41 to i1
   %43 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 8
-  br i1 %42, label %44, label %54
+  br i1 %42, label %44, label %52
 
 44:                                               ; preds = %_ZN10JNIHandles16resolve_non_nullEP8_jobject.exit
   %45 = load i32, ptr %43, align 8
   %46 = load ptr, ptr @_ZN23CompressedKlassPointers5_baseE, align 8
   %47 = load i32, ptr @_ZN23CompressedKlassPointers6_shiftE, align 4
-  %48 = ptrtoint ptr %46 to i64
-  %49 = zext i32 %45 to i64
-  %50 = zext nneg i32 %47 to i64
-  %51 = shl i64 %49, %50
-  %52 = add i64 %51, %48
-  %53 = inttoptr i64 %52 to ptr
+  %48 = zext i32 %45 to i64
+  %49 = zext nneg i32 %47 to i64
+  %50 = shl i64 %48, %49
+  %51 = getelementptr i8, ptr %46, i64 %50
   br label %_ZNK7oopDesc5klassEv.exit
 
-54:                                               ; preds = %_ZN10JNIHandles16resolve_non_nullEP8_jobject.exit
-  %55 = load ptr, ptr %43, align 8
+52:                                               ; preds = %_ZN10JNIHandles16resolve_non_nullEP8_jobject.exit
+  %53 = load ptr, ptr %43, align 8
   br label %_ZNK7oopDesc5klassEv.exit
 
-_ZNK7oopDesc5klassEv.exit:                        ; preds = %44, %54
-  %.0.i = phi ptr [ %53, %44 ], [ %55, %54 ]
-  %56 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 368), align 8
-  %57 = icmp eq ptr %.0.i, %56
-  br i1 %57, label %58, label %61
+_ZNK7oopDesc5klassEv.exit:                        ; preds = %44, %52
+  %.0.i = phi ptr [ %51, %44 ], [ %53, %52 ]
+  %54 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 368), align 8
+  %55 = icmp eq ptr %.0.i, %54
+  br i1 %55, label %56, label %59
 
-58:                                               ; preds = %_ZNK7oopDesc5klassEv.exit
-  %59 = call noundef ptr @_ZN29java_lang_reflect_Constructor5clazzEP7oopDesc(ptr noundef nonnull %.0.i.i) #15
-  %60 = call noundef i32 @_ZN29java_lang_reflect_Constructor4slotEP7oopDesc(ptr noundef nonnull %.0.i.i) #15
-  br label %64
+56:                                               ; preds = %_ZNK7oopDesc5klassEv.exit
+  %57 = call noundef ptr @_ZN29java_lang_reflect_Constructor5clazzEP7oopDesc(ptr noundef nonnull %.0.i.i) #15
+  %58 = call noundef i32 @_ZN29java_lang_reflect_Constructor4slotEP7oopDesc(ptr noundef nonnull %.0.i.i) #15
+  br label %62
 
-61:                                               ; preds = %_ZNK7oopDesc5klassEv.exit
-  %62 = call noundef ptr @_ZN24java_lang_reflect_Method5clazzEP7oopDesc(ptr noundef nonnull %.0.i.i) #15
-  %63 = call noundef i32 @_ZN24java_lang_reflect_Method4slotEP7oopDesc(ptr noundef nonnull %.0.i.i) #15
-  br label %64
+59:                                               ; preds = %_ZNK7oopDesc5klassEv.exit
+  %60 = call noundef ptr @_ZN24java_lang_reflect_Method5clazzEP7oopDesc(ptr noundef nonnull %.0.i.i) #15
+  %61 = call noundef i32 @_ZN24java_lang_reflect_Method4slotEP7oopDesc(ptr noundef nonnull %.0.i.i) #15
+  br label %62
 
-64:                                               ; preds = %61, %58
-  %.022 = phi i32 [ %60, %58 ], [ %63, %61 ]
-  %.021 = phi ptr [ %59, %58 ], [ %62, %61 ]
-  %65 = load i32, ptr @_ZN15java_lang_Class13_klass_offsetE, align 4
-  %66 = call noundef ptr @_ZNK7oopDesc14metadata_fieldEi(ptr noundef nonnull align 8 dereferenceable(16) %.021, i32 noundef %65) #15
+62:                                               ; preds = %59, %56
+  %.022 = phi i32 [ %58, %56 ], [ %61, %59 ]
+  %.021 = phi ptr [ %57, %56 ], [ %60, %59 ]
+  %63 = load i32, ptr @_ZN15java_lang_Class13_klass_offsetE, align 4
+  %64 = call noundef ptr @_ZNK7oopDesc14metadata_fieldEi(ptr noundef nonnull align 8 dereferenceable(16) %.021, i32 noundef %63) #15
+  %65 = load ptr, ptr %64, align 8
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 176
   %67 = load ptr, ptr %66, align 8
-  %68 = getelementptr inbounds nuw i8, ptr %67, i64 176
-  %69 = load ptr, ptr %68, align 8
-  call void %69(ptr noundef nonnull align 8 dereferenceable(196) %66, ptr noundef nonnull %6) #15
-  %70 = load ptr, ptr %26, align 8
-  %.not = icmp eq ptr %70, null
-  br i1 %.not, label %71, label %76
+  call void %67(ptr noundef nonnull align 8 dereferenceable(196) %64, ptr noundef nonnull %6) #15
+  %68 = load ptr, ptr %26, align 8
+  %.not = icmp eq ptr %68, null
+  br i1 %.not, label %69, label %74
 
-71:                                               ; preds = %64
-  %72 = call noundef ptr @_ZN13InstanceKlass17method_with_idnumEi(ptr noundef nonnull align 8 dereferenceable(464) %66, i32 noundef %.022) #15
-  %73 = icmp eq ptr %72, null
-  br i1 %73, label %76, label %74
+69:                                               ; preds = %62
+  %70 = call noundef ptr @_ZN13InstanceKlass17method_with_idnumEi(ptr noundef nonnull align 8 dereferenceable(464) %64, i32 noundef %.022) #15
+  %71 = icmp eq ptr %70, null
+  br i1 %71, label %74, label %72
 
-74:                                               ; preds = %71
-  %75 = call noundef ptr @_ZN6Method10jmethod_idEv(ptr noundef nonnull align 8 dereferenceable(88) %72) #15
-  br label %76
+72:                                               ; preds = %69
+  %73 = call noundef ptr @_ZN6Method10jmethod_idEv(ptr noundef nonnull align 8 dereferenceable(88) %70) #15
+  br label %74
 
-76:                                               ; preds = %74, %71, %64
-  %.027 = phi ptr [ null, %64 ], [ %75, %74 ], [ null, %71 ]
-  %77 = ptrtoint ptr %.027 to i64
-  call void asm sideeffect ".altmacro\0A.macro _SDT_SIGN x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.iflt \\x\0A.ascii \22-\22\0A.endif\0A.popsection\0A.endm\0A.macro _SDT_SIZE_ x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.ascii \22\\x\22\0A.popsection\0A.endm\0A.macro _SDT_SIZE x\0A_SDT_SIZE_ %((-(-\\x*((-\\x>0)-(-\\x<0))))>>8)\0A.endm\0A.macro _SDT_TYPE_ x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.ifc 8,\\x\0A.ascii \22f\22\0A.endif\0A.ascii \22@\22\0A.popsection\0A.endm\0A.macro _SDT_TYPE x\0A_SDT_TYPE_ %((\\x)&(0xff))\0A.endm\0A990: nop\0A.pushsection .note.stapsdt,\22?\22,\22note\22\0A.balign 4\0A.4byte 992f-991f,994f-993f,3\0A991: .asciz \22stapsdt\22\0A992: .balign 4\0A993: .8byte 990b\0A.8byte _.stapsdt.base\0A.8byte 0\0A.asciz \22hotspot_jni\22\0A.asciz \22FromReflectedMethod__return\22\0A_SDT_SIGN ${0:n}\0A_SDT_SIZE ${0:n}\0A_SDT_TYPE ${0:n}\0A.ascii \22$1\22\0A.ascii \22\\x00\22\0A.purgem _SDT_SIGN\0A.purgem _SDT_SIZE_\0A.purgem _SDT_SIZE\0A.purgem _SDT_TYPE_\0A.purgem _SDT_TYPE\0A994: .balign 4\0A.popsection\0A", "n,norfxy,~{dirflag},~{fpsr},~{flags}"(i32 -2049, i64 %77) #15, !srcloc !21
+74:                                               ; preds = %72, %69, %62
+  %.027 = phi ptr [ null, %62 ], [ %73, %72 ], [ null, %69 ]
+  %75 = ptrtoint ptr %.027 to i64
+  call void asm sideeffect ".altmacro\0A.macro _SDT_SIGN x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.iflt \\x\0A.ascii \22-\22\0A.endif\0A.popsection\0A.endm\0A.macro _SDT_SIZE_ x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.ascii \22\\x\22\0A.popsection\0A.endm\0A.macro _SDT_SIZE x\0A_SDT_SIZE_ %((-(-\\x*((-\\x>0)-(-\\x<0))))>>8)\0A.endm\0A.macro _SDT_TYPE_ x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.ifc 8,\\x\0A.ascii \22f\22\0A.endif\0A.ascii \22@\22\0A.popsection\0A.endm\0A.macro _SDT_TYPE x\0A_SDT_TYPE_ %((\\x)&(0xff))\0A.endm\0A990: nop\0A.pushsection .note.stapsdt,\22?\22,\22note\22\0A.balign 4\0A.4byte 992f-991f,994f-993f,3\0A991: .asciz \22stapsdt\22\0A992: .balign 4\0A993: .8byte 990b\0A.8byte _.stapsdt.base\0A.8byte 0\0A.asciz \22hotspot_jni\22\0A.asciz \22FromReflectedMethod__return\22\0A_SDT_SIGN ${0:n}\0A_SDT_SIZE ${0:n}\0A_SDT_TYPE ${0:n}\0A.ascii \22$1\22\0A.ascii \22\\x00\22\0A.purgem _SDT_SIGN\0A.purgem _SDT_SIZE_\0A.purgem _SDT_SIZE\0A.purgem _SDT_TYPE_\0A.purgem _SDT_TYPE\0A994: .balign 4\0A.popsection\0A", "n,norfxy,~{dirflag},~{fpsr},~{flags}"(i32 -2049, i64 %75) #15, !srcloc !21
   call void asm sideeffect ".ifndef _.stapsdt.base\0A.pushsection .stapsdt.base,\22aG\22,\22progbits\22,.stapsdt.base,comdat\0A.weak _.stapsdt.base\0A.hidden _.stapsdt.base\0A_.stapsdt.base: .space 1\0A.size _.stapsdt.base,1\0A.popsection\0A.endif\0A", "~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !22
-  %78 = load ptr, ptr %25, align 8
-  %.not.i24 = icmp eq ptr %78, null
-  br i1 %.not.i24, label %_ZN25WeakPreserveExceptionMarkD2Ev.exit, label %79
+  %76 = load ptr, ptr %25, align 8
+  %.not.i24 = icmp eq ptr %76, null
+  br i1 %.not.i24, label %_ZN25WeakPreserveExceptionMarkD2Ev.exit, label %77
 
-79:                                               ; preds = %76
+77:                                               ; preds = %74
   call void @_ZN25WeakPreserveExceptionMark7restoreEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #15
   br label %_ZN25WeakPreserveExceptionMarkD2Ev.exit
 
-_ZN25WeakPreserveExceptionMarkD2Ev.exit:          ; preds = %76, %79
-  %80 = getelementptr inbounds nuw i8, ptr %6, i64 408
+_ZN25WeakPreserveExceptionMarkD2Ev.exit:          ; preds = %74, %77
+  %78 = getelementptr inbounds nuw i8, ptr %6, i64 408
+  %79 = load ptr, ptr %78, align 8
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 16
   %81 = load ptr, ptr %80, align 8
-  %82 = getelementptr inbounds nuw i8, ptr %81, i64 16
-  %83 = load ptr, ptr %82, align 8
-  %84 = load ptr, ptr %83, align 8
-  %.not.i.i = icmp eq ptr %84, null
-  br i1 %.not.i.i, label %_ZN17HandleMarkCleanerD2Ev.exit, label %85
+  %82 = load ptr, ptr %81, align 8
+  %.not.i.i = icmp eq ptr %82, null
+  br i1 %.not.i.i, label %_ZN17HandleMarkCleanerD2Ev.exit, label %83
 
-85:                                               ; preds = %_ZN25WeakPreserveExceptionMarkD2Ev.exit
-  call void @_ZN10HandleMark17chop_later_chunksEv(ptr noundef nonnull align 8 dereferenceable(56) %81) #15
-  %.pre.i.i = load ptr, ptr %82, align 8
+83:                                               ; preds = %_ZN25WeakPreserveExceptionMarkD2Ev.exit
+  call void @_ZN10HandleMark17chop_later_chunksEv(ptr noundef nonnull align 8 dereferenceable(56) %79) #15
+  %.pre.i.i = load ptr, ptr %80, align 8
   br label %_ZN17HandleMarkCleanerD2Ev.exit
 
-_ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN25WeakPreserveExceptionMarkD2Ev.exit, %85
-  %86 = phi ptr [ %83, %_ZN25WeakPreserveExceptionMarkD2Ev.exit ], [ %.pre.i.i, %85 ]
-  %87 = getelementptr inbounds nuw i8, ptr %81, i64 8
-  %88 = load ptr, ptr %87, align 8
-  %89 = getelementptr inbounds nuw i8, ptr %88, i64 24
-  store ptr %86, ptr %89, align 8
-  %90 = getelementptr inbounds nuw i8, ptr %81, i64 24
-  %91 = load ptr, ptr %90, align 8
-  %92 = load ptr, ptr %87, align 8
-  %93 = getelementptr inbounds nuw i8, ptr %92, i64 32
-  store ptr %91, ptr %93, align 8
-  %94 = getelementptr inbounds nuw i8, ptr %81, i64 32
-  %95 = load ptr, ptr %94, align 8
-  %96 = load ptr, ptr %87, align 8
-  %97 = getelementptr inbounds nuw i8, ptr %96, i64 40
-  store ptr %95, ptr %97, align 8
-  %98 = getelementptr inbounds nuw i8, ptr %6, i64 928
-  call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %98) #15
+_ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN25WeakPreserveExceptionMarkD2Ev.exit, %83
+  %84 = phi ptr [ %81, %_ZN25WeakPreserveExceptionMarkD2Ev.exit ], [ %.pre.i.i, %83 ]
+  %85 = getelementptr inbounds nuw i8, ptr %79, i64 8
+  %86 = load ptr, ptr %85, align 8
+  %87 = getelementptr inbounds nuw i8, ptr %86, i64 24
+  store ptr %84, ptr %87, align 8
+  %88 = getelementptr inbounds nuw i8, ptr %79, i64 24
+  %89 = load ptr, ptr %88, align 8
+  %90 = load ptr, ptr %85, align 8
+  %91 = getelementptr inbounds nuw i8, ptr %90, i64 32
+  store ptr %89, ptr %91, align 8
+  %92 = getelementptr inbounds nuw i8, ptr %79, i64 32
+  %93 = load ptr, ptr %92, align 8
+  %94 = load ptr, ptr %85, align 8
+  %95 = getelementptr inbounds nuw i8, ptr %94, i64 40
+  store ptr %93, ptr %95, align 8
+  %96 = getelementptr inbounds nuw i8, ptr %6, i64 928
+  call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %96) #15
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !9
   store volatile i32 4, ptr %14, align 4
   ret ptr %.027

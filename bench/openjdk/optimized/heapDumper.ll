@@ -8149,183 +8149,181 @@ define hidden void @_ZN16HeapObjectDumper9do_objectEP7oopDesc(ptr noundef nonnul
   %3 = load i8, ptr @UseCompressedClassPointers, align 1
   %4 = trunc i8 %3 to i1
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  br i1 %4, label %6, label %16
+  br i1 %4, label %6, label %14
 
 6:                                                ; preds = %2
   %7 = load i32, ptr %5, align 8
   %8 = load ptr, ptr @_ZN23CompressedKlassPointers5_baseE, align 8
   %9 = load i32, ptr @_ZN23CompressedKlassPointers6_shiftE, align 4
-  %10 = ptrtoint ptr %8 to i64
-  %11 = zext i32 %7 to i64
-  %12 = zext nneg i32 %9 to i64
-  %13 = shl i64 %11, %12
-  %14 = add i64 %13, %10
-  %15 = inttoptr i64 %14 to ptr
+  %10 = zext i32 %7 to i64
+  %11 = zext nneg i32 %9 to i64
+  %12 = shl i64 %10, %11
+  %13 = getelementptr i8, ptr %8, i64 %12
   br label %_ZNK7oopDesc5klassEv.exit
 
-16:                                               ; preds = %2
-  %17 = load ptr, ptr %5, align 8
+14:                                               ; preds = %2
+  %15 = load ptr, ptr %5, align 8
   br label %_ZNK7oopDesc5klassEv.exit
 
-_ZNK7oopDesc5klassEv.exit:                        ; preds = %6, %16
-  %.0.i = phi ptr [ %15, %6 ], [ %17, %16 ]
-  %18 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 16), align 8
-  %19 = icmp eq ptr %.0.i, %18
-  br i1 %19, label %20, label %24
+_ZNK7oopDesc5klassEv.exit:                        ; preds = %6, %14
+  %.0.i = phi ptr [ %13, %6 ], [ %15, %14 ]
+  %16 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 16), align 8
+  %17 = icmp eq ptr %.0.i, %16
+  br i1 %17, label %18, label %22
 
-20:                                               ; preds = %_ZNK7oopDesc5klassEv.exit
-  %21 = load i32, ptr @_ZN15java_lang_Class13_klass_offsetE, align 4
-  %22 = tail call noundef ptr @_ZNK7oopDesc14metadata_fieldEi(ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %21) #19
-  %23 = icmp eq ptr %22, null
-  br i1 %23, label %._crit_edge, label %_ZN12ThreadDumper18is_vthread_mountedEP7oopDesc.exit
+18:                                               ; preds = %_ZNK7oopDesc5klassEv.exit
+  %19 = load i32, ptr @_ZN15java_lang_Class13_klass_offsetE, align 4
+  %20 = tail call noundef ptr @_ZNK7oopDesc14metadata_fieldEi(ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %19) #19
+  %21 = icmp eq ptr %20, null
+  br i1 %21, label %._crit_edge, label %_ZN12ThreadDumper18is_vthread_mountedEP7oopDesc.exit
 
-._crit_edge:                                      ; preds = %20
+._crit_edge:                                      ; preds = %18
   %.pre = load i8, ptr @UseCompressedClassPointers, align 1
-  br label %24
+  br label %22
 
-24:                                               ; preds = %._crit_edge, %_ZNK7oopDesc5klassEv.exit
-  %25 = phi i8 [ %.pre, %._crit_edge ], [ %3, %_ZNK7oopDesc5klassEv.exit ]
-  %26 = trunc i8 %25 to i1
-  br i1 %26, label %27, label %37
+22:                                               ; preds = %._crit_edge, %_ZNK7oopDesc5klassEv.exit
+  %23 = phi i8 [ %.pre, %._crit_edge ], [ %3, %_ZNK7oopDesc5klassEv.exit ]
+  %24 = trunc i8 %23 to i1
+  br i1 %24, label %25, label %35
 
-27:                                               ; preds = %24
-  %28 = load i32, ptr %5, align 8
-  %29 = load ptr, ptr @_ZN23CompressedKlassPointers5_baseE, align 8
-  %30 = load i32, ptr @_ZN23CompressedKlassPointers6_shiftE, align 4
-  %31 = ptrtoint ptr %29 to i64
-  %32 = zext i32 %28 to i64
-  %33 = zext nneg i32 %30 to i64
-  %34 = shl i64 %32, %33
-  %35 = add i64 %34, %31
-  %36 = inttoptr i64 %35 to ptr
+25:                                               ; preds = %22
+  %26 = load i32, ptr %5, align 8
+  %27 = load ptr, ptr @_ZN23CompressedKlassPointers5_baseE, align 8
+  %28 = load i32, ptr @_ZN23CompressedKlassPointers6_shiftE, align 4
+  %29 = ptrtoint ptr %27 to i64
+  %30 = zext i32 %26 to i64
+  %31 = zext nneg i32 %28 to i64
+  %32 = shl i64 %30, %31
+  %33 = add i64 %32, %29
+  %34 = inttoptr i64 %33 to ptr
   br label %_ZNK7oopDesc5klassEv.exit.i
 
-37:                                               ; preds = %24
-  %38 = load ptr, ptr %5, align 8
+35:                                               ; preds = %22
+  %36 = load ptr, ptr %5, align 8
   br label %_ZNK7oopDesc5klassEv.exit.i
 
-_ZNK7oopDesc5klassEv.exit.i:                      ; preds = %37, %27
-  %.0.i.i = phi ptr [ %36, %27 ], [ %38, %37 ]
-  %39 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 112
-  %40 = load ptr, ptr %39, align 8
-  %41 = icmp eq ptr %40, null
-  br i1 %41, label %_ZN13DumperSupport28mask_dormant_archived_objectEP7oopDescS1_.exit.thread, label %_ZNK5Klass24java_mirror_no_keepaliveEv.exit.i
+_ZNK7oopDesc5klassEv.exit.i:                      ; preds = %35, %25
+  %.0.i.i = phi ptr [ %34, %25 ], [ %36, %35 ]
+  %37 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 112
+  %38 = load ptr, ptr %37, align 8
+  %39 = icmp eq ptr %38, null
+  br i1 %39, label %_ZN13DumperSupport28mask_dormant_archived_objectEP7oopDescS1_.exit.thread, label %_ZNK5Klass24java_mirror_no_keepaliveEv.exit.i
 
 _ZNK5Klass24java_mirror_no_keepaliveEv.exit.i:    ; preds = %_ZNK7oopDesc5klassEv.exit.i
-  %42 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm544836EP7oopDescLNS_11BarrierTypeE2EE10_load_funcE, align 8
-  %43 = tail call noundef ptr %42(ptr noundef nonnull %40) #19
-  %44 = icmp eq ptr %43, null
-  br i1 %44, label %_ZN13DumperSupport28mask_dormant_archived_objectEP7oopDescS1_.exit.thread, label %_ZN13DumperSupport28mask_dormant_archived_objectEP7oopDescS1_.exit
+  %40 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm544836EP7oopDescLNS_11BarrierTypeE2EE10_load_funcE, align 8
+  %41 = tail call noundef ptr %40(ptr noundef nonnull %38) #19
+  %42 = icmp eq ptr %41, null
+  br i1 %42, label %_ZN13DumperSupport28mask_dormant_archived_objectEP7oopDescS1_.exit.thread, label %_ZN13DumperSupport28mask_dormant_archived_objectEP7oopDescS1_.exit
 
 _ZN13DumperSupport28mask_dormant_archived_objectEP7oopDescS1_.exit.thread: ; preds = %_ZNK7oopDesc5klassEv.exit.i, %_ZNK5Klass24java_mirror_no_keepaliveEv.exit.i
   tail call void @_ZN13DumperSupport30report_dormant_archived_objectEP7oopDescS1_(ptr noundef nonnull %1, ptr noundef null)
   br label %_ZN12ThreadDumper18is_vthread_mountedEP7oopDesc.exit
 
 _ZN13DumperSupport28mask_dormant_archived_objectEP7oopDescS1_.exit: ; preds = %_ZNK5Klass24java_mirror_no_keepaliveEv.exit.i
-  %45 = load i8, ptr @UseCompressedClassPointers, align 1
-  %46 = trunc i8 %45 to i1
-  br i1 %46, label %_ZNK7oopDesc11is_instanceEv.exit, label %_ZNK7oopDesc11is_instanceEv.exit.thread
+  %43 = load i8, ptr @UseCompressedClassPointers, align 1
+  %44 = trunc i8 %43 to i1
+  br i1 %44, label %_ZNK7oopDesc11is_instanceEv.exit, label %_ZNK7oopDesc11is_instanceEv.exit.thread
 
 _ZNK7oopDesc11is_instanceEv.exit:                 ; preds = %_ZN13DumperSupport28mask_dormant_archived_objectEP7oopDescS1_.exit
-  %47 = load i32, ptr %5, align 8
-  %48 = load ptr, ptr @_ZN23CompressedKlassPointers5_baseE, align 8
-  %49 = load i32, ptr @_ZN23CompressedKlassPointers6_shiftE, align 4
-  %50 = ptrtoint ptr %48 to i64
-  %51 = zext i32 %47 to i64
-  %52 = zext nneg i32 %49 to i64
-  %53 = shl i64 %51, %52
-  %54 = add i64 %53, %50
-  %55 = inttoptr i64 %54 to ptr
-  %56 = getelementptr inbounds nuw i8, ptr %55, i64 12
-  %57 = load i32, ptr %56, align 4
-  %58 = icmp slt i32 %57, 5
-  br i1 %58, label %63, label %_ZNK7oopDesc11is_objArrayEv.exit
+  %45 = load i32, ptr %5, align 8
+  %46 = load ptr, ptr @_ZN23CompressedKlassPointers5_baseE, align 8
+  %47 = load i32, ptr @_ZN23CompressedKlassPointers6_shiftE, align 4
+  %48 = ptrtoint ptr %46 to i64
+  %49 = zext i32 %45 to i64
+  %50 = zext nneg i32 %47 to i64
+  %51 = shl i64 %49, %50
+  %52 = add i64 %51, %48
+  %53 = inttoptr i64 %52 to ptr
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 12
+  %55 = load i32, ptr %54, align 4
+  %56 = icmp slt i32 %55, 5
+  br i1 %56, label %61, label %_ZNK7oopDesc11is_objArrayEv.exit
 
 _ZNK7oopDesc11is_instanceEv.exit.thread:          ; preds = %_ZN13DumperSupport28mask_dormant_archived_objectEP7oopDescS1_.exit
-  %59 = load ptr, ptr %5, align 8
-  %60 = getelementptr inbounds nuw i8, ptr %59, i64 12
-  %61 = load i32, ptr %60, align 4
-  %62 = icmp slt i32 %61, 5
-  br i1 %62, label %63, label %_ZNK7oopDesc11is_objArrayEv.exit.thread
+  %57 = load ptr, ptr %5, align 8
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 12
+  %59 = load i32, ptr %58, align 4
+  %60 = icmp slt i32 %59, 5
+  br i1 %60, label %61, label %_ZNK7oopDesc11is_objArrayEv.exit.thread
 
-63:                                               ; preds = %_ZNK7oopDesc11is_instanceEv.exit.thread, %_ZNK7oopDesc11is_instanceEv.exit
-  %64 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %65 = load ptr, ptr %64, align 8
-  %66 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  tail call void @_ZN13DumperSupport13dump_instanceEP18AbstractDumpWriterP7oopDescP21DumperClassCacheTable(ptr noundef %65, ptr noundef nonnull %1, ptr noundef nonnull %66)
-  %67 = tail call noundef zeroext i1 @_ZN23java_lang_VirtualThread11is_instanceEP7oopDesc(ptr noundef nonnull %1) #19
-  br i1 %67, label %68, label %_ZN12ThreadDumper18is_vthread_mountedEP7oopDesc.exit
+61:                                               ; preds = %_ZNK7oopDesc11is_instanceEv.exit.thread, %_ZNK7oopDesc11is_instanceEv.exit
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %63 = load ptr, ptr %62, align 8
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  tail call void @_ZN13DumperSupport13dump_instanceEP18AbstractDumpWriterP7oopDescP21DumperClassCacheTable(ptr noundef %63, ptr noundef nonnull %1, ptr noundef nonnull %64)
+  %65 = tail call noundef zeroext i1 @_ZN23java_lang_VirtualThread11is_instanceEP7oopDesc(ptr noundef nonnull %1) #19
+  br i1 %65, label %66, label %_ZN12ThreadDumper18is_vthread_mountedEP7oopDesc.exit
 
-68:                                               ; preds = %63
-  %69 = tail call noundef i32 @_ZN23java_lang_VirtualThread5stateEP7oopDesc(ptr noundef nonnull %1) #19
-  %.not.i17 = icmp eq i32 %69, 0
+66:                                               ; preds = %61
+  %67 = tail call noundef i32 @_ZN23java_lang_VirtualThread5stateEP7oopDesc(ptr noundef nonnull %1) #19
+  %.not.i17 = icmp eq i32 %67, 0
   br i1 %.not.i17, label %_ZN12ThreadDumper18is_vthread_mountedEP7oopDesc.exit, label %_ZN12ThreadDumper19should_dump_vthreadEP7oopDesc.exit
 
-_ZN12ThreadDumper19should_dump_vthreadEP7oopDesc.exit: ; preds = %68
-  %70 = tail call noundef i32 @_ZN23java_lang_VirtualThread5stateEP7oopDesc(ptr noundef nonnull %1) #19
-  %.not = icmp eq i32 %70, 99
-  br i1 %.not, label %_ZN12ThreadDumper18is_vthread_mountedEP7oopDesc.exit, label %71
+_ZN12ThreadDumper19should_dump_vthreadEP7oopDesc.exit: ; preds = %66
+  %68 = tail call noundef i32 @_ZN23java_lang_VirtualThread5stateEP7oopDesc(ptr noundef nonnull %1) #19
+  %.not = icmp eq i32 %68, 99
+  br i1 %.not, label %_ZN12ThreadDumper18is_vthread_mountedEP7oopDesc.exit, label %69
 
-71:                                               ; preds = %_ZN12ThreadDumper19should_dump_vthreadEP7oopDesc.exit
-  %72 = tail call noundef ptr @_ZN23java_lang_VirtualThread14carrier_threadEP7oopDesc(ptr noundef nonnull %1) #19
-  %73 = icmp eq ptr %72, null
-  br i1 %73, label %.loopexit, label %74
+69:                                               ; preds = %_ZN12ThreadDumper19should_dump_vthreadEP7oopDesc.exit
+  %70 = tail call noundef ptr @_ZN23java_lang_VirtualThread14carrier_threadEP7oopDesc(ptr noundef nonnull %1) #19
+  %71 = icmp eq ptr %70, null
+  br i1 %71, label %.loopexit, label %72
 
-74:                                               ; preds = %71
-  %75 = tail call noundef ptr @_ZN16java_lang_Thread6threadEP7oopDesc(ptr noundef nonnull %72) #19
-  %76 = getelementptr inbounds nuw i8, ptr %75, i64 1336
-  %.08.i.i.i = load ptr, ptr %76, align 8
+72:                                               ; preds = %69
+  %73 = tail call noundef ptr @_ZN16java_lang_Thread6threadEP7oopDesc(ptr noundef nonnull %70) #19
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 1336
+  %.08.i.i.i = load ptr, ptr %74, align 8
   %.not9.i.i.i = icmp eq ptr %.08.i.i.i, null
   br i1 %.not9.i.i.i, label %.loopexit, label %.lr.ph.i.i.i
 
-.lr.ph.i.i.i:                                     ; preds = %74, %79
-  %.010.i.i.i = phi ptr [ %.0.i.i.i, %79 ], [ %.08.i.i.i, %74 ]
-  %77 = getelementptr inbounds nuw i8, ptr %.010.i.i.i, i64 32
-  %78 = load i32, ptr %77, align 8
-  %.not7.i.not.i.not.i = icmp eq i32 %78, 0
-  br i1 %.not7.i.not.i.not.i, label %79, label %_ZN12ThreadDumper18is_vthread_mountedEP7oopDesc.exit
+.lr.ph.i.i.i:                                     ; preds = %72, %77
+  %.010.i.i.i = phi ptr [ %.0.i.i.i, %77 ], [ %.08.i.i.i, %72 ]
+  %75 = getelementptr inbounds nuw i8, ptr %.010.i.i.i, i64 32
+  %76 = load i32, ptr %75, align 8
+  %.not7.i.not.i.not.i = icmp eq i32 %76, 0
+  br i1 %.not7.i.not.i.not.i, label %77, label %_ZN12ThreadDumper18is_vthread_mountedEP7oopDesc.exit
 
-79:                                               ; preds = %.lr.ph.i.i.i
-  %80 = getelementptr inbounds nuw i8, ptr %.010.i.i.i, i64 8
-  %.0.i.i.i = load ptr, ptr %80, align 8
+77:                                               ; preds = %.lr.ph.i.i.i
+  %78 = getelementptr inbounds nuw i8, ptr %.010.i.i.i, i64 8
+  %.0.i.i.i = load ptr, ptr %78, align 8
   %.not.i.i.i = icmp eq ptr %.0.i.i.i, null
   br i1 %.not.i.i.i, label %.loopexit, label %.lr.ph.i.i.i, !llvm.loop !29
 
-.loopexit:                                        ; preds = %79, %71, %74
-  %81 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %82 = load ptr, ptr %81, align 8
-  %83 = load ptr, ptr %64, align 8
-  %84 = load ptr, ptr %82, align 8
-  %85 = load ptr, ptr %84, align 8
-  tail call void %85(ptr noundef nonnull align 8 dereferenceable(8) %82, ptr noundef nonnull %1, ptr noundef %83) #19
+.loopexit:                                        ; preds = %77, %69, %72
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %80 = load ptr, ptr %79, align 8
+  %81 = load ptr, ptr %62, align 8
+  %82 = load ptr, ptr %80, align 8
+  %83 = load ptr, ptr %82, align 8
+  tail call void %83(ptr noundef nonnull align 8 dereferenceable(8) %80, ptr noundef nonnull %1, ptr noundef %81) #19
   br label %_ZN12ThreadDumper18is_vthread_mountedEP7oopDesc.exit
 
 _ZNK7oopDesc11is_objArrayEv.exit:                 ; preds = %_ZNK7oopDesc11is_instanceEv.exit
-  %86 = icmp eq i32 %57, 6
-  br i1 %86, label %88, label %_ZNK7oopDesc12is_typeArrayEv.exit
+  %84 = icmp eq i32 %55, 6
+  br i1 %84, label %86, label %_ZNK7oopDesc12is_typeArrayEv.exit
 
 _ZNK7oopDesc11is_objArrayEv.exit.thread:          ; preds = %_ZNK7oopDesc11is_instanceEv.exit.thread
-  %87 = icmp eq i32 %61, 6
-  br i1 %87, label %88, label %_ZNK7oopDesc12is_typeArrayEv.exit
+  %85 = icmp eq i32 %59, 6
+  br i1 %85, label %86, label %_ZNK7oopDesc12is_typeArrayEv.exit
 
-88:                                               ; preds = %_ZNK7oopDesc11is_objArrayEv.exit.thread, %_ZNK7oopDesc11is_objArrayEv.exit
-  %89 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %90 = load ptr, ptr %89, align 8
-  tail call void @_ZN13DumperSupport17dump_object_arrayEP18AbstractDumpWriterP15objArrayOopDesc(ptr noundef %90, ptr noundef nonnull %1)
+86:                                               ; preds = %_ZNK7oopDesc11is_objArrayEv.exit.thread, %_ZNK7oopDesc11is_objArrayEv.exit
+  %87 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %88 = load ptr, ptr %87, align 8
+  tail call void @_ZN13DumperSupport17dump_object_arrayEP18AbstractDumpWriterP15objArrayOopDesc(ptr noundef %88, ptr noundef nonnull %1)
   br label %_ZN12ThreadDumper18is_vthread_mountedEP7oopDesc.exit
 
 _ZNK7oopDesc12is_typeArrayEv.exit:                ; preds = %_ZNK7oopDesc11is_objArrayEv.exit.thread, %_ZNK7oopDesc11is_objArrayEv.exit
-  %91 = phi i32 [ %57, %_ZNK7oopDesc11is_objArrayEv.exit ], [ %61, %_ZNK7oopDesc11is_objArrayEv.exit.thread ]
-  %92 = icmp eq i32 %91, 5
-  br i1 %92, label %93, label %_ZN12ThreadDumper18is_vthread_mountedEP7oopDesc.exit
+  %89 = phi i32 [ %55, %_ZNK7oopDesc11is_objArrayEv.exit ], [ %59, %_ZNK7oopDesc11is_objArrayEv.exit.thread ]
+  %90 = icmp eq i32 %89, 5
+  br i1 %90, label %91, label %_ZN12ThreadDumper18is_vthread_mountedEP7oopDesc.exit
 
-93:                                               ; preds = %_ZNK7oopDesc12is_typeArrayEv.exit
-  %94 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %95 = load ptr, ptr %94, align 8
-  tail call void @_ZN13DumperSupport15dump_prim_arrayEP18AbstractDumpWriterP16typeArrayOopDesc(ptr noundef %95, ptr noundef nonnull %1)
+91:                                               ; preds = %_ZNK7oopDesc12is_typeArrayEv.exit
+  %92 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %93 = load ptr, ptr %92, align 8
+  tail call void @_ZN13DumperSupport15dump_prim_arrayEP18AbstractDumpWriterP16typeArrayOopDesc(ptr noundef %93, ptr noundef nonnull %1)
   br label %_ZN12ThreadDumper18is_vthread_mountedEP7oopDesc.exit
 
-_ZN12ThreadDumper18is_vthread_mountedEP7oopDesc.exit: ; preds = %.lr.ph.i.i.i, %68, %_ZN13DumperSupport28mask_dormant_archived_objectEP7oopDescS1_.exit.thread, %88, %93, %_ZNK7oopDesc12is_typeArrayEv.exit, %63, %_ZN12ThreadDumper19should_dump_vthreadEP7oopDesc.exit, %.loopexit, %20
+_ZN12ThreadDumper18is_vthread_mountedEP7oopDesc.exit: ; preds = %.lr.ph.i.i.i, %66, %_ZN13DumperSupport28mask_dormant_archived_objectEP7oopDescS1_.exit.thread, %86, %91, %_ZNK7oopDesc12is_typeArrayEv.exit, %61, %_ZN12ThreadDumper19should_dump_vthreadEP7oopDesc.exit, %.loopexit, %18
   ret void
 }
 

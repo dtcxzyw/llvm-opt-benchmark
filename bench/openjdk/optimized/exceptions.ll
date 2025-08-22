@@ -246,40 +246,38 @@ define hidden void @_ZN12ThreadShadow32clear_pending_nonasync_exceptionEv(ptr no
   %4 = load i8, ptr @UseCompressedClassPointers, align 1
   %5 = trunc i8 %4 to i1
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  br i1 %5, label %7, label %17
+  br i1 %5, label %7, label %15
 
 7:                                                ; preds = %1
   %8 = load i32, ptr %6, align 8
   %9 = load ptr, ptr @_ZN23CompressedKlassPointers5_baseE, align 8
   %10 = load i32, ptr @_ZN23CompressedKlassPointers6_shiftE, align 4
-  %11 = ptrtoint ptr %9 to i64
-  %12 = zext i32 %8 to i64
-  %13 = zext nneg i32 %10 to i64
-  %14 = shl i64 %12, %13
-  %15 = add i64 %14, %11
-  %16 = inttoptr i64 %15 to ptr
+  %11 = zext i32 %8 to i64
+  %12 = zext nneg i32 %10 to i64
+  %13 = shl i64 %11, %12
+  %14 = getelementptr i8, ptr %9, i64 %13
   br label %_ZNK7oopDesc5klassEv.exit
 
-17:                                               ; preds = %1
-  %18 = load ptr, ptr %6, align 8
+15:                                               ; preds = %1
+  %16 = load ptr, ptr %6, align 8
   br label %_ZNK7oopDesc5klassEv.exit
 
-_ZNK7oopDesc5klassEv.exit:                        ; preds = %7, %17
-  %.0.i = phi ptr [ %16, %7 ], [ %18, %17 ]
-  %19 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 184), align 8
-  %.not = icmp eq ptr %.0.i, %19
-  br i1 %.not, label %20, label %22
+_ZNK7oopDesc5klassEv.exit:                        ; preds = %7, %15
+  %.0.i = phi ptr [ %14, %7 ], [ %16, %15 ]
+  %17 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 184), align 8
+  %.not = icmp eq ptr %.0.i, %17
+  br i1 %.not, label %18, label %20
 
-20:                                               ; preds = %_ZNK7oopDesc5klassEv.exit
-  %21 = tail call noundef zeroext i8 @_ZN23java_lang_InternalError20during_unsafe_accessEP7oopDesc(ptr noundef nonnull %3) #13
-  %.not1 = icmp eq i8 %21, 1
-  br i1 %.not1, label %23, label %22
+18:                                               ; preds = %_ZNK7oopDesc5klassEv.exit
+  %19 = tail call noundef zeroext i8 @_ZN23java_lang_InternalError20during_unsafe_accessEP7oopDesc(ptr noundef nonnull %3) #13
+  %.not1 = icmp eq i8 %19, 1
+  br i1 %.not1, label %21, label %20
 
-22:                                               ; preds = %20, %_ZNK7oopDesc5klassEv.exit
+20:                                               ; preds = %18, %_ZNK7oopDesc5klassEv.exit
   tail call void @_ZN12ThreadShadow23clear_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(28) %0)
-  br label %23
+  br label %21
 
-23:                                               ; preds = %22, %20
+21:                                               ; preds = %20, %18
   ret void
 }
 

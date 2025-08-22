@@ -2699,48 +2699,46 @@ _ZN7oopDesc4sizeEv.exit:                          ; preds = %23, %26, %33, %53
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %73, ptr nonnull align 1 %0, i64 %58, i1 false)
   %74 = load i8, ptr @UseCompressedClassPointers, align 1
   %75 = trunc i8 %74 to i1
-  br i1 %75, label %76, label %86
+  br i1 %75, label %76, label %84
 
 76:                                               ; preds = %64
   %77 = load i32, ptr %5, align 8
   %78 = load ptr, ptr @_ZN23CompressedKlassPointers5_baseE, align 8
   %79 = load i32, ptr @_ZN23CompressedKlassPointers6_shiftE, align 4
-  %80 = ptrtoint ptr %78 to i64
-  %81 = zext i32 %77 to i64
-  %82 = zext nneg i32 %79 to i64
-  %83 = shl i64 %81, %82
-  %84 = add i64 %83, %80
-  %85 = inttoptr i64 %84 to ptr
+  %80 = zext i32 %77 to i64
+  %81 = zext nneg i32 %79 to i64
+  %82 = shl i64 %80, %81
+  %83 = getelementptr i8, ptr %78, i64 %82
   br label %_ZN16java_lang_Module11is_instanceEP7oopDesc.exit
 
-86:                                               ; preds = %64
-  %87 = load ptr, ptr %5, align 8
+84:                                               ; preds = %64
+  %85 = load ptr, ptr %5, align 8
   br label %_ZN16java_lang_Module11is_instanceEP7oopDesc.exit
 
-_ZN16java_lang_Module11is_instanceEP7oopDesc.exit: ; preds = %76, %86
-  %.0.i.i15 = phi ptr [ %85, %76 ], [ %87, %86 ]
-  %88 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 328), align 8
-  %89 = icmp eq ptr %.0.i.i15, %88
-  br i1 %89, label %.sink.split, label %90
+_ZN16java_lang_Module11is_instanceEP7oopDesc.exit: ; preds = %76, %84
+  %.0.i.i15 = phi ptr [ %83, %76 ], [ %85, %84 ]
+  %86 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 328), align 8
+  %87 = icmp eq ptr %.0.i.i15, %86
+  br i1 %87, label %.sink.split, label %88
 
-90:                                               ; preds = %_ZN16java_lang_Module11is_instanceEP7oopDesc.exit
-  %91 = call noundef zeroext i1 @_ZN21java_lang_ClassLoader11is_instanceEP7oopDesc(ptr noundef nonnull %0) #18
-  br i1 %91, label %.sink.split, label %97
+88:                                               ; preds = %_ZN16java_lang_Module11is_instanceEP7oopDesc.exit
+  %89 = call noundef zeroext i1 @_ZN21java_lang_ClassLoader11is_instanceEP7oopDesc(ptr noundef nonnull %0) #18
+  br i1 %89, label %.sink.split, label %95
 
-.sink.split:                                      ; preds = %90, %_ZN16java_lang_Module11is_instanceEP7oopDesc.exit
-  %_ZN21java_lang_ClassLoader19_loader_data_offsetE.sink = phi ptr [ @_ZN16java_lang_Module20_module_entry_offsetE, %_ZN16java_lang_Module11is_instanceEP7oopDesc.exit ], [ @_ZN21java_lang_ClassLoader19_loader_data_offsetE, %90 ]
-  %92 = load i32, ptr %_ZN21java_lang_ClassLoader19_loader_data_offsetE.sink, align 4
-  %93 = ptrtoint ptr %73 to i64
-  %94 = sext i32 %92 to i64
-  %95 = add nsw i64 %94, %93
-  %96 = inttoptr i64 %95 to ptr
-  store ptr null, ptr %96, align 8
-  br label %97
+.sink.split:                                      ; preds = %88, %_ZN16java_lang_Module11is_instanceEP7oopDesc.exit
+  %_ZN21java_lang_ClassLoader19_loader_data_offsetE.sink = phi ptr [ @_ZN16java_lang_Module20_module_entry_offsetE, %_ZN16java_lang_Module11is_instanceEP7oopDesc.exit ], [ @_ZN21java_lang_ClassLoader19_loader_data_offsetE, %88 ]
+  %90 = load i32, ptr %_ZN21java_lang_ClassLoader19_loader_data_offsetE.sink, align 4
+  %91 = ptrtoint ptr %73 to i64
+  %92 = sext i32 %90 to i64
+  %93 = add nsw i64 %92, %91
+  %94 = inttoptr i64 %93 to ptr
+  store ptr null, ptr %94, align 8
+  br label %95
 
-97:                                               ; preds = %.sink.split, %90
-  %98 = load i64, ptr @_ZN17ArchiveHeapWriter12_buffer_usedE, align 8
+95:                                               ; preds = %.sink.split, %88
+  %96 = load i64, ptr @_ZN17ArchiveHeapWriter12_buffer_usedE, align 8
   store i64 %60, ptr @_ZN17ArchiveHeapWriter12_buffer_usedE, align 8
-  ret i64 %98
+  ret i64 %96
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable

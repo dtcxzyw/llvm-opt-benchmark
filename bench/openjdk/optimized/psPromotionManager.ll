@@ -3399,7 +3399,7 @@ _ZN4Copy22aligned_disjoint_wordsEPKP12HeapWordImplPS1_m.exit: ; preds = %_ZN18PS
   %336 = inttoptr i64 %335 to ptr
   %337 = icmp eq i64 %335, 0
   %338 = or i1 %334, %337
-  br i1 %338, label %339, label %543
+  br i1 %338, label %339, label %541
 
 339:                                              ; preds = %_ZN4Copy22aligned_disjoint_wordsEPKP12HeapWordImplPS1_m.exit
   br i1 %299, label %374, label %340
@@ -3690,106 +3690,104 @@ _ZN18PSPromotionManager13push_contentsEP7oopDesc.exit: ; preds = %_ZNK7oopDesc5k
 497:                                              ; preds = %_ZN18PSPromotionManager13push_contentsEP7oopDesc.exit
   %498 = load i8, ptr @UseCompressedClassPointers, align 1
   %499 = trunc i8 %498 to i1
-  br i1 %499, label %500, label %510
+  br i1 %499, label %500, label %508
 
 500:                                              ; preds = %497
   %501 = load i32, ptr %377, align 8
   %502 = load ptr, ptr @_ZN23CompressedKlassPointers5_baseE, align 8
   %503 = load i32, ptr @_ZN23CompressedKlassPointers6_shiftE, align 4
-  %504 = ptrtoint ptr %502 to i64
-  %505 = zext i32 %501 to i64
-  %506 = zext nneg i32 %503 to i64
-  %507 = shl i64 %505, %506
-  %508 = add i64 %507, %504
-  %509 = inttoptr i64 %508 to ptr
+  %504 = zext i32 %501 to i64
+  %505 = zext nneg i32 %503 to i64
+  %506 = shl i64 %504, %505
+  %507 = getelementptr i8, ptr %502, i64 %506
   br label %_ZN16java_lang_String11is_instanceEP7oopDesc.exit
 
-510:                                              ; preds = %497
-  %511 = load ptr, ptr %377, align 8
+508:                                              ; preds = %497
+  %509 = load ptr, ptr %377, align 8
   br label %_ZN16java_lang_String11is_instanceEP7oopDesc.exit
 
-_ZN16java_lang_String11is_instanceEP7oopDesc.exit: ; preds = %500, %510
-  %.0.i.i115 = phi ptr [ %509, %500 ], [ %511, %510 ]
-  %512 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 8), align 8
-  %513 = icmp eq ptr %.0.i.i115, %512
-  br i1 %513, label %514, label %_ZN18PSPromotionManager10push_depthE11ScannerTask.exit
+_ZN16java_lang_String11is_instanceEP7oopDesc.exit: ; preds = %500, %508
+  %.0.i.i115 = phi ptr [ %507, %500 ], [ %509, %508 ]
+  %510 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 8), align 8
+  %511 = icmp eq ptr %.0.i.i115, %510
+  br i1 %511, label %512, label %_ZN18PSPromotionManager10push_depthE11ScannerTask.exit
 
-514:                                              ; preds = %_ZN16java_lang_String11is_instanceEP7oopDesc.exit
-  br i1 %299, label %515, label %528
+512:                                              ; preds = %_ZN16java_lang_String11is_instanceEP7oopDesc.exit
+  br i1 %299, label %513, label %526
 
-515:                                              ; preds = %514
+513:                                              ; preds = %512
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %516 = load volatile i64, ptr %.1, align 8
-  store i64 %516, ptr %5, align 8
-  %517 = load i32, ptr @LockingMode, align 4
-  %518 = icmp eq i32 %517, 2
-  %519 = and i64 %516, 3
-  %520 = icmp eq i64 %519, 2
-  %521 = and i64 %516, 1
-  %522 = icmp eq i64 %521, 0
-  %523 = select i1 %518, i1 %520, i1 %522
-  br i1 %523, label %524, label %_ZNK7oopDesc3ageEv.exit.i
+  %514 = load volatile i64, ptr %.1, align 8
+  store i64 %514, ptr %5, align 8
+  %515 = load i32, ptr @LockingMode, align 4
+  %516 = icmp eq i32 %515, 2
+  %517 = and i64 %514, 3
+  %518 = icmp eq i64 %517, 2
+  %519 = and i64 %514, 1
+  %520 = icmp eq i64 %519, 0
+  %521 = select i1 %516, i1 %518, i1 %520
+  br i1 %521, label %522, label %_ZNK7oopDesc3ageEv.exit.i
 
-524:                                              ; preds = %515
-  %525 = call i64 @_ZNK8markWord21displaced_mark_helperEv(ptr noundef nonnull align 8 dereferenceable(8) %5) #12
+522:                                              ; preds = %513
+  %523 = call i64 @_ZNK8markWord21displaced_mark_helperEv(ptr noundef nonnull align 8 dereferenceable(8) %5) #12
   br label %_ZNK7oopDesc3ageEv.exit.i
 
-_ZNK7oopDesc3ageEv.exit.i:                        ; preds = %524, %515
-  %.0.in.in.in.i.i = phi i64 [ %525, %524 ], [ %516, %515 ]
+_ZNK7oopDesc3ageEv.exit.i:                        ; preds = %522, %513
+  %.0.in.in.in.i.i = phi i64 [ %523, %522 ], [ %514, %513 ]
   %.0.in.in.i.i = trunc i64 %.0.in.in.in.i.i to i32
   %.0.in.i.i = lshr i32 %.0.in.in.i.i, 3
   %.0.i.i116 = and i32 %.0.in.i.i, 15
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %526 = load i32, ptr @_ZN11StringDedup18_enabled_age_limitE, align 4
-  %527 = icmp ult i32 %.0.i.i116, %526
-  br i1 %527, label %541, label %_ZN18PSPromotionManager10push_depthE11ScannerTask.exit
+  %524 = load i32, ptr @_ZN11StringDedup18_enabled_age_limitE, align 4
+  %525 = icmp ult i32 %.0.i.i116, %524
+  br i1 %525, label %539, label %_ZN18PSPromotionManager10push_depthE11ScannerTask.exit
 
-528:                                              ; preds = %514
+526:                                              ; preds = %512
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %529 = load volatile i64, ptr %.1, align 8
-  store i64 %529, ptr %4, align 8
-  %530 = load i32, ptr @LockingMode, align 4
-  %531 = icmp eq i32 %530, 2
-  %532 = and i64 %529, 3
-  %533 = icmp eq i64 %532, 2
-  %534 = and i64 %529, 1
-  %535 = icmp eq i64 %534, 0
-  %536 = select i1 %531, i1 %533, i1 %535
-  br i1 %536, label %537, label %_ZN13psStringDedup28is_candidate_from_evacuationEP7oopDescb.exit
+  %527 = load volatile i64, ptr %.1, align 8
+  store i64 %527, ptr %4, align 8
+  %528 = load i32, ptr @LockingMode, align 4
+  %529 = icmp eq i32 %528, 2
+  %530 = and i64 %527, 3
+  %531 = icmp eq i64 %530, 2
+  %532 = and i64 %527, 1
+  %533 = icmp eq i64 %532, 0
+  %534 = select i1 %529, i1 %531, i1 %533
+  br i1 %534, label %535, label %_ZN13psStringDedup28is_candidate_from_evacuationEP7oopDescb.exit
 
-537:                                              ; preds = %528
-  %538 = call i64 @_ZNK8markWord21displaced_mark_helperEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #12
+535:                                              ; preds = %526
+  %536 = call i64 @_ZNK8markWord21displaced_mark_helperEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #12
   br label %_ZN13psStringDedup28is_candidate_from_evacuationEP7oopDescb.exit
 
-_ZN13psStringDedup28is_candidate_from_evacuationEP7oopDescb.exit: ; preds = %528, %537
-  %.0.in.in.in.i2.i = phi i64 [ %538, %537 ], [ %529, %528 ]
+_ZN13psStringDedup28is_candidate_from_evacuationEP7oopDescb.exit: ; preds = %526, %535
+  %.0.in.in.in.i2.i = phi i64 [ %536, %535 ], [ %527, %526 ]
   %.0.in.in.i3.i = trunc i64 %.0.in.in.in.i2.i to i32
   %.0.in.i4.i = lshr i32 %.0.in.in.i3.i, 3
   %.0.i5.i = and i32 %.0.in.i4.i, 15
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %539 = load i32, ptr @_ZN11StringDedup22_enabled_age_thresholdE, align 4
-  %540 = icmp eq i32 %.0.i5.i, %539
-  br i1 %540, label %541, label %_ZN18PSPromotionManager10push_depthE11ScannerTask.exit
+  %537 = load i32, ptr @_ZN11StringDedup22_enabled_age_thresholdE, align 4
+  %538 = icmp eq i32 %.0.i5.i, %537
+  br i1 %538, label %539, label %_ZN18PSPromotionManager10push_depthE11ScannerTask.exit
 
-541:                                              ; preds = %_ZNK7oopDesc3ageEv.exit.i, %_ZN13psStringDedup28is_candidate_from_evacuationEP7oopDescb.exit
-  %542 = getelementptr inbounds nuw i8, ptr %0, i64 880
-  call void @_ZN11StringDedup8Requests3addEP7oopDesc(ptr noundef nonnull align 8 dereferenceable(25) %542, ptr noundef nonnull %1) #12
+539:                                              ; preds = %_ZNK7oopDesc3ageEv.exit.i, %_ZN13psStringDedup28is_candidate_from_evacuationEP7oopDescb.exit
+  %540 = getelementptr inbounds nuw i8, ptr %0, i64 880
+  call void @_ZN11StringDedup8Requests3addEP7oopDesc(ptr noundef nonnull align 8 dereferenceable(25) %540, ptr noundef nonnull %1) #12
   br label %_ZN18PSPromotionManager10push_depthE11ScannerTask.exit
 
-543:                                              ; preds = %_ZN4Copy22aligned_disjoint_wordsEPKP12HeapWordImplPS1_m.exit
-  br i1 %299, label %544, label %546
+541:                                              ; preds = %_ZN4Copy22aligned_disjoint_wordsEPKP12HeapWordImplPS1_m.exit
+  br i1 %299, label %542, label %544
 
-544:                                              ; preds = %543
-  %545 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  call void @_ZN14PSPromotionLAB17unallocate_objectEPP12HeapWordImplm(ptr noundef nonnull align 8 dereferenceable(36) %545, ptr noundef nonnull %.1, i64 noundef %.0.i1.i) #12
+542:                                              ; preds = %541
+  %543 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  call void @_ZN14PSPromotionLAB17unallocate_objectEPP12HeapWordImplm(ptr noundef nonnull align 8 dereferenceable(36) %543, ptr noundef nonnull %.1, i64 noundef %.0.i1.i) #12
   br label %_ZN18PSPromotionManager10push_depthE11ScannerTask.exit
 
-546:                                              ; preds = %543
+544:                                              ; preds = %541
   call void @_ZN14PSPromotionLAB17unallocate_objectEPP12HeapWordImplm(ptr noundef nonnull align 8 dereferenceable(36) %0, ptr noundef nonnull %.1, i64 noundef %.0.i1.i) #12
   br label %_ZN18PSPromotionManager10push_depthE11ScannerTask.exit
 
-_ZN18PSPromotionManager10push_depthE11ScannerTask.exit: ; preds = %_ZNK7oopDesc3ageEv.exit.i, %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE4pushES0_.exit.i.i, %_ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.thread.i.i, %544, %546, %541, %_ZN13psStringDedup28is_candidate_from_evacuationEP7oopDescb.exit, %_ZN16java_lang_String11is_instanceEP7oopDesc.exit, %_ZN18PSPromotionManager13push_contentsEP7oopDesc.exit, %_ZN17PSOldPromotionLAB8allocateEm.exit98.thread
-  %.0 = phi ptr [ %298, %_ZN17PSOldPromotionLAB8allocateEm.exit98.thread ], [ %.1, %_ZN18PSPromotionManager13push_contentsEP7oopDesc.exit ], [ %.1, %_ZN16java_lang_String11is_instanceEP7oopDesc.exit ], [ %.1, %_ZN13psStringDedup28is_candidate_from_evacuationEP7oopDescb.exit ], [ %.1, %541 ], [ %336, %546 ], [ %336, %544 ], [ %.1, %_ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.thread.i.i ], [ %.1, %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE4pushES0_.exit.i.i ], [ %.1, %_ZNK7oopDesc3ageEv.exit.i ]
+_ZN18PSPromotionManager10push_depthE11ScannerTask.exit: ; preds = %_ZNK7oopDesc3ageEv.exit.i, %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE4pushES0_.exit.i.i, %_ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.thread.i.i, %542, %544, %539, %_ZN13psStringDedup28is_candidate_from_evacuationEP7oopDescb.exit, %_ZN16java_lang_String11is_instanceEP7oopDesc.exit, %_ZN18PSPromotionManager13push_contentsEP7oopDesc.exit, %_ZN17PSOldPromotionLAB8allocateEm.exit98.thread
+  %.0 = phi ptr [ %298, %_ZN17PSOldPromotionLAB8allocateEm.exit98.thread ], [ %.1, %_ZN18PSPromotionManager13push_contentsEP7oopDesc.exit ], [ %.1, %_ZN16java_lang_String11is_instanceEP7oopDesc.exit ], [ %.1, %_ZN13psStringDedup28is_candidate_from_evacuationEP7oopDescb.exit ], [ %.1, %539 ], [ %336, %544 ], [ %336, %542 ], [ %.1, %_ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.thread.i.i ], [ %.1, %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE4pushES0_.exit.i.i ], [ %.1, %_ZNK7oopDesc3ageEv.exit.i ]
   ret ptr %.0
 }
 

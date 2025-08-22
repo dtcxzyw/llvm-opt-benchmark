@@ -2987,13 +2987,13 @@ _ZNK14DiscoveredList4headEv.exit:                 ; preds = %7, %20
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 17
   %28 = load i8, ptr %27, align 1
   %29 = trunc i8 %28 to i1
-  br i1 %26, label %30, label %58
+  br i1 %26, label %30, label %56
 
 30:                                               ; preds = %_ZNK14DiscoveredList4headEv.exit
-  br i1 %29, label %55, label %31
+  br i1 %29, label %53, label %31
 
 31:                                               ; preds = %30
-  br i1 %6, label %32, label %53
+  br i1 %6, label %32, label %51
 
 32:                                               ; preds = %31
   %33 = icmp eq ptr %23, null
@@ -3009,90 +3009,88 @@ _ZNK14DiscoveredList4headEv.exit:                 ; preds = %7, %20
   %43 = tail call noundef i32 asm sideeffect "lock cmpxchgl $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %42, i32 0, ptr %3) #17, !srcloc !20
   %44 = icmp eq i32 %43, 0
   %45 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
-  %46 = ptrtoint ptr %45 to i64
-  %47 = zext i32 %43 to i64
-  %48 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
-  %49 = zext nneg i32 %48 to i64
-  %50 = shl i64 %47, %49
-  %51 = add i64 %50, %46
-  %52 = inttoptr i64 %51 to ptr
+  %46 = zext i32 %43 to i64
+  %47 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %48 = zext nneg i32 %47 to i64
+  %49 = shl i64 %46, %48
+  %50 = getelementptr i8, ptr %45, i64 %49
   br i1 %44, label %_ZN18ReferenceProcessor19set_discovered_linkEPP12HeapWordImplP7oopDesc.exit.thread, label %_ZN18ReferenceProcessor19set_discovered_linkEPP12HeapWordImplP7oopDesc.exit
 
-53:                                               ; preds = %31
-  %54 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %23, ptr null, ptr %3) #17, !srcloc !21
+51:                                               ; preds = %31
+  %52 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %23, ptr null, ptr %3) #17, !srcloc !21
   br label %_ZN18ReferenceProcessor19set_discovered_linkEPP12HeapWordImplP7oopDesc.exit
 
-55:                                               ; preds = %30
-  %56 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm283654EP7oopDescLNS_11BarrierTypeE4EE20_atomic_cmpxchg_funcE, align 8
-  %57 = tail call noundef ptr %56(ptr noundef %3, ptr noundef null, ptr noundef %23) #17
+53:                                               ; preds = %30
+  %54 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm283654EP7oopDescLNS_11BarrierTypeE4EE20_atomic_cmpxchg_funcE, align 8
+  %55 = tail call noundef ptr %54(ptr noundef %3, ptr noundef null, ptr noundef %23) #17
   br label %_ZN18ReferenceProcessor19set_discovered_linkEPP12HeapWordImplP7oopDesc.exit
 
-58:                                               ; preds = %_ZNK14DiscoveredList4headEv.exit
-  br i1 %29, label %72, label %59
+56:                                               ; preds = %_ZNK14DiscoveredList4headEv.exit
+  br i1 %29, label %70, label %57
 
-59:                                               ; preds = %58
-  br i1 %6, label %60, label %71
+57:                                               ; preds = %56
+  br i1 %6, label %58, label %69
 
-60:                                               ; preds = %59
-  %61 = icmp eq ptr %23, null
-  %62 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
-  %63 = ptrtoint ptr %23 to i64
-  %64 = ptrtoint ptr %62 to i64
-  %65 = sub i64 %63, %64
-  %66 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
-  %67 = zext nneg i32 %66 to i64
-  %68 = lshr i64 %65, %67
-  %69 = trunc i64 %68 to i32
-  %70 = select i1 %61, i32 0, i32 %69
-  store i32 %70, ptr %3, align 4
+58:                                               ; preds = %57
+  %59 = icmp eq ptr %23, null
+  %60 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
+  %61 = ptrtoint ptr %23 to i64
+  %62 = ptrtoint ptr %60 to i64
+  %63 = sub i64 %61, %62
+  %64 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %65 = zext nneg i32 %64 to i64
+  %66 = lshr i64 %63, %65
+  %67 = trunc i64 %66 to i32
+  %68 = select i1 %59, i32 0, i32 %67
+  store i32 %68, ptr %3, align 4
   br label %_ZN18ReferenceProcessor19set_discovered_linkEPP12HeapWordImplP7oopDesc.exit.thread
 
-71:                                               ; preds = %59
+69:                                               ; preds = %57
   store ptr %23, ptr %3, align 8
   br label %_ZN18ReferenceProcessor19set_discovered_linkEPP12HeapWordImplP7oopDesc.exit.thread
 
-72:                                               ; preds = %58
-  %73 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm282694EP7oopDescLNS_11BarrierTypeE0EE11_store_funcE, align 8
-  tail call void %73(ptr noundef %3, ptr noundef %23) #17
+70:                                               ; preds = %56
+  %71 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm282694EP7oopDescLNS_11BarrierTypeE0EE11_store_funcE, align 8
+  tail call void %71(ptr noundef %3, ptr noundef %23) #17
   br label %_ZN18ReferenceProcessor19set_discovered_linkEPP12HeapWordImplP7oopDesc.exit.thread
 
-_ZN18ReferenceProcessor19set_discovered_linkEPP12HeapWordImplP7oopDesc.exit: ; preds = %32, %53, %55
-  %.0.i.i = phi ptr [ %57, %55 ], [ %52, %32 ], [ %54, %53 ]
-  %74 = icmp eq ptr %.0.i.i, null
-  br i1 %74, label %_ZN18ReferenceProcessor19set_discovered_linkEPP12HeapWordImplP7oopDesc.exit.thread, label %93
+_ZN18ReferenceProcessor19set_discovered_linkEPP12HeapWordImplP7oopDesc.exit: ; preds = %32, %51, %53
+  %.0.i.i = phi ptr [ %55, %53 ], [ %50, %32 ], [ %52, %51 ]
+  %72 = icmp eq ptr %.0.i.i, null
+  br i1 %72, label %_ZN18ReferenceProcessor19set_discovered_linkEPP12HeapWordImplP7oopDesc.exit.thread, label %91
 
-_ZN18ReferenceProcessor19set_discovered_linkEPP12HeapWordImplP7oopDesc.exit.thread: ; preds = %32, %72, %71, %60, %_ZN18ReferenceProcessor19set_discovered_linkEPP12HeapWordImplP7oopDesc.exit
-  %75 = load i8, ptr @UseCompressedOops, align 1
-  %76 = trunc i8 %75 to i1
-  br i1 %76, label %77, label %89
+_ZN18ReferenceProcessor19set_discovered_linkEPP12HeapWordImplP7oopDesc.exit.thread: ; preds = %32, %70, %69, %58, %_ZN18ReferenceProcessor19set_discovered_linkEPP12HeapWordImplP7oopDesc.exit
+  %73 = load i8, ptr @UseCompressedOops, align 1
+  %74 = trunc i8 %73 to i1
+  br i1 %74, label %75, label %87
 
-77:                                               ; preds = %_ZN18ReferenceProcessor19set_discovered_linkEPP12HeapWordImplP7oopDesc.exit.thread
-  %78 = icmp eq ptr %2, null
-  %79 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
-  %80 = ptrtoint ptr %2 to i64
-  %81 = ptrtoint ptr %79 to i64
-  %82 = sub i64 %80, %81
-  %83 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
-  %84 = zext nneg i32 %83 to i64
-  %85 = lshr i64 %82, %84
-  %86 = trunc i64 %85 to i32
-  %87 = select i1 %78, i32 0, i32 %86
-  %88 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 %87, ptr %88, align 8
+75:                                               ; preds = %_ZN18ReferenceProcessor19set_discovered_linkEPP12HeapWordImplP7oopDesc.exit.thread
+  %76 = icmp eq ptr %2, null
+  %77 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
+  %78 = ptrtoint ptr %2 to i64
+  %79 = ptrtoint ptr %77 to i64
+  %80 = sub i64 %78, %79
+  %81 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops11_narrow_oopE, i64 8), align 8
+  %82 = zext nneg i32 %81 to i64
+  %83 = lshr i64 %80, %82
+  %84 = trunc i64 %83 to i32
+  %85 = select i1 %76, i32 0, i32 %84
+  %86 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i32 %85, ptr %86, align 8
   br label %_ZN14DiscoveredList11add_as_headEP7oopDesc.exit
 
-89:                                               ; preds = %_ZN18ReferenceProcessor19set_discovered_linkEPP12HeapWordImplP7oopDesc.exit.thread
+87:                                               ; preds = %_ZN18ReferenceProcessor19set_discovered_linkEPP12HeapWordImplP7oopDesc.exit.thread
   store ptr %2, ptr %1, align 8
   br label %_ZN14DiscoveredList11add_as_headEP7oopDesc.exit
 
-_ZN14DiscoveredList11add_as_headEP7oopDesc.exit:  ; preds = %77, %89
-  %90 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %91 = load i64, ptr %90, align 8
-  %92 = add i64 %91, 1
-  store i64 %92, ptr %90, align 8
-  br label %93
+_ZN14DiscoveredList11add_as_headEP7oopDesc.exit:  ; preds = %75, %87
+  %88 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %89 = load i64, ptr %88, align 8
+  %90 = add i64 %89, 1
+  store i64 %90, ptr %88, align 8
+  br label %91
 
-93:                                               ; preds = %_ZN18ReferenceProcessor19set_discovered_linkEPP12HeapWordImplP7oopDesc.exit, %_ZN14DiscoveredList11add_as_headEP7oopDesc.exit
+91:                                               ; preds = %_ZN18ReferenceProcessor19set_discovered_linkEPP12HeapWordImplP7oopDesc.exit, %_ZN14DiscoveredList11add_as_headEP7oopDesc.exit
   ret void
 }
 

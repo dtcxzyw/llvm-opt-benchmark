@@ -754,7 +754,7 @@ _ZNK7oopDesc13klass_or_nullEv.exit.thread:        ; preds = %15, %_ZNK7oopDesc13
   %spec.select.i = select i1 %.not.i, ptr %1, ptr %37
   %.not62 = icmp eq ptr %spec.select.i, %1
   %.not = or i1 %35, %.not62
-  br i1 %.not, label %86, label %38
+  br i1 %.not, label %84, label %38
 
 38:                                               ; preds = %32
   %39 = getelementptr inbounds nuw i8, ptr %5, i64 1285
@@ -782,68 +782,66 @@ _ZNK7oopDesc13klass_or_nullEv.exit.thread:        ; preds = %15, %_ZNK7oopDesc13
   %50 = load i8, ptr @UseCompressedClassPointers, align 1
   %51 = trunc i8 %50 to i1
   %52 = getelementptr inbounds nuw i8, ptr %spec.select.i, i64 8
-  br i1 %51, label %53, label %63
+  br i1 %51, label %53, label %61
 
 53:                                               ; preds = %49
   %54 = load i32, ptr %52, align 8
   %55 = load ptr, ptr @_ZN23CompressedKlassPointers5_baseE, align 8
   %56 = load i32, ptr @_ZN23CompressedKlassPointers6_shiftE, align 4
-  %57 = ptrtoint ptr %55 to i64
-  %58 = zext i32 %54 to i64
-  %59 = zext nneg i32 %56 to i64
-  %60 = shl i64 %58, %59
-  %61 = add i64 %60, %57
-  %62 = inttoptr i64 %61 to ptr
+  %57 = zext i32 %54 to i64
+  %58 = zext nneg i32 %56 to i64
+  %59 = shl i64 %57, %58
+  %60 = getelementptr i8, ptr %55, i64 %59
   br label %_ZNK7oopDesc5klassEv.exit
 
-63:                                               ; preds = %49
-  %64 = load ptr, ptr %52, align 8
+61:                                               ; preds = %49
+  %62 = load ptr, ptr %52, align 8
   br label %_ZNK7oopDesc5klassEv.exit
 
-_ZNK7oopDesc5klassEv.exit:                        ; preds = %53, %63
-  %.0.i55 = phi ptr [ %62, %53 ], [ %64, %63 ]
+_ZNK7oopDesc5klassEv.exit:                        ; preds = %53, %61
+  %.0.i55 = phi ptr [ %60, %53 ], [ %62, %61 ]
   %.not52 = icmp eq ptr %.0.i, %.0.i55
-  br i1 %.not52, label %66, label %65
+  br i1 %.not52, label %64, label %63
 
-65:                                               ; preds = %_ZNK7oopDesc5klassEv.exit
+63:                                               ; preds = %_ZNK7oopDesc5klassEv.exit
   tail call void @_ZN17ShenandoahAsserts13print_failureENS_9SafeLevelEP7oopDescPvS2_PKcS5_S5_i(i32 noundef 1, ptr noundef nonnull %1, ptr noundef %0, ptr noundef null, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.35, ptr noundef %2, i32 noundef %3)
   unreachable
 
-66:                                               ; preds = %_ZNK7oopDesc5klassEv.exit
-  %67 = ptrtoint ptr %spec.select.i to i64
-  %68 = getelementptr inbounds nuw i8, ptr %5, i64 520
-  %69 = load ptr, ptr %68, align 8
-  %70 = ptrtoint ptr %69 to i64
-  %71 = sub i64 %67, %70
-  %72 = load i64, ptr @_ZN20ShenandoahHeapRegion20RegionSizeBytesShiftE, align 8
-  %73 = lshr i64 %71, %72
-  %74 = ptrtoint ptr %1 to i64
-  %75 = sub i64 %74, %70
-  %76 = lshr i64 %75, %72
-  %77 = icmp eq i64 %73, %76
-  br i1 %77, label %78, label %79
+64:                                               ; preds = %_ZNK7oopDesc5klassEv.exit
+  %65 = ptrtoint ptr %spec.select.i to i64
+  %66 = getelementptr inbounds nuw i8, ptr %5, i64 520
+  %67 = load ptr, ptr %66, align 8
+  %68 = ptrtoint ptr %67 to i64
+  %69 = sub i64 %65, %68
+  %70 = load i64, ptr @_ZN20ShenandoahHeapRegion20RegionSizeBytesShiftE, align 8
+  %71 = lshr i64 %69, %70
+  %72 = ptrtoint ptr %1 to i64
+  %73 = sub i64 %72, %68
+  %74 = lshr i64 %73, %70
+  %75 = icmp eq i64 %71, %74
+  br i1 %75, label %76, label %77
 
-78:                                               ; preds = %66
+76:                                               ; preds = %64
   tail call void @_ZN17ShenandoahAsserts13print_failureENS_9SafeLevelEP7oopDescPvS2_PKcS5_S5_i(i32 noundef 3, ptr noundef nonnull %1, ptr noundef %0, ptr noundef null, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.36, ptr noundef %2, i32 noundef %3)
   unreachable
 
-79:                                               ; preds = %66
-  %80 = load volatile i64, ptr %spec.select.i, align 8
-  %81 = and i64 %80, 3
-  %82 = icmp ne i64 %81, 3
-  %83 = and i64 %80, -4
-  %84 = inttoptr i64 %83 to ptr
-  %.not.i56 = icmp eq i64 %83, 0
-  %.not536364 = icmp eq ptr %spec.select.i, %84
+77:                                               ; preds = %64
+  %78 = load volatile i64, ptr %spec.select.i, align 8
+  %79 = and i64 %78, 3
+  %80 = icmp ne i64 %79, 3
+  %81 = and i64 %78, -4
+  %82 = inttoptr i64 %81 to ptr
+  %.not.i56 = icmp eq i64 %81, 0
+  %.not536364 = icmp eq ptr %spec.select.i, %82
   %.not5363 = or i1 %.not.i56, %.not536364
-  %.not53 = or i1 %82, %.not5363
-  br i1 %.not53, label %86, label %85
+  %.not53 = or i1 %80, %.not5363
+  br i1 %.not53, label %84, label %83
 
-85:                                               ; preds = %79
+83:                                               ; preds = %77
   tail call void @_ZN17ShenandoahAsserts13print_failureENS_9SafeLevelEP7oopDescPvS2_PKcS5_S5_i(i32 noundef 3, ptr noundef nonnull %1, ptr noundef %0, ptr noundef null, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.37, ptr noundef %2, i32 noundef %3)
   unreachable
 
-86:                                               ; preds = %79, %32
+84:                                               ; preds = %77, %32
   ret void
 }
 

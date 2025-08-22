@@ -749,62 +749,60 @@ define hidden noundef ptr @_ZN14ExceptionCache5matchE6HandlePh(ptr noundef nonnu
   %5 = load i8, ptr @UseCompressedClassPointers, align 1
   %6 = trunc i8 %5 to i1
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  br i1 %6, label %8, label %18
+  br i1 %6, label %8, label %16
 
 8:                                                ; preds = %3
   %9 = load i32, ptr %7, align 8
   %10 = load ptr, ptr @_ZN23CompressedKlassPointers5_baseE, align 8
   %11 = load i32, ptr @_ZN23CompressedKlassPointers6_shiftE, align 4
-  %12 = ptrtoint ptr %10 to i64
-  %13 = zext i32 %9 to i64
-  %14 = zext nneg i32 %11 to i64
-  %15 = shl i64 %13, %14
-  %16 = add i64 %15, %12
-  %17 = inttoptr i64 %16 to ptr
+  %12 = zext i32 %9 to i64
+  %13 = zext nneg i32 %11 to i64
+  %14 = shl i64 %12, %13
+  %15 = getelementptr i8, ptr %10, i64 %14
   br label %_ZNK7oopDesc5klassEv.exit
 
-18:                                               ; preds = %3
-  %19 = load ptr, ptr %7, align 8
+16:                                               ; preds = %3
+  %17 = load ptr, ptr %7, align 8
   br label %_ZNK7oopDesc5klassEv.exit
 
-_ZNK7oopDesc5klassEv.exit:                        ; preds = %8, %18
-  %.0.i = phi ptr [ %17, %8 ], [ %19, %18 ]
-  %20 = load ptr, ptr %0, align 8
-  %21 = icmp eq ptr %.0.i, %20
-  br i1 %21, label %22, label %_ZN14ExceptionCache12test_addressEPh.exit
+_ZNK7oopDesc5klassEv.exit:                        ; preds = %8, %16
+  %.0.i = phi ptr [ %15, %8 ], [ %17, %16 ]
+  %18 = load ptr, ptr %0, align 8
+  %19 = icmp eq ptr %.0.i, %18
+  br i1 %19, label %20, label %_ZN14ExceptionCache12test_addressEPh.exit
 
-22:                                               ; preds = %_ZNK7oopDesc5klassEv.exit
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  %24 = load volatile i32, ptr %23, align 8
+20:                                               ; preds = %_ZNK7oopDesc5klassEv.exit
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 264
+  %22 = load volatile i32, ptr %21, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !6
-  %25 = icmp sgt i32 %24, 0
-  br i1 %25, label %.lr.ph.i, label %_ZN14ExceptionCache12test_addressEPh.exit
+  %23 = icmp sgt i32 %22, 0
+  br i1 %23, label %.lr.ph.i, label %_ZN14ExceptionCache12test_addressEPh.exit
 
-.lr.ph.i:                                         ; preds = %22
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %wide.trip.count.i = zext nneg i32 %24 to i64
-  br label %28
+.lr.ph.i:                                         ; preds = %20
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %wide.trip.count.i = zext nneg i32 %22 to i64
+  br label %26
 
-27:                                               ; preds = %28
+25:                                               ; preds = %26
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %_ZN14ExceptionCache12test_addressEPh.exit, label %28, !llvm.loop !7
+  br i1 %exitcond.not.i, label %_ZN14ExceptionCache12test_addressEPh.exit, label %26, !llvm.loop !7
 
-28:                                               ; preds = %27, %.lr.ph.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %27 ]
-  %29 = getelementptr inbounds nuw [16 x ptr], ptr %26, i64 0, i64 %indvars.iv.i
-  %30 = load ptr, ptr %29, align 8
-  %31 = icmp eq ptr %30, %2
-  br i1 %31, label %32, label %27
+26:                                               ; preds = %25, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %25 ]
+  %27 = getelementptr inbounds nuw [16 x ptr], ptr %24, i64 0, i64 %indvars.iv.i
+  %28 = load ptr, ptr %27, align 8
+  %29 = icmp eq ptr %28, %2
+  br i1 %29, label %30, label %25
 
-32:                                               ; preds = %28
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %34 = getelementptr inbounds nuw [16 x ptr], ptr %33, i64 0, i64 %indvars.iv.i
-  %35 = load ptr, ptr %34, align 8
+30:                                               ; preds = %26
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  %32 = getelementptr inbounds nuw [16 x ptr], ptr %31, i64 0, i64 %indvars.iv.i
+  %33 = load ptr, ptr %32, align 8
   br label %_ZN14ExceptionCache12test_addressEPh.exit
 
-_ZN14ExceptionCache12test_addressEPh.exit:        ; preds = %27, %32, %22, %_ZNK7oopDesc5klassEv.exit
-  %.0 = phi ptr [ null, %_ZNK7oopDesc5klassEv.exit ], [ %35, %32 ], [ null, %22 ], [ null, %27 ]
+_ZN14ExceptionCache12test_addressEPh.exit:        ; preds = %25, %30, %20, %_ZNK7oopDesc5klassEv.exit
+  %.0 = phi ptr [ null, %_ZNK7oopDesc5klassEv.exit ], [ %33, %30 ], [ null, %20 ], [ null, %25 ]
   ret ptr %.0
 }
 
@@ -850,42 +848,40 @@ define hidden noundef zeroext i1 @_ZN14ExceptionCache26match_exception_with_spac
   %4 = load i8, ptr @UseCompressedClassPointers, align 1
   %5 = trunc i8 %4 to i1
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  br i1 %5, label %7, label %17
+  br i1 %5, label %7, label %15
 
 7:                                                ; preds = %2
   %8 = load i32, ptr %6, align 8
   %9 = load ptr, ptr @_ZN23CompressedKlassPointers5_baseE, align 8
   %10 = load i32, ptr @_ZN23CompressedKlassPointers6_shiftE, align 4
-  %11 = ptrtoint ptr %9 to i64
-  %12 = zext i32 %8 to i64
-  %13 = zext nneg i32 %10 to i64
-  %14 = shl i64 %12, %13
-  %15 = add i64 %14, %11
-  %16 = inttoptr i64 %15 to ptr
+  %11 = zext i32 %8 to i64
+  %12 = zext nneg i32 %10 to i64
+  %13 = shl i64 %11, %12
+  %14 = getelementptr i8, ptr %9, i64 %13
   br label %_ZNK7oopDesc5klassEv.exit
 
-17:                                               ; preds = %2
-  %18 = load ptr, ptr %6, align 8
+15:                                               ; preds = %2
+  %16 = load ptr, ptr %6, align 8
   br label %_ZNK7oopDesc5klassEv.exit
 
-_ZNK7oopDesc5klassEv.exit:                        ; preds = %7, %17
-  %.0.i = phi ptr [ %16, %7 ], [ %18, %17 ]
-  %19 = load ptr, ptr %0, align 8
-  %20 = icmp eq ptr %.0.i, %19
-  br i1 %20, label %21, label %25
+_ZNK7oopDesc5klassEv.exit:                        ; preds = %7, %15
+  %.0.i = phi ptr [ %14, %7 ], [ %16, %15 ]
+  %17 = load ptr, ptr %0, align 8
+  %18 = icmp eq ptr %.0.i, %17
+  br i1 %18, label %19, label %23
 
-21:                                               ; preds = %_ZNK7oopDesc5klassEv.exit
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  %23 = load volatile i32, ptr %22, align 8
+19:                                               ; preds = %_ZNK7oopDesc5klassEv.exit
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 264
+  %21 = load volatile i32, ptr %20, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !6
-  %24 = icmp slt i32 %23, 16
-  br i1 %24, label %26, label %25
+  %22 = icmp slt i32 %21, 16
+  br i1 %22, label %24, label %23
 
-25:                                               ; preds = %21, %_ZNK7oopDesc5klassEv.exit
-  br label %26
+23:                                               ; preds = %19, %_ZNK7oopDesc5klassEv.exit
+  br label %24
 
-26:                                               ; preds = %21, %25
-  %.0 = phi i1 [ false, %25 ], [ true, %21 ]
+24:                                               ; preds = %19, %23
+  %.0 = phi i1 [ false, %23 ], [ true, %19 ]
   ret i1 %.0
 }
 
@@ -1348,76 +1344,74 @@ define hidden noundef ptr @_ZN7nmethod28handler_for_exception_and_pcE6HandlePh(p
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZN14ExceptionCache5matchE6HandlePh.exit.thread
-  %6 = phi i8 [ %37, %_ZN14ExceptionCache5matchE6HandlePh.exit.thread ], [ %.pre18, %.lr.ph.preheader ]
-  %.0815 = phi ptr [ %39, %_ZN14ExceptionCache5matchE6HandlePh.exit.thread ], [ %5, %.lr.ph.preheader ]
+  %6 = phi i8 [ %35, %_ZN14ExceptionCache5matchE6HandlePh.exit.thread ], [ %.pre18, %.lr.ph.preheader ]
+  %.0815 = phi ptr [ %37, %_ZN14ExceptionCache5matchE6HandlePh.exit.thread ], [ %5, %.lr.ph.preheader ]
   %7 = load ptr, ptr %1, align 8
   %8 = trunc i8 %6 to i1
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  br i1 %8, label %10, label %20
+  br i1 %8, label %10, label %18
 
 10:                                               ; preds = %.lr.ph
   %11 = load i32, ptr %9, align 8
   %12 = load ptr, ptr @_ZN23CompressedKlassPointers5_baseE, align 8
   %13 = load i32, ptr @_ZN23CompressedKlassPointers6_shiftE, align 4
-  %14 = ptrtoint ptr %12 to i64
-  %15 = zext i32 %11 to i64
-  %16 = zext nneg i32 %13 to i64
-  %17 = shl i64 %15, %16
-  %18 = add i64 %17, %14
-  %19 = inttoptr i64 %18 to ptr
+  %14 = zext i32 %11 to i64
+  %15 = zext nneg i32 %13 to i64
+  %16 = shl i64 %14, %15
+  %17 = getelementptr i8, ptr %12, i64 %16
   br label %_ZNK7oopDesc5klassEv.exit.i
 
-20:                                               ; preds = %.lr.ph
-  %21 = load ptr, ptr %9, align 8
+18:                                               ; preds = %.lr.ph
+  %19 = load ptr, ptr %9, align 8
   br label %_ZNK7oopDesc5klassEv.exit.i
 
-_ZNK7oopDesc5klassEv.exit.i:                      ; preds = %20, %10
-  %.0.i.i = phi ptr [ %19, %10 ], [ %21, %20 ]
-  %22 = load ptr, ptr %.0815, align 8
-  %23 = icmp eq ptr %.0.i.i, %22
-  br i1 %23, label %24, label %_ZN14ExceptionCache5matchE6HandlePh.exit.thread
+_ZNK7oopDesc5klassEv.exit.i:                      ; preds = %18, %10
+  %.0.i.i = phi ptr [ %17, %10 ], [ %19, %18 ]
+  %20 = load ptr, ptr %.0815, align 8
+  %21 = icmp eq ptr %.0.i.i, %20
+  br i1 %21, label %22, label %_ZN14ExceptionCache5matchE6HandlePh.exit.thread
 
-24:                                               ; preds = %_ZNK7oopDesc5klassEv.exit.i
-  %25 = getelementptr inbounds nuw i8, ptr %.0815, i64 264
-  %26 = load volatile i32, ptr %25, align 4
+22:                                               ; preds = %_ZNK7oopDesc5klassEv.exit.i
+  %23 = getelementptr inbounds nuw i8, ptr %.0815, i64 264
+  %24 = load volatile i32, ptr %23, align 4
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !6
-  %27 = icmp sgt i32 %26, 0
+  %25 = icmp sgt i32 %24, 0
   %.pre = load i8, ptr @UseCompressedClassPointers, align 1
-  br i1 %27, label %.lr.ph.i.i, label %_ZN14ExceptionCache5matchE6HandlePh.exit.thread
+  br i1 %25, label %.lr.ph.i.i, label %_ZN14ExceptionCache5matchE6HandlePh.exit.thread
 
-.lr.ph.i.i:                                       ; preds = %24
-  %28 = getelementptr inbounds nuw i8, ptr %.0815, i64 8
-  %wide.trip.count.i.i = zext nneg i32 %26 to i64
-  br label %30
+.lr.ph.i.i:                                       ; preds = %22
+  %26 = getelementptr inbounds nuw i8, ptr %.0815, i64 8
+  %wide.trip.count.i.i = zext nneg i32 %24 to i64
+  br label %28
 
-29:                                               ; preds = %30
+27:                                               ; preds = %28
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %_ZN14ExceptionCache5matchE6HandlePh.exit.thread, label %30, !llvm.loop !7
+  br i1 %exitcond.not.i.i, label %_ZN14ExceptionCache5matchE6HandlePh.exit.thread, label %28, !llvm.loop !7
 
-30:                                               ; preds = %29, %.lr.ph.i.i
-  %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %29 ]
-  %31 = getelementptr inbounds nuw [16 x ptr], ptr %28, i64 0, i64 %indvars.iv.i.i
-  %32 = load ptr, ptr %31, align 8
-  %33 = icmp eq ptr %32, %2
-  br i1 %33, label %_ZN14ExceptionCache5matchE6HandlePh.exit, label %29
+28:                                               ; preds = %27, %.lr.ph.i.i
+  %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %27 ]
+  %29 = getelementptr inbounds nuw [16 x ptr], ptr %26, i64 0, i64 %indvars.iv.i.i
+  %30 = load ptr, ptr %29, align 8
+  %31 = icmp eq ptr %30, %2
+  br i1 %31, label %_ZN14ExceptionCache5matchE6HandlePh.exit, label %27
 
-_ZN14ExceptionCache5matchE6HandlePh.exit:         ; preds = %30
-  %34 = getelementptr inbounds nuw i8, ptr %.0815, i64 136
-  %35 = getelementptr inbounds nuw [16 x ptr], ptr %34, i64 0, i64 %indvars.iv.i.i
-  %36 = load ptr, ptr %35, align 8
-  %.not10 = icmp eq ptr %36, null
+_ZN14ExceptionCache5matchE6HandlePh.exit:         ; preds = %28
+  %32 = getelementptr inbounds nuw i8, ptr %.0815, i64 136
+  %33 = getelementptr inbounds nuw [16 x ptr], ptr %32, i64 0, i64 %indvars.iv.i.i
+  %34 = load ptr, ptr %33, align 8
+  %.not10 = icmp eq ptr %34, null
   br i1 %.not10, label %_ZN14ExceptionCache5matchE6HandlePh.exit.thread, label %._crit_edge
 
-_ZN14ExceptionCache5matchE6HandlePh.exit.thread:  ; preds = %29, %24, %_ZNK7oopDesc5klassEv.exit.i, %_ZN14ExceptionCache5matchE6HandlePh.exit
-  %37 = phi i8 [ %.pre, %24 ], [ %6, %_ZNK7oopDesc5klassEv.exit.i ], [ %.pre, %_ZN14ExceptionCache5matchE6HandlePh.exit ], [ %.pre, %29 ]
-  %38 = getelementptr inbounds nuw i8, ptr %.0815, i64 272
-  %39 = load volatile ptr, ptr %38, align 8
-  %.not = icmp eq ptr %39, null
+_ZN14ExceptionCache5matchE6HandlePh.exit.thread:  ; preds = %27, %22, %_ZNK7oopDesc5klassEv.exit.i, %_ZN14ExceptionCache5matchE6HandlePh.exit
+  %35 = phi i8 [ %.pre, %22 ], [ %6, %_ZNK7oopDesc5klassEv.exit.i ], [ %.pre, %_ZN14ExceptionCache5matchE6HandlePh.exit ], [ %.pre, %27 ]
+  %36 = getelementptr inbounds nuw i8, ptr %.0815, i64 272
+  %37 = load volatile ptr, ptr %36, align 8
+  %.not = icmp eq ptr %37, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %_ZN14ExceptionCache5matchE6HandlePh.exit, %_ZN14ExceptionCache5matchE6HandlePh.exit.thread, %3
-  %.0 = phi ptr [ null, %3 ], [ null, %_ZN14ExceptionCache5matchE6HandlePh.exit.thread ], [ %36, %_ZN14ExceptionCache5matchE6HandlePh.exit ]
+  %.0 = phi ptr [ null, %3 ], [ null, %_ZN14ExceptionCache5matchE6HandlePh.exit.thread ], [ %34, %_ZN14ExceptionCache5matchE6HandlePh.exit ]
   ret ptr %.0
 }
 
@@ -1446,243 +1440,241 @@ _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit: ; preds = %4, %6
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZN14ExceptionCache26match_exception_with_spaceE6Handle.exit.i, %.lr.ph.preheader.i
-  %9 = phi i8 [ %31, %_ZN14ExceptionCache26match_exception_with_spaceE6Handle.exit.i ], [ %.pre13.i, %.lr.ph.preheader.i ]
-  %.0710.i = phi ptr [ %33, %_ZN14ExceptionCache26match_exception_with_spaceE6Handle.exit.i ], [ %8, %.lr.ph.preheader.i ]
+  %9 = phi i8 [ %29, %_ZN14ExceptionCache26match_exception_with_spaceE6Handle.exit.i ], [ %.pre13.i, %.lr.ph.preheader.i ]
+  %.0710.i = phi ptr [ %31, %_ZN14ExceptionCache26match_exception_with_spaceE6Handle.exit.i ], [ %8, %.lr.ph.preheader.i ]
   %10 = load ptr, ptr %1, align 8
   %11 = trunc i8 %9 to i1
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  br i1 %11, label %13, label %23
+  br i1 %11, label %13, label %21
 
 13:                                               ; preds = %.lr.ph.i
   %14 = load i32, ptr %12, align 8
   %15 = load ptr, ptr @_ZN23CompressedKlassPointers5_baseE, align 8
   %16 = load i32, ptr @_ZN23CompressedKlassPointers6_shiftE, align 4
-  %17 = ptrtoint ptr %15 to i64
-  %18 = zext i32 %14 to i64
-  %19 = zext nneg i32 %16 to i64
-  %20 = shl i64 %18, %19
-  %21 = add i64 %20, %17
-  %22 = inttoptr i64 %21 to ptr
+  %17 = zext i32 %14 to i64
+  %18 = zext nneg i32 %16 to i64
+  %19 = shl i64 %17, %18
+  %20 = getelementptr i8, ptr %15, i64 %19
   br label %_ZNK7oopDesc5klassEv.exit.i.i
 
-23:                                               ; preds = %.lr.ph.i
-  %24 = load ptr, ptr %12, align 8
+21:                                               ; preds = %.lr.ph.i
+  %22 = load ptr, ptr %12, align 8
   br label %_ZNK7oopDesc5klassEv.exit.i.i
 
-_ZNK7oopDesc5klassEv.exit.i.i:                    ; preds = %23, %13
-  %.0.i.i.i = phi ptr [ %22, %13 ], [ %24, %23 ]
-  %25 = load ptr, ptr %.0710.i, align 8
-  %26 = icmp eq ptr %.0.i.i.i, %25
-  br i1 %26, label %27, label %_ZN14ExceptionCache26match_exception_with_spaceE6Handle.exit.i
+_ZNK7oopDesc5klassEv.exit.i.i:                    ; preds = %21, %13
+  %.0.i.i.i = phi ptr [ %20, %13 ], [ %22, %21 ]
+  %23 = load ptr, ptr %.0710.i, align 8
+  %24 = icmp eq ptr %.0.i.i.i, %23
+  br i1 %24, label %25, label %_ZN14ExceptionCache26match_exception_with_spaceE6Handle.exit.i
 
-27:                                               ; preds = %_ZNK7oopDesc5klassEv.exit.i.i
-  %28 = getelementptr inbounds nuw i8, ptr %.0710.i, i64 264
-  %29 = load volatile i32, ptr %28, align 4
+25:                                               ; preds = %_ZNK7oopDesc5klassEv.exit.i.i
+  %26 = getelementptr inbounds nuw i8, ptr %.0710.i, i64 264
+  %27 = load volatile i32, ptr %26, align 4
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !6
-  %30 = icmp slt i32 %29, 16
+  %28 = icmp slt i32 %27, 16
   %.pre.i = load i8, ptr @UseCompressedClassPointers, align 1
-  br i1 %30, label %_ZN7nmethod35exception_cache_entry_for_exceptionE6Handle.exit, label %_ZN14ExceptionCache26match_exception_with_spaceE6Handle.exit.i
+  br i1 %28, label %_ZN7nmethod35exception_cache_entry_for_exceptionE6Handle.exit, label %_ZN14ExceptionCache26match_exception_with_spaceE6Handle.exit.i
 
-_ZN14ExceptionCache26match_exception_with_spaceE6Handle.exit.i: ; preds = %27, %_ZNK7oopDesc5klassEv.exit.i.i
-  %31 = phi i8 [ %.pre.i, %27 ], [ %9, %_ZNK7oopDesc5klassEv.exit.i.i ]
-  %32 = getelementptr inbounds nuw i8, ptr %.0710.i, i64 272
-  %33 = load volatile ptr, ptr %32, align 8
-  %.not.i = icmp eq ptr %33, null
+_ZN14ExceptionCache26match_exception_with_spaceE6Handle.exit.i: ; preds = %25, %_ZNK7oopDesc5klassEv.exit.i.i
+  %29 = phi i8 [ %.pre.i, %25 ], [ %9, %_ZNK7oopDesc5klassEv.exit.i.i ]
+  %30 = getelementptr inbounds nuw i8, ptr %.0710.i, i64 272
+  %31 = load volatile ptr, ptr %30, align 8
+  %.not.i = icmp eq ptr %31, null
   br i1 %.not.i, label %_ZN14ExceptionCache23add_address_and_handlerEPhS0_.exit, label %.lr.ph.i, !llvm.loop !19
 
-_ZN7nmethod35exception_cache_entry_for_exceptionE6Handle.exit: ; preds = %27
-  %34 = getelementptr inbounds nuw i8, ptr %.0710.i, i64 264
-  %35 = load volatile i32, ptr %34, align 4
+_ZN7nmethod35exception_cache_entry_for_exceptionE6Handle.exit: ; preds = %25
+  %32 = getelementptr inbounds nuw i8, ptr %.0710.i, i64 264
+  %33 = load volatile i32, ptr %32, align 4
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !6
-  %36 = icmp sgt i32 %35, 0
-  br i1 %36, label %.lr.ph.i.i, label %_ZN14ExceptionCache12test_addressEPh.exit.i
+  %34 = icmp sgt i32 %33, 0
+  br i1 %34, label %.lr.ph.i.i, label %_ZN14ExceptionCache12test_addressEPh.exit.i
 
 .lr.ph.i.i:                                       ; preds = %_ZN7nmethod35exception_cache_entry_for_exceptionE6Handle.exit
-  %37 = getelementptr inbounds nuw i8, ptr %.0710.i, i64 8
-  %wide.trip.count.i.i = zext nneg i32 %35 to i64
-  br label %39
+  %35 = getelementptr inbounds nuw i8, ptr %.0710.i, i64 8
+  %wide.trip.count.i.i = zext nneg i32 %33 to i64
+  br label %37
 
-38:                                               ; preds = %39
+36:                                               ; preds = %37
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %_ZN14ExceptionCache12test_addressEPh.exit.i, label %39, !llvm.loop !7
+  br i1 %exitcond.not.i.i, label %_ZN14ExceptionCache12test_addressEPh.exit.i, label %37, !llvm.loop !7
 
-39:                                               ; preds = %38, %.lr.ph.i.i
-  %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %38 ]
-  %40 = getelementptr inbounds nuw [16 x ptr], ptr %37, i64 0, i64 %indvars.iv.i.i
-  %41 = load ptr, ptr %40, align 8
-  %42 = icmp eq ptr %41, %2
-  br i1 %42, label %43, label %38
+37:                                               ; preds = %36, %.lr.ph.i.i
+  %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %36 ]
+  %38 = getelementptr inbounds nuw [16 x ptr], ptr %35, i64 0, i64 %indvars.iv.i.i
+  %39 = load ptr, ptr %38, align 8
+  %40 = icmp eq ptr %39, %2
+  br i1 %40, label %41, label %36
 
-43:                                               ; preds = %39
-  %44 = getelementptr inbounds nuw i8, ptr %.0710.i, i64 136
-  %45 = getelementptr inbounds nuw [16 x ptr], ptr %44, i64 0, i64 %indvars.iv.i.i
-  %46 = load ptr, ptr %45, align 8
+41:                                               ; preds = %37
+  %42 = getelementptr inbounds nuw i8, ptr %.0710.i, i64 136
+  %43 = getelementptr inbounds nuw [16 x ptr], ptr %42, i64 0, i64 %indvars.iv.i.i
+  %44 = load ptr, ptr %43, align 8
   br label %_ZN14ExceptionCache12test_addressEPh.exit.i
 
-_ZN14ExceptionCache12test_addressEPh.exit.i:      ; preds = %38, %43, %_ZN7nmethod35exception_cache_entry_for_exceptionE6Handle.exit
-  %.07.i.i = phi ptr [ %46, %43 ], [ null, %_ZN7nmethod35exception_cache_entry_for_exceptionE6Handle.exit ], [ null, %38 ]
-  %47 = icmp eq ptr %.07.i.i, %3
-  br i1 %47, label %_ZN7nmethod25add_exception_cache_entryEP14ExceptionCache.exit, label %48
+_ZN14ExceptionCache12test_addressEPh.exit.i:      ; preds = %36, %41, %_ZN7nmethod35exception_cache_entry_for_exceptionE6Handle.exit
+  %.07.i.i = phi ptr [ %44, %41 ], [ null, %_ZN7nmethod35exception_cache_entry_for_exceptionE6Handle.exit ], [ null, %36 ]
+  %45 = icmp eq ptr %.07.i.i, %3
+  br i1 %45, label %_ZN7nmethod25add_exception_cache_entryEP14ExceptionCache.exit, label %46
 
-48:                                               ; preds = %_ZN14ExceptionCache12test_addressEPh.exit.i
-  %49 = load volatile i32, ptr %34, align 4
+46:                                               ; preds = %_ZN14ExceptionCache12test_addressEPh.exit.i
+  %47 = load volatile i32, ptr %32, align 4
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !6
-  %50 = icmp slt i32 %49, 16
-  br i1 %50, label %51, label %_ZN14ExceptionCache23add_address_and_handlerEPhS0_.exit
+  %48 = icmp slt i32 %47, 16
+  br i1 %48, label %49, label %_ZN14ExceptionCache23add_address_and_handlerEPhS0_.exit
 
-51:                                               ; preds = %48
-  %52 = getelementptr inbounds nuw i8, ptr %.0710.i, i64 8
-  %53 = sext i32 %49 to i64
-  %54 = getelementptr inbounds [16 x ptr], ptr %52, i64 0, i64 %53
-  store ptr %2, ptr %54, align 8
-  %55 = getelementptr inbounds nuw i8, ptr %.0710.i, i64 136
-  %56 = getelementptr inbounds [16 x ptr], ptr %55, i64 0, i64 %53
-  store ptr %3, ptr %56, align 8
-  %57 = load volatile i32, ptr %34, align 8
-  %58 = add nsw i32 %57, 1
+49:                                               ; preds = %46
+  %50 = getelementptr inbounds nuw i8, ptr %.0710.i, i64 8
+  %51 = sext i32 %47 to i64
+  %52 = getelementptr inbounds [16 x ptr], ptr %50, i64 0, i64 %51
+  store ptr %2, ptr %52, align 8
+  %53 = getelementptr inbounds nuw i8, ptr %.0710.i, i64 136
+  %54 = getelementptr inbounds [16 x ptr], ptr %53, i64 0, i64 %51
+  store ptr %3, ptr %54, align 8
+  %55 = load volatile i32, ptr %32, align 8
+  %56 = add nsw i32 %55, 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !6
-  store volatile i32 %58, ptr %34, align 8
+  store volatile i32 %56, ptr %32, align 8
   br label %_ZN7nmethod25add_exception_cache_entryEP14ExceptionCache.exit
 
-_ZN14ExceptionCache23add_address_and_handlerEPhS0_.exit: ; preds = %_ZN14ExceptionCache26match_exception_with_spaceE6Handle.exit.i, %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit, %48
-  %59 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 288, i8 noundef zeroext 4, i32 noundef 0) #23
-  %60 = getelementptr inbounds nuw i8, ptr %59, i64 264
-  store volatile i32 0, ptr %60, align 8
-  %61 = load ptr, ptr %1, align 8
-  %62 = load i8, ptr @UseCompressedClassPointers, align 1
-  %63 = trunc i8 %62 to i1
-  %64 = getelementptr inbounds nuw i8, ptr %61, i64 8
-  br i1 %63, label %65, label %75
+_ZN14ExceptionCache23add_address_and_handlerEPhS0_.exit: ; preds = %_ZN14ExceptionCache26match_exception_with_spaceE6Handle.exit.i, %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit, %46
+  %57 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 288, i8 noundef zeroext 4, i32 noundef 0) #23
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 264
+  store volatile i32 0, ptr %58, align 8
+  %59 = load ptr, ptr %1, align 8
+  %60 = load i8, ptr @UseCompressedClassPointers, align 1
+  %61 = trunc i8 %60 to i1
+  %62 = getelementptr inbounds nuw i8, ptr %59, i64 8
+  br i1 %61, label %63, label %73
 
-65:                                               ; preds = %_ZN14ExceptionCache23add_address_and_handlerEPhS0_.exit
-  %66 = load i32, ptr %64, align 8
-  %67 = load ptr, ptr @_ZN23CompressedKlassPointers5_baseE, align 8
-  %68 = load i32, ptr @_ZN23CompressedKlassPointers6_shiftE, align 4
-  %69 = ptrtoint ptr %67 to i64
-  %70 = zext i32 %66 to i64
-  %71 = zext nneg i32 %68 to i64
-  %72 = shl i64 %70, %71
-  %73 = add i64 %72, %69
-  %74 = inttoptr i64 %73 to ptr
+63:                                               ; preds = %_ZN14ExceptionCache23add_address_and_handlerEPhS0_.exit
+  %64 = load i32, ptr %62, align 8
+  %65 = load ptr, ptr @_ZN23CompressedKlassPointers5_baseE, align 8
+  %66 = load i32, ptr @_ZN23CompressedKlassPointers6_shiftE, align 4
+  %67 = ptrtoint ptr %65 to i64
+  %68 = zext i32 %64 to i64
+  %69 = zext nneg i32 %66 to i64
+  %70 = shl i64 %68, %69
+  %71 = add i64 %70, %67
+  %72 = inttoptr i64 %71 to ptr
   br label %_ZNK7oopDesc5klassEv.exit.i
 
-75:                                               ; preds = %_ZN14ExceptionCache23add_address_and_handlerEPhS0_.exit
-  %76 = load ptr, ptr %64, align 8
+73:                                               ; preds = %_ZN14ExceptionCache23add_address_and_handlerEPhS0_.exit
+  %74 = load ptr, ptr %62, align 8
   br label %_ZNK7oopDesc5klassEv.exit.i
 
-_ZNK7oopDesc5klassEv.exit.i:                      ; preds = %75, %65
-  %.0.i.i = phi ptr [ %74, %65 ], [ %76, %75 ]
-  store ptr %.0.i.i, ptr %59, align 8
-  %77 = getelementptr inbounds nuw i8, ptr %59, i64 272
-  store volatile ptr null, ptr %77, align 8
-  %78 = getelementptr inbounds nuw i8, ptr %59, i64 280
-  store ptr null, ptr %78, align 8
-  %79 = load volatile i32, ptr %60, align 8
+_ZNK7oopDesc5klassEv.exit.i:                      ; preds = %73, %63
+  %.0.i.i = phi ptr [ %72, %63 ], [ %74, %73 ]
+  store ptr %.0.i.i, ptr %57, align 8
+  %75 = getelementptr inbounds nuw i8, ptr %57, i64 272
+  store volatile ptr null, ptr %75, align 8
+  %76 = getelementptr inbounds nuw i8, ptr %57, i64 280
+  store ptr null, ptr %76, align 8
+  %77 = load volatile i32, ptr %58, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !6
-  %80 = icmp sgt i32 %79, 0
-  br i1 %80, label %.lr.ph.i.i.i, label %_ZN14ExceptionCache12test_addressEPh.exit.i.i
+  %78 = icmp sgt i32 %77, 0
+  br i1 %78, label %.lr.ph.i.i.i, label %_ZN14ExceptionCache12test_addressEPh.exit.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %_ZNK7oopDesc5klassEv.exit.i
-  %81 = getelementptr inbounds nuw i8, ptr %59, i64 8
-  %wide.trip.count.i.i.i = zext nneg i32 %79 to i64
-  br label %83
+  %79 = getelementptr inbounds nuw i8, ptr %57, i64 8
+  %wide.trip.count.i.i.i = zext nneg i32 %77 to i64
+  br label %81
 
-82:                                               ; preds = %83
+80:                                               ; preds = %81
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
-  br i1 %exitcond.not.i.i.i, label %_ZN14ExceptionCache12test_addressEPh.exit.i.i, label %83, !llvm.loop !7
+  br i1 %exitcond.not.i.i.i, label %_ZN14ExceptionCache12test_addressEPh.exit.i.i, label %81, !llvm.loop !7
 
-83:                                               ; preds = %82, %.lr.ph.i.i.i
-  %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %82 ]
-  %84 = getelementptr inbounds nuw [16 x ptr], ptr %81, i64 0, i64 %indvars.iv.i.i.i
-  %85 = load ptr, ptr %84, align 8
-  %86 = icmp eq ptr %85, %2
-  br i1 %86, label %87, label %82
+81:                                               ; preds = %80, %.lr.ph.i.i.i
+  %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %80 ]
+  %82 = getelementptr inbounds nuw [16 x ptr], ptr %79, i64 0, i64 %indvars.iv.i.i.i
+  %83 = load ptr, ptr %82, align 8
+  %84 = icmp eq ptr %83, %2
+  br i1 %84, label %85, label %80
 
-87:                                               ; preds = %83
-  %88 = getelementptr inbounds nuw i8, ptr %59, i64 136
-  %89 = getelementptr inbounds nuw [16 x ptr], ptr %88, i64 0, i64 %indvars.iv.i.i.i
-  %90 = load ptr, ptr %89, align 8
+85:                                               ; preds = %81
+  %86 = getelementptr inbounds nuw i8, ptr %57, i64 136
+  %87 = getelementptr inbounds nuw [16 x ptr], ptr %86, i64 0, i64 %indvars.iv.i.i.i
+  %88 = load ptr, ptr %87, align 8
   br label %_ZN14ExceptionCache12test_addressEPh.exit.i.i
 
-_ZN14ExceptionCache12test_addressEPh.exit.i.i:    ; preds = %82, %87, %_ZNK7oopDesc5klassEv.exit.i
-  %.07.i.i.i = phi ptr [ %90, %87 ], [ null, %_ZNK7oopDesc5klassEv.exit.i ], [ null, %82 ]
-  %91 = icmp eq ptr %.07.i.i.i, %3
-  br i1 %91, label %_ZN14ExceptionCacheC2E6HandlePhS1_.exit.preheader, label %92
+_ZN14ExceptionCache12test_addressEPh.exit.i.i:    ; preds = %80, %85, %_ZNK7oopDesc5klassEv.exit.i
+  %.07.i.i.i = phi ptr [ %88, %85 ], [ null, %_ZNK7oopDesc5klassEv.exit.i ], [ null, %80 ]
+  %89 = icmp eq ptr %.07.i.i.i, %3
+  br i1 %89, label %_ZN14ExceptionCacheC2E6HandlePhS1_.exit.preheader, label %90
 
-92:                                               ; preds = %_ZN14ExceptionCache12test_addressEPh.exit.i.i
-  %93 = load volatile i32, ptr %60, align 4
+90:                                               ; preds = %_ZN14ExceptionCache12test_addressEPh.exit.i.i
+  %91 = load volatile i32, ptr %58, align 4
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !6
-  %94 = icmp slt i32 %93, 16
-  br i1 %94, label %95, label %_ZN14ExceptionCacheC2E6HandlePhS1_.exit.preheader
+  %92 = icmp slt i32 %91, 16
+  br i1 %92, label %93, label %_ZN14ExceptionCacheC2E6HandlePhS1_.exit.preheader
 
-95:                                               ; preds = %92
-  %96 = getelementptr inbounds nuw i8, ptr %59, i64 8
-  %97 = sext i32 %93 to i64
-  %98 = getelementptr inbounds [16 x ptr], ptr %96, i64 0, i64 %97
-  store ptr %2, ptr %98, align 8
-  %99 = getelementptr inbounds nuw i8, ptr %59, i64 136
-  %100 = getelementptr inbounds [16 x ptr], ptr %99, i64 0, i64 %97
-  store ptr %3, ptr %100, align 8
-  %101 = load volatile i32, ptr %60, align 8
-  %102 = add nsw i32 %101, 1
+93:                                               ; preds = %90
+  %94 = getelementptr inbounds nuw i8, ptr %57, i64 8
+  %95 = sext i32 %91 to i64
+  %96 = getelementptr inbounds [16 x ptr], ptr %94, i64 0, i64 %95
+  store ptr %2, ptr %96, align 8
+  %97 = getelementptr inbounds nuw i8, ptr %57, i64 136
+  %98 = getelementptr inbounds [16 x ptr], ptr %97, i64 0, i64 %95
+  store ptr %3, ptr %98, align 8
+  %99 = load volatile i32, ptr %58, align 8
+  %100 = add nsw i32 %99, 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !6
-  store volatile i32 %102, ptr %60, align 8
+  store volatile i32 %100, ptr %58, align 8
   br label %_ZN14ExceptionCacheC2E6HandlePhS1_.exit.preheader
 
-_ZN14ExceptionCacheC2E6HandlePhS1_.exit.preheader: ; preds = %_ZN14ExceptionCache12test_addressEPh.exit.i.i, %92, %95
+_ZN14ExceptionCacheC2E6HandlePhS1_.exit.preheader: ; preds = %_ZN14ExceptionCache12test_addressEPh.exit.i.i, %90, %93
   br label %_ZN14ExceptionCacheC2E6HandlePhS1_.exit
 
 _ZN14ExceptionCacheC2E6HandlePhS1_.exit:          ; preds = %_ZN14ExceptionCacheC2E6HandlePhS1_.exit.backedge, %_ZN14ExceptionCacheC2E6HandlePhS1_.exit.preheader
-  %103 = load volatile ptr, ptr %7, align 8
-  %.not.i12 = icmp eq ptr %103, null
-  br i1 %.not.i12, label %118, label %104
+  %101 = load volatile ptr, ptr %7, align 8
+  %.not.i12 = icmp eq ptr %101, null
+  br i1 %.not.i12, label %116, label %102
 
-104:                                              ; preds = %_ZN14ExceptionCacheC2E6HandlePhS1_.exit
-  %105 = load ptr, ptr %103, align 8
-  %106 = getelementptr inbounds nuw i8, ptr %105, i64 152
-  %107 = load ptr, ptr %106, align 8
-  %108 = tail call noundef zeroext i1 @_ZNK15ClassLoaderData8is_aliveEv(ptr noundef nonnull align 8 dereferenceable(160) %107) #23
-  br i1 %108, label %115, label %109
+102:                                              ; preds = %_ZN14ExceptionCacheC2E6HandlePhS1_.exit
+  %103 = load ptr, ptr %101, align 8
+  %104 = getelementptr inbounds nuw i8, ptr %103, i64 152
+  %105 = load ptr, ptr %104, align 8
+  %106 = tail call noundef zeroext i1 @_ZNK15ClassLoaderData8is_aliveEv(ptr noundef nonnull align 8 dereferenceable(160) %105) #23
+  br i1 %106, label %113, label %107
 
-109:                                              ; preds = %104
-  %110 = getelementptr inbounds nuw i8, ptr %103, i64 272
-  %111 = load volatile ptr, ptr %110, align 8
-  %112 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %111, ptr nonnull %103, ptr nonnull %7) #23, !srcloc !15
-  %113 = icmp eq ptr %112, %103
-  br i1 %113, label %114, label %_ZN14ExceptionCacheC2E6HandlePhS1_.exit.backedge
+107:                                              ; preds = %102
+  %108 = getelementptr inbounds nuw i8, ptr %101, i64 272
+  %109 = load volatile ptr, ptr %108, align 8
+  %110 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %109, ptr nonnull %101, ptr nonnull %7) #23, !srcloc !15
+  %111 = icmp eq ptr %110, %101
+  br i1 %111, label %112, label %_ZN14ExceptionCacheC2E6HandlePhS1_.exit.backedge
 
-114:                                              ; preds = %109
-  tail call void @_ZN9CodeCache23release_exception_cacheEP14ExceptionCache(ptr noundef nonnull %103) #23
+112:                                              ; preds = %107
+  tail call void @_ZN9CodeCache23release_exception_cacheEP14ExceptionCache(ptr noundef nonnull %101) #23
   br label %_ZN14ExceptionCacheC2E6HandlePhS1_.exit.backedge
 
-115:                                              ; preds = %104
-  %116 = load volatile ptr, ptr %7, align 8
-  %.not18.i = icmp eq ptr %116, null
-  br i1 %.not18.i, label %118, label %117
+113:                                              ; preds = %102
+  %114 = load volatile ptr, ptr %7, align 8
+  %.not18.i = icmp eq ptr %114, null
+  br i1 %.not18.i, label %116, label %115
 
-117:                                              ; preds = %115
-  store volatile ptr %116, ptr %77, align 8
-  br label %118
+115:                                              ; preds = %113
+  store volatile ptr %114, ptr %75, align 8
+  br label %116
 
-118:                                              ; preds = %117, %115, %_ZN14ExceptionCacheC2E6HandlePhS1_.exit
-  %.0.i13 = phi ptr [ %116, %117 ], [ null, %115 ], [ null, %_ZN14ExceptionCacheC2E6HandlePhS1_.exit ]
-  %119 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %59, ptr %.0.i13, ptr nonnull %7) #23, !srcloc !15
-  %120 = icmp eq ptr %119, %.0.i13
-  br i1 %120, label %_ZN7nmethod25add_exception_cache_entryEP14ExceptionCache.exit, label %_ZN14ExceptionCacheC2E6HandlePhS1_.exit.backedge
+116:                                              ; preds = %115, %113, %_ZN14ExceptionCacheC2E6HandlePhS1_.exit
+  %.0.i13 = phi ptr [ %114, %115 ], [ null, %113 ], [ null, %_ZN14ExceptionCacheC2E6HandlePhS1_.exit ]
+  %117 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %57, ptr %.0.i13, ptr nonnull %7) #23, !srcloc !15
+  %118 = icmp eq ptr %117, %.0.i13
+  br i1 %118, label %_ZN7nmethod25add_exception_cache_entryEP14ExceptionCache.exit, label %_ZN14ExceptionCacheC2E6HandlePhS1_.exit.backedge
 
-_ZN14ExceptionCacheC2E6HandlePhS1_.exit.backedge: ; preds = %118, %114, %109
+_ZN14ExceptionCacheC2E6HandlePhS1_.exit.backedge: ; preds = %116, %112, %107
   br label %_ZN14ExceptionCacheC2E6HandlePhS1_.exit, !llvm.loop !16
 
-_ZN7nmethod25add_exception_cache_entryEP14ExceptionCache.exit: ; preds = %118, %_ZN14ExceptionCache12test_addressEPh.exit.i, %51
-  br i1 %.not.i.i, label %_ZN11MutexLockerD2Ev.exit, label %121
+_ZN7nmethod25add_exception_cache_entryEP14ExceptionCache.exit: ; preds = %116, %_ZN14ExceptionCache12test_addressEPh.exit.i, %49
+  br i1 %.not.i.i, label %_ZN11MutexLockerD2Ev.exit, label %119
 
-121:                                              ; preds = %_ZN7nmethod25add_exception_cache_entryEP14ExceptionCache.exit
+119:                                              ; preds = %_ZN7nmethod25add_exception_cache_entryEP14ExceptionCache.exit
   tail call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %5) #23
   br label %_ZN11MutexLockerD2Ev.exit
 
-_ZN11MutexLockerD2Ev.exit:                        ; preds = %_ZN7nmethod25add_exception_cache_entryEP14ExceptionCache.exit, %121
+_ZN11MutexLockerD2Ev.exit:                        ; preds = %_ZN7nmethod25add_exception_cache_entryEP14ExceptionCache.exit, %119
   ret void
 }
 
@@ -1699,52 +1691,50 @@ define hidden noundef ptr @_ZN7nmethod35exception_cache_entry_for_exceptionE6Han
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZN14ExceptionCache26match_exception_with_spaceE6Handle.exit
-  %5 = phi i8 [ %27, %_ZN14ExceptionCache26match_exception_with_spaceE6Handle.exit ], [ %.pre13, %.lr.ph.preheader ]
-  %.0710 = phi ptr [ %29, %_ZN14ExceptionCache26match_exception_with_spaceE6Handle.exit ], [ %4, %.lr.ph.preheader ]
+  %5 = phi i8 [ %25, %_ZN14ExceptionCache26match_exception_with_spaceE6Handle.exit ], [ %.pre13, %.lr.ph.preheader ]
+  %.0710 = phi ptr [ %27, %_ZN14ExceptionCache26match_exception_with_spaceE6Handle.exit ], [ %4, %.lr.ph.preheader ]
   %6 = load ptr, ptr %1, align 8
   %7 = trunc i8 %5 to i1
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  br i1 %7, label %9, label %19
+  br i1 %7, label %9, label %17
 
 9:                                                ; preds = %.lr.ph
   %10 = load i32, ptr %8, align 8
   %11 = load ptr, ptr @_ZN23CompressedKlassPointers5_baseE, align 8
   %12 = load i32, ptr @_ZN23CompressedKlassPointers6_shiftE, align 4
-  %13 = ptrtoint ptr %11 to i64
-  %14 = zext i32 %10 to i64
-  %15 = zext nneg i32 %12 to i64
-  %16 = shl i64 %14, %15
-  %17 = add i64 %16, %13
-  %18 = inttoptr i64 %17 to ptr
+  %13 = zext i32 %10 to i64
+  %14 = zext nneg i32 %12 to i64
+  %15 = shl i64 %13, %14
+  %16 = getelementptr i8, ptr %11, i64 %15
   br label %_ZNK7oopDesc5klassEv.exit.i
 
-19:                                               ; preds = %.lr.ph
-  %20 = load ptr, ptr %8, align 8
+17:                                               ; preds = %.lr.ph
+  %18 = load ptr, ptr %8, align 8
   br label %_ZNK7oopDesc5klassEv.exit.i
 
-_ZNK7oopDesc5klassEv.exit.i:                      ; preds = %19, %9
-  %.0.i.i = phi ptr [ %18, %9 ], [ %20, %19 ]
-  %21 = load ptr, ptr %.0710, align 8
-  %22 = icmp eq ptr %.0.i.i, %21
-  br i1 %22, label %23, label %_ZN14ExceptionCache26match_exception_with_spaceE6Handle.exit
+_ZNK7oopDesc5klassEv.exit.i:                      ; preds = %17, %9
+  %.0.i.i = phi ptr [ %16, %9 ], [ %18, %17 ]
+  %19 = load ptr, ptr %.0710, align 8
+  %20 = icmp eq ptr %.0.i.i, %19
+  br i1 %20, label %21, label %_ZN14ExceptionCache26match_exception_with_spaceE6Handle.exit
 
-23:                                               ; preds = %_ZNK7oopDesc5klassEv.exit.i
-  %24 = getelementptr inbounds nuw i8, ptr %.0710, i64 264
-  %25 = load volatile i32, ptr %24, align 4
+21:                                               ; preds = %_ZNK7oopDesc5klassEv.exit.i
+  %22 = getelementptr inbounds nuw i8, ptr %.0710, i64 264
+  %23 = load volatile i32, ptr %22, align 4
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !6
-  %26 = icmp slt i32 %25, 16
+  %24 = icmp slt i32 %23, 16
   %.pre = load i8, ptr @UseCompressedClassPointers, align 1
-  br i1 %26, label %_ZN14ExceptionCache26match_exception_with_spaceE6Handle.exit.thread, label %_ZN14ExceptionCache26match_exception_with_spaceE6Handle.exit
+  br i1 %24, label %_ZN14ExceptionCache26match_exception_with_spaceE6Handle.exit.thread, label %_ZN14ExceptionCache26match_exception_with_spaceE6Handle.exit
 
-_ZN14ExceptionCache26match_exception_with_spaceE6Handle.exit: ; preds = %23, %_ZNK7oopDesc5klassEv.exit.i
-  %27 = phi i8 [ %.pre, %23 ], [ %5, %_ZNK7oopDesc5klassEv.exit.i ]
-  %28 = getelementptr inbounds nuw i8, ptr %.0710, i64 272
-  %29 = load volatile ptr, ptr %28, align 8
-  %.not = icmp eq ptr %29, null
+_ZN14ExceptionCache26match_exception_with_spaceE6Handle.exit: ; preds = %21, %_ZNK7oopDesc5klassEv.exit.i
+  %25 = phi i8 [ %.pre, %21 ], [ %5, %_ZNK7oopDesc5klassEv.exit.i ]
+  %26 = getelementptr inbounds nuw i8, ptr %.0710, i64 272
+  %27 = load volatile ptr, ptr %26, align 8
+  %.not = icmp eq ptr %27, null
   br i1 %.not, label %_ZN14ExceptionCache26match_exception_with_spaceE6Handle.exit.thread, label %.lr.ph, !llvm.loop !19
 
-_ZN14ExceptionCache26match_exception_with_spaceE6Handle.exit.thread: ; preds = %_ZN14ExceptionCache26match_exception_with_spaceE6Handle.exit, %23, %2
-  %.07.lcssa = phi ptr [ null, %2 ], [ %.0710, %23 ], [ null, %_ZN14ExceptionCache26match_exception_with_spaceE6Handle.exit ]
+_ZN14ExceptionCache26match_exception_with_spaceE6Handle.exit.thread: ; preds = %_ZN14ExceptionCache26match_exception_with_spaceE6Handle.exit, %21, %2
+  %.07.lcssa = phi ptr [ null, %2 ], [ %.0710, %21 ], [ null, %_ZN14ExceptionCache26match_exception_with_spaceE6Handle.exit ]
   ret ptr %.07.lcssa
 }
 

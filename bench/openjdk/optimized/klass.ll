@@ -4164,33 +4164,31 @@ _ZNK5Klass24java_mirror_no_keepaliveEv.exit10:    ; preds = %48
   %54 = load i8, ptr @UseCompressedClassPointers, align 1
   %55 = trunc i8 %54 to i1
   %56 = getelementptr inbounds nuw i8, ptr %52, i64 8
-  br i1 %55, label %57, label %67
+  br i1 %55, label %57, label %65
 
 57:                                               ; preds = %53
   %58 = load i32, ptr %56, align 8
   %59 = load ptr, ptr @_ZN23CompressedKlassPointers5_baseE, align 8
   %60 = load i32, ptr @_ZN23CompressedKlassPointers6_shiftE, align 4
-  %61 = ptrtoint ptr %59 to i64
-  %62 = zext i32 %58 to i64
-  %63 = zext nneg i32 %60 to i64
-  %64 = shl i64 %62, %63
-  %65 = add i64 %64, %61
-  %66 = inttoptr i64 %65 to ptr
+  %61 = zext i32 %58 to i64
+  %62 = zext nneg i32 %60 to i64
+  %63 = shl i64 %61, %62
+  %64 = getelementptr i8, ptr %59, i64 %63
   br label %_ZN15java_lang_Class11is_instanceEP7oopDesc.exit
 
-67:                                               ; preds = %53
-  %68 = load ptr, ptr %56, align 8
+65:                                               ; preds = %53
+  %66 = load ptr, ptr %56, align 8
   br label %_ZN15java_lang_Class11is_instanceEP7oopDesc.exit
 
-_ZN15java_lang_Class11is_instanceEP7oopDesc.exit: ; preds = %57, %67
-  %.0.i.i = phi ptr [ %66, %57 ], [ %68, %67 ]
-  %69 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 16), align 8
-  %70 = icmp eq ptr %.0.i.i, %69
-  br i1 %70, label %_ZNK5Klass24java_mirror_no_keepaliveEv.exit.thread, label %_ZN15java_lang_Class11is_instanceEP7oopDesc.exit.thread
+_ZN15java_lang_Class11is_instanceEP7oopDesc.exit: ; preds = %57, %65
+  %.0.i.i = phi ptr [ %64, %57 ], [ %66, %65 ]
+  %67 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9vmClasses8_klassesE, i64 16), align 8
+  %68 = icmp eq ptr %.0.i.i, %67
+  br i1 %68, label %_ZNK5Klass24java_mirror_no_keepaliveEv.exit.thread, label %_ZN15java_lang_Class11is_instanceEP7oopDesc.exit.thread
 
 _ZN15java_lang_Class11is_instanceEP7oopDesc.exit.thread: ; preds = %48, %_ZNK5Klass24java_mirror_no_keepaliveEv.exit10, %_ZN15java_lang_Class11is_instanceEP7oopDesc.exit
-  %71 = load ptr, ptr @g_assert_poison, align 8
-  store i8 88, ptr %71, align 1
+  %69 = load ptr, ptr @g_assert_poison, align 8
+  store i8 88, ptr %69, align 1
   tail call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 1010, ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.30) #22
   unreachable
 
