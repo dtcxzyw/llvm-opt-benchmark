@@ -1605,8 +1605,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit512: ; preds = %_Z
   br label %2567
 
 536:                                              ; preds = %518
-  %switch = icmp ult i32 %3, 4
-  br i1 %switch, label %550, label %537
+  %or.cond8 = icmp ult i32 %3, 4
+  br i1 %or.cond8, label %550, label %537
 
 537:                                              ; preds = %536
   call void @llvm.lifetime.start.p0(ptr nonnull %234)

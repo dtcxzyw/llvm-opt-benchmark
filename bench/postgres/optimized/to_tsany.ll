@@ -430,120 +430,116 @@ define dso_local noundef i64 @to_tsvector_byid(ptr noundef readonly captures(non
   %10 = load i8, ptr %9, align 1
   %11 = zext i8 %10 to i32
   %12 = icmp eq i8 %10, 1
-  br i1 %12, label %13, label %22
+  br i1 %12, label %13, label %20
 
 13:                                               ; preds = %1
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 1
   %15 = load i8, ptr %14, align 1
-  %16 = icmp eq i8 %15, 1
-  %17 = and i8 %15, -2
-  %18 = icmp eq i8 %17, 2
-  %or.cond = or i1 %16, %18
-  %19 = icmp eq i8 %15, 18
-  %20 = select i1 %19, i64 16, i64 0
-  %21 = select i1 %or.cond, i64 8, i64 %20
-  br label %33
+  %16 = add i8 %15, -1
+  %or.cond = icmp ult i8 %16, 3
+  %17 = icmp eq i8 %15, 18
+  %18 = select i1 %17, i64 16, i64 0
+  %19 = select i1 %or.cond, i64 8, i64 %18
+  br label %31
 
-22:                                               ; preds = %1
-  %23 = and i32 %11, 1
-  %.not = icmp eq i32 %23, 0
-  br i1 %.not, label %28, label %24
+20:                                               ; preds = %1
+  %21 = and i32 %11, 1
+  %.not = icmp eq i32 %21, 0
+  br i1 %.not, label %26, label %22
 
-24:                                               ; preds = %22
-  %25 = lshr i32 %11, 1
-  %26 = zext nneg i32 %25 to i64
-  %27 = add nsw i64 %26, -1
-  br label %33
+22:                                               ; preds = %20
+  %23 = lshr i32 %11, 1
+  %24 = zext nneg i32 %23 to i64
+  %25 = add nsw i64 %24, -1
+  br label %31
 
-28:                                               ; preds = %22
-  %29 = load i32, ptr %9, align 4
-  %30 = lshr i32 %29, 2
-  %31 = add nsw i32 %30, -4
-  %32 = zext i32 %31 to i64
-  br label %33
+26:                                               ; preds = %20
+  %27 = load i32, ptr %9, align 4
+  %28 = lshr i32 %27, 2
+  %29 = add nsw i32 %28, -4
+  %30 = zext i32 %29 to i64
+  br label %31
 
-33:                                               ; preds = %24, %28, %13
-  %34 = phi i64 [ %21, %13 ], [ %27, %24 ], [ %32, %28 ]
-  %35 = udiv i64 %34, 6
-  %36 = trunc i64 %35 to i32
-  %37 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store i32 %36, ptr %37, align 8
-  %38 = icmp slt i32 %36, 2
-  br i1 %38, label %.sink.split, label %39
+31:                                               ; preds = %22, %26, %13
+  %32 = phi i64 [ %19, %13 ], [ %25, %22 ], [ %30, %26 ]
+  %33 = udiv i64 %32, 6
+  %34 = trunc i64 %33 to i32
+  %35 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  store i32 %34, ptr %35, align 8
+  %36 = icmp slt i32 %34, 2
+  br i1 %36, label %.sink.split, label %37
 
-39:                                               ; preds = %33
-  %40 = and i64 %35, 2147483647
-  %41 = icmp samesign ugt i64 %40, 44739242
-  br i1 %41, label %.sink.split, label %42
+37:                                               ; preds = %31
+  %38 = and i64 %33, 2147483647
+  %39 = icmp samesign ugt i64 %38, 44739242
+  br i1 %39, label %.sink.split, label %40
 
-.sink.split:                                      ; preds = %39, %33
-  %.sink = phi i32 [ 2, %33 ], [ 44739242, %39 ]
-  %.ph = phi i64 [ 2, %33 ], [ 44739242, %39 ]
-  store i32 %.sink, ptr %37, align 8
-  br label %42
+.sink.split:                                      ; preds = %37, %31
+  %.sink = phi i32 [ 2, %31 ], [ 44739242, %37 ]
+  %.ph = phi i64 [ 2, %31 ], [ 44739242, %37 ]
+  store i32 %.sink, ptr %35, align 8
+  br label %40
 
-42:                                               ; preds = %.sink.split, %39
-  %43 = phi i64 [ %35, %39 ], [ %.ph, %.sink.split ]
-  %44 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  store i32 0, ptr %44, align 4
-  %45 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i32 0, ptr %45, align 8
-  %46 = and i64 %43, 2147483647
-  %47 = mul nuw nsw i64 %46, 24
-  %48 = tail call ptr @palloc(i64 noundef %47) #8
-  store ptr %48, ptr %2, align 8
-  %49 = load i8, ptr %9, align 1
-  %50 = zext i8 %49 to i32
-  %51 = and i32 %50, 1
-  %.not28 = icmp eq i32 %51, 0
-  %52 = getelementptr inbounds nuw i8, ptr %9, i64 1
-  %53 = getelementptr inbounds nuw i8, ptr %9, i64 4
-  %54 = select i1 %.not28, ptr %53, ptr %52
-  %55 = icmp eq i8 %49, 1
-  br i1 %55, label %56, label %64
+40:                                               ; preds = %.sink.split, %37
+  %41 = phi i64 [ %33, %37 ], [ %.ph, %.sink.split ]
+  %42 = getelementptr inbounds nuw i8, ptr %2, i64 12
+  store i32 0, ptr %42, align 4
+  %43 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  store i32 0, ptr %43, align 8
+  %44 = and i64 %41, 2147483647
+  %45 = mul nuw nsw i64 %44, 24
+  %46 = tail call ptr @palloc(i64 noundef %45) #8
+  store ptr %46, ptr %2, align 8
+  %47 = load i8, ptr %9, align 1
+  %48 = zext i8 %47 to i32
+  %49 = and i32 %48, 1
+  %.not28 = icmp eq i32 %49, 0
+  %50 = getelementptr inbounds nuw i8, ptr %9, i64 1
+  %51 = getelementptr inbounds nuw i8, ptr %9, i64 4
+  %52 = select i1 %.not28, ptr %51, ptr %50
+  %53 = icmp eq i8 %47, 1
+  br i1 %53, label %54, label %60
 
-56:                                               ; preds = %42
-  %57 = load i8, ptr %52, align 1
-  %58 = icmp eq i8 %57, 1
-  %59 = and i8 %57, -2
-  %60 = icmp eq i8 %59, 2
-  %or.cond32 = or i1 %58, %60
-  %61 = icmp eq i8 %57, 18
-  %62 = select i1 %61, i32 16, i32 0
-  %63 = select i1 %or.cond32, i32 8, i32 %62
-  br label %72
+54:                                               ; preds = %40
+  %55 = load i8, ptr %50, align 1
+  %56 = add i8 %55, -1
+  %or.cond32 = icmp ult i8 %56, 3
+  %57 = icmp eq i8 %55, 18
+  %58 = select i1 %57, i32 16, i32 0
+  %59 = select i1 %or.cond32, i32 8, i32 %58
+  br label %68
 
-64:                                               ; preds = %42
-  br i1 %.not28, label %68, label %65
+60:                                               ; preds = %40
+  br i1 %.not28, label %64, label %61
 
-65:                                               ; preds = %64
-  %66 = lshr i32 %50, 1
-  %67 = add nsw i32 %66, -1
-  br label %72
+61:                                               ; preds = %60
+  %62 = lshr i32 %48, 1
+  %63 = add nsw i32 %62, -1
+  br label %68
 
-68:                                               ; preds = %64
-  %69 = load i32, ptr %9, align 4
-  %70 = lshr i32 %69, 2
-  %71 = add nsw i32 %70, -4
-  br label %72
+64:                                               ; preds = %60
+  %65 = load i32, ptr %9, align 4
+  %66 = lshr i32 %65, 2
+  %67 = add nsw i32 %66, -4
+  br label %68
 
-72:                                               ; preds = %65, %68, %56
-  %73 = phi i32 [ %63, %56 ], [ %67, %65 ], [ %71, %68 ]
-  call void @parsetext(i32 noundef %5, ptr noundef nonnull %2, ptr noundef nonnull %54, i32 noundef %73) #8
-  %74 = load i64, ptr %6, align 8
-  %75 = inttoptr i64 %74 to ptr
-  %.not29 = icmp eq ptr %9, %75
-  br i1 %.not29, label %77, label %76
+68:                                               ; preds = %61, %64, %54
+  %69 = phi i32 [ %59, %54 ], [ %63, %61 ], [ %67, %64 ]
+  call void @parsetext(i32 noundef %5, ptr noundef nonnull %2, ptr noundef nonnull %52, i32 noundef %69) #8
+  %70 = load i64, ptr %6, align 8
+  %71 = inttoptr i64 %70 to ptr
+  %.not29 = icmp eq ptr %9, %71
+  br i1 %.not29, label %73, label %72
 
-76:                                               ; preds = %72
+72:                                               ; preds = %68
   call void @pfree(ptr noundef nonnull %9) #8
-  br label %77
+  br label %73
 
-77:                                               ; preds = %76, %72
-  %78 = call ptr @make_tsvector(ptr noundef nonnull %2)
-  %79 = ptrtoint ptr %78 to i64
+73:                                               ; preds = %72, %68
+  %74 = call ptr @make_tsvector(ptr noundef nonnull %2)
+  %75 = ptrtoint ptr %74 to i64
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  ret i64 %79
+  ret i64 %75
 }
 
 declare ptr @pg_detoast_datum_packed(ptr noundef) local_unnamed_addr #1

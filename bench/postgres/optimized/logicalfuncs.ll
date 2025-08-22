@@ -543,43 +543,41 @@ define dso_local i64 @pg_logical_emit_message_bytea(ptr noundef readonly capture
   %.not = icmp eq i32 %17, 0
   %18 = getelementptr inbounds nuw i8, ptr %12, i64 1
   %19 = icmp eq i8 %15, 1
-  br i1 %19, label %20, label %28
+  br i1 %19, label %20, label %26
 
 20:                                               ; preds = %1
   %21 = load i8, ptr %18, align 1
-  %22 = icmp eq i8 %21, 1
-  %23 = and i8 %21, -2
-  %24 = icmp eq i8 %23, 2
-  %or.cond = or i1 %22, %24
-  %25 = icmp eq i8 %21, 18
-  %26 = select i1 %25, i64 16, i64 0
-  %27 = select i1 %or.cond, i64 8, i64 %26
-  br label %38
+  %22 = add i8 %21, -1
+  %or.cond = icmp ult i8 %22, 3
+  %23 = icmp eq i8 %21, 18
+  %24 = select i1 %23, i64 16, i64 0
+  %25 = select i1 %or.cond, i64 8, i64 %24
+  br label %36
 
-28:                                               ; preds = %1
-  br i1 %.not, label %33, label %29
+26:                                               ; preds = %1
+  br i1 %.not, label %31, label %27
 
-29:                                               ; preds = %28
-  %30 = lshr i32 %16, 1
-  %31 = zext nneg i32 %30 to i64
-  %32 = add nsw i64 %31, -1
-  br label %38
+27:                                               ; preds = %26
+  %28 = lshr i32 %16, 1
+  %29 = zext nneg i32 %28 to i64
+  %30 = add nsw i64 %29, -1
+  br label %36
 
-33:                                               ; preds = %28
-  %34 = load i32, ptr %12, align 4
-  %35 = lshr i32 %34, 2
-  %36 = add nsw i32 %35, -4
-  %37 = zext i32 %36 to i64
-  br label %38
+31:                                               ; preds = %26
+  %32 = load i32, ptr %12, align 4
+  %33 = lshr i32 %32, 2
+  %34 = add nsw i32 %33, -4
+  %35 = zext i32 %34 to i64
+  br label %36
 
-38:                                               ; preds = %29, %33, %20
-  %39 = phi i64 [ %27, %20 ], [ %32, %29 ], [ %37, %33 ]
-  %40 = icmp ne i64 %14, 0
-  %41 = icmp ne i64 %3, 0
-  %42 = getelementptr inbounds nuw i8, ptr %12, i64 4
-  %43 = select i1 %.not, ptr %42, ptr %18
-  %44 = tail call i64 @LogLogicalMessage(ptr noundef %8, ptr noundef nonnull %43, i64 noundef %39, i1 noundef zeroext %41, i1 noundef zeroext %40) #9
-  ret i64 %44
+36:                                               ; preds = %27, %31, %20
+  %37 = phi i64 [ %25, %20 ], [ %30, %27 ], [ %35, %31 ]
+  %38 = icmp ne i64 %14, 0
+  %39 = icmp ne i64 %3, 0
+  %40 = getelementptr inbounds nuw i8, ptr %12, i64 4
+  %41 = select i1 %.not, ptr %40, ptr %18
+  %42 = tail call i64 @LogLogicalMessage(ptr noundef %8, ptr noundef nonnull %41, i64 noundef %37, i1 noundef zeroext %39, i1 noundef zeroext %38) #9
+  ret i64 %42
 }
 
 declare ptr @text_to_cstring(ptr noundef) local_unnamed_addr #1
@@ -590,8 +588,60 @@ declare i64 @LogLogicalMessage(ptr noundef, ptr noundef, i64 noundef, i1 noundef
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @pg_logical_emit_message_text(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
-  %2 = tail call i64 @pg_logical_emit_message_bytea(ptr noundef %0)
-  ret i64 %2
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %3 = load i64, ptr %2, align 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %5 = load i64, ptr %4, align 8
+  %6 = inttoptr i64 %5 to ptr
+  %7 = tail call ptr @pg_detoast_datum_packed(ptr noundef %6) #9
+  %8 = tail call ptr @text_to_cstring(ptr noundef %7) #9
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %10 = load i64, ptr %9, align 8
+  %11 = inttoptr i64 %10 to ptr
+  %12 = tail call ptr @pg_detoast_datum_packed(ptr noundef %11) #9
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %14 = load i64, ptr %13, align 8
+  %15 = load i8, ptr %12, align 1
+  %16 = zext i8 %15 to i32
+  %17 = and i32 %16, 1
+  %.not.i = icmp eq i32 %17, 0
+  %18 = getelementptr inbounds nuw i8, ptr %12, i64 1
+  %19 = icmp eq i8 %15, 1
+  br i1 %19, label %20, label %26
+
+20:                                               ; preds = %1
+  %21 = load i8, ptr %18, align 1
+  %22 = add i8 %21, -1
+  %or.cond.i = icmp ult i8 %22, 3
+  %23 = icmp eq i8 %21, 18
+  %24 = select i1 %23, i64 16, i64 0
+  %25 = select i1 %or.cond.i, i64 8, i64 %24
+  br label %pg_logical_emit_message_bytea.exit
+
+26:                                               ; preds = %1
+  br i1 %.not.i, label %31, label %27
+
+27:                                               ; preds = %26
+  %28 = lshr i32 %16, 1
+  %29 = zext nneg i32 %28 to i64
+  %30 = add nsw i64 %29, -1
+  br label %pg_logical_emit_message_bytea.exit
+
+31:                                               ; preds = %26
+  %32 = load i32, ptr %12, align 4
+  %33 = lshr i32 %32, 2
+  %34 = add nsw i32 %33, -4
+  %35 = zext i32 %34 to i64
+  br label %pg_logical_emit_message_bytea.exit
+
+pg_logical_emit_message_bytea.exit:               ; preds = %20, %27, %31
+  %36 = phi i64 [ %25, %20 ], [ %30, %27 ], [ %35, %31 ]
+  %37 = icmp ne i64 %14, 0
+  %38 = icmp ne i64 %3, 0
+  %39 = getelementptr inbounds nuw i8, ptr %12, i64 4
+  %40 = select i1 %.not.i, ptr %39, ptr %18
+  %41 = tail call i64 @LogLogicalMessage(ptr noundef %8, ptr noundef nonnull %40, i64 noundef %36, i1 noundef zeroext %38, i1 noundef zeroext %37) #9
+  ret i64 %41
 }
 
 declare void @CheckSlotPermissions() local_unnamed_addr #1

@@ -27,8 +27,8 @@ define dso_local void @toast_tuple_init(ptr noundef captures(none) initializes((
   %wide.trip.count = zext nneg i32 %5 to i64
   br label %13
 
-13:                                               ; preds = %.lr.ph, %155
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %155 ]
+13:                                               ; preds = %.lr.ph, %153
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %153 ]
   %14 = load i32, ptr %4, align 8
   %15 = sext i32 %14 to i64
   %16 = shl nsw i64 %15, 4
@@ -121,7 +121,7 @@ define dso_local void @toast_tuple_init(ptr noundef captures(none) initializes((
   %75 = load i8, ptr %74, align 4
   %76 = or i8 %75, 16
   store i8 %76, ptr %74, align 4
-  br label %155
+  br label %153
 
 77:                                               ; preds = %13
   %78 = load ptr, ptr %10, align 8
@@ -147,13 +147,13 @@ define dso_local void @toast_tuple_init(ptr noundef captures(none) initializes((
   %92 = load i8, ptr %6, align 8
   %93 = or i8 %92, 4
   store i8 %93, ptr %6, align 8
-  br label %155
+  br label %153
 
 94:                                               ; preds = %82
   %95 = getelementptr inbounds nuw i8, ptr %19, i64 72
   %96 = load i16, ptr %95, align 4
   %97 = icmp eq i16 %96, -1
-  br i1 %97, label %98, label %150
+  br i1 %97, label %98, label %148
 
 98:                                               ; preds = %94
   %99 = getelementptr inbounds nuw i8, ptr %19, i64 84
@@ -211,53 +211,51 @@ define dso_local void @toast_tuple_init(ptr noundef captures(none) initializes((
 130:                                              ; preds = %119
   %131 = getelementptr inbounds nuw i8, ptr %.2, i64 1
   %132 = load i8, ptr %131, align 1
-  %133 = icmp eq i8 %132, 1
-  %134 = and i8 %132, -2
-  %135 = icmp eq i8 %134, 2
-  %or.cond = or i1 %133, %135
-  %136 = icmp eq i8 %132, 18
-  %137 = select i1 %136, i32 18, i32 2
-  %138 = select i1 %or.cond, i32 10, i32 %137
-  br label %146
+  %133 = add i8 %132, -1
+  %or.cond = icmp ult i8 %133, 3
+  %134 = icmp eq i8 %132, 18
+  %135 = select i1 %134, i32 18, i32 2
+  %136 = select i1 %or.cond, i32 10, i32 %135
+  br label %144
 
 .thread:                                          ; preds = %107, %119
   %.in = phi i8 [ %.pr, %119 ], [ %108, %107 ]
   %.182 = phi ptr [ %.2, %119 ], [ %.0, %107 ]
-  %139 = zext i8 %.in to i32
-  %140 = and i32 %139, 1
-  %.not79 = icmp eq i32 %140, 0
-  br i1 %.not79, label %143, label %141
+  %137 = zext i8 %.in to i32
+  %138 = and i32 %137, 1
+  %.not79 = icmp eq i32 %138, 0
+  br i1 %.not79, label %141, label %139
+
+139:                                              ; preds = %.thread
+  %140 = lshr i32 %137, 1
+  br label %144
 
 141:                                              ; preds = %.thread
-  %142 = lshr i32 %139, 1
-  br label %146
+  %142 = load i32, ptr %.182, align 4
+  %143 = lshr i32 %142, 2
+  br label %144
 
-143:                                              ; preds = %.thread
-  %144 = load i32, ptr %.182, align 4
-  %145 = lshr i32 %144, 2
-  br label %146
+144:                                              ; preds = %139, %141, %130
+  %145 = phi i32 [ %136, %130 ], [ %140, %139 ], [ %143, %141 ]
+  %146 = load ptr, ptr %8, align 8
+  %147 = getelementptr inbounds nuw %struct.ToastAttrInfo, ptr %146, i64 %indvars.iv, i32 1
+  store i32 %145, ptr %147, align 8
+  br label %153
 
-146:                                              ; preds = %141, %143, %130
-  %147 = phi i32 [ %138, %130 ], [ %142, %141 ], [ %145, %143 ]
-  %148 = load ptr, ptr %8, align 8
-  %149 = getelementptr inbounds nuw %struct.ToastAttrInfo, ptr %148, i64 %indvars.iv, i32 1
-  store i32 %147, ptr %149, align 8
-  br label %155
+148:                                              ; preds = %94
+  %149 = load ptr, ptr %8, align 8
+  %150 = getelementptr inbounds nuw %struct.ToastAttrInfo, ptr %149, i64 %indvars.iv, i32 2
+  %151 = load i8, ptr %150, align 4
+  %152 = or i8 %151, 16
+  store i8 %152, ptr %150, align 4
+  br label %153
 
-150:                                              ; preds = %94
-  %151 = load ptr, ptr %8, align 8
-  %152 = getelementptr inbounds nuw %struct.ToastAttrInfo, ptr %151, i64 %indvars.iv, i32 2
-  %153 = load i8, ptr %152, align 4
-  %154 = or i8 %153, 16
-  store i8 %154, ptr %152, align 4
-  br label %155
-
-155:                                              ; preds = %146, %150, %87, %72
+153:                                              ; preds = %144, %148, %87, %72
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %13, !llvm.loop !6
 
-._crit_edge:                                      ; preds = %155, %1
+._crit_edge:                                      ; preds = %153, %1
   ret void
 }
 

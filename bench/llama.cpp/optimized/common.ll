@@ -6245,11 +6245,9 @@ _ZNSt7__cxx1115wstring_convertISt12codecvt_utf8IDiLm1114111ELSt12codecvt_mode0EE
   %121 = load i32, ptr %.sroa.095.0102, align 4, !tbaa !275
   %.fr99 = freeze i32 %121
   %122 = icmp ult i32 %.fr99, 32
-  %123 = icmp eq i32 %.fr99, 127
-  %or.cond = or i1 %122, %123
-  %124 = and i32 %.fr99, -32
-  %or.cond5 = icmp eq i32 %124, 128
-  %or.cond100 = or i1 %or.cond, %or.cond5
+  %123 = add i32 %.fr99, -127
+  %124 = icmp ult i32 %123, 33
+  %or.cond100 = or i1 %122, %124
   br i1 %or.cond100, label %.loopexit, label %switch.early.test
 
 switch.early.test:                                ; preds = %.lr.ph

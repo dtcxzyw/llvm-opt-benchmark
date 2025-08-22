@@ -677,10 +677,10 @@ define void @lv_imagebutton_set_state(ptr noundef %0, i32 noundef %1) local_unna
 
 7:                                                ; preds = %3, %5
   %.1 = phi i16 [ %6, %5 ], [ %4, %3 ]
-  %.off = add i32 %1, -3
-  %switch = icmp ult i32 %.off, 3
-  %8 = zext i1 %switch to i16
-  %spec.select = or i16 %.1, %8
+  %8 = add i32 %1, -3
+  %or.cond7 = icmp ult i32 %8, 3
+  %9 = zext i1 %or.cond7 to i16
+  %spec.select = or i16 %.1, %9
   tail call void @lv_obj_remove_state(ptr noundef nonnull %0, i16 noundef zeroext 161) #6
   tail call void @lv_obj_add_state(ptr noundef nonnull %0, i16 noundef zeroext %spec.select) #6
   tail call fastcc void @refr_image(ptr noundef nonnull %0)

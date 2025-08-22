@@ -3223,17 +3223,17 @@ declare void @enlargeStringInfo(ptr noundef, i32 noundef) local_unnamed_addr #2
 define internal fastcc void @convertJsonbScalar(ptr noundef nonnull %0, ptr noundef nonnull writeonly captures(none) %1, ptr noundef %2) unnamed_addr #1 {
   %4 = alloca [129 x i8], align 16
   %5 = load i32, ptr %2, align 8
-  switch i32 %5, label %97 [
+  switch i32 %5, label %95 [
     i32 0, label %6
     i32 1, label %7
     i32 2, label %22
-    i32 3, label %74
-    i32 32, label %79
+    i32 3, label %72
+    i32 32, label %77
   ]
 
 6:                                                ; preds = %3
   store i32 1073741824, ptr %1, align 4
-  br label %100
+  br label %98
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -3256,7 +3256,7 @@ define internal fastcc void @convertJsonbScalar(ptr noundef nonnull %0, ptr noun
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %19, ptr readonly align 1 %10, i64 %20, i1 false)
   %21 = load i32, ptr %8, align 8
   store i32 %21, ptr %1, align 4
-  br label %100
+  br label %98
 
 22:                                               ; preds = %3
   %23 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -3264,135 +3264,133 @@ define internal fastcc void @convertJsonbScalar(ptr noundef nonnull %0, ptr noun
   %25 = load i8, ptr %24, align 1
   %26 = zext i8 %25 to i32
   %27 = icmp eq i8 %25, 1
-  br i1 %27, label %28, label %37
+  br i1 %27, label %28, label %35
 
 28:                                               ; preds = %22
   %29 = getelementptr inbounds nuw i8, ptr %24, i64 1
   %30 = load i8, ptr %29, align 1
-  %31 = icmp eq i8 %30, 1
-  %32 = and i8 %30, -2
-  %33 = icmp eq i8 %32, 2
-  %or.cond = or i1 %31, %33
-  %34 = icmp eq i8 %30, 18
-  %35 = select i1 %34, i32 18, i32 2
-  %36 = select i1 %or.cond, i32 10, i32 %35
-  br label %44
+  %31 = add i8 %30, -1
+  %or.cond = icmp ult i8 %31, 3
+  %32 = icmp eq i8 %30, 18
+  %33 = select i1 %32, i32 18, i32 2
+  %34 = select i1 %or.cond, i32 10, i32 %33
+  br label %42
 
-37:                                               ; preds = %22
-  %38 = and i32 %26, 1
-  %.not = icmp eq i32 %38, 0
-  br i1 %.not, label %41, label %39
+35:                                               ; preds = %22
+  %36 = and i32 %26, 1
+  %.not = icmp eq i32 %36, 0
+  br i1 %.not, label %39, label %37
 
-39:                                               ; preds = %37
-  %40 = lshr i32 %26, 1
-  br label %44
+37:                                               ; preds = %35
+  %38 = lshr i32 %26, 1
+  br label %42
 
-41:                                               ; preds = %37
-  %42 = load i32, ptr %24, align 4
-  %43 = lshr i32 %42, 2
-  br label %44
+39:                                               ; preds = %35
+  %40 = load i32, ptr %24, align 4
+  %41 = lshr i32 %40, 2
+  br label %42
 
-44:                                               ; preds = %39, %41, %28
-  %45 = phi i32 [ %36, %28 ], [ %40, %39 ], [ %43, %41 ]
-  %46 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %47 = load i32, ptr %46, align 8
-  %48 = add i32 %47, 3
-  %49 = and i32 %48, -4
-  %50 = sub i32 %49, %47
-  tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef %50) #13
-  %51 = load i32, ptr %46, align 8
-  %52 = add i32 %50, %51
-  store i32 %52, ptr %46, align 8
-  %53 = load ptr, ptr %0, align 8
-  %54 = sext i32 %52 to i64
-  %55 = getelementptr inbounds i8, ptr %53, i64 %54
-  store i8 0, ptr %55, align 1
-  %56 = icmp sgt i32 %50, 0
-  br i1 %56, label %.lr.ph.preheader.i, label %padBufferToInt.exit
+42:                                               ; preds = %37, %39, %28
+  %43 = phi i32 [ %34, %28 ], [ %38, %37 ], [ %41, %39 ]
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %45 = load i32, ptr %44, align 8
+  %46 = add i32 %45, 3
+  %47 = and i32 %46, -4
+  %48 = sub i32 %47, %45
+  tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef %48) #13
+  %49 = load i32, ptr %44, align 8
+  %50 = add i32 %48, %49
+  store i32 %50, ptr %44, align 8
+  %51 = load ptr, ptr %0, align 8
+  %52 = sext i32 %50 to i64
+  %53 = getelementptr inbounds i8, ptr %51, i64 %52
+  store i8 0, ptr %53, align 1
+  %54 = icmp sgt i32 %48, 0
+  br i1 %54, label %.lr.ph.preheader.i, label %padBufferToInt.exit
 
-.lr.ph.preheader.i:                               ; preds = %44
-  %wide.trip.count.i = zext nneg i32 %50 to i64
+.lr.ph.preheader.i:                               ; preds = %42
+  %wide.trip.count.i = zext nneg i32 %48 to i64
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %57 = load ptr, ptr %0, align 8
-  %58 = trunc nuw nsw i64 %indvars.iv.i to i32
-  %59 = add i32 %51, %58
-  %60 = sext i32 %59 to i64
-  %61 = getelementptr inbounds i8, ptr %57, i64 %60
-  store i8 0, ptr %61, align 1
+  %55 = load ptr, ptr %0, align 8
+  %56 = trunc nuw nsw i64 %indvars.iv.i to i32
+  %57 = add i32 %49, %56
+  %58 = sext i32 %57 to i64
+  %59 = getelementptr inbounds i8, ptr %55, i64 %58
+  store i8 0, ptr %59, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %padBufferToInt.exit, label %.lr.ph.i, !llvm.loop !19
 
-padBufferToInt.exit:                              ; preds = %.lr.ph.i, %44
-  %62 = load ptr, ptr %23, align 8
-  tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef %45) #13
-  %63 = load i32, ptr %46, align 8
-  %64 = add i32 %63, %45
-  store i32 %64, ptr %46, align 8
-  %65 = load ptr, ptr %0, align 8
-  %66 = sext i32 %64 to i64
-  %67 = getelementptr inbounds i8, ptr %65, i64 %66
-  store i8 0, ptr %67, align 1
+padBufferToInt.exit:                              ; preds = %.lr.ph.i, %42
+  %60 = load ptr, ptr %23, align 8
+  tail call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef %43) #13
+  %61 = load i32, ptr %44, align 8
+  %62 = add i32 %61, %43
+  store i32 %62, ptr %44, align 8
+  %63 = load ptr, ptr %0, align 8
+  %64 = sext i32 %62 to i64
+  %65 = getelementptr inbounds i8, ptr %63, i64 %64
+  store i8 0, ptr %65, align 1
   %.val.i31 = load ptr, ptr %0, align 8
-  %68 = sext i32 %63 to i64
-  %69 = getelementptr inbounds i8, ptr %.val.i31, i64 %68
-  %70 = zext nneg i32 %45 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %69, ptr readonly align 1 %62, i64 %70, i1 false)
-  %sext33 = shl i32 %50, 16
-  %71 = ashr exact i32 %sext33, 16
-  %72 = add nsw i32 %71, %45
-  %73 = or i32 %72, 268435456
-  store i32 %73, ptr %1, align 4
-  br label %100
+  %66 = sext i32 %61 to i64
+  %67 = getelementptr inbounds i8, ptr %.val.i31, i64 %66
+  %68 = zext nneg i32 %43 to i64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %67, ptr readonly align 1 %60, i64 %68, i1 false)
+  %sext33 = shl i32 %48, 16
+  %69 = ashr exact i32 %sext33, 16
+  %70 = add nsw i32 %69, %43
+  %71 = or i32 %70, 268435456
+  store i32 %71, ptr %1, align 4
+  br label %98
 
-74:                                               ; preds = %3
-  %75 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %76 = load i8, ptr %75, align 8, !range !7, !noundef !10
-  %77 = trunc nuw i8 %76 to i1
-  %78 = select i1 %77, i32 805306368, i32 536870912
-  store i32 %78, ptr %1, align 4
-  br label %100
+72:                                               ; preds = %3
+  %73 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %74 = load i8, ptr %73, align 8, !range !7, !noundef !10
+  %75 = trunc nuw i8 %74 to i1
+  %76 = select i1 %75, i32 805306368, i32 536870912
+  store i32 %76, ptr %1, align 4
+  br label %98
 
-79:                                               ; preds = %3
+77:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %80 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %81 = load i64, ptr %80, align 8
-  %82 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %83 = load i32, ptr %82, align 8
-  %84 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %85 = call ptr @JsonEncodeDateTime(ptr noundef nonnull %4, i64 noundef %81, i32 noundef %83, ptr noundef nonnull %84) #13
-  %86 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #15
-  %87 = trunc i64 %86 to i32
-  call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef %87) #13
-  %88 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %89 = load i32, ptr %88, align 8
-  %90 = add i32 %89, %87
-  store i32 %90, ptr %88, align 8
-  %91 = load ptr, ptr %0, align 8
-  %92 = sext i32 %90 to i64
-  %93 = getelementptr inbounds i8, ptr %91, i64 %92
-  store i8 0, ptr %93, align 1
+  %78 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %79 = load i64, ptr %78, align 8
+  %80 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %81 = load i32, ptr %80, align 8
+  %82 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %83 = call ptr @JsonEncodeDateTime(ptr noundef nonnull %4, i64 noundef %79, i32 noundef %81, ptr noundef nonnull %82) #13
+  %84 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #15
+  %85 = trunc i64 %84 to i32
+  call void @enlargeStringInfo(ptr noundef nonnull %0, i32 noundef %85) #13
+  %86 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %87 = load i32, ptr %86, align 8
+  %88 = add i32 %87, %85
+  store i32 %88, ptr %86, align 8
+  %89 = load ptr, ptr %0, align 8
+  %90 = sext i32 %88 to i64
+  %91 = getelementptr inbounds i8, ptr %89, i64 %90
+  store i8 0, ptr %91, align 1
   %.val.i32 = load ptr, ptr %0, align 8
-  %94 = sext i32 %89 to i64
-  %95 = getelementptr inbounds i8, ptr %.val.i32, i64 %94
-  %sext = shl i64 %86, 32
-  %96 = ashr exact i64 %sext, 32
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %95, ptr nonnull readonly align 16 %4, i64 %96, i1 false)
-  store i32 %87, ptr %1, align 4
+  %92 = sext i32 %87 to i64
+  %93 = getelementptr inbounds i8, ptr %.val.i32, i64 %92
+  %sext = shl i64 %84, 32
+  %94 = ashr exact i64 %sext, 32
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %93, ptr nonnull readonly align 16 %4, i64 %94, i1 false)
+  store i32 %85, ptr %1, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %100
+  br label %98
 
-97:                                               ; preds = %3
-  %98 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
-  tail call void @llvm.assume(i1 %98)
-  %99 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.8) #13
+95:                                               ; preds = %3
+  %96 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  tail call void @llvm.assume(i1 %96)
+  %97 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.8) #13
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1870, ptr noundef nonnull @__func__.convertJsonbScalar) #13
   unreachable
 
-100:                                              ; preds = %79, %74, %padBufferToInt.exit, %7, %6
+98:                                               ; preds = %77, %72, %padBufferToInt.exit, %7, %6
   ret void
 }
 

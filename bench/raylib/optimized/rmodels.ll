@@ -38915,213 +38915,213 @@ define void @DrawMesh(ptr noundef readonly byval(%struct.Mesh) align 8 captures(
   store i32 0, ptr %11, align 4
   br label %365
 
-360:                                              ; preds = %385
+360:                                              ; preds = %386
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %361 = getelementptr inbounds nuw i8, ptr %0, i64 108
   %362 = load i32, ptr %361, align 4
   %363 = call zeroext i1 @rlEnableVertexArray(i32 noundef %362) #58
-  br i1 %363, label %._crit_edge, label %389
+  br i1 %363, label %._crit_edge, label %390
 
 ._crit_edge:                                      ; preds = %360
   %.pre367 = load ptr, ptr %17, align 8
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 56
   %.pre368 = load ptr, ptr %.phi.trans.insert, align 8
   %364 = icmp eq ptr %.pre368, null
-  br label %457
+  br label %458
 
-365:                                              ; preds = %357, %385
-  %storemerge359 = phi i32 [ 0, %357 ], [ %387, %385 ]
+365:                                              ; preds = %357, %386
+  %storemerge359 = phi i32 [ 0, %357 ], [ %388, %386 ]
   %366 = sext i32 %storemerge359 to i64
   %367 = getelementptr inbounds %struct.MaterialMap, ptr %359, i64 %366
   %368 = load i32, ptr %367, align 4
   %.not50 = icmp eq i32 %368, 0
-  br i1 %.not50, label %385, label %369
+  br i1 %.not50, label %386, label %369
 
 369:                                              ; preds = %365
   call void @rlActiveTextureSlot(i32 noundef %storemerge359) #58
   %370 = load i32, ptr %11, align 4
-  %.off = add i32 %370, -7
-  %switch = icmp ult i32 %.off, 3
-  br i1 %switch, label %371, label %375
+  %371 = add i32 %370, -7
+  %or.cond6 = icmp ult i32 %371, 3
+  br i1 %or.cond6, label %372, label %376
 
-371:                                              ; preds = %369
-  %372 = zext nneg i32 %370 to i64
-  %373 = getelementptr inbounds nuw %struct.MaterialMap, ptr %359, i64 %372
-  %374 = load i32, ptr %373, align 4
-  call void @rlEnableTextureCubemap(i32 noundef %374) #58
-  br label %379
+372:                                              ; preds = %369
+  %373 = zext nneg i32 %370 to i64
+  %374 = getelementptr inbounds nuw %struct.MaterialMap, ptr %359, i64 %373
+  %375 = load i32, ptr %374, align 4
+  call void @rlEnableTextureCubemap(i32 noundef %375) #58
+  br label %380
 
-375:                                              ; preds = %369
-  %376 = sext i32 %370 to i64
-  %377 = getelementptr inbounds %struct.MaterialMap, ptr %359, i64 %376
-  %378 = load i32, ptr %377, align 4
-  call void @rlEnableTexture(i32 noundef %378) #58
-  br label %379
+376:                                              ; preds = %369
+  %377 = sext i32 %370 to i64
+  %378 = getelementptr inbounds %struct.MaterialMap, ptr %359, i64 %377
+  %379 = load i32, ptr %378, align 4
+  call void @rlEnableTexture(i32 noundef %379) #58
+  br label %380
 
-379:                                              ; preds = %375, %371
-  %380 = load i32, ptr %11, align 4
-  %381 = sext i32 %380 to i64
-  %382 = getelementptr i32, ptr %18, i64 %381
-  %383 = getelementptr i8, ptr %382, i64 60
-  %384 = load i32, ptr %383, align 4
-  call void @rlSetUniform(i32 noundef %384, ptr noundef nonnull %11, i32 noundef 4, i32 noundef 1) #58
+380:                                              ; preds = %376, %372
+  %381 = load i32, ptr %11, align 4
+  %382 = sext i32 %381 to i64
+  %383 = getelementptr i32, ptr %18, i64 %382
+  %384 = getelementptr i8, ptr %383, i64 60
+  %385 = load i32, ptr %384, align 4
+  call void @rlSetUniform(i32 noundef %385, ptr noundef nonnull %11, i32 noundef 4, i32 noundef 1) #58
   %.pre = load i32, ptr %11, align 4
-  br label %385
+  br label %386
 
-385:                                              ; preds = %365, %379
-  %386 = phi i32 [ %storemerge359, %365 ], [ %.pre, %379 ]
-  %387 = add nsw i32 %386, 1
-  store i32 %387, ptr %11, align 4
-  %388 = icmp slt i32 %386, 11
-  br i1 %388, label %365, label %360
+386:                                              ; preds = %365, %380
+  %387 = phi i32 [ %storemerge359, %365 ], [ %.pre, %380 ]
+  %388 = add nsw i32 %387, 1
+  store i32 %388, ptr %11, align 4
+  %389 = icmp slt i32 %387, 11
+  br i1 %389, label %365, label %360
 
-389:                                              ; preds = %360
-  %390 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %391 = load ptr, ptr %390, align 8
-  %392 = load i32, ptr %391, align 4
-  call void @rlEnableVertexBuffer(i32 noundef %392) #58
-  %393 = load ptr, ptr %17, align 8
-  %394 = load i32, ptr %393, align 4
-  call void @rlSetVertexAttribute(i32 noundef %394, i32 noundef 3, i32 noundef 5126, i1 noundef zeroext false, i32 noundef 0, i32 noundef 0) #58
-  %395 = load i32, ptr %393, align 4
-  call void @rlEnableVertexAttribute(i32 noundef %395) #58
-  %396 = getelementptr inbounds nuw i8, ptr %391, i64 4
-  %397 = load i32, ptr %396, align 4
-  call void @rlEnableVertexBuffer(i32 noundef %397) #58
-  %398 = getelementptr inbounds nuw i8, ptr %393, i64 4
-  %399 = load i32, ptr %398, align 4
-  call void @rlSetVertexAttribute(i32 noundef %399, i32 noundef 2, i32 noundef 5126, i1 noundef zeroext false, i32 noundef 0, i32 noundef 0) #58
-  %400 = load i32, ptr %398, align 4
-  call void @rlEnableVertexAttribute(i32 noundef %400) #58
-  %401 = getelementptr inbounds nuw i8, ptr %393, i64 12
-  %402 = load i32, ptr %401, align 4
-  %.not40 = icmp eq i32 %402, -1
-  br i1 %.not40, label %408, label %403
+390:                                              ; preds = %360
+  %391 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %392 = load ptr, ptr %391, align 8
+  %393 = load i32, ptr %392, align 4
+  call void @rlEnableVertexBuffer(i32 noundef %393) #58
+  %394 = load ptr, ptr %17, align 8
+  %395 = load i32, ptr %394, align 4
+  call void @rlSetVertexAttribute(i32 noundef %395, i32 noundef 3, i32 noundef 5126, i1 noundef zeroext false, i32 noundef 0, i32 noundef 0) #58
+  %396 = load i32, ptr %394, align 4
+  call void @rlEnableVertexAttribute(i32 noundef %396) #58
+  %397 = getelementptr inbounds nuw i8, ptr %392, i64 4
+  %398 = load i32, ptr %397, align 4
+  call void @rlEnableVertexBuffer(i32 noundef %398) #58
+  %399 = getelementptr inbounds nuw i8, ptr %394, i64 4
+  %400 = load i32, ptr %399, align 4
+  call void @rlSetVertexAttribute(i32 noundef %400, i32 noundef 2, i32 noundef 5126, i1 noundef zeroext false, i32 noundef 0, i32 noundef 0) #58
+  %401 = load i32, ptr %399, align 4
+  call void @rlEnableVertexAttribute(i32 noundef %401) #58
+  %402 = getelementptr inbounds nuw i8, ptr %394, i64 12
+  %403 = load i32, ptr %402, align 4
+  %.not40 = icmp eq i32 %403, -1
+  br i1 %.not40, label %409, label %404
 
-403:                                              ; preds = %389
-  %404 = getelementptr inbounds nuw i8, ptr %391, i64 8
-  %405 = load i32, ptr %404, align 4
-  call void @rlEnableVertexBuffer(i32 noundef %405) #58
-  %406 = load i32, ptr %401, align 4
-  call void @rlSetVertexAttribute(i32 noundef %406, i32 noundef 3, i32 noundef 5126, i1 noundef zeroext false, i32 noundef 0, i32 noundef 0) #58
-  %407 = load i32, ptr %401, align 4
-  call void @rlEnableVertexAttribute(i32 noundef %407) #58
-  br label %408
+404:                                              ; preds = %390
+  %405 = getelementptr inbounds nuw i8, ptr %392, i64 8
+  %406 = load i32, ptr %405, align 4
+  call void @rlEnableVertexBuffer(i32 noundef %406) #58
+  %407 = load i32, ptr %402, align 4
+  call void @rlSetVertexAttribute(i32 noundef %407, i32 noundef 3, i32 noundef 5126, i1 noundef zeroext false, i32 noundef 0, i32 noundef 0) #58
+  %408 = load i32, ptr %402, align 4
+  call void @rlEnableVertexAttribute(i32 noundef %408) #58
+  br label %409
 
-408:                                              ; preds = %403, %389
-  %409 = getelementptr inbounds nuw i8, ptr %393, i64 20
-  %410 = load i32, ptr %409, align 4
-  %.not41 = icmp eq i32 %410, -1
-  br i1 %.not41, label %419, label %411
+409:                                              ; preds = %404, %390
+  %410 = getelementptr inbounds nuw i8, ptr %394, i64 20
+  %411 = load i32, ptr %410, align 4
+  %.not41 = icmp eq i32 %411, -1
+  br i1 %.not41, label %420, label %412
 
-411:                                              ; preds = %408
-  %412 = getelementptr inbounds nuw i8, ptr %391, i64 12
-  %413 = load i32, ptr %412, align 4
-  %.not42 = icmp eq i32 %413, 0
-  br i1 %.not42, label %417, label %414
+412:                                              ; preds = %409
+  %413 = getelementptr inbounds nuw i8, ptr %392, i64 12
+  %414 = load i32, ptr %413, align 4
+  %.not42 = icmp eq i32 %414, 0
+  br i1 %.not42, label %418, label %415
 
-414:                                              ; preds = %411
-  call void @rlEnableVertexBuffer(i32 noundef %413) #58
-  %415 = load i32, ptr %409, align 4
-  call void @rlSetVertexAttribute(i32 noundef %415, i32 noundef 4, i32 noundef 5121, i1 noundef zeroext true, i32 noundef 0, i32 noundef 0) #58
-  %416 = load i32, ptr %409, align 4
-  call void @rlEnableVertexAttribute(i32 noundef %416) #58
-  br label %419
+415:                                              ; preds = %412
+  call void @rlEnableVertexBuffer(i32 noundef %414) #58
+  %416 = load i32, ptr %410, align 4
+  call void @rlSetVertexAttribute(i32 noundef %416, i32 noundef 4, i32 noundef 5121, i1 noundef zeroext true, i32 noundef 0, i32 noundef 0) #58
+  %417 = load i32, ptr %410, align 4
+  call void @rlEnableVertexAttribute(i32 noundef %417) #58
+  br label %420
 
-417:                                              ; preds = %411
+418:                                              ; preds = %412
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %12, ptr noundef nonnull align 16 dereferenceable(16) @__const.DrawMeshInstanced.value, i64 16, i1 false)
-  call void @rlSetVertexAttributeDefault(i32 noundef %410, ptr noundef nonnull %12, i32 noundef 3, i32 noundef 4) #58
-  %418 = load i32, ptr %409, align 4
-  call void @rlDisableVertexAttribute(i32 noundef %418) #58
+  call void @rlSetVertexAttributeDefault(i32 noundef %411, ptr noundef nonnull %12, i32 noundef 3, i32 noundef 4) #58
+  %419 = load i32, ptr %410, align 4
+  call void @rlDisableVertexAttribute(i32 noundef %419) #58
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  br label %419
+  br label %420
 
-419:                                              ; preds = %414, %417, %408
-  %420 = getelementptr inbounds nuw i8, ptr %393, i64 16
-  %421 = load i32, ptr %420, align 4
-  %.not43 = icmp eq i32 %421, -1
-  br i1 %.not43, label %427, label %422
+420:                                              ; preds = %415, %418, %409
+  %421 = getelementptr inbounds nuw i8, ptr %394, i64 16
+  %422 = load i32, ptr %421, align 4
+  %.not43 = icmp eq i32 %422, -1
+  br i1 %.not43, label %428, label %423
 
-422:                                              ; preds = %419
-  %423 = getelementptr inbounds nuw i8, ptr %391, i64 16
-  %424 = load i32, ptr %423, align 4
-  call void @rlEnableVertexBuffer(i32 noundef %424) #58
-  %425 = load i32, ptr %420, align 4
-  call void @rlSetVertexAttribute(i32 noundef %425, i32 noundef 4, i32 noundef 5126, i1 noundef zeroext false, i32 noundef 0, i32 noundef 0) #58
-  %426 = load i32, ptr %420, align 4
-  call void @rlEnableVertexAttribute(i32 noundef %426) #58
-  br label %427
+423:                                              ; preds = %420
+  %424 = getelementptr inbounds nuw i8, ptr %392, i64 16
+  %425 = load i32, ptr %424, align 4
+  call void @rlEnableVertexBuffer(i32 noundef %425) #58
+  %426 = load i32, ptr %421, align 4
+  call void @rlSetVertexAttribute(i32 noundef %426, i32 noundef 4, i32 noundef 5126, i1 noundef zeroext false, i32 noundef 0, i32 noundef 0) #58
+  %427 = load i32, ptr %421, align 4
+  call void @rlEnableVertexAttribute(i32 noundef %427) #58
+  br label %428
 
-427:                                              ; preds = %422, %419
-  %428 = getelementptr inbounds nuw i8, ptr %393, i64 8
-  %429 = load i32, ptr %428, align 4
-  %.not44 = icmp eq i32 %429, -1
-  br i1 %.not44, label %435, label %430
+428:                                              ; preds = %423, %420
+  %429 = getelementptr inbounds nuw i8, ptr %394, i64 8
+  %430 = load i32, ptr %429, align 4
+  %.not44 = icmp eq i32 %430, -1
+  br i1 %.not44, label %436, label %431
 
-430:                                              ; preds = %427
-  %431 = getelementptr inbounds nuw i8, ptr %391, i64 20
-  %432 = load i32, ptr %431, align 4
-  call void @rlEnableVertexBuffer(i32 noundef %432) #58
-  %433 = load i32, ptr %428, align 4
-  call void @rlSetVertexAttribute(i32 noundef %433, i32 noundef 2, i32 noundef 5126, i1 noundef zeroext false, i32 noundef 0, i32 noundef 0) #58
-  %434 = load i32, ptr %428, align 4
-  call void @rlEnableVertexAttribute(i32 noundef %434) #58
-  br label %435
+431:                                              ; preds = %428
+  %432 = getelementptr inbounds nuw i8, ptr %392, i64 20
+  %433 = load i32, ptr %432, align 4
+  call void @rlEnableVertexBuffer(i32 noundef %433) #58
+  %434 = load i32, ptr %429, align 4
+  call void @rlSetVertexAttribute(i32 noundef %434, i32 noundef 2, i32 noundef 5126, i1 noundef zeroext false, i32 noundef 0, i32 noundef 0) #58
+  %435 = load i32, ptr %429, align 4
+  call void @rlEnableVertexAttribute(i32 noundef %435) #58
+  br label %436
 
-435:                                              ; preds = %430, %427
-  %436 = getelementptr inbounds nuw i8, ptr %393, i64 104
-  %437 = load i32, ptr %436, align 4
-  %.not45 = icmp eq i32 %437, -1
-  br i1 %.not45, label %443, label %438
+436:                                              ; preds = %431, %428
+  %437 = getelementptr inbounds nuw i8, ptr %394, i64 104
+  %438 = load i32, ptr %437, align 4
+  %.not45 = icmp eq i32 %438, -1
+  br i1 %.not45, label %444, label %439
 
-438:                                              ; preds = %435
-  %439 = getelementptr inbounds nuw i8, ptr %391, i64 28
-  %440 = load i32, ptr %439, align 4
-  call void @rlEnableVertexBuffer(i32 noundef %440) #58
-  %441 = load i32, ptr %436, align 4
-  call void @rlSetVertexAttribute(i32 noundef %441, i32 noundef 4, i32 noundef 5121, i1 noundef zeroext false, i32 noundef 0, i32 noundef 0) #58
-  %442 = load i32, ptr %436, align 4
-  call void @rlEnableVertexAttribute(i32 noundef %442) #58
-  br label %443
+439:                                              ; preds = %436
+  %440 = getelementptr inbounds nuw i8, ptr %392, i64 28
+  %441 = load i32, ptr %440, align 4
+  call void @rlEnableVertexBuffer(i32 noundef %441) #58
+  %442 = load i32, ptr %437, align 4
+  call void @rlSetVertexAttribute(i32 noundef %442, i32 noundef 4, i32 noundef 5121, i1 noundef zeroext false, i32 noundef 0, i32 noundef 0) #58
+  %443 = load i32, ptr %437, align 4
+  call void @rlEnableVertexAttribute(i32 noundef %443) #58
+  br label %444
 
-443:                                              ; preds = %438, %435
-  %444 = getelementptr inbounds nuw i8, ptr %393, i64 108
-  %445 = load i32, ptr %444, align 4
-  %.not46 = icmp eq i32 %445, -1
-  br i1 %.not46, label %451, label %446
+444:                                              ; preds = %439, %436
+  %445 = getelementptr inbounds nuw i8, ptr %394, i64 108
+  %446 = load i32, ptr %445, align 4
+  %.not46 = icmp eq i32 %446, -1
+  br i1 %.not46, label %452, label %447
 
-446:                                              ; preds = %443
-  %447 = getelementptr inbounds nuw i8, ptr %391, i64 32
-  %448 = load i32, ptr %447, align 4
-  call void @rlEnableVertexBuffer(i32 noundef %448) #58
-  %449 = load i32, ptr %444, align 4
-  call void @rlSetVertexAttribute(i32 noundef %449, i32 noundef 4, i32 noundef 5126, i1 noundef zeroext false, i32 noundef 0, i32 noundef 0) #58
-  %450 = load i32, ptr %444, align 4
-  call void @rlEnableVertexAttribute(i32 noundef %450) #58
-  br label %451
+447:                                              ; preds = %444
+  %448 = getelementptr inbounds nuw i8, ptr %392, i64 32
+  %449 = load i32, ptr %448, align 4
+  call void @rlEnableVertexBuffer(i32 noundef %449) #58
+  %450 = load i32, ptr %445, align 4
+  call void @rlSetVertexAttribute(i32 noundef %450, i32 noundef 4, i32 noundef 5126, i1 noundef zeroext false, i32 noundef 0, i32 noundef 0) #58
+  %451 = load i32, ptr %445, align 4
+  call void @rlEnableVertexAttribute(i32 noundef %451) #58
+  br label %452
 
-451:                                              ; preds = %446, %443
-  %452 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %453 = load ptr, ptr %452, align 8
-  %.not47 = icmp eq ptr %453, null
-  br i1 %.not47, label %457, label %454
+452:                                              ; preds = %447, %444
+  %453 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %454 = load ptr, ptr %453, align 8
+  %.not47 = icmp eq ptr %454, null
+  br i1 %.not47, label %458, label %455
 
-454:                                              ; preds = %451
-  %455 = getelementptr inbounds nuw i8, ptr %391, i64 24
-  %456 = load i32, ptr %455, align 4
-  call void @rlEnableVertexBufferElement(i32 noundef %456) #58
-  br label %457
+455:                                              ; preds = %452
+  %456 = getelementptr inbounds nuw i8, ptr %392, i64 24
+  %457 = load i32, ptr %456, align 4
+  call void @rlEnableVertexBufferElement(i32 noundef %457) #58
+  br label %458
 
-457:                                              ; preds = %._crit_edge, %451, %454
-  %.not49 = phi i1 [ %364, %._crit_edge ], [ true, %451 ], [ false, %454 ]
-  %458 = phi ptr [ %.pre367, %._crit_edge ], [ %393, %451 ], [ %393, %454 ]
-  %459 = call zeroext i1 @rlIsStereoRenderEnabled() #58
-  %spec.select = select i1 %459, i32 2, i32 1
-  %460 = getelementptr inbounds nuw i8, ptr %13, i64 4
-  %461 = getelementptr inbounds nuw i8, ptr %13, i64 20
-  %462 = getelementptr inbounds nuw i8, ptr %13, i64 40
-  %463 = getelementptr inbounds nuw i8, ptr %13, i64 60
+458:                                              ; preds = %._crit_edge, %452, %455
+  %.not49 = phi i1 [ %364, %._crit_edge ], [ true, %452 ], [ false, %455 ]
+  %459 = phi ptr [ %.pre367, %._crit_edge ], [ %394, %452 ], [ %394, %455 ]
+  %460 = call zeroext i1 @rlIsStereoRenderEnabled() #58
+  %spec.select = select i1 %460, i32 2, i32 1
+  %461 = getelementptr inbounds nuw i8, ptr %13, i64 4
+  %462 = getelementptr inbounds nuw i8, ptr %13, i64 20
+  %463 = getelementptr inbounds nuw i8, ptr %13, i64 40
+  %464 = getelementptr inbounds nuw i8, ptr %13, i64 60
   %.sroa.4279.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 4
   %.sroa.5280.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 8
   %.sroa.6281.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 12
@@ -39178,23 +39178,23 @@ define void @DrawMesh(ptr noundef readonly byval(%struct.Mesh) align 8 captures(
   %.sroa.16355.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 52
   %.sroa.17356.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 56
   %.sroa.18357.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 60
-  %464 = getelementptr inbounds nuw i8, ptr %458, i64 24
-  %465 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %466 = load i32, ptr %465, align 4
-  %467 = mul nsw i32 %466, 3
-  %468 = load i32, ptr %0, align 8
-  br i1 %459, label %.split.us, label %.split
+  %465 = getelementptr inbounds nuw i8, ptr %459, i64 24
+  %466 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %467 = load i32, ptr %466, align 4
+  %468 = mul nsw i32 %467, 3
+  %469 = load i32, ptr %0, align 8
+  br i1 %460, label %.split.us, label %.split
 
-.split.us:                                        ; preds = %457, %606
-  %.024360.us = phi i32 [ %607, %606 ], [ 0, %457 ]
+.split.us:                                        ; preds = %458, %607
+  %.024360.us = phi i32 [ %608, %607 ], [ 0, %458 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
-  %469 = call i32 @rlGetFramebufferWidth() #58
-  %470 = mul nuw nsw i32 %469, %.024360.us
-  %471 = sdiv i32 %470, 2
-  %472 = call i32 @rlGetFramebufferWidth() #58
-  %473 = sdiv i32 %472, 2
-  %474 = call i32 @rlGetFramebufferHeight() #58
-  call void @rlViewport(i32 noundef %471, i32 noundef 0, i32 noundef %473, i32 noundef %474) #58
+  %470 = call i32 @rlGetFramebufferWidth() #58
+  %471 = mul nuw nsw i32 %470, %.024360.us
+  %472 = sdiv i32 %471, 2
+  %473 = call i32 @rlGetFramebufferWidth() #58
+  %474 = sdiv i32 %473, 2
+  %475 = call i32 @rlGetFramebufferHeight() #58
+  call void @rlViewport(i32 noundef %472, i32 noundef 0, i32 noundef %474, i32 noundef %475) #58
   call void @rlGetMatrixViewOffsetStereo(ptr dead_on_unwind nonnull writable sret(%struct.Matrix) align 4 %14, i32 noundef %.024360.us) #58
   %.sroa.0310.0.copyload.us = load float, ptr %14, align 8
   %.sroa.4311.0.copyload.us = load float, ptr %.sroa.4311.0..sroa_idx, align 4
@@ -39212,70 +39212,70 @@ define void @DrawMesh(ptr noundef readonly byval(%struct.Mesh) align 8 captures(
   %.sroa.16323.0.copyload.us = load float, ptr %.sroa.16323.0..sroa_idx, align 4
   %.sroa.17324.0.copyload.us = load float, ptr %.sroa.17324.0..sroa_idx, align 8
   %.sroa.18325.0.copyload.us = load float, ptr %.sroa.18325.0..sroa_idx, align 4
-  %475 = fmul float %157, %.sroa.4311.0.copyload.us
-  %476 = call float @llvm.fmuladd.f32(float %153, float %.sroa.0310.0.copyload.us, float %475)
-  %477 = call float @llvm.fmuladd.f32(float %161, float %.sroa.5312.0.copyload.us, float %476)
-  %478 = call float @llvm.fmuladd.f32(float %165, float %.sroa.6313.0.copyload.us, float %477)
-  %479 = fmul float %157, %.sroa.8315.0.copyload.us
-  %480 = call float @llvm.fmuladd.f32(float %153, float %.sroa.7314.0.copyload.us, float %479)
-  %481 = call float @llvm.fmuladd.f32(float %161, float %.sroa.9316.0.copyload.us, float %480)
-  %482 = call float @llvm.fmuladd.f32(float %165, float %.sroa.10317.0.copyload.us, float %481)
-  %483 = fmul float %157, %.sroa.12319.0.copyload.us
-  %484 = call float @llvm.fmuladd.f32(float %153, float %.sroa.11318.0.copyload.us, float %483)
-  %485 = call float @llvm.fmuladd.f32(float %161, float %.sroa.13320.0.copyload.us, float %484)
-  %486 = call float @llvm.fmuladd.f32(float %165, float %.sroa.14321.0.copyload.us, float %485)
-  %487 = fmul float %157, %.sroa.16323.0.copyload.us
-  %488 = call float @llvm.fmuladd.f32(float %153, float %.sroa.15322.0.copyload.us, float %487)
-  %489 = call float @llvm.fmuladd.f32(float %161, float %.sroa.17324.0.copyload.us, float %488)
-  %490 = call float @llvm.fmuladd.f32(float %165, float %.sroa.18325.0.copyload.us, float %489)
-  %491 = fmul float %173, %.sroa.4311.0.copyload.us
-  %492 = call float @llvm.fmuladd.f32(float %169, float %.sroa.0310.0.copyload.us, float %491)
-  %493 = call float @llvm.fmuladd.f32(float %177, float %.sroa.5312.0.copyload.us, float %492)
-  %494 = call float @llvm.fmuladd.f32(float %181, float %.sroa.6313.0.copyload.us, float %493)
-  %495 = fmul float %173, %.sroa.8315.0.copyload.us
-  %496 = call float @llvm.fmuladd.f32(float %169, float %.sroa.7314.0.copyload.us, float %495)
-  %497 = call float @llvm.fmuladd.f32(float %177, float %.sroa.9316.0.copyload.us, float %496)
-  %498 = call float @llvm.fmuladd.f32(float %181, float %.sroa.10317.0.copyload.us, float %497)
-  %499 = fmul float %173, %.sroa.12319.0.copyload.us
-  %500 = call float @llvm.fmuladd.f32(float %169, float %.sroa.11318.0.copyload.us, float %499)
-  %501 = call float @llvm.fmuladd.f32(float %177, float %.sroa.13320.0.copyload.us, float %500)
-  %502 = call float @llvm.fmuladd.f32(float %181, float %.sroa.14321.0.copyload.us, float %501)
-  %503 = fmul float %173, %.sroa.16323.0.copyload.us
-  %504 = call float @llvm.fmuladd.f32(float %169, float %.sroa.15322.0.copyload.us, float %503)
-  %505 = call float @llvm.fmuladd.f32(float %177, float %.sroa.17324.0.copyload.us, float %504)
-  %506 = call float @llvm.fmuladd.f32(float %181, float %.sroa.18325.0.copyload.us, float %505)
-  %507 = fmul float %189, %.sroa.4311.0.copyload.us
-  %508 = call float @llvm.fmuladd.f32(float %185, float %.sroa.0310.0.copyload.us, float %507)
-  %509 = call float @llvm.fmuladd.f32(float %193, float %.sroa.5312.0.copyload.us, float %508)
-  %510 = call float @llvm.fmuladd.f32(float %197, float %.sroa.6313.0.copyload.us, float %509)
-  %511 = fmul float %189, %.sroa.8315.0.copyload.us
-  %512 = call float @llvm.fmuladd.f32(float %185, float %.sroa.7314.0.copyload.us, float %511)
-  %513 = call float @llvm.fmuladd.f32(float %193, float %.sroa.9316.0.copyload.us, float %512)
-  %514 = call float @llvm.fmuladd.f32(float %197, float %.sroa.10317.0.copyload.us, float %513)
-  %515 = fmul float %189, %.sroa.12319.0.copyload.us
-  %516 = call float @llvm.fmuladd.f32(float %185, float %.sroa.11318.0.copyload.us, float %515)
-  %517 = call float @llvm.fmuladd.f32(float %193, float %.sroa.13320.0.copyload.us, float %516)
-  %518 = call float @llvm.fmuladd.f32(float %197, float %.sroa.14321.0.copyload.us, float %517)
-  %519 = fmul float %189, %.sroa.16323.0.copyload.us
-  %520 = call float @llvm.fmuladd.f32(float %185, float %.sroa.15322.0.copyload.us, float %519)
-  %521 = call float @llvm.fmuladd.f32(float %193, float %.sroa.17324.0.copyload.us, float %520)
-  %522 = call float @llvm.fmuladd.f32(float %197, float %.sroa.18325.0.copyload.us, float %521)
-  %523 = fmul float %205, %.sroa.4311.0.copyload.us
-  %524 = call float @llvm.fmuladd.f32(float %201, float %.sroa.0310.0.copyload.us, float %523)
-  %525 = call float @llvm.fmuladd.f32(float %209, float %.sroa.5312.0.copyload.us, float %524)
-  %526 = call float @llvm.fmuladd.f32(float %213, float %.sroa.6313.0.copyload.us, float %525)
-  %527 = fmul float %205, %.sroa.8315.0.copyload.us
-  %528 = call float @llvm.fmuladd.f32(float %201, float %.sroa.7314.0.copyload.us, float %527)
-  %529 = call float @llvm.fmuladd.f32(float %209, float %.sroa.9316.0.copyload.us, float %528)
-  %530 = call float @llvm.fmuladd.f32(float %213, float %.sroa.10317.0.copyload.us, float %529)
-  %531 = fmul float %205, %.sroa.12319.0.copyload.us
-  %532 = call float @llvm.fmuladd.f32(float %201, float %.sroa.11318.0.copyload.us, float %531)
-  %533 = call float @llvm.fmuladd.f32(float %209, float %.sroa.13320.0.copyload.us, float %532)
-  %534 = call float @llvm.fmuladd.f32(float %213, float %.sroa.14321.0.copyload.us, float %533)
-  %535 = fmul float %205, %.sroa.16323.0.copyload.us
-  %536 = call float @llvm.fmuladd.f32(float %201, float %.sroa.15322.0.copyload.us, float %535)
-  %537 = call float @llvm.fmuladd.f32(float %209, float %.sroa.17324.0.copyload.us, float %536)
-  %538 = call float @llvm.fmuladd.f32(float %213, float %.sroa.18325.0.copyload.us, float %537)
+  %476 = fmul float %157, %.sroa.4311.0.copyload.us
+  %477 = call float @llvm.fmuladd.f32(float %153, float %.sroa.0310.0.copyload.us, float %476)
+  %478 = call float @llvm.fmuladd.f32(float %161, float %.sroa.5312.0.copyload.us, float %477)
+  %479 = call float @llvm.fmuladd.f32(float %165, float %.sroa.6313.0.copyload.us, float %478)
+  %480 = fmul float %157, %.sroa.8315.0.copyload.us
+  %481 = call float @llvm.fmuladd.f32(float %153, float %.sroa.7314.0.copyload.us, float %480)
+  %482 = call float @llvm.fmuladd.f32(float %161, float %.sroa.9316.0.copyload.us, float %481)
+  %483 = call float @llvm.fmuladd.f32(float %165, float %.sroa.10317.0.copyload.us, float %482)
+  %484 = fmul float %157, %.sroa.12319.0.copyload.us
+  %485 = call float @llvm.fmuladd.f32(float %153, float %.sroa.11318.0.copyload.us, float %484)
+  %486 = call float @llvm.fmuladd.f32(float %161, float %.sroa.13320.0.copyload.us, float %485)
+  %487 = call float @llvm.fmuladd.f32(float %165, float %.sroa.14321.0.copyload.us, float %486)
+  %488 = fmul float %157, %.sroa.16323.0.copyload.us
+  %489 = call float @llvm.fmuladd.f32(float %153, float %.sroa.15322.0.copyload.us, float %488)
+  %490 = call float @llvm.fmuladd.f32(float %161, float %.sroa.17324.0.copyload.us, float %489)
+  %491 = call float @llvm.fmuladd.f32(float %165, float %.sroa.18325.0.copyload.us, float %490)
+  %492 = fmul float %173, %.sroa.4311.0.copyload.us
+  %493 = call float @llvm.fmuladd.f32(float %169, float %.sroa.0310.0.copyload.us, float %492)
+  %494 = call float @llvm.fmuladd.f32(float %177, float %.sroa.5312.0.copyload.us, float %493)
+  %495 = call float @llvm.fmuladd.f32(float %181, float %.sroa.6313.0.copyload.us, float %494)
+  %496 = fmul float %173, %.sroa.8315.0.copyload.us
+  %497 = call float @llvm.fmuladd.f32(float %169, float %.sroa.7314.0.copyload.us, float %496)
+  %498 = call float @llvm.fmuladd.f32(float %177, float %.sroa.9316.0.copyload.us, float %497)
+  %499 = call float @llvm.fmuladd.f32(float %181, float %.sroa.10317.0.copyload.us, float %498)
+  %500 = fmul float %173, %.sroa.12319.0.copyload.us
+  %501 = call float @llvm.fmuladd.f32(float %169, float %.sroa.11318.0.copyload.us, float %500)
+  %502 = call float @llvm.fmuladd.f32(float %177, float %.sroa.13320.0.copyload.us, float %501)
+  %503 = call float @llvm.fmuladd.f32(float %181, float %.sroa.14321.0.copyload.us, float %502)
+  %504 = fmul float %173, %.sroa.16323.0.copyload.us
+  %505 = call float @llvm.fmuladd.f32(float %169, float %.sroa.15322.0.copyload.us, float %504)
+  %506 = call float @llvm.fmuladd.f32(float %177, float %.sroa.17324.0.copyload.us, float %505)
+  %507 = call float @llvm.fmuladd.f32(float %181, float %.sroa.18325.0.copyload.us, float %506)
+  %508 = fmul float %189, %.sroa.4311.0.copyload.us
+  %509 = call float @llvm.fmuladd.f32(float %185, float %.sroa.0310.0.copyload.us, float %508)
+  %510 = call float @llvm.fmuladd.f32(float %193, float %.sroa.5312.0.copyload.us, float %509)
+  %511 = call float @llvm.fmuladd.f32(float %197, float %.sroa.6313.0.copyload.us, float %510)
+  %512 = fmul float %189, %.sroa.8315.0.copyload.us
+  %513 = call float @llvm.fmuladd.f32(float %185, float %.sroa.7314.0.copyload.us, float %512)
+  %514 = call float @llvm.fmuladd.f32(float %193, float %.sroa.9316.0.copyload.us, float %513)
+  %515 = call float @llvm.fmuladd.f32(float %197, float %.sroa.10317.0.copyload.us, float %514)
+  %516 = fmul float %189, %.sroa.12319.0.copyload.us
+  %517 = call float @llvm.fmuladd.f32(float %185, float %.sroa.11318.0.copyload.us, float %516)
+  %518 = call float @llvm.fmuladd.f32(float %193, float %.sroa.13320.0.copyload.us, float %517)
+  %519 = call float @llvm.fmuladd.f32(float %197, float %.sroa.14321.0.copyload.us, float %518)
+  %520 = fmul float %189, %.sroa.16323.0.copyload.us
+  %521 = call float @llvm.fmuladd.f32(float %185, float %.sroa.15322.0.copyload.us, float %520)
+  %522 = call float @llvm.fmuladd.f32(float %193, float %.sroa.17324.0.copyload.us, float %521)
+  %523 = call float @llvm.fmuladd.f32(float %197, float %.sroa.18325.0.copyload.us, float %522)
+  %524 = fmul float %205, %.sroa.4311.0.copyload.us
+  %525 = call float @llvm.fmuladd.f32(float %201, float %.sroa.0310.0.copyload.us, float %524)
+  %526 = call float @llvm.fmuladd.f32(float %209, float %.sroa.5312.0.copyload.us, float %525)
+  %527 = call float @llvm.fmuladd.f32(float %213, float %.sroa.6313.0.copyload.us, float %526)
+  %528 = fmul float %205, %.sroa.8315.0.copyload.us
+  %529 = call float @llvm.fmuladd.f32(float %201, float %.sroa.7314.0.copyload.us, float %528)
+  %530 = call float @llvm.fmuladd.f32(float %209, float %.sroa.9316.0.copyload.us, float %529)
+  %531 = call float @llvm.fmuladd.f32(float %213, float %.sroa.10317.0.copyload.us, float %530)
+  %532 = fmul float %205, %.sroa.12319.0.copyload.us
+  %533 = call float @llvm.fmuladd.f32(float %201, float %.sroa.11318.0.copyload.us, float %532)
+  %534 = call float @llvm.fmuladd.f32(float %209, float %.sroa.13320.0.copyload.us, float %533)
+  %535 = call float @llvm.fmuladd.f32(float %213, float %.sroa.14321.0.copyload.us, float %534)
+  %536 = fmul float %205, %.sroa.16323.0.copyload.us
+  %537 = call float @llvm.fmuladd.f32(float %201, float %.sroa.15322.0.copyload.us, float %536)
+  %538 = call float @llvm.fmuladd.f32(float %209, float %.sroa.17324.0.copyload.us, float %537)
+  %539 = call float @llvm.fmuladd.f32(float %213, float %.sroa.18325.0.copyload.us, float %538)
   call void @rlGetMatrixProjectionStereo(ptr dead_on_unwind nonnull writable sret(%struct.Matrix) align 4 %15, i32 noundef %.024360.us) #58
   %.sroa.0342.0.copyload.us = load float, ptr %15, align 8
   %.sroa.4343.0.copyload.us = load float, ptr %.sroa.4343.0..sroa_idx, align 4
@@ -39293,110 +39293,110 @@ define void @DrawMesh(ptr noundef readonly byval(%struct.Mesh) align 8 captures(
   %.sroa.16355.0.copyload.us = load float, ptr %.sroa.16355.0..sroa_idx, align 4
   %.sroa.17356.0.copyload.us = load float, ptr %.sroa.17356.0..sroa_idx, align 8
   %.sroa.18357.0.copyload.us = load float, ptr %.sroa.18357.0..sroa_idx, align 4
-  %539 = fmul float %482, %.sroa.4343.0.copyload.us
-  %540 = call float @llvm.fmuladd.f32(float %478, float %.sroa.0342.0.copyload.us, float %539)
-  %541 = call float @llvm.fmuladd.f32(float %486, float %.sroa.5344.0.copyload.us, float %540)
-  %542 = call float @llvm.fmuladd.f32(float %490, float %.sroa.6345.0.copyload.us, float %541)
-  %543 = fmul float %482, %.sroa.8347.0.copyload.us
-  %544 = call float @llvm.fmuladd.f32(float %478, float %.sroa.7346.0.copyload.us, float %543)
-  %545 = call float @llvm.fmuladd.f32(float %486, float %.sroa.9348.0.copyload.us, float %544)
-  %546 = call float @llvm.fmuladd.f32(float %490, float %.sroa.10349.0.copyload.us, float %545)
-  %547 = fmul float %482, %.sroa.12351.0.copyload.us
-  %548 = call float @llvm.fmuladd.f32(float %478, float %.sroa.11350.0.copyload.us, float %547)
-  %549 = call float @llvm.fmuladd.f32(float %486, float %.sroa.13352.0.copyload.us, float %548)
-  %550 = call float @llvm.fmuladd.f32(float %490, float %.sroa.14353.0.copyload.us, float %549)
-  %551 = fmul float %482, %.sroa.16355.0.copyload.us
-  %552 = call float @llvm.fmuladd.f32(float %478, float %.sroa.15354.0.copyload.us, float %551)
-  %553 = call float @llvm.fmuladd.f32(float %486, float %.sroa.17356.0.copyload.us, float %552)
-  %554 = call float @llvm.fmuladd.f32(float %490, float %.sroa.18357.0.copyload.us, float %553)
-  %555 = fmul float %498, %.sroa.4343.0.copyload.us
-  %556 = call float @llvm.fmuladd.f32(float %494, float %.sroa.0342.0.copyload.us, float %555)
-  %557 = call float @llvm.fmuladd.f32(float %502, float %.sroa.5344.0.copyload.us, float %556)
-  %558 = call float @llvm.fmuladd.f32(float %506, float %.sroa.6345.0.copyload.us, float %557)
-  %559 = fmul float %498, %.sroa.8347.0.copyload.us
-  %560 = call float @llvm.fmuladd.f32(float %494, float %.sroa.7346.0.copyload.us, float %559)
-  %561 = call float @llvm.fmuladd.f32(float %502, float %.sroa.9348.0.copyload.us, float %560)
-  %562 = call float @llvm.fmuladd.f32(float %506, float %.sroa.10349.0.copyload.us, float %561)
-  %563 = fmul float %498, %.sroa.12351.0.copyload.us
-  %564 = call float @llvm.fmuladd.f32(float %494, float %.sroa.11350.0.copyload.us, float %563)
-  %565 = call float @llvm.fmuladd.f32(float %502, float %.sroa.13352.0.copyload.us, float %564)
-  %566 = call float @llvm.fmuladd.f32(float %506, float %.sroa.14353.0.copyload.us, float %565)
-  %567 = fmul float %498, %.sroa.16355.0.copyload.us
-  %568 = call float @llvm.fmuladd.f32(float %494, float %.sroa.15354.0.copyload.us, float %567)
-  %569 = call float @llvm.fmuladd.f32(float %502, float %.sroa.17356.0.copyload.us, float %568)
-  %570 = call float @llvm.fmuladd.f32(float %506, float %.sroa.18357.0.copyload.us, float %569)
-  %571 = fmul float %514, %.sroa.4343.0.copyload.us
-  %572 = call float @llvm.fmuladd.f32(float %510, float %.sroa.0342.0.copyload.us, float %571)
-  %573 = call float @llvm.fmuladd.f32(float %518, float %.sroa.5344.0.copyload.us, float %572)
-  %574 = call float @llvm.fmuladd.f32(float %522, float %.sroa.6345.0.copyload.us, float %573)
-  %575 = fmul float %514, %.sroa.8347.0.copyload.us
-  %576 = call float @llvm.fmuladd.f32(float %510, float %.sroa.7346.0.copyload.us, float %575)
-  %577 = call float @llvm.fmuladd.f32(float %518, float %.sroa.9348.0.copyload.us, float %576)
-  %578 = call float @llvm.fmuladd.f32(float %522, float %.sroa.10349.0.copyload.us, float %577)
-  %579 = fmul float %514, %.sroa.12351.0.copyload.us
-  %580 = call float @llvm.fmuladd.f32(float %510, float %.sroa.11350.0.copyload.us, float %579)
-  %581 = call float @llvm.fmuladd.f32(float %518, float %.sroa.13352.0.copyload.us, float %580)
-  %582 = call float @llvm.fmuladd.f32(float %522, float %.sroa.14353.0.copyload.us, float %581)
-  %583 = fmul float %514, %.sroa.16355.0.copyload.us
-  %584 = call float @llvm.fmuladd.f32(float %510, float %.sroa.15354.0.copyload.us, float %583)
-  %585 = call float @llvm.fmuladd.f32(float %518, float %.sroa.17356.0.copyload.us, float %584)
-  %586 = call float @llvm.fmuladd.f32(float %522, float %.sroa.18357.0.copyload.us, float %585)
-  %587 = fmul float %530, %.sroa.4343.0.copyload.us
-  %588 = call float @llvm.fmuladd.f32(float %526, float %.sroa.0342.0.copyload.us, float %587)
-  %589 = call float @llvm.fmuladd.f32(float %534, float %.sroa.5344.0.copyload.us, float %588)
-  %590 = call float @llvm.fmuladd.f32(float %538, float %.sroa.6345.0.copyload.us, float %589)
-  %591 = fmul float %530, %.sroa.8347.0.copyload.us
-  %592 = call float @llvm.fmuladd.f32(float %526, float %.sroa.7346.0.copyload.us, float %591)
-  %593 = call float @llvm.fmuladd.f32(float %534, float %.sroa.9348.0.copyload.us, float %592)
-  %594 = call float @llvm.fmuladd.f32(float %538, float %.sroa.10349.0.copyload.us, float %593)
-  %595 = fmul float %530, %.sroa.12351.0.copyload.us
-  %596 = call float @llvm.fmuladd.f32(float %526, float %.sroa.11350.0.copyload.us, float %595)
-  %597 = call float @llvm.fmuladd.f32(float %534, float %.sroa.13352.0.copyload.us, float %596)
-  %598 = call float @llvm.fmuladd.f32(float %538, float %.sroa.14353.0.copyload.us, float %597)
-  %599 = fmul float %530, %.sroa.16355.0.copyload.us
-  %600 = call float @llvm.fmuladd.f32(float %526, float %.sroa.15354.0.copyload.us, float %599)
-  %601 = call float @llvm.fmuladd.f32(float %534, float %.sroa.17356.0.copyload.us, float %600)
-  %602 = call float @llvm.fmuladd.f32(float %538, float %.sroa.18357.0.copyload.us, float %601)
-  store float %542, ptr %13, align 8
-  store float %558, ptr %460, align 4
-  store float %574, ptr %.sroa.567.0..sroa_idx, align 8
-  store float %590, ptr %.sroa.668.0..sroa_idx, align 4
-  store float %546, ptr %.sroa.769.0..sroa_idx, align 8
-  store float %562, ptr %461, align 4
-  store float %578, ptr %.sroa.971.0..sroa_idx, align 8
-  store float %594, ptr %.sroa.1072.0..sroa_idx, align 4
-  store float %550, ptr %.sroa.1173.0..sroa_idx, align 8
-  store float %566, ptr %.sroa.1274.0..sroa_idx, align 4
-  store float %582, ptr %462, align 8
-  store float %598, ptr %.sroa.1476.0..sroa_idx, align 4
-  store float %554, ptr %.sroa.1577.0..sroa_idx, align 8
-  store float %570, ptr %.sroa.1678.0..sroa_idx, align 4
-  store float %586, ptr %.sroa.1779.0..sroa_idx, align 8
-  store float %602, ptr %463, align 4
-  %603 = load i32, ptr %464, align 4
-  call void @rlSetUniformMatrix(i32 noundef %603, ptr noundef nonnull byval(%struct.Matrix) align 8 %13) #58
-  br i1 %.not49, label %605, label %604
-
-604:                                              ; preds = %.split.us
-  call void @rlDrawVertexArrayElements(i32 noundef 0, i32 noundef %467, ptr noundef null) #58
-  br label %606
+  %540 = fmul float %483, %.sroa.4343.0.copyload.us
+  %541 = call float @llvm.fmuladd.f32(float %479, float %.sroa.0342.0.copyload.us, float %540)
+  %542 = call float @llvm.fmuladd.f32(float %487, float %.sroa.5344.0.copyload.us, float %541)
+  %543 = call float @llvm.fmuladd.f32(float %491, float %.sroa.6345.0.copyload.us, float %542)
+  %544 = fmul float %483, %.sroa.8347.0.copyload.us
+  %545 = call float @llvm.fmuladd.f32(float %479, float %.sroa.7346.0.copyload.us, float %544)
+  %546 = call float @llvm.fmuladd.f32(float %487, float %.sroa.9348.0.copyload.us, float %545)
+  %547 = call float @llvm.fmuladd.f32(float %491, float %.sroa.10349.0.copyload.us, float %546)
+  %548 = fmul float %483, %.sroa.12351.0.copyload.us
+  %549 = call float @llvm.fmuladd.f32(float %479, float %.sroa.11350.0.copyload.us, float %548)
+  %550 = call float @llvm.fmuladd.f32(float %487, float %.sroa.13352.0.copyload.us, float %549)
+  %551 = call float @llvm.fmuladd.f32(float %491, float %.sroa.14353.0.copyload.us, float %550)
+  %552 = fmul float %483, %.sroa.16355.0.copyload.us
+  %553 = call float @llvm.fmuladd.f32(float %479, float %.sroa.15354.0.copyload.us, float %552)
+  %554 = call float @llvm.fmuladd.f32(float %487, float %.sroa.17356.0.copyload.us, float %553)
+  %555 = call float @llvm.fmuladd.f32(float %491, float %.sroa.18357.0.copyload.us, float %554)
+  %556 = fmul float %499, %.sroa.4343.0.copyload.us
+  %557 = call float @llvm.fmuladd.f32(float %495, float %.sroa.0342.0.copyload.us, float %556)
+  %558 = call float @llvm.fmuladd.f32(float %503, float %.sroa.5344.0.copyload.us, float %557)
+  %559 = call float @llvm.fmuladd.f32(float %507, float %.sroa.6345.0.copyload.us, float %558)
+  %560 = fmul float %499, %.sroa.8347.0.copyload.us
+  %561 = call float @llvm.fmuladd.f32(float %495, float %.sroa.7346.0.copyload.us, float %560)
+  %562 = call float @llvm.fmuladd.f32(float %503, float %.sroa.9348.0.copyload.us, float %561)
+  %563 = call float @llvm.fmuladd.f32(float %507, float %.sroa.10349.0.copyload.us, float %562)
+  %564 = fmul float %499, %.sroa.12351.0.copyload.us
+  %565 = call float @llvm.fmuladd.f32(float %495, float %.sroa.11350.0.copyload.us, float %564)
+  %566 = call float @llvm.fmuladd.f32(float %503, float %.sroa.13352.0.copyload.us, float %565)
+  %567 = call float @llvm.fmuladd.f32(float %507, float %.sroa.14353.0.copyload.us, float %566)
+  %568 = fmul float %499, %.sroa.16355.0.copyload.us
+  %569 = call float @llvm.fmuladd.f32(float %495, float %.sroa.15354.0.copyload.us, float %568)
+  %570 = call float @llvm.fmuladd.f32(float %503, float %.sroa.17356.0.copyload.us, float %569)
+  %571 = call float @llvm.fmuladd.f32(float %507, float %.sroa.18357.0.copyload.us, float %570)
+  %572 = fmul float %515, %.sroa.4343.0.copyload.us
+  %573 = call float @llvm.fmuladd.f32(float %511, float %.sroa.0342.0.copyload.us, float %572)
+  %574 = call float @llvm.fmuladd.f32(float %519, float %.sroa.5344.0.copyload.us, float %573)
+  %575 = call float @llvm.fmuladd.f32(float %523, float %.sroa.6345.0.copyload.us, float %574)
+  %576 = fmul float %515, %.sroa.8347.0.copyload.us
+  %577 = call float @llvm.fmuladd.f32(float %511, float %.sroa.7346.0.copyload.us, float %576)
+  %578 = call float @llvm.fmuladd.f32(float %519, float %.sroa.9348.0.copyload.us, float %577)
+  %579 = call float @llvm.fmuladd.f32(float %523, float %.sroa.10349.0.copyload.us, float %578)
+  %580 = fmul float %515, %.sroa.12351.0.copyload.us
+  %581 = call float @llvm.fmuladd.f32(float %511, float %.sroa.11350.0.copyload.us, float %580)
+  %582 = call float @llvm.fmuladd.f32(float %519, float %.sroa.13352.0.copyload.us, float %581)
+  %583 = call float @llvm.fmuladd.f32(float %523, float %.sroa.14353.0.copyload.us, float %582)
+  %584 = fmul float %515, %.sroa.16355.0.copyload.us
+  %585 = call float @llvm.fmuladd.f32(float %511, float %.sroa.15354.0.copyload.us, float %584)
+  %586 = call float @llvm.fmuladd.f32(float %519, float %.sroa.17356.0.copyload.us, float %585)
+  %587 = call float @llvm.fmuladd.f32(float %523, float %.sroa.18357.0.copyload.us, float %586)
+  %588 = fmul float %531, %.sroa.4343.0.copyload.us
+  %589 = call float @llvm.fmuladd.f32(float %527, float %.sroa.0342.0.copyload.us, float %588)
+  %590 = call float @llvm.fmuladd.f32(float %535, float %.sroa.5344.0.copyload.us, float %589)
+  %591 = call float @llvm.fmuladd.f32(float %539, float %.sroa.6345.0.copyload.us, float %590)
+  %592 = fmul float %531, %.sroa.8347.0.copyload.us
+  %593 = call float @llvm.fmuladd.f32(float %527, float %.sroa.7346.0.copyload.us, float %592)
+  %594 = call float @llvm.fmuladd.f32(float %535, float %.sroa.9348.0.copyload.us, float %593)
+  %595 = call float @llvm.fmuladd.f32(float %539, float %.sroa.10349.0.copyload.us, float %594)
+  %596 = fmul float %531, %.sroa.12351.0.copyload.us
+  %597 = call float @llvm.fmuladd.f32(float %527, float %.sroa.11350.0.copyload.us, float %596)
+  %598 = call float @llvm.fmuladd.f32(float %535, float %.sroa.13352.0.copyload.us, float %597)
+  %599 = call float @llvm.fmuladd.f32(float %539, float %.sroa.14353.0.copyload.us, float %598)
+  %600 = fmul float %531, %.sroa.16355.0.copyload.us
+  %601 = call float @llvm.fmuladd.f32(float %527, float %.sroa.15354.0.copyload.us, float %600)
+  %602 = call float @llvm.fmuladd.f32(float %535, float %.sroa.17356.0.copyload.us, float %601)
+  %603 = call float @llvm.fmuladd.f32(float %539, float %.sroa.18357.0.copyload.us, float %602)
+  store float %543, ptr %13, align 8
+  store float %559, ptr %461, align 4
+  store float %575, ptr %.sroa.567.0..sroa_idx, align 8
+  store float %591, ptr %.sroa.668.0..sroa_idx, align 4
+  store float %547, ptr %.sroa.769.0..sroa_idx, align 8
+  store float %563, ptr %462, align 4
+  store float %579, ptr %.sroa.971.0..sroa_idx, align 8
+  store float %595, ptr %.sroa.1072.0..sroa_idx, align 4
+  store float %551, ptr %.sroa.1173.0..sroa_idx, align 8
+  store float %567, ptr %.sroa.1274.0..sroa_idx, align 4
+  store float %583, ptr %463, align 8
+  store float %599, ptr %.sroa.1476.0..sroa_idx, align 4
+  store float %555, ptr %.sroa.1577.0..sroa_idx, align 8
+  store float %571, ptr %.sroa.1678.0..sroa_idx, align 4
+  store float %587, ptr %.sroa.1779.0..sroa_idx, align 8
+  store float %603, ptr %464, align 4
+  %604 = load i32, ptr %465, align 4
+  call void @rlSetUniformMatrix(i32 noundef %604, ptr noundef nonnull byval(%struct.Matrix) align 8 %13) #58
+  br i1 %.not49, label %606, label %605
 
 605:                                              ; preds = %.split.us
-  call void @rlDrawVertexArray(i32 noundef 0, i32 noundef %468) #58
-  br label %606
+  call void @rlDrawVertexArrayElements(i32 noundef 0, i32 noundef %468, ptr noundef null) #58
+  br label %607
 
-606:                                              ; preds = %605, %604
+606:                                              ; preds = %.split.us
+  call void @rlDrawVertexArray(i32 noundef 0, i32 noundef %469) #58
+  br label %607
+
+607:                                              ; preds = %606, %605
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
-  %607 = add nuw nsw i32 %.024360.us, 1
-  %exitcond364.not = icmp eq i32 %607, %spec.select
+  %608 = add nuw nsw i32 %.024360.us, 1
+  %exitcond364.not = icmp eq i32 %608, %spec.select
   br i1 %exitcond364.not, label %.preheader, label %.split.us
 
-.preheader:                                       ; preds = %676, %606
-  %608 = load ptr, ptr %358, align 8
-  br label %679
+.preheader:                                       ; preds = %677, %607
+  %609 = load ptr, ptr %358, align 8
+  br label %680
 
-.split:                                           ; preds = %457, %676
-  %.024360 = phi i32 [ %677, %676 ], [ 0, %457 ]
+.split:                                           ; preds = %458, %677
+  %.024360 = phi i32 [ %678, %677 ], [ 0, %458 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %.sroa.0278.0.copyload = load float, ptr %8, align 8
   %.sroa.4279.0.copyload = load float, ptr %.sroa.4279.0..sroa_idx, align 4
@@ -39414,105 +39414,105 @@ define void @DrawMesh(ptr noundef readonly byval(%struct.Mesh) align 8 captures(
   %.sroa.16291.0.copyload = load float, ptr %.sroa.16291.0..sroa_idx, align 4
   %.sroa.17292.0.copyload = load float, ptr %.sroa.17292.0..sroa_idx, align 8
   %.sroa.18293.0.copyload = load float, ptr %.sroa.18293.0..sroa_idx, align 4
-  %609 = fmul float %157, %.sroa.4279.0.copyload
-  %610 = call float @llvm.fmuladd.f32(float %153, float %.sroa.0278.0.copyload, float %609)
-  %611 = call float @llvm.fmuladd.f32(float %161, float %.sroa.5280.0.copyload, float %610)
-  %612 = call float @llvm.fmuladd.f32(float %165, float %.sroa.6281.0.copyload, float %611)
-  %613 = fmul float %157, %.sroa.8283.0.copyload
-  %614 = call float @llvm.fmuladd.f32(float %153, float %.sroa.7282.0.copyload, float %613)
-  %615 = call float @llvm.fmuladd.f32(float %161, float %.sroa.9284.0.copyload, float %614)
-  %616 = call float @llvm.fmuladd.f32(float %165, float %.sroa.10285.0.copyload, float %615)
-  %617 = fmul float %157, %.sroa.12287.0.copyload
-  %618 = call float @llvm.fmuladd.f32(float %153, float %.sroa.11286.0.copyload, float %617)
-  %619 = call float @llvm.fmuladd.f32(float %161, float %.sroa.13288.0.copyload, float %618)
-  %620 = call float @llvm.fmuladd.f32(float %165, float %.sroa.14289.0.copyload, float %619)
-  %621 = fmul float %157, %.sroa.16291.0.copyload
-  %622 = call float @llvm.fmuladd.f32(float %153, float %.sroa.15290.0.copyload, float %621)
-  %623 = call float @llvm.fmuladd.f32(float %161, float %.sroa.17292.0.copyload, float %622)
-  %624 = call float @llvm.fmuladd.f32(float %165, float %.sroa.18293.0.copyload, float %623)
-  %625 = fmul float %173, %.sroa.4279.0.copyload
-  %626 = call float @llvm.fmuladd.f32(float %169, float %.sroa.0278.0.copyload, float %625)
-  %627 = call float @llvm.fmuladd.f32(float %177, float %.sroa.5280.0.copyload, float %626)
-  %628 = call float @llvm.fmuladd.f32(float %181, float %.sroa.6281.0.copyload, float %627)
-  %629 = fmul float %173, %.sroa.8283.0.copyload
-  %630 = call float @llvm.fmuladd.f32(float %169, float %.sroa.7282.0.copyload, float %629)
-  %631 = call float @llvm.fmuladd.f32(float %177, float %.sroa.9284.0.copyload, float %630)
-  %632 = call float @llvm.fmuladd.f32(float %181, float %.sroa.10285.0.copyload, float %631)
-  %633 = fmul float %173, %.sroa.12287.0.copyload
-  %634 = call float @llvm.fmuladd.f32(float %169, float %.sroa.11286.0.copyload, float %633)
-  %635 = call float @llvm.fmuladd.f32(float %177, float %.sroa.13288.0.copyload, float %634)
-  %636 = call float @llvm.fmuladd.f32(float %181, float %.sroa.14289.0.copyload, float %635)
-  %637 = fmul float %173, %.sroa.16291.0.copyload
-  %638 = call float @llvm.fmuladd.f32(float %169, float %.sroa.15290.0.copyload, float %637)
-  %639 = call float @llvm.fmuladd.f32(float %177, float %.sroa.17292.0.copyload, float %638)
-  %640 = call float @llvm.fmuladd.f32(float %181, float %.sroa.18293.0.copyload, float %639)
-  %641 = fmul float %189, %.sroa.4279.0.copyload
-  %642 = call float @llvm.fmuladd.f32(float %185, float %.sroa.0278.0.copyload, float %641)
-  %643 = call float @llvm.fmuladd.f32(float %193, float %.sroa.5280.0.copyload, float %642)
-  %644 = call float @llvm.fmuladd.f32(float %197, float %.sroa.6281.0.copyload, float %643)
-  %645 = fmul float %189, %.sroa.8283.0.copyload
-  %646 = call float @llvm.fmuladd.f32(float %185, float %.sroa.7282.0.copyload, float %645)
-  %647 = call float @llvm.fmuladd.f32(float %193, float %.sroa.9284.0.copyload, float %646)
-  %648 = call float @llvm.fmuladd.f32(float %197, float %.sroa.10285.0.copyload, float %647)
-  %649 = fmul float %189, %.sroa.12287.0.copyload
-  %650 = call float @llvm.fmuladd.f32(float %185, float %.sroa.11286.0.copyload, float %649)
-  %651 = call float @llvm.fmuladd.f32(float %193, float %.sroa.13288.0.copyload, float %650)
-  %652 = call float @llvm.fmuladd.f32(float %197, float %.sroa.14289.0.copyload, float %651)
-  %653 = fmul float %189, %.sroa.16291.0.copyload
-  %654 = call float @llvm.fmuladd.f32(float %185, float %.sroa.15290.0.copyload, float %653)
-  %655 = call float @llvm.fmuladd.f32(float %193, float %.sroa.17292.0.copyload, float %654)
-  %656 = call float @llvm.fmuladd.f32(float %197, float %.sroa.18293.0.copyload, float %655)
-  %657 = fmul float %205, %.sroa.4279.0.copyload
-  %658 = call float @llvm.fmuladd.f32(float %201, float %.sroa.0278.0.copyload, float %657)
-  %659 = call float @llvm.fmuladd.f32(float %209, float %.sroa.5280.0.copyload, float %658)
-  %660 = call float @llvm.fmuladd.f32(float %213, float %.sroa.6281.0.copyload, float %659)
-  %661 = fmul float %205, %.sroa.8283.0.copyload
-  %662 = call float @llvm.fmuladd.f32(float %201, float %.sroa.7282.0.copyload, float %661)
-  %663 = call float @llvm.fmuladd.f32(float %209, float %.sroa.9284.0.copyload, float %662)
-  %664 = call float @llvm.fmuladd.f32(float %213, float %.sroa.10285.0.copyload, float %663)
-  %665 = fmul float %205, %.sroa.12287.0.copyload
-  %666 = call float @llvm.fmuladd.f32(float %201, float %.sroa.11286.0.copyload, float %665)
-  %667 = call float @llvm.fmuladd.f32(float %209, float %.sroa.13288.0.copyload, float %666)
-  %668 = call float @llvm.fmuladd.f32(float %213, float %.sroa.14289.0.copyload, float %667)
-  %669 = fmul float %205, %.sroa.16291.0.copyload
-  %670 = call float @llvm.fmuladd.f32(float %201, float %.sroa.15290.0.copyload, float %669)
-  %671 = call float @llvm.fmuladd.f32(float %209, float %.sroa.17292.0.copyload, float %670)
-  %672 = call float @llvm.fmuladd.f32(float %213, float %.sroa.18293.0.copyload, float %671)
-  store float %612, ptr %13, align 8
-  store float %628, ptr %460, align 4
-  store float %644, ptr %.sroa.567.0..sroa_idx, align 8
-  store float %660, ptr %.sroa.668.0..sroa_idx, align 4
-  store float %616, ptr %.sroa.769.0..sroa_idx, align 8
-  store float %632, ptr %461, align 4
-  store float %648, ptr %.sroa.971.0..sroa_idx, align 8
-  store float %664, ptr %.sroa.1072.0..sroa_idx, align 4
-  store float %620, ptr %.sroa.1173.0..sroa_idx, align 8
-  store float %636, ptr %.sroa.1274.0..sroa_idx, align 4
-  store float %652, ptr %462, align 8
-  store float %668, ptr %.sroa.1476.0..sroa_idx, align 4
-  store float %624, ptr %.sroa.1577.0..sroa_idx, align 8
-  store float %640, ptr %.sroa.1678.0..sroa_idx, align 4
-  store float %656, ptr %.sroa.1779.0..sroa_idx, align 8
-  store float %672, ptr %463, align 4
-  %673 = load i32, ptr %464, align 4
-  call void @rlSetUniformMatrix(i32 noundef %673, ptr noundef nonnull byval(%struct.Matrix) align 8 %13) #58
-  br i1 %.not49, label %675, label %674
-
-674:                                              ; preds = %.split
-  call void @rlDrawVertexArrayElements(i32 noundef 0, i32 noundef %467, ptr noundef null) #58
-  br label %676
+  %610 = fmul float %157, %.sroa.4279.0.copyload
+  %611 = call float @llvm.fmuladd.f32(float %153, float %.sroa.0278.0.copyload, float %610)
+  %612 = call float @llvm.fmuladd.f32(float %161, float %.sroa.5280.0.copyload, float %611)
+  %613 = call float @llvm.fmuladd.f32(float %165, float %.sroa.6281.0.copyload, float %612)
+  %614 = fmul float %157, %.sroa.8283.0.copyload
+  %615 = call float @llvm.fmuladd.f32(float %153, float %.sroa.7282.0.copyload, float %614)
+  %616 = call float @llvm.fmuladd.f32(float %161, float %.sroa.9284.0.copyload, float %615)
+  %617 = call float @llvm.fmuladd.f32(float %165, float %.sroa.10285.0.copyload, float %616)
+  %618 = fmul float %157, %.sroa.12287.0.copyload
+  %619 = call float @llvm.fmuladd.f32(float %153, float %.sroa.11286.0.copyload, float %618)
+  %620 = call float @llvm.fmuladd.f32(float %161, float %.sroa.13288.0.copyload, float %619)
+  %621 = call float @llvm.fmuladd.f32(float %165, float %.sroa.14289.0.copyload, float %620)
+  %622 = fmul float %157, %.sroa.16291.0.copyload
+  %623 = call float @llvm.fmuladd.f32(float %153, float %.sroa.15290.0.copyload, float %622)
+  %624 = call float @llvm.fmuladd.f32(float %161, float %.sroa.17292.0.copyload, float %623)
+  %625 = call float @llvm.fmuladd.f32(float %165, float %.sroa.18293.0.copyload, float %624)
+  %626 = fmul float %173, %.sroa.4279.0.copyload
+  %627 = call float @llvm.fmuladd.f32(float %169, float %.sroa.0278.0.copyload, float %626)
+  %628 = call float @llvm.fmuladd.f32(float %177, float %.sroa.5280.0.copyload, float %627)
+  %629 = call float @llvm.fmuladd.f32(float %181, float %.sroa.6281.0.copyload, float %628)
+  %630 = fmul float %173, %.sroa.8283.0.copyload
+  %631 = call float @llvm.fmuladd.f32(float %169, float %.sroa.7282.0.copyload, float %630)
+  %632 = call float @llvm.fmuladd.f32(float %177, float %.sroa.9284.0.copyload, float %631)
+  %633 = call float @llvm.fmuladd.f32(float %181, float %.sroa.10285.0.copyload, float %632)
+  %634 = fmul float %173, %.sroa.12287.0.copyload
+  %635 = call float @llvm.fmuladd.f32(float %169, float %.sroa.11286.0.copyload, float %634)
+  %636 = call float @llvm.fmuladd.f32(float %177, float %.sroa.13288.0.copyload, float %635)
+  %637 = call float @llvm.fmuladd.f32(float %181, float %.sroa.14289.0.copyload, float %636)
+  %638 = fmul float %173, %.sroa.16291.0.copyload
+  %639 = call float @llvm.fmuladd.f32(float %169, float %.sroa.15290.0.copyload, float %638)
+  %640 = call float @llvm.fmuladd.f32(float %177, float %.sroa.17292.0.copyload, float %639)
+  %641 = call float @llvm.fmuladd.f32(float %181, float %.sroa.18293.0.copyload, float %640)
+  %642 = fmul float %189, %.sroa.4279.0.copyload
+  %643 = call float @llvm.fmuladd.f32(float %185, float %.sroa.0278.0.copyload, float %642)
+  %644 = call float @llvm.fmuladd.f32(float %193, float %.sroa.5280.0.copyload, float %643)
+  %645 = call float @llvm.fmuladd.f32(float %197, float %.sroa.6281.0.copyload, float %644)
+  %646 = fmul float %189, %.sroa.8283.0.copyload
+  %647 = call float @llvm.fmuladd.f32(float %185, float %.sroa.7282.0.copyload, float %646)
+  %648 = call float @llvm.fmuladd.f32(float %193, float %.sroa.9284.0.copyload, float %647)
+  %649 = call float @llvm.fmuladd.f32(float %197, float %.sroa.10285.0.copyload, float %648)
+  %650 = fmul float %189, %.sroa.12287.0.copyload
+  %651 = call float @llvm.fmuladd.f32(float %185, float %.sroa.11286.0.copyload, float %650)
+  %652 = call float @llvm.fmuladd.f32(float %193, float %.sroa.13288.0.copyload, float %651)
+  %653 = call float @llvm.fmuladd.f32(float %197, float %.sroa.14289.0.copyload, float %652)
+  %654 = fmul float %189, %.sroa.16291.0.copyload
+  %655 = call float @llvm.fmuladd.f32(float %185, float %.sroa.15290.0.copyload, float %654)
+  %656 = call float @llvm.fmuladd.f32(float %193, float %.sroa.17292.0.copyload, float %655)
+  %657 = call float @llvm.fmuladd.f32(float %197, float %.sroa.18293.0.copyload, float %656)
+  %658 = fmul float %205, %.sroa.4279.0.copyload
+  %659 = call float @llvm.fmuladd.f32(float %201, float %.sroa.0278.0.copyload, float %658)
+  %660 = call float @llvm.fmuladd.f32(float %209, float %.sroa.5280.0.copyload, float %659)
+  %661 = call float @llvm.fmuladd.f32(float %213, float %.sroa.6281.0.copyload, float %660)
+  %662 = fmul float %205, %.sroa.8283.0.copyload
+  %663 = call float @llvm.fmuladd.f32(float %201, float %.sroa.7282.0.copyload, float %662)
+  %664 = call float @llvm.fmuladd.f32(float %209, float %.sroa.9284.0.copyload, float %663)
+  %665 = call float @llvm.fmuladd.f32(float %213, float %.sroa.10285.0.copyload, float %664)
+  %666 = fmul float %205, %.sroa.12287.0.copyload
+  %667 = call float @llvm.fmuladd.f32(float %201, float %.sroa.11286.0.copyload, float %666)
+  %668 = call float @llvm.fmuladd.f32(float %209, float %.sroa.13288.0.copyload, float %667)
+  %669 = call float @llvm.fmuladd.f32(float %213, float %.sroa.14289.0.copyload, float %668)
+  %670 = fmul float %205, %.sroa.16291.0.copyload
+  %671 = call float @llvm.fmuladd.f32(float %201, float %.sroa.15290.0.copyload, float %670)
+  %672 = call float @llvm.fmuladd.f32(float %209, float %.sroa.17292.0.copyload, float %671)
+  %673 = call float @llvm.fmuladd.f32(float %213, float %.sroa.18293.0.copyload, float %672)
+  store float %613, ptr %13, align 8
+  store float %629, ptr %461, align 4
+  store float %645, ptr %.sroa.567.0..sroa_idx, align 8
+  store float %661, ptr %.sroa.668.0..sroa_idx, align 4
+  store float %617, ptr %.sroa.769.0..sroa_idx, align 8
+  store float %633, ptr %462, align 4
+  store float %649, ptr %.sroa.971.0..sroa_idx, align 8
+  store float %665, ptr %.sroa.1072.0..sroa_idx, align 4
+  store float %621, ptr %.sroa.1173.0..sroa_idx, align 8
+  store float %637, ptr %.sroa.1274.0..sroa_idx, align 4
+  store float %653, ptr %463, align 8
+  store float %669, ptr %.sroa.1476.0..sroa_idx, align 4
+  store float %625, ptr %.sroa.1577.0..sroa_idx, align 8
+  store float %641, ptr %.sroa.1678.0..sroa_idx, align 4
+  store float %657, ptr %.sroa.1779.0..sroa_idx, align 8
+  store float %673, ptr %464, align 4
+  %674 = load i32, ptr %465, align 4
+  call void @rlSetUniformMatrix(i32 noundef %674, ptr noundef nonnull byval(%struct.Matrix) align 8 %13) #58
+  br i1 %.not49, label %676, label %675
 
 675:                                              ; preds = %.split
-  call void @rlDrawVertexArray(i32 noundef 0, i32 noundef %468) #58
-  br label %676
+  call void @rlDrawVertexArrayElements(i32 noundef 0, i32 noundef %468, ptr noundef null) #58
+  br label %677
 
-676:                                              ; preds = %675, %674
+676:                                              ; preds = %.split
+  call void @rlDrawVertexArray(i32 noundef 0, i32 noundef %469) #58
+  br label %677
+
+677:                                              ; preds = %676, %675
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
-  %677 = add nuw nsw i32 %.024360, 1
-  %exitcond.not = icmp eq i32 %677, %spec.select
+  %678 = add nuw nsw i32 %.024360, 1
+  %exitcond.not = icmp eq i32 %678, %spec.select
   br i1 %exitcond.not, label %.preheader, label %.split
 
-678:                                              ; preds = %688
+679:                                              ; preds = %689
   call void @rlDisableVertexArray() #58
   call void @rlDisableVertexBuffer() #58
   call void @rlDisableVertexBufferElement() #58
@@ -39524,34 +39524,34 @@ define void @DrawMesh(ptr noundef readonly byval(%struct.Mesh) align 8 captures(
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 
-679:                                              ; preds = %.preheader, %688
-  %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %688 ]
-  %680 = getelementptr inbounds nuw %struct.MaterialMap, ptr %608, i64 %indvars.iv
-  %681 = load i32, ptr %680, align 4
-  %.not48 = icmp eq i32 %681, 0
-  br i1 %.not48, label %688, label %682
+680:                                              ; preds = %.preheader, %689
+  %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %689 ]
+  %681 = getelementptr inbounds nuw %struct.MaterialMap, ptr %609, i64 %indvars.iv
+  %682 = load i32, ptr %681, align 4
+  %.not48 = icmp eq i32 %682, 0
+  br i1 %.not48, label %689, label %683
 
-682:                                              ; preds = %679
-  %683 = trunc nuw nsw i64 %indvars.iv to i32
-  call void @rlActiveTextureSlot(i32 noundef %683) #58
-  %684 = and i32 %683, 14
-  %or.cond8 = icmp eq i32 %684, 8
-  %685 = icmp eq i64 %indvars.iv, 7
-  %or.cond10 = or i1 %685, %or.cond8
-  br i1 %or.cond10, label %686, label %687
+683:                                              ; preds = %680
+  %684 = trunc nuw nsw i64 %indvars.iv to i32
+  call void @rlActiveTextureSlot(i32 noundef %684) #58
+  %685 = and i32 %684, 14
+  %or.cond8 = icmp eq i32 %685, 8
+  %686 = icmp eq i64 %indvars.iv, 7
+  %or.cond10 = or i1 %686, %or.cond8
+  br i1 %or.cond10, label %687, label %688
 
-686:                                              ; preds = %682
+687:                                              ; preds = %683
   call void @rlDisableTextureCubemap() #58
-  br label %688
+  br label %689
 
-687:                                              ; preds = %682
+688:                                              ; preds = %683
   call void @rlDisableTexture() #58
-  br label %688
+  br label %689
 
-688:                                              ; preds = %679, %687, %686
+689:                                              ; preds = %680, %688, %687
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond366.not = icmp eq i64 %indvars.iv.next, 12
-  br i1 %exitcond366.not, label %678, label %679
+  br i1 %exitcond366.not, label %679, label %680
 }
 
 declare void @rlEnableShader(i32 noundef) local_unnamed_addr #34
@@ -40021,210 +40021,210 @@ define void @DrawMeshInstanced(ptr noundef readonly byval(%struct.Mesh) align 8 
   store i32 0, ptr %11, align 4
   br label %197
 
-194:                                              ; preds = %217
+194:                                              ; preds = %218
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %195 = call zeroext i1 @rlEnableVertexArray(i32 noundef %82) #58
-  br i1 %195, label %._crit_edge397, label %221
+  br i1 %195, label %._crit_edge397, label %222
 
 ._crit_edge397:                                   ; preds = %194
   %.pre398 = load ptr, ptr %17, align 8
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 56
   %.pre399 = load ptr, ptr %.phi.trans.insert, align 8
   %196 = icmp eq ptr %.pre399, null
-  br label %289
+  br label %290
 
-197:                                              ; preds = %191, %217
-  %storemerge388 = phi i32 [ 0, %191 ], [ %219, %217 ]
+197:                                              ; preds = %191, %218
+  %storemerge388 = phi i32 [ 0, %191 ], [ %220, %218 ]
   %198 = sext i32 %storemerge388 to i64
   %199 = getelementptr inbounds %struct.MaterialMap, ptr %193, i64 %198
   %200 = load i32, ptr %199, align 4
   %.not70 = icmp eq i32 %200, 0
-  br i1 %.not70, label %217, label %201
+  br i1 %.not70, label %218, label %201
 
 201:                                              ; preds = %197
   call void @rlActiveTextureSlot(i32 noundef %storemerge388) #58
   %202 = load i32, ptr %11, align 4
-  %.off = add i32 %202, -7
-  %switch = icmp ult i32 %.off, 3
-  br i1 %switch, label %203, label %207
+  %203 = add i32 %202, -7
+  %or.cond6 = icmp ult i32 %203, 3
+  br i1 %or.cond6, label %204, label %208
 
-203:                                              ; preds = %201
-  %204 = zext nneg i32 %202 to i64
-  %205 = getelementptr inbounds nuw %struct.MaterialMap, ptr %193, i64 %204
-  %206 = load i32, ptr %205, align 4
-  call void @rlEnableTextureCubemap(i32 noundef %206) #58
-  br label %211
+204:                                              ; preds = %201
+  %205 = zext nneg i32 %202 to i64
+  %206 = getelementptr inbounds nuw %struct.MaterialMap, ptr %193, i64 %205
+  %207 = load i32, ptr %206, align 4
+  call void @rlEnableTextureCubemap(i32 noundef %207) #58
+  br label %212
 
-207:                                              ; preds = %201
-  %208 = sext i32 %202 to i64
-  %209 = getelementptr inbounds %struct.MaterialMap, ptr %193, i64 %208
-  %210 = load i32, ptr %209, align 4
-  call void @rlEnableTexture(i32 noundef %210) #58
-  br label %211
+208:                                              ; preds = %201
+  %209 = sext i32 %202 to i64
+  %210 = getelementptr inbounds %struct.MaterialMap, ptr %193, i64 %209
+  %211 = load i32, ptr %210, align 4
+  call void @rlEnableTexture(i32 noundef %211) #58
+  br label %212
 
-211:                                              ; preds = %207, %203
-  %212 = load i32, ptr %11, align 4
-  %213 = sext i32 %212 to i64
-  %214 = getelementptr i32, ptr %18, i64 %213
-  %215 = getelementptr i8, ptr %214, i64 60
-  %216 = load i32, ptr %215, align 4
-  call void @rlSetUniform(i32 noundef %216, ptr noundef nonnull %11, i32 noundef 4, i32 noundef 1) #58
+212:                                              ; preds = %208, %204
+  %213 = load i32, ptr %11, align 4
+  %214 = sext i32 %213 to i64
+  %215 = getelementptr i32, ptr %18, i64 %214
+  %216 = getelementptr i8, ptr %215, i64 60
+  %217 = load i32, ptr %216, align 4
+  call void @rlSetUniform(i32 noundef %217, ptr noundef nonnull %11, i32 noundef 4, i32 noundef 1) #58
   %.pre = load i32, ptr %11, align 4
-  br label %217
+  br label %218
 
-217:                                              ; preds = %197, %211
-  %218 = phi i32 [ %storemerge388, %197 ], [ %.pre, %211 ]
-  %219 = add nsw i32 %218, 1
-  store i32 %219, ptr %11, align 4
-  %220 = icmp slt i32 %218, 11
-  br i1 %220, label %197, label %194
+218:                                              ; preds = %197, %212
+  %219 = phi i32 [ %storemerge388, %197 ], [ %.pre, %212 ]
+  %220 = add nsw i32 %219, 1
+  store i32 %220, ptr %11, align 4
+  %221 = icmp slt i32 %219, 11
+  br i1 %221, label %197, label %194
 
-221:                                              ; preds = %194
-  %222 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %223 = load ptr, ptr %222, align 8
-  %224 = load i32, ptr %223, align 4
-  call void @rlEnableVertexBuffer(i32 noundef %224) #58
-  %225 = load i32, ptr %18, align 4
-  call void @rlSetVertexAttribute(i32 noundef %225, i32 noundef 3, i32 noundef 5126, i1 noundef zeroext false, i32 noundef 0, i32 noundef 0) #58
+222:                                              ; preds = %194
+  %223 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %224 = load ptr, ptr %223, align 8
+  %225 = load i32, ptr %224, align 4
+  call void @rlEnableVertexBuffer(i32 noundef %225) #58
   %226 = load i32, ptr %18, align 4
-  call void @rlEnableVertexAttribute(i32 noundef %226) #58
-  %227 = getelementptr inbounds nuw i8, ptr %223, i64 4
-  %228 = load i32, ptr %227, align 4
-  call void @rlEnableVertexBuffer(i32 noundef %228) #58
-  %229 = getelementptr inbounds nuw i8, ptr %18, i64 4
-  %230 = load i32, ptr %229, align 4
-  call void @rlSetVertexAttribute(i32 noundef %230, i32 noundef 2, i32 noundef 5126, i1 noundef zeroext false, i32 noundef 0, i32 noundef 0) #58
-  %231 = load i32, ptr %229, align 4
-  call void @rlEnableVertexAttribute(i32 noundef %231) #58
-  %232 = getelementptr inbounds nuw i8, ptr %18, i64 12
-  %233 = load i32, ptr %232, align 4
-  %.not60 = icmp eq i32 %233, -1
-  br i1 %.not60, label %239, label %234
+  call void @rlSetVertexAttribute(i32 noundef %226, i32 noundef 3, i32 noundef 5126, i1 noundef zeroext false, i32 noundef 0, i32 noundef 0) #58
+  %227 = load i32, ptr %18, align 4
+  call void @rlEnableVertexAttribute(i32 noundef %227) #58
+  %228 = getelementptr inbounds nuw i8, ptr %224, i64 4
+  %229 = load i32, ptr %228, align 4
+  call void @rlEnableVertexBuffer(i32 noundef %229) #58
+  %230 = getelementptr inbounds nuw i8, ptr %18, i64 4
+  %231 = load i32, ptr %230, align 4
+  call void @rlSetVertexAttribute(i32 noundef %231, i32 noundef 2, i32 noundef 5126, i1 noundef zeroext false, i32 noundef 0, i32 noundef 0) #58
+  %232 = load i32, ptr %230, align 4
+  call void @rlEnableVertexAttribute(i32 noundef %232) #58
+  %233 = getelementptr inbounds nuw i8, ptr %18, i64 12
+  %234 = load i32, ptr %233, align 4
+  %.not60 = icmp eq i32 %234, -1
+  br i1 %.not60, label %240, label %235
 
-234:                                              ; preds = %221
-  %235 = getelementptr inbounds nuw i8, ptr %223, i64 8
-  %236 = load i32, ptr %235, align 4
-  call void @rlEnableVertexBuffer(i32 noundef %236) #58
-  %237 = load i32, ptr %232, align 4
-  call void @rlSetVertexAttribute(i32 noundef %237, i32 noundef 3, i32 noundef 5126, i1 noundef zeroext false, i32 noundef 0, i32 noundef 0) #58
-  %238 = load i32, ptr %232, align 4
-  call void @rlEnableVertexAttribute(i32 noundef %238) #58
-  br label %239
+235:                                              ; preds = %222
+  %236 = getelementptr inbounds nuw i8, ptr %224, i64 8
+  %237 = load i32, ptr %236, align 4
+  call void @rlEnableVertexBuffer(i32 noundef %237) #58
+  %238 = load i32, ptr %233, align 4
+  call void @rlSetVertexAttribute(i32 noundef %238, i32 noundef 3, i32 noundef 5126, i1 noundef zeroext false, i32 noundef 0, i32 noundef 0) #58
+  %239 = load i32, ptr %233, align 4
+  call void @rlEnableVertexAttribute(i32 noundef %239) #58
+  br label %240
 
-239:                                              ; preds = %234, %221
-  %240 = load ptr, ptr %17, align 8
-  %241 = getelementptr inbounds nuw i8, ptr %240, i64 20
-  %242 = load i32, ptr %241, align 4
-  %.not61 = icmp eq i32 %242, -1
-  br i1 %.not61, label %251, label %243
+240:                                              ; preds = %235, %222
+  %241 = load ptr, ptr %17, align 8
+  %242 = getelementptr inbounds nuw i8, ptr %241, i64 20
+  %243 = load i32, ptr %242, align 4
+  %.not61 = icmp eq i32 %243, -1
+  br i1 %.not61, label %252, label %244
 
-243:                                              ; preds = %239
-  %244 = getelementptr inbounds nuw i8, ptr %223, i64 12
-  %245 = load i32, ptr %244, align 4
-  %.not62 = icmp eq i32 %245, 0
-  br i1 %.not62, label %249, label %246
+244:                                              ; preds = %240
+  %245 = getelementptr inbounds nuw i8, ptr %224, i64 12
+  %246 = load i32, ptr %245, align 4
+  %.not62 = icmp eq i32 %246, 0
+  br i1 %.not62, label %250, label %247
 
-246:                                              ; preds = %243
-  call void @rlEnableVertexBuffer(i32 noundef %245) #58
-  %247 = load i32, ptr %241, align 4
-  call void @rlSetVertexAttribute(i32 noundef %247, i32 noundef 4, i32 noundef 5121, i1 noundef zeroext true, i32 noundef 0, i32 noundef 0) #58
-  %248 = load i32, ptr %241, align 4
-  call void @rlEnableVertexAttribute(i32 noundef %248) #58
-  br label %251
+247:                                              ; preds = %244
+  call void @rlEnableVertexBuffer(i32 noundef %246) #58
+  %248 = load i32, ptr %242, align 4
+  call void @rlSetVertexAttribute(i32 noundef %248, i32 noundef 4, i32 noundef 5121, i1 noundef zeroext true, i32 noundef 0, i32 noundef 0) #58
+  %249 = load i32, ptr %242, align 4
+  call void @rlEnableVertexAttribute(i32 noundef %249) #58
+  br label %252
 
-249:                                              ; preds = %243
+250:                                              ; preds = %244
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %12, ptr noundef nonnull align 16 dereferenceable(16) @__const.DrawMeshInstanced.value, i64 16, i1 false)
-  call void @rlSetVertexAttributeDefault(i32 noundef %242, ptr noundef nonnull %12, i32 noundef 3, i32 noundef 4) #58
-  %250 = load i32, ptr %241, align 4
-  call void @rlDisableVertexAttribute(i32 noundef %250) #58
+  call void @rlSetVertexAttributeDefault(i32 noundef %243, ptr noundef nonnull %12, i32 noundef 3, i32 noundef 4) #58
+  %251 = load i32, ptr %242, align 4
+  call void @rlDisableVertexAttribute(i32 noundef %251) #58
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  br label %251
+  br label %252
 
-251:                                              ; preds = %246, %249, %239
-  %252 = getelementptr inbounds nuw i8, ptr %240, i64 16
-  %253 = load i32, ptr %252, align 4
-  %.not63 = icmp eq i32 %253, -1
-  br i1 %.not63, label %259, label %254
+252:                                              ; preds = %247, %250, %240
+  %253 = getelementptr inbounds nuw i8, ptr %241, i64 16
+  %254 = load i32, ptr %253, align 4
+  %.not63 = icmp eq i32 %254, -1
+  br i1 %.not63, label %260, label %255
 
-254:                                              ; preds = %251
-  %255 = getelementptr inbounds nuw i8, ptr %223, i64 16
-  %256 = load i32, ptr %255, align 4
-  call void @rlEnableVertexBuffer(i32 noundef %256) #58
-  %257 = load i32, ptr %252, align 4
-  call void @rlSetVertexAttribute(i32 noundef %257, i32 noundef 4, i32 noundef 5126, i1 noundef zeroext false, i32 noundef 0, i32 noundef 0) #58
-  %258 = load i32, ptr %252, align 4
-  call void @rlEnableVertexAttribute(i32 noundef %258) #58
-  br label %259
+255:                                              ; preds = %252
+  %256 = getelementptr inbounds nuw i8, ptr %224, i64 16
+  %257 = load i32, ptr %256, align 4
+  call void @rlEnableVertexBuffer(i32 noundef %257) #58
+  %258 = load i32, ptr %253, align 4
+  call void @rlSetVertexAttribute(i32 noundef %258, i32 noundef 4, i32 noundef 5126, i1 noundef zeroext false, i32 noundef 0, i32 noundef 0) #58
+  %259 = load i32, ptr %253, align 4
+  call void @rlEnableVertexAttribute(i32 noundef %259) #58
+  br label %260
 
-259:                                              ; preds = %254, %251
-  %260 = getelementptr inbounds nuw i8, ptr %240, i64 8
-  %261 = load i32, ptr %260, align 4
-  %.not64 = icmp eq i32 %261, -1
-  br i1 %.not64, label %267, label %262
+260:                                              ; preds = %255, %252
+  %261 = getelementptr inbounds nuw i8, ptr %241, i64 8
+  %262 = load i32, ptr %261, align 4
+  %.not64 = icmp eq i32 %262, -1
+  br i1 %.not64, label %268, label %263
 
-262:                                              ; preds = %259
-  %263 = getelementptr inbounds nuw i8, ptr %223, i64 20
-  %264 = load i32, ptr %263, align 4
-  call void @rlEnableVertexBuffer(i32 noundef %264) #58
-  %265 = load i32, ptr %260, align 4
-  call void @rlSetVertexAttribute(i32 noundef %265, i32 noundef 2, i32 noundef 5126, i1 noundef zeroext false, i32 noundef 0, i32 noundef 0) #58
-  %266 = load i32, ptr %260, align 4
-  call void @rlEnableVertexAttribute(i32 noundef %266) #58
-  br label %267
+263:                                              ; preds = %260
+  %264 = getelementptr inbounds nuw i8, ptr %224, i64 20
+  %265 = load i32, ptr %264, align 4
+  call void @rlEnableVertexBuffer(i32 noundef %265) #58
+  %266 = load i32, ptr %261, align 4
+  call void @rlSetVertexAttribute(i32 noundef %266, i32 noundef 2, i32 noundef 5126, i1 noundef zeroext false, i32 noundef 0, i32 noundef 0) #58
+  %267 = load i32, ptr %261, align 4
+  call void @rlEnableVertexAttribute(i32 noundef %267) #58
+  br label %268
 
-267:                                              ; preds = %262, %259
-  %268 = getelementptr inbounds nuw i8, ptr %240, i64 104
-  %269 = load i32, ptr %268, align 4
-  %.not65 = icmp eq i32 %269, -1
-  br i1 %.not65, label %275, label %270
+268:                                              ; preds = %263, %260
+  %269 = getelementptr inbounds nuw i8, ptr %241, i64 104
+  %270 = load i32, ptr %269, align 4
+  %.not65 = icmp eq i32 %270, -1
+  br i1 %.not65, label %276, label %271
 
-270:                                              ; preds = %267
-  %271 = getelementptr inbounds nuw i8, ptr %223, i64 28
-  %272 = load i32, ptr %271, align 4
-  call void @rlEnableVertexBuffer(i32 noundef %272) #58
-  %273 = load i32, ptr %268, align 4
-  call void @rlSetVertexAttribute(i32 noundef %273, i32 noundef 4, i32 noundef 5121, i1 noundef zeroext false, i32 noundef 0, i32 noundef 0) #58
-  %274 = load i32, ptr %268, align 4
-  call void @rlEnableVertexAttribute(i32 noundef %274) #58
-  br label %275
+271:                                              ; preds = %268
+  %272 = getelementptr inbounds nuw i8, ptr %224, i64 28
+  %273 = load i32, ptr %272, align 4
+  call void @rlEnableVertexBuffer(i32 noundef %273) #58
+  %274 = load i32, ptr %269, align 4
+  call void @rlSetVertexAttribute(i32 noundef %274, i32 noundef 4, i32 noundef 5121, i1 noundef zeroext false, i32 noundef 0, i32 noundef 0) #58
+  %275 = load i32, ptr %269, align 4
+  call void @rlEnableVertexAttribute(i32 noundef %275) #58
+  br label %276
 
-275:                                              ; preds = %270, %267
-  %276 = getelementptr inbounds nuw i8, ptr %240, i64 108
-  %277 = load i32, ptr %276, align 4
-  %.not66 = icmp eq i32 %277, -1
-  br i1 %.not66, label %283, label %278
+276:                                              ; preds = %271, %268
+  %277 = getelementptr inbounds nuw i8, ptr %241, i64 108
+  %278 = load i32, ptr %277, align 4
+  %.not66 = icmp eq i32 %278, -1
+  br i1 %.not66, label %284, label %279
 
-278:                                              ; preds = %275
-  %279 = getelementptr inbounds nuw i8, ptr %223, i64 32
-  %280 = load i32, ptr %279, align 4
-  call void @rlEnableVertexBuffer(i32 noundef %280) #58
-  %281 = load i32, ptr %276, align 4
-  call void @rlSetVertexAttribute(i32 noundef %281, i32 noundef 4, i32 noundef 5126, i1 noundef zeroext false, i32 noundef 0, i32 noundef 0) #58
-  %282 = load i32, ptr %276, align 4
-  call void @rlEnableVertexAttribute(i32 noundef %282) #58
-  br label %283
+279:                                              ; preds = %276
+  %280 = getelementptr inbounds nuw i8, ptr %224, i64 32
+  %281 = load i32, ptr %280, align 4
+  call void @rlEnableVertexBuffer(i32 noundef %281) #58
+  %282 = load i32, ptr %277, align 4
+  call void @rlSetVertexAttribute(i32 noundef %282, i32 noundef 4, i32 noundef 5126, i1 noundef zeroext false, i32 noundef 0, i32 noundef 0) #58
+  %283 = load i32, ptr %277, align 4
+  call void @rlEnableVertexAttribute(i32 noundef %283) #58
+  br label %284
 
-283:                                              ; preds = %278, %275
-  %284 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %285 = load ptr, ptr %284, align 8
-  %.not67 = icmp eq ptr %285, null
-  br i1 %.not67, label %289, label %286
+284:                                              ; preds = %279, %276
+  %285 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %286 = load ptr, ptr %285, align 8
+  %.not67 = icmp eq ptr %286, null
+  br i1 %.not67, label %290, label %287
 
-286:                                              ; preds = %283
-  %287 = getelementptr inbounds nuw i8, ptr %223, i64 24
-  %288 = load i32, ptr %287, align 4
-  call void @rlEnableVertexBufferElement(i32 noundef %288) #58
-  br label %289
+287:                                              ; preds = %284
+  %288 = getelementptr inbounds nuw i8, ptr %224, i64 24
+  %289 = load i32, ptr %288, align 4
+  call void @rlEnableVertexBufferElement(i32 noundef %289) #58
+  br label %290
 
-289:                                              ; preds = %._crit_edge397, %283, %286
-  %.not69 = phi i1 [ %196, %._crit_edge397 ], [ true, %283 ], [ false, %286 ]
-  %290 = phi ptr [ %.pre398, %._crit_edge397 ], [ %240, %283 ], [ %240, %286 ]
-  %291 = call zeroext i1 @rlIsStereoRenderEnabled() #58
-  %292 = getelementptr inbounds nuw i8, ptr %13, i64 4
-  %293 = getelementptr inbounds nuw i8, ptr %13, i64 20
-  %294 = getelementptr inbounds nuw i8, ptr %13, i64 40
-  %295 = getelementptr inbounds nuw i8, ptr %13, i64 60
+290:                                              ; preds = %._crit_edge397, %284, %287
+  %.not69 = phi i1 [ %196, %._crit_edge397 ], [ true, %284 ], [ false, %287 ]
+  %291 = phi ptr [ %.pre398, %._crit_edge397 ], [ %241, %284 ], [ %241, %287 ]
+  %292 = call zeroext i1 @rlIsStereoRenderEnabled() #58
+  %293 = getelementptr inbounds nuw i8, ptr %13, i64 4
+  %294 = getelementptr inbounds nuw i8, ptr %13, i64 20
+  %295 = getelementptr inbounds nuw i8, ptr %13, i64 40
+  %296 = getelementptr inbounds nuw i8, ptr %13, i64 60
   %.sroa.4306.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 4
   %.sroa.5307.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 8
   %.sroa.6308.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 12
@@ -40281,24 +40281,24 @@ define void @DrawMeshInstanced(ptr noundef readonly byval(%struct.Mesh) align 8 
   %.sroa.16382.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 52
   %.sroa.17383.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 56
   %.sroa.18384.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 60
-  %296 = getelementptr inbounds nuw i8, ptr %290, i64 24
-  %297 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %298 = load i32, ptr %297, align 4
-  %299 = mul nsw i32 %298, 3
-  %300 = load i32, ptr %0, align 8
-  br label %302
+  %297 = getelementptr inbounds nuw i8, ptr %291, i64 24
+  %298 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %299 = load i32, ptr %298, align 4
+  %300 = mul nsw i32 %299, 3
+  %301 = load i32, ptr %0, align 8
+  br label %303
 
-.preheader:                                       ; preds = %508
-  %301 = load ptr, ptr %192, align 8
-  br label %511
+.preheader:                                       ; preds = %509
+  %302 = load ptr, ptr %192, align 8
+  br label %512
 
-302:                                              ; preds = %289, %508
-  %303 = phi i1 [ true, %289 ], [ false, %508 ]
-  %.043389 = phi i32 [ 0, %289 ], [ 1, %508 ]
+303:                                              ; preds = %290, %509
+  %304 = phi i1 [ true, %290 ], [ false, %509 ]
+  %.043389 = phi i32 [ 0, %290 ], [ 1, %509 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
-  br i1 %291, label %369, label %304
+  br i1 %292, label %370, label %305
 
-304:                                              ; preds = %302
+305:                                              ; preds = %303
   %.sroa.0305.0.copyload = load float, ptr %8, align 8
   %.sroa.4306.0.copyload = load float, ptr %.sroa.4306.0..sroa_idx, align 4
   %.sroa.5307.0.copyload = load float, ptr %.sroa.5307.0..sroa_idx, align 8
@@ -40315,80 +40315,80 @@ define void @DrawMeshInstanced(ptr noundef readonly byval(%struct.Mesh) align 8 
   %.sroa.16318.0.copyload = load float, ptr %.sroa.16318.0..sroa_idx, align 4
   %.sroa.17319.0.copyload = load float, ptr %.sroa.17319.0..sroa_idx, align 8
   %.sroa.18320.0.copyload = load float, ptr %.sroa.18320.0..sroa_idx, align 4
-  %305 = fmul float %97, %.sroa.4306.0.copyload
-  %306 = call float @llvm.fmuladd.f32(float %93, float %.sroa.0305.0.copyload, float %305)
-  %307 = call float @llvm.fmuladd.f32(float %101, float %.sroa.5307.0.copyload, float %306)
-  %308 = call float @llvm.fmuladd.f32(float %105, float %.sroa.6308.0.copyload, float %307)
-  %309 = fmul float %97, %.sroa.8310.0.copyload
-  %310 = call float @llvm.fmuladd.f32(float %93, float %.sroa.7309.0.copyload, float %309)
-  %311 = call float @llvm.fmuladd.f32(float %101, float %.sroa.9311.0.copyload, float %310)
-  %312 = call float @llvm.fmuladd.f32(float %105, float %.sroa.10312.0.copyload, float %311)
-  %313 = fmul float %97, %.sroa.12314.0.copyload
-  %314 = call float @llvm.fmuladd.f32(float %93, float %.sroa.11313.0.copyload, float %313)
-  %315 = call float @llvm.fmuladd.f32(float %101, float %.sroa.13315.0.copyload, float %314)
-  %316 = call float @llvm.fmuladd.f32(float %105, float %.sroa.14316.0.copyload, float %315)
-  %317 = fmul float %97, %.sroa.16318.0.copyload
-  %318 = call float @llvm.fmuladd.f32(float %93, float %.sroa.15317.0.copyload, float %317)
-  %319 = call float @llvm.fmuladd.f32(float %101, float %.sroa.17319.0.copyload, float %318)
-  %320 = call float @llvm.fmuladd.f32(float %105, float %.sroa.18320.0.copyload, float %319)
-  %321 = fmul float %113, %.sroa.4306.0.copyload
-  %322 = call float @llvm.fmuladd.f32(float %109, float %.sroa.0305.0.copyload, float %321)
-  %323 = call float @llvm.fmuladd.f32(float %117, float %.sroa.5307.0.copyload, float %322)
-  %324 = call float @llvm.fmuladd.f32(float %121, float %.sroa.6308.0.copyload, float %323)
-  %325 = fmul float %113, %.sroa.8310.0.copyload
-  %326 = call float @llvm.fmuladd.f32(float %109, float %.sroa.7309.0.copyload, float %325)
-  %327 = call float @llvm.fmuladd.f32(float %117, float %.sroa.9311.0.copyload, float %326)
-  %328 = call float @llvm.fmuladd.f32(float %121, float %.sroa.10312.0.copyload, float %327)
-  %329 = fmul float %113, %.sroa.12314.0.copyload
-  %330 = call float @llvm.fmuladd.f32(float %109, float %.sroa.11313.0.copyload, float %329)
-  %331 = call float @llvm.fmuladd.f32(float %117, float %.sroa.13315.0.copyload, float %330)
-  %332 = call float @llvm.fmuladd.f32(float %121, float %.sroa.14316.0.copyload, float %331)
-  %333 = fmul float %113, %.sroa.16318.0.copyload
-  %334 = call float @llvm.fmuladd.f32(float %109, float %.sroa.15317.0.copyload, float %333)
-  %335 = call float @llvm.fmuladd.f32(float %117, float %.sroa.17319.0.copyload, float %334)
-  %336 = call float @llvm.fmuladd.f32(float %121, float %.sroa.18320.0.copyload, float %335)
-  %337 = fmul float %129, %.sroa.4306.0.copyload
-  %338 = call float @llvm.fmuladd.f32(float %125, float %.sroa.0305.0.copyload, float %337)
-  %339 = call float @llvm.fmuladd.f32(float %133, float %.sroa.5307.0.copyload, float %338)
-  %340 = call float @llvm.fmuladd.f32(float %137, float %.sroa.6308.0.copyload, float %339)
-  %341 = fmul float %129, %.sroa.8310.0.copyload
-  %342 = call float @llvm.fmuladd.f32(float %125, float %.sroa.7309.0.copyload, float %341)
-  %343 = call float @llvm.fmuladd.f32(float %133, float %.sroa.9311.0.copyload, float %342)
-  %344 = call float @llvm.fmuladd.f32(float %137, float %.sroa.10312.0.copyload, float %343)
-  %345 = fmul float %129, %.sroa.12314.0.copyload
-  %346 = call float @llvm.fmuladd.f32(float %125, float %.sroa.11313.0.copyload, float %345)
-  %347 = call float @llvm.fmuladd.f32(float %133, float %.sroa.13315.0.copyload, float %346)
-  %348 = call float @llvm.fmuladd.f32(float %137, float %.sroa.14316.0.copyload, float %347)
-  %349 = fmul float %129, %.sroa.16318.0.copyload
-  %350 = call float @llvm.fmuladd.f32(float %125, float %.sroa.15317.0.copyload, float %349)
-  %351 = call float @llvm.fmuladd.f32(float %133, float %.sroa.17319.0.copyload, float %350)
-  %352 = call float @llvm.fmuladd.f32(float %137, float %.sroa.18320.0.copyload, float %351)
-  %353 = fmul float %145, %.sroa.4306.0.copyload
-  %354 = call float @llvm.fmuladd.f32(float %141, float %.sroa.0305.0.copyload, float %353)
-  %355 = call float @llvm.fmuladd.f32(float %149, float %.sroa.5307.0.copyload, float %354)
-  %356 = call float @llvm.fmuladd.f32(float %153, float %.sroa.6308.0.copyload, float %355)
-  %357 = fmul float %145, %.sroa.8310.0.copyload
-  %358 = call float @llvm.fmuladd.f32(float %141, float %.sroa.7309.0.copyload, float %357)
-  %359 = call float @llvm.fmuladd.f32(float %149, float %.sroa.9311.0.copyload, float %358)
-  %360 = call float @llvm.fmuladd.f32(float %153, float %.sroa.10312.0.copyload, float %359)
-  %361 = fmul float %145, %.sroa.12314.0.copyload
-  %362 = call float @llvm.fmuladd.f32(float %141, float %.sroa.11313.0.copyload, float %361)
-  %363 = call float @llvm.fmuladd.f32(float %149, float %.sroa.13315.0.copyload, float %362)
-  %364 = call float @llvm.fmuladd.f32(float %153, float %.sroa.14316.0.copyload, float %363)
-  %365 = fmul float %145, %.sroa.16318.0.copyload
-  %366 = call float @llvm.fmuladd.f32(float %141, float %.sroa.15317.0.copyload, float %365)
-  %367 = call float @llvm.fmuladd.f32(float %149, float %.sroa.17319.0.copyload, float %366)
-  %368 = call float @llvm.fmuladd.f32(float %153, float %.sroa.18320.0.copyload, float %367)
-  br label %504
+  %306 = fmul float %97, %.sroa.4306.0.copyload
+  %307 = call float @llvm.fmuladd.f32(float %93, float %.sroa.0305.0.copyload, float %306)
+  %308 = call float @llvm.fmuladd.f32(float %101, float %.sroa.5307.0.copyload, float %307)
+  %309 = call float @llvm.fmuladd.f32(float %105, float %.sroa.6308.0.copyload, float %308)
+  %310 = fmul float %97, %.sroa.8310.0.copyload
+  %311 = call float @llvm.fmuladd.f32(float %93, float %.sroa.7309.0.copyload, float %310)
+  %312 = call float @llvm.fmuladd.f32(float %101, float %.sroa.9311.0.copyload, float %311)
+  %313 = call float @llvm.fmuladd.f32(float %105, float %.sroa.10312.0.copyload, float %312)
+  %314 = fmul float %97, %.sroa.12314.0.copyload
+  %315 = call float @llvm.fmuladd.f32(float %93, float %.sroa.11313.0.copyload, float %314)
+  %316 = call float @llvm.fmuladd.f32(float %101, float %.sroa.13315.0.copyload, float %315)
+  %317 = call float @llvm.fmuladd.f32(float %105, float %.sroa.14316.0.copyload, float %316)
+  %318 = fmul float %97, %.sroa.16318.0.copyload
+  %319 = call float @llvm.fmuladd.f32(float %93, float %.sroa.15317.0.copyload, float %318)
+  %320 = call float @llvm.fmuladd.f32(float %101, float %.sroa.17319.0.copyload, float %319)
+  %321 = call float @llvm.fmuladd.f32(float %105, float %.sroa.18320.0.copyload, float %320)
+  %322 = fmul float %113, %.sroa.4306.0.copyload
+  %323 = call float @llvm.fmuladd.f32(float %109, float %.sroa.0305.0.copyload, float %322)
+  %324 = call float @llvm.fmuladd.f32(float %117, float %.sroa.5307.0.copyload, float %323)
+  %325 = call float @llvm.fmuladd.f32(float %121, float %.sroa.6308.0.copyload, float %324)
+  %326 = fmul float %113, %.sroa.8310.0.copyload
+  %327 = call float @llvm.fmuladd.f32(float %109, float %.sroa.7309.0.copyload, float %326)
+  %328 = call float @llvm.fmuladd.f32(float %117, float %.sroa.9311.0.copyload, float %327)
+  %329 = call float @llvm.fmuladd.f32(float %121, float %.sroa.10312.0.copyload, float %328)
+  %330 = fmul float %113, %.sroa.12314.0.copyload
+  %331 = call float @llvm.fmuladd.f32(float %109, float %.sroa.11313.0.copyload, float %330)
+  %332 = call float @llvm.fmuladd.f32(float %117, float %.sroa.13315.0.copyload, float %331)
+  %333 = call float @llvm.fmuladd.f32(float %121, float %.sroa.14316.0.copyload, float %332)
+  %334 = fmul float %113, %.sroa.16318.0.copyload
+  %335 = call float @llvm.fmuladd.f32(float %109, float %.sroa.15317.0.copyload, float %334)
+  %336 = call float @llvm.fmuladd.f32(float %117, float %.sroa.17319.0.copyload, float %335)
+  %337 = call float @llvm.fmuladd.f32(float %121, float %.sroa.18320.0.copyload, float %336)
+  %338 = fmul float %129, %.sroa.4306.0.copyload
+  %339 = call float @llvm.fmuladd.f32(float %125, float %.sroa.0305.0.copyload, float %338)
+  %340 = call float @llvm.fmuladd.f32(float %133, float %.sroa.5307.0.copyload, float %339)
+  %341 = call float @llvm.fmuladd.f32(float %137, float %.sroa.6308.0.copyload, float %340)
+  %342 = fmul float %129, %.sroa.8310.0.copyload
+  %343 = call float @llvm.fmuladd.f32(float %125, float %.sroa.7309.0.copyload, float %342)
+  %344 = call float @llvm.fmuladd.f32(float %133, float %.sroa.9311.0.copyload, float %343)
+  %345 = call float @llvm.fmuladd.f32(float %137, float %.sroa.10312.0.copyload, float %344)
+  %346 = fmul float %129, %.sroa.12314.0.copyload
+  %347 = call float @llvm.fmuladd.f32(float %125, float %.sroa.11313.0.copyload, float %346)
+  %348 = call float @llvm.fmuladd.f32(float %133, float %.sroa.13315.0.copyload, float %347)
+  %349 = call float @llvm.fmuladd.f32(float %137, float %.sroa.14316.0.copyload, float %348)
+  %350 = fmul float %129, %.sroa.16318.0.copyload
+  %351 = call float @llvm.fmuladd.f32(float %125, float %.sroa.15317.0.copyload, float %350)
+  %352 = call float @llvm.fmuladd.f32(float %133, float %.sroa.17319.0.copyload, float %351)
+  %353 = call float @llvm.fmuladd.f32(float %137, float %.sroa.18320.0.copyload, float %352)
+  %354 = fmul float %145, %.sroa.4306.0.copyload
+  %355 = call float @llvm.fmuladd.f32(float %141, float %.sroa.0305.0.copyload, float %354)
+  %356 = call float @llvm.fmuladd.f32(float %149, float %.sroa.5307.0.copyload, float %355)
+  %357 = call float @llvm.fmuladd.f32(float %153, float %.sroa.6308.0.copyload, float %356)
+  %358 = fmul float %145, %.sroa.8310.0.copyload
+  %359 = call float @llvm.fmuladd.f32(float %141, float %.sroa.7309.0.copyload, float %358)
+  %360 = call float @llvm.fmuladd.f32(float %149, float %.sroa.9311.0.copyload, float %359)
+  %361 = call float @llvm.fmuladd.f32(float %153, float %.sroa.10312.0.copyload, float %360)
+  %362 = fmul float %145, %.sroa.12314.0.copyload
+  %363 = call float @llvm.fmuladd.f32(float %141, float %.sroa.11313.0.copyload, float %362)
+  %364 = call float @llvm.fmuladd.f32(float %149, float %.sroa.13315.0.copyload, float %363)
+  %365 = call float @llvm.fmuladd.f32(float %153, float %.sroa.14316.0.copyload, float %364)
+  %366 = fmul float %145, %.sroa.16318.0.copyload
+  %367 = call float @llvm.fmuladd.f32(float %141, float %.sroa.15317.0.copyload, float %366)
+  %368 = call float @llvm.fmuladd.f32(float %149, float %.sroa.17319.0.copyload, float %367)
+  %369 = call float @llvm.fmuladd.f32(float %153, float %.sroa.18320.0.copyload, float %368)
+  br label %505
 
-369:                                              ; preds = %302
-  %370 = call i32 @rlGetFramebufferWidth() #58
-  %371 = mul nuw nsw i32 %370, %.043389
-  %372 = sdiv i32 %371, 2
-  %373 = call i32 @rlGetFramebufferWidth() #58
-  %374 = sdiv i32 %373, 2
-  %375 = call i32 @rlGetFramebufferHeight() #58
-  call void @rlViewport(i32 noundef %372, i32 noundef 0, i32 noundef %374, i32 noundef %375) #58
+370:                                              ; preds = %303
+  %371 = call i32 @rlGetFramebufferWidth() #58
+  %372 = mul nuw nsw i32 %371, %.043389
+  %373 = sdiv i32 %372, 2
+  %374 = call i32 @rlGetFramebufferWidth() #58
+  %375 = sdiv i32 %374, 2
+  %376 = call i32 @rlGetFramebufferHeight() #58
+  call void @rlViewport(i32 noundef %373, i32 noundef 0, i32 noundef %375, i32 noundef %376) #58
   call void @rlGetMatrixViewOffsetStereo(ptr dead_on_unwind nonnull writable sret(%struct.Matrix) align 4 %14, i32 noundef %.043389) #58
   %.sroa.0337.0.copyload = load float, ptr %14, align 8
   %.sroa.4338.0.copyload = load float, ptr %.sroa.4338.0..sroa_idx, align 4
@@ -40406,70 +40406,70 @@ define void @DrawMeshInstanced(ptr noundef readonly byval(%struct.Mesh) align 8 
   %.sroa.16350.0.copyload = load float, ptr %.sroa.16350.0..sroa_idx, align 4
   %.sroa.17351.0.copyload = load float, ptr %.sroa.17351.0..sroa_idx, align 8
   %.sroa.18352.0.copyload = load float, ptr %.sroa.18352.0..sroa_idx, align 4
-  %376 = fmul float %97, %.sroa.4338.0.copyload
-  %377 = call float @llvm.fmuladd.f32(float %93, float %.sroa.0337.0.copyload, float %376)
-  %378 = call float @llvm.fmuladd.f32(float %101, float %.sroa.5339.0.copyload, float %377)
-  %379 = call float @llvm.fmuladd.f32(float %105, float %.sroa.6340.0.copyload, float %378)
-  %380 = fmul float %97, %.sroa.8342.0.copyload
-  %381 = call float @llvm.fmuladd.f32(float %93, float %.sroa.7341.0.copyload, float %380)
-  %382 = call float @llvm.fmuladd.f32(float %101, float %.sroa.9343.0.copyload, float %381)
-  %383 = call float @llvm.fmuladd.f32(float %105, float %.sroa.10344.0.copyload, float %382)
-  %384 = fmul float %97, %.sroa.12346.0.copyload
-  %385 = call float @llvm.fmuladd.f32(float %93, float %.sroa.11345.0.copyload, float %384)
-  %386 = call float @llvm.fmuladd.f32(float %101, float %.sroa.13347.0.copyload, float %385)
-  %387 = call float @llvm.fmuladd.f32(float %105, float %.sroa.14348.0.copyload, float %386)
-  %388 = fmul float %97, %.sroa.16350.0.copyload
-  %389 = call float @llvm.fmuladd.f32(float %93, float %.sroa.15349.0.copyload, float %388)
-  %390 = call float @llvm.fmuladd.f32(float %101, float %.sroa.17351.0.copyload, float %389)
-  %391 = call float @llvm.fmuladd.f32(float %105, float %.sroa.18352.0.copyload, float %390)
-  %392 = fmul float %113, %.sroa.4338.0.copyload
-  %393 = call float @llvm.fmuladd.f32(float %109, float %.sroa.0337.0.copyload, float %392)
-  %394 = call float @llvm.fmuladd.f32(float %117, float %.sroa.5339.0.copyload, float %393)
-  %395 = call float @llvm.fmuladd.f32(float %121, float %.sroa.6340.0.copyload, float %394)
-  %396 = fmul float %113, %.sroa.8342.0.copyload
-  %397 = call float @llvm.fmuladd.f32(float %109, float %.sroa.7341.0.copyload, float %396)
-  %398 = call float @llvm.fmuladd.f32(float %117, float %.sroa.9343.0.copyload, float %397)
-  %399 = call float @llvm.fmuladd.f32(float %121, float %.sroa.10344.0.copyload, float %398)
-  %400 = fmul float %113, %.sroa.12346.0.copyload
-  %401 = call float @llvm.fmuladd.f32(float %109, float %.sroa.11345.0.copyload, float %400)
-  %402 = call float @llvm.fmuladd.f32(float %117, float %.sroa.13347.0.copyload, float %401)
-  %403 = call float @llvm.fmuladd.f32(float %121, float %.sroa.14348.0.copyload, float %402)
-  %404 = fmul float %113, %.sroa.16350.0.copyload
-  %405 = call float @llvm.fmuladd.f32(float %109, float %.sroa.15349.0.copyload, float %404)
-  %406 = call float @llvm.fmuladd.f32(float %117, float %.sroa.17351.0.copyload, float %405)
-  %407 = call float @llvm.fmuladd.f32(float %121, float %.sroa.18352.0.copyload, float %406)
-  %408 = fmul float %129, %.sroa.4338.0.copyload
-  %409 = call float @llvm.fmuladd.f32(float %125, float %.sroa.0337.0.copyload, float %408)
-  %410 = call float @llvm.fmuladd.f32(float %133, float %.sroa.5339.0.copyload, float %409)
-  %411 = call float @llvm.fmuladd.f32(float %137, float %.sroa.6340.0.copyload, float %410)
-  %412 = fmul float %129, %.sroa.8342.0.copyload
-  %413 = call float @llvm.fmuladd.f32(float %125, float %.sroa.7341.0.copyload, float %412)
-  %414 = call float @llvm.fmuladd.f32(float %133, float %.sroa.9343.0.copyload, float %413)
-  %415 = call float @llvm.fmuladd.f32(float %137, float %.sroa.10344.0.copyload, float %414)
-  %416 = fmul float %129, %.sroa.12346.0.copyload
-  %417 = call float @llvm.fmuladd.f32(float %125, float %.sroa.11345.0.copyload, float %416)
-  %418 = call float @llvm.fmuladd.f32(float %133, float %.sroa.13347.0.copyload, float %417)
-  %419 = call float @llvm.fmuladd.f32(float %137, float %.sroa.14348.0.copyload, float %418)
-  %420 = fmul float %129, %.sroa.16350.0.copyload
-  %421 = call float @llvm.fmuladd.f32(float %125, float %.sroa.15349.0.copyload, float %420)
-  %422 = call float @llvm.fmuladd.f32(float %133, float %.sroa.17351.0.copyload, float %421)
-  %423 = call float @llvm.fmuladd.f32(float %137, float %.sroa.18352.0.copyload, float %422)
-  %424 = fmul float %145, %.sroa.4338.0.copyload
-  %425 = call float @llvm.fmuladd.f32(float %141, float %.sroa.0337.0.copyload, float %424)
-  %426 = call float @llvm.fmuladd.f32(float %149, float %.sroa.5339.0.copyload, float %425)
-  %427 = call float @llvm.fmuladd.f32(float %153, float %.sroa.6340.0.copyload, float %426)
-  %428 = fmul float %145, %.sroa.8342.0.copyload
-  %429 = call float @llvm.fmuladd.f32(float %141, float %.sroa.7341.0.copyload, float %428)
-  %430 = call float @llvm.fmuladd.f32(float %149, float %.sroa.9343.0.copyload, float %429)
-  %431 = call float @llvm.fmuladd.f32(float %153, float %.sroa.10344.0.copyload, float %430)
-  %432 = fmul float %145, %.sroa.12346.0.copyload
-  %433 = call float @llvm.fmuladd.f32(float %141, float %.sroa.11345.0.copyload, float %432)
-  %434 = call float @llvm.fmuladd.f32(float %149, float %.sroa.13347.0.copyload, float %433)
-  %435 = call float @llvm.fmuladd.f32(float %153, float %.sroa.14348.0.copyload, float %434)
-  %436 = fmul float %145, %.sroa.16350.0.copyload
-  %437 = call float @llvm.fmuladd.f32(float %141, float %.sroa.15349.0.copyload, float %436)
-  %438 = call float @llvm.fmuladd.f32(float %149, float %.sroa.17351.0.copyload, float %437)
-  %439 = call float @llvm.fmuladd.f32(float %153, float %.sroa.18352.0.copyload, float %438)
+  %377 = fmul float %97, %.sroa.4338.0.copyload
+  %378 = call float @llvm.fmuladd.f32(float %93, float %.sroa.0337.0.copyload, float %377)
+  %379 = call float @llvm.fmuladd.f32(float %101, float %.sroa.5339.0.copyload, float %378)
+  %380 = call float @llvm.fmuladd.f32(float %105, float %.sroa.6340.0.copyload, float %379)
+  %381 = fmul float %97, %.sroa.8342.0.copyload
+  %382 = call float @llvm.fmuladd.f32(float %93, float %.sroa.7341.0.copyload, float %381)
+  %383 = call float @llvm.fmuladd.f32(float %101, float %.sroa.9343.0.copyload, float %382)
+  %384 = call float @llvm.fmuladd.f32(float %105, float %.sroa.10344.0.copyload, float %383)
+  %385 = fmul float %97, %.sroa.12346.0.copyload
+  %386 = call float @llvm.fmuladd.f32(float %93, float %.sroa.11345.0.copyload, float %385)
+  %387 = call float @llvm.fmuladd.f32(float %101, float %.sroa.13347.0.copyload, float %386)
+  %388 = call float @llvm.fmuladd.f32(float %105, float %.sroa.14348.0.copyload, float %387)
+  %389 = fmul float %97, %.sroa.16350.0.copyload
+  %390 = call float @llvm.fmuladd.f32(float %93, float %.sroa.15349.0.copyload, float %389)
+  %391 = call float @llvm.fmuladd.f32(float %101, float %.sroa.17351.0.copyload, float %390)
+  %392 = call float @llvm.fmuladd.f32(float %105, float %.sroa.18352.0.copyload, float %391)
+  %393 = fmul float %113, %.sroa.4338.0.copyload
+  %394 = call float @llvm.fmuladd.f32(float %109, float %.sroa.0337.0.copyload, float %393)
+  %395 = call float @llvm.fmuladd.f32(float %117, float %.sroa.5339.0.copyload, float %394)
+  %396 = call float @llvm.fmuladd.f32(float %121, float %.sroa.6340.0.copyload, float %395)
+  %397 = fmul float %113, %.sroa.8342.0.copyload
+  %398 = call float @llvm.fmuladd.f32(float %109, float %.sroa.7341.0.copyload, float %397)
+  %399 = call float @llvm.fmuladd.f32(float %117, float %.sroa.9343.0.copyload, float %398)
+  %400 = call float @llvm.fmuladd.f32(float %121, float %.sroa.10344.0.copyload, float %399)
+  %401 = fmul float %113, %.sroa.12346.0.copyload
+  %402 = call float @llvm.fmuladd.f32(float %109, float %.sroa.11345.0.copyload, float %401)
+  %403 = call float @llvm.fmuladd.f32(float %117, float %.sroa.13347.0.copyload, float %402)
+  %404 = call float @llvm.fmuladd.f32(float %121, float %.sroa.14348.0.copyload, float %403)
+  %405 = fmul float %113, %.sroa.16350.0.copyload
+  %406 = call float @llvm.fmuladd.f32(float %109, float %.sroa.15349.0.copyload, float %405)
+  %407 = call float @llvm.fmuladd.f32(float %117, float %.sroa.17351.0.copyload, float %406)
+  %408 = call float @llvm.fmuladd.f32(float %121, float %.sroa.18352.0.copyload, float %407)
+  %409 = fmul float %129, %.sroa.4338.0.copyload
+  %410 = call float @llvm.fmuladd.f32(float %125, float %.sroa.0337.0.copyload, float %409)
+  %411 = call float @llvm.fmuladd.f32(float %133, float %.sroa.5339.0.copyload, float %410)
+  %412 = call float @llvm.fmuladd.f32(float %137, float %.sroa.6340.0.copyload, float %411)
+  %413 = fmul float %129, %.sroa.8342.0.copyload
+  %414 = call float @llvm.fmuladd.f32(float %125, float %.sroa.7341.0.copyload, float %413)
+  %415 = call float @llvm.fmuladd.f32(float %133, float %.sroa.9343.0.copyload, float %414)
+  %416 = call float @llvm.fmuladd.f32(float %137, float %.sroa.10344.0.copyload, float %415)
+  %417 = fmul float %129, %.sroa.12346.0.copyload
+  %418 = call float @llvm.fmuladd.f32(float %125, float %.sroa.11345.0.copyload, float %417)
+  %419 = call float @llvm.fmuladd.f32(float %133, float %.sroa.13347.0.copyload, float %418)
+  %420 = call float @llvm.fmuladd.f32(float %137, float %.sroa.14348.0.copyload, float %419)
+  %421 = fmul float %129, %.sroa.16350.0.copyload
+  %422 = call float @llvm.fmuladd.f32(float %125, float %.sroa.15349.0.copyload, float %421)
+  %423 = call float @llvm.fmuladd.f32(float %133, float %.sroa.17351.0.copyload, float %422)
+  %424 = call float @llvm.fmuladd.f32(float %137, float %.sroa.18352.0.copyload, float %423)
+  %425 = fmul float %145, %.sroa.4338.0.copyload
+  %426 = call float @llvm.fmuladd.f32(float %141, float %.sroa.0337.0.copyload, float %425)
+  %427 = call float @llvm.fmuladd.f32(float %149, float %.sroa.5339.0.copyload, float %426)
+  %428 = call float @llvm.fmuladd.f32(float %153, float %.sroa.6340.0.copyload, float %427)
+  %429 = fmul float %145, %.sroa.8342.0.copyload
+  %430 = call float @llvm.fmuladd.f32(float %141, float %.sroa.7341.0.copyload, float %429)
+  %431 = call float @llvm.fmuladd.f32(float %149, float %.sroa.9343.0.copyload, float %430)
+  %432 = call float @llvm.fmuladd.f32(float %153, float %.sroa.10344.0.copyload, float %431)
+  %433 = fmul float %145, %.sroa.12346.0.copyload
+  %434 = call float @llvm.fmuladd.f32(float %141, float %.sroa.11345.0.copyload, float %433)
+  %435 = call float @llvm.fmuladd.f32(float %149, float %.sroa.13347.0.copyload, float %434)
+  %436 = call float @llvm.fmuladd.f32(float %153, float %.sroa.14348.0.copyload, float %435)
+  %437 = fmul float %145, %.sroa.16350.0.copyload
+  %438 = call float @llvm.fmuladd.f32(float %141, float %.sroa.15349.0.copyload, float %437)
+  %439 = call float @llvm.fmuladd.f32(float %149, float %.sroa.17351.0.copyload, float %438)
+  %440 = call float @llvm.fmuladd.f32(float %153, float %.sroa.18352.0.copyload, float %439)
   call void @rlGetMatrixProjectionStereo(ptr dead_on_unwind nonnull writable sret(%struct.Matrix) align 4 %15, i32 noundef %.043389) #58
   %.sroa.0369.0.copyload = load float, ptr %15, align 8
   %.sroa.4370.0.copyload = load float, ptr %.sroa.4370.0..sroa_idx, align 4
@@ -40487,123 +40487,123 @@ define void @DrawMeshInstanced(ptr noundef readonly byval(%struct.Mesh) align 8 
   %.sroa.16382.0.copyload = load float, ptr %.sroa.16382.0..sroa_idx, align 4
   %.sroa.17383.0.copyload = load float, ptr %.sroa.17383.0..sroa_idx, align 8
   %.sroa.18384.0.copyload = load float, ptr %.sroa.18384.0..sroa_idx, align 4
-  %440 = fmul float %383, %.sroa.4370.0.copyload
-  %441 = call float @llvm.fmuladd.f32(float %379, float %.sroa.0369.0.copyload, float %440)
-  %442 = call float @llvm.fmuladd.f32(float %387, float %.sroa.5371.0.copyload, float %441)
-  %443 = call float @llvm.fmuladd.f32(float %391, float %.sroa.6372.0.copyload, float %442)
-  %444 = fmul float %383, %.sroa.8374.0.copyload
-  %445 = call float @llvm.fmuladd.f32(float %379, float %.sroa.7373.0.copyload, float %444)
-  %446 = call float @llvm.fmuladd.f32(float %387, float %.sroa.9375.0.copyload, float %445)
-  %447 = call float @llvm.fmuladd.f32(float %391, float %.sroa.10376.0.copyload, float %446)
-  %448 = fmul float %383, %.sroa.12378.0.copyload
-  %449 = call float @llvm.fmuladd.f32(float %379, float %.sroa.11377.0.copyload, float %448)
-  %450 = call float @llvm.fmuladd.f32(float %387, float %.sroa.13379.0.copyload, float %449)
-  %451 = call float @llvm.fmuladd.f32(float %391, float %.sroa.14380.0.copyload, float %450)
-  %452 = fmul float %383, %.sroa.16382.0.copyload
-  %453 = call float @llvm.fmuladd.f32(float %379, float %.sroa.15381.0.copyload, float %452)
-  %454 = call float @llvm.fmuladd.f32(float %387, float %.sroa.17383.0.copyload, float %453)
-  %455 = call float @llvm.fmuladd.f32(float %391, float %.sroa.18384.0.copyload, float %454)
-  %456 = fmul float %399, %.sroa.4370.0.copyload
-  %457 = call float @llvm.fmuladd.f32(float %395, float %.sroa.0369.0.copyload, float %456)
-  %458 = call float @llvm.fmuladd.f32(float %403, float %.sroa.5371.0.copyload, float %457)
-  %459 = call float @llvm.fmuladd.f32(float %407, float %.sroa.6372.0.copyload, float %458)
-  %460 = fmul float %399, %.sroa.8374.0.copyload
-  %461 = call float @llvm.fmuladd.f32(float %395, float %.sroa.7373.0.copyload, float %460)
-  %462 = call float @llvm.fmuladd.f32(float %403, float %.sroa.9375.0.copyload, float %461)
-  %463 = call float @llvm.fmuladd.f32(float %407, float %.sroa.10376.0.copyload, float %462)
-  %464 = fmul float %399, %.sroa.12378.0.copyload
-  %465 = call float @llvm.fmuladd.f32(float %395, float %.sroa.11377.0.copyload, float %464)
-  %466 = call float @llvm.fmuladd.f32(float %403, float %.sroa.13379.0.copyload, float %465)
-  %467 = call float @llvm.fmuladd.f32(float %407, float %.sroa.14380.0.copyload, float %466)
-  %468 = fmul float %399, %.sroa.16382.0.copyload
-  %469 = call float @llvm.fmuladd.f32(float %395, float %.sroa.15381.0.copyload, float %468)
-  %470 = call float @llvm.fmuladd.f32(float %403, float %.sroa.17383.0.copyload, float %469)
-  %471 = call float @llvm.fmuladd.f32(float %407, float %.sroa.18384.0.copyload, float %470)
-  %472 = fmul float %415, %.sroa.4370.0.copyload
-  %473 = call float @llvm.fmuladd.f32(float %411, float %.sroa.0369.0.copyload, float %472)
-  %474 = call float @llvm.fmuladd.f32(float %419, float %.sroa.5371.0.copyload, float %473)
-  %475 = call float @llvm.fmuladd.f32(float %423, float %.sroa.6372.0.copyload, float %474)
-  %476 = fmul float %415, %.sroa.8374.0.copyload
-  %477 = call float @llvm.fmuladd.f32(float %411, float %.sroa.7373.0.copyload, float %476)
-  %478 = call float @llvm.fmuladd.f32(float %419, float %.sroa.9375.0.copyload, float %477)
-  %479 = call float @llvm.fmuladd.f32(float %423, float %.sroa.10376.0.copyload, float %478)
-  %480 = fmul float %415, %.sroa.12378.0.copyload
-  %481 = call float @llvm.fmuladd.f32(float %411, float %.sroa.11377.0.copyload, float %480)
-  %482 = call float @llvm.fmuladd.f32(float %419, float %.sroa.13379.0.copyload, float %481)
-  %483 = call float @llvm.fmuladd.f32(float %423, float %.sroa.14380.0.copyload, float %482)
-  %484 = fmul float %415, %.sroa.16382.0.copyload
-  %485 = call float @llvm.fmuladd.f32(float %411, float %.sroa.15381.0.copyload, float %484)
-  %486 = call float @llvm.fmuladd.f32(float %419, float %.sroa.17383.0.copyload, float %485)
-  %487 = call float @llvm.fmuladd.f32(float %423, float %.sroa.18384.0.copyload, float %486)
-  %488 = fmul float %431, %.sroa.4370.0.copyload
-  %489 = call float @llvm.fmuladd.f32(float %427, float %.sroa.0369.0.copyload, float %488)
-  %490 = call float @llvm.fmuladd.f32(float %435, float %.sroa.5371.0.copyload, float %489)
-  %491 = call float @llvm.fmuladd.f32(float %439, float %.sroa.6372.0.copyload, float %490)
-  %492 = fmul float %431, %.sroa.8374.0.copyload
-  %493 = call float @llvm.fmuladd.f32(float %427, float %.sroa.7373.0.copyload, float %492)
-  %494 = call float @llvm.fmuladd.f32(float %435, float %.sroa.9375.0.copyload, float %493)
-  %495 = call float @llvm.fmuladd.f32(float %439, float %.sroa.10376.0.copyload, float %494)
-  %496 = fmul float %431, %.sroa.12378.0.copyload
-  %497 = call float @llvm.fmuladd.f32(float %427, float %.sroa.11377.0.copyload, float %496)
-  %498 = call float @llvm.fmuladd.f32(float %435, float %.sroa.13379.0.copyload, float %497)
-  %499 = call float @llvm.fmuladd.f32(float %439, float %.sroa.14380.0.copyload, float %498)
-  %500 = fmul float %431, %.sroa.16382.0.copyload
-  %501 = call float @llvm.fmuladd.f32(float %427, float %.sroa.15381.0.copyload, float %500)
-  %502 = call float @llvm.fmuladd.f32(float %435, float %.sroa.17383.0.copyload, float %501)
-  %503 = call float @llvm.fmuladd.f32(float %439, float %.sroa.18384.0.copyload, float %502)
-  br label %504
+  %441 = fmul float %384, %.sroa.4370.0.copyload
+  %442 = call float @llvm.fmuladd.f32(float %380, float %.sroa.0369.0.copyload, float %441)
+  %443 = call float @llvm.fmuladd.f32(float %388, float %.sroa.5371.0.copyload, float %442)
+  %444 = call float @llvm.fmuladd.f32(float %392, float %.sroa.6372.0.copyload, float %443)
+  %445 = fmul float %384, %.sroa.8374.0.copyload
+  %446 = call float @llvm.fmuladd.f32(float %380, float %.sroa.7373.0.copyload, float %445)
+  %447 = call float @llvm.fmuladd.f32(float %388, float %.sroa.9375.0.copyload, float %446)
+  %448 = call float @llvm.fmuladd.f32(float %392, float %.sroa.10376.0.copyload, float %447)
+  %449 = fmul float %384, %.sroa.12378.0.copyload
+  %450 = call float @llvm.fmuladd.f32(float %380, float %.sroa.11377.0.copyload, float %449)
+  %451 = call float @llvm.fmuladd.f32(float %388, float %.sroa.13379.0.copyload, float %450)
+  %452 = call float @llvm.fmuladd.f32(float %392, float %.sroa.14380.0.copyload, float %451)
+  %453 = fmul float %384, %.sroa.16382.0.copyload
+  %454 = call float @llvm.fmuladd.f32(float %380, float %.sroa.15381.0.copyload, float %453)
+  %455 = call float @llvm.fmuladd.f32(float %388, float %.sroa.17383.0.copyload, float %454)
+  %456 = call float @llvm.fmuladd.f32(float %392, float %.sroa.18384.0.copyload, float %455)
+  %457 = fmul float %400, %.sroa.4370.0.copyload
+  %458 = call float @llvm.fmuladd.f32(float %396, float %.sroa.0369.0.copyload, float %457)
+  %459 = call float @llvm.fmuladd.f32(float %404, float %.sroa.5371.0.copyload, float %458)
+  %460 = call float @llvm.fmuladd.f32(float %408, float %.sroa.6372.0.copyload, float %459)
+  %461 = fmul float %400, %.sroa.8374.0.copyload
+  %462 = call float @llvm.fmuladd.f32(float %396, float %.sroa.7373.0.copyload, float %461)
+  %463 = call float @llvm.fmuladd.f32(float %404, float %.sroa.9375.0.copyload, float %462)
+  %464 = call float @llvm.fmuladd.f32(float %408, float %.sroa.10376.0.copyload, float %463)
+  %465 = fmul float %400, %.sroa.12378.0.copyload
+  %466 = call float @llvm.fmuladd.f32(float %396, float %.sroa.11377.0.copyload, float %465)
+  %467 = call float @llvm.fmuladd.f32(float %404, float %.sroa.13379.0.copyload, float %466)
+  %468 = call float @llvm.fmuladd.f32(float %408, float %.sroa.14380.0.copyload, float %467)
+  %469 = fmul float %400, %.sroa.16382.0.copyload
+  %470 = call float @llvm.fmuladd.f32(float %396, float %.sroa.15381.0.copyload, float %469)
+  %471 = call float @llvm.fmuladd.f32(float %404, float %.sroa.17383.0.copyload, float %470)
+  %472 = call float @llvm.fmuladd.f32(float %408, float %.sroa.18384.0.copyload, float %471)
+  %473 = fmul float %416, %.sroa.4370.0.copyload
+  %474 = call float @llvm.fmuladd.f32(float %412, float %.sroa.0369.0.copyload, float %473)
+  %475 = call float @llvm.fmuladd.f32(float %420, float %.sroa.5371.0.copyload, float %474)
+  %476 = call float @llvm.fmuladd.f32(float %424, float %.sroa.6372.0.copyload, float %475)
+  %477 = fmul float %416, %.sroa.8374.0.copyload
+  %478 = call float @llvm.fmuladd.f32(float %412, float %.sroa.7373.0.copyload, float %477)
+  %479 = call float @llvm.fmuladd.f32(float %420, float %.sroa.9375.0.copyload, float %478)
+  %480 = call float @llvm.fmuladd.f32(float %424, float %.sroa.10376.0.copyload, float %479)
+  %481 = fmul float %416, %.sroa.12378.0.copyload
+  %482 = call float @llvm.fmuladd.f32(float %412, float %.sroa.11377.0.copyload, float %481)
+  %483 = call float @llvm.fmuladd.f32(float %420, float %.sroa.13379.0.copyload, float %482)
+  %484 = call float @llvm.fmuladd.f32(float %424, float %.sroa.14380.0.copyload, float %483)
+  %485 = fmul float %416, %.sroa.16382.0.copyload
+  %486 = call float @llvm.fmuladd.f32(float %412, float %.sroa.15381.0.copyload, float %485)
+  %487 = call float @llvm.fmuladd.f32(float %420, float %.sroa.17383.0.copyload, float %486)
+  %488 = call float @llvm.fmuladd.f32(float %424, float %.sroa.18384.0.copyload, float %487)
+  %489 = fmul float %432, %.sroa.4370.0.copyload
+  %490 = call float @llvm.fmuladd.f32(float %428, float %.sroa.0369.0.copyload, float %489)
+  %491 = call float @llvm.fmuladd.f32(float %436, float %.sroa.5371.0.copyload, float %490)
+  %492 = call float @llvm.fmuladd.f32(float %440, float %.sroa.6372.0.copyload, float %491)
+  %493 = fmul float %432, %.sroa.8374.0.copyload
+  %494 = call float @llvm.fmuladd.f32(float %428, float %.sroa.7373.0.copyload, float %493)
+  %495 = call float @llvm.fmuladd.f32(float %436, float %.sroa.9375.0.copyload, float %494)
+  %496 = call float @llvm.fmuladd.f32(float %440, float %.sroa.10376.0.copyload, float %495)
+  %497 = fmul float %432, %.sroa.12378.0.copyload
+  %498 = call float @llvm.fmuladd.f32(float %428, float %.sroa.11377.0.copyload, float %497)
+  %499 = call float @llvm.fmuladd.f32(float %436, float %.sroa.13379.0.copyload, float %498)
+  %500 = call float @llvm.fmuladd.f32(float %440, float %.sroa.14380.0.copyload, float %499)
+  %501 = fmul float %432, %.sroa.16382.0.copyload
+  %502 = call float @llvm.fmuladd.f32(float %428, float %.sroa.15381.0.copyload, float %501)
+  %503 = call float @llvm.fmuladd.f32(float %436, float %.sroa.17383.0.copyload, float %502)
+  %504 = call float @llvm.fmuladd.f32(float %440, float %.sroa.18384.0.copyload, float %503)
+  br label %505
 
-504:                                              ; preds = %369, %304
-  %storemerge423 = phi float [ %308, %304 ], [ %443, %369 ]
-  %storemerge422 = phi float [ %324, %304 ], [ %459, %369 ]
-  %storemerge421 = phi float [ %340, %304 ], [ %475, %369 ]
-  %storemerge420 = phi float [ %356, %304 ], [ %491, %369 ]
-  %storemerge419 = phi float [ %312, %304 ], [ %447, %369 ]
-  %storemerge418 = phi float [ %328, %304 ], [ %463, %369 ]
-  %storemerge417 = phi float [ %344, %304 ], [ %479, %369 ]
-  %storemerge416 = phi float [ %360, %304 ], [ %495, %369 ]
-  %storemerge415 = phi float [ %316, %304 ], [ %451, %369 ]
-  %storemerge414 = phi float [ %332, %304 ], [ %467, %369 ]
-  %storemerge413 = phi float [ %348, %304 ], [ %483, %369 ]
-  %storemerge412 = phi float [ %364, %304 ], [ %499, %369 ]
-  %storemerge411 = phi float [ %320, %304 ], [ %455, %369 ]
-  %storemerge410 = phi float [ %336, %304 ], [ %471, %369 ]
-  %storemerge = phi float [ %352, %304 ], [ %487, %369 ]
-  %storemerge385 = phi float [ %368, %304 ], [ %503, %369 ]
+505:                                              ; preds = %370, %305
+  %storemerge423 = phi float [ %309, %305 ], [ %444, %370 ]
+  %storemerge422 = phi float [ %325, %305 ], [ %460, %370 ]
+  %storemerge421 = phi float [ %341, %305 ], [ %476, %370 ]
+  %storemerge420 = phi float [ %357, %305 ], [ %492, %370 ]
+  %storemerge419 = phi float [ %313, %305 ], [ %448, %370 ]
+  %storemerge418 = phi float [ %329, %305 ], [ %464, %370 ]
+  %storemerge417 = phi float [ %345, %305 ], [ %480, %370 ]
+  %storemerge416 = phi float [ %361, %305 ], [ %496, %370 ]
+  %storemerge415 = phi float [ %317, %305 ], [ %452, %370 ]
+  %storemerge414 = phi float [ %333, %305 ], [ %468, %370 ]
+  %storemerge413 = phi float [ %349, %305 ], [ %484, %370 ]
+  %storemerge412 = phi float [ %365, %305 ], [ %500, %370 ]
+  %storemerge411 = phi float [ %321, %305 ], [ %456, %370 ]
+  %storemerge410 = phi float [ %337, %305 ], [ %472, %370 ]
+  %storemerge = phi float [ %353, %305 ], [ %488, %370 ]
+  %storemerge385 = phi float [ %369, %305 ], [ %504, %370 ]
   store float %storemerge423, ptr %13, align 8
-  store float %storemerge422, ptr %292, align 4
+  store float %storemerge422, ptr %293, align 4
   store float %storemerge421, ptr %.sroa.587.0..sroa_idx, align 8
   store float %storemerge420, ptr %.sroa.688.0..sroa_idx, align 4
   store float %storemerge419, ptr %.sroa.789.0..sroa_idx, align 8
-  store float %storemerge418, ptr %293, align 4
+  store float %storemerge418, ptr %294, align 4
   store float %storemerge417, ptr %.sroa.991.0..sroa_idx, align 8
   store float %storemerge416, ptr %.sroa.1092.0..sroa_idx, align 4
   store float %storemerge415, ptr %.sroa.1193.0..sroa_idx, align 8
   store float %storemerge414, ptr %.sroa.1294.0..sroa_idx, align 4
-  store float %storemerge413, ptr %294, align 8
+  store float %storemerge413, ptr %295, align 8
   store float %storemerge412, ptr %.sroa.1496.0..sroa_idx, align 4
   store float %storemerge411, ptr %.sroa.1597.0..sroa_idx, align 8
   store float %storemerge410, ptr %.sroa.1698.0..sroa_idx, align 4
   store float %storemerge, ptr %.sroa.1799.0..sroa_idx, align 8
-  store float %storemerge385, ptr %295, align 4
-  %505 = load i32, ptr %296, align 4
-  call void @rlSetUniformMatrix(i32 noundef %505, ptr noundef nonnull byval(%struct.Matrix) align 8 %13) #58
-  br i1 %.not69, label %507, label %506
+  store float %storemerge385, ptr %296, align 4
+  %506 = load i32, ptr %297, align 4
+  call void @rlSetUniformMatrix(i32 noundef %506, ptr noundef nonnull byval(%struct.Matrix) align 8 %13) #58
+  br i1 %.not69, label %508, label %507
 
-506:                                              ; preds = %504
-  call void @rlDrawVertexArrayElementsInstanced(i32 noundef 0, i32 noundef %299, ptr noundef null, i32 noundef %3) #58
-  br label %508
+507:                                              ; preds = %505
+  call void @rlDrawVertexArrayElementsInstanced(i32 noundef 0, i32 noundef %300, ptr noundef null, i32 noundef %3) #58
+  br label %509
 
-507:                                              ; preds = %504
-  call void @rlDrawVertexArrayInstanced(i32 noundef 0, i32 noundef %300, i32 noundef %3) #58
-  br label %508
+508:                                              ; preds = %505
+  call void @rlDrawVertexArrayInstanced(i32 noundef 0, i32 noundef %301, i32 noundef %3) #58
+  br label %509
 
-508:                                              ; preds = %507, %506
+509:                                              ; preds = %508, %507
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
-  %509 = and i1 %291, %303
-  br i1 %509, label %302, label %.preheader
+  %510 = and i1 %292, %304
+  br i1 %510, label %303, label %.preheader
 
-510:                                              ; preds = %520
+511:                                              ; preds = %521
   call void @rlDisableVertexArray() #58
   call void @rlDisableVertexBuffer() #58
   call void @rlDisableVertexBufferElement() #58
@@ -40614,34 +40614,34 @@ define void @DrawMeshInstanced(ptr noundef readonly byval(%struct.Mesh) align 8 
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void
 
-511:                                              ; preds = %.preheader, %520
-  %indvars.iv393 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next394, %520 ]
-  %512 = getelementptr inbounds nuw %struct.MaterialMap, ptr %301, i64 %indvars.iv393
-  %513 = load i32, ptr %512, align 4
-  %.not68 = icmp eq i32 %513, 0
-  br i1 %.not68, label %520, label %514
+512:                                              ; preds = %.preheader, %521
+  %indvars.iv393 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next394, %521 ]
+  %513 = getelementptr inbounds nuw %struct.MaterialMap, ptr %302, i64 %indvars.iv393
+  %514 = load i32, ptr %513, align 4
+  %.not68 = icmp eq i32 %514, 0
+  br i1 %.not68, label %521, label %515
 
-514:                                              ; preds = %511
-  %515 = trunc nuw nsw i64 %indvars.iv393 to i32
-  call void @rlActiveTextureSlot(i32 noundef %515) #58
-  %516 = and i32 %515, 14
-  %or.cond8 = icmp eq i32 %516, 8
-  %517 = icmp eq i64 %indvars.iv393, 7
-  %or.cond10 = or i1 %517, %or.cond8
-  br i1 %or.cond10, label %518, label %519
+515:                                              ; preds = %512
+  %516 = trunc nuw nsw i64 %indvars.iv393 to i32
+  call void @rlActiveTextureSlot(i32 noundef %516) #58
+  %517 = and i32 %516, 14
+  %or.cond8 = icmp eq i32 %517, 8
+  %518 = icmp eq i64 %indvars.iv393, 7
+  %or.cond10 = or i1 %518, %or.cond8
+  br i1 %or.cond10, label %519, label %520
 
-518:                                              ; preds = %514
+519:                                              ; preds = %515
   call void @rlDisableTextureCubemap() #58
-  br label %520
+  br label %521
 
-519:                                              ; preds = %514
+520:                                              ; preds = %515
   call void @rlDisableTexture() #58
-  br label %520
+  br label %521
 
-520:                                              ; preds = %511, %519, %518
+521:                                              ; preds = %512, %520, %519
   %indvars.iv.next394 = add nuw nsw i64 %indvars.iv393, 1
   %exitcond396.not = icmp eq i64 %indvars.iv.next394, 12
-  br i1 %exitcond396.not, label %510, label %511
+  br i1 %exitcond396.not, label %511, label %512
 }
 
 declare void @rlSetVertexAttributeDivisor(i32 noundef, i32 noundef) local_unnamed_addr #34

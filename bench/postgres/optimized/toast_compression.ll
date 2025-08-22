@@ -25,75 +25,73 @@ define dso_local ptr @pglz_compress_datum(ptr noundef %0) local_unnamed_addr #0 
   %2 = load i8, ptr %0, align 1
   %3 = zext i8 %2 to i32
   %4 = icmp eq i8 %2, 1
-  br i1 %4, label %5, label %14
+  br i1 %4, label %5, label %12
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %7 = load i8, ptr %6, align 1
-  %8 = icmp eq i8 %7, 1
-  %9 = and i8 %7, -2
-  %10 = icmp eq i8 %9, 2
-  %or.cond = or i1 %8, %10
-  %11 = icmp eq i8 %7, 18
-  %12 = select i1 %11, i32 16, i32 0
-  %13 = select i1 %or.cond, i32 8, i32 %12
-  br label %23
+  %8 = add i8 %7, -1
+  %or.cond = icmp ult i8 %8, 3
+  %9 = icmp eq i8 %7, 18
+  %10 = select i1 %9, i32 16, i32 0
+  %11 = select i1 %or.cond, i32 8, i32 %10
+  br label %21
 
-14:                                               ; preds = %1
-  %15 = and i32 %3, 1
-  %.not = icmp eq i32 %15, 0
-  br i1 %.not, label %19, label %16
+12:                                               ; preds = %1
+  %13 = and i32 %3, 1
+  %.not = icmp eq i32 %13, 0
+  br i1 %.not, label %17, label %14
 
-16:                                               ; preds = %14
-  %17 = lshr i32 %3, 1
-  %18 = add nsw i32 %17, -1
-  br label %23
+14:                                               ; preds = %12
+  %15 = lshr i32 %3, 1
+  %16 = add nsw i32 %15, -1
+  br label %21
 
-19:                                               ; preds = %14
-  %20 = load i32, ptr %0, align 4
-  %21 = lshr i32 %20, 2
-  %22 = add nsw i32 %21, -4
-  br label %23
+17:                                               ; preds = %12
+  %18 = load i32, ptr %0, align 4
+  %19 = lshr i32 %18, 2
+  %20 = add nsw i32 %19, -4
+  br label %21
 
-23:                                               ; preds = %16, %19, %5
-  %24 = phi i32 [ %13, %5 ], [ %18, %16 ], [ %22, %19 ]
-  %25 = load ptr, ptr @PGLZ_strategy_default, align 8
-  %26 = load i32, ptr %25, align 4
-  %27 = icmp slt i32 %24, %26
-  br i1 %27, label %45, label %28
+21:                                               ; preds = %14, %17, %5
+  %22 = phi i32 [ %11, %5 ], [ %16, %14 ], [ %20, %17 ]
+  %23 = load ptr, ptr @PGLZ_strategy_default, align 8
+  %24 = load i32, ptr %23, align 4
+  %25 = icmp slt i32 %22, %24
+  br i1 %25, label %43, label %26
 
-28:                                               ; preds = %23
-  %29 = getelementptr inbounds nuw i8, ptr %25, i64 4
-  %30 = load i32, ptr %29, align 4
-  %31 = icmp sgt i32 %24, %30
-  br i1 %31, label %45, label %32
+26:                                               ; preds = %21
+  %27 = getelementptr inbounds nuw i8, ptr %23, i64 4
+  %28 = load i32, ptr %27, align 4
+  %29 = icmp sgt i32 %22, %28
+  br i1 %29, label %43, label %30
 
-32:                                               ; preds = %28
-  %33 = sext i32 %24 to i64
-  %34 = add nsw i64 %33, 12
-  %35 = tail call ptr @palloc(i64 noundef %34) #7
-  %36 = load i8, ptr %0, align 1
-  %37 = and i8 %36, 1
-  %.not24 = icmp eq i8 %37, 0
+30:                                               ; preds = %26
+  %31 = sext i32 %22 to i64
+  %32 = add nsw i64 %31, 12
+  %33 = tail call ptr @palloc(i64 noundef %32) #7
+  %34 = load i8, ptr %0, align 1
+  %35 = and i8 %34, 1
+  %.not24 = icmp eq i8 %35, 0
   %.v = select i1 %.not24, i64 4, i64 1
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 %.v
-  %39 = getelementptr inbounds nuw i8, ptr %35, i64 8
-  %40 = tail call i32 @pglz_compress(ptr noundef nonnull %38, i32 noundef %24, ptr noundef nonnull %39, ptr noundef null) #7
-  %41 = icmp slt i32 %40, 0
-  br i1 %41, label %42, label %43
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 %.v
+  %37 = getelementptr inbounds nuw i8, ptr %33, i64 8
+  %38 = tail call i32 @pglz_compress(ptr noundef nonnull %36, i32 noundef %22, ptr noundef nonnull %37, ptr noundef null) #7
+  %39 = icmp slt i32 %38, 0
+  br i1 %39, label %40, label %41
 
-42:                                               ; preds = %32
-  tail call void @pfree(ptr noundef nonnull %35) #7
-  br label %45
+40:                                               ; preds = %30
+  tail call void @pfree(ptr noundef nonnull %33) #7
+  br label %43
 
-43:                                               ; preds = %32
-  %narrow = shl i32 %40, 2
-  %44 = add i32 %narrow, 34
-  store i32 %44, ptr %35, align 4
-  br label %45
+41:                                               ; preds = %30
+  %narrow = shl i32 %38, 2
+  %42 = add i32 %narrow, 34
+  store i32 %42, ptr %33, align 4
+  br label %43
 
-45:                                               ; preds = %23, %28, %43, %42
-  %.0 = phi ptr [ null, %42 ], [ %35, %43 ], [ null, %28 ], [ null, %23 ]
+43:                                               ; preds = %21, %26, %41, %40
+  %.0 = phi ptr [ null, %40 ], [ %33, %41 ], [ null, %26 ], [ null, %21 ]
   ret ptr %.0
 }
 

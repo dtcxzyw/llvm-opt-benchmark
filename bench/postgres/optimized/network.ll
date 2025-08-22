@@ -791,87 +791,83 @@ define dso_local i64 @inet_set_masklen(ptr noundef readonly captures(none) %0) #
 
 33:                                               ; preds = %18
   %34 = icmp eq i8 %19, 1
-  br i1 %34, label %35, label %43
+  br i1 %34, label %35, label %41
 
 35:                                               ; preds = %33
   %36 = load i8, ptr %22, align 1
-  %37 = icmp eq i8 %36, 1
-  %38 = and i8 %36, -2
-  %39 = icmp eq i8 %38, 2
-  %or.cond = or i1 %37, %39
-  %40 = icmp eq i8 %36, 18
-  %41 = select i1 %40, i64 18, i64 2
-  %42 = select i1 %or.cond, i64 10, i64 %41
-  br label %52
+  %37 = add i8 %36, -1
+  %or.cond = icmp ult i8 %37, 3
+  %38 = icmp eq i8 %36, 18
+  %39 = select i1 %38, i64 18, i64 2
+  %40 = select i1 %or.cond, i64 10, i64 %39
+  br label %50
 
-43:                                               ; preds = %33
-  br i1 %.not37, label %46, label %44
+41:                                               ; preds = %33
+  br i1 %.not37, label %44, label %42
 
-44:                                               ; preds = %43
-  %45 = lshr i32 %20, 1
-  br label %49
+42:                                               ; preds = %41
+  %43 = lshr i32 %20, 1
+  br label %47
 
-46:                                               ; preds = %43
-  %47 = load i32, ptr %5, align 4
-  %48 = lshr i32 %47, 2
-  br label %49
+44:                                               ; preds = %41
+  %45 = load i32, ptr %5, align 4
+  %46 = lshr i32 %45, 2
+  br label %47
 
-49:                                               ; preds = %46, %44
-  %50 = phi i32 [ %45, %44 ], [ %48, %46 ]
-  %51 = zext nneg i32 %50 to i64
-  br label %52
+47:                                               ; preds = %44, %42
+  %48 = phi i32 [ %43, %42 ], [ %46, %44 ]
+  %49 = zext nneg i32 %48 to i64
+  br label %50
 
-52:                                               ; preds = %49, %35
-  %53 = phi i64 [ %42, %35 ], [ %51, %49 ]
-  %54 = tail call ptr @palloc(i64 noundef %53) #14
-  %55 = load i8, ptr %5, align 1
-  %56 = zext i8 %55 to i32
-  %57 = icmp eq i8 %55, 1
-  br i1 %57, label %58, label %66
+50:                                               ; preds = %47, %35
+  %51 = phi i64 [ %40, %35 ], [ %49, %47 ]
+  %52 = tail call ptr @palloc(i64 noundef %51) #14
+  %53 = load i8, ptr %5, align 1
+  %54 = zext i8 %53 to i32
+  %55 = icmp eq i8 %53, 1
+  br i1 %55, label %56, label %62
 
-58:                                               ; preds = %52
-  %59 = load i8, ptr %22, align 1
-  %60 = icmp eq i8 %59, 1
-  %61 = and i8 %59, -2
-  %62 = icmp eq i8 %61, 2
-  %or.cond43 = or i1 %60, %62
-  %63 = icmp eq i8 %59, 18
-  %64 = select i1 %63, i64 18, i64 2
-  %65 = select i1 %or.cond43, i64 10, i64 %64
-  br label %76
+56:                                               ; preds = %50
+  %57 = load i8, ptr %22, align 1
+  %58 = add i8 %57, -1
+  %or.cond43 = icmp ult i8 %58, 3
+  %59 = icmp eq i8 %57, 18
+  %60 = select i1 %59, i64 18, i64 2
+  %61 = select i1 %or.cond43, i64 10, i64 %60
+  br label %72
 
-66:                                               ; preds = %52
-  %67 = and i32 %56, 1
-  %.not38 = icmp eq i32 %67, 0
-  br i1 %.not38, label %70, label %68
+62:                                               ; preds = %50
+  %63 = and i32 %54, 1
+  %.not38 = icmp eq i32 %63, 0
+  br i1 %.not38, label %66, label %64
 
-68:                                               ; preds = %66
-  %69 = lshr i32 %56, 1
-  br label %73
+64:                                               ; preds = %62
+  %65 = lshr i32 %54, 1
+  br label %69
 
-70:                                               ; preds = %66
-  %71 = load i32, ptr %5, align 4
-  %72 = lshr i32 %71, 2
-  br label %73
+66:                                               ; preds = %62
+  %67 = load i32, ptr %5, align 4
+  %68 = lshr i32 %67, 2
+  br label %69
 
-73:                                               ; preds = %70, %68
-  %74 = phi i32 [ %69, %68 ], [ %72, %70 ]
-  %75 = zext nneg i32 %74 to i64
-  br label %76
+69:                                               ; preds = %66, %64
+  %70 = phi i32 [ %65, %64 ], [ %68, %66 ]
+  %71 = zext nneg i32 %70 to i64
+  br label %72
 
-76:                                               ; preds = %73, %58
-  %77 = phi i64 [ %65, %58 ], [ %75, %73 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %54, ptr nonnull align 1 %5, i64 %77, i1 false)
-  %78 = trunc nuw i32 %.045 to i8
-  %79 = load i8, ptr %54, align 1
-  %80 = and i8 %79, 1
-  %.not39 = icmp eq i8 %80, 0
+72:                                               ; preds = %69, %56
+  %73 = phi i64 [ %61, %56 ], [ %71, %69 ]
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %52, ptr nonnull align 1 %5, i64 %73, i1 false)
+  %74 = trunc nuw i32 %.045 to i8
+  %75 = load i8, ptr %52, align 1
+  %76 = and i8 %75, 1
+  %.not39 = icmp eq i8 %76, 0
   %.v40 = select i1 %.not39, i64 4, i64 1
-  %81 = getelementptr inbounds nuw i8, ptr %54, i64 %.v40
-  %82 = getelementptr inbounds nuw i8, ptr %81, i64 1
-  store i8 %78, ptr %82, align 1
-  %83 = ptrtoint ptr %54 to i64
-  ret i64 %83
+  %77 = getelementptr inbounds nuw i8, ptr %52, i64 %.v40
+  %78 = getelementptr inbounds nuw i8, ptr %77, i64 1
+  store i8 %74, ptr %78, align 1
+  %79 = ptrtoint ptr %52 to i64
+  ret i64 %79
 }
 
 declare i32 @errcode(i32 noundef) local_unnamed_addr #2

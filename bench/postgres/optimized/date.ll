@@ -3018,307 +3018,305 @@ define dso_local i64 @extract_date(ptr noundef captures(none) %0) local_unnamed_
   %17 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %18 = select i1 %.not, ptr %17, ptr %16
   %19 = icmp eq i8 %13, 1
-  br i1 %19, label %20, label %28
+  br i1 %19, label %20, label %26
 
 20:                                               ; preds = %1
   %21 = load i8, ptr %16, align 1
-  %22 = icmp eq i8 %21, 1
-  %23 = and i8 %21, -2
-  %24 = icmp eq i8 %23, 2
-  %or.cond57 = or i1 %22, %24
-  %25 = icmp eq i8 %21, 18
-  %26 = select i1 %25, i32 16, i32 0
-  %27 = select i1 %or.cond57, i32 8, i32 %26
-  br label %36
+  %22 = add i8 %21, -1
+  %or.cond57 = icmp ult i8 %22, 3
+  %23 = icmp eq i8 %21, 18
+  %24 = select i1 %23, i32 16, i32 0
+  %25 = select i1 %or.cond57, i32 8, i32 %24
+  br label %34
 
-28:                                               ; preds = %1
-  br i1 %.not, label %32, label %29
+26:                                               ; preds = %1
+  br i1 %.not, label %30, label %27
 
-29:                                               ; preds = %28
-  %30 = lshr i32 %14, 1
-  %31 = add nsw i32 %30, -1
-  br label %36
+27:                                               ; preds = %26
+  %28 = lshr i32 %14, 1
+  %29 = add nsw i32 %28, -1
+  br label %34
 
-32:                                               ; preds = %28
-  %33 = load i32, ptr %9, align 4
-  %34 = lshr i32 %33, 2
-  %35 = add nsw i32 %34, -4
-  br label %36
+30:                                               ; preds = %26
+  %31 = load i32, ptr %9, align 4
+  %32 = lshr i32 %31, 2
+  %33 = add nsw i32 %32, -4
+  br label %34
 
-36:                                               ; preds = %29, %32, %20
-  %37 = phi i32 [ %27, %20 ], [ %31, %29 ], [ %35, %32 ]
-  %38 = tail call ptr @downcase_truncate_identifier(ptr noundef nonnull %18, i32 noundef %37, i1 noundef zeroext false) #16
-  %39 = call i32 @DecodeUnits(i32 noundef 0, ptr noundef %38, ptr noundef nonnull %2) #16
-  %40 = icmp eq i32 %39, 31
-  br i1 %40, label %41, label %43
+34:                                               ; preds = %27, %30, %20
+  %35 = phi i32 [ %25, %20 ], [ %29, %27 ], [ %33, %30 ]
+  %36 = tail call ptr @downcase_truncate_identifier(ptr noundef nonnull %18, i32 noundef %35, i1 noundef zeroext false) #16
+  %37 = call i32 @DecodeUnits(i32 noundef 0, ptr noundef %36, ptr noundef nonnull %2) #16
+  %38 = icmp eq i32 %37, 31
+  br i1 %38, label %39, label %41
 
-41:                                               ; preds = %36
-  %42 = call i32 @DecodeSpecial(i32 noundef 0, ptr noundef %38, ptr noundef nonnull %2) #16
-  br label %43
+39:                                               ; preds = %34
+  %40 = call i32 @DecodeSpecial(i32 noundef 0, ptr noundef %36, ptr noundef nonnull %2) #16
+  br label %41
 
-43:                                               ; preds = %41, %36
-  %.040 = phi i32 [ %42, %41 ], [ %39, %36 ]
-  %44 = icmp eq i32 %12, -2147483648
-  %45 = add i32 %12, -2147483647
-  %or.cond = icmp ult i32 %45, 2
-  br i1 %or.cond, label %46, label %67
+41:                                               ; preds = %39, %34
+  %.040 = phi i32 [ %40, %39 ], [ %37, %34 ]
+  %42 = icmp eq i32 %12, -2147483648
+  %43 = add i32 %12, -2147483647
+  %or.cond = icmp ult i32 %43, 2
+  br i1 %or.cond, label %44, label %65
 
-46:                                               ; preds = %43
-  switch i32 %.040, label %168 [
-    i32 17, label %47
-    i32 0, label %47
+44:                                               ; preds = %41
+  switch i32 %.040, label %166 [
+    i32 17, label %45
+    i32 0, label %45
   ]
 
-47:                                               ; preds = %46, %46
-  %48 = load i32, ptr %2, align 4
-  switch i32 %48, label %62 [
-    i32 21, label %49
-    i32 23, label %49
-    i32 24, label %49
-    i32 22, label %49
-    i32 32, label %49
-    i32 37, label %49
-    i32 33, label %49
-    i32 25, label %51
-    i32 26, label %51
-    i32 27, label %51
-    i32 28, label %51
-    i32 31, label %51
-    i32 36, label %51
-    i32 11, label %51
+45:                                               ; preds = %44, %44
+  %46 = load i32, ptr %2, align 4
+  switch i32 %46, label %60 [
+    i32 21, label %47
+    i32 23, label %47
+    i32 24, label %47
+    i32 22, label %47
+    i32 32, label %47
+    i32 37, label %47
+    i32 33, label %47
+    i32 25, label %49
+    i32 26, label %49
+    i32 27, label %49
+    i32 28, label %49
+    i32 31, label %49
+    i32 36, label %49
+    i32 11, label %49
   ]
 
-49:                                               ; preds = %47, %47, %47, %47, %47, %47, %47
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  store i8 1, ptr %50, align 4
-  br label %176
+47:                                               ; preds = %45, %45, %45, %45, %45, %45, %45
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  store i8 1, ptr %48, align 4
+  br label %174
 
-51:                                               ; preds = %47, %47, %47, %47, %47, %47, %47
-  br i1 %44, label %52, label %57
+49:                                               ; preds = %45, %45, %45, %45, %45, %45, %45
+  br i1 %42, label %50, label %55
 
-52:                                               ; preds = %51
-  %53 = call i64 @DirectFunctionCall3Coll(ptr noundef nonnull @numeric_in, i32 noundef 0, i64 noundef ptrtoint (ptr @.str.15 to i64), i64 noundef 0, i64 noundef -1) #16
-  %54 = inttoptr i64 %53 to ptr
-  %55 = call ptr @pg_detoast_datum(ptr noundef %54) #16
-  %56 = ptrtoint ptr %55 to i64
-  br label %176
+50:                                               ; preds = %49
+  %51 = call i64 @DirectFunctionCall3Coll(ptr noundef nonnull @numeric_in, i32 noundef 0, i64 noundef ptrtoint (ptr @.str.15 to i64), i64 noundef 0, i64 noundef -1) #16
+  %52 = inttoptr i64 %51 to ptr
+  %53 = call ptr @pg_detoast_datum(ptr noundef %52) #16
+  %54 = ptrtoint ptr %53 to i64
+  br label %174
 
-57:                                               ; preds = %51
-  %58 = call i64 @DirectFunctionCall3Coll(ptr noundef nonnull @numeric_in, i32 noundef 0, i64 noundef ptrtoint (ptr @.str.16 to i64), i64 noundef 0, i64 noundef -1) #16
-  %59 = inttoptr i64 %58 to ptr
-  %60 = call ptr @pg_detoast_datum(ptr noundef %59) #16
-  %61 = ptrtoint ptr %60 to i64
-  br label %176
+55:                                               ; preds = %49
+  %56 = call i64 @DirectFunctionCall3Coll(ptr noundef nonnull @numeric_in, i32 noundef 0, i64 noundef ptrtoint (ptr @.str.16 to i64), i64 noundef 0, i64 noundef -1) #16
+  %57 = inttoptr i64 %56 to ptr
+  %58 = call ptr @pg_detoast_datum(ptr noundef %57) #16
+  %59 = ptrtoint ptr %58 to i64
+  br label %174
 
-62:                                               ; preds = %47
-  %63 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
-  call void @llvm.assume(i1 %63)
-  %64 = call i32 @errcode(i32 noundef 1088) #16
-  %65 = call ptr @format_type_be(i32 noundef 1082) #16
-  %66 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.17, ptr noundef %38, ptr noundef %65) #16
+60:                                               ; preds = %45
+  %61 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
+  call void @llvm.assume(i1 %61)
+  %62 = call i32 @errcode(i32 noundef 1088) #16
+  %63 = call ptr @format_type_be(i32 noundef 1082) #16
+  %64 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.17, ptr noundef %36, ptr noundef %63) #16
   call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 1142, ptr noundef nonnull @__func__.extract_date) #16
   unreachable
 
-67:                                               ; preds = %43
-  switch i32 %.040, label %168 [
-    i32 17, label %68
-    i32 0, label %157
+65:                                               ; preds = %41
+  switch i32 %.040, label %166 [
+    i32 17, label %66
+    i32 0, label %155
   ]
 
-68:                                               ; preds = %67
-  %69 = add i32 %12, 2451545
-  call void @j2date(i32 noundef %69, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5) #16
-  %70 = load i32, ptr %2, align 4
-  switch i32 %70, label %152 [
-    i32 21, label %71
-    i32 23, label %74
-    i32 24, label %77
-    i32 22, label %83
-    i32 25, label %89
-    i32 26, label %97
-    i32 27, label %106
-    i32 28, label %116
-    i32 31, label %126
-    i32 36, label %128
-    i32 32, label %136
-    i32 37, label %136
-    i32 33, label %142
+66:                                               ; preds = %65
+  %67 = add i32 %12, 2451545
+  call void @j2date(i32 noundef %67, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5) #16
+  %68 = load i32, ptr %2, align 4
+  switch i32 %68, label %150 [
+    i32 21, label %69
+    i32 23, label %72
+    i32 24, label %75
+    i32 22, label %81
+    i32 25, label %87
+    i32 26, label %95
+    i32 27, label %104
+    i32 28, label %114
+    i32 31, label %124
+    i32 36, label %126
+    i32 32, label %134
+    i32 37, label %134
+    i32 33, label %140
   ]
 
-71:                                               ; preds = %68
-  %72 = load i32, ptr %5, align 4
-  %73 = sext i32 %72 to i64
-  br label %173
+69:                                               ; preds = %66
+  %70 = load i32, ptr %5, align 4
+  %71 = sext i32 %70 to i64
+  br label %171
 
-74:                                               ; preds = %68
-  %75 = load i32, ptr %4, align 4
-  %76 = sext i32 %75 to i64
-  br label %173
+72:                                               ; preds = %66
+  %73 = load i32, ptr %4, align 4
+  %74 = sext i32 %73 to i64
+  br label %171
 
-77:                                               ; preds = %68
-  %78 = load i32, ptr %4, align 4
-  %79 = add i32 %78, -1
-  %80 = sdiv i32 %79, 3
-  %81 = add nsw i32 %80, 1
-  %82 = sext i32 %81 to i64
-  br label %173
+75:                                               ; preds = %66
+  %76 = load i32, ptr %4, align 4
+  %77 = add i32 %76, -1
+  %78 = sdiv i32 %77, 3
+  %79 = add nsw i32 %78, 1
+  %80 = sext i32 %79 to i64
+  br label %171
 
-83:                                               ; preds = %68
-  %84 = load i32, ptr %3, align 4
-  %85 = load i32, ptr %4, align 4
-  %86 = load i32, ptr %5, align 4
-  %87 = call i32 @date2isoweek(i32 noundef %84, i32 noundef %85, i32 noundef %86) #16
-  %88 = sext i32 %87 to i64
-  br label %173
+81:                                               ; preds = %66
+  %82 = load i32, ptr %3, align 4
+  %83 = load i32, ptr %4, align 4
+  %84 = load i32, ptr %5, align 4
+  %85 = call i32 @date2isoweek(i32 noundef %82, i32 noundef %83, i32 noundef %84) #16
+  %86 = sext i32 %85 to i64
+  br label %171
 
-89:                                               ; preds = %68
-  %90 = load i32, ptr %3, align 4
-  %91 = icmp sgt i32 %90, 0
-  br i1 %91, label %92, label %94
+87:                                               ; preds = %66
+  %88 = load i32, ptr %3, align 4
+  %89 = icmp sgt i32 %88, 0
+  br i1 %89, label %90, label %92
 
-92:                                               ; preds = %89
-  %93 = zext nneg i32 %90 to i64
-  br label %173
+90:                                               ; preds = %87
+  %91 = zext nneg i32 %88 to i64
+  br label %171
 
-94:                                               ; preds = %89
-  %95 = add i32 %90, -1
-  %96 = sext i32 %95 to i64
-  br label %173
+92:                                               ; preds = %87
+  %93 = add i32 %88, -1
+  %94 = sext i32 %93 to i64
+  br label %171
 
-97:                                               ; preds = %68
-  %98 = load i32, ptr %3, align 4
-  %99 = icmp sgt i32 %98, -1
-  br i1 %99, label %100, label %103
+95:                                               ; preds = %66
+  %96 = load i32, ptr %3, align 4
+  %97 = icmp sgt i32 %96, -1
+  br i1 %97, label %98, label %101
 
-100:                                              ; preds = %97
-  %101 = udiv i32 %98, 10
-  %102 = zext nneg i32 %101 to i64
-  br label %173
+98:                                               ; preds = %95
+  %99 = udiv i32 %96, 10
+  %100 = zext nneg i32 %99 to i64
+  br label %171
 
-103:                                              ; preds = %97
-  %104 = sub i32 9, %98
-  %.neg55 = sdiv i32 %104, -10
-  %105 = sext i32 %.neg55 to i64
-  br label %173
+101:                                              ; preds = %95
+  %102 = sub i32 9, %96
+  %.neg55 = sdiv i32 %102, -10
+  %103 = sext i32 %.neg55 to i64
+  br label %171
 
-106:                                              ; preds = %68
-  %107 = load i32, ptr %3, align 4
-  %108 = icmp sgt i32 %107, 0
-  br i1 %108, label %109, label %113
+104:                                              ; preds = %66
+  %105 = load i32, ptr %3, align 4
+  %106 = icmp sgt i32 %105, 0
+  br i1 %106, label %107, label %111
 
-109:                                              ; preds = %106
-  %110 = add nuw i32 %107, 99
-  %111 = sdiv i32 %110, 100
-  %112 = sext i32 %111 to i64
-  br label %173
+107:                                              ; preds = %104
+  %108 = add nuw i32 %105, 99
+  %109 = sdiv i32 %108, 100
+  %110 = sext i32 %109 to i64
+  br label %171
 
-113:                                              ; preds = %106
-  %114 = sub i32 100, %107
-  %.neg54 = sdiv i32 %114, -100
-  %115 = sext i32 %.neg54 to i64
-  br label %173
+111:                                              ; preds = %104
+  %112 = sub i32 100, %105
+  %.neg54 = sdiv i32 %112, -100
+  %113 = sext i32 %.neg54 to i64
+  br label %171
 
-116:                                              ; preds = %68
-  %117 = load i32, ptr %3, align 4
-  %118 = icmp sgt i32 %117, 0
-  br i1 %118, label %119, label %123
+114:                                              ; preds = %66
+  %115 = load i32, ptr %3, align 4
+  %116 = icmp sgt i32 %115, 0
+  br i1 %116, label %117, label %121
 
-119:                                              ; preds = %116
-  %120 = add nuw i32 %117, 999
-  %121 = sdiv i32 %120, 1000
-  %122 = sext i32 %121 to i64
-  br label %173
+117:                                              ; preds = %114
+  %118 = add nuw i32 %115, 999
+  %119 = sdiv i32 %118, 1000
+  %120 = sext i32 %119 to i64
+  br label %171
 
-123:                                              ; preds = %116
-  %124 = sub i32 1000, %117
-  %.neg = sdiv i32 %124, -1000
-  %125 = sext i32 %.neg to i64
-  br label %173
+121:                                              ; preds = %114
+  %122 = sub i32 1000, %115
+  %.neg = sdiv i32 %122, -1000
+  %123 = sext i32 %.neg to i64
+  br label %171
 
-126:                                              ; preds = %68
-  %127 = sext i32 %69 to i64
-  br label %173
+124:                                              ; preds = %66
+  %125 = sext i32 %67 to i64
+  br label %171
 
-128:                                              ; preds = %68
-  %129 = load i32, ptr %3, align 4
-  %130 = load i32, ptr %4, align 4
-  %131 = load i32, ptr %5, align 4
-  %132 = call i32 @date2isoyear(i32 noundef %129, i32 noundef %130, i32 noundef %131) #16
-  %133 = sext i32 %132 to i64
-  %134 = icmp slt i32 %132, 1
-  %135 = sext i1 %134 to i64
-  %spec.select = add nsw i64 %135, %133
-  br label %173
+126:                                              ; preds = %66
+  %127 = load i32, ptr %3, align 4
+  %128 = load i32, ptr %4, align 4
+  %129 = load i32, ptr %5, align 4
+  %130 = call i32 @date2isoyear(i32 noundef %127, i32 noundef %128, i32 noundef %129) #16
+  %131 = sext i32 %130 to i64
+  %132 = icmp slt i32 %130, 1
+  %133 = sext i1 %132 to i64
+  %spec.select = add nsw i64 %133, %131
+  br label %171
 
-136:                                              ; preds = %68, %68
-  %137 = call i32 @j2day(i32 noundef %69) #16
-  %138 = sext i32 %137 to i64
-  %139 = load i32, ptr %2, align 4
-  %140 = icmp eq i32 %139, 37
-  %141 = icmp eq i32 %137, 0
-  %or.cond5 = select i1 %140, i1 %141, i1 false
-  %spec.store.select = select i1 %or.cond5, i64 7, i64 %138
-  br label %173
+134:                                              ; preds = %66, %66
+  %135 = call i32 @j2day(i32 noundef %67) #16
+  %136 = sext i32 %135 to i64
+  %137 = load i32, ptr %2, align 4
+  %138 = icmp eq i32 %137, 37
+  %139 = icmp eq i32 %135, 0
+  %or.cond5 = select i1 %138, i1 %139, i1 false
+  %spec.store.select = select i1 %or.cond5, i64 7, i64 %136
+  br label %171
 
-142:                                              ; preds = %68
-  %143 = load i32, ptr %3, align 4
-  %144 = load i32, ptr %4, align 4
-  %145 = load i32, ptr %5, align 4
-  %146 = call i32 @date2j(i32 noundef %143, i32 noundef %144, i32 noundef %145) #16
-  %147 = load i32, ptr %3, align 4
-  %148 = call i32 @date2j(i32 noundef %147, i32 noundef 1, i32 noundef 1) #16
-  %149 = add i32 %146, 1
-  %150 = sub i32 %149, %148
-  %151 = sext i32 %150 to i64
-  br label %173
+140:                                              ; preds = %66
+  %141 = load i32, ptr %3, align 4
+  %142 = load i32, ptr %4, align 4
+  %143 = load i32, ptr %5, align 4
+  %144 = call i32 @date2j(i32 noundef %141, i32 noundef %142, i32 noundef %143) #16
+  %145 = load i32, ptr %3, align 4
+  %146 = call i32 @date2j(i32 noundef %145, i32 noundef 1, i32 noundef 1) #16
+  %147 = add i32 %144, 1
+  %148 = sub i32 %147, %146
+  %149 = sext i32 %148 to i64
+  br label %171
 
-152:                                              ; preds = %68
-  %153 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
-  call void @llvm.assume(i1 %153)
-  %154 = call i32 @errcode(i32 noundef 1088) #16
-  %155 = call ptr @format_type_be(i32 noundef 1082) #16
-  %156 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.17, ptr noundef %38, ptr noundef %155) #16
+150:                                              ; preds = %66
+  %151 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
+  call void @llvm.assume(i1 %151)
+  %152 = call i32 @errcode(i32 noundef 1088) #16
+  %153 = call ptr @format_type_be(i32 noundef 1082) #16
+  %154 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.17, ptr noundef %36, ptr noundef %153) #16
   call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 1225, ptr noundef nonnull @__func__.extract_date) #16
   unreachable
 
-157:                                              ; preds = %67
-  %158 = load i32, ptr %2, align 4
-  %cond = icmp eq i32 %158, 11
-  br i1 %cond, label %159, label %163
+155:                                              ; preds = %65
+  %156 = load i32, ptr %2, align 4
+  %cond = icmp eq i32 %156, 11
+  br i1 %cond, label %157, label %161
 
-159:                                              ; preds = %157
+157:                                              ; preds = %155
   %sext = shl i64 %11, 32
-  %160 = ashr exact i64 %sext, 32
-  %161 = mul nsw i64 %160, 86400
-  %162 = add nsw i64 %161, 946684800
-  br label %173
+  %158 = ashr exact i64 %sext, 32
+  %159 = mul nsw i64 %158, 86400
+  %160 = add nsw i64 %159, 946684800
+  br label %171
 
-163:                                              ; preds = %157
-  %164 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
-  call void @llvm.assume(i1 %164)
-  %165 = call i32 @errcode(i32 noundef 1088) #16
-  %166 = call ptr @format_type_be(i32 noundef 1082) #16
-  %167 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.17, ptr noundef %38, ptr noundef %166) #16
+161:                                              ; preds = %155
+  %162 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
+  call void @llvm.assume(i1 %162)
+  %163 = call i32 @errcode(i32 noundef 1088) #16
+  %164 = call ptr @format_type_be(i32 noundef 1082) #16
+  %165 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.17, ptr noundef %36, ptr noundef %164) #16
   call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 1241, ptr noundef nonnull @__func__.extract_date) #16
   unreachable
 
-168:                                              ; preds = %46, %67
-  %169 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
-  call void @llvm.assume(i1 %169)
-  %170 = call i32 @errcode(i32 noundef 50856066) #16
-  %171 = call ptr @format_type_be(i32 noundef 1082) #16
-  %172 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.18, ptr noundef %38, ptr noundef %171) #16
+166:                                              ; preds = %44, %65
+  %167 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
+  call void @llvm.assume(i1 %167)
+  %168 = call i32 @errcode(i32 noundef 50856066) #16
+  %169 = call ptr @format_type_be(i32 noundef 1082) #16
+  %170 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.18, ptr noundef %36, ptr noundef %169) #16
   call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 1250, ptr noundef nonnull @__func__.extract_date) #16
   unreachable
 
-173:                                              ; preds = %128, %136, %159, %119, %123, %109, %113, %100, %103, %92, %94, %142, %126, %83, %77, %74, %71
-  %.041 = phi i64 [ %73, %71 ], [ %76, %74 ], [ %82, %77 ], [ %88, %83 ], [ %93, %92 ], [ %96, %94 ], [ %102, %100 ], [ %105, %103 ], [ %112, %109 ], [ %115, %113 ], [ %122, %119 ], [ %125, %123 ], [ %127, %126 ], [ %spec.store.select, %136 ], [ %151, %142 ], [ %162, %159 ], [ %spec.select, %128 ]
-  %174 = call ptr @int64_to_numeric(i64 noundef %.041) #16
-  %175 = ptrtoint ptr %174 to i64
-  br label %176
+171:                                              ; preds = %126, %134, %157, %117, %121, %107, %111, %98, %101, %90, %92, %140, %124, %81, %75, %72, %69
+  %.041 = phi i64 [ %71, %69 ], [ %74, %72 ], [ %80, %75 ], [ %86, %81 ], [ %91, %90 ], [ %94, %92 ], [ %100, %98 ], [ %103, %101 ], [ %110, %107 ], [ %113, %111 ], [ %120, %117 ], [ %123, %121 ], [ %125, %124 ], [ %spec.store.select, %134 ], [ %149, %140 ], [ %160, %157 ], [ %spec.select, %126 ]
+  %172 = call ptr @int64_to_numeric(i64 noundef %.041) #16
+  %173 = ptrtoint ptr %172 to i64
+  br label %174
 
-176:                                              ; preds = %173, %57, %52, %49
-  %.0 = phi i64 [ 0, %49 ], [ %56, %52 ], [ %61, %57 ], [ %175, %173 ]
+174:                                              ; preds = %171, %55, %50, %47
+  %.0 = phi i64 [ 0, %47 ], [ %54, %50 ], [ %59, %55 ], [ %173, %171 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -4694,185 +4692,183 @@ define internal fastcc i64 @time_part_common(ptr noundef readonly captures(none)
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %15 = select i1 %.not, ptr %14, ptr %13
   %16 = icmp eq i8 %10, 1
-  br i1 %16, label %17, label %25
+  br i1 %16, label %17, label %23
 
 17:                                               ; preds = %2
   %18 = load i8, ptr %13, align 1
-  %19 = icmp eq i8 %18, 1
-  %20 = and i8 %18, -2
-  %21 = icmp eq i8 %20, 2
-  %or.cond46 = or i1 %19, %21
-  %22 = icmp eq i8 %18, 18
-  %23 = select i1 %22, i32 16, i32 0
-  %24 = select i1 %or.cond46, i32 8, i32 %23
-  br label %33
+  %19 = add i8 %18, -1
+  %or.cond46 = icmp ult i8 %19, 3
+  %20 = icmp eq i8 %18, 18
+  %21 = select i1 %20, i32 16, i32 0
+  %22 = select i1 %or.cond46, i32 8, i32 %21
+  br label %31
 
-25:                                               ; preds = %2
-  br i1 %.not, label %29, label %26
+23:                                               ; preds = %2
+  br i1 %.not, label %27, label %24
 
-26:                                               ; preds = %25
-  %27 = lshr i32 %11, 1
-  %28 = add nsw i32 %27, -1
-  br label %33
+24:                                               ; preds = %23
+  %25 = lshr i32 %11, 1
+  %26 = add nsw i32 %25, -1
+  br label %31
 
-29:                                               ; preds = %25
-  %30 = load i32, ptr %7, align 4
-  %31 = lshr i32 %30, 2
-  %32 = add nsw i32 %31, -4
-  br label %33
+27:                                               ; preds = %23
+  %28 = load i32, ptr %7, align 4
+  %29 = lshr i32 %28, 2
+  %30 = add nsw i32 %29, -4
+  br label %31
 
-33:                                               ; preds = %26, %29, %17
-  %34 = phi i32 [ %24, %17 ], [ %28, %26 ], [ %32, %29 ]
-  %35 = tail call ptr @downcase_truncate_identifier(ptr noundef nonnull %15, i32 noundef %34, i1 noundef zeroext false) #16
-  %36 = call i32 @DecodeUnits(i32 noundef 0, ptr noundef %35, ptr noundef nonnull %3) #16
-  %37 = icmp eq i32 %36, 31
-  br i1 %37, label %38, label %40
+31:                                               ; preds = %24, %27, %17
+  %32 = phi i32 [ %22, %17 ], [ %26, %24 ], [ %30, %27 ]
+  %33 = tail call ptr @downcase_truncate_identifier(ptr noundef nonnull %15, i32 noundef %32, i1 noundef zeroext false) #16
+  %34 = call i32 @DecodeUnits(i32 noundef 0, ptr noundef %33, ptr noundef nonnull %3) #16
+  %35 = icmp eq i32 %34, 31
+  br i1 %35, label %36, label %38
 
-38:                                               ; preds = %33
-  %39 = call i32 @DecodeSpecial(i32 noundef 0, ptr noundef %35, ptr noundef nonnull %3) #16
-  br label %40
+36:                                               ; preds = %31
+  %37 = call i32 @DecodeSpecial(i32 noundef 0, ptr noundef %33, ptr noundef nonnull %3) #16
+  br label %38
 
-40:                                               ; preds = %38, %33
-  %.041 = phi i32 [ %39, %38 ], [ %36, %33 ]
-  %41 = icmp eq i32 %.041, 17
-  br i1 %41, label %42, label %93
+38:                                               ; preds = %36, %31
+  %.041 = phi i32 [ %37, %36 ], [ %34, %31 ]
+  %39 = icmp eq i32 %.041, 17
+  br i1 %39, label %40, label %91
 
-42:                                               ; preds = %40
-  %43 = sdiv i64 %9, 3600000000
-  %sext.i = shl i64 %43, 32
-  %44 = ashr exact i64 %sext.i, 32
-  %.neg.i = mul nsw i64 %44, -3600000000
-  %45 = add i64 %.neg.i, %9
-  %46 = sdiv i64 %45, 60000000
-  %sext13.i = shl i64 %46, 32
-  %47 = ashr exact i64 %sext13.i, 32
-  %.neg14.i = mul nsw i64 %47, -60000000
-  %48 = add i64 %.neg14.i, %45
-  %49 = sdiv i64 %48, 1000000
+40:                                               ; preds = %38
+  %41 = sdiv i64 %9, 3600000000
+  %sext.i = shl i64 %41, 32
+  %42 = ashr exact i64 %sext.i, 32
+  %.neg.i = mul nsw i64 %42, -3600000000
+  %43 = add i64 %.neg.i, %9
+  %44 = sdiv i64 %43, 60000000
+  %sext13.i = shl i64 %44, 32
+  %45 = ashr exact i64 %sext13.i, 32
+  %.neg14.i = mul nsw i64 %45, -60000000
+  %46 = add i64 %.neg14.i, %43
+  %47 = sdiv i64 %46, 1000000
+  %48 = trunc i64 %47 to i32
+  %.neg16.i = mul i64 %47, 4293967296
+  %49 = add i64 %.neg16.i, %46
   %50 = trunc i64 %49 to i32
-  %.neg16.i = mul i64 %49, 4293967296
-  %51 = add i64 %.neg16.i, %48
-  %52 = trunc i64 %51 to i32
-  %53 = load i32, ptr %3, align 4
-  switch i32 %53, label %88 [
-    i32 30, label %54
-    i32 29, label %59
-    i32 18, label %73
-    i32 19, label %110
-    i32 20, label %87
+  %51 = load i32, ptr %3, align 4
+  switch i32 %51, label %86 [
+    i32 30, label %52
+    i32 29, label %57
+    i32 18, label %71
+    i32 19, label %108
+    i32 20, label %85
   ]
 
-54:                                               ; preds = %42
-  %sext63 = shl i64 %49, 32
-  %55 = ashr exact i64 %sext63, 32
-  %56 = mul nsw i64 %55, 1000000
-  %sext64 = shl i64 %51, 32
-  %57 = ashr exact i64 %sext64, 32
-  %58 = add nsw i64 %57, %56
-  br label %110
+52:                                               ; preds = %40
+  %sext63 = shl i64 %47, 32
+  %53 = ashr exact i64 %sext63, 32
+  %54 = mul nsw i64 %53, 1000000
+  %sext64 = shl i64 %49, 32
+  %55 = ashr exact i64 %sext64, 32
+  %56 = add nsw i64 %55, %54
+  br label %108
 
-59:                                               ; preds = %42
-  br i1 %1, label %60, label %67
+57:                                               ; preds = %40
+  br i1 %1, label %58, label %65
 
-60:                                               ; preds = %59
-  %sext61 = shl i64 %49, 32
-  %61 = ashr exact i64 %sext61, 32
-  %62 = mul nsw i64 %61, 1000000
-  %sext62 = shl i64 %51, 32
-  %63 = ashr exact i64 %sext62, 32
-  %64 = add nsw i64 %63, %62
-  %65 = call ptr @int64_div_fast_to_numeric(i64 noundef %64, i32 noundef 3) #16
-  %66 = ptrtoint ptr %65 to i64
+58:                                               ; preds = %57
+  %sext61 = shl i64 %47, 32
+  %59 = ashr exact i64 %sext61, 32
+  %60 = mul nsw i64 %59, 1000000
+  %sext62 = shl i64 %49, 32
+  %61 = ashr exact i64 %sext62, 32
+  %62 = add nsw i64 %61, %60
+  %63 = call ptr @int64_div_fast_to_numeric(i64 noundef %62, i32 noundef 3) #16
+  %64 = ptrtoint ptr %63 to i64
   br label %.thread
 
-67:                                               ; preds = %59
-  %68 = sitofp i32 %50 to double
-  %69 = sitofp i32 %52 to double
-  %70 = fdiv double %69, 1.000000e+03
-  %71 = call double @llvm.fmuladd.f64(double %68, double 1.000000e+03, double %70)
-  %72 = bitcast double %71 to i64
+65:                                               ; preds = %57
+  %66 = sitofp i32 %48 to double
+  %67 = sitofp i32 %50 to double
+  %68 = fdiv double %67, 1.000000e+03
+  %69 = call double @llvm.fmuladd.f64(double %66, double 1.000000e+03, double %68)
+  %70 = bitcast double %69 to i64
   br label %.thread
 
-73:                                               ; preds = %42
-  br i1 %1, label %74, label %81
+71:                                               ; preds = %40
+  br i1 %1, label %72, label %79
 
-74:                                               ; preds = %73
-  %sext59 = shl i64 %49, 32
-  %75 = ashr exact i64 %sext59, 32
-  %76 = mul nsw i64 %75, 1000000
-  %sext60 = shl i64 %51, 32
-  %77 = ashr exact i64 %sext60, 32
-  %78 = add nsw i64 %77, %76
-  %79 = call ptr @int64_div_fast_to_numeric(i64 noundef %78, i32 noundef 6) #16
-  %80 = ptrtoint ptr %79 to i64
+72:                                               ; preds = %71
+  %sext59 = shl i64 %47, 32
+  %73 = ashr exact i64 %sext59, 32
+  %74 = mul nsw i64 %73, 1000000
+  %sext60 = shl i64 %49, 32
+  %75 = ashr exact i64 %sext60, 32
+  %76 = add nsw i64 %75, %74
+  %77 = call ptr @int64_div_fast_to_numeric(i64 noundef %76, i32 noundef 6) #16
+  %78 = ptrtoint ptr %77 to i64
   br label %.thread
 
-81:                                               ; preds = %73
-  %82 = sitofp i32 %50 to double
-  %83 = sitofp i32 %52 to double
-  %84 = fdiv double %83, 1.000000e+06
-  %85 = fadd double %84, %82
-  %86 = bitcast double %85 to i64
+79:                                               ; preds = %71
+  %80 = sitofp i32 %48 to double
+  %81 = sitofp i32 %50 to double
+  %82 = fdiv double %81, 1.000000e+06
+  %83 = fadd double %82, %80
+  %84 = bitcast double %83 to i64
   br label %.thread
 
-87:                                               ; preds = %42
-  br label %110
+85:                                               ; preds = %40
+  br label %108
 
-88:                                               ; preds = %42
-  %89 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
-  call void @llvm.assume(i1 %89)
-  %90 = call i32 @errcode(i32 noundef 1088) #16
-  %91 = call ptr @format_type_be(i32 noundef 1083) #16
-  %92 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.17, ptr noundef %35, ptr noundef %91) #16
+86:                                               ; preds = %40
+  %87 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
+  call void @llvm.assume(i1 %87)
+  %88 = call i32 @errcode(i32 noundef 1088) #16
+  %89 = call ptr @format_type_be(i32 noundef 1083) #16
+  %90 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.17, ptr noundef %33, ptr noundef %89) #16
   call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 2235, ptr noundef nonnull @__func__.time_part_common) #16
   unreachable
 
-93:                                               ; preds = %40
-  %94 = icmp eq i32 %.041, 0
-  %95 = load i32, ptr %3, align 4
-  %96 = icmp eq i32 %95, 11
-  %or.cond = select i1 %94, i1 %96, i1 false
-  br i1 %or.cond, label %97, label %105
+91:                                               ; preds = %38
+  %92 = icmp eq i32 %.041, 0
+  %93 = load i32, ptr %3, align 4
+  %94 = icmp eq i32 %93, 11
+  %or.cond = select i1 %92, i1 %94, i1 false
+  br i1 %or.cond, label %95, label %103
 
-97:                                               ; preds = %93
-  br i1 %1, label %98, label %101
+95:                                               ; preds = %91
+  br i1 %1, label %96, label %99
 
-98:                                               ; preds = %97
-  %99 = call ptr @int64_div_fast_to_numeric(i64 noundef %9, i32 noundef 6) #16
-  %100 = ptrtoint ptr %99 to i64
+96:                                               ; preds = %95
+  %97 = call ptr @int64_div_fast_to_numeric(i64 noundef %9, i32 noundef 6) #16
+  %98 = ptrtoint ptr %97 to i64
   br label %.thread
 
-101:                                              ; preds = %97
-  %102 = sitofp i64 %9 to double
-  %103 = fdiv double %102, 1.000000e+06
-  %104 = bitcast double %103 to i64
+99:                                               ; preds = %95
+  %100 = sitofp i64 %9 to double
+  %101 = fdiv double %100, 1.000000e+06
+  %102 = bitcast double %101 to i64
   br label %.thread
 
-105:                                              ; preds = %93
-  %106 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
-  call void @llvm.assume(i1 %106)
-  %107 = call i32 @errcode(i32 noundef 50856066) #16
-  %108 = call ptr @format_type_be(i32 noundef 1083) #16
-  %109 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.18, ptr noundef %35, ptr noundef %108) #16
+103:                                              ; preds = %91
+  %104 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
+  call void @llvm.assume(i1 %104)
+  %105 = call i32 @errcode(i32 noundef 50856066) #16
+  %106 = call ptr @format_type_be(i32 noundef 1083) #16
+  %107 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.18, ptr noundef %33, ptr noundef %106) #16
   call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 2251, ptr noundef nonnull @__func__.time_part_common) #16
   unreachable
 
-110:                                              ; preds = %42, %87, %54
-  %.140 = phi i64 [ %58, %54 ], [ %44, %87 ], [ %47, %42 ]
-  br i1 %1, label %111, label %114
+108:                                              ; preds = %40, %85, %52
+  %.140 = phi i64 [ %56, %52 ], [ %42, %85 ], [ %45, %40 ]
+  br i1 %1, label %109, label %112
 
-111:                                              ; preds = %110
-  %112 = call ptr @int64_to_numeric(i64 noundef %.140) #16
-  %113 = ptrtoint ptr %112 to i64
+109:                                              ; preds = %108
+  %110 = call ptr @int64_to_numeric(i64 noundef %.140) #16
+  %111 = ptrtoint ptr %110 to i64
   br label %.thread
 
-114:                                              ; preds = %110
-  %115 = sitofp i64 %.140 to double
-  %116 = bitcast double %115 to i64
+112:                                              ; preds = %108
+  %113 = sitofp i64 %.140 to double
+  %114 = bitcast double %113 to i64
   br label %.thread
 
-.thread:                                          ; preds = %81, %74, %67, %60, %114, %111, %101, %98
-  %.1 = phi i64 [ %113, %111 ], [ %116, %114 ], [ %100, %98 ], [ %104, %101 ], [ %86, %81 ], [ %80, %74 ], [ %72, %67 ], [ %66, %60 ]
+.thread:                                          ; preds = %79, %72, %65, %58, %112, %109, %99, %96
+  %.1 = phi i64 [ %111, %109 ], [ %114, %112 ], [ %98, %96 ], [ %102, %99 ], [ %84, %79 ], [ %78, %72 ], [ %70, %65 ], [ %64, %58 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i64 %.1
 }
@@ -6174,219 +6170,217 @@ define internal fastcc i64 @timetz_part_common(ptr noundef readonly captures(non
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %16 = select i1 %.not, ptr %15, ptr %14
   %17 = icmp eq i8 %11, 1
-  br i1 %17, label %18, label %26
+  br i1 %17, label %18, label %24
 
 18:                                               ; preds = %2
   %19 = load i8, ptr %14, align 1
-  %20 = icmp eq i8 %19, 1
-  %21 = and i8 %19, -2
-  %22 = icmp eq i8 %21, 2
-  %or.cond48 = or i1 %20, %22
-  %23 = icmp eq i8 %19, 18
-  %24 = select i1 %23, i32 16, i32 0
-  %25 = select i1 %or.cond48, i32 8, i32 %24
-  br label %34
+  %20 = add i8 %19, -1
+  %or.cond48 = icmp ult i8 %20, 3
+  %21 = icmp eq i8 %19, 18
+  %22 = select i1 %21, i32 16, i32 0
+  %23 = select i1 %or.cond48, i32 8, i32 %22
+  br label %32
 
-26:                                               ; preds = %2
-  br i1 %.not, label %30, label %27
+24:                                               ; preds = %2
+  br i1 %.not, label %28, label %25
 
-27:                                               ; preds = %26
-  %28 = lshr i32 %12, 1
-  %29 = add nsw i32 %28, -1
-  br label %34
+25:                                               ; preds = %24
+  %26 = lshr i32 %12, 1
+  %27 = add nsw i32 %26, -1
+  br label %32
 
-30:                                               ; preds = %26
-  %31 = load i32, ptr %7, align 4
-  %32 = lshr i32 %31, 2
-  %33 = add nsw i32 %32, -4
-  br label %34
+28:                                               ; preds = %24
+  %29 = load i32, ptr %7, align 4
+  %30 = lshr i32 %29, 2
+  %31 = add nsw i32 %30, -4
+  br label %32
 
-34:                                               ; preds = %27, %30, %18
-  %35 = phi i32 [ %25, %18 ], [ %29, %27 ], [ %33, %30 ]
-  %36 = tail call ptr @downcase_truncate_identifier(ptr noundef nonnull %16, i32 noundef %35, i1 noundef zeroext false) #16
-  %37 = call i32 @DecodeUnits(i32 noundef 0, ptr noundef %36, ptr noundef nonnull %3) #16
-  %38 = icmp eq i32 %37, 31
-  br i1 %38, label %39, label %41
+32:                                               ; preds = %25, %28, %18
+  %33 = phi i32 [ %23, %18 ], [ %27, %25 ], [ %31, %28 ]
+  %34 = tail call ptr @downcase_truncate_identifier(ptr noundef nonnull %16, i32 noundef %33, i1 noundef zeroext false) #16
+  %35 = call i32 @DecodeUnits(i32 noundef 0, ptr noundef %34, ptr noundef nonnull %3) #16
+  %36 = icmp eq i32 %35, 31
+  br i1 %36, label %37, label %39
 
-39:                                               ; preds = %34
-  %40 = call i32 @DecodeSpecial(i32 noundef 0, ptr noundef %36, ptr noundef nonnull %3) #16
-  br label %41
+37:                                               ; preds = %32
+  %38 = call i32 @DecodeSpecial(i32 noundef 0, ptr noundef %34, ptr noundef nonnull %3) #16
+  br label %39
 
-41:                                               ; preds = %39, %34
-  %.043 = phi i32 [ %40, %39 ], [ %37, %34 ]
-  %42 = icmp eq i32 %.043, 17
-  br i1 %42, label %43, label %109
+39:                                               ; preds = %37, %32
+  %.043 = phi i32 [ %38, %37 ], [ %35, %32 ]
+  %40 = icmp eq i32 %.043, 17
+  br i1 %40, label %41, label %107
 
-43:                                               ; preds = %41
-  %44 = load i64, ptr %10, align 8
-  %45 = sdiv i64 %44, 3600000000
-  %sext.i = shl i64 %45, 32
-  %46 = ashr exact i64 %sext.i, 32
-  %.neg.i = mul nsw i64 %46, -3600000000
-  %47 = add i64 %.neg.i, %44
-  %48 = sdiv i64 %47, 60000000
-  %sext16.i = shl i64 %48, 32
-  %49 = ashr exact i64 %sext16.i, 32
-  %.neg17.i = mul nsw i64 %49, -60000000
-  %50 = add i64 %.neg17.i, %47
-  %51 = sdiv i64 %50, 1000000
+41:                                               ; preds = %39
+  %42 = load i64, ptr %10, align 8
+  %43 = sdiv i64 %42, 3600000000
+  %sext.i = shl i64 %43, 32
+  %44 = ashr exact i64 %sext.i, 32
+  %.neg.i = mul nsw i64 %44, -3600000000
+  %45 = add i64 %.neg.i, %42
+  %46 = sdiv i64 %45, 60000000
+  %sext16.i = shl i64 %46, 32
+  %47 = ashr exact i64 %sext16.i, 32
+  %.neg17.i = mul nsw i64 %47, -60000000
+  %48 = add i64 %.neg17.i, %45
+  %49 = sdiv i64 %48, 1000000
+  %50 = trunc i64 %49 to i32
+  %.neg19.i = mul i64 %49, 4293967296
+  %51 = add i64 %.neg19.i, %48
   %52 = trunc i64 %51 to i32
-  %.neg19.i = mul i64 %51, 4293967296
-  %53 = add i64 %.neg19.i, %50
-  %54 = trunc i64 %53 to i32
-  %55 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %56 = load i32, ptr %55, align 8
-  %57 = load i32, ptr %3, align 4
-  switch i32 %57, label %104 [
-    i32 4, label %58
-    i32 35, label %61
-    i32 34, label %66
-    i32 30, label %70
-    i32 29, label %75
-    i32 18, label %89
-    i32 19, label %136
-    i32 20, label %103
+  %53 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %54 = load i32, ptr %53, align 8
+  %55 = load i32, ptr %3, align 4
+  switch i32 %55, label %102 [
+    i32 4, label %56
+    i32 35, label %59
+    i32 34, label %64
+    i32 30, label %68
+    i32 29, label %73
+    i32 18, label %87
+    i32 19, label %134
+    i32 20, label %101
   ]
 
-58:                                               ; preds = %43
-  %59 = sub i32 0, %56
-  %60 = sext i32 %59 to i64
-  br label %136
+56:                                               ; preds = %41
+  %57 = sub i32 0, %54
+  %58 = sext i32 %57 to i64
+  br label %134
 
-61:                                               ; preds = %43
-  %62 = sub i32 0, %56
-  %63 = sdiv i32 %62, 60
-  %64 = srem i32 %63, 60
-  %65 = sext i32 %64 to i64
-  br label %136
+59:                                               ; preds = %41
+  %60 = sub i32 0, %54
+  %61 = sdiv i32 %60, 60
+  %62 = srem i32 %61, 60
+  %63 = sext i32 %62 to i64
+  br label %134
 
-66:                                               ; preds = %43
-  %67 = sub i32 0, %56
-  %68 = sdiv i32 %67, 3600
-  %69 = sext i32 %68 to i64
-  br label %136
+64:                                               ; preds = %41
+  %65 = sub i32 0, %54
+  %66 = sdiv i32 %65, 3600
+  %67 = sext i32 %66 to i64
+  br label %134
 
-70:                                               ; preds = %43
-  %sext69 = shl i64 %51, 32
-  %71 = ashr exact i64 %sext69, 32
-  %72 = mul nsw i64 %71, 1000000
-  %sext70 = shl i64 %53, 32
-  %73 = ashr exact i64 %sext70, 32
-  %74 = add nsw i64 %73, %72
-  br label %136
+68:                                               ; preds = %41
+  %sext69 = shl i64 %49, 32
+  %69 = ashr exact i64 %sext69, 32
+  %70 = mul nsw i64 %69, 1000000
+  %sext70 = shl i64 %51, 32
+  %71 = ashr exact i64 %sext70, 32
+  %72 = add nsw i64 %71, %70
+  br label %134
 
-75:                                               ; preds = %43
-  br i1 %1, label %76, label %83
+73:                                               ; preds = %41
+  br i1 %1, label %74, label %81
 
-76:                                               ; preds = %75
-  %sext67 = shl i64 %51, 32
-  %77 = ashr exact i64 %sext67, 32
-  %78 = mul nsw i64 %77, 1000000
-  %sext68 = shl i64 %53, 32
-  %79 = ashr exact i64 %sext68, 32
-  %80 = add nsw i64 %79, %78
-  %81 = call ptr @int64_div_fast_to_numeric(i64 noundef %80, i32 noundef 3) #16
-  %82 = ptrtoint ptr %81 to i64
-  br label %143
+74:                                               ; preds = %73
+  %sext67 = shl i64 %49, 32
+  %75 = ashr exact i64 %sext67, 32
+  %76 = mul nsw i64 %75, 1000000
+  %sext68 = shl i64 %51, 32
+  %77 = ashr exact i64 %sext68, 32
+  %78 = add nsw i64 %77, %76
+  %79 = call ptr @int64_div_fast_to_numeric(i64 noundef %78, i32 noundef 3) #16
+  %80 = ptrtoint ptr %79 to i64
+  br label %141
 
-83:                                               ; preds = %75
-  %84 = sitofp i32 %52 to double
-  %85 = sitofp i32 %54 to double
-  %86 = fdiv double %85, 1.000000e+03
-  %87 = call double @llvm.fmuladd.f64(double %84, double 1.000000e+03, double %86)
-  %88 = bitcast double %87 to i64
-  br label %143
+81:                                               ; preds = %73
+  %82 = sitofp i32 %50 to double
+  %83 = sitofp i32 %52 to double
+  %84 = fdiv double %83, 1.000000e+03
+  %85 = call double @llvm.fmuladd.f64(double %82, double 1.000000e+03, double %84)
+  %86 = bitcast double %85 to i64
+  br label %141
 
-89:                                               ; preds = %43
-  br i1 %1, label %90, label %97
+87:                                               ; preds = %41
+  br i1 %1, label %88, label %95
 
-90:                                               ; preds = %89
-  %sext65 = shl i64 %51, 32
-  %91 = ashr exact i64 %sext65, 32
-  %92 = mul nsw i64 %91, 1000000
-  %sext66 = shl i64 %53, 32
-  %93 = ashr exact i64 %sext66, 32
-  %94 = add nsw i64 %93, %92
-  %95 = call ptr @int64_div_fast_to_numeric(i64 noundef %94, i32 noundef 6) #16
-  %96 = ptrtoint ptr %95 to i64
-  br label %143
+88:                                               ; preds = %87
+  %sext65 = shl i64 %49, 32
+  %89 = ashr exact i64 %sext65, 32
+  %90 = mul nsw i64 %89, 1000000
+  %sext66 = shl i64 %51, 32
+  %91 = ashr exact i64 %sext66, 32
+  %92 = add nsw i64 %91, %90
+  %93 = call ptr @int64_div_fast_to_numeric(i64 noundef %92, i32 noundef 6) #16
+  %94 = ptrtoint ptr %93 to i64
+  br label %141
 
-97:                                               ; preds = %89
-  %98 = sitofp i32 %52 to double
-  %99 = sitofp i32 %54 to double
-  %100 = fdiv double %99, 1.000000e+06
-  %101 = fadd double %100, %98
-  %102 = bitcast double %101 to i64
-  br label %143
+95:                                               ; preds = %87
+  %96 = sitofp i32 %50 to double
+  %97 = sitofp i32 %52 to double
+  %98 = fdiv double %97, 1.000000e+06
+  %99 = fadd double %98, %96
+  %100 = bitcast double %99 to i64
+  br label %141
 
-103:                                              ; preds = %43
-  br label %136
+101:                                              ; preds = %41
+  br label %134
 
-104:                                              ; preds = %43
-  %105 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
-  call void @llvm.assume(i1 %105)
-  %106 = call i32 @errcode(i32 noundef 1088) #16
-  %107 = call ptr @format_type_be(i32 noundef 1266) #16
-  %108 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.17, ptr noundef %36, ptr noundef %107) #16
+102:                                              ; preds = %41
+  %103 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
+  call void @llvm.assume(i1 %103)
+  %104 = call i32 @errcode(i32 noundef 1088) #16
+  %105 = call ptr @format_type_be(i32 noundef 1266) #16
+  %106 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.17, ptr noundef %34, ptr noundef %105) #16
   call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 3031, ptr noundef nonnull @__func__.timetz_part_common) #16
   unreachable
 
-109:                                              ; preds = %41
-  %110 = icmp eq i32 %.043, 0
-  %111 = load i32, ptr %3, align 4
-  %112 = icmp eq i32 %111, 11
-  %or.cond = select i1 %110, i1 %112, i1 false
-  br i1 %or.cond, label %113, label %131
+107:                                              ; preds = %39
+  %108 = icmp eq i32 %.043, 0
+  %109 = load i32, ptr %3, align 4
+  %110 = icmp eq i32 %109, 11
+  %or.cond = select i1 %108, i1 %110, i1 false
+  br i1 %or.cond, label %111, label %129
 
-113:                                              ; preds = %109
-  %114 = load i64, ptr %10, align 8
-  br i1 %1, label %115, label %123
+111:                                              ; preds = %107
+  %112 = load i64, ptr %10, align 8
+  br i1 %1, label %113, label %121
 
-115:                                              ; preds = %113
-  %116 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %117 = load i32, ptr %116, align 8
-  %118 = sext i32 %117 to i64
-  %119 = mul nsw i64 %118, 1000000
-  %120 = add i64 %119, %114
-  %121 = call ptr @int64_div_fast_to_numeric(i64 noundef %120, i32 noundef 6) #16
-  %122 = ptrtoint ptr %121 to i64
-  br label %143
+113:                                              ; preds = %111
+  %114 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %115 = load i32, ptr %114, align 8
+  %116 = sext i32 %115 to i64
+  %117 = mul nsw i64 %116, 1000000
+  %118 = add i64 %117, %112
+  %119 = call ptr @int64_div_fast_to_numeric(i64 noundef %118, i32 noundef 6) #16
+  %120 = ptrtoint ptr %119 to i64
+  br label %141
 
-123:                                              ; preds = %113
-  %124 = sitofp i64 %114 to double
-  %125 = fdiv double %124, 1.000000e+06
-  %126 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %127 = load i32, ptr %126, align 8
-  %128 = sitofp i32 %127 to double
-  %129 = fadd double %125, %128
-  %130 = bitcast double %129 to i64
-  br label %143
+121:                                              ; preds = %111
+  %122 = sitofp i64 %112 to double
+  %123 = fdiv double %122, 1.000000e+06
+  %124 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %125 = load i32, ptr %124, align 8
+  %126 = sitofp i32 %125 to double
+  %127 = fadd double %123, %126
+  %128 = bitcast double %127 to i64
+  br label %141
 
-131:                                              ; preds = %109
-  %132 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
-  call void @llvm.assume(i1 %132)
-  %133 = call i32 @errcode(i32 noundef 50856066) #16
-  %134 = call ptr @format_type_be(i32 noundef 1266) #16
-  %135 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.18, ptr noundef %36, ptr noundef %134) #16
+129:                                              ; preds = %107
+  %130 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
+  call void @llvm.assume(i1 %130)
+  %131 = call i32 @errcode(i32 noundef 50856066) #16
+  %132 = call ptr @format_type_be(i32 noundef 1266) #16
+  %133 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.18, ptr noundef %34, ptr noundef %132) #16
   call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 3051, ptr noundef nonnull @__func__.timetz_part_common) #16
   unreachable
 
-136:                                              ; preds = %43, %103, %70, %66, %61, %58
-  %.142.ph = phi i64 [ %46, %103 ], [ %74, %70 ], [ %69, %66 ], [ %65, %61 ], [ %60, %58 ], [ %49, %43 ]
-  br i1 %1, label %137, label %140
+134:                                              ; preds = %41, %101, %68, %64, %59, %56
+  %.142.ph = phi i64 [ %44, %101 ], [ %72, %68 ], [ %67, %64 ], [ %63, %59 ], [ %58, %56 ], [ %47, %41 ]
+  br i1 %1, label %135, label %138
 
-137:                                              ; preds = %136
-  %138 = call ptr @int64_to_numeric(i64 noundef %.142.ph) #16
-  %139 = ptrtoint ptr %138 to i64
-  br label %143
+135:                                              ; preds = %134
+  %136 = call ptr @int64_to_numeric(i64 noundef %.142.ph) #16
+  %137 = ptrtoint ptr %136 to i64
+  br label %141
 
-140:                                              ; preds = %136
-  %141 = sitofp i64 %.142.ph to double
-  %142 = bitcast double %141 to i64
-  br label %143
+138:                                              ; preds = %134
+  %139 = sitofp i64 %.142.ph to double
+  %140 = bitcast double %139 to i64
+  br label %141
 
-143:                                              ; preds = %76, %83, %90, %97, %140, %137, %123, %115
-  %.1 = phi i64 [ %139, %137 ], [ %142, %140 ], [ %122, %115 ], [ %130, %123 ], [ %82, %76 ], [ %88, %83 ], [ %96, %90 ], [ %102, %97 ]
+141:                                              ; preds = %74, %81, %88, %95, %138, %135, %121, %113
+  %.1 = phi i64 [ %137, %135 ], [ %140, %138 ], [ %120, %113 ], [ %128, %121 ], [ %80, %74 ], [ %86, %81 ], [ %94, %88 ], [ %100, %95 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i64 %.1
 }

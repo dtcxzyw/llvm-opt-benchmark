@@ -16102,15 +16102,15 @@ define noundef range(i32 0, 256) i32 @_ZN11OpenImageIO6v3_1_08TypeDesc14basetype
   %3 = and i32 %.sroa.018.0.extract.trunc, 255
   %4 = and i32 %.sroa.0.0.extract.trunc, 255
   %5 = icmp eq i32 %3, %4
-  br i1 %5, label %36, label %6
+  br i1 %5, label %37, label %6
 
 6:                                                ; preds = %2
   %7 = icmp eq i32 %3, 0
-  br i1 %7, label %36, label %8
+  br i1 %7, label %37, label %8
 
 8:                                                ; preds = %6
   %9 = icmp eq i32 %4, 0
-  br i1 %9, label %36, label %10
+  br i1 %9, label %37, label %10
 
 10:                                               ; preds = %8
   %11 = and i64 %0, 240
@@ -16146,7 +16146,7 @@ _ZNK11OpenImageIO6v3_1_08TypeDesc4sizeEv.exit29:  ; preds = %_ZNK11OpenImageIO6v
   %24 = phi i32 [ %3, %_ZNK11OpenImageIO6v3_1_08TypeDesc4sizeEv.exit ], [ %spec.select60, %_ZNK11OpenImageIO6v3_1_08TypeDesc4sizeEv.exit29 ]
   %25 = add nsw i32 %24, -11
   %or.cond = icmp ult i32 %25, 2
-  br i1 %or.cond, label %36, label %26
+  br i1 %or.cond, label %37, label %26
 
 26:                                               ; preds = %.thread56
   %trunc = trunc nuw i32 %24 to i8
@@ -16158,39 +16158,39 @@ _ZNK11OpenImageIO6v3_1_08TypeDesc4sizeEv.exit29:  ; preds = %_ZNK11OpenImageIO6v
 27:                                               ; preds = %26
   %trunc48 = trunc nuw i32 %23 to i8
   switch i8 %trunc48, label %.thread [
-    i8 4, label %36
-    i8 2, label %36
+    i8 4, label %37
+    i8 2, label %37
   ]
 
 28:                                               ; preds = %26
-  %.off = add nsw i32 %23, -2
-  %switch = icmp ult i32 %.off, 4
-  br i1 %switch, label %36, label %.thread
+  %29 = add nsw i32 %23, -2
+  %or.cond9 = icmp ult i32 %29, 4
+  br i1 %or.cond9, label %37, label %.thread
 
 .thread:                                          ; preds = %26, %27, %28
-  %29 = icmp eq i32 %24, 4
-  %30 = icmp eq i32 %24, 10
-  %or.cond11 = or i1 %29, %30
-  %31 = icmp eq i32 %23, 2
-  %or.cond13 = and i1 %31, %or.cond11
-  br i1 %or.cond13, label %36, label %32
+  %30 = icmp eq i32 %24, 4
+  %31 = icmp eq i32 %24, 10
+  %or.cond11 = or i1 %30, %31
+  %32 = icmp eq i32 %23, 2
+  %or.cond13 = and i1 %32, %or.cond11
+  br i1 %or.cond13, label %37, label %33
 
-32:                                               ; preds = %.thread
-  switch i8 %trunc, label %35 [
-    i8 10, label %33
-    i8 5, label %33
+33:                                               ; preds = %.thread
+  switch i8 %trunc, label %36 [
+    i8 10, label %34
+    i8 5, label %34
   ]
 
-33:                                               ; preds = %32, %32
-  %34 = and i32 %23, 254
-  %or.cond17 = icmp eq i32 %34, 2
-  br i1 %or.cond17, label %36, label %35
+34:                                               ; preds = %33, %33
+  %35 = and i32 %23, 254
+  %or.cond17 = icmp eq i32 %35, 2
+  br i1 %or.cond17, label %37, label %36
 
-35:                                               ; preds = %32, %33
-  br label %36
+36:                                               ; preds = %33, %34
+  br label %37
 
-36:                                               ; preds = %28, %33, %.thread, %27, %27, %.thread56, %8, %6, %2, %35
-  %.0 = phi i32 [ 11, %35 ], [ %3, %2 ], [ %4, %6 ], [ %3, %8 ], [ %24, %.thread56 ], [ 6, %27 ], [ 6, %27 ], [ 7, %28 ], [ %24, %.thread ], [ %24, %33 ]
+37:                                               ; preds = %34, %.thread, %28, %27, %27, %.thread56, %8, %6, %2, %36
+  %.0 = phi i32 [ 11, %36 ], [ %3, %2 ], [ %4, %6 ], [ %3, %8 ], [ %24, %.thread56 ], [ 6, %27 ], [ 6, %27 ], [ 7, %28 ], [ %24, %.thread ], [ %24, %34 ]
   ret i32 %.0
 }
 
