@@ -7661,8 +7661,8 @@ define internal fastcc i64 @PS_Conv_ToFixed(ptr noundef captures(none) %0, ptr n
   %41 = zext nneg i8 %37 to i64
   %42 = getelementptr inbounds nuw [128 x i8], ptr @ft_char_table, i64 0, i64 %41
   %43 = load i8, ptr %42, align 1, !tbaa !37
-  %44 = add nsw i64 %41, -58
-  %or.cond.us = icmp ult i64 %44, -10
+  %44 = add nsw i8 %37, -58
+  %or.cond.us = icmp ult i8 %44, -10
   br i1 %or.cond.us, label %.loopexit129, label %45
 
 45:                                               ; preds = %40
@@ -7708,8 +7708,8 @@ define internal fastcc i64 @PS_Conv_ToFixed(ptr noundef captures(none) %0, ptr n
   %58 = zext nneg i8 %54 to i64
   %59 = getelementptr inbounds nuw [128 x i8], ptr @ft_char_table, i64 0, i64 %58
   %60 = load i8, ptr %59, align 1, !tbaa !37
-  %61 = add nsw i64 %58, -58
-  %or.cond = icmp ult i64 %61, -10
+  %61 = add nsw i8 %54, -58
+  %or.cond = icmp ult i8 %61, -10
   br i1 %or.cond, label %.loopexit129, label %62
 
 62:                                               ; preds = %57

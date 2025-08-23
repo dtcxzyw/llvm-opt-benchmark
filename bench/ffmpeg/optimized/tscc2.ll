@@ -157,10 +157,10 @@ bytestream2_get_byte.exit122:                     ; preds = %36
   %44 = zext i8 %43 to i32
   %45 = getelementptr inbounds nuw i8, ptr %11, i64 36
   store i32 %44, ptr %45, align 4, !tbaa !43
-  %46 = add nsw i32 %40, -15
-  %or.cond = icmp ult i32 %46, -13
-  %47 = add nsw i32 %44, -15
-  %48 = icmp ult i32 %47, -13
+  %46 = add i8 %39, -15
+  %or.cond = icmp ult i8 %46, -13
+  %47 = add i8 %43, -15
+  %48 = icmp ult i8 %47, -13
   %or.cond117 = select i1 %or.cond, i1 true, i1 %48
   br i1 %or.cond117, label %57, label %.preheader193
 
@@ -168,11 +168,11 @@ bytestream2_get_byte.exit122:                     ; preds = %36
   %49 = getelementptr inbounds nuw i8, ptr %11, i64 40
   %50 = getelementptr inbounds nuw i8, ptr %11, i64 52
   %51 = add nsw i32 %40, -2
-  %52 = zext nneg i32 %51 to i64
-  %53 = getelementptr inbounds nuw [13 x [3 x i16]], ptr @tscc2_quants, i64 0, i64 %52
+  %52 = sext i32 %51 to i64
+  %53 = getelementptr inbounds [13 x [3 x i16]], ptr @tscc2_quants, i64 0, i64 %52
   %54 = add nsw i32 %44, -2
-  %55 = zext nneg i32 %54 to i64
-  %56 = getelementptr inbounds nuw [13 x [3 x i16]], ptr @tscc2_quants, i64 0, i64 %55
+  %55 = sext i32 %54 to i64
+  %56 = getelementptr inbounds [13 x [3 x i16]], ptr @tscc2_quants, i64 0, i64 %55
   br label %58
 
 57:                                               ; preds = %bytestream2_get_byte.exit122

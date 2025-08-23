@@ -65,14 +65,14 @@ define dso_local i32 @lre_parse_escape(ptr noundef captures(none) %0, i32 nounde
     i8 118, label %10
     i8 120, label %11
     i8 117, label %11
-    i8 48, label %87
-    i8 49, label %87
-    i8 50, label %87
-    i8 51, label %87
-    i8 52, label %87
-    i8 53, label %87
-    i8 54, label %87
-    i8 55, label %87
+    i8 48, label %84
+    i8 49, label %84
+    i8 50, label %84
+    i8 51, label %84
+    i8 52, label %84
+    i8 53, label %84
+    i8 54, label %84
+    i8 55, label %84
   ]
 
 6:                                                ; preds = %2
@@ -95,17 +95,17 @@ define dso_local i32 @lre_parse_escape(ptr noundef captures(none) %0, i32 nounde
   %13 = icmp eq i8 %12, 123
   %14 = icmp ne i32 %1, 0
   %or.cond = and i1 %14, %13
-  br i1 %or.cond, label %15, label %38
+  br i1 %or.cond, label %15, label %37
 
 15:                                               ; preds = %11
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 2
   %.pre = load i8, ptr %16, align 1, !tbaa !12
   br label %17
 
-17:                                               ; preds = %33, %15
-  %18 = phi i8 [ %.pre, %15 ], [ %34, %33 ]
-  %.165 = phi ptr [ %16, %15 ], [ %19, %33 ]
-  %.163 = phi i32 [ 0, %15 ], [ %31, %33 ]
+17:                                               ; preds = %32, %15
+  %18 = phi i8 [ %.pre, %15 ], [ %33, %32 ]
+  %.165 = phi ptr [ %16, %15 ], [ %19, %32 ]
+  %.163 = phi i32 [ 0, %15 ], [ %30, %32 ]
   %19 = getelementptr inbounds nuw i8, ptr %.165, i64 1
   %20 = zext i8 %18 to i32
   %21 = add nsw i32 %20, -48
@@ -122,187 +122,181 @@ define dso_local i32 @lre_parse_escape(ptr noundef captures(none) %0, i32 nounde
   br label %from_hex.exit.thread
 
 26:                                               ; preds = %22
-  %27 = add nsw i32 %20, -103
-  %or.cond5.i = icmp ult i32 %27, -6
-  %28 = add nsw i32 %20, -87
-  %29 = icmp ult i8 %18, 87
-  %or.cond111 = or i1 %29, %or.cond5.i
+  %27 = add nsw i32 %20, -87
+  %28 = add i8 %18, -103
+  %or.cond111 = icmp ult i8 %28, -6
   br i1 %or.cond111, label %.critedge, label %from_hex.exit.thread
 
 from_hex.exit.thread:                             ; preds = %26, %17, %24
-  %.0.i98 = phi i32 [ %21, %17 ], [ %25, %24 ], [ %28, %26 ]
-  %30 = shl nuw nsw i32 %.163, 4
-  %31 = or i32 %.0.i98, %30
-  %32 = icmp ugt i32 %31, 1114111
-  br i1 %32, label %.critedge, label %33
+  %.0.i98 = phi i32 [ %21, %17 ], [ %25, %24 ], [ %27, %26 ]
+  %29 = shl nuw nsw i32 %.163, 4
+  %30 = or i32 %.0.i98, %29
+  %31 = icmp ugt i32 %30, 1114111
+  br i1 %31, label %.critedge, label %32
 
-33:                                               ; preds = %from_hex.exit.thread
-  %34 = load i8, ptr %19, align 1, !tbaa !12
-  %35 = icmp eq i8 %34, 125
-  br i1 %35, label %36, label %17
+32:                                               ; preds = %from_hex.exit.thread
+  %33 = load i8, ptr %19, align 1, !tbaa !12
+  %34 = icmp eq i8 %33, 125
+  br i1 %34, label %35, label %17
 
-36:                                               ; preds = %33
-  %37 = getelementptr inbounds nuw i8, ptr %.165, i64 2
+35:                                               ; preds = %32
+  %36 = getelementptr inbounds nuw i8, ptr %.165, i64 2
   br label %.thread
 
-38:                                               ; preds = %11
-  %39 = icmp eq i8 %5, 120
-  %. = select i1 %39, i32 2, i32 4
-  br label %40
+37:                                               ; preds = %11
+  %38 = icmp eq i8 %5, 120
+  %. = select i1 %38, i32 2, i32 4
+  br label %39
 
-40:                                               ; preds = %38, %from_hex.exit89.thread
-  %.060124 = phi i32 [ 0, %38 ], [ %55, %from_hex.exit89.thread ]
-  %.4123 = phi i32 [ 0, %38 ], [ %54, %from_hex.exit89.thread ]
-  %.468122 = phi ptr [ %4, %38 ], [ %41, %from_hex.exit89.thread ]
-  %41 = getelementptr inbounds nuw i8, ptr %.468122, i64 1
-  %42 = load i8, ptr %.468122, align 1, !tbaa !12
-  %43 = zext i8 %42 to i32
-  %44 = add nsw i32 %43, -48
-  %or.cond.i84 = icmp ult i32 %44, 10
-  br i1 %or.cond.i84, label %from_hex.exit89.thread, label %45
+39:                                               ; preds = %37, %from_hex.exit89.thread
+  %.060124 = phi i32 [ 0, %37 ], [ %53, %from_hex.exit89.thread ]
+  %.4123 = phi i32 [ 0, %37 ], [ %52, %from_hex.exit89.thread ]
+  %.468122 = phi ptr [ %4, %37 ], [ %40, %from_hex.exit89.thread ]
+  %40 = getelementptr inbounds nuw i8, ptr %.468122, i64 1
+  %41 = load i8, ptr %.468122, align 1, !tbaa !12
+  %42 = zext i8 %41 to i32
+  %43 = add nsw i32 %42, -48
+  %or.cond.i84 = icmp ult i32 %43, 10
+  br i1 %or.cond.i84, label %from_hex.exit89.thread, label %44
 
-45:                                               ; preds = %40
-  %46 = add i8 %42, -65
-  %or.cond3.i85 = icmp ult i8 %46, 6
-  br i1 %or.cond3.i85, label %47, label %49
+44:                                               ; preds = %39
+  %45 = add i8 %41, -65
+  %or.cond3.i85 = icmp ult i8 %45, 6
+  br i1 %or.cond3.i85, label %46, label %48
 
-47:                                               ; preds = %45
-  %48 = add nsw i32 %43, -55
+46:                                               ; preds = %44
+  %47 = add nsw i32 %42, -55
   br label %from_hex.exit89.thread
 
-49:                                               ; preds = %45
-  %50 = add nsw i32 %43, -103
-  %or.cond5.i86 = icmp ult i32 %50, -6
-  %51 = add nsw i32 %43, -87
-  %52 = icmp ult i8 %42, 87
-  %or.cond112 = or i1 %52, %or.cond5.i86
+48:                                               ; preds = %44
+  %49 = add nsw i32 %42, -87
+  %50 = add i8 %41, -103
+  %or.cond112 = icmp ult i8 %50, -6
   br i1 %or.cond112, label %.critedge, label %from_hex.exit89.thread
 
-from_hex.exit89.thread:                           ; preds = %49, %40, %47
-  %.0.i88103 = phi i32 [ %44, %40 ], [ %48, %47 ], [ %51, %49 ]
-  %53 = shl i32 %.4123, 4
-  %54 = or i32 %.0.i88103, %53
-  %55 = add nuw nsw i32 %.060124, 1
-  %exitcond.not = icmp eq i32 %55, %.
-  br i1 %exitcond.not, label %56, label %40, !llvm.loop !13
+from_hex.exit89.thread:                           ; preds = %48, %39, %46
+  %.0.i88103 = phi i32 [ %43, %39 ], [ %47, %46 ], [ %49, %48 ]
+  %51 = shl i32 %.4123, 4
+  %52 = or i32 %.0.i88103, %51
+  %53 = add nuw nsw i32 %.060124, 1
+  %exitcond.not = icmp eq i32 %53, %.
+  br i1 %exitcond.not, label %54, label %39, !llvm.loop !13
 
-56:                                               ; preds = %from_hex.exit89.thread
-  %.mask.i = and i32 %54, -1024
-  %57 = icmp eq i32 %.mask.i, 55296
-  %58 = icmp eq i32 %1, 2
-  %or.cond3 = and i1 %58, %57
-  br i1 %or.cond3, label %59, label %.thread
+54:                                               ; preds = %from_hex.exit89.thread
+  %.mask.i = and i32 %52, -1024
+  %55 = icmp eq i32 %.mask.i, 55296
+  %56 = icmp eq i32 %1, 2
+  %or.cond3 = and i1 %56, %55
+  br i1 %or.cond3, label %57, label %.thread
 
-59:                                               ; preds = %56
-  %60 = load i8, ptr %41, align 1, !tbaa !12
-  %61 = icmp eq i8 %60, 92
-  br i1 %61, label %62, label %.thread
+57:                                               ; preds = %54
+  %58 = load i8, ptr %40, align 1, !tbaa !12
+  %59 = icmp eq i8 %58, 92
+  br i1 %59, label %60, label %.thread
 
-62:                                               ; preds = %59
-  %63 = getelementptr inbounds nuw i8, ptr %.468122, i64 2
-  %64 = load i8, ptr %63, align 1, !tbaa !12
-  %65 = icmp eq i8 %64, 117
-  br i1 %65, label %.preheader, label %.thread
+60:                                               ; preds = %57
+  %61 = getelementptr inbounds nuw i8, ptr %.468122, i64 2
+  %62 = load i8, ptr %61, align 1, !tbaa !12
+  %63 = icmp eq i8 %62, 117
+  br i1 %63, label %.preheader, label %.thread
 
-.preheader:                                       ; preds = %62, %from_hex.exit95.thread
-  %indvars.iv = phi i64 [ %indvars.iv.next, %from_hex.exit95.thread ], [ 0, %62 ]
-  %.059126 = phi i32 [ %80, %from_hex.exit95.thread ], [ 0, %62 ]
-  %66 = getelementptr inbounds nuw i8, ptr %41, i64 %indvars.iv
-  %67 = getelementptr inbounds nuw i8, ptr %66, i64 2
-  %68 = load i8, ptr %67, align 1, !tbaa !12
-  %69 = zext i8 %68 to i32
-  %70 = add nsw i32 %69, -48
-  %or.cond.i90 = icmp ult i32 %70, 10
-  br i1 %or.cond.i90, label %from_hex.exit95.thread, label %71
+.preheader:                                       ; preds = %60, %from_hex.exit95.thread
+  %indvars.iv = phi i64 [ %indvars.iv.next, %from_hex.exit95.thread ], [ 0, %60 ]
+  %.059126 = phi i32 [ %77, %from_hex.exit95.thread ], [ 0, %60 ]
+  %64 = getelementptr inbounds nuw i8, ptr %40, i64 %indvars.iv
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 2
+  %66 = load i8, ptr %65, align 1, !tbaa !12
+  %67 = zext i8 %66 to i32
+  %68 = add nsw i32 %67, -48
+  %or.cond.i90 = icmp ult i32 %68, 10
+  br i1 %or.cond.i90, label %from_hex.exit95.thread, label %69
 
-71:                                               ; preds = %.preheader
-  %72 = add i8 %68, -65
-  %or.cond3.i91 = icmp ult i8 %72, 6
-  br i1 %or.cond3.i91, label %73, label %75
+69:                                               ; preds = %.preheader
+  %70 = add i8 %66, -65
+  %or.cond3.i91 = icmp ult i8 %70, 6
+  br i1 %or.cond3.i91, label %71, label %73
 
-73:                                               ; preds = %71
-  %74 = add nsw i32 %69, -55
+71:                                               ; preds = %69
+  %72 = add nsw i32 %67, -55
   br label %from_hex.exit95.thread
 
-75:                                               ; preds = %71
-  %76 = add nsw i32 %69, -103
-  %or.cond5.i92 = icmp ult i32 %76, -6
-  %77 = add nsw i32 %69, -87
-  %78 = icmp ult i8 %68, 87
-  %or.cond113 = or i1 %78, %or.cond5.i92
+73:                                               ; preds = %69
+  %74 = add nsw i32 %67, -87
+  %75 = add i8 %66, -103
+  %or.cond113 = icmp ult i8 %75, -6
   br i1 %or.cond113, label %.thread, label %from_hex.exit95.thread
 
-from_hex.exit95.thread:                           ; preds = %75, %.preheader, %73
-  %.0.i94108 = phi i32 [ %70, %.preheader ], [ %74, %73 ], [ %77, %75 ]
-  %79 = shl i32 %.059126, 4
-  %80 = or i32 %.0.i94108, %79
+from_hex.exit95.thread:                           ; preds = %73, %.preheader, %71
+  %.0.i94108 = phi i32 [ %68, %.preheader ], [ %72, %71 ], [ %74, %73 ]
+  %76 = shl i32 %.059126, 4
+  %77 = or i32 %.0.i94108, %76
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond136.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond136.not, label %81, label %.preheader, !llvm.loop !15
+  br i1 %exitcond136.not, label %78, label %.preheader, !llvm.loop !15
 
-81:                                               ; preds = %from_hex.exit95.thread
-  %.mask.i96 = and i32 %80, -1024
+78:                                               ; preds = %from_hex.exit95.thread
+  %.mask.i96 = and i32 %77, -1024
   %.not114 = icmp eq i32 %.mask.i96, 56320
-  br i1 %.not114, label %82, label %.thread
+  br i1 %.not114, label %79, label %.thread
 
-82:                                               ; preds = %81
-  %83 = getelementptr inbounds nuw i8, ptr %.468122, i64 7
-  %84 = shl nuw nsw i32 %54, 10
-  %85 = add nsw i32 %84, -56613888
-  %86 = add nuw nsw i32 %85, %80
+79:                                               ; preds = %78
+  %80 = getelementptr inbounds nuw i8, ptr %.468122, i64 7
+  %81 = shl nuw nsw i32 %52, 10
+  %82 = add nsw i32 %81, -56613888
+  %83 = add nuw nsw i32 %82, %77
   br label %.thread
 
-87:                                               ; preds = %2, %2, %2, %2, %2, %2, %2, %2
-  %88 = zext nneg i8 %5 to i32
-  %89 = add nsw i32 %88, -48
-  %90 = icmp eq i32 %1, 2
-  br i1 %90, label %91, label %96
+84:                                               ; preds = %2, %2, %2, %2, %2, %2, %2, %2
+  %85 = zext nneg i8 %5 to i32
+  %86 = add nsw i32 %85, -48
+  %87 = icmp eq i32 %1, 2
+  br i1 %87, label %88, label %93
 
-91:                                               ; preds = %87
-  %.not = icmp eq i32 %89, 0
-  br i1 %.not, label %92, label %.critedge
+88:                                               ; preds = %84
+  %.not = icmp eq i32 %86, 0
+  br i1 %.not, label %89, label %.critedge
 
-92:                                               ; preds = %91
-  %93 = load i8, ptr %4, align 1, !tbaa !12
-  %94 = add i8 %93, -58
-  %95 = icmp ult i8 %94, -10
-  br i1 %95, label %.thread, label %.critedge
+89:                                               ; preds = %88
+  %90 = load i8, ptr %4, align 1, !tbaa !12
+  %91 = add i8 %90, -58
+  %92 = icmp ult i8 %91, -10
+  br i1 %92, label %.thread, label %.critedge
 
-96:                                               ; preds = %87
-  %97 = load i8, ptr %4, align 1, !tbaa !12
-  %98 = zext i8 %97 to i32
-  %99 = add nsw i32 %98, -48
-  %100 = icmp ugt i32 %99, 7
-  br i1 %100, label %.thread, label %101
+93:                                               ; preds = %84
+  %94 = load i8, ptr %4, align 1, !tbaa !12
+  %95 = zext i8 %94 to i32
+  %96 = add nsw i32 %95, -48
+  %97 = icmp ugt i32 %96, 7
+  br i1 %97, label %.thread, label %98
 
-101:                                              ; preds = %96
-  %102 = shl nuw nsw i32 %89, 3
-  %103 = or disjoint i32 %99, %102
-  %104 = getelementptr inbounds nuw i8, ptr %3, i64 2
-  %105 = icmp samesign ugt i32 %103, 31
-  br i1 %105, label %.thread, label %106
+98:                                               ; preds = %93
+  %99 = shl nuw nsw i32 %86, 3
+  %100 = or disjoint i32 %96, %99
+  %101 = getelementptr inbounds nuw i8, ptr %3, i64 2
+  %102 = icmp samesign ugt i32 %100, 31
+  br i1 %102, label %.thread, label %103
 
-106:                                              ; preds = %101
-  %107 = load i8, ptr %104, align 1, !tbaa !12
-  %108 = zext i8 %107 to i32
-  %109 = add nsw i32 %108, -48
-  %110 = icmp ugt i32 %109, 7
-  br i1 %110, label %.thread, label %111
+103:                                              ; preds = %98
+  %104 = load i8, ptr %101, align 1, !tbaa !12
+  %105 = zext i8 %104 to i32
+  %106 = add nsw i32 %105, -48
+  %107 = icmp ugt i32 %106, 7
+  br i1 %107, label %.thread, label %108
 
-111:                                              ; preds = %106
-  %112 = shl nuw nsw i32 %103, 3
-  %113 = or disjoint i32 %109, %112
-  %114 = getelementptr inbounds nuw i8, ptr %3, i64 3
+108:                                              ; preds = %103
+  %109 = shl nuw nsw i32 %100, 3
+  %110 = or disjoint i32 %106, %109
+  %111 = getelementptr inbounds nuw i8, ptr %3, i64 3
   br label %.thread
 
-.thread:                                          ; preds = %75, %111, %96, %101, %106, %56, %59, %62, %82, %81, %36, %2, %92, %10, %9, %8, %7, %6
-  %.064 = phi ptr [ %4, %6 ], [ %4, %7 ], [ %4, %8 ], [ %4, %9 ], [ %4, %10 ], [ %4, %92 ], [ %4, %2 ], [ %37, %36 ], [ %83, %82 ], [ %41, %81 ], [ %41, %62 ], [ %41, %59 ], [ %41, %56 ], [ %114, %111 ], [ %4, %96 ], [ %104, %101 ], [ %104, %106 ], [ %41, %75 ]
-  %.062 = phi i32 [ 12, %6 ], [ 10, %7 ], [ 13, %8 ], [ 9, %9 ], [ 11, %10 ], [ 0, %92 ], [ 8, %2 ], [ %31, %36 ], [ %86, %82 ], [ %54, %81 ], [ %54, %62 ], [ %54, %59 ], [ %54, %56 ], [ %113, %111 ], [ %89, %96 ], [ %103, %101 ], [ %103, %106 ], [ %54, %75 ]
+.thread:                                          ; preds = %73, %108, %93, %98, %103, %54, %57, %60, %79, %78, %35, %2, %89, %10, %9, %8, %7, %6
+  %.064 = phi ptr [ %4, %6 ], [ %4, %7 ], [ %4, %8 ], [ %4, %9 ], [ %4, %10 ], [ %4, %89 ], [ %4, %2 ], [ %36, %35 ], [ %80, %79 ], [ %40, %78 ], [ %40, %60 ], [ %40, %57 ], [ %40, %54 ], [ %111, %108 ], [ %4, %93 ], [ %101, %98 ], [ %101, %103 ], [ %40, %73 ]
+  %.062 = phi i32 [ 12, %6 ], [ 10, %7 ], [ 13, %8 ], [ 9, %9 ], [ 11, %10 ], [ 0, %89 ], [ 8, %2 ], [ %30, %35 ], [ %83, %79 ], [ %52, %78 ], [ %52, %60 ], [ %52, %57 ], [ %52, %54 ], [ %110, %108 ], [ %86, %93 ], [ %100, %98 ], [ %100, %103 ], [ %52, %73 ]
   store ptr %.064, ptr %0, align 8, !tbaa !7
   br label %.critedge
 
-.critedge:                                        ; preds = %49, %26, %from_hex.exit.thread, %2, %91, %92, %.thread
-  %.171 = phi i32 [ %.062, %.thread ], [ -1, %92 ], [ -1, %91 ], [ -2, %2 ], [ -1, %from_hex.exit.thread ], [ -1, %26 ], [ -1, %49 ]
+.critedge:                                        ; preds = %48, %26, %from_hex.exit.thread, %2, %88, %89, %.thread
+  %.171 = phi i32 [ %.062, %.thread ], [ -1, %89 ], [ -1, %88 ], [ -2, %2 ], [ -1, %from_hex.exit.thread ], [ -1, %26 ], [ -1, %48 ]
   ret i32 %.171
 }
 

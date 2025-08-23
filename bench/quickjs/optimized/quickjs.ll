@@ -198094,8 +198094,8 @@ string_get.exit.us.i:                             ; preds = %string_get.exit.us.
 
 77:                                               ; preds = %75
   %78 = add nsw i32 %73, -87
-  %79 = add nsw i32 %73, -103
-  %or.cond.us.i = icmp ult i32 %79, -6
+  %79 = add i8 %72, -103
+  %or.cond.us.i = icmp ult i8 %79, -6
   br i1 %or.cond.us.i, label %string_get_hex.exit.thread, label %from_hex.exit.thread.us.i
 
 80:                                               ; preds = %75
@@ -198134,8 +198134,8 @@ string_get.exit.i:                                ; preds = %string_get.exit.i.p
 
 96:                                               ; preds = %92
   %97 = add nsw i32 %90, -87
-  %98 = add nsw i32 %90, -103
-  %or.cond.i = icmp ult i32 %98, -6
+  %98 = add i16 %89, -103
+  %or.cond.i = icmp ult i16 %98, -6
   br i1 %or.cond.i, label %string_get_hex.exit.thread, label %from_hex.exit.thread.i
 
 from_hex.exit.thread.i:                           ; preds = %96, %94, %string_get.exit.i
@@ -198197,8 +198197,8 @@ string_get.exit.us.i57:                           ; preds = %109, %from_hex.exit
 
 119:                                              ; preds = %117
   %120 = add nsw i32 %115, -87
-  %121 = add nsw i32 %115, -103
-  %or.cond.us.i62 = icmp ult i32 %121, -6
+  %121 = add i8 %114, -103
+  %or.cond.us.i62 = icmp ult i8 %121, -6
   br i1 %or.cond.us.i62, label %string_get_hex.exit65, label %from_hex.exit.thread.us.i63
 
 122:                                              ; preds = %117
@@ -198237,8 +198237,8 @@ string_get.exit.i48:                              ; preds = %string_get.exit.i48
 
 138:                                              ; preds = %134
   %139 = add nsw i32 %132, -87
-  %140 = add nsw i32 %132, -103
-  %or.cond.i53 = icmp ult i32 %140, -6
+  %140 = add i16 %131, -103
+  %or.cond.i53 = icmp ult i16 %140, -6
   br i1 %or.cond.i53, label %string_get_hex.exit65, label %from_hex.exit.thread.i54
 
 from_hex.exit.thread.i54:                         ; preds = %138, %136, %string_get.exit.i48
@@ -198477,8 +198477,8 @@ string_get.exit.us.i:                             ; preds = %23, %from_hex.exit.
 
 33:                                               ; preds = %31
   %34 = add nsw i32 %29, -87
-  %35 = add nsw i32 %29, -103
-  %or.cond.us.i = icmp ult i32 %35, -6
+  %35 = add i8 %28, -103
+  %or.cond.us.i = icmp ult i8 %35, -6
   br i1 %or.cond.us.i, label %.sink.split, label %from_hex.exit.thread.us.i
 
 36:                                               ; preds = %31
@@ -198517,8 +198517,8 @@ string_get.exit.i:                                ; preds = %23, %from_hex.exit.
 
 52:                                               ; preds = %48
   %53 = add nsw i32 %46, -87
-  %54 = add nsw i32 %46, -103
-  %or.cond.i = icmp ult i32 %54, -6
+  %54 = add i16 %45, -103
+  %or.cond.i = icmp ult i16 %54, -6
   br i1 %or.cond.i, label %.sink.split, label %from_hex.exit.thread.i
 
 from_hex.exit.thread.i:                           ; preds = %52, %50, %string_get.exit.i

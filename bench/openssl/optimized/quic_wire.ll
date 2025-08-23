@@ -2637,66 +2637,65 @@ expect_frame_header.exit:                         ; preds = %5
   %47 = load i64, ptr %1, align 8, !tbaa !44
   %48 = icmp ult i64 %47, %42
   %.not.i.i = icmp eq i64 %45, %39
-  %or.cond54 = select i1 %48, i1 true, i1 %.not.i.i
-  br i1 %or.cond54, label %expect_frame_header.exit.thread, label %PACKET_get_1.exit
+  %or.cond55 = select i1 %48, i1 true, i1 %.not.i.i
+  br i1 %or.cond55, label %expect_frame_header.exit.thread, label %PACKET_get_1.exit
 
 PACKET_get_1.exit:                                ; preds = %41
   %49 = load i8, ptr %44, align 1, !tbaa !55
-  %50 = zext i8 %49 to i32
-  %51 = getelementptr inbounds nuw i8, ptr %44, i64 1
-  store ptr %51, ptr %0, align 8, !tbaa !54
-  %52 = add i64 %46, -1
-  store i64 %52, ptr %3, align 8, !tbaa !52
-  %53 = add nsw i32 %50, -21
-  %54 = icmp ult i32 %53, -20
-  br i1 %54, label %expect_frame_header.exit.thread, label %55
+  %50 = getelementptr inbounds nuw i8, ptr %44, i64 1
+  store ptr %50, ptr %0, align 8, !tbaa !54
+  %51 = add i64 %46, -1
+  store i64 %51, ptr %3, align 8, !tbaa !52
+  %52 = add i8 %49, -21
+  %53 = icmp ult i8 %52, -20
+  br i1 %53, label %expect_frame_header.exit.thread, label %54
 
-55:                                               ; preds = %PACKET_get_1.exit
-  %56 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store i8 %49, ptr %56, align 8, !tbaa !40
-  %57 = getelementptr inbounds nuw i8, ptr %1, i64 17
-  %58 = zext i8 %49 to i64
-  %59 = icmp ult i64 %52, %58
-  br i1 %59, label %expect_frame_header.exit.thread, label %60
+54:                                               ; preds = %PACKET_get_1.exit
+  %55 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  store i8 %49, ptr %55, align 8, !tbaa !40
+  %56 = getelementptr inbounds nuw i8, ptr %1, i64 17
+  %57 = zext nneg i8 %49 to i64
+  %58 = icmp ult i64 %51, %57
+  br i1 %58, label %expect_frame_header.exit.thread, label %59
 
-60:                                               ; preds = %55
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %57, ptr nonnull align 1 %51, i64 range(i64 0, 4294967296) %58, i1 false)
-  %61 = load ptr, ptr %0, align 8, !tbaa !54
-  %62 = getelementptr inbounds nuw i8, ptr %61, i64 %58
-  store ptr %62, ptr %0, align 8, !tbaa !54
-  %63 = load i64, ptr %3, align 8, !tbaa !52
-  %64 = sub i64 %63, %58
-  store i64 %64, ptr %3, align 8, !tbaa !52
-  %65 = icmp ult i8 %49, 20
-  br i1 %65, label %66, label %70
+59:                                               ; preds = %54
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %56, ptr nonnull align 1 %50, i64 range(i64 0, 4294967296) %57, i1 false)
+  %60 = load ptr, ptr %0, align 8, !tbaa !54
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 %57
+  store ptr %61, ptr %0, align 8, !tbaa !54
+  %62 = load i64, ptr %3, align 8, !tbaa !52
+  %63 = sub i64 %62, %57
+  store i64 %63, ptr %3, align 8, !tbaa !52
+  %64 = icmp samesign ult i8 %49, 20
+  br i1 %64, label %65, label %68
 
-66:                                               ; preds = %60
-  %67 = getelementptr inbounds nuw i8, ptr %57, i64 %58
-  %68 = sub nuw nsw i32 20, %50
-  %69 = zext nneg i32 %68 to i64
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %67, i8 0, i64 %69, i1 false)
+65:                                               ; preds = %59
+  %66 = getelementptr inbounds nuw i8, ptr %56, i64 %57
+  %narrow = sub nuw nsw i8 20, %49
+  %67 = zext nneg i8 %narrow to i64
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %66, i8 0, i64 %67, i1 false)
   %.val.i.i29.pr = load i64, ptr %3, align 8, !tbaa !52
-  br label %70
+  br label %68
 
-70:                                               ; preds = %66, %60
-  %.val.i.i29 = phi i64 [ %.val.i.i29.pr, %66 ], [ %64, %60 ]
-  %71 = icmp ult i64 %.val.i.i29, 16
-  br i1 %71, label %expect_frame_header.exit.thread, label %PACKET_copy_bytes.exit31
+68:                                               ; preds = %65, %59
+  %.val.i.i29 = phi i64 [ %.val.i.i29.pr, %65 ], [ %63, %59 ]
+  %69 = icmp ult i64 %.val.i.i29, 16
+  br i1 %69, label %expect_frame_header.exit.thread, label %PACKET_copy_bytes.exit31
 
-PACKET_copy_bytes.exit31:                         ; preds = %70
-  %72 = getelementptr inbounds nuw i8, ptr %1, i64 37
-  %73 = load ptr, ptr %0, align 8, !tbaa !54
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %72, ptr noundef nonnull align 1 dereferenceable(16) %73, i64 range(i64 0, 4294967296) 16, i1 false)
-  %74 = load ptr, ptr %0, align 8, !tbaa !54
-  %75 = getelementptr inbounds nuw i8, ptr %74, i64 16
-  store ptr %75, ptr %0, align 8, !tbaa !54
-  %76 = load i64, ptr %3, align 8, !tbaa !52
-  %77 = add i64 %76, -16
-  store i64 %77, ptr %3, align 8, !tbaa !52
+PACKET_copy_bytes.exit31:                         ; preds = %68
+  %70 = getelementptr inbounds nuw i8, ptr %1, i64 37
+  %71 = load ptr, ptr %0, align 8, !tbaa !54
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %70, ptr noundef nonnull align 1 dereferenceable(16) %71, i64 range(i64 0, 4294967296) 16, i1 false)
+  %72 = load ptr, ptr %0, align 8, !tbaa !54
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 16
+  store ptr %73, ptr %0, align 8, !tbaa !54
+  %74 = load i64, ptr %3, align 8, !tbaa !52
+  %75 = add i64 %74, -16
+  store i64 %75, ptr %3, align 8, !tbaa !52
   br label %expect_frame_header.exit.thread
 
-expect_frame_header.exit.thread:                  ; preds = %55, %34, %26, %19, %5, %2, %PACKET_copy_bytes.exit31, %70, %expect_frame_header.exit, %41, %PACKET_get_1.exit
-  %.0 = phi i32 [ 0, %PACKET_get_1.exit ], [ 0, %41 ], [ 0, %expect_frame_header.exit ], [ 1, %PACKET_copy_bytes.exit31 ], [ 0, %70 ], [ 0, %2 ], [ 0, %5 ], [ 0, %19 ], [ 0, %26 ], [ 0, %34 ], [ 0, %55 ]
+expect_frame_header.exit.thread:                  ; preds = %54, %34, %26, %19, %5, %2, %PACKET_copy_bytes.exit31, %68, %expect_frame_header.exit, %41, %PACKET_get_1.exit
+  %.0 = phi i32 [ 0, %PACKET_get_1.exit ], [ 0, %41 ], [ 0, %expect_frame_header.exit ], [ 1, %PACKET_copy_bytes.exit31 ], [ 0, %68 ], [ 0, %2 ], [ 0, %5 ], [ 0, %19 ], [ 0, %26 ], [ 0, %34 ], [ 0, %54 ]
   ret i32 %.0
 }
 

@@ -120997,7 +120997,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115SequenceChecker24VisitCXXOperato
 
 _ZN12_GLOBAL__N_115SequenceChecker13VisitCallExprEPKN5clang8CallExprE.exit: ; preds = %23, %26
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %76
+  br label %75
 
 ._crit_edge:                                      ; preds = %19
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
@@ -121044,7 +121044,7 @@ _ZN12_GLOBAL__N_115SequenceChecker13VisitCallExprEPKN5clang8CallExprE.exit: ; pr
 
 _ZN12_GLOBAL__N_115SequenceChecker13VisitCallExprEPKN5clang8CallExprE.exit3: ; preds = %41, %44
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %75
+  br label %74
 
 switch.hole_check:                                ; preds = %._crit_edge
   %switch.maskindex = zext nneg i8 %switch.tableidx to i32
@@ -121073,35 +121073,34 @@ switch.lookup:                                    ; preds = %switch.hole_check
   store ptr %57, ptr %62, align 8, !tbaa !2106
   %64 = load i8, ptr %38, align 4
   %65 = and i8 %64, 63
-  %66 = zext nneg i8 %65 to i32
-  %67 = add nsw i32 %66, -41
-  %or.cond.i = icmp ult i32 %67, -36
-  %68 = add nsw i8 %65, -37
-  %69 = icmp ult i8 %68, 2
-  %or.cond5.i = or i1 %69, %or.cond.i
-  %70 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %.sroa.0.0.copyload.i.i.i = load i32, ptr %70, align 4
-  %71 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  %.sroa.0.0.copyload.i.i9.i = load i32, ptr %71, align 4
+  %66 = add nsw i8 %65, -41
+  %or.cond.i = icmp ult i8 %66, -36
+  %67 = add nsw i8 %65, -37
+  %68 = icmp ult i8 %67, 2
+  %or.cond5.i = or i1 %or.cond.i, %68
+  %69 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %.sroa.0.0.copyload.i.i.i = load i32, ptr %69, align 4
+  %70 = getelementptr inbounds nuw i8, ptr %1, i64 20
+  %.sroa.0.0.copyload.i.i9.i = load i32, ptr %70, align 4
   %.sroa.0.0.i = select i1 %or.cond5.i, i32 %.sroa.0.0.copyload.i.i.i, i32 %.sroa.0.0.copyload.i.i9.i
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store ptr %10, ptr %12, align 8, !tbaa !1134
-  %72 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  store ptr %0, ptr %72, align 8, !tbaa !2530
-  %73 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  store ptr %9, ptr %73, align 8, !tbaa !2533
-  %74 = ptrtoint ptr %12 to i64
-  call void @_ZN5clang4Sema27runWithSufficientStackSpaceENS_14SourceLocationEN4llvm12function_refIFvvEEE(ptr noundef nonnull align 8 dereferenceable(17504) %14, i32 %.sroa.0.0.i, ptr nonnull @_ZN4llvm12function_refIFvvEE11callback_fnIZN12_GLOBAL__N_115SequenceChecker24VisitCXXOperatorCallExprEPKN5clang19CXXOperatorCallExprEEUlvE_EEvl, i64 %74) #30
+  %71 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  store ptr %0, ptr %71, align 8, !tbaa !2530
+  %72 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  store ptr %9, ptr %72, align 8, !tbaa !2533
+  %73 = ptrtoint ptr %12 to i64
+  call void @_ZN5clang4Sema27runWithSufficientStackSpaceENS_14SourceLocationEN4llvm12function_refIFvvEEE(ptr noundef nonnull align 8 dereferenceable(17504) %14, i32 %.sroa.0.0.i, ptr nonnull @_ZN4llvm12function_refIFvvEE11callback_fnIZN12_GLOBAL__N_115SequenceChecker24VisitCXXOperatorCallExprEPKN5clang19CXXOperatorCallExprEEUlvE_EEvl, i64 %73) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call fastcc void @_ZN12_GLOBAL__N_115SequenceChecker22SequencedSubexpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %11) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  br label %74
+
+74:                                               ; preds = %switch.lookup, %_ZN12_GLOBAL__N_115SequenceChecker13VisitCallExprEPKN5clang8CallExprE.exit3
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %75
 
-75:                                               ; preds = %switch.lookup, %_ZN12_GLOBAL__N_115SequenceChecker13VisitCallExprEPKN5clang8CallExprE.exit3
-  call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  br label %76
-
-76:                                               ; preds = %75, %_ZN12_GLOBAL__N_115SequenceChecker13VisitCallExprEPKN5clang8CallExprE.exit
+75:                                               ; preds = %74, %_ZN12_GLOBAL__N_115SequenceChecker13VisitCallExprEPKN5clang8CallExprE.exit
   ret void
 }
 

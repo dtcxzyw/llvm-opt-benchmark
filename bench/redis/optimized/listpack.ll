@@ -1365,8 +1365,8 @@ define internal range(i32 0, 2) i32 @lpFindCmp(ptr readnone captures(none) %0, p
   %22 = load ptr, ptr %2, align 8, !tbaa !23
   %23 = zext nneg i32 %19 to i64
   %24 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %25 = add nsw i64 %23, -21
-  %or.cond.i = icmp ult i64 %25, -20
+  %25 = add nsw i32 %19, -21
+  %or.cond.i = icmp ult i32 %25, -20
   br i1 %or.cond.i, label %.thread, label %26
 
 26:                                               ; preds = %21
@@ -2048,8 +2048,8 @@ lpEncodeString.exit:                              ; preds = %245, %250, %256
 ; Function Attrs: inlinehint nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal fastcc range(i32 0, 2) i32 @lpEncodeGetType(ptr noundef nonnull readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3) unnamed_addr #8 {
   %5 = zext i32 %1 to i64
-  %6 = add nsw i64 %5, -21
-  %or.cond.i = icmp ult i64 %6, -20
+  %6 = add i32 %1, -21
+  %or.cond.i = icmp ult i32 %6, -20
   br i1 %or.cond.i, label %.loopexit, label %7
 
 7:                                                ; preds = %4
@@ -2078,7 +2078,7 @@ define internal fastcc range(i32 0, 2) i32 @lpEncodeGetType(ptr noundef nonnull 
   %.042.i = phi i64 [ 1, %.thread.i ], [ 2, %.thread62.i ]
   %14 = add i8 %13, -49
   %or.cond56.i = icmp ult i8 %14, 9
-  br i1 %or.cond56.i, label %17, label %.loopexit
+  br i1 %or.cond56.i, label %17, label %.loopexit.thread
 
 .thread73.i:                                      ; preds = %10
   %15 = add i8 %9, -49
@@ -2264,11 +2264,11 @@ lpStringToInt64.exit.thread20:                    ; preds = %.thread90.i, %10, %
   %.not101.i = icmp eq ptr %3, null
   br i1 %.not101.i, label %lpEncodeIntegerGetType.exit, label %lpEncodeIntegerGetType.exit.sink.split
 
-.loopexit:                                        ; preds = %23, %.lr.ph.i, %4, %12, %31, %35
+.loopexit:                                        ; preds = %23, %.lr.ph.i, %4, %31, %35
   %83 = icmp ult i32 %1, 64
   br i1 %83, label %.loopexit.thread, label %86
 
-.loopexit.thread:                                 ; preds = %.thread73.i, %10, %.loopexit
+.loopexit.thread:                                 ; preds = %.thread73.i, %10, %12, %.loopexit
   %84 = add nuw nsw i32 %1, 1
   %85 = zext nneg i32 %84 to i64
   br label %lpEncodeIntegerGetType.exit.sink.split
@@ -4827,8 +4827,8 @@ define dso_local range(i32 0, 2) i32 @lpCompare(ptr noundef readonly captures(no
   %73 = add i64 %.neg.i.i, %.059.neg.i.i
   %.062.i.i = select i1 %.not66.i.i, i64 %.061.i.i, i64 %73
   %74 = zext i32 %2 to i64
-  %75 = add nsw i64 %74, -21
-  %or.cond.i = icmp ult i64 %75, -20
+  %75 = add i32 %2, -21
+  %or.cond.i = icmp ult i32 %75, -20
   br i1 %or.cond.i, label %lpStringToInt64.exit, label %76
 
 76:                                               ; preds = %72
