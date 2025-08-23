@@ -5918,52 +5918,52 @@ _ZN4llvm3isaIN5clang12FunctionDeclENS1_14ObjCMethodDeclEJNS1_9BlockDeclEENS1_4De
   br i1 %or.cond, label %.thread, label %_ZN4llvm3isaIN5clang12FunctionDeclENS1_14ObjCMethodDeclEJNS1_9BlockDeclEENS1_4DeclEEEbRKT2_.exit.thread
 
 .thread:                                          ; preds = %47, %43
-  %52 = tail call noundef zeroext i1 @_ZN5clang11DeclContext7classofEPKNS_4DeclE(ptr noundef nonnull align 8 dereferenceable(33) %36) #21
-  br i1 %52, label %_ZN4llvm8dyn_castIN5clang11DeclContextEKNS1_4DeclEEEDcPT0_.exit, label %_ZN4llvm3isaIN5clang12FunctionDeclENS1_14ObjCMethodDeclEJNS1_9BlockDeclEENS1_4DeclEEEbRKT2_.exit.thread
+  %53 = tail call noundef zeroext i1 @_ZN5clang11DeclContext7classofEPKNS_4DeclE(ptr noundef nonnull align 8 dereferenceable(33) %36) #21
+  br i1 %53, label %_ZN4llvm8dyn_castIN5clang11DeclContextEKNS1_4DeclEEEDcPT0_.exit, label %_ZN4llvm3isaIN5clang12FunctionDeclENS1_14ObjCMethodDeclEJNS1_9BlockDeclEENS1_4DeclEEEbRKT2_.exit.thread
 
 _ZN4llvm8dyn_castIN5clang11DeclContextEKNS1_4DeclEEEDcPT0_.exit: ; preds = %.thread
-  %53 = tail call noundef ptr @_ZN5clang4Decl17castToDeclContextEPKS0_(ptr noundef nonnull %36) #21
-  %.not27 = icmp eq ptr %53, null
-  br i1 %.not27, label %_ZN4llvm3isaIN5clang12FunctionDeclENS1_14ObjCMethodDeclEJNS1_9BlockDeclEENS1_4DeclEEEbRKT2_.exit.thread, label %54
+  %54 = tail call noundef ptr @_ZN5clang4Decl17castToDeclContextEPKS0_(ptr noundef nonnull %36) #21
+  %.not27 = icmp eq ptr %54, null
+  br i1 %.not27, label %_ZN4llvm3isaIN5clang12FunctionDeclENS1_14ObjCMethodDeclEJNS1_9BlockDeclEENS1_4DeclEEEbRKT2_.exit.thread, label %55
 
-54:                                               ; preds = %_ZN4llvm8dyn_castIN5clang11DeclContextEKNS1_4DeclEEEDcPT0_.exit
-  %55 = load i8, ptr %4, align 4, !tbaa !120, !range !21, !noundef !22
-  %56 = trunc nuw i8 %55 to i1
-  br i1 %56, label %57, label %59
+55:                                               ; preds = %_ZN4llvm8dyn_castIN5clang11DeclContextEKNS1_4DeclEEEDcPT0_.exit
+  %56 = load i8, ptr %4, align 4, !tbaa !120, !range !21, !noundef !22
+  %57 = trunc nuw i8 %56 to i1
+  br i1 %57, label %58, label %60
 
-57:                                               ; preds = %54
-  %58 = tail call ptr @_ZNK5clang11DeclContext11decls_beginEv(ptr noundef nonnull align 8 dereferenceable(32) %53) #21
-  br label %62
+58:                                               ; preds = %55
+  %59 = tail call ptr @_ZNK5clang11DeclContext11decls_beginEv(ptr noundef nonnull align 8 dereferenceable(32) %54) #21
+  br label %63
 
-59:                                               ; preds = %54
-  %60 = getelementptr inbounds nuw i8, ptr %53, i64 16
-  %61 = load ptr, ptr %60, align 8, !tbaa !603
-  br label %62
+60:                                               ; preds = %55
+  %61 = getelementptr inbounds nuw i8, ptr %54, i64 16
+  %62 = load ptr, ptr %61, align 8, !tbaa !603
+  br label %63
 
-62:                                               ; preds = %59, %57
-  %.sroa.013.0.i = phi ptr [ %58, %57 ], [ %61, %59 ]
+63:                                               ; preds = %60, %58
+  %.sroa.013.0.i = phi ptr [ %59, %57 ], [ %62, %59 ]
   %.not2224.i = icmp eq ptr %.sroa.013.0.i, null
   br i1 %.not2224.i, label %_ZN4llvm3isaIN5clang12FunctionDeclENS1_14ObjCMethodDeclEJNS1_9BlockDeclEENS1_4DeclEEEbRKT2_.exit.thread, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %62
+.lr.ph.i:                                         ; preds = %63
   %.sroa.417.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.518.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %2, i64 16
-  br label %63
+  br label %64
 
-63:                                               ; preds = %_ZN5clang16ASTNodeTraverserINS_9ASTDumperENS_14TextNodeDumperEE5VisitEPKNS_4DeclEb.exit.i, %.lr.ph.i
-  %.sroa.0.025.i = phi ptr [ %.sroa.013.0.i, %.lr.ph.i ], [ %73, %_ZN5clang16ASTNodeTraverserINS_9ASTDumperENS_14TextNodeDumperEE5VisitEPKNS_4DeclEb.exit.i ]
-  %64 = load i32, ptr %44, align 4, !tbaa !86
-  %65 = icmp eq i32 %64, 1
-  br i1 %65, label %66, label %70
+64:                                               ; preds = %_ZN5clang16ASTNodeTraverserINS_9ASTDumperENS_14TextNodeDumperEE5VisitEPKNS_4DeclEb.exit.i, %.lr.ph.i
+  %.sroa.0.025.i = phi ptr [ %.sroa.013.0.i, %.lr.ph.i ], [ %74, %_ZN5clang16ASTNodeTraverserINS_9ASTDumperENS_14TextNodeDumperEE5VisitEPKNS_4DeclEb.exit.i ]
+  %65 = load i32, ptr %44, align 4, !tbaa !86
+  %66 = icmp eq i32 %65, 1
+  br i1 %66, label %67, label %71
 
-66:                                               ; preds = %63
-  %67 = getelementptr inbounds nuw i8, ptr %.sroa.0.025.i, i64 28
-  %68 = load i32, ptr %67, align 4
-  %69 = and i32 %68, 512
-  %.not23.i = icmp eq i32 %69, 0
-  br i1 %.not23.i, label %70, label %_ZN5clang16ASTNodeTraverserINS_9ASTDumperENS_14TextNodeDumperEE5VisitEPKNS_4DeclEb.exit.i
+67:                                               ; preds = %64
+  %68 = getelementptr inbounds nuw i8, ptr %.sroa.0.025.i, i64 28
+  %69 = load i32, ptr %68, align 4
+  %70 = and i32 %69, 512
+  %.not23.i = icmp eq i32 %70, 0
+  br i1 %.not23.i, label %71, label %_ZN5clang16ASTNodeTraverserINS_9ASTDumperENS_14TextNodeDumperEE5VisitEPKNS_4DeclEb.exit.i
 
-70:                                               ; preds = %66, %63
+71:                                               ; preds = %67, %64
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr %4, ptr %2, align 8, !tbaa !89
   store ptr %.sroa.0.025.i, ptr %.sroa.417.0..sroa_idx.i, align 8, !tbaa !91
@@ -5972,15 +5972,15 @@ _ZN4llvm8dyn_castIN5clang11DeclContextEKNS1_4DeclEEEDcPT0_.exit: ; preds = %.thr
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %_ZN5clang16ASTNodeTraverserINS_9ASTDumperENS_14TextNodeDumperEE5VisitEPKNS_4DeclEb.exit.i
 
-_ZN5clang16ASTNodeTraverserINS_9ASTDumperENS_14TextNodeDumperEE5VisitEPKNS_4DeclEb.exit.i: ; preds = %70, %66
-  %71 = getelementptr inbounds nuw i8, ptr %.sroa.0.025.i, i64 8
-  %.0.copyload.i.i.i.i.i.i = load i64, ptr %71, align 8
-  %72 = and i64 %.0.copyload.i.i.i.i.i.i, -8
-  %73 = inttoptr i64 %72 to ptr
-  %.not22.i = icmp eq i64 %72, 0
-  br i1 %.not22.i, label %_ZN4llvm3isaIN5clang12FunctionDeclENS1_14ObjCMethodDeclEJNS1_9BlockDeclEENS1_4DeclEEEbRKT2_.exit.thread, label %63
+_ZN5clang16ASTNodeTraverserINS_9ASTDumperENS_14TextNodeDumperEE5VisitEPKNS_4DeclEb.exit.i: ; preds = %71, %67
+  %72 = getelementptr inbounds nuw i8, ptr %.sroa.0.025.i, i64 8
+  %.0.copyload.i.i.i.i.i.i = load i64, ptr %72, align 8
+  %73 = and i64 %.0.copyload.i.i.i.i.i.i, -8
+  %74 = inttoptr i64 %73 to ptr
+  %.not22.i = icmp eq i64 %73, 0
+  br i1 %.not22.i, label %_ZN4llvm3isaIN5clang12FunctionDeclENS1_14ObjCMethodDeclEJNS1_9BlockDeclEENS1_4DeclEEEbRKT2_.exit.thread, label %64
 
-_ZN4llvm3isaIN5clang12FunctionDeclENS1_14ObjCMethodDeclEJNS1_9BlockDeclEENS1_4DeclEEEbRKT2_.exit.thread: ; preds = %_ZN5clang16ASTNodeTraverserINS_9ASTDumperENS_14TextNodeDumperEE5VisitEPKNS_4DeclEb.exit.i, %62, %_ZN4llvm3isaIN5clang12FunctionDeclENS1_14ObjCMethodDeclEJNS1_9BlockDeclEENS1_4DeclEEEbRKT2_.exit, %_ZN4llvm3isaIN5clang12FunctionDeclENS1_14ObjCMethodDeclEJNS1_9BlockDeclEENS1_4DeclEEEbRKT2_.exit, %.thread, %35, %47, %_ZN4llvm8dyn_castIN5clang11DeclContextEKNS1_4DeclEEEDcPT0_.exit, %1
+_ZN4llvm3isaIN5clang12FunctionDeclENS1_14ObjCMethodDeclEJNS1_9BlockDeclEENS1_4DeclEEEbRKT2_.exit.thread: ; preds = %_ZN5clang16ASTNodeTraverserINS_9ASTDumperENS_14TextNodeDumperEE5VisitEPKNS_4DeclEb.exit.i, %63, %_ZN4llvm3isaIN5clang12FunctionDeclENS1_14ObjCMethodDeclEJNS1_9BlockDeclEENS1_4DeclEEEbRKT2_.exit, %_ZN4llvm3isaIN5clang12FunctionDeclENS1_14ObjCMethodDeclEJNS1_9BlockDeclEENS1_4DeclEEEbRKT2_.exit, %.thread, %35, %47, %_ZN4llvm8dyn_castIN5clang11DeclContextEKNS1_4DeclEEEDcPT0_.exit, %1
   ret void
 }
 
@@ -21794,52 +21794,52 @@ _ZN4llvm3isaIN5clang12FunctionDeclENS1_14ObjCMethodDeclEJNS1_9BlockDeclEENS1_4De
   br i1 %or.cond, label %.thread, label %_ZN4llvm3isaIN5clang12FunctionDeclENS1_14ObjCMethodDeclEJNS1_9BlockDeclEENS1_4DeclEEEbRKT2_.exit.thread
 
 .thread:                                          ; preds = %47, %43
-  %52 = tail call noundef zeroext i1 @_ZN5clang11DeclContext7classofEPKNS_4DeclE(ptr noundef nonnull align 8 dereferenceable(33) %36) #21
-  br i1 %52, label %_ZN4llvm8dyn_castIN5clang11DeclContextEKNS1_4DeclEEEDcPT0_.exit, label %_ZN4llvm3isaIN5clang12FunctionDeclENS1_14ObjCMethodDeclEJNS1_9BlockDeclEENS1_4DeclEEEbRKT2_.exit.thread
+  %53 = tail call noundef zeroext i1 @_ZN5clang11DeclContext7classofEPKNS_4DeclE(ptr noundef nonnull align 8 dereferenceable(33) %36) #21
+  br i1 %53, label %_ZN4llvm8dyn_castIN5clang11DeclContextEKNS1_4DeclEEEDcPT0_.exit, label %_ZN4llvm3isaIN5clang12FunctionDeclENS1_14ObjCMethodDeclEJNS1_9BlockDeclEENS1_4DeclEEEbRKT2_.exit.thread
 
 _ZN4llvm8dyn_castIN5clang11DeclContextEKNS1_4DeclEEEDcPT0_.exit: ; preds = %.thread
-  %53 = tail call noundef ptr @_ZN5clang4Decl17castToDeclContextEPKS0_(ptr noundef nonnull %36) #21
-  %.not27 = icmp eq ptr %53, null
-  br i1 %.not27, label %_ZN4llvm3isaIN5clang12FunctionDeclENS1_14ObjCMethodDeclEJNS1_9BlockDeclEENS1_4DeclEEEbRKT2_.exit.thread, label %54
+  %54 = tail call noundef ptr @_ZN5clang4Decl17castToDeclContextEPKS0_(ptr noundef nonnull %36) #21
+  %.not27 = icmp eq ptr %54, null
+  br i1 %.not27, label %_ZN4llvm3isaIN5clang12FunctionDeclENS1_14ObjCMethodDeclEJNS1_9BlockDeclEENS1_4DeclEEEbRKT2_.exit.thread, label %55
 
-54:                                               ; preds = %_ZN4llvm8dyn_castIN5clang11DeclContextEKNS1_4DeclEEEDcPT0_.exit
-  %55 = load i8, ptr %4, align 4, !tbaa !525, !range !21, !noundef !22
-  %56 = trunc nuw i8 %55 to i1
-  br i1 %56, label %57, label %59
+55:                                               ; preds = %_ZN4llvm8dyn_castIN5clang11DeclContextEKNS1_4DeclEEEDcPT0_.exit
+  %56 = load i8, ptr %4, align 4, !tbaa !525, !range !21, !noundef !22
+  %57 = trunc nuw i8 %56 to i1
+  br i1 %57, label %58, label %60
 
-57:                                               ; preds = %54
-  %58 = tail call ptr @_ZNK5clang11DeclContext11decls_beginEv(ptr noundef nonnull align 8 dereferenceable(32) %53) #21
-  br label %62
+58:                                               ; preds = %55
+  %59 = tail call ptr @_ZNK5clang11DeclContext11decls_beginEv(ptr noundef nonnull align 8 dereferenceable(32) %54) #21
+  br label %63
 
-59:                                               ; preds = %54
-  %60 = getelementptr inbounds nuw i8, ptr %53, i64 16
-  %61 = load ptr, ptr %60, align 8, !tbaa !603
-  br label %62
+60:                                               ; preds = %55
+  %61 = getelementptr inbounds nuw i8, ptr %54, i64 16
+  %62 = load ptr, ptr %61, align 8, !tbaa !603
+  br label %63
 
-62:                                               ; preds = %59, %57
-  %.sroa.013.0.i = phi ptr [ %58, %57 ], [ %61, %59 ]
+63:                                               ; preds = %60, %58
+  %.sroa.013.0.i = phi ptr [ %59, %57 ], [ %62, %59 ]
   %.not2224.i = icmp eq ptr %.sroa.013.0.i, null
   br i1 %.not2224.i, label %_ZN4llvm3isaIN5clang12FunctionDeclENS1_14ObjCMethodDeclEJNS1_9BlockDeclEENS1_4DeclEEEbRKT2_.exit.thread, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %62
+.lr.ph.i:                                         ; preds = %63
   %.sroa.417.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.518.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %2, i64 16
-  br label %63
+  br label %64
 
-63:                                               ; preds = %_ZN5clang16ASTNodeTraverserINS_10JSONDumperENS_14JSONNodeDumperEE5VisitEPKNS_4DeclEb.exit.i, %.lr.ph.i
-  %.sroa.0.025.i = phi ptr [ %.sroa.013.0.i, %.lr.ph.i ], [ %73, %_ZN5clang16ASTNodeTraverserINS_10JSONDumperENS_14JSONNodeDumperEE5VisitEPKNS_4DeclEb.exit.i ]
-  %64 = load i32, ptr %44, align 4, !tbaa !528
-  %65 = icmp eq i32 %64, 1
-  br i1 %65, label %66, label %70
+64:                                               ; preds = %_ZN5clang16ASTNodeTraverserINS_10JSONDumperENS_14JSONNodeDumperEE5VisitEPKNS_4DeclEb.exit.i, %.lr.ph.i
+  %.sroa.0.025.i = phi ptr [ %.sroa.013.0.i, %.lr.ph.i ], [ %74, %_ZN5clang16ASTNodeTraverserINS_10JSONDumperENS_14JSONNodeDumperEE5VisitEPKNS_4DeclEb.exit.i ]
+  %65 = load i32, ptr %44, align 4, !tbaa !528
+  %66 = icmp eq i32 %65, 1
+  br i1 %66, label %67, label %71
 
-66:                                               ; preds = %63
-  %67 = getelementptr inbounds nuw i8, ptr %.sroa.0.025.i, i64 28
-  %68 = load i32, ptr %67, align 4
-  %69 = and i32 %68, 512
-  %.not23.i = icmp eq i32 %69, 0
-  br i1 %.not23.i, label %70, label %_ZN5clang16ASTNodeTraverserINS_10JSONDumperENS_14JSONNodeDumperEE5VisitEPKNS_4DeclEb.exit.i
+67:                                               ; preds = %64
+  %68 = getelementptr inbounds nuw i8, ptr %.sroa.0.025.i, i64 28
+  %69 = load i32, ptr %68, align 4
+  %70 = and i32 %69, 512
+  %.not23.i = icmp eq i32 %70, 0
+  br i1 %.not23.i, label %71, label %_ZN5clang16ASTNodeTraverserINS_10JSONDumperENS_14JSONNodeDumperEE5VisitEPKNS_4DeclEb.exit.i
 
-70:                                               ; preds = %66, %63
+71:                                               ; preds = %67, %64
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr %4, ptr %2, align 8, !tbaa !555
   store ptr %.sroa.0.025.i, ptr %.sroa.417.0..sroa_idx.i, align 8, !tbaa !91
@@ -21848,15 +21848,15 @@ _ZN4llvm8dyn_castIN5clang11DeclContextEKNS1_4DeclEEEDcPT0_.exit: ; preds = %.thr
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %_ZN5clang16ASTNodeTraverserINS_10JSONDumperENS_14JSONNodeDumperEE5VisitEPKNS_4DeclEb.exit.i
 
-_ZN5clang16ASTNodeTraverserINS_10JSONDumperENS_14JSONNodeDumperEE5VisitEPKNS_4DeclEb.exit.i: ; preds = %70, %66
-  %71 = getelementptr inbounds nuw i8, ptr %.sroa.0.025.i, i64 8
-  %.0.copyload.i.i.i.i.i.i = load i64, ptr %71, align 8
-  %72 = and i64 %.0.copyload.i.i.i.i.i.i, -8
-  %73 = inttoptr i64 %72 to ptr
-  %.not22.i = icmp eq i64 %72, 0
-  br i1 %.not22.i, label %_ZN4llvm3isaIN5clang12FunctionDeclENS1_14ObjCMethodDeclEJNS1_9BlockDeclEENS1_4DeclEEEbRKT2_.exit.thread, label %63
+_ZN5clang16ASTNodeTraverserINS_10JSONDumperENS_14JSONNodeDumperEE5VisitEPKNS_4DeclEb.exit.i: ; preds = %71, %67
+  %72 = getelementptr inbounds nuw i8, ptr %.sroa.0.025.i, i64 8
+  %.0.copyload.i.i.i.i.i.i = load i64, ptr %72, align 8
+  %73 = and i64 %.0.copyload.i.i.i.i.i.i, -8
+  %74 = inttoptr i64 %73 to ptr
+  %.not22.i = icmp eq i64 %73, 0
+  br i1 %.not22.i, label %_ZN4llvm3isaIN5clang12FunctionDeclENS1_14ObjCMethodDeclEJNS1_9BlockDeclEENS1_4DeclEEEbRKT2_.exit.thread, label %64
 
-_ZN4llvm3isaIN5clang12FunctionDeclENS1_14ObjCMethodDeclEJNS1_9BlockDeclEENS1_4DeclEEEbRKT2_.exit.thread: ; preds = %_ZN5clang16ASTNodeTraverserINS_10JSONDumperENS_14JSONNodeDumperEE5VisitEPKNS_4DeclEb.exit.i, %62, %_ZN4llvm3isaIN5clang12FunctionDeclENS1_14ObjCMethodDeclEJNS1_9BlockDeclEENS1_4DeclEEEbRKT2_.exit, %_ZN4llvm3isaIN5clang12FunctionDeclENS1_14ObjCMethodDeclEJNS1_9BlockDeclEENS1_4DeclEEEbRKT2_.exit, %.thread, %35, %47, %_ZN4llvm8dyn_castIN5clang11DeclContextEKNS1_4DeclEEEDcPT0_.exit, %1
+_ZN4llvm3isaIN5clang12FunctionDeclENS1_14ObjCMethodDeclEJNS1_9BlockDeclEENS1_4DeclEEEbRKT2_.exit.thread: ; preds = %_ZN5clang16ASTNodeTraverserINS_10JSONDumperENS_14JSONNodeDumperEE5VisitEPKNS_4DeclEb.exit.i, %63, %_ZN4llvm3isaIN5clang12FunctionDeclENS1_14ObjCMethodDeclEJNS1_9BlockDeclEENS1_4DeclEEEbRKT2_.exit, %_ZN4llvm3isaIN5clang12FunctionDeclENS1_14ObjCMethodDeclEJNS1_9BlockDeclEENS1_4DeclEEEbRKT2_.exit, %.thread, %35, %47, %_ZN4llvm8dyn_castIN5clang11DeclContextEKNS1_4DeclEEEDcPT0_.exit, %1
   ret void
 }
 

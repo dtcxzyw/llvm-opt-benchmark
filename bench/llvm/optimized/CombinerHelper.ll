@@ -9948,7 +9948,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm14CombinerHelper24matchShiftOfShif
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = load ptr, ptr %13, align 8, !tbaa !227
   %15 = tail call noundef zeroext i1 @_ZNK4llvm19MachineRegisterInfo15hasOneNonDBGUseENS_8RegisterE(ptr noundef nonnull align 8 dereferenceable(504) %14, i32 %12) #30
-  br i1 %15, label %16, label %146
+  br i1 %15, label %16, label %147
 
 16:                                               ; preds = %3
   %17 = load ptr, ptr %13, align 8, !tbaa !227
@@ -9959,84 +9959,84 @@ define dso_local noundef zeroext i1 @_ZNK4llvm14CombinerHelper24matchShiftOfShif
   %or.cond3 = icmp ult i16 %21, -3
   br i1 %or.cond3, label %146, label %22
 
-22:                                               ; preds = %16
-  %23 = load ptr, ptr %9, align 8, !tbaa !241
-  %24 = getelementptr inbounds nuw i8, ptr %23, i64 68
-  %25 = load i32, ptr %24, align 4, !tbaa !204
+23:                                               ; preds = %16
+  %24 = load ptr, ptr %9, align 8, !tbaa !241
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 68
+  %26 = load i32, ptr %25, align 4, !tbaa !204
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %26 = load ptr, ptr %13, align 8, !tbaa !227
-  call void @_ZN4llvm34getIConstantVRegValWithLookThroughENS_8RegisterERKNS_19MachineRegisterInfoEb(ptr dead_on_unwind nonnull writable sret(%"class.std::optional.319") align 8 %6, i32 %25, ptr noundef nonnull align 8 dereferenceable(504) %26, i1 noundef zeroext true) #30
-  %27 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %28 = load i8, ptr %27, align 8, !tbaa !289, !range !50, !noundef !51
-  %29 = trunc nuw i8 %28 to i1
-  br i1 %29, label %30, label %"_ZZNK4llvm14CombinerHelper24matchShiftOfShiftedLogicERNS_12MachineInstrERNS_19ShiftOfShiftedLogicEENK3$_0clEPKS1_Rm.exit45.thread"
+  %27 = load ptr, ptr %13, align 8, !tbaa !227
+  call void @_ZN4llvm34getIConstantVRegValWithLookThroughENS_8RegisterERKNS_19MachineRegisterInfoEb(ptr dead_on_unwind nonnull writable sret(%"class.std::optional.319") align 8 %6, i32 %26, ptr noundef nonnull align 8 dereferenceable(504) %27, i1 noundef zeroext true) #30
+  %28 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  %29 = load i8, ptr %28, align 8, !tbaa !289, !range !50, !noundef !51
+  %30 = trunc nuw i8 %29 to i1
+  br i1 %30, label %31, label %"_ZZNK4llvm14CombinerHelper24matchShiftOfShiftedLogicERNS_12MachineInstrERNS_19ShiftOfShiftedLogicEENK3$_0clEPKS1_Rm.exit45.thread"
 
-30:                                               ; preds = %22
-  %31 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %32 = load i32, ptr %31, align 8, !tbaa !291
-  %33 = icmp ult i32 %32, 65
-  br i1 %33, label %_ZNK4llvm5APInteqEm.exit, label %_ZNK4llvm5APInt13getActiveBitsEv.exit.i
+31:                                               ; preds = %23
+  %32 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %33 = load i32, ptr %32, align 8, !tbaa !291
+  %34 = icmp ult i32 %33, 65
+  br i1 %34, label %_ZNK4llvm5APInteqEm.exit, label %_ZNK4llvm5APInt13getActiveBitsEv.exit.i
 
-_ZNK4llvm5APInt13getActiveBitsEv.exit.i:          ; preds = %30
-  %34 = call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %6) #33
-  %35 = sub i32 %32, %34
-  %36 = icmp ult i32 %35, 65
-  br i1 %36, label %_ZNK4llvm5APInteqEm.exit, label %_ZNK4llvm5APInt13getActiveBitsEv.exit.i._ZNK4llvm5APInteqEm.exit.thread_crit_edge
+_ZNK4llvm5APInt13getActiveBitsEv.exit.i:          ; preds = %31
+  %35 = call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %6) #33
+  %36 = sub i32 %33, %35
+  %37 = icmp ult i32 %36, 65
+  br i1 %37, label %_ZNK4llvm5APInteqEm.exit, label %_ZNK4llvm5APInt13getActiveBitsEv.exit.i._ZNK4llvm5APInteqEm.exit.thread_crit_edge
 
 _ZNK4llvm5APInt13getActiveBitsEv.exit.i._ZNK4llvm5APInteqEm.exit.thread_crit_edge: ; preds = %_ZNK4llvm5APInt13getActiveBitsEv.exit.i
   %.pre = load ptr, ptr %6, align 8
   br label %_ZNK4llvm5APInteqEm.exit.thread
 
-_ZNK4llvm5APInteqEm.exit:                         ; preds = %30, %_ZNK4llvm5APInt13getActiveBitsEv.exit.i
-  %37 = load ptr, ptr %6, align 8
-  %.0.in.i.i = select i1 %33, ptr %6, ptr %37
+_ZNK4llvm5APInteqEm.exit:                         ; preds = %31, %_ZNK4llvm5APInt13getActiveBitsEv.exit.i
+  %38 = load ptr, ptr %6, align 8
+  %.0.in.i.i = select i1 %34, ptr %6, ptr %38
   %.0.i.i = load i64, ptr %.0.in.i.i, align 8, !tbaa !204
-  %38 = icmp eq i64 %.0.i.i, 0
-  br i1 %38, label %"_ZZNK4llvm14CombinerHelper24matchShiftOfShiftedLogicERNS_12MachineInstrERNS_19ShiftOfShiftedLogicEENK3$_0clEPKS1_Rm.exit45.thread", label %_ZNK4llvm5APInteqEm.exit.thread
+  %39 = icmp eq i64 %.0.i.i, 0
+  br i1 %39, label %"_ZZNK4llvm14CombinerHelper24matchShiftOfShiftedLogicERNS_12MachineInstrERNS_19ShiftOfShiftedLogicEENK3$_0clEPKS1_Rm.exit45.thread", label %_ZNK4llvm5APInteqEm.exit.thread
 
 _ZNK4llvm5APInteqEm.exit.thread:                  ; preds = %_ZNK4llvm5APInt13getActiveBitsEv.exit.i._ZNK4llvm5APInteqEm.exit.thread_crit_edge, %_ZNK4llvm5APInteqEm.exit
   %.0.in.i.pre-phi = phi ptr [ %.pre, %_ZNK4llvm5APInt13getActiveBitsEv.exit.i._ZNK4llvm5APInteqEm.exit.thread_crit_edge ], [ %.0.in.i.i, %_ZNK4llvm5APInteqEm.exit ]
   %.0.i = load i64, ptr %.0.in.i.pre-phi, align 8, !tbaa !204
-  %39 = getelementptr inbounds nuw i8, ptr %18, i64 32
-  %40 = load ptr, ptr %39, align 8, !tbaa !241
-  %41 = getelementptr inbounds nuw i8, ptr %40, i64 36
-  %42 = load i32, ptr %41, align 4, !tbaa !204
-  %43 = load ptr, ptr %13, align 8, !tbaa !227
-  %44 = call noundef ptr @_ZNK4llvm19MachineRegisterInfo16getUniqueVRegDefENS_8RegisterE(ptr noundef nonnull align 8 dereferenceable(504) %43, i32 %42) #30
-  %45 = load ptr, ptr %39, align 8, !tbaa !241
-  %46 = getelementptr inbounds nuw i8, ptr %45, i64 68
-  %47 = load i32, ptr %46, align 4, !tbaa !204
-  %48 = load ptr, ptr %13, align 8, !tbaa !227
-  %49 = call noundef ptr @_ZNK4llvm19MachineRegisterInfo16getUniqueVRegDefENS_8RegisterE(ptr noundef nonnull align 8 dereferenceable(504) %48, i32 %47) #30
-  %50 = getelementptr inbounds nuw i8, ptr %44, i64 68
-  %51 = load i16, ptr %50, align 4, !tbaa !228
-  %.not.i = icmp eq i16 %8, %51
-  br i1 %.not.i, label %52, label %"_ZZNK4llvm14CombinerHelper24matchShiftOfShiftedLogicERNS_12MachineInstrERNS_19ShiftOfShiftedLogicEENK3$_0clEPKS1_Rm.exit.thread"
+  %40 = getelementptr inbounds nuw i8, ptr %18, i64 32
+  %41 = load ptr, ptr %40, align 8, !tbaa !241
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 36
+  %43 = load i32, ptr %42, align 4, !tbaa !204
+  %44 = load ptr, ptr %13, align 8, !tbaa !227
+  %45 = call noundef ptr @_ZNK4llvm19MachineRegisterInfo16getUniqueVRegDefENS_8RegisterE(ptr noundef nonnull align 8 dereferenceable(504) %44, i32 %43) #30
+  %46 = load ptr, ptr %40, align 8, !tbaa !241
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 68
+  %48 = load i32, ptr %47, align 4, !tbaa !204
+  %49 = load ptr, ptr %13, align 8, !tbaa !227
+  %50 = call noundef ptr @_ZNK4llvm19MachineRegisterInfo16getUniqueVRegDefENS_8RegisterE(ptr noundef nonnull align 8 dereferenceable(504) %49, i32 %48) #30
+  %51 = getelementptr inbounds nuw i8, ptr %45, i64 68
+  %52 = load i16, ptr %51, align 4, !tbaa !228
+  %.not.i = icmp eq i16 %8, %52
+  br i1 %.not.i, label %53, label %"_ZZNK4llvm14CombinerHelper24matchShiftOfShiftedLogicERNS_12MachineInstrERNS_19ShiftOfShiftedLogicEENK3$_0clEPKS1_Rm.exit.thread"
 
-52:                                               ; preds = %_ZNK4llvm5APInteqEm.exit.thread
-  %53 = load ptr, ptr %13, align 8, !tbaa !227
-  %54 = getelementptr inbounds nuw i8, ptr %44, i64 32
-  %55 = load ptr, ptr %54, align 8, !tbaa !241
-  %56 = getelementptr inbounds nuw i8, ptr %55, i64 4
-  %57 = load i32, ptr %56, align 4, !tbaa !204
-  %58 = call noundef zeroext i1 @_ZNK4llvm19MachineRegisterInfo15hasOneNonDBGUseENS_8RegisterE(ptr noundef nonnull align 8 dereferenceable(504) %53, i32 %57) #30
-  br i1 %58, label %59, label %"_ZZNK4llvm14CombinerHelper24matchShiftOfShiftedLogicERNS_12MachineInstrERNS_19ShiftOfShiftedLogicEENK3$_0clEPKS1_Rm.exit.thread"
+53:                                               ; preds = %_ZNK4llvm5APInteqEm.exit.thread
+  %54 = load ptr, ptr %13, align 8, !tbaa !227
+  %55 = getelementptr inbounds nuw i8, ptr %45, i64 32
+  %56 = load ptr, ptr %55, align 8, !tbaa !241
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 4
+  %58 = load i32, ptr %57, align 4, !tbaa !204
+  %59 = call noundef zeroext i1 @_ZNK4llvm19MachineRegisterInfo15hasOneNonDBGUseENS_8RegisterE(ptr noundef nonnull align 8 dereferenceable(504) %54, i32 %58) #30
+  br i1 %59, label %60, label %"_ZZNK4llvm14CombinerHelper24matchShiftOfShiftedLogicERNS_12MachineInstrERNS_19ShiftOfShiftedLogicEENK3$_0clEPKS1_Rm.exit.thread"
 
-59:                                               ; preds = %52
+60:                                               ; preds = %53
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %60 = load ptr, ptr %54, align 8, !tbaa !241
-  %61 = getelementptr inbounds nuw i8, ptr %60, i64 68
-  %62 = load i32, ptr %61, align 4, !tbaa !204
-  %63 = load ptr, ptr %13, align 8, !tbaa !227
-  call void @_ZN4llvm34getIConstantVRegValWithLookThroughENS_8RegisterERKNS_19MachineRegisterInfoEb(ptr dead_on_unwind nonnull writable sret(%"class.std::optional.319") align 8 %5, i32 %62, ptr noundef nonnull align 8 dereferenceable(504) %63, i1 noundef zeroext true) #30
-  %64 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %65 = load i8, ptr %64, align 8, !tbaa !289, !range !50, !noundef !51
-  %66 = trunc nuw i8 %65 to i1
-  br i1 %66, label %67, label %"_ZZNK4llvm14CombinerHelper24matchShiftOfShiftedLogicERNS_12MachineInstrERNS_19ShiftOfShiftedLogicEENK3$_0clEPKS1_Rm.exit"
+  %61 = load ptr, ptr %55, align 8, !tbaa !241
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 68
+  %63 = load i32, ptr %62, align 4, !tbaa !204
+  %64 = load ptr, ptr %13, align 8, !tbaa !227
+  call void @_ZN4llvm34getIConstantVRegValWithLookThroughENS_8RegisterERKNS_19MachineRegisterInfoEb(ptr dead_on_unwind nonnull writable sret(%"class.std::optional.319") align 8 %5, i32 %63, ptr noundef nonnull align 8 dereferenceable(504) %64, i1 noundef zeroext true) #30
+  %65 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %66 = load i8, ptr %65, align 8, !tbaa !289, !range !50, !noundef !51
+  %67 = trunc nuw i8 %66 to i1
+  br i1 %67, label %67, label %"_ZZNK4llvm14CombinerHelper24matchShiftOfShiftedLogicERNS_12MachineInstrERNS_19ShiftOfShiftedLogicEENK3$_0clEPKS1_Rm.exit"
 
-67:                                               ; preds = %59
+79:                                               ; preds = %60
   %68 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %69 = load i32, ptr %68, align 8, !tbaa !291
+  %81 = load i32, ptr %68, align 8, !tbaa !291
   %70 = icmp ult i32 %69, 65
   br i1 %70, label %71, label %78
 
@@ -10050,7 +10050,7 @@ _ZNK4llvm5APInteqEm.exit.thread:                  ; preds = %_ZNK4llvm5APInt13ge
   %.0.i.i.i = select i1 %73, i64 0, i64 %77
   br label %81
 
-78:                                               ; preds = %67
+"_ZZNK4llvm14CombinerHelper24matchShiftOfShiftedLogicERNS_12MachineInstrERNS_19ShiftOfShiftedLogicEENK3$_0clEPKS1_Rm.exit": ; preds = %67
   %79 = load ptr, ptr %5, align 8, !tbaa !204
   %80 = load i64, ptr %79, align 8, !tbaa !55
   store i8 0, ptr %64, align 8, !tbaa !289
@@ -10061,55 +10061,55 @@ _ZNK4llvm5APInteqEm.exit.thread:                  ; preds = %_ZNK4llvm5APInt13ge
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %"_ZZNK4llvm14CombinerHelper24matchShiftOfShiftedLogicERNS_12MachineInstrERNS_19ShiftOfShiftedLogicEENK3$_0clEPKS1_Rm.exit.thread"
 
-81:                                               ; preds = %71, %78
+82:                                               ; preds = %71, %78
   %.1.ph = phi i64 [ %80, %78 ], [ %.0.i.i.i, %71 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %114
 
-"_ZZNK4llvm14CombinerHelper24matchShiftOfShiftedLogicERNS_12MachineInstrERNS_19ShiftOfShiftedLogicEENK3$_0clEPKS1_Rm.exit.thread": ; preds = %_ZNK4llvm5APInteqEm.exit.thread, %52, %"_ZZNK4llvm14CombinerHelper24matchShiftOfShiftedLogicERNS_12MachineInstrERNS_19ShiftOfShiftedLogicEENK3$_0clEPKS1_Rm.exit"
-  %82 = getelementptr inbounds nuw i8, ptr %49, i64 68
-  %83 = load i16, ptr %82, align 4, !tbaa !228
-  %.not.i41 = icmp eq i16 %8, %83
-  br i1 %.not.i41, label %84, label %"_ZZNK4llvm14CombinerHelper24matchShiftOfShiftedLogicERNS_12MachineInstrERNS_19ShiftOfShiftedLogicEENK3$_0clEPKS1_Rm.exit45.thread"
+"_ZZNK4llvm14CombinerHelper24matchShiftOfShiftedLogicERNS_12MachineInstrERNS_19ShiftOfShiftedLogicEENK3$_0clEPKS1_Rm.exit.thread": ; preds = %_ZNK4llvm5APInteqEm.exit.thread, %53, %"_ZZNK4llvm14CombinerHelper24matchShiftOfShiftedLogicERNS_12MachineInstrERNS_19ShiftOfShiftedLogicEENK3$_0clEPKS1_Rm.exit"
+  %83 = getelementptr inbounds nuw i8, ptr %50, i64 68
+  %84 = load i16, ptr %83, align 4, !tbaa !228
+  %.not.i41 = icmp eq i16 %8, %84
+  br i1 %.not.i41, label %85, label %"_ZZNK4llvm14CombinerHelper24matchShiftOfShiftedLogicERNS_12MachineInstrERNS_19ShiftOfShiftedLogicEENK3$_0clEPKS1_Rm.exit45.thread"
 
-84:                                               ; preds = %"_ZZNK4llvm14CombinerHelper24matchShiftOfShiftedLogicERNS_12MachineInstrERNS_19ShiftOfShiftedLogicEENK3$_0clEPKS1_Rm.exit.thread"
-  %85 = load ptr, ptr %13, align 8, !tbaa !227
-  %86 = getelementptr inbounds nuw i8, ptr %49, i64 32
-  %87 = load ptr, ptr %86, align 8, !tbaa !241
-  %88 = getelementptr inbounds nuw i8, ptr %87, i64 4
-  %89 = load i32, ptr %88, align 4, !tbaa !204
-  %90 = call noundef zeroext i1 @_ZNK4llvm19MachineRegisterInfo15hasOneNonDBGUseENS_8RegisterE(ptr noundef nonnull align 8 dereferenceable(504) %85, i32 %89) #30
-  br i1 %90, label %91, label %"_ZZNK4llvm14CombinerHelper24matchShiftOfShiftedLogicERNS_12MachineInstrERNS_19ShiftOfShiftedLogicEENK3$_0clEPKS1_Rm.exit45.thread"
+85:                                               ; preds = %"_ZZNK4llvm14CombinerHelper24matchShiftOfShiftedLogicERNS_12MachineInstrERNS_19ShiftOfShiftedLogicEENK3$_0clEPKS1_Rm.exit.thread"
+  %86 = load ptr, ptr %13, align 8, !tbaa !227
+  %87 = getelementptr inbounds nuw i8, ptr %50, i64 32
+  %88 = load ptr, ptr %87, align 8, !tbaa !241
+  %89 = getelementptr inbounds nuw i8, ptr %88, i64 4
+  %90 = load i32, ptr %89, align 4, !tbaa !204
+  %91 = call noundef zeroext i1 @_ZNK4llvm19MachineRegisterInfo15hasOneNonDBGUseENS_8RegisterE(ptr noundef nonnull align 8 dereferenceable(504) %86, i32 %90) #30
+  br i1 %91, label %92, label %"_ZZNK4llvm14CombinerHelper24matchShiftOfShiftedLogicERNS_12MachineInstrERNS_19ShiftOfShiftedLogicEENK3$_0clEPKS1_Rm.exit45.thread"
 
-91:                                               ; preds = %84
+92:                                               ; preds = %85
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %92 = load ptr, ptr %86, align 8, !tbaa !241
-  %93 = getelementptr inbounds nuw i8, ptr %92, i64 68
-  %94 = load i32, ptr %93, align 4, !tbaa !204
-  %95 = load ptr, ptr %13, align 8, !tbaa !227
-  call void @_ZN4llvm34getIConstantVRegValWithLookThroughENS_8RegisterERKNS_19MachineRegisterInfoEb(ptr dead_on_unwind nonnull writable sret(%"class.std::optional.319") align 8 %4, i32 %94, ptr noundef nonnull align 8 dereferenceable(504) %95, i1 noundef zeroext true) #30
-  %96 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %97 = load i8, ptr %96, align 8, !tbaa !289, !range !50, !noundef !51
-  %98 = trunc nuw i8 %97 to i1
-  br i1 %98, label %99, label %"_ZZNK4llvm14CombinerHelper24matchShiftOfShiftedLogicERNS_12MachineInstrERNS_19ShiftOfShiftedLogicEENK3$_0clEPKS1_Rm.exit45"
+  %93 = load ptr, ptr %87, align 8, !tbaa !241
+  %94 = getelementptr inbounds nuw i8, ptr %93, i64 68
+  %95 = load i32, ptr %94, align 4, !tbaa !204
+  %96 = load ptr, ptr %13, align 8, !tbaa !227
+  call void @_ZN4llvm34getIConstantVRegValWithLookThroughENS_8RegisterERKNS_19MachineRegisterInfoEb(ptr dead_on_unwind nonnull writable sret(%"class.std::optional.319") align 8 %4, i32 %95, ptr noundef nonnull align 8 dereferenceable(504) %96, i1 noundef zeroext true) #30
+  %97 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %98 = load i8, ptr %97, align 8, !tbaa !289, !range !50, !noundef !51
+  %99 = trunc nuw i8 %98 to i1
+  br i1 %99, label %104, label %"_ZZNK4llvm14CombinerHelper24matchShiftOfShiftedLogicERNS_12MachineInstrERNS_19ShiftOfShiftedLogicEENK3$_0clEPKS1_Rm.exit45"
 
-99:                                               ; preds = %91
+104:                                              ; preds = %91
   %100 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %101 = load i32, ptr %100, align 8, !tbaa !291
   %102 = icmp ult i32 %101, 65
   br i1 %102, label %103, label %110
 
-103:                                              ; preds = %99
-  %104 = load i64, ptr %4, align 8
+111:                                              ; preds = %104
+  %112 = load i64, ptr %4, align 8
   %105 = icmp eq i32 %101, 0
   %106 = sub nuw nsw i32 64, %101
   %107 = zext nneg i32 %106 to i64
-  %108 = shl i64 %104, %107
+  %108 = shl i64 %112, %107
   %109 = ashr exact i64 %108, %107
   %.0.i.i.i44 = select i1 %105, i64 0, i64 %109
   br label %113
 
-110:                                              ; preds = %99
+"_ZZNK4llvm14CombinerHelper24matchShiftOfShiftedLogicERNS_12MachineInstrERNS_19ShiftOfShiftedLogicEENK3$_0clEPKS1_Rm.exit45": ; preds = %99
   %111 = load ptr, ptr %4, align 8, !tbaa !204
   %112 = load i64, ptr %111, align 8, !tbaa !55
   store i8 0, ptr %96, align 8, !tbaa !289
@@ -10120,17 +10120,17 @@ _ZNK4llvm5APInteqEm.exit.thread:                  ; preds = %_ZNK4llvm5APInt13ge
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %"_ZZNK4llvm14CombinerHelper24matchShiftOfShiftedLogicERNS_12MachineInstrERNS_19ShiftOfShiftedLogicEENK3$_0clEPKS1_Rm.exit45.thread"
 
-113:                                              ; preds = %103, %110
+114:                                              ; preds = %103, %110
   %.351.ph = phi i64 [ %112, %110 ], [ %.0.i.i.i44, %103 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %114
 
-114:                                              ; preds = %113, %81
+127:                                              ; preds = %113, %82
   %.sink74 = phi i32 [ %42, %113 ], [ %47, %81 ]
   %.sink = phi ptr [ %49, %113 ], [ %44, %81 ]
   %.049 = phi i64 [ %.351.ph, %113 ], [ %.1.ph, %81 ]
-  %115 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i32 %.sink74, ptr %115, align 8, !tbaa !213
+  %131 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  store i32 %.sink74, ptr %131, align 8, !tbaa !213
   %116 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %.sink, ptr %116, align 8, !tbaa !449
   %117 = add i64 %.049, %.0.i
@@ -10157,34 +10157,34 @@ _ZNK4llvm5APInteqEm.exit.thread:                  ; preds = %_ZNK4llvm5APInt13ge
 
 _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit: ; preds = %114, %121, %126
   %.sroa.04.0.i = phi i64 [ %131, %126 ], [ 0, %121 ], [ 0, %114 ]
-  %132 = and i64 %.sroa.04.0.i, 2
-  %.not.i.i = icmp ne i64 %132, 0
-  %133 = and i64 %.sroa.04.0.i, -7
-  %spec.select.i.i.i = icmp ne i64 %133, 0
-  %134 = and i1 %.not.i.i, %spec.select.i.i.i
-  %.0.in.v.i = select i1 %134, i64 48, i64 32
+  %133 = and i64 %.sroa.04.0.i, 2
+  %.not.i.i = icmp ne i64 %133, 0
+  %134 = and i64 %.sroa.04.0.i, -7
+  %spec.select.i.i.i = icmp ne i64 %134, 0
+  %135 = and i1 %.not.i.i, %spec.select.i.i.i
+  %.0.in.v.i = select i1 %135, i64 48, i64 32
   %.0.in.i46 = lshr i64 %.sroa.04.0.i, %.0.in.v.i
   %.not = icmp ult i64 %117, %.0.in.i46
-  br i1 %.not, label %135, label %"_ZZNK4llvm14CombinerHelper24matchShiftOfShiftedLogicERNS_12MachineInstrERNS_19ShiftOfShiftedLogicEENK3$_0clEPKS1_Rm.exit45.thread"
+  br i1 %.not, label %136, label %"_ZZNK4llvm14CombinerHelper24matchShiftOfShiftedLogicERNS_12MachineInstrERNS_19ShiftOfShiftedLogicEENK3$_0clEPKS1_Rm.exit45.thread"
 
-135:                                              ; preds = %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit
+136:                                              ; preds = %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit
   store ptr %18, ptr %2, align 8, !tbaa !452
   br label %"_ZZNK4llvm14CombinerHelper24matchShiftOfShiftedLogicERNS_12MachineInstrERNS_19ShiftOfShiftedLogicEENK3$_0clEPKS1_Rm.exit45.thread"
 
-"_ZZNK4llvm14CombinerHelper24matchShiftOfShiftedLogicERNS_12MachineInstrERNS_19ShiftOfShiftedLogicEENK3$_0clEPKS1_Rm.exit45.thread": ; preds = %"_ZZNK4llvm14CombinerHelper24matchShiftOfShiftedLogicERNS_12MachineInstrERNS_19ShiftOfShiftedLogicEENK3$_0clEPKS1_Rm.exit.thread", %84, %135, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit, %"_ZZNK4llvm14CombinerHelper24matchShiftOfShiftedLogicERNS_12MachineInstrERNS_19ShiftOfShiftedLogicEENK3$_0clEPKS1_Rm.exit45", %22, %_ZNK4llvm5APInteqEm.exit
+"_ZZNK4llvm14CombinerHelper24matchShiftOfShiftedLogicERNS_12MachineInstrERNS_19ShiftOfShiftedLogicEENK3$_0clEPKS1_Rm.exit45.thread": ; preds = %"_ZZNK4llvm14CombinerHelper24matchShiftOfShiftedLogicERNS_12MachineInstrERNS_19ShiftOfShiftedLogicEENK3$_0clEPKS1_Rm.exit.thread", %85, %136, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit, %"_ZZNK4llvm14CombinerHelper24matchShiftOfShiftedLogicERNS_12MachineInstrERNS_19ShiftOfShiftedLogicEENK3$_0clEPKS1_Rm.exit45", %23, %_ZNK4llvm5APInteqEm.exit
   %.2 = phi i1 [ false, %_ZNK4llvm5APInteqEm.exit ], [ false, %22 ], [ true, %135 ], [ false, %"_ZZNK4llvm14CombinerHelper24matchShiftOfShiftedLogicERNS_12MachineInstrERNS_19ShiftOfShiftedLogicEENK3$_0clEPKS1_Rm.exit45" ], [ false, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit ], [ false, %84 ], [ false, %"_ZZNK4llvm14CombinerHelper24matchShiftOfShiftedLogicERNS_12MachineInstrERNS_19ShiftOfShiftedLogicEENK3$_0clEPKS1_Rm.exit.thread" ]
-  %136 = load i8, ptr %27, align 8, !tbaa !289, !range !50, !noundef !51
-  %137 = trunc nuw i8 %136 to i1
-  br i1 %137, label %138, label %_ZNSt14_Optional_baseIN4llvm12ValueAndVRegELb0ELb0EED2Ev.exit
+  %137 = load i8, ptr %28, align 8, !tbaa !289, !range !50, !noundef !51
+  %138 = trunc nuw i8 %137 to i1
+  br i1 %138, label %138, label %_ZNSt14_Optional_baseIN4llvm12ValueAndVRegELb0ELb0EED2Ev.exit
 
-138:                                              ; preds = %"_ZZNK4llvm14CombinerHelper24matchShiftOfShiftedLogicERNS_12MachineInstrERNS_19ShiftOfShiftedLogicEENK3$_0clEPKS1_Rm.exit45.thread"
+143:                                              ; preds = %"_ZZNK4llvm14CombinerHelper24matchShiftOfShiftedLogicERNS_12MachineInstrERNS_19ShiftOfShiftedLogicEENK3$_0clEPKS1_Rm.exit45.thread"
   store i8 0, ptr %27, align 8, !tbaa !289
   %139 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %140 = load i32, ptr %139, align 8, !tbaa !291
   %141 = icmp ugt i32 %140, 64
   br i1 %141, label %142, label %_ZNSt14_Optional_baseIN4llvm12ValueAndVRegELb0ELb0EED2Ev.exit
 
-142:                                              ; preds = %138
+146:                                              ; preds = %143
   %143 = load ptr, ptr %6, align 8, !tbaa !204
   %144 = icmp eq ptr %143, null
   br i1 %144, label %_ZNSt14_Optional_baseIN4llvm12ValueAndVRegELb0ELb0EED2Ev.exit, label %145
@@ -10195,9 +10195,9 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit: ; preds = %114, %121,
 
 _ZNSt14_Optional_baseIN4llvm12ValueAndVRegELb0ELb0EED2Ev.exit: ; preds = %"_ZZNK4llvm14CombinerHelper24matchShiftOfShiftedLogicERNS_12MachineInstrERNS_19ShiftOfShiftedLogicEENK3$_0clEPKS1_Rm.exit45.thread", %138, %142, %145
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %146
+  br label %147
 
-146:                                              ; preds = %_ZNSt14_Optional_baseIN4llvm12ValueAndVRegELb0ELb0EED2Ev.exit, %16, %3
+147:                                              ; preds = %_ZNSt14_Optional_baseIN4llvm12ValueAndVRegELb0ELb0EED2Ev.exit, %16, %3
   %.0 = phi i1 [ false, %3 ], [ %.2, %_ZNSt14_Optional_baseIN4llvm12ValueAndVRegELb0ELb0EED2Ev.exit ], [ false, %16 ]
   ret i1 %.0
 }

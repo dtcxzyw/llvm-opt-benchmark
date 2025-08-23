@@ -415,26 +415,26 @@ define internal noundef i32 @setup_io_tlb_npages(ptr noundef %0) #3 section ".in
   %.pre1 = load i8, ptr %.pre, align 1
   br label %10
 
-10:                                               ; preds = %6, %1
-  %11 = phi i8 [ %.pre1, %6 ], [ %3, %1 ]
+32:                                               ; preds = %6, %1
+  %33 = phi i8 [ %.pre1, %6 ], [ %3, %1 ]
   %12 = phi ptr [ %.pre, %6 ], [ %0, %1 ]
-  %13 = icmp eq i8 %11, 44
-  br i1 %13, label %14, label %16
+  %35 = icmp eq i8 %33, 44
+  br i1 %35, label %36, label %16
 
-14:                                               ; preds = %10
+36:                                               ; preds = %32
   %15 = getelementptr i8, ptr %12, i64 1
   store ptr %15, ptr %2, align 8
   %.pre2 = load i8, ptr %15, align 1
   br label %16
 
-16:                                               ; preds = %14, %10
-  %17 = phi i8 [ %.pre2, %14 ], [ %11, %10 ]
+39:                                               ; preds = %36, %32
+  %40 = phi i8 [ %.pre2, %14 ], [ %11, %10 ]
   %18 = phi ptr [ %15, %14 ], [ %12, %10 ]
-  %19 = add i8 %17, -58
+  %19 = add i8 %40, -58
   %20 = icmp ult i8 %19, -10
   br i1 %20, label %24, label %21
 
-21:                                               ; preds = %16
+41:                                               ; preds = %39
   %22 = call i64 @simple_strtoul(ptr noundef %18, ptr noundef nonnull %2, i32 noundef 0) #21
   %23 = trunc i64 %22 to i32
   call fastcc void @swiotlb_adjust_nareas(i32 noundef %23)

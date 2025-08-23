@@ -6246,16 +6246,16 @@ define internal noundef ptr @lxb_html_tokenizer_state_char_ref_decimal_start(ptr
   %.not = icmp ult i8 %5, -10
   br i1 %.not, label %6, label %12
 
-6:                                                ; preds = %3
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %8 = load ptr, ptr %7, align 8, !tbaa !42
-  %9 = tail call ptr @lxb_html_tokenizer_error_add(ptr noundef %8, ptr noundef nonnull %1, i32 noundef 3) #5
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %11 = load ptr, ptr %10, align 8, !tbaa !34
-  br label %12
+7:                                                ; preds = %3
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %9 = load ptr, ptr %8, align 8, !tbaa !42
+  %10 = tail call ptr @lxb_html_tokenizer_error_add(ptr noundef %9, ptr noundef nonnull %1, i32 noundef 3) #5
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %12 = load ptr, ptr %11, align 8, !tbaa !34
+  br label %13
 
-12:                                               ; preds = %3, %6
-  %storemerge = phi ptr [ %11, %6 ], [ @lxb_html_tokenizer_state_char_ref_decimal, %3 ]
+13:                                               ; preds = %3, %7
+  %storemerge = phi ptr [ %12, %6 ], [ @lxb_html_tokenizer_state_char_ref_decimal, %3 ]
   store ptr %storemerge, ptr %0, align 8, !tbaa !28
   ret ptr %1
 }
@@ -6590,7 +6590,7 @@ define internal ptr @lxb_html_tokenizer_state_char_ref_decimal(ptr noundef captu
   %8 = getelementptr inbounds nuw [256 x i8], ptr @lexbor_str_res_map_num, i64 0, i64 %7
   %9 = load i8, ptr %8, align 1, !tbaa !30
   %10 = zext i8 %9 to i32
-  %11 = add i8 %6, -58
+  %11 = add i8 %7, -58
   %12 = icmp ult i8 %11, -10
   br i1 %12, label %13, label %19
 

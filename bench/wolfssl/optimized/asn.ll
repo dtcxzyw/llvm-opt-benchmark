@@ -8475,7 +8475,7 @@ define range(i32 0, 2) i32 @ExtractDate(ptr noundef readonly captures(none) %0, 
   %or.cond19.i = icmp ult i8 %26, -10
   br i1 %or.cond19.i, label %GetTime.exit.thread, label %27
 
-27:                                               ; preds = %23
+17:                                               ; preds = %23
   %28 = zext nneg i8 %21 to i32
   %29 = mul nuw nsw i32 %28, 10
   %30 = add nsw i32 %29, -480
@@ -8492,7 +8492,7 @@ define range(i32 0, 2) i32 @ExtractDate(ptr noundef readonly captures(none) %0, 
   store i32 %37, ptr %17, align 4, !tbaa !116
   br label %38
 
-38:                                               ; preds = %14, %15, %27
+24:                                               ; preds = %14, %15, %27
   %39 = phi i32 [ 1900, %14 ], [ 2000, %15 ], [ %37, %27 ]
   %40 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %41 = load i32, ptr %3, align 4, !tbaa !22
@@ -8510,17 +8510,17 @@ define range(i32 0, 2) i32 @ExtractDate(ptr noundef readonly captures(none) %0, 
   %or.cond19.i37 = icmp ult i8 %49, -10
   br i1 %or.cond19.i37, label %GetTime.exit.thread, label %50
 
-50:                                               ; preds = %46
-  %51 = zext nneg i8 %44 to i32
-  %52 = mul nuw nsw i32 %51, 10
-  %53 = add nsw i32 %52, -480
-  %54 = add nsw i32 %53, %39
+28:                                               ; preds = %46
+  %29 = zext nneg i8 %44 to i32
+  %30 = mul nuw nsw i32 %29, 10
+  %31 = add nsw i32 %30, -480
+  %54 = add nsw i32 %31, %39
   store i32 %54, ptr %40, align 4, !tbaa !22
   %55 = add nsw i32 %41, 2
   %56 = load i8, ptr %47, align 1, !tbaa !3
   %57 = zext i8 %56 to i32
-  %58 = add i32 %54, -48
-  %59 = add i32 %58, %57
+  %36 = add i32 %54, -48
+  %59 = add i32 %36, %57
   store i32 %59, ptr %40, align 4, !tbaa !22
   store i32 %55, ptr %3, align 4, !tbaa !22
   %60 = load i32, ptr %40, align 4, !tbaa !116
@@ -8529,107 +8529,107 @@ define range(i32 0, 2) i32 @ExtractDate(ptr noundef readonly captures(none) %0, 
   %62 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %63 = load i32, ptr %3, align 4, !tbaa !22
   %64 = sext i32 %63 to i64
-  %65 = getelementptr i8, ptr %0, i64 %64
-  %66 = load i8, ptr %65, align 1, !tbaa !3
-  %67 = add i8 %66, -58
+  %41 = getelementptr i8, ptr %0, i64 %64
+  %42 = load i8, ptr %65, align 1, !tbaa !3
+  %67 = add i8 %42, -58
   %or.cond.i40 = icmp ult i8 %67, -10
   br i1 %or.cond.i40, label %GetTime.exit.thread, label %68
 
-68:                                               ; preds = %50
+68:; preds = %50
   %69 = getelementptr i8, ptr %65, i64 1
   %70 = load i8, ptr %69, align 1, !tbaa !3
   %71 = add i8 %70, -58
   %or.cond19.i41 = icmp ult i8 %71, -10
-  br i1 %or.cond19.i41, label %GetTime.exit.thread, label %72
+  br i1 %or.cond19.i41, label %GetTime.exit.thread, label %73
 
-72:                                               ; preds = %68
-  %73 = zext nneg i8 %66 to i32
-  %74 = mul nuw nsw i32 %73, 10
-  %75 = add nsw i32 %74, -480
-  %76 = load i32, ptr %62, align 4, !tbaa !22
-  %77 = add nsw i32 %75, %76
-  store i32 %77, ptr %62, align 4, !tbaa !22
-  %78 = add nsw i32 %63, 2
-  %79 = load i8, ptr %69, align 1, !tbaa !3
-  %80 = zext i8 %79 to i32
-  %81 = add i32 %77, -48
-  %82 = add i32 %81, %80
-  store i32 %82, ptr %62, align 4, !tbaa !22
-  store i32 %78, ptr %3, align 4, !tbaa !22
-  %83 = load i32, ptr %62, align 8, !tbaa !118
-  %84 = add nsw i32 %83, -1
-  store i32 %84, ptr %62, align 8, !tbaa !118
-  %85 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  %86 = load i32, ptr %3, align 4, !tbaa !22
-  %87 = sext i32 %86 to i64
-  %88 = getelementptr i8, ptr %0, i64 %87
-  %89 = load i8, ptr %88, align 1, !tbaa !3
-  %90 = add i8 %89, -58
-  %or.cond.i44 = icmp ult i8 %90, -10
-  br i1 %or.cond.i44, label %GetTime.exit.thread, label %91
+73:                                               ; preds = %68
+  %74 = zext nneg i8 %66 to i32
+  %75 = mul nuw nsw i32 %74, 10
+  %76 = add nsw i32 %75, -480
+  %77 = load i32, ptr %62, align 4, !tbaa !22
+  %78 = add nsw i32 %76, %77
+  store i32 %78, ptr %62, align 4, !tbaa !22
+  %79 = add nsw i32 %63, 2
+  %80 = load i8, ptr %69, align 1, !tbaa !3
+  %81 = zext i8 %80 to i32
+  %82 = add i32 %78, -48
+  %83 = add i32 %82, %81
+  store i32 %83, ptr %62, align 4, !tbaa !22
+  store i32 %79, ptr %3, align 4, !tbaa !22
+  %84 = load i32, ptr %62, align 8, !tbaa !118
+  %85 = add nsw i32 %84, -1
+  store i32 %85, ptr %62, align 8, !tbaa !118
+  %86 = getelementptr inbounds nuw i8, ptr %2, i64 12
+  %87 = load i32, ptr %3, align 4, !tbaa !22
+  %88 = sext i32 %87 to i64
+  %89 = getelementptr i8, ptr %0, i64 %88
+  %90 = load i8, ptr %89, align 1, !tbaa !3
+  %91 = add i8 %90, -58
+  %or.cond.i44 = icmp ult i8 %91, -10
+  br i1 %or.cond.i44, label %GetTime.exit.thread, label %92
 
-91:                                               ; preds = %72
-  %92 = getelementptr i8, ptr %88, i64 1
-  %93 = load i8, ptr %92, align 1, !tbaa !3
-  %94 = add i8 %93, -58
-  %or.cond19.i45 = icmp ult i8 %94, -10
-  br i1 %or.cond19.i45, label %GetTime.exit.thread, label %95
+92:                                               ; preds = %73
+  %93 = getelementptr i8, ptr %89, i64 1
+  %94 = load i8, ptr %93, align 1, !tbaa !3
+  %95 = add i8 %94, -58
+  %or.cond19.i45 = icmp ult i8 %95, -10
+  br i1 %or.cond19.i45, label %GetTime.exit.thread, label %96
 
-95:                                               ; preds = %91
-  %96 = zext nneg i8 %89 to i32
-  %97 = mul nuw nsw i32 %96, 10
-  %98 = add nsw i32 %97, -480
-  %99 = load i32, ptr %85, align 4, !tbaa !22
-  %100 = add nsw i32 %98, %99
-  store i32 %100, ptr %85, align 4, !tbaa !22
-  %101 = add nsw i32 %86, 2
-  %102 = load i8, ptr %92, align 1, !tbaa !3
-  %103 = zext i8 %102 to i32
-  %104 = add i32 %100, -48
-  %105 = add i32 %104, %103
-  store i32 %105, ptr %85, align 4, !tbaa !22
-  store i32 %101, ptr %3, align 4, !tbaa !22
-  %106 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %107 = sext i32 %101 to i64
-  %108 = getelementptr i8, ptr %0, i64 %107
-  %109 = load i8, ptr %108, align 1, !tbaa !3
-  %110 = add i8 %109, -58
-  %or.cond.i48 = icmp ult i8 %110, -10
-  br i1 %or.cond.i48, label %GetTime.exit.thread, label %111
+96:                                               ; preds = %92
+  %97 = zext nneg i8 %90 to i32
+  %98 = mul nuw nsw i32 %97, 10
+  %99 = add nsw i32 %98, -480
+  %100 = load i32, ptr %86, align 4, !tbaa !22
+  %101 = add nsw i32 %99, %100
+  store i32 %101, ptr %86, align 4, !tbaa !22
+  %102 = add nsw i32 %87, 2
+  %103 = load i8, ptr %93, align 1, !tbaa !3
+  %104 = zext i8 %103 to i32
+  %105 = add i32 %101, -48
+  %106 = add i32 %105, %104
+  store i32 %106, ptr %86, align 4, !tbaa !22
+  store i32 %102, ptr %3, align 4, !tbaa !22
+  %107 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %108 = sext i32 %102 to i64
+  %109 = getelementptr i8, ptr %0, i64 %108
+  %110 = load i8, ptr %109, align 1, !tbaa !3
+  %111 = add i8 %110, -58
+  %or.cond.i48 = icmp ult i8 %111, -10
+  br i1 %or.cond.i48, label %GetTime.exit.thread, label %112
 
-111:                                              ; preds = %95
-  %112 = getelementptr i8, ptr %108, i64 1
-  %113 = load i8, ptr %112, align 1, !tbaa !3
-  %114 = add i8 %113, -58
-  %or.cond19.i49 = icmp ult i8 %114, -10
-  br i1 %or.cond19.i49, label %GetTime.exit.thread, label %115
+112:                                              ; preds = %96
+  %113 = getelementptr i8, ptr %109, i64 1
+  %114 = load i8, ptr %113, align 1, !tbaa !3
+  %115 = add i8 %114, -58
+  %or.cond19.i49 = icmp ult i8 %115, -10
+  br i1 %or.cond19.i49, label %GetTime.exit.thread, label %116
 
-115:                                              ; preds = %111
-  %116 = zext nneg i8 %109 to i32
-  %117 = mul nuw nsw i32 %116, 10
-  %118 = add nsw i32 %117, -480
-  %119 = load i32, ptr %106, align 4, !tbaa !22
-  %120 = add nsw i32 %118, %119
-  store i32 %120, ptr %106, align 4, !tbaa !22
-  %121 = add nsw i32 %86, 4
-  %122 = load i8, ptr %112, align 1, !tbaa !3
-  %123 = zext i8 %122 to i32
-  %124 = add i32 %120, -48
-  %125 = add i32 %124, %123
-  store i32 %125, ptr %106, align 4, !tbaa !22
-  store i32 %121, ptr %3, align 4, !tbaa !22
-  %126 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %127 = tail call fastcc i32 @GetTime(ptr noundef nonnull %126, ptr noundef nonnull %0, ptr noundef nonnull %3)
-  %.not34 = icmp eq i32 %127, 0
-  br i1 %.not34, label %128, label %GetTime.exit.thread
+116:                                              ; preds = %112
+  %117 = zext nneg i8 %110 to i32
+  %118 = mul nuw nsw i32 %117, 10
+  %119 = add nsw i32 %118, -480
+  %120 = load i32, ptr %107, align 4, !tbaa !22
+  %121 = add nsw i32 %119, %120
+  store i32 %121, ptr %107, align 4, !tbaa !22
+  %122 = add nsw i32 %87, 4
+  %123 = load i8, ptr %113, align 1, !tbaa !3
+  %124 = zext i8 %123 to i32
+  %125 = add i32 %121, -48
+  %126 = add i32 %125, %124
+  store i32 %126, ptr %107, align 4, !tbaa !22
+  store i32 %122, ptr %3, align 4, !tbaa !22
+  %127 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  %128 = tail call fastcc i32 @GetTime(ptr noundef nonnull %127, ptr noundef nonnull %0, ptr noundef nonnull %3)
+  %.not34 = icmp eq i32 %128, 0
+  br i1 %.not34, label %129, label %GetTime.exit.thread
 
-128:                                              ; preds = %115
-  %129 = tail call fastcc i32 @GetTime(ptr noundef nonnull %2, ptr noundef nonnull %0, ptr noundef nonnull %3)
-  %.not35 = icmp eq i32 %129, 0
+129:                                              ; preds = %116
+  %130 = tail call fastcc i32 @GetTime(ptr noundef nonnull %2, ptr noundef nonnull %0, ptr noundef nonnull %3)
+  %.not35 = icmp eq i32 %130, 0
   %. = zext i1 %.not35 to i32
   br label %GetTime.exit.thread
 
-GetTime.exit.thread:                              ; preds = %95, %111, %72, %91, %50, %68, %38, %46, %16, %23, %128, %115
+GetTime.exit.thread:                              ; preds = %96, %112, %73, %92, %50, %68, %38, %46, %16, %23, %129, %116
   %.0 = phi i32 [ 0, %115 ], [ %., %128 ], [ 0, %23 ], [ 0, %16 ], [ 0, %46 ], [ 0, %38 ], [ 0, %68 ], [ 0, %50 ], [ 0, %91 ], [ 0, %72 ], [ 0, %111 ], [ 0, %95 ]
   ret i32 %.0
 }

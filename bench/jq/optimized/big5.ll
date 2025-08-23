@@ -28,7 +28,7 @@ define internal i32 @big5_mbc_to_code(ptr noundef %0, ptr noundef %1) #2 {
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define internal range(i32 -400, 3) i32 @big5_code_to_mbclen(i32 noundef %0) #3 {
   %.not = icmp ult i32 %0, 65536
-  br i1 %.not, label %2, label %11
+  br i1 %.not, label %2, label %12
 
 2:                                                ; preds = %1
   %.not5 = icmp samesign ult i32 %0, 256
@@ -38,17 +38,17 @@ define internal range(i32 -400, 3) i32 @big5_code_to_mbclen(i32 noundef %0) #3 {
   %4 = lshr i32 %0, 8
   %5 = add nsw i32 %4, -161
   %6 = icmp ult i32 %5, 94
-  br i1 %6, label %11, label %10
+  br i1 %6, label %12, label %11
 
 7:                                                ; preds = %2
   %8 = add nsw i32 %0, -255
   %9 = icmp ult i32 %8, -94
   br i1 %9, label %11, label %10
 
-10:                                               ; preds = %7, %3
-  br label %11
+11:                                               ; preds = %7, %3
+  br label %12
 
-11:                                               ; preds = %7, %3, %1, %10
+12:                                               ; preds = %7, %3, %1, %11
   %.0 = phi i32 [ -400, %10 ], [ -400, %1 ], [ 2, %3 ], [ 1, %7 ]
   ret i32 %.0
 }

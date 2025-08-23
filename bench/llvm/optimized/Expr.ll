@@ -1651,9 +1651,9 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   %4 = load i16, ptr %.tr, align 8
   %5 = and i16 %4, 511
   switch i16 %5, label %328 [
-    i16 129, label %320
-    i16 131, label %325
-    i16 130, label %322
+    i16 129, label %321
+    i16 131, label %326
+    i16 130, label %323
     i16 3, label %6
     i16 4, label %8
     i16 5, label %10
@@ -1745,40 +1745,40 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
     i16 91, label %230
     i16 92, label %232
     i16 93, label %234
-    i16 94, label %243
-    i16 95, label %245
-    i16 96, label %247
-    i16 97, label %249
-    i16 98, label %251
-    i16 99, label %253
-    i16 100, label %255
-    i16 101, label %257
-    i16 102, label %260
-    i16 103, label %262
-    i16 104, label %264
-    i16 105, label %267
-    i16 106, label %269
-    i16 107, label %271
-    i16 108, label %273
-    i16 109, label %275
-    i16 110, label %277
-    i16 111, label %279
-    i16 112, label %281
-    i16 113, label %283
-    i16 114, label %285
-    i16 115, label %287
-    i16 116, label %289
-    i16 117, label %291
-    i16 118, label %293
-    i16 119, label %296
-    i16 120, label %299
-    i16 121, label %301
-    i16 122, label %303
-    i16 123, label %305
-    i16 124, label %307
-    i16 125, label %309
-    i16 126, label %311
-    i16 127, label %312
+    i16 94, label %244
+    i16 95, label %246
+    i16 96, label %248
+    i16 97, label %250
+    i16 98, label %252
+    i16 99, label %254
+    i16 100, label %256
+    i16 101, label %258
+    i16 102, label %261
+    i16 103, label %263
+    i16 104, label %265
+    i16 105, label %268
+    i16 106, label %270
+    i16 107, label %272
+    i16 108, label %274
+    i16 109, label %276
+    i16 110, label %278
+    i16 111, label %280
+    i16 112, label %282
+    i16 113, label %284
+    i16 114, label %286
+    i16 115, label %288
+    i16 116, label %290
+    i16 117, label %292
+    i16 118, label %294
+    i16 119, label %297
+    i16 120, label %300
+    i16 121, label %302
+    i16 122, label %304
+    i16 123, label %306
+    i16 124, label %308
+    i16 125, label %310
+    i16 126, label %312
+    i16 127, label %313
     i16 128, label %_ZN12_GLOBAL__N_114getExprLocImplIN5clang20UnresolvedLookupExprEEENS1_14SourceLocationEPKNS1_4ExprEMS4_KFS3_vE.exit
   ]
 
@@ -1862,7 +1862,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   %.val272 = load i32, ptr %37, align 8, !tbaa !83
   br label %_ZN12_GLOBAL__N_114getExprLocImplIN5clang20UnresolvedLookupExprEEENS1_14SourceLocationEPKNS1_4ExprEMS4_KFS3_vE.exit
 
-tailrecurse.backedge.sink.split:                  ; preds = %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %311
+tailrecurse.backedge.sink.split:                  ; preds = %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %312
   %.sink736 = phi i64 [ 24, %311 ], [ 16, %tailrecurse ], [ 16, %tailrecurse ], [ 16, %tailrecurse ], [ 16, %tailrecurse ]
   %38 = getelementptr inbounds nuw i8, ptr %.tr, i64 %.sink736
   %39 = load ptr, ptr %38, align 8, !tbaa !61
@@ -2331,203 +2331,203 @@ _ZNK5clang11DeclRefExpr15getQualifierLocEv.exit.i.i: ; preds = %179
   %.sroa.0.0.i.i364 = select i1 %or.cond5.i.i, i32 %.sroa.0.0.copyload.i.i.i.i, i32 %.sroa.0.0.copyload.i.i9.i.i
   br label %_ZN12_GLOBAL__N_114getExprLocImplIN5clang20UnresolvedLookupExprEEENS1_14SourceLocationEPKNS1_4ExprEMS4_KFS3_vE.exit
 
-243:                                              ; preds = %tailrecurse
-  %244 = tail call i32 @_ZNK5clang17CXXMemberCallExpr10getExprLocEv(ptr noundef nonnull align 8 dereferenceable(24) %.tr) #31
+244:                                              ; preds = %tailrecurse
+  %245 = tail call i32 @_ZNK5clang17CXXMemberCallExpr10getExprLocEv(ptr noundef nonnull align 8 dereferenceable(24) %.tr) #31
   br label %_ZN12_GLOBAL__N_114getExprLocImplIN5clang20UnresolvedLookupExprEEENS1_14SourceLocationEPKNS1_4ExprEMS4_KFS3_vE.exit
 
-245:                                              ; preds = %tailrecurse
-  %246 = tail call i32 @_ZNK5clang8CallExpr11getBeginLocEv(ptr noundef nonnull readonly align 8 dereferenceable(24) %.tr) #31
+246:                                              ; preds = %tailrecurse
+  %247 = tail call i32 @_ZNK5clang8CallExpr11getBeginLocEv(ptr noundef nonnull readonly align 8 dereferenceable(24) %.tr) #31
   br label %_ZN12_GLOBAL__N_114getExprLocImplIN5clang20UnresolvedLookupExprEEENS1_14SourceLocationEPKNS1_4ExprEMS4_KFS3_vE.exit
 
-247:                                              ; preds = %tailrecurse
-  %248 = getelementptr i8, ptr %.tr, i64 32
-  %.val328 = load i32, ptr %248, align 4, !tbaa !83
+248:                                              ; preds = %tailrecurse
+  %249 = getelementptr i8, ptr %.tr, i64 32
+  %.val328 = load i32, ptr %249, align 4, !tbaa !83
   br label %_ZN12_GLOBAL__N_114getExprLocImplIN5clang20UnresolvedLookupExprEEENS1_14SourceLocationEPKNS1_4ExprEMS4_KFS3_vE.exit
 
-249:                                              ; preds = %tailrecurse
-  %250 = tail call i32 @_ZNK5clang26CXXUnresolvedConstructExpr11getBeginLocEv(ptr noundef nonnull readonly align 8 dereferenceable(32) %.tr) #31
+250:                                              ; preds = %tailrecurse
+  %251 = tail call i32 @_ZNK5clang26CXXUnresolvedConstructExpr11getBeginLocEv(ptr noundef nonnull readonly align 8 dereferenceable(32) %.tr) #31
   br label %_ZN12_GLOBAL__N_114getExprLocImplIN5clang20UnresolvedLookupExprEEENS1_14SourceLocationEPKNS1_4ExprEMS4_KFS3_vE.exit
 
-251:                                              ; preds = %tailrecurse
-  %252 = getelementptr i8, ptr %.tr, i64 24
-  %.val329 = load i32, ptr %252, align 4, !tbaa !83
+252:                                              ; preds = %tailrecurse
+  %253 = getelementptr i8, ptr %.tr, i64 24
+  %.val329 = load i32, ptr %253, align 4, !tbaa !83
   br label %_ZN12_GLOBAL__N_114getExprLocImplIN5clang20UnresolvedLookupExprEEENS1_14SourceLocationEPKNS1_4ExprEMS4_KFS3_vE.exit
 
-253:                                              ; preds = %tailrecurse
-  %254 = getelementptr inbounds nuw i8, ptr %.tr, i64 4
-  %.val330 = load i32, ptr %254, align 4, !tbaa !83
+254:                                              ; preds = %tailrecurse
+  %255 = getelementptr inbounds nuw i8, ptr %.tr, i64 4
+  %.val330 = load i32, ptr %255, align 4, !tbaa !83
   br label %_ZN12_GLOBAL__N_114getExprLocImplIN5clang20UnresolvedLookupExprEEENS1_14SourceLocationEPKNS1_4ExprEMS4_KFS3_vE.exit
 
-255:                                              ; preds = %tailrecurse
-  %256 = getelementptr inbounds nuw i8, ptr %.tr, i64 4
-  %.val331 = load i32, ptr %256, align 4, !tbaa !83
+256:                                              ; preds = %tailrecurse
+  %257 = getelementptr inbounds nuw i8, ptr %.tr, i64 4
+  %.val331 = load i32, ptr %257, align 4, !tbaa !83
   br label %_ZN12_GLOBAL__N_114getExprLocImplIN5clang20UnresolvedLookupExprEEENS1_14SourceLocationEPKNS1_4ExprEMS4_KFS3_vE.exit
 
-257:                                              ; preds = %tailrecurse
-  %258 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
-  %.val332 = load ptr, ptr %258, align 8, !tbaa !114
-  %259 = tail call i32 @_ZNK5clang4Stmt11getBeginLocEv(ptr noundef nonnull readonly align 8 dereferenceable(8) %.val332) #31
+258:                                              ; preds = %tailrecurse
+  %259 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
+  %.val332 = load ptr, ptr %259, align 8, !tbaa !114
+  %260 = tail call i32 @_ZNK5clang4Stmt11getBeginLocEv(ptr noundef nonnull readonly align 8 dereferenceable(8) %.val332) #31
   br label %_ZN12_GLOBAL__N_114getExprLocImplIN5clang20UnresolvedLookupExprEEENS1_14SourceLocationEPKNS1_4ExprEMS4_KFS3_vE.exit
 
-260:                                              ; preds = %tailrecurse
-  %261 = tail call i32 @_ZNK5clang22CXXScalarValueInitExpr11getBeginLocEv(ptr noundef nonnull readonly align 8 dereferenceable(24) %.tr) #31
+261:                                              ; preds = %tailrecurse
+  %262 = tail call i32 @_ZNK5clang22CXXScalarValueInitExpr11getBeginLocEv(ptr noundef nonnull readonly align 8 dereferenceable(24) %.tr) #31
   br label %_ZN12_GLOBAL__N_114getExprLocImplIN5clang20UnresolvedLookupExprEEENS1_14SourceLocationEPKNS1_4ExprEMS4_KFS3_vE.exit
 
-262:                                              ; preds = %tailrecurse
-  %263 = tail call i32 @_ZNK5clang26CXXRewrittenBinaryOperator10getExprLocEv(ptr noundef nonnull align 8 dereferenceable(24) %.tr) #31
+263:                                              ; preds = %tailrecurse
+  %264 = tail call i32 @_ZNK5clang26CXXRewrittenBinaryOperator10getExprLocEv(ptr noundef nonnull align 8 dereferenceable(24) %.tr) #31
   br label %_ZN12_GLOBAL__N_114getExprLocImplIN5clang20UnresolvedLookupExprEEENS1_14SourceLocationEPKNS1_4ExprEMS4_KFS3_vE.exit
 
-264:                                              ; preds = %tailrecurse
-  %265 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
-  %.val333 = load ptr, ptr %265, align 8, !tbaa !116
-  %266 = tail call i32 @_ZNK5clang4Stmt11getBeginLocEv(ptr noundef nonnull readonly align 8 dereferenceable(8) %.val333) #31
+265:                                              ; preds = %tailrecurse
+  %266 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
+  %.val333 = load ptr, ptr %266, align 8, !tbaa !116
+  %267 = tail call i32 @_ZNK5clang4Stmt11getBeginLocEv(ptr noundef nonnull readonly align 8 dereferenceable(8) %.val333) #31
   br label %_ZN12_GLOBAL__N_114getExprLocImplIN5clang20UnresolvedLookupExprEEENS1_14SourceLocationEPKNS1_4ExprEMS4_KFS3_vE.exit
 
-267:                                              ; preds = %tailrecurse
-  %268 = getelementptr i8, ptr %.tr, i64 28
-  %.val334 = load i32, ptr %268, align 4, !tbaa !83
+268:                                              ; preds = %tailrecurse
+  %269 = getelementptr i8, ptr %.tr, i64 28
+  %.val334 = load i32, ptr %269, align 4, !tbaa !83
   br label %_ZN12_GLOBAL__N_114getExprLocImplIN5clang20UnresolvedLookupExprEEENS1_14SourceLocationEPKNS1_4ExprEMS4_KFS3_vE.exit
 
-269:                                              ; preds = %tailrecurse
-  %270 = getelementptr inbounds nuw i8, ptr %.tr, i64 4
-  %.val335 = load i32, ptr %270, align 4, !tbaa !83
+270:                                              ; preds = %tailrecurse
+  %271 = getelementptr inbounds nuw i8, ptr %.tr, i64 4
+  %.val335 = load i32, ptr %271, align 4, !tbaa !83
   br label %_ZN12_GLOBAL__N_114getExprLocImplIN5clang20UnresolvedLookupExprEEENS1_14SourceLocationEPKNS1_4ExprEMS4_KFS3_vE.exit
 
-271:                                              ; preds = %tailrecurse
-  %272 = getelementptr i8, ptr %.tr, i64 24
-  %.val336 = load i32, ptr %272, align 4, !tbaa !83
+272:                                              ; preds = %tailrecurse
+  %273 = getelementptr i8, ptr %.tr, i64 24
+  %.val336 = load i32, ptr %273, align 4, !tbaa !83
   br label %_ZN12_GLOBAL__N_114getExprLocImplIN5clang20UnresolvedLookupExprEEENS1_14SourceLocationEPKNS1_4ExprEMS4_KFS3_vE.exit
 
-273:                                              ; preds = %tailrecurse
-  %274 = getelementptr i8, ptr %.tr, i64 40
-  %.val337 = load i32, ptr %274, align 4, !tbaa !83
+274:                                              ; preds = %tailrecurse
+  %275 = getelementptr i8, ptr %.tr, i64 40
+  %.val337 = load i32, ptr %275, align 4, !tbaa !83
   br label %_ZN12_GLOBAL__N_114getExprLocImplIN5clang20UnresolvedLookupExprEEENS1_14SourceLocationEPKNS1_4ExprEMS4_KFS3_vE.exit
 
-275:                                              ; preds = %tailrecurse
-  %276 = getelementptr i8, ptr %.tr, i64 24
-  %.val338 = load i32, ptr %276, align 8, !tbaa !83
+276:                                              ; preds = %tailrecurse
+  %277 = getelementptr i8, ptr %.tr, i64 24
+  %.val338 = load i32, ptr %277, align 8, !tbaa !83
   br label %_ZN12_GLOBAL__N_114getExprLocImplIN5clang20UnresolvedLookupExprEEENS1_14SourceLocationEPKNS1_4ExprEMS4_KFS3_vE.exit
 
-277:                                              ; preds = %tailrecurse
-  %278 = tail call fastcc i32 @_ZN12_GLOBAL__N_114getExprLocImplIN5clang11CXXFoldExprEEENS1_14SourceLocationEPKNS1_4ExprEMS4_KFS3_vE(ptr noundef %.tr)
+278:                                              ; preds = %tailrecurse
+  %279 = tail call fastcc i32 @_ZN12_GLOBAL__N_114getExprLocImplIN5clang11CXXFoldExprEEENS1_14SourceLocationEPKNS1_4ExprEMS4_KFS3_vE(ptr noundef %.tr)
   br label %_ZN12_GLOBAL__N_114getExprLocImplIN5clang20UnresolvedLookupExprEEENS1_14SourceLocationEPKNS1_4ExprEMS4_KFS3_vE.exit
 
-279:                                              ; preds = %tailrecurse
-  %280 = tail call i32 @_ZNK5clang27CXXDependentScopeMemberExpr11getBeginLocEv(ptr noundef nonnull readonly align 8 dereferenceable(72) %.tr) #31
+280:                                              ; preds = %tailrecurse
+  %281 = tail call i32 @_ZNK5clang27CXXDependentScopeMemberExpr11getBeginLocEv(ptr noundef nonnull readonly align 8 dereferenceable(72) %.tr) #31
   br label %_ZN12_GLOBAL__N_114getExprLocImplIN5clang20UnresolvedLookupExprEEENS1_14SourceLocationEPKNS1_4ExprEMS4_KFS3_vE.exit
 
-281:                                              ; preds = %tailrecurse
-  %282 = getelementptr inbounds nuw i8, ptr %.tr, i64 4
-  %.val339 = load i32, ptr %282, align 4, !tbaa !83
+282:                                              ; preds = %tailrecurse
+  %283 = getelementptr inbounds nuw i8, ptr %.tr, i64 4
+  %.val339 = load i32, ptr %283, align 4, !tbaa !83
   br label %_ZN12_GLOBAL__N_114getExprLocImplIN5clang20UnresolvedLookupExprEEENS1_14SourceLocationEPKNS1_4ExprEMS4_KFS3_vE.exit
 
-283:                                              ; preds = %tailrecurse
-  %284 = getelementptr inbounds nuw i8, ptr %.tr, i64 4
-  %.val340 = load i32, ptr %284, align 4, !tbaa !83
+284:                                              ; preds = %tailrecurse
+  %285 = getelementptr inbounds nuw i8, ptr %.tr, i64 4
+  %.val340 = load i32, ptr %285, align 4, !tbaa !83
   br label %_ZN12_GLOBAL__N_114getExprLocImplIN5clang20UnresolvedLookupExprEEENS1_14SourceLocationEPKNS1_4ExprEMS4_KFS3_vE.exit
 
-285:                                              ; preds = %tailrecurse
-  %286 = getelementptr inbounds nuw i8, ptr %.tr, i64 4
-  %.val341 = load i32, ptr %286, align 4, !tbaa !83
+286:                                              ; preds = %tailrecurse
+  %287 = getelementptr inbounds nuw i8, ptr %.tr, i64 4
+  %.val341 = load i32, ptr %287, align 4, !tbaa !83
   br label %_ZN12_GLOBAL__N_114getExprLocImplIN5clang20UnresolvedLookupExprEEENS1_14SourceLocationEPKNS1_4ExprEMS4_KFS3_vE.exit
 
-287:                                              ; preds = %tailrecurse
-  %288 = tail call i32 @_ZNK5clang16CXXConstructExpr11getBeginLocEv(ptr noundef nonnull readonly align 8 dereferenceable(36) %.tr) #31
+288:                                              ; preds = %tailrecurse
+  %289 = tail call i32 @_ZNK5clang16CXXConstructExpr11getBeginLocEv(ptr noundef nonnull readonly align 8 dereferenceable(36) %.tr) #31
   br label %_ZN12_GLOBAL__N_114getExprLocImplIN5clang20UnresolvedLookupExprEEENS1_14SourceLocationEPKNS1_4ExprEMS4_KFS3_vE.exit
 
-289:                                              ; preds = %tailrecurse
-  %290 = tail call i32 @_ZNK5clang22CXXTemporaryObjectExpr11getBeginLocEv(ptr noundef nonnull readonly align 8 dereferenceable(48) %.tr) #31
+290:                                              ; preds = %tailrecurse
+  %291 = tail call i32 @_ZNK5clang22CXXTemporaryObjectExpr11getBeginLocEv(ptr noundef nonnull readonly align 8 dereferenceable(48) %.tr) #31
   br label %_ZN12_GLOBAL__N_114getExprLocImplIN5clang20UnresolvedLookupExprEEENS1_14SourceLocationEPKNS1_4ExprEMS4_KFS3_vE.exit
 
-291:                                              ; preds = %tailrecurse
-  %292 = getelementptr inbounds nuw i8, ptr %.tr, i64 4
-  %.val342 = load i32, ptr %292, align 4, !tbaa !83
+292:                                              ; preds = %tailrecurse
+  %293 = getelementptr inbounds nuw i8, ptr %.tr, i64 4
+  %.val342 = load i32, ptr %293, align 4, !tbaa !83
   br label %_ZN12_GLOBAL__N_114getExprLocImplIN5clang20UnresolvedLookupExprEEENS1_14SourceLocationEPKNS1_4ExprEMS4_KFS3_vE.exit
 
-293:                                              ; preds = %tailrecurse
-  %294 = getelementptr i8, ptr %.tr, i64 24
-  %.val343 = load ptr, ptr %294, align 8, !tbaa !126
-  %295 = tail call i32 @_ZNK5clang4Stmt11getBeginLocEv(ptr noundef nonnull readonly align 8 dereferenceable(8) %.val343) #31
+294:                                              ; preds = %tailrecurse
+  %295 = getelementptr i8, ptr %.tr, i64 24
+  %.val343 = load ptr, ptr %295, align 8, !tbaa !126
+  %296 = tail call i32 @_ZNK5clang4Stmt11getBeginLocEv(ptr noundef nonnull readonly align 8 dereferenceable(8) %.val343) #31
   br label %_ZN12_GLOBAL__N_114getExprLocImplIN5clang20UnresolvedLookupExprEEENS1_14SourceLocationEPKNS1_4ExprEMS4_KFS3_vE.exit
 
-296:                                              ; preds = %tailrecurse
-  %297 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
-  %.val344 = load ptr, ptr %297, align 8, !tbaa !129
-  %298 = getelementptr i8, ptr %.val344, i64 24
-  %.val344.val = load i32, ptr %298, align 8, !tbaa !83
+297:                                              ; preds = %tailrecurse
+  %298 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
+  %.val344 = load ptr, ptr %298, align 8, !tbaa !129
+  %299 = getelementptr i8, ptr %.val344, i64 24
+  %.val344.val = load i32, ptr %299, align 8, !tbaa !83
   br label %_ZN12_GLOBAL__N_114getExprLocImplIN5clang20UnresolvedLookupExprEEENS1_14SourceLocationEPKNS1_4ExprEMS4_KFS3_vE.exit
 
-299:                                              ; preds = %tailrecurse
-  %300 = getelementptr inbounds nuw i8, ptr %.tr, i64 4
-  %.val345 = load i32, ptr %300, align 4, !tbaa !83
+300:                                              ; preds = %tailrecurse
+  %301 = getelementptr inbounds nuw i8, ptr %.tr, i64 4
+  %.val345 = load i32, ptr %301, align 4, !tbaa !83
   br label %_ZN12_GLOBAL__N_114getExprLocImplIN5clang20UnresolvedLookupExprEEENS1_14SourceLocationEPKNS1_4ExprEMS4_KFS3_vE.exit
 
-301:                                              ; preds = %tailrecurse
-  %302 = getelementptr inbounds nuw i8, ptr %.tr, i64 4
-  %.val346 = load i32, ptr %302, align 4, !tbaa !83
+302:                                              ; preds = %tailrecurse
+  %303 = getelementptr inbounds nuw i8, ptr %.tr, i64 4
+  %.val346 = load i32, ptr %303, align 4, !tbaa !83
   br label %_ZN12_GLOBAL__N_114getExprLocImplIN5clang20UnresolvedLookupExprEEENS1_14SourceLocationEPKNS1_4ExprEMS4_KFS3_vE.exit
 
-303:                                              ; preds = %tailrecurse
-  %304 = getelementptr i8, ptr %.tr, i64 76
-  %.val347 = load i32, ptr %304, align 4, !tbaa !83
+304:                                              ; preds = %tailrecurse
+  %305 = getelementptr i8, ptr %.tr, i64 76
+  %.val347 = load i32, ptr %305, align 4, !tbaa !83
   br label %_ZN12_GLOBAL__N_114getExprLocImplIN5clang20UnresolvedLookupExprEEENS1_14SourceLocationEPKNS1_4ExprEMS4_KFS3_vE.exit
 
-305:                                              ; preds = %tailrecurse
-  %306 = getelementptr i8, ptr %.tr, i64 24
-  %.val348 = load i32, ptr %306, align 8, !tbaa !83
+306:                                              ; preds = %tailrecurse
+  %307 = getelementptr i8, ptr %.tr, i64 24
+  %.val348 = load i32, ptr %307, align 8, !tbaa !83
   br label %_ZN12_GLOBAL__N_114getExprLocImplIN5clang20UnresolvedLookupExprEEENS1_14SourceLocationEPKNS1_4ExprEMS4_KFS3_vE.exit
 
-307:                                              ; preds = %tailrecurse
-  %308 = getelementptr i8, ptr %.tr, i64 40
-  %.val349 = load i32, ptr %308, align 8, !tbaa !83
+308:                                              ; preds = %tailrecurse
+  %309 = getelementptr i8, ptr %.tr, i64 40
+  %.val349 = load i32, ptr %309, align 8, !tbaa !83
   br label %_ZN12_GLOBAL__N_114getExprLocImplIN5clang20UnresolvedLookupExprEEENS1_14SourceLocationEPKNS1_4ExprEMS4_KFS3_vE.exit
 
-309:                                              ; preds = %tailrecurse
-  %310 = tail call i32 @_ZNK5clang18ArraySubscriptExpr10getExprLocEv(ptr noundef nonnull align 8 dereferenceable(32) %.tr) #31
+310:                                              ; preds = %tailrecurse
+  %311 = tail call i32 @_ZNK5clang18ArraySubscriptExpr10getExprLocEv(ptr noundef nonnull align 8 dereferenceable(32) %.tr) #31
   br label %_ZN12_GLOBAL__N_114getExprLocImplIN5clang20UnresolvedLookupExprEEENS1_14SourceLocationEPKNS1_4ExprEMS4_KFS3_vE.exit
-
-311:                                              ; preds = %tailrecurse
-  br label %tailrecurse.backedge.sink.split
 
 312:                                              ; preds = %tailrecurse
-  %313 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
-  %.val350 = load ptr, ptr %313, align 8, !tbaa !3
-  %314 = getelementptr inbounds nuw i8, ptr %.val350, i64 16
-  %315 = load ptr, ptr %314, align 8, !tbaa !88
-  %.not.i.i.i = icmp eq ptr %315, null
-  br i1 %.not.i.i.i, label %318, label %316
+  br label %tailrecurse.backedge.sink.split
 
-316:                                              ; preds = %312
-  %317 = tail call i32 @_ZNK5clang4Stmt11getBeginLocEv(ptr noundef nonnull align 8 dereferenceable(8) %315) #31
+313:                                              ; preds = %tailrecurse
+  %314 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
+  %.val350 = load ptr, ptr %314, align 8, !tbaa !3
+  %315 = getelementptr inbounds nuw i8, ptr %.val350, i64 16
+  %316 = load ptr, ptr %315, align 8, !tbaa !88
+  %.not.i.i.i = icmp eq ptr %316, null
+  br i1 %.not.i.i.i, label %319, label %317
+
+317:                                              ; preds = %313
+  %318 = tail call i32 @_ZNK5clang4Stmt11getBeginLocEv(ptr noundef nonnull align 8 dereferenceable(8) %316) #31
   br label %_ZN12_GLOBAL__N_114getExprLocImplIN5clang20UnresolvedLookupExprEEENS1_14SourceLocationEPKNS1_4ExprEMS4_KFS3_vE.exit
 
-318:                                              ; preds = %312
-  %319 = getelementptr inbounds nuw i8, ptr %.val350, i64 4
-  %.sroa.0.0.copyload.i.i.i.i365 = load i32, ptr %319, align 4, !tbaa !83
+319:                                              ; preds = %313
+  %320 = getelementptr inbounds nuw i8, ptr %.val350, i64 4
+  %.sroa.0.0.copyload.i.i.i.i365 = load i32, ptr %320, align 4, !tbaa !83
   br label %_ZN12_GLOBAL__N_114getExprLocImplIN5clang20UnresolvedLookupExprEEENS1_14SourceLocationEPKNS1_4ExprEMS4_KFS3_vE.exit
 
-320:                                              ; preds = %tailrecurse
-  %321 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
-  %.val351 = load i32, ptr %321, align 8, !tbaa !83
+321:                                              ; preds = %tailrecurse
+  %322 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
+  %.val351 = load i32, ptr %322, align 8, !tbaa !83
   br label %_ZN12_GLOBAL__N_114getExprLocImplIN5clang20UnresolvedLookupExprEEENS1_14SourceLocationEPKNS1_4ExprEMS4_KFS3_vE.exit
 
-322:                                              ; preds = %tailrecurse
-  %323 = getelementptr i8, ptr %.tr, i64 24
-  %.val352 = load ptr, ptr %323, align 8, !tbaa !3
-  %324 = tail call i32 @_ZNK5clang4Stmt11getBeginLocEv(ptr noundef nonnull readonly align 8 dereferenceable(8) %.val352) #31
+323:                                              ; preds = %tailrecurse
+  %324 = getelementptr i8, ptr %.tr, i64 24
+  %.val352 = load ptr, ptr %324, align 8, !tbaa !3
+  %325 = tail call i32 @_ZNK5clang4Stmt11getBeginLocEv(ptr noundef nonnull readonly align 8 dereferenceable(8) %.val352) #31
   br label %_ZN12_GLOBAL__N_114getExprLocImplIN5clang20UnresolvedLookupExprEEENS1_14SourceLocationEPKNS1_4ExprEMS4_KFS3_vE.exit
 
-325:                                              ; preds = %tailrecurse
-  %326 = getelementptr i8, ptr %.tr, i64 24
-  %.val353 = load ptr, ptr %326, align 8, !tbaa !3
-  %327 = tail call i32 @_ZNK5clang4Stmt11getBeginLocEv(ptr noundef nonnull readonly align 8 dereferenceable(8) %.val353) #31
+326:                                              ; preds = %tailrecurse
+  %327 = getelementptr i8, ptr %.tr, i64 24
+  %.val353 = load ptr, ptr %327, align 8, !tbaa !3
+  %328 = tail call i32 @_ZNK5clang4Stmt11getBeginLocEv(ptr noundef nonnull readonly align 8 dereferenceable(8) %.val353) #31
   br label %_ZN12_GLOBAL__N_114getExprLocImplIN5clang20UnresolvedLookupExprEEENS1_14SourceLocationEPKNS1_4ExprEMS4_KFS3_vE.exit
 
-328:                                              ; preds = %tailrecurse
+329:                                              ; preds = %tailrecurse
   unreachable
 
-_ZN12_GLOBAL__N_114getExprLocImplIN5clang20UnresolvedLookupExprEEENS1_14SourceLocationEPKNS1_4ExprEMS4_KFS3_vE.exit: ; preds = %tailrecurse, %tailrecurse, %tailrecurse, %318, %316, %203, %199, %196, %185, %_ZNK5clang11DeclRefExpr15getQualifierLocEv.exit.i.i, %97, %95, %87, %83, %66, %59, %57, %325, %322, %320, %309, %307, %305, %303, %301, %299, %296, %293, %291, %289, %287, %285, %283, %281, %279, %277, %275, %273, %271, %269, %267, %264, %262, %260, %257, %255, %253, %251, %249, %247, %245, %243, %234, %232, %230, %228, %226, %224, %222, %220, %218, %216, %214, %212, %209, %207, %205, %193, %191, %189, %187, %177, %174, %172, %169, %167, %165, %162, %160, %158, %155, %152, %150, %148, %146, %143, %140, %138, %136, %134, %132, %_ZN12_GLOBAL__N_114getExprLocImplIN5clang24MaterializeTemporaryExprEEENS1_14SourceLocationEPKNS1_4ExprEMS4_KFS3_vE.exit, %119, %117, %115, %113, %111, %109, %107, %105, %103, %101, %89, %77, %75, %73, %70, %68, %61, %52, %49, %46, %44, %42, %40, %36, %34, %32, %30, %28, %26, %24, %22, %20, %18, %16, %14, %12, %10, %8, %6
-  %.sroa.0257.0 = phi i32 [ %.val351, %320 ], [ %327, %325 ], [ %324, %322 ], [ %.val, %6 ], [ %.val258, %8 ], [ %.val259, %10 ], [ %.val260, %12 ], [ %.val261, %14 ], [ %.val262, %16 ], [ %.val263, %18 ], [ %.val264, %20 ], [ %.val265, %22 ], [ %.val266, %24 ], [ %.val267, %26 ], [ %.val268, %28 ], [ %.val269, %30 ], [ %.val270, %32 ], [ %.val271, %34 ], [ %.val272, %36 ], [ %.val273, %40 ], [ %.val274, %42 ], [ %.val275, %44 ], [ %48, %46 ], [ %51, %49 ], [ %.val278, %52 ], [ %.val279, %61 ], [ %.val280, %68 ], [ %72, %70 ], [ %.val282, %73 ], [ %.val283, %75 ], [ %.val284, %77 ], [ %.val285, %89 ], [ %.val286, %101 ], [ %.val287, %103 ], [ %.val288, %105 ], [ %.val289, %107 ], [ %.val290, %109 ], [ %.val291, %111 ], [ %.val292, %113 ], [ %.val293, %115 ], [ %.val294, %117 ], [ %.val295, %119 ], [ %131, %_ZN12_GLOBAL__N_114getExprLocImplIN5clang24MaterializeTemporaryExprEEENS1_14SourceLocationEPKNS1_4ExprEMS4_KFS3_vE.exit ], [ %133, %132 ], [ %.val297, %134 ], [ %.val298, %136 ], [ %139, %138 ], [ %142, %140 ], [ %145, %143 ], [ %.val301, %146 ], [ %.val302, %148 ], [ %.val303, %150 ], [ %154, %152 ], [ %157, %155 ], [ %.val306, %158 ], [ %.val307, %160 ], [ %164, %162 ], [ %.val309, %165 ], [ %.val310, %167 ], [ %171, %169 ], [ %173, %172 ], [ %.sroa.0.0.extract.trunc.i.i.i357, %174 ], [ %.val312, %177 ], [ %.val313, %187 ], [ %.val314, %189 ], [ %.val315, %191 ], [ %.val316.val, %193 ], [ %.val317, %205 ], [ %.val318, %207 ], [ %211, %209 ], [ %.val320, %212 ], [ %.val321, %214 ], [ %.val322, %216 ], [ %.val323, %218 ], [ %.val324, %220 ], [ %.val325, %222 ], [ %225, %224 ], [ %.val326, %226 ], [ %.val327, %228 ], [ %231, %230 ], [ %233, %232 ], [ %.sroa.0.0.i.i364, %234 ], [ %244, %243 ], [ %246, %245 ], [ %.val328, %247 ], [ %250, %249 ], [ %.val329, %251 ], [ %.val330, %253 ], [ %.val331, %255 ], [ %259, %257 ], [ %261, %260 ], [ %263, %262 ], [ %266, %264 ], [ %.val334, %267 ], [ %.val335, %269 ], [ %.val336, %271 ], [ %.val337, %273 ], [ %.val338, %275 ], [ %278, %277 ], [ %280, %279 ], [ %.val339, %281 ], [ %.val340, %283 ], [ %.val341, %285 ], [ %288, %287 ], [ %290, %289 ], [ %.val342, %291 ], [ %295, %293 ], [ %.val344.val, %296 ], [ %.val345, %299 ], [ %.val346, %301 ], [ %.val347, %303 ], [ %.val348, %305 ], [ %.val349, %307 ], [ %310, %309 ], [ %.sroa.0.0.copyload.i1.i.i, %59 ], [ %.sroa.0.0.extract.trunc.i.i.i, %57 ], [ %.sroa.0.0.copyload.i.i366, %66 ], [ %86, %83 ], [ %.sroa.0.0.copyload.i.i.i354, %87 ], [ %.sroa.0.0.copyload.i.i, %95 ], [ %100, %97 ], [ %.sroa.0.0.extract.trunc.i.i.i360, %_ZNK5clang11DeclRefExpr15getQualifierLocEv.exit.i.i ], [ %.sroa.0.0.copyload.i3.i.i.i, %185 ], [ %204, %203 ], [ 0, %196 ], [ %201, %199 ], [ %317, %316 ], [ %.sroa.0.0.copyload.i.i.i.i365, %318 ], [ 0, %tailrecurse ], [ 0, %tailrecurse ], [ 0, %tailrecurse ]
+_ZN12_GLOBAL__N_114getExprLocImplIN5clang20UnresolvedLookupExprEEENS1_14SourceLocationEPKNS1_4ExprEMS4_KFS3_vE.exit: ; preds = %tailrecurse, %tailrecurse, %tailrecurse, %319, %317, %203, %199, %196, %185, %_ZNK5clang11DeclRefExpr15getQualifierLocEv.exit.i.i, %97, %95, %87, %83, %66, %59, %57, %326, %323, %321, %310, %308, %306, %304, %302, %300, %297, %294, %292, %290, %288, %286, %284, %282, %280, %278, %276, %274, %272, %270, %268, %265, %263, %261, %258, %256, %254, %252, %250, %248, %246, %244, %234, %232, %230, %228, %226, %224, %222, %220, %218, %216, %214, %212, %209, %207, %205, %193, %191, %189, %187, %177, %174, %172, %169, %167, %165, %162, %160, %158, %155, %152, %150, %148, %146, %143, %140, %138, %136, %134, %132, %_ZN12_GLOBAL__N_114getExprLocImplIN5clang24MaterializeTemporaryExprEEENS1_14SourceLocationEPKNS1_4ExprEMS4_KFS3_vE.exit, %119, %117, %115, %113, %111, %109, %107, %105, %103, %101, %89, %77, %75, %73, %70, %68, %61, %52, %49, %46, %44, %42, %40, %36, %34, %32, %30, %28, %26, %24, %22, %20, %18, %16, %14, %12, %10, %8, %6
+  %.sroa.0257.0 = phi i32 [ %.val351, %320 ], [ %327, %325 ], [ %324, %322 ], [ %.val, %6 ], [ %.val258, %8 ], [ %.val259, %10 ], [ %.val260, %12 ], [ %.val261, %14 ], [ %.val262, %16 ], [ %.val263, %18 ], [ %.val264, %20 ], [ %.val265, %22 ], [ %.val266, %24 ], [ %.val267, %26 ], [ %.val268, %28 ], [ %.val269, %30 ], [ %.val270, %32 ], [ %.val271, %34 ], [ %.val272, %36 ], [ %.val273, %40 ], [ %.val274, %42 ], [ %.val275, %44 ], [ %48, %46 ], [ %51, %49 ], [ %.val278, %52 ], [ %.val279, %61 ], [ %.val280, %68 ], [ %72, %70 ], [ %.val282, %73 ], [ %.val283, %75 ], [ %.val284, %77 ], [ %.val285, %89 ], [ %.val286, %101 ], [ %.val287, %103 ], [ %.val288, %105 ], [ %.val289, %107 ], [ %.val290, %109 ], [ %.val291, %111 ], [ %.val292, %113 ], [ %.val293, %115 ], [ %.val294, %117 ], [ %.val295, %119 ], [ %131, %_ZN12_GLOBAL__N_114getExprLocImplIN5clang24MaterializeTemporaryExprEEENS1_14SourceLocationEPKNS1_4ExprEMS4_KFS3_vE.exit ], [ %133, %132 ], [ %.val297, %134 ], [ %.val298, %136 ], [ %139, %138 ], [ %142, %140 ], [ %145, %143 ], [ %.val301, %146 ], [ %.val302, %148 ], [ %.val303, %150 ], [ %154, %152 ], [ %157, %155 ], [ %.val306, %158 ], [ %.val307, %160 ], [ %164, %162 ], [ %.val309, %165 ], [ %.val310, %167 ], [ %171, %169 ], [ %173, %172 ], [ %.sroa.0.0.extract.trunc.i.i.i357, %174 ], [ %.val312, %177 ], [ %.val313, %187 ], [ %.val314, %189 ], [ %.val315, %191 ], [ %.val316.val, %193 ], [ %.val317, %205 ], [ %.val318, %207 ], [ %211, %209 ], [ %.val320, %212 ], [ %.val321, %214 ], [ %.val322, %216 ], [ %.val323, %218 ], [ %.val324, %220 ], [ %.val325, %222 ], [ %225, %224 ], [ %.val326, %226 ], [ %.val327, %228 ], [ %231, %230 ], [ %233, %232 ], [ %.sroa.0.0.i.i364, %234 ], [ %245, %243 ], [ %246, %245 ], [ %.val328, %247 ], [ %250, %249 ], [ %.val329, %251 ], [ %.val330, %253 ], [ %.val331, %255 ], [ %259, %257 ], [ %261, %260 ], [ %263, %262 ], [ %266, %264 ], [ %.val334, %267 ], [ %.val335, %269 ], [ %.val336, %271 ], [ %.val337, %273 ], [ %.val338, %275 ], [ %278, %277 ], [ %280, %279 ], [ %.val339, %281 ], [ %.val340, %283 ], [ %.val341, %285 ], [ %288, %287 ], [ %290, %289 ], [ %.val342, %291 ], [ %295, %293 ], [ %.val344.val, %296 ], [ %.val345, %299 ], [ %.val346, %301 ], [ %.val347, %303 ], [ %.val348, %305 ], [ %.val349, %307 ], [ %310, %309 ], [ %.sroa.0.0.copyload.i1.i.i, %59 ], [ %.sroa.0.0.extract.trunc.i.i.i, %57 ], [ %.sroa.0.0.copyload.i.i366, %66 ], [ %86, %83 ], [ %.sroa.0.0.copyload.i.i.i354, %87 ], [ %.sroa.0.0.copyload.i.i, %95 ], [ %100, %97 ], [ %.sroa.0.0.extract.trunc.i.i.i360, %_ZNK5clang11DeclRefExpr15getQualifierLocEv.exit.i.i ], [ %.sroa.0.0.copyload.i3.i.i.i, %185 ], [ %204, %203 ], [ 0, %196 ], [ %201, %199 ], [ %318, %316 ], [ %.sroa.0.0.copyload.i.i.i.i365, %318 ], [ 0, %tailrecurse ], [ 0, %tailrecurse ], [ 0, %tailrecurse ]
   ret i32 %.sroa.0257.0
 }
 

@@ -708,7 +708,7 @@ define internal range(i32 -1094995529, 1) i32 @nb_decode(ptr noundef %0, ptr nou
   %55 = icmp ult i32 %54, -4
   br i1 %55, label %.critedge, label %56
 
-56:                                               ; preds = %43
+57:                                               ; preds = %43
   %57 = zext nneg i32 %51 to i64
   %58 = getelementptr inbounds nuw [8 x i16], ptr @wb_skip_table, i64 0, i64 %57
   %59 = load i16, ptr %58, align 2, !tbaa !115
@@ -725,7 +725,7 @@ define internal range(i32 -1094995529, 1) i32 @nb_decode(ptr noundef %0, ptr nou
   %67 = icmp slt i32 %66, 5
   br i1 %67, label %.critedge, label %68
 
-68:                                               ; preds = %56
+68:                                               ; preds = %57
   %69 = lshr i32 %65, 3
   %70 = zext nneg i32 %69 to i64
   %71 = getelementptr inbounds nuw i8, ptr %27, i64 %70
@@ -757,7 +757,7 @@ define internal range(i32 -1094995529, 1) i32 @nb_decode(ptr noundef %0, ptr nou
   %91 = icmp ult i32 %90, -4
   br i1 %91, label %.critedge, label %92
 
-92:                                               ; preds = %79
+93:                                               ; preds = %79
   %93 = zext nneg i32 %87 to i64
   %94 = getelementptr inbounds nuw [8 x i16], ptr @wb_skip_table, i64 0, i64 %93
   %95 = load i16, ptr %94, align 2, !tbaa !115
@@ -785,11 +785,11 @@ define internal range(i32 -1094995529, 1) i32 @nb_decode(ptr noundef %0, ptr nou
   %.not393 = icmp eq i32 %111, 0
   br i1 %.not393, label %113, label %112
 
-112:                                              ; preds = %92
+112:                                              ; preds = %93
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.6) #12
   br label %.critedge
 
-113:                                              ; preds = %92, %68, %32
+113:                                              ; preds = %93, %68, %32
   %spec.select.i418494 = phi i32 [ %spec.select.i418, %92 ], [ %spec.select.i415, %68 ], [ %spec.select.i, %32 ]
   %114 = sub nsw i32 %.val410, %spec.select.i418494
   %115 = icmp slt i32 %114, 4
@@ -2039,7 +2039,7 @@ highpass.exit:                                    ; preds = %808, %682
   store i32 0, ptr %303, align 4, !tbaa !60
   br label %.critedge
 
-.critedge:                                        ; preds = %speex_inband_handler.exit, %113, %116, %79, %56, %43, %.preheader479, %112, %210, %highpass.exit, %iir_mem.exit
+.critedge:                                        ; preds = %speex_inband_handler.exit, %113, %116, %79, %57, %43, %.preheader479, %112, %210, %highpass.exit, %iir_mem.exit
   %.1 = phi i32 [ 0, %iir_mem.exit ], [ 0, %highpass.exit ], [ -1094995529, %210 ], [ -1094995529, %112 ], [ -1094995529, %.preheader479 ], [ -1094995529, %43 ], [ -1094995529, %56 ], [ -1094995529, %79 ], [ -1094995529, %116 ], [ -1094995529, %113 ], [ -1094995529, %speex_inband_handler.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)

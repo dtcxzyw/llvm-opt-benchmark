@@ -356,27 +356,27 @@ define dso_local i32 @tty_dev_name_to_number(ptr noundef %0, ptr noundef writeon
   %11 = icmp ult i8 %10, -10
   br i1 %11, label %.preheader, label %.loopexit8, !llvm.loop !6
 
-.preheader:                                       ; preds = %6, %9
+.preheader:; preds = %6, %9
   %12 = phi ptr [ %13, %9 ], [ %0, %6 ]
   %13 = getelementptr i8, ptr %12, i64 1
   %14 = load i8, ptr %13, align 1
   %15 = icmp eq i8 %14, 0
   br i1 %15, label %.loopexit7, label %9, !llvm.loop !6
 
-.loopexit8:                                       ; preds = %9, %6
+.loopexit8:; preds = %9, %6
   %16 = phi ptr [ %0, %6 ], [ %13, %9 ]
   store i32 0, ptr %3, align 4, !annotation !9
-  %17 = call i32 @kstrtoint(ptr noundef %16, i32 noundef 10, ptr noundef nonnull %3) #21
-  %18 = icmp eq i32 %17, 0
-  br i1 %18, label %19, label %.loopexit7
+  %19 = call i32 @kstrtoint(ptr noundef %16, i32 noundef 10, ptr noundef nonnull %3) #21
+  %20 = icmp eq i32 %19, 0
+  br i1 %20, label %21, label %.loopexit7
 
-19:                                               ; preds = %.loopexit8
+21:                                               ; preds = %.loopexit8
   call void @mutex_lock(ptr noundef nonnull @tty_mutex) #21
-  %20 = load ptr, ptr @tty_drivers, align 8
-  %21 = icmp eq ptr %20, @tty_drivers
-  br i1 %21, label %.loopexit, label %22
+  %22 = load ptr, ptr @tty_drivers, align 8
+  %23 = icmp eq ptr %22, @tty_drivers
+  br i1 %23, label %.loopexit, label %22
 
-22:                                               ; preds = %19
+31:                                               ; preds = %21
   %23 = ptrtoint ptr %16 to i64
   %24 = ptrtoint ptr %0 to i64
   %25 = sub i64 %23, %24
@@ -385,7 +385,7 @@ define dso_local i32 @tty_dev_name_to_number(ptr noundef %0, ptr noundef writeon
   %28 = load i32, ptr %3, align 4
   br label %29
 
-29:                                               ; preds = %50, %22
+37:                                               ; preds = %50, %31
   %30 = phi ptr [ %20, %22 ], [ %51, %50 ]
   %31 = getelementptr i8, ptr %30, i64 -136
   %32 = load ptr, ptr %31, align 8
@@ -393,18 +393,18 @@ define dso_local i32 @tty_dev_name_to_number(ptr noundef %0, ptr noundef writeon
   %34 = icmp eq i64 %27, %33
   br i1 %34, label %35, label %50
 
-35:                                               ; preds = %29
+40:                                               ; preds = %37
   %36 = call i32 @strncmp(ptr noundef %0, ptr noundef %32, i64 noundef %27) #21
   %37 = icmp eq i32 %36, 0
-  br i1 %37, label %38, label %50
+  br i1 %37, label %44, label %52
 
-38:                                               ; preds = %35
-  %39 = getelementptr i8, ptr %30, i64 -116
-  %40 = load i32, ptr %39, align 4
+44:                                               ; preds = %40
+  %45 = getelementptr i8, ptr %30, i64 -116
+  %46 = load i32, ptr %45, align 4
   %41 = icmp ult i32 %28, %40
   br i1 %41, label %42, label %50
 
-42:                                               ; preds = %38
+42:; preds = %38
   %43 = getelementptr i8, ptr %30, i64 -124
   %44 = load i32, ptr %43, align 4
   %45 = shl i32 %44, 20
@@ -415,20 +415,20 @@ define dso_local i32 @tty_dev_name_to_number(ptr noundef %0, ptr noundef writeon
   store i32 %49, ptr %1, align 4
   br label %.loopexit
 
-50:                                               ; preds = %38, %35, %29
-  %51 = load ptr, ptr %30, align 8
-  %52 = icmp eq ptr %51, @tty_drivers
-  br i1 %52, label %.loopexit, label %29, !llvm.loop !10
+52:                                               ; preds = %44, %35, %29
+  %53 = load ptr, ptr %30, align 8
+  %54 = icmp eq ptr %53, @tty_drivers
+  br i1 %54, label %.loopexit, label %37, !llvm.loop !10
 
-.loopexit:                                        ; preds = %50, %42, %19
-  %53 = phi i32 [ 0, %42 ], [ -19, %19 ], [ -19, %50 ]
+.loopexit:                                        ; preds = %52, %42, %21
+  %55 = phi i32 [ 0, %42 ], [ -19, %19 ], [ -19, %50 ]
   call void @mutex_unlock(ptr noundef nonnull @tty_mutex) #21
   br label %.loopexit7
 
 .loopexit7:                                       ; preds = %.preheader, %.loopexit, %.loopexit8, %2
-  %54 = phi i32 [ %53, %.loopexit ], [ %17, %.loopexit8 ], [ -22, %2 ], [ -22, %.preheader ]
+  %56 = phi i32 [ %55, %.loopexit ], [ %19, %.loopexit8 ], [ -22, %2 ], [ -22, %.preheader ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  ret i32 %54
+  ret i32 %56
 }
 
 ; Function Attrs: null_pointer_is_valid

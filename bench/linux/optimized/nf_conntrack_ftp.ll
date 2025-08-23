@@ -917,88 +917,88 @@ define internal i32 @try_rfc1123(ptr noundef readonly captures(none) %0, i64 nou
   %25 = sub i64 %1, %19
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %6, i8 0, i64 24, i1 false)
-  br label %26
+  br label %27
 
-26:                                               ; preds = %48, %21
-  %27 = phi ptr [ %51, %48 ], [ %24, %21 ]
-  %28 = phi i32 [ %50, %48 ], [ 0, %21 ]
-  %29 = phi i32 [ %49, %48 ], [ 0, %21 ]
-  %30 = load i8, ptr %27, align 1
-  %31 = add i8 %30, -48
-  %32 = icmp ult i8 %31, 10
-  br i1 %32, label %33, label %41
+27:                                               ; preds = %49, %21
+  %28 = phi ptr [ %52, %48 ], [ %24, %21 ]
+  %29 = phi i32 [ %51, %48 ], [ 0, %21 ]
+  %30 = phi i32 [ %50, %48 ], [ 0, %21 ]
+  %31 = load i8, ptr %28, align 1
+  %32 = add i8 %31, -48
+  %33 = icmp ult i8 %32, 10
+  br i1 %33, label %34, label %42
 
-33:                                               ; preds = %26
-  %34 = zext nneg i8 %30 to i32
-  %35 = zext nneg i32 %29 to i64
-  %36 = getelementptr i32, ptr %6, i64 %35
-  %37 = load i32, ptr %36, align 4
-  %38 = mul i32 %37, 10
-  %39 = add nsw i32 %34, -48
-  %40 = add i32 %39, %38
-  store i32 %40, ptr %36, align 4
-  br label %48
+34:                                               ; preds = %27
+  %35 = zext nneg i8 %31 to i32
+  %36 = zext nneg i32 %30 to i64
+  %37 = getelementptr i32, ptr %6, i64 %36
+  %38 = load i32, ptr %37, align 4
+  %39 = mul i32 %38, 10
+  %40 = add nsw i32 %35, -48
+  %41 = add i32 %40, %39
+  store i32 %41, ptr %37, align 4
+  br label %49
 
-41:                                               ; preds = %26
-  %42 = icmp eq i8 %30, 44
-  br i1 %42, label %43, label %45
+42:                                               ; preds = %27
+  %43 = icmp eq i8 %31, 44
+  br i1 %43, label %44, label %46
 
-43:                                               ; preds = %41
-  %44 = add nuw nsw i32 %29, 1
-  br label %48
+44:                                               ; preds = %42
+  %45 = add nuw nsw i32 %30, 1
+  br label %49
 
-45:                                               ; preds = %41
-  %46 = icmp ne i32 %29, 5
-  %47 = icmp eq i32 %28, 0
-  %or.cond = or i1 %47, %46
-  br i1 %or.cond, label %.thread, label %56
+46:                                               ; preds = %42
+  %47 = icmp ne i32 %30, 5
+  %48 = icmp eq i32 %29, 0
+  %or.cond = or i1 %48, %47
+  br i1 %or.cond, label %.thread, label %57
 
-48:                                               ; preds = %43, %33
-  %49 = phi i32 [ %29, %33 ], [ %44, %43 ]
-  %50 = add i32 %28, 1
-  %51 = getelementptr i8, ptr %27, i64 1
-  %52 = zext i32 %50 to i64
-  %53 = icmp ugt i64 %25, %52
-  %54 = icmp ult i32 %49, 6
-  %55 = select i1 %53, i1 %54, i1 false
-  br i1 %55, label %26, label %.thread, !llvm.loop !17
+49:                                               ; preds = %44, %34
+  %50 = phi i32 [ %30, %33 ], [ %45, %43 ]
+  %51 = add i32 %29, 1
+  %52 = getelementptr i8, ptr %28, i64 1
+  %53 = zext i32 %51 to i64
+  %54 = icmp ugt i64 %25, %53
+  %55 = icmp ult i32 %50, 6
+  %56 = select i1 %54, i1 %55, i1 false
+  br i1 %56, label %27, label %.thread, !llvm.loop !17
 
-56:                                               ; preds = %45
-  %57 = load i32, ptr %6, align 16
-  %58 = shl i32 %57, 24
-  %59 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  %60 = load i32, ptr %59, align 4
-  %61 = shl i32 %60, 16
-  %62 = or i32 %61, %58
-  %63 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %64 = load i32, ptr %63, align 8
-  %65 = shl i32 %64, 8
-  %66 = or i32 %62, %65
-  %67 = getelementptr inbounds nuw i8, ptr %6, i64 12
-  %68 = load i32, ptr %67, align 4
-  %69 = or i32 %66, %68
-  %70 = tail call i32 @llvm.bswap.i32(i32 %69)
-  store i32 %70, ptr %2, align 4
-  %71 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %72 = load i32, ptr %71, align 16
-  %73 = shl i32 %72, 8
-  %74 = getelementptr inbounds nuw i8, ptr %6, i64 20
-  %75 = load i32, ptr %74, align 4
-  %76 = or i32 %73, %75
-  %77 = trunc i32 %76 to i16
-  %78 = tail call i16 @llvm.bswap.i16(i16 %77)
-  %79 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i16 %78, ptr %79, align 4
+57:                                               ; preds = %46
+  %58 = load i32, ptr %6, align 16
+  %59 = shl i32 %58, 24
+  %60 = getelementptr inbounds nuw i8, ptr %6, i64 4
+  %61 = load i32, ptr %60, align 4
+  %62 = shl i32 %61, 16
+  %63 = or i32 %62, %59
+  %64 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %65 = load i32, ptr %64, align 8
+  %66 = shl i32 %65, 8
+  %67 = or i32 %63, %66
+  %68 = getelementptr inbounds nuw i8, ptr %6, i64 12
+  %69 = load i32, ptr %68, align 4
+  %70 = or i32 %67, %69
+  %71 = tail call i32 @llvm.bswap.i32(i32 %70)
+  store i32 %71, ptr %2, align 4
+  %72 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %73 = load i32, ptr %72, align 16
+  %74 = shl i32 %73, 8
+  %75 = getelementptr inbounds nuw i8, ptr %6, i64 20
+  %76 = load i32, ptr %75, align 4
+  %77 = or i32 %74, %76
+  %78 = trunc i32 %77 to i16
+  %79 = tail call i16 @llvm.bswap.i16(i16 %78)
+  %80 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  store i16 %79, ptr %80, align 4
   br label %.thread
 
-.thread:                                          ; preds = %48, %45, %56
-  %80 = phi i32 [ %28, %56 ], [ 0, %45 ], [ 0, %48 ]
+.thread:                                          ; preds = %49, %46, %57
+  %81 = phi i32 [ %29, %56 ], [ 0, %45 ], [ 0, %48 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %81
+  br label %82
 
-81:                                               ; preds = %.thread, %.loopexit
-  %82 = phi i32 [ %80, %.thread ], [ 0, %.loopexit ]
-  ret i32 %82
+82:                                               ; preds = %.thread, %.loopexit
+  %83 = phi i32 [ %81, %.thread ], [ 0, %.loopexit ]
+  ret i32 %83
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: readwrite)

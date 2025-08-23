@@ -235,24 +235,24 @@ define internal fastcc range(i32 -22, 1) i32 @devt_from_devname(ptr noundef read
     i8 48, label %49
   ]
 
-28:                                               ; preds = %26
-  %29 = call i64 @simple_strtoul(ptr noundef %17, ptr noundef null, i32 noundef 10) #12
-  %30 = trunc i64 %29 to i32
+29:                                               ; preds = %26
+  %30 = call i64 @simple_strtoul(ptr noundef %17, ptr noundef null, i32 noundef 10) #12
+  %31 = trunc i64 %30 to i32
   store i8 0, ptr %17, align 1
-  %31 = call fastcc i32 @blk_lookup_devt(ptr noundef nonnull %3, i32 noundef %30) #13
-  store i32 %31, ptr %1, align 4
-  %32 = icmp eq i32 %31, 0
-  br i1 %32, label %33, label %49
+  %32 = call fastcc i32 @blk_lookup_devt(ptr noundef nonnull %3, i32 noundef %31) #13
+  store i32 %32, ptr %1, align 4
+  %33 = icmp eq i32 %32, 0
+  br i1 %33, label %34, label %49
 
-33:                                               ; preds = %28
-  %34 = getelementptr inbounds nuw i8, ptr %3, i64 2
-  %35 = icmp ult ptr %17, %34
-  br i1 %35, label %49, label %36
+34:                                               ; preds = %29
+  %35 = getelementptr inbounds nuw i8, ptr %3, i64 2
+  %36 = icmp ult ptr %17, %35
+  br i1 %36, label %49, label %37
 
-36:                                               ; preds = %33
-  %37 = getelementptr i8, ptr %17, i64 -2
-  %38 = load i8, ptr %37, align 1
-  %39 = add i8 %38, -58
+37:                                               ; preds = %34
+  %38 = getelementptr i8, ptr %17, i64 -2
+  %39 = load i8, ptr %38, align 1
+  %39 = add i8 %39, -58
   %40 = icmp ult i8 %39, -10
   br i1 %40, label %49, label %41
 
