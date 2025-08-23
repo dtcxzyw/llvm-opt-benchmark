@@ -367,4 +367,5 @@ Currently, this repository contains the following libraries/applications:
 |[uv](https://github.com/astral-sh/uv)|Rust|![stars](https://img.shields.io/github/stars/astral-sh/uv?style=flat)|2025-05-19|538|
 |[wasmi](https://github.com/wasmi-labs/wasmi)|Rust|![stars](https://img.shields.io/github/stars/wasmi-labs/wasmi?style=flat)|2025-05-17|85|
 |[wasmtime](https://github.com/bytecodealliance/wasmtime)|Rust|![stars](https://img.shields.io/github/stars/bytecodealliance/wasmtime?style=flat)|2024-04-22|317|
+|[yara-x](https://github.com/VirusTotal/yara-x)|Rust|![stars](https://img.shields.io/github/stars/VirusTotal/yara-x?style=flat)|2025-08-08|143|
 |[zed](https://github.com/zed-industries/zed)|Rust|![stars](https://img.shields.io/github/stars/zed-industries/zed?style=flat)|2024-10-04|1218|

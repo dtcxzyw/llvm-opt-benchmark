@@ -726,3 +726,6 @@
 [submodule "bench/open3d/Open3D"]
 	path = bench/open3d/Open3D
 	url = https://github.com/isl-org/Open3D.git
+[submodule "bench/yara-x-rs/yara-x"]
+	path = bench/yara-x-rs/yara-x
+	url = https://github.com/VirusTotal/yara-x.git
