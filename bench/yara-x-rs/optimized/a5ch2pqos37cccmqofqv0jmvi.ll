@@ -89369,10 +89369,10 @@ switch.lookup:                                    ; preds = %106, %.thread183
   %switch.downshift = lshr i64 286981175377920, %switch.shiftamt
   %switch.masked = trunc i64 %switch.downshift to i8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.046, ptr noundef nonnull align 8 dereferenceable(24) %25, i64 24, i1 false)
-  %.sroa.046.24.sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.046, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.046.24.sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %21, i64 24, i1 false)
-  %.sroa.046.48.sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.046, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.046.48.sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %15, i64 24, i1 false)
+  %.sroa.046.24..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.046, i64 24
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.046.24..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %21, i64 24, i1 false)
+  %.sroa.046.48..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.046, i64 48
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.046.48..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %15, i64 24, i1 false)
   %114 = lshr i16 %.val124, 10
   %115 = trunc nuw nsw i16 %114 to i8
   %116 = and i8 %115, 1

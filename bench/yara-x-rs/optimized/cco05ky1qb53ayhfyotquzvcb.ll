@@ -2320,8 +2320,8 @@ define hidden void @"_ZN13yara_x_parser3ast7cst2ast16Builder$LT$I$GT$9build_ast1
   %.sroa.5134.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %80, i64 5
   %.sroa.5134.sroa.4.0..sroa.5134.0..sroa_idx.sroa_idx.i = getelementptr inbounds nuw i8, ptr %80, i64 8
   %171 = getelementptr inbounds nuw i8, ptr %79, i64 1
-  %.sroa.0104.sroa.0.i.sroa.5.24.sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0104.sroa.0.i.sroa.5, i64 15
-  %.sroa.0104.sroa.0.i.sroa.5.48.sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0104.sroa.0.i.sroa.5, i64 39
+  %.sroa.0104.sroa.0.i.sroa.5.24..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0104.sroa.0.i.sroa.5, i64 15
+  %.sroa.0104.sroa.0.i.sroa.5.48..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0104.sroa.0.i.sroa.5, i64 39
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %106, i64 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %106, i64 9
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %106, i64 72
@@ -5102,8 +5102,8 @@ define hidden void @"_ZN13yara_x_parser3ast7cst2ast16Builder$LT$I$GT$9build_ast1
   %.sroa.0104.sroa.0.i.sroa.0.0.copyload = load i64, ptr %86, align 8, !noalias !147
   %.sroa.0104.sroa.0.i.sroa.4.0.copyload = load i8, ptr %.sroa.231.0..sroa_idx.i, align 8, !noalias !147
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(15) %.sroa.0104.sroa.0.i.sroa.5, ptr noundef nonnull align 1 dereferenceable(15) %.sroa.332.0..sroa_idx.i, i64 15, i1 false), !noalias !147
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %.sroa.0104.sroa.0.i.sroa.5.24.sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %84, i64 24, i1 false), !noalias !147
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %.sroa.0104.sroa.0.i.sroa.5.48.sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %83, i64 24, i1 false), !noalias !147
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %.sroa.0104.sroa.0.i.sroa.5.24..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %84, i64 24, i1 false), !noalias !147
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %.sroa.0104.sroa.0.i.sroa.5.48..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %83, i64 24, i1 false), !noalias !147
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.34, ptr noundef nonnull align 1 dereferenceable(3) %.sroa.8.i, i64 3, i1 false), !noalias !121
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(63) %.sroa.32, ptr noundef nonnull align 1 dereferenceable(63) %.sroa.0104.sroa.0.i.sroa.5, i64 63, i1 false), !noalias !121
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0104.sroa.0.i.sroa.5)

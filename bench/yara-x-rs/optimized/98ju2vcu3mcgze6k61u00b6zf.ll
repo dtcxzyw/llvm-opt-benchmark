@@ -14521,10 +14521,10 @@ define hidden void @"_ZN55_$LT$T$u20$as$u20$pkcs1..traits..DecodeRsaPublicKey$GT
 
 10:                                               ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %.sroa.6.8.sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.6, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %.sroa.6.8.sroa_idx, ptr noundef nonnull align 8 dereferenceable(40) %11, i64 40, i1 false)
+  %.sroa.6.8..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.6, i64 4
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %.sroa.6.8..sroa_idx, ptr noundef nonnull align 8 dereferenceable(40) %11, i64 40, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %5, ptr noundef nonnull align 4 dereferenceable(40) %.sroa.6.8.sroa_idx, i64 40, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %5, ptr noundef nonnull align 4 dereferenceable(40) %.sroa.6.8..sroa_idx, i64 40, i1 false)
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %12, ptr noundef nonnull align 8 dereferenceable(72) @anon.6304b5dd1a3cc6f12717cf8e882b5aae.49, i64 72, i1 false)
   call void @"_ZN3rsa8encoding183_$LT$impl$u20$core..convert..TryFrom$LT$spki..spki..SubjectPublicKeyInfo$LT$der..asn1..any..AnyRef$C$der..asn1..bit_string..BitStringRef$GT$$GT$$u20$for$u20$rsa..key..RsaPublicKey$GT$8try_from17h404aaae74df94d98E"(ptr noalias noundef nonnull sret([88 x i8]) align 8 captures(none) dereferenceable(88) %6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(112) %5)
@@ -104940,8 +104940,8 @@ define void @_ZN6yara_x7modules3lnk8__main__17h18da8520601c462fE(ptr dead_on_unw
   br label %18
 
 15:                                               ; preds = %11
-  %.sroa.20.i.4.sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.20.i, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %.sroa.20.i.4.sroa_idx, i8 0, i64 24, i1 false)
+  %.sroa.20.i.4.i.4.i.4..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.20.i, i64 4
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %.sroa.20.i.4.i.4.i.4..sroa_idx, i8 0, i64 24, i1 false)
   br label %18
 
 16:                                               ; preds = %9

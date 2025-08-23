@@ -73282,8 +73282,8 @@ define hidden void @"_ZN9deflate646stream25Deflate64Decoder$LT$R$GT$11with_buffe
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(272) %3, ptr noundef nonnull align 8 dereferenceable(272) %1, i64 272, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.09)
-  %.sroa.09.320.sroa_idx12 = getelementptr inbounds nuw i8, ptr %.sroa.09, i64 320
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(262144) %.sroa.09.320.sroa_idx12, i8 0, i64 262144, i1 false)
+  %.sroa.09.320..sroa_idx12 = getelementptr inbounds nuw i8, ptr %.sroa.09, i64 320
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(262144) %.sroa.09.320..sroa_idx12, i8 0, i64 262144, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(320) %.sroa.09, i8 0, i64 320, i1 false)
   tail call void @_RNvCs73fAdSrgOJL_7___rustc35___rust_no_alloc_shim_is_unstable_v2() #36
   %4 = tail call noundef align 8 dereferenceable_or_null(273432) ptr @_RNvCs73fAdSrgOJL_7___rustc12___rust_alloc(i64 noundef range(i64 16, 273433) 273432, i64 noundef 8) #36

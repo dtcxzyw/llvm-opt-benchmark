@@ -1076,9 +1076,9 @@ define hidden void @"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clo
   br i1 %29, label %"_ZN87_$LT$T$u20$as$u20$alloc..slice..$LT$impl$u20$$u5b$T$u5d$$GT$..to_vec_in..ConvertVec$GT$6to_vec17hec4a47aa5d58d17fE.exit", label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$16with_capacity_in17he810ff426f5bf163E.exit.i"
-  %.sroa.012.48.sroa_idx.i = getelementptr inbounds nuw i8, ptr %.sroa.012.i, i64 48
-  %.sroa.012.72.sroa_idx.i = getelementptr inbounds nuw i8, ptr %.sroa.012.i, i64 72
-  %.sroa.012.24.sroa_idx.i = getelementptr inbounds nuw i8, ptr %.sroa.012.i, i64 24
+  %.sroa.012.48..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.sroa.012.i, i64 48
+  %.sroa.012.72..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.sroa.012.i, i64 72
+  %.sroa.012.24..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.sroa.012.i, i64 24
   br label %30
 
 30:                                               ; preds = %81, %.lr.ph.i
@@ -1247,10 +1247,10 @@ define hidden void @"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clo
 
 81:                                               ; preds = %69
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !131
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.012.48.sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(24) %10, i64 24, i1 false), !noalias !116
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.012.72.sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 24, i1 false), !noalias !116
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.012.48..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(24) %10, i64 24, i1 false), !noalias !116
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.012.72..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 24, i1 false), !noalias !116
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.012.i, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false), !noalias !116
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.012.24.sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false), !noalias !116
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.012.24..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false), !noalias !116
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !122
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !122
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !122
