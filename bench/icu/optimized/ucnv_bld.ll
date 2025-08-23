@@ -1680,12 +1680,12 @@ define void @ucnv_setDefaultName_77(ptr noundef readnone captures(none) %0) loca
 define i32 @ucnv_swap_77(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = tail call i32 @udata_swapDataHeader_77(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4)
   %7 = icmp eq ptr %4, null
-  br i1 %7, label %369, label %8
+  br i1 %7, label %372, label %8
 
 8:                                                ; preds = %5
   %9 = load i32, ptr %4, align 4, !tbaa !13
   %10 = icmp slt i32 %9, 1
-  br i1 %10, label %11, label %369
+  br i1 %10, label %11, label %372
 
 11:                                               ; preds = %8
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 12
@@ -1694,8 +1694,8 @@ define i32 @ucnv_swap_77(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nou
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 13
   %16 = load i8, ptr %15, align 1, !tbaa !19
   %17 = icmp eq i8 %16, 110
-  %or.cond444 = select i1 %14, i1 %17, i1 false
-  br i1 %or.cond444, label %18, label %._crit_edge
+  %or.cond440 = select i1 %14, i1 %17, i1 false
+  br i1 %or.cond440, label %18, label %._crit_edge
 
 18:                                               ; preds = %11
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 14
@@ -1739,7 +1739,7 @@ define i32 @ucnv_swap_77(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nou
   %48 = zext i8 %47 to i32
   tail call void (ptr, ptr, ...) @udata_printError_77(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %35, i32 noundef %36, i32 noundef %39, i32 noundef %42, i32 noundef %45, i32 noundef %48)
   store i32 16, ptr %4, align 4, !tbaa !13
-  br label %369
+  br label %372
 
 49:                                               ; preds = %30
   %50 = sext i32 %6 to i64
@@ -1748,7 +1748,7 @@ define i32 @ucnv_swap_77(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nou
   %53 = getelementptr inbounds i8, ptr %3, i64 %50
   %54 = select i1 %52, ptr null, ptr %53
   %55 = icmp slt i32 %2, 0
-  br i1 %55, label %.thread416, label %56
+  br i1 %55, label %.thread415, label %56
 
 56:                                               ; preds = %49
   %57 = sub nsw i32 %2, %6
@@ -1766,17 +1766,17 @@ define i32 @ucnv_swap_77(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nou
 65:                                               ; preds = %59, %56
   tail call void (ptr, ptr, ...) @udata_printError_77(ptr noundef %0, ptr noundef nonnull @.str.3, i32 noundef %57)
   store i32 8, ptr %4, align 4, !tbaa !13
-  br label %369
+  br label %372
 
-.thread416:                                       ; preds = %49
+.thread415:                                       ; preds = %49
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %67 = load ptr, ptr %66, align 8, !tbaa !86
   %68 = load i32, ptr %51, align 4, !tbaa !35
   %69 = tail call noundef i32 %67(i32 noundef %68)
   %70 = zext i32 %69 to i64
-  %.not398419 = icmp eq ptr %54, null
+  %.not398418 = icmp eq ptr %54, null
   %71 = getelementptr inbounds nuw i8, ptr %54, i64 %70
-  %spec.select420 = select i1 %.not398419, ptr null, ptr %71
+  %spec.select419 = select i1 %.not398418, ptr null, ptr %71
   br label %97
 
 72:                                               ; preds = %59
@@ -1809,7 +1809,7 @@ define i32 @ucnv_swap_77(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nou
 
 92:                                               ; preds = %75
   tail call void (ptr, ptr, ...) @udata_printError_77(ptr noundef nonnull %0, ptr noundef nonnull @.str.4)
-  br label %369
+  br label %372
 
 93:                                               ; preds = %75
   %94 = zext nneg i32 %63 to i64
@@ -1817,16 +1817,16 @@ define i32 @ucnv_swap_77(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nou
   %96 = sub nsw i32 %57, %63
   br label %97
 
-97:                                               ; preds = %93, %.thread416
-  %spec.select423 = phi ptr [ %spec.select420, %.thread416 ], [ %95, %93 ]
-  %.pn = phi i64 [ %70, %.thread416 ], [ %94, %93 ]
-  %.0379413422 = phi i32 [ %69, %.thread416 ], [ %63, %93 ]
-  %98 = phi i32 [ %2, %.thread416 ], [ %96, %93 ]
+97:                                               ; preds = %93, %.thread415
+  %spec.select422 = phi ptr [ %spec.select419, %.thread415 ], [ %95, %93 ]
+  %.pn = phi i64 [ %70, %.thread415 ], [ %94, %93 ]
+  %.0379412421 = phi i32 [ %69, %.thread415 ], [ %63, %93 ]
+  %98 = phi i32 [ %2, %.thread415 ], [ %96, %93 ]
   %99 = getelementptr inbounds nuw i8, ptr %51, i64 %.pn
   %100 = getelementptr inbounds nuw i8, ptr %51, i64 69
   %101 = load i8, ptr %100, align 1, !tbaa !31
   %102 = icmp eq i8 %101, 2
-  br i1 %102, label %103, label %364
+  br i1 %102, label %103, label %367
 
 103:                                              ; preds = %97
   %104 = icmp sgt i32 %98, -1
@@ -1836,11 +1836,11 @@ define i32 @ucnv_swap_77(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nou
 105:                                              ; preds = %103
   tail call void (ptr, ptr, ...) @udata_printError_77(ptr noundef nonnull %0, ptr noundef nonnull @.str.5, i32 noundef %98)
   store i32 8, ptr %4, align 4, !tbaa !13
-  br label %369
+  br label %372
 
 106:                                              ; preds = %103
   %107 = load i8, ptr %99, align 4, !tbaa !19
-  switch i8 %107, label %.thread424 [
+  switch i8 %107, label %.thread423 [
     i8 4, label %108
     i8 5, label %111
   ]
@@ -1849,13 +1849,13 @@ define i32 @ucnv_swap_77(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nou
   %109 = getelementptr inbounds nuw i8, ptr %99, i64 1
   %110 = load i8, ptr %109, align 1, !tbaa !19
   %.not399 = icmp eq i8 %110, 0
-  br i1 %.not399, label %.thread424, label %133
+  br i1 %.not399, label %.thread423, label %133
 
 111:                                              ; preds = %106
   %112 = getelementptr inbounds nuw i8, ptr %99, i64 1
   %113 = load i8, ptr %112, align 1, !tbaa !19
   %114 = icmp ugt i8 %113, 2
-  br i1 %114, label %115, label %.thread424
+  br i1 %114, label %115, label %.thread423
 
 115:                                              ; preds = %111
   %116 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1865,11 +1865,11 @@ define i32 @ucnv_swap_77(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nou
   %120 = tail call noundef i32 %117(i32 noundef %119)
   %121 = and i32 %120, 65408
   %122 = icmp eq i32 %121, 0
-  br i1 %122, label %123, label %..thread424_crit_edge
+  br i1 %122, label %123, label %..thread423_crit_edge
 
-..thread424_crit_edge:                            ; preds = %115
-  %.pre431 = load i8, ptr %99, align 4, !tbaa !19
-  br label %.thread424
+..thread423_crit_edge:                            ; preds = %115
+  %.pre427 = load i8, ptr %99, align 4, !tbaa !19
+  br label %.thread423
 
 123:                                              ; preds = %115
   %124 = and i32 %120, 64
@@ -1879,15 +1879,15 @@ define i32 @ucnv_swap_77(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nou
   %.sroa.3.0.copyload.pre = load i8, ptr %112, align 1
   br label %133
 
-.thread424:                                       ; preds = %..thread424_crit_edge, %106, %108, %111
-  %128 = phi i8 [ %.pre431, %..thread424_crit_edge ], [ %107, %106 ], [ 4, %108 ], [ 5, %111 ]
+.thread423:                                       ; preds = %..thread423_crit_edge, %106, %108, %111
+  %128 = phi i8 [ %.pre427, %..thread423_crit_edge ], [ %107, %106 ], [ 4, %108 ], [ 5, %111 ]
   %129 = zext i8 %128 to i32
   %130 = getelementptr inbounds nuw i8, ptr %99, i64 1
   %131 = load i8, ptr %130, align 1, !tbaa !19
   %132 = zext i8 %131 to i32
   tail call void (ptr, ptr, ...) @udata_printError_77(ptr noundef nonnull %0, ptr noundef nonnull @.str.6, i32 noundef %129, i32 noundef %132)
   store i32 16, ptr %4, align 4, !tbaa !13
-  br label %369
+  br label %372
 
 133:                                              ; preds = %108, %123
   %.sroa.3.0.copyload = phi i8 [ %.sroa.3.0.copyload.pre, %123 ], [ %110, %108 ]
@@ -1933,7 +1933,7 @@ define i32 @ucnv_swap_77(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nou
 166:                                              ; preds = %133
   tail call void (ptr, ptr, ...) @udata_printError_77(ptr noundef nonnull %0, ptr noundef nonnull @.str.7)
   store i32 16, ptr %4, align 4, !tbaa !13
-  br label %369
+  br label %372
 
 167:                                              ; preds = %133
   %trunc = trunc i32 %158 to i8
@@ -1951,283 +1951,297 @@ define i32 @ucnv_swap_77(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nou
 168:                                              ; preds = %167
   tail call void (ptr, ptr, ...) @udata_printError_77(ptr noundef nonnull %0, ptr noundef nonnull @.str.8, i32 noundef %164)
   store i32 16, ptr %4, align 4, !tbaa !13
-  br label %369
+  br label %372
 
 169:                                              ; preds = %167, %167, %167, %167, %167, %167, %167, %167
-  %170 = icmp eq i32 %164, 14
-  %or.cond7.not429 = or i1 %170, %165
-  %171 = icmp ult i8 %.sroa.3.0.copyload, 3
-  %or.cond12.not426 = select i1 %or.cond7.not429, i1 true, i1 %171
+  %.sroa.3.0.copyload.fr = freeze i8 %.sroa.3.0.copyload
+  %170 = icmp ugt i8 %.sroa.3.0.copyload.fr, 2
+  br i1 %170, label %switch.early.test, label %177
+
+switch.early.test:                                ; preds = %169
+  switch i8 %trunc, label %171 [
+    i8 14, label %177
+    i8 0, label %177
+  ]
+
+171:                                              ; preds = %switch.early.test
   %.not400 = icmp eq i8 %.sroa.4.0.copyload, 0
-  %or.cond406 = select i1 %or.cond12.not426, i1 true, i1 %.not400
-  %172 = zext i8 %.sroa.4.0.copyload to i32
-  %173 = shl nuw nsw i32 %172, 8
-  %174 = add nuw nsw i32 %173, 256
-  %175 = lshr exact i32 %174, 5
-  %176 = icmp ult i32 %158, 256
-  br i1 %176, label %177, label %180
+  br i1 %.not400, label %177, label %172
 
-177:                                              ; preds = %169
-  %.0374 = select i1 %or.cond406, i32 0, i32 %175
-  %178 = select i1 %.0376, i32 0, i32 %162
-  %179 = add i32 %178, %154
-  %spec.select407 = add i32 %179, %.0374
-  br label %191
+172:                                              ; preds = %171
+  %173 = zext i8 %.sroa.4.0.copyload to i32
+  %174 = shl nuw nsw i32 %173, 8
+  %175 = add nuw nsw i32 %174, 256
+  %176 = lshr exact i32 %175, 5
+  br label %177
 
-180:                                              ; preds = %169
-  %181 = add nuw nsw i32 %163, 128
-  %182 = icmp slt i32 %98, %181
-  %or.cond409 = select i1 %104, i1 %182, i1 false
-  br i1 %or.cond409, label %183, label %184
+177:                                              ; preds = %switch.early.test, %switch.early.test, %169, %172, %171
+  %.0374 = phi i32 [ %176, %172 ], [ 0, %171 ], [ 0, %switch.early.test ], [ 0, %169 ], [ 0, %switch.early.test ]
+  %178 = icmp ult i32 %158, 256
+  br i1 %178, label %179, label %182
 
-183:                                              ; preds = %180
+179:                                              ; preds = %177
+  %180 = select i1 %.0376, i32 0, i32 %162
+  %181 = add i32 %180, %154
+  %spec.select406 = add i32 %181, %.0374
+  br label %193
+
+182:                                              ; preds = %177
+  %183 = add nuw nsw i32 %163, 128
+  %184 = icmp slt i32 %98, %183
+  %or.cond408 = select i1 %104, i1 %184, i1 false
+  br i1 %or.cond408, label %185, label %186
+
+185:                                              ; preds = %182
   tail call void (ptr, ptr, ...) @udata_printError_77(ptr noundef nonnull %0, ptr noundef nonnull @.str.9, i32 noundef %98)
   store i32 8, ptr %4, align 4, !tbaa !13
-  br label %369
+  br label %372
 
-184:                                              ; preds = %180
-  %185 = zext nneg i32 %163 to i64
-  %186 = getelementptr inbounds nuw i8, ptr %99, i64 %185
-  %187 = getelementptr inbounds nuw i8, ptr %186, i64 124
-  %188 = load i32, ptr %187, align 4, !tbaa !77
-  %189 = tail call i32 @udata_readInt32_77(ptr noundef nonnull %0, i32 noundef %188)
-  %190 = add nsw i32 %189, %163
-  br label %191
+186:                                              ; preds = %182
+  %187 = zext nneg i32 %163 to i64
+  %188 = getelementptr inbounds nuw i8, ptr %99, i64 %187
+  %189 = getelementptr inbounds nuw i8, ptr %188, i64 124
+  %190 = load i32, ptr %189, align 4, !tbaa !77
+  %191 = tail call i32 @udata_readInt32_77(ptr noundef nonnull %0, i32 noundef %190)
+  %192 = add nsw i32 %191, %163
+  br label %193
 
-191:                                              ; preds = %184, %177
-  %.1381 = phi i32 [ %spec.select407, %177 ], [ %190, %184 ]
-  %.0373 = phi ptr [ null, %177 ], [ %186, %184 ]
-  br i1 %104, label %192, label %366
+193:                                              ; preds = %186, %179
+  %.1381 = phi i32 [ %spec.select406, %179 ], [ %192, %186 ]
+  %.0373 = phi ptr [ null, %179 ], [ %188, %186 ]
+  br i1 %104, label %194, label %369
 
-192:                                              ; preds = %191
-  %193 = icmp slt i32 %98, %.1381
-  br i1 %193, label %194, label %195
+194:                                              ; preds = %193
+  %195 = icmp slt i32 %98, %.1381
+  br i1 %195, label %196, label %197
 
-194:                                              ; preds = %192
+196:                                              ; preds = %194
   tail call void (ptr, ptr, ...) @udata_printError_77(ptr noundef nonnull %0, ptr noundef nonnull @.str.5, i32 noundef %98)
   store i32 8, ptr %4, align 4, !tbaa !13
-  br label %369
+  br label %372
 
-195:                                              ; preds = %192
-  %.not401 = icmp eq ptr %99, %spec.select423
-  br i1 %.not401, label %198, label %196
+197:                                              ; preds = %194
+  %.not401 = icmp eq ptr %99, %spec.select422
+  br i1 %.not401, label %200, label %198
 
-196:                                              ; preds = %195
-  %197 = sext i32 %.1381 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %spec.select423, ptr nonnull align 1 %99, i64 %197, i1 false)
-  br label %198
+198:                                              ; preds = %197
+  %199 = sext i32 %.1381 to i64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %spec.select422, ptr nonnull align 1 %99, i64 %199, i1 false)
+  br label %200
 
-198:                                              ; preds = %196, %195
-  %199 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %200 = load ptr, ptr %199, align 8, !tbaa !88
-  %201 = add nsw i32 %.0377, -4
-  %202 = getelementptr inbounds nuw i8, ptr %spec.select423, i64 4
-  %203 = tail call noundef i32 %200(ptr noundef nonnull %0, ptr noundef nonnull %136, i32 noundef %201, ptr noundef nonnull %202, ptr noundef nonnull %4)
-  br i1 %170, label %204, label %213
+200:                                              ; preds = %198, %197
+  %201 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %202 = load ptr, ptr %201, align 8, !tbaa !88
+  %203 = add nsw i32 %.0377, -4
+  %204 = getelementptr inbounds nuw i8, ptr %spec.select422, i64 4
+  %205 = tail call noundef i32 %202(ptr noundef nonnull %0, ptr noundef nonnull %136, i32 noundef %203, ptr noundef nonnull %204, ptr noundef nonnull %4)
+  %206 = icmp eq i32 %164, 14
+  br i1 %206, label %207, label %216
 
-204:                                              ; preds = %198
-  %205 = zext nneg i32 %.0377 to i64
-  %206 = getelementptr inbounds nuw i8, ptr %99, i64 %205
-  %207 = getelementptr inbounds nuw i8, ptr %spec.select423, i64 %205
-  %208 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %209 = load ptr, ptr %208, align 8, !tbaa !89
-  %210 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %206) #11
-  %211 = trunc i64 %210 to i32
-  %212 = tail call noundef i32 %209(ptr noundef nonnull %0, ptr noundef nonnull %206, i32 noundef %211, ptr noundef %207, ptr noundef nonnull %4)
-  br label %272
+207:                                              ; preds = %200
+  %208 = zext nneg i32 %.0377 to i64
+  %209 = getelementptr inbounds nuw i8, ptr %99, i64 %208
+  %210 = getelementptr inbounds nuw i8, ptr %spec.select422, i64 %208
+  %211 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %212 = load ptr, ptr %211, align 8, !tbaa !89
+  %213 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %209) #11
+  %214 = trunc i64 %213 to i32
+  %215 = tail call noundef i32 %212(ptr noundef nonnull %0, ptr noundef nonnull %209, i32 noundef %214, ptr noundef %210, ptr noundef nonnull %4)
+  br label %275
 
-213:                                              ; preds = %198
-  %214 = shl i32 %138, 10
-  %215 = load ptr, ptr %199, align 8, !tbaa !88
-  %216 = zext nneg i32 %.0377 to i64
-  %217 = getelementptr inbounds nuw i8, ptr %99, i64 %216
-  %218 = getelementptr inbounds nuw i8, ptr %spec.select423, i64 %216
-  %219 = tail call noundef i32 %215(ptr noundef nonnull %0, ptr noundef nonnull %217, i32 noundef %214, ptr noundef %218, ptr noundef nonnull %4)
-  %220 = or disjoint i32 %214, %.0377
-  %221 = shl i32 %142, 3
-  %222 = load ptr, ptr %199, align 8, !tbaa !88
-  %223 = zext i32 %220 to i64
-  %224 = getelementptr inbounds nuw i8, ptr %99, i64 %223
-  %225 = getelementptr inbounds nuw i8, ptr %spec.select423, i64 %223
-  %226 = tail call noundef i32 %222(ptr noundef nonnull %0, ptr noundef nonnull %224, i32 noundef %221, ptr noundef %225, ptr noundef nonnull %4)
-  %227 = sub i32 %150, %146
-  %228 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %229 = load ptr, ptr %228, align 8, !tbaa !99
-  %230 = zext i32 %146 to i64
-  %231 = getelementptr inbounds nuw i8, ptr %99, i64 %230
-  %232 = getelementptr inbounds nuw i8, ptr %spec.select423, i64 %230
-  %233 = tail call noundef i32 %229(ptr noundef nonnull %0, ptr noundef nonnull %231, i32 noundef %227, ptr noundef %232, ptr noundef nonnull %4)
-  br i1 %165, label %234, label %242
+216:                                              ; preds = %200
+  %217 = shl i32 %138, 10
+  %218 = load ptr, ptr %201, align 8, !tbaa !88
+  %219 = zext nneg i32 %.0377 to i64
+  %220 = getelementptr inbounds nuw i8, ptr %99, i64 %219
+  %221 = getelementptr inbounds nuw i8, ptr %spec.select422, i64 %219
+  %222 = tail call noundef i32 %218(ptr noundef nonnull %0, ptr noundef nonnull %220, i32 noundef %217, ptr noundef %221, ptr noundef nonnull %4)
+  %223 = or disjoint i32 %217, %.0377
+  %224 = shl i32 %142, 3
+  %225 = load ptr, ptr %201, align 8, !tbaa !88
+  %226 = zext i32 %223 to i64
+  %227 = getelementptr inbounds nuw i8, ptr %99, i64 %226
+  %228 = getelementptr inbounds nuw i8, ptr %spec.select422, i64 %226
+  %229 = tail call noundef i32 %225(ptr noundef nonnull %0, ptr noundef nonnull %227, i32 noundef %224, ptr noundef %228, ptr noundef nonnull %4)
+  %230 = sub i32 %150, %146
+  %231 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %232 = load ptr, ptr %231, align 8, !tbaa !99
+  %233 = zext i32 %146 to i64
+  %234 = getelementptr inbounds nuw i8, ptr %99, i64 %233
+  %235 = getelementptr inbounds nuw i8, ptr %spec.select422, i64 %233
+  %236 = tail call noundef i32 %232(ptr noundef nonnull %0, ptr noundef nonnull %234, i32 noundef %230, ptr noundef %235, ptr noundef nonnull %4)
+  br i1 %165, label %237, label %245
 
-234:                                              ; preds = %213
-  %235 = sub i32 %154, %150
-  %236 = add i32 %235, %162
-  %237 = load ptr, ptr %228, align 8, !tbaa !99
-  %238 = zext i32 %150 to i64
-  %239 = getelementptr inbounds nuw i8, ptr %99, i64 %238
-  %240 = getelementptr inbounds nuw i8, ptr %spec.select423, i64 %238
-  %241 = tail call noundef i32 %237(ptr noundef nonnull %0, ptr noundef nonnull %239, i32 noundef %236, ptr noundef %240, ptr noundef nonnull %4)
-  br label %272
+237:                                              ; preds = %216
+  %238 = sub i32 %154, %150
+  %239 = add i32 %238, %162
+  %240 = load ptr, ptr %231, align 8, !tbaa !99
+  %241 = zext i32 %150 to i64
+  %242 = getelementptr inbounds nuw i8, ptr %99, i64 %241
+  %243 = getelementptr inbounds nuw i8, ptr %spec.select422, i64 %241
+  %244 = tail call noundef i32 %240(ptr noundef nonnull %0, ptr noundef nonnull %242, i32 noundef %239, ptr noundef %243, ptr noundef nonnull %4)
+  br label %275
 
-242:                                              ; preds = %213
-  %243 = getelementptr inbounds nuw i8, ptr %51, i64 79
-  %244 = load i8, ptr %243, align 1, !tbaa !100
-  %245 = and i8 %244, 1
-  %.not402 = icmp eq i8 %245, 0
+245:                                              ; preds = %216
+  %246 = getelementptr inbounds nuw i8, ptr %51, i64 79
+  %247 = load i8, ptr %246, align 1, !tbaa !100
+  %248 = and i8 %247, 1
+  %.not402 = icmp eq i8 %248, 0
   %. = select i1 %.not402, i32 128, i32 2176
-  %246 = load ptr, ptr %228, align 8, !tbaa !99
-  %247 = zext i32 %150 to i64
-  %248 = getelementptr inbounds nuw i8, ptr %99, i64 %247
-  %249 = getelementptr inbounds nuw i8, ptr %spec.select423, i64 %247
-  %250 = tail call noundef i32 %246(ptr noundef nonnull %0, ptr noundef nonnull %248, i32 noundef %., ptr noundef %249, ptr noundef nonnull %4)
-  %251 = add i32 %., %150
-  %252 = sub i32 %154, %251
-  %253 = load ptr, ptr %199, align 8, !tbaa !88
-  %254 = zext i32 %251 to i64
-  %255 = getelementptr inbounds nuw i8, ptr %99, i64 %254
-  %256 = getelementptr inbounds nuw i8, ptr %spec.select423, i64 %254
-  %257 = tail call noundef i32 %253(ptr noundef nonnull %0, ptr noundef nonnull %255, i32 noundef %252, ptr noundef %256, ptr noundef nonnull %4)
-  %258 = select i1 %.0376, i32 0, i32 %162
-  switch i8 %trunc, label %264 [
+  %249 = load ptr, ptr %231, align 8, !tbaa !99
+  %250 = zext i32 %150 to i64
+  %251 = getelementptr inbounds nuw i8, ptr %99, i64 %250
+  %252 = getelementptr inbounds nuw i8, ptr %spec.select422, i64 %250
+  %253 = tail call noundef i32 %249(ptr noundef nonnull %0, ptr noundef nonnull %251, i32 noundef %., ptr noundef %252, ptr noundef nonnull %4)
+  %254 = add i32 %., %150
+  %255 = sub i32 %154, %254
+  %256 = load ptr, ptr %201, align 8, !tbaa !88
+  %257 = zext i32 %254 to i64
+  %258 = getelementptr inbounds nuw i8, ptr %99, i64 %257
+  %259 = getelementptr inbounds nuw i8, ptr %spec.select422, i64 %257
+  %260 = tail call noundef i32 %256(ptr noundef nonnull %0, ptr noundef nonnull %258, i32 noundef %255, ptr noundef %259, ptr noundef nonnull %4)
+  %261 = select i1 %.0376, i32 0, i32 %162
+  switch i8 %trunc, label %267 [
     i8 1, label %.sink.split
     i8 8, label %.sink.split
     i8 12, label %.sink.split
-    i8 3, label %259
+    i8 3, label %262
   ]
 
-259:                                              ; preds = %242
+262:                                              ; preds = %245
   br label %.sink.split
 
-.sink.split:                                      ; preds = %242, %242, %242, %259
-  %.sink446.in = phi ptr [ %199, %259 ], [ %228, %242 ], [ %228, %242 ], [ %228, %242 ]
-  %.sink446 = load ptr, ptr %.sink446.in, align 8, !tbaa !101
-  %260 = zext i32 %154 to i64
-  %261 = getelementptr inbounds nuw i8, ptr %99, i64 %260
-  %262 = getelementptr inbounds nuw i8, ptr %spec.select423, i64 %260
-  %263 = tail call noundef i32 %.sink446(ptr noundef nonnull %0, ptr noundef nonnull %261, i32 noundef %258, ptr noundef %262, ptr noundef nonnull %4)
-  br label %264
+.sink.split:                                      ; preds = %245, %245, %245, %262
+  %.sink442.in = phi ptr [ %201, %262 ], [ %231, %245 ], [ %231, %245 ], [ %231, %245 ]
+  %.sink442 = load ptr, ptr %.sink442.in, align 8, !tbaa !101
+  %263 = zext i32 %154 to i64
+  %264 = getelementptr inbounds nuw i8, ptr %99, i64 %263
+  %265 = getelementptr inbounds nuw i8, ptr %spec.select422, i64 %263
+  %266 = tail call noundef i32 %.sink442(ptr noundef nonnull %0, ptr noundef nonnull %264, i32 noundef %261, ptr noundef %265, ptr noundef nonnull %4)
+  br label %267
 
-264:                                              ; preds = %.sink.split, %242
-  br i1 %or.cond406, label %272, label %265
+267:                                              ; preds = %.sink.split, %245
+  %.not404 = icmp eq i32 %.0374, 0
+  br i1 %.not404, label %275, label %268
 
-265:                                              ; preds = %264
-  %266 = add i32 %258, %154
-  %267 = load ptr, ptr %228, align 8, !tbaa !99
-  %268 = zext i32 %266 to i64
-  %269 = getelementptr inbounds nuw i8, ptr %99, i64 %268
-  %270 = getelementptr inbounds nuw i8, ptr %spec.select423, i64 %268
-  %271 = tail call noundef i32 %267(ptr noundef nonnull %0, ptr noundef nonnull %269, i32 noundef %175, ptr noundef %270, ptr noundef nonnull %4)
-  br label %272
+268:                                              ; preds = %267
+  %269 = add i32 %261, %154
+  %270 = load ptr, ptr %231, align 8, !tbaa !99
+  %271 = zext i32 %269 to i64
+  %272 = getelementptr inbounds nuw i8, ptr %99, i64 %271
+  %273 = getelementptr inbounds nuw i8, ptr %spec.select422, i64 %271
+  %274 = tail call noundef i32 %270(ptr noundef nonnull %0, ptr noundef nonnull %272, i32 noundef %.0374, ptr noundef %273, ptr noundef nonnull %4)
+  br label %275
 
-272:                                              ; preds = %234, %265, %264, %204
-  br i1 %176, label %366, label %273
+275:                                              ; preds = %237, %268, %267, %207
+  br i1 %178, label %369, label %276
 
-273:                                              ; preds = %272
-  %274 = zext nneg i32 %163 to i64
-  %275 = getelementptr inbounds nuw i8, ptr %99, i64 %274
-  %276 = getelementptr inbounds nuw i8, ptr %spec.select423, i64 %274
-  %277 = getelementptr inbounds nuw i8, ptr %.0373, i64 4
-  %278 = load i32, ptr %277, align 4, !tbaa !77
-  %279 = tail call i32 @udata_readInt32_77(ptr noundef nonnull %0, i32 noundef %278)
-  %280 = getelementptr inbounds nuw i8, ptr %.0373, i64 8
+276:                                              ; preds = %275
+  %277 = zext nneg i32 %163 to i64
+  %278 = getelementptr inbounds nuw i8, ptr %99, i64 %277
+  %279 = getelementptr inbounds nuw i8, ptr %spec.select422, i64 %277
+  %280 = getelementptr inbounds nuw i8, ptr %.0373, i64 4
   %281 = load i32, ptr %280, align 4, !tbaa !77
   %282 = tail call i32 @udata_readInt32_77(ptr noundef nonnull %0, i32 noundef %281)
-  %283 = load ptr, ptr %199, align 8, !tbaa !88
-  %284 = zext i32 %279 to i64
-  %285 = getelementptr inbounds nuw i8, ptr %275, i64 %284
-  %286 = shl nsw i32 %282, 2
-  %287 = getelementptr inbounds nuw i8, ptr %276, i64 %284
-  %288 = tail call noundef i32 %283(ptr noundef nonnull %0, ptr noundef nonnull %285, i32 noundef %286, ptr noundef %287, ptr noundef nonnull %4)
-  %289 = getelementptr inbounds nuw i8, ptr %.0373, i64 12
-  %290 = load i32, ptr %289, align 4, !tbaa !77
-  %291 = tail call i32 @udata_readInt32_77(ptr noundef nonnull %0, i32 noundef %290)
-  %292 = getelementptr inbounds nuw i8, ptr %.0373, i64 16
+  %283 = getelementptr inbounds nuw i8, ptr %.0373, i64 8
+  %284 = load i32, ptr %283, align 4, !tbaa !77
+  %285 = tail call i32 @udata_readInt32_77(ptr noundef nonnull %0, i32 noundef %284)
+  %286 = load ptr, ptr %201, align 8, !tbaa !88
+  %287 = zext i32 %282 to i64
+  %288 = getelementptr inbounds nuw i8, ptr %278, i64 %287
+  %289 = shl nsw i32 %285, 2
+  %290 = getelementptr inbounds nuw i8, ptr %279, i64 %287
+  %291 = tail call noundef i32 %286(ptr noundef nonnull %0, ptr noundef nonnull %288, i32 noundef %289, ptr noundef %290, ptr noundef nonnull %4)
+  %292 = getelementptr inbounds nuw i8, ptr %.0373, i64 12
   %293 = load i32, ptr %292, align 4, !tbaa !77
   %294 = tail call i32 @udata_readInt32_77(ptr noundef nonnull %0, i32 noundef %293)
-  %295 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %296 = load ptr, ptr %295, align 8, !tbaa !99
-  %297 = zext i32 %291 to i64
-  %298 = getelementptr inbounds nuw i8, ptr %275, i64 %297
-  %299 = shl nsw i32 %294, 1
-  %300 = getelementptr inbounds nuw i8, ptr %276, i64 %297
-  %301 = tail call noundef i32 %296(ptr noundef nonnull %0, ptr noundef nonnull %298, i32 noundef %299, ptr noundef %300, ptr noundef nonnull %4)
-  %302 = getelementptr inbounds nuw i8, ptr %.0373, i64 20
-  %303 = load i32, ptr %302, align 4, !tbaa !77
-  %304 = tail call i32 @udata_readInt32_77(ptr noundef nonnull %0, i32 noundef %303)
-  %305 = getelementptr inbounds nuw i8, ptr %.0373, i64 28
+  %295 = getelementptr inbounds nuw i8, ptr %.0373, i64 16
+  %296 = load i32, ptr %295, align 4, !tbaa !77
+  %297 = tail call i32 @udata_readInt32_77(ptr noundef nonnull %0, i32 noundef %296)
+  %298 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %299 = load ptr, ptr %298, align 8, !tbaa !99
+  %300 = zext i32 %294 to i64
+  %301 = getelementptr inbounds nuw i8, ptr %278, i64 %300
+  %302 = shl nsw i32 %297, 1
+  %303 = getelementptr inbounds nuw i8, ptr %279, i64 %300
+  %304 = tail call noundef i32 %299(ptr noundef nonnull %0, ptr noundef nonnull %301, i32 noundef %302, ptr noundef %303, ptr noundef nonnull %4)
+  %305 = getelementptr inbounds nuw i8, ptr %.0373, i64 20
   %306 = load i32, ptr %305, align 4, !tbaa !77
   %307 = tail call i32 @udata_readInt32_77(ptr noundef nonnull %0, i32 noundef %306)
-  %308 = load ptr, ptr %295, align 8, !tbaa !99
-  %309 = zext i32 %304 to i64
-  %310 = getelementptr inbounds nuw i8, ptr %275, i64 %309
-  %311 = shl nsw i32 %307, 1
-  %312 = getelementptr inbounds nuw i8, ptr %276, i64 %309
-  %313 = tail call noundef i32 %308(ptr noundef nonnull %0, ptr noundef nonnull %310, i32 noundef %311, ptr noundef %312, ptr noundef nonnull %4)
-  %314 = getelementptr inbounds nuw i8, ptr %.0373, i64 24
-  %315 = load i32, ptr %314, align 4, !tbaa !77
-  %316 = tail call i32 @udata_readInt32_77(ptr noundef nonnull %0, i32 noundef %315)
-  %317 = load ptr, ptr %199, align 8, !tbaa !88
-  %318 = zext i32 %316 to i64
-  %319 = getelementptr inbounds nuw i8, ptr %275, i64 %318
-  %320 = shl nsw i32 %307, 2
-  %321 = getelementptr inbounds nuw i8, ptr %276, i64 %318
-  %322 = tail call noundef i32 %317(ptr noundef nonnull %0, ptr noundef nonnull %319, i32 noundef %320, ptr noundef %321, ptr noundef nonnull %4)
-  %323 = getelementptr inbounds nuw i8, ptr %.0373, i64 40
-  %324 = load i32, ptr %323, align 4, !tbaa !77
-  %325 = tail call i32 @udata_readInt32_77(ptr noundef nonnull %0, i32 noundef %324)
-  %326 = getelementptr inbounds nuw i8, ptr %.0373, i64 48
+  %308 = getelementptr inbounds nuw i8, ptr %.0373, i64 28
+  %309 = load i32, ptr %308, align 4, !tbaa !77
+  %310 = tail call i32 @udata_readInt32_77(ptr noundef nonnull %0, i32 noundef %309)
+  %311 = load ptr, ptr %298, align 8, !tbaa !99
+  %312 = zext i32 %307 to i64
+  %313 = getelementptr inbounds nuw i8, ptr %278, i64 %312
+  %314 = shl nsw i32 %310, 1
+  %315 = getelementptr inbounds nuw i8, ptr %279, i64 %312
+  %316 = tail call noundef i32 %311(ptr noundef nonnull %0, ptr noundef nonnull %313, i32 noundef %314, ptr noundef %315, ptr noundef nonnull %4)
+  %317 = getelementptr inbounds nuw i8, ptr %.0373, i64 24
+  %318 = load i32, ptr %317, align 4, !tbaa !77
+  %319 = tail call i32 @udata_readInt32_77(ptr noundef nonnull %0, i32 noundef %318)
+  %320 = load ptr, ptr %201, align 8, !tbaa !88
+  %321 = zext i32 %319 to i64
+  %322 = getelementptr inbounds nuw i8, ptr %278, i64 %321
+  %323 = shl nsw i32 %310, 2
+  %324 = getelementptr inbounds nuw i8, ptr %279, i64 %321
+  %325 = tail call noundef i32 %320(ptr noundef nonnull %0, ptr noundef nonnull %322, i32 noundef %323, ptr noundef %324, ptr noundef nonnull %4)
+  %326 = getelementptr inbounds nuw i8, ptr %.0373, i64 40
   %327 = load i32, ptr %326, align 4, !tbaa !77
   %328 = tail call i32 @udata_readInt32_77(ptr noundef nonnull %0, i32 noundef %327)
-  %329 = load ptr, ptr %295, align 8, !tbaa !99
-  %330 = zext i32 %325 to i64
-  %331 = getelementptr inbounds nuw i8, ptr %275, i64 %330
-  %332 = shl nsw i32 %328, 1
-  %333 = getelementptr inbounds nuw i8, ptr %276, i64 %330
-  %334 = tail call noundef i32 %329(ptr noundef nonnull %0, ptr noundef nonnull %331, i32 noundef %332, ptr noundef %333, ptr noundef nonnull %4)
-  %335 = getelementptr inbounds nuw i8, ptr %.0373, i64 52
-  %336 = load i32, ptr %335, align 4, !tbaa !77
-  %337 = tail call i32 @udata_readInt32_77(ptr noundef nonnull %0, i32 noundef %336)
-  %338 = getelementptr inbounds nuw i8, ptr %.0373, i64 56
+  %329 = getelementptr inbounds nuw i8, ptr %.0373, i64 48
+  %330 = load i32, ptr %329, align 4, !tbaa !77
+  %331 = tail call i32 @udata_readInt32_77(ptr noundef nonnull %0, i32 noundef %330)
+  %332 = load ptr, ptr %298, align 8, !tbaa !99
+  %333 = zext i32 %328 to i64
+  %334 = getelementptr inbounds nuw i8, ptr %278, i64 %333
+  %335 = shl nsw i32 %331, 1
+  %336 = getelementptr inbounds nuw i8, ptr %279, i64 %333
+  %337 = tail call noundef i32 %332(ptr noundef nonnull %0, ptr noundef nonnull %334, i32 noundef %335, ptr noundef %336, ptr noundef nonnull %4)
+  %338 = getelementptr inbounds nuw i8, ptr %.0373, i64 52
   %339 = load i32, ptr %338, align 4, !tbaa !77
   %340 = tail call i32 @udata_readInt32_77(ptr noundef nonnull %0, i32 noundef %339)
-  %341 = load ptr, ptr %295, align 8, !tbaa !99
-  %342 = zext i32 %337 to i64
-  %343 = getelementptr inbounds nuw i8, ptr %275, i64 %342
-  %344 = shl nsw i32 %340, 1
-  %345 = getelementptr inbounds nuw i8, ptr %276, i64 %342
-  %346 = tail call noundef i32 %341(ptr noundef nonnull %0, ptr noundef nonnull %343, i32 noundef %344, ptr noundef %345, ptr noundef nonnull %4)
-  %347 = getelementptr inbounds nuw i8, ptr %.0373, i64 60
-  %348 = load i32, ptr %347, align 4, !tbaa !77
-  %349 = tail call i32 @udata_readInt32_77(ptr noundef nonnull %0, i32 noundef %348)
-  %350 = getelementptr inbounds nuw i8, ptr %.0373, i64 64
+  %341 = getelementptr inbounds nuw i8, ptr %.0373, i64 56
+  %342 = load i32, ptr %341, align 4, !tbaa !77
+  %343 = tail call i32 @udata_readInt32_77(ptr noundef nonnull %0, i32 noundef %342)
+  %344 = load ptr, ptr %298, align 8, !tbaa !99
+  %345 = zext i32 %340 to i64
+  %346 = getelementptr inbounds nuw i8, ptr %278, i64 %345
+  %347 = shl nsw i32 %343, 1
+  %348 = getelementptr inbounds nuw i8, ptr %279, i64 %345
+  %349 = tail call noundef i32 %344(ptr noundef nonnull %0, ptr noundef nonnull %346, i32 noundef %347, ptr noundef %348, ptr noundef nonnull %4)
+  %350 = getelementptr inbounds nuw i8, ptr %.0373, i64 60
   %351 = load i32, ptr %350, align 4, !tbaa !77
   %352 = tail call i32 @udata_readInt32_77(ptr noundef nonnull %0, i32 noundef %351)
-  %353 = load ptr, ptr %199, align 8, !tbaa !88
-  %354 = zext i32 %349 to i64
-  %355 = getelementptr inbounds nuw i8, ptr %275, i64 %354
-  %356 = shl nsw i32 %352, 2
-  %357 = getelementptr inbounds nuw i8, ptr %276, i64 %354
-  %358 = tail call noundef i32 %353(ptr noundef nonnull %0, ptr noundef nonnull %355, i32 noundef %356, ptr noundef %357, ptr noundef nonnull %4)
-  %359 = load i32, ptr %.0373, align 4, !tbaa !77
-  %360 = tail call i32 @udata_readInt32_77(ptr noundef nonnull %0, i32 noundef %359)
-  %361 = load ptr, ptr %199, align 8, !tbaa !88
-  %362 = shl nsw i32 %360, 2
-  %363 = tail call noundef i32 %361(ptr noundef nonnull %0, ptr noundef nonnull %275, i32 noundef %362, ptr noundef %276, ptr noundef nonnull %4)
-  br label %366
+  %353 = getelementptr inbounds nuw i8, ptr %.0373, i64 64
+  %354 = load i32, ptr %353, align 4, !tbaa !77
+  %355 = tail call i32 @udata_readInt32_77(ptr noundef nonnull %0, i32 noundef %354)
+  %356 = load ptr, ptr %201, align 8, !tbaa !88
+  %357 = zext i32 %352 to i64
+  %358 = getelementptr inbounds nuw i8, ptr %278, i64 %357
+  %359 = shl nsw i32 %355, 2
+  %360 = getelementptr inbounds nuw i8, ptr %279, i64 %357
+  %361 = tail call noundef i32 %356(ptr noundef nonnull %0, ptr noundef nonnull %358, i32 noundef %359, ptr noundef %360, ptr noundef nonnull %4)
+  %362 = load i32, ptr %.0373, align 4, !tbaa !77
+  %363 = tail call i32 @udata_readInt32_77(ptr noundef nonnull %0, i32 noundef %362)
+  %364 = load ptr, ptr %201, align 8, !tbaa !88
+  %365 = shl nsw i32 %363, 2
+  %366 = tail call noundef i32 %364(ptr noundef nonnull %0, ptr noundef nonnull %278, i32 noundef %365, ptr noundef %279, ptr noundef nonnull %4)
+  br label %369
 
-364:                                              ; preds = %97
-  %365 = sext i8 %101 to i32
-  tail call void (ptr, ptr, ...) @udata_printError_77(ptr noundef nonnull %0, ptr noundef nonnull @.str.10, i32 noundef %365)
+367:                                              ; preds = %97
+  %368 = sext i8 %101 to i32
+  tail call void (ptr, ptr, ...) @udata_printError_77(ptr noundef nonnull %0, ptr noundef nonnull @.str.10, i32 noundef %368)
   store i32 16, ptr %4, align 4, !tbaa !13
-  br label %369
+  br label %372
 
-366:                                              ; preds = %191, %273, %272
-  %367 = add nsw i32 %.0379413422, %6
-  %368 = add nsw i32 %367, %.1381
-  br label %369
+369:                                              ; preds = %193, %276, %275
+  %370 = add nsw i32 %.0379412421, %6
+  %371 = add nsw i32 %370, %.1381
+  br label %372
 
-369:                                              ; preds = %5, %8, %366, %364, %194, %183, %168, %166, %.thread424, %105, %92, %65, %._crit_edge
-  %.0 = phi i32 [ 0, %92 ], [ 0, %105 ], [ 0, %166 ], [ 0, %168 ], [ 0, %194 ], [ %368, %366 ], [ 0, %183 ], [ 0, %.thread424 ], [ 0, %364 ], [ 0, %65 ], [ 0, %._crit_edge ], [ 0, %8 ], [ 0, %5 ]
+372:                                              ; preds = %5, %8, %369, %367, %196, %185, %168, %166, %.thread423, %105, %92, %65, %._crit_edge
+  %.0 = phi i32 [ 0, %92 ], [ 0, %105 ], [ 0, %166 ], [ 0, %168 ], [ 0, %196 ], [ %371, %369 ], [ 0, %185 ], [ 0, %.thread423 ], [ 0, %367 ], [ 0, %65 ], [ 0, %._crit_edge ], [ 0, %8 ], [ 0, %5 ]
   ret i32 %.0
 }
 

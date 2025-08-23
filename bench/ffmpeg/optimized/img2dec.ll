@@ -2806,97 +2806,100 @@ define internal range(i32 0, 52) i32 @svg_probe(ptr noundef readonly captures(no
   %8 = icmp sgt i32 %5, 0
   br i1 %8, label %.lr.ph, label %.critedge
 
-.lr.ph:                                           ; preds = %1, %10
-  %.02353 = phi ptr [ %11, %10 ], [ %3, %1 ]
-  %9 = load i8, ptr %.02353, align 1, !tbaa !68
+.lr.ph:                                           ; preds = %1, %av_isspace.exit.thread
+  %.02349 = phi ptr [ %12, %av_isspace.exit.thread ], [ %3, %1 ]
+  %9 = load i8, ptr %.02349, align 1, !tbaa !68
+  %10 = and i8 %9, -5
+  %11 = icmp eq i8 %10, 9
+  br i1 %11, label %av_isspace.exit.thread, label %switch.early.test.i
+
+switch.early.test.i:                              ; preds = %.lr.ph
   switch i8 %9, label %.critedge [
-    i8 32, label %10
-    i8 13, label %10
-    i8 12, label %10
-    i8 11, label %10
-    i8 10, label %10
-    i8 9, label %10
+    i8 32, label %av_isspace.exit.thread
+    i8 12, label %av_isspace.exit.thread
+    i8 10, label %av_isspace.exit.thread
+    i8 11, label %av_isspace.exit.thread
   ]
 
-10:                                               ; preds = %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph
-  %11 = getelementptr inbounds nuw i8, ptr %.02353, i64 1
-  %12 = icmp ult ptr %11, %7
-  br i1 %12, label %.lr.ph, label %.critedge, !llvm.loop !133
+av_isspace.exit.thread:                           ; preds = %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %.lr.ph
+  %12 = getelementptr inbounds nuw i8, ptr %.02349, i64 1
+  %13 = icmp ult ptr %12, %7
+  br i1 %13, label %.lr.ph, label %.critedge, !llvm.loop !133
 
-.critedge:                                        ; preds = %10, %.lr.ph, %1
-  %.023.lcssa = phi ptr [ %3, %1 ], [ %.02353, %.lr.ph ], [ %11, %10 ]
-  %13 = getelementptr inbounds i8, ptr %7, i64 -5
-  %.not30 = icmp ult ptr %.023.lcssa, %13
-  br i1 %.not30, label %14, label %.thread43
+.critedge:                                        ; preds = %av_isspace.exit.thread, %switch.early.test.i, %1
+  %.023.lcssa = phi ptr [ %3, %1 ], [ %.02349, %switch.early.test.i ], [ %12, %av_isspace.exit.thread ]
+  %14 = getelementptr inbounds i8, ptr %7, i64 -5
+  %.not30 = icmp ult ptr %.023.lcssa, %14
+  br i1 %.not30, label %15, label %.thread44
 
-14:                                               ; preds = %.critedge
+15:                                               ; preds = %.critedge
   %bcmp = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %.023.lcssa, ptr noundef nonnull dereferenceable(4) @.str.144, i64 4)
   %.not31 = icmp eq i32 %bcmp, 0
-  br i1 %.not31, label %.thread43, label %15
-
-15:                                               ; preds = %14
-  %bcmp32 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %3, ptr noundef nonnull dereferenceable(5) @.str.145, i64 5)
-  %.not33 = icmp eq i32 %bcmp32, 0
-  br i1 %.not33, label %17, label %16
+  br i1 %.not31, label %.thread44, label %16
 
 16:                                               ; preds = %15
+  %bcmp32 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %3, ptr noundef nonnull dereferenceable(5) @.str.145, i64 5)
+  %.not33 = icmp eq i32 %bcmp32, 0
+  br i1 %.not33, label %18, label %17
+
+17:                                               ; preds = %16
   %bcmp34 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %.023.lcssa, ptr noundef nonnull dereferenceable(4) @.str.146, i64 4)
   %.not35 = icmp eq i32 %bcmp34, 0
-  br i1 %.not35, label %17, label %.thread43
+  br i1 %.not35, label %18, label %.thread44
 
-17:                                               ; preds = %16, %15
-  %18 = getelementptr inbounds i8, ptr %7, i64 -4
-  br label %19
+18:                                               ; preds = %17, %16
+  %19 = getelementptr inbounds i8, ptr %7, i64 -4
+  br label %20
 
-19:                                               ; preds = %36, %17
-  %.124 = phi ptr [ %.023.lcssa, %17 ], [ %35, %36 ]
-  %20 = icmp ult ptr %.124, %7
-  br i1 %20, label %21, label %.thread43
+20:                                               ; preds = %37, %18
+  %.124 = phi ptr [ %.023.lcssa, %18 ], [ %36, %37 ]
+  %21 = icmp ult ptr %.124, %7
+  br i1 %21, label %22, label %.thread44
 
-21:                                               ; preds = %19
-  %22 = tail call i64 @strcspn(ptr noundef nonnull %.124, ptr noundef nonnull @.str.147) #15
-  %23 = trunc i64 %22 to i32
-  %sext.i = shl i64 %22, 32
-  %24 = ashr exact i64 %sext.i, 32
-  %25 = getelementptr inbounds i8, ptr %.124, i64 %24
-  br label %26
+22:                                               ; preds = %20
+  %23 = tail call i64 @strcspn(ptr noundef nonnull %.124, ptr noundef nonnull @.str.147) #15
+  %24 = trunc i64 %23 to i32
+  %sext.i = shl i64 %23, 32
+  %25 = ashr exact i64 %sext.i, 32
+  %26 = getelementptr inbounds i8, ptr %.124, i64 %25
+  br label %27
 
-26:                                               ; preds = %28, %21
-  %.08.i = phi ptr [ %25, %21 ], [ %29, %28 ]
-  %.0.i = phi i32 [ %23, %21 ], [ %30, %28 ]
-  %27 = load i8, ptr %.08.i, align 1, !tbaa !68
-  switch i8 %27, label %ff_subtitles_next_line.exit [
-    i8 13, label %28
-    i8 10, label %31
+27:                                               ; preds = %29, %22
+  %.08.i = phi ptr [ %26, %22 ], [ %30, %29 ]
+  %.0.i = phi i32 [ %24, %22 ], [ %31, %29 ]
+  %28 = load i8, ptr %.08.i, align 1, !tbaa !68
+  switch i8 %28, label %ff_subtitles_next_line.exit [
+    i8 13, label %29
+    i8 10, label %32
   ]
 
-28:                                               ; preds = %26
-  %29 = getelementptr inbounds nuw i8, ptr %.08.i, i64 1
-  %30 = add nsw i32 %.0.i, 1
-  br label %26, !llvm.loop !134
+29:                                               ; preds = %27
+  %30 = getelementptr inbounds nuw i8, ptr %.08.i, i64 1
+  %31 = add nsw i32 %.0.i, 1
+  br label %27, !llvm.loop !134
 
-31:                                               ; preds = %26
-  %32 = add nsw i32 %.0.i, 1
+32:                                               ; preds = %27
+  %33 = add nsw i32 %.0.i, 1
   br label %ff_subtitles_next_line.exit
 
-ff_subtitles_next_line.exit:                      ; preds = %26, %31
-  %.1.i = phi i32 [ %32, %31 ], [ %.0.i, %26 ]
+ff_subtitles_next_line.exit:                      ; preds = %27, %32
+  %.1.i = phi i32 [ %33, %32 ], [ %.0.i, %27 ]
   %.not36 = icmp eq i32 %.1.i, 0
-  br i1 %.not36, label %.thread43, label %33
+  br i1 %.not36, label %.thread44, label %34
 
-33:                                               ; preds = %ff_subtitles_next_line.exit
-  %34 = sext i32 %.1.i to i64
-  %35 = getelementptr inbounds i8, ptr %.124, i64 %34
-  %.not37 = icmp ult ptr %35, %18
-  br i1 %.not37, label %36, label %.thread43
+34:                                               ; preds = %ff_subtitles_next_line.exit
+  %35 = sext i32 %.1.i to i64
+  %36 = getelementptr inbounds i8, ptr %.124, i64 %35
+  %.not37 = icmp ult ptr %36, %19
+  br i1 %.not37, label %37, label %.thread44
 
-36:                                               ; preds = %33
-  %bcmp38 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %35, ptr noundef nonnull dereferenceable(4) @.str.144, i64 4)
+37:                                               ; preds = %34
+  %bcmp38 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %36, ptr noundef nonnull dereferenceable(4) @.str.144, i64 4)
   %.not39 = icmp eq i32 %bcmp38, 0
-  br i1 %.not39, label %.thread43, label %19
+  br i1 %.not39, label %.thread44, label %20
 
-.thread43:                                        ; preds = %36, %33, %ff_subtitles_next_line.exit, %19, %16, %14, %.critedge
-  %.0 = phi i32 [ 0, %.critedge ], [ 51, %14 ], [ 0, %16 ], [ 51, %36 ], [ 0, %33 ], [ 0, %ff_subtitles_next_line.exit ], [ 0, %19 ]
+.thread44:                                        ; preds = %37, %34, %ff_subtitles_next_line.exit, %20, %17, %15, %.critedge
+  %.0 = phi i32 [ 0, %.critedge ], [ 51, %15 ], [ 0, %17 ], [ 51, %37 ], [ 0, %34 ], [ 0, %ff_subtitles_next_line.exit ], [ 0, %20 ]
   ret i32 %.0
 }
 

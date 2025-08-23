@@ -474,11 +474,11 @@ define noundef i32 @ff_sdp_parse(ptr noundef %0, ptr noundef readonly captures(n
 
 .lr.ph216:                                        ; preds = %.preheader
   %41 = getelementptr inbounds nuw i8, ptr %14, i64 144
-  br label %934
+  br label %932
 
 42:                                               ; preds = %.lr.ph, %.critedge2
-  %43 = phi i8 [ %17, %.lr.ph ], [ %932, %.critedge2 ]
-  %44 = phi ptr [ %16, %.lr.ph ], [ %931, %.critedge2 ]
+  %43 = phi i8 [ %17, %.lr.ph ], [ %930, %.critedge2 ]
+  %44 = phi ptr [ %16, %.lr.ph ], [ %929, %.critedge2 ]
   %45 = sext i8 %43 to i32
   %46 = getelementptr inbounds nuw i8, ptr %44, i64 1
   %47 = load i8, ptr %46, align 1, !tbaa !9
@@ -2237,7 +2237,7 @@ get_word.exit:                                    ; preds = %701, %687
   %842 = load ptr, ptr %8, align 8, !tbaa !4
   %843 = call i32 @av_strstart(ptr noundef %842, ptr noundef nonnull @.str.176, ptr noundef nonnull %8) #15
   %.not222.i = icmp eq i32 %843, 0
-  br i1 %.not222.i, label %889, label %844
+  br i1 %.not222.i, label %887, label %844
 
 844:                                              ; preds = %841
   call fastcc void @get_word(ptr noundef nonnull %6, i32 noundef 64, ptr noundef %8)
@@ -2261,149 +2261,153 @@ get_word.exit:                                    ; preds = %701, %687
 
 847:                                              ; preds = %846
   call fastcc void @get_word(ptr noundef nonnull %6, i32 noundef 64, ptr noundef %8)
-  %lhsv.i = load i32, ptr %6, align 16
-  %848 = and i32 %lhsv.i, -131073
-  %or.cond280.i = icmp eq i32 %848, 3428425
-  %849 = and i32 %lhsv.i, 65535
-  %.not240.i = icmp eq i32 %849, 42
-  %or.cond281.i = or i1 %or.cond280.i, %.not240.i
-  br i1 %or.cond281.i, label %850, label %sdp_parse_line.exit
+  %lhsv238.i = load i16, ptr %6, align 16
+  %lhsv238.fr.i = freeze i16 %lhsv238.i
+  %.not240.i = icmp eq i16 %lhsv238.fr.i, 42
+  br i1 %.not240.i, label %848, label %switch.early.test.i
 
-850:                                              ; preds = %847
+switch.early.test.i:                              ; preds = %847
+  %lhsv.i = load i32, ptr %6, align 16
+  switch i32 %lhsv.i, label %sdp_parse_line.exit [
+    i32 3559497, label %848
+    i32 3428425, label %848
+  ]
+
+848:                                              ; preds = %switch.early.test.i, %switch.early.test.i, %847
   call fastcc void @get_word(ptr noundef nonnull %6, i32 noundef 64, ptr noundef %8)
-  %851 = load ptr, ptr %8, align 8, !tbaa !4
-  %852 = load i8, ptr %851, align 1, !tbaa !9
-  %.not241320.i = icmp eq i8 %852, 0
+  %849 = load ptr, ptr %8, align 8, !tbaa !4
+  %850 = load i8, ptr %849, align 1, !tbaa !9
+  %.not241320.i = icmp eq i8 %850, 0
   br i1 %.not241320.i, label %sdp_parse_line.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %850
-  %853 = getelementptr inbounds nuw i8, ptr %60, i64 24
-  %854 = getelementptr inbounds nuw i8, ptr %60, i64 16
+.lr.ph.i:                                         ; preds = %848
+  %851 = getelementptr inbounds nuw i8, ptr %60, i64 24
+  %852 = getelementptr inbounds nuw i8, ptr %60, i64 16
   br i1 %.not230.i, label %.lr.ph.split.us.i, label %.lr.ph.split.i
 
-.lr.ph.split.us.i:                                ; preds = %.lr.ph.i, %869
-  %855 = call noalias ptr @av_mallocz(i64 noundef 128) #15
-  %.not242.us.i = icmp eq ptr %855, null
-  br i1 %.not242.us.i, label %sdp_parse_line.exit, label %856
+.lr.ph.split.us.i:                                ; preds = %.lr.ph.i, %867
+  %853 = call noalias ptr @av_mallocz(i64 noundef 128) #15
+  %.not242.us.i = icmp eq ptr %853, null
+  br i1 %.not242.us.i, label %sdp_parse_line.exit, label %854
 
-856:                                              ; preds = %.lr.ph.split.us.i
-  call fastcc void @get_word(ptr noundef nonnull %855, i32 noundef 128, ptr noundef %8)
-  %857 = load i32, ptr %22, align 4, !tbaa !42
-  %858 = icmp eq i32 %857, 0
-  br i1 %858, label %868, label %859
+854:                                              ; preds = %.lr.ph.split.us.i
+  call fastcc void @get_word(ptr noundef nonnull %853, i32 noundef 128, ptr noundef %8)
+  %855 = load i32, ptr %22, align 4, !tbaa !42
+  %856 = icmp eq i32 %855, 0
+  br i1 %856, label %866, label %857
 
-859:                                              ; preds = %856
-  %860 = load ptr, ptr %853, align 8, !tbaa !47
-  %861 = load i32, ptr %854, align 8, !tbaa !56
-  %862 = sext i32 %861 to i64
-  %863 = getelementptr ptr, ptr %860, i64 %862
-  %864 = getelementptr i8, ptr %863, i64 -8
-  %865 = load ptr, ptr %864, align 8, !tbaa !57
-  %866 = getelementptr inbounds nuw i8, ptr %865, i64 4280
-  %867 = getelementptr inbounds nuw i8, ptr %865, i64 4272
-  call void @av_dynarray_add(ptr noundef nonnull %866, ptr noundef nonnull %867, ptr noundef nonnull %855) #15
-  br label %869
+857:                                              ; preds = %854
+  %858 = load ptr, ptr %851, align 8, !tbaa !47
+  %859 = load i32, ptr %852, align 8, !tbaa !56
+  %860 = sext i32 %859 to i64
+  %861 = getelementptr ptr, ptr %858, i64 %860
+  %862 = getelementptr i8, ptr %861, i64 -8
+  %863 = load ptr, ptr %862, align 8, !tbaa !57
+  %864 = getelementptr inbounds nuw i8, ptr %863, i64 4280
+  %865 = getelementptr inbounds nuw i8, ptr %863, i64 4272
+  call void @av_dynarray_add(ptr noundef nonnull %864, ptr noundef nonnull %865, ptr noundef nonnull %853) #15
+  br label %867
 
-868:                                              ; preds = %856
-  call void @av_dynarray_add(ptr noundef nonnull %33, ptr noundef nonnull %34, ptr noundef nonnull %855) #15
-  br label %869
+866:                                              ; preds = %854
+  call void @av_dynarray_add(ptr noundef nonnull %33, ptr noundef nonnull %34, ptr noundef nonnull %853) #15
+  br label %867
 
-869:                                              ; preds = %868, %859
-  %870 = load ptr, ptr %8, align 8, !tbaa !4
-  %871 = load i8, ptr %870, align 1, !tbaa !9
-  %.not241.us.i = icmp eq i8 %871, 0
+867:                                              ; preds = %866, %857
+  %868 = load ptr, ptr %8, align 8, !tbaa !4
+  %869 = load i8, ptr %868, align 1, !tbaa !9
+  %.not241.us.i = icmp eq i8 %869, 0
   br i1 %.not241.us.i, label %sdp_parse_line.exit, label %.lr.ph.split.us.i, !llvm.loop !129
 
-.lr.ph.split.i:                                   ; preds = %.lr.ph.i, %886
-  %872 = call noalias ptr @av_mallocz(i64 noundef 128) #15
-  %.not242.i = icmp eq ptr %872, null
-  br i1 %.not242.i, label %sdp_parse_line.exit, label %873
+.lr.ph.split.i:                                   ; preds = %.lr.ph.i, %884
+  %870 = call noalias ptr @av_mallocz(i64 noundef 128) #15
+  %.not242.i = icmp eq ptr %870, null
+  br i1 %.not242.i, label %sdp_parse_line.exit, label %871
 
-873:                                              ; preds = %.lr.ph.split.i
-  call fastcc void @get_word(ptr noundef nonnull %872, i32 noundef 128, ptr noundef %8)
-  %874 = load i32, ptr %22, align 4, !tbaa !42
-  %875 = icmp eq i32 %874, 0
-  br i1 %875, label %876, label %877
+871:                                              ; preds = %.lr.ph.split.i
+  call fastcc void @get_word(ptr noundef nonnull %870, i32 noundef 128, ptr noundef %8)
+  %872 = load i32, ptr %22, align 4, !tbaa !42
+  %873 = icmp eq i32 %872, 0
+  br i1 %873, label %874, label %875
 
-876:                                              ; preds = %873
-  call void @av_dynarray_add(ptr noundef nonnull %31, ptr noundef nonnull %32, ptr noundef nonnull %872) #15
-  br label %886
+874:                                              ; preds = %871
+  call void @av_dynarray_add(ptr noundef nonnull %31, ptr noundef nonnull %32, ptr noundef nonnull %870) #15
+  br label %884
 
-877:                                              ; preds = %873
-  %878 = load ptr, ptr %853, align 8, !tbaa !47
-  %879 = load i32, ptr %854, align 8, !tbaa !56
-  %880 = sext i32 %879 to i64
-  %881 = getelementptr ptr, ptr %878, i64 %880
-  %882 = getelementptr i8, ptr %881, i64 -8
-  %883 = load ptr, ptr %882, align 8, !tbaa !57
-  %884 = getelementptr inbounds nuw i8, ptr %883, i64 4264
-  %885 = getelementptr inbounds nuw i8, ptr %883, i64 4256
-  call void @av_dynarray_add(ptr noundef nonnull %884, ptr noundef nonnull %885, ptr noundef nonnull %872) #15
-  br label %886
+875:                                              ; preds = %871
+  %876 = load ptr, ptr %851, align 8, !tbaa !47
+  %877 = load i32, ptr %852, align 8, !tbaa !56
+  %878 = sext i32 %877 to i64
+  %879 = getelementptr ptr, ptr %876, i64 %878
+  %880 = getelementptr i8, ptr %879, i64 -8
+  %881 = load ptr, ptr %880, align 8, !tbaa !57
+  %882 = getelementptr inbounds nuw i8, ptr %881, i64 4264
+  %883 = getelementptr inbounds nuw i8, ptr %881, i64 4256
+  call void @av_dynarray_add(ptr noundef nonnull %882, ptr noundef nonnull %883, ptr noundef nonnull %870) #15
+  br label %884
 
-886:                                              ; preds = %877, %876
-  %887 = load ptr, ptr %8, align 8, !tbaa !4
-  %888 = load i8, ptr %887, align 1, !tbaa !9
-  %.not241.i = icmp eq i8 %888, 0
+884:                                              ; preds = %875, %874
+  %885 = load ptr, ptr %8, align 8, !tbaa !4
+  %886 = load i8, ptr %885, align 1, !tbaa !9
+  %.not241.i = icmp eq i8 %886, 0
   br i1 %.not241.i, label %sdp_parse_line.exit, label %.lr.ph.split.i, !llvm.loop !129
 
-889:                                              ; preds = %841
-  %890 = getelementptr inbounds nuw i8, ptr %60, i64 584
-  %891 = load i32, ptr %890, align 8, !tbaa !85
-  %892 = icmp eq i32 %891, 2
-  br i1 %892, label %893, label %896
+887:                                              ; preds = %841
+  %888 = getelementptr inbounds nuw i8, ptr %60, i64 584
+  %889 = load i32, ptr %888, align 8, !tbaa !85
+  %890 = icmp eq i32 %889, 2
+  br i1 %890, label %891, label %894
 
-893:                                              ; preds = %889
-  %894 = load ptr, ptr %8, align 8, !tbaa !4
-  %895 = call i32 @ff_wms_parse_sdp_a_line(ptr noundef nonnull %0, ptr noundef %894) #15
-  br label %896
+891:                                              ; preds = %887
+  %892 = load ptr, ptr %8, align 8, !tbaa !4
+  %893 = call i32 @ff_wms_parse_sdp_a_line(ptr noundef nonnull %0, ptr noundef %892) #15
+  br label %894
 
-896:                                              ; preds = %893, %889
-  %897 = load i32, ptr %22, align 4, !tbaa !42
-  %.not223.i = icmp eq i32 %897, 0
-  br i1 %.not223.i, label %sdp_parse_line.exit, label %898
+894:                                              ; preds = %891, %887
+  %895 = load i32, ptr %22, align 4, !tbaa !42
+  %.not223.i = icmp eq i32 %895, 0
+  br i1 %.not223.i, label %sdp_parse_line.exit, label %896
 
-898:                                              ; preds = %896
-  %899 = getelementptr inbounds nuw i8, ptr %60, i64 24
-  %900 = load ptr, ptr %899, align 8, !tbaa !47
-  %901 = getelementptr inbounds nuw i8, ptr %60, i64 16
-  %902 = load i32, ptr %901, align 8, !tbaa !56
-  %903 = sext i32 %902 to i64
-  %904 = getelementptr ptr, ptr %900, i64 %903
-  %905 = getelementptr i8, ptr %904, i64 -8
-  %906 = load ptr, ptr %905, align 8, !tbaa !57
-  %907 = load i32, ptr %890, align 8, !tbaa !85
-  %908 = icmp eq i32 %907, 1
-  br i1 %908, label %909, label %913
+896:                                              ; preds = %894
+  %897 = getelementptr inbounds nuw i8, ptr %60, i64 24
+  %898 = load ptr, ptr %897, align 8, !tbaa !47
+  %899 = getelementptr inbounds nuw i8, ptr %60, i64 16
+  %900 = load i32, ptr %899, align 8, !tbaa !56
+  %901 = sext i32 %900 to i64
+  %902 = getelementptr ptr, ptr %898, i64 %901
+  %903 = getelementptr i8, ptr %902, i64 -8
+  %904 = load ptr, ptr %903, align 8, !tbaa !57
+  %905 = load i32, ptr %888, align 8, !tbaa !85
+  %906 = icmp eq i32 %905, 1
+  br i1 %906, label %907, label %911
 
-909:                                              ; preds = %898
-  %910 = getelementptr inbounds nuw i8, ptr %906, i64 16
-  %911 = load i32, ptr %910, align 8, !tbaa !67
-  %912 = load ptr, ptr %8, align 8, !tbaa !4
-  call void @ff_real_parse_sdp_a_line(ptr noundef nonnull %0, i32 noundef %911, ptr noundef %912) #15
-  br label %913
+907:                                              ; preds = %896
+  %908 = getelementptr inbounds nuw i8, ptr %904, i64 16
+  %909 = load i32, ptr %908, align 8, !tbaa !67
+  %910 = load ptr, ptr %8, align 8, !tbaa !4
+  call void @ff_real_parse_sdp_a_line(ptr noundef nonnull %0, i32 noundef %909, ptr noundef %910) #15
+  br label %911
 
-913:                                              ; preds = %909, %898
-  %914 = getelementptr inbounds nuw i8, ptr %906, i64 4296
-  %915 = load ptr, ptr %914, align 8, !tbaa !79
-  %.not224.i = icmp eq ptr %915, null
-  br i1 %.not224.i, label %sdp_parse_line.exit, label %916
+911:                                              ; preds = %907, %896
+  %912 = getelementptr inbounds nuw i8, ptr %904, i64 4296
+  %913 = load ptr, ptr %912, align 8, !tbaa !79
+  %.not224.i = icmp eq ptr %913, null
+  br i1 %.not224.i, label %sdp_parse_line.exit, label %914
 
-916:                                              ; preds = %913
-  %917 = getelementptr inbounds nuw i8, ptr %915, i64 40
-  %918 = load ptr, ptr %917, align 8, !tbaa !124
-  %.not225.i = icmp eq ptr %918, null
-  br i1 %.not225.i, label %sdp_parse_line.exit, label %919
+914:                                              ; preds = %911
+  %915 = getelementptr inbounds nuw i8, ptr %913, i64 40
+  %916 = load ptr, ptr %915, align 8, !tbaa !124
+  %.not225.i = icmp eq ptr %916, null
+  br i1 %.not225.i, label %sdp_parse_line.exit, label %917
 
-919:                                              ; preds = %916
-  %920 = getelementptr inbounds nuw i8, ptr %906, i64 16
-  %921 = load i32, ptr %920, align 8, !tbaa !67
-  %922 = getelementptr inbounds nuw i8, ptr %906, i64 4304
-  %923 = load ptr, ptr %922, align 8, !tbaa !82
-  %924 = call i32 %918(ptr noundef nonnull %0, i32 noundef %921, ptr noundef %923, ptr noundef nonnull %13) #15
+917:                                              ; preds = %914
+  %918 = getelementptr inbounds nuw i8, ptr %904, i64 16
+  %919 = load i32, ptr %918, align 8, !tbaa !67
+  %920 = getelementptr inbounds nuw i8, ptr %904, i64 4304
+  %921 = load ptr, ptr %920, align 8, !tbaa !82
+  %922 = call i32 %916(ptr noundef nonnull %0, i32 noundef %919, ptr noundef %921, ptr noundef nonnull %13) #15
   br label %sdp_parse_line.exit
 
-sdp_parse_line.exit:                              ; preds = %677, %735, %.lr.ph.split.i, %886, %.lr.ph.split.us.i, %869, %708, %655, %get_sockaddr.exit, %.critedge, %64, %get_word.exit.i, %get_word.exit298.i, %160, %161, %172, %174, %177, %210, %211, %357, %finalize_rtp_handler_init.exit106, %436, %439, %466, %653, %739, %746, %761, %773, %785, %792, %798, %802, %808, %825, %839, %845, %846, %847, %850, %896, %913, %916, %919
+sdp_parse_line.exit:                              ; preds = %677, %735, %.lr.ph.split.i, %884, %.lr.ph.split.us.i, %867, %708, %655, %get_sockaddr.exit, %.critedge, %64, %get_word.exit.i, %get_word.exit298.i, %160, %161, %172, %174, %177, %210, %211, %357, %finalize_rtp_handler_init.exit106, %436, %439, %466, %653, %739, %746, %761, %773, %785, %792, %798, %802, %808, %825, %839, %845, %846, %switch.early.test.i, %848, %894, %911, %914, %917
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -2412,67 +2416,67 @@ sdp_parse_line.exit:                              ; preds = %677, %735, %.lr.ph.
 
 .preheader342:                                    ; preds = %42, %sdp_parse_line.exit
   %.3.ph = phi ptr [ %.2, %sdp_parse_line.exit ], [ %46, %42 ]
-  br label %925
+  br label %923
 
-925:                                              ; preds = %.preheader342, %927
-  %.3 = phi ptr [ %928, %927 ], [ %.3.ph, %.preheader342 ]
-  %926 = load i8, ptr %.3, align 1, !tbaa !9
-  switch i8 %926, label %927 [
+923:                                              ; preds = %.preheader342, %925
+  %.3 = phi ptr [ %926, %925 ], [ %.3.ph, %.preheader342 ]
+  %924 = load i8, ptr %.3, align 1, !tbaa !9
+  switch i8 %924, label %925 [
     i8 10, label %.critedge2
     i8 0, label %.critedge2
   ]
 
-927:                                              ; preds = %925
-  %928 = getelementptr inbounds nuw i8, ptr %.3, i64 1
-  br label %925, !llvm.loop !130
+925:                                              ; preds = %923
+  %926 = getelementptr inbounds nuw i8, ptr %.3, i64 1
+  br label %923, !llvm.loop !130
 
-.critedge2:                                       ; preds = %925, %925
-  %929 = icmp eq i8 %926, 10
-  %spec.select.idx = zext i1 %929 to i64
+.critedge2:                                       ; preds = %923, %923
+  %927 = icmp eq i8 %924, 10
+  %spec.select.idx = zext i1 %927 to i64
   %spec.select = getelementptr inbounds nuw i8, ptr %.3, i64 %spec.select.idx
-  %930 = call i64 @strspn(ptr noundef nonnull %spec.select, ptr noundef nonnull @.str.63) #14
-  %931 = getelementptr inbounds nuw i8, ptr %spec.select, i64 %930
-  %932 = load i8, ptr %931, align 1, !tbaa !9
-  %933 = icmp eq i8 %932, 0
-  br i1 %933, label %.preheader, label %42
+  %928 = call i64 @strspn(ptr noundef nonnull %spec.select, ptr noundef nonnull @.str.63) #14
+  %929 = getelementptr inbounds nuw i8, ptr %spec.select, i64 %928
+  %930 = load i8, ptr %929, align 1, !tbaa !9
+  %931 = icmp eq i8 %930, 0
+  br i1 %931, label %.preheader, label %42
 
-934:                                              ; preds = %.lr.ph216, %934
-  %indvars.iv = phi i64 [ 0, %.lr.ph216 ], [ %indvars.iv.next, %934 ]
-  %935 = load ptr, ptr %41, align 8, !tbaa !68
-  %936 = getelementptr inbounds nuw ptr, ptr %935, i64 %indvars.iv
-  call void @av_freep(ptr noundef %936) #15
+932:                                              ; preds = %.lr.ph216, %932
+  %indvars.iv = phi i64 [ 0, %.lr.ph216 ], [ %indvars.iv.next, %932 ]
+  %933 = load ptr, ptr %41, align 8, !tbaa !68
+  %934 = getelementptr inbounds nuw ptr, ptr %933, i64 %indvars.iv
+  call void @av_freep(ptr noundef %934) #15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %937 = load i32, ptr %40, align 8, !tbaa !10
-  %938 = sext i32 %937 to i64
-  %939 = icmp slt i64 %indvars.iv.next, %938
-  br i1 %939, label %934, label %._crit_edge, !llvm.loop !131
+  %935 = load i32, ptr %40, align 8, !tbaa !10
+  %936 = sext i32 %935 to i64
+  %937 = icmp slt i64 %indvars.iv.next, %936
+  br i1 %937, label %932, label %._crit_edge, !llvm.loop !131
 
-._crit_edge:                                      ; preds = %934, %2, %.preheader
-  %940 = getelementptr inbounds nuw i8, ptr %14, i64 144
-  call void @av_freep(ptr noundef nonnull %940) #15
-  %941 = getelementptr inbounds nuw i8, ptr %14, i64 152
-  %942 = load i32, ptr %941, align 8, !tbaa !73
-  %943 = icmp sgt i32 %942, 0
-  br i1 %943, label %.lr.ph219, label %._crit_edge220
+._crit_edge:                                      ; preds = %932, %2, %.preheader
+  %938 = getelementptr inbounds nuw i8, ptr %14, i64 144
+  call void @av_freep(ptr noundef nonnull %938) #15
+  %939 = getelementptr inbounds nuw i8, ptr %14, i64 152
+  %940 = load i32, ptr %939, align 8, !tbaa !73
+  %941 = icmp sgt i32 %940, 0
+  br i1 %941, label %.lr.ph219, label %._crit_edge220
 
 .lr.ph219:                                        ; preds = %._crit_edge
-  %944 = getelementptr inbounds nuw i8, ptr %14, i64 160
-  br label %945
+  %942 = getelementptr inbounds nuw i8, ptr %14, i64 160
+  br label %943
 
-945:                                              ; preds = %.lr.ph219, %945
-  %indvars.iv237 = phi i64 [ 0, %.lr.ph219 ], [ %indvars.iv.next238, %945 ]
-  %946 = load ptr, ptr %944, align 8, !tbaa !72
-  %947 = getelementptr inbounds nuw ptr, ptr %946, i64 %indvars.iv237
-  call void @av_freep(ptr noundef %947) #15
+943:                                              ; preds = %.lr.ph219, %943
+  %indvars.iv237 = phi i64 [ 0, %.lr.ph219 ], [ %indvars.iv.next238, %943 ]
+  %944 = load ptr, ptr %942, align 8, !tbaa !72
+  %945 = getelementptr inbounds nuw ptr, ptr %944, i64 %indvars.iv237
+  call void @av_freep(ptr noundef %945) #15
   %indvars.iv.next238 = add nuw nsw i64 %indvars.iv237, 1
-  %948 = load i32, ptr %941, align 8, !tbaa !73
-  %949 = sext i32 %948 to i64
-  %950 = icmp slt i64 %indvars.iv.next238, %949
-  br i1 %950, label %945, label %._crit_edge220, !llvm.loop !132
+  %946 = load i32, ptr %939, align 8, !tbaa !73
+  %947 = sext i32 %946 to i64
+  %948 = icmp slt i64 %indvars.iv.next238, %947
+  br i1 %948, label %943, label %._crit_edge220, !llvm.loop !132
 
-._crit_edge220:                                   ; preds = %945, %._crit_edge
-  %951 = getelementptr inbounds nuw i8, ptr %14, i64 160
-  call void @av_freep(ptr noundef nonnull %951) #15
+._crit_edge220:                                   ; preds = %943, %._crit_edge
+  %949 = getelementptr inbounds nuw i8, ptr %14, i64 160
+  call void @av_freep(ptr noundef nonnull %949) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   ret i32 0

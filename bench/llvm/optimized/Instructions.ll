@@ -12670,8 +12670,8 @@ define dso_local noundef zeroext i1 @_ZN4llvm17ShuffleVectorInst15isValidOperand
   %18 = and i32 %17, 255
   %19 = add nsw i32 %18, -19
   %spec.select.i.i.i.i.i.i.i.i = icmp ult i32 %19, -2
-  %.not5188 = icmp eq ptr %15, null
-  %.not51 = or i1 %.not5188, %spec.select.i.i.i.i.i.i.i.i
+  %.not5189 = icmp eq ptr %15, null
+  %.not51 = or i1 %.not5189, %spec.select.i.i.i.i.i.i.i.i
   br i1 %.not51, label %.critedge, label %20
 
 20:                                               ; preds = %13
@@ -12682,8 +12682,8 @@ define dso_local noundef zeroext i1 @_ZN4llvm17ShuffleVectorInst15isValidOperand
 
 24:                                               ; preds = %20
   %25 = load i32, ptr %16, align 8
-  %.fr110 = freeze i32 %25
-  %26 = and i32 %.fr110, 255
+  %.fr90 = freeze i32 %25
+  %26 = and i32 %.fr90, 255
   %27 = icmp eq i32 %26, 18
   %28 = load ptr, ptr %4, align 8, !tbaa !89
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
@@ -12701,8 +12701,8 @@ define dso_local noundef zeroext i1 @_ZN4llvm17ShuffleVectorInst15isValidOperand
   %or.cond = or i1 %37, %spec.select.i.i.i.i.i.i.i.i62
   %.off = add i8 %35, -12
   %switch = icmp ult i8 %.off, 3
-  %or.cond109 = select i1 %27, i1 true, i1 %switch
-  br i1 %or.cond109, label %.critedge, label %38
+  %or.cond88 = select i1 %27, i1 true, i1 %switch
+  br i1 %or.cond88, label %.critedge, label %38
 
 38:                                               ; preds = %34
   %39 = getelementptr inbounds nuw i8, ptr %28, i64 32
@@ -12745,20 +12745,20 @@ _ZNK4llvm4User8operandsEv.exit:                   ; preds = %50, %53
   %.pre-phi2.i.i = phi i64 [ %.pre1.i.i, %50 ], [ %55, %53 ]
   %.idx = shl nuw nsw i64 %.pre-phi2.i.i, 5
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 %.idx
-  %.not55100 = icmp eq i64 %.pre-phi2.i.i, 0
-  br i1 %.not55100, label %.critedge, label %.lr.ph103
+  %.not55102 = icmp eq i64 %.pre-phi2.i.i, 0
+  br i1 %.not55102, label %.critedge, label %.lr.ph105
 
-.lr.ph103:                                        ; preds = %_ZNK4llvm4User8operandsEv.exit
+.lr.ph105:                                        ; preds = %_ZNK4llvm4User8operandsEv.exit
   %60 = shl i32 %40, 1
   %61 = zext i32 %60 to i64
   br label %62
 
-62:                                               ; preds = %.lr.ph103, %69
-  %.046101 = phi ptr [ %58, %.lr.ph103 ], [ %70, %69 ]
-  %63 = load ptr, ptr %.046101, align 8, !tbaa !75
+62:                                               ; preds = %.lr.ph105, %69
+  %.046103 = phi ptr [ %58, %.lr.ph105 ], [ %70, %69 ]
+  %63 = load ptr, ptr %.046103, align 8, !tbaa !75
   %64 = load i8, ptr %63, align 8, !tbaa !80
-  %.not94 = icmp eq i8 %64, 17
-  br i1 %.not94, label %65, label %67
+  %.not96 = icmp eq i8 %64, 17
+  br i1 %.not96, label %65, label %67
 
 65:                                               ; preds = %62
   %66 = tail call noundef zeroext i1 @_ZNK4llvm11ConstantInt3ugeEm(ptr noundef nonnull align 8 dereferenceable(40) %63, i64 noundef %61)
@@ -12770,7 +12770,7 @@ _ZNK4llvm4User8operandsEv.exit:                   ; preds = %50, %53
   br i1 %spec.select.i.i.i.i.i.i.i.i66, label %69, label %.critedge
 
 69:                                               ; preds = %67, %65
-  %70 = getelementptr inbounds nuw i8, ptr %.046101, i64 32
+  %70 = getelementptr inbounds nuw i8, ptr %.046103, i64 32
   %.not55 = icmp eq ptr %70, %59
   br i1 %.not55, label %.critedge, label %62
 
@@ -12782,8 +12782,8 @@ _ZNK4llvm4User8operandsEv.exit:                   ; preds = %50, %53
 72:                                               ; preds = %.thread85
   %73 = getelementptr inbounds nuw i8, ptr %15, i64 32
   %74 = load i32, ptr %73, align 8, !tbaa !96
-  %.not5896 = icmp eq i32 %74, 0
-  br i1 %.not5896, label %.loopexit, label %.lr.ph
+  %.not5898 = icmp eq i32 %74, 0
+  br i1 %.not5898, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %72
   %75 = shl i32 %40, 1
@@ -12791,10 +12791,10 @@ _ZNK4llvm4User8operandsEv.exit:                   ; preds = %50, %53
   br label %77
 
 77:                                               ; preds = %77, %.lr.ph
-  %.03997 = phi i32 [ 0, %.lr.ph ], [ %79, %77 ]
-  %78 = tail call noundef i64 @_ZNK4llvm22ConstantDataSequential19getElementAsIntegerEj(ptr noundef nonnull align 8 dereferenceable(40) %2, i32 noundef %.03997) #32
+  %.03999 = phi i32 [ 0, %.lr.ph ], [ %79, %77 ]
+  %78 = tail call noundef i64 @_ZNK4llvm22ConstantDataSequential19getElementAsIntegerEj(ptr noundef nonnull align 8 dereferenceable(40) %2, i32 noundef %.03999) #32
   %.not59 = icmp ult i64 %78, %76
-  %79 = add nuw i32 %.03997, 1
+  %79 = add nuw i32 %.03999, 1
   %.not58 = icmp ne i32 %79, %74
   %or.cond117.not = select i1 %.not59, i1 %.not58, i1 false
   br i1 %or.cond117.not, label %77, label %.loopexit, !llvm.loop !288

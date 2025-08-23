@@ -1556,173 +1556,176 @@ AddNewAttributeTuples.exit:                       ; preds = %._crit_edge.i, %._c
   call void @table_close(ptr noundef %128, i32 noundef 3) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
-  %151 = icmp ne i8 %10, 99
-  %152 = icmp ne i8 %10, 116
-  %or.cond25 = and i1 %151, %152
-  %153 = load i32, ptr @Mode, align 4
-  %154 = icmp ne i32 %153, 0
-  %or.cond27.not = select i1 %or.cond25, i1 %154, i1 false
-  br i1 %or.cond27.not, label %155, label %168
+  %151 = load i32, ptr @Mode, align 4
+  %.fr = freeze i32 %151
+  %.not197 = icmp eq i32 %.fr, 0
+  br i1 %.not197, label %165, label %switch.early.test
 
-155:                                              ; preds = %AddNewAttributeTuples.exit
+switch.early.test:                                ; preds = %AddNewAttributeTuples.exit
+  switch i8 %10, label %152 [
+    i8 116, label %165
+    i8 99, label %165
+  ]
+
+152:                                              ; preds = %switch.early.test
   call void @llvm.lifetime.start.p0(ptr nonnull %26)
   call void @llvm.lifetime.start.p0(ptr nonnull %27)
   store i32 1259, ptr %26, align 4
-  %156 = getelementptr inbounds nuw i8, ptr %26, i64 4
-  store i32 %.0, ptr %156, align 4
-  %157 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  store i32 0, ptr %157, align 4
+  %153 = getelementptr inbounds nuw i8, ptr %26, i64 4
+  store i32 %.0, ptr %153, align 4
+  %154 = getelementptr inbounds nuw i8, ptr %26, i64 8
+  store i32 0, ptr %154, align 4
   call void @recordDependencyOnOwner(i32 noundef 1259, i32 noundef %.0, i32 noundef %6) #11
   call void @recordDependencyOnNewAcl(i32 noundef 1259, i32 noundef %.0, i32 noundef 0, i32 noundef %6, ptr noundef %.0159196) #11
   call void @recordDependencyOnCurrentExtension(ptr noundef nonnull %26, i1 noundef zeroext false) #11
-  %158 = call ptr @new_object_addresses() #11
+  %155 = call ptr @new_object_addresses() #11
   store i32 2615, ptr %27, align 4
-  %159 = getelementptr inbounds nuw i8, ptr %27, i64 4
-  store i32 %1, ptr %159, align 4
-  %160 = getelementptr inbounds nuw i8, ptr %27, i64 8
-  store i32 0, ptr %160, align 4
-  call void @add_exact_object_address(ptr noundef nonnull %27, ptr noundef %158) #11
+  %156 = getelementptr inbounds nuw i8, ptr %27, i64 4
+  store i32 %1, ptr %156, align 4
+  %157 = getelementptr inbounds nuw i8, ptr %27, i64 8
+  store i32 0, ptr %157, align 4
+  call void @add_exact_object_address(ptr noundef nonnull %27, ptr noundef %155) #11
   %.not183 = icmp eq i32 %5, 0
-  br i1 %.not183, label %162, label %161
+  br i1 %.not183, label %159, label %158
 
-161:                                              ; preds = %155
+158:                                              ; preds = %152
   store i32 1247, ptr %27, align 4
-  store i32 %5, ptr %159, align 4
-  store i32 0, ptr %160, align 4
-  call void @add_exact_object_address(ptr noundef nonnull %27, ptr noundef %158) #11
-  br label %162
+  store i32 %5, ptr %156, align 4
+  store i32 0, ptr %157, align 4
+  call void @add_exact_object_address(ptr noundef nonnull %27, ptr noundef %155) #11
+  br label %159
 
-162:                                              ; preds = %161, %155
-  switch i8 %10, label %163 [
-    i8 114, label %166
-    i8 109, label %166
+159:                                              ; preds = %158, %152
+  switch i8 %10, label %160 [
+    i8 114, label %163
+    i8 109, label %163
   ]
 
-163:                                              ; preds = %162
-  %164 = icmp eq i8 %10, 112
-  %165 = icmp ne i32 %7, 0
-  %or.cond38 = and i1 %165, %164
-  br i1 %or.cond38, label %166, label %167
+160:                                              ; preds = %159
+  %161 = icmp eq i8 %10, 112
+  %162 = icmp ne i32 %7, 0
+  %or.cond38 = and i1 %162, %161
+  br i1 %or.cond38, label %163, label %164
 
-166:                                              ; preds = %162, %162, %163
+163:                                              ; preds = %159, %159, %160
   store i32 2601, ptr %27, align 4
-  store i32 %7, ptr %159, align 4
-  store i32 0, ptr %160, align 4
-  call void @add_exact_object_address(ptr noundef nonnull %27, ptr noundef %158) #11
-  br label %167
+  store i32 %7, ptr %156, align 4
+  store i32 0, ptr %157, align 4
+  call void @add_exact_object_address(ptr noundef nonnull %27, ptr noundef %155) #11
+  br label %164
 
-167:                                              ; preds = %166, %163
-  call void @record_object_address_dependencies(ptr noundef nonnull %26, ptr noundef %158, i32 noundef 110) #11
-  call void @free_object_addresses(ptr noundef %158) #11
+164:                                              ; preds = %163, %160
+  call void @record_object_address_dependencies(ptr noundef nonnull %26, ptr noundef %155, i32 noundef 110) #11
+  call void @free_object_addresses(ptr noundef %155) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %27)
   call void @llvm.lifetime.end.p0(ptr nonnull %26)
+  br label %165
+
+165:                                              ; preds = %switch.early.test, %switch.early.test, %AddNewAttributeTuples.exit, %164
+  %166 = load ptr, ptr @object_access_hook, align 8
+  %.not184 = icmp eq ptr %166, null
+  br i1 %.not184, label %168, label %167
+
+167:                                              ; preds = %165
+  call void @RunObjectPostCreateHook(i32 noundef 1259, i32 noundef %.0, i32 noundef 0, i1 noundef zeroext %18) #11
   br label %168
 
-168:                                              ; preds = %AddNewAttributeTuples.exit, %167
-  %169 = load ptr, ptr @object_access_hook, align 8
-  %.not184 = icmp eq ptr %169, null
-  br i1 %.not184, label %171, label %170
+168:                                              ; preds = %167, %165
+  %169 = icmp eq ptr %9, null
+  br i1 %169, label %StoreConstraints.exit, label %170
 
 170:                                              ; preds = %168
-  call void @RunObjectPostCreateHook(i32 noundef 1259, i32 noundef %.0, i32 noundef 0, i1 noundef zeroext %18) #11
-  br label %171
-
-171:                                              ; preds = %170, %168
-  %172 = icmp eq ptr %9, null
-  br i1 %172, label %StoreConstraints.exit, label %173
-
-173:                                              ; preds = %171
   call void @CommandCounterIncrement() #11
-  %174 = getelementptr inbounds nuw i8, ptr %9, i64 4
-  %175 = load i32, ptr %174, align 4
-  %.not30.i = icmp sgt i32 %175, 0
+  %171 = getelementptr inbounds nuw i8, ptr %9, i64 4
+  %172 = load i32, ptr %171, align 4
+  %.not30.i = icmp sgt i32 %172, 0
   br i1 %.not30.i, label %.lr.ph.i186, label %StoreConstraints.exit
 
-.lr.ph.i186:                                      ; preds = %173
-  %176 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  br label %177
+.lr.ph.i186:                                      ; preds = %170
+  %173 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  br label %174
 
-177:                                              ; preds = %217, %.lr.ph.i186
-  %indvars.iv.i187 = phi i64 [ 0, %.lr.ph.i186 ], [ %indvars.iv.next.i188, %217 ]
-  %.032.i = phi i32 [ 0, %.lr.ph.i186 ], [ %.1.i, %217 ]
-  %178 = load ptr, ptr %176, align 8
-  %179 = getelementptr inbounds nuw %union.ListCell, ptr %178, i64 %indvars.iv.i187
-  %180 = load ptr, ptr %179, align 8
-  %181 = load i32, ptr %180, align 8
-  switch i32 %181, label %213 [
-    i32 2, label %183
-    i32 5, label %190
+174:                                              ; preds = %214, %.lr.ph.i186
+  %indvars.iv.i187 = phi i64 [ 0, %.lr.ph.i186 ], [ %indvars.iv.next.i188, %214 ]
+  %.032.i = phi i32 [ 0, %.lr.ph.i186 ], [ %.1.i, %214 ]
+  %175 = load ptr, ptr %173, align 8
+  %176 = getelementptr inbounds nuw %union.ListCell, ptr %175, i64 %indvars.iv.i187
+  %177 = load ptr, ptr %176, align 8
+  %178 = load i32, ptr %177, align 8
+  switch i32 %178, label %210 [
+    i32 2, label %180
+    i32 5, label %187
   ]
 
-.critedge.i:                                      ; preds = %217
-  %182 = icmp sgt i32 %.1.i, 0
-  br i1 %182, label %220, label %StoreConstraints.exit
+.critedge.i:                                      ; preds = %214
+  %179 = icmp sgt i32 %.1.i, 0
+  br i1 %179, label %217, label %StoreConstraints.exit
 
-183:                                              ; preds = %177
-  %184 = getelementptr inbounds nuw i8, ptr %180, i64 16
-  %185 = load i16, ptr %184, align 8
-  %186 = getelementptr inbounds nuw i8, ptr %180, i64 24
-  %187 = load ptr, ptr %186, align 8
-  %188 = call i32 @StoreAttrDefault(ptr noundef nonnull %104, i16 noundef signext %185, ptr noundef %187, i1 noundef zeroext %18, i1 noundef zeroext false) #11
-  %189 = getelementptr inbounds nuw i8, ptr %180, i64 4
-  store i32 %188, ptr %189, align 4
-  br label %217
+180:                                              ; preds = %174
+  %181 = getelementptr inbounds nuw i8, ptr %177, i64 16
+  %182 = load i16, ptr %181, align 8
+  %183 = getelementptr inbounds nuw i8, ptr %177, i64 24
+  %184 = load ptr, ptr %183, align 8
+  %185 = call i32 @StoreAttrDefault(ptr noundef nonnull %104, i16 noundef signext %182, ptr noundef %184, i1 noundef zeroext %18, i1 noundef zeroext false) #11
+  %186 = getelementptr inbounds nuw i8, ptr %177, i64 4
+  store i32 %185, ptr %186, align 4
+  br label %214
 
-190:                                              ; preds = %177
-  %191 = getelementptr inbounds nuw i8, ptr %180, i64 8
-  %192 = load ptr, ptr %191, align 8
-  %193 = getelementptr inbounds nuw i8, ptr %180, i64 24
-  %194 = load ptr, ptr %193, align 8
-  %195 = getelementptr inbounds nuw i8, ptr %180, i64 32
-  %196 = load i8, ptr %195, align 8, !range !10, !noundef !11
+187:                                              ; preds = %174
+  %188 = getelementptr inbounds nuw i8, ptr %177, i64 8
+  %189 = load ptr, ptr %188, align 8
+  %190 = getelementptr inbounds nuw i8, ptr %177, i64 24
+  %191 = load ptr, ptr %190, align 8
+  %192 = getelementptr inbounds nuw i8, ptr %177, i64 32
+  %193 = load i8, ptr %192, align 8, !range !10, !noundef !11
+  %194 = trunc nuw i8 %193 to i1
+  %195 = getelementptr inbounds nuw i8, ptr %177, i64 33
+  %196 = load i8, ptr %195, align 1, !range !10, !noundef !11
   %197 = trunc nuw i8 %196 to i1
-  %198 = getelementptr inbounds nuw i8, ptr %180, i64 33
-  %199 = load i8, ptr %198, align 1, !range !10, !noundef !11
-  %200 = trunc nuw i8 %199 to i1
-  %201 = xor i1 %200, true
-  %202 = getelementptr inbounds nuw i8, ptr %180, i64 34
-  %203 = load i8, ptr %202, align 2, !range !10, !noundef !11
-  %204 = trunc nuw i8 %203 to i1
-  %205 = getelementptr inbounds nuw i8, ptr %180, i64 36
-  %206 = load i16, ptr %205, align 4
-  %207 = getelementptr inbounds nuw i8, ptr %180, i64 38
-  %208 = load i8, ptr %207, align 2, !range !10, !noundef !11
-  %209 = trunc nuw i8 %208 to i1
-  %210 = call fastcc i32 @StoreRelCheck(ptr noundef nonnull %104, ptr noundef %192, ptr noundef %194, i1 noundef zeroext %197, i1 noundef zeroext %201, i1 noundef zeroext %204, i16 noundef signext %206, i1 noundef zeroext %209, i1 noundef zeroext %18)
-  %211 = getelementptr inbounds nuw i8, ptr %180, i64 4
-  store i32 %210, ptr %211, align 4
-  %212 = add i32 %.032.i, 1
-  br label %217
+  %198 = xor i1 %197, true
+  %199 = getelementptr inbounds nuw i8, ptr %177, i64 34
+  %200 = load i8, ptr %199, align 2, !range !10, !noundef !11
+  %201 = trunc nuw i8 %200 to i1
+  %202 = getelementptr inbounds nuw i8, ptr %177, i64 36
+  %203 = load i16, ptr %202, align 4
+  %204 = getelementptr inbounds nuw i8, ptr %177, i64 38
+  %205 = load i8, ptr %204, align 2, !range !10, !noundef !11
+  %206 = trunc nuw i8 %205 to i1
+  %207 = call fastcc i32 @StoreRelCheck(ptr noundef nonnull %104, ptr noundef %189, ptr noundef %191, i1 noundef zeroext %194, i1 noundef zeroext %198, i1 noundef zeroext %201, i16 noundef signext %203, i1 noundef zeroext %206, i1 noundef zeroext %18)
+  %208 = getelementptr inbounds nuw i8, ptr %177, i64 4
+  store i32 %207, ptr %208, align 4
+  %209 = add i32 %.032.i, 1
+  br label %214
 
-213:                                              ; preds = %177
-  %214 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
-  call void @llvm.assume(i1 %214)
-  %215 = load i32, ptr %180, align 8
-  %216 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.53, i32 noundef %215) #11
+210:                                              ; preds = %174
+  %211 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  call void @llvm.assume(i1 %211)
+  %212 = load i32, ptr %177, align 8
+  %213 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.53, i32 noundef %212) #11
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2279, ptr noundef nonnull @__func__.StoreConstraints) #11
   unreachable
 
-217:                                              ; preds = %190, %183
-  %.1.i = phi i32 [ %.032.i, %183 ], [ %212, %190 ]
+214:                                              ; preds = %187, %180
+  %.1.i = phi i32 [ %.032.i, %180 ], [ %209, %187 ]
   %indvars.iv.next.i188 = add nuw nsw i64 %indvars.iv.i187, 1
-  %218 = load i32, ptr %174, align 4
-  %219 = sext i32 %218 to i64
-  %.not.i189 = icmp slt i64 %indvars.iv.next.i188, %219
-  br i1 %.not.i189, label %177, label %.critedge.i, !llvm.loop !17
+  %215 = load i32, ptr %171, align 4
+  %216 = sext i32 %215 to i64
+  %.not.i189 = icmp slt i64 %indvars.iv.next.i188, %216
+  br i1 %.not.i189, label %174, label %.critedge.i, !llvm.loop !17
 
-220:                                              ; preds = %.critedge.i
+217:                                              ; preds = %.critedge.i
   call fastcc void @SetRelationNumChecks(ptr noundef nonnull %104, i32 noundef %.1.i)
   br label %StoreConstraints.exit
 
-StoreConstraints.exit:                            ; preds = %171, %173, %.critedge.i, %220
+StoreConstraints.exit:                            ; preds = %168, %170, %.critedge.i, %217
   %.not185 = icmp eq i32 %14, 0
-  br i1 %.not185, label %222, label %221
+  br i1 %.not185, label %219, label %218
 
-221:                                              ; preds = %StoreConstraints.exit
+218:                                              ; preds = %StoreConstraints.exit
   call void @register_on_commit_action(i32 noundef %.0, i32 noundef %14) #11
-  br label %222
+  br label %219
 
-222:                                              ; preds = %221, %StoreConstraints.exit
+219:                                              ; preds = %218, %StoreConstraints.exit
   call void @table_close(ptr noundef nonnull %104, i32 noundef 0) #11
   call void @table_close(ptr noundef %28, i32 noundef 3) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %25)

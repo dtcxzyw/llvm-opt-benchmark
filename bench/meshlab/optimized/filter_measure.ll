@@ -6041,32 +6041,31 @@ _ZNK19MeshLabPluginLogger3logIJRiEEEvPKcDpOT_.exit150: ; preds = %_ZN11GLLogStre
   call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %21) #30
   %232 = load ptr, ptr %83, align 8
   %233 = load ptr, ptr %85, align 8
-  %.not17.i = icmp eq ptr %232, %233
-  br i1 %.not17.i, label %._crit_edge, label %.lr.ph.i152
+  %.not18.i152 = icmp eq ptr %232, %233
+  br i1 %.not18.i152, label %._crit_edge, label %.lr.ph.i153
 
-.lr.ph.i152:                                      ; preds = %228, %239
-  %.sroa.012.018.i = phi ptr [ %240, %239 ], [ %232, %228 ]
-  %234 = getelementptr inbounds nuw i8, ptr %.sroa.012.018.i, i64 32
+.lr.ph.i153:                                      ; preds = %228, %239
+  %.sroa.012.019.i = phi ptr [ %240, %239 ], [ %232, %228 ]
+  %234 = getelementptr inbounds nuw i8, ptr %.sroa.012.019.i, i64 32
   %235 = load i32, ptr %234, align 8
-  %.fr22.i = freeze i32 %235
-  %236 = and i32 %.fr22.i, 1
+  %236 = and i32 %235, 1
   %.not16.i = icmp ne i32 %236, 0
-  %237 = and i32 %.fr22.i, 786432
-  %.not23.i153 = icmp eq i32 %237, 0
-  %or.cond.i154 = or i1 %.not16.i, %.not23.i153
+  %237 = and i32 %235, 786432
+  %.not17.i = icmp eq i32 %237, 0
+  %or.cond.i154 = or i1 %.not16.i, %.not17.i
   br i1 %or.cond.i154, label %239, label %switch.early.test.i
 
-switch.early.test.i:                              ; preds = %.lr.ph.i152
-  %238 = and i32 %.fr22.i, 1835008
+switch.early.test.i:                              ; preds = %.lr.ph.i153
+  %238 = and i32 %235, 1835008
   switch i32 %238, label %_ZN3vcg3tri5CleanI6CMeshOE16IsBitTriQuadOnlyERKS2_.exit [
     i32 524288, label %239
     i32 262144, label %239
   ]
 
-239:                                              ; preds = %switch.early.test.i, %switch.early.test.i, %.lr.ph.i152
-  %240 = getelementptr inbounds nuw i8, ptr %.sroa.012.018.i, i64 48
+239:                                              ; preds = %switch.early.test.i, %switch.early.test.i, %.lr.ph.i153
+  %240 = getelementptr inbounds nuw i8, ptr %.sroa.012.019.i, i64 48
   %.not.i155 = icmp eq ptr %240, %233
-  br i1 %.not.i155, label %.lr.ph.i.i, label %.lr.ph.i152, !llvm.loop !33
+  br i1 %.not.i155, label %.lr.ph.i.i, label %.lr.ph.i153, !llvm.loop !33
 
 _ZN3vcg3tri5CleanI6CMeshOE16IsBitTriQuadOnlyERKS2_.exit: ; preds = %switch.early.test.i
   %241 = call ptr @__cxa_allocate_exception(i64 24) #30

@@ -8913,7 +8913,7 @@ switch.early.test:                                ; preds = %get_native_fmtchar.
   tail call void @PyErr_SetString(ptr noundef %32, ptr noundef nonnull @.str.80) #14
   br label %89
 
-33:                                               ; preds = %switch.early.test, %switch.early.test, %switch.early.test, %get_native_fmtchar.exit43, %29, %29, %29, %30, %30
+33:                                               ; preds = %29, %29, %29, %30, %30, %switch.early.test, %switch.early.test, %switch.early.test, %get_native_fmtchar.exit43
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %35 = load i64, ptr %34, align 8, !tbaa !118
   %36 = add nsw i64 %.0.ph.i, -1

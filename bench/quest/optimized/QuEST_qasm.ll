@@ -2646,12 +2646,14 @@ getPhaseFuncSymbol.exit233:                       ; preds = %.lr.ph266, %getPhas
 
 170:                                              ; preds = %159, %163
   %.10 = phi i32 [ %169, %163 ], [ 13, %159 ]
-  %171 = add nsw i32 %5, -9
-  %brmerge = icmp ult i32 %171, 3
-  %brmerge335 = or i1 %brmerge, %162
-  br i1 %brmerge335, label %.sink.split331, label %178
+  %.off = add nsw i32 %5, -9
+  %switch = icmp ult i32 %.off, 3
+  %or.cond336 = or i1 %162, %switch
+  br i1 %or.cond336, label %.sink.split331, label %178
 
 .sink.split331:                                   ; preds = %170
+  %171 = add nsw i32 %5, -9
+  %brmerge = icmp ult i32 %171, 3
   %.str.81.mux = select i1 %or.cond27, ptr @.str.81, ptr @.str.82
   %.str.81.mux.mux = select i1 %brmerge, ptr %.str.81.mux, ptr @.str.83
   %172 = sext i32 %.10 to i64

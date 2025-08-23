@@ -6146,8 +6146,8 @@ opt_free_elem.exit:                               ; preds = %.lr.ph279, %74, %75
   br i1 %.not281, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader262
-  %101 = and i32 %5, -65538
-  %102 = load ptr, ptr %10, align 8
+  %101 = load ptr, ptr %10, align 8
+  %102 = and i32 %5, -65538
   %103 = getelementptr inbounds nuw i8, ptr %20, i64 40
   %104 = getelementptr inbounds nuw i8, ptr %20, i64 32
   br label %105
@@ -6281,12 +6281,12 @@ opt_free_elem.exit:                               ; preds = %.lr.ph279, %74, %75
 
 169:                                              ; preds = %168
   %170 = load ptr, ptr %114, align 8, !tbaa !33
-  %171 = call i32 @opt_set_elem(ptr noundef %0, ptr noundef %102, ptr noundef nonnull %20, ptr noundef %170, ptr noundef %112)
+  %171 = call i32 @opt_set_elem(ptr noundef %0, ptr noundef %101, ptr noundef nonnull %20, ptr noundef %170, ptr noundef %112)
   %172 = icmp slt i32 %171, 0
   br i1 %172, label %.loopexit263, label %read_number.exit
 
 switch.early.test:                                ; preds = %168
-  switch i32 %101, label %.loopexit263 [
+  switch i32 %102, label %.loopexit263 [
     i32 4, label %173
     i32 2, label %173
   ]
@@ -6448,7 +6448,7 @@ opt_free_elem.exit195:                            ; preds = %.lr.ph276, %214, %2
   store i32 %.0132, ptr %29, align 8, !tbaa !26
   br label %.loopexit263
 
-.loopexit263:                                     ; preds = %116, %190, %169, %switch.early.test, %162, %.loopexit, %197, %195
+.loopexit263:                                     ; preds = %switch.early.test, %116, %190, %169, %162, %.loopexit, %197, %195
   %.5 = phi i32 [ %.0133.lcssa, %195 ], [ %.0133.lcssa, %.loopexit ], [ -12, %197 ], [ -34, %162 ], [ %171, %169 ], [ %191, %190 ], [ -38, %switch.early.test ], [ %117, %116 ]
   call fastcc void @opt_free_array(ptr noundef nonnull %20, ptr noundef nonnull %12, ptr noundef nonnull %8)
   br label %239

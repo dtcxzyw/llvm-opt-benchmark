@@ -4168,7 +4168,7 @@ define noundef zeroext i1 @_ZNK13sentencepiece16TrainerInterface20IsValidSentenc
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !142
   %7 = icmp eq ptr %4, %6
-  br i1 %7, label %.critedge86, label %8
+  br i1 %7, label %.critedge85, label %8
 
 8:                                                ; preds = %2
   %9 = ptrtoint ptr %6 to i64
@@ -4179,7 +4179,7 @@ define noundef zeroext i1 @_ZNK13sentencepiece16TrainerInterface20IsValidSentenc
   %14 = load i32, ptr %13, align 8, !tbaa !127
   %15 = sext i32 %14 to i64
   %16 = icmp ugt i64 %12, %15
-  br i1 %16, label %.critedge86, label %17
+  br i1 %16, label %.critedge85, label %17
 
 17:                                               ; preds = %8
   %18 = ashr i64 %11, 4
@@ -4202,19 +4202,19 @@ define noundef zeroext i1 @_ZNK13sentencepiece16TrainerInterface20IsValidSentenc
   %23 = getelementptr inbounds nuw i8, ptr %.sroa.025.050.i.i.i.i, i64 4
   %24 = load i32, ptr %23, align 4, !tbaa !141
   %.not37.i.i.i.i = icmp eq i32 %24, 9601
-  br i1 %.not37.i.i.i.i, label %25, label %.lr.ph.loopexit.split.loop.exit147
+  br i1 %.not37.i.i.i.i, label %25, label %.lr.ph.loopexit.split.loop.exit146
 
 25:                                               ; preds = %22
   %26 = getelementptr inbounds nuw i8, ptr %.sroa.025.050.i.i.i.i, i64 8
   %27 = load i32, ptr %26, align 4, !tbaa !141
   %.not38.i.i.i.i = icmp eq i32 %27, 9601
-  br i1 %.not38.i.i.i.i, label %28, label %.lr.ph.loopexit.split.loop.exit145
+  br i1 %.not38.i.i.i.i, label %28, label %.lr.ph.loopexit.split.loop.exit144
 
 28:                                               ; preds = %25
   %29 = getelementptr inbounds nuw i8, ptr %.sroa.025.050.i.i.i.i, i64 12
   %30 = load i32, ptr %29, align 4, !tbaa !141
   %.not39.i.i.i.i = icmp eq i32 %30, 9601
-  br i1 %.not39.i.i.i.i, label %31, label %.lr.ph.loopexit.split.loop.exit143
+  br i1 %.not39.i.i.i.i, label %31, label %.lr.ph.loopexit.split.loop.exit142
 
 31:                                               ; preds = %28
   %32 = getelementptr inbounds nuw i8, ptr %.sroa.025.050.i.i.i.i, i64 16
@@ -4263,20 +4263,20 @@ define noundef zeroext i1 @_ZNK13sentencepiece16TrainerInterface20IsValidSentenc
   %spec.select.i.i.i.i = select i1 %.not35.i.i.i.i, ptr %6, ptr %.sroa.025.2.i.i.i.i
   br label %.lr.ph
 
-.lr.ph.loopexit.split.loop.exit143:               ; preds = %28
+.lr.ph.loopexit.split.loop.exit142:               ; preds = %28
   %46 = getelementptr inbounds nuw i8, ptr %.sroa.025.050.i.i.i.i, i64 12
   br label %.lr.ph
 
-.lr.ph.loopexit.split.loop.exit145:               ; preds = %25
+.lr.ph.loopexit.split.loop.exit144:               ; preds = %25
   %47 = getelementptr inbounds nuw i8, ptr %.sroa.025.050.i.i.i.i, i64 8
   br label %.lr.ph
 
-.lr.ph.loopexit.split.loop.exit147:               ; preds = %22
+.lr.ph.loopexit.split.loop.exit146:               ; preds = %22
   %48 = getelementptr inbounds nuw i8, ptr %.sroa.025.050.i.i.i.i, i64 4
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.i.i.i.i, %.lr.ph.loopexit.split.loop.exit143, %.lr.ph.loopexit.split.loop.exit145, %.lr.ph.loopexit.split.loop.exit147, %44, %40, %36, %._crit_edge.i.i.i.i
-  %.sroa.08.0.in.sroa.speculated.i.i.i.i = phi ptr [ %.sroa.025.0.lcssa.i.i.i.i, %36 ], [ %.sroa.025.1.i.i.i.i, %40 ], [ %6, %._crit_edge.i.i.i.i ], [ %spec.select.i.i.i.i, %44 ], [ %46, %.lr.ph.loopexit.split.loop.exit143 ], [ %47, %.lr.ph.loopexit.split.loop.exit145 ], [ %48, %.lr.ph.loopexit.split.loop.exit147 ], [ %.sroa.025.050.i.i.i.i, %.lr.ph.i.i.i.i ]
+.lr.ph:                                           ; preds = %.lr.ph.i.i.i.i, %.lr.ph.loopexit.split.loop.exit142, %.lr.ph.loopexit.split.loop.exit144, %.lr.ph.loopexit.split.loop.exit146, %44, %40, %36, %._crit_edge.i.i.i.i
+  %.sroa.08.0.in.sroa.speculated.i.i.i.i = phi ptr [ %.sroa.025.0.lcssa.i.i.i.i, %36 ], [ %.sroa.025.1.i.i.i.i, %40 ], [ %6, %._crit_edge.i.i.i.i ], [ %spec.select.i.i.i.i, %44 ], [ %46, %.lr.ph.loopexit.split.loop.exit142 ], [ %47, %.lr.ph.loopexit.split.loop.exit144 ], [ %48, %.lr.ph.loopexit.split.loop.exit146 ], [ %.sroa.025.050.i.i.i.i, %.lr.ph.i.i.i.i ]
   %49 = icmp eq ptr %6, %.sroa.08.0.in.sroa.speculated.i.i.i.i
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 430
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 367
@@ -4287,25 +4287,25 @@ define noundef zeroext i1 @_ZNK13sentencepiece16TrainerInterface20IsValidSentenc
   br label %56
 
 56:                                               ; preds = %.lr.ph, %.critedge83
-  %57 = phi ptr [ %4, %.lr.ph ], [ %139, %.critedge83 ]
-  %58 = phi ptr [ %6, %.lr.ph ], [ %140, %.critedge83 ]
-  %59 = phi i64 [ %12, %.lr.ph ], [ %145, %.critedge83 ]
-  %60 = phi i64 [ %11, %.lr.ph ], [ %144, %.critedge83 ]
-  %.069109 = phi i32 [ -1, %.lr.ph ], [ %.271, %.critedge83 ]
-  %.075108 = phi i64 [ 0, %.lr.ph ], [ %141, %.critedge83 ]
-  %61 = getelementptr inbounds nuw i32, ptr %57, i64 %.075108
+  %57 = phi ptr [ %4, %.lr.ph ], [ %138, %.critedge83 ]
+  %58 = phi ptr [ %6, %.lr.ph ], [ %139, %.critedge83 ]
+  %59 = phi i64 [ %12, %.lr.ph ], [ %144, %.critedge83 ]
+  %60 = phi i64 [ %11, %.lr.ph ], [ %143, %.critedge83 ]
+  %.069108 = phi i32 [ -1, %.lr.ph ], [ %.271, %.critedge83 ]
+  %.075107 = phi i64 [ 0, %.lr.ph ], [ %140, %.critedge83 ]
+  %61 = getelementptr inbounds nuw i32, ptr %57, i64 %.075107
   %62 = load i32, ptr %61, align 4, !tbaa !141
   switch i32 %62, label %79 [
-    i32 9605, label %.critedge86
-    i32 0, label %.critedge86
-    i32 9, label %.critedge86
+    i32 9605, label %.critedge85
+    i32 0, label %.critedge85
+    i32 9, label %.critedge85
     i32 32, label %63
   ]
 
 63:                                               ; preds = %56
   %64 = tail call noundef i32 @_ZN13sentencepiece7logging14GetMinLogLevelEv()
   %65 = icmp slt i32 %64, 2
-  br i1 %65, label %66, label %.critedge86
+  br i1 %65, label %66, label %.critedge85
 
 66:                                               ; preds = %63
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -4323,30 +4323,30 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %68
 
 71:                                               ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit
   %72 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %70, ptr noundef nonnull @.str.5, i64 noundef 2)
+          to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit90 unwind label %77
+
+_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit90: ; preds = %71
+  %73 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %70, ptr noundef nonnull @.str.6, i64 noundef 4)
           to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit91 unwind label %77
 
-_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit91: ; preds = %71
-  %73 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %70, ptr noundef nonnull @.str.6, i64 noundef 4)
+_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit91: ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit90
+  %74 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %70, ptr noundef nonnull @.str.9, i64 noundef 7)
           to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit92 unwind label %77
 
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit92: ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit91
-  %74 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %70, ptr noundef nonnull @.str.9, i64 noundef 7)
+  %75 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %70, ptr noundef nonnull @.str.5, i64 noundef 2)
           to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit93 unwind label %77
 
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit93: ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit92
-  %75 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %70, ptr noundef nonnull @.str.5, i64 noundef 2)
-          to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit94 unwind label %77
-
-_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit94: ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit93
   %76 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %70, ptr noundef nonnull @.str.10, i64 noundef 48)
           to label %.critedge unwind label %77
 
-.critedge:                                        ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit94
+.critedge:                                        ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit93
   call void @_ZN13sentencepiece5error3DieD2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %.critedge86
+  br label %.critedge85
 
-77:                                               ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit94, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit93, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit92, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit91, %71, %68, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit, %66
+77:                                               ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit93, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit92, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit91, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit90, %71, %68, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit, %66
   %78 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN13sentencepiece5error3DieD2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #30
@@ -4358,7 +4358,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit94: ; preds = %_ZStl
   %81 = add i32 %62, -57344
   %82 = icmp ult i32 %81, 1056768
   %83 = or i1 %80, %82
-  br i1 %83, label %84, label %.critedge86
+  br i1 %83, label %84, label %.critedge85
 
 84:                                               ; preds = %79
   %85 = icmp eq i32 %62, 9601
@@ -4382,105 +4382,115 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit94: ; preds = %_ZStl
 
 95:                                               ; preds = %94
   %96 = add nsw i64 %59, -1
-  %97 = icmp ult i64 %.075108, %96
-  br i1 %97, label %.critedge86, label %.critedge83
+  %97 = icmp ult i64 %.075107, %96
+  br i1 %97, label %.critedge85, label %.critedge83
 
 98:                                               ; preds = %94
-  %99 = icmp eq i64 %.075108, 0
+  %99 = icmp eq i64 %.075107, 0
   %100 = icmp ne i64 %60, 4
   %or.cond5 = and i1 %99, %100
-  br i1 %or.cond5, label %.critedge86, label %.critedge83
+  br i1 %or.cond5, label %.critedge85, label %.critedge83
 
 101:                                              ; preds = %89
-  %102 = icmp ne i64 %.075108, 0
+  %102 = icmp ne i64 %.075107, 0
   %or.cond7 = and i1 %102, %93
-  br i1 %or.cond7, label %.critedge86, label %103
+  br i1 %or.cond7, label %.critedge85, label %103
 
 103:                                              ; preds = %101
   %.not = xor i1 %93, true
   %or.cond9 = and i1 %102, %.not
   %104 = add nsw i64 %59, -1
-  %105 = icmp eq i64 %.075108, %104
-  %or.cond98 = select i1 %or.cond9, i1 %105, i1 false
-  br i1 %or.cond98, label %.critedge86, label %.critedge83
+  %105 = icmp eq i64 %.075107, %104
+  %or.cond97 = select i1 %or.cond9, i1 %105, i1 false
+  br i1 %or.cond97, label %.critedge85, label %.critedge83
 
 106:                                              ; preds = %84
   %107 = tail call noundef i32 @_ZN13sentencepiece14unicode_script9GetScriptEj(i32 noundef %62)
-  %108 = icmp eq i32 %107, 46
-  %109 = icmp eq i32 %107, 54
-  %or.cond11 = or i1 %108, %109
-  %110 = icmp eq i32 %62, 12540
-  %or.cond13 = or i1 %110, %or.cond11
-  %111 = icmp eq i32 %107, 48
-  %spec.select = select i1 %111, i32 %.069109, i32 %107
-  %.0 = select i1 %or.cond13, i32 41, i32 %spec.select
-  %112 = load i8, ptr %50, align 2, !tbaa !172, !range !42, !noundef !43
-  %113 = trunc nuw i8 %112 to i1
-  br i1 %113, label %119, label %114
+  %108 = icmp eq i32 %62, 12540
+  br i1 %108, label %110, label %switch.early.test
 
-114:                                              ; preds = %106
-  %115 = add nsw i32 %62, -48
-  %or.cond.i = icmp ult i32 %115, 10
-  %116 = add nsw i32 %62, -65296
-  %117 = icmp ult i32 %116, 10
-  %118 = or i1 %or.cond.i, %117
-  %spec.select84 = select i1 %118, i32 -1, i32 %.0
-  br label %119
+switch.early.test:                                ; preds = %106
+  switch i32 %107, label %.fold.split [
+    i32 54, label %110
+    i32 46, label %110
+    i32 48, label %109
+  ]
 
-119:                                              ; preds = %114, %106
-  %.1 = phi i32 [ %.0, %106 ], [ %spec.select84, %114 ]
-  %120 = load i8, ptr %51, align 1, !tbaa !173, !range !42, !noundef !43
-  %121 = trunc nuw i8 %120 to i1
-  br i1 %121, label %122, label %134
+109:                                              ; preds = %switch.early.test
+  br label %110
 
-122:                                              ; preds = %119
-  %123 = add nsw i32 %62, -48
-  %or.cond.i96 = icmp ult i32 %123, 10
-  %124 = add nsw i32 %62, -65296
-  %125 = icmp ult i32 %124, 10
-  %126 = or i1 %or.cond.i96, %125
-  br i1 %126, label %127, label %134
+.fold.split:                                      ; preds = %switch.early.test
+  br label %110
 
-127:                                              ; preds = %122
-  %128 = load ptr, ptr %5, align 8, !tbaa !174
-  %129 = load ptr, ptr %1, align 8, !tbaa !176
+110:                                              ; preds = %switch.early.test, %switch.early.test, %.fold.split, %106, %109
+  %.0 = phi i32 [ %.069108, %109 ], [ 41, %switch.early.test ], [ 41, %switch.early.test ], [ 41, %106 ], [ %107, %.fold.split ]
+  %111 = load i8, ptr %50, align 2, !tbaa !172, !range !42, !noundef !43
+  %112 = trunc nuw i8 %111 to i1
+  br i1 %112, label %118, label %113
+
+113:                                              ; preds = %110
+  %114 = add nsw i32 %62, -48
+  %or.cond.i = icmp ult i32 %114, 10
+  %115 = add nsw i32 %62, -65296
+  %116 = icmp ult i32 %115, 10
+  %117 = or i1 %or.cond.i, %116
+  %spec.select = select i1 %117, i32 -1, i32 %.0
+  br label %118
+
+118:                                              ; preds = %113, %110
+  %.1 = phi i32 [ %.0, %110 ], [ %spec.select, %113 ]
+  %119 = load i8, ptr %51, align 1, !tbaa !173, !range !42, !noundef !43
+  %120 = trunc nuw i8 %119 to i1
+  br i1 %120, label %121, label %133
+
+121:                                              ; preds = %118
+  %122 = add nsw i32 %62, -48
+  %or.cond.i95 = icmp ult i32 %122, 10
+  %123 = add nsw i32 %62, -65296
+  %124 = icmp ult i32 %123, 10
+  %125 = or i1 %or.cond.i95, %124
+  br i1 %125, label %126, label %133
+
+126:                                              ; preds = %121
+  %127 = load ptr, ptr %5, align 8, !tbaa !174
+  %128 = load ptr, ptr %1, align 8, !tbaa !176
+  %129 = ptrtoint ptr %127 to i64
   %130 = ptrtoint ptr %128 to i64
-  %131 = ptrtoint ptr %129 to i64
-  %132 = sub i64 %130, %131
-  %133 = icmp ugt i64 %132, 4
-  br i1 %133, label %.critedge86, label %134
+  %131 = sub i64 %129, %130
+  %132 = icmp ugt i64 %131, 4
+  br i1 %132, label %.critedge85, label %133
 
-134:                                              ; preds = %127, %122, %119
-  %135 = load i8, ptr %52, align 1, !tbaa !177, !range !42, !noundef !43
-  %136 = trunc nuw i8 %135 to i1
-  %137 = icmp eq i32 %.1, -1
-  %not. = xor i1 %136, true
-  %or.cond15 = select i1 %not., i1 true, i1 %137
-  %138 = icmp eq i32 %.069109, -1
-  %or.cond17 = select i1 %or.cond15, i1 true, i1 %138
-  %.not81 = icmp eq i32 %.069109, %.1
-  %or.cond85 = select i1 %or.cond17, i1 true, i1 %.not81
-  br i1 %or.cond85, label %..critedge83_crit_edge, label %.critedge86
+133:                                              ; preds = %126, %121, %118
+  %134 = load i8, ptr %52, align 1, !tbaa !177, !range !42, !noundef !43
+  %135 = trunc nuw i8 %134 to i1
+  %136 = icmp eq i32 %.1, -1
+  %not. = xor i1 %135, true
+  %or.cond15 = select i1 %not., i1 true, i1 %136
+  %137 = icmp eq i32 %.069108, -1
+  %or.cond17 = select i1 %or.cond15, i1 true, i1 %137
+  %.not81 = icmp eq i32 %.069108, %.1
+  %or.cond84 = select i1 %or.cond17, i1 true, i1 %.not81
+  br i1 %or.cond84, label %..critedge83_crit_edge, label %.critedge85
 
-..critedge83_crit_edge:                           ; preds = %134
+..critedge83_crit_edge:                           ; preds = %133
   %.pre = load ptr, ptr %5, align 8, !tbaa !174
-  %.pre134 = load ptr, ptr %1, align 8, !tbaa !176
+  %.pre133 = load ptr, ptr %1, align 8, !tbaa !176
   br label %.critedge83
 
 .critedge83:                                      ; preds = %..critedge83_crit_edge, %95, %86, %103, %98
-  %139 = phi ptr [ %57, %86 ], [ %57, %98 ], [ %57, %103 ], [ %.pre134, %..critedge83_crit_edge ], [ %57, %95 ]
-  %140 = phi ptr [ %58, %86 ], [ %58, %98 ], [ %58, %103 ], [ %.pre, %..critedge83_crit_edge ], [ %58, %95 ]
-  %.271 = phi i32 [ %.069109, %86 ], [ %.069109, %98 ], [ %.069109, %103 ], [ %.1, %..critedge83_crit_edge ], [ %.069109, %95 ]
-  %141 = add nuw i64 %.075108, 1
-  %142 = ptrtoint ptr %140 to i64
-  %143 = ptrtoint ptr %139 to i64
-  %144 = sub i64 %142, %143
-  %145 = ashr exact i64 %144, 2
-  %.not82.not = icmp ult i64 %141, %145
-  br i1 %.not82.not, label %56, label %.critedge86, !llvm.loop !178
+  %138 = phi ptr [ %57, %86 ], [ %57, %98 ], [ %57, %103 ], [ %.pre133, %..critedge83_crit_edge ], [ %57, %95 ]
+  %139 = phi ptr [ %58, %86 ], [ %58, %98 ], [ %58, %103 ], [ %.pre, %..critedge83_crit_edge ], [ %58, %95 ]
+  %.271 = phi i32 [ %.069108, %86 ], [ %.069108, %98 ], [ %.069108, %103 ], [ %.1, %..critedge83_crit_edge ], [ %.069108, %95 ]
+  %140 = add nuw i64 %.075107, 1
+  %141 = ptrtoint ptr %139 to i64
+  %142 = ptrtoint ptr %138 to i64
+  %143 = sub i64 %141, %142
+  %144 = ashr exact i64 %143, 2
+  %.not82.not = icmp ult i64 %140, %144
+  br i1 %.not82.not, label %56, label %.critedge85, !llvm.loop !178
 
-.critedge86:                                      ; preds = %127, %134, %56, %56, %56, %79, %98, %95, %101, %.critedge83, %103, %.critedge, %63, %2, %8
-  %.067 = phi i1 [ false, %8 ], [ false, %2 ], [ false, %63 ], [ false, %.critedge ], [ false, %127 ], [ false, %134 ], [ false, %56 ], [ false, %56 ], [ false, %56 ], [ false, %79 ], [ false, %98 ], [ false, %95 ], [ false, %101 ], [ true, %.critedge83 ], [ false, %103 ]
+.critedge85:                                      ; preds = %126, %133, %56, %56, %56, %79, %98, %95, %101, %.critedge83, %103, %.critedge, %63, %2, %8
+  %.067 = phi i1 [ false, %8 ], [ false, %2 ], [ false, %63 ], [ false, %.critedge ], [ false, %126 ], [ false, %133 ], [ false, %56 ], [ false, %56 ], [ false, %56 ], [ false, %79 ], [ false, %98 ], [ false, %95 ], [ false, %101 ], [ true, %.critedge83 ], [ false, %103 ]
   ret i1 %.067
 }
 

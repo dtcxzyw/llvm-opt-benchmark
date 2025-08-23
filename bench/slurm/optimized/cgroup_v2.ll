@@ -1764,11 +1764,11 @@ define internal fastcc range(i32 -1, 1) i32 @_get_controllers(ptr noundef %0, pt
 23:                                               ; preds = %22, %15
   %24 = phi ptr [ %.pre, %22 ], [ %16, %15 ]
   %25 = call ptr @strtok_r(ptr noundef %24, ptr noundef nonnull @.str.114, ptr noundef nonnull %4) #17
-  %.not32 = icmp eq ptr %25, null
-  br i1 %.not32, label %._crit_edge, label %.preheader
+  %.not33 = icmp eq ptr %25, null
+  br i1 %.not33, label %._crit_edge, label %.preheader
 
-.preheader:                                       ; preds = %23, %.loopexit30
-  %.02233 = phi ptr [ %34, %.loopexit30 ], [ %25, %23 ]
+.preheader:                                       ; preds = %23, %.loopexit31
+  %.02234 = phi ptr [ %34, %.loopexit31 ], [ %25, %23 ]
   br label %26
 
 26:                                               ; preds = %.preheader, %33
@@ -1780,56 +1780,60 @@ define internal fastcc range(i32 -1, 1) i32 @_get_controllers(ptr noundef %0, pt
   br i1 %.not28, label %33, label %30
 
 30:                                               ; preds = %26
-  %31 = call i32 @xstrcasecmp(ptr noundef %28, ptr noundef nonnull %.02233) #17
+  %31 = call i32 @xstrcasecmp(ptr noundef %28, ptr noundef nonnull %.02234) #17
   %.not29 = icmp eq i32 %31, 0
   br i1 %.not29, label %32, label %33
 
 32:                                               ; preds = %30
   call void @bit_set(ptr noundef %1, i64 noundef %indvars.iv) #17
-  br label %.loopexit30
+  br label %.loopexit31
 
 33:                                               ; preds = %30, %26
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 5
-  br i1 %exitcond.not, label %.loopexit30, label %26, !llvm.loop !21
+  br i1 %exitcond.not, label %.loopexit31, label %26, !llvm.loop !21
 
-.loopexit30:                                      ; preds = %33, %32
+.loopexit31:                                      ; preds = %33, %32
   %34 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.114, ptr noundef nonnull %4) #17
   %.not = icmp eq ptr %34, null
   br i1 %.not, label %._crit_edge, label %.preheader, !llvm.loop !22
 
-._crit_edge:                                      ; preds = %.loopexit30, %23
+._crit_edge:                                      ; preds = %.loopexit31, %23
   call void @slurm_xfree(ptr noundef nonnull %3) #17
   br label %35
 
-35:                                               ; preds = %._crit_edge, %46
-  %indvars.iv37 = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next38, %46 ]
-  %36 = icmp ne i64 %indvars.iv37, 3
-  %37 = icmp ne i64 %indvars.iv37, 0
-  %or.cond3.not26 = and i1 %36, %37
-  %38 = load ptr, ptr @invoc_id, align 8
-  %39 = icmp ne ptr %38, null
-  %or.cond5 = select i1 %or.cond3.not26, i1 %39, i1 false
-  br i1 %or.cond5, label %40, label %46
+35:                                               ; preds = %._crit_edge, %44
+  %indvars.iv38 = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next39, %44 ]
+  %36 = load ptr, ptr @invoc_id, align 8
+  %.fr = freeze ptr %36
+  %.not30 = icmp eq ptr %.fr, null
+  br i1 %.not30, label %44, label %switch.early.test
 
-40:                                               ; preds = %35
-  %41 = call i32 @slurm_bit_test(ptr noundef %1, i64 noundef %indvars.iv37) #17
-  %.not27 = icmp eq i32 %41, 0
-  br i1 %.not27, label %42, label %46
+switch.early.test:                                ; preds = %35
+  %37 = trunc nuw nsw i64 %indvars.iv38 to i32
+  switch i32 %37, label %38 [
+    i32 3, label %44
+    i32 0, label %44
+  ]
 
-42:                                               ; preds = %40
-  %43 = getelementptr inbounds nuw [5 x ptr], ptr @ctl_names, i64 0, i64 %indvars.iv37
-  %44 = load ptr, ptr %43, align 8
-  %45 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.180, ptr noundef %44) #17
-  br label %46
+38:                                               ; preds = %switch.early.test
+  %39 = call i32 @slurm_bit_test(ptr noundef %1, i64 noundef %indvars.iv38) #17
+  %.not27 = icmp eq i32 %39, 0
+  br i1 %.not27, label %40, label %44
 
-46:                                               ; preds = %40, %42, %35
-  %indvars.iv.next38 = add nuw nsw i64 %indvars.iv37, 1
-  %exitcond40.not = icmp eq i64 %indvars.iv.next38, 5
-  br i1 %exitcond40.not, label %.loopexit, label %35, !llvm.loop !23
+40:                                               ; preds = %38
+  %41 = getelementptr inbounds nuw [5 x ptr], ptr @ctl_names, i64 0, i64 %indvars.iv38
+  %42 = load ptr, ptr %41, align 8
+  %43 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.180, ptr noundef %42) #17
+  br label %44
 
-.loopexit:                                        ; preds = %46, %12
-  %.023 = phi i32 [ -1, %12 ], [ 0, %46 ]
+44:                                               ; preds = %switch.early.test, %switch.early.test, %35, %38, %40
+  %indvars.iv.next39 = add nuw nsw i64 %indvars.iv38, 1
+  %exitcond41.not = icmp eq i64 %indvars.iv.next39, 5
+  br i1 %exitcond41.not, label %.loopexit, label %35, !llvm.loop !23
+
+.loopexit:                                        ; preds = %44, %12
+  %.023 = phi i32 [ -1, %12 ], [ 0, %44 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)

@@ -1309,8 +1309,8 @@ switch.early.test:                                ; preds = %19
   %40 = load ptr, ptr @poisoned_decl, align 8
   br label %41
 
-41:                                               ; preds = %switch.early.test, %switch.early.test, %switch.early.test, %19, %26, %35, %33, %17, %15
-  %.025 = phi ptr [ %16, %15 ], [ %18, %17 ], [ %34, %33 ], [ %40, %35 ], [ %.032, %26 ], [ %.032, %switch.early.test ], [ %.032, %19 ], [ %.032, %switch.early.test ], [ %.032, %switch.early.test ]
+41:                                               ; preds = %26, %19, %switch.early.test, %switch.early.test, %switch.early.test, %35, %33, %17, %15
+  %.025 = phi ptr [ %16, %15 ], [ %18, %17 ], [ %34, %33 ], [ %40, %35 ], [ %.032, %switch.early.test ], [ %.032, %switch.early.test ], [ %.032, %switch.early.test ], [ %.032, %19 ], [ %.032, %26 ]
   ret ptr %.025
 }
 

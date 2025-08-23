@@ -28,85 +28,90 @@ define internal range(i32 0, 53) i32 @avs2_probe(ptr noundef readonly captures(n
   %or.cond = select i1 %.not, i1 %10, i1 false
   br i1 %or.cond, label %.lr.ph, label %.loopexit
 
-.lr.ph:                                           ; preds = %1, %35
-  %.075 = phi ptr [ %.1, %35 ], [ null, %1 ]
-  %.06074 = phi ptr [ %11, %35 ], [ %4, %1 ]
-  %.06173 = phi i32 [ %.162, %35 ], [ 0, %1 ]
-  %.06372 = phi i32 [ %.164, %35 ], [ 0, %1 ]
-  %.06571 = phi i32 [ %.2, %35 ], [ 0, %1 ]
-  %11 = call ptr @avpriv_find_start_code(ptr noundef %.06074, ptr noundef nonnull %8, ptr noundef nonnull %2) #4
+.lr.ph:                                           ; preds = %1, %33
+  %.077 = phi ptr [ %.1, %33 ], [ null, %1 ]
+  %.06076 = phi ptr [ %11, %33 ], [ %4, %1 ]
+  %.06175 = phi i32 [ %.162, %33 ], [ 0, %1 ]
+  %.06374 = phi i32 [ %.164, %33 ], [ 0, %1 ]
+  %.06573 = phi i32 [ %.2, %33 ], [ 0, %1 ]
+  %11 = call ptr @avpriv_find_start_code(ptr noundef %.06076, ptr noundef nonnull %8, ptr noundef nonnull %2) #4
   %12 = load i32, ptr %2, align 4, !tbaa !4
-  %13 = and i32 %12, -256
+  %.fr = freeze i32 %12
+  %13 = and i32 %.fr, -256
   %14 = icmp eq i32 %13, 256
-  br i1 %14, label %15, label %35
+  br i1 %14, label %15, label %33
 
 15:                                               ; preds = %.lr.ph
-  %16 = and i32 %12, 255
-  %17 = and i32 %12, 252
-  %or.cond8 = icmp eq i32 %17, 176
-  %18 = add nsw i32 %16, -181
-  %19 = icmp ult i32 %18, 3
-  %or.cond17 = or i1 %or.cond8, %19
-  br i1 %or.cond17, label %20, label %35
+  %16 = and i32 %.fr, 255
+  %17 = add nsw i32 %16, -181
+  %18 = icmp ult i32 %17, 3
+  %.pre = trunc i32 %.fr to i8
+  br i1 %18, label %._crit_edge84, label %switch.early.test
 
-20:                                               ; preds = %15
-  %21 = icmp eq ptr %.075, null
-  %22 = icmp ne i32 %.06571, 0
-  %or.cond19 = select i1 %21, i1 true, i1 %22
-  %23 = ptrtoint ptr %11 to i64
-  %24 = ptrtoint ptr %.075 to i64
-  %25 = sub i64 %23, %24
-  %26 = trunc i64 %25 to i32
-  %.3 = select i1 %or.cond19, i32 %.06571, i32 %26
-  %trunc = trunc i32 %12 to i8
-  switch i8 %trunc, label %35 [
-    i8 -80, label %27
-    i8 -74, label %33
-    i8 -77, label %33
+switch.early.test:                                ; preds = %15
+  %trunc = and i8 %.pre, -2
+  switch i8 %trunc, label %33 [
+    i8 -78, label %._crit_edge84
+    i8 -80, label %._crit_edge84
+  ]
+
+._crit_edge84:                                    ; preds = %15, %switch.early.test, %switch.early.test
+  %19 = icmp eq ptr %.077, null
+  %20 = icmp ne i32 %.06573, 0
+  %or.cond19 = select i1 %19, i1 true, i1 %20
+  %21 = ptrtoint ptr %11 to i64
+  %22 = ptrtoint ptr %.077 to i64
+  %23 = sub i64 %21, %22
+  %24 = trunc i64 %23 to i32
+  %.3 = select i1 %or.cond19, i32 %.06573, i32 %24
+  switch i8 %.pre, label %33 [
+    i8 -80, label %25
+    i8 -74, label %31
+    i8 -77, label %31
     i8 -79, label %._crit_edge.loopexit
   ]
 
-27:                                               ; preds = %20
-  %28 = load i8, ptr %11, align 1, !tbaa !13
-  %29 = add i8 %28, -32
-  %30 = call i8 @llvm.fshl.i8(i8 %29, i8 %29, i8 7)
-  switch i8 %30, label %.loopexit [
-    i8 0, label %31
-    i8 1, label %31
-    i8 8, label %31
-    i8 9, label %31
+25:                                               ; preds = %._crit_edge84
+  %26 = load i8, ptr %11, align 1, !tbaa !13
+  %27 = add i8 %26, -32
+  %28 = call i8 @llvm.fshl.i8(i8 %27, i8 %27, i8 7)
+  switch i8 %28, label %.loopexit [
+    i8 0, label %29
+    i8 1, label %29
+    i8 8, label %29
+    i8 9, label %29
   ]
 
-31:                                               ; preds = %27, %27, %27, %27
-  %32 = add i32 %.06173, 1
-  br label %35
+29:                                               ; preds = %25, %25, %25, %25
+  %30 = add i32 %.06175, 1
+  br label %33
 
-33:                                               ; preds = %20, %20
-  %34 = add i32 %.06372, 1
-  br label %35
+31:                                               ; preds = %._crit_edge84, %._crit_edge84
+  %32 = add i32 %.06374, 1
+  br label %33
 
-35:                                               ; preds = %20, %15, %33, %31, %.lr.ph
-  %.2 = phi i32 [ %.3, %31 ], [ %.3, %33 ], [ %.06571, %15 ], [ %.06571, %.lr.ph ], [ %.3, %20 ]
-  %.164 = phi i32 [ %.06372, %31 ], [ %34, %33 ], [ %.06372, %15 ], [ %.06372, %.lr.ph ], [ %.06372, %20 ]
-  %.162 = phi i32 [ %32, %31 ], [ %.06173, %33 ], [ %.06173, %15 ], [ %.06173, %.lr.ph ], [ %.06173, %20 ]
-  %.1 = phi ptr [ %11, %31 ], [ %.075, %33 ], [ %.075, %15 ], [ %.075, %.lr.ph ], [ %.075, %20 ]
-  %36 = icmp ult ptr %11, %8
-  br i1 %36, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !14
+33:                                               ; preds = %switch.early.test, %._crit_edge84, %31, %29, %.lr.ph
+  %.2 = phi i32 [ %.3, %29 ], [ %.3, %31 ], [ %.06573, %switch.early.test ], [ %.06573, %.lr.ph ], [ %.3, %._crit_edge84 ]
+  %.164 = phi i32 [ %.06374, %29 ], [ %32, %31 ], [ %.06374, %switch.early.test ], [ %.06374, %.lr.ph ], [ %.06374, %._crit_edge84 ]
+  %.162 = phi i32 [ %30, %29 ], [ %.06175, %31 ], [ %.06175, %switch.early.test ], [ %.06175, %.lr.ph ], [ %.06175, %._crit_edge84 ]
+  %.1 = phi ptr [ %11, %29 ], [ %.077, %31 ], [ %.077, %switch.early.test ], [ %.077, %.lr.ph ], [ %.077, %._crit_edge84 ]
+  %34 = icmp ult ptr %11, %8
+  br i1 %34, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !14
 
-._crit_edge.loopexit:                             ; preds = %20, %35
-  %.063.lcssa.ph = phi i32 [ %.164, %35 ], [ %.06372, %20 ]
-  %.061.lcssa.ph = phi i32 [ %.162, %35 ], [ %.06173, %20 ]
-  %.166.ph = phi i32 [ %.2, %35 ], [ %.3, %20 ]
-  %37 = icmp ne i32 %.061.lcssa.ph, 0
-  %38 = icmp ugt i32 %.166.ph, 20
+._crit_edge.loopexit:                             ; preds = %._crit_edge84, %33
+  %.063.lcssa.ph = phi i32 [ %.164, %33 ], [ %.06374, %._crit_edge84 ]
+  %.061.lcssa.ph = phi i32 [ %.162, %33 ], [ %.06175, %._crit_edge84 ]
+  %.166.ph = phi i32 [ %.2, %33 ], [ %.3, %._crit_edge84 ]
+  %35 = icmp ne i32 %.061.lcssa.ph, 0
+  %36 = icmp ugt i32 %.166.ph, 20
+  %37 = select i1 %35, i1 %36, i1 false
+  %38 = icmp ne i32 %.063.lcssa.ph, 0
   %39 = select i1 %37, i1 %38, i1 false
-  %40 = icmp ne i32 %.063.lcssa.ph, 0
-  %41 = select i1 %39, i1 %40, i1 false
-  %42 = select i1 %41, i32 52, i32 0
+  %40 = select i1 %39, i32 52, i32 0
   br label %.loopexit
 
-.loopexit:                                        ; preds = %27, %._crit_edge.loopexit, %1
-  %.059 = phi i32 [ 0, %1 ], [ %42, %._crit_edge.loopexit ], [ 0, %27 ]
+.loopexit:                                        ; preds = %25, %._crit_edge.loopexit, %1
+  %.059 = phi i32 [ 0, %1 ], [ %40, %._crit_edge.loopexit ], [ 0, %25 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.059
 }

@@ -456,72 +456,69 @@ declare void @free(ptr allocptr noundef captures(none)) #7
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @ruby_each_words(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1, ptr noundef %2) local_unnamed_addr #1 {
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %.loopexit, label %.preheader32
+  br i1 %.not, label %.loopexit, label %.preheader33
 
-.preheader32:                                     ; preds = %3
+.preheader33:                                     ; preds = %3
   %4 = load i8, ptr %0, align 1, !tbaa !7
-  %.not2242 = icmp eq i8 %4, 0
-  br i1 %.not2242, label %.loopexit, label %.preheader31
+  %.not2236 = icmp eq i8 %4, 0
+  br i1 %.not2236, label %.loopexit, label %.preheader32
 
-.preheader31:                                     ; preds = %.preheader32, %.preheader31.backedge
-  %5 = phi i8 [ %.be, %.preheader31.backedge ], [ %4, %.preheader32 ]
-  %.1 = phi ptr [ %.1.be, %.preheader31.backedge ], [ %0, %.preheader32 ]
+.preheader32:                                     ; preds = %.preheader33, %.preheader32.backedge
+  %5 = phi i8 [ %.be, %.preheader32.backedge ], [ %4, %.preheader33 ]
+  %.1 = phi ptr [ %.1.be, %.preheader32.backedge ], [ %0, %.preheader33 ]
   %.fr = freeze i8 %5
-  %6 = sext i8 %.fr to i32
-  %7 = add nsw i32 %6, -9
-  %8 = icmp ult i32 %7, 5
-  br i1 %8, label %.critedge, label %switch.early.test
-
-switch.early.test:                                ; preds = %.preheader31
-  switch i8 %.fr, label %.lr.ph [
+  switch i8 %.fr, label %.preheader [
     i8 44, label %.critedge
     i8 32, label %.critedge
+    i8 13, label %.critedge
+    i8 12, label %.critedge
+    i8 11, label %.critedge
+    i8 10, label %.critedge
+    i8 9, label %.critedge
     i8 0, label %.loopexit
   ]
 
-.critedge:                                        ; preds = %switch.early.test, %switch.early.test, %.preheader31
-  %9 = getelementptr i8, ptr %.1, i64 1
-  %.pr = load i8, ptr %9, align 1, !tbaa !7
-  br label %.preheader31.backedge
+.critedge:                                        ; preds = %.preheader32, %.preheader32, %.preheader32, %.preheader32, %.preheader32, %.preheader32, %.preheader32
+  %6 = getelementptr i8, ptr %.1, i64 1
+  %.pr = load i8, ptr %6, align 1, !tbaa !7
+  br label %.preheader32.backedge
 
-.preheader31.backedge:                            ; preds = %.critedge, %.critedge2
-  %.be = phi i8 [ %.pr, %.critedge ], [ %21, %.critedge2 ]
-  %.1.be = phi ptr [ %9, %.critedge ], [ %.019.lcssa.ph, %.critedge2 ]
-  br label %.preheader31, !llvm.loop !29
+.preheader32.backedge:                            ; preds = %.critedge, %.critedge2
+  %.be = phi i8 [ %.pr, %.critedge ], [ %14, %.critedge2 ]
+  %.1.be = phi ptr [ %6, %.critedge ], [ %.019, %.critedge2 ]
+  br label %.preheader32, !llvm.loop !29
 
-.lr.ph:                                           ; preds = %switch.early.test, %14
-  %10 = phi i8 [ %16, %14 ], [ %.fr, %switch.early.test ]
-  %.01936 = phi ptr [ %15, %14 ], [ %.1, %switch.early.test ]
-  %.fr47 = freeze i8 %10
-  %11 = sext i8 %.fr47 to i32
-  %12 = add nsw i32 %11, -9
-  %13 = icmp ult i32 %12, 5
-  br i1 %13, label %.critedge2, label %switch.early.test30
-
-switch.early.test30:                              ; preds = %.lr.ph
-  switch i8 %.fr47, label %14 [
+.preheader:                                       ; preds = %.preheader32, %8
+  %7 = phi i8 [ %.pre, %8 ], [ %.fr, %.preheader32 ]
+  %.019 = phi ptr [ %9, %8 ], [ %.1, %.preheader32 ]
+  %.fr31 = freeze i8 %7
+  switch i8 %.fr31, label %8 [
+    i8 0, label %.critedge2
     i8 44, label %.critedge2
     i8 32, label %.critedge2
+    i8 13, label %.critedge2
+    i8 12, label %.critedge2
+    i8 11, label %.critedge2
+    i8 10, label %.critedge2
+    i8 9, label %.critedge2
   ]
 
-14:                                               ; preds = %switch.early.test30
-  %15 = getelementptr i8, ptr %.01936, i64 1
-  %16 = load i8, ptr %15, align 1, !tbaa !7
-  %.not25 = icmp eq i8 %16, 0
-  br i1 %.not25, label %.critedge2, label %.lr.ph, !llvm.loop !30
+8:                                                ; preds = %.preheader
+  %9 = getelementptr i8, ptr %.019, i64 1
+  %.pre = load i8, ptr %9, align 1, !tbaa !7
+  br label %.preheader, !llvm.loop !30
 
-.critedge2:                                       ; preds = %14, %.lr.ph, %switch.early.test30, %switch.early.test30
-  %.019.lcssa.ph = phi ptr [ %15, %14 ], [ %.01936, %.lr.ph ], [ %.01936, %switch.early.test30 ], [ %.01936, %switch.early.test30 ]
-  %17 = ptrtoint ptr %.019.lcssa.ph to i64
-  %18 = ptrtoint ptr %.1 to i64
-  %19 = sub i64 %17, %18
-  %20 = trunc i64 %19 to i32
-  tail call void %1(ptr noundef nonnull %.1, i32 noundef %20, ptr noundef %2) #19
-  %21 = load i8, ptr %.019.lcssa.ph, align 1, !tbaa !7
-  %.not22 = icmp eq i8 %21, 0
-  br i1 %.not22, label %.loopexit, label %.preheader31.backedge
+.critedge2:                                       ; preds = %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %.preheader
+  %10 = ptrtoint ptr %.019 to i64
+  %11 = ptrtoint ptr %.1 to i64
+  %12 = sub i64 %10, %11
+  %13 = trunc i64 %12 to i32
+  tail call void %1(ptr noundef nonnull %.1, i32 noundef %13, ptr noundef %2) #19
+  %14 = load i8, ptr %.019, align 1, !tbaa !7
+  %.not22 = icmp eq i8 %14, 0
+  br i1 %.not22, label %.loopexit, label %.preheader32.backedge
 
-.loopexit:                                        ; preds = %.critedge2, %switch.early.test, %.preheader32, %3
+.loopexit:                                        ; preds = %.critedge2, %.preheader32, %.preheader33, %3
   ret void
 }
 

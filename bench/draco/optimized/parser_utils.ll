@@ -155,8 +155,8 @@ define dso_local void @_ZN5draco6parser8SkipLineEPNS_13DecoderBufferE(ptr nounde
   %4 = load i64, ptr %2, align 8, !tbaa !4
   %5 = load i64, ptr %3, align 8, !tbaa !14
   %6 = add i64 %5, 1
-  %.not40.i = icmp slt i64 %4, %6
-  br i1 %.not40.i, label %_ZN5draco6parser9ParseLineEPNS_13DecoderBufferEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %.lr.ph.split.us.i
+  %.not4546.i = icmp slt i64 %4, %6
+  br i1 %.not4546.i, label %_ZN5draco6parser9ParseLineEPNS_13DecoderBufferEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %.lr.ph.split.us.i
 
 .lr.ph.split.us.i:                                ; preds = %1
   %7 = load ptr, ptr %0, align 8, !tbaa !15
@@ -165,60 +165,60 @@ define dso_local void @_ZN5draco6parser8SkipLineEPNS_13DecoderBufferE(ptr nounde
 8:                                                ; preds = %20, %.lr.ph.split.us.i
   %9 = phi i64 [ %6, %.lr.ph.split.us.i ], [ %21, %20 ]
   %10 = phi i64 [ %5, %.lr.ph.split.us.i ], [ %9, %20 ]
-  %.02142.us.i = phi i32 [ 0, %.lr.ph.split.us.i ], [ %.138.us.i, %20 ]
-  %.02241.us.i = phi i8 [ undef, %.lr.ph.split.us.i ], [ %.12336.us.i, %20 ]
+  %.02148.us.i = phi i32 [ 0, %.lr.ph.split.us.i ], [ %.143.us.i, %20 ]
+  %.02247.us.i = phi i8 [ undef, %.lr.ph.split.us.i ], [ %.12341.us.i, %20 ]
   %11 = getelementptr inbounds i8, ptr %7, i64 %10
   %12 = load i8, ptr %11, align 1
-  %13 = icmp ne i8 %12, 10
   switch i8 %12, label %18 [
-    i8 13, label %14
-    i8 10, label %14
+    i8 13, label %13
+    i8 10, label %13
   ]
 
-14:                                               ; preds = %8, %8
-  switch i32 %.02142.us.i, label %_ZN5draco6parser9ParseLineEPNS_13DecoderBufferEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit [
+13:                                               ; preds = %8, %8
+  switch i32 %.02148.us.i, label %_ZN5draco6parser9ParseLineEPNS_13DecoderBufferEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit [
     i32 0, label %.thread.us.i
-    i32 1, label %15
+    i32 1, label %14
   ]
 
-15:                                               ; preds = %14
-  %16 = icmp eq i8 %.02241.us.i, 10
-  %or.cond.us.i = or i1 %16, %13
+14:                                               ; preds = %13
+  %15 = icmp ne i8 %12, 10
+  %16 = icmp eq i8 %.02247.us.i, 10
+  %or.cond.us.i = or i1 %16, %15
   br i1 %or.cond.us.i, label %_ZN5draco6parser9ParseLineEPNS_13DecoderBufferEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %.thread.us.i
 
-.thread.us.i:                                     ; preds = %15, %14
-  %.224.us.i = phi i8 [ %.02241.us.i, %15 ], [ %12, %14 ]
-  %17 = add nuw nsw i32 %.02142.us.i, 1
+.thread.us.i:                                     ; preds = %14, %13
+  %.224.us.i = phi i8 [ %.02247.us.i, %14 ], [ %12, %13 ]
+  %17 = add nuw nsw i32 %.02148.us.i, 1
   br label %switch.early.test.us.i
 
 18:                                               ; preds = %8
-  %19 = icmp sgt i32 %.02142.us.i, 0
+  %19 = icmp sgt i32 %.02148.us.i, 0
   br i1 %19, label %switch.early.test.us.i, label %20
 
 switch.early.test.us.i:                           ; preds = %18, %.thread.us.i
-  %.139.us.i = phi i32 [ %17, %.thread.us.i ], [ %.02142.us.i, %18 ]
-  %.12337.us.i = phi i8 [ %.224.us.i, %.thread.us.i ], [ %.02241.us.i, %18 ]
+  %.144.us.i = phi i32 [ %17, %.thread.us.i ], [ %.02148.us.i, %18 ]
+  %.12342.us.i = phi i8 [ %.224.us.i, %.thread.us.i ], [ %.02247.us.i, %18 ]
   switch i8 %12, label %_ZN5draco6parser9ParseLineEPNS_13DecoderBufferEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit [
     i8 13, label %20
     i8 10, label %20
   ]
 
 20:                                               ; preds = %switch.early.test.us.i, %switch.early.test.us.i, %18
-  %.138.us.i = phi i32 [ %.139.us.i, %switch.early.test.us.i ], [ %.139.us.i, %switch.early.test.us.i ], [ %.02142.us.i, %18 ]
-  %.12336.us.i = phi i8 [ %.12337.us.i, %switch.early.test.us.i ], [ %.12337.us.i, %switch.early.test.us.i ], [ %.02241.us.i, %18 ]
+  %.143.us.i = phi i32 [ %.144.us.i, %switch.early.test.us.i ], [ %.144.us.i, %switch.early.test.us.i ], [ %.02148.us.i, %18 ]
+  %.12341.us.i = phi i8 [ %.12342.us.i, %switch.early.test.us.i ], [ %.12342.us.i, %switch.early.test.us.i ], [ %.02247.us.i, %18 ]
   store i64 %9, ptr %3, align 8, !tbaa !14
   %21 = add i64 %9, 1
-  %.not.us.i = icmp slt i64 %4, %21
-  br i1 %.not.us.i, label %_ZN5draco6parser9ParseLineEPNS_13DecoderBufferEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %8, !llvm.loop !22
+  %.not45.us.i = icmp slt i64 %4, %21
+  br i1 %.not45.us.i, label %_ZN5draco6parser9ParseLineEPNS_13DecoderBufferEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %8, !llvm.loop !22
 
-_ZN5draco6parser9ParseLineEPNS_13DecoderBufferEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %14, %15, %switch.early.test.us.i, %20, %1
+_ZN5draco6parser9ParseLineEPNS_13DecoderBufferEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %13, %14, %switch.early.test.us.i, %20, %1
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN5draco6parser9ParseLineEPNS_13DecoderBufferEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #9 personality ptr @__gxx_personality_v0 {
-  %.not45 = icmp eq ptr %1, null
-  br i1 %.not45, label %3, label %.thread53
+  %.not = icmp eq ptr %1, null
+  br i1 %.not, label %3, label %.thread58
 
 3:                                                ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -226,10 +226,10 @@ define dso_local void @_ZN5draco6parser9ParseLineEPNS_13DecoderBufferEPNSt7__cxx
   %6 = load i64, ptr %4, align 8, !tbaa !4
   %7 = load i64, ptr %5, align 8, !tbaa !14
   %8 = add i64 %7, 1
-  %.not40 = icmp slt i64 %6, %8
-  br i1 %.not40, label %.critedge, label %.lr.ph.split.us
+  %.not4546 = icmp slt i64 %6, %8
+  br i1 %.not4546, label %.critedge, label %.lr.ph.split.us
 
-.thread53:                                        ; preds = %2
+.thread58:                                        ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i64 0, ptr %9, align 8, !tbaa !23
   %10 = load ptr, ptr %1, align 8, !tbaa !26
@@ -239,10 +239,10 @@ define dso_local void @_ZN5draco6parser9ParseLineEPNS_13DecoderBufferEPNSt7__cxx
   %13 = load i64, ptr %11, align 8, !tbaa !4
   %14 = load i64, ptr %12, align 8, !tbaa !14
   %15 = add i64 %14, 1
-  %.not4054 = icmp slt i64 %13, %15
-  br i1 %.not4054, label %.critedge, label %.lr.ph.split.preheader
+  %.not454659 = icmp slt i64 %13, %15
+  br i1 %.not454659, label %.critedge, label %.lr.ph.split.preheader
 
-.lr.ph.split.preheader:                           ; preds = %.thread53
+.lr.ph.split.preheader:                           ; preds = %.thread58
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 16
   br label %.lr.ph.split
@@ -254,147 +254,147 @@ define dso_local void @_ZN5draco6parser9ParseLineEPNS_13DecoderBufferEPNSt7__cxx
 19:                                               ; preds = %31, %.lr.ph.split.us
   %20 = phi i64 [ %8, %.lr.ph.split.us ], [ %32, %31 ]
   %21 = phi i64 [ %7, %.lr.ph.split.us ], [ %20, %31 ]
-  %.02142.us = phi i32 [ 0, %.lr.ph.split.us ], [ %.138.us, %31 ]
-  %.02241.us = phi i8 [ undef, %.lr.ph.split.us ], [ %.12336.us, %31 ]
+  %.02148.us = phi i32 [ 0, %.lr.ph.split.us ], [ %.143.us, %31 ]
+  %.02247.us = phi i8 [ undef, %.lr.ph.split.us ], [ %.12341.us, %31 ]
   %22 = getelementptr inbounds i8, ptr %18, i64 %21
   %23 = load i8, ptr %22, align 1
-  %24 = icmp ne i8 %23, 10
   switch i8 %23, label %29 [
-    i8 13, label %25
-    i8 10, label %25
+    i8 13, label %24
+    i8 10, label %24
   ]
 
-25:                                               ; preds = %19, %19
-  switch i32 %.02142.us, label %.critedge [
+24:                                               ; preds = %19, %19
+  switch i32 %.02148.us, label %.critedge [
     i32 0, label %.thread.us
-    i32 1, label %26
+    i32 1, label %25
   ]
 
-26:                                               ; preds = %25
-  %27 = icmp eq i8 %.02241.us, 10
-  %or.cond.us = or i1 %27, %24
+25:                                               ; preds = %24
+  %26 = icmp ne i8 %23, 10
+  %27 = icmp eq i8 %.02247.us, 10
+  %or.cond.us = or i1 %27, %26
   br i1 %or.cond.us, label %.critedge, label %.thread.us
 
-.thread.us:                                       ; preds = %26, %25
-  %.224.us = phi i8 [ %.02241.us, %26 ], [ %23, %25 ]
-  %28 = add nuw nsw i32 %.02142.us, 1
+.thread.us:                                       ; preds = %25, %24
+  %.224.us = phi i8 [ %.02247.us, %25 ], [ %23, %24 ]
+  %28 = add nuw nsw i32 %.02148.us, 1
   br label %switch.early.test.us
 
 29:                                               ; preds = %19
-  %30 = icmp sgt i32 %.02142.us, 0
+  %30 = icmp sgt i32 %.02148.us, 0
   br i1 %30, label %switch.early.test.us, label %31
 
 switch.early.test.us:                             ; preds = %29, %.thread.us
-  %.139.us = phi i32 [ %28, %.thread.us ], [ %.02142.us, %29 ]
-  %.12337.us = phi i8 [ %.224.us, %.thread.us ], [ %.02241.us, %29 ]
+  %.144.us = phi i32 [ %28, %.thread.us ], [ %.02148.us, %29 ]
+  %.12342.us = phi i8 [ %.224.us, %.thread.us ], [ %.02247.us, %29 ]
   switch i8 %23, label %.critedge [
     i8 13, label %31
     i8 10, label %31
   ]
 
 31:                                               ; preds = %switch.early.test.us, %switch.early.test.us, %29
-  %.138.us = phi i32 [ %.139.us, %switch.early.test.us ], [ %.139.us, %switch.early.test.us ], [ %.02142.us, %29 ]
-  %.12336.us = phi i8 [ %.12337.us, %switch.early.test.us ], [ %.12337.us, %switch.early.test.us ], [ %.02241.us, %29 ]
+  %.143.us = phi i32 [ %.144.us, %switch.early.test.us ], [ %.144.us, %switch.early.test.us ], [ %.02148.us, %29 ]
+  %.12341.us = phi i8 [ %.12342.us, %switch.early.test.us ], [ %.12342.us, %switch.early.test.us ], [ %.02247.us, %29 ]
   store i64 %20, ptr %5, align 8, !tbaa !14
   %32 = add i64 %20, 1
-  %.not.us = icmp slt i64 %6, %32
-  br i1 %.not.us, label %.critedge, label %19, !llvm.loop !22
+  %.not45.us = icmp slt i64 %6, %32
+  br i1 %.not45.us, label %.critedge, label %19, !llvm.loop !22
 
-.lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %62
-  %33 = phi i64 [ %64, %62 ], [ %13, %.lr.ph.split.preheader ]
-  %34 = phi i64 [ %65, %62 ], [ %15, %.lr.ph.split.preheader ]
-  %35 = phi i64 [ %63, %62 ], [ %14, %.lr.ph.split.preheader ]
-  %.02142 = phi i32 [ %.138, %62 ], [ 0, %.lr.ph.split.preheader ]
-  %.02241 = phi i8 [ %.12336, %62 ], [ undef, %.lr.ph.split.preheader ]
+.lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %61
+  %33 = phi i64 [ %63, %61 ], [ %13, %.lr.ph.split.preheader ]
+  %34 = phi i64 [ %64, %61 ], [ %15, %.lr.ph.split.preheader ]
+  %35 = phi i64 [ %62, %61 ], [ %14, %.lr.ph.split.preheader ]
+  %.02148 = phi i32 [ %.143, %61 ], [ 0, %.lr.ph.split.preheader ]
+  %.02247 = phi i8 [ %.12341, %61 ], [ undef, %.lr.ph.split.preheader ]
   %36 = load ptr, ptr %0, align 8, !tbaa !15
   %37 = getelementptr inbounds i8, ptr %36, i64 %35
   %38 = load i8, ptr %37, align 1
-  %39 = icmp ne i8 %38, 10
   switch i8 %38, label %44 [
-    i8 13, label %40
-    i8 10, label %40
+    i8 13, label %39
+    i8 10, label %39
   ]
 
-40:                                               ; preds = %.lr.ph.split, %.lr.ph.split
-  switch i32 %.02142, label %.critedge [
+39:                                               ; preds = %.lr.ph.split, %.lr.ph.split
+  switch i32 %.02148, label %.critedge [
     i32 0, label %.thread
-    i32 1, label %41
+    i32 1, label %40
   ]
 
-41:                                               ; preds = %40
-  %42 = icmp eq i8 %.02241, 10
-  %or.cond = or i1 %42, %39
+40:                                               ; preds = %39
+  %41 = icmp ne i8 %38, 10
+  %42 = icmp eq i8 %.02247, 10
+  %or.cond = or i1 %42, %41
   br i1 %or.cond, label %.critedge, label %.thread
 
-.thread:                                          ; preds = %41, %40
-  %.224 = phi i8 [ %.02241, %41 ], [ %38, %40 ]
-  %43 = add nuw nsw i32 %.02142, 1
+.thread:                                          ; preds = %40, %39
+  %.224 = phi i8 [ %.02247, %40 ], [ %38, %39 ]
+  %43 = add nuw nsw i32 %.02148, 1
   br label %switch.early.test
 
 44:                                               ; preds = %.lr.ph.split
-  %45 = icmp sgt i32 %.02142, 0
-  br i1 %45, label %switch.early.test, label %46
+  %45 = icmp sgt i32 %.02148, 0
+  br i1 %45, label %switch.early.test, label %switch.early.test30
 
 switch.early.test:                                ; preds = %.thread, %44
-  %.139 = phi i32 [ %43, %.thread ], [ %.02142, %44 ]
-  %.12337 = phi i8 [ %.224, %.thread ], [ %.02241, %44 ]
+  %.144 = phi i32 [ %43, %.thread ], [ %.02148, %44 ]
+  %.12342 = phi i8 [ %.224, %.thread ], [ %.02247, %44 ]
   switch i8 %38, label %.critedge [
-    i8 13, label %46
-    i8 10, label %46
+    i8 13, label %switch.early.test30
+    i8 10, label %switch.early.test30
   ]
 
-46:                                               ; preds = %switch.early.test, %switch.early.test, %44
-  %.138 = phi i32 [ %.139, %switch.early.test ], [ %.139, %switch.early.test ], [ %.02142, %44 ]
-  %.12336 = phi i8 [ %.12337, %switch.early.test ], [ %.12337, %switch.early.test ], [ %.02241, %44 ]
+switch.early.test30:                              ; preds = %switch.early.test, %switch.early.test, %44
+  %.143 = phi i32 [ %.144, %switch.early.test ], [ %.144, %switch.early.test ], [ %.02148, %44 ]
+  %.12341 = phi i8 [ %.12342, %switch.early.test ], [ %.12342, %switch.early.test ], [ %.02247, %44 ]
   store i64 %34, ptr %12, align 8, !tbaa !14
-  switch i8 %38, label %47 [
-    i8 13, label %62
-    i8 10, label %62
+  switch i8 %38, label %46 [
+    i8 13, label %61
+    i8 10, label %61
   ]
 
-47:                                               ; preds = %46
-  %48 = load i64, ptr %16, align 8, !tbaa !23
-  %49 = add i64 %48, 1
-  %50 = load ptr, ptr %1, align 8, !tbaa !26
-  %51 = icmp eq ptr %50, %17
-  br i1 %51, label %52, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i
+46:                                               ; preds = %switch.early.test30
+  %47 = load i64, ptr %16, align 8, !tbaa !23
+  %48 = add i64 %47, 1
+  %49 = load ptr, ptr %1, align 8, !tbaa !26
+  %50 = icmp eq ptr %49, %17
+  br i1 %50, label %51, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i
 
-52:                                               ; preds = %47
-  %53 = icmp ult i64 %48, 16
-  tail call void @llvm.assume(i1 %53)
+51:                                               ; preds = %46
+  %52 = icmp ult i64 %47, 16
+  tail call void @llvm.assume(i1 %52)
   br label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i: ; preds = %52, %47
-  %54 = load i64, ptr %17, align 8
-  %55 = select i1 %51, i64 15, i64 %54
-  %56 = icmp ugt i64 %49, %55
-  br i1 %56, label %57, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i: ; preds = %51, %46
+  %53 = load i64, ptr %17, align 8
+  %54 = select i1 %50, i64 15, i64 %53
+  %55 = icmp ugt i64 %48, %54
+  br i1 %55, label %56, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit
 
-57:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_mutateEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %1, i64 noundef %48, i64 noundef 0, ptr noundef null, i64 noundef 1)
+56:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_mutateEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %1, i64 noundef %47, i64 noundef 0, ptr noundef null, i64 noundef 1)
   %.pre.i = load ptr, ptr %1, align 8, !tbaa !26
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i, %57
-  %58 = phi ptr [ %.pre.i, %57 ], [ %50, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i ]
-  %59 = getelementptr inbounds nuw i8, ptr %58, i64 %48
-  store i8 %38, ptr %59, align 1, !tbaa !18
-  store i64 %49, ptr %16, align 8, !tbaa !23
-  %60 = load ptr, ptr %1, align 8, !tbaa !26
-  %61 = getelementptr inbounds nuw i8, ptr %60, i64 %49
-  store i8 0, ptr %61, align 1, !tbaa !18
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i, %56
+  %57 = phi ptr [ %.pre.i, %56 ], [ %49, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i ]
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 %47
+  store i8 %38, ptr %58, align 1, !tbaa !18
+  store i64 %48, ptr %16, align 8, !tbaa !23
+  %59 = load ptr, ptr %1, align 8, !tbaa !26
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 %48
+  store i8 0, ptr %60, align 1, !tbaa !18
   %.pre = load i64, ptr %11, align 8, !tbaa !4
-  %.pre47 = load i64, ptr %12, align 8, !tbaa !14
-  br label %62
+  %.pre52 = load i64, ptr %12, align 8, !tbaa !14
+  br label %61
 
-62:                                               ; preds = %46, %46, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit
-  %63 = phi i64 [ %34, %46 ], [ %34, %46 ], [ %.pre47, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit ]
-  %64 = phi i64 [ %33, %46 ], [ %33, %46 ], [ %.pre, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit ]
-  %65 = add i64 %63, 1
-  %.not = icmp slt i64 %64, %65
-  br i1 %.not, label %.critedge, label %.lr.ph.split, !llvm.loop !22
+61:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit, %switch.early.test30, %switch.early.test30
+  %62 = phi i64 [ %.pre52, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit ], [ %34, %switch.early.test30 ], [ %34, %switch.early.test30 ]
+  %63 = phi i64 [ %.pre, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit ], [ %33, %switch.early.test30 ], [ %33, %switch.early.test30 ]
+  %64 = add i64 %62, 1
+  %.not45 = icmp slt i64 %63, %64
+  br i1 %.not45, label %.critedge, label %.lr.ph.split, !llvm.loop !22
 
-.critedge:                                        ; preds = %switch.early.test, %40, %41, %62, %switch.early.test.us, %25, %26, %31, %.thread53, %3
+.critedge:                                        ; preds = %switch.early.test, %39, %40, %61, %switch.early.test.us, %24, %25, %31, %.thread58, %3
   ret void
 }
 

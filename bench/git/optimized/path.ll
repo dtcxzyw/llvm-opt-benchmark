@@ -2977,10 +2977,11 @@ define dso_local range(i32 0, 2) i32 @is_ntfs_dotgit(ptr noundef readonly captur
 33:                                               ; preds = %.preheader, %.backedge
   %.1 = phi ptr [ %35, %.backedge ], [ %.1.ph, %.preheader ]
   %34 = load i8, ptr %.1, align 1, !tbaa !14
-  switch i8 %34, label %.fold.split [
+  %.fr = freeze i8 %34
+  switch i8 %.fr, label %.fold.split [
     i8 0, label %.fold.split.loopexit53
-    i8 92, label %.fold.split.loopexit53
     i8 58, label %.fold.split.loopexit53
+    i8 92, label %.fold.split.loopexit53
     i8 47, label %.fold.split.loopexit53
     i8 46, label %.backedge
     i8 32, label %.backedge
