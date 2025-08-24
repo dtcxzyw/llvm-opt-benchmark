@@ -155,69 +155,75 @@ define dso_local range(i32 0, 3) i32 @get_oid_hex_any(ptr noundef readonly captu
   br label %3
 
 3:                                                ; preds = %2, %get_oid_hex_algop.exit
-  %.017 = phi i32 [ 2, %2 ], [ %32, %get_oid_hex_algop.exit ]
+  %.017 = phi i32 [ 2, %2 ], [ %34, %get_oid_hex_algop.exit ]
   %4 = zext nneg i32 %.017 to i64
   %5 = getelementptr inbounds nuw [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %4, i32 2
   %6 = load i64, ptr %5, align 16, !tbaa !30
   %.not18.not.i.i = icmp eq i64 %6, 0
-  br i1 %.not18.not.i.i, label %oid_set_algo.exit.i, label %.lr.ph.i.i
+  br i1 %.not18.not.i.i, label %.loopexit.i.split.thread, label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %3, %23
-  %.01221.i.i = phi i64 [ %27, %23 ], [ 0, %3 ]
-  %.01320.i.i = phi ptr [ %26, %23 ], [ %0, %3 ]
-  %.01519.i.i = phi ptr [ %25, %23 ], [ %1, %3 ]
-  %7 = load i8, ptr %.01320.i.i, align 1, !tbaa !33
-  %8 = zext i8 %7 to i64
-  %9 = getelementptr inbounds nuw [256 x i8], ptr @hexval_table, i64 0, i64 %8
-  %10 = load i8, ptr %9, align 1, !tbaa !33
-  %11 = sext i8 %10 to i32
-  %.not.i.i.i = icmp ult i8 %10, 16
-  br i1 %.not.i.i.i, label %12, label %hex2chr.exit.i.i
+.loopexit.i.split.thread:                         ; preds = %3
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  store i32 %.017, ptr %7, align 4, !tbaa !37
+  br label %30
 
-12:                                               ; preds = %.lr.ph.i.i
-  %13 = shl nuw nsw i32 %11, 4
-  %14 = getelementptr inbounds nuw i8, ptr %.01320.i.i, i64 1
-  %15 = load i8, ptr %14, align 1, !tbaa !33
-  %16 = zext i8 %15 to i64
-  %17 = getelementptr inbounds nuw [256 x i8], ptr @hexval_table, i64 0, i64 %16
-  %18 = load i8, ptr %17, align 1, !tbaa !33
-  %19 = sext i8 %18 to i32
-  %20 = or i32 %13, %19
+.lr.ph.i.i:                                       ; preds = %3, %24
+  %.01221.i.i = phi i64 [ %28, %24 ], [ 0, %3 ]
+  %.01320.i.i = phi ptr [ %27, %24 ], [ %0, %3 ]
+  %.01519.i.i = phi ptr [ %26, %24 ], [ %1, %3 ]
+  %8 = load i8, ptr %.01320.i.i, align 1, !tbaa !33
+  %9 = zext i8 %8 to i64
+  %10 = getelementptr inbounds nuw [256 x i8], ptr @hexval_table, i64 0, i64 %9
+  %11 = load i8, ptr %10, align 1, !tbaa !33
+  %12 = sext i8 %11 to i32
+  %.not.i.i.i = icmp ult i8 %11, 16
+  br i1 %.not.i.i.i, label %13, label %hex2chr.exit.i.i
+
+13:                                               ; preds = %.lr.ph.i.i
+  %14 = shl nuw nsw i32 %12, 4
+  %15 = getelementptr inbounds nuw i8, ptr %.01320.i.i, i64 1
+  %16 = load i8, ptr %15, align 1, !tbaa !33
+  %17 = zext i8 %16 to i64
+  %18 = getelementptr inbounds nuw [256 x i8], ptr @hexval_table, i64 0, i64 %17
+  %19 = load i8, ptr %18, align 1, !tbaa !33
+  %20 = sext i8 %19 to i32
+  %21 = or i32 %14, %20
   br label %hex2chr.exit.i.i
 
-hex2chr.exit.i.i:                                 ; preds = %12, %.lr.ph.i.i
-  %21 = phi i32 [ %20, %12 ], [ %11, %.lr.ph.i.i ]
-  %22 = icmp sgt i32 %21, -1
-  br i1 %22, label %23, label %get_oid_hex_algop.exit
+hex2chr.exit.i.i:                                 ; preds = %13, %.lr.ph.i.i
+  %22 = phi i32 [ %21, %13 ], [ %12, %.lr.ph.i.i ]
+  %23 = icmp sgt i32 %22, -1
+  br i1 %23, label %24, label %get_oid_hex_algop.exit
 
-23:                                               ; preds = %hex2chr.exit.i.i
-  %24 = trunc i32 %21 to i8
-  %25 = getelementptr inbounds nuw i8, ptr %.01519.i.i, i64 1
-  store i8 %24, ptr %.01519.i.i, align 1, !tbaa !33
-  %26 = getelementptr inbounds nuw i8, ptr %.01320.i.i, i64 2
-  %27 = add nuw i64 %.01221.i.i, 1
-  %exitcond.not = icmp eq i64 %27, %6
-  br i1 %exitcond.not, label %oid_set_algo.exit.i, label %.lr.ph.i.i, !llvm.loop !34
+24:                                               ; preds = %hex2chr.exit.i.i
+  %25 = trunc i32 %22 to i8
+  %26 = getelementptr inbounds nuw i8, ptr %.01519.i.i, i64 1
+  store i8 %25, ptr %.01519.i.i, align 1, !tbaa !33
+  %27 = getelementptr inbounds nuw i8, ptr %.01320.i.i, i64 2
+  %28 = add nuw i64 %.01221.i.i, 1
+  %exitcond.not = icmp eq i64 %28, %6
+  br i1 %exitcond.not, label %.loopexit.i.split, label %.lr.ph.i.i, !llvm.loop !34
 
-oid_set_algo.exit.i:                              ; preds = %3, %23
-  %28 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  store i32 %.017, ptr %28, align 4, !tbaa !37
+.loopexit.i.split:                                ; preds = %24
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  store i32 %.017, ptr %29, align 4, !tbaa !37
   %.not10.i = icmp eq i64 %6, 32
-  br i1 %.not10.i, label %get_oid_hex_algop.exit.thread, label %29
+  br i1 %.not10.i, label %get_oid_hex_algop.exit.thread, label %30
 
-29:                                               ; preds = %oid_set_algo.exit.i
-  %30 = getelementptr inbounds nuw i8, ptr %1, i64 %6
-  %31 = sub i64 32, %6
-  tail call void @llvm.memset.p0.i64(ptr align 1 %30, i8 0, i64 %31, i1 false)
+30:                                               ; preds = %.loopexit.i.split.thread, %.loopexit.i.split
+  %31 = phi i64 [ 0, %.loopexit.i.split.thread ], [ %6, %.loopexit.i.split ]
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 %31
+  %33 = sub i64 32, %31
+  tail call void @llvm.memset.p0.i64(ptr align 1 %32, i8 0, i64 %33, i1 false)
   br label %get_oid_hex_algop.exit.thread
 
 get_oid_hex_algop.exit:                           ; preds = %hex2chr.exit.i.i
-  %32 = add i32 %.017, -1
-  %33 = icmp samesign ugt i32 %.017, 1
-  br i1 %33, label %3, label %get_oid_hex_algop.exit.thread, !llvm.loop !39
+  %34 = add nsw i32 %.017, -1
+  %35 = icmp samesign ugt i32 %.017, 1
+  br i1 %35, label %3, label %get_oid_hex_algop.exit.thread, !llvm.loop !39
 
-get_oid_hex_algop.exit.thread:                    ; preds = %get_oid_hex_algop.exit, %29, %oid_set_algo.exit.i
-  %.06 = phi i32 [ %.017, %oid_set_algo.exit.i ], [ %.017, %29 ], [ 0, %get_oid_hex_algop.exit ]
+get_oid_hex_algop.exit.thread:                    ; preds = %get_oid_hex_algop.exit, %30, %.loopexit.i.split
+  %.06 = phi i32 [ %.017, %.loopexit.i.split ], [ %.017, %30 ], [ 0, %get_oid_hex_algop.exit ]
   ret i32 %.06
 }
 
@@ -405,9 +411,9 @@ define dso_local range(i32 0, 3) i32 @parse_oid_hex_any(ptr noundef %0, ptr noun
   %6 = getelementptr inbounds nuw [3 x %struct.git_hash_algo], ptr @hash_algos, i64 0, i64 %5, i32 2
   %7 = load i64, ptr %6, align 16, !tbaa !30
   %.not18.not.i.i.i = icmp eq i64 %7, 0
-  br i1 %.not18.not.i.i.i, label %oid_set_algo.exit.i.i.thread, label %.lr.ph.i.i.i
+  br i1 %.not18.not.i.i.i, label %.loopexit.i.split.thread.i, label %.lr.ph.i.i.i
 
-oid_set_algo.exit.i.i.thread:                     ; preds = %4
+.loopexit.i.split.thread.i:                       ; preds = %4
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store i32 %.017.i, ptr %8, align 4, !tbaa !37
   br label %31
@@ -447,15 +453,15 @@ hex2chr.exit.i.i.i:                               ; preds = %14, %.lr.ph.i.i.i
   %28 = getelementptr inbounds nuw i8, ptr %.01320.i.i.i, i64 2
   %29 = add nuw i64 %.01221.i.i.i, 1
   %exitcond.not.i = icmp eq i64 %29, %7
-  br i1 %exitcond.not.i, label %oid_set_algo.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !34
+  br i1 %exitcond.not.i, label %.loopexit.i.split.i, label %.lr.ph.i.i.i, !llvm.loop !34
 
-oid_set_algo.exit.i.i:                            ; preds = %25
+.loopexit.i.split.i:                              ; preds = %25
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store i32 %.017.i, ptr %30, align 4, !tbaa !37
   %.not10.i.i = icmp eq i64 %7, 32
   br i1 %.not10.i.i, label %get_oid_hex_any.exit, label %31
 
-31:                                               ; preds = %oid_set_algo.exit.i.i.thread, %oid_set_algo.exit.i.i
+31:                                               ; preds = %.loopexit.i.split.i, %.loopexit.i.split.thread.i
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 %7
   %33 = sub i64 32, %7
   tail call void @llvm.memset.p0.i64(ptr align 1 %32, i8 0, i64 %33, i1 false)
@@ -466,7 +472,7 @@ get_oid_hex_algop.exit.i:                         ; preds = %hex2chr.exit.i.i.i
   %35 = icmp samesign ugt i32 %.017.i, 1
   br i1 %35, label %4, label %get_oid_hex_any.exit.thread, !llvm.loop !39
 
-get_oid_hex_any.exit:                             ; preds = %oid_set_algo.exit.i.i, %31
+get_oid_hex_any.exit:                             ; preds = %.loopexit.i.split.i, %31
   %.not = icmp eq i32 %.017.i, 0
   br i1 %.not, label %get_oid_hex_any.exit.thread, label %36
 
@@ -478,8 +484,8 @@ get_oid_hex_any.exit:                             ; preds = %oid_set_algo.exit.i
   br label %get_oid_hex_any.exit.thread
 
 get_oid_hex_any.exit.thread:                      ; preds = %get_oid_hex_algop.exit.i, %36, %get_oid_hex_any.exit
-  %.06.i9 = phi i32 [ %.017.i, %36 ], [ 0, %get_oid_hex_any.exit ], [ 0, %get_oid_hex_algop.exit.i ]
-  ret i32 %.06.i9
+  %.06.i8 = phi i32 [ %.017.i, %36 ], [ 0, %get_oid_hex_any.exit ], [ 0, %get_oid_hex_algop.exit.i ]
+  ret i32 %.06.i8
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable

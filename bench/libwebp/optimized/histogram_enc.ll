@@ -1628,7 +1628,6 @@ HistogramSetRemoveHistogram.exit.i109:            ; preds = %440, %433, %415
 HistogramCombineEntropyBin.exit:                  ; preds = %462, %.preheader88.i, %._crit_edge.i106
   %.4217 = phi i32 [ %.4, %._crit_edge.i106 ], [ %.3, %.preheader88.i ], [ %.4, %462 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
-  %wide.trip.count.i114 = zext nneg i32 %.3 to i64
   br label %.preheader65.us.i
 
 .preheader65.us.i:                                ; preds = %.preheader65.us.i.backedge, %HistogramCombineEntropyBin.exit
@@ -1667,7 +1666,7 @@ HistogramCombineEntropyBin.exit:                  ; preds = %462, %.preheader88.
 ._crit_edge.us.thread.i:                          ; preds = %480, %._crit_edge.us.i, %.preheader65.us.i
   %.254.us.i = phi i32 [ 1, %480 ], [ %.15367.us.i, %._crit_edge.us.i ], [ %.15367.us.i, %.preheader65.us.i ]
   %indvars.iv.next.i117 = add nuw nsw i64 %indvars.iv.i115, 1
-  %exitcond.not.i118 = icmp eq i64 %indvars.iv.next.i117, %wide.trip.count.i114
+  %exitcond.not.i118 = icmp eq i64 %indvars.iv.next.i117, %wide.trip.count102.i
   br i1 %exitcond.not.i118, label %..loopexit_crit_edge.us.i, label %.preheader65.us.i.backedge
 
 .preheader65.us.i.backedge:                       ; preds = %._crit_edge.us.thread.i, %..loopexit_crit_edge.us.i

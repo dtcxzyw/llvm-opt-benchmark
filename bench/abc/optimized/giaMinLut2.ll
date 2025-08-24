@@ -1568,13 +1568,13 @@ Abc_TtCopy.exit:                                  ; preds = %.lr.ph18.i.preheade
   %84 = trunc nuw nsw i64 %indvars.iv.next.i105 to i32
   %85 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, i32 noundef %84, i32 noundef %81, i32 noundef %83)
   %86 = icmp samesign ugt i64 %indvars.iv.i104, 1
-  br i1 %86, label %.lr.ph.i, label %Gia_ManPermStats.exit, !llvm.loop !45
+  br i1 %86, label %.lr.ph.i, label %Gia_ManPermStats.exit.loopexit, !llvm.loop !45
 
-Gia_ManPermStats.exit:                            ; preds = %.lr.ph.i
+Gia_ManPermStats.exit.loopexit:                   ; preds = %.lr.ph.i
   %putchar.i = call i32 @putchar(i32 10)
   br label %87
 
-87:                                               ; preds = %Gia_ManPermStats.exit, %._crit_edge128
+87:                                               ; preds = %Gia_ManPermStats.exit.loopexit, %._crit_edge128
   %88 = load i32, ptr %11, align 4, !tbaa !4
   %89 = icmp eq i32 %63, %88
   %90 = add nsw i32 %.088129, 1

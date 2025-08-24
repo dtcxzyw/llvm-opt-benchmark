@@ -6834,7 +6834,7 @@ define internal fastcc void @encode_blocks(ptr noundef %0, i32 noundef range(i32
 .loopexit635.us.us.us.i:                          ; preds = %1499, %.loopexit637.us.us.us.i
   br i1 %92, label %.lr.ph664.us.us.us.i, label %.loopexit632.us.us.us.i
 
-.loopexit632.us.us.us.i:                          ; preds = %1491, %.preheader631.us.us.us.i, %.loopexit635.us.us.us.i
+.loopexit632.us.us.us.i:                          ; preds = %1491, %.loopexit635.us.us.us.i
   br i1 %93, label %.lr.ph668.us.us.us.i, label %.loopexit629.us.us.us.i
 
 .loopexit632.us.us.us.i.thread:                   ; preds = %123
@@ -8985,8 +8985,8 @@ get_dc.exit.us.us.us.i:                           ; preds = %._crit_edge198.i.us
   %exitcond910.not.i = icmp eq i64 %indvars.iv.next906.i, %wide.trip.count.i
   br i1 %exitcond910.not.i, label %.preheader628.us.us.us.i, label %1485, !llvm.loop !334
 
-1491:                                             ; preds = %.lr.ph666.us.us.us.i, %1491
-  %indvars.iv899.i = phi i64 [ 1, %.lr.ph666.us.us.us.i ], [ %indvars.iv.next900.i, %1491 ]
+1491:                                             ; preds = %.preheader631.us.us.us.i, %1491
+  %indvars.iv899.i = phi i64 [ 1, %.preheader631.us.us.us.i ], [ %indvars.iv.next900.i, %1491 ]
   %1492 = getelementptr inbounds nuw [32 x [32 x i8]], ptr %23, i64 0, i64 %indvars.iv899.i
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %1492, ptr nonnull align 16 %23, i64 %1522, i1 false)
   %indvars.iv.next900.i = add nuw nsw i64 %indvars.iv899.i, 1
@@ -9065,8 +9065,9 @@ get_dc.exit.us.us.us.i:                           ; preds = %._crit_edge198.i.us
   br label %.preheader628.us.us.us.i
 
 .preheader631.us.us.us.i:                         ; preds = %1493
-  %.not1135.i = icmp eq i32 %117, 4
-  br i1 %.not1135.i, label %.loopexit632.us.us.us.i, label %.lr.ph666.us.us.us.i
+  %umax902.i = tail call i32 @llvm.umax.i32(i32 %118, i32 2)
+  %wide.trip.count903.i = zext nneg i32 %umax902.i to i64
+  br label %1491
 
 .lr.ph657.us.us.us.i:                             ; preds = %123
   %1519 = zext nneg i32 %117 to i64
@@ -9094,11 +9095,6 @@ get_dc.exit.us.us.us.i:                           ; preds = %._crit_edge198.i.us
   %1530 = sext i32 %1529 to i64
   %1531 = getelementptr inbounds [32 x [32 x i8]], ptr %23, i64 0, i64 %1530
   br label %1493
-
-.lr.ph666.us.us.us.i:                             ; preds = %.preheader631.us.us.us.i
-  %umax902.i = tail call i32 @llvm.umax.i32(i32 %118, i32 2)
-  %wide.trip.count903.i = zext nneg i32 %umax902.i to i64
-  br label %1491
 
 .lr.ph668.us.us.us.i:                             ; preds = %.loopexit632.us.us.us.i
   %1532 = zext nneg i32 %118 to i64

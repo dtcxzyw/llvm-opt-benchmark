@@ -981,7 +981,7 @@ _ZN6google12_GLOBAL__N_116MinimalFormatter12AppendUint64Emj.exit50.i: ; preds = 
 155:                                              ; preds = %_ZN6google12_GLOBAL__N_116MinimalFormatter12AppendUint64Emj.exit50.i
   %.ptr207.i = getelementptr inbounds nuw i8, ptr %5, i64 %.add203.i
   store i8 41, ptr %.ptr207.i, align 1, !tbaa !39
-  br label %_ZN6google12_GLOBAL__N_116MinimalFormatter12AppendStringEPKc.exit55.i
+  br label %_ZN6google12_GLOBAL__N_116MinimalFormatter12AppendStringEPKc.exit55.i, !llvm.loop !48
 
 _ZN6google12_GLOBAL__N_116MinimalFormatter12AppendStringEPKc.exit55.i: ; preds = %155, %_ZN6google12_GLOBAL__N_116MinimalFormatter12AppendUint64Emj.exit50.i
   %.0.lcssa.i53.i = phi i64 [ 1, %155 ], [ 0, %_ZN6google12_GLOBAL__N_116MinimalFormatter12AppendUint64Emj.exit50.i ]
@@ -1713,7 +1713,7 @@ _ZSt4copyIPcS0_ET0_T_S2_S1_.exit.i:               ; preds = %53, %51
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %.ptr46.ptr, i8 32, i64 %gepdiff, i1 false)
   br label %_ZN6google12_GLOBAL__N_116MinimalFormatter20AppendHexWithPaddingEmi.exit
 
-_ZN6google12_GLOBAL__N_116MinimalFormatter20AppendHexWithPaddingEmi.exit: ; preds = %_ZN6google12_GLOBAL__N_116MinimalFormatter12AppendUint64Emj.exit.i, %_ZSt4copyIPcS0_ET0_T_S2_S1_.exit.i
+_ZN6google12_GLOBAL__N_116MinimalFormatter20AppendHexWithPaddingEmi.exit: ; preds = %_ZSt4copyIPcS0_ET0_T_S2_S1_.exit.i, %_ZN6google12_GLOBAL__N_116MinimalFormatter12AppendUint64Emj.exit.i
   %.sroa.4.0.idx = phi i64 [ %.ptr46.add, %_ZSt4copyIPcS0_ET0_T_S2_S1_.exit.i ], [ %.ptr47.add, %_ZN6google12_GLOBAL__N_116MinimalFormatter12AppendUint64Emj.exit.i ]
   %55 = icmp slt i64 %.sroa.4.0.idx, 1024
   br i1 %55, label %56, label %_ZN6google12_GLOBAL__N_116MinimalFormatter12AppendStringEPKc.exit14
@@ -1721,7 +1721,7 @@ _ZN6google12_GLOBAL__N_116MinimalFormatter20AppendHexWithPaddingEmi.exit: ; pred
 56:                                               ; preds = %_ZN6google12_GLOBAL__N_116MinimalFormatter20AppendHexWithPaddingEmi.exit
   %.ptr50 = getelementptr inbounds nuw i8, ptr %4, i64 %.sroa.4.0.idx
   store i8 32, ptr %.ptr50, align 1, !tbaa !39
-  br label %_ZN6google12_GLOBAL__N_116MinimalFormatter12AppendStringEPKc.exit14
+  br label %_ZN6google12_GLOBAL__N_116MinimalFormatter12AppendStringEPKc.exit14, !llvm.loop !48
 
 _ZN6google12_GLOBAL__N_116MinimalFormatter12AppendStringEPKc.exit14: ; preds = %56, %_ZN6google12_GLOBAL__N_116MinimalFormatter20AppendHexWithPaddingEmi.exit
   %.0.lcssa.i12 = phi i64 [ 1, %56 ], [ 0, %_ZN6google12_GLOBAL__N_116MinimalFormatter20AppendHexWithPaddingEmi.exit ]
@@ -1756,7 +1756,7 @@ _ZN6google12_GLOBAL__N_116MinimalFormatter12AppendStringEPKc.exit20: ; preds = %
 70:                                               ; preds = %_ZN6google12_GLOBAL__N_116MinimalFormatter12AppendStringEPKc.exit20
   %71 = getelementptr inbounds nuw i8, ptr %58, i64 %.0.lcssa.i18
   store i8 10, ptr %71, align 1, !tbaa !39
-  br label %_ZN6google12_GLOBAL__N_116MinimalFormatter12AppendStringEPKc.exit25
+  br label %_ZN6google12_GLOBAL__N_116MinimalFormatter12AppendStringEPKc.exit25, !llvm.loop !48
 
 _ZN6google12_GLOBAL__N_116MinimalFormatter12AppendStringEPKc.exit25: ; preds = %70, %_ZN6google12_GLOBAL__N_116MinimalFormatter12AppendStringEPKc.exit20
   %.0.lcssa.i23 = phi i64 [ 1, %70 ], [ 0, %_ZN6google12_GLOBAL__N_116MinimalFormatter12AppendStringEPKc.exit20 ]

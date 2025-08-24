@@ -7448,25 +7448,21 @@ define hidden noundef ptr @_ZN4ncnn18create_layer_naiveEPKc(ptr noundef readonly
 
 _ZN4ncnn14layer_to_indexEPKc.exit:                ; preds = %2
   %8 = trunc nuw nsw i64 %indvars.iv.i to i32
-  %or.cond.i = icmp samesign ugt i64 %indvars.iv.i, 106
-  br i1 %or.cond.i, label %_ZN4ncnn18create_layer_naiveEi.exit, label %9
-
-9:                                                ; preds = %_ZN4ncnn14layer_to_indexEPKc.exit
-  switch i32 %8, label %10 [
+  switch i32 %8, label %9 [
     i32 34, label %_ZN4ncnn18create_layer_naiveEi.exit
     i32 1, label %_ZN4ncnn18create_layer_naiveEi.exit
   ]
 
-10:                                               ; preds = %9
-  %11 = getelementptr inbounds nuw [107 x %"struct.ncnn::layer_registry_entry"], ptr @_ZN4ncnnL14layer_registryE, i64 0, i64 %indvars.iv.i, i32 1
-  %12 = load ptr, ptr %11, align 8, !tbaa !68
-  %13 = tail call noundef ptr %12(ptr noundef null)
-  %14 = getelementptr inbounds nuw i8, ptr %13, i64 40
-  store i32 %8, ptr %14, align 8, !tbaa !51
+9:                                                ; preds = %_ZN4ncnn14layer_to_indexEPKc.exit
+  %10 = getelementptr inbounds nuw [107 x %"struct.ncnn::layer_registry_entry"], ptr @_ZN4ncnnL14layer_registryE, i64 0, i64 %indvars.iv.i, i32 1
+  %11 = load ptr, ptr %10, align 8, !tbaa !68
+  %12 = tail call noundef ptr %11(ptr noundef null)
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 40
+  store i32 %8, ptr %13, align 8, !tbaa !51
   br label %_ZN4ncnn18create_layer_naiveEi.exit
 
-_ZN4ncnn18create_layer_naiveEi.exit:              ; preds = %7, %10, %9, %9, %_ZN4ncnn14layer_to_indexEPKc.exit
-  %.0 = phi ptr [ null, %_ZN4ncnn14layer_to_indexEPKc.exit ], [ %13, %10 ], [ null, %9 ], [ null, %9 ], [ null, %7 ]
+_ZN4ncnn18create_layer_naiveEi.exit:              ; preds = %7, %9, %_ZN4ncnn14layer_to_indexEPKc.exit, %_ZN4ncnn14layer_to_indexEPKc.exit
+  %.0 = phi ptr [ %12, %9 ], [ null, %_ZN4ncnn14layer_to_indexEPKc.exit ], [ null, %_ZN4ncnn14layer_to_indexEPKc.exit ], [ null, %7 ]
   ret ptr %.0
 }
 
@@ -7514,49 +7510,45 @@ define hidden noundef ptr @_ZN4ncnn16create_layer_cpuEPKc(ptr noundef readonly c
 
 _ZN4ncnn14layer_to_indexEPKc.exit:                ; preds = %2
   %8 = trunc nuw nsw i64 %indvars.iv.i to i32
-  %or.cond.i = icmp samesign ugt i64 %indvars.iv.i, 106
-  br i1 %or.cond.i, label %_ZN4ncnn16create_layer_cpuEi.exit, label %9
+  %9 = tail call noundef i32 @_ZN4ncnn22cpu_support_x86_avx512Ev()
+  %.not.i = icmp eq i32 %9, 0
+  br i1 %.not.i, label %10, label %14
 
-9:                                                ; preds = %_ZN4ncnn14layer_to_indexEPKc.exit
-  %10 = tail call noundef i32 @_ZN4ncnn22cpu_support_x86_avx512Ev()
-  %.not.i = icmp eq i32 %10, 0
-  br i1 %.not.i, label %11, label %15
+10:                                               ; preds = %_ZN4ncnn14layer_to_indexEPKc.exit
+  %11 = tail call noundef i32 @_ZN4ncnn19cpu_support_x86_fmaEv()
+  %.not17.i = icmp eq i32 %11, 0
+  br i1 %.not17.i, label %12, label %14
 
-11:                                               ; preds = %9
-  %12 = tail call noundef i32 @_ZN4ncnn19cpu_support_x86_fmaEv()
-  %.not17.i = icmp eq i32 %12, 0
-  br i1 %.not17.i, label %13, label %15
-
-13:                                               ; preds = %11
-  %14 = tail call noundef i32 @_ZN4ncnn19cpu_support_x86_avxEv()
-  %.not18.i = icmp eq i32 %14, 0
+12:                                               ; preds = %10
+  %13 = tail call noundef i32 @_ZN4ncnn19cpu_support_x86_avxEv()
+  %.not18.i = icmp eq i32 %13, 0
   %_ZN4ncnnL19layer_registry_archE._ZN4ncnnL18layer_registry_avxE = select i1 %.not18.i, ptr @_ZN4ncnnL19layer_registry_archE, ptr @_ZN4ncnnL18layer_registry_avxE
-  br label %15
+  br label %14
 
-15:                                               ; preds = %13, %11, %9
-  %_ZN4ncnnL19layer_registry_archE.sink = phi ptr [ @_ZN4ncnnL21layer_registry_avx512E, %9 ], [ @_ZN4ncnnL18layer_registry_fmaE, %11 ], [ %_ZN4ncnnL19layer_registry_archE._ZN4ncnnL18layer_registry_avxE, %13 ]
-  %16 = getelementptr inbounds nuw [107 x %"struct.ncnn::layer_registry_entry"], ptr %_ZN4ncnnL19layer_registry_archE.sink, i64 0, i64 %indvars.iv.i, i32 1
-  %.014.i = load ptr, ptr %16, align 8, !tbaa !68
+14:                                               ; preds = %12, %10, %_ZN4ncnn14layer_to_indexEPKc.exit
+  %_ZN4ncnnL19layer_registry_archE.sink = phi ptr [ @_ZN4ncnnL21layer_registry_avx512E, %_ZN4ncnn14layer_to_indexEPKc.exit ], [ @_ZN4ncnnL18layer_registry_fmaE, %10 ], [ %_ZN4ncnnL19layer_registry_archE._ZN4ncnnL18layer_registry_avxE, %12 ]
+  %15 = getelementptr inbounds nuw [107 x %"struct.ncnn::layer_registry_entry"], ptr %_ZN4ncnnL19layer_registry_archE.sink, i64 0, i64 %indvars.iv.i, i32 1
+  %.014.i = load ptr, ptr %15, align 8, !tbaa !68
   %.not19.i = icmp eq ptr %.014.i, null
-  br i1 %.not19.i, label %17, label %.thread.i
+  br i1 %.not19.i, label %16, label %.thread.i
 
-17:                                               ; preds = %15
-  %18 = getelementptr inbounds nuw [107 x %"struct.ncnn::layer_registry_entry"], ptr @_ZN4ncnnL14layer_registryE, i64 0, i64 %indvars.iv.i, i32 1
-  %19 = load ptr, ptr %18, align 8, !tbaa !68
+16:                                               ; preds = %14
+  %17 = getelementptr inbounds nuw [107 x %"struct.ncnn::layer_registry_entry"], ptr @_ZN4ncnnL14layer_registryE, i64 0, i64 %indvars.iv.i, i32 1
+  %18 = load ptr, ptr %17, align 8, !tbaa !68
   switch i32 %8, label %.thread.i [
     i32 34, label %_ZN4ncnn16create_layer_cpuEi.exit
     i32 1, label %_ZN4ncnn16create_layer_cpuEi.exit
   ]
 
-.thread.i:                                        ; preds = %17, %15
-  %.11523.i = phi ptr [ %19, %17 ], [ %.014.i, %15 ]
-  %20 = tail call noundef ptr %.11523.i(ptr noundef null)
-  %21 = getelementptr inbounds nuw i8, ptr %20, i64 40
-  store i32 %8, ptr %21, align 8, !tbaa !51
+.thread.i:                                        ; preds = %16, %14
+  %.11523.i = phi ptr [ %18, %16 ], [ %.014.i, %14 ]
+  %19 = tail call noundef ptr %.11523.i(ptr noundef null)
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 40
+  store i32 %8, ptr %20, align 8, !tbaa !51
   br label %_ZN4ncnn16create_layer_cpuEi.exit
 
-_ZN4ncnn16create_layer_cpuEi.exit:                ; preds = %7, %.thread.i, %17, %17, %_ZN4ncnn14layer_to_indexEPKc.exit
-  %.0 = phi ptr [ null, %_ZN4ncnn14layer_to_indexEPKc.exit ], [ %20, %.thread.i ], [ null, %17 ], [ null, %17 ], [ null, %7 ]
+_ZN4ncnn16create_layer_cpuEi.exit:                ; preds = %7, %.thread.i, %16, %16
+  %.0 = phi ptr [ %19, %.thread.i ], [ null, %16 ], [ null, %16 ], [ null, %7 ]
   ret ptr %.0
 }
 

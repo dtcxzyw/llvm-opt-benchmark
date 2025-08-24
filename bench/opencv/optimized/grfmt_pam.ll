@@ -1037,8 +1037,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit146: ; preds = %_Z
   br i1 %.not61.i, label %.thread277, label %.preheader75.i
 
 .preheader75.i:                                   ; preds = %.split.loop.exit107.i
-  %.sroa.speculated.i = tail call i32 @llvm.umin.i32(i32 %storemerge.lcssa.i, i32 8)
-  %222 = add nuw nsw i32 %.sroa.speculated.i, 1
+  %222 = add nuw nsw i32 %storemerge.lcssa.i, 1
   %223 = zext nneg i32 %222 to i64
   br label %225
 
@@ -4561,9 +4560,6 @@ declare void @llvm.lifetime.end.p0(ptr captures(none)) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #21
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #22
