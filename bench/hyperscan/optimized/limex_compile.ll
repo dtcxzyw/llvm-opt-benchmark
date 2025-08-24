@@ -42807,9 +42807,9 @@ _ZNK3ue29CharReach10find_firstEv.exit:            ; preds = %58
   %64 = tail call noundef range(i64 0, 65) i64 @llvm.cttz.i64(i64 %60, i1 true)
   %65 = or disjoint i64 %64, %63
   %.not72 = icmp eq i64 %65, 256
-  br i1 %.not72, label %.loopexit, label %.lr.ph
+  br i1 %.not72, label %.loopexit, label %.lr.ph.preheader
 
-.lr.ph:                                           ; preds = %_ZNK3ue29CharReach10find_firstEv.exit, %_ZNK3ue29CharReach9find_nextEm.exit
+.lr.ph.preheader:                                 ; preds = %_ZNK3ue29CharReach10find_firstEv.exit, %_ZNK3ue29CharReach9find_nextEm.exit
   %.02773 = phi i64 [ %86, %_ZNK3ue29CharReach9find_nextEm.exit ], [ %65, %_ZNK3ue29CharReach10find_firstEv.exit ]
   %66 = getelementptr inbounds nuw i32, ptr %3, i64 %.02773
   %67 = load i32, ptr %66, align 4
@@ -42818,9 +42818,9 @@ _ZNK3ue29CharReach10find_firstEv.exit:            ; preds = %58
   %69 = lshr i64 %.02773, 6
   %70 = and i64 %.02773, 63
   %.not20.i.i = icmp eq i64 %70, 63
-  br i1 %.not20.i.i, label %.preheader122, label %71
+  br i1 %.not20.i.i, label %.preheader127, label %71
 
-.preheader122:                                    ; preds = %71, %.lr.ph
+.preheader127:                                    ; preds = %71, %.lr.ph
   br label %78
 
 71:                                               ; preds = %.lr.ph
@@ -42829,13 +42829,13 @@ _ZNK3ue29CharReach10find_firstEv.exit:            ; preds = %58
   %74 = shl nsw i64 -2, %70
   %75 = and i64 %73, %74
   %.not21.i.i = icmp eq i64 %75, 0
-  br i1 %.not21.i.i, label %.preheader122, label %76
+  br i1 %.not21.i.i, label %.preheader127, label %76
 
 76:                                               ; preds = %71
   %77 = and i64 %.02773, 192
   br label %_ZNK3ue29CharReach9find_nextEm.exit
 
-78:                                               ; preds = %.preheader122, %80
+78:                                               ; preds = %.preheader127, %80
   %.0.in.i.i = phi i64 [ %.0.i.i, %80 ], [ %69, %.preheader122 ]
   %79 = icmp samesign ult i64 %.0.in.i.i, 3
   br i1 %79, label %80, label %.loopexit
@@ -42852,10 +42852,10 @@ _ZNK3ue29CharReach10find_firstEv.exit:            ; preds = %58
   br label %_ZNK3ue29CharReach9find_nextEm.exit
 
 _ZNK3ue29CharReach9find_nextEm.exit:              ; preds = %76, %83
-  %.sink111 = phi i64 [ %75, %76 ], [ %82, %83 ]
-  %.sink110 = phi i64 [ %77, %76 ], [ %84, %83 ]
-  %85 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.sink111, i1 true)
-  %86 = or disjoint i64 %85, %.sink110
+  %.sink112 = phi i64 [ %75, %76 ], [ %82, %83 ]
+  %.sink111 = phi i64 [ %77, %76 ], [ %84, %83 ]
+  %85 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.sink112, i1 true)
+  %86 = or disjoint i64 %85, %.sink111
   br label %.lr.ph
 
 .loopexit:                                        ; preds = %61, %78, %_ZNK3ue29CharReach10find_firstEv.exit, %.loopexit62, %47
@@ -42864,11 +42864,11 @@ _ZNK3ue29CharReach9find_nextEm.exit:              ; preds = %76, %83
   br i1 %.not58, label %.lr.ph.preheader.i.i.loopexit, label %16
 
 _ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %.lr.ph.i.i
-  %87 = load i32, ptr %spec.select.i.i, align 4
-  %88 = add i32 %87, 7
-  %89 = lshr i32 %88, 3
+  %90 = load i32, ptr %spec.select.i.i, align 4
+  %91 = add i32 %90, 7
+  %92 = lshr i32 %91, 3
   tail call void @_ZdlPv(ptr noundef nonnull %3) #30
-  ret i32 %89
+  ret i32 %92
 }
 
 ; Function Attrs: mustprogress uwtable

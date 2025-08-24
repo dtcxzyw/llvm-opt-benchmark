@@ -4635,20 +4635,20 @@ thread-pre-split:                                 ; preds = %46, %59
   store ptr %104, ptr %5, align 8
   br label %111
 
-105:                                              ; preds = %92
+.preheader:                                       ; preds = %92
   %106 = icmp slt i64 %93, 0
   br i1 %106, label %.thread, label %107
 
-107:                                              ; preds = %105
+97:                                               ; preds = %105
   %108 = icmp samesign ugt i64 %93, 4294967279
   br i1 %108, label %.thread, label %109
 
-109:                                              ; preds = %107
+.lr.ph:                                           ; preds = %97
   %110 = load i32, ptr %17, align 4
-  %.not85 = icmp eq i32 %110, 0
-  br i1 %.not85, label %111, label %.thread
+  %107 = icmp eq i32 %110, 0
+  br i1 %107, label %111, label %.thread
 
-111:                                              ; preds = %.thread102, %109
+108:                                              ; preds = %.thread102, %109
   %112 = phi ptr [ %94, %109 ], [ %104, %.thread102 ]
   %.159 = phi i64 [ %93, %109 ], [ %102, %.thread102 ]
   %113 = trunc nuw i64 %.159 to i32
@@ -4657,60 +4657,60 @@ thread-pre-split:                                 ; preds = %46, %59
   %114 = load i8, ptr %112, align 1
   switch i8 %114, label %115 [
     i8 0, label %.thread
-    i8 43, label %116
+    i8 43, label %119
   ]
 
-115:                                              ; preds = %111
+118:                                              ; preds = %111
   br label %.thread
 
-116:                                              ; preds = %111
-  %117 = load i32, ptr %10, align 4
-  %.not88 = icmp eq i32 %117, -2
-  br i1 %.not88, label %118, label %.thread
+119:                                              ; preds = %111
+  %120 = load i32, ptr %10, align 4
+  %.not88 = icmp eq i32 %120, -2
+  br i1 %.not88, label %121, label %.thread
 
-118:                                              ; preds = %116
-  %119 = getelementptr inbounds nuw i8, ptr %112, i64 1
-  store ptr %119, ptr %4, align 8
-  %120 = load i8, ptr %119, align 1
-  %121 = icmp eq i8 %120, 0
-  br i1 %121, label %.thread, label %122
+121:                                              ; preds = %119
+  %122 = getelementptr inbounds nuw i8, ptr %112, i64 1
+  store ptr %122, ptr %4, align 8
+  %123 = load i8, ptr %122, align 1
+  %124 = icmp eq i8 %123, 0
+  br i1 %124, label %.thread, label %125
 
-122:                                              ; preds = %118
+125:                                              ; preds = %121
   store i32 0, ptr %17, align 4
-  %123 = call i64 @strtol(ptr noundef nonnull %119, ptr noundef nonnull %6, i32 noundef 10) #24
-  %124 = load ptr, ptr %6, align 8
-  %125 = icmp eq ptr %124, %119
-  br i1 %125, label %.thread, label %126
+  %126 = call i64 @strtol(ptr noundef nonnull %122, ptr noundef nonnull %6, i32 noundef 10) #24
+  %127 = load ptr, ptr %6, align 8
+  %128 = icmp eq ptr %127, %122
+  br i1 %128, label %.thread, label %129
 
-126:                                              ; preds = %122
-  %127 = icmp eq i64 %123, 0
-  br i1 %127, label %.thread, label %128
+129:                                              ; preds = %125
+  %130 = icmp eq i64 %126, 0
+  br i1 %130, label %.thread, label %131
 
-128:                                              ; preds = %126
-  %129 = icmp slt i64 %123, 0
-  br i1 %129, label %.thread, label %130
+131:                                              ; preds = %129
+  %132 = icmp slt i64 %126, 0
+  br i1 %132, label %.thread, label %133
 
-130:                                              ; preds = %128
-  %131 = icmp samesign ugt i64 %123, 127
-  br i1 %131, label %.thread, label %132
+133:                                              ; preds = %131
+  %134 = icmp samesign ugt i64 %126, 127
+  br i1 %134, label %.thread, label %135
 
-132:                                              ; preds = %130
-  %133 = load i32, ptr %17, align 4
-  %.not89 = icmp eq i32 %133, 0
-  br i1 %.not89, label %134, label %.thread
+135:                                              ; preds = %133
+  %136 = load i32, ptr %17, align 4
+  %.not89 = icmp eq i32 %136, 0
+  br i1 %.not89, label %137, label %.thread
 
-134:                                              ; preds = %132
-  %135 = load i8, ptr %124, align 1
-  %.not90 = icmp eq i8 %135, 0
-  br i1 %.not90, label %136, label %.thread
+137:                                              ; preds = %135
+  %138 = load i8, ptr %127, align 1
+  %.not90 = icmp eq i8 %138, 0
+  br i1 %.not90, label %139, label %.thread
 
-136:                                              ; preds = %134
-  %137 = trunc nuw nsw i64 %123 to i32
-  store i32 %137, ptr %12, align 4
+139:                                              ; preds = %137
+  %140 = trunc nuw nsw i64 %126 to i32
+  store i32 %140, ptr %12, align 4
   br label %.thread
 
-.thread:                                          ; preds = %44, %38, %41, %37, %37, %.thread99, %.thread95, %134, %132, %130, %128, %126, %122, %118, %116, %111, %109, %107, %105, %88, %84, %27, %24, %22, %20, %16, %3, %14, %81, %136, %115, %87
-  %.057 = phi i32 [ 2140, %87 ], [ 2153, %115 ], [ 0, %136 ], [ 2145, %81 ], [ 2136, %14 ], [ 2136, %3 ], [ 2137, %16 ], [ 2138, %20 ], [ 2139, %22 ], [ 2140, %24 ], [ -1, %27 ], [ 0, %84 ], [ 2150, %88 ], [ 2151, %105 ], [ 2152, %107 ], [ -1, %109 ], [ 0, %111 ], [ 2159, %116 ], [ 0, %118 ], [ 2154, %122 ], [ 2155, %126 ], [ 2156, %128 ], [ 2157, %130 ], [ -1, %132 ], [ 2158, %134 ], [ %.3.ph, %.thread95 ], [ %.5.ph, %.thread99 ], [ 2144, %44 ], [ 2144, %38 ], [ 2144, %41 ], [ 2140, %37 ], [ 2140, %37 ]
+.thread:                                          ; preds = %44, %38, %41, %37, %37, %.thread99, %.thread95, %137, %135, %133, %131, %129, %125, %121, %119, %111, %109, %97, %105, %88, %84, %27, %24, %22, %20, %16, %3, %14, %81, %139, %118, %87
+  %.057 = phi i32 [ 2140, %87 ], [ 2153, %115 ], [ 0, %136 ], [ 2145, %81 ], [ 2139, %14 ], [ 2136, %3 ], [ 2137, %16 ], [ 2138, %20 ], [ 2139, %22 ], [ 2140, %24 ], [ -1, %27 ], [ 0, %84 ], [ 2150, %88 ], [ 2151, %105 ], [ 2152, %107 ], [ -1, %109 ], [ 0, %111 ], [ 2159, %116 ], [ 0, %118 ], [ 2154, %122 ], [ 2155, %126 ], [ 2156, %128 ], [ 2157, %130 ], [ -1, %132 ], [ 2158, %134 ], [ %.3.ph, %.thread95 ], [ %.5.ph, %.thread99 ], [ 2144, %44 ], [ 2144, %38 ], [ 2144, %41 ], [ 2140, %37 ], [ 2140, %37 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)

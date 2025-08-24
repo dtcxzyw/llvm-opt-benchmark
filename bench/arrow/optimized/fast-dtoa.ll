@@ -736,7 +736,7 @@ _ZN14arrow_vendored17double_conversionL16RoundWeedCountedENS0_6VectorIcEEimmmPi.
   br label %.thread35
 
 417:                                              ; preds = %7
-  tail call void @abort() #4
+  tail call void @abort() #5
   unreachable
 
 .thread:                                          ; preds = %352, %350, %.thread83.i.i, %398, %397, %388, %._crit_edge102.i.i, %.preheader.i.i19

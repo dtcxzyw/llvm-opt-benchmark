@@ -347,7 +347,7 @@ define hidden void @"_ZN110_$LT$brotli..enc..stride_eval..StrideEval$LT$Alloc$GT
   %67 = call noundef float @_ZN6brotli3enc11stride_eval3CDF4cost17h1b32b8f2586ec12aE(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %8, i8 noundef %43), !noalias !4
   %68 = add nuw nsw i64 %.sroa.06.022.i, %47
   %69 = icmp ult i64 %68, %.val18.i
-  br i1 %69, label %82, label %87
+  br i1 %69, label %82, label %92
 
 70:                                               ; preds = %70, %.preheader.i
   %.sroa.08.023.i = phi i64 [ 0, %.preheader.i ], [ %79, %70 ]
@@ -374,7 +374,7 @@ define hidden void @"_ZN110_$LT$brotli..enc..stride_eval..StrideEval$LT$Alloc$GT
   %exitcond27.not.i = icmp eq i64 %79, 8
   br i1 %exitcond27.not.i, label %"_ZN6brotli3enc11stride_eval23StrideEval$LT$Alloc$GT$16update_cost_base17h25958beed6e3b22fE.exit", label %70
 
-82:                                               ; preds = %59
+86:                                               ; preds = %59
   %83 = add nuw nsw i64 %.sroa.06.022.i, 1
   %84 = getelementptr inbounds nuw float, ptr %.val17.i, i64 %68
   %85 = load float, ptr %84, align 4, !noalias !4, !noundef !3
@@ -385,7 +385,7 @@ define hidden void @"_ZN110_$LT$brotli..enc..stride_eval..StrideEval$LT$Alloc$GT
   %exitcond.not.i = icmp eq i64 %83, 8
   br i1 %exitcond.not.i, label %.preheader.i, label %59
 
-87:                                               ; preds = %59
+92:                                               ; preds = %59
   call void @_ZN4core9panicking18panic_bounds_check17h2d3ab0b83311a572E(i64 noundef %68, i64 noundef %.val18.i, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c89078488ceecc213926f9c07f09b856.156) #20, !noalias !4
   unreachable
 

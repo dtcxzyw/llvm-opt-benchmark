@@ -991,7 +991,7 @@ _ZN4llvm6BitsetILj129EEaNERKS1_.exit:             ; preds = %_ZNK4llvm6BitsetILj
 58:                                               ; preds = %55
   %59 = zext i32 %56 to i64
   %60 = add nuw nsw i64 %59, 1
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull %40, i64 noundef %60, i64 noundef 16) #10
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull %40, i64 noundef %60, i64 noundef 16) #11
   %.pre.i = load i32, ptr %38, align 8, !tbaa !23
   br label %_ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit
 
@@ -1333,7 +1333,7 @@ _ZL25getImpliedEnabledFeaturesRN4llvm6BitsetILj129EEERKS1_.exit: ; preds = %_ZL2
   %.8.val.pn.i = add i64 %.val14, -1
   %.val13 = load ptr, ptr %111, align 8
   %.0.val.pn.i = getelementptr inbounds nuw i8, ptr %.val13, i64 1
-  %115 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr nonnull %.0.val.pn.i, i64 %.8.val.pn.i) #10
+  %115 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr nonnull %.0.val.pn.i, i64 %.8.val.pn.i) #11
   %116 = tail call { ptr, i8 } @_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr nonnull %.0.val.pn.i, i64 %.8.val.pn.i, i32 noundef %115)
   %.fca.0.extract.i = extractvalue { ptr, i8 } %116, 0
   %117 = load ptr, ptr %.fca.0.extract.i, align 8, !tbaa !48
@@ -2203,7 +2203,7 @@ define linkonce_odr noundef ptr @_ZSt9__find_ifIPKPKcN9__gnu_cxx5__ops16_Iter_eq
   br i1 %.not.i.i, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm9StringRefEEclIPKPKcEEbT_.exit, label %_ZN4llvm9StringRefC2EPKc.exit.i
 
 _ZN4llvm9StringRefC2EPKc.exit.i:                  ; preds = %10
-  %12 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %11) #10
+  %12 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %11) #11
   %.sroa.0.0.copyload.i = load ptr, ptr %2, align 8, !tbaa !19
   %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !20
   %.not.i2.i = icmp eq i64 %12, %.sroa.2.0.copyload.i
@@ -2231,7 +2231,7 @@ _ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm9StringRefEEclIPKPKcEEbT_.exit.thre
   br i1 %.not.i.i30, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm9StringRefEEclIPKPKcEEbT_.exit42, label %_ZN4llvm9StringRefC2EPKc.exit.i31
 
 _ZN4llvm9StringRefC2EPKc.exit.i31:                ; preds = %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm9StringRefEEclIPKPKcEEbT_.exit.thread122
-  %19 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %18) #10
+  %19 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %18) #11
   %.sroa.0.0.copyload.i32 = load ptr, ptr %2, align 8, !tbaa !19
   %.not.i2.i35 = icmp eq i64 %19, %.sroa.2.0.copyload5.i66
   br i1 %.not.i2.i35, label %20, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm9StringRefEEclIPKPKcEEbT_.exit42.thread125
@@ -2256,7 +2256,7 @@ _ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm9StringRefEEclIPKPKcEEbT_.exit42.th
   br i1 %.not.i.i43, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm9StringRefEEclIPKPKcEEbT_.exit55, label %_ZN4llvm9StringRefC2EPKc.exit.i44
 
 _ZN4llvm9StringRefC2EPKc.exit.i44:                ; preds = %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm9StringRefEEclIPKPKcEEbT_.exit42.thread125
-  %26 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %25) #10
+  %26 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %25) #11
   %.sroa.0.0.copyload.i45 = load ptr, ptr %2, align 8, !tbaa !19
   %.not.i2.i48 = icmp eq i64 %26, %.sroa.2.0.copyload5.i66
   br i1 %.not.i2.i48, label %27, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm9StringRefEEclIPKPKcEEbT_.exit55.thread128
@@ -2281,7 +2281,7 @@ _ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm9StringRefEEclIPKPKcEEbT_.exit55.th
   br i1 %.not.i.i56, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm9StringRefEEclIPKPKcEEbT_.exit68, label %_ZN4llvm9StringRefC2EPKc.exit.i57
 
 _ZN4llvm9StringRefC2EPKc.exit.i57:                ; preds = %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm9StringRefEEclIPKPKcEEbT_.exit55.thread128
-  %33 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %32) #10
+  %33 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %32) #11
   %.sroa.0.0.copyload.i58 = load ptr, ptr %2, align 8, !tbaa !19
   %.not.i2.i61 = icmp eq i64 %33, %.sroa.2.0.copyload5.i66
   br i1 %.not.i2.i61, label %34, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm9StringRefEEclIPKPKcEEbT_.exit68.thread131
@@ -2326,7 +2326,7 @@ _ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm9StringRefEEclIPKPKcEEbT_.exit68.th
   br i1 %.not.i.i69, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm9StringRefEEclIPKPKcEEbT_.exit81, label %_ZN4llvm9StringRefC2EPKc.exit.i70
 
 _ZN4llvm9StringRefC2EPKc.exit.i70:                ; preds = %42
-  %44 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %43) #10
+  %44 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %43) #11
   %.sroa.0.0.copyload.i71 = load ptr, ptr %2, align 8, !tbaa !19
   %.sroa.2.0..sroa_idx.i72 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.2.0.copyload.i73 = load i64, ptr %.sroa.2.0..sroa_idx.i72, align 8, !tbaa !20
@@ -2359,7 +2359,7 @@ _ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm9StringRefEEclIPKPKcEEbT_.exit81.th
   br i1 %.not.i.i82, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm9StringRefEEclIPKPKcEEbT_.exit94, label %_ZN4llvm9StringRefC2EPKc.exit.i83
 
 _ZN4llvm9StringRefC2EPKc.exit.i83:                ; preds = %50
-  %52 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %51) #10
+  %52 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %51) #11
   %.sroa.0.0.copyload.i84 = load ptr, ptr %2, align 8, !tbaa !19
   %.sroa.2.0..sroa_idx.i85 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.2.0.copyload.i86 = load i64, ptr %.sroa.2.0..sroa_idx.i85, align 8, !tbaa !20
@@ -2392,7 +2392,7 @@ _ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm9StringRefEEclIPKPKcEEbT_.exit94.th
   br i1 %.not.i.i95, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm9StringRefEEclIPKPKcEEbT_.exit107, label %_ZN4llvm9StringRefC2EPKc.exit.i96
 
 _ZN4llvm9StringRefC2EPKc.exit.i96:                ; preds = %58
-  %60 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %59) #10
+  %60 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %59) #11
   %.sroa.0.0.copyload.i97 = load ptr, ptr %2, align 8, !tbaa !19
   %.sroa.2.0..sroa_idx.i98 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.2.0.copyload.i99 = load i64, ptr %.sroa.2.0..sroa_idx.i98, align 8, !tbaa !20
@@ -2477,7 +2477,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN4
   %8 = zext i32 %4 to i64
   %9 = add nuw nsw i64 %8, 1
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %10, i64 noundef %9, i64 noundef 16) #10
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %10, i64 noundef %9, i64 noundef 16) #11
   %.pre.i = load i32, ptr %3, align 8, !tbaa !23
   br label %_ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit
 
@@ -2522,7 +2522,7 @@ define linkonce_odr noundef ptr @_ZSt9__find_ifIPKPKcN9__gnu_cxx5__ops16_Iter_eq
   br i1 %.not.i.i, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm13StringLiteralEEclIPKPKcEEbT_.exit, label %_ZN4llvm9StringRefC2EPKc.exit.i
 
 _ZN4llvm9StringRefC2EPKc.exit.i:                  ; preds = %10
-  %12 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %11) #10
+  %12 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %11) #11
   %.sroa.0.0.copyload.i = load ptr, ptr %2, align 8, !tbaa !19
   %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !20
   %.not.i2.i = icmp eq i64 %12, %.sroa.2.0.copyload.i
@@ -2550,7 +2550,7 @@ _ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm13StringLiteralEEclIPKPKcEEbT_.exit
   br i1 %.not.i.i30, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm13StringLiteralEEclIPKPKcEEbT_.exit42, label %_ZN4llvm9StringRefC2EPKc.exit.i31
 
 _ZN4llvm9StringRefC2EPKc.exit.i31:                ; preds = %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm13StringLiteralEEclIPKPKcEEbT_.exit.thread122
-  %19 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %18) #10
+  %19 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %18) #11
   %.sroa.0.0.copyload.i32 = load ptr, ptr %2, align 8, !tbaa !19
   %.not.i2.i35 = icmp eq i64 %19, %.sroa.2.0.copyload5.i66
   br i1 %.not.i2.i35, label %20, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm13StringLiteralEEclIPKPKcEEbT_.exit42.thread125
@@ -2575,7 +2575,7 @@ _ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm13StringLiteralEEclIPKPKcEEbT_.exit
   br i1 %.not.i.i43, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm13StringLiteralEEclIPKPKcEEbT_.exit55, label %_ZN4llvm9StringRefC2EPKc.exit.i44
 
 _ZN4llvm9StringRefC2EPKc.exit.i44:                ; preds = %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm13StringLiteralEEclIPKPKcEEbT_.exit42.thread125
-  %26 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %25) #10
+  %26 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %25) #11
   %.sroa.0.0.copyload.i45 = load ptr, ptr %2, align 8, !tbaa !19
   %.not.i2.i48 = icmp eq i64 %26, %.sroa.2.0.copyload5.i66
   br i1 %.not.i2.i48, label %27, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm13StringLiteralEEclIPKPKcEEbT_.exit55.thread128
@@ -2600,7 +2600,7 @@ _ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm13StringLiteralEEclIPKPKcEEbT_.exit
   br i1 %.not.i.i56, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm13StringLiteralEEclIPKPKcEEbT_.exit68, label %_ZN4llvm9StringRefC2EPKc.exit.i57
 
 _ZN4llvm9StringRefC2EPKc.exit.i57:                ; preds = %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm13StringLiteralEEclIPKPKcEEbT_.exit55.thread128
-  %33 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %32) #10
+  %33 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %32) #11
   %.sroa.0.0.copyload.i58 = load ptr, ptr %2, align 8, !tbaa !19
   %.not.i2.i61 = icmp eq i64 %33, %.sroa.2.0.copyload5.i66
   br i1 %.not.i2.i61, label %34, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm13StringLiteralEEclIPKPKcEEbT_.exit68.thread131
@@ -2645,7 +2645,7 @@ _ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm13StringLiteralEEclIPKPKcEEbT_.exit
   br i1 %.not.i.i69, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm13StringLiteralEEclIPKPKcEEbT_.exit81, label %_ZN4llvm9StringRefC2EPKc.exit.i70
 
 _ZN4llvm9StringRefC2EPKc.exit.i70:                ; preds = %42
-  %44 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %43) #10
+  %44 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %43) #11
   %.sroa.0.0.copyload.i71 = load ptr, ptr %2, align 8, !tbaa !19
   %.sroa.2.0..sroa_idx.i72 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.2.0.copyload.i73 = load i64, ptr %.sroa.2.0..sroa_idx.i72, align 8, !tbaa !20
@@ -2678,7 +2678,7 @@ _ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm13StringLiteralEEclIPKPKcEEbT_.exit
   br i1 %.not.i.i82, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm13StringLiteralEEclIPKPKcEEbT_.exit94, label %_ZN4llvm9StringRefC2EPKc.exit.i83
 
 _ZN4llvm9StringRefC2EPKc.exit.i83:                ; preds = %50
-  %52 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %51) #10
+  %52 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %51) #11
   %.sroa.0.0.copyload.i84 = load ptr, ptr %2, align 8, !tbaa !19
   %.sroa.2.0..sroa_idx.i85 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.2.0.copyload.i86 = load i64, ptr %.sroa.2.0..sroa_idx.i85, align 8, !tbaa !20
@@ -2711,7 +2711,7 @@ _ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm13StringLiteralEEclIPKPKcEEbT_.exit
   br i1 %.not.i.i95, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm13StringLiteralEEclIPKPKcEEbT_.exit107, label %_ZN4llvm9StringRefC2EPKc.exit.i96
 
 _ZN4llvm9StringRefC2EPKc.exit.i96:                ; preds = %58
-  %60 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %59) #10
+  %60 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %59) #11
   %.sroa.0.0.copyload.i97 = load ptr, ptr %2, align 8, !tbaa !19
   %.sroa.2.0..sroa_idx.i98 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.2.0.copyload.i99 = load i64, ptr %.sroa.2.0..sroa_idx.i98, align 8, !tbaa !20
@@ -2781,7 +2781,7 @@ declare void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull ali
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden { ptr, i8 } @_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, i64 %2, i32 noundef %3) local_unnamed_addr #2 comdat align 2 {
-  %5 = tail call noundef i32 @_ZN4llvm13StringMapImpl15LookupBucketForENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, i64 %2, i32 noundef %3) #10
+  %5 = tail call noundef i32 @_ZN4llvm13StringMapImpl15LookupBucketForENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, i64 %2, i32 noundef %3) #11
   %6 = load ptr, ptr %0, align 8, !tbaa !58
   %7 = zext i32 %5 to i64
   %8 = getelementptr inbounds nuw ptr, ptr %6, i64 %7
@@ -2815,7 +2815,7 @@ define linkonce_odr hidden { ptr, i8 } @_ZN4llvm9StringMapIbNS_15MallocAllocator
 
 16:                                               ; preds = %4, %12
   %17 = add i64 %2, 17
-  %18 = tail call noalias noundef nonnull ptr @_ZN4llvm15allocate_bufferEmm(i64 noundef %17, i64 noundef 8) #10
+  %18 = tail call noalias noundef nonnull ptr @_ZN4llvm15allocate_bufferEmm(i64 noundef %17, i64 noundef 8) #11
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %.not.i.i = icmp eq i64 %2, 0
   br i1 %.not.i.i, label %_ZN4llvm14StringMapEntryIbE6createINS_15MallocAllocatorEJEEEPS1_NS_9StringRefERT_DpOT0_.exit, label %20
@@ -2835,7 +2835,7 @@ _ZN4llvm14StringMapEntryIbE6createINS_15MallocAllocatorEJEEEPS1_NS_9StringRefERT
   %24 = load i32, ptr %23, align 4, !tbaa !67
   %25 = add i32 %24, 1
   store i32 %25, ptr %23, align 4, !tbaa !67
-  %26 = tail call noundef i32 @_ZN4llvm13StringMapImpl11RehashTableEj(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %5) #10
+  %26 = tail call noundef i32 @_ZN4llvm13StringMapImpl11RehashTableEj(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %5) #11
   %27 = load ptr, ptr %0, align 8, !tbaa !58
   %28 = zext i32 %26 to i64
   %29 = getelementptr inbounds nuw ptr, ptr %27, i64 %28
@@ -2880,7 +2880,7 @@ declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #9
+declare void @llvm.experimental.noalias.scope.decl(metadata) #10
 
 attributes #0 = { mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }

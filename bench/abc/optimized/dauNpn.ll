@@ -2090,9 +2090,9 @@ define i32 @Dau_CountCompl(i64 noundef %0, i32 noundef %1) local_unnamed_addr #6
   %wide.trip.count.i = zext nneg i32 %1 to i64
   br label %4
 
-4:                                                ; preds = %.lr.ph, %Dau_CountCompl1.exit
+4:                                                ; preds = %.lr.ph, %Dau_CountCompl1.exit.us
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %Dau_CountCompl1.exit ]
-  %.011 = phi i32 [ 0, %.lr.ph ], [ %30, %Dau_CountCompl1.exit ]
+  %.011.us = phi i32 [ 0, %.lr.ph ], [ %30, %Dau_CountCompl1.exit ]
   %5 = trunc nuw nsw i64 %indvars.iv to i32
   %6 = shl nuw i32 1, %5
   %7 = zext i32 %6 to i64
@@ -2105,40 +2105,40 @@ define i32 @Dau_CountCompl(i64 noundef %0, i32 noundef %1) local_unnamed_addr #6
   %14 = or i64 %13, %11
   %15 = xor i64 %14, %0
   %16 = icmp eq i64 %15, -1
-  br i1 %16, label %Dau_CountCompl1.exit, label %.lr.ph.i
+  br i1 %16, label %Dau_CountCompl1.exit.us, label %.lr.ph.i.us
 
-.lr.ph.i:                                         ; preds = %4, %29
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %29 ], [ 0, %4 ]
-  %.not.i = icmp eq i64 %indvars.iv.i, %indvars.iv
-  br i1 %.not.i, label %29, label %17
+.lr.ph.i.us:                                      ; preds = %4, %29
+  %indvars.iv.i.us = phi i64 [ %indvars.iv.next.i.us, %29 ], [ 0, %4 ]
+  %.not.i.us = icmp eq i64 %indvars.iv.i.us, %indvars.iv
+  br i1 %.not.i.us, label %29, label %17
 
-17:                                               ; preds = %.lr.ph.i
-  %18 = trunc nuw nsw i64 %indvars.iv.i to i32
+17:                                               ; preds = %.lr.ph.i.us
+  %18 = trunc nuw nsw i64 %indvars.iv.i.us to i32
   %19 = shl nuw i32 1, %18
   %20 = zext i32 %19 to i64
   %21 = shl i64 %0, %20
-  %22 = getelementptr inbounds nuw [6 x i64], ptr @s_Truths6, i64 0, i64 %indvars.iv.i
+  %22 = getelementptr inbounds nuw [6 x i64], ptr @s_Truths6, i64 0, i64 %indvars.iv.i.us
   %23 = load i64, ptr %22, align 8, !tbaa !18
   %24 = and i64 %23, %21
   %25 = and i64 %23, %0
   %26 = lshr i64 %25, %20
   %27 = or i64 %26, %24
   %28 = icmp eq i64 %14, %27
-  br i1 %28, label %Dau_CountCompl1.exit, label %29
+  br i1 %28, label %Dau_CountCompl1.exit.us, label %29
 
-29:                                               ; preds = %17, %.lr.ph.i
-  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %Dau_CountCompl1.exit, label %.lr.ph.i, !llvm.loop !54
+29:                                               ; preds = %17, %.lr.ph.i.us
+  %indvars.iv.next.i.us = add nuw nsw i64 %indvars.iv.i.us, 1
+  %exitcond.not.i.us = icmp eq i64 %indvars.iv.next.i.us, %wide.trip.count.i
+  br i1 %exitcond.not.i.us, label %Dau_CountCompl1.exit.us, label %.lr.ph.i.us, !llvm.loop !54
 
-Dau_CountCompl1.exit:                             ; preds = %17, %29, %4
-  %.013.i = phi i32 [ 1, %4 ], [ 0, %29 ], [ 1, %17 ]
-  %30 = add nuw nsw i32 %.013.i, %.011
+Dau_CountCompl1.exit.us:                          ; preds = %17, %29, %4
+  %.013.i.us = phi i32 [ 1, %4 ], [ 0, %29 ], [ 1, %17 ]
+  %30 = add nuw nsw i32 %.013.i.us, %.011.us
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count.i
   br i1 %exitcond.not, label %._crit_edge, label %4, !llvm.loop !55
 
-._crit_edge:                                      ; preds = %Dau_CountCompl1.exit, %2
+._crit_edge:                                      ; preds = %Dau_CountCompl1.exit.us, %2
   %.0.lcssa = phi i32 [ 0, %2 ], [ %30, %Dau_CountCompl1.exit ]
   ret i32 %.0.lcssa
 }
