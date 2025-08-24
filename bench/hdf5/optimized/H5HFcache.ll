@@ -4067,14 +4067,14 @@ define internal range(i32 -1, 2) i32 @H5HF__cache_dblock_verify_chksum(ptr nound
   %11 = trunc nuw i8 %10 to i1
   %12 = xor i1 %11, true
   %13 = select i1 %9, i1 true, i1 %12
-  br i1 %13, label %14, label %96, !prof !9
+  br i1 %13, label %14, label %97, !prof !9
 
 14:                                               ; preds = %3
   %15 = load ptr, ptr %2, align 8, !tbaa !100
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 259
   %17 = load i8, ptr %16, align 1, !tbaa !40, !range !7, !noundef !8
   %18 = trunc nuw i8 %17 to i1
-  br i1 %18, label %19, label %92
+  br i1 %18, label %19, label %93
 
 19:                                               ; preds = %14
   %20 = getelementptr inbounds nuw i8, ptr %15, i64 252
@@ -4116,7 +4116,7 @@ define internal range(i32 -1, 2) i32 @H5HF__cache_dblock_verify_chksum(ptr nound
 .thread:                                          ; preds = %25, %35
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %92
+  br label %93
 
 39:                                               ; preds = %29
   %40 = getelementptr inbounds nuw i8, ptr %2, i64 64
@@ -4167,54 +4167,54 @@ define internal range(i32 -1, 2) i32 @H5HF__cache_dblock_verify_chksum(ptr nound
   %73 = or disjoint i32 %68, %60
   %74 = or disjoint i32 %73, %72
   store i32 0, ptr %58, align 1
-  %75 = load ptr, ptr %5, align 8, !tbaa !143
-  %76 = load i64, ptr %4, align 8, !tbaa !14
-  %77 = call i32 @H5_checksum_metadata(ptr noundef %75, i64 noundef %76, i32 noundef 0) #9
+  %76 = load ptr, ptr %5, align 8, !tbaa !143
+  %77 = load i64, ptr %4, align 8, !tbaa !14
+  %78 = call i32 @H5_checksum_metadata(ptr noundef %76, i64 noundef %77, i32 noundef 0) #9
   store i8 %61, ptr %58, align 1, !tbaa !16
   store i8 %64, ptr %62, align 1, !tbaa !16
   store i8 %66, ptr %65, align 1, !tbaa !16
   store i8 %70, ptr %69, align 1, !tbaa !16
-  %.not55 = icmp eq i32 %74, %77
-  br i1 %.not55, label %78, label %92
+  %.not55 = icmp eq i32 %74, %78
+  br i1 %.not55, label %79, label %93
 
-78:                                               ; preds = %46
-  %79 = load i32, ptr %20, align 4, !tbaa !75
-  %.not56 = icmp eq i32 %79, 0
-  br i1 %.not56, label %92, label %80
+79:                                               ; preds = %46
+  %80 = load i32, ptr %20, align 4, !tbaa !75
+  %.not56 = icmp eq i32 %80, 0
+  br i1 %.not56, label %93, label %81
 
-80:                                               ; preds = %78
-  %81 = load i64, ptr %4, align 8, !tbaa !14
-  %82 = call noalias ptr @H5FL_blk_malloc(ptr noundef nonnull @H5_direct_block_blk_free_list, i64 noundef %81) #9
-  %83 = getelementptr inbounds nuw i8, ptr %2, i64 56
-  store ptr %82, ptr %83, align 8, !tbaa !147
-  %84 = icmp eq ptr %82, null
-  br i1 %84, label %85, label %89
+81:                                               ; preds = %79
+  %82 = load i64, ptr %4, align 8, !tbaa !14
+  %83 = call noalias ptr @H5FL_blk_malloc(ptr noundef nonnull @H5_direct_block_blk_free_list, i64 noundef %82) #9
+  %84 = getelementptr inbounds nuw i8, ptr %2, i64 56
+  store ptr %83, ptr %84, align 8, !tbaa !147
+  %85 = icmp eq ptr %83, null
+  br i1 %85, label %86, label %90
 
-85:                                               ; preds = %80
-  %86 = load i64, ptr @H5E_RESOURCE_g, align 8, !tbaa !14
-  %87 = load i64, ptr @H5E_NOSPACE_g, align 8, !tbaa !14
-  %88 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.4, ptr noundef nonnull @__func__.H5HF__cache_dblock_verify_chksum, i32 noundef 1629, i64 noundef %86, i64 noundef %87, ptr noundef nonnull @.str.10) #9
-  br label %92
+86:                                               ; preds = %81
+  %87 = load i64, ptr @H5E_RESOURCE_g, align 8, !tbaa !14
+  %88 = load i64, ptr @H5E_NOSPACE_g, align 8, !tbaa !14
+  %89 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.4, ptr noundef nonnull @__func__.H5HF__cache_dblock_verify_chksum, i32 noundef 1629, i64 noundef %87, i64 noundef %88, ptr noundef nonnull @.str.10) #9
+  br label %93
 
-89:                                               ; preds = %80
-  %90 = load ptr, ptr %5, align 8, !tbaa !143
-  %91 = load i64, ptr %4, align 8, !tbaa !14
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %82, ptr align 1 %90, i64 %91, i1 false)
-  br label %92
+90:                                               ; preds = %81
+  %91 = load ptr, ptr %5, align 8, !tbaa !143
+  %92 = load i64, ptr %4, align 8, !tbaa !14
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %83, ptr align 1 %91, i64 %92, i1 false)
+  br label %93
 
-92:                                               ; preds = %.thread, %46, %14, %78, %89, %85
+93:                                               ; preds = %.thread, %46, %14, %79, %90, %86
   %.1 = phi i32 [ -1, %85 ], [ 1, %89 ], [ 1, %78 ], [ 1, %14 ], [ 0, %46 ], [ -1, %.thread ]
-  %93 = load ptr, ptr %5, align 8, !tbaa !143
-  %.not57 = icmp eq ptr %93, null
-  %.not58 = icmp eq ptr %93, %0
+  %94 = load ptr, ptr %5, align 8, !tbaa !143
+  %.not57 = icmp eq ptr %94, null
+  %.not58 = icmp eq ptr %94, %0
   %or.cond = or i1 %.not57, %.not58
-  br i1 %or.cond, label %96, label %94
+  br i1 %or.cond, label %97, label %95
 
-94:                                               ; preds = %92
-  %95 = call ptr @H5MM_xfree(ptr noundef nonnull %93) #9
-  br label %96
+95:                                               ; preds = %93
+  %96 = call ptr @H5MM_xfree(ptr noundef nonnull %94) #9
+  br label %97
 
-96:                                               ; preds = %3, %94, %92
+97:                                               ; preds = %3, %95, %93
   %.052 = phi i32 [ %.1, %94 ], [ %.1, %92 ], [ 1, %3 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.052

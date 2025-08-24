@@ -2683,42 +2683,42 @@ if.end:                                           ; preds = %entry
   %6 = lshr i64 %4, 32
   %7 = trunc nuw i64 %6 to i32
   %m_screensize = getelementptr inbounds nuw i8, ptr %this, i64 336
-  %8 = load i32, ptr %m_screensize, align 8, !tbaa !43
+  %6 = load i32, ptr %m_screensize, align 8, !tbaa !43
   %cmp.i.i = icmp ne i32 %8, %5
   %Y3.i.i = getelementptr inbounds nuw i8, ptr %this, i64 340
-  %9 = load i32, ptr %Y3.i.i, align 4
+  %7 = load i32, ptr %Y3.i.i, align 4
   %cmp4.i.i = icmp ne i32 %9, %7
   %.not.i = select i1 %cmp.i.i, i1 true, i1 %cmp4.i.i
   br i1 %.not.i, label %if.then6, label %if.end18
 
 if.then6:                                         ; preds = %if.end
-  %cmp.not = icmp eq i32 %9, 0
+  %cmp.not = icmp eq i32 %7, 0
   %m_height.i.i.phi.trans.insert = getelementptr inbounds nuw i8, ptr %this, i64 356
   %.pre = load i32, ptr %m_height.i.i.phi.trans.insert, align 4, !tbaa !51
   br i1 %cmp.not, label %if.end13, label %if.then8
 
 if.then8:                                         ; preds = %if.then6
   %mul = mul i32 %.pre, %7
-  %div = udiv i32 %mul, %9
+  %div = udiv i32 %mul, %7
   store i32 %div, ptr %m_height.i.i.phi.trans.insert, align 4, !tbaa !51
   br label %if.end13
 
 if.end13:                                         ; preds = %if.then8, %if.then6
-  %10 = phi i32 [ %div, %if.then8 ], [ %.pre, %if.then6 ]
+  %8 = phi i32 [ %div, %if.then8 ], [ %.pre, %if.then6 ]
   store i64 %4, ptr %m_screensize, align 8, !tbaa.struct !81
   %m_desired_height_fraction = getelementptr inbounds nuw i8, ptr %this, i64 364
-  %11 = load float, ptr %m_desired_height_fraction, align 4, !tbaa !111
+  %9 = load float, ptr %m_desired_height_fraction, align 4, !tbaa !111
   %conv = uitofp i32 %7 to float
-  %mul17 = fmul nsz float %11, %conv
+  %mul17 = fmul nsz float %9, %conv
   %m_desired_height = getelementptr inbounds nuw i8, ptr %this, i64 360
   store float %mul17, ptr %m_desired_height, align 8, !tbaa !113
   %m_fontsize.i = getelementptr inbounds nuw i8, ptr %this, i64 416
-  %12 = load i32, ptr %m_fontsize.i, align 8, !tbaa !115
-  %div.i = udiv i32 %5, %12
+  %10 = load i32, ptr %m_fontsize.i, align 8, !tbaa !115
+  %div.i = udiv i32 %5, %10
   %sub.i = add i32 %div.i, -2
   %Y.i27 = getelementptr inbounds nuw i8, ptr %this, i64 420
-  %13 = load i32, ptr %Y.i27, align 4, !tbaa !116
-  %conv.i = uitofp i32 %13 to float
+  %11 = load i32, ptr %Y.i27, align 4, !tbaa !116
+  %conv.i = uitofp i32 %11 to float
   %div4.i = fdiv nsz float %mul17, %conv.i
   %sub5.i = fadd nsz float %div4.i, -1.000000e+00
   %conv6.i = fptosi float %sub5.i to i32
@@ -2734,55 +2734,55 @@ if.end13:                                         ; preds = %if.then8, %if.then6
   %rect.sroa.5.0.DesiredRect.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %this, i64 104
   store i32 %5, ptr %rect.sroa.5.0.DesiredRect.sroa_idx.i.i, align 8, !tbaa !12
   %rect.sroa.6.0.DesiredRect.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %this, i64 108
-  store i32 %10, ptr %rect.sroa.6.0.DesiredRect.sroa_idx.i.i, align 4, !tbaa !12
+  store i32 %8, ptr %rect.sroa.6.0.DesiredRect.sroa_idx.i.i, align 4, !tbaa !12
   tail call void @_ZN3irr3gui11IGUIElement27recalculateAbsolutePositionEb(ptr noundef nonnull align 8 dereferenceable(308) %this, i1 noundef zeroext false)
   %m_chat_backend.i = getelementptr inbounds nuw i8, ptr %this, i64 312
-  %14 = load ptr, ptr %m_chat_backend.i, align 8, !tbaa !16
-  tail call void @_ZN11ChatBackend8reformatEjj(ptr noundef nonnull align 8 dereferenceable(360) %14, i32 noundef %spec.select.i, i32 noundef %spec.select10.i)
+  %12 = load ptr, ptr %m_chat_backend.i, align 8, !tbaa !16
+  tail call void @_ZN11ChatBackend8reformatEjj(ptr noundef nonnull align 8 dereferenceable(360) %12, i32 noundef %spec.select.i, i32 noundef %spec.select10.i)
   br label %if.end18
 
 if.end18:                                         ; preds = %if.end13, %if.end
   call void @llvm.lifetime.start.p0(ptr nonnull %ts.i)
   %call.i.i = call i32 @clock_gettime(i32 noundef 4, ptr noundef nonnull %ts.i) #25
-  %15 = load i64, ptr %ts.i, align 8, !tbaa !45
-  %mul.i = mul i64 %15, 1000
+  %13 = load i64, ptr %ts.i, align 8, !tbaa !45
+  %mul.i = mul i64 %13, 1000
   %tv_nsec.i = getelementptr inbounds nuw i8, ptr %ts.i, i64 8
-  %16 = load i64, ptr %tv_nsec.i, align 8, !tbaa !47
-  %div.i28 = udiv i64 %16, 1000000
+  %14 = load i64, ptr %tv_nsec.i, align 8, !tbaa !47
+  %div.i28 = udiv i64 %14, 1000000
   %add.i = add i64 %div.i28, %mul.i
   call void @llvm.lifetime.end.p0(ptr nonnull %ts.i)
   %m_animate_time_old = getelementptr inbounds nuw i8, ptr %this, i64 344
-  %17 = load i64, ptr %m_animate_time_old, align 8, !tbaa !48
-  %sub = sub i64 %add.i, %17
+  %15 = load i64, ptr %m_animate_time_old, align 8, !tbaa !48
+  %sub = sub i64 %add.i, %15
   %conv20 = trunc i64 %sub to i32
   call void @_ZN14GUIChatConsole7animateEj(ptr noundef nonnull align 8 dereferenceable(426) %this, i32 noundef %conv20)
   store i64 %add.i, ptr %m_animate_time_old, align 8, !tbaa !48
   %m_height22 = getelementptr inbounds nuw i8, ptr %this, i64 356
-  %18 = load i32, ptr %m_height22, align 4, !tbaa !51
-  %cmp23 = icmp sgt i32 %18, 0
+  %16 = load i32, ptr %m_height22, align 4, !tbaa !51
+  %cmp23 = icmp sgt i32 %16, 0
   br i1 %cmp23, label %if.then24, label %if.end25
 
 if.then24:                                        ; preds = %if.end18
-  %19 = load ptr, ptr %Environment, align 8, !tbaa !100
-  %vtable.i = load ptr, ptr %19, align 8, !tbaa !14
+  %17 = load ptr, ptr %Environment, align 8, !tbaa !100
+  %vtable.i = load ptr, ptr %17, align 8, !tbaa !14
   %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 48
-  %20 = load ptr, ptr %vfn.i, align 8
-  %call.i = call noundef ptr %20(ptr noundef nonnull align 8 dereferenceable(8) %19)
+  %18 = load ptr, ptr %vfn.i, align 8
+  %call.i = call noundef ptr %20(ptr noundef nonnull align 8 dereferenceable(8) %17)
   %m_background.i = getelementptr inbounds nuw i8, ptr %this, i64 392
-  %21 = load ptr, ptr %m_background.i, align 8, !tbaa !54
-  %cmp.not.i = icmp eq ptr %21, null
+  %19 = load ptr, ptr %m_background.i, align 8, !tbaa !54
+  %cmp.not.i = icmp eq ptr %19, null
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then24
   call void @llvm.lifetime.start.p0(ptr nonnull %sourcerect.i)
-  %22 = load i32, ptr %m_height22, align 4, !tbaa !51
-  %sub.i29 = sub nsw i32 0, %22
-  %23 = load i32, ptr %m_screensize, align 8, !tbaa !114
+  %20 = load i32, ptr %m_height22, align 4, !tbaa !51
+  %sub.i29 = sub nsw i32 0, %20
+  %21 = load i32, ptr %m_screensize, align 8, !tbaa !114
   store i32 0, ptr %sourcerect.i, align 4, !tbaa !124
   %Y.i.i.i = getelementptr inbounds nuw i8, ptr %sourcerect.i, i64 4
   store i32 %sub.i29, ptr %Y.i.i.i, align 4, !tbaa !125
   %LowerRightCorner.i.i = getelementptr inbounds nuw i8, ptr %sourcerect.i, i64 8
-  store i32 %23, ptr %LowerRightCorner.i.i, align 4, !tbaa !124
+  store i32 %21, ptr %LowerRightCorner.i.i, align 4, !tbaa !124
   %Y.i2.i.i = getelementptr inbounds nuw i8, ptr %sourcerect.i, i64 12
   store i32 0, ptr %Y.i2.i.i, align 4, !tbaa !125
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
@@ -2794,8 +2794,8 @@ if.then.i:                                        ; preds = %if.then24
   %agg.tmp.sroa.0.0.copyload.i = load i32, ptr %m_background_color.i, align 8, !tbaa !12
   %vtable3.i = load ptr, ptr %call.i, align 8, !tbaa !14
   %vfn4.i = getelementptr inbounds nuw i8, ptr %vtable3.i, i64 384
-  %24 = load ptr, ptr %vfn4.i, align 8
-  call void %24(ptr noundef nonnull align 8 dereferenceable(8) %call.i, ptr noundef nonnull %21, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp.i, ptr noundef nonnull align 4 dereferenceable(16) %sourcerect.i, ptr noundef nonnull %AbsoluteClippingRect.i, i32 %agg.tmp.sroa.0.0.copyload.i, i1 noundef zeroext false)
+  %22 = load ptr, ptr %vfn4.i, align 8
+  call void %24(ptr noundef nonnull align 8 dereferenceable(8) %call.i, ptr noundef nonnull %19, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp.i, ptr noundef nonnull align 4 dereferenceable(16) %sourcerect.i, ptr noundef nonnull %AbsoluteClippingRect.i, i32 %agg.tmp.sroa.0.0.copyload.i, i1 noundef zeroext false)
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %sourcerect.i)
   br label %_ZN14GUIChatConsole14drawBackgroundEv.exit
@@ -2804,19 +2804,19 @@ if.else.i:                                        ; preds = %if.then24
   %m_background_color6.i = getelementptr inbounds nuw i8, ptr %this, i64 400
   %agg.tmp5.sroa.0.0.copyload.i = load i32, ptr %m_background_color6.i, align 8, !tbaa !12
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp7.i)
-  %25 = load i32, ptr %m_screensize, align 8, !tbaa !114
-  %26 = load i32, ptr %m_height22, align 4, !tbaa !51
+  %23 = load i32, ptr %m_screensize, align 8, !tbaa !114
+  %24 = load i32, ptr %m_height22, align 4, !tbaa !51
   store i32 0, ptr %ref.tmp7.i, align 4, !tbaa !124
   %Y.i.i16.i = getelementptr inbounds nuw i8, ptr %ref.tmp7.i, i64 4
   store i32 0, ptr %Y.i.i16.i, align 4, !tbaa !125
   %LowerRightCorner.i17.i = getelementptr inbounds nuw i8, ptr %ref.tmp7.i, i64 8
-  store i32 %25, ptr %LowerRightCorner.i17.i, align 4, !tbaa !124
+  store i32 %23, ptr %LowerRightCorner.i17.i, align 4, !tbaa !124
   %Y.i2.i18.i = getelementptr inbounds nuw i8, ptr %ref.tmp7.i, i64 12
-  store i32 %26, ptr %Y.i2.i18.i, align 4, !tbaa !125
+  store i32 %24, ptr %Y.i2.i18.i, align 4, !tbaa !125
   %AbsoluteClippingRect11.i = getelementptr inbounds nuw i8, ptr %this, i64 80
   %vtable13.i = load ptr, ptr %call.i, align 8, !tbaa !14
   %vfn14.i = getelementptr inbounds nuw i8, ptr %vtable13.i, i64 408
-  %27 = load ptr, ptr %vfn14.i, align 8
+  %25 = load ptr, ptr %vfn14.i, align 8
   call void %27(ptr noundef nonnull align 8 dereferenceable(8) %call.i, i32 %agg.tmp5.sroa.0.0.copyload.i, ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp7.i, ptr noundef nonnull %AbsoluteClippingRect11.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp7.i)
   br label %_ZN14GUIChatConsole14drawBackgroundEv.exit
@@ -2829,7 +2829,7 @@ _ZN14GUIChatConsole14drawBackgroundEv.exit:       ; preds = %if.else.i, %if.then
 if.end25:                                         ; preds = %_ZN14GUIChatConsole14drawBackgroundEv.exit, %if.end18
   %vtable.i32 = load ptr, ptr %this, align 8, !tbaa !14
   %vfn.i33 = getelementptr inbounds nuw i8, ptr %vtable.i32, i64 104
-  %28 = load ptr, ptr %vfn.i33, align 8
+  %26 = load ptr, ptr %vfn.i33, align 8
   %call.i34 = call noundef zeroext i1 %28(ptr noundef nonnull align 8 dereferenceable(308) %this)
   br i1 %call.i34, label %if.then.i35, label %return
 
@@ -2842,11 +2842,11 @@ if.then.i35:                                      ; preds = %if.end25
 for.body.i:                                       ; preds = %if.then.i35, %for.body.i
   %__begin3.sroa.0.015.i = phi ptr [ %__begin3.sroa.0.0.i, %for.body.i ], [ %__begin3.sroa.0.013.i, %if.then.i35 ]
   %_M_storage.i.i.i = getelementptr inbounds nuw i8, ptr %__begin3.sroa.0.015.i, i64 16
-  %29 = load ptr, ptr %_M_storage.i.i.i, align 8, !tbaa !56
-  %vtable7.i = load ptr, ptr %29, align 8, !tbaa !14
+  %27 = load ptr, ptr %_M_storage.i.i.i, align 8, !tbaa !56
+  %vtable7.i = load ptr, ptr %27, align 8, !tbaa !14
   %vfn8.i = getelementptr inbounds nuw i8, ptr %vtable7.i, i64 80
-  %30 = load ptr, ptr %vfn8.i, align 8
-  call void %30(ptr noundef nonnull align 8 dereferenceable(308) %29)
+  %28 = load ptr, ptr %vfn8.i, align 8
+  call void %30(ptr noundef nonnull align 8 dereferenceable(308) %27)
   %__begin3.sroa.0.0.i = load ptr, ptr %__begin3.sroa.0.015.i, align 8, !tbaa !87
   %cmp.i.not.i = icmp eq ptr %__begin3.sroa.0.0.i, %Children.i
   br i1 %cmp.i.not.i, label %return, label %for.body.i

@@ -29663,7 +29663,7 @@ _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %26, %.thread,
   %37 = invoke { ptr, i32 } @_ZN3hir9semantics13SemanticsImpl9find_file17hc9ba13b8f3fcb41cE(ptr noundef nonnull align 8 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %2)
           to label %40 unwind label %38
 
-38:                                               ; preds = %54, %143, %140, %137, %134, %131, %128, %125, %122, %120, %119, %113, %107, %101, %95, %89, %83, %77, %71, %_ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit
+38:                                               ; preds = %54, %143, %140, %137, %134, %131, %128, %125, %122, %120, %119, %116, %110, %104, %98, %92, %86, %80, %68, %_ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit
   %39 = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -29671,7 +29671,7 @@ _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %26, %.thread,
 .body:                                            ; preds = %55, %38
   %eh.lpad-body = phi { ptr, i32 } [ %39, %38 ], [ %56, %55 ]
   invoke fastcc void @"_ZN4core3ptr47drop_in_place$LT$tracing..span..EnteredSpan$GT$17hfbdab9485e3bd147E"(ptr noalias noundef align 8 dereferenceable(40) %14) #31
-          to label %common.resume unwind label %148
+          to label %common.resume unwind label %145
 
 40:                                               ; preds = %_ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit
   %41 = extractvalue { ptr, i32 } %37, 0
@@ -29726,7 +29726,7 @@ _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %26, %.thread,
 .thread52:                                        ; preds = %59
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   store i64 -9223372036854775808, ptr %0, align 8
-  br label %147
+  br label %144
 
 64:                                               ; preds = %59
   %.sroa.427.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 4
@@ -29739,8 +29739,8 @@ _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %26, %.thread,
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   switch i32 %62, label %default.unreachable59 [
     i32 8, label %113
-    i32 0, label %68
-    i32 1, label %71
+    i32 0, label %65
+    i32 1, label %68
     i32 2, label %77
     i32 3, label %83
     i32 4, label %89
@@ -29749,74 +29749,74 @@ _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %26, %.thread,
     i32 7, label %107
   ]
 
-68:                                               ; preds = %64
+65:                                               ; preds = %64
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  %69 = load ptr, ptr %1, align 8, !nonnull !17, !align !680, !noundef !17
-  %70 = load ptr, ptr %49, align 8, !nonnull !17, !align !558, !noundef !17
-  br i1 %5, label %120, label %119
+  %66 = load ptr, ptr %1, align 8, !nonnull !17, !align !680, !noundef !17
+  %67 = load ptr, ptr %49, align 8, !nonnull !17, !align !558, !noundef !17
+  br i1 %5, label %137, label %119
 
-71:                                               ; preds = %64
+68:                                               ; preds = %64
   store i32 %65, ptr %9, align 4
   %.sroa.12.4..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 4
   store i32 %67, ptr %.sroa.12.4..sroa_idx, align 4
   %.sroa.14.4..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i32 %.sroa.6.0.copyload, ptr %.sroa.14.4..sroa_idx, align 4
-  %72 = load ptr, ptr %1, align 8, !nonnull !17, !align !680, !noundef !17
-  %73 = load ptr, ptr %49, align 8, !nonnull !17, !align !558, !noundef !17
-  %74 = getelementptr inbounds nuw i8, ptr %73, i64 1296
-  %75 = load ptr, ptr %74, align 8, !invariant.load !17, !nonnull !17
-  %76 = invoke { ptr, ptr } %75(ptr noundef nonnull align 1 %72)
+  %69 = load ptr, ptr %1, align 8, !nonnull !17, !align !680, !noundef !17
+  %70 = load ptr, ptr %49, align 8, !nonnull !17, !align !558, !noundef !17
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 1296
+  %72 = load ptr, ptr %71, align 8, !invariant.load !17, !nonnull !17
+  %73 = invoke { ptr, ptr } %75(ptr noundef nonnull align 1 %69)
           to label %122 unwind label %38
 
-77:                                               ; preds = %64
-  %78 = load ptr, ptr %1, align 8, !nonnull !17, !align !680, !noundef !17
-  %79 = load ptr, ptr %49, align 8, !nonnull !17, !align !558, !noundef !17
-  %80 = getelementptr inbounds nuw i8, ptr %79, i64 1296
-  %81 = load ptr, ptr %80, align 8, !invariant.load !17, !nonnull !17
-  %82 = invoke { ptr, ptr } %81(ptr noundef nonnull align 1 %78)
+80:                                               ; preds = %64
+  %81 = load ptr, ptr %1, align 8, !nonnull !17, !align !680, !noundef !17
+  %82 = load ptr, ptr %49, align 8, !nonnull !17, !align !558, !noundef !17
+  %83 = getelementptr inbounds nuw i8, ptr %82, i64 1296
+  %84 = load ptr, ptr %83, align 8, !invariant.load !17, !nonnull !17
+  %85 = invoke { ptr, ptr } %81(ptr noundef nonnull align 1 %81)
           to label %125 unwind label %38
 
-83:                                               ; preds = %64
-  %84 = load ptr, ptr %1, align 8, !nonnull !17, !align !680, !noundef !17
-  %85 = load ptr, ptr %49, align 8, !nonnull !17, !align !558, !noundef !17
-  %86 = getelementptr inbounds nuw i8, ptr %85, i64 1296
-  %87 = load ptr, ptr %86, align 8, !invariant.load !17, !nonnull !17
-  %88 = invoke { ptr, ptr } %87(ptr noundef nonnull align 1 %84)
+86:                                               ; preds = %64
+  %87 = load ptr, ptr %1, align 8, !nonnull !17, !align !680, !noundef !17
+  %88 = load ptr, ptr %49, align 8, !nonnull !17, !align !558, !noundef !17
+  %89 = getelementptr inbounds nuw i8, ptr %88, i64 1296
+  %90 = load ptr, ptr %89, align 8, !invariant.load !17, !nonnull !17
+  %91 = invoke { ptr, ptr } %87(ptr noundef nonnull align 1 %87)
           to label %128 unwind label %38
 
-89:                                               ; preds = %64
-  %90 = load ptr, ptr %1, align 8, !nonnull !17, !align !680, !noundef !17
-  %91 = load ptr, ptr %49, align 8, !nonnull !17, !align !558, !noundef !17
-  %92 = getelementptr inbounds nuw i8, ptr %91, i64 1296
-  %93 = load ptr, ptr %92, align 8, !invariant.load !17, !nonnull !17
-  %94 = invoke { ptr, ptr } %93(ptr noundef nonnull align 1 %90)
+92:                                               ; preds = %64
+  %93 = load ptr, ptr %1, align 8, !nonnull !17, !align !680, !noundef !17
+  %94 = load ptr, ptr %49, align 8, !nonnull !17, !align !558, !noundef !17
+  %95 = getelementptr inbounds nuw i8, ptr %94, i64 1296
+  %96 = load ptr, ptr %95, align 8, !invariant.load !17, !nonnull !17
+  %97 = invoke { ptr, ptr } %93(ptr noundef nonnull align 1 %93)
           to label %131 unwind label %38
 
-95:                                               ; preds = %64
-  %96 = load ptr, ptr %1, align 8, !nonnull !17, !align !680, !noundef !17
-  %97 = load ptr, ptr %49, align 8, !nonnull !17, !align !558, !noundef !17
-  %98 = getelementptr inbounds nuw i8, ptr %97, i64 1296
-  %99 = load ptr, ptr %98, align 8, !invariant.load !17, !nonnull !17
-  %100 = invoke { ptr, ptr } %99(ptr noundef nonnull align 1 %96)
+98:                                               ; preds = %64
+  %99 = load ptr, ptr %1, align 8, !nonnull !17, !align !680, !noundef !17
+  %100 = load ptr, ptr %49, align 8, !nonnull !17, !align !558, !noundef !17
+  %101 = getelementptr inbounds nuw i8, ptr %100, i64 1296
+  %102 = load ptr, ptr %101, align 8, !invariant.load !17, !nonnull !17
+  %103 = invoke { ptr, ptr } %99(ptr noundef nonnull align 1 %99)
           to label %134 unwind label %38
 
-101:                                              ; preds = %64
-  %102 = load ptr, ptr %1, align 8, !nonnull !17, !align !680, !noundef !17
-  %103 = load ptr, ptr %49, align 8, !nonnull !17, !align !558, !noundef !17
-  %104 = getelementptr inbounds nuw i8, ptr %103, i64 1296
-  %105 = load ptr, ptr %104, align 8, !invariant.load !17, !nonnull !17
-  %106 = invoke { ptr, ptr } %105(ptr noundef nonnull align 1 %102)
+104:                                              ; preds = %64
+  %105 = load ptr, ptr %1, align 8, !nonnull !17, !align !680, !noundef !17
+  %106 = load ptr, ptr %49, align 8, !nonnull !17, !align !558, !noundef !17
+  %107 = getelementptr inbounds nuw i8, ptr %106, i64 1296
+  %108 = load ptr, ptr %107, align 8, !invariant.load !17, !nonnull !17
+  %109 = invoke { ptr, ptr } %105(ptr noundef nonnull align 1 %105)
           to label %137 unwind label %38
 
-107:                                              ; preds = %64
-  %108 = load ptr, ptr %1, align 8, !nonnull !17, !align !680, !noundef !17
-  %109 = load ptr, ptr %49, align 8, !nonnull !17, !align !558, !noundef !17
-  %110 = getelementptr inbounds nuw i8, ptr %109, i64 1296
-  %111 = load ptr, ptr %110, align 8, !invariant.load !17, !nonnull !17
-  %112 = invoke { ptr, ptr } %111(ptr noundef nonnull align 1 %108)
+110:                                              ; preds = %64
+  %111 = load ptr, ptr %1, align 8, !nonnull !17, !align !680, !noundef !17
+  %112 = load ptr, ptr %49, align 8, !nonnull !17, !align !558, !noundef !17
+  %113 = getelementptr inbounds nuw i8, ptr %112, i64 1296
+  %114 = load ptr, ptr %113, align 8, !invariant.load !17, !nonnull !17
+  %115 = invoke { ptr, ptr } %111(ptr noundef nonnull align 1 %111)
           to label %140 unwind label %38
 
-113:                                              ; preds = %64
+116:                                              ; preds = %64
   %114 = load ptr, ptr %1, align 8, !nonnull !17, !align !680, !noundef !17
   %115 = load ptr, ptr %49, align 8, !nonnull !17, !align !558, !noundef !17
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 1296
@@ -29824,20 +29824,20 @@ _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %26, %.thread,
   %118 = invoke { ptr, ptr } %117(ptr noundef nonnull align 1 %114)
           to label %143 unwind label %38
 
-119:                                              ; preds = %68
+134:                                              ; preds = %68
   invoke void @_ZN3hir15source_analyzer14SourceAnalyzer21new_for_body_no_infer17hf109f2d8bce40739E(ptr noalias noundef nonnull sret({ { { { i64, ptr, {} }, i64 }, { ptr, i32, [1 x i32] } }, { i32, [5 x i32] }, ptr, i32, [1 x i32] }) align 8 captures(none) dereferenceable(80) %10, ptr noundef nonnull align 1 %69, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %70, i32 noundef %65, i32 noundef %67, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %41, i32 noundef %42, i32 noundef %3, i32 %4)
           to label %121 unwind label %38
 
-120:                                              ; preds = %68
+137:                                              ; preds = %68
   invoke void @_ZN3hir15source_analyzer14SourceAnalyzer12new_for_body17h7baf4451e5c4c1daE(ptr noalias noundef nonnull sret({ { { { i64, ptr, {} }, i64 }, { ptr, i32, [1 x i32] } }, { i32, [5 x i32] }, ptr, i32, [1 x i32] }) align 8 captures(none) dereferenceable(80) %10, ptr noundef nonnull align 1 %69, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %70, i32 noundef %65, i32 noundef %67, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %41, i32 noundef %42, i32 noundef %3, i32 %4)
           to label %121 unwind label %38
 
-121:                                              ; preds = %120, %119
+140:                                              ; preds = %120, %119
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(80) %10, i64 80, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %147
 
-122:                                              ; preds = %71
+122:; preds = %71
   %123 = extractvalue { ptr, ptr } %76, 0
   %124 = extractvalue { ptr, ptr } %76, 1
   invoke void @"_ZN68_$LT$hir_def..ModuleId$u20$as$u20$hir_def..resolver..HasResolver$GT$8resolver17h847dd91433299249E"(ptr noalias noundef nonnull sret({ { { i64, ptr, {} }, i64 }, { ptr, i32, [1 x i32] } }) align 8 captures(none) dereferenceable(40) %8, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(12) %9, ptr noundef nonnull align 1 %123, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %124)
@@ -29893,15 +29893,15 @@ _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %26, %.thread,
   store ptr null, ptr %.sroa.542.0..sroa_idx, align 8
   %.sroa.6.0..sroa_idx43 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i32 %42, ptr %.sroa.6.0..sroa_idx43, align 8
-  br label %147
+  br label %144
 
-147:                                              ; preds = %.thread52, %121, %146
+144:                                              ; preds = %.thread52, %121, %146
   call fastcc void @"_ZN4core3ptr47drop_in_place$LT$tracing..span..EnteredSpan$GT$17hfbdab9485e3bd147E"(ptr noalias noundef align 8 dereferenceable(40) %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   ret void
 
-148:                                              ; preds = %.body
-  %149 = landingpad { ptr, i32 }
+145:                                              ; preds = %.body
+  %146 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #30
   unreachable

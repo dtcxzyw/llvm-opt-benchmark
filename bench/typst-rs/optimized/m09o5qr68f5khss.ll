@@ -6950,15 +6950,15 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !1874
   call void @"_ZN81_$LT$typst..text..FontFeatures$u20$as$u20$typst..foundations..cast..FromValue$GT$10from_value28_$u7b$$u7b$closure$u7d$$u7d$17hccfc95e7c97f48e6E.llvm.14728845296163125433"(ptr noalias noundef nonnull sret({ i32, [5 x i32] }) align 8 captures(none) dereferenceable(24) %5, ptr noalias nonnull align 1 poison, ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(48) %7), !noalias !1879
   %.sroa.0.0.copyload.i.i = load i32, ptr %5, align 8, !noalias !1874
-  %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %5, i64 4
-  %.sroa.4.0.copyload.i.i = load i64, ptr %.sroa.4.0..sroa_idx.i.i, align 4, !noalias !1866
+  %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %5, i64 4
+  %.sroa.5.0.copyload.i.i = load i64, ptr %.sroa.5.0..sroa_idx.i.i, align 4, !noalias !1866
   %12 = lshr i64 %.sroa.4.0.copyload.i.i, 32
   %13 = trunc nuw i64 %12 to i32
   %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %5, i64 12
   %trunc.i.i.i.i = trunc nuw i32 %.sroa.0.0.copyload.i.i to i1
   br i1 %trunc.i.i.i.i, label %14, label %24
 
-14:                                               ; preds = %10
+18:                                               ; preds = %10
   %15 = load i64, ptr %3, align 8, !range !221, !alias.scope !1880, !noalias !1883, !noundef !4
   %16 = icmp ne i64 %15, 0
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 23
@@ -6968,18 +6968,18 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   br i1 %or.cond.i.i.i.i, label %20, label %"_ZN4core3ptr128drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$core..convert..Infallible$C$ecow..string..EcoString$GT$$GT$$GT$17h694b9f010db1ccdaE.exit.i.i.i"
 
 20:                                               ; preds = %14
-  %21 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  invoke void @"_ZN68_$LT$ecow..vec..EcoVec$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h3d104556f500dee7E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %21)
+  %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
+  invoke void @"_ZN68_$LT$ecow..vec..EcoVec$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h3d104556f500dee7E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.sroa.4.0..sroa_idx.i.i)
           to label %"_ZN4core3ptr128drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$core..convert..Infallible$C$ecow..string..EcoString$GT$$GT$$GT$17h694b9f010db1ccdaE.exit.i.i.i" unwind label %22, !noalias !1883
 
-22:                                               ; preds = %20
-  %23 = landingpad { ptr, i32 }
+21:                                               ; preds = %20
+  %22 = landingpad { ptr, i32 }
           cleanup
   store i64 1, ptr %3, align 8, !noalias !1883
   store i32 %13, ptr %21, align 8, !noalias !1883
   %.sroa.5.sroa.5.0..sroa.5.0..sroa_idx.sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.5.sroa.5.0..sroa.5.0..sroa_idx.sroa_idx.i.i.i, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.7.0..sroa_idx.i.i, i64 12, i1 false), !noalias !1888
-  resume { ptr, i32 } %23
+  resume { ptr, i32 } %22
 
 "_ZN4core3ptr128drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$core..convert..Infallible$C$ecow..string..EcoString$GT$$GT$$GT$17h694b9f010db1ccdaE.exit.i.i.i": ; preds = %20, %14
   store i64 1, ptr %3, align 8, !noalias !1883
@@ -6987,14 +6987,14 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   store i32 %13, ptr %.sroa.5.0..sroa_idx4.i.i.i, align 8, !noalias !1883
   %.sroa.5.sroa.5.0..sroa.5.0..sroa_idx4.sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.5.sroa.5.0..sroa.5.0..sroa_idx4.sroa_idx.i.i.i, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.7.0..sroa_idx.i.i, i64 12, i1 false), !noalias !1888
-  br label %24
+  br label %23
 
 "_ZN4core3ptr120drop_in_place$LT$core..option..Option$LT$$LP$typst..foundations..str..Str$C$typst..foundations..value..Value$RP$$GT$$GT$17hf09222300c9ca422E.llvm.14728845296163125433.exit.i": ; preds = %4
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !1866
   store i32 2, ptr %0, align 4, !alias.scope !1889, !noalias !1892
   br label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h2638e334b712c029E.llvm.14728845296163125433.exit
 
-24:                                               ; preds = %"_ZN4core3ptr128drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$core..convert..Infallible$C$ecow..string..EcoString$GT$$GT$$GT$17h694b9f010db1ccdaE.exit.i.i.i", %10
+23:                                               ; preds = %"_ZN4core3ptr128drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$core..convert..Infallible$C$ecow..string..EcoString$GT$$GT$$GT$17h694b9f010db1ccdaE.exit.i.i.i", %10
   %.sroa.6.1.i = phi i64 [ undef, %"_ZN4core3ptr128drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$core..convert..Infallible$C$ecow..string..EcoString$GT$$GT$$GT$17h694b9f010db1ccdaE.exit.i.i.i" ], [ %.sroa.4.0.copyload.i.i, %10 ]
   %.sroa.04.0.i = phi i32 [ 0, %"_ZN4core3ptr128drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$core..convert..Infallible$C$ecow..string..EcoString$GT$$GT$$GT$17h694b9f010db1ccdaE.exit.i.i.i" ], [ 1, %10 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !1874
@@ -7004,7 +7004,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   store i64 %.sroa.6.1.i, ptr %.sroa.2.0..sroa_idx.i, align 4, !alias.scope !1893, !noalias !1892
   br label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h2638e334b712c029E.llvm.14728845296163125433.exit
 
-_ZN4core4iter6traits8iterator8Iterator8try_fold17h2638e334b712c029E.llvm.14728845296163125433.exit: ; preds = %"_ZN4core3ptr120drop_in_place$LT$core..option..Option$LT$$LP$typst..foundations..str..Str$C$typst..foundations..value..Value$RP$$GT$$GT$17hf09222300c9ca422E.llvm.14728845296163125433.exit.i", %24
+_ZN4core4iter6traits8iterator8Iterator8try_fold17h2638e334b712c029E.llvm.14728845296163125433.exit: ; preds = %"_ZN4core3ptr120drop_in_place$LT$core..option..Option$LT$$LP$typst..foundations..str..Str$C$typst..foundations..value..Value$RP$$GT$$GT$17hf09222300c9ca422E.llvm.14728845296163125433.exit.i", %23
   ret void
 }
 
@@ -43823,8 +43823,8 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator8try_fold17h2638e334b7
   %trunc.i.i.i = trunc nuw i32 %.sroa.0.0.copyload.i to i1
   br i1 %trunc.i.i.i, label %13, label %25
 
-13:                                               ; preds = %9
-  %14 = getelementptr inbounds nuw i8, ptr %2, i64 8
+19:                                               ; preds = %9
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %15 = load ptr, ptr %14, align 8, !alias.scope !11793, !noalias !11794, !nonnull !4, !align !36, !noundef !4
   %16 = load i64, ptr %15, align 8, !range !221, !alias.scope !11797, !noalias !11800, !noundef !4
   %17 = icmp ne i64 %16, 0
@@ -43834,19 +43834,19 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator8try_fold17h2638e334b7
   %or.cond.i.i.i = select i1 %17, i1 %20, i1 false
   br i1 %or.cond.i.i.i, label %21, label %"_ZN4core3ptr128drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$core..convert..Infallible$C$ecow..string..EcoString$GT$$GT$$GT$17h694b9f010db1ccdaE.exit.i.i"
 
-21:                                               ; preds = %13
+21:                                               ; preds = %19
   %22 = getelementptr inbounds nuw i8, ptr %15, i64 8
   invoke void @"_ZN68_$LT$ecow..vec..EcoVec$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h3d104556f500dee7E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %22)
           to label %"_ZN4core3ptr128drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$core..convert..Infallible$C$ecow..string..EcoString$GT$$GT$$GT$17h694b9f010db1ccdaE.exit.i.i" unwind label %23, !noalias !11800
 
-23:                                               ; preds = %21
-  %24 = landingpad { ptr, i32 }
+22:                                               ; preds = %21
+  %23 = landingpad { ptr, i32 }
           cleanup
   store i64 1, ptr %15, align 8, !noalias !11800
   store i32 %12, ptr %22, align 8, !noalias !11800
   %.sroa.5.sroa.5.0..sroa.5.0..sroa_idx.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %15, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.5.sroa.5.0..sroa.5.0..sroa_idx.sroa_idx.i.i, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.7.0..sroa_idx.i, i64 12, i1 false), !noalias !11786
-  resume { ptr, i32 } %24
+  resume { ptr, i32 } %23
 
 "_ZN4core3ptr128drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$core..convert..Infallible$C$ecow..string..EcoString$GT$$GT$$GT$17h694b9f010db1ccdaE.exit.i.i": ; preds = %21, %13
   store i64 1, ptr %15, align 8, !noalias !11800
@@ -43854,14 +43854,14 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator8try_fold17h2638e334b7
   store i32 %12, ptr %.sroa.5.0..sroa_idx4.i.i, align 8, !noalias !11800
   %.sroa.5.sroa.5.0..sroa.5.0..sroa_idx4.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %15, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.5.sroa.5.0..sroa.5.0..sroa_idx4.sroa_idx.i.i, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.7.0..sroa_idx.i, i64 12, i1 false), !noalias !11786
-  br label %25
+  br label %24
 
 "_ZN4core3ptr120drop_in_place$LT$core..option..Option$LT$$LP$typst..foundations..str..Str$C$typst..foundations..value..Value$RP$$GT$$GT$17hf09222300c9ca422E.llvm.14728845296163125433.exit": ; preds = %3
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   store i32 2, ptr %0, align 4, !alias.scope !11801
-  br label %26
+  br label %25
 
-25:                                               ; preds = %9, %"_ZN4core3ptr128drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$core..convert..Infallible$C$ecow..string..EcoString$GT$$GT$$GT$17h694b9f010db1ccdaE.exit.i.i"
+24:                                               ; preds = %9, %"_ZN4core3ptr128drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$core..convert..Infallible$C$ecow..string..EcoString$GT$$GT$$GT$17h694b9f010db1ccdaE.exit.i.i"
   %.sroa.6.1 = phi i64 [ undef, %"_ZN4core3ptr128drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$core..convert..Infallible$C$ecow..string..EcoString$GT$$GT$$GT$17h694b9f010db1ccdaE.exit.i.i" ], [ %.sroa.4.0.copyload.i, %9 ]
   %.sroa.04.0 = phi i32 [ 0, %"_ZN4core3ptr128drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$core..convert..Infallible$C$ecow..string..EcoString$GT$$GT$$GT$17h694b9f010db1ccdaE.exit.i.i" ], [ 1, %9 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !11786
@@ -43869,9 +43869,9 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator8try_fold17h2638e334b7
   store i32 %.sroa.04.0, ptr %0, align 4, !alias.scope !11804
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i64 %.sroa.6.1, ptr %.sroa.2.0..sroa_idx, align 4, !alias.scope !11804
-  br label %26
+  br label %25
 
-26:                                               ; preds = %"_ZN4core3ptr120drop_in_place$LT$core..option..Option$LT$$LP$typst..foundations..str..Str$C$typst..foundations..value..Value$RP$$GT$$GT$17hf09222300c9ca422E.llvm.14728845296163125433.exit", %25
+25:                                               ; preds = %"_ZN4core3ptr120drop_in_place$LT$core..option..Option$LT$$LP$typst..foundations..str..Str$C$typst..foundations..value..Value$RP$$GT$$GT$17hf09222300c9ca422E.llvm.14728845296163125433.exit", %24
   ret void
 }
 

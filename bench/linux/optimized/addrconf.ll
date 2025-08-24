@@ -1726,16 +1726,16 @@ define internal fastcc noundef range(i32 -1, 1) i32 @ipv6_generate_stable_addres
   %36 = lshr i64 %34, 32
   %37 = trunc nuw i64 %36 to i32
   tail call void @_raw_spin_unlock_bh(ptr noundef nonnull @ipv6_generate_stable_address.lock) #20
-  %38 = or i32 %37, %35
-  %39 = icmp eq i32 %38, 0
-  br i1 %39, label %50, label %40
+  %36 = or i32 %37, %35
+  %37 = icmp eq i32 %36, 0
+  br i1 %37, label %50, label %38
 
-40:                                               ; preds = %24
-  %41 = icmp eq i32 %35, -10616830
-  %42 = and i32 %37, 254
-  %43 = icmp eq i32 %42, 254
-  %44 = and i1 %41, %43
-  br i1 %44, label %50, label %45
+38:                                               ; preds = %24
+  %39 = icmp eq i32 %35, -10616830
+  %40 = and i32 %37, 254
+  %41 = icmp eq i32 %40, 254
+  %42 = and i1 %39, %41
+  br i1 %42, label %50, label %45
 
 45:                                               ; preds = %40
   %46 = icmp eq i32 %35, -3
@@ -1755,16 +1755,16 @@ define internal fastcc noundef range(i32 -1, 1) i32 @ipv6_generate_stable_addres
   %58 = icmp slt i32 %57, %52
   br i1 %58, label %.loopexit, label %24
 
-59:                                               ; preds = %45
+43:                                               ; preds = %45
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %33, ptr %0, align 4
   store i64 %34, ptr %60, align 4
   br label %.loopexit
 
 .loopexit:                                        ; preds = %50, %59, %10
-  %61 = phi i32 [ 0, %59 ], [ -1, %10 ], [ -1, %50 ]
+  %63 = phi i32 [ 0, %59 ], [ -1, %10 ], [ -1, %50 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  ret i32 %61
+  ret i32 %63
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

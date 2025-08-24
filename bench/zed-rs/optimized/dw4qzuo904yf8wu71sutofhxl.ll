@@ -18445,7 +18445,7 @@ _ZN3exr5block5chunk27CompressedDeepScanLineBlock4read17he3d368247216b887E.exit: 
   br label %198
 
 132:                                              ; preds = %_ZN3exr5block5chunk19CompressedTileBlock4read17hd80716480d88bdf9E.exit, %195, %133, %128
-  %.sroa.828.sroa.8.sroa.8.sroa.0.0.in.in = phi i64 [ %126, %133 ], [ %.sroa.68.i.sroa.8.0.copyload369, %128 ], [ %.sroa.6.0.copyload.i167, %195 ], [ %.sroa.6.i.sroa.7.0.copyload409, %_ZN3exr5block5chunk19CompressedTileBlock4read17hd80716480d88bdf9E.exit ]
+  %.sroa.828.sroa.8.sroa.8.sroa.0.0 = phi i64 [ %126, %133 ], [ %.sroa.68.i.sroa.8.0.copyload369, %128 ], [ %.sroa.6.0.copyload.i167, %195 ], [ %.sroa.6.i.sroa.7.0.copyload409, %_ZN3exr5block5chunk19CompressedTileBlock4read17hd80716480d88bdf9E.exit ]
   %.sroa.828.sroa.8.sroa.8.sroa.8.0 = phi i64 [ %.sroa.6.0.copyload.i, %133 ], [ %.sroa.68.i.sroa.11.0.copyload370, %128 ], [ %.sroa.639.i.sroa.0.0.copyload441, %195 ], [ %.sroa.6.i.sroa.9.0.copyload415, %_ZN3exr5block5chunk19CompressedTileBlock4read17hd80716480d88bdf9E.exit ]
   %.sroa.828.sroa.9.sroa.0.0 = phi i64 [ %.sroa.648.i.sroa.9.0.copyload382, %133 ], [ undef, %128 ], [ %.sroa.5.i159.sroa.0.0.copyload424, %195 ], [ %.sroa.5.i.sroa.8.0.copyload, %_ZN3exr5block5chunk19CompressedTileBlock4read17hd80716480d88bdf9E.exit ]
   %.sroa.828.sroa.9.sroa.7.0 = phi i64 [ %106, %133 ], [ undef, %128 ], [ %.sroa.5.i159.sroa.7.0.copyload428, %195 ], [ %.sroa.5.i.sroa.10.0.copyload, %_ZN3exr5block5chunk19CompressedTileBlock4read17hd80716480d88bdf9E.exit ]

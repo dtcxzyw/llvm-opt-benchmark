@@ -2621,7 +2621,7 @@ define hidden void @python_hashlib_Hacl_Hash_Blake2b_hash_with_key_and_params(pt
   %.not.i = icmp eq i8 %22, 0
   br i1 %.not.i, label %55, label %47
 
-47:                                               ; preds = %5
+47:; preds = %5
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %48 = and i64 %21, 255
   %49 = icmp slt i8 %22, 0
@@ -2634,79 +2634,79 @@ define hidden void @python_hashlib_Hacl_Hash_Blake2b_hash_with_key_and_params(pt
   call fastcc void @update_block(ptr noundef nonnull %10, ptr noundef nonnull %9, i1 noundef zeroext %53, i1 noundef zeroext false, i64 128, i64 0, ptr noundef nonnull %8)
   call void @Lib_Memzero0_memzero0(ptr noundef nonnull %8, i64 noundef 128) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br i1 %53, label %update.exit, label %54
+  br i1 %53, label %update.exit, label %72
 
-54:                                               ; preds = %47
+72:                                               ; preds = %47
   call fastcc void @update_blocks(i32 noundef %2, ptr noundef nonnull %10, ptr noundef nonnull %9, i64 128, ptr noundef readonly %1)
   br label %update.exit
 
-55:                                               ; preds = %5
-  %56 = lshr i32 %2, 7
-  %57 = and i32 %2, 127
-  %58 = icmp eq i32 %57, 0
-  %59 = icmp ugt i32 %2, 127
-  %or.cond.i = and i1 %59, %58
-  %60 = sext i1 %or.cond.i to i32
-  %.023.i = add nsw i32 %56, %60
+73:                                               ; preds = %5
+  %74 = lshr i32 %2, 7
+  %75 = and i32 %2, 127
+  %76 = icmp eq i32 %75, 0
+  %77 = icmp ugt i32 %2, 127
+  %or.cond.i = and i1 %77, %76
+  %78 = sext i1 %or.cond.i to i32
+  %.023.i = add nsw i32 %74, %78
   %.not.i.i = icmp eq i32 %.023.i, 0
   br i1 %.not.i.i, label %update_blocks.exit, label %.lr.ph.preheader.i.i
 
-.lr.ph.preheader.i.i:                             ; preds = %55
+.lr.ph.preheader.i.i:                             ; preds = %73
   %wide.trip.count.i.i = zext i32 %.023.i to i64
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %.lr.ph.i.i ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %61 = shl i64 %indvars.iv.next.i.i, 7
-  %62 = and i64 %61, 4294967168
-  %63 = shl i64 %indvars.iv.i.i, 7
-  %64 = and i64 %63, 4294967168
-  %65 = getelementptr i8, ptr %1, i64 %64
-  call fastcc void @update_block(ptr noundef nonnull %10, ptr noundef nonnull %9, i1 noundef zeroext false, i1 noundef zeroext false, i64 %62, i64 0, ptr noundef readonly %65)
+  %79 = shl i64 %indvars.iv.next.i.i, 7
+  %80 = and i64 %79, 4294967168
+  %81 = shl i64 %indvars.iv.i.i, 7
+  %82 = and i64 %81, 4294967168
+  %83 = getelementptr i8, ptr %1, i64 %82
+  call fastcc void @update_block(ptr noundef nonnull %10, ptr noundef nonnull %9, i1 noundef zeroext false, i1 noundef zeroext false, i64 %80, i64 0, ptr noundef readonly %83)
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
   br i1 %exitcond.not.i.i, label %update_blocks.exit, label %.lr.ph.i.i, !llvm.loop !7
 
-update_blocks.exit:                               ; preds = %.lr.ph.i.i, %55
+update_blocks.exit:                               ; preds = %.lr.ph.i.i, %73
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %6, i8 0, i64 128, i1 false)
-  %66 = zext i32 %2 to i64
-  %67 = getelementptr i8, ptr %1, i64 %66
-  %68 = zext nneg i32 %57 to i64
-  %69 = select i1 %or.cond.i, i64 128, i64 %68
-  %70 = sub nsw i64 0, %69
-  %71 = getelementptr i8, ptr %67, i64 %70
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %6, ptr readonly align 1 %71, i64 %69, i1 false)
-  call fastcc void @update_block(ptr noundef nonnull %10, ptr noundef nonnull %9, i1 noundef zeroext true, i1 noundef zeroext false, i64 %66, i64 0, ptr noundef nonnull %6)
+  %84 = zext i32 %2 to i64
+  %85 = getelementptr i8, ptr %1, i64 %84
+  %86 = zext nneg i32 %75 to i64
+  %87 = select i1 %or.cond.i, i64 128, i64 %86
+  %88 = sub nsw i64 0, %87
+  %89 = getelementptr i8, ptr %85, i64 %88
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %6, ptr readonly align 1 %89, i64 %87, i1 false)
+  call fastcc void @update_block(ptr noundef nonnull %10, ptr noundef nonnull %9, i1 noundef zeroext true, i1 noundef zeroext false, i64 %84, i64 0, ptr noundef nonnull %6)
   call void @Lib_Memzero0_memzero0(ptr noundef nonnull %6, i64 noundef 128) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %update.exit
 
-update.exit:                                      ; preds = %47, %54, %update_blocks.exit
+update.exit:                                      ; preds = %47, %72, %update_blocks.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %72 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  %73 = load i64, ptr %9, align 16, !tbaa !3
-  store i64 %73, ptr %7, align 16
-  %74 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %75 = load i64, ptr %41, align 8, !tbaa !3
-  store i64 %75, ptr %74, align 8
-  %76 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %77 = load i64, ptr %42, align 16, !tbaa !3
-  store i64 %77, ptr %76, align 16
-  %78 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %79 = load i64, ptr %43, align 8, !tbaa !3
-  store i64 %79, ptr %78, align 8
-  %80 = load i64, ptr %11, align 16, !tbaa !3
-  store i64 %80, ptr %72, align 16
-  %81 = getelementptr inbounds nuw i8, ptr %7, i64 40
-  %82 = load i64, ptr %44, align 8, !tbaa !3
-  store i64 %82, ptr %81, align 8
-  %83 = getelementptr inbounds nuw i8, ptr %7, i64 48
-  %84 = load i64, ptr %45, align 16, !tbaa !3
-  store i64 %84, ptr %83, align 16
-  %85 = getelementptr inbounds nuw i8, ptr %7, i64 56
-  %86 = load i64, ptr %46, align 8, !tbaa !3
-  store i64 %86, ptr %85, align 8
+  %90 = getelementptr inbounds nuw i8, ptr %7, i64 32
+  %91 = load i64, ptr %9, align 16, !tbaa !3
+  store i64 %91, ptr %7, align 16
+  %92 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %93 = load i64, ptr %41, align 8, !tbaa !3
+  store i64 %93, ptr %92, align 8
+  %94 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %95 = load i64, ptr %42, align 16, !tbaa !3
+  store i64 %95, ptr %94, align 16
+  %96 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  %97 = load i64, ptr %43, align 8, !tbaa !3
+  store i64 %97, ptr %96, align 8
+  %98 = load i64, ptr %11, align 16, !tbaa !3
+  store i64 %98, ptr %90, align 16
+  %99 = getelementptr inbounds nuw i8, ptr %7, i64 40
+  %100 = load i64, ptr %44, align 8, !tbaa !3
+  store i64 %100, ptr %99, align 8
+  %101 = getelementptr inbounds nuw i8, ptr %7, i64 48
+  %102 = load i64, ptr %45, align 16, !tbaa !3
+  store i64 %102, ptr %101, align 16
+  %103 = getelementptr inbounds nuw i8, ptr %7, i64 56
+  %104 = load i64, ptr %46, align 8, !tbaa !3
+  store i64 %104, ptr %103, align 8
   %87 = and i64 %20, 255
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %0, ptr nonnull align 16 %7, i64 %87, i1 false)
   call void @Lib_Memzero0_memzero0(ptr noundef nonnull %7, i64 noundef 64) #19

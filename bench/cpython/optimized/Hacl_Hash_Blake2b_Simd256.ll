@@ -1843,11 +1843,11 @@ define hidden void @python_hashlib_Hacl_Hash_Blake2b_Simd256_hash_with_key_and_p
   %40 = and i32 %14, 255
   call fastcc void @update(ptr noundef %8, ptr noundef %7, i32 noundef %40, ptr noundef %4, i32 noundef %2, ptr noundef %1)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %41 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  %42 = load <4 x i64>, ptr %7, align 32, !tbaa !3
-  store <4 x i64> %42, ptr %6, align 16, !tbaa !3
-  %43 = load <4 x i64>, ptr %9, align 32, !tbaa !3
-  store <4 x i64> %43, ptr %41, align 16, !tbaa !3
+  %60 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  %61 = load <4 x i64>, ptr %7, align 32, !tbaa !3
+  store <4 x i64> %61, ptr %6, align 16, !tbaa !3
+  %62 = load <4 x i64>, ptr %9, align 32, !tbaa !3
+  store <4 x i64> %62, ptr %60, align 16, !tbaa !3
   %44 = and i64 %12, 255
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %0, ptr nonnull align 16 %6, i64 %44, i1 false)
   call void @Lib_Memzero0_memzero0(ptr noundef nonnull %6, i64 noundef 64) #25

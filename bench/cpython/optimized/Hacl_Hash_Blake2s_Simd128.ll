@@ -901,31 +901,31 @@ malloc_raw.exit:                                  ; preds = %3, %9
   %12 = zext i16 %.sroa.02.0.copyload to i32
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 2
   %.sroa.5.0.copyload.i = load i16, ptr %.sroa.5.0..sroa_idx.i, align 2
-  %13 = zext i16 %.sroa.5.0.copyload.i to i32
-  %14 = shl nuw i32 %13, 16
+  %11 = zext i16 %.sroa.5.0.copyload.i to i32
+  %12 = shl nuw i32 %11, 16
   %.sroa.7.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 4
   %.sroa.7.0.copyload.i = load i32, ptr %.sroa.7.0..sroa_idx.i, align 4, !tbaa !8
   %.sroa.8.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.8.0.copyload.i = load i64, ptr %.sroa.8.0..sroa_idx.i, align 8, !tbaa !16
   %.sroa.10.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.sroa.10.0.copyload.i = load i16, ptr %.sroa.10.0..sroa_idx.i, align 8
-  %15 = zext i16 %.sroa.10.0.copyload.i to i32
-  %16 = shl nuw i32 %15, 16
+  %13 = zext i16 %.sroa.10.0.copyload.i to i32
+  %14 = shl nuw i32 %13, 16
   %.sroa.1268.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.sroa.1268.0.copyload.i = load ptr, ptr %.sroa.1268.0..sroa_idx.i, align 8, !tbaa !14
   %.sroa.14.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 32
   %.sroa.14.0.copyload.i = load ptr, ptr %.sroa.14.0..sroa_idx.i, align 8, !tbaa !14
-  %17 = getelementptr i8, ptr %6, i64 16
-  %18 = getelementptr i8, ptr %6, i64 32
-  %19 = getelementptr i8, ptr %6, i64 48
-  store <2 x i64> <i64 -4942790177982912921, i64 -6534734903820487822>, ptr %18, align 16, !tbaa !3
-  store <2 x i64> <i64 -7276294671082564993, i64 6620516960021240235>, ptr %19, align 16, !tbaa !3
+  %15 = getelementptr i8, ptr %6, i64 16
+  %16 = getelementptr i8, ptr %6, i64 32
+  %17 = getelementptr i8, ptr %6, i64 48
+  store <2 x i64> <i64 -4942790177982912921, i64 -6534734903820487822>, ptr %16, align 16, !tbaa !3
+  store <2 x i64> <i64 -7276294671082564993, i64 6620516960021240235>, ptr %17, align 16, !tbaa !3
   %.sroa.1268.0.copyload.val.i = load i32, ptr %.sroa.1268.0.copyload.i, align 1
-  %20 = getelementptr i8, ptr %.sroa.1268.0.copyload.i, i64 4
-  %.val114.i = load i32, ptr %20, align 1
+  %18 = getelementptr i8, ptr %.sroa.1268.0.copyload.i, i64 4
+  %.val114.i = load i32, ptr %18, align 1
   %.sroa.14.0.copyload.val.i = load i32, ptr %.sroa.14.0.copyload.i, align 1
-  %21 = getelementptr i8, ptr %.sroa.14.0.copyload.i, i64 4
-  %.val.i = load i32, ptr %21, align 1
+  %19 = getelementptr i8, ptr %.sroa.14.0.copyload.i, i64 4
+  %.val.i = load i32, ptr %19, align 1
   %22 = or disjoint i32 %14, %12
   %23 = trunc i64 %.sroa.8.0.copyload.i to i32
   %24 = lshr i64 %.sroa.8.0.copyload.i, 32
@@ -934,20 +934,20 @@ malloc_raw.exit:                                  ; preds = %3, %9
   %27 = xor i32 %.sroa.7.0.copyload.i, -1150833019
   %28 = xor i32 %23, 1013904242
   %29 = xor i32 %16, %25
-  %30 = xor i32 %29, -1521486534
-  %31 = xor i32 %.sroa.1268.0.copyload.val.i, 1359893119
-  %32 = xor i32 %.val114.i, -1694144372
-  %33 = xor i32 %.sroa.14.0.copyload.val.i, 528734635
-  %34 = xor i32 %.val.i, 1541459225
+  %28 = xor i32 %29, -1521486534
+  %29 = xor i32 %.sroa.1268.0.copyload.val.i, 1359893119
+  %30 = xor i32 %.val114.i, -1694144372
+  %31 = xor i32 %.sroa.14.0.copyload.val.i, 528734635
+  %32 = xor i32 %.val.i, 1541459225
   %35 = insertelement <4 x i32> poison, i32 %26, i64 0
   %36 = insertelement <4 x i32> %35, i32 %27, i64 1
   %37 = insertelement <4 x i32> %36, i32 %28, i64 2
   %38 = insertelement <4 x i32> %37, i32 %30, i64 3
   store <4 x i32> %38, ptr %6, align 16, !tbaa !3
-  %39 = insertelement <4 x i32> poison, i32 %31, i64 0
-  %40 = insertelement <4 x i32> %39, i32 %32, i64 1
-  %41 = insertelement <4 x i32> %40, i32 %33, i64 2
-  %42 = insertelement <4 x i32> %41, i32 %34, i64 3
+  %38 = insertelement <4 x i32> poison, i32 %29, i64 0
+  %39 = insertelement <4 x i32> %38, i32 %30, i64 1
+  %40 = insertelement <4 x i32> %39, i32 %33, i64 2
+  %42 = insertelement <4 x i32> %40, i32 %34, i64 3
   store <4 x i32> %42, ptr %17, align 16, !tbaa !3
   ret ptr %8
 }

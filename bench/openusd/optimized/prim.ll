@@ -40855,8 +40855,8 @@ define linkonce_odr void @_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_
   %2 = load i64, ptr %0, align 4
   %3 = trunc i64 %2 to i32
   store i32 0, ptr %0, align 4
-  %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 0, ptr %4, align 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i32 0, ptr %3, align 4
   %.sroa.0.011 = getelementptr inbounds i8, ptr %0, i64 -8
   %.0.copyload.i2.i.i12 = load i64, ptr %.sroa.0.011, align 4
   %5 = icmp ult i64 %2, %.0.copyload.i2.i.i12
@@ -40947,7 +40947,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathaSEOS0_.exit: ; preds = %.lr.ph, %8
   unreachable
 
 _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit: ; preds = %._crit_edge.thread, %42, %29, %._crit_edge
-  %.sroa.07.0.lcssa20 = phi ptr [ %0, %._crit_edge.thread ], [ %.sroa.0.014, %42 ], [ %.sroa.0.014, %29 ], [ %.sroa.0.014, %._crit_edge ]
+  %.sroa.07.0.lcssa19 = phi ptr [ %0, %._crit_edge.thread ], [ %.sroa.0.014, %42 ], [ %.sroa.0.014, %29 ], [ %.sroa.0.014, %._crit_edge ]
   %46 = lshr i64 %2, 32
   %47 = trunc nuw i64 %46 to i32
   %48 = getelementptr inbounds nuw i8, ptr %.sroa.07.0.lcssa20, i64 4

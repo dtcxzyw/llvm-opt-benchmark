@@ -1922,30 +1922,30 @@ define internal void @generic_set_mtrr(i32 noundef %0, i64 noundef %1, i64 nound
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_write_msr, i64 8), i32 2) #17
           to label %62 [label %61], !srcloc !23
 
-61:                                               ; preds = %54
+59:                                               ; preds = %54
   call void @do_trace_write_msr(i32 noundef %55, i64 noundef %56, i32 noundef %60) #17
   br label %62
 
-62:                                               ; preds = %61, %54
+62:; preds = %61, %54
   %63 = icmp slt i32 %60, 0
   br i1 %63, label %64, label %67
 
-64:                                               ; preds = %62
+69:                                               ; preds = %62
   %65 = call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #20, !srcloc !26
   %66 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.10, i32 noundef %65, i32 noundef %55, i32 noundef %57, i32 noundef %59) #18
   br label %67
 
 67:                                               ; preds = %64, %62, %20
   call void @cache_enable() #17
-  %68 = and i64 %8, 512
-  %69 = icmp eq i64 %68, 0
-  br i1 %69, label %71, label %70
+  %70 = and i64 %8, 512
+  %71 = icmp eq i64 %70, 0
+  br i1 %71, label %73, label %72
 
-70:                                               ; preds = %67
+72:                                               ; preds = %67
   call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !42
-  br label %71
+  br label %73
 
-71:                                               ; preds = %70, %67
+73:                                               ; preds = %72, %67
   ret void
 }
 

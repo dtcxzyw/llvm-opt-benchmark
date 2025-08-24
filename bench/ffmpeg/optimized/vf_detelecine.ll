@@ -835,53 +835,53 @@ define internal range(i32 -22, 1) i32 @config_output(ptr noundef captures(none) 
   %4 = load ptr, ptr %3, align 8, !tbaa !79
   %5 = load ptr, ptr %4, align 8, !tbaa !46
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 264
-  %7 = load i32, ptr %6, align 8, !tbaa !56
+  %.sroa.07.0.copyload = load i32, ptr %6, align 8, !tbaa !56
   %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 268
   %.sroa.10.0.copyload = load i32, ptr %.sroa.10.0..sroa_idx, align 4, !tbaa !56
-  %8 = icmp ne i32 %7, 0
-  %9 = icmp ne i32 %.sroa.10.0.copyload, 0
-  %or.cond = select i1 %8, i1 %9, i1 false
+  %7 = icmp ne i32 %.sroa.07.0.copyload, 0
+  %8 = icmp ne i32 %.sroa.10.0.copyload, 0
+  %or.cond = select i1 %7, i1 %8, i1 false
   br i1 %or.cond, label %11, label %10
 
 10:                                               ; preds = %1
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %2, i32 noundef 16, ptr noundef nonnull @.str.3, i32 noundef %7, i32 noundef %.sroa.10.0.copyload) #5
   br label %32
 
-11:                                               ; preds = %1
+11:; preds = %1
   %.sroa.07.0.copyload = load i64, ptr %6, align 8
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %13 = load ptr, ptr %12, align 8, !tbaa !4
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 48
   %15 = load i64, ptr %14, align 8
-  %.sroa.01.0.insert.insert.i = tail call i64 @llvm.fshl.i64(i64 %15, i64 %15, i64 32)
-  %16 = tail call i64 @av_mul_q(i64 %.sroa.07.0.copyload, i64 %.sroa.01.0.insert.insert.i) #6
+  %15 = tail call i64 @llvm.fshl.i64(i64 %15, i64 %15, i64 32)
+  %16 = tail call i64 @av_mul_q(i64 %.sroa.07.0.copyload, i64 %15) #6
   %.sroa.07.0.extract.trunc = trunc i64 %16 to i32
   %.sroa.10.0.extract.shift = lshr i64 %16, 32
   %.sroa.10.0.extract.trunc = trunc nuw i64 %.sroa.10.0.extract.shift to i32
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %2, i32 noundef 40, ptr noundef nonnull @.str.4, i32 noundef %7, i32 noundef %.sroa.10.0.copyload, i32 noundef %.sroa.07.0.extract.trunc, i32 noundef %.sroa.10.0.extract.trunc) #5
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  store i64 %16, ptr %17, align 8
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %19 = getelementptr inbounds nuw i8, ptr %5, i64 96
-  %20 = load i64, ptr %19, align 8
-  %21 = load i64, ptr %14, align 8
-  %22 = tail call i64 @av_mul_q(i64 %20, i64 %21) #6
-  store i64 %22, ptr %18, align 8
-  %23 = load i32, ptr %19, align 8, !tbaa !80
-  %24 = getelementptr inbounds nuw i8, ptr %5, i64 100
-  %25 = load i32, ptr %24, align 4, !tbaa !81
-  %26 = trunc i64 %22 to i32
-  %27 = lshr i64 %22, 32
-  %28 = trunc nuw i64 %27 to i32
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %2, i32 noundef 40, ptr noundef nonnull @.str.5, i32 noundef %23, i32 noundef %25, i32 noundef %26, i32 noundef %28) #5
-  %29 = getelementptr inbounds nuw i8, ptr %13, i64 56
-  %30 = load i64, ptr %18, align 8
-  %31 = tail call i64 @av_mul_q(i64 %16, i64 %30) #6
-  %.sroa.01.0.insert.insert.i46 = tail call i64 @llvm.fshl.i64(i64 %31, i64 %31, i64 32)
-  store i64 %.sroa.01.0.insert.insert.i46, ptr %29, align 8
-  br label %32
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %2, i32 noundef 40, ptr noundef nonnull @.str.4, i32 noundef %.sroa.07.0.copyload, i32 noundef %.sroa.10.0.copyload, i32 noundef %.sroa.07.0.extract.trunc, i32 noundef %.sroa.10.0.extract.trunc) #5
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 264
+  store i64 %16, ptr %16, align 8
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 96
+  %19 = load i64, ptr %18, align 8
+  %20 = load i64, ptr %14, align 8
+  %21 = tail call i64 @av_mul_q(i64 %19, i64 %20) #6
+  store i64 %21, ptr %17, align 8
+  %22 = load i32, ptr %18, align 8, !tbaa !80
+  %23 = getelementptr inbounds nuw i8, ptr %5, i64 100
+  %24 = load i32, ptr %23, align 4, !tbaa !81
+  %25 = trunc i64 %21 to i32
+  %26 = lshr i64 %21, 32
+  %27 = trunc nuw i64 %26 to i32
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %2, i32 noundef 40, ptr noundef nonnull @.str.5, i32 noundef %22, i32 noundef %24, i32 noundef %25, i32 noundef %27) #5
+  %28 = getelementptr inbounds nuw i8, ptr %13, i64 56
+  %29 = load i64, ptr %17, align 8
+  %30 = tail call i64 @av_mul_q(i64 %16, i64 %29) #6
+  %.sroa.01.0.insert.insert.i46 = tail call i64 @llvm.fshl.i64(i64 %30, i64 %30, i64 32)
+  store i64 %.sroa.01.0.insert.insert.i46, ptr %28, align 8
+  br label %31
 
-32:                                               ; preds = %11, %10
+31:                                               ; preds = %11, %10
   %.0 = phi i32 [ 0, %11 ], [ -22, %10 ]
   ret i32 %.0
 }

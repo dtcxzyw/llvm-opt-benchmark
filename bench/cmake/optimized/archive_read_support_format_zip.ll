@@ -6161,7 +6161,7 @@ define internal fastcc range(i32 -30, 1) i32 @zip_read_data_zipx_ppmd(ptr nounde
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 161
   %9 = load i8, ptr %8, align 1, !tbaa !131
   %.not = icmp eq i8 %9, 0
-  br i1 %.not, label %10, label %59
+  br i1 %.not, label %10, label %63
 
 10:                                               ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 7968
@@ -6210,149 +6210,149 @@ define internal fastcc range(i32 -30, 1) i32 @zip_read_data_zipx_ppmd(ptr nounde
   %or.cond.i = or i1 %33, %32
   br i1 %or.cond.i, label %34, label %35
 
-34:                                               ; preds = %26
+34:; preds = %26
   tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 84, ptr noundef nonnull @.str.107, i32 noundef %30, i32 noundef %31) #21
   br label %zipx_ppmd8_init.exit.thread
 
-35:                                               ; preds = %26
-  %36 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @__archive_ppmd8_functions, i64 8), align 8, !tbaa !201
-  %37 = shl nuw nsw i32 %28, 16
+37:                                               ; preds = %26
+  %38 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @__archive_ppmd8_functions, i64 8), align 8, !tbaa !201
+  %39 = shl nuw nsw i32 %28, 16
   %38 = and i32 %37, 267386880
   %39 = add nuw nsw i32 %38, 1048576
   %40 = tail call i32 %36(ptr noundef nonnull %18, i32 noundef %39) #21
   %.not48.i = icmp eq i32 %40, 0
   br i1 %.not48.i, label %41, label %42
 
-41:                                               ; preds = %35
+41:; preds = %35
   tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 12, ptr noundef nonnull @.str.108, i32 noundef %39) #21
   br label %zipx_ppmd8_init.exit.thread
 
-42:                                               ; preds = %35
+46:                                               ; preds = %37
   store i8 1, ptr %11, align 8, !tbaa !102
-  %43 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @__archive_ppmd8_functions, i64 32), align 8, !tbaa !202
-  %44 = tail call i32 %43(ptr noundef nonnull %18) #21
-  %.not49.i = icmp eq i32 %44, 0
-  br i1 %.not49.i, label %45, label %46
+  %47 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @__archive_ppmd8_functions, i64 32), align 8, !tbaa !202
+  %48 = tail call i32 %43(ptr noundef nonnull %18) #21
+  %.not49.i = icmp eq i32 %48, 0
+  br i1 %.not49.i, label %49, label %50
 
-45:                                               ; preds = %42
+49:                                               ; preds = %46
   tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 22, ptr noundef nonnull @.str.109) #21
   br label %zipx_ppmd8_init.exit.thread
 
-46:                                               ; preds = %42
-  %47 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @__archive_ppmd8_functions, i64 24), align 8, !tbaa !203
+50:                                               ; preds = %46
+  %51 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @__archive_ppmd8_functions, i64 24), align 8, !tbaa !203
   tail call void %47(ptr noundef nonnull %18, i32 noundef %30, i32 noundef %31) #21
-  %48 = getelementptr inbounds nuw i8, ptr %7, i64 168
-  %49 = load ptr, ptr %48, align 8, !tbaa !101
-  tail call void @free(ptr noundef %49) #21
-  %50 = getelementptr inbounds nuw i8, ptr %7, i64 176
-  store i64 262144, ptr %50, align 8, !tbaa !156
-  %51 = tail call noalias dereferenceable_or_null(262144) ptr @malloc(i64 noundef 262144) #24
-  store ptr %51, ptr %48, align 8, !tbaa !101
-  %52 = icmp eq ptr %51, null
-  br i1 %52, label %53, label %zipx_ppmd8_init.exit
+  %52 = getelementptr inbounds nuw i8, ptr %7, i64 168
+  %53 = load ptr, ptr %52, align 8, !tbaa !101
+  tail call void @free(ptr noundef %53) #21
+  %54 = getelementptr inbounds nuw i8, ptr %7, i64 176
+  store i64 262144, ptr %54, align 8, !tbaa !156
+  %55 = tail call noalias dereferenceable_or_null(262144) ptr @malloc(i64 noundef 262144) #24
+  store ptr %55, ptr %52, align 8, !tbaa !101
+  %56 = icmp eq ptr %55, null
+  br i1 %56, label %57, label %zipx_ppmd8_init.exit
 
-53:                                               ; preds = %46
+57:                                               ; preds = %50
   tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 12, ptr noundef nonnull @.str.110) #21
   br label %zipx_ppmd8_init.exit.thread
 
-zipx_ppmd8_init.exit:                             ; preds = %46
+zipx_ppmd8_init.exit:                             ; preds = %50
   store i8 1, ptr %8, align 1, !tbaa !131
-  %54 = load i64, ptr %23, align 8, !tbaa !200
-  %55 = add nsw i64 %54, 2
-  %56 = getelementptr inbounds nuw i8, ptr %7, i64 128
-  %57 = load i64, ptr %56, align 8, !tbaa !88
-  %58 = add nsw i64 %55, %57
-  store i64 %58, ptr %56, align 8, !tbaa !88
-  br label %59
+  %58 = load i64, ptr %23, align 8, !tbaa !200
+  %59 = add nsw i64 %58, 2
+  %60 = getelementptr inbounds nuw i8, ptr %7, i64 128
+  %61 = load i64, ptr %60, align 8, !tbaa !88
+  %62 = add nsw i64 %59, %61
+  store i64 %62, ptr %60, align 8, !tbaa !88
+  br label %63
 
-59:                                               ; preds = %zipx_ppmd8_init.exit, %3
-  %60 = call ptr @__archive_read_ahead(ptr noundef nonnull %0, i64 noundef 1, ptr noundef nonnull %4) #21
-  %61 = load i64, ptr %4, align 8, !tbaa !69
-  %62 = icmp slt i64 %61, 0
-  br i1 %62, label %63, label %64
+63:                                               ; preds = %zipx_ppmd8_init.exit, %3
+  %64 = call ptr @__archive_read_ahead(ptr noundef nonnull %0, i64 noundef 1, ptr noundef nonnull %4) #21
+  %65 = load i64, ptr %4, align 8, !tbaa !69
+  %66 = icmp slt i64 %65, 0
+  br i1 %66, label %67, label %68
 
-63:                                               ; preds = %59
+67:                                               ; preds = %63
   call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 84, ptr noundef nonnull @.str.105) #21
   br label %zipx_ppmd8_init.exit.thread
 
-64:                                               ; preds = %59
-  %65 = getelementptr inbounds nuw i8, ptr %7, i64 568
-  store i64 0, ptr %65, align 8, !tbaa !200
-  %66 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @__archive_ppmd8_functions, i64 40), align 8, !tbaa !204
-  %67 = getelementptr inbounds nuw i8, ptr %7, i64 576
-  %68 = getelementptr inbounds nuw i8, ptr %7, i64 7969
-  %69 = getelementptr inbounds nuw i8, ptr %7, i64 168
-  %70 = getelementptr inbounds nuw i8, ptr %7, i64 176
-  br label %71
+68:                                               ; preds = %63
+  %69 = getelementptr inbounds nuw i8, ptr %7, i64 568
+  store i64 0, ptr %69, align 8, !tbaa !200
+  %70 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @__archive_ppmd8_functions, i64 40), align 8, !tbaa !204
+  %71 = getelementptr inbounds nuw i8, ptr %7, i64 576
+  %72 = getelementptr inbounds nuw i8, ptr %7, i64 7969
+  %73 = getelementptr inbounds nuw i8, ptr %7, i64 168
+  %74 = getelementptr inbounds nuw i8, ptr %7, i64 176
+  br label %75
 
-71:                                               ; preds = %78, %64
-  %.035 = phi i64 [ 0, %64 ], [ %82, %78 ]
-  %72 = call i32 %66(ptr noundef nonnull %67) #21
-  %73 = icmp slt i32 %72, 0
-  br i1 %73, label %76, label %74
+75:                                               ; preds = %82, %68
+  %.035 = phi i64 [ 0, %64 ], [ %86, %78 ]
+  %76 = call i32 %66(ptr noundef nonnull %71) #21
+  %77 = icmp slt i32 %76, 0
+  br i1 %77, label %80, label %78
 
-74:                                               ; preds = %71
-  %75 = load i8, ptr %68, align 1, !tbaa !197
-  %.not40 = icmp eq i8 %75, 0
-  br i1 %.not40, label %78, label %.thread
+78:                                               ; preds = %75
+  %79 = load i8, ptr %72, align 1, !tbaa !197
+  %.not40 = icmp eq i8 %79, 0
+  br i1 %.not40, label %82, label %.thread
 
-.thread:                                          ; preds = %74
+.thread:                                          ; preds = %78
   call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 84, ptr noundef nonnull @.str.105) #21
   br label %zipx_ppmd8_init.exit.thread
 
-76:                                               ; preds = %71
-  %77 = getelementptr inbounds nuw i8, ptr %7, i64 162
-  store i8 1, ptr %77, align 2, !tbaa !74
+80:                                               ; preds = %75
+  %81 = getelementptr inbounds nuw i8, ptr %7, i64 162
+  store i8 1, ptr %81, align 2, !tbaa !74
   br label %.loopexit
 
-78:                                               ; preds = %74
-  %79 = trunc i32 %72 to i8
-  %80 = load ptr, ptr %69, align 8, !tbaa !101
-  %81 = getelementptr inbounds nuw i8, ptr %80, i64 %.035
-  store i8 %79, ptr %81, align 1, !tbaa !36
-  %82 = add nuw i64 %.035, 1
-  %83 = load i64, ptr %70, align 8, !tbaa !156
-  %84 = icmp ult i64 %82, %83
-  br i1 %84, label %71, label %.loopexit.loopexit, !llvm.loop !205
+82:                                               ; preds = %78
+  %83 = trunc i32 %76 to i8
+  %84 = load ptr, ptr %73, align 8, !tbaa !101
+  %85 = getelementptr inbounds nuw i8, ptr %84, i64 %.035
+  store i8 %83, ptr %85, align 1, !tbaa !36
+  %86 = add nuw i64 %.035, 1
+  %87 = load i64, ptr %74, align 8, !tbaa !156
+  %88 = icmp ult i64 %86, %87
+  br i1 %88, label %75, label %.loopexit.loopexit, !llvm.loop !205
 
-.loopexit.loopexit:                               ; preds = %78
+.loopexit.loopexit:                               ; preds = %82
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %7, i64 162
   %.pre = load i8, ptr %.phi.trans.insert, align 2, !tbaa !74
-  %85 = icmp eq i8 %.pre, 0
+  %89 = icmp eq i8 %.pre, 0
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.loopexit.loopexit, %76
-  %.not41 = phi i1 [ false, %76 ], [ %85, %.loopexit.loopexit ]
-  %.1369 = phi i64 [ %.035, %76 ], [ %82, %.loopexit.loopexit ]
-  %86 = load i64, ptr %65, align 8, !tbaa !200
-  %87 = getelementptr inbounds nuw i8, ptr %7, i64 120
-  %88 = load i64, ptr %87, align 8, !tbaa !92
-  %89 = sub nsw i64 %88, %86
-  store i64 %89, ptr %87, align 8, !tbaa !92
-  %90 = getelementptr inbounds nuw i8, ptr %7, i64 128
-  %91 = load i64, ptr %90, align 8, !tbaa !88
-  %92 = add nsw i64 %91, %86
-  store i64 %92, ptr %90, align 8, !tbaa !88
-  %93 = getelementptr inbounds nuw i8, ptr %7, i64 136
-  %94 = load i64, ptr %93, align 8, !tbaa !72
-  %95 = add i64 %94, %.1369
-  store i64 %95, ptr %93, align 8, !tbaa !72
-  br i1 %.not41, label %99, label %96
+.loopexit:                                        ; preds = %.loopexit.loopexit, %80
+  %.not41 = phi i1 [ false, %76 ], [ %89, %.loopexit.loopexit ]
+  %.1369 = phi i64 [ %.035, %76 ], [ %86, %.loopexit.loopexit ]
+  %90 = load i64, ptr %69, align 8, !tbaa !200
+  %91 = getelementptr inbounds nuw i8, ptr %7, i64 120
+  %92 = load i64, ptr %91, align 8, !tbaa !92
+  %93 = sub nsw i64 %92, %90
+  store i64 %93, ptr %91, align 8, !tbaa !92
+  %94 = getelementptr inbounds nuw i8, ptr %7, i64 128
+  %95 = load i64, ptr %94, align 8, !tbaa !88
+  %96 = add nsw i64 %95, %90
+  store i64 %96, ptr %94, align 8, !tbaa !88
+  %97 = getelementptr inbounds nuw i8, ptr %7, i64 136
+  %98 = load i64, ptr %97, align 8, !tbaa !72
+  %99 = add i64 %98, %.1369
+  store i64 %99, ptr %97, align 8, !tbaa !72
+  br i1 %.not41, label %103, label %100
 
-96:                                               ; preds = %.loopexit
-  %97 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @__archive_ppmd8_functions, i64 16), align 8, !tbaa !103
-  call void %97(ptr noundef nonnull %67) #21
-  %98 = getelementptr inbounds nuw i8, ptr %7, i64 7968
-  store i8 0, ptr %98, align 8, !tbaa !102
-  br label %99
+100:                                              ; preds = %.loopexit
+  %101 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @__archive_ppmd8_functions, i64 16), align 8, !tbaa !103
+  call void %97(ptr noundef nonnull %71) #21
+  %102 = getelementptr inbounds nuw i8, ptr %7, i64 7968
+  store i8 0, ptr %102, align 8, !tbaa !102
+  br label %103
 
-99:                                               ; preds = %96, %.loopexit
-  %100 = load ptr, ptr %69, align 8, !tbaa !101
-  store ptr %100, ptr %1, align 8, !tbaa !73
+103:                                              ; preds = %100, %.loopexit
+  %104 = load ptr, ptr %73, align 8, !tbaa !101
+  store ptr %104, ptr %1, align 8, !tbaa !73
   store i64 %.1369, ptr %2, align 8, !tbaa !69
   br label %zipx_ppmd8_init.exit.thread
 
-zipx_ppmd8_init.exit.thread:                      ; preds = %25, %41, %45, %53, %34, %.thread, %99, %63
+zipx_ppmd8_init.exit.thread:                      ; preds = %25, %41, %49, %57, %34, %.thread, %103, %67
   %.0 = phi i32 [ -30, %63 ], [ 0, %99 ], [ -30, %.thread ], [ -30, %25 ], [ -30, %41 ], [ -30, %45 ], [ -30, %53 ], [ -25, %34 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0

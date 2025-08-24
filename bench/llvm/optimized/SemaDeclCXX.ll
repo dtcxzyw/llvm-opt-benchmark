@@ -33351,7 +33351,7 @@ _ZN5clanglsIPNS_14IdentifierInfoEEERKNS_8SemaBase21SemaDiagnosticBuilderES6_RKT_
   %1212 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %1213 = load ptr, ptr %1212, align 8, !tbaa !21
   %1214 = getelementptr inbounds nuw i8, ptr %1213, i64 36
-  %1215 = load i64, ptr %1214, align 4
+  %.sroa.058.0.copyload = load i64, ptr %1214, align 4
   %1216 = load i8, ptr %1132, align 8, !tbaa !1066, !range !36, !noundef !37
   %1217 = trunc nuw i8 %1216 to i1
   br i1 %1217, label %1218, label %1220
@@ -33359,7 +33359,7 @@ _ZN5clanglsIPNS_14IdentifierInfoEEERKNS_8SemaBase21SemaDiagnosticBuilderES6_RKT_
 1218:                                             ; preds = %_ZN5clanglsIPNS_14IdentifierInfoEEERKNS_8SemaBase21SemaDiagnosticBuilderES6_RKT_.exit
   %1219 = getelementptr inbounds nuw i8, ptr %56, i64 32
   call void @llvm.lifetime.start.p0(ptr nonnull %24)
-  store i64 %1215, ptr %24, align 8
+  store i64 %.sroa.058.0.copyload, ptr %24, align 8
   %.sroa.2.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %24, i64 8
   store i8 1, ptr %.sroa.2.0..sroa_idx.i.i.i.i, align 8
   call void @_ZNK5clang19StreamingDiagnostic14AddSourceRangeERKNS_15CharSourceRangeE(ptr noundef nonnull align 8 dereferenceable(84) %1219, ptr noundef nonnull align 4 dereferenceable(9) %24)
@@ -33397,7 +33397,7 @@ _ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i253: ; preds = %12
   %1238 = load ptr, ptr %1235, align 8, !tbaa !1083
   %1239 = getelementptr inbounds nuw %"struct.std::pair.2055", ptr %1238, i64 %1237, i32 2
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
-  store i64 %1215, ptr %23, align 8
+  store i64 %.sroa.058.0.copyload, ptr %23, align 8
   %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %23, i64 8
   store i8 1, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8
   call void @_ZNK5clang19StreamingDiagnostic14AddSourceRangeERKNS_15CharSourceRangeE(ptr noundef nonnull align 8 dereferenceable(20) %1239, ptr noundef nonnull align 4 dereferenceable(9) %23)
@@ -103064,7 +103064,7 @@ _ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_11SourceRangeEvEERKS1_OT_.exit53
   %108 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %109 = load ptr, ptr %108, align 8, !tbaa !21
   %110 = getelementptr inbounds nuw i8, ptr %109, i64 36
-  %111 = load i64, ptr %110, align 4
+  %.sroa.011.0.copyload = load i64, ptr %110, align 4
   %112 = getelementptr inbounds nuw i8, ptr %23, i64 120
   %113 = load i8, ptr %112, align 8, !tbaa !1066, !range !36, !noundef !37
   %114 = trunc nuw i8 %113 to i1
@@ -103073,7 +103073,7 @@ _ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_11SourceRangeEvEERKS1_OT_.exit53
 115:                                              ; preds = %105
   %116 = getelementptr inbounds nuw i8, ptr %23, i64 32
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
-  store i64 %111, ptr %12, align 8
+  store i64 %.sroa.011.0.copyload, ptr %12, align 8
   %.sroa.2.0..sroa_idx.i.i.i.i60 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store i8 1, ptr %.sroa.2.0..sroa_idx.i.i.i.i60, align 8
   call void @_ZNK5clang19StreamingDiagnostic14AddSourceRangeERKNS_15CharSourceRangeE(ptr noundef nonnull align 8 dereferenceable(84) %116, ptr noundef nonnull align 4 dereferenceable(9) %12)
@@ -103111,7 +103111,7 @@ _ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i56: ; preds = %126
   %135 = load ptr, ptr %132, align 8, !tbaa !1083
   %136 = getelementptr inbounds nuw %"struct.std::pair.2055", ptr %135, i64 %134, i32 2
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  store i64 %111, ptr %11, align 8
+  store i64 %.sroa.011.0.copyload, ptr %11, align 8
   %.sroa.2.0..sroa_idx.i.i.i58 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i8 1, ptr %.sroa.2.0..sroa_idx.i.i.i58, align 8
   call void @_ZNK5clang19StreamingDiagnostic14AddSourceRangeERKNS_15CharSourceRangeE(ptr noundef nonnull align 8 dereferenceable(20) %136, ptr noundef nonnull align 4 dereferenceable(9) %11)

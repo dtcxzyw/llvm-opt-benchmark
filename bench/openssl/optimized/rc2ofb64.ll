@@ -46,75 +46,75 @@ define void @RC2_ofb64_encrypt(ptr noundef readonly captures(none) %0, ptr nound
   store i64 %40, ptr %41, align 8, !tbaa !8
   %42 = getelementptr inbounds nuw i8, ptr %7, i64 1
   store i8 %12, ptr %7, align 4, !tbaa !7
-  %43 = getelementptr inbounds nuw i8, ptr %7, i64 2
+  %45 = getelementptr inbounds nuw i8, ptr %7, i64 2
   store i8 %15, ptr %42, align 1, !tbaa !7
-  %44 = getelementptr inbounds nuw i8, ptr %7, i64 3
+  %46 = getelementptr inbounds nuw i8, ptr %7, i64 3
   store i8 %17, ptr %43, align 2, !tbaa !7
-  %45 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  store i8 %21, ptr %44, align 1, !tbaa !7
-  %46 = getelementptr inbounds nuw i8, ptr %7, i64 5
-  store i8 %28, ptr %45, align 4, !tbaa !7
-  %47 = getelementptr inbounds nuw i8, ptr %7, i64 6
-  store i8 %31, ptr %46, align 1, !tbaa !7
-  %48 = getelementptr inbounds nuw i8, ptr %7, i64 7
-  store i8 %33, ptr %47, align 2, !tbaa !7
+  %47 = getelementptr inbounds nuw i8, ptr %7, i64 4
+  store i8 %21, ptr %46, align 1, !tbaa !7
+  %48 = getelementptr inbounds nuw i8, ptr %7, i64 5
+  store i8 %28, ptr %47, align 4, !tbaa !7
+  %49 = getelementptr inbounds nuw i8, ptr %7, i64 6
+  store i8 %31, ptr %48, align 1, !tbaa !7
+  %50 = getelementptr inbounds nuw i8, ptr %7, i64 7
+  store i8 %33, ptr %49, align 2, !tbaa !7
   store i8 %36, ptr %48, align 1, !tbaa !7
   %.not83 = icmp eq i64 %2, 0
   br i1 %.not83, label %._crit_edge.thread, label %.lr.ph
 
-.lr.ph:                                           ; preds = %6, %59
-  %49 = phi i64 [ %60, %59 ], [ %40, %6 ]
-  %50 = phi i64 [ %61, %59 ], [ %25, %6 ]
-  %.in = phi i64 [ %51, %59 ], [ %2, %6 ]
+.lr.ph:                                           ; preds = %6, %63
+  %53 = phi i64 [ %64, %59 ], [ %40, %6 ]
+  %54 = phi i64 [ %65, %59 ], [ %25, %6 ]
+  %.in = phi i64 [ %55, %59 ], [ %2, %6 ]
   %.087 = phi i32 [ %.1, %59 ], [ 0, %6 ]
-  %.07986 = phi i32 [ %70, %59 ], [ %9, %6 ]
-  %.08085 = phi ptr [ %62, %59 ], [ %0, %6 ]
-  %.08184 = phi ptr [ %68, %59 ], [ %1, %6 ]
-  %51 = add nsw i64 %.in, -1
-  %52 = icmp eq i32 %.07986, 0
-  br i1 %52, label %53, label %59
+  %.07986 = phi i32 [ %74, %59 ], [ %9, %6 ]
+  %.08085 = phi ptr [ %66, %59 ], [ %0, %6 ]
+  %.08184 = phi ptr [ %72, %59 ], [ %1, %6 ]
+  %55 = add nsw i64 %.in, -1
+  %56 = icmp eq i32 %.07986, 0
+  br i1 %56, label %57, label %63
 
-53:                                               ; preds = %.lr.ph
+57:                                               ; preds = %.lr.ph
   call void @RC2_encrypt(ptr noundef nonnull %8, ptr noundef %3) #3
-  %54 = load i64, ptr %8, align 16, !tbaa !8
-  %55 = trunc i64 %54 to i32
-  store i32 %55, ptr %7, align 4
-  %56 = load i64, ptr %41, align 8, !tbaa !8
-  %57 = trunc i64 %56 to i32
-  store i32 %57, ptr %45, align 4
-  %58 = add nsw i32 %.087, 1
-  br label %59
+  %58 = load i64, ptr %8, align 16, !tbaa !8
+  %59 = trunc i64 %58 to i32
+  store i32 %59, ptr %7, align 4
+  %60 = load i64, ptr %41, align 8, !tbaa !8
+  %61 = trunc i64 %60 to i32
+  store i32 %61, ptr %45, align 4
+  %62 = add nsw i32 %.087, 1
+  br label %63
 
-59:                                               ; preds = %53, %.lr.ph
-  %60 = phi i64 [ %56, %53 ], [ %49, %.lr.ph ]
-  %61 = phi i64 [ %54, %53 ], [ %50, %.lr.ph ]
-  %.1 = phi i32 [ %58, %53 ], [ %.087, %.lr.ph ]
-  %62 = getelementptr inbounds nuw i8, ptr %.08085, i64 1
-  %63 = load i8, ptr %.08085, align 1, !tbaa !7
-  %64 = sext i32 %.07986 to i64
-  %65 = getelementptr inbounds [8 x i8], ptr %7, i64 0, i64 %64
-  %66 = load i8, ptr %65, align 1, !tbaa !7
-  %67 = xor i8 %66, %63
-  %68 = getelementptr inbounds nuw i8, ptr %.08184, i64 1
-  store i8 %67, ptr %.08184, align 1, !tbaa !7
-  %69 = add nsw i32 %.07986, 1
-  %70 = and i32 %69, 7
-  %.not = icmp eq i64 %51, 0
+63:                                               ; preds = %57, %.lr.ph
+  %64 = phi i64 [ %60, %53 ], [ %53, %.lr.ph ]
+  %65 = phi i64 [ %58, %53 ], [ %54, %.lr.ph ]
+  %.1 = phi i32 [ %62, %53 ], [ %.087, %.lr.ph ]
+  %66 = getelementptr inbounds nuw i8, ptr %.08085, i64 1
+  %67 = load i8, ptr %.08085, align 1, !tbaa !7
+  %68 = sext i32 %.07986 to i64
+  %69 = getelementptr inbounds [8 x i8], ptr %7, i64 0, i64 %68
+  %70 = load i8, ptr %69, align 1, !tbaa !7
+  %71 = xor i8 %70, %67
+  %72 = getelementptr inbounds nuw i8, ptr %.08184, i64 1
+  store i8 %71, ptr %.08184, align 1, !tbaa !7
+  %73 = add nsw i32 %.07986, 1
+  %74 = and i32 %73, 7
+  %.not = icmp eq i64 %55, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
 
-._crit_edge:                                      ; preds = %59
-  %71 = icmp eq i32 %.1, 0
-  br i1 %71, label %._crit_edge.thread, label %72
+._crit_edge:                                      ; preds = %63
+  %75 = icmp eq i32 %.1, 0
+  br i1 %75, label %._crit_edge.thread, label %76
 
-72:                                               ; preds = %._crit_edge
-  %73 = trunc i64 %61 to i32
-  store i32 %73, ptr %4, align 1
-  %74 = trunc i64 %60 to i32
-  store i32 %74, ptr %20, align 1
+76:                                               ; preds = %._crit_edge
+  %77 = trunc i64 %65 to i32
+  store i32 %77, ptr %4, align 1
+  %78 = trunc i64 %64 to i32
+  store i32 %78, ptr %20, align 1
   br label %._crit_edge.thread
 
-._crit_edge.thread:                               ; preds = %6, %72, %._crit_edge
-  %.079.lcssa92 = phi i32 [ %70, %72 ], [ %70, %._crit_edge ], [ %9, %6 ]
+._crit_edge.thread:                               ; preds = %6, %76, %._crit_edge
+  %.079.lcssa92 = phi i32 [ %74, %72 ], [ %74, %._crit_edge ], [ %9, %6 ]
   store i32 %.079.lcssa92, ptr %5, align 4, !tbaa !3
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)

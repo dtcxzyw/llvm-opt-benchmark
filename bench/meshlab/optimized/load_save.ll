@@ -11504,13 +11504,13 @@ _ZN10QByteArrayD2Ev.exit:                         ; preds = %29, %_ZN9QtPrivate8
 46:                                               ; preds = %61, %39, %28, %74, %55, %27, %_ZN7QStringD2Ev.exit
   %47 = landingpad { ptr, i32 }
           cleanup
-  br label %169
+  br label %168
 
 48:                                               ; preds = %26
   %49 = landingpad { ptr, i32 }
           cleanup
   call void @_ZdlPv(ptr noundef nonnull %25) #26
-  br label %169
+  br label %168
 
 .thread:                                          ; preds = %41
   %50 = landingpad { ptr, i32 }
@@ -11531,7 +11531,7 @@ _ZN10QByteArrayD2Ev.exit:                         ; preds = %29, %_ZN9QtPrivate8
 54:                                               ; preds = %51, %53
   %.pn94 = phi { ptr, i32 } [ %.pn95, %53 ], [ %52, %51 ]
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #27
-  br label %169
+  br label %168
 
 55:                                               ; preds = %_ZN10QByteArrayD2Ev.exit
   %56 = call i32 @fseek(ptr noundef nonnull %34, i64 noundef 0, i32 noundef 2)
@@ -11590,7 +11590,7 @@ _ZN10QByteArrayD2Ev.exit:                         ; preds = %29, %_ZN9QtPrivate8
 73:                                               ; preds = %70, %72
   %.pn65101 = phi { ptr, i32 } [ %71, %70 ], [ %.pn65102, %72 ]
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #27
-  br label %169
+  br label %168
 
 74:                                               ; preds = %59
   %75 = call i32 @fclose(ptr noundef nonnull %34)
@@ -11718,7 +11718,7 @@ _ZN7QStringD2Ev.exit79:                           ; preds = %_ZN9QtPrivate8RefCo
   store float %126, ptr %127, align 4
   %128 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store float %126, ptr %128, align 8
-  br label %157
+  br label %156
 
 129:                                              ; preds = %_ZN7QStringD2Ev.exit79
   %130 = getelementptr inbounds nuw i8, ptr %12, i64 368
@@ -11731,35 +11731,35 @@ _ZN7QStringD2Ev.exit79:                           ; preds = %_ZN9QtPrivate8RefCo
   %136 = uitofp i32 %132 to double
   %137 = fmul double %136, 5.000000e-01
   %138 = fptrunc double %137 to float
-  %139 = uitofp i32 %134 to double
-  %140 = fmul double %139, 5.000000e-01
-  %141 = fptrunc double %140 to float
+  %135 = uitofp i32 %134 to double
+  %136 = fmul double %135, 5.000000e-01
+  %137 = fptrunc double %136 to float
   %142 = getelementptr inbounds nuw i8, ptr %1, i64 20
   store float %138, ptr %142, align 4
   %.sroa_idx80 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store float %141, ptr %.sroa_idx80, align 8
-  %143 = getelementptr inbounds nuw i8, ptr %12, i64 352
-  %144 = load double, ptr %143, align 8
-  %145 = uitofp i16 %94 to double
-  %146 = fdiv double %144, %145
-  %147 = fptrunc double %146 to float
-  %148 = fmul float %147, 3.600000e+01
-  %149 = uitofp i32 %132 to float
-  %150 = fdiv float %148, %149
-  %151 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  store float %150, ptr %151, align 4
-  %152 = fmul float %147, 2.400000e+01
-  %153 = uitofp i32 %134 to float
-  %154 = fdiv float %152, %153
-  %155 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store float %154, ptr %155, align 8
-  %156 = fptrunc double %144 to float
-  br label %157
+  %142 = getelementptr inbounds nuw i8, ptr %12, i64 352
+  %143 = load double, ptr %142, align 8
+  %144 = uitofp i16 %94 to double
+  %145 = fdiv double %143, %144
+  %146 = fptrunc double %145 to float
+  %147 = fmul float %146, 3.600000e+01
+  %148 = uitofp i32 %132 to float
+  %149 = fdiv float %147, %148
+  %150 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  store float %149, ptr %150, align 4
+  %151 = fmul float %146, 2.400000e+01
+  %152 = uitofp i32 %134 to float
+  %153 = fdiv float %151, %152
+  %154 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  store float %153, ptr %154, align 8
+  %155 = fptrunc double %143 to float
+  br label %156
 
-157:                                              ; preds = %129, %124
-  %storemerge = phi float [ %156, %129 ], [ 5.000000e+01, %124 ]
+156:                                              ; preds = %129, %124
+  %storemerge = phi float [ %155, %129 ], [ 5.000000e+01, %124 ]
   store float %storemerge, ptr %1, align 8
-  %158 = getelementptr inbounds nuw i8, ptr %12, i64 560
+  %157 = getelementptr inbounds nuw i8, ptr %12, i64 560
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %158) #27
   %159 = getelementptr inbounds nuw i8, ptr %12, i64 528
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %159) #27
@@ -11787,14 +11787,14 @@ _ZN7QStringD2Ev.exit79:                           ; preds = %_ZN9QtPrivate8RefCo
 .body:                                            ; preds = %89, %82, %91
   %.pn63 = phi { ptr, i32 } [ %92, %91 ], [ %90, %89 ], [ %83, %82 ]
   call void @_ZN8easyexif8EXIFInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(592) %12) #27
-  br label %169
+  br label %168
 
-169:                                              ; preds = %.body, %73, %54, %48, %46
+168:                                              ; preds = %.body, %73, %54, %48, %46
   %.pn65.pn = phi { ptr, i32 } [ %.pn65101, %73 ], [ %47, %46 ], [ %.pn63, %.body ], [ %.pn94, %54 ], [ %49, %48 ]
   call void @_ZN6QImageD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #27
   resume { ptr, i32 } %.pn65.pn
 
-170:                                              ; preds = %68, %45
+169:                                              ; preds = %68, %45
   unreachable
 }
 

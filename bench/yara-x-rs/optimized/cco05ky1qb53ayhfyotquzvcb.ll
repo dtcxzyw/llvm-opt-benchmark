@@ -16881,7 +16881,7 @@ define internal fastcc void @"_ZN13yara_x_parser3ast7cst2ast16Builder$LT$I$GT$19
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 1
   %14 = load i8, ptr %13, align 1, !range !26, !noalias !702, !noundef !8
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !702
-  br label %27
+  br label %26
 
 15:                                               ; preds = %2
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 4
@@ -16891,106 +16891,106 @@ define internal fastcc void @"_ZN13yara_x_parser3ast7cst2ast16Builder$LT$I$GT$19
   %20 = trunc nuw i64 %19 to i32
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !702
   store i32 %18, ptr %5, align 4, !noalias !702
-  %21 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  store i32 %20, ptr %21, align 4, !noalias !702
+  %20 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  store i32 %20, ptr %20, align 4, !noalias !702
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !702
   call fastcc void @"_ZN13yara_x_parser3ast7cst2ast16Builder$LT$I$GT$14get_source_str17hc80533020c15158dE"(ptr noalias noundef align 8 captures(none) dereferenceable(16) %3, ptr noalias noundef nonnull align 8 dereferenceable(504) %1, ptr noalias noundef readonly align 4 dereferenceable(8) %5), !noalias !706
-  %22 = load ptr, ptr %3, align 8, !noalias !702, !noundef !8
-  %23 = icmp eq ptr %22, null
-  %24 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  br i1 %23, label %25, label %29
+  %21 = load ptr, ptr %3, align 8, !noalias !702, !noundef !8
+  %22 = icmp eq ptr %21, null
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  br i1 %22, label %24, label %28
 
-25:                                               ; preds = %15
-  %26 = load i8, ptr %24, align 8, !range !26, !noalias !702, !noundef !8
+24:                                               ; preds = %15
+  %25 = load i8, ptr %23, align 8, !range !26, !noalias !702, !noundef !8
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !702
-  br label %27
+  br label %26
 
-27:                                               ; preds = %12, %25
-  %.sroa.7.0.ph.in = phi i8 [ %26, %25 ], [ %14, %12 ]
+26:                                               ; preds = %12, %24
+  %.sroa.7.0.ph.in = phi i8 [ %25, %25 ], [ %14, %12 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !702
   store i8 %.sroa.7.0.ph.in, ptr %0, align 8
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i8 2, ptr %28, align 8
-  br label %61
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i8 2, ptr %27, align 8
+  br label %60
 
-29:                                               ; preds = %15
-  %30 = load i64, ptr %24, align 8, !noalias !702, !noundef !8
+28:                                               ; preds = %15
+  %29 = load i64, ptr %23, align 8, !noalias !702, !noundef !8
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !702
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !702
-  store ptr %22, ptr %9, align 8
+  store ptr %21, ptr %9, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store i64 %30, ptr %.sroa.3.0..sroa_idx, align 8
+  store i64 %29, ptr %.sroa.3.0..sroa_idx, align 8
   %.sroa.67.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 16
   store i64 %17, ptr %.sroa.67.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %31 = call { i32, i32 } @"_ZN74_$LT$yara_x_parser..ast..Ident$u20$as$u20$yara_x_parser..ast..WithSpan$GT$4span17h6bb91581f81e016eE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %9)
-  %32 = extractvalue { i32, i32 } %31, 0
-  %33 = extractvalue { i32, i32 } %31, 1
-  store i32 %32, ptr %8, align 4
-  %34 = getelementptr inbounds nuw i8, ptr %8, i64 4
-  store i32 %33, ptr %34, align 4
-  %35 = call fastcc noundef align 8 dereferenceable(32) ptr @"_ZN13yara_x_parser3ast7cst2ast16Builder$LT$I$GT$4peek17h851e2e755104d6dbE"(ptr noalias noundef align 8 dereferenceable(504) %1)
-  %36 = load i64, ptr %35, align 8, !range !9, !noundef !8
-  %37 = icmp eq i64 %36, -9223372036854775806
-  br i1 %37, label %38, label %58
+  %30 = call { i32, i32 } @"_ZN74_$LT$yara_x_parser..ast..Ident$u20$as$u20$yara_x_parser..ast..WithSpan$GT$4span17h6bb91581f81e016eE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %9)
+  %31 = extractvalue { i32, i32 } %30, 0
+  %32 = extractvalue { i32, i32 } %30, 1
+  store i32 %31, ptr %8, align 4
+  %33 = getelementptr inbounds nuw i8, ptr %8, i64 4
+  store i32 %32, ptr %33, align 4
+  %34 = call fastcc noundef align 8 dereferenceable(32) ptr @"_ZN13yara_x_parser3ast7cst2ast16Builder$LT$I$GT$4peek17h851e2e755104d6dbE"(ptr noalias noundef align 8 dereferenceable(504) %1)
+  %35 = load i64, ptr %34, align 8, !range !9, !noundef !8
+  %36 = icmp eq i64 %35, -9223372036854775806
+  br i1 %36, label %37, label %57
 
-38:                                               ; preds = %29
-  %39 = getelementptr inbounds nuw i8, ptr %35, i64 16
-  %40 = load i16, ptr %39, align 8, !range !102, !noundef !8
-  %41 = icmp eq i16 %40, 59
-  br i1 %41, label %42, label %58
+37:                                               ; preds = %28
+  %38 = getelementptr inbounds nuw i8, ptr %34, i64 16
+  %39 = load i16, ptr %38, align 8, !range !102, !noundef !8
+  %40 = icmp eq i16 %39, 59
+  br i1 %40, label %41, label %57
 
-42:                                               ; preds = %38
+41:                                               ; preds = %37
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call fastcc void @"_ZN13yara_x_parser3ast7cst2ast16Builder$LT$I$GT$6expect17h05b152937fa5ca74E"(ptr noalias noundef align 4 captures(none) dereferenceable(12) %6, ptr noalias noundef align 8 dereferenceable(504) %1, i16 noundef 59)
-  %43 = load i8, ptr %6, align 4, !range !26, !noundef !8
-  %44 = trunc nuw i8 %43 to i1
-  br i1 %44, label %45, label %49
+  %42 = load i8, ptr %6, align 4, !range !26, !noundef !8
+  %43 = trunc nuw i8 %42 to i1
+  br i1 %43, label %44, label %48
 
-45:                                               ; preds = %42
-  %46 = getelementptr inbounds nuw i8, ptr %6, i64 1
-  %47 = load i8, ptr %46, align 1, !range !26, !noundef !8
+44:                                               ; preds = %41
+  %45 = getelementptr inbounds nuw i8, ptr %6, i64 1
+  %46 = load i8, ptr %45, align 1, !range !26, !noundef !8
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  store i8 %47, ptr %0, align 8
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i8 2, ptr %48, align 8
+  store i8 %46, ptr %0, align 8
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i8 2, ptr %47, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %61
+  br label %60
 
-49:                                               ; preds = %42
-  %50 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  %51 = load i32, ptr %50, align 4, !noundef !8
-  %52 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %53 = load i32, ptr %52, align 4, !noundef !8
+48:                                               ; preds = %41
+  %49 = getelementptr inbounds nuw i8, ptr %6, i64 4
+  %50 = load i32, ptr %49, align 4, !noundef !8
+  %51 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %52 = load i32, ptr %51, align 4, !noundef !8
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  store i32 %51, ptr %7, align 4
-  %54 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  store i32 %53, ptr %54, align 4
-  %55 = call { i32, i32 } @_ZN13yara_x_parser4Span7combine17h3861fb22fc2e577eE(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %8, ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %7)
-  %56 = extractvalue { i32, i32 } %55, 0
-  %57 = extractvalue { i32, i32 } %55, 1
+  store i32 %50, ptr %7, align 4
+  %53 = getelementptr inbounds nuw i8, ptr %7, i64 4
+  store i32 %52, ptr %53, align 4
+  %54 = call { i32, i32 } @_ZN13yara_x_parser4Span7combine17h3861fb22fc2e577eE(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %8, ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %7)
+  %55 = extractvalue { i32, i32 } %54, 0
+  %56 = extractvalue { i32, i32 } %54, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %58
+  br label %57
 
-58:                                               ; preds = %38, %29, %49
-  %59 = phi i32 [ %57, %49 ], [ %33, %29 ], [ %33, %38 ]
-  %60 = phi i32 [ %56, %49 ], [ %32, %29 ], [ %32, %38 ]
+57:                                               ; preds = %37, %28, %48
+  %58 = phi i32 [ %56, %49 ], [ %32, %29 ], [ %32, %38 ]
+  %59 = phi i32 [ %55, %49 ], [ %31, %29 ], [ %31, %38 ]
   %.sroa.024.0 = phi i8 [ 1, %49 ], [ 0, %29 ], [ 0, %38 ]
-  store ptr %22, ptr %0, align 8
+  store ptr %21, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %30, ptr %.sroa.4.0..sroa_idx, align 8
+  store i64 %29, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.520.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 %60, ptr %.sroa.520.0..sroa_idx, align 8
+  store i32 %59, ptr %.sroa.520.0..sroa_idx, align 8
   %.sroa.621.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i32 %59, ptr %.sroa.621.0..sroa_idx, align 4
+  store i32 %58, ptr %.sroa.621.0..sroa_idx, align 4
   %.sroa.722.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i8 %.sroa.024.0, ptr %.sroa.722.0..sroa_idx, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %61
+  br label %60
 
-61:                                               ; preds = %27, %45, %58
+60:                                               ; preds = %26, %44, %57
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret void
 }

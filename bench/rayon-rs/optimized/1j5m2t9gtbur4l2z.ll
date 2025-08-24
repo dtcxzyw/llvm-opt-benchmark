@@ -94,7 +94,7 @@ _ZN4core4iter6traits10exact_size17ExactSizeIterator3len17h17811fb508d3f4d3E.exit
 define { i64, i64 } @"_ZN5rayon15range_inclusive78_$LT$impl$u20$rayon..range_inclusive..private..RangeInteger$u20$for$u20$u8$GT$7opt_len17hf1808324f612c7dbE"(ptr noalias noundef readonly align 1 captures(none) dereferenceable(3) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %3 = load i16, ptr %2, align 1, !alias.scope !31
-  %4 = trunc i16 %3 to i8
+  %4 = trunc i16 %3 to i7
   %5 = lshr i16 %3, 8
   %6 = trunc nuw i16 %5 to i8
   %.not.i = icmp ugt i8 %4, %6
@@ -103,26 +103,26 @@ define { i64, i64 } @"_ZN5rayon15range_inclusive78_$LT$impl$u20$rayon..range_inc
   %.not = select i1 %.not.i, i1 true, i1 %8
   br i1 %.not, label %16, label %9
 
-9:                                                ; preds = %1
+9:; preds = %1
   %10 = tail call { i8, i1 } @llvm.uadd.with.overflow.i8(i8 %6, i8 1)
   %11 = extractvalue { i8, i1 } %10, 1
   br i1 %11, label %14, label %12
 
-12:                                               ; preds = %9
-  %13 = extractvalue { i8, i1 } %10, 0
+12:; preds = %9
+  %12 = extractvalue { i8, i1 } %9, 0
   %narrow.i.i.i = tail call i8 @llvm.usub.sat.i8(i8 %13, i8 %4)
   %.sink4.i.i.i = zext i8 %narrow.i.i.i to i64
-  br label %16
+  br label %15
 
-14:                                               ; preds = %9
+13:                                               ; preds = %8
   %.sroa.021.0.extract.trunc = zext i16 %3 to i64
-  %.sroa.422.0.extract.trunc = zext nneg i16 %5 to i64
-  %narrow.i.i.i.i.i23 = sub nsw i64 %.sroa.422.0.extract.trunc, %.sroa.021.0.extract.trunc
+  %.sink4.i.i.i.i.i = zext nneg i16 %5 to i64
+  %narrow.i.i.i.i.i23 = sub nsw i64 %.sink4.i.i.i.i.i, %.sroa.021.0.extract.trunc
   %.sink4.i.i.i.i.i = and i64 %narrow.i.i.i.i.i23, 255
   %15 = add nuw nsw i64 %.sink4.i.i.i.i.i, 1
   br label %16
 
-16:                                               ; preds = %12, %14, %1
+16:; preds = %12, %13, %1
   %.sroa.4.0 = phi i64 [ 0, %1 ], [ %.sink4.i.i.i, %12 ], [ %15, %14 ]
   %17 = insertvalue { i64, i64 } { i64 1, i64 poison }, i64 %.sroa.4.0, 1
   ret { i64, i64 } %17
@@ -178,29 +178,29 @@ define { i64, i64 } @"_ZN5rayon15range_inclusive79_$LT$impl$u20$rayon..range_inc
   %.not = select i1 %.not.i, i1 true, i1 %.not24
   br i1 %.not, label %15, label %8
 
-8:                                                ; preds = %1
-  %9 = tail call { i16, i1 } @llvm.uadd.with.overflow.i16(i16 %5, i16 1)
-  %10 = extractvalue { i16, i1 } %9, 1
-  br i1 %10, label %13, label %11
+7:                                                ; preds = %1
+  %8 = tail call { i16, i1 } @llvm.uadd.with.overflow.i16(i16 %5, i16 1)
+  %9 = extractvalue { i16, i1 } %8, 1
+  br i1 %9, label %12, label %10
 
-11:                                               ; preds = %8
-  %12 = extractvalue { i16, i1 } %9, 0
-  %narrow.i.i.i = tail call i16 @llvm.usub.sat.i16(i16 %12, i16 %3)
+10:                                               ; preds = %7
+  %11 = extractvalue { i16, i1 } %8, 0
+  %narrow.i.i.i = tail call i16 @llvm.usub.sat.i16(i16 %11, i16 %3)
   %.sink4.i.i.i = zext i16 %narrow.i.i.i to i64
-  br label %15
+  br label %14
 
-13:                                               ; preds = %8
+12:                                               ; preds = %7
   %.sroa.021.0.extract.trunc = zext i32 %2 to i64
-  %.sroa.422.0.extract.trunc = zext nneg i32 %4 to i64
-  %narrow.i.i.i.i.i23 = sub nsw i64 %.sroa.422.0.extract.trunc, %.sroa.021.0.extract.trunc
+  %.sink4.i.i.i.i.i = zext nneg i32 %4 to i64
+  %narrow.i.i.i.i.i23 = sub nsw i64 %.sink4.i.i.i.i.i, %.sroa.021.0.extract.trunc
   %.sink4.i.i.i.i.i = and i64 %narrow.i.i.i.i.i23, 65535
   %14 = add nuw nsw i64 %.sink4.i.i.i.i.i, 1
   br label %15
 
-15:                                               ; preds = %11, %13, %1
-  %.sroa.4.0 = phi i64 [ 0, %1 ], [ %.sink4.i.i.i, %11 ], [ %14, %13 ]
-  %16 = insertvalue { i64, i64 } { i64 1, i64 poison }, i64 %.sroa.4.0, 1
-  ret { i64, i64 } %16
+14:                                               ; preds = %10, %12, %1
+  %.sroa.4.0 = phi i64 [ 0, %1 ], [ %.sink4.i.i.i, %11 ], [ %13, %12 ]
+  %15 = insertvalue { i64, i64 } { i64 1, i64 poison }, i64 %.sroa.4.0, 1
+  ret { i64, i64 } %15
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
@@ -278,8 +278,8 @@ _ZN4core4iter6traits10exact_size17ExactSizeIterator3len17h4be8c75358d8f93cE.exit
 define { i64, i64 } @"_ZN5rayon15range_inclusive78_$LT$impl$u20$rayon..range_inclusive..private..RangeInteger$u20$for$u20$i8$GT$7opt_len17h0dbcbe400fbdccb6E"(ptr noalias noundef readonly align 1 captures(none) dereferenceable(3) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %3 = load i16, ptr %2, align 1, !alias.scope !70
-  %4 = trunc i16 %3 to i8
-  %5 = lshr i16 %3, 8
+  %4 = trunc i16 %3 to i7
+  %5 = lshr i16 %3, 7
   %6 = trunc nuw i16 %5 to i8
   %.not.i = icmp sgt i8 %4, %6
   %7 = load i8, ptr %0, align 1, !range !11, !alias.scope !70
@@ -287,21 +287,21 @@ define { i64, i64 } @"_ZN5rayon15range_inclusive78_$LT$impl$u20$rayon..range_inc
   %.not = select i1 %.not.i, i1 true, i1 %8
   br i1 %.not, label %24, label %9
 
-9:                                                ; preds = %1
+9:; preds = %1
   %10 = tail call { i8, i1 } @llvm.sadd.with.overflow.i8(i8 %6, i8 1)
   %11 = extractvalue { i8, i1 } %10, 1
   br i1 %11, label %18, label %12
 
-12:                                               ; preds = %9
+12:; preds = %9
   %13 = extractvalue { i8, i1 } %10, 0
-  %14 = icmp sgt i8 %13, %4
+  %14 = icmp sgt i8 %12, %4
   %15 = sext i8 %13 to i64
   %16 = sext i8 %4 to i64
   %17 = sub nsw i64 %15, %16
-  %.sink4.i.i.i = select i1 %14, i64 %17, i64 0
+  %.sink4.i.i.i = select i1 %13, i64 %17, i64 0
   br label %24
 
-18:                                               ; preds = %9
+18:; preds = %9
   %19 = icmp slt i8 %4, %6
   %20 = zext nneg i16 %5 to i64
   %21 = sext i8 %4 to i64
@@ -310,7 +310,7 @@ define { i64, i64 } @"_ZN5rayon15range_inclusive78_$LT$impl$u20$rayon..range_inc
   %23 = select i1 %19, i64 %22, i64 1
   br label %24
 
-24:                                               ; preds = %12, %18, %1
+24: ; preds = %11, %17, %1
   %.sroa.4.0 = phi i64 [ 0, %1 ], [ %.sink4.i.i.i, %12 ], [ %23, %18 ]
   %25 = insertvalue { i64, i64 } { i64 1, i64 poison }, i64 %.sroa.4.0, 1
   ret { i64, i64 } %25
@@ -400,33 +400,33 @@ define { i64, i64 } @"_ZN5rayon15range_inclusive79_$LT$impl$u20$rayon..range_inc
   %.not = select i1 %.not.i, i1 true, i1 %.not23
   br i1 %.not, label %23, label %8
 
-8:                                                ; preds = %1
-  %9 = tail call { i16, i1 } @llvm.sadd.with.overflow.i16(i16 %5, i16 1)
-  %10 = extractvalue { i16, i1 } %9, 1
-  br i1 %10, label %17, label %11
+7:                                                ; preds = %1
+  %8 = tail call { i16, i1 } @llvm.sadd.with.overflow.i16(i16 %5, i16 1)
+  %9 = extractvalue { i16, i1 } %8, 1
+  br i1 %9, label %16, label %10
 
-11:                                               ; preds = %8
-  %12 = extractvalue { i16, i1 } %9, 0
-  %13 = icmp sgt i16 %12, %3
-  %14 = sext i16 %12 to i64
-  %15 = sext i16 %3 to i64
-  %16 = sub nsw i64 %14, %15
-  %.sink4.i.i.i = select i1 %13, i64 %16, i64 0
-  br label %23
+10:                                               ; preds = %7
+  %11 = extractvalue { i16, i1 } %8, 0
+  %12 = icmp sgt i16 %12, %3
+  %13 = sext i16 %11 to i64
+  %14 = sext i16 %3 to i64
+  %15 = sub nsw i64 %13, %14
+  %.sink4.i.i.i = select i1 %12, i64 %15, i64 0
+  br label %22
 
-17:                                               ; preds = %8
-  %18 = icmp slt i16 %3, %5
-  %19 = zext nneg i32 %4 to i64
-  %20 = sext i16 %3 to i64
-  %reass.sub = sub nsw i64 %19, %20
-  %21 = add nsw i64 %reass.sub, 1
-  %22 = select i1 %18, i64 %21, i64 1
-  br label %23
+16:                                               ; preds = %7
+  %17 = icmp slt i16 %3, %5
+  %18 = zext nneg i32 %4 to i64
+  %19 = sext i16 %3 to i64
+  %reass.sub = sub nsw i64 %18, %19
+  %20 = add nsw i64 %reass.sub, 1
+  %21 = select i1 %17, i64 %20, i64 1
+  br label %22
 
-23:                                               ; preds = %11, %17, %1
-  %.sroa.4.0 = phi i64 [ 0, %1 ], [ %.sink4.i.i.i, %11 ], [ %22, %17 ]
-  %24 = insertvalue { i64, i64 } { i64 1, i64 poison }, i64 %.sroa.4.0, 1
-  ret { i64, i64 } %24
+22:                                               ; preds = %10, %16, %1
+  %.sroa.4.0 = phi i64 [ 0, %1 ], [ %.sink4.i.i.i, %11 ], [ %21, %17 ]
+  %23 = insertvalue { i64, i64 } { i64 1, i64 poison }, i64 %.sroa.4.0, 1
+  ret { i64, i64 } %23
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable

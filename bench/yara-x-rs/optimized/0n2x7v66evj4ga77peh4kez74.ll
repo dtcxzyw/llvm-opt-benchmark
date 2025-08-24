@@ -1984,7 +1984,7 @@ define hidden void @"_ZN115_$LT$nom..combinator..ParserIterator$LT$Input$C$Error
   %7 = icmp ne i8 %6, 2
   tail call void @llvm.assume(i1 %7)
   %8 = icmp eq i8 %6, 0
-  br i1 %8, label %10, label %24
+  br i1 %8, label %10, label %23
 
 9:                                                ; preds = %2
   tail call void @_ZN4core6option13unwrap_failed17hec54eb4737b382caE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1bc3a356b636bc52d7905276fa710a0e.4) #33
@@ -2010,33 +2010,33 @@ define hidden void @"_ZN115_$LT$nom..combinator..ParserIterator$LT$Input$C$Error
   %.sroa.624.sroa.7.0..sroa.624.0..sroa_idx.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 36
   %.sroa.624.sroa.7.0.copyload.i.i = load i32, ptr %.sroa.624.sroa.7.0..sroa.624.0..sroa_idx.sroa_idx.i.i, align 4, !noalias !61
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !61
-  br i1 %16, label %26, label %18
+  br i1 %16, label %25, label %18
 
 18:                                               ; preds = %10
   %19 = and i64 %.sroa.624.sroa.0.0.copyload.i.i, 4294967295
   %20 = icmp eq i64 %19, 0
   br i1 %20, label %.thread, label %21
 
-21:                                               ; preds = %18
-  %22 = icmp ne i32 %.sroa.624.sroa.6.0.copyload.i.i, 0
-  %23 = icmp ugt i64 %.sroa.624.sroa.0.0.copyload.i.i, 4294967295
-  %or.cond.i.i = select i1 %22, i1 true, i1 %23
-  br i1 %or.cond.i.i, label %28, label %.thread
+20:                                               ; preds = %18
+  %21 = icmp ne i32 %.sroa.624.sroa.6.0.copyload.i.i, 0
+  %22 = icmp ugt i64 %.sroa.624.sroa.0.0.copyload.i.i, 4294967295
+  %or.cond.i.i = select i1 %21, i1 true, i1 %22
+  br i1 %or.cond.i.i, label %27, label %.thread
 
-24:                                               ; preds = %5
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i8 2, ptr %25, align 4
-  br label %34
+23:                                               ; preds = %5
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  store i8 2, ptr %24, align 4
+  br label %33
 
-26:                                               ; preds = %10
-  %27 = ptrtoint ptr %.sroa.022.0.copyload.i.i to i64
-  switch i64 %27, label %default.unreachable [
-    i64 0, label %29
+25:                                               ; preds = %10
+  %26 = ptrtoint ptr %.sroa.022.0.copyload.i.i to i64
+  switch i64 %26, label %default.unreachable [
+    i64 0, label %28
     i64 1, label %.thread
     i64 2, label %32
   ]
 
-28:                                               ; preds = %21
+27:                                               ; preds = %20
   store ptr %.sroa.022.0.copyload.i.i, ptr %1, align 8
   store i64 %.sroa.523.0.copyload.i.i, ptr %12, align 8
   store i8 57, ptr %.sroa.44.0..sroa_idx, align 8
@@ -2045,19 +2045,19 @@ define hidden void @"_ZN115_$LT$nom..combinator..ParserIterator$LT$Input$C$Error
   store i32 %.sroa.624.sroa.6.0.copyload.i.i, ptr %.sroa.453.0..sroa_idx, align 4
   %.sroa.554.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 %.sroa.624.sroa.7.0.copyload.i.i, ptr %.sroa.554.0..sroa_idx, align 4
-  br label %34
+  br label %33
 
-default.unreachable:                              ; preds = %26
+default.unreachable:                              ; preds = %25
   unreachable
 
-29:                                               ; preds = %26
+28:                                               ; preds = %25
   store i64 %.sroa.523.0.copyload.i.i, ptr %4, align 8
   store i8 60, ptr %.sroa.44.0..sroa_idx, align 8
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i8 2, ptr %30, align 4
-  br label %34
+  br label %33
 
-.thread:                                          ; preds = %21, %18, %26
+31:                                               ; preds = %21, %18, %25
   store i8 58, ptr %.sroa.44.0..sroa_idx, align 8
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i8 2, ptr %31, align 4
@@ -2070,11 +2070,11 @@ default.unreachable:                              ; preds = %26
   store i32 %.sroa.624.sroa.6.0.copyload.i.i, ptr %.sroa.44.0..sroa_idx, align 8
   %.sroa.663.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 36
   store i32 %.sroa.624.sroa.7.0.copyload.i.i, ptr %.sroa.663.0..sroa_idx, align 4
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i8 2, ptr %33, align 4
-  br label %34
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  store i8 2, ptr %32, align 4
+  br label %33
 
-34:                                               ; preds = %32, %.thread, %29, %28, %24
+33:                                               ; preds = %32, %.thread, %28, %27, %23
   ret void
 }
 
@@ -2347,7 +2347,7 @@ define hidden void @"_ZN115_$LT$nom..combinator..ParserIterator$LT$Input$C$Error
   %7 = icmp ne i8 %6, 2
   tail call void @llvm.assume(i1 %7)
   %8 = icmp eq i8 %6, 0
-  br i1 %8, label %10, label %24
+  br i1 %8, label %10, label %23
 
 9:                                                ; preds = %2
   tail call void @_ZN4core6option13unwrap_failed17hec54eb4737b382caE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1bc3a356b636bc52d7905276fa710a0e.4) #33
@@ -2373,33 +2373,33 @@ define hidden void @"_ZN115_$LT$nom..combinator..ParserIterator$LT$Input$C$Error
   %.sroa.624.sroa.7.0..sroa.624.0..sroa_idx.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 36
   %.sroa.624.sroa.7.0.copyload.i.i = load i32, ptr %.sroa.624.sroa.7.0..sroa.624.0..sroa_idx.sroa_idx.i.i, align 4, !noalias !106
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !106
-  br i1 %16, label %26, label %18
+  br i1 %16, label %25, label %18
 
 18:                                               ; preds = %10
   %19 = and i64 %.sroa.624.sroa.0.0.copyload.i.i, 4294967295
   %20 = icmp eq i64 %19, 0
   br i1 %20, label %.thread, label %21
 
-21:                                               ; preds = %18
-  %22 = icmp ne i32 %.sroa.624.sroa.6.0.copyload.i.i, 0
-  %23 = icmp ugt i64 %.sroa.624.sroa.0.0.copyload.i.i, 4294967295
-  %or.cond.i.i = select i1 %22, i1 true, i1 %23
-  br i1 %or.cond.i.i, label %28, label %.thread
+20:                                               ; preds = %18
+  %21 = icmp ne i32 %.sroa.624.sroa.6.0.copyload.i.i, 0
+  %22 = icmp ugt i64 %.sroa.624.sroa.0.0.copyload.i.i, 4294967295
+  %or.cond.i.i = select i1 %21, i1 true, i1 %22
+  br i1 %or.cond.i.i, label %27, label %.thread
 
-24:                                               ; preds = %5
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i8 2, ptr %25, align 4
-  br label %34
+23:                                               ; preds = %5
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  store i8 2, ptr %24, align 4
+  br label %33
 
-26:                                               ; preds = %10
-  %27 = ptrtoint ptr %.sroa.022.0.copyload.i.i to i64
-  switch i64 %27, label %default.unreachable [
-    i64 0, label %29
+25:                                               ; preds = %10
+  %26 = ptrtoint ptr %.sroa.022.0.copyload.i.i to i64
+  switch i64 %26, label %default.unreachable [
+    i64 0, label %28
     i64 1, label %.thread
     i64 2, label %32
   ]
 
-28:                                               ; preds = %21
+27:                                               ; preds = %20
   store ptr %.sroa.022.0.copyload.i.i, ptr %1, align 8
   store i64 %.sroa.523.0.copyload.i.i, ptr %12, align 8
   store i8 57, ptr %.sroa.44.0..sroa_idx, align 8
@@ -2408,19 +2408,19 @@ define hidden void @"_ZN115_$LT$nom..combinator..ParserIterator$LT$Input$C$Error
   store i32 %.sroa.624.sroa.6.0.copyload.i.i, ptr %.sroa.453.0..sroa_idx, align 4
   %.sroa.554.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 %.sroa.624.sroa.7.0.copyload.i.i, ptr %.sroa.554.0..sroa_idx, align 4
-  br label %34
+  br label %33
 
-default.unreachable:                              ; preds = %26
+default.unreachable:                              ; preds = %25
   unreachable
 
-29:                                               ; preds = %26
+28:                                               ; preds = %25
   store i64 %.sroa.523.0.copyload.i.i, ptr %4, align 8
   store i8 60, ptr %.sroa.44.0..sroa_idx, align 8
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i8 2, ptr %30, align 4
-  br label %34
+  br label %33
 
-.thread:                                          ; preds = %21, %18, %26
+31:                                               ; preds = %21, %18, %25
   store i8 58, ptr %.sroa.44.0..sroa_idx, align 8
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i8 2, ptr %31, align 4
@@ -2433,11 +2433,11 @@ default.unreachable:                              ; preds = %26
   store i32 %.sroa.624.sroa.6.0.copyload.i.i, ptr %.sroa.44.0..sroa_idx, align 8
   %.sroa.663.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 36
   store i32 %.sroa.624.sroa.7.0.copyload.i.i, ptr %.sroa.663.0..sroa_idx, align 4
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i8 2, ptr %33, align 4
-  br label %34
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  store i8 2, ptr %32, align 4
+  br label %33
 
-34:                                               ; preds = %32, %.thread, %29, %28, %24
+33:                                               ; preds = %32, %.thread, %28, %27, %23
   ret void
 }
 
