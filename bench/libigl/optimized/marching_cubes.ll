@@ -4862,8 +4862,8 @@ define linkonce_odr dso_local void @_ZN13MarchingCubesIN5Eigen6MatrixIdLin1ELi1E
   br label %79
 
 79:                                               ; preds = %72, %70
-  %80 = add nsw i64 %26, -192
-  %.not142 = icmp ult i64 %80, -128
+  %80 = add i8 %.1, 64
+  %.not142 = icmp sgt i8 %80, -1
   br i1 %.not142, label %88, label %81
 
 81:                                               ; preds = %79
@@ -5843,8 +5843,8 @@ define linkonce_odr dso_local void @_ZN13MarchingCubesIN5Eigen6MatrixIfLin1ELi1E
   br label %80
 
 80:                                               ; preds = %73, %71
-  %81 = add nsw i64 %27, -192
-  %.not142 = icmp ult i64 %81, -128
+  %81 = add i8 %.1, 64
+  %.not142 = icmp sgt i8 %81, -1
   br i1 %.not142, label %89, label %82
 
 82:                                               ; preds = %80
@@ -7279,8 +7279,8 @@ define linkonce_odr dso_local void @_ZN13MarchingCubesIN5Eigen6MatrixIfLin1ELi1E
   br label %80
 
 80:                                               ; preds = %73, %71
-  %81 = add nsw i64 %27, -192
-  %.not142 = icmp ult i64 %81, -128
+  %81 = add i8 %.1, 64
+  %.not142 = icmp sgt i8 %81, -1
   br i1 %.not142, label %89, label %82
 
 82:                                               ; preds = %80
@@ -8050,8 +8050,8 @@ define linkonce_odr dso_local void @_ZN13MarchingCubesIN5Eigen6MatrixIfLin1ELi1E
   br label %80
 
 80:                                               ; preds = %73, %71
-  %81 = add nsw i64 %27, -192
-  %.not142 = icmp ult i64 %81, -128
+  %81 = add i8 %.1, 64
+  %.not142 = icmp sgt i8 %81, -1
   br i1 %.not142, label %89, label %82
 
 82:                                               ; preds = %80
@@ -8776,8 +8776,8 @@ define linkonce_odr dso_local void @_ZN13MarchingCubesIN5Eigen6MatrixIdLin1ELi1E
   br label %79
 
 79:                                               ; preds = %72, %70
-  %80 = add nsw i64 %26, -192
-  %.not142 = icmp ult i64 %80, -128
+  %80 = add i8 %.1, 64
+  %.not142 = icmp sgt i8 %80, -1
   br i1 %.not142, label %88, label %81
 
 81:                                               ; preds = %79
@@ -9501,8 +9501,8 @@ define linkonce_odr dso_local void @_ZN13MarchingCubesIN5Eigen6MatrixIdLin1ELi1E
   br label %79
 
 79:                                               ; preds = %72, %70
-  %80 = add nsw i64 %26, -192
-  %.not142 = icmp ult i64 %80, -128
+  %80 = add i8 %.1, 64
+  %.not142 = icmp sgt i8 %80, -1
   br i1 %.not142, label %88, label %81
 
 81:                                               ; preds = %79
@@ -11058,8 +11058,8 @@ define linkonce_odr dso_local void @_ZN13MarchingCubesIN5Eigen6MatrixIdLin1ELi1E
   br label %79
 
 79:                                               ; preds = %72, %70
-  %80 = add nsw i64 %26, -192
-  %.not142 = icmp ult i64 %80, -128
+  %80 = add i8 %.1, 64
+  %.not142 = icmp sgt i8 %80, -1
   br i1 %.not142, label %88, label %81
 
 81:                                               ; preds = %79
@@ -11348,8 +11348,8 @@ define linkonce_odr dso_local void @_ZN13MarchingCubesIN5Eigen6MatrixIdLin1ELi1E
   br label %79
 
 79:                                               ; preds = %72, %70
-  %80 = add nsw i64 %26, -192
-  %.not142 = icmp ult i64 %80, -128
+  %80 = add i8 %.1, 64
+  %.not142 = icmp sgt i8 %80, -1
   br i1 %.not142, label %88, label %81
 
 81:                                               ; preds = %79
@@ -12175,8 +12175,8 @@ define linkonce_odr dso_local void @_ZN13MarchingCubesIN5Eigen6MatrixIdLin1ELi1E
   br label %79
 
 79:                                               ; preds = %72, %70
-  %80 = add nsw i64 %26, -192
-  %.not142 = icmp ult i64 %80, -128
+  %80 = add i8 %.1, 64
+  %.not142 = icmp sgt i8 %80, -1
   br i1 %.not142, label %88, label %81
 
 81:                                               ; preds = %79
@@ -13256,8 +13256,8 @@ define linkonce_odr dso_local void @_ZN13MarchingCubesIN5Eigen6MatrixIdLin1ELi1E
   br label %79
 
 79:                                               ; preds = %72, %70
-  %80 = add nsw i64 %26, -192
-  %.not142 = icmp ult i64 %80, -128
+  %80 = add i8 %.1, 64
+  %.not142 = icmp sgt i8 %80, -1
   br i1 %.not142, label %88, label %81
 
 81:                                               ; preds = %79
@@ -13994,8 +13994,8 @@ define linkonce_odr dso_local void @_ZN13MarchingCubesIN5Eigen6MatrixIdLin1ELi1E
   br label %79
 
 79:                                               ; preds = %72, %70
-  %80 = add nsw i64 %26, -192
-  %.not142 = icmp ult i64 %80, -128
+  %80 = add i8 %.1, 64
+  %.not142 = icmp sgt i8 %80, -1
   br i1 %.not142, label %88, label %81
 
 81:                                               ; preds = %79
@@ -14757,8 +14757,8 @@ define linkonce_odr dso_local void @_ZN13MarchingCubesIN5Eigen6MatrixIdLin1ELi1E
   br label %79
 
 79:                                               ; preds = %72, %70
-  %80 = add nsw i64 %26, -192
-  %.not142 = icmp ult i64 %80, -128
+  %80 = add i8 %.1, 64
+  %.not142 = icmp sgt i8 %80, -1
   br i1 %.not142, label %88, label %81
 
 81:                                               ; preds = %79
@@ -15507,8 +15507,8 @@ define linkonce_odr dso_local void @_ZN13MarchingCubesIN5Eigen6MatrixIdLin1ELi1E
   br label %79
 
 79:                                               ; preds = %72, %70
-  %80 = add nsw i64 %26, -192
-  %.not142 = icmp ult i64 %80, -128
+  %80 = add i8 %.1, 64
+  %.not142 = icmp sgt i8 %80, -1
   br i1 %.not142, label %88, label %81
 
 81:                                               ; preds = %79
@@ -16257,8 +16257,8 @@ define linkonce_odr dso_local void @_ZN13MarchingCubesIN5Eigen6MatrixIdLin1ELi1E
   br label %79
 
 79:                                               ; preds = %72, %70
-  %80 = add nsw i64 %26, -192
-  %.not142 = icmp ult i64 %80, -128
+  %80 = add i8 %.1, 64
+  %.not142 = icmp sgt i8 %80, -1
   br i1 %.not142, label %88, label %81
 
 81:                                               ; preds = %79
@@ -16982,8 +16982,8 @@ define linkonce_odr dso_local void @_ZN13MarchingCubesIN5Eigen6MatrixIdLin1ELin1
   br label %79
 
 79:                                               ; preds = %72, %70
-  %80 = add nsw i64 %26, -192
-  %.not142 = icmp ult i64 %80, -128
+  %80 = add i8 %.1, 64
+  %.not142 = icmp sgt i8 %80, -1
   br i1 %.not142, label %88, label %81
 
 81:                                               ; preds = %79

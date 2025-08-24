@@ -4219,8 +4219,8 @@ _ZL15zhuffman_decodeP4zbufP8zhuffman.exit.i30.i:  ; preds = %327, %294
   %345 = zext nneg i32 %344 to i64
   %346 = getelementptr inbounds nuw [31 x i32], ptr @_ZL12zlength_base, i64 0, i64 %345
   %347 = load i32, ptr %346, align 4, !tbaa !10
-  %348 = add nsw i64 %345, -28
-  %.not.i32.i = icmp ult i64 %348, -20
+  %348 = add nsw i32 %.0.i.i31.i, -285
+  %.not.i32.i = icmp ult i32 %348, -20
   br i1 %.not.i32.i, label %thread-pre-split.i.i, label %349
 
 349:                                              ; preds = %343
@@ -4344,8 +4344,8 @@ _ZL15zhuffman_decodeP4zbufP8zhuffman.exit75.i.i:  ; preds = %406, %373
   %415 = zext nneg i32 %.0.i73.i.i to i64
   %416 = getelementptr inbounds nuw [32 x i32], ptr @_ZL10zdist_base, i64 0, i64 %415
   %417 = load i32, ptr %416, align 4, !tbaa !10
-  %418 = add nsw i64 %415, -30
-  %.not64.i.i = icmp ult i64 %418, -26
+  %418 = add nsw i32 %.0.i73.i.i, -30
+  %.not64.i.i = icmp ult i32 %418, -26
   br i1 %.not64.i.i, label %431, label %419
 
 419:                                              ; preds = %_ZL15zhuffman_decodeP4zbufP8zhuffman.exit75.i.i

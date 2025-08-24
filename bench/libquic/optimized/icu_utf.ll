@@ -110,8 +110,8 @@ define noundef i32 @_ZN8base_icu21utf8_nextCharSafeBodyEPKhPiiia(ptr noundef rea
   br i1 %or.cond, label %.thread, label %83
 
 .thread:                                          ; preds = %19, %61, %.thread94, %44
-  %65 = add nsw i64 %8, -254
-  %.not90106 = icmp ult i64 %65, -62
+  %65 = add nsw i32 %7, -254
+  %.not90106 = icmp ult i32 %65, -62
   br i1 %.not90106, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %15, %15, %.thread

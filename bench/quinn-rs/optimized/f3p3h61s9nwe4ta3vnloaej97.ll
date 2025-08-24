@@ -4112,8 +4112,8 @@ define void @"_ZN83_$LT$quinn_proto..frame..Iter$u20$as$u20$core..iter..traits..
   br i1 %245, label %thread-pre-split, label %248
 
 248:                                              ; preds = %243
-  %249 = add nsw i64 %247, -21
-  %or.cond.i = icmp ult i64 %249, -20
+  %249 = add i8 %246, -21
+  %or.cond.i = icmp ult i8 %249, -20
   br i1 %or.cond.i, label %thread-pre-split, label %250
 
 250:                                              ; preds = %248

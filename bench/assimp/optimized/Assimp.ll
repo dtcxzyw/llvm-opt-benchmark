@@ -9651,8 +9651,8 @@ _ZL21stbi__zhuffman_decodeP10stbi__zbufP14stbi__zhuffman.exit.i53.i: ; preds = %
   %576 = zext nneg i32 %575 to i64
   %577 = getelementptr inbounds nuw [31 x i32], ptr @_ZL18stbi__zlength_base, i64 0, i64 %576
   %578 = load i32, ptr %577, align 4
-  %579 = add nsw i64 %576, -28
-  %.not.i56.i = icmp ult i64 %579, -20
+  %579 = add nsw i32 %.0.i.i55.i, -285
+  %.not.i56.i = icmp ult i32 %579, -20
   br i1 %.not.i56.i, label %thread-pre-split.i.i, label %580
 
 580:                                              ; preds = %574

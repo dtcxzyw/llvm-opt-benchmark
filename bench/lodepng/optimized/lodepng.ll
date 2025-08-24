@@ -2133,8 +2133,8 @@ _ZL19huffmanDecodeSymbolP16LodePNGBitReaderPK11HuffmanTree.exit.i: ; preds = %44
   %509 = getelementptr inbounds nuw [29 x i32], ptr @_ZL10LENGTHBASE, i64 0, i64 %508
   %510 = load i32, ptr %509, align 4, !tbaa !10
   %511 = zext i32 %510 to i64
-  %512 = add nsw i64 %508, -28
-  %.not102.i = icmp ult i64 %512, -20
+  %512 = add nsw i16 %.088145.in.i, -285
+  %.not102.i = icmp ult i16 %512, -20
   br i1 %.not102.i, label %568, label %513
 
 513:                                              ; preds = %506

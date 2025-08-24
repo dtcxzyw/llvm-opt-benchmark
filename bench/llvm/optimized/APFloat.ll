@@ -7956,8 +7956,8 @@ _ZN4llvm5ErrorD2Ev.exit86:                        ; preds = %55
   br i1 %.062223, label %select.unfold, label %85
 
 85:                                               ; preds = %84
-  %86 = add nsw i64 %66, -57
-  %87 = icmp ult i64 %86, -9
+  %86 = add i8 %53, -57
+  %87 = icmp ult i8 %86, -9
   br i1 %87, label %88, label %89
 
 88:                                               ; preds = %85
@@ -7966,7 +7966,7 @@ _ZN4llvm5ErrorD2Ev.exit86:                        ; preds = %55
   br label %101
 
 89:                                               ; preds = %85
-  %90 = and i8 %53, -9
+  %90 = and i8 %53, 55
   %or.cond.not.i = icmp eq i8 %90, 48
   br i1 %or.cond.not.i, label %.preheader.i87, label %91
 

@@ -1861,8 +1861,8 @@ define dso_local noundef ptr @i2c_new_client_device(ptr noundef %0, ptr noundef 
   br i1 %73, label %.thread13, label %79
 
 74:                                               ; preds = %64
-  %75 = add nsw i32 %68, -128
-  %76 = icmp ult i32 %75, -127
+  %75 = add i16 %67, -128
+  %76 = icmp ult i16 %75, -127
   br i1 %76, label %.thread13, label %79
 
 .thread13:                                        ; preds = %74, %72

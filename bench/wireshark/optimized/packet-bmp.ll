@@ -1684,8 +1684,8 @@ bmpv4_dissect_tlv_hdr.exit:                       ; preds = %11, %28
   %49 = zext i16 %14 to i32
   %50 = call ptr @proto_tree_add_item(ptr noundef %22, i32 noundef %48, ptr noundef %1, i32 noundef %.0.i, i32 noundef %49, i32 noundef 0)
   %51 = add i32 %.0.i, %49
-  %52 = add nsw i32 %49, -256
-  %or.cond = icmp ult i32 %52, -255
+  %52 = add i16 %14, -256
+  %or.cond = icmp ult i16 %52, -255
   br i1 %or.cond, label %53, label %.loopexit
 
 53:                                               ; preds = %47

@@ -454,7 +454,7 @@ virtblk_update_cache_mode.exit:                   ; preds = %133, %138
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %179 = add i32 %178, -512
   %180 = icmp ult i32 %179, 3585
-  %181 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %178)
+  %181 = call range(i32 0, 14) i32 @llvm.ctpop.i32(i32 %178)
   %182 = icmp samesign ult i32 %181, 2
   %or.cond = select i1 %180, i1 %182, i1 false
   br i1 %or.cond, label %185, label %183

@@ -113,8 +113,8 @@ define internal fastcc ptr @skip_over_fieldname(ptr noundef readonly captures(ad
 7:                                                ; preds = %.lr.ph
   %8 = zext nneg i8 %5 to i16
   %9 = getelementptr inbounds nuw i8, ptr %.03288, i64 1
-  %10 = add nsw i16 %8, -92
-  %or.cond.i = icmp ult i16 %10, -46
+  %10 = add nsw i8 %5, -92
+  %or.cond.i = icmp ult i8 %10, -46
   %11 = add nsw i8 %5, -60
   %or.cond5.i = icmp ult i8 %11, 31
   %or.cond20.i = select i1 %or.cond.i, i1 true, i1 %or.cond5.i
@@ -218,7 +218,7 @@ isJvmIdentifier.exit.thread:                      ; preds = %47, %12
   %.1 = phi i16 [ %8, %12 ], [ %43, %47 ]
   %51 = icmp eq i16 %.1, 47
   %52 = icmp ne i16 %.03089, 0
-  %or.cond5 = and i1 %52, %51
+  %or.cond5 = select i1 %51, i1 %52, i1 false
   br i1 %or.cond5, label %53, label %.loopexit
 
 53:                                               ; preds = %isJvmIdentifier.exit.thread

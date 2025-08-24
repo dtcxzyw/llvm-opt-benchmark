@@ -11430,192 +11430,191 @@ ma_zero_memory_default.exit.i.i:                  ; preds = %ma_calculate_frame_
 
 37:                                               ; preds = %ma_zero_memory_default.exit.i.i
   %38 = mul i32 %35, %.0.i
-  %39 = zext i32 %38 to i64
-  %40 = getelementptr inbounds nuw i8, ptr %6, i64 72
-  %41 = add nsw i64 %39, -2147483617
-  %42 = icmp ult i64 %41, -2147483616
-  br i1 %42, label %ma_calculate_frame_count_after_resampling.exit.thread, label %ma_zero_memory_default.exit42.i
+  %39 = getelementptr inbounds nuw i8, ptr %6, i64 72
+  %40 = add i32 %38, -2147483617
+  %41 = icmp ult i32 %40, -2147483616
+  br i1 %41, label %ma_calculate_frame_count_after_resampling.exit.thread, label %ma_zero_memory_default.exit42.i
 
 ma_zero_memory_default.exit42.i:                  ; preds = %37
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %40, i8 0, i64 64, i1 false)
-  %43 = getelementptr inbounds nuw i8, ptr %6, i64 104
-  %44 = icmp eq ptr %5, null
-  br i1 %44, label %ma_allocation_callbacks_init_copy.exit.i.thread, label %45
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %39, i8 0, i64 64, i1 false)
+  %42 = getelementptr inbounds nuw i8, ptr %6, i64 104
+  %43 = icmp eq ptr %5, null
+  br i1 %43, label %ma_allocation_callbacks_init_copy.exit.i.thread, label %44
 
-45:                                               ; preds = %ma_zero_memory_default.exit42.i
-  %46 = load ptr, ptr %5, align 8
-  %47 = icmp eq ptr %46, null
-  %48 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %49 = load ptr, ptr %48, align 8
-  %50 = icmp eq ptr %49, null
-  br i1 %47, label %51, label %60
+44:                                               ; preds = %ma_zero_memory_default.exit42.i
+  %45 = load ptr, ptr %5, align 8
+  %46 = icmp eq ptr %45, null
+  %47 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %48 = load ptr, ptr %47, align 8
+  %49 = icmp eq ptr %48, null
+  br i1 %46, label %50, label %59
 
-51:                                               ; preds = %45
-  br i1 %50, label %52, label %.thread22.i.i
+50:                                               ; preds = %44
+  br i1 %49, label %51, label %.thread22.i.i
 
-52:                                               ; preds = %51
-  %53 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %54 = load ptr, ptr %53, align 8
-  %55 = icmp eq ptr %54, null
-  br i1 %55, label %56, label %ma_calculate_frame_count_after_resampling.exit.thread
+51:                                               ; preds = %50
+  %52 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %53 = load ptr, ptr %52, align 8
+  %54 = icmp eq ptr %53, null
+  br i1 %54, label %55, label %ma_calculate_frame_count_after_resampling.exit.thread
 
-56:                                               ; preds = %52
-  %57 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %58 = load ptr, ptr %57, align 8
-  %59 = icmp eq ptr %58, null
-  br i1 %59, label %ma_allocation_callbacks_init_copy.exit.i.thread, label %ma_calculate_frame_count_after_resampling.exit.thread
+55:                                               ; preds = %51
+  %56 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %57 = load ptr, ptr %56, align 8
+  %58 = icmp eq ptr %57, null
+  br i1 %58, label %ma_allocation_callbacks_init_copy.exit.i.thread, label %ma_calculate_frame_count_after_resampling.exit.thread
 
-60:                                               ; preds = %45
-  br i1 %50, label %ma_calculate_frame_count_after_resampling.exit.thread, label %.thread22.i.i
+59:                                               ; preds = %44
+  br i1 %49, label %ma_calculate_frame_count_after_resampling.exit.thread, label %.thread22.i.i
 
-.thread22.i.i:                                    ; preds = %60, %51
-  %61 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %62 = load ptr, ptr %61, align 8
-  %63 = icmp eq ptr %62, null
-  br i1 %63, label %64, label %ma_allocation_callbacks_init_copy.exit.i
+.thread22.i.i:                                    ; preds = %59, %50
+  %60 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %61 = load ptr, ptr %60, align 8
+  %62 = icmp eq ptr %61, null
+  br i1 %62, label %63, label %ma_allocation_callbacks_init_copy.exit.i
 
-64:                                               ; preds = %.thread22.i.i
-  %65 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %66 = load ptr, ptr %65, align 8
-  %67 = icmp eq ptr %66, null
-  br i1 %67, label %ma_calculate_frame_count_after_resampling.exit.thread, label %ma_allocation_callbacks_init_copy.exit.i
+63:                                               ; preds = %.thread22.i.i
+  %64 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %65 = load ptr, ptr %64, align 8
+  %66 = icmp eq ptr %65, null
+  br i1 %66, label %ma_calculate_frame_count_after_resampling.exit.thread, label %ma_allocation_callbacks_init_copy.exit.i
 
-ma_allocation_callbacks_init_copy.exit.i.thread:  ; preds = %56, %ma_zero_memory_default.exit42.i
+ma_allocation_callbacks_init_copy.exit.i.thread:  ; preds = %55, %ma_zero_memory_default.exit42.i
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %6, i64 112
   store ptr @ma__malloc_default, ptr %.sroa.4.0..sroa_idx.i.i, align 8
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %6, i64 120
   store ptr @ma__realloc_default, ptr %.sroa.5.0..sroa_idx.i.i, align 8
   %.sroa.6.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %6, i64 128
   store ptr @ma__free_default, ptr %.sroa.6.0..sroa_idx.i.i, align 8
-  %68 = getelementptr inbounds nuw i8, ptr %6, i64 80
-  store i32 %38, ptr %68, align 8
-  %69 = getelementptr inbounds nuw i8, ptr %6, i64 84
-  store i32 1, ptr %69, align 4
-  %70 = add nuw nsw i32 %38, 31
-  %71 = and i32 %70, 2147483615
-  %72 = getelementptr inbounds nuw i8, ptr %6, i64 88
-  store i32 %71, ptr %72, align 8
-  br label %78
+  %67 = getelementptr inbounds nuw i8, ptr %6, i64 80
+  store i32 %38, ptr %67, align 8
+  %68 = getelementptr inbounds nuw i8, ptr %6, i64 84
+  store i32 1, ptr %68, align 4
+  %69 = add nuw nsw i32 %38, 31
+  %70 = and i32 %69, 2147483615
+  %71 = getelementptr inbounds nuw i8, ptr %6, i64 88
+  store i32 %70, ptr %71, align 8
+  br label %77
 
-ma_allocation_callbacks_init_copy.exit.i:         ; preds = %.thread22.i.i, %64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %43, ptr noundef nonnull readonly align 8 dereferenceable(32) %5, i64 32, i1 false)
+ma_allocation_callbacks_init_copy.exit.i:         ; preds = %.thread22.i.i, %63
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %42, ptr noundef nonnull readonly align 8 dereferenceable(32) %5, i64 32, i1 false)
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %6, i64 112
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
-  %73 = getelementptr inbounds nuw i8, ptr %6, i64 80
-  store i32 %38, ptr %73, align 8
-  %74 = getelementptr inbounds nuw i8, ptr %6, i64 84
-  store i32 1, ptr %74, align 4
-  %75 = add nuw nsw i32 %38, 31
-  %76 = and i32 %75, 2147483615
-  %77 = getelementptr inbounds nuw i8, ptr %6, i64 88
-  store i32 %76, ptr %77, align 8
+  %72 = getelementptr inbounds nuw i8, ptr %6, i64 80
+  store i32 %38, ptr %72, align 8
+  %73 = getelementptr inbounds nuw i8, ptr %6, i64 84
+  store i32 1, ptr %73, align 4
+  %74 = add nuw nsw i32 %38, 31
+  %75 = and i32 %74, 2147483615
+  %76 = getelementptr inbounds nuw i8, ptr %6, i64 88
+  store i32 %75, ptr %76, align 8
   %.not8.i.i.i = icmp eq ptr %.pre, null
-  br i1 %.not8.i.i.i, label %ma_aligned_malloc.exit.thread.i, label %78
+  br i1 %.not8.i.i.i, label %ma_aligned_malloc.exit.thread.i, label %77
 
-78:                                               ; preds = %ma_allocation_callbacks_init_copy.exit.i.thread, %ma_allocation_callbacks_init_copy.exit.i
-  %79 = phi i32 [ %71, %ma_allocation_callbacks_init_copy.exit.i.thread ], [ %76, %ma_allocation_callbacks_init_copy.exit.i ]
-  %80 = phi ptr [ %68, %ma_allocation_callbacks_init_copy.exit.i.thread ], [ %73, %ma_allocation_callbacks_init_copy.exit.i ]
-  %81 = phi ptr [ @ma__malloc_default, %ma_allocation_callbacks_init_copy.exit.i.thread ], [ %.pre, %ma_allocation_callbacks_init_copy.exit.i ]
-  %82 = zext nneg i32 %79 to i64
-  %83 = add nuw nsw i64 %82, 39
-  %84 = load ptr, ptr %43, align 8
-  %85 = tail call ptr %81(i64 noundef %83, ptr noundef %84) #69
-  %86 = icmp eq ptr %85, null
-  br i1 %86, label %ma_aligned_malloc.exit.thread.i, label %ma_aligned_malloc.exit.i
+77:                                               ; preds = %ma_allocation_callbacks_init_copy.exit.i.thread, %ma_allocation_callbacks_init_copy.exit.i
+  %78 = phi i32 [ %70, %ma_allocation_callbacks_init_copy.exit.i.thread ], [ %75, %ma_allocation_callbacks_init_copy.exit.i ]
+  %79 = phi ptr [ %67, %ma_allocation_callbacks_init_copy.exit.i.thread ], [ %72, %ma_allocation_callbacks_init_copy.exit.i ]
+  %80 = phi ptr [ @ma__malloc_default, %ma_allocation_callbacks_init_copy.exit.i.thread ], [ %.pre, %ma_allocation_callbacks_init_copy.exit.i ]
+  %81 = zext nneg i32 %78 to i64
+  %82 = add nuw nsw i64 %81, 39
+  %83 = load ptr, ptr %42, align 8
+  %84 = tail call ptr %80(i64 noundef %82, ptr noundef %83) #69
+  %85 = icmp eq ptr %84, null
+  br i1 %85, label %ma_aligned_malloc.exit.thread.i, label %ma_aligned_malloc.exit.i
 
-ma_aligned_malloc.exit.thread.i:                  ; preds = %78, %ma_allocation_callbacks_init_copy.exit.i
-  store ptr null, ptr %40, align 8
+ma_aligned_malloc.exit.thread.i:                  ; preds = %77, %ma_allocation_callbacks_init_copy.exit.i
+  store ptr null, ptr %39, align 8
   br label %ma_calculate_frame_count_after_resampling.exit.thread
 
-ma_aligned_malloc.exit.i:                         ; preds = %78
-  %87 = ptrtoint ptr %85 to i64
-  %88 = add i64 %87, 39
-  %89 = and i64 %88, -32
-  %90 = inttoptr i64 %89 to ptr
-  %91 = getelementptr inbounds i8, ptr %90, i64 -8
-  store ptr %85, ptr %91, align 8
-  store ptr %90, ptr %40, align 8
-  %.not39.i = icmp eq i64 %89, 0
-  br i1 %.not39.i, label %ma_calculate_frame_count_after_resampling.exit.thread, label %92
+ma_aligned_malloc.exit.i:                         ; preds = %77
+  %86 = ptrtoint ptr %84 to i64
+  %87 = add i64 %86, 39
+  %88 = and i64 %87, -32
+  %89 = inttoptr i64 %88 to ptr
+  %90 = getelementptr inbounds i8, ptr %89, i64 -8
+  store ptr %84, ptr %90, align 8
+  store ptr %89, ptr %39, align 8
+  %.not39.i = icmp eq i64 %88, 0
+  br i1 %.not39.i, label %ma_calculate_frame_count_after_resampling.exit.thread, label %91
 
-92:                                               ; preds = %ma_aligned_malloc.exit.i
-  %.not.i17 = icmp eq i32 %79, 0
-  br i1 %.not.i17, label %94, label %93
+91:                                               ; preds = %ma_aligned_malloc.exit.i
+  %.not.i17 = icmp eq i32 %78, 0
+  br i1 %.not.i17, label %93, label %92
 
-93:                                               ; preds = %92
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 32 %90, i8 0, i64 %82, i1 false)
-  br label %94
+92:                                               ; preds = %91
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 32 %89, i8 0, i64 %81, i1 false)
+  br label %93
 
-94:                                               ; preds = %92, %93
-  %95 = getelementptr inbounds nuw i8, ptr %6, i64 100
-  store i8 1, ptr %95, align 4
-  %96 = getelementptr inbounds nuw i8, ptr %6, i64 136
-  store i32 %0, ptr %96, align 8
-  %97 = getelementptr inbounds nuw i8, ptr %6, i64 140
-  store i32 %1, ptr %97, align 4
-  %98 = getelementptr inbounds nuw i8, ptr %6, i64 144
-  store i32 0, ptr %98, align 8
-  %99 = getelementptr inbounds nuw i8, ptr %6, i64 64
-  store i64 0, ptr %99, align 8
+93:                                               ; preds = %91, %92
+  %94 = getelementptr inbounds nuw i8, ptr %6, i64 100
+  store i8 1, ptr %94, align 4
+  %95 = getelementptr inbounds nuw i8, ptr %6, i64 136
+  store i32 %0, ptr %95, align 8
+  %96 = getelementptr inbounds nuw i8, ptr %6, i64 140
+  store i32 %1, ptr %96, align 4
+  %97 = getelementptr inbounds nuw i8, ptr %6, i64 144
+  store i32 0, ptr %97, align 8
+  %98 = getelementptr inbounds nuw i8, ptr %6, i64 64
+  store i64 0, ptr %98, align 8
   store ptr @ma_gRBDataSourceVTable, ptr %6, align 8
-  %100 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i64 0, ptr %100, align 8
-  %101 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store i64 -1, ptr %101, align 8
-  %102 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  store i64 0, ptr %102, align 8
-  %103 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  store i64 -1, ptr %103, align 8
-  %104 = getelementptr inbounds nuw i8, ptr %6, i64 40
-  store ptr %6, ptr %104, align 8
-  %105 = getelementptr inbounds nuw i8, ptr %6, i64 48
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %105, i8 0, i64 16, i1 false)
-  %106 = shl i32 %4, 1
-  %107 = mul i32 %106, %1
-  %108 = mul i32 %107, %34
-  %109 = zext i32 %108 to i64
-  %110 = getelementptr inbounds nuw i8, ptr %6, i64 92
-  %111 = load atomic i32, ptr %110 seq_cst, align 4
-  %112 = and i32 %111, -2147483648
-  %113 = getelementptr inbounds nuw i8, ptr %6, i64 96
-  %114 = load atomic i32, ptr %113 seq_cst, align 8
-  %115 = and i32 %114, 2147483647
-  %116 = and i32 %114, -2147483648
-  %117 = icmp eq i32 %112, %116
-  br i1 %117, label %118, label %127
+  %99 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store i64 0, ptr %99, align 8
+  %100 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  store i64 -1, ptr %100, align 8
+  %101 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  store i64 0, ptr %101, align 8
+  %102 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  store i64 -1, ptr %102, align 8
+  %103 = getelementptr inbounds nuw i8, ptr %6, i64 40
+  store ptr %6, ptr %103, align 8
+  %104 = getelementptr inbounds nuw i8, ptr %6, i64 48
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %104, i8 0, i64 16, i1 false)
+  %105 = shl i32 %4, 1
+  %106 = mul i32 %105, %1
+  %107 = mul i32 %106, %34
+  %108 = zext i32 %107 to i64
+  %109 = getelementptr inbounds nuw i8, ptr %6, i64 92
+  %110 = load atomic i32, ptr %109 seq_cst, align 4
+  %111 = and i32 %110, -2147483648
+  %112 = getelementptr inbounds nuw i8, ptr %6, i64 96
+  %113 = load atomic i32, ptr %112 seq_cst, align 8
+  %114 = and i32 %113, 2147483647
+  %115 = and i32 %113, -2147483648
+  %116 = icmp eq i32 %111, %115
+  br i1 %116, label %117, label %126
 
-118:                                              ; preds = %94
-  %119 = zext nneg i32 %115 to i64
-  %120 = add nuw nsw i64 %119, %109
-  %121 = load i32, ptr %80, align 8
-  %122 = zext i32 %121 to i64
-  %.not.i.i16 = icmp samesign ult i64 %120, %122
-  %123 = trunc i64 %120 to i32
-  br i1 %.not.i.i16, label %ma_pcm_rb_seek_write.exit, label %124
+117:                                              ; preds = %93
+  %118 = zext nneg i32 %114 to i64
+  %119 = add nuw nsw i64 %118, %108
+  %120 = load i32, ptr %79, align 8
+  %121 = zext i32 %120 to i64
+  %.not.i.i16 = icmp samesign ult i64 %119, %121
+  %122 = trunc i64 %119 to i32
+  br i1 %.not.i.i16, label %ma_pcm_rb_seek_write.exit, label %123
 
-124:                                              ; preds = %118
-  %125 = sub i32 %123, %121
-  %126 = xor i32 %112, -2147483648
+123:                                              ; preds = %117
+  %124 = sub i32 %122, %120
+  %125 = xor i32 %111, -2147483648
   br label %ma_pcm_rb_seek_write.exit
 
-127:                                              ; preds = %94
-  %128 = and i32 %111, 2147483647
-  %129 = zext nneg i32 %115 to i64
-  %130 = add nuw nsw i64 %129, %109
-  %131 = zext nneg i32 %128 to i64
-  %spec.select30.i.i = tail call i64 @llvm.umin.i64(i64 %130, i64 %131)
+126:                                              ; preds = %93
+  %127 = and i32 %110, 2147483647
+  %128 = zext nneg i32 %114 to i64
+  %129 = add nuw nsw i64 %128, %108
+  %130 = zext nneg i32 %127 to i64
+  %spec.select30.i.i = tail call i64 @llvm.umin.i64(i64 %129, i64 %130)
   %spec.select.i.i = trunc nuw nsw i64 %spec.select30.i.i to i32
   br label %ma_pcm_rb_seek_write.exit
 
-ma_pcm_rb_seek_write.exit:                        ; preds = %118, %124, %127
-  %.020.i.i = phi i32 [ %126, %124 ], [ %116, %127 ], [ %112, %118 ]
-  %.019.i.i = phi i32 [ %125, %124 ], [ %spec.select.i.i, %127 ], [ %123, %118 ]
-  %132 = or i32 %.019.i.i, %.020.i.i
-  %133 = atomicrmw xchg ptr %113, i32 %132 seq_cst, align 8
+ma_pcm_rb_seek_write.exit:                        ; preds = %117, %123, %126
+  %.020.i.i = phi i32 [ %125, %123 ], [ %115, %126 ], [ %111, %117 ]
+  %.019.i.i = phi i32 [ %124, %123 ], [ %spec.select.i.i, %126 ], [ %122, %117 ]
+  %131 = or i32 %.019.i.i, %.020.i.i
+  %132 = atomicrmw xchg ptr %112, i32 %131 seq_cst, align 8
   br label %ma_calculate_frame_count_after_resampling.exit.thread
 
-ma_calculate_frame_count_after_resampling.exit.thread: ; preds = %52, %56, %60, %64, %ma_aligned_malloc.exit.thread.i, %ma_aligned_malloc.exit.i, %37, %ma_zero_memory_default.exit.i.i, %7, %ma_calculate_frame_count_after_resampling.exit, %ma_pcm_rb_seek_write.exit
-  %.0 = phi i32 [ 0, %ma_pcm_rb_seek_write.exit ], [ -2, %ma_calculate_frame_count_after_resampling.exit ], [ -2, %7 ], [ -2, %ma_zero_memory_default.exit.i.i ], [ -2, %52 ], [ -2, %56 ], [ -2, %60 ], [ -2, %64 ], [ -4, %ma_aligned_malloc.exit.thread.i ], [ -4, %ma_aligned_malloc.exit.i ], [ -2, %37 ]
+ma_calculate_frame_count_after_resampling.exit.thread: ; preds = %51, %55, %59, %63, %ma_aligned_malloc.exit.thread.i, %ma_aligned_malloc.exit.i, %37, %ma_zero_memory_default.exit.i.i, %7, %ma_calculate_frame_count_after_resampling.exit, %ma_pcm_rb_seek_write.exit
+  %.0 = phi i32 [ 0, %ma_pcm_rb_seek_write.exit ], [ -2, %ma_calculate_frame_count_after_resampling.exit ], [ -2, %7 ], [ -2, %ma_zero_memory_default.exit.i.i ], [ -2, %51 ], [ -2, %55 ], [ -2, %59 ], [ -2, %63 ], [ -4, %ma_aligned_malloc.exit.thread.i ], [ -4, %ma_aligned_malloc.exit.i ], [ -2, %37 ]
   ret i32 %.0
 }
 

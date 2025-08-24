@@ -9803,9 +9803,8 @@ if.then5.i.i.i.i:                                 ; preds = %.noexc49
 
 invoke.cont35:                                    ; preds = %land.rhs.i, %if.then.i.i46, %call1.i.i.i.i.noexc, %.noexc49, %if.then5.i.i.i.i
   %33 = load i8, ptr %type_.i, align 2
-  %conv.i.i = zext i8 %33 to i32
-  %34 = add nsw i32 %conv.i.i, -13
-  %spec.select.i.i = icmp ult i32 %34, -4
+  %34 = add i8 %33, -13
+  %spec.select.i.i = icmp ult i8 %34, -4
   br i1 %spec.select.i.i, label %if.then37, label %if.end49
 
 if.then37:                                        ; preds = %invoke.cont35

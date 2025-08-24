@@ -24076,9 +24076,8 @@ if.then5.i.i.i.i:                                 ; preds = %if.then.i.i.i.i
 _ZNK6google8protobuf15FieldDescriptor11is_packableEv.exit: ; preds = %land.rhs.i, %if.then.i.i, %lor.lhs.false.i.i.i.i, %if.then.i.i.i.i, %if.then5.i.i.i.i
   %type_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 2
   %6 = load i8, ptr %type_.i.i, align 2
-  %conv.i.i = zext i8 %6 to i32
-  %7 = add nsw i32 %conv.i.i, -13
-  %spec.select.i.i = icmp ult i32 %7, -4
+  %7 = add i8 %6, -13
+  %spec.select.i.i = icmp ult i8 %7, -4
   br i1 %spec.select.i.i, label %if.end, label %return
 
 if.end:                                           ; preds = %_ZNK6google8protobuf15FieldDescriptor11is_packableEv.exit
@@ -48922,9 +48921,8 @@ if.then5.i.i.i.i:                                 ; preds = %if.then.i.i.i.i
 _ZNK6google8protobuf15FieldDescriptor11is_packableEv.exit: ; preds = %land.rhs.i, %if.then.i.i31, %lor.lhs.false.i.i.i.i, %if.then.i.i.i.i, %if.then5.i.i.i.i
   %type_.i.i = getelementptr inbounds nuw i8, ptr %21, i64 2
   %30 = load i8, ptr %type_.i.i, align 2
-  %conv.i.i = zext i8 %30 to i32
-  %31 = add nsw i32 %conv.i.i, -13
-  %spec.select.i.i = icmp ult i32 %31, -4
+  %31 = add i8 %30, -13
+  %spec.select.i.i = icmp ult i8 %31, -4
   %.pre163 = load ptr, ptr %field.addr, align 8
   br i1 %spec.select.i.i, label %if.end21, label %if.then19
 
@@ -50009,9 +50007,8 @@ if.then5.i.i.i.i160:                              ; preds = %if.then.i.i.i.i158
 
 _ZNK6google8protobuf15FieldDescriptor11is_packableEv.exit: ; preds = %land.rhs.i, %if.then.i.i149, %lor.lhs.false.i.i.i.i152, %if.then.i.i.i.i158, %if.then5.i.i.i.i160
   %107 = load i8, ptr %type_.i, align 2
-  %conv.i.i157 = zext i8 %107 to i32
-  %108 = add nsw i32 %conv.i.i157, -13
-  %spec.select.i.i = icmp ult i32 %108, -4
+  %108 = add i8 %107, -13
+  %spec.select.i.i = icmp ult i8 %108, -4
   br i1 %spec.select.i.i, label %if.end110, label %land.lhs.true104
 
 land.lhs.true104:                                 ; preds = %if.end102, %_ZNK6google8protobuf15FieldDescriptor11is_packableEv.exit

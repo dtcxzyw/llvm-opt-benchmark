@@ -1477,7 +1477,7 @@ define internal i32 @__trace_uprobe_create(i32 noundef %0, ptr noundef %1) #0 al
   store i64 0, ptr %9, align 8
   %11 = load ptr, ptr %1, align 8
   %12 = load i8, ptr %11, align 1
-  switch i8 %12, label %183 [
+  switch i8 %12, label %182 [
     i8 114, label %13
     i8 112, label %14
   ]
@@ -1488,7 +1488,7 @@ define internal i32 @__trace_uprobe_create(i32 noundef %0, ptr noundef %1) #0 al
 14:                                               ; preds = %13, %2
   %15 = phi i1 [ false, %2 ], [ true, %13 ]
   %16 = icmp slt i32 %0, 2
-  br i1 %16, label %183, label %17
+  br i1 %16, label %182, label %17
 
 17:                                               ; preds = %14
   %18 = getelementptr i8, ptr %11, i64 1
@@ -1507,288 +1507,287 @@ define internal i32 @__trace_uprobe_create(i32 noundef %0, ptr noundef %1) #0 al
   %26 = load ptr, ptr %25, align 8
   %27 = tail call ptr @strchr(ptr noundef %26, i32 noundef 47) #16
   %28 = icmp eq ptr %27, null
-  br i1 %28, label %183, label %29
+  br i1 %28, label %182, label %29
 
 29:                                               ; preds = %23
   %30 = tail call noalias ptr @kstrdup(ptr noundef %26, i32 noundef 3264) #16
   %31 = icmp eq ptr %30, null
-  br i1 %31, label %183, label %32
+  br i1 %31, label %182, label %32
 
 32:                                               ; preds = %29
   %33 = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %30, i32 noundef 58) #16
   %34 = icmp eq ptr %33, null
-  br i1 %34, label %41, label %35
+  br i1 %34, label %40, label %35
 
 35:                                               ; preds = %32
   %36 = getelementptr i8, ptr %33, i64 1
   %37 = load i8, ptr %36, align 1
-  %38 = zext i8 %37 to i32
-  %39 = add nsw i32 %38, -58
-  %40 = icmp ult i32 %39, -10
-  br i1 %40, label %41, label %42
+  %38 = add i8 %37, -58
+  %39 = icmp ult i8 %38, -10
+  br i1 %39, label %40, label %41
 
-41:                                               ; preds = %35, %32
+40:                                               ; preds = %35, %32
   tail call void @kfree(ptr noundef nonnull %30) #16
-  br label %183
+  br label %182
 
-42:                                               ; preds = %35
+41:                                               ; preds = %35
   tail call void @trace_probe_log_init(ptr noundef nonnull @.str.4, i32 noundef %0, ptr noundef %1) #16
   tail call void @trace_probe_log_set_index(i32 noundef 1) #16
   store i8 0, ptr %33, align 1
-  %43 = call i32 @kern_path(ptr noundef nonnull %30, i32 noundef 1, ptr noundef nonnull %7) #16
-  %44 = icmp eq i32 %43, 0
-  br i1 %44, label %46, label %45
+  %42 = call i32 @kern_path(ptr noundef nonnull %30, i32 noundef 1, ptr noundef nonnull %7) #16
+  %43 = icmp eq i32 %42, 0
+  br i1 %43, label %45, label %44
 
-45:                                               ; preds = %42
+44:                                               ; preds = %41
   call void @__trace_probe_log_err(i32 noundef 0, i32 noundef 0) #16
   call void @kfree(ptr noundef nonnull %30) #16
   call void @trace_probe_log_clear() #16
-  br label %183
+  br label %182
 
-46:                                               ; preds = %42
-  %47 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %48 = load ptr, ptr %47, align 8
-  %49 = load i32, ptr %48, align 8
-  %50 = and i32 %49, 7340032
-  %51 = icmp eq i32 %50, 4194304
-  br i1 %51, label %53, label %52
+45:                                               ; preds = %41
+  %46 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %47 = load ptr, ptr %46, align 8
+  %48 = load i32, ptr %47, align 8
+  %49 = and i32 %48, 7340032
+  %50 = icmp eq i32 %49, 4194304
+  br i1 %50, label %52, label %51
 
-52:                                               ; preds = %46
+51:                                               ; preds = %45
   call void @__trace_probe_log_err(i32 noundef 0, i32 noundef 1) #16
-  br label %181
+  br label %180
 
-53:                                               ; preds = %46
-  %54 = call ptr @strchr(ptr noundef %36, i32 noundef 40) #16
-  %55 = icmp eq ptr %54, null
-  br i1 %55, label %84, label %56
+52:                                               ; preds = %45
+  %53 = call ptr @strchr(ptr noundef %36, i32 noundef 40) #16
+  %54 = icmp eq ptr %53, null
+  br i1 %54, label %83, label %55
 
-56:                                               ; preds = %53
-  %57 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %54, i32 noundef 41) #16
-  %58 = icmp eq ptr %57, null
-  br i1 %58, label %59, label %66
+55:                                               ; preds = %52
+  %56 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %53, i32 noundef 41) #16
+  %57 = icmp eq ptr %56, null
+  br i1 %57, label %58, label %65
 
-59:                                               ; preds = %56
-  %60 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %54) #16
-  %61 = getelementptr i8, ptr %54, i64 %60
-  %62 = ptrtoint ptr %61 to i64
-  %63 = ptrtoint ptr %30 to i64
-  %64 = sub i64 %62, %63
-  %65 = trunc i64 %64 to i32
-  call void @__trace_probe_log_err(i32 noundef %65, i32 noundef 3) #16
-  br label %181
+58:                                               ; preds = %55
+  %59 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %53) #16
+  %60 = getelementptr i8, ptr %53, i64 %59
+  %61 = ptrtoint ptr %60 to i64
+  %62 = ptrtoint ptr %30 to i64
+  %63 = sub i64 %61, %62
+  %64 = trunc i64 %63 to i32
+  call void @__trace_probe_log_err(i32 noundef %64, i32 noundef 3) #16
+  br label %180
 
-66:                                               ; preds = %56
-  %67 = getelementptr i8, ptr %57, i64 1
-  %68 = load i8, ptr %67, align 1
-  %69 = icmp eq i8 %68, 0
-  br i1 %69, label %75, label %70
+65:                                               ; preds = %55
+  %66 = getelementptr i8, ptr %56, i64 1
+  %67 = load i8, ptr %66, align 1
+  %68 = icmp eq i8 %67, 0
+  br i1 %68, label %74, label %69
 
-70:                                               ; preds = %66
-  %71 = ptrtoint ptr %67 to i64
-  %72 = ptrtoint ptr %30 to i64
-  %73 = sub i64 %71, %72
-  %74 = trunc i64 %73 to i32
-  call void @__trace_probe_log_err(i32 noundef %74, i32 noundef 4) #16
-  br label %181
+69:                                               ; preds = %65
+  %70 = ptrtoint ptr %66 to i64
+  %71 = ptrtoint ptr %30 to i64
+  %72 = sub i64 %70, %71
+  %73 = trunc i64 %72 to i32
+  call void @__trace_probe_log_err(i32 noundef %73, i32 noundef 4) #16
+  br label %180
 
-75:                                               ; preds = %66
-  %76 = getelementptr i8, ptr %54, i64 1
-  store i8 0, ptr %54, align 1
-  store i8 0, ptr %57, align 1
-  %77 = call i32 @kstrtoull(ptr noundef %76, i32 noundef 0, ptr noundef nonnull %9) #16
-  %78 = icmp eq i32 %77, 0
-  br i1 %78, label %84, label %79
+74:                                               ; preds = %65
+  %75 = getelementptr i8, ptr %53, i64 1
+  store i8 0, ptr %53, align 1
+  store i8 0, ptr %56, align 1
+  %76 = call i32 @kstrtoull(ptr noundef %75, i32 noundef 0, ptr noundef nonnull %9) #16
+  %77 = icmp eq i32 %76, 0
+  br i1 %77, label %83, label %78
 
-79:                                               ; preds = %75
-  %80 = ptrtoint ptr %76 to i64
-  %81 = ptrtoint ptr %30 to i64
-  %82 = sub i64 %80, %81
-  %83 = trunc i64 %82 to i32
-  call void @__trace_probe_log_err(i32 noundef %83, i32 noundef 2) #16
-  br label %181
+78:                                               ; preds = %74
+  %79 = ptrtoint ptr %75 to i64
+  %80 = ptrtoint ptr %30 to i64
+  %81 = sub i64 %79, %80
+  %82 = trunc i64 %81 to i32
+  call void @__trace_probe_log_err(i32 noundef %82, i32 noundef 2) #16
+  br label %180
 
-84:                                               ; preds = %75, %53
-  %85 = call ptr @strchr(ptr noundef %36, i32 noundef 37) #16
-  %86 = icmp eq ptr %85, null
-  br i1 %86, label %96, label %87
+83:                                               ; preds = %74, %52
+  %84 = call ptr @strchr(ptr noundef %36, i32 noundef 37) #16
+  %85 = icmp eq ptr %84, null
+  br i1 %85, label %95, label %86
 
-87:                                               ; preds = %84
-  %88 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %85, ptr noundef nonnull dereferenceable(8) @.str.5) #16
-  %89 = icmp eq i32 %88, 0
-  br i1 %89, label %90, label %91
+86:                                               ; preds = %83
+  %87 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %84, ptr noundef nonnull dereferenceable(8) @.str.5) #16
+  %88 = icmp eq i32 %87, 0
+  br i1 %88, label %89, label %90
 
-90:                                               ; preds = %87
-  store i8 0, ptr %85, align 1
-  br label %96
+89:                                               ; preds = %86
+  store i8 0, ptr %84, align 1
+  br label %95
 
-91:                                               ; preds = %87
-  %92 = ptrtoint ptr %85 to i64
-  %93 = ptrtoint ptr %30 to i64
-  %94 = sub i64 %92, %93
-  %95 = trunc i64 %94 to i32
-  call void @__trace_probe_log_err(i32 noundef %95, i32 noundef 13) #16
-  br label %181
+90:                                               ; preds = %86
+  %91 = ptrtoint ptr %84 to i64
+  %92 = ptrtoint ptr %30 to i64
+  %93 = sub i64 %91, %92
+  %94 = trunc i64 %93 to i32
+  call void @__trace_probe_log_err(i32 noundef %94, i32 noundef 13) #16
+  br label %180
 
-96:                                               ; preds = %90, %84
-  %97 = phi i1 [ true, %90 ], [ %15, %84 ]
-  %98 = call i32 @kstrtoull(ptr noundef %36, i32 noundef 0, ptr noundef nonnull %8) #16
-  %99 = icmp eq i32 %98, 0
-  br i1 %99, label %105, label %100
+95:                                               ; preds = %89, %83
+  %96 = phi i1 [ true, %89 ], [ %15, %83 ]
+  %97 = call i32 @kstrtoull(ptr noundef %36, i32 noundef 0, ptr noundef nonnull %8) #16
+  %98 = icmp eq i32 %97, 0
+  br i1 %98, label %104, label %99
 
-100:                                              ; preds = %96
-  %101 = ptrtoint ptr %36 to i64
-  %102 = ptrtoint ptr %30 to i64
-  %103 = sub i64 %101, %102
-  %104 = trunc i64 %103 to i32
-  call void @__trace_probe_log_err(i32 noundef %104, i32 noundef 5) #16
-  br label %181
+99:                                               ; preds = %95
+  %100 = ptrtoint ptr %36 to i64
+  %101 = ptrtoint ptr %30 to i64
+  %102 = sub i64 %100, %101
+  %103 = trunc i64 %102 to i32
+  call void @__trace_probe_log_err(i32 noundef %103, i32 noundef 5) #16
+  br label %180
 
-105:                                              ; preds = %96
+104:                                              ; preds = %95
   call void @trace_probe_log_set_index(i32 noundef 0) #16
-  %106 = icmp eq ptr %24, null
-  br i1 %106, label %.thread, label %107
+  %105 = icmp eq ptr %24, null
+  br i1 %105, label %.thread, label %106
 
-107:                                              ; preds = %105
-  %108 = load ptr, ptr %1, align 8
-  %109 = ptrtoint ptr %24 to i64
-  %110 = ptrtoint ptr %108 to i64
-  %111 = sub i64 %109, %110
-  %112 = trunc i64 %111 to i32
-  %113 = call i32 @traceprobe_parse_event_name(ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %6, i32 noundef %112) #16
-  %114 = icmp eq i32 %113, 0
-  br i1 %114, label %115, label %181
+106:                                              ; preds = %104
+  %107 = load ptr, ptr %1, align 8
+  %108 = ptrtoint ptr %24 to i64
+  %109 = ptrtoint ptr %107 to i64
+  %110 = sub i64 %108, %109
+  %111 = trunc i64 %110 to i32
+  %112 = call i32 @traceprobe_parse_event_name(ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %6, i32 noundef %111) #16
+  %113 = icmp eq i32 %112, 0
+  br i1 %113, label %114, label %180
 
-115:                                              ; preds = %107
+114:                                              ; preds = %106
   %.pr = load ptr, ptr %3, align 8
-  %116 = icmp eq ptr %.pr, null
-  br i1 %116, label %.thread, label %129
+  %115 = icmp eq ptr %.pr, null
+  br i1 %115, label %.thread, label %128
 
-.thread:                                          ; preds = %105, %115
-  %117 = call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %30, i32 noundef 47) #16
-  %118 = icmp eq ptr %117, null
-  %119 = getelementptr i8, ptr %117, i64 1
-  %120 = select i1 %118, ptr %30, ptr %119
-  %121 = call noalias ptr @kstrdup(ptr noundef %120, i32 noundef 3264) #16
-  %122 = icmp eq ptr %121, null
-  br i1 %122, label %181, label %123
+.thread:                                          ; preds = %104, %114
+  %116 = call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %30, i32 noundef 47) #16
+  %117 = icmp eq ptr %116, null
+  %118 = getelementptr i8, ptr %116, i64 1
+  %119 = select i1 %117, ptr %30, ptr %118
+  %120 = call noalias ptr @kstrdup(ptr noundef %119, i32 noundef 3264) #16
+  %121 = icmp eq ptr %120, null
+  br i1 %121, label %180, label %122
 
-123:                                              ; preds = %.thread
-  %124 = call ptr @strpbrk(ptr noundef nonnull %121, ptr noundef nonnull @.str.6) #16
-  %125 = icmp eq ptr %124, null
-  br i1 %125, label %.thread20, label %126
+122:                                              ; preds = %.thread
+  %123 = call ptr @strpbrk(ptr noundef nonnull %120, ptr noundef nonnull @.str.6) #16
+  %124 = icmp eq ptr %123, null
+  br i1 %124, label %.thread20, label %125
 
-126:                                              ; preds = %123
-  store i8 0, ptr %124, align 1
+125:                                              ; preds = %122
+  store i8 0, ptr %123, align 1
   br label %.thread20
 
-.thread20:                                        ; preds = %123, %126
-  %127 = load i64, ptr %8, align 8
-  %128 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 64, ptr noundef nonnull @.str.7, i32 noundef 112, ptr noundef nonnull %121, i64 noundef %127) #16
+.thread20:                                        ; preds = %122, %125
+  %126 = load i64, ptr %8, align 8
+  %127 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 64, ptr noundef nonnull @.str.7, i32 noundef 112, ptr noundef nonnull %120, i64 noundef %126) #16
   store ptr %5, ptr %3, align 8
-  call void @kfree(ptr noundef nonnull %121) #16
+  call void @kfree(ptr noundef nonnull %120) #16
   %.pre = load ptr, ptr %3, align 8
-  br label %129
+  br label %128
 
-129:                                              ; preds = %.thread20, %115
-  %130 = phi ptr [ %.pre, %.thread20 ], [ %.pr, %115 ]
-  %131 = add nsw i32 %0, -2
-  %132 = getelementptr i8, ptr %1, i64 16
-  %133 = load ptr, ptr %4, align 8
-  %134 = call fastcc ptr @alloc_trace_uprobe(ptr noundef %133, ptr noundef %130, i32 noundef %131, i1 noundef zeroext %97)
-  %135 = icmp ugt ptr %134, inttoptr (i64 -4096 to ptr)
-  br i1 %135, label %136, label %141
+128:                                              ; preds = %.thread20, %114
+  %129 = phi ptr [ %.pre, %.thread20 ], [ %.pr, %114 ]
+  %130 = add nsw i32 %0, -2
+  %131 = getelementptr i8, ptr %1, i64 16
+  %132 = load ptr, ptr %4, align 8
+  %133 = call fastcc ptr @alloc_trace_uprobe(ptr noundef %132, ptr noundef %129, i32 noundef %130, i1 noundef zeroext %96)
+  %134 = icmp ugt ptr %133, inttoptr (i64 -4096 to ptr)
+  br i1 %134, label %135, label %140
 
-136:                                              ; preds = %129
-  %137 = ptrtoint ptr %134 to i64
-  %138 = trunc i64 %137 to i32
-  %139 = icmp eq i32 %138, -12
-  br i1 %139, label %181, label %140, !prof !20
+135:                                              ; preds = %128
+  %136 = ptrtoint ptr %133 to i64
+  %137 = trunc i64 %136 to i32
+  %138 = icmp eq i32 %137, -12
+  br i1 %138, label %180, label %139, !prof !20
 
-140:                                              ; preds = %136
+139:                                              ; preds = %135
   call void asm sideeffect "809: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 809b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 809) #16, !srcloc !21
   call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.8, i32 675, i32 2307, i64 12) #16, !srcloc !22
   call void asm sideeffect "810: nop\0A\09.pushsection .discard.instr_end\0A\09.long 810b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 810) #16, !srcloc !23
-  br label %181
+  br label %180
 
-141:                                              ; preds = %129
-  %142 = load i64, ptr %8, align 8
-  %143 = getelementptr inbounds nuw i8, ptr %134, i64 88
-  store i64 %142, ptr %143, align 8
-  %144 = load i64, ptr %9, align 8
-  %145 = getelementptr inbounds nuw i8, ptr %134, i64 96
-  store i64 %144, ptr %145, align 8
-  %146 = getelementptr inbounds nuw i8, ptr %134, i64 56
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %146, ptr noundef nonnull align 8 dereferenceable(16) %7, i64 16, i1 false)
-  %147 = getelementptr inbounds nuw i8, ptr %134, i64 80
-  store ptr %30, ptr %147, align 8
-  %148 = icmp eq i32 %0, 2
-  br i1 %148, label %.loopexit21, label %149
+140:                                              ; preds = %128
+  %141 = load i64, ptr %8, align 8
+  %142 = getelementptr inbounds nuw i8, ptr %133, i64 88
+  store i64 %141, ptr %142, align 8
+  %143 = load i64, ptr %9, align 8
+  %144 = getelementptr inbounds nuw i8, ptr %133, i64 96
+  store i64 %143, ptr %144, align 8
+  %145 = getelementptr inbounds nuw i8, ptr %133, i64 56
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %145, ptr noundef nonnull align 8 dereferenceable(16) %7, i64 16, i1 false)
+  %146 = getelementptr inbounds nuw i8, ptr %133, i64 80
+  store ptr %30, ptr %146, align 8
+  %147 = icmp eq i32 %0, 2
+  br i1 %147, label %.loopexit21, label %148
 
-149:                                              ; preds = %141
-  %150 = getelementptr inbounds nuw i8, ptr %10, i64 64
-  %151 = zext i1 %97 to i32
-  %152 = or disjoint i32 %151, 16
-  %153 = getelementptr inbounds nuw i8, ptr %134, i64 112
-  %154 = zext nneg i32 %131 to i64
-  br label %160
+148:                                              ; preds = %140
+  %149 = getelementptr inbounds nuw i8, ptr %10, i64 64
+  %150 = zext i1 %96 to i32
+  %151 = or disjoint i32 %150, 16
+  %152 = getelementptr inbounds nuw i8, ptr %133, i64 112
+  %153 = zext nneg i32 %130 to i64
+  br label %159
 
-155:                                              ; preds = %160
-  %156 = add nuw nsw i64 %161, 1
-  %157 = icmp samesign ult i64 %156, %154
-  %158 = icmp samesign ult i64 %161, 127
-  %159 = and i1 %158, %157
-  br i1 %159, label %160, label %.loopexit21, !llvm.loop !24
+154:                                              ; preds = %159
+  %155 = add nuw nsw i64 %160, 1
+  %156 = icmp samesign ult i64 %155, %153
+  %157 = icmp samesign ult i64 %160, 127
+  %158 = and i1 %157, %156
+  br i1 %158, label %159, label %.loopexit21, !llvm.loop !24
 
-160:                                              ; preds = %155, %149
-  %161 = phi i64 [ 0, %149 ], [ %156, %155 ]
+159:                                              ; preds = %154, %148
+  %160 = phi i64 [ 0, %148 ], [ %155, %154 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %10, i8 0, i64 72, i1 false)
-  store i32 %152, ptr %150, align 8
-  %162 = trunc nuw nsw i64 %161 to i32
-  %163 = add nuw nsw i32 %162, 2
-  call void @trace_probe_log_set_index(i32 noundef %163) #16
-  %164 = getelementptr ptr, ptr %132, i64 %161
-  %165 = load ptr, ptr %164, align 8
-  %166 = call i32 @traceprobe_parse_probe_arg(ptr noundef nonnull %153, i32 noundef %162, ptr noundef %165, ptr noundef nonnull %10) #16
+  store i32 %151, ptr %149, align 8
+  %161 = trunc nuw nsw i64 %160 to i32
+  %162 = add nuw nsw i32 %161, 2
+  call void @trace_probe_log_set_index(i32 noundef %162) #16
+  %163 = getelementptr ptr, ptr %131, i64 %160
+  %164 = load ptr, ptr %163, align 8
+  %165 = call i32 @traceprobe_parse_probe_arg(ptr noundef nonnull %152, i32 noundef %161, ptr noundef %164, ptr noundef nonnull %10) #16
   call void @traceprobe_finish_parse(ptr noundef nonnull %10) #16
-  %167 = icmp eq i32 %166, 0
+  %166 = icmp eq i32 %165, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  br i1 %167, label %155, label %.loopexit
+  br i1 %166, label %154, label %.loopexit
 
-.loopexit21:                                      ; preds = %155, %141
-  %168 = getelementptr inbounds nuw i8, ptr %134, i64 32
-  %169 = load ptr, ptr %168, align 8
-  %170 = icmp ne ptr %169, null
-  %171 = zext i1 %170 to i32
-  %172 = getelementptr inbounds nuw i8, ptr %134, i64 112
-  %173 = call i32 @traceprobe_set_print_fmt(ptr noundef nonnull %172, i32 noundef %171) #16
-  %174 = icmp slt i32 %173, 0
-  br i1 %174, label %.loopexit, label %175
+.loopexit21:                                      ; preds = %154, %140
+  %167 = getelementptr inbounds nuw i8, ptr %133, i64 32
+  %168 = load ptr, ptr %167, align 8
+  %169 = icmp ne ptr %168, null
+  %170 = zext i1 %169 to i32
+  %171 = getelementptr inbounds nuw i8, ptr %133, i64 112
+  %172 = call i32 @traceprobe_set_print_fmt(ptr noundef nonnull %171, i32 noundef %170) #16
+  %173 = icmp slt i32 %172, 0
+  br i1 %173, label %.loopexit, label %174
 
-175:                                              ; preds = %.loopexit21
-  %176 = call fastcc i32 @register_trace_uprobe(ptr noundef %134)
-  %177 = icmp eq i32 %176, 0
-  br i1 %177, label %179, label %.loopexit
+174:                                              ; preds = %.loopexit21
+  %175 = call fastcc i32 @register_trace_uprobe(ptr noundef %133)
+  %176 = icmp eq i32 %175, 0
+  br i1 %176, label %178, label %.loopexit
 
-.loopexit:                                        ; preds = %160, %175, %.loopexit21
-  %178 = phi i32 [ %173, %.loopexit21 ], [ %176, %175 ], [ %166, %160 ]
-  call fastcc void @free_trace_uprobe(ptr noundef %134)
-  br label %179
+.loopexit:                                        ; preds = %159, %174, %.loopexit21
+  %177 = phi i32 [ %172, %.loopexit21 ], [ %175, %174 ], [ %165, %159 ]
+  call fastcc void @free_trace_uprobe(ptr noundef %133)
+  br label %178
 
-179:                                              ; preds = %.loopexit, %175
-  %180 = phi i32 [ %178, %.loopexit ], [ 0, %175 ]
+178:                                              ; preds = %.loopexit, %174
+  %179 = phi i32 [ %177, %.loopexit ], [ 0, %174 ]
   call void @trace_probe_log_clear() #16
-  br label %183
+  br label %182
 
-181:                                              ; preds = %.thread, %140, %136, %107, %100, %91, %79, %70, %59, %52
-  %182 = phi i32 [ -22, %70 ], [ %77, %79 ], [ -22, %91 ], [ %98, %100 ], [ %113, %107 ], [ -22, %59 ], [ -22, %52 ], [ %138, %140 ], [ -12, %136 ], [ -12, %.thread ]
+180:                                              ; preds = %.thread, %139, %135, %106, %99, %90, %78, %69, %58, %51
+  %181 = phi i32 [ -22, %69 ], [ %76, %78 ], [ -22, %90 ], [ %97, %99 ], [ %112, %106 ], [ -22, %58 ], [ -22, %51 ], [ %137, %139 ], [ -12, %135 ], [ -12, %.thread ]
   call void @trace_probe_log_clear() #16
   call void @path_put(ptr noundef nonnull %7) #16
   call void @kfree(ptr noundef nonnull %30) #16
-  br label %183
+  br label %182
 
-183:                                              ; preds = %181, %179, %45, %41, %29, %23, %14, %2
-  %184 = phi i32 [ %43, %45 ], [ %182, %181 ], [ %180, %179 ], [ -125, %41 ], [ -125, %2 ], [ -125, %14 ], [ -125, %23 ], [ -12, %29 ]
+182:                                              ; preds = %180, %178, %44, %40, %29, %23, %14, %2
+  %183 = phi i32 [ %42, %44 ], [ %181, %180 ], [ %179, %178 ], [ -125, %40 ], [ -125, %2 ], [ -125, %14 ], [ -125, %23 ], [ -12, %29 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -1796,7 +1795,7 @@ define internal i32 @__trace_uprobe_create(i32 noundef %0, ptr noundef %1) #0 al
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  ret i32 %184
+  ret i32 %183
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)

@@ -3510,8 +3510,8 @@ define range(i32 -4, 3) i32 @tinfl_decompress(ptr noundef %0, ptr noundef %1, pt
   %715 = zext i32 %714 to i64
   %716 = getelementptr inbounds nuw [31 x i32], ptr @tinfl_decompress.s_length_base, i64 0, i64 %715
   %717 = load i32, ptr %716, align 4
-  %718 = add nsw i64 %715, -28
-  %.not1575 = icmp ult i64 %718, -20
+  %718 = add nsw i32 %711, -285
+  %.not1575 = icmp ult i32 %718, -20
   br i1 %.not1575, label %742, label %719
 
 719:                                              ; preds = %713
@@ -3745,8 +3745,8 @@ define range(i32 -4, 3) i32 @tinfl_decompress(ptr noundef %0, ptr noundef %1, pt
   %831 = zext nneg i32 %.11089 to i64
   %832 = getelementptr inbounds nuw [32 x i32], ptr @tinfl_decompress.s_dist_base, i64 0, i64 %831
   %833 = load i32, ptr %832, align 4
-  %834 = add nsw i64 %831, -30
-  %.not1582 = icmp ult i64 %834, -26
+  %834 = add nsw i32 %.11089, -30
+  %.not1582 = icmp ult i32 %834, -26
   br i1 %.not1582, label %858, label %835
 
 835:                                              ; preds = %.loopexit1725

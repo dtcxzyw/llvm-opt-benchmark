@@ -5676,12 +5676,12 @@ ffshgetc.exit:                                    ; preds = %50, %36, %12
 ffshgetc.exit82:                                  ; preds = %56, %80, %94, %ffshgetc.exit
   %.050.in = phi i8 [ %.in, %ffshgetc.exit ], [ %58, %56 ], [ %77, %94 ], [ %77, %80 ]
   %.0 = phi i1 [ true, %ffshgetc.exit ], [ %51, %56 ], [ %51, %94 ], [ %51, %80 ]
-  %.050 = zext i8 %.050.in to i32
-  %95 = add nsw i32 %.050, -58
-  %96 = icmp ult i32 %95, -10
+  %95 = add i8 %.050.in, -58
+  %96 = icmp ult i8 %95, -10
   br i1 %96, label %103, label %.lr.ph
 
 .lr.ph:                                           ; preds = %ffshgetc.exit82
+  %.050 = zext nneg i8 %.050.in to i32
   %97 = add nsw i32 %.050, -48
   %98 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %99 = getelementptr inbounds nuw i8, ptr %0, i64 8

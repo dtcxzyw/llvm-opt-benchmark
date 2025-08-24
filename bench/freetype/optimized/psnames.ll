@@ -60,8 +60,8 @@ define internal i32 @ps_unicode_value(ptr noundef readonly captures(address) %0)
   %16 = zext i8 %15 to i32
   %17 = add nsw i32 %16, -48
   %18 = icmp ugt i32 %17, 9
-  %19 = add nsw i32 %16, -71
-  %20 = icmp ult i32 %19, -6
+  %19 = add i8 %15, -71
+  %20 = icmp ult i8 %19, -6
   %21 = add nsw i32 %16, -55
   %spec.select84 = select i1 %20, i32 16, i32 %21
   %.067 = select i1 %18, i32 %spec.select84, i32 %17
@@ -99,8 +99,8 @@ define internal i32 @ps_unicode_value(ptr noundef readonly captures(address) %0)
   %35 = zext i8 %34 to i32
   %36 = add nsw i32 %35, -48
   %37 = icmp ugt i32 %36, 9
-  %38 = add nsw i32 %35, -71
-  %39 = icmp ult i32 %38, -6
+  %38 = add i8 %34, -71
+  %39 = icmp ult i8 %38, -6
   %40 = add nsw i32 %35, -55
   %spec.select85 = select i1 %39, i32 16, i32 %40
   %.056 = select i1 %37, i32 %spec.select85, i32 %36

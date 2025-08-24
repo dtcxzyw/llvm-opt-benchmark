@@ -130,9 +130,9 @@ define dso_local void @hexdump(ptr noundef %0, ptr noundef readonly captures(non
   br label %7
 
 7:                                                ; preds = %.lr.ph, %local_isprint.exit154.thread
-  %.0618 = phi ptr [ %1, %.lr.ph ], [ %569, %local_isprint.exit154.thread ]
-  %.091585 = phi i32 [ %2, %.lr.ph ], [ %568, %local_isprint.exit154.thread ]
-  %.092584 = phi i32 [ 0, %.lr.ph ], [ %570, %local_isprint.exit154.thread ]
+  %.0618 = phi ptr [ %1, %.lr.ph ], [ %553, %local_isprint.exit154.thread ]
+  %.091585 = phi i32 [ %2, %.lr.ph ], [ %552, %local_isprint.exit154.thread ]
+  %.092584 = phi i32 [ 0, %.lr.ph ], [ %554, %local_isprint.exit154.thread ]
   %8 = tail call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 1, ptr noundef nonnull @.str.3, ptr noundef nonnull %5, ptr noundef nonnull %6) #13
   %.not93 = icmp eq i32 %.091585, 0
   br i1 %.not93, label %local_isprint.exit154.thread, label %9
@@ -291,706 +291,690 @@ define dso_local void @hexdump(ptr noundef %0, ptr noundef readonly captures(non
   %94 = phi i1 [ false, %.thread222..thread519_crit_edge ], [ true, %68 ], [ true, %65 ], [ true, %61 ], [ false, %58 ], [ false, %54 ], [ false, %51 ], [ false, %47 ], [ false, %44 ]
   %.shrunk583 = phi i8 [ 0, %.thread222..thread519_crit_edge ], [ %67, %68 ], [ %67, %65 ], [ 0, %61 ], [ 0, %58 ], [ 0, %54 ], [ 0, %51 ], [ 0, %47 ], [ 0, %44 ]
   %95 = phi i1 [ false, %.thread222..thread519_crit_edge ], [ true, %68 ], [ false, %65 ], [ false, %61 ], [ false, %58 ], [ false, %54 ], [ false, %51 ], [ false, %47 ], [ false, %44 ]
-  %96 = add nsw i32 %.pre-phi, -128
-  %or.cond.i = icmp ult i32 %96, -96
+  %or.cond.i = icmp slt i8 %72, 32
   br i1 %or.cond.i, label %local_isprint.exit.thread, label %local_isprint.exit
 
 local_isprint.exit.thread:                        ; preds = %.thread519
-  br i1 %85, label %103, label %116
+  br i1 %85, label %102, label %114
 
 local_isprint.exit:                               ; preds = %.thread519
-  %97 = tail call ptr @__ctype_b_loc() #17
-  %98 = load ptr, ptr %97, align 8, !tbaa !12
-  %99 = zext i8 %72 to i64
-  %100 = getelementptr inbounds nuw i16, ptr %98, i64 %99
-  %101 = load i16, ptr %100, align 2, !tbaa !14
-  %102 = and i16 %101, 16384
-  %.not94 = icmp eq i16 %102, 0
+  %96 = tail call ptr @__ctype_b_loc() #17
+  %97 = load ptr, ptr %96, align 8, !tbaa !12
+  %98 = zext nneg i8 %72 to i64
+  %99 = getelementptr inbounds nuw i16, ptr %97, i64 %98
+  %100 = load i16, ptr %99, align 2, !tbaa !14
+  %101 = and i16 %100, 16384
+  %.not94 = icmp eq i16 %101, 0
   %..pre-phi = select i1 %.not94, i32 46, i32 %.pre-phi
-  br i1 %85, label %103, label %116
+  br i1 %85, label %102, label %114
 
-103:                                              ; preds = %local_isprint.exit, %local_isprint.exit.thread
-  %104 = phi i32 [ 46, %local_isprint.exit.thread ], [ %..pre-phi, %local_isprint.exit ]
-  %105 = getelementptr inbounds nuw i8, ptr %.0618, i64 1
-  %106 = load i8, ptr %105, align 1, !tbaa !11
-  %107 = zext i8 %106 to i32
-  %108 = add nsw i32 %107, -128
-  %or.cond.i110 = icmp ult i32 %108, -96
+102:                                              ; preds = %local_isprint.exit, %local_isprint.exit.thread
+  %103 = phi i32 [ 46, %local_isprint.exit.thread ], [ %..pre-phi, %local_isprint.exit ]
+  %104 = getelementptr inbounds nuw i8, ptr %.0618, i64 1
+  %105 = load i8, ptr %104, align 1, !tbaa !11
+  %106 = zext i8 %105 to i32
+  %or.cond.i110 = icmp slt i8 %105, 32
   br i1 %or.cond.i110, label %local_isprint.exit112.thread, label %local_isprint.exit112
 
-local_isprint.exit112.thread:                     ; preds = %103
-  br i1 %83, label %119, label %133
+local_isprint.exit112.thread:                     ; preds = %102
+  br i1 %83, label %117, label %130
 
-local_isprint.exit112:                            ; preds = %103
-  %109 = tail call ptr @__ctype_b_loc() #17
-  %110 = load ptr, ptr %109, align 8, !tbaa !12
-  %111 = zext i8 %106 to i64
-  %112 = getelementptr inbounds nuw i16, ptr %110, i64 %111
-  %113 = load i16, ptr %112, align 2, !tbaa !14
-  %114 = and i16 %113, 16384
-  %.not95 = icmp eq i16 %114, 0
-  br i1 %.not95, label %116, label %115
+local_isprint.exit112:                            ; preds = %102
+  %107 = tail call ptr @__ctype_b_loc() #17
+  %108 = load ptr, ptr %107, align 8, !tbaa !12
+  %109 = zext nneg i8 %105 to i64
+  %110 = getelementptr inbounds nuw i16, ptr %108, i64 %109
+  %111 = load i16, ptr %110, align 2, !tbaa !14
+  %112 = and i16 %111, 16384
+  %.not95 = icmp eq i16 %112, 0
+  br i1 %.not95, label %114, label %113
 
-115:                                              ; preds = %local_isprint.exit112
-  br i1 %83, label %119, label %133
+113:                                              ; preds = %local_isprint.exit112
+  br i1 %83, label %117, label %130
 
-116:                                              ; preds = %local_isprint.exit, %local_isprint.exit.thread, %local_isprint.exit112
-  %117 = phi i32 [ %104, %local_isprint.exit112 ], [ 46, %local_isprint.exit.thread ], [ %..pre-phi, %local_isprint.exit ]
-  %118 = phi i32 [ 46, %local_isprint.exit112 ], [ 32, %local_isprint.exit.thread ], [ 32, %local_isprint.exit ]
-  br i1 %83, label %119, label %133
+114:                                              ; preds = %local_isprint.exit, %local_isprint.exit.thread, %local_isprint.exit112
+  %115 = phi i32 [ %103, %local_isprint.exit112 ], [ 46, %local_isprint.exit.thread ], [ %..pre-phi, %local_isprint.exit ]
+  %116 = phi i32 [ 46, %local_isprint.exit112 ], [ 32, %local_isprint.exit.thread ], [ 32, %local_isprint.exit ]
+  br i1 %83, label %117, label %130
 
-119:                                              ; preds = %local_isprint.exit112.thread, %115, %116
-  %120 = phi i32 [ %107, %115 ], [ %118, %116 ], [ 46, %local_isprint.exit112.thread ]
-  %121 = phi i32 [ %104, %115 ], [ %117, %116 ], [ %104, %local_isprint.exit112.thread ]
-  %122 = getelementptr inbounds nuw i8, ptr %.0618, i64 2
-  %123 = load i8, ptr %122, align 1, !tbaa !11
-  %124 = zext i8 %123 to i32
-  %125 = add nsw i32 %124, -128
-  %or.cond.i113 = icmp ult i32 %125, -96
+117:                                              ; preds = %local_isprint.exit112.thread, %113, %114
+  %118 = phi i32 [ %106, %113 ], [ %116, %114 ], [ 46, %local_isprint.exit112.thread ]
+  %119 = phi i32 [ %103, %113 ], [ %115, %114 ], [ %103, %local_isprint.exit112.thread ]
+  %120 = getelementptr inbounds nuw i8, ptr %.0618, i64 2
+  %121 = load i8, ptr %120, align 1, !tbaa !11
+  %122 = zext i8 %121 to i32
+  %or.cond.i113 = icmp slt i8 %121, 32
   br i1 %or.cond.i113, label %local_isprint.exit115.thread, label %local_isprint.exit115
 
-local_isprint.exit115.thread:                     ; preds = %119
-  br i1 %87, label %137, label %152
+local_isprint.exit115.thread:                     ; preds = %117
+  br i1 %87, label %134, label %148
 
-local_isprint.exit115:                            ; preds = %119
-  %126 = tail call ptr @__ctype_b_loc() #17
-  %127 = load ptr, ptr %126, align 8, !tbaa !12
-  %128 = zext i8 %123 to i64
-  %129 = getelementptr inbounds nuw i16, ptr %127, i64 %128
-  %130 = load i16, ptr %129, align 2, !tbaa !14
-  %131 = and i16 %130, 16384
-  %.not96 = icmp eq i16 %131, 0
-  br i1 %.not96, label %133, label %132
+local_isprint.exit115:                            ; preds = %117
+  %123 = tail call ptr @__ctype_b_loc() #17
+  %124 = load ptr, ptr %123, align 8, !tbaa !12
+  %125 = zext nneg i8 %121 to i64
+  %126 = getelementptr inbounds nuw i16, ptr %124, i64 %125
+  %127 = load i16, ptr %126, align 2, !tbaa !14
+  %128 = and i16 %127, 16384
+  %.not96 = icmp eq i16 %128, 0
+  br i1 %.not96, label %130, label %129
 
-132:                                              ; preds = %local_isprint.exit115
-  br i1 %87, label %137, label %152
+129:                                              ; preds = %local_isprint.exit115
+  br i1 %87, label %134, label %148
 
-133:                                              ; preds = %local_isprint.exit112.thread, %115, %116, %local_isprint.exit115
-  %134 = phi i32 [ %120, %local_isprint.exit115 ], [ %118, %116 ], [ %107, %115 ], [ 46, %local_isprint.exit112.thread ]
-  %135 = phi i32 [ %121, %local_isprint.exit115 ], [ %117, %116 ], [ %104, %115 ], [ %104, %local_isprint.exit112.thread ]
-  %136 = phi i32 [ 46, %local_isprint.exit115 ], [ 32, %116 ], [ 32, %115 ], [ 32, %local_isprint.exit112.thread ]
-  br i1 %87, label %137, label %152
+130:                                              ; preds = %local_isprint.exit112.thread, %113, %114, %local_isprint.exit115
+  %131 = phi i32 [ %118, %local_isprint.exit115 ], [ %116, %114 ], [ %106, %113 ], [ 46, %local_isprint.exit112.thread ]
+  %132 = phi i32 [ %119, %local_isprint.exit115 ], [ %115, %114 ], [ %103, %113 ], [ %103, %local_isprint.exit112.thread ]
+  %133 = phi i32 [ 46, %local_isprint.exit115 ], [ 32, %114 ], [ 32, %113 ], [ 32, %local_isprint.exit112.thread ]
+  br i1 %87, label %134, label %148
 
-137:                                              ; preds = %local_isprint.exit115.thread, %132, %133
-  %138 = phi i32 [ %124, %132 ], [ %136, %133 ], [ 46, %local_isprint.exit115.thread ]
-  %139 = phi i32 [ %121, %132 ], [ %135, %133 ], [ %121, %local_isprint.exit115.thread ]
-  %140 = phi i32 [ %120, %132 ], [ %134, %133 ], [ %120, %local_isprint.exit115.thread ]
-  %141 = getelementptr inbounds nuw i8, ptr %.0618, i64 3
-  %142 = load i8, ptr %141, align 1, !tbaa !11
-  %143 = zext i8 %142 to i32
-  %144 = add nsw i32 %143, -128
-  %or.cond.i116 = icmp ult i32 %144, -96
+134:                                              ; preds = %local_isprint.exit115.thread, %129, %130
+  %135 = phi i32 [ %122, %129 ], [ %133, %130 ], [ 46, %local_isprint.exit115.thread ]
+  %136 = phi i32 [ %119, %129 ], [ %132, %130 ], [ %119, %local_isprint.exit115.thread ]
+  %137 = phi i32 [ %118, %129 ], [ %131, %130 ], [ %118, %local_isprint.exit115.thread ]
+  %138 = getelementptr inbounds nuw i8, ptr %.0618, i64 3
+  %139 = load i8, ptr %138, align 1, !tbaa !11
+  %140 = zext i8 %139 to i32
+  %or.cond.i116 = icmp slt i8 %139, 32
   br i1 %or.cond.i116, label %local_isprint.exit118.thread, label %local_isprint.exit118
 
-local_isprint.exit118.thread:                     ; preds = %137
-  br i1 %81, label %157, label %173
+local_isprint.exit118.thread:                     ; preds = %134
+  br i1 %81, label %153, label %168
 
-local_isprint.exit118:                            ; preds = %137
-  %145 = tail call ptr @__ctype_b_loc() #17
-  %146 = load ptr, ptr %145, align 8, !tbaa !12
-  %147 = zext i8 %142 to i64
-  %148 = getelementptr inbounds nuw i16, ptr %146, i64 %147
-  %149 = load i16, ptr %148, align 2, !tbaa !14
-  %150 = and i16 %149, 16384
-  %.not97 = icmp eq i16 %150, 0
-  br i1 %.not97, label %152, label %151
+local_isprint.exit118:                            ; preds = %134
+  %141 = tail call ptr @__ctype_b_loc() #17
+  %142 = load ptr, ptr %141, align 8, !tbaa !12
+  %143 = zext nneg i8 %139 to i64
+  %144 = getelementptr inbounds nuw i16, ptr %142, i64 %143
+  %145 = load i16, ptr %144, align 2, !tbaa !14
+  %146 = and i16 %145, 16384
+  %.not97 = icmp eq i16 %146, 0
+  br i1 %.not97, label %148, label %147
 
-151:                                              ; preds = %local_isprint.exit118
-  br i1 %81, label %157, label %173
+147:                                              ; preds = %local_isprint.exit118
+  br i1 %81, label %153, label %168
 
-152:                                              ; preds = %local_isprint.exit115.thread, %132, %133, %local_isprint.exit118
-  %153 = phi i32 [ %138, %local_isprint.exit118 ], [ %136, %133 ], [ %124, %132 ], [ 46, %local_isprint.exit115.thread ]
-  %154 = phi i32 [ %139, %local_isprint.exit118 ], [ %135, %133 ], [ %121, %132 ], [ %121, %local_isprint.exit115.thread ]
-  %155 = phi i32 [ %140, %local_isprint.exit118 ], [ %134, %133 ], [ %120, %132 ], [ %120, %local_isprint.exit115.thread ]
-  %156 = phi i32 [ 46, %local_isprint.exit118 ], [ 32, %133 ], [ 32, %132 ], [ 32, %local_isprint.exit115.thread ]
-  br i1 %81, label %157, label %173
+148:                                              ; preds = %local_isprint.exit115.thread, %129, %130, %local_isprint.exit118
+  %149 = phi i32 [ %135, %local_isprint.exit118 ], [ %133, %130 ], [ %122, %129 ], [ 46, %local_isprint.exit115.thread ]
+  %150 = phi i32 [ %136, %local_isprint.exit118 ], [ %132, %130 ], [ %119, %129 ], [ %119, %local_isprint.exit115.thread ]
+  %151 = phi i32 [ %137, %local_isprint.exit118 ], [ %131, %130 ], [ %118, %129 ], [ %118, %local_isprint.exit115.thread ]
+  %152 = phi i32 [ 46, %local_isprint.exit118 ], [ 32, %130 ], [ 32, %129 ], [ 32, %local_isprint.exit115.thread ]
+  br i1 %81, label %153, label %168
 
-157:                                              ; preds = %local_isprint.exit118.thread, %151, %152
-  %158 = phi i32 [ %143, %151 ], [ %156, %152 ], [ 46, %local_isprint.exit118.thread ]
-  %159 = phi i32 [ %140, %151 ], [ %155, %152 ], [ %140, %local_isprint.exit118.thread ]
-  %160 = phi i32 [ %139, %151 ], [ %154, %152 ], [ %139, %local_isprint.exit118.thread ]
-  %161 = phi i32 [ %138, %151 ], [ %153, %152 ], [ %138, %local_isprint.exit118.thread ]
-  %162 = getelementptr inbounds nuw i8, ptr %.0618, i64 4
-  %163 = load i8, ptr %162, align 1, !tbaa !11
-  %164 = zext i8 %163 to i32
-  %165 = add nsw i32 %164, -128
-  %or.cond.i119 = icmp ult i32 %165, -96
+153:                                              ; preds = %local_isprint.exit118.thread, %147, %148
+  %154 = phi i32 [ %140, %147 ], [ %152, %148 ], [ 46, %local_isprint.exit118.thread ]
+  %155 = phi i32 [ %137, %147 ], [ %151, %148 ], [ %137, %local_isprint.exit118.thread ]
+  %156 = phi i32 [ %136, %147 ], [ %150, %148 ], [ %136, %local_isprint.exit118.thread ]
+  %157 = phi i32 [ %135, %147 ], [ %149, %148 ], [ %135, %local_isprint.exit118.thread ]
+  %158 = getelementptr inbounds nuw i8, ptr %.0618, i64 4
+  %159 = load i8, ptr %158, align 1, !tbaa !11
+  %160 = zext i8 %159 to i32
+  %or.cond.i119 = icmp slt i8 %159, 32
   br i1 %or.cond.i119, label %local_isprint.exit121.thread, label %local_isprint.exit121
 
-local_isprint.exit121.thread:                     ; preds = %157
-  br i1 %89, label %179, label %196
+local_isprint.exit121.thread:                     ; preds = %153
+  br i1 %89, label %174, label %190
 
-local_isprint.exit121:                            ; preds = %157
-  %166 = tail call ptr @__ctype_b_loc() #17
-  %167 = load ptr, ptr %166, align 8, !tbaa !12
-  %168 = zext i8 %163 to i64
-  %169 = getelementptr inbounds nuw i16, ptr %167, i64 %168
-  %170 = load i16, ptr %169, align 2, !tbaa !14
-  %171 = and i16 %170, 16384
-  %.not98 = icmp eq i16 %171, 0
-  br i1 %.not98, label %173, label %172
+local_isprint.exit121:                            ; preds = %153
+  %161 = tail call ptr @__ctype_b_loc() #17
+  %162 = load ptr, ptr %161, align 8, !tbaa !12
+  %163 = zext nneg i8 %159 to i64
+  %164 = getelementptr inbounds nuw i16, ptr %162, i64 %163
+  %165 = load i16, ptr %164, align 2, !tbaa !14
+  %166 = and i16 %165, 16384
+  %.not98 = icmp eq i16 %166, 0
+  br i1 %.not98, label %168, label %167
 
-172:                                              ; preds = %local_isprint.exit121
-  br i1 %89, label %179, label %196
+167:                                              ; preds = %local_isprint.exit121
+  br i1 %89, label %174, label %190
 
-173:                                              ; preds = %local_isprint.exit118.thread, %151, %152, %local_isprint.exit121
-  %174 = phi i32 [ %158, %local_isprint.exit121 ], [ %156, %152 ], [ %143, %151 ], [ 46, %local_isprint.exit118.thread ]
-  %175 = phi i32 [ %159, %local_isprint.exit121 ], [ %155, %152 ], [ %140, %151 ], [ %140, %local_isprint.exit118.thread ]
-  %176 = phi i32 [ %160, %local_isprint.exit121 ], [ %154, %152 ], [ %139, %151 ], [ %139, %local_isprint.exit118.thread ]
-  %177 = phi i32 [ %161, %local_isprint.exit121 ], [ %153, %152 ], [ %138, %151 ], [ %138, %local_isprint.exit118.thread ]
-  %178 = phi i32 [ 46, %local_isprint.exit121 ], [ 32, %152 ], [ 32, %151 ], [ 32, %local_isprint.exit118.thread ]
-  br i1 %89, label %179, label %196
+168:                                              ; preds = %local_isprint.exit118.thread, %147, %148, %local_isprint.exit121
+  %169 = phi i32 [ %154, %local_isprint.exit121 ], [ %152, %148 ], [ %140, %147 ], [ 46, %local_isprint.exit118.thread ]
+  %170 = phi i32 [ %155, %local_isprint.exit121 ], [ %151, %148 ], [ %137, %147 ], [ %137, %local_isprint.exit118.thread ]
+  %171 = phi i32 [ %156, %local_isprint.exit121 ], [ %150, %148 ], [ %136, %147 ], [ %136, %local_isprint.exit118.thread ]
+  %172 = phi i32 [ %157, %local_isprint.exit121 ], [ %149, %148 ], [ %135, %147 ], [ %135, %local_isprint.exit118.thread ]
+  %173 = phi i32 [ 46, %local_isprint.exit121 ], [ 32, %148 ], [ 32, %147 ], [ 32, %local_isprint.exit118.thread ]
+  br i1 %89, label %174, label %190
 
-179:                                              ; preds = %local_isprint.exit121.thread, %172, %173
-  %180 = phi i32 [ %164, %172 ], [ %178, %173 ], [ 46, %local_isprint.exit121.thread ]
-  %181 = phi i32 [ %161, %172 ], [ %177, %173 ], [ %161, %local_isprint.exit121.thread ]
-  %182 = phi i32 [ %160, %172 ], [ %176, %173 ], [ %160, %local_isprint.exit121.thread ]
-  %183 = phi i32 [ %159, %172 ], [ %175, %173 ], [ %159, %local_isprint.exit121.thread ]
-  %184 = phi i32 [ %158, %172 ], [ %174, %173 ], [ %158, %local_isprint.exit121.thread ]
-  %185 = getelementptr inbounds nuw i8, ptr %.0618, i64 5
-  %186 = load i8, ptr %185, align 1, !tbaa !11
-  %187 = zext i8 %186 to i32
-  %188 = add nsw i32 %187, -128
-  %or.cond.i122 = icmp ult i32 %188, -96
+174:                                              ; preds = %local_isprint.exit121.thread, %167, %168
+  %175 = phi i32 [ %160, %167 ], [ %173, %168 ], [ 46, %local_isprint.exit121.thread ]
+  %176 = phi i32 [ %157, %167 ], [ %172, %168 ], [ %157, %local_isprint.exit121.thread ]
+  %177 = phi i32 [ %156, %167 ], [ %171, %168 ], [ %156, %local_isprint.exit121.thread ]
+  %178 = phi i32 [ %155, %167 ], [ %170, %168 ], [ %155, %local_isprint.exit121.thread ]
+  %179 = phi i32 [ %154, %167 ], [ %169, %168 ], [ %154, %local_isprint.exit121.thread ]
+  %180 = getelementptr inbounds nuw i8, ptr %.0618, i64 5
+  %181 = load i8, ptr %180, align 1, !tbaa !11
+  %182 = zext i8 %181 to i32
+  %or.cond.i122 = icmp slt i8 %181, 32
   br i1 %or.cond.i122, label %local_isprint.exit124.thread, label %local_isprint.exit124
 
-local_isprint.exit124.thread:                     ; preds = %179
-  br i1 %79, label %203, label %221
+local_isprint.exit124.thread:                     ; preds = %174
+  br i1 %79, label %197, label %214
 
-local_isprint.exit124:                            ; preds = %179
-  %189 = tail call ptr @__ctype_b_loc() #17
-  %190 = load ptr, ptr %189, align 8, !tbaa !12
-  %191 = zext i8 %186 to i64
-  %192 = getelementptr inbounds nuw i16, ptr %190, i64 %191
-  %193 = load i16, ptr %192, align 2, !tbaa !14
-  %194 = and i16 %193, 16384
-  %.not99 = icmp eq i16 %194, 0
-  br i1 %.not99, label %196, label %195
+local_isprint.exit124:                            ; preds = %174
+  %183 = tail call ptr @__ctype_b_loc() #17
+  %184 = load ptr, ptr %183, align 8, !tbaa !12
+  %185 = zext nneg i8 %181 to i64
+  %186 = getelementptr inbounds nuw i16, ptr %184, i64 %185
+  %187 = load i16, ptr %186, align 2, !tbaa !14
+  %188 = and i16 %187, 16384
+  %.not99 = icmp eq i16 %188, 0
+  br i1 %.not99, label %190, label %189
 
-195:                                              ; preds = %local_isprint.exit124
-  br i1 %79, label %203, label %221
+189:                                              ; preds = %local_isprint.exit124
+  br i1 %79, label %197, label %214
 
-196:                                              ; preds = %local_isprint.exit121.thread, %172, %173, %local_isprint.exit124
-  %197 = phi i32 [ %180, %local_isprint.exit124 ], [ %178, %173 ], [ %164, %172 ], [ 46, %local_isprint.exit121.thread ]
-  %198 = phi i32 [ %181, %local_isprint.exit124 ], [ %177, %173 ], [ %161, %172 ], [ %161, %local_isprint.exit121.thread ]
-  %199 = phi i32 [ %182, %local_isprint.exit124 ], [ %176, %173 ], [ %160, %172 ], [ %160, %local_isprint.exit121.thread ]
-  %200 = phi i32 [ %183, %local_isprint.exit124 ], [ %175, %173 ], [ %159, %172 ], [ %159, %local_isprint.exit121.thread ]
-  %201 = phi i32 [ %184, %local_isprint.exit124 ], [ %174, %173 ], [ %158, %172 ], [ %158, %local_isprint.exit121.thread ]
-  %202 = phi i32 [ 46, %local_isprint.exit124 ], [ 32, %173 ], [ 32, %172 ], [ 32, %local_isprint.exit121.thread ]
-  br i1 %79, label %203, label %221
+190:                                              ; preds = %local_isprint.exit121.thread, %167, %168, %local_isprint.exit124
+  %191 = phi i32 [ %175, %local_isprint.exit124 ], [ %173, %168 ], [ %160, %167 ], [ 46, %local_isprint.exit121.thread ]
+  %192 = phi i32 [ %176, %local_isprint.exit124 ], [ %172, %168 ], [ %157, %167 ], [ %157, %local_isprint.exit121.thread ]
+  %193 = phi i32 [ %177, %local_isprint.exit124 ], [ %171, %168 ], [ %156, %167 ], [ %156, %local_isprint.exit121.thread ]
+  %194 = phi i32 [ %178, %local_isprint.exit124 ], [ %170, %168 ], [ %155, %167 ], [ %155, %local_isprint.exit121.thread ]
+  %195 = phi i32 [ %179, %local_isprint.exit124 ], [ %169, %168 ], [ %154, %167 ], [ %154, %local_isprint.exit121.thread ]
+  %196 = phi i32 [ 46, %local_isprint.exit124 ], [ 32, %168 ], [ 32, %167 ], [ 32, %local_isprint.exit121.thread ]
+  br i1 %79, label %197, label %214
 
-203:                                              ; preds = %local_isprint.exit124.thread, %195, %196
-  %204 = phi i32 [ %187, %195 ], [ %202, %196 ], [ 46, %local_isprint.exit124.thread ]
-  %205 = phi i32 [ %184, %195 ], [ %201, %196 ], [ %184, %local_isprint.exit124.thread ]
-  %206 = phi i32 [ %183, %195 ], [ %200, %196 ], [ %183, %local_isprint.exit124.thread ]
-  %207 = phi i32 [ %182, %195 ], [ %199, %196 ], [ %182, %local_isprint.exit124.thread ]
-  %208 = phi i32 [ %181, %195 ], [ %198, %196 ], [ %181, %local_isprint.exit124.thread ]
-  %209 = phi i32 [ %180, %195 ], [ %197, %196 ], [ %180, %local_isprint.exit124.thread ]
-  %210 = getelementptr inbounds nuw i8, ptr %.0618, i64 6
-  %211 = load i8, ptr %210, align 1, !tbaa !11
-  %212 = zext i8 %211 to i32
-  %213 = add nsw i32 %212, -128
-  %or.cond.i125 = icmp ult i32 %213, -96
+197:                                              ; preds = %local_isprint.exit124.thread, %189, %190
+  %198 = phi i32 [ %182, %189 ], [ %196, %190 ], [ 46, %local_isprint.exit124.thread ]
+  %199 = phi i32 [ %179, %189 ], [ %195, %190 ], [ %179, %local_isprint.exit124.thread ]
+  %200 = phi i32 [ %178, %189 ], [ %194, %190 ], [ %178, %local_isprint.exit124.thread ]
+  %201 = phi i32 [ %177, %189 ], [ %193, %190 ], [ %177, %local_isprint.exit124.thread ]
+  %202 = phi i32 [ %176, %189 ], [ %192, %190 ], [ %176, %local_isprint.exit124.thread ]
+  %203 = phi i32 [ %175, %189 ], [ %191, %190 ], [ %175, %local_isprint.exit124.thread ]
+  %204 = getelementptr inbounds nuw i8, ptr %.0618, i64 6
+  %205 = load i8, ptr %204, align 1, !tbaa !11
+  %206 = zext i8 %205 to i32
+  %or.cond.i125 = icmp slt i8 %205, 32
   br i1 %or.cond.i125, label %local_isprint.exit127.thread, label %local_isprint.exit127
 
-local_isprint.exit127.thread:                     ; preds = %203
-  br i1 %91, label %229, label %248
+local_isprint.exit127.thread:                     ; preds = %197
+  br i1 %91, label %222, label %240
 
-local_isprint.exit127:                            ; preds = %203
-  %214 = tail call ptr @__ctype_b_loc() #17
-  %215 = load ptr, ptr %214, align 8, !tbaa !12
-  %216 = zext i8 %211 to i64
-  %217 = getelementptr inbounds nuw i16, ptr %215, i64 %216
-  %218 = load i16, ptr %217, align 2, !tbaa !14
-  %219 = and i16 %218, 16384
-  %.not100 = icmp eq i16 %219, 0
-  br i1 %.not100, label %221, label %220
+local_isprint.exit127:                            ; preds = %197
+  %207 = tail call ptr @__ctype_b_loc() #17
+  %208 = load ptr, ptr %207, align 8, !tbaa !12
+  %209 = zext nneg i8 %205 to i64
+  %210 = getelementptr inbounds nuw i16, ptr %208, i64 %209
+  %211 = load i16, ptr %210, align 2, !tbaa !14
+  %212 = and i16 %211, 16384
+  %.not100 = icmp eq i16 %212, 0
+  br i1 %.not100, label %214, label %213
 
-220:                                              ; preds = %local_isprint.exit127
-  br i1 %91, label %229, label %248
+213:                                              ; preds = %local_isprint.exit127
+  br i1 %91, label %222, label %240
 
-221:                                              ; preds = %local_isprint.exit124.thread, %195, %196, %local_isprint.exit127
-  %222 = phi i32 [ %204, %local_isprint.exit127 ], [ %202, %196 ], [ %187, %195 ], [ 46, %local_isprint.exit124.thread ]
-  %223 = phi i32 [ %205, %local_isprint.exit127 ], [ %201, %196 ], [ %184, %195 ], [ %184, %local_isprint.exit124.thread ]
-  %224 = phi i32 [ %206, %local_isprint.exit127 ], [ %200, %196 ], [ %183, %195 ], [ %183, %local_isprint.exit124.thread ]
-  %225 = phi i32 [ %207, %local_isprint.exit127 ], [ %199, %196 ], [ %182, %195 ], [ %182, %local_isprint.exit124.thread ]
-  %226 = phi i32 [ %208, %local_isprint.exit127 ], [ %198, %196 ], [ %181, %195 ], [ %181, %local_isprint.exit124.thread ]
-  %227 = phi i32 [ %209, %local_isprint.exit127 ], [ %197, %196 ], [ %180, %195 ], [ %180, %local_isprint.exit124.thread ]
-  %228 = phi i32 [ 46, %local_isprint.exit127 ], [ 32, %196 ], [ 32, %195 ], [ 32, %local_isprint.exit124.thread ]
-  br i1 %91, label %229, label %248
+214:                                              ; preds = %local_isprint.exit124.thread, %189, %190, %local_isprint.exit127
+  %215 = phi i32 [ %198, %local_isprint.exit127 ], [ %196, %190 ], [ %182, %189 ], [ 46, %local_isprint.exit124.thread ]
+  %216 = phi i32 [ %199, %local_isprint.exit127 ], [ %195, %190 ], [ %179, %189 ], [ %179, %local_isprint.exit124.thread ]
+  %217 = phi i32 [ %200, %local_isprint.exit127 ], [ %194, %190 ], [ %178, %189 ], [ %178, %local_isprint.exit124.thread ]
+  %218 = phi i32 [ %201, %local_isprint.exit127 ], [ %193, %190 ], [ %177, %189 ], [ %177, %local_isprint.exit124.thread ]
+  %219 = phi i32 [ %202, %local_isprint.exit127 ], [ %192, %190 ], [ %176, %189 ], [ %176, %local_isprint.exit124.thread ]
+  %220 = phi i32 [ %203, %local_isprint.exit127 ], [ %191, %190 ], [ %175, %189 ], [ %175, %local_isprint.exit124.thread ]
+  %221 = phi i32 [ 46, %local_isprint.exit127 ], [ 32, %190 ], [ 32, %189 ], [ 32, %local_isprint.exit124.thread ]
+  br i1 %91, label %222, label %240
 
-229:                                              ; preds = %local_isprint.exit127.thread, %220, %221
-  %230 = phi i32 [ %212, %220 ], [ %228, %221 ], [ 46, %local_isprint.exit127.thread ]
-  %231 = phi i32 [ %209, %220 ], [ %227, %221 ], [ %209, %local_isprint.exit127.thread ]
-  %232 = phi i32 [ %208, %220 ], [ %226, %221 ], [ %208, %local_isprint.exit127.thread ]
-  %233 = phi i32 [ %207, %220 ], [ %225, %221 ], [ %207, %local_isprint.exit127.thread ]
-  %234 = phi i32 [ %206, %220 ], [ %224, %221 ], [ %206, %local_isprint.exit127.thread ]
-  %235 = phi i32 [ %205, %220 ], [ %223, %221 ], [ %205, %local_isprint.exit127.thread ]
-  %236 = phi i32 [ %204, %220 ], [ %222, %221 ], [ %204, %local_isprint.exit127.thread ]
-  %237 = getelementptr inbounds nuw i8, ptr %.0618, i64 7
-  %238 = load i8, ptr %237, align 1, !tbaa !11
-  %239 = zext i8 %238 to i32
-  %240 = add nsw i32 %239, -128
-  %or.cond.i128 = icmp ult i32 %240, -96
+222:                                              ; preds = %local_isprint.exit127.thread, %213, %214
+  %223 = phi i32 [ %206, %213 ], [ %221, %214 ], [ 46, %local_isprint.exit127.thread ]
+  %224 = phi i32 [ %203, %213 ], [ %220, %214 ], [ %203, %local_isprint.exit127.thread ]
+  %225 = phi i32 [ %202, %213 ], [ %219, %214 ], [ %202, %local_isprint.exit127.thread ]
+  %226 = phi i32 [ %201, %213 ], [ %218, %214 ], [ %201, %local_isprint.exit127.thread ]
+  %227 = phi i32 [ %200, %213 ], [ %217, %214 ], [ %200, %local_isprint.exit127.thread ]
+  %228 = phi i32 [ %199, %213 ], [ %216, %214 ], [ %199, %local_isprint.exit127.thread ]
+  %229 = phi i32 [ %198, %213 ], [ %215, %214 ], [ %198, %local_isprint.exit127.thread ]
+  %230 = getelementptr inbounds nuw i8, ptr %.0618, i64 7
+  %231 = load i8, ptr %230, align 1, !tbaa !11
+  %232 = zext i8 %231 to i32
+  %or.cond.i128 = icmp slt i8 %231, 32
   br i1 %or.cond.i128, label %local_isprint.exit130.thread, label %local_isprint.exit130
 
-local_isprint.exit130.thread:                     ; preds = %229
-  br i1 %77, label %257, label %277
+local_isprint.exit130.thread:                     ; preds = %222
+  br i1 %77, label %249, label %268
 
-local_isprint.exit130:                            ; preds = %229
-  %241 = tail call ptr @__ctype_b_loc() #17
-  %242 = load ptr, ptr %241, align 8, !tbaa !12
-  %243 = zext i8 %238 to i64
-  %244 = getelementptr inbounds nuw i16, ptr %242, i64 %243
-  %245 = load i16, ptr %244, align 2, !tbaa !14
-  %246 = and i16 %245, 16384
-  %.not101 = icmp eq i16 %246, 0
-  br i1 %.not101, label %248, label %247
+local_isprint.exit130:                            ; preds = %222
+  %233 = tail call ptr @__ctype_b_loc() #17
+  %234 = load ptr, ptr %233, align 8, !tbaa !12
+  %235 = zext nneg i8 %231 to i64
+  %236 = getelementptr inbounds nuw i16, ptr %234, i64 %235
+  %237 = load i16, ptr %236, align 2, !tbaa !14
+  %238 = and i16 %237, 16384
+  %.not101 = icmp eq i16 %238, 0
+  br i1 %.not101, label %240, label %239
 
-247:                                              ; preds = %local_isprint.exit130
-  br i1 %77, label %257, label %277
+239:                                              ; preds = %local_isprint.exit130
+  br i1 %77, label %249, label %268
 
-248:                                              ; preds = %local_isprint.exit127.thread, %220, %221, %local_isprint.exit130
-  %249 = phi i32 [ %230, %local_isprint.exit130 ], [ %228, %221 ], [ %212, %220 ], [ 46, %local_isprint.exit127.thread ]
-  %250 = phi i32 [ %231, %local_isprint.exit130 ], [ %227, %221 ], [ %209, %220 ], [ %209, %local_isprint.exit127.thread ]
-  %251 = phi i32 [ %232, %local_isprint.exit130 ], [ %226, %221 ], [ %208, %220 ], [ %208, %local_isprint.exit127.thread ]
-  %252 = phi i32 [ %233, %local_isprint.exit130 ], [ %225, %221 ], [ %207, %220 ], [ %207, %local_isprint.exit127.thread ]
-  %253 = phi i32 [ %234, %local_isprint.exit130 ], [ %224, %221 ], [ %206, %220 ], [ %206, %local_isprint.exit127.thread ]
-  %254 = phi i32 [ %235, %local_isprint.exit130 ], [ %223, %221 ], [ %205, %220 ], [ %205, %local_isprint.exit127.thread ]
-  %255 = phi i32 [ %236, %local_isprint.exit130 ], [ %222, %221 ], [ %204, %220 ], [ %204, %local_isprint.exit127.thread ]
-  %256 = phi i32 [ 46, %local_isprint.exit130 ], [ 32, %221 ], [ 32, %220 ], [ 32, %local_isprint.exit127.thread ]
-  br i1 %77, label %257, label %277
+240:                                              ; preds = %local_isprint.exit127.thread, %213, %214, %local_isprint.exit130
+  %241 = phi i32 [ %223, %local_isprint.exit130 ], [ %221, %214 ], [ %206, %213 ], [ 46, %local_isprint.exit127.thread ]
+  %242 = phi i32 [ %224, %local_isprint.exit130 ], [ %220, %214 ], [ %203, %213 ], [ %203, %local_isprint.exit127.thread ]
+  %243 = phi i32 [ %225, %local_isprint.exit130 ], [ %219, %214 ], [ %202, %213 ], [ %202, %local_isprint.exit127.thread ]
+  %244 = phi i32 [ %226, %local_isprint.exit130 ], [ %218, %214 ], [ %201, %213 ], [ %201, %local_isprint.exit127.thread ]
+  %245 = phi i32 [ %227, %local_isprint.exit130 ], [ %217, %214 ], [ %200, %213 ], [ %200, %local_isprint.exit127.thread ]
+  %246 = phi i32 [ %228, %local_isprint.exit130 ], [ %216, %214 ], [ %199, %213 ], [ %199, %local_isprint.exit127.thread ]
+  %247 = phi i32 [ %229, %local_isprint.exit130 ], [ %215, %214 ], [ %198, %213 ], [ %198, %local_isprint.exit127.thread ]
+  %248 = phi i32 [ 46, %local_isprint.exit130 ], [ 32, %214 ], [ 32, %213 ], [ 32, %local_isprint.exit127.thread ]
+  br i1 %77, label %249, label %268
 
-257:                                              ; preds = %local_isprint.exit130.thread, %247, %248
-  %258 = phi i32 [ %239, %247 ], [ %256, %248 ], [ 46, %local_isprint.exit130.thread ]
-  %259 = phi i32 [ %236, %247 ], [ %255, %248 ], [ %236, %local_isprint.exit130.thread ]
-  %260 = phi i32 [ %235, %247 ], [ %254, %248 ], [ %235, %local_isprint.exit130.thread ]
-  %261 = phi i32 [ %234, %247 ], [ %253, %248 ], [ %234, %local_isprint.exit130.thread ]
-  %262 = phi i32 [ %233, %247 ], [ %252, %248 ], [ %233, %local_isprint.exit130.thread ]
-  %263 = phi i32 [ %232, %247 ], [ %251, %248 ], [ %232, %local_isprint.exit130.thread ]
-  %264 = phi i32 [ %231, %247 ], [ %250, %248 ], [ %231, %local_isprint.exit130.thread ]
-  %265 = phi i32 [ %230, %247 ], [ %249, %248 ], [ %230, %local_isprint.exit130.thread ]
-  %266 = getelementptr inbounds nuw i8, ptr %.0618, i64 8
-  %267 = load i8, ptr %266, align 1, !tbaa !11
-  %268 = zext i8 %267 to i32
-  %269 = add nsw i32 %268, -128
-  %or.cond.i131 = icmp ult i32 %269, -96
+249:                                              ; preds = %local_isprint.exit130.thread, %239, %240
+  %250 = phi i32 [ %232, %239 ], [ %248, %240 ], [ 46, %local_isprint.exit130.thread ]
+  %251 = phi i32 [ %229, %239 ], [ %247, %240 ], [ %229, %local_isprint.exit130.thread ]
+  %252 = phi i32 [ %228, %239 ], [ %246, %240 ], [ %228, %local_isprint.exit130.thread ]
+  %253 = phi i32 [ %227, %239 ], [ %245, %240 ], [ %227, %local_isprint.exit130.thread ]
+  %254 = phi i32 [ %226, %239 ], [ %244, %240 ], [ %226, %local_isprint.exit130.thread ]
+  %255 = phi i32 [ %225, %239 ], [ %243, %240 ], [ %225, %local_isprint.exit130.thread ]
+  %256 = phi i32 [ %224, %239 ], [ %242, %240 ], [ %224, %local_isprint.exit130.thread ]
+  %257 = phi i32 [ %223, %239 ], [ %241, %240 ], [ %223, %local_isprint.exit130.thread ]
+  %258 = getelementptr inbounds nuw i8, ptr %.0618, i64 8
+  %259 = load i8, ptr %258, align 1, !tbaa !11
+  %260 = zext i8 %259 to i32
+  %or.cond.i131 = icmp slt i8 %259, 32
   br i1 %or.cond.i131, label %local_isprint.exit133.thread, label %local_isprint.exit133
 
-local_isprint.exit133.thread:                     ; preds = %257
-  br i1 %92, label %287, label %308
+local_isprint.exit133.thread:                     ; preds = %249
+  br i1 %92, label %278, label %298
 
-local_isprint.exit133:                            ; preds = %257
-  %270 = tail call ptr @__ctype_b_loc() #17
-  %271 = load ptr, ptr %270, align 8, !tbaa !12
-  %272 = zext i8 %267 to i64
-  %273 = getelementptr inbounds nuw i16, ptr %271, i64 %272
-  %274 = load i16, ptr %273, align 2, !tbaa !14
-  %275 = and i16 %274, 16384
-  %.not102 = icmp eq i16 %275, 0
-  br i1 %.not102, label %277, label %276
+local_isprint.exit133:                            ; preds = %249
+  %261 = tail call ptr @__ctype_b_loc() #17
+  %262 = load ptr, ptr %261, align 8, !tbaa !12
+  %263 = zext nneg i8 %259 to i64
+  %264 = getelementptr inbounds nuw i16, ptr %262, i64 %263
+  %265 = load i16, ptr %264, align 2, !tbaa !14
+  %266 = and i16 %265, 16384
+  %.not102 = icmp eq i16 %266, 0
+  br i1 %.not102, label %268, label %267
 
-276:                                              ; preds = %local_isprint.exit133
-  br i1 %92, label %287, label %308
+267:                                              ; preds = %local_isprint.exit133
+  br i1 %92, label %278, label %298
 
-277:                                              ; preds = %local_isprint.exit130.thread, %247, %248, %local_isprint.exit133
-  %278 = phi i32 [ %258, %local_isprint.exit133 ], [ %256, %248 ], [ %239, %247 ], [ 46, %local_isprint.exit130.thread ]
-  %279 = phi i32 [ %259, %local_isprint.exit133 ], [ %255, %248 ], [ %236, %247 ], [ %236, %local_isprint.exit130.thread ]
-  %280 = phi i32 [ %260, %local_isprint.exit133 ], [ %254, %248 ], [ %235, %247 ], [ %235, %local_isprint.exit130.thread ]
-  %281 = phi i32 [ %261, %local_isprint.exit133 ], [ %253, %248 ], [ %234, %247 ], [ %234, %local_isprint.exit130.thread ]
-  %282 = phi i32 [ %262, %local_isprint.exit133 ], [ %252, %248 ], [ %233, %247 ], [ %233, %local_isprint.exit130.thread ]
-  %283 = phi i32 [ %263, %local_isprint.exit133 ], [ %251, %248 ], [ %232, %247 ], [ %232, %local_isprint.exit130.thread ]
-  %284 = phi i32 [ %264, %local_isprint.exit133 ], [ %250, %248 ], [ %231, %247 ], [ %231, %local_isprint.exit130.thread ]
-  %285 = phi i32 [ %265, %local_isprint.exit133 ], [ %249, %248 ], [ %230, %247 ], [ %230, %local_isprint.exit130.thread ]
-  %286 = phi i32 [ 46, %local_isprint.exit133 ], [ 32, %248 ], [ 32, %247 ], [ 32, %local_isprint.exit130.thread ]
-  br i1 %92, label %287, label %308
+268:                                              ; preds = %local_isprint.exit130.thread, %239, %240, %local_isprint.exit133
+  %269 = phi i32 [ %250, %local_isprint.exit133 ], [ %248, %240 ], [ %232, %239 ], [ 46, %local_isprint.exit130.thread ]
+  %270 = phi i32 [ %251, %local_isprint.exit133 ], [ %247, %240 ], [ %229, %239 ], [ %229, %local_isprint.exit130.thread ]
+  %271 = phi i32 [ %252, %local_isprint.exit133 ], [ %246, %240 ], [ %228, %239 ], [ %228, %local_isprint.exit130.thread ]
+  %272 = phi i32 [ %253, %local_isprint.exit133 ], [ %245, %240 ], [ %227, %239 ], [ %227, %local_isprint.exit130.thread ]
+  %273 = phi i32 [ %254, %local_isprint.exit133 ], [ %244, %240 ], [ %226, %239 ], [ %226, %local_isprint.exit130.thread ]
+  %274 = phi i32 [ %255, %local_isprint.exit133 ], [ %243, %240 ], [ %225, %239 ], [ %225, %local_isprint.exit130.thread ]
+  %275 = phi i32 [ %256, %local_isprint.exit133 ], [ %242, %240 ], [ %224, %239 ], [ %224, %local_isprint.exit130.thread ]
+  %276 = phi i32 [ %257, %local_isprint.exit133 ], [ %241, %240 ], [ %223, %239 ], [ %223, %local_isprint.exit130.thread ]
+  %277 = phi i32 [ 46, %local_isprint.exit133 ], [ 32, %240 ], [ 32, %239 ], [ 32, %local_isprint.exit130.thread ]
+  br i1 %92, label %278, label %298
 
-287:                                              ; preds = %local_isprint.exit133.thread, %276, %277
-  %288 = phi i32 [ %268, %276 ], [ %286, %277 ], [ 46, %local_isprint.exit133.thread ]
-  %289 = phi i32 [ %265, %276 ], [ %285, %277 ], [ %265, %local_isprint.exit133.thread ]
-  %290 = phi i32 [ %264, %276 ], [ %284, %277 ], [ %264, %local_isprint.exit133.thread ]
-  %291 = phi i32 [ %263, %276 ], [ %283, %277 ], [ %263, %local_isprint.exit133.thread ]
-  %292 = phi i32 [ %262, %276 ], [ %282, %277 ], [ %262, %local_isprint.exit133.thread ]
-  %293 = phi i32 [ %261, %276 ], [ %281, %277 ], [ %261, %local_isprint.exit133.thread ]
-  %294 = phi i32 [ %260, %276 ], [ %280, %277 ], [ %260, %local_isprint.exit133.thread ]
-  %295 = phi i32 [ %259, %276 ], [ %279, %277 ], [ %259, %local_isprint.exit133.thread ]
-  %296 = phi i32 [ %258, %276 ], [ %278, %277 ], [ %258, %local_isprint.exit133.thread ]
-  %297 = getelementptr inbounds nuw i8, ptr %.0618, i64 9
-  %298 = load i8, ptr %297, align 1, !tbaa !11
-  %299 = zext i8 %298 to i32
-  %300 = add nsw i32 %299, -128
-  %or.cond.i134 = icmp ult i32 %300, -96
+278:                                              ; preds = %local_isprint.exit133.thread, %267, %268
+  %279 = phi i32 [ %260, %267 ], [ %277, %268 ], [ 46, %local_isprint.exit133.thread ]
+  %280 = phi i32 [ %257, %267 ], [ %276, %268 ], [ %257, %local_isprint.exit133.thread ]
+  %281 = phi i32 [ %256, %267 ], [ %275, %268 ], [ %256, %local_isprint.exit133.thread ]
+  %282 = phi i32 [ %255, %267 ], [ %274, %268 ], [ %255, %local_isprint.exit133.thread ]
+  %283 = phi i32 [ %254, %267 ], [ %273, %268 ], [ %254, %local_isprint.exit133.thread ]
+  %284 = phi i32 [ %253, %267 ], [ %272, %268 ], [ %253, %local_isprint.exit133.thread ]
+  %285 = phi i32 [ %252, %267 ], [ %271, %268 ], [ %252, %local_isprint.exit133.thread ]
+  %286 = phi i32 [ %251, %267 ], [ %270, %268 ], [ %251, %local_isprint.exit133.thread ]
+  %287 = phi i32 [ %250, %267 ], [ %269, %268 ], [ %250, %local_isprint.exit133.thread ]
+  %288 = getelementptr inbounds nuw i8, ptr %.0618, i64 9
+  %289 = load i8, ptr %288, align 1, !tbaa !11
+  %290 = zext i8 %289 to i32
+  %or.cond.i134 = icmp slt i8 %289, 32
   br i1 %or.cond.i134, label %local_isprint.exit136.thread, label %local_isprint.exit136
 
-local_isprint.exit136.thread:                     ; preds = %287
-  br i1 %76, label %319, label %341
+local_isprint.exit136.thread:                     ; preds = %278
+  br i1 %76, label %309, label %330
 
-local_isprint.exit136:                            ; preds = %287
-  %301 = tail call ptr @__ctype_b_loc() #17
-  %302 = load ptr, ptr %301, align 8, !tbaa !12
-  %303 = zext i8 %298 to i64
-  %304 = getelementptr inbounds nuw i16, ptr %302, i64 %303
-  %305 = load i16, ptr %304, align 2, !tbaa !14
-  %306 = and i16 %305, 16384
-  %.not103 = icmp eq i16 %306, 0
-  br i1 %.not103, label %308, label %307
+local_isprint.exit136:                            ; preds = %278
+  %291 = tail call ptr @__ctype_b_loc() #17
+  %292 = load ptr, ptr %291, align 8, !tbaa !12
+  %293 = zext nneg i8 %289 to i64
+  %294 = getelementptr inbounds nuw i16, ptr %292, i64 %293
+  %295 = load i16, ptr %294, align 2, !tbaa !14
+  %296 = and i16 %295, 16384
+  %.not103 = icmp eq i16 %296, 0
+  br i1 %.not103, label %298, label %297
 
-307:                                              ; preds = %local_isprint.exit136
-  br i1 %76, label %319, label %341
+297:                                              ; preds = %local_isprint.exit136
+  br i1 %76, label %309, label %330
 
-308:                                              ; preds = %local_isprint.exit133.thread, %276, %277, %local_isprint.exit136
-  %309 = phi i32 [ %288, %local_isprint.exit136 ], [ %286, %277 ], [ %268, %276 ], [ 46, %local_isprint.exit133.thread ]
-  %310 = phi i32 [ %289, %local_isprint.exit136 ], [ %285, %277 ], [ %265, %276 ], [ %265, %local_isprint.exit133.thread ]
-  %311 = phi i32 [ %290, %local_isprint.exit136 ], [ %284, %277 ], [ %264, %276 ], [ %264, %local_isprint.exit133.thread ]
-  %312 = phi i32 [ %291, %local_isprint.exit136 ], [ %283, %277 ], [ %263, %276 ], [ %263, %local_isprint.exit133.thread ]
-  %313 = phi i32 [ %292, %local_isprint.exit136 ], [ %282, %277 ], [ %262, %276 ], [ %262, %local_isprint.exit133.thread ]
-  %314 = phi i32 [ %293, %local_isprint.exit136 ], [ %281, %277 ], [ %261, %276 ], [ %261, %local_isprint.exit133.thread ]
-  %315 = phi i32 [ %294, %local_isprint.exit136 ], [ %280, %277 ], [ %260, %276 ], [ %260, %local_isprint.exit133.thread ]
-  %316 = phi i32 [ %295, %local_isprint.exit136 ], [ %279, %277 ], [ %259, %276 ], [ %259, %local_isprint.exit133.thread ]
-  %317 = phi i32 [ %296, %local_isprint.exit136 ], [ %278, %277 ], [ %258, %276 ], [ %258, %local_isprint.exit133.thread ]
-  %318 = phi i32 [ 46, %local_isprint.exit136 ], [ 32, %277 ], [ 32, %276 ], [ 32, %local_isprint.exit133.thread ]
-  br i1 %76, label %319, label %341
+298:                                              ; preds = %local_isprint.exit133.thread, %267, %268, %local_isprint.exit136
+  %299 = phi i32 [ %279, %local_isprint.exit136 ], [ %277, %268 ], [ %260, %267 ], [ 46, %local_isprint.exit133.thread ]
+  %300 = phi i32 [ %280, %local_isprint.exit136 ], [ %276, %268 ], [ %257, %267 ], [ %257, %local_isprint.exit133.thread ]
+  %301 = phi i32 [ %281, %local_isprint.exit136 ], [ %275, %268 ], [ %256, %267 ], [ %256, %local_isprint.exit133.thread ]
+  %302 = phi i32 [ %282, %local_isprint.exit136 ], [ %274, %268 ], [ %255, %267 ], [ %255, %local_isprint.exit133.thread ]
+  %303 = phi i32 [ %283, %local_isprint.exit136 ], [ %273, %268 ], [ %254, %267 ], [ %254, %local_isprint.exit133.thread ]
+  %304 = phi i32 [ %284, %local_isprint.exit136 ], [ %272, %268 ], [ %253, %267 ], [ %253, %local_isprint.exit133.thread ]
+  %305 = phi i32 [ %285, %local_isprint.exit136 ], [ %271, %268 ], [ %252, %267 ], [ %252, %local_isprint.exit133.thread ]
+  %306 = phi i32 [ %286, %local_isprint.exit136 ], [ %270, %268 ], [ %251, %267 ], [ %251, %local_isprint.exit133.thread ]
+  %307 = phi i32 [ %287, %local_isprint.exit136 ], [ %269, %268 ], [ %250, %267 ], [ %250, %local_isprint.exit133.thread ]
+  %308 = phi i32 [ 46, %local_isprint.exit136 ], [ 32, %268 ], [ 32, %267 ], [ 32, %local_isprint.exit133.thread ]
+  br i1 %76, label %309, label %330
 
-319:                                              ; preds = %local_isprint.exit136.thread, %307, %308
-  %320 = phi i32 [ %299, %307 ], [ %318, %308 ], [ 46, %local_isprint.exit136.thread ]
-  %321 = phi i32 [ %296, %307 ], [ %317, %308 ], [ %296, %local_isprint.exit136.thread ]
-  %322 = phi i32 [ %295, %307 ], [ %316, %308 ], [ %295, %local_isprint.exit136.thread ]
-  %323 = phi i32 [ %294, %307 ], [ %315, %308 ], [ %294, %local_isprint.exit136.thread ]
-  %324 = phi i32 [ %293, %307 ], [ %314, %308 ], [ %293, %local_isprint.exit136.thread ]
-  %325 = phi i32 [ %292, %307 ], [ %313, %308 ], [ %292, %local_isprint.exit136.thread ]
-  %326 = phi i32 [ %291, %307 ], [ %312, %308 ], [ %291, %local_isprint.exit136.thread ]
-  %327 = phi i32 [ %290, %307 ], [ %311, %308 ], [ %290, %local_isprint.exit136.thread ]
-  %328 = phi i32 [ %289, %307 ], [ %310, %308 ], [ %289, %local_isprint.exit136.thread ]
-  %329 = phi i32 [ %288, %307 ], [ %309, %308 ], [ %288, %local_isprint.exit136.thread ]
-  %330 = getelementptr inbounds nuw i8, ptr %.0618, i64 10
-  %331 = load i8, ptr %330, align 1, !tbaa !11
-  %332 = zext i8 %331 to i32
-  %333 = add nsw i32 %332, -128
-  %or.cond.i137 = icmp ult i32 %333, -96
+309:                                              ; preds = %local_isprint.exit136.thread, %297, %298
+  %310 = phi i32 [ %290, %297 ], [ %308, %298 ], [ 46, %local_isprint.exit136.thread ]
+  %311 = phi i32 [ %287, %297 ], [ %307, %298 ], [ %287, %local_isprint.exit136.thread ]
+  %312 = phi i32 [ %286, %297 ], [ %306, %298 ], [ %286, %local_isprint.exit136.thread ]
+  %313 = phi i32 [ %285, %297 ], [ %305, %298 ], [ %285, %local_isprint.exit136.thread ]
+  %314 = phi i32 [ %284, %297 ], [ %304, %298 ], [ %284, %local_isprint.exit136.thread ]
+  %315 = phi i32 [ %283, %297 ], [ %303, %298 ], [ %283, %local_isprint.exit136.thread ]
+  %316 = phi i32 [ %282, %297 ], [ %302, %298 ], [ %282, %local_isprint.exit136.thread ]
+  %317 = phi i32 [ %281, %297 ], [ %301, %298 ], [ %281, %local_isprint.exit136.thread ]
+  %318 = phi i32 [ %280, %297 ], [ %300, %298 ], [ %280, %local_isprint.exit136.thread ]
+  %319 = phi i32 [ %279, %297 ], [ %299, %298 ], [ %279, %local_isprint.exit136.thread ]
+  %320 = getelementptr inbounds nuw i8, ptr %.0618, i64 10
+  %321 = load i8, ptr %320, align 1, !tbaa !11
+  %322 = zext i8 %321 to i32
+  %or.cond.i137 = icmp slt i8 %321, 32
   br i1 %or.cond.i137, label %local_isprint.exit139.thread, label %local_isprint.exit139
 
-local_isprint.exit139.thread:                     ; preds = %319
-  br i1 %93, label %353, label %376
+local_isprint.exit139.thread:                     ; preds = %309
+  br i1 %93, label %342, label %364
 
-local_isprint.exit139:                            ; preds = %319
-  %334 = tail call ptr @__ctype_b_loc() #17
-  %335 = load ptr, ptr %334, align 8, !tbaa !12
-  %336 = zext i8 %331 to i64
-  %337 = getelementptr inbounds nuw i16, ptr %335, i64 %336
-  %338 = load i16, ptr %337, align 2, !tbaa !14
-  %339 = and i16 %338, 16384
-  %.not104 = icmp eq i16 %339, 0
-  br i1 %.not104, label %341, label %340
+local_isprint.exit139:                            ; preds = %309
+  %323 = tail call ptr @__ctype_b_loc() #17
+  %324 = load ptr, ptr %323, align 8, !tbaa !12
+  %325 = zext nneg i8 %321 to i64
+  %326 = getelementptr inbounds nuw i16, ptr %324, i64 %325
+  %327 = load i16, ptr %326, align 2, !tbaa !14
+  %328 = and i16 %327, 16384
+  %.not104 = icmp eq i16 %328, 0
+  br i1 %.not104, label %330, label %329
 
-340:                                              ; preds = %local_isprint.exit139
-  br i1 %93, label %353, label %376
+329:                                              ; preds = %local_isprint.exit139
+  br i1 %93, label %342, label %364
 
-341:                                              ; preds = %local_isprint.exit136.thread, %307, %308, %local_isprint.exit139
-  %342 = phi i32 [ %320, %local_isprint.exit139 ], [ %318, %308 ], [ %299, %307 ], [ 46, %local_isprint.exit136.thread ]
-  %343 = phi i32 [ %321, %local_isprint.exit139 ], [ %317, %308 ], [ %296, %307 ], [ %296, %local_isprint.exit136.thread ]
-  %344 = phi i32 [ %322, %local_isprint.exit139 ], [ %316, %308 ], [ %295, %307 ], [ %295, %local_isprint.exit136.thread ]
-  %345 = phi i32 [ %323, %local_isprint.exit139 ], [ %315, %308 ], [ %294, %307 ], [ %294, %local_isprint.exit136.thread ]
-  %346 = phi i32 [ %324, %local_isprint.exit139 ], [ %314, %308 ], [ %293, %307 ], [ %293, %local_isprint.exit136.thread ]
-  %347 = phi i32 [ %325, %local_isprint.exit139 ], [ %313, %308 ], [ %292, %307 ], [ %292, %local_isprint.exit136.thread ]
-  %348 = phi i32 [ %326, %local_isprint.exit139 ], [ %312, %308 ], [ %291, %307 ], [ %291, %local_isprint.exit136.thread ]
-  %349 = phi i32 [ %327, %local_isprint.exit139 ], [ %311, %308 ], [ %290, %307 ], [ %290, %local_isprint.exit136.thread ]
-  %350 = phi i32 [ %328, %local_isprint.exit139 ], [ %310, %308 ], [ %289, %307 ], [ %289, %local_isprint.exit136.thread ]
-  %351 = phi i32 [ %329, %local_isprint.exit139 ], [ %309, %308 ], [ %288, %307 ], [ %288, %local_isprint.exit136.thread ]
-  %352 = phi i32 [ 46, %local_isprint.exit139 ], [ 32, %308 ], [ 32, %307 ], [ 32, %local_isprint.exit136.thread ]
-  br i1 %93, label %353, label %376
+330:                                              ; preds = %local_isprint.exit136.thread, %297, %298, %local_isprint.exit139
+  %331 = phi i32 [ %310, %local_isprint.exit139 ], [ %308, %298 ], [ %290, %297 ], [ 46, %local_isprint.exit136.thread ]
+  %332 = phi i32 [ %311, %local_isprint.exit139 ], [ %307, %298 ], [ %287, %297 ], [ %287, %local_isprint.exit136.thread ]
+  %333 = phi i32 [ %312, %local_isprint.exit139 ], [ %306, %298 ], [ %286, %297 ], [ %286, %local_isprint.exit136.thread ]
+  %334 = phi i32 [ %313, %local_isprint.exit139 ], [ %305, %298 ], [ %285, %297 ], [ %285, %local_isprint.exit136.thread ]
+  %335 = phi i32 [ %314, %local_isprint.exit139 ], [ %304, %298 ], [ %284, %297 ], [ %284, %local_isprint.exit136.thread ]
+  %336 = phi i32 [ %315, %local_isprint.exit139 ], [ %303, %298 ], [ %283, %297 ], [ %283, %local_isprint.exit136.thread ]
+  %337 = phi i32 [ %316, %local_isprint.exit139 ], [ %302, %298 ], [ %282, %297 ], [ %282, %local_isprint.exit136.thread ]
+  %338 = phi i32 [ %317, %local_isprint.exit139 ], [ %301, %298 ], [ %281, %297 ], [ %281, %local_isprint.exit136.thread ]
+  %339 = phi i32 [ %318, %local_isprint.exit139 ], [ %300, %298 ], [ %280, %297 ], [ %280, %local_isprint.exit136.thread ]
+  %340 = phi i32 [ %319, %local_isprint.exit139 ], [ %299, %298 ], [ %279, %297 ], [ %279, %local_isprint.exit136.thread ]
+  %341 = phi i32 [ 46, %local_isprint.exit139 ], [ 32, %298 ], [ 32, %297 ], [ 32, %local_isprint.exit136.thread ]
+  br i1 %93, label %342, label %364
 
-353:                                              ; preds = %local_isprint.exit139.thread, %340, %341
-  %354 = phi i32 [ %332, %340 ], [ %352, %341 ], [ 46, %local_isprint.exit139.thread ]
-  %355 = phi i32 [ %329, %340 ], [ %351, %341 ], [ %329, %local_isprint.exit139.thread ]
-  %356 = phi i32 [ %328, %340 ], [ %350, %341 ], [ %328, %local_isprint.exit139.thread ]
-  %357 = phi i32 [ %327, %340 ], [ %349, %341 ], [ %327, %local_isprint.exit139.thread ]
-  %358 = phi i32 [ %326, %340 ], [ %348, %341 ], [ %326, %local_isprint.exit139.thread ]
-  %359 = phi i32 [ %325, %340 ], [ %347, %341 ], [ %325, %local_isprint.exit139.thread ]
-  %360 = phi i32 [ %324, %340 ], [ %346, %341 ], [ %324, %local_isprint.exit139.thread ]
-  %361 = phi i32 [ %323, %340 ], [ %345, %341 ], [ %323, %local_isprint.exit139.thread ]
-  %362 = phi i32 [ %322, %340 ], [ %344, %341 ], [ %322, %local_isprint.exit139.thread ]
-  %363 = phi i32 [ %321, %340 ], [ %343, %341 ], [ %321, %local_isprint.exit139.thread ]
-  %364 = phi i32 [ %320, %340 ], [ %342, %341 ], [ %320, %local_isprint.exit139.thread ]
-  %365 = getelementptr inbounds nuw i8, ptr %.0618, i64 11
-  %366 = load i8, ptr %365, align 1, !tbaa !11
-  %367 = zext i8 %366 to i32
-  %368 = add nsw i32 %367, -128
-  %or.cond.i140 = icmp ult i32 %368, -96
+342:                                              ; preds = %local_isprint.exit139.thread, %329, %330
+  %343 = phi i32 [ %322, %329 ], [ %341, %330 ], [ 46, %local_isprint.exit139.thread ]
+  %344 = phi i32 [ %319, %329 ], [ %340, %330 ], [ %319, %local_isprint.exit139.thread ]
+  %345 = phi i32 [ %318, %329 ], [ %339, %330 ], [ %318, %local_isprint.exit139.thread ]
+  %346 = phi i32 [ %317, %329 ], [ %338, %330 ], [ %317, %local_isprint.exit139.thread ]
+  %347 = phi i32 [ %316, %329 ], [ %337, %330 ], [ %316, %local_isprint.exit139.thread ]
+  %348 = phi i32 [ %315, %329 ], [ %336, %330 ], [ %315, %local_isprint.exit139.thread ]
+  %349 = phi i32 [ %314, %329 ], [ %335, %330 ], [ %314, %local_isprint.exit139.thread ]
+  %350 = phi i32 [ %313, %329 ], [ %334, %330 ], [ %313, %local_isprint.exit139.thread ]
+  %351 = phi i32 [ %312, %329 ], [ %333, %330 ], [ %312, %local_isprint.exit139.thread ]
+  %352 = phi i32 [ %311, %329 ], [ %332, %330 ], [ %311, %local_isprint.exit139.thread ]
+  %353 = phi i32 [ %310, %329 ], [ %331, %330 ], [ %310, %local_isprint.exit139.thread ]
+  %354 = getelementptr inbounds nuw i8, ptr %.0618, i64 11
+  %355 = load i8, ptr %354, align 1, !tbaa !11
+  %356 = zext i8 %355 to i32
+  %or.cond.i140 = icmp slt i8 %355, 32
   br i1 %or.cond.i140, label %local_isprint.exit142.thread, label %local_isprint.exit142
 
-local_isprint.exit142.thread:                     ; preds = %353
-  br i1 %75, label %389, label %413
+local_isprint.exit142.thread:                     ; preds = %342
+  br i1 %75, label %377, label %400
 
-local_isprint.exit142:                            ; preds = %353
-  %369 = tail call ptr @__ctype_b_loc() #17
-  %370 = load ptr, ptr %369, align 8, !tbaa !12
-  %371 = zext i8 %366 to i64
-  %372 = getelementptr inbounds nuw i16, ptr %370, i64 %371
-  %373 = load i16, ptr %372, align 2, !tbaa !14
-  %374 = and i16 %373, 16384
-  %.not105 = icmp eq i16 %374, 0
-  br i1 %.not105, label %376, label %375
+local_isprint.exit142:                            ; preds = %342
+  %357 = tail call ptr @__ctype_b_loc() #17
+  %358 = load ptr, ptr %357, align 8, !tbaa !12
+  %359 = zext nneg i8 %355 to i64
+  %360 = getelementptr inbounds nuw i16, ptr %358, i64 %359
+  %361 = load i16, ptr %360, align 2, !tbaa !14
+  %362 = and i16 %361, 16384
+  %.not105 = icmp eq i16 %362, 0
+  br i1 %.not105, label %364, label %363
 
-375:                                              ; preds = %local_isprint.exit142
-  br i1 %75, label %389, label %413
+363:                                              ; preds = %local_isprint.exit142
+  br i1 %75, label %377, label %400
 
-376:                                              ; preds = %local_isprint.exit139.thread, %340, %341, %local_isprint.exit142
-  %377 = phi i32 [ %354, %local_isprint.exit142 ], [ %352, %341 ], [ %332, %340 ], [ 46, %local_isprint.exit139.thread ]
-  %378 = phi i32 [ %355, %local_isprint.exit142 ], [ %351, %341 ], [ %329, %340 ], [ %329, %local_isprint.exit139.thread ]
-  %379 = phi i32 [ %356, %local_isprint.exit142 ], [ %350, %341 ], [ %328, %340 ], [ %328, %local_isprint.exit139.thread ]
-  %380 = phi i32 [ %357, %local_isprint.exit142 ], [ %349, %341 ], [ %327, %340 ], [ %327, %local_isprint.exit139.thread ]
-  %381 = phi i32 [ %358, %local_isprint.exit142 ], [ %348, %341 ], [ %326, %340 ], [ %326, %local_isprint.exit139.thread ]
-  %382 = phi i32 [ %359, %local_isprint.exit142 ], [ %347, %341 ], [ %325, %340 ], [ %325, %local_isprint.exit139.thread ]
-  %383 = phi i32 [ %360, %local_isprint.exit142 ], [ %346, %341 ], [ %324, %340 ], [ %324, %local_isprint.exit139.thread ]
-  %384 = phi i32 [ %361, %local_isprint.exit142 ], [ %345, %341 ], [ %323, %340 ], [ %323, %local_isprint.exit139.thread ]
-  %385 = phi i32 [ %362, %local_isprint.exit142 ], [ %344, %341 ], [ %322, %340 ], [ %322, %local_isprint.exit139.thread ]
-  %386 = phi i32 [ %363, %local_isprint.exit142 ], [ %343, %341 ], [ %321, %340 ], [ %321, %local_isprint.exit139.thread ]
-  %387 = phi i32 [ %364, %local_isprint.exit142 ], [ %342, %341 ], [ %320, %340 ], [ %320, %local_isprint.exit139.thread ]
-  %388 = phi i32 [ 46, %local_isprint.exit142 ], [ 32, %341 ], [ 32, %340 ], [ 32, %local_isprint.exit139.thread ]
-  br i1 %75, label %389, label %413
+364:                                              ; preds = %local_isprint.exit139.thread, %329, %330, %local_isprint.exit142
+  %365 = phi i32 [ %343, %local_isprint.exit142 ], [ %341, %330 ], [ %322, %329 ], [ 46, %local_isprint.exit139.thread ]
+  %366 = phi i32 [ %344, %local_isprint.exit142 ], [ %340, %330 ], [ %319, %329 ], [ %319, %local_isprint.exit139.thread ]
+  %367 = phi i32 [ %345, %local_isprint.exit142 ], [ %339, %330 ], [ %318, %329 ], [ %318, %local_isprint.exit139.thread ]
+  %368 = phi i32 [ %346, %local_isprint.exit142 ], [ %338, %330 ], [ %317, %329 ], [ %317, %local_isprint.exit139.thread ]
+  %369 = phi i32 [ %347, %local_isprint.exit142 ], [ %337, %330 ], [ %316, %329 ], [ %316, %local_isprint.exit139.thread ]
+  %370 = phi i32 [ %348, %local_isprint.exit142 ], [ %336, %330 ], [ %315, %329 ], [ %315, %local_isprint.exit139.thread ]
+  %371 = phi i32 [ %349, %local_isprint.exit142 ], [ %335, %330 ], [ %314, %329 ], [ %314, %local_isprint.exit139.thread ]
+  %372 = phi i32 [ %350, %local_isprint.exit142 ], [ %334, %330 ], [ %313, %329 ], [ %313, %local_isprint.exit139.thread ]
+  %373 = phi i32 [ %351, %local_isprint.exit142 ], [ %333, %330 ], [ %312, %329 ], [ %312, %local_isprint.exit139.thread ]
+  %374 = phi i32 [ %352, %local_isprint.exit142 ], [ %332, %330 ], [ %311, %329 ], [ %311, %local_isprint.exit139.thread ]
+  %375 = phi i32 [ %353, %local_isprint.exit142 ], [ %331, %330 ], [ %310, %329 ], [ %310, %local_isprint.exit139.thread ]
+  %376 = phi i32 [ 46, %local_isprint.exit142 ], [ 32, %330 ], [ 32, %329 ], [ 32, %local_isprint.exit139.thread ]
+  br i1 %75, label %377, label %400
 
-389:                                              ; preds = %local_isprint.exit142.thread, %375, %376
-  %390 = phi i32 [ %367, %375 ], [ %388, %376 ], [ 46, %local_isprint.exit142.thread ]
-  %391 = phi i32 [ %364, %375 ], [ %387, %376 ], [ %364, %local_isprint.exit142.thread ]
-  %392 = phi i32 [ %363, %375 ], [ %386, %376 ], [ %363, %local_isprint.exit142.thread ]
-  %393 = phi i32 [ %362, %375 ], [ %385, %376 ], [ %362, %local_isprint.exit142.thread ]
-  %394 = phi i32 [ %361, %375 ], [ %384, %376 ], [ %361, %local_isprint.exit142.thread ]
-  %395 = phi i32 [ %360, %375 ], [ %383, %376 ], [ %360, %local_isprint.exit142.thread ]
-  %396 = phi i32 [ %359, %375 ], [ %382, %376 ], [ %359, %local_isprint.exit142.thread ]
-  %397 = phi i32 [ %358, %375 ], [ %381, %376 ], [ %358, %local_isprint.exit142.thread ]
-  %398 = phi i32 [ %357, %375 ], [ %380, %376 ], [ %357, %local_isprint.exit142.thread ]
-  %399 = phi i32 [ %356, %375 ], [ %379, %376 ], [ %356, %local_isprint.exit142.thread ]
-  %400 = phi i32 [ %355, %375 ], [ %378, %376 ], [ %355, %local_isprint.exit142.thread ]
-  %401 = phi i32 [ %354, %375 ], [ %377, %376 ], [ %354, %local_isprint.exit142.thread ]
-  %402 = getelementptr inbounds nuw i8, ptr %.0618, i64 12
-  %403 = load i8, ptr %402, align 1, !tbaa !11
-  %404 = zext i8 %403 to i32
-  %405 = add nsw i32 %404, -128
-  %or.cond.i143 = icmp ult i32 %405, -96
+377:                                              ; preds = %local_isprint.exit142.thread, %363, %364
+  %378 = phi i32 [ %356, %363 ], [ %376, %364 ], [ 46, %local_isprint.exit142.thread ]
+  %379 = phi i32 [ %353, %363 ], [ %375, %364 ], [ %353, %local_isprint.exit142.thread ]
+  %380 = phi i32 [ %352, %363 ], [ %374, %364 ], [ %352, %local_isprint.exit142.thread ]
+  %381 = phi i32 [ %351, %363 ], [ %373, %364 ], [ %351, %local_isprint.exit142.thread ]
+  %382 = phi i32 [ %350, %363 ], [ %372, %364 ], [ %350, %local_isprint.exit142.thread ]
+  %383 = phi i32 [ %349, %363 ], [ %371, %364 ], [ %349, %local_isprint.exit142.thread ]
+  %384 = phi i32 [ %348, %363 ], [ %370, %364 ], [ %348, %local_isprint.exit142.thread ]
+  %385 = phi i32 [ %347, %363 ], [ %369, %364 ], [ %347, %local_isprint.exit142.thread ]
+  %386 = phi i32 [ %346, %363 ], [ %368, %364 ], [ %346, %local_isprint.exit142.thread ]
+  %387 = phi i32 [ %345, %363 ], [ %367, %364 ], [ %345, %local_isprint.exit142.thread ]
+  %388 = phi i32 [ %344, %363 ], [ %366, %364 ], [ %344, %local_isprint.exit142.thread ]
+  %389 = phi i32 [ %343, %363 ], [ %365, %364 ], [ %343, %local_isprint.exit142.thread ]
+  %390 = getelementptr inbounds nuw i8, ptr %.0618, i64 12
+  %391 = load i8, ptr %390, align 1, !tbaa !11
+  %392 = zext i8 %391 to i32
+  %or.cond.i143 = icmp slt i8 %391, 32
   br i1 %or.cond.i143, label %local_isprint.exit145.thread, label %local_isprint.exit145
 
-local_isprint.exit145.thread:                     ; preds = %389
-  br i1 %94, label %427, label %452
+local_isprint.exit145.thread:                     ; preds = %377
+  br i1 %94, label %414, label %438
 
-local_isprint.exit145:                            ; preds = %389
-  %406 = tail call ptr @__ctype_b_loc() #17
-  %407 = load ptr, ptr %406, align 8, !tbaa !12
-  %408 = zext i8 %403 to i64
-  %409 = getelementptr inbounds nuw i16, ptr %407, i64 %408
-  %410 = load i16, ptr %409, align 2, !tbaa !14
-  %411 = and i16 %410, 16384
-  %.not106 = icmp eq i16 %411, 0
-  br i1 %.not106, label %413, label %412
+local_isprint.exit145:                            ; preds = %377
+  %393 = tail call ptr @__ctype_b_loc() #17
+  %394 = load ptr, ptr %393, align 8, !tbaa !12
+  %395 = zext nneg i8 %391 to i64
+  %396 = getelementptr inbounds nuw i16, ptr %394, i64 %395
+  %397 = load i16, ptr %396, align 2, !tbaa !14
+  %398 = and i16 %397, 16384
+  %.not106 = icmp eq i16 %398, 0
+  br i1 %.not106, label %400, label %399
 
-412:                                              ; preds = %local_isprint.exit145
-  br i1 %94, label %427, label %452
+399:                                              ; preds = %local_isprint.exit145
+  br i1 %94, label %414, label %438
 
-413:                                              ; preds = %local_isprint.exit142.thread, %375, %376, %local_isprint.exit145
-  %414 = phi i32 [ %390, %local_isprint.exit145 ], [ %388, %376 ], [ %367, %375 ], [ 46, %local_isprint.exit142.thread ]
-  %415 = phi i32 [ %391, %local_isprint.exit145 ], [ %387, %376 ], [ %364, %375 ], [ %364, %local_isprint.exit142.thread ]
-  %416 = phi i32 [ %392, %local_isprint.exit145 ], [ %386, %376 ], [ %363, %375 ], [ %363, %local_isprint.exit142.thread ]
-  %417 = phi i32 [ %393, %local_isprint.exit145 ], [ %385, %376 ], [ %362, %375 ], [ %362, %local_isprint.exit142.thread ]
-  %418 = phi i32 [ %394, %local_isprint.exit145 ], [ %384, %376 ], [ %361, %375 ], [ %361, %local_isprint.exit142.thread ]
-  %419 = phi i32 [ %395, %local_isprint.exit145 ], [ %383, %376 ], [ %360, %375 ], [ %360, %local_isprint.exit142.thread ]
-  %420 = phi i32 [ %396, %local_isprint.exit145 ], [ %382, %376 ], [ %359, %375 ], [ %359, %local_isprint.exit142.thread ]
-  %421 = phi i32 [ %397, %local_isprint.exit145 ], [ %381, %376 ], [ %358, %375 ], [ %358, %local_isprint.exit142.thread ]
-  %422 = phi i32 [ %398, %local_isprint.exit145 ], [ %380, %376 ], [ %357, %375 ], [ %357, %local_isprint.exit142.thread ]
-  %423 = phi i32 [ %399, %local_isprint.exit145 ], [ %379, %376 ], [ %356, %375 ], [ %356, %local_isprint.exit142.thread ]
-  %424 = phi i32 [ %400, %local_isprint.exit145 ], [ %378, %376 ], [ %355, %375 ], [ %355, %local_isprint.exit142.thread ]
-  %425 = phi i32 [ %401, %local_isprint.exit145 ], [ %377, %376 ], [ %354, %375 ], [ %354, %local_isprint.exit142.thread ]
-  %426 = phi i32 [ 46, %local_isprint.exit145 ], [ 32, %376 ], [ 32, %375 ], [ 32, %local_isprint.exit142.thread ]
-  br i1 %94, label %427, label %452
+400:                                              ; preds = %local_isprint.exit142.thread, %363, %364, %local_isprint.exit145
+  %401 = phi i32 [ %378, %local_isprint.exit145 ], [ %376, %364 ], [ %356, %363 ], [ 46, %local_isprint.exit142.thread ]
+  %402 = phi i32 [ %379, %local_isprint.exit145 ], [ %375, %364 ], [ %353, %363 ], [ %353, %local_isprint.exit142.thread ]
+  %403 = phi i32 [ %380, %local_isprint.exit145 ], [ %374, %364 ], [ %352, %363 ], [ %352, %local_isprint.exit142.thread ]
+  %404 = phi i32 [ %381, %local_isprint.exit145 ], [ %373, %364 ], [ %351, %363 ], [ %351, %local_isprint.exit142.thread ]
+  %405 = phi i32 [ %382, %local_isprint.exit145 ], [ %372, %364 ], [ %350, %363 ], [ %350, %local_isprint.exit142.thread ]
+  %406 = phi i32 [ %383, %local_isprint.exit145 ], [ %371, %364 ], [ %349, %363 ], [ %349, %local_isprint.exit142.thread ]
+  %407 = phi i32 [ %384, %local_isprint.exit145 ], [ %370, %364 ], [ %348, %363 ], [ %348, %local_isprint.exit142.thread ]
+  %408 = phi i32 [ %385, %local_isprint.exit145 ], [ %369, %364 ], [ %347, %363 ], [ %347, %local_isprint.exit142.thread ]
+  %409 = phi i32 [ %386, %local_isprint.exit145 ], [ %368, %364 ], [ %346, %363 ], [ %346, %local_isprint.exit142.thread ]
+  %410 = phi i32 [ %387, %local_isprint.exit145 ], [ %367, %364 ], [ %345, %363 ], [ %345, %local_isprint.exit142.thread ]
+  %411 = phi i32 [ %388, %local_isprint.exit145 ], [ %366, %364 ], [ %344, %363 ], [ %344, %local_isprint.exit142.thread ]
+  %412 = phi i32 [ %389, %local_isprint.exit145 ], [ %365, %364 ], [ %343, %363 ], [ %343, %local_isprint.exit142.thread ]
+  %413 = phi i32 [ 46, %local_isprint.exit145 ], [ 32, %364 ], [ 32, %363 ], [ 32, %local_isprint.exit142.thread ]
+  br i1 %94, label %414, label %438
 
-427:                                              ; preds = %local_isprint.exit145.thread, %412, %413
-  %428 = phi i32 [ %404, %412 ], [ %426, %413 ], [ 46, %local_isprint.exit145.thread ]
-  %429 = phi i32 [ %401, %412 ], [ %425, %413 ], [ %401, %local_isprint.exit145.thread ]
-  %430 = phi i32 [ %400, %412 ], [ %424, %413 ], [ %400, %local_isprint.exit145.thread ]
-  %431 = phi i32 [ %399, %412 ], [ %423, %413 ], [ %399, %local_isprint.exit145.thread ]
-  %432 = phi i32 [ %398, %412 ], [ %422, %413 ], [ %398, %local_isprint.exit145.thread ]
-  %433 = phi i32 [ %397, %412 ], [ %421, %413 ], [ %397, %local_isprint.exit145.thread ]
-  %434 = phi i32 [ %396, %412 ], [ %420, %413 ], [ %396, %local_isprint.exit145.thread ]
-  %435 = phi i32 [ %395, %412 ], [ %419, %413 ], [ %395, %local_isprint.exit145.thread ]
-  %436 = phi i32 [ %394, %412 ], [ %418, %413 ], [ %394, %local_isprint.exit145.thread ]
-  %437 = phi i32 [ %393, %412 ], [ %417, %413 ], [ %393, %local_isprint.exit145.thread ]
-  %438 = phi i32 [ %392, %412 ], [ %416, %413 ], [ %392, %local_isprint.exit145.thread ]
-  %439 = phi i32 [ %391, %412 ], [ %415, %413 ], [ %391, %local_isprint.exit145.thread ]
-  %440 = phi i32 [ %390, %412 ], [ %414, %413 ], [ %390, %local_isprint.exit145.thread ]
-  %441 = getelementptr inbounds nuw i8, ptr %.0618, i64 13
-  %442 = load i8, ptr %441, align 1, !tbaa !11
-  %443 = zext i8 %442 to i32
-  %444 = add nsw i32 %443, -128
-  %or.cond.i146 = icmp ult i32 %444, -96
+414:                                              ; preds = %local_isprint.exit145.thread, %399, %400
+  %415 = phi i32 [ %392, %399 ], [ %413, %400 ], [ 46, %local_isprint.exit145.thread ]
+  %416 = phi i32 [ %389, %399 ], [ %412, %400 ], [ %389, %local_isprint.exit145.thread ]
+  %417 = phi i32 [ %388, %399 ], [ %411, %400 ], [ %388, %local_isprint.exit145.thread ]
+  %418 = phi i32 [ %387, %399 ], [ %410, %400 ], [ %387, %local_isprint.exit145.thread ]
+  %419 = phi i32 [ %386, %399 ], [ %409, %400 ], [ %386, %local_isprint.exit145.thread ]
+  %420 = phi i32 [ %385, %399 ], [ %408, %400 ], [ %385, %local_isprint.exit145.thread ]
+  %421 = phi i32 [ %384, %399 ], [ %407, %400 ], [ %384, %local_isprint.exit145.thread ]
+  %422 = phi i32 [ %383, %399 ], [ %406, %400 ], [ %383, %local_isprint.exit145.thread ]
+  %423 = phi i32 [ %382, %399 ], [ %405, %400 ], [ %382, %local_isprint.exit145.thread ]
+  %424 = phi i32 [ %381, %399 ], [ %404, %400 ], [ %381, %local_isprint.exit145.thread ]
+  %425 = phi i32 [ %380, %399 ], [ %403, %400 ], [ %380, %local_isprint.exit145.thread ]
+  %426 = phi i32 [ %379, %399 ], [ %402, %400 ], [ %379, %local_isprint.exit145.thread ]
+  %427 = phi i32 [ %378, %399 ], [ %401, %400 ], [ %378, %local_isprint.exit145.thread ]
+  %428 = getelementptr inbounds nuw i8, ptr %.0618, i64 13
+  %429 = load i8, ptr %428, align 1, !tbaa !11
+  %430 = zext i8 %429 to i32
+  %or.cond.i146 = icmp slt i8 %429, 32
   br i1 %or.cond.i146, label %local_isprint.exit148.thread, label %local_isprint.exit148
 
-local_isprint.exit148.thread:                     ; preds = %427
-  br i1 %74, label %467, label %493
+local_isprint.exit148.thread:                     ; preds = %414
+  br i1 %74, label %453, label %478
 
-local_isprint.exit148:                            ; preds = %427
-  %445 = tail call ptr @__ctype_b_loc() #17
-  %446 = load ptr, ptr %445, align 8, !tbaa !12
-  %447 = zext i8 %442 to i64
-  %448 = getelementptr inbounds nuw i16, ptr %446, i64 %447
-  %449 = load i16, ptr %448, align 2, !tbaa !14
-  %450 = and i16 %449, 16384
-  %.not107 = icmp eq i16 %450, 0
-  br i1 %.not107, label %452, label %451
+local_isprint.exit148:                            ; preds = %414
+  %431 = tail call ptr @__ctype_b_loc() #17
+  %432 = load ptr, ptr %431, align 8, !tbaa !12
+  %433 = zext nneg i8 %429 to i64
+  %434 = getelementptr inbounds nuw i16, ptr %432, i64 %433
+  %435 = load i16, ptr %434, align 2, !tbaa !14
+  %436 = and i16 %435, 16384
+  %.not107 = icmp eq i16 %436, 0
+  br i1 %.not107, label %438, label %437
 
-451:                                              ; preds = %local_isprint.exit148
-  br i1 %74, label %467, label %493
+437:                                              ; preds = %local_isprint.exit148
+  br i1 %74, label %453, label %478
 
-452:                                              ; preds = %local_isprint.exit145.thread, %412, %413, %local_isprint.exit148
-  %453 = phi i32 [ %428, %local_isprint.exit148 ], [ %426, %413 ], [ %404, %412 ], [ 46, %local_isprint.exit145.thread ]
-  %454 = phi i32 [ %429, %local_isprint.exit148 ], [ %425, %413 ], [ %401, %412 ], [ %401, %local_isprint.exit145.thread ]
-  %455 = phi i32 [ %430, %local_isprint.exit148 ], [ %424, %413 ], [ %400, %412 ], [ %400, %local_isprint.exit145.thread ]
-  %456 = phi i32 [ %431, %local_isprint.exit148 ], [ %423, %413 ], [ %399, %412 ], [ %399, %local_isprint.exit145.thread ]
-  %457 = phi i32 [ %432, %local_isprint.exit148 ], [ %422, %413 ], [ %398, %412 ], [ %398, %local_isprint.exit145.thread ]
-  %458 = phi i32 [ %433, %local_isprint.exit148 ], [ %421, %413 ], [ %397, %412 ], [ %397, %local_isprint.exit145.thread ]
-  %459 = phi i32 [ %434, %local_isprint.exit148 ], [ %420, %413 ], [ %396, %412 ], [ %396, %local_isprint.exit145.thread ]
-  %460 = phi i32 [ %435, %local_isprint.exit148 ], [ %419, %413 ], [ %395, %412 ], [ %395, %local_isprint.exit145.thread ]
-  %461 = phi i32 [ %436, %local_isprint.exit148 ], [ %418, %413 ], [ %394, %412 ], [ %394, %local_isprint.exit145.thread ]
-  %462 = phi i32 [ %437, %local_isprint.exit148 ], [ %417, %413 ], [ %393, %412 ], [ %393, %local_isprint.exit145.thread ]
-  %463 = phi i32 [ %438, %local_isprint.exit148 ], [ %416, %413 ], [ %392, %412 ], [ %392, %local_isprint.exit145.thread ]
-  %464 = phi i32 [ %439, %local_isprint.exit148 ], [ %415, %413 ], [ %391, %412 ], [ %391, %local_isprint.exit145.thread ]
-  %465 = phi i32 [ %440, %local_isprint.exit148 ], [ %414, %413 ], [ %390, %412 ], [ %390, %local_isprint.exit145.thread ]
-  %466 = phi i32 [ 46, %local_isprint.exit148 ], [ 32, %413 ], [ 32, %412 ], [ 32, %local_isprint.exit145.thread ]
-  br i1 %74, label %467, label %493
+438:                                              ; preds = %local_isprint.exit145.thread, %399, %400, %local_isprint.exit148
+  %439 = phi i32 [ %415, %local_isprint.exit148 ], [ %413, %400 ], [ %392, %399 ], [ 46, %local_isprint.exit145.thread ]
+  %440 = phi i32 [ %416, %local_isprint.exit148 ], [ %412, %400 ], [ %389, %399 ], [ %389, %local_isprint.exit145.thread ]
+  %441 = phi i32 [ %417, %local_isprint.exit148 ], [ %411, %400 ], [ %388, %399 ], [ %388, %local_isprint.exit145.thread ]
+  %442 = phi i32 [ %418, %local_isprint.exit148 ], [ %410, %400 ], [ %387, %399 ], [ %387, %local_isprint.exit145.thread ]
+  %443 = phi i32 [ %419, %local_isprint.exit148 ], [ %409, %400 ], [ %386, %399 ], [ %386, %local_isprint.exit145.thread ]
+  %444 = phi i32 [ %420, %local_isprint.exit148 ], [ %408, %400 ], [ %385, %399 ], [ %385, %local_isprint.exit145.thread ]
+  %445 = phi i32 [ %421, %local_isprint.exit148 ], [ %407, %400 ], [ %384, %399 ], [ %384, %local_isprint.exit145.thread ]
+  %446 = phi i32 [ %422, %local_isprint.exit148 ], [ %406, %400 ], [ %383, %399 ], [ %383, %local_isprint.exit145.thread ]
+  %447 = phi i32 [ %423, %local_isprint.exit148 ], [ %405, %400 ], [ %382, %399 ], [ %382, %local_isprint.exit145.thread ]
+  %448 = phi i32 [ %424, %local_isprint.exit148 ], [ %404, %400 ], [ %381, %399 ], [ %381, %local_isprint.exit145.thread ]
+  %449 = phi i32 [ %425, %local_isprint.exit148 ], [ %403, %400 ], [ %380, %399 ], [ %380, %local_isprint.exit145.thread ]
+  %450 = phi i32 [ %426, %local_isprint.exit148 ], [ %402, %400 ], [ %379, %399 ], [ %379, %local_isprint.exit145.thread ]
+  %451 = phi i32 [ %427, %local_isprint.exit148 ], [ %401, %400 ], [ %378, %399 ], [ %378, %local_isprint.exit145.thread ]
+  %452 = phi i32 [ 46, %local_isprint.exit148 ], [ 32, %400 ], [ 32, %399 ], [ 32, %local_isprint.exit145.thread ]
+  br i1 %74, label %453, label %478
 
-467:                                              ; preds = %local_isprint.exit148.thread, %451, %452
-  %468 = phi i32 [ %443, %451 ], [ %466, %452 ], [ 46, %local_isprint.exit148.thread ]
-  %469 = phi i32 [ %440, %451 ], [ %465, %452 ], [ %440, %local_isprint.exit148.thread ]
-  %470 = phi i32 [ %439, %451 ], [ %464, %452 ], [ %439, %local_isprint.exit148.thread ]
-  %471 = phi i32 [ %438, %451 ], [ %463, %452 ], [ %438, %local_isprint.exit148.thread ]
-  %472 = phi i32 [ %437, %451 ], [ %462, %452 ], [ %437, %local_isprint.exit148.thread ]
-  %473 = phi i32 [ %436, %451 ], [ %461, %452 ], [ %436, %local_isprint.exit148.thread ]
-  %474 = phi i32 [ %435, %451 ], [ %460, %452 ], [ %435, %local_isprint.exit148.thread ]
-  %475 = phi i32 [ %434, %451 ], [ %459, %452 ], [ %434, %local_isprint.exit148.thread ]
-  %476 = phi i32 [ %433, %451 ], [ %458, %452 ], [ %433, %local_isprint.exit148.thread ]
-  %477 = phi i32 [ %432, %451 ], [ %457, %452 ], [ %432, %local_isprint.exit148.thread ]
-  %478 = phi i32 [ %431, %451 ], [ %456, %452 ], [ %431, %local_isprint.exit148.thread ]
-  %479 = phi i32 [ %430, %451 ], [ %455, %452 ], [ %430, %local_isprint.exit148.thread ]
-  %480 = phi i32 [ %429, %451 ], [ %454, %452 ], [ %429, %local_isprint.exit148.thread ]
-  %481 = phi i32 [ %428, %451 ], [ %453, %452 ], [ %428, %local_isprint.exit148.thread ]
-  %482 = getelementptr inbounds nuw i8, ptr %.0618, i64 14
-  %483 = load i8, ptr %482, align 1, !tbaa !11
-  %484 = zext i8 %483 to i32
-  %485 = add nsw i32 %484, -128
-  %or.cond.i149 = icmp ult i32 %485, -96
+453:                                              ; preds = %local_isprint.exit148.thread, %437, %438
+  %454 = phi i32 [ %430, %437 ], [ %452, %438 ], [ 46, %local_isprint.exit148.thread ]
+  %455 = phi i32 [ %427, %437 ], [ %451, %438 ], [ %427, %local_isprint.exit148.thread ]
+  %456 = phi i32 [ %426, %437 ], [ %450, %438 ], [ %426, %local_isprint.exit148.thread ]
+  %457 = phi i32 [ %425, %437 ], [ %449, %438 ], [ %425, %local_isprint.exit148.thread ]
+  %458 = phi i32 [ %424, %437 ], [ %448, %438 ], [ %424, %local_isprint.exit148.thread ]
+  %459 = phi i32 [ %423, %437 ], [ %447, %438 ], [ %423, %local_isprint.exit148.thread ]
+  %460 = phi i32 [ %422, %437 ], [ %446, %438 ], [ %422, %local_isprint.exit148.thread ]
+  %461 = phi i32 [ %421, %437 ], [ %445, %438 ], [ %421, %local_isprint.exit148.thread ]
+  %462 = phi i32 [ %420, %437 ], [ %444, %438 ], [ %420, %local_isprint.exit148.thread ]
+  %463 = phi i32 [ %419, %437 ], [ %443, %438 ], [ %419, %local_isprint.exit148.thread ]
+  %464 = phi i32 [ %418, %437 ], [ %442, %438 ], [ %418, %local_isprint.exit148.thread ]
+  %465 = phi i32 [ %417, %437 ], [ %441, %438 ], [ %417, %local_isprint.exit148.thread ]
+  %466 = phi i32 [ %416, %437 ], [ %440, %438 ], [ %416, %local_isprint.exit148.thread ]
+  %467 = phi i32 [ %415, %437 ], [ %439, %438 ], [ %415, %local_isprint.exit148.thread ]
+  %468 = getelementptr inbounds nuw i8, ptr %.0618, i64 14
+  %469 = load i8, ptr %468, align 1, !tbaa !11
+  %470 = zext i8 %469 to i32
+  %or.cond.i149 = icmp slt i8 %469, 32
   br i1 %or.cond.i149, label %local_isprint.exit151.thread, label %local_isprint.exit151
 
-local_isprint.exit151.thread:                     ; preds = %467
-  br i1 %95, label %509, label %local_isprint.exit154.thread
+local_isprint.exit151.thread:                     ; preds = %453
+  br i1 %95, label %494, label %local_isprint.exit154.thread
 
-local_isprint.exit151:                            ; preds = %467
-  %486 = tail call ptr @__ctype_b_loc() #17
-  %487 = load ptr, ptr %486, align 8, !tbaa !12
-  %488 = zext i8 %483 to i64
-  %489 = getelementptr inbounds nuw i16, ptr %487, i64 %488
-  %490 = load i16, ptr %489, align 2, !tbaa !14
-  %491 = and i16 %490, 16384
-  %.not108 = icmp eq i16 %491, 0
-  br i1 %.not108, label %493, label %492
+local_isprint.exit151:                            ; preds = %453
+  %471 = tail call ptr @__ctype_b_loc() #17
+  %472 = load ptr, ptr %471, align 8, !tbaa !12
+  %473 = zext nneg i8 %469 to i64
+  %474 = getelementptr inbounds nuw i16, ptr %472, i64 %473
+  %475 = load i16, ptr %474, align 2, !tbaa !14
+  %476 = and i16 %475, 16384
+  %.not108 = icmp eq i16 %476, 0
+  br i1 %.not108, label %478, label %477
 
-492:                                              ; preds = %local_isprint.exit151
-  br i1 %95, label %509, label %local_isprint.exit154.thread
+477:                                              ; preds = %local_isprint.exit151
+  br i1 %95, label %494, label %local_isprint.exit154.thread
 
-493:                                              ; preds = %local_isprint.exit148.thread, %451, %452, %local_isprint.exit151
-  %494 = phi i32 [ %468, %local_isprint.exit151 ], [ %466, %452 ], [ %443, %451 ], [ 46, %local_isprint.exit148.thread ]
-  %495 = phi i32 [ %469, %local_isprint.exit151 ], [ %465, %452 ], [ %440, %451 ], [ %440, %local_isprint.exit148.thread ]
-  %496 = phi i32 [ %470, %local_isprint.exit151 ], [ %464, %452 ], [ %439, %451 ], [ %439, %local_isprint.exit148.thread ]
-  %497 = phi i32 [ %471, %local_isprint.exit151 ], [ %463, %452 ], [ %438, %451 ], [ %438, %local_isprint.exit148.thread ]
-  %498 = phi i32 [ %472, %local_isprint.exit151 ], [ %462, %452 ], [ %437, %451 ], [ %437, %local_isprint.exit148.thread ]
-  %499 = phi i32 [ %473, %local_isprint.exit151 ], [ %461, %452 ], [ %436, %451 ], [ %436, %local_isprint.exit148.thread ]
-  %500 = phi i32 [ %474, %local_isprint.exit151 ], [ %460, %452 ], [ %435, %451 ], [ %435, %local_isprint.exit148.thread ]
-  %501 = phi i32 [ %475, %local_isprint.exit151 ], [ %459, %452 ], [ %434, %451 ], [ %434, %local_isprint.exit148.thread ]
-  %502 = phi i32 [ %476, %local_isprint.exit151 ], [ %458, %452 ], [ %433, %451 ], [ %433, %local_isprint.exit148.thread ]
-  %503 = phi i32 [ %477, %local_isprint.exit151 ], [ %457, %452 ], [ %432, %451 ], [ %432, %local_isprint.exit148.thread ]
-  %504 = phi i32 [ %478, %local_isprint.exit151 ], [ %456, %452 ], [ %431, %451 ], [ %431, %local_isprint.exit148.thread ]
-  %505 = phi i32 [ %479, %local_isprint.exit151 ], [ %455, %452 ], [ %430, %451 ], [ %430, %local_isprint.exit148.thread ]
-  %506 = phi i32 [ %480, %local_isprint.exit151 ], [ %454, %452 ], [ %429, %451 ], [ %429, %local_isprint.exit148.thread ]
-  %507 = phi i32 [ %481, %local_isprint.exit151 ], [ %453, %452 ], [ %428, %451 ], [ %428, %local_isprint.exit148.thread ]
-  %508 = phi i32 [ 46, %local_isprint.exit151 ], [ 32, %452 ], [ 32, %451 ], [ 32, %local_isprint.exit148.thread ]
-  br i1 %95, label %509, label %local_isprint.exit154.thread
+478:                                              ; preds = %local_isprint.exit148.thread, %437, %438, %local_isprint.exit151
+  %479 = phi i32 [ %454, %local_isprint.exit151 ], [ %452, %438 ], [ %430, %437 ], [ 46, %local_isprint.exit148.thread ]
+  %480 = phi i32 [ %455, %local_isprint.exit151 ], [ %451, %438 ], [ %427, %437 ], [ %427, %local_isprint.exit148.thread ]
+  %481 = phi i32 [ %456, %local_isprint.exit151 ], [ %450, %438 ], [ %426, %437 ], [ %426, %local_isprint.exit148.thread ]
+  %482 = phi i32 [ %457, %local_isprint.exit151 ], [ %449, %438 ], [ %425, %437 ], [ %425, %local_isprint.exit148.thread ]
+  %483 = phi i32 [ %458, %local_isprint.exit151 ], [ %448, %438 ], [ %424, %437 ], [ %424, %local_isprint.exit148.thread ]
+  %484 = phi i32 [ %459, %local_isprint.exit151 ], [ %447, %438 ], [ %423, %437 ], [ %423, %local_isprint.exit148.thread ]
+  %485 = phi i32 [ %460, %local_isprint.exit151 ], [ %446, %438 ], [ %422, %437 ], [ %422, %local_isprint.exit148.thread ]
+  %486 = phi i32 [ %461, %local_isprint.exit151 ], [ %445, %438 ], [ %421, %437 ], [ %421, %local_isprint.exit148.thread ]
+  %487 = phi i32 [ %462, %local_isprint.exit151 ], [ %444, %438 ], [ %420, %437 ], [ %420, %local_isprint.exit148.thread ]
+  %488 = phi i32 [ %463, %local_isprint.exit151 ], [ %443, %438 ], [ %419, %437 ], [ %419, %local_isprint.exit148.thread ]
+  %489 = phi i32 [ %464, %local_isprint.exit151 ], [ %442, %438 ], [ %418, %437 ], [ %418, %local_isprint.exit148.thread ]
+  %490 = phi i32 [ %465, %local_isprint.exit151 ], [ %441, %438 ], [ %417, %437 ], [ %417, %local_isprint.exit148.thread ]
+  %491 = phi i32 [ %466, %local_isprint.exit151 ], [ %440, %438 ], [ %416, %437 ], [ %416, %local_isprint.exit148.thread ]
+  %492 = phi i32 [ %467, %local_isprint.exit151 ], [ %439, %438 ], [ %415, %437 ], [ %415, %local_isprint.exit148.thread ]
+  %493 = phi i32 [ 46, %local_isprint.exit151 ], [ 32, %438 ], [ 32, %437 ], [ 32, %local_isprint.exit148.thread ]
+  br i1 %95, label %494, label %local_isprint.exit154.thread
 
-509:                                              ; preds = %local_isprint.exit151.thread, %492, %493
-  %510 = phi i32 [ %484, %492 ], [ %508, %493 ], [ 46, %local_isprint.exit151.thread ]
-  %511 = phi i32 [ %481, %492 ], [ %507, %493 ], [ %481, %local_isprint.exit151.thread ]
-  %512 = phi i32 [ %480, %492 ], [ %506, %493 ], [ %480, %local_isprint.exit151.thread ]
-  %513 = phi i32 [ %479, %492 ], [ %505, %493 ], [ %479, %local_isprint.exit151.thread ]
-  %514 = phi i32 [ %478, %492 ], [ %504, %493 ], [ %478, %local_isprint.exit151.thread ]
-  %515 = phi i32 [ %477, %492 ], [ %503, %493 ], [ %477, %local_isprint.exit151.thread ]
-  %516 = phi i32 [ %476, %492 ], [ %502, %493 ], [ %476, %local_isprint.exit151.thread ]
-  %517 = phi i32 [ %475, %492 ], [ %501, %493 ], [ %475, %local_isprint.exit151.thread ]
-  %518 = phi i32 [ %474, %492 ], [ %500, %493 ], [ %474, %local_isprint.exit151.thread ]
-  %519 = phi i32 [ %473, %492 ], [ %499, %493 ], [ %473, %local_isprint.exit151.thread ]
-  %520 = phi i32 [ %472, %492 ], [ %498, %493 ], [ %472, %local_isprint.exit151.thread ]
-  %521 = phi i32 [ %471, %492 ], [ %497, %493 ], [ %471, %local_isprint.exit151.thread ]
-  %522 = phi i32 [ %470, %492 ], [ %496, %493 ], [ %470, %local_isprint.exit151.thread ]
-  %523 = phi i32 [ %469, %492 ], [ %495, %493 ], [ %469, %local_isprint.exit151.thread ]
-  %524 = phi i32 [ %468, %492 ], [ %494, %493 ], [ %468, %local_isprint.exit151.thread ]
-  %525 = getelementptr inbounds nuw i8, ptr %.0618, i64 15
-  %526 = load i8, ptr %525, align 1, !tbaa !11
-  %527 = zext i8 %526 to i32
-  %528 = add nsw i32 %527, -128
-  %or.cond.i152 = icmp ult i32 %528, -96
+494:                                              ; preds = %local_isprint.exit151.thread, %477, %478
+  %495 = phi i32 [ %470, %477 ], [ %493, %478 ], [ 46, %local_isprint.exit151.thread ]
+  %496 = phi i32 [ %467, %477 ], [ %492, %478 ], [ %467, %local_isprint.exit151.thread ]
+  %497 = phi i32 [ %466, %477 ], [ %491, %478 ], [ %466, %local_isprint.exit151.thread ]
+  %498 = phi i32 [ %465, %477 ], [ %490, %478 ], [ %465, %local_isprint.exit151.thread ]
+  %499 = phi i32 [ %464, %477 ], [ %489, %478 ], [ %464, %local_isprint.exit151.thread ]
+  %500 = phi i32 [ %463, %477 ], [ %488, %478 ], [ %463, %local_isprint.exit151.thread ]
+  %501 = phi i32 [ %462, %477 ], [ %487, %478 ], [ %462, %local_isprint.exit151.thread ]
+  %502 = phi i32 [ %461, %477 ], [ %486, %478 ], [ %461, %local_isprint.exit151.thread ]
+  %503 = phi i32 [ %460, %477 ], [ %485, %478 ], [ %460, %local_isprint.exit151.thread ]
+  %504 = phi i32 [ %459, %477 ], [ %484, %478 ], [ %459, %local_isprint.exit151.thread ]
+  %505 = phi i32 [ %458, %477 ], [ %483, %478 ], [ %458, %local_isprint.exit151.thread ]
+  %506 = phi i32 [ %457, %477 ], [ %482, %478 ], [ %457, %local_isprint.exit151.thread ]
+  %507 = phi i32 [ %456, %477 ], [ %481, %478 ], [ %456, %local_isprint.exit151.thread ]
+  %508 = phi i32 [ %455, %477 ], [ %480, %478 ], [ %455, %local_isprint.exit151.thread ]
+  %509 = phi i32 [ %454, %477 ], [ %479, %478 ], [ %454, %local_isprint.exit151.thread ]
+  %510 = getelementptr inbounds nuw i8, ptr %.0618, i64 15
+  %511 = load i8, ptr %510, align 1, !tbaa !11
+  %or.cond.i152 = icmp slt i8 %511, 32
   br i1 %or.cond.i152, label %local_isprint.exit154.thread, label %local_isprint.exit154
 
-local_isprint.exit154:                            ; preds = %509
-  %529 = tail call ptr @__ctype_b_loc() #17
-  %530 = load ptr, ptr %529, align 8, !tbaa !12
-  %531 = zext i8 %526 to i64
-  %532 = getelementptr inbounds nuw i16, ptr %530, i64 %531
-  %533 = load i16, ptr %532, align 2, !tbaa !14
-  %534 = and i16 %533, 16384
-  %.not109 = icmp eq i16 %534, 0
-  %spec.select = select i1 %.not109, i32 46, i32 %527
+local_isprint.exit154:                            ; preds = %494
+  %512 = zext nneg i8 %511 to i32
+  %513 = tail call ptr @__ctype_b_loc() #17
+  %514 = load ptr, ptr %513, align 8, !tbaa !12
+  %515 = zext nneg i8 %511 to i64
+  %516 = getelementptr inbounds nuw i16, ptr %514, i64 %515
+  %517 = load i16, ptr %516, align 2, !tbaa !14
+  %518 = and i16 %517, 16384
+  %.not109 = icmp eq i16 %518, 0
+  %spec.select = select i1 %.not109, i32 46, i32 %512
   br label %local_isprint.exit154.thread
 
-local_isprint.exit154.thread:                     ; preds = %7, %local_isprint.exit154, %509, %local_isprint.exit151.thread, %492, %493
-  %535 = phi i32 [ %508, %493 ], [ %484, %492 ], [ 46, %local_isprint.exit151.thread ], [ %510, %509 ], [ %510, %local_isprint.exit154 ], [ 32, %7 ]
-  %536 = phi i32 [ %507, %493 ], [ %481, %492 ], [ %481, %local_isprint.exit151.thread ], [ %511, %509 ], [ %511, %local_isprint.exit154 ], [ 32, %7 ]
-  %537 = phi i32 [ %506, %493 ], [ %480, %492 ], [ %480, %local_isprint.exit151.thread ], [ %512, %509 ], [ %512, %local_isprint.exit154 ], [ 32, %7 ]
-  %538 = phi i32 [ %505, %493 ], [ %479, %492 ], [ %479, %local_isprint.exit151.thread ], [ %513, %509 ], [ %513, %local_isprint.exit154 ], [ 32, %7 ]
-  %539 = phi i32 [ %504, %493 ], [ %478, %492 ], [ %478, %local_isprint.exit151.thread ], [ %514, %509 ], [ %514, %local_isprint.exit154 ], [ 32, %7 ]
-  %540 = phi i32 [ %503, %493 ], [ %477, %492 ], [ %477, %local_isprint.exit151.thread ], [ %515, %509 ], [ %515, %local_isprint.exit154 ], [ 32, %7 ]
-  %541 = phi i32 [ %502, %493 ], [ %476, %492 ], [ %476, %local_isprint.exit151.thread ], [ %516, %509 ], [ %516, %local_isprint.exit154 ], [ 32, %7 ]
-  %542 = phi i32 [ %501, %493 ], [ %475, %492 ], [ %475, %local_isprint.exit151.thread ], [ %517, %509 ], [ %517, %local_isprint.exit154 ], [ 32, %7 ]
-  %.shrunk696 = phi i8 [ %.shrunk583, %493 ], [ %.shrunk583, %492 ], [ %.shrunk583, %local_isprint.exit151.thread ], [ %.shrunk583, %509 ], [ %.shrunk583, %local_isprint.exit154 ], [ 0, %7 ]
-  %.shrunk697 = phi i8 [ %.shrunk582, %493 ], [ %.shrunk582, %492 ], [ %.shrunk582, %local_isprint.exit151.thread ], [ %.shrunk582, %509 ], [ %.shrunk582, %local_isprint.exit154 ], [ 0, %7 ]
-  %.shrunk698 = phi i8 [ %.shrunk581, %493 ], [ %.shrunk581, %492 ], [ %.shrunk581, %local_isprint.exit151.thread ], [ %.shrunk581, %509 ], [ %.shrunk581, %local_isprint.exit154 ], [ 0, %7 ]
-  %.shrunk699 = phi i8 [ %.shrunk580, %493 ], [ %.shrunk580, %492 ], [ %.shrunk580, %local_isprint.exit151.thread ], [ %.shrunk580, %509 ], [ %.shrunk580, %local_isprint.exit154 ], [ 0, %7 ]
-  %543 = phi i32 [ %90, %493 ], [ %90, %492 ], [ %90, %local_isprint.exit151.thread ], [ %90, %509 ], [ %90, %local_isprint.exit154 ], [ 0, %7 ]
-  %544 = phi i32 [ %88, %493 ], [ %88, %492 ], [ %88, %local_isprint.exit151.thread ], [ %88, %509 ], [ %88, %local_isprint.exit154 ], [ 0, %7 ]
-  %545 = phi i32 [ %86, %493 ], [ %86, %492 ], [ %86, %local_isprint.exit151.thread ], [ %86, %509 ], [ %86, %local_isprint.exit154 ], [ 0, %7 ]
-  %546 = phi i32 [ %11, %493 ], [ %11, %492 ], [ %11, %local_isprint.exit151.thread ], [ %11, %509 ], [ %11, %local_isprint.exit154 ], [ 0, %7 ]
-  %547 = phi i32 [ %84, %493 ], [ %84, %492 ], [ %84, %local_isprint.exit151.thread ], [ %84, %509 ], [ %84, %local_isprint.exit154 ], [ 0, %7 ]
-  %548 = phi i32 [ %82, %493 ], [ %82, %492 ], [ %82, %local_isprint.exit151.thread ], [ %82, %509 ], [ %82, %local_isprint.exit154 ], [ 0, %7 ]
-  %549 = phi i32 [ %80, %493 ], [ %80, %492 ], [ %80, %local_isprint.exit151.thread ], [ %80, %509 ], [ %80, %local_isprint.exit154 ], [ 0, %7 ]
-  %550 = phi i32 [ %78, %493 ], [ %78, %492 ], [ %78, %local_isprint.exit151.thread ], [ %78, %509 ], [ %78, %local_isprint.exit154 ], [ 0, %7 ]
-  %.shrunk700 = phi i8 [ %.shrunk579, %493 ], [ %.shrunk579, %492 ], [ %.shrunk579, %local_isprint.exit151.thread ], [ %.shrunk579, %509 ], [ %.shrunk579, %local_isprint.exit154 ], [ 0, %7 ]
-  %.shrunk701 = phi i8 [ %.shrunk578, %493 ], [ %.shrunk578, %492 ], [ %.shrunk578, %local_isprint.exit151.thread ], [ %.shrunk578, %509 ], [ %.shrunk578, %local_isprint.exit154 ], [ 0, %7 ]
-  %.shrunk702 = phi i8 [ %.shrunk, %493 ], [ %.shrunk, %492 ], [ %.shrunk, %local_isprint.exit151.thread ], [ %.shrunk, %509 ], [ %.shrunk, %local_isprint.exit154 ], [ 0, %7 ]
-  %551 = phi i32 [ %73, %493 ], [ %73, %492 ], [ %73, %local_isprint.exit151.thread ], [ %73, %509 ], [ %73, %local_isprint.exit154 ], [ 0, %7 ]
-  %552 = phi i32 [ %500, %493 ], [ %474, %492 ], [ %474, %local_isprint.exit151.thread ], [ %518, %509 ], [ %518, %local_isprint.exit154 ], [ 32, %7 ]
-  %553 = phi i32 [ %499, %493 ], [ %473, %492 ], [ %473, %local_isprint.exit151.thread ], [ %519, %509 ], [ %519, %local_isprint.exit154 ], [ 32, %7 ]
-  %554 = phi i32 [ %498, %493 ], [ %472, %492 ], [ %472, %local_isprint.exit151.thread ], [ %520, %509 ], [ %520, %local_isprint.exit154 ], [ 32, %7 ]
-  %555 = phi i32 [ %497, %493 ], [ %471, %492 ], [ %471, %local_isprint.exit151.thread ], [ %521, %509 ], [ %521, %local_isprint.exit154 ], [ 32, %7 ]
-  %556 = phi i32 [ %496, %493 ], [ %470, %492 ], [ %470, %local_isprint.exit151.thread ], [ %522, %509 ], [ %522, %local_isprint.exit154 ], [ 32, %7 ]
-  %557 = phi i32 [ %495, %493 ], [ %469, %492 ], [ %469, %local_isprint.exit151.thread ], [ %523, %509 ], [ %523, %local_isprint.exit154 ], [ 32, %7 ]
-  %558 = phi i32 [ %494, %493 ], [ %468, %492 ], [ %468, %local_isprint.exit151.thread ], [ %524, %509 ], [ %524, %local_isprint.exit154 ], [ 32, %7 ]
-  %559 = phi i32 [ 32, %493 ], [ 32, %492 ], [ 32, %local_isprint.exit151.thread ], [ 46, %509 ], [ %spec.select, %local_isprint.exit154 ], [ 32, %7 ]
-  %560 = zext i8 %.shrunk702 to i32
-  %561 = zext i8 %.shrunk701 to i32
-  %562 = zext i8 %.shrunk700 to i32
-  %563 = zext i8 %.shrunk699 to i32
-  %564 = zext i8 %.shrunk698 to i32
-  %565 = zext i8 %.shrunk697 to i32
-  %566 = zext i8 %.shrunk696 to i32
-  %567 = tail call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 1, ptr noundef nonnull @.str.6, ptr noundef %3, i32 noundef %.092584, i32 noundef %546, i32 noundef %547, i32 noundef %545, i32 noundef %548, i32 noundef %544, i32 noundef %549, i32 noundef %543, i32 noundef %550, i32 noundef %563, i32 noundef %562, i32 noundef %564, i32 noundef %561, i32 noundef %565, i32 noundef %560, i32 noundef %566, i32 noundef %551, i32 noundef %542, i32 noundef %552, i32 noundef %541, i32 noundef %553, i32 noundef %540, i32 noundef %554, i32 noundef %539, i32 noundef %555, i32 noundef %538, i32 noundef %556, i32 noundef %537, i32 noundef %557, i32 noundef %536, i32 noundef %558, i32 noundef %535, i32 noundef %559) #13
-  %568 = add i32 %.091585, -16
-  %569 = getelementptr inbounds nuw i8, ptr %.0618, i64 16
-  %570 = add i32 %.092584, 16
-  %571 = icmp ult i32 %570, %2
-  br i1 %571, label %7, label %._crit_edge, !llvm.loop !16
+local_isprint.exit154.thread:                     ; preds = %7, %local_isprint.exit154, %494, %local_isprint.exit151.thread, %477, %478
+  %519 = phi i32 [ %493, %478 ], [ %470, %477 ], [ 46, %local_isprint.exit151.thread ], [ %495, %494 ], [ %495, %local_isprint.exit154 ], [ 32, %7 ]
+  %520 = phi i32 [ %492, %478 ], [ %467, %477 ], [ %467, %local_isprint.exit151.thread ], [ %496, %494 ], [ %496, %local_isprint.exit154 ], [ 32, %7 ]
+  %521 = phi i32 [ %491, %478 ], [ %466, %477 ], [ %466, %local_isprint.exit151.thread ], [ %497, %494 ], [ %497, %local_isprint.exit154 ], [ 32, %7 ]
+  %522 = phi i32 [ %490, %478 ], [ %465, %477 ], [ %465, %local_isprint.exit151.thread ], [ %498, %494 ], [ %498, %local_isprint.exit154 ], [ 32, %7 ]
+  %523 = phi i32 [ %489, %478 ], [ %464, %477 ], [ %464, %local_isprint.exit151.thread ], [ %499, %494 ], [ %499, %local_isprint.exit154 ], [ 32, %7 ]
+  %524 = phi i32 [ %488, %478 ], [ %463, %477 ], [ %463, %local_isprint.exit151.thread ], [ %500, %494 ], [ %500, %local_isprint.exit154 ], [ 32, %7 ]
+  %525 = phi i32 [ %487, %478 ], [ %462, %477 ], [ %462, %local_isprint.exit151.thread ], [ %501, %494 ], [ %501, %local_isprint.exit154 ], [ 32, %7 ]
+  %526 = phi i32 [ %486, %478 ], [ %461, %477 ], [ %461, %local_isprint.exit151.thread ], [ %502, %494 ], [ %502, %local_isprint.exit154 ], [ 32, %7 ]
+  %.shrunk712 = phi i8 [ %.shrunk583, %478 ], [ %.shrunk583, %477 ], [ %.shrunk583, %local_isprint.exit151.thread ], [ %.shrunk583, %494 ], [ %.shrunk583, %local_isprint.exit154 ], [ 0, %7 ]
+  %.shrunk713 = phi i8 [ %.shrunk582, %478 ], [ %.shrunk582, %477 ], [ %.shrunk582, %local_isprint.exit151.thread ], [ %.shrunk582, %494 ], [ %.shrunk582, %local_isprint.exit154 ], [ 0, %7 ]
+  %.shrunk714 = phi i8 [ %.shrunk581, %478 ], [ %.shrunk581, %477 ], [ %.shrunk581, %local_isprint.exit151.thread ], [ %.shrunk581, %494 ], [ %.shrunk581, %local_isprint.exit154 ], [ 0, %7 ]
+  %.shrunk715 = phi i8 [ %.shrunk580, %478 ], [ %.shrunk580, %477 ], [ %.shrunk580, %local_isprint.exit151.thread ], [ %.shrunk580, %494 ], [ %.shrunk580, %local_isprint.exit154 ], [ 0, %7 ]
+  %527 = phi i32 [ %90, %478 ], [ %90, %477 ], [ %90, %local_isprint.exit151.thread ], [ %90, %494 ], [ %90, %local_isprint.exit154 ], [ 0, %7 ]
+  %528 = phi i32 [ %88, %478 ], [ %88, %477 ], [ %88, %local_isprint.exit151.thread ], [ %88, %494 ], [ %88, %local_isprint.exit154 ], [ 0, %7 ]
+  %529 = phi i32 [ %86, %478 ], [ %86, %477 ], [ %86, %local_isprint.exit151.thread ], [ %86, %494 ], [ %86, %local_isprint.exit154 ], [ 0, %7 ]
+  %530 = phi i32 [ %11, %478 ], [ %11, %477 ], [ %11, %local_isprint.exit151.thread ], [ %11, %494 ], [ %11, %local_isprint.exit154 ], [ 0, %7 ]
+  %531 = phi i32 [ %84, %478 ], [ %84, %477 ], [ %84, %local_isprint.exit151.thread ], [ %84, %494 ], [ %84, %local_isprint.exit154 ], [ 0, %7 ]
+  %532 = phi i32 [ %82, %478 ], [ %82, %477 ], [ %82, %local_isprint.exit151.thread ], [ %82, %494 ], [ %82, %local_isprint.exit154 ], [ 0, %7 ]
+  %533 = phi i32 [ %80, %478 ], [ %80, %477 ], [ %80, %local_isprint.exit151.thread ], [ %80, %494 ], [ %80, %local_isprint.exit154 ], [ 0, %7 ]
+  %534 = phi i32 [ %78, %478 ], [ %78, %477 ], [ %78, %local_isprint.exit151.thread ], [ %78, %494 ], [ %78, %local_isprint.exit154 ], [ 0, %7 ]
+  %.shrunk716 = phi i8 [ %.shrunk579, %478 ], [ %.shrunk579, %477 ], [ %.shrunk579, %local_isprint.exit151.thread ], [ %.shrunk579, %494 ], [ %.shrunk579, %local_isprint.exit154 ], [ 0, %7 ]
+  %.shrunk717 = phi i8 [ %.shrunk578, %478 ], [ %.shrunk578, %477 ], [ %.shrunk578, %local_isprint.exit151.thread ], [ %.shrunk578, %494 ], [ %.shrunk578, %local_isprint.exit154 ], [ 0, %7 ]
+  %.shrunk718 = phi i8 [ %.shrunk, %478 ], [ %.shrunk, %477 ], [ %.shrunk, %local_isprint.exit151.thread ], [ %.shrunk, %494 ], [ %.shrunk, %local_isprint.exit154 ], [ 0, %7 ]
+  %535 = phi i32 [ %73, %478 ], [ %73, %477 ], [ %73, %local_isprint.exit151.thread ], [ %73, %494 ], [ %73, %local_isprint.exit154 ], [ 0, %7 ]
+  %536 = phi i32 [ %485, %478 ], [ %460, %477 ], [ %460, %local_isprint.exit151.thread ], [ %503, %494 ], [ %503, %local_isprint.exit154 ], [ 32, %7 ]
+  %537 = phi i32 [ %484, %478 ], [ %459, %477 ], [ %459, %local_isprint.exit151.thread ], [ %504, %494 ], [ %504, %local_isprint.exit154 ], [ 32, %7 ]
+  %538 = phi i32 [ %483, %478 ], [ %458, %477 ], [ %458, %local_isprint.exit151.thread ], [ %505, %494 ], [ %505, %local_isprint.exit154 ], [ 32, %7 ]
+  %539 = phi i32 [ %482, %478 ], [ %457, %477 ], [ %457, %local_isprint.exit151.thread ], [ %506, %494 ], [ %506, %local_isprint.exit154 ], [ 32, %7 ]
+  %540 = phi i32 [ %481, %478 ], [ %456, %477 ], [ %456, %local_isprint.exit151.thread ], [ %507, %494 ], [ %507, %local_isprint.exit154 ], [ 32, %7 ]
+  %541 = phi i32 [ %480, %478 ], [ %455, %477 ], [ %455, %local_isprint.exit151.thread ], [ %508, %494 ], [ %508, %local_isprint.exit154 ], [ 32, %7 ]
+  %542 = phi i32 [ %479, %478 ], [ %454, %477 ], [ %454, %local_isprint.exit151.thread ], [ %509, %494 ], [ %509, %local_isprint.exit154 ], [ 32, %7 ]
+  %543 = phi i32 [ 32, %478 ], [ 32, %477 ], [ 32, %local_isprint.exit151.thread ], [ 46, %494 ], [ %spec.select, %local_isprint.exit154 ], [ 32, %7 ]
+  %544 = zext i8 %.shrunk718 to i32
+  %545 = zext i8 %.shrunk717 to i32
+  %546 = zext i8 %.shrunk716 to i32
+  %547 = zext i8 %.shrunk715 to i32
+  %548 = zext i8 %.shrunk714 to i32
+  %549 = zext i8 %.shrunk713 to i32
+  %550 = zext i8 %.shrunk712 to i32
+  %551 = tail call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 1, ptr noundef nonnull @.str.6, ptr noundef %3, i32 noundef %.092584, i32 noundef %530, i32 noundef %531, i32 noundef %529, i32 noundef %532, i32 noundef %528, i32 noundef %533, i32 noundef %527, i32 noundef %534, i32 noundef %547, i32 noundef %546, i32 noundef %548, i32 noundef %545, i32 noundef %549, i32 noundef %544, i32 noundef %550, i32 noundef %535, i32 noundef %526, i32 noundef %536, i32 noundef %525, i32 noundef %537, i32 noundef %524, i32 noundef %538, i32 noundef %523, i32 noundef %539, i32 noundef %522, i32 noundef %540, i32 noundef %521, i32 noundef %541, i32 noundef %520, i32 noundef %542, i32 noundef %519, i32 noundef %543) #13
+  %552 = add i32 %.091585, -16
+  %553 = getelementptr inbounds nuw i8, ptr %.0618, i64 16
+  %554 = add i32 %.092584, 16
+  %555 = icmp ult i32 %554, %2
+  br i1 %555, label %7, label %._crit_edge, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %local_isprint.exit154.thread, %4
   ret void

@@ -3153,8 +3153,8 @@ define internal fastcc void @boxsum(ptr noundef nonnull readonly captures(none) 
 
 .lr.ph191.split.i.lver.check:                     ; preds = %.lr.ph191.i
   %ident.check = icmp ne i32 %7, 1
-  %88 = add nsw i64 %wide.trip.count235.i, -2147483647
-  %89 = icmp ult i64 %88, -2147483646
+  %88 = add nsw i32 %2, -2147483647
+  %89 = icmp ult i32 %88, -2147483646
   %90 = or i1 %ident.check, %89
   br i1 %90, label %.lr.ph191.split.i.lver.orig, label %.lr.ph191.split.i.ph
 
@@ -3481,8 +3481,8 @@ define internal fastcc void @boxsum(ptr noundef nonnull readonly captures(none) 
 
 .lr.ph306.split.i.lver.check:                     ; preds = %.lr.ph306.i
   %ident.check89 = icmp ne i32 %7, 1
-  %235 = add nsw i64 %wide.trip.count345.i, -2147483645
-  %236 = icmp ult i64 %235, -2147483644
+  %235 = add nsw i32 %2, -2147483645
+  %236 = icmp ult i32 %235, -2147483644
   %237 = or i1 %ident.check89, %236
   br i1 %237, label %.lr.ph306.split.i.lver.orig, label %.lr.ph306.split.i.ph
 

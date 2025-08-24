@@ -4726,7 +4726,7 @@ define internal i32 @shmem_parse_options(ptr noundef %0, ptr noundef %1) #1 alig
   br i1 %6, label %.preheader, label %.loopexit5
 
 .preheader:                                       ; preds = %3, %.backedge
-  %7 = phi ptr [ %19, %.backedge ], [ %1, %3 ]
+  %7 = phi ptr [ %18, %.backedge ], [ %1, %3 ]
   br label %8
 
 8:                                                ; preds = %.preheader, %12
@@ -4738,46 +4738,45 @@ define internal i32 @shmem_parse_options(ptr noundef %0, ptr noundef %1) #1 alig
 12:                                               ; preds = %8
   %13 = getelementptr i8, ptr %10, i64 1
   %14 = load i8, ptr %13, align 1
-  %15 = zext i8 %14 to i32
-  %16 = add nsw i32 %15, -58
-  %17 = icmp ult i32 %16, -10
-  br i1 %17, label %18, label %8, !llvm.loop !73
+  %15 = add i8 %14, -58
+  %16 = icmp ult i8 %15, -10
+  br i1 %16, label %17, label %8, !llvm.loop !73
 
-18:                                               ; preds = %12
+17:                                               ; preds = %12
   store i8 0, ptr %10, align 1
   br label %.loopexit
 
-.loopexit:                                        ; preds = %8, %18
-  %19 = phi ptr [ %13, %18 ], [ null, %8 ]
-  %20 = load i8, ptr %7, align 1
-  %21 = icmp eq i8 %20, 0
-  br i1 %21, label %.backedge, label %22
+.loopexit:                                        ; preds = %8, %17
+  %18 = phi ptr [ %13, %17 ], [ null, %8 ]
+  %19 = load i8, ptr %7, align 1
+  %20 = icmp eq i8 %19, 0
+  br i1 %20, label %.backedge, label %21
 
-22:                                               ; preds = %.loopexit
-  %23 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %7, i32 noundef 61) #18
-  %24 = icmp eq ptr %23, null
-  br i1 %24, label %28, label %25
+21:                                               ; preds = %.loopexit
+  %22 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %7, i32 noundef 61) #18
+  %23 = icmp eq ptr %22, null
+  br i1 %23, label %27, label %24
 
-25:                                               ; preds = %22
-  %26 = getelementptr i8, ptr %23, i64 1
-  store i8 0, ptr %23, align 1
-  %27 = tail call i64 @strlen(ptr noundef %26) #18
-  br label %28
+24:                                               ; preds = %21
+  %25 = getelementptr i8, ptr %22, i64 1
+  store i8 0, ptr %22, align 1
+  %26 = tail call i64 @strlen(ptr noundef %25) #18
+  br label %27
 
-28:                                               ; preds = %25, %22
-  %29 = phi ptr [ %26, %25 ], [ null, %22 ]
-  %30 = phi i64 [ %27, %25 ], [ 0, %22 ]
-  %31 = tail call i32 @vfs_parse_fs_string(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %29, i64 noundef %30) #18
-  %32 = icmp sgt i32 %31, -1
-  br i1 %32, label %.backedge, label %.loopexit5
+27:                                               ; preds = %24, %21
+  %28 = phi ptr [ %25, %24 ], [ null, %21 ]
+  %29 = phi i64 [ %26, %24 ], [ 0, %21 ]
+  %30 = tail call i32 @vfs_parse_fs_string(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %28, i64 noundef %29) #18
+  %31 = icmp sgt i32 %30, -1
+  br i1 %31, label %.backedge, label %.loopexit5
 
-.backedge:                                        ; preds = %28, %.loopexit
-  %33 = icmp eq ptr %19, null
-  br i1 %33, label %.loopexit5, label %.preheader, !llvm.loop !74
+.backedge:                                        ; preds = %27, %.loopexit
+  %32 = icmp eq ptr %18, null
+  br i1 %32, label %.loopexit5, label %.preheader, !llvm.loop !74
 
-.loopexit5:                                       ; preds = %.backedge, %28, %2, %3
-  %34 = phi i32 [ %5, %3 ], [ 0, %2 ], [ 0, %.backedge ], [ %31, %28 ]
-  ret i32 %34
+.loopexit5:                                       ; preds = %.backedge, %27, %2, %3
+  %33 = phi i32 [ %5, %3 ], [ 0, %2 ], [ 0, %.backedge ], [ %30, %27 ]
+  ret i32 %33
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

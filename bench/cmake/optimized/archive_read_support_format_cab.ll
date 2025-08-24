@@ -3147,8 +3147,8 @@ thread-pre-split.i:                               ; preds = %124, %120
   %261 = phi ptr [ %258, %257 ], [ %255, %250 ]
   %262 = getelementptr inbounds nuw i8, ptr %261, i64 540
   store i32 -25, ptr %262, align 4, !tbaa !158
-  %263 = add nsw i32 %253, -22
-  %or.cond.i.i = icmp ult i32 %263, -7
+  %263 = add i16 %252, -22
+  %or.cond.i.i = icmp ult i16 %263, -7
   br i1 %or.cond.i.i, label %383, label %264
 
 264:                                              ; preds = %260

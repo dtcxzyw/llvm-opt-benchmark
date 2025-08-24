@@ -3419,7 +3419,7 @@ define internal i32 @loop_configure(ptr noundef %0, i32 noundef %1, ptr noundef 
 92:                                               ; preds = %88
   %93 = add i32 %90, -512
   %94 = icmp ult i32 %93, 3585
-  %95 = tail call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %90)
+  %95 = tail call range(i32 1, 14) i32 @llvm.ctpop.i32(i32 %90)
   %96 = icmp samesign ult i32 %95, 2
   %or.cond = select i1 %94, i1 %96, i1 false
   br i1 %or.cond, label %97, label %.thread24

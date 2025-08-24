@@ -7826,9 +7826,8 @@ if.then5.i.i.i.i:                                 ; preds = %.noexc
 invoke.cont7:                                     ; preds = %land.rhs.i, %if.then.i.i, %call1.i.i.i.i.noexc, %.noexc, %if.then5.i.i.i.i
   %type_.i.i = getelementptr inbounds nuw i8, ptr %3, i64 2
   %10 = load i8, ptr %type_.i.i, align 2
-  %conv.i.i = zext i8 %10 to i32
-  %11 = add nsw i32 %conv.i.i, -13
-  %spec.select.i.i = icmp ult i32 %11, -4
+  %11 = add i8 %10, -13
+  %spec.select.i.i = icmp ult i8 %11, -4
   br i1 %spec.select.i.i, label %if.then, label %for.inc
 
 if.then:                                          ; preds = %invoke.cont7

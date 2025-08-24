@@ -584,8 +584,8 @@ define zeroext i1 @u_hasIDType_77(i32 noundef %0, i32 noundef %1) local_unnamed_
   %8 = zext i8 %7 to i32
   %9 = tail call i32 @u_getUnicodeProperties_77(i32 noundef %0, i32 noundef 2)
   %10 = lshr i32 %9, 26
-  %11 = add nsw i64 %5, -10
-  %.not = icmp ult i64 %11, -6
+  %11 = add nsw i32 %1, -10
+  %.not = icmp ult i32 %11, -6
   br i1 %.not, label %17, label %12
 
 12:                                               ; preds = %4

@@ -1242,8 +1242,8 @@ define dso_local noundef range(i32 -74, 1) i32 @x509_decode_time(ptr noundef wri
 
 125:                                              ; preds = %119
   %126 = icmp samesign ult i32 %61, 1970
-  %127 = add nsw i32 %73, -13
-  %128 = icmp ult i32 %127, -12
+  %127 = add nsw i8 %narrow42, -13
+  %128 = icmp ult i8 %127, -12
   %129 = select i1 %126, i1 true, i1 %128
   br i1 %129, label %.critedge, label %130
 

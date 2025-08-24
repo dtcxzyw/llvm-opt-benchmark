@@ -4466,8 +4466,8 @@ define i32 @tinfl_decompress(ptr noundef %0, ptr noundef %1, ptr noundef capture
   %781 = zext i32 %780 to i64
   %782 = getelementptr inbounds nuw [31 x i32], ptr @_ZZ16tinfl_decompressE13s_length_base, i64 0, i64 %781
   %783 = load i32, ptr %782, align 4
-  %784 = add nsw i64 %781, -28
-  %.not1780 = icmp ult i64 %784, -20
+  %784 = add nsw i32 %777, -285
+  %.not1780 = icmp ult i32 %784, -20
   br i1 %.not1780, label %811, label %785
 
 785:                                              ; preds = %779
@@ -4747,8 +4747,8 @@ define i32 @tinfl_decompress(ptr noundef %0, ptr noundef %1, ptr noundef capture
   %902 = zext nneg i32 %.1893 to i64
   %903 = getelementptr inbounds nuw [32 x i32], ptr @_ZZ16tinfl_decompressE11s_dist_base, i64 0, i64 %902
   %904 = load i32, ptr %903, align 4
-  %905 = add nsw i64 %902, -30
-  %.not1788 = icmp ult i64 %905, -26
+  %905 = add nsw i32 %.1893, -30
+  %.not1788 = icmp ult i32 %905, -26
   br i1 %.not1788, label %932, label %906
 
 906:                                              ; preds = %.loopexit1881

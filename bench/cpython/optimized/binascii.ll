@@ -277,42 +277,42 @@ define internal ptr @binascii_a2b_uu(ptr noundef %0, ptr noundef %1) #0 {
 
 switch.early.test.i:                              ; preds = %.lr.ph.i
   %17 = load i8, ptr %.0699.i, align 1, !tbaa !11
-  %18 = zext i8 %17 to i32
-  switch i8 %17, label %19 [
+  switch i8 %17, label %18 [
     i8 13, label %.thread.i
     i8 10, label %.thread.i
   ]
 
-19:                                               ; preds = %switch.early.test.i
-  %20 = add nsw i32 %18, -97
-  %or.cond7.i = icmp ult i32 %20, -65
-  br i1 %or.cond7.i, label %21, label %30
+18:                                               ; preds = %switch.early.test.i
+  %19 = add i8 %17, -97
+  %or.cond7.i = icmp ult i8 %19, -65
+  br i1 %or.cond7.i, label %20, label %29
 
-21:                                               ; preds = %19
-  %22 = call ptr @PyModule_GetState(ptr noundef %0) #5
-  %23 = icmp eq ptr %22, null
-  br i1 %23, label %binascii_a2b_uu_impl.exit, label %24
+20:                                               ; preds = %18
+  %21 = call ptr @PyModule_GetState(ptr noundef %0) #5
+  %22 = icmp eq ptr %21, null
+  br i1 %22, label %binascii_a2b_uu_impl.exit, label %23
 
-24:                                               ; preds = %21
-  %25 = load ptr, ptr %22, align 8, !tbaa !3
-  call void @PyErr_SetString(ptr noundef %25, ptr noundef nonnull @.str.16) #5
-  %26 = load i32, ptr %11, align 8, !tbaa !11
-  %.not.i.i = icmp sgt i32 %26, -1
-  br i1 %.not.i.i, label %27, label %binascii_a2b_uu_impl.exit
+23:                                               ; preds = %20
+  %24 = load ptr, ptr %21, align 8, !tbaa !3
+  call void @PyErr_SetString(ptr noundef %24, ptr noundef nonnull @.str.16) #5
+  %25 = load i32, ptr %11, align 8, !tbaa !11
+  %.not.i.i = icmp sgt i32 %25, -1
+  br i1 %.not.i.i, label %26, label %binascii_a2b_uu_impl.exit
 
-27:                                               ; preds = %24
-  %28 = add nsw i32 %26, -1
-  store i32 %28, ptr %11, align 8, !tbaa !11
-  %29 = icmp eq i32 %28, 0
-  br i1 %29, label %Py_DECREF.exit.sink.split.i, label %binascii_a2b_uu_impl.exit
+26:                                               ; preds = %23
+  %27 = add nsw i32 %25, -1
+  store i32 %27, ptr %11, align 8, !tbaa !11
+  %28 = icmp eq i32 %27, 0
+  br i1 %28, label %Py_DECREF.exit.sink.split.i, label %binascii_a2b_uu_impl.exit
 
-30:                                               ; preds = %19
-  %31 = and i32 %18, 63
-  %32 = xor i32 %31, 32
+29:                                               ; preds = %18
+  %30 = and i8 %17, 63
+  %31 = xor i8 %30, 32
+  %32 = zext nneg i8 %31 to i32
   br label %.thread.i
 
-.thread.i:                                        ; preds = %30, %switch.early.test.i, %switch.early.test.i, %.lr.ph.i
-  %.064.i = phi i32 [ %32, %30 ], [ 0, %switch.early.test.i ], [ 0, %switch.early.test.i ], [ 0, %.lr.ph.i ]
+.thread.i:                                        ; preds = %29, %switch.early.test.i, %switch.early.test.i, %.lr.ph.i
+  %.064.i = phi i32 [ %32, %29 ], [ 0, %switch.early.test.i ], [ 0, %switch.early.test.i ], [ 0, %.lr.ph.i ]
   %33 = shl i32 %.0627.i, 6
   %34 = or i32 %.064.i, %33
   %35 = add nuw nsw i32 %.0656.i, 6
@@ -376,12 +376,12 @@ switch.early.test.i:                              ; preds = %.lr.ph.i
   %59 = icmp eq i32 %58, 0
   br i1 %59, label %Py_DECREF.exit.sink.split.i, label %binascii_a2b_uu_impl.exit
 
-Py_DECREF.exit.sink.split.i:                      ; preds = %57, %27
+Py_DECREF.exit.sink.split.i:                      ; preds = %57, %26
   call void @_Py_Dealloc(ptr noundef nonnull %11) #5
   br label %binascii_a2b_uu_impl.exit
 
-binascii_a2b_uu_impl.exit:                        ; preds = %.backedge.i, %Py_DECREF.exit.sink.split.i, %57, %54, %51, %27, %24, %21, %.preheader.i, %5, %2
-  %.0 = phi ptr [ null, %2 ], [ null, %5 ], [ null, %21 ], [ null, %51 ], [ null, %24 ], [ null, %27 ], [ null, %54 ], [ null, %57 ], [ %11, %.preheader.i ], [ null, %Py_DECREF.exit.sink.split.i ], [ %11, %.backedge.i ]
+binascii_a2b_uu_impl.exit:                        ; preds = %.backedge.i, %Py_DECREF.exit.sink.split.i, %57, %54, %51, %26, %23, %20, %.preheader.i, %5, %2
+  %.0 = phi ptr [ null, %2 ], [ null, %5 ], [ null, %20 ], [ null, %51 ], [ null, %23 ], [ null, %26 ], [ null, %54 ], [ null, %57 ], [ %11, %.preheader.i ], [ null, %Py_DECREF.exit.sink.split.i ], [ %11, %.backedge.i ]
   %60 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %61 = load ptr, ptr %60, align 8, !tbaa !21
   %.not3 = icmp eq ptr %61, null

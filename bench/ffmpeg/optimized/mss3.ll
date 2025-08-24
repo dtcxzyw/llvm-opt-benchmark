@@ -180,8 +180,8 @@ bytestream2_get_byte.exit:                        ; preds = %46
   %51 = getelementptr i8, ptr %7, i64 %50
   %52 = load i8, ptr %51, align 1, !tbaa !49
   %53 = zext i8 %52 to i32
-  %54 = add nsw i32 %53, -101
-  %or.cond = icmp ult i32 %54, -100
+  %54 = add i8 %52, -101
+  %or.cond = icmp ult i8 %54, -100
   br i1 %or.cond, label %bytestream2_get_byte.exit.thread, label %55
 
 bytestream2_get_byte.exit.thread:                 ; preds = %bytestream2_get_byte.exit

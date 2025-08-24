@@ -454,8 +454,8 @@ define noundef signext range(i8 0, 2) i8 @_ZN6icu_7712PatternProps12isIdentifier
   br i1 %or.cond.i, label %35, label %_ZN6icu_7712PatternProps20isSyntaxOrWhiteSpaceEi.exit.thread
 
 35:                                               ; preds = %33
-  %36 = add nsw i32 %9, -65093
-  %37 = icmp ult i32 %36, -261
+  %36 = add nsw i16 %8, 443
+  %37 = icmp ult i16 %36, -261
   %38 = zext i1 %37 to i8
   br label %_ZN6icu_7712PatternProps20isSyntaxOrWhiteSpaceEi.exit
 
@@ -523,8 +523,8 @@ define noundef ptr @_ZN6icu_7712PatternProps14skipIdentifierEPKDsi(ptr noundef r
   br i1 %or.cond.i, label %31, label %_ZN6icu_7712PatternProps20isSyntaxOrWhiteSpaceEi.exit.thread
 
 31:                                               ; preds = %29
-  %32 = add nsw i32 %5, -65093
-  %33 = icmp ult i32 %32, -261
+  %32 = add nsw i16 %4, 443
+  %33 = icmp ult i16 %32, -261
   %34 = zext i1 %33 to i8
   br label %_ZN6icu_7712PatternProps20isSyntaxOrWhiteSpaceEi.exit
 

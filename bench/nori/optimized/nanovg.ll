@@ -16914,8 +16914,8 @@ stbi__zhuffman_decode.exit.i58.i:                 ; preds = %472, %458
   %524 = zext nneg i32 %523 to i64
   %525 = getelementptr inbounds nuw [31 x i32], ptr @stbi__zlength_base, i64 0, i64 %524
   %526 = load i32, ptr %525, align 4
-  %527 = add nsw i64 %524, -28
-  %.not.i61.i = icmp ult i64 %527, -20
+  %527 = add nsw i32 %.0.i.i60.i, -285
+  %.not.i61.i = icmp ult i32 %527, -20
   br i1 %.not.i61.i, label %thread-pre-split.i.i, label %528
 
 528:                                              ; preds = %522
@@ -17075,8 +17075,8 @@ stbi__zhuffman_decode.exit97.i.i:                 ; preds = %589
   %611 = zext nneg i32 %.0.i87.ph.i.i to i64
   %612 = getelementptr inbounds nuw [32 x i32], ptr @stbi__zdist_base, i64 0, i64 %611
   %613 = load i32, ptr %612, align 4
-  %614 = add nsw i64 %611, -30
-  %.not63.i.i = icmp ult i64 %614, -26
+  %614 = add nsw i32 %.0.i87.ph.i.i, -30
+  %.not63.i.i = icmp ult i32 %614, -26
   br i1 %.not63.i.i, label %641, label %615
 
 615:                                              ; preds = %609

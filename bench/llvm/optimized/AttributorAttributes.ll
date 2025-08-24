@@ -5100,9 +5100,8 @@ define dso_local noundef zeroext i1 @_ZN4llvm8AANoSync18isNonRelaxedAtomicEPKNS_
   %20 = load i16, ptr %19, align 2, !tbaa !176
   %21 = lshr i16 %20, %.sink32
   %.0.in = and i16 %21, 7
-  %.0 = zext nneg i16 %.0.in to i32
-  %22 = add nsw i32 %.0, -3
-  %23 = icmp ult i32 %22, -2
+  %22 = add nsw i16 %.0.in, -3
+  %23 = icmp ult i16 %22, -2
   br label %.thread29
 
 .thread29:                                        ; preds = %13, %9, %5, %1, %18

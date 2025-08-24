@@ -5247,20 +5247,19 @@ define hidden noundef zeroext i1 @"_ZN16uv_install_wheel6script16scripts_from_in
   br i1 %49, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hcf6330a9af5932b0E.exit.thread", label %.preheader51.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
-  %.sroa.02.158.i = phi ptr [ %56, %.lr.ph.i ], [ %.sroa.02.158.i.ph, %.lr.ph.i.preheader ]
-  %.sroa.14.157.i = phi i64 [ %55, %.lr.ph.i ], [ %.sroa.14.157.i.ph, %.lr.ph.i.preheader ]
+  %.sroa.02.158.i = phi ptr [ %55, %.lr.ph.i ], [ %.sroa.02.158.i.ph, %.lr.ph.i.preheader ]
+  %.sroa.14.157.i = phi i64 [ %54, %.lr.ph.i ], [ %.sroa.14.157.i.ph, %.lr.ph.i.preheader ]
   %51 = load i8, ptr %.sroa.02.158.i, align 1, !alias.scope !796, !noundef !21
-  %52 = zext i8 %51 to i32
-  %53 = add nsw i32 %52, -58
-  %54 = icmp ult i32 %53, -10
-  %55 = add nsw i64 %.sroa.14.157.i, -1
-  %56 = getelementptr inbounds nuw i8, ptr %.sroa.02.158.i, i64 1
-  %.not44.i = icmp eq i64 %55, 0
-  %or.cond = select i1 %54, i1 true, i1 %.not44.i
+  %52 = add i8 %51, -58
+  %53 = icmp ult i8 %52, -10
+  %54 = add nsw i64 %.sroa.14.157.i, -1
+  %55 = getelementptr inbounds nuw i8, ptr %.sroa.02.158.i, i64 1
+  %.not44.i = icmp eq i64 %54, 0
+  %or.cond = select i1 %53, i1 true, i1 %.not44.i
   br i1 %or.cond, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hcf6330a9af5932b0E.exit.thread", label %.lr.ph.i
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hcf6330a9af5932b0E.exit.thread": ; preds = %46, %44, %35, %.preheader51.i, %.lr.ph.i, %26, %26, %25, %16, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hcf6330a9af5932b0E.exit", %24
-  %.sroa.0.0 = phi i1 [ true, %24 ], [ true, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hcf6330a9af5932b0E.exit" ], [ true, %16 ], [ true, %25 ], [ true, %26 ], [ true, %26 ], [ %54, %.lr.ph.i ], [ %.not.not.i.not.not, %.preheader51.i ], [ %.not.not.i.not.not, %35 ], [ %.not.not.i.not.not, %44 ], [ %.not.not.i.not.not, %46 ]
+  %.sroa.0.0 = phi i1 [ true, %24 ], [ true, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hcf6330a9af5932b0E.exit" ], [ true, %16 ], [ true, %25 ], [ true, %26 ], [ true, %26 ], [ %53, %.lr.ph.i ], [ %.not.not.i.not.not, %.preheader51.i ], [ %.not.not.i.not.not, %35 ], [ %.not.not.i.not.not, %44 ], [ %.not.not.i.not.not, %46 ]
   ret i1 %.sroa.0.0
 }
 

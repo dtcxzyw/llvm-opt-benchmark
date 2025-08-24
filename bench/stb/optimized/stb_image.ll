@@ -19553,8 +19553,8 @@ define range(i32 0, 2) i32 @stbi__parse_huffman_block(ptr noundef captures(none)
   %55 = zext nneg i32 %54 to i64
   %56 = getelementptr inbounds nuw [31 x i32], ptr @stbi__zlength_base, i64 0, i64 %55
   %57 = load i32, ptr %56, align 4, !tbaa !23
-  %58 = add nsw i64 %55, -28
-  %.not = icmp ult i64 %58, -20
+  %58 = add nsw i32 %12, -285
+  %.not = icmp ult i32 %58, -20
   br i1 %.not, label %87, label %59
 
 59:                                               ; preds = %53

@@ -9204,8 +9204,8 @@ define hidden void @_ZN6Assimp11LWOImporter17LoadLWO2VertexMapEjb(ptr noundef no
           to label %77 unwind label %25
 
 46:                                               ; preds = %24, %24
-  %47 = add nsw i32 %21, -5
-  %or.cond = icmp ult i32 %47, -2
+  %47 = add i16 %.sroa.0.0.insert.insert.i113, -5
+  %or.cond = icmp ult i16 %47, -2
   br i1 %or.cond, label %48, label %51
 
 48:                                               ; preds = %46

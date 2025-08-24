@@ -61549,8 +61549,8 @@ define internal fastcc noundef ptr @_ZL25foldFCmpReciprocalAndZeroRN4llvm8FCmpIn
   %7 = load i16, ptr %6, align 2, !tbaa !8
   %8 = and i16 %7, 63
   %9 = zext nneg i16 %8 to i32
-  %10 = add nsw i32 %9, -6
-  %or.cond5 = icmp ult i32 %10, -4
+  %10 = add nsw i16 %8, -6
+  %or.cond5 = icmp ult i16 %10, -4
   br i1 %or.cond5, label %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_13apfloat_matchEEEbPT_RKT0_.exit.thread, label %11
 
 11:                                               ; preds = %3

@@ -11637,8 +11637,8 @@ _ZN4llvm12PatternMatch5matchINS_5ValueENS0_7bind_tyINS_11InstructionEEEEEbPT_RKT
   %.049 = phi ptr [ %.pre, %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_7bind_tyINS_11InstructionEEEEEbPT_RKT0_.exit.thread ], [ %5, %8 ]
   %13 = zext i8 %12 to i32
   %14 = add nsw i32 %13, -29
-  %15 = add nsw i32 %13, -70
-  %or.cond = icmp ult i32 %15, -2
+  %15 = add i8 %12, -70
+  %or.cond = icmp ult i8 %15, -2
   br i1 %or.cond, label %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_7bind_tyINS_8ConstantEEEEEbPT_RKT0_.exit31, label %16
 
 16:                                               ; preds = %.critedge2

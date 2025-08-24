@@ -183,7 +183,7 @@ define internal fastcc range(i32 -22, 1) i32 @devt_from_devname(ptr noundef read
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = tail call i64 @strlen(ptr noundef %0) #12
   %5 = icmp ugt i64 %4, 31
-  br i1 %5, label %51, label %6
+  br i1 %5, label %49, label %6
 
 6:                                                ; preds = %2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %3, i8 0, i64 32, i1 false), !annotation !7
@@ -210,72 +210,70 @@ define internal fastcc range(i32 -22, 1) i32 @devt_from_devname(ptr noundef read
   %15 = call fastcc i32 @blk_lookup_devt(ptr noundef nonnull %3, i32 noundef 0) #13
   store i32 %15, ptr %1, align 4
   %16 = icmp eq i32 %15, 0
-  br i1 %16, label %.preheader, label %51
+  br i1 %16, label %.preheader, label %49
 
 .preheader:                                       ; preds = %14, %19
   %17 = phi ptr [ %20, %19 ], [ %9, %14 ]
   %18 = icmp ugt ptr %17, %3
-  br i1 %18, label %19, label %25
+  br i1 %18, label %19, label %24
 
 19:                                               ; preds = %.preheader
   %20 = getelementptr i8, ptr %17, i64 -1
   %21 = load i8, ptr %20, align 1
-  %22 = zext i8 %21 to i32
-  %23 = add nsw i32 %22, -58
-  %24 = icmp ult i32 %23, -10
-  br i1 %24, label %25, label %.preheader, !llvm.loop !11
+  %22 = add i8 %21, -58
+  %23 = icmp ult i8 %22, -10
+  br i1 %23, label %24, label %.preheader, !llvm.loop !11
 
-25:                                               ; preds = %19, %.preheader
-  %26 = icmp eq ptr %17, %3
-  br i1 %26, label %51, label %27
+24:                                               ; preds = %19, %.preheader
+  %25 = icmp eq ptr %17, %3
+  br i1 %25, label %49, label %26
 
-27:                                               ; preds = %25
-  %28 = load i8, ptr %17, align 1
-  switch i8 %28, label %29 [
-    i8 0, label %51
-    i8 48, label %51
+26:                                               ; preds = %24
+  %27 = load i8, ptr %17, align 1
+  switch i8 %27, label %28 [
+    i8 0, label %49
+    i8 48, label %49
   ]
 
-29:                                               ; preds = %27
-  %30 = call i64 @simple_strtoul(ptr noundef %17, ptr noundef null, i32 noundef 10) #12
-  %31 = trunc i64 %30 to i32
+28:                                               ; preds = %26
+  %29 = call i64 @simple_strtoul(ptr noundef %17, ptr noundef null, i32 noundef 10) #12
+  %30 = trunc i64 %29 to i32
   store i8 0, ptr %17, align 1
-  %32 = call fastcc i32 @blk_lookup_devt(ptr noundef nonnull %3, i32 noundef %31) #13
-  store i32 %32, ptr %1, align 4
-  %33 = icmp eq i32 %32, 0
-  br i1 %33, label %34, label %51
+  %31 = call fastcc i32 @blk_lookup_devt(ptr noundef nonnull %3, i32 noundef %30) #13
+  store i32 %31, ptr %1, align 4
+  %32 = icmp eq i32 %31, 0
+  br i1 %32, label %33, label %49
 
-34:                                               ; preds = %29
-  %35 = getelementptr inbounds nuw i8, ptr %3, i64 2
-  %36 = icmp ult ptr %17, %35
-  br i1 %36, label %51, label %37
+33:                                               ; preds = %28
+  %34 = getelementptr inbounds nuw i8, ptr %3, i64 2
+  %35 = icmp ult ptr %17, %34
+  br i1 %35, label %49, label %36
 
-37:                                               ; preds = %34
-  %38 = getelementptr i8, ptr %17, i64 -2
-  %39 = load i8, ptr %38, align 1
-  %40 = zext i8 %39 to i32
-  %41 = add nsw i32 %40, -58
-  %42 = icmp ult i32 %41, -10
-  br i1 %42, label %51, label %43
+36:                                               ; preds = %33
+  %37 = getelementptr i8, ptr %17, i64 -2
+  %38 = load i8, ptr %37, align 1
+  %39 = add i8 %38, -58
+  %40 = icmp ult i8 %39, -10
+  br i1 %40, label %49, label %41
 
-43:                                               ; preds = %37
-  %44 = getelementptr i8, ptr %17, i64 -1
-  %45 = load i8, ptr %44, align 1
-  %46 = icmp eq i8 %45, 112
-  br i1 %46, label %47, label %51
+41:                                               ; preds = %36
+  %42 = getelementptr i8, ptr %17, i64 -1
+  %43 = load i8, ptr %42, align 1
+  %44 = icmp eq i8 %43, 112
+  br i1 %44, label %45, label %49
 
-47:                                               ; preds = %43
-  store i8 0, ptr %44, align 1
-  %48 = call fastcc i32 @blk_lookup_devt(ptr noundef nonnull %3, i32 noundef %31) #13
-  store i32 %48, ptr %1, align 4
-  %49 = icmp eq i32 %48, 0
-  %50 = select i1 %49, i32 -19, i32 0
-  br label %51
+45:                                               ; preds = %41
+  store i8 0, ptr %42, align 1
+  %46 = call fastcc i32 @blk_lookup_devt(ptr noundef nonnull %3, i32 noundef %30) #13
+  store i32 %46, ptr %1, align 4
+  %47 = icmp eq i32 %46, 0
+  %48 = select i1 %47, i32 -19, i32 0
+  br label %49
 
-51:                                               ; preds = %47, %43, %37, %34, %29, %27, %27, %25, %14, %2
-  %52 = phi i32 [ -22, %2 ], [ 0, %14 ], [ -19, %27 ], [ -19, %27 ], [ -19, %25 ], [ 0, %29 ], [ -19, %43 ], [ -19, %37 ], [ -19, %34 ], [ %50, %47 ]
+49:                                               ; preds = %45, %41, %36, %33, %28, %26, %26, %24, %14, %2
+  %50 = phi i32 [ -22, %2 ], [ 0, %14 ], [ -19, %26 ], [ -19, %26 ], [ -19, %24 ], [ 0, %28 ], [ -19, %41 ], [ -19, %36 ], [ -19, %33 ], [ %48, %45 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  ret i32 %52
+  ret i32 %50
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize

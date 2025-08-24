@@ -100,8 +100,8 @@ define dso_local noundef range(i32 0, 34) i32 @acpi_ut_convert_decimal_string(pt
   %11 = phi ptr [ %7, %6 ], [ %0, %2 ]
   %12 = phi i64 [ %36, %6 ], [ 0, %2 ]
   %13 = zext i8 %10 to i32
-  %14 = add nsw i32 %13, -58
-  %15 = icmp ult i32 %14, -10
+  %14 = add i8 %10, -58
+  %15 = icmp ult i8 %14, -10
   br i1 %15, label %.thread8, label %16
 
 16:                                               ; preds = %.preheader

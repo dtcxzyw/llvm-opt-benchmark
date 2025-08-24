@@ -402,76 +402,74 @@ define internal noundef i32 @setup_io_tlb_npages(ptr noundef %0) #3 section ".in
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load i8, ptr %0, align 1
-  %4 = zext i8 %3 to i32
-  %5 = add nsw i32 %4, -58
-  %6 = icmp ult i32 %5, -10
-  br i1 %6, label %11, label %7
+  %4 = add i8 %3, -58
+  %5 = icmp ult i8 %4, -10
+  br i1 %5, label %10, label %6
 
-7:                                                ; preds = %1
-  %8 = call i64 @simple_strtoul(ptr noundef %0, ptr noundef nonnull %2, i32 noundef 0) #21
-  %9 = add i64 %8, 127
-  %10 = and i64 %9, -128
-  store i64 %10, ptr @default_nslabs, align 8
+6:                                                ; preds = %1
+  %7 = call i64 @simple_strtoul(ptr noundef %0, ptr noundef nonnull %2, i32 noundef 0) #21
+  %8 = add i64 %7, 127
+  %9 = and i64 %8, -128
+  store i64 %9, ptr @default_nslabs, align 8
   %.pre = load ptr, ptr %2, align 8
   %.pre1 = load i8, ptr %.pre, align 1
-  br label %11
+  br label %10
 
-11:                                               ; preds = %7, %1
-  %12 = phi i8 [ %.pre1, %7 ], [ %3, %1 ]
-  %13 = phi ptr [ %.pre, %7 ], [ %0, %1 ]
-  %14 = icmp eq i8 %12, 44
-  br i1 %14, label %15, label %17
+10:                                               ; preds = %6, %1
+  %11 = phi i8 [ %.pre1, %6 ], [ %3, %1 ]
+  %12 = phi ptr [ %.pre, %6 ], [ %0, %1 ]
+  %13 = icmp eq i8 %11, 44
+  br i1 %13, label %14, label %16
 
-15:                                               ; preds = %11
-  %16 = getelementptr i8, ptr %13, i64 1
-  store ptr %16, ptr %2, align 8
-  %.pre2 = load i8, ptr %16, align 1
-  br label %17
+14:                                               ; preds = %10
+  %15 = getelementptr i8, ptr %12, i64 1
+  store ptr %15, ptr %2, align 8
+  %.pre2 = load i8, ptr %15, align 1
+  br label %16
 
-17:                                               ; preds = %15, %11
-  %18 = phi i8 [ %.pre2, %15 ], [ %12, %11 ]
-  %19 = phi ptr [ %16, %15 ], [ %13, %11 ]
-  %20 = zext i8 %18 to i32
-  %21 = add nsw i32 %20, -58
-  %22 = icmp ult i32 %21, -10
-  br i1 %22, label %26, label %23
+16:                                               ; preds = %14, %10
+  %17 = phi i8 [ %.pre2, %14 ], [ %11, %10 ]
+  %18 = phi ptr [ %15, %14 ], [ %12, %10 ]
+  %19 = add i8 %17, -58
+  %20 = icmp ult i8 %19, -10
+  br i1 %20, label %24, label %21
 
-23:                                               ; preds = %17
-  %24 = call i64 @simple_strtoul(ptr noundef %19, ptr noundef nonnull %2, i32 noundef 0) #21
-  %25 = trunc i64 %24 to i32
-  call fastcc void @swiotlb_adjust_nareas(i32 noundef %25)
+21:                                               ; preds = %16
+  %22 = call i64 @simple_strtoul(ptr noundef %18, ptr noundef nonnull %2, i32 noundef 0) #21
+  %23 = trunc i64 %22 to i32
+  call fastcc void @swiotlb_adjust_nareas(i32 noundef %23)
   %.pre3 = load ptr, ptr %2, align 8
   %.pre4 = load i8, ptr %.pre3, align 1
-  br label %26
+  br label %24
 
-26:                                               ; preds = %23, %17
-  %27 = phi i8 [ %.pre4, %23 ], [ %18, %17 ]
-  %28 = phi ptr [ %.pre3, %23 ], [ %19, %17 ]
-  %29 = icmp eq i8 %27, 44
-  br i1 %29, label %30, label %32
+24:                                               ; preds = %21, %16
+  %25 = phi i8 [ %.pre4, %21 ], [ %17, %16 ]
+  %26 = phi ptr [ %.pre3, %21 ], [ %18, %16 ]
+  %27 = icmp eq i8 %25, 44
+  br i1 %27, label %28, label %30
 
-30:                                               ; preds = %26
-  %31 = getelementptr i8, ptr %28, i64 1
-  store ptr %31, ptr %2, align 8
-  br label %32
+28:                                               ; preds = %24
+  %29 = getelementptr i8, ptr %26, i64 1
+  store ptr %29, ptr %2, align 8
+  br label %30
 
-32:                                               ; preds = %30, %26
-  %33 = phi ptr [ %31, %30 ], [ %28, %26 ]
-  %34 = call i32 @strcmp(ptr noundef %33, ptr noundef nonnull dereferenceable(6) @.str.25) #21
-  %35 = icmp eq i32 %34, 0
-  br i1 %35, label %39, label %36
+30:                                               ; preds = %28, %24
+  %31 = phi ptr [ %29, %28 ], [ %26, %24 ]
+  %32 = call i32 @strcmp(ptr noundef %31, ptr noundef nonnull dereferenceable(6) @.str.25) #21
+  %33 = icmp eq i32 %32, 0
+  br i1 %33, label %37, label %34
 
-36:                                               ; preds = %32
-  %37 = call i32 @strcmp(ptr noundef %33, ptr noundef nonnull dereferenceable(8) @.str.29) #21
-  %38 = icmp eq i32 %37, 0
-  br i1 %38, label %39, label %41
+34:                                               ; preds = %30
+  %35 = call i32 @strcmp(ptr noundef %31, ptr noundef nonnull dereferenceable(8) @.str.29) #21
+  %36 = icmp eq i32 %35, 0
+  br i1 %36, label %37, label %39
 
-39:                                               ; preds = %36, %32
-  %40 = phi ptr [ @swiotlb_force_bounce, %32 ], [ @swiotlb_force_disable, %36 ]
-  store i1 true, ptr %40, align 1
-  br label %41
+37:                                               ; preds = %34, %30
+  %38 = phi ptr [ @swiotlb_force_bounce, %30 ], [ @swiotlb_force_disable, %34 ]
+  store i1 true, ptr %38, align 1
+  br label %39
 
-41:                                               ; preds = %39, %36
+39:                                               ; preds = %37, %34
   ret i32 0
 }
 

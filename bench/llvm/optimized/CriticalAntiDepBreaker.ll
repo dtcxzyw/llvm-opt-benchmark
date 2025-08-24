@@ -1741,10 +1741,10 @@ _ZNK4llvm17RegisterClassInfo8getOrderEPKNS_19TargetRegisterClassE.exit: ; preds 
   br label %32
 
 32:                                               ; preds = %.lr.ph77, %.thread65
-  %.03676 = phi ptr [ %21, %.lr.ph77 ], [ %113, %.thread65 ]
+  %.03676 = phi ptr [ %21, %.lr.ph77 ], [ %111, %.thread65 ]
   %33 = load i16, ptr %.03676, align 2, !tbaa !222
-  %.fr80 = freeze i16 %33
-  %34 = zext i16 %.fr80 to i32
+  %.fr79 = freeze i16 %33
+  %34 = zext i16 %.fr79 to i32
   %35 = icmp eq i32 %3, %34
   %36 = icmp eq i32 %4, %34
   %or.cond = or i1 %35, %36
@@ -1839,7 +1839,7 @@ _ZNK4llvm17RegisterClassInfo8getOrderEPKNS_19TargetRegisterClassE.exit: ; preds 
   br i1 %.not48.not.i, label %_ZN4llvm22CriticalAntiDepBreaker23isNewRegClobberedByRefsESt23_Rb_tree_const_iteratorISt4pairIKjPNS_14MachineOperandEEES7_j.exit, label %42, !llvm.loop !290
 
 _ZN4llvm22CriticalAntiDepBreaker23isNewRegClobberedByRefsESt23_Rb_tree_const_iteratorISt4pairIKjPNS_14MachineOperandEEES7_j.exit: ; preds = %.critedge.i, %37
-  %79 = zext i16 %.fr80 to i64
+  %79 = zext i16 %.fr79 to i64
   %80 = load ptr, ptr %26, align 8, !tbaa !189
   %81 = getelementptr inbounds nuw i32, ptr %80, i64 %79
   %82 = load i32, ptr %81, align 4, !tbaa !191
@@ -1872,49 +1872,48 @@ _ZN4llvm22CriticalAntiDepBreaker23isNewRegClobberedByRefsESt23_Rb_tree_const_ite
   br i1 %.not4871, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %95
-  %100 = add nsw i32 %34, -1
-  %101 = icmp ult i32 %100, 1073741823
-  br i1 %101, label %.lr.ph.split, label %.lr.ph.split.us
+  %.not80 = icmp eq i16 %.fr79, 0
+  br i1 %.not80, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit.thread57.us
-  %.03772.us = phi ptr [ %104, %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit.thread57.us ], [ %96, %.lr.ph ]
-  %102 = load i32, ptr %.03772.us, align 4, !tbaa !191
-  %103 = icmp eq i32 %102, %34
-  br i1 %103, label %.thread65, label %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit.thread57.us
+  %.03772.us = phi ptr [ %102, %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit.thread57.us ], [ %96, %.lr.ph ]
+  %100 = load i32, ptr %.03772.us, align 4, !tbaa !191
+  %101 = icmp eq i32 %100, %34
+  br i1 %101, label %.thread65, label %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit.thread57.us
 
 _ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit.thread57.us: ; preds = %.lr.ph.split.us
-  %104 = getelementptr inbounds nuw i8, ptr %.03772.us, i64 4
-  %.not48.us = icmp eq ptr %104, %99
+  %102 = getelementptr inbounds nuw i8, ptr %.03772.us, i64 4
+  %.not48.us = icmp eq ptr %102, %99
   br i1 %.not48.us, label %.loopexit, label %.lr.ph.split.us
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit.thread57
-  %.03772 = phi ptr [ %112, %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit.thread57 ], [ %96, %.lr.ph ]
-  %105 = load i32, ptr %.03772, align 4, !tbaa !191
-  %106 = load ptr, ptr %31, align 8, !tbaa !158
-  %107 = icmp eq i32 %105, %34
-  br i1 %107, label %.thread65, label %108
+  %.03772 = phi ptr [ %110, %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit.thread57 ], [ %96, %.lr.ph ]
+  %103 = load i32, ptr %.03772, align 4, !tbaa !191
+  %104 = load ptr, ptr %31, align 8, !tbaa !158
+  %105 = icmp eq i32 %103, %34
+  br i1 %105, label %.thread65, label %106
 
-108:                                              ; preds = %.lr.ph.split
-  %109 = add i32 %105, -1
-  %110 = icmp ult i32 %109, 1073741823
-  br i1 %110, label %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit, label %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit.thread57
+106:                                              ; preds = %.lr.ph.split
+  %107 = add i32 %103, -1
+  %108 = icmp ult i32 %107, 1073741823
+  br i1 %108, label %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit, label %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit.thread57
 
-_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit: ; preds = %108
-  %111 = tail call noundef zeroext i1 @_ZNK4llvm14MCRegisterInfo11regsOverlapENS_10MCRegisterES1_(ptr noundef nonnull align 8 dereferenceable(308) %106, i32 %34, i32 %105) #12
-  br i1 %111, label %.thread65, label %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit.thread57
+_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit: ; preds = %106
+  %109 = tail call noundef zeroext i1 @_ZNK4llvm14MCRegisterInfo11regsOverlapENS_10MCRegisterES1_(ptr noundef nonnull align 8 dereferenceable(308) %104, i32 %34, i32 %103) #12
+  br i1 %109, label %.thread65, label %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit.thread57
 
-_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit.thread57: ; preds = %108, %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit
-  %112 = getelementptr inbounds nuw i8, ptr %.03772, i64 4
-  %.not48 = icmp eq ptr %112, %99
+_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit.thread57: ; preds = %106, %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit
+  %110 = getelementptr inbounds nuw i8, ptr %.03772, i64 4
+  %.not48 = icmp eq ptr %110, %99
   br i1 %.not48, label %.loopexit, label %.lr.ph.split
 
-.thread65:                                        ; preds = %42, %.lr.ph.split.us, %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit, %.lr.ph.split, %74, %60, %71, %_ZN4llvm22CriticalAntiDepBreaker23isNewRegClobberedByRefsESt23_Rb_tree_const_iteratorISt4pairIKjPNS_14MachineOperandEEES7_j.exit, %83, %88, %32
-  %113 = getelementptr inbounds nuw i8, ptr %.03676, i64 2
-  %.not = icmp eq ptr %113, %25
+.thread65:                                        ; preds = %42, %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit, %.lr.ph.split, %.lr.ph.split.us, %74, %60, %71, %_ZN4llvm22CriticalAntiDepBreaker23isNewRegClobberedByRefsESt23_Rb_tree_const_iteratorISt4pairIKjPNS_14MachineOperandEEES7_j.exit, %83, %88, %32
+  %111 = getelementptr inbounds nuw i8, ptr %.03676, i64 2
+  %.not = icmp eq ptr %111, %25
   br i1 %.not, label %.loopexit, label %32
 
-.loopexit:                                        ; preds = %.thread65, %95, %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit.thread57.us, %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit.thread57, %_ZNK4llvm17RegisterClassInfo8getOrderEPKNS_19TargetRegisterClassE.exit
-  %spec.select = phi i32 [ 0, %_ZNK4llvm17RegisterClassInfo8getOrderEPKNS_19TargetRegisterClassE.exit ], [ %34, %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit.thread57 ], [ %34, %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit.thread57.us ], [ %34, %95 ], [ 0, %.thread65 ]
+.loopexit:                                        ; preds = %.thread65, %95, %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit.thread57, %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit.thread57.us, %_ZNK4llvm17RegisterClassInfo8getOrderEPKNS_19TargetRegisterClassE.exit
+  %spec.select = phi i32 [ 0, %_ZNK4llvm17RegisterClassInfo8getOrderEPKNS_19TargetRegisterClassE.exit ], [ %34, %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit.thread57.us ], [ %34, %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit.thread57 ], [ %34, %95 ], [ 0, %.thread65 ]
   ret i32 %spec.select
 }
 

@@ -13358,8 +13358,8 @@ _m3dstbi__zhuffman_decode.exit.i59.i.i:           ; preds = %477, %463
   %526 = zext nneg i32 %525 to i64
   %527 = getelementptr inbounds nuw [31 x i32], ptr @_m3dstbi__zlength_base, i64 0, i64 %526
   %528 = load i32, ptr %527, align 4
-  %529 = add nsw i64 %526, -28
-  %.not.i62.i.i = icmp ult i64 %529, -20
+  %529 = add nsw i32 %.0.i.i61.i.i, -285
+  %.not.i62.i.i = icmp ult i32 %529, -20
   br i1 %.not.i62.i.i, label %thread-pre-split.i.i.i, label %530
 
 530:                                              ; preds = %524
@@ -13515,8 +13515,8 @@ _m3dstbi__fill_bits.exit.i93.i.i.i:               ; preds = %_m3dstbi__zget8.exi
   %613 = zext nneg i32 %.0.i95.ph.i.i.i to i64
   %614 = getelementptr inbounds nuw [32 x i32], ptr @_m3dstbi__zdist_base, i64 0, i64 %613
   %615 = load i32, ptr %614, align 4
-  %616 = add nsw i64 %613, -30
-  %.not71.i.i.i = icmp ult i64 %616, -26
+  %616 = add nsw i32 %.0.i95.ph.i.i.i, -30
+  %.not71.i.i.i = icmp ult i32 %616, -26
   br i1 %.not71.i.i.i, label %643, label %617
 
 617:                                              ; preds = %611

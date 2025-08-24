@@ -64,8 +64,8 @@ define noundef range(i64 -3, 5) i64 @_ZN6duckdb16utf8proc_iterateEPKhlPi(ptr nou
   br i1 %10, label %.sink.split, label %11
 
 11:                                               ; preds = %4
-  %12 = add nsw i32 %9, -245
-  %13 = icmp ult i32 %12, -51
+  %12 = add nsw i8 %8, 11
+  %13 = icmp ult i8 %12, -51
   br i1 %13, label %83, label %14
 
 14:                                               ; preds = %11

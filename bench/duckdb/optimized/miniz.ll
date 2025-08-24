@@ -3551,8 +3551,8 @@ define noundef range(i32 -4, 3) i32 @_ZN12duckdb_miniz16tinfl_decompressEPNS_22t
   %722 = zext i32 %721 to i64
   %723 = getelementptr inbounds nuw [31 x i32], ptr @_ZZN12duckdb_miniz16tinfl_decompressEPNS_22tinfl_decompressor_tagEPKhPmPhS5_S4_jE13s_length_base, i64 0, i64 %722
   %724 = load i32, ptr %723, align 4, !tbaa !10
-  %725 = add nsw i64 %722, -28
-  %.not1554 = icmp ult i64 %725, -20
+  %725 = add nsw i32 %718, -285
+  %.not1554 = icmp ult i32 %725, -20
   br i1 %.not1554, label %750, label %726
 
 726:                                              ; preds = %720
@@ -3792,8 +3792,8 @@ define noundef range(i32 -4, 3) i32 @_ZN12duckdb_miniz16tinfl_decompressEPNS_22t
   %840 = zext nneg i32 %.1993 to i64
   %841 = getelementptr inbounds nuw [32 x i32], ptr @_ZZN12duckdb_miniz16tinfl_decompressEPNS_22tinfl_decompressor_tagEPKhPmPhS5_S4_jE11s_dist_base, i64 0, i64 %840
   %842 = load i32, ptr %841, align 4, !tbaa !10
-  %843 = add nsw i64 %840, -30
-  %.not1561 = icmp ult i64 %843, -26
+  %843 = add nsw i32 %.1993, -30
+  %.not1561 = icmp ult i32 %843, -26
   br i1 %.not1561, label %868, label %844
 
 844:                                              ; preds = %.loopexit1711

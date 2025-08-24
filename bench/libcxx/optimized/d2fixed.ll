@@ -552,8 +552,8 @@ _ZNSt3__116__decimalLength9B8ne210000Ej.exit:     ; preds = %148, %150, %152, %1
   br label %.thread280
 
 243:                                              ; preds = %229
-  %244 = add nsw i64 %232, -68
-  %.not250 = icmp ult i64 %244, -62
+  %244 = add nsw i32 %230, -68
+  %.not250 = icmp ult i32 %244, -62
   br i1 %.not250, label %.lr.ph, label %245
 
 245:                                              ; preds = %243

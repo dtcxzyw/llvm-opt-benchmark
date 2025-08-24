@@ -3749,8 +3749,8 @@ if.end1447:                                       ; preds = %for.end1442
   %idxprom1449 = zext i32 %sub1448 to i64
   %arrayidx1453 = getelementptr inbounds nuw [31 x i32], ptr @tinfl_decompress.s_length_base, i64 0, i64 %idxprom1449
   %101 = load i32, ptr %arrayidx1453, align 4
-  %102 = add nsw i64 %idxprom1449, -28
-  %tobool1454.not = icmp ult i64 %102, -20
+  %102 = add nsw i32 %and1443, -285
+  %tobool1454.not = icmp ult i32 %102, -20
   br i1 %tobool1454.not, label %do.body1512, label %do.body1456
 
 do.body1456:                                      ; preds = %if.end1447
@@ -4030,8 +4030,8 @@ if.end1656:                                       ; preds = %do.body1639, %if.th
   %idxprom1662 = zext nneg i32 %temp1513.1 to i64
   %arrayidx1665 = getelementptr inbounds nuw [32 x i32], ptr @tinfl_decompress.s_dist_base, i64 0, i64 %idxprom1662
   %117 = load i32, ptr %arrayidx1665, align 4
-  %118 = add nsw i64 %idxprom1662, -30
-  %tobool1666.not = icmp ult i64 %118, -26
+  %118 = add nsw i32 %temp1513.1, -30
+  %tobool1666.not = icmp ult i32 %118, -26
   br i1 %tobool1666.not, label %if.end1724, label %do.body1669
 
 do.body1669:                                      ; preds = %if.end1656

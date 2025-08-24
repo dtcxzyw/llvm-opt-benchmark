@@ -334,7 +334,7 @@ define dso_local i32 @revert_num_unit(ptr noundef readonly captures(address_is_n
 
 .split.loop.exit:                                 ; preds = %10
   %16 = trunc nuw nsw i64 %indvars.iv to i32
-  %17 = shl nsw i32 %16, 10
+  %17 = shl nuw nsw i32 %16, 10
   br label %.split.loop.exit37
 
 .split.loop.exit37:                               ; preds = %14, %.split.loop.exit

@@ -2134,8 +2134,8 @@ define internal fastcc void @compress_block(ptr noundef captures(none) %0, ptr n
   store i32 %storemerge, ptr %7, align 4, !tbaa !24
   %108 = getelementptr inbounds nuw [29 x i32], ptr @extra_lbits, i64 0, i64 %70
   %109 = load i32, ptr %108, align 4, !tbaa !57
-  %110 = add nsw i64 %70, -28
-  %.not187 = icmp ult i64 %110, -20
+  %110 = add i8 %69, -28
+  %.not187 = icmp ult i8 %110, -20
   br i1 %.not187, label %147, label %111
 
 111:                                              ; preds = %106

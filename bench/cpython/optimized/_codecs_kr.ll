@@ -1238,8 +1238,8 @@ define internal range(i64 -4, 2) i64 @johab_decode(ptr readnone captures(none) %
   %34 = getelementptr [32 x i8], ptr @johabidx_jongseong, i64 0, i64 %33
   %35 = load i8, ptr %34, align 1, !tbaa !34
   %36 = zext i8 %29 to i32
-  %37 = add nsw i64 %27, -21
-  %38 = icmp ult i64 %37, -20
+  %37 = add nsw i8 %22, -21
+  %38 = icmp ult i8 %37, -20
   %39 = zext i8 %32 to i32
   %40 = shl nuw nsw i64 1, %30
   %41 = and i64 %40, 3271754499

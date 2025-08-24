@@ -15366,8 +15366,8 @@ define internal i32 @nl80211_pre_doit(ptr noundef readonly captures(none) %0, pt
   %55 = select i1 %25, ptr %35, ptr %42
   %56 = getelementptr i8, ptr %2, i64 56
   store ptr %55, ptr %56, align 8
-  %57 = add nsw i64 %9, -20
-  %58 = icmp ult i64 %57, -10
+  %57 = add nsw i8 %5, -20
+  %58 = icmp ult i8 %57, -10
   br i1 %58, label %69, label %59
 
 59:                                               ; preds = %54

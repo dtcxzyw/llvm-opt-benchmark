@@ -1075,154 +1075,153 @@ define dso_local noundef i32 @_ZNK4llvm16AArch64InstrInfo18getInstSizeInBytesERK
   %9 = load ptr, ptr %8, align 8, !tbaa !139
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 68
   %11 = load i16, ptr %10, align 4, !tbaa !247
-  %12 = zext i16 %11 to i32
-  %13 = add nsw i32 %12, -3
-  %or.cond = icmp ult i32 %13, -2
-  br i1 %or.cond, label %24, label %14
+  %12 = add i16 %11, -3
+  %or.cond = icmp ult i16 %12, -2
+  br i1 %or.cond, label %23, label %13
 
-14:                                               ; preds = %2
-  %15 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %16 = load ptr, ptr %15, align 8, !tbaa !248
-  %17 = getelementptr inbounds nuw i8, ptr %16, i64 656
-  %18 = load ptr, ptr %17, align 8, !tbaa !249
-  %19 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %20 = load ptr, ptr %19, align 8, !tbaa !251
-  %21 = getelementptr inbounds nuw i8, ptr %20, i64 16
-  %22 = load ptr, ptr %21, align 8, !tbaa !252
-  %23 = tail call noundef i32 @_ZNK4llvm15TargetInstrInfo18getInlineAsmLengthEPKcRKNS_9MCAsmInfoEPKNS_19TargetSubtargetInfoE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %22, ptr noundef nonnull align 8 dereferenceable(451) %18, ptr noundef null) #31
-  br label %92
+13:                                               ; preds = %2
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %15 = load ptr, ptr %14, align 8, !tbaa !248
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 656
+  %17 = load ptr, ptr %16, align 8, !tbaa !249
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %19 = load ptr, ptr %18, align 8, !tbaa !251
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
+  %21 = load ptr, ptr %20, align 8, !tbaa !252
+  %22 = tail call noundef i32 @_ZNK4llvm15TargetInstrInfo18getInlineAsmLengthEPKcRKNS_9MCAsmInfoEPKNS_19TargetSubtargetInfoE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %21, ptr noundef nonnull align 8 dereferenceable(451) %17, ptr noundef null) #31
+  br label %91
 
-24:                                               ; preds = %2
-  %25 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %26 = load ptr, ptr %25, align 8, !tbaa !253
-  %27 = getelementptr inbounds nuw i8, ptr %26, i64 16
-  %28 = load i64, ptr %27, align 8, !tbaa !254
-  %29 = and i64 %28, 16
-  %.not46 = icmp eq i64 %29, 0
-  br i1 %.not46, label %30, label %92
+23:                                               ; preds = %2
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %25 = load ptr, ptr %24, align 8, !tbaa !253
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 16
+  %27 = load i64, ptr %26, align 8, !tbaa !254
+  %28 = and i64 %27, 16
+  %.not46 = icmp eq i64 %28, 0
+  br i1 %.not46, label %29, label %91
 
-30:                                               ; preds = %24
+29:                                               ; preds = %23
   switch i16 %11, label %_ZN4llvm16AArch64InstrInfo20isTailCallReturnInstERKNS_12MachineInstrE.exit [
-    i16 369, label %31
-    i16 1262, label %31
-    i16 1263, label %31
-    i16 1266, label %31
-    i16 1267, label %31
-    i16 1265, label %31
-    i16 1264, label %31
-    i16 368, label %31
+    i16 369, label %30
+    i16 1262, label %30
+    i16 1263, label %30
+    i16 1266, label %30
+    i16 1267, label %30
+    i16 1265, label %30
+    i16 1264, label %30
+    i16 368, label %30
   ]
 
-31:                                               ; preds = %30, %30, %30, %30, %30, %30, %30, %30
-  %32 = getelementptr inbounds nuw i8, ptr %26, i64 5
-  %33 = load i8, ptr %32, align 1, !tbaa !256
-  %.not = icmp eq i8 %33, 0
-  %narrow = select i1 %.not, i8 4, i8 %33
+30:                                               ; preds = %29, %29, %29, %29, %29, %29, %29, %29
+  %31 = getelementptr inbounds nuw i8, ptr %25, i64 5
+  %32 = load i8, ptr %31, align 1, !tbaa !256
+  %.not = icmp eq i8 %32, 0
+  %narrow = select i1 %.not, i8 4, i8 %32
   %spec.select = zext i8 %narrow to i32
-  %34 = getelementptr inbounds nuw i8, ptr %8, i64 40
-  %35 = load ptr, ptr %34, align 8, !tbaa !257
-  %36 = tail call noundef zeroext i1 @_ZNK4llvm19AArch64FunctionInfo23shouldSignReturnAddressEb(ptr noundef nonnull align 8 dereferenceable(2032) %35, i1 noundef zeroext true) #31
-  br i1 %36, label %37, label %92
+  %33 = getelementptr inbounds nuw i8, ptr %8, i64 40
+  %34 = load ptr, ptr %33, align 8, !tbaa !257
+  %35 = tail call noundef zeroext i1 @_ZNK4llvm19AArch64FunctionInfo23shouldSignReturnAddressEb(ptr noundef nonnull align 8 dereferenceable(2032) %34, i1 noundef zeroext true) #31
+  br i1 %35, label %36, label %91
 
-37:                                               ; preds = %31
-  %38 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %39 = load ptr, ptr %38, align 8, !tbaa !258
-  %40 = tail call noundef i32 @_ZNK4llvm16AArch64Subtarget29getAuthenticatedLRCheckMethodERKNS_15MachineFunctionE(ptr noundef nonnull align 8 dereferenceable(413888) %39, ptr noundef nonnull align 8 dereferenceable(1065) %8) #31
-  %41 = tail call noundef i32 @_ZN4llvm12AArch64PAuth21getCheckerSizeInBytesENS0_15AuthCheckMethodE(i32 noundef %40) #31
-  %42 = add i32 %41, %spec.select
-  br label %92
+36:                                               ; preds = %30
+  %37 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %38 = load ptr, ptr %37, align 8, !tbaa !258
+  %39 = tail call noundef i32 @_ZNK4llvm16AArch64Subtarget29getAuthenticatedLRCheckMethodERKNS_15MachineFunctionE(ptr noundef nonnull align 8 dereferenceable(413888) %38, ptr noundef nonnull align 8 dereferenceable(1065) %8) #31
+  %40 = tail call noundef i32 @_ZN4llvm12AArch64PAuth21getCheckerSizeInBytesENS0_15AuthCheckMethodE(i32 noundef %39) #31
+  %41 = add i32 %40, %spec.select
+  br label %91
 
-_ZN4llvm16AArch64InstrInfo20isTailCallReturnInstERKNS_12MachineInstrE.exit: ; preds = %30
-  %43 = load i16, ptr %26, align 8, !tbaa !259
-  switch i16 %43, label %44 [
-    i16 26, label %47
-    i16 28, label %54
-    i16 32, label %65
-    i16 36, label %80
-    i16 38, label %92
-    i16 41, label %92
-    i16 40, label %83
-    i16 1166, label %84
-    i16 21, label %90
+_ZN4llvm16AArch64InstrInfo20isTailCallReturnInstERKNS_12MachineInstrE.exit: ; preds = %29
+  %42 = load i16, ptr %25, align 8, !tbaa !259
+  switch i16 %42, label %43 [
+    i16 26, label %46
+    i16 28, label %53
+    i16 32, label %64
+    i16 36, label %79
+    i16 38, label %91
+    i16 41, label %91
+    i16 40, label %82
+    i16 1166, label %83
+    i16 21, label %89
   ]
 
-44:                                               ; preds = %_ZN4llvm16AArch64InstrInfo20isTailCallReturnInstERKNS_12MachineInstrE.exit
-  %45 = getelementptr inbounds nuw i8, ptr %26, i64 5
-  %46 = load i8, ptr %45, align 1, !tbaa !256
-  %.not41 = icmp eq i8 %46, 0
-  %narrow47 = select i1 %.not41, i8 4, i8 %46
+43:                                               ; preds = %_ZN4llvm16AArch64InstrInfo20isTailCallReturnInstERKNS_12MachineInstrE.exit
+  %44 = getelementptr inbounds nuw i8, ptr %25, i64 5
+  %45 = load i8, ptr %44, align 1, !tbaa !256
+  %.not41 = icmp eq i8 %45, 0
+  %narrow47 = select i1 %.not41, i8 4, i8 %45
   %spec.select45 = zext i8 %narrow47 to i32
-  br label %92
+  br label %91
 
-47:                                               ; preds = %_ZN4llvm16AArch64InstrInfo20isTailCallReturnInstERKNS_12MachineInstrE.exit
+46:                                               ; preds = %_ZN4llvm16AArch64InstrInfo20isTailCallReturnInstERKNS_12MachineInstrE.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZN4llvm13StackMapOpersC1EPKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull %1) #31
-  %48 = load ptr, ptr %3, align 8, !tbaa !260
-  %49 = getelementptr inbounds nuw i8, ptr %48, i64 32
-  %50 = load ptr, ptr %49, align 8, !tbaa !251
-  %51 = getelementptr inbounds nuw i8, ptr %50, i64 48
-  %52 = load i64, ptr %51, align 8, !tbaa !252
-  %53 = trunc i64 %52 to i32
+  %47 = load ptr, ptr %3, align 8, !tbaa !260
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 32
+  %49 = load ptr, ptr %48, align 8, !tbaa !251
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 48
+  %51 = load i64, ptr %50, align 8, !tbaa !252
+  %52 = trunc i64 %51 to i32
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %92
+  br label %91
 
-54:                                               ; preds = %_ZN4llvm16AArch64InstrInfo20isTailCallReturnInstERKNS_12MachineInstrE.exit
+53:                                               ; preds = %_ZN4llvm16AArch64InstrInfo20isTailCallReturnInstERKNS_12MachineInstrE.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN4llvm15PatchPointOpersC1EPKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(9) %4, ptr noundef nonnull %1) #31
-  %55 = load ptr, ptr %4, align 8, !tbaa !263
-  %56 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %57 = load i8, ptr %56, align 8, !tbaa !265, !range !73, !noundef !74
-  %58 = getelementptr inbounds nuw i8, ptr %55, i64 32
-  %59 = load ptr, ptr %58, align 8, !tbaa !251
-  %60 = zext nneg i8 %57 to i64
-  %61 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %59, i64 %60
-  %62 = getelementptr inbounds nuw i8, ptr %61, i64 48
-  %63 = load i64, ptr %62, align 8, !tbaa !252
-  %64 = trunc i64 %63 to i32
+  %54 = load ptr, ptr %4, align 8, !tbaa !263
+  %55 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %56 = load i8, ptr %55, align 8, !tbaa !265, !range !73, !noundef !74
+  %57 = getelementptr inbounds nuw i8, ptr %54, i64 32
+  %58 = load ptr, ptr %57, align 8, !tbaa !251
+  %59 = zext nneg i8 %56 to i64
+  %60 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %58, i64 %59
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 48
+  %62 = load i64, ptr %61, align 8, !tbaa !252
+  %63 = trunc i64 %62 to i32
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %92
+  br label %91
 
-65:                                               ; preds = %_ZN4llvm16AArch64InstrInfo20isTailCallReturnInstERKNS_12MachineInstrE.exit
-  %66 = tail call noundef i32 @_ZNK4llvm12MachineInstr18getNumExplicitDefsEv(ptr noundef nonnull align 8 dereferenceable(70) %1) #31
-  %67 = load ptr, ptr %25, align 8, !tbaa !253
-  %68 = getelementptr inbounds nuw i8, ptr %67, i64 9
-  %69 = load i8, ptr %68, align 1, !tbaa !266
-  %70 = zext i8 %69 to i32
-  %71 = add i32 %66, 1
-  %72 = add i32 %71, %70
-  %73 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %74 = load ptr, ptr %73, align 8, !tbaa !251
-  %75 = zext i32 %72 to i64
-  %76 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %74, i64 %75, i32 3
-  %77 = load i64, ptr %76, align 8, !tbaa !252
-  %78 = trunc i64 %77 to i32
-  %79 = icmp eq i32 %78, 0
-  %spec.store.select = select i1 %79, i32 4, i32 %78
-  br label %92
+64:                                               ; preds = %_ZN4llvm16AArch64InstrInfo20isTailCallReturnInstERKNS_12MachineInstrE.exit
+  %65 = tail call noundef i32 @_ZNK4llvm12MachineInstr18getNumExplicitDefsEv(ptr noundef nonnull align 8 dereferenceable(70) %1) #31
+  %66 = load ptr, ptr %24, align 8, !tbaa !253
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 9
+  %68 = load i8, ptr %67, align 1, !tbaa !266
+  %69 = zext i8 %68 to i32
+  %70 = add i32 %65, 1
+  %71 = add i32 %70, %69
+  %72 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %73 = load ptr, ptr %72, align 8, !tbaa !251
+  %74 = zext i32 %71 to i64
+  %75 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %73, i64 %74, i32 3
+  %76 = load i64, ptr %75, align 8, !tbaa !252
+  %77 = trunc i64 %76 to i32
+  %78 = icmp eq i32 %77, 0
+  %spec.store.select = select i1 %78, i32 4, i32 %77
+  br label %91
 
-80:                                               ; preds = %_ZN4llvm16AArch64InstrInfo20isTailCallReturnInstERKNS_12MachineInstrE.exit
-  %81 = tail call noundef i64 @_ZNK4llvm8Function29getFnAttributeAsParsedIntegerENS_9StringRefEm(ptr noundef nonnull align 8 dereferenceable(136) %9, ptr nonnull @.str.11, i64 24, i64 noundef 9) #31
-  %.tr = trunc i64 %81 to i32
-  %82 = shl i32 %.tr, 2
-  br label %92
+79:                                               ; preds = %_ZN4llvm16AArch64InstrInfo20isTailCallReturnInstERKNS_12MachineInstrE.exit
+  %80 = tail call noundef i64 @_ZNK4llvm8Function29getFnAttributeAsParsedIntegerENS_9StringRefEm(ptr noundef nonnull align 8 dereferenceable(136) %9, ptr nonnull @.str.11, i64 24, i64 noundef 9) #31
+  %.tr = trunc i64 %80 to i32
+  %81 = shl i32 %.tr, 2
+  br label %91
+
+82:                                               ; preds = %_ZN4llvm16AArch64InstrInfo20isTailCallReturnInstERKNS_12MachineInstrE.exit
+  br label %91
 
 83:                                               ; preds = %_ZN4llvm16AArch64InstrInfo20isTailCallReturnInstERKNS_12MachineInstrE.exit
-  br label %92
+  %84 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %85 = load ptr, ptr %84, align 8, !tbaa !251
+  %86 = getelementptr inbounds nuw i8, ptr %85, i64 48
+  %87 = load i64, ptr %86, align 8, !tbaa !252
+  %88 = trunc i64 %87 to i32
+  br label %91
 
-84:                                               ; preds = %_ZN4llvm16AArch64InstrInfo20isTailCallReturnInstERKNS_12MachineInstrE.exit
-  %85 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %86 = load ptr, ptr %85, align 8, !tbaa !251
-  %87 = getelementptr inbounds nuw i8, ptr %86, i64 48
-  %88 = load i64, ptr %87, align 8, !tbaa !252
-  %89 = trunc i64 %88 to i32
-  br label %92
+89:                                               ; preds = %_ZN4llvm16AArch64InstrInfo20isTailCallReturnInstERKNS_12MachineInstrE.exit
+  %90 = tail call noundef i32 @_ZNK4llvm16AArch64InstrInfo19getInstBundleLengthERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(408) %0, ptr noundef nonnull align 8 dereferenceable(70) %1)
+  br label %91
 
-90:                                               ; preds = %_ZN4llvm16AArch64InstrInfo20isTailCallReturnInstERKNS_12MachineInstrE.exit
-  %91 = tail call noundef i32 @_ZNK4llvm16AArch64InstrInfo19getInstBundleLengthERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(408) %0, ptr noundef nonnull align 8 dereferenceable(70) %1)
-  br label %92
-
-92:                                               ; preds = %44, %14, %31, %37, %_ZN4llvm16AArch64InstrInfo20isTailCallReturnInstERKNS_12MachineInstrE.exit, %_ZN4llvm16AArch64InstrInfo20isTailCallReturnInstERKNS_12MachineInstrE.exit, %90, %84, %83, %80, %65, %54, %47, %24
-  %.1 = phi i32 [ %23, %14 ], [ 0, %24 ], [ %42, %37 ], [ %spec.select, %31 ], [ %53, %47 ], [ %64, %54 ], [ %spec.store.select, %65 ], [ %82, %80 ], [ 24, %83 ], [ %89, %84 ], [ %91, %90 ], [ 36, %_ZN4llvm16AArch64InstrInfo20isTailCallReturnInstERKNS_12MachineInstrE.exit ], [ 36, %_ZN4llvm16AArch64InstrInfo20isTailCallReturnInstERKNS_12MachineInstrE.exit ], [ %spec.select45, %44 ]
+91:                                               ; preds = %43, %13, %30, %36, %_ZN4llvm16AArch64InstrInfo20isTailCallReturnInstERKNS_12MachineInstrE.exit, %_ZN4llvm16AArch64InstrInfo20isTailCallReturnInstERKNS_12MachineInstrE.exit, %89, %83, %82, %79, %64, %53, %46, %23
+  %.1 = phi i32 [ %22, %13 ], [ 0, %23 ], [ %41, %36 ], [ %spec.select, %30 ], [ %52, %46 ], [ %63, %53 ], [ %spec.store.select, %64 ], [ %81, %79 ], [ 24, %82 ], [ %88, %83 ], [ %90, %89 ], [ 36, %_ZN4llvm16AArch64InstrInfo20isTailCallReturnInstERKNS_12MachineInstrE.exit ], [ 36, %_ZN4llvm16AArch64InstrInfo20isTailCallReturnInstERKNS_12MachineInstrE.exit ], [ %spec.select45, %43 ]
   ret i32 %.1
 }
 

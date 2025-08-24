@@ -2382,8 +2382,8 @@ _ZNK6icu_7725CollationFastLatinBuilder9getMiniCEEl.exit58: ; preds = %66, %49, %
   br i1 %or.cond3.not, label %91, label %99
 
 91:                                               ; preds = %83, %78
-  %92 = add nsw i32 %76, -4096
-  %or.cond5 = icmp ult i32 %92, -3103
+  %92 = add i16 %75, -4096
+  %or.cond5 = icmp ult i16 %92, -3103
   %93 = lshr exact i32 %80, 11
   %94 = add nuw nsw i32 %93, 8
   %95 = select i1 %or.cond5, i32 %94, i32 0

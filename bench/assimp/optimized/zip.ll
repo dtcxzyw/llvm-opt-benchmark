@@ -3645,8 +3645,8 @@ tinfl_clear_tree.exit:                            ; preds = %315, %316, %317
   %729 = getelementptr inbounds nuw [31 x i16], ptr @tinfl_decompress.s_length_base, i64 0, i64 %728
   %730 = load i16, ptr %729, align 2
   %731 = zext i16 %730 to i32
-  %732 = add nsw i64 %728, -28
-  %.not1567 = icmp ult i64 %732, -20
+  %732 = add nsw i32 %724, -285
+  %.not1567 = icmp ult i32 %732, -20
   br i1 %.not1567, label %757, label %733
 
 733:                                              ; preds = %726
@@ -3874,8 +3874,8 @@ tinfl_clear_tree.exit:                            ; preds = %315, %316, %317
   %843 = getelementptr inbounds nuw [32 x i16], ptr @tinfl_decompress.s_dist_base, i64 0, i64 %842
   %844 = load i16, ptr %843, align 2
   %845 = zext i16 %844 to i32
-  %846 = add nsw i64 %842, -30
-  %.not1574 = icmp ult i64 %846, -26
+  %846 = add nsw i32 %.11006, -30
+  %.not1574 = icmp ult i32 %846, -26
   br i1 %.not1574, label %871, label %847
 
 847:                                              ; preds = %.loopexit1725

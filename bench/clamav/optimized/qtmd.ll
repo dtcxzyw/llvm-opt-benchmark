@@ -1880,8 +1880,8 @@ define i32 @qtmd_decompress(ptr noundef %0, i64 noundef %1) local_unnamed_addr #
 
 813:                                              ; preds = %767
   %814 = zext i16 %736 to i64
-  %815 = add nsw i64 %814, -26
-  %.not12461951 = icmp ult i64 %815, -20
+  %815 = add i16 %736, -26
+  %.not12461951 = icmp ult i16 %815, -20
   br i1 %.not12461951, label %._crit_edge1960, label %.lr.ph1959.preheader
 
 .lr.ph1959.preheader:                             ; preds = %813

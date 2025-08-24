@@ -154,8 +154,8 @@ bytestream2_get_byte.exit:                        ; preds = %4
   br i1 %47, label %748, label %48
 
 48:                                               ; preds = %43
-  %49 = add nsw i32 %32, -101
-  %or.cond = icmp ult i32 %49, -100
+  %49 = add i8 %31, -101
+  %or.cond = icmp ult i8 %49, -100
   br i1 %or.cond, label %50, label %51
 
 50:                                               ; preds = %48
