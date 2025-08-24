@@ -144275,7 +144275,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 
 ; Function Attrs: inlinehint mustprogress uwtable
 define linkonce_odr hidden void @_ZN5boost8geometry6detail3wkt18container_appenderIRNS0_5model4ringINS4_5pointIiLm2ENS0_2cs9cartesianEEELb1ELb1ESt6vectorSaEEE5applyINS_14token_iteratorINS_14char_separatorIcSt11char_traitsIcEEEN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSI_SaIcEEEEESR_EEEEvRT_RKSU_RKSR_SC_(ptr noundef nonnull align 8 dereferenceable(136) %0, ptr noundef nonnull align 8 dereferenceable(136) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(24) %3) local_unnamed_addr #4 comdat align 2 {
-  %5 = alloca %"class.boost::geometry::model::point", align 4
+  %5 = alloca %"class.boost::geometry::model::point", align 8
   tail call void @_ZN5boost8geometry6detail3wkt23handle_open_parenthesisINS_14token_iteratorINS_14char_separatorIcSt11char_traitsIcEEEN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcS7_SaIcEEEEESG_EEEEvRT_RKSJ_RKSG_(ptr noundef nonnull align 8 dereferenceable(136) %0, ptr noundef nonnull align 8 dereferenceable(136) %1, ptr noundef nonnull align 8 dereferenceable(32) %2)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 96
@@ -144284,225 +144284,206 @@ define linkonce_odr hidden void @_ZN5boost8geometry6detail3wkt18container_append
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %13 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  %14 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %15 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  br label %16
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  br label %15
 
-16:                                               ; preds = %_ZN5boost8geometry6detail3wkt23stateful_range_appenderIRNS0_5model4ringINS4_5pointIiLm2ENS0_2cs9cartesianEEELb1ELb1ESt6vectorSaEELNS0_16closure_selectorE1EE6appendESC_RKS9_b.exit37, %4
-  %17 = load i8, ptr %6, align 8, !tbaa !2338, !range !17, !noundef !18
-  %18 = trunc nuw i8 %17 to i1
-  %19 = load i8, ptr %7, align 8, !range !17
-  %20 = trunc nuw i8 %19 to i1
-  %or.cond.i.i.i = select i1 %18, i1 %20, i1 false
-  br i1 %or.cond.i.i.i, label %21, label %25
+15:                                               ; preds = %_ZN5boost8geometry6detail3wkt23stateful_range_appenderIRNS0_5model4ringINS4_5pointIiLm2ENS0_2cs9cartesianEEELb1ELb1ESt6vectorSaEELNS0_16closure_selectorE1EE6appendESC_RKS9_b.exit29, %4
+  %16 = load i8, ptr %6, align 8, !tbaa !2338, !range !17, !noundef !18
+  %17 = trunc nuw i8 %16 to i1
+  %18 = load i8, ptr %7, align 8, !range !17
+  %19 = trunc nuw i8 %18 to i1
+  %or.cond.i.i.i = select i1 %17, i1 %19, i1 false
+  br i1 %or.cond.i.i.i, label %20, label %24
 
-21:                                               ; preds = %16
-  %22 = load ptr, ptr %8, align 8, !tbaa !174
-  %23 = load ptr, ptr %9, align 8, !tbaa !174
-  %24 = icmp eq ptr %22, %23
-  br i1 %24, label %_ZN5boost9iteratorsneINS_14token_iteratorINS_14char_separatorIcSt11char_traitsIcEEEN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcS5_SaIcEEEEESE_EESE_NS0_21forward_traversal_tagERKSE_lSG_SE_SH_SJ_lEENS0_6detail23enable_if_interoperableIT_T4_NS_3mpl6apply2INSK_12always_bool2ESM_SN_E4typeEE4typeERKNS0_15iterator_facadeISM_T0_T1_T2_T3_EERKNSV_ISN_T5_T6_T7_T8_EE.exit, label %_ZN5boost9iteratorsneINS_14token_iteratorINS_14char_separatorIcSt11char_traitsIcEEEN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcS5_SaIcEEEEESE_EESE_NS0_21forward_traversal_tagERKSE_lSG_SE_SH_SJ_lEENS0_6detail23enable_if_interoperableIT_T4_NS_3mpl6apply2INSK_12always_bool2ESM_SN_E4typeEE4typeERKNS0_15iterator_facadeISM_T0_T1_T2_T3_EERKNSV_ISN_T5_T6_T7_T8_EE.exit.thread
+20:                                               ; preds = %15
+  %21 = load ptr, ptr %8, align 8, !tbaa !174
+  %22 = load ptr, ptr %9, align 8, !tbaa !174
+  %23 = icmp eq ptr %21, %22
+  br i1 %23, label %_ZN5boost9iteratorsneINS_14token_iteratorINS_14char_separatorIcSt11char_traitsIcEEEN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcS5_SaIcEEEEESE_EESE_NS0_21forward_traversal_tagERKSE_lSG_SE_SH_SJ_lEENS0_6detail23enable_if_interoperableIT_T4_NS_3mpl6apply2INSK_12always_bool2ESM_SN_E4typeEE4typeERKNS0_15iterator_facadeISM_T0_T1_T2_T3_EERKNSV_ISN_T5_T6_T7_T8_EE.exit, label %_ZN5boost9iteratorsneINS_14token_iteratorINS_14char_separatorIcSt11char_traitsIcEEEN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcS5_SaIcEEEEESE_EESE_NS0_21forward_traversal_tagERKSE_lSG_SE_SH_SJ_lEENS0_6detail23enable_if_interoperableIT_T4_NS_3mpl6apply2INSK_12always_bool2ESM_SN_E4typeEE4typeERKNS0_15iterator_facadeISM_T0_T1_T2_T3_EERKNSV_ISN_T5_T6_T7_T8_EE.exit.thread
 
-25:                                               ; preds = %16
-  %26 = icmp eq i8 %17, %19
-  br i1 %26, label %.critedge, label %_ZN5boost9iteratorsneINS_14token_iteratorINS_14char_separatorIcSt11char_traitsIcEEEN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcS5_SaIcEEEEESE_EESE_NS0_21forward_traversal_tagERKSE_lSG_SE_SH_SJ_lEENS0_6detail23enable_if_interoperableIT_T4_NS_3mpl6apply2INSK_12always_bool2ESM_SN_E4typeEE4typeERKNS0_15iterator_facadeISM_T0_T1_T2_T3_EERKNSV_ISN_T5_T6_T7_T8_EE.exit.thread
+24:                                               ; preds = %15
+  %25 = icmp eq i8 %16, %18
+  br i1 %25, label %.critedge, label %_ZN5boost9iteratorsneINS_14token_iteratorINS_14char_separatorIcSt11char_traitsIcEEEN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcS5_SaIcEEEEESE_EESE_NS0_21forward_traversal_tagERKSE_lSG_SE_SH_SJ_lEENS0_6detail23enable_if_interoperableIT_T4_NS_3mpl6apply2INSK_12always_bool2ESM_SN_E4typeEE4typeERKNS0_15iterator_facadeISM_T0_T1_T2_T3_EERKNSV_ISN_T5_T6_T7_T8_EE.exit.thread
 
-_ZN5boost9iteratorsneINS_14token_iteratorINS_14char_separatorIcSt11char_traitsIcEEEN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcS5_SaIcEEEEESE_EESE_NS0_21forward_traversal_tagERKSE_lSG_SE_SH_SJ_lEENS0_6detail23enable_if_interoperableIT_T4_NS_3mpl6apply2INSK_12always_bool2ESM_SN_E4typeEE4typeERKNS0_15iterator_facadeISM_T0_T1_T2_T3_EERKNSV_ISN_T5_T6_T7_T8_EE.exit: ; preds = %21
-  %27 = load ptr, ptr %10, align 8, !tbaa !174
-  %28 = load ptr, ptr %11, align 8, !tbaa !174
-  %29 = icmp eq ptr %27, %28
-  br i1 %29, label %.critedge, label %_ZN5boost9iteratorsneINS_14token_iteratorINS_14char_separatorIcSt11char_traitsIcEEEN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcS5_SaIcEEEEESE_EESE_NS0_21forward_traversal_tagERKSE_lSG_SE_SH_SJ_lEENS0_6detail23enable_if_interoperableIT_T4_NS_3mpl6apply2INSK_12always_bool2ESM_SN_E4typeEE4typeERKNS0_15iterator_facadeISM_T0_T1_T2_T3_EERKNSV_ISN_T5_T6_T7_T8_EE.exit.thread
+_ZN5boost9iteratorsneINS_14token_iteratorINS_14char_separatorIcSt11char_traitsIcEEEN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcS5_SaIcEEEEESE_EESE_NS0_21forward_traversal_tagERKSE_lSG_SE_SH_SJ_lEENS0_6detail23enable_if_interoperableIT_T4_NS_3mpl6apply2INSK_12always_bool2ESM_SN_E4typeEE4typeERKNS0_15iterator_facadeISM_T0_T1_T2_T3_EERKNSV_ISN_T5_T6_T7_T8_EE.exit: ; preds = %20
+  %26 = load ptr, ptr %10, align 8, !tbaa !174
+  %27 = load ptr, ptr %11, align 8, !tbaa !174
+  %28 = icmp eq ptr %26, %27
+  br i1 %28, label %.critedge, label %_ZN5boost9iteratorsneINS_14token_iteratorINS_14char_separatorIcSt11char_traitsIcEEEN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcS5_SaIcEEEEESE_EESE_NS0_21forward_traversal_tagERKSE_lSG_SE_SH_SJ_lEENS0_6detail23enable_if_interoperableIT_T4_NS_3mpl6apply2INSK_12always_bool2ESM_SN_E4typeEE4typeERKNS0_15iterator_facadeISM_T0_T1_T2_T3_EERKNSV_ISN_T5_T6_T7_T8_EE.exit.thread
 
-_ZN5boost9iteratorsneINS_14token_iteratorINS_14char_separatorIcSt11char_traitsIcEEEN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcS5_SaIcEEEEESE_EESE_NS0_21forward_traversal_tagERKSE_lSG_SE_SH_SJ_lEENS0_6detail23enable_if_interoperableIT_T4_NS_3mpl6apply2INSK_12always_bool2ESM_SN_E4typeEE4typeERKNS0_15iterator_facadeISM_T0_T1_T2_T3_EERKNSV_ISN_T5_T6_T7_T8_EE.exit.thread: ; preds = %25, %21, %_ZN5boost9iteratorsneINS_14token_iteratorINS_14char_separatorIcSt11char_traitsIcEEEN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcS5_SaIcEEEEESE_EESE_NS0_21forward_traversal_tagERKSE_lSG_SE_SH_SJ_lEENS0_6detail23enable_if_interoperableIT_T4_NS_3mpl6apply2INSK_12always_bool2ESM_SN_E4typeEE4typeERKNS0_15iterator_facadeISM_T0_T1_T2_T3_EERKNSV_ISN_T5_T6_T7_T8_EE.exit
-  %30 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull @.str.501) #56
-  %.not = icmp eq i32 %30, 0
-  br i1 %.not, label %.critedge, label %31
+_ZN5boost9iteratorsneINS_14token_iteratorINS_14char_separatorIcSt11char_traitsIcEEEN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcS5_SaIcEEEEESE_EESE_NS0_21forward_traversal_tagERKSE_lSG_SE_SH_SJ_lEENS0_6detail23enable_if_interoperableIT_T4_NS_3mpl6apply2INSK_12always_bool2ESM_SN_E4typeEE4typeERKNS0_15iterator_facadeISM_T0_T1_T2_T3_EERKNSV_ISN_T5_T6_T7_T8_EE.exit.thread: ; preds = %24, %20, %_ZN5boost9iteratorsneINS_14token_iteratorINS_14char_separatorIcSt11char_traitsIcEEEN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcS5_SaIcEEEEESE_EESE_NS0_21forward_traversal_tagERKSE_lSG_SE_SH_SJ_lEENS0_6detail23enable_if_interoperableIT_T4_NS_3mpl6apply2INSK_12always_bool2ESM_SN_E4typeEE4typeERKNS0_15iterator_facadeISM_T0_T1_T2_T3_EERKNSV_ISN_T5_T6_T7_T8_EE.exit
+  %29 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull @.str.501) #56
+  %.not = icmp eq i32 %29, 0
+  br i1 %.not, label %.critedge, label %30
 
-31:                                               ; preds = %_ZN5boost9iteratorsneINS_14token_iteratorINS_14char_separatorIcSt11char_traitsIcEEEN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcS5_SaIcEEEEESE_EESE_NS0_21forward_traversal_tagERKSE_lSG_SE_SH_SJ_lEENS0_6detail23enable_if_interoperableIT_T4_NS_3mpl6apply2INSK_12always_bool2ESM_SN_E4typeEE4typeERKNS0_15iterator_facadeISM_T0_T1_T2_T3_EERKNSV_ISN_T5_T6_T7_T8_EE.exit.thread
+30:                                               ; preds = %_ZN5boost9iteratorsneINS_14token_iteratorINS_14char_separatorIcSt11char_traitsIcEEEN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcS5_SaIcEEEEESE_EESE_NS0_21forward_traversal_tagERKSE_lSG_SE_SH_SJ_lEENS0_6detail23enable_if_interoperableIT_T4_NS_3mpl6apply2INSK_12always_bool2ESM_SN_E4typeEE4typeERKNS0_15iterator_facadeISM_T0_T1_T2_T3_EERKNSV_ISN_T5_T6_T7_T8_EE.exit.thread
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @_ZN5boost8geometry6detail3wkt16parsing_assignerINS0_5model5pointIiLm2ENS0_2cs9cartesianEEELm0ELm2EE5applyINS_14token_iteratorINS_14char_separatorIcSt11char_traitsIcEEEN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSE_SaIcEEEEESN_EEEEvRT_RKSQ_RS8_RKSN_(ptr noundef nonnull align 8 dereferenceable(136) %0, ptr noundef nonnull align 8 dereferenceable(136) %1, ptr noundef nonnull align 4 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(32) %2)
-  %32 = load i8, ptr %6, align 8, !tbaa !2338, !range !17, !noundef !18
-  %33 = trunc nuw i8 %32 to i1
-  %34 = load i8, ptr %7, align 8, !range !17
-  %35 = trunc nuw i8 %34 to i1
-  %or.cond.i.i.i20 = select i1 %33, i1 %35, i1 false
-  br i1 %or.cond.i.i.i20, label %36, label %40
+  %31 = load i8, ptr %6, align 8, !tbaa !2338, !range !17, !noundef !18
+  %32 = trunc nuw i8 %31 to i1
+  %33 = load i8, ptr %7, align 8, !range !17
+  %34 = trunc nuw i8 %33 to i1
+  %or.cond.i.i.i20 = select i1 %32, i1 %34, i1 false
+  br i1 %or.cond.i.i.i20, label %35, label %39
 
-36:                                               ; preds = %31
-  %37 = load ptr, ptr %8, align 8, !tbaa !174
-  %38 = load ptr, ptr %9, align 8, !tbaa !174
-  %39 = icmp eq ptr %37, %38
-  br i1 %39, label %_ZN5boost9iteratorsneINS_14token_iteratorINS_14char_separatorIcSt11char_traitsIcEEEN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcS5_SaIcEEEEESE_EESE_NS0_21forward_traversal_tagERKSE_lSG_SE_SH_SJ_lEENS0_6detail23enable_if_interoperableIT_T4_NS_3mpl6apply2INSK_12always_bool2ESM_SN_E4typeEE4typeERKNS0_15iterator_facadeISM_T0_T1_T2_T3_EERKNSV_ISN_T5_T6_T7_T8_EE.exit21, label %_ZN5boost9iteratorsneINS_14token_iteratorINS_14char_separatorIcSt11char_traitsIcEEEN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcS5_SaIcEEEEESE_EESE_NS0_21forward_traversal_tagERKSE_lSG_SE_SH_SJ_lEENS0_6detail23enable_if_interoperableIT_T4_NS_3mpl6apply2INSK_12always_bool2ESM_SN_E4typeEE4typeERKNS0_15iterator_facadeISM_T0_T1_T2_T3_EERKNSV_ISN_T5_T6_T7_T8_EE.exit21.thread
+35:                                               ; preds = %30
+  %36 = load ptr, ptr %8, align 8, !tbaa !174
+  %37 = load ptr, ptr %9, align 8, !tbaa !174
+  %38 = icmp eq ptr %36, %37
+  br i1 %38, label %_ZN5boost9iteratorsneINS_14token_iteratorINS_14char_separatorIcSt11char_traitsIcEEEN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcS5_SaIcEEEEESE_EESE_NS0_21forward_traversal_tagERKSE_lSG_SE_SH_SJ_lEENS0_6detail23enable_if_interoperableIT_T4_NS_3mpl6apply2INSK_12always_bool2ESM_SN_E4typeEE4typeERKNS0_15iterator_facadeISM_T0_T1_T2_T3_EERKNSV_ISN_T5_T6_T7_T8_EE.exit21, label %_ZN5boost9iteratorsneINS_14token_iteratorINS_14char_separatorIcSt11char_traitsIcEEEN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcS5_SaIcEEEEESE_EESE_NS0_21forward_traversal_tagERKSE_lSG_SE_SH_SJ_lEENS0_6detail23enable_if_interoperableIT_T4_NS_3mpl6apply2INSK_12always_bool2ESM_SN_E4typeEE4typeERKNS0_15iterator_facadeISM_T0_T1_T2_T3_EERKNSV_ISN_T5_T6_T7_T8_EE.exit21.thread
 
-40:                                               ; preds = %31
-  %41 = icmp eq i8 %32, %34
-  br i1 %41, label %.critedge19, label %_ZN5boost9iteratorsneINS_14token_iteratorINS_14char_separatorIcSt11char_traitsIcEEEN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcS5_SaIcEEEEESE_EESE_NS0_21forward_traversal_tagERKSE_lSG_SE_SH_SJ_lEENS0_6detail23enable_if_interoperableIT_T4_NS_3mpl6apply2INSK_12always_bool2ESM_SN_E4typeEE4typeERKNS0_15iterator_facadeISM_T0_T1_T2_T3_EERKNSV_ISN_T5_T6_T7_T8_EE.exit21.thread
+39:                                               ; preds = %30
+  %40 = icmp eq i8 %31, %33
+  br i1 %40, label %.critedge19, label %_ZN5boost9iteratorsneINS_14token_iteratorINS_14char_separatorIcSt11char_traitsIcEEEN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcS5_SaIcEEEEESE_EESE_NS0_21forward_traversal_tagERKSE_lSG_SE_SH_SJ_lEENS0_6detail23enable_if_interoperableIT_T4_NS_3mpl6apply2INSK_12always_bool2ESM_SN_E4typeEE4typeERKNS0_15iterator_facadeISM_T0_T1_T2_T3_EERKNSV_ISN_T5_T6_T7_T8_EE.exit21.thread
 
-_ZN5boost9iteratorsneINS_14token_iteratorINS_14char_separatorIcSt11char_traitsIcEEEN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcS5_SaIcEEEEESE_EESE_NS0_21forward_traversal_tagERKSE_lSG_SE_SH_SJ_lEENS0_6detail23enable_if_interoperableIT_T4_NS_3mpl6apply2INSK_12always_bool2ESM_SN_E4typeEE4typeERKNS0_15iterator_facadeISM_T0_T1_T2_T3_EERKNSV_ISN_T5_T6_T7_T8_EE.exit21: ; preds = %36
-  %42 = load ptr, ptr %10, align 8, !tbaa !174
-  %43 = load ptr, ptr %11, align 8, !tbaa !174
-  %44 = icmp eq ptr %42, %43
-  br i1 %44, label %.critedge19, label %_ZN5boost9iteratorsneINS_14token_iteratorINS_14char_separatorIcSt11char_traitsIcEEEN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcS5_SaIcEEEEESE_EESE_NS0_21forward_traversal_tagERKSE_lSG_SE_SH_SJ_lEENS0_6detail23enable_if_interoperableIT_T4_NS_3mpl6apply2INSK_12always_bool2ESM_SN_E4typeEE4typeERKNS0_15iterator_facadeISM_T0_T1_T2_T3_EERKNSV_ISN_T5_T6_T7_T8_EE.exit21.thread
+_ZN5boost9iteratorsneINS_14token_iteratorINS_14char_separatorIcSt11char_traitsIcEEEN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcS5_SaIcEEEEESE_EESE_NS0_21forward_traversal_tagERKSE_lSG_SE_SH_SJ_lEENS0_6detail23enable_if_interoperableIT_T4_NS_3mpl6apply2INSK_12always_bool2ESM_SN_E4typeEE4typeERKNS0_15iterator_facadeISM_T0_T1_T2_T3_EERKNSV_ISN_T5_T6_T7_T8_EE.exit21: ; preds = %35
+  %41 = load ptr, ptr %10, align 8, !tbaa !174
+  %42 = load ptr, ptr %11, align 8, !tbaa !174
+  %43 = icmp eq ptr %41, %42
+  br i1 %43, label %.critedge19, label %_ZN5boost9iteratorsneINS_14token_iteratorINS_14char_separatorIcSt11char_traitsIcEEEN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcS5_SaIcEEEEESE_EESE_NS0_21forward_traversal_tagERKSE_lSG_SE_SH_SJ_lEENS0_6detail23enable_if_interoperableIT_T4_NS_3mpl6apply2INSK_12always_bool2ESM_SN_E4typeEE4typeERKNS0_15iterator_facadeISM_T0_T1_T2_T3_EERKNSV_ISN_T5_T6_T7_T8_EE.exit21.thread
 
-_ZN5boost9iteratorsneINS_14token_iteratorINS_14char_separatorIcSt11char_traitsIcEEEN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcS5_SaIcEEEEESE_EESE_NS0_21forward_traversal_tagERKSE_lSG_SE_SH_SJ_lEENS0_6detail23enable_if_interoperableIT_T4_NS_3mpl6apply2INSK_12always_bool2ESM_SN_E4typeEE4typeERKNS0_15iterator_facadeISM_T0_T1_T2_T3_EERKNSV_ISN_T5_T6_T7_T8_EE.exit21.thread: ; preds = %40, %36, %_ZN5boost9iteratorsneINS_14token_iteratorINS_14char_separatorIcSt11char_traitsIcEEEN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcS5_SaIcEEEEESE_EESE_NS0_21forward_traversal_tagERKSE_lSG_SE_SH_SJ_lEENS0_6detail23enable_if_interoperableIT_T4_NS_3mpl6apply2INSK_12always_bool2ESM_SN_E4typeEE4typeERKNS0_15iterator_facadeISM_T0_T1_T2_T3_EERKNSV_ISN_T5_T6_T7_T8_EE.exit21
-  %45 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull @.str.163) #56
-  %46 = icmp eq i32 %45, 0
-  %47 = load i32, ptr %5, align 4, !tbaa !263
-  %48 = load i32, ptr %13, align 4, !tbaa !263
-  %49 = load ptr, ptr %14, align 8, !tbaa !2334
-  %50 = load ptr, ptr %15, align 8, !tbaa !2331
-  %.not.i.i.i.i.i = icmp eq ptr %49, %50
-  br i1 %.not.i.i.i.i.i, label %54, label %51
+_ZN5boost9iteratorsneINS_14token_iteratorINS_14char_separatorIcSt11char_traitsIcEEEN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcS5_SaIcEEEEESE_EESE_NS0_21forward_traversal_tagERKSE_lSG_SE_SH_SJ_lEENS0_6detail23enable_if_interoperableIT_T4_NS_3mpl6apply2INSK_12always_bool2ESM_SN_E4typeEE4typeERKNS0_15iterator_facadeISM_T0_T1_T2_T3_EERKNSV_ISN_T5_T6_T7_T8_EE.exit21.thread: ; preds = %39, %35, %_ZN5boost9iteratorsneINS_14token_iteratorINS_14char_separatorIcSt11char_traitsIcEEEN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcS5_SaIcEEEEESE_EESE_NS0_21forward_traversal_tagERKSE_lSG_SE_SH_SJ_lEENS0_6detail23enable_if_interoperableIT_T4_NS_3mpl6apply2INSK_12always_bool2ESM_SN_E4typeEE4typeERKNS0_15iterator_facadeISM_T0_T1_T2_T3_EERKNSV_ISN_T5_T6_T7_T8_EE.exit21
+  %44 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull @.str.163) #56
+  %45 = icmp eq i32 %44, 0
+  %46 = load i64, ptr %5, align 8
+  %47 = load ptr, ptr %13, align 8, !tbaa !2334
+  %48 = load ptr, ptr %14, align 8, !tbaa !2331
+  %.not.i.i.i.i.i = icmp eq ptr %47, %48
+  br i1 %.not.i.i.i.i.i, label %52, label %49
 
-51:                                               ; preds = %_ZN5boost9iteratorsneINS_14token_iteratorINS_14char_separatorIcSt11char_traitsIcEEEN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcS5_SaIcEEEEESE_EESE_NS0_21forward_traversal_tagERKSE_lSG_SE_SH_SJ_lEENS0_6detail23enable_if_interoperableIT_T4_NS_3mpl6apply2INSK_12always_bool2ESM_SN_E4typeEE4typeERKNS0_15iterator_facadeISM_T0_T1_T2_T3_EERKNSV_ISN_T5_T6_T7_T8_EE.exit21.thread
-  %.sroa.5.0.insert.ext.i.i.i = zext i32 %48 to i64
-  %.sroa.5.0.insert.shift.i.i.i = shl nuw i64 %.sroa.5.0.insert.ext.i.i.i, 32
-  %.sroa.0.0.insert.ext.i.i.i = zext i32 %47 to i64
-  %.sroa.0.0.insert.insert.i.i.i = or disjoint i64 %.sroa.5.0.insert.shift.i.i.i, %.sroa.0.0.insert.ext.i.i.i
-  store i64 %.sroa.0.0.insert.insert.i.i.i, ptr %49, align 4, !tbaa !24
-  %52 = load ptr, ptr %14, align 8, !tbaa !2334
-  %53 = getelementptr inbounds nuw i8, ptr %52, i64 8
-  store ptr %53, ptr %14, align 8, !tbaa !2334
+49:                                               ; preds = %_ZN5boost9iteratorsneINS_14token_iteratorINS_14char_separatorIcSt11char_traitsIcEEEN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcS5_SaIcEEEEESE_EESE_NS0_21forward_traversal_tagERKSE_lSG_SE_SH_SJ_lEENS0_6detail23enable_if_interoperableIT_T4_NS_3mpl6apply2INSK_12always_bool2ESM_SN_E4typeEE4typeERKNS0_15iterator_facadeISM_T0_T1_T2_T3_EERKNSV_ISN_T5_T6_T7_T8_EE.exit21.thread
+  store i64 %46, ptr %47, align 4, !tbaa !24
+  %50 = load ptr, ptr %13, align 8, !tbaa !2334
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 8
+  store ptr %51, ptr %13, align 8, !tbaa !2334
   br label %_ZN5boost8geometry6detail3wkt23stateful_range_appenderIRNS0_5model4ringINS4_5pointIiLm2ENS0_2cs9cartesianEEELb1ELb1ESt6vectorSaEELNS0_16closure_selectorE1EE6appendESC_RKS9_b.exit
 
-54:                                               ; preds = %_ZN5boost9iteratorsneINS_14token_iteratorINS_14char_separatorIcSt11char_traitsIcEEEN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcS5_SaIcEEEEESE_EESE_NS0_21forward_traversal_tagERKSE_lSG_SE_SH_SJ_lEENS0_6detail23enable_if_interoperableIT_T4_NS_3mpl6apply2INSK_12always_bool2ESM_SN_E4typeEE4typeERKNS0_15iterator_facadeISM_T0_T1_T2_T3_EERKNSV_ISN_T5_T6_T7_T8_EE.exit21.thread
-  %55 = load ptr, ptr %3, align 8, !tbaa !2329
-  %56 = ptrtoint ptr %49 to i64
-  %57 = ptrtoint ptr %55 to i64
-  %58 = sub i64 %56, %57
-  %59 = icmp eq i64 %58, 9223372036854775800
-  br i1 %59, label %60, label %_ZNKSt6vectorIN5boost8geometry5model5pointIiLm2ENS1_2cs9cartesianEEESaIS6_EE12_M_check_lenEmPKc.exit.i.i.i.i.i.i
+52:                                               ; preds = %_ZN5boost9iteratorsneINS_14token_iteratorINS_14char_separatorIcSt11char_traitsIcEEEN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcS5_SaIcEEEEESE_EESE_NS0_21forward_traversal_tagERKSE_lSG_SE_SH_SJ_lEENS0_6detail23enable_if_interoperableIT_T4_NS_3mpl6apply2INSK_12always_bool2ESM_SN_E4typeEE4typeERKNS0_15iterator_facadeISM_T0_T1_T2_T3_EERKNSV_ISN_T5_T6_T7_T8_EE.exit21.thread
+  %53 = load ptr, ptr %3, align 8, !tbaa !2329
+  %54 = ptrtoint ptr %47 to i64
+  %55 = ptrtoint ptr %53 to i64
+  %56 = sub i64 %54, %55
+  %57 = icmp eq i64 %56, 9223372036854775800
+  br i1 %57, label %58, label %_ZNKSt6vectorIN5boost8geometry5model5pointIiLm2ENS1_2cs9cartesianEEESaIS6_EE12_M_check_lenEmPKc.exit.i.i.i.i.i.i
 
-60:                                               ; preds = %54
+58:                                               ; preds = %52
   call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.477) #55
   unreachable
 
-_ZNKSt6vectorIN5boost8geometry5model5pointIiLm2ENS1_2cs9cartesianEEESaIS6_EE12_M_check_lenEmPKc.exit.i.i.i.i.i.i: ; preds = %54
-  %61 = ashr exact i64 %58, 3
-  %.sroa.speculated.i.i.i.i.i.i.i = call i64 @llvm.umax.i64(i64 %61, i64 1)
-  %62 = add nsw i64 %.sroa.speculated.i.i.i.i.i.i.i, %61
-  %63 = icmp ult i64 %62, %61
-  %64 = call i64 @llvm.umin.i64(i64 %62, i64 1152921504606846975)
-  %65 = select i1 %63, i64 1152921504606846975, i64 %64
-  %.not.i.i.i.i.i.i.i = icmp ne i64 %65, 0
+_ZNKSt6vectorIN5boost8geometry5model5pointIiLm2ENS1_2cs9cartesianEEESaIS6_EE12_M_check_lenEmPKc.exit.i.i.i.i.i.i: ; preds = %52
+  %59 = ashr exact i64 %56, 3
+  %.sroa.speculated.i.i.i.i.i.i.i = call i64 @llvm.umax.i64(i64 %59, i64 1)
+  %60 = add nsw i64 %.sroa.speculated.i.i.i.i.i.i.i, %59
+  %61 = icmp ult i64 %60, %59
+  %62 = call i64 @llvm.umin.i64(i64 %60, i64 1152921504606846975)
+  %63 = select i1 %61, i64 1152921504606846975, i64 %62
+  %.not.i.i.i.i.i.i.i = icmp ne i64 %63, 0
   call void @llvm.assume(i1 %.not.i.i.i.i.i.i.i)
-  %66 = shl nuw nsw i64 %65, 3
-  %67 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %66) #59
-  %68 = getelementptr inbounds i8, ptr %67, i64 %58
-  %.sroa.5.0.insert.ext7.i.i.i = zext i32 %48 to i64
-  %.sroa.5.0.insert.shift8.i.i.i = shl nuw i64 %.sroa.5.0.insert.ext7.i.i.i, 32
-  %.sroa.0.0.insert.ext3.i.i.i = zext i32 %47 to i64
-  %.sroa.0.0.insert.insert5.i.i.i = or disjoint i64 %.sroa.5.0.insert.shift8.i.i.i, %.sroa.0.0.insert.ext3.i.i.i
-  store i64 %.sroa.0.0.insert.insert5.i.i.i, ptr %68, align 4, !tbaa !24
-  %69 = icmp sgt i64 %58, 0
-  br i1 %69, label %70, label %_ZNSt6vectorIN5boost8geometry5model5pointIiLm2ENS1_2cs9cartesianEEESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit16.i.i.i.i.i.i
+  %64 = shl nuw nsw i64 %63, 3
+  %65 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %64) #59
+  %66 = getelementptr inbounds i8, ptr %65, i64 %56
+  store i64 %46, ptr %66, align 4, !tbaa !24
+  %67 = icmp sgt i64 %56, 0
+  br i1 %67, label %68, label %_ZNSt6vectorIN5boost8geometry5model5pointIiLm2ENS1_2cs9cartesianEEESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit16.i.i.i.i.i.i
 
-70:                                               ; preds = %_ZNKSt6vectorIN5boost8geometry5model5pointIiLm2ENS1_2cs9cartesianEEESaIS6_EE12_M_check_lenEmPKc.exit.i.i.i.i.i.i
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %67, ptr align 4 %55, i64 %58, i1 false)
+68:                                               ; preds = %_ZNKSt6vectorIN5boost8geometry5model5pointIiLm2ENS1_2cs9cartesianEEESaIS6_EE12_M_check_lenEmPKc.exit.i.i.i.i.i.i
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %65, ptr align 4 %53, i64 %56, i1 false)
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIiLm2ENS1_2cs9cartesianEEESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit16.i.i.i.i.i.i
 
-_ZNSt6vectorIN5boost8geometry5model5pointIiLm2ENS1_2cs9cartesianEEESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit16.i.i.i.i.i.i: ; preds = %70, %_ZNKSt6vectorIN5boost8geometry5model5pointIiLm2ENS1_2cs9cartesianEEESaIS6_EE12_M_check_lenEmPKc.exit.i.i.i.i.i.i
-  %71 = getelementptr inbounds nuw i8, ptr %68, i64 8
-  %.not.i17.i.i.i.i.i.i = icmp eq ptr %55, null
-  br i1 %.not.i17.i.i.i.i.i.i, label %_ZNSt6vectorIN5boost8geometry5model5pointIiLm2ENS1_2cs9cartesianEEESaIS6_EE17_M_realloc_insertIJRKS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i.i.i.i.i, label %72
+_ZNSt6vectorIN5boost8geometry5model5pointIiLm2ENS1_2cs9cartesianEEESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit16.i.i.i.i.i.i: ; preds = %68, %_ZNKSt6vectorIN5boost8geometry5model5pointIiLm2ENS1_2cs9cartesianEEESaIS6_EE12_M_check_lenEmPKc.exit.i.i.i.i.i.i
+  %69 = getelementptr inbounds nuw i8, ptr %66, i64 8
+  %.not.i17.i.i.i.i.i.i = icmp eq ptr %53, null
+  br i1 %.not.i17.i.i.i.i.i.i, label %_ZNSt6vectorIN5boost8geometry5model5pointIiLm2ENS1_2cs9cartesianEEESaIS6_EE17_M_realloc_insertIJRKS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i.i.i.i.i, label %70
 
-72:                                               ; preds = %_ZNSt6vectorIN5boost8geometry5model5pointIiLm2ENS1_2cs9cartesianEEESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit16.i.i.i.i.i.i
-  call void @_ZdlPvm(ptr noundef nonnull %55, i64 noundef %58) #58
+70:                                               ; preds = %_ZNSt6vectorIN5boost8geometry5model5pointIiLm2ENS1_2cs9cartesianEEESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit16.i.i.i.i.i.i
+  call void @_ZdlPvm(ptr noundef nonnull %53, i64 noundef %56) #58
   br label %_ZNSt6vectorIN5boost8geometry5model5pointIiLm2ENS1_2cs9cartesianEEESaIS6_EE17_M_realloc_insertIJRKS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i.i.i.i.i
 
-_ZNSt6vectorIN5boost8geometry5model5pointIiLm2ENS1_2cs9cartesianEEESaIS6_EE17_M_realloc_insertIJRKS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i.i.i.i.i: ; preds = %72, %_ZNSt6vectorIN5boost8geometry5model5pointIiLm2ENS1_2cs9cartesianEEESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit16.i.i.i.i.i.i
-  store ptr %67, ptr %3, align 8, !tbaa !2329
-  store ptr %71, ptr %14, align 8, !tbaa !2334
-  %73 = getelementptr inbounds nuw %"class.boost::geometry::model::point", ptr %67, i64 %65
-  store ptr %73, ptr %15, align 8, !tbaa !2331
+_ZNSt6vectorIN5boost8geometry5model5pointIiLm2ENS1_2cs9cartesianEEESaIS6_EE17_M_realloc_insertIJRKS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i.i.i.i.i: ; preds = %70, %_ZNSt6vectorIN5boost8geometry5model5pointIiLm2ENS1_2cs9cartesianEEESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit16.i.i.i.i.i.i
+  store ptr %65, ptr %3, align 8, !tbaa !2329
+  store ptr %69, ptr %13, align 8, !tbaa !2334
+  %71 = getelementptr inbounds nuw %"class.boost::geometry::model::point", ptr %65, i64 %63
+  store ptr %71, ptr %14, align 8, !tbaa !2331
   br label %_ZN5boost8geometry6detail3wkt23stateful_range_appenderIRNS0_5model4ringINS4_5pointIiLm2ENS0_2cs9cartesianEEELb1ELb1ESt6vectorSaEELNS0_16closure_selectorE1EE6appendESC_RKS9_b.exit
 
-_ZN5boost8geometry6detail3wkt23stateful_range_appenderIRNS0_5model4ringINS4_5pointIiLm2ENS0_2cs9cartesianEEELb1ELb1ESt6vectorSaEELNS0_16closure_selectorE1EE6appendESC_RKS9_b.exit: ; preds = %51, %_ZNSt6vectorIN5boost8geometry5model5pointIiLm2ENS1_2cs9cartesianEEESaIS6_EE17_M_realloc_insertIJRKS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i.i.i.i.i
-  br i1 %46, label %74, label %_ZN5boost8geometry6detail3wkt23stateful_range_appenderIRNS0_5model4ringINS4_5pointIiLm2ENS0_2cs9cartesianEEELb1ELb1ESt6vectorSaEELNS0_16closure_selectorE1EE6appendESC_RKS9_b.exit37
+_ZN5boost8geometry6detail3wkt23stateful_range_appenderIRNS0_5model4ringINS4_5pointIiLm2ENS0_2cs9cartesianEEELb1ELb1ESt6vectorSaEELNS0_16closure_selectorE1EE6appendESC_RKS9_b.exit: ; preds = %49, %_ZNSt6vectorIN5boost8geometry5model5pointIiLm2ENS1_2cs9cartesianEEESaIS6_EE17_M_realloc_insertIJRKS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i.i.i.i.i
+  br i1 %45, label %72, label %_ZN5boost8geometry6detail3wkt23stateful_range_appenderIRNS0_5model4ringINS4_5pointIiLm2ENS0_2cs9cartesianEEELb1ELb1ESt6vectorSaEELNS0_16closure_selectorE1EE6appendESC_RKS9_b.exit29
 
-74:                                               ; preds = %_ZN5boost8geometry6detail3wkt23stateful_range_appenderIRNS0_5model4ringINS4_5pointIiLm2ENS0_2cs9cartesianEEELb1ELb1ESt6vectorSaEELNS0_16closure_selectorE1EE6appendESC_RKS9_b.exit
+72:                                               ; preds = %_ZN5boost8geometry6detail3wkt23stateful_range_appenderIRNS0_5model4ringINS4_5pointIiLm2ENS0_2cs9cartesianEEELb1ELb1ESt6vectorSaEELNS0_16closure_selectorE1EE6appendESC_RKS9_b.exit
   %.sroa.0.0.copyload.i.i.i = load ptr, ptr %11, align 8, !tbaa !174
-  %75 = call noundef zeroext i1 @_ZN5boost14char_separatorIcSt11char_traitsIcEEclIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcS2_SaIcEEEEESC_EEbRT_SE_RT0_(ptr noundef nonnull align 8 dereferenceable(136) %0, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr %.sroa.0.0.copyload.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %12)
-  %76 = zext i1 %75 to i8
-  store i8 %76, ptr %7, align 8, !tbaa !2338
-  br label %_ZN5boost8geometry6detail3wkt23stateful_range_appenderIRNS0_5model4ringINS4_5pointIiLm2ENS0_2cs9cartesianEEELb1ELb1ESt6vectorSaEELNS0_16closure_selectorE1EE6appendESC_RKS9_b.exit37
+  %73 = call noundef zeroext i1 @_ZN5boost14char_separatorIcSt11char_traitsIcEEclIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcS2_SaIcEEEEESC_EEbRT_SE_RT0_(ptr noundef nonnull align 8 dereferenceable(136) %0, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr %.sroa.0.0.copyload.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %12)
+  %74 = zext i1 %73 to i8
+  store i8 %74, ptr %7, align 8, !tbaa !2338
+  br label %_ZN5boost8geometry6detail3wkt23stateful_range_appenderIRNS0_5model4ringINS4_5pointIiLm2ENS0_2cs9cartesianEEELb1ELb1ESt6vectorSaEELNS0_16closure_selectorE1EE6appendESC_RKS9_b.exit29
 
-.critedge19:                                      ; preds = %40, %_ZN5boost9iteratorsneINS_14token_iteratorINS_14char_separatorIcSt11char_traitsIcEEEN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcS5_SaIcEEEEESE_EESE_NS0_21forward_traversal_tagERKSE_lSG_SE_SH_SJ_lEENS0_6detail23enable_if_interoperableIT_T4_NS_3mpl6apply2INSK_12always_bool2ESM_SN_E4typeEE4typeERKNS0_15iterator_facadeISM_T0_T1_T2_T3_EERKNSV_ISN_T5_T6_T7_T8_EE.exit21
-  %77 = load i32, ptr %5, align 4, !tbaa !263
-  %78 = load i32, ptr %13, align 4, !tbaa !263
-  %79 = load ptr, ptr %14, align 8, !tbaa !2334
-  %80 = load ptr, ptr %15, align 8, !tbaa !2331
-  %.not.i.i.i.i.i22 = icmp eq ptr %79, %80
-  br i1 %.not.i.i.i.i.i22, label %84, label %81
+.critedge19:                                      ; preds = %39, %_ZN5boost9iteratorsneINS_14token_iteratorINS_14char_separatorIcSt11char_traitsIcEEEN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcS5_SaIcEEEEESE_EESE_NS0_21forward_traversal_tagERKSE_lSG_SE_SH_SJ_lEENS0_6detail23enable_if_interoperableIT_T4_NS_3mpl6apply2INSK_12always_bool2ESM_SN_E4typeEE4typeERKNS0_15iterator_facadeISM_T0_T1_T2_T3_EERKNSV_ISN_T5_T6_T7_T8_EE.exit21
+  %75 = load i64, ptr %5, align 8
+  %76 = load ptr, ptr %13, align 8, !tbaa !2334
+  %77 = load ptr, ptr %14, align 8, !tbaa !2331
+  %.not.i.i.i.i.i22 = icmp eq ptr %76, %77
+  br i1 %.not.i.i.i.i.i22, label %81, label %78
+
+78:                                               ; preds = %.critedge19
+  store i64 %75, ptr %76, align 4, !tbaa !24
+  %79 = load ptr, ptr %13, align 8, !tbaa !2334
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 8
+  store ptr %80, ptr %13, align 8, !tbaa !2334
+  br label %_ZN5boost8geometry6detail3wkt23stateful_range_appenderIRNS0_5model4ringINS4_5pointIiLm2ENS0_2cs9cartesianEEELb1ELb1ESt6vectorSaEELNS0_16closure_selectorE1EE6appendESC_RKS9_b.exit29
 
 81:                                               ; preds = %.critedge19
-  %.sroa.5.0.insert.ext.i.i.i23 = zext i32 %78 to i64
-  %.sroa.5.0.insert.shift.i.i.i24 = shl nuw i64 %.sroa.5.0.insert.ext.i.i.i23, 32
-  %.sroa.0.0.insert.ext.i.i.i25 = zext i32 %77 to i64
-  %.sroa.0.0.insert.insert.i.i.i26 = or disjoint i64 %.sroa.5.0.insert.shift.i.i.i24, %.sroa.0.0.insert.ext.i.i.i25
-  store i64 %.sroa.0.0.insert.insert.i.i.i26, ptr %79, align 4, !tbaa !24
-  %82 = load ptr, ptr %14, align 8, !tbaa !2334
-  %83 = getelementptr inbounds nuw i8, ptr %82, i64 8
-  store ptr %83, ptr %14, align 8, !tbaa !2334
-  br label %_ZN5boost8geometry6detail3wkt23stateful_range_appenderIRNS0_5model4ringINS4_5pointIiLm2ENS0_2cs9cartesianEEELb1ELb1ESt6vectorSaEELNS0_16closure_selectorE1EE6appendESC_RKS9_b.exit37
+  %82 = load ptr, ptr %3, align 8, !tbaa !2329
+  %83 = ptrtoint ptr %76 to i64
+  %84 = ptrtoint ptr %82 to i64
+  %85 = sub i64 %83, %84
+  %86 = icmp eq i64 %85, 9223372036854775800
+  br i1 %86, label %87, label %_ZNKSt6vectorIN5boost8geometry5model5pointIiLm2ENS1_2cs9cartesianEEESaIS6_EE12_M_check_lenEmPKc.exit.i.i.i.i.i.i23
 
-84:                                               ; preds = %.critedge19
-  %85 = load ptr, ptr %3, align 8, !tbaa !2329
-  %86 = ptrtoint ptr %79 to i64
-  %87 = ptrtoint ptr %85 to i64
-  %88 = sub i64 %86, %87
-  %89 = icmp eq i64 %88, 9223372036854775800
-  br i1 %89, label %90, label %_ZNKSt6vectorIN5boost8geometry5model5pointIiLm2ENS1_2cs9cartesianEEESaIS6_EE12_M_check_lenEmPKc.exit.i.i.i.i.i.i27
-
-90:                                               ; preds = %84
+87:                                               ; preds = %81
   call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.477) #55
   unreachable
 
-_ZNKSt6vectorIN5boost8geometry5model5pointIiLm2ENS1_2cs9cartesianEEESaIS6_EE12_M_check_lenEmPKc.exit.i.i.i.i.i.i27: ; preds = %84
-  %91 = ashr exact i64 %88, 3
-  %.sroa.speculated.i.i.i.i.i.i.i28 = call i64 @llvm.umax.i64(i64 %91, i64 1)
-  %92 = add nsw i64 %.sroa.speculated.i.i.i.i.i.i.i28, %91
-  %93 = icmp ult i64 %92, %91
-  %94 = call i64 @llvm.umin.i64(i64 %92, i64 1152921504606846975)
-  %95 = select i1 %93, i64 1152921504606846975, i64 %94
-  %.not.i.i.i.i.i.i.i29 = icmp ne i64 %95, 0
-  call void @llvm.assume(i1 %.not.i.i.i.i.i.i.i29)
-  %96 = shl nuw nsw i64 %95, 3
-  %97 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %96) #59
-  %98 = getelementptr inbounds i8, ptr %97, i64 %88
-  %.sroa.5.0.insert.ext7.i.i.i30 = zext i32 %78 to i64
-  %.sroa.5.0.insert.shift8.i.i.i31 = shl nuw i64 %.sroa.5.0.insert.ext7.i.i.i30, 32
-  %.sroa.0.0.insert.ext3.i.i.i32 = zext i32 %77 to i64
-  %.sroa.0.0.insert.insert5.i.i.i33 = or disjoint i64 %.sroa.5.0.insert.shift8.i.i.i31, %.sroa.0.0.insert.ext3.i.i.i32
-  store i64 %.sroa.0.0.insert.insert5.i.i.i33, ptr %98, align 4, !tbaa !24
-  %99 = icmp sgt i64 %88, 0
-  br i1 %99, label %100, label %_ZNSt6vectorIN5boost8geometry5model5pointIiLm2ENS1_2cs9cartesianEEESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit16.i.i.i.i.i.i34
+_ZNKSt6vectorIN5boost8geometry5model5pointIiLm2ENS1_2cs9cartesianEEESaIS6_EE12_M_check_lenEmPKc.exit.i.i.i.i.i.i23: ; preds = %81
+  %88 = ashr exact i64 %85, 3
+  %.sroa.speculated.i.i.i.i.i.i.i24 = call i64 @llvm.umax.i64(i64 %88, i64 1)
+  %89 = add nsw i64 %.sroa.speculated.i.i.i.i.i.i.i24, %88
+  %90 = icmp ult i64 %89, %88
+  %91 = call i64 @llvm.umin.i64(i64 %89, i64 1152921504606846975)
+  %92 = select i1 %90, i64 1152921504606846975, i64 %91
+  %.not.i.i.i.i.i.i.i25 = icmp ne i64 %92, 0
+  call void @llvm.assume(i1 %.not.i.i.i.i.i.i.i25)
+  %93 = shl nuw nsw i64 %92, 3
+  %94 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %93) #59
+  %95 = getelementptr inbounds i8, ptr %94, i64 %85
+  store i64 %75, ptr %95, align 4, !tbaa !24
+  %96 = icmp sgt i64 %85, 0
+  br i1 %96, label %97, label %_ZNSt6vectorIN5boost8geometry5model5pointIiLm2ENS1_2cs9cartesianEEESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit16.i.i.i.i.i.i26
 
-100:                                              ; preds = %_ZNKSt6vectorIN5boost8geometry5model5pointIiLm2ENS1_2cs9cartesianEEESaIS6_EE12_M_check_lenEmPKc.exit.i.i.i.i.i.i27
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %97, ptr align 4 %85, i64 %88, i1 false)
-  br label %_ZNSt6vectorIN5boost8geometry5model5pointIiLm2ENS1_2cs9cartesianEEESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit16.i.i.i.i.i.i34
+97:                                               ; preds = %_ZNKSt6vectorIN5boost8geometry5model5pointIiLm2ENS1_2cs9cartesianEEESaIS6_EE12_M_check_lenEmPKc.exit.i.i.i.i.i.i23
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %94, ptr align 4 %82, i64 %85, i1 false)
+  br label %_ZNSt6vectorIN5boost8geometry5model5pointIiLm2ENS1_2cs9cartesianEEESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit16.i.i.i.i.i.i26
 
-_ZNSt6vectorIN5boost8geometry5model5pointIiLm2ENS1_2cs9cartesianEEESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit16.i.i.i.i.i.i34: ; preds = %100, %_ZNKSt6vectorIN5boost8geometry5model5pointIiLm2ENS1_2cs9cartesianEEESaIS6_EE12_M_check_lenEmPKc.exit.i.i.i.i.i.i27
-  %101 = getelementptr inbounds nuw i8, ptr %98, i64 8
-  %.not.i17.i.i.i.i.i.i35 = icmp eq ptr %85, null
-  br i1 %.not.i17.i.i.i.i.i.i35, label %_ZNSt6vectorIN5boost8geometry5model5pointIiLm2ENS1_2cs9cartesianEEESaIS6_EE17_M_realloc_insertIJRKS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i.i.i.i.i36, label %102
+_ZNSt6vectorIN5boost8geometry5model5pointIiLm2ENS1_2cs9cartesianEEESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit16.i.i.i.i.i.i26: ; preds = %97, %_ZNKSt6vectorIN5boost8geometry5model5pointIiLm2ENS1_2cs9cartesianEEESaIS6_EE12_M_check_lenEmPKc.exit.i.i.i.i.i.i23
+  %98 = getelementptr inbounds nuw i8, ptr %95, i64 8
+  %.not.i17.i.i.i.i.i.i27 = icmp eq ptr %82, null
+  br i1 %.not.i17.i.i.i.i.i.i27, label %_ZNSt6vectorIN5boost8geometry5model5pointIiLm2ENS1_2cs9cartesianEEESaIS6_EE17_M_realloc_insertIJRKS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i.i.i.i.i28, label %99
 
-102:                                              ; preds = %_ZNSt6vectorIN5boost8geometry5model5pointIiLm2ENS1_2cs9cartesianEEESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit16.i.i.i.i.i.i34
-  call void @_ZdlPvm(ptr noundef nonnull %85, i64 noundef %88) #58
-  br label %_ZNSt6vectorIN5boost8geometry5model5pointIiLm2ENS1_2cs9cartesianEEESaIS6_EE17_M_realloc_insertIJRKS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i.i.i.i.i36
+99:                                               ; preds = %_ZNSt6vectorIN5boost8geometry5model5pointIiLm2ENS1_2cs9cartesianEEESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit16.i.i.i.i.i.i26
+  call void @_ZdlPvm(ptr noundef nonnull %82, i64 noundef %85) #58
+  br label %_ZNSt6vectorIN5boost8geometry5model5pointIiLm2ENS1_2cs9cartesianEEESaIS6_EE17_M_realloc_insertIJRKS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i.i.i.i.i28
 
-_ZNSt6vectorIN5boost8geometry5model5pointIiLm2ENS1_2cs9cartesianEEESaIS6_EE17_M_realloc_insertIJRKS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i.i.i.i.i36: ; preds = %102, %_ZNSt6vectorIN5boost8geometry5model5pointIiLm2ENS1_2cs9cartesianEEESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit16.i.i.i.i.i.i34
-  store ptr %97, ptr %3, align 8, !tbaa !2329
-  store ptr %101, ptr %14, align 8, !tbaa !2334
-  %103 = getelementptr inbounds nuw %"class.boost::geometry::model::point", ptr %97, i64 %95
-  store ptr %103, ptr %15, align 8, !tbaa !2331
-  br label %_ZN5boost8geometry6detail3wkt23stateful_range_appenderIRNS0_5model4ringINS4_5pointIiLm2ENS0_2cs9cartesianEEELb1ELb1ESt6vectorSaEELNS0_16closure_selectorE1EE6appendESC_RKS9_b.exit37
+_ZNSt6vectorIN5boost8geometry5model5pointIiLm2ENS1_2cs9cartesianEEESaIS6_EE17_M_realloc_insertIJRKS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i.i.i.i.i28: ; preds = %99, %_ZNSt6vectorIN5boost8geometry5model5pointIiLm2ENS1_2cs9cartesianEEESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit16.i.i.i.i.i.i26
+  store ptr %94, ptr %3, align 8, !tbaa !2329
+  store ptr %98, ptr %13, align 8, !tbaa !2334
+  %100 = getelementptr inbounds nuw %"class.boost::geometry::model::point", ptr %94, i64 %92
+  store ptr %100, ptr %14, align 8, !tbaa !2331
+  br label %_ZN5boost8geometry6detail3wkt23stateful_range_appenderIRNS0_5model4ringINS4_5pointIiLm2ENS0_2cs9cartesianEEELb1ELb1ESt6vectorSaEELNS0_16closure_selectorE1EE6appendESC_RKS9_b.exit29
 
-_ZN5boost8geometry6detail3wkt23stateful_range_appenderIRNS0_5model4ringINS4_5pointIiLm2ENS0_2cs9cartesianEEELb1ELb1ESt6vectorSaEELNS0_16closure_selectorE1EE6appendESC_RKS9_b.exit37: ; preds = %_ZNSt6vectorIN5boost8geometry5model5pointIiLm2ENS1_2cs9cartesianEEESaIS6_EE17_M_realloc_insertIJRKS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i.i.i.i.i36, %81, %74, %_ZN5boost8geometry6detail3wkt23stateful_range_appenderIRNS0_5model4ringINS4_5pointIiLm2ENS0_2cs9cartesianEEELb1ELb1ESt6vectorSaEELNS0_16closure_selectorE1EE6appendESC_RKS9_b.exit
+_ZN5boost8geometry6detail3wkt23stateful_range_appenderIRNS0_5model4ringINS4_5pointIiLm2ENS0_2cs9cartesianEEELb1ELb1ESt6vectorSaEELNS0_16closure_selectorE1EE6appendESC_RKS9_b.exit29: ; preds = %_ZNSt6vectorIN5boost8geometry5model5pointIiLm2ENS1_2cs9cartesianEEESaIS6_EE17_M_realloc_insertIJRKS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i.i.i.i.i28, %78, %72, %_ZN5boost8geometry6detail3wkt23stateful_range_appenderIRNS0_5model4ringINS4_5pointIiLm2ENS0_2cs9cartesianEEELb1ELb1ESt6vectorSaEELNS0_16closure_selectorE1EE6appendESC_RKS9_b.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %16, !llvm.loop !2375
+  br label %15, !llvm.loop !2375
 
-.critedge:                                        ; preds = %25, %_ZN5boost9iteratorsneINS_14token_iteratorINS_14char_separatorIcSt11char_traitsIcEEEN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcS5_SaIcEEEEESE_EESE_NS0_21forward_traversal_tagERKSE_lSG_SE_SH_SJ_lEENS0_6detail23enable_if_interoperableIT_T4_NS_3mpl6apply2INSK_12always_bool2ESM_SN_E4typeEE4typeERKNS0_15iterator_facadeISM_T0_T1_T2_T3_EERKNSV_ISN_T5_T6_T7_T8_EE.exit, %_ZN5boost9iteratorsneINS_14token_iteratorINS_14char_separatorIcSt11char_traitsIcEEEN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcS5_SaIcEEEEESE_EESE_NS0_21forward_traversal_tagERKSE_lSG_SE_SH_SJ_lEENS0_6detail23enable_if_interoperableIT_T4_NS_3mpl6apply2INSK_12always_bool2ESM_SN_E4typeEE4typeERKNS0_15iterator_facadeISM_T0_T1_T2_T3_EERKNSV_ISN_T5_T6_T7_T8_EE.exit.thread
+.critedge:                                        ; preds = %24, %_ZN5boost9iteratorsneINS_14token_iteratorINS_14char_separatorIcSt11char_traitsIcEEEN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcS5_SaIcEEEEESE_EESE_NS0_21forward_traversal_tagERKSE_lSG_SE_SH_SJ_lEENS0_6detail23enable_if_interoperableIT_T4_NS_3mpl6apply2INSK_12always_bool2ESM_SN_E4typeEE4typeERKNS0_15iterator_facadeISM_T0_T1_T2_T3_EERKNSV_ISN_T5_T6_T7_T8_EE.exit, %_ZN5boost9iteratorsneINS_14token_iteratorINS_14char_separatorIcSt11char_traitsIcEEEN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcS5_SaIcEEEEESE_EESE_NS0_21forward_traversal_tagERKSE_lSG_SE_SH_SJ_lEENS0_6detail23enable_if_interoperableIT_T4_NS_3mpl6apply2INSK_12always_bool2ESM_SN_E4typeEE4typeERKNS0_15iterator_facadeISM_T0_T1_T2_T3_EERKNSV_ISN_T5_T6_T7_T8_EE.exit.thread
   call void @_ZN5boost8geometry6detail3wkt24handle_close_parenthesisINS_14token_iteratorINS_14char_separatorIcSt11char_traitsIcEEEN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcS7_SaIcEEEEESG_EEEEvRT_RKSJ_RKSG_(ptr noundef nonnull align 8 dereferenceable(136) %0, ptr noundef nonnull align 8 dereferenceable(136) %1, ptr noundef nonnull align 8 dereferenceable(32) %2)
   ret void
 }

@@ -41206,9 +41206,9 @@ define hidden noundef range(i64 0, -1) i64 @_ZN4core5slice4sort8unstable9quickso
   br i1 %11, label %_ZN4core5slice4sort8unstable9quicksort34partition_lomuto_branchless_cyclic17hb8443095260fa41bE.exit, label %12
 
 12:                                               ; preds = %9
-  %13 = load i32, ptr %10, align 4, !alias.scope !4307, !noalias !4310, !noundef !3
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %15 = load i32, ptr %14, align 4, !alias.scope !4307, !noalias !4310, !noundef !3
+  %13 = load i64, ptr %10, align 4
+  %14 = lshr i64 %13, 32
+  %15 = trunc nuw i64 %14 to i32
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %17 = getelementptr { i32, i32 }, ptr %0, i64 %1
   %18 = getelementptr i8, ptr %17, i64 -8
@@ -41245,15 +41245,11 @@ define hidden noundef range(i64 0, -1) i64 @_ZN4core5slice4sort8unstable9quickso
 ._crit_edge.i:                                    ; preds = %.lr.ph41.i, %.preheader.i
   %.lcssa40.i = phi ptr [ %.lcssa32.i, %.preheader.i ], [ %22, %.lr.ph41.i ]
   %.lcssa38.i = phi i64 [ %.lcssa30.i, %.preheader.i ], [ %31, %.lr.ph41.i ]
-  %34 = icmp ult i32 %15, %.val1.i20.i
+  %34 = icmp ugt i32 %.val1.i20.i, %15
   %35 = getelementptr inbounds nuw { i32, i32 }, ptr %10, i64 %.lcssa38.i
   %36 = load i64, ptr %35, align 4, !alias.scope !4307, !noalias !4320
   store i64 %36, ptr %.lcssa40.i, align 4, !alias.scope !4307, !noalias !4320
-  %.sroa.4.0.insert.ext.i = zext i32 %15 to i64
-  %.sroa.4.0.insert.shift.i = shl nuw i64 %.sroa.4.0.insert.ext.i, 32
-  %.sroa.0.0.insert.ext.i = zext i32 %13 to i64
-  %.sroa.0.0.insert.insert.i = or disjoint i64 %.sroa.4.0.insert.shift.i, %.sroa.0.0.insert.ext.i
-  store i64 %.sroa.0.0.insert.insert.i, ptr %35, align 4, !alias.scope !4307, !noalias !4320
+  store i64 %13, ptr %35, align 4, !alias.scope !4307, !noalias !4320
   %37 = zext i1 %34 to i64
   %38 = add i64 %.lcssa38.i, %37
   br label %_ZN4core5slice4sort8unstable9quicksort34partition_lomuto_branchless_cyclic17hb8443095260fa41bE.exit
@@ -42114,9 +42110,9 @@ define hidden noundef range(i64 0, -1) i64 @_ZN4core5slice4sort8unstable9quickso
   br i1 %11, label %_ZN4core5slice4sort8unstable9quicksort34partition_lomuto_branchless_cyclic17heca7054ce40fefd4E.exit, label %12
 
 12:                                               ; preds = %9
-  %13 = load i32, ptr %10, align 4, !alias.scope !4588, !noalias !4591, !noundef !3
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %15 = load i32, ptr %14, align 4, !alias.scope !4588, !noalias !4591, !noundef !3
+  %13 = load i64, ptr %10, align 4
+  %14 = lshr i64 %13, 32
+  %15 = trunc nuw i64 %14 to i32
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %17 = getelementptr { i32, i32 }, ptr %0, i64 %1
   %18 = getelementptr i8, ptr %17, i64 -8
@@ -42157,11 +42153,7 @@ define hidden noundef range(i64 0, -1) i64 @_ZN4core5slice4sort8unstable9quickso
   %35 = getelementptr inbounds nuw { i32, i32 }, ptr %10, i64 %.lcssa38.i
   %36 = load i64, ptr %35, align 4, !alias.scope !4588, !noalias !4601
   store i64 %36, ptr %.lcssa40.i, align 4, !alias.scope !4588, !noalias !4601
-  %.sroa.4.0.insert.ext.i = zext i32 %15 to i64
-  %.sroa.4.0.insert.shift.i = shl nuw i64 %.sroa.4.0.insert.ext.i, 32
-  %.sroa.0.0.insert.ext.i = zext i32 %13 to i64
-  %.sroa.0.0.insert.insert.i = or disjoint i64 %.sroa.4.0.insert.shift.i, %.sroa.0.0.insert.ext.i
-  store i64 %.sroa.0.0.insert.insert.i, ptr %35, align 4, !alias.scope !4588, !noalias !4601
+  store i64 %13, ptr %35, align 4, !alias.scope !4588, !noalias !4601
   %37 = zext i1 %34 to i64
   %38 = add i64 %.lcssa38.i, %37
   br label %_ZN4core5slice4sort8unstable9quicksort34partition_lomuto_branchless_cyclic17heca7054ce40fefd4E.exit
@@ -42691,9 +42683,9 @@ define hidden noundef range(i64 0, -1) i64 @_ZN4core5slice4sort8unstable9quickso
   br i1 %11, label %_ZN4core5slice4sort8unstable9quicksort34partition_lomuto_branchless_cyclic17h176e1671b056aa63E.exit, label %12
 
 12:                                               ; preds = %9
-  %13 = load i32, ptr %10, align 4, !alias.scope !4748, !noalias !4751, !noundef !3
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %15 = load i32, ptr %14, align 4, !alias.scope !4748, !noalias !4751, !noundef !3
+  %13 = load i64, ptr %10, align 4
+  %14 = lshr i64 %13, 32
+  %15 = trunc nuw i64 %14 to i32
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %17 = getelementptr { i32, i32 }, ptr %0, i64 %1
   %18 = getelementptr i8, ptr %17, i64 -8
@@ -42730,15 +42722,11 @@ define hidden noundef range(i64 0, -1) i64 @_ZN4core5slice4sort8unstable9quickso
 ._crit_edge.i:                                    ; preds = %.lr.ph41.i, %.preheader.i
   %.lcssa40.i = phi ptr [ %.lcssa32.i, %.preheader.i ], [ %22, %.lr.ph41.i ]
   %.lcssa38.i = phi i64 [ %.lcssa30.i, %.preheader.i ], [ %31, %.lr.ph41.i ]
-  %34 = icmp ult i32 %15, %.val1.i20.i
+  %34 = icmp ugt i32 %.val1.i20.i, %15
   %35 = getelementptr inbounds nuw { i32, i32 }, ptr %10, i64 %.lcssa38.i
   %36 = load i64, ptr %35, align 4, !alias.scope !4748, !noalias !4761
   store i64 %36, ptr %.lcssa40.i, align 4, !alias.scope !4748, !noalias !4761
-  %.sroa.4.0.insert.ext.i = zext i32 %15 to i64
-  %.sroa.4.0.insert.shift.i = shl nuw i64 %.sroa.4.0.insert.ext.i, 32
-  %.sroa.0.0.insert.ext.i = zext i32 %13 to i64
-  %.sroa.0.0.insert.insert.i = or disjoint i64 %.sroa.4.0.insert.shift.i, %.sroa.0.0.insert.ext.i
-  store i64 %.sroa.0.0.insert.insert.i, ptr %35, align 4, !alias.scope !4748, !noalias !4761
+  store i64 %13, ptr %35, align 4, !alias.scope !4748, !noalias !4761
   %37 = zext i1 %34 to i64
   %38 = add i64 %.lcssa38.i, %37
   br label %_ZN4core5slice4sort8unstable9quicksort34partition_lomuto_branchless_cyclic17h176e1671b056aa63E.exit
@@ -44648,9 +44636,9 @@ define hidden noundef range(i64 0, -1) i64 @_ZN4core5slice4sort8unstable9quickso
   br i1 %11, label %_ZN4core5slice4sort8unstable9quicksort34partition_lomuto_branchless_cyclic17hf6ac3a48ac3526c4E.exit, label %12
 
 12:                                               ; preds = %9
-  %13 = load i32, ptr %10, align 4, !alias.scope !5439, !noalias !5442, !noundef !3
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %15 = load i32, ptr %14, align 4, !alias.scope !5439, !noalias !5442, !noundef !3
+  %13 = load i64, ptr %10, align 4
+  %14 = lshr i64 %13, 32
+  %15 = trunc nuw i64 %14 to i32
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %17 = getelementptr { i32, i32 }, ptr %0, i64 %1
   %18 = getelementptr i8, ptr %17, i64 -8
@@ -44687,15 +44675,11 @@ define hidden noundef range(i64 0, -1) i64 @_ZN4core5slice4sort8unstable9quickso
 ._crit_edge.i:                                    ; preds = %.lr.ph41.i, %.preheader.i
   %.lcssa40.i = phi ptr [ %.lcssa32.i, %.preheader.i ], [ %22, %.lr.ph41.i ]
   %.lcssa38.i = phi i64 [ %.lcssa30.i, %.preheader.i ], [ %31, %.lr.ph41.i ]
-  %34 = icmp slt i32 %15, %.val1.i20.i
+  %34 = icmp sgt i32 %.val1.i20.i, %15
   %35 = getelementptr inbounds nuw { i32, i32 }, ptr %10, i64 %.lcssa38.i
   %36 = load i64, ptr %35, align 4, !alias.scope !5439, !noalias !5452
   store i64 %36, ptr %.lcssa40.i, align 4, !alias.scope !5439, !noalias !5452
-  %.sroa.4.0.insert.ext.i = zext i32 %15 to i64
-  %.sroa.4.0.insert.shift.i = shl nuw i64 %.sroa.4.0.insert.ext.i, 32
-  %.sroa.0.0.insert.ext.i = zext i32 %13 to i64
-  %.sroa.0.0.insert.insert.i = or disjoint i64 %.sroa.4.0.insert.shift.i, %.sroa.0.0.insert.ext.i
-  store i64 %.sroa.0.0.insert.insert.i, ptr %35, align 4, !alias.scope !5439, !noalias !5452
+  store i64 %13, ptr %35, align 4, !alias.scope !5439, !noalias !5452
   %37 = zext i1 %34 to i64
   %38 = add i64 %.lcssa38.i, %37
   br label %_ZN4core5slice4sort8unstable9quicksort34partition_lomuto_branchless_cyclic17hf6ac3a48ac3526c4E.exit
@@ -45755,9 +45739,9 @@ define hidden noundef range(i64 0, -1) i64 @_ZN4core5slice4sort8unstable9quickso
   br i1 %11, label %_ZN4core5slice4sort8unstable9quicksort34partition_lomuto_branchless_cyclic17he9e6228bade6ab3cE.exit, label %12
 
 12:                                               ; preds = %9
-  %13 = load i32, ptr %10, align 4, !alias.scope !5810, !noalias !5813, !noundef !3
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %15 = load i32, ptr %14, align 4, !alias.scope !5810, !noalias !5813, !noundef !3
+  %13 = load i64, ptr %10, align 4
+  %14 = lshr i64 %13, 32
+  %15 = trunc nuw i64 %14 to i32
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %17 = getelementptr { i32, i32 }, ptr %0, i64 %1
   %18 = getelementptr i8, ptr %17, i64 -8
@@ -45798,11 +45782,7 @@ define hidden noundef range(i64 0, -1) i64 @_ZN4core5slice4sort8unstable9quickso
   %35 = getelementptr inbounds nuw { i32, i32 }, ptr %10, i64 %.lcssa38.i
   %36 = load i64, ptr %35, align 4, !alias.scope !5810, !noalias !5823
   store i64 %36, ptr %.lcssa40.i, align 4, !alias.scope !5810, !noalias !5823
-  %.sroa.4.0.insert.ext.i = zext i32 %15 to i64
-  %.sroa.4.0.insert.shift.i = shl nuw i64 %.sroa.4.0.insert.ext.i, 32
-  %.sroa.0.0.insert.ext.i = zext i32 %13 to i64
-  %.sroa.0.0.insert.insert.i = or disjoint i64 %.sroa.4.0.insert.shift.i, %.sroa.0.0.insert.ext.i
-  store i64 %.sroa.0.0.insert.insert.i, ptr %35, align 4, !alias.scope !5810, !noalias !5823
+  store i64 %13, ptr %35, align 4, !alias.scope !5810, !noalias !5823
   %37 = zext i1 %34 to i64
   %38 = add i64 %.lcssa38.i, %37
   br label %_ZN4core5slice4sort8unstable9quicksort34partition_lomuto_branchless_cyclic17he9e6228bade6ab3cE.exit
@@ -45984,9 +45964,9 @@ define hidden noundef range(i64 0, -1) i64 @_ZN4core5slice4sort8unstable9quickso
   br i1 %11, label %_ZN4core5slice4sort8unstable9quicksort34partition_lomuto_branchless_cyclic17h16ca55c7535e28aeE.exit, label %12
 
 12:                                               ; preds = %9
-  %13 = load i32, ptr %10, align 4, !alias.scope !5879, !noalias !5882, !noundef !3
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %15 = load i32, ptr %14, align 4, !alias.scope !5879, !noalias !5882, !noundef !3
+  %13 = load i64, ptr %10, align 4
+  %14 = lshr i64 %13, 32
+  %15 = trunc nuw i64 %14 to i32
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %17 = getelementptr { i32, i32 }, ptr %0, i64 %1
   %18 = getelementptr i8, ptr %17, i64 -8
@@ -46027,11 +46007,7 @@ define hidden noundef range(i64 0, -1) i64 @_ZN4core5slice4sort8unstable9quickso
   %35 = getelementptr inbounds nuw { i32, i32 }, ptr %10, i64 %.lcssa38.i
   %36 = load i64, ptr %35, align 4, !alias.scope !5879, !noalias !5892
   store i64 %36, ptr %.lcssa40.i, align 4, !alias.scope !5879, !noalias !5892
-  %.sroa.4.0.insert.ext.i = zext i32 %15 to i64
-  %.sroa.4.0.insert.shift.i = shl nuw i64 %.sroa.4.0.insert.ext.i, 32
-  %.sroa.0.0.insert.ext.i = zext i32 %13 to i64
-  %.sroa.0.0.insert.insert.i = or disjoint i64 %.sroa.4.0.insert.shift.i, %.sroa.0.0.insert.ext.i
-  store i64 %.sroa.0.0.insert.insert.i, ptr %35, align 4, !alias.scope !5879, !noalias !5892
+  store i64 %13, ptr %35, align 4, !alias.scope !5879, !noalias !5892
   %37 = zext i1 %34 to i64
   %38 = add i64 %.lcssa38.i, %37
   br label %_ZN4core5slice4sort8unstable9quicksort34partition_lomuto_branchless_cyclic17h16ca55c7535e28aeE.exit
@@ -46213,9 +46189,9 @@ define hidden noundef range(i64 0, -1) i64 @_ZN4core5slice4sort8unstable9quickso
   br i1 %11, label %_ZN4core5slice4sort8unstable9quicksort34partition_lomuto_branchless_cyclic17h6b7b3cd203bb597dE.exit, label %12
 
 12:                                               ; preds = %9
-  %13 = load i32, ptr %10, align 4, !alias.scope !5948, !noalias !5951, !noundef !3
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %15 = load i32, ptr %14, align 4, !alias.scope !5948, !noalias !5951, !noundef !3
+  %13 = load i64, ptr %10, align 4
+  %14 = lshr i64 %13, 32
+  %15 = trunc nuw i64 %14 to i32
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %17 = getelementptr { i32, i32 }, ptr %0, i64 %1
   %18 = getelementptr i8, ptr %17, i64 -8
@@ -46252,15 +46228,11 @@ define hidden noundef range(i64 0, -1) i64 @_ZN4core5slice4sort8unstable9quickso
 ._crit_edge.i:                                    ; preds = %.lr.ph41.i, %.preheader.i
   %.lcssa40.i = phi ptr [ %.lcssa32.i, %.preheader.i ], [ %22, %.lr.ph41.i ]
   %.lcssa38.i = phi i64 [ %.lcssa30.i, %.preheader.i ], [ %31, %.lr.ph41.i ]
-  %34 = icmp slt i32 %15, %.val1.i20.i
+  %34 = icmp sgt i32 %.val1.i20.i, %15
   %35 = getelementptr inbounds nuw { i32, i32 }, ptr %10, i64 %.lcssa38.i
   %36 = load i64, ptr %35, align 4, !alias.scope !5948, !noalias !5961
   store i64 %36, ptr %.lcssa40.i, align 4, !alias.scope !5948, !noalias !5961
-  %.sroa.4.0.insert.ext.i = zext i32 %15 to i64
-  %.sroa.4.0.insert.shift.i = shl nuw i64 %.sroa.4.0.insert.ext.i, 32
-  %.sroa.0.0.insert.ext.i = zext i32 %13 to i64
-  %.sroa.0.0.insert.insert.i = or disjoint i64 %.sroa.4.0.insert.shift.i, %.sroa.0.0.insert.ext.i
-  store i64 %.sroa.0.0.insert.insert.i, ptr %35, align 4, !alias.scope !5948, !noalias !5961
+  store i64 %13, ptr %35, align 4, !alias.scope !5948, !noalias !5961
   %37 = zext i1 %34 to i64
   %38 = add i64 %.lcssa38.i, %37
   br label %_ZN4core5slice4sort8unstable9quicksort34partition_lomuto_branchless_cyclic17h6b7b3cd203bb597dE.exit
@@ -47139,9 +47111,9 @@ define hidden noundef range(i64 0, -1) i64 @_ZN4core5slice4sort8unstable9quickso
   br i1 %11, label %_ZN4core5slice4sort8unstable9quicksort34partition_lomuto_branchless_cyclic17hec7e33cfbf7a54c2E.exit, label %12
 
 12:                                               ; preds = %9
-  %13 = load i32, ptr %10, align 4, !alias.scope !6219, !noalias !6222, !noundef !3
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %15 = load i32, ptr %14, align 4, !alias.scope !6219, !noalias !6222, !noundef !3
+  %13 = load i64, ptr %10, align 4
+  %14 = lshr i64 %13, 32
+  %15 = trunc nuw i64 %14 to i32
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %17 = getelementptr { i32, i32 }, ptr %0, i64 %1
   %18 = getelementptr i8, ptr %17, i64 -8
@@ -47182,11 +47154,7 @@ define hidden noundef range(i64 0, -1) i64 @_ZN4core5slice4sort8unstable9quickso
   %35 = getelementptr inbounds nuw { i32, i32 }, ptr %10, i64 %.lcssa38.i
   %36 = load i64, ptr %35, align 4, !alias.scope !6219, !noalias !6232
   store i64 %36, ptr %.lcssa40.i, align 4, !alias.scope !6219, !noalias !6232
-  %.sroa.4.0.insert.ext.i = zext i32 %15 to i64
-  %.sroa.4.0.insert.shift.i = shl nuw i64 %.sroa.4.0.insert.ext.i, 32
-  %.sroa.0.0.insert.ext.i = zext i32 %13 to i64
-  %.sroa.0.0.insert.insert.i = or disjoint i64 %.sroa.4.0.insert.shift.i, %.sroa.0.0.insert.ext.i
-  store i64 %.sroa.0.0.insert.insert.i, ptr %35, align 4, !alias.scope !6219, !noalias !6232
+  store i64 %13, ptr %35, align 4, !alias.scope !6219, !noalias !6232
   %37 = zext i1 %34 to i64
   %38 = add i64 %.lcssa38.i, %37
   br label %_ZN4core5slice4sort8unstable9quicksort34partition_lomuto_branchless_cyclic17hec7e33cfbf7a54c2E.exit

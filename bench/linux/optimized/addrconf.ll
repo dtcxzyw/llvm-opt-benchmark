@@ -1701,8 +1701,8 @@ define internal fastcc noundef range(i32 -1, 1) i32 @ipv6_generate_stable_addres
   %23 = getelementptr i8, ptr %0, i64 4
   br label %24
 
-24:                                               ; preds = %48, %21
-  %25 = phi i8 [ %1, %21 ], [ %49, %48 ]
+24:                                               ; preds = %50, %21
+  %25 = phi i8 [ %1, %21 ], [ %51, %50 ]
   tail call void @_raw_spin_lock_bh(ptr noundef nonnull @ipv6_generate_stable_address.lock) #20
   tail call void @sha1_init(ptr noundef nonnull @ipv6_generate_stable_address.digest) #20
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) @ipv6_generate_stable_address.data, i8 0, i64 64, i1 false)
@@ -1721,52 +1721,50 @@ define internal fastcc noundef range(i32 -1, 1) i32 @ipv6_generate_stable_addres
   store i8 %25, ptr getelementptr inbounds nuw (i8, ptr @ipv6_generate_stable_address.data, i64 56), align 1
   tail call void @sha1_transform(ptr noundef nonnull @ipv6_generate_stable_address.digest, ptr noundef nonnull @ipv6_generate_stable_address.data, ptr noundef nonnull @ipv6_generate_stable_address.workspace) #20
   %33 = load i64, ptr %0, align 4
-  %34 = load i32, ptr @ipv6_generate_stable_address.digest, align 16
-  %35 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ipv6_generate_stable_address.digest, i64 4), align 4
+  %34 = load i64, ptr @ipv6_generate_stable_address.digest, align 16
+  %35 = trunc i64 %34 to i32
+  %36 = lshr i64 %34, 32
+  %37 = trunc nuw i64 %36 to i32
   tail call void @_raw_spin_unlock_bh(ptr noundef nonnull @ipv6_generate_stable_address.lock) #20
-  %36 = or i32 %35, %34
-  %37 = icmp eq i32 %36, 0
-  br i1 %37, label %48, label %38
+  %38 = or i32 %37, %35
+  %39 = icmp eq i32 %38, 0
+  br i1 %39, label %50, label %40
 
-38:                                               ; preds = %24
-  %39 = icmp eq i32 %34, -10616830
-  %40 = and i32 %35, 254
-  %41 = icmp eq i32 %40, 254
-  %42 = and i1 %39, %41
-  br i1 %42, label %48, label %43
+40:                                               ; preds = %24
+  %41 = icmp eq i32 %35, -10616830
+  %42 = and i32 %37, 254
+  %43 = icmp eq i32 %42, 254
+  %44 = and i1 %41, %43
+  br i1 %44, label %50, label %45
 
-43:                                               ; preds = %38
-  %44 = icmp eq i32 %34, -3
-  %45 = and i32 %35, -2130706433
-  %46 = icmp eq i32 %45, -2130706433
-  %47 = and i1 %44, %46
-  br i1 %47, label %48, label %57
+45:                                               ; preds = %40
+  %46 = icmp eq i32 %35, -3
+  %47 = and i32 %37, -2130706433
+  %48 = icmp eq i32 %47, -2130706433
+  %49 = and i1 %46, %48
+  br i1 %49, label %50, label %59
 
-48:                                               ; preds = %43, %38, %24
-  %49 = add i8 %25, 1
-  %50 = zext i8 %49 to i32
-  %51 = load ptr, ptr %2, align 8
-  %52 = getelementptr inbounds nuw i8, ptr %51, i64 272
-  %53 = load ptr, ptr %52, align 8
-  %54 = getelementptr inbounds nuw i8, ptr %53, i64 1796
-  %55 = load i32, ptr %54, align 4
-  %56 = icmp slt i32 %55, %50
-  br i1 %56, label %.loopexit, label %24
+50:                                               ; preds = %45, %40, %24
+  %51 = add i8 %25, 1
+  %52 = zext i8 %51 to i32
+  %53 = load ptr, ptr %2, align 8
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 272
+  %55 = load ptr, ptr %54, align 8
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 1796
+  %57 = load i32, ptr %56, align 4
+  %58 = icmp slt i32 %57, %52
+  br i1 %58, label %.loopexit, label %24
 
-57:                                               ; preds = %43
-  %58 = zext i32 %34 to i64
-  %59 = zext i32 %35 to i64
-  %60 = shl nuw i64 %59, 32
-  %61 = or disjoint i64 %60, %58
-  %62 = getelementptr inbounds nuw i8, ptr %0, i64 8
+59:                                               ; preds = %45
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %33, ptr %0, align 4
-  store i64 %61, ptr %62, align 4
+  store i64 %34, ptr %60, align 4
   br label %.loopexit
 
-.loopexit:                                        ; preds = %48, %57, %10
-  %63 = phi i32 [ 0, %57 ], [ -1, %10 ], [ -1, %48 ]
+.loopexit:                                        ; preds = %50, %59, %10
+  %61 = phi i32 [ 0, %59 ], [ -1, %10 ], [ -1, %50 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  ret i32 %63
+  ret i32 %61
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

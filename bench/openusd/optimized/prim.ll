@@ -40852,22 +40852,18 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit: ; preds = %_ZN32pxrInter
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7SdfPathESt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterINS3_12FastLessThanEEEEvT_T0_(ptr %0) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
-  %2 = load i32, ptr %0, align 4
+  %2 = load i64, ptr %0, align 4
+  %3 = trunc i64 %2 to i32
   store i32 0, ptr %0, align 4
-  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %4 = load i32, ptr %3, align 4
-  store i32 0, ptr %3, align 4
-  %.sroa.5.0.insert.ext = zext i32 %4 to i64
-  %.sroa.5.0.insert.shift = shl nuw i64 %.sroa.5.0.insert.ext, 32
-  %.sroa.05.0.insert.ext = zext i32 %2 to i64
-  %.sroa.05.0.insert.insert = or disjoint i64 %.sroa.5.0.insert.shift, %.sroa.05.0.insert.ext
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i32 0, ptr %4, align 4
   %.sroa.0.011 = getelementptr inbounds i8, ptr %0, i64 -8
   %.0.copyload.i2.i.i12 = load i64, ptr %.sroa.0.011, align 4
-  %5 = icmp ult i64 %.sroa.05.0.insert.insert, %.0.copyload.i2.i.i12
+  %5 = icmp ult i64 %2, %.0.copyload.i2.i.i12
   br i1 %5, label %.lr.ph, label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %1
-  store i32 %2, ptr %0, align 4
+  store i32 %3, ptr %0, align 4
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit
 
 .lr.ph:                                           ; preds = %1, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathaSEOS0_.exit
@@ -40915,12 +40911,12 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathaSEOS0_.exit: ; preds = %.lr.ph, %8
   store i32 %27, ptr %25, align 4
   %.sroa.0.0 = getelementptr inbounds i8, ptr %.sroa.0.014, i64 -8
   %.0.copyload.i2.i.i = load i64, ptr %.sroa.0.0, align 4
-  %28 = icmp ult i64 %.sroa.05.0.insert.insert, %.0.copyload.i2.i.i
+  %28 = icmp ult i64 %2, %.0.copyload.i2.i.i
   br i1 %28, label %.lr.ph, label %._crit_edge, !llvm.loop !435
 
 ._crit_edge:                                      ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathaSEOS0_.exit
   %.pre = load i32, ptr %.sroa.0.014, align 4
-  store i32 %2, ptr %.sroa.0.014, align 4
+  store i32 %3, ptr %.sroa.0.014, align 4
   %.not.i.i.i1 = icmp eq i32 %.pre, 0
   br i1 %.not.i.i.i1, label %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit, label %29
 
@@ -40951,9 +40947,11 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathaSEOS0_.exit: ; preds = %.lr.ph, %8
   unreachable
 
 _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit: ; preds = %._crit_edge.thread, %42, %29, %._crit_edge
-  %.sroa.07.0.lcssa19 = phi ptr [ %0, %._crit_edge.thread ], [ %.sroa.0.014, %42 ], [ %.sroa.0.014, %29 ], [ %.sroa.0.014, %._crit_edge ]
-  %46 = getelementptr inbounds nuw i8, ptr %.sroa.07.0.lcssa19, i64 4
-  store i32 %4, ptr %46, align 4
+  %.sroa.07.0.lcssa20 = phi ptr [ %0, %._crit_edge.thread ], [ %.sroa.0.014, %42 ], [ %.sroa.0.014, %29 ], [ %.sroa.0.014, %._crit_edge ]
+  %46 = lshr i64 %2, 32
+  %47 = trunc nuw i64 %46 to i32
+  %48 = getelementptr inbounds nuw i8, ptr %.sroa.07.0.lcssa20, i64 4
+  store i32 %47, ptr %48, align 4
   ret void
 }
 

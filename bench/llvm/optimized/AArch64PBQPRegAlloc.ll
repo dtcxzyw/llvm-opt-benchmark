@@ -3406,128 +3406,126 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_
   %14 = zext i32 %13 to i64
   %15 = getelementptr inbounds nuw float, ptr %9, i64 %14
   %16 = tail call i64 @_ZN4llvm7hashing6detail23hash_combine_range_implIjEENSt9enable_ifIXsr16is_hashable_dataIT_EE5valueENS_9hash_codeEE4typeEPS4_S8_(ptr noundef %9, ptr noundef %15)
-  %17 = load i32, ptr %1, align 8, !tbaa !43
-  %.sroa.0.0.insert.ext.i = zext i32 %17 to i64
-  %18 = load i32, ptr %11, align 4, !tbaa !43
-  %.sroa.0.4.insert.ext.i = zext i32 %18 to i64
-  %.sroa.0.4.insert.shift.i = shl nuw i64 %.sroa.0.4.insert.ext.i, 32
-  %.sroa.0.4.insert.insert.i = or disjoint i64 %.sroa.0.4.insert.shift.i, %.sroa.0.0.insert.ext.i
-  %19 = add i64 %16, 16
-  %20 = tail call i64 @llvm.fshl.i64(i64 %19, i64 %19, i64 48)
-  %21 = xor i64 %20, %.sroa.0.4.insert.insert.i
-  %22 = xor i64 %21, -49064778989728563
-  %23 = mul i64 %22, -7070675565921424023
-  %24 = lshr i64 %23, 47
-  %25 = xor i64 %20, %24
-  %26 = xor i64 %25, %23
-  %27 = mul i64 %26, -7070675565921424023
-  %28 = lshr i64 %27, 47
-  %29 = xor i64 %28, %27
-  %30 = mul i64 %29, 3946327401
-  %31 = xor i64 %30, %16
-  %32 = trunc i64 %31 to i32
-  %33 = add i32 %5, -1
-  %34 = and i32 %33, %32
-  %35 = load ptr, ptr %8, align 8
-  %36 = mul i32 %18, %17
-  %.fr = freeze i32 %36
-  %37 = zext i32 %.fr to i64
-  %.idx.i.i.i = shl nuw nsw i64 %37, 2
-  %38 = getelementptr inbounds nuw i8, ptr %35, i64 %.idx.i.i.i
+  %17 = load i64, ptr %1, align 8
+  %18 = trunc i64 %17 to i32
+  %19 = lshr i64 %17, 32
+  %20 = trunc nuw i64 %19 to i32
+  %21 = add i64 %16, 16
+  %22 = tail call i64 @llvm.fshl.i64(i64 %21, i64 %21, i64 48)
+  %23 = xor i64 %17, %22
+  %24 = xor i64 %23, -49064778989728563
+  %25 = mul i64 %24, -7070675565921424023
+  %26 = lshr i64 %25, 47
+  %27 = xor i64 %22, %26
+  %28 = xor i64 %27, %25
+  %29 = mul i64 %28, -7070675565921424023
+  %30 = lshr i64 %29, 47
+  %31 = xor i64 %30, %29
+  %32 = mul i64 %31, 3946327401
+  %33 = xor i64 %32, %16
+  %34 = trunc i64 %33 to i32
+  %35 = add i32 %5, -1
+  %36 = and i32 %35, %34
+  %37 = load ptr, ptr %8, align 8
+  %38 = mul i32 %20, %18
+  %.fr = freeze i32 %38
+  %39 = zext i32 %.fr to i64
+  %.idx.i.i.i = shl nuw nsw i64 %39, 2
+  %40 = getelementptr inbounds nuw i8, ptr %37, i64 %.idx.i.i.i
   %.not9.i.i.i.i.i.i.i = icmp eq i32 %.fr, 0
   br i1 %.not9.i.i.i.i.i.i.i, label %.split.us, label %.split
 
 .split.us:                                        ; preds = %7, %_ZN4llvm4PBQP9ValuePoolINS0_8MDMatrixINS0_8RegAlloc14MatrixMetadataEEEE15PoolEntryDSInfo7isEqualINS0_6MatrixEEEbRKT_PNS6_9PoolEntryE.exit.us
-  %.018.us = phi i32 [ %50, %_ZN4llvm4PBQP9ValuePoolINS0_8MDMatrixINS0_8RegAlloc14MatrixMetadataEEEE15PoolEntryDSInfo7isEqualINS0_6MatrixEEEbRKT_PNS6_9PoolEntryE.exit.us ], [ %34, %7 ]
-  %.016.us = phi i32 [ %48, %_ZN4llvm4PBQP9ValuePoolINS0_8MDMatrixINS0_8RegAlloc14MatrixMetadataEEEE15PoolEntryDSInfo7isEqualINS0_6MatrixEEEbRKT_PNS6_9PoolEntryE.exit.us ], [ 1, %7 ]
-  %39 = zext i32 %.018.us to i64
-  %40 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair.290", ptr %3, i64 %39
-  %41 = load ptr, ptr %40, align 8, !tbaa !386
-  %switch.i.us = icmp ult ptr %41, inttoptr (i64 2 to ptr)
-  br i1 %switch.i.us, label %_ZN4llvm4PBQP9ValuePoolINS0_8MDMatrixINS0_8RegAlloc14MatrixMetadataEEEE15PoolEntryDSInfo7isEqualEPNS6_9PoolEntryES9_.exit.us, label %42, !prof !404
+  %.018.us = phi i32 [ %52, %_ZN4llvm4PBQP9ValuePoolINS0_8MDMatrixINS0_8RegAlloc14MatrixMetadataEEEE15PoolEntryDSInfo7isEqualINS0_6MatrixEEEbRKT_PNS6_9PoolEntryE.exit.us ], [ %36, %7 ]
+  %.016.us = phi i32 [ %50, %_ZN4llvm4PBQP9ValuePoolINS0_8MDMatrixINS0_8RegAlloc14MatrixMetadataEEEE15PoolEntryDSInfo7isEqualINS0_6MatrixEEEbRKT_PNS6_9PoolEntryE.exit.us ], [ 1, %7 ]
+  %41 = zext i32 %.018.us to i64
+  %42 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair.290", ptr %3, i64 %41
+  %43 = load ptr, ptr %42, align 8, !tbaa !386
+  %switch.i.us = icmp ult ptr %43, inttoptr (i64 2 to ptr)
+  br i1 %switch.i.us, label %_ZN4llvm4PBQP9ValuePoolINS0_8MDMatrixINS0_8RegAlloc14MatrixMetadataEEEE15PoolEntryDSInfo7isEqualEPNS6_9PoolEntryES9_.exit.us, label %44, !prof !404
 
-42:                                               ; preds = %.split.us
-  %43 = getelementptr inbounds nuw i8, ptr %41, i64 24
-  %44 = load i32, ptr %43, align 8, !tbaa !72
-  %.not.i.i.i.us = icmp eq i32 %17, %44
-  br i1 %.not.i.i.i.us, label %45, label %_ZN4llvm4PBQP9ValuePoolINS0_8MDMatrixINS0_8RegAlloc14MatrixMetadataEEEE15PoolEntryDSInfo7isEqualINS0_6MatrixEEEbRKT_PNS6_9PoolEntryE.exit.us, !prof !405
+44:                                               ; preds = %.split.us
+  %45 = getelementptr inbounds nuw i8, ptr %43, i64 24
+  %46 = load i32, ptr %45, align 8, !tbaa !72
+  %.not.i.i.i.us = icmp eq i32 %46, %18
+  br i1 %.not.i.i.i.us, label %47, label %_ZN4llvm4PBQP9ValuePoolINS0_8MDMatrixINS0_8RegAlloc14MatrixMetadataEEEE15PoolEntryDSInfo7isEqualINS0_6MatrixEEEbRKT_PNS6_9PoolEntryE.exit.us, !prof !405
 
-45:                                               ; preds = %42
-  %46 = getelementptr inbounds nuw i8, ptr %41, i64 28
-  %47 = load i32, ptr %46, align 4, !tbaa !81
-  %.not5.i.i.i.us = icmp eq i32 %18, %47
+47:                                               ; preds = %44
+  %48 = getelementptr inbounds nuw i8, ptr %43, i64 28
+  %49 = load i32, ptr %48, align 4, !tbaa !81
+  %.not5.i.i.i.us = icmp eq i32 %49, %20
   br i1 %.not5.i.i.i.us, label %_ZN4llvm4PBQP9ValuePoolINS0_8MDMatrixINS0_8RegAlloc14MatrixMetadataEEEE15PoolEntryDSInfo7isEqualINS0_6MatrixEEEbRKT_PNS6_9PoolEntryE.exit.thread28.loopexit.split.loop.exit, label %_ZN4llvm4PBQP9ValuePoolINS0_8MDMatrixINS0_8RegAlloc14MatrixMetadataEEEE15PoolEntryDSInfo7isEqualINS0_6MatrixEEEbRKT_PNS6_9PoolEntryE.exit.us, !prof !405
 
 _ZN4llvm4PBQP9ValuePoolINS0_8MDMatrixINS0_8RegAlloc14MatrixMetadataEEEE15PoolEntryDSInfo7isEqualEPNS6_9PoolEntryES9_.exit.us: ; preds = %.split.us
-  %.old.us = icmp eq ptr %41, null
+  %.old.us = icmp eq ptr %43, null
   br i1 %.old.us, label %_ZN4llvm4PBQP9ValuePoolINS0_8MDMatrixINS0_8RegAlloc14MatrixMetadataEEEE15PoolEntryDSInfo7isEqualINS0_6MatrixEEEbRKT_PNS6_9PoolEntryE.exit.thread28, label %_ZN4llvm4PBQP9ValuePoolINS0_8MDMatrixINS0_8RegAlloc14MatrixMetadataEEEE15PoolEntryDSInfo7isEqualINS0_6MatrixEEEbRKT_PNS6_9PoolEntryE.exit.us, !prof !406
 
-_ZN4llvm4PBQP9ValuePoolINS0_8MDMatrixINS0_8RegAlloc14MatrixMetadataEEEE15PoolEntryDSInfo7isEqualINS0_6MatrixEEEbRKT_PNS6_9PoolEntryE.exit.us: ; preds = %_ZN4llvm4PBQP9ValuePoolINS0_8MDMatrixINS0_8RegAlloc14MatrixMetadataEEEE15PoolEntryDSInfo7isEqualEPNS6_9PoolEntryES9_.exit.us, %45, %42
-  %48 = add i32 %.016.us, 1
-  %49 = add i32 %.016.us, %.018.us
-  %50 = and i32 %49, %33
+_ZN4llvm4PBQP9ValuePoolINS0_8MDMatrixINS0_8RegAlloc14MatrixMetadataEEEE15PoolEntryDSInfo7isEqualINS0_6MatrixEEEbRKT_PNS6_9PoolEntryE.exit.us: ; preds = %_ZN4llvm4PBQP9ValuePoolINS0_8MDMatrixINS0_8RegAlloc14MatrixMetadataEEEE15PoolEntryDSInfo7isEqualEPNS6_9PoolEntryES9_.exit.us, %47, %44
+  %50 = add i32 %.016.us, 1
+  %51 = add i32 %.016.us, %.018.us
+  %52 = and i32 %51, %35
   br label %.split.us, !llvm.loop !407
 
 .split:                                           ; preds = %7, %_ZN4llvm4PBQP9ValuePoolINS0_8MDMatrixINS0_8RegAlloc14MatrixMetadataEEEE15PoolEntryDSInfo7isEqualINS0_6MatrixEEEbRKT_PNS6_9PoolEntryE.exit
-  %.018 = phi i32 [ %70, %_ZN4llvm4PBQP9ValuePoolINS0_8MDMatrixINS0_8RegAlloc14MatrixMetadataEEEE15PoolEntryDSInfo7isEqualINS0_6MatrixEEEbRKT_PNS6_9PoolEntryE.exit ], [ %34, %7 ]
-  %.016 = phi i32 [ %68, %_ZN4llvm4PBQP9ValuePoolINS0_8MDMatrixINS0_8RegAlloc14MatrixMetadataEEEE15PoolEntryDSInfo7isEqualINS0_6MatrixEEEbRKT_PNS6_9PoolEntryE.exit ], [ 1, %7 ]
-  %51 = zext i32 %.018 to i64
-  %52 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair.290", ptr %3, i64 %51
-  %53 = load ptr, ptr %52, align 8, !tbaa !386
-  %switch.i = icmp ult ptr %53, inttoptr (i64 2 to ptr)
-  br i1 %switch.i, label %_ZN4llvm4PBQP9ValuePoolINS0_8MDMatrixINS0_8RegAlloc14MatrixMetadataEEEE15PoolEntryDSInfo7isEqualEPNS6_9PoolEntryES9_.exit, label %54, !prof !404
+  %.018 = phi i32 [ %72, %_ZN4llvm4PBQP9ValuePoolINS0_8MDMatrixINS0_8RegAlloc14MatrixMetadataEEEE15PoolEntryDSInfo7isEqualINS0_6MatrixEEEbRKT_PNS6_9PoolEntryE.exit ], [ %36, %7 ]
+  %.016 = phi i32 [ %70, %_ZN4llvm4PBQP9ValuePoolINS0_8MDMatrixINS0_8RegAlloc14MatrixMetadataEEEE15PoolEntryDSInfo7isEqualINS0_6MatrixEEEbRKT_PNS6_9PoolEntryE.exit ], [ 1, %7 ]
+  %53 = zext i32 %.018 to i64
+  %54 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair.290", ptr %3, i64 %53
+  %55 = load ptr, ptr %54, align 8, !tbaa !386
+  %switch.i = icmp ult ptr %55, inttoptr (i64 2 to ptr)
+  br i1 %switch.i, label %_ZN4llvm4PBQP9ValuePoolINS0_8MDMatrixINS0_8RegAlloc14MatrixMetadataEEEE15PoolEntryDSInfo7isEqualEPNS6_9PoolEntryES9_.exit, label %56, !prof !404
 
-54:                                               ; preds = %.split
-  %55 = getelementptr inbounds nuw i8, ptr %53, i64 24
-  %56 = load i32, ptr %55, align 8, !tbaa !72
-  %.not.i.i.i = icmp eq i32 %17, %56
-  br i1 %.not.i.i.i, label %57, label %_ZN4llvm4PBQP9ValuePoolINS0_8MDMatrixINS0_8RegAlloc14MatrixMetadataEEEE15PoolEntryDSInfo7isEqualINS0_6MatrixEEEbRKT_PNS6_9PoolEntryE.exit, !prof !405
+56:                                               ; preds = %.split
+  %57 = getelementptr inbounds nuw i8, ptr %55, i64 24
+  %58 = load i32, ptr %57, align 8, !tbaa !72
+  %.not.i.i.i = icmp eq i32 %58, %18
+  br i1 %.not.i.i.i, label %59, label %_ZN4llvm4PBQP9ValuePoolINS0_8MDMatrixINS0_8RegAlloc14MatrixMetadataEEEE15PoolEntryDSInfo7isEqualINS0_6MatrixEEEbRKT_PNS6_9PoolEntryE.exit, !prof !405
 
-57:                                               ; preds = %54
-  %58 = getelementptr inbounds nuw i8, ptr %53, i64 28
-  %59 = load i32, ptr %58, align 4, !tbaa !81
-  %.not5.i.i.i = icmp eq i32 %18, %59
+59:                                               ; preds = %56
+  %60 = getelementptr inbounds nuw i8, ptr %55, i64 28
+  %61 = load i32, ptr %60, align 4, !tbaa !81
+  %.not5.i.i.i = icmp eq i32 %61, %20
   br i1 %.not5.i.i.i, label %.lr.ph.i.i.i.i.preheader.i.i.i, label %_ZN4llvm4PBQP9ValuePoolINS0_8MDMatrixINS0_8RegAlloc14MatrixMetadataEEEE15PoolEntryDSInfo7isEqualINS0_6MatrixEEEbRKT_PNS6_9PoolEntryE.exit, !prof !405
 
-.lr.ph.i.i.i.i.preheader.i.i.i:                   ; preds = %57
-  %60 = getelementptr inbounds nuw i8, ptr %53, i64 32
-  %61 = load ptr, ptr %60, align 8, !tbaa !82
+.lr.ph.i.i.i.i.preheader.i.i.i:                   ; preds = %59
+  %62 = getelementptr inbounds nuw i8, ptr %55, i64 32
+  %63 = load ptr, ptr %62, align 8, !tbaa !82
   br label %.lr.ph.i.i.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i.i.i:                             ; preds = %65, %.lr.ph.i.i.i.i.preheader.i.i.i
-  %.011.i.i.i.i.i.i.i = phi ptr [ %67, %65 ], [ %61, %.lr.ph.i.i.i.i.preheader.i.i.i ]
-  %.0810.i.i.i.i.i.i.i = phi ptr [ %66, %65 ], [ %35, %.lr.ph.i.i.i.i.preheader.i.i.i ]
-  %62 = load float, ptr %.0810.i.i.i.i.i.i.i, align 4, !tbaa !70
-  %63 = load float, ptr %.011.i.i.i.i.i.i.i, align 4, !tbaa !70
-  %64 = fcmp oeq float %62, %63
-  br i1 %64, label %65, label %_ZN4llvm4PBQP9ValuePoolINS0_8MDMatrixINS0_8RegAlloc14MatrixMetadataEEEE15PoolEntryDSInfo7isEqualINS0_6MatrixEEEbRKT_PNS6_9PoolEntryE.exit, !prof !405
+.lr.ph.i.i.i.i.i.i.i:                             ; preds = %67, %.lr.ph.i.i.i.i.preheader.i.i.i
+  %.011.i.i.i.i.i.i.i = phi ptr [ %69, %67 ], [ %63, %.lr.ph.i.i.i.i.preheader.i.i.i ]
+  %.0810.i.i.i.i.i.i.i = phi ptr [ %68, %67 ], [ %37, %.lr.ph.i.i.i.i.preheader.i.i.i ]
+  %64 = load float, ptr %.0810.i.i.i.i.i.i.i, align 4, !tbaa !70
+  %65 = load float, ptr %.011.i.i.i.i.i.i.i, align 4, !tbaa !70
+  %66 = fcmp oeq float %64, %65
+  br i1 %66, label %67, label %_ZN4llvm4PBQP9ValuePoolINS0_8MDMatrixINS0_8RegAlloc14MatrixMetadataEEEE15PoolEntryDSInfo7isEqualINS0_6MatrixEEEbRKT_PNS6_9PoolEntryE.exit, !prof !405
 
-65:                                               ; preds = %.lr.ph.i.i.i.i.i.i.i
-  %66 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i.i.i.i, i64 4
-  %67 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i.i.i, i64 4
-  %.not.i.i.i.i.i.i.i = icmp eq ptr %66, %38
+67:                                               ; preds = %.lr.ph.i.i.i.i.i.i.i
+  %68 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i.i.i.i, i64 4
+  %69 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i.i.i, i64 4
+  %.not.i.i.i.i.i.i.i = icmp eq ptr %68, %40
   br i1 %.not.i.i.i.i.i.i.i, label %_ZN4llvm4PBQP9ValuePoolINS0_8MDMatrixINS0_8RegAlloc14MatrixMetadataEEEE15PoolEntryDSInfo7isEqualINS0_6MatrixEEEbRKT_PNS6_9PoolEntryE.exit.thread28.loopexit50, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !408
 
 _ZN4llvm4PBQP9ValuePoolINS0_8MDMatrixINS0_8RegAlloc14MatrixMetadataEEEE15PoolEntryDSInfo7isEqualEPNS6_9PoolEntryES9_.exit: ; preds = %.split
-  %.old = icmp eq ptr %53, null
+  %.old = icmp eq ptr %55, null
   br i1 %.old, label %_ZN4llvm4PBQP9ValuePoolINS0_8MDMatrixINS0_8RegAlloc14MatrixMetadataEEEE15PoolEntryDSInfo7isEqualINS0_6MatrixEEEbRKT_PNS6_9PoolEntryE.exit.thread28, label %_ZN4llvm4PBQP9ValuePoolINS0_8MDMatrixINS0_8RegAlloc14MatrixMetadataEEEE15PoolEntryDSInfo7isEqualINS0_6MatrixEEEbRKT_PNS6_9PoolEntryE.exit, !prof !406
 
-_ZN4llvm4PBQP9ValuePoolINS0_8MDMatrixINS0_8RegAlloc14MatrixMetadataEEEE15PoolEntryDSInfo7isEqualINS0_6MatrixEEEbRKT_PNS6_9PoolEntryE.exit: ; preds = %.lr.ph.i.i.i.i.i.i.i, %54, %57, %_ZN4llvm4PBQP9ValuePoolINS0_8MDMatrixINS0_8RegAlloc14MatrixMetadataEEEE15PoolEntryDSInfo7isEqualEPNS6_9PoolEntryES9_.exit
-  %68 = add i32 %.016, 1
-  %69 = add i32 %.016, %.018
-  %70 = and i32 %69, %33
+_ZN4llvm4PBQP9ValuePoolINS0_8MDMatrixINS0_8RegAlloc14MatrixMetadataEEEE15PoolEntryDSInfo7isEqualINS0_6MatrixEEEbRKT_PNS6_9PoolEntryE.exit: ; preds = %.lr.ph.i.i.i.i.i.i.i, %56, %59, %_ZN4llvm4PBQP9ValuePoolINS0_8MDMatrixINS0_8RegAlloc14MatrixMetadataEEEE15PoolEntryDSInfo7isEqualEPNS6_9PoolEntryES9_.exit
+  %70 = add i32 %.016, 1
+  %71 = add i32 %.016, %.018
+  %72 = and i32 %71, %35
   br label %.split, !llvm.loop !407
 
-_ZN4llvm4PBQP9ValuePoolINS0_8MDMatrixINS0_8RegAlloc14MatrixMetadataEEEE15PoolEntryDSInfo7isEqualINS0_6MatrixEEEbRKT_PNS6_9PoolEntryE.exit.thread28.loopexit.split.loop.exit: ; preds = %45
-  %71 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair.290", ptr %3, i64 %39
+_ZN4llvm4PBQP9ValuePoolINS0_8MDMatrixINS0_8RegAlloc14MatrixMetadataEEEE15PoolEntryDSInfo7isEqualINS0_6MatrixEEEbRKT_PNS6_9PoolEntryE.exit.thread28.loopexit.split.loop.exit: ; preds = %47
+  %73 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair.290", ptr %3, i64 %41
   br label %_ZN4llvm4PBQP9ValuePoolINS0_8MDMatrixINS0_8RegAlloc14MatrixMetadataEEEE15PoolEntryDSInfo7isEqualINS0_6MatrixEEEbRKT_PNS6_9PoolEntryE.exit.thread28
 
-_ZN4llvm4PBQP9ValuePoolINS0_8MDMatrixINS0_8RegAlloc14MatrixMetadataEEEE15PoolEntryDSInfo7isEqualINS0_6MatrixEEEbRKT_PNS6_9PoolEntryE.exit.thread28.loopexit50: ; preds = %65
-  %72 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair.290", ptr %3, i64 %51
+_ZN4llvm4PBQP9ValuePoolINS0_8MDMatrixINS0_8RegAlloc14MatrixMetadataEEEE15PoolEntryDSInfo7isEqualINS0_6MatrixEEEbRKT_PNS6_9PoolEntryE.exit.thread28.loopexit50: ; preds = %67
+  %74 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair.290", ptr %3, i64 %53
   br label %_ZN4llvm4PBQP9ValuePoolINS0_8MDMatrixINS0_8RegAlloc14MatrixMetadataEEEE15PoolEntryDSInfo7isEqualINS0_6MatrixEEEbRKT_PNS6_9PoolEntryE.exit.thread28
 
 _ZN4llvm4PBQP9ValuePoolINS0_8MDMatrixINS0_8RegAlloc14MatrixMetadataEEEE15PoolEntryDSInfo7isEqualINS0_6MatrixEEEbRKT_PNS6_9PoolEntryE.exit.thread28: ; preds = %_ZN4llvm4PBQP9ValuePoolINS0_8MDMatrixINS0_8RegAlloc14MatrixMetadataEEEE15PoolEntryDSInfo7isEqualEPNS6_9PoolEntryES9_.exit, %_ZN4llvm4PBQP9ValuePoolINS0_8MDMatrixINS0_8RegAlloc14MatrixMetadataEEEE15PoolEntryDSInfo7isEqualEPNS6_9PoolEntryES9_.exit.us, %_ZN4llvm4PBQP9ValuePoolINS0_8MDMatrixINS0_8RegAlloc14MatrixMetadataEEEE15PoolEntryDSInfo7isEqualINS0_6MatrixEEEbRKT_PNS6_9PoolEntryE.exit.thread28.loopexit.split.loop.exit, %_ZN4llvm4PBQP9ValuePoolINS0_8MDMatrixINS0_8RegAlloc14MatrixMetadataEEEE15PoolEntryDSInfo7isEqualINS0_6MatrixEEEbRKT_PNS6_9PoolEntryE.exit.thread28.loopexit50, %2
-  %.0 = phi ptr [ null, %2 ], [ %72, %_ZN4llvm4PBQP9ValuePoolINS0_8MDMatrixINS0_8RegAlloc14MatrixMetadataEEEE15PoolEntryDSInfo7isEqualINS0_6MatrixEEEbRKT_PNS6_9PoolEntryE.exit.thread28.loopexit50 ], [ %71, %_ZN4llvm4PBQP9ValuePoolINS0_8MDMatrixINS0_8RegAlloc14MatrixMetadataEEEE15PoolEntryDSInfo7isEqualINS0_6MatrixEEEbRKT_PNS6_9PoolEntryE.exit.thread28.loopexit.split.loop.exit ], [ null, %_ZN4llvm4PBQP9ValuePoolINS0_8MDMatrixINS0_8RegAlloc14MatrixMetadataEEEE15PoolEntryDSInfo7isEqualEPNS6_9PoolEntryES9_.exit.us ], [ null, %_ZN4llvm4PBQP9ValuePoolINS0_8MDMatrixINS0_8RegAlloc14MatrixMetadataEEEE15PoolEntryDSInfo7isEqualEPNS6_9PoolEntryES9_.exit ]
+  %.0 = phi ptr [ null, %2 ], [ %74, %_ZN4llvm4PBQP9ValuePoolINS0_8MDMatrixINS0_8RegAlloc14MatrixMetadataEEEE15PoolEntryDSInfo7isEqualINS0_6MatrixEEEbRKT_PNS6_9PoolEntryE.exit.thread28.loopexit50 ], [ %73, %_ZN4llvm4PBQP9ValuePoolINS0_8MDMatrixINS0_8RegAlloc14MatrixMetadataEEEE15PoolEntryDSInfo7isEqualINS0_6MatrixEEEbRKT_PNS6_9PoolEntryE.exit.thread28.loopexit.split.loop.exit ], [ null, %_ZN4llvm4PBQP9ValuePoolINS0_8MDMatrixINS0_8RegAlloc14MatrixMetadataEEEE15PoolEntryDSInfo7isEqualEPNS6_9PoolEntryES9_.exit.us ], [ null, %_ZN4llvm4PBQP9ValuePoolINS0_8MDMatrixINS0_8RegAlloc14MatrixMetadataEEEE15PoolEntryDSInfo7isEqualEPNS6_9PoolEntryES9_.exit ]
   ret ptr %.0
 }
 

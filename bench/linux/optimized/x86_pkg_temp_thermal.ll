@@ -420,7 +420,7 @@ define internal noundef i32 @pkg_thermal_cpu_offline(i32 noundef %0) #2 align 16
   %44 = load i32, ptr %17, align 8
   %45 = icmp ne i32 %44, %0
   store i32 %37, ptr %17, align 8
-  br i1 %39, label %64, label %46
+  br i1 %39, label %61, label %46
 
 46:                                               ; preds = %43
   %47 = load ptr, ptr @zones, align 8
@@ -433,66 +433,63 @@ define internal noundef i32 @pkg_thermal_cpu_offline(i32 noundef %0) #2 align 16
   %54 = getelementptr ptr, ptr %47, i64 %53
   store ptr null, ptr %54, align 8
   %55 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  %56 = load i32, ptr %55, align 8
-  %57 = getelementptr inbounds nuw i8, ptr %17, i64 12
-  %58 = load i32, ptr %57, align 4
-  tail call void asm sideeffect "1: wrmsr\0A2:\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A .long 8 \0A .popsection\0A", "{cx},{ax},{dx},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 434, i32 %56, i32 %58) #8, !srcloc !15
+  %56 = load i64, ptr %55, align 8
+  %57 = trunc i64 %56 to i32
+  %58 = lshr i64 %56, 32
+  %59 = trunc nuw i64 %58 to i32
+  tail call void asm sideeffect "1: wrmsr\0A2:\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A .long 8 \0A .popsection\0A", "{cx},{ax},{dx},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 434, i32 %57, i32 %59) #8, !srcloc !15
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_write_msr, i64 8), i32 2) #8
-          to label %64 [label %59], !srcloc !16
+          to label %61 [label %60], !srcloc !16
 
-59:                                               ; preds = %46
-  %60 = zext i32 %58 to i64
-  %61 = shl nuw i64 %60, 32
-  %62 = zext i32 %56 to i64
-  %63 = or disjoint i64 %61, %62
-  tail call void @do_trace_write_msr(i32 noundef 434, i64 noundef %63, i32 noundef 0) #8
-  br label %64
+60:                                               ; preds = %46
+  tail call void @do_trace_write_msr(i32 noundef 434, i64 noundef %56, i32 noundef 0) #8
+  br label %61
 
-64:                                               ; preds = %59, %46, %43
-  %65 = getelementptr inbounds nuw i8, ptr %17, i64 4
-  %66 = load i8, ptr %65, align 4, !range !17, !noundef !18
-  %67 = icmp eq i8 %66, 0
-  %68 = select i1 %67, i1 true, i1 %45
+61:                                               ; preds = %60, %46, %43
+  %62 = getelementptr inbounds nuw i8, ptr %17, i64 4
+  %63 = load i8, ptr %62, align 4, !range !17, !noundef !18
+  %64 = icmp eq i8 %63, 0
+  %65 = select i1 %64, i1 true, i1 %45
   tail call void @_raw_spin_unlock_irq(ptr noundef nonnull @pkg_temp_lock) #8
-  br i1 %68, label %80, label %69
+  br i1 %65, label %77, label %66
 
-69:                                               ; preds = %64
-  %70 = getelementptr inbounds nuw i8, ptr %17, i64 16
-  %71 = tail call zeroext i1 @cancel_delayed_work_sync(ptr noundef nonnull %70) #8
+66:                                               ; preds = %61
+  %67 = getelementptr inbounds nuw i8, ptr %17, i64 16
+  %68 = tail call zeroext i1 @cancel_delayed_work_sync(ptr noundef nonnull %67) #8
   tail call void @_raw_spin_lock_irq(ptr noundef nonnull @pkg_temp_lock) #8
-  br i1 %39, label %72, label %81
+  br i1 %39, label %69, label %78
+
+69:                                               ; preds = %66
+  %70 = load i8, ptr %62, align 4, !range !17, !noundef !18
+  %71 = icmp eq i8 %70, 0
+  br i1 %71, label %.thread7, label %72
 
 72:                                               ; preds = %69
-  %73 = load i8, ptr %65, align 4, !range !17, !noundef !18
-  %74 = icmp eq i8 %73, 0
-  br i1 %74, label %.thread7, label %75
-
-75:                                               ; preds = %72
-  %76 = load i32, ptr @notify_delay_ms, align 4
-  %77 = tail call i64 @__msecs_to_jiffies(i32 noundef %76) #8
-  %78 = load ptr, ptr @system_wq, align 8
-  %79 = tail call zeroext i1 @queue_delayed_work_on(i32 noundef %37, ptr noundef %78, ptr noundef nonnull %70, i64 noundef %77) #8
+  %73 = load i32, ptr @notify_delay_ms, align 4
+  %74 = tail call i64 @__msecs_to_jiffies(i32 noundef %73) #8
+  %75 = load ptr, ptr @system_wq, align 8
+  %76 = tail call zeroext i1 @queue_delayed_work_on(i32 noundef %37, ptr noundef %75, ptr noundef nonnull %67, i64 noundef %74) #8
   br label %.thread7
 
-.thread7:                                         ; preds = %75, %72
+.thread7:                                         ; preds = %72, %69
   tail call void @_raw_spin_unlock_irq(ptr noundef nonnull @pkg_temp_lock) #8
   br label %.thread
 
-80:                                               ; preds = %64
-  br i1 %39, label %.thread, label %82
+77:                                               ; preds = %61
+  br i1 %39, label %.thread, label %79
 
-81:                                               ; preds = %69
+78:                                               ; preds = %66
   tail call void @_raw_spin_unlock_irq(ptr noundef nonnull @pkg_temp_lock) #8
-  br label %82
+  br label %79
 
-82:                                               ; preds = %81, %80
-  %83 = getelementptr inbounds nuw i8, ptr %17, i64 112
-  %84 = load ptr, ptr %83, align 8
-  tail call void @kfree(ptr noundef %84) #8
+79:                                               ; preds = %78, %77
+  %80 = getelementptr inbounds nuw i8, ptr %17, i64 112
+  %81 = load ptr, ptr %80, align 8
+  tail call void @kfree(ptr noundef %81) #8
   tail call void @kfree(ptr noundef nonnull %17) #8
   br label %.thread
 
-.thread:                                          ; preds = %1, %.thread7, %82, %80, %13
+.thread:                                          ; preds = %1, %.thread7, %79, %77, %13
   ret i32 0
 }
 

@@ -5065,7 +5065,6 @@ define hidden { ptr, ptr } @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.6.sroa.7.i.i.i.i)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1131)
   %.sroa.0.0.copyload.i.i = load i64, ptr %13, align 8, !alias.scope !1134, !noalias !1135
-  %.sroa.6.sroa.0.0.copyload.i.i = load i64, ptr %.sroa.6.0..sroa_idx.i.i, align 8, !alias.scope !1134, !noalias !1135
   switch i64 %.sroa.0.0.copyload.i.i, label %34 [
     i64 -9223372036854775807, label %23
     i64 -9223372036854775808, label %35
@@ -5109,7 +5108,8 @@ define hidden { ptr, ptr } @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A
 
 35:                                               ; preds = %34, %19
   %.sroa.12.0.i.i = phi i64 [ %.sroa.6.sroa.6.0.copyload.i.i, %34 ], [ undef, %19 ]
-  %.sroa.7.0.i.i = inttoptr i64 %.sroa.6.sroa.0.0.copyload.i.i to ptr
+  %.sroa.7.0.in.i.i = load i64, ptr %.sroa.6.0..sroa_idx.i.i, align 8, !alias.scope !1134, !noalias !1135
+  %.sroa.7.0.i.i = inttoptr i64 %.sroa.7.0.in.i.i to ptr
   %.sroa.019.0.copyload.i.i = load i64, ptr %14, align 8, !alias.scope !1134, !noalias !1135
   %.sroa.521.sroa.4.0.copyload.i.i = load i8, ptr %.sroa.521.sroa.4.0..sroa.521.0..sroa_idx.sroa_idx.i.i, align 8, !alias.scope !1134, !noalias !1135
   switch i64 %.sroa.019.0.copyload.i.i, label %37 [

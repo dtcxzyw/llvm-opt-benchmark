@@ -21055,9 +21055,12 @@ entry:
   %m_crack_level = getelementptr inbounds nuw i8, ptr %this, i64 724
   %0 = load i32, ptr %m_crack_level, align 4, !tbaa !180
   %m_crack_pos = getelementptr inbounds nuw i8, ptr %this, i64 728
-  %old_crack_pos.sroa.0.0.copyload = load i16, ptr %m_crack_pos, align 8, !tbaa !220
+  %old_crack_pos.sroa.0.0.copyload = load i32, ptr %m_crack_pos, align 8
+  %1 = zext i32 %old_crack_pos.sroa.0.0.copyload to i48
+  %2 = trunc i32 %old_crack_pos.sroa.0.0.copyload to i16
   %old_crack_pos.sroa.6.0.m_crack_pos.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 730
-  %old_crack_pos.sroa.6.0.copyload = load i16, ptr %old_crack_pos.sroa.6.0.m_crack_pos.sroa_idx, align 2, !tbaa !220
+  %3 = lshr i32 %old_crack_pos.sroa.0.0.copyload, 16
+  %4 = trunc nuw i32 %3 to i16
   %old_crack_pos.sroa.8.0.m_crack_pos.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 732
   %old_crack_pos.sroa.8.0.copyload = load i16, ptr %old_crack_pos.sroa.8.0.m_crack_pos.sroa_idx, align 4, !tbaa !220
   store i32 %level, ptr %m_crack_level, align 4, !tbaa !180
@@ -21069,9 +21072,9 @@ entry:
 
 land.lhs.true:                                    ; preds = %entry
   %cmp4 = icmp slt i32 %level, 0
-  %cmp.i.i = icmp ne i16 %old_crack_pos.sroa.0.0.copyload, %pos.sroa.0.0.extract.trunc
+  %cmp.i.i = icmp ne i16 %2, %pos.sroa.0.0.extract.trunc
   %or.cond.not43 = select i1 %cmp4, i1 true, i1 %cmp.i.i
-  %cmp7.i.i = icmp ne i16 %old_crack_pos.sroa.6.0.copyload, %pos.sroa.5.0.extract.trunc
+  %cmp7.i.i = icmp ne i16 %4, %pos.sroa.5.0.extract.trunc
   %or.cond37.not42 = select i1 %or.cond.not43, i1 true, i1 %cmp7.i.i
   %cmp11.i.i = icmp ne i16 %old_crack_pos.sroa.8.0.copyload, %pos.sroa.7.0.extract.trunc
   %or.cond38 = select i1 %or.cond37.not42, i1 true, i1 %cmp11.i.i
@@ -21080,11 +21083,7 @@ land.lhs.true:                                    ; preds = %entry
 if.then:                                          ; preds = %land.lhs.true
   %old_crack_pos.sroa.8.0.insert.ext = zext i16 %old_crack_pos.sroa.8.0.copyload to i48
   %old_crack_pos.sroa.8.0.insert.shift = shl nuw i48 %old_crack_pos.sroa.8.0.insert.ext, 32
-  %old_crack_pos.sroa.6.0.insert.ext = zext i16 %old_crack_pos.sroa.6.0.copyload to i48
-  %old_crack_pos.sroa.6.0.insert.shift = shl nuw nsw i48 %old_crack_pos.sroa.6.0.insert.ext, 16
-  %old_crack_pos.sroa.0.0.insert.ext = zext i16 %old_crack_pos.sroa.0.0.copyload to i48
-  %old_crack_pos.sroa.6.0.insert.insert = or disjoint i48 %old_crack_pos.sroa.6.0.insert.shift, %old_crack_pos.sroa.0.0.insert.ext
-  %old_crack_pos.sroa.0.0.insert.insert = or disjoint i48 %old_crack_pos.sroa.6.0.insert.insert, %old_crack_pos.sroa.8.0.insert.shift
+  %old_crack_pos.sroa.0.0.insert.insert = or disjoint i48 %old_crack_pos.sroa.8.0.insert.shift, %1
   tail call void @_ZN6Client24addUpdateMeshTaskForNodeEN3irr4core8vector3dIsEEbb(ptr noundef nonnull align 8 dereferenceable(1746) %this, i48 %old_crack_pos.sroa.0.0.insert.insert, i1 noundef zeroext false, i1 noundef zeroext true)
   br label %if.end
 
@@ -21094,9 +21093,9 @@ if.end:                                           ; preds = %if.then, %entry
 
 land.lhs.true6:                                   ; preds = %if.end
   %cmp7 = icmp slt i32 %0, 0
-  %cmp.i.i16 = icmp ne i16 %old_crack_pos.sroa.0.0.copyload, %pos.sroa.0.0.extract.trunc
+  %cmp.i.i16 = icmp ne i16 %2, %pos.sroa.0.0.extract.trunc
   %or.cond39.not45 = select i1 %cmp7, i1 true, i1 %cmp.i.i16
-  %cmp7.i.i21 = icmp ne i16 %old_crack_pos.sroa.6.0.copyload, %pos.sroa.5.0.extract.trunc
+  %cmp7.i.i21 = icmp ne i16 %4, %pos.sroa.5.0.extract.trunc
   %or.cond40.not44 = select i1 %or.cond39.not45, i1 true, i1 %cmp7.i.i21
   %cmp11.i.i25 = icmp ne i16 %old_crack_pos.sroa.8.0.copyload, %pos.sroa.7.0.extract.trunc
   %or.cond41 = select i1 %or.cond40.not44, i1 true, i1 %cmp11.i.i25

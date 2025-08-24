@@ -4895,10 +4895,8 @@ _ZN2cv8ximgproc8nodeHeap3addENS0_4nodeE.exit:     ; preds = %_ZN2cv8ximgproc8nod
   %137 = phi ptr [ %125, %.loopexit ], [ %97, %_ZN2cv8ximgproc8nodeHeap3addENS0_4nodeE.exit ]
   %indvars.iv64 = phi i64 [ %indvars.iv.next65, %.loopexit ], [ 0, %_ZN2cv8ximgproc8nodeHeap3addENS0_4nodeE.exit ]
   %138 = getelementptr inbounds nuw i8, ptr %137, i64 8
-  %.sroa.0.0.copyload28.i = load i32, ptr %138, align 4, !tbaa !95
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %137, i64 12
-  %.sroa.2.0.copyload.i = load i32, ptr %.sroa.2.0..sroa_idx.i, align 4, !tbaa !68
-  %139 = sext i32 %.sroa.2.0.copyload.i to i64
+  %.sroa.0.0.copyload28.i = load i64, ptr %138, align 4
+  %139 = ashr i64 %.sroa.0.0.copyload28.i, 32
   %140 = getelementptr inbounds i32, ptr %136, i64 %139
   store i32 0, ptr %140, align 4, !tbaa !68
   %141 = load i32, ptr %28, align 8, !tbaa !226
@@ -5015,13 +5013,16 @@ _ZN2cv8ximgproc8nodeHeap6getMinEv.exit:           ; preds = %._crit_edge.i, %._c
   %storemerge.in.i = phi i32 [ %210, %._crit_edge37.i ], [ %.025.lcssa.i, %._crit_edge.i ]
   %storemerge.i = add nsw i32 %storemerge.in.i, -1
   store i32 %storemerge.i, ptr %28, align 8, !tbaa !226
-  %216 = bitcast i32 %.sroa.0.0.copyload28.i to float
+  %.sroa.0.0.extract.trunc = trunc i64 %.sroa.0.0.copyload28.i to i32
+  %216 = bitcast i32 %.sroa.0.0.extract.trunc to float
+  %.sroa.6.0.extract.shift = lshr i64 %.sroa.0.0.copyload28.i, 32
+  %.sroa.6.0.extract.trunc = trunc nuw i64 %.sroa.6.0.extract.shift to i32
   %217 = getelementptr inbounds i8, ptr %30, i64 %139
   store i8 1, ptr %217, align 1, !tbaa !231
   %218 = getelementptr inbounds nuw i32, ptr %107, i64 %indvars.iv64
-  store i32 %.sroa.2.0.copyload.i, ptr %218, align 4, !tbaa !68
+  store i32 %.sroa.6.0.extract.trunc, ptr %218, align 4, !tbaa !68
   %219 = getelementptr inbounds nuw float, ptr %114, i64 %indvars.iv64
-  store i32 %.sroa.0.0.copyload28.i, ptr %219, align 4, !tbaa !95
+  store i32 %.sroa.0.0.extract.trunc, ptr %219, align 4, !tbaa !95
   %indvars.iv.next65 = add nuw nsw i64 %indvars.iv64, 1
   %220 = load ptr, ptr %8, align 8, !tbaa !108
   %221 = getelementptr inbounds nuw i8, ptr %220, i64 24
@@ -16563,10 +16564,8 @@ _ZN2cv8ximgproc8nodeHeap3addENS0_4nodeE.exit.i.i.i: ; preds = %_ZN2cv8ximgproc8n
   %145 = phi ptr [ %134, %.loopexit.i.i.i ], [ %113, %_ZN2cv8ximgproc8nodeHeap3addENS0_4nodeE.exit.i.i.i ]
   %indvars.iv32.i.i.i = phi i64 [ %indvars.iv.next33.i.i.i, %.loopexit.i.i.i ], [ 0, %_ZN2cv8ximgproc8nodeHeap3addENS0_4nodeE.exit.i.i.i ]
   %146 = getelementptr inbounds nuw i8, ptr %145, i64 8
-  %.sroa.0.0.copyload28.i.i.i.i = load i32, ptr %146, align 4, !tbaa !95
-  %.sroa.2.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %145, i64 12
-  %.sroa.2.0.copyload.i.i.i.i = load i32, ptr %.sroa.2.0..sroa_idx.i.i.i.i, align 4, !tbaa !68
-  %147 = sext i32 %.sroa.2.0.copyload.i.i.i.i to i64
+  %.sroa.0.0.copyload28.i.i.i.i = load i64, ptr %146, align 4
+  %147 = ashr i64 %.sroa.0.0.copyload28.i.i.i.i, 32
   %148 = getelementptr inbounds i32, ptr %144, i64 %147
   store i32 0, ptr %148, align 4, !tbaa !68
   %149 = load i32, ptr %31, align 8, !tbaa !226
@@ -16683,13 +16682,16 @@ _ZN2cv8ximgproc8nodeHeap6getMinEv.exit.i.i.i:     ; preds = %._crit_edge37.i.i.i
   %storemerge.in.i.i.i.i = phi i32 [ %218, %._crit_edge37.i.i.i.i ], [ %.025.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %storemerge.i.i.i.i = add nsw i32 %storemerge.in.i.i.i.i, -1
   store i32 %storemerge.i.i.i.i, ptr %31, align 8, !tbaa !226
-  %224 = bitcast i32 %.sroa.0.0.copyload28.i.i.i.i to float
+  %.sroa.0.0.extract.trunc.i.i.i = trunc i64 %.sroa.0.0.copyload28.i.i.i.i to i32
+  %224 = bitcast i32 %.sroa.0.0.extract.trunc.i.i.i to float
+  %.sroa.6.0.extract.shift.i.i.i = lshr i64 %.sroa.0.0.copyload28.i.i.i.i, 32
+  %.sroa.6.0.extract.trunc.i.i.i = trunc nuw i64 %.sroa.6.0.extract.shift.i.i.i to i32
   %225 = getelementptr inbounds nuw i32, ptr %.sroa.04.0.i.i.i, i64 %147
   store i32 1, ptr %225, align 4, !tbaa !68
   %226 = getelementptr inbounds nuw i32, ptr %120, i64 %indvars.iv32.i.i.i
-  store i32 %.sroa.2.0.copyload.i.i.i.i, ptr %226, align 4, !tbaa !68
+  store i32 %.sroa.6.0.extract.trunc.i.i.i, ptr %226, align 4, !tbaa !68
   %227 = getelementptr inbounds nuw float, ptr %125, i64 %indvars.iv32.i.i.i
-  store i32 %.sroa.0.0.copyload28.i.i.i.i, ptr %227, align 4, !tbaa !95
+  store i32 %.sroa.0.0.extract.trunc.i.i.i, ptr %227, align 4, !tbaa !95
   %indvars.iv.next33.i.i.i = add nuw nsw i64 %indvars.iv32.i.i.i, 1
   %228 = load ptr, ptr %41, align 8, !tbaa !292
   %229 = getelementptr inbounds nuw %"class.std::vector.3", ptr %228, i64 %147

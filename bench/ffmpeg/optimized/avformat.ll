@@ -2045,102 +2045,99 @@ define i64 @av_guess_frame_rate(ptr noundef readnone captures(none) %0, ptr noun
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 848
   %6 = load ptr, ptr %5, align 8, !tbaa !136
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %.sroa.017.0.copyload = load i32, ptr %7, align 8, !tbaa !102
-  %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 92
-  %.sroa.7.0.copyload = load i32, ptr %.sroa.7.0..sroa_idx, align 4, !tbaa !102
-  %8 = icmp sgt i32 %.sroa.017.0.copyload, 0
-  %9 = icmp sgt i32 %.sroa.7.0.copyload, 0
-  %or.cond = select i1 %8, i1 %9, i1 false
-  %10 = icmp sgt i32 %.sroa.037.0.copyload, 0
-  %or.cond5 = select i1 %or.cond, i1 %10, i1 false
-  %11 = icmp sgt i32 %.sroa.9.0.copyload, 0
-  %or.cond8 = select i1 %or.cond5, i1 %11, i1 false
-  br i1 %or.cond8, label %12, label %23
+  %.sroa.017.0.copyload = load i64, ptr %7, align 8
+  %8 = trunc i64 %.sroa.017.0.copyload to i32
+  %9 = lshr i64 %.sroa.017.0.copyload, 32
+  %10 = trunc nuw i64 %9 to i32
+  %11 = icmp sgt i32 %8, 0
+  %12 = icmp sgt i32 %10, 0
+  %or.cond = select i1 %11, i1 %12, i1 false
+  %13 = icmp sgt i32 %.sroa.037.0.copyload, 0
+  %or.cond5 = select i1 %or.cond, i1 %13, i1 false
+  %14 = icmp sgt i32 %.sroa.9.0.copyload, 0
+  %or.cond8 = select i1 %or.cond5, i1 %14, i1 false
+  br i1 %or.cond8, label %15, label %26
 
-12:                                               ; preds = %3
-  %13 = uitofp nneg i32 %.sroa.017.0.copyload to double
-  %14 = uitofp nneg i32 %.sroa.7.0.copyload to double
-  %15 = fdiv nsz double %13, %14
-  %16 = fcmp nsz olt double %15, 7.000000e+01
-  br i1 %16, label %17, label %23
+15:                                               ; preds = %3
+  %16 = uitofp nneg i32 %8 to double
+  %17 = uitofp nneg i32 %10 to double
+  %18 = fdiv nsz double %16, %17
+  %19 = fcmp nsz olt double %18, 7.000000e+01
+  br i1 %19, label %20, label %26
 
-17:                                               ; preds = %12
-  %18 = uitofp nneg i32 %.sroa.037.0.copyload to double
-  %19 = uitofp nneg i32 %.sroa.9.0.copyload to double
-  %20 = fdiv nsz double %18, %19
-  %21 = fcmp nsz ogt double %20, 2.100000e+02
-  br i1 %21, label %22, label %23
+20:                                               ; preds = %15
+  %21 = uitofp nneg i32 %.sroa.037.0.copyload to double
+  %22 = uitofp nneg i32 %.sroa.9.0.copyload to double
+  %23 = fdiv nsz double %21, %22
+  %24 = fcmp nsz ogt double %23, 2.100000e+02
+  br i1 %24, label %25, label %26
 
-22:                                               ; preds = %17
-  br label %23
+25:                                               ; preds = %20
+  br label %26
 
-23:                                               ; preds = %22, %17, %12, %3
-  %.sroa.037.0 = phi i32 [ %.sroa.017.0.copyload, %22 ], [ %.sroa.037.0.copyload, %17 ], [ %.sroa.037.0.copyload, %12 ], [ %.sroa.037.0.copyload, %3 ]
-  %.sroa.9.0 = phi i32 [ %.sroa.7.0.copyload, %22 ], [ %.sroa.9.0.copyload, %17 ], [ %.sroa.9.0.copyload, %12 ], [ %.sroa.9.0.copyload, %3 ]
+26:                                               ; preds = %25, %20, %15, %3
+  %.sroa.037.0 = phi i32 [ %8, %25 ], [ %.sroa.037.0.copyload, %20 ], [ %.sroa.037.0.copyload, %15 ], [ %.sroa.037.0.copyload, %3 ]
+  %.sroa.9.0 = phi i32 [ %10, %25 ], [ %.sroa.9.0.copyload, %20 ], [ %.sroa.9.0.copyload, %15 ], [ %.sroa.9.0.copyload, %3 ]
   %.not = icmp eq ptr %6, null
-  br i1 %.not, label %54, label %24
+  br i1 %.not, label %57, label %27
 
-24:                                               ; preds = %23
-  %25 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %26 = load i32, ptr %25, align 8, !tbaa !137
-  %27 = and i32 %26, 16
-  %.not67 = icmp eq i32 %27, 0
-  br i1 %.not67, label %54, label %28
+27:                                               ; preds = %26
+  %28 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  %29 = load i32, ptr %28, align 8, !tbaa !137
+  %30 = and i32 %29, 16
+  %.not67 = icmp eq i32 %30, 0
+  br i1 %.not67, label %57, label %31
 
-28:                                               ; preds = %24
-  %29 = getelementptr inbounds nuw i8, ptr %1, i64 248
-  %30 = load ptr, ptr %29, align 8, !tbaa !141
-  %31 = getelementptr inbounds nuw i8, ptr %30, i64 100
-  %.sroa.012.0.copyload = load i32, ptr %31, align 4, !tbaa !102
-  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %30, i64 104
+31:                                               ; preds = %27
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 248
+  %33 = load ptr, ptr %32, align 8, !tbaa !141
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 100
+  %.sroa.012.0.copyload = load i32, ptr %34, align 4, !tbaa !102
+  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %33, i64 104
   %.sroa.6.0.copyload = load i32, ptr %.sroa.6.0..sroa_idx, align 4, !tbaa !102
-  %32 = icmp sgt i32 %.sroa.012.0.copyload, 0
-  %33 = icmp sgt i32 %.sroa.6.0.copyload, 0
-  %or.cond11 = select i1 %32, i1 %33, i1 false
-  br i1 %or.cond11, label %34, label %54
+  %35 = icmp sgt i32 %.sroa.012.0.copyload, 0
+  %36 = icmp sgt i32 %.sroa.6.0.copyload, 0
+  %or.cond11 = select i1 %35, i1 %36, i1 false
+  br i1 %or.cond11, label %37, label %57
 
-34:                                               ; preds = %28
-  %35 = icmp eq i32 %.sroa.037.0, 0
-  br i1 %35, label %53, label %36
+37:                                               ; preds = %31
+  %38 = icmp eq i32 %.sroa.037.0, 0
+  br i1 %38, label %56, label %39
 
-36:                                               ; preds = %34
-  %37 = uitofp nneg i32 %.sroa.012.0.copyload to double
-  %38 = uitofp nneg i32 %.sroa.6.0.copyload to double
-  %39 = fdiv nsz double %37, %38
-  %40 = sitofp i32 %.sroa.037.0 to double
-  %41 = sitofp i32 %.sroa.9.0 to double
+39:                                               ; preds = %37
+  %40 = uitofp nneg i32 %.sroa.012.0.copyload to double
+  %41 = uitofp nneg i32 %.sroa.6.0.copyload to double
   %42 = fdiv nsz double %40, %41
-  %43 = fmul nsz double %42, 0x3FE6666666666666
-  %44 = fcmp nsz olt double %39, %43
-  br i1 %44, label %45, label %54
+  %43 = sitofp i32 %.sroa.037.0 to double
+  %44 = sitofp i32 %.sroa.9.0 to double
+  %45 = fdiv nsz double %43, %44
+  %46 = fmul nsz double %45, 0x3FE6666666666666
+  %47 = fcmp nsz olt double %42, %46
+  br i1 %47, label %48, label %57
 
-45:                                               ; preds = %36
+48:                                               ; preds = %39
   %.sroa.037.0.insert.ext41 = zext i32 %.sroa.037.0 to i64
   %.sroa.9.0.insert.ext53 = zext i32 %.sroa.9.0 to i64
   %.sroa.9.0.insert.shift54 = shl nuw i64 %.sroa.9.0.insert.ext53, 32
   %.sroa.037.0.insert.insert43 = or disjoint i64 %.sroa.9.0.insert.shift54, %.sroa.037.0.insert.ext41
-  %.sroa.7.0.insert.ext27 = zext i32 %.sroa.7.0.copyload to i64
-  %.sroa.7.0.insert.shift28 = shl nuw i64 %.sroa.7.0.insert.ext27, 32
-  %.sroa.017.0.insert.ext21 = zext i32 %.sroa.017.0.copyload to i64
-  %.sroa.017.0.insert.insert23 = or disjoint i64 %.sroa.7.0.insert.shift28, %.sroa.017.0.insert.ext21
-  %46 = tail call i64 @av_div_q(i64 %.sroa.017.0.insert.insert23, i64 %.sroa.037.0.insert.insert43) #16
-  %.sroa.0.0.extract.trunc.i71 = trunc i64 %46 to i32
-  %.sroa.2.0.extract.shift.i = lshr i64 %46, 32
+  %49 = tail call i64 @av_div_q(i64 %.sroa.017.0.copyload, i64 %.sroa.037.0.insert.insert43) #16
+  %.sroa.0.0.extract.trunc.i71 = trunc i64 %49 to i32
+  %.sroa.2.0.extract.shift.i = lshr i64 %49, 32
   %.sroa.2.0.extract.trunc.i = trunc nuw i64 %.sroa.2.0.extract.shift.i to i32
-  %47 = sitofp i32 %.sroa.0.0.extract.trunc.i71 to double
-  %48 = sitofp i32 %.sroa.2.0.extract.trunc.i to double
-  %49 = fdiv nsz double %47, %48
-  %50 = fsub nsz double 1.000000e+00, %49
-  %51 = tail call nsz double @llvm.fabs.f64(double %50)
-  %52 = fcmp nsz ogt double %51, 1.000000e-01
-  br i1 %52, label %53, label %54
+  %50 = sitofp i32 %.sroa.0.0.extract.trunc.i71 to double
+  %51 = sitofp i32 %.sroa.2.0.extract.trunc.i to double
+  %52 = fdiv nsz double %50, %51
+  %53 = fsub nsz double 1.000000e+00, %52
+  %54 = tail call nsz double @llvm.fabs.f64(double %53)
+  %55 = fcmp nsz ogt double %54, 1.000000e-01
+  br i1 %55, label %56, label %57
 
-53:                                               ; preds = %45, %34
-  br label %54
+56:                                               ; preds = %48, %37
+  br label %57
 
-54:                                               ; preds = %28, %36, %45, %53, %24, %23
-  %.sroa.037.1 = phi i32 [ %.sroa.037.0, %24 ], [ %.sroa.037.0, %23 ], [ %.sroa.012.0.copyload, %53 ], [ %.sroa.037.0, %45 ], [ %.sroa.037.0, %36 ], [ %.sroa.037.0, %28 ]
-  %.sroa.9.1 = phi i32 [ %.sroa.9.0, %24 ], [ %.sroa.9.0, %23 ], [ %.sroa.6.0.copyload, %53 ], [ %.sroa.9.0, %45 ], [ %.sroa.9.0, %36 ], [ %.sroa.9.0, %28 ]
+57:                                               ; preds = %31, %39, %48, %56, %27, %26
+  %.sroa.037.1 = phi i32 [ %.sroa.037.0, %27 ], [ %.sroa.037.0, %26 ], [ %.sroa.012.0.copyload, %56 ], [ %.sroa.037.0, %48 ], [ %.sroa.037.0, %39 ], [ %.sroa.037.0, %31 ]
+  %.sroa.9.1 = phi i32 [ %.sroa.9.0, %27 ], [ %.sroa.9.0, %26 ], [ %.sroa.6.0.copyload, %56 ], [ %.sroa.9.0, %48 ], [ %.sroa.9.0, %39 ], [ %.sroa.9.0, %31 ]
   %.sroa.9.0.insert.ext63 = zext i32 %.sroa.9.1 to i64
   %.sroa.9.0.insert.shift64 = shl nuw i64 %.sroa.9.0.insert.ext63, 32
   %.sroa.037.0.insert.ext49 = zext i32 %.sroa.037.1 to i64

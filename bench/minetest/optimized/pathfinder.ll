@@ -3827,11 +3827,13 @@ while.body.lr.ph:                                 ; preds = %invoke.cont17
   br label %while.body
 
 while.body:                                       ; preds = %cleanup105, %while.body.lr.ph
-  %11 = phi ptr [ %10, %while.body.lr.ph ], [ %51, %cleanup105 ]
-  %12 = phi ptr [ %9, %while.body.lr.ph ], [ %50, %cleanup105 ]
-  %current_pos.sroa.0.0.copyload = load i16, ptr %12, align 2, !tbaa !14
-  %current_pos.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 2
-  %current_pos.sroa.9.0.copyload = load i16, ptr %current_pos.sroa.9.0..sroa_idx, align 2, !tbaa !14
+  %11 = phi ptr [ %10, %while.body.lr.ph ], [ %54, %cleanup105 ]
+  %12 = phi ptr [ %9, %while.body.lr.ph ], [ %53, %cleanup105 ]
+  %current_pos.sroa.0.0.copyload = load i32, ptr %12, align 2
+  %13 = zext i32 %current_pos.sroa.0.0.copyload to i48
+  %14 = trunc i32 %current_pos.sroa.0.0.copyload to i16
+  %15 = lshr i32 %current_pos.sroa.0.0.copyload, 16
+  %16 = trunc nuw i32 %15 to i16
   %current_pos.sroa.12.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 4
   %current_pos.sroa.12.0.copyload = load i16, ptr %current_pos.sroa.12.0..sroa_idx, align 2, !tbaa !14
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %11 to i64
@@ -3856,72 +3858,68 @@ if.then.i.i:                                      ; preds = %while.body
   br label %invoke.cont30
 
 invoke.cont30:                                    ; preds = %.noexc, %while.body
-  %13 = phi ptr [ %11, %while.body ], [ %.pre.i, %.noexc ]
-  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %13, i64 -6
+  %17 = phi ptr [ %11, %while.body ], [ %.pre.i, %.noexc ]
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %17, i64 -6
   store ptr %incdec.ptr.i.i, ptr %_M_finish.i.i.i.i.i, align 8, !tbaa !118
   %current_pos.sroa.12.0.insert.ext291 = zext i16 %current_pos.sroa.12.0.copyload to i48
   %current_pos.sroa.12.0.insert.shift292 = shl nuw i48 %current_pos.sroa.12.0.insert.ext291, 32
-  %current_pos.sroa.9.0.insert.ext286 = zext i16 %current_pos.sroa.9.0.copyload to i48
-  %current_pos.sroa.9.0.insert.shift287 = shl nuw nsw i48 %current_pos.sroa.9.0.insert.ext286, 16
-  %current_pos.sroa.0.0.insert.ext283 = zext i16 %current_pos.sroa.0.0.copyload to i48
-  %14 = or disjoint i48 %current_pos.sroa.9.0.insert.shift287, %current_pos.sroa.0.0.insert.ext283
-  %current_pos.sroa.0.0.insert.insert285 = or disjoint i48 %14, %current_pos.sroa.12.0.insert.shift292
-  %15 = load i16, ptr %m_limits.i, align 2, !tbaa !109
-  %sub.i.i = sub i16 %current_pos.sroa.0.0.copyload, %15
-  %16 = load i16, ptr %Y.i.i, align 8, !tbaa !15
-  %sub8.i.i = sub i16 %current_pos.sroa.9.0.copyload, %16
-  %17 = load i16, ptr %Z.i.i, align 2, !tbaa !16
-  %sub13.i.i = sub i16 %current_pos.sroa.12.0.copyload, %17
+  %current_pos.sroa.0.0.insert.insert285 = or disjoint i48 %current_pos.sroa.12.0.insert.shift292, %13
+  %18 = load i16, ptr %m_limits.i, align 2, !tbaa !109
+  %sub.i.i = sub i16 %14, %18
+  %19 = load i16, ptr %Y.i.i, align 8, !tbaa !15
+  %sub8.i.i = sub i16 %16, %19
+  %20 = load i16, ptr %Z.i.i, align 2, !tbaa !16
+  %sub13.i.i = sub i16 %current_pos.sroa.12.0.copyload, %20
   %retval.sroa.3.0.insert.ext.i.i182 = zext i16 %sub13.i.i to i48
   %retval.sroa.3.0.insert.shift.i.i183 = shl nuw i48 %retval.sroa.3.0.insert.ext.i.i182, 32
   %retval.sroa.2.0.insert.ext.i.i184 = zext i16 %sub8.i.i to i48
   %retval.sroa.2.0.insert.shift.i.i185 = shl nuw nsw i48 %retval.sroa.2.0.insert.ext.i.i184, 16
   %retval.sroa.0.0.insert.ext.i.i187 = zext i16 %sub.i.i to i48
-  %18 = or disjoint i48 %retval.sroa.2.0.insert.shift.i.i185, %retval.sroa.0.0.insert.ext.i.i187
-  %retval.sroa.0.0.insert.insert.i.i188 = or disjoint i48 %18, %retval.sroa.3.0.insert.shift.i.i183
-  %index.sroa.0.0.extract.trunc.i = trunc nuw i48 %18 to i32
+  %21 = or disjoint i48 %retval.sroa.2.0.insert.shift.i.i185, %retval.sroa.0.0.insert.ext.i.i187
+  %retval.sroa.0.0.insert.insert.i.i188 = or disjoint i48 %21, %retval.sroa.3.0.insert.shift.i.i183
+  %index.sroa.0.0.extract.trunc.i = trunc nuw i48 %21 to i32
   %sext.i = shl i32 %index.sroa.0.0.extract.trunc.i, 16
   %conv.i = ashr exact i32 %sext.i, 16
-  %19 = load i32, ptr %this, align 8, !tbaa !32
-  %cmp.i = icmp slt i32 %conv.i, %19
+  %22 = load i32, ptr %this, align 8, !tbaa !32
+  %cmp.i = icmp slt i32 %conv.i, %22
   br i1 %cmp.i, label %land.lhs.true.i, label %cleanup105, !llvm.loop !161
 
 land.lhs.true.i:                                  ; preds = %invoke.cont30
   %conv2.i = ashr i32 %index.sroa.0.0.extract.trunc.i, 16
-  %20 = load i32, ptr %m_max_index_y.i, align 4, !tbaa !33
-  %cmp3.i = icmp slt i32 %conv2.i, %20
+  %23 = load i32, ptr %m_max_index_y.i, align 4, !tbaa !33
+  %cmp3.i = icmp slt i32 %conv2.i, %23
   br i1 %cmp3.i, label %land.lhs.true4.i, label %cleanup105, !llvm.loop !161
 
 land.lhs.true4.i:                                 ; preds = %land.lhs.true.i
   %conv5.i = sext i16 %sub13.i.i to i32
-  %21 = load i32, ptr %m_max_index_z.i, align 8, !tbaa !34
-  %cmp6.i = icmp sgt i32 %21, %conv5.i
-  %22 = or i32 %conv2.i, %conv5.i
-  %23 = or i32 %22, %conv.i
-  %24 = icmp sgt i32 %23, -1
-  %or.cond20.i = and i1 %24, %cmp6.i
+  %24 = load i32, ptr %m_max_index_z.i, align 8, !tbaa !34
+  %cmp6.i = icmp sgt i32 %24, %conv5.i
+  %25 = or i32 %conv2.i, %conv5.i
+  %26 = or i32 %25, %conv.i
+  %27 = icmp sgt i32 %26, -1
+  %or.cond20.i = and i1 %27, %cmp6.i
   br i1 %or.cond20.i, label %if.end, label %cleanup105, !llvm.loop !161
 
 lpad8:                                            ; preds = %entry
-  %25 = landingpad { ptr, i32 }
+  %28 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup117
 
 lpad16:                                           ; preds = %invoke.cont12
-  %26 = landingpad { ptr, i32 }
+  %29 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup117
 
 lpad22:                                           ; preds = %if.then.i.i
-  %27 = landingpad { ptr, i32 }
+  %30 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup117
 
 if.end:                                           ; preds = %land.lhs.true4.i
-  %28 = load ptr, ptr %m_nodes_container.i, align 8, !tbaa !17
-  %vtable.i193 = load ptr, ptr %28, align 8, !tbaa !20
-  %29 = load ptr, ptr %vtable.i193, align 8
-  %call.i194 = invoke noundef nonnull align 4 dereferenceable(92) ptr %29(ptr noundef nonnull align 8 dereferenceable(16) %28, i48 %retval.sroa.0.0.insert.insert.i.i188)
+  %31 = load ptr, ptr %m_nodes_container.i, align 8, !tbaa !17
+  %vtable.i193 = load ptr, ptr %31, align 8, !tbaa !20
+  %32 = load ptr, ptr %vtable.i193, align 8
+  %call.i194 = invoke noundef nonnull align 4 dereferenceable(92) ptr %32(ptr noundef nonnull align 8 dereferenceable(16) %31, i48 %retval.sroa.0.0.insert.insert.i.i188)
           to label %invoke.cont39 unwind label %lpad38
 
 invoke.cont39:                                    ; preds = %if.end
@@ -3929,18 +3927,18 @@ invoke.cont39:                                    ; preds = %if.end
   store i8 1, ptr %is_closed, align 4, !tbaa !132
   %is_open = getelementptr inbounds nuw i8, ptr %call.i194, i64 89
   store i8 0, ptr %is_open, align 1, !tbaa !133
-  %30 = load i8, ptr %call.i194, align 4, !tbaa !110, !range !86, !noundef !87
-  %tobool.not = icmp eq i8 %30, 0
+  %33 = load i8, ptr %call.i194, align 4, !tbaa !110, !range !86, !noundef !87
+  %tobool.not = icmp eq i8 %33, 0
   br i1 %tobool.not, label %cleanup105, label %if.end42, !llvm.loop !161
 
 lpad38:                                           ; preds = %if.end
-  %31 = landingpad { ptr, i32 }
+  %34 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup117
 
 if.end42:                                         ; preds = %invoke.cont39
-  %cmp.i196 = icmp eq i16 %current_pos.sroa.0.0.copyload, %add.i.i161
-  %cmp7.i = icmp eq i16 %current_pos.sroa.9.0.copyload, %add8.i.i163
+  %cmp.i196 = icmp eq i16 %add.i.i161, %14
+  %cmp7.i = icmp eq i16 %add8.i.i163, %16
   %or.cond314 = select i1 %cmp.i196, i1 %cmp7.i, i1 false
   %cmp11.i = icmp eq i16 %current_pos.sroa.12.0.copyload, %add13.i.i165
   %or.cond315 = select i1 %or.cond314, i1 %cmp11.i, i1 false
@@ -3976,7 +3974,7 @@ for.body:                                         ; preds = %if.end95, %for.cond
   %__begin2.0.idx336 = phi i64 [ 0, %for.cond.preheader ], [ %__begin2.0.add, %if.end95 ]
   %__begin2.0.ptr = getelementptr inbounds nuw i8, ptr @_ZZN10Pathfinder19updateCostHeuristicEN3irr4core8vector3dIsEES3_E10directions, i64 %__begin2.0.idx336
   %direction_flat.sroa.0.0.copyload = load i48, ptr %__begin2.0.ptr, align 2, !tbaa.struct !24
-  %32 = load i32, ptr %totalcost47, align 4, !tbaa !114
+  %35 = load i32, ptr %totalcost47, align 4, !tbaa !114
   %dir.sroa.0.0.extract.trunc.i = trunc i48 %direction_flat.sroa.0.0.copyload to i32
   %sext.i200 = shl i32 %dir.sroa.0.0.extract.trunc.i, 16
   %conv.i201 = ashr exact i32 %sext.i200, 16
@@ -4016,10 +4014,10 @@ if.then52:                                        ; preds = %invoke.cont50, %if.
           to label %invoke.cont57 unwind label %lpad56
 
 invoke.cont57:                                    ; preds = %if.then52
-  %33 = load i8, ptr %ref.tmp53, align 4, !tbaa !127, !range !86, !noundef !87
-  %34 = load i32, ptr %y_change.i, align 4, !tbaa !136
-  %35 = load i32, ptr %value.i, align 4, !tbaa !137
-  %36 = load i8, ptr %updated.i, align 4, !tbaa !130, !range !86, !noundef !87
+  %36 = load i8, ptr %ref.tmp53, align 4, !tbaa !127, !range !86, !noundef !87
+  %37 = load i32, ptr %y_change.i, align 4, !tbaa !136
+  %38 = load i32, ptr %value.i, align 4, !tbaa !137
+  %39 = load i8, ptr %updated.i, align 4, !tbaa !130, !range !86, !noundef !87
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp53)
   br i1 %cmp.i202, label %if.end9.sink.split.i, label %if.end.i210
 
@@ -4033,13 +4031,13 @@ if.end9.sink.split.i:                             ; preds = %if.end.i210, %invok
   %.sink53.i = phi i64 [ 28, %invoke.cont57 ], [ 44, %if.end.i210 ]
   %.sink52.i = phi i64 [ 36, %invoke.cont57 ], [ 52, %if.end.i210 ]
   %directions.i215 = getelementptr inbounds nuw i8, ptr %call.i194, i64 %.sink.i
-  store i8 %33, ptr %directions.i215, align 4, !tbaa !127
+  store i8 %36, ptr %directions.i215, align 4, !tbaa !127
   %y_change3.i.i = getelementptr inbounds nuw i8, ptr %call.i194, i64 %.sink54.i
-  store i32 %34, ptr %y_change3.i.i, align 4, !tbaa !136
+  store i32 %37, ptr %y_change3.i.i, align 4, !tbaa !136
   %value4.i.i = getelementptr inbounds nuw i8, ptr %call.i194, i64 %.sink53.i
-  store i32 %35, ptr %value4.i.i, align 4, !tbaa !137
+  store i32 %38, ptr %value4.i.i, align 4, !tbaa !137
   %updated6.i.i = getelementptr inbounds nuw i8, ptr %call.i194, i64 %.sink52.i
-  store i8 %36, ptr %updated6.i.i, align 4, !tbaa !130
+  store i8 %39, ptr %updated6.i.i, align 4, !tbaa !130
   br label %if.end9.i
 
 if.end9.i:                                        ; preds = %if.end9.sink.split.i, %if.end.i210
@@ -4059,47 +4057,47 @@ if.end24.sink.split.i:                            ; preds = %if.end16.i, %if.end
   %.sink58.i = phi i64 [ 60, %if.end9.i ], [ 76, %if.end16.i ]
   %.sink56.i = phi i64 [ 68, %if.end9.i ], [ 84, %if.end16.i ]
   %arrayidx14.i = getelementptr inbounds nuw i8, ptr %call.i194, i64 %.sink62.i
-  store i8 %33, ptr %arrayidx14.i, align 4, !tbaa !127
+  store i8 %36, ptr %arrayidx14.i, align 4, !tbaa !127
   %y_change3.i39.i = getelementptr inbounds nuw i8, ptr %call.i194, i64 %.sink60.i
-  store i32 %34, ptr %y_change3.i39.i, align 4, !tbaa !136
+  store i32 %37, ptr %y_change3.i39.i, align 4, !tbaa !136
   %value4.i41.i = getelementptr inbounds nuw i8, ptr %call.i194, i64 %.sink58.i
-  store i32 %35, ptr %value4.i41.i, align 4, !tbaa !137
+  store i32 %38, ptr %value4.i41.i, align 4, !tbaa !137
   %updated6.i43.i = getelementptr inbounds nuw i8, ptr %call.i194, i64 %.sink56.i
-  store i8 %36, ptr %updated6.i43.i, align 4, !tbaa !130
+  store i8 %39, ptr %updated6.i43.i, align 4, !tbaa !130
   br label %invoke.cont67
 
 lpad56:                                           ; preds = %if.then52
-  %37 = landingpad { ptr, i32 }
+  %40 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp53)
   br label %ehcleanup117
 
 invoke.cont67:                                    ; preds = %if.end24.sink.split.i, %if.end16.i, %invoke.cont50
-  %cost.sroa.12271.3 = phi i32 [ %cost.sroa.12271.2, %invoke.cont50 ], [ %35, %if.end16.i ], [ %35, %if.end24.sink.split.i ]
-  %cost.sroa.21.3 = phi i32 [ %cost.sroa.21.2, %invoke.cont50 ], [ %34, %if.end16.i ], [ %34, %if.end24.sink.split.i ]
-  %cost.sroa.0.1 = phi i8 [ %cost.sroa.0.0, %invoke.cont50 ], [ %33, %if.end16.i ], [ %33, %if.end24.sink.split.i ]
+  %cost.sroa.12271.3 = phi i32 [ %cost.sroa.12271.2, %invoke.cont50 ], [ %38, %if.end16.i ], [ %38, %if.end24.sink.split.i ]
+  %cost.sroa.21.3 = phi i32 [ %cost.sroa.21.2, %invoke.cont50 ], [ %37, %if.end16.i ], [ %37, %if.end24.sink.split.i ]
+  %cost.sroa.0.1 = phi i8 [ %cost.sroa.0.0, %invoke.cont50 ], [ %36, %if.end16.i ], [ %36, %if.end24.sink.split.i ]
   %direction_3d.sroa.0.0.extract.trunc = trunc i48 %direction_flat.sroa.0.0.copyload to i16
   %direction_3d.sroa.8.0.extract.shift = lshr i48 %direction_flat.sroa.0.0.copyload, 32
   %direction_3d.sroa.8.0.extract.trunc = trunc nuw i48 %direction_3d.sroa.8.0.extract.shift to i16
   %conv = trunc i32 %cost.sroa.21.3 to i16
   call void @llvm.lifetime.start.p0(ptr nonnull %neighbor)
-  %add.i219 = add i16 %current_pos.sroa.0.0.copyload, %direction_3d.sroa.0.0.extract.trunc
-  %add8.i = add i16 %current_pos.sroa.9.0.copyload, %conv
+  %add.i219 = add i16 %14, %direction_3d.sroa.0.0.extract.trunc
+  %add8.i = add i16 %16, %conv
   %add13.i = add i16 %current_pos.sroa.12.0.copyload, %direction_3d.sroa.8.0.extract.trunc
   %retval.sroa.3.0.insert.ext.i = zext i16 %add13.i to i48
   %retval.sroa.3.0.insert.shift.i = shl nuw i48 %retval.sroa.3.0.insert.ext.i, 32
   %retval.sroa.2.0.insert.ext.i = zext i16 %add8.i to i48
   %retval.sroa.2.0.insert.shift.i = shl nuw nsw i48 %retval.sroa.2.0.insert.ext.i, 16
   %retval.sroa.0.0.insert.ext.i = zext i16 %add.i219 to i48
-  %38 = or disjoint i48 %retval.sroa.3.0.insert.shift.i, %retval.sroa.0.0.insert.ext.i
-  %retval.sroa.0.0.insert.insert.i = or disjoint i48 %retval.sroa.2.0.insert.shift.i, %38
+  %41 = or disjoint i48 %retval.sroa.3.0.insert.shift.i, %retval.sroa.0.0.insert.ext.i
+  %retval.sroa.0.0.insert.insert.i = or disjoint i48 %retval.sroa.2.0.insert.shift.i, %41
   store i48 %retval.sroa.0.0.insert.insert.i, ptr %neighbor, align 8
-  %39 = load i16, ptr %m_limits.i, align 2, !tbaa !109
-  %sub.i.i228 = sub i16 %add.i219, %39
-  %40 = load i16, ptr %Y.i.i, align 8, !tbaa !15
-  %sub8.i.i230 = sub i16 %add8.i, %40
-  %41 = load i16, ptr %Z.i.i, align 2, !tbaa !16
-  %sub13.i.i232 = sub i16 %add13.i, %41
+  %42 = load i16, ptr %m_limits.i, align 2, !tbaa !109
+  %sub.i.i228 = sub i16 %add.i219, %42
+  %43 = load i16, ptr %Y.i.i, align 8, !tbaa !15
+  %sub8.i.i230 = sub i16 %add8.i, %43
+  %44 = load i16, ptr %Z.i.i, align 2, !tbaa !16
+  %sub13.i.i232 = sub i16 %add13.i, %44
   %retval.sroa.3.0.insert.ext.i.i233 = zext i16 %sub13.i.i232 to i48
   %retval.sroa.3.0.insert.shift.i.i234 = shl nuw i48 %retval.sroa.3.0.insert.ext.i.i233, 32
   %retval.sroa.2.0.insert.ext.i.i235 = zext i16 %sub8.i.i230 to i48
@@ -4107,24 +4105,24 @@ invoke.cont67:                                    ; preds = %if.end24.sink.split
   %retval.sroa.2.0.insert.insert.i.i237 = or disjoint i48 %retval.sroa.3.0.insert.shift.i.i234, %retval.sroa.2.0.insert.shift.i.i236
   %retval.sroa.0.0.insert.ext.i.i238 = zext i16 %sub.i.i228 to i48
   %retval.sroa.0.0.insert.insert.i.i239 = or disjoint i48 %retval.sroa.2.0.insert.insert.i.i237, %retval.sroa.0.0.insert.ext.i.i238
-  %42 = load ptr, ptr %m_nodes_container.i, align 8, !tbaa !17
-  %vtable.i241 = load ptr, ptr %42, align 8, !tbaa !20
-  %43 = load ptr, ptr %vtable.i241, align 8
-  %call.i242 = invoke noundef nonnull align 4 dereferenceable(92) ptr %43(ptr noundef nonnull align 8 dereferenceable(16) %42, i48 %retval.sroa.0.0.insert.insert.i.i239)
+  %45 = load ptr, ptr %m_nodes_container.i, align 8, !tbaa !17
+  %vtable.i241 = load ptr, ptr %45, align 8, !tbaa !20
+  %46 = load ptr, ptr %vtable.i241, align 8
+  %call.i242 = invoke noundef nonnull align 4 dereferenceable(92) ptr %46(ptr noundef nonnull align 8 dereferenceable(16) %45, i48 %retval.sroa.0.0.insert.insert.i.i239)
           to label %invoke.cont72 unwind label %lpad71
 
 invoke.cont72:                                    ; preds = %invoke.cont67
   %tobool75.not = icmp ne i8 %cost.sroa.0.1, 0
   %is_closed76 = getelementptr inbounds nuw i8, ptr %call.i242, i64 88
-  %44 = load i8, ptr %is_closed76, align 4, !range !86
-  %tobool77.not = icmp eq i8 %44, 0
+  %47 = load i8, ptr %is_closed76, align 4, !range !86
+  %tobool77.not = icmp eq i8 %47, 0
   %or.cond = select i1 %tobool75.not, i1 %tobool77.not, i1 false
   br i1 %or.cond, label %land.lhs.true78, label %if.end95
 
 land.lhs.true78:                                  ; preds = %invoke.cont72
   %is_open79 = getelementptr inbounds nuw i8, ptr %call.i242, i64 89
-  %45 = load i8, ptr %is_open79, align 1, !tbaa !133, !range !86, !noundef !87
-  %tobool80.not = icmp eq i8 %45, 0
+  %48 = load i8, ptr %is_open79, align 1, !tbaa !133, !range !86, !noundef !87
+  %tobool80.not = icmp eq i8 %48, 0
   br i1 %tobool80.not, label %if.then81, label %if.end95
 
 if.then81:                                        ; preds = %land.lhs.true78
@@ -4132,12 +4130,12 @@ if.then81:                                        ; preds = %land.lhs.true78
   %pos.sroa.0.0.extract.trunc.i244 = trunc i48 %agg.tmp82.sroa.0.0.copyload to i16
   %pos.sroa.553.0.extract.shift.i245 = lshr i48 %agg.tmp82.sroa.0.0.copyload, 32
   %pos.sroa.553.0.extract.trunc.i246 = trunc nuw i48 %pos.sroa.553.0.extract.shift.i245 to i16
-  %46 = load i16, ptr %m_destination.i, align 8, !tbaa !159
-  %pos.sroa.0.0.extract.trunc..i248 = call i16 @llvm.smin.i16(i16 %46, i16 %pos.sroa.0.0.extract.trunc.i244)
-  %cond20.i249 = call i16 @llvm.smax.i16(i16 %46, i16 %pos.sroa.0.0.extract.trunc.i244)
-  %47 = load i16, ptr %Z24.i, align 4, !tbaa !160
-  %cond33.i251 = call i16 @llvm.smin.i16(i16 %47, i16 %pos.sroa.553.0.extract.trunc.i246)
-  %cond47.i252 = call i16 @llvm.smax.i16(i16 %47, i16 %pos.sroa.553.0.extract.trunc.i246)
+  %49 = load i16, ptr %m_destination.i, align 8, !tbaa !159
+  %pos.sroa.0.0.extract.trunc..i248 = call i16 @llvm.smin.i16(i16 %49, i16 %pos.sroa.0.0.extract.trunc.i244)
+  %cond20.i249 = call i16 @llvm.smax.i16(i16 %49, i16 %pos.sroa.0.0.extract.trunc.i244)
+  %50 = load i16, ptr %Z24.i, align 4, !tbaa !160
+  %cond33.i251 = call i16 @llvm.smin.i16(i16 %50, i16 %pos.sroa.553.0.extract.trunc.i246)
+  %cond47.i252 = call i16 @llvm.smax.i16(i16 %50, i16 %pos.sroa.553.0.extract.trunc.i246)
   %conv34.i253 = sext i16 %cond33.i251 to i32
   %conv21.i254 = sext i16 %cond20.i249 to i32
   %conv7.i255 = sext i16 %pos.sroa.0.0.extract.trunc..i248 to i32
@@ -4154,12 +4152,12 @@ if.then81:                                        ; preds = %land.lhs.true78
   %retval.sroa.0.0.insert.insert.i261 = or disjoint i48 %retval.sroa.4.0.insert.insert.i, %retval.sroa.0.0.insert.ext.i260
   %sourcedir = getelementptr inbounds nuw i8, ptr %call.i242, i64 12
   store i48 %retval.sroa.0.0.insert.insert.i261, ptr %sourcedir, align 4, !tbaa.struct !24
-  %add = add nsw i32 %cost.sroa.12271.3, %32
+  %add = add nsw i32 %cost.sroa.12271.3, %35
   %totalcost88 = getelementptr inbounds nuw i8, ptr %call.i242, i64 4
   store i32 %add, ptr %totalcost88, align 4, !tbaa !114
   %.neg7 = add i32 %add, %conv21.i254
-  %48 = add nsw i32 %conv7.i255, %conv34.i253
-  %add.i258 = sub i32 %.neg7, %48
+  %51 = add nsw i32 %conv7.i255, %conv34.i253
+  %add.i258 = sub i32 %.neg7, %51
   %add91 = add i32 %add.i258, %conv48.i256
   %estimated_cost92 = getelementptr inbounds nuw i8, ptr %call.i242, i64 8
   store i32 %add91, ptr %estimated_cost92, align 4, !tbaa !131
@@ -4168,7 +4166,7 @@ if.then81:                                        ; preds = %land.lhs.true78
           to label %if.end95 unwind label %lpad71
 
 lpad71:                                           ; preds = %if.then81, %invoke.cont67
-  %49 = landingpad { ptr, i32 }
+  %52 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %neighbor)
   br label %ehcleanup117
@@ -4180,20 +4178,20 @@ if.end95:                                         ; preds = %if.then81, %land.lh
   br i1 %cmp.not, label %cleanup105, label %for.body
 
 cleanup105:                                       ; preds = %if.end95, %invoke.cont39, %land.lhs.true4.i, %land.lhs.true.i, %invoke.cont30
-  %50 = load ptr, ptr %openList, align 8, !tbaa !115
-  %51 = load ptr, ptr %_M_finish.i.i.i.i.i, align 8, !tbaa !115
-  %cmp.i.i.i174.not = icmp eq ptr %50, %51
+  %53 = load ptr, ptr %openList, align 8, !tbaa !115
+  %54 = load ptr, ptr %_M_finish.i.i.i.i.i, align 8, !tbaa !115
+  %cmp.i.i.i174.not = icmp eq ptr %53, %54
   br i1 %cmp.i.i.i174.not, label %cleanup108, label %while.body
 
 cleanup108:                                       ; preds = %cleanup105, %cleanup105.thread, %invoke.cont17
   %cmp.i.i.i174328 = phi i1 [ true, %cleanup105.thread ], [ false, %invoke.cont17 ], [ false, %cleanup105 ]
-  %52 = phi ptr [ %.pr, %cleanup105.thread ], [ %9, %invoke.cont17 ], [ %50, %cleanup105 ]
+  %55 = phi ptr [ %.pr, %cleanup105.thread ], [ %9, %invoke.cont17 ], [ %53, %cleanup105 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %source)
-  %tobool.not.i.i.i.i262 = icmp eq ptr %52, null
+  %tobool.not.i.i.i.i262 = icmp eq ptr %55, null
   br i1 %tobool.not.i.i.i.i262, label %_ZNSt14priority_queueIN3irr4core8vector3dIsEESt6vectorIS3_SaIS3_EE26PathfinderCompareHeuristicED2Ev.exit, label %if.then.i.i.i.i263
 
 if.then.i.i.i.i263:                               ; preds = %cleanup108
-  call void @_ZdlPv(ptr noundef nonnull %52) #26
+  call void @_ZdlPv(ptr noundef nonnull %55) #26
   br label %_ZNSt14priority_queueIN3irr4core8vector3dIsEESt6vectorIS3_SaIS3_EE26PathfinderCompareHeuristicED2Ev.exit
 
 _ZNSt14priority_queueIN3irr4core8vector3dIsEESt6vectorIS3_SaIS3_EE26PathfinderCompareHeuristicED2Ev.exit: ; preds = %if.then.i.i.i.i263, %cleanup108
@@ -4201,14 +4199,14 @@ _ZNSt14priority_queueIN3irr4core8vector3dIsEESt6vectorIS3_SaIS3_EE26PathfinderCo
   ret i1 %cmp.i.i.i174328
 
 ehcleanup117:                                     ; preds = %lpad71, %lpad56, %lpad38, %lpad22, %lpad16, %lpad8
-  %.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %25, %lpad8 ], [ %26, %lpad16 ], [ %27, %lpad22 ], [ %31, %lpad38 ], [ %49, %lpad71 ], [ %37, %lpad56 ]
+  %.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %28, %lpad8 ], [ %29, %lpad16 ], [ %30, %lpad22 ], [ %34, %lpad38 ], [ %52, %lpad71 ], [ %40, %lpad56 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %source)
-  %53 = load ptr, ptr %openList, align 8, !tbaa !116
-  %tobool.not.i.i.i.i265 = icmp eq ptr %53, null
+  %56 = load ptr, ptr %openList, align 8, !tbaa !116
+  %tobool.not.i.i.i.i265 = icmp eq ptr %56, null
   br i1 %tobool.not.i.i.i.i265, label %ehcleanup121, label %if.then.i.i.i.i266
 
 if.then.i.i.i.i266:                               ; preds = %ehcleanup117
-  call void @_ZdlPv(ptr noundef nonnull %53) #26
+  call void @_ZdlPv(ptr noundef nonnull %56) #26
   br label %ehcleanup121
 
 ehcleanup121:                                     ; preds = %if.then.i.i.i.i266, %ehcleanup117

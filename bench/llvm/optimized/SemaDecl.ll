@@ -60565,9 +60565,7 @@ _ZNK5clang15DeclarationName11getNameKindEv.exit.thread: ; preds = %1010
   %.sroa.0.0.copyload.i693 = load i32, ptr %996, align 8, !tbaa !694
   call void @_ZN5clang8SemaBase4DiagENS_14SourceLocationEjb(ptr dead_on_unwind nonnull writable sret(%"class.clang::SemaBase::SemaDiagnosticBuilder") align 8 %85, ptr noundef nonnull align 8 dereferenceable(8) %1016, i32 %.sroa.0.0.copyload.i693, i32 noundef 3585, i1 noundef zeroext false) #30
   %1017 = getelementptr inbounds nuw i8, ptr %993, i64 36
-  %.sroa.0273.0.copyload = load i32, ptr %1017, align 4, !tbaa !694
-  %1018 = getelementptr inbounds nuw i8, ptr %993, i64 40
-  %.sroa.0272.0.copyload = load i32, ptr %1018, align 8, !tbaa !694
+  %1018 = load i64, ptr %1017, align 4
   %1019 = getelementptr inbounds nuw i8, ptr %85, i64 120
   %1020 = load i8, ptr %1019, align 8, !tbaa !780, !range !782, !noundef !783
   %1021 = trunc nuw i8 %1020 to i1
@@ -60575,12 +60573,8 @@ _ZNK5clang15DeclarationName11getNameKindEv.exit.thread: ; preds = %1010
 
 1022:                                             ; preds = %1015
   %1023 = getelementptr inbounds nuw i8, ptr %85, i64 32
-  %.sroa.51657.0.insert.ext1658 = zext i32 %.sroa.0272.0.copyload to i64
-  %.sroa.51657.0.insert.shift1659 = shl nuw i64 %.sroa.51657.0.insert.ext1658, 32
-  %.sroa.01653.0.insert.ext1654 = zext i32 %.sroa.0273.0.copyload to i64
-  %.sroa.01653.0.insert.insert1656 = or disjoint i64 %.sroa.51657.0.insert.shift1659, %.sroa.01653.0.insert.ext1654
   call void @llvm.lifetime.start.p0(ptr nonnull %57)
-  store i64 %.sroa.01653.0.insert.insert1656, ptr %57, align 8
+  store i64 %1018, ptr %57, align 8
   %.sroa.2.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %57, i64 8
   store i8 1, ptr %.sroa.2.0..sroa_idx.i.i.i.i, align 8
   call void @_ZNK5clang19StreamingDiagnostic14AddSourceRangeERKNS_15CharSourceRangeE(ptr noundef nonnull align 8 dereferenceable(84) %1023, ptr noundef nonnull align 4 dereferenceable(9) %57)
@@ -60617,12 +60611,8 @@ _ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i695: ; preds = %10
   %1041 = zext i32 %1040 to i64
   %1042 = load ptr, ptr %1039, align 8, !tbaa !798
   %1043 = getelementptr inbounds nuw %"struct.std::pair.2068", ptr %1042, i64 %1041, i32 2
-  %.sroa.51657.0.insert.ext = zext i32 %.sroa.0272.0.copyload to i64
-  %.sroa.51657.0.insert.shift = shl nuw i64 %.sroa.51657.0.insert.ext, 32
-  %.sroa.01653.0.insert.ext = zext i32 %.sroa.0273.0.copyload to i64
-  %.sroa.01653.0.insert.insert = or disjoint i64 %.sroa.51657.0.insert.shift, %.sroa.01653.0.insert.ext
   call void @llvm.lifetime.start.p0(ptr nonnull %56)
-  store i64 %.sroa.01653.0.insert.insert, ptr %56, align 8
+  store i64 %1018, ptr %56, align 8
   %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %56, i64 8
   store i8 1, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8
   call void @_ZNK5clang19StreamingDiagnostic14AddSourceRangeERKNS_15CharSourceRangeE(ptr noundef nonnull align 8 dereferenceable(20) %1043, ptr noundef nonnull align 4 dereferenceable(9) %56)

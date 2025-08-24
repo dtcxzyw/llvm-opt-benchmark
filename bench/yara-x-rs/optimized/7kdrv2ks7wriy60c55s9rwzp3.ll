@@ -95285,47 +95285,44 @@ define internal fastcc void @_ZN4core5slice4sort6shared9smallsort25insertion_sor
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZN4core5slice4sort6shared9smallsort11insert_tail17h94388cdde1f8a879E.exit
   %.sroa.0.04 = phi ptr [ %.sroa.0.0, %_ZN4core5slice4sort6shared9smallsort11insert_tail17h94388cdde1f8a879E.exit ], [ %.sroa.0.01, %.lr.ph.preheader ]
   %.pn3 = phi ptr [ %.sroa.0.04, %_ZN4core5slice4sort6shared9smallsort11insert_tail17h94388cdde1f8a879E.exit ], [ %0, %.lr.ph.preheader ]
-  %.val11.i = load i32, ptr %.sroa.0.04, align 4, !range !505, !noundef !8
-  %3 = getelementptr i8, ptr %.pn3, i64 12
-  %.val12.i = load i32, ptr %3, align 4
+  %.val11.i = load i64, ptr %.sroa.0.04, align 4
+  %3 = trunc i64 %.val11.i to i32
+  %4 = getelementptr i8, ptr %.pn3, i64 12
+  %.val12.i = load i32, ptr %4, align 4
   %.val13.i = load i32, ptr %.pn3, align 4, !range !505, !noundef !8
-  %4 = getelementptr i8, ptr %.pn3, i64 4
-  %.val14.i = load i32, ptr %4, align 4
-  %5 = icmp eq i32 %.val11.i, %.val13.i
-  %6 = icmp ult i32 %.val12.i, %.val14.i
-  %7 = icmp samesign ult i32 %.val11.i, %.val13.i
-  %8 = select i1 %5, i1 %6, i1 %7
-  br i1 %8, label %.preheader, label %_ZN4core5slice4sort6shared9smallsort11insert_tail17h94388cdde1f8a879E.exit
+  %5 = getelementptr i8, ptr %.pn3, i64 4
+  %.val14.i = load i32, ptr %5, align 4
+  %6 = icmp eq i32 %.val13.i, %3
+  %7 = icmp ult i32 %.val12.i, %.val14.i
+  %8 = icmp samesign ugt i32 %.val13.i, %3
+  %9 = select i1 %6, i1 %7, i1 %8
+  br i1 %9, label %.preheader, label %_ZN4core5slice4sort6shared9smallsort11insert_tail17h94388cdde1f8a879E.exit
 
-.preheader:                                       ; preds = %.lr.ph, %11
-  %.sroa.5.0.i = phi ptr [ %.sroa.0.0.i, %11 ], [ %.sroa.0.04, %.lr.ph ]
-  %.sroa.0.0.i = phi ptr [ %12, %11 ], [ %.pn3, %.lr.ph ]
-  %9 = load i64, ptr %.sroa.0.0.i, align 4
-  store i64 %9, ptr %.sroa.5.0.i, align 4
-  %10 = icmp eq ptr %.sroa.0.0.i, %0
-  br i1 %10, label %18, label %11
+.preheader:                                       ; preds = %.lr.ph, %12
+  %.sroa.5.0.i = phi ptr [ %.sroa.0.0.i, %12 ], [ %.sroa.0.04, %.lr.ph ]
+  %.sroa.0.0.i = phi ptr [ %13, %12 ], [ %.pn3, %.lr.ph ]
+  %10 = load i64, ptr %.sroa.0.0.i, align 4
+  store i64 %10, ptr %.sroa.5.0.i, align 4
+  %11 = icmp eq ptr %.sroa.0.0.i, %0
+  br i1 %11, label %19, label %12
 
-11:                                               ; preds = %.preheader
-  %12 = getelementptr inbounds i8, ptr %.sroa.0.0.i, i64 -8
-  %.val9.i = load i32, ptr %12, align 4, !range !505, !noundef !8
-  %13 = getelementptr i8, ptr %.sroa.0.0.i, i64 -4
-  %.val10.i = load i32, ptr %13, align 4
-  %14 = icmp eq i32 %.val11.i, %.val9.i
-  %15 = icmp ult i32 %.val12.i, %.val10.i
-  %16 = icmp samesign ult i32 %.val11.i, %.val9.i
-  %17 = select i1 %14, i1 %15, i1 %16
-  br i1 %17, label %.preheader, label %18
+12:                                               ; preds = %.preheader
+  %13 = getelementptr inbounds i8, ptr %.sroa.0.0.i, i64 -8
+  %.val9.i = load i32, ptr %13, align 4, !range !505, !noundef !8
+  %14 = getelementptr i8, ptr %.sroa.0.0.i, i64 -4
+  %.val10.i = load i32, ptr %14, align 4
+  %15 = icmp eq i32 %.val9.i, %3
+  %16 = icmp ult i32 %.val12.i, %.val10.i
+  %17 = icmp samesign ugt i32 %.val9.i, %3
+  %18 = select i1 %15, i1 %16, i1 %17
+  br i1 %18, label %.preheader, label %19
 
-18:                                               ; preds = %11, %.preheader
-  %.sroa.0.0.i.lcssa = phi ptr [ %.sroa.0.0.i, %11 ], [ %0, %.preheader ]
-  %.sroa.0.sroa.5.0.insert.ext.i = zext i32 %.val12.i to i64
-  %.sroa.0.sroa.5.0.insert.shift.i = shl nuw i64 %.sroa.0.sroa.5.0.insert.ext.i, 32
-  %.sroa.0.sroa.0.0.insert.ext.i = zext nneg i32 %.val11.i to i64
-  %.sroa.0.sroa.0.0.insert.insert.i = or disjoint i64 %.sroa.0.sroa.5.0.insert.shift.i, %.sroa.0.sroa.0.0.insert.ext.i
-  store i64 %.sroa.0.sroa.0.0.insert.insert.i, ptr %.sroa.0.0.i.lcssa, align 4, !noalias !11204
+19:                                               ; preds = %12, %.preheader
+  %.sroa.0.0.i.lcssa = phi ptr [ %.sroa.0.0.i, %12 ], [ %0, %.preheader ]
+  store i64 %.val11.i, ptr %.sroa.0.0.i.lcssa, align 4, !noalias !11204
   br label %_ZN4core5slice4sort6shared9smallsort11insert_tail17h94388cdde1f8a879E.exit
 
-_ZN4core5slice4sort6shared9smallsort11insert_tail17h94388cdde1f8a879E.exit: ; preds = %.lr.ph, %18
+_ZN4core5slice4sort6shared9smallsort11insert_tail17h94388cdde1f8a879E.exit: ; preds = %.lr.ph, %19
   %.sroa.0.0 = getelementptr inbounds nuw i8, ptr %.sroa.0.04, i64 8
   %.not = icmp eq ptr %.sroa.0.0, %2
   br i1 %.not, label %._crit_edge, label %.lr.ph
@@ -95345,47 +95342,44 @@ define internal fastcc void @_ZN4core5slice4sort6shared9smallsort25insertion_sor
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZN4core5slice4sort6shared9smallsort11insert_tail17h9cbc3e718e667834E.exit
   %.sroa.0.04 = phi ptr [ %.sroa.0.0, %_ZN4core5slice4sort6shared9smallsort11insert_tail17h9cbc3e718e667834E.exit ], [ %.sroa.0.01, %.lr.ph.preheader ]
   %.pn3 = phi ptr [ %.sroa.0.04, %_ZN4core5slice4sort6shared9smallsort11insert_tail17h9cbc3e718e667834E.exit ], [ %0, %.lr.ph.preheader ]
-  %.val11.i = load i8, ptr %.sroa.0.04, align 1, !noundef !8
-  %3 = getelementptr i8, ptr %.pn3, i64 3
-  %.val12.i = load i8, ptr %3, align 1
+  %.val11.i = load i16, ptr %.sroa.0.04, align 1
+  %3 = trunc i16 %.val11.i to i8
+  %4 = getelementptr i8, ptr %.pn3, i64 3
+  %.val12.i = load i8, ptr %4, align 1
   %.val13.i = load i8, ptr %.pn3, align 1, !noundef !8
-  %4 = getelementptr i8, ptr %.pn3, i64 1
-  %.val14.i = load i8, ptr %4, align 1
-  %5 = icmp eq i8 %.val11.i, %.val13.i
-  %6 = icmp ult i8 %.val12.i, %.val14.i
-  %7 = icmp ult i8 %.val11.i, %.val13.i
-  %8 = select i1 %5, i1 %6, i1 %7
-  br i1 %8, label %.preheader, label %_ZN4core5slice4sort6shared9smallsort11insert_tail17h9cbc3e718e667834E.exit
+  %5 = getelementptr i8, ptr %.pn3, i64 1
+  %.val14.i = load i8, ptr %5, align 1
+  %6 = icmp eq i8 %.val13.i, %3
+  %7 = icmp ult i8 %.val12.i, %.val14.i
+  %8 = icmp ugt i8 %.val13.i, %3
+  %9 = select i1 %6, i1 %7, i1 %8
+  br i1 %9, label %.preheader, label %_ZN4core5slice4sort6shared9smallsort11insert_tail17h9cbc3e718e667834E.exit
 
-.preheader:                                       ; preds = %.lr.ph, %11
-  %.sroa.5.0.i = phi ptr [ %.sroa.0.0.i, %11 ], [ %.sroa.0.04, %.lr.ph ]
-  %.sroa.0.0.i = phi ptr [ %12, %11 ], [ %.pn3, %.lr.ph ]
-  %9 = load i16, ptr %.sroa.0.0.i, align 1
-  store i16 %9, ptr %.sroa.5.0.i, align 1
-  %10 = icmp eq ptr %.sroa.0.0.i, %0
-  br i1 %10, label %18, label %11
+.preheader:                                       ; preds = %.lr.ph, %12
+  %.sroa.5.0.i = phi ptr [ %.sroa.0.0.i, %12 ], [ %.sroa.0.04, %.lr.ph ]
+  %.sroa.0.0.i = phi ptr [ %13, %12 ], [ %.pn3, %.lr.ph ]
+  %10 = load i16, ptr %.sroa.0.0.i, align 1
+  store i16 %10, ptr %.sroa.5.0.i, align 1
+  %11 = icmp eq ptr %.sroa.0.0.i, %0
+  br i1 %11, label %19, label %12
 
-11:                                               ; preds = %.preheader
-  %12 = getelementptr inbounds i8, ptr %.sroa.0.0.i, i64 -2
-  %.val9.i = load i8, ptr %12, align 1, !noundef !8
-  %13 = getelementptr i8, ptr %.sroa.0.0.i, i64 -1
-  %.val10.i = load i8, ptr %13, align 1
-  %14 = icmp eq i8 %.val11.i, %.val9.i
-  %15 = icmp ult i8 %.val12.i, %.val10.i
-  %16 = icmp ult i8 %.val11.i, %.val9.i
-  %17 = select i1 %14, i1 %15, i1 %16
-  br i1 %17, label %.preheader, label %18
+12:                                               ; preds = %.preheader
+  %13 = getelementptr inbounds i8, ptr %.sroa.0.0.i, i64 -2
+  %.val9.i = load i8, ptr %13, align 1, !noundef !8
+  %14 = getelementptr i8, ptr %.sroa.0.0.i, i64 -1
+  %.val10.i = load i8, ptr %14, align 1
+  %15 = icmp eq i8 %.val9.i, %3
+  %16 = icmp ult i8 %.val12.i, %.val10.i
+  %17 = icmp ugt i8 %.val9.i, %3
+  %18 = select i1 %15, i1 %16, i1 %17
+  br i1 %18, label %.preheader, label %19
 
-18:                                               ; preds = %11, %.preheader
-  %.sroa.0.0.i.lcssa = phi ptr [ %.sroa.0.0.i, %11 ], [ %0, %.preheader ]
-  %.sroa.0.sroa.5.0.insert.ext.i = zext i8 %.val12.i to i16
-  %.sroa.0.sroa.5.0.insert.shift.i = shl nuw i16 %.sroa.0.sroa.5.0.insert.ext.i, 8
-  %.sroa.0.sroa.0.0.insert.ext.i = zext i8 %.val11.i to i16
-  %.sroa.0.sroa.0.0.insert.insert.i = or disjoint i16 %.sroa.0.sroa.5.0.insert.shift.i, %.sroa.0.sroa.0.0.insert.ext.i
-  store i16 %.sroa.0.sroa.0.0.insert.insert.i, ptr %.sroa.0.0.i.lcssa, align 1, !noalias !11209
+19:                                               ; preds = %12, %.preheader
+  %.sroa.0.0.i.lcssa = phi ptr [ %.sroa.0.0.i, %12 ], [ %0, %.preheader ]
+  store i16 %.val11.i, ptr %.sroa.0.0.i.lcssa, align 1, !noalias !11209
   br label %_ZN4core5slice4sort6shared9smallsort11insert_tail17h9cbc3e718e667834E.exit
 
-_ZN4core5slice4sort6shared9smallsort11insert_tail17h9cbc3e718e667834E.exit: ; preds = %.lr.ph, %18
+_ZN4core5slice4sort6shared9smallsort11insert_tail17h9cbc3e718e667834E.exit: ; preds = %.lr.ph, %19
   %.sroa.0.0 = getelementptr inbounds nuw i8, ptr %.sroa.0.04, i64 2
   %.not = icmp eq ptr %.sroa.0.0, %2
   br i1 %.not, label %._crit_edge, label %.lr.ph

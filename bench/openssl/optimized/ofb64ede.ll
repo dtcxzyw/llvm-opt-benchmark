@@ -10,111 +10,107 @@ define void @DES_ede3_ofb64_encrypt(ptr noundef readonly captures(none) %0, ptr 
   %11 = load i32, ptr %7, align 4, !tbaa !3
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  %12 = getelementptr inbounds nuw i8, ptr %6, i64 1
-  %13 = load i8, ptr %6, align 1, !tbaa !7
-  %14 = zext i8 %13 to i32
+  %12 = load i16, ptr %6, align 1
+  %13 = zext i16 %12 to i32
+  %14 = trunc i16 %12 to i8
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 2
-  %16 = load i8, ptr %12, align 1, !tbaa !7
-  %17 = zext i8 %16 to i32
-  %18 = shl nuw nsw i32 %17, 8
-  %19 = or disjoint i32 %18, %14
-  %20 = getelementptr inbounds nuw i8, ptr %6, i64 3
-  %21 = load i8, ptr %15, align 1, !tbaa !7
-  %22 = zext i8 %21 to i32
-  %23 = shl nuw nsw i32 %22, 16
-  %24 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  %25 = load i8, ptr %20, align 1, !tbaa !7
-  %26 = zext i8 %25 to i32
-  %27 = shl nuw i32 %26, 24
-  %28 = or disjoint i32 %19, %23
-  %29 = or disjoint i32 %28, %27
-  %30 = getelementptr inbounds nuw i8, ptr %6, i64 5
-  %31 = load i8, ptr %24, align 1, !tbaa !7
-  %32 = zext i8 %31 to i32
-  %33 = getelementptr inbounds nuw i8, ptr %6, i64 6
-  %34 = load i8, ptr %30, align 1, !tbaa !7
-  %35 = zext i8 %34 to i32
-  %36 = shl nuw nsw i32 %35, 8
-  %37 = or disjoint i32 %36, %32
-  %38 = getelementptr inbounds nuw i8, ptr %6, i64 7
-  %39 = load i8, ptr %33, align 1, !tbaa !7
-  %40 = zext i8 %39 to i32
-  %41 = shl nuw nsw i32 %40, 16
-  %42 = load i8, ptr %38, align 1, !tbaa !7
-  %43 = zext i8 %42 to i32
-  %44 = shl nuw i32 %43, 24
-  %45 = or disjoint i32 %37, %41
-  %46 = or disjoint i32 %45, %44
-  store i32 %29, ptr %10, align 4, !tbaa !3
-  %47 = getelementptr inbounds nuw i8, ptr %10, i64 4
-  store i32 %46, ptr %47, align 4, !tbaa !3
-  %48 = getelementptr inbounds nuw i8, ptr %9, i64 1
-  store i8 %13, ptr %9, align 4, !tbaa !7
-  %49 = getelementptr inbounds nuw i8, ptr %9, i64 2
-  store i8 %16, ptr %48, align 1, !tbaa !7
-  %50 = getelementptr inbounds nuw i8, ptr %9, i64 3
-  store i8 %21, ptr %49, align 2, !tbaa !7
-  %51 = getelementptr inbounds nuw i8, ptr %9, i64 4
-  store i8 %25, ptr %50, align 1, !tbaa !7
-  %52 = getelementptr inbounds nuw i8, ptr %9, i64 5
-  store i8 %31, ptr %51, align 4, !tbaa !7
-  %53 = getelementptr inbounds nuw i8, ptr %9, i64 6
-  store i8 %34, ptr %52, align 1, !tbaa !7
-  %54 = getelementptr inbounds nuw i8, ptr %9, i64 7
-  store i8 %39, ptr %53, align 2, !tbaa !7
-  store i8 %42, ptr %54, align 1, !tbaa !7
+  %16 = lshr i16 %12, 8
+  %17 = trunc nuw i16 %16 to i8
+  %18 = getelementptr inbounds nuw i8, ptr %6, i64 3
+  %19 = load i8, ptr %15, align 1, !tbaa !7
+  %20 = zext i8 %19 to i32
+  %21 = shl nuw nsw i32 %20, 16
+  %22 = getelementptr inbounds nuw i8, ptr %6, i64 4
+  %23 = load i8, ptr %18, align 1, !tbaa !7
+  %24 = zext i8 %23 to i32
+  %25 = shl nuw i32 %24, 24
+  %26 = or disjoint i32 %21, %13
+  %27 = or disjoint i32 %26, %25
+  %28 = load i16, ptr %22, align 1
+  %29 = zext i16 %28 to i32
+  %30 = trunc i16 %28 to i8
+  %31 = getelementptr inbounds nuw i8, ptr %6, i64 6
+  %32 = lshr i16 %28, 8
+  %33 = trunc nuw i16 %32 to i8
+  %34 = getelementptr inbounds nuw i8, ptr %6, i64 7
+  %35 = load i8, ptr %31, align 1, !tbaa !7
+  %36 = zext i8 %35 to i32
+  %37 = shl nuw nsw i32 %36, 16
+  %38 = load i8, ptr %34, align 1, !tbaa !7
+  %39 = zext i8 %38 to i32
+  %40 = shl nuw i32 %39, 24
+  %41 = or disjoint i32 %37, %29
+  %42 = or disjoint i32 %41, %40
+  store i32 %27, ptr %10, align 4, !tbaa !3
+  %43 = getelementptr inbounds nuw i8, ptr %10, i64 4
+  store i32 %42, ptr %43, align 4, !tbaa !3
+  %44 = getelementptr inbounds nuw i8, ptr %9, i64 1
+  store i8 %14, ptr %9, align 4, !tbaa !7
+  %45 = getelementptr inbounds nuw i8, ptr %9, i64 2
+  store i8 %17, ptr %44, align 1, !tbaa !7
+  %46 = getelementptr inbounds nuw i8, ptr %9, i64 3
+  store i8 %19, ptr %45, align 2, !tbaa !7
+  %47 = getelementptr inbounds nuw i8, ptr %9, i64 4
+  store i8 %23, ptr %46, align 1, !tbaa !7
+  %48 = getelementptr inbounds nuw i8, ptr %9, i64 5
+  store i8 %30, ptr %47, align 4, !tbaa !7
+  %49 = getelementptr inbounds nuw i8, ptr %9, i64 6
+  store i8 %33, ptr %48, align 1, !tbaa !7
+  %50 = getelementptr inbounds nuw i8, ptr %9, i64 7
+  store i8 %35, ptr %49, align 2, !tbaa !7
+  store i8 %38, ptr %50, align 1, !tbaa !7
   %.not89 = icmp eq i64 %2, 0
   br i1 %.not89, label %._crit_edge.thread, label %.lr.ph
 
-.lr.ph:                                           ; preds = %8, %61
-  %.in = phi i64 [ %55, %61 ], [ %2, %8 ]
-  %.095 = phi i32 [ %.1, %61 ], [ 0, %8 ]
-  %.08194 = phi i32 [ %70, %61 ], [ %11, %8 ]
-  %.08293 = phi i32 [ %.183, %61 ], [ %46, %8 ]
-  %.08492 = phi i32 [ %.185, %61 ], [ %29, %8 ]
-  %.08691 = phi ptr [ %62, %61 ], [ %0, %8 ]
-  %.08790 = phi ptr [ %68, %61 ], [ %1, %8 ]
-  %55 = add nsw i64 %.in, -1
-  %56 = icmp eq i32 %.08194, 0
-  br i1 %56, label %57, label %61
+.lr.ph:                                           ; preds = %8, %57
+  %.in = phi i64 [ %51, %57 ], [ %2, %8 ]
+  %.095 = phi i32 [ %.1, %57 ], [ 0, %8 ]
+  %.08194 = phi i32 [ %66, %57 ], [ %11, %8 ]
+  %.08293 = phi i32 [ %.183, %57 ], [ %42, %8 ]
+  %.08492 = phi i32 [ %.185, %57 ], [ %27, %8 ]
+  %.08691 = phi ptr [ %58, %57 ], [ %0, %8 ]
+  %.08790 = phi ptr [ %64, %57 ], [ %1, %8 ]
+  %51 = add nsw i64 %.in, -1
+  %52 = icmp eq i32 %.08194, 0
+  br i1 %52, label %53, label %57
 
-57:                                               ; preds = %.lr.ph
+53:                                               ; preds = %.lr.ph
   call void @DES_encrypt3(ptr noundef nonnull %10, ptr noundef %3, ptr noundef %4, ptr noundef %5) #3
-  %58 = load i32, ptr %10, align 4, !tbaa !3
-  %59 = load i32, ptr %47, align 4, !tbaa !3
-  store i32 %58, ptr %9, align 4
-  store i32 %59, ptr %51, align 4
-  %60 = add nsw i32 %.095, 1
-  br label %61
+  %54 = load i32, ptr %10, align 4, !tbaa !3
+  %55 = load i32, ptr %43, align 4, !tbaa !3
+  store i32 %54, ptr %9, align 4
+  store i32 %55, ptr %47, align 4
+  %56 = add nsw i32 %.095, 1
+  br label %57
 
-61:                                               ; preds = %57, %.lr.ph
-  %.185 = phi i32 [ %58, %57 ], [ %.08492, %.lr.ph ]
-  %.183 = phi i32 [ %59, %57 ], [ %.08293, %.lr.ph ]
-  %.1 = phi i32 [ %60, %57 ], [ %.095, %.lr.ph ]
-  %62 = getelementptr inbounds nuw i8, ptr %.08691, i64 1
-  %63 = load i8, ptr %.08691, align 1, !tbaa !7
-  %64 = sext i32 %.08194 to i64
-  %65 = getelementptr inbounds [8 x i8], ptr %9, i64 0, i64 %64
-  %66 = load i8, ptr %65, align 1, !tbaa !7
-  %67 = xor i8 %66, %63
-  %68 = getelementptr inbounds nuw i8, ptr %.08790, i64 1
-  store i8 %67, ptr %.08790, align 1, !tbaa !7
-  %69 = add nsw i32 %.08194, 1
-  %70 = and i32 %69, 7
-  %.not = icmp eq i64 %55, 0
+57:                                               ; preds = %53, %.lr.ph
+  %.185 = phi i32 [ %54, %53 ], [ %.08492, %.lr.ph ]
+  %.183 = phi i32 [ %55, %53 ], [ %.08293, %.lr.ph ]
+  %.1 = phi i32 [ %56, %53 ], [ %.095, %.lr.ph ]
+  %58 = getelementptr inbounds nuw i8, ptr %.08691, i64 1
+  %59 = load i8, ptr %.08691, align 1, !tbaa !7
+  %60 = sext i32 %.08194 to i64
+  %61 = getelementptr inbounds [8 x i8], ptr %9, i64 0, i64 %60
+  %62 = load i8, ptr %61, align 1, !tbaa !7
+  %63 = xor i8 %62, %59
+  %64 = getelementptr inbounds nuw i8, ptr %.08790, i64 1
+  store i8 %63, ptr %.08790, align 1, !tbaa !7
+  %65 = add nsw i32 %.08194, 1
+  %66 = and i32 %65, 7
+  %.not = icmp eq i64 %51, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !8
 
-._crit_edge:                                      ; preds = %61
-  %71 = icmp eq i32 %.1, 0
-  br i1 %71, label %._crit_edge.thread, label %72
+._crit_edge:                                      ; preds = %57
+  %67 = icmp eq i32 %.1, 0
+  br i1 %67, label %._crit_edge.thread, label %68
 
-72:                                               ; preds = %._crit_edge
+68:                                               ; preds = %._crit_edge
   store i32 %.185, ptr %6, align 1
-  store i32 %.183, ptr %24, align 1
+  store i32 %.183, ptr %22, align 1
   br label %._crit_edge.thread
 
-._crit_edge.thread:                               ; preds = %8, %72, %._crit_edge
-  %.081.lcssa104 = phi i32 [ %70, %72 ], [ %70, %._crit_edge ], [ %11, %8 ]
+._crit_edge.thread:                               ; preds = %8, %68, %._crit_edge
+  %.081.lcssa104 = phi i32 [ %66, %68 ], [ %66, %._crit_edge ], [ %11, %8 ]
   store i32 %.081.lcssa104, ptr %7, align 4, !tbaa !3
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)

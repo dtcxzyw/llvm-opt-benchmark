@@ -413,19 +413,16 @@ invoke.cont:
   %ref.tmp = alloca %"struct.msdfgen::BitmapRef.1", align 8
   %ref.tmp4 = alloca %"struct.msdfgen::BitmapConstRef", align 8
   %width = getelementptr inbounds nuw i8, ptr %sdf, i64 8
-  %0 = load i32, ptr %width, align 8
+  %0 = load i64, ptr %width, align 8
   %height = getelementptr inbounds nuw i8, ptr %sdf, i64 12
-  %1 = load i32, ptr %height, align 4
-  %mul4.i = mul nsw i32 %1, %0
-  %conv.i = sext i32 %mul4.i to i64
+  %1 = lshr i64 %0, 32
+  %mul4.i = mul i64 %1, %0
+  %sext = shl i64 %mul4.i, 32
+  %conv.i = ashr exact i64 %sext, 32
   %call.i = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %conv.i) #10
-  %stencilBuffer.sroa.6.8.insert.ext = zext i32 %1 to i64
-  %stencilBuffer.sroa.6.8.insert.shift = shl nuw i64 %stencilBuffer.sroa.6.8.insert.ext, 32
-  %stencilBuffer.sroa.4.8.insert.ext = zext i32 %0 to i64
-  %stencilBuffer.sroa.4.8.insert.insert = or disjoint i64 %stencilBuffer.sroa.6.8.insert.shift, %stencilBuffer.sroa.4.8.insert.ext
   store ptr %call.i, ptr %ref.tmp, align 8
   %2 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
-  store i64 %stencilBuffer.sroa.4.8.insert.insert, ptr %2, align 8
+  store i64 %0, ptr %2, align 8
   invoke void @_ZN7msdfgen19MSDFErrorCorrectionC1ERKNS_9BitmapRefIhLi1EEERKNS_10ProjectionEd(ptr noundef nonnull align 8 dereferenceable(72) %ec, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %projection, double noundef %range)
           to label %invoke.cont1 unwind label %_ZN7msdfgen6BitmapIhLi1EED2Ev.exit
 
@@ -481,19 +478,16 @@ invoke.cont:
   %ref.tmp = alloca %"struct.msdfgen::BitmapRef.1", align 8
   %ref.tmp4 = alloca %"struct.msdfgen::BitmapConstRef.2", align 8
   %width = getelementptr inbounds nuw i8, ptr %sdf, i64 8
-  %0 = load i32, ptr %width, align 8
+  %0 = load i64, ptr %width, align 8
   %height = getelementptr inbounds nuw i8, ptr %sdf, i64 12
-  %1 = load i32, ptr %height, align 4
-  %mul4.i = mul nsw i32 %1, %0
-  %conv.i = sext i32 %mul4.i to i64
+  %1 = lshr i64 %0, 32
+  %mul4.i = mul i64 %1, %0
+  %sext = shl i64 %mul4.i, 32
+  %conv.i = ashr exact i64 %sext, 32
   %call.i = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %conv.i) #10
-  %stencilBuffer.sroa.6.8.insert.ext = zext i32 %1 to i64
-  %stencilBuffer.sroa.6.8.insert.shift = shl nuw i64 %stencilBuffer.sroa.6.8.insert.ext, 32
-  %stencilBuffer.sroa.4.8.insert.ext = zext i32 %0 to i64
-  %stencilBuffer.sroa.4.8.insert.insert = or disjoint i64 %stencilBuffer.sroa.6.8.insert.shift, %stencilBuffer.sroa.4.8.insert.ext
   store ptr %call.i, ptr %ref.tmp, align 8
   %2 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
-  store i64 %stencilBuffer.sroa.4.8.insert.insert, ptr %2, align 8
+  store i64 %0, ptr %2, align 8
   invoke void @_ZN7msdfgen19MSDFErrorCorrectionC1ERKNS_9BitmapRefIhLi1EEERKNS_10ProjectionEd(ptr noundef nonnull align 8 dereferenceable(72) %ec, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %projection, double noundef %range)
           to label %invoke.cont1 unwind label %_ZN7msdfgen6BitmapIhLi1EED2Ev.exit
 
