@@ -44006,7 +44006,7 @@ _ZN12polars_arrow5array5Array10null_count17h1089a0641f3df69cE.exit: ; preds = %1
   br i1 %.not, label %_ZN12polars_arrow5array5Array10null_count17h1089a0641f3df69cE.exit.thread, label %18
 
 15:                                               ; preds = %1, %_ZN12polars_arrow5array5Array10null_count17h1089a0641f3df69cE.exit.thread, %_ZN4core4iter6traits8iterator8Iterator8try_fold17h065bd11a044ee489E.exit
-  %.sroa.0.0.shrunk = phi i1 [ %97, %_ZN4core4iter6traits8iterator8Iterator8try_fold17h065bd11a044ee489E.exit ], [ %17, %_ZN12polars_arrow5array5Array10null_count17h1089a0641f3df69cE.exit.thread ], [ true, %1 ]
+  %.sroa.0.0.shrunk = phi i1 [ %96, %_ZN4core4iter6traits8iterator8Iterator8try_fold17h065bd11a044ee489E.exit ], [ %17, %_ZN12polars_arrow5array5Array10null_count17h1089a0641f3df69cE.exit.thread ], [ true, %1 ]
   ret i1 %.sroa.0.0.shrunk
 
 _ZN12polars_arrow5array5Array10null_count17h1089a0641f3df69cE.exit.thread: ; preds = %10, %_ZN12polars_arrow5array5Array10null_count17h1089a0641f3df69cE.exit
@@ -44181,13 +44181,12 @@ _ZN12polars_arrow5array5Array10null_count17h1089a0641f3df69cE.exit.thread: ; pre
   %94 = phi i64 [ %85, %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i" ], [ %52, %72 ], [ %52, %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit13.i.i.i" ]
   %95 = phi ptr [ null, %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i" ], [ %53, %72 ], [ %53, %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit13.i.i.i" ]
   %.sroa.0.0.i.ph.i = phi i8 [ %88, %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i" ], [ %73, %72 ], [ 2, %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit13.i.i.i" ]
-  %.not.i.i.i = icmp eq i8 %.sroa.0.0.i.ph.i, 2
-  %96 = trunc nuw i8 %.sroa.0.0.i.ph.i to i1
-  %.sroa.02.0.i.i.not.i = select i1 %.not.i.i.i, i1 true, i1 %96
-  br i1 %.sroa.02.0.i.i.not.i, label %28, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h065bd11a044ee489E.exit
+  %.sroa.0.0.i.ph.off.i = add nsw i8 %.sroa.0.0.i.ph.i, -1
+  %switch.i = icmp ult i8 %.sroa.0.0.i.ph.off.i, 2
+  br i1 %switch.i, label %28, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h065bd11a044ee489E.exit
 
 _ZN4core4iter6traits8iterator8Iterator8try_fold17h065bd11a044ee489E.exit: ; preds = %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit13.i.i.i", %76, %89
-  %97 = phi i1 [ false, %89 ], [ true, %76 ], [ true, %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit13.i.i.i" ]
+  %96 = phi i1 [ false, %89 ], [ true, %76 ], [ true, %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit13.i.i.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %15
 }

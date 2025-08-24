@@ -65506,13 +65506,13 @@ define hidden noundef range(i8 0, 3) i8 @_ZN11ruff_linter5rules13flake8_bandit5r
 tailrecurse:                                      ; preds = %tailrecurse.backedge, %1
   %.tr = phi ptr [ %0, %1 ], [ %.tr.be, %tailrecurse.backedge ]
   %3 = load i32, ptr %.tr, align 8, !range !371, !noundef !8
-  switch i32 %3, label %default.unreachable51 [
+  switch i32 %3, label %default.unreachable52 [
     i32 0, label %4
     i32 1, label %19
     i32 2, label %21
     i32 3, label %tailrecurse.backedge
     i32 4, label %.loopexit.loopexit
-    i32 5, label %30
+    i32 5, label %29
     i32 6, label %.loopexit.loopexit
     i32 7, label %.loopexit.loopexit
     i32 8, label %.loopexit.loopexit
@@ -65523,7 +65523,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
     i32 13, label %.loopexit.loopexit
     i32 14, label %.loopexit.loopexit
     i32 15, label %.loopexit.loopexit
-    i32 16, label %.loopexit.loopexit68
+    i32 16, label %.loopexit.loopexit69
     i32 17, label %.loopexit
     i32 18, label %.loopexit
     i32 19, label %.loopexit.loopexit
@@ -65531,17 +65531,17 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
     i32 21, label %.loopexit.loopexit
     i32 22, label %.loopexit.loopexit
     i32 23, label %.loopexit.loopexit
-    i32 24, label %.loopexit.loopexit68
-    i32 25, label %.loopexit.loopexit68
+    i32 24, label %.loopexit.loopexit69
+    i32 25, label %.loopexit.loopexit69
     i32 26, label %.loopexit.loopexit
-    i32 27, label %.loopexit.loopexit68
+    i32 27, label %.loopexit.loopexit69
     i32 28, label %.loopexit.loopexit
     i32 29, label %.loopexit.loopexit
     i32 30, label %.loopexit.loopexit
     i32 31, label %.loopexit.loopexit
   ]
 
-default.unreachable51:                            ; preds = %tailrecurse
+default.unreachable52:                            ; preds = %tailrecurse
   unreachable
 
 4:                                                ; preds = %tailrecurse
@@ -65586,42 +65586,39 @@ tailrecurse.backedge:                             ; preds = %tailrecurse, %19
   %25 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
   %26 = load ptr, ptr %25, align 8, !nonnull !8, !align !87, !noundef !8
   %27 = tail call noundef i8 @_ZN11ruff_linter5rules13flake8_bandit5rules24hardcoded_sql_expression25is_explicit_concatenation17h87ce44ee994c2040E(ptr noundef nonnull align 8 %26)
-  %.not31 = icmp eq i8 %24, 2
-  %28 = trunc nuw i8 %24 to i1
-  %or.cond = select i1 %.not31, i1 true, i1 %28
-  %.not = icmp eq i8 %27, 2
-  %29 = trunc nuw i8 %27 to i1
-  %or.cond4 = select i1 %.not, i1 true, i1 %29
-  %or.cond32 = select i1 %or.cond, i1 %or.cond4, i1 false
-  br i1 %or.cond32, label %43, label %.loopexit
+  %.off = add nsw i8 %24, -1
+  %.off33 = add nsw i8 %27, -1
+  %28 = or i8 %.off33, %.off
+  %or.cond = icmp ult i8 %28, 2
+  br i1 %or.cond, label %42, label %.loopexit
 
-30:                                               ; preds = %tailrecurse
-  %31 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
-  %32 = load ptr, ptr %31, align 8, !nonnull !8, !align !87, !noundef !8
-  %33 = tail call noundef i8 @_ZN11ruff_linter5rules13flake8_bandit5rules24hardcoded_sql_expression25is_explicit_concatenation17h87ce44ee994c2040E(ptr noundef nonnull align 8 %32)
-  %34 = getelementptr inbounds nuw i8, ptr %.tr, i64 24
-  %35 = load ptr, ptr %34, align 8, !nonnull !8, !align !87, !noundef !8
-  %36 = tail call noundef i8 @_ZN11ruff_linter5rules13flake8_bandit5rules24hardcoded_sql_expression25is_explicit_concatenation17h87ce44ee994c2040E(ptr noundef nonnull align 8 %35)
-  %.not29 = icmp eq i8 %33, 2
-  %37 = and i8 %33, 1
-  %or.cond10.not = icmp eq i8 %37, 0
-  br i1 %or.cond10.not, label %46, label %.loopexit
+29:                                               ; preds = %tailrecurse
+  %30 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
+  %31 = load ptr, ptr %30, align 8, !nonnull !8, !align !87, !noundef !8
+  %32 = tail call noundef i8 @_ZN11ruff_linter5rules13flake8_bandit5rules24hardcoded_sql_expression25is_explicit_concatenation17h87ce44ee994c2040E(ptr noundef nonnull align 8 %31)
+  %33 = getelementptr inbounds nuw i8, ptr %.tr, i64 24
+  %34 = load ptr, ptr %33, align 8, !nonnull !8, !align !87, !noundef !8
+  %35 = tail call noundef i8 @_ZN11ruff_linter5rules13flake8_bandit5rules24hardcoded_sql_expression25is_explicit_concatenation17h87ce44ee994c2040E(ptr noundef nonnull align 8 %34)
+  %.not29 = icmp eq i8 %32, 2
+  %36 = and i8 %32, 1
+  %or.cond10.not = icmp eq i8 %36, 0
+  br i1 %or.cond10.not, label %45, label %.loopexit
 
-"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains17h82bb873b4735912bE.exit": ; preds = %15, %40
-  %38 = phi ptr [ %41, %40 ], [ %11, %15 ]
-  %39 = icmp eq ptr %38, %14
-  br i1 %39, label %"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains17h82bb873b4735912bE.exit.thread", label %40
+"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains17h82bb873b4735912bE.exit": ; preds = %15, %39
+  %37 = phi ptr [ %40, %39 ], [ %11, %15 ]
+  %38 = icmp eq ptr %37, %14
+  br i1 %38, label %"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains17h82bb873b4735912bE.exit.thread", label %39
 
-40:                                               ; preds = %"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains17h82bb873b4735912bE.exit"
-  %41 = getelementptr inbounds nuw i8, ptr %38, i64 1
-  %.val.i = load i8, ptr %38, align 1, !range !273, !noalias !5765, !noundef !8
+39:                                               ; preds = %"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains17h82bb873b4735912bE.exit"
+  %40 = getelementptr inbounds nuw i8, ptr %37, i64 1
+  %.val.i = load i8, ptr %37, align 1, !range !273, !noalias !5765, !noundef !8
   %.not.i.i = icmp ne i8 %.val.i, 2
-  %42 = trunc i8 %.val.i to i1
-  %.sroa.0.0.i4.i = xor i1 %.not.i.i, %42
+  %41 = trunc i8 %.val.i to i1
+  %.sroa.0.0.i4.i = xor i1 %.not.i.i, %41
   br i1 %.sroa.0.0.i4.i, label %"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains17h82bb873b4735912bE.exit", label %"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains17h82bb873b4735912bE.exit.thread"
 
-"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains17h82bb873b4735912bE.exit.thread": ; preds = %17, %"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains17h82bb873b4735912bE.exit", %40
-  %.sroa.0.1 = phi i8 [ 0, %"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains17h82bb873b4735912bE.exit" ], [ 2, %40 ], [ 1, %17 ]
+"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains17h82bb873b4735912bE.exit.thread": ; preds = %17, %"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains17h82bb873b4735912bE.exit", %39
+  %.sroa.0.1 = phi i8 [ 0, %"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains17h82bb873b4735912bE.exit" ], [ 2, %39 ], [ 1, %17 ]
   call void @"_ZN4core3ptr76drop_in_place$LT$alloc..vec..Vec$LT$core..option..Option$LT$bool$GT$$GT$$GT$17h82719844081dc611E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %.loopexit
@@ -65629,30 +65626,30 @@ tailrecurse.backedge:                             ; preds = %tailrecurse, %19
 .loopexit.loopexit:                               ; preds = %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse
   br label %.loopexit
 
-.loopexit.loopexit68:                             ; preds = %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse
+.loopexit.loopexit69:                             ; preds = %tailrecurse, %tailrecurse, %tailrecurse, %tailrecurse
   br label %.loopexit
 
-.loopexit:                                        ; preds = %tailrecurse, %tailrecurse, %.loopexit.loopexit68, %.loopexit.loopexit, %48, %46, %30, %43, %21, %47, %"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains17h82bb873b4735912bE.exit.thread"
-  %.sroa.0.0 = phi i8 [ %.sroa.0.1, %"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains17h82bb873b4735912bE.exit.thread" ], [ 2, %47 ], [ 0, %21 ], [ %.33, %43 ], [ 1, %30 ], [ 1, %46 ], [ 0, %48 ], [ 0, %.loopexit.loopexit ], [ 2, %.loopexit.loopexit68 ], [ 1, %tailrecurse ], [ 1, %tailrecurse ]
+.loopexit:                                        ; preds = %tailrecurse, %tailrecurse, %.loopexit.loopexit69, %.loopexit.loopexit, %21, %47, %45, %29, %42, %46, %"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains17h82bb873b4735912bE.exit.thread"
+  %.sroa.0.0 = phi i8 [ %.sroa.0.1, %"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains17h82bb873b4735912bE.exit.thread" ], [ 2, %46 ], [ 0, %21 ], [ %.32, %42 ], [ 1, %29 ], [ 1, %45 ], [ 0, %47 ], [ 0, %.loopexit.loopexit ], [ 2, %.loopexit.loopexit69 ], [ 1, %tailrecurse ], [ 1, %tailrecurse ]
   ret i8 %.sroa.0.0
 
-43:                                               ; preds = %21
-  %44 = or i8 %27, %24
-  %45 = and i8 %44, 1
-  %.33 = sub nuw nsw i8 2, %45
+42:                                               ; preds = %21
+  %43 = or i8 %27, %24
+  %44 = and i8 %43, 1
+  %.32 = sub nuw nsw i8 2, %44
   br label %.loopexit
 
-46:                                               ; preds = %30
-  switch i8 %36, label %.loopexit [
-    i8 2, label %47
-    i8 0, label %48
+45:                                               ; preds = %29
+  switch i8 %35, label %.loopexit [
+    i8 2, label %46
+    i8 0, label %47
   ]
 
-47:                                               ; preds = %46, %48
+46:                                               ; preds = %45, %47
   br label %.loopexit
 
-48:                                               ; preds = %46
-  br i1 %.not29, label %47, label %.loopexit
+47:                                               ; preds = %45
+  br i1 %.not29, label %46, label %.loopexit
 }
 
 ; Function Attrs: nonlazybind uwtable
