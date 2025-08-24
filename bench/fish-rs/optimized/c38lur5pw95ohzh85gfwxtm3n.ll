@@ -18593,7 +18593,7 @@ define i64 @_ZN4fish8builtins6printf6printf17hacd8919c8dd6176aE(ptr noundef nonn
           cleanup
   br label %.body
 
-.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %_ZN4fish8builtins6printf32modify_allowed_format_specifiers17hdaa1f6255f921107E.exit.preheader.i
+.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %_ZN4fish8builtins6printf32modify_allowed_format_specifiers17hdaa1f6255f921107E.exit.preheader.split.i
   %lpad.loopexit90 = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -18711,20 +18711,20 @@ define i64 @_ZN4fish8builtins6printf6printf17hacd8919c8dd6176aE(ptr noundef nonn
   br i1 %204, label %.backedge.sink.split.sink.split.i, label %.backedge.sink.split.i
 
 .backedge.sink.split.sink.split.i:                ; preds = %221, %201
-  %.sink1946.ph.i = phi i64 [ %222, %221 ], [ %202, %201 ]
+  %.sink1941.ph.i = phi i64 [ %222, %221 ], [ %202, %201 ]
   %.sroa.36.0.be.ph.ph.i = phi i64 [ %214, %221 ], [ %.sroa.36.1.i, %201 ]
   %.sroa.0.0.be.ph.ph.i = phi ptr [ %215, %221 ], [ %.sroa.0.1.i, %201 ]
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17h96b4df04c6afafaeE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %127, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.3f1824740b010706de069fecfea12834.7)
           to label %.backedge.sink.split.i unwind label %.loopexit.split-lp.loopexit
 
 .backedge.sink.split.i:                           ; preds = %.backedge.sink.split.sink.split.i, %221, %201
-  %.sink1946.i = phi i64 [ %222, %221 ], [ %202, %201 ], [ %.sink1946.ph.i, %.backedge.sink.split.sink.split.i ]
+  %.sink1941.i = phi i64 [ %222, %221 ], [ %202, %201 ], [ %.sink1941.ph.i, %.backedge.sink.split.sink.split.i ]
   %.sroa.36.0.be.ph.i = phi i64 [ %214, %221 ], [ %.sroa.36.1.i, %201 ], [ %.sroa.36.0.be.ph.ph.i, %.backedge.sink.split.sink.split.i ]
   %.sroa.0.0.be.ph.i = phi ptr [ %215, %221 ], [ %.sroa.0.1.i, %201 ], [ %.sroa.0.0.be.ph.ph.i, %.backedge.sink.split.sink.split.i ]
   %205 = load ptr, ptr %147, align 8, !alias.scope !1483, !noalias !1493, !nonnull !3, !noundef !3
-  %206 = getelementptr inbounds nuw i32, ptr %205, i64 %.sink1946.i
+  %206 = getelementptr inbounds nuw i32, ptr %205, i64 %.sink1941.i
   store i32 %197, ptr %206, align 4, !noalias !1486
-  %207 = add i64 %.sink1946.i, 1
+  %207 = add i64 %.sink1941.i, 1
   store i64 %207, ptr %146, align 8, !alias.scope !1483, !noalias !1493
   br label %.backedge.i.backedge
 
@@ -18790,7 +18790,7 @@ define i64 @_ZN4fish8builtins6printf6printf17hacd8919c8dd6176aE(ptr noundef nonn
   %233 = getelementptr inbounds nuw i8, ptr %124, i64 %232
   store i8 1, ptr %233, align 1, !alias.scope !1503, !noalias !1511
   %234 = icmp samesign eq i64 %.sroa.0.010.i.add.i, 16
-  br i1 %234, label %_ZN4fish8builtins6printf32modify_allowed_format_specifiers17hdaa1f6255f921107E.exit.preheader.i, label %230
+  br i1 %234, label %_ZN4fish8builtins6printf32modify_allowed_format_specifiers17hdaa1f6255f921107E.exit.preheader.split.i, label %230
 
 235:                                              ; preds = %228
   %.not166.i = icmp eq i64 %.sroa.15.0.ph.i.ph, 0
@@ -18892,14 +18892,14 @@ _ZN4fish8builtins6printf22builtin_printf_state_t16print_esc_string17he2f4310b44e
   %.sroa.0.0.i1084.i = icmp ult i32 %272, 10
   br i1 %.sroa.0.0.i1084.i, label %.lr.ph.i, label %.loopexit317.i
 
-_ZN4fish8builtins6printf32modify_allowed_format_specifiers17hdaa1f6255f921107E.exit.preheader.i: ; preds = %230, %_ZN4fish8builtins6printf32modify_allowed_format_specifiers17hdaa1f6255f921107E.exit.i
+_ZN4fish8builtins6printf32modify_allowed_format_specifiers17hdaa1f6255f921107E.exit.preheader.split.i: ; preds = %230, %_ZN4fish8builtins6printf32modify_allowed_format_specifiers17hdaa1f6255f921107E.exit.i
   %.sroa.0.21083.i = phi ptr [ %1001, %_ZN4fish8builtins6printf32modify_allowed_format_specifiers17hdaa1f6255f921107E.exit.i ], [ %215, %230 ]
   %.sroa.36.21082.i = phi i64 [ %1002, %_ZN4fish8builtins6printf32modify_allowed_format_specifiers17hdaa1f6255f921107E.exit.i ], [ %214, %230 ]
   %.sroa.078.01081.i = phi i64 [ %1003, %_ZN4fish8builtins6printf32modify_allowed_format_specifiers17hdaa1f6255f921107E.exit.i ], [ 1, %230 ]
   %273 = invoke noundef i32 @_ZN4fish9wchar_ext4WExt7char_at17h9410a671717dd293E(ptr noalias noundef nonnull readonly align 4 %.sroa.0.21083.i, i64 noundef %.sroa.36.21082.i, i64 noundef 0)
           to label %.noexc39 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
-.noexc39:                                         ; preds = %_ZN4fish8builtins6printf32modify_allowed_format_specifiers17hdaa1f6255f921107E.exit.preheader.i
+.noexc39:                                         ; preds = %_ZN4fish8builtins6printf32modify_allowed_format_specifiers17hdaa1f6255f921107E.exit.preheader.split.i
   switch i32 %273, label %268 [
     i32 73, label %989
     i32 39, label %989
@@ -18907,7 +18907,7 @@ _ZN4fish8builtins6printf32modify_allowed_format_specifiers17hdaa1f6255f921107E.e
     i32 43, label %_ZN4fish8builtins6printf32modify_allowed_format_specifiers17hdaa1f6255f921107E.exit198.i
     i32 32, label %_ZN4fish8builtins6printf32modify_allowed_format_specifiers17hdaa1f6255f921107E.exit198.i
     i32 35, label %995
-    i32 48, label %_ZN4fish8builtins6printf32modify_allowed_format_specifiers17hdaa1f6255f921107E.exit198.i.loopexit2636.critedge
+    i32 48, label %.split.i
   ]
 
 274:                                              ; preds = %.noexc37
@@ -21562,7 +21562,7 @@ _ZN4fish8builtins6printf22builtin_printf_state_t11print_direc17h5bbe1daad61516bf
   %1000 = icmp samesign eq i64 %.sroa.0.010.i200.add.i, 5
   br i1 %1000, label %_ZN4fish8builtins6printf32modify_allowed_format_specifiers17hdaa1f6255f921107E.exit198.i, label %996
 
-_ZN4fish8builtins6printf32modify_allowed_format_specifiers17hdaa1f6255f921107E.exit198.i.loopexit2636.critedge: ; preds = %.noexc39
+.split.i:                                         ; preds = %.noexc39
   store i8 0, ptr %185, align 1, !alias.scope !1722, !noalias !1725
   store i8 0, ptr %186, align 1, !alias.scope !1722, !noalias !1725
   br label %_ZN4fish8builtins6printf32modify_allowed_format_specifiers17hdaa1f6255f921107E.exit198.i
@@ -21571,9 +21571,9 @@ _ZN4fish8builtins6printf32modify_allowed_format_specifiers17hdaa1f6255f921107E.e
   %1001 = getelementptr inbounds nuw i8, ptr %.sroa.0.21083.i, i64 4
   %1002 = add i64 %.sroa.36.21082.i, -1
   %1003 = add i64 %.sroa.078.01081.i, 1
-  br label %_ZN4fish8builtins6printf32modify_allowed_format_specifiers17hdaa1f6255f921107E.exit.preheader.i
+  br label %_ZN4fish8builtins6printf32modify_allowed_format_specifiers17hdaa1f6255f921107E.exit.preheader.split.i
 
-_ZN4fish8builtins6printf32modify_allowed_format_specifiers17hdaa1f6255f921107E.exit198.i: ; preds = %996, %990, %_ZN4fish8builtins6printf32modify_allowed_format_specifiers17hdaa1f6255f921107E.exit198.i.loopexit2636.critedge, %.noexc39, %.noexc39, %.noexc39
+_ZN4fish8builtins6printf32modify_allowed_format_specifiers17hdaa1f6255f921107E.exit198.i: ; preds = %996, %990, %.split.i, %.noexc39, %.noexc39, %.noexc39
   %1004 = icmp eq i64 %.sroa.36.21082.i, 0
   br i1 %1004, label %.invoke, label %_ZN4fish8builtins6printf32modify_allowed_format_specifiers17hdaa1f6255f921107E.exit.i, !prof !68
 

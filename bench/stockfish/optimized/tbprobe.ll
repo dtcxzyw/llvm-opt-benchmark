@@ -3151,9 +3151,7 @@ _ZN9Stockfish12_GLOBAL__N_113check_dtz_stmEPNS0_7TBTableILNS0_6TBTypeE1EEEiNS_4F
   %547 = load i32, ptr %3, align 16
   %548 = and i32 %547, 4
   %.not171.i.i = icmp eq i32 %548, 0
-  %.not137203.i.i = icmp slt i64 %indvars.iv263.i.i, 0
-  %or.cond234.i.i = or i1 %.not137203.i.i, %.not171.i.i
-  br i1 %or.cond234.i.i, label %.loopexit181.i.i, label %.lr.ph205.preheader.i.i
+  br i1 %.not171.i.i, label %.loopexit181.i.i, label %.lr.ph205.preheader.i.i
 
 .lr.ph205.preheader.i.i:                          ; preds = %._crit_edge.i.i
   %wide.trip.count283.i.i = and i64 %indvars.iv.next264.i.i, 4294967295
@@ -3243,8 +3241,7 @@ _ZSt11stable_sortIPN9Stockfish6SquareEPFbS1_S1_EEvT_S5_T0_.exit.i.i: ; preds = %
 579:                                              ; preds = %.loopexit181.i.i
   %580 = load i32, ptr %3, align 16
   %581 = icmp slt i32 %580, 32
-  %or.cond235.i.i = or i1 %.not137203.i.i, %581
-  br i1 %or.cond235.i.i, label %.loopexit179.i.i, label %.lr.ph208.preheader.i.i
+  br i1 %581, label %.loopexit179.i.i, label %.lr.ph208.preheader.i.i
 
 .lr.ph208.preheader.i.i:                          ; preds = %579
   %wide.trip.count289.i.i = and i64 %indvars.iv.next264.i.i, 4294967295
@@ -6318,9 +6315,7 @@ _ZSt11max_elementIPN9Stockfish6SquareEPFbS1_S1_EET_S5_S5_T0_.exit.i: ; preds = %
   %493 = load i32, ptr %3, align 16
   %494 = and i32 %493, 4
   %.not11.i = icmp eq i32 %494, 0
-  %.not13742.i = icmp slt i64 %indvars.iv101.i, 0
-  %or.cond.i = or i1 %.not13742.i, %.not11.i
-  br i1 %or.cond.i, label %.loopexit21.i, label %.lr.ph44.preheader.i
+  br i1 %.not11.i, label %.loopexit21.i, label %.lr.ph44.preheader.i
 
 .lr.ph44.preheader.i:                             ; preds = %._crit_edge.i
   %wide.trip.count121.i = and i64 %indvars.iv.next102.i, 4294967295
@@ -6410,8 +6405,7 @@ _ZSt11stable_sortIPN9Stockfish6SquareEPFbS1_S1_EEvT_S5_T0_.exit.i: ; preds = %_Z
 525:                                              ; preds = %.loopexit21.i
   %526 = load i32, ptr %3, align 16
   %527 = icmp slt i32 %526, 32
-  %or.cond73.i = or i1 %.not13742.i, %527
-  br i1 %or.cond73.i, label %.loopexit19.i, label %.lr.ph47.preheader.i
+  br i1 %527, label %.loopexit19.i, label %.lr.ph47.preheader.i
 
 .lr.ph47.preheader.i:                             ; preds = %525
   %wide.trip.count127.i = and i64 %indvars.iv.next102.i, 4294967295

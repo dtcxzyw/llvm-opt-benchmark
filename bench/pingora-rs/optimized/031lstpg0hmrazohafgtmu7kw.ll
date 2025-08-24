@@ -76,7 +76,6 @@ target triple = "x86_64-unknown-linux-gnu"
 @anon.c89078488ceecc213926f9c07f09b856.146 = private unnamed_addr constant <{ ptr, [16 x i8] }> <{ ptr @anon.c89078488ceecc213926f9c07f09b856.1, [16 x i8] c"f\00\00\00\00\00\00\00\B5\00\00\00\09\00\00\00" }>, align 8
 @anon.c89078488ceecc213926f9c07f09b856.147 = private unnamed_addr constant <{ ptr, [16 x i8] }> <{ ptr @anon.c89078488ceecc213926f9c07f09b856.1, [16 x i8] c"f\00\00\00\00\00\00\00\BA\00\00\00\12\00\00\00" }>, align 8
 @anon.c89078488ceecc213926f9c07f09b856.148 = private unnamed_addr constant <{ ptr, [16 x i8] }> <{ ptr @anon.c89078488ceecc213926f9c07f09b856.1, [16 x i8] c"f\00\00\00\00\00\00\00\BC\00\00\00\12\00\00\00" }>, align 8
-@anon.c89078488ceecc213926f9c07f09b856.152 = private unnamed_addr constant <{ ptr, [16 x i8] }> <{ ptr @anon.c89078488ceecc213926f9c07f09b856.1, [16 x i8] c"f\00\00\00\00\00\00\00\EB\00\00\00\11\00\00\00" }>, align 8
 @anon.c89078488ceecc213926f9c07f09b856.156 = private unnamed_addr constant <{ ptr, [16 x i8] }> <{ ptr @anon.c89078488ceecc213926f9c07f09b856.1, [16 x i8] c"f\00\00\00\00\00\00\00\DE\00\00\00\11\00\00\00" }>, align 8
 @anon.c89078488ceecc213926f9c07f09b856.157 = private unnamed_addr constant [108 x i8] c"/home/dtcxzyw/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/brotli-3.5.0/src/enc/compress_fragment.rs", align 1
 @anon.c89078488ceecc213926f9c07f09b856.158 = private unnamed_addr constant <{ ptr, [16 x i8] }> <{ ptr @anon.c89078488ceecc213926f9c07f09b856.157, [16 x i8] c"l\00\00\00\00\00\00\00\D9\02\00\00\09\00\00\00" }>, align 8
@@ -321,17 +320,18 @@ define hidden void @"_ZN110_$LT$brotli..enc..stride_eval..StrideEval$LT$Alloc$GT
   %52 = load i16, ptr %51, align 2, !alias.scope !4
   br label %59
 
-.preheader.i:                                     ; preds = %87
+.preheader.i:                                     ; preds = %82
   %53 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %54 = and i8 %5, 15
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %56 = load i16, ptr %55, align 8, !alias.scope !4
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 226
   %58 = load i16, ptr %57, align 2, !alias.scope !4
+  %invariant.gep = getelementptr float, ptr %.val17.i, i64 %47
   br label %70
 
-59:                                               ; preds = %87, %6
-  %.sroa.06.022.i = phi i64 [ 0, %6 ], [ %88, %87 ]
+59:                                               ; preds = %82, %6
+  %.sroa.06.022.i = phi i64 [ 0, %6 ], [ %83, %82 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !4
   %60 = getelementptr inbounds nuw { { { { { ptr, i64 } }, {} }, {} } }, ptr %41, i64 %.sroa.06.022.i
   %.val.i = load ptr, ptr %60, align 8, !alias.scope !4, !nonnull !3, !align !8, !noundef !3
@@ -347,10 +347,10 @@ define hidden void @"_ZN110_$LT$brotli..enc..stride_eval..StrideEval$LT$Alloc$GT
   %67 = call noundef float @_ZN6brotli3enc11stride_eval3CDF4cost17h1b32b8f2586ec12aE(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %8, i8 noundef %43), !noalias !4
   %68 = add nuw nsw i64 %.sroa.06.022.i, %47
   %69 = icmp ult i64 %68, %.val18.i
-  br i1 %69, label %87, label %92
+  br i1 %69, label %82, label %87
 
-70:                                               ; preds = %81, %.preheader.i
-  %.sroa.08.023.i = phi i64 [ 0, %.preheader.i ], [ %82, %81 ]
+70:                                               ; preds = %70, %.preheader.i
+  %.sroa.08.023.i = phi i64 [ 0, %.preheader.i ], [ %79, %70 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !4
   %71 = getelementptr inbounds nuw { { { { { ptr, i64 } }, {} }, {} } }, ptr %41, i64 %.sroa.08.023.i
   %.val15.i = load ptr, ptr %71, align 8, !alias.scope !4, !nonnull !3, !align !8, !noundef !3
@@ -364,41 +364,32 @@ define hidden void @"_ZN110_$LT$brotli..enc..stride_eval..StrideEval$LT$Alloc$GT
   store ptr %76, ptr %7, align 8, !noalias !4
   store i64 %77, ptr %53, align 8, !noalias !4
   %78 = call noundef float @_ZN6brotli3enc11stride_eval3CDF4cost17h1b32b8f2586ec12aE(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %7, i8 noundef %54), !noalias !4
-  %79 = add nuw nsw i64 %.sroa.08.023.i, %47
-  %80 = icmp ult i64 %79, %.val18.i
-  br i1 %80, label %81, label %86
-
-81:                                               ; preds = %70
-  %82 = add nuw nsw i64 %.sroa.08.023.i, 1
-  %83 = getelementptr inbounds nuw float, ptr %.val17.i, i64 %79
-  %84 = load float, ptr %83, align 4, !noalias !4, !noundef !3
-  %85 = fadd float %78, %84
-  store float %85, ptr %83, align 4, !noalias !4
+  %79 = add nuw nsw i64 %.sroa.08.023.i, 1
+  %gep = getelementptr float, ptr %invariant.gep, i64 %.sroa.08.023.i
+  %80 = load float, ptr %gep, align 4, !noalias !4, !noundef !3
+  %81 = fadd float %78, %80
+  store float %81, ptr %gep, align 4, !noalias !4
   call void @_ZN6brotli3enc11stride_eval3CDF6update17ha41275bff4e5b1f5E(ptr noalias noundef nonnull align 8 dereferenceable(16) %7, i8 noundef %54, i16 noundef %56, i16 noundef %58), !noalias !4
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !4
-  %exitcond27.not.i = icmp eq i64 %82, 8
+  %exitcond27.not.i = icmp eq i64 %79, 8
   br i1 %exitcond27.not.i, label %"_ZN6brotli3enc11stride_eval23StrideEval$LT$Alloc$GT$16update_cost_base17h25958beed6e3b22fE.exit", label %70
 
-86:                                               ; preds = %70
-  call void @_ZN4core9panicking18panic_bounds_check17h2d3ab0b83311a572E(i64 noundef %79, i64 noundef %.val18.i, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c89078488ceecc213926f9c07f09b856.152) #20, !noalias !4
-  unreachable
-
-87:                                               ; preds = %59
-  %88 = add nuw nsw i64 %.sroa.06.022.i, 1
-  %89 = getelementptr inbounds nuw float, ptr %.val17.i, i64 %68
-  %90 = load float, ptr %89, align 4, !noalias !4, !noundef !3
-  %91 = fadd float %67, %90
-  store float %91, ptr %89, align 4, !noalias !4
+82:                                               ; preds = %59
+  %83 = add nuw nsw i64 %.sroa.06.022.i, 1
+  %84 = getelementptr inbounds nuw float, ptr %.val17.i, i64 %68
+  %85 = load float, ptr %84, align 4, !noalias !4, !noundef !3
+  %86 = fadd float %67, %85
+  store float %86, ptr %84, align 4, !noalias !4
   call void @_ZN6brotli3enc11stride_eval3CDF6update17ha41275bff4e5b1f5E(ptr noalias noundef nonnull align 8 dereferenceable(16) %8, i8 noundef %43, i16 noundef %50, i16 noundef %52), !noalias !4
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !4
-  %exitcond.not.i = icmp eq i64 %88, 8
+  %exitcond.not.i = icmp eq i64 %83, 8
   br i1 %exitcond.not.i, label %.preheader.i, label %59
 
-92:                                               ; preds = %59
+87:                                               ; preds = %59
   call void @_ZN4core9panicking18panic_bounds_check17h2d3ab0b83311a572E(i64 noundef %68, i64 noundef %.val18.i, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c89078488ceecc213926f9c07f09b856.156) #20, !noalias !4
   unreachable
 
-"_ZN6brotli3enc11stride_eval23StrideEval$LT$Alloc$GT$16update_cost_base17h25958beed6e3b22fE.exit": ; preds = %81
+"_ZN6brotli3enc11stride_eval23StrideEval$LT$Alloc$GT$16update_cost_base17h25958beed6e3b22fE.exit": ; preds = %70
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret void
 }
