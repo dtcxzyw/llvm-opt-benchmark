@@ -568,60 +568,56 @@ define hidden zeroext i1 @"_ZN14cranelift_isle9serialize13Decomposition17best_co
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.sroa.0.0.copyload = load i16, ptr %3, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 18
-  %.sroa.3.0.copyload = load i16, ptr %.sroa.3.0..sroa_idx, align 2
-  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 20
-  %.sroa.5.0.copyload = load i16, ptr %.sroa.5.0..sroa_idx, align 4
+  %.sroa.3.0.copyload = load i32, ptr %.sroa.3.0..sroa_idx, align 2
+  %4 = zext i32 %.sroa.3.0.copyload to i48
+  %5 = shl nuw i48 %4, 16
   %switch = icmp eq i16 %.sroa.0.0.copyload, 1
-  br i1 %switch, label %4, label %5
+  br i1 %switch, label %6, label %7
 
-4:                                                ; preds = %2
+6:                                                ; preds = %2
   tail call void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr nonnull align 1 @anon.fd7e60ab9a15ebc6f18dcc2034e4fa44.19, i64 40, ptr nonnull align 8 @anon.fd7e60ab9a15ebc6f18dcc2034e4fa44.20) #10
   unreachable
 
-5:                                                ; preds = %2
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %7 = load ptr, ptr %6, align 8, !nonnull !3, !align !4, !noundef !3
-  %8 = tail call i64 @_ZN14cranelift_isle10trie_again9BindingId5index17h7cbb3f2975c0bf3bE(i16 %.sroa.3.0.copyload)
-  %9 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %10 = load i64, ptr %9, align 8, !noundef !3
-  %11 = icmp ult i64 %8, %10
-  br i1 %11, label %12, label %28, !prof !7
+7:                                                ; preds = %2
+  %8 = trunc i32 %.sroa.3.0.copyload to i16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %10 = load ptr, ptr %9, align 8, !nonnull !3, !align !4, !noundef !3
+  %11 = tail call i64 @_ZN14cranelift_isle10trie_again9BindingId5index17h7cbb3f2975c0bf3bE(i16 %8)
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  %13 = load i64, ptr %12, align 8, !noundef !3
+  %14 = icmp ult i64 %11, %13
+  br i1 %14, label %15, label %31, !prof !7
 
-12:                                               ; preds = %5
-  %13 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %14 = load ptr, ptr %13, align 8, !nonnull !3, !noundef !3
-  %15 = getelementptr inbounds [0 x i8], ptr %14, i64 0, i64 %8
-  %16 = load i8, ptr %15, align 1, !range !8, !noundef !3
-  %17 = icmp eq i8 %16, 3
-  br i1 %17, label %_ZN14cranelift_isle9serialize5Score6update17h0d1baf10ec1c31a6E.exit, label %18
+15:                                               ; preds = %7
+  %16 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %17 = load ptr, ptr %16, align 8, !nonnull !3, !noundef !3
+  %18 = getelementptr inbounds [0 x i8], ptr %17, i64 0, i64 %11
+  %19 = load i8, ptr %18, align 1, !range !8, !noundef !3
+  %20 = icmp eq i8 %19, 3
+  br i1 %20, label %_ZN14cranelift_isle9serialize5Score6update17h0d1baf10ec1c31a6E.exit, label %21
 
-18:                                               ; preds = %12
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %20 = load i64, ptr %19, align 8, !noundef !3
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %22 = load ptr, ptr %21, align 8, !nonnull !3, !align !4, !noundef !3
-  %23 = load ptr, ptr %0, align 8, !nonnull !3, !align !4, !noundef !3
-  %24 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i8 %16, ptr %24, align 8
-  %.sroa.5.0.insert.ext = zext i16 %.sroa.5.0.copyload to i48
-  %.sroa.5.0.insert.shift = shl nuw i48 %.sroa.5.0.insert.ext, 32
-  %.sroa.3.0.insert.ext = zext i16 %.sroa.3.0.copyload to i48
-  %.sroa.3.0.insert.shift = shl nuw nsw i48 %.sroa.3.0.insert.ext, 16
+21:                                               ; preds = %15
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %23 = load i64, ptr %22, align 8, !noundef !3
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %25 = load ptr, ptr %24, align 8, !nonnull !3, !align !4, !noundef !3
+  %26 = load ptr, ptr %0, align 8, !nonnull !3, !align !4, !noundef !3
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i8 %19, ptr %27, align 8
   %.sroa.0.0.insert.ext = zext nneg i16 %.sroa.0.0.copyload to i48
-  %.sroa.3.0.insert.insert = or disjoint i48 %.sroa.3.0.insert.shift, %.sroa.0.0.insert.ext
-  %.sroa.0.0.insert.insert = or disjoint i48 %.sroa.3.0.insert.insert, %.sroa.5.0.insert.shift
-  %25 = tail call { i64, i1 } @_ZN14cranelift_isle9serialize14HasControlFlow9partition17h81dbf483baf6fda1E(i48 %.sroa.0.0.insert.insert, ptr nonnull align 8 %23, ptr nonnull align 8 %22, i64 %20)
-  %26 = extractvalue { i64, i1 } %25, 0
-  %27 = extractvalue { i64, i1 } %25, 1
-  store i64 %26, ptr %1, align 8
+  %.sroa.0.0.insert.insert = or disjoint i48 %5, %.sroa.0.0.insert.ext
+  %28 = tail call { i64, i1 } @_ZN14cranelift_isle9serialize14HasControlFlow9partition17h81dbf483baf6fda1E(i48 %.sroa.0.0.insert.insert, ptr nonnull align 8 %26, ptr nonnull align 8 %25, i64 %23)
+  %29 = extractvalue { i64, i1 } %28, 0
+  %30 = extractvalue { i64, i1 } %28, 1
+  store i64 %29, ptr %1, align 8
   br label %_ZN14cranelift_isle9serialize5Score6update17h0d1baf10ec1c31a6E.exit
 
-_ZN14cranelift_isle9serialize5Score6update17h0d1baf10ec1c31a6E.exit: ; preds = %12, %18
-  %.0.i = phi i1 [ %27, %18 ], [ false, %12 ]
+_ZN14cranelift_isle9serialize5Score6update17h0d1baf10ec1c31a6E.exit: ; preds = %15, %21
+  %.0.i = phi i1 [ %30, %21 ], [ false, %15 ]
   ret i1 %.0.i
 
-28:                                               ; preds = %5
-  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 %8, i64 %10, ptr nonnull align 8 @anon.fd7e60ab9a15ebc6f18dcc2034e4fa44.21) #10
+31:                                               ; preds = %7
+  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 %11, i64 %13, ptr nonnull align 8 @anon.fd7e60ab9a15ebc6f18dcc2034e4fa44.21) #10
   unreachable
 }
 
