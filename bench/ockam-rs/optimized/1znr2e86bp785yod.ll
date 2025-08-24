@@ -1271,17 +1271,17 @@ define void @"_ZN76_$LT$ockam_multiaddr..proto..Worker$u20$as$u20$ockam_multiadd
   store i8 -2, ptr %5, align 1, !alias.scope !186
   br label %11
 
-"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4eb33846a9975b45E.exit.thread.i": ; preds = %11
+6:                                                ; preds = %11
   %.sroa.0.0.ptr19.i.le = getelementptr inbounds nuw i8, ptr %5, i64 2
   store i8 6, ptr %.sroa.0.0.ptr19.i.le, align 1, !alias.scope !186
-  %6 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %7 = load ptr, ptr %6, align 8, !invariant.load !33, !nonnull !33
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %12 = load ptr, ptr %11, align 8, !invariant.load !33, !nonnull !33
   call void %7(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 1 %5, i64 noundef 3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %4, i8 0, i64 10, i1 false)
-  %8 = load ptr, ptr %0, align 8, !alias.scope !189, !noundef !33
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %10 = load ptr, ptr %9, align 8, !alias.scope !189, !nonnull !33, !align !36
+  %13 = load ptr, ptr %0, align 8, !alias.scope !189, !noundef !33
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %15 = load ptr, ptr %14, align 8, !alias.scope !189, !nonnull !33, !align !36
   %.pn1.in.i = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.pn1.i = load i64, ptr %.pn1.in.i, align 8, !alias.scope !189, !noundef !33
   call void @llvm.experimental.noalias.scope.decl(metadata !192)
@@ -1303,7 +1303,7 @@ define void @"_ZN76_$LT$ockam_multiaddr..proto..Worker$u20$as$u20$ockam_multiadd
   %.sroa.0.0.ptr19.i3.le = getelementptr inbounds nuw i8, ptr %4, i64 %.0717.i2
   store i8 %19, ptr %.sroa.0.0.ptr19.i3.le, align 1, !alias.scope !192
   %16 = add nuw i64 %.0717.i2, 1
-  %17 = icmp eq ptr %8, null
+  %.not.i.i7 = icmp eq ptr %13, null
   %.pn3.i = select i1 %17, ptr %10, ptr %8
   call void %7(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 1 %4, i64 noundef %16)
   call void %7(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 1 %.pn3.i, i64 noundef %.pn1.i)
@@ -1315,7 +1315,7 @@ define void @"_ZN76_$LT$ockam_multiaddr..proto..Worker$u20$as$u20$ockam_multiadd
   call void @_ZN4core5slice5index24slice_end_index_len_fail17hea09f7e31bfd8b3bE(i64 noundef range(i64 1, 0) 11, i64 noundef range(i64 5, 11) 10, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.3459e9c811a6d28c77b5d7b0f168ab32.2) #17, !noalias !195
   unreachable
 
-18:                                               ; preds = %22, %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4eb33846a9975b45E.exit.thread.i"
+18:                                               ; preds = %22, %11
   %.018.i1 = phi i64 [ %.pn1.i, %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4eb33846a9975b45E.exit.thread.i" ], [ %24, %22 ]
   %.0717.i2 = phi i64 [ 0, %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4eb33846a9975b45E.exit.thread.i" ], [ %23, %22 ]
   %.sroa.0.0.ptr19.i3 = getelementptr inbounds nuw i8, ptr %4, i64 %.0717.i2
@@ -1515,7 +1515,7 @@ define void @"_ZN77_$LT$ockam_multiaddr..proto..DnsAddr$u20$as$u20$ockam_multiad
   %.sroa.0.0.ptr19.i3.le = getelementptr inbounds nuw i8, ptr %3, i64 %.0717.i2
   store i8 %14, ptr %.sroa.0.0.ptr19.i3.le, align 1, !alias.scope !234
   %11 = add nuw i64 %.0717.i2, 1
-  %12 = icmp eq ptr %8, null
+  %.not.i.i7 = icmp eq ptr %13, null
   %.pn3.i = select i1 %12, ptr %10, ptr %8
   call void %7(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %11)
   call void %7(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 1 %.pn3.i, i64 noundef %.pn1.i)
@@ -1710,17 +1710,17 @@ define void @"_ZN77_$LT$ockam_multiaddr..proto..Service$u20$as$u20$ockam_multiad
   store i8 -66, ptr %5, align 1, !alias.scope !270
   br label %11
 
-"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4eb33846a9975b45E.exit.thread.i": ; preds = %11
+6:                                                ; preds = %11
   %.sroa.0.0.ptr19.i.le = getelementptr inbounds nuw i8, ptr %5, i64 2
   store i8 3, ptr %.sroa.0.0.ptr19.i.le, align 1, !alias.scope !270
-  %6 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %7 = load ptr, ptr %6, align 8, !invariant.load !33, !nonnull !33
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %12 = load ptr, ptr %11, align 8, !invariant.load !33, !nonnull !33
   call void %7(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 1 %5, i64 noundef 3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %4, i8 0, i64 10, i1 false)
-  %8 = load ptr, ptr %0, align 8, !alias.scope !273, !noundef !33
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %10 = load ptr, ptr %9, align 8, !alias.scope !273, !nonnull !33, !align !36
+  %13 = load ptr, ptr %0, align 8, !alias.scope !273, !noundef !33
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %15 = load ptr, ptr %14, align 8, !alias.scope !273, !nonnull !33, !align !36
   %.pn1.in.i = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.pn1.i = load i64, ptr %.pn1.in.i, align 8, !alias.scope !273, !noundef !33
   call void @llvm.experimental.noalias.scope.decl(metadata !276)
@@ -1742,7 +1742,7 @@ define void @"_ZN77_$LT$ockam_multiaddr..proto..Service$u20$as$u20$ockam_multiad
   %.sroa.0.0.ptr19.i3.le = getelementptr inbounds nuw i8, ptr %4, i64 %.0717.i2
   store i8 %19, ptr %.sroa.0.0.ptr19.i3.le, align 1, !alias.scope !276
   %16 = add nuw i64 %.0717.i2, 1
-  %17 = icmp eq ptr %8, null
+  %.not.i.i7 = icmp eq ptr %13, null
   %.pn3.i = select i1 %17, ptr %10, ptr %8
   call void %7(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 1 %4, i64 noundef %16)
   call void %7(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 1 %.pn3.i, i64 noundef %.pn1.i)
@@ -1754,7 +1754,7 @@ define void @"_ZN77_$LT$ockam_multiaddr..proto..Service$u20$as$u20$ockam_multiad
   call void @_ZN4core5slice5index24slice_end_index_len_fail17hea09f7e31bfd8b3bE(i64 noundef range(i64 1, 0) 11, i64 noundef range(i64 5, 11) 10, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.3459e9c811a6d28c77b5d7b0f168ab32.2) #17, !noalias !279
   unreachable
 
-18:                                               ; preds = %22, %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4eb33846a9975b45E.exit.thread.i"
+18:                                               ; preds = %22, %11
   %.018.i1 = phi i64 [ %.pn1.i, %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4eb33846a9975b45E.exit.thread.i" ], [ %24, %22 ]
   %.0717.i2 = phi i64 [ 0, %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4eb33846a9975b45E.exit.thread.i" ], [ %23, %22 ]
   %.sroa.0.0.ptr19.i3 = getelementptr inbounds nuw i8, ptr %4, i64 %.0717.i2
@@ -1937,17 +1937,17 @@ define void @"_ZN74_$LT$ockam_multiaddr..proto..Node$u20$as$u20$ockam_multiaddr.
   store i8 -50, ptr %5, align 1, !alias.scope !312
   br label %11
 
-"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4eb33846a9975b45E.exit.thread.i": ; preds = %11
+6:                                                ; preds = %11
   %.sroa.0.0.ptr19.i.le = getelementptr inbounds nuw i8, ptr %5, i64 2
   store i8 4, ptr %.sroa.0.0.ptr19.i.le, align 1, !alias.scope !312
-  %6 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %7 = load ptr, ptr %6, align 8, !invariant.load !33, !nonnull !33
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %12 = load ptr, ptr %11, align 8, !invariant.load !33, !nonnull !33
   call void %7(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 1 %5, i64 noundef 3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %4, i8 0, i64 10, i1 false)
-  %8 = load ptr, ptr %0, align 8, !alias.scope !315, !noundef !33
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %10 = load ptr, ptr %9, align 8, !alias.scope !315, !nonnull !33, !align !36
+  %13 = load ptr, ptr %0, align 8, !alias.scope !315, !noundef !33
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %15 = load ptr, ptr %14, align 8, !alias.scope !315, !nonnull !33, !align !36
   %.pn1.in.i = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.pn1.i = load i64, ptr %.pn1.in.i, align 8, !alias.scope !315, !noundef !33
   call void @llvm.experimental.noalias.scope.decl(metadata !318)
@@ -1969,7 +1969,7 @@ define void @"_ZN74_$LT$ockam_multiaddr..proto..Node$u20$as$u20$ockam_multiaddr.
   %.sroa.0.0.ptr19.i3.le = getelementptr inbounds nuw i8, ptr %4, i64 %.0717.i2
   store i8 %19, ptr %.sroa.0.0.ptr19.i3.le, align 1, !alias.scope !318
   %16 = add nuw i64 %.0717.i2, 1
-  %17 = icmp eq ptr %8, null
+  %.not.i.i7 = icmp eq ptr %13, null
   %.pn3.i = select i1 %17, ptr %10, ptr %8
   call void %7(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 1 %4, i64 noundef %16)
   call void %7(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 1 %.pn3.i, i64 noundef %.pn1.i)
@@ -1981,7 +1981,7 @@ define void @"_ZN74_$LT$ockam_multiaddr..proto..Node$u20$as$u20$ockam_multiaddr.
   call void @_ZN4core5slice5index24slice_end_index_len_fail17hea09f7e31bfd8b3bE(i64 noundef range(i64 1, 0) 11, i64 noundef range(i64 5, 11) 10, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.3459e9c811a6d28c77b5d7b0f168ab32.2) #17, !noalias !321
   unreachable
 
-18:                                               ; preds = %22, %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4eb33846a9975b45E.exit.thread.i"
+18:                                               ; preds = %22, %11
   %.018.i1 = phi i64 [ %.pn1.i, %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4eb33846a9975b45E.exit.thread.i" ], [ %24, %22 ]
   %.0717.i2 = phi i64 [ 0, %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4eb33846a9975b45E.exit.thread.i" ], [ %23, %22 ]
   %.sroa.0.0.ptr19.i3 = getelementptr inbounds nuw i8, ptr %4, i64 %.0717.i2
@@ -2164,17 +2164,17 @@ define void @"_ZN77_$LT$ockam_multiaddr..proto..Project$u20$as$u20$ockam_multiad
   store i8 -34, ptr %5, align 1, !alias.scope !354
   br label %11
 
-"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4eb33846a9975b45E.exit.thread.i": ; preds = %11
+6:                                                ; preds = %11
   %.sroa.0.0.ptr19.i.le = getelementptr inbounds nuw i8, ptr %5, i64 2
   store i8 5, ptr %.sroa.0.0.ptr19.i.le, align 1, !alias.scope !354
-  %6 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %7 = load ptr, ptr %6, align 8, !invariant.load !33, !nonnull !33
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %12 = load ptr, ptr %11, align 8, !invariant.load !33, !nonnull !33
   call void %7(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 1 %5, i64 noundef 3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %4, i8 0, i64 10, i1 false)
-  %8 = load ptr, ptr %0, align 8, !alias.scope !357, !noundef !33
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %10 = load ptr, ptr %9, align 8, !alias.scope !357, !nonnull !33, !align !36
+  %13 = load ptr, ptr %0, align 8, !alias.scope !357, !noundef !33
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %15 = load ptr, ptr %14, align 8, !alias.scope !357, !nonnull !33, !align !36
   %.pn1.in.i = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.pn1.i = load i64, ptr %.pn1.in.i, align 8, !alias.scope !357, !noundef !33
   call void @llvm.experimental.noalias.scope.decl(metadata !360)
@@ -2196,7 +2196,7 @@ define void @"_ZN77_$LT$ockam_multiaddr..proto..Project$u20$as$u20$ockam_multiad
   %.sroa.0.0.ptr19.i3.le = getelementptr inbounds nuw i8, ptr %4, i64 %.0717.i2
   store i8 %19, ptr %.sroa.0.0.ptr19.i3.le, align 1, !alias.scope !360
   %16 = add nuw i64 %.0717.i2, 1
-  %17 = icmp eq ptr %8, null
+  %.not.i.i7 = icmp eq ptr %13, null
   %.pn3.i = select i1 %17, ptr %10, ptr %8
   call void %7(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 1 %4, i64 noundef %16)
   call void %7(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 1 %.pn3.i, i64 noundef %.pn1.i)
@@ -2208,7 +2208,7 @@ define void @"_ZN77_$LT$ockam_multiaddr..proto..Project$u20$as$u20$ockam_multiad
   call void @_ZN4core5slice5index24slice_end_index_len_fail17hea09f7e31bfd8b3bE(i64 noundef range(i64 1, 0) 11, i64 noundef range(i64 5, 11) 10, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.3459e9c811a6d28c77b5d7b0f168ab32.2) #17, !noalias !363
   unreachable
 
-18:                                               ; preds = %22, %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4eb33846a9975b45E.exit.thread.i"
+18:                                               ; preds = %22, %11
   %.018.i1 = phi i64 [ %.pn1.i, %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4eb33846a9975b45E.exit.thread.i" ], [ %24, %22 ]
   %.0717.i2 = phi i64 [ 0, %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4eb33846a9975b45E.exit.thread.i" ], [ %23, %22 ]
   %.sroa.0.0.ptr19.i3 = getelementptr inbounds nuw i8, ptr %4, i64 %.0717.i2
@@ -2391,17 +2391,17 @@ define void @"_ZN75_$LT$ockam_multiaddr..proto..Space$u20$as$u20$ockam_multiaddr
   store i8 -18, ptr %5, align 1, !alias.scope !396
   br label %11
 
-"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4eb33846a9975b45E.exit.thread.i": ; preds = %11
+6:                                                ; preds = %11
   %.sroa.0.0.ptr19.i.le = getelementptr inbounds nuw i8, ptr %5, i64 2
   store i8 5, ptr %.sroa.0.0.ptr19.i.le, align 1, !alias.scope !396
-  %6 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %7 = load ptr, ptr %6, align 8, !invariant.load !33, !nonnull !33
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %12 = load ptr, ptr %11, align 8, !invariant.load !33, !nonnull !33
   call void %7(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 1 %5, i64 noundef 3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %4, i8 0, i64 10, i1 false)
-  %8 = load ptr, ptr %0, align 8, !alias.scope !399, !noundef !33
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %10 = load ptr, ptr %9, align 8, !alias.scope !399, !nonnull !33, !align !36
+  %13 = load ptr, ptr %0, align 8, !alias.scope !399, !noundef !33
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %15 = load ptr, ptr %14, align 8, !alias.scope !399, !nonnull !33, !align !36
   %.pn1.in.i = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.pn1.i = load i64, ptr %.pn1.in.i, align 8, !alias.scope !399, !noundef !33
   call void @llvm.experimental.noalias.scope.decl(metadata !402)
@@ -2423,7 +2423,7 @@ define void @"_ZN75_$LT$ockam_multiaddr..proto..Space$u20$as$u20$ockam_multiaddr
   %.sroa.0.0.ptr19.i3.le = getelementptr inbounds nuw i8, ptr %4, i64 %.0717.i2
   store i8 %19, ptr %.sroa.0.0.ptr19.i3.le, align 1, !alias.scope !402
   %16 = add nuw i64 %.0717.i2, 1
-  %17 = icmp eq ptr %8, null
+  %.not.i.i7 = icmp eq ptr %13, null
   %.pn3.i = select i1 %17, ptr %10, ptr %8
   call void %7(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 1 %4, i64 noundef %16)
   call void %7(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 1 %.pn3.i, i64 noundef %.pn1.i)
@@ -2435,7 +2435,7 @@ define void @"_ZN75_$LT$ockam_multiaddr..proto..Space$u20$as$u20$ockam_multiaddr
   call void @_ZN4core5slice5index24slice_end_index_len_fail17hea09f7e31bfd8b3bE(i64 noundef range(i64 1, 0) 11, i64 noundef range(i64 5, 11) 10, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.3459e9c811a6d28c77b5d7b0f168ab32.2) #17, !noalias !405
   unreachable
 
-18:                                               ; preds = %22, %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4eb33846a9975b45E.exit.thread.i"
+18:                                               ; preds = %22, %11
   %.018.i1 = phi i64 [ %.pn1.i, %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4eb33846a9975b45E.exit.thread.i" ], [ %24, %22 ]
   %.0717.i2 = phi i64 [ 0, %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4eb33846a9975b45E.exit.thread.i" ], [ %23, %22 ]
   %.sroa.0.0.ptr19.i3 = getelementptr inbounds nuw i8, ptr %4, i64 %.0717.i2
@@ -2618,17 +2618,17 @@ define void @"_ZN76_$LT$ockam_multiaddr..proto..Secure$u20$as$u20$ockam_multiadd
   store i8 -58, ptr %5, align 1, !alias.scope !438
   br label %11
 
-"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4eb33846a9975b45E.exit.thread.i": ; preds = %11
+6:                                                ; preds = %11
   %.sroa.0.0.ptr19.i.le = getelementptr inbounds nuw i8, ptr %5, i64 2
   store i8 6, ptr %.sroa.0.0.ptr19.i.le, align 1, !alias.scope !438
-  %6 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %7 = load ptr, ptr %6, align 8, !invariant.load !33, !nonnull !33
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %12 = load ptr, ptr %11, align 8, !invariant.load !33, !nonnull !33
   call void %7(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 1 %5, i64 noundef 3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %4, i8 0, i64 10, i1 false)
-  %8 = load ptr, ptr %0, align 8, !alias.scope !441, !noundef !33
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %10 = load ptr, ptr %9, align 8, !alias.scope !441, !nonnull !33, !align !36
+  %13 = load ptr, ptr %0, align 8, !alias.scope !441, !noundef !33
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %15 = load ptr, ptr %14, align 8, !alias.scope !441, !nonnull !33, !align !36
   %.pn1.in.i = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.pn1.i = load i64, ptr %.pn1.in.i, align 8, !alias.scope !441, !noundef !33
   call void @llvm.experimental.noalias.scope.decl(metadata !444)
@@ -2650,7 +2650,7 @@ define void @"_ZN76_$LT$ockam_multiaddr..proto..Secure$u20$as$u20$ockam_multiadd
   %.sroa.0.0.ptr19.i3.le = getelementptr inbounds nuw i8, ptr %4, i64 %.0717.i2
   store i8 %19, ptr %.sroa.0.0.ptr19.i3.le, align 1, !alias.scope !444
   %16 = add nuw i64 %.0717.i2, 1
-  %17 = icmp eq ptr %8, null
+  %.not.i.i7 = icmp eq ptr %13, null
   %.pn3.i = select i1 %17, ptr %10, ptr %8
   call void %7(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 1 %4, i64 noundef %16)
   call void %7(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 1 %.pn3.i, i64 noundef %.pn1.i)
@@ -2662,7 +2662,7 @@ define void @"_ZN76_$LT$ockam_multiaddr..proto..Secure$u20$as$u20$ockam_multiadd
   call void @_ZN4core5slice5index24slice_end_index_len_fail17hea09f7e31bfd8b3bE(i64 noundef range(i64 1, 0) 11, i64 noundef range(i64 5, 11) 10, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.3459e9c811a6d28c77b5d7b0f168ab32.2) #17, !noalias !447
   unreachable
 
-18:                                               ; preds = %22, %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4eb33846a9975b45E.exit.thread.i"
+18:                                               ; preds = %22, %11
   %.018.i1 = phi i64 [ %.pn1.i, %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4eb33846a9975b45E.exit.thread.i" ], [ %24, %22 ]
   %.0717.i2 = phi i64 [ 0, %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4eb33846a9975b45E.exit.thread.i" ], [ %23, %22 ]
   %.sroa.0.0.ptr19.i3 = getelementptr inbounds nuw i8, ptr %4, i64 %.0717.i2

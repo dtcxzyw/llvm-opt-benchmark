@@ -844,7 +844,7 @@ define dso_local noundef i32 @_ZN5clang6driver5types26lookupTypeForTypeSpecifier
   %21 = icmp samesign ugt i64 %.047.i.i.i.i.i, 1
   br i1 %21, label %3, label %_ZN5clang6driver5types22canTypeBeUserSpecifiedENS1_2IDE.exit.thread15.loopexit, !llvm.loop !16
 
-_ZN5clang6driver5types22canTypeBeUserSpecifiedENS1_2IDE.exit.thread15.loopexit: ; preds = %19
+_ZN5clang6driver5types22canTypeBeUserSpecifiedENS1_2IDE.exit: ; preds = %19
   %22 = getelementptr inbounds nuw [67 x %struct.TypeInfo], ptr @_ZL9TypeInfos, i64 0, i64 %indvars.iv
   %23 = load ptr, ptr %22, align 8, !tbaa !3
   %24 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %23) #8
@@ -863,8 +863,8 @@ sub_0:                                            ; preds = %_ZN5clang6driver5ty
 sub_1:                                            ; preds = %sub_0
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %28 = load i8, ptr %27, align 1
-  %.not26 = icmp eq i8 %28, 117
-  br i1 %.not26, label %sub_2, label %.loopexit
+  %.not28 = icmp eq i8 %28, 117
+  br i1 %.not28, label %sub_2, label %.loopexit
 
 sub_2:                                            ; preds = %sub_1
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 2
