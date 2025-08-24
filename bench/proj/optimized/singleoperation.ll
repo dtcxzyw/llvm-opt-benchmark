@@ -16532,8 +16532,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   br i1 %40, label %.loopexit, label %.critedge.preheader.split.us
 
 .critedge.preheader.split.us:                     ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %.critedge41.us
-  %.037.idx50.us = phi i64 [ %.037.add.us, %.critedge41.us ], [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
-  %.037.ptr51.us = getelementptr inbounds nuw i8, ptr @_ZZN5osgeo4proj9operation14Transformation36isGeographic3DToGravityRelatedHeightERKN7dropbox6oxygen2nnISt10shared_ptrINS1_15OperationMethodEEEEbE11methodCodes, i64 %.037.idx50.us
+  %.037.idx53.us = phi i64 [ %.037.add.us, %.critedge41.us ], [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
+  %.037.ptr54.us = getelementptr inbounds nuw i8, ptr @_ZZN5osgeo4proj9operation14Transformation36isGeographic3DToGravityRelatedHeightERKN7dropbox6oxygen2nnISt10shared_ptrINS1_15OperationMethodEEEEbE11methodCodes, i64 %.037.idx53.us
   %47 = load ptr, ptr %0, align 8, !tbaa !216
   %48 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK5osgeo4proj6common16IdentifiedObject11identifiersEv(ptr noundef nonnull align 8 dereferenceable(40) %47) #51
   %49 = load ptr, ptr %48, align 8, !tbaa !247
@@ -16543,7 +16543,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   br i1 %.not4548.us, label %.critedge41.us, label %.lr.ph.us
 
 .critedge41.us:                                   ; preds = %.critedge39.us.us, %.critedge.preheader.split.us
-  %.037.add.us = add nuw nsw i64 %.037.idx50.us, 8
+  %.037.add.us = add nuw nsw i64 %.037.idx53.us, 8
   %.not.us.not = icmp eq i64 %.037.add.us, 336
   br i1 %.not.us.not, label %.loopexit, label %.critedge.preheader.split.us
 
@@ -16557,7 +16557,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   br i1 %56, label %57, label %61
 
 57:                                               ; preds = %.lr.ph.us
-  %58 = load ptr, ptr %.037.ptr51.us, align 8, !tbaa !399
+  %58 = load ptr, ptr %.037.ptr54.us, align 8, !tbaa !399
   %59 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %55, ptr noundef %58) #46
   %60 = icmp eq i32 %59, 0
   br i1 %60, label %.loopexit, label %61
@@ -16567,7 +16567,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   br i1 %62, label %63, label %.critedge39.us.us
 
 63:                                               ; preds = %61
-  %64 = load ptr, ptr %.037.ptr51.us, align 8, !tbaa !399
+  %64 = load ptr, ptr %.037.ptr54.us, align 8, !tbaa !399
   %65 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %55, ptr noundef %64) #46
   %66 = icmp eq i32 %65, 0
   br i1 %66, label %.loopexit, label %.critedge39.us.us
@@ -16578,8 +16578,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   br i1 %.not45.us.us, label %.critedge41.us, label %.lr.ph.us
 
 .critedge.preheader.split:                        ; preds = %9, %.critedge41
-  %.037.idx50 = phi i64 [ %.037.add, %.critedge41 ], [ 0, %9 ]
-  %.037.ptr51 = getelementptr inbounds nuw i8, ptr @_ZZN5osgeo4proj9operation14Transformation36isGeographic3DToGravityRelatedHeightERKN7dropbox6oxygen2nnISt10shared_ptrINS1_15OperationMethodEEEEbE11methodCodes, i64 %.037.idx50
+  %.037.idx53 = phi i64 [ %.037.add, %.critedge41 ], [ 0, %9 ]
+  %.037.ptr54 = getelementptr inbounds nuw i8, ptr @_ZZN5osgeo4proj9operation14Transformation36isGeographic3DToGravityRelatedHeightERKN7dropbox6oxygen2nnISt10shared_ptrINS1_15OperationMethodEEEEbE11methodCodes, i64 %.037.idx53
   %68 = load ptr, ptr %0, align 8, !tbaa !216
   %69 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK5osgeo4proj6common16IdentifiedObject11identifiersEv(ptr noundef nonnull align 8 dereferenceable(40) %68) #51
   %70 = load ptr, ptr %69, align 8, !tbaa !247
@@ -16598,7 +16598,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   br i1 %77, label %78, label %.critedge39
 
 78:                                               ; preds = %.lr.ph
-  %79 = load ptr, ptr %.037.ptr51, align 8, !tbaa !399
+  %79 = load ptr, ptr %.037.ptr54, align 8, !tbaa !399
   %80 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %76, ptr noundef %79) #46
   %81 = icmp eq i32 %80, 0
   br i1 %81, label %.loopexit, label %.critedge39
@@ -16609,7 +16609,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   br i1 %.not45, label %.critedge41, label %.lr.ph
 
 .critedge41:                                      ; preds = %.critedge39, %.critedge.preheader.split
-  %.037.add = add nuw nsw i64 %.037.idx50, 8
+  %.037.add = add nuw nsw i64 %.037.idx53, 8
   %.not.not = icmp eq i64 %.037.add, 336
   br i1 %.not.not, label %.loopexit, label %.critedge.preheader.split
 
