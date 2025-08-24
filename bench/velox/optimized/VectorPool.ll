@@ -335,7 +335,9 @@ land.lhs.true.i:                                  ; preds = %init.end.i
   %arrayidx.i.i = getelementptr inbounds [11 x ptr], ptr @_ZZN8facebook5velox12_GLOBAL__N_112toCacheIndexERKSt10shared_ptrIKNS0_4TypeEEE15kSupportedTypes, i64 0, i64 %conv.i
   %15 = load ptr, ptr %arrayidx.i.i, align 8
   %cmp55.i = icmp eq ptr %15, %13
-  br i1 %cmp55.i, label %_ZN8facebook5velox12_GLOBAL__N_112toCacheIndexERKSt10shared_ptrIKNS0_4TypeEE.exit, label %if.end
+  %cmp2 = icmp slt i32 %size, 65537
+  %or.cond24 = and i1 %cmp55.i, %cmp2
+  br i1 %or.cond24, label %if.then, label %if.end
 
 lpad.i:                                           ; preds = %init.i
   %16 = landingpad { ptr, i32 }
@@ -443,20 +445,14 @@ ehcleanup49.i:                                    ; preds = %ehcleanup48.i, %lpa
   call void @__cxa_guard_abort(ptr nonnull @_ZGVZN8facebook5velox12_GLOBAL__N_112toCacheIndexERKSt10shared_ptrIKNS0_4TypeEEE15kSupportedTypes) #18
   resume { ptr, i32 } %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn
 
-_ZN8facebook5velox12_GLOBAL__N_112toCacheIndexERKSt10shared_ptrIKNS0_4TypeEE.exit: ; preds = %land.lhs.true.i
-  %cmp = icmp sgt i8 %14, -1
-  %cmp2 = icmp slt i32 %size, 65537
-  %or.cond = and i1 %cmp2, %cmp
-  br i1 %or.cond, label %if.then, label %if.end
-
-if.then:                                          ; preds = %_ZN8facebook5velox12_GLOBAL__N_112toCacheIndexERKSt10shared_ptrIKNS0_4TypeEE.exit
+if.then:                                          ; preds = %land.lhs.true.i
   %vectors_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %arrayidx.i.i19 = getelementptr inbounds nuw [11 x %"struct.facebook::velox::VectorPool::TypePool"], ptr %vectors_, i64 0, i64 %conv.i
   %27 = load ptr, ptr %this, align 8
   call void @_ZN8facebook5velox10VectorPool8TypePool3popERKSt10shared_ptrIKNS0_4TypeEEiRNS0_6memory10MemoryPoolE(ptr sret(%"class.std::shared_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(168) %arrayidx.i.i19, ptr noundef nonnull align 8 dereferenceable(16) %type, i32 noundef %size, ptr noundef nonnull align 8 dereferenceable(168) %27)
   br label %return
 
-if.end:                                           ; preds = %land.lhs.true.i, %init.end.i, %_ZN8facebook5velox12_GLOBAL__N_112toCacheIndexERKSt10shared_ptrIKNS0_4TypeEE.exit
+if.end:                                           ; preds = %land.lhs.true.i, %init.end.i
   %28 = load ptr, ptr %this, align 8
   call void @_ZN8facebook5velox10BaseVector6createIS1_EESt10shared_ptrIT_ERKS3_IKNS0_4TypeEEiPNS0_6memory10MemoryPoolE(ptr sret(%"class.std::shared_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %type, i32 noundef %size, ptr noundef %28)
   br label %return
@@ -959,10 +955,8 @@ init.end.i:                                       ; preds = %invoke.cont38.i, %i
 land.lhs.true.i:                                  ; preds = %init.end.i
   %arrayidx.i.i = getelementptr inbounds [11 x ptr], ptr @_ZZN8facebook5velox12_GLOBAL__N_112toCacheIndexERKSt10shared_ptrIKNS0_4TypeEEE15kSupportedTypes, i64 0, i64 %conv.i
   %20 = load ptr, ptr %arrayidx.i.i, align 8
-  %cmp55.i = icmp ne ptr %20, %18
-  %cmp10 = icmp slt i8 %19, 0
-  %or.cond = or i1 %cmp10, %cmp55.i
-  br i1 %or.cond, label %return, label %if.end12
+  %cmp55.i.not = icmp eq ptr %20, %18
+  br i1 %cmp55.i.not, label %if.end12, label %return
 
 lpad.i:                                           ; preds = %init.i
   %21 = landingpad { ptr, i32 }
