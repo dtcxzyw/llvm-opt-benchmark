@@ -53816,7 +53816,7 @@ define hidden { i64, i64 } @_ZN13polars_stream5nodes3zip9InputHead7min_len17h287
   %3 = load i8, ptr %2, align 1, !range !298, !noundef !6
   %.off = add nsw i8 %3, -1
   %switch = icmp ult i8 %.off, 2
-  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i10, ptr %0, i64 24
   %5 = load i64, ptr %4, align 8
   %.not.i = icmp eq i64 %5, 0
   %or.cond = select i1 %switch, i1 true, i1 %.not.i
@@ -53824,23 +53824,23 @@ define hidden { i64, i64 } @_ZN13polars_stream5nodes3zip9InputHead7min_len17h287
 
 "_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$3get17hc8435c9f703f49abE.exit.thread": ; preds = %1, %8
   %.sroa.4.0 = phi i64 [ undef, %1 ], [ %17, %8 ]
-  %.sroa.0.0 = phi i64 [ 0, %1 ], [ 1, %8 ]
+  %.sroa.4.0 = phi i64 [ 0, %1 ], [ 1, %8 ]
   %6 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
-  %7 = insertvalue { i64, i64 } %6, i64 %.sroa.4.0, 1
-  ret { i64, i64 } %7
+  %8 = insertvalue { i64, i64 } %6, i64 %.sroa.4.0, 1
+  ret { i64, i64 } %8
 
-8:                                                ; preds = %1
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %10 = load i64, ptr %9, align 8, !alias.scope !4923, !noundef !6
-  %11 = load i64, ptr %0, align 8, !range !554, !alias.scope !4923, !noundef !6
-  %.not6.i = icmp ult i64 %10, %11
-  %12 = select i1 %.not6.i, i64 0, i64 %11
-  %.sroa.01.0.i = sub nuw i64 %10, %12
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %14 = load ptr, ptr %13, align 8, !alias.scope !4923, !nonnull !6, !noundef !6
-  %15 = getelementptr inbounds nuw { { { { { i64, ptr, {} }, {} }, i64 }, i64, { ptr, { { { i32 } } }, {}, [4 x i8] } }, ptr, i64, ptr }, ptr %14, i64 %.sroa.01.0.i
-  %16 = tail call noundef nonnull align 8 ptr @_ZN13polars_stream6morsel6Morsel2df17h2a126e55b6e23644E(ptr noundef nonnull align 8 %15)
-  %17 = tail call noundef i64 @_ZN11polars_core5frame9DataFrame6height17hb146d7c7557ed981E(ptr noundef nonnull align 8 %16)
+10:                                               ; preds = %1
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %12 = load i64, ptr %11, align 8, !alias.scope !4923, !noundef !6
+  %13 = load i64, ptr %0, align 8, !range !554, !alias.scope !4923, !noundef !6
+  %.not6.i = icmp ult i64 %12, %13
+  %14 = select i1 %.not6.i, i64 0, i64 %13
+  %.sroa.01.0.i = sub nuw i64 %12, %14
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %16 = load ptr, ptr %15, align 8, !alias.scope !4923, !nonnull !6, !noundef !6
+  %17 = getelementptr inbounds nuw { { { { { i64, ptr, {} }, {} }, i64 }, i64, { ptr, { { { i32 } } }, {}, [4 x i8] } }, ptr, i64, ptr }, ptr %16, i64 %.sroa.01.0.i
+  %18 = tail call noundef nonnull align 8 ptr @_ZN13polars_stream6morsel6Morsel2df17h2a126e55b6e23644E(ptr noundef nonnull align 8 %17)
+  %19 = tail call noundef i64 @_ZN11polars_core5frame9DataFrame6height17hb146d7c7557ed981E(ptr noundef nonnull align 8 %18)
   br label %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$3get17hc8435c9f703f49abE.exit.thread"
 }
 

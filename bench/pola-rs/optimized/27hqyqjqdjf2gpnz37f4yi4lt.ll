@@ -50037,37 +50037,37 @@ define hidden void @"_ZN4core3ptr238drop_in_place$LT$tokio..sync..mpsc..chan..Ch
   br i1 %switch5.i.i, label %"_ZN84_$LT$tokio..sync..mpsc..chan..Chan$LT$T$C$S$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop28_$u7b$$u7b$closure$u7d$$u7d$17h291052f8a547a8d8E.exit.i", label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.noexc
-  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  br label %6
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  br label %7
 
-6:                                                ; preds = %.noexc5, %.lr.ph.i.i
+7:                                                ; preds = %.noexc5, %.lr.ph.i.i
   call void @llvm.experimental.noalias.scope.decl(metadata !9215)
   call void @llvm.experimental.noalias.scope.decl(metadata !9218)
   call void @llvm.experimental.noalias.scope.decl(metadata !9221)
   call void @llvm.experimental.noalias.scope.decl(metadata !9224)
-  %7 = load ptr, ptr %5, align 8, !alias.scope !9227, !noalias !9212, !noundef !3
-  %8 = icmp eq ptr %7, null
-  br i1 %8, label %"_ZN4core3ptr227drop_in_place$LT$core..option..Option$LT$tokio..sync..mpsc..block..Read$LT$polars_stream..async_executor..task..JoinHandle$LT$core..result..Result$LT$polars_core..frame..DataFrame$C$polars_error..PolarsError$GT$$GT$$GT$$GT$$GT$17hfabb588353703ef5E.exit3.i.i", label %9
+  %8 = load ptr, ptr %6, align 8, !alias.scope !9227, !noalias !9212, !noundef !3
+  %9 = icmp eq ptr %8, null
+  br i1 %9, label %"_ZN4core3ptr227drop_in_place$LT$core..option..Option$LT$tokio..sync..mpsc..block..Read$LT$polars_stream..async_executor..task..JoinHandle$LT$core..result..Result$LT$polars_core..frame..DataFrame$C$polars_error..PolarsError$GT$$GT$$GT$$GT$$GT$17hfabb588353703ef5E.exit3.i.i", label %10
 
-9:                                                ; preds = %6
-  %10 = atomicrmw sub ptr %7, i64 1 release, align 8, !noalias !9228
-  %11 = icmp eq i64 %10, 1
-  br i1 %11, label %12, label %"_ZN4core3ptr227drop_in_place$LT$core..option..Option$LT$tokio..sync..mpsc..block..Read$LT$polars_stream..async_executor..task..JoinHandle$LT$core..result..Result$LT$polars_core..frame..DataFrame$C$polars_error..PolarsError$GT$$GT$$GT$$GT$$GT$17hfabb588353703ef5E.exit3.i.i"
+10:                                               ; preds = %7
+  %11 = atomicrmw sub ptr %8, i64 1 release, align 8, !noalias !9228
+  %12 = icmp eq i64 %11, 1
+  br i1 %12, label %13, label %"_ZN4core3ptr227drop_in_place$LT$core..option..Option$LT$tokio..sync..mpsc..block..Read$LT$polars_stream..async_executor..task..JoinHandle$LT$core..result..Result$LT$polars_core..frame..DataFrame$C$polars_error..PolarsError$GT$$GT$$GT$$GT$$GT$17hfabb588353703ef5E.exit3.i.i"
 
-12:                                               ; preds = %9
+13:                                               ; preds = %10
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h0b54631631f16f0aE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %5)
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h0b54631631f16f0aE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %6)
           to label %"_ZN4core3ptr227drop_in_place$LT$core..option..Option$LT$tokio..sync..mpsc..block..Read$LT$polars_stream..async_executor..task..JoinHandle$LT$core..result..Result$LT$polars_core..frame..DataFrame$C$polars_error..PolarsError$GT$$GT$$GT$$GT$$GT$17hfabb588353703ef5E.exit3.i.i" unwind label %.loopexit
 
-"_ZN4core3ptr227drop_in_place$LT$core..option..Option$LT$tokio..sync..mpsc..block..Read$LT$polars_stream..async_executor..task..JoinHandle$LT$core..result..Result$LT$polars_core..frame..DataFrame$C$polars_error..PolarsError$GT$$GT$$GT$$GT$$GT$17hfabb588353703ef5E.exit3.i.i": ; preds = %12, %9, %6
+"_ZN4core3ptr227drop_in_place$LT$core..option..Option$LT$tokio..sync..mpsc..block..Read$LT$polars_stream..async_executor..task..JoinHandle$LT$core..result..Result$LT$polars_core..frame..DataFrame$C$polars_error..PolarsError$GT$$GT$$GT$$GT$$GT$17hfabb588353703ef5E.exit3.i.i": ; preds = %13, %10, %7
   call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !9212
   call void @llvm.lifetime.start.p0(ptr nonnull %2), !noalias !9212
   invoke void @"_ZN5tokio4sync4mpsc4list11Rx$LT$T$GT$3pop17h89d3b1ceb9f7154bE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 128 dereferenceable(384) %0)
           to label %.noexc5 unwind label %.loopexit
 
 .noexc5:                                          ; preds = %"_ZN4core3ptr227drop_in_place$LT$core..option..Option$LT$tokio..sync..mpsc..block..Read$LT$polars_stream..async_executor..task..JoinHandle$LT$core..result..Result$LT$polars_core..frame..DataFrame$C$polars_error..PolarsError$GT$$GT$$GT$$GT$$GT$17hfabb588353703ef5E.exit3.i.i"
-  %13 = load i64, ptr %2, align 8, !range !47, !noalias !9212, !noundef !3
-  %.off.i.i = add nsw i64 %13, -1
+  %14 = load i64, ptr %2, align 8, !range !47, !noalias !9212, !noundef !3
+  %.off.i.i = add nsw i64 %14, -1
   %switch.i.i = icmp ult i64 %.off.i.i, 2
   br i1 %switch.i.i, label %"_ZN84_$LT$tokio..sync..mpsc..chan..Chan$LT$T$C$S$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop28_$u7b$$u7b$closure$u7d$$u7d$17h291052f8a547a8d8E.exit.i", label %6
 
@@ -50076,55 +50076,55 @@ define hidden void @"_ZN4core3ptr238drop_in_place$LT$tokio..sync..mpsc..chan..Ch
   invoke void @"_ZN5tokio4sync4mpsc4list11Rx$LT$T$GT$11free_blocks17h41029e55780f99b5E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %3)
           to label %"_ZN84_$LT$tokio..sync..mpsc..chan..Chan$LT$T$C$S$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h4df0494b5f74e103E.exit" unwind label %.loopexit.split-lp
 
-.loopexit:                                        ; preds = %12, %"_ZN4core3ptr227drop_in_place$LT$core..option..Option$LT$tokio..sync..mpsc..block..Read$LT$polars_stream..async_executor..task..JoinHandle$LT$core..result..Result$LT$polars_core..frame..DataFrame$C$polars_error..PolarsError$GT$$GT$$GT$$GT$$GT$17hfabb588353703ef5E.exit3.i.i"
+.loopexit:                                        ; preds = %13, %"_ZN4core3ptr227drop_in_place$LT$core..option..Option$LT$tokio..sync..mpsc..block..Read$LT$polars_stream..async_executor..task..JoinHandle$LT$core..result..Result$LT$polars_core..frame..DataFrame$C$polars_error..PolarsError$GT$$GT$$GT$$GT$$GT$17hfabb588353703ef5E.exit3.i.i"
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  br label %14
+  br label %16
 
 .loopexit.split-lp:                               ; preds = %1, %"_ZN84_$LT$tokio..sync..mpsc..chan..Chan$LT$T$C$S$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop28_$u7b$$u7b$closure$u7d$$u7d$17h291052f8a547a8d8E.exit.i"
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %14
+  br label %16
 
-14:                                               ; preds = %.loopexit.split-lp, %.loopexit
+16:                                               ; preds = %.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %.val2 = load ptr, ptr %15, align 128, !align !4, !noundef !3
-  %16 = icmp eq ptr %.val2, null
-  br i1 %16, label %"_ZN4core3ptr108drop_in_place$LT$tokio..util..cacheline..CachePadded$LT$tokio..sync..task..atomic_waker..AtomicWaker$GT$$GT$17h56dde64a14cbfc44E.exit", label %17
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %.val2 = load ptr, ptr %17, align 128, !align !4, !noundef !3
+  %18 = icmp eq ptr %.val2, null
+  br i1 %18, label %"_ZN4core3ptr108drop_in_place$LT$tokio..util..cacheline..CachePadded$LT$tokio..sync..task..atomic_waker..AtomicWaker$GT$$GT$17h56dde64a14cbfc44E.exit", label %19
 
-17:                                               ; preds = %14
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %.val3 = load ptr, ptr %18, align 8
-  %19 = getelementptr inbounds nuw i8, ptr %.val2, i64 24
-  %20 = load ptr, ptr %19, align 8, !nonnull !3, !noundef !3
+19:                                               ; preds = %16
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  %.val3 = load ptr, ptr %20, align 8
+  %21 = getelementptr inbounds nuw i8, ptr %.val2, i64 24
+  %22 = load ptr, ptr %21, align 8, !nonnull !3, !noundef !3
   invoke void %20(ptr noundef %.val3)
-          to label %"_ZN4core3ptr108drop_in_place$LT$tokio..util..cacheline..CachePadded$LT$tokio..sync..task..atomic_waker..AtomicWaker$GT$$GT$17h56dde64a14cbfc44E.exit" unwind label %27
+          to label %"_ZN4core3ptr108drop_in_place$LT$tokio..util..cacheline..CachePadded$LT$tokio..sync..task..atomic_waker..AtomicWaker$GT$$GT$17h56dde64a14cbfc44E.exit" unwind label %29
 
 "_ZN84_$LT$tokio..sync..mpsc..chan..Chan$LT$T$C$S$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h4df0494b5f74e103E.exit": ; preds = %"_ZN84_$LT$tokio..sync..mpsc..chan..Chan$LT$T$C$S$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop28_$u7b$$u7b$closure$u7d$$u7d$17h291052f8a547a8d8E.exit.i"
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %.val = load ptr, ptr %21, align 128, !align !4, !noundef !3
-  %22 = icmp eq ptr %.val, null
-  br i1 %22, label %"_ZN4core3ptr108drop_in_place$LT$tokio..util..cacheline..CachePadded$LT$tokio..sync..task..atomic_waker..AtomicWaker$GT$$GT$17h56dde64a14cbfc44E.exit8", label %23
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %.val = load ptr, ptr %23, align 128, !align !4, !noundef !3
+  %24 = icmp eq ptr %.val, null
+  br i1 %24, label %"_ZN4core3ptr108drop_in_place$LT$tokio..util..cacheline..CachePadded$LT$tokio..sync..task..atomic_waker..AtomicWaker$GT$$GT$17h56dde64a14cbfc44E.exit8", label %25
 
-23:                                               ; preds = %"_ZN84_$LT$tokio..sync..mpsc..chan..Chan$LT$T$C$S$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h4df0494b5f74e103E.exit"
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %.val1 = load ptr, ptr %24, align 8
-  %25 = getelementptr inbounds nuw i8, ptr %.val, i64 24
-  %26 = load ptr, ptr %25, align 8, !nonnull !3, !noundef !3
+25:                                               ; preds = %"_ZN84_$LT$tokio..sync..mpsc..chan..Chan$LT$T$C$S$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h4df0494b5f74e103E.exit"
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  %.val1 = load ptr, ptr %26, align 8
+  %27 = getelementptr inbounds nuw i8, ptr %.val, i64 24
+  %28 = load ptr, ptr %27, align 8, !nonnull !3, !noundef !3
   call void %26(ptr noundef %.val1)
   br label %"_ZN4core3ptr108drop_in_place$LT$tokio..util..cacheline..CachePadded$LT$tokio..sync..task..atomic_waker..AtomicWaker$GT$$GT$17h56dde64a14cbfc44E.exit8"
 
-"_ZN4core3ptr108drop_in_place$LT$tokio..util..cacheline..CachePadded$LT$tokio..sync..task..atomic_waker..AtomicWaker$GT$$GT$17h56dde64a14cbfc44E.exit8": ; preds = %"_ZN84_$LT$tokio..sync..mpsc..chan..Chan$LT$T$C$S$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h4df0494b5f74e103E.exit", %23
+"_ZN4core3ptr108drop_in_place$LT$tokio..util..cacheline..CachePadded$LT$tokio..sync..task..atomic_waker..AtomicWaker$GT$$GT$17h56dde64a14cbfc44E.exit8": ; preds = %"_ZN84_$LT$tokio..sync..mpsc..chan..Chan$LT$T$C$S$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h4df0494b5f74e103E.exit", %25
   ret void
 
-27:                                               ; preds = %17
-  %28 = landingpad { ptr, i32 }
+29:                                               ; preds = %19
+  %30 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h6c71d900efd8fbf6E() #25
   unreachable
 
-"_ZN4core3ptr108drop_in_place$LT$tokio..util..cacheline..CachePadded$LT$tokio..sync..task..atomic_waker..AtomicWaker$GT$$GT$17h56dde64a14cbfc44E.exit": ; preds = %14, %17
+"_ZN4core3ptr108drop_in_place$LT$tokio..util..cacheline..CachePadded$LT$tokio..sync..task..atomic_waker..AtomicWaker$GT$$GT$17h56dde64a14cbfc44E.exit": ; preds = %16, %19
   resume { ptr, i32 } %lpad.phi
 }
 

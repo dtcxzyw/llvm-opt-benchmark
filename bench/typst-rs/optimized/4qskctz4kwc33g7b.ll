@@ -71553,7 +71553,7 @@ define void @"_ZN5typst4text10smartquote151_$LT$impl$u20$typst..foundations..con
   %19 = load i8, ptr %18, align 8, !range !1094, !noundef !4
   %.off = add nsw i8 %19, -1
   %switch = icmp ult i8 %.off, 2
-  %anon.6e01a69b2c234dfdc5e23dbc943ea0bc.547.anon.6e01a69b2c234dfdc5e23dbc943ea0bc.546 = select i1 %switch, ptr @anon.6e01a69b2c234dfdc5e23dbc943ea0bc.547, ptr @anon.6e01a69b2c234dfdc5e23dbc943ea0bc.546
+  %.0 = select i1 %switch, ptr @anon.6e01a69b2c234dfdc5e23dbc943ea0bc.547, ptr @anon.6e01a69b2c234dfdc5e23dbc943ea0bc.546
   tail call void @_ZN4ecow6string9EcoString8push_str17h2542dc826b62bb60E(ptr noalias noundef nonnull align 8 dereferenceable(16) %1, ptr noalias noundef nonnull readonly align 1 %anon.6e01a69b2c234dfdc5e23dbc943ea0bc.547.anon.6e01a69b2c234dfdc5e23dbc943ea0bc.546, i64 noundef 1)
   ret void
 }
@@ -105895,7 +105895,7 @@ define { ptr, i64 } @"_ZN5typst4math2lr120_$LT$impl$u20$typst..math..LayoutMath$
 
 49:                                               ; preds = %46
   invoke void @"_ZN67_$LT$typst_timing..TimingScope$u20$as$u20$core..ops..drop..Drop$GT$4drop17h83968d9801f2e390E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %25)
-          to label %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$typst_timing..TimingScope$GT$$GT$17hab1bd199dc3d070eE.exit" unwind label %209
+          to label %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$typst_timing..TimingScope$GT$$GT$17hab1bd199dc3d070eE.exit" unwind label %211
 
 50:                                               ; preds = %82, %79, %53, %3, %85
   %51 = landingpad { ptr, i32 }
@@ -106043,7 +106043,7 @@ define { ptr, i64 } @"_ZN5typst4math2lr120_$LT$impl$u20$typst..math..LayoutMath$
   %108 = icmp eq ptr %107, null
   br i1 %108, label %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$typst_timing..TimingScope$GT$$GT$17hab1bd199dc3d070eE.exit59", label %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$typst_timing..TimingScope$GT$$GT$17hab1bd199dc3d070eE.exit59.sink.split"
 
-.body.thread117.loopexit:                         ; preds = %207
+.body.thread117.loopexit:                         ; preds = %209
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %.body.thread
@@ -106255,7 +106255,7 @@ define { ptr, i64 } @"_ZN5typst4math2lr120_$LT$impl$u20$typst..math..LayoutMath$
   %178 = icmp eq i64 %.val52.pr, 0
   br i1 %178, label %._crit_edge, label %.lr.ph
 
-._crit_edge.loopexit:                             ; preds = %205
+._crit_edge.loopexit:                             ; preds = %207
   %.pre = load i64, ptr %.sroa.5.0..sroa_idx, align 8
   br label %._crit_edge
 
@@ -106305,13 +106305,13 @@ define { ptr, i64 } @"_ZN5typst4math2lr120_$LT$impl$u20$typst..math..LayoutMath$
   invoke void @"_ZN112_$LT$alloc..vec..Vec$LT$T$C$A$GT$..retain_mut..BackshiftOnDrop$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17had04b86bca5beff5E.llvm.16845035774076767816"(ptr noalias noundef nonnull align 8 dereferenceable(32) %5)
           to label %191 unwind label %.body.thread117.loopexit.split-lp
 
-.lr.ph:                                           ; preds = %176, %205
+.lr.ph:                                           ; preds = %176, %207
   %.sroa.0106.0127 = phi ptr [ %187, %205 ], [ %.val51, %176 ]
   %187 = getelementptr inbounds nuw i8, ptr %.sroa.0106.0127, i64 176
   %188 = getelementptr inbounds nuw i8, ptr %.sroa.0106.0127, i64 136
   %189 = load i32, ptr %188, align 8, !range !6730, !noundef !4
   %190 = icmp eq i32 %189, 3
-  br i1 %190, label %202, label %205
+  br i1 %190, label %202, label %207
 
 191:                                              ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut17hef2dc6abeaed0af6E.llvm.10579729455205085779.exit.i"
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !23850
@@ -106365,28 +106365,28 @@ define { ptr, i64 } @"_ZN5typst4math2lr120_$LT$impl$u20$typst..math..LayoutMath$
   %switch = icmp ult i8 %.off, 2
   br i1 %switch, label %205, label %207
 
-205:                                              ; preds = %202, %208, %.lr.ph
-  %206 = icmp eq ptr %187, %177
-  br i1 %206, label %._crit_edge.loopexit, label %.lr.ph
+207:                                              ; preds = %202, %208, %.lr.ph
+  %208 = icmp eq ptr %187, %177
+  br i1 %208, label %._crit_edge.loopexit, label %.lr.ph
 
-207:                                              ; preds = %202
+209:                                              ; preds = %202
   store i8 1, ptr %203, align 1
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
   invoke fastcc void @_ZN5typst4math2lr5scale17hd043b77a7ef24846E(ptr noalias noundef align 8 dereferenceable(544) %1, ptr noalias noundef align 8 captures(none) dereferenceable(24) %12, ptr noalias noundef align 16 dereferenceable(176) %.sroa.0106.0127, double noundef %.0.i.i.i.i86, i8 noundef 7)
           to label %208 unwind label %.body.thread117.loopexit
 
-208:                                              ; preds = %207
+210:                                              ; preds = %209
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  br label %205
+  br label %207
 
 .body.thread:                                     ; preds = %.body.thread117.loopexit, %.body.thread117.loopexit.split-lp, %184
   %eh.lpad-body116 = phi { ptr, i32 } [ %lpad.thr_comm.i.i, %184 ], [ %lpad.loopexit, %.body.thread117.loopexit ], [ %lpad.loopexit.split-lp, %.body.thread117.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr79drop_in_place$LT$alloc..vec..Vec$LT$typst..math..fragment..MathFragment$GT$$GT$17h502bb732a1958db5E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %24) #52
-          to label %46 unwind label %209
+          to label %46 unwind label %211
 
-209:                                              ; preds = %49, %.body.thread
-  %210 = landingpad { ptr, i32 }
+211:                                              ; preds = %49, %.body.thread
+  %212 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h76c6e1c84248d3ffE() #53
   unreachable

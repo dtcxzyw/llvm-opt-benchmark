@@ -48430,7 +48430,7 @@ define hidden void @_ZN11ruff_linter5rules14flake8_logging5rules26exception_with
     i32 27, label %15
   ]
 
-_ZN11ruff_linter5rules14flake8_logging5rules26exception_without_exc_info22exc_info_arg_is_falsey17h9bd43f868963fe9fE.exit.thread: ; preds = %_ZN11ruff_linter5rules14flake8_logging5rules26exception_without_exc_info22exc_info_arg_is_falsey17h9bd43f868963fe9fE.exit, %28, %8, %67, %19, %.sink.split, %2
+_ZN11ruff_linter5rules14flake8_logging5rules26exception_without_exc_info22exc_info_arg_is_falsey17h9bd43f868963fe9fE.exit.thread: ; preds = %_ZN11ruff_linter5rules14flake8_logging5rules26exception_without_exc_info22exc_info_arg_is_falsey17h9bd43f868963fe9fE.exit, %28, %8, %68, %19, %.sink.split, %2
   ret void
 
 8:                                                ; preds = %2
@@ -48448,7 +48448,7 @@ _ZN11ruff_linter5rules14flake8_logging5rules26exception_without_exc_info22exc_in
   call void @_ZN20ruff_python_semantic5model13SemanticModel22resolve_qualified_name17hfced0eedb574bbe2E(ptr noalias noundef nonnull sret([144 x i8]) align 8 captures(none) dereferenceable(144) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(448) %16, ptr noundef nonnull align 8 %6)
   %17 = load i64, ptr %5, align 8, !range !3, !noundef !4
   %18 = trunc nuw i64 %17 to i1
-  br i1 %18, label %33, label %.sink.split
+  br i1 %18, label %34, label %.sink.split
 
 19:                                               ; preds = %8
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -48461,7 +48461,7 @@ _ZN11ruff_linter5rules14flake8_logging5rules26exception_without_exc_info22exc_in
   %27 = tail call noundef zeroext i1 @_ZN20ruff_python_semantic7analyze7logging19is_logger_candidate17h8615e0848168606fE(ptr noundef nonnull align 8 %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(448) %20, ptr noalias noundef nonnull readonly align 8 %24, i64 noundef %26)
   br i1 %27, label %28, label %_ZN11ruff_linter5rules14flake8_logging5rules26exception_without_exc_info22exc_info_arg_is_falsey17h9bd43f868963fe9fE.exit.thread
 
-28:                                               ; preds = %19, %66
+28:                                               ; preds = %19, %67
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %30 = call noundef align 8 ptr @_ZN15ruff_python_ast5nodes9Arguments12find_keyword17hf9e72e013352ee1fE(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %29, ptr noalias noundef nonnull readonly align 1 @anon.8cc3e55251025b29006123e4bed3261b.715, i64 noundef 8)
   %.not.i = icmp eq ptr %30, null
@@ -48474,98 +48474,98 @@ _ZN11ruff_linter5rules14flake8_logging5rules26exception_without_exc_info22exc_in
   %switch = icmp ult i8 %.off, 2
   br i1 %switch, label %_ZN11ruff_linter5rules14flake8_logging5rules26exception_without_exc_info22exc_info_arg_is_falsey17h9bd43f868963fe9fE.exit.thread, label %67
 
-33:                                               ; preds = %15
-  %34 = getelementptr inbounds nuw i8, ptr %5, i64 8
+34:                                               ; preds = %15
+  %35 = getelementptr inbounds nuw i8, ptr %5, i64 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %3, ptr noundef nonnull align 8 dereferenceable(136) %34, i64 136, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %3, ptr noundef nonnull align 8 dereferenceable(136) %35, i64 136, i1 false)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3472)
-  %35 = load ptr, ptr %3, align 8, !alias.scope !3472, !noundef !4
-  %36 = icmp eq ptr %35, null
-  br i1 %36, label %37, label %42
+  %36 = load ptr, ptr %3, align 8, !alias.scope !3472, !noundef !4
+  %37 = icmp eq ptr %36, null
+  br i1 %37, label %38, label %43
 
-37:                                               ; preds = %33
-  %38 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %39 = load ptr, ptr %38, align 8, !alias.scope !3472, !nonnull !4, !noundef !4
-  %40 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %41 = load i64, ptr %40, align 8, !alias.scope !3472, !noundef !4
-  br label %49
+38:                                               ; preds = %34
+  %39 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %40 = load ptr, ptr %39, align 8, !alias.scope !3472, !nonnull !4, !noundef !4
+  %41 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %42 = load i64, ptr %41, align 8, !alias.scope !3472, !noundef !4
+  br label %50
 
-42:                                               ; preds = %33
-  %43 = getelementptr inbounds nuw i8, ptr %3, i64 128
-  %44 = load i64, ptr %43, align 8, !alias.scope !3472, !noundef !4
-  %45 = icmp ugt i64 %44, 8
-  br i1 %45, label %46, label %49, !prof !72
+43:                                               ; preds = %34
+  %44 = getelementptr inbounds nuw i8, ptr %3, i64 128
+  %45 = load i64, ptr %44, align 8, !alias.scope !3472, !noundef !4
+  %46 = icmp ugt i64 %45, 8
+  br i1 %46, label %47, label %50, !prof !72
 
-46:                                               ; preds = %42
-  invoke void @_ZN4core5slice5index24slice_end_index_len_fail17h5b7964a60aa84510E(i64 noundef %44, i64 noundef 8, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.8cc3e55251025b29006123e4bed3261b.546) #31
-          to label %.noexc.i unwind label %47, !noalias !3472
+47:                                               ; preds = %43
+  invoke void @_ZN4core5slice5index24slice_end_index_len_fail17h5b7964a60aa84510E(i64 noundef %45, i64 noundef 8, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.8cc3e55251025b29006123e4bed3261b.546) #31
+          to label %.noexc.i unwind label %48, !noalias !3472
 
-.noexc.i:                                         ; preds = %46
+.noexc.i:                                         ; preds = %47
   unreachable
 
-47:                                               ; preds = %57, %51, %46
-  %48 = landingpad { ptr, i32 }
+48:                                               ; preds = %58, %52, %47
+  %49 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr57drop_in_place$LT$ruff_python_ast..name..QualifiedName$GT$17h8925dadafea610c8E"(ptr noalias noundef nonnull align 8 dereferenceable(136) %3) #32
-          to label %65 unwind label %63
+          to label %65 unwind label %64
 
-49:                                               ; preds = %42, %37
-  %.sroa.6.0.i = phi i64 [ %41, %37 ], [ %44, %42 ]
-  %.sroa.01.0.i = phi ptr [ %39, %37 ], [ %3, %42 ]
-  %50 = icmp eq i64 %.sroa.6.0.i, 2
-  br i1 %50, label %51, label %"_ZN11ruff_linter5rules14flake8_logging5rules26exception_without_exc_info26exception_without_exc_info28_$u7b$$u7b$closure$u7d$$u7d$17he571a9605ff9e3deE.exit.thread"
+50:                                               ; preds = %43, %38
+  %.sroa.6.0.i = phi i64 [ %42, %37 ], [ %45, %42 ]
+  %.sroa.01.0.i = phi ptr [ %40, %37 ], [ %3, %42 ]
+  %51 = icmp eq i64 %.sroa.6.0.i, 2
+  br i1 %51, label %52, label %"_ZN11ruff_linter5rules14flake8_logging5rules26exception_without_exc_info26exception_without_exc_info28_$u7b$$u7b$closure$u7d$$u7d$17he571a9605ff9e3deE.exit.thread"
 
-51:                                               ; preds = %49
-  %52 = load ptr, ptr %.sroa.01.0.i, align 8, !nonnull !4, !align !37, !noundef !4
-  %53 = getelementptr inbounds nuw i8, ptr %.sroa.01.0.i, i64 8
-  %54 = load i64, ptr %53, align 8, !noundef !4
-  %55 = invoke noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h2b163306135bee2cE"(ptr noalias noundef nonnull readonly align 1 %52, i64 noundef %54, ptr noalias noundef nonnull readonly align 1 @anon.8cc3e55251025b29006123e4bed3261b.713, i64 noundef 7)
-          to label %56 unwind label %47, !noalias !3472
+52:                                               ; preds = %50
+  %53 = load ptr, ptr %.sroa.01.0.i, align 8, !nonnull !4, !align !37, !noundef !4
+  %54 = getelementptr inbounds nuw i8, ptr %.sroa.01.0.i, i64 8
+  %55 = load i64, ptr %54, align 8, !noundef !4
+  %56 = invoke noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h2b163306135bee2cE"(ptr noalias noundef nonnull readonly align 1 %53, i64 noundef %55, ptr noalias noundef nonnull readonly align 1 @anon.8cc3e55251025b29006123e4bed3261b.713, i64 noundef 7)
+          to label %56 unwind label %48, !noalias !3472
 
-56:                                               ; preds = %51
-  br i1 %55, label %57, label %"_ZN11ruff_linter5rules14flake8_logging5rules26exception_without_exc_info26exception_without_exc_info28_$u7b$$u7b$closure$u7d$$u7d$17he571a9605ff9e3deE.exit.thread"
+57:                                               ; preds = %52
+  br i1 %56, label %58, label %"_ZN11ruff_linter5rules14flake8_logging5rules26exception_without_exc_info26exception_without_exc_info28_$u7b$$u7b$closure$u7d$$u7d$17he571a9605ff9e3deE.exit.thread"
 
-57:                                               ; preds = %56
-  %58 = getelementptr inbounds nuw i8, ptr %.sroa.01.0.i, i64 16
-  %59 = load ptr, ptr %58, align 8, !nonnull !4, !align !37, !noundef !4
-  %60 = getelementptr inbounds nuw i8, ptr %.sroa.01.0.i, i64 24
-  %61 = load i64, ptr %60, align 8, !noundef !4
-  %62 = invoke noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h2b163306135bee2cE"(ptr noalias noundef nonnull readonly align 1 %59, i64 noundef %61, ptr noalias noundef nonnull readonly align 1 @anon.8cc3e55251025b29006123e4bed3261b.714, i64 noundef 9)
-          to label %"_ZN11ruff_linter5rules14flake8_logging5rules26exception_without_exc_info26exception_without_exc_info28_$u7b$$u7b$closure$u7d$$u7d$17he571a9605ff9e3deE.exit" unwind label %47, !noalias !3472
+58:                                               ; preds = %57
+  %59 = getelementptr inbounds nuw i8, ptr %.sroa.01.0.i, i64 16
+  %60 = load ptr, ptr %59, align 8, !nonnull !4, !align !37, !noundef !4
+  %61 = getelementptr inbounds nuw i8, ptr %.sroa.01.0.i, i64 24
+  %62 = load i64, ptr %61, align 8, !noundef !4
+  %63 = invoke noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h2b163306135bee2cE"(ptr noalias noundef nonnull readonly align 1 %60, i64 noundef %62, ptr noalias noundef nonnull readonly align 1 @anon.8cc3e55251025b29006123e4bed3261b.714, i64 noundef 9)
+          to label %"_ZN11ruff_linter5rules14flake8_logging5rules26exception_without_exc_info26exception_without_exc_info28_$u7b$$u7b$closure$u7d$$u7d$17he571a9605ff9e3deE.exit" unwind label %48, !noalias !3472
 
-63:                                               ; preds = %47
-  %64 = landingpad { ptr, i32 }
+64:                                               ; preds = %48
+  %65 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbadeae7294749c32E() #33
   unreachable
 
-65:                                               ; preds = %47
-  resume { ptr, i32 } %48
+66:                                               ; preds = %48
+  resume { ptr, i32 } %49
 
-"_ZN11ruff_linter5rules14flake8_logging5rules26exception_without_exc_info26exception_without_exc_info28_$u7b$$u7b$closure$u7d$$u7d$17he571a9605ff9e3deE.exit.thread": ; preds = %56, %49
+"_ZN11ruff_linter5rules14flake8_logging5rules26exception_without_exc_info26exception_without_exc_info28_$u7b$$u7b$closure$u7d$$u7d$17he571a9605ff9e3deE.exit.thread": ; preds = %57, %50
   call void @"_ZN4core3ptr57drop_in_place$LT$ruff_python_ast..name..QualifiedName$GT$17h8925dadafea610c8E"(ptr noalias noundef nonnull align 8 dereferenceable(136) %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.sink.split
 
-"_ZN11ruff_linter5rules14flake8_logging5rules26exception_without_exc_info26exception_without_exc_info28_$u7b$$u7b$closure$u7d$$u7d$17he571a9605ff9e3deE.exit": ; preds = %57
+"_ZN11ruff_linter5rules14flake8_logging5rules26exception_without_exc_info26exception_without_exc_info28_$u7b$$u7b$closure$u7d$$u7d$17he571a9605ff9e3deE.exit": ; preds = %58
   call void @"_ZN4core3ptr57drop_in_place$LT$ruff_python_ast..name..QualifiedName$GT$17h8925dadafea610c8E"(ptr noalias noundef nonnull align 8 dereferenceable(136) %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br i1 %62, label %66, label %.sink.split
+  br i1 %63, label %67, label %.sink.split
 
 .sink.split:                                      ; preds = %"_ZN11ruff_linter5rules14flake8_logging5rules26exception_without_exc_info26exception_without_exc_info28_$u7b$$u7b$closure$u7d$$u7d$17he571a9605ff9e3deE.exit.thread", %15, %"_ZN11ruff_linter5rules14flake8_logging5rules26exception_without_exc_info26exception_without_exc_info28_$u7b$$u7b$closure$u7d$$u7d$17he571a9605ff9e3deE.exit"
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZN11ruff_linter5rules14flake8_logging5rules26exception_without_exc_info22exc_info_arg_is_falsey17h9bd43f868963fe9fE.exit.thread
 
-66:                                               ; preds = %"_ZN11ruff_linter5rules14flake8_logging5rules26exception_without_exc_info26exception_without_exc_info28_$u7b$$u7b$closure$u7d$$u7d$17he571a9605ff9e3deE.exit"
+67:                                               ; preds = %"_ZN11ruff_linter5rules14flake8_logging5rules26exception_without_exc_info26exception_without_exc_info28_$u7b$$u7b$closure$u7d$$u7d$17he571a9605ff9e3deE.exit"
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %28
 
-67:                                               ; preds = %_ZN11ruff_linter5rules14flake8_logging5rules26exception_without_exc_info22exc_info_arg_is_falsey17h9bd43f868963fe9fE.exit
+68:                                               ; preds = %_ZN11ruff_linter5rules14flake8_logging5rules26exception_without_exc_info22exc_info_arg_is_falsey17h9bd43f868963fe9fE.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %68 = call { i32, i32 } @"_ZN87_$LT$ruff_python_ast..generated..ExprCall$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17h9aa4c8912969e16bE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %1)
-  %69 = extractvalue { i32, i32 } %68, 0
-  %70 = extractvalue { i32, i32 } %68, 1
-  call void @_ZN16ruff_diagnostics10diagnostic10Diagnostic3new17h567131431bbb1a42E(ptr noalias noundef nonnull sret([120 x i8]) align 8 captures(none) dereferenceable(120) %4, i32 noundef %69, i32 noundef %70)
+  %69 = call { i32, i32 } @"_ZN87_$LT$ruff_python_ast..generated..ExprCall$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17h9aa4c8912969e16bE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %1)
+  %70 = extractvalue { i32, i32 } %69, 0
+  %71 = extractvalue { i32, i32 } %69, 1
+  call void @_ZN16ruff_diagnostics10diagnostic10Diagnostic3new17h567131431bbb1a42E(ptr noalias noundef nonnull sret([120 x i8]) align 8 captures(none) dereferenceable(120) %4, i32 noundef %70, i32 noundef %71)
   call void @_ZN11ruff_linter8checkers3ast7Checker17report_diagnostic17heec61577efacc51fE(ptr noundef nonnull align 8 %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(120) %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZN11ruff_linter5rules14flake8_logging5rules26exception_without_exc_info22exc_info_arg_is_falsey17h9bd43f868963fe9fE.exit.thread

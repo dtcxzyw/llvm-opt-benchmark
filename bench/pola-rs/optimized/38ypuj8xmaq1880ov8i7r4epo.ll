@@ -66873,7 +66873,7 @@ define hidden void @"_ZN5tokio4sync4mpsc4list11Rx$LT$T$GT$3pop17h89d3b1ceb9f7154
 
 "_ZN5tokio4sync4mpsc4list11Rx$LT$T$GT$18try_advancing_head17h93e5282e53720cedE.exit": ; preds = %.lr.ph.i
   store i64 2, ptr %0, align 8
-  br label %54
+  br label %55
 
 .loopexit:                                        ; preds = %15, %3
   %19 = phi ptr [ %8, %3 ], [ %14, %15 ]
@@ -66959,13 +66959,13 @@ define hidden void @"_ZN5tokio4sync4mpsc4list11Rx$LT$T$GT$3pop17h89d3b1ceb9f7154
   %switch = icmp ult i64 %.off, 2
   br i1 %switch, label %54, label %55
 
-54:                                               ; preds = %"_ZN5tokio4sync4mpsc4list11Rx$LT$T$GT$14reclaim_blocks17h8553c5e265af1295E.exit", %55, %"_ZN5tokio4sync4mpsc4list11Rx$LT$T$GT$18try_advancing_head17h93e5282e53720cedE.exit"
+55:                                               ; preds = %"_ZN5tokio4sync4mpsc4list11Rx$LT$T$GT$14reclaim_blocks17h8553c5e265af1295E.exit", %55, %"_ZN5tokio4sync4mpsc4list11Rx$LT$T$GT$18try_advancing_head17h93e5282e53720cedE.exit"
   ret void
 
-55:                                               ; preds = %"_ZN5tokio4sync4mpsc4list11Rx$LT$T$GT$14reclaim_blocks17h8553c5e265af1295E.exit"
-  %56 = add i64 %52, 1
-  store i64 %56, ptr %5, align 8
-  br label %54
+56:                                               ; preds = %"_ZN5tokio4sync4mpsc4list11Rx$LT$T$GT$14reclaim_blocks17h8553c5e265af1295E.exit"
+  %57 = add i64 %52, 1
+  store i64 %57, ptr %5, align 8
+  br label %55
 }
 
 ; Function Attrs: nonlazybind uwtable

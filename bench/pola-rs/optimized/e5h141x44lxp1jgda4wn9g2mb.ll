@@ -34405,7 +34405,7 @@ _ZN12polars_arrow5array5Array10null_count17h1089a0641f3df69cE.exit: ; preds = %1
   %.not = icmp eq i64 %.sroa.0.0.i, 0
   br i1 %.not, label %_ZN12polars_arrow5array5Array10null_count17h1089a0641f3df69cE.exit.thread, label %19
 
-15:                                               ; preds = %100, %_ZN4core4iter6traits8iterator8Iterator8try_fold17h0e592dc3519aa23eE.exit.thread, %1, %_ZN12polars_arrow5array5Array10null_count17h1089a0641f3df69cE.exit.thread
+15:                                               ; preds = %101, %_ZN4core4iter6traits8iterator8Iterator8try_fold17h0e592dc3519aa23eE.exit.thread, %1, %_ZN12polars_arrow5array5Array10null_count17h1089a0641f3df69cE.exit.thread
   %.sroa.0.0 = phi i8 [ %18, %_ZN12polars_arrow5array5Array10null_count17h1089a0641f3df69cE.exit.thread ], [ 1, %1 ], [ 0, %100 ], [ 2, %_ZN4core4iter6traits8iterator8Iterator8try_fold17h0e592dc3519aa23eE.exit.thread ]
   ret i8 %.sroa.0.0
 
@@ -34591,7 +34591,7 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17h0e592dc3519aa23eE.exit.thread:
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %15
 
-100:                                              ; preds = %93
+101:                                              ; preds = %93
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %15
 }

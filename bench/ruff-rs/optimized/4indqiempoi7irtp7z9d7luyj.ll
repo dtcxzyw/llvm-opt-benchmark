@@ -66778,19 +66778,19 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17hc4d6f8489a3a13c7E.exit: ; pred
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZN3std4sync6poison4once4Once9call_once17ha079334f4a4a5dc9E.exit
 
-.sink.split:                                      ; preds = %147, %154, %179
+.sink.split:                                      ; preds = %147, %154, %181
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %160
 
 160:                                              ; preds = %.sink.split, %26, %3, %20
   ret void
 
-161:                                              ; preds = %172, %180, %162
-  %.pn = phi { ptr, i32 } [ %163, %162 ], [ %181, %180 ], [ %173, %172 ]
+161:                                              ; preds = %174, %182, %162
+  %.pn = phi { ptr, i32 } [ %163, %162 ], [ %183, %180 ], [ %175, %172 ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hba79b7f9900aea78E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %13) #30
-          to label %184 unwind label %182
+          to label %184 unwind label %184
 
-162:                                              ; preds = %159, %177, %169, %_ZN3std4sync6poison4once4Once9call_once17ha079334f4a4a5dc9E.exit
+162:                                              ; preds = %159, %179, %171, %_ZN3std4sync6poison4once4Once9call_once17ha079334f4a4a5dc9E.exit
   %163 = landingpad { ptr, i32 }
           cleanup
   br label %161
@@ -66807,57 +66807,57 @@ _ZN3std4sync6poison4once4Once9call_once17ha079334f4a4a5dc9E.exit: ; preds = %.no
   %switch = icmp ult i8 %.off, 2
   br i1 %switch, label %179, label %169
 
-169:                                              ; preds = %168
+171:                                              ; preds = %168
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   invoke fastcc void @"_ZN87_$LT$T$u20$as$u20$alloc..slice..$LT$impl$u20$$u5b$T$u5d$$GT$..to_vec_in..ConvertVec$GT$6to_vec17h4e33bd25f53d5eaeE"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %9, ptr noalias noundef nonnull readonly align 1 %67, i64 noundef %68)
           to label %170 unwind label %162
 
-170:                                              ; preds = %169
+172:                                              ; preds = %171
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  %171 = invoke { i32, i32 } @"_ZN85_$LT$ruff_linter..docstrings..Docstring$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17he6555619cdc08a76E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1)
-          to label %174 unwind label %180
+  %173 = invoke { i32, i32 } @"_ZN85_$LT$ruff_linter..docstrings..Docstring$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17he6555619cdc08a76E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1)
+          to label %174 unwind label %182
 
-172:                                              ; preds = %174
-  %173 = landingpad { ptr, i32 }
+174:                                              ; preds = %176
+  %175 = landingpad { ptr, i32 }
           cleanup
   br label %161
 
-174:                                              ; preds = %170
-  %175 = extractvalue { i32, i32 } %171, 0
-  %176 = extractvalue { i32, i32 } %171, 1
-  invoke void @_ZN16ruff_diagnostics10diagnostic10Diagnostic3new17h32f71c336d607e7aE(ptr noalias noundef nonnull sret([120 x i8]) align 8 captures(none) dereferenceable(120) %11, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %10, i32 noundef %175, i32 noundef %176)
-          to label %177 unwind label %172
+176:                                              ; preds = %172
+  %177 = extractvalue { i32, i32 } %173, 0
+  %178 = extractvalue { i32, i32 } %173, 1
+  invoke void @_ZN16ruff_diagnostics10diagnostic10Diagnostic3new17h32f71c336d607e7aE(ptr noalias noundef nonnull sret([120 x i8]) align 8 captures(none) dereferenceable(120) %11, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %10, i32 noundef %177, i32 noundef %178)
+          to label %177 unwind label %174
 
-177:                                              ; preds = %174
+179:                                              ; preds = %176
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   invoke void @_ZN11ruff_linter8checkers3ast7Checker17report_diagnostic17heec61577efacc51fE(ptr noundef nonnull align 8 %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(120) %11)
           to label %178 unwind label %162
 
-178:                                              ; preds = %177
+180:                                              ; preds = %179
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  br label %179
+  br label %181
 
-179:                                              ; preds = %168, %178
+181:                                              ; preds = %168, %180
   call void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hba79b7f9900aea78E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %.sink.split
 
-180:                                              ; preds = %170
-  %181 = landingpad { ptr, i32 }
+182:                                              ; preds = %172
+  %183 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr98drop_in_place$LT$ruff_linter..rules..pydocstyle..rules..non_imperative_mood..NonImperativeMood$GT$17h9ad39115e990e60fE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %10) #30
-          to label %161 unwind label %182
+          to label %161 unwind label %184
 
-182:                                              ; preds = %180, %161
-  %183 = landingpad { ptr, i32 }
+184:                                              ; preds = %182, %161
+  %185 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbadeae7294749c32E() #28
   unreachable
 
-184:                                              ; preds = %161
+186:                                              ; preds = %161
   resume { ptr, i32 } %.pn
 }
 

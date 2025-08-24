@@ -56018,7 +56018,7 @@ define hidden void @_ZN11ruff_linter5rules4ruff5rules23falsy_dict_get_fallback23
   %12 = icmp eq i32 %11, 16
   br i1 %12, label %14, label %13
 
-13:                                               ; preds = %37, %33, %30, %25, %19, %14, %2, %58, %10
+13:                                               ; preds = %37, %33, %30, %25, %19, %14, %2, %60, %10
   ret void
 
 14:                                               ; preds = %10
@@ -56067,41 +56067,41 @@ define hidden void @_ZN11ruff_linter5rules4ruff5rules23falsy_dict_get_fallback23
   %switch = icmp ult i8 %.off, 2
   br i1 %switch, label %13, label %43
 
-43:                                               ; preds = %37
+45:                                               ; preds = %37
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %44 = call { i32, i32 } @"_ZN87_$LT$ruff_python_ast..nodes..ArgOrKeyword$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17h907f798306e9b4cfE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %7)
-  %45 = extractvalue { i32, i32 } %44, 0
-  %46 = extractvalue { i32, i32 } %44, 1
-  call void @_ZN16ruff_diagnostics10diagnostic10Diagnostic3new17h6310cc4e1a77b523E(ptr noalias noundef nonnull sret([120 x i8]) align 8 captures(none) dereferenceable(120) %6, i32 noundef %45, i32 noundef %46)
-  %47 = invoke noundef align 8 dereferenceable(24) ptr @_ZN11ruff_linter8checkers3ast7Checker14comment_ranges17h06c27f1baa77d011E(ptr noundef nonnull align 8 %0)
-          to label %48 unwind label %60
+  %46 = call { i32, i32 } @"_ZN87_$LT$ruff_python_ast..nodes..ArgOrKeyword$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17h907f798306e9b4cfE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %7)
+  %47 = extractvalue { i32, i32 } %46, 0
+  %48 = extractvalue { i32, i32 } %46, 1
+  call void @_ZN16ruff_diagnostics10diagnostic10Diagnostic3new17h6310cc4e1a77b523E(ptr noalias noundef nonnull sret([120 x i8]) align 8 captures(none) dereferenceable(120) %6, i32 noundef %47, i32 noundef %48)
+  %49 = invoke noundef align 8 dereferenceable(24) ptr @_ZN11ruff_linter8checkers3ast7Checker14comment_ranges17h06c27f1baa77d011E(ptr noundef nonnull align 8 %0)
+          to label %48 unwind label %62
 
-48:                                               ; preds = %43
+50:                                               ; preds = %45
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %49 = invoke { i32, i32 } @"_ZN15ruff_python_ast9generated94_$LT$impl$u20$ruff_text_size..traits..Ranged$u20$for$u20$ruff_python_ast..nodes..Arguments$GT$5range17hd1e121514b99c61cE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %34)
-          to label %50 unwind label %60
+  %51 = invoke { i32, i32 } @"_ZN15ruff_python_ast9generated94_$LT$impl$u20$ruff_text_size..traits..Ranged$u20$for$u20$ruff_python_ast..nodes..Arguments$GT$5range17hd1e121514b99c61cE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %34)
+          to label %50 unwind label %62
 
-50:                                               ; preds = %48
-  %51 = extractvalue { i32, i32 } %49, 0
-  %52 = extractvalue { i32, i32 } %49, 1
-  %53 = invoke noundef zeroext i1 @_ZN18ruff_python_trivia14comment_ranges13CommentRanges10intersects17h5815d82e8e00274bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %47, i32 noundef %51, i32 noundef %52)
-          to label %54 unwind label %60
+52:                                               ; preds = %50
+  %53 = extractvalue { i32, i32 } %51, 0
+  %54 = extractvalue { i32, i32 } %51, 1
+  %55 = invoke noundef zeroext i1 @_ZN18ruff_python_trivia14comment_ranges13CommentRanges10intersects17h5815d82e8e00274bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %49, i32 noundef %53, i32 noundef %54)
+          to label %54 unwind label %62
 
-54:                                               ; preds = %50
-  %. = select i1 %53, i8 1, i8 2
+56:                                               ; preds = %52
+  %. = select i1 %55, i8 1, i8 2
   store i8 %., ptr %5, align 1
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %7, ptr %4, align 8
-  %55 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr %15, ptr %55, align 8
-  %56 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store ptr %0, ptr %56, align 8
-  %57 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store ptr %5, ptr %57, align 8
+  %57 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store ptr %15, ptr %57, align 8
+  %58 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  store ptr %0, ptr %58, align 8
+  %59 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  store ptr %5, ptr %59, align 8
   invoke fastcc void @_ZN16ruff_diagnostics10diagnostic10Diagnostic11try_set_fix17h4768a5d2820380b0E(ptr noalias noundef align 8 dereferenceable(120) %6, ptr noalias noundef align 8 captures(none) dereferenceable(32) %4)
-          to label %58 unwind label %60
+          to label %58 unwind label %62
 
-58:                                               ; preds = %54
+60:                                               ; preds = %56
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %3, ptr noundef nonnull align 8 dereferenceable(120) %6, i64 120, i1 false)
@@ -56111,17 +56111,17 @@ define hidden void @_ZN11ruff_linter5rules4ruff5rules23falsy_dict_get_fallback23
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %13
 
-59:                                               ; preds = %60
+61:                                               ; preds = %62
   resume { ptr, i32 } %lpad.thr_comm
 
-60:                                               ; preds = %54, %50, %48, %43
+62:                                               ; preds = %56, %52, %50, %45
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr61drop_in_place$LT$ruff_diagnostics..diagnostic..Diagnostic$GT$17h5e3a7e2da4203097E"(ptr noalias noundef nonnull align 8 dereferenceable(120) %6) #37
-          to label %59 unwind label %61
+          to label %59 unwind label %63
 
-61:                                               ; preds = %60
-  %62 = landingpad { ptr, i32 }
+63:                                               ; preds = %62
+  %64 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbadeae7294749c32E() #38
   unreachable

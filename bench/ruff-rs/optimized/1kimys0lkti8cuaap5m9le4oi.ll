@@ -68290,17 +68290,17 @@ define hidden void @_ZN11ruff_linter5rules19flake8_pytest_style5rules9assertion1
   %switch = icmp ult i8 %.off, 2
   br i1 %switch, label %11, label %7
 
-7:                                                ; preds = %3
+8:                                                ; preds = %3
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %8 = tail call { i32, i32 } @"_ZN83_$LT$ruff_python_ast..generated..Stmt$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17h0f2bd1b6fc512939E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %1)
-  %9 = extractvalue { i32, i32 } %8, 0
-  %10 = extractvalue { i32, i32 } %8, 1
-  call void @_ZN16ruff_diagnostics10diagnostic10Diagnostic3new17h0394034f06e7411cE(ptr noalias noundef nonnull sret([120 x i8]) align 8 captures(none) dereferenceable(120) %4, i32 noundef %9, i32 noundef %10)
+  %9 = tail call { i32, i32 } @"_ZN83_$LT$ruff_python_ast..generated..Stmt$u20$as$u20$ruff_text_size..traits..Ranged$GT$5range17h0f2bd1b6fc512939E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %1)
+  %10 = extractvalue { i32, i32 } %9, 0
+  %11 = extractvalue { i32, i32 } %9, 1
+  call void @_ZN16ruff_diagnostics10diagnostic10Diagnostic3new17h0394034f06e7411cE(ptr noalias noundef nonnull sret([120 x i8]) align 8 captures(none) dereferenceable(120) %4, i32 noundef %10, i32 noundef %11)
   call void @_ZN11ruff_linter8checkers3ast7Checker17report_diagnostic17heec61577efacc51fE(ptr noundef nonnull align 8 %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(120) %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %11
+  br label %12
 
-11:                                               ; preds = %3, %7
+12:                                               ; preds = %3, %8
   ret void
 }
 

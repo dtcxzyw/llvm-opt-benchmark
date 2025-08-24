@@ -44006,7 +44006,7 @@ _ZN12polars_arrow5array5Array10null_count17h1089a0641f3df69cE.exit: ; preds = %1
   br i1 %.not, label %_ZN12polars_arrow5array5Array10null_count17h1089a0641f3df69cE.exit.thread, label %18
 
 15:                                               ; preds = %1, %_ZN12polars_arrow5array5Array10null_count17h1089a0641f3df69cE.exit.thread, %_ZN4core4iter6traits8iterator8Iterator8try_fold17h065bd11a044ee489E.exit
-  %.sroa.0.0.shrunk = phi i1 [ %96, %_ZN4core4iter6traits8iterator8Iterator8try_fold17h065bd11a044ee489E.exit ], [ %17, %_ZN12polars_arrow5array5Array10null_count17h1089a0641f3df69cE.exit.thread ], [ true, %1 ]
+  %.sroa.0.0.shrunk = phi i1 [ %97, %_ZN4core4iter6traits8iterator8Iterator8try_fold17h065bd11a044ee489E.exit ], [ %17, %_ZN12polars_arrow5array5Array10null_count17h1089a0641f3df69cE.exit.thread ], [ true, %1 ]
   ret i1 %.sroa.0.0.shrunk
 
 _ZN12polars_arrow5array5Array10null_count17h1089a0641f3df69cE.exit.thread: ; preds = %10, %_ZN12polars_arrow5array5Array10null_count17h1089a0641f3df69cE.exit
@@ -44186,7 +44186,7 @@ _ZN12polars_arrow5array5Array10null_count17h1089a0641f3df69cE.exit.thread: ; pre
   br i1 %switch.i, label %28, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h065bd11a044ee489E.exit
 
 _ZN4core4iter6traits8iterator8Iterator8try_fold17h065bd11a044ee489E.exit: ; preds = %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit13.i.i.i", %76, %89
-  %96 = phi i1 [ false, %89 ], [ true, %76 ], [ true, %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit13.i.i.i" ]
+  %97 = phi i1 [ false, %89 ], [ true, %76 ], [ true, %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit13.i.i.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %15
 }

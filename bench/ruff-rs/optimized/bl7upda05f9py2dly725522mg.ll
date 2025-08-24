@@ -26177,7 +26177,7 @@ define internal fastcc void @_ZN18ty_python_semantic5types4Type32try_call_dunder
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i8 1, ptr %28, align 8
-  br label %79
+  br label %80
 
 29:                                               ; preds = %6
   %30 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -26186,7 +26186,7 @@ define internal fastcc void @_ZN18ty_python_semantic5types4Type32try_call_dunder
     i8 0, label %39
     i8 1, label %39
     i8 17, label %41
-    i8 18, label %67
+    i8 18, label %68
   ]
 
 32:                                               ; preds = %29
@@ -26219,13 +26219,13 @@ define internal fastcc void @_ZN18ty_python_semantic5types4Type32try_call_dunder
   %37 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %38 = load i8, ptr %37, align 8, !range !119, !noundef !3
   %.not = icmp eq i8 %38, 2
-  br i1 %.not, label %84, label %80
+  br i1 %.not, label %85, label %81
 
 39:                                               ; preds = %29, %29
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i8 0, ptr %40, align 8
-  br label %79
+  br label %80
 
 41:                                               ; preds = %29
   %42 = getelementptr inbounds nuw i8, ptr %3, i64 12
@@ -26302,65 +26302,65 @@ define internal fastcc void @_ZN18ty_python_semantic5types4Type32try_call_dunder
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3all17h0ebdd45aeb003e67E.exit": ; preds = %60, %62
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %23, i64 32, i1 false)
-  %65 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %66 = zext i1 %.not2.not.not.not.not to i8
-  store i8 %66, ptr %65, align 8
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %67 = zext i1 %.not2.not.not.not.not to i8
+  store i8 %67, ptr %66, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
-  br label %79
+  br label %80
 
-67:                                               ; preds = %29
-  %68 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  %69 = load i32, ptr %68, align 4, !range !669, !noundef !3
+68:                                               ; preds = %29
+  %69 = getelementptr inbounds nuw i8, ptr %3, i64 12
+  %70 = load i32, ptr %69, align 4, !range !669, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
-  %70 = getelementptr inbounds nuw i8, ptr %3, i64 1
-  %71 = load i8, ptr %70, align 1, !range !75, !noundef !3
-  store i8 %71, ptr %20, align 1
-  %72 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %73 = load i8, ptr %72, align 8, !noundef !3
+  %71 = getelementptr inbounds nuw i8, ptr %3, i64 1
+  %72 = load i8, ptr %71, align 1, !range !75, !noundef !3
+  store i8 %72, ptr %20, align 1
+  %73 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %74 = load i8, ptr %73, align 8, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
   store ptr %1, ptr %18, align 8
-  %74 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  store ptr %2, ptr %74, align 8
-  %75 = getelementptr inbounds nuw i8, ptr %18, i64 16
-  store ptr %4, ptr %75, align 8
-  %76 = getelementptr inbounds nuw i8, ptr %18, i64 24
-  store ptr %5, ptr %76, align 8
-  %77 = getelementptr inbounds nuw i8, ptr %18, i64 32
-  store ptr %20, ptr %77, align 8
-  call void @_ZN18ty_python_semantic5types16IntersectionType18map_with_boundness17h57b4d66d2555346bE(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %19, i32 noundef %69, ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %2, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %18)
+  %75 = getelementptr inbounds nuw i8, ptr %18, i64 8
+  store ptr %2, ptr %75, align 8
+  %76 = getelementptr inbounds nuw i8, ptr %18, i64 16
+  store ptr %4, ptr %76, align 8
+  %77 = getelementptr inbounds nuw i8, ptr %18, i64 24
+  store ptr %5, ptr %77, align 8
+  %78 = getelementptr inbounds nuw i8, ptr %18, i64 32
+  store ptr %20, ptr %78, align 8
+  call void @_ZN18ty_python_semantic5types16IntersectionType18map_with_boundness17h57b4d66d2555346bE(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %19, i32 noundef %70, ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %2, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %18)
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
-  call void @_ZN18ty_python_semantic6symbol6Symbol15with_qualifiers17h0c85af6150a44dfdE(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %19, i8 noundef %73)
+  call void @_ZN18ty_python_semantic6symbol6Symbol15with_qualifiers17h0c85af6150a44dfdE(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %19, i8 noundef %74)
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
-  %78 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i8 1, ptr %78, align 8
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store i8 1, ptr %79, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
-  br label %79
+  br label %80
 
-79:                                               ; preds = %84, %80, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3all17h0ebdd45aeb003e67E.exit", %67, %39, %27
+80:                                               ; preds = %85, %81, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3all17h0ebdd45aeb003e67E.exit", %68, %39, %27
   ret void
 
-80:                                               ; preds = %32
-  %81 = getelementptr inbounds nuw i8, ptr %15, i64 8
+81:                                               ; preds = %32
+  %82 = getelementptr inbounds nuw i8, ptr %15, i64 8
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %81, ptr noundef nonnull align 8 dereferenceable(16) %16, i64 16, i1 false)
-  %82 = getelementptr inbounds nuw i8, ptr %15, i64 1
-  store i8 %34, ptr %82, align 1
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %82, ptr noundef nonnull align 8 dereferenceable(16) %16, i64 16, i1 false)
+  %83 = getelementptr inbounds nuw i8, ptr %15, i64 1
+  store i8 %34, ptr %83, align 1
   store i8 0, ptr %15, align 8
   call void @"_ZN129_$LT$ty_python_semantic..symbol..SymbolAndQualifiers$u20$as$u20$core..convert..From$LT$ty_python_semantic..symbol..Symbol$GT$$GT$4from17h32fddc9374b43ed3E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
-  %83 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i8 %38, ptr %83, align 8
+  %84 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store i8 %38, ptr %84, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
-  br label %79
+  br label %80
 
-84:                                               ; preds = %32
+85:                                               ; preds = %32
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
-  %85 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i8 1, ptr %85, align 8
-  br label %79
+  %86 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store i8 1, ptr %86, align 8
+  br label %80
 }
 
 ; Function Attrs: nonlazybind uwtable

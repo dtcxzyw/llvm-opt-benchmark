@@ -143627,35 +143627,35 @@ common.resume:                                    ; preds = %53, %51, %28
   %34 = load i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit5STATE17h0a20ff30ca981be8E, align 1, !noundef !4
   switch i8 %34, label %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h7eb60ecfae9feb61E.exit27.thread" [
     i8 0, label %35
-    i8 1, label %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h7eb60ecfae9feb61E.exit27"
+    i8 1, label %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h7eb60ecfae9feb61E.exit26"
   ]
 
 35:                                               ; preds = %33
   tail call void @_ZN3std3sys3pal4unix17thread_local_dtor13register_dtor17hb96a20c3e8dcd99cE(ptr noundef nonnull @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17ha87293fa66912b33E, ptr noundef nonnull @_ZN5tokio7runtime7context7CONTEXT7__getit7destroy17hdd6e1b81e5faa33fE)
   store i8 1, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit5STATE17h0a20ff30ca981be8E, align 1
-  br label %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h7eb60ecfae9feb61E.exit27"
+  br label %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h7eb60ecfae9feb61E.exit26"
 
-"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h7eb60ecfae9feb61E.exit27": ; preds = %33, %35
-  %.val.i24 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17ha87293fa66912b33E, i64 76), align 4, !range !13117, !noundef !4
-  %.val8.i25 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17ha87293fa66912b33E, i64 77), align 1
-  %36 = trunc nuw i8 %.val.i24 to i1
-  %37 = tail call noundef zeroext i1 @_ZN5tokio7runtime4coop6Budget13has_remaining17he1cdcf8cecc91160E(i1 noundef zeroext %36, i8 %.val8.i25)
+"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h7eb60ecfae9feb61E.exit26": ; preds = %33, %35
+  %.val.i23 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17ha87293fa66912b33E, i64 76), align 4, !range !13117, !noundef !4
+  %.val8.i24 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit3VAL17ha87293fa66912b33E, i64 77), align 1
+  %36 = trunc nuw i8 %.val.i23 to i1
+  %37 = tail call noundef zeroext i1 @_ZN5tokio7runtime4coop6Budget13has_remaining17he1cdcf8cecc91160E(i1 noundef zeroext %36, i8 %.val8.i24)
   %or.cond = or i1 %10, %37
-  br i1 %or.cond, label %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h7eb60ecfae9feb61E.exit27.thread", label %42
+  br i1 %or.cond, label %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h7eb60ecfae9feb61E.exit26.thread", label %42
 
-38:                                               ; preds = %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h7eb60ecfae9feb61E.exit27.thread", %"_ZN4core3ptr128drop_in_place$LT$core..result..Result$LT$tokio..runtime..coop..with_budget..ResetGuard$C$std..thread..local..AccessError$GT$$GT$17he073160dcf37ff4bE.exit30", %31
+38:                                               ; preds = %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h7eb60ecfae9feb61E.exit26.thread", %"_ZN4core3ptr128drop_in_place$LT$core..result..Result$LT$tokio..runtime..coop..with_budget..ResetGuard$C$std..thread..local..AccessError$GT$$GT$17he073160dcf37ff4bE.exit29", %31
   %.sroa.5.0 = phi i64 [ %32, %31 ], [ undef, %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h7eb60ecfae9feb61E.exit27.thread" ], [ undef, %"_ZN4core3ptr128drop_in_place$LT$core..result..Result$LT$tokio..runtime..coop..with_budget..ResetGuard$C$std..thread..local..AccessError$GT$$GT$17he073160dcf37ff4bE.exit30" ]
   %.sroa.0.0 = phi i64 [ 0, %31 ], [ %., %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h7eb60ecfae9feb61E.exit27.thread" ], [ %..i, %"_ZN4core3ptr128drop_in_place$LT$core..result..Result$LT$tokio..runtime..coop..with_budget..ResetGuard$C$std..thread..local..AccessError$GT$$GT$17he073160dcf37ff4bE.exit30" ]
   %39 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
   %40 = insertvalue { i64, i64 } %39, i64 %.sroa.5.0, 1
   ret { i64, i64 } %40
 
-"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h7eb60ecfae9feb61E.exit27.thread": ; preds = %33, %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h7eb60ecfae9feb61E.exit27"
+"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h7eb60ecfae9feb61E.exit26.thread": ; preds = %33, %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h7eb60ecfae9feb61E.exit26"
   %41 = tail call noundef zeroext i1 @"_ZN74_$LT$tokio..time..sleep..Sleep$u20$as$u20$core..future..future..Future$GT$4poll17hbc3c9c83f9b97e79E"(ptr noundef nonnull align 8 %0, ptr noalias noundef nonnull align 8 dereferenceable(32) %1)
   %. = select i1 %41, i64 2, i64 1
   br label %38
 
-42:                                               ; preds = %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h7eb60ecfae9feb61E.exit27"
+42:                                               ; preds = %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h7eb60ecfae9feb61E.exit26"
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !39146
   %43 = load i8, ptr @_ZN5tokio7runtime7context7CONTEXT7__getit5STATE17h0a20ff30ca981be8E, align 1, !noundef !4
   switch i8 %43, label %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17he8364ab61ecb0e2cE.exit" [
@@ -143701,14 +143701,14 @@ common.resume:                                    ; preds = %53, %51, %28
 
 _ZN5tokio7runtime4coop11with_budget17h686e16ef42bf928bE.exit: ; preds = %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17he8364ab61ecb0e2cE.exit"
   %..i = select i1 %50, i64 2, i64 1
-  %.not.i29 = icmp eq i8 %48, 2
-  br i1 %.not.i29, label %"_ZN4core3ptr128drop_in_place$LT$core..result..Result$LT$tokio..runtime..coop..with_budget..ResetGuard$C$std..thread..local..AccessError$GT$$GT$17he073160dcf37ff4bE.exit30", label %56
+  %.not.i28 = icmp eq i8 %48, 2
+  br i1 %.not.i28, label %"_ZN4core3ptr128drop_in_place$LT$core..result..Result$LT$tokio..runtime..coop..with_budget..ResetGuard$C$std..thread..local..AccessError$GT$$GT$17he073160dcf37ff4bE.exit29", label %56
 
 56:                                               ; preds = %_ZN5tokio7runtime4coop11with_budget17h686e16ef42bf928bE.exit
   call void @"_ZN87_$LT$tokio..runtime..coop..with_budget..ResetGuard$u20$as$u20$core..ops..drop..Drop$GT$4drop17h53aaaf6425a0029fE"(ptr noalias noundef nonnull align 1 dereferenceable(2) %3)
-  br label %"_ZN4core3ptr128drop_in_place$LT$core..result..Result$LT$tokio..runtime..coop..with_budget..ResetGuard$C$std..thread..local..AccessError$GT$$GT$17he073160dcf37ff4bE.exit30"
+  br label %"_ZN4core3ptr128drop_in_place$LT$core..result..Result$LT$tokio..runtime..coop..with_budget..ResetGuard$C$std..thread..local..AccessError$GT$$GT$17he073160dcf37ff4bE.exit29"
 
-"_ZN4core3ptr128drop_in_place$LT$core..result..Result$LT$tokio..runtime..coop..with_budget..ResetGuard$C$std..thread..local..AccessError$GT$$GT$17he073160dcf37ff4bE.exit30": ; preds = %_ZN5tokio7runtime4coop11with_budget17h686e16ef42bf928bE.exit, %56
+"_ZN4core3ptr128drop_in_place$LT$core..result..Result$LT$tokio..runtime..coop..with_budget..ResetGuard$C$std..thread..local..AccessError$GT$$GT$17he073160dcf37ff4bE.exit29": ; preds = %_ZN5tokio7runtime4coop11with_budget17h686e16ef42bf928bE.exit, %56
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !39146
   br label %38
 }
