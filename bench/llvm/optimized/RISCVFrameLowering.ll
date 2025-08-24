@@ -11240,7 +11240,7 @@ _ZNK4llvm24RISCVMachineFunctionInfo10isPushableERKNS_15MachineFunctionE.exit: ; 
   %.val31.i.i.i.i.i = load i32, ptr %.ptr21.i, align 4
   %32 = and i32 %.val31.i.i.i.i.i, 65535
   %33 = icmp eq i32 %32, %.val.i
-  br i1 %33, label %"_ZN4llvm7find_ifIRA13_KSt4pairItaEZL16getMaxPushPopRegRKNS_15MachineFunctionERKSt6vectorINS_15CalleeSavedInfoESaISA_EEE3$_0EEDaOT_T0_.exit.thread13.i", label %34
+  br i1 %33, label %"_ZN4llvm7find_ifIRA13_KSt4pairItaEZL16getMaxPushPopRegRKNS_15MachineFunctionERKSt6vectorINS_15CalleeSavedInfoESaISA_EEE3$_0EEDaOT_T0_.exit.i", label %34
 
 34:                                               ; preds = %31
   %.ptr20.i = getelementptr inbounds nuw i8, ptr %.02950.i.i.i.i.ptr.i, i64 8
@@ -11266,7 +11266,7 @@ _ZNK4llvm24RISCVMachineFunctionInfo10isPushableERKNS_15MachineFunctionE.exit: ; 
   %43 = icmp eq i32 %.val.i, 70
   br i1 %43, label %"_ZN4llvm7find_ifIRA13_KSt4pairItaEZL16getMaxPushPopRegRKNS_15MachineFunctionERKSt6vectorINS_15CalleeSavedInfoESaISA_EEE3$_0EEDaOT_T0_.exit.thread13.i", label %"_ZN4llvm7find_ifIRA13_KSt4pairItaEZL16getMaxPushPopRegRKNS_15MachineFunctionERKSt6vectorINS_15CalleeSavedInfoESaISA_EEE3$_0EEDaOT_T0_.exit.thread.i"
 
-"_ZN4llvm7find_ifIRA13_KSt4pairItaEZL16getMaxPushPopRegRKNS_15MachineFunctionERKSt6vectorINS_15CalleeSavedInfoESaISA_EEE3$_0EEDaOT_T0_.exit.thread13.i": ; preds = %37, %34, %28, %31, %._crit_edge.loopexit.i.i.i.i.i
+"_ZN4llvm7find_ifIRA13_KSt4pairItaEZL16getMaxPushPopRegRKNS_15MachineFunctionERKSt6vectorINS_15CalleeSavedInfoESaISA_EEE3$_0EEDaOT_T0_.exit.i": ; preds = %37, %34, %28, %31, %._crit_edge.loopexit.i.i.i.i.i
   %.sroa.speculated.i = tail call i32 @llvm.umax.i32(i32 %.sroa.09.025.i, i32 %.val.i)
   br label %"_ZN4llvm7find_ifIRA13_KSt4pairItaEZL16getMaxPushPopRegRKNS_15MachineFunctionERKSt6vectorINS_15CalleeSavedInfoESaISA_EEE3$_0EEDaOT_T0_.exit.thread.i"
 
@@ -11360,8 +11360,8 @@ _ZNK4llvm24RISCVMachineFunctionInfo10isPushableERKNS_15MachineFunctionE.exit.thr
   %74 = tail call noundef ptr %73(ptr noundef nonnull align 8 dereferenceable(304) %70) #18
   %75 = load ptr, ptr %3, align 8, !tbaa !494
   %76 = load ptr, ptr %8, align 8, !tbaa !494
-  %.not115123 = icmp eq ptr %75, %76
-  br i1 %.not115123, label %._crit_edge, label %.lr.ph
+  %.not115125 = icmp eq ptr %75, %76
+  br i1 %.not115125, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZNK4llvm24RISCVMachineFunctionInfo10isPushableERKNS_15MachineFunctionE.exit.thread
   %77 = getelementptr inbounds nuw i8, ptr %74, i64 288
@@ -11397,8 +11397,8 @@ _ZNK4llvm24RISCVMachineFunctionInfo10isPushableERKNS_15MachineFunctionE.exit88: 
   br i1 %97, label %245, label %_ZNK4llvm24RISCVMachineFunctionInfo10isPushableERKNS_15MachineFunctionE.exit88.thread
 
 98:                                               ; preds = %.lr.ph, %243
-  %.sroa.0101.0124 = phi ptr [ %75, %.lr.ph ], [ %244, %243 ]
-  %.sroa.0.0.copyload.i = load i32, ptr %.sroa.0101.0124, align 4, !tbaa !315
+  %.sroa.0101.0126 = phi ptr [ %75, %.lr.ph ], [ %244, %243 ]
+  %.sroa.0.0.copyload.i = load i32, ptr %.sroa.0101.0126, align 4, !tbaa !315
   %99 = tail call noundef ptr @_ZNK4llvm18TargetRegisterInfo22getMinimalPhysRegClassENS_10MCRegisterENS_3MVTE(ptr noundef nonnull align 8 dereferenceable(308) %74, i32 %.sroa.0.0.copyload.i, i16 1) #18
   %100 = load ptr, ptr %77, align 8, !tbaa !791
   %101 = load ptr, ptr %78, align 8, !tbaa !792
@@ -11436,12 +11436,12 @@ _ZNK4llvm24RISCVMachineFunctionInfo10isPushableERKNS_15MachineFunctionE.exit88: 
   %127 = load i32, ptr %.phi.trans.insert.i, align 4
   %128 = icmp ne i32 %127, 0
   %or.cond9.not.i = select i1 %126, i1 true, i1 %128
-  %.pre125 = load ptr, ptr %14, align 8, !tbaa !145
+  %.pre129 = load ptr, ptr %14, align 8, !tbaa !145
   br i1 %or.cond9.not.i, label %_ZNK4llvm24RISCVMachineFunctionInfo10isPushableERKNS_15MachineFunctionE.exit.thread.i, label %_ZNK4llvm24RISCVMachineFunctionInfo22useSaveRestoreLibCallsERKNS_15MachineFunctionE.exit.thread
 
 _ZNK4llvm24RISCVMachineFunctionInfo10isPushableERKNS_15MachineFunctionE.exit.thread.i: ; preds = %123, %._ZNK4llvm24RISCVMachineFunctionInfo10isPushableERKNS_15MachineFunctionE.exit.thread_crit_edge11.i
   %129 = phi i32 [ %.pre12.i, %._ZNK4llvm24RISCVMachineFunctionInfo10isPushableERKNS_15MachineFunctionE.exit.thread_crit_edge11.i ], [ %127, %123 ]
-  %130 = phi ptr [ %119, %._ZNK4llvm24RISCVMachineFunctionInfo10isPushableERKNS_15MachineFunctionE.exit.thread_crit_edge11.i ], [ %.pre125, %123 ]
+  %130 = phi ptr [ %119, %._ZNK4llvm24RISCVMachineFunctionInfo10isPushableERKNS_15MachineFunctionE.exit.thread_crit_edge11.i ], [ %.pre129, %123 ]
   %131 = getelementptr inbounds nuw i8, ptr %130, i64 311
   %132 = load i8, ptr %131, align 1, !tbaa !658, !range !277, !noundef !278
   %133 = trunc nuw i8 %132 to i1
@@ -11466,7 +11466,7 @@ _ZNK4llvm24RISCVMachineFunctionInfo22useSaveRestoreLibCallsERKNS_15MachineFuncti
   br label %_ZNK4llvm24RISCVMachineFunctionInfo22useSaveRestoreLibCallsERKNS_15MachineFunctionE.exit.thread
 
 _ZNK4llvm24RISCVMachineFunctionInfo22useSaveRestoreLibCallsERKNS_15MachineFunctionE.exit.thread: ; preds = %_ZNK4llvm24RISCVMachineFunctionInfo22useSaveRestoreLibCallsERKNS_15MachineFunctionE.exit._ZNK4llvm24RISCVMachineFunctionInfo22useSaveRestoreLibCallsERKNS_15MachineFunctionE.exit.thread_crit_edge, %123, %_ZNK4llvm24RISCVMachineFunctionInfo10isPushableERKNS_15MachineFunctionE.exit.thread.i, %135
-  %142 = phi ptr [ %.pre, %_ZNK4llvm24RISCVMachineFunctionInfo22useSaveRestoreLibCallsERKNS_15MachineFunctionE.exit._ZNK4llvm24RISCVMachineFunctionInfo22useSaveRestoreLibCallsERKNS_15MachineFunctionE.exit.thread_crit_edge ], [ %.pre125, %123 ], [ %130, %_ZNK4llvm24RISCVMachineFunctionInfo10isPushableERKNS_15MachineFunctionE.exit.thread.i ], [ %130, %135 ]
+  %142 = phi ptr [ %.pre, %_ZNK4llvm24RISCVMachineFunctionInfo22useSaveRestoreLibCallsERKNS_15MachineFunctionE.exit._ZNK4llvm24RISCVMachineFunctionInfo22useSaveRestoreLibCallsERKNS_15MachineFunctionE.exit.thread_crit_edge ], [ %.pre129, %123 ], [ %130, %_ZNK4llvm24RISCVMachineFunctionInfo10isPushableERKNS_15MachineFunctionE.exit.thread.i ], [ %130, %135 ]
   %143 = getelementptr inbounds nuw i8, ptr %142, i64 408
   %144 = load i8, ptr %143, align 8, !tbaa !564, !range !277, !noundef !278
   %145 = trunc nuw i8 %144 to i1
@@ -11484,7 +11484,7 @@ _ZNK4llvm24RISCVMachineFunctionInfo10isPushableERKNS_15MachineFunctionE.exit89: 
   br i1 %151, label %152, label %.critedge
 
 152:                                              ; preds = %_ZNK4llvm24RISCVMachineFunctionInfo10isPushableERKNS_15MachineFunctionE.exit89, %_ZNK4llvm24RISCVMachineFunctionInfo22useSaveRestoreLibCallsERKNS_15MachineFunctionE.exit
-  %.val87 = load i32, ptr %.sroa.0101.0124, align 4, !tbaa !315
+  %.val87 = load i32, ptr %.sroa.0101.0126, align 4, !tbaa !315
   br label %153
 
 153:                                              ; preds = %165, %152
@@ -11532,7 +11532,7 @@ _ZNK4llvm24RISCVMachineFunctionInfo10isPushableERKNS_15MachineFunctionE.exit89: 
 
 "_ZN4llvm7find_ifIRA13_KSt4pairItaEZNKS_18RISCVFrameLowering27assignCalleeSavedSpillSlotsERNS_15MachineFunctionEPKNS_18TargetRegisterInfoERSt6vectorINS_15CalleeSavedInfoESaISD_EERjSH_E3$_0EEDaOT_T0_.exit.thread": ; preds = %153, %159, %162
   %.028.i.i.i.i.idx.ph = phi i64 [ %.02950.i.i.i.i.add, %162 ], [ %.02950.i.i.i.i.add116, %159 ], [ %.02950.i.i.i.i.idx, %153 ]
-  %.028.i.i.i.i.ptr133 = getelementptr inbounds nuw i8, ptr @_ZL13FixedCSRFIMap, i64 %.028.i.i.i.i.idx.ph
+  %.028.i.i.i.i.ptr137 = getelementptr inbounds nuw i8, ptr @_ZL13FixedCSRFIMap, i64 %.028.i.i.i.i.idx.ph
   br label %"_ZN4llvm7find_ifIRA13_KSt4pairItaEZNKS_18RISCVFrameLowering27assignCalleeSavedSpillSlotsERNS_15MachineFunctionEPKNS_18TargetRegisterInfoERSt6vectorINS_15CalleeSavedInfoESaISD_EERjSH_E3$_0EEDaOT_T0_.exit.thread111"
 
 "_ZN4llvm7find_ifIRA13_KSt4pairItaEZNKS_18RISCVFrameLowering27assignCalleeSavedSpillSlotsERNS_15MachineFunctionEPKNS_18TargetRegisterInfoERSt6vectorINS_15CalleeSavedInfoESaISD_EERjSH_E3$_0EEDaOT_T0_.exit": ; preds = %156
@@ -11541,7 +11541,7 @@ _ZNK4llvm24RISCVMachineFunctionInfo10isPushableERKNS_15MachineFunctionE.exit89: 
   br i1 %.not85, label %.critedge, label %"_ZN4llvm7find_ifIRA13_KSt4pairItaEZNKS_18RISCVFrameLowering27assignCalleeSavedSpillSlotsERNS_15MachineFunctionEPKNS_18TargetRegisterInfoERSt6vectorINS_15CalleeSavedInfoESaISD_EERjSH_E3$_0EEDaOT_T0_.exit.thread111"
 
 "_ZN4llvm7find_ifIRA13_KSt4pairItaEZNKS_18RISCVFrameLowering27assignCalleeSavedSpillSlotsERNS_15MachineFunctionEPKNS_18TargetRegisterInfoERSt6vectorINS_15CalleeSavedInfoESaISD_EERjSH_E3$_0EEDaOT_T0_.exit.thread111": ; preds = %"_ZN4llvm7find_ifIRA13_KSt4pairItaEZNKS_18RISCVFrameLowering27assignCalleeSavedSpillSlotsERNS_15MachineFunctionEPKNS_18TargetRegisterInfoERSt6vectorINS_15CalleeSavedInfoESaISD_EERjSH_E3$_0EEDaOT_T0_.exit.thread", %._crit_edge.loopexit.i.i.i.i, %"_ZN4llvm7find_ifIRA13_KSt4pairItaEZNKS_18RISCVFrameLowering27assignCalleeSavedSpillSlotsERNS_15MachineFunctionEPKNS_18TargetRegisterInfoERSt6vectorINS_15CalleeSavedInfoESaISD_EERjSH_E3$_0EEDaOT_T0_.exit"
-  %.028.i.i.i.i114 = phi ptr [ %.028.i.i.i.i.ptr, %"_ZN4llvm7find_ifIRA13_KSt4pairItaEZNKS_18RISCVFrameLowering27assignCalleeSavedSpillSlotsERNS_15MachineFunctionEPKNS_18TargetRegisterInfoERSt6vectorINS_15CalleeSavedInfoESaISD_EERjSH_E3$_0EEDaOT_T0_.exit" ], [ getelementptr inbounds nuw (i8, ptr @_ZL13FixedCSRFIMap, i64 48), %._crit_edge.loopexit.i.i.i.i ], [ %.028.i.i.i.i.ptr133, %"_ZN4llvm7find_ifIRA13_KSt4pairItaEZNKS_18RISCVFrameLowering27assignCalleeSavedSpillSlotsERNS_15MachineFunctionEPKNS_18TargetRegisterInfoERSt6vectorINS_15CalleeSavedInfoESaISD_EERjSH_E3$_0EEDaOT_T0_.exit.thread" ]
+  %.028.i.i.i.i114 = phi ptr [ %.028.i.i.i.i.ptr, %"_ZN4llvm7find_ifIRA13_KSt4pairItaEZNKS_18RISCVFrameLowering27assignCalleeSavedSpillSlotsERNS_15MachineFunctionEPKNS_18TargetRegisterInfoERSt6vectorINS_15CalleeSavedInfoESaISD_EERjSH_E3$_0EEDaOT_T0_.exit" ], [ getelementptr inbounds nuw (i8, ptr @_ZL13FixedCSRFIMap, i64 48), %._crit_edge.loopexit.i.i.i.i ], [ %.028.i.i.i.i.ptr137, %"_ZN4llvm7find_ifIRA13_KSt4pairItaEZNKS_18RISCVFrameLowering27assignCalleeSavedSpillSlotsERNS_15MachineFunctionEPKNS_18TargetRegisterInfoERSt6vectorINS_15CalleeSavedInfoESaISD_EERjSH_E3$_0EEDaOT_T0_.exit.thread" ]
   %169 = load ptr, ptr %14, align 8, !tbaa !145
   %170 = getelementptr inbounds nuw i8, ptr %169, i64 408
   %171 = load i8, ptr %170, align 8, !tbaa !564, !range !277, !noundef !278
@@ -11584,9 +11584,9 @@ _ZNK4llvm24RISCVMachineFunctionInfo10isPushableERKNS_15MachineFunctionE.exit90.t
   %.pre-phi = phi i64 [ %193, %_ZNK4llvm24RISCVMachineFunctionInfo10isPushableERKNS_15MachineFunctionE.exit90.thread ], [ %187, %179 ]
   %.079 = phi i64 [ %194, %_ZNK4llvm24RISCVMachineFunctionInfo10isPushableERKNS_15MachineFunctionE.exit90.thread ], [ %189, %179 ]
   %196 = tail call noundef i32 @_ZN4llvm16MachineFrameInfo27CreateFixedSpillStackObjectEmlb(ptr noundef nonnull align 8 dereferenceable(696) %69, i64 noundef %.pre-phi, i64 noundef %.079, i1 noundef zeroext false) #18
-  %197 = getelementptr inbounds nuw i8, ptr %.sroa.0101.0124, i64 4
+  %197 = getelementptr inbounds nuw i8, ptr %.sroa.0101.0126, i64 4
   store i32 %196, ptr %197, align 4, !tbaa !139
-  %198 = getelementptr inbounds nuw i8, ptr %.sroa.0101.0124, i64 9
+  %198 = getelementptr inbounds nuw i8, ptr %.sroa.0101.0126, i64 9
   store i8 0, ptr %198, align 1, !tbaa !808
   br label %243
 
@@ -11636,9 +11636,9 @@ _ZNK4llvm24RISCVMachineFunctionInfo10isPushableERKNS_15MachineFunctionE.exit90.t
   br label %231
 
 231:                                              ; preds = %230, %227
-  %232 = getelementptr inbounds nuw i8, ptr %.sroa.0101.0124, i64 4
+  %232 = getelementptr inbounds nuw i8, ptr %.sroa.0101.0126, i64 4
   store i32 %223, ptr %232, align 4, !tbaa !139
-  %233 = getelementptr inbounds nuw i8, ptr %.sroa.0101.0124, i64 9
+  %233 = getelementptr inbounds nuw i8, ptr %.sroa.0101.0126, i64 9
   store i8 0, ptr %233, align 1, !tbaa !808
   %234 = getelementptr inbounds nuw i8, ptr %99, i64 34
   %235 = load i8, ptr %234, align 2, !tbaa !810
@@ -11656,7 +11656,7 @@ _ZNK4llvm24RISCVMachineFunctionInfo10isPushableERKNS_15MachineFunctionE.exit90.t
   br label %243
 
 243:                                              ; preds = %231, %237, %195
-  %244 = getelementptr inbounds nuw i8, ptr %.sroa.0101.0124, i64 12
+  %244 = getelementptr inbounds nuw i8, ptr %.sroa.0101.0126, i64 12
   %.not115 = icmp eq ptr %244, %76
   br i1 %.not115, label %._crit_edge, label %98
 
@@ -11696,9 +11696,9 @@ _ZNK4llvm24RISCVMachineFunctionInfo10isPushableERKNS_15MachineFunctionE.exit88.t
   br label %.sink.split
 
 .sink.split:                                      ; preds = %252, %248
-  %.sink137 = phi i64 [ %249, %248 ], [ %267, %252 ]
-  %268 = sub nsw i64 0, %.sink137
-  %269 = tail call noundef i32 @_ZN4llvm16MachineFrameInfo27CreateFixedSpillStackObjectEmlb(ptr noundef nonnull align 8 dereferenceable(696) %69, i64 noundef %.sink137, i64 noundef %268, i1 noundef zeroext false) #18
+  %.sink143 = phi i64 [ %249, %248 ], [ %267, %252 ]
+  %268 = sub nsw i64 0, %.sink143
+  %269 = tail call noundef i32 @_ZN4llvm16MachineFrameInfo27CreateFixedSpillStackObjectEmlb(ptr noundef nonnull align 8 dereferenceable(696) %69, i64 noundef %.sink143, i64 noundef %268, i1 noundef zeroext false) #18
   br label %270
 
 270:                                              ; preds = %.sink.split, %245, %_ZNK4llvm24RISCVMachineFunctionInfo10isPushableERKNS_15MachineFunctionE.exit88.thread, %6

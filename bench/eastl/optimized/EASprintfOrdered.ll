@@ -220,7 +220,7 @@ if.end106.i:                                      ; preds = %for.cond.i
   %arrayidx114.i = getelementptr inbounds [16 x i8], ptr %mFormat112.i, i64 0, i64 %.pre.i
   store i8 0, ptr %arrayidx114.i, align 1, !noalias !8
   %cmp118202.i = icmp sgt i32 %formattedSpanCount.0.i, 0
-  br i1 %cmp118202.i, label %for.body119.lr.ph.i, label %for.body337.preheader.i
+  br i1 %cmp118202.i, label %for.body119.lr.ph.i, label %for.cond335.preheader.i
 
 for.body119.lr.ph.i:                              ; preds = %if.end106.i
   %mSign.i.i = getelementptr inbounds nuw i8, ptr %formatData.i, i64 4
@@ -235,7 +235,7 @@ for.body119.lr.ph.i:                              ; preds = %if.end106.i
   %wide.trip.count.i = zext nneg i32 %formattedSpanCount.0.i to i64
   br label %for.body119.i
 
-for.body337.preheader.i:                          ; preds = %for.inc332.i, %if.end106.i
+for.cond335.preheader.i:                          ; preds = %for.inc332.i, %if.end106.i
   %4 = add nuw i32 %spanIndex.0.i, 1
   %wide.trip.count232.i = zext i32 %4 to i64
   br label %for.body337.i
@@ -788,7 +788,7 @@ sw.default329.i:                                  ; preds = %if.end147.i, %if.en
 for.inc332.i:                                     ; preds = %sw.default329.i, %sw.bb326.i, %vaarg.end323.i, %vaarg.end310.i, %vaarg.end296.i, %vaarg.end282.i, %vaarg.end269.i, %sw.bb254.i, %vaarg.end251.i, %vaarg.end241.i, %vaarg.end228.i, %vaarg.end215.i, %vaarg.end202.i, %vaarg.end189.i, %vaarg.end176.i, %vaarg.end162.i, %vaarg.end.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %for.body337.preheader.i, label %for.body119.i, !llvm.loop !13
+  br i1 %exitcond.not.i, label %for.cond335.preheader.i, label %for.body119.i, !llvm.loop !13
 
 for.body337.i:                                    ; preds = %for.inc465.i, %for.body337.preheader.i
   %indvars.iv229.i = phi i64 [ 0, %for.body337.preheader.i ], [ %indvars.iv.next230.i, %for.inc465.i ]
@@ -1422,7 +1422,7 @@ if.end106.i:                                      ; preds = %for.cond.i
   %arrayidx114.i = getelementptr inbounds [16 x i16], ptr %mFormat112.i, i64 0, i64 %.pre.i
   store i16 0, ptr %arrayidx114.i, align 2, !noalias !37
   %cmp118202.i = icmp sgt i32 %formattedSpanCount.0.i, 0
-  br i1 %cmp118202.i, label %for.body119.lr.ph.i, label %for.body337.preheader.i
+  br i1 %cmp118202.i, label %for.body119.lr.ph.i, label %for.cond335.preheader.i
 
 for.body119.lr.ph.i:                              ; preds = %if.end106.i
   %mSign.i.i = getelementptr inbounds nuw i8, ptr %formatData.i, i64 4
@@ -1437,7 +1437,7 @@ for.body119.lr.ph.i:                              ; preds = %if.end106.i
   %wide.trip.count.i = zext nneg i32 %formattedSpanCount.0.i to i64
   br label %for.body119.i
 
-for.body337.preheader.i:                          ; preds = %for.inc332.i, %if.end106.i
+for.cond335.preheader.i:                          ; preds = %for.inc332.i, %if.end106.i
   %4 = add nuw i32 %spanIndex.0.i, 1
   %wide.trip.count230.i = zext i32 %4 to i64
   br label %for.body337.i
@@ -1990,7 +1990,7 @@ sw.default329.i:                                  ; preds = %if.end147.i, %if.en
 for.inc332.i:                                     ; preds = %sw.default329.i, %sw.bb326.i, %vaarg.end323.i, %vaarg.end310.i, %vaarg.end296.i, %vaarg.end282.i, %vaarg.end269.i, %sw.bb254.i, %vaarg.end251.i, %vaarg.end241.i, %vaarg.end228.i, %vaarg.end215.i, %vaarg.end202.i, %vaarg.end189.i, %vaarg.end176.i, %vaarg.end162.i, %vaarg.end.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %for.body337.preheader.i, label %for.body119.i, !llvm.loop !41
+  br i1 %exitcond.not.i, label %for.cond335.preheader.i, label %for.body119.i, !llvm.loop !41
 
 for.body337.i:                                    ; preds = %for.inc466.i, %for.body337.preheader.i
   %indvars.iv227.i = phi i64 [ 0, %for.body337.preheader.i ], [ %indvars.iv.next228.i, %for.inc466.i ]
@@ -2615,7 +2615,7 @@ if.end100.i:                                      ; preds = %for.cond.i
   %arrayidx108.i = getelementptr inbounds [16 x i32], ptr %mFormat106.i, i64 0, i64 %.pre.i
   store i32 0, ptr %arrayidx108.i, align 4, !noalias !65
   %cmp112203.i = icmp sgt i32 %formattedSpanCount.0.i, 0
-  br i1 %cmp112203.i, label %for.body113.lr.ph.i, label %for.body328.preheader.i
+  br i1 %cmp112203.i, label %for.body113.lr.ph.i, label %for.cond326.preheader.i
 
 for.body113.lr.ph.i:                              ; preds = %if.end100.i
   %mSign.i.i = getelementptr inbounds nuw i8, ptr %formatData.i, i64 4
@@ -2630,7 +2630,7 @@ for.body113.lr.ph.i:                              ; preds = %if.end100.i
   %wide.trip.count.i = zext nneg i32 %formattedSpanCount.0.i to i64
   br label %for.body113.i
 
-for.body328.preheader.i:                          ; preds = %for.inc323.i, %if.end100.i
+for.cond326.preheader.i:                          ; preds = %for.inc323.i, %if.end100.i
   %4 = add nuw i32 %spanIndex.0.i, 1
   %wide.trip.count231.i = zext i32 %4 to i64
   br label %for.body328.i
@@ -3183,7 +3183,7 @@ sw.default320.i:                                  ; preds = %if.end139.i, %if.en
 for.inc323.i:                                     ; preds = %sw.default320.i, %sw.bb317.i, %vaarg.end314.i, %vaarg.end301.i, %vaarg.end287.i, %vaarg.end273.i, %vaarg.end260.i, %sw.bb245.i, %vaarg.end242.i, %vaarg.end232.i, %vaarg.end219.i, %vaarg.end206.i, %vaarg.end193.i, %vaarg.end180.i, %vaarg.end167.i, %vaarg.end153.i, %vaarg.end.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %for.body328.preheader.i, label %for.body113.i, !llvm.loop !69
+  br i1 %exitcond.not.i, label %for.cond326.preheader.i, label %for.body113.i, !llvm.loop !69
 
 for.body328.i:                                    ; preds = %for.inc457.i, %for.body328.preheader.i
   %indvars.iv228.i = phi i64 [ 0, %for.body328.preheader.i ], [ %indvars.iv.next229.i, %for.inc457.i ]
