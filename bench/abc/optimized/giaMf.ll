@@ -5617,8 +5617,6 @@ Abc_TtNot.exit.i.us.us.us:                        ; preds = %.lr.ph.i131.i.us.us
   %863 = sext i32 %500 to i64
   %.idx.i.i.us.us.us = shl nsw i64 %863, 3
   %864 = getelementptr inbounds i8, ptr %14, i64 %.idx.i.i.us.us.us
-  %smax.i.i.us.us.us = call i32 @llvm.smax.i32(i32 %500, i32 1)
-  %wide.trip.count55.i.i.us.us.us = zext nneg i32 %smax.i.i.us.us.us to i64
   %wide.trip.count.i526.us.us.us = zext nneg i32 %498 to i64
   br label %.lr.ph.split.split.split.i.us.us.us
 
@@ -5819,7 +5817,7 @@ Abc_TtHasVar.exit.thread30.i.us.us.us:            ; preds = %884, %872
   %966 = or i64 %963, %965
   store i64 %966, ptr %958, align 8, !tbaa !3
   %indvars.iv.next148.i761.us.us.us = add nuw nsw i64 %indvars.iv147.i760.us.us.us, 1
-  %exitcond151.not.i762.us.us.us = icmp eq i64 %indvars.iv.next148.i761.us.us.us, %wide.trip.count55.i.i.us.us.us
+  %exitcond151.not.i762.us.us.us = icmp eq i64 %indvars.iv.next148.i761.us.us.us, %wide.trip.count.i124.i.us.us.us
   br i1 %exitcond151.not.i762.us.us.us, label %Abc_TtSwapVars.exit764.us.us.us, label %957, !llvm.loop !168
 
 Abc_TtSwapVars.exit764.us.us.us:                  ; preds = %918, %942, %957, %892, %Abc_TtHasVar.exit.thread30.i.us.us.us
@@ -5828,7 +5826,7 @@ Abc_TtSwapVars.exit764.us.us.us:                  ; preds = %918, %942, %957, %8
 
 968:                                              ; preds = %884
   %indvars.iv.next53.i.i.us.us.us = add nuw nsw i64 %indvars.iv52.i.i.us.us.us, 1
-  %exitcond56.not.i.i.us.us.us = icmp eq i64 %indvars.iv.next53.i.i.us.us.us, %wide.trip.count55.i.i.us.us.us
+  %exitcond56.not.i.i.us.us.us = icmp eq i64 %indvars.iv.next53.i.i.us.us.us, %wide.trip.count.i124.i.us.us.us
   br i1 %exitcond56.not.i.i.us.us.us, label %Abc_TtHasVar.exit.thread.i.us.us.us, label %884, !llvm.loop !174
 
 Abc_TtHasVar.exit.thread.i.us.us.us:              ; preds = %877, %968, %Abc_TtSwapVars.exit764.us.us.us

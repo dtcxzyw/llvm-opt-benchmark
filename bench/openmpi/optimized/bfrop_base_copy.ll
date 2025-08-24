@@ -3301,9 +3301,13 @@ define range(i32 -32, 1) i32 @pmix_bfrops_base_copy_regattr(ptr noundef captures
 define internal fastcc range(i32 -32, 1) i32 @pmix_bfrops_base_tma_copy_regattr(ptr noundef captures(none) initializes((0, 8)) %0, ptr noundef readonly captures(none) %1) unnamed_addr #2 {
   %3 = tail call noalias noundef dereferenceable_or_null(536) ptr @malloc(i64 noundef 536) #25
   %.not.i = icmp eq ptr %3, null
-  br i1 %.not.i, label %pmix_bfrops_base_tma_regattr_create.exit.thread, label %.preheader.i.preheader, !prof !43
+  br i1 %.not.i, label %pmix_bfrops_base_tma_regattr_create.exit.thread, label %.preheader.i, !prof !43
 
-.preheader.i.preheader:                           ; preds = %2
+pmix_bfrops_base_tma_regattr_create.exit.thread:  ; preds = %2
+  store ptr null, ptr %0, align 8, !tbaa !213
+  br label %52
+
+.preheader.i:                                     ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 528
   store ptr null, ptr %4, align 8, !tbaa !134
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(522) %3, i8 0, i64 522, i1 false)
@@ -3312,16 +3316,12 @@ define internal fastcc range(i32 -32, 1) i32 @pmix_bfrops_base_tma_copy_regattr(
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %8, label %6
 
-pmix_bfrops_base_tma_regattr_create.exit.thread:  ; preds = %2
-  store ptr null, ptr %0, align 8, !tbaa !213
-  br label %52
-
-6:                                                ; preds = %.preheader.i.preheader
+6:                                                ; preds = %.preheader.i
   %7 = tail call noalias ptr @strdup(ptr noundef nonnull readonly %5) #23
   store ptr %7, ptr %3, align 8, !tbaa !131
   br label %8
 
-8:                                                ; preds = %6, %.preheader.i.preheader
+8:                                                ; preds = %6, %.preheader.i
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(512) %9, i8 0, i64 512, i1 false)
@@ -4663,22 +4663,22 @@ define internal fastcc i32 @pmix_bfrops_base_tma_value_xfer(ptr noundef nonnull 
 96:                                               ; preds = %2
   %97 = tail call noalias noundef dereferenceable_or_null(260) ptr @malloc(i64 noundef 260) #25
   %.not.i = icmp eq ptr %97, null
-  br i1 %.not.i, label %pmix_bfrops_base_tma_proc_create.exit.thread, label %.preheader.i.preheader, !prof !43
-
-.preheader.i.preheader:                           ; preds = %96
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(260) %97, i8 0, i64 256, i1 false)
-  %98 = getelementptr inbounds nuw i8, ptr %97, i64 256
-  store i32 -1, ptr %98, align 4, !tbaa !76
-  %99 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %97, ptr %99, align 8, !tbaa !48
-  %100 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %101 = load ptr, ptr %100, align 8, !tbaa !48
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(260) %97, ptr noundef nonnull align 4 dereferenceable(260) %101, i64 260, i1 false)
-  br label %pmix_bfrops_base_tma_copy_resource_unit.exit
+  br i1 %.not.i, label %pmix_bfrops_base_tma_proc_create.exit.thread, label %.preheader.i, !prof !43
 
 pmix_bfrops_base_tma_proc_create.exit.thread:     ; preds = %96
-  %102 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr null, ptr %102, align 8, !tbaa !48
+  %98 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr null, ptr %98, align 8, !tbaa !48
+  br label %pmix_bfrops_base_tma_copy_resource_unit.exit
+
+.preheader.i:                                     ; preds = %96
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(260) %97, i8 0, i64 256, i1 false)
+  %99 = getelementptr inbounds nuw i8, ptr %97, i64 256
+  store i32 -1, ptr %99, align 4, !tbaa !76
+  %100 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %97, ptr %100, align 8, !tbaa !48
+  %101 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %102 = load ptr, ptr %101, align 8, !tbaa !48
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(260) %97, ptr noundef nonnull align 4 dereferenceable(260) %102, i64 260, i1 false)
   br label %pmix_bfrops_base_tma_copy_resource_unit.exit
 
 103:                                              ; preds = %2, %2, %2, %2
@@ -4957,8 +4957,8 @@ pmix_bfrops_base_tma_proc_create.exit.thread:     ; preds = %96
   tail call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.3, i32 noundef %262) #23
   br label %pmix_bfrops_base_tma_copy_resource_unit.exit
 
-pmix_bfrops_base_tma_copy_resource_unit.exit:     ; preds = %219, %215, %pmix_bfrops_base_tma_proc_create.exit.thread, %2, %4, %8, %20, %24, %28, %32, %36, %40, %44, %48, %52, %56, %60, %64, %68, %72, %76, %79, %83, %87, %.preheader.i.preheader, %116, %120, %124, %128, %142, %146, %150, %166, %175, %179, %197, %206, %18, %15, %115, %110, %188, %195, %183, %190, %261, %256, %251, %246, %241, %236, %231, %226, %221, %210, %201, %170, %137, %132, %91
-  %.0 = phi i32 [ -1, %261 ], [ %95, %91 ], [ %136, %132 ], [ %141, %137 ], [ %174, %170 ], [ %205, %201 ], [ %214, %210 ], [ %225, %221 ], [ %230, %226 ], [ %235, %231 ], [ %240, %236 ], [ %245, %241 ], [ %250, %246 ], [ %255, %251 ], [ %260, %256 ], [ 0, %190 ], [ 0, %183 ], [ 0, %195 ], [ 0, %188 ], [ 0, %110 ], [ 0, %115 ], [ 0, %15 ], [ 0, %18 ], [ 0, %206 ], [ 0, %197 ], [ 0, %179 ], [ 0, %175 ], [ 0, %166 ], [ 0, %150 ], [ 0, %146 ], [ 0, %142 ], [ 0, %128 ], [ 0, %124 ], [ 0, %120 ], [ 0, %116 ], [ 0, %.preheader.i.preheader ], [ 0, %87 ], [ 0, %83 ], [ 0, %79 ], [ 0, %76 ], [ 0, %72 ], [ 0, %68 ], [ 0, %64 ], [ 0, %60 ], [ 0, %56 ], [ 0, %52 ], [ 0, %48 ], [ 0, %44 ], [ 0, %40 ], [ 0, %36 ], [ 0, %32 ], [ 0, %28 ], [ 0, %24 ], [ 0, %20 ], [ 0, %8 ], [ 0, %4 ], [ 0, %2 ], [ -32, %pmix_bfrops_base_tma_proc_create.exit.thread ], [ 0, %219 ], [ -32, %215 ]
+pmix_bfrops_base_tma_copy_resource_unit.exit:     ; preds = %219, %215, %pmix_bfrops_base_tma_proc_create.exit.thread, %2, %4, %8, %20, %24, %28, %32, %36, %40, %44, %48, %52, %56, %60, %64, %68, %72, %76, %79, %83, %87, %.preheader.i, %116, %120, %124, %128, %142, %146, %150, %166, %175, %179, %197, %206, %18, %15, %115, %110, %188, %195, %183, %190, %261, %256, %251, %246, %241, %236, %231, %226, %221, %210, %201, %170, %137, %132, %91
+  %.0 = phi i32 [ -1, %261 ], [ %95, %91 ], [ %136, %132 ], [ %141, %137 ], [ %174, %170 ], [ %205, %201 ], [ %214, %210 ], [ %225, %221 ], [ %230, %226 ], [ %235, %231 ], [ %240, %236 ], [ %245, %241 ], [ %250, %246 ], [ %255, %251 ], [ %260, %256 ], [ 0, %190 ], [ 0, %183 ], [ 0, %195 ], [ 0, %188 ], [ 0, %110 ], [ 0, %115 ], [ 0, %15 ], [ 0, %18 ], [ 0, %206 ], [ 0, %197 ], [ 0, %179 ], [ 0, %175 ], [ 0, %166 ], [ 0, %150 ], [ 0, %146 ], [ 0, %142 ], [ 0, %128 ], [ 0, %124 ], [ 0, %120 ], [ 0, %116 ], [ 0, %.preheader.i ], [ 0, %87 ], [ 0, %83 ], [ 0, %79 ], [ 0, %76 ], [ 0, %72 ], [ 0, %68 ], [ 0, %64 ], [ 0, %60 ], [ 0, %56 ], [ 0, %52 ], [ 0, %48 ], [ 0, %44 ], [ 0, %40 ], [ 0, %36 ], [ 0, %32 ], [ 0, %28 ], [ 0, %24 ], [ 0, %20 ], [ 0, %8 ], [ 0, %4 ], [ 0, %2 ], [ -32, %pmix_bfrops_base_tma_proc_create.exit.thread ], [ 0, %219 ], [ -32, %215 ]
   ret i32 %.0
 }
 
@@ -5033,21 +5033,21 @@ define internal fastcc range(i32 -32, 1) i32 @pmix_bfrops_base_tma_copy_device(p
 define internal fastcc range(i32 -32, 1) i32 @pmix_bfrops_base_tma_copy_devdist(ptr noundef nonnull writeonly captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #10 {
   %calloc = tail call dereferenceable_or_null(32) ptr @calloc(i64 1, i64 32)
   %.not.i = icmp eq ptr %calloc, null
-  br i1 %.not.i, label %pmix_bfrops_base_tma_device_distance_create.exit.thread, label %.preheader.i.preheader, !prof !43
+  br i1 %.not.i, label %pmix_bfrops_base_tma_device_distance_create.exit.thread, label %.preheader.i, !prof !43
 
-.preheader.i.preheader:                           ; preds = %2
+.preheader.i:                                     ; preds = %2
   %3 = getelementptr inbounds nuw i8, ptr %calloc, i64 24
   %4 = getelementptr inbounds nuw i8, ptr %calloc, i64 26
   %5 = load ptr, ptr %1, align 8, !tbaa !152
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %8, label %6
 
-6:                                                ; preds = %.preheader.i.preheader
+6:                                                ; preds = %.preheader.i
   %7 = tail call noalias ptr @strdup(ptr noundef nonnull readonly %5) #23
   store ptr %7, ptr %calloc, align 8, !tbaa !152
   br label %8
 
-8:                                                ; preds = %6, %.preheader.i.preheader
+8:                                                ; preds = %6, %.preheader.i
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load ptr, ptr %9, align 8, !tbaa !154
   %.not21 = icmp eq ptr %10, null

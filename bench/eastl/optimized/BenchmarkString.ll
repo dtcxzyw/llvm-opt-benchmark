@@ -1649,20 +1649,11 @@ if.end.i2876:                                     ; preds = %if.end.i.i.i2881, %
 
 if.then10.i:                                      ; preds = %if.end.i2876
   %add.ptr.i2880 = getelementptr inbounds i16, ptr %call5.i.i.i.i2889, i64 %sub.i223
-  %cond.i = icmp eq i64 %__i.0.i.i.i, 1
-  br i1 %cond.i, label %if.then.i20.i, label %if.end.i.i21.i
-
-if.then.i20.i:                                    ; preds = %if.then10.i
   %120 = load i16, ptr %pInsert1_16, align 4
   store i16 %120, ptr %add.ptr.i2880, align 2
   br label %if.end11.i
 
-if.end.i.i21.i:                                   ; preds = %if.then10.i
-  %mul.i.i22.i = shl i64 %__i.0.i.i.i, 1
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %add.ptr.i2880, ptr nonnull align 4 %pInsert1_16, i64 %mul.i.i22.i, i1 false)
-  br label %if.end11.i
-
-if.end11.i:                                       ; preds = %if.end.i.i21.i, %if.then.i20.i, %if.end.i2876
+if.end11.i:                                       ; preds = %if.then10.i, %if.end.i2876
   %tobool12.not.i = icmp eq i64 %103, %sub.i223
   br i1 %tobool12.not.i, label %if.end19.i2878, label %if.then13.i
 

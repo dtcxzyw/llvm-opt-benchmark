@@ -2548,7 +2548,7 @@ _ZN10aiMetadata5AllocEj.exit:                     ; preds = %17, %41
 
 46:                                               ; preds = %.lr.ph, %_ZN10aiMetadata3SetI8aiStringEEbjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_.exit
   %.020 = phi i64 [ 0, %.lr.ph ], [ %49, %_ZN10aiMetadata3SetI8aiStringEEbjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_.exit ]
-  %.sroa.014.019 = phi ptr [ %43, %.lr.ph ], [ %95, %_ZN10aiMetadata3SetI8aiStringEEbjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_.exit ]
+  %.sroa.014.019 = phi ptr [ %43, %.lr.ph ], [ %93, %_ZN10aiMetadata3SetI8aiStringEEbjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_.exit ]
   %47 = load ptr, ptr %.sroa.014.019, align 8
   %48 = load ptr, ptr %10, align 8
   %49 = add i64 %.020, 1
@@ -2619,33 +2619,29 @@ _ZN8aiStringaSERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i: ; 
   br label %_ZN10aiMetadata3SetI8aiStringEEbjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_.exit
 
 86:                                               ; preds = %83
-  %spec.select.i.i = tail call i32 @llvm.umin.i32(i32 %spec.select.i, i32 1023)
-  store i32 %spec.select.i.i, ptr %82, align 4
+  store i32 %spec.select.i, ptr %82, align 4
   %87 = getelementptr inbounds nuw i8, ptr %82, i64 4
-  %88 = zext nneg i32 %spec.select.i.i to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %87, ptr nonnull align 4 %45, i64 %88, i1 false)
-  %89 = getelementptr inbounds nuw [1024 x i8], ptr %87, i64 0, i64 %88
-  store i8 0, ptr %89, align 1
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %87, ptr nonnull align 4 %45, i64 %58, i1 false)
+  %88 = getelementptr inbounds nuw [1024 x i8], ptr %87, i64 0, i64 %58
+  store i8 0, ptr %88, align 1
   br label %_ZN10aiMetadata3SetI8aiStringEEbjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_.exit
 
 .thread.i:                                        ; preds = %_ZN8aiStringaSERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i
-  %90 = tail call noalias noundef nonnull dereferenceable(1028) ptr @_Znwm(i64 noundef 1028) #32
-  %91 = getelementptr inbounds nuw i8, ptr %90, i64 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1024) %91, i8 0, i64 1024, i1 false)
-  %spec.select.i28.i = tail call i32 @llvm.umin.i32(i32 %spec.select.i, i32 1023)
-  store i32 %spec.select.i28.i, ptr %90, align 4
-  %92 = zext nneg i32 %spec.select.i28.i to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %91, ptr nonnull align 4 %45, i64 %92, i1 false)
-  %93 = getelementptr inbounds nuw [1024 x i8], ptr %91, i64 0, i64 %92
-  store i8 0, ptr %93, align 1
-  %94 = getelementptr inbounds nuw %struct.aiMetadataEntry, ptr %79, i64 %66, i32 1
-  store ptr %90, ptr %94, align 8
+  %89 = tail call noalias noundef nonnull dereferenceable(1028) ptr @_Znwm(i64 noundef 1028) #32
+  %90 = getelementptr inbounds nuw i8, ptr %89, i64 4
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1024) %90, i8 0, i64 1024, i1 false)
+  store i32 %spec.select.i, ptr %89, align 4
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %90, ptr nonnull align 4 %45, i64 %58, i1 false)
+  %91 = getelementptr inbounds nuw [1024 x i8], ptr %90, i64 0, i64 %58
+  store i8 0, ptr %91, align 1
+  %92 = getelementptr inbounds nuw %struct.aiMetadataEntry, ptr %79, i64 %66, i32 1
+  store ptr %89, ptr %92, align 8
   br label %_ZN10aiMetadata3SetI8aiStringEEbjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_.exit
 
 _ZN10aiMetadata3SetI8aiStringEEbjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_.exit: ; preds = %46, %61, %85, %86, %.thread.i
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %95 = getelementptr inbounds nuw i8, ptr %.sroa.014.019, i64 8
-  %.not17 = icmp eq ptr %95, %44
+  %93 = getelementptr inbounds nuw i8, ptr %.sroa.014.019, i64 8
+  %.not17 = icmp eq ptr %93, %44
   br i1 %.not17, label %.loopexit, label %46
 
 .loopexit:                                        ; preds = %_ZN10aiMetadata3SetI8aiStringEEbjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_.exit, %_ZN10aiMetadata5AllocEj.exit, %3
@@ -7936,9 +7932,6 @@ declare i64 @llvm.umax.i64(i64, i64) #25
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #27
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #25
 
 attributes #0 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree nounwind }

@@ -7447,7 +7447,7 @@ _ZNK3gmx11DomdecZones9atomRangeEi.exit109.i.i:    ; preds = %2991
 .lr.ph51.i.i:                                     ; preds = %.preheader.i223.i, %_ZN3gmx11DomdecZones15setAtomRangeEndEiib.exit.i.i
   %indvars.iv113.i.i = phi i64 [ %indvars.iv.next114.i.i, %_ZN3gmx11DomdecZones15setAtomRangeEndEiib.exit.i.i ], [ 0, %.preheader.i223.i ]
   %.08549.i.i = phi i32 [ %.1.lcssa.i.i562, %_ZN3gmx11DomdecZones15setAtomRangeEndEiib.exit.i.i ], [ 0, %.preheader.i223.i ]
-  %.18948.i.i = phi i32 [ %3009, %_ZN3gmx11DomdecZones15setAtomRangeEndEiib.exit.i.i ], [ 0, %.preheader.i223.i ]
+  %.18948.i.i = phi i32 [ %3007, %_ZN3gmx11DomdecZones15setAtomRangeEndEiib.exit.i.i ], [ 0, %.preheader.i223.i ]
   %2996 = add nuw nsw i64 %indvars.iv113.i.i, %2322
   %2997 = getelementptr inbounds nuw [8 x i32], ptr %24, i64 0, i64 %2996
   %2998 = load i32, ptr %2997, align 4, !tbaa !208
@@ -7462,19 +7462,19 @@ _ZNK3gmx11DomdecZones9atomRangeEi.exit109.i.i:    ; preds = %2991
   %3004 = sext i32 %.08549.i.i to i64
   br label %.lr.ph44.i.i
 
-._crit_edge45.loopexit.i.i:                       ; preds = %_ZL13ddGetAtomInfoN3gmx8ArrayRefIKNS_27AtomInfoWithinMoleculeBlockEEEi.exit.i.i
+_ZN3gmx11DomdecZones15setAtomRangeEndEiib.exit.loopexit.i.i: ; preds = %_ZL13ddGetAtomInfoN3gmx8ArrayRefIKNS_27AtomInfoWithinMoleculeBlockEEEi.exit.i.i
   %3005 = trunc nsw i64 %indvars.iv.next109.i.i to i32
   %3006 = trunc nsw i64 %indvars.iv.next107.i.i to i32
   br label %_ZN3gmx11DomdecZones15setAtomRangeEndEiib.exit.i.i
 
-_ZN3gmx11DomdecZones15setAtomRangeEndEiib.exit.i.i: ; preds = %._crit_edge45.loopexit.i.i, %.lr.ph51.i.i
-  %.1.lcssa.i.i562 = phi i32 [ %.08549.i.i, %.lr.ph51.i.i ], [ %3005, %._crit_edge45.loopexit.i.i ]
-  %.083.lcssa.i.i = phi i32 [ %2999, %.lr.ph51.i.i ], [ %3006, %._crit_edge45.loopexit.i.i ]
-  %.lcssa19.i.i = phi i32 [ %3001, %.lr.ph51.i.i ], [ %3038, %._crit_edge45.loopexit.i.i ]
-  %3007 = add nuw nsw i64 %2996, 1
-  %3008 = getelementptr inbounds nuw [9 x i32], ptr %2259, i64 0, i64 %3007
-  store i32 %.083.lcssa.i.i, ptr %3008, align 4, !tbaa !208
-  %3009 = add nsw i32 %.lcssa19.i.i, %.18948.i.i
+_ZN3gmx11DomdecZones15setAtomRangeEndEiib.exit.i.i: ; preds = %_ZN3gmx11DomdecZones15setAtomRangeEndEiib.exit.loopexit.i.i, %.lr.ph51.i.i
+  %.1.lcssa.i.i562 = phi i32 [ %.08549.i.i, %.lr.ph51.i.i ], [ %3005, %_ZN3gmx11DomdecZones15setAtomRangeEndEiib.exit.loopexit.i.i ]
+  %.083.lcssa.i.i = phi i32 [ %2999, %.lr.ph51.i.i ], [ %3006, %_ZN3gmx11DomdecZones15setAtomRangeEndEiib.exit.loopexit.i.i ]
+  %.lcssa19.i.i = phi i32 [ %3001, %.lr.ph51.i.i ], [ %3038, %_ZN3gmx11DomdecZones15setAtomRangeEndEiib.exit.loopexit.i.i ]
+  %3007 = add nsw i32 %.lcssa19.i.i, %.18948.i.i
+  %3008 = add nuw nsw i64 %2996, 1
+  %3009 = getelementptr inbounds nuw [9 x i32], ptr %2259, i64 0, i64 %3008
+  store i32 %.083.lcssa.i.i, ptr %3009, align 4, !tbaa !208
   %3010 = trunc nuw i64 %2996 to i32
   store i32 %3010, ptr %2264, align 4, !tbaa !485
   %indvars.iv.next114.i.i = add nuw nsw i64 %indvars.iv113.i.i, 1
@@ -7526,7 +7526,7 @@ _ZL13ddGetAtomInfoN3gmx8ArrayRefIKNS_27AtomInfoWithinMoleculeBlockEEEi.exit.i.i:
   %3037 = add nuw nsw i32 %.042.i.i, 1
   %3038 = load i32, ptr %3000, align 4, !tbaa !208
   %3039 = icmp slt i32 %3037, %3038
-  br i1 %3039, label %.lr.ph44.i.i, label %._crit_edge45.loopexit.i.i, !llvm.loop !618
+  br i1 %3039, label %.lr.ph44.i.i, label %_ZN3gmx11DomdecZones15setAtomRangeEndEiib.exit.loopexit.i.i, !llvm.loop !618
 
 .loopexit411.i:                                   ; preds = %_ZN3gmx11DomdecZones15setAtomRangeEndEiib.exit.i.i, %.preheader.i223.i
   call void @llvm.lifetime.end.p0(ptr nonnull %24)

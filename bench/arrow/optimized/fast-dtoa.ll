@@ -243,7 +243,6 @@ _ZNK14arrow_vendored17double_conversion6Single20NormalizedBoundariesEPNS0_5DiyFp
   %162 = add i64 %161, -1
   %163 = add i64 %161, 1
   %164 = add i64 %138, -2
-  %smin.i = call i32 @llvm.smin.i32(i32 %spec.select.i.i.i, i32 0)
   br label %165
 
 165:                                              ; preds = %_ZN14arrow_vendored17double_conversionL9RoundWeedENS0_6VectorIcEEimmmmm.exit.i.i, %74
@@ -344,7 +343,7 @@ _ZN14arrow_vendored17double_conversionL9RoundWeedENS0_6VectorIcEEimmmmm.exit.i.i
   br i1 %.not54.i.i, label %_ZN14arrow_vendored17double_conversionL6Grisu3EdNS0_12FastDtoaModeENS0_6VectorIcEEPiS4_.exit, label %165, !llvm.loop !17
 
 .preheader.i.i:                                   ; preds = %165, %_ZN14arrow_vendored17double_conversionL9RoundWeedENS0_6VectorIcEEimmmmm.exit79.i.i
-  %.1.i = phi i32 [ %224, %_ZN14arrow_vendored17double_conversionL9RoundWeedENS0_6VectorIcEEimmmmm.exit79.i.i ], [ %smin.i, %165 ]
+  %.1.i = phi i32 [ %224, %_ZN14arrow_vendored17double_conversionL9RoundWeedENS0_6VectorIcEEimmmmm.exit79.i.i ], [ 0, %165 ]
   %.sroa.015.0.i.i = phi i64 [ %214, %_ZN14arrow_vendored17double_conversionL9RoundWeedENS0_6VectorIcEEimmmmm.exit79.i.i ], [ %139, %165 ]
   %.049.i.i = phi i64 [ %223, %_ZN14arrow_vendored17double_conversionL9RoundWeedENS0_6VectorIcEEimmmmm.exit79.i.i ], [ %146, %165 ]
   %.047.i.i = phi i64 [ %213, %_ZN14arrow_vendored17double_conversionL9RoundWeedENS0_6VectorIcEEimmmmm.exit79.i.i ], [ 1, %165 ]
@@ -737,7 +736,7 @@ _ZN14arrow_vendored17double_conversionL16RoundWeedCountedENS0_6VectorIcEEimmmPi.
   br label %.thread35
 
 417:                                              ; preds = %7
-  tail call void @abort() #5
+  tail call void @abort() #4
   unreachable
 
 .thread:                                          ; preds = %352, %350, %.thread83.i.i, %398, %397, %388, %._crit_edge102.i.i, %.preheader.i.i19
@@ -787,15 +786,11 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #3
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #4
-
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
 attributes #1 = { cold nofree noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
 attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #5 = { noreturn nounwind }
+attributes #4 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 
